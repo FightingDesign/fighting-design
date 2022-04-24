@@ -1,10 +1,12 @@
 {
   "name": "fighting-design",
   "private": true,
-  "engines": {
-  },
   "scripts": {
-    "dev:docs": "pnpm run dev --filter @fighting-docs/docs"
+    "dev:docs": "pnpm run dev --filter @fighting-design/fighting-docs"
   },
-  "license": "ISC"
+  "dependencies": {
+    "sass": "^1.50.1",
+    "vite": "^2.9.5",
+    "vue": "^3.2.33"
+  }
 }
