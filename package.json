@@ -1,0 +1,10 @@
+{
+  "name": "fighting-design",
+  "private": true,
+  "engines": {
+  },
+  "scripts": {
+    "dev:docs": "pnpm run dev --filter @fighting-docs/docs"
+  },
+  "license": "ISC"
+}
