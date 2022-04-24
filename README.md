@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="260px" src="https://tianyuhao.cn/fighting/images/fighting.png">
+  <img height="160px" src="https://tianyuhao.cn/fighting/images/fighting.png">
 </p>
 
 # Fighting Design
