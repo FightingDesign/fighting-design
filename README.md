@@ -1,17 +1,42 @@
+<br />
+
 <p align="center">
   <img height="160px" src="https://tianyuhao.cn/fighting/imgs/logo.png">
+  <h2 align="center" style="font-weight: 600">Fighting Design</h2>
+
+  <p align="center">
+    是一款使用 TypeScript + Template 编写的 Vue3 轻量级组件库
+  </p>
 </p>
 
-# Fighting Design
+## ✨ 特性
 
-## 前言
+- ✅ 使用 TypeScript + Template 编写
+- ✔️ 配置简单，上手容易
 
-是一个用 TypeScript + Template 编写的 Vue3 组件库
+## :key: 安装
 
-## 说明
+使用 `npm` 安装
 
-项目正在开发中。。。
+```shell
+npm install fighting-design --save
+```
 
-## 预览官网
+使用 `yarn` 安装
 
-[官方网站](https://tianyuhao.cn/fighting/)（测试中，更新较频繁）
+```shell
+yarn add fighting-design --save
+```
+
+## :tada: 快速上手
+
+在 `main.ts` 中引入下面内容
+
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import fighting from 'fighting-design'
+import 'fighting-design/style/index.css'
+
+createApp(App).use(fighting).mount('#app')
+```
