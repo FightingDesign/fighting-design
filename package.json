@@ -1,14 +1,16 @@
 {
-  "name": "fighting-design",
   "private": true,
   "workspaces": [
     "packages/*",
     "docs"
   ],
   "scripts": {
-    "dev:docs": "pnpm run -C docs dev"
+    "docs:dev": "pnpm run -C docs dev",
+    "docs:build": "pnpm run -C docs dev"
   },
   "dependencies": {
+    "@fighting-design/components": "workspace:*",
+    "@fighting-design/theme-style": "workspace:*",
     "sass": "^1.50.1",
     "vite": "^2.9.5",
     "vue": "^3.2.33"
