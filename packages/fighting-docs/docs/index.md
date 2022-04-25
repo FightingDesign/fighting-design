@@ -2,14 +2,8 @@
 home: true
 ---
 
-<!-- <Home />
-
-<script setup>
-import Home from '/@theme/components/Home.vue'
-</script> -->
-
 <h3 class="title">
-  <img src="https://tianyuhao.cn/fighting/images/logo.png">
+  <img src="https://tianyuhao.cn/fighting/imgs/logo.png">
   Fighting Design
 </h3>
 <h1 class="title_2">是一个用 TypeScript + Template 编写的 Vue3 组件库。</h1>

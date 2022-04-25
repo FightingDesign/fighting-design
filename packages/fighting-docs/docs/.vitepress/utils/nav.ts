@@ -15,10 +15,5 @@ export const nav: navType[] = [
     text: '组件',
     activeMatch: '/components/',
     link: '/components/install'
-  },
-  // {
-  //   text: '关于',
-  //   activeMatch: '^/about/',
-  //   link: '/about/index'
-  // }
+  }
 ]
