@@ -9,6 +9,7 @@ export default {
   // 主题配置
   themeConfig: {
     nav,
-    sidebar
+    sidebar,
+    logo: 'https://tianyuhao.cn/fighting/imgs/logo.png',
   }
 }

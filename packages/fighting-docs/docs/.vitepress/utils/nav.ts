@@ -1,7 +1,7 @@
 interface navType {
   text: string
-  activeMatch: string
   link: string
+  activeMatch?: string
 }
 
 // 导航栏
@@ -15,5 +15,6 @@ export const nav: navType[] = [
     text: '组件',
     activeMatch: '/components/',
     link: '/components/install'
-  }
+  },
+  { text: 'Github', link: 'https://github.com/Tyh2001/fighting-design' }
 ]
