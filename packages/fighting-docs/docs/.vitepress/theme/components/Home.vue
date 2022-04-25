@@ -11,14 +11,14 @@
   </p>
 
   <div class="action">
-    <a href="/demo/components/install.html">开始使用</a>
+    <a href="/fighting/components/install.html">开始使用</a>
     <button class="code">npm install filling-design</button>
   </div>
 </template>
 
 <script lang="ts" setup></script>
 
-<style lang="scss" scoped>
+<style scoped>
 .title {
   font-weight: 600;
   font-size: 32px;
@@ -39,23 +39,18 @@
   display: inline-block;
   width: 75%;
   color: rgb(121, 129, 136);
-  strong {
-    color: rgb(68, 68, 68);
-  }
+}
+.content strong {
+  color: rgb(68, 68, 68);
 }
 .action {
   margin-top: 30px;
   display: flex;
   align-items: center;
-  .tyh-button {
-    min-width: 130px;
-    height: 52px;
-    font-size: 18px;
-  }
-  .code {
-    margin-left: 17px;
-    font-size: 21px;
-  }
+}
+.action .code {
+  margin-left: 17px;
+  font-size: 21px;
 }
 </style>
 
