@@ -1,21 +1,10 @@
-import { VPTheme } from '@vue/theme'
-import tyhUi from 'tyh-ui2'
-import 'tyh-ui2/style/index.css'
-import './code.css'
+import DefaultTheme from "vitepress/theme"
+import { install } from "element-plus"
+import "element-plus/dist/index.css"
 
-export default Object.assign({}, VPTheme, {
+export default {
+  ...DefaultTheme,
   enhanceApp({ app }) {
-    app.use(tyhUi)
+    install(app)
   }
-})
-
-// import DefaultTheme from 'vitepress/theme'
-// // import tyhUi2 from 'tyh-ui2'
-// // import 'tyh-ui2/style/index.css'
-
-// export default {
-//   ...DefaultTheme,
-//   enhanceApp({ app }) {
-//     // app.use(tyhUi2)
-//   }
-// }
+}

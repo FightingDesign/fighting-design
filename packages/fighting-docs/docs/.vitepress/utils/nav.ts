@@ -8,17 +8,17 @@ interface navType {
 export const nav: navType[] = [
   {
     text: '首页',
-    activeMatch: `/`,
+    activeMatch: '/',
     link: '/'
   },
   {
     text: '组件',
-    activeMatch: `^/components/`,
+    activeMatch: '/components/',
     link: '/components/install'
   },
-  {
-    text: '关于',
-    activeMatch: `^/about/`,
-    link: '/about/index'
-  }
+  // {
+  //   text: '关于',
+  //   activeMatch: '^/about/',
+  //   link: '/about/index'
+  // }
 ]

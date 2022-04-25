@@ -2,7 +2,8 @@
   "name": "fighting-design",
   "private": true,
   "scripts": {
-    "dev:docs": "pnpm run dev --filter @fighting-design/fighting-docs"
+    "dev:docs": "pnpm run dev --filter @fighting-design/fighting-docs",
+    "dev:docs-demo": "pnpm run dev --filter @fighting-design/fighting-docs-demo"
   },
   "dependencies": {
     "sass": "^1.50.1",

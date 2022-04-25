@@ -1,11 +1,4 @@
-export const sidebar = [
-  {
-    text: '开发指南',
-    children: [{ text: '快速上手', link: '/components/install' }]
-  }
-]
-
-export const sidebar2 = {
+export const sidebar = {
   '/components/': [
     {
       text: '开发指南',

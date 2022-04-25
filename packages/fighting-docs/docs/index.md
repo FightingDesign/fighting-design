@@ -1,5 +1,6 @@
 ---
 page: true
+home: true
 ---
 
 <Home />

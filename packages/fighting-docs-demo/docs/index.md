@@ -1,7 +1,5 @@
 ---
-# sidebar: false
 page: true
-home: true
 ---
 
 <Home />
