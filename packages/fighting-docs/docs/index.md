@@ -8,7 +8,10 @@ home: true
 import Home from '/@theme/components/Home.vue'
 </script> -->
 
-<h3 class="title">Fighting Design</h3>
+<h3 class="title">
+  <img src="https://tianyuhao.cn/fighting/images/logo.png">
+  Fighting Design
+</h3>
 <h1 class="title_2">是一个用 TypeScript + Template 编写的 Vue3 组件库。</h1>
 
 <p class="content">
@@ -30,6 +33,12 @@ import Home from '/@theme/components/Home.vue'
   font-size: 32px;
   color: rgb(17, 24, 39);
   line-height: 100px;
+  display: flex;
+  align-items: center;
+}
+.title img {
+  width: 43px;
+  margin-right: 10px;
 }
 .title_2 {
   font-size: 4rem;

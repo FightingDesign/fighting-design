@@ -14,6 +14,12 @@ importers:
 
   packages/fighting-docs:
     specifiers:
+      vitepress: 0.22.3
+    dependencies:
+      vitepress: 0.22.3_sass@1.50.1
+
+  packages/fighting-docs-demo:
+    specifiers:
       '@types/markdown-it': ^12.2.3
       '@types/node': ^16.9.1
       '@vue/repl': ^1.0.0
@@ -36,11 +42,11 @@ importers:
       dynamics.js: 1.1.5
       gsap: 3.10.4
       tyh-ui2: 3.4.14
-      vitepress: 0.22.2_sass@1.50.1
+      vitepress: 0.22.3_sass@1.50.1
       vue: 3.2.33
     devDependencies:
       '@types/markdown-it': 12.2.3
-      '@types/node': 16.11.27
+      '@types/node': 16.11.28
       chalk: 4.1.2
       gray-matter: 4.0.3
       lodash: 4.17.21
@@ -225,8 +231,8 @@ packages:
     resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
     dev: true
 
-  /@types/node/16.11.27:
-    resolution: {integrity: sha512-C1pD3kgLoZ56Uuy5lhfOxie4aZlA3UMGLX9rXteq4WitEZH6Rl80mwactt9QG0w0gLFlN/kLBTFnGXtDVWvWQw==}
+  /@types/node/16.11.28:
+    resolution: {integrity: sha512-l/y1ZZpWqevemVQmk0Q1TPohlJTul7u9ysq3bw6xlRDO8z+98JBI6gp4JS0OK8YkWUdYxnJU35H4vOzuiOFIag==}
     dev: true
 
   /@types/unist/2.0.6:
@@ -1312,9 +1318,9 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress/0.22.2_sass@1.50.1:
-    resolution: {integrity: sha512-L6ykQzBXKzLTSU3zZbILeF1TONO6juV/RrL0DsA9OayomVQjEOoFY7cVdKOpIBb3T5Jy/GAAVxcvWtU/XJ5k4g==}
-    engines: {node: '>=12.0.0'}
+  /vitepress/0.22.3_sass@1.50.1:
+    resolution: {integrity: sha512-Yfvu/rent2vp/TXIDZMutS6ft2TJPn4xngS48PYFWDEbuFI2ccUAXM481lF1qVVnCKxfh4g8e/KPvevSJdg1Bw==}
+    engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.0.0
