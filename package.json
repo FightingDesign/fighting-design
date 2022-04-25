@@ -1,9 +1,12 @@
 {
   "name": "fighting-design",
   "private": true,
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ],
   "scripts": {
-    "dev:docs": "pnpm run dev --filter @fighting-design/fighting-docs",
-    "dev:docs-demo": "pnpm run dev --filter @fighting-design/fighting-docs-demo"
+    "dev:docs": "pnpm run -C docs dev"
   },
   "dependencies": {
     "sass": "^1.50.1",
