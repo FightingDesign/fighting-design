@@ -6,7 +6,7 @@ home: true
   <img src="https://tianyuhao.cn/fighting/imgs/logo.png">
   Fighting Design
 </h3>
-<h1 class="title_2">是一个用 TypeScript + Template 编写的 Vue3 组件库。</h1>
+<h1 class="title_2">一个用 TypeScript + Template 编写的 Vue3 组件库。</h1>
 
 <p class="content">
   <strong>Fighting Design</strong> 是一个简洁而又轻量级的
@@ -31,7 +31,7 @@ home: true
   align-items: center;
 }
 .title img {
-  width: 43px;
+  width: 55px;
   margin-right: 10px;
 }
 .title_2 {
