@@ -1,0 +1,15 @@
+{
+  "name": "@fighting-design/fighting-docs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs"
+  },
+  "dependencies": {
+    "@vue/theme": "^1.0.1",
+    "@types/node": "^16.9.1",
+    "tyh-ui2": "^3.4.14",
+    "vitepress": "0.22.2"
+  }
+}
