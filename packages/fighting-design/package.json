@@ -1,0 +1,16 @@
+{
+  "name": "fighting-design",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "keywords": [
+    "fighting",
+    "design",
+    "fighting-design",
+    "vuejs",
+    "components",
+    "ui"
+  ],
+  "author": "",
+  "license": "ISC"
+}

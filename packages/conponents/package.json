@@ -1,6 +1,6 @@
 {
   "name": "@fighting-design/components",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "all components are settled here",
   "main": "index.ts",
   "module": "index.ts"
