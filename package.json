@@ -3,10 +3,10 @@
   "workspaces": [
     "packages/*",
     "docs",
-    "demo"
+    "start"
   ],
   "scripts": {
-    "demo": "pnpm run -C demo dev",
+    "start": "pnpm run -C start dev",
     "docs:dev": "pnpm run -C docs dev",
     "docs:build": "pnpm run -C docs build",
     "build:theme": "pnpm run build -C packages/theme-style"

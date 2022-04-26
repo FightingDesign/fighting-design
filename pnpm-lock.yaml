@@ -14,7 +14,7 @@ importers:
       vue: ^3.2.33
       vue-tsc: ^0.34.7
     dependencies:
-      '@fighting-design/components': link:packages/conponents
+      '@fighting-design/components': link:packages/components
       '@fighting-design/theme-style': link:packages/theme-style
       '@fighting-design/utils': link:packages/utils
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.5+vue@3.2.33
@@ -24,16 +24,13 @@ importers:
       vue: 3.2.33
       vue-tsc: 0.34.10_typescript@4.6.3
 
-  demo:
-    specifiers: {}
-
   docs:
     specifiers:
       vitepress: 0.22.3
     dependencies:
       vitepress: 0.22.3_sass@1.50.1
 
-  packages/conponents:
+  packages/components:
     specifiers: {}
 
   packages/fighting-design:
@@ -43,6 +40,9 @@ importers:
     specifiers: {}
 
   packages/utils:
+    specifiers: {}
+
+  start:
     specifiers: {}
 
 packages:
