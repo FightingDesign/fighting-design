@@ -12,8 +12,11 @@
   "dependencies": {
     "@fighting-design/components": "workspace:*",
     "@fighting-design/theme-style": "workspace:*",
-    "sass": "^1.50.1",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "vue": "^3.2.33",
     "vite": "^2.9.5",
-    "vue": "^3.2.33"
+    "vue-tsc": "^0.34.7",
+    "typescript": "^4.5.4",
+    "sass": "^1.50.1"
   }
 }
