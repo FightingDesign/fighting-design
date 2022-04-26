@@ -1,1 +1,5 @@
-export * from './button'
+import FiButton from './button'
+
+export {
+  FiButton
+}

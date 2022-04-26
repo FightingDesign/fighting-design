@@ -6,20 +6,23 @@
     "demo"
   ],
   "scripts": {
+    "demo": "pnpm run -C demo dev",
     "docs:dev": "pnpm run -C docs dev",
     "docs:build": "pnpm run -C docs build",
-    "build:theme": "pnpm run build -C packages/theme-style",
-    "demo:dev": "pnpm run -C demo dev"
+    "build:theme": "pnpm run build -C packages/theme-style"
   },
   "dependencies": {
     "@fighting-design/components": "workspace:*",
     "@fighting-design/theme-style": "workspace:*",
     "@fighting-design/utils": "workspace:*",
     "@vitejs/plugin-vue": "^2.3.1",
-    "vue": "^3.2.33",
-    "vite": "^2.9.5",
-    "vue-tsc": "^0.34.7",
+    "sass": "^1.50.1",
     "typescript": "^4.5.4",
-    "sass": "^1.50.1"
+    "vite": "^2.9.5",
+    "vue": "^3.2.33",
+    "vue-tsc": "^0.34.7"
+  },
+  "engines": {
+    "node": ">= 16"
   }
 }
