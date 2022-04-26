@@ -6,7 +6,8 @@
   ],
   "scripts": {
     "docs:dev": "pnpm run -C docs dev",
-    "docs:build": "pnpm run -C docs dev"
+    "docs:build": "pnpm run -C docs build",
+    "build:theme": "pnpm run build -C packages/theme-style"
   },
   "dependencies": {
     "@fighting-design/components": "workspace:*",
