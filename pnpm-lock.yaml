@@ -4,13 +4,23 @@ importers:
 
   .:
     specifiers:
+      '@fighting-design/components': workspace:*
+      '@fighting-design/theme-style': workspace:*
+      '@vitejs/plugin-vue': ^2.3.1
       sass: ^1.50.1
+      typescript: ^4.5.4
       vite: ^2.9.5
       vue: ^3.2.33
+      vue-tsc: ^0.34.7
     dependencies:
+      '@fighting-design/components': link:packages/conponents
+      '@fighting-design/theme-style': link:packages/theme-style
+      '@vitejs/plugin-vue': 2.3.1_vite@2.9.5+vue@3.2.33
       sass: 1.50.1
+      typescript: 4.6.3
       vite: 2.9.5_sass@1.50.1
       vue: 3.2.33
+      vue-tsc: 0.34.10_typescript@4.6.3
 
   docs:
     specifiers:
@@ -185,6 +195,36 @@ packages:
     dependencies:
       vite: 2.9.5_sass@1.50.1
       vue: 3.2.33
+    dev: false
+
+  /@volar/code-gen/0.34.10:
+    resolution: {integrity: sha512-Pygl26uA4CuQcDgNndeTSNOYF+NbShcV+rwWRy/nRNv1JB++1EbaQ60/ti8c5zTRoL4a8OtipKMq9Sw8LzpRIw==}
+    dependencies:
+      '@volar/source-map': 0.34.10
+    dev: false
+
+  /@volar/source-map/0.34.10:
+    resolution: {integrity: sha512-DBSUGNJB2B08U6Ut14ZJSEOcBS7eV/aiinhoLbMrEe/HJtZRcnPuyE8f0c2BvmRM2LK8WQx77V54/lw/Ra8WDA==}
+    dev: false
+
+  /@volar/vue-code-gen/0.34.10:
+    resolution: {integrity: sha512-oK5gat5AHllSMJzY+UMbttJvAjoUGzicXxLHoIwb6DTHpfcf2pADYUndiw5kSYHo+2Xd/+U1c9D8FUOJ+JHAFw==}
+    dependencies:
+      '@volar/code-gen': 0.34.10
+      '@volar/source-map': 0.34.10
+      '@vue/compiler-core': 3.2.33
+      '@vue/compiler-dom': 3.2.33
+      '@vue/shared': 3.2.33
+    dev: false
+
+  /@volar/vue-typescript/0.34.10:
+    resolution: {integrity: sha512-FCGSqLC+T/AcBUFXoFniPKLa/fLslBuHsepUmId8dG5ROXZhQaJ5h4fkA87247SWb7z4o9mI6v86xevXEjRVKw==}
+    dependencies:
+      '@volar/code-gen': 0.34.10
+      '@volar/source-map': 0.34.10
+      '@volar/vue-code-gen': 0.34.10
+      '@vue/compiler-sfc': 3.2.33
+      '@vue/reactivity': 3.2.33
     dev: false
 
   /@vue/compiler-core/3.2.33:
@@ -715,6 +755,12 @@ packages:
       is-number: 7.0.0
     dev: false
 
+  /typescript/4.6.3:
+    resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: false
+
   /vite/2.9.5_sass@1.50.1:
     resolution: {integrity: sha512-dvMN64X2YEQgSXF1lYabKXw3BbN6e+BL67+P3Vy4MacnY+UzT1AfkHiioFSi9+uiDUiaDy7Ax/LQqivk6orilg==}
     engines: {node: '>=12.2.0'}
@@ -759,6 +805,16 @@ packages:
       - react-dom
       - sass
       - stylus
+    dev: false
+
+  /vue-tsc/0.34.10_typescript@4.6.3:
+    resolution: {integrity: sha512-rWU4SjDqk9ylQN2hbnyP+rEu8W2a712DWUmciX6rDnId1m8sN/cuypTKjWjHHjaBLWNKULoEakRTOvrQ4ainhw==}
+    hasBin: true
+    peerDependencies:
+      typescript: '*'
+    dependencies:
+      '@volar/vue-typescript': 0.34.10
+      typescript: 4.6.3
     dev: false
 
   /vue/3.2.33:

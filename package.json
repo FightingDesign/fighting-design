@@ -2,16 +2,19 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "docs"
+    "docs",
+    "demo"
   ],
   "scripts": {
     "docs:dev": "pnpm run -C docs dev",
     "docs:build": "pnpm run -C docs build",
-    "build:theme": "pnpm run build -C packages/theme-style"
+    "build:theme": "pnpm run build -C packages/theme-style",
+    "demo:dev": "pnpm run -C demo dev"
   },
   "dependencies": {
     "@fighting-design/components": "workspace:*",
     "@fighting-design/theme-style": "workspace:*",
+    "@fighting-design/utils": "workspace:*",
     "@vitejs/plugin-vue": "^2.3.1",
     "vue": "^3.2.33",
     "vite": "^2.9.5",

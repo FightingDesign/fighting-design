@@ -1,0 +1,6 @@
+{
+  "name": "@fighting-design/utils",
+  "version": "1.0.0",
+  "description": "Tool function",
+  "main": "index.ts"
+}
