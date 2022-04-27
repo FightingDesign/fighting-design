@@ -5,7 +5,17 @@
       `f-button-${size}`,
       { 'f-button-round': round, 'f-button-block': block }
     ]"
-    :style="{ background: color }"
+    :style="[
+      `box-shadow: ${shadow}`,
+      {
+        background: linearGradient
+          ? `linear-gradient(to right, ${linearGradient})`
+          : color
+      }
+    ]"
+    :disabled="disabled"
+    :autofocus="autofocus"
+    :name="name"
     @click="onClick"
   >
     <span
@@ -21,11 +31,16 @@
 import { prop } from './prop'
 
 const props = defineProps(prop)
+const emit = defineEmits(['click'])
 
-const onClick = (): void => {
+const onClick = (evt: EventInit): void => {
+  if (props.disabled || props.loading) return
+
   if (props.link) {
     window.open(props.link, props.target)
   }
+
+  emit('click', evt)
 }
 </script>
 
@@ -34,3 +49,9 @@ export default {
   name: 'FButton'
 }
 </script>
+
+<style scoped>
+/* .f-button {
+  box-shadow: v-model(shadow);
+} */
+</style>

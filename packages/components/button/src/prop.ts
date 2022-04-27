@@ -1,29 +1,26 @@
 import { PropType } from 'vue'
 
 type Size = 'large' | 'middle' | 'small' | 'mini' | ''
+type Target = '_blank' | '_self' | '_parent' | '_top'
+type IconPosition = 'left' | 'right'
 
 export const prop = {
-  // 是否加粗
   blob: {
     type: Boolean,
     default: (): boolean => false
   },
-  // 是否为圆角
   round: {
     type: Boolean,
     default: (): boolean => false
   },
-  // 字体大小
   fontSize: {
     type: String,
     default: (): string => '14px'
   },
-  // 字体颜色
   fontColor: {
     type: String,
     default: (): string => ''
   },
-  // 按钮尺寸
   size: {
     type: String as PropType<Size>,
     default: (): string => 'middle',
@@ -37,24 +34,20 @@ export const prop = {
       ].includes(val)
     }
   },
-  // 按钮的颜色
   color: {
     type: String,
     default: (): string => ''
   },
-  // 是否韦块级元素
   block: {
     type: Boolean,
     default: (): boolean => false
   },
-  // 按钮点击跳转的链接地址
   link: {
     type: String,
     default: (): string => ''
   },
-  // link 类型
   target: {
-    type: String,
+    type: String as PropType<Target>,
     default: (): string => '_self',
     validator(val: string): boolean {
       return [
@@ -65,6 +58,68 @@ export const prop = {
         ''
       ].includes(val)
     }
+  },
+  loading: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  disabled: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  icon: {
+    type: String,
+    default: (): string => ''
+  },
+  loadingIcon: {
+    type: String,
+    default: (): string => ''
+  },
+  iconPosition: {
+    type: String as PropType<IconPosition>,
+    default: (): string => 'right',
+    validator(val: string): boolean {
+      return [
+        'right',
+        'left',
+        ''
+      ].includes(val)
+    }
+  },
+  type: {
+    type: String,
+    default: (): string => 'default',
+    validator(val: string): boolean {
+      return [
+        'default',
+        'primary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        ''
+      ].includes(val)
+    }
+  },
+  autofocus: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  name: {
+    type: String,
+    default: (): string => ''
+  },
+  shadow: {
+    type: String,
+    default: (): string => ''
+  },
+  linearGradient: {
+    type: String,
+    default: (): string => ''
+  },
+  text: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 
