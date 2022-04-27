@@ -1,1 +1,48 @@
-.f-button {}
+$large: 40px;
+$middle: 35px;
+$small: 30px;
+$mini: 25px;
+
+.f-button {
+  min-width: 100px;
+  outline: none;
+  height: $middle;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  user-select: none;
+  display: inline-block;
+
+  .f-text {
+    font-size: 14px;
+  }
+
+  // 文字加粗
+  .is-blob {
+    font-weight: bold;
+  }
+}
+
+// 圆角
+.f-button-round {
+  border-radius: 14px;
+}
+
+// 按钮的尺寸
+.f-button-large {
+  height: $large;
+}
+.f-button-middle {
+  height: $middle;
+}
+.f-button-small {
+  height: $small;
+}
+.f-button-mini {
+  height: $mini;
+}
+
+// 是否为块级元素
+.f-button-block {
+  display: block;
+}

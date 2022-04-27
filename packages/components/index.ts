@@ -1,5 +1,5 @@
-import FiButton from './button'
+import FButton from './button'
 
 export {
-  FiButton
+  FButton
 }
