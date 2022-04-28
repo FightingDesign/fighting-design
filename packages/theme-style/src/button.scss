@@ -14,6 +14,7 @@ $mini: 25px;
   border-radius: 2px;
   user-select: none;
   display: inline-block;
+  transition: .3s;
 
   .f-text {
     font-size: 14px;
@@ -27,7 +28,7 @@ $mini: 25px;
 
 // 圆角
 .f-button-round {
-  border-radius: 17px;
+  border-radius: 30px;
 }
 
 // 按钮的尺寸
