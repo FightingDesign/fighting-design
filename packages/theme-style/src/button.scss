@@ -1,3 +1,5 @@
+@import '../global/theme.scss';
+
 $large: 40px;
 $middle: 35px;
 $small: 30px;
@@ -25,7 +27,7 @@ $mini: 25px;
 
 // 圆角
 .f-button-round {
-  border-radius: 14px;
+  border-radius: 17px;
 }
 
 // 按钮的尺寸
@@ -48,4 +50,49 @@ $mini: 25px;
 // 是否为块级元素
 .f-button-block {
   display: block;
+}
+
+// 不同的类型
+.f-button-default {
+  background: $default;
+
+  .f-text {
+    color: #333;
+  }
+}
+
+.f-button-primary {
+  background: $primary;
+}
+
+.f-button-success {
+  background: $success;
+}
+
+.f-button-danger {
+  background: $danger;
+}
+
+.f-button-warning {
+  background: $warning;
+}
+
+.f-button-info {
+  background: $info;
+}
+
+.f-button-primary,
+.f-button-success,
+.f-button-danger,
+.f-button-warning,
+.f-button-info {
+  .f-text {
+    color: #fff;
+  }
+}
+
+// 禁用状态
+.f-button-disabled {
+  opacity: .5;
+  cursor: not-allowed;
 }

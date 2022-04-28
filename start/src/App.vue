@@ -1,15 +1,17 @@
 <template>
-  <f-button
-    size="large"
-    linearGradient="#12c2e9, #c471ed, #f64f59"
-    shadow="20px 20px 60px #bebebe,-20px -20px 60px #ffffff;"
-  >
-    1212
-  </f-button>
-  <!-- linear-gradient(to right, #0b486b, #f56217); -->
-  <!-- <f-button size="middle" @click="aaa" autofocus>1212</f-button>
-  <f-button size="small" disabled>1212</f-button>
-  <f-button size="mini">1212</f-button> -->
+  <f-button disabled type="default">1212</f-button>
+  <f-button disabled type="primary">1212</f-button>
+  <f-button disabled type="success">1212</f-button>
+  <f-button disabled type="danger">1212</f-button>
+  <f-button disabled type="warning">1212</f-button>
+  <f-button disabled type="info">1212</f-button>
+  <br />
+  <f-button round autofocus disabled type="default" @click="aaa">1212</f-button>
+  <f-button round type="primary">1212</f-button>
+  <f-button round type="success">1212</f-button>
+  <f-button round type="danger">1212</f-button>
+  <f-button round type="warning">1212</f-button>
+  <f-button round type="info">1212</f-button>
 </template>
 
 <script lang="ts" setup>

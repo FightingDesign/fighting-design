@@ -9,18 +9,21 @@ export const sidebar2 = {
   '/components/': [
     {
       text: '开发指南',
-      items: [{ text: '快速上手', link: '/components/install' }]
+      items: [
+        // { text: '快速上手', link: '/components/install' },
+        { text: 'Button 按钮', link: '/components/button' }
+      ]
     },
-    // {
-    //   text: '基础组件',
-    //   items: [
-    //     { text: 'Color 色彩', link: '/components/color' },
-    //     { text: 'Button 按钮', link: '/components/button' },
-    //     { text: 'Icon 图标', link: '/components/icon' },
-    //     { text: 'Link 链接', link: '/components/link' },
-    //     { text: 'Container 布局容器', link: '/components/container' }
-    //   ]
-    // },
+    {
+      text: '基础组件',
+      items: [
+        // { text: 'Color 色彩', link: '/components/color' },
+        { text: 'Button 按钮', link: '/components/button' },
+        // { text: 'Icon 图标', link: '/components/icon' },
+        // { text: 'Link 链接', link: '/components/link' },
+        // { text: 'Container 布局容器', link: '/components/container' }
+      ]
+    },
     // {
     //   text: '表单',
     //   items: [
