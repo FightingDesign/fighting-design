@@ -40,3 +40,9 @@ import 'fighting-design/style/index.css'
 
 createApp(App).use(fighting).mount('#app')
 ```
+
+## 加入 Fighting Design
+
+添加微信请备注 Github 用户名
+
+![](https://tianyuhao.cn/images/weixin.png)
