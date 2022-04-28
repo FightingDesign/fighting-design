@@ -124,6 +124,10 @@ export const prop = {
   long: {
     type: Boolean,
     default: (): boolean => false
+  },
+  nativeType: {
+    type: String,
+    default: (): string => 'button'
   }
 } as const
 

@@ -16,6 +16,7 @@
     :disabled="disabled"
     :autofocus="autofocus"
     :name="name"
+    :type="nativeType"
     @click="onClick"
   >
     <span
