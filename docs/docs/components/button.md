@@ -24,5 +24,5 @@
 | shadow         | 按钮的阴影                               | string  | ——                                          | ——      |
 | linearGradient | 按钮的渐变色                             | string  | ——                                          | ——      |
 | text           | 是否为文字按钮                           | boolean | ——                                          | false   |
-|                |                                          |         |                                             |         |
+| long           | 按钮长度是否为 100%                      | boolean | ——                                          | false   |
 |                |                                          |         |                                             |         |

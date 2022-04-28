@@ -49,9 +49,3 @@ export default {
   name: 'FButton'
 }
 </script>
-
-<style scoped>
-/* .f-button {
-  box-shadow: v-model(shadow);
-} */
-</style>

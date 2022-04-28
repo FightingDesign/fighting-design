@@ -120,6 +120,10 @@ export const prop = {
   text: {
     type: Boolean,
     default: (): boolean => false
+  },
+  long: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 
