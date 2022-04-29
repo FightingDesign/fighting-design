@@ -2,8 +2,13 @@
   <button
     :class="[
       'f-button',
-      `f-button-${size}`,
-      { 'f-button-round': round, 'f-button-block': block }
+      `f-button-${type}`,
+      {
+        'f-button-round': round,
+        'f-button-block': block,
+        'f-button-disabled': disabled,
+        [`f-button-${size}`]: size !== 'middle'
+      }
     ]"
     :style="[
       `box-shadow: ${shadow}`,
