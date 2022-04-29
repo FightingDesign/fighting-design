@@ -17,9 +17,13 @@
 </template>
 
 <script lang="ts" setup>
-import { FButton } from '@fighting-design/components'
+// import { FButton } from '@fighting-design/components'
+import fighting from '../../packages/fighting-design'
+import { FButton } from '../../packages/fighting-design'
 import { ref } from 'vue'
 
+console.log(fighting)
+console.log(FButton)
 const isR = ref(true)
 
 function aaa(e: EventInit) {

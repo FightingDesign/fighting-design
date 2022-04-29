@@ -1,21 +1,23 @@
-import FButton from './button'
+export * from './button'
 
-const components = [
-  FButton
-]
+// import FButton from './button'
 
-const install = (app: any) => {
-  components.forEach(component => {
-    app.use(component)
-  })
-}
+// const components = [
+//   FButton
+// ]
 
-const fightingDesign = {
-  install
-} as const
+// const install = (app: any) => {
+//   components.forEach(component => {
+//     app.use(component)
+//   })
+// }
 
-export {
-  FButton
-}
+// const fightingDesign = {
+//   install
+// } as const
 
-export default fightingDesign
+// export {
+//   FButton
+// }
+
+// export default fightingDesign

@@ -4,4 +4,10 @@ import App from './src/App.vue'
 // 引入组件样式
 import '@fighting-design/theme-style'
 
-createApp(App).mount('#start')
+import fighting from '../packages/fighting-design'
+
+console.log(fighting)
+
+createApp(App)
+  .use(fighting)
+  .mount('#start')
