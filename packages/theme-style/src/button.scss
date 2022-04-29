@@ -14,7 +14,7 @@ $mini: 25px;
   border-radius: 2px;
   user-select: none;
   display: inline-block;
-  transition: .3s;
+  transition: .6s;
 
   .f-text {
     font-size: 14px;
@@ -64,22 +64,42 @@ $mini: 25px;
 
 .f-button-primary {
   background: $primary;
+
+  &:hover {
+    background: $primaryHover;
+  }
 }
 
 .f-button-success {
   background: $success;
+
+  &:hover {
+    background: skyblue;
+  }
 }
 
 .f-button-danger {
   background: $danger;
+
+  &:hover {
+    background: skyblue;
+  }
 }
 
 .f-button-warning {
   background: $warning;
+
+  &:hover {
+    background: skyblue;
+  }
 }
 
 .f-button-info {
   background: $info;
+
+  &:hover {
+    background: skyblue;
+  }
 }
 
 .f-button-primary,

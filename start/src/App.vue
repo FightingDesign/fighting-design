@@ -6,6 +6,8 @@
   <f-button blob type="warning">1212</f-button>
   <f-button blob type="info">1212</f-button>
   <br />
+  <br />
+  <br />
   <f-button :round="isR" type="default" @click="aaa">1212</f-button>
   <f-button :round="isR" type="primary">1212</f-button>
   <f-button :round="isR" type="success">1212</f-button>
