@@ -17,7 +17,7 @@ home: true
 </p>
 
 <div class="action">
-  <a href="/fighting/components/install.html">开始使用</a>
+  <a href="/components/install.html">开始使用</a>
   <button class="code">npm install filling-design</button>
 </div>
 
