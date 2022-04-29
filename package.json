@@ -9,7 +9,8 @@
     "start": "pnpm run -C start dev",
     "docs:dev": "pnpm run -C docs dev",
     "docs:build": "pnpm run -C docs build",
-    "build:theme": "pnpm run build -C packages/theme-style"
+    "build:theme": "pnpm run build -C packages/theme-style",
+    "build": "vite"
   },
   "dependencies": {
     "@fighting-design/components": "workspace:*",

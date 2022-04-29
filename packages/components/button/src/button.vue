@@ -39,7 +39,7 @@ import { prop } from './prop'
 const props = defineProps(prop)
 const emit = defineEmits(['click'])
 
-const onClick = (evt: EventInit): void => {
+const onClick = (evt: Event): void => {
   if (props.disabled || props.loading) return
 
   if (props.link) {
