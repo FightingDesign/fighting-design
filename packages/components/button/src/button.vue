@@ -34,6 +34,7 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted } from 'vue'
 import { prop } from './prop'
 
 const props = defineProps(prop)
@@ -48,6 +49,13 @@ const onClick = (evt: Event): void => {
 
   emit('click', evt)
 }
+
+onMounted(() => {
+  if (props.disabled) {
+    console.log(document.querySelector('.f-button')?.classList)
+    document.querySelector('.f-button')?.classList.remove('f-button-disabled')
+  }
+})
 </script>
 
 <script lang="ts">

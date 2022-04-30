@@ -62,6 +62,18 @@ $mini: 25px;
   }
 }
 
+.f-button-default {
+  background: $default;
+
+  &:hover {
+    background: lighten($default, 10%);
+  }
+
+  &:active {
+    background: darken($default, 10%);
+  }
+}
+
 .f-button-primary {
   background: $primary;
 
@@ -136,4 +148,24 @@ $mini: 25px;
 .f-button-disabled {
   opacity: .5;
   cursor: not-allowed;
+}
+
+.f-button-primary.f-button-disabled:hover {
+  background: $primary;
+}
+
+.f-button-success.f-button-disabled:hover {
+  background: $success;
+}
+
+.f-button-danger.f-button-disabled:hover {
+  background: $danger;
+}
+
+.f-button-warning.f-button-disabled:hover {
+  background: $warning;
+}
+
+.f-button-info.f-button-disabled:hover {
+  background: $info;
 }
