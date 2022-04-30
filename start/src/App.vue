@@ -1,10 +1,10 @@
 <template>
-  <f-button blob type="default">1212</f-button>
+  <!-- <f-button blob type="default">1212</f-button> -->
   <f-button blob type="primary">1212</f-button>
-  <f-button blob type="success">1212</f-button>
+  <!-- <f-button blob type="success">1212</f-button>
   <f-button blob type="danger">1212</f-button>
   <f-button blob type="warning">1212</f-button>
-  <f-button blob type="info">1212</f-button>
+  <f-button blob type="info">1212</f-button> -->
   <br />
   <br />
   <br />
