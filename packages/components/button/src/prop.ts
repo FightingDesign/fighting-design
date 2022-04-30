@@ -1,6 +1,6 @@
 import { PropType } from 'vue'
 
-type Size = 'large' | 'middle' | 'small' | 'mini' | ''
+type Size = 'large' | 'middle' | 'small' | 'mini'
 type Target = '_blank' | '_self' | '_parent' | '_top'
 type IconPosition = 'left' | 'right'
 type Type = 'default' | 'primary' | 'success' | 'danger' | 'warning' | 'info'

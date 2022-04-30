@@ -6,7 +6,6 @@ $small: 30px;
 $mini: 25px;
 
 .f-button {
-  min-width: 100px;
   outline: none;
   height: $middle;
   border: none;
@@ -15,10 +14,11 @@ $mini: 25px;
   user-select: none;
   display: inline-block;
   transition: .3s;
-  padding: 0 18px;
+  box-sizing: border-box;
+  padding: 0 25px;
 
   .f-text {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   // 文字加粗
@@ -35,18 +35,29 @@ $mini: 25px;
 // 按钮的尺寸
 .f-button-large {
   height: $large;
-}
+  padding: 0 28px;
 
-.f-button-middle {
-  height: $middle;
+  .f-text {
+    font-size: 15px;
+  }
 }
 
 .f-button-small {
   height: $small;
+  padding: 0 22px;
+
+  .f-text {
+    font-size: 13px;
+  }
 }
 
 .f-button-mini {
   height: $mini;
+  padding: 0 19px;
+
+  .f-text {
+    font-size: 12px;
+  }
 }
 
 // 是否为块级元素
@@ -146,7 +157,7 @@ $mini: 25px;
   }
 }
 
-// 禁用状态
+// 普通按钮禁用状态
 .f-button-disabled {
   opacity: .5;
   cursor: not-allowed;
@@ -176,14 +187,72 @@ $mini: 25px;
   background: $info;
 }
 
-.f-button-default.f-button-disabled.f-button-simple,
-.f-button-primary.f-button-disabled.f-button-simple,
-.f-button-success.f-button-disabled.f-button-simple,
-.f-button-danger.f-button-disabled.f-button-simple,
-.f-button-warning.f-button-disabled.f-button-simple,
-.f-button-info.f-button-disabled.f-button-simple:hover {
+// 简约按钮禁用状态
+.f-button.f-button-disabled.f-button-simple:hover {
   background: $simpleBackground;
 }
+
+// 文字按钮禁用状态
+.f-button.f-button-disabled.f-button-text:hover {
+  background: #fff;
+}
+
+.f-button-default.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $textColor;
+    }
+  }
+}
+
+.f-button-primary.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $primary;
+    }
+  }
+}
+
+.f-button-success.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $success;
+    }
+  }
+}
+
+.f-button-danger.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $danger;
+    }
+  }
+}
+
+.f-button-default.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $textColor;
+    }
+  }
+}
+
+.f-button-warning.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $warning;
+    }
+  }
+}
+
+.f-button-info.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $info;
+    }
+  }
+}
+
 
 // 简约按钮
 .f-button-simple {
@@ -241,12 +310,7 @@ $mini: 25px;
 }
 
 // 文字按钮
-.f-button-default.f-button-text,
-.f-button-primary.f-button-text,
-.f-button-success.f-button-text,
-.f-button-danger.f-button-text,
-.f-button-warning.f-button-text,
-.f-button-info.f-button-text {
+.f-button.f-button-text {
   background: #fff;
 }
 

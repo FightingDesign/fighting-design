@@ -39,20 +39,47 @@
   <f-button block type="info">登陆</f-button>
   <br />
   <br />
-  <f-button text border type="default">1212</f-button>
-  <f-button text border type="primary">1212</f-button>
-  <f-button text border type="success">1212</f-button>
-  <f-button text border type="danger">1212</f-button>
-  <f-button text border type="warning">1212</f-button>
-  <f-button text border type="info">1212</f-button>
+  <f-button text border disabled type="default">1212</f-button>
+  <f-button text border disabled type="primary">1212</f-button>
+  <f-button text border disabled type="success">1212</f-button>
+  <f-button text border disabled type="danger">1212</f-button>
+  <f-button text border disabled type="warning">1212</f-button>
+  <f-button text border disabled type="info">1212</f-button>
   <br />
   <br />
   <f-button border text type="default">1212</f-button>
   <f-button border text>1212</f-button>
   <f-button border text>1212</f-button>
-  <f-button border text >1212</f-button>
+  <f-button border text>1212</f-button>
   <f-button border text type="warning">1212</f-button>
   <f-button border text type="info">1212</f-button>
+  <br />
+  <br />
+  <f-button size="large" type="primary">1212</f-button>
+  <f-button size="middle" type="primary">1212</f-button>
+  <f-button size="small" type="primary">1212</f-button>
+  <f-button size="mini" type="primary">1212</f-button>
+  <br />
+  <f-button size="large" type="success">1212</f-button>
+  <f-button size="middle" type="success">1212</f-button>
+  <f-button size="small" type="success">1212</f-button>
+  <f-button size="mini" type="success">1212</f-button>
+  <br />
+  <f-button size="large" type="danger">1212</f-button>
+  <f-button size="middle" type="danger">1212</f-button>
+  <f-button size="small" type="danger">1212</f-button>
+  <f-button size="mini" type="danger">1212</f-button>
+  <br />
+  <f-button size="large" type="warning">1212</f-button>
+  <f-button size="middle" type="warning">1212</f-button>
+  <f-button size="small" type="warning">1212</f-button>
+  <f-button size="mini" type="warning">1212</f-button>
+
+  <br />
+  <f-button size="large" type="info">1212</f-button>
+  <f-button size="middle" type="info">1212</f-button>
+  <f-button size="small" type="info">1212</f-button>
+  <f-button size="mini" type="info">1212</f-button>
 </template>
 
 <script lang="ts" setup>
