@@ -35,10 +35,6 @@ export const prop = {
       ].includes(val)
     }
   },
-  color: {
-    type: String,
-    default: (): string => ''
-  },
   block: {
     type: Boolean,
     default: (): boolean => false
@@ -114,10 +110,6 @@ export const prop = {
     type: String,
     default: (): string => ''
   },
-  linearGradient: {
-    type: String,
-    default: (): string => ''
-  },
   text: {
     type: Boolean,
     default: (): boolean => false
@@ -129,5 +121,13 @@ export const prop = {
   nativeType: {
     type: String,
     default: (): string => 'button'
-  }
+  },
+  // linearGradient: {
+  //   type: String,
+  //   default: (): string => ''
+  // },
+  // color: {
+  //   type: String,
+  //   default: (): string => ''
+  // },
 } as const

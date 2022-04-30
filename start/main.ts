@@ -1,12 +1,9 @@
 import { createApp } from 'vue'
 import App from './src/App.vue'
 
-// 引入组件样式
-import '@fighting-design/theme-style'
-
+// 引入组件
 import fighting from '../packages/fighting-design'
-
-console.log(fighting)
+import '@fighting-design/theme-style'
 
 createApp(App)
   .use(fighting)

@@ -15,6 +15,7 @@ $mini: 25px;
   user-select: none;
   display: inline-block;
   transition: .3s;
+  padding: 0 18px;
 
   .f-text {
     font-size: 14px;
@@ -169,3 +170,15 @@ $mini: 25px;
 .f-button-info.f-button-disabled:hover {
   background: $info;
 }
+
+// .f-button:active::before {
+//   content: '';
+//   position: absolute;
+//   display: inline-block;
+//   background: #000;
+//   opacity: .1;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+// }
