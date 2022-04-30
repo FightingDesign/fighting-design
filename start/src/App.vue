@@ -1,27 +1,34 @@
 <template>
-  <f-button blob type="default">1212</f-button>
-  <f-button blob type="primary">1212</f-button>
-  <f-button blob type="success">1212</f-button>
-  <f-button blob type="danger">1212</f-button>
-  <f-button blob type="warning">1212</f-button>
-  <f-button blob type="info">1212</f-button>
+  <f-button type="default">1212</f-button>
+  <f-button type="primary">1212</f-button>
+  <f-button type="success">1212</f-button>
+  <f-button type="danger">1212</f-button>
+  <f-button type="warning">1212</f-button>
+  <f-button type="info">1212</f-button>
   <br />
   <br />
-  <br />
-  <f-button :round="isR" type="default" @click="aaa">1212</f-button>
-  <f-button :round="isR" type="primary">1212</f-button>
-  <f-button :round="isR" type="success">1212</f-button>
-  <f-button :round="isR" type="danger">1212</f-button>
-  <f-button :round="isR" type="warning">1212</f-button>
-  <f-button :round="isR" type="info">1212</f-button>
-  <br />
-  <br />
-  <f-button color="skyblue" type="success">1212</f-button>
-  <f-button color="#000" type="primary">1212</f-button>
+  <f-button simple type="default">1212</f-button>
+  <f-button simple type="primary">1212</f-button>
+  <f-button simple type="success">1212</f-button>
+  <f-button simple type="danger">1212</f-button>
+  <f-button simple type="warning">1212</f-button>
+  <f-button simple type="info">1212</f-button>
   <br />
   <br />
-  <f-button disabled color="skyblue" type="success">哈哈哈哈哈哈哈</f-button>
-  <f-button disabled color="#000" type="primary">1212</f-button>
+  <f-button disabled type="default">1212</f-button>
+  <f-button disabled type="primary">1212</f-button>
+  <f-button disabled type="success">1212</f-button>
+  <f-button disabled type="danger">1212</f-button>
+  <f-button disabled type="warning">1212</f-button>
+  <f-button disabled type="info">1212</f-button>
+  <br />
+  <br />
+  <f-button disabled simple type="default">1212</f-button>
+  <f-button disabled simple type="primary">1212</f-button>
+  <f-button disabled simple type="success">1212</f-button>
+  <f-button disabled simple type="danger">1212</f-button>
+  <f-button disabled simple type="warning">1212</f-button>
+  <f-button disabled simple type="info">1212</f-button>
 </template>
 
 <script lang="ts" setup>

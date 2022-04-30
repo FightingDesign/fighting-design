@@ -151,6 +151,10 @@ $mini: 25px;
   cursor: not-allowed;
 }
 
+.f-button-default.f-button-disabled:hover {
+  background: $default;
+}
+
 .f-button-primary.f-button-disabled:hover {
   background: $primary;
 }
@@ -170,6 +174,65 @@ $mini: 25px;
 .f-button-info.f-button-disabled:hover {
   background: $info;
 }
+
+.f-button-default.f-button-disabled.f-button-simple,
+.f-button-primary.f-button-disabled.f-button-simple,
+.f-button-success.f-button-disabled.f-button-simple,
+.f-button-danger.f-button-disabled.f-button-simple,
+.f-button-warning.f-button-disabled.f-button-simple,
+.f-button-info.f-button-disabled.f-button-simple:hover {
+  background: $simpleBackground;
+}
+
+// 简约按钮
+.f-button-simple {
+  background: $simpleBackground;
+
+  &:hover {
+    background: darken($simpleBackground, 4%);
+  }
+
+  &:active {
+    background: darken($simpleBackground, 10%);
+  }
+}
+
+.f-button-default.f-button-simple {
+  .f-text {
+    color: $textColor;
+  }
+}
+
+.f-button-primary.f-button-simple {
+  .f-text {
+    color: $primary;
+  }
+}
+
+.f-button-success.f-button-simple {
+  .f-text {
+    color: $success;
+  }
+}
+
+.f-button-danger.f-button-simple {
+  .f-text {
+    color: $danger;
+  }
+}
+
+.f-button-warning.f-button-simple {
+  .f-text {
+    color: $warning;
+  }
+}
+
+.f-button-info.f-button-simple {
+  .f-text {
+    color: $textColor;
+  }
+}
+
 
 // .f-button:active::before {
 //   content: '';

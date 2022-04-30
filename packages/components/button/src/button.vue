@@ -3,22 +3,15 @@
     :class="[
       'f-button',
       `f-button-${type}`,
-     
       {
         'f-button-round': round,
         'f-button-block': block,
         'f-button-disabled': disabled,
+        'f-button-simple': simple,
         [`f-button-${size}`]: size !== 'middle'
       }
     ]"
-    :style="[
-      `box-shadow: ${shadow}`,
-      {
-        background: linearGradient
-          ? `linear-gradient(to right, ${linearGradient})`
-          : color
-      }
-    ]"
+    :style="[`box-shadow: ${shadow}`]"
     :disabled="disabled"
     :autofocus="autofocus"
     :name="name"
@@ -35,7 +28,6 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
 import { prop } from './prop'
 
 const props = defineProps(prop)
