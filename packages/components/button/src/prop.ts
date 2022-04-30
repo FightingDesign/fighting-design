@@ -16,7 +16,7 @@ export const prop = {
   },
   fontSize: {
     type: String,
-    default: (): string => '14px'
+    default: (): string => ''
   },
   fontColor: {
     type: String,
@@ -123,6 +123,10 @@ export const prop = {
     default: (): string => 'button'
   },
   simple: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  border: {
     type: Boolean,
     default: (): boolean => false
   }

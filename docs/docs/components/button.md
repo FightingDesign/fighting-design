@@ -8,7 +8,7 @@
 | ------------ | ---------------------------------------- | ------- | ------------------------------------------- | -------- |
 | blob         | 按钮文字是否加粗                         | boolean | ——                                          | false    |
 | round        | 是否为圆角按钮                           | boolean | ——                                          | false    |
-| fontSize     | 文字字体大小                             | string  | ——                                          | 14px     |
+| fontSize     | 文字字体大小                             | string  | ——                                          | ——       |
 | fontColor    | 文字字体颜色                             | string  | ——                                          | ——       |
 | size         | 按钮尺寸                                 | string  | large/middle/small/mini                     | middle   |
 | block        | 是否为块级元素                           | boolean | ——                                          | false    |
@@ -26,7 +26,7 @@
 | text         | 是否为文字按钮                           | boolean | ——                                          | false    |
 | long         | 按钮长度是否为 100%                      | boolean | ——                                          | false    |
 | simple       | 是否为简约按钮                           | boolean | ——                                          | false    |
-|              |                                          |         |                                             |          |
+| border       | 是否显示边框（仅在 text: true）时生效    | boolean | ——                                          | false    |
 
 <!--         | color                                    | 按钮的颜色   | string                                      |          | ——  | -->
 <!--         | linearGradient                           | 按钮的渐变色 | string                                      | ——       | ——  | -->

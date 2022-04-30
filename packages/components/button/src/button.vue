@@ -8,6 +8,8 @@
         'f-button-block': block,
         'f-button-disabled': disabled,
         'f-button-simple': simple,
+        'f-button-text': text,
+        'f-button-border': text && border,
         [`f-button-${size}`]: size !== 'middle'
       }
     ]"
