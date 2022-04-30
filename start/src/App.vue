@@ -1,10 +1,9 @@
 <template>
-  <f-button type="default">1212</f-button>
-  <f-button type="primary">1212</f-button>
+  <f-button type="primary">邯郸</f-button>
+  <f-button type="primary">邯郸</f-button>
+  <f-button type="primary">adsa</f-button>
   <f-button type="success">1212</f-button>
-  <f-button type="danger">1212</f-button>
-  <f-button type="warning">1212</f-button>
-  <f-button type="info">1212</f-button>
+  <f-button type="danger">121</f-button>
   <br />
   <br />
   <f-button simple type="default">1212</f-button>

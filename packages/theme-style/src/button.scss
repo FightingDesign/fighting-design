@@ -16,9 +16,12 @@ $mini: 25px;
   transition: .3s;
   box-sizing: border-box;
   padding: 0 25px;
+  word-wrap: nowrap;
 
   .f-text {
     font-size: 14px;
+    line-height: $middle;
+    word-wrap: nowrap;
   }
 
   // 文字加粗
@@ -38,6 +41,7 @@ $mini: 25px;
   padding: 0 28px;
 
   .f-text {
+    line-height: $large;
     font-size: 15px;
   }
 }
@@ -47,6 +51,7 @@ $mini: 25px;
   padding: 0 22px;
 
   .f-text {
+    line-height: $small;
     font-size: 13px;
   }
 }
@@ -56,6 +61,7 @@ $mini: 25px;
   padding: 0 19px;
 
   .f-text {
+    line-height: $mini;
     font-size: 12px;
   }
 }
