@@ -6,7 +6,7 @@
       {
         'f-button-round': round,
         'f-button-block': block,
-        'f-button-disabled': disabled,
+        'f-button-disabled': disabled || loading,
         'f-button-simple': simple,
         'f-button-text': text,
         'f-button-border': text && border,
@@ -14,7 +14,7 @@
       }
     ]"
     :style="[`box-shadow: ${shadow}`]"
-    :disabled="disabled"
+    :disabled="disabled || loading"
     :autofocus="autofocus"
     :name="name"
     :type="nativeType"

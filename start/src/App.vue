@@ -14,12 +14,12 @@
   <f-button simple type="info">1212</f-button>
   <br />
   <br />
-  <f-button disabled type="default">1212</f-button>
-  <f-button disabled type="primary">1212</f-button>
-  <f-button disabled type="success">1212</f-button>
-  <f-button disabled type="danger">1212</f-button>
-  <f-button disabled type="warning">1212</f-button>
-  <f-button disabled type="info">1212</f-button>
+  <f-button disabled loading type="default">1212</f-button>
+  <f-button disabled loading type="primary">1212</f-button>
+  <f-button disabled loading type="success">1212</f-button>
+  <f-button disabled loading type="danger">1212</f-button>
+  <f-button disabled loading type="warning">1212</f-button>
+  <f-button disabled loading type="info">1212</f-button>
   <br />
   <br />
   <f-button disabled simple type="default">1212</f-button>
