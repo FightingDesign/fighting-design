@@ -1,5 +1,5 @@
 <template>
-  <f-button type="primary">邯郸</f-button>
+  <!-- <f-button type="primary">邯郸</f-button>
   <f-button type="primary">邯郸</f-button>
   <f-button type="primary">adsa</f-button>
   <f-button type="success">1212</f-button>
@@ -78,12 +78,16 @@
   <f-button size="large" type="info">1212</f-button>
   <f-button size="middle" type="info">1212</f-button>
   <f-button size="small" type="info">1212</f-button>
-  <f-button size="mini" type="info">1212</f-button>
+  <f-button size="mini" type="info">1212</f-button> -->
+  <p>{{ msg }}</p>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
+const props = defineProps({
+  props: String
+})
 const isR = ref(true)
 
 function aaa(e: EventInit) {

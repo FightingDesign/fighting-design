@@ -20,7 +20,6 @@
     "packages/**/*.ts",
     "packages/**/*.d.ts",
     "packages/**/*.tsx",
-    "packages/**/*.vue",
   ],
   "references": [
     {
