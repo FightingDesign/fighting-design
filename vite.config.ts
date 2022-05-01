@@ -20,5 +20,13 @@ export default defineConfig({
         // format: 'esm' // 生成包的格式
       }
     }
-  }
+  },
+  // test: {
+  //   clearMocks: true,
+  //   environment: 'jsdom',
+  //   setupFiles: ['./vitest.setup.ts'],
+  //   transformMode: {
+  //     web: [/\.[jt]sx$/],
+  //   }
+  // }
 })
