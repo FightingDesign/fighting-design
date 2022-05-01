@@ -9,7 +9,7 @@ importers:
       '@fighting-design/utils': workspace:*
       '@types/jest': ^27.4.1
       '@vitejs/plugin-vue': ^2.3.1
-      '@vue/test-utils': ^2.0.0-rc.18
+      '@vue/test-utils': 2.0.0-rc.16
       jest: ^28.0.3
       sass: ^1.50.1
       typescript: ^4.5.4
@@ -23,7 +23,7 @@ importers:
       '@fighting-design/utils': link:packages/utils
       '@types/jest': 27.4.1
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.5+vue@3.2.33
-      '@vue/test-utils': 2.0.0-rc.18_vue@3.2.33
+      '@vue/test-utils': 2.0.0-rc.16_vue@3.2.33
       jest: 28.0.3
       sass: 1.50.1
       typescript: 4.6.3
@@ -1012,8 +1012,8 @@ packages:
     resolution: {integrity: sha512-UBc1Pg1T3yZ97vsA2ueER0F6GbJebLHYlEi4ou1H5YL4KWvMOOWwpYo9/QpWq93wxKG6Wo13IY74Hcn/f7c7Bg==}
     dev: false
 
-  /@vue/test-utils/2.0.0-rc.18_vue@3.2.33:
-    resolution: {integrity: sha512-aifolXjVdsogjaLmDoZ0FU8vN+R67aWmg9OuVeED4w5Ij5GFQLrlhM19uhWe/r5xXUL4fXMk3pX5wW6FJP1NcQ==}
+  /@vue/test-utils/2.0.0-rc.16_vue@3.2.33:
+    resolution: {integrity: sha512-TubikDVkI2LuRKRPSLv3lYpbpvvucT2DIcGqfBVpvYs4W19u0EBTJEdmfwmSuLY7H1TyAr9Stur3PI1sWWvTGQ==}
     peerDependencies:
       vue: ^3.0.1
     dependencies:
