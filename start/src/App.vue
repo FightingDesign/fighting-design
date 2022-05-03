@@ -8,10 +8,12 @@
   >
     1212
   </f-button>
-  <f-button loadingIcon="f-icon-loading1" type="info" @click="change"
-    >1212</f-button
-  >
-  <f-button loadingIcon="f-icon-loading2">哈哈哈哈</f-button>
+  <f-button loadingIcon="f-icon-loading1" type="primary" @click="change">
+    1212
+  </f-button>
+  <f-button loadingIcon="f-icon-loading2" type="primary">哈哈哈哈</f-button>
+  <f-button loadingIcon="f-icon-loading2" type="primary">哈哈哈哈</f-button>
+  <f-button loadingIcon="f-icon-loading2" type="primary">哈哈哈哈</f-button>
 </template>
 
 <script lang="ts" setup>
