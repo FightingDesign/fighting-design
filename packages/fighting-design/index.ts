@@ -1,8 +1,10 @@
 import { version } from './package.json'
 import FButton from '@fighting-design/components/button'
+import FIcon from '@fighting-design/components/icon'
 
 const components: object[] = [
-  FButton
+  FButton,
+  FIcon
 ]
 
 const install = (app: any) => {
@@ -19,5 +21,6 @@ const fightingDesign: object = {
 export default fightingDesign
 
 export {
-  FButton
+  FButton,
+  FIcon
 }
