@@ -1,16 +1,16 @@
 <template>
-  <i :class="[fontClass || 'f-icon', icon]">
+  <i
+    :class="[fontClass || 'f-icon', icon]"
+    :style="{ opacity, color, fontSize: size }"
+  >
     <slot />
   </i>
 </template>
 
-<script lang="ts" setup>
-import { prop } from './prop'
-defineProps(prop)
-</script>
-
 <script lang="ts">
+import { props } from './prop'
 export default {
-  name: 'FIcon'
+  name: 'FIcon',
+  props
 }
 </script>
