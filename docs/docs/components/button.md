@@ -18,7 +18,7 @@
 | disabled     | 是否禁用按钮                             | boolean | ——                                          | false    |
 | icon         | 按钮的 icon                              | string  | ——                                          | ——       |
 | loadingIcon  | loading 状态的 icon                      | string  | ——                                          | ——       |
-| iconPosition | icon 的位置（不会对 loading 生效）       | string  | left/right                                  | right    |
+| iconPosition | icon 的位置（不会对 loading 生效）       | string  | left/right                                  | left    |
 | type         | 按钮的类型                               | string  | default/primary/success/danger/warning/info | default  |
 | autofocus    | 是否自动获取焦点                         | boolean | ——                                          | false    |
 | name         | 按钮的名字                               | string  | ——                                          | f-button |

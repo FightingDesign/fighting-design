@@ -1,15 +1,26 @@
 <template>
-  <f-button loadingIcon="f-icon-loading" type="success">1212</f-button>
-  <f-button loadingIcon="f-icon-loading1" type="success">1212</f-button>
-  <f-button loadingIcon="f-icon-loading2" type="success">哈哈哈哈</f-button>
-  <f-button loadingIcon="f-icon-loading3" type="success">哈哈哈哈</f-button>
-  <f-button loadingIcon="f-icon-loading4" type="success">哈哈哈哈</f-button>
-  <f-button loadingIcon="f-icon-loading5" type="success">哈哈哈哈</f-button>
-  <f-button loadingIcon="f-icon-loading6" type="success">哈哈哈哈</f-button>
-  <f-button loadingIcon="f-icon-loading7" type="success">哈哈哈哈</f-button>
+  <f-button
+    :loading="isLoading"
+    icon="f-icon-filter-fill"
+    loadingIcon="f-icon-loading"
+    type="primary"
+    iconPosition="left"
+  >
+    1212
+  </f-button>
+  <f-button loadingIcon="f-icon-loading1" type="info" @click="change"
+    >1212</f-button
+  >
+  <f-button loadingIcon="f-icon-loading2">哈哈哈哈</f-button>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { ref } from 'vue'
+const isLoading = ref(false)
+function change() {
+  isLoading.value = !isLoading.value
+}
+</script>
 
 <style scoped>
 div {

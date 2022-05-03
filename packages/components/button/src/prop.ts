@@ -74,7 +74,7 @@ export const prop = {
   },
   iconPosition: {
     type: String as PropType<IconPosition>,
-    default: (): string => 'right',
+    default: (): string => 'left',
     validator(val: string): boolean {
       return [
         'right',
