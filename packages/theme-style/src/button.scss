@@ -22,6 +22,38 @@ $mini: 25px;
     font-size: 14px;
     line-height: $middle;
     word-wrap: nowrap;
+
+    .f-icon {
+      margin-right: 5px;
+    }
+
+    .f-icon--loading {
+      display: inline-block;
+      animation: loading 1.2s linear infinite;
+      -webkit-animation: loading 1.2s linear infinite;
+    }
+
+    @keyframes loading {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(90deg);
+      }
+
+      50% {
+        transform: rotate(180deg);
+      }
+
+      75% {
+        transform: rotate(270deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
   }
 
   // 文字加粗

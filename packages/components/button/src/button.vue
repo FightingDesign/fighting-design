@@ -24,12 +24,15 @@
       :class="['f-text', { 'is-blob': blob }]"
       :style="{ fontSize, color: fontColor }"
     >
+      <i :class="['f-icon', iconClass]" />
       <slot />
+      <i class="" />
     </span>
   </button>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import { prop } from './prop'
 
 const props = defineProps(prop)
@@ -44,6 +47,14 @@ const onClick = (evt: Event): void => {
 
   emit('click', evt)
 }
+
+const iconClass = computed(() => {
+  // if (props.loading) {
+  // return 'f-icon-loading'
+  return `${props.loadingIcon || 'f-icon-loading'} f-icon--loading`
+  // }
+  // return props.icon
+})
 </script>
 
 <script lang="ts">

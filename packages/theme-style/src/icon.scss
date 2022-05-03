@@ -1,7 +1,6 @@
 @font-face {
-  font-family: "f-icon";
-  src: url('//at.alicdn.com/t/font_3373374_pfs731vo0kr.woff?t=1651549923296') format('woff');
-  // src: url('../font/f-icon.woff') format('woff');
+  font-family: "f-icon"; /* Project id 3373374 */
+  src: url('//at.alicdn.com/t/font_3373374_0rzl3pmta34f.woff?t=1651553582361') format('woff');
 }
 
 .f-icon {
@@ -10,6 +9,38 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.f-icon-loading1:before {
+  content: "\e62e";
+}
+
+.f-icon-loading4:before {
+  content: "\e8fc";
+}
+
+.f-icon-loading5:before {
+  content: "\e8fd";
+}
+
+.f-icon-loading6:before {
+  content: "\e65d";
+}
+
+.f-icon-loading7:before {
+  content: "\e6e8";
+}
+
+.f-icon-loading8:before {
+  content: "\e614";
+}
+
+.f-icon-loading2:before {
+  content: "\e608";
+}
+
+.f-icon-loading3:before {
+  content: "\e623";
 }
 
 .f-icon-years-fill:before {
