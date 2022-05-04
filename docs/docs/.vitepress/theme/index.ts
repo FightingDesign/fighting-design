@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
-import fightingDesign from '@fighting-design/components'
+import fightingDesign from '../../../../packages/fighting-design'
 import '@fighting-design/theme-style'
+import './style/components.scss'
 
 export default {
   ...DefaultTheme,
