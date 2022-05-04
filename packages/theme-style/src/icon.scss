@@ -1,11 +1,12 @@
 @font-face {
-  font-family: "f-icon"; /* Project id 3373374 */
+  font-family: "f-icon";
   src: url('//at.alicdn.com/t/font_3373374_0rzl3pmta34f.woff?t=1651553582361') format('woff');
 }
 
 .f-icon {
   font-family: "f-icon" !important;
   font-size: 16px;
+  line-height: 1;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -11,9 +11,11 @@
   <f-button loadingIcon="f-icon-loading1" type="primary" @click="change">
     1212
   </f-button>
-  <f-button loadingIcon="f-icon-loading2" type="primary">哈哈哈哈</f-button>
-  <f-button loadingIcon="f-icon-loading2" type="primary">哈哈哈哈</f-button>
-  <f-button loadingIcon="f-icon-loading2" type="primary">哈哈哈哈</f-button>
+  <f-button loadingIcon="f-icon-loading2" type="success">哈哈哈哈</f-button>
+  <f-button loadingIcon="f-icon-loading2" type="danger">哈哈哈哈</f-button>
+  <f-button loadingIcon="f-icon-loading2" type="warning">哈哈哈哈</f-button>
+  <f-button loadingIcon="f-icon-loading2" type="info">哈哈哈哈</f-button>
+  <f-button loadingIcon="f-icon-loading2" type="default">哈哈哈哈</f-button>
 </template>
 
 <script lang="ts" setup>

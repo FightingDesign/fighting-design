@@ -13,23 +13,18 @@ $mini: 25px;
   border-radius: 2px;
   user-select: none;
   display: inline-block;
-  transition: .3s;
+  transition: .2s;
   box-sizing: border-box;
   padding: 0 25px;
-  word-wrap: nowrap;
 
   .f-text {
     font-size: 14px;
     line-height: $middle;
     word-wrap: nowrap;
-    // background: red;
 
-    .f-icon:first-child {
-      margin-right: 5px;
-    }
-
-    .f-icon:last-child {
-      margin-left: 5px;
+    .f-icon {
+      position: relative;
+      top: 1px;
     }
 
     .f-icon--loading {
