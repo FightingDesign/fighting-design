@@ -816,4 +816,4 @@ const fightingDesign = {
   version,
   install
 };
-export { _sfc_main$1 as FButton, FIcon, fightingDesign as default };
+export { fightingDesign as default };

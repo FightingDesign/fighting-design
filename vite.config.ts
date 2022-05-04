@@ -18,11 +18,12 @@ export default defineConfig({
     //     }
     //   }
     // },
-    lib: {
-      fileName: 'fightingDesign',
-      entry: './packages/fighting-design/index.ts',
-      name: 'fightingDesign',
-    },
+    outDir: 'dist/dist',
+    // lib: {
+    //   fileName: 'fightingDesign',
+    //   entry: './packages/fighting-design/index.ts',
+    //   name: 'fightingDesign',
+    // },
     // lib: {
     //   entry: '/packages/fighting-design/index.ts',
     //   name: 'fighting-design'

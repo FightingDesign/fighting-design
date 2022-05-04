@@ -11,8 +11,7 @@
     "docs:build": "pnpm run -C docs build",
     "build:theme": "pnpm run build -C packages/theme-style",
     "build": "vite build",
-    "test": "vitest",
-    "clean": "pnpm run clean:dist"
+    "test": "vitest"
   },
   "dependencies": {
     "@fighting-design/components": "workspace:*",
