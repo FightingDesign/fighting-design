@@ -7,10 +7,11 @@
   ],
   "scripts": {
     "start": "pnpm run -C start dev",
-    "docs:dev": "pnpm run -C docs dev",
-    "docs:build": "pnpm run -C docs build",
-    "build:theme": "pnpm run -C packages/theme-style build",
-    "build": "vite build",
+    "dev:docs": "pnpm run -C docs dev",
+    "build:docs": "pnpm run -C docs build",
+    "build": "pnpm run build:theme && pnpm run build:component",
+    "build:theme": "pnpm --filter packages/theme-style run build --parallel",
+    "build:component": "vite build packages/fighting-design",
     "test": "vitest"
   },
   "dependencies": {
