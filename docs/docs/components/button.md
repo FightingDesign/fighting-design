@@ -1,6 +1,24 @@
 # Button 按钮
 
-<f-button>哈哈哈哈</f-button>
+## 基本使用
+
+`type` 属性可以配置不同的按钮类型，展示不同的颜色状态
+
+<f-button type="default">默认按钮</f-button>
+<f-button type="primary">主要按钮</f-button>
+<f-button type="success">成功按钮</f-button>
+<f-button type="danger">危险按钮</f-button>
+<f-button type="warning">警告按钮</f-button>
+<f-button type="info">信息按钮</f-button>
+
+`simple` 属性可以配置简约的按钮，去除原有的背景色，改为灰色背景，用不同的文字颜色展示不同的 `type` 类型的按钮，样式依然由 `type` 控制
+
+<f-button simple type="default">默认按钮</f-button>
+<f-button simple type="primary">主要按钮</f-button>
+<f-button simple type="success">成功按钮</f-button>
+<f-button simple type="danger">危险按钮</f-button>
+<f-button simple type="warning">警告按钮</f-button>
+<f-button simple type="info">信息按钮</f-button>
 
 ## Attributes
 
@@ -18,7 +36,7 @@
 | disabled     | 是否禁用按钮                             | boolean | ——                                          | false    |
 | icon         | 按钮的 icon                              | string  | ——                                          | ——       |
 | loadingIcon  | loading 状态的 icon                      | string  | ——                                          | ——       |
-| iconPosition | icon 的位置（不会对 loading 生效）       | string  | left/right                                  | left    |
+| iconPosition | icon 的位置（不会对 loading 生效）       | string  | left/right                                  | left     |
 | type         | 按钮的类型                               | string  | default/primary/success/danger/warning/info | default  |
 | autofocus    | 是否自动获取焦点                         | boolean | ——                                          | false    |
 | name         | 按钮的名字                               | string  | ——                                          | f-button |

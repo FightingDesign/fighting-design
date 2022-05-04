@@ -93,6 +93,7 @@ $mini: 25px;
 }
 
 // 不同的类型
+.f-button-,
 .f-button-default {
   background: $default;
 
@@ -101,11 +102,12 @@ $mini: 25px;
   }
 }
 
+.f-button-,
 .f-button-default {
   background: $default;
 
   &:hover {
-    background: lighten($default, 10%);
+    background: darken($default, 3%);
   }
 
   &:active {
@@ -293,6 +295,7 @@ $mini: 25px;
   }
 }
 
+.f-button-.f-button-simple,
 .f-button-default.f-button-simple,
 .f-button-default.f-button-text {
   .f-text {
