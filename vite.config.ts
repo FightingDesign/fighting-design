@@ -18,7 +18,7 @@ export default defineConfig({
     //     }
     //   }
     // },
-    outDir: 'dist/dist',
+    outDir: 'dist/fighting-design',
     // lib: {
     //   fileName: 'fightingDesign',
     //   entry: './packages/fighting-design/index.ts',
@@ -32,9 +32,13 @@ export default defineConfig({
     rollupOptions: {
       input: '/packages/fighting-design/index.ts', // 输入地址
       output: {
-        // dir: '', // 放置所有生成的块的目录
-        // file: 'fighting.js',// 要写入的文件 打包到那个文件
-        // format: 'esm' // 生成包的格式
+        // // name: 'MyBundle'
+        // file: 'bundle.js',
+        // // format: 'iife',
+        // name: 'MyBundle',
+        // dir: 'fighting-design', // 放置所有生成的块的目录
+        // // file: 'fighting.js',// 要写入的文件 打包到那个文件
+        // // format: 'esm' // 生成包的格式
       }
     }
   },
