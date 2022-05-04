@@ -1,7 +1,7 @@
-import Button from './src/button.vue'
+import FButton from './src/button.vue'
 
 import { install } from '@fighting-design/utils'
 
-install(Button, Button.name)
+install(FButton, FButton.name)
 
-export default Button
+export { FButton }

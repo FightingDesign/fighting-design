@@ -1,7 +1,7 @@
-import Icon from './src/icon.vue'
+import FIcon from './src/icon.vue'
 
 import { install } from '@fighting-design/utils'
 
-install(Icon, Icon.name)
+install(FIcon, FIcon.name)
 
-export default Icon
+export { FIcon } 

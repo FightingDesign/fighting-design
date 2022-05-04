@@ -5,6 +5,7 @@ import App from './src/App.vue'
 import fighting from '../packages/fighting-design'
 import '@fighting-design/theme-style'
 
+
 createApp(App)
   .use(fighting)
   .mount('#start')
