@@ -1,0 +1,21 @@
+details {
+  margin-top: 15px;
+  transition: 0.3s;
+
+  summary {
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    background: #f4f5f5;
+    border-radius: 4px;
+    color: rgb(83, 83, 83);
+
+    &:hover {
+      transition: 0.5s;
+      background: #eee;
+      color: #2d5af1;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+}
