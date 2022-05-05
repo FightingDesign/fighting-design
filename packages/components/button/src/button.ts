@@ -131,3 +131,7 @@ export const prop = {
     default: (): boolean => false
   }
 } as const
+
+// export const buttonEmit = {
+//   'click': (evt: Event) =>
+// }

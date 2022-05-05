@@ -32,11 +32,14 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, ComputedRef } from 'vue'
 import { prop } from './prop'
 
 const props = defineProps(prop)
-const emit = defineEmits(['click'])
+// const emit = defineEmits(['click'])
+const emit = defineEmits<{
+  (e: 'click', evt: Event): void
+}>()
 
 const onClick = (evt: Event): void => {
   if (props.disabled || props.loading) return
@@ -48,14 +51,14 @@ const onClick = (evt: Event): void => {
   emit('click', evt)
 }
 
-const iconClass = computed((): string => {
+const iconClass: ComputedRef<string> = computed<string>((): string => {
   if (props.loading) {
     return `${props.loadingIcon || 'f-icon-loading'} f-icon--loading`
   }
   return props.icon
 })
 
-const isShowLeftIcon = computed((): boolean => {
+const isShowLeftIcon: ComputedRef<boolean> = computed<boolean>((): boolean => {
   return !!(props.loading || (props.iconPosition === 'left' && props.icon))
 })
 </script>
