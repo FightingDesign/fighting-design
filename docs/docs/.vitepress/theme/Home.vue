@@ -7,67 +7,48 @@
     <h1 class="subtitle">一个用 TypeScript + Template 编写的 Vue3 组件库。</h1>
 
     <p class="content">
-      <strong>Fighting Design</strong> 是一款简洁又轻量级的
-      <strong>Vue3</strong>
-      组件库，为开发者、设计师准备。希望开发者可以通过
+      <strong>Fighting Design</strong> 是一款灵活、优质的
+      <strong>vue3</strong>
+      组件库，为开发者、设计师准备。希望开发者可以借用
       <strong>Fighting Design</strong>
-      的设计思想，在不久的将来，孕育出更高阶的组件库。
+      的设计，在不久的将来，孕育出更高阶的组件库。
     </p>
 
     <div class="action">
       <a href="/components/install.html">
         <f-button type="primary" size="large">开始使用</f-button>
       </a>
-      <f-button class="code" size="large" blob fontSize="20px">
-        npm install filling-design
+      <f-button class="code" size="large" blob text>
+        npm i filling-design
       </f-button>
     </div>
 
     <div class="advantage">
-      <div class="advantage_item">
+      <div class="advantage_item" v-for="(list, index) in lists" :key="index">
         <div class="img_box">
-          <img src="./images/undraw_add_tasks_re_s5yj.svg" alt="" />
+          <img :src="imgUrl(index)" />
         </div>
-        <h1>使用 TypeScript</h1>
-      </div>
-      <div class="advantage_item">
-        <div class="img_box">
-          <img src="./images/undraw_check_boxes_re_v40f.svg" alt="" />
-        </div>
-        <h1>更完善的组件</h1>
-      </div>
-
-      <div class="advantage_item">
-        <div class="img_box">
-          <img src="./images/undraw_choose_re_7d5a.svg" alt="" />
-        </div>
-        <h1>轻量级组件库</h1>
-      </div>
-
-      <div class="advantage_item">
-        <div class="img_box">
-          <img src="./images/undraw_content_creator_re_pt5b.svg" alt="" />
-        </div>
-        <h1>配置简单易上手</h1>
-      </div>
-
-      <div class="advantage_item">
-        <div class="img_box">
-          <img src="./images/undraw_feedback_re_urmj.svg" alt="" />
-        </div>
-        <h1>为开发者和设计师准备</h1>
-      </div>
-
-      <div class="advantage_item">
-        <div class="img_box">
-          <img src="./images/undraw_load_more_re_482p.svg" alt="" />
-        </div>
-        <h1>更快的搭建和开发</h1>
+        <p>{{ list }}</p>
       </div>
     </div>
   </div>
   <div class="footer"></div>
 </template>
+
+<script lang="ts" setup>
+const lists: string[] = [
+  '更快的搭建',
+  '更完善的组件',
+  '更灵活的配置',
+  '更优质的文档',
+  '更强的类型校验',
+  '更合适的组件库'
+]
+
+const imgUrl = (name: number): string => {
+  return new URL(`./images/home-${name + 1}.svg`, import.meta.url).href
+}
+</script>
 
 <style lang="scss" scoped>
 #home {
@@ -81,7 +62,7 @@
     line-height: 100px;
     display: flex;
     align-items: center;
-    transition: 0.5s;
+    transition: 0.3s;
     img {
       width: 55px;
       margin-right: 10px;
@@ -92,17 +73,17 @@
       line-height: 90px;
       font-weight: 700;
       color: rgb(17, 24, 39);
-      transition: 0.5s;
+      transition: 0.3s;
     }
   }
   .content {
-    transition: 0.5s;
+    transition: 0.3s;
     margin-top: 40px;
     width: 75%;
     color: rgb(121, 129, 136);
     strong {
       color: rgb(68, 68, 68);
-      transition: 0.5s;
+      transition: 0.3s;
     }
   }
   .action {
@@ -134,11 +115,11 @@
         img {
           width: 100%;
           height: 200px;
-          transition: 0.5s;
+          transition: 0.3s;
         }
       }
       h1 {
-        transition: 0.5s;
+        transition: 0.3s;
       }
     }
   }
@@ -148,7 +129,7 @@
     }
     .subtitle {
       font-size: 2.6rem;
-      transition: 0.5s;
+      transition: 0.3s;
     }
   }
   @media screen and (max-width: 800px) {
@@ -165,12 +146,10 @@
     }
   }
 }
-
 .footer {
   height: 400px;
   width: 100%;
-  // position: absolute;
-  background: #1f015d;
+  background: #24292f;
 }
 </style>
 
