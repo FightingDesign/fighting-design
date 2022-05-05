@@ -1,3 +1,7 @@
+<template>
+  <VTHamburger v-if="hasContent" class="VPNavBarHamburger" :active="active" />
+</template>
+
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { VTHamburger } from '../../core'
@@ -13,10 +17,6 @@ const hasContent = computed(() => {
   return config.value.appearance || config.value.socialLinks
 })
 </script>
-
-<template>
-  <VTHamburger v-if="hasContent" class="VPNavBarHamburger" :active="active" />
-</template>
 
 <style scoped>
 .VPNavBarHamburger {

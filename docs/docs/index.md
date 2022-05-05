@@ -1,5 +1,5 @@
 ---
-home: true
+page: true
 ---
 
 <script setup>

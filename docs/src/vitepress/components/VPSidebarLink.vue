@@ -1,3 +1,13 @@
+<template>
+  <a
+    :class="{ link: true, active: isActive(page.relativePath, item.link) }"
+    :href="item.link"
+    @click="closeSideBar"
+  >
+    <p class="link-text">{{ item.text }}</p>
+  </a>
+</template>
+
 <script lang="ts" setup>
 import { useData } from 'vitepress'
 import { inject } from 'vue'
@@ -11,16 +21,6 @@ defineProps<{
 const { page } = useData()
 const closeSideBar = inject('close-sidebar') as () => void
 </script>
-
-<template>
-  <a
-    :class="{ link: true, active: isActive(page.relativePath, item.link) }"
-    :href="item.link"
-    @click="closeSideBar"
-  >
-    <p class="link-text">{{ item.text }}</p>
-  </a>
-</template>
 
 <style scoped>
 .link {

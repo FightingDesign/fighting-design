@@ -14,7 +14,6 @@ export default (async () => {
       }
     },
 
-    title: 'Fighting Design',
     head: [
       ['link', { rel: 'icon', href: 'https://tianyuhao.cn/fighting/imgs/logo.png' }]
     ],
@@ -28,9 +27,7 @@ export default (async () => {
       darkMode: true,
 
       socialLinks: [
-        { icon: 'github', link: 'https://github.com/vuejs/vue' },
-        { icon: 'twitter', link: 'https://twitter.com/vuejs' },
-        { icon: 'discord', link: 'https://discord.com/invite/HBherRA' }
+        { icon: 'github', link: 'https://github.com/tyh2001/fighting-design' },
       ],
       logo: 'https://tianyuhao.cn/fighting/imgs/logo.png',
     }

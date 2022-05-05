@@ -1,3 +1,17 @@
+<template>
+  <section class="VPSidebarGroup">
+    <div class="title">
+      <h2 class="title-text" :class="{ active: hasActiveLink() }">
+        {{ text }}
+      </h2>
+    </div>
+
+    <template v-for="item in items" :key="item.link">
+      <VPSidebarLink :item="item" />
+    </template>
+  </section>
+</template>
+
 <script lang="ts" setup>
 import { MenuItemWithLink } from '../../core'
 import VPSidebarLink from './VPSidebarLink.vue'
@@ -12,23 +26,9 @@ const props = defineProps<{
 const { page } = useData()
 function hasActiveLink() {
   const { relativePath } = page.value
-  return props.items.some((item) => isActive(relativePath, item.link))
+  return props.items.some(item => isActive(relativePath, item.link))
 }
 </script>
-
-<template>
-  <section class="VPSidebarGroup">
-    <div class="title">
-      <h2 class="title-text" :class="{ active: hasActiveLink() }">
-        {{ text }}
-      </h2>
-    </div>
-
-    <template v-for="item in items" :key="item.link">
-      <VPSidebarLink :item="item" />
-    </template>
-  </section>
-</template>
 
 <style scoped>
 .title {

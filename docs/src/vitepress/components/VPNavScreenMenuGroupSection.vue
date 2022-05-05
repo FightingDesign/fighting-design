@@ -1,13 +1,3 @@
-<script lang="ts" setup>
-import { MenuItemWithLink } from '../../core'
-import VPNavScreenMenuGroupLink from './VPNavScreenMenuGroupLink.vue'
-
-defineProps<{
-  text?: string
-  items: MenuItemWithLink[]
-}>()
-</script>
-
 <template>
   <div class="VPNavScreenMenuGroupSection">
     <p v-if="text" class="title">{{ text }}</p>
@@ -19,6 +9,16 @@ defineProps<{
     />
   </div>
 </template>
+
+<script lang="ts" setup>
+import { MenuItemWithLink } from '../../core'
+import VPNavScreenMenuGroupLink from './VPNavScreenMenuGroupLink.vue'
+
+defineProps<{
+  text?: string
+  items: MenuItemWithLink[]
+}>()
+</script>
 
 <style scoped>
 .VPNavScreenMenuGroupSection {

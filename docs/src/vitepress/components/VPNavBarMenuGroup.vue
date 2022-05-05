@@ -1,3 +1,14 @@
+<template>
+  <VTFlyout
+    :class="{
+      VPNavBarMenuGroup: true,
+      active: isActive(page.relativePath, item.activeMatch, true)
+    }"
+    :button="item.text"
+    :items="item.items"
+  />
+</template>
+
 <script lang="ts" setup>
 import { VTFlyout } from '../../core'
 import { isActive } from '../support/utils'
@@ -10,17 +21,6 @@ defineProps<{
 
 const { page } = useData()
 </script>
-
-<template>
-  <VTFlyout
-    :class="{
-      VPNavBarMenuGroup: true,
-      active: isActive(page.relativePath, item.activeMatch, true)
-    }"
-    :button="item.text"
-    :items="item.items"
-  />
-</template>
 
 <style scoped>
 .VPNavBarMenuGroup.active {

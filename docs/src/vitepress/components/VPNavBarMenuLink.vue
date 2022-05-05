@@ -1,16 +1,3 @@
-<script lang="ts" setup>
-import { VTLink } from '../../core'
-import { useData } from 'vitepress'
-import { isActive } from '../support/utils'
-import { NavItemWithLink } from '../config'
-
-const props = defineProps<{
-  item: NavItemWithLink
-}>()
-
-const { page } = useData()
-</script>
-
 <template>
   <VTLink
     :class="{
@@ -27,6 +14,19 @@ const { page } = useData()
     {{ item.text }}
   </VTLink>
 </template>
+
+<script lang="ts" setup>
+import { VTLink } from '../../core'
+import { useData } from 'vitepress'
+import { isActive } from '../support/utils'
+import { NavItemWithLink } from '../config'
+
+const props = defineProps<{
+  item: NavItemWithLink
+}>()
+
+const { page } = useData()
+</script>
 
 <style scoped>
 .VPNavBarMenuLink {

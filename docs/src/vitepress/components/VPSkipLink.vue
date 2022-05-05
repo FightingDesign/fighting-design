@@ -1,3 +1,14 @@
+<template>
+  <span ref="backToTop" tabindex="-1" />
+  <a
+    href="#VPContent"
+    class="VPSkipLink visually-hidden"
+    @click="focusOnTargetAnchor"
+  >
+    跳到内容
+  </a>
+</template>
+
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
 import { useRoute } from 'vitepress'
@@ -27,17 +38,6 @@ const focusOnTargetAnchor = ({ target }: Event) => {
   }
 }
 </script>
-
-<template>
-  <span ref="backToTop" tabindex="-1" />
-  <a
-    href="#VPContent"
-    class="VPSkipLink visually-hidden"
-    @click="focusOnTargetAnchor"
-  >
-    Skip to content
-  </a>
-</template>
 
 <style scoped>
 .VPSkipLink {

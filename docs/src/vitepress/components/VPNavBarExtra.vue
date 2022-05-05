@@ -1,15 +1,3 @@
-<script lang="ts" setup>
-import { computed } from 'vue'
-import { VTFlyout, VTSwitchAppearance, VTSocialLinks } from '../../core'
-import { useConfig } from '../composables/config'
-
-const { config } = useConfig()
-
-const hasContent = computed(() => {
-  return config.value.appearance || config.value.socialLinks
-})
-</script>
-
 <template>
   <VTFlyout v-if="hasContent" class="VPNavBarExtra" label="extra navigation">
     <div v-if="config.appearance" class="vt-menu-group">
@@ -32,6 +20,18 @@ const hasContent = computed(() => {
     </div>
   </VTFlyout>
 </template>
+
+<script lang="ts" setup>
+import { computed } from 'vue'
+import { VTFlyout, VTSwitchAppearance, VTSocialLinks } from '../../core'
+import { useConfig } from '../composables/config'
+
+const { config } = useConfig()
+
+const hasContent = computed(() => {
+  return config.value.appearance || config.value.socialLinks
+})
+</script>
 
 <style scoped>
 .VPNavBarExtra {

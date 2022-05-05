@@ -1,3 +1,25 @@
+<template>
+  <div v-if="hasSidebar" class="VPLocalNav">
+    <button
+      class="menu"
+      :aria-expanded="open"
+      aria-controls="VPSidebarNav"
+      @click="$emit('open-menu')"
+    >
+      <VTIconAlignLeft class="menu-icon" />
+      <span class="menu-text">Menu</span>
+    </button>
+
+    <a
+      v-if="frontmatter.returnToTop !== false"
+      class="top-link"
+      href="#"
+      @click="scrollToTop"
+      >Return to top</a
+    >
+  </div>
+</template>
+
 <script lang="ts" setup>
 import { VTIconAlignLeft } from '../../core'
 import { useSidebar } from '../composables/sidebar'
@@ -12,28 +34,6 @@ function scrollToTop() {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
 }
 </script>
-
-<template>
-  <div v-if="hasSidebar" class="VPLocalNav">
-    <button
-      class="menu"
-      :aria-expanded="open"
-      aria-controls="VPSidebarNav"
-      @click="$emit('open-menu')"
-      >
-      <VTIconAlignLeft class="menu-icon" />
-      <span class="menu-text">Menu</span>
-    </button>
-
-    <a
-      v-if="frontmatter.returnToTop !== false"
-      class="top-link"
-      href="#"
-      @click="scrollToTop"
-      >Return to top</a
-    >
-  </div>
-</template>
 
 <style scoped>
 .VPLocalNav {

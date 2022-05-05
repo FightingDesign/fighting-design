@@ -1,16 +1,16 @@
-<script lang="ts" setup>
-import { VTSwitchAppearance } from '../../core'
-import { useConfig } from '../composables/config'
-
-const { config } = useConfig()
-</script>
-
 <template>
   <div v-if="config.appearance" class="VPNavScreenAppearance">
     <p class="text">Appearance</p>
     <VTSwitchAppearance />
   </div>
 </template>
+
+<script lang="ts" setup>
+import { VTSwitchAppearance } from '../../core'
+import { useConfig } from '../composables/config'
+
+const { config } = useConfig()
+</script>
 
 <style scoped>
 .VPNavScreenAppearance {
