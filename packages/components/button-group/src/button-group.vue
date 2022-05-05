@@ -1,20 +1,19 @@
 <template>
-  <div :class="[vertical ? 'f-button-group-vertical' : 'f-button-group']">
+  <div
+    :class="[
+      'f-button-group',
+      `f-button-group-${size}`,
+      vertical ? 'f-button-group-vertical' : 'f-button-group-horizontal'
+    ]"
+  >
     <slot />
   </div>
 </template>
 
-<script lang="ts" setup>
-import { provide } from 'vue'
-import { Props } from './button-group'
-
-const prop = defineProps(Props)
-
-provide('button-group-size', prop.size)
-</script>
-
 <script lang="ts">
+import { props } from './button-group'
 export default {
-  name: 'FButtonGroup'
+  name: 'FButtonGroup',
+  props
 }
 </script>
