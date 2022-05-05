@@ -46,12 +46,11 @@
 
 <style lang="scss" scoped>
 .icon_list {
-  width: 900px;
   display: flex;
   flex-wrap: wrap;
   .icon_box {
     cursor: pointer;
-    width: 130px;
+    width: 120px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
