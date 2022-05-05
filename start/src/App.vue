@@ -1,22 +1,8 @@
 <template>
   <f-button-group size="large" vertical>
-    <f-button type="primary" @click="change">1111</f-button>
-    <f-button
-      type="primary"
-      icon="f-icon-ashbin"
-      round
-      size="mini"
-      @click="change"
-    >
-      <f-icon icon="f-icon-add-cart" />
-      主要按钮</f-button
-    >
-    <f-button type="primary" round size="mini" @click="change">
-      <f-icon icon="f-icon-add-cart"
-    /></f-button>
-    <f-button type="primary" round size="mini" @click="change"
-      >主要按钮</f-button
-    >
+    <f-button type="primary">左边的</f-button>
+    <f-button type="primary">中间的</f-button>
+    <f-button type="primary">右边的</f-button>
   </f-button-group>
 
   <f-button-group size="" vertical>
@@ -24,9 +10,7 @@
     <f-button loading type="primary" round size="" @click="change">
       主要按钮
     </f-button>
-    <f-button  type="primary" round size="" @click="change"
-      >主要按钮</f-button
-    >
+    <f-button type="primary" round size="" @click="change">主要按钮</f-button>
     <f-button loading type="primary" round size="" @click="change"
       >主要按钮</f-button
     >

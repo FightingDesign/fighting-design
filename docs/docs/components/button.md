@@ -72,7 +72,132 @@
 <f-button round simple type="info">信息按钮</f-button>
 ```
 
-## Attributes
+## 禁用状态
+
+`disabled` 属性可以将按钮变成禁用状态
+
+`loading` 属性可以将按钮变成 `loading` 状态，也可以通过 `loadingIcon` 自定义 `loading` 图标样式
+
+<f-button disabled type="default">默认按钮</f-button>
+<f-button disabled type="primary">主要按钮</f-button>
+<f-button disabled type="success">成功按钮</f-button>
+<f-button disabled type="danger">危险按钮</f-button>
+<f-button disabled type="warning">警告按钮</f-button>
+<f-button disabled type="info">信息按钮</f-button>
+
+<br />
+
+<f-button loading type="default">默认按钮</f-button>
+<f-button loading loadingIcon="f-icon-loading1" type="primary">主要按钮</f-button>
+<f-button loading loadingIcon="f-icon-loading2" type="success">成功按钮</f-button>
+<f-button loading loadingIcon="f-icon-loading3" type="danger">危险按钮</f-button>
+<f-button loading loadingIcon="f-icon-loading4" type="warning">警告按钮</f-button>
+<f-button loading loadingIcon="f-icon-loading5" type="info">信息按钮</f-button>
+
+```html
+<f-button disabled type="default">默认按钮</f-button>
+<f-button disabled type="primary">主要按钮</f-button>
+<f-button disabled type="success">成功按钮</f-button>
+<f-button disabled type="danger">危险按钮</f-button>
+<f-button disabled type="warning">警告按钮</f-button>
+<f-button disabled type="info">信息按钮</f-button>
+
+<f-button loading type="default">默认按钮</f-button>
+<f-button loading loadingIcon="f-icon-loading1" type="primary">主要按钮</f-button>
+<f-button loading loadingIcon="f-icon-loading2" type="success">成功按钮</f-button>
+<f-button loading loadingIcon="f-icon-loading3" type="danger">危险按钮</f-button>
+<f-button loading loadingIcon="f-icon-loading4" type="warning">警告按钮</f-button>
+<f-button loading loadingIcon="f-icon-loading5" type="info">信息按钮</f-button>
+```
+
+## 不同尺寸
+
+`size` 属性可以配置不同尺寸的按钮
+
+<f-button size="large" type="primary">主要按钮</f-button>
+<f-button type="success">成功按钮</f-button>
+<f-button size="small" type="danger">危险按钮</f-button>
+<f-button size="mini" type="warning">警告按钮</f-button>
+
+```html
+<f-button size="large" type="primary">主要按钮</f-button>
+<f-button type="success">成功按钮</f-button>
+<f-button size="small" type="danger">危险按钮</f-button>
+<f-button size="mini" type="warning">警告按钮</f-button>
+```
+
+## 文字按钮
+
+`text` 属性可以将按钮设置成文字按钮
+
+`border` 可以给文字按钮添加边框，注意：border 属性只有在 `text` 值为 `true` 时生效
+
+<f-button text type="default">默认按钮</f-button>
+<f-button text type="primary">主要按钮</f-button>
+<f-button text type="success">成功按钮</f-button>
+<f-button text type="danger">危险按钮</f-button>
+<f-button text type="warning">警告按钮</f-button>
+<f-button text type="info">信息按钮</f-button>
+
+<f-button text border type="default">默认按钮</f-button>
+<f-button text border type="primary">主要按钮</f-button>
+<f-button text border type="success">成功按钮</f-button>
+<f-button text border type="danger">危险按钮</f-button>
+<f-button text border type="warning">警告按钮</f-button>
+<f-button text border type="info">信息按钮</f-button>
+
+```html
+<f-button text type="default">默认按钮</f-button>
+<f-button text type="primary">主要按钮</f-button>
+<f-button text type="success">成功按钮</f-button>
+<f-button text type="danger">危险按钮</f-button>
+<f-button text type="warning">警告按钮</f-button>
+<f-button text type="info">信息按钮</f-button>
+
+<f-button text border type="default">默认按钮</f-button>
+<f-button text border type="primary">主要按钮</f-button>
+<f-button text border type="success">成功按钮</f-button>
+<f-button text border type="danger">危险按钮</f-button>
+<f-button text border type="warning">警告按钮</f-button>
+<f-button text border type="info">信息按钮</f-button>
+```
+
+## 按钮组
+
+使用 `<f-button-group>` 标签包裹按钮组件可以实现按钮组效果
+
+`vertical` 属性可以配置纵向排列的按钮组
+
+<f-button-group>
+  <f-button round type="primary">左边的</f-button>
+  <f-button round type="primary">中间的</f-button>
+  <f-button round type="primary">右边的</f-button>
+</f-button-group>
+
+<br />
+<br />
+
+<f-button-group vertical>
+  <f-button type="primary">左边的</f-button>
+  <f-button type="primary">中间的</f-button>
+  <f-button round type="primary">右边的</f-button>
+</f-button-group>
+
+```html
+<f-button-group>
+  <f-button round type="primary">左边的</f-button>
+  <f-button round type="primary">中间的</f-button>
+  <f-button round type="primary">右边的</f-button>
+</f-button-group>
+
+<f-button-group vertical>
+  <f-button type="primary">左边的</f-button>
+  <f-button type="primary">中间的</f-button>
+  <f-button round type="primary">右边的</f-button>
+</f-button-group>
+```
+
+## Button Attributes
 
 | 参数         | 说明                                     | 类型    | 可选值                                      | 默认值   |
 | ------------ | ---------------------------------------- | ------- | ------------------------------------------- | -------- |
@@ -98,5 +223,32 @@
 | simple       | 是否为简约按钮                           | boolean | ——                                          | false    |
 | border       | 是否显示边框（仅在 text: true）时生效    | boolean | ——                                          | false    |
 
-<!--         | color                                    | 按钮的颜色   | string                                      |          | ——  | -->
-<!--         | linearGradient                           | 按钮的渐变色 | string                                      | ——       | ——  | -->
+## ButtonGroup Attributes
+
+| 参数     | 说明         | 类型    | 可选值                  | 默认值 |
+| -------- | ------------ | ------- | ----------------------- | ------ |
+| size     | 按钮尺寸     | string  | large/middle/small/mini | middle |
+| vertical | 是否纵向排列 | boolean | ——                      | false  |
+
+## Button Slots
+
+| 名称    | 说明       |
+| ------- | ---------- |
+| default | 按钮的内容 |
+
+## ButtonGroup Slots
+
+| 名称    | 说明         |
+| ------- | ------------ |
+| default | 按钮组的内容 |
+
+
+<style scoped>
+.f-button {
+  margin: 5px;
+}
+.f-button-group-vertical .f-button,
+.f-button-group .f-button {
+  margin: 0;
+}
+</style>
