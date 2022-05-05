@@ -1,7 +1,7 @@
-import FGroupButton from './src/button-group.vue'
+import FButtonGroup from './src/button-group.vue'
 
 import { install } from '@fighting-design/utils'
 
-install(FGroupButton, FGroupButton.name)
+install(FButtonGroup, FButtonGroup.name)
 
-export { FGroupButton }
+export { FButtonGroup }

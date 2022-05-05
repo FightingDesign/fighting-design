@@ -3,14 +3,14 @@
     :class="[
       'f-button',
       `f-button-${type}`,
+      buttonSize,
       {
         'f-button-round': round,
         'f-button-block': block,
         'f-button-disabled': disabled || loading,
         'f-button-simple': simple,
         'f-button-text': text,
-        'f-button-border': text && border,
-        [`f-button-${size}`]: size !== 'middle'
+        'f-button-border': text && border
       }
     ]"
     :style="[`box-shadow: ${shadow}`]"
@@ -32,11 +32,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ComputedRef } from 'vue'
+import { computed, ComputedRef, inject } from 'vue'
 import { Props, Emits } from './button'
 
 const prop = defineProps(Props)
 const emit = defineEmits(Emits)
+
+const buttonGroupSize: string | undefined = inject<string>('button-group-size')
 
 const onClick: Function = (evt: Event): void => {
   if (prop.disabled || prop.loading) return
@@ -55,6 +57,13 @@ const iconClass: ComputedRef<string> = computed<string>((): string => {
 
 const isShowLeftIcon: ComputedRef<boolean> = computed<boolean>((): boolean => {
   return !!(prop.loading || (prop.iconPosition === 'left' && prop.icon))
+})
+
+const buttonSize: ComputedRef<string> = computed<string>((): string => {
+  if (prop.size !== 'middle' || !!buttonGroupSize) {
+    return `f-button-${buttonGroupSize || prop.size}`
+  }
+  return ''
 })
 </script>
 

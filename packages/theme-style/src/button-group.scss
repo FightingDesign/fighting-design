@@ -1,0 +1,17 @@
+.f-button-group {
+  display: inline-block;
+
+  .f-button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .f-button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .f-button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+}

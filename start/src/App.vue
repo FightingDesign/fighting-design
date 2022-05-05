@@ -1,5 +1,34 @@
 <template>
-  <f-button type="primary" @click="change">主要按钮</f-button>
+  <f-button-group size="large">
+    <f-button type="primary" round @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="mini" @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="mini" @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="mini" @click="change">主要按钮</f-button>
+  </f-button-group>
+
+  <f-button-group size="">
+    <f-button type="primary" round @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="" @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="" @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="" @click="change">主要按钮</f-button>
+  </f-button-group>
+
+  <f-button-group size="small">
+    <f-button type="primary" round @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="" @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="" @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="" @click="change">主要按钮</f-button>
+  </f-button-group>
+
+  <f-button-group size="mini">
+    <f-button type="primary" round @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="" @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="" @click="change">主要按钮</f-button>
+    <f-button type="primary" round size="" @click="change">主要按钮</f-button>
+  </f-button-group>
+
+  <!-- <f-button type="primary" @click="change">主要按钮</f-button>
+  <f-button type="primary" @click="change">主要按钮</f-button> -->
 </template>
 
 <script lang="ts" setup>
