@@ -130,12 +130,4 @@ export const prop = {
     type: Boolean,
     default: (): boolean => false
   }
-  // linearGradient: {
-  //   type: String,
-  //   default: (): string => ''
-  // },
-  // color: {
-  //   type: String,
-  //   default: (): string => ''
-  // }
 } as const

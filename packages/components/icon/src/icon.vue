@@ -9,6 +9,7 @@
 
 <script lang="ts">
 import { props } from './prop'
+
 export default {
   name: 'FIcon',
   props
