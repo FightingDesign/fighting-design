@@ -8,23 +8,19 @@ const props = defineProps<{
   item: NavItemWithLink
 }>()
 
-console.log(props.item)
-
 const { page } = useData()
 </script>
 
 <template>
   <VTLink
-    :class="[
-      {
-        VPNavBarMenuLink: true,
-        active: isActive(
-          page.relativePath,
-          item.activeMatch || item.link,
-          !!item.activeMatch
-        )
-      }
-    ]"
+    :class="{
+      VPNavBarMenuLink: true,
+      active: isActive(
+        page.relativePath,
+        item.activeMatch || item.link,
+        !!item.activeMatch
+      )
+    }"
     :href="item.link"
     :noIcon="true"
   >

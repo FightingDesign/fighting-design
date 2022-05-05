@@ -1,3 +1,14 @@
+<template>
+  <header class="VPNav nav-bar" :class="{ stick: !hasSidebar }">
+    <VPNavBar :is-screen-open="isScreenOpen" @toggle-screen="toggleScreen">
+      <template #navbar-title>
+        <slot name="navbar-title" />
+      </template>
+    </VPNavBar>
+    <VPNavScreen :open="isScreenOpen" />
+  </header>
+</template>
+
 <script setup lang="ts">
 import { useNav } from '../composables/nav'
 import { useSidebar } from '../composables/sidebar'
@@ -10,17 +21,6 @@ const { hasSidebar } = useSidebar()
 
 provide('close-screen', closeScreen)
 </script>
-
-<template>
-  <header class="VPNav nav-bar" :class="{ stick: !hasSidebar }">
-    <VPNavBar :is-screen-open="isScreenOpen" @toggle-screen="toggleScreen">
-      <template #navbar-title>
-        <slot name="navbar-title" />
-      </template>
-    </VPNavBar>
-    <VPNavScreen :open="isScreenOpen" />
-  </header>
-</template>
 
 <style scoped>
 .VPNav {
