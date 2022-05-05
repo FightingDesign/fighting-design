@@ -26,7 +26,9 @@
     <div class="advantage">
       <div class="advantage_item" v-for="(list, index) in lists" :key="index">
         <div class="img_box">
-          <img :src="imgUrl(index)" />
+          <img
+            :src="`https://tianyuhao.cn/fighting/imgs/home-${index + 1}.svg`"
+          />
         </div>
         <p>{{ list }}</p>
       </div>
@@ -44,10 +46,6 @@ const lists: string[] = [
   '更强的类型校验',
   '更合适的组件库'
 ]
-
-const imgUrl = (name: number): string => {
-  return new URL(`./images/home-${name + 1}.svg`, import.meta.url).href
-}
 </script>
 
 <style lang="scss" scoped>
