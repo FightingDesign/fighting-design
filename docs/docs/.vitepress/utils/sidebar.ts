@@ -1,4 +1,4 @@
-export const sidebar = [
+export const sidebar2 = [
   {
     text: '开发指南',
     children: [{ text: '快速上手', link: '/components/install' }]
@@ -12,8 +12,22 @@ export const sidebar = [
   }
 ]
 
-export const sidebar2 = {
+export const sidebar = {
   '/components/': [
+    {
+      text: '开发指南',
+      items: [
+        { text: '快速上手', link: '/components/install' },
+      ]
+    },
+    {
+      text: '基础组件',
+      items: [
+        { text: 'Button 按钮', link: '/components/button' },
+        { text: 'Icon 图标', link: '/components/icon' },
+      ]
+    }
+    // '/components/': [
     // {
     //   text: '开发指南',
     //   items: [
@@ -21,11 +35,11 @@ export const sidebar2 = {
     //     { text: 'Button 按钮', link: '/components/button' }
     //   ]
     // },
-    {
-      text: '基础组件',
-      items: [
-        { text: 'Button 按钮', link: '/components/button' },
-      ]
-    }
+    //   {
+    //     text: '基础组件',
+    //     items: [
+    //       { text: 'Button 按钮', link: '/components/button' },
+    //     ]
+    //   }
   ]
 }
