@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { props } from './prop'
+import { props } from './icon'
 
 export default {
   name: 'FIcon',

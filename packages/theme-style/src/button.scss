@@ -13,7 +13,7 @@ $mini: 27px;
   border-radius: 2px;
   user-select: none;
   display: inline-block;
-  transition: .2s;
+  transition: 0.2s;
   box-sizing: border-box;
   padding: 0 25px;
 
@@ -51,12 +51,12 @@ $mini: 27px;
 }
 
 // 圆角
-.f-button-round {
+.f-button.f-button-round {
   border-radius: 30px;
 }
 
 // 按钮的尺寸
-.f-button-large {
+.f-button.f-button-large {
   height: $large;
   padding: 0 28px;
 
@@ -66,7 +66,7 @@ $mini: 27px;
   }
 }
 
-.f-button-small {
+.f-button.f-button-small {
   height: $small;
   padding: 0 22px;
 
@@ -76,7 +76,7 @@ $mini: 27px;
   }
 }
 
-.f-button-mini {
+.f-button.f-button-mini {
   height: $mini;
   padding: 0 19px;
 
@@ -87,14 +87,14 @@ $mini: 27px;
 }
 
 // 是否为块级元素
-.f-button-block {
+.f-button.f-button-block {
   display: block;
   width: 100%;
 }
 
 // 不同的类型
-.f-button-,
-.f-button-default {
+.f-button.f-button-,
+.f-button.f-button-default {
   background: $default;
 
   .f-text {
@@ -102,8 +102,8 @@ $mini: 27px;
   }
 }
 
-.f-button-,
-.f-button-default {
+.f-button.f-button-,
+.f-button.f-button-default {
   background: $default;
 
   &:hover {
@@ -115,7 +115,7 @@ $mini: 27px;
   }
 }
 
-.f-button-primary {
+.f-button.f-button-primary {
   background: $primary;
 
   &:hover {
@@ -127,7 +127,7 @@ $mini: 27px;
   }
 }
 
-.f-button-success {
+.f-button.f-button-success {
   background: $success;
 
   &:hover {
@@ -139,7 +139,7 @@ $mini: 27px;
   }
 }
 
-.f-button-danger {
+.f-button.f-button-danger {
   background: $danger;
 
   &:hover {
@@ -151,7 +151,7 @@ $mini: 27px;
   }
 }
 
-.f-button-warning {
+.f-button.f-button-warning {
   background: $warning;
 
   &:hover {
@@ -163,7 +163,7 @@ $mini: 27px;
   }
 }
 
-.f-button-info {
+.f-button.f-button-info {
   background: $info;
 
   &:hover {
@@ -175,43 +175,43 @@ $mini: 27px;
   }
 }
 
-.f-button-primary,
-.f-button-success,
-.f-button-danger,
-.f-button-warning,
-.f-button-info {
+.f-button.f-button-primary,
+.f-button.f-button-success,
+.f-button.f-button-danger,
+.f-button.f-button-warning,
+.f-button.f-button-info {
   .f-text {
     color: #fff;
   }
 }
 
 // 普通按钮禁用状态
-.f-button-disabled {
-  opacity: .5;
+.f-button.f-button-disabled {
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
-.f-button-default.f-button-disabled:hover {
+.f-button.f-button-default.f-button-disabled:hover {
   background: $default;
 }
 
-.f-button-primary.f-button-disabled:hover {
+.f-button.f-button-primary.f-button-disabled:hover {
   background: $primary;
 }
 
-.f-button-success.f-button-disabled:hover {
+.f-button.f-button-success.f-button-disabled:hover {
   background: $success;
 }
 
-.f-button-danger.f-button-disabled:hover {
+.f-button.f-button-danger.f-button-disabled:hover {
   background: $danger;
 }
 
-.f-button-warning.f-button-disabled:hover {
+.f-button.f-button-warning.f-button-disabled:hover {
   background: $warning;
 }
 
-.f-button-info.f-button-disabled:hover {
+.f-button.f-button-info.f-button-disabled:hover {
   background: $info;
 }
 
@@ -225,7 +225,7 @@ $mini: 27px;
   background: #fff;
 }
 
-.f-button-default.f-button-disabled.f-button-text {
+.f-button.f-button-default.f-button-disabled.f-button-text {
   &:hover {
     .f-text {
       color: $textColor;
@@ -233,7 +233,7 @@ $mini: 27px;
   }
 }
 
-.f-button-primary.f-button-disabled.f-button-text {
+.f-button.f-button-primary.f-button-disabled.f-button-text {
   &:hover {
     .f-text {
       color: $primary;
@@ -241,7 +241,7 @@ $mini: 27px;
   }
 }
 
-.f-button-success.f-button-disabled.f-button-text {
+.f-button.f-button-success.f-button-disabled.f-button-text {
   &:hover {
     .f-text {
       color: $success;
@@ -249,7 +249,7 @@ $mini: 27px;
   }
 }
 
-.f-button-danger.f-button-disabled.f-button-text {
+.f-button.f-button-danger.f-button-disabled.f-button-text {
   &:hover {
     .f-text {
       color: $danger;
@@ -257,7 +257,7 @@ $mini: 27px;
   }
 }
 
-.f-button-default.f-button-disabled.f-button-text {
+.f-button.f-button-default.f-button-disabled.f-button-text {
   &:hover {
     .f-text {
       color: $textColor;
@@ -265,7 +265,7 @@ $mini: 27px;
   }
 }
 
-.f-button-warning.f-button-disabled.f-button-text {
+.f-button.f-button-warning.f-button-disabled.f-button-text {
   &:hover {
     .f-text {
       color: $warning;
@@ -273,7 +273,7 @@ $mini: 27px;
   }
 }
 
-.f-button-info.f-button-disabled.f-button-text {
+.f-button.f-button-info.f-button-disabled.f-button-text {
   &:hover {
     .f-text {
       color: $info;
@@ -281,9 +281,8 @@ $mini: 27px;
   }
 }
 
-
 // 简约按钮
-.f-button-simple {
+.f-button.f-button-simple {
   background: $simpleBackground;
 
   &:hover {
@@ -295,59 +294,59 @@ $mini: 27px;
   }
 }
 
-.f-button-.f-button-simple,
-.f-button-default.f-button-simple,
-.f-button-default.f-button-text {
+.f-button.f-button-.f-button-simple,
+.f-button.f-button-default.f-button-simple,
+.f-button.f-button-default.f-button-text {
   .f-text {
     color: $textColor;
   }
 }
 
-.f-button-primary.f-button-simple,
-.f-button-primary.f-button-text {
+.f-button.f-button-primary.f-button-simple,
+.f-button.f-button-primary.f-button-text {
   .f-text {
     color: $primary;
   }
 }
 
-.f-button-success.f-button-simple,
-.f-button-success.f-button-text {
+.f-button.f-button-success.f-button-simple,
+.f-button.f-button-success.f-button-text {
   .f-text {
     color: $success;
   }
 }
 
-.f-button-danger.f-button-simple,
-.f-button-danger.f-button-text {
+.f-button.f-button-danger.f-button-simple,
+.f-button.f-button-danger.f-button-text {
   .f-text {
     color: $danger;
   }
 }
 
-.f-button-warning.f-button-simple,
-.f-button-warning.f-button-text {
+.f-button.f-button-warning.f-button-simple,
+.f-button.f-button-warning.f-button-text {
   .f-text {
     color: $warning;
   }
 }
 
-.f-button-info.f-button-simple,
-.f-button-info.f-button-text {
+.f-button.f-button-info.f-button-simple,
+.f-button.f-button-info.f-button-text {
   .f-text {
     color: $textColor;
   }
 }
 
 // 文字按钮
-.f-button.f-button-text {
+.f-button.f-button.f-button-text {
   background: #fff;
 }
 
-.f-button-border {
+.f-button.f-button-border {
   border: 1px solid #eee;
 }
 
-.f-button-default.f-button-text {
+.f-button.f-button-default.f-button-text {
   &:hover {
     .f-text {
       color: lighten($textColor, 10%);
@@ -361,7 +360,7 @@ $mini: 27px;
   }
 }
 
-.f-button-primary.f-button-text {
+.f-button.f-button-primary.f-button-text {
   &:hover {
     .f-text {
       color: lighten($primary, 10%);
@@ -375,7 +374,7 @@ $mini: 27px;
   }
 }
 
-.f-button-success.f-button-text {
+.f-button.f-button-success.f-button-text {
   &:hover {
     .f-text {
       color: lighten($success, 3%);
@@ -389,7 +388,7 @@ $mini: 27px;
   }
 }
 
-.f-button-danger.f-button-text {
+.f-button.f-button-danger.f-button-text {
   &:hover {
     .f-text {
       color: lighten($danger, 5%);
@@ -403,7 +402,7 @@ $mini: 27px;
   }
 }
 
-.f-button-warning.f-button-text {
+.f-button.f-button-warning.f-button-text {
   &:hover {
     .f-text {
       color: lighten($warning, 2%);
@@ -417,7 +416,7 @@ $mini: 27px;
   }
 }
 
-.f-button-info.f-button-text {
+.f-button.f-button-info.f-button-text {
   .f-text {
     color: $info;
   }

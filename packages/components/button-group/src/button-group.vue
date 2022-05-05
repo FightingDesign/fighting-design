@@ -1,5 +1,5 @@
 <template>
-  <div class="f-button-group">
+  <div :class="['f-button-group', { 'f-button-group-vertical': vertical }]">
     <slot />
   </div>
 </template>
