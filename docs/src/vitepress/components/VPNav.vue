@@ -2,7 +2,7 @@
 import { useNav } from '../composables/nav'
 import { useSidebar } from '../composables/sidebar'
 import VPNavBar from './VPNavBar.vue'
-// import VPNavScreen from './VPNavScreen.vue'
+import VPNavScreen from './VPNavScreen.vue'
 import { provide } from 'vue'
 
 const { isScreenOpen, closeScreen, toggleScreen } = useNav()
@@ -18,7 +18,7 @@ provide('close-screen', closeScreen)
         <slot name="navbar-title" />
       </template>
     </VPNavBar>
-    <!-- <VPNavScreen :open="isScreenOpen" /> -->
+    <VPNavScreen :open="isScreenOpen" />
   </header>
 </template>
 

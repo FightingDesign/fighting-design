@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
-// import { resolveHeaders, useActiveAnchor } from '../composables/outline'
+import { resolveHeaders, useActiveAnchor } from '../composables/outline'
 import { computed, inject, ref } from 'vue'
 
 const { page, frontmatter } = useData()
 const container = ref()
 const marker = ref()
-// useActiveAnchor(container, marker)
+useActiveAnchor(container, marker)
 
 const filterHeaders = inject('filter-headers', null) as any
 const filteredHeaders = computed(() => {

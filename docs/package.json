@@ -7,7 +7,16 @@
     "serve": "vitepress serve docs"
   },
   "dependencies": {
-    "@vue/theme": "^1.0.2",
-    "vitepress": "0.22.3"
+    "vitepress": "0.22.3",
+    "@docsearch/css": "^3.0.0-alpha.41",
+    "@docsearch/js": "^3.0.0-alpha.41",
+    "@vueuse/core": "^7.3.0",
+    "body-scroll-lock": "^3.1.5",
+    "normalize.css": "^8.0.1",
+    "shiki": "^0.9.15"
+  },
+  "devDependencies": {
+    "@types/body-scroll-lock": "^2.6.1",
+    "@types/estree": "^0.0.48"
   }
 }

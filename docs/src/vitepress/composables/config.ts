@@ -61,9 +61,10 @@ function normalizeMenuItem<T extends MenuItem | MenuItemChild>(item: T): T {
     return Object.assign({}, item, {
       link: normalizeLink(item.link)
     })
-  } else {
-    return Object.assign({}, item, { items: item.items.map(normalizeMenuItem) })
   }
+  // else {
+  //   return Object.assign({}, item, { items: item.items.map(normalizeMenuItem) })
+  // }
 }
 
 function normalizeSideBar(sidebar: SidebarConfig): SidebarConfig {

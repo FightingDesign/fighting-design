@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { nextTick, ref, watchPostEffect } from 'vue'
 import { useSidebar } from '../composables/sidebar'
-import VPSidebarGroup from './VPSidebarGroup.vue'
+// import VPSidebarGroup from './VPSidebarGroup.vue'
 
 const { sidebar, hasSidebar } = useSidebar()
 
@@ -32,9 +32,9 @@ watchPostEffect(async () => {
       <span id="sidebar-aria-label" class="visually-hidden"
         >Sidebar Navigation</span
       >
-      <div v-for="group in sidebar" :key="group.text" class="group">
+      <!-- <div v-for="(group, index) in sidebar" :key="index" class="group">
         <VPSidebarGroup :text="group.text" :items="group.items" />
-      </div>
+      </div> -->
       <slot name="bottom" />
     </nav>
   </aside>

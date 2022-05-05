@@ -1,12 +1,12 @@
 <script setup lang="ts">
-// import { useMediaQuery } from '@vueuse/core'
+import { useMediaQuery } from '@vueuse/core'
 import { useData } from 'vitepress'
 import { ref, onMounted, watch } from 'vue'
 
 const { theme } = useData()
 const carbonOptions = theme.value.carbonAds
 const container = ref()
-// const isWide = useMediaQuery('(min-width: 1280px)')
+const isWide = useMediaQuery('(min-width: 1280px)')
 
 let hasInitalized = false
 
@@ -27,11 +27,11 @@ if (carbonOptions) {
     // if the page is loaded in wide mode, load carbon directly.
     // otherwise, only load it if the page resizes to wide enough.
     // this avoids loading carbon at all on mobile where it's never shown.
-    // if (isWide.value) {
-    //   init()
-    // } else {
-    //   watch(isWide, (wide) => wide && init())
-    // }
+    if (isWide.value) {
+      init()
+    } else {
+      watch(isWide, (wide) => wide && init())
+    }
   })
 }
 </script>
