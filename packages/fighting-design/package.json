@@ -10,8 +10,7 @@
     "components",
     "ui"
   ],
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.es.js",
+  "main": "index.ts",
   "exports": {
     ".": {
       "import": "./dist/lib.es.js",

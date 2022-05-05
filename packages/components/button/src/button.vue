@@ -33,33 +33,28 @@
 
 <script lang="ts" setup>
 import { computed, ComputedRef } from 'vue'
-import { prop } from './prop'
+import { Props, Emits } from './button'
 
-const props = defineProps(prop)
-// const emit = defineEmits(['click'])
-const emit = defineEmits<{
-  (e: 'click', evt: Event): void
-}>()
+const prop = defineProps(Props)
+const emit = defineEmits(Emits)
 
-const onClick = (evt: Event): void => {
-  if (props.disabled || props.loading) return
-
-  if (props.link) {
-    window.open(props.link, props.target)
+const onClick: Function = (evt: Event): void => {
+  if (prop.disabled || prop.loading) return
+  if (prop.link) {
+    window.open(prop.link, prop.target)
   }
-
   emit('click', evt)
 }
 
 const iconClass: ComputedRef<string> = computed<string>((): string => {
-  if (props.loading) {
-    return `${props.loadingIcon || 'f-icon-loading'} f-icon--loading`
+  if (prop.loading) {
+    return `${prop.loadingIcon || 'f-icon-loading'} f-icon--loading`
   }
-  return props.icon
+  return prop.icon
 })
 
 const isShowLeftIcon: ComputedRef<boolean> = computed<boolean>((): boolean => {
-  return !!(props.loading || (props.iconPosition === 'left' && props.icon))
+  return !!(prop.loading || (prop.iconPosition === 'left' && prop.icon))
 })
 </script>
 

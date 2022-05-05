@@ -5,7 +5,7 @@ type Target = '_blank' | '_self' | '_parent' | '_top'
 type IconPosition = 'left' | 'right'
 type Type = 'default' | 'primary' | 'success' | 'danger' | 'warning' | 'info'
 
-export const prop = {
+export const Props = {
   blob: {
     type: Boolean,
     default: (): boolean => false
@@ -132,6 +132,6 @@ export const prop = {
   }
 } as const
 
-// export const buttonEmit = {
-//   'click': (evt: Event) =>
-// }
+export const Emits = {
+  click: (evt: Event): Event => evt
+} as const

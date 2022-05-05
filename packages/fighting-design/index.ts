@@ -18,9 +18,9 @@ const fightingDesign = {
   install
 }
 
-export default fightingDesign
-
 export {
   FButton,
   FIcon
 }
+
+export default fightingDesign
