@@ -1,0 +1,81 @@
+.vt-doc .custom-block {
+  margin: 28px 0;
+  padding: 20px 24px 4px 42px;
+  border-radius: 8px;
+  overflow-x: auto;
+  transition: color 0.5s, background-color 0.5s;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.55);
+  background-color: var(--vt-c-bg-soft);
+}
+
+.dark .vt-doc .custom-block {
+  color: var(--vt-c-text-2);
+}
+
+.vt-doc .custom-block:before {
+  content: 'ⓘ';
+  position: absolute;
+  font-weight: 600;
+  font-size: 15px;
+  top: 20px;
+  left: 17px;
+}
+
+.vt-doc .custom-block.warning:before,
+.vt-doc .custom-block.danger:before {
+  content: '⚠';
+  font-size: 17px;
+  top: 19px;
+  left: 16ppx;
+}
+
+.vt-doc .custom-block .custom-block-title {
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--vt-c-text-1);
+  transition: color 0.5s;
+}
+
+.vt-doc .custom-block.tip {
+  border: 1px solid var(--vt-c-brand);
+}
+.vt-doc .custom-block.tip:before {
+  color: var(--vt-c-brand);
+}
+
+.vt-doc .custom-block.warning {
+  border: 1px solid var(--vt-c-yellow);
+}
+.vt-doc .custom-block.warning:before {
+  color: var(--vt-c-yellow);
+}
+
+.vt-doc .custom-block.danger {
+  border: 1px solid var(--vt-c-red);
+}
+.vt-doc .custom-block.danger .custom-block-title,
+.vt-doc .custom-block.danger:before {
+  color: var(--vt-c-red);
+}
+
+.vt-doc .custom-block ul li:before {
+  top: 0.55rem;
+}
+.vt-doc .custom-block ol li:before {
+  top: 1px;
+  font-size: 13px;
+}
+
+.vt-doc .custom-block :not(pre) > code {
+  font-size: 13px;
+  background-color: rgba(27, 31, 35, 0.05);
+}
+
+.dark .vt-doc .custom-block :not(pre) > code {
+  background-color: rgba(0, 0, 0, 0.2);
+}

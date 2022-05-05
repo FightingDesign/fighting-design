@@ -1,0 +1,24 @@
+.vt-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .6);
+  transition: opacity .5s;
+}
+
+.vt-backdrop.fade-enter-from,
+.vt-backdrop.fade-leave-to {
+  opacity: 0;
+}
+
+.vt-backdrop.fade-leave-active {
+  transition-duration: .3s;
+}
+
+@media (min-width: 960px) {
+  .vt-backdrop {
+    display: none;
+  }
+}

@@ -1,0 +1,206 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--vt-font-family-base);
+  letter-spacing: .2px;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--vt-c-text-1);
+  background-color: var(--vt-c-bg);
+  direction: ltr;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  transition: color .5s, background-color .5s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/**
+ * Avoid 300ms click delay on touch devices that support the `touch-action`
+ * CSS property.
+ *
+ * In particular, unlike most other browsers, IE11+Edge on Windows 10 on
+ * touch devices and IE Mobile 10-11 DON'T remove the click delay when
+ * `<meta name="viewport" content="width=device-width">` is present.
+ * However, they DO support removing the click delay via
+ * `touch-action: manipulation`.
+ *
+ * See:
+ * - http://v4-alpha.getbootstrap.com/content/reboot/#click-delay-optimization-for-touch
+ * - http://caniuse.com/#feat=css-touch-action
+ * - http://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
+ */
+a,
+area,
+button,
+[role="button"],
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: var(--vt-font-family-mono);
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  border: 0;
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+}
+
+button {
+  padding: 0;
+  background-color: transparent;
+  background-image: none;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+button:focus, button:focus-visible {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+button:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input {
+  background-color: transparent;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: var(--vt-c-text-3);
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: var(--vt-c-text-3);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--vt-c-text-3);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+textarea {
+  resize: vertical;
+}
+
+select {
+  -webkit-appearance: none;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

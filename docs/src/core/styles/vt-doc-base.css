@@ -1,0 +1,267 @@
+.vt-doc {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.vt-doc h1,
+.vt-doc h2,
+.vt-doc h3,
+.vt-doc h4,
+.vt-doc h5,
+.vt-doc h6 {
+  position: relative;
+  font-weight: 600;
+  line-height: 1.5;
+  outline: none;
+}
+
+.vt-doc h1 {
+  margin: 0 0 3rem;
+  font-size: 38px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.vt-doc h2 {
+  margin: 4rem 0 1.8rem;
+  border-top: 1px solid var(--vt-c-divider-light);
+  padding-top: 1.8rem;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .vt-doc h1 {
+    font-size: 32px;
+    margin-bottom: 1.8rem;
+  }
+  .vt-doc h1 + h2 {
+    margin-top: 36px;
+  }
+}
+
+.vt-doc h3 {
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  margin: 3rem 0 1.25rem;
+}
+
+.vt-doc h2 + h3 {
+  margin-top: 0;
+}
+
+.vt-doc h4 {
+  font-size: 17px;
+  margin: 1.8rem 0 1rem;
+}
+
+.vt-doc .header-anchor {
+  float: left;
+  margin-left: -0.87em;
+  padding-right: 0.23em;
+  font-weight: 500;
+  opacity: 0;
+  transition: color 0.25s, opacity 0.25s;
+}
+
+.vt-doc h1:hover .header-anchor,
+.vt-doc h1 .header-anchor:focus,
+.vt-doc h2:hover .header-anchor,
+.vt-doc h2 .header-anchor:focus,
+.vt-doc h3:hover .header-anchor,
+.vt-doc h3 .header-anchor:focus,
+.vt-doc h4:hover .header-anchor,
+.vt-doc h4 .header-anchor:focus,
+.vt-doc h5:hover .header-anchor,
+.vt-doc h5 .header-anchor:focus,
+.vt-doc h6:hover .header-anchor,
+.vt-doc h6 .header-anchor:focus {
+  opacity: 1;
+}
+
+.vt-doc hr {
+  border: none;
+  border-top: 1px solid var(--vt-c-divider-light);
+  margin: 1.8rem 0;
+}
+
+.vt-doc p,
+.vt-doc ul,
+.vt-doc ol,
+.vt-doc summary {
+  margin-bottom: 1.2em;
+}
+
+.vt-doc a {
+  font-weight: 500;
+  color: var(--vt-c-brand);
+  transition: color 0.25s;
+  text-decoration-style: dotted;
+}
+
+.vt-doc a:hover {
+  color: var(--vt-c-brand-highlight);
+}
+
+.vt-doc strong {
+  font-weight: 600;
+}
+
+.vt-doc table {
+  display: block;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.vt-doc tr {
+  border-top: 1px solid var(--vt-c-divider);
+  transition: background-color 0.5s;
+}
+
+.vt-doc tr:nth-child(2n) {
+  background-color: var(--vt-c-bg-soft);
+}
+
+.vt-doc th,
+.vt-doc td {
+  border: 1px solid var(--vt-c-divider);
+  padding: 0.6em 1em;
+}
+
+.vt-doc blockquote {
+  margin: 1rem 0;
+  border-left: 0.2rem solid var(--vt-c-divider);
+  padding-left: 1rem;
+  transition: border-color 0.5s;
+}
+
+.vt-doc blockquote > p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--vt-c-text-2);
+  transition: color 0.5s;
+}
+
+.vt-doc figure {
+  margin: 0;
+}
+
+.vt-doc img {
+  max-width: 100%;
+}
+
+.vt-doc p > img {
+  margin: 28px auto;
+}
+
+.vt-doc ol {
+  counter-reset: item;
+}
+.vt-doc ol[start='2'] {
+  counter-reset: item 1;
+}
+.vt-doc ol[start='3'] {
+  counter-reset: item 2;
+}
+.vt-doc ol[start='4'] {
+  counter-reset: item 3;
+}
+.vt-doc ol[start='5'] {
+  counter-reset: item 4;
+}
+.vt-doc ol[start='6'] {
+  counter-reset: item 5;
+}
+.vt-doc ol[start='7'] {
+  counter-reset: item 6;
+}
+.vt-doc ol[start='8'] {
+  counter-reset: item 7;
+}
+.vt-doc ol[start='9'] {
+  counter-reset: item 8;
+}
+.vt-doc ol[start='10'] {
+  counter-reset: item 9;
+}
+
+.vt-doc ol > li {
+  counter-increment: item;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.vt-doc ol > li:before {
+  position: absolute;
+  left: 2px;
+  top: 1px;
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--vt-c-text-3);
+  content: counter(item) '.';
+}
+
+@media (min-width: 768px) {
+  .vt-doc ol > li:before {
+    top: 2px;
+  }
+}
+
+.vt-doc li {
+  position: relative;
+  margin: 1px 0;
+}
+
+.vt-doc ul {
+  padding-left: 1.25rem;
+}
+
+.vt-doc ul > li:before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--vt-c-text-3);
+  transition: background-color 0.5s;
+  left: -1.25rem;
+  top: 0.75rem;
+}
+
+.vt-doc .video::before {
+  display: block;
+  content: '';
+  padding-top: 56.25%;
+}
+
+.vt-doc .video {
+  overflow: hidden;
+  width: calc(100% + 48px);
+  min-width: 415px;
+  position: relative;
+  margin: 0 -24px 18px;
+}
+
+.vt-doc .video-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (min-width: 640px) {
+  .vt-doc .video {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 463px) {
+  .vt-doc .video {
+    width: 100%;
+    margin: 0 calc((100vw - 463px) / 2) 18px;
+  }
+}
