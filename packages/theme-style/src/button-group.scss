@@ -15,6 +15,22 @@
     border-radius: 0;
   }
 }
-.f-button-group.f-button-group-vertical {
-  
+
+.f-button-group-vertical {
+  display: inline-flex;
+  flex-direction: column;
+
+  .f-button:first-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .f-button:last-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  .f-button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
 }
