@@ -1,14 +1,11 @@
-<script lang="ts" setup>
-import { useData } from 'vitepress'
-import { VTLink } from '../../core'
-
-const { theme } = useData()
-</script>
-
 <template>
   <div class="VPFooter">
     <p v-if="theme.footer?.license" class="license">
-      Released under the <VTLink class="link" :href="theme.footer.license.link" no-icon>{{ theme.footer.license.text }}</VTLink>.
+      Released under the
+      <VTLink class="link" :href="theme.footer.license.link" no-icon>{{
+        theme.footer.license.text
+      }}</VTLink
+      >.
     </p>
 
     <p v-if="theme.footer?.copyright" class="copyright">
@@ -16,6 +13,13 @@ const { theme } = useData()
     </p>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { useData } from 'vitepress'
+import { VTLink } from '../../core'
+
+const { theme } = useData()
+</script>
 
 <style scoped>
 .VPFooter {

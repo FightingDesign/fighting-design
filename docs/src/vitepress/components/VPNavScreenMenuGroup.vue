@@ -1,25 +1,3 @@
-<script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { VTIconPlus, MenuItemChild } from '../../core'
-import VPNavScreenMenuGroupLink from './VPNavScreenMenuGroupLink.vue'
-import VPNavScreenMenuGroupSection from './VPNavScreenMenuGroupSection.vue'
-
-const props = defineProps<{
-  text: string
-  items: MenuItemChild[]
-}>()
-
-const isOpen = ref(false)
-
-const groupId = computed(() =>
-  `NavScreenGroup-${props.text.replace(' ', '-').toLowerCase()}`
-)
-
-function toggle() {
-  isOpen.value = !isOpen.value
-}
-</script>
-
 <template>
   <div class="VPNavScreenMenuGroup" :class="{ open: isOpen }">
     <button
@@ -35,22 +13,38 @@ function toggle() {
     <div :id="groupId" class="items">
       <template v-for="item in items" :key="item.text">
         <div v-if="'link' in item" :key="item.text" class="item">
-          <VPNavScreenMenuGroupLink
-            :text="item.text"
-            :link="item.link"
-          />
+          <VPNavScreenMenuGroupLink :text="item.text" :link="item.link" />
         </div>
 
         <div v-else class="group">
-          <VPNavScreenMenuGroupSection
-            :text="item.text"
-            :items="item.items"
-          />
+          <VPNavScreenMenuGroupSection :text="item.text" :items="item.items" />
         </div>
       </template>
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { computed, ref } from 'vue'
+import { VTIconPlus, MenuItemChild } from '../../core'
+import VPNavScreenMenuGroupLink from './VPNavScreenMenuGroupLink.vue'
+import VPNavScreenMenuGroupSection from './VPNavScreenMenuGroupSection.vue'
+
+const props = defineProps<{
+  text: string
+  items: MenuItemChild[]
+}>()
+
+const isOpen = ref(false)
+
+const groupId = computed(
+  () => `NavScreenGroup-${props.text.replace(' ', '-').toLowerCase()}`
+)
+
+function toggle() {
+  isOpen.value = !isOpen.value
+}
+</script>
 
 <style scoped>
 .VPNavScreenMenuGroup {

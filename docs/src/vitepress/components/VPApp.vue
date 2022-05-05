@@ -1,46 +1,3 @@
-<script lang="ts" setup>
-import { VTBackdrop } from '../../core'
-import { useSidebar } from '../composables/sidebar'
-import VPNav from './VPNav.vue'
-import VPLocalNav from './VPLocalNav.vue'
-import VPSkipLink from './VPSkipLink.vue'
-import VPAnnouncer from './VPAnnouncer.vue'
-import VPSidebar from './VPSidebar.vue'
-import VPContent from './VPContent.vue'
-import { onMounted, onUnmounted, provide, watchEffect } from 'vue'
-
-const {
-  isOpen: isSidebarOpen,
-  open: openSidebar,
-  close: closeSidebar
-} = useSidebar()
-
-// A11y: cache the element that opened the Sidebar (the menu button)
-//   then focus that button again when Menu is closed with Escape key
-let triggerElement: HTMLButtonElement | undefined
-watchEffect(() => {
-  triggerElement = isSidebarOpen.value
-    ? (document.activeElement as HTMLButtonElement)
-    : undefined
-})
-
-const onEsacpe = (e: KeyboardEvent) => {
-  if (e.key === 'Escape' && isSidebarOpen.value) {
-    closeSidebar()
-    triggerElement?.focus()
-  }
-}
-
-onMounted(() => {
-  window.addEventListener('keyup', onEsacpe)
-})
-onUnmounted(() => {
-  window.removeEventListener('keyup', onEsacpe)
-})
-
-provide('close-sidebar', closeSidebar)
-</script>
-
 <template>
   <div class="VPApp">
     <VPSkipLink />
@@ -86,6 +43,49 @@ provide('close-sidebar', closeSidebar)
     <VPAnnouncer />
   </div>
 </template>
+
+<script lang="ts" setup>
+import { VTBackdrop } from '../../core'
+import { useSidebar } from '../composables/sidebar'
+import VPNav from './VPNav.vue'
+import VPLocalNav from './VPLocalNav.vue'
+import VPSkipLink from './VPSkipLink.vue'
+import VPAnnouncer from './VPAnnouncer.vue'
+import VPSidebar from './VPSidebar.vue'
+import VPContent from './VPContent.vue'
+import { onMounted, onUnmounted, provide, watchEffect } from 'vue'
+
+const {
+  isOpen: isSidebarOpen,
+  open: openSidebar,
+  close: closeSidebar
+} = useSidebar()
+
+// A11y: cache the element that opened the Sidebar (the menu button)
+//   then focus that button again when Menu is closed with Escape key
+let triggerElement: HTMLButtonElement | undefined
+watchEffect(() => {
+  triggerElement = isSidebarOpen.value
+    ? (document.activeElement as HTMLButtonElement)
+    : undefined
+})
+
+const onEsacpe = (e: KeyboardEvent) => {
+  if (e.key === 'Escape' && isSidebarOpen.value) {
+    closeSidebar()
+    triggerElement?.focus()
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keyup', onEsacpe)
+})
+onUnmounted(() => {
+  window.removeEventListener('keyup', onEsacpe)
+})
+
+provide('close-sidebar', closeSidebar)
+</script>
 
 <style scoped>
 .VPApp {

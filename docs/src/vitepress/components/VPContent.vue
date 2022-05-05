@@ -1,22 +1,5 @@
-<script lang="ts" setup>
-import { useData, useRoute } from 'vitepress'
-import { useSidebar } from '../composables/sidebar'
-import VPContentPage from './VPContentPage.vue'
-import VPContentDoc from './VPContentDoc.vue'
-import VPNotFound from './VPNotFound.vue'
-
-const route = useRoute()
-const { frontmatter } = useData()
-const { hasSidebar } = useSidebar()
-
-</script>
-
 <template>
-  <div
-    id="VPContent"
-    class="VPContent"
-    :class="{ 'has-sidebar': hasSidebar }"
-  >
+  <div id="VPContent" class="VPContent" :class="{ 'has-sidebar': hasSidebar }">
     <VPNotFound v-if="route.component === VPNotFound" />
     <VPContentPage v-else-if="!!frontmatter.page">
       <template #footer-before><slot name="footer-before" /></template>
@@ -31,6 +14,18 @@ const { hasSidebar } = useSidebar()
     </VPContentDoc>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { useData, useRoute } from 'vitepress'
+import { useSidebar } from '../composables/sidebar'
+import VPContentPage from './VPContentPage.vue'
+import VPContentDoc from './VPContentDoc.vue'
+import VPNotFound from './VPNotFound.vue'
+
+const route = useRoute()
+const { frontmatter } = useData()
+const { hasSidebar } = useSidebar()
+</script>
 
 <style scoped>
 @media (max-width: 768px) {

@@ -1,3 +1,19 @@
+<template>
+  <transition
+    name="fade"
+    @enter="lockBodyScroll"
+    @after-leave="unlockBodyScroll"
+  >
+    <div v-if="open" class="VPNavScreen" ref="screen">
+      <div class="container">
+        <VPNavScreenMenu class="menu" />
+        <VPNavScreenAppearance class="appearance" />
+        <VPNavScreenSocialLinks class="social-links" />
+      </div>
+    </div>
+  </transition>
+</template>
+
 <script setup lang="ts">
 import { ref } from 'vue'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
@@ -19,22 +35,6 @@ function unlockBodyScroll() {
   clearAllBodyScrollLocks()
 }
 </script>
-
-<template>
-  <transition
-    name="fade"
-    @enter="lockBodyScroll"
-    @after-leave="unlockBodyScroll"
-  >
-    <div v-if="open" class="VPNavScreen" ref="screen">
-      <div class="container">
-        <VPNavScreenMenu class="menu" />
-        <VPNavScreenAppearance class="appearance" />
-        <VPNavScreenSocialLinks class="social-links" />
-      </div>
-    </div>
-  </transition>
-</template>
 
 <style scoped>
 .VPNavScreen {

@@ -1,12 +1,3 @@
-<script lang="ts" setup>
-import { useConfig } from '../composables/config'
-import VPNavBarMenuLink from './VPNavBarMenuLink.vue'
-import VPNavBarMenuGroup from './VPNavBarMenuGroup.vue'
-
-const { config } = useConfig()
-console.log(config.value.nav)
-</script>
-
 <template>
   <nav
     v-if="config.nav"
@@ -22,6 +13,14 @@ console.log(config.value.nav)
     </template>
   </nav>
 </template>
+
+<script lang="ts" setup>
+import { useConfig } from '../composables/config'
+import VPNavBarMenuLink from './VPNavBarMenuLink.vue'
+import VPNavBarMenuGroup from './VPNavBarMenuGroup.vue'
+
+const { config } = useConfig()
+</script>
 
 <style scoped>
 .VPNavBarMenu {
