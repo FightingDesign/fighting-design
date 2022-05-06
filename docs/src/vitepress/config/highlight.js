@@ -6,7 +6,7 @@ const htmlEscapes = {
   "'": '&#39;'
 }
 
-function escapeHtml(html) {
+function escapeHtml (html) {
   return html.replace(/[&<>"']/g, (chr) => htmlEscapes[chr])
 }
 
