@@ -1,6 +1,6 @@
 <template>
   <div v-if="config.appearance" class="VPNavScreenAppearance">
-    <p class="text">Appearance</p>
+    <p class="text">换个主题</p>
     <VTSwitchAppearance />
   </div>
 </template>

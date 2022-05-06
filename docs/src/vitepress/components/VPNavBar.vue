@@ -1,12 +1,14 @@
 <template>
   <div class="VPNavBar">
     <div class="container">
+      <!-- 左侧 logo 和 title -->
       <VPNavBarTitle>
         <template #navbar-title>
           <slot name="navbar-title" />
         </template>
       </VPNavBarTitle>
       <div class="content">
+        <!-- <VPNavBarSearch class="search" /> -->
         <VPNavBarMenu class="menu" />
         <VPNavBarAppearance class="appearance" />
         <VPNavBarSocialLinks class="social-links" />
@@ -28,6 +30,7 @@ import VPNavBarAppearance from './VPNavBarAppearance.vue'
 import VPNavBarSocialLinks from './VPNavBarSocialLinks.vue'
 import VPNavBarExtra from './VPNavBarExtra.vue'
 import VPNavBarHamburger from './VPNavBarHamburger.vue'
+// import VPNavBarSearch from './VPNavBarSearch.vue'
 
 defineProps<{
   isScreenOpen: boolean

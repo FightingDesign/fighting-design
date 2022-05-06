@@ -36,13 +36,18 @@ const closeSideBar = inject('close-sidebar') as () => void
 
 .link:hover .link-text {
   color: var(--vt-c-brand-text-1);
-  transition: color 0.25s;
+  transition: 0.25s;
 }
 
 .link.active .link-text {
   font-weight: 600;
-  color: var(--vt-c-brand);
-  transition: color 0.25s;
+  color: #2d5af1;
+  background: rgba(45, 90, 241, 0.1);
+  display: block;
+  padding: 6px 10px;
+  transition: 0.25s;
+  border-left: 4px solid #2d5af1;
+  border-radius: 4px;
 }
 
 .link-text {

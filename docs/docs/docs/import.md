@@ -1,16 +1,8 @@
-# 快速上手
-
-## 安装
-
-推荐使用 npm 的方式安装
-
-```shell
-npm install fighting-design --save
-```
+# 引入使用
 
 ## 完整引入
 
-在 main.js 中引入下面内容
+在 `main.js` 中引入下面内容
 
 ```js
 import { createApp } from 'vue'
