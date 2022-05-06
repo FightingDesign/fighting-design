@@ -25,7 +25,6 @@ export default (async () => {
       nav,
       sidebar,
       darkMode: true,
-
       socialLinks: [
         { icon: 'github', link: 'https://github.com/tyh2001/fighting-design' },
       ],

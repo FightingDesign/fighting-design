@@ -11,9 +11,9 @@
       <span id="sidebar-aria-label" class="visually-hidden">
         Sidebar Navigation
       </span>
-      <!-- <div v-for="(group, index) in sidebar" :key="index" class="group">
+      <div v-for="(group, index) in sidebar" :key="index" class="group">
         <VPSidebarGroup :text="group.text" :items="group.items" />
-      </div> -->
+      </div>
       <slot name="bottom" />
     </nav>
   </aside>
@@ -26,7 +26,7 @@ import VPSidebarGroup from './VPSidebarGroup.vue'
 
 const { sidebar, hasSidebar } = useSidebar()
 
-console.log(sidebar.value)
+console.log(sidebar.value, '----------------')
 
 const props = defineProps<{
   open: boolean
