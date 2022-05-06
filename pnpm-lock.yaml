@@ -34,26 +34,13 @@ importers:
 
   docs:
     specifiers:
-      '@docsearch/css': ^3.0.0-alpha.41
-      '@docsearch/js': ^3.0.0-alpha.41
-      '@types/body-scroll-lock': ^2.6.1
-      '@types/estree': ^0.0.48
       '@vueuse/core': ^7.3.0
-      body-scroll-lock: ^3.1.5
-      normalize.css: ^8.0.1
       shiki: ^0.9.15
       vitepress: 0.22.3
     dependencies:
-      '@docsearch/css': 3.0.0
-      '@docsearch/js': 3.0.0
       '@vueuse/core': 7.7.1_vue@3.2.33
-      body-scroll-lock: 3.1.5
-      normalize.css: 8.0.1
       shiki: 0.9.15
       vitepress: 0.22.3_sass@1.50.1
-    devDependencies:
-      '@types/body-scroll-lock': 2.6.2
-      '@types/estree': 0.0.48
 
   packages/components:
     specifiers: {}
@@ -844,10 +831,6 @@ packages:
       '@babel/types': 7.17.10
     dev: false
 
-  /@types/body-scroll-lock/2.6.2:
-    resolution: {integrity: sha512-PhoQPbwPYspXqf7lkwtF7aJzAwL88t+9E/e0b2X84tlHpU8ZuS9UNnLtkT0XhyZJYHpET5qRfIdZ0HBIxuc7HQ==}
-    dev: true
-
   /@types/chai-subset/1.3.3:
     resolution: {integrity: sha512-frBecisrNGz+F4T6bcc+NLeolfiojh5FxW2klu669+8BARtyQv2C/GkNW6FUodVe4BroGMP/wER/YDGc7rEllw==}
     dependencies:
@@ -857,10 +840,6 @@ packages:
   /@types/chai/4.3.1:
     resolution: {integrity: sha512-/zPMqDkzSZ8t3VtxOa4KPq7uzzW978M9Tvh+j7GHKuo6k6GTLxPJ4J5gE5cjfJ26pnXst0N5Hax8Sr0T2Mi9zQ==}
     dev: false
-
-  /@types/estree/0.0.48:
-    resolution: {integrity: sha512-LfZwXoGUDo0C3me81HXgkBg5CTQYb6xzEl+fNmbO4JdRiSKQ8A0GD1OBBvKAIsbCUgoyAty7m99GqqMQe784ew==}
-    dev: true
 
   /@types/graceful-fs/4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
@@ -1223,10 +1202,6 @@ packages:
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
-    dev: false
-
-  /body-scroll-lock/3.1.5:
-    resolution: {integrity: sha512-Yi1Xaml0EvNA0OYWxXiYNqY24AfWkbA6w5vxE7GWxtKfzIbZM+Qw+aSmkgsbWzbHiy/RCSkUZBplVxTA+E4jJg==}
     dev: false
 
   /brace-expansion/1.1.11:
@@ -2585,10 +2560,6 @@ packages:
   /normalize-path/3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
-    dev: false
-
-  /normalize.css/8.0.1:
-    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
     dev: false
 
   /npm-run-path/4.0.1:

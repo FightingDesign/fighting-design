@@ -1,4 +1,4 @@
-@import 'normalize.css';
+@import './normalize.css';
 @import './variables.css';
 @import './base.css';
 @import './vt-backdrop.css';

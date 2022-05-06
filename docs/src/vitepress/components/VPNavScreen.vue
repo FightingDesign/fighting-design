@@ -1,9 +1,5 @@
 <template>
-  <transition
-    name="fade"
-    @enter="lockBodyScroll"
-    @after-leave="unlockBodyScroll"
-  >
+  <transition name="fade">
     <div v-if="open" class="VPNavScreen" ref="screen">
       <div class="container">
         <VPNavScreenMenu class="menu" />
@@ -16,7 +12,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import VPNavScreenMenu from './VPNavScreenMenu.vue'
 import VPNavScreenAppearance from './VPNavScreenAppearance.vue'
 import VPNavScreenSocialLinks from './VPNavScreenSocialLinks.vue'
@@ -26,14 +21,6 @@ defineProps<{
 }>()
 
 const screen = ref<HTMLElement | null>(null)
-
-function lockBodyScroll() {
-  disableBodyScroll(screen.value!, { reserveScrollBarGap: true })
-}
-
-function unlockBodyScroll() {
-  clearAllBodyScrollLocks()
-}
 </script>
 
 <style scoped>
