@@ -15,7 +15,7 @@
     </p>
 
     <div class="action">
-      <a href="/components/install.html">
+      <a href="/docs/install.html">
         <f-button type="primary" size="large">开始使用</f-button>
       </a>
       <f-button class="code" size="large" blob text>

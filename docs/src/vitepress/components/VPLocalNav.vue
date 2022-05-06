@@ -15,8 +15,9 @@
       class="top-link"
       href="#"
       @click="scrollToTop"
-      >Return to top</a
     >
+      Top
+    </a>
   </div>
 </template>
 
