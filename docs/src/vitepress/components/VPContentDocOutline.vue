@@ -14,7 +14,7 @@
           :key="index"
           v-show="!hidden"
         >
-          <a class="outline-link" :href="link" @click="handleClick">
+          <a class="outline-link" :href="link">
             {{ text }}
           </a>
           <ul v-if="children && frontmatter.outline === 'deep'">
@@ -23,12 +23,9 @@
               v-show="!hidden"
               :key="index"
             >
-              <a
-                class="outline-link nested"
-                :href="link"
-                @click="handleClick"
-                >{{ text }}</a
-              >
+              <a class="outline-link nested" :href="link">
+                {{ text }}
+              </a>
             </li>
           </ul>
         </li>
@@ -55,12 +52,6 @@ const filteredHeaders = computed(() => {
       })
     : page.value.headers
 })
-
-const handleClick = ({ target: el }: Event) => {
-  const id = '#' + (el as HTMLAnchorElement).href!.split('#')[1]
-  const heading = document.querySelector(id) as HTMLAnchorElement
-  heading?.focus()
-}
 </script>
 
 <style scoped>

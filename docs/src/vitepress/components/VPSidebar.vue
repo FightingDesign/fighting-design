@@ -8,9 +8,7 @@
   >
     <nav id="VPSidebarNav" aria-labelledby="sidebar-aria-label" tabindex="-1">
       <slot name="top" />
-      <span id="sidebar-aria-label" class="visually-hidden">
-        Sidebar Navigation
-      </span>
+      <span id="sidebar-aria-label" class="visually-hidden">侧栏导航</span>
       <div v-for="(group, index) in sidebar" :key="index" class="group">
         <VPSidebarGroup :text="group.text" :items="group.items" />
       </div>
@@ -25,8 +23,6 @@ import { useSidebar } from '../composables/sidebar'
 import VPSidebarGroup from './VPSidebarGroup.vue'
 
 const { sidebar, hasSidebar } = useSidebar()
-
-console.log(sidebar.value, '----------------')
 
 const props = defineProps<{
   open: boolean
