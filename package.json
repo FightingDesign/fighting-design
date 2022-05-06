@@ -9,6 +9,7 @@
     "start": "pnpm run -C start dev",
     "dev:docs": "pnpm run -C docs dev",
     "build:docs": "pnpm run -C docs build",
+    "serve:docs": "pnpm run -C docs serve",
     "build": "pnpm run build:theme && pnpm run build:component",
     "build:theme": "pnpm --filter packages/theme-style run build --parallel",
     "build:component": "vite build packages/fighting-design",
