@@ -14,7 +14,6 @@ export const useSidebar = () => {
     const sidebarConfig = config.value.sidebar
     const relativePath = route.data.relativePath
 
-    console.log(sidebarConfig)
     return sidebarConfig ? getSidebar(sidebarConfig, relativePath) : []
   })
 

@@ -28,7 +28,6 @@ const props = defineProps<{
   open: boolean
 }>()
 
-// A11y: Focus Nav element when menu has opened
 const navEl = ref<(Element & { focus(): void }) | null>(null)
 watchPostEffect(async () => {
   if (props.open) {
