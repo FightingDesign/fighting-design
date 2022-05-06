@@ -1,9 +1,3 @@
-<script lang="ts" setup>
-defineProps<{
-  active: boolean
-}>()
-</script>
-
 <template>
   <button
     type="button"
@@ -20,3 +14,9 @@ defineProps<{
     </span>
   </button>
 </template>
+
+<script lang="ts" setup>
+defineProps<{
+  active: boolean
+}>()
+</script>

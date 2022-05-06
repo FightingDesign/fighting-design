@@ -1,13 +1,3 @@
-<script lang="ts" setup>
-import { MenuItem, MenuItemChild } from '../types/menu'
-import VTMenuLink from './VTMenuLink.vue'
-import VTMenuGroup from './VTMenuGroup.vue'
-
-defineProps<{
-  items?: (MenuItem | MenuItemChild)[]
-}>()
-</script>
-
 <template>
   <div class="vt-menu">
     <div v-if="items" class="vt-menu-items">
@@ -20,3 +10,13 @@ defineProps<{
     <slot />
   </div>
 </template>
+
+<script lang="ts" setup>
+import { MenuItem, MenuItemChild } from '../types/menu'
+import VTMenuLink from './VTMenuLink.vue'
+import VTMenuGroup from './VTMenuGroup.vue'
+
+defineProps<{
+  items?: (MenuItem | MenuItemChild)[]
+}>()
+</script>

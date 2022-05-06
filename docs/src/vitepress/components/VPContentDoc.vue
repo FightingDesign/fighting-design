@@ -1,27 +1,3 @@
-<script lang="ts" setup>
-import { computed } from 'vue'
-import { useData } from 'vitepress'
-import VPContentDocOutline from './VPContentDocOutline.vue'
-import VPContentDocFooter from './VPContentDocFooter.vue'
-import type { Config } from '../config'
-import { VTLink, VTIconEdit } from '../../core'
-
-const { page, frontmatter, theme } = useData<Config>()
-
-const hashMatch = /#(\w+)$/
-
-const repoUrl = computed(() => {
-  const repo = theme.value.editLink?.repo || 'vuejs/docs'
-  const branch = repo.match(hashMatch)?.[1] || 'main'
-  return `https://github.com/${repo.split('#')[0]}/edit/${branch}/src/${page.value.relativePath}`
-})
-
-const pageClass = computed(() => {
-  const { relativePath } = page.value
-  return relativePath.slice(0, relativePath.indexOf('/'))
-})
-</script>
-
 <template>
   <div
     class="VPContentDoc"
@@ -47,7 +23,9 @@ const pageClass = computed(() => {
             v-if="theme.editLink && frontmatter.editLink !== false"
           >
             <VTIconEdit class="vt-icon" />
-            <VTLink :href="repoUrl" :no-icon="true">{{ theme.editLink.text }}</VTLink>
+            <VTLink :href="repoUrl" :no-icon="true">
+              {{ theme.editLink.text }}
+            </VTLink>
           </p>
         </main>
         <slot name="content-bottom" />
@@ -56,6 +34,32 @@ const pageClass = computed(() => {
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { computed } from 'vue'
+import { useData } from 'vitepress'
+import VPContentDocOutline from './VPContentDocOutline.vue'
+import VPContentDocFooter from './VPContentDocFooter.vue'
+import type { Config } from '../config'
+import { VTLink, VTIconEdit } from '../../core'
+
+const { page, frontmatter, theme } = useData<Config>()
+
+const hashMatch = /#(\w+)$/
+
+const repoUrl = computed(() => {
+  const repo = theme.value.editLink?.repo || 'vuejs/docs'
+  const branch = repo.match(hashMatch)?.[1] || 'main'
+  return `https://github.com/${repo.split('#')[0]}/edit/${branch}/src/${
+    page.value.relativePath
+  }`
+})
+
+const pageClass = computed(() => {
+  const { relativePath } = page.value
+  return relativePath.slice(0, relativePath.indexOf('/'))
+})
+</script>
 
 <style scoped>
 .VPContentDoc {

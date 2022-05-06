@@ -1,13 +1,3 @@
-<script lang="ts" setup>
-import { MenuItemChild } from '../types/menu'
-import VTMenuLink from './VTMenuLink.vue'
-
-defineProps<{
-  text?: string
-  items: MenuItemChild[]
-}>()
-</script>
-
 <template>
   <div class="vt-menu-group">
     <p v-if="text" class="vt-menu-group-title">{{ text }}</p>
@@ -17,3 +7,13 @@ defineProps<{
     </template>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { MenuItemChild } from '../types/menu'
+import VTMenuLink from './VTMenuLink.vue'
+
+defineProps<{
+  text?: string
+  items: MenuItemChild[]
+}>()
+</script>

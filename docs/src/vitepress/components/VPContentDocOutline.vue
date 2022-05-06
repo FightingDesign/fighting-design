@@ -1,29 +1,3 @@
-<script setup lang="ts">
-import { useData } from 'vitepress'
-import { resolveHeaders, useActiveAnchor } from '../composables/outline'
-import { computed, inject, ref } from 'vue'
-
-const { page, frontmatter } = useData()
-const container = ref()
-const marker = ref()
-useActiveAnchor(container, marker)
-
-const filterHeaders = inject('filter-headers', null) as any
-const filteredHeaders = computed(() => {
-  return filterHeaders
-    ? page.value.headers.map(h => {
-        return filterHeaders(h) ? h : Object.assign({}, h, { hidden: true })
-      })
-    : page.value.headers
-})
-
-const handleClick = ({ target: el }: Event) => {
-  const id = '#' + (el as HTMLAnchorElement).href!.split('#')[1]
-  const heading = document.querySelector(id) as HTMLAnchorElement
-  heading?.focus()
-}
-</script>
-
 <template>
   <div class="VPContentDocOutline" ref="container">
     <div class="outline-marker" ref="marker" />
@@ -62,6 +36,32 @@ const handleClick = ({ target: el }: Event) => {
     </nav>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useData } from 'vitepress'
+import { resolveHeaders, useActiveAnchor } from '../composables/outline'
+import { computed, inject, ref } from 'vue'
+
+const { page, frontmatter } = useData()
+const container = ref()
+const marker = ref()
+useActiveAnchor(container, marker)
+
+const filterHeaders = inject('filter-headers', null) as any
+const filteredHeaders = computed(() => {
+  return filterHeaders
+    ? page.value.headers.map(h => {
+        return filterHeaders(h) ? h : Object.assign({}, h, { hidden: true })
+      })
+    : page.value.headers
+})
+
+const handleClick = ({ target: el }: Event) => {
+  const id = '#' + (el as HTMLAnchorElement).href!.split('#')[1]
+  const heading = document.querySelector(id) as HTMLAnchorElement
+  heading?.focus()
+}
+</script>
 
 <style scoped>
 .VPContentDocOutline {

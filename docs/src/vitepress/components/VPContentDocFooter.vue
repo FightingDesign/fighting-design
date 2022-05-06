@@ -1,3 +1,27 @@
+<template>
+  <footer v-if="links.prev || links.next" class="VPContentDocFooter">
+    <a
+      v-if="links.prev"
+      class="prev-link"
+      :href="normalizeLink(links.prev.link)"
+    >
+      <span class="desc">
+        <VTIconChevronLeft class="vt-link-icon" />
+        Previous
+      </span>
+      <span class="title">{{ links.prev.text }} </span>
+    </a>
+    <a
+      v-if="links.next"
+      class="next-link"
+      :href="normalizeLink(links.next.link)"
+    >
+      <span class="desc">Next <VTIconChevronRight class="vt-link-icon" /></span>
+      <span class="title">{{ links.next.text }}</span>
+    </a>
+  </footer>
+</template>
+
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData } from 'vitepress'
@@ -15,7 +39,7 @@ const { page, theme } = useData()
 const links = computed(() => {
   const sidebar = getSidebar(theme.value.sidebar, page.value.relativePath)
   const candidates = getFlatSideBarLinks(sidebar)
-  const index = candidates.findIndex((link) =>
+  const index = candidates.findIndex(link =>
     isActive(page.value.relativePath, link.link)
   )
   return {
@@ -34,29 +58,6 @@ function getFlatSideBarLinks(sidebar: SidebarGroup[]): MenuItemWithLink[] {
   return links
 }
 </script>
-
-<template>
-  <footer v-if="links.prev || links.next" class="VPContentDocFooter">
-    <a
-      v-if="links.prev"
-      class="prev-link"
-      :href="normalizeLink(links.prev.link)"
-    >
-      <span class="desc"
-        ><VTIconChevronLeft class="vt-link-icon" /> Previous</span
-      >
-      <span class="title">{{ links.prev.text }} </span>
-    </a>
-    <a
-      v-if="links.next"
-      class="next-link"
-      :href="normalizeLink(links.next.link)"
-    >
-      <span class="desc">Next <VTIconChevronRight class="vt-link-icon" /></span>
-      <span class="title">{{ links.next.text }}</span>
-    </a>
-  </footer>
-</template>
 
 <style scoped>
 .VPContentDocFooter {

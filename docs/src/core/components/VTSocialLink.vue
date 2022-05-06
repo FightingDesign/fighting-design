@@ -1,3 +1,20 @@
+<template>
+  <a
+    class="vt-social-link"
+    :class="{
+      'is-small': size === 'small',
+      'is-medium': size === 'medium'
+    }"
+    :href="link"
+    :title="icon"
+    :target="target"
+    rel="noopener noreferrer"
+  >
+    <component :is="icons[icon]" class="vt-social-link-icon" />
+    <span class="visually-hidden">{{ icon }}</span>
+  </a>
+</template>
+
 <script lang="ts" setup>
 import { SocialLinkSize, SocialLinkIcon } from '../types/socialLink'
 import VTIconDiscord from './icons/VTIconDiscord.vue'
@@ -26,20 +43,3 @@ const icons = {
   languages: VTIconLanguages
 }
 </script>
-
-<template>
-  <a
-    class="vt-social-link"
-    :class="{
-      'is-small': size === 'small',
-      'is-medium': size === 'medium'
-    }"
-    :href="link"
-    :title="icon"
-    :target="target"
-    rel="noopener noreferrer"
-  >
-    <component :is="icons[icon]" class="vt-social-link-icon" />
-    <span class="visually-hidden">{{ icon }}</span>
-  </a>
-</template>
