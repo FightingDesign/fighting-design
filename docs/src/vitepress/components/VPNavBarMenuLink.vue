@@ -39,11 +39,7 @@ const { page } = useData()
   transition: color 0.25s;
 }
 
-.VPNavBarMenuLink.active {
-  border-bottom: 1px solid var(--vt-c-brand);
-}
-
 .VPNavBarMenuLink:hover {
-  color: var(--vt-c-brand);
+  color: #2d5af1;
 }
 </style>

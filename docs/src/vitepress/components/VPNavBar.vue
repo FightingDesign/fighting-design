@@ -40,7 +40,6 @@ defineProps<{
 <style scoped>
 .VPNavBar {
   position: relative;
-  border-bottom: 1px solid var(--vt-c-divider-light);
   padding: 0 12px 0 24px;
   height: var(--vt-nav-height);
   background-color: var(--vt-c-bg);

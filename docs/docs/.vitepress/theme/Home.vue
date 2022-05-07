@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <h3 class="title">
-      <img src="https://tianyuhao.cn/fighting/imgs/logo.png" />
+      <img src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg" />
       Fighting Design
     </h3>
     <h1 class="subtitle">一个用 TypeScript + Template 编写的 Vue3 组件库。</h1>

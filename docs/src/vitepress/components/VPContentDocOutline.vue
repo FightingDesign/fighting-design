@@ -92,7 +92,7 @@ const filteredHeaders = computed(() => {
 .outline-marker {
   opacity: 0;
   position: absolute;
-  background-color: var(--vt-c-green);
+  background-color: #2d5af1;
   border-radius: 4px;
   width: 4px;
   height: 20px;

@@ -1,6 +1,6 @@
 <template>
   <a class="VPNavBarTitle" href="/">
-    <img class="logo" src="https://tianyuhao.cn/fighting/imgs/logo.png" />
+    <img class="logo" src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg" />
     <span class="text">Fighting Design</span>
   </a>
 </template>
