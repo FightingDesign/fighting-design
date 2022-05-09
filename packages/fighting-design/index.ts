@@ -3,11 +3,11 @@ import { FButton } from '@fighting-design/components'
 import { FIcon } from '@fighting-design/components'
 import { FButtonGroup } from '@fighting-design/components'
 
-const components: object[] = [
+const components = [
   FButton,
   FButtonGroup,
   FIcon
-]
+] as const
 
 const install = (app: any) => {
   components.forEach((component: object) => {
@@ -18,7 +18,7 @@ const install = (app: any) => {
 const fightingDesign = {
   version,
   install
-}
+} as const
 
 export {
   FButton,
