@@ -38,7 +38,11 @@ import { Props, Emits } from './button'
 const prop = defineProps(Props)
 const emit = defineEmits(Emits)
 
-const onClick: Function = (evt: Event): void => {
+interface onClickInterface {
+  (evt: Event): void
+}
+
+const onClick: onClickInterface = (evt: Event): void => {
   if (prop.disabled || prop.loading) return
   if (prop.link) {
     window.open(prop.link, prop.target)
