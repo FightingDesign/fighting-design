@@ -19,10 +19,17 @@
     </p>
 
     <div class="action">
-      <a href="/docs/install.html">
+      <a href="/docs/install">
         <f-button type="primary" size="large">开始使用</f-button>
       </a>
-      <f-button class="code" size="large" blob text>
+      <f-button
+        class="code"
+        size="large"
+        blob
+        text
+        data-clipboard-text="npm i filling-design"
+        @click="copyCode('.code')"
+      >
         npm i filling-design
       </f-button>
     </div>
@@ -38,10 +45,41 @@
       </div>
     </div>
   </div>
-  <div class="footer"></div>
+  <div class="footer">
+    <div class="footer_box">
+      <div class="list">
+        <ul>
+          <h4>社区</h4>
+          <li v-for="(item, index) in community" :key="index">
+            <a target="_back" :href="item.link">{{ item.text }}</a>
+          </li>
+        </ul>
+        <ul>
+          <h4>关于我</h4>
+          <li v-for="(item, index) in my" :key="index">
+            <a target="_back" :href="item.link">{{ item.text }}</a>
+          </li>
+        </ul>
+        <ul>
+          <h4>关于我</h4>
+          <li v-for="(item, index) in works" :key="index">
+            <a target="_back" :href="item.link">{{ item.text }}</a>
+          </li>
+        </ul>
+        <ul>
+          <h4>帮助</h4>
+          <li v-for="(item, index) in help" :key="index">
+            <a target="_back" :href="item.link">{{ item.text }}</a>
+          </li>
+        </ul>
+      </div>
+      <p class="code">FightingDesign | 浙ICP备2021024540号-2</p>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
+import Clipboard from 'clipboard'
 const lists: string[] = [
   '更快的搭建',
   '更完善的组件',
@@ -50,6 +88,36 @@ const lists: string[] = [
   '更强的类型校验',
   '更合适的组件库'
 ]
+const collaborator: object[] = [
+  {
+    name: '田同学',
+    photo: 'https://avatars.githubusercontent.com/u/73180970?v=4',
+    url: 'https://github.com/Tyh2001'
+  }
+]
+// 社区
+const community = [
+  { text: 'Github', link: 'https://github.com/Tyh2001/fighting-design' },
+  { text: 'NPM', link: '' }
+]
+const my = [
+  { text: 'Tyh2001', link: 'https://tianyuhao.cn' },
+  { text: 'Blog', link: 'https://tianyuhao.cn/blpg' }
+]
+const works = [
+  { text: 'Tyh Ui', link: 'https://tianyuhao.cn/v3' },
+  { text: 'TsMango', link: 'https://tianyuhao.cn/mango' }
+]
+const help = [
+  {
+    text: '报告问题',
+    link: 'https://github.com/Tyh2001/fighting-design/issues'
+  }
+]
+const copyCode = (node: HTMLButtonElement): void => {
+  const clipboard = new Clipboard(node)
+  alert('复制成功')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -138,8 +206,35 @@ const lists: string[] = [
   }
 }
 .footer {
-  height: 400px;
   width: 100%;
   background: #24292f;
+  .footer_box {
+    max-width: 1200px;
+    margin: auto;
+    padding: 70px 50px;
+    box-sizing: border-box;
+    .list {
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+      user-select: none;
+      ul {
+        h4 {
+          font-weight: 600;
+          line-height: 36px;
+        }
+        li {
+          line-height: 36px;
+          cursor: pointer;
+        }
+      }
+    }
+    .code {
+      color: #fff;
+      margin-top: 50px;
+      text-align: center;
+      user-select: none;
+    }
+  }
 }
 </style>

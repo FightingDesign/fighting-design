@@ -9,6 +9,7 @@
   "dependencies": {
     "vitepress": "0.22.3",
     "@vueuse/core": "^7.3.0",
-    "shiki": "^0.9.15"
+    "shiki": "^0.9.15",
+    "clipboard": "^2.0.10"
   }
 }

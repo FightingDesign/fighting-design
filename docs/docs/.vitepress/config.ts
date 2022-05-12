@@ -13,7 +13,7 @@ export default (async () => {
         minify: false
       }
     },
-
+    title: 'Fighting Design',
     head: [
       ['link', { rel: 'icon', href: 'https://tianyuhao.cn/fighting/imgs/FightingDesign.svg' }]
     ],
