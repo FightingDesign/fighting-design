@@ -34,7 +34,7 @@
             :src="`https://tianyuhao.cn/fighting/imgs/home-${index + 1}.svg`"
           />
         </div>
-        <p>{{ list }}</p>
+        <p class="text">{{ list }}</p>
       </div>
     </div>
   </div>
@@ -55,12 +55,11 @@ const lists: string[] = [
 <style lang="scss" scoped>
 #home {
   max-width: 1200px;
-  border: 1px solid red;
   margin: auto;
   padding: 50px;
   .title {
     font-weight: 600;
-    font-size: 32px;
+    font-size: 26px;
     color: rgb(17, 24, 39);
     display: flex;
     align-items: center;
@@ -72,16 +71,19 @@ const lists: string[] = [
     }
   }
   .subtitle {
-    font-size: 25px;
+    margin-top: 10px;
+    font-size: 33px;
     font-weight: 700;
     color: rgb(17, 24, 39);
     transition: 0.3s;
     font-weight: 500;
+    line-height: 50px;
   }
   .content {
     transition: 0.3s;
-    margin-top: 40px;
+    margin-top: 30px;
     width: 75%;
+    line-height: 28px;
     color: rgb(121, 129, 136);
     strong {
       color: rgb(68, 68, 68);
@@ -102,6 +104,7 @@ const lists: string[] = [
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    user-select: none;
     .advantage_item {
       width: 50%;
       padding: 20px;
@@ -120,31 +123,17 @@ const lists: string[] = [
           transition: 0.3s;
         }
       }
-      h1 {
-        transition: 0.3s;
+      .text {
+        margin-top: 30px;
+        font-size: 20px;
+        color: #333;
       }
-    }
-  }
-  @media screen and (min-width: 1000px) {
-    h1 {
-      font-size: 2rem;
-    }
-    .subtitle {
-      font-size: 2.6rem;
-      transition: 0.3s;
     }
   }
   @media screen and (max-width: 800px) {
-    h1 {
-      font-size: 1.8rem;
-    }
-    .content {
-      font-size: 0.9rem;
-    }
-    .advantage {
-      h1 {
-        font-size: 1rem;
-      }
+    .advantage_item {
+      width: 100% !important;
+      margin-bottom: 20px;
     }
   }
 }
@@ -152,12 +141,5 @@ const lists: string[] = [
   height: 400px;
   width: 100%;
   background: #24292f;
-}
-</style>
-
-<style>
-.home-content {
-  max-width: 100% !important;
-  padding: 0px !important;
 }
 </style>
