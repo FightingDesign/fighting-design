@@ -1,7 +1,11 @@
 <template>
   <div id="home">
     <h3 class="title">
-      <img src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg" />
+      <img
+        class="logo"
+        src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg"
+        alt="FightingDesign Logo"
+      />
       Fighting Design
     </h3>
     <h1 class="subtitle">一个用 TypeScript + Template 编写的 Vue3 组件库。</h1>
@@ -51,28 +55,28 @@ const lists: string[] = [
 <style lang="scss" scoped>
 #home {
   max-width: 1200px;
+  border: 1px solid red;
   margin: auto;
-  padding: 0 1.5rem;
+  padding: 50px;
   .title {
     font-weight: 600;
     font-size: 32px;
     color: rgb(17, 24, 39);
-    line-height: 100px;
     display: flex;
     align-items: center;
     transition: 0.3s;
-    img {
+    .logo {
       width: 55px;
+      height: 55px;
       margin-right: 10px;
     }
-    .subtitle {
-      font-size: 4rem;
-      white-space: wrap;
-      line-height: 90px;
-      font-weight: 700;
-      color: rgb(17, 24, 39);
-      transition: 0.3s;
-    }
+  }
+  .subtitle {
+    font-size: 25px;
+    font-weight: 700;
+    color: rgb(17, 24, 39);
+    transition: 0.3s;
+    font-weight: 500;
   }
   .content {
     transition: 0.3s;
