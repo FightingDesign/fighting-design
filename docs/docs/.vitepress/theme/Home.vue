@@ -73,6 +73,22 @@
           </li>
         </ul>
       </div>
+      <!-- <a
+        v-for="(item, index) in collaborator"
+        target="_blank"
+        :href="item.url"
+        :key="index"
+      >
+        <div class="userBox">
+          <img
+            draggable="false"
+            class="myPhoto"
+            :src="item.photo"
+            alt="photo"
+          />
+          <span class="userName">{{ item.name }}</span>
+        </div>
+      </a> -->
       <p class="code">FightingDesign | 浙ICP备2021024540号-2</p>
     </div>
   </div>
@@ -98,11 +114,11 @@ const collaborator: object[] = [
 // 社区
 const community = [
   { text: 'Github', link: 'https://github.com/Tyh2001/fighting-design' },
-  { text: 'NPM', link: '' }
+  { text: 'NPM', link: 'https://github.com/Tyh2001/fighting-design' }
 ]
 const my = [
   { text: 'Tyh2001', link: 'https://tianyuhao.cn' },
-  { text: 'Blog', link: 'https://tianyuhao.cn/blpg' }
+  { text: 'Blog', link: 'https://tianyuhao.cn/blog' }
 ]
 const works = [
   { text: 'Tyh Ui', link: 'https://tianyuhao.cn/v3' },
@@ -216,7 +232,7 @@ const copyCode = (node: HTMLButtonElement): void => {
     .list {
       color: #fff;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       user-select: none;
       ul {
         h4 {
