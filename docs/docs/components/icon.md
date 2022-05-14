@@ -12,8 +12,7 @@
 <f-icon size="40px" icon="f-icon-editor" />
 <f-icon size="40px" icon="f-icon-email" />
 
-<details>
-<summary>显示代码</summary>
+::: details 显示代码
 
 ```html
 <f-icon size="40px" icon="f-icon-default-template" />
@@ -23,7 +22,7 @@
 <f-icon size="40px" icon="f-icon-email" />
 ```
 
-</details>
+:::
 
 ## Attributes
 

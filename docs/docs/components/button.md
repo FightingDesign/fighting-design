@@ -20,8 +20,7 @@
 <f-button simple type="warning">警告按钮</f-button>
 <f-button simple type="info">信息按钮</f-button>
 
-<details>
-<summary>显示代码</summary>
+::: details 显示代码
 
 ```html
 <f-button type="default">默认按钮</f-button>
@@ -39,7 +38,7 @@
 <f-button simple type="info">信息按钮</f-button>
 ```
 
-</details>
+:::
 
 ## 圆角按钮
 
@@ -61,8 +60,7 @@
 <f-button round simple type="warning">警告按钮</f-button>
 <f-button round simple type="info">信息按钮</f-button>
 
-<details>
-<summary>显示代码</summary>
+::: details 显示代码
 
 ```html
 <f-button round type="default">默认按钮</f-button>
@@ -80,7 +78,7 @@
 <f-button round simple type="info">信息按钮</f-button>
 ```
 
-</details>
+:::
 
 ## 禁用状态
 
@@ -104,8 +102,7 @@
 <f-button loading loadingIcon="f-icon-loading4" type="warning">警告按钮</f-button>
 <f-button loading loadingIcon="f-icon-loading5" type="info">信息按钮</f-button>
 
-<details>
-<summary>显示代码</summary>
+::: details 显示代码
 
 ```html
 <f-button disabled type="default">默认按钮</f-button>
@@ -116,22 +113,22 @@
 <f-button disabled type="info">信息按钮</f-button>
 
 <f-button loading type="default">默认按钮</f-button>
-<f-button loading loadingIcon="f-icon-loading1" type="primary"
-  >主要按钮</f-button
->
-<f-button loading loadingIcon="f-icon-loading2" type="success"
-  >成功按钮</f-button
->
-<f-button loading loadingIcon="f-icon-loading3" type="danger"
-  >危险按钮</f-button
->
-<f-button loading loadingIcon="f-icon-loading4" type="warning"
-  >警告按钮</f-button
->
+<f-button loading loadingIcon="f-icon-loading1" type="primary">
+  主要按钮
+</f-button>
+<f-button loading loadingIcon="f-icon-loading2" type="success">
+  成功按钮
+</f-button>
+<f-button loading loadingIcon="f-icon-loading3" type="danger">
+  危险按钮
+</f-button>
+<f-button loading loadingIcon="f-icon-loading4" type="warning">
+  警告按钮
+</f-button>
 <f-button loading loadingIcon="f-icon-loading5" type="info">信息按钮</f-button>
 ```
 
-</details>
+:::
 
 ## 不同尺寸
 
@@ -142,8 +139,7 @@
 <f-button size="small" type="danger">危险按钮</f-button>
 <f-button size="mini" type="warning">警告按钮</f-button>
 
-<details>
-<summary>显示代码</summary>
+::: details 显示代码
 
 ```html
 <f-button size="large" type="primary">主要按钮</f-button>
@@ -152,7 +148,7 @@
 <f-button size="mini" type="warning">警告按钮</f-button>
 ```
 
-</details>
+:::
 
 ## 文字按钮
 
@@ -174,8 +170,7 @@
 <f-button text border type="warning">警告按钮</f-button>
 <f-button text border type="info">信息按钮</f-button>
 
-<details>
-<summary>显示代码</summary>
+::: details 显示代码
 
 ```html
 <f-button text type="default">默认按钮</f-button>
@@ -193,7 +188,7 @@
 <f-button text border type="info">信息按钮</f-button>
 ```
 
-</details>
+:::
 
 ## 按钮组
 
@@ -216,8 +211,7 @@
   <f-button round type="primary">右边的</f-button>
 </f-button-group>
 
-<details>
-<summary>显示代码</summary>
+::: details 显示代码
 
 ```html
 <f-button-group>
@@ -233,7 +227,7 @@
 </f-button-group>
 ```
 
-</details>
+:::
 
 ## Button Attributes
 
