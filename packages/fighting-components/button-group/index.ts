@@ -5,3 +5,5 @@ import { install } from '@fighting-design/fighting-utils'
 install(FButtonGroup, FButtonGroup.name)
 
 export { FButtonGroup }
+
+export default FButtonGroup

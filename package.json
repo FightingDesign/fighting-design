@@ -8,9 +8,9 @@
   "scripts": {
     "start": "pnpm run -C start dev",
     "dev:docs": "pnpm run -C docs dev",
+    "build": "rollup -c build/rollup.config.ts",
     "build:docs": "pnpm run -C docs build",
     "serve:docs": "pnpm run -C docs serve",
-    "build": "pnpm run build:theme && pnpm run build:component",
     "build:theme": "pnpm --filter packages/theme-style run build --parallel",
     "build:component": "vite build packages/fighting-design",
     "test": "vitest"
@@ -24,6 +24,7 @@
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/test-utils": "2.0.0-rc.16",
     "jest": "^28.0.3",
+    "rollup": "^2.73.0",
     "rollup-plugin-typescript2": "^0.31.2",
     "rollup-plugin-vue": "^6.0.0",
     "sass": "^1.50.1",

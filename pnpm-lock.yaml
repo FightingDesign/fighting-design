@@ -12,6 +12,7 @@ importers:
       '@vitejs/plugin-vue': ^2.3.1
       '@vue/test-utils': 2.0.0-rc.16
       jest: ^28.0.3
+      rollup: ^2.73.0
       rollup-plugin-typescript2: ^0.31.2
       rollup-plugin-vue: ^6.0.0
       sass: ^1.50.1
@@ -24,12 +25,13 @@ importers:
       '@fighting-design/fighting-components': link:packages/fighting-components
       '@fighting-design/fighting-theme': link:packages/fighting-theme
       '@fighting-design/fighting-utils': link:packages/fighting-utils
-      '@rollup/plugin-node-resolve': 13.3.0
+      '@rollup/plugin-node-resolve': 13.3.0_rollup@2.73.0
       '@types/jest': 27.4.1
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.5+vue@3.2.33
       '@vue/test-utils': 2.0.0-rc.16_vue@3.2.33
       jest: 28.0.3
-      rollup-plugin-typescript2: 0.31.2_typescript@4.6.3
+      rollup: 2.73.0
+      rollup-plugin-typescript2: 0.31.2_rollup@2.73.0+typescript@4.6.3
       rollup-plugin-vue: 6.0.0
       sass: 1.50.1
       typescript: 4.6.3
@@ -794,21 +796,22 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.11
     dev: false
 
-  /@rollup/plugin-node-resolve/13.3.0:
+  /@rollup/plugin-node-resolve/13.3.0_rollup@2.73.0:
     resolution: {integrity: sha512-Lus8rbUo1eEcnS4yTFKLZrVumLPY+YayBdWXgFSHYhTT2iJbMhoaaBL3xl5NCdeRytErGr8tZ0L71BMRmnlwSw==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
       rollup: ^2.42.0
     dependencies:
-      '@rollup/pluginutils': 3.1.0
+      '@rollup/pluginutils': 3.1.0_rollup@2.73.0
       '@types/resolve': 1.17.1
       deepmerge: 4.2.2
       is-builtin-module: 3.1.0
       is-module: 1.0.0
       resolve: 1.22.0
+      rollup: 2.73.0
     dev: false
 
-  /@rollup/pluginutils/3.1.0:
+  /@rollup/pluginutils/3.1.0_rollup@2.73.0:
     resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
@@ -817,6 +820,7 @@ packages:
       '@types/estree': 0.0.39
       estree-walker: 1.0.1
       picomatch: 2.3.1
+      rollup: 2.73.0
     dev: false
 
   /@rollup/pluginutils/4.2.1:
@@ -2936,7 +2940,7 @@ packages:
       glob: 7.2.0
     dev: false
 
-  /rollup-plugin-typescript2/0.31.2_typescript@4.6.3:
+  /rollup-plugin-typescript2/0.31.2_rollup@2.73.0+typescript@4.6.3:
     resolution: {integrity: sha512-hRwEYR1C8xDGVVMFJQdEVnNAeWRvpaY97g5mp3IeLnzhNXzSVq78Ye/BJ9PAaUfN4DXa/uDnqerifMOaMFY54Q==}
     peerDependencies:
       rollup: '>=1.26.3'
@@ -2947,6 +2951,7 @@ packages:
       find-cache-dir: 3.3.2
       fs-extra: 10.1.0
       resolve: 1.22.0
+      rollup: 2.73.0
       tslib: 2.4.0
       typescript: 4.6.3
     dev: false
@@ -2969,8 +2974,8 @@ packages:
       estree-walker: 0.6.1
     dev: false
 
-  /rollup/2.70.2:
-    resolution: {integrity: sha512-EitogNZnfku65I1DD5Mxe8JYRUCy0hkK5X84IlDtUs+O6JRMpRciXTzyCUuX11b5L5pvjH+OmFXiQ3XjabcXgg==}
+  /rollup/2.73.0:
+    resolution: {integrity: sha512-h/UngC3S4Zt28mB3g0+2YCMegT5yoftnQplwzPqGZcKvlld5e+kT/QRmJiL+qxGyZKOYpgirWGdLyEO1b0dpLQ==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
@@ -3259,7 +3264,7 @@ packages:
       esbuild: 0.14.38
       postcss: 8.4.12
       resolve: 1.22.0
-      rollup: 2.70.2
+      rollup: 2.73.0
       sass: 1.50.1
     optionalDependencies:
       fsevents: 2.3.2

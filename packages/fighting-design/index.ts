@@ -1,4 +1,5 @@
-import { version } from './package.json'
+// import { version } from './package.json'
+import type { App } from 'vue'
 import { FButton } from '@fighting-design/fighting-components'
 import { FIcon } from '@fighting-design/fighting-components'
 import { FButtonGroup } from '@fighting-design/fighting-components'
@@ -9,14 +10,14 @@ const components = [
   FIcon
 ] as const
 
-const install = (app: any) => {
-  components.forEach((component: object) => {
+const install = (app: App) => {
+  components.forEach((component: any) => {
     app.use(component)
   })
 }
 
 const fightingDesign = {
-  version,
+  // version,
   install
 } as const
 
