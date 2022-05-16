@@ -1,5 +1,5 @@
 import fightingDesign from '../../../../packages/fighting-design/index'
-import '@fighting-design/theme-style'
+import '@fighting-design/fighting-theme'
 import './style/md.scss'
 import './style/vitepress.scss'
 import { VPTheme } from '../../../src/index'

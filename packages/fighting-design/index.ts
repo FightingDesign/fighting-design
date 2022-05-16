@@ -1,7 +1,7 @@
 import { version } from './package.json'
-import { FButton } from '@fighting-design/components'
-import { FIcon } from '@fighting-design/components'
-import { FButtonGroup } from '@fighting-design/components'
+import { FButton } from '@fighting-design/fighting-components'
+import { FIcon } from '@fighting-design/fighting-components'
+import { FButtonGroup } from '@fighting-design/fighting-components'
 
 const components = [
   FButton,

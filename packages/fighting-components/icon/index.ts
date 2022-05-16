@@ -1,6 +1,7 @@
 import FIcon from './src/icon.vue'
 
-import { install } from '@fighting-design/utils'
+import { install } from '@fighting-design/fighting-utils'
+
 
 install(FIcon, FIcon.name)
 

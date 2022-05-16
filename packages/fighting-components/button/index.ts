@@ -1,6 +1,6 @@
 import FButton from './src/button.vue'
 
-import { install } from '@fighting-design/utils'
+import { install } from '@fighting-design/fighting-utils'
 
 install(FButton, FButton.name)
 

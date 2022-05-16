@@ -4,9 +4,9 @@ importers:
 
   .:
     specifiers:
-      '@fighting-design/components': workspace:*
-      '@fighting-design/theme-style': workspace:*
-      '@fighting-design/utils': workspace:*
+      '@fighting-design/fighting-components': workspace:*
+      '@fighting-design/fighting-theme': workspace:*
+      '@fighting-design/fighting-utils': workspace:*
       '@rollup/plugin-node-resolve': ^13.3.0
       '@types/jest': ^27.4.1
       '@vitejs/plugin-vue': ^2.3.1
@@ -21,9 +21,9 @@ importers:
       vue: ^3.2.33
       vue-tsc: ^0.34.7
     dependencies:
-      '@fighting-design/components': link:packages/components
-      '@fighting-design/theme-style': link:packages/theme-style
-      '@fighting-design/utils': link:packages/utils
+      '@fighting-design/fighting-components': link:packages/fighting-components
+      '@fighting-design/fighting-theme': link:packages/fighting-theme
+      '@fighting-design/fighting-utils': link:packages/fighting-utils
       '@rollup/plugin-node-resolve': 13.3.0
       '@types/jest': 27.4.1
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.5+vue@3.2.33
@@ -50,16 +50,16 @@ importers:
       shiki: 0.9.15
       vitepress: 0.22.3_sass@1.50.1
 
-  packages/components:
+  packages/fighting-components:
     specifiers: {}
 
   packages/fighting-design:
     specifiers: {}
 
-  packages/theme-style:
+  packages/fighting-theme:
     specifiers: {}
 
-  packages/utils:
+  packages/fighting-utils:
     specifiers: {}
 
   start:
