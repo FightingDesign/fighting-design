@@ -1,4 +1,3 @@
-// import { version } from './package.json'
 import type { App } from 'vue'
 import { FButton } from '@fighting-design/fighting-components'
 import { FIcon } from '@fighting-design/fighting-components'
@@ -17,7 +16,6 @@ const install = (app: App) => {
 }
 
 const fightingDesign = {
-  // version,
   install
 } as const
 
