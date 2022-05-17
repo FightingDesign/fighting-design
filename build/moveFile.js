@@ -1,13 +1,7 @@
 // https://blog.csdn.net/qq_36213140/article/details/122326804
-// 导入fs模块
 const fs = require('fs')
-// import fs from 'fs'
-// 导入path模块
 const path = require('path')
-// import path from 'path'
-//把 src/style.css 复制到dist/目录下
 const dist = path.join(__dirname, '../dist')
-
 
 const fileList = [
   {
@@ -21,6 +15,10 @@ const fileList = [
   {
     file: './README.md',
     target: `${dist}/README.md`
+  },
+  {
+    file: './packages/fighting-theme/dist/style.css',
+    target: `${dist}/theme/index.css`
   }
 ]
 
@@ -40,18 +38,3 @@ function moveFile (list) {
     })
   })
 }
-
-// './src/style.css'
-// fs.readFile('./packages/fighting-components/index.ts', (err, data) => {
-//   //判断如果不存在dist目录，我们就创建一个dist目录
-//   if (!fs.existsSync(dist)) {
-//     fs.mkdirSync(dist)
-//   }
-//   fs.writeFile(`${dist}/index.ts`, data, (err) => {
-//     if (err) {
-//       throw err
-//     } else {
-//       console.log('写入成功')
-//     }
-//   })
-// })

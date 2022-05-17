@@ -11,7 +11,7 @@
   "scripts": {
     "start": "pnpm run -C start dev",
     "dev:docs": "pnpm run -C docs dev",
-    "build": "pnpm run build:components && pnpm run build:fighting",
+    "build": "pnpm build:style && pnpm build:components && pnpm move",
     "build:components": "rollup -c build/rollup.config.components.ts",
     "build:theme": "rollup -c build/rollup.config.theme.ts",
     "build:fighting": "rollup -c build/rollup.config.fighting.ts",
