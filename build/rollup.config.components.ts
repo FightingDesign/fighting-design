@@ -1,5 +1,5 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve' // 告诉 Rollup 如何查找外部模块 帮助寻找 node_modules里的包
-import typescript from 'rollup-plugin-typescript2' // 带有编译器错误的 TypeScript 稿汇总插件
+import typescript from 'rollup-plugin-typescript2' // 带有编译器错误的 TypeScript 插件 https://github.com/ezolenko/rollup-plugin-typescript2
 import vuePlugin from 'rollup-plugin-vue' // 处理 vue 文件 编译成js代码 https://www.npmjs.com/package/rollup-plugin-vue
 // 官方文档：https://rollup-plugin-vue.vuejs.org/
 import { readdirSync, statSync } from 'fs' // 读取目录的内容 读取文件 http://nodejs.cn/api-v16/fs.html#fs_fs_readdirsync_path_options
@@ -36,6 +36,7 @@ import json from '@rollup/plugin-json'
 // rollup-plugin-terser
 // 如果依赖模块中存在 es 模块，需要使用 @rollup/plugin-node-resolve 插件进行转换
 
+// const input = resolve(__dirname, '../packages') // 入口目录
 const input = resolve(__dirname, '../packages/fighting-components') // 入口目录
 const output = resolve(__dirname, '../dist/packages') // 出口目录
 
