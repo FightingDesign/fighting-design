@@ -40,10 +40,11 @@ const input = resolve(__dirname, '../packages/fighting-components') // 入口目
 const output = resolve(__dirname, '../dist/packages') // 出口目录
 
 const config = readdirSync(input)
-  .filter(name => !['env.d.ts', 'package.json', 'index.ts'].includes(name)) // 过滤不需要打包的文件
+  .filter(name => !['env.d.ts', 'package.json'].includes(name)) // 过滤不需要打包的文件
+  // .filter(name => !['env.d.ts', 'package.json', 'index.ts'].includes(name)) // 过滤不需要打包的文件
   .map(name => (
     {
-      input: `${input}/${name}/index.ts`, // 入口文件 要打包的文件源路径
+      input: name === 'index.ts' ? `${input}/index.ts` : `${input}/${name}/index.ts`, // 入口文件 要打包的文件源路径
       external: ['vue'], // 依赖模块 告诉 rollup 不要将此打包，而作为外部依赖
       // 插件列表 各种插件使用的配置
       plugins: [
@@ -63,10 +64,10 @@ const config = readdirSync(input)
       ],
       // 出口配置
       output: {
-        // name: 'index', // 包的全局变量名称 //当 format 为 iife 和 umd 时必须提供，将作为全局变量挂在 window (浏览器环境)下：window.A=...
-        file: `${output}/${name}/index.ts`, // 打包产生的文件目录和文件名
+        name: name === 'index.ts' ? 'FightingDesign' : '', // 包的全局变量名称 //当 format 为 iife 和 umd 时必须提供，将作为全局变量挂在 window (浏览器环境)下：window.A=...
+        file: name === 'index.ts' ? `${output}/index.js` : `${output}/${name}/index.js`, // 打包产生的文件目录和文件名
         // 如果在 html 中使用就改为 `iife`
-        format: 'es', // 文件输出的格式 "amd", "cjs", "system", "es", "iife" or "umd".
+        format: name === 'index.ts' ? 'iife' : 'es', // 文件输出的格式 "amd", "cjs", "system", "es", "iife" or "umd".
         // sourcemap: true  //生成 bundle.map.js 文件，方便调试,
         // globals: { https://rollupjs.org/guide/en/#outputdir
         //   jquery: '$'
@@ -75,28 +76,28 @@ const config = readdirSync(input)
     }
   ))
 
-config.push({
-  input: `${input}/index.ts`,
-  external: ['vue'],
-  plugins: [
-    nodeResolve(),
-    vuePlugin(),
-    typescript({
-      tsconfigOverride: {
-        compilerOptions: {
-          declaration: false
-        },
-        exclude: ['node_modules', 'examples', 'mobile', 'tests']
-      },
-      abortOnError: false,
-      clean: true
-    })
-  ],
-  output: {
-    name: 'FightingDesign',
-    file: '../dist/dist/index.js',
-    format: 'iife'
-  }
-})
+// config.push({
+//   input: `${input}/index.ts`,
+//   external: ['vue'],
+//   plugins: [
+//     nodeResolve(),
+//     vuePlugin(),
+//     typescript({
+//       tsconfigOverride: {
+//         compilerOptions: {
+//           declaration: false
+//         },
+//         exclude: ['node_modules', 'examples', 'mobile', 'tests']
+//       },
+//       abortOnError: false,
+//       clean: true
+//     })
+//   ],
+//   output: {
+//     name: 'FightingDesign',
+//     file: '../dist/dist/index.js',
+//     format: 'iife'
+//   }
+// })
 
 export default config
