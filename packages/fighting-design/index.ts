@@ -3,21 +3,17 @@ import { FButton } from '@fighting-design/fighting-components'
 import { FIcon } from '@fighting-design/fighting-components'
 import { FButtonGroup } from '@fighting-design/fighting-components'
 
-const components = [
+const components = {
   FButton,
   FButtonGroup,
   FIcon
-] as const
-
-const install = (app: App) => {
-  components.forEach((component: any) => {
-    app.use(component)
-  })
 }
 
-const fightingDesign = {
-  install
-} as const
+const install = (app: App): void => {
+  Object.entries(components).forEach(([key, value]) => {
+    app.component(key, value)
+  })
+}
 
 export {
   FButton,
@@ -25,4 +21,7 @@ export {
   FIcon
 }
 
-export default fightingDesign
+export default {
+  install,
+  ...components
+}

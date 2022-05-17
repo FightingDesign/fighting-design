@@ -11,12 +11,6 @@
     "ui"
   ],
   "main": "index.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/lib.es.js",
-      "require": "./dist/lib.umd.js"
-    }
-  },
   "author": {
     "name": "tyh2001",
     "url": "https://tianyuhao.cn"

@@ -5,6 +5,9 @@
     "docs",
     "start"
   ],
+  "engines": {
+    "node": ">= 16"
+  },
   "scripts": {
     "start": "pnpm run -C start dev",
     "dev:docs": "pnpm run -C docs dev",
@@ -40,8 +43,5 @@
     "vitest": "^0.10.0",
     "vue": "^3.2.33",
     "vue-tsc": "^0.34.7"
-  },
-  "engines": {
-    "node": ">= 16"
   }
 }
