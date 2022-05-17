@@ -11,13 +11,11 @@
   "scripts": {
     "start": "pnpm run -C start dev",
     "dev:docs": "pnpm run -C docs dev",
-    "build": "pnpm build:style && pnpm build:components && pnpm move",
-    "build:components": "rollup -c build/rollup.config.components.ts",
-    "build:theme": "rollup -c build/rollup.config.theme.ts",
-    "build:fighting": "rollup -c build/rollup.config.fighting.ts",
+    "build": "pnpm build:theme && pnpm build:components && pnpm move",
+    "build:components": "rollup -c build/rollup.config.ts",
+    "build:theme": "vite build packages/fighting-theme",
     "build:docs": "pnpm run -C docs build",
     "serve:docs": "pnpm run -C docs serve",
-    "build:style": "vite build packages/fighting-theme",
     "test": "vitest",
     "move": "node build/moveFile.js"
   },
