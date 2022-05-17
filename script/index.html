@@ -10,41 +10,32 @@
 
 <body>
   <div id="app">
-    <f-button type="default">默认按钮</f-button>
+    <!-- <f-button type="default">默认按钮</f-button>
     <f-button type="primary">主要按钮</f-button>
     <f-button type="success">成功按钮</f-button>
     <f-button type="danger">危险按钮</f-button>
     <f-button type="warning">警告按钮</f-button>
-    <f-button type="info">信息按钮</f-button>
+    <f-button type="info">信息按钮</f-button> -->
   </div>
 
-  <script src="./vue.js"></script>
-  <!-- <script src="./index.es.js"></script> -->
-  <script src="../dist/index.umd.js"></script>
+  <script src="./vue.global.js"></script>
+  <script src="../dist/dist/index.js"></script>
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@next"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@varlet/ui/umd/varlet.js"></script> -->
   <script>
     // const app = Vue.createApp()
     // // app.use(fightingDesign)
     // app.mount('#app')
 
-    const app = Vue.createApp({
-      template: `
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-      <f-button type="success">成功按钮</f-button>
-      <f-button type="danger">危险按钮</f-button>
-      <f-button type="warning">警告按钮</f-button>
-      <f-button type="info">信息按钮</f-button>
-      `
-    })
-    app.use(fightingDesign).mount('#app')
+    // const app = Vue.createApp()
+    // app.use(FightingDesign)
+    // app.mount('#app')
+    console.log(FightingDesign)
 
     // const app = Vue.createApp({
-    //   template: '<var-button>按钮</var-button>'
+    //   template: '<f-button type="danger">危险按钮</f-button>'
     // })
-    // app.use(Varlet).mount('#app')
+    // app.use(FightingDesign)
+    // app.mount('#app')
   </script>
 </body>
 
