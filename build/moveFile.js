@@ -2,6 +2,7 @@
 const fs = require('fs')
 const path = require('path')
 const dist = path.join(__dirname, '../dist')
+const theme = path.join(__dirname, '../dist/theme')
 
 const fileList = [
   {
@@ -18,7 +19,7 @@ const fileList = [
   },
   {
     file: './packages/fighting-theme/dist/style.css',
-    target: `${dist}/theme/index.css`
+    target: `${theme}/index.css`
   }
 ]
 
@@ -29,6 +30,7 @@ function moveFile (list) {
     if (!fs.existsSync(dist)) {
       fs.mkdirSync(dist)
     }
+    fs.mkdirSync(theme)
     fs.writeFile(list.target, data, err => {
       if (err) {
         throw err
