@@ -61,13 +61,13 @@ const config = readdirSync(input)
           abortOnError: false,
           clean: true // 清除每个构建上的缓存
         }),
-        postcss({
-          // 把 css 插入到 style 中
-          // inject: true,
-          // 把 css 放到和js同一目录
-          extract: true
-        }),
-        json()
+        // postcss({
+        //   // 把 css 插入到 style 中
+        //   // inject: true,
+        //   // 把 css 放到和js同一目录
+        //   extract: true
+        // }),
+        // json()
       ],
       // 出口配置
       output: {
