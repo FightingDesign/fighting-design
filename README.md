@@ -16,6 +16,12 @@
 
 ## :key: 安装
 
+使用 `pnpm` 安装
+
+```shell
+pnpm add fighting-design --save
+```
+
 使用 `npm` 安装
 
 ```shell
@@ -35,10 +41,10 @@ yarn add fighting-design --save
 ```ts
 import { createApp } from 'vue'
 import App from './App.vue'
-import fighting from 'fighting-design'
-import 'fighting-design/style/index.css'
+import FightingDesign from 'fighting-design'
+import 'fighting-design/theme/index.css'
 
-createApp(App).use(fighting).mount('#app')
+createApp(App).use(FightingDesign).mount('#app')
 ```
 
 ## 加入 Fighting Design
