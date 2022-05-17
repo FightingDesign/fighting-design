@@ -38,6 +38,7 @@ import { resolve } from 'path' // 生成的路径被规范化 http://nodejs.cn/a
 // const input = resolve(__dirname, '../packages') // 入口目录
 const input = resolve(__dirname, '../packages/fighting-components') // 入口目录
 const output = resolve(__dirname, '../dist/packages') // 出口目录
+const dist = resolve(__dirname, '../dist/dist') // 出口目录
 
 const config = readdirSync(input)
   .filter(name => !['env.d.ts', 'package.json'].includes(name)) // 过滤不需要打包的文件
@@ -65,7 +66,7 @@ const config = readdirSync(input)
       // 出口配置
       output: {
         name: name === 'index.ts' ? 'FightingDesign' : '', // 包的全局变量名称 //当 format 为 iife 和 umd 时必须提供，将作为全局变量挂在 window (浏览器环境)下：window.A=...
-        file: name === 'index.ts' ? `${output}/index.js` : `${output}/${name}/index.js`, // 打包产生的文件目录和文件名
+        file: name === 'index.ts' ? `${dist}/index.js` : `${output}/${name}/index.js`, // 打包产生的文件目录和文件名
         // 如果在 html 中使用就改为 `iife`
         format: name === 'index.ts' ? 'iife' : 'es', // 文件输出的格式 "amd", "cjs", "system", "es", "iife" or "umd".
         // sourcemap: true  //生成 bundle.map.js 文件，方便调试,

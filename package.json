@@ -18,7 +18,8 @@
     "build:docs": "pnpm run -C docs build",
     "serve:docs": "pnpm run -C docs serve",
     "build:style": "vite build packages/fighting-theme",
-    "test": "vitest"
+    "test": "vitest",
+    "move": "node build/moveFile.js"
   },
   "dependencies": {
     "@fighting-design/fighting-components": "workspace:*",
