@@ -93,8 +93,9 @@ config.push({
     })
   ],
   output: {
-    file: `${output}/index.ts`,
-    format: 'es'
+    name: 'FightingDesign',
+    file: '../dist/dist/index.js',
+    format: 'iife'
   }
 })
 
