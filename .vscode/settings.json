@@ -16,6 +16,7 @@
     "vitejs",
     "vitepress",
     "vitest",
-    "vuejs"
+    "vuejs",
+    "weixin"
   ]
 }
