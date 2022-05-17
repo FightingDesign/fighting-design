@@ -30,7 +30,9 @@ function moveFile (list) {
     if (!fs.existsSync(dist)) {
       fs.mkdirSync(dist)
     }
-    fs.mkdirSync(theme)
+    if (!fs.existsSync(theme)) {
+      fs.mkdirSync(theme)
+    }
     fs.writeFile(list.target, data, err => {
       if (err) {
         throw err
