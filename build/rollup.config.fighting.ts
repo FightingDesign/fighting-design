@@ -44,15 +44,15 @@ import typescript from 'rollup-plugin-typescript2'
 import vue from 'rollup-plugin-vue' // 处理vue文件
 import { resolve } from 'path'
 
-// const input = resolve(__dirname, '../packages/fighting-components') // 入口文件
-const input = resolve(__dirname, '../packages/test') // 入口文件
-const output = resolve(__dirname, '../lib') // 输出文件
+const input = resolve(__dirname, '../packages/fighting-components') // 入口文件
+// const input = resolve(__dirname, '../packages/test') // 入口文件
+const output = resolve(__dirname, '../dist/src') // 输出文件
 
 const config = {
   input: `${input}/index.ts`,
   output: {
     format: 'es',
-    file: `${output}/index.js`
+    file: `${output}/index.ts`
   },
   plugins: [
     terser(),
