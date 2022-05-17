@@ -1,4 +1,3 @@
-// https://blog.csdn.net/qq_36213140/article/details/122326804
 const fs = require('fs')
 const path = require('path')
 const dist = path.join(__dirname, '../dist')

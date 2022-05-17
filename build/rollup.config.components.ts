@@ -6,36 +6,7 @@ import { readdirSync } from 'fs' // 读取目录的内容 读取文件 http://no
 // fs扩展https://blog.csdn.net/weixin_43131046/article/details/122963741
 
 import { resolve } from 'path' // 生成的路径被规范化 http://nodejs.cn/api-v16/path.html#path_path_resolve_paths
-// import path from 'path'
-// import fs from 'fs'
-// 对代码进行压缩
-// import { terser } from 'rollup-plugin-terser'
-// https://www.npmjs.com/package/rollup-plugin-terser
 
-// import babel from 'rollup-plugin-babel' // rollup 的 babel 插件，ES6转ES5
-// import replace from 'rollup-plugin-replace' // 替换待打包文件里的一些变量，如process在浏览器端是不存在的，需要被替换
-// import commonjs from 'rollup-plugin-commonjs' // 将非ES6语法的包转为ES6可用
-// import uglify from 'rollup-plugin-uglify' // 压缩包
-
-// 还需要新增的包
-// https://www.npmjs.com/package/@rollup/plugin-json
-// import postcss from 'rollup-plugin-postcss'
-// import json from '@rollup/plugin-json'
-// import { terser } from 'rollup-plugin-terser'
-// import { nodeResolve } from '@rollup/plugin-node-resolve'
-
-
-/**
- * 入口（input）
-出口（output）
-插件（plugins）
- */
-
-// import css from 'rollup-plugin-css-only'
-// rollup-plugin-terser
-// 如果依赖模块中存在 es 模块，需要使用 @rollup/plugin-node-resolve 插件进行转换
-
-// const input = resolve(__dirname, '../packages') // 入口目录
 const input = resolve(__dirname, '../packages/fighting-components') // 入口目录
 const output = resolve(__dirname, '../dist/packages') // 出口目录
 const dist = resolve(__dirname, '../dist/dist') // 出口目录
@@ -76,29 +47,5 @@ const config = readdirSync(input)
       }
     }
   ))
-
-// config.push({
-//   input: `${input}/index.ts`,
-//   external: ['vue'],
-//   plugins: [
-//     nodeResolve(),
-//     vuePlugin(),
-//     typescript({
-//       tsconfigOverride: {
-//         compilerOptions: {
-//           declaration: false
-//         },
-//         exclude: ['node_modules', 'examples', 'mobile', 'tests']
-//       },
-//       abortOnError: false,
-//       clean: true
-//     })
-//   ],
-//   output: {
-//     name: 'FightingDesign',
-//     file: '../dist/dist/index.js',
-//     format: 'iife'
-//   }
-// })
 
 export default config
