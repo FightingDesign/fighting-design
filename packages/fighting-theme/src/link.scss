@@ -1,3 +1,37 @@
+@import '../global/theme.scss';
+
 .f-link {
   cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.f-link.f-link-,
+.f-link.f-link-default {
+  color: $textColor;
+}
+
+.f-link.f-link-primary {
+  color: $primary;
+}
+
+.f-link.f-link-success {
+  color: $success;
+}
+
+.f-link.f-link-danger {
+  color: $danger;
+}
+
+.f-link.f-link-warning {
+  color: $warning;
+}
+
+.f-link.f-link-info {
+  color: $info;
+}
+
+.f-link.f-link-prohibit {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

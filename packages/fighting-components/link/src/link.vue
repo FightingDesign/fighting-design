@@ -1,5 +1,16 @@
 <template>
-  <a :class="['f-link']" :href="href" @click="onClick">
+  <a
+    :class="[
+      'f-link',
+      `f-link-${type}`,
+      {
+        'f-link-prohibit': prohibit
+      }
+    ]"
+    :href="href"
+    :target="target"
+    @click="onClick"
+  >
     <slot />
   </a>
 </template>
@@ -12,6 +23,7 @@ const emit = defineEmits(Emits)
 
 const onClick = (e: Event) => {
   if (prop.prohibit) {
+    e.preventDefault()
     return
   }
   emit('click', e)
