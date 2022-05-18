@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.md)
 
+- 取消 props 一些默认值
+- 简化 props 写法
+
 ## 0.0.3 beta.3 (2022-05-18)
 
 - 修复按钮组件一些显示问题的样式
