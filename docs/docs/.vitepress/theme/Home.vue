@@ -161,6 +161,26 @@ const copyCode = (node: HTMLButtonElement): void => {
       width: 55px;
       height: 55px;
       margin-right: 10px;
+      animation: loading 5s linear infinite;
+      -webkit-animation: loading 5s linear infinite;
+      display: inline-block;
+      user-select: none;
+      transition: 0.5s;
+      cursor: pointer;
+      &:hover {
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    @keyframes loading {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
   }
   .subtitle {

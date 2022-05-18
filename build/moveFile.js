@@ -33,11 +33,7 @@ function moveFile (list) {
       fs.mkdirSync(theme)
     }
     fs.writeFile(list.target, data, err => {
-      if (err) {
-        throw err
-      } else {
-        console.log('写入成功')
-      }
+      if (err) throw err
     })
   })
 }

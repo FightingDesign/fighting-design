@@ -7,12 +7,11 @@
   </p>
 
   <p align="center">
-    <a href="https://www.npmjs.com/package/fighting-design" target="_back"><img src="https://badgen.net/npm/v/fighting-design" /></a>
-    <a href="https://fighting.tianyuhao.cn" target="_back"><img src="https://img.shields.io/badge/Fighting%20Design-Docs-brightgreen" /></a>
-    <a href="https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.md" target="_back"><img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-green" /></a>
+    <a href="https://www.npmjs.com/package/fighting-design"><img src="https://badgen.net/npm/v/fighting-design" /></a>
+    <a href="https://fighting.tianyuhao.cn"><img src="https://img.shields.io/badge/Fighting%20Design-Docs-brightgreen" /></a>
+    <a href="https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.md"><img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-green" /></a>
   </p>
 </p>
-
 
 ## ✨ 特性
 
