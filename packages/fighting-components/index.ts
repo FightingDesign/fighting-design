@@ -2,11 +2,13 @@ import type { App } from 'vue'
 import { FButton } from './button'
 import { FIcon } from './icon'
 import { FButtonGroup } from './button-group'
+import { FLink } from './link'
 
 const components = {
   FButton,
   FButtonGroup,
-  FIcon
+  FIcon,
+  FLink
 }
 
 const install = (app: App): void => {
@@ -18,7 +20,8 @@ const install = (app: App): void => {
 export {
   FButton,
   FButtonGroup,
-  FIcon
+  FIcon,
+  FLink
 }
 
 export default {

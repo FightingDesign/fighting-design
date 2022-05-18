@@ -11,13 +11,14 @@
   <f-icon size="40px" icon="f-icon-Daytimemode" />
   <f-icon size="40px" icon="f-icon-editor" />
   <f-icon size="40px" icon="f-icon-email" />
+  <br />
+  <f-link>链接</f-link>
 </template>
 
 <script lang="ts" setup>
 function change(e) {
   console.log(e)
 }
-
 </script>
 
 <style scoped></style>
