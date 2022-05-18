@@ -164,7 +164,6 @@ const iconLists = [
   'f-icon-pic-fill',
   'f-icon-manage-order-fill',
   'f-icon-play-fill',
-  'f-icon-multi-language-fill',
   'f-icon-prompt-fill',
   'f-icon-logistics-icon-fill',
   'f-icon-stop-fill',

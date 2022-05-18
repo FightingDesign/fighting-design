@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.md)
 
+- 修复按钮组件一些显示问题的样式
+- 删除了一个不显示的 icon
+
 ## 0.0.1 beta.1 (2022-05-17)
 
 - 新增 `FButton`、`FButtonGroup`、`FIcon` 组件
