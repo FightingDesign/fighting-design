@@ -6,6 +6,7 @@ $small: 31px;
 $mini: 27px;
 
 .f-button {
+  min-width: 40px;
   outline: none;
   height: $middle;
   border: none;
@@ -16,11 +17,12 @@ $mini: 27px;
   transition: 0.2s;
   box-sizing: border-box;
   padding: 0 25px;
+  line-height: 1;
 
   .f-text {
     font-size: 14px;
     line-height: $middle;
-    word-wrap: nowrap;
+    white-space: nowrap;
 
     .f-icon {
       position: relative;
@@ -111,7 +113,7 @@ $mini: 27px;
   }
 
   &:active {
-    background: darken($default, 10%);
+    background: darken($default, 8%);
   }
 }
 
@@ -119,11 +121,11 @@ $mini: 27px;
   background: $primary;
 
   &:hover {
-    background: lighten($primary, 10%);
+    background: lighten($primary, 5%);
   }
 
   &:active {
-    background: darken($primary, 10%);
+    background: darken($primary, 5%);
   }
 }
 
@@ -131,11 +133,11 @@ $mini: 27px;
   background: $success;
 
   &:hover {
-    background: lighten($success, 10%);
+    background: lighten($success, 5%);
   }
 
   &:active {
-    background: darken($success, 10%);
+    background: darken($success, 5%);
   }
 }
 
@@ -143,11 +145,11 @@ $mini: 27px;
   background: $danger;
 
   &:hover {
-    background: lighten($danger, 10%);
+    background: lighten($danger, 5%);
   }
 
   &:active {
-    background: darken($danger, 10%);
+    background: darken($danger, 5%);
   }
 }
 
@@ -155,11 +157,11 @@ $mini: 27px;
   background: $warning;
 
   &:hover {
-    background: lighten($warning, 10%);
+    background: lighten($warning, 5%);
   }
 
   &:active {
-    background: darken($warning, 10%);
+    background: darken($warning, 5%);
   }
 }
 
@@ -167,11 +169,11 @@ $mini: 27px;
   background: $info;
 
   &:hover {
-    background: lighten($info, 10%);
+    background: lighten($info, 5%);
   }
 
   &:active {
-    background: darken($info, 10%);
+    background: darken($info, 5%);
   }
 }
 
@@ -286,11 +288,11 @@ $mini: 27px;
   background: $simpleBackground;
 
   &:hover {
-    background: darken($simpleBackground, 4%);
+    background: darken($simpleBackground, 3%);
   }
 
   &:active {
-    background: darken($simpleBackground, 10%);
+    background: darken($simpleBackground, 8%);
   }
 }
 

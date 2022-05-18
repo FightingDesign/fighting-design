@@ -2,17 +2,14 @@ import { createApp } from 'vue'
 import App from './src/App.vue'
 
 // 引入组件
-import fightingDesign from '../dist'
-// import { FButton } from '../dist/packages/index'
-// import '@fighting-design/fighting-theme'
-import '../dist/theme/index.css'
+// import FightingDesign from '../dist'
+// import '../dist/theme/index.css'
 
-console.log(fightingDesign)
+import FightingDesign from '@fighting-design/fighting-components'
+import '@fighting-design/fighting-theme'
 
-// import fightingDesign from '../dist/packages/index/index'
-// import { FButton } from '../dist/packages/index/index'
+console.log(FightingDesign)
 
 createApp(App)
-  // .use(FButton)
-  .use(fightingDesign)
+  .use(FightingDesign)
   .mount('#start')
