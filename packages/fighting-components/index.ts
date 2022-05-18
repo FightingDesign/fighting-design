@@ -1,7 +1,7 @@
 import type { App } from 'vue'
-import FButton from './button'
-import FIcon from './icon'
-import FButtonGroup from './button-group'
+import { FButton } from './button'
+import { FIcon } from './icon'
+import { FButtonGroup } from './button-group'
 
 const components = {
   FButton,
