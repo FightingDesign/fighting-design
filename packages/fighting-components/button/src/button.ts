@@ -6,13 +6,25 @@ type IconPosition = 'left' | 'right'
 type Type = 'default' | 'primary' | 'success' | 'danger' | 'warning' | 'info'
 
 export const Props = {
-  blob: Boolean,
-  round: Boolean,
-  fontSize: String,
-  fontColor: String,
+  blob: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  round: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  fontSize: {
+    type: String,
+    default: (): string => ''
+  },
+  fontColor: {
+    type: String,
+    default: (): string => ''
+  },
   size: {
     type: String as PropType<Size>,
-    default: 'middle',
+    default: (): string => 'middle',
     validator(val: string): boolean {
       return [
         'large',
@@ -23,11 +35,17 @@ export const Props = {
       ].includes(val)
     }
   },
-  block: Boolean,
-  link: String,
+  block: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  link: {
+    type: String,
+    default: (): string => ''
+  },
   target: {
     type: String as PropType<Target>,
-    default: '_self',
+    default: (): string => '_self',
     validator(val: string): boolean {
       return [
         '_blank',
@@ -38,13 +56,25 @@ export const Props = {
       ].includes(val)
     }
   },
-  loading: Boolean,
-  disabled: Boolean,
-  icon: String,
-  loadingIcon: String,
+  loading: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  disabled: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  icon: {
+    type: String,
+    default: (): string => ''
+  },
+  loadingIcon: {
+    type: String,
+    default: (): string => ''
+  },
   iconPosition: {
     type: String as PropType<IconPosition>,
-    default: 'left',
+    default: (): string => 'left',
     validator(val: string): boolean {
       return [
         'right',
@@ -55,7 +85,7 @@ export const Props = {
   },
   type: {
     type: String as PropType<Type>,
-    default: 'default',
+    default: (): string => 'default',
     validator(val: string): boolean {
       return [
         'default',
@@ -68,20 +98,38 @@ export const Props = {
       ].includes(val)
     }
   },
-  autofocus: Boolean,
+  autofocus: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   name: {
     type: String,
-    default: 'f-button'
+    default: (): string => 'f-button'
   },
-  shadow: String,
-  text: Boolean,
-  long: Boolean,
+  shadow: {
+    type: String,
+    default: (): string => ''
+  },
+  text: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  long: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   nativeType: {
     type: String,
-    default: 'button'
+    default: (): string => 'button'
   },
-  simple: Boolean,
-  border: Boolean
+  simple: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  border: {
+    type: Boolean,
+    default: (): boolean => false
+  }
 } as const
 
 export const Emits = {

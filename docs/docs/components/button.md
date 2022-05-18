@@ -229,6 +229,44 @@
 
 :::
 
+## 带有阴影
+
+你可以自定义按钮的阴影样式，可传入一个原生 [box-shadow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow) 属性值
+
+或者也可以通过 [Neumorphism](https://neumorphism.io) 自己手动调节阴影样式
+
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="default">默认按钮</f-button>
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="primary">主要按钮</f-button>
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="success">成功按钮</f-button>
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="danger">危险按钮</f-button>
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="warning">警告按钮</f-button>
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="info">信息按钮</f-button>
+
+::: details 显示代码
+
+```html
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="default">
+  默认按钮
+</f-button>
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="primary">
+  主要按钮
+</f-button>
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="success">
+  成功按钮
+</f-button>
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="danger">
+  危险按钮
+</f-button>
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="warning">
+  警告按钮
+</f-button>
+<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="info">
+  信息按钮
+</f-button>
+```
+
+:::
+
 ## Button Attributes
 
 | 参数         | 说明                                     | 类型    | 可选值                                             | 默认值   |

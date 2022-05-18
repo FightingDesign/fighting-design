@@ -16,5 +16,8 @@ export const props = {
       ].includes(val)
     }
   },
-  vertical: Boolean
+  vertical: {
+    type: Boolean,
+    default: (): boolean => false
+  }
 } as const
