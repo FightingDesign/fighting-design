@@ -14,7 +14,7 @@
       "esnext",
       "dom"
     ],
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
   "include": [
     "packages/**/*.ts",
@@ -25,5 +25,5 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
 }
