@@ -28,6 +28,7 @@ provide('close-screen', closeScreen)
   top: 0;
   left: 0;
   z-index: var(--vp-z-index-nav);
+  z-index: 999;
 }
 
 @media (min-width: 960px) {

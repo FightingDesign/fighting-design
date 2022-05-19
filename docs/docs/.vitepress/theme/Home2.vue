@@ -1,102 +1,353 @@
 <template>
-  <div id="banner">
-    <div class="logo_box">
-      <img
-        class="logo"
-        src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg"
-      />
+  <div id="home">
+    <div id="banner">
+      <div class="logo_box">
+        <img
+          class="logo"
+          draggable="false"
+          src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg"
+        />
+      </div>
     </div>
 
-    <!-- 描述列表 -->
-    <div class="list_content">
-      <img
-        class="logo"
-        src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg"
-      />
-      <h1 class="title">Fighting Design</h1>
-      <p class="content">
-        <strong>🎨 Fighting Design</strong> 是一款灵活、优质的
-        <strong>vue3</strong>
-        组件库，为开发者、设计师准备。希望开发者可以借用
-        <strong>Fighting Design</strong>
-        的设计，在不久的将来，孕育出更高阶的组件库。
-      </p>
+    <div id="content">
+      <div id="title">
+        <img
+          class="logo"
+          draggable="false"
+          src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg"
+        />
+        <h1 class="title">Fighting Design</h1>
 
-      <div class="action">
-        <a href="/docs/install">
-          <f-button type="primary" size="large">开始使用</f-button>
-        </a>
+        <h1 class="subtitle">
+          一个用 TypeScript + Template 编写的 Vue3 组件库。
+        </h1>
+        <p class="content">
+          <strong>🎨 Fighting Design</strong> 是一款灵活、优质的
+          <strong>vue3</strong>
+          组件库，为开发者、设计师准备。希望开发者可以借用
+          <strong>Fighting Design</strong>
+          的设计，在不久的将来，孕育出更高阶的组件库。
+        </p>
+
+        <div class="action">
+          <a href="/docs/install">
+            <f-button type="primary" size="large">开始使用</f-button>
+          </a>
+          <f-button
+            class="code"
+            size="large"
+            blob
+            text
+            data-clipboard-text="npm i filling-design"
+            @click="copyCode('.code')"
+          >
+            npm i filling-design
+          </f-button>
+        </div>
+      </div>
+
+      <div id="introduce">
+        <div class="advantage">
+          <div
+            class="advantage_item"
+            v-for="(list, index) in lists"
+            :key="index"
+          >
+            <div class="img_box">
+              <img
+                :src="`https://tianyuhao.cn/fighting/imgs/home-${
+                  index + 1
+                }.svg`"
+              />
+            </div>
+            <p class="text">{{ list }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="footer">
+        <div class="list">
+          <ul v-for="(lists, index) in bottomList" :key="index">
+            <h4>{{ lists.title }}</h4>
+            <li v-for="(list, i) in lists.item" :key="i">
+              <a target="_back" :href="list.link">{{ list.text }}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="list2">
+          <h4>加入我们</h4>
+          <img src="https://tianyuhao.cn/images/weixin2.png" alt="weixin" />
+        </div>
+
+        <div class="list2">
+          <h4>合作者</h4>
+          <a
+            v-for="(item, index) in collaborator"
+            target="_blank"
+            :href="item.url"
+            :key="index"
+          >
+            <div class="userBox">
+              <img
+                draggable="false"
+                class="myPhoto"
+                :src="item.photo"
+                alt="photo"
+              />
+              <span class="userName">{{ item.name }}</span>
+            </div>
+          </a>
+        </div>
+
+        <p class="code">FightingDesign | 浙ICP备2021024540号-2</p>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Clipboard from 'clipboard'
+
+const lists = [
+  '更快的搭建',
+  '更完善的组件',
+  '更灵活的配置',
+  '更优质的文档',
+  '更强的类型校验',
+  '更合适的组件库'
+] as const
+
+const bottomList = [
+  {
+    title: '社区',
+    item: [
+      { text: 'Github', link: 'https://github.com/Tyh2001/fighting-design' },
+      { text: 'NPM', link: 'https://www.npmjs.com/package/fighting-design' }
+    ]
+  },
+  {
+    title: '关于我',
+    item: [
+      { text: 'Tyh2001', link: 'https://tianyuhao.cn' },
+      { text: 'Blog', link: 'https://tianyuhao.cn/blog' }
+    ]
+  },
+  {
+    title: '其它开源',
+    item: [
+      { text: 'Tyh Ui', link: 'https://tianyuhao.cn/v3' },
+      { text: 'TsMango', link: 'https://tianyuhao.cn/mango' }
+    ]
+  },
+  {
+    title: '帮助',
+    item: [
+      {
+        text: '报告问题',
+        link: 'https://github.com/Tyh2001/fighting-design/issues'
+      }
+    ]
+  }
+] as const
+
+const collaborator = [
+  {
+    name: '田同学',
+    photo: 'https://avatars.githubusercontent.com/u/73180970?v=4',
+    url: 'https://github.com/Tyh2001'
+  }
+]
+
+const copyCode = (node: HTMLButtonElement): void => {
+  const clipboard = new Clipboard(node)
+  alert('复制成功')
+}
+</script>
 
 <style lang="scss" scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
-#banner {
-  width: 100%;
-  box-sizing: border-box;
+#home {
   position: relative;
-  z-index: 1000;
-  min-height: 370px;
-  padding-bottom: 30px;
-  .logo_box {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    height: 100%;
+  #banner {
     width: 100%;
-    max-width: 1368px;
-    z-index: -1;
-    overflow: hidden;
-    background: linear-gradient(10deg, rgb(7, 30, 105), rgb(97, 131, 244)) 0% 0% /
-        100% no-repeat,
-      rgb(97, 131, 244);
-    -webkit-mask: url('./images/banner.svg') 100% -150px / cover no-repeat;
-    .logo {
-      width: 500px;
-      height: 500px;
-      top: 0px;
-      right: 0px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 100;
+    min-height: 370px;
+    padding-bottom: 30px;
+    .logo_box {
       position: absolute;
-      transform: translate(-155px, -77px) scale(1);
+      right: 0px;
+      top: 0px;
+      height: 100%;
+      width: 100%;
+      max-width: 1368px;
+      z-index: -1;
+      overflow: hidden;
+      background: linear-gradient(10deg, rgb(7, 30, 105), rgb(97, 131, 244)) 0%
+          0% / 100% no-repeat,
+        rgb(97, 131, 244);
+      -webkit-mask: url('./images/banner.svg') 100% -150px / cover no-repeat;
+      .logo {
+        width: 500px;
+        height: 500px;
+        top: 0px;
+        right: 0px;
+        position: absolute;
+        transform: translate(-155px, -77px) scale(1);
+        user-select: none;
+      }
     }
   }
-  // 描述列表
-  .list_content {
-    position: absolute;
-    right: 0px;
-    top: 70px;
-    width: 100%;
-    padding: 30px;
+  #content {
+    transition: 0.2s;
+    max-width: 1350px;
+    height: 500px;
+    padding: 40px;
     box-sizing: border-box;
-    max-width: 1368px;
-    .logo {
-      width: 120px;
-      height: 120px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: 140px;
+    position: absolute;
+    #title {
+      .logo {
+        width: 120px;
+        height: 120px;
+        user-select: none;
+      }
+      .title {
+        font-size: 32px;
+        line-height: 36px;
+        text-align: left;
+        letter-spacing: -1.2px;
+        font-weight: bold;
+        word-break: normal;
+        margin-top: 20px;
+      }
+      .subtitle {
+        margin-top: 10px;
+        font-size: 33px;
+        font-weight: 700;
+        transition: 0.3s;
+        font-weight: 500;
+        line-height: 50px;
+        transition: 0.3s;
+      }
+      .content {
+        transition: 0.3s;
+        max-width: 700px;
+        margin-top: 30px;
+      }
+      .action {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        .code {
+          margin-left: 17px;
+          font-size: 21px;
+        }
+      }
     }
-    .title {
-      font-size: 32px;
-      line-height: 36px;
-      text-align: left;
-      letter-spacing: -1.2px;
-      font-weight: bold;
-      word-break: normal;
+    #introduce {
+      margin-bottom: 40px;
+      .advantage {
+        margin-top: 80px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        user-select: none;
+        .advantage_item {
+          width: 50%;
+          padding: 20px;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .img_box {
+            width: 70%;
+            overflow: hidden;
+            height: 12rem;
+            img {
+              width: 100%;
+              height: 200px;
+              transition: 0.3s;
+            }
+          }
+          .text {
+            margin-top: 30px;
+            font-size: 20px;
+          }
+        }
+      }
     }
-    .content {
-      max-width: 750px;
-      margin-top: 30px;
+    #footer {
+      border-top: 1px solid #eee;
+      width: 100%;
+      margin: auto;
+      padding: 40px 50px 40px 50px;
+      box-sizing: border-box;
+      .list {
+        display: flex;
+        justify-content: space-between;
+        user-select: none;
+        padding: 30px 0;
+        ul {
+          h4 {
+            font-weight: 600;
+            line-height: 36px;
+          }
+          li {
+            line-height: 36px;
+            cursor: pointer;
+          }
+        }
+      }
+      .list2 {
+        display: flex;
+        justify-content: space-between;
+        user-select: none;
+        padding: 30px 0;
+        flex-direction: column;
+        h4 {
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+        img {
+          width: 150px;
+        }
+        .userBox {
+          width: 150px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          .myPhoto {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+          }
+          .userName {
+            font-size: 20px;
+            margin-left: 10px;
+          }
+        }
+      }
+      .code {
+        margin-top: 50px;
+        text-align: center;
+        user-select: none;
+      }
     }
-    .action {
-      margin-top: 30px;
-      display: flex;
-      align-items: center;
-    }
+  }
+}
+
+@media (max-width: 768px) {
+  #content {
+    top: 200px !important;
   }
 }
 </style>

@@ -47,7 +47,6 @@
   </div>
   <div class="footer">
     <div class="footer_box">
-      <!-- 列表选项 -->
       <div class="list">
         <ul v-for="(lists, index) in bottomList" :key="index">
           <h4>{{ lists.title }}</h4>
