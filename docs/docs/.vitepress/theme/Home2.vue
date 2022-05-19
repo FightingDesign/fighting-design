@@ -13,7 +13,7 @@
         class="logo"
         src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg"
       />
-      <h1 class="title_1">Fighting Design</h1>
+      <h1 class="title">Fighting Design</h1>
       <p class="content">
         <strong>🎨 Fighting Design</strong> 是一款灵活、优质的
         <strong>vue3</strong>
@@ -21,6 +21,12 @@
         <strong>Fighting Design</strong>
         的设计，在不久的将来，孕育出更高阶的组件库。
       </p>
+
+      <div class="action">
+        <a href="/docs/install">
+          <f-button type="primary" size="large">开始使用</f-button>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -39,7 +45,6 @@
   z-index: 1000;
   min-height: 370px;
   padding-bottom: 30px;
-  box-shadow: rgb(214 214 214 / 50%) 0px 6px 10px -5px;
   .logo_box {
     position: absolute;
     right: 0px;
@@ -64,11 +69,33 @@
   }
   // 描述列表
   .list_content {
+    position: absolute;
+    right: 0px;
+    top: 70px;
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    max-width: 1368px;
     .logo {
       width: 120px;
       height: 120px;
     }
-    .title_1 {
+    .title {
+      font-size: 32px;
+      line-height: 36px;
+      text-align: left;
+      letter-spacing: -1.2px;
+      font-weight: bold;
+      word-break: normal;
+    }
+    .content {
+      max-width: 750px;
+      margin-top: 30px;
+    }
+    .action {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
     }
   }
 }
