@@ -30,7 +30,6 @@
 </template>
 
 <script lang="ts" setup>
-import { FIcon } from '../../icon'
 import { Props, Emits } from './link'
 import type { onClickInterface } from '@fighting-design/fighting-type'
 
