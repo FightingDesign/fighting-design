@@ -66,3 +66,7 @@ createApp(App).use(FightingDesign).mount('#app')
 **Fork**
 
 [![Forkers repo roster for @tyh2001/fighting-design](https://reporoster.com/forks/tyh2001/fighting-design)](https://github.com/tyh2001/fighting-design/network/members)
+
+## 执照
+
+[MIT](./LICENSE)
