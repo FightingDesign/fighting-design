@@ -3,14 +3,17 @@
 .f-link {
   cursor: pointer;
   font-size: 15px;
+  display: inline-block;
   text-decoration: none;
+  transition: 0.3s;
+  line-height: 1;
+  .f-icon {
+    font-size: 15px;
+  }
 }
 
+// 不同类型
 .f-link.f-link-,
-.f-link.f-link-default {
-  color: $textColor;
-}
-
 .f-link.f-link-primary {
   color: $primary;
 }
@@ -31,7 +34,30 @@
   color: $info;
 }
 
+// 不同样式
+.f-link.f-link-line:hover {
+  text-decoration: underline;
+}
+
+.f-link.f-link-bag:hover {
+  background: #eee;
+  border-radius: 2px;
+}
+
+.f-link.f-link-underline {
+  text-decoration: underline;
+}
+
+.f-link.f-link-noCopy {
+  user-select: none;
+}
+
+// 禁用
 .f-link.f-link-prohibit {
   opacity: 0.5;
   cursor: not-allowed;
+  &:hover {
+    // text-decoration: none;
+    background: none;
+  }
 }

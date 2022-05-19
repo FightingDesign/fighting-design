@@ -23,6 +23,7 @@
     "@fighting-design/fighting-components": "workspace:*",
     "@fighting-design/fighting-theme": "workspace:*",
     "@fighting-design/fighting-utils": "workspace:*",
+    "@fighting-design/fighting-type": "workspace:*",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/test-utils": "^2.0.0-rc.18",

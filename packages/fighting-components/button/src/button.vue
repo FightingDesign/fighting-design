@@ -34,14 +34,11 @@
 <script lang="ts" setup>
 import { computed, ComputedRef } from 'vue'
 import { Props, Emits } from './button'
-import type { CSSProperties } from 'vue'
 
 const prop = defineProps(Props)
 const emit = defineEmits(Emits)
 
-interface onClickInterface {
-  (evt: Event): void
-}
+
 
 const onClick: onClickInterface = (evt: Event): void => {
   if (prop.disabled || prop.loading) return

@@ -1,6 +1,6 @@
 # CHANGELOG
 
-English | [Chinese](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.zh.md)
+English | [Chinese](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.zh-CN.md)
 
 ## 0.0.3 beta.3 (2022-05-18)
 

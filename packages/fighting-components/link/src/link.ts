@@ -1,14 +1,15 @@
 import type { PropType } from 'vue'
 
-type Type = 'default' | 'primary' | 'success' | 'danger' | 'warning' | 'info'
+type Type = 'primary' | 'success' | 'danger' | 'warning' | 'info'
+type Target = '_self' | '_blank' | '_parent' | '_top'
+type Hover = 'line' | 'bag'
 
 export const Props = {
   type: {
     type: String as PropType<Type>,
-    default: (): string => 'default',
+    default: (): string => 'primary',
     validator(val: string): boolean {
       return [
-        'default',
         'primary',
         'success',
         'danger',
@@ -26,22 +27,43 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  decoration: {},
+  hover: {
+    type: String as PropType<Hover>,
+    validator(val: string): boolean {
+      return ['line', 'bag', ''].includes(val)
+    },
+    default: (): string => ''
+  },
   prohibit: {
     type: Boolean,
     default: (): boolean => false
   },
-  icon: {
+  leftIcon: {
     type: String,
     default: (): string => ''
   },
-  hover: {
+  rightIcon: {
     type: String,
     default: (): string => ''
   },
   target: {
+    type: String as PropType<Target>,
+    validator(val: string): boolean {
+      return ['_self', '_blank', '_parent', '_top', ''].includes(val)
+    },
+    default: (): string => ''
+  },
+  underline: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  color: {
     type: String,
     default: (): string => ''
+  },
+  noCopy: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 
