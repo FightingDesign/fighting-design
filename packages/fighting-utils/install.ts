@@ -1,7 +1,7 @@
 import type { App } from 'vue'
 
 export const install = (main: any, name: string): void => {
-  main.install = (app: App) => {
+  main.install = (app: App): void => {
     app.component(name, main)
   }
 }

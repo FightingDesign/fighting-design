@@ -1,4 +1,4 @@
-export const props = {
+export const Props = {
   icon: {
     type: String,
     default: (): string => ''
@@ -19,4 +19,8 @@ export const props = {
     type: String,
     default: (): string => ''
   }
+} as const
+
+export const Emits = {
+  click: (evt: Event): Event => evt
 } as const

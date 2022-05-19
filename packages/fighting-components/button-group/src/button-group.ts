@@ -1,10 +1,9 @@
 import type { PropType } from 'vue'
+import type { buttonGroupSize } from '@fighting-design/fighting-type'
 
-type Size = 'large' | 'middle' | 'small' | 'mini'
-
-export const props = {
+export const Props = {
   size: {
-    type: String as PropType<Size>,
+    type: String as PropType<buttonGroupSize>,
     default: (): string => 'middle',
     validator(val: string): boolean {
       return [

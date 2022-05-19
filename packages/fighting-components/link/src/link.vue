@@ -32,20 +32,17 @@
 <script lang="ts" setup>
 import { FIcon } from '../../icon'
 import { Props, Emits } from './link'
+import type { onClickInterface } from '@fighting-design/fighting-type'
 
 const prop = defineProps(Props)
 const emit = defineEmits(Emits)
 
-interface onClickInterface {
-  (evt: Event): void
-}
-
-const onClick: onClickInterface = (e: Event): void => {
+const onClick: onClickInterface = (evt: Event): void => {
   if (prop.prohibit) {
-    e.preventDefault()
+    evt.preventDefault()
     return
   }
-  emit('click', e)
+  emit('click', evt)
 }
 </script>
 

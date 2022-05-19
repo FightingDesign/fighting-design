@@ -1,9 +1,5 @@
 import type { PropType } from 'vue'
-
-type Size = 'large' | 'middle' | 'small' | 'mini'
-type Target = '_blank' | '_self' | '_parent' | '_top'
-type IconPosition = 'left' | 'right'
-type Type = 'default' | 'primary' | 'success' | 'danger' | 'warning' | 'info'
+import type { buttonSize, buttonTarget, buttonIconPosition, buttonType } from '@fighting-design/fighting-type'
 
 export const Props = {
   blob: {
@@ -23,7 +19,7 @@ export const Props = {
     default: (): string => ''
   },
   size: {
-    type: String as PropType<Size>,
+    type: String as PropType<buttonSize>,
     default: (): string => 'middle',
     validator(val: string): boolean {
       return [
@@ -44,7 +40,7 @@ export const Props = {
     default: (): string => ''
   },
   target: {
-    type: String as PropType<Target>,
+    type: String as PropType<buttonTarget>,
     default: (): string => '_self',
     validator(val: string): boolean {
       return [
@@ -73,7 +69,7 @@ export const Props = {
     default: (): string => ''
   },
   iconPosition: {
-    type: String as PropType<IconPosition>,
+    type: String as PropType<buttonIconPosition>,
     default: (): string => 'left',
     validator(val: string): boolean {
       return [
@@ -84,7 +80,7 @@ export const Props = {
     }
   },
   type: {
-    type: String as PropType<Type>,
+    type: String as PropType<buttonType>,
     default: (): string => 'default',
     validator(val: string): boolean {
       return [

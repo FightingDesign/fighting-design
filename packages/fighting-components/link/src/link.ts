@@ -1,12 +1,9 @@
 import type { PropType } from 'vue'
-
-type Type = 'primary' | 'success' | 'danger' | 'warning' | 'info'
-type Target = '_self' | '_blank' | '_parent' | '_top'
-type Hover = 'line' | 'bag'
+import type { linkType, linkTarget, linkHover } from '@fighting-design/fighting-type'
 
 export const Props = {
   type: {
-    type: String as PropType<Type>,
+    type: String as PropType<linkType>,
     default: (): string => 'primary',
     validator(val: string): boolean {
       return [
@@ -28,7 +25,7 @@ export const Props = {
     default: (): string => ''
   },
   hover: {
-    type: String as PropType<Hover>,
+    type: String as PropType<linkHover>,
     validator(val: string): boolean {
       return ['line', 'bag', ''].includes(val)
     },
@@ -47,7 +44,7 @@ export const Props = {
     default: (): string => ''
   },
   target: {
-    type: String as PropType<Target>,
+    type: String as PropType<linkTarget>,
     validator(val: string): boolean {
       return ['_self', '_blank', '_parent', '_top', ''].includes(val)
     },
