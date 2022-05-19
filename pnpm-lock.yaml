@@ -16,6 +16,7 @@ importers:
       rollup-plugin-typescript2: ^0.31.2
       rollup-plugin-vue: ^6.0.0
       sass: ^1.50.1
+      typescript: ^4.6.4
       vite: ^2.9.5
       vitest: ^0.10.0
       vue: ^3.2.33
@@ -30,13 +31,14 @@ importers:
       happy-dom: 3.2.2
       rollup: 2.73.0
       rollup-plugin-terser: 7.0.2_rollup@2.73.0
-      rollup-plugin-typescript2: 0.31.2_rollup@2.73.0
+      rollup-plugin-typescript2: 0.31.2_rollup@2.73.0+typescript@4.6.4
       rollup-plugin-vue: 6.0.0
       sass: 1.50.1
+      typescript: 4.6.4
       vite: 2.9.5_sass@1.50.1
       vitest: 0.10.0_happy-dom@3.2.2+sass@1.50.1
       vue: 3.2.33
-      vue-tsc: 0.34.10
+      vue-tsc: 0.34.10_typescript@4.6.4
 
   docs:
     specifiers:
@@ -1429,7 +1431,7 @@ packages:
       terser: 5.13.1
     dev: false
 
-  /rollup-plugin-typescript2/0.31.2_rollup@2.73.0:
+  /rollup-plugin-typescript2/0.31.2_rollup@2.73.0+typescript@4.6.4:
     resolution: {integrity: sha512-hRwEYR1C8xDGVVMFJQdEVnNAeWRvpaY97g5mp3IeLnzhNXzSVq78Ye/BJ9PAaUfN4DXa/uDnqerifMOaMFY54Q==}
     peerDependencies:
       rollup: '>=1.26.3'
@@ -1442,6 +1444,7 @@ packages:
       resolve: 1.22.0
       rollup: 2.73.0
       tslib: 2.4.0
+      typescript: 4.6.4
     dev: false
 
   /rollup-plugin-vue/6.0.0:
@@ -1659,6 +1662,12 @@ packages:
     resolution: {integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=}
     dev: false
 
+  /typescript/4.6.4:
+    resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: false
+
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
@@ -1779,13 +1788,14 @@ packages:
       vue: 3.2.33
     dev: false
 
-  /vue-tsc/0.34.10:
+  /vue-tsc/0.34.10_typescript@4.6.4:
     resolution: {integrity: sha512-rWU4SjDqk9ylQN2hbnyP+rEu8W2a712DWUmciX6rDnId1m8sN/cuypTKjWjHHjaBLWNKULoEakRTOvrQ4ainhw==}
     hasBin: true
     peerDependencies:
       typescript: '*'
     dependencies:
       '@volar/vue-typescript': 0.34.10
+      typescript: 4.6.4
     dev: false
 
   /vue/3.2.33:
