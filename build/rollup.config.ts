@@ -10,7 +10,7 @@ const output = resolve(__dirname, '../dist/packages')
 // const lib = resolve(__dirname, '../dist/lib')
 
 const config = readdirSync(input)
-  .filter(name => !['index.ts', 'package.json'].includes(name))
+  .filter(name => !['index.ts', 'package.json', 'README.md'].includes(name))
   .map(name => (
     {
       // input: name === 'index.ts' ? `${input}/index.ts` : `${input}/${name}/index.ts`,

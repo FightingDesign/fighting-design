@@ -1,1 +1,1 @@
-export * from './install'
+export { install } from './install'
