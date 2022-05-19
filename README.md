@@ -69,4 +69,4 @@ createApp(App).use(FightingDesign).mount('#app')
 
 ## 执照
 
-[MIT](./LICENSE)
+[MIT](https://github.com/Tyh2001/fighting-design/blob/master/LICENSE)
