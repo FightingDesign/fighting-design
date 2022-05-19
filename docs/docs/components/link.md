@@ -21,7 +21,7 @@
 | prohibit  | 是否禁用                                                                                 | boolean | ——                                                    | false   |
 | leftIcon  | 左侧的 icon                                                                              | string  | ——                                                    | ——      |
 | rightIcon | 右侧的 icon                                                                              | string  | ——                                                    | ——      |
-| target    | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href)属性 | string  | `_self` `_blank` `_parent` `_top `                    | ——      |
+| target    | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | string  | `_self` `_blank` `_parent` `_top `                    | ——      |
 | underline | 是否带有下划线                                                                           | boolean | ——                                                    | false   |
 | color     | 自定义 link 颜色                                                                         | string  | ——                                                    | ——      |
 | noCopy    | 是否禁止 copy                                                                            | boolean | ——                                                    | false   |
