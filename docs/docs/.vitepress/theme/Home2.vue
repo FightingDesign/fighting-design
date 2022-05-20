@@ -67,41 +67,46 @@
       </div>
 
       <div id="footer">
-        <div class="list">
-          <ul v-for="(lists, index) in bottomList" :key="index">
-            <h4>{{ lists.title }}</h4>
-            <li v-for="(list, i) in lists.item" :key="i">
-              <a target="_back" :href="list.link">{{ list.text }}</a>
-            </li>
-          </ul>
+        <div class="footer_item">
+          <div class="list">
+            <ul v-for="(lists, index) in bottomList" :key="index">
+              <h4>{{ lists.title }}</h4>
+              <li v-for="(list, i) in lists.item" :key="i">
+                <a target="_back" :href="list.link">{{ list.text }}</a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="list2">
-          <h4>加入我们</h4>
+        <div class="footer_item">
+          <h4 class="title">加入我们</h4>
           <img src="https://tianyuhao.cn/images/weixin2.png" alt="weixin" />
         </div>
 
-        <div class="list2">
-          <h4>合作者</h4>
+        <div class="footer_item">
+          <h4 class="title">合作者</h4>
           <a
+            class="collaborator"
             v-for="(item, index) in collaborator"
             target="_blank"
             :href="item.url"
             :key="index"
           >
-            <div class="userBox">
-              <img
-                draggable="false"
-                class="myPhoto"
-                :src="item.photo"
-                alt="photo"
-              />
-              <span class="userName">{{ item.name }}</span>
-            </div>
+            <img
+              draggable="false"
+              class="myPhoto"
+              :src="item.photo"
+              alt="photo"
+            />
+            <span class="userName">{{ item.name }}</span>
           </a>
         </div>
 
-        <p class="code">FightingDesign | 浙ICP备2021024540号-2</p>
+        <p class="code">
+          <a target="_back" href="https://beian.miit.gov.cn">
+            FightingDesign | 浙ICP备2021024540号-2
+          </a>
+        </p>
       </div>
     </div>
   </div>
@@ -161,7 +166,7 @@ const collaborator = [
 ]
 
 const copyCode = (node: HTMLButtonElement): void => {
-  const clipboard = new Clipboard(node)
+  new Clipboard(node)
   alert('复制成功')
 }
 </script>
@@ -185,9 +190,11 @@ const copyCode = (node: HTMLButtonElement): void => {
       max-width: 1368px;
       z-index: -1;
       overflow: hidden;
-      background: linear-gradient(10deg, rgb(7, 30, 105), rgb(97, 131, 244)) 0%
-          0% / 100% no-repeat,
-        rgb(97, 131, 244);
+      background: -webkit-linear-gradient(
+        815deg,
+        rgb(57, 92, 227) 10%,
+        rgb(94, 224, 221)
+      );
       -webkit-mask: url('./images/banner.svg') 100% -150px / cover no-repeat;
       .logo {
         width: 500px;
@@ -204,7 +211,7 @@ const copyCode = (node: HTMLButtonElement): void => {
     transition: 0.2s;
     max-width: 1350px;
     height: 500px;
-    padding: 40px;
+    padding: 30px;
     box-sizing: border-box;
     right: 0;
     left: 0;
@@ -219,12 +226,20 @@ const copyCode = (node: HTMLButtonElement): void => {
       }
       .title {
         font-size: 32px;
-        line-height: 36px;
+        line-height: 43px;
         text-align: left;
         letter-spacing: -1.2px;
         font-weight: bold;
         word-break: normal;
+        display: inline-block;
         margin-top: 20px;
+        background: -webkit-linear-gradient(
+          55deg,
+          rgb(57, 92, 227) 10%,
+          rgb(94, 224, 221)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
       .subtitle {
         margin-top: 10px;
@@ -287,40 +302,34 @@ const copyCode = (node: HTMLButtonElement): void => {
       border-top: 1px solid #eee;
       width: 100%;
       margin: auto;
-      padding: 40px 50px 40px 50px;
+      padding: 40px 0;
       box-sizing: border-box;
-      .list {
-        display: flex;
-        justify-content: space-between;
-        user-select: none;
-        padding: 30px 0;
-        ul {
-          h4 {
-            font-weight: 600;
-            line-height: 36px;
-          }
-          li {
-            line-height: 36px;
-            cursor: pointer;
-          }
-        }
-      }
-      .list2 {
-        display: flex;
-        justify-content: space-between;
-        user-select: none;
-        padding: 30px 0;
-        flex-direction: column;
-        h4 {
+      .footer_item {
+        .title {
+          margin: 30px 0 10px 0;
           font-weight: 600;
-          margin-bottom: 20px;
         }
-        img {
-          width: 150px;
+        .list {
+          display: flex;
+          justify-content: space-between;
+          user-select: none;
+          ul {
+            h4 {
+              font-weight: 600;
+              line-height: 36px;
+              font-size: 15px;
+            }
+            li {
+              line-height: 36px;
+              cursor: pointer;
+              font-size: 14px;
+            }
+          }
         }
-        .userBox {
+        .collaborator {
           width: 150px;
           height: 50px;
+          display: inline-block;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -337,14 +346,14 @@ const copyCode = (node: HTMLButtonElement): void => {
         }
       }
       .code {
-        margin-top: 50px;
+        margin-top: 30px;
         text-align: center;
-        user-select: none;
+        font-size: 15px;
+        cursor: pointer;
       }
     }
   }
 }
-
 @media (max-width: 768px) {
   #content {
     top: 200px !important;
