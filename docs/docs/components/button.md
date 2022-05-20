@@ -206,9 +206,9 @@
 <br />
 
 <f-button-group vertical>
-  <f-button type="primary">左边的</f-button>
+  <f-button type="primary">上边的</f-button>
   <f-button type="primary">中间的</f-button>
-  <f-button round type="primary">右边的</f-button>
+  <f-button round type="primary">下边的</f-button>
 </f-button-group>
 
 ::: details 显示代码
@@ -221,9 +221,9 @@
 </f-button-group>
 
 <f-button-group vertical>
-  <f-button type="primary">左边的</f-button>
+  <f-button type="primary">上边的</f-button>
   <f-button type="primary">中间的</f-button>
-  <f-button round type="primary">右边的</f-button>
+  <f-button round type="primary">下边的</f-button>
 </f-button-group>
 ```
 

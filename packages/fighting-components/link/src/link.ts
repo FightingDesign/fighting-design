@@ -24,7 +24,7 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  hover: {
+  state: {
     type: String as PropType<linkHover>,
     validator(val: string): boolean {
       return ['line', 'bag', ''].includes(val)
@@ -50,15 +50,15 @@ export const Props = {
     },
     default: (): string => ''
   },
-  underline: {
-    type: Boolean,
-    default: (): boolean => false
-  },
   color: {
     type: String,
     default: (): string => ''
   },
   noCopy: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  noLink: {
     type: Boolean,
     default: (): boolean => false
   }

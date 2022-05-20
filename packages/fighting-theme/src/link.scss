@@ -10,6 +10,9 @@
   .f-icon {
     font-size: 15px;
   }
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 // 不同类型
@@ -35,17 +38,13 @@
 }
 
 // 不同样式
-.f-link.f-link-line:hover {
+.f-link.f-link-line {
   text-decoration: underline;
 }
 
 .f-link.f-link-bag:hover {
   background: #eee;
   border-radius: 2px;
-}
-
-.f-link.f-link-underline {
-  text-decoration: underline;
 }
 
 .f-link.f-link-noCopy {
@@ -56,8 +55,10 @@
 .f-link.f-link-prohibit {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.f-link.f-link-prohibit.f-link-bag {
   &:hover {
-    // text-decoration: none;
     background: none;
   }
 }

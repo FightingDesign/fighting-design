@@ -92,7 +92,7 @@
   margin-bottom: 1.2em;
 }
 
-.vt-doc a {
+/* .vt-doc a {
   font-weight: 500;
   color: var(--vt-c-brand);
   transition: color 0.25s;
@@ -101,7 +101,7 @@
 
 .vt-doc a:hover {
   color: var(--vt-c-brand-highlight);
-}
+} */
 
 .vt-doc strong {
   font-weight: 600;

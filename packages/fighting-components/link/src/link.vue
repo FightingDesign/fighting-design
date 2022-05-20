@@ -3,10 +3,9 @@
     :class="[
       'f-link',
       `f-link-${type}`,
-      `f-link-${hover}`,
+      `f-link-${state}`,
       {
         'f-link-prohibit': prohibit,
-        'f-link-underline': underline,
         'f-link-noCopy': noCopy
       }
     ]"
@@ -37,7 +36,7 @@ const prop = defineProps(Props)
 const emit = defineEmits(Emits)
 
 const onClick: onClickInterface = (evt: Event): void => {
-  if (prop.prohibit) {
+  if (prop.prohibit || prop.noLink) {
     evt.preventDefault()
     return
   }
