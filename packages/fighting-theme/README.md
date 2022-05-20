@@ -2,34 +2,34 @@
 
 ## Introduction
 
-`fighting-design` 的主题样式目录
+Theme style directory of `fighting-design`
 
 ## 目录说明
 
 ```
-├── dist                  打包的文件夹
-├── font                  字体文件夹
-├── global                组件公用的一些样式定义，比如 type 等
-├── src                   每个组件的主样式表存放目录
-├── index.scss            样式主入口文件，也是打包入口文件
+├── dist                  Packaged folder
+├── font                  Font folder
+├── global                Some style definitions common to components, such as type, etc
+├── src                   Main style sheet storage directory of each component
+├── index.scss            The main style entry file is also a package entry file
 ├── package.json          package.json
 ├── README.md             README.md
-├── vite.config.ts        vite 打包配置文件
+├── vite.config.ts        Vite package configuration file
 ```
 
-## 规范说明
+## Specification
 
-在 `src` 目录下新建和组件名相同的 `*.scss` 文件，进行开组件样式表
+Create a new ` *.scss` With the same component name in the `src` directory SCSS file to write component style sheets
 
-在主入口 `index.scss` 中需要引入你新建的 `*.scss` 文件提供使用
+At the main `index.scss` entrance You need to import your new `*.scss` files are available for use
 
 ```scss
 @use './src/xxx.scss';
 ```
 
-## 引入
+## Import
 
-可以在全局任意地方使用下面方式引入使用
+The following methods can be used anywhere in the world
 
 ```ts
 import '@fighting-design/fighting-theme'

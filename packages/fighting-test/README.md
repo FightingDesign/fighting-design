@@ -2,15 +2,15 @@
 
 ## Introduction
 
-`fighting-design` 单元测试目录，基于 [vitest](https://github.com/vitest-dev/vitest) 和 [test-utils](https://github.com/vuejs/test-utils)
+`Fighting-design` unit test directory, based on [vitest](https://github.com/vitest-dev/vitest) and [test-utils](https://github.com/vuejs/test-utils)
 
-## 规范
+## Standard
 
-如需新增测试，新建文件名称为 `组件名.spec.ts`
+To add a new test, the name of the new file is `component name.spec.ts`
 
-## 执行测试
+## Perform test
 
-测试命令
+Test command
 
 ```shell
 pnpm test

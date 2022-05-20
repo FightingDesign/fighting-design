@@ -2,19 +2,19 @@
 
 ## Introduction
 
-`fighting-design` 为每个组件提供的类型系统
+`Fighting design` type system provided for each component
 
-## 规范
+## Standard
 
-每个组件中入需要定义 `type` 或者 `interface` 都必须在此目录中进行定义导出使用
+Each component needs to define `type` or `interface`, which must be defined in this directory for export
 
-在此新建 `组建名.d.ts` 文件内进行定义类型
+New here `component name.d.ts` type defined in file
 
-最终全部都统一倒入 `index.ts` 的入口文件中
+Finally, all are imported uniformly `index.ts` in the entry file of
 
-## 引入
+## Import
 
-在组件中可以直接引入 `@fighting-design/fighting-type` 使用
+You can directly use `@fighting-design/fighting-type` in the component
 
 ```ts
 import type { xxx, xxx } from '@fighting-design/fighting-type'
