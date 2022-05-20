@@ -72,7 +72,9 @@
             <ul v-for="(lists, index) in bottomList" :key="index">
               <h4>{{ lists.title }}</h4>
               <li v-for="(list, i) in lists.item" :key="i">
-                <a target="_back" :href="list.link">{{ list.text }}</a>
+                <a class="home_link" target="_back" :href="list.link">
+                  {{ list.text }}
+                </a>
               </li>
             </ul>
           </div>
@@ -323,6 +325,9 @@ const copyCode = (node: HTMLButtonElement): void => {
               line-height: 36px;
               cursor: pointer;
               font-size: 14px;
+              .home_link {
+                color: #333;
+              }
             }
           }
         }
@@ -342,6 +347,7 @@ const copyCode = (node: HTMLButtonElement): void => {
           .userName {
             font-size: 20px;
             margin-left: 10px;
+            color: #333;
           }
         }
       }
@@ -350,6 +356,9 @@ const copyCode = (node: HTMLButtonElement): void => {
         text-align: center;
         font-size: 15px;
         cursor: pointer;
+        a {
+          color: #333;
+        }
       }
     }
   }

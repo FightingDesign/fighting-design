@@ -3,8 +3,8 @@
     :class="[
       'f-link',
       `f-link-${type}`,
-      `f-link-${state}`,
       {
+        [`f-link-${state}`]: state,
         'f-link-prohibit': prohibit,
         'f-link-noCopy': noCopy
       }

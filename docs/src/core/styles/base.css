@@ -9,7 +9,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: var(--vt-font-family-base);
-  letter-spacing: .2px;
+  letter-spacing: 0.2px;
   line-height: 24px;
   font-size: 16px;
   font-weight: 400;
@@ -18,7 +18,7 @@ body {
   direction: ltr;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  transition: color .5s, background-color .5s;
+  transition: color 0.5s, background-color 0.5s;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -67,18 +67,13 @@ h6 {
 a,
 area,
 button,
-[role="button"],
+[role='button'],
 input,
 label,
 select,
 summary,
 textarea {
   touch-action: manipulation;
-}
-
-a {
-  color: inherit;
-  text-decoration: inherit;
 }
 
 ol,
@@ -131,11 +126,12 @@ button {
 }
 
 button,
-[role="button"] {
+[role='button'] {
   cursor: pointer;
 }
 
-button:focus, button:focus-visible {
+button:focus,
+button:focus-visible {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
 }
@@ -178,7 +174,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 

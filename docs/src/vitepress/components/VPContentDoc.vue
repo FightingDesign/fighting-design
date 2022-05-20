@@ -29,7 +29,6 @@
           </p>
         </main>
         <slot name="content-bottom" />
-        <VPContentDocFooter v-if="frontmatter.footer !== false" />
       </div>
     </div>
   </div>
@@ -39,7 +38,6 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 import VPContentDocOutline from './VPContentDocOutline.vue'
-import VPContentDocFooter from './VPContentDocFooter.vue'
 import type { Config } from '../config'
 import { VTLink, VTIconEdit } from '../../core'
 

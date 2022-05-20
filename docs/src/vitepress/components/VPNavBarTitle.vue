@@ -1,6 +1,9 @@
 <template>
   <a class="VPNavBarTitle" href="/">
-    <img class="logo" src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg" />
+    <img
+      class="logo"
+      src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg"
+    />
     <span class="text">Fighting Design</span>
   </a>
 </template>
@@ -29,5 +32,6 @@
 .text {
   font-size: 16px;
   font-weight: 500;
+  color: #333;
 }
 </style>
