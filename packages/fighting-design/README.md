@@ -1,5 +1,5 @@
 # fighting-design
 
-## 说明
+## Introduction
 
-`fighting-design` 的主入口文件
+Main entry file of `fighting-design`

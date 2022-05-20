@@ -1,12 +1,12 @@
 # @fighting-design/fighting-utils
 
-## 说明
+## Introduction
 
-`fighting-design` 内部的一些工具函数
+`fighting-design` some internal tool functions
 
-## 引入
+## Import
 
-可以在全局任意地方使用下面方式引入使用
+The following methods can be used anywhere in the world
 
 ```ts
 import '@fighting-design/fighting-utils'

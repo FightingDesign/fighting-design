@@ -1,6 +1,6 @@
 # @fighting-design/fighting-theme
 
-## Introduction
+## 说明
 
 `fighting-design` 的主题样式目录
 

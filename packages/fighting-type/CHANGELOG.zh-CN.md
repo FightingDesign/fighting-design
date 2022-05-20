@@ -1,6 +1,6 @@
 # @fighting-design/fighting-type
 
-## Introduction
+## 介绍
 
 `fighting-design` 为每个组件提供的类型系统
 
