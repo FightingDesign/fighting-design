@@ -7,3 +7,11 @@
     </span>
   </button>
 </template>
+
+<style scoped>
+.vt-switch-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+</style>
