@@ -32,7 +32,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ComputedRef } from 'vue'
+import { computed } from 'vue'
+import type { ComputedRef } from 'vue'
 import { Props, Emits } from './button'
 import type { onClickInterface } from '@fighting-design/fighting-type'
 
