@@ -4,14 +4,6 @@
 
 `fighting-design` 的所有组件的源文件
 
-## 前言
-
-你好！欢迎使用 `Fighting Design`
-
-我很高兴你有兴趣为 `Fighting Design` 做贡献。在提交您的贡献之前，请务必花点时间阅读以下指南
-
-规范可能比较多，但是大多数都是一些比较细小的规范，请认真阅读
-
 ## 新增组件
 
 如果想要新增组件，需要在 `fighting-components` 目录下新建一个`以组件名称`为名的文件夹，内部目录结构如下：
@@ -35,15 +27,15 @@
 
 这是组件的源文件，内部结构为：
 
-```vue
+```html
 <template></template>
 
 <script lang="ts" setup></script>
 
 <script lang="ts">
-export default {
-  name: ''
-}
+  export default {
+    name: ''
+  }
 </script>
 ```
 
@@ -146,3 +138,49 @@ const fun: funInterface = (a: number, b: number): number => {
   return a + b
 }
 ```
+
+## component-name.ts
+
+这里是来定义组件的 `Props` 和 `Emits` 的文件
+
+- 导出的名称必须叫 `Props` 和 `Emits` （首字母大写）
+- 每个 `props` 都必须标记类型
+- 每个 `props` 都必须标记默认值，就是默认值是 `false` 或者是空字符串也要标记
+- 如有可选项需要对其进行校验，一般使用 `validator` + `ts` 双重校验。可参考文档 [Prop 校验](https://staging-cn.vuejs.org/guide/components/props.html#prop-validation) 和 [PropType](https://staging-cn.vuejs.org/api/utility-types.html#proptypet)
+
+## component-name.ts
+
+这里需要用来定义、挂载、注册、导出组件
+
+参考文档
+
+- [安装插件](https://staging-cn.vuejs.org/api/application.html#app-use)
+- [全局注册组件](https://staging-cn.vuejs.org/guide/components/registration.html#global-registration)
+
+这里规范并不多，只有四行代码
+
+- 每行代码之间要有一个空行
+- 结尾要有空行
+- 导出必须使用 `export { xxx }` 导出，而不是 `export default`
+
+```ts
+import FButton from './src/button.vue'
+
+import { install } from '@fighting-design/fighting-utils'
+
+install(FButton, FButton.name)
+
+export { FButton }
+```
+
+## 主入口文件
+
+主入口文件是 `@fighting-design/fighting-components/index.ts` 这里导入了所有的组件
+
+如果你新建了一个新的组件，那么需要在此处进行引入，还需要在 `components` 对象中添加组件
+
+另外在 `export` 中也需要进行导出
+
+## 写在结尾
+
+这里的规范可能比较多，此文件可能更新会较为频繁，请大家在开发全新组件的时候，请务必先阅读此文件
