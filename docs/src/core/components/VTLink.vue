@@ -8,12 +8,13 @@
     :rel="isExternal ? 'noopener noreferrer' : undefined"
   >
     <slot />
-    <i v-if="isExternal && !noIcon" :class="`f-icon f-icon-link`" />
+    <VTIconExternalLink v-if="isExternal && !noIcon" class="vt-link-icon" />
   </component>
 </template>
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+import VTIconExternalLink from './icons/VTIconExternalLink.vue'
 
 const props = defineProps<{
   href?: string

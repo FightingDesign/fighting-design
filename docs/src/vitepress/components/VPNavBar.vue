@@ -8,6 +8,7 @@
         </template>
       </VPNavBarTitle>
       <div class="content">
+        <!-- <VPNavBarSearch class="search" /> -->
         <VPNavBarMenu class="menu" />
         <VPNavBarAppearance class="appearance" />
         <VPNavBarSocialLinks class="social-links" />
@@ -29,6 +30,7 @@ import VPNavBarAppearance from './VPNavBarAppearance.vue'
 import VPNavBarSocialLinks from './VPNavBarSocialLinks.vue'
 import VPNavBarExtra from './VPNavBarExtra.vue'
 import VPNavBarHamburger from './VPNavBarHamburger.vue'
+// import VPNavBarSearch from './VPNavBarSearch.vue'
 
 defineProps<{
   isScreenOpen: boolean

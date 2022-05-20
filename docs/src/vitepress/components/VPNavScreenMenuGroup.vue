@@ -7,7 +7,7 @@
       @click="toggle"
     >
       <span class="button-text">{{ text }}</span>
-      <i :class="`f-icon f-icon-add-select`" />
+      <VTIconPlus class="button-icon" />
     </button>
 
     <div :id="groupId" class="items">
@@ -26,7 +26,7 @@
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { MenuItemChild } from '../../core'
+import { VTIconPlus, MenuItemChild } from '../../core'
 import VPNavScreenMenuGroupLink from './VPNavScreenMenuGroupLink.vue'
 import VPNavScreenMenuGroupSection from './VPNavScreenMenuGroupSection.vue'
 

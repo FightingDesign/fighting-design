@@ -24,7 +24,7 @@ function groupHeaders(headers: Header[]): HeaderWithChildren[] {
     if (h.level === 2) {
       lastH2 = h
     } else if (lastH2 && h.level <= 3) {
-      ; (lastH2.children || (lastH2.children = [])).push(h)
+      ;(lastH2.children || (lastH2.children = [])).push(h)
     }
   }
   return headers.filter((h) => h.level === 2)
@@ -99,8 +99,8 @@ export function useActiveAnchor(
       hash == null
         ? null
         : (container.value.querySelector(
-          `a[href="${decodeURIComponent(hash)}"]`
-        ) as HTMLAnchorElement))
+            `a[href="${decodeURIComponent(hash)}"]`
+          ) as HTMLAnchorElement))
     if (activeLink) {
       activeLink.classList.add('active')
       bg.value.style.opacity = '1'

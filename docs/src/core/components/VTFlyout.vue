@@ -15,10 +15,10 @@
     >
       <span v-if="props.button" class="vt-flyout-button-text">
         {{ props.button }}
-        <i :class="`f-icon f-icon-arrow-down`" />
+        <VTIconChevronDown class="vt-flyout-button-text-icon" />
       </span>
 
-      <i v-else :class="`f-icon f-icon-ellipsis`" />
+      <VTIconMoreHorizontal v-else class="vt-flyout-button-icon" />
     </button>
 
     <div class="vt-flyout-menu">
@@ -33,6 +33,8 @@
 import { ref } from 'vue'
 import { MenuItem, MenuItemChild } from '../types/menu'
 import { useFocusContainer } from '../composables/FocusContainer'
+import VTIconChevronDown from './icons/VTIconChevronDown.vue'
+import VTIconMoreHorizontal from './icons/VTIconMoreHorizontal.vue'
 import VTMenu from './VTMenu.vue'
 
 const props = defineProps<{

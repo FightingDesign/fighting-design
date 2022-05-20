@@ -4,12 +4,15 @@
     aria-label="toggle dark mode"
     @click="toggle"
   >
-    <i :class="`f-icon f-icon-Daytimemode-fill`" />
+    <VTIconSun class="vt-switch-appearance-sun" />
+    <VTIconMoon class="vt-switch-appearance-moon" />
   </VTSwitch>
 </template>
 
 <script lang="ts" setup>
 import VTSwitch from './VTSwitch.vue'
+import VTIconSun from './icons/VTIconSun.vue'
+import VTIconMoon from './icons/VTIconMoon.vue'
 
 const storageKey = 'vue-theme-appearance'
 const toggle = typeof localStorage !== 'undefined' ? useAppearance() : () => {}
@@ -45,9 +48,3 @@ function useAppearance() {
   return toggle
 }
 </script>
-
-<style scoped>
-.f-icon {
-  /* font-size: 12px; */
-}
-</style>

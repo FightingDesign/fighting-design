@@ -28,6 +28,12 @@ const closeSideBar = inject('close-sidebar') as () => void
   padding: 6px 0;
 }
 
+@media (min-width: 960px) {
+  .link {
+    padding: 4px 0;
+  }
+}
+
 .link:hover .link-text {
   color: var(--vt-c-brand-text-1);
   transition: 0.25s;
@@ -42,12 +48,11 @@ const closeSideBar = inject('close-sidebar') as () => void
   transition: 0.25s;
   border-left: 4px solid #2d5af1;
   border-radius: 4px;
-  font-size: 16px;
 }
 
 .link-text {
   line-height: 20px;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--vt-c-text-2);
   transition: color 0.5s;

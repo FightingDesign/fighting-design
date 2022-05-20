@@ -22,12 +22,14 @@
             class="edit-link"
             v-if="theme.editLink && frontmatter.editLink !== false"
           >
+            <VTIconEdit class="vt-icon" />
             <VTLink :href="repoUrl" :no-icon="true">
               {{ theme.editLink.text }}
             </VTLink>
           </p>
         </main>
         <slot name="content-bottom" />
+        <VPContentDocFooter v-if="frontmatter.footer !== false" />
       </div>
     </div>
   </div>
@@ -37,8 +39,9 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 import VPContentDocOutline from './VPContentDocOutline.vue'
+import VPContentDocFooter from './VPContentDocFooter.vue'
 import type { Config } from '../config'
-import { VTLink } from '../../core'
+import { VTLink, VTIconEdit } from '../../core'
 
 const { page, frontmatter, theme } = useData<Config>()
 

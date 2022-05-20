@@ -6,7 +6,7 @@
       aria-controls="VPSidebarNav"
       @click="$emit('open-menu')"
     >
-      <i :class="`f-icon f-icon-category`" />
+      <VTIconAlignLeft class="menu-icon" />
       <span class="menu-text">Menu</span>
     </button>
 
@@ -22,6 +22,7 @@
 </template>
 
 <script lang="ts" setup>
+import { VTIconAlignLeft } from '../../core'
 import { useSidebar } from '../composables/sidebar'
 import { useData } from 'vitepress'
 
