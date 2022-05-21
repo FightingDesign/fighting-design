@@ -1,5 +1,7 @@
 # @fighting-design/fighting-components
 
+English | [Chinese](./CHANGELOG.zh-CN.md)
+
 ## 说明
 
 `fighting-design` 的所有组件的源文件

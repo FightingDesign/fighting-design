@@ -1,5 +1,7 @@
 # @fighting-design/fighting-test
 
+中文 | [英文](./README.md)
+
 ## 说明
 
 `fighting-design` 单元测试目录，基于 [vitest](https://github.com/vitest-dev/vitest) 和 [test-utils](https://github.com/vuejs/test-utils)

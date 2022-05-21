@@ -1,5 +1,7 @@
 # @fighting-design/fighting-utils
 
+English | [Chinese](./CHANGELOG.zh-CN.md)
+
 ## Introduction
 
 `fighting-design` some internal tool functions

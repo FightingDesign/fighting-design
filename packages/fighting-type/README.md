@@ -1,5 +1,7 @@
 # @fighting-design/fighting-type
 
+English | [Chinese](./CHANGELOG.zh-CN.md)
+
 ## Introduction
 
 `Fighting design` type system provided for each component

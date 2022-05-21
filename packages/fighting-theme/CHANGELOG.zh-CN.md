@@ -1,5 +1,7 @@
 # @fighting-design/fighting-theme
 
+中文 | [英文](./README.md)
+
 ## 说明
 
 `fighting-design` 的主题样式目录

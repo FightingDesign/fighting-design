@@ -1,5 +1,7 @@
 # @fighting-design/fighting-type
 
+中文 | [英文](./README.md)
+
 ## 介绍
 
 `fighting-design` 为每个组件提供的类型系统

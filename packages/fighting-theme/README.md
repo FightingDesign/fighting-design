@@ -1,5 +1,7 @@
 # @fighting-design/fighting-theme
 
+English | [Chinese](./CHANGELOG.zh-CN.md)
+
 ## Introduction
 
 Theme style directory of `fighting-design`

@@ -1,5 +1,7 @@
 # @fighting-design/fighting-test
 
+English | [Chinese](./CHANGELOG.zh-CN.md)
+
 ## Introduction
 
 `Fighting-design` unit test directory, based on [vitest](https://github.com/vitest-dev/vitest) and [test-utils](https://github.com/vuejs/test-utils)

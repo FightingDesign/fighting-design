@@ -1,5 +1,7 @@
 # @fighting-design/fighting-components
 
+中文 | [英文](./README.md)
+
 ## 说明
 
 `fighting-design` 的所有组件的源文件
