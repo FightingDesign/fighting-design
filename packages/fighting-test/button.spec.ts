@@ -4,13 +4,6 @@ import { FButton } from '@fighting-design/fighting-components'
 import { FButtonGroup } from '@fighting-design/fighting-components'
 
 describe('FButton', () => {
-  // it('blob', () => {
-  //   const wrapper = mount(FButton, {
-  //     props: { blob: true }
-  //   })
-  //   expect(wrapper.classes()).toContain('f-button-primary')
-  // })
-
   it('round', () => {
     const wrapper = mount(FButton, {
       props: { round: true }
@@ -71,7 +64,7 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { shadow: '7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4' }
     })
-    expect(wrapper.attributes('style')).toContain('shadow: 7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4')
+    expect(wrapper.attributes('style')).toContain('7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4')
   })
 
   it('text', () => {

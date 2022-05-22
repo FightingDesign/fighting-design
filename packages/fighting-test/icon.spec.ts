@@ -21,20 +21,20 @@ describe('FIcon', () => {
     const wrapper = mount(FIcon, {
       props: { color: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('color: red')
+    expect(wrapper.attributes('style')).toContain('red')
   })
 
   it('size', () => {
     const wrapper = mount(FIcon, {
       props: { size: '15px' }
     })
-    expect(wrapper.attributes('style')).toContain('font-size: 15px')
+    expect(wrapper.attributes('style')).toContain('15px')
   })
 
   it('opacity', () => {
     const wrapper = mount(FIcon, {
       props: { opacity: '0.5' }
     })
-    expect(wrapper.attributes('style')).toContain('opacity: 0.5')
+    expect(wrapper.attributes('style')).toContain('0.5')
   })
 })
