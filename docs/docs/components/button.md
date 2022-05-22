@@ -289,7 +289,6 @@
 | name         | 按钮的名字                               | string  | ——                                                             | f-button |
 | shadow       | 按钮的阴影                               | string  | ——                                                             | ——       |
 | text         | 是否为文字按钮                           | boolean | ——                                                             | false    |
-| long         | 按钮长度是否为 100%                      | boolean | ——                                                             | false    |
 | simple       | 是否为简约按钮                           | boolean | ——                                                             | false    |
 | border       | 是否显示边框（仅在 text: true）时生效    | boolean | ——                                                             | false    |
 
