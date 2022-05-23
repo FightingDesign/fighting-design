@@ -21,7 +21,7 @@
     @click="onClick"
   >
     <span
-      :class="['f-text', { 'is-blob': blob }]"
+      :class="['f-text', { 'f-text-blob': blob }]"
       :style="{ fontSize, color: fontColor }"
     >
       <i v-if="isShowLeftIcon" :class="['f-icon', iconClass]" />

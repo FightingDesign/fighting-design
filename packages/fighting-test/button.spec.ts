@@ -3,12 +3,35 @@ import { describe, expect, it } from 'vitest'
 import { FButton } from '@fighting-design/fighting-components'
 import { FButtonGroup } from '@fighting-design/fighting-components'
 
+// https://test-utils.vuejs.org
+
 describe('FButton', () => {
+  it('blob', () => {
+    const wrapper = mount(FButton, {
+      props: { blob: true }
+    })
+    expect(wrapper.find('span').classes()).toContain('f-text-blob')
+  })
+
   it('round', () => {
     const wrapper = mount(FButton, {
       props: { round: true }
     })
     expect(wrapper.classes()).toContain('f-button-round')
+  })
+
+  it('fontSize', () => {
+    const wrapper = mount(FButton, {
+      props: { fontSize: '20px' }
+    })
+    expect(wrapper.find('span').attributes('style')).toContain('20px')
+  })
+
+  it('fontColor', () => {
+    const wrapper = mount(FButton, {
+      props: { fontColor: 'red' }
+    })
+    expect(wrapper.find('span').attributes('style')).toContain('red')
   })
 
   it('size', () => {
@@ -37,6 +60,13 @@ describe('FButton', () => {
       props: { disabled: true }
     })
     expect(wrapper.classes()).toContain('f-button-disabled')
+  })
+
+  it('icon', () => {
+    const wrapper = mount(FButton, {
+      props: { icon: 'f-icon-Customermanagement' }
+    })
+    expect(wrapper.find('i').classes()).toContain('f-icon-Customermanagement')
   })
 
   it('type', () => {
