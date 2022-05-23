@@ -1,37 +1,37 @@
 import { FIcon } from '@fighting-design/fighting-components'
 import { mount } from '@vue/test-utils'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, test } from 'vitest'
 
 describe('FIcon', () => {
-  it('icon', () => {
+  test('icon', () => {
     const wrapper = mount(FIcon, {
       props: { icon: 'f-icon-credit-level-fill' }
     })
     expect(wrapper.classes()).toContain('f-icon-credit-level-fill')
   })
 
-  it('fontClass', () => {
+  test('fontClass', () => {
     const wrapper = mount(FIcon, {
       props: { fontClass: 'my-font' }
     })
     expect(wrapper.classes()).toContain('my-font')
   })
 
-  it('color', () => {
+  test('color', () => {
     const wrapper = mount(FIcon, {
       props: { color: 'red' }
     })
     expect(wrapper.attributes('style')).toContain('red')
   })
 
-  it('size', () => {
+  test('size', () => {
     const wrapper = mount(FIcon, {
       props: { size: '15px' }
     })
     expect(wrapper.attributes('style')).toContain('15px')
   })
 
-  it('opacity', () => {
+  test('opacity', () => {
     const wrapper = mount(FIcon, {
       props: { opacity: '0.5' }
     })

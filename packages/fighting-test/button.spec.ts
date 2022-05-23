@@ -1,131 +1,131 @@
 import { mount } from '@vue/test-utils'
-import { describe, expect, it, test } from 'vitest'
+import { describe, expect, test } from 'vitest'
 import { FButton } from '@fighting-design/fighting-components'
 import { FButtonGroup } from '@fighting-design/fighting-components'
 
 // https://test-utils.vuejs.org
 
 describe('FButton', () => {
-  it('blob', () => {
+  test('blob', () => {
     const wrapper = mount(FButton, {
       props: { blob: true }
     })
     expect(wrapper.find('span').classes()).toContain('f-text-blob')
   })
 
-  it('round', () => {
+  test('round', () => {
     const wrapper = mount(FButton, {
       props: { round: true }
     })
     expect(wrapper.classes()).toContain('f-button-round')
   })
 
-  it('fontSize', () => {
+  test('fontSize', () => {
     const wrapper = mount(FButton, {
       props: { fontSize: '20px' }
     })
     expect(wrapper.find('span').attributes('style')).toContain('20px')
   })
 
-  it('fontColor', () => {
+  test('fontColor', () => {
     const wrapper = mount(FButton, {
       props: { fontColor: 'red' }
     })
     expect(wrapper.find('span').attributes('style')).toContain('red')
   })
 
-  it('size', () => {
+  test('size', () => {
     const wrapper = mount(FButton, {
       props: { size: 'large' }
     })
     expect(wrapper.classes()).toContain('f-button-large')
   })
 
-  it('block', () => {
+  test('block', () => {
     const wrapper = mount(FButton, {
       props: { block: true }
     })
     expect(wrapper.classes()).toContain('f-button-block')
   })
 
-  it('loading', () => {
+  test('loading', () => {
     const wrapper = mount(FButton, {
       props: { loading: true }
     })
     expect(wrapper.classes()).toContain('f-button-disabled')
   })
 
-  it('disabled', () => {
+  test('disabled', () => {
     const wrapper = mount(FButton, {
       props: { disabled: true }
     })
     expect(wrapper.classes()).toContain('f-button-disabled')
   })
 
-  it('leftIcon', () => {
+  test('leftIcon', () => {
     const wrapper = mount(FButton, {
       props: { leftIcon: 'f-icon-Customermanagement' }
     })
     expect(wrapper.find('i').classes()).toContain('f-icon-Customermanagement')
   })
 
-  it('rightIcon', () => {
+  test('rightIcon', () => {
     const wrapper = mount(FButton, {
       props: { rightIcon: 'f-icon-Customermanagement' }
     })
     expect(wrapper.find('i').classes()).toContain('f-icon-Customermanagement')
   })
 
-  it('type', () => {
+  test('type', () => {
     const wrapper = mount(FButton, {
       props: { type: 'primary' }
     })
     expect(wrapper.classes()).toContain('f-button-primary')
   })
 
-  it('autofocus', () => {
+  test('autofocus', () => {
     const wrapper = mount(FButton, {
       props: { autofocus: true }
     })
     expect(wrapper.attributes('autofocus')).toContain('true')
   })
 
-  it('name', () => {
+  test('name', () => {
     const wrapper = mount(FButton, {
       props: { name: 'my-button' }
     })
     expect(wrapper.attributes('name')).toContain('my-button')
   })
 
-  it('shadow', () => {
+  test('shadow', () => {
     const wrapper = mount(FButton, {
       props: { shadow: '7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4' }
     })
     expect(wrapper.attributes('style')).toContain('7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4')
   })
 
-  it('text', () => {
+  test('text', () => {
     const wrapper = mount(FButton, {
       props: { text: true }
     })
     expect(wrapper.classes()).toContain('f-button-text')
   })
 
-  it('simple', () => {
+  test('simple', () => {
     const wrapper = mount(FButton, {
       props: { simple: true }
     })
     expect(wrapper.classes()).toContain('f-button-simple')
   })
 
-  it('border', () => {
+  test('border', () => {
     const wrapper = mount(FButton, {
       props: { border: true, text: true }
     })
     expect(wrapper.classes()).toContain('f-button-border')
   })
 
-  it('default slot', () => {
+  test('default slot', () => {
     const wrapper = mount(FButton, {
       slots: { default: '这是按钮' }
     })
@@ -139,24 +139,42 @@ describe('FButton', () => {
     await wrapper.trigger('click')
     expect(wrapper.emitted()).toBeDefined()
   })
+
+  test('disabled click', async () => {
+    const wrapper = mount(FButton, {
+      slots: { default: '点击测试' },
+      props: { disabled: true }
+    })
+    await wrapper.trigger('click')
+    expect(wrapper.emitted('click')).toBeUndefined()
+  })
+
+  test('loading click', async () => {
+    const wrapper = mount(FButton, {
+      slots: { default: '点击测试' },
+      props: { loading: true }
+    })
+    await wrapper.trigger('click')
+    expect(wrapper.emitted('click')).toBeUndefined()
+  })
 })
 
 describe('FButtonGroup', () => {
-  it('size', () => {
+  test('size', () => {
     const wrapper = mount(FButtonGroup, {
       props: { size: 'large', vertical: false }
     })
     expect(wrapper.classes()).toContain('f-button-group-large')
   })
 
-  it('vertical', () => {
+  test('vertical', () => {
     const wrapper = mount(FButtonGroup, {
       props: { vertical: true }
     })
     expect(wrapper.classes()).toContain('f-button-group-vertical')
   })
 
-  it('vertical', () => {
+  test('vertical', () => {
     const wrapper = mount(FButtonGroup, {
       props: { vertical: false }
     })

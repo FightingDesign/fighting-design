@@ -1,58 +1,58 @@
 import { mount } from '@vue/test-utils'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, test } from 'vitest'
 import { FLink } from '@fighting-design/fighting-components'
 
 describe('FLink', () => {
-  it('type', () => {
+  test('type', () => {
     const wrapper = mount(FLink, {
       props: { type: 'primary' }
     })
     expect(wrapper.classes()).toContain('f-link-primary')
   })
 
-  it('href', () => {
+  test('href', () => {
     const wrapper = mount(FLink, {
       props: { href: 'https://tianyuhao.cn' }
     })
     expect(wrapper.attributes('href')).toContain('https://tianyuhao.cn')
   })
 
-  it('size', () => {
+  test('size', () => {
     const wrapper = mount(FLink, {
       props: { size: '20px' }
     })
     expect(wrapper.attributes('style')).toContain('20px')
   })
 
-  it('state', () => {
+  test('state', () => {
     const wrapper = mount(FLink, {
       props: { state: 'line' }
     })
     expect(wrapper.classes()).toContain('f-link-line')
   })
 
-  it('prohibit', () => {
+  test('prohibit', () => {
     const wrapper = mount(FLink, {
       props: { prohibit: true }
     })
     expect(wrapper.classes()).toContain('f-link-prohibit')
   })
 
-  it('target', () => {
+  test('target', () => {
     const wrapper = mount(FLink, {
       props: { target: '_blank' }
     })
     expect(wrapper.attributes('target')).toContain('_blank')
   })
 
-  it('color', () => {
+  test('color', () => {
     const wrapper = mount(FLink, {
       props: { color: 'red' }
     })
     expect(wrapper.attributes('style')).toContain('red')
   })
 
-  it('noCopy', () => {
+  test('noCopy', () => {
     const wrapper = mount(FLink, {
       props: { noCopy: true }
     })
