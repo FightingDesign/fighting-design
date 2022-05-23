@@ -2,6 +2,13 @@
 
 English | [Chinese](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.zh-CN.md)
 
+## 0.0.4 beta.4 (2022-05-23)
+
+- Add `FLink` component
+- Cancel `FButton` fixed height
+- Abolish the `icon` and `iconPosition` attributes of the `FButton` component
+- Add the `leftIcon` and `rightIcon` attributes of the `FButton` component
+
 ## 0.0.3 beta.3 (2022-05-18)
 
 - Fix some display styles of button components
