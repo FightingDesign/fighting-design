@@ -2,6 +2,13 @@
 
 中文 | [英文](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.0.4 beta.4 (2022-05-23)
+
+- 新增 `FLink` 组件
+- 取消 `FButton` 固定高度
+- 废除 `FButton` 组件的 `icon` 和 `iconPosition` 属性
+- 新增 `FButton` 组件的 `leftIcon` 和 `rightIcon` 属性
+
 ## 0.0.3 beta.3 (2022-05-18)
 
 - 修复按钮组件一些显示问题的样式
