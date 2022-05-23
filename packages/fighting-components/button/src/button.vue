@@ -54,10 +54,6 @@ const leftIconClass: ComputedRef<string> = computed<string>((): string => {
   }
   return prop.leftIcon
 })
-
-// const isShowLeftIcon: ComputedRef<boolean> = computed<boolean>((): boolean => {
-//   return !!(prop.loading || (prop.iconPosition === 'left' && prop.icon))
-// })
 </script>
 
 <script lang="ts">
