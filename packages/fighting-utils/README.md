@@ -1,6 +1,6 @@
 # @fighting-design/fighting-utils
 
-English | [Chinese](./CHANGELOG.zh-CN.md)
+English | [Chinese](./README.zh-CN.md)
 
 ## Introduction
 
