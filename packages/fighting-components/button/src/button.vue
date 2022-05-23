@@ -24,9 +24,9 @@
       :class="['f-text', { 'f-text-blob': blob }]"
       :style="{ fontSize, color: fontColor }"
     >
-      <i v-if="isShowLeftIcon" :class="['f-icon', iconClass]" />
+      <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" />
       <slot />
-      <i v-if="iconPosition === 'right'" :class="['f-icon', icon]" />
+      <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
     </span>
   </button>
 </template>
@@ -48,16 +48,16 @@ const onClick: onClickInterface = (evt: Event): void => {
   emit('click', evt)
 }
 
-const iconClass: ComputedRef<string> = computed<string>((): string => {
+const leftIconClass: ComputedRef<string> = computed<string>((): string => {
   if (prop.loading) {
     return `${prop.loadingIcon || 'f-icon-loading'} f-icon--loading`
   }
-  return prop.icon
+  return prop.leftIcon
 })
 
-const isShowLeftIcon: ComputedRef<boolean> = computed<boolean>((): boolean => {
-  return !!(prop.loading || (prop.iconPosition === 'left' && prop.icon))
-})
+// const isShowLeftIcon: ComputedRef<boolean> = computed<boolean>((): boolean => {
+//   return !!(prop.loading || (prop.iconPosition === 'left' && prop.icon))
+// })
 </script>
 
 <script lang="ts">

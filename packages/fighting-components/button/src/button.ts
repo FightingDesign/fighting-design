@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import type { buttonSize, buttonTarget, buttonIconPosition, buttonType } from '@fighting-design/fighting-type'
+import type { buttonSize, buttonTarget, buttonType } from '@fighting-design/fighting-type'
 
 export const Props = {
   blob: {
@@ -60,24 +60,9 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  icon: {
-    type: String,
-    default: (): string => ''
-  },
   loadingIcon: {
     type: String,
     default: (): string => ''
-  },
-  iconPosition: {
-    type: String as PropType<buttonIconPosition>,
-    default: (): string => 'left',
-    validator(val: string): boolean {
-      return [
-        'right',
-        'left',
-        ''
-      ].includes(val)
-    }
   },
   type: {
     type: String as PropType<buttonType>,
@@ -125,6 +110,14 @@ export const Props = {
   border: {
     type: Boolean,
     default: (): boolean => false
+  },
+  leftIcon: {
+    type: String,
+    default: (): string => ''
+  },
+  rightIcon: {
+    type: String,
+    default: (): string => ''
   }
 } as const
 

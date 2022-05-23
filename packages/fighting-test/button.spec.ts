@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, test } from 'vitest'
 import { FButton } from '@fighting-design/fighting-components'
 import { FButtonGroup } from '@fighting-design/fighting-components'
 
@@ -62,9 +62,16 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button-disabled')
   })
 
-  it('icon', () => {
+  it('leftIcon', () => {
     const wrapper = mount(FButton, {
-      props: { icon: 'f-icon-Customermanagement' }
+      props: { leftIcon: 'f-icon-Customermanagement' }
+    })
+    expect(wrapper.find('i').classes()).toContain('f-icon-Customermanagement')
+  })
+
+  it('rightIcon', () => {
+    const wrapper = mount(FButton, {
+      props: { rightIcon: 'f-icon-Customermanagement' }
     })
     expect(wrapper.find('i').classes()).toContain('f-icon-Customermanagement')
   })
@@ -116,6 +123,21 @@ describe('FButton', () => {
       props: { border: true, text: true }
     })
     expect(wrapper.classes()).toContain('f-button-border')
+  })
+
+  it('default slot', () => {
+    const wrapper = mount(FButton, {
+      slots: { default: '这是按钮' }
+    })
+    expect(wrapper.find('span').text()).toContain('这是按钮')
+  })
+
+  test('on click', async () => {
+    const wrapper = mount(FButton, {
+      slots: { default: '点击测试' }
+    })
+    await wrapper.trigger('click')
+    expect(wrapper.emitted()).toBeDefined()
   })
 })
 
