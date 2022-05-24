@@ -42,4 +42,8 @@ const { page } = useData()
 .VPNavBarMenuLink:hover {
   color: #2d5af1;
 }
+.active {
+  color: #2d5af1;
+  border-bottom: 2px solid #2d5af1;
+}
 </style>

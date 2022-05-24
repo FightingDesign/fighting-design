@@ -17,7 +17,7 @@ export function normalizeLink(url: string): string {
   if (isExternal(url)) {
     return url
   }
-  const { pathname, search, hash } = new URL(url, 'http://vuejs.org')
+  const { pathname, search, hash } = new URL(url, 'https://tianyuhao.cn')
   return withBase(
     pathname.endsWith('/') || pathname.endsWith('.html')
       ? url
@@ -42,6 +42,7 @@ export function isActive(
     return false
   }
   currentPath = normalize(`/${currentPath}`)
+
   if (asRegex) {
     return new RegExp(matchPath).test(currentPath)
   } else {

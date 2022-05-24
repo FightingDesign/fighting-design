@@ -1,12 +1,5 @@
 <template>
-  <nav
-    v-if="config.nav"
-    aria-labelledby="main-nav-aria-label"
-    class="VPNavBarMenu"
-  >
-    <span id="main-nav-aria-label" class="visually-hidden">
-      Main Navigation
-    </span>
+  <nav v-if="config.nav" class="VPNavBarMenu">
     <template v-for="(item, index) in config.nav" :key="index">
       <VPNavBarMenuLink v-if="'link' in item" :item="item" />
       <VPNavBarMenuGroup v-else :item="item" />
