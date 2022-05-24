@@ -1,13 +1,9 @@
 <template>
-  <f-button
-    leftIcon="f-icon-all-fill1"
-    rightIcon="f-icon-all-fill1"
-    iconPosition="right"
-    type="primary"
-    :loading="loading"
+  <f-link type="primary" href="https://www.baidu.com" target="_top"
+    >默认按钮</f-link
   >
-    默认按钮
-  </f-button>
+
+  <a href="https://www.baidu.com" target="_blank">大撒大</a>
 
   <button @click="change">ada</button>
 </template>
