@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FButton } from '@fighting-design/fighting-components'
-import { FButtonGroup } from '@fighting-design/fighting-components'
 
 // https://test-utils.vuejs.org
 
@@ -156,28 +155,5 @@ describe('FButton', () => {
     })
     await wrapper.trigger('click')
     expect(wrapper.emitted('click')).toBeUndefined()
-  })
-})
-
-describe('FButtonGroup', () => {
-  test('size', () => {
-    const wrapper = mount(FButtonGroup, {
-      props: { size: 'large', vertical: false }
-    })
-    expect(wrapper.classes()).toContain('f-button-group-large')
-  })
-
-  test('vertical', () => {
-    const wrapper = mount(FButtonGroup, {
-      props: { vertical: true }
-    })
-    expect(wrapper.classes()).toContain('f-button-group-vertical')
-  })
-
-  test('vertical', () => {
-    const wrapper = mount(FButtonGroup, {
-      props: { vertical: false }
-    })
-    expect(wrapper.classes()).toContain('f-button-group-horizontal')
   })
 })
