@@ -1,3 +1,32 @@
 .f-image {
-  
+  display: inline-block;
+
+  .f-image-select {
+    user-select: none;
+  }
+
+  // 适应容器方式
+  .f-image-fill {
+    object-fit: fill;
+  }
+
+  .f-image-contain {
+    object-fit: contain;
+  }
+
+  .f-image-cover {
+    object-fit: cover;
+  }
+
+  .f-image-none {
+    object-fit: none;
+  }
+
+  .f-image-scale-down {
+    object-fit: scale-down;
+  }
+}
+
+.f-image-block {
+  display: block;
 }

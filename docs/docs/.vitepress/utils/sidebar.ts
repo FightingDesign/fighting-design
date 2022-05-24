@@ -37,6 +37,13 @@ export const sidebar = {
         { text: 'Icon 图标', link: '/components/icon' },
         { text: 'Link 链接', link: '/components/link' },
       ]
+    },
+    {
+      text: '数据展示',
+      link: '/components/',
+      items: [
+        { text: 'Image 图片', link: '/components/image' },
+      ]
     }
   ]
 }

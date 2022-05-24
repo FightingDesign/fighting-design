@@ -18,3 +18,5 @@ export interface LoadInterface {
 export interface creationMethodInterface {
   (instance: Lazy | Load): void
 }
+
+export type imageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'

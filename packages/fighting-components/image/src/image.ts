@@ -1,3 +1,6 @@
+import { PropType } from 'vue'
+import type { imageFit } from '@fighting-design/fighting-type'
+
 export const Props = {
   src: {
     type: String,
@@ -18,5 +21,35 @@ export const Props = {
   rootMargin: {
     type: String,
     default: (): string => '100px'
+  },
+  width: {
+    type: String,
+    default: (): string => ''
+  },
+  height: {
+    type: String,
+    default: (): string => ''
+  },
+  block: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  fit: {
+    type: String as PropType<imageFit>,
+    default: (): string => '',
+    validator(val: string): boolean {
+      return [
+        'fill',
+        'contain',
+        'cover',
+        'none',
+        'scale-down',
+        ''
+      ].includes(val)
+    }
+  },
+  select: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
