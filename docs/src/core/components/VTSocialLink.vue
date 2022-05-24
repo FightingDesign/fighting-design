@@ -17,13 +17,7 @@
 
 <script lang="ts" setup>
 import { SocialLinkSize, SocialLinkIcon } from '../types/socialLink'
-import VTIconDiscord from './icons/VTIconDiscord.vue'
-import VTIconFacebook from './icons/VTIconFacebook.vue'
 import VTIconGitHub from './icons/VTIconGitHub.vue'
-import VTIconLinkedIn from './icons/VTIconLinkedIn.vue'
-import VTIconSlack from './icons/VTIconSlack.vue'
-import VTIconTwitter from './icons/VTIconTwitter.vue'
-import VTIconLanguages from './icons/VTIconLanguages.vue'
 
 const props = defineProps<{
   size?: SocialLinkSize
@@ -34,12 +28,6 @@ const props = defineProps<{
 const target = /^[a-z]+:/i.test(props.link) ? `_blank` : undefined
 
 const icons = {
-  discord: VTIconDiscord,
-  facebook: VTIconFacebook,
-  github: VTIconGitHub,
-  linkedin: VTIconLinkedIn,
-  slack: VTIconSlack,
-  twitter: VTIconTwitter,
-  languages: VTIconLanguages
+  github: VTIconGitHub
 }
 </script>
