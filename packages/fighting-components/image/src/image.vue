@@ -74,7 +74,7 @@ const creationMethod: creationMethodInterface = (
 }
 
 const loadImage: loadImageInterface = (): void => {
-  const node: HTMLImageElement = FImageImg.value
+  const node: HTMLImageElement = FImageImg.value!
   if (prop.lazy) {
     return creationMethod(new Lazy(node))
   }
