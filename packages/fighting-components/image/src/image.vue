@@ -1,12 +1,5 @@
 <template>
-  <div
-    :class="[
-      'f-image',
-      {
-        'f-image-block': block
-      }
-    ]"
-  >
+  <div :class="['f-image', { 'f-image-block': block }]">
     <img
       ref="FImageImg"
       :class="[
