@@ -6,7 +6,7 @@
       :href="normalizeLink(links.prev.link)"
     >
       <span class="desc">
-        <VTIconChevronLeft class="vt-link-icon" />
+        <f-icon icon="f-icon-arrow-left" />
         Previous
       </span>
       <span class="title">{{ links.prev.text }} </span>
@@ -16,7 +16,7 @@
       class="next-link"
       :href="normalizeLink(links.next.link)"
     >
-      <span class="desc">Next <VTIconChevronRight class="vt-link-icon" /></span>
+      <span class="desc">Next <f-icon icon="f-icon-arrow-right" /></span>
       <span class="title">{{ links.next.text }}</span>
     </a>
   </footer>
@@ -28,11 +28,7 @@ import { useData } from 'vitepress'
 import { getSidebar } from '../support/sidebar'
 import { SidebarGroup } from '../config'
 import { isActive, normalizeLink } from '../support/utils'
-import {
-  VTIconChevronLeft,
-  VTIconChevronRight,
-  MenuItemWithLink
-} from '../../core'
+import { MenuItemWithLink } from '../../core'
 
 const { page, theme } = useData()
 

@@ -8,7 +8,7 @@
     :rel="isExternal ? 'noopener noreferrer' : undefined"
   >
     <slot />
-    <VTIconExternalLink v-if="isExternal && !noIcon" class="vt-link-icon" />
+    <f-icon v-if="isExternal && !noIcon" icon="f-icon-attachent" />
   </component>
 </template>
 

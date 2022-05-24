@@ -22,7 +22,7 @@
             class="edit-link"
             v-if="theme.editLink && frontmatter.editLink !== false"
           >
-            <VTIconEdit class="vt-icon" />
+            <f-icon icon="f-icon-topsales" />
             <VTLink :href="repoUrl" :no-icon="true">
               {{ theme.editLink.text }}
             </VTLink>
@@ -41,7 +41,7 @@ import { useData } from 'vitepress'
 import VPContentDocOutline from './VPContentDocOutline.vue'
 import VPContentDocFooter from './VPContentDocFooter.vue'
 import type { Config } from '../config'
-import { VTLink, VTIconEdit } from '../../core'
+import { VTLink } from '../../core'
 
 const { page, frontmatter, theme } = useData<Config>()
 
