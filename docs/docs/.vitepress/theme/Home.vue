@@ -137,7 +137,7 @@
       photo: 'https://avatars.githubusercontent.com/u/73180970?v=4',
       url: 'https://github.com/Tyh2001'
     }
-  ]
+  ] as const
 
   const copyCode = (node: HTMLButtonElement): void => {
     const clipboard = new Clipboard(node)

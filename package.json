@@ -21,6 +21,8 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@commitlint/cli": "^17.0.1",
+    "@commitlint/config-conventional": "^17.0.0",
     "@fighting-design/fighting-components": "workspace:*",
     "@fighting-design/fighting-theme": "workspace:*",
     "@fighting-design/fighting-type": "workspace:*",
@@ -29,6 +31,8 @@
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/test-utils": "^2.0.0-rc.18",
     "happy-dom": "^3.2.2",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.2",
     "prettier": "^2.6.2",
     "rollup": "^2.73.0",
     "rollup-plugin-terser": "^7.0.2",
