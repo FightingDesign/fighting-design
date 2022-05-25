@@ -11,13 +11,13 @@
 </template>
 
 <script lang="ts" setup>
-import { Props } from './button-group'
+  import { Props } from './button-group'
 
-defineProps(Props)
+  defineProps(Props)
 </script>
 
 <script lang="ts">
-export default {
-  name: 'FButtonGroup'
-}
+  export default {
+    name: 'FButtonGroup'
+  }
 </script>

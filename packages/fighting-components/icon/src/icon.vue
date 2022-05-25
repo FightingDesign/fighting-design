@@ -9,18 +9,18 @@
 </template>
 
 <script lang="ts" setup>
-import { Props, Emits } from './icon'
+  import { Props, Emits } from './icon'
 
-const prop = defineProps(Props)
-const emit = defineEmits(Emits)
+  const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
 
-const onClick = (evt: Event): void => {
-  emit('click', evt)
-}
+  const onClick = (evt: Event): void => {
+    emit('click', evt)
+  }
 </script>
 
 <script lang="ts">
-export default {
-  name: 'FIcon'
-}
+  export default {
+    name: 'FIcon'
+  }
 </script>

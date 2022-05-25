@@ -10,8 +10,8 @@
         'f-button-simple': simple,
         'f-button-text': text,
         'f-button-border': text && border,
-        [`f-button-${size}`]: size !== 'middle'
-      }
+        [`f-button-${size}`]: size !== 'middle',
+      },
     ]"
     :style="[`box-shadow: ${shadow}`]"
     :disabled="disabled || loading"
@@ -32,32 +32,32 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-import type { ComputedRef } from 'vue'
-import { Props, Emits } from './button'
-import type { onClickInterface } from '@fighting-design/fighting-type'
+  import { computed } from 'vue'
+  import type { ComputedRef } from 'vue'
+  import { Props, Emits } from './button'
+  import type { onClickInterface } from '@fighting-design/fighting-type'
 
-const prop = defineProps(Props)
-const emit = defineEmits(Emits)
+  const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
 
-const onClick: onClickInterface = (evt: Event): void => {
-  if (prop.disabled || prop.loading) return
-  if (prop.link) {
-    window.open(prop.link, prop.target)
+  const onClick: onClickInterface = (evt: Event): void => {
+    if (prop.disabled || prop.loading) return
+    if (prop.link) {
+      window.open(prop.link, prop.target)
+    }
+    emit('click', evt)
   }
-  emit('click', evt)
-}
 
-const leftIconClass: ComputedRef<string> = computed<string>((): string => {
-  if (prop.loading) {
-    return `${prop.loadingIcon || 'f-icon-loading'} f-icon--loading`
-  }
-  return prop.leftIcon
-})
+  const leftIconClass: ComputedRef<string> = computed<string>((): string => {
+    if (prop.loading) {
+      return `${prop.loadingIcon || 'f-icon-loading'} f-icon--loading`
+    }
+    return prop.leftIcon
+  })
 </script>
 
 <script lang="ts">
-export default {
-  name: 'FButton'
-}
+  export default {
+    name: 'FButton',
+  }
 </script>

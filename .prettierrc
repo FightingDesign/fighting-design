@@ -1,17 +1,19 @@
 {
+  "arrowParens": "always",
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "embeddedLanguageFormatting": "auto",
+  "htmlWhitespaceSensitivity": "css",
+  "insertPragma": false,
+  "jsxSingleQuote": false,
+  "printWidth": 80,
+  "proseWrap": "preserve",
+  "quoteProps": "as-needed",
+  "requirePragma": false,
   "semi": false,
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "none",
-  "arrowParens": "avoid",
   "useTabs": false,
-  "printWidth": 80,
-  "overrides": [
-    {
-      "files": ".prettierrc",
-      "options": {
-        "parser": "json"
-      }
-    }
-  ]
+  "vueIndentScriptAndStyle": true
 }

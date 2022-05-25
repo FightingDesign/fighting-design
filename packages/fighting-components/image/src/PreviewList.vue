@@ -9,23 +9,23 @@
 </template>
 
 <script lang="ts" setup>
-import { Props } from './PreviewList'
-import { ref } from 'vue'
+  import { Props } from './PreviewList'
+  import { ref } from 'vue'
 
-const prop = defineProps(Props)
-const emit = defineEmits(['close'])
+  const prop = defineProps(Props)
+  const emit = defineEmits(['close'])
 
-const onClose = (): void => {
-  emit('close', false)
-}
-
-const previewShowIndex = ref(prop.previewShowIndex)
-
-const nextImage = () => {
-  if (previewShowIndex.value < prop.previewList.length - 1) {
-    previewShowIndex.value++
-    return
+  const onClose = (): void => {
+    emit('close', false)
   }
-  previewShowIndex.value = 0
-}
+
+  const previewShowIndex = ref(prop.previewShowIndex)
+
+  const nextImage = () => {
+    if (previewShowIndex.value < prop.previewList.length - 1) {
+      previewShowIndex.value++
+      return
+    }
+    previewShowIndex.value = 0
+  }
 </script>

@@ -1,4 +1,4 @@
-lockfileVersion: 5.4
+lockfileVersion: 5.3
 
 importers:
 
@@ -12,6 +12,7 @@ importers:
       '@vitejs/plugin-vue': ^2.3.1
       '@vue/test-utils': ^2.0.0-rc.18
       happy-dom: ^3.2.2
+      prettier: ^2.6.2
       rollup: ^2.73.0
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-typescript2: ^0.31.2
@@ -31,14 +32,15 @@ importers:
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.5+vue@3.2.33
       '@vue/test-utils': 2.0.0-rc.18_vue@3.2.33
       happy-dom: 3.2.2
+      prettier: 2.6.2
       rollup: 2.73.0
       rollup-plugin-terser: 7.0.2_rollup@2.73.0
-      rollup-plugin-typescript2: 0.31.2_anzmtkbpu2qkzgkvydr4fm6zcm
+      rollup-plugin-typescript2: 0.31.2_rollup@2.73.0+typescript@4.6.4
       rollup-plugin-vue: 6.0.0
       sass: 1.50.1
       typescript: 4.6.4
       vite: 2.9.5_sass@1.50.1
-      vitest: 0.10.0_mkonnilwkgxagif5phd356zpjy
+      vitest: 0.10.0_happy-dom@3.2.2+sass@1.50.1
       vue: 3.2.33
       vue-tsc: 0.34.10_typescript@4.6.4
 
@@ -1374,6 +1376,12 @@ packages:
     resolution: {integrity: sha512-MufnRFz39aIhs9AMFisonjzTud1PK1bY+jcJLo6m2T9Uh8AqjD77w11eAAawmjUogoGOnipECq7e/1RClIKsxg==}
     dev: false
 
+  /prettier/2.6.2:
+    resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: false
+
   /prismjs/1.28.0:
     resolution: {integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==}
     engines: {node: '>=6'}
@@ -1447,7 +1455,7 @@ packages:
       terser: 5.13.1
     dev: false
 
-  /rollup-plugin-typescript2/0.31.2_anzmtkbpu2qkzgkvydr4fm6zcm:
+  /rollup-plugin-typescript2/0.31.2_rollup@2.73.0+typescript@4.6.4:
     resolution: {integrity: sha512-hRwEYR1C8xDGVVMFJQdEVnNAeWRvpaY97g5mp3IeLnzhNXzSVq78Ye/BJ9PAaUfN4DXa/uDnqerifMOaMFY54Q==}
     peerDependencies:
       rollup: '>=1.26.3'
@@ -1777,7 +1785,7 @@ packages:
       - stylus
     dev: false
 
-  /vitest/0.10.0_mkonnilwkgxagif5phd356zpjy:
+  /vitest/0.10.0_happy-dom@3.2.2+sass@1.50.1:
     resolution: {integrity: sha512-8UXemUg9CA4QYppDTsDV76nH0e1p6C8lV9q+o9i0qMSK9AQ7vA2sjoxtkDP0M+pwNmc3ZGYetBXgSJx0M1D/gg==}
     engines: {node: '>=v14.16.0'}
     hasBin: true

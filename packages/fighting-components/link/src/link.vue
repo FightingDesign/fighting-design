@@ -29,23 +29,23 @@
 </template>
 
 <script lang="ts" setup>
-import { Props, Emits } from './link'
-import type { onClickInterface } from '@fighting-design/fighting-type'
+  import { Props, Emits } from './link'
+  import type { onClickInterface } from '@fighting-design/fighting-type'
 
-const prop = defineProps(Props)
-const emit = defineEmits(Emits)
+  const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
 
-const onClick: onClickInterface = (evt: Event): void => {
-  if (prop.prohibit || prop.noLink) {
-    evt.preventDefault()
-    return
+  const onClick: onClickInterface = (evt: Event): void => {
+    if (prop.prohibit || prop.noLink) {
+      evt.preventDefault()
+      return
+    }
+    emit('click', evt)
   }
-  emit('click', evt)
-}
 </script>
 
 <script lang="ts">
-export default {
-  name: 'FLink'
-}
+  export default {
+    name: 'FLink'
+  }
 </script>
