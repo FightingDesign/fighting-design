@@ -53,3 +53,8 @@ export const Props = {
     default: (): boolean => false
   }
 } as const
+
+export const Emits = {
+  load: () => true,
+  error: () => false
+} as const

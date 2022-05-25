@@ -5,35 +5,20 @@
     fit="fill"
     select
     :draggable="false"
+    lazy
     src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg"
+    @load="onLoad"
+    @error="onError"
   />
-  <!-- <f-image
-    width="200px"
-    height="200px"
-    fit="contain"
-    src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg"
-  />
-  <f-image
-    width="200px"
-    height="200px"
-    fit="cover"
-    src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg"
-  />
-  <f-image
-    width="200px"
-    height="200px"
-    fit="none"
-    src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg"
-  />
-  <f-image
-    width="200px"
-    height="200px"
-    fit="scale-down"
-    src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg"
-  />
-  <span>12</span> -->
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+function onLoad() {
+  console.log('加载完成-----')
+}
+function onError() {
+  console.log('加载失败-----')
+}
+</script>
 
 <style scoped></style>
