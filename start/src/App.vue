@@ -6,16 +6,17 @@
     select
     :draggable="false"
     lazy
+    referrerPolicy="no-referrer"
+    :previewList="[1]"
     src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg"
-    @load="onLoad(e)"
+    @load="onLoad"
     @error="onError"
   />
 </template>
 
 <script lang="ts" setup>
-function onLoad(e) {
+function onLoad() {
   console.log('加载完成-----')
-  console.log(e)
 }
 function onError() {
   console.log('加载失败-----')

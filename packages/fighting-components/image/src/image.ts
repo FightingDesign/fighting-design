@@ -51,6 +51,14 @@ export const Props = {
   select: {
     type: Boolean,
     default: (): boolean => false
+  },
+  referrerPolicy: {
+    type: String,
+    default: (): string => ''
+  },
+  previewList: {
+    type: Array as PropType<string[]>,
+    default: (): [] => []
   }
 } as const
 
