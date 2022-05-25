@@ -1,5 +1,5 @@
 <template>
-  <div :class="['f-image', { 'f-image-block': block }]" @click="onClick">
+  <div :class="['f-image', { 'f-image-block': block }]">
     <img
       ref="FImageImg"
       :class="[
@@ -14,9 +14,16 @@
       :draggable="draggable"
       :referrer-policy="referrerPolicy"
       :alt="alt"
+      @click="onClick"
     />
 
-    <component v-show="isPreviewListShow" :is="PreviewList" />
+    <component
+      v-show="isPreviewListShow"
+      :is="PreviewList"
+      :previewList="previewList"
+      :previewShowIndex="previewShowIndex"
+      @close="onClose"
+    />
   </div>
 </template>
 
@@ -43,6 +50,10 @@ const PreviewList: ComputedRef<Object | null> = computed((): Object | null => {
 
 const onClick = (): void => {
   isPreviewListShow.value = true
+}
+
+const onClose = (params: boolean): void => {
+  isPreviewListShow.value = params
 }
 
 onMounted((): void => {
