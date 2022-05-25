@@ -10,6 +10,4 @@ import '@fighting-design/fighting-theme'
 
 console.log(FightingDesign)
 
-createApp(App)
-  .use(FightingDesign)
-  .mount('#start')
+createApp(App).use(FightingDesign).mount('#start')

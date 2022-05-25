@@ -10,20 +10,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "skipLibCheck": true,
+    "lib": ["esnext", "dom"],
+    "skipLibCheck": true
   },
-  "include": [
-    "packages/**/*.ts",
-    "packages/**/*.d.ts",
-    "packages/**/*.tsx",
-  ],
+  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.tsx"],
   "references": [
     {
       "path": "./tsconfig.node.json"
     }
-  ],
+  ]
 }

@@ -16,18 +16,18 @@
 </template>
 
 <script lang="ts" setup>
-import { SocialLinkSize, SocialLinkIcon } from '../types/socialLink'
-import VTIconGitHub from './icons/VTIconGitHub.vue'
+  import { SocialLinkSize, SocialLinkIcon } from '../types/socialLink'
+  import VTIconGitHub from './icons/VTIconGitHub.vue'
 
-const props = defineProps<{
-  size?: SocialLinkSize
-  icon: SocialLinkIcon
-  link: string
-}>()
+  const props = defineProps<{
+    size?: SocialLinkSize
+    icon: SocialLinkIcon
+    link: string
+  }>()
 
-const target = /^[a-z]+:/i.test(props.link) ? `_blank` : undefined
+  const target = /^[a-z]+:/i.test(props.link) ? `_blank` : undefined
 
-const icons = {
-  github: VTIconGitHub
-}
+  const icons = {
+    github: VTIconGitHub
+  }
 </script>

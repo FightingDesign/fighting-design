@@ -38,13 +38,13 @@
   --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
 
   --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.70);
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.7);
   --vt-c-text-light-3: rgba(60, 60, 60, 0.33);
   --vt-c-text-light-4: rgba(60, 60, 60, 0.18);
   --vt-c-text-light-code: var(--vt-c-indigo-soft);
 
   --vt-c-text-dark-1: rgba(255, 255, 255, 0.87);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.60);
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.6);
   --vt-c-text-dark-3: rgba(235, 235, 235, 0.38);
   --vt-c-text-dark-4: rgba(235, 235, 235, 0.18);
   --vt-c-text-dark-code: var(--vt-c-indigo-light);
@@ -142,9 +142,9 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --vt-font-family-base: Inter, -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --vt-font-family-base: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   --vt-font-family-mono: Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 

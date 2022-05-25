@@ -11,26 +11,26 @@
 </template>
 
 <script lang="ts" setup>
-import { MenuItemWithLink } from '../../core'
-import VPNavScreenMenuGroupLink from './VPNavScreenMenuGroupLink.vue'
+  import { MenuItemWithLink } from '../../core'
+  import VPNavScreenMenuGroupLink from './VPNavScreenMenuGroupLink.vue'
 
-defineProps<{
-  text?: string
-  items: MenuItemWithLink[]
-}>()
+  defineProps<{
+    text?: string
+    items: MenuItemWithLink[]
+  }>()
 </script>
 
 <style scoped>
-.VPNavScreenMenuGroupSection {
-  display: block;
-}
+  .VPNavScreenMenuGroupSection {
+    display: block;
+  }
 
-.title {
-  line-height: 32px;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--vt-c-text-2);
-  text-transform: uppercase;
-  transition: color 0.25s;
-}
+  .title {
+    line-height: 32px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--vt-c-text-2);
+    text-transform: uppercase;
+    transition: color 0.25s;
+  }
 </style>

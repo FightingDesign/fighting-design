@@ -20,7 +20,7 @@
   align-items: center;
   color: var(--vt-c-text-inverse-1);
   background: #292d3ef0;
-  border-bottom-color: rgba(255,255,255,0.3);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
   padding: 6px 24px;
   border-width: 2px;
   border-style: solid;
@@ -28,11 +28,11 @@
   border-right: transparent;
   border-left: transparent;
   cursor: pointer;
-  transition: border, background-color .2s;
-    transition-property: border, background-color;
-    transition-duration: 0.2s, 0.2s;
-    transition-timing-function: ease, ease;
-    transition-delay: 0s, 0s;
+  transition: border, background-color 0.2s;
+  transition-property: border, background-color;
+  transition-duration: 0.2s, 0.2s;
+  transition-timing-function: ease, ease;
+  transition-delay: 0s, 0s;
 }
 
 .vt-code-group-tab.vt-code-group-tab-active {
@@ -53,7 +53,7 @@
 }
 
 .dark .vt-code-group-tab:not(.vt-code-group-tab-active) {
-  border-bottom: 2px solid rgba(255,255,255,.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   background: var(--vt-c-black-mute);
 }
 
@@ -66,7 +66,9 @@
     margin: 0 -24px;
   }
 
-  .vt-code-group-tab, .vt-code-group-tab:first-child, .vt-code-group-tab:last-child {
+  .vt-code-group-tab,
+  .vt-code-group-tab:first-child,
+  .vt-code-group-tab:last-child {
     flex-grow: 1;
     border-radius: 0;
   }

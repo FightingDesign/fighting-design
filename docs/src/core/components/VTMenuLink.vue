@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import VTLink from './VTLink.vue'
-import { MenuItemWithLink } from '../types/menu'
+  import VTLink from './VTLink.vue'
+  import { MenuItemWithLink } from '../types/menu'
 
-defineProps<{ item: MenuItemWithLink }>()
+  defineProps<{ item: MenuItemWithLink }>()
 </script>

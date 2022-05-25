@@ -35,212 +35,214 @@
 </template>
 
 <script lang="ts" setup>
-// import '@docsearch/css'
-import { useData } from 'vitepress'
-import { ref, defineAsyncComponent, onMounted, onUnmounted } from 'vue'
+  // import '@docsearch/css'
+  import { useData } from 'vitepress'
+  import { ref, defineAsyncComponent, onMounted, onUnmounted } from 'vue'
 
-const { theme } = useData()
-const VPAlgoliaSearchBox = defineAsyncComponent(
-  () => import('./VPAlgoliaSearchBox.vue')
-)
+  const { theme } = useData()
+  const VPAlgoliaSearchBox = defineAsyncComponent(
+    () => import('./VPAlgoliaSearchBox.vue')
+  )
 
-// to avoid loading the docsearch js upfront (which is more than 1/3 of the
-// payload), we delay initializing it until the user has actually clicked or
-// hit the hotkey to invoke it
-const loaded = ref(false)
-const metaKey = ref()
+  // to avoid loading the docsearch js upfront (which is more than 1/3 of the
+  // payload), we delay initializing it until the user has actually clicked or
+  // hit the hotkey to invoke it
+  const loaded = ref(false)
+  const metaKey = ref()
 
-onMounted(() => {
-  if (!theme.value.algolia) return
+  onMounted(() => {
+    if (!theme.value.algolia) return
 
-  // meta key detect (same logic as in @docsearch/js)
-  metaKey.value.textContent = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)
-    ? '⌘'
-    : 'Ctrl'
-  const handleSearchHotKey = (e: KeyboardEvent) => {
-    if (e.key === 'k' && (e.ctrlKey || e.metaKey)) {
-      e.preventDefault()
-      load()
-      remove()
+    // meta key detect (same logic as in @docsearch/js)
+    metaKey.value.textContent = /(Mac|iPhone|iPod|iPad)/i.test(
+      navigator.platform
+    )
+      ? '⌘'
+      : 'Ctrl'
+    const handleSearchHotKey = (e: KeyboardEvent) => {
+      if (e.key === 'k' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault()
+        load()
+        remove()
+      }
+    }
+    const remove = () => {
+      window.removeEventListener('keydown', handleSearchHotKey)
+    }
+    window.addEventListener('keydown', handleSearchHotKey)
+    onUnmounted(remove)
+  })
+
+  function load() {
+    if (!loaded.value) {
+      loaded.value = true
     }
   }
-  const remove = () => {
-    window.removeEventListener('keydown', handleSearchHotKey)
-  }
-  window.addEventListener('keydown', handleSearchHotKey)
-  onUnmounted(remove)
-})
-
-function load() {
-  if (!loaded.value) {
-    loaded.value = true
-  }
-}
 </script>
 
 <style>
-.VPNavBarSearch {
-  display: flex;
-  align-items: center;
-  padding-left: 16px;
-}
-
-@media (min-width: 768px) {
   .VPNavBarSearch {
-    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
   }
-}
 
-.DocSearch {
-  --docsearch-primary-color: var(--vt-c-brand);
-  --docsearch-highlight-color: var(--docsearch-primary-color);
-  --docsearch-text-color: var(--vt-c-text-1);
-  --docsearch-muted-color: var(--vt-c-text-2);
-  --docsearch-searchbox-shadow: none;
-  --docsearch-searchbox-focus-background: transparent;
-  --docsearch-key-gradient: transparent;
-  --docsearch-key-shadow: none;
-  --docsearch-modal-background: var(--vt-c-bg-soft);
-  --docsearch-footer-background: var(--vt-c-bg);
-}
+  @media (min-width: 768px) {
+    .VPNavBarSearch {
+      flex-grow: 1;
+    }
+  }
 
-.dark .DocSearch {
-  --docsearch-modal-shadow: none;
-  --docsearch-footer-shadow: none;
-  --docsearch-logo-color: var(--vt-c-text-2);
-  --docsearch-hit-background: var(--vt-c-bg-mute);
-  --docsearch-hit-color: var(--vt-c-text-2);
-  --docsearch-hit-shadow: none;
-}
+  .DocSearch {
+    --docsearch-primary-color: var(--vt-c-brand);
+    --docsearch-highlight-color: var(--docsearch-primary-color);
+    --docsearch-text-color: var(--vt-c-text-1);
+    --docsearch-muted-color: var(--vt-c-text-2);
+    --docsearch-searchbox-shadow: none;
+    --docsearch-searchbox-focus-background: transparent;
+    --docsearch-key-gradient: transparent;
+    --docsearch-key-shadow: none;
+    --docsearch-modal-background: var(--vt-c-bg-soft);
+    --docsearch-footer-background: var(--vt-c-bg);
+  }
 
-.dark .DocSearch-Footer {
-  border-top: 1px solid var(--vt-c-divider);
-}
+  .dark .DocSearch {
+    --docsearch-modal-shadow: none;
+    --docsearch-footer-shadow: none;
+    --docsearch-logo-color: var(--vt-c-text-2);
+    --docsearch-hit-background: var(--vt-c-bg-mute);
+    --docsearch-hit-color: var(--vt-c-text-2);
+    --docsearch-hit-shadow: none;
+  }
 
-.dark .DocSearch-Form {
-  background-color: var(--vt-c-bg-mute);
-}
+  .dark .DocSearch-Footer {
+    border-top: 1px solid var(--vt-c-divider);
+  }
 
-.DocSearch-Form {
-  background-color: white;
-  border: 1px solid var(--vt-c-brand);
-}
+  .dark .DocSearch-Form {
+    background-color: var(--vt-c-bg-mute);
+  }
 
-.DocSearch-Button-Container {
-  align-items: center;
-  display: flex;
-}
+  .DocSearch-Form {
+    background-color: white;
+    border: 1px solid var(--vt-c-brand);
+  }
 
-.DocSearch-Button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  width: 48px;
-  height: 55px;
-  background: transparent;
-}
+  .DocSearch-Button-Container {
+    align-items: center;
+    display: flex;
+  }
 
-.DocSearch-Button:hover {
-  background: transparent;
-}
-.DocSearch-Button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
-.DocSearch-Button:focus:not(:focus-visible) {
-  outline: none !important;
-}
-
-@media (min-width: 768px) {
   .DocSearch-Button {
-    justify-content: flex-start;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 48px;
+    height: 55px;
+    background: transparent;
   }
-}
 
-.DocSearch-Button .DocSearch-Search-Icon {
-  color: var(--vt-c-text-2);
-  transition: color 0.5s;
-  fill: currentColor;
-  width: 18px;
-  height: 18px;
-  position: relative;
-}
+  .DocSearch-Button:hover {
+    background: transparent;
+  }
+  .DocSearch-Button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+  .DocSearch-Button:focus:not(:focus-visible) {
+    outline: none !important;
+  }
 
-@media (min-width: 768px) {
+  @media (min-width: 768px) {
+    .DocSearch-Button {
+      justify-content: flex-start;
+      width: 100%;
+    }
+  }
+
   .DocSearch-Button .DocSearch-Search-Icon {
-    top: 1px;
-    margin-right: 10px;
-    width: 15px;
-    height: 15px;
+    color: var(--vt-c-text-2);
+    transition: color 0.5s;
+    fill: currentColor;
+    width: 18px;
+    height: 18px;
+    position: relative;
   }
-}
 
-.DocSearch-Button:hover .DocSearch-Search-Icon {
-  color: var(--vt-c-text-1);
-}
+  @media (min-width: 768px) {
+    .DocSearch-Button .DocSearch-Search-Icon {
+      top: 1px;
+      margin-right: 10px;
+      width: 15px;
+      height: 15px;
+    }
+  }
 
-.DocSearch-Button-Placeholder {
-  transition: color 0.5s;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--vt-c-text-2);
-  display: none;
-  padding: 0 10px 0 0;
-}
+  .DocSearch-Button:hover .DocSearch-Search-Icon {
+    color: var(--vt-c-text-1);
+  }
 
-@media (min-width: 960px) {
   .DocSearch-Button-Placeholder {
-    display: inline-block;
+    transition: color 0.5s;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--vt-c-text-2);
+    display: none;
+    padding: 0 10px 0 0;
   }
-}
 
-.DocSearch-Button:hover .DocSearch-Button-Placeholder {
-  color: var(--vt-c-text-1);
-}
+  @media (min-width: 960px) {
+    .DocSearch-Button-Placeholder {
+      display: inline-block;
+    }
+  }
 
-.DocSearch-Button .DocSearch-Button-Key {
-  margin-top: 2px;
-  border: 1px solid var(--vt-c-divider);
-  border-right: none;
-  border-radius: 4px 0 0 4px;
-  display: none;
-  padding-left: 6px;
-  height: 22px;
-  line-height: 22px;
-  transition: color 0.5s, border-color 0.5s;
-  min-width: 0;
-}
+  .DocSearch-Button:hover .DocSearch-Button-Placeholder {
+    color: var(--vt-c-text-1);
+  }
 
-.DocSearch-Button .DocSearch-Button-Key + .DocSearch-Button-Key {
-  border-right: 1px solid var(--vt-c-divider);
-  border-left: none;
-  border-radius: 0 4px 4px 0;
-  padding-left: 2px;
-  padding-right: 6px;
-}
-
-.DocSearch-Button:hover .DocSearch-Button-Key {
-  border-color: var(--vt-c-brand-light);
-  color: var(--vt-c-brand-light);
-}
-
-@media (min-width: 768px) {
   .DocSearch-Button .DocSearch-Button-Key {
-    display: inline-block;
+    margin-top: 2px;
+    border: 1px solid var(--vt-c-divider);
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    display: none;
+    padding-left: 6px;
+    height: 22px;
+    line-height: 22px;
+    transition: color 0.5s, border-color 0.5s;
+    min-width: 0;
   }
-}
 
-.DocSearch-Button-Key {
-  font-size: 12px;
-  font-weight: 500;
-  height: 20px;
-  margin: 0;
-  width: auto;
-  color: var(--vt-c-text-3);
-  transition: color 0.5s;
-  display: inline-block;
-  padding: 0 1px;
-}
+  .DocSearch-Button .DocSearch-Button-Key + .DocSearch-Button-Key {
+    border-right: 1px solid var(--vt-c-divider);
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    padding-left: 2px;
+    padding-right: 6px;
+  }
+
+  .DocSearch-Button:hover .DocSearch-Button-Key {
+    border-color: var(--vt-c-brand-light);
+    color: var(--vt-c-brand-light);
+  }
+
+  @media (min-width: 768px) {
+    .DocSearch-Button .DocSearch-Button-Key {
+      display: inline-block;
+    }
+  }
+
+  .DocSearch-Button-Key {
+    font-size: 12px;
+    font-weight: 500;
+    height: 20px;
+    margin: 0;
+    width: auto;
+    color: var(--vt-c-text-3);
+    transition: color 0.5s;
+    display: inline-block;
+    padding: 0 1px;
+  }
 </style>

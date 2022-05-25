@@ -38,14 +38,9 @@ export const Props = {
     type: String as PropType<imageFit>,
     default: (): string => '',
     validator(val: string): boolean {
-      return [
-        'fill',
-        'contain',
-        'cover',
-        'none',
-        'scale-down',
-        ''
-      ].includes(val)
+      return ['fill', 'contain', 'cover', 'none', 'scale-down', ''].includes(
+        val
+      )
     }
   },
   select: {

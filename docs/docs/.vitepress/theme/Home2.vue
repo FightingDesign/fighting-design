@@ -115,257 +115,257 @@
 </template>
 
 <script lang="ts" setup>
-import Clipboard from 'clipboard'
+  import Clipboard from 'clipboard'
 
-const lists = [
-  '更快的搭建',
-  '更完善的组件',
-  '更灵活的配置',
-  '更优质的文档',
-  '更强的类型校验',
-  '更合适的组件库'
-] as const
+  const lists = [
+    '更快的搭建',
+    '更完善的组件',
+    '更灵活的配置',
+    '更优质的文档',
+    '更强的类型校验',
+    '更合适的组件库'
+  ] as const
 
-const bottomList = [
-  {
-    title: '社区',
-    item: [
-      { text: 'Github', link: 'https://github.com/Tyh2001/fighting-design' },
-      { text: 'NPM', link: 'https://www.npmjs.com/package/fighting-design' }
-    ]
-  },
-  {
-    title: '关于我',
-    item: [
-      { text: 'Tyh2001', link: 'https://tianyuhao.cn' },
-      { text: 'Blog', link: 'https://tianyuhao.cn/blog' }
-    ]
-  },
-  {
-    title: '其它开源',
-    item: [
-      { text: 'Tyh Ui', link: 'https://tianyuhao.cn/v3' },
-      { text: 'TsMango', link: 'https://tianyuhao.cn/mango' }
-    ]
-  },
-  {
-    title: '帮助',
-    item: [
-      {
-        text: '报告问题',
-        link: 'https://github.com/Tyh2001/fighting-design/issues'
-      }
-    ]
+  const bottomList = [
+    {
+      title: '社区',
+      item: [
+        { text: 'Github', link: 'https://github.com/Tyh2001/fighting-design' },
+        { text: 'NPM', link: 'https://www.npmjs.com/package/fighting-design' }
+      ]
+    },
+    {
+      title: '关于我',
+      item: [
+        { text: 'Tyh2001', link: 'https://tianyuhao.cn' },
+        { text: 'Blog', link: 'https://tianyuhao.cn/blog' }
+      ]
+    },
+    {
+      title: '其它开源',
+      item: [
+        { text: 'Tyh Ui', link: 'https://tianyuhao.cn/v3' },
+        { text: 'TsMango', link: 'https://tianyuhao.cn/mango' }
+      ]
+    },
+    {
+      title: '帮助',
+      item: [
+        {
+          text: '报告问题',
+          link: 'https://github.com/Tyh2001/fighting-design/issues'
+        }
+      ]
+    }
+  ] as const
+
+  const collaborator = [
+    {
+      name: '田同学',
+      photo: 'https://avatars.githubusercontent.com/u/73180970?v=4',
+      url: 'https://github.com/Tyh2001'
+    }
+  ]
+
+  const copyCode = (node: HTMLButtonElement): void => {
+    new Clipboard(node)
+    alert('复制成功')
   }
-] as const
-
-const collaborator = [
-  {
-    name: '田同学',
-    photo: 'https://avatars.githubusercontent.com/u/73180970?v=4',
-    url: 'https://github.com/Tyh2001'
-  }
-]
-
-const copyCode = (node: HTMLButtonElement): void => {
-  new Clipboard(node)
-  alert('复制成功')
-}
 </script>
 
 <style lang="scss" scoped>
-#home {
-  position: relative;
-  #banner {
-    width: 100%;
-    box-sizing: border-box;
+  #home {
     position: relative;
-    z-index: 100;
-    min-height: 370px;
-    padding-bottom: 30px;
-    .logo_box {
-      position: absolute;
-      right: 0px;
-      top: 0px;
-      height: 100%;
+    #banner {
       width: 100%;
-      max-width: 1368px;
-      z-index: -1;
-      overflow: hidden;
-      background: -webkit-linear-gradient(
-        815deg,
-        rgb(57, 92, 227) 10%,
-        rgb(94, 224, 221)
-      );
-      -webkit-mask: url('./images/banner.svg') 100% -150px / cover no-repeat;
-      .logo {
-        width: 500px;
-        height: 500px;
-        top: 0px;
-        right: 0px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 100;
+      min-height: 370px;
+      padding-bottom: 30px;
+      .logo_box {
         position: absolute;
-        transform: translate(-155px, -77px) scale(1);
-        user-select: none;
-      }
-    }
-  }
-  #content {
-    transition: 0.2s;
-    max-width: 1350px;
-    height: 500px;
-    padding: 30px;
-    box-sizing: border-box;
-    right: 0;
-    left: 0;
-    margin: auto;
-    top: 140px;
-    position: absolute;
-    #title {
-      .logo {
-        width: 120px;
-        height: 120px;
-        user-select: none;
-      }
-      .title {
-        font-size: 32px;
-        line-height: 43px;
-        text-align: left;
-        letter-spacing: -1.2px;
-        font-weight: bold;
-        word-break: normal;
-        display: inline-block;
-        margin-top: 20px;
+        right: 0px;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        max-width: 1368px;
+        z-index: -1;
+        overflow: hidden;
         background: -webkit-linear-gradient(
-          55deg,
+          815deg,
           rgb(57, 92, 227) 10%,
           rgb(94, 224, 221)
         );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .subtitle {
-        margin-top: 10px;
-        font-size: 33px;
-        font-weight: 700;
-        transition: 0.3s;
-        font-weight: 500;
-        line-height: 50px;
-        transition: 0.3s;
-      }
-      .content {
-        transition: 0.3s;
-        max-width: 700px;
-        margin-top: 30px;
-      }
-      .action {
-        margin-top: 30px;
-        display: flex;
-        align-items: center;
-        .code {
-          margin-left: 17px;
-          font-size: 21px;
-        }
-      }
-    }
-    #introduce {
-      margin-bottom: 40px;
-      .advantage {
-        margin-top: 80px;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        user-select: none;
-        .advantage_item {
-          width: 50%;
-          padding: 20px;
-          box-sizing: border-box;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          .img_box {
-            width: 70%;
-            overflow: hidden;
-            height: 12rem;
-            img {
-              width: 100%;
-              height: 200px;
-              transition: 0.3s;
-            }
-          }
-          .text {
-            margin-top: 30px;
-            font-size: 20px;
-          }
-        }
-      }
-    }
-    #footer {
-      border-top: 1px solid #eee;
-      width: 100%;
-      margin: auto;
-      padding: 40px 0;
-      box-sizing: border-box;
-      .footer_item {
-        .title {
-          margin: 30px 0 10px 0;
-          font-weight: 600;
-        }
-        .list {
-          display: flex;
-          justify-content: space-between;
+        -webkit-mask: url('./images/banner.svg') 100% -150px / cover no-repeat;
+        .logo {
+          width: 500px;
+          height: 500px;
+          top: 0px;
+          right: 0px;
+          position: absolute;
+          transform: translate(-155px, -77px) scale(1);
           user-select: none;
-          ul {
-            h4 {
-              font-weight: 600;
-              line-height: 36px;
-              font-size: 15px;
+        }
+      }
+    }
+    #content {
+      transition: 0.2s;
+      max-width: 1350px;
+      height: 500px;
+      padding: 30px;
+      box-sizing: border-box;
+      right: 0;
+      left: 0;
+      margin: auto;
+      top: 140px;
+      position: absolute;
+      #title {
+        .logo {
+          width: 120px;
+          height: 120px;
+          user-select: none;
+        }
+        .title {
+          font-size: 32px;
+          line-height: 43px;
+          text-align: left;
+          letter-spacing: -1.2px;
+          font-weight: bold;
+          word-break: normal;
+          display: inline-block;
+          margin-top: 20px;
+          background: -webkit-linear-gradient(
+            55deg,
+            rgb(57, 92, 227) 10%,
+            rgb(94, 224, 221)
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+          margin-top: 10px;
+          font-size: 33px;
+          font-weight: 700;
+          transition: 0.3s;
+          font-weight: 500;
+          line-height: 50px;
+          transition: 0.3s;
+        }
+        .content {
+          transition: 0.3s;
+          max-width: 700px;
+          margin-top: 30px;
+        }
+        .action {
+          margin-top: 30px;
+          display: flex;
+          align-items: center;
+          .code {
+            margin-left: 17px;
+            font-size: 21px;
+          }
+        }
+      }
+      #introduce {
+        margin-bottom: 40px;
+        .advantage {
+          margin-top: 80px;
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          user-select: none;
+          .advantage_item {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .img_box {
+              width: 70%;
+              overflow: hidden;
+              height: 12rem;
+              img {
+                width: 100%;
+                height: 200px;
+                transition: 0.3s;
+              }
             }
-            li {
-              line-height: 36px;
-              cursor: pointer;
-              font-size: 14px;
-              .home_link {
-                color: #333;
+            .text {
+              margin-top: 30px;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+      #footer {
+        border-top: 1px solid #eee;
+        width: 100%;
+        margin: auto;
+        padding: 40px 0;
+        box-sizing: border-box;
+        .footer_item {
+          .title {
+            margin: 30px 0 10px 0;
+            font-weight: 600;
+          }
+          .list {
+            display: flex;
+            justify-content: space-between;
+            user-select: none;
+            ul {
+              h4 {
+                font-weight: 600;
+                line-height: 36px;
+                font-size: 15px;
+              }
+              li {
+                line-height: 36px;
+                cursor: pointer;
+                font-size: 14px;
+                .home_link {
+                  color: #333;
+                }
               }
             }
           }
-        }
-        .collaborator {
-          width: 150px;
-          height: 50px;
-          display: inline-block;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-          .myPhoto {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+          .collaborator {
+            width: 150px;
+            height: 50px;
+            display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            .myPhoto {
+              width: 45px;
+              height: 45px;
+              border-radius: 50%;
+            }
+            .userName {
+              font-size: 20px;
+              margin-left: 10px;
+              color: #333;
+            }
           }
-          .userName {
-            font-size: 20px;
-            margin-left: 10px;
+        }
+        .code {
+          margin-top: 30px;
+          text-align: center;
+          font-size: 15px;
+          cursor: pointer;
+          a {
             color: #333;
           }
         }
       }
-      .code {
-        margin-top: 30px;
-        text-align: center;
-        font-size: 15px;
-        cursor: pointer;
-        a {
-          color: #333;
-        }
-      }
     }
   }
-}
-@media (max-width: 768px) {
-  #content {
-    top: 200px !important;
+  @media (max-width: 768px) {
+    #content {
+      top: 200px !important;
+    }
   }
-}
 </style>

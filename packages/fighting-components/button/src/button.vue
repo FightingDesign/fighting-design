@@ -10,8 +10,8 @@
         'f-button-simple': simple,
         'f-button-text': text,
         'f-button-border': text && border,
-        [`f-button-${size}`]: size !== 'middle',
-      },
+        [`f-button-${size}`]: size !== 'middle'
+      }
     ]"
     :style="[`box-shadow: ${shadow}`]"
     :disabled="disabled || loading"
@@ -58,6 +58,6 @@
 
 <script lang="ts">
   export default {
-    name: 'FButton',
+    name: 'FButton'
   }
 </script>

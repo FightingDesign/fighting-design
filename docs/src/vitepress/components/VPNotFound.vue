@@ -5,10 +5,10 @@
 </template>
 
 <style scoped>
-.vt-doc {
-  padding: 32px 48px;
-  background-color: var(--vt-c-bg-soft);
-  margin: 32px;
-  border-radius: 8px;
-}
+  .vt-doc {
+    padding: 32px 48px;
+    background-color: var(--vt-c-bg-soft);
+    margin: 32px;
+    border-radius: 8px;
+  }
 </style>

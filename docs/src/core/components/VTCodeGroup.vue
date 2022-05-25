@@ -26,9 +26,9 @@
 </template>
 
 <script lang="ts" setup>
-import { VTCodeGroupTab } from '..'
-import { useSlots, ref } from 'vue'
-const activeTabIndex = ref(0)
-const children = useSlots().default?.()
-const tabs = children?.filter(({ type }) => type === VTCodeGroupTab)
+  import { VTCodeGroupTab } from '..'
+  import { useSlots, ref } from 'vue'
+  const activeTabIndex = ref(0)
+  const children = useSlots().default?.()
+  const tabs = children?.filter(({ type }) => type === VTCodeGroupTab)
 </script>

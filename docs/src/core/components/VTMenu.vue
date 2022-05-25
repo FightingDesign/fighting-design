@@ -12,11 +12,11 @@
 </template>
 
 <script lang="ts" setup>
-import { MenuItem, MenuItemChild } from '../types/menu'
-import VTMenuLink from './VTMenuLink.vue'
-import VTMenuGroup from './VTMenuGroup.vue'
+  import { MenuItem, MenuItemChild } from '../types/menu'
+  import VTMenuLink from './VTMenuLink.vue'
+  import VTMenuGroup from './VTMenuGroup.vue'
 
-defineProps<{
-  items?: (MenuItem | MenuItemChild)[]
-}>()
+  defineProps<{
+    items?: (MenuItem | MenuItemChild)[]
+  }>()
 </script>

@@ -22,9 +22,9 @@ const fileList = [
   }
 ]
 
-fileList.map(item => moveFile(item))
+fileList.map((item) => moveFile(item))
 
-function moveFile (list) {
+function moveFile(list) {
   fs.readFile(list.file, (err, data) => {
     if (!fs.existsSync(dist)) {
       fs.mkdirSync(dist)
@@ -32,7 +32,7 @@ function moveFile (list) {
     if (!fs.existsSync(theme)) {
       fs.mkdirSync(theme)
     }
-    fs.writeFile(list.target, data, err => {
+    fs.writeFile(list.target, data, (err) => {
       if (err) throw err
     })
   })

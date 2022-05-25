@@ -30,25 +30,25 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { MenuItem, MenuItemChild } from '../types/menu'
-import { useFocusContainer } from '../composables/FocusContainer'
-import VTMenu from './VTMenu.vue'
+  import { ref } from 'vue'
+  import { MenuItem, MenuItemChild } from '../types/menu'
+  import { useFocusContainer } from '../composables/FocusContainer'
+  import VTMenu from './VTMenu.vue'
 
-const props = defineProps<{
-  button?: string
-  items?: (MenuItem | MenuItemChild)[]
-  label?: string
-}>()
+  const props = defineProps<{
+    button?: string
+    items?: (MenuItem | MenuItemChild)[]
+    label?: string
+  }>()
 
-const open = ref(false)
-const elRef = ref<HTMLElement>()
-const onBlur = () => {
-  open.value = false
-}
+  const open = ref(false)
+  const elRef = ref<HTMLElement>()
+  const onBlur = () => {
+    open.value = false
+  }
 
-useFocusContainer({
-  elRef,
-  onBlur
-})
+  useFocusContainer({
+    elRef,
+    onBlur
+  })
 </script>

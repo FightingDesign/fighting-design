@@ -94,7 +94,11 @@ const creationMethod: creationMethodInterface = (
  * @param emit Emits
  * @returns
  */
-export const loadImage: loadImageInterface = (node: HTMLImageElement, prop: propsInterface, emit: Function): void => {
+export const loadImage: loadImageInterface = (
+  node: HTMLImageElement,
+  prop: propsInterface,
+  emit: Function
+): void => {
   if (prop.lazy) {
     return creationMethod(new Lazy(node, prop, emit))
   }

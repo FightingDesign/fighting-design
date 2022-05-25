@@ -8,21 +8,21 @@
 </template>
 
 <script lang="ts" setup>
-import { VTSocialLinks } from '../../core'
-import { useConfig } from '../composables/config'
+  import { VTSocialLinks } from '../../core'
+  import { useConfig } from '../composables/config'
 
-const { config } = useConfig()
+  const { config } = useConfig()
 </script>
 
 <style scoped>
-.VPNavBarSocialLinks {
-  display: none;
-  margin-right: -10px;
-}
-
-@media (min-width: 1280px) {
   .VPNavBarSocialLinks {
-    display: flex;
+    display: none;
+    margin-right: -10px;
   }
-}
+
+  @media (min-width: 1280px) {
+    .VPNavBarSocialLinks {
+      display: flex;
+    }
+  }
 </style>

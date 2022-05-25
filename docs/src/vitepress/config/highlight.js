@@ -6,7 +6,7 @@ const htmlEscapes = {
   "'": '&#39;'
 }
 
-function escapeHtml (html) {
+function escapeHtml(html) {
   return html.replace(/[&<>"']/g, (chr) => htmlEscapes[chr])
 }
 
@@ -19,6 +19,8 @@ module.exports = async (theme = 'material-palenight') => {
     if (!lang || lang === 'text') {
       return `<pre v-pre><code>${escapeHtml(code)}</code></pre>`
     }
-    return highlighter.codeToHtml(code, lang).replace(/^<pre.*?>/, '<pre v-pre>')
+    return highlighter
+      .codeToHtml(code, lang)
+      .replace(/^<pre.*?>/, '<pre v-pre>')
   }
 }

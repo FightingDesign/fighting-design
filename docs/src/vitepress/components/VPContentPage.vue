@@ -5,6 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useData } from 'vitepress'
-const { frontmatter } = useData()
+  import { useData } from 'vitepress'
+  const { frontmatter } = useData()
 </script>

@@ -10,21 +10,21 @@
 </template>
 
 <script lang="ts" setup>
-import { VTFlyout } from '../../core'
-import { isActive } from '../support/utils'
-import { useData } from 'vitepress'
-import { NavItemWithChildren } from '../config'
+  import { VTFlyout } from '../../core'
+  import { isActive } from '../support/utils'
+  import { useData } from 'vitepress'
+  import { NavItemWithChildren } from '../config'
 
-defineProps<{
-  item: NavItemWithChildren
-}>()
+  defineProps<{
+    item: NavItemWithChildren
+  }>()
 
-const { page } = useData()
+  const { page } = useData()
 </script>
 
 <style scoped>
-.VPNavBarMenuGroup.active {
-  border-bottom: 1px solid var(--vt-c-brand);
-  height: var(--vt-nav-height);
-}
+  .VPNavBarMenuGroup.active {
+    border-bottom: 1px solid var(--vt-c-brand);
+    height: var(--vt-nav-height);
+  }
 </style>

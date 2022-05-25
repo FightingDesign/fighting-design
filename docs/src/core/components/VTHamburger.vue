@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-defineProps<{
-  active: boolean
-}>()
+  defineProps<{
+    active: boolean
+  }>()
 </script>

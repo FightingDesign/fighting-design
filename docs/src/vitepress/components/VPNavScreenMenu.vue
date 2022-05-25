@@ -16,9 +16,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useConfig } from '../composables/config'
-import VPNavScreenMenuLink from './VPNavScreenMenuLink.vue'
-import VPNavScreenMenuGroup from './VPNavScreenMenuGroup.vue'
+  import { useConfig } from '../composables/config'
+  import VPNavScreenMenuLink from './VPNavScreenMenuLink.vue'
+  import VPNavScreenMenuGroup from './VPNavScreenMenuGroup.vue'
 
-const { config } = useConfig()
+  const { config } = useConfig()
 </script>

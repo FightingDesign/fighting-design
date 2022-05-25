@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   color: var(--vt-c-text-2);
-  transition: color .5s;
+  transition: color 0.5s;
 }
 
 .vt-social-link.is-small {
@@ -28,7 +28,7 @@
 
 .vt-social-link:hover {
   color: var(--vt-c-text-1);
-  transition: color .25s;
+  transition: color 0.25s;
 }
 
 .vt-social-link-icon {

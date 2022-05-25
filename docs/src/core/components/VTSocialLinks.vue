@@ -11,11 +11,11 @@
 </template>
 
 <script lang="ts" setup>
-import { SocialLinkSize, SocialLink } from '../types/socialLink'
-import VTSocialLink from './VTSocialLink.vue'
+  import { SocialLinkSize, SocialLink } from '../types/socialLink'
+  import VTSocialLink from './VTSocialLink.vue'
 
-defineProps<{
-  size?: SocialLinkSize
-  links: SocialLink[]
-}>()
+  defineProps<{
+    size?: SocialLinkSize
+    links: SocialLink[]
+  }>()
 </script>

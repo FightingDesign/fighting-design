@@ -17,7 +17,8 @@
     "build:docs": "pnpm run -C docs build",
     "serve:docs": "pnpm run -C docs serve",
     "move": "node build/moveFile.ts",
-    "test": "vitest"
+    "test": "vitest",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@fighting-design/fighting-components": "workspace:*",

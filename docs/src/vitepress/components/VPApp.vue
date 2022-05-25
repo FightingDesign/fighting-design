@@ -45,59 +45,59 @@
 </template>
 
 <script lang="ts" setup>
-import { VTBackdrop } from '../../core'
-import { useSidebar } from '../composables/sidebar'
-import VPNav from './VPNav.vue'
-import VPLocalNav from './VPLocalNav.vue'
-import VPSkipLink from './VPSkipLink.vue'
-import VPAnnouncer from './VPAnnouncer.vue'
-import VPSidebar from './VPSidebar.vue'
-import VPContent from './VPContent.vue'
-import { onMounted, onUnmounted, provide, watchEffect } from 'vue'
+  import { VTBackdrop } from '../../core'
+  import { useSidebar } from '../composables/sidebar'
+  import VPNav from './VPNav.vue'
+  import VPLocalNav from './VPLocalNav.vue'
+  import VPSkipLink from './VPSkipLink.vue'
+  import VPAnnouncer from './VPAnnouncer.vue'
+  import VPSidebar from './VPSidebar.vue'
+  import VPContent from './VPContent.vue'
+  import { onMounted, onUnmounted, provide, watchEffect } from 'vue'
 
-const {
-  isOpen: isSidebarOpen,
-  open: openSidebar,
-  close: closeSidebar
-} = useSidebar()
+  const {
+    isOpen: isSidebarOpen,
+    open: openSidebar,
+    close: closeSidebar
+  } = useSidebar()
 
-// A11y: cache the element that opened the Sidebar (the menu button)
-//   then focus that button again when Menu is closed with Escape key
-let triggerElement: HTMLButtonElement | undefined
-watchEffect(() => {
-  triggerElement = isSidebarOpen.value
-    ? (document.activeElement as HTMLButtonElement)
-    : undefined
-})
+  // A11y: cache the element that opened the Sidebar (the menu button)
+  //   then focus that button again when Menu is closed with Escape key
+  let triggerElement: HTMLButtonElement | undefined
+  watchEffect(() => {
+    triggerElement = isSidebarOpen.value
+      ? (document.activeElement as HTMLButtonElement)
+      : undefined
+  })
 
-const onEsacpe = (e: KeyboardEvent) => {
-  if (e.key === 'Escape' && isSidebarOpen.value) {
-    closeSidebar()
-    triggerElement?.focus()
+  const onEsacpe = (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isSidebarOpen.value) {
+      closeSidebar()
+      triggerElement?.focus()
+    }
   }
-}
 
-onMounted(() => {
-  window.addEventListener('keyup', onEsacpe)
-})
-onUnmounted(() => {
-  window.removeEventListener('keyup', onEsacpe)
-})
+  onMounted(() => {
+    window.addEventListener('keyup', onEsacpe)
+  })
+  onUnmounted(() => {
+    window.removeEventListener('keyup', onEsacpe)
+  })
 
-provide('close-sidebar', closeSidebar)
+  provide('close-sidebar', closeSidebar)
 </script>
 
 <style scoped>
-.VPApp {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: var(--vt-c-bg);
-  transition: background-color 0.5s;
-  padding-top: var(--vt-banner-height);
-}
+  .VPApp {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--vt-c-bg);
+    transition: background-color 0.5s;
+    padding-top: var(--vt-banner-height);
+  }
 
-.backdrop {
-  z-index: var(--vp-z-index-backdrop);
-}
+  .backdrop {
+    z-index: var(--vp-z-index-backdrop);
+  }
 </style>

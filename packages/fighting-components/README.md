@@ -71,7 +71,7 @@ import type { onClickInterface } from '@fighting-design/fighting-type'
 const prop = defineProps(Props)
 const emit = defineEmits(Emits)
 
-const onClick = evt => {}
+const onClick = (evt) => {}
 
 const iconClass = computed(() => {})
 ```

@@ -5,5 +5,5 @@
   font-weight: 600;
   color: var(--vt-c-text-3);
   text-transform: uppercase;
-  transition: color .25s;
+  transition: color 0.25s;
 }

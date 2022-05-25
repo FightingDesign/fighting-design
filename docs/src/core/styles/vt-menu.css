@@ -5,7 +5,7 @@
   border: 1px solid transparent;
   background: var(--vt-c-bg);
   box-shadow: var(--vt-shadow-3);
-  transition: background-color .5s;
+  transition: background-color 0.5s;
 }
 
 .dark .vt-menu {
@@ -15,7 +15,7 @@
 }
 
 .vt-menu-items {
-  transition: border-color .5s;
+  transition: border-color 0.5s;
 }
 
 .vt-menu .vt-menu-group {
@@ -47,7 +47,7 @@
   font-size: 12px;
   font-weight: 500;
   color: var(--vt-c-text-2);
-  transition: color .5s;
+  transition: color 0.5s;
 }
 
 .vt-menu-action {

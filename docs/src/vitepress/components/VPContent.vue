@@ -16,38 +16,38 @@
 </template>
 
 <script lang="ts" setup>
-import { useData, useRoute } from 'vitepress'
-import { useSidebar } from '../composables/sidebar'
-import VPContentPage from './VPContentPage.vue'
-import VPContentDoc from './VPContentDoc.vue'
-import VPNotFound from './VPNotFound.vue'
+  import { useData, useRoute } from 'vitepress'
+  import { useSidebar } from '../composables/sidebar'
+  import VPContentPage from './VPContentPage.vue'
+  import VPContentDoc from './VPContentDoc.vue'
+  import VPNotFound from './VPNotFound.vue'
 
-const route = useRoute()
-const { frontmatter } = useData()
-const { hasSidebar } = useSidebar()
+  const route = useRoute()
+  const { frontmatter } = useData()
+  const { hasSidebar } = useSidebar()
 </script>
 
 <style scoped>
-@media (max-width: 768px) {
-  .VPContent {
-    /* overflow-x: hidden; */
+  @media (max-width: 768px) {
+    .VPContent {
+      /* overflow-x: hidden; */
+    }
   }
-}
 
-@media (min-width: 960px) {
-  .VPContent {
-    padding-top: var(--vt-nav-height);
+  @media (min-width: 960px) {
+    .VPContent {
+      padding-top: var(--vt-nav-height);
+    }
+    .VPContent.has-sidebar {
+      padding-left: var(--vp-sidebar-width-small);
+    }
   }
-  .VPContent.has-sidebar {
-    padding-left: var(--vp-sidebar-width-small);
-  }
-}
 
-@media (min-width: 1440px) {
-  .VPContent.has-sidebar {
-    padding-left: calc(
-      (100vw - var(--vp-screen-max-width)) / 2 + var(--vp-sidebar-width-small)
-    );
+  @media (min-width: 1440px) {
+    .VPContent.has-sidebar {
+      padding-left: calc(
+        (100vw - var(--vp-screen-max-width)) / 2 + var(--vp-sidebar-width-small)
+      );
+    }
   }
-}
 </style>

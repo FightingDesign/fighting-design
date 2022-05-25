@@ -23,75 +23,75 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useData } from 'vitepress'
-import { getSidebar } from '../support/sidebar'
-import { SidebarGroup } from '../config'
-import { isActive, normalizeLink } from '../support/utils'
-import { MenuItemWithLink } from '../../core'
+  import { computed } from 'vue'
+  import { useData } from 'vitepress'
+  import { getSidebar } from '../support/sidebar'
+  import { SidebarGroup } from '../config'
+  import { isActive, normalizeLink } from '../support/utils'
+  import { MenuItemWithLink } from '../../core'
 
-const { page, theme } = useData()
+  const { page, theme } = useData()
 
-const links = computed(() => {
-  const sidebar = getSidebar(theme.value.sidebar, page.value.relativePath)
-  const candidates = getFlatSideBarLinks(sidebar)
-  const index = candidates.findIndex(link =>
-    isActive(page.value.relativePath, link.link)
-  )
-  return {
-    prev: candidates[index - 1],
-    next: candidates[index + 1]
-  }
-})
-
-function getFlatSideBarLinks(sidebar: SidebarGroup[]): MenuItemWithLink[] {
-  const links: MenuItemWithLink[] = []
-  for (const group of sidebar) {
-    for (const link of group.items) {
-      links.push(link)
+  const links = computed(() => {
+    const sidebar = getSidebar(theme.value.sidebar, page.value.relativePath)
+    const candidates = getFlatSideBarLinks(sidebar)
+    const index = candidates.findIndex((link) =>
+      isActive(page.value.relativePath, link.link)
+    )
+    return {
+      prev: candidates[index - 1],
+      next: candidates[index + 1]
     }
+  })
+
+  function getFlatSideBarLinks(sidebar: SidebarGroup[]): MenuItemWithLink[] {
+    const links: MenuItemWithLink[] = []
+    for (const group of sidebar) {
+      for (const link of group.items) {
+        links.push(link)
+      }
+    }
+    return links
   }
-  return links
-}
 </script>
 
 <style scoped>
-.VPContentDocFooter {
-  border-top: 1px solid var(--vt-c-divider-light);
-  padding-top: 1rem;
-  display: flex;
-  justify-content: space-between;
-}
+  .VPContentDocFooter {
+    border-top: 1px solid var(--vt-c-divider-light);
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
 
-a {
-  display: inline-block;
-  font-weight: 500;
-  font-size: 16px;
-  max-width: 48%;
-}
+  a {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 16px;
+    max-width: 48%;
+  }
 
-.desc {
-  font-size: 11px;
-  color: var(--vt-c-text-2);
-  display: block;
-}
+  .desc {
+    font-size: 11px;
+    color: var(--vt-c-text-2);
+    display: block;
+  }
 
-.title {
-  color: var(--vt-c-brand);
-  transition: color 0.25s;
-}
+  .title {
+    color: var(--vt-c-brand);
+    transition: color 0.25s;
+  }
 
-a:hover .title {
-  color: var(--vt-c-brand-highlight);
-}
+  a:hover .title {
+    color: var(--vt-c-brand-highlight);
+  }
 
-.next-link {
-  margin-left: auto;
-  text-align: right;
-}
+  .next-link {
+    margin-left: auto;
+    text-align: right;
+  }
 
-.vt-link-icon {
-  margin: -2px 0 0;
-  vertical-align: middle;
-}
+  .vt-link-icon {
+    margin: -2px 0 0;
+    vertical-align: middle;
+  }
 </style>
