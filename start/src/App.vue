@@ -7,14 +7,15 @@
     :draggable="false"
     lazy
     src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg"
-    @load="onLoad"
+    @load="onLoad(e)"
     @error="onError"
   />
 </template>
 
 <script lang="ts" setup>
-function onLoad() {
+function onLoad(e) {
   console.log('加载完成-----')
+  console.log(e)
 }
 function onError() {
   console.log('加载失败-----')

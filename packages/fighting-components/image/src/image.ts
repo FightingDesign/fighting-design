@@ -55,6 +55,6 @@ export const Props = {
 } as const
 
 export const Emits = {
-  load: () => true,
-  error: () => false
+  load: (): boolean => true,
+  error: (): boolean => false
 } as const

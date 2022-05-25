@@ -26,6 +26,8 @@ const onload: onloadInterface = (emit: Function): void => {
 
 /**
  * 懒加载类
+ * 使用 IntersectionObserver 监视图片
+ * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */
 class Lazy implements LazyInterface {
   img: HTMLImageElement
@@ -38,11 +40,11 @@ class Lazy implements LazyInterface {
   }
   observer(): IntersectionObserver {
     const observer: IntersectionObserver = new IntersectionObserver(
-      (arr: IntersectionObserverEntry[]) => {
+      (arr: Array<IntersectionObserverEntry>) => {
         if (arr[0].isIntersecting) {
           this.img.src = this.props.src
-          this.img.onerror = () => onerror(this.emit)
-          this.img.onload = () => onload(this.emit)
+          this.img.onerror = (): void => onerror(this.emit)
+          this.img.onload = (): void => onload(this.emit)
           observer.unobserve(this.img)
         }
       },
@@ -69,8 +71,8 @@ class Load implements LoadInterface {
   }
   createImg(): void {
     this.img.src = this.props.src
-    this.img.onerror = () => onerror(this.emit)
-    this.img.onload = () => onload(this.emit)
+    this.img.onerror = (): void => onerror(this.emit)
+    this.img.onload = (): void => onload(this.emit)
   }
 }
 
