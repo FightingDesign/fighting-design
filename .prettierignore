@@ -1,5 +1,9 @@
 /dist/*
 /node_modules/**
 **/*.svg
+**/*.ai
 **/*.sh
 /packages/fighting-theme/dist/*
+/docs/docs/.vitepress/dist/*
+dist
+node_modules
