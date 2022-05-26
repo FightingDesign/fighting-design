@@ -2,6 +2,8 @@
 
 ## 基本使用
 
+<f-image src="https://github.com/Tyh2001/images/blob/master/1.jpg?raw=true"/>
+
 ## Attributes
 
 | 参数           | 说明                                                                                                         | 类型    | 可选值                                       | 默认值 |

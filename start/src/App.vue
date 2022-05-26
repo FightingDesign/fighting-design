@@ -1,14 +1,13 @@
 <template>
   <f-image
     width="200px"
-    height="200px"
     fit="fill"
     select
     :draggable="false"
     lazy
     referrerPolicy="no-referrer"
     :previewList="listImg"
-    src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg"
+    src="https://github.com/Tyh2001/images/blob/master/1.jpg?raw=true"
     @load="onLoad"
     @error="onError"
   />

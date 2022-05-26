@@ -21,7 +21,7 @@ const config = readdirSync(input)
     plugins: [
       nodeResolve(),
       vuePlugin(),
-      terser(),
+      // terser(),
       typescript({
         tsconfigOverride: {
           compilerOptions: {
@@ -34,7 +34,9 @@ const config = readdirSync(input)
       })
     ],
     output: {
-      file: `${output}/${name}/index.ts`,
+      dir: `${output}/${name}`,
+      // assetFileNames: ['.ts'],
+      // inlineDynamicImports: true,
       format: 'es'
     }
   }))
