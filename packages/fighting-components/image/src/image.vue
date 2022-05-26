@@ -44,7 +44,9 @@
   const PreviewList: ComputedRef<Object | null> = computed(
     (): Object | null => {
       if (prop.previewList && prop.previewList.length) {
-        return defineAsyncComponent(() => import('./PreviewList.vue'))
+        return defineAsyncComponent(
+          () => import('./PreviewList.vue')
+        )
       }
       return null
     }

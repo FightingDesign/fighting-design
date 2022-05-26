@@ -27,12 +27,21 @@
 </template>
 
 <script lang="ts" setup>
-  import { Props } from './PreviewList'
   import { ref } from 'vue'
   import type { Ref } from 'vue'
+  import { PropType } from 'vue'
   import type { optionInterface } from '@fighting-design/fighting-type'
 
-  const prop = defineProps(Props)
+  const prop = defineProps({
+    previewList: {
+      type: Array as PropType<string[]>,
+      default: (): [] => []
+    },
+    previewShowIndex: {
+      type: Number,
+      default: (): number => 0
+    }
+  } as const)
   const emit = defineEmits(['close'])
 
   const previewShowIndex: Ref<number> = ref<number>(prop.previewShowIndex)
