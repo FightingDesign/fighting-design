@@ -1,116 +1,70 @@
 <template>
   <div class="f-image-preview">
-    <img
-      class="f-image-showImg"
-      :src="previewList[previewShowIndex]"
-      width="300"
-    />
+    <img class="f-image-showImg" :src="previewList[previewShowIndex]" />
 
     <div class="right_button">
-      <f-icon
-        size="22px"
-        icon="f-icon-arrow-right"
-        @click="btnClick(new Next())"
-      />
+      <f-icon size="22px" icon="f-icon-arrow-right" @click="next" />
     </div>
     <div class="left_button">
-      <f-icon
-        size="22px"
-        icon="f-icon-arrow-left"
-        @click="btnClick(new Prev())"
-      />
+      <f-icon size="22px" icon="f-icon-arrow-left" @click="prev" />
     </div>
     <div class="close_button">
-      <f-icon size="16px" icon="f-icon-close" @click="btnClick(new Close())" />
+      <f-icon size="16px" icon="f-icon-close" @click="close" />
     </div>
 
     <div class="option">
-      <f-icon
-        size="18px"
-        icon="f-icon-suoxiao"
-        @click="btnClick(new Small())"
-      />
-      <f-icon size="18px" icon="f-icon-fangda" @click="btnClick(new Big())" />
-      <f-icon
-        size="18px"
-        icon="f-icon-xuanzhuan-1"
-        @click="btnClick(new TurnRight())"
-      />
-      <f-icon
-        size="18px"
-        icon="f-icon-xuanzhuan-2"
-        @click="btnClick(new TurnLeft())"
-      />
+      <f-icon size="22px" icon="f-icon-suoxiao" @click="small" />
+      <f-icon size="22px" icon="f-icon-fangda" @click="big" />
+      <f-icon size="22px" icon="f-icon-xuanzhuan-1" @click="turnRight" />
+      <f-icon size="22px" icon="f-icon-xuanzhuan-2" @click="turnRight" />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
   import { Props } from './PreviewList'
-  import { ref } from 'vue'
+  import { ref, computed } from 'vue'
   import type { Ref } from 'vue'
-  import type {
-    callbackType,
-    btnClickInterface,
-    optionInterface
-  } from '@fighting-design/fighting-type'
+  import type { optionInterface } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
   const emit = defineEmits(['close'])
 
   const previewShowIndex: Ref<number> = ref<number>(prop.previewShowIndex)
 
-  class Close implements optionInterface {
-    onCLick(): void {
-      emit('close', false)
-    }
+  const close: optionInterface = (): void => {
+    emit('close', false)
   }
 
-  class Prev implements optionInterface {
-    onCLick(): void {
-      if (previewShowIndex.value > 0) {
-        previewShowIndex.value--
-        return
-      }
-      previewShowIndex.value = prop.previewList.length - 1
+  const prev: optionInterface = (): void => {
+    if (previewShowIndex.value > 0) {
+      previewShowIndex.value--
+      return
     }
+    previewShowIndex.value = prop.previewList.length - 1
   }
 
-  class Next implements optionInterface {
-    onCLick(): void {
-      if (previewShowIndex.value < prop.previewList.length - 1) {
-        previewShowIndex.value++
-        return
-      }
-      previewShowIndex.value = 0
+  const next: optionInterface = (): void => {
+    if (previewShowIndex.value < prop.previewList.length - 1) {
+      previewShowIndex.value++
+      return
     }
+    previewShowIndex.value = 0
   }
 
-  class Small implements optionInterface {
-    onCLick(): void {
-      console.log('Small')
-    }
+  const small: optionInterface = (): void => {
+    console.log('Small')
   }
 
-  class Big implements optionInterface {
-    onCLick(): void {
-      console.log('Big')
-    }
+  const big: optionInterface = (): void => {
+    console.log('big')
   }
 
-  class TurnLeft implements optionInterface {
-    onCLick(): void {
-      console.log('Turn left')
-    }
+  const turnLeft: optionInterface = (): void => {
+    console.log('turnLeft')
   }
 
-  class TurnRight implements optionInterface {
-    onCLick(): void {
-      console.log('TurnRight')
-    }
-  }
-
-  const btnClick: btnClickInterface = (callback: callbackType): void => {
-    callback.onCLick()
+  const turnRight: optionInterface = (): void => {
+    console.log('turnRight')
   }
 </script>

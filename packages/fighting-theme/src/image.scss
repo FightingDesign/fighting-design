@@ -38,12 +38,12 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
   .right_button,
   .left_button,
   .close_button {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     position: absolute;
@@ -69,9 +69,9 @@
   }
   // 预览图
   .option {
-    width: 200px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.5);
+    width: 240px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 5px;
     display: flex;
     justify-content: space-around;
@@ -87,5 +87,12 @@
   }
   .f-image-showImg {
     user-select: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100%;
   }
 }

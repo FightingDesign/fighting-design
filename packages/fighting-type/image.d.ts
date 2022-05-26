@@ -51,5 +51,5 @@ export interface btnClickInterface {
 }
 
 export interface optionInterface {
-  onCLick(): void
+  (): void
 }
