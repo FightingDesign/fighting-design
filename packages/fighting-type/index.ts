@@ -14,5 +14,8 @@ export type {
   imageFit,
   propsInterface,
   onerrorInterface,
-  onloadInterface
+  onloadInterface,
+  callbackType,
+  btnClickInterface,
+  optionInterface
 } from './image'
