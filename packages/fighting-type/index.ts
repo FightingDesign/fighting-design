@@ -17,5 +17,7 @@ export type {
   onloadInterface,
   callbackType,
   btnClickInterface,
-  optionInterface
+  optionInterface,
+  onClickInterface as FImageOnClickInterface,
+  onCloseInterface
 } from './image'

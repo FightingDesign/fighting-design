@@ -24,6 +24,7 @@
     "vitepress",
     "vitest",
     "vuejs",
-    "weixin"
+    "weixin",
+    "xuanzhuan"
   ]
 }

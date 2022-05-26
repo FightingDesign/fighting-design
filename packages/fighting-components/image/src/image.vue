@@ -32,6 +32,10 @@
   import { onMounted, ref, defineAsyncComponent, computed } from 'vue'
   import { loadImage } from '@fighting-design/fighting-utils'
   import type { Ref, ComputedRef } from 'vue'
+  import type {
+    FImageOnClickInterface,
+    onCloseInterface
+  } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -44,19 +48,17 @@
   const PreviewList: ComputedRef<Object | null> = computed(
     (): Object | null => {
       if (prop.previewList && prop.previewList.length) {
-        return defineAsyncComponent(
-          () => import('./PreviewList.vue')
-        )
+        return defineAsyncComponent(() => import('./PreviewList.vue'))
       }
       return null
     }
   )
 
-  const onClick = (): void => {
+  const onClick: FImageOnClickInterface = (): void => {
     isPreviewListShow.value = true
   }
 
-  const onClose = (params: boolean): void => {
+  const onClose: onCloseInterface = (params: boolean): void => {
     isPreviewListShow.value = params
   }
 

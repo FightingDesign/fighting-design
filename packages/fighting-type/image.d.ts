@@ -60,3 +60,11 @@ export interface btnClickInterface {
 export interface optionInterface {
   (): void
 }
+
+export interface onClickInterface {
+  (): void
+}
+
+export interface onCloseInterface {
+  (params: boolean): void
+}
