@@ -7,7 +7,6 @@ import { resolve } from 'path'
 
 const input = resolve(__dirname, '../packages/fighting-components')
 const output = resolve(__dirname, '../dist/packages')
-// const lib = resolve(__dirname, '../dist/lib')
 
 const config = readdirSync(input)
   .filter(
@@ -17,7 +16,6 @@ const config = readdirSync(input)
       )
   )
   .map((name) => ({
-    // input: name === 'index.ts' ? `${input}/index.ts` : `${input}/${name}/index.ts`,
     input: `${input}/${name}/index.ts`,
     external: ['vue'],
     plugins: [
@@ -36,9 +34,6 @@ const config = readdirSync(input)
       })
     ],
     output: {
-      // name: name === 'index.ts' ? 'FightingDesign' : '',
-      // file: name === 'index.ts' ? `${lib}/index.js` : `${output}/${name}/index.ts`,
-      // format: name === 'index.ts' ? 'iife' : 'es',
       file: `${output}/${name}/index.ts`,
       format: 'es'
     }
