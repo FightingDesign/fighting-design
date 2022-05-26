@@ -59,7 +59,7 @@
   }
 
   onMounted((): void => {
-    const node: HTMLImageElement = FImageImg.value!
+    const node: HTMLImageElement = FImageImg.value as HTMLImageElement
     loadImage(node, prop, emit)
   })
 </script>
