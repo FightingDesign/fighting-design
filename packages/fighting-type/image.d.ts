@@ -44,7 +44,14 @@ export interface onloadInterface {
   (emit: Function): void
 }
 
-export type callbackType = Close | Prev | Next | Small | Big | TurnLeft | TurnRight
+export type callbackType =
+  | Close
+  | Prev
+  | Next
+  | Small
+  | Big
+  | TurnLeft
+  | TurnRight
 
 export interface btnClickInterface {
   (callback: callbackType): void

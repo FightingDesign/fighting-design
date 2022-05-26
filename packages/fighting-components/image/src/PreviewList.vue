@@ -28,7 +28,7 @@
 
 <script lang="ts" setup>
   import { Props } from './PreviewList'
-  import { ref, computed } from 'vue'
+  import { ref } from 'vue'
   import type { Ref } from 'vue'
   import type { optionInterface } from '@fighting-design/fighting-type'
 
