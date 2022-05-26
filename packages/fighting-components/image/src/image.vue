@@ -2,6 +2,7 @@
   <div :class="['f-image', { 'f-image-block': block }]">
     <img
       ref="FImageImg"
+      src=""
       :class="[
         'f-image-img',
         `f-image-${fit}`,
@@ -9,7 +10,6 @@
           'f-image-select': select
         }
       ]"
-      src=""
       :style="{ width, height }"
       :draggable="draggable"
       :referrer-policy="referrerPolicy"

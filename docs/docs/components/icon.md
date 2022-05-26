@@ -79,6 +79,10 @@
 
 <script setup>
 const iconLists = [
+  'f-icon-xuanzhuan-2',
+  'f-icon-xuanzhuan-1',
+  'f-icon-suoxiao',
+  'f-icon-fangda',
   'f-icon-loading1',
   'f-icon-loading4',
   'f-icon-loading5',

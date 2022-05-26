@@ -1,10 +1,36 @@
 <template>
   <div class="f-image-preview">
-    <h1>预览图</h1>
-    <f-button @click="onClose">关闭</f-button>
-    <f-button @click="nextImage">下一张</f-button>
+    <img
+      class="f-image-showImg"
+      :src="previewList[previewShowIndex]"
+      width="300"
+      alt=""
+    />
 
-    <img :src="previewList[previewShowIndex]" width="300" alt="" />
+    <div class="right_button">
+      <f-icon
+        size="22px"
+        icon="f-icon-arrow-right"
+        @click="btnClick(new Next())"
+      />
+    </div>
+    <div class="left_button">
+      <f-icon
+        size="22px"
+        icon="f-icon-arrow-left"
+        @click="btnClick(new Prev())"
+      />
+    </div>
+    <div class="close_button">
+      <f-icon size="16px" icon="f-icon-close" @click="btnClick(new Close())" />
+    </div>
+
+    <div class="option">
+      <f-icon size="18px" icon="f-icon-suoxiao" />
+      <f-icon size="18px" icon="f-icon-fangda" />
+      <f-icon size="18px" icon="f-icon-xuanzhuan-1" />
+      <f-icon size="18px" icon="f-icon-xuanzhuan-2" />
+    </div>
   </div>
 </template>
 
@@ -15,17 +41,31 @@
   const prop = defineProps(Props)
   const emit = defineEmits(['close'])
 
-  const onClose = (): void => {
-    emit('close', false)
-  }
-
   const previewShowIndex = ref(prop.previewShowIndex)
 
-  const nextImage = () => {
-    if (previewShowIndex.value < prop.previewList.length - 1) {
-      previewShowIndex.value++
-      return
+  class Close {
+    onCLick() {
+      emit('close', false)
     }
-    previewShowIndex.value = 0
+  }
+
+  class Prev {
+    onCLick() {
+      console.log('Prev')
+    }
+  }
+
+  class Next {
+    onCLick() {
+      if (previewShowIndex.value < prop.previewList.length - 1) {
+        previewShowIndex.value++
+        return
+      }
+      previewShowIndex.value = 0
+    }
+  }
+
+  const btnClick = (callback: Close) => {
+    callback.onCLick()
   }
 </script>

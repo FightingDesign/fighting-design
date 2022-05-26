@@ -39,4 +39,53 @@
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.2);
+  .right_button,
+  .left_button,
+  .close_button {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    position: absolute;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .left_button {
+    left: 30px;
+    top: 0;
+    bottom: 0;
+  }
+  .right_button {
+    right: 30px;
+    top: 0;
+    bottom: 0;
+  }
+  .close_button {
+    right: 30px;
+    top: 30px;
+  }
+  // 预览图
+  .option {
+    width: 200px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 25px;
+    margin: auto;
+    .f-icon {
+      cursor: pointer;
+    }
+  }
+  .f-image-showImg {
+    user-select: none;
+  }
 }
