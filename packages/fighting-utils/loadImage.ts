@@ -6,7 +6,7 @@ import type {
 } from '@fighting-design/fighting-type'
 
 /**
- * 正常加载
+ * 图片加载
  */
 class Load implements LoadInterface {
   img: HTMLImageElement
@@ -17,15 +17,18 @@ class Load implements LoadInterface {
     this.props = props
     this.emit = emit
   }
+  // 加载当前的 src 地址图片
   loadCreateImg(): void {
     this.img.src = this.props.src
     this.img.onerror = (): void => this.onerror()
     this.img.onload = (): void => this.onload()
   }
+  // 如果加载 src 失败，则进入这里，加载 err-src 的图片地址
   loadNextImg(): void {
     const newImg = new Image()
     newImg.src = this.props.errSrc
     newImg.onerror = () => {
+      console.log('全部失败。。。。。')
       this.emit('error')
     }
     newImg.onload = () => {
@@ -44,7 +47,7 @@ class Load implements LoadInterface {
 }
 
 /**
- * 懒加载
+ * 图片懒加载
  * 使用 IntersectionObserver 监视图片
  * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */

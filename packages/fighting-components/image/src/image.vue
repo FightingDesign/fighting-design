@@ -16,6 +16,8 @@
       :referrer-policy="referrerPolicy"
       :alt="alt"
       @click="onClick"
+      @load="onLoad"
+      @error="onError"
     />
 
     <div
@@ -48,17 +50,17 @@
   import { loadImage } from '@fighting-design/fighting-utils'
   import type { Ref, ComputedRef } from 'vue'
   import type {
-    FImageOnClickInterface,
+    optionInterface,
     onCloseInterface
   } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
+  const isPreviewListShow: Ref<boolean> = ref<boolean>(false)
   const FImageImg: Ref<HTMLImageElement | null> = ref<HTMLImageElement | null>(
     null
   )
-  const isPreviewListShow: Ref<boolean> = ref<boolean>(false)
 
   const PreviewList: ComputedRef<Object | null> = computed(
     (): Object | null => {
@@ -69,12 +71,22 @@
     }
   )
 
-  const onClick: FImageOnClickInterface = (): void => {
-    isPreviewListShow.value = true
+  const onClick: optionInterface = (): void => {
+    if (prop.previewList && prop.previewList.length) {
+      isPreviewListShow.value = true
+    }
   }
 
   const onClose: onCloseInterface = (params: boolean): void => {
     isPreviewListShow.value = params
+  }
+
+  const loadError = () => {
+    console.log('全部失败了')
+  }
+
+  const onLoad = () => {
+    console.log('成功了')
   }
 
   onMounted((): void => {
