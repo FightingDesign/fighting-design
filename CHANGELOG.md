@@ -2,6 +2,11 @@
 
 English | [Chinese](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.zh-CN.md)
 
+## 0.0.5 beta.5 (2022-05-27)
+
+- Add `FImage` component
+- Add new `icon`
+
 ## 0.0.4 beta.4 (2022-05-23)
 
 - Add `FLink` component

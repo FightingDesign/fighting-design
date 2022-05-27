@@ -1,13 +1,16 @@
 <template>
   <f-image
-    width="200px"
+    width="400px"
     fit="fill"
     select
     :draggable="false"
     lazy
-    referrerPolicy="no-referrer"
-    :previewList="listImg"
-    src="https://github.com/Tyh2001/images/blob/master/1.jpg?raw=true"
+    referrer-policy="no-referrer"
+    :preview-list="listImg"
+    round="50px"
+    :previewShowOption="false"
+    src="https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg"
+    err-src="https://img0.baidu.com/it/u=3237486956,3407748105&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=267"
     @load="onLoad"
     @error="onError"
   />

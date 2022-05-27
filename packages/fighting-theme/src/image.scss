@@ -1,5 +1,7 @@
 .f-image {
+  position: relative;
   display: inline-block;
+  border: 2px solid red;
 
   .f-image-select {
     user-select: none;
@@ -27,7 +29,7 @@
   }
 }
 
-.f-image-block {
+.f-image.f-image-block {
   display: block;
 }
 

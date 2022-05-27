@@ -58,6 +58,26 @@ export const Props = {
   previewShowIndex: {
     type: Number,
     default: (): number => 0
+  },
+  previewShowOption: {
+    type: Boolean,
+    default: (): boolean => true
+  },
+  round: {
+    type: String,
+    default: (): string => '18px'
+  },
+  errSrc: {
+    type: String,
+    default: (): string => ''
+  },
+  caption: {
+    type: String,
+    default: (): string => ''
+  },
+  footerCaption: {
+    type: String,
+    default: (): string => ''
   }
 } as const
 

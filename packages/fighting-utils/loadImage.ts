@@ -12,9 +12,17 @@ import type {
  * 图片加载失败的回调错
  * @param emit Emit
  */
-const onerror: onerrorInterface = (emit: Function): void => {
-  emit('error')
+// const onerror: onerrorInterface = (emit: Function): void => {
+//   emit('error')
+// }
+const onerror = (callback: Lazy): void => {
+  // emit('error')
+  console.log(callback)
+  callback.emit('error')
+
+  // callback.img.src = callback.props.src
 }
+
 
 /**
  * 图片加载成功的回调
@@ -43,7 +51,12 @@ class Lazy implements LazyInterface {
       (arr: Array<IntersectionObserverEntry>) => {
         if (arr[0].isIntersecting) {
           this.img.src = this.props.src
-          this.img.onerror = (): void => onerror(this.emit)
+          // this.img.onerror = (): void => onerror(this)
+          this.img.onerror = (): void => {
+            this.emit('error')
+            this.img.src = this.props.errSrc
+          }
+
           this.img.onload = (): void => onload(this.emit)
           observer.unobserve(this.img)
         }

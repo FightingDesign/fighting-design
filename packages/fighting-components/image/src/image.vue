@@ -10,18 +10,23 @@
           'f-image-select': select
         }
       ]"
-      :style="{ width, height }"
+      :style="{ width, height, borderRadius: round }"
       :draggable="draggable"
       :referrer-policy="referrerPolicy"
       :alt="alt"
       @click="onClick"
     />
 
+    <div class="f-image-caption">
+      {{ caption }}
+    </div>
+
     <component
       v-show="isPreviewListShow"
       :is="PreviewList"
       :previewList="previewList"
       :previewShowIndex="previewShowIndex"
+      :previewShowOption="previewShowOption"
       @close="onClose"
     />
   </div>

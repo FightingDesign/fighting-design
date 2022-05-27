@@ -16,7 +16,7 @@
       <f-icon size="16px" icon="f-icon-close" @click="close" />
     </div>
 
-    <div class="option">
+    <div v-if="previewShowOption" class="option">
       <f-icon size="22px" icon="f-icon-suoxiao" @click="small" />
       <f-icon size="22px" icon="f-icon-fangda" @click="big" />
       <f-icon size="22px" icon="f-icon-column1" @click="recovery" />
@@ -40,6 +40,10 @@
     previewShowIndex: {
       type: Number,
       default: (): number => 0
+    },
+    previewShowOption: {
+      type: Boolean,
+      default: (): boolean => true
     }
   } as const)
   const emit = defineEmits(['close'])
