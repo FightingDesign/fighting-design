@@ -1,7 +1,4 @@
 export interface LazyInterface {
-  img: HTMLImageElement
-  props: propsInterface
-  emit: Function
   observer(): IntersectionObserver
   createImg(): void
 }
@@ -34,6 +31,7 @@ export interface propsInterface {
   block?: boolean
   fit?: imageFit
   select?: boolean
+  errSrc: string
 }
 
 export interface onerrorInterface {
