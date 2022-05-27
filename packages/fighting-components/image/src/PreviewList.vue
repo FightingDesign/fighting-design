@@ -46,37 +46,20 @@
 
   const previewShowIndex: Ref<number> = ref<number>(prop.previewShowIndex)
 
-  const imagPreload = (much: number): Function => {
-    let firstIndex: number = 0
-    let lastIndex: number = much
-    let firstCall: boolean = true
-
-    return function (): void {
-      if (lastIndex >= prop.previewList.length) {
-        return
-      }
-
-      if (!firstCall) {
-        firstIndex = lastIndex
-        lastIndex += much
-      }
-      firstCall = false
-
-      for (let i: number = firstIndex; i < lastIndex; i++) {
-        const img: HTMLImageElement = new Image() as HTMLImageElement
-        img.src = prop.previewList[i]
-      }
-    }
+  const imagPreload = (): void => {
+    const imgList = prop.previewList
+    imgList.map((item: string) => {
+      const img: HTMLImageElement = new Image() as HTMLImageElement
+      img.src = item
+    })
   }
-
-  const preload: Function = imagPreload(5)
+  imagPreload()
 
   const close: optionInterface = (): void => {
     emit('close', false)
   }
 
   const next: optionInterface = (): void => {
-    preload()
     recovery()
     if (previewShowIndex.value < prop.previewList.length - 1) {
       previewShowIndex.value++
