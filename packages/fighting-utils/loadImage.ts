@@ -1,18 +1,15 @@
 import type {
   LazyInterface,
   LoadInterface,
-  creationMethodInterface,
   loadImageInterface,
-  propsInterface,
-  onerrorInterface,
-  onloadInterface
+  propsInterface
 } from '@fighting-design/fighting-type'
 
 
 /**
  * 正常加载类
  */
-class Load {
+class Load implements LoadInterface {
   img: HTMLImageElement
   props: propsInterface
   emit: Function

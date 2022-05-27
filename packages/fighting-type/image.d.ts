@@ -1,6 +1,6 @@
 export interface LazyInterface {
   observer(): IntersectionObserver
-  createImg(): void
+  lazyCreateImg(): void
 }
 
 export interface loadImageInterface {
@@ -11,11 +11,10 @@ export interface LoadInterface {
   img: HTMLImageElement
   props: propsInterface
   emit: Function
-  createImg(): void
-}
-
-export interface creationMethodInterface {
-  (instance: Lazy | Load): void
+  loadCreateImg(): void
+  loadNextImg(): void
+  onerror(): void
+  onload(): void
 }
 
 export type imageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
@@ -32,14 +31,6 @@ export interface propsInterface {
   fit?: imageFit
   select?: boolean
   errSrc: string
-}
-
-export interface onerrorInterface {
-  (emit: Function): void
-}
-
-export interface onloadInterface {
-  (emit: Function): void
 }
 
 export type callbackType =
