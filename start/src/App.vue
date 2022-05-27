@@ -1,8 +1,7 @@
 <template>
   <f-image
     width="200px"
-    src="https://tianyuhao.cn/images/auto/12.png"
-    err-src="https://tianyuhao.cn/images/auto/33.png"
+    src="https://tianyuhao.cn/images/auto/1.png"
   />
 
   <!--  :preview-list="listImg" -->

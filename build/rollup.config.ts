@@ -11,7 +11,7 @@ const output = resolve(__dirname, '../dist/packages')
 const config = readdirSync(input)
   .filter(
     (name) =>
-      !['index.ts', 'package.json', 'README.md', 'README.zh-CN.md'].includes(
+      !['index.ts', 'package.json', 'README.md', 'README.en-US.md'].includes(
         name
       )
   )
@@ -21,7 +21,7 @@ const config = readdirSync(input)
     plugins: [
       nodeResolve(),
       vuePlugin(),
-      terser(),
+      // terser(),
       typescript({
         tsconfigOverride: {
           compilerOptions: {
