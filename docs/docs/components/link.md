@@ -114,48 +114,50 @@
 
 ## 带有 icon
 
-`leftIcon` 和 `rightIcon` 可以分别配置左侧和右侧的 `icon`
+`left-icon` 和 `right-icon` 可以分别配置左侧和右侧的 `icon`
 
-<f-link href="" type="primary" leftIcon="f-icon-coupons-fill">左侧 icon</f-link>
-<f-link href="" type="success" rightIcon="f-icon-Notvisible">右侧 icon</f-link>
-<f-link href="" type="danger" leftIcon="f-icon-arrow-left" rightIcon="f-icon-arrow-right">左右都有</f-link>
-<f-link href=""  leftIcon="f-icon-attachent" color="#85efde">自定义颜色</f-link>
-<f-link href="" state="line" leftIcon="f-icon-auto1">带有下划线</f-link>
+<f-link href="" type="primary" left-icon="f-icon-coupons-fill">左侧 icon</f-link>
+<f-link href="" type="success" right-icon="f-icon-Notvisible">右侧 icon</f-link>
+<f-link href="" type="danger" left-icon="f-icon-arrow-left" right-icon="f-icon-arrow-right">左右都有</f-link>
+<f-link href=""  left-icon="f-icon-attachent" color="#85efde">自定义颜色</f-link>
+<f-link href="" state="line" left-icon="f-icon-auto1">带有下划线</f-link>
 
 ::: details 显示代码
 
 ```html
-<f-link href="" type="primary" leftIcon="f-icon-coupons-fill">左侧 icon</f-link>
-<f-link href="" type="success" rightIcon="f-icon-Notvisible">右侧 icon</f-link>
+<f-link href="" type="primary" left-icon="f-icon-coupons-fill"
+  >左侧 icon</f-link
+>
+<f-link href="" type="success" right-icon="f-icon-Notvisible">右侧 icon</f-link>
 <f-link
   href=""
   type="danger"
-  leftIcon="f-icon-arrow-left"
-  rightIcon="f-icon-arrow-right"
+  left-icon="f-icon-arrow-left"
+  right-icon="f-icon-arrow-right"
 >
   左右都有
 </f-link>
-<f-link href="" leftIcon="f-icon-attachent" color="#85efde">自定义颜色</f-link>
-<f-link href="" state="line" leftIcon="f-icon-auto1">带有下划线</f-link>
+<f-link href="" left-icon="f-icon-attachent" color="#85efde">自定义颜色</f-link>
+<f-link href="" state="line" left-icon="f-icon-auto1">带有下划线</f-link>
 ```
 
 :::
 
 ## Attributes
 
-| 参数      | 说明                                                                                      | 类型    | 可选值                                                | 默认值  |
-| --------- | ----------------------------------------------------------------------------------------- | ------- | ----------------------------------------------------- | ------- |
-| type      | link 的类型                                                                               | string  | ` primary` `success`<br /> `danger` `warning` `info ` | primary |
-| href      | 链接的地址                                                                                | string  | ——                                                    | ——      |
-| size      | link 的文字大小                                                                           | string  | ——                                                    | ——      |
-| state     | link 状态的样式状态                                                                       | string  | `line` `bag`                                          | ——      |
-| prohibit  | 是否禁用                                                                                  | boolean | ——                                                    | false   |
-| leftIcon  | 左侧的 icon                                                                               | string  | ——                                                    | ——      |
-| rightIcon | 右侧的 icon                                                                               | string  | ——                                                    | ——      |
-| target    | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | string  | `_self` `_blank` `_parent` `_top `                    | ——      |
-| color     | 自定义 link 颜色                                                                          | string  | ——                                                    | ——      |
-| noCopy    | 是否禁止 copy                                                                             | boolean | ——                                                    | false   |
-| noLink    | 是否禁止链接跳转及重新加载（取消默认事件）                                                | boolean | ——                                                    | false   |
+| 参数       | 说明                                                                                      | 类型    | 可选值                                                | 默认值  |
+| ---------- | ----------------------------------------------------------------------------------------- | ------- | ----------------------------------------------------- | ------- |
+| type       | link 的类型                                                                               | string  | ` primary` `success`<br /> `danger` `warning` `info ` | primary |
+| href       | 链接的地址                                                                                | string  | ——                                                    | ——      |
+| size       | link 的文字大小                                                                           | string  | ——                                                    | ——      |
+| state      | link 状态的样式状态                                                                       | string  | `line` `bag`                                          | ——      |
+| prohibit   | 是否禁用                                                                                  | boolean | ——                                                    | false   |
+| left-icon  | 左侧的 icon                                                                               | string  | ——                                                    | ——      |
+| right-icon | 右侧的 icon                                                                               | string  | ——                                                    | ——      |
+| target     | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | string  | `_self` `_blank` `_parent` `_top `                    | ——      |
+| color      | 自定义 link 颜色                                                                          | string  | ——                                                    | ——      |
+| no-copy    | 是否禁止 copy                                                                             | boolean | ——                                                    | false   |
+| no-link    | 是否禁止链接跳转及重新加载（取消默认事件）                                                | boolean | ——                                                    | false   |
 
 ## Link Slots
 

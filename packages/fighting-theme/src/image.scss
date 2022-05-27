@@ -6,7 +6,9 @@
   .f-image-img {
     vertical-align: middle;
   }
-
+  .f-image-pointer {
+    cursor: pointer;
+  }
   .f-image-select {
     user-select: none;
   }
@@ -37,7 +39,7 @@
     right: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.3);
-    padding: 13px 16px;
+    padding: 7px 16px;
     box-sizing: border-box;
     color: #fff;
     font-size: 16px;

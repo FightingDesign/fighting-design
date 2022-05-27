@@ -59,6 +59,10 @@ export const Props = {
     type: Number,
     default: (): number => 0
   },
+  previewZIndex: {
+    type: Number,
+    default: (): number => 999
+  },
   previewShowOption: {
     type: Boolean,
     default: (): boolean => true

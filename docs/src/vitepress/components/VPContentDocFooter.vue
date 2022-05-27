@@ -77,12 +77,12 @@
   }
 
   .title {
-    color: var(--vt-c-brand);
+    color: #2d5af1;
     transition: color 0.25s;
   }
 
   a:hover .title {
-    color: var(--vt-c-brand-highlight);
+    opacity: 0.8;
   }
 
   .next-link {

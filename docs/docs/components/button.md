@@ -84,7 +84,7 @@
 
 `disabled` 属性可以将按钮变成禁用状态
 
-`loading` 属性可以将按钮变成 `loading` 状态，也可以通过 `loadingIcon` 自定义 `loading` 图标样式
+`loading` 属性可以将按钮变成 `loading` 状态，也可以通过 `loading-icon` 自定义 `loading` 图标样式
 
 <f-button disabled type="default">默认按钮</f-button>
 <f-button disabled type="primary">主要按钮</f-button>
@@ -96,11 +96,11 @@
 <br />
 
 <f-button loading type="default">默认按钮</f-button>
-<f-button loading loadingIcon="f-icon-loading1" type="primary">主要按钮</f-button>
-<f-button loading loadingIcon="f-icon-loading2" type="success">成功按钮</f-button>
-<f-button loading loadingIcon="f-icon-loading3" type="danger">危险按钮</f-button>
-<f-button loading loadingIcon="f-icon-loading4" type="warning">警告按钮</f-button>
-<f-button loading loadingIcon="f-icon-loading5" type="info">信息按钮</f-button>
+<f-button loading loading-icon="f-icon-loading1" type="primary">主要按钮</f-button>
+<f-button loading loading-icon="f-icon-loading2" type="success">成功按钮</f-button>
+<f-button loading loading-icon="f-icon-loading3" type="danger">危险按钮</f-button>
+<f-button loading loading-icon="f-icon-loading4" type="warning">警告按钮</f-button>
+<f-button loading loading-icon="f-icon-loading5" type="info">信息按钮</f-button>
 
 ::: details 显示代码
 
@@ -113,19 +113,19 @@
 <f-button disabled type="info">信息按钮</f-button>
 
 <f-button loading type="default">默认按钮</f-button>
-<f-button loading loadingIcon="f-icon-loading1" type="primary">
+<f-button loading loading-icon="f-icon-loading1" type="primary">
   主要按钮
 </f-button>
-<f-button loading loadingIcon="f-icon-loading2" type="success">
+<f-button loading loading-icon="f-icon-loading2" type="success">
   成功按钮
 </f-button>
-<f-button loading loadingIcon="f-icon-loading3" type="danger">
+<f-button loading loading-icon="f-icon-loading3" type="danger">
   危险按钮
 </f-button>
-<f-button loading loadingIcon="f-icon-loading4" type="warning">
+<f-button loading loading-icon="f-icon-loading4" type="warning">
   警告按钮
 </f-button>
-<f-button loading loadingIcon="f-icon-loading5" type="info">信息按钮</f-button>
+<f-button loading loading-icon="f-icon-loading5" type="info">信息按钮</f-button>
 ```
 
 :::
@@ -269,28 +269,28 @@
 
 ## Button Attributes
 
-| 参数        | 说明                                     | 类型    | 可选值                                                         | 默认值   |
-| ----------- | ---------------------------------------- | ------- | -------------------------------------------------------------- | -------- |
-| blob        | 按钮文字是否加粗                         | boolean | ——                                                             | false    |
-| round       | 是否为圆角按钮                           | boolean | ——                                                             | false    |
-| fontSize    | 文字字体大小                             | string  | ——                                                             | ——       |
-| fontColor   | 文字字体颜色                             | string  | ——                                                             | ——       |
-| size        | 按钮尺寸                                 | string  | `large` `middle` `small` `mini`                                | middle   |
-| block       | 是否为块级元素                           | boolean | ——                                                             | false    |
-| link        | 链接按钮的地址                           | string  | ——                                                             | ——       |
-| target      | 原生 target 属性，在 link 类型存在时生效 | string  | `_blank` `_self` `_parent` `_top`                              | \_self   |
-| loading     | 是否展示 loading 状态                    | boolean | ——                                                             | false    |
-| disabled    | 是否禁用按钮                             | boolean | ——                                                             | false    |
-| loadingIcon | loading 状态的 icon                      | string  | ——                                                             | ——       |
-| leftIcon    | 自定义按钮左侧的 icon                    | string  | ——                                                             | ——       |
-| rightIcon   | 自定义按钮右侧的 icon                    | string  | ——                                                             | ——       |
-| type        | 按钮的类型                               | string  | `default` `primary` `success` <br /> `danger` `warning` `info` | default  |
-| autofocus   | 是否自动获取焦点                         | boolean | ——                                                             | false    |
-| name        | 按钮的名字                               | string  | ——                                                             | f-button |
-| shadow      | 按钮的阴影                               | string  | ——                                                             | ——       |
-| text        | 是否为文字按钮                           | boolean | ——                                                             | false    |
-| simple      | 是否为简约按钮                           | boolean | ——                                                             | false    |
-| border      | 是否显示边框（仅在 text: true）时生效    | boolean | ——                                                             | false    |
+| 参数         | 说明                                     | 类型    | 可选值                                                         | 默认值   |
+| ------------ | ---------------------------------------- | ------- | -------------------------------------------------------------- | -------- |
+| blob         | 按钮文字是否加粗                         | boolean | ——                                                             | false    |
+| round        | 是否为圆角按钮                           | boolean | ——                                                             | false    |
+| font-size    | 文字字体大小                             | string  | ——                                                             | ——       |
+| font-color   | 文字字体颜色                             | string  | ——                                                             | ——       |
+| size         | 按钮尺寸                                 | string  | `large` `middle` `small` `mini`                                | middle   |
+| block        | 是否为块级元素                           | boolean | ——                                                             | false    |
+| link         | 链接按钮的地址                           | string  | ——                                                             | ——       |
+| target       | 原生 target 属性，在 link 类型存在时生效 | string  | `_blank` `_self` `_parent` `_top`                              | \_self   |
+| loading      | 是否展示 loading 状态                    | boolean | ——                                                             | false    |
+| loading-icon | loading 状态的 icon                      | string  | ——                                                             | ——       |
+| disabled     | 是否禁用按钮                             | boolean | ——                                                             | false    |
+| left-icon    | 自定义按钮左侧的 icon                    | string  | ——                                                             | ——       |
+| right-icon   | 自定义按钮右侧的 icon                    | string  | ——                                                             | ——       |
+| type         | 按钮的类型                               | string  | `default` `primary` `success` <br /> `danger` `warning` `info` | default  |
+| autofocus    | 是否自动获取焦点                         | boolean | ——                                                             | false    |
+| name         | 按钮的名字                               | string  | ——                                                             | f-button |
+| shadow       | 按钮的阴影                               | string  | ——                                                             | ——       |
+| text         | 是否为文字按钮                           | boolean | ——                                                             | false    |
+| simple       | 是否为简约按钮                           | boolean | ——                                                             | false    |
+| border       | 是否显示边框（仅在 text: true）时生效    | boolean | ——                                                             | false    |
 
 ## ButtonGroup Attributes
 

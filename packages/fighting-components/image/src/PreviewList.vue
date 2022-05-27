@@ -1,5 +1,5 @@
 <template>
-  <div class="f-image-preview">
+  <div class="f-image-preview" :style="{ zIndex: previewZIndex }">
     <img
       class="f-image-showImg"
       :src="previewList[previewShowIndex]"
@@ -44,6 +44,10 @@
     previewShowOption: {
       type: Boolean,
       default: (): boolean => true
+    },
+    previewZIndex: {
+      type: Number,
+      default: (): number => 999
     }
   } as const)
   const emit = defineEmits(['close'])

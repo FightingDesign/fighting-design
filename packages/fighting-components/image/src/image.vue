@@ -7,7 +7,8 @@
         'f-image-img',
         `f-image-${fit}`,
         {
-          'f-image-select': select
+          'f-image-select': select,
+          'f-image-pointer': previewList && previewList.length
         }
       ]"
       :style="{ width, height, borderRadius: round }"
@@ -20,7 +21,11 @@
     <div
       v-if="caption"
       class="f-image-caption"
-      :style="{ color: captionColor }"
+      :style="{
+        color: captionColor,
+        borderBottomLeftRadius: round,
+        borderBottomRightRadius: round
+      }"
     >
       {{ caption }}
     </div>
@@ -31,6 +36,7 @@
       :previewList="previewList"
       :previewShowIndex="previewShowIndex"
       :previewShowOption="previewShowOption"
+      :previewZIndex="previewZIndex"
       @close="onClose"
     />
   </div>
