@@ -29,40 +29,60 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
   import type { Ref } from 'vue'
-  import { PropType } from 'vue'
+  import { Props } from './PreviewList'
   import type { optionInterface } from '@fighting-design/fighting-type'
+  import {
+    scale,
+    rotate,
+    small,
+    big,
+    turnLeft,
+    turnRight,
+    recovery
+  } from '@fighting-design/fighting-utils'
 
-  const prop = defineProps({
-    previewList: {
-      type: Array as PropType<string[]>,
-      default: (): [] => []
-    },
-    previewShowIndex: {
-      type: Number,
-      default: (): number => 0
-    },
-    previewShowOption: {
-      type: Boolean,
-      default: (): boolean => true
-    },
-    previewZIndex: {
-      type: Number,
-      default: (): number => 999
-    }
-  } as const)
+  const prop = defineProps(Props)
   const emit = defineEmits(['close'])
 
   const previewShowIndex: Ref<number> = ref<number>(prop.previewShowIndex)
-  const scale: Ref<number> = ref<number>(1)
-  const rotate: Ref<number> = ref<number>(0)
+
+  const imagPreload = (much: number): Function => {
+    let firstIndex: number = 0
+    let lastIndex: number = much
+    let firstCall: boolean = true
+
+    return function (): void {
+      if (lastIndex >= prop.previewList.length) {
+        return
+      }
+
+      if (!firstCall) {
+        firstIndex = lastIndex
+        lastIndex += much
+      }
+      firstCall = false
+
+      for (let i: number = firstIndex; i < lastIndex; i++) {
+        const img: HTMLImageElement = new Image() as HTMLImageElement
+        img.src = prop.previewList[i]
+      }
+    }
+  }
+
+  const preload: Function = imagPreload(5)
 
   const close: optionInterface = (): void => {
     emit('close', false)
   }
 
-  const recovery: optionInterface = (): void => {
-    scale.value = 1
-    rotate.value = 0
+  const next: optionInterface = (): void => {
+    preload()
+    recovery()
+    if (previewShowIndex.value < prop.previewList.length - 1) {
+      previewShowIndex.value++
+      return
+    }
+    previewShowIndex.value = 0
   }
 
   const prev: optionInterface = (): void => {
@@ -72,30 +92,5 @@
       return
     }
     previewShowIndex.value = prop.previewList.length - 1
-  }
-
-  const next: optionInterface = (): void => {
-    recovery()
-    if (previewShowIndex.value < prop.previewList.length - 1) {
-      previewShowIndex.value++
-      return
-    }
-    previewShowIndex.value = 0
-  }
-
-  const small: optionInterface = (): void => {
-    scale.value -= 0.2
-  }
-
-  const big: optionInterface = (): void => {
-    scale.value += 0.2
-  }
-
-  const turnLeft: optionInterface = (): void => {
-    rotate.value += 90
-  }
-
-  const turnRight: optionInterface = (): void => {
-    rotate.value -= 90
   }
 </script>
