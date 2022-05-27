@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.0.5 beta.5 (2022-05-27)
+
+- 新增 `FImage` 组件
+- 增加新的 `icon`
+
 ## 0.0.4 beta.4 (2022-05-23)
 
 - 新增 `FLink` 组件
