@@ -17,3 +17,4 @@ export type {
   optionInterface,
   onCloseInterface
 } from './image'
+export type { installInterface } from './install'

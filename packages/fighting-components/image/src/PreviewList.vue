@@ -20,7 +20,7 @@
       <f-icon size="22px" icon="f-icon-suoxiao" @click="small" />
       <f-icon size="22px" icon="f-icon-fangda" @click="big" />
       <f-icon size="22px" icon="f-icon-column1" @click="recovery" />
-      <f-icon size="22px" icon="f-icon-xuanzhuan-1" @click="turnRight" />
+      <f-icon size="22px" icon="f-icon-xuanzhuan-1" @click="turnLeft" />
       <f-icon size="22px" icon="f-icon-xuanzhuan-2" @click="turnRight" />
     </div>
   </div>

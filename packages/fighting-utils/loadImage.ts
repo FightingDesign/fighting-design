@@ -28,7 +28,7 @@ class Load implements LoadInterface {
     const newImg = new Image()
     newImg.src = this.props.errSrc
     newImg.onerror = () => {
-      console.log('全部失败。。。。。')
+      // 进入这里则说明 err-src 的图片也加载失败了
       this.emit('error')
     }
     newImg.onload = () => {

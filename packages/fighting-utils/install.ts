@@ -1,5 +1,5 @@
 import type { App } from 'vue'
-import type { installInterface } from './typescript'
+import type { installInterface } from '@fighting-design/fighting-type'
 
 /**
  * 注册组件

@@ -16,8 +16,6 @@
       :referrer-policy="referrerPolicy"
       :alt="alt"
       @click="onClick"
-      @load="onLoad"
-      @error="onError"
     />
 
     <div
@@ -79,14 +77,6 @@
 
   const onClose: onCloseInterface = (params: boolean): void => {
     isPreviewListShow.value = params
-  }
-
-  const loadError = () => {
-    console.log('全部失败了')
-  }
-
-  const onLoad = () => {
-    console.log('成功了')
   }
 
   onMounted((): void => {

@@ -2,9 +2,8 @@
   <f-image
     width="200px"
     src="https://tianyuhao.cn/images/auto/1.png"
+    :preview-list="listImg"
   />
-
-  <!--  :preview-list="listImg" -->
 </template>
 
 <script lang="ts" setup>
@@ -14,9 +13,3 @@
     'https://tianyuhao.cn/images/auto/3.png'
   ]
 </script>
-
-<style scoped>
-  .box {
-    height: 2000px;
-  }
-</style>

@@ -1,9 +1,9 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import typescript from 'rollup-plugin-typescript2'
 import vuePlugin from 'rollup-plugin-vue'
 import { terser } from 'rollup-plugin-terser'
 import { readdirSync } from 'fs'
 import { resolve } from 'path'
+import esbuild from 'rollup-plugin-esbuild'
 
 const input = resolve(__dirname, '../packages/fighting-components')
 const output = resolve(__dirname, '../dist/packages')
@@ -18,21 +18,7 @@ const config = readdirSync(input)
   .map((name) => ({
     input: `${input}/${name}/index.ts`,
     external: ['vue'],
-    plugins: [
-      nodeResolve(),
-      vuePlugin(),
-      // terser(),
-      typescript({
-        tsconfigOverride: {
-          compilerOptions: {
-            declaration: false
-          },
-          exclude: ['node_modules']
-        },
-        abortOnError: false,
-        clean: true
-      })
-    ],
+    plugins: [nodeResolve(), vuePlugin(), terser(), esbuild()],
     output: {
       dir: `${output}/${name}`,
       format: 'es'
