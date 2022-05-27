@@ -1,7 +1,7 @@
 # fighting-design
 
-English | [Chinese](./README.zh-CN.md)
+中文 | [英文](./README.en-US.md)
 
-## Introduction
+## 说明
 
-Main entry file of `fighting-design`
+`fighting-design` 的主入口文件

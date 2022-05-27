@@ -1,6 +1,6 @@
 # @fighting-design/fighting-components
 
-English | [Chinese](./README.zh-CN.md)
+中文 | [英文](./README.en-US.md)
 
 ## 说明
 

@@ -1,7 +1,7 @@
 # Start
 
-English | [Chinese](./README.zh-CN.md)
+中文 | [英文](./README.en-US.md)
 
-## explain
+## 说明
 
-Your component development directory is here
+开发目录，在这里测试你的组件

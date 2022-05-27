@@ -1,14 +1,14 @@
 # @fighting-design/fighting-utils
 
-English | [Chinese](./README.zh-CN.md)
+中文 | [英文](./README.en-US.md)
 
-## Introduction
+## 说明
 
-`fighting-design` some internal tool functions
+`fighting-design` 内部的一些工具函数
 
-## Import
+## 引入
 
-The following methods can be used anywhere in the world
+可以在全局任意地方使用下面方式引入使用
 
 ```ts
 import '@fighting-design/fighting-utils'
