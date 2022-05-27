@@ -1,7 +1,12 @@
 .f-image {
   position: relative;
   display: inline-block;
-  border: 2px solid red;
+  vertical-align: top;
+  // border: 2px solid red;
+  vertical-align: top;
+  .f-image-img {
+    vertical-align: middle;
+  }
 
   .f-image-select {
     user-select: none;
@@ -26,6 +31,19 @@
 
   .f-image-scale-down {
     object-fit: scale-down;
+  }
+  .f-image-caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 13px 16px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    text-align: left;
+    word-break: break-all;
   }
 }
 

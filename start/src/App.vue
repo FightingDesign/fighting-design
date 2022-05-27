@@ -7,8 +7,9 @@
     lazy
     referrer-policy="no-referrer"
     :preview-list="listImg"
-    round="50px"
+    caption="回家大环境的萨回家shakjdhajdhajkdhajdhajdhasjdhkj"
     :previewShowOption="false"
+    captionColor="red"
     src="https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg"
     err-src="https://img0.baidu.com/it/u=3237486956,3407748105&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=267"
     @load="onLoad"

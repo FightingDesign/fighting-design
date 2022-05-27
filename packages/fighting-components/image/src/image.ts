@@ -65,7 +65,7 @@ export const Props = {
   },
   round: {
     type: String,
-    default: (): string => '18px'
+    default: (): string => ''
   },
   errSrc: {
     type: String,
@@ -75,9 +75,9 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  footerCaption: {
+  captionColor: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#fff'
   }
 } as const
 

@@ -22,6 +22,6 @@
 | preview-list        | 开启图片预览                                                                                                 | array   | ——                                           | []     |
 | preview-show-index  | 图片预览展示的首张图的索引，从 0 开始                                                                        | number  | ——                                           | 0      |
 | preview-show-option | 是否展示图片预览下面的操作栏                                                                                 | boolean | ——                                           | true   |
-| radius              | 配置圆角，传入一个单位                                                                                       | string  |                                              | 18px   |
+| round               | 配置圆角，传入一个单位                                                                                       | string  |                                              | ——     |
 | err-src             | 加载失败时要显示的地址                                                                                       |         |                                              |        |
 |                     |                                                                                                              |         |                                              |        |

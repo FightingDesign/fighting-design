@@ -17,7 +17,11 @@
       @click="onClick"
     />
 
-    <div class="f-image-caption">
+    <div
+      v-if="caption"
+      class="f-image-caption"
+      :style="{ color: captionColor }"
+    >
       {{ caption }}
     </div>
 
