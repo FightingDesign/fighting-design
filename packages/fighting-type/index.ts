@@ -14,7 +14,9 @@ export type {
   propsInterface,
   callbackType,
   btnClickInterface,
-  optionInterface,
-  onCloseInterface
+  ordinaryFunctionInterface,
+  onCloseInterface,
+  switchImageInterface,
+  optionClickInterface
 } from './image'
 export type { installInterface } from './install'

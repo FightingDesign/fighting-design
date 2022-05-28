@@ -46,14 +46,18 @@ export interface btnClickInterface {
   (callback: callbackType): void
 }
 
-export interface optionInterface {
-  (): void
-}
-
-export interface onClickInterface {
+export interface ordinaryFunctionInterface {
   (): void
 }
 
 export interface onCloseInterface {
   (params: boolean): void
+}
+
+export interface switchImageInterface {
+  (type: 'next' | 'prev'): void
+}
+
+export interface optionClickInterface {
+  (evt: Event): void
 }

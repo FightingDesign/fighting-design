@@ -131,12 +131,12 @@
   }
 }
 
-.v-enter-active,
-.v-leave-active {
+.f-image-preview-enter-active,
+.f-image-preview-leave-active {
   transition: opacity 0.5s ease;
 }
 
-.v-enter-from,
-.v-leave-to {
+.f-image-preview-enter-from,
+.f-image-preview-leave-to {
   opacity: 0;
 }

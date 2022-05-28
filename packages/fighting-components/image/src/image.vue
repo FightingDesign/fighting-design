@@ -48,7 +48,7 @@
   import { loadImage } from '@fighting-design/fighting-utils'
   import type { Ref, ComputedRef } from 'vue'
   import type {
-    optionInterface,
+    ordinaryFunctionInterface,
     onCloseInterface
   } from '@fighting-design/fighting-type'
 
@@ -69,7 +69,7 @@
     }
   )
 
-  const onClick: optionInterface = (): void => {
+  const onClick: ordinaryFunctionInterface = (): void => {
     if (prop.previewList && prop.previewList.length) {
       isPreviewListShow.value = true
     }
