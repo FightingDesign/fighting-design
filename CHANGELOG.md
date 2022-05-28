@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.md)
 
+- 修复 `FImage` 组件旋转方向一致的问题
+- 增加预览窗图片预加载功能
+
 ## 0.0.5 beta.5 (2022-05-27)
 
 - 新增 `FImage` 组件

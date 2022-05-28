@@ -1,29 +1,31 @@
 <template>
-  <div class="f-image-preview" :style="{ zIndex: previewZIndex }">
-    <img
-      class="f-image-showImg"
-      :src="previewList[previewShowIndex]"
-      :style="{ transform: `scale(${scale}) rotate(${rotate}deg)` }"
-    />
+  <transition @enter="onEnter">
+    <div class="f-image-preview" :style="{ zIndex: previewZIndex }">
+      <img
+        class="f-image-showImg"
+        :src="previewList[previewShowIndex]"
+        :style="{ transform: `scale(${scale}) rotate(${rotate}deg)`}"
+      />
 
-    <div class="right_button">
-      <f-icon size="22px" icon="f-icon-arrow-right" @click="next" />
-    </div>
-    <div class="left_button">
-      <f-icon size="22px" icon="f-icon-arrow-left" @click="prev" />
-    </div>
-    <div class="close_button">
-      <f-icon size="16px" icon="f-icon-close" @click="close" />
-    </div>
+      <div class="right_button">
+        <f-icon size="22px" icon="f-icon-arrow-right" @click="next" />
+      </div>
+      <div class="left_button">
+        <f-icon size="22px" icon="f-icon-arrow-left" @click="prev" />
+      </div>
+      <div class="close_button">
+        <f-icon size="16px" icon="f-icon-close" @click="close" />
+      </div>
 
-    <div v-if="previewShowOption" class="option">
-      <f-icon size="22px" icon="f-icon-suoxiao" @click="small" />
-      <f-icon size="22px" icon="f-icon-fangda" @click="big" />
-      <f-icon size="22px" icon="f-icon-column1" @click="recovery" />
-      <f-icon size="22px" icon="f-icon-xuanzhuan-1" @click="turnLeft" />
-      <f-icon size="22px" icon="f-icon-xuanzhuan-2" @click="turnRight" />
+      <div v-if="previewShowOption" class="option">
+        <f-icon size="22px" icon="f-icon-suoxiao" @click="small" />
+        <f-icon size="22px" icon="f-icon-fangda" @click="big" />
+        <f-icon size="22px" icon="f-icon-column1" @click="recovery" />
+        <f-icon size="22px" icon="f-icon-xuanzhuan-1" @click="turnLeft" />
+        <f-icon size="22px" icon="f-icon-xuanzhuan-2" @click="turnRight" />
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script lang="ts" setup>
@@ -53,7 +55,6 @@
       img.src = item
     })
   }
-  imagPreload()
 
   const close: optionInterface = (): void => {
     emit('close', false)
@@ -75,5 +76,9 @@
       return
     }
     previewShowIndex.value = prop.previewList.length - 1
+  }
+
+  const onEnter: optionInterface = (): void => {
+    imagPreload()
   }
 </script>
