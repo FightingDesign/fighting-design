@@ -82,6 +82,14 @@ export const Props = {
   captionColor: {
     type: String,
     default: (): string => '#fff'
+  },
+  modalClose: {
+    type: Boolean,
+    default: (): boolean => true
+  },
+  showCloseBtn: {
+    type: Boolean,
+    default: (): boolean => true
   }
 } as const
 

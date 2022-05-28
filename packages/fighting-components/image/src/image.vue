@@ -37,6 +37,8 @@
       :previewShowIndex="previewShowIndex"
       :previewShowOption="previewShowOption"
       :previewZIndex="previewZIndex"
+      :modalClose="modalClose"
+      :showCloseBtn="showCloseBtn"
       @close="onClose"
     />
   </div>

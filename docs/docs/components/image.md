@@ -198,6 +198,8 @@
 | err-src             | 加载失败时要显示的地址                                                                                       | string   | ——                                           | ——     |
 | caption             | 图片上的说明文字                                                                                             | string   | ——                                           | ——     |
 | caption-color       | 图片上的说明文字的颜色                                                                                       | string   | ——                                           | #fff   |
+| modal-close         | 是否点击遮罩层关闭预览窗                                                                                     | boolean  | ——                                           | true   |
+| show-close-btn      | 是否展示预览窗口的关闭按钮                                                                                   | boolean  | ——                                           | true   |
 
 <script setup>
   const listImg = [

@@ -1,36 +1,43 @@
 <template>
   <transition name="f-image-preview" @enter="onEnter">
-    <div class="f-image-preview" :style="{ zIndex: previewZIndex }">
+    <div
+      class="f-image-preview"
+      :style="{ zIndex: previewZIndex }"
+      @click.self="packingClose"
+    >
       <img
         class="f-image-showImg"
+        draggable="false"
         :src="previewList[previewShowIndex]"
         :style="{ transform: `scale(${scale}) rotate(${rotate}deg)` }"
       />
 
       <div class="right_button">
         <f-icon
-          size="22px"
+          size="30px"
           icon="f-icon-arrow-right"
           @click="switchImage('next')"
         />
       </div>
+
       <div class="left_button">
         <f-icon
-          size="22px"
+          size="30px"
           icon="f-icon-arrow-left"
           @click="switchImage('prev')"
         />
       </div>
-      <div class="close_button">
-        <f-icon size="16px" icon="f-icon-close" @click="close" />
+
+      <div v-if="showCloseBtn" class="close_button">
+        <f-icon size="20px" icon="f-icon-close" @click="close" />
       </div>
 
       <div v-if="previewShowOption" class="option" @click="optionClick">
-        <f-icon size="22px" icon="f-icon-suoxiao" />
-        <f-icon size="22px" icon="f-icon-fangda" />
-        <f-icon size="22px" icon="f-icon-column1" />
-        <f-icon size="22px" icon="f-icon-xuanzhuan-1" />
-        <f-icon size="22px" icon="f-icon-xuanzhuan-2" />
+        <f-icon size="23px" icon="f-icon-suoxiao" />
+        <f-icon size="23px" icon="f-icon-fangda" />
+        <f-icon size="23px" icon="f-icon-column1" />
+        <f-icon size="23px" icon="f-icon-xuanzhuan-1" />
+        <f-icon size="23px" icon="f-icon-xuanzhuan-2" />
       </div>
     </div>
   </transition>
@@ -38,8 +45,8 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import type { Ref } from 'vue'
   import { Props } from './PreviewList'
+  import type { Ref } from 'vue'
   import type {
     ordinaryFunctionInterface,
     switchImageInterface,
@@ -55,7 +62,8 @@
 
   const imagPreload: ordinaryFunctionInterface = (): void => {
     const imgList: Array<string> = prop.previewList as Array<string>
-    imgList.map((item: string) => {
+
+    imgList.map((item: string): void => {
       const img: HTMLImageElement = new Image() as HTMLImageElement
       img.src = item
     })
@@ -138,6 +146,12 @@
       case 'f-icon f-icon-xuanzhuan-2':
         turnRight()
         break
+    }
+  }
+
+  const packingClose: ordinaryFunctionInterface = (): void => {
+    if (prop.modalClose) {
+      close()
     }
   }
 </script>

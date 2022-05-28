@@ -64,12 +64,13 @@
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.3);
+  user-select: none;
 
   .right_button,
   .left_button,
   .close_button {
-    width: 40px;
-    height: 40px;
+    width: 54px;
+    height: 54px;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     position: absolute;
@@ -78,6 +79,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    z-index: 200;
   }
 
   .left_button {
@@ -99,8 +101,9 @@
 
   // 预览图
   .option {
+    z-index: 200;
     width: 270px;
-    height: 40px;
+    height: 44px;
     background: rgba(255, 255, 255, 0.6);
     border-radius: 30px;
     display: flex;
@@ -118,6 +121,7 @@
   }
 
   .f-image-showImg {
+    z-index: 100;
     user-select: none;
     position: fixed;
     top: 0;

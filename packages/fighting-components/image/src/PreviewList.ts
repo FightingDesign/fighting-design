@@ -16,5 +16,13 @@ export const Props = {
   previewZIndex: {
     type: Number,
     default: (): number => 999
+  },
+  modalClose: {
+    type: Boolean,
+    default: (): boolean => true
+  },
+  showCloseBtn: {
+    type: Boolean,
+    default: (): boolean => true
   }
 } as const
