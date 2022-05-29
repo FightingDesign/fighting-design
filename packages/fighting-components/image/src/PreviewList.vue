@@ -12,7 +12,7 @@
         :style="{ transform: `scale(${scale}) rotate(${rotate}deg)` }"
       />
 
-      <div class="right_button">
+      <div v-if="previewList.length > 1" class="right_button">
         <f-icon
           size="30px"
           icon="f-icon-arrow-right"
@@ -20,7 +20,7 @@
         />
       </div>
 
-      <div class="left_button">
+      <div v-if="previewList.length > 1" class="left_button">
         <f-icon
           size="30px"
           icon="f-icon-arrow-left"
