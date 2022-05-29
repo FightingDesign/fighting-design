@@ -4,6 +4,7 @@
       class="f-image-preview"
       :style="{ zIndex: previewZIndex }"
       @click.self="packingClose"
+      @mousewheel="onImgMousewheel"
     >
       <img
         class="f-image-showImg"
@@ -153,5 +154,13 @@
     if (prop.modalClose) {
       close()
     }
+  }
+
+  const onImgMousewheel = (e) => {
+    if (e.wheelDelta > 1) {
+      console.log('向上滚动')
+      return
+    }
+    console.log('向下滚动')
   }
 </script>
