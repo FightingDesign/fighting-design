@@ -4,7 +4,12 @@ export interface LazyInterface {
 }
 
 export interface loadImageInterface {
-  (node: HTMLImageElement, prop: propsInterface, emit: Function, callback: Function): void
+  (
+    node: HTMLImageElement,
+    prop: propsInterface,
+    emit: Function,
+    callback: Function
+  ): void
 }
 
 export interface LoadInterface {
@@ -46,8 +51,6 @@ export type callbackType =
 export interface btnClickInterface {
   (callback: callbackType): void
 }
-
-
 
 export interface onCloseInterface {
   (params: boolean): void

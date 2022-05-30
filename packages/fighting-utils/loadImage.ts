@@ -13,7 +13,12 @@ class Load implements LoadInterface {
   props: propsInterface
   emit: Function
   callback: Function
-  constructor(img: HTMLImageElement, props: propsInterface, emit: Function, callback: Function) {
+  constructor(
+    img: HTMLImageElement,
+    props: propsInterface,
+    emit: Function,
+    callback: Function
+  ) {
     this.img = img
     this.props = props
     this.emit = emit
@@ -63,7 +68,12 @@ class Load implements LoadInterface {
  * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */
 class Lazy extends Load implements LazyInterface {
-  constructor(img: HTMLImageElement, props: propsInterface, emit: Function, callback: Function) {
+  constructor(
+    img: HTMLImageElement,
+    props: propsInterface,
+    emit: Function,
+    callback: Function
+  ) {
     super(img, props, emit, callback)
   }
   observer(): IntersectionObserver {
