@@ -201,6 +201,19 @@
 | modal-close         | 是否点击遮罩层关闭预览窗                                                                                     | boolean  | ——                                           | true   |
 | show-close-btn      | 是否展示预览窗口的关闭按钮                                                                                   | boolean  | ——                                           | true   |
 
+## Events
+
+| 事件名称 | 说明             | 类型               |
+| -------- | ---------------- | ------------------ |
+| load     | 图片加载成功触发 | (e: Event) => void |
+| error    | 图片加载失败触发 | (e: Event) => void |
+
+## Slots
+
+| 插槽名称 | 说明说明           |
+| -------- | ------------------ |
+| error    | 自定义加载失败提示 |
+
 <script setup>
   const listImg = [
     'https://tianyuhao.cn/images/auto/1.png',

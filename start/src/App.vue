@@ -1,23 +1,27 @@
 <template>
-    
-<!-- err-src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" -->
+  <!-- err-src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" -->
   <f-image
     width="200px"
-    lazy
     src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg2"
-    err-src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+    err-src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg2"
     @error="err"
     @load="load"
     :preview-list="listImg"
     :showCloseBtn="false"
-  />
+  >
+    <template #error>
+      <div class="list">加载失败</div>
+    </template>
+  </f-image>
 </template>
 
 <script lang="ts" setup>
-  function err() {
+  function err(e) {
+    console.log(e)
     console.log('加载失败------')
   }
-  function load() {
+  function load(e) {
+    console.log(e)
     console.log('加载成功------')
   }
   const listImg = [
@@ -37,3 +41,11 @@
     // 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg'
   ]
 </script>
+
+<style>
+  .list {
+    width: 300px;
+    height: 200px;
+    background: skyblue;
+  }
+</style>

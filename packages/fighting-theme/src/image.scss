@@ -144,3 +144,15 @@
 .f-image-preview-leave-to {
   opacity: 0;
 }
+
+// 加载失败
+.f-image.f-image-error {
+  display: inline-block;
+  background-color: #eee;
+  padding: 0 3px;
+  border-radius: 3px;
+  .f-image-error-text {
+    font-size: 15px;
+    color: #333;
+  }
+}

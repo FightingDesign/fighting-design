@@ -4,17 +4,18 @@ export interface LazyInterface {
 }
 
 export interface loadImageInterface {
-  (node: HTMLImageElement, prop: propsInterface, emit: Function): void
+  (node: HTMLImageElement, prop: propsInterface, emit: Function, callback: Function): void
 }
 
 export interface LoadInterface {
   img: HTMLImageElement
   props: propsInterface
   emit: Function
+  callback: Function
   loadCreateImg(): void
   loadNextImg(): void
-  onerror(): void
-  onload(): void
+  onerror(evt: Event): void
+  onload(evt: Event): void
 }
 
 export type imageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'

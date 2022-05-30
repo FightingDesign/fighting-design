@@ -94,6 +94,6 @@ export const Props = {
 } as const
 
 export const Emits = {
-  load: (): boolean => true,
-  error: (): boolean => false
+  load: (evt: Event): boolean => evt instanceof Event,
+  error: (evt: Event): boolean => evt instanceof Event
 } as const

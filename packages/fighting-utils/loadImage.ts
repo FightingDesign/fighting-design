@@ -12,38 +12,48 @@ class Load implements LoadInterface {
   img: HTMLImageElement
   props: propsInterface
   emit: Function
-  constructor(img: HTMLImageElement, props: propsInterface, emit: Function) {
+  callback: Function
+  constructor(img: HTMLImageElement, props: propsInterface, emit: Function, callback: Function) {
     this.img = img
     this.props = props
     this.emit = emit
+    this.callback = callback
   }
   // 加载当前的 src 地址图片
   loadCreateImg(): void {
     this.img.src = this.props.src
 
-    this.img.onerror = (): void => this.onerror()
-    this.img.onload = (): void => this.onload()
+    this.img.addEventListener('error', (evt: Event): void => {
+      this.onerror(evt)
+    })
+    this.img.addEventListener('load', (evt: Event): void => {
+      this.onload(evt)
+    })
   }
-  onerror(): void {
+  onerror(evt: Event): void {
     if (this.props.errSrc) {
       return this.loadNextImg()
     }
-    this.emit('error')
+    this.emit('error', evt)
+    this.callback(false)
   }
-  onload(): void {
-    this.emit('load')
+  onload(evt: Event): void {
+    this.emit('load', evt)
   }
   // 如果加载 src 失败，则进入这里，加载 err-src 的图片地址
   loadNextImg(): void {
     const newImg = new Image()
     newImg.src = this.props.errSrc
-    newImg.onerror = () => {
+
+    newImg.addEventListener('error', (evt: Event): void => {
       // 进入这里则说明 err-src 的图片也加载失败了
-      this.emit('error')
-    }
-    newImg.onload = () => {
+      this.emit('error', evt)
+      this.callback(false)
+    })
+
+    newImg.addEventListener('load', (evt: Event): void => {
       this.img.src = newImg.src
-    }
+    })
   }
 }
 
@@ -53,8 +63,8 @@ class Load implements LoadInterface {
  * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */
 class Lazy extends Load implements LazyInterface {
-  constructor(img: HTMLImageElement, props: propsInterface, emit: Function) {
-    super(img, props, emit)
+  constructor(img: HTMLImageElement, props: propsInterface, emit: Function, callback: Function) {
+    super(img, props, emit, callback)
   }
   observer(): IntersectionObserver {
     const observer: IntersectionObserver = new IntersectionObserver(
@@ -62,8 +72,12 @@ class Lazy extends Load implements LazyInterface {
         if (arr[0].isIntersecting) {
           this.img.src = this.props.src
 
-          this.img.onerror = (): void => this.onerror()
-          this.img.onload = (): void => this.onload()
+          this.img.addEventListener('error', (evt: Event): void => {
+            this.onerror(evt)
+          })
+          this.img.addEventListener('load', (evt: Event): void => {
+            this.onload(evt)
+          })
 
           observer.unobserve(this.img)
         }
@@ -86,13 +100,13 @@ class Lazy extends Load implements LazyInterface {
 export const loadImage: loadImageInterface = (
   node: HTMLImageElement,
   prop: propsInterface,
-  emit: Function
+  emit: Function,
+  callback: Function
 ): void => {
   if (prop.lazy) {
-    const lazy = new Lazy(node, prop, emit)
-    lazy.lazyCreateImg()
-    return
+    const lazy = new Lazy(node, prop, emit, callback)
+    return lazy.lazyCreateImg()
   }
-  const load = new Load(node, prop, emit)
+  const load = new Load(node, prop, emit, callback)
   load.loadCreateImg()
 }
