@@ -2,13 +2,20 @@
 
 中文 | [英文](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.md)
 
+**fix**
+
 - 修复 `FImage` 组件旋转方向一致的问题
-- 增加 `FImage` 组件预览窗图片预加载功能
+- 修复 `FIcon`、`FButton` 组件的类型问题
+
+**feat**
+
+- 新增 `FImage` 组件预览窗图片预加载功能
 - 新增 `FImage` 组件预览窗渐入动画效果
 - 新增 `FImage` 组件预览窗点击遮罩层隐藏功能，可通过 `modal-close` 配置项来配置
 - 新增 `FImage` 组件预览窗图标样式优化了一些细节
 - 新增 `FImage` 组件预览图左右按钮切换加入图片长度识别，是否展示效果
 - 新增 `FImage` 组件 `show-close-btn` 配置项可配置是否展示预览窗的关闭按钮
+- 新增 `FImage` 组件可通过鼠标滚轮放大缩小图片功能
 
 ## 0.0.5 beta.5 (2022-05-27)
 

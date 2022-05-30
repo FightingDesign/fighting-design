@@ -1,5 +1,4 @@
 export type {
-  onClickInterface,
   buttonSize,
   buttonTarget,
   buttonType
@@ -14,9 +13,9 @@ export type {
   propsInterface,
   callbackType,
   btnClickInterface,
-  ordinaryFunctionInterface,
   onCloseInterface,
   switchImageInterface,
   optionClickInterface
 } from './image'
 export type { installInterface } from './install'
+export type { onClickInterface, ordinaryFunctionInterface } from './auto'

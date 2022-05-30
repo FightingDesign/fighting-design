@@ -126,7 +126,8 @@
     scale.value += 0.2
   }
 
-  const optionClick: optionClickInterface = (evt: Event): void => {
+  const optionClick: optionClickInterface = (evt: PointerEvent): void => {
+    console.log(evt)
     const className: string = (evt.target as HTMLElement).className
 
     const turnLeft: ordinaryFunctionInterface = (): void => {
@@ -162,13 +163,11 @@
     }
   }
 
-  const onImgMousewheel = (e) => {
-    if (e.wheelDelta > 1) {
-      console.log('向上滚动')
-      bigger()
+  const onImgMousewheel = (evt: WheelEvent): void => {
+    if (evt.deltaY > 1) {
+      smaller()
       return
     }
-    smaller()
-    console.log('向下滚动')
+    bigger()
   }
 </script>

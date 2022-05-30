@@ -40,7 +40,7 @@
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const onClick: onClickInterface = (evt: Event): void => {
+  const onClick: onClickInterface = (evt: PointerEvent): void => {
     if (prop.disabled || prop.loading) return
     if (prop.link) {
       window.open(prop.link, prop.target)
