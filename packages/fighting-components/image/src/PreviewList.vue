@@ -112,16 +112,22 @@
     imagPreload()
   }
 
+  const smaller: ordinaryFunctionInterface = (): void => {
+    if (scale.value <= 0.2) {
+      return
+    }
+    scale.value -= 0.2
+  }
+
+  const bigger: ordinaryFunctionInterface = (): void => {
+    if (scale.value >= 10) {
+      return
+    }
+    scale.value += 0.2
+  }
+
   const optionClick: optionClickInterface = (evt: Event): void => {
     const className: string = (evt.target as HTMLElement).className
-
-    const smaller: ordinaryFunctionInterface = (): void => {
-      scale.value -= 0.2
-    }
-
-    const bigger: ordinaryFunctionInterface = (): void => {
-      scale.value += 0.2
-    }
 
     const turnLeft: ordinaryFunctionInterface = (): void => {
       rotate.value += 90
@@ -159,8 +165,10 @@
   const onImgMousewheel = (e) => {
     if (e.wheelDelta > 1) {
       console.log('向上滚动')
+      bigger()
       return
     }
+    smaller()
     console.log('向下滚动')
   }
 </script>
