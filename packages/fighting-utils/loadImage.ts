@@ -20,8 +20,18 @@ class Load implements LoadInterface {
   // 加载当前的 src 地址图片
   loadCreateImg(): void {
     this.img.src = this.props.src
+
     this.img.onerror = (): void => this.onerror()
     this.img.onload = (): void => this.onload()
+  }
+  onerror(): void {
+    if (this.props.errSrc) {
+      return this.loadNextImg()
+    }
+    this.emit('error')
+  }
+  onload(): void {
+    this.emit('load')
   }
   // 如果加载 src 失败，则进入这里，加载 err-src 的图片地址
   loadNextImg(): void {
@@ -34,15 +44,6 @@ class Load implements LoadInterface {
     newImg.onload = () => {
       this.img.src = newImg.src
     }
-  }
-  onerror(): void {
-    if (this.props.errSrc) {
-      return this.loadNextImg()
-    }
-    this.emit('error')
-  }
-  onload(): void {
-    this.emit('load')
   }
 }
 

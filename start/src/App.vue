@@ -1,13 +1,25 @@
 <template>
+    
+<!-- err-src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" -->
   <f-image
     width="200px"
-    src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+    lazy
+    src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg2"
+    err-src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+    @error="err"
+    @load="load"
     :preview-list="listImg"
     :showCloseBtn="false"
   />
 </template>
 
 <script lang="ts" setup>
+  function err() {
+    console.log('加载失败------')
+  }
+  function load() {
+    console.log('加载成功------')
+  }
   const listImg = [
     // 'https://tianyuhao.cn/images/auto/1.png',
     // 'https://tianyuhao.cn/images/auto/2.png',
