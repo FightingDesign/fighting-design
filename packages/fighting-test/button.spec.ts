@@ -2,8 +2,6 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FButton } from '@fighting-design/fighting-components'
 
-// https://test-utils.vuejs.org
-
 describe('FButton', () => {
   test('blob', () => {
     const wrapper = mount(FButton, {
