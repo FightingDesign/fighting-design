@@ -72,4 +72,11 @@ describe('FImage', () => {
     })
     expect(wrapper.find('img').attributes('referrer-policy')).toContain('no-referrer')
   })
+
+  test('round', () => {
+    const wrapper = mount(FImage, {
+      props: { round: '20px' }
+    })
+    expect(wrapper.find('img').attributes('style')).toContain('20px')
+  })
 })
