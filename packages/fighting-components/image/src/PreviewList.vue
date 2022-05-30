@@ -46,7 +46,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import { Props } from './PreviewList'
+  import { Props, Emits } from './PreviewList'
   import type { Ref } from 'vue'
   import type {
     ordinaryFunctionInterface,
@@ -55,7 +55,7 @@
   } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
-  const emit = defineEmits(['close'])
+  const emit = defineEmits(Emits)
 
   const previewShowIndex: Ref<number> = ref<number>(prop.previewShowIndex)
   const scale: Ref<number> = ref<number>(1)
@@ -127,7 +127,6 @@
   }
 
   const optionClick: optionClickInterface = (evt: PointerEvent): void => {
-    console.log(evt)
     const className: string = (evt.target as HTMLElement).className
 
     const turnLeft: ordinaryFunctionInterface = (): void => {

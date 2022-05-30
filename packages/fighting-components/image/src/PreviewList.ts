@@ -26,3 +26,8 @@ export const Props = {
     default: (): boolean => true
   }
 } as const
+
+
+export const Emits = {
+  close: (data: boolean): boolean => false
+} as const
