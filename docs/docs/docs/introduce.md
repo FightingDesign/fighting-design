@@ -1,4 +1,4 @@
-## 介绍
+# 介绍
 
 <p align="center">
   <img width="160px" src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg">
