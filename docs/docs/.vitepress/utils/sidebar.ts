@@ -10,21 +10,18 @@ export const sidebar = {
     },
     {
       text: '指南',
-      link: '/docs/install',
+      link: '/docs/introduce',
       items: [
         { text: '介绍', link: '/docs/introduce' },
-        { text: '开发指南', link: '/docs/development' },
-        { text: '项目指南', link: '/docs/guide' },
-        { text: '贡献指南', link: '/docs/contribution' },
-        { text: '规范指南', link: '/docs/standard' },
+        { text: '贡献指南', link: '/docs/CONTRIBUTING' },
         { text: '加入我们', link: '/docs/join' }
       ]
     },
     {
       text: '历程',
-      link: '/docs/changelog',
+      link: '/docs/CHANGELOG',
       items: [
-        { text: '更新日志', link: '/docs/changelog' },
+        { text: '更新日志', link: '/docs/CHANGELOG' },
         { text: '里程碑', link: '/docs/milepost' }
       ]
     }
