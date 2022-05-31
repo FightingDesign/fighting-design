@@ -2,8 +2,8 @@
   <div style="height: 1000px"></div>
   <f-image
     root-margin="100px"
-    src="https://tianyuhao.cn/images/auto/1.png"
-    err-src="https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg"
+    src="https://tianyuhao.cn/images/auto/1.png2"
+    err-src="https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg2"
     :draggable="false"
     lazy
     alt="ada"
@@ -17,7 +17,13 @@
     preview-round="120px"
     caption="回到家啊回到家萨的好时机啊"
     :preview-show-index="32"
-  />
+    @load="load"
+    @error="err"
+  >
+    <template #error>
+      <h1>加载失败</h1>
+    </template>
+  </f-image>
   <span>12</span>
 </template>
 

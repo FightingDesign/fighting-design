@@ -47,7 +47,7 @@
     />
   </div>
 
-  <div v-else class="f-image f-image-error">
+  <div v-else class="f-image-error">
     <slot name="error">
       <span class="f-image-error-text">{{ alt || '加载失败' }}</span>
     </slot>

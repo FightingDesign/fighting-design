@@ -146,12 +146,14 @@
 }
 
 // 加载失败
-.f-image.f-image-error {
+.f-image-error {
   display: inline-block;
-  background-color: #eee;
-  padding: 0 3px;
-  border-radius: 3px;
+
   .f-image-error-text {
+    display: inline-block;
+    background-color: #eee;
+    padding: 0 3px;
+    border-radius: 3px;
     font-size: 15px;
     color: #333;
   }
