@@ -43,7 +43,7 @@ export const Props = {
       )
     }
   },
-  select: {
+  noSelect: {
     type: Boolean,
     default: (): boolean => false
   },

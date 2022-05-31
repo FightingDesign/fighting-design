@@ -6,6 +6,7 @@
 
 - 修复 `FImage` 组件旋转方向一致的问题
 - 修复 `FIcon`、`FButton` 组件的类型问题
+- `FImage` 组件的 `select` 属性改为 `no-select` 用于禁止选择
 
 **feat**
 

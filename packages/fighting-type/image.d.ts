@@ -52,10 +52,6 @@ export interface btnClickInterface {
   (callback: callbackType): void
 }
 
-export interface onCloseInterface {
-  (params: boolean): void
-}
-
 export interface switchImageInterface {
   (type: 'next' | 'prev'): void
 }

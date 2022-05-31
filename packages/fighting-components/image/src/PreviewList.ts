@@ -28,5 +28,5 @@ export const Props = {
 } as const
 
 export const Emits = {
-  close: (data: boolean): boolean => false
+  close: (): boolean => true
 } as const

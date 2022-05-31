@@ -58,7 +58,11 @@
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const previewShowIndex: Ref<number> = ref<number>(prop.previewShowIndex)
+  const previewShowIndex: Ref<number> = ref<number>(
+    prop.previewShowIndex > prop.previewList.length - 1
+      ? 0
+      : prop.previewShowIndex
+  )
   const scale: Ref<number> = ref<number>(1)
   const rotate: Ref<number> = ref<number>(0)
 
@@ -77,7 +81,7 @@
   }
 
   const close: ordinaryFunctionInterface = (): void => {
-    emit('close', false)
+    emit('close')
   }
 
   const switchImage: switchImageInterface = (type: 'next' | 'prev'): void => {

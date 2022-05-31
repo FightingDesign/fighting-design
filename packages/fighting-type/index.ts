@@ -9,9 +9,9 @@ export type {
   propsInterface,
   callbackType,
   btnClickInterface,
-  onCloseInterface,
   switchImageInterface,
   optionClickInterface
 } from './image'
 export type { installInterface, mainVNodeInterface } from './install'
 export type { onClickInterface, ordinaryFunctionInterface } from './auto'
+export type { keepDecimalInterface } from './utils'

@@ -7,7 +7,7 @@
         'f-image-img',
         {
           [`f-image-${fit}`]: fit,
-          'f-image-select': select,
+          'f-image-select': noSelect,
           'f-image-pointer': previewList && previewList.length
         }
       ]"
@@ -45,7 +45,7 @@
 
   <div v-else class="f-image f-image-error">
     <slot name="error">
-      <span class="f-image-error-text">加载失败</span>
+      <span class="f-image-error-text">{{ alt || '加载失败' }}</span>
     </slot>
   </div>
 </template>
@@ -55,10 +55,7 @@
   import { onMounted, ref, defineAsyncComponent, computed } from 'vue'
   import { loadImage } from '@fighting-design/fighting-utils'
   import type { Ref, ComputedRef } from 'vue'
-  import type {
-    ordinaryFunctionInterface,
-    onCloseInterface
-  } from '@fighting-design/fighting-type'
+  import type { ordinaryFunctionInterface } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -84,8 +81,8 @@
     }
   }
 
-  const onClose: onCloseInterface = (params: boolean): void => {
-    isPreviewListShow.value = params
+  const onClose: ordinaryFunctionInterface = (): void => {
+    isPreviewListShow.value = false
   }
 
   onMounted((): void => {
