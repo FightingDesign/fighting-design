@@ -47,7 +47,7 @@ class Load implements LoadInterface {
   }
   // 如果加载 src 失败，则进入这里，加载 err-src 的图片地址
   loadNextImg(): void {
-    const newImg = new Image()
+    const newImg: HTMLImageElement = new Image()
     newImg.src = this.props.errSrc
 
     newImg.addEventListener('error', (evt: Event): void => {
@@ -114,9 +114,9 @@ export const loadImage: loadImageInterface = (
   callback: Function
 ): void => {
   if (prop.lazy) {
-    const lazy = new Lazy(node, prop, emit, callback)
+    const lazy: Lazy = new Lazy(node, prop, emit, callback)
     return lazy.lazyCreateImg()
   }
-  const load = new Load(node, prop, emit, callback)
+  const load: Load = new Load(node, prop, emit, callback)
   load.loadCreateImg()
 }

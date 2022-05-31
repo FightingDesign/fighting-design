@@ -7,7 +7,9 @@ describe('FImage', () => {
     const wrapper = mount(FImage, {
       props: { src: 'https://abc.com/1.jpg' }
     })
-    expect(wrapper.find('img').attributes('src')).toContain('https://abc.com/1.jpg')
+    expect(wrapper.find('img').attributes('src')).toContain(
+      'https://abc.com/1.jpg'
+    )
   })
 
   test('alt', () => {
@@ -70,7 +72,9 @@ describe('FImage', () => {
     const wrapper = mount(FImage, {
       props: { referrerPolicy: 'no-referrer' }
     })
-    expect(wrapper.find('img').attributes('referrer-policy')).toContain('no-referrer')
+    expect(wrapper.find('img').attributes('referrer-policy')).toContain(
+      'no-referrer'
+    )
   })
 
   test('round', () => {
