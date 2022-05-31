@@ -20,6 +20,7 @@
 
     <div
       v-if="caption"
+      v-show="isLoadOk"
       class="f-image-caption"
       :style="{
         width: width || `${captionWidth}px`,
@@ -67,6 +68,7 @@
   const emit = defineEmits(Emits)
 
   const isError: Ref<boolean> = ref<boolean>(true)
+  const isLoadOk: Ref<boolean> = ref<boolean>(false)
   const isPreviewListShow: Ref<boolean> = ref<boolean>(false)
   const captionWidth: Ref<number> = ref<number>(0)
   const FImageImg: Ref<HTMLImageElement | null> = ref<HTMLImageElement | null>(
@@ -99,6 +101,7 @@
       width: number
     ): void => {
       isError.value = params
+      isLoadOk.value = params
       captionWidth.value = width
     }
 

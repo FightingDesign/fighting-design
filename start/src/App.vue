@@ -3,18 +3,20 @@
   <f-image
     root-margin="100px"
     src="https://tianyuhao.cn/images/auto/1.png"
+    err-src="https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg"
     :draggable="false"
     lazy
     alt="ada"
     :preview-list="listImg"
     :select="true"
     :preview-z-index="10022"
+    :modal-close="false"
+    :show-close-btn="false"
     :preview-show-option="false"
     round="20px"
     preview-round="120px"
-    caption="回到家啊回到家萨的好时机啊的话苏家爱华打算结婚的洒酒大数据坎大哈时间坎大哈时间的撒健康大数据坎大哈事件扩大化"
+    caption="回到家啊回到家萨的好时机啊"
     :preview-show-index="32"
-    block
   />
   <span>12</span>
 </template>
@@ -47,11 +49,6 @@
 </script>
 
 <style>
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-  }
   .list {
     width: 300px;
     height: 200px;
