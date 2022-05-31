@@ -1,12 +1,12 @@
+import type { installInterface, mainVNodeInterface } from '@fighting-design/fighting-type'
 import type { App } from 'vue'
-import type { installInterface } from '@fighting-design/fighting-type'
 
 /**
  * 注册组件
  * @param main 组件实例
  * @param name 组件名
  */
-export const install: installInterface = (main: any, name: string): void => {
+export const install: installInterface = (main: mainVNodeInterface, name: string): void => {
   main.install = (app: App): void => {
     app.component(name, main)
   }

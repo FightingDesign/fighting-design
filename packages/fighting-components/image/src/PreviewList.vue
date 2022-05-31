@@ -53,6 +53,7 @@
     switchImageInterface,
     optionClickInterface
   } from '@fighting-design/fighting-type'
+  import { keepDecimal } from '@fighting-design/fighting-utils'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -113,7 +114,7 @@
   }
 
   const smaller: ordinaryFunctionInterface = (): void => {
-    if (scale.value <= 0.2) {
+    if (keepDecimal(scale.value, 1) <= 0.2) {
       return
     }
     scale.value -= 0.2
@@ -168,5 +169,11 @@
       return
     }
     bigger()
+  }
+</script>
+
+<script lang="ts">
+  export default {
+    name: 'PreviewList'
   }
 </script>

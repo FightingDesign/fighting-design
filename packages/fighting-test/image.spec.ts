@@ -3,6 +3,11 @@ import { describe, expect, test } from 'vitest'
 import { FImage } from '@fighting-design/fighting-components'
 
 describe('FImage', () => {
+  test('class', () => {
+    const wrapper = mount(FImage)
+    expect(wrapper.classes()).toContain('f-image')
+  })
+
   test('src', () => {
     const wrapper = mount(FImage, {
       props: { src: 'https://abc.com/1.jpg' }

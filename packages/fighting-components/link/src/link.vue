@@ -35,7 +35,7 @@
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const onClick: onClickInterface = (evt: Event): void => {
+  const onClick: onClickInterface = (evt: PointerEvent): void => {
     if (prop.prohibit || prop.noLink) {
       evt.preventDefault()
       return

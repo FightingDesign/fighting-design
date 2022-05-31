@@ -5,8 +5,8 @@
       src=""
       :class="[
         'f-image-img',
-        `f-image-${fit}`,
         {
+          [`f-image-${fit}`]: fit,
           'f-image-select': select,
           'f-image-pointer': previewList && previewList.length
         }
@@ -42,6 +42,7 @@
       @close="onClose"
     />
   </div>
+
   <div v-else class="f-image f-image-error">
     <slot name="error">
       <span class="f-image-error-text">加载失败</span>

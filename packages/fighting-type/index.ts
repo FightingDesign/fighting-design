@@ -13,5 +13,5 @@ export type {
   switchImageInterface,
   optionClickInterface
 } from './image'
-export type { installInterface } from './install'
+export type { installInterface, mainVNodeInterface } from './install'
 export type { onClickInterface, ordinaryFunctionInterface } from './auto'

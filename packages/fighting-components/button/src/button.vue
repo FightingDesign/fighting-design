@@ -33,8 +33,8 @@
 
 <script lang="ts" setup>
   import { computed } from 'vue'
-  import type { ComputedRef } from 'vue'
   import { Props, Emits } from './button'
+  import type { ComputedRef } from 'vue'
   import type { onClickInterface } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
