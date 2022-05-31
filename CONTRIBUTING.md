@@ -127,6 +127,10 @@ git commit -m 'feat: 新增xxx功能'
 
 ## 常见问题
 
+常见问题请参考 [COMMON_PROBLEM.md](https://github.com/Tyh2001/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
+
+也可以直接和[我](https://github.com/Tyh2001/Tyh2001)进行联系
+
 ## 财务贡献
 
 开发不易，欢迎大家赞助！

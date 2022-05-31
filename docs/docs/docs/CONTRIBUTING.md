@@ -4,7 +4,7 @@
 
 ## 写在前面
 
-你好！欢迎使用 `Fighting Design`！
+👋 你好！欢迎使用 `Fighting Design`！
 
 我很高兴你有兴趣为 `Fighting Design` 做贡献。在提交您的贡献之前，请务必花点时间阅读以下指南。
 
@@ -124,6 +124,12 @@ git commit -m 'feat: 新增xxx功能'
 | revert   | 发布新版本                           |
 | style    | 标记、空格、格式、缺少分号           |
 | test     | 增加测试/测试用例                    |
+
+## 常见问题
+
+常见问题请参考 [COMMON_PROBLEM.md](https://github.com/Tyh2001/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
+
+也可以直接和[我](https://github.com/Tyh2001/Tyh2001)进行联系
 
 ## 财务贡献
 
