@@ -28,6 +28,10 @@ export const Props = {
   previewRound: {
     type: String,
     default: (): string => ''
+  },
+  width: {
+    type: String,
+    default: (): string => ''
   }
 } as const
 

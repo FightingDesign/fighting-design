@@ -10,7 +10,8 @@ export type {
   callbackType,
   btnClickInterface,
   switchImageInterface,
-  optionClickInterface
+  optionClickInterface,
+  callbackInterface
 } from './image'
 export type { installInterface, mainVNodeInterface } from './install'
 export type { onClickInterface, ordinaryFunctionInterface } from './auto'

@@ -1,7 +1,6 @@
 <template>
   <div style="height: 1000px"></div>
   <f-image
-    width="200px"
     root-margin="100px"
     src="https://tianyuhao.cn/images/auto/1.png"
     :draggable="false"
@@ -48,6 +47,11 @@
 </script>
 
 <style>
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
   .list {
     width: 300px;
     height: 200px;

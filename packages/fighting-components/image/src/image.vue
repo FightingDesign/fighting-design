@@ -22,6 +22,7 @@
       v-if="caption"
       class="f-image-caption"
       :style="{
+        width: width || `${captionWidth}px`,
         color: captionColor,
         borderBottomLeftRadius: round,
         borderBottomRightRadius: round
@@ -40,6 +41,7 @@
       :modalClose="modalClose"
       :showCloseBtn="showCloseBtn"
       :previewRound="previewRound"
+      :width="width"
       @close="onClose"
     />
   </div>
@@ -56,13 +58,17 @@
   import { onMounted, ref, defineAsyncComponent, computed } from 'vue'
   import { loadImage } from '@fighting-design/fighting-utils'
   import type { Ref, ComputedRef } from 'vue'
-  import type { ordinaryFunctionInterface } from '@fighting-design/fighting-type'
+  import type {
+    ordinaryFunctionInterface,
+    callbackInterface
+  } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const isError: Ref<boolean> = ref<boolean>(true)
   const isPreviewListShow: Ref<boolean> = ref<boolean>(false)
+  const captionWidth: Ref<number> = ref<number>(0)
   const FImageImg: Ref<HTMLImageElement | null> = ref<HTMLImageElement | null>(
     null
   )
@@ -88,9 +94,15 @@
 
   onMounted((): void => {
     const node: HTMLImageElement = FImageImg.value as HTMLImageElement
-    loadImage(node, prop, emit, (params: boolean): void => {
+    const callback: callbackInterface = (
+      params: boolean,
+      width: number
+    ): void => {
       isError.value = params
-    })
+      captionWidth.value = width
+    }
+
+    loadImage(node, prop, emit, callback)
   })
 </script>
 
