@@ -5,7 +5,7 @@ export const sidebar = {
       link: '/docs/install',
       items: [
         { text: '安装', link: '/docs/install' },
-        { text: '引入', link: '/docs/import' }
+        { text: '引入使用', link: '/docs/import' }
       ]
     },
     {
