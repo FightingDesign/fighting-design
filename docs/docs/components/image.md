@@ -175,6 +175,50 @@
 
 :::
 
+## 加载失败
+
+`Fighting Design` 对于图片加载失败做了很多的处理，下面分别介绍一下
+
+`err-src` 可以在 `src` 加载失败的时候，备用进行加载
+
+`alt` 属性可以在图片加载失败的时候，展示信息
+
+你也可以使用 `error` 插槽自定义你的错误信息展示
+
+<f-image
+  width="200px"
+  src="https://tianyuhao.cn/images/auto/3.png2"
+  block
+  err-src="https://tianyuhao.cn/images/auto/2.png"
+/>
+
+<f-image
+  width="200px"
+  src="https://tianyuhao.cn/images/auto/3.png2"
+  block
+  err-src="https://tianyuhao.cn/images/auto/2.png2"
+/>
+
+::: details 显示代码
+
+```html
+<f-image
+  width="200px"
+  src="https://tianyuhao.cn/images/auto/3.png2"
+  block
+  err-src="https://tianyuhao.cn/images/auto/2.png"
+/>
+
+<f-image
+  width="200px"
+  src="https://tianyuhao.cn/images/auto/3.png2"
+  block
+  err-src="https://tianyuhao.cn/images/auto/2.png2"
+/>
+```
+
+:::
+
 ## Attributes
 
 | 参数                | 说明                                                                                                         | 类型     | 可选值                                       | 默认值 |
@@ -222,3 +266,15 @@
     'https://tianyuhao.cn/images/auto/3.png'
   ]
 </script>
+
+<style scoped>
+  .my-error {
+    width: 200px;
+    height: 150px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(240, 239, 255);
+    border-radius: 10px;
+  }
+</style>
