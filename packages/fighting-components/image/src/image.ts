@@ -51,22 +51,6 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  previewList: {
-    type: Array as PropType<string[]>,
-    default: (): [] => []
-  },
-  previewShowIndex: {
-    type: Number,
-    default: (): number => 0
-  },
-  previewZIndex: {
-    type: Number,
-    default: (): number => 999
-  },
-  previewShowOption: {
-    type: Boolean,
-    default: (): boolean => true
-  },
   round: {
     type: String,
     default: (): string => ''
@@ -90,6 +74,26 @@ export const Props = {
   showCloseBtn: {
     type: Boolean,
     default: (): boolean => true
+  },
+  previewList: {
+    type: Array as PropType<string[]>,
+    default: (): [] => []
+  },
+  previewShowIndex: {
+    type: Number,
+    default: (): number => 0
+  },
+  previewZIndex: {
+    type: Number,
+    default: (): number => 999
+  },
+  previewShowOption: {
+    type: Boolean,
+    default: (): boolean => true
+  },
+  previewRound: {
+    type: String,
+    default: (): string => ''
   }
 } as const
 

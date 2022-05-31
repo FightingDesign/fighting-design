@@ -10,27 +10,30 @@
         class="f-image-showImg"
         draggable="false"
         :src="previewList[previewShowIndex]"
-        :style="{ transform: `scale(${scale}) rotate(${rotate}deg)` }"
+        :style="{
+          transform: `scale(${scale}) rotate(${rotate}deg)`,
+          borderRadius: previewRound
+        }"
       />
 
-      <div v-if="previewList.length > 1" class="right_button">
-        <f-icon
-          size="30px"
-          icon="f-icon-arrow-right"
-          @click="switchImage('next')"
-        />
+      <div
+        v-if="previewList.length > 1"
+        class="right_button"
+        @click="switchImage('next')"
+      >
+        <f-icon size="30px" icon="f-icon-arrow-right" />
       </div>
 
-      <div v-if="previewList.length > 1" class="left_button">
-        <f-icon
-          size="30px"
-          icon="f-icon-arrow-left"
-          @click="switchImage('prev')"
-        />
+      <div
+        v-if="previewList.length > 1"
+        class="left_button"
+        @click="switchImage('prev')"
+      >
+        <f-icon size="30px" icon="f-icon-arrow-left" />
       </div>
 
-      <div v-if="showCloseBtn" class="close_button">
-        <f-icon size="20px" icon="f-icon-close" @click="close" />
+      <div v-if="showCloseBtn" class="close_button" @click="close">
+        <f-icon size="20px" icon="f-icon-close" />
       </div>
 
       <div v-if="previewShowOption" class="option" @click="optionClick">
@@ -168,6 +171,7 @@
   }
 
   const onImgMousewheel = (evt: WheelEvent): void => {
+    evt.preventDefault()
     if (evt.deltaY > 1) {
       smaller()
       return

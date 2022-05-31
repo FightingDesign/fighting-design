@@ -2,7 +2,7 @@ import { PropType } from 'vue'
 
 export const Props = {
   previewList: {
-    type: Array as PropType<string[]>,
+    type: Array as PropType<Array<string>>,
     default: (): [] => []
   },
   previewShowIndex: {
@@ -24,6 +24,10 @@ export const Props = {
   showCloseBtn: {
     type: Boolean,
     default: (): boolean => true
+  },
+  previewRound: {
+    type: String,
+    default: (): string => ''
   }
 } as const
 

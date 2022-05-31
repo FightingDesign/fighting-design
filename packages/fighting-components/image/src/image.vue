@@ -39,6 +39,7 @@
       :previewZIndex="previewZIndex"
       :modalClose="modalClose"
       :showCloseBtn="showCloseBtn"
+      :previewRound="previewRound"
       @close="onClose"
     />
   </div>

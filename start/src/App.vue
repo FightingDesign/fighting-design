@@ -9,6 +9,11 @@
     alt="ada"
     :preview-list="listImg"
     :select="true"
+    :preview-z-index="10022"
+    :preview-show-option="false"
+    round="20px"
+    preview-round="120px"
+    caption="回到家啊回到家萨的好时机啊的话苏家爱华打算结婚的洒酒大数据坎大哈时间坎大哈时间的撒健康大数据坎大哈事件扩大化"
     :preview-show-index="32"
     block
   />
