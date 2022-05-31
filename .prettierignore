@@ -7,3 +7,4 @@
 /docs/docs/.vitepress/dist/*
 dist
 node_modules
+pnpm-lock.yaml

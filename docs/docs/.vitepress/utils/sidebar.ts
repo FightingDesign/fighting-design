@@ -21,9 +21,12 @@ export const sidebar = {
       ]
     },
     {
-      text: '版本',
+      text: '历程',
       link: '/docs/changelog',
-      items: [{ text: '更新日志', link: '/docs/changelog' }]
+      items: [
+        { text: '更新日志', link: '/docs/changelog' },
+        { text: '里程碑', link: '/docs/milepost' }
+      ]
     }
   ],
   '/components/': [
