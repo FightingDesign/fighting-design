@@ -1,6 +1,26 @@
 # CHANGELOG
 
-English | [Chinese](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.en-US.md)
+English | [Chinese](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.md)
+
+## 0.0.6 beta.6 (2022-05-31)
+
+**fix**
+
+- Fix the problem of consistent rotation direction of `FImage` components
+- Fix the click failure problem of `FIcon` component preview window operation, and handle the click focus position
+- Fix the type problem of `FIcon` and `FButton` components
+- The select attribute of the `FImage` component is changed to no select to prohibit selection
+
+**feat**
+
+- New image preloading function of `FImage` component preview window
+- New `FImage` component preview window fade in animation effect
+- Add the mask layer hiding function in the preview window of the `FImage` component, which can be configured through the `modal-close` configuration item
+- New `FImage` component preview window icon style optimizes some details
+- Add the left and right buttons of the preview image of the `FImage` component to switch and add the image length recognition. Whether to display the effect
+- Add the `show-close-btn` configuration item of the `FImage` component to configure whether to display the close button of the preview window
+- The new `FImage` component can zoom in and out the picture through the mouse wheel
+- Add the `preview-round` configuration item of the `FImage` component to configure the fillet of the preview image
 
 ## 0.0.5 beta.5 (2022-05-27)
 

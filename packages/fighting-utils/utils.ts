@@ -6,6 +6,9 @@ import type { keepDecimalInterface } from '@fighting-design/fighting-type'
  * @param no 保留位数
  * @returns 转换结果
  */
-export const keepDecimal: keepDecimalInterface = (num: number, no: number = 2): number => {
+export const keepDecimal: keepDecimalInterface = (
+  num: number,
+  no: number = 2
+): number => {
   return Number(num.toFixed(no))
 }

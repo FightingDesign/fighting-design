@@ -84,10 +84,10 @@
 如果在大图预览的时候，你不需要使用下放的操作栏，可以通过 `preview-show-option` 属性将其隐藏
 
 <f-image
-  width="200px"
-  src="https://tianyuhao.cn/images/auto/1.png"
-  :preview-list="listImg"
-  :preview-show-option="false"
+    width="200px"
+    src="https://tianyuhao.cn/images/auto/1.png"
+    :preview-list="listImg"
+    :preview-show-option="false"
 />
 
 ::: details 显示代码
@@ -186,17 +186,17 @@
 你也可以使用 `error` 插槽自定义你的错误信息展示
 
 <f-image
-  width="200px"
-  src="https://tianyuhao.cn/images/auto/3.png2"
-  block
-  err-src="https://tianyuhao.cn/images/auto/2.png"
+    width="200px"
+    src="https://tianyuhao.cn/images/auto/3.png2"
+    block
+    err-src="https://tianyuhao.cn/images/auto/2.png"
 />
 
 <f-image
-  width="200px"
-  src="https://tianyuhao.cn/images/auto/3.png2"
-  block
-  err-src="https://tianyuhao.cn/images/auto/2.png2"
+    width="200px"
+    src="https://tianyuhao.cn/images/auto/3.png2"
+    block
+    err-src="https://tianyuhao.cn/images/auto/2.png2"
 />
 
 ::: details 显示代码

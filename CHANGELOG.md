@@ -1,6 +1,8 @@
 # 更新日志
 
-中文 | [英文](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.md)
+中文 | [英文](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.en-US.md)
+
+## 0.0.6 beta.6 (2022-05-31)
 
 **fix**
 
