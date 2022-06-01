@@ -62,7 +62,7 @@ Each command is described in detail below
 pnpm clean
 
 # Start development test project
-pnpm dev
+pnpm start
 
 # Start document project
 pnpm dev:docs

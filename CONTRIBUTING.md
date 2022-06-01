@@ -62,7 +62,7 @@ pnpm start
 pnpm clean
 
 # 启动开发测试项目
-pnpm dev
+pnpm start
 
 # 启动文档项目
 pnpm dev:docs

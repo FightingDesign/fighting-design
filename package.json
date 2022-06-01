@@ -11,7 +11,7 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "dev": "pnpm vite",
+    "start": "pnpm vite",
     "dev:docs": "pnpm run -C docs dev",
     "build": "run-s build:*",
     "build:components": "vite build",
