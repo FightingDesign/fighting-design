@@ -93,7 +93,6 @@ pnpm prettier
 主要源文件都在 `fighting-design/packages` 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，参考：
 
 - [fighting-components](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-components/README.md) 组件源文件目录
-- [fighting-design](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-design/README.md) 入口文件目录
 - [fighting-test](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-test/README.md) 单元测试目录
 - [fighting-theme](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-theme/README.md) 样式主题目录
 - [fighting-type](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-type/README.md) 类型目录

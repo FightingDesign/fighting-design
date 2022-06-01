@@ -1,6 +1,12 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "packages/fighting-components/**/*", "packages/fighting-components/**/*.vue","start/**/*","start/**/*.vue"],
+  "include": [
+    "env.d.ts",
+    "packages/fighting-components/**/*",
+    "packages/fighting-components/**/*.vue",
+    "start/**/*",
+    "start/**/*.vue"
+  ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,

@@ -93,7 +93,6 @@ pnpm prettier
 The main source files are in the `fighting-design/packages` directory, and each subdirectory has a separate `README.md` describes the specified directory. Refer to:
 
 - [fighting-components](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-components/README.md) Component source file directory
-- [fighting-design](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-design/README.md) Entry file directory
 - [fighting-test](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-test/README.md) Unit test directory
 - [fighting-theme](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-theme/README.md) Style theme catalog
 - [fighting-type](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-type/README.md) Type catalog

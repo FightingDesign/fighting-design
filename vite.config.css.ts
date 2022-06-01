@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
-import { resolve } from "path";
+import { resolve } from 'path'
+
 export default defineConfig({
   build: {
     minify: true,
@@ -9,6 +10,6 @@ export default defineConfig({
       name: 'style',
       fileName: 'style'
     },
-    emptyOutDir:false
-  },
+    emptyOutDir: false
+  }
 })

@@ -1,5 +1,5 @@
 {
-  "name": "fightingdesign",
+  "name": "fighting-design",
   "private": true,
   "workspaces": [
     "packages/*",
