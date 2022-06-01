@@ -1,0 +1,29 @@
+@import '../config/color.scss';
+
+$border-color: #e5e5e5;
+
+.f-card {
+  width: 100%;
+  min-height: 200px;
+  border: $border-color solid 1px;
+
+  .f-card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.f-card-shadow-never {
+  box-shadow: none;
+}
+
+.f-card-shadow-always {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+.f-card-shadow-hover:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.f-card-round {
+  border-radius: 10px;
+}
