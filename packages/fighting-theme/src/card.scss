@@ -6,6 +6,7 @@ $border-color: #e5e5e5;
   width: 100%;
   min-height: 200px;
   border: $border-color solid 1px;
+  transition: .3s;
 
   .f-card-header {
     padding: 16px 20px;
@@ -20,6 +21,7 @@ $border-color: #e5e5e5;
 .f-card-shadow-always {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
+
 .f-card-shadow-hover:hover {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }

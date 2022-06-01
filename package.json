@@ -19,7 +19,6 @@
     "build:types": "vite build --config vite.config.types.ts",
     "build:docs": "pnpm run -C docs build",
     "serve:docs": "pnpm run -C docs serve",
-    "move": "node build/moveFile.ts",
     "test": "vitest",
     "prettier": "prettier --write ."
   },
