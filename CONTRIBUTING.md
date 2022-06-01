@@ -41,14 +41,15 @@ pnpm start
 
 ```json
 "scripts": {
-  "start": "pnpm run -C start dev",
+  "clean": "rimraf dist",
+  "dev": "pnpm vite",
   "dev:docs": "pnpm run -C docs dev",
-  "build": "pnpm build:theme && pnpm build:components && pnpm move",
-  "build:components": "rollup -c build/rollup.config.ts",
-  "build:theme": "vite build packages/fighting-theme",
+  "build": "run-s build:*",
+  "build:components": "vite build",
+  "build:theme": "vite build --config vite.config.css.ts",
+  "build:types": "vite build --config vite.config.types.ts",
   "build:docs": "pnpm run -C docs build",
   "serve:docs": "pnpm run -C docs serve",
-  "move": "node build/moveFile.ts",
   "test": "vitest",
   "prettier": "prettier --write ."
 },
@@ -57,8 +58,11 @@ pnpm start
 下面详细介绍每一条命令
 
 ```shell
+# 清除 dits
+pnpm clean
+
 # 启动开发测试项目
-pnpm start
+pnpm dev
 
 # 启动文档项目
 pnpm dev:docs
@@ -66,20 +70,20 @@ pnpm dev:docs
 # 打包（主要的打包，打包之后就是需要发布的包）
 pnpm build
 
-# 打包组件（基本上用不到）
+# 打包组件
 pnpm build:components
 
-# 打包组件样式主题（基本上用不到）
+# 打包组件样式主题
 pnpm build:theme
+
+# 打包组件类型
+pnpm build:type
 
 # 打包文档
 pnpm build:docs
 
 # 运行打包后的文档
 pnpm serve:docs
-
-# 用于移动文件，将一些不需要打包的文件移动至 dist 目录（基本上用不到）
-pnpm move
 
 # 单元测试
 pnpm test
@@ -124,9 +128,15 @@ git commit -m 'feat: 新增xxx功能'
 | style    | 标记、空格、格式、缺少分号           |
 | test     | 增加测试/测试用例                    |
 
+## 关于 PR
+
+在你提交 `PR` 之前，请务必保证你 `fork` 的仓库是当前最新的代码，以免发生冲突。
+
+所以，在提交 `PR` 之前，请务必**拉取最新的代码，拉取最新的代码，拉取最新的代码！**
+
 ## 常见问题
 
-常见问题请参考 [COMMON_PROBLEM.md](https://github.com/Tyh2001/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
+常见问题请参考 [COMMON_PROBLEM](https://github.com/Tyh2001/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
 
 也可以直接和[我](https://github.com/Tyh2001/Tyh2001)进行联系
 

@@ -41,14 +41,15 @@ There are many commands set in `Fighting Design`,You can see in [package.json](h
 
 ```json
 "scripts": {
-  "start": "pnpm run -C start dev",
+  "clean": "rimraf dist",
+  "dev": "pnpm vite",
   "dev:docs": "pnpm run -C docs dev",
-  "build": "pnpm build:theme && pnpm build:components && pnpm move",
-  "build:components": "rollup -c build/rollup.config.ts",
-  "build:theme": "vite build packages/fighting-theme",
+  "build": "run-s build:*",
+  "build:components": "vite build",
+  "build:theme": "vite build --config vite.config.css.ts",
+  "build:types": "vite build --config vite.config.types.ts",
   "build:docs": "pnpm run -C docs build",
   "serve:docs": "pnpm run -C docs serve",
-  "move": "node build/moveFile.ts",
   "test": "vitest",
   "prettier": "prettier --write ."
 },
@@ -57,8 +58,11 @@ There are many commands set in `Fighting Design`,You can see in [package.json](h
 Each command is described in detail below
 
 ```shell
+# Clean dits
+pnpm clean
+
 # Start development test project
-pnpm start
+pnpm dev
 
 # Start document project
 pnpm dev:docs
@@ -66,11 +70,14 @@ pnpm dev:docs
 # Build (the main build, after which is the package to be released)
 pnpm build
 
-# Build components (basically unavailable)
+# Build components
 pnpm build:components
 
-# Build component style theme (basically unavailable)
+# Build component style theme
 pnpm build:theme
+
+# Build component type
+pnpm build:type
 
 # build documents
 pnpm build:docs
@@ -124,9 +131,15 @@ The type must be one of the following types and filled in against the type descr
 | style    | Tag, space, format, missing semicolon                                  |
 | test     | Add test / test case                                                   |
 
+## About PR
+
+Before you submit `PR`, please make sure that your `fork` warehouse is the latest code to avoid conflicts.
+
+Therefore, before submitting `PR`, please be sure to **pull the latest code, pull the latest code, and pull the latest code!**
+
 ## Common problem
 
-Please refer to [COMMON_PROBLEM.md](https://github.com/Tyh2001/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
+Please refer to [COMMON_PROBLEM](https://github.com/Tyh2001/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
 
 You can also contact [me](https://github.com/Tyh2001/Tyh2001) directly
 
