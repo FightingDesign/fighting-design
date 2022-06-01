@@ -4,7 +4,7 @@ English | [Chinese](./README.md)
 
 ## Introduction
 
-`fighting-design` some internal tool functions
+`Fighting Design` some internal tool functions
 
 ## Import
 

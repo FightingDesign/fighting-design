@@ -4,4 +4,4 @@
 
 ## 说明
 
-`fighting-design` 的主入口文件
+`Fighting Design` 的主入口文件

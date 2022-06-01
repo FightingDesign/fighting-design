@@ -9,12 +9,13 @@ Theme style directory of `fighting-design`
 ## 目录说明
 
 ```
+├── config                Some style definitions common to components, such as type, etc
 ├── dist                  Packaged folder
 ├── font                  Font folder
-├── global                Some style definitions common to components, such as type, etc
 ├── src                   Main style sheet storage directory of each component
 ├── index.scss            The main style entry file is also a package entry file
 ├── package.json          package.json
+├── README.en-US.md       README.en-US.md
 ├── README.md             README.md
 ├── vite.config.ts        Vite package configuration file
 ```

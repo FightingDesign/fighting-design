@@ -4,17 +4,18 @@
 
 ## 说明
 
-`fighting-design` 的主题样式目录
+`Fighting Design` 的主题样式目录
 
 ## 目录说明
 
 ```
+├── config                组件公用的一些样式定义，比如 type 等
 ├── dist                  打包的文件夹
 ├── font                  字体文件夹
-├── global                组件公用的一些样式定义，比如 type 等
 ├── src                   每个组件的主样式表存放目录
 ├── index.scss            样式主入口文件，也是打包入口文件
 ├── package.json          package.json
+├── README.en-US.md       README.en-US.md
 ├── README.md             README.md
 ├── vite.config.ts        vite 打包配置文件
 ```

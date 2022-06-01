@@ -4,7 +4,7 @@
 
 ## 介绍
 
-`fighting-design` 为每个组件提供的类型系统
+`Fighting Design` 为每个组件提供的类型系统
 
 ## 规范
 

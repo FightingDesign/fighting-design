@@ -1,9 +1,5 @@
-@import '../color/color.scss';
-
-$large: 39px;
-$middle: 35px;
-$small: 31px;
-$mini: 27px;
+@import '../config/color.scss';
+@import '../config/size.scss';
 
 .f-button {
   min-width: 40px;
