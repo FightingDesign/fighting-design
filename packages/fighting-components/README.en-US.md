@@ -4,7 +4,7 @@ English | [Chinese](./README.md)
 
 ## 说明
 
-`fighting-design` 的所有组件的源文件
+`Fighting Design` 的所有组件的源文件
 
 ## 新增组件
 

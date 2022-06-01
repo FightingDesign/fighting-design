@@ -125,6 +125,12 @@ The type must be one of the following types and filled in against the type descr
 | style    | Tag, space, format, missing semicolon                                  |
 | test     | Add test / test case                                                   |
 
+## Common problem
+
+Please refer to [COMMON_PROBLEM.md](https://github.com/Tyh2001/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
+
+You can also contact [me](https://github.com/Tyh2001/Tyh2001) directly
+
 ## Financial contribution
 
 Development is not easy, welcome to sponsor!

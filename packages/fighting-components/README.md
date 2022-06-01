@@ -4,9 +4,11 @@
 
 ## 说明
 
-`fighting-design` 的所有组件的源文件
+`Fighting Design` 的所有组件的源文件
 
 ## 新增组件
+
+在新增组件之前，请与[我](https://github.com/Tyh2001/Tyh2001)取得联系，或者在 [discussions](https://github.com/Tyh2001/fighting-design/discussions) 新建一个讨论
 
 如果想要新增组件，需要在 `fighting-components` 目录下新建一个`以组件名称`为名的文件夹，内部目录结构如下：
 

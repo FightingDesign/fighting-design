@@ -66,9 +66,9 @@ describe('FImage', () => {
     expect(wrapper.find('img').classes()).toContain('f-image-cover')
   })
 
-  test('select', () => {
+  test('noSelect', () => {
     const wrapper = mount(FImage, {
-      props: { select: true }
+      props: { noSelect: true }
     })
     expect(wrapper.find('img').classes()).toContain('f-image-select')
   })

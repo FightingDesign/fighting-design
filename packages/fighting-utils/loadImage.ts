@@ -108,6 +108,7 @@ class Lazy extends Load implements LazyInterface {
  * @param node img 元素
  * @param prop Props
  * @param emit Emits
+ * @param callback 回调函数
  */
 export const loadImage: loadImageInterface = (
   node: HTMLImageElement,

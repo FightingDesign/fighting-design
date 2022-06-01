@@ -4,7 +4,7 @@
 
 ## 说明
 
-`fighting-design` 内部的一些工具函数
+`Fighting Design` 内部的一些工具函数
 
 ## 引入
 
