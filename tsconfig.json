@@ -15,8 +15,7 @@
   },
   "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.tsx"],
   "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+    { "path": "./tsconfig.vite-config.json" },
+    { "path": "./tsconfig.app.json" }
   ]
 }
