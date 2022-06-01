@@ -1,6 +1,7 @@
 export type { buttonSize, buttonTarget, buttonType } from './button'
 export type { buttonGroupSize } from './button-group'
 export type { linkType, linkTarget, linkHover } from './link'
+export type { cardShadow } from './card'
 export type {
   LazyInterface,
   loadImageInterface,
