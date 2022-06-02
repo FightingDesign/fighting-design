@@ -11,7 +11,7 @@
         'f-button-simple': simple,
         'f-button-text': text,
         'f-button-border': text && border,
-        [`f-button-${size}`]: size !== 'middle'
+        [`f-button-${size}`]: size
       }
     ]"
     :style="[`box-shadow: ${shadow}`]"

@@ -18,7 +18,7 @@ export const Props = {
     type: String as PropType<cardShadow>,
     default: (): cardShadow => 'always',
     validator: (val: cardShadow): boolean => {
-      return ['never', 'hover', 'always'].includes(val)
+      return (['never', 'hover', 'always'] as const).includes(val)
     }
   }
 } as const

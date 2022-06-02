@@ -12,13 +12,14 @@
   display: inline-block;
   transition: 0.2s;
   box-sizing: border-box;
-  padding: 0 25px;
   line-height: 1;
   overflow: hidden;
+  height: $middle;
+  padding: 0 25px;
 
   .f-text {
-    font-size: 14px;
     line-height: $middle;
+    font-size: 14px;
     white-space: nowrap;
 
     .f-icon {
@@ -62,6 +63,16 @@
   .f-text {
     line-height: $large;
     font-size: 15px;
+  }
+}
+
+.f-button.f-button-middle {
+  height: $middle;
+  padding: 0 25px;
+
+  .f-text {
+    line-height: $middle;
+    font-size: 14px;
   }
 }
 

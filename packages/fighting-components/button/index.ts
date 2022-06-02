@@ -1,4 +1,4 @@
-import FButton from './src/button2.vue'
+import FButton from './src/button.vue'
 
 import { install } from '@fighting-design/fighting-utils'
 

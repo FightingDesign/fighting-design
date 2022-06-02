@@ -27,7 +27,7 @@ export const Props = {
     type: String as PropType<buttonSize>,
     default: (): string => 'middle',
     validator: (val: buttonSize): boolean => {
-      return ['large', 'middle', 'small', 'mini', ''].includes(val)
+      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
   block: {
@@ -42,7 +42,7 @@ export const Props = {
     type: String as PropType<buttonTarget>,
     default: (): buttonTarget => '_self',
     validator: (val: buttonTarget): boolean => {
-      return ['_blank', '_self', '_parent', '_top', ''].includes(val)
+      return (['_blank', '_self', '_parent', '_top', ''] as const).includes(val)
     }
   },
   loading: {
@@ -61,7 +61,7 @@ export const Props = {
     type: String as PropType<buttonType>,
     default: (): buttonType => 'default',
     validator: (val: buttonType): boolean => {
-      return [
+      return ([
         'default',
         'primary',
         'success',
@@ -69,7 +69,7 @@ export const Props = {
         'warning',
         'info',
         ''
-      ].includes(val)
+      ] as const).includes(val)
     }
   },
   autofocus: {
@@ -96,11 +96,7 @@ export const Props = {
     type: String as PropType<buttonNativeType>,
     default: (): buttonNativeType => 'button',
     validator: (val: buttonNativeType): boolean => {
-      return [
-        'button',
-        'submit',
-        'reset',
-      ].includes(val)
+      return (['button', 'submit', 'reset'] as const).includes(val)
     }
   },
   simple: {

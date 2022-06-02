@@ -10,7 +10,7 @@ export const Props = {
     type: String as PropType<linkType>,
     default: (): linkType => 'primary',
     validator: (val: linkType): boolean => {
-      return ['primary', 'success', 'danger', 'warning', 'info', ''].includes(
+      return (['primary', 'success', 'danger', 'warning', 'info', ''] as const).includes(
         val
       )
     }
@@ -27,7 +27,7 @@ export const Props = {
     type: String as PropType<linkHover>,
     default: (): linkHover => '',
     validator: (val: linkHover): boolean => {
-      return ['line', 'bag', ''].includes(val)
+      return (['line', 'bag', ''] as const).includes(val)
     }
   },
   prohibit: {
@@ -46,7 +46,7 @@ export const Props = {
     type: String as PropType<linkTarget>,
     default: (): linkTarget => '',
     validator: (val: linkTarget): boolean => {
-      return ['_self', '_blank', '_parent', '_top', ''].includes(val)
+      return (['_self', '_blank', '_parent', '_top', ''] as const).includes(val)
     }
   },
   color: {
