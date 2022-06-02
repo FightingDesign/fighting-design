@@ -28,7 +28,7 @@ export const Props = {
     default: (): linkHover => '',
     validator: (val: linkHover): boolean => {
       return ['line', 'bag', ''].includes(val)
-    },
+    }
   },
   prohibit: {
     type: Boolean,

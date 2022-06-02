@@ -1,5 +1,6 @@
 <template>
   <button
+    ref="FButton"
     :class="[
       'f-button',
       `f-button-${type}`,
@@ -32,19 +33,25 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
+  import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
-  import type { ComputedRef } from 'vue'
+  // import { clickRipples } from '@fighting-design/fighting-utils'
+  import type { ComputedRef, Ref } from 'vue'
   import type { onClickInterface } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
+
+  const FButton: Ref<HTMLButtonElement | null> = ref<HTMLButtonElement | null>(
+    null
+  )
 
   const onClick: onClickInterface = (evt: PointerEvent): void => {
     if (prop.disabled || prop.loading) return
     if (prop.link) {
       window.open(prop.link, prop.target)
     }
+    // clickRipples(evt, FButton.value as HTMLButtonElement, 1000)
     emit('click', evt)
   }
 
