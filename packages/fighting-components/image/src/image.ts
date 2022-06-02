@@ -1,4 +1,4 @@
-import { PropType } from 'vue'
+import type { PropType } from 'vue'
 import type { imageFit } from '@fighting-design/fighting-type'
 
 export const Props = {
@@ -36,8 +36,8 @@ export const Props = {
   },
   fit: {
     type: String as PropType<imageFit>,
-    default: (): string => '',
-    validator(val: string): boolean {
+    default: (): imageFit => '',
+    validator: (val: imageFit): boolean => {
       return ['fill', 'contain', 'cover', 'none', 'scale-down', ''].includes(
         val
       )

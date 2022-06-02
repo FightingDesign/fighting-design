@@ -8,8 +8,8 @@ import type {
 export const Props = {
   type: {
     type: String as PropType<linkType>,
-    default: (): string => 'primary',
-    validator(val: string): boolean {
+    default: (): linkType => 'primary',
+    validator: (val: linkType): boolean => {
       return ['primary', 'success', 'danger', 'warning', 'info', ''].includes(
         val
       )
@@ -25,10 +25,10 @@ export const Props = {
   },
   state: {
     type: String as PropType<linkHover>,
-    validator(val: string): boolean {
+    default: (): linkHover => '',
+    validator: (val: linkHover): boolean => {
       return ['line', 'bag', ''].includes(val)
     },
-    default: (): string => ''
   },
   prohibit: {
     type: Boolean,
@@ -44,10 +44,10 @@ export const Props = {
   },
   target: {
     type: String as PropType<linkTarget>,
-    validator(val: string): boolean {
+    default: (): linkTarget => '',
+    validator: (val: linkTarget): boolean => {
       return ['_self', '_blank', '_parent', '_top', ''].includes(val)
-    },
-    default: (): string => ''
+    }
   },
   color: {
     type: String,

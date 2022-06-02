@@ -25,7 +25,7 @@ export const Props = {
   size: {
     type: String as PropType<buttonSize>,
     default: (): string => 'middle',
-    validator(val: string): boolean {
+    validator: (val: buttonSize): boolean => {
       return ['large', 'middle', 'small', 'mini', ''].includes(val)
     }
   },
@@ -39,8 +39,8 @@ export const Props = {
   },
   target: {
     type: String as PropType<buttonTarget>,
-    default: (): string => '_self',
-    validator(val: string): boolean {
+    default: (): buttonTarget => '_self',
+    validator: (val: buttonTarget): boolean => {
       return ['_blank', '_self', '_parent', '_top', ''].includes(val)
     }
   },
@@ -58,8 +58,8 @@ export const Props = {
   },
   type: {
     type: String as PropType<buttonType>,
-    default: (): string => 'default',
-    validator(val: string): boolean {
+    default: (): buttonType => 'default',
+    validator: (val: buttonType): boolean => {
       return [
         'default',
         'primary',

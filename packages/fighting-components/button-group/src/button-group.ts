@@ -4,8 +4,8 @@ import type { buttonGroupSize } from '@fighting-design/fighting-type'
 export const Props = {
   size: {
     type: String as PropType<buttonGroupSize>,
-    default: (): string => 'middle',
-    validator(val: string): boolean {
+    default: (): buttonGroupSize => 'middle',
+    validator: (val: buttonGroupSize): boolean => {
       return ['large', 'middle', 'small', 'mini', ''].includes(val)
     }
   },

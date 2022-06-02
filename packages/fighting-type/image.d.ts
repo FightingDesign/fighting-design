@@ -23,7 +23,7 @@ export interface LoadInterface {
   onload(evt: Event): void
 }
 
-export type imageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
+export type imageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down' | ''
 
 export interface propsInterface {
   src: string
