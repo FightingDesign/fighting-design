@@ -4,7 +4,7 @@
 
 ## 说明
 
-`Fighting Design` 的所有组件的源文件
+此目录是 `Fighting Design` 的所有组件的源文件
 
 ## 新增组件
 
@@ -152,7 +152,7 @@ const fun: funInterface = (a: number, b: number): number => {
 - 每个 `props` 都必须标记默认值，就是默认值是 `false` 或者是空字符串也要标记
 - 如有可选项需要对其进行校验，一般使用 `validator` + `ts` 双重校验。可参考文档 [Prop 校验](https://staging-cn.vuejs.org/guide/components/props.html#prop-validation) 和 [PropType](https://staging-cn.vuejs.org/api/utility-types.html#proptypet)
 
-## component-name.ts
+## index.ts
 
 这里需要用来定义、挂载、注册、导出组件
 

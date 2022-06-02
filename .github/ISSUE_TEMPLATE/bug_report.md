@@ -1,10 +1,9 @@
 ---
-name: '错误报告 '
+name: '错误报告'
 about: 请详细描述你遇到的问题
 title: BUG
 labels: bug
 assignees: Tyh2001
-
 ---
 
 **描述错误**
@@ -32,13 +31,3 @@ assignees: Tyh2001
 
 **其它错误信息上下文**
 在此处添加有关该问题的任何其它上下文。
-**预期行为**
-对您期望发生的事情进行清晰、简洁的描述。
-
-**屏幕截图**
-如果适用，添加屏幕截图以帮助解释您的问题。
-
-**版本环境**
-
-**Additional context**
-Add any other context about the problem here.
