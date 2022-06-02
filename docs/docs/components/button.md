@@ -292,6 +292,7 @@
 | simple       | 是否为简约按钮                           | boolean | ——                                                             | false    |
 | border       | 是否显示边框（仅在 text: true）时生效    | boolean | ——                                                             | false    |
 | ripples      | 是否启用点击涟漪效果                     | boolean | ——                                                             | true     |
+| native-type  | 按钮的原生类型                           | string  | `button` `submit` `reset`                                      | button   |
 
 ## ButtonGroup Attributes
 

@@ -2,7 +2,8 @@ import type { PropType } from 'vue'
 import type {
   buttonSize,
   buttonTarget,
-  buttonType
+  buttonType,
+  buttonNativeType
 } from '@fighting-design/fighting-type'
 
 export const Props = {
@@ -92,8 +93,15 @@ export const Props = {
     default: (): boolean => false
   },
   nativeType: {
-    type: String,
-    default: (): string => 'button'
+    type: String as PropType<buttonNativeType>,
+    default: (): buttonNativeType => 'button',
+    validator: (val: buttonNativeType): boolean => {
+      return [
+        'button',
+        'submit',
+        'reset',
+      ].includes(val)
+    }
   },
   simple: {
     type: Boolean,

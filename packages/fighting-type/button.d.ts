@@ -10,6 +10,8 @@ export type buttonType =
   | 'warning'
   | 'info'
 
+export type buttonNativeType = 'button' | 'submit' | 'reset'
+
 export interface RipplesInterface {
   evt: PointerEvent
   node: HTMLElement
