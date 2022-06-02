@@ -1,9 +1,10 @@
 ---
-name: '错误报告'
+name: 错误报告
 about: 请详细描述你遇到的问题
 title: BUG
 labels: bug
 assignees: Tyh2001
+
 ---
 
 **描述错误**

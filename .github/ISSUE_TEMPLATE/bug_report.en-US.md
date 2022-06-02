@@ -1,9 +1,10 @@
 ---
-name: 'Bug report'
+name: Bug report
 about: Please describe your problems in detail
 title: BUG
 labels: bug
 assignees: Tyh2001
+
 ---
 
 **Describe the bug**
