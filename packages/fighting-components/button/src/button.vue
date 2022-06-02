@@ -19,7 +19,7 @@
     :autofocus="autofocus"
     :name="name"
     :type="nativeType"
-    @click="onClick"
+    @click.stop="onClick"
   >
     <span
       :class="['f-text', { 'f-text-blob': blob }]"
@@ -35,9 +35,9 @@
 <script lang="ts" setup>
   import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
-  // import { clickRipples } from '@fighting-design/fighting-utils'
   import type { ComputedRef, Ref } from 'vue'
   import type { onClickInterface } from '@fighting-design/fighting-type'
+  import { Ripples } from '@fighting-design/fighting-utils'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -48,10 +48,16 @@
 
   const onClick: onClickInterface = (evt: PointerEvent): void => {
     if (prop.disabled || prop.loading) return
+
     if (prop.link) {
       window.open(prop.link, prop.target)
     }
-    // clickRipples(evt, FButton.value as HTMLButtonElement, 1000)
+
+    if (prop.ripples) {
+      const ripples = new Ripples(evt, FButton.value as HTMLButtonElement, 700)
+      ripples.clickRipples()
+    }
+
     emit('click', evt)
   }
 

@@ -4,7 +4,6 @@ about: 请详细描述你遇到的问题
 title: BUG
 labels: bug
 assignees: Tyh2001
-
 ---
 
 **描述错误**

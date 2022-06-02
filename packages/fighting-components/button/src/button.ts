@@ -110,6 +110,10 @@ export const Props = {
   rightIcon: {
     type: String,
     default: (): string => ''
+  },
+  ripples: {
+    type: Boolean,
+    default: (): boolean => true
   }
 } as const
 

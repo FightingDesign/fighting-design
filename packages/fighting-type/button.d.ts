@@ -9,3 +9,12 @@ export type buttonType =
   | 'danger'
   | 'warning'
   | 'info'
+
+export interface RipplesInterface {
+  evt: PointerEvent
+  node: HTMLElement
+  time: number
+  clickRipples(): void
+  renderElement(x: number, y: number): HTMLSpanElement
+  removeElement(node: HTMLElement): void
+}
