@@ -4,7 +4,6 @@ about: 为该项目提出建议或新的功能
 title: 功能请求
 labels: enhancement
 assignees: Tyh2001
-
 ---
 
 **你在什么场景下产生此需求？**
