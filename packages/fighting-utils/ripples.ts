@@ -15,8 +15,9 @@ export class Ripples implements RipplesInterface {
   clickRipples(): void {
     const target: HTMLSpanElement | HTMLButtonElement =
       (this.evt.target as HTMLButtonElement).className === 'f-text'
-        ? (this.evt.target as HTMLButtonElement).parentNode as HTMLButtonElement
-        : this.evt.target as HTMLButtonElement
+        ? ((this.evt.target as HTMLButtonElement)
+            .parentNode as HTMLButtonElement)
+        : (this.evt.target as HTMLButtonElement)
 
     const x: number = this.evt.clientX - target.offsetLeft
     const y: number = this.evt.clientY - target.offsetTop

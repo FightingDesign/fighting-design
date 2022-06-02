@@ -38,9 +38,9 @@ export const Props = {
     type: String as PropType<imageFit>,
     default: (): imageFit => '',
     validator: (val: imageFit): boolean => {
-      return (['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const).includes(
-        val
-      )
+      return (
+        ['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const
+      ).includes(val)
     }
   },
   noSelect: {
@@ -76,7 +76,7 @@ export const Props = {
     default: (): boolean => true
   },
   previewList: {
-    type: Array as PropType<string[]>,
+    type: Array as PropType<Array<string>>,
     default: (): [] => []
   },
   previewShowIndex: {

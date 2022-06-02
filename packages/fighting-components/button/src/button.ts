@@ -25,7 +25,7 @@ export const Props = {
   },
   size: {
     type: String as PropType<buttonSize>,
-    default: (): string => 'middle',
+    default: (): buttonSize => 'middle',
     validator: (val: buttonSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
@@ -61,15 +61,17 @@ export const Props = {
     type: String as PropType<buttonType>,
     default: (): buttonType => 'default',
     validator: (val: buttonType): boolean => {
-      return ([
-        'default',
-        'primary',
-        'success',
-        'danger',
-        'warning',
-        'info',
-        ''
-      ] as const).includes(val)
+      return (
+        [
+          'default',
+          'primary',
+          'success',
+          'danger',
+          'warning',
+          'info',
+          ''
+        ] as const
+      ).includes(val)
     }
   },
   autofocus: {
