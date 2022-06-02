@@ -2,8 +2,6 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FButtonGroup } from '@fighting-design/fighting-components'
 
-// https://test-utils.vuejs.org
-
 describe('FButtonGroup', () => {
   test('size', () => {
     const wrapper = mount(FButtonGroup, {
