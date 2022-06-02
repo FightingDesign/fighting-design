@@ -32,7 +32,8 @@
       {{ caption }}
     </div>
 
-    <component
+    <preview-list
+      v-if="prop.previewList && prop.previewList.length"
       v-show="isPreviewListShow"
       :is="PreviewList"
       :previewList="previewList"
@@ -56,13 +57,14 @@
 
 <script lang="ts" setup>
   import { Props, Emits } from './image'
-  import { onMounted, ref, defineAsyncComponent, computed } from 'vue'
+  import { onMounted, ref } from 'vue'
   import { loadImage } from '@fighting-design/fighting-utils'
-  import type { Ref, ComputedRef } from 'vue'
+  import type { Ref } from 'vue'
   import type {
     ordinaryFunctionInterface,
     callbackInterface
   } from '@fighting-design/fighting-type'
+  import PreviewList from './PreviewList.vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -73,15 +75,6 @@
   const captionWidth: Ref<number> = ref<number>(0)
   const FImageImg: Ref<HTMLImageElement | null> = ref<HTMLImageElement | null>(
     null
-  )
-
-  const PreviewList: ComputedRef<Object | null> = computed(
-    (): Object | null => {
-      if (prop.previewList && prop.previewList.length) {
-        return defineAsyncComponent(() => import('./PreviewList.vue'))
-      }
-      return null
-    }
   )
 
   const onClick: ordinaryFunctionInterface = (): void => {
