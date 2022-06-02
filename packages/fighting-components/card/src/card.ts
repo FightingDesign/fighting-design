@@ -21,4 +21,4 @@ export const Props = {
       return ['never', 'hover', 'always'].includes(val)
     }
   }
-}
+} as const
