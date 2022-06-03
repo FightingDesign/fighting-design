@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 export default defineConfig({
   root: './start',
-  plugins: [vue()],
+  plugins: [vue(), vueSetupExtend()],
   resolve: {
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json']
   },

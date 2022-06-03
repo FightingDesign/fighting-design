@@ -47,7 +47,7 @@
   </transition>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="PreviewList">
   import { ref } from 'vue'
   import { Props, Emits } from './PreviewList'
   import type { Ref } from 'vue'
@@ -177,11 +177,5 @@
       return
     }
     bigger()
-  }
-</script>
-
-<script lang="ts">
-  export default {
-    name: 'PreviewList'
   }
 </script>

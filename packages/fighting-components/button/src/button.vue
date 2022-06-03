@@ -32,7 +32,7 @@
   </button>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="FButton">
   import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
   import type { ComputedRef, Ref } from 'vue'
@@ -67,10 +67,4 @@
     }
     return prop.leftIcon
   })
-</script>
-
-<script lang="ts">
-  export default {
-    name: 'FButton'
-  }
 </script>

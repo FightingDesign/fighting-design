@@ -17,13 +17,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="FCard">
   import { Props } from './card'
   const prop = defineProps(Props)
-</script>
-
-<script lang="ts">
-  export default {
-    name: 'FCard'
-  }
 </script>

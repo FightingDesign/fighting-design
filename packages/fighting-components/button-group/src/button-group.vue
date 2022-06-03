@@ -10,14 +10,8 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="FButtonGroup">
   import { Props } from './button-group'
 
   defineProps(Props)
-</script>
-
-<script lang="ts">
-  export default {
-    name: 'FButtonGroup'
-  }
 </script>

@@ -8,7 +8,7 @@
   </i>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="FIcon">
   import { Props, Emits } from './icon'
   import type { onClickInterface } from '@fighting-design/fighting-type'
 
@@ -17,11 +17,5 @@
 
   const onClick: onClickInterface = (evt: PointerEvent): void => {
     emit('click', evt)
-  }
-</script>
-
-<script lang="ts">
-  export default {
-    name: 'FIcon'
   }
 </script>

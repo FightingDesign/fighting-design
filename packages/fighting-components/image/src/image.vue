@@ -55,7 +55,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="FImage">
   import { Props, Emits } from './image'
   import { onMounted, ref } from 'vue'
   import { loadImage } from '@fighting-design/fighting-utils'
@@ -100,10 +100,4 @@
 
     loadImage(node, prop, emit, callback)
   })
-</script>
-
-<script lang="ts">
-  export default {
-    name: 'FImage'
-  }
 </script>

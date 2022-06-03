@@ -28,7 +28,7 @@
   </a>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="FLink">
   import { Props, Emits } from './link'
   import type { onClickInterface } from '@fighting-design/fighting-type'
 
@@ -41,11 +41,5 @@
       return
     }
     emit('click', evt)
-  }
-</script>
-
-<script lang="ts">
-  export default {
-    name: 'FLink'
   }
 </script>
