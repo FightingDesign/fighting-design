@@ -4,7 +4,12 @@ import type { RipplesInterface } from '@fighting-design/fighting-type'
  * 按钮点击涟漪效果
  */
 export class Ripples implements RipplesInterface {
-  evt: PointerEvent
+  /**
+   * 这里暂时先标记 any
+   * 可能暂时涉及到兼容性的问题
+   * 获取.....我还没搞懂？？？
+   */
+  evt: any
   node: HTMLElement
   time: number
   constructor(evt: PointerEvent, node: HTMLElement, time: number) {
@@ -13,15 +18,13 @@ export class Ripples implements RipplesInterface {
     this.time = time
   }
   clickRipples(): void {
-    const target: HTMLSpanElement | HTMLButtonElement =
-      (this.evt.target as HTMLButtonElement).className === 'f-text'
-        ? ((this.evt.target as HTMLButtonElement)
-            .parentNode as HTMLButtonElement)
-        : (this.evt.target as HTMLButtonElement)
-
-    const x: number = this.evt.clientX - target.offsetLeft
-    const y: number = this.evt.clientY - target.offsetTop
-    const ripples = this.renderElement(x, y)
+    /**
+     * layerX 和 layerY 属性暂时使用，未来可能会涉及到兼容性的问题
+     * https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/layerX
+     */
+    const x: number = this.evt.layerX
+    const y: number = this.evt.layerY
+    const ripples: HTMLSpanElement = this.renderElement(x, y)
 
     this.node.appendChild(ripples)
     this.removeElement(ripples)
