@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**fate**
+
+- 新增 `FCard` 组件
+- `FButton` 组件新增点击的涟漪效果
+
 ## 0.0.6 alpha.6 (2022-05-31)
 
 **fix**
