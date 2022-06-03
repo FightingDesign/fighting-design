@@ -4,7 +4,7 @@
 
 ## 说明
 
-此目录是 `Fighting Design` 的所有组件的源文件
+此目录是 `Fighting Design` 的所有组件的源文件。
 
 ## 新增组件
 
@@ -14,52 +14,43 @@
 
 ```
 ├── src
-|  ├── component-name.ts
-|  └── component-name.vue
+|  ├── component.ts
+|  └── component.vue
 └── index.ts
 ```
 
-下面分别介绍一下每个文件的作用
+下面分别介绍一下每个文件的作用：
 
-- `component-name.vue`： 组件的源文件
-- `component-name.ts`： 写入 `Props` 和 `Emits`
+- `component.vue`： 组件的源文件
+- `component.ts`： 写入 `Props` 和 `Emits`
 - `index.ts`：主入口文件 包含注册组件
 
-下面分别介绍一下每个文件内部的一些规范
+下面将会分别介绍一下每个文件内部的一些规范。
 
-## component-name.vue
+## component.vue
 
 这是组件的源文件，内部结构为：
 
 ```html
 <template></template>
 
-<script lang="ts" setup></script>
-
-<script lang="ts">
-  export default {
-    name: ''
-  }
-</script>
+<script lang="ts" setup name=""></script>
 ```
 
 **结构规范**
 
-- 其中要有三大标签（必须的）`<template>` `<script lang="ts" setup>` `<script lang="ts">`
-- 三大标签之间必须要有一个空行
+- 组建内只有两个标签（必须的）`<template>` `<script lang="ts" setup name="">`
+- 两大标签之间必须要有一个空行
 - 末尾要有一个空行
-- `script` 必须标记 `lang="ts"` 也就是必须使用 `TypeScript` 来编写
-- 第一个 `script` 必须标记 `setup`（必须的），必须要使用 [setup](https://staging-cn.vuejs.org/api/sfc-script-setup.html#script-setup) 语法糖方式写
-- 第二个 `script` 仅仅用于定义组件名称（必须的，组件必须定义名称）
+- `script` 必须带有 `lang="ts" setup name=""` 三个标记，注意标记顺序
 
 **template 规范**
 
 - 每个组件都必须要有一个自己专属的 `class`，格式为 `f-组件名`，例如 `f-button` `f-icon`
 
-**setup 规范**
+**script 规范**
 
-`setup` 规范也就是第一个 `script` 标签 `<script lang="ts" setup>`
-
+- `script` 上的 `name` 属性是组件的名字，使用的 [vite-plugin-vue-setup-extend](https://github.com/vbenjs/vite-plugin-vue-setup-extend) 插件。组件名必须以 `F` 开头，后面跟组件名，组件名首字母大写，例如：`FButton`
 - 引入的类型，必须使用 `type` 标记，比如：`import type { xxx } from 'xxx'`
 - 在所有 `import` 之后要带有一个空行，之后是 `prop` 和 `emit`
 - `prop` 和 `emit` 之后，也要带一个空行，
@@ -78,30 +69,14 @@ const onClick = (evt) => {}
 const iconClass = computed(() => {})
 ```
 
-**name 规范**
-
-`name` 规范也就是说的第二个 `script` 标签 `<script lang="ts">`
-
-这个标签唯一的作用就是定义组件的 `name`，因为在 `setup` 中不能定义组件的 `name` 属性，所以才新建了一个标签来定义
-
-格式如下，使用 [f-button](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-components/button/src/button.vue) 举例：
-
-- 组件名必须以 `F` 开头，后面跟组件名，组件名首字母大写
-
-```ts
-export default {
-  name: 'FButton'
-}
-```
-
-**类型规范**
+**Ts 类型规范**
 
 - 能定义类型就要定义类型
 - 就算是类型自动推倒出来了，也要写入类型
-- 类型禁止在组件中直接定义，定义类型请在 [fighting-type](https://github.com/Tyh2001/fighting-design/tree/master/packages/fighting-type) 中定义，定义规范请参考 [@fighting-design/fighting-type](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-type/README.md)
-- 除非真的解决不了，否则禁止出现 `any`
+- `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 [fighting-type](https://github.com/Tyh2001/fighting-design/tree/master/packages/fighting-type) 中定义，定义规范请参考 [@fighting-design/fighting-type](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-type/README.md)
+- 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/Tyh2001/fighting-design/discussions) 或者群里提问
 
-下面举例定义类型
+下面举例常用的定义类型规范：
 
 - 定义 `ref`
 
@@ -143,14 +118,17 @@ const fun: funInterface = (a: number, b: number): number => {
 }
 ```
 
-## component-name.ts
+## component.ts
 
 这里是来定义组件的 `Props` 和 `Emits` 的文件
 
 - 导出的名称必须叫 `Props` 和 `Emits` （首字母大写）
 - 每个 `props` 都必须标记类型
-- 每个 `props` 都必须标记默认值，就是默认值是 `false` 或者是空字符串也要标记
+- 每个 `props` 都必须标记默认值，就算默认值是 `false` 或者是空字符串也要标记
 - 如有可选项需要对其进行校验，一般使用 `validator` + `ts` 双重校验。可参考文档 [Prop 校验](https://staging-cn.vuejs.org/guide/components/props.html#prop-validation) 和 [PropType](https://staging-cn.vuejs.org/api/utility-types.html#proptypet)
+- `default` 和 `validator` 使用箭头函数定义，必须明确返回值和参数值的类型
+- `Props` 和 `Emits` 对象结尾必须加入 [as const](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-inference)
+- 数组结尾加入 `as const`
 
 ## index.ts
 
@@ -167,6 +145,8 @@ const fun: funInterface = (a: number, b: number): number => {
 - 结尾要有空行
 - 导出必须使用 `export { xxx }` 导出，而不是 `export default`
 
+例：
+
 ```ts
 import FButton from './src/button.vue'
 
@@ -181,10 +161,10 @@ export { FButton }
 
 主入口文件是 `@fighting-design/fighting-components/index.ts` 这里导入了所有的组件
 
-如果你新建了一个新的组件，那么需要在此处进行引入，还需要在 `components` 对象中添加组件
+如果你新建了一个新的组件，那么需要在此处进行引入，还需要在 `components` 对象中添加组件。
 
-另外在 `export` 中也需要进行导出
+另外在 `export` 中也需要进行导出。
 
 ## 写在结尾
 
-这里的规范可能比较多，此文件可能更新会较为频繁，请大家在开发全新组件的时候，请务必先阅读此文件
+这里的规范可能比较多，此文件可能更新会较为频繁，请大家在开发全新组件的时候，请务必先阅读此文件。
