@@ -35,9 +35,9 @@
 <script lang="ts" setup name="FButton">
   import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
+  import { Ripples } from '@fighting-design/fighting-utils'
   import type { ComputedRef, Ref } from 'vue'
   import type { onClickInterface } from '@fighting-design/fighting-type'
-  import { Ripples } from '@fighting-design/fighting-utils'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -54,7 +54,11 @@
     }
 
     if (prop.ripples) {
-      const ripples = new Ripples(evt, FButton.value as HTMLButtonElement, 700)
+      const ripples: Ripples = new Ripples(
+        evt,
+        FButton.value as HTMLButtonElement,
+        700
+      )
       ripples.clickRipples()
     }
 
