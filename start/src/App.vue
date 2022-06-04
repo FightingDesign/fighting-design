@@ -1,30 +1,10 @@
 <template>
-  <f-button size="large" leftIcon="f-icon-email" type="primary" circle>
-    <!-- <f-icon size="20px" icon="f-icon-email" /> -->
-  </f-button>
-  <f-button size="large" type="primary">主要按钮</f-button>
-  <f-button type="success" leftIcon="f-icon-Daytimemode" circle>
-    <!-- <f-icon size="20px" icon="f-icon-Daytimemode" /> -->
-  </f-button>
-  <f-button type="success">成功按钮</f-button>
-  <f-button size="small" type="danger" circle>
-    <f-icon size="10px" icon="f-icon-email" />
-  </f-button>
-  <f-button size="mini" type="danger" circle>危险按钮</f-button>
-
-  <f-image
-    width="200px"
-    src="https://tianyuhao.cn/images/auto/1.png"
-    :preview-list="listImg"
-  />
+  <f-button circle size="large" type="primary"></f-button>
+  <f-button circle type="success"></f-button>
+  <f-button circle size="small" type="danger"></f-button>
+  <f-button circle size="mini" type="warning"></f-button>
 </template>
 
-<script lang="ts" setup>
-  const listImg = [
-    'https://tianyuhao.cn/images/auto/1.png',
-    'https://tianyuhao.cn/images/auto/2.png',
-    'https://tianyuhao.cn/images/auto/3.png'
-  ]
-</script>
+<script lang="ts" setup></script>
 
 <style scoped></style>
