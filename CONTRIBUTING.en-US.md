@@ -1,6 +1,6 @@
 # CONTRIBUTING
 
-English | [Chinese](https://github.com/Tyh2001/fighting-design/blob/master/CONTRIBUTING.md)
+English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
 
 ## Write in front
 
@@ -19,7 +19,7 @@ Before you make a contribution, you need to run the `Fighting Design` project. T
 
 If you are ready, you can skip directly and start from here:
 
-- `Fork` [fighting-design](https://github.com/tyh2001/fighting-design)
+- `Fork` [fighting-design](https://github.com/FightingDesign/fighting-design)
 - `Clone Fork` items locally
 
 Next, execute the command:
@@ -99,11 +99,11 @@ pnpm prettier
 
 The main source files are in the `fighting-design/packages` directory, and each subdirectory has a separate `README.md` describes the specified directory. Refer to:
 
-- [fighting-components](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-components/README.md) Component source file directory
-- [fighting-test](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-test/README.md) Unit test directory
-- [fighting-theme](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-theme/README.md) Style theme catalog
-- [fighting-type](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-type/README.md) Type catalog
-- [fighting-utils](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-utils/README.md) Tool function directory
+- [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) Component source file directory
+- [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) Unit test directory
+- [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) Style theme catalog
+- [fighting-type](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-type/README.md) Type catalog
+- [fighting-utils](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-utils/README.md) Tool function directory
 
 ## Commit specification
 
@@ -139,7 +139,7 @@ Therefore, before submitting `PR`, please be sure to **pull the latest code, pul
 
 ## Common problem
 
-Please refer to [COMMON_PROBLEM](https://github.com/Tyh2001/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
+Please refer to [COMMON_PROBLEM](https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
 
 You can also contact [me](https://github.com/Tyh2001/Tyh2001) directly
 
@@ -152,12 +152,12 @@ Development is not easy, welcome to sponsor!
 
 ## Thank a lot
 
-Thank all those who have [contributors](https://github.com/tyh2001/fighting-design/graphs/contributors) to `Fighting Design`!
+Thank all those who have [contributors](https://github.com/FightingDesign/fighting-design/graphs/contributors) to `Fighting Design`!
 
 **Star**
 
-[![Stargazers repo roster for @tyh2001/fighting-design](https://reporoster.com/stars/tyh2001/fighting-design)](https://github.com/tyh2001/fighting-design/stargazers)
+[![Stargazers repo roster for @FightingDesign/fighting-design](https://reporoster.com/stars/FightingDesign/fighting-design)](https://github.com/FightingDesign/fighting-design/stargazers)
 
 **Fork**
 
-[![Forkers repo roster for @tyh2001/fighting-design](https://reporoster.com/forks/tyh2001/fighting-design)](https://github.com/tyh2001/fighting-design/network/members)
+[![Forkers repo roster for @FightingDesign/fighting-design](https://reporoster.com/forks/FightingDesign/fighting-design)](https://github.com/FightingDesign/fighting-design/network/members)

@@ -1,6 +1,6 @@
 # 更新日志
 
-中文 | [英文](https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.en-US.md)
+中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 **fate**
 
