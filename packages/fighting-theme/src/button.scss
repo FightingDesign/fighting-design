@@ -3,11 +3,10 @@
 
 .f-button {
   position: relative;
-  // min-width: 40px;
   outline: none;
   border: none;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 4px;
   user-select: none;
   display: inline-block;
   transition: 0.2s;
@@ -348,36 +347,27 @@
 }
 
 // 圆形按钮
-// .f-button.f-button-circle {
-//   border-radius: 50%;
-// }
-
-// 圆形按钮
-.f-button-circle-large {
+.f-button.f-button-circle.f-button-large {
   border-radius: 50%;
-  width: 39px;
-  line-height: 39px;
+  width: $large;
   padding: 0;
 }
 
-.f-button-circle-middle {
+.f-button.f-button-circle.f-button-middle {
   border-radius: 50%;
-  width: 35px;
-  line-height: 35px;
-  padding: 0 !important;
-}
-
-.f-button-circle-small {
-  border-radius: 50%;
-  width: 31px;
-  line-height: 31px;
+  width: $middle;
   padding: 0;
 }
 
-.f-button-circle-mini {
+.f-button.f-button-circle.f-button-small {
   border-radius: 50%;
-  width: 27px;
-  line-height: 27px;
+  width: $small;
+  padding: 0;
+}
+
+.f-button.f-button-circle.f-button-mini {
+  border-radius: 50%;
+  width: $mini;
   padding: 0;
 }
 

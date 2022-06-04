@@ -10,9 +10,9 @@
         'f-button-disabled': disabled || loading,
         'f-button-simple': simple,
         'f-button-text': text,
+        'f-button-circle': circle,
         'f-button-border': text && border,
-        [`f-button-${size}`]: size,
-        [`f-button-circle-${size}`]: circle,
+        [`f-button-${size}`]: size
       }
     ]"
     :style="[`box-shadow: ${shadow}`]"
@@ -27,7 +27,7 @@
       :style="{ fontSize, color: fontColor }"
     >
       <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" />
-      <slot v-if="!circle" />
+      <slot />
       <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
     </span>
   </button>
