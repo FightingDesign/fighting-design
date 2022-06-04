@@ -128,6 +128,16 @@ git commit -m 'feat: 新增xxx功能'
 | style    | 标记、空格、格式、缺少分号           |
 | test     | 增加测试/测试用例                    |
 
+但是 `Fighting Design` 内置了 [commitlint](https://github.com/conventional-changelog/commitlint) 插件可以辅助我们进行添加提交信息，那么就需要执行下面命令：
+
+```shell
+git add .
+
+pnpm commit
+
+git push
+```
+
 ## 关于 PR
 
 在你提交 `PR` 之前，请务必保证你 `fork` 的仓库是当前最新的代码，以免发生冲突。
