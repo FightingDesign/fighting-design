@@ -58,7 +58,7 @@ There are many commands set in `Fighting Design`,You can see in [package.json](h
 Each command is described in detail below
 
 ```shell
-# Clean dits
+# Clean dist
 pnpm clean
 
 # Start development test project
