@@ -60,6 +60,8 @@ createApp(App).use(FightingDesign).mount('#app')
 
 ## 特别感谢
 
+感谢所有已经为 `Fighting Design` [做出贡献的人](https://github.com/FightingDesign/fighting-design/graphs/contributors)！
+
 **Star**
 
 [![Stargazers repo roster for @FightingDesign/fighting-design](https://reporoster.com/stars/FightingDesign/fighting-design)](https://github.com/FightingDesign/fighting-design/stargazers)
