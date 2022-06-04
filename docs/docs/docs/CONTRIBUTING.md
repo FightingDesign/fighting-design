@@ -90,6 +90,9 @@ pnpm test
 
 # 代码格式化
 pnpm prettier
+
+# 启用提交插件
+pnpm commit
 ```
 
 ## 开发规范
@@ -127,6 +130,17 @@ git commit -m 'feat: 新增xxx功能'
 | revert   | 发布新版本                           |
 | style    | 标记、空格、格式、缺少分号           |
 | test     | 增加测试/测试用例                    |
+
+但是 `Fighting Design` 内置了 [commitlint](https://github.com/conventional-changelog/commitlint) 插件可以辅助我们进行添加提交信息，那么就需要执行下面命令：
+
+```shell
+git add .
+
+# 使用插件的提示来设置提交信息
+pnpm commit
+
+git push
+```
 
 ## 关于 PR
 

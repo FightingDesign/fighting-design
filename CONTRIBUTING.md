@@ -90,6 +90,9 @@ pnpm test
 
 # 代码格式化
 pnpm prettier
+
+# 启用提交插件
+pnpm commit
 ```
 
 ## 开发规范
@@ -133,6 +136,7 @@ git commit -m 'feat: 新增xxx功能'
 ```shell
 git add .
 
+# 使用插件的提示来设置提交信息
 pnpm commit
 
 git push
