@@ -15,7 +15,7 @@
         [`f-button-${size}`]: size
       }
     ]"
-    :style="[`box-shadow: ${shadow}`]"
+    :style="{ boxShadow: shadow }"
     :disabled="disabled || loading"
     :autofocus="autofocus"
     :name="name"
@@ -48,13 +48,15 @@
   )
 
   const onClick: onClickInterface = (evt: PointerEvent): void => {
-    if (prop.disabled || prop.loading) return
+    const { disabled, loading, link, target, ripples } = prop
 
-    if (prop.link) {
-      window.open(prop.link, prop.target)
+    if (disabled || loading) return
+
+    if (link) {
+      window.open(link, target)
     }
 
-    if (prop.ripples) {
+    if (ripples) {
       const ripples: Ripples = new Ripples(
         evt,
         FButton.value as HTMLButtonElement,

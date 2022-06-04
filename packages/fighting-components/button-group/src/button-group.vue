@@ -2,8 +2,10 @@
   <div
     :class="[
       'f-button-group',
-      `f-button-group-${size}`,
-      vertical ? 'f-button-group-vertical' : 'f-button-group-horizontal'
+      vertical ? 'f-button-group-vertical' : 'f-button-group-horizontal',
+      {
+        [`f-button-group-${size}`]: size
+      }
     ]"
   >
     <slot />
