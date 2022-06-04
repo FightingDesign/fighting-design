@@ -8,7 +8,7 @@
 
 ## 新增组件
 
-在新增组件之前，请与[我](https://github.com/Tyh2001/Tyh2001)取得联系，或者在 [discussions](https://github.com/Tyh2001/fighting-design/discussions) 新建一个讨论，讨论的格式可参考[这里](https://github.com/Tyh2001/fighting-design/discussions/5)。
+在新增组件之前，请与[我](https://github.com/Tyh2001/Tyh2001)取得联系，或者在 [discussions](https://github.com/FightingDesign/fighting-design/discussions) 新建一个讨论，讨论的格式可参考[这里](https://github.com/FightingDesign/fighting-design/discussions/5)。
 
 如果想要新增组件，需要在 `fighting-components` 目录下新建一个`以组件名称`为名的文件夹，内部目录结构如下：
 
@@ -54,7 +54,7 @@
 - 引入的类型，必须使用 `type` 标记，比如：`import type { xxx } from 'xxx'`
 - 在所有 `import` 之后要带有一个空行，之后是 `prop` 和 `emit`
 - `prop` 和 `emit` 之后，也要带一个空行，
-- 后面可以进行编写组件需要的逻辑函数，函数必须使用 `箭头函数`，除非特殊情况外，每个函数之间要有一个空行隔开。可见下面例子，取自 [f-button](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-components/button/src/button.vue)
+- 后面可以进行编写组件需要的逻辑函数，函数必须使用 `箭头函数`，除非特殊情况外，每个函数之间要有一个空行隔开。可见下面例子，取自 [f-button](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/button/src/button.vue)
 
 ```ts
 import { computed, ComputedRef } from 'vue'
@@ -73,8 +73,8 @@ const iconClass = computed(() => {})
 
 - 能定义类型就要定义类型
 - 就算是类型自动推倒出来了，也要写入类型
-- `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 [fighting-type](https://github.com/Tyh2001/fighting-design/tree/master/packages/fighting-type) 中定义，定义规范请参考 [@fighting-design/fighting-type](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-type/README.md)
-- 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/Tyh2001/fighting-design/discussions) 或者群里提问
+- `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 [fighting-type](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-type) 中定义，定义规范请参考 [@fighting-design/fighting-type](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-type/README.md)
+- 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/FightingDesign/fighting-design/discussions) 或者群里提问
 
 下面举例常用的定义类型规范：
 
@@ -100,7 +100,7 @@ const com: ComputedRef<string> = computed<string>((): string => {
 
 - 定义函数
 
-[fighting-type](https://github.com/Tyh2001/fighting-design/tree/master/packages/fighting-type) 中定义类型
+[fighting-type](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-type) 中定义类型
 
 ```ts
 export interface funInterface {

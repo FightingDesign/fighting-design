@@ -1,6 +1,6 @@
 # 贡献指南
 
-中文 | [英文](https://github.com/Tyh2001/fighting-design/blob/master/CONTRIBUTING.en-US.md)
+中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.en-US.md)
 
 ## 写在前面
 
@@ -19,7 +19,7 @@
 
 如果你已经做好了前面的准备，可以直接跳过，从这里开始：
 
-- `Fork` [fighting-design](https://github.com/tyh2001/fighting-design)
+- `Fork` [fighting-design](https://github.com/FightingDesign/fighting-design)
 - 将 `Fork` 的项目 `Clone` 到本地
 
 接下来执行命令：
@@ -58,7 +58,7 @@ pnpm start
 下面详细介绍每一条命令
 
 ```shell
-# 清除 dits
+# 清除 dist
 pnpm clean
 
 # 启动开发测试项目
@@ -96,11 +96,11 @@ pnpm prettier
 
 主要源文件都在 `fighting-design/packages` 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，参考：
 
-- [fighting-components](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-components/README.md) 组件源文件目录
-- [fighting-test](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-test/README.md) 单元测试目录
-- [fighting-theme](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-theme/README.md) 样式主题目录
-- [fighting-type](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-type/README.md) 类型目录
-- [fighting-utils](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-utils/README.md) 工具函数目录
+- [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) 组件源文件目录
+- [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) 单元测试目录
+- [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) 样式主题目录
+- [fighting-type](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-type/README.md) 类型目录
+- [fighting-utils](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-utils/README.md) 工具函数目录
 
 ## 提交规范
 
@@ -136,7 +136,7 @@ git commit -m 'feat: 新增xxx功能'
 
 ## 常见问题
 
-常见问题请参考 [COMMON_PROBLEM](https://github.com/Tyh2001/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
+常见问题请参考 [COMMON_PROBLEM](https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
 
 也可以直接和[我](https://github.com/Tyh2001/Tyh2001)进行联系
 
@@ -149,12 +149,12 @@ git commit -m 'feat: 新增xxx功能'
 
 ## 非常感谢
 
-感谢所有已经为 `Fighting Design` [做出贡献的人](https://github.com/tyh2001/fighting-design/graphs/contributors)！
+感谢所有已经为 `Fighting Design` [做出贡献的人](https://github.com/FightingDesign/fighting-design/graphs/contributors)！
 
 **Star**
 
-[![Stargazers repo roster for @tyh2001/fighting-design](https://reporoster.com/stars/tyh2001/fighting-design)](https://github.com/tyh2001/fighting-design/stargazers)
+[![Stargazers repo roster for @FightingDesign/fighting-design](https://reporoster.com/stars/FightingDesign/fighting-design)](https://github.com/FightingDesign/fighting-design/stargazers)
 
 **Fork**
 
-[![Forkers repo roster for @tyh2001/fighting-design](https://reporoster.com/forks/tyh2001/fighting-design)](https://github.com/tyh2001/fighting-design/network/members)
+[![Forkers repo roster for @FightingDesign/fighting-design](https://reporoster.com/forks/FightingDesign/fighting-design)](https://github.com/FightingDesign/fighting-design/network/members)
