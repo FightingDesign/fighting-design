@@ -3,11 +3,10 @@
 
 .f-button {
   position: relative;
-  // min-width: 40px;
   outline: none;
   border: none;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 4px;
   user-select: none;
   display: inline-block;
   transition: 0.2s;
@@ -348,36 +347,28 @@
 }
 
 // 圆形按钮
-.f-button-circle-large {
-  border-radius: 50% 50%;
-  width: 39px;
-  text-align:center;
-  line-height: 39px;
-  padding: 0 !important
+.f-button.f-button-circle.f-button-large {
+  border-radius: 50%;
+  width: $large;
+  padding: 0;
 }
 
-.f-button-circle-middle {
-  border-radius: 50% 50%;
-  width: 35px;
-  text-align:center;
-  line-height: 35px;
-  padding: 0 !important
+.f-button.f-button-circle.f-button-middle {
+  border-radius: 50%;
+  width: $middle;
+  padding: 0;
 }
 
-.f-button-circle-small {
-  border-radius: 50% 50%;
-  width: 31px;
-  text-align:center;
-  line-height: 31px;
-  padding: 0 !important
+.f-button.f-button-circle.f-button-small {
+  border-radius: 50%;
+  width: $small;
+  padding: 0;
 }
 
-.f-button-circle-mini {
-  border-radius: 50% 50%;
-  width: 27px;
-  text-align:center;
-  line-height: 27px;
-  padding: 0 !important
+.f-button.f-button-circle.f-button-mini {
+  border-radius: 50%;
+  width: $mini;
+  padding: 0;
 }
 
 // 文字按钮

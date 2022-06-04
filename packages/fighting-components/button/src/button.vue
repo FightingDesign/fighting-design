@@ -10,12 +10,12 @@
         'f-button-disabled': disabled || loading,
         'f-button-simple': simple,
         'f-button-text': text,
+        'f-button-circle': circle,
         'f-button-border': text && border,
-        [`f-button-circle-${size}`]: circle,
-        [`f-button-${size ? size : 'middle'}`]: size
+        [`f-button-${size}`]: size
       }
     ]"
-    :style="[`box-shadow: ${shadow}`]"
+    :style="{ boxShadow: shadow }"
     :disabled="disabled || loading"
     :autofocus="autofocus"
     :name="name"
@@ -27,7 +27,7 @@
       :style="{ fontSize, color: fontColor }"
     >
       <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" />
-      <slot v-if="!circle" />
+      <slot />
       <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
     </span>
   </button>
@@ -48,17 +48,19 @@
   )
 
   const onClick: onClickInterface = (evt: PointerEvent): void => {
-    if (prop.disabled || prop.loading) return
+    const { disabled, loading, link, target, ripples } = prop
 
-    if (prop.link) {
-      window.open(prop.link, prop.target)
+    if (disabled || loading) return
+
+    if (link) {
+      window.open(link, target)
     }
 
-    if (prop.ripples) {
+    if (ripples) {
       const ripples: Ripples = new Ripples(
         evt,
         FButton.value as HTMLButtonElement,
-        700
+        600
       )
       ripples.clickRipples()
     }

@@ -1,30 +1,29 @@
 <template>
-  <f-button size="large" leftIcon="f-icon-email" type="primary" circle>
-    <!-- <f-icon size="20px" icon="f-icon-email" /> -->
-  </f-button>
-  <f-button size="large" type="primary">主要按钮</f-button>
-  <f-button type="success" leftIcon="f-icon-Daytimemode" circle>
-    <!-- <f-icon size="20px" icon="f-icon-Daytimemode" /> -->
-  </f-button>
-  <f-button type="success">成功按钮</f-button>
-  <f-button size="small" type="danger" circle>
-    <f-icon size="10px" icon="f-icon-email" />
-  </f-button>
-  <f-button size="mini" type="danger" circle>危险按钮</f-button>
+  <f-button-group size="large">
+    <f-button round type="primary">左边的</f-button>
+    <f-button round type="primary">中间的</f-button>
+    <f-button round type="primary">右边的</f-button>
+  </f-button-group>
 
-  <f-image
-    width="200px"
-    src="https://tianyuhao.cn/images/auto/1.png"
-    :preview-list="listImg"
-  />
+  <f-button-group size="middle">
+    <f-button round type="primary">左边的</f-button>
+    <f-button round type="primary">中间的</f-button>
+    <f-button round type="primary">右边的</f-button>
+  </f-button-group>
+
+  <f-button-group size="small">
+    <f-button round type="primary">左边的</f-button>
+    <f-button round type="primary">中间的</f-button>
+    <f-button round type="primary">右边的</f-button>
+  </f-button-group>
+
+  <f-button-group size="mini12">
+    <f-button round type="primary">左边的</f-button>
+    <f-button round type="primary">中间的</f-button>
+    <f-button round type="primary">右边的</f-button>
+  </f-button-group>
 </template>
 
-<script lang="ts" setup>
-  const listImg = [
-    'https://tianyuhao.cn/images/auto/1.png',
-    'https://tianyuhao.cn/images/auto/2.png',
-    'https://tianyuhao.cn/images/auto/3.png'
-  ]
-</script>
+<script lang="ts" setup></script>
 
 <style scoped></style>
