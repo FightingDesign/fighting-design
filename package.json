@@ -11,7 +11,7 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "start": "pnpm vite",
+    "start": "pnpm run -C start dev",
     "dev:docs": "pnpm run -C docs dev",
     "build": "pnpm clean && pnpm build:theme && pnpm build:components && pnpm move",
     "build:components": "rollup -c build/rollup.config.ts",
