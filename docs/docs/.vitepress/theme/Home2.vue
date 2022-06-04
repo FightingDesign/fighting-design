@@ -6,6 +6,7 @@
           class="logo"
           draggable="false"
           src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg"
+          alt="Fighting Design logo"
         />
       </div>
     </div>
@@ -16,6 +17,7 @@
           class="logo"
           draggable="false"
           src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg"
+          alt="Fighting Design logo"
         />
         <h1 class="title">Fighting Design</h1>
 
@@ -116,58 +118,9 @@
 
 <script lang="ts" setup>
   import Clipboard from 'clipboard'
+  import { lists, bottomList, collaborator } from './src/list'
 
-  const lists = [
-    '更快的搭建',
-    '更完善的组件',
-    '更灵活的配置',
-    '更优质的文档',
-    '更强的类型校验',
-    '更合适的组件库'
-  ] as const
-
-  const bottomList = [
-    {
-      title: '社区',
-      item: [
-        { text: 'Github', link: 'https://github.com/Tyh2001/fighting-design' },
-        { text: 'NPM', link: 'https://www.npmjs.com/package/fighting-design' }
-      ]
-    },
-    {
-      title: '关于我',
-      item: [
-        { text: 'Tyh2001', link: 'https://tianyuhao.cn' },
-        { text: 'Blog', link: 'https://tianyuhao.cn/blog' }
-      ]
-    },
-    {
-      title: '其它开源',
-      item: [
-        { text: 'Tyh Ui', link: 'https://tianyuhao.cn/v3' },
-        { text: 'TsMango', link: 'https://tianyuhao.cn/mango' }
-      ]
-    },
-    {
-      title: '帮助',
-      item: [
-        {
-          text: '报告问题',
-          link: 'https://github.com/Tyh2001/fighting-design/issues'
-        }
-      ]
-    }
-  ] as const
-
-  const collaborator = [
-    {
-      name: '田同学',
-      photo: 'https://avatars.githubusercontent.com/u/73180970?v=4',
-      url: 'https://github.com/Tyh2001'
-    }
-  ]
-
-  const copyCode = (node: HTMLButtonElement): void => {
+  const copyCode = (node: string): void => {
     new Clipboard(node)
     alert('复制成功')
   }
@@ -325,9 +278,6 @@
                 line-height: 36px;
                 cursor: pointer;
                 font-size: 14px;
-                .home_link {
-                  color: #333;
-                }
               }
             }
           }
