@@ -11,6 +11,7 @@
         'f-button-simple': simple,
         'f-button-text': text,
         'f-button-border': text && border,
+        [`f-button-circle-${size}`]: circle,
         [`f-button-${size}`]: size
       }
     ]"

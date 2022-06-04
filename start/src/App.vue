@@ -1,5 +1,11 @@
 <template>
+  <f-button size="large" type="primary" circle>
+    <f-icon size="20px" icon="f-icon-email" />
+  </f-button>
   <f-button size="large" type="primary">主要按钮</f-button>
+  <f-button type="success" circle>
+    <f-icon size="20px" icon="f-icon-Daytimemode" />
+  </f-button>
   <f-button type="success">成功按钮</f-button>
   <f-button size="small" type="danger">危险按钮</f-button>
 

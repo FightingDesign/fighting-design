@@ -11,6 +11,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
+  circle: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   round: {
     type: Boolean,
     default: (): boolean => false

@@ -3,7 +3,7 @@
 
 .f-button {
   position: relative;
-  min-width: 40px;
+  // min-width: 40px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -24,7 +24,7 @@
 
     .f-icon {
       position: relative;
-      top: 1px;
+      top: 3px;
     }
 
     .f-icon--loading {
@@ -58,7 +58,7 @@
 // 按钮的尺寸
 .f-button.f-button-large {
   height: $large;
-  padding: 0 28px;
+  // padding: 0 28px;
 
   .f-text {
     line-height: $large;
@@ -78,7 +78,7 @@
 
 .f-button.f-button-small {
   height: $small;
-  padding: 0 22px;
+  // padding: 0 22px;
 
   .f-text {
     line-height: $small;
@@ -88,7 +88,7 @@
 
 .f-button.f-button-mini {
   height: $mini;
-  padding: 0 19px;
+  // padding: 0 19px;
 
   .f-text {
     line-height: $mini;
@@ -345,6 +345,39 @@
   .f-text {
     color: $textColor;
   }
+}
+
+// 圆形按钮
+.f-button-circle-large {
+  border-radius: 50% 50%;
+  width: 39px;
+  text-align:center;
+  line-height: 39px;
+  padding: 0 !important
+}
+
+.f-button-circle-middle {
+  border-radius: 50% 50%;
+  width: 35px;
+  text-align:center;
+  line-height: 35px;
+  padding: 0 !important
+}
+
+.f-button-circle-small {
+  border-radius: 50% 50%;
+  width: 31px;
+  text-align:center;
+  line-height: 31px;
+  padding: 0
+}
+
+.f-button-circle-mini {
+  border-radius: 50% 50%;
+  width: 27px;
+  text-align:center;
+  line-height: 27px;
+  padding: 0
 }
 
 // 文字按钮
