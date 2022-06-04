@@ -13,7 +13,7 @@
     "clean": "rimraf dist",
     "start": "pnpm vite",
     "dev:docs": "pnpm run -C docs dev",
-    "build": "pnpm build:theme && pnpm build:components && pnpm move",
+    "build": "pnpm clean && pnpm build:theme && pnpm build:components && pnpm move",
     "build:components": "rollup -c build/rollup.config.ts",
     "build:theme": "vite build packages/fighting-theme",
     "build:docs": "pnpm run -C docs build",
