@@ -37,7 +37,7 @@ pnpm start
 
 ## 命令说明
 
-`Fighting Design` 内部设置了很多的命令，在 [package.json](https://github.com/Tyh2001/tyh-ui/blob/master/package.json) 中可以看到：
+`Fighting Design` 内部设置了很多的命令，在 [package.json](https://github.com/FightingDesign/fighting-design/blob/master/package.json) 中可以看到：
 
 ```json
 "scripts": {

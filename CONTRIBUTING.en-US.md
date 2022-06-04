@@ -37,7 +37,7 @@ pnpm start
 
 ## Command description
 
-There are many commands set in `Fighting Design`,You can see in [package.json](https://github.com/Tyh2001/tyh-ui/blob/master/package.json):
+There are many commands set in `Fighting Design`,You can see in [package.json](https://github.com/FightingDesign/fighting-design/blob/master/package.json):
 
 ```json
 "scripts": {
