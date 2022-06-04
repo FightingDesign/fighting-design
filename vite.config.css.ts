@@ -3,13 +3,13 @@ import { resolve } from 'path'
 
 export default defineConfig({
   build: {
-    minify: true,
+    minify: true, // https://rollupjs.org/guide/en/#outputminifyinternalexports
     lib: {
-      entry: resolve(__dirname, 'packages/fighting-theme/index.scss'),
+      entry: resolve(__dirname, './packages/fighting-theme/index.scss'),
       formats: ['es'],
-      name: 'style',
-      fileName: 'style'
+      name: 'index',
+      fileName: 'index'
     },
-    emptyOutDir: false
+    emptyOutDir: false // https://cn.vitejs.dev/config/#build-emptyoutdir
   }
 })
