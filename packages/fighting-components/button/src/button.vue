@@ -11,8 +11,8 @@
         'f-button-simple': simple,
         'f-button-text': text,
         'f-button-border': text && border,
+        [`f-button-${size}`]: size,
         [`f-button-circle-${size}`]: circle,
-        [`f-button-${size ? size : 'middle'}`]: size
       }
     ]"
     :style="[`box-shadow: ${shadow}`]"
@@ -58,7 +58,7 @@
       const ripples: Ripples = new Ripples(
         evt,
         FButton.value as HTMLButtonElement,
-        700
+        600
       )
       ripples.clickRipples()
     }
