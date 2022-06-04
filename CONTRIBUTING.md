@@ -58,7 +58,7 @@ pnpm start
 下面详细介绍每一条命令
 
 ```shell
-# 清除 dits
+# 清除 dist
 pnpm clean
 
 # 启动开发测试项目
