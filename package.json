@@ -33,8 +33,8 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/test-utils": "^2.0.0-rc.18",
-    "cz-conventional-changelog": "^3.3.0",
     "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
     "esbuild": "^0.14.40",
     "happy-dom": "^3.2.2",
     "husky": "^8.0.1",
@@ -47,6 +47,7 @@
     "sass": "^1.50.1",
     "typescript": "^4.6.4",
     "vite": "^2.9.5",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
     "vitest": "^0.10.0",
     "vue": "^3.2.33",
     "vue-tsc": "^0.34.7"
