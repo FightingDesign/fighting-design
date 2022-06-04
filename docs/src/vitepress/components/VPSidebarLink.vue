@@ -25,20 +25,12 @@
 <style scoped>
   .link {
     display: block;
-    padding: 6px 0;
   }
 
   .link .link-text {
-    font-weight: 600;
     padding: 6px 10px;
     border-left: 4px solid transparent;
     border-radius: 4px;
-  }
-
-  @media (min-width: 960px) {
-    .link {
-      padding: 4px 0;
-    }
   }
 
   .link:hover .link-text {
