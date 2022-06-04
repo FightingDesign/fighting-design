@@ -7,7 +7,10 @@
     <f-icon size="20px" icon="f-icon-Daytimemode" />
   </f-button>
   <f-button type="success">成功按钮</f-button>
-  <f-button size="small" type="danger">危险按钮</f-button>
+  <f-button size="small" type="danger" circle>
+    <f-icon size="10px" icon="f-icon-email" />
+  </f-button>
+  <f-button size="mini" type="danger" circle>危险按钮</f-button>
 
   <f-image
     width="200px"
