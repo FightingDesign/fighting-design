@@ -32,12 +32,13 @@
 <script lang="ts" setup name="FTag">
   import { Props, Emits } from './tag'
   import type { onClickInterface } from '@fighting-design/fighting-type'
+
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const is_light = prop.theme === 'light'
 
-  const handleClose: onClickInterface = function (event: PointerEvent) {
+  const handleClose: onClickInterface = (event: PointerEvent): void => {
     event.stopPropagation()
     emit('close', event)
   }
