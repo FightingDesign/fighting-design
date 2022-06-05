@@ -1,28 +1,4 @@
 <template>
-  <f-button-group size="large">
-    <f-button round type="primary">左边的</f-button>
-    <f-button round type="primary">中间的</f-button>
-    <f-button round type="primary">右边的</f-button>
-  </f-button-group>
-
-  <f-button-group size="middle">
-    <f-button round type="primary">左边的</f-button>
-    <f-button round type="primary">中间的</f-button>
-    <f-button round type="primary">右边的</f-button>
-  </f-button-group>
-
-  <f-button-group size="small">
-    <f-button round type="primary">左边的</f-button>
-    <f-button round type="primary">中间的</f-button>
-    <f-button round type="primary">右边的</f-button>
-  </f-button-group>
-
-  <f-button-group size="mini">
-    <f-button round type="primary" leftIcon="f-icon-email">左边的</f-button>
-    <f-button round type="primary">中间的</f-button>
-    <f-button round type="primary">右边的</f-button>
-  </f-button-group>
-
   <f-divider
     text-aliagn="x"
     style="color: darkmagenta; margin: '2rem 0'; border-bottom: 1px dotted darkmagenta"
@@ -35,4 +11,11 @@
 
 <script lang="ts" setup></script>
 
-<style scoped></style>
+<style scoped>
+  .f-button {
+    /*  */
+  }
+  .f-button-round {
+    border-radius: 4px;
+  }
+</style>

@@ -1,0 +1,46 @@
+@import '../config/color.scss';
+@import '../config/size.scss';
+
+.f-tag {
+  min-width: 22px;
+  padding: 0 6px;
+  font-size: 12px;
+  border-radius: 4px;
+  border-color: 1px solid #e9e9eb;
+  color: #909399;
+  display: inline-block;
+}
+
+.f-text {
+  display: flex;
+  align-items: center;
+}
+
+.f-iolor {
+  cursor: pointer;
+  opacity: 1.5;
+}
+
+// 标签的尺寸
+.f-tag.f-tag-large {
+  height: $tag-height-large;
+  line-height: $tag-height-large;
+}
+
+// 标签的尺寸
+.f-tag.f-tag-middle {
+  height: $tag-height-middle;
+  line-height: $tag-height-middle;
+}
+
+// 标签的尺寸
+.f-tag.f-tag-small {
+  height: $tag-height-small;
+  line-height: $tag-height-small;
+}
+
+// 标签的尺寸
+.f-tag.f-tag-mini {
+  height: $tag-height-mini;
+  line-height: $tag-height-mini;
+}

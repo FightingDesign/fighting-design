@@ -1,6 +1,5 @@
 {
-  "name": "@fighting-design/start",
-  "private": true,
+  "name": "start",
   "scripts": {
     "dev": "vite"
   }

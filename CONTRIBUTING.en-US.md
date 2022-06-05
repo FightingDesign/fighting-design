@@ -42,7 +42,7 @@ There are many commands set in `Fighting Design`,You can see in [package.json](h
 ```json
 "scripts": {
   "clean": "rimraf dist",
-  "dev": "pnpm vite",
+  "start": "pnpm run -C start dev",
   "dev:docs": "pnpm run -C docs dev",
   "build": "run-s build:*",
   "build:components": "vite build",
@@ -100,7 +100,7 @@ pnpm commit
 
 ## Development specification
 
-The main source files are in the `fighting-design/packages` directory, and each subdirectory has a separate `README.md` describes the specified directory. Refer to:
+The main source files are in the `fighting-design/packages` directory, and each subdirectory has a separate `README.md` describes the specified directory. Refer to the following documents for detailed specifications of each module:
 
 - [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) Component source file directory
 - [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) Unit test directory
