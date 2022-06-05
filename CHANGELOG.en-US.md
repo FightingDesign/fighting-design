@@ -2,6 +2,18 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.0.7 alpha.7 (2022-06-04)
+
+**feat**
+
+- add `FCard` component
+- add `FButton` component click ripple effect
+
+**fix**
+
+- Fix the fillet degree of `FButton` component
+- Fix `FButtonGroup` type
+
 ## 0.0.6 alpha.6 (2022-05-31)
 
 **fix**

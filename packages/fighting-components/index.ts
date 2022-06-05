@@ -6,6 +6,7 @@ import { FLink } from './link'
 import { FImage } from './image'
 import { FCard } from './card'
 import { FTag } from './tag'
+import { FDivider } from './divider'
 
 const components = {
   FButton,
@@ -14,7 +15,8 @@ const components = {
   FLink,
   FImage,
   FCard,
-  FTag
+  FTag,
+  FDivider
 }
 
 const install = (app: App): void => {

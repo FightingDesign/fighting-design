@@ -33,16 +33,22 @@ export const sidebar = {
       items: [
         { text: 'Button 按钮', link: '/components/button' },
         { text: 'Icon 图标', link: '/components/icon' },
-        { text: 'Link 链接', link: '/components/link' },
-        { text: 'Card 卡片', link: '/components/card' }
+        { text: 'Link 链接', link: '/components/link' }
       ]
     },
     {
       text: '数据展示',
       link: '/components/',
+<<<<<<< HEAD
       items: [
         { text: 'Image 图片', link: '/components/image' },
         { text: 'Tag 标签', link: '/components/tag' }
+=======
+
+      items: [
+        { text: 'Image 图片', link: '/components/image' },
+        { text: 'Card 卡片', link: '/components/card' }
+>>>>>>> 8be50f2f202bbb689eec15720b188f014c0a9ace
       ]
     }
   ]

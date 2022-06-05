@@ -14,18 +14,18 @@ $border-color: #e5e5e5;
   }
 }
 
-.f-card-shadow-never {
+.f-card.f-card-shadow-never {
   box-shadow: none;
 }
 
-.f-card-shadow-always {
+.f-card.f-card-shadow-always {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
-.f-card-shadow-hover:hover {
+.f-card.f-card-shadow-hover:hover {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
-.f-card-round {
+.f-card.f-card-round {
   border-radius: 10px;
 }

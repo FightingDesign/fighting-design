@@ -9,10 +9,10 @@
   </p>
 
   <p align="center">
-    <a href="https://github.com/tyh2001/fighting-design/stargazers"><img src="https://img.shields.io/github/stars/Tyh2001/fighting-design" /></a>
+    <a href="https://github.com/FightingDesign/fighting-design/stargazers"><img src="https://img.shields.io/github/stars/FightingDesign/fighting-design" /></a>
     <a href="https://www.npmjs.com/package/fighting-design"><img src="https://badgen.net/npm/v/fighting-design" /></a>
     <a href="https://fighting.tianyuhao.cn"><img src="https://img.shields.io/badge/Fighting%20Design-Docs-brightgreen" /></a>
-    <a href="https://github.com/Tyh2001/fighting-design/blob/master/CHANGELOG.md"><img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-green" /></a>
+    <a href="https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md"><img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-green" /></a>
   </p>
 </p>
 
@@ -62,14 +62,16 @@ createApp(App).use(FightingDesign).mount('#app')
 
 ## 特别感谢
 
+感谢所有已经为 `Fighting Design` [做出贡献的人](https://github.com/FightingDesign/fighting-design/graphs/contributors)！
+
 **Star**
 
-[![Stargazers repo roster for @tyh2001/fighting-design](https://reporoster.com/stars/tyh2001/fighting-design)](https://github.com/tyh2001/fighting-design/stargazers)
+[![Stargazers repo roster for @FightingDesign/fighting-design](https://reporoster.com/stars/FightingDesign/fighting-design)](https://github.com/FightingDesign/fighting-design/stargazers)
 
 **Fork**
 
-[![Forkers repo roster for @tyh2001/fighting-design](https://reporoster.com/forks/tyh2001/fighting-design)](https://github.com/tyh2001/fighting-design/network/members)
+[![Forkers repo roster for @FightingDesign/fighting-design](https://reporoster.com/forks/FightingDesign/fighting-design)](https://github.com/FightingDesign/fighting-design/network/members)
 
 ## 执照
 
-[MIT](https://github.com/Tyh2001/fighting-design/blob/master/LICENSE)
+[MIT](https://github.com/FightingDesign/fighting-design/blob/master/LICENSE)
