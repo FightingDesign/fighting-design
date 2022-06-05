@@ -27,6 +27,13 @@
 
 下面将会分别介绍一下每个文件内部的一些规范。
 
+## 公共规范
+
+- 字符串全部使用单引号
+- 去掉末尾的分号
+- `tab` 始终为两个空格
+- 文件末尾加空行
+
 ## component.vue
 
 这是组件的源文件，内部结构为：
@@ -47,13 +54,16 @@
 **template 规范**
 
 - 每个组件都必须要有一个自己专属的 `class`，格式为 `f-组件名`，例如 `f-button` `f-icon`
+- 单个 `class` 不使用数组。反面例子：`:class="['f-button']"`；正面例子：`class="f-button"`
+- 可以使用单标签均使用单标签，比如：`<slot />`
+- 可以简化的都需要简化，比如 `:style="{ color }"`
 
 **script 规范**
 
 - `script` 上的 `name` 属性是组件的名字，使用的 [vite-plugin-vue-setup-extend](https://github.com/vbenjs/vite-plugin-vue-setup-extend) 插件。组件名必须以 `F` 开头，后面跟组件名，组件名首字母大写，例如：`FButton`
 - 引入的类型，必须使用 `type` 标记，比如：`import type { xxx } from 'xxx'`
 - 在所有 `import` 之后要带有一个空行，之后是 `prop` 和 `emit`
-- `prop` 和 `emit` 之后，也要带一个空行，
+- `prop` 和 `emit` 之后，也要带一个空行
 - 后面可以进行编写组件需要的逻辑函数，函数必须使用 `箭头函数`，除非特殊情况外，每个函数之间要有一个空行隔开。可见下面例子，取自 [f-button](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/button/src/button.vue)
 
 ```ts
@@ -71,7 +81,7 @@ const iconClass = computed(() => {})
 
 **Ts 类型规范**
 
-- 能定义类型就要定义类型
+- 能定义类型的地方就要定义类型
 - 就算是类型自动推倒出来了，也要写入类型
 - `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 [fighting-type](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-type) 中定义，定义规范请参考 [@fighting-design/fighting-type](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-type/README.md)
 - 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/FightingDesign/fighting-design/discussions) 或者群里提问
