@@ -39,16 +39,10 @@ export const sidebar = {
     {
       text: '数据展示',
       link: '/components/',
-<<<<<<< HEAD
       items: [
         { text: 'Image 图片', link: '/components/image' },
+        { text: 'Card 卡片', link: '/components/card' },
         { text: 'Tag 标签', link: '/components/tag' }
-=======
-
-      items: [
-        { text: 'Image 图片', link: '/components/image' },
-        { text: 'Card 卡片', link: '/components/card' }
->>>>>>> 8be50f2f202bbb689eec15720b188f014c0a9ace
       ]
     }
   ]
