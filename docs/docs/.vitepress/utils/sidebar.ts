@@ -40,7 +40,10 @@ export const sidebar = {
     {
       text: '数据展示',
       link: '/components/',
-      items: [{ text: 'Image 图片', link: '/components/image' }]
+      items: [
+        { text: 'Image 图片', link: '/components/image' },
+        { text: 'Tag 标签', link: '/components/tag' }
+      ]
     }
   ]
 }

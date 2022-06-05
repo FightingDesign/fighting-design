@@ -5,6 +5,7 @@ import { FButtonGroup } from './button-group'
 import { FLink } from './link'
 import { FImage } from './image'
 import { FCard } from './card'
+import { FTag } from './tag'
 
 const components = {
   FButton,
@@ -12,7 +13,8 @@ const components = {
   FIcon,
   FLink,
   FImage,
-  FCard
+  FCard,
+  FTag
 }
 
 const install = (app: App): void => {
@@ -21,7 +23,7 @@ const install = (app: App): void => {
   })
 }
 
-export { FButton, FButtonGroup, FIcon, FLink, FImage, FCard }
+export { FButton, FButtonGroup, FIcon, FLink, FImage, FCard, FTag }
 
 export default {
   install,
