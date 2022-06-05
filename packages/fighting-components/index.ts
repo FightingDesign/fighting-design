@@ -25,7 +25,7 @@ const install = (app: App): void => {
   })
 }
 
-export { FButton, FButtonGroup, FIcon, FLink, FImage, FCard, FTag }
+export { FButton, FButtonGroup, FIcon, FLink, FImage, FCard, FTag, FDivider }
 
 export default {
   install,
