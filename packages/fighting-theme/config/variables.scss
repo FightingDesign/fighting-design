@@ -1,0 +1,27 @@
+@import '../config/color.scss';
+@import '../config/size.scss';
+
+$btn-sizes: (
+  'large': $large,
+  'middle': $middle,
+  'small': $small,
+  'mini': $mini
+);
+
+@mixin btn-sizes($height, $padding-x, $font-size) {
+  height: $height;
+  padding: 0 $padding-x;
+  .f-text {
+    line-height: $height;
+    font-size: $font-size;
+  }
+}
+
+$btn-types: (
+  'default': $default,
+  'primary': $primary,
+  'success': $success,
+  'danger': $danger,
+  'warning': $warning,
+  'info': $info
+);
