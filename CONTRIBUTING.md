@@ -42,7 +42,7 @@ pnpm start
 ```json
 "scripts": {
   "clean": "rimraf dist",
-  "dev": "pnpm vite",
+  "start": "pnpm run -C start dev",
   "dev:docs": "pnpm run -C docs dev",
   "build": "run-s build:*",
   "build:components": "vite build",
