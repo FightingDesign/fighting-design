@@ -37,8 +37,8 @@
 
 <f-tag theme="light" color="#bdc3c7" size="large">标签</f-tag>
 <f-tag theme="dark" color="#f56c6c" size="middle">深色模式</f-tag>
-<f-tag theme="light" size="small">浅色模式</f-tag>
-<f-tag theme="dark" color="#2d5af1" size="mini">深色模式</f-tag>
+<f-tag theme="light" size="small">浅色</f-tag>
+<f-tag theme="dark" color="#2d5af1" size="mini">深色</f-tag>
   
 </template>
 

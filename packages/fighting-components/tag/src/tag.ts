@@ -8,7 +8,7 @@ export const Props = {
   },
   color: {
     type: String,
-    default: (): string => '#bdc3c7'
+    default: (): string => '#909399'
   },
   size: {
     type: String as PropType<tagSize>,
