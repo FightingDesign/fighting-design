@@ -6,6 +6,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'index.scss',
+      formats: ['es'],
       name: 'index'
     }
   }

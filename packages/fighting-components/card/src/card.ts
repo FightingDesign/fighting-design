@@ -14,7 +14,7 @@ export const Props = {
     type: String,
     default: (): string => '20px'
   },
-  target: {
+  shadow: {
     type: String as PropType<cardShadow>,
     default: (): cardShadow => 'always',
     validator: (val: cardShadow): boolean => {

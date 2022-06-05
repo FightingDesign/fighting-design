@@ -2,10 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-**fate**
+## 0.0.7 alpha.7 (2022-06-04)
+
+**feat**
 
 - 新增 `FCard` 组件
-- `FButton` 组件新增点击的涟漪效果
+- 新增 `FButton` 组件点击的涟漪效果
+
+**fix**
+
+- 修复 `FButton` 组件的圆角度数
+- 修复 `FButtonGroup` 类型
 
 ## 0.0.6 alpha.6 (2022-05-31)
 
