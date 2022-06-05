@@ -6,7 +6,7 @@ export const Props = {
     type: String as PropType<buttonGroupSize>,
     default: (): buttonGroupSize => 'middle',
     validator: (val: buttonGroupSize): boolean => {
-      return (['large', 'middle', 'small', 'mini', ''] as const).includes(val)
+      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
   vertical: {

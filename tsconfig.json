@@ -13,9 +13,5 @@
     "lib": ["esnext", "dom"],
     "skipLibCheck": true
   },
-  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.tsx"],
-  "references": [
-    { "path": "./tsconfig.vite-config.json" },
-    { "path": "./tsconfig.app.json" }
-  ]
+  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.tsx"]
 }

@@ -33,7 +33,10 @@ export default (async () => {
       sidebar,
       darkMode: true,
       socialLinks: [
-        { icon: 'github', link: 'https://github.com/FightingDesign/fighting-design' }
+        {
+          icon: 'github',
+          link: 'https://github.com/FightingDesign/fighting-design'
+        }
       ],
       logo: 'https://tianyuhao.cn/fighting/imgs/FightingDesign.svg'
     }

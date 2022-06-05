@@ -33,14 +33,17 @@ export const sidebar = {
       items: [
         { text: 'Button 按钮', link: '/components/button' },
         { text: 'Icon 图标', link: '/components/icon' },
-        { text: 'Link 链接', link: '/components/link' },
-        { text: 'Card 卡片', link: '/components/card' }
+        { text: 'Link 链接', link: '/components/link' }
       ]
     },
     {
       text: '数据展示',
       link: '/components/',
-      items: [{ text: 'Image 图片', link: '/components/image' }]
+
+      items: [
+        { text: 'Image 图片', link: '/components/image' },
+        { text: 'Card 卡片', link: '/components/card' }
+      ]
     }
   ]
 }

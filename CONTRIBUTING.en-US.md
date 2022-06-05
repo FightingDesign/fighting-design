@@ -93,6 +93,9 @@ pnpm test
 
 # Code formatting
 pnpm prettier
+
+# Enable submit plug-in
+pnpm commit
 ```
 
 ## Development specification
@@ -130,6 +133,17 @@ The type must be one of the following types and filled in against the type descr
 | revert   | Release new version                                                    |
 | style    | Tag, space, format, missing semicolon                                  |
 | test     | Add test / test case                                                   |
+
+However, `Fighting Design` has built-in [commitlint](https://github.com/conventional-changelog/commitlint) plug-in to assist us in adding submission information, so we need to execute the following commands:
+
+```shell
+git add .
+
+# Use the prompt of the plug-in to set the submission information
+pnpm commit
+
+git push
+```
 
 ## About PR
 
