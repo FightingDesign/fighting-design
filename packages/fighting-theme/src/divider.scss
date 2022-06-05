@@ -1,46 +1,46 @@
 .f-divider-horizontal {
-    position: relative;
-    clear: both;
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    border-bottom: 1px solid #b0b0b0;
-    white-space: pre;
-    margin: 1.5rem 0;
+  position: relative;
+  clear: both;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  border-bottom: 1px solid #b0b0b0;
+  white-space: pre;
+  margin: 1.5rem 0;
 }
 
 .f-divider-vertical {
-    border-left: 1px solid #b0b0b0;
-    display: inline-block;
-    min-width: 1px;
-    max-width: 1px;
-    height: 1em;
-    vertical-align: middle;
-    margin: 0 12px;
+  border-left: 1px solid #b0b0b0;
+  display: inline-block;
+  min-width: 1px;
+  max-width: 1px;
+  height: 1em;
+  vertical-align: middle;
+  margin: 0 12px;
 }
 
 .f-divider {
-    .f-divider-text {
-        position: absolute;
-        top: 50%;
-        box-sizing: border-box;
-        padding: 0 0.5rem;
-        color: #000;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 2;
-        background: white;
-    }
-    .f-divider-text-center {
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .f-divider-text-right {
-        right: 5%;
-        transform: translateY(-50%);
-    }
-    .f-divider-text-left {
-        left: 5%;
-        transform: translateY(-50%);
-    }
+  .f-divider-text {
+    position: absolute;
+    top: 50%;
+    box-sizing: border-box;
+    padding: 0 0.5rem;
+    color: #000;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 2;
+    background: white;
+  }
+  .f-divider-text-center {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .f-divider-text-right {
+    right: 5%;
+    transform: translateY(-50%);
+  }
+  .f-divider-text-left {
+    left: 5%;
+    transform: translateY(-50%);
+  }
 }

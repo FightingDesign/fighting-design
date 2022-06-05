@@ -21,10 +21,7 @@ export type {
   optionClickInterface,
   callbackInterface
 } from './image'
-export type {
-  textAliagn,
-  direction,
-} from './divider'
+export type { textAliagn, direction } from './divider'
 export type { installInterface, mainVNodeInterface } from './install'
 export type { onClickInterface, ordinaryFunctionInterface } from './auto'
 export type { keepDecimalInterface } from './utils'

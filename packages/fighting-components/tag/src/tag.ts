@@ -1,4 +1,4 @@
-import type {tagSize, tagTheme } from '@fighting-design/fighting-type'
+import type { tagSize, tagTheme } from '@fighting-design/fighting-type'
 import type { PropType } from 'vue'
 
 export const Props = {
@@ -25,7 +25,6 @@ export const Props = {
     }
   }
 } as const
-
 
 export const Emits = {
   close: (evt: Event): Event => evt
