@@ -5,6 +5,7 @@ import { FButtonGroup } from './button-group'
 import { FLink } from './link'
 import { FImage } from './image'
 import { FCard } from './card'
+import { FDivider } from './divider'
 
 const components = {
   FButton,
@@ -12,7 +13,8 @@ const components = {
   FIcon,
   FLink,
   FImage,
-  FCard
+  FCard,
+  FDivider
 }
 
 const install = (app: App): void => {
