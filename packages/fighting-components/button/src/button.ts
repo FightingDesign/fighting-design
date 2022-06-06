@@ -66,13 +66,7 @@ export const Props = {
     default: (): buttonType => 'default',
     validator: (val: buttonType): boolean => {
       return (
-        [
-          'default',
-          'primary',
-          'success',
-          'danger',
-          'warning',
-        ] as const
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
     }
   },

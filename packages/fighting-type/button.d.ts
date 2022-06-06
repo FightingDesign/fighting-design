@@ -19,3 +19,9 @@ export interface RipplesInterface {
   renderElement(x: number, y: number): HTMLSpanElement
   removeElement(node: HTMLElement): void
 }
+
+export interface buttonStyleInterface {
+  boxShadow: string
+  fontSize: string
+  color: string
+}

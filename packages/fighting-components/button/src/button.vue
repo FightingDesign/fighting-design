@@ -7,7 +7,9 @@
       :target="target"
       @click="onClick"
     >
+      <!-- <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" /> -->
       <slot />
+      <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
     </a>
   </template>
 
@@ -16,9 +18,14 @@
       ref="FButton"
       :class="classList"
       :disabled="disabled || loading"
+      :autofocus="autofocus"
+      :name="name"
+      :type="nativeType"
       @click="onClick"
     >
+      <!-- <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" /> -->
       <slot />
+      <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
     </button>
   </template>
 </template>
@@ -28,6 +35,10 @@
   import { Props, Emits } from './button'
   import { Ripples } from '@fighting-design/fighting-utils'
   import type { ComputedRef, Ref } from 'vue'
+  import type {
+    buttonStyleInterface,
+    onClickInterface
+  } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -55,7 +66,19 @@
     }
   )
 
-  const onClick = (evt: PointerEvent): void => {
+  const buttonStyle: ComputedRef<buttonStyleInterface> = computed(
+    (): buttonStyleInterface => {
+      const { shadow, fontSize, fontColor } = prop
+
+      return {
+        boxShadow: shadow,
+        fontSize,
+        color: fontColor
+      }
+    }
+  )
+
+  const onClick: onClickInterface = (evt: PointerEvent): void => {
     const { disabled, loading, ripples } = prop
 
     if (disabled || loading) return

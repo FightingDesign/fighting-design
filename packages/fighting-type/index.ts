@@ -3,7 +3,8 @@ export type {
   buttonTarget,
   buttonType,
   RipplesInterface,
-  buttonNativeType
+  buttonNativeType,
+  buttonStyleInterface
 } from './button'
 export type { buttonGroupSize } from './button-group'
 export type { linkType, linkTarget, linkHover } from './link'
