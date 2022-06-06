@@ -38,10 +38,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  // link: {
-  //   type: String,
-  //   default: (): string => ''
-  // },
   href: {
     type: String,
     default: (): string => ''
@@ -77,7 +73,6 @@ export const Props = {
           'danger',
           'warning',
           'info',
-          ''
         ] as const
       ).includes(val)
     }

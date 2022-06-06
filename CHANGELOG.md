@@ -2,6 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**feat**
+
+- 新增 `FTag` 组件
+- 新增 `FDivider` 组件
+- `FButton` 组件 `link` 属性改为 `href`
+- 重构 `FButton` 组件
+
 ## 0.0.7 alpha.7 (2022-06-04)
 
 **feat**

@@ -4,7 +4,7 @@
   position: relative;
   font-size: 15px;
   text-decoration: none;
-  color: #fff;
+  // color: #fff;
   border: none;
   outline: none;
   user-select: none;
@@ -21,6 +21,7 @@
   // 不同类型
   @each $key, $type in $ButtonTypes {
     &.f-button-#{$key} {
+      color: #fff;
       background: $type;
       // 移入和点击的效果
       &:hover {
@@ -37,7 +38,6 @@
     &.f-button-#{$key} {
       height: $type;
       padding: 0 ($type - 10);
-      // font-size: ($type - 20);
     }
   }
 
