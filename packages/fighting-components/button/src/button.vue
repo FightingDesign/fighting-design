@@ -12,7 +12,12 @@
   </template>
 
   <template v-else>
-    <button ref="FButton" :class="classList" @click="onClick">
+    <button
+      ref="FButton"
+      :class="classList"
+      :disabled="disabled || loading"
+      @click="onClick"
+    >
       <slot />
     </button>
   </template>
@@ -51,7 +56,7 @@
   )
 
   const onClick = (evt: PointerEvent): void => {
-    const { disabled, loading, target, ripples } = prop
+    const { disabled, loading, ripples } = prop
 
     if (disabled || loading) return
 

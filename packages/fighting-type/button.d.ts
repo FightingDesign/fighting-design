@@ -8,7 +8,6 @@ export type buttonType =
   | 'success'
   | 'danger'
   | 'warning'
-  | 'info'
 
 export type buttonNativeType = 'button' | 'submit' | 'reset'
 

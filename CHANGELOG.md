@@ -8,6 +8,7 @@
 - 新增 `FDivider` 组件
 - `FButton` 组件 `link` 属性改为 `href`
 - 重构 `FButton` 组件
+- 废除 `FButton` 的 `info` 类型
 
 ## 0.0.7 alpha.7 (2022-06-04)
 

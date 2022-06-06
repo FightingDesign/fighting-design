@@ -46,7 +46,7 @@ export const Props = {
     type: String as PropType<buttonTarget>,
     default: (): buttonTarget => '_self',
     validator: (val: buttonTarget): boolean => {
-      return (['_blank', '_self', '_parent', '_top', ''] as const).includes(val)
+      return (['_blank', '_self', '_parent', '_top'] as const).includes(val)
     }
   },
   loading: {
@@ -72,7 +72,6 @@ export const Props = {
           'success',
           'danger',
           'warning',
-          'info',
         ] as const
       ).includes(val)
     }
