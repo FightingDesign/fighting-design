@@ -1,6 +1,8 @@
 <template>
-  <f-button type="primary" block blob>百度翻译</f-button>
-  <f-button type="primary" href="https://www.baidu.com/">百度翻译</f-button>
+  <f-button type="primary" block>百度翻译</f-button>
+  <f-button type="success" block>百度翻译</f-button>
+  <f-button type="danger" block>百度翻译</f-button>
+  <f-button type="warning" block>百度翻译</f-button>
 </template>
 
 <script lang="ts" setup>

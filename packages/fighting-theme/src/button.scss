@@ -1,5 +1,4 @@
-@import '../config/color.scss';
-@import '../config/size.scss';
+@import '../config/variables.scss';
 
 .f-button {
   position: relative;
@@ -18,20 +17,33 @@
   cursor: pointer;
   padding: 0 25px;
   overflow: hidden;
-}
 
-.f-button.f-button-primary {
-  background: $primary;
-}
+  // 不同类型
+  @each $key, $type in $FButtonTypes {
+    &.f-button-#{$key} {
+      background: $type;
+    }
+  }
 
-.f-button.f-button-round {
-  border-radius: 30px;
-}
+  // 圆角
+  &.f-button-round {
+    border-radius: 30px;
+  }
 
-.f-button.f-button-block {
-  display: block;
-}
+  // 块级元素
+  &.f-button-block {
+    display: block;
+    width: 100%;
+  }
 
-.f-button.f-button-blob {
-  font-weight: 600;
+  // 文字加粗
+  &.f-button-blob {
+    font-weight: 600;
+  }
+
+  // 禁用状态
+  &.f-button-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
