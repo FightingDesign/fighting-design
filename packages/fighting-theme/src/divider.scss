@@ -25,11 +25,13 @@
     top: 50%;
     box-sizing: border-box;
     padding: 0 0.5rem;
-    color: #000;
     font-weight: 500;
     font-size: 14px;
     line-height: 2;
     background: white;
+    i {
+      vertical-align: middle;
+    }
   }
   .f-divider-text-center {
     left: 50%;

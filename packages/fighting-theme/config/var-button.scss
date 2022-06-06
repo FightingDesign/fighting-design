@@ -3,7 +3,7 @@
 
 $btn-sizes: (
   'large': $large,
-  'middle': $middle,
+  // 'middle': $middle,
   'small': $small,
   'mini': $mini
 );
@@ -17,11 +17,17 @@ $btn-sizes: (
   }
 }
 
-$btn-types: (
+$ButtonTypes: (
   'default': $default,
   'primary': $primary,
   'success': $success,
   'danger': $danger,
   'warning': $warning,
-  'info': $info
+  // 'info': $info
+);
+
+$ButtonSizes: (
+  'large': $large,
+  'small': $small,
+  'mini': $mini
 );

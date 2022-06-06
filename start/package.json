@@ -1,6 +1,7 @@
 {
   "name": "start",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build"
   }
 }

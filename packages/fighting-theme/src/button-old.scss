@@ -1,0 +1,220 @@
+@import '../config/color.scss';
+@import '../config/size.scss';
+@import '../config/variables.scss';
+
+.f-button {
+  position: relative;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+  display: inline-block;
+  transition: 0.2s;
+  box-sizing: border-box;
+  line-height: 1;
+  overflow: hidden;
+  height: $middle;
+  padding: 0 25px;
+
+  .f-text {
+    line-height: $middle;
+    font-size: 14px;
+    white-space: nowrap;
+
+    .f-icon {
+      position: relative;
+      top: 2px;
+    }
+
+    .f-icon--loading {
+      display: inline-block;
+      animation: loading 1s linear infinite;
+      -webkit-animation: loading 1s linear infinite;
+    }
+
+    @keyframes loading {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  // 文字加粗
+  .f-text-blob {
+    font-weight: bold;
+  }
+  // 圆角
+  &.f-button-round {
+    border-radius: 30px;
+  }
+
+  // 按钮的尺寸
+  @each $key, $val in $btn-sizes {
+    &.f-button-#{$key} {
+      @if $key == 'large' {
+        @include btn-sizes($val, $btn-padding-x-large, $btn-font-size-large);
+      } @else if $key == 'middle' {
+        @include btn-sizes($val, $btn-padding-x-middle, $btn-font-size-middle);
+      } @else if $key == 'small' {
+        @include btn-sizes($val, $btn-padding-x-small, $btn-font-size-small);
+      } @else if $key == 'mini' {
+        @include btn-sizes($val, $btn-padding-x-mini, $btn-font-size-mini);
+      }
+    }
+  }
+
+  // 是否为块级元素
+  &.f-button-block {
+    display: block;
+    width: 100%;
+  }
+
+  // 不同的类型
+  &.f-button-,
+  &.f-button-default {
+    background: $default;
+
+    .f-text {
+      color: #333;
+    }
+  }
+  &.f-button-,
+  &.f-button-default {
+    background: $default;
+
+    &:hover {
+      background: darken($default, 3%);
+    }
+
+    &:active {
+      background: darken($default, 8%);
+    }
+  }
+
+  @each $key, $val in $btn-types {
+    &.f-button-#{$key} {
+      background: $val;
+      &:hover {
+        background: lighten($val, 5%);
+      }
+      &:active {
+        background: darken($val, 5%);
+      }
+
+      &.f-button-disabled:hover {
+        background: $val;
+      }
+      &.f-button-disabled.f-button-text {
+        &:hover {
+          .f-text {
+            @if $key == 'default' {
+              color: $textColor;
+            } @else {
+              color: $val;
+            }
+          }
+        }
+      }
+    }
+
+    &.f-button-#{$key}.f-button-simple,
+    &.f-button-#{$key}.f-button-text {
+      .f-text {
+        @if $key == 'default' {
+          color: $textColor;
+        } @else if $key == 'info' {
+          color: $textColor;
+        } @else {
+          color: $val;
+        }
+      }
+    }
+
+    &.f-button-#{$key}.f-button-text {
+      &:hover {
+        .f-text {
+          @if $key == 'default' {
+            color: lighten($textColor, 10%);
+          } @else {
+            color: lighten($val, 10%);
+          }
+        }
+      }
+
+      &:active {
+        .f-text {
+          @if $key == 'default' {
+            color: darken($textColor, 10%);
+          } @else {
+            color: darken($val, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  &.f-button-primary,
+  &.f-button-success,
+  &.f-button-danger,
+  &.f-button-warning,
+  &.f-button-info {
+    .f-text {
+      color: #fff;
+    }
+  }
+
+  &.f-button-disabled {
+    // 普通按钮禁用状态
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    // 简约按钮禁用状态
+    &.f-button-simple:hover {
+      background: $simpleBackground;
+    }
+    // 文字按钮禁用状态
+    .f-button-text:hover {
+      background: #fff;
+    }
+
+    &.f-button-default.f-button-text {
+      &:hover {
+        .f-text {
+          color: $textColor;
+        }
+      }
+    }
+  }
+  // 简约按钮
+  &.f-button-simple {
+    background: $simpleBackground;
+
+    &:hover {
+      background: darken($simpleBackground, 3%);
+    }
+
+    &:active {
+      background: darken($simpleBackground, 8%);
+    }
+  }
+
+  .f-button-.f-button-simple {
+    .f-text {
+      color: $textColor;
+    }
+  }
+
+  // 文字按钮
+  &.f-button.f-button-text {
+    background: #fff;
+  }
+
+  &.f-button-border {
+    border: 1px solid #eee;
+  }
+}

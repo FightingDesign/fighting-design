@@ -1,36 +1,21 @@
 <template>
-  <button
-    ref="FButton"
-    :class="[
-      'f-button',
-      `f-button-${type}`,
-      {
-        'f-button-round': round,
-        'f-button-block': block,
-        'f-button-disabled': disabled || loading,
-        'f-button-simple': simple,
-        'f-button-text': text,
-        'f-button-circle': circle,
-        'f-button-border': text && border,
-        [`f-button-${size}`]: size
-      }
-    ]"
-    :style="{ boxShadow: shadow }"
-    :disabled="disabled || loading"
-    :autofocus="autofocus"
-    :name="name"
-    :type="nativeType"
-    @click.stop="onClick"
-  >
-    <span
-      :class="['f-text', { 'f-text-blob': blob }]"
-      :style="{ fontSize, color: fontColor }"
+  <template v-if="href">
+    <a
+      ref="FButton"
+      :class="classList"
+      :href="href"
+      :target="target"
+      @click="onClick"
     >
-      <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" />
       <slot />
-      <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
-    </span>
-  </button>
+    </a>
+  </template>
+
+  <template v-else>
+    <button ref="FButton" :class="classList" @click="onClick">
+      <slot />
+    </button>
+  </template>
 </template>
 
 <script lang="ts" setup name="FButton">
@@ -38,7 +23,6 @@
   import { Props, Emits } from './button'
   import { Ripples } from '@fighting-design/fighting-utils'
   import type { ComputedRef, Ref } from 'vue'
-  import type { onClickInterface } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -47,14 +31,28 @@
     null
   )
 
-  const onClick: onClickInterface = (evt: PointerEvent): void => {
-    const { disabled, loading, link, target, ripples } = prop
+  const classList: ComputedRef<object | string[]> = computed(
+    (): object | string[] => {
+      const { type, round, block, disabled, loading, blob, size } = prop
+
+      return [
+        'f-button',
+        {
+          [`f-button-${type}`]: type,
+          'f-button-round': round,
+          'f-button-block': block,
+          'f-button-blob': blob,
+          'f-button-disabled': disabled || loading,
+          [`f-button-${size}`]: size
+        }
+      ]
+    }
+  )
+
+  const onClick = (evt: PointerEvent): void => {
+    const { disabled, loading, target, ripples } = prop
 
     if (disabled || loading) return
-
-    if (link) {
-      window.open(link, target)
-    }
 
     if (ripples) {
       const ripples: Ripples = new Ripples(
@@ -67,11 +65,4 @@
 
     emit('click', evt)
   }
-
-  const leftIconClass: ComputedRef<string> = computed<string>((): string => {
-    if (prop.loading) {
-      return `${prop.loadingIcon || 'f-icon-loading'} f-icon--loading`
-    }
-    return prop.leftIcon
-  })
 </script>
