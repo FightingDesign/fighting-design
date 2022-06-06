@@ -1,5 +1,4 @@
 <template>
-  <f-button circle type="primary">主</f-button>
   <f-button type="success">成功按钮</f-button>
   <f-button type="danger">危险按钮</f-button>
   <f-button type="warning">警告按钮</f-button>
