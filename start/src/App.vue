@@ -1,23 +1,6 @@
 <template>
-  <f-button type="success">成功按钮</f-button>
-  <f-button type="danger">危险按钮</f-button>
-  <f-button type="warning">警告按钮</f-button>
-  <f-button type="info">信息按钮</f-button>
-
-  <f-button simple type="default">默认按钮</f-button>
-  <f-button simple type="primary">主要按钮</f-button>
-  <f-button simple type="success">成功按钮</f-button>
-  <f-button simple type="danger">危险按钮</f-button>
-  <f-button simple type="warning">警告按钮</f-button>
-  <f-button simple type="info">信息按钮</f-button>
-
-  <f-card title="卡片标题">Card 卡片</f-card>
-
-  <f-image
-    width="200px"
-    src="https://tianyuhao.cn/images/auto/1.png"
-    :preview-list="srcList"
-  />
+  <f-button type="primary" block blob>百度翻译</f-button>
+  <f-button type="primary" href="https://www.baidu.com/">百度翻译</f-button>
 </template>
 
 <script lang="ts" setup>
