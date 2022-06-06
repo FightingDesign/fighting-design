@@ -80,4 +80,21 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+  // loading
+  .f-loading-animation {
+    display: inline-block;
+    animation: loading 1s linear infinite;
+    -webkit-animation: loading 1s linear infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }

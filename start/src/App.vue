@@ -1,9 +1,9 @@
 <template>
-  <f-button round>默认按钮</f-button>
-  <f-button round type="primary">主要按钮</f-button>
-  <f-button round type="success">成功按钮</f-button>
-  <f-button round type="danger">危险按钮</f-button>
-  <f-button round type="warning">警告按钮</f-button>
+  <f-button loading round>默认按钮</f-button>
+  <f-button loading round type="primary">主要按钮</f-button>
+  <f-button loading round type="success">成功按钮</f-button>
+  <f-button loading round type="danger">危险按钮</f-button>
+  <f-button loading round type="warning">警告按钮</f-button>
 
   <f-button round simple>默认按钮</f-button>
   <f-button round simple type="primary">主要按钮</f-button>

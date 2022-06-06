@@ -23,7 +23,7 @@
       :type="nativeType"
       @click="onClick"
     >
-      <!-- <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" /> -->
+      <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" />
       <slot />
       <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
     </button>
@@ -94,4 +94,13 @@
 
     emit('click', evt)
   }
+
+  const leftIconClass: ComputedRef<string> = computed<string>((): string => {
+    const { loading, loadingIcon, leftIcon } = prop
+
+    if (loading) {
+      return `${loadingIcon || 'f-icon-loading'} f-loading-animation`
+    }
+    return leftIcon
+  })
 </script>
