@@ -1,9 +1,5 @@
 <template>
-  <f-divider
-    text-aliagn="x"
-  >
-    22
-  </f-divider>
+  <f-divider text-aliagn="x"> 22 </f-divider>
 
   <f-divider direction="vertical" />
   <f-divider
@@ -21,5 +17,7 @@
   }
   .f-button-round {
     border-radius: 4px;
+    /* text-align: ; */
+    /* position: relative; */
   }
 </style>
