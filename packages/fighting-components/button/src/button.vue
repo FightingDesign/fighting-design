@@ -33,7 +33,7 @@
   )
 
   const classList: ComputedRef<string[]> = computed((): string[] => {
-    const { type, round, block, disabled, loading, blob } = prop
+    const { type, round, block, disabled, loading, blob, size } = prop
 
     return [
       'f-button',
@@ -42,7 +42,8 @@
         'f-button-round': round,
         'f-button-block': block,
         'f-button-blob': blob,
-        'f-button-disabled': disabled || loading
+        'f-button-disabled': disabled || loading,
+        [`f-button-${size}`]: size
       }
     ]
   })

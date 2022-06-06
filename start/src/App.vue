@@ -1,8 +1,15 @@
 <template>
-  <f-button type="primary" block>百度翻译</f-button>
-  <f-button type="success" block>百度翻译</f-button>
-  <f-button type="danger" block>百度翻译</f-button>
-  <f-button type="warning" block>百度翻译</f-button>
+  <f-button type="primary">百度翻译</f-button>
+  <f-button type="success">百度翻译</f-button>
+  <f-button type="danger">百度翻译</f-button>
+  <f-button type="warning">百度翻译</f-button>
+
+  <br />
+
+  <f-button size="large" type="primary">百度翻译</f-button>
+  <f-button type="success">百度翻译</f-button>
+  <f-button size="small" type="danger">百度翻译</f-button>
+  <f-button size="mini" type="warning">百度翻译</f-button>
 </template>
 
 <script lang="ts" setup>

@@ -1,4 +1,4 @@
-@import '../config/variables.scss';
+@import '../config/var-button.scss';
 
 .f-button {
   position: relative;
@@ -19,9 +19,25 @@
   overflow: hidden;
 
   // 不同类型
-  @each $key, $type in $FButtonTypes {
+  @each $key, $type in $ButtonTypes {
     &.f-button-#{$key} {
       background: $type;
+      // 移入和点击的效果
+      &:hover {
+        background: lighten($type, 5%);
+      }
+      &:active {
+        background: darken($type, 5%);
+      }
+    }
+  }
+
+  // 不同大小
+  @each $key, $type in $ButtonSizes {
+    &.f-button-#{$key} {
+      height: $type;
+      padding: 0 ($type - 10);
+      // font-size: ($type - 20);
     }
   }
 
