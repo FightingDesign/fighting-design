@@ -17,13 +17,16 @@ $btn-sizes: (
   }
 }
 
+// 不同的类型
 $ButtonTypes: (
+  'default': $default,
   'primary': $primary,
   'success': $success,
   'danger': $danger,
   'warning': $warning,
 );
 
+// 不同尺寸
 $ButtonSizes: (
   'large': $large,
   'small': $small,

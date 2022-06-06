@@ -2,20 +2,20 @@
 
 .f-button {
   position: relative;
-  font-size: 15px;
-  text-decoration: none;
-  // color: #fff;
-  border: none;
-  outline: none;
-  user-select: none;
-  height: $middle;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  user-select: none;
+  text-decoration: none;
+  height: $middle;
   transition: 0.3s;
   line-height: 1;
   cursor: pointer;
   padding: 0 25px;
+  background: $default;
   overflow: hidden;
 
   // 不同类型
@@ -31,6 +31,24 @@
         background: darken($type, 5%);
       }
     }
+  }
+
+  // 简约类型
+  @each $key, $type in $ButtonTypes {
+    &.f-button-#{$key} {
+      &.f-button-simple {
+        color: $type;
+        background: lighten($type, 42%);
+      }
+    }
+  }
+  &.f-button-default,
+  &.f-button-default.f-button-simple {
+    color: $textColor;
+  }
+
+  &.f-button-default.f-button-simple {
+    background: #f4f4f4;
   }
 
   // 不同大小
