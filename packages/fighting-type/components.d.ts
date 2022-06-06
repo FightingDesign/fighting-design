@@ -19,4 +19,5 @@ declare module 'vue' {
     FLink: typeof FLink
   }
 }
+
 export {}
