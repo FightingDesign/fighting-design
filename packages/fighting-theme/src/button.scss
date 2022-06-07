@@ -118,6 +118,9 @@
       }
     }
   }
+  &.f-button-default {
+    color: $textColor;
+  }
 
   // 圆角
   &.f-button-round {

@@ -41,11 +41,11 @@
 <f-button simple type="danger">危险按钮</f-button>
 <f-button simple type="warning">警告按钮</f-button>
 
-<f-button icon="f-icon-camera-fill" type="default" />
-<f-button icon="f-icon-good-fill" type="primary" />
-<f-button icon="f-icon-discount-fill" type="success" />
-<f-button icon="f-icon-Exportservices" type="danger" />
-<f-button icon="f-icon-map1" type="warning" />
+<f-button circle left-icon="f-icon-camera-fill" type="default" />
+<f-button circle left-icon="f-icon-good-fill" type="primary" />
+<f-button circle left-icon="f-icon-discount-fill" type="success" />
+<f-button circle left-icon="f-icon-Exportservices" type="danger" />
+<f-button circle left-icon="f-icon-map1" type="warning" />
 ```
 
 :::
