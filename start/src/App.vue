@@ -5,6 +5,14 @@
     type="primary"
     left-icon="f-icon-default-template"
   /> -->
+
+  <f-button size="large" type="primary">主要按钮</f-button>
+  <f-button type="success">成功按钮</f-button>
+  <f-button size="small" type="danger">危险按钮</f-button>
+  <f-button size="mini" type="warning">警告按钮</f-button>
+
+  <br />
+
   <f-button type="success" loading>普通禁用</f-button>
   <f-button loading simple type="primary">简约禁用</f-button>
   <f-button loading text type="success">文字禁用</f-button>

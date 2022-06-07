@@ -78,12 +78,12 @@
           [`f-button-${type}`]: type,
           [`f-button-${size}`]: size,
           'f-button-disabled': disabled || loading,
+          'f-button-simple': simple,
+          'f-button-circle': circle,
           'f-button-round': round,
           'f-button-block': block,
           'f-button-blob': blob,
-          'f-button-simple': simple,
-          'f-button-text': text,
-          'f-button-circle': circle
+          'f-button-text': text
         }
       ]
     }

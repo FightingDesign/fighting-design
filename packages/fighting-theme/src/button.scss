@@ -45,6 +45,10 @@
         &.f-button-default {
           color: $textColor;
           background: #f4f4f4;
+          &.f-button-disabled:hover {
+            color: $textColor;
+            background: #f4f4f4;
+          }
         }
         // 简约按钮禁用
         &.f-button-disabled:hover {
@@ -91,14 +95,23 @@
     }
   }
 
-  // 不同大小
-  @each $key, $type in $ButtonSizes {
+  // 不同尺寸
+  @each $key, $value in $ButtonSizes {
     &.f-button-#{$key} {
-      height: $type;
+      @if $key == 'large' {
+        @include btnSizes($value, $ButtonPaddingLarge, $ButtonFontSizeLarge);
+      } @else if $key == 'middle' {
+        @include btnSizes($value, $ButtonPaddingMiddle, $ButtonFontSizeMiddle);
+      } @else if $key == 'small' {
+        @include btnSizes($value, $ButtonPaddingSmall, $ButtonFontSizeSmall);
+      } @else if $key == 'mini' {
+        @include btnSizes($value, $ButtonPaddingMini, $ButtonFontSizeMini);
+      }
+
       // 圆形按钮
       &.f-button-circle {
-        height: $type;
-        width: $type;
+        height: $value;
+        width: $value;
         line-height: 1;
         padding: 0;
         border-radius: 50%;
