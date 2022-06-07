@@ -105,6 +105,10 @@ pnpm commit
 - [fighting-type](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-type/README.md) 类型目录
 - [fighting-utils](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-utils/README.md) 工具函数目录
 
+下面是关于文档规范：
+
+- [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md)
+
 ## 提交规范
 
 [Git](https://git-scm.com) 允许我们在每次提交时，附带一个提交信息作为说明，当执行 `commit` 的时候，需要严格按照下方说明规范进行填写说明信息，提交信息必须是下面信息中的一个，后面跟随 `英文的冒号+空格+信息`

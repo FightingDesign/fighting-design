@@ -108,6 +108,10 @@ The main source files are in the `fighting-design/packages` directory, and each 
 - [fighting-type](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-type/README.md) Type catalog
 - [fighting-utils](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-utils/README.md) Tool function directory
 
+The following is about the document specification:
+
+- [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md)
+
 ## Commit specification
 
 [Git](https://git-scm.com) allows us to attach a submission information as a description each time we submit. When we execute a `commit`, we need to fill in the description information in strict accordance with the specification below. The submission information must be one of the following information, followed by the `colon + space + information in English`
