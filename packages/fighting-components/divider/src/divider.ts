@@ -1,17 +1,32 @@
-import type { textAliagn, direction } from '@fighting-design/fighting-type'
+import type { dividerPosition } from '@fighting-design/fighting-type'
 import type { PropType } from 'vue'
 
 export const Props = {
-  textAlign: {
-    type: String as PropType<textAliagn>,
-    default: (): textAliagn => 'center',
-    validator: (value: textAliagn): boolean =>
-      (['left', 'center', 'right'] as const).includes(value)
+  position: {
+    type: String as PropType<dividerPosition>,
+    default: (): dividerPosition => 'center',
+    validator: (value: dividerPosition): boolean => {
+      return (['left', 'center', 'right'] as const).includes(value)
+    }
   },
-  direction: {
-    type: String as PropType<direction>,
-    default: (): direction => 'horizontal',
-    validator: (value: direction): boolean =>
-      (['horizontal', 'vertical'] as const).includes(value)
+  vertical: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  color: {
+    type: String,
+    default: (): string => ''
+  },
+  fontColor: {
+    type: String,
+    default: (): string => ''
+  },
+  margin: {
+    type: String,
+    default: (): string => ''
+  },
+  background: {
+    type: String,
+    default: (): string => ''
   }
 } as const
