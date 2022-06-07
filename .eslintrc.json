@@ -1,5 +1,4 @@
 {
-  "warn": "1",
   "env": {
     "browser": true,
     "commonjs": true,
@@ -8,15 +7,15 @@
   "extends": [
     "eslint:recommended",
     "plugin:vue/essential",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
     "parser": "@typescript-eslint/parser"
   },
-  "plugins": [
-    "vue",
-    "@typescript-eslint"
-  ],
-  "rules": {}
+  "plugins": ["prettier", "vue", "@typescript-eslint"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }

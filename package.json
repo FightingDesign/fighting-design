@@ -43,6 +43,8 @@
     "cz-conventional-changelog": "^3.3.0",
     "esbuild": "^0.14.40",
     "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^9.1.0",
     "happy-dom": "^3.2.2",
     "husky": "^8.0.1",
