@@ -1,0 +1,445 @@
+@import '../config/color.scss';
+@import '../config/size.scss';
+
+.f-button {
+  position: relative;
+  min-width: 40px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  user-select: none;
+  display: inline-block;
+  transition: 0.2s;
+  box-sizing: border-box;
+  line-height: 1;
+  overflow: hidden;
+  height: $middle;
+  padding: 0 25px;
+
+  .f-text {
+    line-height: $middle;
+    font-size: 14px;
+    white-space: nowrap;
+
+    .f-icon {
+      position: relative;
+      top: 1px;
+    }
+
+    .f-icon--loading {
+      display: inline-block;
+      animation: loading 1s linear infinite;
+      -webkit-animation: loading 1s linear infinite;
+    }
+
+    @keyframes loading {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  // 文字加粗
+  .f-text-blob {
+    font-weight: bold;
+  }
+}
+
+// 圆角
+.f-button.f-button-round {
+  border-radius: 30px;
+}
+
+// 按钮的尺寸
+.f-button.f-button-large {
+  height: $large;
+  padding: 0 28px;
+
+  .f-text {
+    line-height: $large;
+    font-size: 15px;
+  }
+}
+
+.f-button.f-button-middle {
+  height: $middle;
+  padding: 0 25px;
+
+  .f-text {
+    line-height: $middle;
+    font-size: 14px;
+  }
+}
+
+.f-button.f-button-small {
+  height: $small;
+  padding: 0 22px;
+
+  .f-text {
+    line-height: $small;
+    font-size: 13px;
+  }
+}
+
+.f-button.f-button-mini {
+  height: $mini;
+  padding: 0 19px;
+
+  .f-text {
+    line-height: $mini;
+    font-size: 12px;
+  }
+}
+
+// 是否为块级元素
+.f-button.f-button-block {
+  display: block;
+  width: 100%;
+}
+
+// 不同的类型
+.f-button.f-button-,
+.f-button.f-button-default {
+  background: $default;
+
+  .f-text {
+    color: #333;
+  }
+}
+
+.f-button.f-button-,
+.f-button.f-button-default {
+  background: $default;
+
+  &:hover {
+    background: darken($default, 3%);
+  }
+
+  &:active {
+    background: darken($default, 8%);
+  }
+}
+
+.f-button.f-button-primary {
+  background: $primary;
+
+  &:hover {
+    background: lighten($primary, 5%);
+  }
+
+  &:active {
+    background: darken($primary, 5%);
+  }
+}
+
+.f-button.f-button-success {
+  background: $success;
+
+  &:hover {
+    background: lighten($success, 5%);
+  }
+
+  &:active {
+    background: darken($success, 5%);
+  }
+}
+
+.f-button.f-button-danger {
+  background: $danger;
+
+  &:hover {
+    background: lighten($danger, 5%);
+  }
+
+  &:active {
+    background: darken($danger, 5%);
+  }
+}
+
+.f-button.f-button-warning {
+  background: $warning;
+
+  &:hover {
+    background: lighten($warning, 5%);
+  }
+
+  &:active {
+    background: darken($warning, 5%);
+  }
+}
+
+.f-button.f-button-info {
+  background: $info;
+
+  &:hover {
+    background: lighten($info, 5%);
+  }
+
+  &:active {
+    background: darken($info, 5%);
+  }
+}
+
+.f-button.f-button-primary,
+.f-button.f-button-success,
+.f-button.f-button-danger,
+.f-button.f-button-warning,
+.f-button.f-button-info {
+  .f-text {
+    color: #fff;
+  }
+}
+
+// 普通按钮禁用状态
+.f-button.f-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.f-button.f-button-default.f-button-disabled:hover {
+  background: $default;
+}
+
+.f-button.f-button-primary.f-button-disabled:hover {
+  background: $primary;
+}
+
+.f-button.f-button-success.f-button-disabled:hover {
+  background: $success;
+}
+
+.f-button.f-button-danger.f-button-disabled:hover {
+  background: $danger;
+}
+
+.f-button.f-button-warning.f-button-disabled:hover {
+  background: $warning;
+}
+
+.f-button.f-button-info.f-button-disabled:hover {
+  background: $info;
+}
+
+// 简约按钮禁用状态
+.f-button.f-button-disabled.f-button-simple:hover {
+  background: $simpleBackground;
+}
+
+// 文字按钮禁用状态
+.f-button.f-button-disabled.f-button-text:hover {
+  background: #fff;
+}
+
+.f-button.f-button-default.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $textColor;
+    }
+  }
+}
+
+.f-button.f-button-primary.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $primary;
+    }
+  }
+}
+
+.f-button.f-button-success.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $success;
+    }
+  }
+}
+
+.f-button.f-button-danger.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $danger;
+    }
+  }
+}
+
+.f-button.f-button-default.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $textColor;
+    }
+  }
+}
+
+.f-button.f-button-warning.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $warning;
+    }
+  }
+}
+
+.f-button.f-button-info.f-button-disabled.f-button-text {
+  &:hover {
+    .f-text {
+      color: $info;
+    }
+  }
+}
+
+// 简约按钮
+.f-button.f-button-simple {
+  background: $simpleBackground;
+
+  &:hover {
+    background: darken($simpleBackground, 3%);
+  }
+
+  &:active {
+    background: darken($simpleBackground, 8%);
+  }
+}
+
+.f-button.f-button-.f-button-simple,
+.f-button.f-button-default.f-button-simple,
+.f-button.f-button-default.f-button-text {
+  .f-text {
+    color: $textColor;
+  }
+}
+
+.f-button.f-button-primary.f-button-simple,
+.f-button.f-button-primary.f-button-text {
+  .f-text {
+    color: $primary;
+  }
+}
+
+.f-button.f-button-success.f-button-simple,
+.f-button.f-button-success.f-button-text {
+  .f-text {
+    color: $success;
+  }
+}
+
+.f-button.f-button-danger.f-button-simple,
+.f-button.f-button-danger.f-button-text {
+  .f-text {
+    color: $danger;
+  }
+}
+
+.f-button.f-button-warning.f-button-simple,
+.f-button.f-button-warning.f-button-text {
+  .f-text {
+    color: $warning;
+  }
+}
+
+.f-button.f-button-info.f-button-simple,
+.f-button.f-button-info.f-button-text {
+  .f-text {
+    color: $textColor;
+  }
+}
+
+// 文字按钮
+.f-button.f-button.f-button-text {
+  background: #fff;
+}
+
+.f-button.f-button-border {
+  border: 1px solid #eee;
+}
+
+.f-button.f-button-default.f-button-text {
+  &:hover {
+    .f-text {
+      color: lighten($textColor, 10%);
+    }
+  }
+
+  &:active {
+    .f-text {
+      color: darken($textColor, 10%);
+    }
+  }
+}
+
+.f-button.f-button-primary.f-button-text {
+  &:hover {
+    .f-text {
+      color: lighten($primary, 10%);
+    }
+  }
+
+  &:active {
+    .f-text {
+      color: darken($primary, 10%);
+    }
+  }
+}
+
+.f-button.f-button-success.f-button-text {
+  &:hover {
+    .f-text {
+      color: lighten($success, 3%);
+    }
+  }
+
+  &:active {
+    .f-text {
+      color: darken($success, 3%);
+    }
+  }
+}
+
+.f-button.f-button-danger.f-button-text {
+  &:hover {
+    .f-text {
+      color: lighten($danger, 5%);
+    }
+  }
+
+  &:active {
+    .f-text {
+      color: darken($danger, 5%);
+    }
+  }
+}
+
+.f-button.f-button-warning.f-button-text {
+  &:hover {
+    .f-text {
+      color: lighten($warning, 2%);
+    }
+  }
+
+  &:active {
+    .f-text {
+      color: darken($warning, 2%);
+    }
+  }
+}
+
+.f-button.f-button-info.f-button-text {
+  .f-text {
+    color: $info;
+  }
+
+  &:hover {
+    .f-text {
+      color: lighten($info, 5%);
+    }
+  }
+
+  &:active {
+    .f-text {
+      color: darken($info, 5%);
+    }
+  }
+}

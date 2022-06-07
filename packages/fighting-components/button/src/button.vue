@@ -7,7 +7,7 @@
       :target="target"
       @click="onClick"
     >
-      <!-- <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" /> -->
+      <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" />
       <slot />
       <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
     </a>
@@ -49,7 +49,17 @@
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { type, round, simple, block, disabled, loading, blob, size } = prop
+      const {
+        type,
+        round,
+        simple,
+        block,
+        disabled,
+        loading,
+        blob,
+        size,
+        text
+      } = prop
 
       return [
         'f-button',
@@ -60,7 +70,8 @@
           'f-button-simple': simple,
           'f-button-blob': blob,
           'f-button-disabled': disabled || loading,
-          [`f-button-${size}`]: size
+          [`f-button-${size}`]: size,
+          'f-button-text': text
         }
       ]
     }

@@ -30,6 +30,11 @@
       &:active {
         background: darken($type, 5%);
       }
+
+      // 禁用效果
+      &.f-button-disabled:hover {
+        background: $type;
+      }
     }
   }
 
@@ -38,6 +43,10 @@
     &.f-button-#{$key} {
       &.f-button-simple {
         color: $type;
+        background: lighten($type, 42%);
+      }
+      // 禁用效果
+      &.f-button-disabled:hover {
         background: lighten($type, 42%);
       }
     }
