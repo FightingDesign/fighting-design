@@ -14,7 +14,11 @@
     "ecmaVersion": "latest",
     "parser": "@typescript-eslint/parser"
   },
-  "plugins": ["prettier", "vue", "@typescript-eslint"],
+  "plugins": [
+    "prettier",
+    "vue",
+    "@typescript-eslint"
+  ],
   "rules": {
     "prettier/prettier": "error"
   }
