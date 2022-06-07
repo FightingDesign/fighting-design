@@ -13,7 +13,12 @@ export class Ripples implements RipplesInterface {
   node: HTMLElement
   time: number
   ripplesColor: string
-  constructor(evt: PointerEvent, node: HTMLElement, time: number, ripplesColor: string) {
+  constructor(
+    evt: PointerEvent,
+    node: HTMLElement,
+    time: number,
+    ripplesColor: string
+  ) {
     this.evt = evt
     this.node = node
     this.time = time

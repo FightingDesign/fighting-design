@@ -103,7 +103,10 @@
   const onClick: onClickInterface = (evt: PointerEvent): void => {
     const { disabled, loading, ripples } = prop
 
-    if (disabled || loading) return
+    if (disabled || loading) {
+      evt.preventDefault()
+      return
+    }
 
     if (ripples) {
       const ripples: Ripples = new Ripples(
