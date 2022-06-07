@@ -32,24 +32,25 @@
         background: darken($type, 5%);
       }
       // 普通按钮禁用效果
-      &.f-button-#{$key}.f-button-disabled:hover {
-        background: lighten($type, 5%);
+      &.f-button-disabled:hover {
+        color: #fff;
+        background: $type;
       }
 
       // 简约按钮
       &.f-button-simple {
         color: $type;
         background: lighten($type, 42%);
-      }
-      // 简约的默认按钮
-      &.f-button-default,
-      &.f-button-default.f-button-simple {
-        color: $textColor;
-      }
-      // 简约按钮禁用
-      &.f-button-simple.f-button-disabled:hover {
-        color: $type;
-        background: lighten($type, 42%);
+        // 简约的默认按钮
+        &.f-button-default {
+          color: $textColor;
+          background: #f4f4f4;
+        }
+        // 简约按钮禁用
+        &.f-button-disabled:hover {
+          color: $type;
+          background: lighten($type, 42%);
+        }
       }
 
       // 文字按钮
@@ -57,6 +58,21 @@
         background: #fff;
         color: $type;
         border: 1px solid $type;
+        // 默认文字按钮
+        &.f-button-default {
+          color: $textColor;
+          border: 1px solid $textColor;
+          // 默认文字按钮效果
+          &:hover {
+            color: lighten($textColor, 10%);
+            border: 1px solid lighten($textColor, 10%);
+          }
+          &:active {
+            color: darken($textColor, 5%);
+            border: 1px solid darken($textColor, 5%);
+          }
+        }
+        // 其它文字按钮效果
         &:hover {
           color: lighten($type, 10%);
           border: 1px solid lighten($type, 10%);
@@ -65,33 +81,14 @@
           color: darken($type, 5%);
           border: 1px solid darken($type, 5%);
         }
-      }
-
-      // 默认文字按钮
-      &.f-button-default.f-button-text {
-        color: $textColor;
-        border: 1px solid $textColor;
-        &:hover {
-          color: lighten($textColor, 10%);
-          border: 1px solid lighten($textColor, 10%);
+        // 文字按钮禁用
+        &.f-button-disabled:hover {
+          background: #fff;
+          color: $type;
+          border: 1px solid $type;
         }
-        &:active {
-          color: darken($textColor, 5%);
-          border: 1px solid darken($textColor, 5%);
-        }
-      }
-
-      // 文字按钮禁用
-      &.f-button-text.f-button-disabled:hover {
-        background: #fff;
-        color: lighten($type, 10%);
-        border: 1px solid lighten($type, 10%);
       }
     }
-  }
-
-  &.f-button-default.f-button-simple {
-    background: #f4f4f4;
   }
 
   // 不同大小
