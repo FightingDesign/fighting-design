@@ -11,7 +11,7 @@ export const Props = {
     default: (): linkType => 'primary',
     validator: (val: linkType): boolean => {
       return (
-        ['primary', 'success', 'danger', 'warning', 'info', ''] as const
+        ['primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
     }
   },
