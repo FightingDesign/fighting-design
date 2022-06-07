@@ -3,6 +3,7 @@
 .f-button {
   position: relative;
   display: inline-flex;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   font-size: 14px;
@@ -93,6 +94,13 @@
     &.f-button-#{$key} {
       height: $type;
       padding: 0 ($type - 10);
+      // 圆形按钮
+      &.f-button-circle {
+        height: $type;
+        width: $type;
+        padding: 0;
+        border-radius: 50%;
+      }
     }
   }
 

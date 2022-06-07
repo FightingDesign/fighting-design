@@ -5,11 +5,16 @@
       :class="classList"
       :href="href"
       :target="target"
+      :style="{ boxShadow: shadow, ...buttonStyle }"
       @click="onClick"
     >
-      <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" />
+      <i
+        v-if="leftIcon || loading"
+        :class="['f-icon', leftIconClass]"
+        :style="buttonStyle"
+      />
       <slot />
-      <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
+      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
     </a>
   </template>
 
@@ -21,11 +26,16 @@
       :autofocus="autofocus"
       :name="name"
       :type="nativeType"
+      :style="{ boxShadow: shadow, ...buttonStyle }"
       @click="onClick"
     >
-      <i v-if="leftIcon || loading" :class="['f-icon', leftIconClass]" />
+      <i
+        v-if="leftIcon || loading"
+        :class="['f-icon', leftIconClass]"
+        :style="buttonStyle"
+      />
       <slot />
-      <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
+      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
     </button>
   </template>
 </template>
@@ -58,7 +68,8 @@
         loading,
         blob,
         size,
-        text
+        text,
+        circle
       } = prop
 
       return [
@@ -71,7 +82,8 @@
           'f-button-block': block,
           'f-button-blob': blob,
           'f-button-simple': simple,
-          'f-button-text': text
+          'f-button-text': text,
+          'f-button-circle': circle
         }
       ]
     }
@@ -79,10 +91,9 @@
 
   const buttonStyle: ComputedRef<buttonStyleInterface> = computed(
     (): buttonStyleInterface => {
-      const { shadow, fontSize, fontColor } = prop
+      const { fontSize, fontColor } = prop
 
       return {
-        boxShadow: shadow,
         fontSize,
         color: fontColor
       }

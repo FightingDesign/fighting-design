@@ -21,7 +21,6 @@ export interface RipplesInterface {
 }
 
 export interface buttonStyleInterface {
-  boxShadow: string
   fontSize: string
   color: string
 }

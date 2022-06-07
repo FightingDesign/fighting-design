@@ -116,6 +116,10 @@ export const Props = {
   ripples: {
     type: Boolean,
     default: (): boolean => true
+  },
+  ripplesColor: {
+    type: String,
+    default: (): string => '#fff'
   }
 } as const
 
