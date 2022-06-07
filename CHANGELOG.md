@@ -9,6 +9,7 @@
 - `FButton` 组件 `link` 属性改为 `href`
 - 重构 `FButton` 组件
 - 废除 `FButton` 的 `info` 类型
+- 废除 `FButton` 的 `border` 属性
 
 ## 0.0.7 alpha.7 (2022-06-04)
 
