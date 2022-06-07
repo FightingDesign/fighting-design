@@ -1,15 +1,19 @@
 <template>
-  <f-button
+  <!-- <f-button
     circle
-    simple
     size="large"
     type="primary"
     left-icon="f-icon-default-template"
-    font-size="25px"
-  ></f-button>
-  <f-button circle type="success">成功按钮</f-button>
-  <f-button circle size="small" type="danger">危险按钮</f-button>
-  <f-button circle size="mini" type="warning">警告按钮</f-button>
+  /> -->
+  <f-button circle>
+   的哇大大大大的撒大撒大说
+  </f-button>
+  <!-- <f-button circle size="small" type="danger">
+    <f-icon icon="f-icon-default-template"></f-icon>
+  </f-button>
+  <f-button circle size="mini" type="warning">
+    <f-icon icon="f-icon-default-template"></f-icon>
+  </f-button> -->
   <br />
   <f-button text loading-icon="f-icon-loading3" round>默认按钮</f-button>
   <f-button type="primary">主要按钮</f-button>

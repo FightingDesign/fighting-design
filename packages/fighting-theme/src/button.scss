@@ -3,7 +3,6 @@
 .f-button {
   position: relative;
   display: inline-flex;
-  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   font-size: 14px;
@@ -18,6 +17,7 @@
   padding: 0 25px;
   background: $default;
   overflow: hidden;
+  white-space: nowrap;
 
   // 不同类型
   @each $key, $type in $ButtonTypes {
@@ -93,11 +93,11 @@
   @each $key, $type in $ButtonSizes {
     &.f-button-#{$key} {
       height: $type;
-      padding: 0 ($type - 10);
       // 圆形按钮
       &.f-button-circle {
         height: $type;
         width: $type;
+        line-height: 1;
         padding: 0;
         border-radius: 50%;
       }

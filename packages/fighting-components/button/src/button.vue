@@ -109,7 +109,8 @@
       const ripples: Ripples = new Ripples(
         evt,
         FButton.value as HTMLButtonElement,
-        600
+        600,
+        prop.ripplesColor
       )
       ripples.clickRipples()
     }
