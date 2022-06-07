@@ -5,7 +5,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  font-size: 14px;
   border: none;
   outline: none;
   user-select: none;
@@ -29,6 +29,34 @@
       }
       &:active {
         background: darken($type, 5%);
+      }
+
+      // 文字按钮
+      &.f-button-text {
+        background: #fff;
+        color: $type;
+        border: 1px solid $type;
+        &:hover {
+          color: lighten($type, 10%);
+          border: 1px solid lighten($type, 10%);
+        }
+        &:active {
+          color: darken($type, 5%);
+          border: 1px solid darken($type, 5%);
+        }
+      }
+      // 默认文字按钮
+      &.f-button-default.f-button-text {
+        color: $textColor;
+        border: 1px solid $textColor;
+        &:hover {
+          color: lighten($textColor, 10%);
+          border: 1px solid lighten($textColor, 10%);
+        }
+        &:active {
+          color: darken($textColor, 5%);
+          border: 1px solid darken($textColor, 5%);
+        }
       }
 
       // 禁用效果

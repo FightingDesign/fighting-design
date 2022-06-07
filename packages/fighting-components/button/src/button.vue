@@ -65,12 +65,12 @@
         'f-button',
         {
           [`f-button-${type}`]: type,
+          [`f-button-${size}`]: size,
+          'f-button-disabled': disabled || loading,
           'f-button-round': round,
           'f-button-block': block,
-          'f-button-simple': simple,
           'f-button-blob': blob,
-          'f-button-disabled': disabled || loading,
-          [`f-button-${size}`]: size,
+          'f-button-simple': simple,
           'f-button-text': text
         }
       ]
