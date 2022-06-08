@@ -16,15 +16,15 @@
   import type { VNode, Component } from 'vue'
 
   const slots = useSlots()
-  const isVertical = computed(() => {
+
+  const isVertical: Component<boolean> = computed((): boolean => {
     if (slots && slots.default) {
       const vNodes: VNode[] = slots.default()
-      return vNodes.some((vNode) => {
+      return vNodes.some((vNode: VNode): boolean => {
         const name = (vNode.type as Component).name
         return name === 'FHeader' || name === 'FFooter'
       })
-    } else {
-      return false
     }
+    return false
   })
 </script>

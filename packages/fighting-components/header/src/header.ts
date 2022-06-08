@@ -3,4 +3,4 @@ export const Props = {
     type: String,
     default: (): string => '50px'
   }
-}
+} as const

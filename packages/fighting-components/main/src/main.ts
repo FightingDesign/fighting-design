@@ -1,1 +1,1 @@
-export const Props = {}
+export const Props = {} as const
