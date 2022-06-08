@@ -2,6 +2,18 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+**feat**
+
+- add `FTag` component
+- add `FDivider` component
+- change attribute `link` to `href` in `FButton` component
+- rewrite `FButton` component
+- dispatch `info` type of `FButton` component
+- dispatch `border` attribute of `FButton`
+- dispatch `long` attribute of `FButton`
+- dispatch `info` type of `FLink`
+- dispatch `opacity` attribute of `FIcon`
+
 ## 0.0.7 alpha.7 (2022-06-04)
 
 **feat**

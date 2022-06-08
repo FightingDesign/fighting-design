@@ -12,7 +12,7 @@
 - 废除 `FButton` 的 `border` 属性
 - 废除 `FButton` 的 `long` 属性
 - 废除 `FLink` 的 `info` 类型
-- 废除 `Icon` 的 `opacity` 属性
+- 废除 `FIcon` 的 `opacity` 属性
 
 ## 0.0.7 alpha.7 (2022-06-04)
 
