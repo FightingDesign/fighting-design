@@ -7,6 +7,11 @@ import { FImage } from './image'
 import { FCard } from './card'
 import { FTag } from './tag'
 import { FDivider } from './divider'
+import { FFooter } from './footer'
+import { FHeader } from './header'
+import { FAside } from './aside'
+import { FMain } from './main'
+import { FContainer } from './container'
 
 const components = {
   FButton,
@@ -16,7 +21,12 @@ const components = {
   FImage,
   FCard,
   FTag,
-  FDivider
+  FDivider,
+  FFooter,
+  FHeader,
+  FAside,
+  FMain,
+  FContainer
 }
 
 const install = (app: App): void => {
@@ -25,7 +35,21 @@ const install = (app: App): void => {
   })
 }
 
-export { FButton, FButtonGroup, FIcon, FLink, FImage, FCard, FTag, FDivider }
+export {
+  FButton,
+  FButtonGroup,
+  FIcon,
+  FLink,
+  FImage,
+  FCard,
+  FTag,
+  FDivider,
+  FFooter,
+  FHeader,
+  FAside,
+  FMain,
+  FContainer
+}
 
 export default {
   install,

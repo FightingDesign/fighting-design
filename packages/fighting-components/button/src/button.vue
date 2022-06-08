@@ -89,8 +89,8 @@
     }
   )
 
-  const buttonStyle: ComputedRef<buttonStyleInterface> = computed(
-    (): buttonStyleInterface => {
+  const buttonStyle: ComputedRef<buttonStyleInterface | Object> = computed(
+    (): buttonStyleInterface | Object => {
       const { fontSize, fontColor } = prop
 
       return {
