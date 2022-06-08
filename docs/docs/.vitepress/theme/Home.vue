@@ -26,7 +26,8 @@
         class="code"
         size="large"
         blob
-        text
+        type="primary"
+        simple
         data-clipboard-text="npm i filling-design"
         @click="copyCode('.code')"
       >

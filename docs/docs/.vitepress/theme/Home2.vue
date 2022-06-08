@@ -38,12 +38,14 @@
           </f-button>
           <f-button
             class="code"
+            type="primary"
             size="large"
             blob
+            simple
             data-clipboard-text="npm i filling-design"
             @click="copyCode('.code')"
           >
-            npm i filling-design
+            pnpm add filling-design
           </f-button>
         </div>
       </div>
