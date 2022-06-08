@@ -10,6 +10,13 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button-blob')
   })
 
+  test('circle', () => {
+    const wrapper = mount(FButton, {
+      props: { circle: true }
+    })
+    expect(wrapper.classes()).toContain('f-button-circle')
+  })
+
   test('round', () => {
     const wrapper = mount(FButton, {
       props: { round: true }
@@ -32,10 +39,14 @@ describe('FButton', () => {
   })
 
   test('size', () => {
-    const wrapper = mount(FButton, {
-      props: { size: 'large' }
+    const size = ['large', 'middle', 'small', 'mini'] as const
+
+    size.map((item) => {
+      const wrapper = mount(FButton, {
+        props: { size: item }
+      })
+      expect(wrapper.classes()).toContain(`f-button-${item}`)
     })
-    expect(wrapper.classes()).toContain('f-button-large')
   })
 
   test('block', () => {
@@ -43,6 +54,23 @@ describe('FButton', () => {
       props: { block: true }
     })
     expect(wrapper.classes()).toContain('f-button-block')
+  })
+
+  test('href', () => {
+    const wrapper = mount(FButton, {
+      props: { href: 'https://tianyuhao.cn' }
+    })
+    expect(wrapper.attributes('href')).toContain('https://tianyuhao.cn')
+  })
+
+  test('target', () => {
+    const target = ['_blank', '_self', '_parent', '_top'] as const
+    target.map((item) => {
+      const wrapper = mount(FButton, {
+        props: { href: 'https://tianyuhao.cn', target: item }
+      })
+      expect(wrapper.attributes('target')).toContain(item)
+    })
   })
 
   test('loading', () => {
@@ -63,21 +91,29 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { leftIcon: 'f-icon-Customermanagement' }
     })
-    expect(wrapper.find('i').classes()).toContain('f-icon-Customermanagement')
+    expect(wrapper.find('.f-icon').classes()).toContain(
+      'f-icon-Customermanagement'
+    )
   })
 
   test('rightIcon', () => {
     const wrapper = mount(FButton, {
       props: { rightIcon: 'f-icon-Customermanagement' }
     })
-    expect(wrapper.find('i').classes()).toContain('f-icon-Customermanagement')
+    expect(wrapper.find('.f-icon').classes()).toContain(
+      'f-icon-Customermanagement'
+    )
   })
 
   test('type', () => {
-    const wrapper = mount(FButton, {
-      props: { type: 'primary' }
+    const type = ['default', 'primary', 'success', 'danger', 'warning'] as const
+
+    type.map((item) => {
+      const wrapper = mount(FButton, {
+        props: { type: item }
+      })
+      expect(wrapper.classes()).toContain(`f-button-${item}`)
     })
-    expect(wrapper.classes()).toContain('f-button-primary')
   })
 
   test('autofocus', () => {
@@ -108,6 +144,17 @@ describe('FButton', () => {
       props: { text: true }
     })
     expect(wrapper.classes()).toContain('f-button-text')
+  })
+
+  test('nativeType', () => {
+    const nativeType = ['button', 'submit', 'reset'] as const
+
+    nativeType.map((item) => {
+      const wrapper = mount(FButton, {
+        props: { nativeType: item }
+      })
+      expect(wrapper.attributes('type')).toContain(item)
+    })
   })
 
   test('simple', () => {

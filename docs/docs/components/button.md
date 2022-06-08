@@ -288,7 +288,7 @@
 | `font-color`    | 文字字体颜色                             | string  | ——                                                      | ——       |
 | `size`          | 按钮尺寸                                 | string  | `large` `middle` `small` `mini`                         | middle   |
 | `block`         | 是否为块级元素                           | boolean | ——                                                      | false    |
-| `link`          | 链接按钮的地址                           | string  | ——                                                      | ——       |
+| `href`          | 链接按钮的地址                           | string  | ——                                                      | ——       |
 | `target`        | 原生 target 属性，在 link 类型存在时生效 | string  | `_blank` `_self` `_parent` `_top`                       | \_self   |
 | `loading`       | 是否展示 loading 状态                    | boolean | ——                                                      | false    |
 | `loading-icon`  | loading 状态的 icon                      | string  | ——                                                      | ——       |

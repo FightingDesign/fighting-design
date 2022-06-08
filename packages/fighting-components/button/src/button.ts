@@ -86,10 +86,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  long: {
-    type: Boolean,
-    default: (): boolean => false
-  },
   nativeType: {
     type: String as PropType<buttonNativeType>,
     default: (): buttonNativeType => 'button',
@@ -98,10 +94,6 @@ export const Props = {
     }
   },
   simple: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  border: {
     type: Boolean,
     default: (): boolean => false
   },
