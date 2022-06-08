@@ -8,7 +8,7 @@ export type {
 export type { buttonGroupSize } from './button-group'
 export type { linkType, linkTarget, linkHover } from './link'
 export type { cardShadow } from './card'
-export type { tagSize, tagTheme } from './tag'
+export type { tagSize, tagTheme, tagType } from './tag'
 export type {
   LazyInterface,
   loadImageInterface,

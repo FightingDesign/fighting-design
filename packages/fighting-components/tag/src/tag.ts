@@ -1,14 +1,41 @@
-import type {tagSize, tagTheme } from '@fighting-design/fighting-type'
+import type {tagSize, tagTheme, tagType } from '@fighting-design/fighting-type'
 import type { PropType } from 'vue'
 
 export const Props = {
+  type: {
+    type: String as PropType<tagType>,
+    default: (): tagType => 'info',
+    validator: (val: tagType): boolean => {
+      return (
+        [
+          'info',
+          'success',
+          'danger',
+          'warning',
+          'primary'
+        ] as const
+      ).includes(val)
+    }
+  },
   closable: {
     type: Boolean,
     default: (): boolean => false
   },
+  round: {
+    type: String,
+    default: (): string => '0px'
+  },
   color: {
     type: String,
-    default: (): string => '#909399'
+    default: (): string => ''
+  },
+  leftIcon: {
+    type: String,
+    default: (): string => ''
+  },
+  rightIcon: {
+    type: String,
+    default: (): string => ''
   },
   size: {
     type: String as PropType<tagSize>,
@@ -17,13 +44,16 @@ export const Props = {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
-  theme: {
-    type: String as PropType<tagTheme>,
-    default: (): tagTheme => 'dark',
-    validator: (val: tagTheme): boolean => {
-      return (['light', 'dark'] as const).includes(val)
-    }
-  }
+
+  simple: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+
+  block: {
+    type: Boolean,
+    default: (): boolean => false
+  },
 } as const
 
 
