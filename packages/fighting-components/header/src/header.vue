@@ -1,0 +1,12 @@
+<template>
+  <header class="f-header" :style="{ height }">
+    <slot />
+  </header>
+</template>
+
+<script lang="ts" setup name="FHeader">
+  import { defineProps } from 'vue'
+  import { Props } from './header'
+
+  defineProps(Props)
+</script>
