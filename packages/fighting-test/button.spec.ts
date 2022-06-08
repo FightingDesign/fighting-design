@@ -3,6 +3,11 @@ import { describe, expect, test } from 'vitest'
 import { FButton } from '@fighting-design/fighting-components'
 
 describe('FButton', () => {
+  test('class', () => {
+    const wrapper = mount(FButton)
+    expect(wrapper.classes()).toContain('f-button')
+  })
+
   test('blob', () => {
     const wrapper = mount(FButton, {
       props: { blob: true }

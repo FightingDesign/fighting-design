@@ -3,6 +3,11 @@ import { describe, expect, test } from 'vitest'
 import { FButtonGroup } from '@fighting-design/fighting-components'
 
 describe('FButtonGroup', () => {
+  test('class', () => {
+    const wrapper = mount(FButtonGroup)
+    expect(wrapper.classes()).toContain('f-button-group')
+  })
+
   test('size', () => {
     const wrapper = mount(FButtonGroup, {
       props: { size: 'large', vertical: false }

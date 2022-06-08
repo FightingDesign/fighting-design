@@ -4,6 +4,11 @@ import { describe, expect, test } from 'vitest'
 
 describe('FIcon', () => {
   test('icon', () => {
+    const wrapper = mount(FIcon)
+    expect(wrapper.classes()).toContain('f-icon')
+  })
+
+  test('icon', () => {
     const wrapper = mount(FIcon, {
       props: { icon: 'f-icon-credit-level-fill' }
     })
