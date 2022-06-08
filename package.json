@@ -17,11 +17,15 @@
     "build:components": "rollup -c build/rollup.config.ts",
     "build:theme": "vite build packages/fighting-theme",
     "build:docs": "pnpm run -C docs build",
+    "build:start": "pnpm run -C start build",
     "serve:docs": "pnpm run -C docs serve",
     "move": "node build/moveFile.ts",
     "test": "vitest",
     "prettier": "prettier --write .",
-    "commit": "cz"
+    "commit": "cz",
+    "build:vite:components": "vite build --config vite.config.components.ts",
+    "build:vite:theme": "vite build --config vite.config.theme.ts",
+    "build:vite:type": "vite build --config vite.config.type.ts"
   },
   "dependencies": {
     "@commitlint/cli": "^17.0.1",
@@ -47,6 +51,7 @@
     "sass": "^1.50.1",
     "typescript": "^4.6.4",
     "vite": "^2.9.5",
+    "vite-plugin-dts": "^1.2.0",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vitest": "^0.10.0",
     "vue": "^3.2.33",

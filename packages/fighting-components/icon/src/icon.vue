@@ -1,7 +1,7 @@
 <template>
   <i
     :class="[fontClass || 'f-icon', icon]"
-    :style="{ opacity, color, fontSize: size }"
+    :style="{ color, fontSize: size }"
     @click="onClick"
   >
     <slot />

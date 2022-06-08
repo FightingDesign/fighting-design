@@ -134,7 +134,7 @@
     scale.value += 0.2
   }
 
-  const optionClick: optionClickInterface = (evt: PointerEvent): void => {
+  const optionClick: optionClickInterface = (evt: Event): void => {
     const className: string = (evt.target as HTMLElement).className
 
     const turnLeft: ordinaryFunctionInterface = (): void => {

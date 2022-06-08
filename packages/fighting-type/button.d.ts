@@ -8,7 +8,6 @@ export type buttonType =
   | 'success'
   | 'danger'
   | 'warning'
-  | 'info'
 
 export type buttonNativeType = 'button' | 'submit' | 'reset'
 
@@ -16,7 +15,13 @@ export interface RipplesInterface {
   evt: PointerEvent
   node: HTMLElement
   time: number
+  ripplesColor: string
   clickRipples(): void
   renderElement(x: number, y: number): HTMLSpanElement
   removeElement(node: HTMLElement): void
+}
+
+export interface buttonStyleInterface {
+  fontSize: string
+  color: string
 }

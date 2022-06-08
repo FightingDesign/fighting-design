@@ -14,10 +14,6 @@ export const Props = {
   size: {
     type: String,
     default: (): string => ''
-  },
-  opacity: {
-    type: String,
-    default: (): string => ''
   }
 } as const
 

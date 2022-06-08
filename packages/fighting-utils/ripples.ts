@@ -12,10 +12,17 @@ export class Ripples implements RipplesInterface {
   evt: any
   node: HTMLElement
   time: number
-  constructor(evt: PointerEvent, node: HTMLElement, time: number) {
+  ripplesColor: string
+  constructor(
+    evt: PointerEvent,
+    node: HTMLElement,
+    time: number,
+    ripplesColor: string
+  ) {
     this.evt = evt
     this.node = node
     this.time = time
+    this.ripplesColor = ripplesColor
   }
   clickRipples(): void {
     /**
@@ -33,6 +40,7 @@ export class Ripples implements RipplesInterface {
     const ripples: HTMLSpanElement = document.createElement('span')
 
     ripples.className = 'f-design-ripples'
+    ripples.style.background = this.ripplesColor
     ripples.style.left = `${x}px`
     ripples.style.top = `${y}px`
 

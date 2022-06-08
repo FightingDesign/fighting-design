@@ -33,18 +33,19 @@
         </p>
 
         <div class="action">
-          <a href="/docs/install">
-            <f-button type="primary" size="large">开始使用</f-button>
-          </a>
+          <f-button type="primary" size="large" href="/docs/install">
+            开始使用
+          </f-button>
           <f-button
             class="code"
+            type="primary"
             size="large"
             blob
-            text
+            simple
             data-clipboard-text="npm i filling-design"
             @click="copyCode('.code')"
           >
-            npm i filling-design
+            pnpm add filling-design
           </f-button>
         </div>
       </div>

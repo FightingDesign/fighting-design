@@ -56,7 +56,6 @@ export const Props = {
   },
 } as const
 
-
 export const Emits = {
   close: (evt: Event): Event => evt
 } as const

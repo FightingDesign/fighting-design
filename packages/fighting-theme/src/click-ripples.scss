@@ -1,12 +1,12 @@
 .f-design-ripples {
-  width: 20px;
-  height: 20px;
+  width: 2px;
+  height: 2px;
   position: absolute;
   transform: translate(-50%, -50%);
   pointer-events: none;
   border-radius: 50%;
   animation: f-ripples 0.7s linear;
-  background: rgba(255, 255, 255, 0.8);
+  opacity: 0.5;
 }
 
 @keyframes f-ripples {

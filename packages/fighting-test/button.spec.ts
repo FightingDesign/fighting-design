@@ -3,11 +3,23 @@ import { describe, expect, test } from 'vitest'
 import { FButton } from '@fighting-design/fighting-components'
 
 describe('FButton', () => {
+  test('class', () => {
+    const wrapper = mount(FButton)
+    expect(wrapper.classes()).toContain('f-button')
+  })
+
   test('blob', () => {
     const wrapper = mount(FButton, {
       props: { blob: true }
     })
-    expect(wrapper.find('span').classes()).toContain('f-text-blob')
+    expect(wrapper.classes()).toContain('f-button-blob')
+  })
+
+  test('circle', () => {
+    const wrapper = mount(FButton, {
+      props: { circle: true }
+    })
+    expect(wrapper.classes()).toContain('f-button-circle')
   })
 
   test('round', () => {
@@ -21,21 +33,24 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { fontSize: '20px' }
     })
-    expect(wrapper.find('span').attributes('style')).toContain('20px')
+    expect(wrapper.attributes('style')).toContain('20px')
   })
 
   test('fontColor', () => {
     const wrapper = mount(FButton, {
       props: { fontColor: 'red' }
     })
-    expect(wrapper.find('span').attributes('style')).toContain('red')
+    expect(wrapper.attributes('style')).toContain('red')
   })
 
   test('size', () => {
-    const wrapper = mount(FButton, {
-      props: { size: 'large' }
+    const size = ['large', 'middle', 'small', 'mini'] as const
+    size.map((item) => {
+      const wrapper = mount(FButton, {
+        props: { size: item }
+      })
+      expect(wrapper.classes()).toContain(`f-button-${item}`)
     })
-    expect(wrapper.classes()).toContain('f-button-large')
   })
 
   test('block', () => {
@@ -43,6 +58,23 @@ describe('FButton', () => {
       props: { block: true }
     })
     expect(wrapper.classes()).toContain('f-button-block')
+  })
+
+  test('href', () => {
+    const wrapper = mount(FButton, {
+      props: { href: 'https://tianyuhao.cn' }
+    })
+    expect(wrapper.attributes('href')).toContain('https://tianyuhao.cn')
+  })
+
+  test('target', () => {
+    const target = ['_blank', '_self', '_parent', '_top'] as const
+    target.map((item) => {
+      const wrapper = mount(FButton, {
+        props: { href: 'https://tianyuhao.cn', target: item }
+      })
+      expect(wrapper.attributes('target')).toContain(item)
+    })
   })
 
   test('loading', () => {
@@ -63,21 +95,28 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { leftIcon: 'f-icon-Customermanagement' }
     })
-    expect(wrapper.find('i').classes()).toContain('f-icon-Customermanagement')
+    expect(wrapper.find('.f-icon').classes()).toContain(
+      'f-icon-Customermanagement'
+    )
   })
 
   test('rightIcon', () => {
     const wrapper = mount(FButton, {
       props: { rightIcon: 'f-icon-Customermanagement' }
     })
-    expect(wrapper.find('i').classes()).toContain('f-icon-Customermanagement')
+    expect(wrapper.find('.f-icon').classes()).toContain(
+      'f-icon-Customermanagement'
+    )
   })
 
   test('type', () => {
-    const wrapper = mount(FButton, {
-      props: { type: 'primary' }
+    const type = ['default', 'primary', 'success', 'danger', 'warning'] as const
+    type.map((item) => {
+      const wrapper = mount(FButton, {
+        props: { type: item }
+      })
+      expect(wrapper.classes()).toContain(`f-button-${item}`)
     })
-    expect(wrapper.classes()).toContain('f-button-primary')
   })
 
   test('autofocus', () => {
@@ -110,6 +149,16 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button-text')
   })
 
+  test('nativeType', () => {
+    const nativeType = ['button', 'submit', 'reset'] as const
+    nativeType.map((item) => {
+      const wrapper = mount(FButton, {
+        props: { nativeType: item }
+      })
+      expect(wrapper.attributes('type')).toContain(item)
+    })
+  })
+
   test('simple', () => {
     const wrapper = mount(FButton, {
       props: { simple: true }
@@ -117,18 +166,11 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button-simple')
   })
 
-  test('border', () => {
-    const wrapper = mount(FButton, {
-      props: { border: true, text: true }
-    })
-    expect(wrapper.classes()).toContain('f-button-border')
-  })
-
   test('default slot', () => {
     const wrapper = mount(FButton, {
       slots: { default: '这是按钮' }
     })
-    expect(wrapper.find('span').text()).toContain('这是按钮')
+    expect(wrapper.text()).toContain('这是按钮')
   })
 
   test('on click', async () => {

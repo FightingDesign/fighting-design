@@ -57,7 +57,7 @@ export interface switchImageInterface {
 }
 
 export interface optionClickInterface {
-  (evt: PointerEvent): void
+  (evt: Event): void
 }
 
 export interface callbackInterface {

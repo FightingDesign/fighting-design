@@ -4,13 +4,13 @@
     :style="sty"
   >
 
-  <span :class="['f-text']">
-    <f-icon v-if="leftIcon" class="f-iolor" size="15px" :icon="leftIcon" />
-    <slot />
-    <f-icon v-if="rightIcon" class="f-iolor" size="15px" :icon="rightIcon" />
+    <span :class="['f-text']">
+      <f-icon v-if="leftIcon" class="f-iolor" size="15px" :icon="leftIcon" />
+      <slot />
+      <f-icon v-if="rightIcon" class="f-iolor" size="15px" :icon="rightIcon" />
 
-    <f-icon v-if="closable" class="f-iolor" size="15px" icon="f-icon-close" @click="handleClose" />
-  </span>
+      <f-icon v-if="closable" class="f-iolor" size="15px" icon="f-icon-close" @click="handleClose" />
+    </span>
   </div>
 </template>
 
@@ -18,11 +18,10 @@
   import { Props, Emits } from './tag'
   import type { onClickInterface } from '@fighting-design/fighting-type'
   import { computed } from 'vue';
+
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
-
   const is_light = prop.simple
-
   const cls = computed(() => 
     [
       'f-tag',
@@ -42,10 +41,8 @@
     sty = Object.assign(sty, is_light ? { color: prop.color, border: `1px solid ${prop.color}`, backgroundColor: '#fff' } : { backgroundColor: prop.color, color:'#fff', border: `1px solid ${prop.color}` })
   }
 
-
-  const handleClose: onClickInterface = function(event: PointerEvent) {
-      event.stopPropagation();
-      emit('close', event);
+  const handleClose: onClickInterface = (event: PointerEvent): void => {
+    event.stopPropagation()
+    emit('close', event)
   }
-
 </script>

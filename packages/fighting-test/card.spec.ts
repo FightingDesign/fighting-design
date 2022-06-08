@@ -30,24 +30,14 @@ describe('FCard', () => {
   })
 
   test('shadow', () => {
-    const wrapper = mount(FCard, {
-      props: { shadow: 'never' }
-    })
-    expect(wrapper.classes()).toContain('f-card-shadow-never')
-  })
+    const shadow = ['never', 'hover', 'always'] as const
 
-  test('shadow', () => {
-    const wrapper = mount(FCard, {
-      props: { shadow: 'hover' }
+    shadow.map((item) => {
+      const wrapper = mount(FCard, {
+        props: { shadow: item }
+      })
+      expect(wrapper.classes()).toContain(`f-card-shadow-${item}`)
     })
-    expect(wrapper.classes()).toContain('f-card-shadow-hover')
-  })
-
-  test('shadow', () => {
-    const wrapper = mount(FCard, {
-      props: { shadow: 'always' }
-    })
-    expect(wrapper.classes()).toContain('f-card-shadow-always')
   })
 
   test('padding', () => {

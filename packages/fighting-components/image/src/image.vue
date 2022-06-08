@@ -32,10 +32,9 @@
       {{ caption }}
     </div>
 
-    <preview-list
+    <PreviewList
       v-if="prop.previewList && prop.previewList.length"
       v-show="isPreviewListShow"
-      :is="PreviewList"
       :previewList="previewList"
       :previewShowIndex="previewShowIndex"
       :previewShowOption="previewShowOption"

@@ -1,0 +1,26 @@
+@import '../config/color.scss';
+@import '../config/size.scss';
+
+@mixin btnSizes($height, $padding, $fontSize) {
+  height: $height;
+  padding: 0 $padding;
+  line-height: $height;
+  font-size: $fontSize;
+}
+
+// 不同的类型
+$ButtonTypes: (
+  'default': $default,
+  'primary': $primary,
+  'success': $success,
+  'danger': $danger,
+  'warning': $warning
+);
+
+// 不同尺寸
+$ButtonSizes: (
+  'large': $large,
+  'middle': $middle,
+  'small': $small,
+  'mini': $mini
+);

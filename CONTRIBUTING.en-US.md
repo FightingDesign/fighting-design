@@ -100,13 +100,17 @@ pnpm commit
 
 ## Development specification
 
-The main source files are in the `fighting-design/packages` directory, and each subdirectory has a separate `README.md` describes the specified directory. Refer to:
+The main source files are in the `fighting-design/packages` directory, and each subdirectory has a separate `README.md` describes the specified directory. Refer to the following documents for detailed specifications of each module:
 
 - [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) Component source file directory
 - [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) Unit test directory
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) Style theme catalog
 - [fighting-type](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-type/README.md) Type catalog
 - [fighting-utils](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-utils/README.md) Tool function directory
+
+The following is about the document specification:
+
+- [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md)
 
 ## Commit specification
 

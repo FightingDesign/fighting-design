@@ -2,8 +2,8 @@
   <a
     :class="[
       'f-link',
-      `f-link-${type}`,
       {
+        [`f-link-${type}`]: type,
         [`f-link-${state}`]: state,
         'f-link-prohibit': prohibit,
         'f-link-noCopy': noCopy

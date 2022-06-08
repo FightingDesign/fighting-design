@@ -10,9 +10,9 @@ export const Props = {
     type: String as PropType<linkType>,
     default: (): linkType => 'primary',
     validator: (val: linkType): boolean => {
-      return (
-        ['primary', 'success', 'danger', 'warning', 'info', ''] as const
-      ).includes(val)
+      return (['primary', 'success', 'danger', 'warning'] as const).includes(
+        val
+      )
     }
   },
   href: {

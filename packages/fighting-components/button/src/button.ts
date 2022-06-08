@@ -38,7 +38,7 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  link: {
+  href: {
     type: String,
     default: (): string => ''
   },
@@ -46,7 +46,7 @@ export const Props = {
     type: String as PropType<buttonTarget>,
     default: (): buttonTarget => '_self',
     validator: (val: buttonTarget): boolean => {
-      return (['_blank', '_self', '_parent', '_top', ''] as const).includes(val)
+      return (['_blank', '_self', '_parent', '_top'] as const).includes(val)
     }
   },
   loading: {
@@ -66,15 +66,7 @@ export const Props = {
     default: (): buttonType => 'default',
     validator: (val: buttonType): boolean => {
       return (
-        [
-          'default',
-          'primary',
-          'success',
-          'danger',
-          'warning',
-          'info',
-          ''
-        ] as const
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
     }
   },
@@ -94,10 +86,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  long: {
-    type: Boolean,
-    default: (): boolean => false
-  },
   nativeType: {
     type: String as PropType<buttonNativeType>,
     default: (): buttonNativeType => 'button',
@@ -106,10 +94,6 @@ export const Props = {
     }
   },
   simple: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  border: {
     type: Boolean,
     default: (): boolean => false
   },
@@ -124,6 +108,10 @@ export const Props = {
   ripples: {
     type: Boolean,
     default: (): boolean => true
+  },
+  ripplesColor: {
+    type: String,
+    default: (): string => '#fff'
   }
 } as const
 
