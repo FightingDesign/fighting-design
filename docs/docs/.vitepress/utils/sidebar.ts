@@ -42,7 +42,8 @@ export const sidebar = {
       items: [
         { text: 'Image 图片', link: '/components/image' },
         { text: 'Card 卡片', link: '/components/card' },
-        { text: 'Tag 标签', link: '/components/tag' }
+        { text: 'Tag 标签', link: '/components/tag' },
+        { text: 'Divider 分隔符', link: '/components/divider' },
       ]
     }
   ]

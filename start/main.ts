@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './src/App.vue'
+import router from './src/router'
 
 // 开发阶段引入
 import FightingDesign from '@fighting-design/fighting-components'
@@ -11,4 +12,4 @@ import '@fighting-design/fighting-theme'
 
 console.log(FightingDesign)
 
-createApp(App).use(FightingDesign).mount('#start')
+createApp(App).use(FightingDesign).use(router).mount('#start')
