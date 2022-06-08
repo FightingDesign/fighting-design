@@ -1,1 +1,6 @@
-export const Props = {} as const
+export const Props = {
+  padding: {
+    type: String,
+    default: (): string => ''
+  }
+} as const

@@ -1,5 +1,5 @@
 <template>
-  <main class="f-main">
+  <main class="f-main" :style="{ padding }">
     <slot />
   </main>
 </template>

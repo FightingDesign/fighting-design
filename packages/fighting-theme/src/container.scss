@@ -4,8 +4,7 @@
   flex-direction: row;
   box-sizing: border-box;
   flex-basis: auto;
-}
-
-.f-container-vertical {
-  flex-direction: column;
+  &.f-container-vertical {
+    flex-direction: column;
+  }
 }
