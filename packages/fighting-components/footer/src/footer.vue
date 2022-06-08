@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts" name="FFooter">
-  import { defineProps } from 'vue'
   import { Props } from './footer'
 
   defineProps(Props)
