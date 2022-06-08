@@ -7,7 +7,7 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { blob: true }
     })
-    expect(wrapper.find('span').classes()).toContain('f-text-blob')
+    expect(wrapper.classes()).toContain('f-button-blob')
   })
 
   test('round', () => {
@@ -21,14 +21,14 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { fontSize: '20px' }
     })
-    expect(wrapper.find('span').attributes('style')).toContain('20px')
+    expect(wrapper.attributes('style')).toContain('20px')
   })
 
   test('fontColor', () => {
     const wrapper = mount(FButton, {
       props: { fontColor: 'red' }
     })
-    expect(wrapper.find('span').attributes('style')).toContain('red')
+    expect(wrapper.attributes('style')).toContain('red')
   })
 
   test('size', () => {
@@ -117,18 +117,11 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button-simple')
   })
 
-  test('border', () => {
-    const wrapper = mount(FButton, {
-      props: { border: true, text: true }
-    })
-    expect(wrapper.classes()).toContain('f-button-border')
-  })
-
   test('default slot', () => {
     const wrapper = mount(FButton, {
       slots: { default: '这是按钮' }
     })
-    expect(wrapper.find('span').text()).toContain('这是按钮')
+    expect(wrapper.text()).toContain('这是按钮')
   })
 
   test('on click', async () => {

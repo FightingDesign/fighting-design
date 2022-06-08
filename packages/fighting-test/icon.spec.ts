@@ -30,11 +30,4 @@ describe('FIcon', () => {
     })
     expect(wrapper.attributes('style')).toContain('15px')
   })
-
-  test('opacity', () => {
-    const wrapper = mount(FIcon, {
-      props: { opacity: '0.5' }
-    })
-    expect(wrapper.attributes('style')).toContain('0.5')
-  })
 })
