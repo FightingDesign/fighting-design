@@ -2,18 +2,13 @@
 @import '../config/size.scss';
 
 .f-tag {
-  min-width: 22px;
-  padding: 0 6px;
-  font-size: 12px;
-  border-radius: 4px;
+  min-width: 60px;
+  padding:0 6px;
+  font-size: 14px;
   border-color: 1px solid #e9e9eb;
   color: #909399;
   display: inline-block;
-}
-
-.f-text {
-  display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 .f-iolor {
@@ -21,26 +16,89 @@
   opacity: 1.5;
 }
 
+.f-tag-sim-success {
+  border: 1px solid $success;
+  color: $success;
+}
+
+.f-tag-sim-danger {
+  border: 1px solid $danger;
+  color: $danger
+}
+
+.f-tag-sim-warning {
+  border: 1px solid $warning;
+  color: $warning
+}
+
+.f-tag-sim-info {
+  border: 1px solid $info;
+  color: $info
+}
+
+.f-tag-sim-primary {
+  border: 1px solid $primary;
+  color: $primary
+}
+
+.f-tag-success {
+  background-color: #f0f9eb;
+  border: 1px solid #e1f3d8;
+  color: $success;
+}
+
+.f-tag-danger {
+  background-color: #fef0f0;
+  border: 1px solid #fde2e2;
+  color: $danger
+}
+
+.f-tag-warning {
+  background-color: #fdf6ec;
+  border: 1px solid #faecd8;
+  color: $warning
+}
+
+.f-tag-primary {
+  background-color: #ecf5ff;
+  border: 1px solid #d9ecff;
+  color: $primary
+}
+
+.f-tag-info {
+  background-color: #f4f4f5;
+  border: 1px solid #e9e9eb;
+  color: #909399
+}
+
 // 标签的尺寸
 .f-tag.f-tag-large {
-  height: $tag-height-large;
-  line-height: $tag-height-large;
+  height: $large;
+  line-height: 38px;
 }
 
 // 标签的尺寸
 .f-tag.f-tag-middle {
-  height: $tag-height-middle;
-  line-height: $tag-height-middle;
+  height: $middle;
+  line-height: 33px;
 }
 
 // 标签的尺寸
 .f-tag.f-tag-small {
-  height: $tag-height-small;
-  line-height: $tag-height-small;
+  height: $small;
+  line-height: 28px;
 }
 
 // 标签的尺寸
 .f-tag.f-tag-mini {
-  height: $tag-height-mini;
-  line-height: $tag-height-mini;
+  height: $mini;
+  line-height: 23px;
+}
+
+.f-block {
+  display: block;
+}
+
+.f-no-border {
+  border: none;
 }

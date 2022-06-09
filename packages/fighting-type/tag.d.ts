@@ -1,3 +1,3 @@
 export type tagSize = 'large' | 'middle' | 'small' | 'mini'
 
-export type tagTheme = 'light' | 'dark'
+export type tagType = 'info' | 'success' | 'danger' | 'warning' | 'primary'
