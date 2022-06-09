@@ -1,4 +1,4 @@
-# Vue test-utils 基本 API
+# test-utils 基本 API
 
 ## 前言
 
