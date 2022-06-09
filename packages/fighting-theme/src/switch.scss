@@ -1,6 +1,7 @@
 @import '../config/var-switch.scss';
+
 .f-switch {
-  display: flex;
+  display: inline-flex;
   cursor: pointer;
 
   @each $key, $value in $switchSize {
@@ -19,7 +20,9 @@
         left: 0;
         width: $value - 2;
         height: $value - 2;
-        display: inline-block;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
         border-radius: 50%;
         border: 1px solid $inactive;
         background: #fff;

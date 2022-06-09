@@ -11,13 +11,17 @@
     >
       {{ props.inActiveText }}
     </span>
+
     <div
       class="f-switch__inner"
       :class="{ 'f-switch__inner--check': modelValue === activeValue }"
       :style="innerStyle"
     >
-      <span class="ball" :style="ballStyle"></span>
+      <span class="ball" :style="ballStyle">
+        <i class="f-icon f-icon-Daytimemode" />
+      </span>
     </div>
+
     <span
       v-if="props.activeText"
       class="f-switch__label f-switch__label--right"
