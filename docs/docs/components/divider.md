@@ -64,7 +64,7 @@
 
 ## 上下距离
 
-`margin` 可以配置距离上下的距离
+`margin` 可以配置上下的距离
 
 <div>假装是内容</div>
 <f-divider margin="60px" fontColor="blue">距离上下60px</f-divider>
@@ -104,4 +104,3 @@
 | `fontColor`  | 文字颜色     | string  | ——                       | ——     |
 | `background` | 背景颜色     | boolean | ——                       | ——     |
 | `margin`     | 上下距离     | string  | ——                       | ——     |
-| `right-icon` | 右侧的 icon  | string  | ——                       | ——     |
