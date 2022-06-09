@@ -30,11 +30,13 @@
 </template>
 <script lang="ts" name="FSwitch" setup>
   import { computed, onMounted, ref, watch } from 'vue'
+  import type { Ref } from 'vue'
   import { Props, Emits } from './switch'
+
   const props = defineProps(Props)
   const emits = defineEmits(Emits)
 
-  const check = ref(false)
+  const check: Ref<boolean> = ref<boolean>(false)
 
   const innerStyle = computed(() => {
     const { activeColor, inActiveColor } = props
@@ -78,4 +80,3 @@
     check.value = props.modelValue === props.activeValue
   })
 </script>
-<style lang="scss"></style>
