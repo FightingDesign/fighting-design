@@ -1,40 +1,43 @@
 <template>
-  <div class="switch-large">
-    <span></span>
-  </div>
-  <div class="switch-middle">
-    <span></span>
-  </div>
-  <div class="switch-small">
-    <span></span>
+  <div style="margin-top: 10px; margin-left: 20px">
+    <f-switch
+      v-model="value"
+      activeValue="a"
+      inActiveValue="b"
+      inActiveColor="#13ce66"
+      activeText="右侧文字"
+      inActiveText="左侧文字"
+      style="margin-top: 10px"
+    ></f-switch>
+
+    <f-switch
+      v-model="value"
+      activeValue="a"
+      inActiveValue="b"
+      size="middle"
+      inActiveColor="#13ce66"
+      activeText="右侧文字"
+      inActiveText="左侧文字"
+      style="margin-top: 10px"
+    ></f-switch>
+
+    <f-switch
+      v-model="value"
+      activeValue="a"
+      inActiveValue="b"
+      size="large"
+      inActiveColor="#13ce66"
+      activeText="右侧文字"
+      inActiveText="左侧文字"
+      style="margin-top: 10px"
+    ></f-switch>
   </div>
 </template>
 
-<style lang="scss" scoped>
-  $primary: #2d5af1;
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-  $SwitchSize: (
-    'large': 24px,
-    'middle': 20px,
-    'small': 16px
-  );
+  const value = ref('a')
+</script>
 
-  @each $key, $value in $SwitchSize {
-    .switch-#{$key} {
-      height: $value;
-      width: $value * 2;
-      display: inline-flex;
-      background: $primary;
-      border-radius: 20px;
-      cursor: pointer;
-      span {
-        width: $value - 2;
-        height: $value - 2;
-        display: inline-block;
-        border-radius: 50%;
-        background: #fff;
-        border: 1px solid $primary;
-      }
-    }
-  }
-</style>
+<style scoped></style>
