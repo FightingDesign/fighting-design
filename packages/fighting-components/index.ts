@@ -12,6 +12,7 @@ import { FHeader } from './header'
 import { FAside } from './aside'
 import { FMain } from './main'
 import { FContainer } from './container'
+import { FSwitch } from './switch'
 
 const components = {
   FButton,
@@ -26,7 +27,8 @@ const components = {
   FHeader,
   FAside,
   FMain,
-  FContainer
+  FContainer,
+  FSwitch
 }
 
 const install = (app: App): void => {
