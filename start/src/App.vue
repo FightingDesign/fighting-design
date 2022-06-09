@@ -3,7 +3,7 @@
   <f-icon size="15px" icon="f-icon-close" />
   浅色模式
 </f-tag>
-<f-tag size="small" leftIcon="f-icon-close">深色模式</f-tag>
+<f-tag size="small" type="warning" block :hit="false">深色模式</f-tag>
   
 
 <f-container>

@@ -2,19 +2,13 @@
 @import '../config/size.scss';
 
 .f-tag {
-  min-width: 40px;
+  min-width: 60px;
   padding:0 6px;
-  font-size: 12px;
-  // border-radius: 4px;
+  font-size: 14px;
   border-color: 1px solid #e9e9eb;
   color: #909399;
   display: inline-block;
-}
-
-.f-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
 .f-iolor {
@@ -24,7 +18,7 @@
 
 .f-tag-sim-success {
   border: 1px solid $success;
-  color: $success
+  color: $success;
 }
 
 .f-tag-sim-danger {
@@ -50,7 +44,7 @@
 .f-tag-success {
   background-color: #f0f9eb;
   border: 1px solid #e1f3d8;
-  color: $success
+  color: $success;
 }
 
 .f-tag-danger {
@@ -74,38 +68,37 @@
 .f-tag-info {
   background-color: #f4f4f5;
   border: 1px solid #e9e9eb;
-  color: $info
+  color: #909399
 }
-
-.f-tag-block {
-  display: block;
-}
-
 
 // 标签的尺寸
 .f-tag.f-tag-large {
   height: $large;
-  line-height: $large;
+  line-height: 38px;
 }
 
 // 标签的尺寸
 .f-tag.f-tag-middle {
   height: $middle;
-  line-height: $middle;
+  line-height: 33px;
 }
 
 // 标签的尺寸
 .f-tag.f-tag-small {
   height: $small;
-  line-height: $small;
+  line-height: 28px;
 }
 
 // 标签的尺寸
 .f-tag.f-tag-mini {
   height: $mini;
-  line-height: $mini;
+  line-height: 23px;
 }
 
-.f-tag-roud {
-  border-radius: 3px;
+.f-block {
+  display: block;
+}
+
+.f-no-border {
+  border: none;
 }

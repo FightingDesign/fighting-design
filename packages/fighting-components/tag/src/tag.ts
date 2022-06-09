@@ -39,7 +39,7 @@ export const Props = {
   },
   size: {
     type: String as PropType<tagSize>,
-    default: (): tagSize => 'middle',
+    default: (): tagSize => 'small',
     validator: (val: tagSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
@@ -53,6 +53,11 @@ export const Props = {
   block: {
     type: Boolean,
     default: (): boolean => false
+  },
+
+  hit: {
+    type: Boolean,
+    default: (): boolean => true
   },
 } as const
 
