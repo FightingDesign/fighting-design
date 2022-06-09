@@ -1,9 +1,5 @@
 # Tag 标签
 
-::: warning
-该组件仍在开发测试阶段，配置项和样式随时会有较大改动！
-:::
-
 ## 基本使用
 
 由 `type` 属性来选择 tag 的类型。基础预设的类型有`info`，`primary`，`warning`，`success`，`danger`。
