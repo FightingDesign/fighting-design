@@ -43,7 +43,13 @@ export const sidebar = {
         { text: 'Image 图片', link: '/components/image' },
         { text: 'Card 卡片', link: '/components/card' },
         { text: 'Tag 标签', link: '/components/tag' },
-        { text: 'Divider 分隔符', link: '/components/divider' },
+      ]
+    },
+    {
+      text: '其它',
+      link: '/components/',
+      items: [
+        { text: 'Divider 分隔线', link: '/components/divider' },
       ]
     }
   ]
