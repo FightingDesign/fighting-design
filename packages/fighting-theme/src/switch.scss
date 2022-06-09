@@ -1,0 +1,91 @@
+@import '../config/var-switch.scss';
+
+.f-switch {
+  display: inline-flex;
+  cursor: pointer;
+  &-disabled {
+    cursor: not-allowed;
+  }
+
+  @each $key, $value in $switchSize {
+    &.f-switch-#{$key} .f-switch__inner {
+      height: $value;
+      width: $value * 2;
+      position: relative;
+      transition: background-color ease-in-out 0.3s;
+      border-radius: 20px;
+      background-color: $inactive;
+      box-sizing: border-box;
+      &.f-switch__inner--square {
+        width: $value * 2;
+        height: $value;
+        border-radius: 0;
+        background-color: transparent;
+        border: 1px solid $inactive;
+        .ball {
+          width: $value - 2;
+          height: $value - 2;
+          border-radius: 0;
+          border: none;
+          background-color: $inactive;
+          .f-icon {
+            color: #fff;
+          }
+        }
+      }
+      .ball {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: $value - 2;
+        height: $value - 2;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 1px solid $inactive;
+        background: #fff;
+        transition: left ease-in-out 0.3s;
+      }
+      &--check {
+        background-color: $primary;
+        &.f-switch__inner--square {
+          width: $value * 2;
+          height: $value;
+          border-radius: 0;
+          background-color: transparent;
+          border-color: $primary;
+          .ball {
+            width: $value - 2;
+            height: $value - 2;
+            border-radius: 0;
+            border: none;
+            background-color: $primary;
+          }
+        }
+        .ball {
+          left: $value;
+          border-color: $primary;
+        }
+      }
+    }
+
+    .f-switch__label--#{$key} {
+      height: $value;
+    }
+  }
+
+  &__label {
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    &--left {
+      padding-right: 4px;
+    }
+    &--right {
+      padding-left: 4px;
+    }
+  }
+}
