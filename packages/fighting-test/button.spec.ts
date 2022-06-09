@@ -175,7 +175,7 @@ describe('FButton', () => {
 
   test('on click', async () => {
     const wrapper = mount(FButton, {
-      slots: { default: '点击测试' },
+      slots: { default: '点击测试' }
     })
     await wrapper.trigger('click')
     expect(wrapper.emitted()).toBeDefined()
