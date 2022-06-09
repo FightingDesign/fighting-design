@@ -1,24 +1,32 @@
 <template>
   <div
     class="f-switch"
-    :class="[`f-switch-${modelValue}`, `f-switch-${size}`]"
-    @click="check = !check"
+    :class="[
+      `f-switch-${modelValue}`,
+      `f-switch-${size}`,
+      {
+        'f-switch-disabled': disabled
+      }
+    ]"
+    @click="onChange"
   >
     <span
-      v-if="props.inActiveText"
+      v-if="props.inactiveText"
       class="f-switch__label f-switch__label--left"
-      :style="{ color: !check ? inActiveColor : '' }"
+      :style="{ color: modelValue === inactiveValue ? inactiveColor : '' }"
     >
-      {{ props.inActiveText }}
+      {{ props.inactiveText }}
     </span>
-
     <div
       class="f-switch__inner"
-      :class="{ 'f-switch__inner--check': modelValue === activeValue }"
+      :class="{
+        'f-switch__inner--check': modelValue === activeValue,
+        'f-switch__inner--square': square
+      }"
       :style="innerStyle"
     >
       <span class="ball" :style="ballStyle">
-        <i class="f-icon f-icon-Daytimemode" />
+        <i v-if="icon" class="f-icon" :class="icon" />
       </span>
     </div>
 
@@ -26,61 +34,89 @@
       v-if="props.activeText"
       class="f-switch__label f-switch__label--right"
       :class="[`f-switch__label--${size}`]"
-      :style="{ color: check ? activeColor : '' }"
+      :style="{ color: modelValue === activeValue ? activeColor : '' }"
     >
       {{ props.activeText }}
     </span>
   </div>
 </template>
 <script lang="ts" setup name="FSwitch">
-  import { computed, onMounted, ref, watch } from 'vue'
-  import type { Ref } from 'vue'
+  import { computed } from 'vue'
   import { Props, Emits } from './switch'
 
   const props = defineProps(Props)
   const emits = defineEmits(Emits)
 
-  const check: Ref<boolean> = ref<boolean>(false)
-
   const innerStyle = computed(() => {
-    const { activeColor, inActiveColor } = props
-    if (check.value && activeColor) {
+    const {
+      activeColor,
+      inactiveColor,
+      activeValue,
+      inactiveValue,
+      modelValue,
+      square
+    } = props
+    if (modelValue === activeValue && activeColor) {
+      if (square) {
+        return {
+          'border-color': activeColor
+        }
+      }
       return {
         'background-color': activeColor
       }
-    } else if (!check.value && inActiveColor) {
+    } else if (modelValue === inactiveValue && inactiveColor) {
+      if (square) {
+        return {
+          'border-color': inactiveColor
+        }
+      }
       return {
-        'background-color': inActiveColor
+        'background-color': inactiveColor
       }
     }
   })
 
   const ballStyle = computed(() => {
-    const { activeColor, inActiveColor } = props
-    if (check.value && activeColor) {
+    const {
+      activeColor,
+      inactiveColor,
+      activeValue,
+      inactiveValue,
+      modelValue,
+      square
+    } = props
+    if (modelValue === activeValue && activeColor) {
+      if (square) {
+        return {
+          'background-color': activeColor
+        }
+      }
       return {
         'border-color': activeColor
       }
-    } else if (!check.value && inActiveColor) {
+    } else if (modelValue === inactiveValue && inactiveColor) {
+      if (square) {
+        return {
+          'background-color': inactiveColor
+        }
+      }
       return {
-        'border-color': inActiveColor
+        'border-color': inactiveColor
       }
     }
   })
 
-  watch(check, (value: boolean) => {
-    const { activeValue, inActiveValue } = props
+  const onChange = () => {
+    const { activeValue, inactiveValue, modelValue, disabled } = props
+    if (disabled) return
     let returnValue: boolean | string | number = false
-    if (value) {
-      returnValue = activeValue || true
-    } else {
-      returnValue = inActiveValue || false
+    if (modelValue === activeValue) {
+      returnValue = inactiveValue
+    } else if (modelValue === inactiveValue) {
+      returnValue = activeValue
     }
     emits('update:modelValue', returnValue)
     emits('change', returnValue)
-  })
-
-  onMounted(() => {
-    check.value = props.modelValue === props.activeValue
-  })
+  }
 </script>

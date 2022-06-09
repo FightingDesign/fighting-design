@@ -3,6 +3,9 @@
 .f-switch {
   display: inline-flex;
   cursor: pointer;
+  &-disabled {
+    cursor: not-allowed;
+  }
 
   @each $key, $value in $switchSize {
     &.f-switch-#{$key} .f-switch__inner {
@@ -13,6 +16,23 @@
       border-radius: 20px;
       background-color: $inactive;
       box-sizing: border-box;
+      &.f-switch__inner--square {
+        width: $value * 2;
+        height: $value;
+        border-radius: 0;
+        background-color: transparent;
+        border: 1px solid $inactive;
+        .ball {
+          width: $value - 2;
+          height: $value - 2;
+          border-radius: 0;
+          border: none;
+          background-color: $inactive;
+          .f-icon {
+            color: #fff;
+          }
+        }
+      }
       .ball {
         content: '';
         position: absolute;
@@ -30,6 +50,20 @@
       }
       &--check {
         background-color: $primary;
+        &.f-switch__inner--square {
+          width: $value * 2;
+          height: $value;
+          border-radius: 0;
+          background-color: transparent;
+          border-color: $primary;
+          .ball {
+            width: $value - 2;
+            height: $value - 2;
+            border-radius: 0;
+            border: none;
+            background-color: $primary;
+          }
+        }
         .ball {
           left: $value;
           border-color: $primary;
