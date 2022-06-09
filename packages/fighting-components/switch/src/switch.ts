@@ -22,7 +22,7 @@ export const Props = {
     type: [String, Number, Boolean] as PropType<string | number | boolean>,
     default: (): boolean => true
   },
-  inActiveValue: {
+  inactiveValue: {
     type: [String, Number, Boolean] as PropType<string | number | boolean>,
     default: (): boolean => false
   },
@@ -30,7 +30,7 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  inActiveColor: {
+  inactiveColor: {
     type: String,
     default: (): string => ''
   },
@@ -38,9 +38,17 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  inActiveText: {
+  inactiveText: {
     type: String,
     default: (): string => ''
+  },
+  icon: {
+    type: String,
+    default: (): string => ''
+  },
+  square: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 
