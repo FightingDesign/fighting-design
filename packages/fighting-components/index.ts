@@ -50,7 +50,8 @@ export {
   FHeader,
   FAside,
   FMain,
-  FContainer
+  FContainer,
+  FSwitch
 }
 
 export default {

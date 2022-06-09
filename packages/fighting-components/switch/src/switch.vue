@@ -28,7 +28,7 @@
     </span>
   </div>
 </template>
-<script lang="ts" name="FSwitch" setup>
+<script lang="ts" setup name="FSwitch">
   import { computed, onMounted, ref, watch } from 'vue'
   import type { Ref } from 'vue'
   import { Props, Emits } from './switch'
