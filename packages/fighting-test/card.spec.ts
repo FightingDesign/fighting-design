@@ -31,7 +31,6 @@ describe('FCard', () => {
 
   test('shadow', () => {
     const shadow = ['never', 'hover', 'always'] as const
-
     shadow.map((item) => {
       const wrapper = mount(FCard, {
         props: { shadow: item }
