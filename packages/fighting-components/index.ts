@@ -13,6 +13,7 @@ import { FAside } from './aside'
 import { FMain } from './main'
 import { FContainer } from './container'
 import { FSwitch } from './switch'
+import { FBadge } from './badge'
 import { FAvatar } from './avatar'
 
 const components = {
@@ -30,6 +31,7 @@ const components = {
   FMain,
   FContainer,
   FSwitch,
+  FBadge,
   FAvatar
 }
 
@@ -54,6 +56,7 @@ export {
   FMain,
   FContainer,
   FSwitch,
+  FBadge,
   FAvatar
 }
 
