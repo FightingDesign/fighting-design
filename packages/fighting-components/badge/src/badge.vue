@@ -1,7 +1,7 @@
 <template>
   <div class="f-badge">
     <slot />
-    <sup :class="cls" v-show="!hidden && (content || isDot)">
+    <sup :class="classList" v-show="!hidden && (content || isDot)">
       {{ content }}
     </sup>
   </div>
@@ -10,24 +10,29 @@
 <script lang="ts" setup name="FBadge">
   import { computed } from 'vue'
   import { Props } from './badge'
+  import type { ComputedRef } from 'vue'
 
-  const props = defineProps(Props)
+  const prop = defineProps(Props)
 
-  const cls = computed(() => [
-    'f-badge-content',
-    `f-badge-${props.type}`,
-    {
-      'f-badge-dot': props.isDot
+  const classList: ComputedRef<object | string[]> = computed(
+    (): object | string[] => [
+      'f-badge-content',
+      `f-badge-${prop.type}`,
+      {
+        'f-badge-dot': prop.isDot
+      }
+    ]
+  )
+
+  const content: ComputedRef<string> = computed<string>((): string => {
+    const { isDot, max, value } = prop
+
+    if (isDot) return ''
+
+    if (typeof max === 'number' && typeof value === 'number') {
+      return max > value ? `${value}` : `${max}+`
     }
-  ])
 
-  const content = computed<string>(() => {
-    if (props.isDot) return ''
-
-    if (typeof props.max === 'number' && typeof props.value === 'number') {
-      return props.max > props.value ? `${props.value}` : `${props.max}+`
-    }
-
-    return `${props.value}`
+    return `${value}`
   })
 </script>
