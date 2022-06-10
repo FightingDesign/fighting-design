@@ -55,8 +55,8 @@
     )
   }
 
-  const handleClose: onClickInterface = (event: PointerEvent): void => {
-    event.stopPropagation()
-    emit('close', event)
+  const handleClose = (evt: Event): void => {
+    evt.stopPropagation()
+    emit('close', evt)
   }
 </script>

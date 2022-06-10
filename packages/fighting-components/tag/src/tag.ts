@@ -1,4 +1,4 @@
-import type { tagSize, tagTheme, tagType } from '@fighting-design/fighting-type'
+import type { tagSize, tagType } from '@fighting-design/fighting-type'
 import type { PropType } from 'vue'
 
 export const Props = {

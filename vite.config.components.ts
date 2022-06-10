@@ -8,9 +8,9 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
       // entry: resolve(__dirname, 'packages/fighting-design/index.ts'),
-      name: 'fightingDesign',
+      // name: 'fightingDesign',
       formats: ['es'],
-      fileName: 'index.js'
+      fileName: 'index' // 不用加后缀
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
