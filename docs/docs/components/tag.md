@@ -130,12 +130,12 @@
 
 ```html
 <f-tag type="info" size="small" leftIcon="f-icon-calendar-fill">标签</f-tag>
-<f-tag type="primary" size="small" rightIcon="f-icon-CurrencyConverter-fill"
-  >标签</f-tag
->
-<f-tag type="danger" simple size="small" rightIcon="f-icon-form-fill" closable
-  >标签</f-tag
->
+<f-tag type="primary" size="small" rightIcon="f-icon-CurrencyConverter-fill">
+  标签
+</f-tag>
+<f-tag type="danger" simple size="small" rightIcon="f-icon-form-fill" closable>
+  标签
+</f-tag>
 ```
 
 :::
@@ -154,20 +154,20 @@
 
 :::
 
-## Tag Attributes
+## Attributes
 
-| 参数        | 说明           | 类型    | 可选值                                         | 默认值 |
-| ----------- | -------------- | ------- | ---------------------------------------------- | ------ |
-| `type`      | 标签类型       | string  | `info`,`success`,`danger`,`warning`, `primary` | info   |
-| `simple`    | 是否为明亮模式 | boolean | ——                                             | false  |
-| `size`      | 标签大小       | string  | `large`, `middle`, `small` `mini`              | small  |
-| `color`     | 标签颜色       | string  | ——                                             | -      |
-| `round`     | 圆角值         | string  | ——                                             | -      |
-| `leftIcon`  | 左侧 icon      | string  | ——                                             | -      |
-| `rightIcon` | 右侧 icon      | string  | ——                                             | -      |
-| `block`     | 是否为块级元素 | boolean | ——                                             | false  |
-| `hit`       | 是否显示边框   | boolean | ——                                             | true   |
-| `closable`  | 是否可关闭     | boolean | ——                                             | false  |
+| 参数         | 说明           | 类型    | 可选值                                        | 默认值 |
+| ------------ | -------------- | ------- | --------------------------------------------- | ------ |
+| `type`       | 标签类型       | string  | `info` `success` `danger` `warning` `primary` | info   |
+| `simple`     | 是否为明亮模式 | boolean | ——                                            | false  |
+| `size`       | 标签大小       | string  | `large` `middle` `small` `mini`               | small  |
+| `color`      | 标签颜色       | string  | ——                                            | ——     |
+| `round`      | 圆角值         | string  | ——                                            | ——     |
+| `left-icon`  | 左侧 icon      | string  | ——                                            | ——     |
+| `right-icon` | 右侧 icon      | string  | ——                                            | ——     |
+| `block`      | 是否为块级元素 | boolean | ——                                            | false  |
+| `hit`        | 是否显示边框   | boolean | ——                                            | true   |
+| `closable`   | 是否可关闭     | boolean | ——                                            | false  |
 
 <style scoped>
 .f-tag {
