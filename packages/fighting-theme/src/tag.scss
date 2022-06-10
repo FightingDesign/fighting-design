@@ -3,7 +3,7 @@
 
 .f-tag {
   min-width: 60px;
-  padding:0 6px;
+  padding: 0 6px;
   font-size: 14px;
   border-color: 1px solid #e9e9eb;
   color: #909399;
@@ -23,22 +23,22 @@
 
 .f-tag-sim-danger {
   border: 1px solid $danger;
-  color: $danger
+  color: $danger;
 }
 
 .f-tag-sim-warning {
   border: 1px solid $warning;
-  color: $warning
+  color: $warning;
 }
 
 .f-tag-sim-info {
   border: 1px solid $info;
-  color: $info
+  color: $info;
 }
 
 .f-tag-sim-primary {
   border: 1px solid $primary;
-  color: $primary
+  color: $primary;
 }
 
 .f-tag-success {
@@ -50,25 +50,25 @@
 .f-tag-danger {
   background-color: #fef0f0;
   border: 1px solid #fde2e2;
-  color: $danger
+  color: $danger;
 }
 
 .f-tag-warning {
   background-color: #fdf6ec;
   border: 1px solid #faecd8;
-  color: $warning
+  color: $warning;
 }
 
 .f-tag-primary {
   background-color: #ecf5ff;
   border: 1px solid #d9ecff;
-  color: $primary
+  color: $primary;
 }
 
 .f-tag-info {
   background-color: #f4f4f5;
   border: 1px solid #e9e9eb;
-  color: #909399
+  color: #909399;
 }
 
 // 标签的尺寸

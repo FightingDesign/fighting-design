@@ -14,6 +14,7 @@ import { FMain } from './main'
 import { FContainer } from './container'
 import { FSwitch } from './switch'
 import { FBadge } from './badge'
+import { FAvatar } from './avatar'
 
 const components = {
   FButton,
@@ -30,7 +31,8 @@ const components = {
   FMain,
   FContainer,
   FSwitch,
-  FBadge
+  FBadge,
+  FAvatar
 }
 
 const install = (app: App): void => {
@@ -54,7 +56,8 @@ export {
   FMain,
   FContainer,
   FSwitch,
-  FBadge
+  FBadge,
+  FAvatar
 }
 
 export default {
