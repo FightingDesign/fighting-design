@@ -16,9 +16,9 @@ export const Props = {
     type: String as PropType<badgeType>,
     default: (): badgeType => 'danger',
     validator: (val: badgeType): boolean => {
-      return (
-        ['primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
+      return (['primary', 'success', 'danger', 'warning'] as const).includes(
+        val
+      )
     }
-  },
+  }
 } as const

@@ -1,11 +1,11 @@
 @import '../config/var-badge.scss';
 
-.f-badge{
+.f-badge {
   position: relative;
   display: inline-block;
   vertical-align: middle;
 
-  .f-badge-content{
+  .f-badge-content {
     position: absolute;
     border-radius: 10px;
     font-size: 12px;
@@ -25,7 +25,7 @@
       }
     }
 
-    &.f-badge-dot{
+    &.f-badge-dot {
       border-radius: 50%;
       width: 8px;
       height: 8px;

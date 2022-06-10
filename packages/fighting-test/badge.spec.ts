@@ -8,7 +8,10 @@ describe('FBadge', () => {
 
     expect(wrapper.classes()).toContain('f-badge')
     expect(wrapper.find('sup')).toBeDefined()
-    expect(wrapper.find('sup').classes()).toEqual(['f-badge-content', 'f-badge-danger'])
+    expect(wrapper.find('sup').classes()).toEqual([
+      'f-badge-content',
+      'f-badge-danger'
+    ])
   })
 
   test('type', () => {
