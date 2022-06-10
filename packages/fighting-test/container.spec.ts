@@ -5,7 +5,7 @@ import {
   FFooter,
   FHeader,
   FMain,
-  FContainer,
+  FContainer
 } from '@fighting-design/fighting-components'
 
 describe('FAside', () => {
