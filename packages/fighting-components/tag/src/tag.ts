@@ -1,4 +1,4 @@
-import type {tagSize, tagTheme, tagType } from '@fighting-design/fighting-type'
+import type { tagSize, tagTheme, tagType } from '@fighting-design/fighting-type'
 import type { PropType } from 'vue'
 
 export const Props = {
@@ -7,13 +7,7 @@ export const Props = {
     default: (): tagType => 'info',
     validator: (val: tagType): boolean => {
       return (
-        [
-          'info',
-          'success',
-          'danger',
-          'warning',
-          'primary'
-        ] as const
+        ['info', 'success', 'danger', 'warning', 'primary'] as const
       ).includes(val)
     }
   },
@@ -58,7 +52,7 @@ export const Props = {
   hit: {
     type: Boolean,
     default: (): boolean => true
-  },
+  }
 } as const
 
 export const Emits = {
