@@ -4,14 +4,20 @@ import type { PropType } from 'vue'
 export const Props = {
   value: {
     type: [String, Number] as PropType<string | number>,
-    default: ''
+    default: (): string => ''
   },
   max: {
     type: Number,
-    default: 99
+    default: (): number => 99
   },
-  isDot: Boolean,
-  hidden: Boolean,
+  isDot: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  hidden: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   type: {
     type: String as PropType<badgeType>,
     default: (): badgeType => 'danger',
