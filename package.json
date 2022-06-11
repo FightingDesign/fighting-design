@@ -65,7 +65,7 @@
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vitest": "^0.10.0",
     "vue": "^3.2.33",
-    "vue-tsc": "^0.34.7"
+    "vue-tsc": "^0.34.10"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
