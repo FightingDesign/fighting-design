@@ -65,6 +65,7 @@
     "vue-tsc": "^0.34.7"
   },
   "devDependencies": {
+    "@types/node": "^17.0.42",
     "rimraf": "^3.0.2"
   },
   "config": {
