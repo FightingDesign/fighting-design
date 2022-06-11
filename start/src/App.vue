@@ -34,7 +34,6 @@
   <f-button circle left-icon="f-icon-map1" type="warning" />
 </template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <style scoped></style>

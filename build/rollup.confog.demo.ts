@@ -16,11 +16,12 @@ import { resolve } from 'path'
 // const input = 'src/index.ts'
 const input = resolve(__dirname, 'packages/fighting-components/index.ts')
 // 插件
-const plugins = [ // 顺序无严格要求，目前观察buble需要放在vue下面
+const plugins = [
+  // 顺序无严格要求，目前观察buble需要放在vue下面
   // json(),
   nodeResolve(),
   vue(),
-  esbuild(),
+  esbuild()
   // terser(),
 ]
 

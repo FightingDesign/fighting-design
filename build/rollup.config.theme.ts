@@ -27,7 +27,7 @@ const config = {
     // })
     postcss({
       extract: true,
-      extensions: ['.css', '.scss'], // 识别css和scss文件
+      extensions: ['.css', '.scss'] // 识别css和scss文件
       // 在打包过程中需要配合 node-sass 使用
       // process(context, payload) {
       //   return new Promise((resolve, reject) => {

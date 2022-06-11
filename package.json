@@ -27,7 +27,7 @@
     "test": "vitest",
     "prettier": "prettier --write .",
     "commit": "cz",
-    "build:vite:components": "vite build --config vite.config.components.ts",
+    "build:vite:components": "vue-tsc --noEmit && vite build --config vite.config.components.ts",
     "build:vite:theme": "vite build --config vite.config.theme.ts",
     "build:vite:type": "vite build --config vite.config.type.ts"
   },

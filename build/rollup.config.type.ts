@@ -1,7 +1,7 @@
 // https://github.com/Swatinem/rollup-plugin-dts
 // 打包类型文件
 
-import dts from "rollup-plugin-dts";
+import dts from 'rollup-plugin-dts'
 import { resolve } from 'path'
 import { readdirSync } from 'fs'
 // import vue from '@vitejs/plugin-vue'
@@ -14,13 +14,9 @@ const config = [
   // …
   {
     input,
-    plugins: [
-      dts(),
-      vue(),
-      typescript()
-    ],
-    output: [{ file: "dist/fighting-type/index.d.ts", format: "es" }],
-  },
-];
+    plugins: [dts(), vue(), typescript()],
+    output: [{ file: 'dist/fighting-type/index.d.ts', format: 'es' }]
+  }
+]
 
-export default config;
+export default config
