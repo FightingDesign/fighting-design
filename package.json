@@ -49,6 +49,7 @@
     "prettier": "^2.6.2",
     "rollup": "^2.73.0",
     "rollup-plugin-collect-sass": "^1.0.9",
+    "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-esbuild": "^4.9.1",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",

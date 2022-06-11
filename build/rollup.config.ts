@@ -5,6 +5,7 @@ import { readdirSync } from 'fs'
 import { resolve } from 'path'
 import esbuild from 'rollup-plugin-esbuild'
 
+
 const input = resolve(__dirname, '../packages/fighting-components')
 const output = resolve(__dirname, '../dist/packages')
 

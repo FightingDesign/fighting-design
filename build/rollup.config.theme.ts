@@ -1,7 +1,7 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import vuePlugin from 'rollup-plugin-vue'
-import { terser } from 'rollup-plugin-terser'
-import { readdirSync } from 'fs'
+// import vuePlugin from 'rollup-plugin-vue'
+// import { terser } from 'rollup-plugin-terser'
+// import { readdirSync } from 'fs'
 import esbuild from 'rollup-plugin-esbuild'
 
 import { resolve } from 'path'
@@ -29,19 +29,19 @@ const config = {
       extract: true,
       extensions: ['.css', '.scss'], // 识别css和scss文件
       // 在打包过程中需要配合 node-sass 使用
-      process(context, payload) {
-        return new Promise((resolve, reject) => {
-          sass.render({
-            file: context
-          }, function (err, result) {
-            if (!err) {
-              resolve(result)
-            } else {
-              reject(err)
-            }
-          })
-        })
-      }
+      // process(context, payload) {
+      //   return new Promise((resolve, reject) => {
+      //     sass.render({
+      //       file: context
+      //     }, function (err, result) {
+      //       if (!err) {
+      //         resolve(result)
+      //       } else {
+      //         reject(err)
+      //       }
+      //     })
+      //   })
+      // }
     })
   ],
   output: {
