@@ -16,8 +16,6 @@ export type {
   LoadInterface,
   imageFit,
   propsInterface,
-  callbackType,
-  btnClickInterface,
   switchImageInterface,
   optionClickInterface,
   callbackInterface

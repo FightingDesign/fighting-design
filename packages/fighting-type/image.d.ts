@@ -39,19 +39,6 @@ export interface propsInterface {
   errSrc: string
 }
 
-export type callbackType =
-  | Close
-  | Prev
-  | Next
-  | Small
-  | Big
-  | TurnLeft
-  | TurnRight
-
-export interface btnClickInterface {
-  (callback: callbackType): void
-}
-
 export interface switchImageInterface {
   (type: 'next' | 'prev'): void
 }
