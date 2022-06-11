@@ -1,4 +1,4 @@
-import type { App } from 'vue'
+// import type { App } from 'vue'
 import { FButton } from './button'
 import { FIcon } from './icon'
 import { FButtonGroup } from './button-group'
@@ -35,7 +35,8 @@ const components = {
   FAvatar
 }
 
-const install = (app: App): void => {
+// const install = (app: App): void => {
+const install = (app: any): void => {
   Object.entries(components).forEach(([key, value]) => {
     app.component(key, value)
   })
