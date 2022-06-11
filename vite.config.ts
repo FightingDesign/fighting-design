@@ -21,12 +21,14 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
       name: 'fightingDesign',
-      formats: ['es', 'umd'],
-      fileName: 'index'
+      formats: ['es'],
+      fileName: (format) => `index.${format}.js`
     },
     rollupOptions: {
       external: ['vue'],
+      preserveModules: true,
       output: {
+        format: 'es',
         globals: {
           vue: 'Vue'
         }
