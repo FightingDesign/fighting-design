@@ -9,9 +9,6 @@
   "engines": {
     "node": ">= 16"
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "clean": "rimraf dist",
     "start": "pnpm run -C start dev",

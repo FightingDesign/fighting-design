@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import type { imageFit } from '@fighting-design/fighting-type'
+import type { imageFit } from './interface'
 
 export const Props = {
   src: {

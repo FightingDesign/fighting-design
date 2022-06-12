@@ -1,7 +1,7 @@
 import type {
   installInterface,
   mainVNodeInterface
-} from '@fighting-design/fighting-type'
+} from './type'
 import type { App } from 'vue'
 
 /**

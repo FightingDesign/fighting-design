@@ -62,7 +62,7 @@
   import type {
     ordinaryFunctionInterface,
     callbackInterface
-  } from '@fighting-design/fighting-type'
+  } from './interface'
   import PreviewList from './PreviewList.vue'
 
   const prop = defineProps(Props)

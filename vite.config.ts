@@ -22,7 +22,10 @@ export default defineConfig({
       entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
       name: 'fightingDesign',
       formats: ['es'],
-      fileName: (format) => `index.${format}.js`
+      fileName: (format) => {
+        // return `index.${format}.js`
+        return 'index.js'
+      }
     },
     rollupOptions: {
       external: ['vue'],

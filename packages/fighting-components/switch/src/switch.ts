@@ -1,4 +1,4 @@
-import { switchSize } from '@fighting-design/fighting-type'
+import { switchSize } from './interface'
 import { PropType } from 'vue'
 
 export const Props = {

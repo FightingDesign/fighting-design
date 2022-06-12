@@ -55,7 +55,7 @@
     ordinaryFunctionInterface,
     switchImageInterface,
     optionClickInterface
-  } from '@fighting-design/fighting-type'
+  } from './interface'
   import { keepDecimal } from '@fighting-design/fighting-utils'
 
   const prop = defineProps(Props)

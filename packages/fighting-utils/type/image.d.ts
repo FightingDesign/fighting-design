@@ -39,3 +39,6 @@ export interface propsInterface {
   errSrc: string
 }
 
+export interface callbackInterface {
+  (params: boolean, width: number): void
+}

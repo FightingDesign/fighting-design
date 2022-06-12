@@ -1,4 +1,4 @@
-import type { keepDecimalInterface } from '@fighting-design/fighting-type'
+import type { keepDecimalInterface } from './type'
 
 /**
  * 保留小数点后 n 位

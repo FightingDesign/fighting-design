@@ -1,4 +1,4 @@
-import type { changeColorInterface } from '@fighting-design/fighting-type'
+import type { changeColorInterface } from './type'
 
 /**
  * 根据传入的 hex 计算出加深和减淡的颜色

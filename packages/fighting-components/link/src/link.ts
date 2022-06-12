@@ -3,7 +3,7 @@ import type {
   linkType,
   linkTarget,
   linkHover
-} from '@fighting-design/fighting-type'
+} from './interface'
 
 export const Props = {
   type: {

@@ -1,4 +1,4 @@
-import type { dividerPosition } from '@fighting-design/fighting-type'
+import type { dividerPosition } from './interface'
 import type { PropType } from 'vue'
 
 export const Props = {
