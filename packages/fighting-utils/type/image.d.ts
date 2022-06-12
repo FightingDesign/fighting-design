@@ -23,8 +23,6 @@ export interface LoadInterface {
   onload(evt: Event): void
 }
 
-
-
 export interface propsInterface {
   src: string
   alt?: string

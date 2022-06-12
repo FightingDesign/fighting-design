@@ -1,9 +1,5 @@
 import type { PropType } from 'vue'
-import type {
-  linkType,
-  linkTarget,
-  linkHover
-} from './interface'
+import type { linkType, linkTarget, linkHover } from './interface'
 
 export const Props = {
   type: {

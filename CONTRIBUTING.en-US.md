@@ -41,60 +41,54 @@ There are many commands set in `Fighting Design`,You can see in [package.json](h
 
 ```json
 "scripts": {
-  "clean": "rimraf dist",
+ "clean": "rimraf dist",
   "start": "pnpm run -C start dev",
   "dev:docs": "pnpm run -C docs dev",
-  "build": "run-s build:*",
-  "build:components": "vite build",
-  "build:theme": "vite build --config vite.config.css.ts",
-  "build:types": "vite build --config vite.config.types.ts",
+  "build": "pnpm clean && vite build && pnpm build:theme && pnpm move",
+  "build:theme": "vite build --config vite.config.theme.ts",
   "build:docs": "pnpm run -C docs build",
-  "serve:docs": "pnpm run -C docs serve",
+  "build:start": "pnpm run -C start build",
+  "move": "node script/moveFile.ts",
   "test": "vitest",
-  "prettier": "prettier --write ."
+  "prettier": "prettier --write .",
+  "commit": "cz"
 },
 ```
 
-Each command is described in detail below
+下面详细介绍每一条命令
 
 ```shell
-# Clean dist
+# 清除 dist
 pnpm clean
 
-# Start development test project
+# 启动开发测试项目
 pnpm start
 
-# Start document project
+# 启动文档项目
 pnpm dev:docs
 
-# Build (the main build, after which is the package to be released)
+# 打包（主要的打包，打包之后就是需要发布的包）
 pnpm build
 
-# Build components
-pnpm build:components
-
-# Build component style theme
+# 打包组件样式主题
 pnpm build:theme
 
-# Build component type
-pnpm build:type
-
-# build documents
+# 打包文档
 pnpm build:docs
 
-# Run build document
+# 运行打包后的文档
 pnpm serve:docs
 
-# It is used to move files, and move some files that do not need to be packaged to the dist directory (basically not used)
-pnpm move
+# 打包开发测试项目
+pnpm build:start
 
-# unit testing
+# 单元测试
 pnpm test
 
-# Code formatting
+# 代码格式化
 pnpm prettier
 
-# Enable submit plug-in
+# 启用提交插件
 pnpm commit
 ```
 
@@ -105,7 +99,6 @@ The main source files are in the `fighting-design/packages` directory, and each 
 - [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) Component source file directory
 - [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) Unit test directory
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) Style theme catalog
-- [fighting-type](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-type/README.md) Type catalog
 - [fighting-utils](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-utils/README.md) Tool function directory
 
 The following is about the document specification:

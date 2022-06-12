@@ -15,7 +15,7 @@ const fileList = [
   {
     file: './README.md',
     target: `${dist}/README.md`
-  },
+  }
   // {
   //   file: './packages/fighting-theme/dist/style.css',
   //   target: `${theme}/index.css`

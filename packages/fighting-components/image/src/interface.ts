@@ -8,7 +8,6 @@ export interface callbackInterface {
   (params: boolean, width: number): void
 }
 
-
 export interface switchImageInterface {
   (type: 'next' | 'prev'): void
 }

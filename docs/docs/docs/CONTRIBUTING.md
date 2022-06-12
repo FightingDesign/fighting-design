@@ -41,17 +41,17 @@ pnpm start
 
 ```json
 "scripts": {
-  "clean": "rimraf dist",
-  "dev": "pnpm vite",
+ "clean": "rimraf dist",
+  "start": "pnpm run -C start dev",
   "dev:docs": "pnpm run -C docs dev",
-  "build": "run-s build:*",
-  "build:components": "vite build",
-  "build:theme": "vite build --config vite.config.css.ts",
-  "build:types": "vite build --config vite.config.types.ts",
+  "build": "pnpm clean && vite build && pnpm build:theme && pnpm move",
+  "build:theme": "vite build --config vite.config.theme.ts",
   "build:docs": "pnpm run -C docs build",
-  "serve:docs": "pnpm run -C docs serve",
+  "build:start": "pnpm run -C start build",
+  "move": "node script/moveFile.ts",
   "test": "vitest",
-  "prettier": "prettier --write ."
+  "prettier": "prettier --write .",
+  "commit": "cz"
 },
 ```
 
@@ -70,20 +70,17 @@ pnpm dev:docs
 # 打包（主要的打包，打包之后就是需要发布的包）
 pnpm build
 
-# 打包组件
-pnpm build:components
-
 # 打包组件样式主题
 pnpm build:theme
-
-# 打包组件类型
-pnpm build:type
 
 # 打包文档
 pnpm build:docs
 
 # 运行打包后的文档
 pnpm serve:docs
+
+# 打包开发测试项目
+pnpm build:start
 
 # 单元测试
 pnpm test
@@ -97,13 +94,16 @@ pnpm commit
 
 ## 开发规范
 
-主要源文件都在 `fighting-design/packages` 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，参考：
+主要源文件都在 `fighting-design/packages` 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档：
 
 - [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) 组件源文件目录
 - [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) 单元测试目录
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) 样式主题目录
-- [fighting-type](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-type/README.md) 类型目录
 - [fighting-utils](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-utils/README.md) 工具函数目录
+
+下面是关于文档规范：
+
+- [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md)
 
 ## 提交规范
 
