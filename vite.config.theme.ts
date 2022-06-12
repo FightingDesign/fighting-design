@@ -10,6 +10,12 @@ export default defineConfig({
       name: 'style',
       fileName: 'style'
     },
-    emptyOutDir: false
+    emptyOutDir: false,
+    rollupOptions: {
+      output: {
+        dir: resolve(__dirname, 'dist/theme'),
+        format: 'es'
+      }
+    }
   }
 })

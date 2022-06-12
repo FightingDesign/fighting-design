@@ -10,7 +10,7 @@ import '@fighting-design/fighting-theme'
 // import '../dist/theme/index.css'
 
 // 测试路径
-// import FightingDesign from '../dist/index.es'
+// import FightingDesign from '../dist'
 
 console.log(FightingDesign)
 

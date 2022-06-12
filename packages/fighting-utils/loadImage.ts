@@ -4,7 +4,7 @@ import type {
   loadImageInterface,
   propsInterface,
   callbackInterface
-} from '@fighting-design/fighting-type'
+} from './type'
 
 /**
  * 图片加载

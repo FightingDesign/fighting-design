@@ -2,6 +2,27 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.0.8 alpha.8 (2022-06-12)
+
+**feat**
+
+- 新增 `FTag` 组件
+- 新增 `FDivider` 组件
+- 新增 `Badge` 组件
+- 新增 `FContainer` 组件
+- 新增 `FSwitch` 组件
+- 新增 `FButton` 组件 `color` 配置项
+
+**fix**
+
+- `FButton` 组件 `link` 属性改为 `href`
+- 重构 `FButton` 组件
+- 废除 `FButton` 的 `info` 类型
+- 废除 `FButton` 的 `border` 属性
+- 废除 `FButton` 的 `long` 属性
+- 废除 `FLink` 的 `info` 类型
+- 废除 `FIcon` 的 `opacity` 属性
+
 ## 0.0.7 alpha.7 (2022-06-04)
 
 **feat**

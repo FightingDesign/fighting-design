@@ -1,4 +1,4 @@
-import type { badgeType } from '@fighting-design/fighting-type'
+import type { badgeType } from './interface'
 import type { PropType } from 'vue'
 
 export const Props = {

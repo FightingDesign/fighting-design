@@ -1,4 +1,4 @@
-import type { RipplesInterface } from '@fighting-design/fighting-type'
+import type { RipplesInterface } from './type'
 
 /**
  * 按钮点击涟漪效果

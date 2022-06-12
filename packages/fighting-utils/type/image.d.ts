@@ -23,8 +23,6 @@ export interface LoadInterface {
   onload(evt: Event): void
 }
 
-export type imageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down' | ''
-
 export interface propsInterface {
   src: string
   alt?: string
@@ -37,14 +35,6 @@ export interface propsInterface {
   fit?: imageFit
   select?: boolean
   errSrc: string
-}
-
-export interface switchImageInterface {
-  (type: 'next' | 'prev'): void
-}
-
-export interface optionClickInterface {
-  (evt: Event): void
 }
 
 export interface callbackInterface {

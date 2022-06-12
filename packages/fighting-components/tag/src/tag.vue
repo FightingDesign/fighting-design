@@ -18,7 +18,6 @@
 
 <script lang="ts" setup name="FTag">
   import { Props, Emits } from './tag'
-  import type { onClickInterface } from '@fighting-design/fighting-type'
   import { computed } from 'vue'
 
   const prop = defineProps(Props)

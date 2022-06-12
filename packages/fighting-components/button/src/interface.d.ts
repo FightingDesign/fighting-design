@@ -25,3 +25,11 @@ export interface buttonStyleInterface {
   fontSize: string
   color: string
 }
+
+export interface onClickInterface {
+  (evt: PointerEvent): void
+}
+
+export interface ordinaryFunctionInterface {
+  (): void
+}
