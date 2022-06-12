@@ -11,7 +11,8 @@
   <f-button simple type="danger">危险按钮</f-button>
   <f-button simple type="warning">警告按钮</f-button>
   <br />
-  <f-button type="primary" color="#ff0de5">默认按钮</f-button>
+  <f-button type="primary" color="#ff0de5" loading> 默认按钮 </f-button>
+  <f-button type="primary" simple :ripples="false">主要按钮</f-button>
 </template>
 
 <script lang="ts" setup>

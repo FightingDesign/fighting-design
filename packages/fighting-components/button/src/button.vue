@@ -41,13 +41,14 @@
 </template>
 
 <script lang="ts" setup name="FButton">
-  import { computed, ref } from 'vue'
+  import { computed, ref, onMounted } from 'vue'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor } from '@fighting-design/fighting-utils'
   import type { ComputedRef, Ref } from 'vue'
   import type {
     buttonStyleInterface,
-    onClickInterface
+    onClickInterface,
+    ordinaryFunctionInterface
   } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
@@ -93,14 +94,6 @@
     (): buttonStyleInterface | Object => {
       const { fontSize, fontColor, color } = prop
 
-      if (color) {
-        const changeColor = new ChangeColor(color)
-        const light = changeColor.getLightColor(0.5)
-        const dark = changeColor.getDarkColor(0.5)
-
-        console.log(light, dark)
-      }
-
       return {
         fontSize,
         color: fontColor,
@@ -137,5 +130,24 @@
       return `${loadingIcon || 'f-icon-loading'} f-loading-animation`
     }
     return leftIcon
+  })
+
+  const customColor: ordinaryFunctionInterface = (): void => {
+    const { color } = prop
+    const changeColor: ChangeColor = new ChangeColor(color)
+    const light: string = changeColor.getLightColor(0.3)
+    const dark: string = changeColor.getDarkColor(0.1)
+
+    const node: HTMLButtonElement = FButton.value as HTMLButtonElement
+    node.addEventListener('mouseover', () => (node.style.background = light))
+    node.addEventListener('mousedown', () => (node.style.background = dark))
+    node.addEventListener('mouseup', () => (node.style.background = light))
+    node.addEventListener('mouseout', () => (node.style.background = color))
+  }
+
+  onMounted(() => {
+    if (prop.color) {
+      customColor()
+    }
   })
 </script>

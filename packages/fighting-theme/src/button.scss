@@ -151,6 +151,10 @@
     -webkit-animation: loading 1s linear infinite;
   }
 
+  .f-icon {
+    background: transparent !important;
+  }
+
   @keyframes loading {
     0% {
       transform: rotate(0deg);

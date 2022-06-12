@@ -59,5 +59,4 @@ describe('FDivider', () => {
     })
     expect(wrapper.find('span').attributes('style')).toBe('background: green;')
   })
-
 })
