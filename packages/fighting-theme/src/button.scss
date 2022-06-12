@@ -26,10 +26,10 @@
       background: $type;
       // 移入和点击的效果
       &:hover {
-        background: lighten($type, 5%);
+        background: lighten($type, 13%);
       }
       &:active {
-        background: darken($type, 5%);
+        background: darken($type, 8%);
       }
       // 普通按钮禁用效果
       &.f-button-disabled:hover {
@@ -149,6 +149,10 @@
     display: inline-block;
     animation: loading 1s linear infinite;
     -webkit-animation: loading 1s linear infinite;
+  }
+
+  .f-icon {
+    background: transparent !important;
   }
 
   @keyframes loading {

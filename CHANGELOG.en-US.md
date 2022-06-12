@@ -6,6 +6,9 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 - add `FTag` component
 - add `FDivider` component
+
+**fix**
+
 - change attribute `link` to `href` in `FButton` component
 - rewrite `FButton` component
 - dispatch `info` type of `FButton` component

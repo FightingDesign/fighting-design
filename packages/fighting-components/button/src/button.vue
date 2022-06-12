@@ -41,13 +41,14 @@
 </template>
 
 <script lang="ts" setup name="FButton">
-  import { computed, ref } from 'vue'
+  import { computed, ref, onMounted } from 'vue'
   import { Props, Emits } from './button'
-  import { Ripples } from '@fighting-design/fighting-utils'
+  import { Ripples, ChangeColor } from '@fighting-design/fighting-utils'
   import type { ComputedRef, Ref } from 'vue'
   import type {
     buttonStyleInterface,
-    onClickInterface
+    onClickInterface,
+    ordinaryFunctionInterface
   } from '@fighting-design/fighting-type'
 
   const prop = defineProps(Props)
@@ -69,7 +70,8 @@
         blob,
         size,
         text,
-        circle
+        circle,
+        color
       } = prop
 
       return [
@@ -78,12 +80,12 @@
           [`f-button-${type}`]: type,
           [`f-button-${size}`]: size,
           'f-button-disabled': disabled || loading,
-          'f-button-simple': simple,
+          'f-button-simple': simple && !color,
           'f-button-circle': circle,
           'f-button-round': round,
           'f-button-block': block,
           'f-button-blob': blob,
-          'f-button-text': text
+          'f-button-text': text && !color
         }
       ]
     }
@@ -91,17 +93,18 @@
 
   const buttonStyle: ComputedRef<buttonStyleInterface | Object> = computed(
     (): buttonStyleInterface | Object => {
-      const { fontSize, fontColor } = prop
+      const { fontSize, fontColor, color } = prop
 
       return {
         fontSize,
-        color: fontColor
+        color: fontColor,
+        background: color
       }
     }
   )
 
   const onClick: onClickInterface = (evt: PointerEvent): void => {
-    const { disabled, loading, ripples } = prop
+    const { disabled, loading, ripples, ripplesColor } = prop
 
     if (disabled || loading) {
       evt.preventDefault()
@@ -113,7 +116,7 @@
         evt,
         FButton.value as HTMLButtonElement,
         600,
-        prop.ripplesColor
+        ripplesColor
       )
       ripples.clickRipples()
     }
@@ -121,6 +124,7 @@
     emit('click', evt)
   }
 
+  // 左侧 icon
   const leftIconClass: ComputedRef<string> = computed<string>((): string => {
     const { loading, loadingIcon, leftIcon } = prop
 
@@ -128,5 +132,25 @@
       return `${loadingIcon || 'f-icon-loading'} f-loading-animation`
     }
     return leftIcon
+  })
+
+  // 自定义颜色
+  const customColor: ordinaryFunctionInterface = (): void => {
+    const { color } = prop
+    const changeColor: ChangeColor = new ChangeColor(color)
+    const light: string = changeColor.getLightColor(0.4)
+    const dark: string = changeColor.getDarkColor(0.1)
+    const node: HTMLButtonElement = FButton.value as HTMLButtonElement
+
+    node.addEventListener('mouseover', () => (node.style.background = light))
+    node.addEventListener('mousedown', () => (node.style.background = dark))
+    node.addEventListener('mouseup', () => (node.style.background = light))
+    node.addEventListener('mouseout', () => (node.style.background = color))
+  }
+
+  onMounted(() => {
+    if (prop.color) {
+      customColor()
+    }
   })
 </script>
