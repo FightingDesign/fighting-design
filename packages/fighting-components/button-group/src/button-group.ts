@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import type { buttonGroupSize } from '@fighting-design/fighting-type'
+import type { buttonGroupSize } from './interface'
 
 export const Props = {
   size: {

@@ -12,30 +12,18 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
-    }
-  },
   "scripts": {
     "clean": "rimraf dist",
     "start": "pnpm run -C start dev",
     "dev:docs": "pnpm run -C docs dev",
-    "build": "pnpm clean && pnpm build:theme && pnpm build:components && pnpm move",
-    "build:components": "rollup -c build/rollup.config.ts",
-    "build:theme": "vite build packages/fighting-theme",
+    "build": "pnpm clean && vite build",
     "build:docs": "pnpm run -C docs build",
     "build:start": "pnpm run -C start build",
     "serve:docs": "pnpm run -C docs serve",
     "move": "node build/moveFile.ts",
     "test": "vitest",
     "prettier": "prettier --write .",
-    "commit": "cz",
-    "build:vite:components": "vite build --config vite.config.ts",
-    "build:vite:theme": "vite build --config vite.config.theme.ts"
+    "commit": "cz"
   },
   "dependencies": {
     "@commitlint/cli": "^17.0.1",
@@ -44,28 +32,16 @@
     "@fighting-design/fighting-theme": "workspace:*",
     "@fighting-design/fighting-type": "workspace:*",
     "@fighting-design/fighting-utils": "workspace:*",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-typescript": "^8.3.3",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/test-utils": "^2.0.0-rc.18",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
-    "esbuild": "^0.14.40",
     "happy-dom": "^3.2.2",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.2",
-    "node-sass": "^7.0.1",
-    "postcss": "^8.4.14",
     "prettier": "^2.6.2",
-    "rollup": "^2.73.0",
-    "rollup-plugin-collect-sass": "^1.0.9",
-    "rollup-plugin-dts": "^4.2.2",
-    "rollup-plugin-esbuild": "^4.9.1",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-vue": "^6.0.0",
     "sass": "^1.50.1",
-    "typescript": "^4.6.4",
+    "typescript": "^4.7.3",
     "vite": "^2.9.5",
     "vite-plugin-dts": "^1.2.0",
     "vite-plugin-vue-setup-extend": "^0.4.0",

@@ -4,7 +4,7 @@ import type {
   buttonTarget,
   buttonType,
   buttonNativeType
-} from '@fighting-design/fighting-type'
+} from './interface'
 
 export const Props = {
   blob: {
