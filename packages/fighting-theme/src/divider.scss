@@ -2,11 +2,13 @@
   position: relative;
   clear: both;
   width: 100%;
+  border: 0;
   border-bottom: 1px solid #b0b0b0;
   white-space: pre;
   margin: 30px 0;
 
   &.f-divider-vertical {
+    border: 0;
     border-left: 1px solid #b0b0b0;
     display: inline-block;
     min-width: 1px;

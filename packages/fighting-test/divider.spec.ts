@@ -59,4 +59,41 @@ describe('FDivider', () => {
     })
     expect(wrapper.find('span').attributes('style')).toBe('background: green;')
   })
+
+  test('margin', () => {
+    const wrapper = mount(FDivider, {
+      props: {
+        margin: '50px'
+      }
+    })
+    expect(wrapper.attributes('style')).toBe('margin: 50px 0;')
+  })
+
+  test('color', () => {
+    const wrapper = mount(FDivider, {
+      props: {
+        color: 'red'
+      }
+    })
+    expect(wrapper.attributes('style')).toBe('border-color: red;')
+  })
+
+  test('type', () => {
+    const wrapper = mount(FDivider, {
+      props: {
+        type: 'dashed'
+      }
+    })
+    expect(wrapper.attributes('style')).toBe('border-style: dashed;')
+  })
+
+  test('color and type', () => {
+    const wrapper = mount(FDivider, {
+      props: {
+        color: 'red',
+        type: 'dashed'
+      }
+    })
+    expect(wrapper.attributes('style')).toBe('border-color: red; border-style: dashed;')
+  })
 })
