@@ -28,5 +28,9 @@ export const Props = {
   background: {
     type: String,
     default: (): string => ''
+  },
+  type: {
+    type: String,
+    default: (): string => ''
   }
 } as const

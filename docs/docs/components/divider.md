@@ -80,7 +80,7 @@
 
 ## 竖着显示
 
-如果你不喜欢横着显示 `vertical` 属性可以竖着显示
+如果你不喜欢横着显示， `vertical` 属性可以竖着显示
 
 如果使用 `vertical`属性，`color`&`background` 将会失效
 
@@ -90,6 +90,24 @@
 
 ```html
 <f-divider vertical>竖着显示</f-divider>
+```
+
+:::
+
+## 分隔符样式
+
+当你厌倦了直线分隔符，`type` 属性可以让它换一个样式
+
+<f-divider type="dashed">我是虚线</f-divider>
+<f-divider type="dotted">我是圆点</f-divider>
+<f-divider type="double">我是双实线</f-divider>
+
+::: details 显示代码
+
+```html
+<f-divider type="dashed">我是虚线</f-divider>
+<f-divider type="dotted">我是圆点</f-divider>
+<f-divider type="double">我是双实线</f-divider>
 ```
 
 :::
@@ -104,3 +122,4 @@
 | `fontColor`  | 文字颜色     | string  | ——                       | ——     |
 | `background` | 背景颜色     | boolean | ——                       | ——     |
 | `margin`     | 上下距离     | string  | ——                       | ——     |
+| `type`       | 分隔符样式   | string  | ——                       | ——     |
