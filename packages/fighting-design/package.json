@@ -10,7 +10,7 @@
     "components",
     "ui"
   ],
-  "main": "packages/index.ts",
+  "main": "index.d.ts",
   "author": {
     "name": "tyh2001",
     "url": "https://tianyuhao.cn"

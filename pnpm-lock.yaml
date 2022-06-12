@@ -8,7 +8,6 @@ importers:
       '@commitlint/config-conventional': ^17.0.0
       '@fighting-design/fighting-components': workspace:*
       '@fighting-design/fighting-theme': workspace:*
-      '@fighting-design/fighting-type': workspace:*
       '@fighting-design/fighting-utils': workspace:*
       '@types/node': ^17.0.42
       '@vitejs/plugin-vue': ^2.3.1
@@ -33,7 +32,6 @@ importers:
       '@commitlint/config-conventional': 17.0.0
       '@fighting-design/fighting-components': link:packages/fighting-components
       '@fighting-design/fighting-theme': link:packages/fighting-theme
-      '@fighting-design/fighting-type': link:packages/fighting-type
       '@fighting-design/fighting-utils': link:packages/fighting-utils
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.5+vue@3.2.33
       '@vue/test-utils': 2.0.0-rc.18_vue@3.2.33
@@ -77,9 +75,6 @@ importers:
     specifiers: {}
 
   packages/fighting-theme:
-    specifiers: {}
-
-  packages/fighting-type:
     specifiers: {}
 
   packages/fighting-utils:

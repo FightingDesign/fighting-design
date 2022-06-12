@@ -19,11 +19,10 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
+      entry: resolve(__dirname, 'packages/fighting-design'),
       name: 'fightingDesign',
       formats: ['es'],
       fileName: (format) => {
-        // return `index.${format}.js`
         return 'index.js'
       }
     },
