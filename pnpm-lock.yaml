@@ -11,7 +11,7 @@ importers:
       '@fighting-design/fighting-type': workspace:*
       '@fighting-design/fighting-utils': workspace:*
       '@rollup/plugin-node-resolve': ^13.3.0
-      '@rollup/plugin-typescript': ^8.3.3
+      '@types/node': ^17.0.42
       '@vitejs/plugin-vue': ^2.3.1
       '@vue/test-utils': ^2.0.0-rc.18
       commitizen: ^4.2.4
@@ -75,6 +75,7 @@ importers:
       vue: 3.2.33
       vue-tsc: 0.34.10_typescript@4.6.4
     devDependencies:
+      '@types/node': 17.0.42
       rimraf: 3.0.2
 
   docs:
@@ -334,7 +335,7 @@ packages:
       '@commitlint/execute-rule': 17.0.0
       '@commitlint/resolve-extends': 17.0.0
       '@commitlint/types': 17.0.0
-      '@types/node': 17.0.30
+      '@types/node': 17.0.42
       chalk: 4.1.2
       cosmiconfig: 7.0.1
       cosmiconfig-typescript-loader: 2.0.0_706dd5b3c16966aa1e66930b7cc80c2b
@@ -696,7 +697,7 @@ packages:
   /@types/concat-stream/1.6.1:
     resolution: {integrity: sha512-eHE4cQPoj6ngxBZMvVf6Hw7Mh4jMW4U9lpGmS5GBPB9RYxlFg+CHaVN7ErNY4W9XfLIEn20b4VDYaIrbq0q4uA==}
     dependencies:
-      '@types/node': 17.0.30
+      '@types/node': 17.0.42
     dev: false
 
   /@types/estree/0.0.39:
@@ -706,7 +707,7 @@ packages:
   /@types/form-data/0.0.33:
     resolution: {integrity: sha512-8BSvG1kGm83cyJITQMZSulnl6QV8jqAGreJsc5tPu1Jq0vTSOiY/k24Wx82JRpWwZSqrala6sd5rWi6aNXvqcw==}
     dependencies:
-      '@types/node': 17.0.30
+      '@types/node': 17.0.42
     dev: false
 
   /@types/minimist/1.2.2:
@@ -721,9 +722,8 @@ packages:
     resolution: {integrity: sha512-yxDeaQIAJlMav7fH5AQqPH1u8YIuhYJXYBzxaQ4PifsU0GDO38MSdmEDeRlIxrKbC6NbEaaEHDanWb+y30U8SQ==}
     dev: false
 
-  /@types/node/17.0.30:
-    resolution: {integrity: sha512-oNBIZjIqyHYP8VCNAV9uEytXVeXG2oR0w9lgAXro20eugRQfY002qr3CUl6BAe+Yf/z3CRjPdz27Pu6WWtuSRw==}
-    dev: false
+  /@types/node/17.0.42:
+    resolution: {integrity: sha512-Q5BPGyGKcvQgAMbsr7qEGN/kIPN6zZecYYABeTDBizOsau+2NMdSVTar9UQw21A2+JyA2KRNDYaYrPB0Rpk2oQ==}
 
   /@types/node/8.10.66:
     resolution: {integrity: sha512-tktOkFUA4kXx2hhhrB8bIFb5TbwzS4uOhKEmwiD+NoiL0qtP2OQ9mFldbgD4dV1djrlBYP6eBuQZiWjuHUpqFw==}
@@ -744,7 +744,7 @@ packages:
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 17.0.30
+      '@types/node': 17.0.42
     dev: false
 
   /@vitejs/plugin-vue/2.3.1_vite@2.9.5+vue@3.2.33:
@@ -1537,16 +1537,6 @@ packages:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
     dev: false
 
-  /cosmiconfig-typescript-loader/2.0.0_706dd5b3c16966aa1e66930b7cc80c2b:
-    resolution: {integrity: sha512-2NlGul/E3vTQEANqPziqkA01vfiuUU8vT0jZAuUIjEW8u3eCcnCQWLggapCjhbF76s7KQF0fM0kXSKmzaDaG1g==}
-    engines: {node: '>=12', npm: '>=6'}
-    peerDependencies:
-      '@types/node': '*'
-      typescript: '>=3'
-    dependencies:
-      '@types/node': 17.0.30
-      cosmiconfig: 7.0.1
-      ts-node: 10.8.0_706dd5b3c16966aa1e66930b7cc80c2b
       typescript: 4.6.4
     transitivePeerDependencies:
       - '@swc/core'
@@ -2873,7 +2863,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 17.0.30
+      '@types/node': 17.0.42
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: false
@@ -4937,7 +4927,6 @@ packages:
       code-block-writer: 11.0.0
     dev: false
 
-  /ts-node/10.8.0_706dd5b3c16966aa1e66930b7cc80c2b:
     resolution: {integrity: sha512-/fNd5Qh+zTt8Vt1KbYZjRHCE9sI5i7nqfD/dzBBRDeVXZXS6kToW6R7tTU6Nd4XavFs0mAVCg29Q//ML7WsZYA==}
     hasBin: true
     peerDependencies:
@@ -4956,7 +4945,7 @@ packages:
       '@tsconfig/node12': 1.0.9
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
-      '@types/node': 17.0.30
+      '@types/node': 17.0.42
       acorn: 8.7.1
       acorn-walk: 8.2.0
       arg: 4.1.3
