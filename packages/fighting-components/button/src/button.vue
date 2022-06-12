@@ -43,7 +43,7 @@
 <script lang="ts" setup name="FButton">
   import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
-  import { Ripples } from '@fighting-design/fighting-utils'
+  import { Ripples, ChangeColor } from '@fighting-design/fighting-utils'
   import type { ComputedRef, Ref } from 'vue'
   import type {
     buttonStyleInterface,
@@ -91,11 +91,20 @@
 
   const buttonStyle: ComputedRef<buttonStyleInterface | Object> = computed(
     (): buttonStyleInterface | Object => {
-      const { fontSize, fontColor } = prop
+      const { fontSize, fontColor, color } = prop
+
+      if (color) {
+        const changeColor = new ChangeColor(color)
+        const light = changeColor.getLightColor(0.5)
+        const dark = changeColor.getDarkColor(0.5)
+
+        console.log(light, dark)
+      }
 
       return {
         fontSize,
-        color: fontColor
+        color: fontColor,
+        background: color
       }
     }
   )
