@@ -94,6 +94,8 @@ describe('FDivider', () => {
         type: 'dashed'
       }
     })
-    expect(wrapper.attributes('style')).toBe('border-color: red; border-style: dashed;')
+    expect(wrapper.attributes('style')).toBe(
+      'border-color: red; border-style: dashed;'
+    )
   })
 })
