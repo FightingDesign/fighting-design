@@ -1,7 +1,7 @@
 import type { changeColorInterface } from '@fighting-design/fighting-type'
 
 /**
- * 根据传入的 hex
+ * 根据传入的 hex 计算出加深和减淡的颜色
  */
 export class ChangeColor implements changeColorInterface {
   color: string
