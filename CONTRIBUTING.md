@@ -103,7 +103,7 @@ pnpm commit
 
 下面是关于文档规范：
 
-- [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md)
+- [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md) 文档编写规范
 
 ## 提交规范
 

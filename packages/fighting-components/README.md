@@ -14,6 +14,7 @@
 
 ```
 ├── src
+|  ├── interface.d.ts
 |  ├── component.ts
 |  └── component.vue
 └── index.ts
@@ -21,9 +22,10 @@
 
 下面分别介绍一下每个文件的作用：
 
-- `component.vue`： 组件的源文件
-- `component.ts`： 写入 `Props` 和 `Emits`
-- `index.ts`：主入口文件 包含注册组件
+- `interface.d.ts` 写入组件和 `Props` 相关的所以类型
+- `component.ts` 写入 `Props` 和 `Emits`
+- `component.vue` 组件的源文件
+- `index.ts`主入口文件 包含注册组件
 
 下面将会分别介绍一下每个文件内部的一些规范。
 
@@ -33,6 +35,14 @@
 - 去掉末尾的分号
 - `tab` 始终为两个空格
 - 文件末尾加空行
+
+## interface.d.ts
+
+> 由于打包问题，已经废除原有 @fighting-design/fighting-type 目录，类型改为以下定义方式
+
+`interface.d.ts` 用于定义类型，每个组件中变量、函数、`Props` 相关的所有类型需要在这里定义。
+
+导出统一使用 `export`
 
 ## component.vue
 
@@ -110,7 +120,7 @@ const com: ComputedRef<string> = computed<string>((): string => {
 
 - 定义函数
 
-[fighting-type](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-type) 中定义类型
+`interface.d.ts` 中定义类型
 
 ```ts
 export interface funInterface {
@@ -121,7 +131,7 @@ export interface funInterface {
 引入使用类型
 
 ```ts
-import type { funInterface } from './xxx'
+import type { funInterface } from './interface'
 
 const fun: funInterface = (a: number, b: number): number => {
   return a + b
