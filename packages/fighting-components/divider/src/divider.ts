@@ -1,4 +1,4 @@
-import type { dividerPosition } from './interface'
+import type { dividerPosition, dividerType } from './interface'
 import type { PropType } from 'vue'
 
 export const Props = {
@@ -30,7 +30,10 @@ export const Props = {
     default: (): string => ''
   },
   type: {
-    type: String,
-    default: (): string => ''
+    type: String as PropType<dividerType>,
+    validator: (value: dividerType): boolean => {
+      return (['dashed', 'dotted', 'double', 'solid'] as const).includes(value)
+    },
+    default: (): dividerType => 'solid'
   }
 } as const

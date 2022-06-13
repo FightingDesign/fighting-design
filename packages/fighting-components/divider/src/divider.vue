@@ -1,12 +1,21 @@
 <template>
   <div
-    :class="['f-divider', { 'f-divider-vertical': vertical }]"
-    :style="dividerStyle"
+    :class="[
+      'f-divider',
+      { 'f-divider-vertical': vertical, [`f-divider-${type}`]: type }
+    ]"
+    :style="{
+      margin: `${margin || '30px'} 0`,
+      borderColor: color
+    }"
   >
     <span
       v-if="renderSlot"
       :class="['f-divider-text', `f-divider-text-${position}`]"
-      :style="dividerTextStyle"
+      :style="{
+        background,
+        color: fontColor
+      }"
     >
       <slot />
     </span>
@@ -17,6 +26,7 @@
   import { useSlots, computed } from 'vue'
   import { Props } from './divider'
   import type { ComputedRef } from 'vue'
+  import type { dividerStyleInterface } from './interface'
 
   const prop = defineProps(Props)
 
@@ -24,16 +34,14 @@
     return !prop.vertical && Boolean(useSlots().default)
   })
 
-  const dividerTextStyle: ComputedRef<string> = computed((): string => {
-    const fontColor = prop.fontColor ? `color: ${prop.fontColor}` : ''
-    const background = prop.background ? `background: ${prop.background}` : ''
-    return [fontColor, background].join(';')
-  })
+  const dividerStyle: ComputedRef<dividerStyleInterface> = computed(
+    (): dividerStyleInterface => {
+      const { color, margin } = prop
 
-  const dividerStyle: ComputedRef<string> = computed((): string => {
-    const borderColor = prop.color ? `border-color: ${prop.color}` : ''
-    const margin = prop.margin ? `margin: ${prop.margin} 0` : ''
-    const borderStyle = prop.type ? `border-style: ${prop.type}` : ''
-    return [borderColor, margin, borderStyle].join(';')
-  })
+      return {
+        margin: `${margin || '30px'} 0`,
+        borderColor: color
+      }
+    }
+  )
 </script>

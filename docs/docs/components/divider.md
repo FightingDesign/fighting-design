@@ -96,7 +96,7 @@
 
 ## 分隔符样式
 
-当你厌倦了直线分隔符，`type` 属性可以让它换一个样式
+当你厌倦了直线分隔符 `type` 属性可以让它换一个样式
 
 <f-divider type="dashed">我是虚线</f-divider>
 <f-divider type="dotted">我是圆点</f-divider>
@@ -114,12 +114,12 @@
 
 ## Attributes
 
-| 参数         | 说明         | 类型    | 可选值                   | 默认值 |
-| ------------ | ------------ | ------- | ------------------------ | ------ |
-| `position`   | 文字显示位置 | string  | `left` ` center``right ` | center |
-| `vertical`   | 显示风格     | boolean | `true` `false`           | false  |
-| `color`      | 线条颜色     | string  | ——                       | ——     |
-| `fontColor`  | 文字颜色     | string  | ——                       | ——     |
-| `background` | 背景颜色     | boolean | ——                       | ——     |
-| `margin`     | 上下距离     | string  | ——                       | ——     |
-| `type`       | 分隔符样式   | string  | ——                       | ——     |
+| 参数         | 说明         | 类型    | 可选值                             | 默认值 |
+| ------------ | ------------ | ------- | ---------------------------------- | ------ |
+| `position`   | 文字显示位置 | string  | `left` `center` `right`            | center |
+| `vertical`   | 是否为竖线   | boolean | ——                                 | false  |
+| `color`      | 线条颜色     | string  | ——                                 | ——     |
+| `fontColor`  | 文字颜色     | string  | ——                                 | ——     |
+| `background` | 背景颜色     | boolean | ——                                 | ——     |
+| `margin`     | 上下边距     | string  | ——                                 | ——     |
+| `type`       | 分隔符样式   | string  | `dashed` `dotted` `double` `solid` | solid  |
