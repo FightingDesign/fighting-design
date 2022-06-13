@@ -93,7 +93,7 @@ const iconClass = computed(() => {})
 
 - 能定义类型的地方就要定义类型
 - 就算是类型自动推倒出来了，也要写入类型
-- `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 [fighting-type](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-type) 中定义，定义规范请参考 [@fighting-design/fighting-type](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-type/README.md)
+- `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 `interface.d.ts` 中定义
 - 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/FightingDesign/fighting-design/discussions) 或者群里提问
 
 下面举例常用的定义类型规范：
