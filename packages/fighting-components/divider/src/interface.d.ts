@@ -4,5 +4,5 @@ export type dividerType = 'dashed' | 'dotted' | 'double' | 'solid'
 
 export interface dividerStyleInterface {
   borderColor: string
-  margin: string
+  margin?: string
 }
