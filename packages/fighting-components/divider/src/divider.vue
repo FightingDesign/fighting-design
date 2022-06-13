@@ -4,10 +4,7 @@
       'f-divider',
       { 'f-divider-vertical': vertical, [`f-divider-${type}`]: type }
     ]"
-    :style="{
-      margin: `${margin || '30px'} 0`,
-      borderColor: color
-    }"
+    :style="dividerStyle"
   >
     <span
       v-if="renderSlot"
@@ -38,10 +35,13 @@
     (): dividerStyleInterface => {
       const { color, margin } = prop
 
-      return {
-        margin: `${margin || '30px'} 0`,
-        borderColor: color
-      }
+      if (margin) {
+        return {
+          margin: `${margin} 0`,
+          borderColor: color
+        }
+      } 
+      return { borderColor: color }
     }
   )
 </script>
