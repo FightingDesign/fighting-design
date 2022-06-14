@@ -10,7 +10,68 @@
 
 ## 基本布局
 
-<Container />
+<f-container>
+  <f-header>Header</f-header>
+  <f-main>Main</f-main>
+</f-container>
+
+::: details 显示代码
+
+```html
+<f-container>
+  <f-header>Header</f-header>
+  <f-main>Main</f-main>
+</f-container>
+```
+
+:::
+
+<f-container>
+  <f-header>Header</f-header>
+  <f-main>Main</f-main>
+  <f-footer>Footer</f-footer>
+</f-container>
+
+<f-container>
+  <f-aside>Aside</f-aside>
+  <f-main>Main</f-main>
+</f-container>
+
+<f-container>
+  <f-header>Header</f-header>
+  <f-container>
+    <f-aside>Aside</f-aside>
+    <f-main>Main</f-main>
+  </f-container>
+</f-container>
+
+<f-container>
+  <f-header>Header</f-header>
+  <f-container>
+    <f-aside>Aside</f-aside>
+    <f-container>
+      <f-main>Main</f-main>
+      <f-footer>Footer</f-footer>
+    </f-container>
+  </f-container>
+</f-container>
+
+<f-container>
+  <f-aside>Aside</f-aside>
+  <f-container>
+    <f-header>Header</f-header>
+    <f-main>Main</f-main>
+  </f-container>
+</f-container>
+
+<f-container>
+  <f-aside>Aside</f-aside>
+  <f-container>
+    <f-header>Header</f-header>
+    <f-main>Main</f-main>
+    <f-footer>Footer</f-footer>
+  </f-container>
+</f-container>
 
 ## Container 属性
 
@@ -36,6 +97,39 @@
 | -------- | ---- | ------ | ------ | ------ |
 | `height` | 高度 | string | ——     | 50px   |
 
-<script setup>
-  import Container from '/@theme/Container.vue'
-</script>
+<style scoped>
+  .f-header,
+  .f-footer {
+    background-color: #b3c0d1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+  }
+
+  .f-aside {
+    background-color: #d3dce6;
+    color: #333;
+    text-align: center;
+    line-height: 200px;
+  }
+
+  .f-main {
+    background-color: #e9eef3;
+    color: #333;
+    text-align: center;
+    line-height: 160px;
+  }
+
+  body > .f-container {
+    margin-bottom: 40px;
+  }
+
+  .f-container:nth-child(5) .f-aside,
+  .f-container:nth-child(6) .f-aside {
+    line-height: 260px;
+  }
+
+  .f-container:nth-child(7) .f-aside {
+    line-height: 320px;
+  }
+</style>
