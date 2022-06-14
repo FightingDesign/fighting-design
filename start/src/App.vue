@@ -1,7 +1,7 @@
 <template>
   <f-container>
     <f-header>Header</f-header>
-    <f-main>Main</f-main>
+    <!-- <f-main>Main</f-main> -->
   </f-container>
 </template>
 
