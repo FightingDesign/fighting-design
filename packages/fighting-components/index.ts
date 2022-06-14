@@ -11,7 +11,7 @@ import { FFooter } from './footer'
 import { FHeader } from './header'
 import { FAside } from './aside'
 import { FMain } from './main'
-import { FContainer } from './container'
+import { FLayout } from './layout'
 import { FSwitch } from './switch'
 import { FBadge } from './badge'
 import { FAvatar } from './avatar'
@@ -29,7 +29,7 @@ const components = {
   FHeader,
   FAside,
   FMain,
-  FContainer,
+  FLayout,
   FSwitch,
   FBadge,
   FAvatar
@@ -54,7 +54,7 @@ export {
   FHeader,
   FAside,
   FMain,
-  FContainer,
+  FLayout,
   FSwitch,
   FBadge,
   FAvatar

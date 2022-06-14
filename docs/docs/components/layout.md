@@ -1,8 +1,8 @@
-# Container 布局容器
+# Layout 布局
 
 ## 基本使用
 
-`f-container` 外层容器, 可以实现垂直、水平、嵌套布局  
+`f-layout` 外层容器, 可以实现垂直、水平、嵌套布局  
 `f-header` 头部容器  
 `f-footer` 底部容器  
 `f-main` 主体容器  
@@ -10,88 +10,119 @@
 
 ## 基本布局
 
-<f-container>
+<f-layout>
   <f-header>Header</f-header>
   <f-main>Main</f-main>
-</f-container>
+</f-layout>
 
-::: details 显示代码
+<br />
+<br />
 
-```html
-<f-container>
-  <f-header>Header</f-header>
-  <f-main>Main</f-main>
-</f-container>
-```
-
-:::
-
-<f-container>
+<f-layout>
   <f-header>Header</f-header>
   <f-main>Main</f-main>
   <f-footer>Footer</f-footer>
-</f-container>
+</f-layout>
 
-<f-container>
-  <f-aside>Aside</f-aside>
+<br />
+<br />
+
+<f-layout>
+  <f-aside width="200px">Aside</f-aside>
   <f-main>Main</f-main>
-</f-container>
+</f-layout>
 
-<f-container>
+<br />
+<br />
+
+<f-layout>
   <f-header>Header</f-header>
-  <f-container>
-    <f-aside>Aside</f-aside>
-    <f-main>Main</f-main>
-  </f-container>
-</f-container>
+  <f-layout>
+  <f-aside width="200px">Aside</f-aside>
+  <f-main>Main</f-main>
+</f-layout>
+</f-layout>
 
-<f-container>
+<br />
+<br />
+
+<f-layout>
+<f-header>Header</f-header>
+<f-layout>
+<f-aside width="70px">Aside1</f-aside>
+<f-aside width="200px">Aside2</f-aside>
+<f-main>Main</f-main>
+</f-layout>
+</f-layout>
+
+
+<br />
+<br />
+
+<f-layout>
   <f-header>Header</f-header>
-  <f-container>
-    <f-aside>Aside</f-aside>
-    <f-container>
-      <f-main>Main</f-main>
-      <f-footer>Footer</f-footer>
-    </f-container>
-  </f-container>
-</f-container>
+  <f-layout>
+  <f-main>Main</f-main>
+  <f-aside width="200px">Aside</f-aside>
+</f-layout>
+</f-layout>
 
-<f-container>
-  <f-aside>Aside</f-aside>
-  <f-container>
-    <f-header>Header</f-header>
-    <f-main>Main</f-main>
-  </f-container>
-</f-container>
+<br />
+<br />
 
-<f-container>
-  <f-aside>Aside</f-aside>
-  <f-container>
-    <f-header>Header</f-header>
-    <f-main>Main</f-main>
-    <f-footer>Footer</f-footer>
-  </f-container>
-</f-container>
+<f-layout>
+<f-header>Header</f-header>
+<f-layout>
+<f-aside width="200px">Aside</f-aside>
+<f-layout>
+<f-main>Main</f-main>
+<f-footer>Footer</f-footer>
+</f-layout>
+</f-layout>
+</f-layout>
 
-## Container 属性
+<br />
+<br />
+
+<f-layout>
+<f-aside width="200px">Aside</f-aside>
+<f-layout>
+<f-header>Header</f-header>
+<f-main>Main</f-main>
+</f-layout>
+</f-layout>
+
+<br />
+<br />
+
+<f-layout>
+<f-aside width="200px">Aside</f-aside>
+<f-layout>
+<f-header>Header</f-header>
+<f-main>Main</f-main>
+<f-footer>Footer</f-footer>
+</f-layout>
+</f-layout>
+
+## layout Attributes
 
 | 参数          | 说明     | 类型   | 可选值                | 默认值                                                           |
 | ------------- | -------- | ------ | --------------------- | ---------------------------------------------------------------- |
 | `orientation` | 排列方向 | string | horizontal / vertical | 子元素中有 f-header 或 f-footer 时为 vertical，否则为 horizontal |
 
-## Header 属性
+## Header Attributes
 
 | 参数     | 说明 | 类型   | 可选值 | 默认值 |
 | -------- | ---- | ------ | ------ | ------ |
 | `height` | 高度 | string | ——     | 50px   |
 
-## Aside 属性
+## Aside Attributes
 
 | 参数    | 说明 | 类型   | 可选值 | 默认值 |
 | ------- | ---- | ------ | ------ | ------ |
 | `width` | 宽度 | string | ——     | 300px  |
 
-## Footer 属性
+## Footer Attributes
 
 | 参数     | 说明 | 类型   | 可选值 | 默认值 |
 | -------- | ---- | ------ | ------ | ------ |
@@ -120,16 +151,16 @@
     line-height: 160px;
   }
 
-  body > .f-container {
+  body > .f-layout {
     margin-bottom: 40px;
   }
 
-  .f-container:nth-child(5) .f-aside,
-  .f-container:nth-child(6) .f-aside {
+  .f-layout:nth-child(5) .f-aside,
+  .f-layout:nth-child(6) .f-aside {
     line-height: 260px;
   }
 
-  .f-container:nth-child(7) .f-aside {
+  .f-layout:nth-child(7) .f-aside {
     line-height: 320px;
   }
 </style>

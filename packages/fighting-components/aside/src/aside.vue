@@ -4,8 +4,14 @@
   </aside>
 </template>
 
-<script lang="ts" setup name="FAside">
+<script lang="ts" setup>
   import { Props } from './aside'
 
   defineProps(Props)
+</script>
+
+<script lang="ts">
+  export default {
+    name: 'FAside'
+  }
 </script>
