@@ -10,143 +10,7 @@
 
 ## 基本布局
 
-<f-container>
-<f-header>Header</f-header>
-<f-main>Main</f-main>
-</f-container>
-
-::: details 显示代码
-
-```html
-<f-container>
-  <f-header>Header</f-header>
-  <f-main>Main</f-main>
-</f-container>
-```
-
-:::
-
-<f-container>
-<f-header>Header</f-header>
-<f-main>Main</f-main>
-<f-footer>Footer</f-footer>
-</f-container>
-
-::: details 显示代码
-
-```html
-<f-container>
-  <f-header>Header</f-header>
-  <f-main>Main</f-main>
-  <f-footer>Footer</f-footer>
-</f-container>
-```
-
-:::
-
-<f-container>
-<f-header>Header</f-header>
-<f-container>
-<f-aside>Aside</f-aside>
-<f-container>
-<f-main>Main</f-main>
-<f-footer>Footer</f-footer>
-</f-container>
-</f-container>
-</f-container>
-
-::: details 显示代码
-
-```html
-<f-container>
-  <f-header>Header</f-header>
-  <f-container>
-    <f-aside>Aside</f-aside>
-    <f-container>
-      <f-main>Main</f-main>
-      <f-footer>Footer</f-footer>
-    </f-container>
-  </f-container>
-</f-container>
-```
-
-:::
-
-<div class="container-body">
-<f-container>
-<f-header>Header</f-header>
-<f-container>
-<f-aside>Aside</f-aside>
-<f-container>
-<f-main>Main</f-main>
-<f-footer>Footer</f-footer>
-</f-container>
-</f-container>
-</f-container>
-</div>
-
-::: details 显示代码
-
-```html
-<f-container>
-  <f-header>Header</f-header>
-  <f-container>
-    <f-aside>Aside</f-aside>
-    <f-container>
-      <f-main>Main</f-main>
-      <f-footer>Footer</f-footer>
-    </f-container>
-  </f-container>
-</f-container>
-```
-
-:::
-
-<div class="container-body">
-<f-container>
-<f-aside width="200px">Aside</f-aside>
-<f-main>Main</f-main>
-</f-container>
-</div>
-
-::: details 显示代码
-
-```html
-<div class="container-body">
-  <f-container>
-    <f-aside width="200px">Aside</f-aside>
-    <f-main>Main</f-main>
-  </f-container>
-</div>
-```
-
-:::
-
-<div class="container-body">
-<f-container>
-<f-aside width="200px">Aside</f-aside>
-<f-container>
-<f-header>Header</f-header>
-<f-main>Main</f-main>
-</f-container>
-</f-container>
-</div>
-
-::: details 显示代码
-
-```html
-<div class="container-body">
-  <f-container>
-    <f-aside width="200px">Aside</f-aside>
-    <f-container>
-      <f-header>Header</f-header>
-      <f-main>Main</f-main>
-    </f-container>
-  </f-container>
-</div>
-```
-
-:::
+<Container />
 
 ## Container 属性
 
@@ -171,3 +35,7 @@
 | 参数     | 说明 | 类型   | 可选值 | 默认值 |
 | -------- | ---- | ------ | ------ | ------ |
 | `height` | 高度 | string | ——     | 50px   |
+
+<script setup>
+  import Container from '/@theme/Container.vue'
+</script>

@@ -1,1 +1,1 @@
-export type orientationType = 'horizontal' | 'vertical'
+export type directionType = 'horizontal' | 'vertical' | ''

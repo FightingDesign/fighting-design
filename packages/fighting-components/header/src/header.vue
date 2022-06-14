@@ -4,8 +4,14 @@
   </header>
 </template>
 
-<script lang="ts" setup name="FHeader">
+<script lang="ts" setup>
   import { Props } from './header'
 
   defineProps(Props)
+</script>
+
+<script lang="ts">
+  export default {
+    name: 'FHeader'
+  }
 </script>
