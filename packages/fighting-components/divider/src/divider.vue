@@ -40,7 +40,7 @@
           margin: `${margin} 0`,
           borderColor: color
         }
-      } 
+      }
       return { borderColor: color }
     }
   )

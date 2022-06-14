@@ -87,5 +87,4 @@ describe('FDivider', () => {
     })
     expect(wrapper.attributes('style')).toBe('border-color: red;')
   })
-
 })
