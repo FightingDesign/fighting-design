@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 
 const text = "I'm a divider"
+const type = 'dotted'
 
 describe('FDivider', () => {
   test('render with text', () => {
@@ -22,6 +23,15 @@ describe('FDivider', () => {
     })
     expect(wrapper.classes()).toContain('f-divider-vertical')
     expect(wrapper.find('span').exists()).toBe(false)
+  })
+
+  test('type', () => {
+    const wrapper = mount(FDivider, {
+      props: {
+        type: type
+      }
+    })
+    expect(wrapper.classes()).toContain(`f-divider-${type}`)
   })
 
   test('position', () => {
@@ -78,24 +88,4 @@ describe('FDivider', () => {
     expect(wrapper.attributes('style')).toBe('border-color: red;')
   })
 
-  test('type', () => {
-    const wrapper = mount(FDivider, {
-      props: {
-        type: 'dashed'
-      }
-    })
-    expect(wrapper.attributes('style')).toBe('border-style: dashed;')
-  })
-
-  test('color and type', () => {
-    const wrapper = mount(FDivider, {
-      props: {
-        color: 'red',
-        type: 'dashed'
-      }
-    })
-    expect(wrapper.attributes('style')).toBe(
-      'border-color: red; border-style: dashed;'
-    )
-  })
 })

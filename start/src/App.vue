@@ -5,6 +5,13 @@
   <f-divider type="solid">我是直线</f-divider>
 
   <!-- <div class="box solid"></div> -->
+  <f-container>
+    <f-aside width="200px">Aside</f-aside>
+    <f-container>
+      <f-header>Header</f-header>
+      <f-main>Main</f-main>
+    </f-container>
+  </f-container>
 </template>
 
 <script lang="ts" setup></script>
