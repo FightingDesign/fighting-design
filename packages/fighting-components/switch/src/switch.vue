@@ -1,10 +1,11 @@
 <template>
-  <label for="FSwitch" class="f-switch">
+  <label for="FSwitch" :class="['f-switch', { 'f-switch-disabled': disabled }]">
     <input
       id="FSwitch"
       type="checkbox"
       hidden
       :name="name"
+      :disabled="disabled"
       :checked="modelValue"
       @input="onInput"
     />
@@ -43,6 +44,7 @@
 
   const onInput = (): void => {
     emit('update:modelValue', !prop.modelValue)
+    emit('change', !prop.modelValue)
   }
 
   const rollStyle = computed(() => {

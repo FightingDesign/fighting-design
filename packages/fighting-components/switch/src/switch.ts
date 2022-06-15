@@ -48,7 +48,9 @@ export const Props = {
   }
 } as const
 
-export const Emits = {
-  'update:modelValue': (value: boolean): boolean => value,
-  change: (value: boolean): boolean => value
-} as const
+// export const Emits = {
+//   'update:modelValue': (value: boolean): boolean => value,
+//   change: (value: boolean): boolean => value
+// } as const
+
+export const Emits = ['update:modelValue', 'change']

@@ -5,11 +5,11 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   .f-switch-input {
     position: relative;
     display: inline-flex;
-    cursor: pointer;
     border-radius: 30px;
     z-index: 5;
     transition: 0.24s;
@@ -73,6 +73,12 @@
   }
   .f-switch-text-active {
     color: $primary;
+  }
+
+  // 禁用状态
+  &.f-switch-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 
