@@ -38,33 +38,43 @@
 <script lang="ts" setup name="FSwitch">
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
+  import type {
+    onInputInterface,
+    rollStyleReturn,
+    FSwitchClassReturnType
+  } from './interface'
+  import type { ComputedRef } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const onInput = (): void => {
+  const onInput: onInputInterface = (): void => {
     emit('update:modelValue', !prop.modelValue)
     emit('change', !prop.modelValue)
   }
 
-  const rollStyle = computed(() => {
-    const { modelValue, closeColor, openColor } = prop
-    return {
-      right: modelValue ? '0px' : '20px',
-      borderColor: modelValue ? openColor : closeColor
-    }
-  })
-
-  const FSwitchClass = computed(() => {
-    const { size, modelValue, square } = prop
-
-    return [
-      'f-switch-input',
-      {
-        [`f-switch-${size}`]: size,
-        'f-switch-close': !modelValue,
-        'f-switch-square': square
+  const rollStyle: ComputedRef<rollStyleReturn> = computed(
+    (): rollStyleReturn => {
+      const { modelValue, closeColor, openColor } = prop
+      return {
+        right: modelValue ? '0px' : '20px',
+        borderColor: modelValue ? openColor : closeColor
       }
-    ]
-  })
+    }
+  )
+
+  const FSwitchClass: ComputedRef<FSwitchClassReturnType> = computed(
+    (): FSwitchClassReturnType => {
+      const { size, modelValue, square } = prop
+
+      return [
+        'f-switch-input',
+        {
+          [`f-switch-${size}`]: size,
+          'f-switch-close': !modelValue,
+          'f-switch-square': square
+        }
+      ]
+    }
+  )
 </script>
