@@ -1,7 +1,10 @@
 <template>
-  <f-switch v-model="value"></f-switch>
-  <!-- <f-switch v-model="value"></f-switch>
-  <f-switch v-model="value"></f-switch> -->
+  <f-switch
+    v-model="value"
+    openText="打开"
+    closeText="关闭"
+    icon="f-icon-default-template"
+  />
 </template>
 
 <script lang="ts" setup>

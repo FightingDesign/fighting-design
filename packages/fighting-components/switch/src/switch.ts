@@ -49,8 +49,6 @@ export const Props = {
 } as const
 
 export const Emits = {
-  'update:modelValue': (
-    value: string | number | boolean
-  ): string | number | boolean => value,
-  change: (value: string | number | boolean): string | number | boolean => value
+  'update:modelValue': (value: boolean): boolean => value,
+  change: (value: boolean): boolean => value
 } as const

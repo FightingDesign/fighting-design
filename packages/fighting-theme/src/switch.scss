@@ -1,43 +1,78 @@
 @import '../config/var-switch.scss';
 
 .f-switch {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 30px;
-  z-index: 5;
-  transition: 0.24s;
-  background: $primary;
+  user-select: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
-  &.f-switch-middle {
-    width: 40px;
-    height: 20px;
+  .f-switch-input {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+    border-radius: 30px;
+    z-index: 5;
+    transition: 0.24s;
+    background: $primary;
+
+    &.f-switch-middle {
+      width: 40px;
+      height: 20px;
+    }
+
+    // 小球
+    .f-switch-roll {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border: 2px solid $primary;
+      border-radius: 50%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 10;
+      transition: 0.24s;
+      .f-icon {
+        font-size: 13px;
+      }
+    }
+
+    // 关闭状态
+    &.f-switch-close {
+      background: #bbbbbb;
+      .f-switch-roll {
+        border: 2px solid #bbbbbb;
+      }
+    }
+
+    // 方形的
+    &.f-switch-square {
+      border-radius: 0;
+      .f-switch-roll {
+        border-radius: 0;
+      }
+    }
   }
 
-  // 小球
-  .f-switch-roll {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 16px;
-    height: 16px;
-    background: #fff;
-    border: 2px solid $primary;
-    border-radius: 50%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 10;
+  // 左右的文字
+  .f-switch-left-text {
+    font-size: 13px;
+    color: #333;
+    margin-left: 5px;
     transition: 0.24s;
   }
-
-  // 关闭状态
-  &.f-switch-close {
-    background: #bbbbbb;
-    .f-switch-roll {
-      border: 2px solid #bbbbbb;
-    }
+  .f-switch-right-text {
+    font-size: 13px;
+    color: #333;
+    margin-right: 5px;
+    transition: 0.24s;
+  }
+  .f-switch-text-active {
+    color: $primary;
   }
 }
 

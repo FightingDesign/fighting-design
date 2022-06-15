@@ -1,5 +1,5 @@
 <template>
-  <label for="FSwitch" :class="FSwitchClass">
+  <label for="FSwitch" class="f-switch">
     <input
       id="FSwitch"
       type="checkbox"
@@ -8,8 +8,28 @@
       :checked="modelValue"
       @input="onInput"
     />
-    <span class="f-switch-roll" :style="rollStyle">
-      <i v-if="icon" :class="['f-icon', icon]" />
+
+    <span
+      v-if="closeText"
+      :class="['f-switch-right-text', { 'f-switch-text-active': !modelValue }]"
+    >
+      {{ closeText }}
+    </span>
+
+    <div
+      :class="FSwitchClass"
+      :style="{ background: modelValue ? openColor : closeColor }"
+    >
+      <span class="f-switch-roll" :style="rollStyle">
+        <i v-if="icon" :class="['f-icon', icon]" />
+      </span>
+    </div>
+
+    <span
+      v-if="openText"
+      :class="['f-switch-left-text', { 'f-switch-text-active': modelValue }]"
+    >
+      {{ openText }}
     </span>
   </label>
 </template>
@@ -19,28 +39,29 @@
   import { Props, Emits } from './switch'
 
   const prop = defineProps(Props)
-  const emit = defineEmits(['update:modelValue'])
+  const emit = defineEmits(Emits)
 
   const onInput = (): void => {
     emit('update:modelValue', !prop.modelValue)
   }
 
   const rollStyle = computed(() => {
-    const { modelValue } = prop
-
+    const { modelValue, closeColor, openColor } = prop
     return {
-      left: modelValue ? '0px' : '20px'
+      right: modelValue ? '0px' : '20px',
+      borderColor: modelValue ? openColor : closeColor
     }
   })
 
   const FSwitchClass = computed(() => {
-    const { size, modelValue } = prop
+    const { size, modelValue, square } = prop
 
     return [
-      'f-switch',
+      'f-switch-input',
       {
         [`f-switch-${size}`]: size,
-        'f-switch-close': !modelValue
+        'f-switch-close': !modelValue,
+        'f-switch-square': square
       }
     ]
   })
