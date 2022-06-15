@@ -1,20 +1,12 @@
 <template>
-  <f-switch
-    v-model="value"
-    openText="打开"
-    closeText="关闭"
-    icon="f-icon-default-template"
-    @change="aaaa"
-  />
+  <f-switch v-model="value1" />
+  <f-switch v-model="value2" />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  const value = ref(true)
-
-  function aaaa(e) {
-    console.log(e)
-  }
+  const value1 = ref(true)
+  const value2 = ref(false)
 </script>
 
 <style scoped></style>
