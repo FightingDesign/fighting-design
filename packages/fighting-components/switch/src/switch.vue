@@ -7,7 +7,6 @@
       :name="name"
       :disabled="disabled"
       :checked="modelValue"
-      @input="onInput"
     />
 
     <span
@@ -20,6 +19,7 @@
     <div
       :class="FSwitchClass"
       :style="{ background: modelValue ? openColor : closeColor }"
+      @click="changeSwitch"
     >
       <span class="f-switch-roll" :style="rollStyle">
         <i v-if="icon" :class="['f-icon', icon]" />
@@ -39,7 +39,7 @@
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
   import type {
-    onInputInterface,
+    changeSwitchInterface,
     rollStyleReturn,
     FSwitchClassReturnType
   } from './interface'
@@ -48,7 +48,10 @@
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const onInput: onInputInterface = (): void => {
+  const changeSwitch: changeSwitchInterface = (): void => {
+    if (prop.disabled) {
+      return
+    }
     emit('update:modelValue', !prop.modelValue)
     emit('change', !prop.modelValue)
   }

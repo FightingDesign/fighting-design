@@ -1,6 +1,6 @@
 export type switchSize = 'large' | 'middle' | 'small'
 
-export interface onInputInterface {
+export interface changeSwitchInterface {
   (): void
 }
 
