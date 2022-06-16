@@ -15,6 +15,7 @@ import { FLayout } from './layout'
 import { FSwitch } from './switch'
 import { FBadge } from './badge'
 import { FAvatar } from './avatar'
+import { FBacktop } from './backtop'
 
 const components = {
   FButton,
@@ -32,7 +33,8 @@ const components = {
   FLayout,
   FSwitch,
   FBadge,
-  FAvatar
+  FAvatar,
+  FBacktop
 }
 
 const install = (app: App): void => {
@@ -57,7 +59,8 @@ export {
   FLayout,
   FSwitch,
   FBadge,
-  FAvatar
+  FAvatar,
+  FBacktop
 }
 
 export default {
