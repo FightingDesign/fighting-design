@@ -95,17 +95,82 @@
 
 :::
 
-## 不同颜色
+## 自定义颜色
+
+`close-color` 和 `open-color` 可以自定义开关的颜色
+
+<f-switch v-model="value7" close-color="red" open-color="skyblue" />
+
+::: details 显示代码
+
+```html
+<template>
+  <f-switch v-model="value7" close-color="red" open-color="skyblue" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  const value7 = ref(true)
+</script>
+```
+
+:::
 
 ## 描述文字
 
-## 属性
+`close-text` 和 `open-text` 可以自定义开关左右的描述文字
 
-| 参数               | 说明     | 类型    | 可选值               | 默认值 |
-| ------------------ | -------- | ------- | -------------------- | ------ |
-| modelValue/v-model | 绑定值   | string  | string               | false  |
-| size               | 组件尺寸 | string  | large, middle, small | small  |
-| disabled           | 是否禁用 | boolean | true,false           | false  |
+<f-switch v-model="value8" close-text="关闭" open-text="开启" />
+
+::: details 显示代码
+
+```html
+<template>
+  <f-switch v-model="value8" close-text="关闭" open-text="开启" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  const value8 = ref(true)
+</script>
+```
+
+:::
+
+## 带有 icon
+
+`icon` 可以让 `switch` 上带有 `icon`
+
+<f-switch v-model="value9" icon="f-icon-editor" />
+
+::: details 显示代码
+
+```html
+<template>
+  <f-switch v-model="value9" icon="f-icon-editor" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  const value9 = ref(true)
+</script>
+```
+
+:::
+
+## Attributes
+
+| 参数                   | 说明                 | 类型    | 可选值                   | 默认值 |
+| ---------------------- | -------------------- | ------- | ------------------------ | ------ |
+| `modelValue / v-model` | 绑定值               | string  | ——                       | false  |
+| `size`                 | 组件尺寸             | string  | `large` `middle` `small` | middle |
+| `disabled`             | 是否禁用             | boolean | ——                       | false  |
+| `icon`                 | 自定义 icon          | string  | ——                       | ——     |
+| `close-color`          | 自定义关闭状态背景色 | string  | ——                       | ——     |
+| `open-color`           | 自定义开启状态背景色 | string  | ——                       | ——     |
+| `open-text`            | 自定义右侧的文字描述 | string  | ——                       | ——     |
+| `close-text`           | 自定义左侧的文字描述 | string  | ——                       | ——     |
+| `square`               | 是否为方形开关       | boolean | ——                       | false  |
 
 <script setup>
   import { ref } from 'vue'
@@ -115,6 +180,9 @@
   const value4 = ref(true)
   const value5 = ref(false)
   const value6 = ref(true)
+  const value7 = ref(true)
+  const value8 = ref(true)
+  const value9 = ref(true)
 </script>
 
 <style scoped>
