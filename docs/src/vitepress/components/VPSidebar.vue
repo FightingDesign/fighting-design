@@ -54,8 +54,7 @@
     overflow-y: auto;
     transform: translateX(-100%);
     transition: background-color 0.5s, opacity 0.5s, transform 0.3s ease;
-    /* -ms-overflow-style: none; */
-    /* scrollbar-width: none; */
+    box-sizing: border-box;
   }
 
   #VPSidebarNav {

@@ -18,10 +18,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  name: {
-    type: String,
-    default: (): string => ''
-  },
+  // name: {
+  //   type: String,
+  //   default: (): string => ''
+  // },
   icon: {
     type: String,
     default: (): string => ''

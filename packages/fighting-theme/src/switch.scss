@@ -12,7 +12,7 @@
     display: inline-flex;
     border-radius: 30px;
     z-index: 5;
-    transition: 0.24s;
+    transition: 0.2s;
     background: $primary;
     width: 40px;
     height: 20px;
@@ -37,7 +37,7 @@
           top: 0;
           bottom: 0;
           z-index: 10;
-          transition: 0.24s;
+          transition: 0.2s;
           .f-icon {
             font-size: 13px;
           }
@@ -67,13 +67,13 @@
     font-size: 13px;
     color: #333;
     margin-left: 5px;
-    transition: 0.24s;
+    transition: 0.2s;
   }
   .f-switch-right-text {
     font-size: 13px;
     color: #333;
     margin-right: 5px;
-    transition: 0.24s;
+    transition: 0.2s;
   }
   .f-switch-text-active {
     color: $primary;
