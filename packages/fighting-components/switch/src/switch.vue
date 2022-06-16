@@ -1,14 +1,5 @@
 <template>
-  <label for="FSwitch" :class="['f-switch', { 'f-switch-disabled': disabled }]">
-    <input
-      id="FSwitch"
-      type="checkbox"
-      hidden
-      :name="name"
-      :disabled="disabled"
-      :checked="modelValue"
-    />
-
+  <div :class="['f-switch', { 'f-switch-disabled': disabled }]">
     <span
       v-if="closeText"
       :class="['f-switch-right-text', { 'f-switch-text-active': !modelValue }]"
@@ -32,7 +23,7 @@
     >
       {{ openText }}
     </span>
-  </label>
+  </div>
 </template>
 
 <script lang="ts" setup name="FSwitch">
@@ -58,9 +49,14 @@
 
   const rollStyle: ComputedRef<rollStyleReturn> = computed(
     (): rollStyleReturn => {
-      const { modelValue, closeColor, openColor } = prop
+      const { modelValue, closeColor, openColor, size } = prop
+      const _size = {
+        large: '24px',
+        middle: '20px',
+        small: '16px'
+      } as const
       return {
-        right: modelValue ? '0px' : '20px',
+        right: modelValue ? '0px' : _size[size],
         borderColor: modelValue ? openColor : closeColor
       }
     }

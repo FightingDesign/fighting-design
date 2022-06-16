@@ -14,30 +14,34 @@
     z-index: 5;
     transition: 0.24s;
     background: $primary;
+    width: 40px;
+    height: 20px;
 
-    &.f-switch-middle {
-      width: 40px;
-      height: 20px;
-    }
-
-    // 小球
-    .f-switch-roll {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 16px;
-      height: 16px;
-      background: #fff;
-      border: 2px solid $primary;
-      border-radius: 50%;
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      z-index: 10;
-      transition: 0.24s;
-      .f-icon {
-        font-size: 13px;
+    // 打开状态
+    @each $key, $value in $switchSize {
+      &.f-switch-#{$key} {
+        width: $value * 2;
+        height: $value;
+        // 小球
+        .f-switch-roll {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: $value - 4;
+          height: $value - 4;
+          background: #fff;
+          border: 2px solid $primary;
+          border-radius: 50%;
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: 10;
+          transition: 0.24s;
+          .f-icon {
+            font-size: 13px;
+          }
+        }
       }
     }
 

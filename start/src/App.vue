@@ -1,6 +1,7 @@
 <template>
-  <f-switch v-model="value1" disabled />
-  <f-switch v-model="value2" />
+  <f-switch v-model="value1" />
+  <f-switch v-model="value1" />
+  <f-switch v-model="value1" />
 </template>
 
 <script lang="ts" setup>

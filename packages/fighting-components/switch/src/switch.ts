@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import { switchSize } from './interface'
+import type { switchSize } from './interface'
 
 export const Props = {
   modelValue: {
