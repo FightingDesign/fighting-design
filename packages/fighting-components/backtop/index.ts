@@ -1,7 +1,7 @@
-import FBacktop from './src/backtop.vue'
+import FBackTop from './src/backtop.vue'
 
-import { install } from "@fighting-design/fighting-utils";
+import { install } from '@fighting-design/fighting-utils'
 
-install(FBacktop, FBacktop.name)
+install(FBackTop, FBackTop.name)
 
-export { FBacktop }
+export { FBackTop }

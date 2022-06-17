@@ -10,14 +10,14 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  icon: {
-    type: String,
-    default: (): string => 'f-icon-arrow-up'
-  },
-  iconSize: {
-    type: Number,
-    default: (): number => 40
-  },
+  // icon: {
+  //   type: String,
+  //   default: (): string => 'f-icon-arrow-up'
+  // },
+  // iconSize: {
+  //   type: Number,
+  //   default: (): number => 40
+  // },
   visibleHeight: {
     type: Number,
     default: (): number => 200
@@ -30,12 +30,12 @@ export const Props = {
     }
   },
   right: {
-    type: Number,
-    default: (): number => 40
+    type: String,
+    default: (): string => ''
   },
   bottom: {
-    type: Number,
-    default: (): number => 40
+    type: String,
+    default: (): string => ''
   }
 } as const
 
