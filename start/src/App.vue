@@ -1,14 +1,11 @@
 <template>
-  <div style="height: 320vh"></div>
-  <f-switch v-model="value7" close-text="关闭" open-text="开启" />
-  <f-back-top>
-    <span>UP</span>
-  </f-back-top>
+  <f-tag type="info">信息</f-tag>
+  <f-tag type="primary">普通</f-tag>
+  <f-tag type="warning">警告</f-tag>
+  <f-tag type="success">成功</f-tag>
+  <f-tag type="danger">失败</f-tag>
 </template>
 
-<script lang="ts" setup>
-  import { ref } from 'vue'
-  const value7 = ref(true)
-</script>
+<script lang="ts" setup></script>
 
 <style scoped></style>

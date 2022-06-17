@@ -38,17 +38,14 @@ export const Props = {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
-
   simple: {
     type: Boolean,
     default: (): boolean => false
   },
-
   block: {
     type: Boolean,
     default: (): boolean => false
   },
-
   hit: {
     type: Boolean,
     default: (): boolean => true

@@ -1,16 +1,15 @@
 <template>
-  <div :class="cls" :style="sty">
+  <div :class="classList" :style="styleList">
     <span class="f-text">
-      <f-icon v-if="leftIcon" size="15px" :icon="leftIcon" />
+      <i v-if="leftIcon" :class="['f-icon', leftIcon]" />
       <slot />
-      <f-icon v-if="rightIcon" size="15px" :icon="rightIcon" />
+      <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
 
-      <f-icon
+      <i
         v-if="closable"
         class="f-iolor"
-        size="15px"
         icon="f-icon-close"
-        @click="handleClose"
+        @click.stop="handleClose"
       />
     </span>
   </div>
@@ -19,28 +18,32 @@
 <script lang="ts" setup name="FTag">
   import { Props, Emits } from './tag'
   import { computed } from 'vue'
+  import type { handleCloseInterface } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
-  const is_light = prop.simple
-  const cls = computed(() => [
-    'f-tag',
-    is_light ? `f-tag-sim-${prop.type}` : `f-tag-${prop.type}`,
-    {
-      [`f-tag-${prop.size}`]: prop.size,
-      'f-block': prop.block,
-      'f-no-border': !prop.hit
-    }
-  ])
 
-  let sty = {
+  const classList = computed(() => {
+    const { simple, type, size, block, hit } = prop
+    return [
+      'f-tag',
+      simple ? `f-tag-sim-${type}` : `f-tag-${type}`,
+      {
+        [`f-tag-${size}`]: size,
+        'f-block': block,
+        'f-no-border': !hit
+      }
+    ]
+  })
+
+  let styleList = {
     borderRadius: prop.round
   }
 
   if (prop.color) {
-    sty = Object.assign(
-      sty,
-      is_light
+    styleList = Object.assign(
+      styleList,
+      prop.simple
         ? {
             color: prop.color,
             border: `1px solid ${prop.color}`,
@@ -54,8 +57,7 @@
     )
   }
 
-  const handleClose = (evt: Event): void => {
-    evt.stopPropagation()
+  const handleClose: handleCloseInterface = (evt: MouseEvent): void => {
     emit('close', evt)
   }
 </script>
