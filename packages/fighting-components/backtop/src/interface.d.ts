@@ -1,1 +1,1 @@
-export type ScrollBehavior = 'auto' | 'smooth'
+export type backTopBehavior = 'smooth' | 'instant' | 'auto'

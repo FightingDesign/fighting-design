@@ -1,7 +1,9 @@
 <template>
-  <transition :class="['f-back-top', { 'f-back-top-round': round }]">
+  <transition
+    v-show="visible"
+    :class="['f-back-top', { 'f-back-top-round': round }]"
+  >
     <div :style="{ right, bottom }" @click.stop="handleClick">
-      <!-- <f-icon v-if="isIcon" :icon="icon" :size="iconSize" /> -->
       <slot />
     </div>
   </transition>
@@ -9,22 +11,22 @@
 
 <script lang="ts" name="FBackTop" setup>
   import { Emits, Props } from './backTop'
-  import { onMounted, ref, shallowRef } from 'vue'
+  import { onMounted, ref } from 'vue'
+  import type { Ref } from 'vue'
+  import { debounce } from '@fighting-design/fighting-utils'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const el = shallowRef<HTMLElement>()
-  const visible = ref<boolean>(false)
+  const visible: Ref<boolean> = ref<boolean>(false)
 
-  const toggle = () => {
-    console.log(el.value)
-    if (el.value) {
-      visible.value = el.value.scrollTop >= prop.visibleHeight
-    }
+  const handleScroll = () => {
+    return debounce(() => {
+      const scrollTop: number = document.documentElement.scrollTop
+      visible.value = scrollTop > prop.distance
+    }, 200)
   }
 
-  window.onscroll = toggle
   const handleClick = (evt: MouseEvent): void => {
     scrollTo({
       top: 0,
@@ -34,6 +36,6 @@
   }
 
   onMounted(() => {
-    el.value = document.documentElement
+    document.addEventListener('scroll', handleScroll())
   })
 </script>

@@ -7,5 +7,5 @@ export type {
   callbackInterface
 } from './image'
 export type { installInterface, mainVNodeInterface } from './install'
-export type { keepDecimalInterface } from './utils'
+export type { keepDecimalInterface, debounceInterface } from './utils'
 export type { changeColorInterface } from './changeColor'

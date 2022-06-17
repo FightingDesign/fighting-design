@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 120vh"></div>
+  <div style="height: 320vh"></div>
   <f-switch v-model="value7" close-text="关闭" open-text="开启" />
   <f-back-top>
     <span>UP</span>

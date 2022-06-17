@@ -1,5 +1,5 @@
 export { install } from './install'
 export { loadImage } from './loadImage'
-export { keepDecimal } from './utils'
+export { keepDecimal, debounce } from './utils'
 export { Ripples } from './ripples'
 export { ChangeColor } from './changeColor'
