@@ -10,7 +10,7 @@ export const Props = {
     type: String as PropType<backTopBehavior>,
     default: (): backTopBehavior => 'smooth',
     validator(val: backTopBehavior): boolean {
-      return (['smooth', 'instant', 'auto'] as const).includes(val)
+      return (['smooth', 'auto'] as const).includes(val)
     }
   },
   visibleHeight: {

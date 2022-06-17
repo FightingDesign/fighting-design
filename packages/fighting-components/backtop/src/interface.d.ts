@@ -1,4 +1,4 @@
-export type backTopBehavior = 'smooth' | 'instant' | 'auto'
+export type backTopBehavior = 'smooth' | 'auto'
 
 export interface handleScrollInterface {
   ()
