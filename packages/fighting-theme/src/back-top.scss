@@ -1,6 +1,6 @@
 $color: #e5e5e5;
 
-.f-backtop {
+.f-back-top {
   position: fixed;
   width: 40px;
   height: 40px;
@@ -11,12 +11,14 @@ $color: #e5e5e5;
   justify-content: center;
   cursor: pointer;
   z-index: 10;
+  bottom: 40px;
+  right: 40px;
   &-round {
     border-radius: 50%;
   }
 }
 
-.f-backtop:hover {
+.f-back-top:hover {
   transition: background-color 0.5s;
   background-color: $color;
 }

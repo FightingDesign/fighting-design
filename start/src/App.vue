@@ -1,9 +1,9 @@
 <template>
   <div style="height: 120vh"></div>
   <f-switch v-model="value7" close-text="关闭" open-text="开启" />
-  <f-backtop>
+  <f-back-top>
     <span>UP</span>
-  </f-backtop>
+  </f-back-top>
 </template>
 
 <script lang="ts" setup>

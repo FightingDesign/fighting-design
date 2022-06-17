@@ -1,6 +1,6 @@
 <template>
-  <transition :class="['f-backTop', { 'f-backTop-round': round }]">
-    <div v-if="visible" :style="{ right, bottom }" @click.stop="handleClick">
+  <transition :class="['f-back-top', { 'f-back-top-round': round }]">
+    <div :style="{ right, bottom }" @click.stop="handleClick">
       <!-- <f-icon v-if="isIcon" :icon="icon" :size="iconSize" /> -->
       <slot />
     </div>
@@ -17,21 +17,20 @@
   const el = shallowRef<HTMLElement>()
   const visible = ref<boolean>(false)
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
-
   const toggle = () => {
-    if (el.value) visible.value = el.value.scrollTop >= prop.visibleHeight
+    console.log(el.value)
+    if (el.value) {
+      visible.value = el.value.scrollTop >= prop.visibleHeight
+    }
   }
 
   window.onscroll = toggle
-  const handleClick = (e: MouseEvent) => {
-    scrollToTop()
-    emit('click', e)
+  const handleClick = (evt: MouseEvent): void => {
+    scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+    emit('click', evt)
   }
 
   onMounted(() => {
