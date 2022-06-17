@@ -3,5 +3,5 @@ export interface keepDecimalInterface {
 }
 
 export interface debounceInterface {
-  (handle: Function, delay: number)
+  (handle: Function, delay: number): Function
 }

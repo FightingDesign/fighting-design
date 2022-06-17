@@ -13,10 +13,6 @@ export const Props = {
       return (['smooth', 'instant', 'auto'] as const).includes(val)
     }
   },
-  distance: {
-    type: Number,
-    default: (): number => 200
-  },
   visibleHeight: {
     type: Number,
     default: (): number => 200
