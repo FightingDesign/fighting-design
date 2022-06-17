@@ -11,12 +11,12 @@ export const nav = [
   },
   {
     text: '高阶组件',
-    activeMatch: '^/components/',
+    activeMatch: '^/senior-components/',
     link: ''
   },
   {
     text: '联合组件',
-    activeMatch: '^/components/',
+    activeMatch: '^/union-components/',
     link: ''
   }
 ]
