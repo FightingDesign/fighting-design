@@ -11,7 +11,7 @@ export const Props = {
       ).includes(val)
     }
   },
-  closable: {
+  close: {
     type: Boolean,
     default: (): boolean => false
   },
@@ -46,7 +46,7 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  hit: {
+  border: {
     type: Boolean,
     default: (): boolean => true
   }
