@@ -4,3 +4,30 @@ $danger: #ff0200;
 $warning: #fcc202;
 $default: #f0f0f0;
 $info: #bdc3c7; // 计划移除中
+
+$theme-color: (
+  primary: (
+    default: #2d5af1,
+    simple: #fff
+  ),
+  success: (
+    default: #52b35e,
+    simple: #fff
+  ),
+  danger: (
+    default: #ff0200,
+    simple: #fff
+  ),
+  warning: (
+    default: #fcc202,
+    simple: #fff
+  ),
+  default: (
+    default: #f0f0f0,
+    simple: #fff
+  ),
+  info: (
+    default: #bdc3c7,
+    simple: #fff
+  )
+);
