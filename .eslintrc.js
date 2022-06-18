@@ -31,6 +31,7 @@ module.exports = {
     'no-tabs': 'error',
     'indent': 'error',
     'quotes': ['error', 'single', { avoidEscape: true }],
+    '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/ban-types': 'warn',
     'semi': ['error', 'never'],
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
