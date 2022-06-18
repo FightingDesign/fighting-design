@@ -21,7 +21,8 @@
     "test": "vitest",
     "prettier": "prettier --write .",
     "commit": "cz",
-    "lint": "eslint 'packages/**/*.{js,ts,vue,jsx,tsx}'"
+    "lint": "eslint 'packages/**/*.{js,ts,vue,jsx,tsx}'",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@commitlint/cli": "^17.0.1",
