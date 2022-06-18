@@ -43,7 +43,6 @@
 <script lang="ts" setup name="FButton">
   import { computed, ref, onMounted } from 'vue'
   import { Props, Emits } from './button'
-  // import { Ripples, ChangeColor } from '@fighting-design/fighting-utils'
   import { Ripples, ChangeColor } from '@fighting-design/fighting-utils'
   import type { ComputedRef, Ref } from 'vue'
   import type {
