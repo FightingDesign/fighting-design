@@ -1,6 +1,10 @@
-@import '../config/color.scss';
-@import '../config/size.scss';
+@import '../config/var-color.scss';
+@import '../config/var-size.scss';
 
+// 文字颜色
+$textColor: #24292f;
+
+// 不同大小
 @mixin btnSizes($height, $padding, $fontSize) {
   height: $height;
   padding: 0 $padding;
@@ -24,3 +28,14 @@ $ButtonSizes: (
   'small': $small,
   'mini': $mini
 );
+
+// 不同按钮的边距
+$ButtonFontSizeLarge: 15px;
+$ButtonFontSizeMiddle: 14px;
+$ButtonFontSizeSmall: 13px;
+$ButtonFontSizeMini: 12px;
+
+$ButtonPaddingLarge: 30px;
+$ButtonPaddingMiddle: 25px;
+$ButtonPaddingSmall: 20px;
+$ButtonPaddingMini: 15px;
