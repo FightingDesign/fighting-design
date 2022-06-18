@@ -1,6 +1,6 @@
 <template>
   <div :class="classList">
-    <span class="f-text">
+    <span class="f-tag-text">
       <i v-if="leftIcon" :class="['f-icon', leftIcon]" />
       <slot />
       <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
