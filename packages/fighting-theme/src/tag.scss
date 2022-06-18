@@ -8,10 +8,20 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
   height: $middle;
 
   // 不同的类型
+  @each $key, $value in $tagType {
+    &.f-tag-#{$key} {
+      background: $value;
+      color: #fff;
+    }
+    // 简约的
+    &.f-tag-simple.f-tag-#{$key} {
+      color: $value;
+      background: lighten($value, 40%);
+    }
+  }
 }
 // .f-tag {
 //   min-width: 60px;
