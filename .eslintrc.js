@@ -18,6 +18,8 @@ module.exports = {
   root: true,
 
   rules: {
+    'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 0, maxBOF: 0 }],
+    'eol-last': 'error',
     'import/no-unresolved': 'error', // 必须存在真实路径，避免大小写不敏感带来的问题
     'import/extensions': ['error', 'always', {
       'js': 'never',
