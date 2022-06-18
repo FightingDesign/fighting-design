@@ -58,5 +58,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "packages/**/*.{js,jsx,ts,tsx,vue}": [
+      "prettier --write",
+      "pnpm lint",
+      "git add"
+    ]
   }
 }
