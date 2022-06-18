@@ -7,7 +7,7 @@ import '@fighting-design/fighting-theme'
 
 // 打包阶段引入
 // import FightingDesign from '../dist'
-// import '../dist/theme/index.css'
+// import '../dist/theme/style.css'
 
 // 测试路径
 // import FightingDesign from '../dist'

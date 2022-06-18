@@ -15,7 +15,7 @@ import { FLayout } from './layout'
 import { FSwitch } from './switch'
 import { FBadge } from './badge'
 import { FAvatar } from './avatar'
-import { FBackTop } from './backTop'
+import { FBackTop } from './back-top'
 
 const components = {
   FButton,

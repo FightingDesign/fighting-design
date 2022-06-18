@@ -1,17 +1,17 @@
 <template>
   <div :class="classList">
-    <span class="f-text">
-      <i v-if="leftIcon" :class="['f-icon', leftIcon]" />
-      <slot />
-      <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
+    <!-- <span class="f-tag-text"> -->
+    <i v-if="leftIcon" :class="['f-icon', leftIcon]" />
+    <slot />
+    <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
 
-      <!-- <i
+    <!-- <i
         v-if="closable"
         class="f-iolor"
         icon="f-icon-close"
         @click.stop="handleClose"
       /> -->
-    </span>
+    <!-- </span> -->
   </div>
 </template>
 
