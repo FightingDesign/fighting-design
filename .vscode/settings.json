@@ -38,7 +38,7 @@
     "WHATWG",
     "xuanzhuan"
   ],
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.vueIndentScriptAndStyle": false,
   "eslint.enable": true,
