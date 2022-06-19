@@ -62,7 +62,7 @@
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,vue}": [
       "prettier --write",
-      "pnpm lint",
+      "eslint",
       "git add"
     ]
   }
