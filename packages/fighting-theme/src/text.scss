@@ -1,0 +1,24 @@
+@import '../config/var-text.scss';
+@import '../config/const-size.scss';
+
+.f-text {
+  font-size: 15px;
+  display: inline-block;
+  color: $info;
+
+  // 不同类型
+  @each $key,
+  $value in $textTypes {
+    &.f-text-#{$key} {
+      color: $value;
+    }
+  }
+
+  &.f-text-bold {
+    font-weight: bold;
+  }
+
+  &.f-text-block {
+    display: block;
+  }
+}
