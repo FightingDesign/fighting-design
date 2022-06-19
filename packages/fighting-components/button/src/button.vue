@@ -67,7 +67,7 @@
         block,
         disabled,
         loading,
-        blob,
+        bold,
         size,
         text,
         circle,
@@ -84,7 +84,7 @@
           'f-button-circle': circle,
           'f-button-round': round,
           'f-button-block': block,
-          'f-button-blob': blob,
+          'f-button-bold': bold,
           'f-button-text': text && !color
         }
       ]
