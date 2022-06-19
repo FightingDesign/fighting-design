@@ -2,8 +2,7 @@ import { FDivider } from '@fighting-design/fighting-components'
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 
-const text = "I'm a divider"
-const type = 'dotted'
+const text = '分割线' as const
 
 describe('FDivider', () => {
   test('render with text', () => {
@@ -26,12 +25,13 @@ describe('FDivider', () => {
   })
 
   test('type', () => {
-    const wrapper = mount(FDivider, {
-      props: {
-        type: type
-      }
+    const type = ['dashed', 'dotted', 'double', 'solid'] as const
+    type.forEach(item => {
+      const wrapper = mount(FDivider, {
+        props: { type: item }
+      })
+      expect(wrapper.classes()).toContain(`f-divider-${type}`)
     })
-    expect(wrapper.classes()).toContain(`f-divider-${type}`)
   })
 
   test('position', () => {

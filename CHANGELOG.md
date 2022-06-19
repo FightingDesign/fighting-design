@@ -2,6 +2,14 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**feat**
+
+- 新增 `FText` 组件
+
+**fix**
+
+- `FButton` 组件 `blob` 配置项改为 `bold`，用于文字加粗
+
 ## 0.0.9 alpha.9 (2022-06-14)
 
 **feat**

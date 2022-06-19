@@ -1,17 +1,17 @@
 <template>
   <div id="VPContent" class="VPContent" :class="{ 'has-sidebar': hasSidebar }">
-    <VPNotFound v-if="route.component === VPNotFound" />
-    <VPContentPage v-else-if="!!frontmatter.page">
+    <v-p-not-found v-if="route.component === VPNotFound" />
+    <v-p-content-page v-else-if="!!frontmatter.page">
       <template #footer-before><slot name="footer-before" /></template>
       <template #footer-after><slot name="footer-after" /></template>
-    </VPContentPage>
-    <VPContentDoc v-else :class="{ 'has-sidebar': hasSidebar }">
+    </v-p-content-page>
+    <v-p-content-doc v-else :class="{ 'has-sidebar': hasSidebar }">
       <template #content-top><slot name="content-top" /></template>
       <template #content-bottom><slot name="content-bottom" /></template>
       <template #aside-top><slot name="aside-top" /></template>
       <template #aside-mid><slot name="aside-mid" /></template>
       <template #aside-bottom><slot name="aside-bottom" /></template>\
-    </VPContentDoc>
+    </v-p-content-doc>
   </div>
 </template>
 
@@ -28,12 +28,6 @@
 </script>
 
 <style scoped>
-  @media (max-width: 768px) {
-    .VPContent {
-      /* overflow-x: hidden; */
-    }
-  }
-
   @media (min-width: 960px) {
     .VPContent {
       padding-top: var(--vt-nav-height);

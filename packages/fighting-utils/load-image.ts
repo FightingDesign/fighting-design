@@ -58,7 +58,7 @@ class Load implements LoadInterface {
       this.callback(false, 0)
     })
 
-    newImg.addEventListener('load', (evt: Event): void => {
+    newImg.addEventListener('load', (): void => {
       this.img.src = newImg.src
     })
   }

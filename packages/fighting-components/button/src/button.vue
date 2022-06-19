@@ -67,7 +67,7 @@
         block,
         disabled,
         loading,
-        blob,
+        bold,
         size,
         text,
         circle,
@@ -84,15 +84,15 @@
           'f-button-circle': circle,
           'f-button-round': round,
           'f-button-block': block,
-          'f-button-blob': blob,
+          'f-button-bold': bold,
           'f-button-text': text && !color
         }
       ]
     }
   )
 
-  const buttonStyle: ComputedRef<buttonStyleInterface | Object> = computed(
-    (): buttonStyleInterface | Object => {
+  const buttonStyle: ComputedRef<buttonStyleInterface | object> = computed(
+    (): buttonStyleInterface | object => {
       const { fontSize, fontColor, color } = prop
 
       return {

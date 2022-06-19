@@ -1,5 +1,5 @@
 <template>
-  <VTLink
+  <v-t-link
     :class="{
       VPNavBarMenuLink: true,
       active: isActive(
@@ -9,17 +9,17 @@
       )
     }"
     :href="item.link"
-    :noIcon="true"
+    :no-icon="true"
   >
     {{ item.text }}
-  </VTLink>
+  </v-t-link>
 </template>
 
 <script lang="ts" setup>
   import { VTLink } from '../../core'
   import { useData } from 'vitepress'
   import { isActive } from '../support/utils'
-  import { NavItemWithLink } from '../config'
+  import type { NavItemWithLink } from '../config'
 
   const props = defineProps<{
     item: NavItemWithLink

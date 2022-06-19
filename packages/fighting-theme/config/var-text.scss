@@ -1,0 +1,11 @@
+@import '../config/const-color.scss';
+
+// 不同的类型
+$textTypes: (
+  'primary': $primary,
+  'success': $success,
+  'danger': $danger,
+  'warning': $warning,
+  'default': $defaultTextColor,
+  'info': $info
+);

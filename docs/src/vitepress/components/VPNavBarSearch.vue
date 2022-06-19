@@ -1,6 +1,6 @@
 <template>
   <div v-if="theme.algolia" class="VPNavBarSearch">
-    <VPAlgoliaSearchBox v-if="loaded" />
+    <v-p-algolia-search-box v-if="loaded" />
     <div v-else id="docsearch" @click="load">
       <button
         type="button"
@@ -21,12 +21,12 @@
               fill-rule="evenodd"
               stroke-linecap="round"
               stroke-linejoin="round"
-            ></path>
+            />
           </svg>
           <span class="DocSearch-Button-Placeholder">Search</span>
         </span>
         <span class="DocSearch-Button-Keys">
-          <span class="DocSearch-Button-Key" ref="metaKey">Meta</span>
+          <span ref="metaKey" class="DocSearch-Button-Key">Meta</span>
           <span class="DocSearch-Button-Key">K</span>
         </span>
       </button>
