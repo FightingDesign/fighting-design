@@ -76,12 +76,5 @@ export const Props = {
   decoration: {
     type: String,
     default: (): string => ''
-  },
-  /**
-   * 是否显示下划线，优先级大于文本修饰 decoration
-   */
-  underline: {
-    type: Boolean,
-    default: (): boolean => false
   }
 } as const
