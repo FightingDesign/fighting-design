@@ -36,7 +36,6 @@ module.exports = {
     indent: 'error',
     quotes: ['error', 'single', { avoidEscape: true }],
     '@typescript-eslint/no-explicit-any': 'error',
-    '@typescript-eslint/ban-types': 'warn',
     semi: ['error', 'never'],
     'object-curly-spacing': 'error',
     '@typescript-eslint/no-unused-vars': [
@@ -97,6 +96,15 @@ module.exports = {
       rules: {
         indent: 'off',
         'vue/script-indent': ['error', 2, { baseIndent: 1, switchCase: 1 }]
+      }
+    },
+    {
+      files: ['*.d.ts'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
+        'vars-on-top': 'off',
+        'no-var': 'off',
+        '@typescript-eslint/no-redeclare': 'off',
       }
     }
   ]
