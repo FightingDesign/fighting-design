@@ -8,3 +8,4 @@
 dist
 node_modules
 pnpm-lock.yaml
+/script/move-file.ts
