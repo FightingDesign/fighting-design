@@ -14,10 +14,11 @@ describe('FSwitch', () => {
       const wrapper = mount(FSwitch, {
         props: { size: item }
       })
-      expect(wrapper.find('.f-switch-input').classes()).toContain(`f-switch-${item}`)
+      expect(wrapper.find('.f-switch-input').classes()).toContain(
+        `f-switch-${item}`
+      )
     })
   })
-
 
   test('disabled', () => {
     const wrapper = mount(FSwitch, {

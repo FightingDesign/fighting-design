@@ -1,5 +1,4 @@
-import { computed } from 'vue'
-import type { PropType, ComputedRef } from 'vue'
+import type { PropType } from 'vue'
 import type { textType } from './interface'
 
 export const Props = {
@@ -10,9 +9,9 @@ export const Props = {
     type: String as PropType<textType>,
     default: (): textType => 'default',
     validator: (val: textType): boolean => {
-      return (['primary', 'success', 'danger', 'warning', 'default'] as const).includes(
-        val
-      )
+      return (
+        ['primary', 'success', 'danger', 'warning', 'default'] as const
+      ).includes(val)
     }
   },
   /**
@@ -32,7 +31,7 @@ export const Props = {
   /**
    * 背景颜色
    */
-  bgColor: {
+  background: {
     type: String,
     default: (): string => ''
   },
@@ -85,8 +84,4 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   }
-} as const
-
-export const Emits = {
-  click: (evt: Event): Event => evt
 } as const

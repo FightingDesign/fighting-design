@@ -7,8 +7,7 @@
   color: $info;
 
   // 不同类型
-  @each $key,
-  $value in $textTypes {
+  @each $key, $value in $textTypes {
     &.f-text-#{$key} {
       color: $value;
     }
