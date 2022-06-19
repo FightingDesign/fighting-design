@@ -4,6 +4,7 @@
   font-size: 15px;
   display: inline-block;
   color: $defaultTextColor;
+  word-break: break-all;
 
   // 不同类型
   @each $key, $value in $textTypes {

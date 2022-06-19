@@ -1,10 +1,9 @@
 <template>
-  <f-text type="default">默认</f-text>
-  <f-text underline type="primary">普通</f-text>
-  <f-text underline type="warning">警告</f-text>
-  <f-text underline type="success">成功</f-text>
-  <f-text underline type="danger">失败</f-text>
-  <f-text underline type="info">信息</f-text>
+  <div style="width: 300px;border:1px solid red">
+    <f-text type="default">默认dadadadasdadadadasdadadadasdadadadasdadadadasdadadadasdadadadasdadadadasdadadadasdadadadasdadadadasdadadadasdadadadasdadadadas</f-text>
+
+    
+  </div>
 </template>
 
 <script lang="ts" setup></script>
