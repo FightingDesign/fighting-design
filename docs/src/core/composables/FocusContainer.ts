@@ -1,4 +1,5 @@
-import { Ref, ref, watch, readonly, onUnmounted } from 'vue'
+import type { Ref } from 'vue'
+import { ref, watch, readonly, onUnmounted } from 'vue'
 
 interface FocusContainerOptions {
   elRef: Ref<HTMLElement | undefined>
@@ -7,8 +8,8 @@ interface FocusContainerOptions {
 }
 
 export const focusedElement = ref<HTMLElement>()
-let active = false
-let listeners = 0
+let active = false,
+  listeners = 0
 
 export function useFocusContainer(options: FocusContainerOptions) {
   const containsFocus = ref(false)

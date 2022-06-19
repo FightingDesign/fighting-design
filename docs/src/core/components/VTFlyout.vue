@@ -1,7 +1,7 @@
 <template>
   <div
-    class="vt-flyout"
     ref="elRef"
+    class="vt-flyout"
     @mouseenter="open = true"
     @mouseleave="open = false"
   >
@@ -22,16 +22,16 @@
     </button>
 
     <div class="vt-flyout-menu">
-      <VTMenu :items="items">
+      <v-t-menu :items="items">
         <slot />
-      </VTMenu>
+      </v-t-menu>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import { MenuItem, MenuItemChild } from '../types/menu'
+  import type { MenuItem, MenuItemChild } from '../types/menu'
   import { useFocusContainer } from '../composables/FocusContainer'
   import VTMenu from './VTMenu.vue'
 

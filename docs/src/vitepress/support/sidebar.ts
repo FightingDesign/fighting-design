@@ -1,4 +1,4 @@
-import { SidebarConfig, SidebarGroup } from '../config'
+import type { SidebarConfig, SidebarGroup } from '../config'
 import { ensureStartingSlash } from './utils'
 
 /**

@@ -14,7 +14,6 @@
 
 <script lang="ts" setup>
   import { computed } from 'vue'
-  import VTIconExternalLink from './icons/VTIconExternalLink.vue'
 
   const props = defineProps<{
     href?: string

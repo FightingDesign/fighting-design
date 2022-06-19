@@ -1,7 +1,7 @@
 <template>
-  <VTLink class="VPNavScreenMenuGroupLink" :href="link" @click="closeScreen">
+  <v-t-link class="VPNavScreenMenuGroupLink" :href="link" @click="closeScreen">
     {{ text }}
-  </VTLink>
+  </v-t-link>
 </template>
 
 <script lang="ts" setup>

@@ -1,12 +1,12 @@
 <template>
-  <VTLink class="vt-menu-link" :href="item.link">
+  <v-t-link class="vt-menu-link" :href="item.link">
     {{ item.text }}
-  </VTLink>
+  </v-t-link>
 </template>
 
 <script lang="ts" setup>
   import VTLink from './VTLink.vue'
-  import { MenuItemWithLink } from '../types/menu'
+  import type { MenuItemWithLink } from '../types/menu'
 
   defineProps<{ item: MenuItemWithLink }>()
 </script>
