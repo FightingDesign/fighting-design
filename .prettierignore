@@ -3,6 +3,7 @@
 **/*.svg
 **/*.ai
 **/*.sh
+script/new-component/template/*
 /packages/fighting-theme/dist/*
 /docs/docs/.vitepress/dist/*
 dist
