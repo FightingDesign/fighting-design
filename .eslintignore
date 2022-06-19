@@ -1,2 +1,4 @@
-**/template/*
+script/new-component/template/*
 **/*.md
+env.d.ts
+docs/src
