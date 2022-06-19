@@ -1,16 +1,27 @@
 <template>
-  <f-button type="default">主要按钮</f-button>
+  <!-- <f-button type="default">主要按钮</f-button>
   <br />
-  <f-button :style="{ background: '#456df3' }" type="default"
+  <f-button :style="{ background: '#1547ef' }" type="default"
     >主要按钮</f-button
   >
   <br />
   <f-button
     type="default"
-    :style="{ background: changeColor.getLightColor(.54) }"
+    :style="{ background: changeColor.getDarkColor(.07) }"
   >
     主要按钮
-  </f-button>
+  </f-button> -->
+  <f-button type="default">默认按钮</f-button>
+  <f-button type="primary">主要按钮</f-button>
+  <f-button type="success">成功按钮</f-button>
+  <f-button type="danger">危险按钮</f-button>
+  <f-button type="warning">警告按钮</f-button>
+
+  <f-button simple type="default">默认按钮</f-button>
+  <f-button simple type="primary">主要按钮</f-button>
+  <f-button simple type="success">成功按钮</f-button>
+  <f-button simple type="danger">危险按钮</f-button>
+  <f-button simple type="warning">警告按钮</f-button>
 </template>
 
 <script lang="ts" setup>
@@ -18,7 +29,7 @@
 
   const changeColor = new ChangeColor('#f0f0f0')
 
-  console.log(changeColor.getLightColor(.18))
+  console.log(changeColor.getDarkColor(0.07))
 </script>
 
 <style scoped>

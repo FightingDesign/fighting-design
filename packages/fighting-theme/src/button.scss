@@ -20,6 +20,11 @@
   white-space: nowrap;
 
   // 不同类型
+  // @each $key, $value in $themeColor {
+  //   &.f-button-#{$key} {
+  //     color: $value[defaultTextColor];
+  //   }
+  // }
   @each $key, $type in $ButtonTypes {
     &.f-button-#{$key} {
       color: #fff;
