@@ -7,29 +7,42 @@ $info: #bdc3c7;
 
 $defaultTextColor: #333333;
 
-$theme-color: (
+// 主题颜色
+// 分为默认、简约、hover、active 的色号
+$themeColor: (
   primary: (
     default: #2d5af1,
-    simple: #fff
+    simple: #dfe6fc,
+    defaultHover: #5277f3,
+    defaultActive: #fff,
+    defaultTextColor: #fff
   ),
   success: (
     default: #52b35e,
-    simple: #fff
+    simple: #e7f4e8,
+    defaultHover: #71c07a,
+    defaultActive: #fff,
+    defaultTextColor: #fff
   ),
   danger: (
     default: #ff0200,
-    simple: #fff
+    simple: #ffd9d8,
+    defaultHover: #ff2f2d,
+    defaultActive: #fff,
+    defaultTextColor: #fff
   ),
   warning: (
     default: #fcc202,
-    simple: #fff
+    simple: #fff5d6,
+    defaultHover: #fccc2f,
+    defaultActive: #fff,
+    defaultTextColor: #fff
   ),
   default: (
     default: #f0f0f0,
-    simple: #fff
-  ),
-  info: (
-    default: #bdc3c7,
-    simple: #fff
+    simple: #fcfcfc,
+    defaultHover: #f2f2f2,
+    defaultActive: #fff,
+    defaultTextColor: #333
   )
 );
