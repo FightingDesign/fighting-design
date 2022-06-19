@@ -2,3 +2,4 @@ script/new-component/template/*
 **/*.md
 env.d.ts
 docs/src
+script/move-file.ts

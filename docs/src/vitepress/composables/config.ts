@@ -1,15 +1,5 @@
-import type {
-  Component,
-  InjectionKey,
-  Ref
-} from 'vue'
-import {
-  computed,
-  defineComponent,
-  h,
-  inject,
-  provide
-} from 'vue'
+import type { Component, InjectionKey, Ref } from 'vue'
+import { computed, defineComponent, h, inject, provide } from 'vue'
 import { useData } from 'vitepress'
 import type {
   Config,

@@ -18,11 +18,11 @@ const fileList = [
   }
 ]
 
-fileList.map((item) => moveFile(item))
+fileList.map(item => moveFile(item))
 
 function moveFile(list) {
   readFile(list.file, (err, data) => {
-    writeFile(list.target, data, (err) => {
+    writeFile(list.target, data, err => {
       if (err) throw err
     })
   })

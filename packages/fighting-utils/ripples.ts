@@ -4,12 +4,12 @@ import type { RipplesInterface } from './type'
  * 按钮点击涟漪效果
  */
 export class Ripples implements RipplesInterface {
-  evt: PointerEvent & { layerX: number, layerY: number }
+  evt: PointerEvent
   node: HTMLElement
   time: number
   ripplesColor: string
   constructor(
-    evt: PointerEvent & { layerX: number, layerY: number },
+    evt: PointerEvent,
     node: HTMLElement,
     time: number,
     ripplesColor: string

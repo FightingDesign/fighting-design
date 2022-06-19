@@ -17,7 +17,10 @@
         </div>
 
         <div v-else class="group">
-          <v-p-nav-screen-menu-group-section :text="item.text" :items="item.items" />
+          <v-p-nav-screen-menu-group-section
+            :text="item.text"
+            :items="item.items"
+          />
         </div>
       </template>
     </div>

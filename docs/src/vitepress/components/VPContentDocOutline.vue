@@ -48,8 +48,8 @@
   const filteredHeaders = computed(() => {
     return filterHeaders
       ? page.value.headers.map((h) => {
-        return filterHeaders(h) ? h : Object.assign({}, h, { hidden: true })
-      })
+          return filterHeaders(h) ? h : Object.assign({}, h, { hidden: true })
+        })
       : page.value.headers
   })
 </script>

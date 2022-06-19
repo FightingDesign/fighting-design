@@ -104,7 +104,7 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'off',
         'vars-on-top': 'off',
         'no-var': 'off',
-        '@typescript-eslint/no-redeclare': 'off',
+        '@typescript-eslint/no-redeclare': 'off'
       }
     }
   ]

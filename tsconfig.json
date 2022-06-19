@@ -15,5 +15,10 @@
     "baseUrl": ".",
     "typeRoots": ["node_modules/@types", "@types"]
   },
-  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.tsx", "@types/**/*.d.ts"]
+  "include": [
+    "packages/**/*.ts",
+    "packages/**/*.d.ts",
+    "packages/**/*.tsx",
+    "@types/**/*.d.ts"
+  ]
 }

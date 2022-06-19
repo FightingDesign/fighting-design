@@ -26,7 +26,7 @@ describe('FDivider', () => {
 
   test('type', () => {
     const type = ['dashed', 'dotted', 'double', 'solid'] as const
-    type.forEach(item => {
+    type.forEach((item) => {
       const wrapper = mount(FDivider, {
         props: { type: item }
       })

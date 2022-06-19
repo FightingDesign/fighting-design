@@ -42,8 +42,8 @@
             ? 'auto'
             : 'dark'
           : query.matches
-            ? 'light'
-            : 'auto')
+          ? 'light'
+          : 'auto')
       )
     }
 
