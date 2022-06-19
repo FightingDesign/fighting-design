@@ -17,7 +17,7 @@
     "build:theme": "vite build --config vite.config.theme.ts",
     "build:docs": "pnpm run -C docs build",
     "build:start": "pnpm run -C start build",
-    "move": "node script/moveFile.ts",
+    "move": "node script/move-file.js",
     "test": "vitest",
     "prettier": "prettier --write .",
     "commit": "cz",

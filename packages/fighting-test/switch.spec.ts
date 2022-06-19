@@ -10,7 +10,7 @@ describe('FSwitch', () => {
 
   test('small', () => {
     const size = ['large', 'middle', 'small'] as const
-    size.map((item) => {
+    size.forEach(item => {
       const wrapper = mount(FSwitch, {
         props: { size: item }
       })

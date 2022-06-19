@@ -5,5 +5,5 @@
 <script lang="ts" setup name="FAvatar">
   import { Props } from './avatar'
 
-  const prop = defineProps(Props)
+  defineProps(Props)
 </script>

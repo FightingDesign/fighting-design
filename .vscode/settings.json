@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
     "alicdn",
+    "antfu",
     "attachent",
     "commitlint",
     "composables",
@@ -34,6 +35,7 @@
     "vitest",
     "vuejs",
     "weixin",
+    "WHATWG",
     "xuanzhuan"
   ],
   "editor.formatOnSave": false,
