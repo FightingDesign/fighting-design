@@ -76,5 +76,9 @@ export const Props = {
   decoration: {
     type: String,
     default: (): string => ''
+  },
+  padding: {
+    type: String,
+    default: (): string => ''
   }
 } as const

@@ -5,6 +5,7 @@ export interface textStyleInterface {
   background: string
   textIndent: string
   lineHeight: string
+  padding: string
   fontSize: string
   letterSpacing: string
   textDecoration: string

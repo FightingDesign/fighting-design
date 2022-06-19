@@ -36,7 +36,8 @@
         spacing,
         textIndent,
         background,
-        decoration
+        decoration,
+        padding
       } = prop
 
       const style: textStyleInterface = {
@@ -44,6 +45,7 @@
         background,
         textIndent,
         lineHeight,
+        padding,
         fontSize: size,
         letterSpacing: spacing,
         textDecoration: decoration
