@@ -22,6 +22,12 @@
   <f-button text round type="success">成功按钮</f-button>
   <f-button text round type="danger">危险按钮</f-button>
   <f-button text round type="warning">警告按钮</f-button>
+
+  <hr />
+  <f-button size="large" type="primary">大型按钮</f-button>
+  <f-button size="middle" type="success">中型按钮</f-button>
+  <f-button size="small" type="danger">小型按钮</f-button>
+  <f-button size="mini" type="warning">迷你按钮</f-button>
 </template>
 
 <script lang="ts" setup>

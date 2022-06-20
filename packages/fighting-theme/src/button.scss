@@ -19,8 +19,8 @@
   overflow: hidden;
   white-space: nowrap;
 
-  @for $list from 1 to (length($themeColor) + 1) {
-    $item: nth($themeColor, $list); // 获取数组中第i项的值
+  @for $list from 1 to (length($buttonTypeColor) + 1) {
+    $item: nth($buttonTypeColor, $list); // 获取数组中第i项的值
 
     // 不同类型
     &.f-button-#{map-get($item, name)} {
@@ -69,22 +69,19 @@
   }
 
   // 不同尺寸
-  @each $key, $value in $ButtonSizes {
-    &.f-button-#{$key} {
-      @if $key == 'large' {
-        @include btnSizes($value, $ButtonPaddingLarge, $ButtonFontSizeLarge);
-      } @else if $key == 'middle' {
-        @include btnSizes($value, $ButtonPaddingMiddle, $ButtonFontSizeMiddle);
-      } @else if $key == 'small' {
-        @include btnSizes($value, $ButtonPaddingSmall, $ButtonFontSizeSmall);
-      } @else if $key == 'mini' {
-        @include btnSizes($value, $ButtonPaddingMini, $ButtonFontSizeMini);
-      }
+  @for $list from 1 to (length($buttonSize) + 1) {
+    $item: nth($buttonSize, $list); // 获取数组中第i项的值
+
+    &.f-button-#{map-get($item, name)} {
+      height: map-get($item, height);
+      padding: 0 map-get($item, padding);
+      line-height: map-get($item, height);
+      font-size: map-get($item, fontSize);
 
       // 圆形按钮
       &.f-button-circle {
-        height: $value;
-        width: $value;
+        height: map-get($item, height);
+        width: map-get($item, height);
         line-height: 1;
         padding: 0;
         border-radius: 50%;
