@@ -22,4 +22,10 @@
       object-fit: $key;
     }
   }
+
+  // 圆角
+  .f-avatar-round,
+  &.f-avatar-round {
+    border-radius: 50%;
+  }
 }

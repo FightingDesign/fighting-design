@@ -1,9 +1,9 @@
 <template>
-  <f-avatar fit="fill" :src="src"></f-avatar>
-  <f-avatar fit="contain" :src="src"></f-avatar>
-  <f-avatar fit="cover" :src="src"></f-avatar>
-  <f-avatar fit="none" :src="src"></f-avatar>
-  <f-avatar fit="scale-down" :src="src"></f-avatar>
+  <f-avatar background="red" round fit="fill" :src="src" />
+  <f-avatar background="red" round fit="contain" :src="src" />
+  <f-avatar background="red" round fit="cover" :src="src" />
+  <f-avatar background="red" round fit="none" :src="src" />
+  <f-avatar background="red" round fit="scale-down" :src="src" />
 </template>
 
 <script lang="ts" setup>

@@ -1,5 +1,8 @@
 <template>
-  <div class="f-avatar">
+  <div
+    :class="['f-avatar', { 'f-avatar-round': round }]"
+    :style="{ background }"
+  >
     <img :class="classList" :src="src" :alt="alt" />
   </div>
 </template>

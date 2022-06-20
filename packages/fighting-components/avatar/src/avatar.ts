@@ -33,5 +33,9 @@ export const Props = {
     validator: (val: avatarSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
+  },
+  background: {
+    type: String,
+    default: (): string => ''
   }
 } as const
