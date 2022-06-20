@@ -37,5 +37,9 @@ export const Props = {
   background: {
     type: String,
     default: (): string => ''
+  },
+  icon: {
+    type: String,
+    default: (): string => ''
   }
 } as const
