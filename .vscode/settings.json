@@ -57,5 +57,8 @@
     "typescript",
     "typescriptreact",
     "vue"
-  ]
+  ],
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

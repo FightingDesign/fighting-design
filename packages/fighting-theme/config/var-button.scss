@@ -12,6 +12,19 @@ $textColor: #24292f;
   font-size: $fontSize;
 }
 
+// 不同类型的函数
+@mixin buttonType($background, $color, $hoverColor, $activeColor) {
+  color: $color;
+  background: $background;
+  // 移入和点击的效果
+  &:hover {
+    background: $hoverColor;
+  }
+  &:active {
+    background: $activeColor;
+  }
+}
+
 // 不同的类型
 $ButtonTypes: (
   'default': $default,
@@ -39,3 +52,51 @@ $ButtonPaddingLarge: 30px;
 $ButtonPaddingMiddle: 25px;
 $ButtonPaddingSmall: 20px;
 $ButtonPaddingMini: 15px;
+
+$themeColor: (
+  (
+    name: 'default',
+    default: #f0f0f0,
+    simple: #fcfcfc,
+    defaultHover: #f2f2f2,
+    defaultActive: #dfdfdf,
+    defaultTextColor: #333,
+    simpleTextColor: #333
+  ),
+  (
+    name: 'primary',
+    default: #2d5af1,
+    simple: #dfe6fc,
+    defaultHover: #5277f3,
+    defaultActive: #2851d8,
+    defaultTextColor: #fff,
+    simpleTextColor: #2d5af1
+  ),
+  (
+    name: 'success',
+    default: #52b35e,
+    simple: #e7f4e8,
+    defaultHover: #71c07a,
+    defaultActive: #469950,
+    defaultTextColor: #fff,
+    simpleTextColor: #52b35e
+  ),
+  (
+    name: 'danger',
+    default: #ff0200,
+    simple: #ffd9d8,
+    defaultHover: #ff2f2d,
+    defaultActive: #db0100,
+    defaultTextColor: #fff,
+    simpleTextColor: #ff0200
+  ),
+  (
+    name: 'warning',
+    default: #fcc202,
+    simple: #fff5d6,
+    defaultHover: #fccc2f,
+    defaultActive: #dba801,
+    defaultTextColor: #fff,
+    simpleTextColor: #fcc202
+  )
+);
