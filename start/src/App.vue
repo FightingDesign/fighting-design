@@ -1,47 +1,10 @@
 <template>
-  <f-button type="default">默认按钮</f-button>
-  <f-button type="primary">主要按钮</f-button>
-  <f-button type="success">成功按钮</f-button>
-  <f-button type="danger">危险按钮</f-button>
-  <f-button type="warning">警告按钮</f-button>
-
-  <f-button simple type="default">默认按钮</f-button>
-  <f-button simple type="primary">主要按钮</f-button>
-  <f-button simple type="success">成功按钮</f-button>
-  <f-button simple type="danger">危险按钮</f-button>
-  <f-button simple type="warning">警告按钮</f-button>
-
-  <f-button text type="default">默认按钮</f-button>
-  <f-button text type="primary">主要按钮</f-button>
-  <f-button text type="success">成功按钮</f-button>
-  <f-button text type="danger">危险按钮</f-button>
-  <f-button text type="warning">警告按钮</f-button>
-
-  <f-button text round type="default">默认按钮</f-button>
-  <f-button text round type="primary">主要按钮</f-button>
-  <f-button text round type="success">成功按钮</f-button>
-  <f-button text round type="danger">危险按钮</f-button>
-  <f-button text round type="warning">警告按钮</f-button>
-
-  <hr />
-  <f-button size="large" type="primary">大型按钮</f-button>
-  <f-button size="middle" type="success">中型按钮</f-button>
-  <f-button size="small" type="danger">小型按钮</f-button>
-  <f-button size="mini" type="warning">迷你按钮</f-button>
+  <f-avatar :src="src"></f-avatar>
 </template>
 
 <script lang="ts" setup>
-  // import { ChangeColor } from '@fighting-design/fighting-utils'
-
-  // const changeColor = new ChangeColor('#f0f0f0')
-
-  // console.log(changeColor.getDarkColor(0.07))
+  const src =
+    'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png'
 </script>
 
-<style scoped>
-  div {
-    width: 50px;
-    height: 50px;
-    border: 2px solid black;
-  }
-</style>
+<style scoped></style>
