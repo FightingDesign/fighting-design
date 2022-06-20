@@ -1,6 +1,6 @@
 <template>
-  <div :class="classList">
-    <img :src="src" :alt="alt" />
+  <div class="f-avatar">
+    <img :class="classList" :src="src" :alt="alt" />
   </div>
 </template>
 
@@ -13,11 +13,14 @@
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { round, size } = prop
+      const { round, size, fit } = prop
 
       return [
-        'f-avatar',
-        { 'f-avatar-round': round, [`f-avatar-${size}`]: size }
+        {
+          'f-avatar-round': round,
+          [`f-avatar-${size}`]: size,
+          [`f-avatar-${fit}`]: fit
+        }
       ]
     }
   )
