@@ -1,16 +1,4 @@
 <template>
-  <!-- <f-button type="default">主要按钮</f-button>
-  <br />
-  <f-button :style="{ background: '#1547ef' }" type="default"
-    >主要按钮</f-button
-  >
-  <br />
-  <f-button
-    type="default"
-    :style="{ background: changeColor.getDarkColor(.07) }"
-  >
-    主要按
-  </f-button> -->
   <f-button type="default">默认按钮</f-button>
   <f-button type="primary">主要按钮</f-button>
   <f-button type="success">成功按钮</f-button>
