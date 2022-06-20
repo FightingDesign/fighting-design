@@ -9,7 +9,7 @@
     type="default"
     :style="{ background: changeColor.getDarkColor(.07) }"
   >
-    主要按钮
+    主要按
   </f-button> -->
   <f-button type="default">默认按钮</f-button>
   <f-button type="primary">主要按钮</f-button>
