@@ -16,6 +16,10 @@ export const Props = {
     type: String,
     default: 'icon',
   },
+  iconStyle: {
+    type: Object,
+    default: ()=>({}),
+  },
   loadingTextColor: {
     type: String,
     default: 'rgb(25, 137, 250)',

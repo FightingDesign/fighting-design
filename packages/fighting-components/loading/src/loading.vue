@@ -1,10 +1,9 @@
 <template>
   <div class="f-loading__mask" v-if="show"
     :style="{ background: loadingBgColor, opacity: loadingBgOpacity, color: loadingTextColor, }" @click="onClose">
-    <i :class="loadingIcon"> 我是 icon</i>
+    <i :class="loadingIcon"></i>
     <div class="f-loading__title" :style="{ fontSize: loadingTextSize }">
-      <p>{{ loadingText }}</p>
-      <span class="f-loading__comma">...</span>
+      <p>{{ loadingText }} . . .</p>
     </div>
   </div>
 </template>
@@ -40,26 +39,6 @@ const onClose = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  &__comma {
-    position: relative;
-    top: 13px;
-    left: 10px;
-    width: 2.5ch;
-    animation: comma-f4b50242 2s steps(6), effect 0.5s step-end alternate;
-    animation-iteration-count: infinite;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: rotate(180deg);
-    font-size: 23px;
-    letter-spacing: 3px
-  }
-}
-
-@keyframes comma {
-  from {
-    width: 0;
   }
 }
 </style>
