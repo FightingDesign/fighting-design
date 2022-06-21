@@ -19,5 +19,5 @@ interface PointerEvent extends MouseEvent {
 
 declare var PointerEvent: {
   prototype: PointerEvent
-  new(type: string, eventInitDict?: PointerEventInit): PointerEvent
+  new (type: string, eventInitDict?: PointerEventInit): PointerEvent
 }
