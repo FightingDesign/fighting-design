@@ -3,4 +3,5 @@ script/new-component/template/*
 env.d.ts
 docs/src
 script/move-file.ts
+script/new-component/index.js
 start/src/App.vue
