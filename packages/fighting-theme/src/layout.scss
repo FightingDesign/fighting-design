@@ -4,6 +4,7 @@
   flex-direction: row;
   box-sizing: border-box;
   flex-basis: auto;
+
   &.is-vertical {
     flex-direction: column;
   }
