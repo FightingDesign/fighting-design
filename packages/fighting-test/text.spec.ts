@@ -9,10 +9,13 @@ describe('FText', () => {
   })
 
   test('type', () => {
-    const wrapper = mount(FText, {
-      props: { type: 'primary' }
+    const type = ['default', 'primary', 'success', 'danger', 'warning'] as const
+    type.forEach((item) => {
+      const wrapper = mount(FText, {
+        props: { type: item }
+      })
+      expect(wrapper.classes()).toContain(`f-text-${item}`)
     })
-    expect(wrapper.classes()).toContain('f-text-primary')
   })
 
   test('size', () => {
@@ -29,11 +32,11 @@ describe('FText', () => {
     expect(wrapper.attributes('style')).toContain('red')
   })
 
-  test('bgColor', () => {
+  test('background', () => {
     const wrapper = mount(FText, {
-      props: { bgColor: 'red' }
+      props: { background: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('background-color')
+    expect(wrapper.attributes('style')).toContain('red')
   })
 
   test('block', () => {

@@ -8,11 +8,11 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button')
   })
 
-  test('blob', () => {
+  test('bold', () => {
     const wrapper = mount(FButton, {
-      props: { blob: true }
+      props: { bold: true }
     })
-    expect(wrapper.classes()).toContain('f-button-blob')
+    expect(wrapper.classes()).toContain('f-button-bold')
   })
 
   test('circle', () => {

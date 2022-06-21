@@ -91,9 +91,6 @@ async function generate() {
   updatedFiles.push(
     `packages/fighting-components/${compName}/**`,
     'packages/fighting-components/index.ts',
-
-    `packages/fighting-test/${compName}.spec.ts`,
-
     `packages/fighting-theme/src/${compName}.scss`,
     'packages/fighting-theme/index.scss'
   )
@@ -107,7 +104,6 @@ async function generate() {
   return Promise.all([
     catchError(generateComponentDir, '组件目录创建失败'),
     catchError(updateComponentEntry, '组件入口修改失败'),
-    catchError(incrementTest, '测试文件创建失败'),
     catchError(incrementStyle, '样式文件创建失败'),
     catchError(updateStyleEntry, '样式入口修改失败')
   ])
@@ -160,14 +156,6 @@ async function updateComponentEntry() {
   }
 
   await writeFile(entryFilePath, content)
-}
-
-async function incrementTest() {
-  const outputDir = resolve(__dirname, '../../packages/fighting-test')
-  const tplDir = resolve(__dirname, './template/test')
-
-  // 编译文件内容
-  await superEjsGerenateDir(outputDir, tplDir)
 }
 
 async function incrementStyle() {
