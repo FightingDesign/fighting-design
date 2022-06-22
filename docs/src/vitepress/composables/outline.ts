@@ -1,7 +1,8 @@
-import { onMounted, onUnmounted, onUpdated, Ref } from 'vue'
-import { Header } from 'vitepress'
+import type { Ref } from 'vue'
+import { onMounted, onUnmounted, onUpdated } from 'vue'
+import type { Header } from 'vitepress'
 import { useMediaQuery } from '@vueuse/core'
-import { MenuItemWithLink } from '../../core'
+import type { MenuItemWithLink } from '../../core'
 
 interface HeaderWithChildren extends Header {
   children?: Header[]
@@ -81,7 +82,7 @@ export function useActiveAnchor(
       const [isActive, hash] = isAnchorActive(i, anchor, nextAnchor)
 
       if (isActive) {
-        history.replaceState(null, document.title, hash ? hash : ' ')
+        history.replaceState(null, document.title, hash || ' ')
         activateLink(hash)
         return
       }
@@ -156,8 +157,8 @@ function isAnchorActive(
 }
 
 function throttleAndDebounce(fn: () => void, delay: number): () => void {
-  let timeout: number
-  let called = false
+  let timeout: number,
+    called = false
 
   return () => {
     if (timeout) {

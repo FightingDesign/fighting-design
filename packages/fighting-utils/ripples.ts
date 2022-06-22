@@ -4,7 +4,7 @@ import type { RipplesInterface } from './type'
  * 按钮点击涟漪效果
  */
 export class Ripples implements RipplesInterface {
-  evt: any
+  evt: PointerEvent
   node: HTMLElement
   time: number
   ripplesColor: string

@@ -1,17 +1,17 @@
 <template>
   <div class="VPNavBar">
     <div class="container">
-      <VPNavBarTitle>
+      <v-p-nav-bar-title>
         <template #navbar-title>
           <slot name="navbar-title" />
         </template>
-      </VPNavBarTitle>
+      </v-p-nav-bar-title>
       <div class="content">
-        <VPNavBarMenu class="menu" />
-        <VPNavBarAppearance class="appearance" />
-        <VPNavBarSocialLinks class="social-links" />
-        <VPNavBarExtra class="extra" />
-        <VPNavBarHamburger
+        <v-p-nav-bar-menu class="menu" />
+        <v-p-nav-bar-appearance class="appearance" />
+        <v-p-nav-bar-social-links class="social-links" />
+        <v-p-nav-bar-extra class="extra" />
+        <v-p-nav-bar-hamburger
           class="hamburger"
           :active="isScreenOpen"
           @click="$emit('toggle-screen')"

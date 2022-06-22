@@ -5,12 +5,12 @@
     <slot />
     <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
 
-    <!-- <i
-        v-if="closable"
-        class="f-iolor"
-        icon="f-icon-close"
-        @click.stop="handleClose"
-      /> -->
+    <i
+      v-if="close"
+      class="f-iolor"
+      icon="f-icon-close"
+      @click.stop="handleClose"
+    />
     <!-- </span> -->
   </div>
 </template>

@@ -7,13 +7,13 @@
     </div>
 
     <template v-for="item in items" :key="item.link">
-      <VPSidebarLink :item="item" />
+      <v-p-sidebar-link :item="item" />
     </template>
   </section>
 </template>
 
 <script lang="ts" setup>
-  import { MenuItemWithLink } from '../../core'
+  import type { MenuItemWithLink } from '../../core'
   import VPSidebarLink from './VPSidebarLink.vue'
   import { isActive } from '../support/utils'
   import { useData } from 'vitepress'

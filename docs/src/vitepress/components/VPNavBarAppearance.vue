@@ -1,6 +1,6 @@
 <template>
   <div v-if="config.appearance" class="VPNavBarAppearance">
-    <VTSwitchAppearance />
+    <v-t-switch-appearance />
   </div>
 </template>
 

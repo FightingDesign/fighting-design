@@ -29,13 +29,6 @@
 
 下面将会分别介绍一下每个文件内部的一些规范。
 
-## 公共规范
-
-- 字符串全部使用单引号
-- 去掉末尾的分号
-- `tab` 始终为两个空格
-- 文件末尾加空行
-
 ## interface.d.ts
 
 > 由于打包问题，已经废除原有 @fighting-design/fighting-type 目录，类型改为以下定义方式
@@ -58,7 +51,6 @@
 
 - 组建内只有两个标签（必须的）`<template>` `<script lang="ts" setup name="">`
 - 两大标签之间必须要有一个空行
-- 末尾要有一个空行
 - `script` 必须带有 `lang="ts" setup name=""` 三个标记，注意标记顺序
 
 **template 规范**

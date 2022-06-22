@@ -1,10 +1,8 @@
-$color: #e5e5e5;
-
 .f-back-top {
   position: fixed;
   width: 40px;
   height: 40px;
-  border: 1px solid $color;
+  border: 1px solid #e5e5e5;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -19,6 +17,6 @@ $color: #e5e5e5;
 }
 
 .f-back-top:hover {
-  transition: background-color 0.5s;
-  background-color: $color;
+  transition: 0.5s;
+  background: #e5e5e5;
 }

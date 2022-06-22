@@ -19,4 +19,4 @@ export const nav = [
     activeMatch: '^/union-components/',
     link: ''
   }
-]
+] as const
