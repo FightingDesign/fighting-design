@@ -10,15 +10,15 @@ export const Props = {
   },
   loadingText: {
     type: String,
-    default: '加载中...'
+    default: '加载中'
   },
   loadingIcon: {
     type: String,
-    default: 'icon'
+    default: 'f-icon-loading'
   },
   iconStyle: {
     type: Object,
-    default: () => ({})
+    default: () => ({ fontSize: '20px' })
   },
   loadingTextColor: {
     type: String,

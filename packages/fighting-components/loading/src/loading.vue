@@ -1,10 +1,8 @@
 <template>
   <div class="f-loading__mask" v-if="show"
     :style="{ background: loadingBgColor, opacity: loadingBgOpacity, color: loadingTextColor, }" @click="onClose">
-    <i class="f-icon" :class="loadingIcon" :style="iconStyle"></i>
-    <div class="f-loading__title" :style="{ fontSize: loadingTextSize }">
-      <p>{{ loadingText }}</p>
-    </div>
+    <i class="f-icon f-loading-animation" :class="loadingIcon" :style="iconStyle" />
+    <p class="f-loading__title" :style="{ fontSize: loadingTextSize }">{{ loadingText }}</p>
   </div>
 </template>
 
@@ -20,7 +18,7 @@ const onClose = () => {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .f-loading {
   &__mask {
     position: fixed;
@@ -36,9 +34,9 @@ const onClose = () => {
   }
 
   &__title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 0;
+    margin-top: 10px;
   }
+
 }
 </style>
