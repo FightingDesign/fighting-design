@@ -7,11 +7,9 @@
 </template>
 
 <script setup lang="ts">
-import { Props } from './props'
+import { Props, Emits } from './type'
 const props = defineProps(Props)
-const emits = defineEmits<{
-  (event: 'close'): void
-}>()
+const emits = defineEmits(Emits)
 
 const onClose = () => {
   props.isClose && emits('close')

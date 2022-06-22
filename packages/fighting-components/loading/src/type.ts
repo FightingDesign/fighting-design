@@ -3,7 +3,6 @@ export const Props = {
     type: Boolean,
     default: false
   },
-  // 是否可以关闭加载中
   isClose: {
     type: Boolean,
     default: false
@@ -37,3 +36,5 @@ export const Props = {
     default: '16'
   }
 }
+
+export const Emits = ['close']
