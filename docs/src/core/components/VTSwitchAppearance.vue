@@ -1,12 +1,12 @@
 <template>
-  <VTSwitch
+  <v-t-switch
     class="vt-switch-appearance"
     aria-label="toggle dark mode"
     @click="toggle"
   >
-    <VTIconSun class="vt-switch-appearance-sun" />
-    <VTIconMoon class="vt-switch-appearance-moon" />
-  </VTSwitch>
+    <v-t-icon-sun class="vt-switch-appearance-sun" />
+    <v-t-icon-moon class="vt-switch-appearance-moon" />
+  </v-t-switch>
 </template>
 
 <script lang="ts" setup>
@@ -20,7 +20,7 @@
 
   function useAppearance() {
     let userPreference = localStorage.getItem(storageKey) || 'auto'
-    const query = window.matchMedia(`(prefers-color-scheme: dark)`)
+    const query = window.matchMedia('(prefers-color-scheme: dark)')
     const classList = document.documentElement.classList
     let isDark =
       userPreference === 'auto' ? query.matches : userPreference === 'dark'

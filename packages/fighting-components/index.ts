@@ -16,7 +16,8 @@ import { FSwitch } from './switch'
 import { FBadge } from './badge'
 import { FAvatar } from './avatar'
 import { FBackTop } from './back-top'
-import { FLoading } from './loading'
+import { FText } from './text'
+
 const components = {
   FButton,
   FButtonGroup,
@@ -35,7 +36,7 @@ const components = {
   FBadge,
   FAvatar,
   FBackTop,
-  FLoading
+  FText
 }
 
 const install = (app: App): void => {
@@ -62,7 +63,7 @@ export {
   FBadge,
   FAvatar,
   FBackTop,
-  FLoading
+  FText
 }
 
 export default {

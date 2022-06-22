@@ -8,7 +8,7 @@ import type { keepDecimalInterface, debounceInterface } from './type'
  */
 export const keepDecimal: keepDecimalInterface = (
   num: number,
-  no: number = 2
+  no = 2
 ): number => {
   return Number(num.toFixed(no))
 }
@@ -21,9 +21,9 @@ export const keepDecimal: keepDecimalInterface = (
  */
 export const debounce: debounceInterface = (
   handle: Function,
-  delay: number = 200
+  delay = 200
 ): Function => {
-  let timer: any = null
+  let timer: NodeJS.Timeout
   return (): void => {
     if (timer) {
       clearTimeout(timer)

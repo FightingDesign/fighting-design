@@ -1,5 +1,5 @@
 <template>
-  <VTFlyout
+  <v-t-flyout
     :class="{
       VPNavBarMenuGroup: true,
       active: isActive(page.relativePath, item.activeMatch, true)
@@ -13,7 +13,7 @@
   import { VTFlyout } from '../../core'
   import { isActive } from '../support/utils'
   import { useData } from 'vitepress'
-  import { NavItemWithChildren } from '../config'
+  import type { NavItemWithChildren } from '../config'
 
   defineProps<{
     item: NavItemWithChildren

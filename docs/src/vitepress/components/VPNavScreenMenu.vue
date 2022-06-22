@@ -1,12 +1,12 @@
 <template>
   <nav v-if="config.nav" class="VPNavScreenMenu">
     <template v-for="item in config.nav" :key="item.text">
-      <VPNavScreenMenuLink
+      <v-p-nav-screen-menu-link
         v-if="'link' in item"
         :text="item.text"
         :link="item.link"
       />
-      <VPNavScreenMenuGroup
+      <v-p-nav-screen-menu-group
         v-else
         :text="item.text || ''"
         :items="item.items"

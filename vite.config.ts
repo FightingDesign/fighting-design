@@ -22,7 +22,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'packages/fighting-design'),
       name: 'fightingDesign',
       formats: ['es'],
-      fileName: (format) => {
+      fileName: () => {
         return 'index.js'
       }
     },

@@ -7,7 +7,7 @@ import type {
 } from './interface'
 
 export const Props = {
-  blob: {
+  bold: {
     type: Boolean,
     default: (): boolean => false
   },

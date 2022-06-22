@@ -1,5 +1,5 @@
 <template>
-  <VTSocialLinks
+  <v-t-social-links
     v-if="config.socialLinks"
     class="VPNavBarSocialLinks"
     size="small"

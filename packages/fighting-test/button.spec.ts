@@ -8,11 +8,11 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button')
   })
 
-  test('blob', () => {
+  test('bold', () => {
     const wrapper = mount(FButton, {
-      props: { blob: true }
+      props: { bold: true }
     })
-    expect(wrapper.classes()).toContain('f-button-blob')
+    expect(wrapper.classes()).toContain('f-button-bold')
   })
 
   test('circle', () => {
@@ -45,7 +45,7 @@ describe('FButton', () => {
 
   test('size', () => {
     const size = ['large', 'middle', 'small', 'mini'] as const
-    size.map((item) => {
+    size.forEach((item) => {
       const wrapper = mount(FButton, {
         props: { size: item }
       })
@@ -69,7 +69,7 @@ describe('FButton', () => {
 
   test('target', () => {
     const target = ['_blank', '_self', '_parent', '_top'] as const
-    target.map((item) => {
+    target.forEach((item) => {
       const wrapper = mount(FButton, {
         props: { href: 'https://tianyuhao.cn', target: item }
       })
@@ -111,7 +111,7 @@ describe('FButton', () => {
 
   test('type', () => {
     const type = ['default', 'primary', 'success', 'danger', 'warning'] as const
-    type.map((item) => {
+    type.forEach((item) => {
       const wrapper = mount(FButton, {
         props: { type: item }
       })
@@ -151,7 +151,7 @@ describe('FButton', () => {
 
   test('nativeType', () => {
     const nativeType = ['button', 'submit', 'reset'] as const
-    nativeType.map((item) => {
+    nativeType.forEach((item) => {
       const wrapper = mount(FButton, {
         props: { nativeType: item }
       })
