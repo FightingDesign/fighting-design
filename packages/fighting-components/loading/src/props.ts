@@ -35,9 +35,5 @@ export const Props = {
   loadingTextSize: {
     type: [String, Number],
     default: '16'
-  },
-  duration: {
-    type: [String, Number],
-    default: '0.3'
   }
 }
