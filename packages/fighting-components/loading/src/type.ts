@@ -3,22 +3,21 @@ export const Props = {
     type: Boolean,
     default: false
   },
-  // 是否可以关闭加载中
   isClose: {
     type: Boolean,
     default: false
   },
   loadingText: {
     type: String,
-    default: '加载中...'
+    default: '加载中'
   },
   loadingIcon: {
     type: String,
-    default: 'icon'
+    default: 'f-icon-loading'
   },
   iconStyle: {
     type: Object,
-    default: () => ({})
+    default: () => ({ fontSize: '20px' })
   },
   loadingTextColor: {
     type: String,
@@ -37,3 +36,5 @@ export const Props = {
     default: '16'
   }
 }
+
+export const Emits = ['close']
