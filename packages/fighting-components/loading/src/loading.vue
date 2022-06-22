@@ -1,9 +1,9 @@
 <template>
   <div class="f-loading__mask" v-if="show"
     :style="{ background: loadingBgColor, opacity: loadingBgOpacity, color: loadingTextColor, }" @click="onClose">
-    <i :class="loadingIcon"></i>
+    <i class="f-icon" :class="loadingIcon" :style="iconStyle"></i>
     <div class="f-loading__title" :style="{ fontSize: loadingTextSize }">
-      <p>{{ loadingText }} . . .</p>
+      <p>{{ loadingText }}</p>
     </div>
   </div>
 </template>
