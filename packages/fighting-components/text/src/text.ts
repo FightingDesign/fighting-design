@@ -33,7 +33,7 @@ export const Props = {
    */
   background: {
     type: String,
-    default: (): string => '#FFF'
+    default: (): string => ''
   },
   /**
    * 是否独占一行
