@@ -35,6 +35,6 @@ export const Props = {
     type: [String, Number],
     default: '16'
   }
-}
+} as const
 
-export const Emits = ['close']
+export const Emits = ['close'] as const
