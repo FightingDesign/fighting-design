@@ -8,7 +8,7 @@
 
 <script setup lang="ts" name="FLoading">
 import { Props, Emits } from './loading'
-import { onCloseInterface } from "./interface";
+import type { onCloseInterface } from "./interface"
 
 const prop = defineProps(Props)
 const emit = defineEmits(Emits)
