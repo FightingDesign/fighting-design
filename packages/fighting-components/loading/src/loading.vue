@@ -7,11 +7,13 @@
 </template>
 
 <script setup lang="ts" name="FLoading">
-import { Props, Emits } from './type'
-const props = defineProps(Props)
-const emits = defineEmits(Emits)
+import { Props, Emits } from './loading'
+import { onCloseInterface } from "./interface";
 
-const onClose = () => {
-  props.isClose && emits('close')
+const prop = defineProps(Props)
+const emit = defineEmits(Emits)
+
+const onClose: onCloseInterface = (): void => {
+  prop.isClose && emit('close')
 }
 </script>
