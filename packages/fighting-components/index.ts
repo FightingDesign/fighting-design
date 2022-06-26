@@ -15,9 +15,9 @@ import { FLayout } from './layout'
 import { FSwitch } from './switch'
 import { FBadge } from './badge'
 import { FAvatar } from './avatar'
-import { FBackTop } from './backTop'
-import { FBreadcrumb } from "./breadcrumb"
-import { FBreadcrumbItem } from "./breadcrumb-item"
+import { FBackTop } from './back-top'
+import { FBreadcrumb } from './breadcrumb'
+import { FBreadcrumbItem } from './breadcrumb-item'
 import { FText } from './text'
 import { FLoading } from './loading'
 
