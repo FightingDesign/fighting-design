@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.0.10 alpha.10 (2022-06-26)
+
 **feat**
 
 - 新增 `FText` 组件
