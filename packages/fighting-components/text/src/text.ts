@@ -9,9 +9,9 @@ export const Props = {
     type: String as PropType<textType>,
     default: (): textType => 'default',
     validator: (val: textType): boolean => {
-      return (['primary', 'success', 'danger', 'warning', 'default', 'info'] as const).includes(
-        val
-      )
+      return (
+        ['primary', 'success', 'danger', 'warning', 'default', 'info'] as const
+      ).includes(val)
     }
   },
   /**
