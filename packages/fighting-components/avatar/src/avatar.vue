@@ -3,16 +3,22 @@
     :class="['f-avatar', { 'f-avatar-round': round }]"
     :style="{ background }"
   >
-    <img :class="classList" :src="src" :alt="alt" />
+    <img ref="FAvatarImg" :class="classList" src="" :alt="alt" />
   </div>
 </template>
 
 <script lang="ts" setup name="FAvatar">
-  import { Props } from './avatar'
-  import { computed } from 'vue'
-  import type { ComputedRef } from 'vue'
+  import { Props, Emits } from './avatar'
+  import { computed, ref, onMounted } from 'vue'
+  import type { ComputedRef, Ref } from 'vue'
+  import { loadImage } from '@fighting-design/fighting-utils'
 
   const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
+
+  const FAvatarImg: Ref<HTMLImageElement | null> = ref<HTMLImageElement | null>(
+    null
+  )
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
@@ -27,4 +33,9 @@
       ]
     }
   )
+
+  onMounted((): void => {
+    const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
+    loadImage(node, prop, emit, null)
+  })
 </script>

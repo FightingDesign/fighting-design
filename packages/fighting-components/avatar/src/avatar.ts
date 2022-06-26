@@ -6,6 +6,10 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
+  errSrc: {
+    type: String,
+    default: (): string => ''
+  },
   alt: {
     type: String,
     default: (): string => ''
@@ -42,4 +46,9 @@ export const Props = {
     type: String,
     default: (): string => ''
   }
+} as const
+
+export const Emits = {
+  load: (evt: Event): boolean => evt instanceof Event,
+  error: (evt: Event): boolean => evt instanceof Event
 } as const
