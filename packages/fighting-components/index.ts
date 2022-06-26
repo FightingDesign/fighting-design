@@ -17,6 +17,7 @@ import { FBadge } from './badge'
 import { FAvatar } from './avatar'
 import { FBackTop } from './back-top'
 import { FText } from './text'
+import { FLoading } from './loading'
 
 const components = {
   FButton,
@@ -36,7 +37,8 @@ const components = {
   FBadge,
   FAvatar,
   FBackTop,
-  FText
+  FText,
+  FLoading
 }
 
 const install = (app: App): void => {
@@ -63,7 +65,8 @@ export {
   FBadge,
   FAvatar,
   FBackTop,
-  FText
+  FText,
+  FLoading
 }
 
 export default {

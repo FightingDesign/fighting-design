@@ -17,19 +17,19 @@ export const Props = {
   },
   loadingTextColor: {
     type: String,
-    default: (): string => 'rgb(25, 137, 250)'
+    default: (): string => ''
   },
   loadingBgColor: {
     type: String,
-    default: (): string => '#000'
+    default: (): string => ''
   },
   loadingBgOpacity: {
-    type: String,
-    default: (): string => '0.7'
+    type: Number,
+    default: (): number | null => null
   },
   loadingTextSize: {
     type: String,
-    default: (): string => '16'
+    default: (): string => ''
   }
 } as const
 

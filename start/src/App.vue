@@ -4,6 +4,8 @@
   <f-avatar background="red" round fit="cover" :src="src" />
   <f-avatar background="red" round fit="none" :src="src" />
   <f-avatar background="red" round fit="scale-down" :src="src" />
+
+  <f-loading :show="true" />
 </template>
 
 <script lang="ts" setup>
