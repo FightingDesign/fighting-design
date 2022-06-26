@@ -45,8 +45,13 @@ export const sidebar = {
         { text: 'Image 图片', link: '/components/image' },
         { text: 'Card 卡片', link: '/components/card' },
         { text: 'Tag 标签', link: '/components/tag' },
-        { text: 'Switch 开关', link: '/components/switch' }
+        { text: 'Switch 开关', link: '/components/switch' },
       ]
+    },
+    {
+      text:"导航",
+      link:"/components/",
+      items:[{ text: "Breadcrumb 面包屑", link:"/components/breadcrumb"}]
     },
     {
       text: '其它',
