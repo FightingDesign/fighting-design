@@ -35,7 +35,7 @@
 ::: details 显示代码
 
 ```html
-<f-breadcrumb separator="/">
+<f-breadcrumb separator="/" separatorColor="blue" itemColor="blue">
   <f-breadcrumb-item :to="{ path: '/' }">首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
@@ -57,7 +57,7 @@
 ::: details 显示代码
 
 ```html
-<f-breadcrumb separator="-">
+<f-breadcrumb separator-icon="f-icon-arrow-right">
   <f-breadcrumb-item :to="{ path: '/' }">首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
