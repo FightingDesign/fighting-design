@@ -2,6 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.0.11 alpha.11 (2022-06-26)
+
+**fix**
+
+- 修复打包路径错误问题
+
 ## 0.0.10 alpha.10 (2022-06-26)
 
 **feat**
