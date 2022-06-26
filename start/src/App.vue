@@ -1,6 +1,8 @@
 <template>
-  <f-avatar src="https://tianyuhao.cn/images/my.jpg" />
-  <f-avatar round src="https://tianyuhao.cn/images/my.jpg" />
+  <f-avatar size="large" icon="f-icon-bussiness-man" />
+  <f-avatar size="middle" icon="f-icon-atm-away" />
+  <f-avatar size="small" icon="f-icon-Customermanagement" />
+  <f-avatar size="mini" icon="f-icon-account" />
 </template>
 
 <script lang="ts" setup>

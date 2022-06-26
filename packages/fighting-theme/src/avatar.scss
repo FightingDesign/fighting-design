@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   background: #eee;
+  vertical-align: middle;
 
   // 不同大小
   @each $key, $value in $avatarSize {
