@@ -1,10 +1,11 @@
-import type {  PropType } from 'vue'
+// import type { PropType } from 'vue'
 import type BreadcrumbItem from './breadcrumb-item.vue'
-export const definePropType = <T>(val: any): PropType<T> => val
+// export const definePropType = <T>(val: any): PropType<T> => val
 
 export const Props = {
   to: {
-    type: definePropType([String, Object]),
+    // type: definePropType([String, Object]),
+    type: [String, Object],
     default: '',
   },
   replace: {
