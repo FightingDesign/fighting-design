@@ -1,28 +1,6 @@
 <template>
-  <f-avatar icon="f-icon-email" iconSize="30px" round :src="src" />
-  <f-avatar icon="f-icon-email" iconSize="30px" round size="large" :src="src" />
-  <f-avatar
-    icon="f-icon-email"
-    iconSize="30px"
-    round
-    size="middle"
-    :src="src"
-  />
-  <f-avatar icon="f-icon-email" iconSize="30px" round size="small" :src="src" />
-  <f-avatar
-    icon="f-icon-email"
-    iconColor="red"
-    iconSize="30px"
-    round
-    size="small"
-    :src="src"
-  />
-  <br />
-  <f-avatar round :src="src" />
-  <f-avatar round size="large" :src="src" />
-  <f-avatar round size="middle" :src="src" />
-  <f-avatar round size="small" :src="src" />
-  <f-avatar round size="small" :src="src" />
+  <f-avatar src="https://tianyuhao.cn/images/my.jpg" />
+  <f-avatar round src="https://tianyuhao.cn/images/my.jpg" />
 </template>
 
 <script lang="ts" setup>
