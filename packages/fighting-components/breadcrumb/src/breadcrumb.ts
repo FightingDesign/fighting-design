@@ -1,5 +1,4 @@
-
-import { ExtractPropTypes,  InjectionKey } from 'vue'
+import type { ExtractPropTypes,  InjectionKey } from 'vue'
 import type Breadcrumb from './breadcrumb.vue'
 
 export const breadcrumbProps = {
@@ -13,11 +12,11 @@ export const breadcrumbProps = {
   },
   itemColor: {
     type: String,
-    default: "gray"
+    default: 'gray'
   },
   separatorColor: {
     type: String,
-    default: "gray"
+    default: 'gray'
   }
 }
 export type BreadcrumbProps = ExtractPropTypes<typeof breadcrumbProps>
