@@ -45,6 +45,14 @@ export const Props = {
   icon: {
     type: String,
     default: (): string => ''
+  },
+  iconSize: {
+    type: String,
+    default: (): string => ''
+  },
+  iconColor: {
+    type: String,
+    default: (): string => ''
   }
 } as const
 

@@ -1,9 +1,18 @@
 <template>
   <div
-    :class="['f-avatar', { 'f-avatar-round': round }]"
+    :class="[
+      'f-avatar',
+      { 'f-avatar-round': round, [`f-avatar-${size}`]: size }
+    ]"
     :style="{ background }"
   >
-    <img ref="FAvatarImg" :class="classList" src="" :alt="alt" />
+    <i
+      v-if="icon"
+      :class="['f-icon', icon]"
+      :style="{ fontSize: iconSize, color: iconColor }"
+    />
+
+    <img v-else ref="FAvatarImg" :class="classList" src="" :alt="alt" />
   </div>
 </template>
 
@@ -25,6 +34,7 @@
       const { round, size, fit } = prop
 
       return [
+        'f-avatar-img',
         {
           'f-avatar-round': round,
           [`f-avatar-${size}`]: size,
@@ -35,7 +45,9 @@
   )
 
   onMounted((): void => {
-    const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
-    loadImage(node, prop, emit, null)
+    if (!prop.icon) {
+      const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
+      loadImage(node, prop, emit, null)
+    }
   })
 </script>

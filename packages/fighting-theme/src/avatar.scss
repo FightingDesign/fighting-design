@@ -1,15 +1,14 @@
 @import '../config/var-avatar.scss';
 
 .f-avatar {
-  width: 50px;
-  height: 50px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background: skyblue;
+  background: #eee;
 
   // 不同大小
   @each $key, $value in $avatarSize {
+    &.f-avatar-#{$key},
     .f-avatar-#{$key} {
       width: $value;
       height: $value;
