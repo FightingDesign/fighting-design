@@ -6,15 +6,16 @@
 
 <script lang="ts" setup name="FBreadcrumb">
   import { onMounted, provide } from 'vue'
-  import { breadcrumbKey, breadcrumbProps } from './breadcrumb'
+  import { breadcrumbKey, Props } from './breadcrumb'
 
-  const props = defineProps(breadcrumbProps)
+  const props = defineProps(Props)
 
   provide(breadcrumbKey, props)
 
   onMounted(() => {
     const breadcrumb = document.querySelector('.f-breadcrumb')
     const items = breadcrumb!.querySelectorAll('.f-breadcrumb-item')
+
     if (items.length) {
       items[items.length - 1].setAttribute('aria-current', 'page')
     }

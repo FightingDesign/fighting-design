@@ -6,11 +6,12 @@ export const Props = {
   to: {
     // type: definePropType([String, Object]),
     type: [String, Object],
-    default: '',
+    default: (): string => ''
   },
   replace: {
     type: Boolean,
-    default: false,
-  },
+    default: (): boolean => false
+  }
 }
+
 export type BreadcrumbItemInstance = InstanceType<typeof BreadcrumbItem>

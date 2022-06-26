@@ -9,12 +9,18 @@
     >
       <slot />
     </span>
-    <f-icon
+    <!-- <f-icon
       v-if="separatorIcon"
       :style="{ color: separatorColor }"
       class="f-breadcrumb-item__separator"
       :class="`${separatorIcon}`"
+    /> -->
+    <i
+      v-if="separatorIcon"
+      :style="{ color: separatorColor }"
+      :class="['f-breadcrumb-item__separator', separatorIcon]"
     />
+
     <span
       v-else
       :style="{ color: separatorColor }"
@@ -30,9 +36,8 @@
   import { getCurrentInstance, inject, ref, toRefs } from 'vue'
   import { breadcrumbKey } from './breadcrumb'
   import { Props } from './breadcrumb-item'
-  import { FIcon } from '@fighting-design/fighting-components/icon'
 
-  const props = defineProps(Props)
+  const prop = defineProps(Props)
 
   const instance = getCurrentInstance()!
   const breadcrumbContext = inject(breadcrumbKey, undefined)!
@@ -43,8 +48,12 @@
 
   const link = ref<HTMLSpanElement>()
 
-  const onClick = () => {
-    if (!props.to || !router) return
-    props.replace ? router.replace(props.to) : router.push(props.to)
+  const onClick = (): void => {
+    const { replace, to } = prop
+
+    if (!to || !router) {
+      return
+    }
+    replace ? router.replace(to) : router.push(to)
   }
 </script>
