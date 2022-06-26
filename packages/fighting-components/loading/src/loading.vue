@@ -1,18 +1,16 @@
 <template>
-  <template v-if="show">
-    <div class="f-loading" :style="loadingStyleList" @click="onClose">
-      <i
-        :class="[
-          'f-icon',
-          'f-loading-animation',
-          `${loadingIcon || 'f-icon-loading'}`
-        ]"
-      />
-      <span class="f-loading-title" :style="{ fontSize: loadingTextSize }">
-        {{ loadingText || '加载中' }}
-      </span>
-    </div>
-  </template>
+  <div v-if="show" class="f-loading" :style="loadingStyleList" @click="onClose">
+    <i
+      :class="[
+        'f-icon',
+        'f-loading-animation',
+        `${loadingIcon || 'f-icon-loading'}`
+      ]"
+    />
+    <span class="f-loading-title" :style="{ fontSize: loadingTextSize }">
+      {{ loadingText || '加载中' }}
+    </span>
+  </div>
 </template>
 
 <script setup lang="ts" name="FLoading">
