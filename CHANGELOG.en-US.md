@@ -2,6 +2,24 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.0.11 alpha.11 (2022-06-26)
+
+**fix**
+
+- Fix packaging path errors
+
+## 0.0.10 alpha.10 (2022-06-26)
+
+**feat**
+
+- add `FText` component
+- add `FAvatar` component
+- add `FLoading` component
+
+**fix**
+
+- The `FButton` component `blob` configuration item is changed to `blob` for Text bold
+
 ## 0.0.8 alpha.8 (2022-06-12)
 
 **feat**

@@ -1,24 +1,24 @@
 <template>
-  <VTFlyout v-if="hasContent" class="VPNavBarExtra" label="extra navigation">
+  <v-t-flyout v-if="hasContent" class="VPNavBarExtra" label="extra navigation">
     <div v-if="config.appearance" class="vt-menu-group">
       <div class="vt-menu-item item">
         <p class="vt-menu-label">Appearance</p>
         <div class="vt-menu-action action">
-          <VTSwitchAppearance />
+          <v-t-switch-appearance />
         </div>
       </div>
     </div>
 
     <div v-if="config.socialLinks" class="vt-menu-group">
       <div class="vt-menu-item item">
-        <VTSocialLinks
+        <v-t-social-links
           class="social-links"
           size="small"
           :links="config.socialLinks"
         />
       </div>
     </div>
-  </VTFlyout>
+  </v-t-flyout>
 </template>
 
 <script lang="ts" setup>

@@ -1,10 +1,10 @@
 <template>
   <transition name="fade">
-    <div v-if="open" class="VPNavScreen" ref="screen">
+    <div v-if="open" ref="screen" class="VPNavScreen">
       <div class="container">
-        <VPNavScreenMenu class="menu" />
-        <VPNavScreenAppearance class="appearance" />
-        <VPNavScreenSocialLinks class="social-links" />
+        <v-p-nav-screen-menu class="menu" />
+        <v-p-nav-screen-appearance class="appearance" />
+        <v-p-nav-screen-social-links class="social-links" />
       </div>
     </div>
   </transition>

@@ -13,11 +13,14 @@
     <div :id="groupId" class="items">
       <template v-for="item in items" :key="item.text">
         <div v-if="'link' in item" :key="item.text" class="item">
-          <VPNavScreenMenuGroupLink :text="item.text" :link="item.link" />
+          <v-p-nav-screen-menu-group-link :text="item.text" :link="item.link" />
         </div>
 
         <div v-else class="group">
-          <VPNavScreenMenuGroupSection :text="item.text" :items="item.items" />
+          <v-p-nav-screen-menu-group-section
+            :text="item.text"
+            :items="item.items"
+          />
         </div>
       </template>
     </div>
@@ -26,7 +29,7 @@
 
 <script lang="ts" setup>
   import { computed, ref } from 'vue'
-  import { MenuItemChild } from '../../core'
+  import type { MenuItemChild } from '../../core'
   import VPNavScreenMenuGroupLink from './VPNavScreenMenuGroupLink.vue'
   import VPNavScreenMenuGroupSection from './VPNavScreenMenuGroupSection.vue'
 

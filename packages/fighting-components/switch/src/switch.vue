@@ -29,11 +29,7 @@
 <script lang="ts" setup name="FSwitch">
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
-  import type {
-    changeSwitchInterface,
-    rollStyleReturn,
-    FSwitchClassReturnType
-  } from './interface'
+  import type { changeSwitchInterface, rollStyleReturn } from './interface'
   import type { ComputedRef } from 'vue'
 
   const prop = defineProps(Props)
@@ -62,8 +58,8 @@
     }
   )
 
-  const FSwitchClass: ComputedRef<FSwitchClassReturnType> = computed(
-    (): FSwitchClassReturnType => {
+  const FSwitchClass: ComputedRef<object | string[]> = computed(
+    (): object | string[] => {
       const { size, modelValue, square } = prop
 
       return [

@@ -1,6 +1,6 @@
 <template>
   <div class="vt-social-links">
-    <VTSocialLink
+    <v-t-social-link
       v-for="{ link, icon } in links"
       :key="link"
       :size="size"
@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { SocialLinkSize, SocialLink } from '../types/socialLink'
+  import type { SocialLinkSize, SocialLink } from '../types/socialLink'
   import VTSocialLink from './VTSocialLink.vue'
 
   defineProps<{

@@ -1,26 +1,79 @@
-@import '../config/color.scss';
-@import '../config/size.scss';
+@import '../config/const-color.scss';
+@import '../config/const-size.scss';
 
-@mixin btnSizes($height, $padding, $fontSize) {
-  height: $height;
-  padding: 0 $padding;
-  line-height: $height;
-  font-size: $fontSize;
-}
-
-// 不同的类型
-$ButtonTypes: (
-  'default': $default,
-  'primary': $primary,
-  'success': $success,
-  'danger': $danger,
-  'warning': $warning
+// 不同按钮类型的颜色状态
+$buttonTypeColor: (
+  (
+    name: 'default',
+    default: $default,
+    simple: #fcfcfc,
+    defaultHover: #f2f2f2,
+    defaultActive: #dfdfdf,
+    defaultTextColor: #333,
+    simpleTextColor: #333
+  ),
+  (
+    name: 'primary',
+    default: $primary,
+    simple: #dfe6fc,
+    defaultHover: #5277f3,
+    defaultActive: #2851d8,
+    defaultTextColor: #fff,
+    simpleTextColor: #2d5af1
+  ),
+  (
+    name: 'success',
+    default: $success,
+    simple: #e7f4e8,
+    defaultHover: #71c07a,
+    defaultActive: #469950,
+    defaultTextColor: #fff,
+    simpleTextColor: #52b35e
+  ),
+  (
+    name: 'danger',
+    default: $danger,
+    simple: #ffd9d8,
+    defaultHover: #ff2f2d,
+    defaultActive: #db0100,
+    defaultTextColor: #fff,
+    simpleTextColor: #ff0200
+  ),
+  (
+    name: 'warning',
+    default: $warning,
+    simple: #fff5d6,
+    defaultHover: #fccc2f,
+    defaultActive: #dba801,
+    defaultTextColor: #fff,
+    simpleTextColor: #fcc202
+  )
 );
 
-// 不同尺寸
-$ButtonSizes: (
-  'large': $large,
-  'middle': $middle,
-  'small': $small,
-  'mini': $mini
+// 不同大小
+$buttonSize: (
+  (
+    name: 'large',
+    height: $large,
+    fontSize: 15px,
+    padding: 30px
+  ),
+  (
+    name: 'middle',
+    height: $middle,
+    fontSize: 14px,
+    padding: 25px
+  ),
+  (
+    name: 'small',
+    height: $small,
+    fontSize: 13px,
+    padding: 20px
+  ),
+  (
+    name: 'mini',
+    height: $mini,
+    fontSize: 12px,
+    padding: 15px
+  )
 );

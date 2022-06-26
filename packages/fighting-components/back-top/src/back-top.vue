@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup name="FBackTop">
-  import { Emits, Props } from './backTop'
+  import { Emits, Props } from './back-top'
   import { onMounted, ref } from 'vue'
   import { debounce } from '@fighting-design/fighting-utils'
   import type { Ref } from 'vue'

@@ -428,7 +428,7 @@ const iconLists = [
   'f-icon-scanning',
   'f-icon-security',
   'f-icon-salescenter',
-  'f-icon-seleted',
+  'f-icon-smelted',
   'f-icon-searchcart',
   'f-icon-raw',
   'f-icon-service',

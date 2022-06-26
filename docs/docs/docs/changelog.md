@@ -2,6 +2,24 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.0.11 alpha.11 (2022-06-26)
+
+**fix**
+
+- 修复打包路径错误问题
+
+## 0.0.10 alpha.10 (2022-06-26)
+
+**feat**
+
+- 新增 `FText` 组件
+- 新增 `FAvatar` 组件
+- 新增 `FLoading` 组件
+
+**fix**
+
+- `FButton` 组件 `blob` 配置项改为 `bold`，用于文字加粗
+
 ## 0.0.9 alpha.9 (2022-06-14)
 
 **feat**

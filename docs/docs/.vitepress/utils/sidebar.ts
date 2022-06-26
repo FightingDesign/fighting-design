@@ -34,6 +34,7 @@ export const sidebar = {
         { text: 'Button 按钮', link: '/components/button' },
         { text: 'Icon 图标', link: '/components/icon' },
         { text: 'Link 链接', link: '/components/link' },
+        { text: 'Text 文本', link: '/components/text' },
         { text: 'Layout 布局', link: '/components/layout' }
       ]
     },
@@ -46,6 +47,7 @@ export const sidebar = {
         { text: 'Card 卡片', link: '/components/card' },
         { text: 'Tag 标签', link: '/components/tag' },
         { text: 'Switch 开关', link: '/components/switch' },
+        { text: 'Avatar 头像', link: '/components/avatar' }
       ]
     },
     {
@@ -54,9 +56,14 @@ export const sidebar = {
       items:[{ text: "Breadcrumb 面包屑", link:"/components/breadcrumb"}]
     },
     {
+      text: '反馈组件',
+      link: '/components/',
+      items: [{ text: 'Loading 加载', link: '/components/loading' }]
+    },
+    {
       text: '其它',
       link: '/components/',
       items: [{ text: 'Divider 分隔线', link: '/components/divider' }]
     }
   ]
-}
+} as const

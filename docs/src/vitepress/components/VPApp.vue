@@ -1,23 +1,27 @@
 <template>
   <div class="VPApp">
-    <VPSkipLink />
-    <VTBackdrop class="backdrop" :show="isSidebarOpen" @click="closeSidebar" />
+    <v-p-skip-link />
+    <v-t-backdrop
+      class="backdrop"
+      :show="isSidebarOpen"
+      @click="closeSidebar"
+    />
     <slot name="banner" />
-    <VPNav>
+    <v-p-nav>
       <template #navbar-title>
         <slot name="navbar-title" />
       </template>
-    </VPNav>
-    <VPLocalNav :open="isSidebarOpen" @open-menu="openSidebar" />
-    <VPSidebar :open="isSidebarOpen">
+    </v-p-nav>
+    <v-p-local-nav :open="isSidebarOpen" @open-menu="openSidebar" />
+    <v-p-sidebar :open="isSidebarOpen">
       <template #top>
         <slot name="sidebar-top" />
       </template>
       <template #bottom>
         <slot name="sidebar-bottom" />
       </template>
-    </VPSidebar>
-    <VPContent>
+    </v-p-sidebar>
+    <v-p-content>
       <template #content-top>
         <slot name="content-top" />
       </template>
@@ -39,8 +43,8 @@
       <template #footer-after>
         <slot name="footer-after" />
       </template>
-    </VPContent>
-    <VPAnnouncer />
+    </v-p-content>
+    <v-p-announcer />
   </div>
 </template>
 

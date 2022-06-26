@@ -18,6 +18,8 @@ import { FAvatar } from './avatar'
 import { FBackTop } from './backTop'
 import { FBreadcrumb } from "./breadcrumb"
 import { FBreadcrumbItem } from "./breadcrumb-item"
+import { FText } from './text'
+import { FLoading } from './loading'
 
 const components = {
   FButton,
@@ -38,7 +40,9 @@ const components = {
   FAvatar,
   FBackTop,
   FBreadcrumbItem,
-  FBreadcrumb
+  FBreadcrumb,
+  FText,
+  FLoading
 }
 
 const install = (app: App): void => {
@@ -66,7 +70,9 @@ export {
   FAvatar,
   FBackTop,
   FBreadcrumbItem,
-  FBreadcrumb
+  FBreadcrumb,
+  FText,
+  FLoading
 }
 
 export default {

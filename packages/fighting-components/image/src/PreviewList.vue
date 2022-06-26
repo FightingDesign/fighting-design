@@ -72,7 +72,7 @@
   const imagPreload: ordinaryFunctionInterface = (): void => {
     const imgList: Array<string> = prop.previewList as Array<string>
 
-    imgList.map((item: string): void => {
+    imgList.forEach((item: string): void => {
       const img: HTMLImageElement = new Image() as HTMLImageElement
       img.src = item
     })
