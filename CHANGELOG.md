@@ -5,6 +5,8 @@
 **feat**
 
 - 新增 `FText` 组件
+- 新增 `FAvatar` 组件
+- 新增 `FLoading` 组件
 
 **fix**
 

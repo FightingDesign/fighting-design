@@ -51,6 +51,11 @@ export const sidebar = {
       ]
     },
     {
+      text: '反馈组件',
+      link: '/components/',
+      items: [{ text: 'Loading 加载', link: '/components/loading' }]
+    },
+    {
       text: '其它',
       link: '/components/',
       items: [{ text: 'Divider 分隔线', link: '/components/divider' }]
