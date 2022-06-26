@@ -1,14 +1,10 @@
 <template>
   <div v-if="show" class="f-loading" :style="loadingStyleList" @click="onClose">
     <i
-      :class="[
-        'f-icon',
-        'f-loading-animation',
-        `${loadingIcon || 'f-icon-loading'}`
-      ]"
+      :class="['f-icon', 'f-loading-animation', `${icon || 'f-icon-loading'}`]"
     />
-    <span class="f-loading-title" :style="{ fontSize: loadingTextSize }">
-      {{ loadingText || '加载中' }}
+    <span class="f-loading-title" :style="{ fontSize: textSize }">
+      {{ text || '加载中' }}
     </span>
   </div>
 </template>
@@ -23,17 +19,17 @@
   const emit = defineEmits(Emits)
 
   const onClose: onCloseInterface = (evt: MouseEvent): void => {
-    prop.isClose && emit('close', evt)
+    prop.close && emit('close', evt)
   }
 
   const loadingStyleList: ComputedRef<loadingStyleListInterface> = computed(
     (): loadingStyleListInterface => {
-      const { loadingBgColor, loadingBgOpacity, loadingTextColor } = prop
+      const { background, opacity, textColor } = prop
 
       return {
-        background: loadingBgColor,
-        opacity: loadingBgOpacity,
-        color: loadingTextColor
+        background,
+        opacity,
+        color: textColor
       }
     }
   )

@@ -3,33 +3,33 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  isClose: {
+  close: {
     type: Boolean,
     default: (): boolean => false
   },
-  loadingText: {
+  text: {
     type: String,
     default: (): string => ''
   },
-  loadingIcon: {
+  icon: {
     type: String,
     default: (): string => ''
   },
-  loadingTextColor: {
+  textColor: {
     type: String,
     default: (): string => ''
   },
-  loadingBgColor: {
+  textSize: {
     type: String,
     default: (): string => ''
   },
-  loadingBgOpacity: {
+  background: {
+    type: String,
+    default: (): string => ''
+  },
+  opacity: {
     type: Number,
     default: (): number | null => null
-  },
-  loadingTextSize: {
-    type: String,
-    default: (): string => ''
   }
 } as const
 

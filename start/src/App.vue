@@ -1,13 +1,19 @@
 <template>
-  <f-avatar size="large" icon="f-icon-bussiness-man" />
-  <f-avatar size="middle" icon="f-icon-atm-away" />
-  <f-avatar size="small" icon="f-icon-Customermanagement" />
-  <f-avatar size="mini" icon="f-icon-account" />
+  <f-button type="primary" @click="onclick">主要按钮</f-button>
+  <f-loading :show="loading1" />
 </template>
 
 <script lang="ts" setup>
-  const src =
-    'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png'
+  import { ref } from 'vue'
+
+  const loading1 = ref(false)
+
+  function onclick() {
+    loading1.value = true
+    setTimeout(() => {
+      loading1.value = false
+    }, 1500)
+  }
 </script>
 
 <style>
