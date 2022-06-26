@@ -15,7 +15,9 @@ import { FLayout } from './layout'
 import { FSwitch } from './switch'
 import { FBadge } from './badge'
 import { FAvatar } from './avatar'
-import { FBackTop } from './back-top'
+import { FBackTop } from './backTop'
+import { FBreadcrumb } from "./breadcrumb"
+import { FBreadcrumbItem } from "./breadcrumb-item"
 import { FText } from './text'
 import { FLoading } from './loading'
 
@@ -37,6 +39,8 @@ const components = {
   FBadge,
   FAvatar,
   FBackTop,
+  FBreadcrumbItem,
+  FBreadcrumb,
   FText,
   FLoading
 }
@@ -65,6 +69,8 @@ export {
   FBadge,
   FAvatar,
   FBackTop,
+  FBreadcrumbItem,
+  FBreadcrumb,
   FText,
   FLoading
 }

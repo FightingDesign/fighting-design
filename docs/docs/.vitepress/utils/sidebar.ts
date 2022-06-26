@@ -51,6 +51,11 @@ export const sidebar = {
       ]
     },
     {
+      text:"导航",
+      link:"/components/",
+      items:[{ text: "Breadcrumb 面包屑", link:"/components/breadcrumb"}]
+    },
+    {
       text: '反馈组件',
       link: '/components/',
       items: [{ text: 'Loading 加载', link: '/components/loading' }]
