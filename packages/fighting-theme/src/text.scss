@@ -1,0 +1,28 @@
+@import '../config/var-text.scss';
+
+.f-text {
+  font-size: 15px;
+  display: inline-block;
+  color: $defaultTextColor;
+  word-break: break-all;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  // 不同类型
+  @each $key, $value in $textTypes {
+    &.f-text-#{$key} {
+      color: $value;
+    }
+  }
+
+  // 加粗
+  &.f-text-bold {
+    font-weight: bold;
+  }
+
+  // 独占一行
+  &.f-text-block {
+    display: block;
+  }
+}

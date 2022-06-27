@@ -20,6 +20,11 @@
   white-space: nowrap;
 
   // 不同类型
+  // @each $key, $value in $themeColor {
+  //   &.f-button-#{$key} {
+  //     color: $value[defaultTextColor];
+  //   }
+  // }
   @each $key, $type in $ButtonTypes {
     &.f-button-#{$key} {
       color: #fff;
@@ -134,8 +139,8 @@
   }
 
   // 文字加粗
-  &.f-button-blob {
-    font-weight: 600;
+  &.f-button-bold {
+    font-weight: bold;
   }
 
   // 禁用状态
@@ -149,6 +154,10 @@
     display: inline-block;
     animation: loading 1s linear infinite;
     -webkit-animation: loading 1s linear infinite;
+  }
+
+  .f-icon {
+    background: transparent !important;
   }
 
   @keyframes loading {

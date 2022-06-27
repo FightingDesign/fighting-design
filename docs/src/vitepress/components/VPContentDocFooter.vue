@@ -26,9 +26,9 @@
   import { computed } from 'vue'
   import { useData } from 'vitepress'
   import { getSidebar } from '../support/sidebar'
-  import { SidebarGroup } from '../config'
+  import type { SidebarGroup } from '../config'
   import { isActive, normalizeLink } from '../support/utils'
-  import { MenuItemWithLink } from '../../core'
+  import type { MenuItemWithLink } from '../../core'
 
   const { page, theme } = useData()
 

@@ -32,16 +32,16 @@
       {{ caption }}
     </div>
 
-    <PreviewList
+    <preview-list
       v-if="prop.previewList && prop.previewList.length"
       v-show="isPreviewListShow"
-      :previewList="previewList"
-      :previewShowIndex="previewShowIndex"
-      :previewShowOption="previewShowOption"
-      :previewZIndex="previewZIndex"
-      :modalClose="modalClose"
-      :showCloseBtn="showCloseBtn"
-      :previewRound="previewRound"
+      :preview-list="previewList"
+      :preview-show-index="previewShowIndex"
+      :preview-show-option="previewShowOption"
+      :preview-z-index="previewZIndex"
+      :modal-close="modalClose"
+      :show-close-btn="showCloseBtn"
+      :preview-round="previewRound"
       :width="width"
       @close="onClose"
     />
@@ -62,7 +62,7 @@
   import type {
     ordinaryFunctionInterface,
     callbackInterface
-  } from '@fighting-design/fighting-type'
+  } from './interface'
   import PreviewList from './PreviewList.vue'
 
   const prop = defineProps(Props)

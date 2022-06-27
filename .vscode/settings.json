@@ -14,6 +14,7 @@
     "Exportservices",
     "fangda",
     "iife",
+    "iolor",
     "minifont",
     "Moneymanagement",
     "Neumorphism",
@@ -26,6 +27,7 @@
     "suoxiao",
     "tada",
     "topsales",
+    "tvue",
     "unplugin",
     "vite",
     "vitejs",
@@ -33,6 +35,27 @@
     "vitest",
     "vuejs",
     "weixin",
+    "WHATWG",
     "xuanzhuan"
+  ],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.vueIndentScriptAndStyle": false,
+  "eslint.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.quiet": false,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
   ]
 }

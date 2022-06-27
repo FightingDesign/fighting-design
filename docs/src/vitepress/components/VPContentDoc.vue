@@ -4,10 +4,10 @@
     :class="{ 'has-aside': frontmatter.aside !== false }"
   >
     <div class="container">
-      <div class="aside" v-if="frontmatter.aside !== false">
+      <div v-if="frontmatter.aside !== false" class="aside">
         <div class="aside-container">
           <slot name="aside-top" />
-          <VPContentDocOutline
+          <v-p-content-doc-outline
             v-if="page.headers && frontmatter.outline !== false"
           />
           <slot name="aside-mid" />
@@ -17,19 +17,19 @@
       <div class="content">
         <slot name="content-top" />
         <main>
-          <Content class="vt-doc" :class="pageClass" />
+          <content class="vt-doc" :class="pageClass" />
           <p
-            class="edit-link"
             v-if="theme.editLink && frontmatter.editLink !== false"
+            class="edit-link"
           >
             <f-icon icon="f-icon-topsales" />
-            <VTLink :href="repoUrl" :no-icon="true">
+            <v-t-link :href="repoUrl" :no-icon="true">
               {{ theme.editLink.text }}
-            </VTLink>
+            </v-t-link>
           </p>
         </main>
         <slot name="content-bottom" />
-        <VPContentDocFooter v-if="frontmatter.footer !== false" />
+        <v-p-content-doc-footer v-if="frontmatter.footer !== false" />
       </div>
     </div>
   </div>

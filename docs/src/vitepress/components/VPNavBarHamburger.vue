@@ -1,5 +1,5 @@
 <template>
-  <VTHamburger v-if="hasContent" class="VPNavBarHamburger" :active="active" />
+  <v-t-hamburger v-if="hasContent" class="VPNavBarHamburger" :active="active" />
 </template>
 
 <script lang="ts" setup>

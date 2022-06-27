@@ -14,6 +14,7 @@
 
 ```
 ├── src
+|  ├── interface.d.ts
 |  ├── component.ts
 |  └── component.vue
 └── index.ts
@@ -21,18 +22,20 @@
 
 下面分别介绍一下每个文件的作用：
 
-- `component.vue`： 组件的源文件
-- `component.ts`： 写入 `Props` 和 `Emits`
-- `index.ts`：主入口文件 包含注册组件
+- `interface.d.ts` 写入组件和 `Props` 相关的所以类型
+- `component.ts` 写入 `Props` 和 `Emits`
+- `component.vue` 组件的源文件
+- `index.ts`主入口文件 包含注册组件
 
 下面将会分别介绍一下每个文件内部的一些规范。
 
-## 公共规范
+## interface.d.ts
 
-- 字符串全部使用单引号
-- 去掉末尾的分号
-- `tab` 始终为两个空格
-- 文件末尾加空行
+> 由于打包问题，已经废除原有 @fighting-design/fighting-type 目录，类型改为以下定义方式
+
+`interface.d.ts` 用于定义类型，每个组件中变量、函数、`Props` 相关的所有类型需要在这里定义。
+
+导出统一使用 `export`
 
 ## component.vue
 
@@ -48,7 +51,6 @@
 
 - 组建内只有两个标签（必须的）`<template>` `<script lang="ts" setup name="">`
 - 两大标签之间必须要有一个空行
-- 末尾要有一个空行
 - `script` 必须带有 `lang="ts" setup name=""` 三个标记，注意标记顺序
 
 **template 规范**
@@ -83,7 +85,7 @@ const iconClass = computed(() => {})
 
 - 能定义类型的地方就要定义类型
 - 就算是类型自动推倒出来了，也要写入类型
-- `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 [fighting-type](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-type) 中定义，定义规范请参考 [@fighting-design/fighting-type](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-type/README.md)
+- `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 `interface.d.ts` 中定义
 - 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/FightingDesign/fighting-design/discussions) 或者群里提问
 
 下面举例常用的定义类型规范：
@@ -110,7 +112,7 @@ const com: ComputedRef<string> = computed<string>((): string => {
 
 - 定义函数
 
-[fighting-type](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-type) 中定义类型
+`interface.d.ts` 中定义类型
 
 ```ts
 export interface funInterface {
@@ -121,7 +123,7 @@ export interface funInterface {
 引入使用类型
 
 ```ts
-import type { funInterface } from './xxx'
+import type { funInterface } from './interface'
 
 const fun: funInterface = (a: number, b: number): number => {
   return a + b

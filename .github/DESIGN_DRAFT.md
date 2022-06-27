@@ -6,5 +6,8 @@
 
 ## 列表
 
-- [switch 开关](https://www.figma.com/file/c9m9TsJrN1OKKFPBo897DI/Switch-%E7%BB%84%E4%BB%B6?node-id=0%3A1)
-- [backTop 返回顶部](https://www.figma.com/file/3MF1lkgpW3mMzgRCngpP5C/backTop-%E7%BB%84%E4%BB%B6?node-id=0%3A1)
+- [Switch 开关](https://www.figma.com/file/c9m9TsJrN1OKKFPBo897DI/Switch-%E5%BC%80%E5%85%B3?node-id=0%3A1)
+- [BackTop 返回顶部](https://www.figma.com/file/3MF1lkgpW3mMzgRCngpP5C/backTop-%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8)
+- [Crumbs 面包屑](https://www.figma.com/file/xkjPUkMNbhFAVOu90OhKih/Crumbs-%E9%9D%A2%E5%8C%85%E5%B1%91)
+- [Text 文字](https://www.figma.com/file/nuO4OGVafIWkPL4IzU3sXf/Text-%E6%96%87%E5%AD%97?node-id=0%3A1)
+- [Loading 加载](https://www.figma.com/file/ihsP3fTNCvqrHG1tV0R3sQ/Loading-%E5%8A%A0%E8%BD%BD?node-id=0%3A1)

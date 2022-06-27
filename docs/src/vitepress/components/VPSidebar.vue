@@ -10,7 +10,7 @@
       <slot name="top" />
       <span id="sidebar-aria-label" class="visually-hidden">侧栏导航</span>
       <div v-for="(group, index) in sidebar" :key="index" class="group">
-        <VPSidebarGroup :text="group.text" :items="group.items" />
+        <v-p-sidebar-group :text="group.text" :items="group.items" />
       </div>
       <slot name="bottom" />
     </nav>
@@ -54,8 +54,7 @@
     overflow-y: auto;
     transform: translateX(-100%);
     transition: background-color 0.5s, opacity 0.5s, transform 0.3s ease;
-    /* -ms-overflow-style: none; */
-    /* scrollbar-width: none; */
+    box-sizing: border-box;
   }
 
   #VPSidebarNav {

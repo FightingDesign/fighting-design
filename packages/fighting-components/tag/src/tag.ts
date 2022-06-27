@@ -1,4 +1,4 @@
-import type {tagSize, tagTheme, tagType } from '@fighting-design/fighting-type'
+import type { tagSize, tagType } from './interface'
 import type { PropType } from 'vue'
 
 export const Props = {
@@ -7,17 +7,11 @@ export const Props = {
     default: (): tagType => 'info',
     validator: (val: tagType): boolean => {
       return (
-        [
-          'info',
-          'success',
-          'danger',
-          'warning',
-          'primary'
-        ] as const
+        ['info', 'success', 'danger', 'warning', 'primary'] as const
       ).includes(val)
     }
   },
-  closable: {
+  close: {
     type: Boolean,
     default: (): boolean => false
   },
@@ -44,21 +38,18 @@ export const Props = {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
-
   simple: {
     type: Boolean,
     default: (): boolean => false
   },
-
   block: {
     type: Boolean,
     default: (): boolean => false
   },
-
-  hit: {
+  border: {
     type: Boolean,
     default: (): boolean => true
-  },
+  }
 } as const
 
 export const Emits = {

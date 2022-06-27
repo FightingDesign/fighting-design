@@ -16,8 +16,7 @@ Theme style directory of `fighting-design`
 ├── index.scss            The main style entry file is also a package entry file
 ├── package.json          package.json
 ├── README.en-US.md       README.en-US.md
-├── README.md             README.md
-├── vite.config.ts        Vite package configuration file
+└──  README.md            README.md
 ```
 
 ## Specification

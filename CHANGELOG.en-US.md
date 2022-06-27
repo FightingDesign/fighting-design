@@ -2,17 +2,26 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.0.8 alpha.8 (2022-06-12)
+
 **feat**
 
 - add `FTag` component
 - add `FDivider` component
-- change attribute `link` to `href` in `FButton` component
-- rewrite `FButton` component
-- dispatch `info` type of `FButton` component
-- dispatch `border` attribute of `FButton`
-- dispatch `long` attribute of `FButton`
-- dispatch `info` type of `FLink`
-- dispatch `opacity` attribute of `FIcon`
+- add `Badge` component
+- add `FContainer` component
+- add `FSwitch` component
+- New `FButton` component `color` configuration item
+
+**fix**
+
+- The `FButton` component `link` attribute is changed to `href`
+- Refactoring `FButton` components
+- Abolish the `info` type of `FButton`
+- Abolish the `border` attribute of `FButton`
+- Abolish the `long` attribute of `FButton`
+- Abolish the `info` type of `flex`
+- Abolish the `opacity` attribute of `FIcon`
 
 ## 0.0.7 alpha.7 (2022-06-04)
 

@@ -1,4 +1,4 @@
-import type { keepDecimalInterface } from '@fighting-design/fighting-type'
+import type { keepDecimalInterface, debounceInterface } from './type'
 
 /**
  * 保留小数点后 n 位
@@ -8,7 +8,28 @@ import type { keepDecimalInterface } from '@fighting-design/fighting-type'
  */
 export const keepDecimal: keepDecimalInterface = (
   num: number,
-  no: number = 2
+  no = 2
 ): number => {
   return Number(num.toFixed(no))
+}
+
+/**
+ * 防抖
+ * @param handle 回调函数
+ * @param delay 时间
+ * @returns Function
+ */
+export const debounce: debounceInterface = (
+  handle: Function,
+  delay = 200
+): Function => {
+  let timer: NodeJS.Timeout
+  return (): void => {
+    if (timer) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout((): void => {
+      handle()
+    }, delay)
+  }
 }

@@ -1,4 +1,4 @@
-import {
+import type {
   MenuItemChildWithChildren,
   MenuItemWithLink,
   SocialLink
@@ -102,9 +102,7 @@ export interface NavItemWithChildren {
 
 export type SidebarConfig = SidebarGroup[] | MultiSidebarConfig
 
-export interface MultiSidebarConfig {
-  [path: string]: SidebarGroup[]
-}
+export type MultiSidebarConfig = Record<string, SidebarGroup[]>
 
 export interface SidebarGroup {
   text: string

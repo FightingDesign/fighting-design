@@ -13,56 +13,61 @@
     "clean": "rimraf dist",
     "start": "pnpm run -C start dev",
     "dev:docs": "pnpm run -C docs dev",
-    "build": "pnpm clean && pnpm build:theme && pnpm build:components && pnpm move",
-    "build:components": "rollup -c build/rollup.config.ts",
-    "build:theme": "vite build packages/fighting-theme",
+    "build": "pnpm clean && vite build && pnpm build:theme && pnpm move",
+    "build:theme": "vite build --config vite.config.theme.ts",
     "build:docs": "pnpm run -C docs build",
     "build:start": "pnpm run -C start build",
-    "serve:docs": "pnpm run -C docs serve",
-    "move": "node build/moveFile.ts",
+    "move": "node script/move-file.ts",
+    "new": "node script/new-component",
     "test": "vitest",
     "prettier": "prettier --write .",
     "commit": "cz",
-    "build:vite:components": "vite build --config vite.config.components.ts",
-    "build:vite:theme": "vite build --config vite.config.theme.ts",
-    "build:vite:type": "vite build --config vite.config.type.ts"
+    "lint": "eslint 'packages/**/*.{js,ts,vue,jsx,tsx}'",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@commitlint/cli": "^17.0.1",
     "@commitlint/config-conventional": "^17.0.0",
     "@fighting-design/fighting-components": "workspace:*",
     "@fighting-design/fighting-theme": "workspace:*",
-    "@fighting-design/fighting-type": "workspace:*",
     "@fighting-design/fighting-utils": "workspace:*",
-    "@rollup/plugin-node-resolve": "^13.3.0",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/test-utils": "^2.0.0-rc.18",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
-    "esbuild": "^0.14.40",
     "happy-dom": "^3.2.2",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.2",
-    "prettier": "^2.6.2",
-    "rollup": "^2.73.0",
-    "rollup-plugin-esbuild": "^4.9.1",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-vue": "^6.0.0",
     "sass": "^1.50.1",
-    "typescript": "^4.6.4",
+    "typescript": "^4.7.3",
     "vite": "^2.9.5",
     "vite-plugin-dts": "^1.2.0",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vitest": "^0.10.0",
     "vue": "^3.2.33",
-    "vue-tsc": "^0.34.7"
+    "vue-tsc": "^0.34.10"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2"
+    "@eslint-sets/eslint-config-vue3-ts": "^2.1.5",
+    "@juln/change-case": "^0.0.4",
+    "@types/node": "^17.0.42",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.18.0",
+    "fs-extra": "^10.1.0",
+    "prettier": "^2.6.2",
+    "rimraf": "^3.0.2",
+    "super-ejs": "^1.0.1"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,vue}": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ]
   }
 }

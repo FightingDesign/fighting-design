@@ -1,91 +1,87 @@
 @import '../config/var-switch.scss';
 
 .f-switch {
+  user-select: none;
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  &-disabled {
-    cursor: not-allowed;
-  }
 
-  @each $key, $value in $switchSize {
-    &.f-switch-#{$key} .f-switch__inner {
-      height: $value;
-      width: $value * 2;
-      position: relative;
-      transition: background-color ease-in-out 0.3s;
-      border-radius: 20px;
-      background-color: $inactive;
-      box-sizing: border-box;
-      &.f-switch__inner--square {
+  .f-switch-input {
+    position: relative;
+    display: inline-flex;
+    border-radius: 30px;
+    z-index: 5;
+    transition: 0.2s;
+    background: $primary;
+    width: 40px;
+    height: 20px;
+
+    // 打开状态
+    @each $key, $value in $switchSize {
+      &.f-switch-#{$key} {
         width: $value * 2;
         height: $value;
-        border-radius: 0;
-        background-color: transparent;
-        border: 1px solid $inactive;
-        .ball {
-          width: $value - 2;
-          height: $value - 2;
-          border-radius: 0;
-          border: none;
-          background-color: $inactive;
+        // 小球
+        .f-switch-roll {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: $value - 4;
+          height: $value - 4;
+          background: #fff;
+          border: 2px solid $primary;
+          border-radius: 50%;
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: 10;
+          transition: 0.2s;
           .f-icon {
-            color: #fff;
+            font-size: 13px;
           }
-        }
-      }
-      .ball {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: $value - 2;
-        height: $value - 2;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        border: 1px solid $inactive;
-        background: #fff;
-        transition: left ease-in-out 0.3s;
-      }
-      &--check {
-        background-color: $primary;
-        &.f-switch__inner--square {
-          width: $value * 2;
-          height: $value;
-          border-radius: 0;
-          background-color: transparent;
-          border-color: $primary;
-          .ball {
-            width: $value - 2;
-            height: $value - 2;
-            border-radius: 0;
-            border: none;
-            background-color: $primary;
-          }
-        }
-        .ball {
-          left: $value;
-          border-color: $primary;
         }
       }
     }
 
-    .f-switch__label--#{$key} {
-      height: $value;
+    // 关闭状态
+    &.f-switch-close {
+      background: #bbbbbb;
+      .f-switch-roll {
+        border: 2px solid #bbbbbb;
+      }
+    }
+
+    // 方形的
+    &.f-switch-square {
+      border-radius: 0;
+      .f-switch-roll {
+        border-radius: 0;
+      }
     }
   }
 
-  &__label {
+  // 左右的文字
+  .f-switch-left-text {
+    font-size: 13px;
+    color: #333;
+    margin-left: 5px;
     transition: 0.2s;
-    display: flex;
-    align-items: center;
-    user-select: none;
-    &--left {
-      padding-right: 4px;
-    }
-    &--right {
-      padding-left: 4px;
-    }
+  }
+  .f-switch-right-text {
+    font-size: 13px;
+    color: #333;
+    margin-right: 5px;
+    transition: 0.2s;
+  }
+  .f-switch-text-active {
+    color: $primary;
+  }
+
+  // 禁用状态
+  &.f-switch-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }

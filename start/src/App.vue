@@ -1,28 +1,29 @@
 <template>
-  <f-switch v-model="value" icon="f-icon-Daytimemode"></f-switch>
+  <f-button type="default">默认按钮</f-button>
+  <f-button type="primary">主要按钮</f-button>
+  <f-button type="success">成功按钮</f-button>
+  <f-button type="danger">危险按钮</f-button>
+  <f-button type="warning">警告按钮</f-button>
 
-  <f-switch
-    v-model="value"
-    size="middle"
-    active-text="按月付费"
-    inactive-text="按年付费"
-    active-color="#13ce66"
-    inactive-color="#ff4949"
-  ></f-switch>
-
-  <f-switch
-    v-model="value"
-    square
-    size="large"
-    disabled
-    icon="f-icon-Daytimemode"
-  ></f-switch>
+  <f-button simple type="default">默认按钮</f-button>
+  <f-button simple type="primary">主要按钮</f-button>
+  <f-button simple type="success">成功按钮</f-button>
+  <f-button simple type="danger">危险按钮</f-button>
+  <f-button simple type="warning">警告按钮</f-button>
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
+  import { ChangeColor } from '@fighting-design/fighting-utils'
 
-  const value = ref(true)
+  const changeColor = new ChangeColor('#f0f0f0')
+
+  console.log(changeColor.getDarkColor(0.07))
 </script>
 
-<style scoped></style>
+<style scoped>
+  div {
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+  }
+</style>

@@ -1,4 +1,4 @@
-import type { cardShadow } from '@fighting-design/fighting-type'
+import type { cardShadow } from './interface'
 import type { PropType } from 'vue'
 
 export const Props = {

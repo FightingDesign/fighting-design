@@ -4,8 +4,35 @@
 
 **feat**
 
+- 新增 `FText` 组件
+
+**fix**
+
+- `FButton` 组件 `blob` 配置项改为 `bold`，用于文字加粗
+
+## 0.0.9 alpha.9 (2022-06-14)
+
+**feat**
+
+- `FLayout` 新增 `direction` 配置项
+
+**fix**
+
+- `FContainer` 组件改名为 `FLayout`
+
+## 0.0.8 alpha.8 (2022-06-12)
+
+**feat**
+
 - 新增 `FTag` 组件
 - 新增 `FDivider` 组件
+- 新增 `Badge` 组件
+- 新增 `FContainer` 组件
+- 新增 `FSwitch` 组件
+- 新增 `FButton` 组件 `color` 配置项
+
+**fix**
+
 - `FButton` 组件 `link` 属性改为 `href`
 - 重构 `FButton` 组件
 - 废除 `FButton` 的 `info` 类型

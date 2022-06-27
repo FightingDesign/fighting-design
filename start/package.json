@@ -3,8 +3,5 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build"
-  },
-  "dependencies": {
-    "vue-router": "4"
   }
 }

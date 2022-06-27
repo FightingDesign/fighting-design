@@ -11,8 +11,12 @@ import { FFooter } from './footer'
 import { FHeader } from './header'
 import { FAside } from './aside'
 import { FMain } from './main'
-import { FContainer } from './container'
+import { FLayout } from './layout'
 import { FSwitch } from './switch'
+import { FBadge } from './badge'
+import { FAvatar } from './avatar'
+import { FBackTop } from './back-top'
+import { FText } from './text'
 
 const components = {
   FButton,
@@ -27,8 +31,12 @@ const components = {
   FHeader,
   FAside,
   FMain,
-  FContainer,
-  FSwitch
+  FLayout,
+  FSwitch,
+  FBadge,
+  FAvatar,
+  FBackTop,
+  FText
 }
 
 const install = (app: App): void => {
@@ -50,8 +58,12 @@ export {
   FHeader,
   FAside,
   FMain,
-  FContainer,
-  FSwitch
+  FLayout,
+  FSwitch,
+  FBadge,
+  FAvatar,
+  FBackTop,
+  FText
 }
 
 export default {

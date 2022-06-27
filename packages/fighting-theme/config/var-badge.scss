@@ -1,0 +1,11 @@
+@import '../config/const-color.scss';
+
+// 不同的类型
+$BadgeTypes: (
+  'primary': $primary,
+  'success': $success,
+  'danger': $danger,
+  'warning': $warning
+);
+
+$BadgeSize: 18px;

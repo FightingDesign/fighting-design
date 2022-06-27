@@ -1,9 +1,5 @@
 import type { PropType } from 'vue'
-import type {
-  linkType,
-  linkTarget,
-  linkHover
-} from '@fighting-design/fighting-type'
+import type { linkType, linkTarget, linkHover } from './interface'
 
 export const Props = {
   type: {

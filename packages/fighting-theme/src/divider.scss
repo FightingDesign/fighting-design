@@ -1,12 +1,17 @@
+@import '../config/var-divider.scss';
+
 .f-divider {
   position: relative;
   clear: both;
   width: 100%;
+  border: 0;
+  border-style: solid;
   border-bottom: 1px solid #b0b0b0;
   white-space: pre;
   margin: 30px 0;
 
   &.f-divider-vertical {
+    border: 0;
     border-left: 1px solid #b0b0b0;
     display: inline-block;
     min-width: 1px;
@@ -16,6 +21,14 @@
     margin: 0 12px;
   }
 
+  // 不同的线条类型
+  @each $key, $value in $dividerType {
+    &.f-divider-#{$key} {
+      border-style: $value;
+    }
+  }
+
+  // 分割线上的文字
   .f-divider-text {
     position: absolute;
     top: 50%;
@@ -25,18 +38,23 @@
     font-size: 14px;
     line-height: 2;
     background: #fff;
-    .f-icon,
-    i {
+
+    i,
+    .f-icon {
       vertical-align: middle;
     }
+
+    // 文字不同的位置
     &.f-divider-text-center {
       left: 50%;
       transform: translate(-50%, -50%);
     }
+
     &.f-divider-text-right {
       right: 5%;
       transform: translateY(-50%);
     }
+
     &.f-divider-text-left {
       left: 5%;
       transform: translateY(-50%);

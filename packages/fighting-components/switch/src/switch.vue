@@ -1,122 +1,75 @@
 <template>
-  <div
-    class="f-switch"
-    :class="[
-      `f-switch-${modelValue}`,
-      `f-switch-${size}`,
-      {
-        'f-switch-disabled': disabled
-      }
-    ]"
-    @click="onChange"
-  >
+  <div :class="['f-switch', { 'f-switch-disabled': disabled }]">
     <span
-      v-if="props.inactiveText"
-      class="f-switch__label f-switch__label--left"
-      :style="{ color: modelValue === inactiveValue ? inactiveColor : '' }"
+      v-if="closeText"
+      :class="['f-switch-right-text', { 'f-switch-text-active': !modelValue }]"
     >
-      {{ props.inactiveText }}
+      {{ closeText }}
     </span>
+
     <div
-      class="f-switch__inner"
-      :class="{
-        'f-switch__inner--check': modelValue === activeValue,
-        'f-switch__inner--square': square
-      }"
-      :style="innerStyle"
+      :class="FSwitchClass"
+      :style="{ background: modelValue ? openColor : closeColor }"
+      @click="changeSwitch"
     >
-      <span class="ball" :style="ballStyle">
-        <i v-if="icon" class="f-icon" :class="icon" />
+      <span class="f-switch-roll" :style="rollStyle">
+        <i v-if="icon" :class="['f-icon', icon]" />
       </span>
     </div>
 
     <span
-      v-if="props.activeText"
-      class="f-switch__label f-switch__label--right"
-      :class="[`f-switch__label--${size}`]"
-      :style="{ color: modelValue === activeValue ? activeColor : '' }"
+      v-if="openText"
+      :class="['f-switch-left-text', { 'f-switch-text-active': modelValue }]"
     >
-      {{ props.activeText }}
+      {{ openText }}
     </span>
   </div>
 </template>
+
 <script lang="ts" setup name="FSwitch">
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
+  import type { changeSwitchInterface, rollStyleReturn } from './interface'
+  import type { ComputedRef } from 'vue'
 
-  const props = defineProps(Props)
-  const emits = defineEmits(Emits)
+  const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
 
-  const innerStyle = computed(() => {
-    const {
-      activeColor,
-      inactiveColor,
-      activeValue,
-      inactiveValue,
-      modelValue,
-      square
-    } = props
-    if (modelValue === activeValue && activeColor) {
-      if (square) {
-        return {
-          'border-color': activeColor
-        }
-      }
-      return {
-        'background-color': activeColor
-      }
-    } else if (modelValue === inactiveValue && inactiveColor) {
-      if (square) {
-        return {
-          'border-color': inactiveColor
-        }
-      }
-      return {
-        'background-color': inactiveColor
-      }
+  const changeSwitch: changeSwitchInterface = (): void => {
+    if (prop.disabled) {
+      return
     }
-  })
-
-  const ballStyle = computed(() => {
-    const {
-      activeColor,
-      inactiveColor,
-      activeValue,
-      inactiveValue,
-      modelValue,
-      square
-    } = props
-    if (modelValue === activeValue && activeColor) {
-      if (square) {
-        return {
-          'background-color': activeColor
-        }
-      }
-      return {
-        'border-color': activeColor
-      }
-    } else if (modelValue === inactiveValue && inactiveColor) {
-      if (square) {
-        return {
-          'background-color': inactiveColor
-        }
-      }
-      return {
-        'border-color': inactiveColor
-      }
-    }
-  })
-
-  const onChange = () => {
-    const { activeValue, inactiveValue, modelValue, disabled } = props
-    if (disabled) return
-    let returnValue: boolean | string | number = false
-    if (modelValue === activeValue) {
-      returnValue = inactiveValue
-    } else if (modelValue === inactiveValue) {
-      returnValue = activeValue
-    }
-    emits('update:modelValue', returnValue)
-    emits('change', returnValue)
+    emit('update:modelValue', !prop.modelValue)
+    emit('change', !prop.modelValue)
   }
+
+  const rollStyle: ComputedRef<rollStyleReturn> = computed(
+    (): rollStyleReturn => {
+      const { modelValue, closeColor, openColor, size } = prop
+      const _size = {
+        large: '24px',
+        middle: '20px',
+        small: '16px'
+      } as const
+      return {
+        right: modelValue ? '0px' : _size[size],
+        borderColor: modelValue ? openColor : closeColor
+      }
+    }
+  )
+
+  const FSwitchClass: ComputedRef<object | string[]> = computed(
+    (): object | string[] => {
+      const { size, modelValue, square } = prop
+
+      return [
+        'f-switch-input',
+        {
+          [`f-switch-${size}`]: size,
+          'f-switch-close': !modelValue,
+          'f-switch-square': square
+        }
+      ]
+    }
+  )
 </script>

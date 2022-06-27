@@ -1,7 +1,7 @@
 <template>
   <div class="VPNavScreenMenuGroupSection">
     <p v-if="text" class="title">{{ text }}</p>
-    <VPNavScreenMenuGroupLink
+    <v-p-nav-screen-menu-group-link
       v-for="item in items"
       :key="item.text"
       :text="item.text"
@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { MenuItemWithLink } from '../../core'
+  import type { MenuItemWithLink } from '../../core'
   import VPNavScreenMenuGroupLink from './VPNavScreenMenuGroupLink.vue'
 
   defineProps<{

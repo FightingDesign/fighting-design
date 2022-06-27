@@ -1,6 +1,6 @@
 <template>
-  <div class="VPContentDocOutline" ref="container">
-    <div class="outline-marker" ref="marker" />
+  <div ref="container" class="VPContentDocOutline">
+    <div ref="marker" class="outline-marker" />
     <div class="outline-title">目录</div>
     <nav aria-labelledby="doc-outline-aria-label">
       <span id="doc-outline-aria-label" class="visually-hidden">
@@ -11,8 +11,8 @@
           v-for="({ text, link, children, hidden }, index) in resolveHeaders(
             filteredHeaders
           )"
-          :key="index"
           v-show="!hidden"
+          :key="index"
         >
           <a class="outline-link" :href="link">
             {{ text }}

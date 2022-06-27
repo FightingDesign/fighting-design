@@ -1,21 +1,13 @@
-import {
-  Component,
-  computed,
-  defineComponent,
-  h,
-  inject,
-  InjectionKey,
-  provide,
-  Ref
-} from 'vue'
+import type { Component, InjectionKey, Ref } from 'vue'
+import { computed, defineComponent, h, inject, provide } from 'vue'
 import { useData } from 'vitepress'
-import {
+import type {
   Config,
   MultiSidebarConfig,
   SidebarConfig,
   SidebarGroup
 } from '../config'
-import { MenuItem, MenuItemChild } from '../../core'
+import type { MenuItem, MenuItemChild } from '../../core'
 import { normalizeLink } from '../support/utils'
 
 const configSymbol: InjectionKey<Ref<Config>> = Symbol('config')

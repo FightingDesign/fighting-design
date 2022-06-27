@@ -1,0 +1,35 @@
+@import '../config/var-badge.scss';
+
+.f-badge {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  .f-badge-content {
+    position: absolute;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 0 6px;
+    height: $BadgeSize;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    transform: translateY(-50%) translateX(50%);
+
+    @each $key, $type in $BadgeTypes {
+      &.f-badge-#{$key} {
+        color: #fff;
+        background: $type;
+      }
+    }
+
+    &.f-badge-dot {
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      padding: 0;
+    }
+  }
+}

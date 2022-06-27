@@ -1,15 +1,10 @@
-import type { RipplesInterface } from '@fighting-design/fighting-type'
+import type { RipplesInterface } from './type'
 
 /**
  * 按钮点击涟漪效果
  */
 export class Ripples implements RipplesInterface {
-  /**
-   * 这里暂时先标记 any
-   * 可能暂时涉及到兼容性的问题
-   * 获取.....我还没搞懂？？？
-   */
-  evt: any
+  evt: PointerEvent
   node: HTMLElement
   time: number
   ripplesColor: string

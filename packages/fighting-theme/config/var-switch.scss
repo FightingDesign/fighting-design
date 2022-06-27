@@ -1,7 +1,6 @@
-@import '../config/color.scss';
+@import '../config/const-color.scss';
 
-$inactive: #bbb;
-
+// 不同大小
 $switchSize: (
   'large': 24px,
   'middle': 20px,
