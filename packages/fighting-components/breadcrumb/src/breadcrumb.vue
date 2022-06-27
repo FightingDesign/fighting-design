@@ -8,16 +8,17 @@
   import { onMounted, provide } from 'vue'
   import { breadcrumbKey, Props } from './breadcrumb'
 
-  const props = defineProps(Props)
+  const prop = defineProps(Props)
 
-  provide(breadcrumbKey, props)
+  provide(breadcrumbKey, prop)
 
-  onMounted(() => {
-    const breadcrumb = document.querySelector('.f-breadcrumb')
-    const items = breadcrumb!.querySelectorAll('.f-breadcrumb-item')
+  // console.log(prop.separatorIcon)
 
-    if (items.length) {
-      items[items.length - 1].setAttribute('aria-current', 'page')
-    }
+  onMounted((): void => {
+    // const breadcrumb = document.querySelector('.f-breadcrumb')
+    // const items = breadcrumb!.querySelectorAll('.f-breadcrumb-item')
+    // if (items.length) {
+    //   items[items.length - 1].setAttribute('aria-current', 'page')
+    // }
   })
 </script>

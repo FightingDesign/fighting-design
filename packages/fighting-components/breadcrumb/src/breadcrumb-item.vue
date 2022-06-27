@@ -9,16 +9,11 @@
     >
       <slot />
     </span>
-    <!-- <f-icon
-      v-if="separatorIcon"
-      :style="{ color: separatorColor }"
-      class="f-breadcrumb-item__separator"
-      :class="`${separatorIcon}`"
-    /> -->
+
     <i
       v-if="separatorIcon"
       :style="{ color: separatorColor }"
-      :class="['f-breadcrumb-item__separator', separatorIcon]"
+      :class="['f-icon', 'f-breadcrumb-item__separator', separatorIcon]"
     />
 
     <span
@@ -36,17 +31,16 @@
   import { getCurrentInstance, inject, ref, toRefs } from 'vue'
   import { breadcrumbKey } from './breadcrumb'
   import { Props } from './breadcrumb-item'
+  import type { ComponentInternalInstance, Ref } from 'vue'
 
   const prop = defineProps(Props)
 
-  const instance = getCurrentInstance()!
+  const instance: ComponentInternalInstance = getCurrentInstance()!
   const breadcrumbContext = inject(breadcrumbKey, undefined)!
-
+  const router = instance.appContext.config.globalProperties.$router
+  const link: Ref<HTMLSpanElement | null> = ref<HTMLSpanElement | null>(null)
   const { separator, separatorIcon, itemColor, separatorColor } =
     toRefs(breadcrumbContext)
-  const router = instance.appContext.config.globalProperties.$router
-
-  const link = ref<HTMLSpanElement>()
 
   const onClick = (): void => {
     const { replace, to } = prop

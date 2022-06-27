@@ -81,9 +81,9 @@
 ```html
 <template>
   <f-breadcrumb separator="/">
-    <f-breadcrumb-item :to="{ path: '/' }"
-      ><f-icon size="16px" icon="f-icon-collection"
-    /></f-breadcrumb-item>
+    <f-breadcrumb-item :to="{ path: '/' }">
+      <f-icon size="16px" icon="f-icon-collection" />
+    </f-breadcrumb-item>
     <f-breadcrumb-item>文章</f-breadcrumb-item>
     <f-breadcrumb-item>列表</f-breadcrumb-item>
   </f-breadcrumb>
@@ -98,31 +98,31 @@
 
 ## Breadcrumb Attractive
 
-| 属性           | 说明           | 类型   | 可选值 | 默认值 |
-| -------------- | -------------- | ------ | ------ | ------ |
-| separator      | 分隔符         | string | ——     | ——     |
-| iconSeparator  | icon 分隔符    | string | ——     | ——     |
-| separatorColor | 分隔符颜色     | string | ——     | `gray` |
-| itemColor      | 页面元素分隔符 | string | ——     | `gray` |
+| 属性              | 说明           | 类型     | 可选值 | 默认值 |
+| ----------------- | -------------- | -------- | ------ | ------ |
+| `separator`       | 分隔符         | `string` | ——     | ——     |
+| `icon-separator`  | icon 分隔符    | `string` | ——     | ——     |
+| `separator-color` | 分隔符颜色     | `string` | ——     | `gray` |
+| `item-color`      | 页面元素分隔符 | `string` | ——     | `gray` |
 
 ## Breadcrumb Slots
 
 | 插槽名 | 自定义默认内容 | 子标签          |
 | ------ | -------------- | --------------- |
-| -      | 自定义默认内容 | Breadcrumb Item |
+| ——     | 自定义默认内容 | Breadcrumb Item |
 
-## Breadcrumb-Item Attractive
+## Breadcrumb-item Attractive
 
-| 属性    | 说明                                            | 类型          | 可选值 | 默认值  |
-| ------- | ----------------------------------------------- | ------------- | ------ | ------- |
-| to      | 路由跳转目标，类似 `vue-router` 的 `to`属性     | string/object | —      | —       |
-| replace | 如果设置该属性为 `true`, 导航将不会留下历史记录 | `boolean`     | —      | `false` |
+| 属性      | 说明                                            | 类型              | 可选值 | 默认值  |
+| --------- | ----------------------------------------------- | ----------------- | ------ | ------- |
+| `to`      | 路由跳转目标，类似 `vue-router` 的 `to`属性     | `string` `object` | —      | —       |
+| `replace` | 如果设置该属性为 `true`, 导航将不会留下历史记录 | `boolean`         | —      | `false` |
 
-## Breadcrumb-Item Slots
+## Breadcrumb-item Slots
 
-| 插槽名 | 说明           |
-| ------ | -------------- |
-| —      | 自定义默认内容 |
+| 插槽名  | 说明           |
+| ------- | -------------- |
+| default | 自定义默认内容 |
 
 <style scoped>
 .f-button {
