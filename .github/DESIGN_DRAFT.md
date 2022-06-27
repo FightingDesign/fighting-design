@@ -11,3 +11,4 @@
 - [Crumbs 面包屑](https://www.figma.com/file/xkjPUkMNbhFAVOu90OhKih/Crumbs-%E9%9D%A2%E5%8C%85%E5%B1%91)
 - [Text 文字](https://www.figma.com/file/nuO4OGVafIWkPL4IzU3sXf/Text-%E6%96%87%E5%AD%97?node-id=0%3A1)
 - [Loading 加载](https://www.figma.com/file/ihsP3fTNCvqrHG1tV0R3sQ/Loading-%E5%8A%A0%E8%BD%BD?node-id=0%3A1)
+- [Alert 提示](https://www.figma.com/file/4puDOb4F1lZV89xRWdGWbf/Alert-%E6%8F%90%E7%A4%BA?node-id=3%3A27)
