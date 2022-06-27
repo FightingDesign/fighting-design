@@ -20,7 +20,7 @@
   import { computed } from 'vue'
   import type { handleCloseInterface } from './interface'
 
-  const { simple, type, size, block, hit, round, color } = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const classList = computed(() => {
@@ -47,6 +47,7 @@
     //   }
     // ]
   })
+
   // let styleList = {
   //   borderRadius: prop.round
   // }
