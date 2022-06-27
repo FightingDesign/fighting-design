@@ -169,6 +169,12 @@
 | `hit`        | 是否显示边框   | boolean | ——                                            | true   |
 | `closable`   | 是否可关闭     | boolean | ——                                            | false  |
 
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
 <style scoped>
 .f-tag {
   margin: 5px;

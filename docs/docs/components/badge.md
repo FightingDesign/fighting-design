@@ -119,3 +119,9 @@
 | `isDot`  | 展示为一个点                                  | boolean       | ——                                      | false  |
 | `hidden` | 是否显示                                      | boolean       | ——                                      | true   |
 | `type`   | 样式主题                                      | string        | `primary` `success` `danger` `warning ` | danger |
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>

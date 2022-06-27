@@ -147,6 +147,12 @@
 | `icon-size`  | icon 大小                                                                                                | string  | ——                                           | ——     |
 | `icon-color` | icon 的颜色                                                                                              | string  | ——                                           | ——     |
 
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
 <style scoped>
 .f-avatar {
   margin: 5px;

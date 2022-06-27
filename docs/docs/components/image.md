@@ -269,6 +269,12 @@
 | -------- | ------------------ |
 | `error`  | 自定义加载失败提示 |
 
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
 <script setup>
   const listImg = [
     'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273b49ecf.png',

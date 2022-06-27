@@ -161,6 +161,12 @@
 | --------- | ----------- |
 | `default` | link 的内容 |
 
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
 <style scoped>
 .f-link {
   margin: 5px;

@@ -75,6 +75,12 @@
 | `background` | 遮罩层背景色     | string  | ——     | ——     |
 | `opacity`    | 遮罩层透明度     | number  | ——     | ——     |
 
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
 <script setup>
   import { ref } from 'vue'
 
