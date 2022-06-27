@@ -2,7 +2,7 @@
   <span class="f-breadcrumb-item">
     <span
       ref="link"
-      class="f-breadcrumb-item__inner f-breadcrumb-item__link"
+      class="f-breadcrumb-item__inner"
       :style="{ color: itemColor }"
       role="link"
       @click="onClick"

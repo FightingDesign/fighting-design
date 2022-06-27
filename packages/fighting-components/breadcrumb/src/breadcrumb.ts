@@ -11,7 +11,7 @@ export const Props = {
   },
   itemColor: {
     type: String,
-    default: (): string => 'gray'
+    default: (): string => ''
   },
   separatorColor: {
     type: String,

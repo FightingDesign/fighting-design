@@ -1,10 +1,10 @@
-
 .f-breadcrumb {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1;
+  user-select: none;
 
   &-item__separator {
     margin: 0 9px;
@@ -13,42 +13,24 @@
     &-icon {
       margin: 0 6px;
       font-weight: normal;
-      svg {
-        vertical-align: middle;
-      }
     }
   }
 
-  &-item{
+  &-item {
     float: left;
     display: flex;
     align-items: center;
+    cursor: pointer;
 
-    &.is-link,
-    & a {
-        font-weight: bold;
-        text-decoration: none;
-        transition: getCssVar('transition', 'color');
-        color: getCssVar('text-color', 'primary');
-
-        &:hover {
-            color: getCssVar('color-primary');
-            cursor: pointer;
-        }
+    .f-breadcrumb-item__inner {
+      color: #333;
     }
-    
+
+    .f-breadcrumb-item__separator {
+      color: #acacac;
+    }
 
     &:last-child {
-      .f-breadcrumb-item__inner,
-      .f-breadcrumb-item__inner a {
-        &,
-        &:hover {
-          font-weight: normal;
-          color: getCssVar('text-color', 'regular');
-          cursor: text;
-        }
-      }
-
       .f-breadcrumb-item__separator {
         display: none;
       }
