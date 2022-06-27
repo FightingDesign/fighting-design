@@ -2,13 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-## 0.0.11 alpha.11 (2022-06-26)
+## 0.0.11-alpha.11 (2022-06-26)
 
 **fix**
 
 - 修复打包路径错误问题
 
-## 0.0.10 alpha.10 (2022-06-26)
+## 0.0.10-alpha.10 (2022-06-26)
 
 **feat**
 
@@ -20,7 +20,7 @@
 
 - `FButton` 组件 `blob` 配置项改为 `bold`，用于文字加粗
 
-## 0.0.9 alpha.9 (2022-06-14)
+## 0.0.9-alpha.9 (2022-06-14)
 
 **feat**
 
@@ -30,7 +30,7 @@
 
 - `FContainer` 组件改名为 `FLayout`
 
-## 0.0.8 alpha.8 (2022-06-12)
+## 0.0.8-alpha.8 (2022-06-12)
 
 **feat**
 
@@ -51,7 +51,7 @@
 - 废除 `FLink` 的 `info` 类型
 - 废除 `FIcon` 的 `opacity` 属性
 
-## 0.0.7 alpha.7 (2022-06-04)
+## 0.0.7-alpha.7 (2022-06-04)
 
 **feat**
 
@@ -63,7 +63,7 @@
 - 修复 `FButton` 组件的圆角度数
 - 修复 `FButtonGroup` 类型
 
-## 0.0.6 alpha.6 (2022-05-31)
+## 0.0.6-alpha.6 (2022-05-31)
 
 **fix**
 
@@ -83,30 +83,30 @@
 - 新增 `FImage` 组件可通过鼠标滚轮放大缩小图片功能
 - 新增 `FImage` 组件 `preview-round` 配置项，可配置预览图的圆角
 
-## 0.0.5 alpha.5 (2022-05-27)
+## 0.0.5-alpha.5 (2022-05-27)
 
 - 新增 `FImage` 组件
 - 增加新的 `icon`
 
-## 0.0.4 alpha.4 (2022-05-23)
+## 0.0.4-alpha.4 (2022-05-23)
 
 - 新增 `FLink` 组件
 - 取消 `FButton` 固定高度
 - 废除 `FButton` 组件的 `icon` 和 `iconPosition` 属性
 - 新增 `FButton` 组件的 `leftIcon` 和 `rightIcon` 属性
 
-## 0.0.3 alpha.3 (2022-05-18)
+## 0.0.3-alpha.3 (2022-05-18)
 
 - 修复按钮组件一些显示问题的样式
 - 删除了一个不显示的 `icon`
 - 取消组件默认导出
 - 压缩组件代码
 
-## 0.0.2 alpha.2 (2022-05-17)
+## 0.0.2-alpha.2 (2022-05-17)
 
 - 更新配置文件
 - 新增打包文件
 
-## 0.0.1 alpha.1 (2022-05-17)
+## 0.0.1-alpha.1 (2022-05-17)
 
 - 新增 `FButton`、`FButtonGroup`、`FIcon` 组件
