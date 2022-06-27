@@ -19,112 +19,74 @@
   overflow: hidden;
   white-space: nowrap;
 
-  // 不同类型
-  // @each $key, $value in $themeColor {
-  //   &.f-button-#{$key} {
-  //     color: $value[defaultTextColor];
-  //   }
-  // }
-  @each $key, $type in $ButtonTypes {
-    &.f-button-#{$key} {
-      color: #fff;
-      background: $type;
-      // 移入和点击的效果
+  @for $list from 1 to (length($buttonTypeColor) + 1) {
+    $item: nth($buttonTypeColor, $list); // 获取数组中第i项的值
+
+    // 不同类型
+    &.f-button-#{map-get($item, name)} {
+      background: map-get($item, default);
+      color: map-get($item, defaultTextColor);
+
       &:hover {
-        background: lighten($type, 5%);
+        background: lighten(map-get($item, default), 5%);
       }
       &:active {
-        background: darken($type, 5%);
+        background: darken(map-get($item, default), 5%);
       }
+
       // 普通按钮禁用效果
       &.f-button-disabled:hover {
-        color: #fff;
-        background: $type;
+        background: map-get($item, default);
+        color: map-get($item, defaultTextColor);
       }
 
       // 简约按钮
       &.f-button-simple {
-        color: $type;
-        background: lighten($type, 42%);
-        // 简约的默认按钮
-        &.f-button-default {
-          color: $textColor;
-          background: #f4f4f4;
-          &.f-button-disabled:hover {
-            color: $textColor;
-            background: #f4f4f4;
-          }
-        }
-        // 简约按钮禁用
+        color: map-get($item, simpleTextColor);
+        background: map-get($item, simple);
+
+        // 简约按钮禁用效果
         &.f-button-disabled:hover {
-          color: $type;
-          background: lighten($type, 42%);
+          color: map-get($item, simpleTextColor);
+          background: map-get($item, simple);
         }
       }
 
       // 文字按钮
       &.f-button-text {
         background: #fff;
-        color: $type;
-        border: 1px solid $type;
-        // 默认文字按钮
-        &.f-button-default {
-          color: $textColor;
-          border: 1px solid $textColor;
-          // 默认文字按钮效果
-          &:hover {
-            color: lighten($textColor, 10%);
-            border: 1px solid lighten($textColor, 10%);
-          }
-          &:active {
-            color: darken($textColor, 5%);
-            border: 1px solid darken($textColor, 5%);
-          }
-        }
-        // 其它文字按钮效果
-        &:hover {
-          color: lighten($type, 10%);
-          border: 1px solid lighten($type, 10%);
-        }
-        &:active {
-          color: darken($type, 5%);
-          border: 1px solid darken($type, 5%);
-        }
-        // 文字按钮禁用
+        color: map-get($item, simpleTextColor);
+        border: 1px solid map-get($item, simpleTextColor);
+
+        // 文字按钮禁用状态
         &.f-button-disabled:hover {
           background: #fff;
-          color: $type;
-          border: 1px solid $type;
+          color: map-get($item, simpleTextColor);
+          border: 1px solid map-get($item, simpleTextColor);
         }
       }
     }
   }
 
   // 不同尺寸
-  @each $key, $value in $ButtonSizes {
-    &.f-button-#{$key} {
-      @if $key == 'large' {
-        @include btnSizes($value, $ButtonPaddingLarge, $ButtonFontSizeLarge);
-      } @else if $key == 'middle' {
-        @include btnSizes($value, $ButtonPaddingMiddle, $ButtonFontSizeMiddle);
-      } @else if $key == 'small' {
-        @include btnSizes($value, $ButtonPaddingSmall, $ButtonFontSizeSmall);
-      } @else if $key == 'mini' {
-        @include btnSizes($value, $ButtonPaddingMini, $ButtonFontSizeMini);
-      }
+  @for $list from 1 to (length($buttonSize) + 1) {
+    $item: nth($buttonSize, $list); // 获取数组中第i项的值
+
+    &.f-button-#{map-get($item, name)} {
+      height: map-get($item, height);
+      padding: 0 map-get($item, padding);
+      line-height: map-get($item, height);
+      font-size: map-get($item, fontSize);
 
       // 圆形按钮
       &.f-button-circle {
-        height: $value;
-        width: $value;
+        height: map-get($item, height);
+        width: map-get($item, height);
         line-height: 1;
         padding: 0;
         border-radius: 50%;
       }
     }
-  }
-  &.f-button-default {
-    color: $textColor;
   }
 
   // 圆角

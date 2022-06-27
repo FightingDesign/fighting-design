@@ -48,7 +48,8 @@ module.exports = {
     'lines-between-class-members': 'off',
     'space-before-function-paren': [
       'error',
-      { anonymous: 'never', named: 'never', asyncArrow: 'always' }
+      // { anonymous: 'never', named: 'never', asyncArrow: 'always' }
+      { anonymous: 'ignore', named: 'always', asyncArrow: 'ignore' }
     ],
     'no-debugger': 'error',
     '@typescript-eslint/consistent-type-imports': 'error',

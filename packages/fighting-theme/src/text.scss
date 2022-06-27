@@ -8,6 +8,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background: #fff;
 
   // 不同类型
   @each $key, $value in $textTypes {

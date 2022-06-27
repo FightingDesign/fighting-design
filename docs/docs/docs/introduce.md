@@ -1,7 +1,7 @@
 # 介绍
 
 <p align="center">
-  <img height="160px" src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg">
+  <img width="160px" src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg">
   <h2 align="center" style="font-weight: 600">Fighting Design</h2>
 
   <p align="center">

@@ -172,6 +172,12 @@
 | `close-text`           | 自定义左侧的文字描述 | string  | ——                       | ——     |
 | `square`               | 是否为方形开关       | boolean | ——                       | false  |
 
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
 <script setup>
   import { ref } from 'vue'
   const value1 = ref(true)

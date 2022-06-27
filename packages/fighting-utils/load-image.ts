@@ -13,12 +13,12 @@ class Load implements LoadInterface {
   img: HTMLImageElement
   props: propsInterface
   emit: Function
-  callback: callbackInterface
+  callback: callbackInterface | null
   constructor(
     img: HTMLImageElement,
     props: propsInterface,
     emit: Function,
-    callback: callbackInterface
+    callback: callbackInterface | null
   ) {
     this.img = img
     this.props = props
@@ -41,11 +41,15 @@ class Load implements LoadInterface {
       return this.loadNextImg()
     }
     this.emit('error', evt)
-    this.callback(false, 0)
+    if (this.callback) {
+      this.callback(false, 0)
+    }
   }
   onload(evt: Event): void {
     this.emit('load', evt)
-    this.callback(true, this.img.width)
+    if (this.callback) {
+      this.callback(true, this.img.width)
+    }
   }
   // 如果加载 src 失败，则进入这里，加载 err-src 的图片地址
   loadNextImg(): void {
@@ -55,7 +59,9 @@ class Load implements LoadInterface {
     newImg.addEventListener('error', (evt: Event): void => {
       // 进入这里则说明 err-src 的图片也加载失败了
       this.emit('error', evt)
-      this.callback(false, 0)
+      if (this.callback) {
+        this.callback(false, 0)
+      }
     })
 
     newImg.addEventListener('load', (): void => {
@@ -74,7 +80,7 @@ class Lazy extends Load implements LazyInterface {
     img: HTMLImageElement,
     props: propsInterface,
     emit: Function,
-    callback: callbackInterface
+    callback: callbackInterface | null
   ) {
     super(img, props, emit, callback)
   }
@@ -114,7 +120,7 @@ export const loadImage: loadImageInterface = (
   node: HTMLImageElement,
   prop: propsInterface,
   emit: Function,
-  callback: callbackInterface
+  callback: callbackInterface | null
 ): void => {
   if (prop.lazy) {
     const lazy: Lazy = new Lazy(node, prop, emit, callback)

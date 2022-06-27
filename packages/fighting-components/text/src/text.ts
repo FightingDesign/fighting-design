@@ -43,7 +43,7 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 字间距
+   * 字符间距
    */
   spacing: {
     type: String,
@@ -77,6 +77,9 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
+  /**
+   * 内填充
+   */
   padding: {
     type: String,
     default: (): string => ''

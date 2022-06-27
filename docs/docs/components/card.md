@@ -54,3 +54,9 @@
 | `round`   | 是否为圆角卡片 | boolean | ——                       | false  |
 | `padding` | 卡片内边距     | string  | ——                       | 20px   |
 | `shadow`  | 阴影样式       | string  | `never` `hover` `always` | always |
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>

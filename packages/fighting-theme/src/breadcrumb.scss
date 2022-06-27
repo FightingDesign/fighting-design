@@ -1,0 +1,39 @@
+.f-breadcrumb {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 15px;
+  line-height: 1;
+  user-select: none;
+
+  &-item__separator {
+    margin: 0 9px;
+    font-weight: bold;
+
+    &-icon {
+      margin: 0 6px;
+      font-weight: normal;
+    }
+  }
+
+  &-item {
+    float: left;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .f-breadcrumb-item__inner {
+      color: #333;
+    }
+
+    .f-breadcrumb-item__separator {
+      color: #acacac;
+    }
+
+    &:last-child {
+      .f-breadcrumb-item__separator {
+        display: none;
+      }
+    }
+  }
+}

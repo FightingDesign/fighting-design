@@ -2,7 +2,25 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
-## 0.0.8 alpha.8 (2022-06-12)
+## 0.0.11-alpha.11 (2022-06-26)
+
+**fix**
+
+- Fix packaging path errors
+
+## 0.0.10-alpha.10 (2022-06-26)
+
+**feat**
+
+- add `FText` component
+- add `FAvatar` component
+- add `FLoading` component
+
+**fix**
+
+- The `FButton` component `blob` configuration item is changed to `blob` for Text bold
+
+## 0.0.8-alpha.8 (2022-06-12)
 
 **feat**
 
@@ -23,7 +41,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Abolish the `info` type of `flex`
 - Abolish the `opacity` attribute of `FIcon`
 
-## 0.0.7 alpha.7 (2022-06-04)
+## 0.0.7-alpha.7 (2022-06-04)
 
 **feat**
 
@@ -35,7 +53,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Fix the fillet degree of `FButton` component
 - Fix `FButtonGroup` type
 
-## 0.0.6 alpha.6 (2022-05-31)
+## 0.0.6-alpha.6 (2022-05-31)
 
 **fix**
 
@@ -55,30 +73,30 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - The new `FImage` component can zoom in and out the picture through the mouse wheel
 - Add the `preview-round` configuration item of the `FImage` component to configure the fillet of the preview image
 
-## 0.0.5 alpha.5 (2022-05-27)
+## 0.0.5-alpha.5 (2022-05-27)
 
 - Add `FImage` component
 - Add new `icon`
 
-## 0.0.4 alpha.4 (2022-05-23)
+## 0.0.4-alpha.4 (2022-05-23)
 
 - Add `FLink` component
 - Cancel `FButton` fixed height
 - Abolish the `icon` and `iconPosition` attributes of the `FButton` component
 - Add the `leftIcon` and `rightIcon` attributes of the `FButton` component
 
-## 0.0.3 alpha.3 (2022-05-18)
+## 0.0.3-alpha.3 (2022-05-18)
 
 - Fix some display styles of button components
 - Deleted an `icon` that is not displayed
 - Cancel component default export
 - Compression component code
 
-## 0.0.2 alpha.2 (2022-05-17)
+## 0.0.2-alpha.2 (2022-05-17)
 
 - Update profile
 - Add package file
 
-## 0.0.1 alpha.1 (2022-05-17)
+## 0.0.1-alpha.1 (2022-05-17)
 
 - Newly added `FButton`、`FButtonGroup`、`FIcon` components

@@ -16,7 +16,10 @@ import { FSwitch } from './switch'
 import { FBadge } from './badge'
 import { FAvatar } from './avatar'
 import { FBackTop } from './back-top'
+import { FBreadcrumb } from './breadcrumb'
+import { FBreadcrumbItem } from './breadcrumb-item'
 import { FText } from './text'
+import { FLoading } from './loading'
 
 const components = {
   FButton,
@@ -36,7 +39,10 @@ const components = {
   FBadge,
   FAvatar,
   FBackTop,
-  FText
+  FBreadcrumbItem,
+  FBreadcrumb,
+  FText,
+  FLoading
 }
 
 const install = (app: App): void => {
@@ -63,7 +69,10 @@ export {
   FBadge,
   FAvatar,
   FBackTop,
-  FText
+  FBreadcrumbItem,
+  FBreadcrumb,
+  FText,
+  FLoading
 }
 
 export default {
