@@ -107,9 +107,9 @@
 
 ## Breadcrumb Slots
 
-| 插槽名 | 自定义默认内容 | 子标签          |
-| ------ | -------------- | --------------- |
-| ——     | 自定义默认内容 | Breadcrumb Item |
+| 插槽名  | 自定义默认内容 | 子标签          |
+| ------- | -------------- | --------------- |
+| default | 自定义默认内容 | Breadcrumb Item |
 
 ## Breadcrumb-item Attractive
 

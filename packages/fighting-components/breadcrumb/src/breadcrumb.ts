@@ -1,5 +1,4 @@
 import type { ExtractPropTypes, InjectionKey } from 'vue'
-import type Breadcrumb from './breadcrumb.vue'
 
 export const Props = {
   separator: {
@@ -19,8 +18,8 @@ export const Props = {
     default: (): string => 'gray'
   }
 }
-export type BreadcrumbProps = ExtractPropTypes<typeof Props>
-export type BreadcrumbInstance = InstanceType<typeof Breadcrumb>
+
+type BreadcrumbProps = ExtractPropTypes<typeof Props>
 
 export const breadcrumbKey: InjectionKey<BreadcrumbProps> =
   Symbol('breadcrumbKey')
