@@ -175,6 +175,10 @@
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
+<a href="https://github.com/konvyi" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/44802220?v=4" />
+</a>
+
 <style scoped>
 .f-tag {
   margin: 5px;
