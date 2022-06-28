@@ -130,6 +130,10 @@
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
+<a href="https://github.com/onechuan" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/98402209?v=4" />
+</a>
+
 <style scoped>
 .f-button {
   margin: 5px;

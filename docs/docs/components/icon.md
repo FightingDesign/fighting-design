@@ -34,12 +34,6 @@
 | `size`       | icon 的字体大小                | string | ——                    | ——     |
 | `opacity`    | icon 的透明度                  | string | 0-1（仅包含一位小数） | ——     |
 
-## Contributors
-
-<a href="https://github.com/Tyh2001" target="_blank">
-  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
-</a>
-
 ## Icon 集合
 
 <div class="icon_list">
@@ -48,6 +42,12 @@
     <span>{{ icon }}</span>
   </div>
 </div>
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
 
 <style lang="scss" scoped>
 .icon_list {

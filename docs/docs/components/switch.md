@@ -178,6 +178,10 @@
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
+<a href="https://github.com/pengyinghao" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/34115313?v=4" />
+</a>
+
 <script setup>
   import { ref } from 'vue'
   const value1 = ref(true)
