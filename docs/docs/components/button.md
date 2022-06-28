@@ -356,6 +356,10 @@
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
+<a href="https://github.com/lxqddd" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/56574505?v=4" />
+</a>
+
 <style scoped>
 .f-button {
   margin: 5px;
