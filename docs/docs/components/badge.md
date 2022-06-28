@@ -1,9 +1,9 @@
 # Badge 角标
 
-`Badge` 用于。
+`Badge` 用于展示角标提示信息
 
-- [源代码]()
-- [文档编辑]()
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/badge)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/badge.md)
 
 ## 基本使用
 

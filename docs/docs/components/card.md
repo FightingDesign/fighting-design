@@ -1,9 +1,9 @@
 # Card 卡片
 
-`Card`
+`Card` 是一个卡片，用于展示内容
 
-- [源代码]()
-- [文档编辑]()
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/card)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/card.md)
 
 ## 基本使用
 

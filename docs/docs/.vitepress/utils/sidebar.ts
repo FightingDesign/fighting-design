@@ -63,7 +63,10 @@ export const sidebar = {
     {
       text: '其它',
       link: '/components/',
-      items: [{ text: 'Divider 分隔线', link: '/components/divider' }]
+      items: [
+        { text: 'Divider 分隔线', link: '/components/divider' },
+        { text: 'BackTop 返回顶部', link: '/components/back-top' }
+      ]
     }
   ]
 } as const

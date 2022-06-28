@@ -1,9 +1,9 @@
 # Icon 图标
 
-`Icon`
+`Icon` 用于展示网页中的小图标
 
-- [源代码]()
-- [文档编辑]()
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/icon)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/icon.md)
 
 ## 基本使用
 

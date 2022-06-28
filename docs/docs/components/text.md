@@ -1,9 +1,9 @@
 # Text 文字
 
-`Text` 是一段可配置灵活的文字。
+`Text` 是一段可配置灵活的文字
 
-- [源代码]()
-- [文档编辑]()
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/text)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/text.md)
 
 ## 基本使用
 

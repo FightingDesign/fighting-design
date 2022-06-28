@@ -1,9 +1,9 @@
 # Switch 开关
 
-`Switch` 是一个开关组件。
+`Switch` 是一个开关组件
 
-- [源代码]()
-- [文档编辑]()
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/switch)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/switch.md)
 
 ## 基本使用
 
