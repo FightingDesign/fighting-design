@@ -1,5 +1,10 @@
 # Breadcrumb 面包屑
 
+`Breadcrumb` 用于管理页面的导航链接。
+
+- [源代码]()
+- [文档编辑]()
+
 ## 基本使用
 
 在 `f-breadcrumb` 中使用 `f-breadcrumb-item` 标签表示从首页开始的多级导航，`f-breadcrumb` 组件接收一个 `String` 类型的参数 `separator` 来作为分隔符，当前默认为`/`

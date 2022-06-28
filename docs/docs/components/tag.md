@@ -1,5 +1,10 @@
 # Tag 标签
 
+`Tag` 用于标签展示。
+
+- [源代码]()
+- [文档编辑]()
+
 ## 基本使用
 
 由 `type` 属性来选择 tag 的类型。基础预设的类型有`info`，`primary`，`warning`，`success`，`danger`。
