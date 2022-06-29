@@ -1,7 +1,7 @@
 <template>
   <div class="f-badge">
     <slot />
-    <sup :class="classList" v-show="!hidden && (content || isDot)">
+    <sup v-show="!hidden && (content || isDot)" :class="classList">
       {{ content }}
     </sup>
   </div>

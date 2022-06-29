@@ -25,8 +25,8 @@
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const FAvatarImg: Ref<HTMLImageElement | null> = ref<HTMLImageElement | null>(
-    null
+  const FAvatarImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
+    null as unknown as HTMLImageElement
   )
 
   const classList: ComputedRef<object | string[]> = computed(

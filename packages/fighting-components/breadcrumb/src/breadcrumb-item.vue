@@ -39,7 +39,9 @@
   const instance: ComponentInternalInstance = getCurrentInstance()!
   const breadcrumbContext = inject(breadcrumbKey, undefined)!
   const router = instance.appContext.config.globalProperties.$router
-  const link: Ref<HTMLSpanElement | null> = ref<HTMLSpanElement | null>(null)
+  const link: Ref<HTMLSpanElement> = ref<HTMLSpanElement>(
+    null as unknown as HTMLSpanElement
+  )
   const { separator, separatorIcon, itemColor, separatorColor } =
     toRefs(breadcrumbContext)
 

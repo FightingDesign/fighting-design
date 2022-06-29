@@ -14,7 +14,7 @@ class Load implements LoadInterface {
   props: propsInterface
   emit: Function
   callback: callbackInterface | null
-  constructor(
+  constructor (
     img: HTMLImageElement,
     props: propsInterface,
     emit: Function,
@@ -26,7 +26,7 @@ class Load implements LoadInterface {
     this.callback = callback
   }
   // 加载当前的 src 地址图片
-  loadCreateImg(): void {
+  loadCreateImg (): void {
     this.img.src = this.props.src
 
     this.img.addEventListener('error', (evt: Event): void => {
@@ -36,7 +36,7 @@ class Load implements LoadInterface {
       this.onload(evt)
     })
   }
-  onerror(evt: Event): void {
+  onerror (evt: Event): void {
     if (this.props.errSrc) {
       return this.loadNextImg()
     }
@@ -45,14 +45,14 @@ class Load implements LoadInterface {
       this.callback(false, 0)
     }
   }
-  onload(evt: Event): void {
+  onload (evt: Event): void {
     this.emit('load', evt)
     if (this.callback) {
       this.callback(true, this.img.width)
     }
   }
   // 如果加载 src 失败，则进入这里，加载 err-src 的图片地址
-  loadNextImg(): void {
+  loadNextImg (): void {
     const newImg: HTMLImageElement = new Image()
     newImg.src = this.props.errSrc
 
@@ -76,7 +76,7 @@ class Load implements LoadInterface {
  * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */
 class Lazy extends Load implements LazyInterface {
-  constructor(
+  constructor (
     img: HTMLImageElement,
     props: propsInterface,
     emit: Function,
@@ -84,7 +84,7 @@ class Lazy extends Load implements LazyInterface {
   ) {
     super(img, props, emit, callback)
   }
-  observer(): IntersectionObserver {
+  observer (): IntersectionObserver {
     const observer: IntersectionObserver = new IntersectionObserver(
       (arr: Array<IntersectionObserverEntry>) => {
         if (arr[0].isIntersecting) {
@@ -104,7 +104,7 @@ class Lazy extends Load implements LazyInterface {
     )
     return observer
   }
-  lazyCreateImg(): void {
+  lazyCreateImg (): void {
     this.observer().observe(this.img)
   }
 }
