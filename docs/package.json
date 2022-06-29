@@ -10,6 +10,6 @@
     "@vueuse/core": "^7.3.0",
     "clipboard": "^2.0.10",
     "shiki": "^0.9.15",
-    "vitepress": "0.22.3"
+    "vitepress": "1.0.0-alpha.4"
   }
 }
