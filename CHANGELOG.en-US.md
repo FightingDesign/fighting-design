@@ -2,6 +2,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.0.12-alpha.12 (2022-06-29)
+
+**fix**
+
+- Repair the function of the `back-top` component
+
+**feat**
+
+- `back-top` component add `z-index`、`top`、`listen-el`、`background`、`color` configuration item
+- add `breadcrumb` component
+
 ## 0.0.11-alpha.11 (2022-06-26)
 
 **fix**

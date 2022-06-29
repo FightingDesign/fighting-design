@@ -2,6 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.0.12-alpha.12 (2022-06-29)
+
+**fix**
+
+- 修复 `back-top` 组件的功能
+
+**feat**
+
+- `back-top` 组件新增 `z-index`、`top`、`listen-el`、`background`、`color` 配置项
+- 新增 `breadcrumb` 组件
+
 ## 0.0.11-alpha.11 (2022-06-26)
 
 **fix**
