@@ -48,14 +48,15 @@
   import type {
     buttonStyleInterface,
     onClickInterface,
-    ordinaryFunctionInterface
+    ordinaryFunctionInterface,
+    buttonEventInterface
   } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const FButton: Ref<HTMLButtonElement | null> = ref<HTMLButtonElement | null>(
-    null
+  const FButton: Ref<HTMLButtonElement> = ref<HTMLButtonElement>(
+    null as unknown as HTMLButtonElement
   )
 
   const classList: ComputedRef<object | string[]> = computed(
@@ -103,7 +104,7 @@
     }
   )
 
-  const onClick: onClickInterface = (evt: PointerEvent): void => {
+  const onClick: onClickInterface = (evt: buttonEventInterface): void => {
     const { disabled, loading, ripples, ripplesColor } = prop
 
     if (disabled || loading) {

@@ -9,7 +9,7 @@ export const Props = {
   behavior: {
     type: String as PropType<backTopBehavior>,
     default: (): backTopBehavior => 'smooth',
-    validator(val: backTopBehavior): boolean {
+    validator: (val: backTopBehavior): boolean => {
       return (['smooth', 'auto'] as const).includes(val)
     }
   },
@@ -24,6 +24,14 @@ export const Props = {
   bottom: {
     type: String,
     default: (): string => ''
+  },
+  zIndex: {
+    type: Number,
+    default: (): number => 200
+  },
+  top: {
+    type: Number,
+    default: (): number => 0
   }
 } as const
 

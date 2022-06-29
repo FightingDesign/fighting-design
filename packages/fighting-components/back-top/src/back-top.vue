@@ -3,7 +3,7 @@
     v-show="visible"
     :class="['f-back-top', { 'f-back-top-round': round }]"
   >
-    <div :style="{ right, bottom }" @click.stop="handleClick">
+    <div :style="{ right, bottom, zIndex }" @click.stop="handleClick">
       <slot />
     </div>
   </transition>
@@ -29,9 +29,10 @@
   }
 
   const handleClick: handleClickInterface = (evt: MouseEvent): void => {
+    const { top, behavior } = prop
     window.scrollTo({
-      top: 0,
-      behavior: prop.behavior
+      top,
+      behavior
     })
     emit('click', evt)
   }

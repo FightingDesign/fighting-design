@@ -72,8 +72,8 @@
   const isLoadOk: Ref<boolean> = ref<boolean>(false)
   const isPreviewListShow: Ref<boolean> = ref<boolean>(false)
   const captionWidth: Ref<number> = ref<number>(0)
-  const FImageImg: Ref<HTMLImageElement | null> = ref<HTMLImageElement | null>(
-    null
+  const FImageImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
+    null as unknown as HTMLImageElement
   )
 
   const onClick: ordinaryFunctionInterface = (): void => {
