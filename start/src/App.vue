@@ -4,9 +4,7 @@
       {{ index }}
     </h1>
   </div>
-  <f-back-top :z-index="3000" behavior="auto" listenEl="#box">
-    返回顶部
-  </f-back-top>
+  <f-back-top> 返回顶部 </f-back-top>
   <h1 v-for="(item, index) in 20">
     {{ index }}
   </h1>

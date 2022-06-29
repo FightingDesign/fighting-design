@@ -3,7 +3,10 @@
     v-show="visible"
     :class="['f-back-top', { 'f-back-top-round': round }]"
   >
-    <div :style="{ right, bottom, zIndex }" @click.stop="handleClick">
+    <div
+      :style="{ right, bottom, zIndex, background, color }"
+      @click.stop="handleClick"
+    >
       <slot />
     </div>
   </transition>

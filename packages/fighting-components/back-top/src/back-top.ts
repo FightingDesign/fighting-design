@@ -36,6 +36,14 @@ export const Props = {
   listenEl: {
     type: String,
     default: (): string => ''
+  },
+  background: {
+    type: String,
+    default: (): string => ''
+  },
+  color: {
+    type: String,
+    default: (): string => ''
   }
 } as const
 
