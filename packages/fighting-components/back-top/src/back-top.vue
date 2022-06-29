@@ -21,16 +21,23 @@
 
   const visible: Ref<boolean> = ref<boolean>(false)
 
-  const handleScroll: handleScrollInterface = () => {
+  const handleScroll: handleScrollInterface = (
+    node: HTMLElement | null
+  ): Function => {
     return debounce((): void => {
-      const scrollTop: number = document.documentElement.scrollTop
+      const scrollTop: number = (
+        (node as HTMLElement) || document.documentElement
+      ).scrollTop
+
       visible.value = scrollTop > prop.visibleHeight
     }, 200)
   }
 
   const handleClick: handleClickInterface = (evt: MouseEvent): void => {
-    const { top, behavior } = prop
-    window.scrollTo({
+    const { top, behavior, listenEl } = prop
+    const listerNode: HTMLElement | null = document.querySelector(listenEl)
+
+    ;(listerNode || window).scrollTo({
       top,
       behavior
     })
@@ -38,6 +45,11 @@
   }
 
   onMounted((): void => {
-    document.addEventListener('scroll', handleScroll())
+    const listerNode: HTMLElement | null = document.querySelector(prop.listenEl)
+
+    ;(listerNode || document).addEventListener(
+      'scroll',
+      handleScroll(listerNode)
+    )
   })
 </script>

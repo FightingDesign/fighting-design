@@ -32,6 +32,10 @@ export const Props = {
   top: {
     type: Number,
     default: (): number => 0
+  },
+  listenEl: {
+    type: String,
+    default: (): string => ''
   }
 } as const
 
