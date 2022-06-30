@@ -1,2 +1,31 @@
 .f-captcha {
+  width: 340px;
+  background: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+  display: inline-block;
+
+  .f-captcha-verify-box {
+    position: relative;
+    height: 210px;
+
+    // 验证图
+    .f-captcha-verify {
+      position: absolute;
+      width: 320px;
+      height: 210px;
+      right: 0;
+      left: 0;
+      top: 0;
+    }
+
+    // 拼图
+    .f-captcha-jigsaw {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      top: 83px;
+      border: 1px solid #fff;
+    }
+  }
 }
