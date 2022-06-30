@@ -28,4 +28,26 @@
       border: 1px solid #fff;
     }
   }
+
+  .f-captcha-move {
+    width: 100%;
+    height: 42px;
+    padding: 1px;
+    box-sizing: border-box;
+    background: #eee;
+    position: relative;
+
+    .f-captcha-item {
+      width: 60px;
+      height: 40px;
+      font-size: 13px;
+      position: absolute;
+      background: #fff;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      cursor: pointer;
+    }
+  }
 }
