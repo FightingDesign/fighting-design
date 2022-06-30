@@ -17,11 +17,12 @@
 <script lang="ts" setup name="FCaptcha">
   import { Props, Emits } from './captcha'
   import { ref } from 'vue'
+  import type { Ref } from 'vue'
 
   defineProps(Props)
   defineEmits(Emits)
 
-  const range = ref(0)
+  const range: Ref<number> = ref<number>(0)
 
   const onInput = () => {
     return {
