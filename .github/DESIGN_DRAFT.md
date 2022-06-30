@@ -14,3 +14,4 @@
 - [Alert 提示](https://www.figma.com/file/4puDOb4F1lZV89xRWdGWbf/Alert-%E6%8F%90%E7%A4%BA?node-id=3%3A27)
 - [Input 输入框](https://www.figma.com/file/JUkONXFsWIaE04cgZbAFBC/Input-%E8%BE%93%E5%85%A5%E6%A1%86?node-id=0%3A1)
 - [Dialog 对话框](https://www.figma.com/file/GZBgOcKrcsQAive1cnn1EF/Dialog-%E5%AF%B9%E8%AF%9D%E6%A1%86?node-id=0%3A1)
+- [Progress 进度条](https://www.figma.com/file/Z0iGT78cxmEiPsZhZN75C2/Progress-%E8%BF%9B%E5%BA%A6%E6%9D%A1?node-id=0%3A1)
