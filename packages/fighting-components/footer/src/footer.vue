@@ -1,9 +1,3 @@
-<template>
-  <footer class="f-footer" :style="{ height }">
-    <slot />
-  </footer>
-</template>
-
 <script setup lang="ts">
   import { Props } from './footer'
 
@@ -15,3 +9,9 @@
     name: 'FFooter'
   }
 </script>
+
+<template>
+  <footer class="f-footer" :style="{ height }">
+    <slot />
+  </footer>
+</template>

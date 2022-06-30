@@ -15,8 +15,14 @@ import { FLayout } from './layout'
 import { FSwitch } from './switch'
 import { FBadge } from './badge'
 import { FAvatar } from './avatar'
-import { FBackTop } from './backTop'
+import { FBackTop } from './back-top'
+import { FBreadcrumb } from './breadcrumb'
+import { FBreadcrumbItem } from './breadcrumb-item'
+import { FText } from './text'
+import { FLoading } from './loading'
+import { FCaptcha } from './captcha'
 import { FSpace } from './space'
+
 const components = {
   FButton,
   FButtonGroup,
@@ -35,6 +41,11 @@ const components = {
   FBadge,
   FAvatar,
   FBackTop,
+  FBreadcrumbItem,
+  FBreadcrumb,
+  FText,
+  FLoading,
+  FCaptcha,
   FSpace
 }
 
@@ -62,6 +73,11 @@ export {
   FBadge,
   FAvatar,
   FBackTop,
+  FBreadcrumbItem,
+  FBreadcrumb,
+  FText,
+  FLoading,
+  FCaptcha,
   FSpace
 }
 

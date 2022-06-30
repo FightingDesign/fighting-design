@@ -7,3 +7,8 @@ export interface RipplesInterface {
   renderElement(x: number, y: number): HTMLSpanElement
   removeElement(node: HTMLElement): void
 }
+
+export type buttonEventInterface = PointerEvent & {
+  layerX: number
+  layerY: number
+}

@@ -1,62 +1,20 @@
-<template>
-  <template v-if="href">
-    <a
-      ref="FButton"
-      :class="classList"
-      :href="href"
-      :target="target"
-      :style="{ boxShadow: shadow, ...buttonStyle }"
-      @click="onClick"
-    >
-      <i
-        v-if="leftIcon || loading"
-        :class="['f-icon', leftIconClass]"
-        :style="buttonStyle"
-      />
-      <slot />
-      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
-    </a>
-  </template>
-
-  <template v-else>
-    <button
-      ref="FButton"
-      :class="classList"
-      :disabled="disabled || loading"
-      :autofocus="autofocus"
-      :name="name"
-      :type="nativeType"
-      :style="{ boxShadow: shadow, ...buttonStyle }"
-      @click="onClick"
-    >
-      <i
-        v-if="leftIcon || loading"
-        :class="['f-icon', leftIconClass]"
-        :style="buttonStyle"
-      />
-      <slot />
-      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
-    </button>
-  </template>
-</template>
-
 <script lang="ts" setup name="FButton">
   import { computed, ref, onMounted } from 'vue'
   import { Props, Emits } from './button'
-  // import { Ripples, ChangeColor } from '@fighting-design/fighting-utils'
   import { Ripples, ChangeColor } from '@fighting-design/fighting-utils'
   import type { ComputedRef, Ref } from 'vue'
   import type {
     buttonStyleInterface,
     onClickInterface,
-    ordinaryFunctionInterface
+    ordinaryFunctionInterface,
+    buttonEventInterface
   } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const FButton: Ref<HTMLButtonElement | null> = ref<HTMLButtonElement | null>(
-    null
+  const FButton: Ref<HTMLButtonElement> = ref<HTMLButtonElement>(
+    null as unknown as HTMLButtonElement
   )
 
   const classList: ComputedRef<object | string[]> = computed(
@@ -68,7 +26,7 @@
         block,
         disabled,
         loading,
-        blob,
+        bold,
         size,
         text,
         circle,
@@ -85,15 +43,15 @@
           'f-button-circle': circle,
           'f-button-round': round,
           'f-button-block': block,
-          'f-button-blob': blob,
+          'f-button-bold': bold,
           'f-button-text': text && !color
         }
       ]
     }
   )
 
-  const buttonStyle: ComputedRef<buttonStyleInterface | Object> = computed(
-    (): buttonStyleInterface | Object => {
+  const buttonStyle: ComputedRef<buttonStyleInterface | object> = computed(
+    (): buttonStyleInterface | object => {
       const { fontSize, fontColor, color } = prop
 
       return {
@@ -104,7 +62,7 @@
     }
   )
 
-  const onClick: onClickInterface = (evt: PointerEvent): void => {
+  const onClick: onClickInterface = (evt: buttonEventInterface): void => {
     const { disabled, loading, ripples, ripplesColor } = prop
 
     if (disabled || loading) {
@@ -155,3 +113,45 @@
     }
   })
 </script>
+
+<template>
+  <template v-if="href">
+    <a
+      ref="FButton"
+      :class="classList"
+      :href="href"
+      :target="target"
+      :style="{ boxShadow: shadow, ...buttonStyle }"
+      @click="onClick"
+    >
+      <i
+        v-if="leftIcon || loading"
+        :class="['f-icon', leftIconClass]"
+        :style="buttonStyle"
+      />
+      <slot />
+      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
+    </a>
+  </template>
+
+  <template v-else>
+    <button
+      ref="FButton"
+      :class="classList"
+      :disabled="disabled || loading"
+      :autofocus="autofocus"
+      :name="name"
+      :type="nativeType"
+      :style="{ boxShadow: shadow, ...buttonStyle }"
+      @click="onClick"
+    >
+      <i
+        v-if="leftIcon || loading"
+        :class="['f-icon', leftIconClass]"
+        :style="buttonStyle"
+      />
+      <slot />
+      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
+    </button>
+  </template>
+</template>

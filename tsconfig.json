@@ -10,8 +10,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "skipLibCheck": true
+    "lib": ["dom", "esnext"],
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "typeRoots": ["node_modules/@types", "@types"]
   },
-  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.tsx"]
+  "include": [
+    "packages/**/*.ts",
+    "packages/**/*.d.ts",
+    "packages/**/*.tsx",
+    "@types/**/*.d.ts"
+  ]
 }

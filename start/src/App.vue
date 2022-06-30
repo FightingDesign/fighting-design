@@ -1,11 +1,15 @@
 <template>
-  <f-tag type="info">信息</f-tag>
-  <f-tag type="primary">普通</f-tag>
-  <f-tag type="warning">警告</f-tag>
-  <f-tag type="success">成功</f-tag>
-  <f-tag type="danger">失败</f-tag>
+  <f-captcha
+    verify-src="https://www.hualigs.cn/image/62bd95894189e.jpg"
+    jigsaw-src="https://www.hualigs.cn/image/62bd9588612da.jpg"
+    move-icon="f-icon-Rightarrow"
+  />
+
+  <Progress />
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import Progress from './Progress.vue'
+</script>
 
-<style scoped></style>
+<style></style>

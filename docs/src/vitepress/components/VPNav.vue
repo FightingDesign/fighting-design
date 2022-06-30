@@ -1,11 +1,11 @@
 <template>
   <header class="VPNav nav-bar" :class="{ stick: !hasSidebar }">
-    <VPNavBar :is-screen-open="isScreenOpen" @toggle-screen="toggleScreen">
+    <v-p-nav-bar :is-screen-open="isScreenOpen" @toggle-screen="toggleScreen">
       <template #navbar-title>
         <slot name="navbar-title" />
       </template>
-    </VPNavBar>
-    <VPNavScreen :open="isScreenOpen" />
+    </v-p-nav-bar>
+    <v-p-nav-screen :open="isScreenOpen" />
   </header>
 </template>
 

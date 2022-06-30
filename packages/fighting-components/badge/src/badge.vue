@@ -1,12 +1,3 @@
-<template>
-  <div class="f-badge">
-    <slot />
-    <sup :class="classList" v-show="!hidden && (content || isDot)">
-      {{ content }}
-    </sup>
-  </div>
-</template>
-
 <script lang="ts" setup name="FBadge">
   import { computed } from 'vue'
   import { Props } from './badge'
@@ -36,3 +27,12 @@
     return `${value}`
   })
 </script>
+
+<template>
+  <div class="f-badge">
+    <slot />
+    <sup v-show="!hidden && (content || isDot)" :class="classList">
+      {{ content }}
+    </sup>
+  </div>
+</template>

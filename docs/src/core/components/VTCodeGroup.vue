@@ -15,10 +15,10 @@
     </div>
     <div class="vt-code-group-contents">
       <component
-        v-for="(tab, idx) in tabs"
-        :key="idx"
-        v-show="activeTabIndex === idx"
         :is="tab"
+        v-for="(tab, idx) in tabs"
+        v-show="activeTabIndex === idx"
+        :key="idx"
         :active="activeTabIndex === idx"
       />
     </div>

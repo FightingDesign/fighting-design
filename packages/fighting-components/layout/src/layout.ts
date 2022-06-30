@@ -1,5 +1,5 @@
-import { directionType } from './interface'
-import { PropType } from 'vue'
+import type { directionType } from './interface'
+import type { PropType } from 'vue'
 
 export const Props = {
   direction: {

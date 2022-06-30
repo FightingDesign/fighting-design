@@ -26,8 +26,13 @@ export interface buttonStyleInterface {
   color: string
 }
 
+export type buttonEventInterface = PointerEvent & {
+  layerX: number
+  layerY: number
+}
+
 export interface onClickInterface {
-  (evt: PointerEvent): void
+  (evt: buttonEventInterface): void
 }
 
 export interface ordinaryFunctionInterface {

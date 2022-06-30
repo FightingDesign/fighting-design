@@ -1,5 +1,10 @@
 # Tag 标签
 
+`Tag` 用于标签展示
+
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/tag)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tag.md)
+
 ## 基本使用
 
 由 `type` 属性来选择 tag 的类型。基础预设的类型有`info`，`primary`，`warning`，`success`，`danger`。
@@ -168,6 +173,16 @@
 | `block`      | 是否为块级元素 | boolean | ——                                            | false  |
 | `hit`        | 是否显示边框   | boolean | ——                                            | true   |
 | `closable`   | 是否可关闭     | boolean | ——                                            | false  |
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
+<a href="https://github.com/konvyi" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/44802220?v=4" />
+</a>
 
 <style scoped>
 .f-tag {

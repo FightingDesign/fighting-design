@@ -1,8 +1,8 @@
 <template>
   <nav v-if="config.nav" class="VPNavBarMenu">
     <template v-for="(item, index) in config.nav" :key="index">
-      <VPNavBarMenuLink v-if="'link' in item" :item="item" />
-      <VPNavBarMenuGroup v-else :item="item" />
+      <v-p-nav-bar-menu-link v-if="'link' in item" :item="item" />
+      <v-p-nav-bar-menu-group v-else :item="item" />
     </template>
   </nav>
 </template>

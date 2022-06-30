@@ -5,7 +5,7 @@ import {
   FFooter,
   FHeader,
   FMain,
-  FContainer
+  FLayout
 } from '@fighting-design/fighting-components'
 
 describe('FAside', () => {
@@ -64,9 +64,9 @@ describe('FMain', () => {
   })
 })
 
-describe('FContainer', () => {
+describe('FLayout', () => {
   test('class', () => {
-    const wrapper = mount(FContainer)
-    expect(wrapper.classes()).toContain('f-container')
+    const wrapper = mount(FLayout)
+    expect(wrapper.classes()).toContain('f-layout')
   })
 })

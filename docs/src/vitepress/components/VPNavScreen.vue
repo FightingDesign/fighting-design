@@ -1,10 +1,10 @@
 <template>
   <transition name="fade">
-    <div v-if="open" class="VPNavScreen" ref="screen">
+    <div v-if="open" ref="screen" class="VPNavScreen">
       <div class="container">
-        <VPNavScreenMenu class="menu" />
-        <VPNavScreenAppearance class="appearance" />
-        <VPNavScreenSocialLinks class="social-links" />
+        <v-p-nav-screen-menu class="menu" />
+        <v-p-nav-screen-appearance class="appearance" />
+        <v-p-nav-screen-social-links class="social-links" />
       </div>
     </div>
   </transition>
@@ -30,7 +30,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 0 32px;
+    /* padding: 0 32px; */
     width: 100%;
     background-color: var(--vt-c-bg);
     transition: background-color 0.5s;

@@ -1,3 +1,9 @@
+<script lang="ts" setup name="FCard">
+  import { Props } from './card'
+
+  defineProps(Props)
+</script>
+
 <template>
   <div
     :class="[
@@ -16,9 +22,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup name="FCard">
-  import { Props } from './card'
-
-  defineProps(Props)
-</script>

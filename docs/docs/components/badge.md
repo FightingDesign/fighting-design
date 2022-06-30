@@ -1,5 +1,10 @@
 # Badge 角标
 
+`Badge` 用于展示角标提示信息
+
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/badge)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/badge.md)
+
 ## 基本使用
 
 `type` 属性可以配置角标的主题
@@ -119,3 +124,13 @@
 | `isDot`  | 展示为一个点                                  | boolean       | ——                                      | false  |
 | `hidden` | 是否显示                                      | boolean       | ——                                      | true   |
 | `type`   | 样式主题                                      | string        | `primary` `success` `danger` `warning ` | danger |
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
+<a href="https://github.com/xluoyu" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
+</a>

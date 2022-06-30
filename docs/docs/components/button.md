@@ -1,5 +1,10 @@
 # Button 按钮
 
+`Button` 是一个灵活的按钮组件
+
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/button)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/button.md)
+
 ## 基本使用
 
 `type` 属性可以配置不同的按钮类型，展示不同的颜色状态
@@ -301,7 +306,7 @@
 
 | 参数            | 说明                                                                                                                                                        | 类型    | 可选值                                                  | 默认值   |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------- | -------- |
-| `blob`          | 按钮文字是否加粗                                                                                                                                            | boolean | ——                                                      | false    |
+| `bold`          | 按钮文字是否加粗                                                                                                                                            | boolean | ——                                                      | false    |
 | `circle`        | 是否为圆形按钮                                                                                                                                              | boolean | ——                                                      | false    |
 | `round`         | 是否为圆角按钮                                                                                                                                              | boolean | ——                                                      | false    |
 | `font-size`     | 文字字体大小                                                                                                                                                | string  | ——                                                      | ——       |
@@ -344,6 +349,16 @@
 | 名称      | 说明         |
 | --------- | ------------ |
 | `default` | 按钮组的内容 |
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
+<a href="https://github.com/lxqddd" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/56574505?v=4" />
+</a>
 
 <style scoped>
 .f-button {

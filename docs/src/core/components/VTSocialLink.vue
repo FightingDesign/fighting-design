@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { SocialLinkSize, SocialLinkIcon } from '../types/socialLink'
+  import type { SocialLinkSize, SocialLinkIcon } from '../types/socialLink'
   import VTIconGitHub from './icons/VTIconGitHub.vue'
 
   const props = defineProps<{
@@ -25,7 +25,7 @@
     link: string
   }>()
 
-  const target = /^[a-z]+:/i.test(props.link) ? `_blank` : undefined
+  const target = /^[a-z]+:/i.test(props.link) ? '_blank' : undefined
 
   const icons = {
     github: VTIconGitHub

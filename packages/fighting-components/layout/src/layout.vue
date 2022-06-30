@@ -1,16 +1,3 @@
-<template>
-  <section
-    :class="[
-      'f-layout',
-      {
-        'is-vertical': isVertical
-      }
-    ]"
-  >
-    <slot />
-  </section>
-</template>
-
 <script setup lang="ts" name="FLayout">
   import { useSlots, computed } from 'vue'
   import type { VNode, Component } from 'vue'
@@ -36,3 +23,16 @@
     return false
   })
 </script>
+
+<template>
+  <section
+    :class="[
+      'f-layout',
+      {
+        'is-vertical': isVertical
+      }
+    ]"
+  >
+    <slot />
+  </section>
+</template>

@@ -1,24 +1,3 @@
-<template>
-  <div
-    :class="[
-      'f-divider',
-      { 'f-divider-vertical': vertical, [`f-divider-${type}`]: type }
-    ]"
-    :style="dividerStyle"
-  >
-    <span
-      v-if="renderSlot"
-      :class="['f-divider-text', `f-divider-text-${position}`]"
-      :style="{
-        background,
-        color: fontColor
-      }"
-    >
-      <slot />
-    </span>
-  </div>
-</template>
-
 <script lang="ts" setup name="FDivider">
   import { useSlots, computed } from 'vue'
   import { Props } from './divider'
@@ -45,3 +24,24 @@
     }
   )
 </script>
+
+<template>
+  <div
+    :class="[
+      'f-divider',
+      { 'f-divider-vertical': vertical, [`f-divider-${type}`]: type }
+    ]"
+    :style="dividerStyle"
+  >
+    <span
+      v-if="renderSlot"
+      :class="['f-divider-text', `f-divider-text-${position}`]"
+      :style="{
+        background,
+        color: fontColor
+      }"
+    >
+      <slot />
+    </span>
+  </div>
+</template>

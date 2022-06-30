@@ -9,30 +9,15 @@ describe('FSwitch', () => {
   })
 
   test('small', () => {
-    const wrapper = mount(FSwitch, {
-      props: {
-        size: 'small'
-      }
+    const size = ['large', 'middle', 'small'] as const
+    size.forEach((item) => {
+      const wrapper = mount(FSwitch, {
+        props: { size: item }
+      })
+      expect(wrapper.find('.f-switch-input').classes()).toContain(
+        `f-switch-${item}`
+      )
     })
-    expect(wrapper.classes()).toContain('f-switch-small')
-  })
-
-  test('middle', () => {
-    const wrapper = mount(FSwitch, {
-      props: {
-        size: 'middle'
-      }
-    })
-    expect(wrapper.classes()).toContain('f-switch-middle')
-  })
-
-  test('large', () => {
-    const wrapper = mount(FSwitch, {
-      props: {
-        size: 'large'
-      }
-    })
-    expect(wrapper.classes()).toContain('f-switch-large')
   })
 
   test('disabled', () => {
@@ -44,13 +29,13 @@ describe('FSwitch', () => {
     expect(wrapper.classes()).toContain('f-switch-disabled')
   })
 
-  test('change', () => {
+  test('click', () => {
     const wrapper = mount(FSwitch, {
       props: {
         modelValue: true
       }
     })
     wrapper.trigger('click')
-    expect(wrapper.emitted('change')).toBeTruthy()
+    expect(wrapper.emitted('click')).toBeTruthy()
   })
 })

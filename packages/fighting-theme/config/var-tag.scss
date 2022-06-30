@@ -1,0 +1,15 @@
+@import '../config/const-color.scss';
+
+$large: 35px;
+$middle: 30px;
+$small: 25px;
+$mini: 20px;
+
+// 不同类型
+$tagType: (
+  'info': $info,
+  'primary': $primary,
+  'success': $success,
+  'danger': $danger,
+  'warning': $warning
+);
