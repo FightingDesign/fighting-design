@@ -1,18 +1,15 @@
-<template>
-  <span :class="classList" :style="styleList">
-    <slot />
-  </span>
-</template>
-
 <script lang="ts" setup name="FText">
   import { Props } from './text'
   import { computed } from 'vue'
   import type { ComputedRef } from 'vue'
   import type { textStyleInterface } from './interface'
+
   const prop = defineProps(Props)
+
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
       const { type, block, bold } = prop
+
       return [
         'f-text',
         {
@@ -23,6 +20,7 @@
       ]
     }
   )
+
   const styleList: ComputedRef<textStyleInterface> = computed(
     (): textStyleInterface => {
       const {
@@ -35,6 +33,7 @@
         decoration,
         padding
       } = prop
+
       const style: textStyleInterface = {
         color,
         background,
@@ -45,7 +44,14 @@
         letterSpacing: spacing,
         textDecoration: decoration
       }
+
       return style
     }
   )
 </script>
+
+<template>
+  <span :class="classList" :style="styleList">
+    <slot />
+  </span>
+</template>

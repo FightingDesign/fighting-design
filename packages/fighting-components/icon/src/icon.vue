@@ -1,13 +1,3 @@
-<template>
-  <i
-    :class="[fontClass || 'f-icon', icon]"
-    :style="{ color, fontSize: size }"
-    @click="onClick"
-  >
-    <slot />
-  </i>
-</template>
-
 <script lang="ts" setup name="FIcon">
   import { Props, Emits } from './icon'
   import type { onClickInterface } from './interface'
@@ -19,3 +9,13 @@
     emit('click', evt)
   }
 </script>
+
+<template>
+  <i
+    :class="[fontClass || 'f-icon', icon]"
+    :style="{ color, fontSize: size }"
+    @click="onClick"
+  >
+    <slot />
+  </i>
+</template>

@@ -1,24 +1,3 @@
-<template>
-  <div class="f-captcha">
-    <div class="f-captcha-verify-box">
-      <img class="f-captcha-verify" draggable="false" :src="verifySrc" />
-
-      <img
-        class="f-captcha-jigsaw"
-        draggable="false"
-        :src="jigsawSrc"
-        :style="captchaStyleList"
-      />
-    </div>
-
-    <div class="f-captcha-move">
-      <div ref="captchaItem" class="f-captcha-item">
-        <i :class="['f-icon', moveIcon || 'f-icon-double-arro-right']" />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script lang="ts" setup name="FCaptcha">
   import { Props, Emits } from './captcha'
   import { ref, onMounted, computed } from 'vue'
@@ -67,3 +46,24 @@
     startMoving()
   })
 </script>
+
+<template>
+  <div class="f-captcha">
+    <div class="f-captcha-verify-box">
+      <img class="f-captcha-verify" draggable="false" :src="verifySrc" />
+
+      <img
+        class="f-captcha-jigsaw"
+        draggable="false"
+        :src="jigsawSrc"
+        :style="captchaStyleList"
+      />
+    </div>
+
+    <div class="f-captcha-move">
+      <div ref="captchaItem" class="f-captcha-item">
+        <i :class="['f-icon', moveIcon || 'f-icon-double-arro-right']" />
+      </div>
+    </div>
+  </div>
+</template>

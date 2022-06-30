@@ -1,45 +1,3 @@
-<template>
-  <template v-if="href">
-    <a
-      ref="FButton"
-      :class="classList"
-      :href="href"
-      :target="target"
-      :style="{ boxShadow: shadow, ...buttonStyle }"
-      @click="onClick"
-    >
-      <i
-        v-if="leftIcon || loading"
-        :class="['f-icon', leftIconClass]"
-        :style="buttonStyle"
-      />
-      <slot />
-      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
-    </a>
-  </template>
-
-  <template v-else>
-    <button
-      ref="FButton"
-      :class="classList"
-      :disabled="disabled || loading"
-      :autofocus="autofocus"
-      :name="name"
-      :type="nativeType"
-      :style="{ boxShadow: shadow, ...buttonStyle }"
-      @click="onClick"
-    >
-      <i
-        v-if="leftIcon || loading"
-        :class="['f-icon', leftIconClass]"
-        :style="buttonStyle"
-      />
-      <slot />
-      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
-    </button>
-  </template>
-</template>
-
 <script lang="ts" setup name="FButton">
   import { computed, ref, onMounted } from 'vue'
   import { Props, Emits } from './button'
@@ -155,3 +113,45 @@
     }
   })
 </script>
+
+<template>
+  <template v-if="href">
+    <a
+      ref="FButton"
+      :class="classList"
+      :href="href"
+      :target="target"
+      :style="{ boxShadow: shadow, ...buttonStyle }"
+      @click="onClick"
+    >
+      <i
+        v-if="leftIcon || loading"
+        :class="['f-icon', leftIconClass]"
+        :style="buttonStyle"
+      />
+      <slot />
+      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
+    </a>
+  </template>
+
+  <template v-else>
+    <button
+      ref="FButton"
+      :class="classList"
+      :disabled="disabled || loading"
+      :autofocus="autofocus"
+      :name="name"
+      :type="nativeType"
+      :style="{ boxShadow: shadow, ...buttonStyle }"
+      @click="onClick"
+    >
+      <i
+        v-if="leftIcon || loading"
+        :class="['f-icon', leftIconClass]"
+        :style="buttonStyle"
+      />
+      <slot />
+      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
+    </button>
+  </template>
+</template>

@@ -9,6 +9,4 @@ export interface textStyleInterface {
   fontSize: string
   letterSpacing: string
   textDecoration: string
-  block: boolean
-  bold: boolean
 }

@@ -1,3 +1,19 @@
+<script lang="ts" setup name="FLink">
+  import { Props, Emits } from './link'
+  import type { onClickInterface } from './interface'
+
+  const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
+
+  const onClick: onClickInterface = (evt: PointerEvent): void => {
+    if (prop.prohibit || prop.noLink) {
+      evt.preventDefault()
+      return
+    }
+    emit('click', evt)
+  }
+</script>
+
 <template>
   <a
     :class="[
@@ -27,19 +43,3 @@
     />
   </a>
 </template>
-
-<script lang="ts" setup name="FLink">
-  import { Props, Emits } from './link'
-  import type { onClickInterface } from './interface'
-
-  const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
-
-  const onClick: onClickInterface = (evt: PointerEvent): void => {
-    if (prop.prohibit || prop.noLink) {
-      evt.preventDefault()
-      return
-    }
-    emit('click', evt)
-  }
-</script>

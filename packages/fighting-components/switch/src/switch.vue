@@ -1,31 +1,3 @@
-<template>
-  <div :class="['f-switch', { 'f-switch-disabled': disabled }]">
-    <span
-      v-if="closeText"
-      :class="['f-switch-right-text', { 'f-switch-text-active': !modelValue }]"
-    >
-      {{ closeText }}
-    </span>
-
-    <div
-      :class="FSwitchClass"
-      :style="{ background: modelValue ? openColor : closeColor }"
-      @click="changeSwitch"
-    >
-      <span class="f-switch-roll" :style="rollStyle">
-        <i v-if="icon" :class="['f-icon', icon]" />
-      </span>
-    </div>
-
-    <span
-      v-if="openText"
-      :class="['f-switch-left-text', { 'f-switch-text-active': modelValue }]"
-    >
-      {{ openText }}
-    </span>
-  </div>
-</template>
-
 <script lang="ts" setup name="FSwitch">
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
@@ -73,3 +45,31 @@
     }
   )
 </script>
+
+<template>
+  <div :class="['f-switch', { 'f-switch-disabled': disabled }]">
+    <span
+      v-if="closeText"
+      :class="['f-switch-right-text', { 'f-switch-text-active': !modelValue }]"
+    >
+      {{ closeText }}
+    </span>
+
+    <div
+      :class="FSwitchClass"
+      :style="{ background: modelValue ? openColor : closeColor }"
+      @click="changeSwitch"
+    >
+      <span class="f-switch-roll" :style="rollStyle">
+        <i v-if="icon" :class="['f-icon', icon]" />
+      </span>
+    </div>
+
+    <span
+      v-if="openText"
+      :class="['f-switch-left-text', { 'f-switch-text-active': modelValue }]"
+    >
+      {{ openText }}
+    </span>
+  </div>
+</template>

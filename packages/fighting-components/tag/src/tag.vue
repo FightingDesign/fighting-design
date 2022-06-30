@@ -1,20 +1,3 @@
-<template>
-  <div :class="classList">
-    <!-- <span class="f-tag-text"> -->
-    <i v-if="leftIcon" :class="['f-icon', leftIcon]" />
-    <slot />
-    <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
-
-    <i
-      v-if="close"
-      class="f-iolor"
-      icon="f-icon-close"
-      @click.stop="handleClose"
-    />
-    <!-- </span> -->
-  </div>
-</template>
-
 <script lang="ts" setup name="FTag">
   import { Props, Emits } from './tag'
   import { computed } from 'vue'
@@ -73,3 +56,20 @@
     emit('close', evt)
   }
 </script>
+
+<template>
+  <div :class="classList">
+    <!-- <span class="f-tag-text"> -->
+    <i v-if="leftIcon" :class="['f-icon', leftIcon]" />
+    <slot />
+    <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
+
+    <i
+      v-if="close"
+      class="f-iolor"
+      icon="f-icon-close"
+      @click.stop="handleClose"
+    />
+    <!-- </span> -->
+  </div>
+</template>

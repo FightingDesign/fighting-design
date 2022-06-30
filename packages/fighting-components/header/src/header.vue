@@ -1,9 +1,3 @@
-<template>
-  <header class="f-header" :style="{ height }">
-    <slot />
-  </header>
-</template>
-
 <script lang="ts" setup>
   import { Props } from './header'
 
@@ -15,3 +9,9 @@
     name: 'FHeader'
   }
 </script>
+
+<template>
+  <header class="f-header" :style="{ height }">
+    <slot />
+  </header>
+</template>

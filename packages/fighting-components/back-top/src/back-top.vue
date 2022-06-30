@@ -1,17 +1,3 @@
-<template>
-  <transition
-    v-show="visible"
-    :class="['f-back-top', { 'f-back-top-round': round }]"
-  >
-    <div
-      :style="{ right, bottom, zIndex, background, color }"
-      @click.stop="handleClick"
-    >
-      <slot />
-    </div>
-  </transition>
-</template>
-
 <script lang="ts" setup name="FBackTop">
   import { Emits, Props } from './back-top'
   import { onMounted, ref } from 'vue'
@@ -56,3 +42,17 @@
     )
   })
 </script>
+
+<template>
+  <transition
+    v-show="visible"
+    :class="['f-back-top', { 'f-back-top-round': round }]"
+  >
+    <div
+      :style="{ right, bottom, zIndex, background, color }"
+      @click.stop="handleClick"
+    >
+      <slot />
+    </div>
+  </transition>
+</template>

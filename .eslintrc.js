@@ -18,6 +18,12 @@ module.exports = {
   root: true,
 
   rules: {
+    'vue/component-tags-order': [
+      'error',
+      {
+        order: ['script', 'template', 'style']
+      }
+    ],
     'one-var': 'off',
     'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 0, maxBOF: 0 }],
     'eol-last': 'error',

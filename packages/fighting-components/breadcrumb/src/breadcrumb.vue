@@ -1,9 +1,3 @@
-<template>
-  <div class="f-breadcrumb">
-    <slot />
-  </div>
-</template>
-
 <script lang="ts" setup name="FBreadcrumb">
   import { provide } from 'vue'
   import { breadcrumbKey, Props } from './breadcrumb'
@@ -12,3 +6,9 @@
 
   provide(breadcrumbKey, prop)
 </script>
+
+<template>
+  <div class="f-breadcrumb">
+    <slot />
+  </div>
+</template>
