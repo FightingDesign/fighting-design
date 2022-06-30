@@ -20,6 +20,7 @@ import { FBreadcrumb } from './breadcrumb'
 import { FBreadcrumbItem } from './breadcrumb-item'
 import { FText } from './text'
 import { FLoading } from './loading'
+import { FCaptcha } from './captcha'
 
 const components = {
   FButton,
@@ -42,7 +43,8 @@ const components = {
   FBreadcrumbItem,
   FBreadcrumb,
   FText,
-  FLoading
+  FLoading,
+  FCaptcha
 }
 
 const install = (app: App): void => {
@@ -72,7 +74,8 @@ export {
   FBreadcrumbItem,
   FBreadcrumb,
   FText,
-  FLoading
+  FLoading,
+  FCaptcha
 }
 
 export default {
