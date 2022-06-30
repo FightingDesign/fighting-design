@@ -32,6 +32,7 @@
       document.onmousemove = (evt: MouseEvent): void => {
         if (evt.clientX - dis >= 0 && evt.clientX - dis <= 260) {
           range.value = Math.floor((evt.clientX - dis) / 2.6)
+          // range.value = (((evt.clientX - dis) / 260) * 100).toFixed()
           node.style.left = evt.clientX - dis + 'px'
         }
       }

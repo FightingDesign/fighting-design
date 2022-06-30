@@ -4,8 +4,12 @@
     jigsaw-src="https://www.hualigs.cn/image/62bd9588612da.jpg"
     move-icon="f-icon-Rightarrow"
   />
+
+  <Progress />
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import Progress from './Progress.vue'
+</script>
 
 <style></style>
