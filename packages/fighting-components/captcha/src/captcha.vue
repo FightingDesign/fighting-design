@@ -1,11 +1,12 @@
 <template>
   <div class="f-captcha">
     <div class="f-captcha-verify-box">
-      <img class="f-captcha-verify" :src="verifySrc" />
+      <img class="f-captcha-verify" draggable="false" :src="verifySrc" />
 
       <img
         class="f-captcha-jigsaw"
-        src="./prey-item.png"
+        draggable="false"
+        :src="jigsawSrc"
         :style="captchaStyleList"
       />
     </div>
@@ -22,7 +23,10 @@
   import { Props, Emits } from './captcha'
   import { ref, onMounted, computed } from 'vue'
   import type { Ref } from 'vue'
-  import type { handleInputReturnInterface } from './interface'
+  import type {
+    handleInputReturnInterface,
+    startMovingInterface
+  } from './interface'
 
   defineProps(Props)
   defineEmits(Emits)
@@ -38,7 +42,7 @@
     } as const
   })
 
-  onMounted(() => {
+  const startMoving: startMovingInterface = (): void => {
     const node: HTMLDivElement = document.querySelector(
       '.f-captcha-item'
     ) as HTMLDivElement
@@ -57,5 +61,9 @@
         document.onmousemove = null
       }
     })
+  }
+
+  onMounted((): void => {
+    startMoving()
   })
 </script>

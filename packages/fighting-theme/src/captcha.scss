@@ -4,6 +4,7 @@
   padding: 10px;
   box-sizing: border-box;
   display: inline-block;
+  user-select: none;
 
   .f-captcha-verify-box {
     position: relative;
