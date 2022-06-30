@@ -36,7 +36,7 @@ module.exports = {
     'no-tabs': 'error',
     indent: 'error',
     quotes: ['error', 'single', { avoidEscape: true }],
-    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-explicit-any': ['off'],
     semi: ['error', 'never'],
     'object-curly-spacing': 'error',
     '@typescript-eslint/no-unused-vars': [

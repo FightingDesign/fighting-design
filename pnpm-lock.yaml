@@ -15,6 +15,7 @@ importers:
       '@typescript-eslint/parser': ^5.28.0
       '@vitejs/plugin-vue': ^2.3.1
       '@vue/test-utils': ^2.0.0-rc.18
+      '@vueuse/core': ^7.3.0
       commitizen: ^4.2.4
       cz-conventional-changelog: ^3.3.0
       eslint: ^8.18.0
@@ -41,6 +42,7 @@ importers:
       '@fighting-design/fighting-utils': link:packages/fighting-utils
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.5+vue@3.2.33
       '@vue/test-utils': 2.0.0-rc.18_vue@3.2.33
+      '@vueuse/core': 7.7.1_vue@3.2.33
       commitizen: 4.2.4
       cz-conventional-changelog: 3.3.0
       happy-dom: 3.2.2
@@ -1052,6 +1054,22 @@ packages:
       vue-demi: 0.12.5
     dev: false
 
+  /@vueuse/core/7.7.1_vue@3.2.33:
+    resolution: {integrity: sha512-PRRgbATMpoeUmkCEBtUeJgOwtew8s+4UsEd+Pm7MhkjL2ihCNrSqxNVtM6NFE4uP2sWnkGcZpCjPuNSxowJ1Ow==}
+    peerDependencies:
+      '@vue/composition-api': ^1.1.0
+      vue: ^2.6.0 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      '@vueuse/shared': 7.7.1_vue@3.2.33
+      vue: 3.2.33
+      vue-demi: 0.12.5_vue@3.2.33
+    dev: false
+
   /@vueuse/core/8.7.5_vue@3.2.33:
     resolution: {integrity: sha512-tqgzeZGoZcXzoit4kOGLWJibDMLp0vdm6ZO41SSUQhkhtrPhAg6dbIEPiahhUu6sZAmSYvVrZgEr5aKD51nrLA==}
     peerDependencies:
@@ -1086,6 +1104,21 @@ packages:
         optional: true
     dependencies:
       vue-demi: 0.12.5
+    dev: false
+
+  /@vueuse/shared/7.7.1_vue@3.2.33:
+    resolution: {integrity: sha512-rN2qd22AUl7VdBxihagWyhUNHCyVk9IpvBTTfHoLH9G7rGE552X1f+zeCfehuno0zXif13jPw+icW/wn2a0rnQ==}
+    peerDependencies:
+      '@vue/composition-api': ^1.1.0
+      vue: ^2.6.0 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      vue: 3.2.33
+      vue-demi: 0.12.5_vue@3.2.33
     dev: false
 
   /@vueuse/shared/8.7.5_vue@3.2.33:
@@ -4898,7 +4931,6 @@ packages:
     resolution: {integrity: sha512-WOkT3XYvrpXx4vMMqlD+8R8R37fZkjyLGlxavMc4iB8lrl8L0DeTcHbYgw/v0N/z9wAFsgBhcsF0ruoySS22mA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: false
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}

@@ -33,6 +33,7 @@
     "@fighting-design/fighting-utils": "workspace:*",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/test-utils": "^2.0.0-rc.18",
+    "@vueuse/core": "^7.3.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "happy-dom": "^3.2.2",
