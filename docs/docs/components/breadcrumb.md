@@ -107,8 +107,8 @@
 | ----------------- | -------------- | -------- | ------ | ------ |
 | `separator`       | 分隔符         | `string` | ——     | ——     |
 | `icon-separator`  | icon 分隔符    | `string` | ——     | ——     |
-| `separator-color` | 分隔符颜色     | `string` | ——     | `gray` |
-| `item-color`      | 页面元素分隔符 | `string` | ——     | `gray` |
+| `separator-color` | 分隔符颜色     | `string` | ——     | ——     |
+| `item-color`      | 页面元素分隔符 | `string` | ——     | ——     |
 
 ## Breadcrumb Slots
 

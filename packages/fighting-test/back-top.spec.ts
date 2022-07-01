@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FBackTop } from '@fighting-design/fighting-components'
 
-describe('FAvatar', () => {
+describe('FBackTop', () => {
   test('class', () => {
     const wrapper = mount(FBackTop)
     expect(wrapper.classes()).toContain('f-back-top')

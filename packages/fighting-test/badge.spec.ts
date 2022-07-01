@@ -5,7 +5,6 @@ import { FBadge } from '@fighting-design/fighting-components'
 describe('FBadge', () => {
   test('class', () => {
     const wrapper = mount(FBadge)
-
     expect(wrapper.classes()).toContain('f-badge')
     expect(wrapper.find('sup')).toBeDefined()
     expect(wrapper.find('sup').classes()).toEqual([
