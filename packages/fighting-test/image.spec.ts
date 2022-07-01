@@ -60,10 +60,13 @@ describe('FImage', () => {
   })
 
   test('fit', () => {
-    const wrapper = mount(FImage, {
-      props: { fit: 'cover' }
+    const fit = ['fill', 'contain', 'cover', 'none', 'scale-down'] as const
+    fit.forEach((item) => {
+      const wrapper = mount(FImage, {
+        props: { fit: item }
+      })
+      expect(wrapper.find('img').classes()).toContain(`f-image-${item}`)
     })
-    expect(wrapper.find('img').classes()).toContain('f-image-cover')
   })
 
   test('noSelect', () => {
