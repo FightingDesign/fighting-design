@@ -33,13 +33,51 @@ describe('FAvatar', () => {
 
   test('fit', () => {
     const fit = ['fill', 'contain', 'cover', 'none', 'scale-down'] as const
-
     fit.forEach((item) => {
       const wrapper = mount(FAvatar, {
-        props: { src: 'https://abc.com/1.jpg', icon: '', fit: item }
+        props: { fit: item }
       })
-      console.log(wrapper.find('img').classes())
       expect(wrapper.find('img').classes()).toContain(`f-avatar-${item}`)
     })
+  })
+
+  test('size', () => {
+    const fit = ['large', 'middle', 'small', 'mini'] as const
+    fit.forEach((item) => {
+      const wrapper = mount(FAvatar, {
+        props: { size: item }
+      })
+      expect(wrapper.find('img').classes()).toContain(`f-avatar-${item}`)
+    })
+  })
+
+  test('background', () => {
+    const wrapper = mount(FAvatar, {
+      props: { background: 'red' }
+    })
+    expect(wrapper.attributes('style')).toContain('red')
+  })
+
+  test('icon', () => {
+    const wrapper = mount(FAvatar, {
+      props: { icon: 'f-icon-default-template' }
+    })
+    expect(wrapper.find('.f-icon').classes()).toContain(
+      'f-icon-default-template'
+    )
+  })
+
+  test('icon-size', () => {
+    const wrapper = mount(FAvatar, {
+      props: { icon: 'f-icon-default-template', iconSize: '12px' }
+    })
+    expect(wrapper.find('.f-icon').attributes('style')).toContain('12px')
+  })
+
+  test('icon-color', () => {
+    const wrapper = mount(FAvatar, {
+      props: { icon: 'f-icon-default-template', iconColor: 'red' }
+    })
+    expect(wrapper.find('.f-icon').attributes('style')).toContain('red')
   })
 })
