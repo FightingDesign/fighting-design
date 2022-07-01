@@ -7,18 +7,18 @@
 
 ## 基本使用
 
+`Space` 的基本使用
+
 <f-space>
-<f-switch></f-switch>
-<f-button type="primary">主要按钮</f-button>
-<f-button type="success">成功按钮</f-button>
-<f-button type="warning">警告按钮</f-button>
+  <f-button type="primary">主要按钮</f-button>
+  <f-button type="success">成功按钮</f-button>
+  <f-button type="warning">警告按钮</f-button>
 </f-space>
 
 ::: details 显示代码
 
 ```html
 <f-space>
-  <f-switch></f-switch>
   <f-button type="primary">主要按钮</f-button>
   <f-button type="success">成功按钮</f-button>
   <f-button type="warning">警告按钮</f-button>
@@ -29,91 +29,69 @@
 
 ## 对齐方式
 
-可使用 `position` 设置对齐方式，可选值：`start`、`center`（默认）、`end`、`baseline`。
+可使用 `position` 设置对齐方式，可选值：`center（默认）`、`start`、`end`、`baseline`
 
 <f-space vertical>
-<f-space position="start">
-<div class="space-md-text">文本</div>
-<f-tag type="success">成功</f-tag>
-<f-button type="primary">主要按钮</f-button>
-</f-space>
-<f-space position="center">
-<div class="space-md-text">文本</div>
-<f-tag type="success">成功</f-tag>
-<f-button type="primary">主要按钮</f-button>
-</f-space>
-<f-space position="end">
-<div class="space-md-text">文本</div>
-<f-tag type="success">成功</f-tag>
-<f-button type="primary">主要按钮</f-button>
-</f-space>
-<f-space position="baseline">
-<div class="space-md-text">文本</div>
-<f-tag type="success">成功</f-tag>
-<f-button type="primary">主要按钮</f-button>
-</f-space>
-</f-space>
+  <f-space position="start">
+    <f-tag type="primary">普通</f-tag>
+    <f-tag type="primary">普通</f-tag>
+    <f-tag type="primary">普通</f-tag>
+  </f-space>
 
-<style scoped>
-.space-md-text{
-    border: 1px solid #52b35e;
-    borderRadius: 3px;
-    display: flex;
-    width: 60px;
-    height: 80px;
-    lineHeight: 80px;
-    alignItems: center;
-    justifyContent: center
-  }
-</style>
+  <f-space position="center">
+    <f-tag type="warning">警告</f-tag>
+    <f-tag type="warning">警告</f-tag>
+    <f-tag type="warning">警告</f-tag>
+  </f-space>
+
+  <f-space position="end">
+    <f-tag type="success">成功</f-tag>
+    <f-tag type="success">成功</f-tag>
+    <f-tag type="success">成功</f-tag>
+  </f-space>
+
+  <f-space position="baseline">
+    <f-tag type="danger">失败</f-tag>
+    <f-tag type="danger">失败</f-tag>
+    <f-tag type="danger">失败</f-tag>
+  </f-space>
+</f-space>
 
 ::: details 显示代码
 
 ```html
-<template>
-  <f-space vertical>
-    <f-space position="start">
-      <div class="space-md-text">文本</div>
-      <f-tag type="success">成功</f-tag>
-      <f-button type="primary">主要按钮</f-button>
-    </f-space>
-    <f-space position="center">
-      <div class="space-md-text">文本</div>
-      <f-tag type="success">成功</f-tag>
-      <f-button type="primary">主要按钮</f-button>
-    </f-space>
-    <f-space position="end">
-      <div class="space-md-text">文本</div>
-      <f-tag type="success">成功</f-tag>
-      <f-button type="primary">主要按钮</f-button>
-    </f-space>
-    <f-space position="baseline">
-      <div class="space-md-text">文本</div>
-      <f-tag type="success">成功</f-tag>
-      <f-button type="primary">主要按钮</f-button>
-    </f-space>
+<f-space vertical>
+  <f-space position="start">
+    <f-tag type="primary">普通</f-tag>
+    <f-tag type="primary">普通</f-tag>
+    <f-tag type="primary">普通</f-tag>
   </f-space>
-</template>
 
-<style scoped>
-  .space-md-text {
-    border: 1px solid #52b35e;
-    borderradius: 3px;
-    display: flex;
-    width: 60px;
-    height: 80px;
-    lineheight: 80px;
-    alignitems: center;
-    justifycontent: center;
-  }
-</style>
+  <f-space position="center">
+    <f-tag type="warning">警告</f-tag>
+    <f-tag type="warning">警告</f-tag>
+    <f-tag type="warning">警告</f-tag>
+  </f-space>
+
+  <f-space position="end">
+    <f-tag type="success">成功</f-tag>
+    <f-tag type="success">成功</f-tag>
+    <f-tag type="success">成功</f-tag>
+  </f-space>
+
+  <f-space position="baseline">
+    <f-tag type="danger">失败</f-tag>
+    <f-tag type="danger">失败</f-tag>
+    <f-tag type="danger">失败</f-tag>
+  </f-space>
+</f-space>
 ```
 
 :::
 
 ## 间距尺寸
 
-可使用 spacing 设置间距大小，内置可选值：small（8px，默认）、middle（16px）、large（24px），并且支持传入 number 来自定义间距大小，也支持传入 array 来同时设置水平和垂直方向的间距。
+可使用 `spacing` 设置间距大小，内置可选值：`small（8px，默认）、middle（16px）、large（24px）`，并且支持传入 `number` 来自定义间距大小，也支持传入 `array` 来同时设置水平和垂直方向的间距。
 
 <f-space :style="{marginBottom:'10px'}">
 <div>spacing 间距大小</div>
@@ -223,18 +201,20 @@
 
 ## 样式
 
-<f-space :style="{marginBottom:'30px'}">
-  <f-button type="primary" >按钮</f-button>
+<f-space :style="{ marginBottom: '30px' }">
+  <f-button type="primary">按钮</f-button>
 </f-space>
-<div>text</div>
+
+<p>text</p>
 
 ::: details 显示代码
 
 ```html
-<f-space :style="{marginBottom:'30px'}">
+<f-space :style="{ marginBottom: '30px' }">
   <f-button type="primary">按钮</f-button>
 </f-space>
-<div>text</div>
+
+<p>text</p>
 ```
 
 :::
@@ -244,11 +224,12 @@
 <f-space className="space-margin-bottom">
   <f-button type="primary">按钮</f-button>
 </f-space>
+
 <div>text</div>
 
 <style scoped>
 .space-margin-bottom{
-    margin-bottom:10px
+  margin-bottom:10px
 }
 </style>
 
@@ -258,6 +239,7 @@
 <f-space className="space-margin-bottom">
   <f-button type="primary">按钮</f-button>
 </f-space>
+
 <div>text</div>
 
 <style scoped>
@@ -271,14 +253,14 @@
 
 ## Attributes
 
-| 参数        | 说明           | 类                                           | 可选值                                | 默认值   |
-| ----------- | -------------- | -------------------------------------------- | ------------------------------------- | -------- |
-| `position`  | 对齐方式       | `string`                                     | `start` , `center` , `end`,`baseline` | `center` |
-| `spacing`   | 间距尺寸       | `string`, `number` , `Array<number\|string>` | `small` , `middle` , `large`,...      | `small`  |
-| `vertical`  | 间距方向       | `boolean`                                    | ——                                    | `false`  |
-| `wrap`      | 换行           | `boolean`                                    | ——                                    | `false`  |
-| `style`     | 样式           | object                                       | ——                                    | ——       |
-| `className` | 自定义样式类名 | string                                       | ——                                    | ——       |
+| 参数        | 说明           | 类型                                         | 可选值                            | 默认值   |
+| ----------- | -------------- | -------------------------------------------- | --------------------------------- | -------- |
+| `position`  | 对齐方式       | `string`                                     | `start` `center` `end` `baseline` | `center` |
+| `spacing`   | 间距尺寸       | `string`, `number` , `Array<number\|string>` | `small` `middle` `large`          | `small`  |
+| `vertical`  | 间距方向       | `boolean`                                    | ——                                | `false`  |
+| `wrap`      | 换行           | `boolean`                                    | ——                                | `false`  |
+| `style`     | 样式           | `object`                                     | ——                                | ——       |
+| `className` | 自定义样式类名 | `string`                                     | ——                                | ——       |
 
 ## Contributors
 

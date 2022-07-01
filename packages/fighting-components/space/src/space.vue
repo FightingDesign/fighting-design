@@ -1,36 +1,40 @@
-<template>
-  <div :class="spaceClassObject" :style="realStyle">
-    <slot />
-  </div>
-</template>
 <script lang="ts" setup name="FSpace">
   import { computed, ref } from 'vue'
-  import { Props, SpacingType } from './space'
-  import { spaceSize } from './interface'
-  const prefixClass = 'f-space'
-  const props = defineProps(Props)
-  function isString(s: any) {
+  import { Props } from './space'
+  import type { spaceSize } from './interface'
+
+  enum spacingType {
+    SPACING_LARGE = 'large',
+    SPACING_MIDDLE = 'middle',
+    SPACING_SMALL = 'small'
+  }
+
+  const prop = defineProps(Props)
+
+  const isString = (s: unknown): boolean => {
     return typeof s === 'string'
   }
-  function isNumber(s: any) {
+
+  const isNumber = (s: unknown): boolean => {
     return typeof s === 'number'
   }
 
-  function isArray(s: any) {
+  const isArray = (s: unknown): boolean => {
     return Array.isArray(s)
   }
 
-  let realStyle = ref({
-    ...props.style
+  const realStyle = ref({
+    ...prop.style
   })
 
-  const spaceClassObject = computed(() => {
-    const { position, className, wrap, vertical, spacing, style } = props
-    const isWrap = wrap
+  const spaceClassList = computed(() => {
+    const { position, className, wrap, vertical, spacing, style } = prop
 
-    realStyle.value = { ...style }
-    let spacingHorizontalType: spaceSize = SpacingType.SPACING_SMALL
-    let spacingVerticalType: spaceSize = SpacingType.SPACING_SMALL
+    // realStyle.value = { ...style }
+
+    let spacingHorizontalType: spaceSize = spacingType.SPACING_SMALL
+    let spacingVerticalType: spaceSize = spacingType.SPACING_SMALL
+
     if (isString(spacing)) {
       spacingHorizontalType = spacing
       spacingVerticalType = spacing
@@ -49,25 +53,34 @@
         realStyle.value.rowGap = `${spacing[1]}px`
       }
     }
-    return {
-      [className]: !!className,
-      [prefixClass]: true,
-      [`${prefixClass}-align-${position}`]: position,
-      [`${prefixClass}-vertical`]: vertical,
-      [`${prefixClass}-horizontal`]: !vertical,
-      [`${prefixClass}-wrap`]: isWrap,
-      [`${prefixClass}-large-horizontal`]:
-        spacingHorizontalType === SpacingType.SPACING_LARGE,
-      [`${prefixClass}-large-vertical`]:
-        spacingVerticalType === SpacingType.SPACING_LARGE,
-      [`${prefixClass}-middle-horizontal`]:
-        spacingHorizontalType === SpacingType.SPACING_MIDDLE,
-      [`${prefixClass}-middle-vertical`]:
-        spacingVerticalType === SpacingType.SPACING_MIDDLE,
-      [`${prefixClass}-small-horizontal`]:
-        spacingHorizontalType === SpacingType.SPACING_SMALL,
-      [`${prefixClass}-small-vertical`]:
-        spacingVerticalType === SpacingType.SPACING_SMALL
-    }
+    return [
+      'f-space',
+      className,
+      {
+        // [className]: !!className,
+        [`f-space-align-${position}`]: position,
+        'f-space-vertical': vertical,
+        'f-space-horizontal': !vertical,
+        'f-space-wrap': wrap,
+        'f-space-large-horizontal':
+          spacingHorizontalType === spacingType.SPACING_LARGE,
+        'f-space-large-vertical':
+          spacingVerticalType === spacingType.SPACING_LARGE,
+        'f-space-middle-horizontal':
+          spacingHorizontalType === spacingType.SPACING_MIDDLE,
+        'f-space-middle-vertical':
+          spacingVerticalType === spacingType.SPACING_MIDDLE,
+        'f-space-small-horizontal':
+          spacingHorizontalType === spacingType.SPACING_SMALL,
+        'f-space-small-vertical':
+          spacingVerticalType === spacingType.SPACING_SMALL
+      }
+    ]
   })
 </script>
+
+<template>
+  <div :class="spaceClassList" :style="realStyle">
+    <slot />
+  </div>
+</template>
