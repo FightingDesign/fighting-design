@@ -13,3 +13,11 @@ $tagType: (
   'danger': $danger,
   'warning': $warning
 );
+
+// 不同尺寸
+$tagSize: (
+  'large': $large,
+  'middle': $middle,
+  'small': $small,
+  'mini': $mini
+);

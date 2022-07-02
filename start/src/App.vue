@@ -1,22 +1,26 @@
 <template>
-  <f-space>
-    <div>spacing 间距大小</div>
-    <select v-model="spacing" class="space-md-select">
-      <option value="small">small</option>
-      <option value="middle">middle</option>
-      <option value="large">large</option>
-      <option :value="20">20</option>
-      <option :value="[20, 40]">[20,40]</option>
-      <option :value="['small', 'middle']">['small','middle']</option>
-    </select>
-  </f-space>
-  <br />
-  <f-space :spacing="spacing" wrap>
-    <f-button type="primary" v-for="item in 12" :key="item">按钮</f-button>
-  </f-space>
+  <f-tag v-show="isShow1" close @on-close="isShow1 = false" type="info">
+    信息
+  </f-tag>
+  <f-tag v-show="isShow2" close @on-close="isShow2 = false" type="primary">
+    普通
+  </f-tag>
+  <f-tag v-show="isShow3" close @on-close="isShow3 = false" type="warning">
+    警告
+  </f-tag>
+  <f-tag v-show="isShow4" close @on-close="isShow4 = false" type="success">
+    成功
+  </f-tag>
+  <f-tag v-show="isShow5" close @on-close="isShow5 = false" type="danger">
+    失败
+  </f-tag>
 </template>
 
 <script setup>
   import { ref } from 'vue'
-  let spacing = ref('small')
+  const isShow1 = ref(true)
+  const isShow2 = ref(true)
+  const isShow3 = ref(true)
+  const isShow4 = ref(true)
+  const isShow5 = ref(true)
 </script>

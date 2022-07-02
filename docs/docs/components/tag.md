@@ -7,7 +7,7 @@
 
 ## 基本使用
 
-由 `type` 属性来选择 tag 的类型。基础预设的类型有`info`，`primary`，`warning`，`success`，`danger`。
+`type` 属性可以配置不同的按钮类型，展示不同的颜色状态
 
 <f-tag type="info">信息</f-tag>
 <f-tag type="primary">普通</f-tag>
@@ -29,16 +29,22 @@
 
 ## 模式
 
-`simple` 是否为明亮模式，默认为 false
+`simple` 属性可以配置简约的按钮，样式依然由 `type` 控制
 
-<f-tag simple type="primary">明亮模式</f-tag>
-<f-tag type="primary">深色模式</f-tag>
+<f-tag simple type="info">信息</f-tag>
+<f-tag simple type="primary">普通</f-tag>
+<f-tag simple type="warning">警告</f-tag>
+<f-tag simple type="success">成功</f-tag>
+<f-tag simple type="danger">失败</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-tag simple type="primary">明亮模式</f-tag>
-<f-tag type="primary">深色模式</f-tag>
+<f-tag simple type="info">信息</f-tag>
+<f-tag simple type="primary">普通</f-tag>
+<f-tag simple type="warning">警告</f-tag>
+<f-tag simple type="success">成功</f-tag>
+<f-tag simple type="danger">失败</f-tag>
 ```
 
 :::
@@ -61,20 +67,20 @@
 
 ## 标签大小
 
-`size` 自定义标签大小，有`large`, `middle`, `small`, `mini`四个可选值
+`size` 自定义标签大小
 
-<f-tag color="#909399" size="large">大标签</f-tag>
+<f-tag type="primary" size="large">大标签</f-tag>
 <f-tag type="primary" size="middle">中等标签</f-tag>
-<f-tag size="small">小标签</f-tag>
-<f-tag color="#2d5af1" size="mini">超小标签</f-tag>
+<f-tag type="primary" size="small">小标签</f-tag>
+<f-tag type="primary" size="mini">超小标签</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-tag color="#909399" size="large">大标签</f-tag>
+<f-tag type="primary" size="large">大标签</f-tag>
 <f-tag type="primary" size="middle">中等标签</f-tag>
-<f-tag size="small">小标签</f-tag>
-<f-tag color="#2d5af1" size="mini">超小标签</f-tag>
+<f-tag type="primary" size="small">小标签</f-tag>
+<f-tag type="primary" size="mini">超小标签</f-tag>
 ```
 
 :::
@@ -147,14 +153,54 @@
 
 ## 是否可关闭
 
-`closable` 表示标签是否可以被关闭
+`close` 可配置可以关闭的
 
-<f-tag color="blue" size="small" :closable="true">标签</f-tag>
+<f-tag v-show="isShow1" close @on-close="isShow1 = false" type="info">
+信息
+</f-tag>
+<f-tag v-show="isShow2" close @on-close="isShow2 = false" type="primary">
+普通
+</f-tag>
+<f-tag v-show="isShow3" close @on-close="isShow3 = false" type="warning">
+警告
+</f-tag>
+<f-tag v-show="isShow4" close @on-close="isShow4 = false" type="success">
+成功
+</f-tag>
+<f-tag v-show="isShow5" close @on-close="isShow5 = false" type="danger">
+失败
+</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-tag color="blue" size="small" :closable="true">标签</f-tag>
+<template>
+  <f-tag v-show="isShow1" close @on-close="isShow1 = false" type="info">
+    信息
+  </f-tag>
+  <f-tag v-show="isShow2" close @on-close="isShow2 = false" type="primary">
+    普通
+  </f-tag>
+  <f-tag v-show="isShow3" close @on-close="isShow3 = false" type="warning">
+    警告
+  </f-tag>
+  <f-tag v-show="isShow4" close @on-close="isShow4 = false" type="success">
+    成功
+  </f-tag>
+  <f-tag v-show="isShow5" close @on-close="isShow5 = false" type="danger">
+    失败
+  </f-tag>
+</template>
+
+<script setup>
+  import { ref } from 'vue'
+
+  const isShow1 = ref(true)
+  const isShow2 = ref(true)
+  const isShow3 = ref(true)
+  const isShow4 = ref(true)
+  const isShow5 = ref(true)
+</script>
 ```
 
 :::
@@ -164,15 +210,20 @@
 | 参数         | 说明           | 类型    | 可选值                                        | 默认值 |
 | ------------ | -------------- | ------- | --------------------------------------------- | ------ |
 | `type`       | 标签类型       | string  | `info` `success` `danger` `warning` `primary` | info   |
-| `simple`     | 是否为明亮模式 | boolean | ——                                            | false  |
+| `simple`     | 是否为简约模式 | boolean | ——                                            | false  |
 | `size`       | 标签大小       | string  | `large` `middle` `small` `mini`               | small  |
 | `color`      | 标签颜色       | string  | ——                                            | ——     |
-| `round`      | 圆角值         | string  | ——                                            | ——     |
+| `round`      | 圆角           | boolean | ——                                            | false  |
 | `left-icon`  | 左侧 icon      | string  | ——                                            | ——     |
 | `right-icon` | 右侧 icon      | string  | ——                                            | ——     |
 | `block`      | 是否为块级元素 | boolean | ——                                            | false  |
-| `hit`        | 是否显示边框   | boolean | ——                                            | true   |
-| `closable`   | 是否可关闭     | boolean | ——                                            | false  |
+| `close`      | 是否可关闭     | boolean | ——                                            | false  |
+
+## Events
+
+| 事件名称   | 说明             | 类型                    |
+| ---------- | ---------------- | ----------------------- |
+| `on-close` | 点击关闭按钮触发 | (e: MouseEvent) => void |
 
 ## Contributors
 
@@ -183,6 +234,16 @@
 <a href="https://github.com/konvyi" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/44802220?v=4" />
 </a>
+
+<script setup>
+  import { ref } from 'vue'
+
+  const isShow1 = ref(true)
+  const isShow2 = ref(true)
+  const isShow3 = ref(true)
+  const isShow4 = ref(true)
+  const isShow5 = ref(true)
+</script>
 
 <style scoped>
 .f-tag {
