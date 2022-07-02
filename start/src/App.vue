@@ -14,6 +14,7 @@
   <f-tag v-show="isShow5" close @on-close="isShow5 = false" type="danger">
     失败
   </f-tag>
+  <f-dialog text="content" title="world"> </f-dialog>
 </template>
 
 <script setup>
