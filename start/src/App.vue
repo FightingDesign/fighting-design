@@ -14,7 +14,13 @@
   <f-tag v-show="isShow5" close @on-close="isShow5 = false" type="danger">
     失败
   </f-tag>
-  <f-dialog text="content" title="world"> </f-dialog>
+  <f-button @click="showDialog = true">打开dialog</f-button>
+  <f-dialog
+    text="content"
+    :modal="true"
+    v-model:visible="showDialog"
+    title="world"
+  />
 </template>
 
 <script setup>
@@ -24,4 +30,5 @@
   const isShow3 = ref(true)
   const isShow4 = ref(true)
   const isShow5 = ref(true)
+  const showDialog = ref(false)
 </script>

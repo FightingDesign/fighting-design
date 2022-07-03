@@ -46,4 +46,6 @@ export const Props = {
   }
 } as const
 
-export const Emits = {} as const
+export const Emits = {
+  'update:visible': (val: boolean) => val
+} as const

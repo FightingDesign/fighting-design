@@ -2,60 +2,70 @@ $defaultMarginTop: 13vh;
 $defaultHeight: 30px;
 
 .f-dialog {
-  width: 332px;
-  height: 188px;
-  margin-top: $defaultMarginTop;
-  padding: 0 10px;
-  background: #ffffff;
-  border-radius: 1px;
-  border: 1px solid #eee;
-
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-
-  .center {
-    margin: $defaultMarginTop auto 0;
-  }
   .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 800;
   }
 
-  .header {
-    height: $defaultHeight;
-    border-bottom: 1px solid #eee;
-    text-align: center;
-    position: relative;
+  .dialog {
+    z-index: 999;
+    width: 332px;
+    height: 188px;
+    margin-top: $defaultMarginTop;
+    padding: 0 10px;
+    background: #ffffff;
+    border-radius: 1px;
+    border: 1px solid #eee;
 
-    .close {
-      display: inline-block;
-      user-select: none;
-      cursor: pointer;
-      position: absolute;
-      right: 0;
-      width: 11px;
-      height: 11px;
-      & > * {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    &.center {
+      margin: $defaultMarginTop auto 0;
+    }
+    .header {
+      height: $defaultHeight;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      position: relative;
+
+      .close {
+        display: inline-block;
+        user-select: none;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
         width: 11px;
         height: 11px;
+        & > * {
+          width: 11px;
+          height: 11px;
+        }
       }
     }
-  }
 
-  .content {
-    justify-self: flex-start;
-    align-self: flex-start;
-  }
+    .content {
+      justify-self: flex-start;
+      align-self: flex-start;
+    }
 
-  .footer {
-    height: $defaultHeight;
-    border-top: 1px solid #eee;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-    align-items: center;
-    button {
-      &:last-of-type {
-        margin-left: 18px;
+    .footer {
+      height: $defaultHeight;
+      border-top: 1px solid #eee;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-end;
+      align-items: center;
+      button {
+        &:last-of-type {
+          margin-left: 18px;
+        }
       }
     }
   }
