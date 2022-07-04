@@ -43,6 +43,17 @@ export const Props = {
   },
   top: {
     type: Number
+  },
+  // 关闭 dialog 之前的回调，会阻塞 dialog 关闭
+  beforeCloseSync: {
+    type: Function
+  },
+  beforeClose: {
+    type: Function
+  },
+  closeIcon: {
+    type: String,
+    default: (): string => 'x'
   }
 } as const
 

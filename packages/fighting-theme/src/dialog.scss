@@ -2,7 +2,7 @@ $defaultMarginTop: 13vh;
 $defaultHeight: 30px;
 
 .f-dialog {
-  .mask {
+  &.mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -34,9 +34,15 @@ $defaultHeight: 30px;
       border-bottom: 1px solid #eee;
       text-align: center;
       position: relative;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
 
       .close {
-        display: inline-block;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
         user-select: none;
         cursor: pointer;
         position: absolute;
@@ -53,6 +59,7 @@ $defaultHeight: 30px;
     .content {
       justify-self: flex-start;
       align-self: flex-start;
+      flex: 1;
     }
 
     .footer {

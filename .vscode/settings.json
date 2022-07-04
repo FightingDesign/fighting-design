@@ -124,7 +124,7 @@
   //     ]
   //   }
   // ],
-  "editor.formatOnSave": false, // 保存自动格式化
+  "editor.formatOnSave": true, // 保存自动格式化
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.vueIndentScriptAndStyle": false,
   "eslint.enable": true,
