@@ -13,7 +13,7 @@ export const sidebar = {
       link: '/docs/introduce',
       items: [
         { text: '介绍', link: '/docs/introduce' },
-        { text: '贡献指南', link: '/docs/CONTRIBUTING' },
+        { text: '贡献指南', link: '/docs/contributing' },
         { text: '加入我们', link: '/docs/join' }
       ]
     },
@@ -35,7 +35,8 @@ export const sidebar = {
         { text: 'Icon 图标', link: '/components/icon' },
         { text: 'Link 链接', link: '/components/link' },
         { text: 'Text 文本', link: '/components/text' },
-        { text: 'Layout 布局', link: '/components/layout' }
+        { text: 'Layout 布局', link: '/components/layout' },
+        { text: 'Space 间距', link: '/components/space' }
       ]
     },
     {

@@ -16,8 +16,8 @@ export const Props = {
     default: (): boolean => false
   },
   round: {
-    type: String,
-    default: (): string => '0px'
+    type: Boolean,
+    default: (): boolean => false
   },
   color: {
     type: String,
@@ -33,7 +33,7 @@ export const Props = {
   },
   size: {
     type: String as PropType<tagSize>,
-    default: (): tagSize => 'small',
+    default: (): tagSize => 'middle',
     validator: (val: tagSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
@@ -53,5 +53,5 @@ export const Props = {
 } as const
 
 export const Emits = {
-  close: (evt: Event): Event => evt
+  onClose: (evt: MouseEvent): MouseEvent => evt
 } as const

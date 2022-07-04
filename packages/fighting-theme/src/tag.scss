@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   height: $middle;
+  transition: 0.5;
 
   // 不同的类型
   @each $key, $value in $tagType {
@@ -22,7 +23,39 @@
       background: lighten($value, 40%);
     }
   }
+
+  // 不同的尺寸
+  @each $key, $value in $tagSize {
+    &.f-tag-#{$key} {
+      height: $value;
+    }
+  }
+
+  // 块级元素
+  &.f-tag-block {
+    display: block;
+    display: flex;
+  }
+
+  // 圆角
+  &.f-tag-round {
+    border-radius: 30px;
+  }
+
+  .f-icon-close {
+    cursor: pointer;
+    font-size: 13px;
+    margin-left: 8px;
+    text-align: right;
+
+    &:hover {
+      transition: 0.5;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+    }
+  }
 }
+
 // .f-tag {
 //   min-width: 60px;
 //   padding: 0 6px;

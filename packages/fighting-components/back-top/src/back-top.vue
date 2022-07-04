@@ -44,15 +44,13 @@
 </script>
 
 <template>
-  <transition
-    v-show="visible"
-    :class="['f-back-top', { 'f-back-top-round': round }]"
-  >
+  <div v-show="visible" :class="['f-back-top', { 'f-back-top-round': round }]">
     <div
+      class="f-back-top-item"
       :style="{ right, bottom, zIndex, background, color }"
       @click.stop="handleClick"
     >
       <slot />
     </div>
-  </transition>
+  </div>
 </template>

@@ -22,6 +22,9 @@ import { FText } from './text'
 import { FLoading } from './loading'
 import { FCaptcha } from './captcha'
 import { FProgress } from './progress'
+import { FSpace } from './space'
+import { FDialog } from './dialog'
+import { FTooltip } from './tooltip'
 
 const components = {
   FButton,
@@ -47,6 +50,9 @@ const components = {
   FLoading,
   FCaptcha,
   FProgress
+  FSpace,
+  FDialog,
+  FTooltip
 }
 
 const install = (app: App): void => {
@@ -79,6 +85,9 @@ export {
   FLoading,
   FCaptcha,
   FProgress
+  FSpace,
+  FDialog,
+  FTooltip
 }
 
 export default {

@@ -28,8 +28,8 @@
   <Progress />
 </template>
 
-<script lang="ts" setup>
-  import Progress from './Progress.vue'
+<script setup>
+  import { ref } from 'vue'
 </script>
 
 <style></style>

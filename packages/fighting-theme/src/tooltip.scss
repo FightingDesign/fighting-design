@@ -1,0 +1,23 @@
+.f-tooltip {
+  position: relative;
+  display: inline-block;
+
+  .f-tooltip-msg {
+    position: absolute;
+    background: #333;
+    color: #fff;
+  }
+
+  &:hover {
+    .f-tooltip-msg::after {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      content: attr(f-tooltip-content);
+      width: 100px;
+      height: 40px;
+      top: 50px;
+      left: 0px;
+    }
+  }
+}
