@@ -4,7 +4,8 @@
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
-  const closeDialog = async () => {
+
+  const closeDialog = async (): Promise<void> => {
     if (typeof prop.beforeClose === 'function') {
       prop.beforeClose()
     }
@@ -13,6 +14,7 @@
     }
     emit('update:visible', false)
   }
+
   const computedIcon = computed(() => {
     // 是一个图片 url，渲染 img 标签
     if (
@@ -33,7 +35,7 @@
   <div
     v-show="prop.visible"
     class="f-dialog mask"
-    @click.self="!!prop.modalClose && closeDialog()"
+    @click.self="prop.modalClose && closeDialog()"
   >
     <div
       class="dialog center"
@@ -64,9 +66,9 @@
       </div>
       <div class="footer">
         <slot name="footer">
-          <f-button size="mini" type="default" @click="closeDialog"
-          >取消</f-button
-          >
+          <f-button size="mini" type="default" @click="closeDialog">
+            取消
+          </f-button>
           <f-button size="mini" type="primary">确认</f-button>
         </slot>
       </div>

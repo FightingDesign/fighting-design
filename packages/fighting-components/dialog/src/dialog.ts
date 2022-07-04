@@ -1,8 +1,7 @@
 export const Props = {
   title: {
     type: String,
-    default: (): string => '',
-    require: true
+    default: (): string => ''
   },
   visible: {
     type: Boolean,
