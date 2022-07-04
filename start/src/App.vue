@@ -1,4 +1,11 @@
 <template>
+  <f-tooltip content="hello">
+    <f-button type="primary">主要按钮</f-button>
+  </f-tooltip>
+  <f-button type="primary" @click="change">主要按钮</f-button>
+  <f-dialog title="Title" append-to-body v-model:visible="isShow"
+    >哈哈哈哈</f-dialog
+  >
   <f-captcha
     verify-src="https://www.hualigs.cn/image/62bd95894189e.jpg"
     jigsaw-src="https://www.hualigs.cn/image/62bd9588612da.jpg"
@@ -30,6 +37,10 @@
 
 <script setup>
   import { ref } from 'vue'
+  const isShow = ref(false)
+  const change = () => {
+    isShow.value = true
+  }
 </script>
 
 <style></style>

@@ -2,6 +2,7 @@ $defaultMarginTop: 13vh;
 $defaultHeight: 30px;
 
 .f-dialog {
+  // 遮罩层
   &.mask {
     position: absolute;
     top: 0;
@@ -9,7 +10,7 @@ $defaultHeight: 30px;
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.3);
-    z-index: 800;
+    z-index: 999;
   }
 
   .dialog {
@@ -26,8 +27,13 @@ $defaultHeight: 30px;
     flex-flow: column nowrap;
     justify-content: space-between;
 
+    // dialog居中
     &.center {
       margin: $defaultMarginTop auto 0;
+    }
+    // 阴影
+    &.shadow {
+      box-shadow: 1px 0px 10px 2px #ddd;
     }
     .header {
       height: $defaultHeight;
@@ -76,4 +82,17 @@ $defaultHeight: 30px;
       }
     }
   }
+}
+
+.f-dialog-fade-enter-active {
+  transition: all 0.5s ease-out;
+}
+
+.f-dialog-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.f-dialog-fade-enter-from,
+.f-dialog-fade-leave-to {
+  opacity: 0;
 }
