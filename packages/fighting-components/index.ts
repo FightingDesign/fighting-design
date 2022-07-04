@@ -21,6 +21,7 @@ import { FBreadcrumbItem } from './breadcrumb-item'
 import { FText } from './text'
 import { FLoading } from './loading'
 import { FCaptcha } from './captcha'
+import { FProgress } from './progress'
 import { FSpace } from './space'
 import { FDialog } from './dialog'
 import { FTooltip } from './tooltip'
@@ -48,6 +49,7 @@ const components = {
   FText,
   FLoading,
   FCaptcha,
+  FProgress
   FSpace,
   FDialog,
   FTooltip
@@ -82,6 +84,7 @@ export {
   FText,
   FLoading,
   FCaptcha,
+  FProgress
   FSpace,
   FDialog,
   FTooltip
