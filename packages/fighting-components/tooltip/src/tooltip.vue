@@ -7,6 +7,7 @@
 
 <template>
   <div class="f-tooltip">
-    <slots />
+    <slot />
+    <div class="f-tooltip-msg" :f-tooltip-content="content"></div>
   </div>
 </template>
