@@ -3,7 +3,9 @@
     <f-button type="primary">主要按钮</f-button>
   </f-tooltip>
   <f-button type="primary" @click="change">主要按钮</f-button>
-  <f-dialog title="Title" v-model:visible="isShow">哈哈哈哈</f-dialog>
+  <f-dialog title="Title" append-to-body v-model:visible="isShow"
+    >哈哈哈哈</f-dialog
+  >
 </template>
 
 <script setup>

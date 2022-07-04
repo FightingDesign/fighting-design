@@ -10,11 +10,11 @@ export const Props = {
   },
   appendToBody: {
     type: Boolean,
-    default: (): boolean => true
+    default: (): boolean => false
   },
   width: {
-    type: Number,
-    default: (): number => 332
+    type: String,
+    default: (): string => '332px'
   },
   fullscreen: {
     type: Boolean,
@@ -22,7 +22,7 @@ export const Props = {
   },
   modal: {
     type: Boolean,
-    default: (): boolean => false
+    default: (): boolean => true
   },
   lockScroll: {
     type: Boolean,
@@ -41,17 +41,23 @@ export const Props = {
     default: (): boolean => true
   },
   top: {
-    type: Number
-  },
-  // 关闭 dialog 之前的回调，会阻塞 dialog 关闭
-  beforeCloseSync: {
-    type: Function
-  },
-  beforeClose: {
-    type: Function
+    type: String,
+    default: (): string => '13vh'
   },
   closeIcon: {
     type: String
+  },
+  open: {
+    type: Function
+  },
+  onOpen: {
+    type: Function
+  },
+  close: {
+    type: Function
+  },
+  onClose: {
+    type: Function
   }
 } as const
 
