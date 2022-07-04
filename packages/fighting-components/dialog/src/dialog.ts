@@ -51,11 +51,10 @@ export const Props = {
     type: Function
   },
   closeIcon: {
-    type: String,
-    default: (): string => 'x'
+    type: String
   }
 } as const
 
 export const Emits = {
-  'update:visible': (val: boolean) => val
+  'update:visible': (val: boolean) => typeof val === 'boolean'
 } as const

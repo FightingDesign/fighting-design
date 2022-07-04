@@ -1,5 +1,4 @@
 <script lang="ts" setup name="FDialog">
-  import { computed } from 'vue'
   import { Props, Emits } from './dialog'
 
   const prop = defineProps(Props)
@@ -14,21 +13,6 @@
     }
     emit('update:visible', false)
   }
-
-  const computedIcon = computed(() => {
-    // 是一个图片 url，渲染 img 标签
-    if (
-      /^(((ht|f)tps?):\/\/)?([^!@#$%^&*?.\s-]([^!@#$%^&*?.\s]{0,63}[^!@#$%^&*?.\s])?\.)+[a-z]{2,6}\/?/.test(
-        prop.closeIcon
-      )
-    ) {
-      // TODO 硬编码
-      return null
-    } else {
-      // 渲染字符
-      return prop.closeIcon
-    }
-  })
 </script>
 
 <template>
@@ -50,12 +34,7 @@
         </slot>
         <div class="close" @click="closeDialog">
           <slot name="closeIcon">
-            <template v-if="computedIcon">
-              {{ computedIcon }}
-            </template>
-            <template v-else>
-              <img class="close" :src="(computedIcon as string)" alt="" />
-            </template>
+            <f-icon size="11px" icon="f-icon-close" />
           </slot>
         </div>
       </div>
