@@ -9,6 +9,7 @@
 - 新增 `dialog` 组件
 - 新增 `space` 组件
 - 新增 `captcha` 组件
+- 新增 `tooltip` 组件
 
 ## 0.0.12-alpha.12 (2022-06-29)
 
