@@ -49,7 +49,7 @@ const components = {
   FText,
   FLoading,
   FCaptcha,
-  FProgress
+  FProgress,
   FSpace,
   FDialog,
   FTooltip
@@ -84,7 +84,7 @@ export {
   FText,
   FLoading,
   FCaptcha,
-  FProgress
+  FProgress,
   FSpace,
   FDialog,
   FTooltip

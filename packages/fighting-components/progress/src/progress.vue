@@ -1,15 +1,15 @@
 <script lang="ts" setup name="FProgress">
   import { Props } from './progress'
+  import { computed } from 'vue'
   import type { progressStyleInterface } from './interface'
   import type { ComputedRef } from 'vue'
-  import { computed } from 'vue'
 
-  const props = defineProps(Props)
+  const prop = defineProps(Props)
 
   const progressStyle: ComputedRef<progressStyleInterface> = computed(
     (): progressStyleInterface => {
-      const { background, width, height, square } = props
-      console.log(square)
+      const { background, width, height, square } = prop
+
       return {
         width,
         height,
@@ -18,9 +18,11 @@
       }
     }
   )
+
   const progressFillStyle: ComputedRef<progressStyleInterface> = computed(
     (): progressStyleInterface => {
-      const { percentage, color, square } = props
+      const { percentage, color, square } = prop
+
       return {
         width: `${percentage}%`,
         background: color,
@@ -32,15 +34,15 @@
 
 <template>
   <div
-    :class="['f-progress', { 'f-progress-liner': props.linear }]"
+    :class="['f-progress', { 'f-progress-liner': linear }]"
     :style="progressStyle"
   >
     <div
-      :class="['f-progress-fill', `f-progress-fill-${props.type}`]"
+      :class="['f-progress-fill', `f-progress-fill-${type}`]"
       :style="progressFillStyle"
     >
-      <span v-if="props.showText && !props.linear" class="f-progress-per-num">
-        {{ props.percentage }}%
+      <span v-if="showText && !linear" class="f-progress-per-num">
+        {{ percentage }}%
       </span>
     </div>
   </div>

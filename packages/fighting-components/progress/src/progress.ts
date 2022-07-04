@@ -1,19 +1,27 @@
+import type { PropType } from 'vue'
+import type { progressType } from './interface'
+
 export const Props = {
   percentage: {
     type: Number,
     default: (): Number => 10
   },
   type: {
-    type: String,
-    default: (): String => 'primary'
+    type: String as PropType<progressType>,
+    default: (): progressType => 'default',
+    validator: (val: progressType): boolean => {
+      return (
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
+      ).includes(val)
+    }
   },
   square: {
     type: Boolean,
-    default: (): Boolean => false
+    default: (): boolean => false
   },
   linear: {
     type: Boolean,
-    default: (): Boolean => false
+    default: (): boolean => false
   },
   showText: {
     type: Boolean,

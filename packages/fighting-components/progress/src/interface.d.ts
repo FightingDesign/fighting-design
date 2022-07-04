@@ -4,3 +4,10 @@ export interface progressStyleInterface {
   height?: string
   borderRadius?: string
 }
+
+export type progressType =
+  | 'default'
+  | 'primary'
+  | 'success'
+  | 'danger'
+  | 'warning'
