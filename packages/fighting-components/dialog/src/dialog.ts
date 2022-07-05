@@ -46,21 +46,13 @@ export const Props = {
   },
   closeIcon: {
     type: String
-  },
-  open: {
-    type: Function
-  },
-  onOpen: {
-    type: Function
-  },
-  close: {
-    type: Function
-  },
-  onClose: {
-    type: Function
   }
 } as const
 
 export const Emits = {
-  'update:visible': (val: boolean) => typeof val === 'boolean'
+  'update:visible': (val: boolean) => typeof val === 'boolean',
+  open: () => true,
+  'open-end': () => true,
+  close: () => true,
+  'close-end': () => true
 } as const

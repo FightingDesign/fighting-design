@@ -1,44 +1,56 @@
 <script lang="ts" setup name="FDialog">
   import { Props, Emits } from './dialog'
+  import type {
+    transitionEventInterface,
+    closeDialogInterface
+  } from './interface'
 
-  const prop = defineProps(Props)
+  defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const closeDialog = () => {
+  const closeDialog: closeDialogInterface = (): void => {
     emit('update:visible', false)
   }
+
+  const open: transitionEventInterface = (): void => emit('open')
+
+  const openEnd: transitionEventInterface = (): void => emit('open-end')
+
+  const close: transitionEventInterface = (): void => emit('close')
+
+  const closeEnd: transitionEventInterface = (): void => emit('close-end')
 </script>
 
 <template>
-  <teleport to="body" :disabled="!prop.appendToBody">
+  <teleport to="body" :disabled="!appendToBody">
     <transition
       name="f-dialog-fade"
-      @before-enter="prop.open"
-      @after-enter="prop.onOpen"
-      @before-leave="prop.close"
-      @after-leave="prop.onClose"
+      @before-enter="open"
+      @after-enter="openEnd"
+      @before-leave="close"
+      @after-leave="closeEnd"
     >
       <div
-        v-show="prop.visible"
+        v-show="visible"
         class="f-dialog"
         :class="{
-          mask: prop.modal
+          mask: modal
         }"
-        @click.self="prop.modalClose && closeDialog()"
+        @click.self="modalClose && closeDialog()"
       >
         <div
           class="dialog center"
           :class="{
-            shadow: !prop.modal
+            shadow: !modal
           }"
           :style="{
-            width: prop.width,
-            marginTop: prop.top
+            width,
+            marginTop: top
           }"
         >
           <div class="header">
             <slot name="header">
-              {{ prop.title }}
+              {{ title }}
             </slot>
             <div class="close" @click="closeDialog">
               <slot name="closeIcon">
@@ -48,7 +60,7 @@
           </div>
           <div class="content">
             <slot>
-              {{ prop.text }}
+              {{ text }}
             </slot>
           </div>
           <div class="footer">
