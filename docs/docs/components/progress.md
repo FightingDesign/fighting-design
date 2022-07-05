@@ -119,27 +119,15 @@
 
 | 参数         | 说明                   | 类型    | 可选值                                 | 默认值  |
 | ------------ | ---------------------- | ------- | -------------------------------------- | ------- |
-| `progress`   | 百分比                 | number  | `0 ~1 00`                              | 0       |
+| `progress`   | 百分比                 | number  | `0 ~ 100`                              | 0       |
 | `type`       | 进度条状态             | string  | `primary` `success` `warning` `danger` | primary |
 | `width`      | 自定义宽度             | number  | ——                                     | ——      |
 | `height`     | 自定义高度             | number  | ——                                     | ——      |
 | `square`     | 方形                   | boolean | ——                                     | true    |
 | `linear`     | 线性                   | boolean | ——                                     | false   |
-| `show-text`  | 是否显示百分比文字内容 | boolean | ——                                     | false   |
+| `show-text`  | 是否显示百分比文字内容 | boolean | ——                                     | true    |
 | `color`      | 进度条颜色             | string  | ——                                     | ——      |
 | `background` | 进度条背景色           | string  | ——                                     | ——      |
-
-<!-- ## Slots
-
-| 名称      | 说明                                          |
-| --------- | --------------------------------------------- |
-| `default` | 自定义进度百分比内容，参数为 `{ percentage }` |
-
-## Events
-
-| 事件名称 | 说明                   | 回调参数 |
-| -------- | ---------------------- | -------- |
-| `full`   | 进度达到 100% 时的回调 | -        | -->
 
 ## Contributors
 

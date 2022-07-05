@@ -9,10 +9,12 @@ describe('FProgress', () => {
   })
 
   test('percentage', () => {
-    const wrapper = mount(FProgress, { props: { percentage: 50 } })
-    expect(
-      wrapper.find('.f-progress-bar__inner').attributes('style')
-    ).toContain('50%')
+    const wrapper = mount(FProgress, {
+      props: { percentage: 50 }
+    })
+    expect(wrapper.find('.f-progress-fill').attributes('style')).toContain(
+      '50%'
+    )
   })
 
   test('type', () => {
@@ -22,7 +24,9 @@ describe('FProgress', () => {
       const wrapper = mount(FProgress, {
         props: { type: item }
       })
-      expect(wrapper.classes()).toContain(`f-progress--${item}`)
+      expect(wrapper.find('.f-progress-fill').classes()).toContain(
+        `f-progress-fill-${item}`
+      )
     })
   })
 
@@ -30,42 +34,40 @@ describe('FProgress', () => {
     const wrapper = mount(FProgress, {
       props: { linear: true, percentage: 40 }
     })
-    expect(wrapper.classes()).toContain('is-linear')
+    expect(wrapper.classes()).toContain('f-progress-liner')
   })
 
-  test('progress color', () => {
+  test('color', () => {
     const wrapper = mount(FProgress, {
       props: {
         percentage: 50,
         color: 'red'
       }
     })
-    expect(
-      wrapper.find('.f-progress-bar__inner').attributes('style')
-    ).toContain('red')
+    expect(wrapper.find('.f-progress-fill').attributes('style')).toContain(
+      'red'
+    )
   })
 
-  test('progress background', () => {
+  test('background', () => {
     const wrapper = mount(FProgress, {
       props: {
         percentage: 50,
         background: '#f4d1d1'
       }
     })
-    expect(
-      wrapper.find('.f-progress-bar__wrapper').attributes('style')
-    ).toContain('#f4d1d1')
+    expect(wrapper.attributes('style')).toContain('#f4d1d1')
   })
 
   test('width and height', () => {
     const wrapper = mount(FProgress, {
       props: {
         percentage: 50,
-        width: 400,
-        height: 26
+        width: '400px',
+        height: '26px'
       }
     })
-    const styles = wrapper.find('.f-progress-bar__wrapper').attributes('style')
+    const styles = wrapper.attributes('style')
     expect(styles).toContain('400px')
     expect(styles).toContain('26px')
   })
