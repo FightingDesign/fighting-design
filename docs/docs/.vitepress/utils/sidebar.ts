@@ -19,9 +19,9 @@ export const sidebar = {
     },
     {
       text: '历程',
-      link: '/docs/CHANGELOG',
+      link: '/docs/changelog',
       items: [
-        { text: '更新日志', link: '/docs/CHANGELOG' },
+        { text: '更新日志', link: '/docs/changelog' },
         { text: '里程碑', link: '/docs/milepost' }
       ]
     }

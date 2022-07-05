@@ -123,7 +123,7 @@
 | `type`       | 进度条状态             | string  | `primary` `success` `warning` `danger` | primary |
 | `width`      | 自定义宽度             | number  | ——                                     | ——      |
 | `height`     | 自定义高度             | number  | ——                                     | ——      |
-| `square`     | 方形                   | boolean | ——                                     | true    |
+| `square`     | 方形                   | boolean | ——                                     | false   |
 | `linear`     | 线性                   | boolean | ——                                     | false   |
 | `show-text`  | 是否显示百分比文字内容 | boolean | ——                                     | true    |
 | `color`      | 进度条颜色             | string  | ——                                     | ——      |

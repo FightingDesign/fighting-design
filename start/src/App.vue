@@ -1,8 +1,5 @@
 <template>
-  <div class="f-box">
-    <p v-for="i in 20">这是一段文字{{ i + 1 }}</p>
-  </div>
-  <f-back-top listen-el=".f-box">返回顶部</f-back-top>
+  <f-progress type="primary" :percentage="30" linear height="50px" />
 </template>
 
 <style scoped>
