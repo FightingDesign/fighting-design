@@ -32,38 +32,39 @@
     >
       <div
         v-show="visible"
-        class="f-dialog"
-        :class="{
-          mask: modal
-        }"
+        :class="[
+          'f-dialog-mask',
+          {
+            'f-dialog-mask-modal': modal
+          }
+        ]"
+        :style="{ zIndex }"
         @click.self="modalClose && closeDialog()"
       >
         <div
-          class="dialog center"
-          :class="{
-            shadow: !modal
-          }"
+          :class="[
+            'f-dialog',
+            {
+              'f-dialog-shadow': !modal
+            }
+          ]"
           :style="{
             width,
             marginTop: top
           }"
         >
-          <div class="header">
-            <slot name="header">
-              {{ title }}
-            </slot>
-            <div class="close" @click="closeDialog">
-              <slot name="closeIcon">
-                <f-icon size="11px" icon="f-icon-close" />
-              </slot>
+          <div class="f-dialog-header">
+            <slot name="title">{{ title }}</slot>
+            <div class="f-dialog-close" @click="closeDialog">
+              <i :class="['f-icon', `${closeIcon || 'f-icon-close'}`]" />
             </div>
           </div>
-          <div class="content">
-            <slot>
-              {{ text }}
-            </slot>
+
+          <div class="f-dialog-content">
+            <slot />
           </div>
-          <div class="footer">
+
+          <div class="f-dialog-footer">
             <slot name="footer">
               <f-button size="mini" type="default" @click="closeDialog">
                 取消

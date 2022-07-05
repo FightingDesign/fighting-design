@@ -13,12 +13,17 @@
     @close-end="closeEnd"
   >
     哈哈哈哈
+    <f-button type="primary" @click="isShow2 = true">主要按钮</f-button>
+    <f-dialog title="Title2" v-model:visible="isShow2" top="10vh" width="500px">
+      第二层
+    </f-dialog>
   </f-dialog>
 </template>
 
 <script setup>
   import { ref } from 'vue'
-  const isShow = ref(false)
+  const isShow = ref(true)
+  const isShow2 = ref(false)
   const change = () => {
     isShow.value = true
   }

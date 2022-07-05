@@ -1,41 +1,40 @@
 $defaultMarginTop: 13vh;
 $defaultHeight: 30px;
 
-.f-dialog {
+.f-dialog-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1999;
+  transition: 0.4s;
+
   // 遮罩层
-  &.mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  &.f-dialog-mask-modal {
     background: rgba(0, 0, 0, 0.3);
-    z-index: 999;
   }
 
-  .dialog {
+  .f-dialog {
     z-index: 999;
     width: 332px;
     height: 188px;
     margin-top: $defaultMarginTop;
     padding: 0 10px;
-    background: #ffffff;
+    background: #fff;
     border-radius: 1px;
     border: 1px solid #eee;
-
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+    margin: $defaultMarginTop auto 0;
 
-    // dialog居中
-    &.center {
-      margin: $defaultMarginTop auto 0;
-    }
     // 阴影
-    &.shadow {
+    &.f-dialog-shadow {
       box-shadow: 1px 0px 10px 2px #ddd;
     }
-    .header {
+
+    .f-dialog-header {
       height: $defaultHeight;
       border-bottom: 1px solid #eee;
       text-align: center;
@@ -45,7 +44,7 @@ $defaultHeight: 30px;
       justify-content: center;
       align-items: center;
 
-      .close {
+      .f-dialog-close {
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -53,28 +52,32 @@ $defaultHeight: 30px;
         cursor: pointer;
         position: absolute;
         right: 0;
-        width: 11px;
-        height: 11px;
-        & > * {
-          width: 11px;
-          height: 11px;
+
+        &:hover {
+          transition: 0.3s;
+          background: #eee;
+        }
+
+        .f-icon-close {
+          font-size: 14px;
         }
       }
     }
 
-    .content {
+    .f-dialog-content {
       justify-self: flex-start;
       align-self: flex-start;
       flex: 1;
     }
 
-    .footer {
+    .f-dialog-footer {
       height: $defaultHeight;
       border-top: 1px solid #eee;
       display: flex;
       flex-flow: row nowrap;
       justify-content: flex-end;
       align-items: center;
+
       button {
         &:last-of-type {
           margin-left: 18px;

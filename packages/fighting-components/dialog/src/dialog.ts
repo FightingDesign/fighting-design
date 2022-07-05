@@ -32,20 +32,21 @@ export const Props = {
     type: Boolean,
     default: (): boolean => true
   },
-  text: {
-    type: String,
-    default: (): string => ''
-  },
   modalClose: {
     type: Boolean,
     default: (): boolean => true
   },
   top: {
     type: String,
-    default: (): string => '13vh'
+    default: (): string => ''
   },
   closeIcon: {
-    type: String
+    type: String,
+    default: (): string => ''
+  },
+  zIndex: {
+    type: Number,
+    default: (): Number => 1999
   }
 } as const
 
