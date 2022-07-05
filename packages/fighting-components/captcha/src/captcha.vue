@@ -1,11 +1,8 @@
 <script lang="ts" setup name="FCaptcha">
   import { Props, Emits } from './captcha'
   import { ref, onMounted, computed } from 'vue'
-  import type { Ref } from 'vue'
-  import type {
-    handleInputReturnInterface,
-    startMovingInterface
-  } from './interface'
+  import type { Ref, CSSProperties } from 'vue'
+  import type { startMovingInterface } from './interface'
 
   defineProps(Props)
   defineEmits(Emits)
@@ -15,7 +12,7 @@
     null as unknown as HTMLDivElement
   )
 
-  const captchaStyleList = computed((): handleInputReturnInterface => {
+  const captchaStyleList = computed((): CSSProperties => {
     return {
       left: (260 * range.value) / 100 + 'px'
     } as const

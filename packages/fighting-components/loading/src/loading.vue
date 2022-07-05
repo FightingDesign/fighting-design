@@ -1,8 +1,8 @@
 <script setup lang="ts" name="FLoading">
   import { computed } from 'vue'
   import { Props, Emits } from './loading'
-  import type { onCloseInterface, loadingStyleListInterface } from './interface'
-  import type { ComputedRef } from 'vue'
+  import type { onCloseInterface } from './interface'
+  import type { ComputedRef, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -11,8 +11,8 @@
     prop.close && emit('close', evt)
   }
 
-  const loadingStyleList: ComputedRef<loadingStyleListInterface> = computed(
-    (): loadingStyleListInterface => {
+  const loadingStyleList: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
       const { background, opacity, textColor } = prop
 
       return {

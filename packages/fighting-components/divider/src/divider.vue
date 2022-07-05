@@ -1,8 +1,7 @@
 <script lang="ts" setup name="FDivider">
   import { useSlots, computed } from 'vue'
   import { Props } from './divider'
-  import type { ComputedRef } from 'vue'
-  import type { dividerStyleInterface } from './interface'
+  import type { ComputedRef, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -10,8 +9,8 @@
     return !prop.vertical && Boolean(useSlots().default)
   })
 
-  const dividerStyle: ComputedRef<dividerStyleInterface> = computed(
-    (): dividerStyleInterface => {
+  const dividerStyle: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
       const { color, margin } = prop
 
       if (margin) {

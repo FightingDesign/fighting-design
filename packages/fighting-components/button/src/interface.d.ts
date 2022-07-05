@@ -21,11 +21,6 @@ export interface RipplesInterface {
   removeElement(node: HTMLElement): void
 }
 
-export interface buttonStyleInterface {
-  fontSize: string
-  color: string
-}
-
 export type buttonEventInterface = PointerEvent & {
   layerX: number
   layerY: number

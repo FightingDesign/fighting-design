@@ -15,7 +15,6 @@
       {
         'f-tag-simple': simple,
         'f-tag-block': block,
-        // 'f-tag-border': border,
         'f-tag-round': round,
         [`f-tag-${size}`]: size
       }

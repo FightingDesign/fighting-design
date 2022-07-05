@@ -1,8 +1,8 @@
 <script lang="ts" setup name="FSwitch">
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
-  import type { changeSwitchInterface, rollStyleReturn } from './interface'
-  import type { ComputedRef } from 'vue'
+  import type { changeSwitchInterface } from './interface'
+  import type { ComputedRef, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -15,20 +15,19 @@
     emit('change', !prop.modelValue)
   }
 
-  const rollStyle: ComputedRef<rollStyleReturn> = computed(
-    (): rollStyleReturn => {
-      const { modelValue, closeColor, openColor, size } = prop
-      const _size = {
-        large: '24px',
-        middle: '20px',
-        small: '16px'
-      } as const
-      return {
-        right: modelValue ? '0px' : _size[size],
-        borderColor: modelValue ? openColor : closeColor
-      }
+  const rollStyle: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { modelValue, closeColor, openColor, size } = prop
+    const _size = {
+      large: '24px',
+      middle: '20px',
+      small: '16px'
+    } as const
+
+    return {
+      right: modelValue ? '0px' : _size[size],
+      borderColor: modelValue ? openColor : closeColor
     }
-  )
+  })
 
   const FSwitchClass: ComputedRef<object | string[]> = computed(
     (): object | string[] => {

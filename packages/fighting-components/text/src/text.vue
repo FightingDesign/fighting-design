@@ -1,8 +1,7 @@
 <script lang="ts" setup name="FText">
   import { Props } from './text'
   import { computed } from 'vue'
-  import type { ComputedRef } from 'vue'
-  import type { textStyleInterface } from './interface'
+  import type { ComputedRef, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -21,33 +20,29 @@
     }
   )
 
-  const styleList: ComputedRef<textStyleInterface> = computed(
-    (): textStyleInterface => {
-      const {
-        size,
-        color,
-        lineHeight,
-        spacing,
-        textIndent,
-        background,
-        decoration,
-        padding
-      } = prop
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const {
+      size,
+      color,
+      lineHeight,
+      spacing,
+      textIndent,
+      background,
+      decoration,
+      padding
+    } = prop
 
-      const style: textStyleInterface = {
-        color,
-        background,
-        textIndent,
-        lineHeight,
-        padding,
-        fontSize: size,
-        letterSpacing: spacing,
-        textDecoration: decoration
-      }
-
-      return style
+    return {
+      color,
+      background,
+      textIndent,
+      lineHeight,
+      padding,
+      fontSize: size,
+      letterSpacing: spacing,
+      textDecoration: decoration
     }
-  )
+  })
 </script>
 
 <template>

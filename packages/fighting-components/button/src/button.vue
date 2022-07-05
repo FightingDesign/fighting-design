@@ -2,9 +2,8 @@
   import { computed, ref, onMounted } from 'vue'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor } from '@fighting-design/fighting-utils'
-  import type { ComputedRef, Ref } from 'vue'
+  import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
-    buttonStyleInterface,
     onClickInterface,
     ordinaryFunctionInterface,
     buttonEventInterface
@@ -50,8 +49,8 @@
     }
   )
 
-  const buttonStyle: ComputedRef<buttonStyleInterface | object> = computed(
-    (): buttonStyleInterface | object => {
+  const buttonStyle: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
       const { fontSize, fontColor, color } = prop
 
       return {
