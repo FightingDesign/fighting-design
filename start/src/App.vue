@@ -1,34 +1,15 @@
 <template>
-  <f-progress type="default" :percentage="40" />
-  <f-progress type="primary" :percentage="10" />
-  <f-progress type="success" :percentage="40" />
-  <f-progress type="danger" :percentage="70" />
-  <f-progress type="warning" :percentage="100" />
+  <div class="f-box">
+    <p v-for="i in 20">这是一段文字{{ i + 1 }}</p>
+  </div>
+  <f-back-top listen-el=".f-box">返回顶部</f-back-top>
 </template>
 
-<script setup>
-  import { ref } from 'vue'
-  const isShow = ref(true)
-  const isShow2 = ref(false)
-  const change = () => {
-    isShow.value = true
+<style scoped>
+  .f-box {
+    width: 100%;
+    height: 100px;
+    border: 4px solid skyblue;
+    overflow: auto;
   }
-
-  const open = () => {
-    console.log('open')
-  }
-
-  const openEnd = () => {
-    console.log('openEnd')
-  }
-
-  const close = () => {
-    console.log('close')
-  }
-
-  const closeEnd = () => {
-    console.log('closeEnd')
-  }
-</script>
-
-<style></style>
+</style>

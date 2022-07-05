@@ -5,18 +5,100 @@
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/back-top)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/back-top.md)
 
-::: danger
-由于 vitepress 使用服务端渲染展示，该组件暂不方便进行展示，后续更新。。。
-:::
-
 ## 基本使用
 
 `BackTop` 的基本使用
+
+<f-back-top>返回顶部</f-back-top>
 
 ::: details 显示代码
 
 ```html
 <f-back-top>返回顶部</f-back-top>
+```
+
+:::
+
+## 不同滚动模式
+
+`behavior` 属性可以配置不同的滚动模式
+
+<f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top>
+<f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
+
+::: details 显示代码
+
+```html
+<f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top>
+<f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
+```
+
+:::
+
+## 圆形的
+
+`round` 属性可以配置圆形的样式
+
+<f-back-top bottom="190px" round>
+  <f-icon size="20px" icon="f-icon-rising" />
+</f-back-top>
+
+::: details 显示代码
+
+```html
+<f-back-top bottom="190px" round>
+  <f-icon size="20px" icon="f-icon-rising" />
+</f-back-top>
+```
+
+:::
+
+## 自定义样式
+
+你也可以自定义 `back-top` 的样式和位置
+
+<f-back-top bottom="190px" right="100px" round color="red">
+  <f-icon size="20px" icon="f-icon-favorites-fill" />
+</f-back-top>
+
+::: details 显示代码
+
+```html
+<f-back-top bottom="190px" right="100px" round color="red">
+  <f-icon size="20px" icon="f-icon-favorites-fill" />
+</f-back-top>
+```
+
+:::
+
+## 监听目标
+
+可以使用 `listen-el` 来监视一个指定的节点，传入 `class` 或 `id`，例如 `.box #app`
+
+<div class="f-box">
+  <p v-for="i in 20">这是一段文字{{ i + 1 }}</p>
+</div>
+
+<f-back-top listen-el=".f-box" right="200px">监听目标</f-back-top>
+
+::: details 显示代码
+
+```html
+<template>
+  <div class="f-box">
+    <p v-for="i in 20">这是一段文字{{ i + 1 }}</p>
+  </div>
+  <f-back-top listen-el=".f-box" right="200px">监听目标</f-back-top>
+</template>
+
+<style scoped>
+  .f-box {
+    width: 100%;
+    height: 100px;
+    border: 4px solid skyblue;
+    overflow: auto;
+  }
+</style>
 ```
 
 :::
@@ -51,3 +133,12 @@
 <a href="https://github.com/XiaoLi-sach" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/55753927?v=4" />
 </a>
+
+<style scoped>
+  .f-box {
+    width: 100%;
+    height: 100px;
+    border: 4px solid skyblue;
+    overflow: auto;
+  }
+</style>

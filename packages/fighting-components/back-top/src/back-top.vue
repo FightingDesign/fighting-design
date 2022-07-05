@@ -17,16 +17,23 @@
       const scrollTop: number = (
         (node as HTMLElement) || document.documentElement
       ).scrollTop
-
       visible.value = scrollTop > prop.visibleHeight
     }, 200)
   }
 
   const handleClick: handleClickInterface = (evt: MouseEvent): void => {
     const { top, behavior, listenEl } = prop
-    const listerNode: HTMLElement | null = document.querySelector(listenEl)
 
-    ;(listerNode || window).scrollTo({
+    if (listenEl) {
+      const listerNode: HTMLElement | null = document.querySelector(listenEl)
+      ;(listerNode as HTMLElement).scrollTo({
+        top,
+        behavior
+      })
+      return
+    }
+
+    window.scrollTo({
       top,
       behavior
     })
@@ -34,20 +41,28 @@
   }
 
   onMounted((): void => {
-    const listerNode: HTMLElement | null = document.querySelector(prop.listenEl)
-
-    ;(listerNode || document).addEventListener(
-      'scroll',
-      handleScroll(listerNode)
-    )
+    if (prop.listenEl) {
+      const listerNode: HTMLElement | null = document.querySelector(
+        prop.listenEl
+      )
+      ;(listerNode as HTMLElement).addEventListener(
+        'scroll',
+        handleScroll(listerNode)
+      )
+    }
+    document.addEventListener('scroll', handleScroll(null))
   })
 </script>
 
 <template>
-  <div v-show="visible" :class="['f-back-top', { 'f-back-top-round': round }]">
+  <div
+    v-show="visible"
+    :class="['f-back-top', { 'f-back-top-round': round }]"
+    :style="{ right, bottom, zIndex }"
+  >
     <div
       class="f-back-top-item"
-      :style="{ right, bottom, zIndex, background, color }"
+      :style="{ background, color }"
       @click.stop="handleClick"
     >
       <slot />
