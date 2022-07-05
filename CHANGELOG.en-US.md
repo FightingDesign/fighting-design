@@ -2,6 +2,20 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.1.0-bate.1 (2022-07-05)
+
+**feat**
+
+- add `dialog` component
+- add `space` component
+- add `progress` component
+- add `captcha` component (bate)
+- add `tooltip` component (bate)
+
+**fix**
+
+- Fix the problem of listening target error of `backTop` component
+
 ## 0.0.12-alpha.12 (2022-06-29)
 
 **fix**

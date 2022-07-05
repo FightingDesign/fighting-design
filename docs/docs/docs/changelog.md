@@ -2,6 +2,20 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.1.0-bate.1 (2022-07-05)
+
+**feat**
+
+- 新增 `dialog` 组件
+- 新增 `space` 组件
+- 新增 `progress` 组件
+- 新增 `captcha` 组件 （bate）
+- 新增 `tooltip` 组件 （bate）
+
+**fix**
+
+- 修复 `BackTop` 组件的监听目标报错问题
+
 ## 0.0.12-alpha.12 (2022-06-29)
 
 **fix**
