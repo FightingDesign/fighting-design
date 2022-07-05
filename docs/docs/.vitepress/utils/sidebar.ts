@@ -48,7 +48,8 @@ export const sidebar = {
         { text: 'Card 卡片', link: '/components/card' },
         { text: 'Tag 标签', link: '/components/tag' },
         { text: 'Switch 开关', link: '/components/switch' },
-        { text: 'Avatar 头像', link: '/components/avatar' }
+        { text: 'Avatar 头像', link: '/components/avatar' },
+        { text: 'Progress 进度条', link: '/components/progress' }
       ]
     },
     {
