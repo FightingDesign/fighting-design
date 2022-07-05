@@ -18,7 +18,7 @@ export const Props = {
   },
   square: {
     type: Boolean,
-    default: false
+    default: true
   },
   linear: {
     type: Boolean,
@@ -38,7 +38,7 @@ export const Props = {
   },
   width: {
     type: Number,
-    default: 240
+    default: 350
   },
   height: {
     type: Number,
