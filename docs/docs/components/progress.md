@@ -121,8 +121,8 @@
 | ------------ | ---------------------- | ------- | -------------------------------------- | ------- |
 | `progress`   | 百分比                 | number  | `0 ~ 100`                              | 0       |
 | `type`       | 进度条状态             | string  | `primary` `success` `warning` `danger` | primary |
-| `width`      | 自定义宽度             | number  | ——                                     | ——      |
-| `height`     | 自定义高度             | number  | ——                                     | ——      |
+| `width`      | 自定义宽度             | string  | ——                                     | ——      |
+| `height`     | 自定义高度             | string  | ——                                     | ——      |
 | `square`     | 方形                   | boolean | ——                                     | false   |
 | `linear`     | 线性                   | boolean | ——                                     | false   |
 | `show-text`  | 是否显示百分比文字内容 | boolean | ——                                     | true    |
