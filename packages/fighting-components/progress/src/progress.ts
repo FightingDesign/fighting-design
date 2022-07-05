@@ -1,10 +1,11 @@
 import type { PropType } from 'vue'
-import type { progressType } from './interface'
+import type { ProgressType } from './interface'
 
 export const Props = {
   percentage: {
     type: Number,
-    default: (): Number => 10
+    default: (): number => 10,
+    validator: (val: number): boolean => val >= 0 && val <= 100
   },
   type: {
     type: String as PropType<progressType>,

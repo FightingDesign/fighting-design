@@ -1,41 +1,42 @@
 <script lang="ts" setup name="FProgress">
-  import { Props } from './progress'
+  import type { CSSProperties } from 'vue'
   import { computed } from 'vue'
-  import type { progressStyleInterface } from './interface'
-  import type { ComputedRef } from 'vue'
+  import { Props, Emits } from './progress'
 
   const prop = defineProps(Props)
 
-  const progressStyle: ComputedRef<progressStyleInterface> = computed(
-    (): progressStyleInterface => {
-      const { background, width, height, square } = prop
+  defineEmits(Emits)
 
-      return {
-        width,
-        height,
-        background,
-        borderRadius: square ? '0px' : '100px'
-      }
+  const progressStyle = computed<CSSProperties>(() => {
+    const { background, width, height, square } = prop
+
+    return {
+      width,
+      height,
+      background,
+      borderRadius: square ? '0px' : '100px'
     }
-  )
+  })
 
-  const progressFillStyle: ComputedRef<progressStyleInterface> = computed(
-    (): progressStyleInterface => {
-      const { percentage, color, square } = prop
+  const progressFillStyle = computed(() => {
+    const { percentage, color, square } = prop
 
-      return {
-        width: `${percentage}%`,
-        background: color,
-        borderRadius: square ? '0px' : '100px'
-      }
+    return {
+      width: `${percentage}%`,
+      background: color,
+      borderRadius: square ? '0px' : '100px'
     }
-  )
+  })
 </script>
 
 <template>
   <div
     :class="['f-progress', { 'f-progress-liner': linear }]"
     :style="progressStyle"
+    :aria-value="percentage"
+    :aria-valuemin="0"
+    :aria-valuemax="100"
+    role="progressbar"
   >
     <div
       :class="['f-progress-fill', `f-progress-fill-${type}`]"
