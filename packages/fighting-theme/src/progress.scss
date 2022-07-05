@@ -1,64 +1,33 @@
+@import '../config/const-color.scss';
 @import '../config/var-progress.scss';
 
-@mixin radius-100 {
-  border-radius: 100px;
-}
 .f-progress {
-  position: relative;
-  display: flex;
-  align-items: center;
-  line-height: 1;
-
-  @each $key, $value in $ProgressTypes {
-    &.f-progress--#{$key} {
-      .f-progress-bar__inner {
-        background-color: $value;
-      }
-    }
-  }
-
-  &-bar {
-    flex-grow: 1;
-    box-sizing: border-box;
-  }
-
-  &-bar__wrapper {
-    position: relative;
+  background-color: #f1f1f1;
+  border-radius: 100px;
+  overflow: hidden;
+  width: 530px;
+  height: 25px;
+  &.f-progress-liner {
     height: 6px;
-    overflow: hidden;
-    vertical-align: middle;
-    background-color: #f1f1f1;
   }
-
-  &-bar__inner {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .f-progress-fill {
+    position: relative;
     height: 100%;
-    text-align: right;
-    line-height: 1;
-    white-space: nowrap;
-    transition: width 0.6s ease;
-
-    &::after {
-      content: '';
-      display: inline-block;
-      vertical-align: middle;
-      height: 100%;
+    transition: width 0.3s;
+    border-radius: 100px;
+    background-color: $primary;
+    .f-progress-per-num {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 12px;
     }
   }
-  &-bar__innerText {
-    display: inline-block;
-    vertical-align: middle;
-    color: white;
-    font-size: 12px;
-    margin: 0 5px;
-  }
-
-  &.is-linear &-bar__wrapper {
-    @include radius-100;
-  }
-  &.is-linear &-bar__inner {
-    @include radius-100;
+  @each $key, $value in $ProgressTypes {
+    &.f-progress-fill-#{$key} {
+      background-color: $value;
+    }
   }
 }

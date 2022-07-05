@@ -3,50 +3,48 @@
   import { computed } from 'vue'
   import { Props, Emits } from './progress'
 
-  const props = defineProps(Props)
+  const prop = defineProps(Props)
 
   defineEmits(Emits)
 
-  const wrapperStyles = computed<CSSProperties>(() => ({
-    width: `${props.width}px`,
-    height: `${props.height}px`,
-    backgroundColor: props.background
-  }))
+  const progressStyle = computed<CSSProperties>(() => {
+    const { background, width, height, square } = prop
 
-  const innerStyles = computed<CSSProperties>(() => ({
-    width: `${props.percentage}%`,
-    backgroundColor: props.color
-  }))
+    return {
+      width,
+      height,
+      background,
+      borderRadius: square ? '0px' : '100px'
+    }
+  })
+
+  const progressFillStyle = computed(() => {
+    const { percentage, color, square } = prop
+
+    return {
+      width: `${percentage}%`,
+      background: color,
+      borderRadius: square ? '0px' : '100px'
+    }
+  })
 </script>
 
 <template>
   <div
-    :class="[
-      'f-progress',
-      `f-progress--${type}`,
-      {
-        'is-linear': linear,
-        'is-square': square
-      }
-    ]"
+    :class="['f-progress', { 'f-progress-liner': linear }]"
+    :style="progressStyle"
     :aria-value="percentage"
     :aria-valuemin="0"
     :aria-valuemax="100"
     role="progressbar"
   >
-    <div class="f-progress-bar">
-      <div class="f-progress-bar__wrapper" :style="wrapperStyles">
-        <div class="f-progress-bar__inner" :style="innerStyles">
-          <div
-            v-if="showText || $slots.default"
-            class="f-progress-bar__innerText"
-          >
-            <slot :percentage="percentage">
-              <span>{{ percentage }}%</span>
-            </slot>
-          </div>
-        </div>
-      </div>
+    <div
+      :class="['f-progress-fill', `f-progress-fill-${type}`]"
+      :style="progressFillStyle"
+    >
+      <span v-if="showText && !linear" class="f-progress-per-num">
+        {{ percentage }}%
+      </span>
     </div>
   </div>
 </template>

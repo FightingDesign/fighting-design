@@ -1,26 +1,48 @@
 <template>
-  <f-tag v-show="isShow1" close @on-close="isShow1 = false" type="info">
-    信息
-  </f-tag>
-  <f-tag v-show="isShow2" close @on-close="isShow2 = false" type="primary">
-    普通
-  </f-tag>
-  <f-tag v-show="isShow3" close @on-close="isShow3 = false" type="warning">
-    警告
-  </f-tag>
-  <f-tag v-show="isShow4" close @on-close="isShow4 = false" type="success">
-    成功
-  </f-tag>
-  <f-tag v-show="isShow5" close @on-close="isShow5 = false" type="danger">
-    失败
-  </f-tag>
+  <!-- <f-tooltip content="hello">
+    <f-button type="primary">主要按钮</f-button>
+  </f-tooltip> -->
+
+  <f-button type="primary" @click="change">主要按钮</f-button>
+  <f-dialog
+    title="Title"
+    v-model:visible="isShow"
+    @open="open"
+    @open-end="openEnd"
+    @close="close"
+    @close-end="closeEnd"
+  >
+    哈哈哈哈
+    <f-button type="primary" @click="isShow2 = true">主要按钮</f-button>
+    <f-dialog title="Title2" v-model:visible="isShow2" top="10vh" width="500px">
+      第二层
+    </f-dialog>
+  </f-dialog>
 </template>
 
 <script setup>
   import { ref } from 'vue'
-  const isShow1 = ref(true)
-  const isShow2 = ref(true)
-  const isShow3 = ref(true)
-  const isShow4 = ref(true)
-  const isShow5 = ref(true)
+  const isShow = ref(true)
+  const isShow2 = ref(false)
+  const change = () => {
+    isShow.value = true
+  }
+
+  const open = () => {
+    console.log('open')
+  }
+
+  const openEnd = () => {
+    console.log('openEnd')
+  }
+
+  const close = () => {
+    console.log('close')
+  }
+
+  const closeEnd = () => {
+    console.log('closeEnd')
+  }
 </script>
+
+<style></style>

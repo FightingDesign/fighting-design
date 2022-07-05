@@ -4,48 +4,44 @@ import type { ProgressType } from './interface'
 export const Props = {
   percentage: {
     type: Number,
-    default: 0,
+    default: (): number => 10,
     validator: (val: number): boolean => val >= 0 && val <= 100
   },
   type: {
-    type: String as PropType<ProgressType>,
-    default: (): ProgressType => 'primary',
-    validator: (val: ProgressType): boolean => {
-      return (['primary', 'success', 'danger', 'warning'] as const).includes(
-        val
-      )
+    type: String as PropType<progressType>,
+    default: (): progressType => 'default',
+    validator: (val: progressType): boolean => {
+      return (
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
+      ).includes(val)
     }
   },
   square: {
     type: Boolean,
-    default: true
+    default: (): boolean => false
   },
   linear: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   showText: {
     type: Boolean,
-    default: false
+    default: (): Boolean => false
   },
   color: {
     type: String,
-    default: ''
+    default: (): string => ''
   },
   background: {
     type: String,
-    default: ''
+    default: (): string => ''
   },
   width: {
-    type: Number,
-    default: 350
+    type: String,
+    default: (): string => ''
   },
   height: {
-    type: Number,
-    default: 6
+    type: String,
+    default: (): string => ''
   }
-} as const
-
-export const Emits = {
-  full: (): void => {}
 } as const
