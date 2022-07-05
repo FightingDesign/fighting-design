@@ -22,12 +22,6 @@
   <f-button>warning</f-button>
 </f-badge>
 
-<style>
-  .item {
-    margin-right: 20px;
-  }
-</style>
-
 ::: details 显示代码
 
 ```html
@@ -43,12 +37,6 @@
 <f-badge value="14" type="warning">
   <f-button>warning</f-button>
 </f-badge>
-
-<style>
-  .item {
-    margin-right: 20px;
-  }
-</style>
 ```
 
 :::
@@ -77,7 +65,7 @@
 
 :::
 
-## 点
+## 小红点
 
 设置 `bot` 属性，展示为一个点
 
@@ -93,7 +81,7 @@
 
 ## 自定义文字
 
-`value` 除了`Number`类型，还可以是`String`，自定义内容
+`value` 除了 `Number` 类型，还可以是 `String`，自定义内容
 
 <f-badge value="hot">
   <f-button>customize</f-button>
@@ -115,15 +103,35 @@
 
 :::
 
+## 自定义颜色
+
+你也可以自定义 `badge` 的颜色
+
+<f-badge :value="123" color="skyblue" text-color="black">
+  <f-button>自定义颜色</f-button>
+</f-badge>
+
+::: details 显示代码
+
+```html
+<f-badge :value="123" color="skyblue" text-color="black">
+  <f-button>自定义颜色</f-button>
+</f-badge>
+```
+
+:::
+
 ## Attributes
 
-| 参数    | 说明                                          | 类型          | 可选值                                  | 默认值 |
-| ------- | --------------------------------------------- | ------------- | --------------------------------------- | ------ |
-| `value` | 显示值                                        | string number | ——                                      | ——     |
-| `max`   | `value` 为数字时的最大值，超出显示为 `value+` | number        | ——                                      | 99     |
-| `bot`   | 展示为一个点                                  | boolean       | ——                                      | false  |
-| `show`  | 是否显示                                      | boolean       | ——                                      | true   |
-| `type`  | 样式主题                                      | string        | `primary` `success` `danger` `warning ` | danger |
+| 参数         | 说明                                          | 类型          | 可选值                                 | 默认值 |
+| ------------ | --------------------------------------------- | ------------- | -------------------------------------- | ------ |
+| `value`      | 显示值                                        | string number | ——                                     | ——     |
+| `max`        | `value` 为数字时的最大值，超出显示为 `value+` | number        | ——                                     | 99     |
+| `bot`        | 展示为一个点                                  | boolean       | ——                                     | false  |
+| `show`       | 是否显示                                      | boolean       | ——                                     | true   |
+| `type`       | 样式主题                                      | string        | `primary` `success` `danger` `warning` | danger |
+| `color`      | 自定义颜色                                    | string        | ——                                     | ——     |
+| `text-color` | 自定义文字颜色                                | string        | ——                                     | ——     |
 
 ## Contributors
 
@@ -134,3 +142,9 @@
 <a href="https://github.com/xluoyu" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
 </a>
+
+<style scoped>
+.f-badge {
+  margin: 10px;
+}
+</style>
