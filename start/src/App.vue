@@ -3,7 +3,7 @@
     <f-button type="primary">主要按钮</f-button>
   </f-tooltip> -->
 
-  <f-button type="primary" @click="change">主要按钮</f-button>
+  <!-- <f-button type="primary" @click="change">主要按钮</f-button>
   <f-dialog
     title="Title"
     v-model:visible="isShow"
@@ -17,7 +17,12 @@
     <f-dialog title="Title2" v-model:visible="isShow2" top="10vh" width="500px">
       第二层
     </f-dialog>
-  </f-dialog>
+  </f-dialog> -->
+  <f-progress type="default" :percentage="40" />
+  <f-progress type="primary" :percentage="10" />
+  <f-progress type="success" :percentage="40" />
+  <f-progress type="danger" :percentage="70" />
+  <f-progress type="warning" :percentage="100" />
 </template>
 
 <script setup>

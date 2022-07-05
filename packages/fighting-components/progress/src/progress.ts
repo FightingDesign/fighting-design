@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import type { ProgressType } from './interface'
+import type { progressType } from './interface'
 
 export const Props = {
   percentage: {

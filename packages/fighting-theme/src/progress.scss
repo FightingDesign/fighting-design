@@ -1,5 +1,4 @@
 @import '../config/const-color.scss';
-@import '../config/var-progress.scss';
 
 .f-progress {
   background-color: #f1f1f1;
@@ -25,9 +24,13 @@
       font-size: 12px;
     }
   }
-  @each $key, $value in $ProgressTypes {
-    &.f-progress-fill-#{$key} {
-      background-color: $value;
-    }
+  .f-progress-fill-success {
+    background-color: $success;
+  }
+  .f-progress-fill-danger {
+    background-color: $danger;
+  }
+  .f-progress-fill-warning {
+    background-color: $warning;
   }
 }

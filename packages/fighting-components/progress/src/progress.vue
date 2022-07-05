@@ -1,32 +1,34 @@
 <script lang="ts" setup name="FProgress">
-  import type { CSSProperties } from 'vue'
+  import { Props } from './progress'
   import { computed } from 'vue'
-  import { Props, Emits } from './progress'
+  import type { CSSProperties, ComputedRef } from 'vue'
 
   const prop = defineProps(Props)
 
-  defineEmits(Emits)
+  const progressStyle: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { background, width, height, square } = prop
 
-  const progressStyle = computed<CSSProperties>(() => {
-    const { background, width, height, square } = prop
-
-    return {
-      width,
-      height,
-      background,
-      borderRadius: square ? '0px' : '100px'
+      return {
+        width,
+        height,
+        background,
+        borderRadius: square ? '0px' : '100px'
+      }
     }
-  })
+  )
 
-  const progressFillStyle = computed(() => {
-    const { percentage, color, square } = prop
+  const progressFillStyle: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { percentage, color, square } = prop
 
-    return {
-      width: `${percentage}%`,
-      background: color,
-      borderRadius: square ? '0px' : '100px'
+      return {
+        width: `${percentage}%`,
+        background: color,
+        borderRadius: square ? '0px' : '100px'
+      }
     }
-  })
+  )
 </script>
 
 <template>
