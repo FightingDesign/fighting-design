@@ -50,6 +50,7 @@
           ]"
           :style="{
             width,
+            height,
             marginTop: top
           }"
         >

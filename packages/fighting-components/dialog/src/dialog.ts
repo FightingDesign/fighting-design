@@ -16,6 +16,10 @@ export const Props = {
     type: String,
     default: (): string => '332px'
   },
+  height: {
+    type: String,
+    default: (): string => '188px'
+  },
   fullscreen: {
     type: Boolean,
     default: (): boolean => false
