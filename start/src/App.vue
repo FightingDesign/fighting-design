@@ -7,6 +7,7 @@
 
   <f-button type="primary" @click="show = true"> click me </f-button>
   <f-dialog height="400px" v-model:visible="show"> </f-dialog>
+  <f-progress percentage="3" linear height="16px"></f-progress>
 </template>
 
 <script setup>
