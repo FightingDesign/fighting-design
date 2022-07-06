@@ -3,7 +3,7 @@
   <br />
   <f-badge value="999" :max="100" color="skyblue">
     <f-button @click="onClick">default</f-button>
-    <f-drawer :visible="onOff"></f-drawer>
+    <f-drawer v-model:visible="onOff"></f-drawer>
   </f-badge>
 </template>
 
@@ -14,10 +14,6 @@
 
   const onClick = () => {
     onOff.value = !onOff.value
-
-    setTimeout(() => {
-      onOff.value = !onOff.value
-    }, 2000)
   }
 </script>
 

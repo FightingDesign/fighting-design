@@ -19,7 +19,7 @@ export const Props = {
   },
   direction: {
     type: String as PropType<drawerDirectionType>,
-    default: (): drawerDirectionType => 'right',
+    default: (): drawerDirectionType => 'bottom',
     validator: (val: drawerDirectionType): boolean => {
       return (['left', 'top', 'right', 'bottom'] as const).includes(val)
     }
@@ -31,5 +31,14 @@ export const Props = {
   title: {
     type: String,
     default: () => ''
+  },
+  beforeClose: {
+    type: Function
   }
 } as const
+
+export const Emits = {
+  'update:visible': (visible: boolean) => visible,
+  open: (event: Event): Event => event,
+  close: (event: Event): Event => event
+}

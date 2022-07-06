@@ -1,3 +1,4 @@
+@import "../config/const-color.scss";
 .f__drawer__wrapper {
   position: fixed;
   left: 0;
@@ -8,7 +9,14 @@
   margin: 0;
 
   .f__drawer__cover {
-    background-color: rgba(0,0,0,0.5)
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.3);
   }
   .f__drawer__container {
     position: relative;
@@ -25,11 +33,35 @@
       box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%), 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%);
       overflow: hidden;
       outline: 0;
+
+      .f__drawer__title {
+        align-items: center;
+        color: #72767b;
+        display: flex;
+        margin-bottom: 32px;
+        padding: 20px;
+        padding-bottom: 0;
+        justify-content: space-between;
+
+        .f__drawer__title__close {
+          cursor: pointer;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+
+      .f__drawer__body {
+        padding: 20px;
+        overflow: auto;
+      }
     }
     .top {
       height: 100%;
       top: 0;
-      bottom: 0;
+      left: 0;
+      right: 0;
     }
     .right {
       height: 100%;
@@ -37,19 +69,55 @@
       bottom: 0;
       right: 0;
     }
+    .left {
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+    .bottom {
+      height: 100%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
   }
 }
 
 /* 应用于嵌套元素的规则 */
 .drawer-enter-active .f__drawer,
-.drawer-leave-active .f__drawer {
-  transition: all .3s ease-in-out;
+.drawer-enter-active .f__drawer__cover,
+.drawer-leave-active .f__drawer,
+.drawer-leave-active .f__drawer__cover {
+  transition: all 0.3s ease-in-out;
 }
-.drawer-enter-from .f__drawer,
-.drawer-leave-to .f__drawer {
+
+.drawer-enter-from .right,
+.drawer-leave-to .right {
   transform: translateX(100%);
 }
+
+.drawer-enter-from .left,
+.drawer-leave-to .left {
+  transform: translateX(-100%);
+}
+
+.drawer-enter-from .top,
+.drawer-leave-to .top {
+  transform: translateY(-100%);
+}
+
+.drawer-enter-from .bottom,
+.drawer-leave-to .bottom {
+  transform: translateY(100%);
+}
+
+.drawer-enter-from .f__drawer__cover,
+.drawer-leave-to .f__drawer__cover {
+  opacity: 0;
+}
 /* 延迟嵌套元素的进入以获得交错效果 */
-.drawer-enter-active .f__drawer {
+.drawer-enter-active .f__drawer,
+.drawer-enter-active .f__drawer__cover {
   transition-delay: 0.1s;
 }
