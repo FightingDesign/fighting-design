@@ -1,9 +1,9 @@
 <template>
   <br />
   <br />
-  <f-badge value="999" :max="100" color="skyblue">
-    <f-button @click="num++">default</f-button>
-  </f-badge>
+  <f-tooltip content="这是一个提示这是一个提示这是一个提示">
+    <f-button>哈哈</f-button>
+  </f-tooltip>
 </template>
 
 <script setup>
@@ -13,7 +13,7 @@
 </script>
 
 <style scoped>
-  .item {
-    margin-right: 20px;
+  .f-tooltip {
+    margin-left: 120px;
   }
 </style>

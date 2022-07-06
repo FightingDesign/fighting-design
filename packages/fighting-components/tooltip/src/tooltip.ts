@@ -4,5 +4,3 @@ export const Props = {
     default: (): string => ''
   }
 } as const
-
-export const Emits = {} as const

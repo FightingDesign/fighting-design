@@ -3,21 +3,62 @@
   display: inline-block;
 
   .f-tooltip-msg {
-    position: absolute;
-    background: #333;
-    color: #fff;
+    position: relative;
   }
 
   &:hover {
+    .f-tooltip-msg::before {
+      content: '';
+      display: inline-block;
+      transform: rotate(45deg);
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      width: 6px;
+      height: 6px;
+      background: #333;
+    }
+
     .f-tooltip-msg::after {
+      content: attr(f-tooltip-content);
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      content: attr(f-tooltip-content);
-      width: 100px;
-      height: 40px;
-      top: 50px;
+      position: absolute;
+      top: 3px;
       left: 0px;
+      width: auto;
+      background: #333;
+      border-radius: 3px;
+      color: #fff;
+      padding: 5px 7px;
+      box-sizing: border-box;
+      font-size: 14px;
     }
   }
+
+  // .f-tooltip-msg {
+  //   position: absolute;
+  //   color: #fff;
+
+  //   .f-tooltip-arrow {
+  //     transform: rotate(45deg);
+  //     position: absolute;
+  //     top: 0;
+  //     right: 0;
+  //     left: 0;
+  //     margin: auto;
+  //     width: 6px;
+  //     height: 6px;
+  //     display: inline-block;
+  //     background: #333;
+  //   }
+
+  //   .f-tooltip-content {
+  //     background: #333;
+  //     margin-top: 3px;
+  //   }
+  // }
 }
