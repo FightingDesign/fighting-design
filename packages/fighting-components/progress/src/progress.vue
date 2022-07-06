@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FProgress">
   import { Props } from './progress'
-  import { computed } from 'vue'
-  import type { CSSProperties, ComputedRef } from 'vue'
+  import { computed, ref } from 'vue'
+  import type { CSSProperties, ComputedRef, Ref } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -29,6 +29,15 @@
       }
     }
   )
+
+  const MIN_SHOW_TEXT_HEI = 14
+
+  const fillRef: Ref<HTMLElement> = ref<HTMLElement>(
+    null as unknown as HTMLElement
+  )
+  const fillHeight: ComputedRef<number> = computed(() => {
+    return fillRef.value.clientHeight || 25
+  })
 </script>
 
 <template>
@@ -41,12 +50,17 @@
     role="progressbar"
   >
     <div
+      ref="fillRef"
       :class="['f-progress-fill', `f-progress-fill-${type}`]"
       :style="progressFillStyle"
     >
-      <span v-if="showText && !linear" class="f-progress-per-num">
+      <div
+        v-if="showText && fillHeight >= MIN_SHOW_TEXT_HEI"
+        :style="`line-height:${fillHeight}px;`"
+        class="f-progress-per-num"
+      >
         {{ percentage }}%
-      </span>
+      </div>
     </div>
   </div>
 </template>

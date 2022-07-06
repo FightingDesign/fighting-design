@@ -8,6 +8,7 @@
 ## 基本使用
 
 需要设置 `v-model:visible` 属性，它接受 `Boolean` 类型的值，当为 `true` 时展示 `Dialog`。
+
 `Dialog` 分为三个部分，`title`、`body` 和 `footer`，其中 `body` 为默认插槽，其余均为[具名插槽](https://staging-cn.vuejs.org/guide/components/slots.html#named-slots)。
 除此之外，还提供了 `title` 属性用来快速的设置 `Dialog` 的 `title`，我们为它编写了一些默认样式。
 
@@ -19,21 +20,22 @@ fighting-design
 ::: details 显示代码
 
 ```html
-<script setup lang="ts">
-  import { ref } from 'vue'
-  const visible1 = ref(false)
-</script>
 <template>
   <f-button type="primary" @click="visible1 = true">show</f-button>
   <f-dialog title="Title" v-model:visible="visible1">
     fighting-design
   </f-dialog>
 </template>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+  const visible1 = ref(false)
+</script>
 ```
 
 :::
 
-## 嵌套的 `Dialog`
+## 多层嵌套
 
 如果需要在一个 `Dialog` 内部嵌套另一个 `Dialog`，可以直接写在默认插槽中。
 
@@ -51,11 +53,6 @@ title slot
 ::: details 显示代码
 
 ```html
-<script setup lang="ts">
-  import { ref } from 'vue'
-  const visible2 = ref(false)
-  const innerVisible = ref(false)
-</script>
 <template>
   <f-button type="primary" @click="visible2 = true">show</f-button>
   <f-dialog
@@ -71,6 +68,12 @@ title slot
     <template #title> title slot </template>
   </f-dialog>
 </template>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+  const visible2 = ref(false)
+  const innerVisible = ref(false)
+</script>
 ```
 
 :::
@@ -87,16 +90,6 @@ fighting-design
 ::: details 显示代码
 
 ```html
-<script setup lang="ts">
-  import { ref } from 'vue'
-  const visible3 = ref(false)
-  const close = () => {
-    console.log('关闭之前')
-  }
-  const closeEnd = () => {
-    console.log('关闭之后')
-  }
-</script>
 <template>
   <f-button type="primary" @click="visible3 = true">show</f-button>
   <f-dialog
@@ -108,6 +101,17 @@ fighting-design
     fighting-design
   </f-dialog>
 </template>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+  const visible3 = ref(false)
+  const close = () => {
+    console.log('关闭之前')
+  }
+  const closeEnd = () => {
+    console.log('关闭之后')
+  }
+</script>
 ```
 
 :::

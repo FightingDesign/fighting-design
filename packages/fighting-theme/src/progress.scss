@@ -10,18 +10,15 @@
     height: 6px;
   }
   .f-progress-fill {
-    position: relative;
     height: 100%;
     transition: width 0.3s;
     border-radius: 100px;
     background-color: $primary;
+    text-align: right;
     .f-progress-per-num {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
       color: #fff;
       font-size: 12px;
+      margin: 0 8px;
     }
   }
   .f-progress-fill-success {
