@@ -1,11 +1,10 @@
-<!-- eslint-disable vue/script-indent -->
 <script lang="ts" setup name="FDrawer">
   import { FIcon } from '@fighting-design/fighting-components/icon'
   import { Props, Emits } from './drawer'
   import { watchEffect } from 'vue'
+
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
-  console.log(prop, emit)
 
   const drawerStyle = () => {
     const { direction, size } = prop
@@ -39,6 +38,7 @@
     }
   })
 </script>
+
 <template>
   <teleport to="body" :disabled="!appendToBody">
     <transition name="drawer" :duration="400">

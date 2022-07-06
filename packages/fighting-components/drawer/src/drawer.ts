@@ -1,21 +1,22 @@
 import type { PropType } from 'vue'
 import type { drawerDirectionType } from './interface'
+
 export const Props = {
   visible: {
     type: Boolean,
-    default: () => true
+    default: (): boolean => true
   },
   appendToBody: {
     type: Boolean,
-    default: () => false
+    default: (): boolean => false
   },
   lockScroll: {
     type: Boolean,
-    default: () => true
+    default: (): boolean => true
   },
   modal: {
     type: Boolean,
-    default: () => true
+    default: (): boolean => true
   },
   direction: {
     type: String as PropType<drawerDirectionType>,
@@ -26,18 +27,18 @@ export const Props = {
   },
   size: {
     type: String,
-    default: () => '30%'
+    default: (): string => '30%'
   },
   title: {
     type: String,
-    default: () => ''
+    default: (): string => ''
   },
   beforeClose: {
     type: Function
   },
   withHeader: {
     type: Boolean,
-    default: () => true
+    default: (): boolean => true
   }
 } as const
 
@@ -45,4 +46,4 @@ export const Emits = {
   'update:visible': (visible: boolean) => visible,
   open: (event: Event): Event => event,
   close: (event: Event): Event => event
-}
+} as const
