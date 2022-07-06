@@ -29,10 +29,14 @@
       }
     }
   )
+
   const MIN_SHOW_TEXT_HEI = 14
-  const fillRef: Ref<HTMLElement | undefined> = ref<HTMLElement>()
+
+  const fillRef: Ref<HTMLElement> = ref<HTMLElement>(
+    null as unknown as HTMLElement
+  )
   const fillHeight: ComputedRef<number> = computed(() => {
-    return fillRef.value?.clientHeight || 25
+    return fillRef.value.clientHeight || 25
   })
 </script>
 
