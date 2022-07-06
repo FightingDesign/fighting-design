@@ -1,16 +1,101 @@
 <template>
   <br />
   <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
   <f-badge value="999" :max="100" color="skyblue">
     <f-button @click="onClick">default</f-button>
-    <f-drawer v-model:visible="onOff"></f-drawer>
+    <f-drawer
+      :title="'我是一个title'"
+      appendToBody
+      lockScroll
+      :modal="false"
+      direction="left"
+      v-model:visible="onOff"
+    >
+      这是第一层的内容
+      <button @click="onOff2 = !onOff2">开启</button>
+
+      <f-drawer
+        :title="'我是二个title'"
+        appendToBody
+        direction="top"
+        v-model:visible="onOff2"
+      >
+        这是第一层的内容
+      </f-drawer>
+    </f-drawer>
   </f-badge>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
 </template>
 
 <script setup>
   import { ref } from 'vue'
 
   const onOff = ref(false)
+  const onOff2 = ref(false)
 
   const onClick = () => {
     onOff.value = !onOff.value

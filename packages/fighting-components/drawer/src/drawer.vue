@@ -2,6 +2,7 @@
 <script lang="ts" setup name="FDrawer">
   import { FIcon } from '@fighting-design/fighting-components/icon'
   import { Props, Emits } from './drawer'
+  import { watchEffect } from 'vue'
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
   console.log(prop, emit)
@@ -26,6 +27,17 @@
       emit('update:visible', false)
     }
   }
+
+  watchEffect(() => {
+    const { lockScroll, visible } = prop
+    if (lockScroll && visible) {
+      // TODO 优化点可以参考element-plus对于禁止body滚动的方案
+      // 源码地址: https://github.com/element-plus/element-plus/blob/dev/packages/hooks/use-lockscreen/index.ts
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  })
 </script>
 <template>
   <teleport to="body" :disabled="!appendToBody">
@@ -33,13 +45,12 @@
       <div v-show="visible" class="f__drawer__wrapper">
         <div class="f__drawer__container">
           <div
-            :class="[{ f__drawer__cover: modal }]"
+            :class="[{ f__drawer__cover__open: modal }, 'f__drawer__cover']"
             @click="handleClose"
           ></div>
           <div :class="['f__drawer', direction]" :style="drawerStyle()">
-            <header class="f__drawer__title">
-              <span>{{ title || '我是哈哈title' }}</span>
-              <!-- <button @click="handleClose">X</button> -->
+            <header v-if="withHeader" class="f__drawer__title">
+              <span>{{ title }}</span>
               <f-icon
                 size="30px"
                 icon="f-icon-close"

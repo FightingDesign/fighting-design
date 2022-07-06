@@ -19,7 +19,7 @@ export const Props = {
   },
   direction: {
     type: String as PropType<drawerDirectionType>,
-    default: (): drawerDirectionType => 'bottom',
+    default: (): drawerDirectionType => 'right',
     validator: (val: drawerDirectionType): boolean => {
       return (['left', 'top', 'right', 'bottom'] as const).includes(val)
     }
@@ -34,6 +34,10 @@ export const Props = {
   },
   beforeClose: {
     type: Function
+  },
+  withHeader: {
+    type: Boolean,
+    default: () => true
   }
 } as const
 

@@ -1,4 +1,4 @@
-@import "../config/const-color.scss";
+@import '../config/const-color.scss';
 .f__drawer__wrapper {
   position: fixed;
   left: 0;
@@ -16,6 +16,8 @@
     bottom: 0;
     overflow: hidden;
     margin: 0;
+  }
+  .f__drawer__cover__open {
     background-color: rgba(0, 0, 0, 0.3);
   }
   .f__drawer__container {
@@ -30,7 +32,8 @@
       background-color: #fff;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%), 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%);
+      box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%),
+        0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%);
       overflow: hidden;
       outline: 0;
 
