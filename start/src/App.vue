@@ -2,18 +2,23 @@
   <br />
   <br />
   <f-badge value="999" :max="100" color="skyblue">
-    <f-button @click="num++">default</f-button>
+    <f-button @click="onClick">default</f-button>
+    <f-drawer :visible="onOff"></f-drawer>
   </f-badge>
-
-  <f-button type="primary" @click="show = true"> click me </f-button>
-  <f-dialog height="400px" v-model:visible="show"> </f-dialog>
 </template>
 
 <script setup>
   import { ref } from 'vue'
 
-  const num = ref(98)
-  const show = ref(false)
+  const onOff = ref(false)
+
+  const onClick = () => {
+    onOff.value = !onOff.value
+
+    setTimeout(() => {
+      onOff.value = !onOff.value
+    }, 2000)
+  }
 </script>
 
 <style scoped>
