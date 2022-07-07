@@ -26,6 +26,7 @@ import { FSpace } from './space'
 import { FDialog } from './dialog'
 import { FTooltip } from './tooltip'
 import { FDrawer } from './drawer'
+import { FPageHeader } from './page-header'
 
 const components = {
   FButton,
@@ -54,7 +55,8 @@ const components = {
   FSpace,
   FDialog,
   FTooltip,
-  FDrawer
+  FDrawer,
+  FPageHeader
 }
 
 const install = (app: App): void => {
@@ -90,7 +92,8 @@ export {
   FSpace,
   FDialog,
   FTooltip,
-  FDrawer
+  FDrawer,
+  FPageHeader
 }
 
 export default {
