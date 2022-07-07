@@ -1,3 +1,3 @@
 export interface onCloseInterface {
-  (): void
+  (evt: MouseEvent): void
 }

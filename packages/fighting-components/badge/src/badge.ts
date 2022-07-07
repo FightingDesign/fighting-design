@@ -10,11 +10,11 @@ export const Props = {
     type: Number,
     default: (): number => 99
   },
-  isDot: {
+  bot: {
     type: Boolean,
     default: (): boolean => false
   },
-  hidden: {
+  show: {
     type: Boolean,
     default: (): boolean => false
   },
@@ -26,5 +26,13 @@ export const Props = {
         val
       )
     }
+  },
+  color: {
+    type: String,
+    default: (): string => ''
+  },
+  textColor: {
+    type: String,
+    default: (): string => ''
   }
 } as const

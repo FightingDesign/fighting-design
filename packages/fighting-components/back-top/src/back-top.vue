@@ -1,14 +1,3 @@
-<template>
-  <transition
-    v-show="visible"
-    :class="['f-back-top', { 'f-back-top-round': round }]"
-  >
-    <div :style="{ right, bottom }" @click.stop="handleClick">
-      <slot />
-    </div>
-  </transition>
-</template>
-
 <script lang="ts" setup name="FBackTop">
   import { Emits, Props } from './back-top'
   import { onMounted, ref } from 'vue'
@@ -21,22 +10,62 @@
 
   const visible: Ref<boolean> = ref<boolean>(false)
 
-  const handleScroll: handleScrollInterface = () => {
+  const handleScroll: handleScrollInterface = (
+    node: HTMLElement | null
+  ): Function => {
     return debounce((): void => {
-      const scrollTop: number = document.documentElement.scrollTop
+      const scrollTop: number = (
+        (node as HTMLElement) || document.documentElement
+      ).scrollTop
       visible.value = scrollTop > prop.visibleHeight
     }, 200)
   }
 
   const handleClick: handleClickInterface = (evt: MouseEvent): void => {
+    const { top, behavior, listenEl } = prop
+
+    if (listenEl) {
+      const listerNode: HTMLElement | null = document.querySelector(listenEl)
+      ;(listerNode as HTMLElement).scrollTo({
+        top,
+        behavior
+      })
+      return
+    }
+
     window.scrollTo({
-      top: 0,
-      behavior: prop.behavior
+      top,
+      behavior
     })
     emit('click', evt)
   }
 
   onMounted((): void => {
-    document.addEventListener('scroll', handleScroll())
+    if (prop.listenEl) {
+      const listerNode: HTMLElement | null = document.querySelector(
+        prop.listenEl
+      )
+      ;(listerNode as HTMLElement).addEventListener(
+        'scroll',
+        handleScroll(listerNode)
+      )
+    }
+    document.addEventListener('scroll', handleScroll(null))
   })
 </script>
+
+<template>
+  <div
+    v-show="visible"
+    :class="['f-back-top', { 'f-back-top-round': round }]"
+    :style="{ right, bottom, zIndex }"
+  >
+    <div
+      class="f-back-top-item"
+      :style="{ background, color }"
+      @click.stop="handleClick"
+    >
+      <slot />
+    </div>
+  </div>
+</template>

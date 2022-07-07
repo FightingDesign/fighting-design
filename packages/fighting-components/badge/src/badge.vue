@@ -1,12 +1,3 @@
-<template>
-  <div class="f-badge">
-    <slot />
-    <sup :class="classList" v-show="!hidden && (content || isDot)">
-      {{ content }}
-    </sup>
-  </div>
-</template>
-
 <script lang="ts" setup name="FBadge">
   import { computed } from 'vue'
   import { Props } from './badge'
@@ -19,15 +10,15 @@
       'f-badge-content',
       `f-badge-${prop.type}`,
       {
-        'f-badge-dot': prop.isDot
+        'f-badge-dot': prop.bot
       }
     ]
   )
 
   const content: ComputedRef<string> = computed<string>((): string => {
-    const { isDot, max, value } = prop
+    const { bot, max, value } = prop
 
-    if (isDot) return ''
+    if (bot) return ''
 
     if (typeof max === 'number' && typeof value === 'number') {
       return max > value ? `${value}` : `${max}+`
@@ -36,3 +27,16 @@
     return `${value}`
   })
 </script>
+
+<template>
+  <div class="f-badge">
+    <slot />
+    <sup
+      v-show="!show && (content || bot)"
+      :class="classList"
+      :style="{ background: color, color: textColor }"
+    >
+      {{ content }}
+    </sup>
+  </div>
+</template>

@@ -1,5 +1,10 @@
 # Divider 分隔线
 
+`Divider` 用户段落的分隔符
+
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/divider)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/divider.md)
+
 ## 基本使用
 
 分隔线的基本使用
@@ -123,3 +128,13 @@
 | `background` | 背景颜色     | boolean | ——                                 | ——     |
 | `margin`     | 上下边距     | string  | ——                                 | ——     |
 | `type`       | 分隔符样式   | string  | `dashed` `dotted` `double` `solid` | solid  |
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
+<a href="https://github.com/JayMeDotDot" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/43527124?v=4" />
+</a>

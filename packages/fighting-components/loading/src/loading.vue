@@ -1,19 +1,36 @@
+<script setup lang="ts" name="FLoading">
+  import { computed } from 'vue'
+  import { Props, Emits } from './loading'
+  import type { onCloseInterface } from './interface'
+  import type { ComputedRef, CSSProperties } from 'vue'
+
+  const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
+
+  const onClose: onCloseInterface = (evt: MouseEvent): void => {
+    prop.close && emit('close', evt)
+  }
+
+  const loadingStyleList: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { background, opacity, textColor } = prop
+
+      return {
+        background,
+        opacity,
+        color: textColor
+      }
+    }
+  )
+</script>
+
 <template>
-  <div class="f-loading" v-if="show"
-    :style="{ background: loadingBgColor, opacity: loadingBgOpacity, color: loadingTextColor, }" @click="onClose">
-    <i class="f-icon f-loading-animation" :class="loadingIcon" :style="iconStyle" />
-    <p class="f-loading-title" :style="{ fontSize: loadingTextSize }">{{ loadingText }}</p>
+  <div v-if="show" class="f-loading" :style="loadingStyleList" @click="onClose">
+    <i
+      :class="['f-icon', 'f-loading-animation', `${icon || 'f-icon-loading'}`]"
+    />
+    <span class="f-loading-title" :style="{ fontSize: textSize }">
+      {{ text || '加载中' }}
+    </span>
   </div>
 </template>
-
-<script setup lang="ts" name="FLoading">
-import { Props, Emits } from './loading'
-import type { onCloseInterface } from "./interface"
-
-const prop = defineProps(Props)
-const emit = defineEmits(Emits)
-
-const onClose: onCloseInterface = (): void => {
-  prop.isClose && emit('close')
-}
-</script>

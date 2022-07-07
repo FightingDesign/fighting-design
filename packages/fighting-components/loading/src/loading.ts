@@ -1,40 +1,38 @@
 export const Props = {
   show: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
-  isClose: {
+  close: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
-  loadingText: {
+  text: {
     type: String,
-    default: '加载中'
+    default: (): string => ''
   },
-  loadingIcon: {
+  icon: {
     type: String,
-    default: 'f-icon-loading'
+    default: (): string => ''
   },
-  iconStyle: {
-    type: Object,
-    default: () => ({ fontSize: '20px' })
-  },
-  loadingTextColor: {
+  textColor: {
     type: String,
-    default: 'rgb(25, 137, 250)'
+    default: (): string => ''
   },
-  loadingBgColor: {
+  textSize: {
     type: String,
-    default: '#000'
+    default: (): string => ''
   },
-  loadingBgOpacity: {
-    type: [String, Number],
-    default: '0.7'
+  background: {
+    type: String,
+    default: (): string => ''
   },
-  loadingTextSize: {
-    type: [String, Number],
-    default: '16'
+  opacity: {
+    type: Number,
+    default: (): number | null => null
   }
-}
+} as const
 
-export const Emits = ['close']
+export const Emits = {
+  close: (evt: MouseEvent): MouseEvent => evt
+} as const

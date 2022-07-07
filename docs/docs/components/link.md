@@ -1,5 +1,10 @@
 # Link 链接
 
+`Link` 用于超链接跳转
+
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/link)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/link.md)
+
 ## 基本使用
 
 `type` 属性可以配置不同的链接类型，展示不同的颜色状态
@@ -160,6 +165,12 @@
 | 名称      | 说明        |
 | --------- | ----------- |
 | `default` | link 的内容 |
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
 
 <style scoped>
 .f-link {

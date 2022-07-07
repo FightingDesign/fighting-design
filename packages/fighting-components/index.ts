@@ -16,7 +16,15 @@ import { FSwitch } from './switch'
 import { FBadge } from './badge'
 import { FAvatar } from './avatar'
 import { FBackTop } from './back-top'
+import { FBreadcrumb } from './breadcrumb'
+import { FBreadcrumbItem } from './breadcrumb-item'
 import { FText } from './text'
+import { FLoading } from './loading'
+import { FCaptcha } from './captcha'
+import { FProgress } from './progress'
+import { FSpace } from './space'
+import { FDialog } from './dialog'
+import { FTooltip } from './tooltip'
 
 const components = {
   FButton,
@@ -36,7 +44,15 @@ const components = {
   FBadge,
   FAvatar,
   FBackTop,
-  FText
+  FBreadcrumbItem,
+  FBreadcrumb,
+  FText,
+  FLoading,
+  FCaptcha,
+  FProgress,
+  FSpace,
+  FDialog,
+  FTooltip
 }
 
 const install = (app: App): void => {
@@ -63,7 +79,15 @@ export {
   FBadge,
   FAvatar,
   FBackTop,
-  FText
+  FBreadcrumbItem,
+  FBreadcrumb,
+  FText,
+  FLoading,
+  FCaptcha,
+  FProgress,
+  FSpace,
+  FDialog,
+  FTooltip
 }
 
 export default {

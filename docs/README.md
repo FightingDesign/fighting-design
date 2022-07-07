@@ -106,6 +106,28 @@ pnpm dev:docs
 pnpm prettier
 ```
 
+## 贡献者
+
+文档在 `Attributes` 或者 `Slots` 的结尾需要加入 `Contributors（贡献者）` 如果你参与了某个组件的开发或者维护，那么就可以将你放在该组件下发的开发者列表中！
+
+格式如下:
+
+`a` 标签的 `href` 属性用作你的 `Github` 首页地址，`FAvatar` 组件的头像地址用作你的 `Github` 头像地址。可在 `Github` 首页右键头像，复制头像地址填入。
+
+```html
+<a href="" target="_blank">
+  <f-avatar round src="" />
+</a>
+```
+
+例如我的：
+
+```html
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+```
+
 ## 写在最后
 
 规范可能随时会增加或者修改，在编写文档前请认真阅读规范指南。

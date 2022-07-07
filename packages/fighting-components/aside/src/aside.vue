@@ -1,9 +1,3 @@
-<template>
-  <aside class="f-aside" :style="{ width }">
-    <slot />
-  </aside>
-</template>
-
 <script lang="ts" setup>
   import { Props } from './aside'
 
@@ -15,3 +9,9 @@
     name: 'FAside'
   }
 </script>
+
+<template>
+  <aside class="f-aside" :style="{ width }">
+    <slot />
+  </aside>
+</template>

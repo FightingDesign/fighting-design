@@ -1,5 +1,10 @@
 # Switch 开关
 
+`Switch` 是一个开关组件
+
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/switch)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/switch.md)
+
 ## 基本使用
 
 `switch` 的基本使用，需要使用 `v-model` 绑定一个值
@@ -171,6 +176,16 @@
 | `open-text`            | 自定义右侧的文字描述 | string  | ——                       | ——     |
 | `close-text`           | 自定义左侧的文字描述 | string  | ——                       | ——     |
 | `square`               | 是否为方形开关       | boolean | ——                       | false  |
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
+<a href="https://github.com/pengyinghao" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/34115313?v=4" />
+</a>
 
 <script setup>
   import { ref } from 'vue'

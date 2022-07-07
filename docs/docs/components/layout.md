@@ -1,5 +1,10 @@
 # Layout 布局
 
+`Layout` 用于处理常见的一些网页布局，实现快速搭建
+
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/layout)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/layout.md)
+
 ## 基本使用
 
 `f-layout` 外层容器, 可以实现垂直、水平、嵌套布局  
@@ -227,6 +232,16 @@
 | 参数     | 说明 | 类型   | 可选值 | 默认值 |
 | -------- | ---- | ------ | ------ | ------ |
 | `height` | 高度 | string | ——     | 60px   |
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
+<a href="https://github.com/XiaoLi-sach" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/55753927?v=4" />
+</a>
 
 <style scoped>
  .f-header,

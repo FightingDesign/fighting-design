@@ -1,3 +1,9 @@
+<script lang="ts" setup name="FButtonGroup">
+  import { Props } from './button-group'
+
+  defineProps(Props)
+</script>
+
 <template>
   <div
     :class="[
@@ -11,9 +17,3 @@
     <slot />
   </div>
 </template>
-
-<script lang="ts" setup name="FButtonGroup">
-  import { Props } from './button-group'
-
-  defineProps(Props)
-</script>

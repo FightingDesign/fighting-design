@@ -20,6 +20,12 @@
 └── index.ts
 ```
 
+`Fighting Design` 内置了新增组件的快捷命令，可以快速帮助你创建组件所需要的文件，参考 [new-component](https://github.com/FightingDesign/fighting-design/blob/master/script/new-component/README.md)，命令：
+
+```
+pnpm new <component-name>
+```
+
 下面分别介绍一下每个文件的作用：
 
 - `interface.d.ts` 写入组件和 `Props` 相关的所以类型
@@ -31,8 +37,6 @@
 
 ## interface.d.ts
 
-> 由于打包问题，已经废除原有 @fighting-design/fighting-type 目录，类型改为以下定义方式
-
 `interface.d.ts` 用于定义类型，每个组件中变量、函数、`Props` 相关的所有类型需要在这里定义。
 
 导出统一使用 `export`
@@ -42,23 +46,18 @@
 这是组件的源文件，内部结构为：
 
 ```html
-<template></template>
-
 <script lang="ts" setup name=""></script>
+
+<template></template>
 ```
+
+> 注意：\*.vue 文件必须将 script 在上 template 在下
 
 **结构规范**
 
-- 组建内只有两个标签（必须的）`<template>` `<script lang="ts" setup name="">`
+- 组件内只有两个标签（必须的）`<script lang="ts" setup name="">` `<template> `
 - 两大标签之间必须要有一个空行
 - `script` 必须带有 `lang="ts" setup name=""` 三个标记，注意标记顺序
-
-**template 规范**
-
-- 每个组件都必须要有一个自己专属的 `class`，格式为 `f-组件名`，例如 `f-button` `f-icon`
-- 单个 `class` 不使用数组。反面例子：`:class="['f-button']"`；正面例子：`class="f-button"`
-- 可以使用单标签均使用单标签，比如：`<slot />`
-- 可以简化的都需要简化，比如 `:style="{ color }"`
 
 **script 规范**
 
@@ -80,6 +79,13 @@ const onClick = (evt) => {}
 
 const iconClass = computed(() => {})
 ```
+
+**template 规范**
+
+- 每个组件都必须要有一个自己专属的 `class`，格式为 `f-组件名`，例如 `f-button` `f-icon`
+- 单个 `class` 不使用数组。反面例子：`:class="['f-button']"`；正面例子：`class="f-button"`
+- 可以使用单标签均使用单标签，比如：`<slot />`
+- 可以简化的都需要简化，比如 `:style="{ color }"`
 
 **Ts 类型规范**
 

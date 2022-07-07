@@ -1,3 +1,29 @@
+<script lang="ts" setup name="FDivider">
+  import { useSlots, computed } from 'vue'
+  import { Props } from './divider'
+  import type { ComputedRef, CSSProperties } from 'vue'
+
+  const prop = defineProps(Props)
+
+  const renderSlot: ComputedRef<boolean> = computed((): boolean => {
+    return !prop.vertical && Boolean(useSlots().default)
+  })
+
+  const dividerStyle: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { color, margin } = prop
+
+      if (margin) {
+        return {
+          margin: `${margin} 0`,
+          borderColor: color
+        }
+      }
+      return { borderColor: color }
+    }
+  )
+</script>
+
 <template>
   <div
     :class="[
@@ -18,30 +44,3 @@
     </span>
   </div>
 </template>
-
-<script lang="ts" setup name="FDivider">
-  import { useSlots, computed } from 'vue'
-  import { Props } from './divider'
-  import type { ComputedRef } from 'vue'
-  import type { dividerStyleInterface } from './interface'
-
-  const prop = defineProps(Props)
-
-  const renderSlot: ComputedRef<boolean> = computed((): boolean => {
-    return !prop.vertical && Boolean(useSlots().default)
-  })
-
-  const dividerStyle: ComputedRef<dividerStyleInterface> = computed(
-    (): dividerStyleInterface => {
-      const { color, margin } = prop
-
-      if (margin) {
-        return {
-          margin: `${margin} 0`,
-          borderColor: color
-        }
-      }
-      return { borderColor: color }
-    }
-  )
-</script>

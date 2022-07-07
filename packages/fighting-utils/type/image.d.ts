@@ -8,7 +8,7 @@ export interface loadImageInterface {
     node: HTMLImageElement,
     prop: propsInterface,
     emit: Function,
-    callback: callbackInterface
+    callback: callbackInterface | null
   ): void
 }
 
@@ -16,7 +16,7 @@ export interface LoadInterface {
   img: HTMLImageElement
   props: propsInterface
   emit: Function
-  callback: callbackInterface
+  callback: callbackInterface | null
   loadCreateImg(): void
   loadNextImg(): void
   onerror(evt: Event): void

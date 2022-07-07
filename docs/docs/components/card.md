@@ -1,5 +1,10 @@
 # Card 卡片
 
+`Card` 是一个卡片，用于展示内容
+
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/card)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/card.md)
+
 ## 基本使用
 
 `title` 属性可以配置卡片的标题
@@ -54,3 +59,13 @@
 | `round`   | 是否为圆角卡片 | boolean | ——                       | false  |
 | `padding` | 卡片内边距     | string  | ——                       | 20px   |
 | `shadow`  | 阴影样式       | string  | `never` `hover` `always` | always |
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
+
+<a href="https://github.com/konvyi" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/44802220?v=4" />
+</a>

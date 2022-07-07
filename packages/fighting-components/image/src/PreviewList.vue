@@ -1,52 +1,3 @@
-<template>
-  <transition name="f-image-preview" @enter="onEnter">
-    <div
-      class="f-image-preview"
-      :style="{ zIndex: previewZIndex }"
-      @click.self="packingClose"
-      @mousewheel="onImgMousewheel"
-    >
-      <img
-        class="f-image-showImg"
-        draggable="false"
-        :src="previewList[previewShowIndex]"
-        :style="{
-          transform: `scale(${scale}) rotate(${rotate}deg)`,
-          borderRadius: previewRound
-        }"
-      />
-
-      <div
-        v-if="previewList.length > 1"
-        class="right_button"
-        @click="switchImage('next')"
-      >
-        <f-icon size="30px" icon="f-icon-arrow-right" />
-      </div>
-
-      <div
-        v-if="previewList.length > 1"
-        class="left_button"
-        @click="switchImage('prev')"
-      >
-        <f-icon size="30px" icon="f-icon-arrow-left" />
-      </div>
-
-      <div v-if="showCloseBtn" class="close_button" @click="close">
-        <f-icon size="20px" icon="f-icon-close" />
-      </div>
-
-      <div v-if="previewShowOption" class="option" @click="optionClick">
-        <f-icon size="23px" icon="f-icon-suoxiao" />
-        <f-icon size="23px" icon="f-icon-fangda" />
-        <f-icon size="23px" icon="f-icon-column1" />
-        <f-icon size="23px" icon="f-icon-xuanzhuan-1" />
-        <f-icon size="23px" icon="f-icon-xuanzhuan-2" />
-      </div>
-    </div>
-  </transition>
-</template>
-
 <script lang="ts" setup name="PreviewList">
   import { ref } from 'vue'
   import { Props, Emits } from './PreviewList'
@@ -179,3 +130,52 @@
     bigger()
   }
 </script>
+
+<template>
+  <transition name="f-image-preview" @enter="onEnter">
+    <div
+      class="f-image-preview"
+      :style="{ zIndex: previewZIndex }"
+      @click.self="packingClose"
+      @mousewheel="onImgMousewheel"
+    >
+      <img
+        class="f-image-showImg"
+        draggable="false"
+        :src="previewList[previewShowIndex]"
+        :style="{
+          transform: `scale(${scale}) rotate(${rotate}deg)`,
+          borderRadius: previewRound
+        }"
+      />
+
+      <div
+        v-if="previewList.length > 1"
+        class="right_button"
+        @click="switchImage('next')"
+      >
+        <f-icon size="30px" icon="f-icon-arrow-right" />
+      </div>
+
+      <div
+        v-if="previewList.length > 1"
+        class="left_button"
+        @click="switchImage('prev')"
+      >
+        <f-icon size="30px" icon="f-icon-arrow-left" />
+      </div>
+
+      <div v-if="showCloseBtn" class="close_button" @click="close">
+        <f-icon size="20px" icon="f-icon-close" />
+      </div>
+
+      <div v-if="previewShowOption" class="option" @click="optionClick">
+        <f-icon size="23px" icon="f-icon-suoxiao" />
+        <f-icon size="23px" icon="f-icon-fangda" />
+        <f-icon size="23px" icon="f-icon-column1" />
+        <f-icon size="23px" icon="f-icon-xuanzhuan-1" />
+        <f-icon size="23px" icon="f-icon-xuanzhuan-2" />
+      </div>
+    </div>
+  </transition>
+</template>
