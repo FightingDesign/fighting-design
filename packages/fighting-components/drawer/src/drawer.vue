@@ -1,30 +1,35 @@
 <script lang="ts" setup name="FDrawer">
-  import { FIcon } from '@fighting-design/fighting-components/icon'
   import { Props, Emits } from './drawer'
-  import { watchEffect } from 'vue'
+  import { watchEffect, computed } from 'vue'
+  import type { CSSProperties, ComputedRef } from 'vue'
+  import type {
+    transitionEventInterface,
+    handleCloseInterface
+  } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const drawerStyle = () => {
-    const { direction, size } = prop
-    if (['left', 'right'].includes(direction)) {
-      return {
-        width: typeof size === 'number' ? `${size}px` : size
-      }
-    } else if (['top', 'bottom'].includes(direction)) {
-      return {
-        height: typeof size === 'number' ? `${size}px` : size
-      }
-    }
-  }
+  const drawerStyle: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { direction, size } = prop
 
-  const handleClose = () => {
-    if (prop.beforeClose) {
-      prop.beforeClose()
-    } else {
-      emit('update:visible', false)
+      if (['left', 'right'].includes(direction)) {
+        return { width: size }
+      } else if (['top', 'bottom'].includes(direction)) {
+        return { height: size }
+      }
+
+      return { width: size }
     }
+  )
+
+  const handleClose: handleCloseInterface = (): void => {
+    // if (prop.beforeClose) {
+    //   prop.beforeClose()
+    // } else {
+    emit('update:visible', false)
+    // }
   }
 
   watchEffect(() => {
@@ -37,25 +42,46 @@
       document.body.style.overflow = 'auto'
     }
   })
+
+  const open: transitionEventInterface = (evt: MouseEvent): void => {
+    emit('open', evt)
+  }
+
+  const openEnd: transitionEventInterface = (evt: MouseEvent): void => {
+    emit('open-end', evt)
+  }
+
+  const close: transitionEventInterface = (evt: MouseEvent): void => {
+    emit('close', evt)
+  }
+
+  const closeEnd: transitionEventInterface = (evt: MouseEvent): void => {
+    emit('close-end', evt)
+  }
 </script>
 
 <template>
   <teleport to="body" :disabled="!appendToBody">
-    <transition name="drawer" :duration="400">
+    <transition
+      name="drawer"
+      :duration="400"
+      @before-enter="open"
+      @after-enter="openEnd"
+      @before-leave="close"
+      @after-leave="closeEnd"
+    >
       <div v-show="visible" class="f__drawer__wrapper">
         <div class="f__drawer__container">
           <div
             :class="[{ f__drawer__cover__open: modal }, 'f__drawer__cover']"
-            @click="handleClose"
-          ></div>
-          <div :class="['f__drawer', direction]" :style="drawerStyle()">
+            @click.self="handleClose"
+          />
+          <div :class="['f__drawer', direction]" :style="drawerStyle">
             <header v-if="withHeader" class="f__drawer__title">
               <span>{{ title }}</span>
-              <f-icon
-                size="30px"
-                icon="f-icon-close"
-                class="f__drawer__title__close"
-                @click="handleClose"
+              <i
+                class="f-icon f-icon-close f__drawer__title__close"
+                @click.self="handleClose"
               />
             </header>
             <section class="f__drawer__body">

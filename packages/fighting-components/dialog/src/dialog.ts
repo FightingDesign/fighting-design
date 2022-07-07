@@ -56,8 +56,8 @@ export const Props = {
 
 export const Emits = {
   'update:visible': (val: boolean) => typeof val === 'boolean',
-  open: () => true,
-  'open-end': () => true,
-  close: () => true,
-  'close-end': () => true
+  open: (event: MouseEvent): MouseEvent => event,
+  close: (event: MouseEvent): MouseEvent => event,
+  'open-end': (event: MouseEvent): MouseEvent => event,
+  'close-end': (event: MouseEvent): MouseEvent => event
 } as const

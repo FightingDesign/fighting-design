@@ -1,5 +1,5 @@
 export interface transitionEventInterface {
-  (): void
+  (evt: MouseEvent): void
 }
 
 export interface closeDialogInterface {
