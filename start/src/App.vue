@@ -1,4 +1,5 @@
 <template>
+  <f-page-header @back="add"></f-page-header>
   <br />
   <br />
   <br />
@@ -42,7 +43,11 @@
   </f-tooltip>
 </template>
 
-<script setup></script>
+<script setup>
+  function add() {
+    console.log(123)
+  }
+</script>
 
 <style scoped>
   .f-tooltip {

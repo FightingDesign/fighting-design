@@ -38,5 +38,5 @@ export const Props = {
 } as const
 
 export const Emits = {
-  back: () => true
-}
+  back: (): boolean => true
+} as const

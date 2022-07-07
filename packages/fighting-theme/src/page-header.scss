@@ -1,4 +1,4 @@
-.f-header {
+.f-page-header {
   flex: none;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
   font-weight: 400;
 
   // 后退
-  .f-header-left {
+  .f-page-header-left {
     flex: none;
     display: flex;
     justify-content: center;
@@ -22,6 +22,7 @@
     line-height: 15px;
     color: #414141;
     cursor: pointer;
+    user-select: none;
 
     &::after {
       content: ' ';
@@ -35,7 +36,7 @@
     }
   }
   // 主体
-  .f-header-main {
+  .f-page-header-main {
     flex: auto;
     display: flex;
     align-items: center;
