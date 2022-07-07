@@ -36,19 +36,10 @@
   </f-tooltip>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-const onOff = ref(false)
-const onOff2 = ref(false)
-
-const onClick = () => {
-  onOff.value = !onOff.value
-}
-</script>
+<script setup></script>
 
 <style scoped>
-.f-tooltip {
-  margin-left: 120px;
-}
+  .f-tooltip {
+    margin-left: 120px;
+  }
 </style>
