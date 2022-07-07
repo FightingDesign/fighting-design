@@ -2,36 +2,24 @@
   import { FIcon } from '@fighting-design/fighting-components/icon'
   import { Props, Emits } from './drawer'
   import { watchEffect, computed } from 'vue'
+  import type { CSSProperties, ComputedRef } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  // const drawerStyle = () => {
-  //   const { direction, size } = prop
-  //   if (['left', 'right'].includes(direction)) {
-  //     return {
-  //       width: typeof size === 'number' ? `${size}px` : size
-  //     }
-  //   } else if (['top', 'bottom'].includes(direction)) {
-  //     return {
-  //       height: typeof size === 'number' ? `${size}px` : size
-  //     }
-  //   }
-  // }
+  const drawerStyle: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { direction, size } = prop
 
-  const drawerStyle = computed(() => {
-    const { direction, size } = prop
-    if (['left', 'right'].includes(direction)) {
-      return {
-        width: typeof size === 'number' ? `${size}px` : size
+      if (['left', 'right'].includes(direction)) {
+        return { width: size }
+      } else if (['top', 'bottom'].includes(direction)) {
+        return { height: size }
       }
-    } else if (['top', 'bottom'].includes(direction)) {
-      return {
-        height: typeof size === 'number' ? `${size}px` : size
-      }
+
+      return { width: size }
     }
-    return ''
-  })
+  )
 
   const handleClose = () => {
     // if (prop.beforeClose) {
