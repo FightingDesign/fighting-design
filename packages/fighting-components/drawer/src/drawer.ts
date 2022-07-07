@@ -44,6 +44,8 @@ export const Props = {
 
 export const Emits = {
   'update:visible': (visible: boolean) => visible,
-  open: (event: Event): Event => event,
-  close: (event: Event): Event => event
+  open: (event: MouseEvent): MouseEvent => event,
+  close: (event: MouseEvent): MouseEvent => event,
+  'open-end': (event: MouseEvent): MouseEvent => event,
+  'close-end': (event: MouseEvent): MouseEvent => event
 } as const

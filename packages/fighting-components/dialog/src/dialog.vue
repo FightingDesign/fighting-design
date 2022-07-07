@@ -12,13 +12,21 @@
     emit('update:visible', false)
   }
 
-  const open: transitionEventInterface = (): void => emit('open')
+  const open: transitionEventInterface = (evt: MouseEvent): void => {
+    emit('open', evt)
+  }
 
-  const openEnd: transitionEventInterface = (): void => emit('open-end')
+  const openEnd: transitionEventInterface = (evt: MouseEvent): void => {
+    emit('open-end', evt)
+  }
 
-  const close: transitionEventInterface = (): void => emit('close')
+  const close: transitionEventInterface = (evt: MouseEvent): void => {
+    emit('close', evt)
+  }
 
-  const closeEnd: transitionEventInterface = (): void => emit('close-end')
+  const closeEnd: transitionEventInterface = (evt: MouseEvent): void => {
+    emit('close-end', evt)
+  }
 </script>
 
 <template>
