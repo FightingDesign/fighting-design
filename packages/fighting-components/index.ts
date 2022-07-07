@@ -25,6 +25,7 @@ import { FProgress } from './progress'
 import { FSpace } from './space'
 import { FDialog } from './dialog'
 import { FTooltip } from './tooltip'
+import { FDrawer } from './drawer'
 
 const components = {
   FButton,
@@ -52,7 +53,8 @@ const components = {
   FProgress,
   FSpace,
   FDialog,
-  FTooltip
+  FTooltip,
+  FDrawer
 }
 
 const install = (app: App): void => {
@@ -87,7 +89,8 @@ export {
   FProgress,
   FSpace,
   FDialog,
-  FTooltip
+  FTooltip,
+  FDrawer
 }
 
 export default {

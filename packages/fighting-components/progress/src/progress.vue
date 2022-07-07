@@ -30,14 +30,14 @@
     }
   )
 
-  const MIN_SHOW_TEXT_HEI = 14
+  // const MIN_SHOW_TEXT_HEI = 14
 
   const fillRef: Ref<HTMLElement> = ref<HTMLElement>(
     null as unknown as HTMLElement
   )
-  const fillHeight: ComputedRef<number> = computed(() => {
-    return fillRef.value.clientHeight || 25
-  })
+  // const fillHeight: ComputedRef<number> = computed(() => {
+  //   return fillRef.value.clientHeight || 25
+  // })
 </script>
 
 <template>
@@ -54,13 +54,12 @@
       :class="['f-progress-fill', `f-progress-fill-${type}`]"
       :style="progressFillStyle"
     >
-      <div
+      <!-- <div
         v-if="showText && fillHeight >= MIN_SHOW_TEXT_HEI"
         :style="`line-height:${fillHeight}px;`"
         class="f-progress-per-num"
-      >
-        {{ percentage }}%
-      </div>
+      > -->
+      <div class="f-progress-per-num">{{ percentage }}%</div>
     </div>
   </div>
 </template>

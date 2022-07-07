@@ -33,9 +33,9 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  beforeClose: {
-    type: Function
-  },
+  // beforeClose: {
+  //   type: Function
+  // },
   withHeader: {
     type: Boolean,
     default: (): boolean => true

@@ -1,12 +1,25 @@
 <script lang="ts" setup name="FDrawer">
   import { FIcon } from '@fighting-design/fighting-components/icon'
   import { Props, Emits } from './drawer'
-  import { watchEffect } from 'vue'
+  import { watchEffect, computed } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const drawerStyle = () => {
+  // const drawerStyle = () => {
+  //   const { direction, size } = prop
+  //   if (['left', 'right'].includes(direction)) {
+  //     return {
+  //       width: typeof size === 'number' ? `${size}px` : size
+  //     }
+  //   } else if (['top', 'bottom'].includes(direction)) {
+  //     return {
+  //       height: typeof size === 'number' ? `${size}px` : size
+  //     }
+  //   }
+  // }
+
+  const drawerStyle = computed(() => {
     const { direction, size } = prop
     if (['left', 'right'].includes(direction)) {
       return {
@@ -17,14 +30,15 @@
         height: typeof size === 'number' ? `${size}px` : size
       }
     }
-  }
+    return ''
+  })
 
   const handleClose = () => {
-    if (prop.beforeClose) {
-      prop.beforeClose()
-    } else {
-      emit('update:visible', false)
-    }
+    // if (prop.beforeClose) {
+    //   prop.beforeClose()
+    // } else {
+    emit('update:visible', false)
+    // }
   }
 
   watchEffect(() => {
@@ -46,9 +60,9 @@
         <div class="f__drawer__container">
           <div
             :class="[{ f__drawer__cover__open: modal }, 'f__drawer__cover']"
-            @click="handleClose"
-          ></div>
-          <div :class="['f__drawer', direction]" :style="drawerStyle()">
+            @click.self="handleClose"
+          />
+          <div :class="['f__drawer', direction]" :style="drawerStyle">
             <header v-if="withHeader" class="f__drawer__title">
               <span>{{ title }}</span>
               <f-icon
