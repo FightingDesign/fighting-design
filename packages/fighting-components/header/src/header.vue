@@ -1,17 +1,41 @@
-<script lang="ts" setup>
-  import { Props } from './header'
+<script lang="ts" setup name="FHeader">
+  import { FIcon } from '@fighting-design/fighting-components/icon'
+  import { Props, Emits } from './header'
 
   defineProps(Props)
-</script>
 
-<script lang="ts">
-  export default {
-    name: 'FHeader'
+  const emit = defineEmits(Emits)
+
+  function handleClick (): void {
+    emit('back')
   }
 </script>
 
 <template>
-  <header class="f-header" :style="{ height }">
-    <slot />
+  <header class="f-header">
+    <div class="f-header-left" @click="handleClick">
+      <div v-if="icon || $slots.icon" class="f-header-left__icon">
+        <slot name="icon">
+          <f-icon v-if="icon" :icon="icon" :size="iconSize" />
+        </slot>
+      </div>
+      <div class="f-header-left__text">
+        {{ backText }}
+      </div>
+    </div>
+    <div :class="[{ center: titleCenter }]" class="f-header-main">
+      <div
+        :class="[titleClass]"
+        :style="[
+          { 'font-weight': titleBold ? 'bold' : 'normal', color: titleColor }
+        ]"
+        class="f-header-main__title"
+      >
+        <slot name="title">{{ title }}</slot>
+      </div>
+      <div v-if="subtitle || $slots.subtitle" class="f-header-main__subtitle">
+        <slot name="subtitle">{{ subtitle }}</slot>
+      </div>
+    </div>
   </header>
 </template>

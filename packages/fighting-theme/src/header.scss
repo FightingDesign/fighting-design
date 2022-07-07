@@ -1,5 +1,73 @@
-.f-footer {
-  height: 60px;
+.f-header {
+  flex: none;
+  display: flex;
+  align-items: center;
+
   box-sizing: border-box;
-  flex-shrink: 0;
+  width: 360px;
+  height: 30px;
+  background-color: #fff;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+
+  // 后退
+  .f-header-left {
+    flex: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    padding-left: 13px;
+    padding-right: 27px;
+
+    font-size: 12px;
+    line-height: 15px;
+    color: #414141;
+
+    cursor: pointer;
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      right: 13px;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      width: 1px;
+      height: 22px;
+      background: #d9d9d9;
+    }
+  }
+  // 主体
+  .f-header-main {
+    flex: auto;
+    display: flex;
+    align-items: center;
+    // 居中
+    &.center {
+      justify-content: center;
+    }
+
+    // 标题
+    &__title {
+      flex: none;
+
+      font-size: 13px;
+      line-height: 16px;
+      color: #000000;
+    }
+    // 副标题
+    &__subtitle {
+      flex: none;
+
+      margin-left: 8px;
+
+      font-size: 12px;
+      line-height: 15px;
+      color: #adadad;
+    }
+  }
 }
