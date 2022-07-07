@@ -20,5 +20,9 @@ export const Props = {
   color: {
     type: String,
     default: (): string => ''
+  },
+  zIndex: {
+    type: Number,
+    default: (): number => 300
   }
 } as const

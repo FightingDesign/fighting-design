@@ -5,8 +5,10 @@
   <br />
   <br />
   <f-tooltip
-    content="这是一段提示这是一段提示这是一段提示这是一段提示这是一段提示这是一段提示"
+    content="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
     position="top"
+    :zIndex="99999"
+    background="red"
   >
     <button>top</button>
   </f-tooltip>
