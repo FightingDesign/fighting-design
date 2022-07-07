@@ -20,14 +20,29 @@
 
   .f-tooltip-msg::after {
     content: attr(f-tooltip-content);
-    justify-content: center;
-    align-items: center;
     margin-bottom: 3px;
     border-radius: 3px;
     color: #fff;
     padding: 5px 7px;
     box-sizing: border-box;
     font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    white-space: initial;
+  }
+
+  .f-tooltip-top::after,
+  .f-tooltip-bottom::after {
+    min-width: 100px;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  .f-tooltip-right::after,
+  .f-tooltip-left::after {
+    min-width: 150px;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
   }
 
   // top
@@ -38,8 +53,6 @@
   }
 
   .f-tooltip-top::after {
-    right: 0;
-    left: 0;
     bottom: 100%;
   }
 
@@ -51,8 +64,6 @@
   }
 
   .f-tooltip-bottom::after {
-    right: 0;
-    left: 0;
     top: 100%;
     margin-top: 3px;
   }
@@ -65,10 +76,7 @@
   }
 
   .f-tooltip-right::after {
-    top: 0;
-    bottom: 0;
-    left: 100%;
-    margin-left: 3px;
+    left: 107%;
   }
 
   // left
@@ -79,10 +87,7 @@
   }
 
   .f-tooltip-left::after {
-    top: 0;
-    right: 0;
-    right: 100%;
-    margin-right: 3px;
+    right: 107%;
   }
 
   &:hover {
