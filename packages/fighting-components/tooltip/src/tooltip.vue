@@ -7,6 +7,9 @@
 <template>
   <div class="f-tooltip">
     <slot />
-    <div class="f-tooltip-msg" :f-tooltip-content="content" />
+    <div
+      :f-tooltip-content="content"
+      :class="['f-tooltip-msg', `f-tooltip-${position}`]"
+    />
   </div>
 </template>

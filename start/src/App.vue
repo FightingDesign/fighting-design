@@ -1,24 +1,39 @@
 <template>
-  <f-button @click="onClick">default</f-button>
-  <f-drawer
-    :title="'我是一个title'"
-    appendToBody
-    lockScroll
-    direction="left"
-    v-model:visible="onOff"
-  >
-    这是第一层的内容
-    <button @click="onOff2 = !onOff2">开启</button>
-
-    <f-drawer
-      :title="'我是二个title'"
-      appendToBody
-      direction="top"
-      v-model:visible="onOff2"
-    >
-      这是第一层的内容
-    </f-drawer>
-  </f-drawer>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <f-tooltip content="这是一段提示" position="top">
+    <button>top</button>
+  </f-tooltip>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <f-tooltip content="这是一段提示" position="bottom">
+    <button>bottom</button>
+  </f-tooltip>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <f-tooltip content="这是一段提示" position="right">
+    <button>right</button>
+  </f-tooltip>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <f-tooltip content="这是一段提示" position="left">
+    <button>left</button>
+  </f-tooltip>
 </template>
 
 <script setup>
