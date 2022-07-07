@@ -22,18 +22,18 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  const onOff = ref(false)
-  const onOff2 = ref(false)
+const onOff = ref(false)
+const onOff2 = ref(false)
 
-  const onClick = () => {
-    onOff.value = !onOff.value
-  }
+const onClick = () => {
+  onOff.value = !onOff.value
+}
 </script>
 
 <style scoped>
-  .f-tooltip {
-    margin-left: 120px;
-  }
+.f-tooltip {
+  margin-left: 120px;
+}
 </style>
