@@ -128,6 +128,13 @@
 | `show-text`  | 是否显示百分比文字内容 | boolean | ——                                     | true    |
 | `color`      | 进度条颜色             | string  | ——                                     | ——      |
 | `background` | 进度条背景色           | string  | ——                                     | ——      |
+| `stripe`     | 是否开启条纹效果       | boolean | ——                                     | false   |
+
+## Events
+
+| 事件名称   | 说明                           |
+| ---------- | ------------------------------ |
+| `fill-end` | 进度条加载到 100% 后触发的回调 |
 
 ## Contributors
 
