@@ -1,11 +1,13 @@
 <template>
-  <f-progress type="primary" linear :percentage="num" @fill-end="over" />
-  <!-- <f-progress type="success" :percentage="num" />
-  <f-progress type="danger" :percentage="60" />
-  <f-progress type="warning" :percentage="100" />
+  <f-progress type="danger" :percentage="num" />
+  <f-progress type="warning" :percentage="num" />
+  <f-progress type="primary" :percentage="num" />
+  <f-progress type="success" :percentage="num" />
 
-  <f-progress type="primary" :percentage="10" square />
-  <f-progress type="success" :percentage="40" linear /> -->
+  <f-progress stripe type="danger" :percentage="num" />
+  <f-progress stripe type="warning" :percentage="num" />
+  <f-progress stripe type="primary" :percentage="num" />
+  <f-progress stripe type="success" :percentage="num" />
 </template>
 
 <script lang="ts" setup>
@@ -18,9 +20,9 @@
     }
   }, 50)
 
-  function over() {
-    console.log('123')
-  }
+  // function over() {
+  //   console.log('123')
+  // }
 </script>
 
 <style scoped></style>

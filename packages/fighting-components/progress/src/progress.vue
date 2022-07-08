@@ -63,7 +63,11 @@
   >
     <div
       ref="fillRef"
-      :class="['f-progress-fill', `f-progress-fill-${type}`]"
+      :class="[
+        'f-progress-fill',
+        `f-progress-fill-${type}`,
+        { 'f-progress-stripe': stripe }
+      ]"
       :style="progressFillStyle"
     >
       <div v-if="isShow" class="f-progress-percentage">{{ percentage }}%</div>

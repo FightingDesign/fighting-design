@@ -43,6 +43,10 @@ export const Props = {
   height: {
     type: String,
     default: (): string => ''
+  },
+  stripe: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 
