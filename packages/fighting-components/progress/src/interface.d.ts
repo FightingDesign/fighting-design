@@ -4,3 +4,7 @@ export type progressType =
   | 'success'
   | 'danger'
   | 'warning'
+
+export interface isShowPercentageInterface {
+  (): boolean
+}

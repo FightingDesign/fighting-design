@@ -1,9 +1,15 @@
 <script lang="ts" setup name="FProgress">
   import { Props } from './progress'
-  import { computed, ref } from 'vue'
+  import { computed, ref, onMounted } from 'vue'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
+  import type { isShowPercentageInterface } from './interface'
 
   const prop = defineProps(Props)
+
+  const isShow: Ref<boolean> = ref<boolean>(false)
+  const fillRef: Ref<HTMLDivElement> = ref<HTMLDivElement>(
+    null as unknown as HTMLDivElement
+  )
 
   const progressStyle: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
@@ -14,7 +20,7 @@
         height,
         background,
         borderRadius: square ? '0px' : '100px'
-      }
+      } as const
     }
   )
 
@@ -26,18 +32,17 @@
         width: `${percentage}%`,
         background: color,
         borderRadius: square ? '0px' : '100px'
-      }
+      } as const
     }
   )
 
-  // const MIN_SHOW_TEXT_HEI = 14
+  const isShowPercentage: isShowPercentageInterface = (): boolean => {
+    return (isShow.value = fillRef.value.clientHeight > 15)
+  }
 
-  const fillRef: Ref<HTMLElement> = ref<HTMLElement>(
-    null as unknown as HTMLElement
-  )
-  // const fillHeight: ComputedRef<number> = computed(() => {
-  //   return fillRef.value.clientHeight || 25
-  // })
+  onMounted((): void => {
+    isShowPercentage()
+  })
 </script>
 
 <template>
@@ -54,12 +59,7 @@
       :class="['f-progress-fill', `f-progress-fill-${type}`]"
       :style="progressFillStyle"
     >
-      <!-- <div
-        v-if="showText && fillHeight >= MIN_SHOW_TEXT_HEI"
-        :style="`line-height:${fillHeight}px;`"
-        class="f-progress-per-num"
-      > -->
-      <div class="f-progress-per-num">{{ percentage }}%</div>
+      <div v-if="isShow" class="f-progress-percentage">{{ percentage }}%</div>
     </div>
   </div>
 </template>

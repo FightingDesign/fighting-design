@@ -1,36 +1,22 @@
 <template>
-  <f-tag type="info">信息</f-tag>
-  <f-tag type="primary">普通</f-tag>
-  <f-tag type="warning">警告</f-tag>
-  <f-tag type="success">成功</f-tag>
-  <f-tag type="danger">失败</f-tag>
-  <br />
-  <f-tag simple type="info">信息</f-tag>
-  <f-tag simple type="primary">普通</f-tag>
-  <f-tag simple type="warning">警告</f-tag>
-  <f-tag simple type="success">成功</f-tag>
-  <f-tag simple type="danger">失败</f-tag>
-  <br />
+  <f-progress type="primary" linear :percentage="num" />
+  <f-progress type="success" :percentage="num" />
+  <f-progress type="danger" :percentage="60" />
+  <f-progress type="warning" :percentage="100" />
 
-  <f-tag
-    round
-    close
-    simple
-    background="red"
-    color="black"
-    left-icon="f-icon-default-template"
-    right-icon="f-icon-default-template"
-    type="info"
-    @on-close="add"
-  >
-    信息
-  </f-tag>
+  <f-progress type="primary" :percentage="10" square />
+  <f-progress type="success" :percentage="40" linear />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  const num = ref(0)
 
-  function add() {
-    console.log('12 3')
-  }
+  // setInterval(() => {
+  //   if (num.value < 100) {
+  //     num.value++
+  //   }
+  // }, 50)
 </script>
+
+<style scoped></style>

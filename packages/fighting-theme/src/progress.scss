@@ -1,33 +1,39 @@
 @import '../config/const-color.scss';
 
 .f-progress {
-  background-color: #f1f1f1;
+  background: #f1f1f1;
   border-radius: 100px;
   overflow: hidden;
-  width: 530px;
   height: 25px;
+
   &.f-progress-liner {
     height: 6px;
   }
+
   .f-progress-fill {
     height: 100%;
-    transition: width 0.3s;
+    transition: 0.3s;
     border-radius: 100px;
-    background-color: $primary;
+    background: $primary;
     text-align: right;
-    .f-progress-per-num {
+    // line-height: 2;
+    // display: inline-flex;
+    // align-items: center;
+
+    .f-progress-percentage {
       color: #fff;
       font-size: 12px;
       margin: 0 8px;
     }
   }
+
   .f-progress-fill-success {
-    background-color: $success;
+    background: $success;
   }
   .f-progress-fill-danger {
-    background-color: $danger;
+    background: $danger;
   }
   .f-progress-fill-warning {
-    background-color: $warning;
+    background: $warning;
   }
 }
