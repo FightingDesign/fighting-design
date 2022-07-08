@@ -2,15 +2,27 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.2.0-bate.2 (2022-07-08)
+
+**feat**
+
+- Add `drawer` component
+- Add `page-header` component
+
+**fix**
+
+- Fix `tag` base style
+- Fix `switch` base style
+
 ## 0.1.0-bate.1 (2022-07-05)
 
 **feat**
 
-- add `dialog` component
-- add `space` component
-- add `progress` component
-- add `captcha` component (bate)
-- add `tooltip` component (bate)
+- Add `dialog` component
+- Add `space` component
+- Add `progress` component
+- Add `captcha` component (bate)
+- Add `tooltip` component (bate)
 
 **fix**
 
@@ -24,8 +36,8 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 **feat**
 
-- `back-top` component add `z-index`、`top`、`listen-el`、`background`、`color` configuration item
-- add `breadcrumb` component
+- `Back-top` component add `z-index`、`top`、`listen-el`、`background`、`color` configuration item
+- Add `breadcrumb` component
 
 ## 0.0.11-alpha.11 (2022-06-26)
 
@@ -37,9 +49,9 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 **feat**
 
-- add `FText` component
-- add `FAvatar` component
-- add `FLoading` component
+- Add `FText` component
+- Add `FAvatar` component
+- Add `FLoading` component
 
 **fix**
 
@@ -49,11 +61,11 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 **feat**
 
-- add `FTag` component
-- add `FDivider` component
-- add `Badge` component
-- add `FContainer` component
-- add `FSwitch` component
+- Add `FTag` component
+- Add `FDivider` component
+- Add `Badge` component
+- Add `FContainer` component
+- Add `FSwitch` component
 - New `FButton` component `color` configuration item
 
 **fix**
@@ -70,8 +82,8 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 **feat**
 
-- add `FCard` component
-- add `FButton` component click ripple effect
+- Add `FCard` component
+- Add `FButton` component click ripple effect
 
 **fix**
 
