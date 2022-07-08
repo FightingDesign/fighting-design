@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.2.0-bate.2 (2022-07-08)
+
 **feat**
 
 - 新增 `drawer` 组件

@@ -19,6 +19,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
+  background: {
+    type: String,
+    default: (): string => ''
+  },
   color: {
     type: String,
     default: (): string => ''
@@ -45,10 +49,6 @@ export const Props = {
   block: {
     type: Boolean,
     default: (): boolean => false
-  },
-  border: {
-    type: Boolean,
-    default: (): boolean => true
   }
 } as const
 

@@ -27,9 +27,9 @@
 
 :::
 
-## 模式
+## 简约的
 
-`simple` 属性可以配置简约的按钮，样式依然由 `type` 控制
+`simple` 属性可以配置简约的提示，样式依然由 `type` 控制
 
 <f-tag simple type="info">信息</f-tag>
 <f-tag simple type="primary">普通</f-tag>
@@ -49,18 +49,18 @@
 
 :::
 
-## 色彩
+## 自定义颜色
 
-`color` 自定义标签颜色
+`background` 和 `color` 可以自定义标签颜色，将覆盖原有的 `type`
 
-<f-tag simple color="#ff0200">浅色模式</f-tag>
-<f-tag color="#2d5af1">深色模式</f-tag>
+<f-tag background="skyblue">天蓝色</f-tag>
+<f-tag background="blue">深蓝色</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-tag simple color="#ff0200">浅色模式</f-tag>
-<f-tag color="#2d5af1">深色模式</f-tag>
+<f-tag background="skyblue">天蓝色</f-tag>
+<f-tag background="blue">深蓝色</f-tag>
 ```
 
 :::
@@ -115,21 +115,7 @@
 
 :::
 
-## 边框
-
-通过 `hit` 属性可以设置标签是否有边框。
-
-<f-tag size="small" type="warning" :hit="false">深色模式</f-tag>
-
-::: details 显示代码
-
-```html
-<f-tag size="small" simple type="warning" :hit="false">深色模式</f-tag>
-```
-
-:::
-
-## icon
+## 带有 icon
 
 通过 `leftIcon` 和 `rightIcon` 可以设置左右 icon 的值，注意：当同时设置 `rightIcon` 与 `closable` 时，关闭的 icon 将始终位于最右侧。
 
@@ -151,7 +137,7 @@
 
 :::
 
-## 是否可关闭
+## 可关闭的
 
 `close` 可配置可以关闭的
 
@@ -210,14 +196,21 @@
 | 参数         | 说明           | 类型    | 可选值                                        | 默认值 |
 | ------------ | -------------- | ------- | --------------------------------------------- | ------ |
 | `type`       | 标签类型       | string  | `info` `success` `danger` `warning` `primary` | info   |
-| `simple`     | 是否为简约模式 | boolean | ——                                            | false  |
-| `size`       | 标签大小       | string  | `large` `middle` `small` `mini`               | small  |
-| `color`      | 标签颜色       | string  | ——                                            | ——     |
+| `close`      | 是否可关闭     | boolean | ——                                            | false  |
 | `round`      | 圆角           | boolean | ——                                            | false  |
+| `background` | 自定义背景色   | string  | ——                                            | ——     |
+| `color`      | 自定义文字颜色 | string  | ——                                            | ——     |
 | `left-icon`  | 左侧 icon      | string  | ——                                            | ——     |
 | `right-icon` | 右侧 icon      | string  | ——                                            | ——     |
+| `size`       | 标签大小       | string  | `large` `middle` `small` `mini`               | small  |
+| `simple`     | 是否为简约模式 | boolean | ——                                            | false  |
 | `block`      | 是否为块级元素 | boolean | ——                                            | false  |
-| `close`      | 是否可关闭     | boolean | ——                                            | false  |
+
+## Slots
+
+| 名称      | 说明       |
+| --------- | ---------- |
+| `default` | tag 的内容 |
 
 ## Events
 
