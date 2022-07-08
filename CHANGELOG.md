@@ -2,10 +2,15 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**feat**
+
 - 新增 `drawer` 组件
 - 新增 `page-header` 组件
 
+**fix**
+
 - 修复 `tag` 基础样式
+- 修复 `switch` 基础样式
 
 ## 0.1.0-bate.1 (2022-07-05)
 
