@@ -13,6 +13,25 @@ export const Props = {
       return (['top', 'bottom', 'right', 'left'] as const).includes(val)
     }
   },
+  disabled: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  state: {
+    type: String,
+    default: (): stateType => 'hover',
+    validator: (val: stateType): boolean => {
+      return (['hover', 'active'] as const).includes(val)
+    }
+  },
+  noArrow: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  bold: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   background: {
     type: String,
     default: (): string => '#333'
@@ -36,24 +55,5 @@ export const Props = {
   fontSize: {
     type: String,
     default: (): string => ''
-  },
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  state: {
-    type: String,
-    default: (): stateType => 'hover',
-    validator: (val: stateType): boolean => {
-      return (['hover', 'active'] as const).includes(val)
-    }
-  },
-  noArrow: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  bold: {
-    type: Boolean,
-    default: (): boolean => false
   }
 } as const

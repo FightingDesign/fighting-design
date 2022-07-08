@@ -3,108 +3,189 @@
   display: inline-block;
   transition: 0.3s;
 
-  .f-tooltip-msg::before,
-  .f-tooltip-msg::after {
-    position: absolute;
-    display: inline-flex;
-    background: #333;
-    opacity: 0;
-    z-index: 300;
-  }
-
-  .f-tooltip-msg::before {
-    content: '';
-    transform: rotate(45deg);
-    margin: auto;
-    width: 6px;
-    height: 6px;
-  }
-
-  .f-tooltip-msg::after {
-    content: attr(f-tooltip-content);
-    margin-bottom: 3px;
-    border-radius: 3px;
-    color: #fff;
-    padding: 5px 7px;
-    box-sizing: border-box;
-    font-size: 14px;
-    justify-content: center;
-    align-items: center;
-    white-space: initial;
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.13), 0 0 6px rgba(0, 0, 0, 0.05);
-  }
-
-  .f-tooltip-top::after,
-  .f-tooltip-bottom::after {
-    min-width: 100px;
-    left: 50%;
-    transform: translate3d(-50%, 0, 0);
-  }
-
-  .f-tooltip-right::after,
-  .f-tooltip-left::after {
-    min-width: 150px;
-    top: 50%;
-    transform: translate3d(0, -50%, 0);
-  }
-
-  // top
-  .f-tooltip-top::before {
-    right: 0;
-    left: 0;
-    bottom: 100%;
-  }
-
-  .f-tooltip-top::after {
-    bottom: 100%;
-  }
-
-  // bottom
-  .f-tooltip-bottom::before {
-    right: 0;
-    left: 0;
-    top: 100%;
-  }
-
-  .f-tooltip-bottom::after {
-    top: 100%;
-    margin-top: 3px;
-  }
-
-  // right
-  .f-tooltip-right::before {
-    top: 0;
-    bottom: 0;
-    left: 100%;
-  }
-
-  .f-tooltip-right::after {
-    left: 107%;
-  }
-
-  // left
-  .f-tooltip-left::before {
-    top: 0;
-    bottom: 0;
-    right: 100%;
-  }
-
-  .f-tooltip-left::after {
-    right: 107%;
-  }
-
-  // &:hover,
   &.f-tooltip-hover:hover {
     .f-tooltip-msg::before,
     .f-tooltip-msg::after {
-      opacity: 1;
+      position: absolute;
+      display: inline-flex;
+      background: #333;
+      z-index: 300;
+    }
+
+    .f-tooltip-msg::before {
+      content: '';
+      transform: rotate(45deg);
+      margin: auto;
+      width: 6px;
+      height: 6px;
+    }
+
+    .f-tooltip-msg::after {
+      content: attr(f-tooltip-content);
+      margin-bottom: 3px;
+      border-radius: 3px;
+      color: #fff;
+      padding: 5px 7px;
+      box-sizing: border-box;
+      font-size: 14px;
+      justify-content: center;
+      align-items: center;
+      white-space: initial;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.13), 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .f-tooltip-top::after,
+    .f-tooltip-bottom::after {
+      min-width: 100px;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+    }
+
+    .f-tooltip-right::after,
+    .f-tooltip-left::after {
+      min-width: 150px;
+      top: 50%;
+      transform: translate3d(0, -50%, 0);
+    }
+
+    // top
+    .f-tooltip-top::before {
+      right: 0;
+      left: 0;
+      bottom: 100%;
+    }
+
+    .f-tooltip-top::after {
+      bottom: 100%;
+    }
+
+    // bottom
+    .f-tooltip-bottom::before {
+      right: 0;
+      left: 0;
+      top: 100%;
+    }
+
+    .f-tooltip-bottom::after {
+      top: 100%;
+      margin-top: 3px;
+    }
+
+    // right
+    .f-tooltip-right::before {
+      top: 0;
+      bottom: 0;
+      left: 100%;
+    }
+
+    .f-tooltip-right::after {
+      left: 100%;
+      margin-left: 3px;
+    }
+
+    // left
+    .f-tooltip-left::before {
+      top: 0;
+      bottom: 0;
+      right: 100%;
+    }
+
+    .f-tooltip-left::after {
+      right: 100%;
+      margin-right: 3px;
     }
   }
 
   &.f-tooltip-active:active {
     .f-tooltip-msg::before,
     .f-tooltip-msg::after {
-      opacity: 1;
+      position: absolute;
+      display: inline-flex;
+      background: #333;
+      z-index: 300;
+    }
+
+    .f-tooltip-msg::before {
+      content: '';
+      transform: rotate(45deg);
+      margin: auto;
+      width: 6px;
+      height: 6px;
+    }
+
+    .f-tooltip-msg::after {
+      content: attr(f-tooltip-content);
+      margin-bottom: 3px;
+      border-radius: 3px;
+      color: #fff;
+      padding: 5px 7px;
+      box-sizing: border-box;
+      font-size: 14px;
+      justify-content: center;
+      align-items: center;
+      white-space: initial;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.13), 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .f-tooltip-top::after,
+    .f-tooltip-bottom::after {
+      min-width: 100px;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+    }
+
+    .f-tooltip-right::after,
+    .f-tooltip-left::after {
+      min-width: 150px;
+      top: 50%;
+      transform: translate3d(0, -50%, 0);
+    }
+
+    // top
+    .f-tooltip-top::before {
+      right: 0;
+      left: 0;
+      bottom: 100%;
+    }
+
+    .f-tooltip-top::after {
+      bottom: 100%;
+    }
+
+    // bottom
+    .f-tooltip-bottom::before {
+      right: 0;
+      left: 0;
+      top: 100%;
+    }
+
+    .f-tooltip-bottom::after {
+      top: 100%;
+      margin-top: 3px;
+    }
+
+    // right
+    .f-tooltip-right::before {
+      top: 0;
+      bottom: 0;
+      left: 100%;
+    }
+
+    .f-tooltip-right::after {
+      left: 100%;
+      margin-left: 3px;
+    }
+
+    // left
+    .f-tooltip-left::before {
+      top: 0;
+      bottom: 0;
+      right: 100%;
+    }
+
+    .f-tooltip-left::after {
+      right: 100%;
+      margin-right: 3px;
     }
   }
 
@@ -120,8 +201,8 @@
   }
 
   // 不显示箭头
-  .f-tooltip-no-arrow::before {
-    display: none;
+  .f-tooltip-msg.f-tooltip-no-arrow::before {
+    visibility: hidden;
   }
 
   // 文字加粗

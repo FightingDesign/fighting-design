@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<style lang="css" scoped>
+<style scoped>
   .f-tooltip .f-tooltip-msg::before,
   .f-tooltip .f-tooltip-msg::after {
     background: v-bind(background);

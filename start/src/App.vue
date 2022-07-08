@@ -1,59 +1,42 @@
 <template>
-  <f-page-header @back="add"></f-page-header>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <f-tooltip
-    bold
-    no-arrow
-    content="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
-    position="top"
-    :zIndex="99999"
-    background="red"
-    color="black"
-  >
-    <button>top</button>
-  </f-tooltip>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <f-tooltip content="这是" position="bottom">
-    <button>bottom</button>
-  </f-tooltip>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <f-tooltip content="这是一段提示这是一段提示" position="right">
-    <button style="height: 200px">right</button>
-  </f-tooltip>
-  <button style="height: 200px">right</button>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <f-tooltip content="这是一段提示" position="left">
-    <button>left</button>
-  </f-tooltip>
+  <div class="tooltip-box">
+    <f-tooltip
+      content="上面的提示信息"
+      position="top"
+      state="hover"
+      no-arrow
+      bold
+    >
+      <f-tag type="primary">信息</f-tag>
+    </f-tooltip>
+
+    <f-tooltip
+      content="下面的提示信息"
+      position="bottom"
+      state="active"
+      no-arrow
+      bold
+    >
+      <f-tag type="primary">信息</f-tag>
+    </f-tooltip>
+
+    <f-tooltip content="左面的提示信息" position="left">
+      <f-tag type="primary">信息</f-tag>
+    </f-tooltip>
+
+    <f-tooltip content="右面的提示信息" position="right">
+      <f-tag type="primary">信息</f-tag>
+    </f-tooltip>
+  </div>
 </template>
 
-<script setup>
-  function add() {
-    console.log(123)
-  }
-</script>
+<script setup></script>
 
 <style scoped>
-  .f-tooltip {
-    margin-left: 120px;
+  .tooltip-box {
+    margin-top: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
   }
 </style>
