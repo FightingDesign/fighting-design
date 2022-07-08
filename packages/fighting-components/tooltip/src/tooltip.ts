@@ -15,14 +15,26 @@ export const Props = {
   },
   background: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#333'
   },
   color: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#fff'
   },
   zIndex: {
     type: Number,
     default: (): number => 300
+  },
+  width: {
+    type: String,
+    default: (): string => ''
+  },
+  height: {
+    type: String,
+    default: (): string => ''
+  },
+  fontSize: {
+    type: String,
+    default: (): string => ''
   }
 } as const

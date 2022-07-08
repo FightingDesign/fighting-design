@@ -104,7 +104,8 @@
     z-index: attr(f-tooltip-z-index);
   }
 
-  [f-tooltip-background]::after {
-    background: attr(data-f-tooltip-background);
-  }
+  // [f-tooltip-background]::after {
+  //   background: attr(data-f-tooltip-background);
+  //   background: v-bind(background);
+  // }
 }

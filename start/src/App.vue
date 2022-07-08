@@ -10,6 +10,7 @@
     position="top"
     :zIndex="99999"
     background="red"
+    color="black"
   >
     <button>top</button>
   </f-tooltip>
