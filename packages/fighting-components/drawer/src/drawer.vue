@@ -70,7 +70,7 @@
       @before-leave="close"
       @after-leave="closeEnd"
     >
-      <div v-show="visible" class="f__drawer__wrapper">
+      <div v-show="visible" class="f__drawer__wrapper" :style="{ zIndex }">
         <div class="f__drawer__container">
           <div
             :class="[{ f__drawer__cover__open: modal }, 'f__drawer__cover']"

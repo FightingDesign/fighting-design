@@ -33,12 +33,14 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  // beforeClose: {
-  //   type: Function
-  // },
   withHeader: {
     type: Boolean,
     default: (): boolean => true
+  },
+  zIndex: {
+    type: Number,
+    default: (): Number => 1999,
+    validator: (val: number): boolean => val >= 0
   }
 } as const
 
