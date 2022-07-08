@@ -72,4 +72,4 @@ export const sidebar = {
       ]
     }
   ]
-} as const
+}
