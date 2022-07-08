@@ -47,5 +47,13 @@ export const Props = {
     validator: (val: stateType): boolean => {
       return (['hover', 'active'] as const).includes(val)
     }
+  },
+  noArrow: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  bold: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const

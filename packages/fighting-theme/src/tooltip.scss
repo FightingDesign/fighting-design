@@ -118,4 +118,14 @@
       }
     }
   }
+
+  // 不显示箭头
+  .f-tooltip-no-arrow::before {
+    display: none;
+  }
+
+  // 文字加粗
+  .f-tooltip-bold::after {
+    font-weight: bold;
+  }
 }

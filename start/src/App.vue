@@ -6,8 +6,8 @@
   <br />
   <br />
   <f-tooltip
-    disabled
-    state="active"
+    bold
+    no-arrow
     content="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
     position="top"
     :zIndex="99999"
