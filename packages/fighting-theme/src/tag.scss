@@ -10,6 +10,7 @@
   align-items: center;
   height: $middle;
   transition: 0.5;
+  cursor: default;
 
   // 不同的类型
   @each $key, $value in $tagType {

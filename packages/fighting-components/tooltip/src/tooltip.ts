@@ -42,7 +42,8 @@ export const Props = {
   },
   zIndex: {
     type: Number,
-    default: (): number => 300
+    default: (): number => 300,
+    validator: (val: number): boolean => val >= 0
   },
   width: {
     type: String,
