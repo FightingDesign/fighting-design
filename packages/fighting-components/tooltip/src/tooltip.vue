@@ -5,7 +5,13 @@
 </script>
 
 <template>
-  <div class="f-tooltip">
+  <div
+    :class="[
+      'f-tooltip',
+      `f-tooltip-${state}`,
+      { 'f-tooltip-disabled': disabled }
+    ]"
+  >
     <slot />
     <div
       :f-tooltip-content="content"

@@ -8,7 +8,7 @@
     position: absolute;
     display: inline-flex;
     background: #333;
-    // opacity: 0;
+    opacity: 0;
     z-index: 300;
   }
 
@@ -93,19 +93,29 @@
     right: 107%;
   }
 
-  &:hover {
+  // &:hover,
+  &.f-tooltip-hover:hover {
     .f-tooltip-msg::before,
     .f-tooltip-msg::after {
       opacity: 1;
     }
   }
 
-  [f-tooltip-z-index]::after {
-    z-index: attr(f-tooltip-z-index);
+  &.f-tooltip-active:active {
+    .f-tooltip-msg::before,
+    .f-tooltip-msg::after {
+      opacity: 1;
+    }
   }
 
-  // [f-tooltip-background]::after {
-  //   background: attr(data-f-tooltip-background);
-  //   background: v-bind(background);
-  // }
+  // 是否禁用
+  &.f-tooltip-disabled {
+    &:hover,
+    &:active {
+      .f-tooltip-msg::before,
+      .f-tooltip-msg::after {
+        opacity: 0;
+      }
+    }
+  }
 }

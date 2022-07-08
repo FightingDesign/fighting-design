@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import type { positionType } from './interface'
+import type { positionType, stateType } from './interface'
 
 export const Props = {
   content: {
@@ -36,5 +36,16 @@ export const Props = {
   fontSize: {
     type: String,
     default: (): string => ''
+  },
+  disabled: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  state: {
+    type: String,
+    default: (): stateType => 'hover',
+    validator: (val: stateType): boolean => {
+      return (['hover', 'active'] as const).includes(val)
+    }
   }
 } as const
