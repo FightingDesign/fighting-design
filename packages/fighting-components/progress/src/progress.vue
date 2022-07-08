@@ -1,10 +1,11 @@
 <script lang="ts" setup name="FProgress">
-  import { Props } from './progress'
-  import { computed, ref, onMounted } from 'vue'
+  import { Props, Emits } from './progress'
+  import { computed, ref, onMounted, watchEffect } from 'vue'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type { isShowPercentageInterface } from './interface'
 
   const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
 
   const isShow: Ref<boolean> = ref<boolean>(false)
   const fillRef: Ref<HTMLDivElement> = ref<HTMLDivElement>(
@@ -42,6 +43,12 @@
 
   onMounted((): void => {
     isShowPercentage()
+  })
+
+  watchEffect((): void => {
+    if (prop.percentage === 100) {
+      emit('fill-end')
+    }
   })
 </script>
 

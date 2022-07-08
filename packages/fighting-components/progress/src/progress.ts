@@ -45,3 +45,7 @@ export const Props = {
     default: (): string => ''
   }
 } as const
+
+export const Emits = {
+  'fill-end': (): boolean => true
+}
