@@ -22,7 +22,7 @@
           [`f-avatar-${size}`]: size,
           [`f-avatar-${fit}`]: fit
         }
-      ]
+      ] as const
     }
   )
 

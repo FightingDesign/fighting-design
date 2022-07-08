@@ -6,13 +6,15 @@
   const prop = defineProps(Props)
 
   const classList: ComputedRef<object | string[]> = computed(
-    (): object | string[] => [
-      'f-badge-content',
-      `f-badge-${prop.type}`,
-      {
-        'f-badge-dot': prop.bot
-      }
-    ]
+    (): object | string[] => {
+      return [
+        'f-badge-content',
+        `f-badge-${prop.type}`,
+        {
+          'f-badge-dot': prop.bot
+        }
+      ] as const
+    }
   )
 
   const content: ComputedRef<string> = computed<string>((): string => {

@@ -19,7 +19,7 @@
         background,
         opacity,
         color: textColor
-      }
+      } as const
     }
   )
 </script>

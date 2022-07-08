@@ -60,5 +60,5 @@ export const Props = {
 } as const
 
 export const Emits = {
-  click: (evt: Event): Event => evt
+  click: (evt: PointerEvent): PointerEvent => evt
 } as const

@@ -16,7 +16,7 @@
           'f-text-block': block,
           'f-text-bold': bold
         }
-      ]
+      ] as const
     }
   )
 
@@ -41,7 +41,7 @@
       fontSize: size,
       letterSpacing: spacing,
       textDecoration: decoration
-    }
+    } as const
   })
 </script>
 

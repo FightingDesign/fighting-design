@@ -15,12 +15,12 @@
       const { direction, size } = prop
 
       if (['left', 'right'].includes(direction)) {
-        return { width: size }
+        return { width: size } as const
       } else if (['top', 'bottom'].includes(direction)) {
-        return { height: size }
+        return { height: size } as const
       }
 
-      return { width: size }
+      return { width: size } as const
     }
   )
 

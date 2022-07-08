@@ -17,6 +17,7 @@
       const scrollTop: number = (
         (node as HTMLElement) || document.documentElement
       ).scrollTop
+
       visible.value = scrollTop > prop.visibleHeight
     }, 200)
   }
@@ -36,7 +37,7 @@
     window.scrollTo({
       top,
       behavior
-    })
+    } as const)
     emit('click', evt)
   }
 

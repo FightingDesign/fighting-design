@@ -26,7 +26,7 @@
     return {
       right: modelValue ? '0px' : _size[size],
       borderColor: modelValue ? openColor : closeColor
-    }
+    } as const
   })
 
   const FSwitchClass: ComputedRef<object | string[]> = computed(
@@ -40,7 +40,7 @@
           'f-switch-close': !modelValue,
           'f-switch-square': square
         }
-      ]
+      ] as const
     }
   )
 </script>

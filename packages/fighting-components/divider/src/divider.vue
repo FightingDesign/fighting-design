@@ -17,9 +17,9 @@
         return {
           margin: `${margin} 0`,
           borderColor: color
-        }
+        } as const
       }
-      return { borderColor: color }
+      return { borderColor: color } as const
     }
   )
 </script>

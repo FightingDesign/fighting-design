@@ -45,7 +45,7 @@
           'f-button-bold': bold,
           'f-button-text': text && !color
         }
-      ]
+      ] as const
     }
   )
 
@@ -57,7 +57,7 @@
         fontSize,
         color: fontColor,
         background: color
-      }
+      } as const
     }
   )
 
@@ -106,7 +106,7 @@
     node.addEventListener('mouseout', () => (node.style.background = color))
   }
 
-  onMounted(() => {
+  onMounted((): void => {
     if (prop.color) {
       customColor()
     }
