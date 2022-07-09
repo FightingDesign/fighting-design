@@ -67,14 +67,14 @@
 
 ## 小红点
 
-设置 `bot` 属性，展示为一个点
+设置 `dot` 属性，展示为一个点
 
-<f-badge bot class="item">消息</f-badge>
+<f-badge dot class="item">消息</f-badge>
 
 ::: details 显示代码
 
 ```html
-<f-badge bot class="item">消息</f-badge>
+<f-badge dot class="item">消息</f-badge>
 ```
 
 :::
@@ -127,7 +127,7 @@
 | ------------ | --------------------------------------------- | ------------- | -------------------------------------- | ------ |
 | `value`      | 显示值                                        | string number | ——                                     | ——     |
 | `max`        | `value` 为数字时的最大值，超出显示为 `value+` | number        | ——                                     | 99     |
-| `bot`        | 展示为一个点                                  | boolean       | ——                                     | false  |
+| `dot`        | 展示为一个点                                  | boolean       | ——                                     | false  |
 | `show`       | 是否显示                                      | boolean       | ——                                     | true   |
 | `type`       | 样式主题                                      | string        | `primary` `success` `danger` `warning` | danger |
 | `color`      | 自定义颜色                                    | string        | ——                                     | ——     |

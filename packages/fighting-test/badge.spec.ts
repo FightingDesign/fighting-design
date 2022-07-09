@@ -41,16 +41,16 @@ describe('FBadge', () => {
     expect(wrapper.find('sup').text()).toBe('20+')
   })
 
-  test('isDot', () => {
+  test('dot', () => {
     const wrapper = mount(FBadge, {
-      props: { isDot: true }
+      props: { dot: true }
     })
     expect(wrapper.find('sup').classes()).toContain('f-badge-dot')
   })
 
-  test('isDot with type', () => {
+  test('dot with type', () => {
     const wrapper = mount(FBadge, {
-      props: { isDot: true, type: 'success' }
+      props: { dot: true, type: 'success' }
     })
     expect(wrapper.find('sup').classes()).toContain('f-badge-dot')
     expect(wrapper.find('sup').classes()).toContain('f-badge-success')

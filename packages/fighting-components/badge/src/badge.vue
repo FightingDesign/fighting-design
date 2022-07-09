@@ -11,16 +11,16 @@
         'f-badge-content',
         `f-badge-${prop.type}`,
         {
-          'f-badge-dot': prop.bot
+          'f-badge-dot': prop.dot
         }
       ] as const
     }
   )
 
   const content: ComputedRef<string> = computed<string>((): string => {
-    const { bot, max, value } = prop
+    const { dot, max, value } = prop
 
-    if (bot) return ''
+    if (dot) return ''
 
     if (typeof max === 'number' && typeof value === 'number') {
       return max > value ? `${value}` : `${max}+`
@@ -34,7 +34,7 @@
   <div class="f-badge">
     <slot />
     <sup
-      v-show="!show && (content || bot)"
+      v-show="!show && (content || dot)"
       :class="classList"
       :style="{ background: color, color: textColor }"
     >

@@ -19,25 +19,21 @@ describe('FBackTop', () => {
     const wrapper = mount(FBackTop, {
       props: { right: '100px' }
     })
-    expect(wrapper.find('.f-back-top-item').attributes('style')).toContain(
-      '100px'
-    )
+    expect(wrapper.attributes('style')).toContain('100px')
   })
 
   test('bottom', () => {
     const wrapper = mount(FBackTop, {
       props: { bottom: '100px' }
     })
-    expect(wrapper.find('.f-back-top-item').attributes('style')).toContain(
-      '100px'
-    )
+    expect(wrapper.attributes('style')).toContain('100px')
   })
 
   test('z-index', () => {
     const wrapper = mount(FBackTop, {
       props: { zIndex: 300 }
     })
-    expect(wrapper.find('.f-back-top-item').attributes('style')).toContain(300)
+    expect(wrapper.attributes('style')).toContain(300)
   })
 
   test('background', () => {

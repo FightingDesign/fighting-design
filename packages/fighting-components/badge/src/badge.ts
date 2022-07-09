@@ -10,7 +10,7 @@ export const Props = {
     type: Number,
     default: (): number => 99
   },
-  bot: {
+  dot: {
     type: Boolean,
     default: (): boolean => false
   },
