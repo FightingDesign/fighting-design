@@ -63,13 +63,13 @@
       ]"
       :style="progressFillStyle"
     >
-      <div
+      <span
         v-if="isShow"
         class="f-progress-percentage"
         :style="{ color: textColor }"
       >
         {{ percentage }}%
-      </div>
+      </span>
     </div>
   </div>
 </template>

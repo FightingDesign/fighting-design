@@ -17,10 +17,13 @@
     background: $primary;
     text-align: right;
 
+    // 百分百文字
     .f-progress-percentage {
       color: #fff;
       font-size: 12px;
       margin: 0 8px;
+      display: inline-block;
+      vertical-align: middle;
     }
   }
 

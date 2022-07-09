@@ -1,5 +1,5 @@
 <template>
-  <f-progress stripe type="primary" :percentage="num1" />
+  <f-progress stripe type="primary" :percentage="num1" height="30px" />
   <f-progress stripe type="success" :percentage="num1" />
   <f-progress stripe type="danger" :percentage="num1" />
   <f-progress stripe type="warning" :percentage="num1" />

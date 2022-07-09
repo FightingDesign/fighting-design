@@ -83,7 +83,7 @@
 
 <f-progress :percentage="10" show-text />
 <f-progress type="success" :percentage="40" :show-text="false" />
-<f-progress type="danger" :percentage="70" linear :height="15" />
+<f-progress type="danger" :percentage="70" linear height="15px" />
 <f-progress type="warning" :percentage="90" linear show-text />
 
 ::: details 显示代码
@@ -91,7 +91,7 @@
 ```html
 <f-progress :percentage="10" show-text />
 <f-progress type="success" :percentage="40" :show-text="false" />
-<f-progress type="danger" :percentage="70" linear :height="15" />
+<f-progress type="danger" :percentage="70" linear height="15px" />
 <f-progress type="warning" :percentage="90" linear show-text />
 ```
 

@@ -2,9 +2,9 @@ body {
   width: 100%;
   min-width: 320px;
   min-height: 100vh;
-  font-family: var(--vt-font-family-base);
+  /* font-family: var(--vt-font-family-base); */
   letter-spacing: 0.2px;
-  line-height: 24px;
+  /* line-height: 24px; */
   font-size: 16px;
   font-weight: 400;
   color: var(--vt-c-text-1);

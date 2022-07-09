@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**feat**
+
+新增 `progress` 组件配置项
+
 **fix**
 
 修复 `progress` 组件百分百展示状态
