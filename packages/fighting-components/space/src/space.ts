@@ -18,7 +18,7 @@ export const Props = {
     default: (): boolean => false
   },
   spacing: {
-    type: [String, Number, Array<string | number>] as PropType<spaceSize>,
+    type: [String, Number, Array] as PropType<spaceSize>,
     default: (): string => 'small'
   },
   className: {
@@ -30,7 +30,6 @@ export const Props = {
     default: (): CSSProperties => ({})
   }
 } as const
-
 
 // export enum spacingType {
 //   SPACING_LARGE = 'large',

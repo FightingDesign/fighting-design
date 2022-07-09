@@ -7,7 +7,6 @@ export type spaceSize =
   | number
   | (string | number)[]
 
-
 // export enum spacingType {
 //   SPACING_LARGE = 'large',
 //   SPACING_MIDDLE = 'middle',
