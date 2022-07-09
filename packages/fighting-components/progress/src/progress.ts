@@ -9,11 +9,11 @@ export const Props = {
   },
   type: {
     type: String as PropType<progressType>,
-    default: (): progressType => 'default',
+    default: (): progressType => 'primary',
     validator: (val: progressType): boolean => {
-      return (
-        ['default', 'primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
+      return (['primary', 'success', 'danger', 'warning'] as const).includes(
+        val
+      )
     }
   },
   square: {

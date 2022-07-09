@@ -30,6 +30,14 @@ describe('FProgress', () => {
     })
   })
 
+  test('square', () => {
+    const wrapper = mount(FProgress, {
+      props: { square: true, percentage: 40 }
+    })
+    expect(wrapper.attributes('style')).toContain('0')
+    expect(wrapper.find('.f-progress-fill').attributes('style')).toContain('0')
+  })
+
   test('linear', () => {
     const wrapper = mount(FProgress, {
       props: { linear: true, percentage: 40 }
@@ -70,5 +78,15 @@ describe('FProgress', () => {
     const styles = wrapper.attributes('style')
     expect(styles).toContain('400px')
     expect(styles).toContain('26px')
+  })
+
+  test('stripe', () => {
+    const wrapper = mount(FProgress, {
+      props: { stripe: true, percentage: 40 }
+    })
+    console.log(wrapper.find('.f-progress-fill').classes())
+    expect(wrapper.find('.f-progress-fill').classes()).toContain(
+      'f-progress-stripe'
+    )
   })
 })
