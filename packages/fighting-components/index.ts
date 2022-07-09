@@ -27,6 +27,7 @@ import { FDialog } from './dialog'
 import { FTooltip } from './tooltip'
 import { FDrawer } from './drawer'
 import { FPageHeader } from './page-header'
+import { FRate } from './rate'
 
 const components = {
   FButton,
@@ -56,7 +57,8 @@ const components = {
   FDialog,
   FTooltip,
   FDrawer,
-  FPageHeader
+  FPageHeader,
+  FRate
 }
 
 const install = (app: App): void => {
@@ -93,7 +95,8 @@ export {
   FDialog,
   FTooltip,
   FDrawer,
-  FPageHeader
+  FPageHeader,
+  FRate
 }
 
 export default {
