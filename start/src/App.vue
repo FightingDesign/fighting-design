@@ -1,35 +1,43 @@
 <template>
-  <f-progress type="danger" :percentage="num" />
-  <f-progress type="warning" :percentage="num" />
-  <f-progress type="primary" :percentage="num" />
-  <f-progress type="success" :percentage="num" />
+  <f-progress stripe type="primary" :percentage="num1" />
+  <f-progress stripe type="success" :percentage="num1" />
+  <f-progress stripe type="danger" :percentage="num1" />
+  <f-progress stripe type="warning" :percentage="num1" />
 
-  <f-progress stripe type="danger" :percentage="num" />
-  <f-progress stripe type="warning" :percentage="num" />
-  <f-progress stripe type="primary" :percentage="num" />
-  <f-progress stripe type="success" :percentage="num" />
-
-  <f-progress
-    type="warning"
-    :percentage="40"
-    color="#e1d327"
-    background="yellowgreen"
-  />
+  <f-button-group>
+    <f-button
+      simple
+      round
+      type="primary"
+      left-icon="f-icon-sami-select"
+      @click="sun"
+    />
+    <f-button
+      simple
+      round
+      type="primary"
+      left-icon="f-icon-add-select"
+      @click="add"
+    />
+  </f-button-group>
 </template>
 
-<script lang="ts" setup>
+<script setup>
   import { ref } from 'vue'
-  const num = ref(0)
 
-  setInterval(() => {
-    if (num.value < 100) {
-      num.value++
+  const num1 = ref(10)
+
+  const sun = () => {
+    if (num1.value > 0) {
+      num1.value -= 10
     }
-  }, 50)
+  }
 
-  // function over() {
-  //   console.log('123')
-  // }
+  const add = () => {
+    if (num1.value < 100) {
+      num1.value += 10
+    }
+  }
 </script>
 
 <style scoped></style>

@@ -28,6 +28,10 @@ export const Props = {
     type: Boolean,
     default: (): Boolean => true
   },
+  textColor: {
+    type: String,
+    default: (): string => ''
+  },
   color: {
     type: String,
     default: (): string => ''
@@ -49,7 +53,3 @@ export const Props = {
     default: (): boolean => false
   }
 } as const
-
-export const Emits = {
-  'fill-end': (): boolean => true
-}

@@ -11,26 +11,68 @@
 
 `type` 属性可以配置不同的进度条样式，展示不同的颜色状态
 
-<f-progress type="primary" :percentage="10" />
-<f-progress type="success" :percentage="30" />
-<f-progress type="danger" :percentage="60" />
-<f-progress type="warning" :percentage="100" />
+<f-progress type="primary" :percentage="num" />
+<f-progress type="success" :percentage="num" />
+<f-progress type="danger" :percentage="num" />
+<f-progress type="warning" :percentage="num" />
 
 `square` 和 `linear` 属性可以分别配置方形或线形的进度条
 
-<f-progress type="primary" :percentage="10" square />
-<f-progress type="success" :percentage="40" linear />
+<f-progress type="primary" :percentage="num" square />
+<f-progress type="success" :percentage="num" linear />
+
+<f-button-group>
+  <f-button simple round type="primary" left-icon="f-icon-sami-select" @click="sun" />
+  <f-button simple round type="primary" left-icon="f-icon-add-select" @click="add" />
+</f-button-group>
 
 ::: details 显示代码
 
 ```html
-<f-progress type="primary" :percentage="10" />
-<f-progress type="success" :percentage="30" />
-<f-progress type="danger" :percentage="60" />
-<f-progress type="warning" :percentage="100" />
+<template>
+  <f-progress type="primary" :percentage="num" />
+  <f-progress type="success" :percentage="num" />
+  <f-progress type="danger" :percentage="num" />
+  <f-progress type="warning" :percentage="num" />
 
-<f-progress type="primary" :percentage="10" square />
-<f-progress type="success" :percentage="40" linear />
+  <f-progress type="primary" :percentage="num" square />
+  <f-progress type="success" :percentage="num" linear />
+
+  <f-button-group>
+    <f-button
+      simple
+      round
+      type="primary"
+      left-icon="f-icon-sami-select"
+      @click="sun"
+    />
+    <f-button
+      simple
+      round
+      type="primary"
+      left-icon="f-icon-add-select"
+      @click="add"
+    />
+  </f-button-group>
+</template>
+
+<script setup>
+  import { ref } from 'vue'
+
+  const num = ref(10)
+
+  const sun = () => {
+    if (num.value > 0) {
+      num.value -= 10
+    }
+  }
+
+  const add = () => {
+    if (num.value < 100) {
+      num.value += 10
+    }
+  }
+</script>
 ```
 
 :::
@@ -99,18 +141,60 @@
 
 `stripe` 可以配置条纹样式
 
-<f-progress stripe type="primary" :percentage="10" />
-<f-progress stripe type="success" :percentage="30" />
-<f-progress stripe type="danger" :percentage="60" />
-<f-progress stripe type="warning" :percentage="100" />
+<f-progress stripe type="primary" :percentage="num" />
+<f-progress stripe type="success" :percentage="num" />
+<f-progress stripe type="danger" :percentage="num" />
+<f-progress stripe type="warning" :percentage="num" />
+
+<f-button-group>
+  <f-button simple round type="primary" left-icon="f-icon-sami-select" @click="sun" />
+  <f-button simple round type="primary" left-icon="f-icon-add-select" @click="add" />
+</f-button-group>
 
 ::: details 显示代码
 
 ```html
-<f-progress stripe type="primary" :percentage="10" />
-<f-progress stripe type="success" :percentage="30" />
-<f-progress stripe type="danger" :percentage="60" />
-<f-progress stripe type="warning" :percentage="100" />
+<template>
+  <f-progress stripe type="primary" :percentage="num" />
+  <f-progress stripe type="success" :percentage="num" />
+  <f-progress stripe type="danger" :percentage="num" />
+  <f-progress stripe type="warning" :percentage="num" />
+
+  <f-button-group>
+    <f-button
+      simple
+      round
+      type="primary"
+      left-icon="f-icon-sami-select"
+      @click="sun"
+    />
+    <f-button
+      simple
+      round
+      type="primary"
+      left-icon="f-icon-add-select"
+      @click="add"
+    />
+  </f-button-group>
+</template>
+
+<script setup>
+  import { ref } from 'vue'
+
+  const num = ref(10)
+
+  const sun = () => {
+    if (num.value > 0) {
+      num.value -= 10
+    }
+  }
+
+  const add = () => {
+    if (num.value < 100) {
+      num.value += 10
+    }
+  }
+</script>
 ```
 
 :::
@@ -126,15 +210,10 @@
 | `square`     | 方形                   | boolean | ——                                     | false   |
 | `linear`     | 线性                   | boolean | ——                                     | false   |
 | `show-text`  | 是否显示百分比文字内容 | boolean | ——                                     | true    |
+| `text-color` | 百分比文字的颜色       | string  | ——                                     | ——      |
 | `color`      | 进度条颜色             | string  | ——                                     | ——      |
 | `background` | 进度条背景色           | string  | ——                                     | ——      |
 | `stripe`     | 是否开启条纹效果       | boolean | ——                                     | false   |
-
-## Events
-
-| 事件名称   | 说明                           |
-| ---------- | ------------------------------ |
-| `fill-end` | 进度条加载到 100% 后触发的回调 |
 
 ## Contributors
 
@@ -147,6 +226,24 @@
 <a href="https://github.com/lzyaom" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/26430638?v=4" />
 </a>
+
+<script setup>
+  import { ref } from 'vue'
+
+  const num = ref(10)
+
+  const sun = () => {
+    if (num.value > 0) {
+      num.value -= 10
+    }
+  }
+
+  const add = () => {
+    if (num.value < 100) {
+      num.value += 10
+    }
+  }
+</script>
 
 <style scoped>
 .f-progress {
