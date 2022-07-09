@@ -8,6 +8,13 @@
   <f-progress stripe type="warning" :percentage="num" />
   <f-progress stripe type="primary" :percentage="num" />
   <f-progress stripe type="success" :percentage="num" />
+
+  <f-progress
+    type="warning"
+    :percentage="40"
+    color="#e1d327"
+    background="yellowgreen"
+  />
 </template>
 
 <script lang="ts" setup>

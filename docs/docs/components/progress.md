@@ -37,20 +37,20 @@
 
 ## 显示百分比
 
-`show-text` 属性用来展示进度条百分比，线性的不会显示
+`show-text` 属性用来展示进度条百分比，线性的不会显示，当自定义高度小于 `15px` 自动隐藏百分比
 
 <f-progress :percentage="10" show-text />
-<f-progress type="success" :percentage="40" show-text />
-<f-progress type="danger" :percentage="70" linear show-text />
-<f-progress type="warning" :percentage="100" linear show-text />
+<f-progress type="success" :percentage="40" :show-text="false" />
+<f-progress type="danger" :percentage="70" linear :height="15" />
+<f-progress type="warning" :percentage="90" linear show-text />
 
 ::: details 显示代码
 
 ```html
 <f-progress :percentage="10" show-text />
-<f-progress type="success" :percentage="40" show-text />
-<f-progress type="danger" :percentage="70" linear show-text />
-<f-progress type="warning" :percentage="100" linear show-text />
+<f-progress type="success" :percentage="40" :show-text="false" />
+<f-progress type="danger" :percentage="70" linear :height="15" />
+<f-progress type="warning" :percentage="90" linear show-text />
 ```
 
 :::
@@ -79,38 +79,38 @@
 
 ## 自定义颜色
 
-可以通过 `color` 属性设置进度条的颜色，该属性接受一个十六进制的颜色值，会覆盖 `type` 属性对应的颜色。
+可以通过 `color` 属性设置进度条的颜色，会覆盖 `type` 属性对应的颜色
 
-<f-progress :percentage="10" color="#D540ED" linear />
-<f-progress type="success" :percentage="40" color="#42CB12" linear />
+`background` 属性来设置进度条背景色
+
 <f-progress type="danger" :percentage="70" color="#ff386a" />
-<f-progress type="warning" :percentage="100" color="#e1d327" />
+<f-progress type="success" :percentage="40" background="#C3FFBD" />
 
 ::: details 显示代码
 
 ```html
-<f-progress :percentage="10" color="#D540ED" linear />
-<f-progress type="success" :percentage="40" color="#42CB12" linear />
 <f-progress type="danger" :percentage="70" color="#ff386a" />
-<f-progress type="warning" :percentage="100" color="#e1d327" />
+<f-progress type="success" :percentage="40" background="#C3FFBD" />
 ```
 
 :::
 
-可以通过 `background` 属性来设置进度条背景色，该属性接受一个十六进制的颜色值
+## 条纹状态
 
-<f-progress :percentage="10" background="#bfcdf0" linear />
-<f-progress type="success" :percentage="40" background="#C3FFBD" linear />
-<f-progress type="danger" :percentage="70" background="#f4d1d1" />
-<f-progress type="warning" :percentage="90" background="#f0e3bf" />
+`stripe` 可以配置条纹样式
+
+<f-progress stripe type="primary" :percentage="10" />
+<f-progress stripe type="success" :percentage="30" />
+<f-progress stripe type="danger" :percentage="60" />
+<f-progress stripe type="warning" :percentage="100" />
 
 ::: details 显示代码
 
 ```html
-<f-progress :percentage="10" background="#bfcdf0" linear />
-<f-progress type="success" :percentage="40" background="#C3FFBD" linear />
-<f-progress type="danger" :percentage="70" background="#f4d1d1" />
-<f-progress type="warning" :percentage="90" background="#f0e3bf" />
+<f-progress stripe type="primary" :percentage="10" />
+<f-progress stripe type="success" :percentage="30" />
+<f-progress stripe type="danger" :percentage="60" />
+<f-progress stripe type="warning" :percentage="100" />
 ```
 
 :::

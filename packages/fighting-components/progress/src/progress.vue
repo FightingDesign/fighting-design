@@ -18,7 +18,7 @@
 
       return {
         width,
-        height,
+        height: `${height}px`,
         background,
         borderRadius: square ? '0px' : '100px'
       } as const
@@ -38,7 +38,7 @@
   )
 
   const isShowPercentage: isShowPercentageInterface = (): boolean => {
-    return (isShow.value = fillRef.value.clientHeight > 15)
+    return (isShow.value = fillRef.value.clientHeight >= 15)
   }
 
   onMounted((): void => {
