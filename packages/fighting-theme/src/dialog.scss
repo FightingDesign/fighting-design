@@ -44,11 +44,8 @@ $defaultHeight: 30px;
       justify-content: center;
       align-items: center;
 
-      .f-dialog-close {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        user-select: none;
+      .f-icon {
+        font-size: 14px;
         cursor: pointer;
         position: absolute;
         right: 0;
@@ -57,14 +54,29 @@ $defaultHeight: 30px;
           transition: 0.3s;
           background: #eee;
         }
-
-        .f-icon-close {
-          font-size: 14px;
-        }
       }
+
+      // .f-dialog-close {
+      //   display: inline-flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   user-select: none;
+      //   cursor: pointer;
+      //   position: absolute;
+      //   right: 0;
+
+      //   &:hover {
+      //     transition: 0.3s;
+      //     background: #eee;
+      //   }
+
+      //   .f-icon-close {
+      //     font-size: 14px;
+      //   }
+      // }
     }
 
-    .f-dialog-content {
+    .f-dialog-body {
       justify-self: flex-start;
       align-self: flex-start;
       flex: 1;

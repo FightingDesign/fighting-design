@@ -62,25 +62,21 @@
             marginTop: top
           }"
         >
-          <div class="f-dialog-header">
+          <header class="f-dialog-header">
             <slot name="title">{{ title }}</slot>
-            <div class="f-dialog-close" @click="closeDialog">
-              <i :class="['f-icon', `${closeIcon || 'f-icon-close'}`]" />
-            </div>
-          </div>
+            <i
+              :class="['f-icon', `${closeIcon || 'f-icon-close'}`]"
+              @click="closeDialog"
+            />
+          </header>
 
-          <div class="f-dialog-content">
+          <section v-if="$slots.default" class="f-dialog-body">
             <slot />
-          </div>
+          </section>
 
-          <div class="f-dialog-footer">
-            <slot name="footer">
-              <f-button size="mini" type="default" @click="closeDialog">
-                取消
-              </f-button>
-              <f-button size="mini" type="primary">确认</f-button>
-            </slot>
-          </div>
+          <footer v-if="$slots.footer" class="f-dialog-footer">
+            <slot name="footer" />
+          </footer>
         </div>
       </div>
     </transition>
