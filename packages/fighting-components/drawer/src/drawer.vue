@@ -25,11 +25,7 @@
   )
 
   const handleClose: handleCloseInterface = (): void => {
-    // if (prop.beforeClose) {
-    //   prop.beforeClose()
-    // } else {
     emit('update:visible', false)
-    // }
   }
 
   watchEffect(() => {
