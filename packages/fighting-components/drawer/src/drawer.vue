@@ -63,31 +63,37 @@
 <template>
   <teleport to="body" :disabled="!appendToBody">
     <transition
-      name="drawer"
+      name="f-drawer"
       :duration="400"
       @before-enter="open"
       @after-enter="openEnd"
       @before-leave="close"
       @after-leave="closeEnd"
     >
-      <div v-show="visible" class="f__drawer__wrapper" :style="{ zIndex }">
-        <div class="f__drawer__container">
-          <div
-            :class="[{ f__drawer__cover__open: modal }, 'f__drawer__cover']"
-            @click.self="handleClose"
-          />
-          <div :class="['f__drawer', direction]" :style="drawerStyle">
-            <header v-if="withHeader" class="f__drawer__title">
-              <span>{{ title }}</span>
-              <i
-                class="f-icon f-icon-close f__drawer__title__close"
-                @click.self="handleClose"
-              />
-            </header>
-            <section class="f__drawer__body">
-              <slot />
-            </section>
-          </div>
+      <div
+        v-show="visible"
+        :class="[
+          'f-drawer-mask',
+          'f-drawer-cover',
+          {
+            'f-drawer-mask-modal': modal
+          }
+        ]"
+        :style="{ zIndex }"
+        @click.self="handleClose"
+      >
+        <div
+          :class="['f-drawer', `f-drawer-${direction}`]"
+          :style="drawerStyle"
+        >
+          <header v-if="withHeader" class="f-drawer-header">
+            <span class="f-drawer-title">{{ title }}</span>
+            <i class="f-icon f-icon-close" @click.self="handleClose" />
+          </header>
+
+          <section class="f-drawer-body">
+            <slot />
+          </section>
         </div>
       </div>
     </transition>

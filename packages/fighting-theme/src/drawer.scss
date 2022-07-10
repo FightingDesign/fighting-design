@@ -1,5 +1,6 @@
 @import '../config/const-color.scss';
-.f__drawer__wrapper {
+
+.f-drawer-mask {
   position: fixed;
   left: 0;
   right: 0;
@@ -8,7 +9,8 @@
   overflow: hidden;
   margin: 0;
 
-  .f__drawer__cover {
+  // 遮罩层
+  &.f-drawer-mask-modal {
     position: fixed;
     left: 0;
     right: 0;
@@ -16,69 +18,64 @@
     bottom: 0;
     overflow: hidden;
     margin: 0;
+    background: rgba(0, 0, 0, 0.3);
   }
-  .f__drawer__cover__open {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  .f__drawer__container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 2020;
 
-    .f__drawer {
-      position: absolute;
-      box-sizing: border-box;
-      background-color: #fff;
+  // 弹窗
+  .f-drawer {
+    position: absolute;
+    box-sizing: border-box;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%),
+      0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%);
+    overflow: hidden;
+    outline: 0;
+
+    .f-drawer-header {
       display: flex;
-      flex-direction: column;
-      box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%),
-        0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%);
-      overflow: hidden;
-      outline: 0;
+      justify-content: space-between;
+      align-items: center;
+      color: #72767b;
+      padding: 20px;
+      padding-bottom: 0;
 
-      .f__drawer__title {
-        align-items: center;
-        color: #72767b;
-        display: flex;
-        margin-bottom: 32px;
-        padding: 20px;
-        padding-bottom: 0;
-        justify-content: space-between;
+      .f-icon-close {
+        cursor: pointer;
 
-        .f__drawer__title__close {
-          cursor: pointer;
-
-          &:hover {
-            color: $primary;
-          }
+        &:hover {
+          background: #eee;
+          color: $primary;
         }
       }
+    }
 
-      .f__drawer__body {
-        padding: 20px;
-        overflow: auto;
-      }
+    .f-drawer-body {
+      padding: 20px;
+      overflow: auto;
+      box-sizing: border-box;
     }
-    .top {
+
+    &.f-drawer-top {
       height: 100%;
       top: 0;
       left: 0;
       right: 0;
     }
-    .right {
+    &.f-drawer-right {
       height: 100%;
       top: 0;
       bottom: 0;
       right: 0;
     }
-    .left {
+    &.f-drawer-left {
       height: 100%;
       top: 0;
       bottom: 0;
       left: 0;
     }
-    .bottom {
+    &.f-drawer-bottom {
       height: 100%;
       bottom: 0;
       left: 0;
@@ -88,39 +85,39 @@
 }
 
 /* 应用于嵌套元素的规则 */
-.drawer-enter-active .f__drawer,
-.drawer-enter-active .f__drawer__cover,
-.drawer-leave-active .f__drawer,
-.drawer-leave-active .f__drawer__cover {
+.f-drawer-enter-active .f-drawer,
+.f-drawer-enter-active .f-drawer-cover,
+.f-drawer-leave-active .f-drawer,
+.f-drawer-leave-active .f-drawer-cover {
   transition: all 0.3s ease-in-out;
 }
 
-.drawer-enter-from .right,
-.drawer-leave-to .right {
+.f-drawer-enter-from .f-drawer-right,
+.f-drawer-leave-to .f-drawer-right {
   transform: translateX(100%);
 }
 
-.drawer-enter-from .left,
-.drawer-leave-to .left {
+.f-drawer-enter-from .f-drawer-left,
+.f-drawer-leave-to .f-drawer-left {
   transform: translateX(-100%);
 }
 
-.drawer-enter-from .top,
-.drawer-leave-to .top {
+.f-drawer-enter-from .f-drawer-top,
+.f-drawer-leave-to .f-drawer-top {
   transform: translateY(-100%);
 }
 
-.drawer-enter-from .bottom,
-.drawer-leave-to .bottom {
+.f-drawer-enter-from .f-drawer-bottom,
+.f-drawer-leave-to .f-drawer-bottom {
   transform: translateY(100%);
 }
 
-.drawer-enter-from .f__drawer__cover,
-.drawer-leave-to .f__drawer__cover {
+.f-drawer-enter-from .f-drawer-cover,
+.f-drawer-leave-to .f-drawer-cover {
   opacity: 0;
 }
 /* 延迟嵌套元素的进入以获得交错效果 */
-.drawer-enter-active .f__drawer,
-.drawer-enter-active .f__drawer__cover {
+.f-drawer-enter-active .f__drawer,
+.f-drawer-enter-active .f-drawer-cover {
   transition-delay: 0.1s;
 }
