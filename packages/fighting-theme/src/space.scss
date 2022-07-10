@@ -1,46 +1,82 @@
 .f-space {
   display: inline-flex;
-}
-.f-space-align-start {
-  align-items: flex-start;
-}
-.f-space-align-center {
-  align-items: center;
-}
-.f-space-align-end {
-  align-items: flex-end;
-}
-.f-space-align-baseline {
-  align-items: baseline;
-}
-.f-space-wrap {
-  flex-wrap: wrap;
+
+  // 对齐方式
+  &.f-space-start {
+    align-items: flex-start;
+  }
+  &.f-space-center {
+    align-items: center;
+  }
+  &.f-space-end {
+    align-items: flex-end;
+  }
+
+  // 排列方式
+  &.f-space-baseline {
+    align-items: baseline;
+  }
+
+  &.f-space-horizontal {
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  // 是否换行
+  &.f-space-wrap {
+    flex-wrap: wrap;
+  }
+
+  // 不同尺寸
+  &.f-space-large {
+    column-gap: 14px;
+    row-gap: 14px;
+  }
+
+  &.f-space-middle {
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  &.f-space-small {
+    column-gap: 6px;
+    row-gap: 6px;
+  }
+
+  &.f-space-mini {
+    column-gap: 2px;
+    row-gap: 2px;
+  }
 }
 
-.f-space-horizontal {
-  flex-direction: row;
-}
-.f-space-vertical {
-  flex-direction: column;
-}
+// .f-space-wrap {
+//   flex-wrap: wrap;
+// }
 
-.f-space-large-horizontal {
-  column-gap: 24px;
-}
-.f-space-large-vertical {
-  row-gap: 24px;
-}
+// .f-space-horizontal {
+//   flex-direction: row;
+// }
+// .f-space-vertical {
+//   flex-direction: column;
+// }
 
-.f-space-middle-horizontal {
-  column-gap: 16px;
-}
-.f-space-middle-vertical {
-  row-gap: 16px;
-}
+// .f-space-large-horizontal {
+//   column-gap: 24px;
+// }
+// .f-space-large-vertical {
+//   row-gap: 24px;
+// }
 
-.f-space-small-horizontal {
-  column-gap: 8px;
-}
-.f-space-small-vertical {
-  row-gap: 8px;
-}
+// .f-space-middle-horizontal {
+//   column-gap: 16px;
+// }
+// .f-space-middle-vertical {
+//   row-gap: 16px;
+// }
+
+// .f-space-small-horizontal {
+//   column-gap: 8px;
+// }
+// .f-space-small-vertical {
+//   row-gap: 8px;
+// }

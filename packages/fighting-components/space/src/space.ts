@@ -1,4 +1,4 @@
-import type { CSSProperties, PropType } from 'vue'
+import type { PropType } from 'vue'
 import type { spacePosition, spaceSize } from './interface'
 
 export const Props = {
@@ -18,21 +18,18 @@ export const Props = {
     default: (): boolean => false
   },
   spacing: {
-    type: [String, Number, Array] as PropType<spaceSize>,
-    default: (): string => 'small'
-  },
-  className: {
-    type: String,
-    default: (): string => ''
-  },
-  style: {
-    type: Object as PropType<CSSProperties>,
-    default: (): CSSProperties => ({})
+    type: String as PropType<spaceSize>,
+    default: (): spaceSize => 'middle',
+    validator: (val: spaceSize): boolean => {
+      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+    }
   }
+  // className: {
+  //   type: String,
+  //   default: (): string => ''
+  // },
+  // style: {
+  //   type: Object as PropType<CSSProperties>,
+  //   default: (): CSSProperties => ({})
+  // }
 } as const
-
-// export enum spacingType {
-//   SPACING_LARGE = 'large',
-//   SPACING_MIDDLE = 'middle',
-//   SPACING_SMALL = 'small'
-// }
