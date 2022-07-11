@@ -2,24 +2,22 @@
   display: inline-flex;
 
   // 对齐方式
-  &.f-space-start {
-    align-items: flex-start;
-  }
-  &.f-space-center {
-    align-items: center;
-  }
-  &.f-space-end {
-    align-items: flex-end;
-  }
+  // &.f-space-start {
+  //   align-items: flex-start;
+  // }
+  // &.f-space-center {
+  //   align-items: center;
+  // }
+  // &.f-space-end {
+  //   align-items: flex-end;
+  // }
+  // &.f-space-baseline {
+  //   align-items: baseline;
+  // }
 
   // 排列方式
-  &.f-space-baseline {
-    align-items: baseline;
-  }
-
-  &.f-space-horizontal {
-    column-gap: 10px;
-    row-gap: 10px;
+  &.f-space-vertical {
+    flex-direction: column-reverse;
   }
 
   // 是否换行
@@ -48,35 +46,3 @@
     row-gap: 2px;
   }
 }
-
-// .f-space-wrap {
-//   flex-wrap: wrap;
-// }
-
-// .f-space-horizontal {
-//   flex-direction: row;
-// }
-// .f-space-vertical {
-//   flex-direction: column;
-// }
-
-// .f-space-large-horizontal {
-//   column-gap: 24px;
-// }
-// .f-space-large-vertical {
-//   row-gap: 24px;
-// }
-
-// .f-space-middle-horizontal {
-//   column-gap: 16px;
-// }
-// .f-space-middle-vertical {
-//   row-gap: 16px;
-// }
-
-// .f-space-small-horizontal {
-//   column-gap: 8px;
-// }
-// .f-space-small-vertical {
-//   row-gap: 8px;
-// }

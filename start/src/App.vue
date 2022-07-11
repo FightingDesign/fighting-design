@@ -8,19 +8,14 @@
   <f-drawer v-model:visible="show" title="Title"> hello </f-drawer>
 
   <br />
-  <f-space wrap>
+  <f-space spacing="large">
     <f-button type="primary">主要按钮</f-button>
     <f-button type="success">成功按钮</f-button>
     <f-button type="primary">主要按钮</f-button>
     <f-button type="success">成功按钮</f-button>
     <f-button type="warning">警告按钮</f-button>
     <f-button type="primary">主要按钮</f-button>
-    <f-button type="success">成功按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
     <f-button type="primary">主要按钮</f-button>
-    <f-button type="success">成功按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
   </f-space>
 </template>
 

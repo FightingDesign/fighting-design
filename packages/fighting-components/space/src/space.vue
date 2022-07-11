@@ -1,29 +1,37 @@
 <script lang="ts" setup name="FSpace">
   import { computed } from 'vue'
   import { Props } from './space'
-  import type { ComputedRef } from 'vue'
+  import type { ComputedRef, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
 
   const spaceClassList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { position, wrap, vertical, spacing } = prop
+      const { wrap, vertical, spacing } = prop
 
       return [
         'f-space',
-        vertical ? 'f-space-vertical' : 'f-space-horizontal',
-        `f-space-${position}`,
+        // `f-space-${position}`,
         `f-space-${spacing}`,
         {
-          'f-space-wrap': wrap
+          'f-space-wrap': wrap,
+          'f-space-vertical': vertical
         }
-      ]
+      ] as const
+    }
+  )
+
+  const spaceStyleList: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { rowGap, columnGap } = prop
+
+      return { rowGap, columnGap } as const
     }
   )
 </script>
 
 <template>
-  <div :class="spaceClassList">
+  <div v-if="$slots.default" :class="spaceClassList" :style="spaceStyleList">
     <slot />
   </div>
 </template>

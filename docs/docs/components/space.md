@@ -27,7 +27,7 @@
 
 :::
 
-## 对齐方式
+<!-- ## 对齐方式
 
 可使用 `position` 设置对齐方式，可选值：`center（默认）`、`start`、`end`、`baseline`
 
@@ -87,81 +87,77 @@
 </f-space>
 ```
 
-:::
+::: -->
 
 ## 间距尺寸
 
-可使用 `spacing` 设置间距大小，内置可选值：`small（8px，默认）、middle（16px）、large（24px）`，并且支持传入 `number` 来自定义间距大小，也支持传入 `array` 来同时设置水平和垂直方向的间距。
+可使用 `spacing` 设置间距大小
 
-<f-space :style="{marginBottom:'10px'}">
-<div>spacing 间距大小</div>
-<select v-model="spacing" class="space-md-select">
-  <option value="small">small</option>
-  <option value="middle">middle</option>
-  <option value="large">large</option>
-  <option :value="20">20</option>
-  <option :value="[20,40]">[20,40]</option>
-  <option :value="['small','middle']">['small','middle']</option>
-</select>
-</f-space>
-<br/>
-<f-space :spacing="spacing" wrap >
-<f-button type="primary" v-for="item in 12" :key="item">按钮</f-button>
+<f-space style="margin-top: 15px" spacing="large">
+  <f-button type="primary">大型间距</f-button>
+  <f-button type="primary">大型间距</f-button>
+  <f-button type="primary">大型间距</f-button>
+  <f-button type="primary">大型间距</f-button>
 </f-space>
 
-<script setup>
-  import { ref } from 'vue'
-  let spacing = ref('small')
-</script>
+<f-space style="margin-top: 15px" spacing="middle">
+  <f-button type="primary">中型间距</f-button>
+  <f-button type="primary">中型间距</f-button>
+  <f-button type="primary">中型间距</f-button>
+  <f-button type="primary">中型间距</f-button>
+</f-space>
 
-<style scoped>
-.space-md-select{
-    box-sizing: border-box;
-    border-radius: 3px;
-    border: 1px solid transparent;
-    height: 32px;
-    font-weight: 400;
-    background-color: rgba(46,50,56,0.08);
-    display: inline-flex;
-    vertical-align: middle;
-    position: relative;
-    outline: none;
-    cursor: pointer;
-}
-</style>
+<f-space style="margin-top: 15px" spacing="small">
+  <f-button type="primary">小型间距</f-button>
+  <f-button type="primary">小型间距</f-button>
+  <f-button type="primary">小型间距</f-button>
+  <f-button type="primary">小型间距</f-button>
+</f-space>
+
+<f-space style="margin-top: 15px" spacing="mini">
+  <f-button type="primary">迷你间距</f-button>
+  <f-button type="primary">迷你间距</f-button>
+  <f-button type="primary">迷你间距</f-button>
+  <f-button type="primary">迷你间距</f-button>
+</f-space>
 
 ::: details 显示代码
 
 ```html
-<template>
-  <f-space>
-    <div>spacing 间距大小</div>
-    <select v-model="spacing" class="space-md-select">
-      <option value="small">small</option>
-      <option value="middle">middle</option>
-      <option value="large">large</option>
-      <option :value="20">20</option>
-      <option :value="[20,40]">[20,40]</option>
-      <option :value="['small','middle']">['small','middle']</option>
-    </select>
-  </f-space>
-  <br />
-  <f-space :spacing="spacing" wrap>
-    <f-button type="primary" v-for="item in 12" :key="item">按钮</f-button>
-  </f-space>
-</template>
+<f-space style="margin-top: 15px" spacing="large">
+  <f-button type="primary">大型间距</f-button>
+  <f-button type="primary">大型间距</f-button>
+  <f-button type="primary">大型间距</f-button>
+  <f-button type="primary">大型间距</f-button>
+</f-space>
 
-<script setup>
-  import { ref } from 'vue'
-  let spacing = ref('small')
-</script>
+<f-space style="margin-top: 15px" spacing="middle">
+  <f-button type="primary">中型间距</f-button>
+  <f-button type="primary">中型间距</f-button>
+  <f-button type="primary">中型间距</f-button>
+  <f-button type="primary">中型间距</f-button>
+</f-space>
+
+<f-space style="margin-top: 15px" spacing="small">
+  <f-button type="primary">小型间距</f-button>
+  <f-button type="primary">小型间距</f-button>
+  <f-button type="primary">小型间距</f-button>
+  <f-button type="primary">小型间距</f-button>
+</f-space>
+
+<f-space style="margin-top: 15px" spacing="mini">
+  <f-button type="primary">迷你间距</f-button>
+  <f-button type="primary">迷你间距</f-button>
+  <f-button type="primary">迷你间距</f-button>
+  <f-button type="primary">迷你间距</f-button>
+</f-space>
 ```
 
 :::
 
 ## 间距方向
 
-可使用 vertical 设置间距是否为垂直方向，默认情况下为 false。
+可使用 `vertical` 设置间距是否为垂直方向。
 
 <f-space vertical>
   <f-button type="primary">主要按钮</f-button>
@@ -177,90 +173,21 @@
   <f-button type="success">成功按钮</f-button>
   <f-button type="danger">危险按钮</f-button>
 </f-space>
-```
-
-:::
-
-## 换行
-
-当间距为水平方向时，可使用 wrap 设置是否自动换行，默认情况下为 false。
-
-<f-space wrap>
-  <f-button type="primary" v-for="item in 9" :key="item">主要按钮</f-button>
-</f-space>
-
-::: details 显示代码
-
-```html
-<f-space wrap>
-  <f-button type="primary" v-for="item in 10" :key="item">主要按钮</f-button>
-</f-space>
-```
-
-:::
-
-## 样式
-
-<f-space :style="{ marginBottom: '30px' }">
-  <f-button type="primary">按钮</f-button>
-</f-space>
-
-<p>text</p>
-
-::: details 显示代码
-
-```html
-<f-space :style="{ marginBottom: '30px' }">
-  <f-button type="primary">按钮</f-button>
-</f-space>
-
-<p>text</p>
-```
-
-:::
-
-## 自定义类名
-
-<f-space className="space-margin-bottom">
-  <f-button type="primary">按钮</f-button>
-</f-space>
-
-<div>text</div>
-
-<style scoped>
-.space-margin-bottom{
-  margin-bottom:10px
-}
-</style>
-
-::: details 显示代码
-
-```html
-<f-space className="space-margin-bottom">
-  <f-button type="primary">按钮</f-button>
-</f-space>
-
-<div>text</div>
-
-<style scoped>
-  .space-margin-bottom {
-    margin-bottom: 10px;
-  }
-</style>
 ```
 
 :::
 
 ## Attributes
 
-| 参数        | 说明           | 类型                                         | 可选值                            | 默认值   |
-| ----------- | -------------- | -------------------------------------------- | --------------------------------- | -------- |
-| `position`  | 对齐方式       | `string`                                     | `start` `center` `end` `baseline` | `center` |
-| `spacing`   | 间距尺寸       | `string`, `number` , `Array<number\|string>` | `small` `middle` `large`          | `small`  |
-| `vertical`  | 间距方向       | `boolean`                                    | ——                                | `false`  |
-| `wrap`      | 换行           | `boolean`                                    | ——                                | `false`  |
-| `style`     | 样式           | `object`                                     | ——                                | ——       |
-| `className` | 自定义样式类名 | `string`                                     | ——                                | ——       |
+| 参数         | 说明           | 类型    | 可选值                   | 默认值 |
+| ------------ | -------------- | ------- | ------------------------ | ------ |
+| `spacing`    | 间距尺寸       | string  | `small` `middle` `large` | small  |
+| `vertical`   | 是否竖直排列   | boolean | ——                       | false  |
+| `wrap`       | 是否换行       | boolean | ——                       | true   |
+| `row-gap`    | 自定义纵向间距 | string  | ——                       | ——     |
+| `column-gap` | 自定义横向间距 | string  | ——                       | ——     |
+
+<!-- | `position`   | 对齐方式       | string  | `start` `center` `end` `baseline` | center | -->
 
 ## Contributors
 
