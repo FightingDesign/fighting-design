@@ -1,3 +1,5 @@
+import type { PropType } from 'vue'
+
 export const Props = {
   icon: {
     type: String,
@@ -5,7 +7,7 @@ export const Props = {
   },
   iconSize: {
     type: String,
-    default: (): String => '12px'
+    default: (): String => ''
   },
   backText: {
     type: String,
@@ -13,14 +15,12 @@ export const Props = {
   },
   title: {
     type: String,
-    default: (): String => '标题'
-  },
-  subtitle: {
-    type: String,
     default: (): String => ''
   },
   titleClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<
+      String | Object | Array<String | Object>
+    >,
     default: (): String => ''
   },
   titleBold: {
@@ -34,6 +34,16 @@ export const Props = {
   titleCenter: {
     type: Boolean,
     default: (): Boolean => false
+  },
+  subtitle: {
+    type: String,
+    default: (): String => ''
+  },
+  subtitleClass: {
+    type: [String, Object, Array] as PropType<
+      String | Object | Array<String | Object>
+    >,
+    default: (): String => ''
   }
 } as const
 
