@@ -25,7 +25,7 @@
     </div>
     <div :class="[{ center: titleCenter }]" class="f-page-header-main">
       <div
-        :class="[titleClass]"
+        :class="titleClass"
         :style="[
           { 'font-weight': titleBold ? 'bold' : 'normal', color: titleColor }
         ]"
@@ -35,6 +35,7 @@
       </div>
       <div
         v-if="subtitle || $slots.subtitle"
+        :class="subtitleClass"
         class="f-page-header-main__subtitle"
       >
         <slot name="subtitle">{{ subtitle }}</slot>

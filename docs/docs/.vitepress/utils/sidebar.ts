@@ -55,7 +55,10 @@ export const sidebar = {
     {
       text: '导航组件',
       link: '/components/',
-      items: [{ text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' }]
+      items: [
+        { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' },
+        { text: 'Page Header 页头', link: '/components/page-header' }
+      ]
     },
     {
       text: '反馈组件',
