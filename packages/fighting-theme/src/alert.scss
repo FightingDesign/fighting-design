@@ -3,7 +3,7 @@
 .f-alert {
   min-width: 500px;
   padding: 10px;
-  color: #FFF;
+  color: #fff;
   position: relative;
 
   @for $list from 1 to (length($alertTypeColor) + 1) {
@@ -46,7 +46,7 @@
     display: block;
     margin-top: 5px;
   }
-  
+
   // 加粗
   &.f-alert-bold {
     font-weight: bold;
