@@ -66,11 +66,11 @@
         color: map-get($item, simpleTextColor);
 
         &:hover {
-          background: rgb(240, 240, 240);
+          background: $default;
         }
 
         &:active {
-          background: rgb(225, 225, 225);
+          background: darken($default, 5%);
         }
 
         // 文字按钮禁用状态

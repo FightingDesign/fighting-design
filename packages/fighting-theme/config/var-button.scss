@@ -5,19 +5,19 @@
 $buttonTypeColor: (
   (
     name: 'default',
+    // 类名拼接
     default: $default,
-    simple: #fcfcfc,
-    defaultHover: #f2f2f2,
-    defaultActive: #dfdfdf,
+    // 默认背景色
+    simple: #f9f9f9,
+    // 简约状态背景色
     defaultTextColor: #333,
-    simpleTextColor: #333
+    // 默认字体颜色
+    simpleTextColor: #333 // 简约的字体颜色
   ),
   (
     name: 'primary',
     default: $primary,
     simple: #dfe6fc,
-    defaultHover: #5277f3,
-    defaultActive: #2851d8,
     defaultTextColor: #fff,
     simpleTextColor: #2d5af1
   ),
@@ -25,8 +25,6 @@ $buttonTypeColor: (
     name: 'success',
     default: $success,
     simple: #e7f4e8,
-    defaultHover: #71c07a,
-    defaultActive: #469950,
     defaultTextColor: #fff,
     simpleTextColor: #52b35e
   ),
@@ -34,8 +32,6 @@ $buttonTypeColor: (
     name: 'danger',
     default: $danger,
     simple: #ffd9d8,
-    defaultHover: #ff2f2d,
-    defaultActive: #db0100,
     defaultTextColor: #fff,
     simpleTextColor: #ff0200
   ),
@@ -43,8 +39,6 @@ $buttonTypeColor: (
     name: 'warning',
     default: $warning,
     simple: #fff5d6,
-    defaultHover: #fccc2f,
-    defaultActive: #dba801,
     defaultTextColor: #fff,
     simpleTextColor: #fcc202
   )
