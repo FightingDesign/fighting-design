@@ -4,13 +4,15 @@
 
 **feat**
 
-新增 `progress` 组件配置项
-新增 `alert` 组件
+- 新增 `progress` 组件配置项
+- 新增 `alert` 组件
 
 **fix**
 
-修复 `progress` 组件百分百展示状态
-修复 `text` 组件样式细节
+- 修复 `progress` 组件百分百展示状态
+- 修复 `text` 组件样式细节
+- 修复 `button` 组件样式细节
+- 修改 `button` 组件文字按钮的样式
 
 ## 0.2.0-bate.2 (2022-07-08)
 

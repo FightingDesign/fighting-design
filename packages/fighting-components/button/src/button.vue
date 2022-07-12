@@ -49,7 +49,7 @@
     }
   )
 
-  const buttonStyle: ComputedRef<CSSProperties> = computed(
+  const buttonStyleList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
       const { fontSize, fontColor, color } = prop
 
@@ -120,16 +120,20 @@
       :class="classList"
       :href="href"
       :target="target"
-      :style="{ boxShadow: shadow, ...buttonStyle }"
+      :style="{ boxShadow: shadow, ...buttonStyleList }"
       @click="onClick"
     >
       <i
         v-if="leftIcon || loading"
         :class="['f-icon', leftIconClass]"
-        :style="buttonStyle"
+        :style="buttonStyleList"
       />
       <slot />
-      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
+      <i
+        v-if="rightIcon"
+        :class="['f-icon', rightIcon]"
+        :style="buttonStyleList"
+      />
     </a>
   </template>
 
@@ -141,16 +145,20 @@
       :autofocus="autofocus"
       :name="name"
       :type="nativeType"
-      :style="{ boxShadow: shadow, ...buttonStyle }"
+      :style="{ boxShadow: shadow, ...buttonStyleList }"
       @click="onClick"
     >
       <i
         v-if="leftIcon || loading"
         :class="['f-icon', leftIconClass]"
-        :style="buttonStyle"
+        :style="buttonStyleList"
       />
       <slot />
-      <i v-if="rightIcon" :class="['f-icon', rightIcon]" :style="buttonStyle" />
+      <i
+        v-if="rightIcon"
+        :class="['f-icon', rightIcon]"
+        :style="buttonStyleList"
+      />
     </button>
   </template>
 </template>

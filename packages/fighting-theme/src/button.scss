@@ -18,6 +18,7 @@
   background: $default;
   overflow: hidden;
   white-space: nowrap;
+  vertical-align: middle;
 
   @for $list from 1 to (length($buttonTypeColor) + 1) {
     $item: nth($buttonTypeColor, $list); // 获取数组中第i项的值
@@ -28,10 +29,10 @@
       color: map-get($item, defaultTextColor);
 
       &:hover {
-        background: lighten(map-get($item, default), 5%);
+        background: lighten(map-get($item, default), 10%);
       }
       &:active {
-        background: darken(map-get($item, default), 5%);
+        background: darken(map-get($item, default), 10%);
       }
 
       // 普通按钮禁用效果
@@ -45,6 +46,13 @@
         color: map-get($item, simpleTextColor);
         background: map-get($item, simple);
 
+        &:hover {
+          background: lighten(map-get($item, simple), 3%);
+        }
+        &:active {
+          background: darken(map-get($item, simple), 3%);
+        }
+
         // 简约按钮禁用效果
         &.f-button-disabled:hover {
           color: map-get($item, simpleTextColor);
@@ -56,7 +64,14 @@
       &.f-button-text {
         background: #fff;
         color: map-get($item, simpleTextColor);
-        border: 1px solid map-get($item, simpleTextColor);
+
+        &:hover {
+          background: rgb(240, 240, 240);
+        }
+
+        &:active {
+          background: rgb(225, 225, 225);
+        }
 
         // 文字按钮禁用状态
         &.f-button-disabled:hover {
@@ -116,6 +131,8 @@
     display: inline-block;
     animation: loading 1s linear infinite;
     -webkit-animation: loading 1s linear infinite;
+    margin-right: 3px;
+    font-size: 16px;
   }
 
   .f-icon {
