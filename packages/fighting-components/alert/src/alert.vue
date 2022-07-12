@@ -1,0 +1,55 @@
+<script lang="ts" setup name="FAlert">
+  import { Props, Emits } from './alert'
+  import { computed } from 'vue'
+  import type { ComputedRef, CSSProperties } from 'vue'
+  import type { handleCloseInterface } from './interface'
+
+  const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
+
+  const classList: ComputedRef<object | string[]> = computed(
+    (): object | string[] => {
+      const { type, bold, simple, center, round } = prop
+
+      return [
+        'f-alert',
+        {
+          [`f-alert-${type}`]: type,
+          'f-alert-bold': bold,
+          'f-alert-simple': simple,
+          'f-alert-center': center,
+          'f-alert-round': round
+        }
+      ]
+    }
+  )
+
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { size, color, background } = prop
+
+    return {
+      color,
+      background,
+      fontSize: size
+    }
+  })
+
+  const handleClose: handleCloseInterface = (evt: MouseEvent): void => {
+    emit('update:visible', false)
+    emit('onClose', evt)
+  }
+</script>
+
+<template>
+  <div v-show="visible" :class="classList" :style="styleList">
+    <div class="f-alert-title">
+      <span><f-icon :icon="icon" /> {{ title }}</span>
+      <span v-if="close" class="f-alert-close" @click.stop="handleClose">
+        <f-icon icon="f-icon-close" />
+      </span>
+    </div>
+    <div v-if="$slots['default']" class="f-alert-sub-title">
+      <slot />
+    </div>
+  </div>
+</template>
