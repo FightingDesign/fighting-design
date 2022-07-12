@@ -126,6 +126,16 @@
   //   }
   // ],
   "editor.formatOnSave": true, // 保存自动格式化
+  // 2022-07-12 添加 函数和括号直接带有空格
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  // 2022-07-12 添加 函数和括号直接带有空格
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.vueIndentScriptAndStyle": false,
   "eslint.enable": true,
