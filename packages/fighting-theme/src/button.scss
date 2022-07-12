@@ -29,10 +29,10 @@
       color: map-get($item, defaultTextColor);
 
       &:hover {
-        background: lighten(map-get($item, default), 10%);
+        background: map-get($item, defaultHover);
       }
       &:active {
-        background: darken(map-get($item, default), 10%);
+        background: map-get($item, defaultActive);
       }
 
       // 普通按钮禁用效果
@@ -47,10 +47,12 @@
         background: map-get($item, simple);
 
         &:hover {
-          background: lighten(map-get($item, simple), 3%);
+          // background: lighten(map-get($item, simple), 3%);
+          background: map-get($item, simpleHover);
         }
         &:active {
-          background: darken(map-get($item, simple), 3%);
+          // background: darken(map-get($item, simple), 3%);
+          background: map-get($item, simpleActive);
         }
 
         // 简约按钮禁用效果
