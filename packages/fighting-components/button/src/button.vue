@@ -62,7 +62,8 @@
   )
 
   const onClick: onClickInterface = (evt: buttonEventInterface): void => {
-    const { disabled, loading, ripples, ripplesColor } = prop
+    const { disabled, loading, ripples, ripplesColor, type, simple, text } =
+      prop
 
     if (disabled || loading) {
       evt.preventDefault()
@@ -73,8 +74,10 @@
       const ripples: Ripples = new Ripples(
         evt,
         FButton.value as HTMLButtonElement,
-        600,
-        ripplesColor
+        ripplesColor,
+        type,
+        simple,
+        text
       )
       ripples.clickRipples()
     }

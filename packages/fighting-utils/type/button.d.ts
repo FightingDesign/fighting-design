@@ -1,9 +1,12 @@
 export interface RipplesInterface {
-  evt: PointerEvent
+  evt: buttonEventInterface
   node: HTMLElement
-  time: number
   ripplesColor: string
+  type: buttonType
+  simple: boolean
+  text: boolean
   clickRipples(): void
+  computedRipplesColor(): string
   renderElement(x: number, y: number): HTMLSpanElement
   removeElement(node: HTMLElement): void
 }

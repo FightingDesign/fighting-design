@@ -111,7 +111,8 @@ export const Props = {
   },
   ripplesColor: {
     type: String,
-    default: (): string => '#fff'
+    default: (): string => ''
+    // default: (): string => '#fff'
   },
   color: {
     type: String,
