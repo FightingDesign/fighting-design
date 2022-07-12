@@ -17,7 +17,7 @@
       background: $value;
       color: #fff;
     }
-    // 简约的
+    // 简约模式
     &.f-tag-simple.f-tag-#{$key} {
       color: $value;
       background: lighten($value, 40%);

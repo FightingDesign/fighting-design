@@ -1,0 +1,57 @@
+@import '../config/const-color.scss';
+
+// 不同的类型
+$alertTypes: (
+  'primary': $primary,
+  'success': $success,
+  'danger': $danger,
+  'warning': $warning,
+  'default': $defaultTextColor,
+  'info': $info
+);
+
+// 不同的类型
+$alertTypeColor: (
+  (
+    name: 'primary',
+    bgColor: $primary,
+    color: #ffffff,
+    simpleBgColor: #DFE6FC,
+    simpleColor: $defaultTextColor
+  ),
+  (
+    name: 'success',
+    bgColor: $success,
+    color: #ffffff,
+    simpleBgColor: #E7F4E8,
+    simpleColor: $defaultTextColor
+  ),
+  (
+    name: 'danger',
+    bgColor: $danger,
+    color: #ffffff,
+    simpleBgColor: #FFD9D8,
+    simpleColor: $defaultTextColor
+  ),
+  (
+    name: 'warning',
+    bgColor: $warning,
+    color: #ffffff,
+    simpleBgColor: #FFF5D6,
+    simpleColor: $defaultTextColor
+  ),
+  (
+    name: 'default',
+    bgColor: $default,
+    color: #ffffff,
+    simpleBgColor: #c9c9c9,
+    simpleColor: $defaultTextColor
+  ),
+  (
+    name: 'info',
+    bgColor: $info,
+    color: #ffffff,
+    simpleBgColor: #aaaaaa,
+    simpleColor: $defaultTextColor
+  )
+);
