@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FAlert">
   import { Props, Emits } from './alert'
   import { computed } from 'vue'
+  import { FIcon } from '@fighting-design/fighting-components'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { handleCloseInterface } from './interface'
 
@@ -35,20 +36,22 @@
   })
 
   const handleClose: handleCloseInterface = (evt: MouseEvent): void => {
-    emit('update:visible', false)
     emit('onClose', evt)
   }
 </script>
 
 <template>
-  <div v-show="visible" :class="classList" :style="styleList">
+  <div :class="classList" :style="styleList">
     <div class="f-alert-title">
-      <span><f-icon :icon="icon" /> {{ title }}</span>
+      <span>
+        <f-icon :icon="icon" />
+        {{ title }}
+      </span>
       <span v-if="close" class="f-alert-close" @click.stop="handleClose">
         <f-icon icon="f-icon-close" />
       </span>
     </div>
-    <div v-if="$slots['default']" class="f-alert-sub-title">
+    <div v-if="$slots.default" class="f-alert-sub-title">
       <slot />
     </div>
   </div>

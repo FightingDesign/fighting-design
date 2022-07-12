@@ -3,14 +3,6 @@ import type { alertType } from './interface'
 
 export const Props = {
   /**
-   * 是否可见
-   */
-  visible: {
-    type: Boolean,
-    default: (): boolean => true,
-    require: true
-  },
-  /**
    * 类型/主题
    */
   type: {
@@ -95,6 +87,5 @@ export const Props = {
 } as const
 
 export const Emits = {
-  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean',
   onClose: (evt: MouseEvent): MouseEvent => evt
 } as const
