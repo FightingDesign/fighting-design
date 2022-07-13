@@ -4,10 +4,10 @@ import type { PropType } from 'vue'
 export const Props = {
   type: {
     type: String as PropType<tagType>,
-    default: (): tagType => 'info',
+    default: (): tagType => 'default',
     validator: (val: tagType): boolean => {
       return (
-        ['info', 'success', 'danger', 'warning', 'primary'] as const
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
     }
   },

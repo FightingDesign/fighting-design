@@ -10,7 +10,7 @@ export const Props = {
     default: (): textType => 'default',
     validator: (val: textType): boolean => {
       return (
-        ['primary', 'success', 'danger', 'warning', 'default', 'info'] as const
+        ['primary', 'success', 'danger', 'warning', 'default'] as const
       ).includes(val)
     }
   },

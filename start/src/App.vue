@@ -1,4 +1,15 @@
 <template>
+  <f-tag type="default">信息</f-tag>
+  <f-tag type="primary">普通</f-tag>
+  <f-tag type="warning">警告</f-tag>
+  <f-tag type="success">成功</f-tag>
+  <f-tag type="danger">失败</f-tag>
+  <f-tag simple type="default">信息</f-tag>
+  <f-tag simple type="primary">普通</f-tag>
+  <f-tag simple type="warning">警告</f-tag>
+  <f-tag simple type="success">成功</f-tag>
+  <f-tag simple type="danger">失败</f-tag>
+  <br />
   <f-text>普通文字</f-text>
   <f-text type="primary">主要文字</f-text>
   <f-text type="success">成功文字</f-text>

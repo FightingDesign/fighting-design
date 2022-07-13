@@ -1,4 +1,4 @@
-@import '../config/var-text.scss';
+@import '../config/const-color.scss';
 
 .f-text {
   font-size: 15px;
@@ -12,9 +12,12 @@
   cursor: default;
 
   // 不同类型
-  @each $key, $value in $textTypes {
-    &.f-text-#{$key} {
-      color: $value;
+  @for $list from 1 to (length($allTypeColorList) + 1) {
+    $item: nth($allTypeColorList, $list); // 获取数据中心第i项的值
+
+    // 不同类型
+    &.f-text-#{map-get($item, name)} {
+      color: map-get($item, simpleTextColor);
     }
   }
 
