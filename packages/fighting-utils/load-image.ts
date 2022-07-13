@@ -14,6 +14,7 @@ class Load implements LoadInterface {
   props: propsInterface
   emit: Function
   callback: callbackInterface | null
+
   constructor (
     img: HTMLImageElement,
     props: propsInterface,
@@ -86,7 +87,7 @@ class Lazy extends Load implements LazyInterface {
   }
   observer (): IntersectionObserver {
     const observer: IntersectionObserver = new IntersectionObserver(
-      (arr: Array<IntersectionObserverEntry>) => {
+      (arr: Array<IntersectionObserverEntry>): void => {
         if (arr[0].isIntersecting) {
           this.img.src = this.props.src
 
