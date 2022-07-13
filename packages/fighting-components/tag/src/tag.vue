@@ -14,11 +14,11 @@
       return [
         'f-tag',
         `f-tag-${type}`,
+        `f-tag-${size}`,
         {
           'f-tag-simple': simple,
           'f-tag-block': block,
-          'f-tag-round': round,
-          [`f-tag-${size}`]: size
+          'f-tag-round': round
         }
       ] as const
     }

@@ -14,8 +14,8 @@
 
       return [
         'f-alert',
+        `f-alert-${type}`,
         {
-          [`f-alert-${type}`]: type,
           'f-alert-bold': bold,
           'f-alert-simple': simple,
           'f-alert-center': center,

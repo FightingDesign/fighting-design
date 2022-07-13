@@ -34,9 +34,9 @@
 
       return [
         'f-button',
+        `f-button-${type}`,
+        `f-button-${size}`,
         {
-          [`f-button-${type}`]: type,
-          [`f-button-${size}`]: size,
           'f-button-disabled': disabled || loading,
           'f-button-simple': simple && !color,
           'f-button-circle': circle,
