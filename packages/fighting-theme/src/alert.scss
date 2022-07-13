@@ -25,26 +25,30 @@
   & .f-alert-title {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5px;
+  }
 
-    // 关闭按钮
-    .f-alert-close {
-      width: 20px;
-      height: 20px;
-      line-height: 20px;
-      text-align: center;
-      cursor: pointer;
+  // 关闭按钮
+  .f-alert-close {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0%, -50%);
 
-      &:hover {
-        transition: 0.5;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-      }
+    &:hover {
+      transition: 0.5;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
     }
   }
 
   & .f-alert-sub-title {
     display: block;
-    margin-top: 5px;
   }
 
   // 加粗
