@@ -1,21 +1,33 @@
 <template>
-  <f-button type="default" ripplesColor="red">默认按钮</f-button>
-  <f-button type="primary">主要按钮</f-button>
-  <f-button type="success">成功按钮</f-button>
-  <f-button type="danger">危险按钮</f-button>
-  <f-button type="warning">警告按钮</f-button>
+  <f-text>普通文字</f-text>
+  <f-text type="primary">主要文字</f-text>
+  <f-text type="success">成功文字</f-text>
+  <f-text type="danger">危险文字</f-text>
+  <f-text type="warning">警告文字</f-text>
+
   <br />
-  <f-button simple type="default">默认按钮</f-button>
-  <f-button simple type="primary">主要按钮</f-button>
-  <f-button simple type="success">成功按钮</f-button>
-  <f-button simple type="danger">危险按钮</f-button>
-  <f-button simple type="warning">警告按钮</f-button>
+
+  <f-alert title="标题" type="default">默认提示信息</f-alert>
+  <f-alert title="标题" type="primary">主要提示信息</f-alert>
+  <f-alert title="标题" type="success">成功提示信息</f-alert>
+  <f-alert title="标题" type="danger">危险提示信息</f-alert>
+  <f-alert title="标题" type="warning">警告提示信息</f-alert>
+
   <br />
-  <f-button text type="default">默认按钮</f-button>
-  <f-button text type="primary">主要按钮</f-button>
-  <f-button text type="success">成功按钮</f-button>
-  <f-button text type="danger">危险按钮</f-button>
-  <f-button text type="warning">警告按钮</f-button>
+
+  <f-alert close type="default">默认提示信息</f-alert>
+  <f-alert close type="primary">主要提示信息</f-alert>
+  <f-alert close type="success">成功提示信息</f-alert>
+  <f-alert close type="danger">危险提示信息</f-alert>
+  <f-alert close type="warning">警告提示信息</f-alert>
+
+  <br />
+
+  <f-alert simple type="default">默认提示信息</f-alert>
+  <f-alert simple type="primary">主要提示信息</f-alert>
+  <f-alert simple type="success">成功提示信息</f-alert>
+  <f-alert simple type="danger">危险提示信息</f-alert>
+  <f-alert simple type="warning">警告提示信息</f-alert>
 </template>
 
 <script setup>
