@@ -10,7 +10,7 @@ export const Props = {
     default: (): alertType => 'primary',
     validator: (val: alertType): boolean => {
       return (
-        ['primary', 'success', 'danger', 'warning', 'default', 'info'] as const
+        ['primary', 'success', 'danger', 'warning', 'default'] as const
       ).includes(val)
     }
   },

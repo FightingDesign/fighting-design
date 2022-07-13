@@ -9,7 +9,7 @@
 
 `type` 属性可以配置不同的按钮类型，展示不同的颜色状态
 
-<f-tag type="info">信息</f-tag>
+<f-tag type="default">信息</f-tag>
 <f-tag type="primary">普通</f-tag>
 <f-tag type="warning">警告</f-tag>
 <f-tag type="success">成功</f-tag>
@@ -18,7 +18,7 @@
 ::: details 显示代码
 
 ```html
-<f-tag type="info">信息</f-tag>
+<f-tag type="default">信息</f-tag>
 <f-tag type="primary">普通</f-tag>
 <f-tag type="warning">警告</f-tag>
 <f-tag type="success">成功</f-tag>
@@ -31,7 +31,7 @@
 
 `simple` 属性可以配置简约的提示，样式依然由 `type` 控制
 
-<f-tag simple type="info">信息</f-tag>
+<f-tag simple type="default">信息</f-tag>
 <f-tag simple type="primary">普通</f-tag>
 <f-tag simple type="warning">警告</f-tag>
 <f-tag simple type="success">成功</f-tag>
@@ -40,7 +40,7 @@
 ::: details 显示代码
 
 ```html
-<f-tag simple type="info">信息</f-tag>
+<f-tag simple type="default">信息</f-tag>
 <f-tag simple type="primary">普通</f-tag>
 <f-tag simple type="warning">警告</f-tag>
 <f-tag simple type="success">成功</f-tag>
@@ -119,14 +119,14 @@
 
 通过 `leftIcon` 和 `rightIcon` 可以设置左右 icon 的值，注意：当同时设置 `rightIcon` 与 `closable` 时，关闭的 icon 将始终位于最右侧。
 
-<f-tag type="info" size="small" leftIcon="f-icon-Daytimemode">标签</f-tag>
+<f-tag type="default" size="small" leftIcon="f-icon-Daytimemode">标签</f-tag>
 <f-tag type="primary" size="small" rightIcon="f-icon-email">标签</f-tag>
 <f-tag type="danger" simple size="small" rightIcon="f-icon-form-fill" closable>标签</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-tag type="info" size="small" leftIcon="f-icon-calendar-fill">标签</f-tag>
+<f-tag type="default" size="small" leftIcon="f-icon-calendar-fill">标签</f-tag>
 <f-tag type="primary" size="small" rightIcon="f-icon-CurrencyConverter-fill">
   标签
 </f-tag>
@@ -141,7 +141,7 @@
 
 `close` 可配置可以关闭的
 
-<f-tag v-show="isShow1" close @on-close="isShow1 = false" type="info">
+<f-tag v-show="isShow1" close @on-close="isShow1 = false" type="default">
 信息
 </f-tag>
 <f-tag v-show="isShow2" close @on-close="isShow2 = false" type="primary">
@@ -161,7 +161,7 @@
 
 ```html
 <template>
-  <f-tag v-show="isShow1" close @on-close="isShow1 = false" type="info">
+  <f-tag v-show="isShow1" close @on-close="isShow1 = false" type="default">
     信息
   </f-tag>
   <f-tag v-show="isShow2" close @on-close="isShow2 = false" type="primary">
@@ -193,18 +193,18 @@
 
 ## Attributes
 
-| 参数         | 说明           | 类型    | 可选值                                        | 默认值 |
-| ------------ | -------------- | ------- | --------------------------------------------- | ------ |
-| `type`       | 标签类型       | string  | `info` `success` `danger` `warning` `primary` | info   |
-| `close`      | 是否可关闭     | boolean | ——                                            | false  |
-| `round`      | 圆角           | boolean | ——                                            | false  |
-| `background` | 自定义背景色   | string  | ——                                            | ——     |
-| `color`      | 自定义文字颜色 | string  | ——                                            | ——     |
-| `left-icon`  | 左侧 icon      | string  | ——                                            | ——     |
-| `right-icon` | 右侧 icon      | string  | ——                                            | ——     |
-| `size`       | 标签大小       | string  | `large` `middle` `small` `mini`               | small  |
-| `simple`     | 是否为简约模式 | boolean | ——                                            | false  |
-| `block`      | 是否为块级元素 | boolean | ——                                            | false  |
+| 参数         | 说明           | 类型    | 可选值                                           | 默认值  |
+| ------------ | -------------- | ------- | ------------------------------------------------ | ------- |
+| `type`       | 标签类型       | string  | `default` `success` `danger` `warning` `primary` | default |
+| `close`      | 是否可关闭     | boolean | ——                                               | false   |
+| `round`      | 圆角           | boolean | ——                                               | false   |
+| `background` | 自定义背景色   | string  | ——                                               | ——      |
+| `color`      | 自定义文字颜色 | string  | ——                                               | ——      |
+| `left-icon`  | 左侧 icon      | string  | ——                                               | ——      |
+| `right-icon` | 右侧 icon      | string  | ——                                               | ——      |
+| `size`       | 标签大小       | string  | `large` `middle` `small` `mini`                  | small   |
+| `simple`     | 是否为简约模式 | boolean | ——                                               | false   |
+| `block`      | 是否为块级元素 | boolean | ——                                               | false   |
 
 ## Slots
 

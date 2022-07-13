@@ -11,8 +11,8 @@
 
       return [
         'f-text',
+        `f-text-${type}`,
         {
-          [`f-text-${type}`]: type,
           'f-text-block': block,
           'f-text-bold': bold
         }

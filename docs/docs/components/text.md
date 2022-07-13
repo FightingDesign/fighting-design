@@ -225,19 +225,19 @@
 
 ## Attributes
 
-| 参数          | 说明                                                                           | 类型    | 可选值                                                  | 默认值  |
-| ------------- | ------------------------------------------------------------------------------ | ------- | ------------------------------------------------------- | ------- |
-| `type`        | 类型                                                                           | string  | `default` `info` `primary` `success` `danger` `warning` | primary |
-| `size`        | 文字大小，必须写入指定的数值和单位                                             | string  | ——                                                      | ——      |
-| `color`       | 字体颜色                                                                       | string  | ——                                                      | ——      |
-| `background`  | 背景颜色                                                                       | string  | ——                                                      | #FFF    |
-| `block`       | 是否独占一行                                                                   | boolean | ——                                                      | false   |
-| `spacing`     | 字符间距，必须写入指定的数值和单位                                             | string  | ——                                                      | ——      |
-| `line-height` | 行高，必须写入指定的数值和单位                                                 | string  | ——                                                      | ——      |
-| `text-indent` | 首行文字的缩进量，必须写入指定的数值和单位                                     | string  | ——                                                      | ——      |
-| `bold`        | 文字是否以粗体显示                                                             | boolean | ——                                                      | false   |
-| `decoration`  | 文字的修饰，例如：上划线(overline)、中划线(line-through)、下划线(underline)等  | string  | ——                                                      | ——      |
-| `padding`     | 定义元素边框与元素内容之间的空间，即上下左右的内边距，必须写入指定的数值和单位 | string  | ——                                                      | ——      |
+| 参数          | 说明                                                                           | 类型    | 可选值                                           | 默认值  |
+| ------------- | ------------------------------------------------------------------------------ | ------- | ------------------------------------------------ | ------- |
+| `type`        | 类型                                                                           | string  | `default` `primary` `success` `danger` `warning` | primary |
+| `size`        | 文字大小，必须写入指定的数值和单位                                             | string  | ——                                               | ——      |
+| `color`       | 字体颜色                                                                       | string  | ——                                               | ——      |
+| `background`  | 背景颜色                                                                       | string  | ——                                               | #FFF    |
+| `block`       | 是否独占一行                                                                   | boolean | ——                                               | false   |
+| `spacing`     | 字符间距，必须写入指定的数值和单位                                             | string  | ——                                               | ——      |
+| `line-height` | 行高，必须写入指定的数值和单位                                                 | string  | ——                                               | ——      |
+| `text-indent` | 首行文字的缩进量，必须写入指定的数值和单位                                     | string  | ——                                               | ——      |
+| `bold`        | 文字是否以粗体显示                                                             | boolean | ——                                               | false   |
+| `decoration`  | 文字的修饰，例如：上划线(overline)、中划线(line-through)、下划线(underline)等  | string  | ——                                               | ——      |
+| `padding`     | 定义元素边框与元素内容之间的空间，即上下左右的内边距，必须写入指定的数值和单位 | string  | ——                                               | ——      |
 
 ## Slots
 
