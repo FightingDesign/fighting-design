@@ -9,7 +9,7 @@
 
 `type` 属性可以配置不同的按钮类型，展示不同的颜色状态
 
-<f-tag type="default">信息</f-tag>
+<f-tag type="default">默认</f-tag>
 <f-tag type="primary">普通</f-tag>
 <f-tag type="warning">警告</f-tag>
 <f-tag type="success">成功</f-tag>
@@ -18,7 +18,7 @@
 ::: details 显示代码
 
 ```html
-<f-tag type="default">信息</f-tag>
+<f-tag type="default">默认</f-tag>
 <f-tag type="primary">普通</f-tag>
 <f-tag type="warning">警告</f-tag>
 <f-tag type="success">成功</f-tag>
@@ -31,7 +31,7 @@
 
 `simple` 属性可以配置简约的提示，样式依然由 `type` 控制
 
-<f-tag simple type="default">信息</f-tag>
+<f-tag simple type="default">默认</f-tag>
 <f-tag simple type="primary">普通</f-tag>
 <f-tag simple type="warning">警告</f-tag>
 <f-tag simple type="success">成功</f-tag>
@@ -40,7 +40,7 @@
 ::: details 显示代码
 
 ```html
-<f-tag simple type="default">信息</f-tag>
+<f-tag simple type="default">默认</f-tag>
 <f-tag simple type="primary">普通</f-tag>
 <f-tag simple type="warning">警告</f-tag>
 <f-tag simple type="success">成功</f-tag>
@@ -142,7 +142,7 @@
 `close` 可配置可以关闭的
 
 <f-tag v-show="isShow1" close @on-close="isShow1 = false" type="default">
-信息
+默认
 </f-tag>
 <f-tag v-show="isShow2" close @on-close="isShow2 = false" type="primary">
 普通
@@ -162,7 +162,7 @@
 ```html
 <template>
   <f-tag v-show="isShow1" close @on-close="isShow1 = false" type="default">
-    信息
+    默认
   </f-tag>
   <f-tag v-show="isShow2" close @on-close="isShow2 = false" type="primary">
     普通
