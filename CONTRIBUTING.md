@@ -37,60 +37,39 @@ pnpm start
 
 ## 命令说明
 
-`Fighting Design` 内部设置了很多的命令，在 [package.json](https://github.com/FightingDesign/fighting-design/blob/master/package.json) 中可以看到：
+`Fighting Design` 内部设置了很多的命令，在 [package.json](https://github.com/FightingDesign/fighting-design/blob/master/package.json) 中可以看到，下面详细介绍每一条命令
 
 ```json
 "scripts": {
- "clean": "rimraf dist",
-  "start": "pnpm run -C start dev",
-  "dev:docs": "pnpm run -C docs dev",
-  "build": "pnpm clean && vite build && pnpm build:theme && pnpm move",
-  "build:theme": "vite build --config vite.config.theme.ts",
-  "build:docs": "pnpm run -C docs build",
-  "build:start": "pnpm run -C start build",
-  "move": "node script/moveFile.ts",
-  "test": "vitest",
-  "prettier": "prettier --write .",
-  "commit": "cz"
-},
+  "clean": "rimraf dist", // 清除 dist
+  "start": "pnpm run -C start dev", // 启动开发测试项目
+  "dev:docs": "pnpm run -C docs dev", // 启动文档项目
+  "build": "pnpm clean && vite build && pnpm build:theme && pnpm move", // 打包（主要的打包，打包之后就是需要发布的包）
+  "build:theme": "vite build --config vite.config.theme.ts", // 打包组件样式主题
+  "build:docs": "pnpm run -C docs build", // 打包文档
+  "build:start": "pnpm run -C start build", // 打包测试项目 start
+  "move": "node script/move-file.ts", // 移动静态文件
+  "new": "node script/new-component", // 创建新组建
+  "test": "vitest", // 单元测试
+  "prettier": "prettier --write .", // 全局格式化
+  "commit": "cz", // 启用提交插件
+  "lint": "eslint 'packages/**/*.{js,ts,vue,jsx,tsx}'",
+  "prepare": "husky install"
+}
 ```
 
-下面详细介绍每一条命令
+## 开发插件
 
-```shell
-# 清除 dist
-pnpm clean
+下面列举一些必要的 [Visual Studio Code](https://code.visualstudio.com) 开发插件，以免出现一些不可预期的错误
 
-# 启动开发测试项目
-pnpm start
+- [ESLint](https://github.com/Microsoft/vscode-eslint) - 代码格式
+- [Prettier - Code format](https://github.com/prettier/prettier-vscode) - 代码格式
+- [Vitest](https://github.com/vitest-dev/vscode) - 单元测试
+- [Vue Language Features (Volar)](https://github.com/johnsoncodehk/volar) - vue3 插件
 
-# 启动文档项目
-pnpm dev:docs
+> 注意：请不要使用 [Vetur](https://github.com/vuejs/vetur)，这是 vue2 的插件，使用会报错！！！
 
-# 打包（主要的打包，打包之后就是需要发布的包）
-pnpm build
-
-# 打包组件样式主题
-pnpm build:theme
-
-# 打包文档
-pnpm build:docs
-
-# 运行打包后的文档
-pnpm serve:docs
-
-# 打包开发测试项目
-pnpm build:start
-
-# 单元测试
-pnpm test
-
-# 代码格式化
-pnpm prettier
-
-# 启用提交插件
-pnpm commit
-```
+`Chrome` 正版 `Vue3` 插件下载地址 [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=zh-CN)
 
 ## 开发规范
 
