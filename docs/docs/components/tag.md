@@ -54,13 +54,13 @@
 `background` 和 `color` 可以自定义标签颜色，将覆盖原有的 `type`
 
 <f-tag background="skyblue">天蓝色</f-tag>
-<f-tag background="blue">深蓝色</f-tag>
+<f-tag background="blue" color="#fff">深蓝色</f-tag>
 
 ::: details 显示代码
 
 ```html
 <f-tag background="skyblue">天蓝色</f-tag>
-<f-tag background="blue">深蓝色</f-tag>
+<f-tag background="blue" color="#fff">深蓝色</f-tag>
 ```
 
 :::
