@@ -107,12 +107,11 @@ export const Props = {
   },
   ripples: {
     type: Boolean,
-    default: (): boolean => true
+    default: (): boolean => false
   },
   ripplesColor: {
     type: String,
     default: (): string => ''
-    // default: (): string => '#fff'
   },
   color: {
     type: String,

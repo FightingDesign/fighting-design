@@ -3,6 +3,7 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - `Link` 组件新增 `default` 配置 `type`
+- `button` 组件 `ripples` 默认值改为 `false`
 
 ## 0.3.0-bate.3 (2022-07-13)
 

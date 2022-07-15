@@ -22,7 +22,7 @@
 
     // 不同类型
     &.f-link-#{map-get($item, name)} {
-      color: map-get($item, default);
+      color: map-get($item, simpleTextColor);
     }
   }
 
