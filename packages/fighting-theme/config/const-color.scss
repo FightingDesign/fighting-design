@@ -6,11 +6,11 @@ $danger: #ff0200;
 $warning: #fcc202;
 
 // 简约的色号
-$simpleDefault: #f9f9f9;
-$simplePrimary: #dfe6fc;
-$simpleSuccess: #e7f4e8;
-$simpleDanger: #ffd9d8;
-$simpleWarning: #fff5d6;
+$simpleDefault: lighten($default, 3%);
+$simplePrimary: lighten($primary, 37%);
+$simpleSuccess: lighten($success, 42%);
+$simpleDanger: lighten($danger, 42%);
+$simpleWarning: lighten($warning, 42%);
 
 // 不同类型的颜色状态
 $allTypeColorList: (

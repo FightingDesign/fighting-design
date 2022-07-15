@@ -1,3 +1,4 @@
+@import '../config/const-color.scss';
 @import '../config/var-button.scss';
 
 .f-button {
@@ -20,8 +21,8 @@
   white-space: nowrap;
   vertical-align: middle;
 
-  @for $list from 1 to (length($buttonTypeColor) + 1) {
-    $item: nth($buttonTypeColor, $list); // 获取数组中第i项的值
+  @for $list from 1 to (length($allTypeColorList) + 1) {
+    $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
 
     // 不同类型
     &.f-button-#{map-get($item, name)} {
@@ -47,11 +48,9 @@
         background: map-get($item, simple);
 
         &:hover {
-          // background: lighten(map-get($item, simple), 3%);
           background: map-get($item, simpleHover);
         }
         &:active {
-          // background: darken(map-get($item, simple), 3%);
           background: map-get($item, simpleActive);
         }
 
