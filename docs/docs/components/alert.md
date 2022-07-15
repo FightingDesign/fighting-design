@@ -93,7 +93,7 @@
 
 :::
 
-## 使用ICON
+## 使用 ICON
 
 使用 `icon` 属性可增加某种状态的可读性
 
@@ -203,24 +203,24 @@
 
 ## Attributes
 
-| 参数          | 说明                                                                           | 类型    | 可选值                                           | 默认值  |
-| ------------- | ------------------------------------------------------------------------------ | ------- | ------------------------------------------------ | ------- |
-| `type`        | 类型                                                                          | string  | `default` `primary` `success` `danger` `warning` | primary |
-| `size`        | 文字大小，必须写入指定的数值和单位                                               | string  | ——                                               | ——      |
-| `bold`        | 文字是否以粗体显示                                                              | boolean | ——                                               | false   |
-| `center`      | 是否居中                                                                       | boolean | ——                                               | false   |
-| `icon`        | ICON                                                                          | string  | ——                                               | ——      |
-| `close`       | 可关闭                                                                         | boolean  | ——                                              | ——      |
-| `simple`      | 简约模式                                                                       | boolean  | ——                                               | ——      |
-| `title`       | 标题                                                                           | string  | ——                                               | ——      |
-| `round`       | 显示为圆角                                                                     | boolean  | ——                                               | ——      |
-| `background`  | 背景颜色                                                                       | string  | ——                                               | ——      |
-| `color`       | 字体颜色                                                                       | string  | ——                                               | ——      |
+| 参数         | 说明                               | 类型    | 可选值                                           | 默认值  |
+| ------------ | ---------------------------------- | ------- | ------------------------------------------------ | ------- |
+| `type`       | 类型                               | string  | `default` `primary` `success` `danger` `warning` | primary |
+| `size`       | 文字大小，必须写入指定的数值和单位 | string  | ——                                               | ——      |
+| `bold`       | 文字是否以粗体显示                 | boolean | ——                                               | false   |
+| `center`     | 是否居中                           | boolean | ——                                               | false   |
+| `icon`       | ICON                               | string  | ——                                               | ——      |
+| `close`      | 可关闭                             | boolean | ——                                               | ——      |
+| `simple`     | 简约模式                           | boolean | ——                                               | ——      |
+| `title`      | 标题                               | string  | ——                                               | ——      |
+| `round`      | 显示为圆角                         | boolean | ——                                               | ——      |
+| `background` | 背景颜色                           | string  | ——                                               | ——      |
+| `color`      | 字体颜色                           | string  | ——                                               | ——      |
 
 ## Slots
 
-| 名称      | 说明        |
-| --------- | ----------- |
+| 名称      | 说明         |
+| --------- | ------------ |
 | `default` | 副标题的内容 |
 
 ## Contributors
