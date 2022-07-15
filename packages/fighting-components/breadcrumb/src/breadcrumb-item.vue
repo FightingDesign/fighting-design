@@ -3,7 +3,7 @@
   import { breadcrumbKey } from './breadcrumb'
   import { Props } from './breadcrumb-item'
   import type { ComponentInternalInstance, Ref } from 'vue'
-  import type { onClickInterface } from './interface'
+  import type { handleClickInterface } from './interface'
 
   const prop = defineProps(Props)
 
@@ -16,7 +16,7 @@
   const { separator, separatorIcon, itemColor, separatorColor } =
     toRefs(breadcrumbContext)
 
-  const onClick: onClickInterface = (): void => {
+  const handleClick: handleClickInterface = (): void => {
     const { replace, to } = prop
 
     if (!to || !router) {
@@ -33,7 +33,7 @@
       class="f-breadcrumb-item__inner"
       :style="{ color: itemColor }"
       role="link"
-      @click="onClick"
+      @click="handleClick"
     >
       <slot />
     </span>

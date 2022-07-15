@@ -2,6 +2,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.3.1-bate.4 (2022-07-15)
+
+- `link` component new `default` configuration `type`
+- The default value of `button` component `ripple` is changed to `false`
+
 ## 0.3.0-bate.3 (2022-07-13)
 
 **feat**

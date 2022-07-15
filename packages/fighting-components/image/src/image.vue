@@ -20,13 +20,13 @@
     null as unknown as HTMLImageElement
   )
 
-  const onClick: ordinaryFunctionInterface = (): void => {
+  const handleClick: ordinaryFunctionInterface = (): void => {
     if (prop.previewList && prop.previewList.length) {
       isPreviewListShow.value = true
     }
   }
 
-  const onClose: ordinaryFunctionInterface = (): void => {
+  const handleClose: ordinaryFunctionInterface = (): void => {
     isPreviewListShow.value = false
   }
 
@@ -62,7 +62,7 @@
       :draggable="draggable"
       :referrer-policy="referrerPolicy"
       :alt="alt"
-      @click="onClick"
+      @click="handleClick"
     />
 
     <div
@@ -90,7 +90,7 @@
       :show-close-btn="showCloseBtn"
       :preview-round="previewRound"
       :width="width"
-      @close="onClose"
+      @close="handleClose"
     />
   </div>
 

@@ -34,7 +34,7 @@
     rotate.value = 0
   }
 
-  const close: ordinaryFunctionInterface = (): void => {
+  const handleClose: ordinaryFunctionInterface = (): void => {
     emit('close')
   }
 
@@ -165,7 +165,7 @@
         <f-icon size="30px" icon="f-icon-arrow-left" />
       </div>
 
-      <div v-if="showCloseBtn" class="close_button" @click="close">
+      <div v-if="showCloseBtn" class="close_button" @click="handleClose">
         <f-icon size="20px" icon="f-icon-close" />
       </div>
 

@@ -1,3 +1,3 @@
-export interface onClickInterface {
+export interface handleClickInterface {
   (): void
 }

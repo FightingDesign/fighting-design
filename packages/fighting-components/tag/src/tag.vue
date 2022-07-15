@@ -1,11 +1,13 @@
 <script lang="ts" setup name="FTag">
   import { Props, Emits } from './tag'
-  import { computed } from 'vue'
+  import { computed, ref } from 'vue'
   import type { handleCloseInterface } from './interface'
-  import type { ComputedRef } from 'vue'
+  import type { ComputedRef, Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
+
+  const isShow: Ref<boolean> = ref<boolean>(false)
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
@@ -25,12 +27,13 @@
   )
 
   const handleClose: handleCloseInterface = (evt: MouseEvent): void => {
+    isShow.value = false
     emit('onClose', evt)
   }
 </script>
 
 <template>
-  <div :class="classList" :style="{ background, color }">
+  <div v-if="isShow" :class="classList" :style="{ background, color }">
     <i v-if="leftIcon" :class="['f-icon', leftIcon]" />
     <slot />
     <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
