@@ -1,11 +1,11 @@
 <script lang="ts" setup name="FLink">
   import { Props, Emits } from './link'
-  import type { onClickInterface } from './interface'
+  import type { handleClickInterface } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const onClick: onClickInterface = (evt: PointerEvent): void => {
+  const handleClick: handleClickInterface = (evt: Event): void => {
     if (prop.prohibit || prop.noLink) {
       evt.preventDefault()
       return
@@ -28,7 +28,7 @@
     :style="{ fontSize: size, color }"
     :href="href"
     :target="target"
-    @click="onClick"
+    @click="handleClick"
   >
     <i
       v-if="leftIcon"

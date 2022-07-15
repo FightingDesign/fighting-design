@@ -6,9 +6,9 @@ export const Props = {
     type: String as PropType<linkType>,
     default: (): linkType => 'primary',
     validator: (val: linkType): boolean => {
-      return (['primary', 'success', 'danger', 'warning'] as const).includes(
-        val
-      )
+      return (
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
+      ).includes(val)
     }
   },
   href: {
@@ -60,5 +60,5 @@ export const Props = {
 } as const
 
 export const Emits = {
-  click: (evt: PointerEvent): PointerEvent => evt
+  click: (evt: Event): Event => evt
 } as const

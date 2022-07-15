@@ -2,90 +2,90 @@
 
 .f-button-group {
   display: inline-block;
-}
 
-// 按钮的尺寸
-.f-button-group.f-button-group-large {
-  .f-button {
-    height: $large;
-    padding: 0 28px;
+  // 按钮的尺寸
+  &.f-button-group-large {
+    .f-button {
+      height: $large;
+      padding: 0 28px;
 
-    .f-text {
-      line-height: $large;
-      font-size: 15px;
+      .f-text {
+        line-height: $large;
+        font-size: 15px;
+      }
     }
   }
-}
 
-.f-button-group.f-button-group-middle {
-  .f-button {
-    height: $middle;
-    padding: 0 25px;
+  &.f-button-group-middle {
+    .f-button {
+      height: $middle;
+      padding: 0 25px;
 
-    .f-text {
-      line-height: $middle;
-      font-size: 14px;
+      .f-text {
+        line-height: $middle;
+        font-size: 14px;
+      }
     }
   }
-}
 
-.f-button-group.f-button-group-small {
-  .f-button {
-    height: $small;
-    padding: 0 22px;
+  &.f-button-group-small {
+    .f-button {
+      height: $small;
+      padding: 0 22px;
 
-    .f-text {
-      line-height: $small;
-      font-size: 13px;
+      .f-text {
+        line-height: $small;
+        font-size: 13px;
+      }
     }
   }
-}
 
-.f-button-group.f-button-group-mini {
-  .f-button {
-    height: $mini;
-    padding: 0 19px;
+  &.f-button-group-mini {
+    .f-button {
+      height: $mini;
+      padding: 0 19px;
 
-    .f-text {
-      line-height: $mini;
-      font-size: 12px;
+      .f-text {
+        line-height: $mini;
+        font-size: 12px;
+      }
     }
   }
-}
 
-// 横向排列
-.f-button-group.f-button-group-horizontal {
-  .f-button:first-child {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  // 横向排列
+  &.f-button-group-horizontal {
+    .f-button:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .f-button:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .f-button:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
   }
 
-  .f-button:last-child {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
+  // 纵向排列
+  &.f-button-group-vertical {
+    display: inline-flex;
+    flex-direction: column;
 
-  .f-button:not(:first-child):not(:last-child) {
-    border-radius: 0;
-  }
-}
+    .f-button:first-child {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
 
-// 纵向排列
-.f-button-group.f-button-group-vertical {
-  display: inline-flex;
-  flex-direction: column;
+    .f-button:last-child {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
 
-  .f-button:first-child {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .f-button:last-child {
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-  }
-
-  .f-button:not(:first-child):not(:last-child) {
-    border-radius: 0;
+    .f-button:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
   }
 }

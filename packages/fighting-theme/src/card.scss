@@ -1,31 +1,27 @@
-@import '../config/const-color.scss';
-
-$border-color: #e5e5e5;
-
 .f-card {
   width: 100%;
   min-height: 200px;
-  border: $border-color solid 1px;
+  border: #e5e5e5 solid 1px;
   transition: 0.3s;
 
   .f-card-header {
     padding: 16px 20px;
     border-bottom: 1px solid #eee;
   }
-}
 
-.f-card.f-card-shadow-never {
-  box-shadow: none;
-}
+  &.f-card-shadow-never {
+    box-shadow: none;
+  }
 
-.f-card.f-card-shadow-always {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-}
+  &.f-card-shadow-always {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
 
-.f-card.f-card-shadow-hover:hover {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-}
+  &.f-card-shadow-hover:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
 
-.f-card.f-card-round {
-  border-radius: 10px;
+  &.f-card-round {
+    border-radius: 10px;
+  }
 }

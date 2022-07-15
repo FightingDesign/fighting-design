@@ -1,3 +1,3 @@
-export interface onCloseInterface {
+export interface handleClickInterface {
   (evt: MouseEvent): void
 }

@@ -22,6 +22,7 @@
       &.f-switch-#{$key} {
         width: $value * 2;
         height: $value;
+
         // 小球
         .f-switch-roll {
           display: inline-flex;

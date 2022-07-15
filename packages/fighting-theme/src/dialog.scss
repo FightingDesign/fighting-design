@@ -1,6 +1,3 @@
-$defaultMarginTop: 13vh;
-$defaultHeight: 30px;
-
 .f-dialog-mask {
   position: fixed;
   top: 0;
@@ -19,7 +16,7 @@ $defaultHeight: 30px;
     z-index: 999;
     width: 332px;
     height: 188px;
-    margin-top: $defaultMarginTop;
+    margin-top: 13vh;
     padding: 0 10px;
     background: #fff;
     border-radius: 1px;
@@ -27,7 +24,7 @@ $defaultHeight: 30px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    margin: $defaultMarginTop auto 0;
+    margin: 13vh auto 0;
 
     // 阴影
     &.f-dialog-shadow {
@@ -35,7 +32,7 @@ $defaultHeight: 30px;
     }
 
     .f-dialog-header {
-      height: $defaultHeight;
+      height: 30px;
       border-bottom: 1px solid #eee;
       text-align: center;
       position: relative;
@@ -55,25 +52,6 @@ $defaultHeight: 30px;
           background: #eee;
         }
       }
-
-      // .f-dialog-close {
-      //   display: inline-flex;
-      //   justify-content: center;
-      //   align-items: center;
-      //   user-select: none;
-      //   cursor: pointer;
-      //   position: absolute;
-      //   right: 0;
-
-      //   &:hover {
-      //     transition: 0.3s;
-      //     background: #eee;
-      //   }
-
-      //   .f-icon-close {
-      //     font-size: 14px;
-      //   }
-      // }
     }
 
     .f-dialog-body {
@@ -83,7 +61,7 @@ $defaultHeight: 30px;
     }
 
     .f-dialog-footer {
-      height: $defaultHeight;
+      height: 30px;
       border-top: 1px solid #eee;
       display: flex;
       flex-flow: row nowrap;
