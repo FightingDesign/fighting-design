@@ -43,12 +43,16 @@
 <template>
   <div :class="classList" :style="styleList">
     <div v-if="title" class="f-alert-title">
-      <span>
-        <f-icon :icon="icon" />
-        {{ title }}
-      </span>
+      <f-icon :icon="icon" />
+      {{ title }}
     </div>
-    <div v-if="$slots.default" class="f-alert-sub-title">
+    <div
+      v-if="$slots.default"
+      class="f-alert-sub-title"
+      :style="{
+        'margin-top': title ? '3px' : ''
+      }"
+    >
       <slot />
     </div>
     <span v-if="close" class="f-alert-close" @click.stop="handleClose">
