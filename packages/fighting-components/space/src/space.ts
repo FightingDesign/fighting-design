@@ -5,13 +5,6 @@ import type {
 } from './interface'
 
 export const Props = {
-  // position: {
-  //   type: String as PropType<spacePosition>,
-  //   default: (): spacePosition => 'center',
-  //   validator: (value: spacePosition): boolean => {
-  //     return (['start', 'center', 'end', 'baseline'] as const).includes(value)
-  //   }
-  // },
   vertical: {
     type: Boolean,
     default: (): boolean => false

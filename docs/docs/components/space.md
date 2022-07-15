@@ -181,13 +181,11 @@
 
 | 参数         | 说明           | 类型    | 可选值                          | 默认值 |
 | ------------ | -------------- | ------- | ------------------------------- | ------ |
-| `spacing`    | 间距尺寸       | string  | `small` `middle` `large` `mini` | small  |
+| `spacing`    | 间距尺寸       | string  | `large` `middle` `small` `mini` | middle  |
 | `vertical`   | 是否竖直排列   | boolean | ——                              | false  |
 | `wrap`       | 是否换行       | boolean | ——                              | true   |
 | `row-gap`    | 自定义纵向间距 | string  | ——                              | ——     |
 | `column-gap` | 自定义横向间距 | string  | ——                              | ——     |
-
-<!-- | `position`   | 对齐方式       | string  | `start` `center` `end` `baseline` | center | -->
 
 ## Contributors
 

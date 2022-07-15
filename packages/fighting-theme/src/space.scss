@@ -1,20 +1,6 @@
 .f-space {
   display: inline-flex;
 
-  // 对齐方式
-  // &.f-space-start {
-  //   align-items: flex-start;
-  // }
-  // &.f-space-center {
-  //   align-items: center;
-  // }
-  // &.f-space-end {
-  //   align-items: flex-end;
-  // }
-  // &.f-space-baseline {
-  //   align-items: baseline;
-  // }
-
   // 排列方式
   &.f-space-vertical {
     flex-direction: column-reverse;

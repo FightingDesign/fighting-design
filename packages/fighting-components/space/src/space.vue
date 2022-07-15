@@ -11,7 +11,6 @@
 
       return [
         'f-space',
-        // `f-space-${position}`,
         `f-space-${spacing}`,
         {
           'f-space-wrap': wrap,
