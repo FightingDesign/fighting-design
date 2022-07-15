@@ -27,68 +27,6 @@
 
 :::
 
-<!-- ## 对齐方式
-
-可使用 `position` 设置对齐方式，可选值：`center（默认）`、`start`、`end`、`baseline`
-
-<f-space vertical>
-  <f-space position="start">
-    <f-tag type="primary">普通</f-tag>
-    <f-tag type="primary">普通</f-tag>
-    <f-tag type="primary">普通</f-tag>
-  </f-space>
-
-  <f-space position="center">
-    <f-tag type="warning">警告</f-tag>
-    <f-tag type="warning">警告</f-tag>
-    <f-tag type="warning">警告</f-tag>
-  </f-space>
-
-  <f-space position="end">
-    <f-tag type="success">成功</f-tag>
-    <f-tag type="success">成功</f-tag>
-    <f-tag type="success">成功</f-tag>
-  </f-space>
-
-  <f-space position="baseline">
-    <f-tag type="danger">失败</f-tag>
-    <f-tag type="danger">失败</f-tag>
-    <f-tag type="danger">失败</f-tag>
-  </f-space>
-</f-space>
-
-::: details 显示代码
-
-```html
-<f-space vertical>
-  <f-space position="start">
-    <f-tag type="primary">普通</f-tag>
-    <f-tag type="primary">普通</f-tag>
-    <f-tag type="primary">普通</f-tag>
-  </f-space>
-
-  <f-space position="center">
-    <f-tag type="warning">警告</f-tag>
-    <f-tag type="warning">警告</f-tag>
-    <f-tag type="warning">警告</f-tag>
-  </f-space>
-
-  <f-space position="end">
-    <f-tag type="success">成功</f-tag>
-    <f-tag type="success">成功</f-tag>
-    <f-tag type="success">成功</f-tag>
-  </f-space>
-
-  <f-space position="baseline">
-    <f-tag type="danger">失败</f-tag>
-    <f-tag type="danger">失败</f-tag>
-    <f-tag type="danger">失败</f-tag>
-  </f-space>
-</f-space>
-```
-
-::: -->
-
 ## 间距尺寸
 
 可使用 `spacing` 设置间距大小
@@ -181,7 +119,7 @@
 
 | 参数         | 说明           | 类型    | 可选值                          | 默认值 |
 | ------------ | -------------- | ------- | ------------------------------- | ------ |
-| `spacing`    | 间距尺寸       | string  | `large` `middle` `small` `mini` | middle  |
+| `spacing`    | 间距尺寸       | string  | `large` `middle` `small` `mini` | middle |
 | `vertical`   | 是否竖直排列   | boolean | ——                              | false  |
 | `wrap`       | 是否换行       | boolean | ——                              | true   |
 | `row-gap`    | 自定义纵向间距 | string  | ——                              | ——     |
