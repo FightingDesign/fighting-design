@@ -93,7 +93,7 @@
 
 :::
 
-## 使用 ICON
+## 带有 Icon
 
 使用 `icon` 属性可增加某种状态的可读性
 
@@ -185,18 +185,18 @@
 
 :::
 
-## 自定义文本颜色
+## 带有标题
 
-如果你不喜欢 `type` 属性带了的不同颜色，你也可以使用 `color` 属性自定义你的 `text` 颜色
+`title` 可以配置一个标题信息
 
-<f-alert type="primary" color="#e49b33">hello</f-alert>
-<f-alert type="success" color="#e372ff">自定义颜色的字体</f-alert>
+<f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert>
+<f-alert type="success" title="标题">心情很不错</f-alert>
 
 ::: details 显示代码
 
 ```html
-<f-alert type="primary" color="#e49b33">hello</f-alert>
-<f-alert type="success" color="#e372ff">自定义颜色的字体</f-alert>
+<f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert>
+<f-alert type="success" title="标题">心情很不错</f-alert>
 ```
 
 :::

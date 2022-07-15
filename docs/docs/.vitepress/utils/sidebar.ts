@@ -65,7 +65,7 @@ export const sidebar = {
       link: '/components/',
       items: [
         { text: 'Loading 加载', link: '/components/loading' },
-        { text: 'Alert 警告', link: '/components/alert' }
+        { text: 'Alert 提示', link: '/components/alert' }
       ]
     },
     {
