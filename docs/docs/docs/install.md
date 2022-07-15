@@ -1,5 +1,7 @@
 # 安装
 
+<div>
+
 ## pnpm
 
 使用快速的，节省磁盘空间的包管理工具 [pnpm](https://pnpm.io/zh/) 进行安装
@@ -7,6 +9,8 @@
 ```shell
 pnpm add fighting-design
 ```
+
+</div>
 
 ## npm
 

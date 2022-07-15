@@ -1,0 +1,12 @@
+{
+  "name": "fighting-vitepress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
