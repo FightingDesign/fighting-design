@@ -242,7 +242,9 @@
 <f-button type="success" ripples>涟漪效果</f-button>
 <f-button type="warning" ripples>点我试试</f-button>
 <f-button type="danger" ripples simple>看看我</f-button>
-<f-button type="success" text ripples ripples-color="green">自定义涟漪颜色</f-button>
+<f-button type="success" text ripples ripples-color="green"
+  >自定义涟漪颜色</f-button
+>
 ```
 
 :::
@@ -330,7 +332,7 @@
 | `shadow`        | 按钮的阴影                                                                                                                                                  | string  | ——                                                      | ——       |
 | `text`          | 是否为文字按钮                                                                                                                                              | boolean | ——                                                      | false    |
 | `simple`        | 是否为简约按钮                                                                                                                                              | boolean | ——                                                      | false    |
-| `ripples`       | 是否启用点击涟漪效果                                                                                                                                        | boolean | ——                                                      | false     |
+| `ripples`       | 是否启用点击涟漪效果                                                                                                                                        | boolean | ——                                                      | false    |
 | `ripples-color` | 涟漪背景色                                                                                                                                                  | string  | ——                                                      | #fff     |
 | `native-type`   | 按钮的原生类型                                                                                                                                              | string  | `button` `submit` `reset`                               | button   |
 | `color`         | 自定义按钮的颜色，仅支持 [hex](https://baike.baidu.com/item/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E9%A2%9C%E8%89%B2%E7%A0%81/10894232?fr=aladdin) 格式的色号 | string  | ——                                                      | ——       |
