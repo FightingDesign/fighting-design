@@ -25,6 +25,13 @@
       display: inline-block;
       vertical-align: middle;
     }
+    // 垂直居中百分比
+    &::after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
   }
 
   @keyframes panoramic {
