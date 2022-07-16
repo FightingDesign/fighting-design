@@ -108,7 +108,13 @@
 
 ```html
 <f-progress :percentage="10" width="360px" :height="27" show-text />
-<f-progress type="success" :percentage="40" width="100%" :height="20" show-text />
+<f-progress
+  type="success"
+  :percentage="40"
+  width="100%"
+  :height="20"
+  show-text
+/>
 ```
 
 :::
