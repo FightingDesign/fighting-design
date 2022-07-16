@@ -30,4 +30,11 @@
   &.f-text-block {
     display: block;
   }
+
+  // 是否省略文本
+  &.f-text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }

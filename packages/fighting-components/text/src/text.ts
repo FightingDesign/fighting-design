@@ -83,5 +83,19 @@ export const Props = {
   padding: {
     type: String,
     default: (): string => ''
+  },
+  /**
+   * 自定义宽度
+   */
+  width: {
+    type: String,
+    default: (): string => ''
+  },
+  /**
+   * 是否省略
+   */
+  ellipsis: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
