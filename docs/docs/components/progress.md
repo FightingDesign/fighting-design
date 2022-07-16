@@ -101,20 +101,14 @@
 
 `width` 和 `height` 属性接收一个字符串，用于自定义进度条宽高
 
-<f-progress :percentage="10" width="360px" height="27px" show-text />
-<f-progress type="success" :percentage="40" width="100%" height="20px" show-text />
+<f-progress :percentage="10" width="360px" :height="27" show-text />
+<f-progress type="success" :percentage="40" width="100%" :height="20" show-text />
 
 ::: details 显示代码
 
 ```html
-<f-progress :percentage="10" width="360px" height="27px" show-text />
-<f-progress
-  type="success"
-  :percentage="40"
-  width="100%"
-  height="20px"
-  show-text
-/>
+<f-progress :percentage="10" width="360px" :height="27" show-text />
+<f-progress type="success" :percentage="40" width="100%" :height="20" show-text />
 ```
 
 :::
