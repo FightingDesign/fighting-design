@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FSwitch">
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
+  import { FIcon } from '@fighting-design/fighting-components'
   import type { changeSwitchInterface } from './interface'
   import type { ComputedRef, CSSProperties } from 'vue'
 
@@ -17,6 +18,7 @@
 
   const rollStyle: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { modelValue, closeColor, openColor, size } = prop
+
     const _size = {
       large: '24px',
       middle: '20px',
@@ -60,7 +62,7 @@
       @click="changeSwitch"
     >
       <span class="f-switch-roll" :style="rollStyle">
-        <i v-if="icon" :class="['f-icon', icon]" />
+        <f-icon v-if="icon" :icon="icon" />
       </span>
     </div>
 

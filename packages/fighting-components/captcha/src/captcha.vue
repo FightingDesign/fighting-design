@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FCaptcha">
   import { Props, Emits } from './captcha'
   import { ref, onMounted, computed } from 'vue'
+  import { FIcon } from '@fighting-design/fighting-components'
   import type { Ref, CSSProperties } from 'vue'
   import type { startMovingInterface } from './interface'
 
@@ -59,7 +60,7 @@
 
     <div class="f-captcha-move">
       <div ref="captchaItem" class="f-captcha-item">
-        <i :class="['f-icon', moveIcon || 'f-icon-double-arro-right']" />
+        <f-icon :icon="moveIcon || 'f-icon-double-arro-right'" />
       </div>
     </div>
   </div>

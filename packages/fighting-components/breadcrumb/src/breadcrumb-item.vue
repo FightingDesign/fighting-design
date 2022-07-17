@@ -2,6 +2,7 @@
   import { getCurrentInstance, inject, ref, toRefs } from 'vue'
   import { breadcrumbKey } from './breadcrumb'
   import { Props } from './breadcrumb-item'
+  import { FIcon } from '@fighting-design/fighting-components'
   import type { ComponentInternalInstance, Ref } from 'vue'
   import type { handleClickInterface } from './interface'
 
@@ -38,10 +39,11 @@
       <slot />
     </span>
 
-    <i
+    <f-icon
       v-if="separatorIcon"
-      :style="{ color: separatorColor }"
-      :class="['f-icon', 'f-breadcrumb-item__separator', separatorIcon]"
+      class="f-breadcrumb-item__separator"
+      :icon="separatorIcon"
+      :color="separatorColor"
     />
 
     <span

@@ -2,6 +2,7 @@
   import { computed, ref, onMounted } from 'vue'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor } from '@fighting-design/fighting-utils'
+  import { FIcon } from '@fighting-design/fighting-components'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
     onClickInterface,
@@ -126,17 +127,13 @@
       :style="{ boxShadow: shadow, ...buttonStyleList }"
       @click="onClick"
     >
-      <i
+      <f-icon
         v-if="leftIcon || loading"
-        :class="['f-icon', leftIconClass]"
+        :icon="leftIconClass"
         :style="buttonStyleList"
       />
       <slot />
-      <i
-        v-if="rightIcon"
-        :class="['f-icon', rightIcon]"
-        :style="buttonStyleList"
-      />
+      <f-icon v-if="rightIcon" :icon="rightIcon" :style="buttonStyleList" />
     </a>
   </template>
 
@@ -151,17 +148,13 @@
       :style="{ boxShadow: shadow, ...buttonStyleList }"
       @click="onClick"
     >
-      <i
+      <f-icon
         v-if="leftIcon || loading"
-        :class="['f-icon', leftIconClass]"
+        :icon="leftIconClass"
         :style="buttonStyleList"
       />
       <slot />
-      <i
-        v-if="rightIcon"
-        :class="['f-icon', rightIcon]"
-        :style="buttonStyleList"
-      />
+      <f-icon v-if="rightIcon" :icon="rightIcon" :style="buttonStyleList" />
     </button>
   </template>
 </template>

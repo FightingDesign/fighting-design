@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <div class="f-breadcrumb">
+  <div v-if="$slots.default" class="f-breadcrumb">
     <slot />
   </div>
 </template>

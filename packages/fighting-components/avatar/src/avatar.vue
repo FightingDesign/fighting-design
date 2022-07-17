@@ -1,8 +1,9 @@
 <script lang="ts" setup name="FAvatar">
   import { Props, Emits } from './avatar'
   import { computed, ref, onMounted } from 'vue'
-  import type { ComputedRef, Ref } from 'vue'
   import { loadImage } from '@fighting-design/fighting-utils'
+  import { FIcon } from '@fighting-design/fighting-components'
+  import type { ComputedRef, Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -36,17 +37,10 @@
 
 <template>
   <div
-    :class="[
-      'f-avatar',
-      { 'f-avatar-round': round, [`f-avatar-${size}`]: size }
-    ]"
+    :class="['f-avatar', `f-avatar-${size}`, { 'f-avatar-round': round }]"
     :style="{ background }"
   >
-    <i
-      v-if="icon"
-      :class="['f-icon', icon]"
-      :style="{ fontSize: iconSize, color: iconColor }"
-    />
+    <f-icon v-if="icon" :icon="icon" :color="iconColor" :size="iconSize" />
 
     <img v-else ref="FAvatarImg" :class="classList" src="" :alt="alt" />
   </div>
