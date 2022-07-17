@@ -2,7 +2,14 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**feat**
+
 - `Tooltip` 组件移除部分配置项
+- 重做 `tooltip` 组件
+
+**fix**
+
+- 修复 `Tag` 组件不展示的问题
 
 ## 0.3.1-bate.4 (2022-07-15)
 

@@ -7,6 +7,7 @@
   &::after {
     visibility: hidden;
     opacity: 0;
+    z-index: 600;
     transform: translate3d(0, 0, 0);
     transition: all 0.3s ease 0.05s;
   }
@@ -40,7 +41,6 @@
     padding: 6px 12px;
     white-space: nowrap;
     border-radius: 2px;
-    // box-shadow: 0 3px 4px rgba(0, 0, 0, 0.13), 0 0 6px rgba(0, 0, 0, 0.05);
   }
 
   &.f-tooltip-top::before {
@@ -202,6 +202,7 @@
   // 不带箭头
   &.f-tooltip-no-arrow {
     &::before {
+      display: none;
       visibility: hidden;
       opacity: 0;
     }

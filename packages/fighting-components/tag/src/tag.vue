@@ -7,7 +7,7 @@
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const isShow: Ref<boolean> = ref<boolean>(false)
+  const isShow: Ref<boolean> = ref<boolean>(true)
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
