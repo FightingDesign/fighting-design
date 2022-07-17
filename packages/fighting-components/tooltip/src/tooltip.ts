@@ -31,5 +31,9 @@ export const Props = {
   bold: {
     type: Boolean,
     default: (): boolean => false
+  },
+  bright: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
