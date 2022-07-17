@@ -5,6 +5,7 @@
 **feat**
 
 - `progress` 组件新增 `textInside` 配置项
+- 新增 `novel-coronavirus` 组件
 
 ## 0.3.2-bate.5 (2022-07-17)
 
