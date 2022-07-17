@@ -29,6 +29,9 @@ import { FDrawer } from './drawer'
 import { FPageHeader } from './page-header'
 import { FRate } from './rate'
 import { FAlert } from './alert'
+import { FMenu } from './menu'
+import { FMenuItem } from './menu-item'
+import { FMenuItemGroup } from './menu-item-group'
 
 const components = {
   FButton,
@@ -60,7 +63,10 @@ const components = {
   FDrawer,
   FPageHeader,
   FRate,
-  FAlert
+  FAlert,
+  FMenu,
+  FMenuItem,
+  FMenuItemGroup
 }
 
 const install = (app: App): void => {
@@ -99,7 +105,10 @@ export {
   FDrawer,
   FPageHeader,
   FRate,
-  FAlert
+  FAlert,
+  FMenu,
+  FMenuItem,
+  FMenuItemGroup
 }
 
 export default {
