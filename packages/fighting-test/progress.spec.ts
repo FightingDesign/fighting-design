@@ -32,9 +32,9 @@ describe('FProgress', () => {
 
   test('square', () => {
     const wrapper = mount(FProgress, {
-      props: { square: true, percentage: 40 }
+      props: { square: true, percentage: 25 }
     })
-    expect(wrapper.attributes('style')).toContain('0')
+    expect(wrapper.find('.f-progress-bar').attributes('style')).toContain('0')
     expect(wrapper.find('.f-progress-fill').attributes('style')).toContain('0')
   })
 
@@ -64,7 +64,9 @@ describe('FProgress', () => {
         background: '#f4d1d1'
       }
     })
-    expect(wrapper.attributes('style')).toContain('#f4d1d1')
+    expect(wrapper.find('.f-progress-bar').attributes('style')).toContain(
+      '#f4d1d1'
+    )
   })
 
   test('width and height', () => {
@@ -75,9 +77,10 @@ describe('FProgress', () => {
         height: '26px'
       }
     })
-    const styles = wrapper.attributes('style')
-    expect(styles).toContain('400px')
-    expect(styles).toContain('26px')
+    expect(wrapper.attributes('style')).toContain('400px')
+    expect(wrapper.find('.f-progress-bar').attributes('style')).toContain(
+      '26px'
+    )
   })
 
   test('stripe', () => {
