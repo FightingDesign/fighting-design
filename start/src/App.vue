@@ -1,6 +1,6 @@
 <template>
   <div id="box">
-    <f-tooltip content="上边的提示信息" position="top">
+    <f-tooltip bold content="上边的提示信息" position="top">
       <f-button type="success">信息</f-button>
     </f-tooltip>
     <br />

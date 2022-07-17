@@ -9,7 +9,11 @@
     :class="[
       'f-tooltip',
       `f-tooltip-${position}`,
-      { 'f-tooltip-disabled ': disabled }
+      {
+        'f-tooltip-disabled ': disabled,
+        'f-tooltip-bold': bold,
+        'f-tooltip-no-arrow': noArrow
+      }
     ]"
     :f-content="content"
   >
