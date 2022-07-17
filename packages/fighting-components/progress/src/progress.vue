@@ -13,11 +13,10 @@
 
   const progressStyle: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
-      const { background, width, height, square } = prop
+      const { background, height, square } = prop
 
       return {
-        width,
-        height: `${height}px`,
+        height,
         background,
         borderRadius: square ? '0px' : '100px'
       } as const
@@ -37,7 +36,7 @@
   )
 
   const isShowPercentage: isShowPercentageInterface = (): boolean => {
-    return (isShow.value = fillRef.value.clientHeight >= 15)
+    return (isShow.value = fillRef.value.clientHeight >= 18 && prop.textInside)
   }
 
   onMounted((): void => {
@@ -48,28 +47,33 @@
 <template>
   <div
     :class="['f-progress', { 'f-progress-liner': linear }]"
-    :style="progressStyle"
+    :style="{ width: width }"
     :aria-value="percentage"
     :aria-valuemin="0"
     :aria-valuemax="100"
     role="progressbar"
   >
-    <div
-      ref="fillRef"
-      :class="[
-        'f-progress-fill',
-        `f-progress-fill-${type}`,
-        { 'f-progress-stripe': stripe }
-      ]"
-      :style="progressFillStyle"
-    >
-      <span
-        v-if="isShow"
-        class="f-progress-percentage"
-        :style="{ color: textColor }"
+    <div class="f-progress-bar" :style="progressStyle">
+      <div
+        ref="fillRef"
+        :class="[
+          'f-progress-fill',
+          `f-progress-fill-${type}`,
+          { 'f-progress-stripe': stripe }
+        ]"
+        :style="progressFillStyle"
       >
-        {{ percentage }}%
-      </span>
+        <span
+          v-if="isShow && showText"
+          class="f-progress-percentage"
+          :style="{ color: textColor }"
+        >
+          {{ percentage }}%
+        </span>
+      </div>
+    </div>
+    <div v-if="!isShow && showText" class="f-progress-text">
+      {{ percentage }}%
     </div>
   </div>
 </template>

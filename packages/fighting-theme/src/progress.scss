@@ -1,13 +1,18 @@
 @import '../config/var-progress.scss';
 
 .f-progress {
-  background: #f1f1f1;
-  border-radius: 100px;
-  overflow: hidden;
-  height: 25px;
+  display: flex;
+  align-items: center;
+  line-height: 1;
 
-  &.f-progress-liner {
-    height: 6px;
+  // &.f-progress-liner {
+  //   height: 6px;
+  // }
+
+  .f-progress-bar {
+    flex-grow: 1;
+    box-sizing: border-box;
+    background: #f1f1f1;
   }
 
   .f-progress-fill {
@@ -32,6 +37,13 @@
       vertical-align: middle;
       height: 100%;
     }
+  }
+  // 右侧显示百分比
+  .f-progress-text {
+    min-width: 40px;
+    line-height: 1;
+    margin-left: 5px;
+    font-size: 14px;
   }
 
   @keyframes panoramic {

@@ -46,9 +46,13 @@ export const Props = {
   },
   height: {
     type: String,
-    default: (): string => ''
+    default: (): string => '6px'
   },
   stripe: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  textInside: {
     type: Boolean,
     default: (): boolean => false
   }
