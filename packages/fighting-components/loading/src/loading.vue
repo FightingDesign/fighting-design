@@ -1,6 +1,7 @@
 <script setup lang="ts" name="FLoading">
   import { computed } from 'vue'
   import { Props, Emits } from './loading'
+  import { FIcon } from '@fighting-design/fighting-components'
   import type { handleClickInterface } from './interface'
   import type { ComputedRef, CSSProperties } from 'vue'
 
@@ -31,9 +32,7 @@
     :style="loadingStyleList"
     @click="handleClick"
   >
-    <i
-      :class="['f-icon', 'f-loading-animation', `${icon || 'f-icon-loading'}`]"
-    />
+    <f-icon :icon="icon || 'f-icon-loading'" class="f-loading-animation" />
     <span class="f-loading-title" :style="{ fontSize: textSize }">
       {{ text || '加载中' }}
     </span>

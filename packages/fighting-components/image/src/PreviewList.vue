@@ -1,13 +1,14 @@
 <script lang="ts" setup name="PreviewList">
   import { ref } from 'vue'
   import { Props, Emits } from './PreviewList'
+  import { FIcon } from '@fighting-design/fighting-components'
+  import { keepDecimal } from '@fighting-design/fighting-utils'
   import type { Ref } from 'vue'
   import type {
     ordinaryFunctionInterface,
     switchImageInterface,
     optionClickInterface
   } from './interface'
-  import { keepDecimal } from '@fighting-design/fighting-utils'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)

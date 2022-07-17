@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FDrawer">
   import { Props, Emits } from './drawer'
   import { watchEffect, computed } from 'vue'
+  import { FIcon } from '@fighting-design/fighting-components'
   import type { CSSProperties, ComputedRef } from 'vue'
   import type {
     transitionEventInterface,
@@ -84,7 +85,7 @@
         >
           <header v-if="withHeader" class="f-drawer-header">
             <span class="f-drawer-title">{{ title }}</span>
-            <i class="f-icon f-icon-close" @click.self="handleClose" />
+            <f-icon icon="f-icon-close" @click.self="handleClose" />
           </header>
 
           <section class="f-drawer-body">

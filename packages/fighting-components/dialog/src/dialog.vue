@@ -1,5 +1,6 @@
 <script lang="ts" setup name="FDialog">
   import { Props, Emits } from './dialog'
+  import { FIcon } from '@fighting-design/fighting-components'
   import type {
     transitionEventInterface,
     closeDialogInterface
@@ -64,10 +65,7 @@
         >
           <header class="f-dialog-header">
             <slot name="title">{{ title }}</slot>
-            <i
-              :class="['f-icon', `${closeIcon || 'f-icon-close'}`]"
-              @click="closeDialog"
-            />
+            <f-icon :icon="closeIcon || 'f-icon-close'" @click="closeDialog" />
           </header>
 
           <section v-if="$slots.default" class="f-dialog-body">

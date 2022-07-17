@@ -1,5 +1,6 @@
 <script lang="ts" setup name="FLink">
   import { Props, Emits } from './link'
+  import { FIcon } from '@fighting-design/fighting-components'
   import type { handleClickInterface } from './interface'
 
   const prop = defineProps(Props)
@@ -30,16 +31,8 @@
     :target="target"
     @click="handleClick"
   >
-    <i
-      v-if="leftIcon"
-      :class="`f-icon ${leftIcon}`"
-      :style="{ fontSize: size }"
-    />
+    <f-icon v-if="leftIcon" :icon="leftIcon" :size="size" />
     <slot />
-    <i
-      v-if="rightIcon"
-      :class="`f-icon ${rightIcon}`"
-      :style="{ fontSize: size }"
-    />
+    <f-icon v-if="rightIcon" :icon="leftIcon" :size="size" />
   </a>
 </template>
