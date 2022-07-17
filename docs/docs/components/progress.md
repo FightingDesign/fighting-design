@@ -79,11 +79,11 @@
 
 ## 显示百分比
 
-`show-text` 属性用来展示进度条百分比，线性的不会显示，当自定义高度小于 `15px` 自动隐藏百分比
+`show-text` 属性用来展示进度条百分比，线性的不会显示，当自定义高度小于 `18px` 自动隐藏百分比。可以通过 `text-inside` 属性控制百分比内容是否在进度条内显示
 
 <f-progress :percentage="10" show-text />
 <f-progress type="success" :percentage="40" :show-text="false" />
-<f-progress type="danger" :percentage="70" linear height="15px" />
+<f-progress type="danger" :percentage="70" linear height="18px" text-inside />
 <f-progress type="warning" :percentage="90" linear show-text />
 
 ::: details 显示代码
@@ -91,7 +91,7 @@
 ```html
 <f-progress :percentage="10" show-text />
 <f-progress type="success" :percentage="40" :show-text="false" />
-<f-progress type="danger" :percentage="70" linear height="15px" />
+<f-progress type="danger" :percentage="70" linear height="18px" text-inside />
 <f-progress type="warning" :percentage="90" linear show-text />
 ```
 
@@ -101,8 +101,8 @@
 
 `width` 和 `height` 属性接收一个字符串，用于自定义进度条宽高
 
-<f-progress :percentage="10" width="360px" :height="27" show-text />
-<f-progress type="success" :percentage="40" width="100%" :height="20" show-text />
+<f-progress :percentage="10" width="360px" height="27px" show-text />
+<f-progress type="success" :percentage="40" width="100%" height="20px" show-text text-inside/>
 
 ::: details 显示代码
 
@@ -114,6 +114,7 @@
   width="100%"
   :height="20"
   show-text
+  text-inside
 />
 ```
 
@@ -201,19 +202,20 @@
 
 ## Attributes
 
-| 参数         | 说明                   | 类型    | 可选值                                 | 默认值  |
-| ------------ | ---------------------- | ------- | -------------------------------------- | ------- |
-| `progress`   | 百分比                 | number  | `0 ~ 100`                              | 0       |
-| `type`       | 进度条状态             | string  | `primary` `success` `warning` `danger` | primary |
-| `width`      | 自定义宽度             | string  | ——                                     | ——      |
-| `height`     | 自定义高度             | number  | ——                                     | ——      |
-| `square`     | 方形                   | boolean | ——                                     | false   |
-| `linear`     | 线性                   | boolean | ——                                     | false   |
-| `show-text`  | 是否显示百分比文字内容 | boolean | ——                                     | true    |
-| `text-color` | 百分比文字的颜色       | string  | ——                                     | ——      |
-| `color`      | 进度条颜色             | string  | ——                                     | ——      |
-| `background` | 进度条背景色           | string  | ——                                     | ——      |
-| `stripe`     | 是否开启条纹效果       | boolean | ——                                     | false   |
+| 参数          | 说明                         | 类型    | 可选值                                 | 默认值  |
+| ------------- | ---------------------------- | ------- | -------------------------------------- | ------- |
+| `progress`    | 百分比                       | number  | `0 ~ 100`                              | 0       |
+| `type`        | 进度条状态                   | string  | `primary` `success` `warning` `danger` | primary |
+| `width`       | 自定义宽度                   | string  | ——                                     | ——      |
+| `height`      | 自定义高度                   | string  | ——                                     | `6px`   |
+| `square`      | 方形                         | boolean | ——                                     | false   |
+| `linear`      | 线性                         | boolean | ——                                     | false   |
+| `show-text`   | 是否显示百分比文字内容       | boolean | ——                                     | true    |
+| `text-inside` | 百分比文字是否在进度条内显示 | boolean | ——                                     | false   |
+| `text-color`  | 百分比文字的颜色             | string  | ——                                     | ——      |
+| `color`       | 进度条颜色                   | string  | ——                                     | ——      |
+| `background`  | 进度条背景色                 | string  | ——                                     | ——      |
+| `stripe`      | 是否开启条纹效果             | boolean | ——                                     | false   |
 
 ## Contributors
 
