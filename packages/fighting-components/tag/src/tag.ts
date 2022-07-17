@@ -53,5 +53,5 @@ export const Props = {
 } as const
 
 export const Emits = {
-  onClose: (evt: MouseEvent): MouseEvent => evt
+  'close-end': (evt: Event): Event => evt
 } as const

@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FTag">
   import { Props, Emits } from './tag'
   import { computed, ref } from 'vue'
+  import { FIcon } from '@fighting-design/fighting-components'
   import type { handleCloseInterface } from './interface'
   import type { ComputedRef, Ref } from 'vue'
 
@@ -26,18 +27,18 @@
     }
   )
 
-  const handleClose: handleCloseInterface = (evt: MouseEvent): void => {
+  const handleClose: handleCloseInterface = (evt: Event): void => {
     isShow.value = false
-    emit('onClose', evt)
+    emit('close-end', evt)
   }
 </script>
 
 <template>
   <div v-if="isShow" :class="classList" :style="{ background, color }">
-    <i v-if="leftIcon" :class="['f-icon', leftIcon]" />
+    <f-icon v-if="leftIcon" :icon="leftIcon" />
     <slot />
-    <i v-if="rightIcon" :class="['f-icon', rightIcon]" />
+    <f-icon v-if="rightIcon" :icon="rightIcon" />
 
-    <i v-if="close" class="f-icon f-icon-close" @click.stop="handleClose" />
+    <f-icon v-if="close" icon="f-icon-close" @click.stop="handleClose" />
   </div>
 </template>
