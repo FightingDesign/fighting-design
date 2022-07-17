@@ -8,18 +8,11 @@
   <div
     :class="[
       'f-tooltip',
-      `f-tooltip-${state}`,
-      { 'f-tooltip-disabled': disabled, 'f-tooltip-no-arrow': noArrow }
+      `f-tooltip-${position}`,
+      { 'f-tooltip-disabled ': disabled }
     ]"
+    :f-content="content"
   >
     <slot />
-    <div
-      :f-tooltip-content="content"
-      :class="[
-        'f-tooltip-msg',
-        `f-tooltip-${position}`,
-        { 'f-tooltip-no-arrow': noArrow, 'f-tooltip-bold': bold }
-      ]"
-    />
   </div>
 </template>
