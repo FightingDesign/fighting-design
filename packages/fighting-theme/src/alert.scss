@@ -1,10 +1,10 @@
 @import '../config/const-color.scss';
 
 .f-alert {
-  min-width: 500px;
-  padding: 10px;
+  padding: 10px 16px;
   color: #fff;
   position: relative;
+  box-sizing: border-box;
 
   @for $list from 1 to (length($allTypeColorList) + 1) {
     $item: nth($allTypeColorList, $list); // 获取数据中心第i项的值
@@ -41,7 +41,11 @@
     }
   }
 
-  & .f-alert-sub-title {
+  .f-alert-title {
+    font-weight: bold;
+  }
+
+  .f-alert-sub-title {
     display: block;
   }
 

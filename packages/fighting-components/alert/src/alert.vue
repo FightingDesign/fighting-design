@@ -1,12 +1,14 @@
 <script lang="ts" setup name="FAlert">
   import { Props, Emits } from './alert'
-  import { computed } from 'vue'
+  import { computed, ref } from 'vue'
   import { FIcon } from '@fighting-design/fighting-components'
-  import type { ComputedRef, CSSProperties } from 'vue'
+  import type { ComputedRef, CSSProperties, Ref } from 'vue'
   import type { handleCloseInterface } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
+
+  const isShow: Ref<boolean> = ref<boolean>(true)
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
@@ -21,7 +23,7 @@
           'f-alert-center': center,
           'f-alert-round': round
         }
-      ]
+      ] as const
     }
   )
 
@@ -32,16 +34,17 @@
       color,
       background,
       fontSize: size
-    }
+    } as const
   })
 
   const handleClose: handleCloseInterface = (evt: MouseEvent): void => {
-    emit('onClose', evt)
+    isShow.value = false
+    emit('close-end', evt)
   }
 </script>
 
 <template>
-  <div :class="classList" :style="styleList">
+  <div v-if="isShow" :class="classList" :style="styleList">
     <div v-if="title" class="f-alert-title">
       <f-icon :icon="icon" />
       {{ title }}
