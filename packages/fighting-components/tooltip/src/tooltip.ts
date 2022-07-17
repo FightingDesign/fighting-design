@@ -21,7 +21,7 @@ export const Props = {
     type: String,
     default: (): stateType => 'hover',
     validator: (val: stateType): boolean => {
-      return (['hover', 'active'] as const).includes(val)
+      return (['hover', 'active', 'always'] as const).includes(val)
     }
   },
   noArrow: {
@@ -31,30 +31,5 @@ export const Props = {
   bold: {
     type: Boolean,
     default: (): boolean => false
-  },
-  background: {
-    type: String,
-    default: (): string => '#333'
-  },
-  color: {
-    type: String,
-    default: (): string => '#fff'
-  },
-  zIndex: {
-    type: Number,
-    default: (): number => 300,
-    validator: (val: number): boolean => val >= 0
-  },
-  width: {
-    type: String,
-    default: (): string => ''
-  },
-  height: {
-    type: String,
-    default: (): string => ''
-  },
-  fontSize: {
-    type: String,
-    default: (): string => ''
   }
 } as const

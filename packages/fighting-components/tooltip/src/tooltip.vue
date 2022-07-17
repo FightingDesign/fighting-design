@@ -23,18 +23,3 @@
     />
   </div>
 </template>
-
-<style scoped>
-  .f-tooltip .f-tooltip-msg::before,
-  .f-tooltip .f-tooltip-msg::after {
-    background: v-bind(background);
-    color: v-bind(color);
-    z-index: v-bind(zIndex);
-  }
-
-  .f-tooltip .f-tooltip-msg::after {
-    width: v-bind(width);
-    height: v-bind(height);
-    font-size: v-bind(fontSize);
-  }
-</style>
