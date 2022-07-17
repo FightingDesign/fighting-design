@@ -2,6 +2,18 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.3.2-bate.5 (2022-07-17)
+
+**feat**
+
+- `Tooltip` 组件移除部分配置项
+- 重做 `tooltip` 组件
+
+**fix**
+
+- 修复 `Tag` 组件不展示的问题
+- 修复 `Alert` 组件的展示状态和关闭回调
+
 ## 0.3.1-bate.4 (2022-07-15)
 
 - `Link` 组件新增 `default` 配置 `type`
