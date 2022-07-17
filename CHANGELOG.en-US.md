@@ -2,6 +2,18 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.3.2-bate.5 (2022-07-17)
+
+**feat**
+
+- The `tooltip` component removes some configuration items
+- Redo `tooltip` component
+
+**fix**
+
+- Fix the problem that the `tag` component is not displayed
+- Repair the display status and close callback of the `alert` component
+
 ## 0.3.1-bate.4 (2022-07-15)
 
 - `link` component new `default` configuration `type`
