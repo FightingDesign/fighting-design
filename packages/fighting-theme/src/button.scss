@@ -32,8 +32,13 @@
       &:hover {
         background: map-get($item, defaultHover);
       }
+
       &:active {
         background: map-get($item, defaultActive);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
       }
 
       // 普通按钮禁用效果
@@ -50,6 +55,7 @@
         &:hover {
           background: map-get($item, simpleHover);
         }
+
         &:active {
           background: map-get($item, simpleActive);
         }

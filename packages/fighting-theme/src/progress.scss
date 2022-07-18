@@ -5,10 +5,6 @@
   align-items: center;
   line-height: 1;
 
-  // &.f-progress-liner {
-  //   height: 6px;
-  // }
-
   .f-progress-bar {
     flex-grow: 1;
     box-sizing: border-box;
@@ -30,6 +26,7 @@
       display: inline-block;
       vertical-align: middle;
     }
+
     // 垂直居中百分比
     &::after {
       content: '';
@@ -38,6 +35,7 @@
       height: 100%;
     }
   }
+
   // 右侧显示百分比
   .f-progress-text {
     min-width: 40px;
@@ -62,15 +60,13 @@
 
     // 条纹背景
     .f-progress-fill-#{map-get($item, name)}.f-progress-stripe {
-      background: repeating-linear-gradient(
-        -45deg,
-        map-get($item, default) 25%,
-        map-get($item, default) 0,
-        map-get($item, default) 50%,
-        map-get($item, light) 0,
-        map-get($item, light) 75%,
-        map-get($item, light) 0
-      );
+      background: repeating-linear-gradient(-45deg,
+          map-get($item, default) 25%,
+          map-get($item, default) 0,
+          map-get($item, default) 50%,
+          map-get($item, light) 0,
+          map-get($item, light) 75%,
+          map-get($item, light) 0);
       background-size: 35px 35px;
       animation: panoramic 30s linear infinite;
     }

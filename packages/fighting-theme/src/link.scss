@@ -12,6 +12,7 @@
   &.f-icon {
     font-size: 15px;
   }
+
   &:hover {
     opacity: 0.8;
   }
@@ -45,6 +46,7 @@
   &.f-link-prohibit {
     opacity: 0.5;
     cursor: not-allowed;
+
     &.f-link-bag {
       &:hover {
         background: none;

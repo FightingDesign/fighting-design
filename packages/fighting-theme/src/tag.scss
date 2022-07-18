@@ -30,7 +30,8 @@
   }
 
   // 不同的尺寸
-  @each $key, $value in $tagSize {
+  @each $key,
+  $value in $tagSize {
     &.f-tag-#{$key} {
       height: $value;
     }

@@ -185,6 +185,7 @@
 
   // 是否禁用
   &.f-tooltip-disabled {
+
     &:hover::before,
     &:hover::after {
       visibility: hidden;
