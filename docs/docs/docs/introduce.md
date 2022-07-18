@@ -67,21 +67,13 @@ createApp(App).use(FightingDesign).mount('#app')
 
 ## 加入 Fighting Design
 
-添加微信请备注 Github 用户名
+添加微信请备注 `Github` 用户名
 
 ![](https://tianyuhao.cn/images/weixin2.png)
 
 ## 特别感谢
 
 感谢所有已经为 `Fighting Design` [做出贡献的人](https://github.com/FightingDesign/fighting-design/graphs/contributors)！
-
-**Star**
-
-[![Stargazers repo roster for @FightingDesign/fighting-design](https://reporoster.com/stars/FightingDesign/fighting-design)](https://github.com/FightingDesign/fighting-design/stargazers)
-
-**Fork**
-
-[![Forkers repo roster for @FightingDesign/fighting-design](https://reporoster.com/forks/FightingDesign/fighting-design)](https://github.com/FightingDesign/fighting-design/network/members)
 
 ## 执照
 
