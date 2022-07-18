@@ -166,11 +166,3 @@ Development is not easy, welcome to sponsor!
 ## Thank a lot
 
 Thank all those who have [contributors](https://github.com/FightingDesign/fighting-design/graphs/contributors) to `Fighting Design`!
-
-**Star**
-
-[![Stargazers repo roster for @FightingDesign/fighting-design](https://reporoster.com/stars/FightingDesign/fighting-design)](https://github.com/FightingDesign/fighting-design/stargazers)
-
-**Fork**
-
-[![Forkers repo roster for @FightingDesign/fighting-design](https://reporoster.com/forks/FightingDesign/fighting-design)](https://github.com/FightingDesign/fighting-design/network/members)
