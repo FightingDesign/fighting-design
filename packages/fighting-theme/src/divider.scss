@@ -22,8 +22,7 @@
   }
 
   // 不同的线条类型
-  @each $key,
-  $value in $dividerType {
+  @each $key, $value in $dividerType {
     &.f-divider-#{$key} {
       border-style: $value;
     }

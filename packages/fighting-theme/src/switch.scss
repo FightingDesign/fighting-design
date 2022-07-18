@@ -18,8 +18,7 @@
     height: 20px;
 
     // 打开状态
-    @each $key,
-    $value in $switchSize {
+    @each $key, $value in $switchSize {
       &.f-switch-#{$key} {
         width: $value * 2;
         height: $value;

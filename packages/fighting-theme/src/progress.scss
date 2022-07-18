@@ -60,13 +60,15 @@
 
     // 条纹背景
     .f-progress-fill-#{map-get($item, name)}.f-progress-stripe {
-      background: repeating-linear-gradient(-45deg,
-          map-get($item, default) 25%,
-          map-get($item, default) 0,
-          map-get($item, default) 50%,
-          map-get($item, light) 0,
-          map-get($item, light) 75%,
-          map-get($item, light) 0);
+      background: repeating-linear-gradient(
+        -45deg,
+        map-get($item, default) 25%,
+        map-get($item, default) 0,
+        map-get($item, default) 50%,
+        map-get($item, light) 0,
+        map-get($item, light) 75%,
+        map-get($item, light) 0
+      );
       background-size: 35px 35px;
       animation: panoramic 30s linear infinite;
     }

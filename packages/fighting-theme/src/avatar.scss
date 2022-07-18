@@ -8,9 +8,7 @@
   vertical-align: middle;
 
   // 不同大小
-  @each $key,
-  $value in $avatarSize {
-
+  @each $key, $value in $avatarSize {
     &.f-avatar-#{$key},
     .f-avatar-#{$key} {
       width: $value;
