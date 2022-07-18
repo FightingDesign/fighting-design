@@ -7,7 +7,7 @@ import '@fighting-design/fighting-theme'
 
 // 打包阶段引入
 // import FightingDesign from '../dist'
-// import '../dist/theme/style.css'
+// import '../dist/dist/style.css'
 
 console.log(FightingDesign)
 

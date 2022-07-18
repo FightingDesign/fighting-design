@@ -44,8 +44,10 @@ pnpm start
   "clean": "rimraf dist", // 清除 dist
   "start": "pnpm run -C start dev", // 启动开发测试项目
   "dev:docs": "pnpm run -C docs dev", // 启动文档项目
-  "build": "pnpm clean && vite build && pnpm build:theme && pnpm move", // 打包（主要的打包，打包之后就是需要发布的包）
+  "build": "pnpm clean && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move", // 打包（主要的打包，打包之后就是需要发布的包）
   "build:theme": "vite build --config vite.config.theme.ts", // 打包组件样式主题
+  "build:lib": "vite build --config vite.config.lib.ts", // lib 模式打包
+  "build:umd": "vite build --config vite.config.umd.ts", // umd 模式打包
   "build:docs": "pnpm run -C docs build", // 打包文档
   "build:start": "pnpm run -C start build", // 打包测试项目 start
   "move": "node script/move-file.ts", // 移动静态文件

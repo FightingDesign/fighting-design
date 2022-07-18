@@ -2,10 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.4.0-bate.6 (2022-07-18)
+
 **feat**
 
 - `progress` 组件新增 `textInside` 配置项
 - 新增 `novel-coronavirus` 组件
+- 新增 `cjs` 和 `umd` 打包模式
 
 ## 0.3.2-bate.5 (2022-07-17)
 
