@@ -6,6 +6,7 @@
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/drawer.md)
 
 ## 基本使用
+
 呼出一个临时的侧边栏, 可以从多个方向呼出
 
 <f-space>
@@ -19,13 +20,14 @@ fighting-design
 </f-space>
 
 ::: details 显示代码
+
 ```html
 <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
 <f-button type="primary" @click="onShow('right')">从右往左开</f-button>
 <f-button type="primary" @click="onShow('top')">从上往下开</f-button>
 <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
 <f-drawer title="Title" :direction="direction" v-model:visible="visible">
-fighting-design
+  fighting-design
 </f-drawer>
 
 <script setup>
@@ -33,16 +35,17 @@ fighting-design
   const visible1 = ref(false)
   const direction = ref('right')
 
-  const onShow = dir => {
+  const onShow = (dir) => {
     direction.value = dir
     visible1.value = true
   }
 </script>
 ```
+
 :::
 
+## 不显示 title
 
-## 不显示title
 当你不需要标题到时候, 你还可以去掉标题
 
 <f-button type="primary" @click="visible2 = true">show</f-button>
@@ -51,10 +54,11 @@ fighting-design
 </f-drawer>
 
 ::: details 显示代码
+
 ```html
 <f-button type="primary" @click="visible = true">show</f-button>
 <f-drawer title="Title" :withHeader="false" v-model:visible="visible">
-fighting-design
+  fighting-design
 </f-drawer>
 
 <script setup>
@@ -62,18 +66,20 @@ fighting-design
   const visible = ref(false)
 </script>
 ```
+
 :::
 
-
 ## 自定义内容
+
 和 `Dialog` 组件一样, `Drawer` 同样可以在其内部嵌套各种丰富的操作
 
 <f-button type="primary" @click="visible3 = true">show</f-button>
 <f-drawer title="Title" v-model:visible="visible3">
-  <f-button type="warning" @click="visible3 = false">hidden</f-button>
+<f-button type="warning" @click="visible3 = false">hidden</f-button>
 </f-drawer>
 
 ::: details 显示代码
+
 ```html
 <f-button type="primary" @click="visible = true">show</f-button>
 <f-drawer title="Title" v-model:visible="visible">
@@ -85,28 +91,28 @@ fighting-design
   const visible = ref(false)
 </script>
 ```
+
 :::
 
-
 ## 多层嵌套
+
 `Drawer` 组件也拥有多层嵌套的方法
 
 <f-button type="primary" :size="'50%'" @click="visible4 = true">show</f-button>
 <f-drawer title="Title" append-to-body v-model:visible="visible4">
-  <f-button type="primary" @click="visible5 = true">打开内层drawer</f-button>
-  <f-drawer title="Title" v-model:visible="visible5">
-    内层drawer
-  </f-drawer>
+<f-button type="primary" @click="visible5 = true">打开内层 drawer</f-button>
+<f-drawer title="Title" v-model:visible="visible5">
+内层 drawer
+</f-drawer>
 </f-drawer>
 
 ::: details 显示代码
+
 ```html
 <f-button type="primary" :size="'50%'" @click="visible = true">show</f-button>
 <f-drawer title="Title" append-to-body v-model:visible="visible">
   <f-button type="primary" @click="visible1 = true">打开内层drawer</f-button>
-  <f-drawer title="Title" v-model:visible="visible1">
-    内层drawer
-  </f-drawer>
+  <f-drawer title="Title" v-model:visible="visible1"> 内层drawer </f-drawer>
 </f-drawer>
 
 <script setup>
@@ -115,26 +121,27 @@ fighting-design
   const visible1 = ref(false)
 </script>
 ```
+
 :::
 
 ## Attributes
 
-| 参数              | 说明                  | 类型    | 可选值                                                     | 默认值       |
-| ----------------- | --------------------- | ------- | ---------------------------------------------------------- | ------------ |
-| `v-model:visible` | 绑定值                | boolean | ——                                                         | false        |
-| `direction`           | 弹出方向           | boolean | `top`/`left`/`bottom`/`right`| ——           |
-| `title`           | 标题           | string  | ——                                                         | ——           |
-| `withHeader`           | 是否展示标题           | boolean  | ——                                                         | true           |
-| `append-to-body`  | 是否追加到 `body`     | boolean | ——                                                         | false        |
-| `size`           | Drawer 窗体的大小, 当使用 `number` 类型时, 以像素为单位, 当使用 `string` 类型时, 请传入 'x%', 否则便会以 `number` 类型解释| string  | ——                                                         | 30%        |
-| `modal`           | 是否展示蒙层          | boolean | ——                                                         | true         |
-| `z-index`         | `Dialog` 层级         | boolean | ——                                                         | 1999         |
+| 参数              | 说明                                                                                                                       | 类型    | 可选值                        | 默认值 |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------- | ------- | ----------------------------- | ------ |
+| `v-model:visible` | 绑定值                                                                                                                     | boolean | ——                            | false  |
+| `direction`       | 弹出方向                                                                                                                   | boolean | `top`/`left`/`bottom`/`right` | ——     |
+| `title`           | 标题                                                                                                                       | string  | ——                            | ——     |
+| `withHeader`      | 是否展示标题                                                                                                               | boolean | ——                            | true   |
+| `append-to-body`  | 是否追加到 `body`                                                                                                          | boolean | ——                            | false  |
+| `size`            | Drawer 窗体的大小, 当使用 `number` 类型时, 以像素为单位, 当使用 `string` 类型时, 请传入 'x%', 否则便会以 `number` 类型解释 | string  | ——                            | 30%    |
+| `modal`           | 是否展示蒙层                                                                                                               | boolean | ——                            | true   |
+| `z-index`         | `Dialog` 层级                                                                                                              | boolean | ——                            | 1999   |
 
 ## Slots
 
-| 名称      | 说明              |
-| --------- | ----------------- |
-| `default` | `Dialog` 内容     |
+| 名称      | 说明          |
+| --------- | ------------- |
+| `default` | `Dialog` 内容 |
 
 ## Contributors
 
