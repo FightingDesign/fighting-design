@@ -32,7 +32,10 @@ createApp(App).use(FButton).use(FIcon).mount('#app')
 
 ```html
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fighting-design/dist/style.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/fighting-design/dist/style.css"
+  />
 </head>
 
 <body>
@@ -59,7 +62,7 @@ createApp(App).use(FButton).use(FIcon).mount('#app')
     const { createApp, ref } = Vue
 
     const app = createApp({
-      setup () {
+      setup() {
         const visible = ref(false)
 
         return { visible }
