@@ -37,10 +37,6 @@
         background: map-get($item, defaultActive);
       }
 
-      &:focus {
-        box-shadow: 0 0 0 0.2rem map-get($item, simpleActive);
-      }
-
       // 普通按钮禁用效果
       &.f-button-disabled:hover {
         background: map-get($item, default);
