@@ -38,7 +38,7 @@ export class Ripples implements RipplesInterface {
   /**
    * 点击生成涟漪效果
    */
-  clickRipples (): void {
+  clickRipples = (): void => {
     /**
      * layerX 和 layerY 属性暂时使用，未来可能会涉及到兼容性的问题
      * https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/layerX
@@ -53,7 +53,7 @@ export class Ripples implements RipplesInterface {
   /**
    * 计算涟漪颜色
    */
-  computedRipplesColor (): string {
+  computedRipplesColor = (): string => {
     return this.ripplesColor
       ? this.ripplesColor
       : this.simple || this.text
@@ -65,7 +65,7 @@ export class Ripples implements RipplesInterface {
    * @param x 坐标 x
    * @param y 坐标 y
    */
-  renderElement (x: number, y: number): HTMLSpanElement {
+  renderElement = (x: number, y: number): HTMLSpanElement => {
     const ripples: HTMLSpanElement = document.createElement('span')
 
     ripples.className = 'f-design-ripples'
@@ -79,7 +79,7 @@ export class Ripples implements RipplesInterface {
    * 删除节点
    * @param node dom
    */
-  removeElement (node: HTMLElement): void {
+  removeElement = (node: HTMLElement): void => {
     setTimeout((): void => {
       node.remove()
     }, 600)
