@@ -66,7 +66,6 @@
   );
 
   #f-color-box {
-    width: 688px;
     display: flex;
     justify-content: space-between;
 
@@ -75,7 +74,7 @@
 
       .f-color-#{map-get($item, name)} {
         .#{map-get($item, name)}-1 {
-          width: 150px;
+          width: 23%;
           height: 50px;
           background: map-get($item, color-1);
         }
