@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.4.1-bate.7 (2022-07-19)
+
+- 主要修复了引入样式的报错配置
+
 ## 0.4.0-bate.6 (2022-07-18)
 
 **feat**

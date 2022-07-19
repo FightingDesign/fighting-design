@@ -2,6 +2,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.4.1-bate.7 (2022-07-19)
+
+- It mainly fixes the error reporting configuration of the imported style
+
 ## 0.3.2-bate.5 (2022-07-17)
 
 **feat**
