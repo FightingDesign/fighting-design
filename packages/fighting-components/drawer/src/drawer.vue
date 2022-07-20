@@ -32,8 +32,6 @@
   watchEffect(() => {
     const { lockScroll, visible } = prop
     if (lockScroll && visible) {
-      // TODO 优化点可以参考element-plus对于禁止body滚动的方案
-      // 源码地址: https://github.com/element-plus/element-plus/blob/dev/packages/hooks/use-lockscreen/index.ts
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'auto'
