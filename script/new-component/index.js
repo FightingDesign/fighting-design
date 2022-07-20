@@ -101,12 +101,6 @@ async function generate() {
   ])
 }
 
-async function incrementTest() {
-  const outputDir = resolve(__dirname, '../../packages/fighting-test')
-  const tplDir = resolve(__dirname, './template/test')
-  await superEjsGerenateDir(outputDir, tplDir)
-}
-
 async function generateComponentDir() {
   const tplDir = resolve(__dirname, './template/component')
 
@@ -121,6 +115,7 @@ async function updateComponentEntry() {
   )
   let content = (await readFile(entryFilePath)).toString()
 
+  // 添加代码: import { FDemo } from './demo'
   {
     const latestStr = content.match(/import \{ .*? \} from '.*?'\n\n/m)[0]
     const appendIndex = content.indexOf(latestStr) + latestStr.length - 1
@@ -131,7 +126,9 @@ async function updateComponentEntry() {
       content.slice(appendIndex)
   }
 
+  // 添加代码： const components = { FDemo }
   {
+    // logInfo('const components = { FDemo }', content)
     const latestStr = content.match(/const components = \{(.|\n)*?}/)[0]
     const appendIndex = content.indexOf(latestStr) + latestStr.length - 2
     content =
@@ -142,7 +139,9 @@ async function updateComponentEntry() {
       content.slice(appendIndex)
   }
 
+  // 添加代码： export { FDemo }
   {
+    // logInfo('export { FDemo }', content)
     const latestStr = content.match(/export \{(.|\n)*?}/)[0]
     const appendIndex = content.indexOf(latestStr) + latestStr.length - 2
     content =
@@ -153,6 +152,7 @@ async function updateComponentEntry() {
       content.slice(appendIndex)
   }
 
+  // logInfo('writeFile', content)
   await writeFile(entryFilePath, content)
 }
 
@@ -174,6 +174,12 @@ async function updateStyleEntry() {
   content = content.slice(0, -1) + `@use './src/${compName}.scss';` + '\n'
 
   await writeFile(entryFilePath, content)
+}
+
+async function incrementTest() {
+  const outputDir = resolve(__dirname, '../../packages/fighting-test')
+  const tplDir = resolve(__dirname, './template/test')
+  await superEjsGerenateDir(outputDir, tplDir)
 }
 
 async function superEjsGerenateDir(outputDir, tplDir) {

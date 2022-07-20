@@ -19,7 +19,7 @@
     "build:umd": "vite build --config vite.config.umd.ts",
     "build:docs": "pnpm run -C docs build",
     "build:start": "pnpm run -C start build",
-    "move": "node script/move-file.ts",
+    "move": "node script/move-file.js",
     "new": "node script/new-component",
     "test": "vitest",
     "prettier": "prettier --write .",
