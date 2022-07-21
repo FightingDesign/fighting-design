@@ -4,7 +4,16 @@
   <f-button type="primary" @click="onShow('top')">从上往下开</f-button>
   <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
 
-  <f-drawer title="Title" :direction="direction" v-model:visible="visible1">
+  <f-drawer
+    title="Title"
+    :direction="direction"
+    appendToBody
+    v-model:visible="visible1"
+    @open="open"
+    @open-end="openEnd"
+    @close="close"
+    @close-end="closeEnd"
+  >
     fighting-design
   </f-drawer>
 
@@ -20,5 +29,21 @@
   const onShow = (dir) => {
     direction.value = dir
     visible1.value = true
+  }
+
+  const open = () => {
+    console.log('open')
+  }
+
+  const openEnd = () => {
+    console.log('openEnd')
+  }
+
+  const close = () => {
+    console.log('close')
+  }
+
+  const closeEnd = () => {
+    console.log('closeEnd')
   }
 </script>
