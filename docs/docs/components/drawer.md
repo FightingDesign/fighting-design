@@ -23,14 +23,16 @@
 ::: details 显示代码
 
 ```html
-<f-button type="primary" @click="onShow('left')">从左往右开</f-button>
-<f-button type="primary" @click="onShow('right')">从右往左开</f-button>
-<f-button type="primary" @click="onShow('top')">从上往下开</f-button>
-<f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
+<template>
+  <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
+  <f-button type="primary" @click="onShow('right')">从右往左开</f-button>
+  <f-button type="primary" @click="onShow('top')">从上往下开</f-button>
+  <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
 
-<f-drawer title="Title" :direction="direction" v-model:visible="visible1">
-  fighting-design
-</f-drawer>
+  <f-drawer title="Title" :direction="direction" v-model:visible="visible1">
+    fighting-design
+  </f-drawer>
+</template>
 
 <script setup>
   import { ref } from 'vue'
@@ -59,10 +61,12 @@ fighting-design
 ::: details 显示代码
 
 ```html
-<f-button type="primary" @click="visible2 = true">show</f-button>
-<f-drawer title="Title" :withHeader="false" v-model:visible="visible2">
-  fighting-design
-</f-drawer>
+<template>
+  <f-button type="primary" @click="visible2 = true">show</f-button>
+  <f-drawer title="Title" :withHeader="false" v-model:visible="visible2">
+    fighting-design
+  </f-drawer>
+</template>
 
 <script setup>
   import { ref } from 'vue'
@@ -85,10 +89,12 @@ fighting-design
 ::: details 显示代码
 
 ```html
-<f-button type="primary" @click="visible3 = true">Show</f-button>
-<f-drawer title="Title" v-model:visible="visible3">
-  <f-button type="warning" @click="visible3 = false">Close</f-button>
-</f-drawer>
+<template>
+  <f-button type="primary" @click="visible3 = true">Show</f-button>
+  <f-drawer title="Title" v-model:visible="visible3">
+    <f-button type="warning" @click="visible3 = false">Close</f-button>
+  </f-drawer>
+</template>
 
 <script setup>
   import { ref } from 'vue'
@@ -114,12 +120,14 @@ fighting-design
 ::: details 显示代码
 
 ```html
-<f-button type="primary" @click="visible4 = true">show</f-button>
+<template>
+  <f-button type="primary" @click="visible4 = true">show</f-button>
 
-<f-drawer title="Title" size="50%" append-to-body v-model:visible="visible4">
-  <f-button type="primary" @click="visible5 = true">打开内层 drawer</f-button>
-  <f-drawer title="Title" v-model:visible="visible5"> 内层 drawer </f-drawer>
-</f-drawer>
+  <f-drawer title="Title" size="50%" append-to-body v-model:visible="visible4">
+    <f-button type="primary" @click="visible5 = true">打开内层 drawer</f-button>
+    <f-drawer title="Title" v-model:visible="visible5"> 内层 drawer </f-drawer>
+  </f-drawer>
+</template>
 
 <script setup>
   import { ref } from 'vue'

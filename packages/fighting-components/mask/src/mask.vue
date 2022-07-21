@@ -8,8 +8,8 @@
   defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const handleClose: handleCloseInterface = (): void => {
-    emit('update:visible', false)
+  const handleClose: handleCloseInterface = (evt: MouseEvent): void => {
+    emit('click-modal', evt)
   }
 
   const open: transitionEventInterface = (evt: MouseEvent): void => {

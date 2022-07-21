@@ -3,5 +3,5 @@ export interface transitionEventInterface {
 }
 
 export interface handleCloseInterface {
-  (): void
+  (evt: MouseEvent): void
 }

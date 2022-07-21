@@ -23,5 +23,6 @@ export const Emits = {
   open: (event: MouseEvent): MouseEvent => event,
   close: (event: MouseEvent): MouseEvent => event,
   'open-end': (event: MouseEvent): MouseEvent => event,
-  'close-end': (event: MouseEvent): MouseEvent => event
+  'close-end': (event: MouseEvent): MouseEvent => event,
+  'click-modal': (event: MouseEvent): MouseEvent => event
 } as const
