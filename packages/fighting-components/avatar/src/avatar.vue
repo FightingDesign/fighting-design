@@ -51,7 +51,7 @@
   )
 
   onMounted((): void => {
-    if (!prop.icon) {
+    if (!prop.icon && !prop.text) {
       const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
       loadImage(node, prop, emit, null)
     }
