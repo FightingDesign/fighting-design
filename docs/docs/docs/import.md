@@ -26,7 +26,7 @@ import 'fighting-design/dist/style.css'
 createApp(App).use(FButton).use(FIcon).mount('#app')
 ```
 
-## 在 Html 中使用
+## CND 引入
 
 可通过 `CNN` 在 `*.html` 中引入 `Fighting Design`，快速构建您的程序
 
