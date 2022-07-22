@@ -32,7 +32,6 @@ export const Props = {
     }
   },
   size: {
-    // type: String,
     type: [String, Number] as PropType<avatarSize | number>,
     default: (): avatarSize => 'middle',
     validator: (val: avatarSize | number): boolean => {
