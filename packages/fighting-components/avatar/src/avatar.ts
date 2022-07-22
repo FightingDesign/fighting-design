@@ -51,11 +51,15 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  iconSize: {
+  fontSize: {
     type: String,
     default: (): string => ''
   },
-  iconColor: {
+  fontColor: {
+    type: String,
+    default: (): string => ''
+  },
+  text: {
     type: String,
     default: (): string => ''
   }
