@@ -12,7 +12,7 @@
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { simple, type, size, block, round } = prop
+      const { simple, type, size, block, round, text } = prop
 
       return [
         'f-tag',
@@ -21,7 +21,8 @@
         {
           'f-tag-simple': simple,
           'f-tag-block': block,
-          'f-tag-round': round
+          'f-tag-round': round,
+          'f-tag-text': text
         }
       ] as const
     }
