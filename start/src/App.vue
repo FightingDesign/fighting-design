@@ -1,49 +1,11 @@
+<script lang="ts" setup></script>
+
 <template>
-  <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
-  <f-button type="primary" @click="onShow('right')">从右往左开</f-button>
-  <f-button type="primary" @click="onShow('top')">从上往下开</f-button>
-  <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
-
-  <f-drawer
-    title="Title"
-    :direction="direction"
-    appendToBody
-    v-model:visible="visible1"
-    @open="open"
-    @open-end="openEnd"
-    @close="close"
-    @close-end="closeEnd"
-  >
-    fighting-design
-  </f-drawer>
-
-  <!-- <f-mask v-model></f-mask> -->
+  <f-avatar :size="40" text="你好" src="https://tianyuhao.cn/images/my.jpg" />
+  <f-avatar size="large" src="https://tianyuhao.cn/images/my.jpg" />
+  <f-avatar size="middle" src="https://tianyuhao.cn/images/my.jpg" />
+  <f-avatar size="small" src="https://tianyuhao.cn/images/my.jpg" />
+  <f-avatar size="mini" src="https://tianyuhao.cn/images/my.jpg" />
 </template>
 
-<script setup>
-  import { ref } from 'vue'
-
-  const visible1 = ref(false)
-  const direction = ref('right')
-
-  const onShow = (dir) => {
-    direction.value = dir
-    visible1.value = true
-  }
-
-  const open = () => {
-    console.log('open')
-  }
-
-  const openEnd = () => {
-    console.log('openEnd')
-  }
-
-  const close = () => {
-    console.log('close')
-  }
-
-  const closeEnd = () => {
-    console.log('closeEnd')
-  }
-</script>
+<style scoped></style>
