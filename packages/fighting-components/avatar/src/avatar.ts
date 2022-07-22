@@ -32,10 +32,15 @@ export const Props = {
     }
   },
   size: {
-    type: String,
+    type: [String as PropType<avatarSize>, Number],
     default: (): avatarSize => 'middle',
     validator: (val: avatarSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+      if (typeof val === 'string') {
+        return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+      } else if (typeof val === 'number') {
+        return val >= 1
+      }
+      return false
     }
   },
   background: {

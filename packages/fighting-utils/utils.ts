@@ -1,4 +1,8 @@
-import type { keepDecimalInterface, debounceInterface } from './type'
+import type {
+  keepDecimalInterface,
+  debounceInterface,
+  getTypeInterface
+} from './type'
 
 /**
  * 保留小数点后 n 位
@@ -32,4 +36,27 @@ export const debounce: debounceInterface = (
       handle()
     }, delay)
   }
+}
+
+/**
+ * 判断一个值是否为字符串
+ * @param target 要检测的值
+ */
+export const isString: getTypeInterface = (target: unknown): boolean => {
+  return (
+    typeof target === 'string' &&
+    Object.prototype.toString.call(target) === '[object String]'
+  )
+}
+
+/**
+ * 检测一个数据是否为 Number 类型
+ * @param target 要检测的数据
+ * @returns boolean
+ */
+export const isNumber: getTypeInterface = (target: unknown): boolean => {
+  return (
+    typeof target === 'number' &&
+    Object.prototype.toString.call(target) === '[object Number]'
+  )
 }
