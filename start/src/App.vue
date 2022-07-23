@@ -1,17 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  const obj = {
+    bot2tom: 123
+  }
+</script>
 
 <template>
-  <f-avatar size="large" src="https://tianyuhao.cn/images/my.jpg" />
-  <f-avatar size="middle" src="https://tianyuhao.cn/images/my.jpg" />
-  <f-avatar size="small" src="https://tianyuhao.cn/images/my.jpg" />
-  <f-avatar size="mini" src="https://tianyuhao.cn/images/my.jpg" />
-  <br />
-  <br />
-  <br />
-  <f-tag type="primary" size="large">大标签</f-tag>
-  <f-tag type="primary" size="middle">中等标签</f-tag>
-  <f-tag type="primary" size="small">小标签</f-tag>
-  <f-tag type="primary" size="mini">超小标签</f-tag>
+  <f-alert fixed type="primary" :fixedStyle="obj">默认提示信息</f-alert>
 </template>
 
 <style scoped></style>

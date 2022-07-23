@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**fest**
+
+- `Alert` 组件新增 `fixed` `fixed-style` 配置项
+
 **fix**
 
 - 修复 `tag` 组件样式细节
