@@ -9,7 +9,7 @@
   const prop = defineProps(Props)
 
   const instance: ComponentInternalInstance = getCurrentInstance()!
-  const breadcrumbContext = inject(breadcrumbKey, undefined)!
+  const breadcrumbContext = inject(breadcrumbKey)!
   const router = instance.appContext.config.globalProperties.$router
   const link: Ref<HTMLSpanElement> = ref<HTMLSpanElement>(
     null as unknown as HTMLSpanElement

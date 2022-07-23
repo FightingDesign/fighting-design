@@ -1,5 +1,6 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { listSize } from './interface'
+
 export const Props = {
   // TODO
   /** showNum 是否展示编号 **/
@@ -71,4 +72,6 @@ export const Props = {
   }
 } as const
 
-export const Emits = {} as const
+type listPropsType = ExtractPropTypes<typeof Props>
+
+export const listPropsKey: InjectionKey<listPropsType> = Symbol('list-props')

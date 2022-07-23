@@ -1,11 +1,10 @@
 <script lang="ts" setup name="FList">
-  import { computed, provide } from 'vue'
-  import { Props, Emits } from './list'
+  import { provide } from 'vue'
+  import { Props, listPropsKey } from './list'
 
-  const props = defineProps(Props)
-  defineEmits(Emits)
+  const prop = defineProps(Props)
 
-  provide('list-style', computed((): string => props).value)
+  provide(listPropsKey, prop)
 </script>
 
 <template>
