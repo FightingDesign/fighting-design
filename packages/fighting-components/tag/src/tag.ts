@@ -50,7 +50,7 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  text: {
+  line: {
     type: Boolean,
     default: (): boolean => false
   }

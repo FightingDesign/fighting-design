@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**fix**
+
+- 修复 `tag` 组件样式细节
+
 ## 0.4.2-bate.8 (2022-07-23)
 
 **fest**

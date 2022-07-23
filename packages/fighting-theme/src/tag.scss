@@ -29,8 +29,9 @@
       color: map-get($item, simpleTextColor);
     }
 
-    // 文字 tag
-    &.f-tag-text.f-tag-#{map-get($item, name)} {
+    // 线性的
+    &.f-tag-line.f-tag-#{map-get($item, name)} {
+      color: map-get($item, simpleTextColor);
       background: none;
     }
   }
