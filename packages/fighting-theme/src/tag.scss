@@ -37,9 +37,12 @@
   }
 
   // 不同的尺寸
-  @each $key, $value in $tagSize {
-    &.f-tag-#{$key} {
-      height: $value;
+  @for $list from 1 to (length($tagSize) + 1) {
+    $item: nth($tagSize, $list);
+
+    &.f-tag-#{map-get($item, name)} {
+      height: map-get($item, size);
+      font-size: map-get($item, fontSize);
     }
   }
 
