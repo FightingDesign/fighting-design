@@ -1,0 +1,22 @@
+@import '../config/const-size.scss';
+
+$listSize: (
+  (
+    name: 'large',
+    height: $large,
+    fontSize: 16px,
+    padding: 24px
+  ),
+  (
+    name: 'middle',
+    height: $middle,
+    fontSize: 14px,
+    padding: 12px
+  ),
+  (
+    name: 'small',
+    height: $small,
+    fontSize: 12px,
+    padding: 6px
+  )
+);

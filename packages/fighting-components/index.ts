@@ -33,6 +33,8 @@ import { FMenu } from './menu'
 import { FMenuItem } from './menu-item'
 import { FMenuItemGroup } from './menu-item-group'
 import { FNovelCoronavirus } from './novel-coronavirus'
+import { FList } from './list'
+import { FListItem } from './list-item'
 import { FMask } from './mask'
 
 const components = {
@@ -70,6 +72,8 @@ const components = {
   FMenuItem,
   FMenuItemGroup,
   FNovelCoronavirus,
+  FList,
+  FListItem,
   FMask
 }
 
@@ -114,6 +118,8 @@ export {
   FMenuItem,
   FMenuItemGroup,
   FNovelCoronavirus,
+  FList,
+  FListItem,
   FMask
 }
 
