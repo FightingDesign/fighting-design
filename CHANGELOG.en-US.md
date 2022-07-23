@@ -2,6 +2,16 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.4.2-bate.8 (2022-07-23)
+
+**fest**
+
+- The `tag` component adds a `text` configuration item to implement text labels
+- The `tag` component has changed some style details and added borders
+- Add `font-size`, `font-color`, `text`, `root-margin` configuration items for `Avatar` component
+- The `Avatar` component changes the `size` attribute to a configurable `number` type parameter
+- New style on-demand import
+
 ## 0.4.1-bate.7 (2022-07-19)
 
 - It mainly fixes the error reporting configuration of the imported style
