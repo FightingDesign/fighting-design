@@ -5,3 +5,7 @@ export interface keepDecimalInterface {
 export interface debounceInterface {
   (handle: Function, delay: number): Function
 }
+
+export interface getTypeInterface {
+  (target: unknown): boolean
+}

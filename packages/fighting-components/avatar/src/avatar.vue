@@ -1,9 +1,13 @@
 <script lang="ts" setup name="FAvatar">
   import { Props, Emits } from './avatar'
   import { computed, ref, onMounted } from 'vue'
-  import { loadImage } from '@fighting-design/fighting-utils'
+  import {
+    loadImage,
+    isNumber,
+    isString
+  } from '@fighting-design/fighting-utils'
   import { FIcon } from '@fighting-design/fighting-components'
-  import type { ComputedRef, Ref } from 'vue'
+  import type { ComputedRef, Ref, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -20,15 +24,34 @@
         'f-avatar-img',
         {
           'f-avatar-round': round,
-          [`f-avatar-${size}`]: size,
+          [`f-avatar-${size}`]: isString(size),
           [`f-avatar-${fit}`]: fit
         }
       ] as const
     }
   )
 
+  const imageSizeStyleList: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { background, size } = prop
+
+      if (isNumber(size)) {
+        return { width: `${size}px`, height: `${size}px`, background } as const
+      }
+      return { background } as const
+    }
+  )
+
+  const textStyleList: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { fontColor, fontSize } = prop
+
+      return { color: fontColor, fontSize } as const
+    }
+  )
+
   onMounted((): void => {
-    if (!prop.icon) {
+    if (!prop.icon && !prop.text) {
       const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
       loadImage(node, prop, emit, null)
     }
@@ -38,10 +61,21 @@
 <template>
   <div
     :class="['f-avatar', `f-avatar-${size}`, { 'f-avatar-round': round }]"
-    :style="{ background }"
+    :style="imageSizeStyleList"
   >
-    <f-icon v-if="icon" :icon="icon" :color="iconColor" :size="iconSize" />
+    <f-icon v-if="icon" :icon="icon" :color="fontColor" :size="fontSize" />
 
-    <img v-else ref="FAvatarImg" :class="classList" src="" :alt="alt" />
+    <span v-else-if="text" :style="textStyleList" class="f-avatar-text">
+      {{ text }}
+    </span>
+
+    <img
+      v-else
+      ref="FAvatarImg"
+      :style="imageSizeStyleList"
+      :class="classList"
+      :alt="alt"
+      src=""
+    />
   </div>
 </template>

@@ -35,6 +35,7 @@ import { FMenuItemGroup } from './menu-item-group'
 import { FNovelCoronavirus } from './novel-coronavirus'
 import { FList } from './list'
 import { FListItem } from './list-item'
+import { FMask } from './mask'
 
 const components = {
   FButton,
@@ -72,7 +73,8 @@ const components = {
   FMenuItemGroup,
   FNovelCoronavirus,
   FList,
-  FListItem
+  FListItem,
+  FMask
 }
 
 const install = (app: App): void => {
@@ -117,7 +119,8 @@ export {
   FMenuItemGroup,
   FNovelCoronavirus,
   FList,
-  FListItem
+  FListItem,
+  FMask
 }
 
 export default {

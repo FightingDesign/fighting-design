@@ -15,18 +15,27 @@ createApp(App).use(FightingDesign).mount('#app')
 
 ## 按需引入
 
+:::danger
+按需引入暂不支持，问题正在修复中，请谨慎使用！
+::::
+
 为了减小体积，只希望引入部分组件，可以使用按需引入的方式
 
 ```js
 import { createApp } from 'vue'
 import App from './App.vue'
+
+// 组件按需引入
 import { FButton, FIcon } from 'fighting-design'
-import 'fighting-design/dist/style.css'
+
+// 样式按需引入
+import 'fighting-design/theme/button.css'
+import 'fighting-design/theme/icon.css'
 
 createApp(App).use(FButton).use(FIcon).mount('#app')
 ```
 
-## 在 Html 中使用
+## CND 引入
 
 可通过 `CNN` 在 `*.html` 中引入 `Fighting Design`，快速构建您的程序
 

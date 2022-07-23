@@ -2,6 +2,24 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**fest**
+
+- `Alert` 组件新增 `fixed` `fixed-style` 配置项
+
+**fix**
+
+- 修复 `tag` 组件样式细节
+
+## 0.4.2-bate.8 (2022-07-23)
+
+**fest**
+
+- `Tag` 组件新增 `text` 配置项，实现文字标签
+- `Tag` 组件改变了部分样式细节，加入边框
+- `Avatar` 组件新增 `font-size`、`font-color`、`text`、`root-margin` 配置项
+- `Avatar` 组件将 `size` 属性改为可配置 `number` 类型参数
+- 新增了样式按需引入
+
 ## 0.4.1-bate.7 (2022-07-19)
 
 - 主要修复了引入样式的报错配置

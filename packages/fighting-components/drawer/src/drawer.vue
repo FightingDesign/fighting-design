@@ -1,11 +1,11 @@
 <script lang="ts" setup name="FDrawer">
   import { Props, Emits } from './drawer'
   import { watchEffect, computed } from 'vue'
-  import { FIcon } from '@fighting-design/fighting-components'
+  import { FIcon, FMask } from '@fighting-design/fighting-components'
   import type { CSSProperties, ComputedRef } from 'vue'
   import type {
-    transitionEventInterface,
-    handleCloseInterface
+    handleCloseInterface,
+    transitionEventInterface
   } from './interface'
 
   const prop = defineProps(Props)
@@ -29,17 +29,6 @@
     emit('update:visible', false)
   }
 
-  watchEffect(() => {
-    const { lockScroll, visible } = prop
-    if (lockScroll && visible) {
-      // TODO 优化点可以参考element-plus对于禁止body滚动的方案
-      // 源码地址: https://github.com/element-plus/element-plus/blob/dev/packages/hooks/use-lockscreen/index.ts
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'auto'
-    }
-  })
-
   const open: transitionEventInterface = (evt: MouseEvent): void => {
     emit('open', evt)
   }
@@ -55,44 +44,41 @@
   const closeEnd: transitionEventInterface = (evt: MouseEvent): void => {
     emit('close-end', evt)
   }
+
+  watchEffect((): void => {
+    const { lockScroll, visible } = prop
+    if (lockScroll && visible) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  })
 </script>
 
 <template>
-  <teleport to="body" :disabled="!appendToBody">
-    <transition
-      name="f-drawer"
-      :duration="400"
-      @before-enter="open"
-      @after-enter="openEnd"
-      @before-leave="close"
-      @after-leave="closeEnd"
-    >
-      <div
-        v-show="visible"
-        :class="[
-          'f-drawer-mask',
-          'f-drawer-cover',
-          {
-            'f-drawer-mask-modal': modal
-          }
-        ]"
-        :style="{ zIndex }"
-        @click.self="handleClose"
-      >
-        <div
-          :class="['f-drawer', `f-drawer-${direction}`]"
-          :style="drawerStyle"
-        >
-          <header v-if="withHeader" class="f-drawer-header">
-            <span class="f-drawer-title">{{ title }}</span>
-            <f-icon icon="f-icon-close" @click.self="handleClose" />
-          </header>
+  <f-mask
+    v-model:visible="visible"
+    :append-to-body="appendToBody"
+    :z-index="zIndex"
+    @open="open"
+    @open-end="openEnd"
+    @close="close"
+    @close-end="closeEnd"
+    @click-modal="handleClose"
+  >
+    <div :class="['f-drawer', `f-drawer-${direction}`]" :style="drawerStyle">
+      <header v-if="withHeader" class="f-drawer-header">
+        <span class="f-drawer-title">{{ title }}</span>
+        <f-icon icon="f-icon-close" @click.self="handleClose" />
+      </header>
 
-          <section class="f-drawer-body">
-            <slot />
-          </section>
-        </div>
-      </div>
-    </transition>
-  </teleport>
+      <section v-if="$slots.default" class="f-drawer-body">
+        <slot />
+      </section>
+
+      <footer v-if="$slots.footer" class="f-drawer-footer">
+        <slot name="footer" />
+      </footer>
+    </div>
+  </f-mask>
 </template>

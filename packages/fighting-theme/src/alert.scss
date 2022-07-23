@@ -63,4 +63,10 @@
   &.f-alert-round {
     border-radius: 20px;
   }
+
+  // 固定定位
+  &.f-alert-fixed {
+    width: 100%;
+    position: fixed;
+  }
 }

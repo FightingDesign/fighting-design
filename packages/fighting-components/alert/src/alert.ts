@@ -1,5 +1,5 @@
-import type { PropType } from 'vue'
-import type { alertType } from './interface'
+import type { PropType, CSSProperties } from 'vue'
+import type { alertType, fixedStyleInterface } from './interface'
 
 export const Props = {
   type: {
@@ -50,6 +50,20 @@ export const Props = {
   color: {
     type: String,
     default: (): string => ''
+  },
+  fixed: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  fixedStyle: {
+    type: Object as PropType<fixedStyleInterface> as PropType<CSSProperties>,
+    default: () => {},
+    validator: (val: CSSProperties): boolean => {
+      if (val.bottom || val.left || val.right || val.top) {
+        return true
+      }
+      throw new Error('fighting-design (Alert): fixed-style parameter error')
+    }
   }
 } as const
 

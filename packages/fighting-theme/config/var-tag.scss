@@ -5,8 +5,24 @@ $mini: 20px;
 
 // 不同尺寸
 $tagSize: (
-  'large': $large,
-  'middle': $middle,
-  'small': $small,
-  'mini': $mini
+  (
+    name: 'large',
+    size: $large,
+    fontSize: 15px
+  ),
+  (
+    name: 'middle',
+    size: $middle,
+    fontSize: 14px
+  ),
+  (
+    name: 'small',
+    size: $small,
+    fontSize: 13px
+  ),
+  (
+    name: 'mini',
+    size: $mini,
+    fontSize: 12px
+  )
 );

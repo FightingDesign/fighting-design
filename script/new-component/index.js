@@ -50,16 +50,6 @@ async function newComponent() {
     process.exit(0)
   }
 
-  // logInfo('自动commit中...')
-  // spawn('git', ['add', ...updatedFiles]).on('exit', () => {
-  //   spawn('git', ['commit', '-m', `feat: 新增 ${displayName} 组件`]).on(
-  //     'exit',
-  //     () => {
-  //       logInfo(`\n${displayName} 组件创建完成 🎉🎉🎉\n`)
-  //     }
-  //   )
-  // })
-
   logInfo(`\n${displayName} 组件创建完成 🎉🎉🎉\n`)
 }
 
@@ -92,7 +82,8 @@ async function generate() {
     `packages/fighting-components/${compName}/**`,
     'packages/fighting-components/index.ts',
     `packages/fighting-theme/src/${compName}.scss`,
-    'packages/fighting-theme/index.scss'
+    'packages/fighting-theme/index.scss',
+    `packages/fighting-test/${compName}.spec.ts`
   )
   const catchError = async (callback, info) => {
     try {
@@ -105,7 +96,8 @@ async function generate() {
     catchError(generateComponentDir, '组件目录创建失败'),
     catchError(updateComponentEntry, '组件入口修改失败'),
     catchError(incrementStyle, '样式文件创建失败'),
-    catchError(updateStyleEntry, '样式入口修改失败')
+    catchError(updateStyleEntry, '样式入口修改失败'),
+    catchError(incrementTest, '测试文件创建失败')
   ])
 }
 
@@ -123,6 +115,7 @@ async function updateComponentEntry() {
   )
   let content = (await readFile(entryFilePath)).toString()
 
+  // 添加代码: import { FDemo } from './demo'
   {
     const latestStr = content.match(/import \{ .*? \} from '.*?'\n\n/m)[0]
     const appendIndex = content.indexOf(latestStr) + latestStr.length - 1
@@ -133,7 +126,9 @@ async function updateComponentEntry() {
       content.slice(appendIndex)
   }
 
+  // 添加代码： const components = { FDemo }
   {
+    // logInfo('const components = { FDemo }', content)
     const latestStr = content.match(/const components = \{(.|\n)*?}/)[0]
     const appendIndex = content.indexOf(latestStr) + latestStr.length - 2
     content =
@@ -144,7 +139,9 @@ async function updateComponentEntry() {
       content.slice(appendIndex)
   }
 
+  // 添加代码： export { FDemo }
   {
+    // logInfo('export { FDemo }', content)
     const latestStr = content.match(/export \{(.|\n)*?}/)[0]
     const appendIndex = content.indexOf(latestStr) + latestStr.length - 2
     content =
@@ -155,6 +152,7 @@ async function updateComponentEntry() {
       content.slice(appendIndex)
   }
 
+  // logInfo('writeFile', content)
   await writeFile(entryFilePath, content)
 }
 
@@ -176,6 +174,12 @@ async function updateStyleEntry() {
   content = content.slice(0, -1) + `@use './src/${compName}.scss';` + '\n'
 
   await writeFile(entryFilePath, content)
+}
+
+async function incrementTest() {
+  const outputDir = resolve(__dirname, '../../packages/fighting-test')
+  const tplDir = resolve(__dirname, './template/test')
+  await superEjsGerenateDir(outputDir, tplDir)
 }
 
 async function superEjsGerenateDir(outputDir, tplDir) {

@@ -49,6 +49,10 @@ export const Props = {
   block: {
     type: Boolean,
     default: (): boolean => false
+  },
+  line: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 

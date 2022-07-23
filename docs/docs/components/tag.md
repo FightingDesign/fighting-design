@@ -9,24 +9,20 @@
 
 `type` 属性可以配置不同的按钮类型，展示不同的颜色状态
 
-<f-space>
-  <f-tag type="default">默认</f-tag>
-  <f-tag type="primary">普通</f-tag>
-  <f-tag type="warning">警告</f-tag>
-  <f-tag type="success">成功</f-tag>
-  <f-tag type="danger">失败</f-tag>
-</f-space>
+<f-tag type="default">默认</f-tag>
+<f-tag type="primary">普通</f-tag>
+<f-tag type="warning">警告</f-tag>
+<f-tag type="success">成功</f-tag>
+<f-tag type="danger">失败</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-space>
-  <f-tag type="default">默认</f-tag>
-  <f-tag type="primary">普通</f-tag>
-  <f-tag type="warning">警告</f-tag>
-  <f-tag type="success">成功</f-tag>
-  <f-tag type="danger">失败</f-tag>
-</f-space>
+<f-tag type="default">默认</f-tag>
+<f-tag type="primary">普通</f-tag>
+<f-tag type="warning">警告</f-tag>
+<f-tag type="success">成功</f-tag>
+<f-tag type="danger">失败</f-tag>
 ```
 
 :::
@@ -35,44 +31,56 @@
 
 `simple` 属性可以配置简约的提示，样式依然由 `type` 控制
 
-<f-space>
-  <f-tag simple type="default">默认</f-tag>
-  <f-tag simple type="primary">普通</f-tag>
-  <f-tag simple type="warning">警告</f-tag>
-  <f-tag simple type="success">成功</f-tag>
-  <f-tag simple type="danger">失败</f-tag>
-</f-space>
+<f-tag simple type="default">默认</f-tag>
+<f-tag simple type="primary">普通</f-tag>
+<f-tag simple type="warning">警告</f-tag>
+<f-tag simple type="success">成功</f-tag>
+<f-tag simple type="danger">失败</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-space>
-  <f-tag simple type="default">默认</f-tag>
-  <f-tag simple type="primary">普通</f-tag>
-  <f-tag simple type="warning">警告</f-tag>
-  <f-tag simple type="success">成功</f-tag>
-  <f-tag simple type="danger">失败</f-tag>
-</f-space>
+<f-tag simple type="default">默认</f-tag>
+<f-tag simple type="primary">普通</f-tag>
+<f-tag simple type="warning">警告</f-tag>
+<f-tag simple type="success">成功</f-tag>
+<f-tag simple type="danger">失败</f-tag>
 ```
 
 :::
+
+## 线性的
+
+`line` 属性可以配置线性的提示，样式依然由 `type` 控制
+
+<f-tag line type="default">默认</f-tag>
+<f-tag line type="primary">普通</f-tag>
+<f-tag line type="warning">警告</f-tag>
+<f-tag line type="success">成功</f-tag>
+<f-tag line type="danger">失败</f-tag>
+
+::: details 显示代码
+
+```html
+<f-tag simple type="default">默认</f-tag>
+<f-tag simple type="primary">普通</f-tag>
+<f-tag simple type="warning">警告</f-tag>
+<f-tag simple type="success">成功</f-tag>
+<f-tag simple type="danger">失败</f-tag>
+```
 
 ## 自定义颜色
 
 `background` 和 `color` 可以自定义标签颜色，将覆盖原有的 `type`
 
-<f-space>
-  <f-tag background="skyblue">天蓝色</f-tag>
-  <f-tag background="blue" color="#fff">深蓝色</f-tag>
-</f-space>
+<f-tag background="skyblue">天蓝色</f-tag>
+<f-tag background="blue" color="#fff">深蓝色</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-space>
-  <f-tag background="skyblue">天蓝色</f-tag>
-  <f-tag background="blue" color="#fff">深蓝色</f-tag>
-</f-space>
+<f-tag background="skyblue">天蓝色</f-tag>
+<f-tag background="blue" color="#fff">深蓝色</f-tag>
 ```
 
 :::
@@ -81,22 +89,18 @@
 
 `size` 自定义标签大小
 
-<f-space>
-  <f-tag type="primary" size="large">大标签</f-tag>
-  <f-tag type="primary" size="middle">中等标签</f-tag>
-  <f-tag type="primary" size="small">小标签</f-tag>
-  <f-tag type="primary" size="mini">超小标签</f-tag>
-</f-space>
+<f-tag type="primary" size="large">大标签</f-tag>
+<f-tag type="primary" size="middle">中等标签</f-tag>
+<f-tag type="primary" size="small">小标签</f-tag>
+<f-tag type="primary" size="mini">超小标签</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-space>
-  <f-tag type="primary" size="large">大标签</f-tag>
-  <f-tag type="primary" size="middle">中等标签</f-tag>
-  <f-tag type="primary" size="small">小标签</f-tag>
-  <f-tag type="primary" size="mini">超小标签</f-tag>
-</f-space>
+<f-tag type="primary" size="large">大标签</f-tag>
+<f-tag type="primary" size="middle">中等标签</f-tag>
+<f-tag type="primary" size="small">小标签</f-tag>
+<f-tag type="primary" size="mini">超小标签</f-tag>
 ```
 
 :::
@@ -105,14 +109,20 @@
 
 通过 `block` 属性可以将标签设置为块级元素。
 
-<f-tag type="primary" size="small">标签</f-tag>
-<f-tag type="primary" size="small" block>标签</f-tag>
+<f-tag block type="default">默认</f-tag>
+<f-tag block type="primary">普通</f-tag>
+<f-tag block type="warning">警告</f-tag>
+<f-tag block type="success">成功</f-tag>
+<f-tag block type="danger">失败</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-tag type="primary" size="small">标签</f-tag>
-<f-tag type="primary" size="small" block>标签</f-tag>
+<f-tag block type="default">默认</f-tag>
+<f-tag block type="primary">普通</f-tag>
+<f-tag block type="warning">警告</f-tag>
+<f-tag block type="success">成功</f-tag>
+<f-tag block type="danger">失败</f-tag>
 ```
 
 :::
@@ -123,28 +133,18 @@
 
 注意：当同时设置 `right-icon` 与 `close` 时，关闭的 icon 将始终位于最右侧。
 
-<f-space>
-  <f-tag type="default" size="small" leftIcon="f-icon-Daytimemode">标签</f-tag>
-  <f-tag type="primary" size="small" rightIcon="f-icon-email">标签</f-tag>
-  <f-tag type="danger" simple size="small" rightIcon="f-icon-form-fill" close>标签</f-tag>
-</f-space>
+<f-tag type="default" size="small" leftIcon="f-icon-Daytimemode">标签</f-tag>
+<f-tag type="primary" size="small" rightIcon="f-icon-email">标签</f-tag>
+<f-tag type="danger" simple size="small" rightIcon="f-icon-form-fill" close>标签</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-space>
-  <f-tag type="default" size="small" leftIcon="f-icon-Daytimemode">标签</f-tag>
-  <f-tag type="primary" size="small" rightIcon="f-icon-email">标签</f-tag>
-  <f-tag
-    type="danger"
-    simple
-    size="small"
-    rightIcon="f-icon-form-fill"
-    closable
-  >
-    标签
-  </f-tag>
-</f-space>
+<f-tag type="default" size="small" leftIcon="f-icon-Daytimemode">标签</f-tag>
+<f-tag type="primary" size="small" rightIcon="f-icon-email">标签</f-tag>
+<f-tag type="danger" simple size="small" rightIcon="f-icon-form-fill" closable>
+  标签
+</f-tag>
 ```
 
 :::
@@ -153,24 +153,20 @@
 
 `close` 可配置可以关闭的
 
-<f-space>
-  <f-tag close type="default">默认</f-tag>
-  <f-tag close type="primary">普通</f-tag>
-  <f-tag close type="warning">警告</f-tag>
-  <f-tag close type="success">成功</f-tag>
-  <f-tag close type="danger">失败</f-tag>
-</f-space>
+<f-tag close type="default">默认</f-tag>
+<f-tag close type="primary">普通</f-tag>
+<f-tag close type="warning">警告</f-tag>
+<f-tag close type="success">成功</f-tag>
+<f-tag close type="danger">失败</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-space>
-  <f-tag close type="default">默认</f-tag>
-  <f-tag close type="primary">普通</f-tag>
-  <f-tag close type="warning">警告</f-tag>
-  <f-tag close type="success">成功</f-tag>
-  <f-tag close type="danger">失败</f-tag>
-</f-space>
+<f-tag close type="default">默认</f-tag>
+<f-tag close type="primary">普通</f-tag>
+<f-tag close type="warning">警告</f-tag>
+<f-tag close type="success">成功</f-tag>
+<f-tag close type="danger">失败</f-tag>
 ```
 
 :::
@@ -181,6 +177,7 @@
 | ------------ | -------------- | ------- | ------------------------------------------------ | ------- |
 | `type`       | 标签类型       | string  | `default` `success` `danger` `warning` `primary` | default |
 | `close`      | 是否可关闭     | boolean | ——                                               | false   |
+| `line`       | 线性的         | boolean | ——                                               | false   |
 | `round`      | 圆角           | boolean | ——                                               | false   |
 | `background` | 自定义背景色   | string  | ——                                               | ——      |
 | `color`      | 自定义文字颜色 | string  | ——                                               | ——      |
@@ -211,3 +208,9 @@
 <a href="https://github.com/konvyi" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/44802220?v=4" />
 </a>
+
+<style scoped>
+.f-tag {
+  margin: 5px;
+}
+</style>

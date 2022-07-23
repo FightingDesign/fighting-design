@@ -12,7 +12,7 @@
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { type, bold, simple, center, round } = prop
+      const { type, bold, simple, center, round, fixed } = prop
 
       return [
         'f-alert',
@@ -21,20 +21,26 @@
           'f-alert-bold': bold,
           'f-alert-simple': simple,
           'f-alert-center': center,
-          'f-alert-round': round
+          'f-alert-round': round,
+          'f-alert-fixed': fixed
         }
       ] as const
     }
   )
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { size, color, background } = prop
+    const { size, color, background, fixed, fixedStyle } = prop
 
-    return {
+    const style = {
       color,
       background,
       fontSize: size
     } as const
+
+    if (fixed) {
+      return Object.assign(style, fixedStyle)
+    }
+    return style
   })
 
   const handleClose: handleCloseInterface = (evt: MouseEvent): void => {

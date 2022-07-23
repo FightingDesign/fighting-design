@@ -1,13 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts'
 
 export default defineConfig(async () => {
   return {
     plugins: [
-      vueSetupExtend(),
       vue(),
       dts({
         insertTypesEntry: true,

@@ -29,12 +29,16 @@ export interface propsInterface {
   draggable?: boolean
   lazy?: boolean
   rootMargin?: string
+  errSrc: string
   width?: string
   height?: string
   block?: boolean
   fit?: imageFit
   select?: boolean
-  errSrc: string
+  fontSize?: string
+  fontColor?: string
+  text?: string
+  size?: string | number
 }
 
 export interface callbackInterface {
