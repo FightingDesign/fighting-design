@@ -1,7 +1,10 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { FButton } from '../../dist/es/fighting-components/index'
+  import '../../dist/theme/button.css'
+</script>
 
 <template>
-  <f-alert fixed type="primary">默认提示信息</f-alert>
+  <f-button>hello</f-button>
 </template>
 
 <style scoped></style>

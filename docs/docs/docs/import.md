@@ -16,7 +16,7 @@ createApp(App).use(FightingDesign).mount('#app')
 ## 按需引入
 
 :::danger
-按需引入暂不支持，问题正在修复中，请谨慎使用！
+按需引入暂不完善，问题正在修复中，请谨慎使用！
 ::::
 
 为了减小体积，只希望引入部分组件，可以使用按需引入的方式
@@ -26,7 +26,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 // 组件按需引入
-import { FButton, FIcon } from 'fighting-design'
+import { FButton, FIcon } from 'fighting-design/es/fighting-components/index'
 
 // 样式按需引入
 import 'fighting-design/theme/button.css'

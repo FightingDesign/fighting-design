@@ -10,8 +10,8 @@
     "components",
     "ui"
   ],
-  "main": "./es/index.d.ts",
-  "module": "./lib/index.d.ts",
+  "main": "./es/index.ts",
+  "module": "./lib/index.ts",
   "author": {
     "name": "tyh2001",
     "url": "https://tianyuhao.cn"
