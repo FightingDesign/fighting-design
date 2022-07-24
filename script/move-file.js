@@ -1,29 +1,14 @@
-const { readFile, writeFile } = require('fs')
-const { join } = require('path')
+const { copyFileSync } = require('fs')
 
-const dist = join(__dirname, '../dist')
-
-const fileList = [
+const FILE = [
+  { input: './README.md', outDir: 'dist/README.md' },
   {
-    file: './packages/fighting-design/package.json',
-    target: `${dist}/package.json`
+    input: './packages/fighting-design/package.json',
+    outDir: 'dist/package.json'
   },
-  {
-    file: './LICENSE',
-    target: `${dist}/LICENSE`
-  },
-  {
-    file: './README.md',
-    target: `${dist}/README.md`
-  }
+  { input: './LICENSE', outDir: 'dist/LICENSE' }
 ]
 
-fileList.map((item) => moveFile(item))
-
-function moveFile(list) {
-  readFile(list.file, (err, data) => {
-    writeFile(list.target, data, (err) => {
-      if (err) throw err
-    })
-  })
-}
+FILE.forEach((item) => {
+  copyFileSync(item.input, item.outDir)
+})
