@@ -29,9 +29,6 @@ import { FDrawer } from './drawer'
 import { FPageHeader } from './page-header'
 import { FRate } from './rate'
 import { FAlert } from './alert'
-import { FMenu } from './menu'
-import { FMenuItem } from './menu-item'
-import { FMenuItemGroup } from './menu-item-group'
 import { FNovelCoronavirus } from './novel-coronavirus'
 import { FList } from './list'
 import { FListItem } from './list-item'
@@ -68,9 +65,6 @@ const components = {
   FPageHeader,
   FRate,
   FAlert,
-  FMenu,
-  FMenuItem,
-  FMenuItemGroup,
   FNovelCoronavirus,
   FList,
   FListItem,
@@ -114,9 +108,6 @@ export {
   FPageHeader,
   FRate,
   FAlert,
-  FMenu,
-  FMenuItem,
-  FMenuItemGroup,
   FNovelCoronavirus,
   FList,
   FListItem,
