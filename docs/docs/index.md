@@ -1,6 +1,5 @@
 ---
-page: true
-sidebar: false
+layout: home
 title: Fighting Design
 ---
 

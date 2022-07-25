@@ -1,3 +1,12 @@
+<script lang="ts" setup>
+  import Clipboard from 'clipboard'
+  import { lists, bottomList, collaborator } from './src/list'
+
+  const copyCode = (node: string): void => {
+    return new Clipboard(node)
+  }
+</script>
+
 <template>
   <div id="home">
     <div id="banner">
@@ -116,15 +125,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-  import Clipboard from 'clipboard'
-  import { lists, bottomList, collaborator } from './src/list'
-
-  const copyCode = (node: string): void => {
-    new Clipboard(node)
-  }
-</script>
 
 <style lang="scss" scoped>
   #home {
