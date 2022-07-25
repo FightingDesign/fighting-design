@@ -1,7 +1,4 @@
-<script lang="ts" setup>
-  import { FButton } from '../../dist/es/fighting-components/index'
-  import '../../dist/theme/button.css'
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <f-button>hello</f-button>
