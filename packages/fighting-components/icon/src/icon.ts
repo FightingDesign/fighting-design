@@ -1,19 +1,11 @@
 export const Props = {
-  icon: {
+  iconClass: {
     type: String,
-    default: (): string => ''
+    required: true
   },
-  fontClass: {
+  className: {
     type: String,
-    default: (): string => ''
-  },
-  color: {
-    type: String,
-    default: (): string => ''
-  },
-  size: {
-    type: String,
-    default: (): string => ''
+    default: ''
   }
 } as const
 

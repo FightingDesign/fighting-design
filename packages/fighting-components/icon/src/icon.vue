@@ -1,21 +1,27 @@
-<script lang="ts" setup name="FIcon">
-  import { Props, Emits } from './icon'
-  import type { onClickInterface } from './interface'
-
-  defineProps(Props)
-  const emit = defineEmits(Emits)
-
-  const onClick: onClickInterface = (evt: PointerEvent): void => {
-    emit('click', evt)
-  }
+<script setup lang="ts">
+  import { computed } from 'vue'
+  const props = defineProps({
+    name: {
+      type: String,
+      required: true
+    },
+    color: {
+      type: String,
+      default: ''
+    }
+  })
+  const iconName = computed((): string => `#icon-${props.name}`)
+  const svgClass = computed((): string => {
+    if (props.name) {
+      return `svg-icon icon-${props.name}`
+    } else {
+      return 'svg-icon'
+    }
+  })
 </script>
 
 <template>
-  <i
-    :class="[fontClass || 'f-icon', icon]"
-    :style="{ color, fontSize: size }"
-    @click="onClick"
-  >
-    <slot />
-  </i>
+  <svg :class="svgClass" aria-hidden="true" :style="{ color }" v-on="$attrs">
+    <use :xlink:href="iconName" />
+  </svg>
 </template>
