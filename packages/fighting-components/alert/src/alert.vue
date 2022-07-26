@@ -38,7 +38,7 @@
     } as const
 
     if (fixed) {
-      return｛ ...style, ...fixedStyle }
+      return { ...style, ...fixedStyle } as const
     }
     return style
   })
