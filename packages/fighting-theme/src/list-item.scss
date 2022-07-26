@@ -26,25 +26,25 @@
   }
 
   // 斑马线
-  &.zebra {
+  &.f-list-item-zebra {
     &:nth-of-type(2n) {
       background-color: #ecf0fe;
     }
   }
 
   // 单行显示
-  &.single {
+  &.f-list-item-single {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
 
-  &.scroll {
+  &.f-list-item-scroll {
     overflow: scroll;
   }
 
   // 文字居中
-  &.center {
+  &.f-list-item-center {
     text-align: center;
   }
 }

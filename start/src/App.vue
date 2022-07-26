@@ -1,9 +1,13 @@
 <script lang="ts" setup></script>
 
 <template>
-  <f-button>hello</f-button>
-
-  <f-icon name="aiming" />
+  <f-list maxHeight="100px">
+    <f-list-item>你好啊这是一个列表</f-list-item>
+    <f-list-item>你好啊这是一个列表</f-list-item>
+    <f-list-item>你好啊这是一个列表</f-list-item>
+    <f-list-item>你好啊这是一个列表</f-list-item>
+    <f-list-item>你好啊这是一个列表</f-list-item>
+  </f-list>
 </template>
 
 <style scoped></style>

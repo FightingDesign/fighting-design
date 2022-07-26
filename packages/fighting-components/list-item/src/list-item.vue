@@ -13,12 +13,12 @@
         'f-list-item',
         `f-list-item-${size}`,
         {
-          zebra,
-          center,
-          single,
-          scroll: maxHeight
+          'f-list-item-zebra': zebra,
+          'f-list-item-center': center,
+          'f-list-item-single': single,
+          'f-list-item-scroll': maxHeight
         }
-      ]
+      ] as const
     }
   )
 
