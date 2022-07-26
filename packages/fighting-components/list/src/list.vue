@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <ul class="f-list zebra">
+  <ul class="f-list">
     <slot name="header" />
     <slot />
     <slot name="footer" />

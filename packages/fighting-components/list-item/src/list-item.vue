@@ -7,7 +7,8 @@
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { zebra, size, center, maxHeight, single } = injectListProps
+      const { zebra, size, center, maxHeight, single, hoverShow } =
+        injectListProps
 
       return [
         'f-list-item',
@@ -16,7 +17,8 @@
           'f-list-item-zebra': zebra,
           'f-list-item-center': center,
           'f-list-item-single': single,
-          'f-list-item-scroll': maxHeight
+          'f-list-item-scroll': maxHeight,
+          'f-list-item-hover': hoverShow
         }
       ] as const
     }

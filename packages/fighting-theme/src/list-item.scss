@@ -43,6 +43,17 @@
     overflow: scroll;
   }
 
+  &.f-list-item-hover {
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      border-color: #325ef1;
+    }
+  }
+
   // 文字居中
   &.f-list-item-center {
     text-align: center;
