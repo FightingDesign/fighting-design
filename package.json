@@ -15,6 +15,7 @@
     "dev:docs": "pnpm run -C docs dev",
     "build": "pnpm clean && pnpm build:css && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move",
     "build:theme": "vite build --config vite.config.theme.ts",
+    "build:es": "vite build --config vite.config.ts",
     "build:css": "vite build --config vite.config.css.ts",
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:umd": "vite build --config vite.config.umd.ts",

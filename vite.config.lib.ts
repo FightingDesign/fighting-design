@@ -17,8 +17,8 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'packages/fighting-design/index.d.ts'),
       formats: ['cjs'],
-      fileName: () => {
-        return 'index.js'
+      fileName: (target) => {
+        return `index.${target}.js`
       }
     },
     rollupOptions: {
