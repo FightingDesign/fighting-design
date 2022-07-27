@@ -58,5 +58,9 @@ export const Props = {
   ellipsis: {
     type: Boolean,
     default: (): boolean => false
+  },
+  center: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const

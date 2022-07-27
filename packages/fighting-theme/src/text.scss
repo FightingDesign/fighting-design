@@ -37,4 +37,10 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
+  // 居中
+  &.f-text-center {
+    text-align: center;
+    display: block;
+  }
 }

@@ -7,13 +7,14 @@
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { type, block, bold, ellipsis } = prop
+      const { type, block, bold, ellipsis, center } = prop
       return [
         'f-text',
         `f-text-${type}`,
         {
           'f-text-block': block,
           'f-text-bold': bold,
+          'f-text-center': center,
           'f-text-ellipsis': ellipsis
         }
       ] as const

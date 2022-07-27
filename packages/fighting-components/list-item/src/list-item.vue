@@ -32,9 +32,9 @@
       const { maxHeight } = prop
 
       return {
-        maxHeight,
         background,
-        borderColor: !split && borderColor,
+        maxHeight,
+        borderColor: !split ? borderColor : '',
         color: textColor
       } as const
     }

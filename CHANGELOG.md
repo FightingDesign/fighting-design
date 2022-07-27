@@ -5,6 +5,8 @@
 **fest**
 
 - `Alert` 组件新增 `fixed` `fixed-style` 配置项
+- 新增 `f-list` `f-list-item` 组件
+- `f-text` 组件新增 `center` 配置项
 
 **fix**
 
