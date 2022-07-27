@@ -3,13 +3,13 @@
   import { provide, computed } from 'vue'
   import { Props, listPropsKey } from './list'
 
-  const prop = defineProps(Props)
+  const props = defineProps(Props)
 
-  provide(listPropsKey, prop)
+  provide(listPropsKey, props)
 
   const listClass: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { maxHeight, split } = prop
+      const { maxHeight, split } = props
 
       return [
         'f-list',
@@ -22,10 +22,11 @@
   )
 
   const listStyle: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { maxHeight } = prop
+    const { maxHeight, borderColor } = props
 
     return {
-      maxHeight
+      maxHeight,
+      borderColor
     } as const
   })
 </script>

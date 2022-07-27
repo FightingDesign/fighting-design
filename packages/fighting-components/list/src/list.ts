@@ -59,7 +59,6 @@ export const Props = {
     }
   },
   /** split 是否显示分割线 **/
-  // TODO
   split: {
     type: Boolean,
     default: (): boolean => false

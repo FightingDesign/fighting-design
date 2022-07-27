@@ -28,13 +28,13 @@
 
   const listItemStyle: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
-      const { background, borderColor, textColor } = injectListProps
+      const { background, borderColor, textColor, split } = injectListProps
       const { maxHeight } = prop
 
       return {
         maxHeight,
         background,
-        borderColor,
+        borderColor: !split && borderColor,
         color: textColor
       } as const
     }
