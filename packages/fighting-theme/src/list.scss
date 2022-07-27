@@ -2,4 +2,9 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
+
+  // max height
+  &.f-list-scroll {
+    overflow: scroll;
+  }
 }

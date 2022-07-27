@@ -1,14 +1,15 @@
 <script lang="ts" setup name="FListItem">
   import type { ComputedRef, CSSProperties } from 'vue'
   import { computed, inject } from 'vue'
-  import { listPropsKey } from '../../list/src/list'
+  import { listPropsKey, Props } from '../../list/src/list'
 
   const injectListProps = inject(listPropsKey)!
+  const prop = defineProps(Props)
 
-  const classList: ComputedRef<object | string[]> = computed(
+  const listItemClass: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { zebra, size, center, maxHeight, single, hoverShow } =
-        injectListProps
+      const { zebra, size, center, single, hoverShow } = injectListProps
+      const { maxHeight } = prop
 
       return [
         'f-list-item',
@@ -24,9 +25,10 @@
     }
   )
 
-  const buttonStyleList: ComputedRef<CSSProperties> = computed(
+  const listItemStyle: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
-      const { maxHeight, background, borderColor, textColor } = injectListProps
+      const { background, borderColor, textColor } = injectListProps
+      const { maxHeight } = prop
 
       return {
         maxHeight,
@@ -39,7 +41,7 @@
 </script>
 
 <template>
-  <li :class="classList" :style="buttonStyleList">
+  <li :class="listItemClass" :style="listItemStyle">
     <slot name="option" />
     <slot />
   </li>

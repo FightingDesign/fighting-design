@@ -23,7 +23,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  // TODO
   /** hoverShow 是否在 hover 状态展示投影效果 **/
   hoverShow: {
     type: Boolean,

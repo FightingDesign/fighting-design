@@ -39,10 +39,12 @@
     text-overflow: ellipsis;
   }
 
+  // max height
   &.f-list-item-scroll {
     overflow: scroll;
   }
 
+  // hover
   &.f-list-item-hover {
     &:hover,
     &:focus {
