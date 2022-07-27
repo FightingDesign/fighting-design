@@ -32,7 +32,7 @@ export const Props = {
   // TODO
   /** importantList 斑重点行，传入一个 number[] 类型。重点行会高亮马纹 **/
   importantList: {
-    type: Array,
+    type: Array as PropType<number[]>,
     default: (): number[] => []
   },
   /** textColor 字体颜色 **/

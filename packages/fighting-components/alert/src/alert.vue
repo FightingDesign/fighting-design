@@ -38,7 +38,7 @@
     } as const
 
     if (fixed) {
-      return Object.assign(style, fixedStyle)
+      return { ...style, ...fixedStyle } as const
     }
     return style
   })
