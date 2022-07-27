@@ -8,7 +8,7 @@
 
   const listItemClass: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { zebra, size, center, single, hoverShow } = injectListProps
+      const { zebra, size, center, single, hoverShow, split } = injectListProps
       const { maxHeight } = prop
 
       return [
@@ -19,7 +19,8 @@
           'f-list-item-center': center,
           'f-list-item-single': single,
           'f-list-item-scroll': maxHeight,
-          'f-list-item-hover': hoverShow
+          'f-list-item-hover': hoverShow,
+          'f-list-item-base-border': !split
         }
       ] as const
     }

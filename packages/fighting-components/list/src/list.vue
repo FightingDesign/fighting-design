@@ -9,12 +9,13 @@
 
   const listClass: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { maxHeight } = prop
+      const { maxHeight, split } = prop
 
       return [
         'f-list',
         {
-          'f-list-scroll': maxHeight
+          'f-list-scroll': maxHeight,
+          'f-list-split': split
         }
       ] as const
     }
