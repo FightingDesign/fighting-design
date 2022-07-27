@@ -2,9 +2,13 @@ import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { listSize } from './interface'
 
 export const Props = {
-  // TODO
   /** showNum 是否展示编号 **/
   showNum: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  /** showNum 是否展示圆点 **/
+  showDisc: {
     type: Boolean,
     default: (): boolean => false
   },
@@ -23,7 +27,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  // TODO
   /** hoverShow 是否在 hover 状态展示投影效果 **/
   hoverShow: {
     type: Boolean,
@@ -60,7 +63,6 @@ export const Props = {
     }
   },
   /** split 是否显示分割线 **/
-  // TODO
   split: {
     type: Boolean,
     default: (): boolean => false
