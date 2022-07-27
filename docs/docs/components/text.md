@@ -238,6 +238,7 @@
 | `bold`        | 文字是否以粗体显示                                                             | boolean | ——                                               | false   |
 | `decoration`  | 文字的修饰，例如：上划线(overline)、中划线(line-through)、下划线(underline)等  | string  | ——                                               | ——      |
 | `padding`     | 定义元素边框与元素内容之间的空间，即上下左右的内边距，必须写入指定的数值和单位 | string  | ——                                               | ——      |
+| `center`      | 是否居中                                                                       | boolean | ——                                               | false   |
 
 ## Slots
 
