@@ -11,4 +11,33 @@
   &.f-list-split {
     border: 1px solid #e3e3e3;
   }
+
+  &.f-list-show-number {
+    counter-reset: li; // 创建计数器
+    & > li {
+      position: relative;
+      padding-left: 2rem !important;
+    }
+    & > li::before {
+      content: counter(li) '.';
+      counter-increment: li; // 递增计数器
+      position: absolute;
+      left: 1rem;
+      color: #333333;
+    }
+  }
+
+  &.f-list-show-disc {
+    & > li {
+      position: relative;
+      padding-left: 2rem !important;
+    }
+    & > li::before {
+      content: '·';
+      position: absolute;
+      font-size: 26px;
+      left: 1rem;
+      color: #333333;
+    }
+  }
 }

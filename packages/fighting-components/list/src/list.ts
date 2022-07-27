@@ -2,9 +2,13 @@ import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { listSize } from './interface'
 
 export const Props = {
-  // TODO
   /** showNum 是否展示编号 **/
   showNum: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  /** showNum 是否展示圆点 **/
+  showDisc: {
     type: Boolean,
     default: (): boolean => false
   },

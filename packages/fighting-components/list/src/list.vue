@@ -9,13 +9,15 @@
 
   const listClass: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { maxHeight, split } = props
+      const { maxHeight, split, showNum, showDisc } = props
 
       return [
         'f-list',
         {
           'f-list-scroll': maxHeight,
-          'f-list-split': split
+          'f-list-split': split,
+          'f-list-show-number': !showDisc && showNum,
+          'f-list-show-disc': !showNum && showDisc
         }
       ] as const
     }
@@ -32,9 +34,9 @@
 </script>
 
 <template>
-  <ul :class="listClass" :style="listStyle">
+  <ol :class="listClass" :style="listStyle">
     <slot name="header" />
     <slot />
     <slot name="footer" />
-  </ul>
+  </ol>
 </template>
