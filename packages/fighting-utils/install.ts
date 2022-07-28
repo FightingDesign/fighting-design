@@ -14,3 +14,12 @@ export const install: installInterface = (
     app.component(name, main)
   }
 }
+
+export const installFn: installInterface = (
+  main: mainVNodeInterface,
+  name: string
+): void => {
+  main.install = (app: App): void => {
+    app.config.globalProperties[name] = main
+  }
+}

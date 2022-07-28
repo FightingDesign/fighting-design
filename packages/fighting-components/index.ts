@@ -33,6 +33,7 @@ import { FNovelCoronavirus } from './novel-coronavirus'
 import { FList } from './list'
 import { FListItem } from './list-item'
 import { FMask } from './mask'
+import { FMessage } from './message'
 
 const components = {
   FButton,
@@ -71,9 +72,16 @@ const components = {
   FMask
 }
 
+const plugins = {
+  FMessage
+}
+
 const install = (app: App): void => {
   Object.entries(components).forEach(([key, value]) => {
     app.component(key, value)
+  })
+  Object.entries(plugins).forEach(([key, value]) => {
+    app.config.globalProperties[key] = value
   })
 }
 
@@ -111,7 +119,8 @@ export {
   FNovelCoronavirus,
   FList,
   FListItem,
-  FMask
+  FMask,
+  FMessage
 }
 
 export default {

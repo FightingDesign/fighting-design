@@ -1,4 +1,15 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { FMessage } from '@fighting-design/fighting-components'
+  FMessage({
+    type: 'success',
+    message:
+      'Hello xluloyuHello xluloyuHello  xluloyuHello xluloyuHello xluloyuHello xluloyuHello xluloyuHello xluloyu',
+    round: true,
+    offset: '40vh',
+    close: true,
+    icon: 'f-icon-atm-fill'
+  })
+</script>
 
 <template>
   <f-list>
