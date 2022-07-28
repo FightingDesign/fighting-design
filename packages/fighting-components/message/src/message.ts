@@ -1,20 +1,25 @@
-import type { ExtractPropTypes, PropType } from 'vue'
+import type { VNode, ExtractPropTypes, PropType } from 'vue'
 
-type buttonType = 'default' | 'primary' | 'success' | 'danger' | 'warning'
+export const messageTypes = [
+  'default',
+  'primary',
+  'success',
+  'danger',
+  'warning'
+] as const
+export type messageType = typeof messageTypes[number]
 
 export const Props = {
   message: {
-    type: String,
+    type: String as PropType<VNode | String>,
     default: (): string => '',
     require: true
   },
   type: {
-    type: String as PropType<buttonType>,
-    default: (): buttonType => 'default',
-    validator: (val: buttonType): boolean => {
-      return (
-        ['default', 'primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
+    type: String as PropType<messageType>,
+    default: (): messageType => 'default',
+    validator: (val: messageType): boolean => {
+      return messageTypes.includes(val)
     }
   },
   close: {
@@ -44,9 +49,20 @@ export const Props = {
   offset: {
     type: String,
     default: (): String => '10vh'
+  },
+  closeBtn: {
+    type: String as PropType<VNode | String>,
+    default: ''
+  },
+  closeEnd: {
+    type: Function
   }
 } as const
 
-export const Emits = ['close-end']
+export const Emits = ['destroy']
 
 export type MessageProps = Partial<ExtractPropTypes<typeof Props>>
+
+export type MessageOptions = MessageProps & {
+  onDestroy?: () => void
+}

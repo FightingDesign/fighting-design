@@ -23,24 +23,22 @@
     }
   }
 
-  &.f-message-round{
+  &.f-message-round {
     border-radius: 20px;
   }
 
-  .f-message--close{
+  .f-message--close {
     margin-left: 10px;
     cursor: pointer;
   }
 
-  .f-message--icon{
+  .f-message--icon {
     margin-right: 10px;
   }
 }
 
-
-
 .f-message-fade-enter-active {
-  transition: all .5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .f-message-fade-leave-active {
@@ -50,5 +48,5 @@
 .f-message-fade-enter-from,
 .f-message-fade-leave-to {
   opacity: 0;
-  top: 0 !important;
+  transform: translate(-50%, -200%)
 }

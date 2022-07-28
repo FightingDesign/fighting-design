@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FMessage">
-  import { computed, onMounted, ref } from 'vue'
+  import { computed, onMounted, ref, isVNode } from 'vue'
   import { FIcon } from '@fighting-design/fighting-components'
+  import { isString } from '@fighting-design/fighting-utils'
   import { Props, Emits } from './message'
 
   const props = defineProps(Props)
@@ -45,6 +46,8 @@
   }
 
   const startTime = () => {
+    // 如果 duration 设置为0，则不会自动关闭
+    if (!props.duration) return
     timer.value = setTimeout(() => {
       closeMessage()
     }, props.duration)
@@ -54,17 +57,39 @@
     startTime()
     visible.value = true
   })
+
+  defineExpose({
+    visible,
+    close: closeMessage
+  })
 </script>
 
 <template>
-  <transition name="f-message-fade" mode="out-in" @after-leave="$emit('close')">
-    <div v-show="visible" :class="classList" :style="styleList">
+  <transition
+    name="f-message-fade"
+    mode="out-in"
+    @after-leave="$emit('destroy')"
+  >
+    <div
+      v-show="visible"
+      :class="classList"
+      :style="styleList"
+      @mouseleave="startTime"
+      @mouseenter="clearTimer"
+    >
+      <!-- icon -->
       <div v-if="icon" class="f-message--icon">
-        <f-icon size="24px" :icon="icon" />
+        <component :is="closeBtn" v-if="isVNode(icon)" />
+        <f-icon v-if="isString(icon)" size="24px" :icon="icon" />
       </div>
-      {{ message }}
+      <!-- 消息文本 -->
+      <component :is="message" v-if="isVNode(message)" />
+      <div v-else class="f-message--text">{{ message }}</div>
+      <!-- 关闭按钮 -->
       <div v-if="close" class="f-message--close" @click="closeMessage">
-        <f-icon size="16px" icon="f-icon-close" />
+        <component :is="closeBtn" v-if="isVNode(closeBtn)" />
+        <span v-else-if="closeBtn && isString(closeBtn)">{{ closeBtn }}</span>
+        <f-icon v-else size="16px" icon="f-icon-close" />
       </div>
     </div>
   </transition>
