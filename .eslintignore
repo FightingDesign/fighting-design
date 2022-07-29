@@ -1,0 +1,8 @@
+script/new-component/template/*
+**/*.md
+env.d.ts
+docs/src
+script/move-file.js
+script/new-component/index.js
+start/src/App.vue
+start/main.ts

@@ -2,7 +2,7 @@ import type { PropType } from 'vue'
 
 export const Props = {
   previewList: {
-    type: Array as PropType<Array<string>>,
+    type: Array as PropType<string[]>,
     default: (): [] => []
   },
   previewShowIndex: {

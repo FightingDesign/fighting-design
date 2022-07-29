@@ -1,0 +1,36 @@
+@import '../config/var-avatar.scss';
+
+.f-avatar {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  vertical-align: middle;
+
+  // 不同大小
+  @each $key, $value in $avatarSize {
+    &.f-avatar-#{$key},
+    .f-avatar-#{$key} {
+      width: $value;
+      height: $value;
+    }
+  }
+
+  // 不同的适应容器的方式
+  @each $key in $avatarFit {
+    .f-avatar-#{$key} {
+      object-fit: $key;
+    }
+  }
+
+  // 圆角
+  .f-avatar-round,
+  &.f-avatar-round {
+    border-radius: 50%;
+  }
+
+  .f-avatar-text {
+    font-size: 15px;
+    color: #333;
+  }
+}

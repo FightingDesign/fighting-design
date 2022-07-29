@@ -1,62 +1,14 @@
-<template>
-  <transition name="f-image-preview" @enter="onEnter">
-    <div
-      class="f-image-preview"
-      :style="{ zIndex: previewZIndex }"
-      @click.self="packingClose"
-      @mousewheel="onImgMousewheel"
-    >
-      <img
-        class="f-image-showImg"
-        draggable="false"
-        :src="previewList[previewShowIndex]"
-        :style="{
-          transform: `scale(${scale}) rotate(${rotate}deg)`,
-          borderRadius: previewRound
-        }"
-      />
-
-      <div
-        v-if="previewList.length > 1"
-        class="right_button"
-        @click="switchImage('next')"
-      >
-        <f-icon size="30px" icon="f-icon-arrow-right" />
-      </div>
-
-      <div
-        v-if="previewList.length > 1"
-        class="left_button"
-        @click="switchImage('prev')"
-      >
-        <f-icon size="30px" icon="f-icon-arrow-left" />
-      </div>
-
-      <div v-if="showCloseBtn" class="close_button" @click="close">
-        <f-icon size="20px" icon="f-icon-close" />
-      </div>
-
-      <div v-if="previewShowOption" class="option" @click="optionClick">
-        <f-icon size="23px" icon="f-icon-suoxiao" />
-        <f-icon size="23px" icon="f-icon-fangda" />
-        <f-icon size="23px" icon="f-icon-column1" />
-        <f-icon size="23px" icon="f-icon-xuanzhuan-1" />
-        <f-icon size="23px" icon="f-icon-xuanzhuan-2" />
-      </div>
-    </div>
-  </transition>
-</template>
-
 <script lang="ts" setup name="PreviewList">
   import { ref } from 'vue'
   import { Props, Emits } from './PreviewList'
+  import { FIcon } from '@fighting-design/fighting-components'
+  import { keepDecimal } from '@fighting-design/fighting-utils'
   import type { Ref } from 'vue'
   import type {
     ordinaryFunctionInterface,
     switchImageInterface,
     optionClickInterface
-  } from '@fighting-design/fighting-type'
-  import { keepDecimal } from '@fighting-design/fighting-utils'
+  } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -72,7 +24,7 @@
   const imagPreload: ordinaryFunctionInterface = (): void => {
     const imgList: Array<string> = prop.previewList as Array<string>
 
-    imgList.map((item: string): void => {
+    imgList.forEach((item: string): void => {
       const img: HTMLImageElement = new Image() as HTMLImageElement
       img.src = item
     })
@@ -83,7 +35,7 @@
     rotate.value = 0
   }
 
-  const close: ordinaryFunctionInterface = (): void => {
+  const handleClose: ordinaryFunctionInterface = (): void => {
     emit('close')
   }
 
@@ -134,7 +86,7 @@
     scale.value += 0.2
   }
 
-  const optionClick: optionClickInterface = (evt: PointerEvent): void => {
+  const optionClick: optionClickInterface = (evt: Event): void => {
     const className: string = (evt.target as HTMLElement).className
 
     const turnLeft: ordinaryFunctionInterface = (): void => {
@@ -179,3 +131,52 @@
     bigger()
   }
 </script>
+
+<template>
+  <transition name="f-image-preview" @enter="onEnter">
+    <div
+      class="f-image-preview"
+      :style="{ zIndex: previewZIndex }"
+      @click.self="packingClose"
+      @mousewheel="onImgMousewheel"
+    >
+      <img
+        class="f-image-showImg"
+        draggable="false"
+        :src="previewList[previewShowIndex]"
+        :style="{
+          transform: `scale(${scale}) rotate(${rotate}deg)`,
+          borderRadius: previewRound
+        }"
+      />
+
+      <div
+        v-if="previewList.length > 1"
+        class="right_button"
+        @click="switchImage('next')"
+      >
+        <f-icon size="30px" icon="f-icon-arrow-right" />
+      </div>
+
+      <div
+        v-if="previewList.length > 1"
+        class="left_button"
+        @click="switchImage('prev')"
+      >
+        <f-icon size="30px" icon="f-icon-arrow-left" />
+      </div>
+
+      <div v-if="showCloseBtn" class="close_button" @click="handleClose">
+        <f-icon size="20px" icon="f-icon-close" />
+      </div>
+
+      <div v-if="previewShowOption" class="option" @click="optionClick">
+        <f-icon size="23px" icon="f-icon-suoxiao" />
+        <f-icon size="23px" icon="f-icon-fangda" />
+        <f-icon size="23px" icon="f-icon-column1" />
+        <f-icon size="23px" icon="f-icon-xuanzhuan-1" />
+        <f-icon size="23px" icon="f-icon-xuanzhuan-2" />
+      </div>
+    </div>
+  </transition>
+</template>

@@ -1,0 +1,72 @@
+@import '../config/const-color.scss';
+@import '../config/var-tag.scss';
+
+.f-tag {
+  min-width: 60px;
+  padding: 0 6px;
+  font-size: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: $middle;
+  transition: 0.5;
+  cursor: default;
+
+  // 不同的类型
+  @for $list from 1 to (length($allTypeColorList) + 1) {
+    $item: nth($allTypeColorList, $list);
+
+    // 不同类型
+    &.f-tag-#{map-get($item, name)} {
+      background: map-get($item, default);
+      color: map-get($item, defaultTextColor);
+      border: 1px solid map-get($item, simpleTextColor);
+    }
+
+    // 简约模式
+    &.f-tag-simple.f-tag-#{map-get($item, name)} {
+      background: map-get($item, simple);
+      color: map-get($item, simpleTextColor);
+    }
+
+    // 线性的
+    &.f-tag-line.f-tag-#{map-get($item, name)} {
+      color: map-get($item, simpleTextColor);
+      background: none;
+    }
+  }
+
+  // 不同的尺寸
+  @for $list from 1 to (length($tagSize) + 1) {
+    $item: nth($tagSize, $list);
+
+    &.f-tag-#{map-get($item, name)} {
+      height: map-get($item, size);
+      font-size: map-get($item, fontSize);
+    }
+  }
+
+  // 块级元素
+  &.f-tag-block {
+    display: flex;
+  }
+
+  // 圆角
+  &.f-tag-round {
+    border-radius: 30px;
+  }
+
+  // 关闭按钮
+  .f-icon-close {
+    cursor: pointer;
+    font-size: 13px;
+    margin-left: 8px;
+    text-align: right;
+
+    &:hover {
+      transition: 0.5;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+    }
+  }
+}

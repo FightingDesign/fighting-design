@@ -1,0 +1,65 @@
+@import '../config/var-list.scss';
+
+.f-list-item {
+  min-height: $middle;
+  color: #333333;
+  background-color: #ffffff;
+  font-size: 14px;
+  flex-wrap: nowrap;
+  padding: 12px;
+
+  &.f-list-item-base-border {
+    border: 1px solid #e3e3e3;
+    &:not(:last-child) {
+      border-bottom: 1px solid #ffffff;
+    }
+  }
+
+  // 不同尺寸
+  @for $list from 1 to (length($listSize) + 1) {
+    $item: nth($listSize, $list); // 获取数组中第i项的值
+
+    &.f-list-item-#{map-get($item, name)} {
+      min-height: map-get($item, height);
+      padding: map-get($item, padding);
+      line-height: map-get($item, height);
+      font-size: map-get($item, fontSize);
+    }
+  }
+
+  // 斑马线
+  &.f-list-item-zebra {
+    &:nth-of-type(2n) {
+      background-color: #ecf0fe;
+    }
+  }
+
+  // 单行显示
+  &.f-list-item-single {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  // max height
+  &.f-list-item-scroll {
+    overflow: scroll;
+  }
+
+  // hover
+  &.f-list-item-hover {
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      border-color: #325ef1;
+    }
+  }
+
+  // 文字居中
+  &.f-list-item-center {
+    text-align: center;
+  }
+}

@@ -1,7 +1,4 @@
-import type {
-  installInterface,
-  mainVNodeInterface
-} from '@fighting-design/fighting-type'
+import type { installInterface, mainVNodeInterface } from './type'
 import type { App } from 'vue'
 
 /**
@@ -15,5 +12,14 @@ export const install: installInterface = (
 ): void => {
   main.install = (app: App): void => {
     app.component(name, main)
+  }
+}
+
+export const installFn: installInterface = (
+  main: mainVNodeInterface,
+  name: string
+): void => {
+  main.install = (app: App): void => {
+    app.config.globalProperties[name] = main
   }
 }

@@ -1,0 +1,77 @@
+.f-page-header {
+  flex: none;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 360px;
+  height: 30px;
+  background-color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+
+  // 后退
+  .f-page-header-left {
+    flex: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: 13px;
+    margin-right: 27px;
+    color: #414141;
+    cursor: pointer;
+    user-select: none;
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 1px;
+      height: 22px;
+      background: #d9d9d9;
+    }
+
+    &__icon {
+      margin-right: 6px;
+      font-size: 18px;
+
+      .f-icon {
+        font-size: inherit;
+      }
+    }
+
+    &__text {
+      font-size: 14px;
+    }
+  }
+
+  // 主体
+  .f-page-header-main {
+    flex: auto;
+    display: flex;
+    align-items: center;
+
+    // 居中
+    &.center {
+      justify-content: center;
+    }
+
+    // 标题
+    &__title {
+      flex: none;
+      font-size: 18px;
+      color: #000000;
+    }
+
+    // 副标题
+    &__subtitle {
+      flex: none;
+      margin-left: 8px;
+      font-size: 16px;
+      color: #adadad;
+    }
+  }
+}

@@ -3,11 +3,19 @@ import { describe, expect, test } from 'vitest'
 import { FLink } from '@fighting-design/fighting-components'
 
 describe('FLink', () => {
+  test('class', () => {
+    const wrapper = mount(FLink)
+    expect(wrapper.classes()).toContain('f-link')
+  })
+
   test('type', () => {
-    const wrapper = mount(FLink, {
-      props: { type: 'primary' }
+    const type = ['default', 'primary', 'success', 'danger', 'warning'] as const
+    type.forEach((item) => {
+      const wrapper = mount(FLink, {
+        props: { type: item }
+      })
+      expect(wrapper.classes()).toContain(`f-link-${item}`)
     })
-    expect(wrapper.classes()).toContain('f-link-primary')
   })
 
   test('href', () => {

@@ -1,4 +1,4 @@
-@import '../config/color.scss';
+@import '../config/const-color.scss';
 
 .f-link {
   cursor: pointer;
@@ -7,58 +7,50 @@
   text-decoration: none;
   transition: 0.3s;
   line-height: 1;
-  .f-icon {
+  color: $primary;
+
+  &.f-icon {
     font-size: 15px;
   }
+
   &:hover {
     opacity: 0.8;
   }
-}
 
-// 不同类型
-.f-link.f-link-,
-.f-link.f-link-primary {
-  color: $primary;
-}
+  // 不同类型
+  @for $list from 1 to (length($allTypeColorList) + 1) {
+    $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
 
-.f-link.f-link-success {
-  color: $success;
-}
+    // 不同类型
+    &.f-link-#{map-get($item, name)} {
+      color: map-get($item, simpleTextColor);
+    }
+  }
 
-.f-link.f-link-danger {
-  color: $danger;
-}
+  // 不同样式
+  &.f-link-line {
+    text-decoration: underline;
+  }
 
-.f-link.f-link-warning {
-  color: $warning;
-}
+  &.f-link-bag:hover {
+    background: #eee;
+    border-radius: 2px;
+  }
 
-.f-link.f-link-info {
-  color: $info;
-}
+  // 禁止 copy
+  &.f-link-noCopy {
+    user-select: none;
+  }
 
-// 不同样式
-.f-link.f-link-line {
-  text-decoration: underline;
-}
+  // 禁用
+  &.f-link-prohibit {
+    opacity: 0.5;
+    cursor: not-allowed;
 
-.f-link.f-link-bag:hover {
-  background: #eee;
-  border-radius: 2px;
-}
-
-.f-link.f-link-noCopy {
-  user-select: none;
-}
-
-// 禁用
-.f-link.f-link-prohibit {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.f-link.f-link-prohibit.f-link-bag {
-  &:hover {
-    background: none;
+    &.f-link-bag {
+      &:hover {
+        background: none;
+      }
+    }
   }
 }

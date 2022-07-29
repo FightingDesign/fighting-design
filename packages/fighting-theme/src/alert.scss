@@ -1,0 +1,72 @@
+@import '../config/const-color.scss';
+
+.f-alert {
+  padding: 10px 16px;
+  color: #fff;
+  position: relative;
+  box-sizing: border-box;
+
+  @for $list from 1 to (length($allTypeColorList) + 1) {
+    $item: nth($allTypeColorList, $list); // 获取数据中心第i项的值
+
+    // 不同类型
+    &.f-alert-#{map-get($item, name)} {
+      background: map-get($item, default);
+      color: map-get($item, defaultTextColor);
+    }
+
+    // 简约的
+    &.f-alert-simple.f-alert-#{map-get($item, name)} {
+      background: map-get($item, simple);
+      color: map-get($item, simpleTextColor);
+    }
+  }
+
+  // 关闭按钮
+  .f-alert-close {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0%, -50%);
+
+    &:hover {
+      transition: 0.5;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+    }
+  }
+
+  .f-alert-title {
+    font-weight: bold;
+  }
+
+  .f-alert-sub-title {
+    display: block;
+  }
+
+  // 加粗
+  &.f-alert-bold {
+    font-weight: bold;
+  }
+
+  // 居中
+  &.f-alert-center {
+    text-align: center;
+  }
+
+  // 圆角
+  &.f-alert-round {
+    border-radius: 20px;
+  }
+
+  // 固定定位
+  &.f-alert-fixed {
+    width: 100%;
+    position: fixed;
+  }
+}

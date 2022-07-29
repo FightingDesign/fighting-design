@@ -8,53 +8,64 @@
 
 ## 新增组件
 
-在新增组件之前，请与[我](https://github.com/Tyh2001/Tyh2001)取得联系，或者在 [discussions](https://github.com/Tyh2001/fighting-design/discussions) 新建一个讨论，讨论的格式可参考[这里](https://github.com/Tyh2001/fighting-design/discussions/5)。
+在新增组件之前，请与[我](https://github.com/Tyh2001/Tyh2001)取得联系，或者在 [discussions](https://github.com/FightingDesign/fighting-design/discussions) 新建一个讨论，讨论的格式可参考[这里](https://github.com/FightingDesign/fighting-design/discussions/5)。
 
 如果想要新增组件，需要在 `fighting-components` 目录下新建一个`以组件名称`为名的文件夹，内部目录结构如下：
 
 ```
 ├── src
+|  ├── interface.d.ts
 |  ├── component.ts
 |  └── component.vue
 └── index.ts
 ```
 
+`Fighting Design` 内置了新增组件的快捷命令，可以快速帮助你创建组件所需要的文件，参考 [new-component](https://github.com/FightingDesign/fighting-design/blob/master/script/new-component/README.md)，命令：
+
+```
+pnpm new <component-name>
+```
+
 下面分别介绍一下每个文件的作用：
 
-- `component.vue`： 组件的源文件
-- `component.ts`： 写入 `Props` 和 `Emits`
-- `index.ts`：主入口文件 包含注册组件
+- `interface.d.ts` 写入组件和 `Props` 相关的所以类型
+- `component.ts` 写入 `Props` 和 `Emits`
+- `component.vue` 组件的源文件
+- `index.ts`主入口文件 包含注册组件
 
 下面将会分别介绍一下每个文件内部的一些规范。
+
+## interface.d.ts
+
+`interface.d.ts` 用于定义类型，每个组件中变量、函数、`Props` 相关的所有类型需要在这里定义。
+
+导出统一使用 `export`
 
 ## component.vue
 
 这是组件的源文件，内部结构为：
 
 ```html
-<template></template>
-
 <script lang="ts" setup name=""></script>
+
+<template></template>
 ```
+
+> 注意：\*.vue 文件必须将 script 在上 template 在下
 
 **结构规范**
 
-- 组建内只有两个标签（必须的）`<template>` `<script lang="ts" setup name="">`
+- 组件内只有两个标签（必须的）`<script lang="ts" setup name="">` `<template> `
 - 两大标签之间必须要有一个空行
-- 末尾要有一个空行
 - `script` 必须带有 `lang="ts" setup name=""` 三个标记，注意标记顺序
-
-**template 规范**
-
-- 每个组件都必须要有一个自己专属的 `class`，格式为 `f-组件名`，例如 `f-button` `f-icon`
 
 **script 规范**
 
 - `script` 上的 `name` 属性是组件的名字，使用的 [vite-plugin-vue-setup-extend](https://github.com/vbenjs/vite-plugin-vue-setup-extend) 插件。组件名必须以 `F` 开头，后面跟组件名，组件名首字母大写，例如：`FButton`
 - 引入的类型，必须使用 `type` 标记，比如：`import type { xxx } from 'xxx'`
 - 在所有 `import` 之后要带有一个空行，之后是 `prop` 和 `emit`
-- `prop` 和 `emit` 之后，也要带一个空行，
-- 后面可以进行编写组件需要的逻辑函数，函数必须使用 `箭头函数`，除非特殊情况外，每个函数之间要有一个空行隔开。可见下面例子，取自 [f-button](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-components/button/src/button.vue)
+- `prop` 和 `emit` 之后，也要带一个空行
+- 后面可以进行编写组件需要的逻辑函数，函数必须使用 `箭头函数`，除非特殊情况外，每个函数之间要有一个空行隔开。可见下面例子，取自 [f-button](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/button/src/button.vue)
 
 ```ts
 import { computed, ComputedRef } from 'vue'
@@ -69,12 +80,19 @@ const onClick = (evt) => {}
 const iconClass = computed(() => {})
 ```
 
+**template 规范**
+
+- 每个组件都必须要有一个自己专属的 `class`，格式为 `f-组件名`，例如 `f-button` `f-icon`
+- 单个 `class` 不使用数组。反面例子：`:class="['f-button']"`；正面例子：`class="f-button"`
+- 可以使用单标签均使用单标签，比如：`<slot />`
+- 可以简化的都需要简化，比如 `:style="{ color }"`
+
 **Ts 类型规范**
 
-- 能定义类型就要定义类型
+- 能定义类型的地方就要定义类型
 - 就算是类型自动推倒出来了，也要写入类型
-- `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 [fighting-type](https://github.com/Tyh2001/fighting-design/tree/master/packages/fighting-type) 中定义，定义规范请参考 [@fighting-design/fighting-type](https://github.com/Tyh2001/fighting-design/blob/master/packages/fighting-type/README.md)
-- 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/Tyh2001/fighting-design/discussions) 或者群里提问
+- `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 `interface.d.ts` 中定义
+- 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/FightingDesign/fighting-design/discussions) 或者群里提问
 
 下面举例常用的定义类型规范：
 
@@ -100,7 +118,7 @@ const com: ComputedRef<string> = computed<string>((): string => {
 
 - 定义函数
 
-[fighting-type](https://github.com/Tyh2001/fighting-design/tree/master/packages/fighting-type) 中定义类型
+`interface.d.ts` 中定义类型
 
 ```ts
 export interface funInterface {
@@ -111,7 +129,7 @@ export interface funInterface {
 引入使用类型
 
 ```ts
-import type { funInterface } from './xxx'
+import type { funInterface } from './interface'
 
 const fun: funInterface = (a: number, b: number): number => {
   return a + b

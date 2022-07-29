@@ -6,6 +6,8 @@ English | [Chinese](https://github.com/Tyh2001/fighting-design/blob/master/start
 
 Your component development directory is here
 
+You can write test code at will in `App.vue` and the original code can be deleted and modified at will
+
 ## Development phase
 
 In `main.ts`, components developed under `fighting-design/package` can be directly introduced in the following ways

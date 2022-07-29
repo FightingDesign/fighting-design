@@ -1,5 +1,10 @@
 # Icon 图标
 
+`Icon` 用于展示网页中的小图标
+
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/icon)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/icon.md)
+
 ## 基本使用
 
 通过 `icon` 属性来给 `icon` 添加类名，来显示不同的图标
@@ -26,13 +31,13 @@
 
 ## Attributes
 
-| 参数       | 说明                           | 类型   | 可选值                | 默认值 |
-| ---------- | ------------------------------ | ------ | --------------------- | ------ |
-| icon       | icon 的 class                  | string | ——                    | ——     |
-| font-class | FontClass 用于自定义 icon 集合 | string | ——                    | ——     |
-| color      | icon 的颜色                    | string | ——                    | ——     |
-| size       | icon 的字体大小                | string | ——                    | ——     |
-| opacity    | icon 的透明度                  | string | 0-1（仅包含一位小数） | ——     |
+| 参数         | 说明                           | 类型   | 可选值                | 默认值 |
+| ------------ | ------------------------------ | ------ | --------------------- | ------ |
+| `icon`       | icon 的 class                  | string | ——                    | ——     |
+| `font-class` | FontClass 用于自定义 icon 集合 | string | ——                    | ——     |
+| `color`      | icon 的颜色                    | string | ——                    | ——     |
+| `size`       | icon 的字体大小                | string | ——                    | ——     |
+| `opacity`    | icon 的透明度                  | string | 0-1（仅包含一位小数） | ——     |
 
 ## Icon 集合
 
@@ -42,6 +47,12 @@
     <span>{{ icon }}</span>
   </div>
 </div>
+
+## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
 
 <style lang="scss" scoped>
 .icon_list {
@@ -428,7 +439,7 @@ const iconLists = [
   'f-icon-scanning',
   'f-icon-security',
   'f-icon-salescenter',
-  'f-icon-seleted',
+  'f-icon-smelted',
   'f-icon-searchcart',
   'f-icon-raw',
   'f-icon-service',

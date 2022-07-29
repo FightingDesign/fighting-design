@@ -1,23 +1,44 @@
-import type { RipplesInterface } from '@fighting-design/fighting-type'
+import type { RipplesInterface, buttonEventInterface } from './type'
+import type { buttonType } from '../fighting-components/button/src/interface'
+
+const colorList = {
+  default: '#f0f0f0',
+  primary: '#2d5af1',
+  success: '#52b35e',
+  danger: '#ff0200',
+  warning: '#fcc202'
+} as const
 
 /**
  * 按钮点击涟漪效果
  */
 export class Ripples implements RipplesInterface {
-  /**
-   * 这里暂时先标记 any
-   * 可能暂时涉及到兼容性的问题
-   * 获取.....我还没搞懂？？？
-   */
-  evt: any
+  evt: buttonEventInterface
   node: HTMLElement
-  time: number
-  constructor(evt: PointerEvent, node: HTMLElement, time: number) {
+  ripplesColor: string
+  type: buttonType
+  simple: boolean
+  text: boolean
+
+  constructor (
+    evt: buttonEventInterface,
+    node: HTMLElement,
+    ripplesColor: string,
+    type: buttonType,
+    simple: boolean,
+    text: boolean
+  ) {
     this.evt = evt
     this.node = node
-    this.time = time
+    this.ripplesColor = ripplesColor
+    this.type = type
+    this.simple = simple
+    this.text = text
   }
-  clickRipples(): void {
+  /**
+   * 点击生成涟漪效果
+   */
+  clickRipples = (): void => {
     /**
      * layerX 和 layerY 属性暂时使用，未来可能会涉及到兼容性的问题
      * https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/layerX
@@ -29,18 +50,38 @@ export class Ripples implements RipplesInterface {
     this.node.appendChild(ripples)
     this.removeElement(ripples)
   }
-  renderElement(x: number, y: number): HTMLSpanElement {
+  /**
+   * 计算涟漪颜色
+   */
+  computedRipplesColor = (): string => {
+    return this.ripplesColor
+      ? this.ripplesColor
+      : this.simple || this.text
+        ? colorList[this.type]
+        : '#fff'
+  }
+  /**
+   * 渲染节点
+   * @param x 坐标 x
+   * @param y 坐标 y
+   */
+  renderElement = (x: number, y: number): HTMLSpanElement => {
     const ripples: HTMLSpanElement = document.createElement('span')
 
     ripples.className = 'f-design-ripples'
+    ripples.style.background = this.computedRipplesColor()
     ripples.style.left = `${x}px`
     ripples.style.top = `${y}px`
 
     return ripples
   }
-  removeElement(node: HTMLElement): void {
+  /**
+   * 删除节点
+   * @param node dom
+   */
+  removeElement = (node: HTMLElement): void => {
     setTimeout((): void => {
       node.remove()
-    }, this.time)
+    }, 600)
   }
 }

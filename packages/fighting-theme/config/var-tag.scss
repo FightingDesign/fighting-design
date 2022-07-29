@@ -1,0 +1,28 @@
+$large: 35px;
+$middle: 30px;
+$small: 25px;
+$mini: 20px;
+
+// 不同尺寸
+$tagSize: (
+  (
+    name: 'large',
+    size: $large,
+    fontSize: 15px
+  ),
+  (
+    name: 'middle',
+    size: $middle,
+    fontSize: 14px
+  ),
+  (
+    name: 'small',
+    size: $small,
+    fontSize: 13px
+  ),
+  (
+    name: 'mini',
+    size: $mini,
+    fontSize: 12px
+  )
+);

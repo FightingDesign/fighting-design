@@ -1,0 +1,10 @@
+// 不同头像的大小
+$avatarSize: (
+  'large': 70px,
+  'middle': 60px,
+  'small': 50px,
+  'mini': 40px
+);
+
+// 适应容器的方式
+$avatarFit: fill, contain, cover, none, scale-down;

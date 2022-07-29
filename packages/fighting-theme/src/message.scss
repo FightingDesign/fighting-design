@@ -1,0 +1,100 @@
+@import '../config/const-color.scss';
+
+.f-message {
+  position: fixed;
+  transition: opacity 0.3s, top 0.4s;
+  padding: 10px 20px;
+  font-size: 14px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgb(237 237 237) 1px 1px 7px, rgb(237 237 237) -1px -1px 7px;
+  max-width: 500px;
+  transition: all 0.4s ease-out;
+
+  @for $list from 1 to (length($allTypeColorList) + 1) {
+    $item: nth($allTypeColorList, $list);
+
+    &.f-message-#{map-get($item, name)} {
+      background: #fff;
+      color: map-get($item, simpleTextColor);
+    }
+  }
+
+  &.f-message-round {
+    border-radius: 20px;
+  }
+
+  &.f-message-top {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.f-message-top-left {
+    left: 20px;
+  }
+
+  &.f-message-top-right {
+    right: 20px;
+  }
+
+  &.f-message-bottom {
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  &.f-message-bottom-left {
+    left: 20px;
+    bottom: 0;
+  }
+
+  &.f-message-bottom-right {
+    right: 20px;
+    bottom: 0;
+  }
+
+  .f-message--close {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  .f-message--icon {
+    margin-right: 10px;
+  }
+}
+
+.f-message-fade-top-enter-active,
+.f-message-fade-bottom-enter-active {
+  transition: all 0.4s ease-out;
+}
+
+.f-message-fade-top-leave-active,
+.f-message-fade-bottom-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.f-message-fade-top-enter-from,
+.f-message-fade-top-leave-to {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.f-message-top.f-message-fade-top-enter-from,
+.f-message-top.f-message-fade-top-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}
+
+.f-message-fade-bottom-enter-from,
+.f-message-fade-bottom-leave-to {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.f-message-bottom.f-message-fade-bottom-enter-from,
+.f-message-bottom.f-message-fade-bottom-leave-to {
+  opacity: 0;
+  transform: translate(-50%, 100%);
+}

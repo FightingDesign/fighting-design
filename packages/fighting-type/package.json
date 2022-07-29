@@ -1,7 +1,0 @@
-{
-  "name": "@fighting-design/fighting-type",
-  "version": "1.0.0",
-  "description": "Type file",
-  "main": "index.ts",
-  "types": "index.ts"
-}

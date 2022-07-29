@@ -1,0 +1,219 @@
+.f-tooltip {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+
+  &::before,
+  &::after {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 600;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.3s ease 0.05s;
+  }
+
+  &.f-tooltip-hover:hover::before,
+  &.f-tooltip-hover:hover::after,
+  &.f-tooltip-active:active::before,
+  &.f-tooltip-active:active::after,
+  &.f-tooltip-always::before,
+  &.f-tooltip-always::after {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+  }
+
+  &::after {
+    content: attr(f-content);
+    position: absolute;
+    background: #333;
+    font-size: 12px;
+    font-weight: normal;
+    color: #fff;
+    line-height: 14px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    border-radius: 2px;
+  }
+
+  &.f-tooltip-top::before {
+    border-top-color: #333;
+  }
+
+  &.f-tooltip-right::before {
+    border-right-color: #333;
+  }
+
+  &.f-tooltip-bottom::before {
+    border-bottom-color: #333;
+  }
+
+  &.f-tooltip-left::before {
+    border-left-color: #333;
+  }
+
+  &.f-tooltip-top.f-tooltip-bright::before {
+    border-top-color: #eee;
+  }
+
+  &.f-tooltip-right.f-tooltip-bright::before {
+    border-right-color: #eee;
+  }
+
+  &.f-tooltip-bottom.f-tooltip-bright::before {
+    border-bottom-color: #eee;
+  }
+
+  &.f-tooltip-left.f-tooltip-bright::before {
+    border-left-color: #eee;
+  }
+
+  // top && bottom
+  &.f-tooltip-top::before,
+  &.f-tooltip-bottom::before {
+    left: calc(50% - 6px);
+  }
+
+  &.f-tooltip-top::after,
+  &.f-tooltip-bottom::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.f-tooltip-top::before {
+    top: 0px;
+  }
+
+  &.f-tooltip-top::after {
+    bottom: 100%;
+    margin-bottom: -1px;
+  }
+
+  &.f-tooltip-bottom::before {
+    bottom: 0;
+  }
+
+  &.f-tooltip-bottom::after {
+    top: 100%;
+    margin-top: -1px;
+  }
+
+  &.f-tooltip-top.f-tooltip-hover:hover::before,
+  &.f-tooltip-top.f-tooltip-active:active::before,
+  &.f-tooltip-top.f-tooltip-always::before {
+    transform: translateX(0%) translateY(-10px);
+  }
+
+  &.f-tooltip-top.f-tooltip-hover:hover::after,
+  &.f-tooltip-top.f-tooltip-active:active::after,
+  &.f-tooltip-top.f-tooltip-always::after {
+    transform: translateX(-50%) translateY(-10px);
+  }
+
+  &.f-tooltip-bottom.f-tooltip-hover:hover::before,
+  &.f-tooltip-bottom.f-tooltip-active:active::before,
+  &.f-tooltip-bottom.f-tooltip-always::before {
+    transform: translateX(0%) translateY(10px);
+  }
+
+  &.f-tooltip-bottom.f-tooltip-hover:hover::after,
+  &.f-tooltip-bottom.f-tooltip-active:active::after,
+  &.f-tooltip-bottom.f-tooltip-always::after {
+    transform: translateX(-50%) translateY(10px);
+  }
+
+  //  left && right
+  &.f-tooltip-right::before,
+  &.f-tooltip-left::before {
+    top: calc(50% - 6px);
+  }
+
+  &.f-tooltip-right::after,
+  &.f-tooltip-left::after {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.f-tooltip-right::before {
+    right: 0;
+  }
+
+  &.f-tooltip-right::after {
+    left: 100%;
+    margin-left: -1px;
+  }
+
+  &.f-tooltip-left::before {
+    left: 0;
+  }
+
+  &.f-tooltip-left::after {
+    right: 100%;
+    margin-right: -1px;
+  }
+
+  &.f-tooltip-left.f-tooltip-hover:hover::after,
+  &.f-tooltip-left.f-tooltip-active:active::after,
+  &.f-tooltip-left.f-tooltip-always::after {
+    transform: translateX(-10px) translateY(-50%);
+  }
+
+  &.f-tooltip-left.f-tooltip-hover:hover::before,
+  &.f-tooltip-left.f-tooltip-active:active::before,
+  &.f-tooltip-left.f-tooltip-always::before {
+    transform: translateX(-10px) translateY(0%);
+  }
+
+  &.f-tooltip-right.f-tooltip-hover:hover::before,
+  &.f-tooltip-right.f-tooltip-active:active::before,
+  &.f-tooltip-right.f-tooltip-always::before {
+    transform: translateX(10px) translateY(0%);
+  }
+
+  &.f-tooltip-right.f-tooltip-hover:hover::after,
+  &.f-tooltip-right.f-tooltip-active:active::after,
+  &.f-tooltip-right.f-tooltip-always::after {
+    transform: translateX(10px) translateY(-50%);
+  }
+
+  // 是否禁用
+  &.f-tooltip-disabled {
+    &:hover::before,
+    &:hover::after {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  // 文字加粗
+  &.f-tooltip-bold {
+    &::after {
+      font-weight: bold;
+    }
+  }
+
+  // 不带箭头
+  &.f-tooltip-no-arrow {
+    &::before {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  // 浅色主题
+  &.f-tooltip-bright {
+    &::after {
+      background: #fff;
+      color: #333;
+      border: 0.5px solid #333;
+    }
+  }
+}

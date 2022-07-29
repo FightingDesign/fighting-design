@@ -1,0 +1,34 @@
+.f-space {
+  display: inline-flex;
+
+  // 排列方式
+  &.f-space-vertical {
+    flex-direction: column-reverse;
+  }
+
+  // 是否换行
+  &.f-space-wrap {
+    flex-wrap: wrap;
+  }
+
+  // 不同尺寸
+  &.f-space-large {
+    column-gap: 14px;
+    row-gap: 14px;
+  }
+
+  &.f-space-middle {
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  &.f-space-small {
+    column-gap: 6px;
+    row-gap: 6px;
+  }
+
+  &.f-space-mini {
+    column-gap: 2px;
+    row-gap: 2px;
+  }
+}

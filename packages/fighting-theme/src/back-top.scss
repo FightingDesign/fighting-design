@@ -1,0 +1,29 @@
+.f-back-top {
+  position: fixed;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 30px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  z-index: 100;
+  bottom: 40px;
+  right: 40px;
+  transition: 0.6s;
+  color: #333;
+  box-shadow: rgb(237, 237, 237) 1px 1px 7px, rgb(237, 237, 237) -1px -1px 7px;
+
+  &.f-back-top-round {
+    padding: 0;
+    border-radius: 50%;
+  }
+}
+
+.f-back-top:hover {
+  box-shadow: rgb(221, 221, 221) 1px 1px 10px, rgb(221, 221, 221) -1px -1px 10px;
+}

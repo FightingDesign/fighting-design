@@ -1,0 +1,76 @@
+@import '../config/var-progress.scss';
+
+.f-progress {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+
+  .f-progress-bar {
+    flex-grow: 1;
+    box-sizing: border-box;
+    background: #f1f1f1;
+  }
+
+  .f-progress-fill {
+    height: 100%;
+    transition: 0.3s;
+    border-radius: 100px;
+    background: $primary;
+    text-align: right;
+
+    // 百分百文字
+    .f-progress-percentage {
+      color: #fff;
+      font-size: 12px;
+      margin: 0 8px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    // 垂直居中百分比
+    &::after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
+  }
+
+  // 右侧显示百分比
+  .f-progress-text {
+    min-width: 40px;
+    line-height: 1;
+    margin-left: 5px;
+    font-size: 14px;
+  }
+
+  @keyframes panoramic {
+    to {
+      background-position: 200% 0;
+    }
+  }
+
+  @for $list from 1 to (length($progressStripeType) + 1) {
+    $item: nth($progressStripeType, $list);
+
+    // 基本的颜色
+    .f-progress-fill-#{map-get($item, name)} {
+      background: map-get($item, default);
+    }
+
+    // 条纹背景
+    .f-progress-fill-#{map-get($item, name)}.f-progress-stripe {
+      background: repeating-linear-gradient(
+        -45deg,
+        map-get($item, default) 25%,
+        map-get($item, default) 0,
+        map-get($item, default) 50%,
+        map-get($item, light) 0,
+        map-get($item, light) 75%,
+        map-get($item, light) 0
+      );
+      background-size: 35px 35px;
+      animation: panoramic 30s linear infinite;
+    }
+  }
+}

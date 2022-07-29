@@ -1,0 +1,40 @@
+@import '../config/const-color.scss';
+
+.f-badge {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  transition: 0.4s;
+  cursor: default;
+
+  .f-badge-content {
+    position: absolute;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 0 6px;
+    height: 18px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    transform: translateY(-50%) translateX(50%);
+
+    @for $list from 1 to (length($allTypeColorList) + 1) {
+      $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
+
+      // 不同类型
+      &.f-badge-#{map-get($item, name)} {
+        color: #fff;
+        background: map-get($item, default);
+      }
+    }
+
+    &.f-badge-dot {
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      padding: 0;
+    }
+  }
+}

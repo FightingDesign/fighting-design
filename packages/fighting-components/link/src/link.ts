@@ -1,9 +1,5 @@
 import type { PropType } from 'vue'
-import type {
-  linkType,
-  linkTarget,
-  linkHover
-} from '@fighting-design/fighting-type'
+import type { linkType, linkTarget, linkHover } from './interface'
 
 export const Props = {
   type: {
@@ -11,7 +7,7 @@ export const Props = {
     default: (): linkType => 'primary',
     validator: (val: linkType): boolean => {
       return (
-        ['primary', 'success', 'danger', 'warning', 'info', ''] as const
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
     }
   },

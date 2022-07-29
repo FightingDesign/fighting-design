@@ -1,0 +1,25 @@
+@import '../config/const-color.scss';
+
+// 不同按进度条的条纹状态
+$progressStripeType: (
+  (
+    name: 'primary',
+    default: $primary,
+    light: #5277f3
+  ),
+  (
+    name: 'success',
+    default: $success,
+    light: #71c07a
+  ),
+  (
+    name: 'danger',
+    default: $danger,
+    light: #f9514f
+  ),
+  (
+    name: 'warning',
+    default: $warning,
+    light: #fccc2f
+  )
+);

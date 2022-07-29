@@ -1,4 +1,4 @@
-import type { cardShadow } from '@fighting-design/fighting-type'
+import type { cardShadow } from './interface'
 import type { PropType } from 'vue'
 
 export const Props = {
@@ -14,7 +14,7 @@ export const Props = {
     type: String,
     default: (): string => '20px'
   },
-  target: {
+  shadow: {
     type: String as PropType<cardShadow>,
     default: (): cardShadow => 'always',
     validator: (val: cardShadow): boolean => {

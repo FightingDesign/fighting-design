@@ -1,0 +1,94 @@
+@import '../config/var-switch.scss';
+
+.f-switch {
+  user-select: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  .f-switch-input {
+    position: relative;
+    display: inline-flex;
+    border-radius: 30px;
+    z-index: 5;
+    transition: 0.2s;
+    background: $primary;
+    width: 40px;
+    height: 20px;
+
+    // 打开状态
+    @each $key, $value in $switchSize {
+      &.f-switch-#{$key} {
+        width: $value * 2;
+        height: $value;
+
+        // 小球
+        .f-switch-roll {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: $value - 4;
+          height: $value - 4;
+          background: #fff;
+          border: 2px solid $primary;
+          border-radius: 50%;
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: 10;
+          transition: 0.2s;
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.13), 0 0 4px rgba(0, 0, 0, 0.05);
+
+          .f-icon {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+
+    // 关闭状态
+    &.f-switch-close {
+      background: #bbbbbb;
+
+      .f-switch-roll {
+        border: 2px solid #bbbbbb;
+      }
+    }
+
+    // 方形的
+    &.f-switch-square {
+      border-radius: 0;
+
+      .f-switch-roll {
+        border-radius: 0;
+      }
+    }
+  }
+
+  // 左右的文字
+  .f-switch-left-text {
+    font-size: 13px;
+    color: #333;
+    margin-left: 5px;
+    transition: 0.2s;
+  }
+
+  .f-switch-right-text {
+    font-size: 13px;
+    color: #333;
+    margin-right: 5px;
+    transition: 0.2s;
+  }
+
+  .f-switch-text-active {
+    color: $primary;
+  }
+
+  // 禁用状态
+  &.f-switch-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

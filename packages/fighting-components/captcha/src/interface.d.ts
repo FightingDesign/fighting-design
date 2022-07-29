@@ -1,0 +1,3 @@
+export interface startMovingInterface {
+  (): void
+}

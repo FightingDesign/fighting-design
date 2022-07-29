@@ -6,3 +6,24 @@ a {
   color: #2d5af1;
   text-decoration: none;
 }
+
+details {
+  padding: 10px !important;
+  margin: 10px 0 !important;
+
+  summary {
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    margin: 0 !important;
+
+    &:hover {
+      transition: 0.5s;
+      color: #2d5af1;
+    }
+  }
+
+  &::before {
+    content: '' !important;
+  }
+}

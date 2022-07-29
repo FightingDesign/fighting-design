@@ -1,0 +1,91 @@
+.f-dialog-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1999;
+  transition: 0.4s;
+
+  // 遮罩层
+  &.f-dialog-mask-modal {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .f-dialog {
+    z-index: 999;
+    width: 332px;
+    height: 188px;
+    margin-top: 13vh;
+    padding: 0 10px;
+    background: #fff;
+    border-radius: 1px;
+    border: 1px solid #eee;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    margin: 13vh auto 0;
+
+    // 阴影
+    &.f-dialog-shadow {
+      box-shadow: 1px 0px 10px 2px #ddd;
+    }
+
+    .f-dialog-header {
+      height: 30px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+
+      .f-icon {
+        font-size: 14px;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+
+        &:hover {
+          transition: 0.3s;
+          background: #eee;
+        }
+      }
+    }
+
+    .f-dialog-body {
+      justify-self: flex-start;
+      align-self: flex-start;
+      flex: 1;
+    }
+
+    .f-dialog-footer {
+      height: 30px;
+      border-top: 1px solid #eee;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-end;
+      align-items: center;
+
+      button {
+        &:last-of-type {
+          margin-left: 18px;
+        }
+      }
+    }
+  }
+}
+
+.f-dialog-fade-enter-active {
+  transition: all 0.5s ease-out;
+}
+
+.f-dialog-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.f-dialog-fade-enter-from,
+.f-dialog-fade-leave-to {
+  opacity: 0;
+}
