@@ -26,31 +26,30 @@
     border-radius: 20px;
   }
 
-  &.f-message-top{
+  &.f-message-top {
     left: 50%;
     transform: translateX(-50%);
   }
-  &.f-message-top-left{
+  &.f-message-top-left {
     left: 20px;
   }
-  &.f-message-top-right{
+  &.f-message-top-right {
     right: 20px;
   }
-  &.f-message-bottom{
+  &.f-message-bottom {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
   }
-  &.f-message-bottom-left{
+  &.f-message-bottom-left {
     left: 20px;
     bottom: 0;
   }
-  &.f-message-bottom-right{
+  &.f-message-bottom-right {
     right: 20px;
     bottom: 0;
   }
-  
-  
+
   .f-message--close {
     margin-left: 10px;
     cursor: pointer;
@@ -68,7 +67,7 @@
 
 .f-message-fade-top-leave-active,
 .f-message-fade-bottom-leave-active {
-  transition: all .2s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .f-message-fade-top-enter-from,

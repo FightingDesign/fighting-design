@@ -17,6 +17,7 @@
       duration: 0,
       icon: 'f-icon-atm-fill',
       closeBtn: '关闭',
+      color: '#ff7904',
       closeEnd: () => {
         console.log('关闭了？？')
       }
@@ -60,7 +61,7 @@
       round: true,
       close: true,
       duration: 99999,
-      icon: 'f-icon-atm-fill'
+      icon: h('div', { icon: 'f-icon-atm-fill' }, '哈哈哈')
     })
   }
 

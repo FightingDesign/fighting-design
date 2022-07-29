@@ -54,7 +54,7 @@ export const Props = {
     default: (): boolean => false
   },
   icon: {
-    type: String,
+    type: [String, Object] as PropType<VNode | String>,
     default: (): string => ''
   },
   color: {
@@ -76,8 +76,12 @@ export const Props = {
       return messagePlacement.includes(val)
     }
   },
+  zIndex: {
+    type: Number,
+    default: (): number => 1000
+  },
   closeBtn: {
-    type: String as PropType<VNode | String>,
+    type: [String, Object] as PropType<VNode | String>,
     default: ''
   },
   closeEnd: {

@@ -41,12 +41,13 @@
   })
 
   const styleList = computed(() => {
-    const { color, background } = props
+    const { color, background, zIndex } = props
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const styles: any = {
       color,
-      background
+      background,
+      zIndex
     }
 
     if (props.placement.includes('bottom')) {
@@ -112,8 +113,8 @@
     >
       <!-- icon -->
       <div v-if="icon" class="f-message--icon">
-        <component :is="closeBtn" v-if="isVNode(icon)" />
-        <f-icon v-if="isString(icon)" size="24px" :icon="icon" />
+        <component :is="icon" v-if="isVNode(icon)" />
+        <f-icon v-if="isString(icon)" size="24px" :icon="(icon as string)" />
       </div>
       <!-- 消息文本 -->
       <component :is="message" v-if="isVNode(message)" />
