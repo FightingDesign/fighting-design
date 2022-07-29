@@ -69,8 +69,9 @@ export const sidebar = {
       text: '反馈组件',
       link: '/components/',
       items: [
+        { text: 'Alert 提示', link: '/components/alert' },
         { text: 'Loading 加载', link: '/components/loading' },
-        { text: 'Alert 提示', link: '/components/alert' }
+        { text: 'Message 消息提示', link: '/components/message' }
       ]
     },
     {
