@@ -30,21 +30,26 @@
     left: 50%;
     transform: translateX(-50%);
   }
+
   &.f-message-top-left {
     left: 20px;
   }
+
   &.f-message-top-right {
     right: 20px;
   }
+
   &.f-message-bottom {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
   }
+
   &.f-message-bottom-left {
     left: 20px;
     bottom: 0;
   }
+
   &.f-message-bottom-right {
     right: 20px;
     bottom: 0;
@@ -75,6 +80,7 @@
   opacity: 0;
   transform: translateY(-100%);
 }
+
 .f-message-top.f-message-fade-top-enter-from,
 .f-message-top.f-message-fade-top-leave-to {
   opacity: 0;
@@ -86,6 +92,7 @@
   opacity: 0;
   transform: translateY(100%);
 }
+
 .f-message-bottom.f-message-fade-bottom-enter-from,
 .f-message-bottom.f-message-fade-bottom-leave-to {
   opacity: 0;

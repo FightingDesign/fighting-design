@@ -1,20 +1,21 @@
 <script lang="ts" setup>
   import {
-    FIcon,
     FMessage,
     FMessageInstance
   } from '@fighting-design/fighting-components'
   import FMessageVue from '@fighting-design/fighting-components/message/src/message.vue'
   import { h, ref } from 'vue'
+
   const uid = ref(0)
   const showMessage1 = () => {
     FMessage({
       type: 'success',
-      message: h('div', {}, '成功提示' + uid.value),
+      // message: h('div', {}, '成功提示' + uid.value),
+      message: 'hello',
       round: true,
       close: true,
       placement: 'bottom',
-      duration: 0,
+      duration: 2000,
       icon: 'f-icon-atm-fill',
       closeBtn: '关闭',
       color: '#ff7904',
@@ -31,7 +32,7 @@
       round: true,
       close: true,
       placement: 'bottom-left',
-      duration: 0,
+      duration: 2000,
       icon: 'f-icon-atm-fill',
       closeBtn: '关闭',
       closeEnd: () => {
@@ -46,7 +47,7 @@
       round: true,
       close: true,
       placement: 'bottom-right',
-      duration: 0,
+      duration: 2000,
       icon: 'f-icon-atm-fill',
       closeBtn: '关闭',
       closeEnd: () => {
@@ -94,10 +95,8 @@
     <f-button @click="showMessage3">提示3</f-button>
     <f-button @click="showMessage4">提示4</f-button>
     <f-button @click="showMessage5">提示5</f-button>
-
     <f-button @click="closeMessage5">关闭提示5</f-button>
   </f-space>
-  <f-text center>你好啊这是一个列表</f-text>
 </template>
 
 <style scoped></style>

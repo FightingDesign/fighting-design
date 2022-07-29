@@ -4,51 +4,62 @@
   import { isString } from '@fighting-design/fighting-utils'
   import { Props, Emits } from './message'
   import { getSiblingOffset, removeInstance } from './instances'
+  import type { CSSProperties, ComputedRef, Ref } from 'vue'
+  import type { ordinaryFunctionInterface } from '../../image/src/interface'
 
   const props = defineProps(Props)
   defineEmits(Emits)
 
-  const isTop = computed(() => props.placement.includes('top'))
-
   const messageRef = ref<HTMLDivElement>()
-  const siblingOffset = computed(() =>
+  const messageHeight: Ref<number> = ref<number>(0)
+  const visible: Ref<boolean> = ref<boolean>(false)
+
+  const isTop: ComputedRef<boolean> = computed((): boolean =>
+    props.placement.includes('top')
+  )
+
+  const siblingOffset: ComputedRef<number> = computed((): number =>
     getSiblingOffset(props.placement, props.id, !isTop.value)
   )
-  const offset = computed(() => props.offset + siblingOffset.value)
-  const messageHeight = ref(0)
-  const bottom = computed(() => messageHeight.value + offset.value)
 
-  const visible = ref(false)
+  const offset: ComputedRef<number> = computed(
+    (): number => props.offset + siblingOffset.value
+  )
 
-  onMounted(() => {
-    nextTick(() => {
+  const bottom: ComputedRef<number> = computed(
+    (): number => messageHeight.value + offset.value
+  )
+
+  onMounted((): void => {
+    nextTick((): void => {
       messageHeight.value = messageRef.value!.getBoundingClientRect().height
     })
   })
 
-  const classList = computed(() => {
-    const { type, round, close } = props
+  const classList: ComputedRef<object | string[]> = computed(
+    (): object | string[] => {
+      const { type, round, close, placement } = props
 
-    return [
-      'f-message',
-      `f-message-${type}`,
-      `f-message-${props.placement}`,
-      {
-        'f-message-round': round,
-        'f-message-hasClose': close
-      }
-    ]
-  })
+      return [
+        'f-message',
+        `f-message-${type}`,
+        `f-message-${placement}`,
+        {
+          'f-message-round': round,
+          'f-message-hasClose': close
+        }
+      ]
+    }
+  )
 
-  const styleList = computed(() => {
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { color, background, zIndex } = props
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const styles: any = {
+    const styles: CSSProperties = {
       color,
       background,
       zIndex
-    }
+    } as const
 
     if (props.placement.includes('bottom')) {
       styles.bottom = offset.value + 'px'
@@ -60,31 +71,29 @@
   })
 
   // eslint-disable-next-line no-undef
-  const timer = ref<NodeJS.Timeout | null>(null)
+  const timer = ref<NodeJS.Timeout>()
 
-  const clearTimer = () => {
+  const clearTimer: ordinaryFunctionInterface = (): void => {
     if (!timer.value) return
     clearTimeout(timer.value)
   }
 
-  const closeMessage = () => {
+  const closeMessage: ordinaryFunctionInterface = (): void => {
     clearTimer()
     visible.value = false
-    // removeInstance(props.placement, props.id)
   }
-  const closeMessageEnd = () => {
+  const closeMessageEnd: ordinaryFunctionInterface = (): void => {
     removeInstance(props.placement, props.id)
   }
 
-  const startTime = () => {
-    // 如果 duration 设置为0，则不会自动关闭
+  const startTime: ordinaryFunctionInterface = (): void => {
     if (!props.duration) return
-    timer.value = setTimeout(() => {
+    timer.value = setTimeout((): void => {
       closeMessage()
     }, props.duration)
   }
 
-  onMounted(() => {
+  onMounted((): void => {
     startTime()
     visible.value = true
   })

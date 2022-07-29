@@ -1,13 +1,9 @@
 import messageVue from './message.vue'
 import { messageTypes } from './message'
-import type {
-  MessageOptions,
-  messageType,
-  FMessageInstance,
-  messagePlacementType
-} from './message'
+import type { messageType, messagePlacementType } from './message'
 import { createVNode, render } from 'vue'
 import { instances } from './instances'
+import type { FMessageInstance, MessageOptions } from './interface'
 
 type FMessageFnWithType = {
   [key in messageType]: (text: string) => void
@@ -26,7 +22,9 @@ const defaultOptions: {
 // message 的实例组
 let seed = 1
 
-const FMessage: FMessageFn & Partial<FMessageFnWithType> = (options) => {
+const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
+  options
+): FMessageInstance => {
   const container = document.createElement('div')
   const id = `message-${seed}`
 
