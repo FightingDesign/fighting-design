@@ -1,11 +1,12 @@
 <script lang="ts" setup>
   import {
-    FMessage,
     FIcon,
     FMessageReturnType
   } from '@fighting-design/fighting-components'
   import FMessageVue from '@fighting-design/fighting-components/message/src/message.vue'
-  import { h, ref } from 'vue'
+  import { getCurrentInstance, h, ref } from 'vue'
+
+  const { FMessage } = getCurrentInstance()!.proxy
 
   const showMessage1 = () => {
     FMessage({
