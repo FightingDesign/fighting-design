@@ -6,4 +6,4 @@ installFn(FMessage, 'FMessage')
 
 export { FMessage }
 
-export type { FMessageReturnType } from './src/method'
+export type { FMessageInstance } from './src/message'

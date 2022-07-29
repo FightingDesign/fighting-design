@@ -33,7 +33,7 @@ import { FNovelCoronavirus } from './novel-coronavirus'
 import { FList } from './list'
 import { FListItem } from './list-item'
 import { FMask } from './mask'
-import type { FMessageReturnType } from './message'
+import type { FMessageInstance } from './message'
 import { FMessage } from './message'
 
 const components = {
@@ -124,7 +124,7 @@ export {
   FMessage
 }
 
-export type { FMessageReturnType }
+export type { FMessageInstance }
 
 export default {
   install,

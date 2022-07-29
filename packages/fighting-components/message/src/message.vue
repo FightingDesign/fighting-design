@@ -1,11 +1,30 @@
 <script lang="ts" setup name="FMessage">
-  import { computed, onMounted, ref, isVNode } from 'vue'
+  import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
   import { FIcon } from '@fighting-design/fighting-components'
   import { isString } from '@fighting-design/fighting-utils'
   import { Props, Emits } from './message'
+  import { getSiblingOffset, removeInstance } from './instances'
 
   const props = defineProps(Props)
   defineEmits(Emits)
+
+  const isTop = computed(() => props.placement.includes('top'))
+
+  const messageRef = ref<HTMLDivElement>()
+  const siblingOffset = computed(() =>
+    getSiblingOffset(props.placement, props.id, !isTop.value)
+  )
+  const offset = computed(() => props.offset + siblingOffset.value)
+  const messageHeight = ref(0)
+  const bottom = computed(() => messageHeight.value + offset.value)
+
+  const visible = ref(false)
+
+  onMounted(() => {
+    nextTick(() => {
+      messageHeight.value = messageRef.value!.getBoundingClientRect().height
+    })
+  })
 
   const classList = computed(() => {
     const { type, round, close } = props
@@ -13,6 +32,7 @@
     return [
       'f-message',
       `f-message-${type}`,
+      `f-message-${props.placement}`,
       {
         'f-message-round': round,
         'f-message-hasClose': close
@@ -21,16 +41,22 @@
   })
 
   const styleList = computed(() => {
-    const { color, background, offset } = props
+    const { color, background } = props
 
-    return {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const styles: any = {
       color,
-      background,
-      top: offset
+      background
     }
-  })
 
-  const visible = ref(false)
+    if (props.placement.includes('bottom')) {
+      styles.bottom = offset.value + 'px'
+    } else {
+      styles.top = offset.value + 'px'
+    }
+
+    return styles
+  })
 
   // eslint-disable-next-line no-undef
   const timer = ref<NodeJS.Timeout | null>(null)
@@ -43,6 +69,10 @@
   const closeMessage = () => {
     clearTimer()
     visible.value = false
+    // removeInstance(props.placement, props.id)
+  }
+  const closeMessageEnd = () => {
+    removeInstance(props.placement, props.id)
   }
 
   const startTime = () => {
@@ -60,18 +90,21 @@
 
   defineExpose({
     visible,
+    bottom,
     close: closeMessage
   })
 </script>
 
 <template>
   <transition
-    name="f-message-fade"
+    :name="`f-message-fade` + (isTop ? '-top' : '-bottom')"
     mode="out-in"
+    @before-leave="closeMessageEnd"
     @after-leave="$emit('destroy')"
   >
     <div
       v-show="visible"
+      ref="messageRef"
       :class="classList"
       :style="styleList"
       @mouseleave="startTime"

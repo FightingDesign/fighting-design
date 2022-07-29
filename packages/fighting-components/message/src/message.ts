@@ -1,4 +1,9 @@
-import type { VNode, ExtractPropTypes, PropType } from 'vue'
+import type {
+  VNode,
+  ExtractPropTypes,
+  PropType,
+  ComponentInternalInstance
+} from 'vue'
 
 export const messageTypes = [
   'default',
@@ -9,9 +14,23 @@ export const messageTypes = [
 ] as const
 export type messageType = typeof messageTypes[number]
 
+const messagePlacement = [
+  'top',
+  'top-left',
+  'top-right',
+  'bottom',
+  'bottom-left',
+  'bottom-right'
+] as const
+export type messagePlacementType = typeof messagePlacement[number]
+
 export const Props = {
+  id: {
+    type: String,
+    default: (): string => ''
+  },
   message: {
-    type: String as PropType<VNode | String>,
+    type: [String, Object] as PropType<VNode | String>,
     default: (): string => '',
     require: true
   },
@@ -47,8 +66,15 @@ export const Props = {
     default: (): string => ''
   },
   offset: {
-    type: String,
-    default: (): String => '10vh'
+    type: Number,
+    default: (): Number => 20
+  },
+  placement: {
+    type: String as PropType<messagePlacementType>,
+    default: (): messagePlacementType => 'top',
+    validator: (val: messagePlacementType): boolean => {
+      return messagePlacement.includes(val)
+    }
   },
   closeBtn: {
     type: String as PropType<VNode | String>,
@@ -61,8 +87,16 @@ export const Props = {
 
 export const Emits = ['destroy']
 
-export type MessageProps = Partial<ExtractPropTypes<typeof Props>>
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }
+// 导出为可选、可写
+export type MessageProps = Partial<Mutable<ExtractPropTypes<typeof Props>>>
 
 export type MessageOptions = MessageProps & {
   onDestroy?: () => void
+}
+
+export interface FMessageInstance {
+  id: string
+  vm: ComponentInternalInstance
+  close: () => void
 }

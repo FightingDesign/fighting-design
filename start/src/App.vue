@@ -1,19 +1,35 @@
 <script lang="ts" setup>
   import {
     FIcon,
-    FMessageReturnType
+    FMessage,
+    FMessageInstance
   } from '@fighting-design/fighting-components'
   import FMessageVue from '@fighting-design/fighting-components/message/src/message.vue'
-  import { getCurrentInstance, h, ref } from 'vue'
-
-  const { FMessage } = getCurrentInstance()!.proxy
-
+  import { h, ref } from 'vue'
+  const uid = ref(0)
   const showMessage1 = () => {
+    FMessage({
+      type: 'success',
+      message: h('div', {}, '成功提示' + uid.value),
+      round: true,
+      close: true,
+      placement: 'bottom',
+      duration: 0,
+      icon: 'f-icon-atm-fill',
+      closeBtn: '关闭',
+      closeEnd: () => {
+        console.log('关闭了？？')
+      }
+    })
+    uid.value++
+  }
+  const showMessage2 = () => {
     FMessage({
       type: 'success',
       message: h('div', {}, '成功提示'),
       round: true,
       close: true,
+      placement: 'bottom-left',
       duration: 0,
       icon: 'f-icon-atm-fill',
       closeBtn: '关闭',
@@ -22,25 +38,19 @@
       }
     })
   }
-  const showMessage2 = () => {
-    FMessage({
-      type: 'danger',
-      message: '这是一条失败的消息',
-      round: true,
-      close: true,
-      duration: 99999,
-      closeBtn: h(FIcon, { icon: 'f-icon-gift' }),
-      icon: 'f-icon-atm-fill'
-    })
-  }
   const showMessage3 = () => {
     FMessage({
-      type: 'warning',
-      message: '这是一条警告的消息',
+      type: 'success',
+      message: h('div', {}, '成功提示'),
       round: true,
       close: true,
-      duration: 99999,
-      icon: 'f-icon-atm-fill'
+      placement: 'bottom-right',
+      duration: 0,
+      icon: 'f-icon-atm-fill',
+      closeBtn: '关闭',
+      closeEnd: () => {
+        console.log('关闭了？？')
+      }
     })
   }
   const showMessage4 = () => {
@@ -54,7 +64,7 @@
     })
   }
 
-  const message5 = ref<FMessageReturnType | null>(null)
+  const message5 = ref<FMessageInstance | null>(null)
   const showMessage5 = () => {
     message5.value = FMessage({
       message: '这是一条默认的消息',
@@ -70,7 +80,6 @@
 </script>
 
 <template>
-  <FMessageVue message="test" :duration="0" close />
   <f-list>
     <f-list-item>你好啊这是一个列表</f-list-item>
     <f-list-item>你好啊这是一个列表</f-list-item>
