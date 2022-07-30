@@ -54,7 +54,7 @@ yarn add fighting-Design
 
 ## :tada: Quick Start
 
-Import the following code in `main.ts`
+Put the following code into `main.ts`
 
 ```ts
 import { createApp } from 'vue'
@@ -67,7 +67,7 @@ createApp(App).use(FightingDesign).mount('#app')
 
 ## Join Fighting Design
 
-Add WeChat & please note `Github` username
+Add WeChat & please note the `Github` username
 
 ![WeChat](https://tianyuhao.cn/images/weixin2.png)
 
