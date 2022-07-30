@@ -77,7 +77,7 @@ pnpm start
 
 主要源文件都在 `fighting-design/packages` 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档：
 
-**详细的规范在下面链接，千万不用忽略下面链接！！！**
+**详细的规范在下面链接，千万不要忽略下面链接！！！**
 
 - [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) 组件源文件目录
 - [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) 单元测试目录
