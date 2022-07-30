@@ -28,7 +28,7 @@ pnpm new <component-name>
 
 下面分别介绍一下每个文件的作用：
 
-- `interface.d.ts` 写入组件和 `Props` 相关的所以类型
+- `interface.d.ts` 写入组件和 `Props` 相关的所有类型
 - `component.ts` 写入 `Props` 和 `Emits`
 - `component.vue` 组件的源文件
 - `index.ts`主入口文件 包含注册组件
