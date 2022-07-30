@@ -21,8 +21,8 @@
 - 🪐 Different packaging modes which compatible with different projects
 - 🏆 Support full import and on-demand import
 - ✅ Written with TypeScript & Template
-- 🖍️ Strict TypeScript typing
-- ✔️ Simple configuration, easy to use
+- 🖍️ Strict TypeScript Type
+- ✔️ Easy to configure and easy to use
 - 🚩 Complete and adequate unit tests
 - 👍 Maintained by the community team
 - ❤️ Developed according to actual demand
