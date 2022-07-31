@@ -17,7 +17,8 @@
 </template>
 
 <script setup>
-  import { FMessage } from '@fighting-design/fighting-components'
+  import { FMessage } from 'fighting-design'
+
   const openMessage = () => {
     FMessage({
       message: '这是一条消息提示',
@@ -46,7 +47,8 @@
 
 <script setup>
   import { h } from 'vue'
-  import { FMessage } from '@fighting-design/fighting-components'
+  import { FMessage } from 'fighting-design'
+
   const openMessageVNode = () => {
     FMessage({
       message: h('div', [
@@ -68,11 +70,11 @@
 ## 多种类型
 
 <f-space>
-<f-button @click="openMessage">default</f-button>
-<f-button type="primary" @click="openMessagePrimary">primary</f-button>
-<f-button type="success" @click="openMessageSuccess">success</f-button>
-<f-button type="warning" @click="openMessageWarning">warning</f-button>
-<f-button type="danger" @click="openMessageDanger">danger</f-button>
+  <f-button @click="openMessage">default</f-button>
+  <f-button type="primary" @click="openMessagePrimary">primary</f-button>
+  <f-button type="success" @click="openMessageSuccess">success</f-button>
+  <f-button type="warning" @click="openMessageWarning">warning</f-button>
+  <f-button type="danger" @click="openMessageDanger">danger</f-button>
 </f-space>
 
 ::: details 显示代码
@@ -89,19 +91,24 @@
 </template>
 
 <script setup lang="ts">
-  import { FMessage } from '@fighting-design/fighting-components'
+  import { FMessage } from 'fighting-design'
+
   const openMessage = () => {
     FMessage('这是一条消息提示')
   }
+
   const openMessagePrimary = () => {
     FMessage.primary('这是一条重要消息提示')
   }
+
   const openMessageSuccess = () => {
     FMessage.success('这是一条成功消息提示')
   }
+
   const openMessageWarning = () => {
     FMessage.warning('这是一条警告消息提示')
   }
+
   const openMessageDanger = () => {
     FMessage.danger('这是一条失败消息提示')
   }
@@ -116,8 +123,8 @@
 可以传递`string`使用`FIcon`图标，也可以传递`VNode`来展示其他内容
 
 <f-space>
-<f-button type="primary" @click="openMessageIcon1">show</f-button>
-<f-button type="primary" @click="openMessageIcon2">show</f-button>
+  <f-button type="primary" @click="openMessageIcon1">show</f-button>
+  <f-button type="primary" @click="openMessageIcon2">show</f-button>
 </f-space>
 
 ::: details 显示代码
@@ -130,7 +137,7 @@
 
 <script setup lang="ts">
   import { h } from 'vue'
-  import { FMessage, FIcon } from '@fighting-design/fighting-components'
+  import { FMessage } from 'fighting-design'
 
   const openMessageIcon1 = () => {
     FMessage({
@@ -163,8 +170,8 @@
 可以传递`closeBtn`属性来自定义关闭按钮，支持字符串与`VNode`。
 
 <f-space>
-<f-button type="primary" @click="openMessageClose1">5秒后关闭</f-button>
-<f-button type="primary" @click="openMessageClose2">不自动关闭</f-button>
+  <f-button type="primary" @click="openMessageClose1">5秒后关闭</f-button>
+  <f-button type="primary" @click="openMessageClose2">不自动关闭</f-button>
 </f-space>
 
 ::: details 显示代码
@@ -177,7 +184,7 @@
 
 <script setup lang="ts">
   import { h } from 'vue'
-  import { FMessage } from '@fighting-design/fighting-components'
+  import { FMessage } from '@fighting-design'
 
   const openMessageClose1 = () => {
     FMessage({
@@ -207,12 +214,12 @@
 ## 多个位置
 
 <f-space>
-<f-button type="primary" @click="openMessagePlacement('top')">顶部</f-button>
-<f-button type="primary" @click="openMessagePlacement('top-left')">左上</f-button>
-<f-button type="primary" @click="openMessagePlacement('top-right')">右上</f-button>
-<f-button type="success" @click="openMessagePlacement('bottom')">底部</f-button>
-<f-button type="success" @click="openMessagePlacement('bottom-left')">左下</f-button>
-<f-button type="success" @click="openMessagePlacement('bottom-right')">右下</f-button>
+  <f-button type="primary" @click="openMessagePlacement('top')">顶部</f-button>
+  <f-button type="primary" @click="openMessagePlacement('top-left')">左上</f-button>
+  <f-button type="primary" @click="openMessagePlacement('top-right')">右上</f-button>
+  <f-button type="success" @click="openMessagePlacement('bottom')">底部</f-button>
+  <f-button type="success" @click="openMessagePlacement('bottom-left')">左下</f-button>
+  <f-button type="success" @click="openMessagePlacement('bottom-right')">右下</f-button>
 </f-space>
 
 ::: details 显示代码
@@ -220,29 +227,30 @@
 ```html
 <template>
   <f-space>
-    <f-button type="primary" @click="openMessagePlacement('top')"
-      >顶部</f-button
-    >
-    <f-button type="primary" @click="openMessagePlacement('top-left')"
-      >左上</f-button
-    >
-    <f-button type="primary" @click="openMessagePlacement('top-right')"
-      >右上</f-button
-    >
-    <f-button type="success" @click="openMessagePlacement('bottom')"
-      >底部</f-button
-    >
-    <f-button type="success" @click="openMessagePlacement('bottom-left')"
-      >左下</f-button
-    >
-    <f-button type="success" @click="openMessagePlacement('bottom-right')"
-      >右下</f-button
-    >
+    <f-button type="primary" @click="openMessagePlacement('top')">
+      顶部
+    </f-button>
+    <f-button type="primary" @click="openMessagePlacement('top-left')">
+      左上
+    </f-button>
+    <f-button type="primary" @click="openMessagePlacement('top-right')">
+      右上
+    </f-button>
+    <f-button type="success" @click="openMessagePlacement('bottom')">
+      底部
+    </f-button>
+    <f-button type="success" @click="openMessagePlacement('bottom-left')">
+      左下
+    </f-button>
+    <f-button type="success" @click="openMessagePlacement('bottom-right')">
+      右下
+    </f-button>
   </f-space>
 </template>
 
 <script setup lang="ts">
-  import { FMessage } from '@fighting-design/fighting-components'
+  import { FMessage } from 'fighting-design'
+
   const openMessagePlacement = (placement) => {
     FMessage({
       message: '这是一条自定义位置的消息',
@@ -298,18 +306,23 @@
 <script setup>
 import { h } from 'vue'
 import { FMessage, FIcon } from '@fighting-design/fighting-components'
+
 const openMessage = () => {
   FMessage('这是一条消息提示')
 }
+
 const openMessagePrimary = () => {
   FMessage.primary('这是一条重要消息提示')
 }
+
 const openMessageSuccess = () => {
   FMessage.success('这是一条成功消息提示')
 }
+
 const openMessageWarning = () => {
   FMessage.warning('这是一条警告消息提示')
 }
+
 const openMessageDanger = () => {
   FMessage.danger('这是一条失败消息提示')
 }
@@ -321,6 +334,7 @@ const openMessageIcon1 = () => {
     icon: 'f-icon-success',
   })
 }
+
 const openMessageIcon2 = () => {
   FMessage({
     message: '这是一条自定义Icon的消息提示',
