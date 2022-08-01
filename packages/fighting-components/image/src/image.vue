@@ -1,13 +1,11 @@
 <script lang="ts" setup name="FImage">
+  import PreviewList from './PreviewList.vue'
   import { Props, Emits } from './image'
   import { onMounted, ref } from 'vue'
   import { loadImage } from '@fighting-design/fighting-utils'
   import type { Ref } from 'vue'
-  import type {
-    ordinaryFunctionInterface,
-    callbackInterface
-  } from './interface'
-  import PreviewList from './PreviewList.vue'
+  import type { callbackInterface } from './interface'
+  import type { ordinaryFunctionInterface } from '../../button/src/interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -79,6 +77,7 @@
       {{ caption }}
     </div>
 
+    <!-- 后续改为依赖注入 -->
     <preview-list
       v-if="prop.previewList && prop.previewList.length"
       v-show="isPreviewListShow"

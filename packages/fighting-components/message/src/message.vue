@@ -5,7 +5,7 @@
   import { Props, Emits } from './message'
   import { getSiblingOffset, removeInstance } from './instances'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
-  import type { ordinaryFunctionInterface } from '../../image/src/interface'
+  import type { ordinaryFunctionInterface } from '../../button/src/interface'
 
   const props = defineProps(Props)
   defineEmits(Emits)

@@ -5,10 +5,11 @@
   import { keepDecimal } from '@fighting-design/fighting-utils'
   import type { Ref } from 'vue'
   import type {
-    ordinaryFunctionInterface,
     switchImageInterface,
-    optionClickInterface
+    optionClickInterface,
+    onImgMousewheelInterface
   } from './interface'
+  import type { ordinaryFunctionInterface } from '../../button/src/interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -122,7 +123,7 @@
     }
   }
 
-  const onImgMousewheel = (evt: WheelEvent): void => {
+  const onImgMousewheel: onImgMousewheelInterface = (evt: WheelEvent): void => {
     evt.preventDefault()
     if (evt.deltaY > 1) {
       smaller()
@@ -150,26 +151,23 @@
         }"
       />
 
-      <div
-        v-if="previewList.length > 1"
-        class="right_button"
-        @click="switchImage('next')"
-      >
-        <f-icon size="30px" icon="f-icon-arrow-right" />
-      </div>
+      <!-- 左右切换按钮 -->
+      <template v-if="previewList.length > 1">
+        <div class="right_button" @click="switchImage('next')">
+          <f-icon size="30px" icon="f-icon-arrow-right" />
+        </div>
 
-      <div
-        v-if="previewList.length > 1"
-        class="left_button"
-        @click="switchImage('prev')"
-      >
-        <f-icon size="30px" icon="f-icon-arrow-left" />
-      </div>
+        <div class="left_button" @click="switchImage('prev')">
+          <f-icon size="30px" icon="f-icon-arrow-left" />
+        </div>
+      </template>
 
+      <!-- 关闭按钮 -->
       <div v-if="showCloseBtn" class="close_button" @click="handleClose">
         <f-icon size="20px" icon="f-icon-close" />
       </div>
 
+      <!-- 操作栏 -->
       <div v-if="previewShowOption" class="option" @click="optionClick">
         <f-icon size="23px" icon="f-icon-suoxiao" />
         <f-icon size="23px" icon="f-icon-fangda" />
