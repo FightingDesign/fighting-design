@@ -1,5 +1,5 @@
 import type { PropType, CSSProperties } from 'vue'
-import type { toolbarType, toolBarpositionType } from './interface'
+import type { toolbarType } from './interface'
 
 export const Props = {
   round: {
@@ -30,7 +30,7 @@ export const Props = {
     default: (): boolean => false
   },
   fixedStyle: {
-    type: Object as PropType<toolBarpositionType> as PropType<CSSProperties>,
+    type: Object as PropType<CSSProperties>,
     default: () => {},
     validator: (val: CSSProperties): boolean => {
       if (val.bottom || val.left || val.right || val.top) {

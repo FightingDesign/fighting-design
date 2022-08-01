@@ -8,6 +8,7 @@
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
       const { size, background, round, fixed } = prop
+
       return [
         'f-toolbar',
         `f-toolbar-${size}`,

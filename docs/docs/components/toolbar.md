@@ -10,30 +10,38 @@
 工具栏子组件
 
 <f-toolbar>
-<f-toolbar-item><f-icon size="30px" icon="f-icon-default-template"></f-icon></f-toolbar-item>
-<f-toolbar-item><f-icon size="30px" icon="f-icon-Customermanagement"></f-icon></f-toolbar-item>
-<f-toolbar-item><f-icon size="30px" icon="f-icon-email"></f-icon></f-toolbar-item>
-<f-toolbar-item><f-icon size="30px" icon="f-icon-editor"></f-icon></f-toolbar-item>
+  <f-toolbar-item>
+    <f-icon size="30px" icon="f-icon-default-template" />
+  </f-toolbar-item>
+  <f-toolbar-item>
+    <f-icon size="30px" icon="f-icon-Customermanagement" />
+  </f-toolbar-item>
+  <f-toolbar-item>
+    <f-icon size="30px" icon="f-icon-email" />
+  </f-toolbar-item>
+  <f-toolbar-item>
+    <f-icon size="30px" icon="f-icon-editor" />
+  </f-toolbar-item>
 </f-toolbar>
 
 ```html
 <f-toolbar>
-  <f-toolbar-item
-    ><f-icon size="30px" icon="f-icon-default-template"></f-icon
-  ></f-toolbar-item>
-  <f-toolbar-item
-    ><f-icon size="30px" icon="f-icon-Customermanagement"></f-icon
-  ></f-toolbar-item>
-  <f-toolbar-item
-    ><f-icon size="30px" icon="f-icon-email"></f-icon
-  ></f-toolbar-item>
-  <f-toolbar-item
-    ><f-icon size="30px" icon="f-icon-editor"></f-icon
-  ></f-toolbar-item>
+  <f-toolbar-item>
+    <f-icon size="30px" icon="f-icon-default-template" />
+  </f-toolbar-item>
+  <f-toolbar-item>
+    <f-icon size="30px" icon="f-icon-Customermanagement" />
+  </f-toolbar-item>
+  <f-toolbar-item>
+    <f-icon size="30px" icon="f-icon-email" />
+  </f-toolbar-item>
+  <f-toolbar-item>
+    <f-icon size="30px" icon="f-icon-editor" />
+  </f-toolbar-item>
 </f-toolbar>
 ```
 
-## 大小
+## 不同大小
 
 `size` 属性可以配置不同的大小
 
