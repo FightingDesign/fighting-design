@@ -56,13 +56,14 @@ export const Props = {
     default: (): boolean => false
   },
   fixedStyle: {
-    type: Object as PropType<fixedStyleInterface> as PropType<CSSProperties>,
-    default: () => {},
+    type: Object as PropType<fixedStyleInterface> as PropType<unknown> as PropType<CSSProperties>,
+    default: (): void => {},
     validator: (val: CSSProperties): boolean => {
       if (val.bottom || val.left || val.right || val.top) {
         return true
       }
-      throw new Error('fighting-design (Alert): fixed-style parameter error')
+      console.warn('fighting-design (Alert): fixed-style parameter error')
+      return false
     }
   }
 } as const

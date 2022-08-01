@@ -1,5 +1,6 @@
 import type { PropType, CSSProperties } from 'vue'
 import type { toolbarType } from './interface'
+import type { fixedStyleInterface } from '../../alert/src/interface'
 
 export const Props = {
   round: {
@@ -30,13 +31,26 @@ export const Props = {
     default: (): boolean => false
   },
   fixedStyle: {
-    type: Object as PropType<CSSProperties>,
-    default: () => {},
+    type: Object as PropType<fixedStyleInterface> as PropType<unknown> as PropType<CSSProperties>,
+    default: (): void | object | fixedStyleInterface => {},
     validator: (val: CSSProperties): boolean => {
       if (val.bottom || val.left || val.right || val.top) {
         return true
       }
-      throw new Error('fighting-design (Alert): fixed-style parameter error')
+      console.warn('fighting-design (Toolbar): fixed-style parameter error')
+      return false
     }
+  },
+  width: {
+    type: String,
+    default: (): string => ''
+  },
+  height: {
+    type: String,
+    default: (): string => ''
+  },
+  vague: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const

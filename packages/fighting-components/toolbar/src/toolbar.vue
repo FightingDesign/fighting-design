@@ -7,29 +7,31 @@
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
-      const { size, background, round, fixed } = prop
+      const { size, round, fixed, vague } = prop
 
       return [
         'f-toolbar',
         `f-toolbar-${size}`,
-        ...[!background ? 'f-toolbar-default' : ''],
         {
           'f-toolbar-round': round,
-          'f-toolbar-fixed': fixed
+          'f-toolbar-fixed': fixed,
+          'f-toolbar-vague': vague
         }
       ] as const
     }
   )
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { textColor, background, fixed, fixedStyle } = prop
+    const { textColor, background, fixed, fixedStyle, width, height } = prop
 
     const style = {
       color: textColor,
-      background
+      background,
+      width,
+      height
     } as const
 
-    if (fixed) {
+    if (fixed && fixedStyle) {
       return { ...style, ...fixedStyle } as const
     }
     return style

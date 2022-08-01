@@ -37,7 +37,7 @@
       fontSize: size
     } as const
 
-    if (fixed) {
+    if (fixed && fixedStyle) {
       return { ...style, ...fixedStyle } as const
     }
     return style

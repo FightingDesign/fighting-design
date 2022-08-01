@@ -78,7 +78,7 @@ export const sidebar = {
       text: '其它',
       link: '/components/',
       items: [
-        { text: 'toolbar 工具栏', link: '/components/toolbar' },
+        { text: 'Toolbar 工具栏', link: '/components/toolbar' },
         { text: 'Divider 分隔线', link: '/components/divider' },
         { text: 'BackTop 返回顶部', link: '/components/back-top' },
         { text: 'Dialog 对话框', link: '/components/dialog' },

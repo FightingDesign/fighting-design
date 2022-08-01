@@ -69,14 +69,14 @@ describe('FAvatar', () => {
 
   test('icon-size', () => {
     const wrapper = mount(FAvatar, {
-      props: { icon: 'f-icon-default-template', iconSize: '12px' }
+      props: { icon: 'f-icon-default-template', fontSize: '12px' }
     })
     expect(wrapper.find('.f-icon').attributes('style')).toContain('12px')
   })
 
   test('icon-color', () => {
     const wrapper = mount(FAvatar, {
-      props: { icon: 'f-icon-default-template', iconColor: 'red' }
+      props: { icon: 'f-icon-default-template', fontColor: 'red' }
     })
     expect(wrapper.find('.f-icon').attributes('style')).toContain('red')
   })

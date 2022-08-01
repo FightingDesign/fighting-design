@@ -1,3 +1,10 @@
+export const Props = {
+  color: {
+    type: String,
+    default: (): string => ''
+  }
+} as const
+
 export const Emits = {
-  'on-click': (event: MouseEvent): MouseEvent => event
+  click: (evt: MouseEvent): MouseEvent => evt
 } as const
