@@ -1,0 +1,29 @@
+@import '../config/const-size.scss';
+
+// 不同大小
+$toolbarSize: (
+  (
+    name: 'large',
+    height: $large,
+    fontSize: 15px,
+    padding: 25px
+  ),
+  (
+    name: 'middle',
+    height: $middle,
+    fontSize: 14px,
+    padding: 20px
+  ),
+  (
+    name: 'small',
+    height: $small,
+    fontSize: 13px,
+    padding: 15px
+  ),
+  (
+    name: 'mini',
+    height: $mini,
+    fontSize: 12px,
+    padding: 10px
+  )
+);

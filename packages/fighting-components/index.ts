@@ -34,6 +34,8 @@ import { FList } from './list'
 import { FListItem } from './list-item'
 import { FMask } from './mask'
 import type { FMessageInstance } from './message'
+import { FToolbar } from './toolbar'
+import { FToolbarItem } from './toolbar-item'
 import { FMessage } from './message'
 
 const components = {
@@ -70,7 +72,9 @@ const components = {
   FNovelCoronavirus,
   FList,
   FListItem,
-  FMask
+  FMask,
+  FToolbar,
+  FToolbarItem
 }
 
 const plugins = {
@@ -121,7 +125,9 @@ export {
   FList,
   FListItem,
   FMask,
-  FMessage
+  FMessage,
+  FToolbar,
+  FToolbarItem
 }
 
 export type { FMessageInstance }
