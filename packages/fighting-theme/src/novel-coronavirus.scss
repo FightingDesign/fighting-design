@@ -1,13 +1,20 @@
 @import '../config/const-color.scss';
 
 .f-novel-coronavirus {
-  background: #eee;
+  margin-top: 100px;
+  margin-left: 100px;
+  user-select: none;
+  cursor: pointer;
+  background: rgb(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
   display: inline-flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 3px;
+  border: 1px solid $primary;
+  box-shadow:2px 2px 10px #eee, -2px -2px 10px #eee;
 
   .f-novel-coronavirus-title {
     color: #333;

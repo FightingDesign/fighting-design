@@ -76,9 +76,12 @@ export const pastTime: d = (
 
   const config: e = {
     DD: Math.floor(HOURS / 24).toString(),
-    HH: (HOURS % 24).toString(),
-    MM: (MINUTES % 60).toString(),
-    SS: (SECONDS % 60).toString()
+    HH: HOURS % 24 > 9 ? (HOURS % 24).toString() : '0' + (HOURS % 24),
+    MM: MINUTES % 60 > 9 ? (MINUTES % 60).toString() : '0' + (MINUTES % 60),
+    SS:
+      SECONDS % 60 > 9
+        ? (SECONDS % 60).toString().toString()
+        : '0' + (SECONDS % 60)
   }
 
   for (const key in config) {
