@@ -1,12 +1,12 @@
 <script lang="ts" setup name="FPageHeader">
   import { FIcon } from '@fighting-design/fighting-components/icon'
   import { Props, Emits } from './page-header'
-  import type { handleClickInterface } from './interface'
+  import type { ordinaryFunctionInterface as a } from '../../button/src/interface'
 
   defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const handleClick: handleClickInterface = (): void => {
+  const handleClick: a = (): void => {
     emit('back')
   }
 </script>

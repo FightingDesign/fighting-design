@@ -1,12 +1,12 @@
 <script lang="ts" setup name="FLink">
   import { Props, Emits } from './link'
   import { FIcon } from '@fighting-design/fighting-components'
-  import type { handleClickInterface } from './interface'
+  import type { handleClickInterface as a } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const handleClick: handleClickInterface = (evt: Event): void => {
+  const handleClick: a = (evt: Event): void => {
     if (prop.prohibit || prop.noLink) {
       evt.preventDefault()
       return

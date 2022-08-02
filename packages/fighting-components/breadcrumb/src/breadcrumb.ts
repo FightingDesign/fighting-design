@@ -21,5 +21,5 @@ export const Props = {
 
 type BreadcrumbProps = ExtractPropTypes<typeof Props>
 
-export const breadcrumbKey: InjectionKey<BreadcrumbProps> =
-  Symbol('breadcrumbKey')
+export const BreadcrumbPropsKey: InjectionKey<BreadcrumbProps> =
+  Symbol('BreadcrumbPropsKey')

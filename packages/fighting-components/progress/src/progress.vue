@@ -2,7 +2,7 @@
   import { Props } from './progress'
   import { computed, ref, onMounted } from 'vue'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
-  import type { isShowPercentageInterface } from './interface'
+  import type { isShowPercentageInterface as a } from './interface'
 
   const prop = defineProps(Props)
 
@@ -35,7 +35,7 @@
     }
   )
 
-  const isShowPercentage: isShowPercentageInterface = (): boolean => {
+  const isShowPercentage: a = (): boolean => {
     return (isShow.value = fillRef.value.clientHeight >= 18 && prop.textInside)
   }
 

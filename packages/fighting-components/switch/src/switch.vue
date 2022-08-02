@@ -2,13 +2,13 @@
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
   import { FIcon } from '@fighting-design/fighting-components'
-  import type { changeSwitchInterface } from './interface'
+  import type { ordinaryFunctionInterface as a } from '../../button/src/interface'
   import type { ComputedRef, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const changeSwitch: changeSwitchInterface = (): void => {
+  const changeSwitch: a = (): void => {
     if (prop.disabled) {
       return
     }

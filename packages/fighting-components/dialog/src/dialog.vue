@@ -2,30 +2,30 @@
   import { Props, Emits } from './dialog'
   import { FIcon } from '@fighting-design/fighting-components'
   import type {
-    transitionEventInterface,
-    closeDialogInterface
+    transitionEventInterface as a,
+    closeDialogInterface as b
   } from './interface'
 
   defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const closeDialog: closeDialogInterface = (): void => {
+  const closeDialog: b = (): void => {
     emit('update:visible', false)
   }
 
-  const open: transitionEventInterface = (evt: MouseEvent): void => {
+  const open: a = (evt: MouseEvent): void => {
     emit('open', evt)
   }
 
-  const openEnd: transitionEventInterface = (evt: MouseEvent): void => {
+  const openEnd: a = (evt: MouseEvent): void => {
     emit('open-end', evt)
   }
 
-  const close: transitionEventInterface = (evt: MouseEvent): void => {
+  const close: a = (evt: MouseEvent): void => {
     emit('close', evt)
   }
 
-  const closeEnd: transitionEventInterface = (evt: MouseEvent): void => {
+  const closeEnd: a = (evt: MouseEvent): void => {
     emit('close-end', evt)
   }
 </script>

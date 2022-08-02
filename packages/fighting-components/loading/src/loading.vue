@@ -2,13 +2,13 @@
   import { computed } from 'vue'
   import { Props, Emits } from './loading'
   import { FIcon } from '@fighting-design/fighting-components'
-  import type { handleClickInterface } from './interface'
+  import type { handleClickInterface as a } from './interface'
   import type { ComputedRef, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const handleClick: handleClickInterface = (evt: MouseEvent): void => {
+  const handleClick: a = (evt: MouseEvent): void => {
     prop.close && emit('close', evt)
   }
 

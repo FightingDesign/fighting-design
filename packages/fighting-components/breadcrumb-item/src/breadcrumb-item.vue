@@ -1,15 +1,15 @@
 <script lang="ts" setup name="FBreadcrumbItem">
   import { getCurrentInstance, inject, ref, toRefs } from 'vue'
-  import { breadcrumbKey } from './breadcrumb'
+  import { BreadcrumbPropsKey } from '../../breadcrumb/src/breadcrumb'
   import { Props } from './breadcrumb-item'
   import { FIcon } from '@fighting-design/fighting-components'
   import type { ComponentInternalInstance, Ref } from 'vue'
-  import type { handleClickInterface } from './interface'
+  import type { handleClickInterface as a } from './interface'
 
   const prop = defineProps(Props)
 
   const instance: ComponentInternalInstance = getCurrentInstance()!
-  const breadcrumbContext = inject(breadcrumbKey)!
+  const breadcrumbContext = inject(BreadcrumbPropsKey)!
   const router = instance.appContext.config.globalProperties.$router
   const link: Ref<HTMLSpanElement> = ref<HTMLSpanElement>(
     null as unknown as HTMLSpanElement
@@ -17,7 +17,7 @@
   const { separator, separatorIcon, itemColor, separatorColor } =
     toRefs(breadcrumbContext)
 
-  const handleClick: handleClickInterface = (): void => {
+  const handleClick: a = (): void => {
     const { replace, to } = prop
 
     if (!to || !router) {

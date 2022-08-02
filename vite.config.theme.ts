@@ -14,7 +14,6 @@ export default defineConfig({
     emptyOutDir: false,
     rollupOptions: {
       output: {
-        // dir: resolve(__dirname, 'dist/dist'),
         format: 'es'
       }
     }

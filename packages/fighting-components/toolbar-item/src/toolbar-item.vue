@@ -1,11 +1,11 @@
 <script lang="ts" setup name="FToolbarItem">
   import { Emits, Props } from './toolbar-item'
-  import type { handleClickInterface } from './interface'
+  import type { handleClickInterface as a } from './interface'
 
   defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const handleClick: handleClickInterface = (evt: MouseEvent): void => {
+  const handleClick: a = (evt: MouseEvent): void => {
     emit('click', evt)
   }
 </script>

@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { imageFit } from './interface'
 
 export const Props = {
@@ -77,15 +77,21 @@ export const Props = {
   },
   previewList: {
     type: Array as PropType<Array<string>>,
-    default: (): [] => []
+    default: (): Array<string> => []
   },
   previewShowIndex: {
     type: Number,
-    default: (): number => 0
+    default: (): number => 0,
+    validator: (val: number): boolean => {
+      return val >= 0
+    }
   },
   previewZIndex: {
     type: Number,
-    default: (): number => 999
+    default: (): number => 999,
+    validator: (val: number): boolean => {
+      return val >= 0
+    }
   },
   previewShowOption: {
     type: Boolean,
@@ -101,3 +107,8 @@ export const Emits = {
   load: (evt: Event): boolean => evt instanceof Event,
   error: (evt: Event): boolean => evt instanceof Event
 } as const
+
+export type ImagePropsType = ExtractPropTypes<typeof Props>
+
+export const ImagePropsKey: InjectionKey<ImagePropsType> =
+  Symbol('ImagePropsKey')

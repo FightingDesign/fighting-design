@@ -9,3 +9,9 @@ export interface debounceInterface {
 export interface getTypeInterface {
   (target: unknown): boolean
 }
+
+export interface pastTimeInterface {
+  (time: string, format?: string): string
+}
+
+export type pastTimeConfigInterface = Record<string, string>

@@ -5,8 +5,8 @@ export interface handleCloseInterface {
 }
 
 export interface fixedStyleInterface {
-  top: ?string
-  button: ?string
-  right: ?string
-  left: ?string
+  top?: string
+  button?: string
+  right?: string
+  left?: string
 }

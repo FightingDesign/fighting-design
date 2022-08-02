@@ -5,9 +5,9 @@
   import { FIcon } from '@fighting-design/fighting-components'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
-    onClickInterface,
-    ordinaryFunctionInterface,
-    buttonEventInterface
+    onClickInterface as a,
+    ordinaryFunctionInterface as b,
+    buttonEventInterface as c
   } from './interface'
 
   const prop = defineProps(Props)
@@ -62,7 +62,7 @@
     }
   )
 
-  const onClick: onClickInterface = (evt: buttonEventInterface): void => {
+  const onClick: a = (evt: c): void => {
     const { disabled, loading, ripples, ripplesColor, type, simple, text } =
       prop
 
@@ -97,7 +97,7 @@
   })
 
   // 自定义颜色
-  const customColor: ordinaryFunctionInterface = (): void => {
+  const customColor: b = (): void => {
     const { color } = prop
     const changeColor: ChangeColor = new ChangeColor(color)
     const light: string = changeColor.getLightColor(0.4)

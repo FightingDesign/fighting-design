@@ -10,6 +10,8 @@ export type { installInterface, mainVNodeInterface } from './install'
 export type {
   keepDecimalInterface,
   debounceInterface,
-  getTypeInterface
+  getTypeInterface,
+  pastTimeInterface,
+  pastTimeConfigInterface
 } from './utils'
 export type { changeColorInterface } from './change-color'

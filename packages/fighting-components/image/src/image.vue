@@ -1,14 +1,16 @@
 <script lang="ts" setup name="FImage">
-  import PreviewList from './PreviewList.vue'
-  import { Props, Emits } from './image'
-  import { onMounted, ref } from 'vue'
+  import PreviewList from '../components/PreviewList.vue'
+  import { Props, Emits, ImagePropsKey } from './image'
+  import { onMounted, ref, provide } from 'vue'
   import { loadImage } from '@fighting-design/fighting-utils'
   import type { Ref } from 'vue'
-  import type { callbackInterface } from './interface'
-  import type { ordinaryFunctionInterface } from '../../button/src/interface'
+  import type { callbackInterface as a } from './interface'
+  import type { ordinaryFunctionInterface as b } from '../../button/src/interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
+
+  provide(ImagePropsKey, prop)
 
   const isError: Ref<boolean> = ref<boolean>(true)
   const isLoadOk: Ref<boolean> = ref<boolean>(false)
@@ -18,22 +20,19 @@
     null as unknown as HTMLImageElement
   )
 
-  const handleClick: ordinaryFunctionInterface = (): void => {
+  const handleClick: b = (): void => {
     if (prop.previewList && prop.previewList.length) {
       isPreviewListShow.value = true
     }
   }
 
-  const handleClose: ordinaryFunctionInterface = (): void => {
+  const handleClose: b = (): void => {
     isPreviewListShow.value = false
   }
 
   onMounted((): void => {
     const node: HTMLImageElement = FImageImg.value as HTMLImageElement
-    const callback: callbackInterface = (
-      params: boolean,
-      width: number
-    ): void => {
+    const callback: a = (params: boolean, width: number): void => {
       isError.value = params
       isLoadOk.value = params
       captionWidth.value = width
@@ -77,18 +76,10 @@
       {{ caption }}
     </div>
 
-    <!-- 后续改为依赖注入 -->
+    <!-- 大图预览框 -->
     <preview-list
       v-if="prop.previewList && prop.previewList.length"
       v-show="isPreviewListShow"
-      :preview-list="previewList"
-      :preview-show-index="previewShowIndex"
-      :preview-show-option="previewShowOption"
-      :preview-z-index="previewZIndex"
-      :modal-close="modalClose"
-      :show-close-btn="showCloseBtn"
-      :preview-round="previewRound"
-      :width="width"
       @close="handleClose"
     />
   </div>

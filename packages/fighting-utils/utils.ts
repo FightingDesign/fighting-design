@@ -1,7 +1,9 @@
 import type {
-  keepDecimalInterface,
-  debounceInterface,
-  getTypeInterface
+  keepDecimalInterface as a,
+  debounceInterface as b,
+  getTypeInterface as c,
+  pastTimeInterface as d,
+  pastTimeConfigInterface as e
 } from './type'
 
 /**
@@ -10,10 +12,7 @@ import type {
  * @param no 保留位数
  * @returns 转换结果
  */
-export const keepDecimal: keepDecimalInterface = (
-  num: number,
-  no = 2
-): number => {
+export const keepDecimal: a = (num: number, no = 2): number => {
   return Number(num.toFixed(no))
 }
 
@@ -23,10 +22,7 @@ export const keepDecimal: keepDecimalInterface = (
  * @param delay 时间
  * @returns Function
  */
-export const debounce: debounceInterface = (
-  handle: Function,
-  delay = 200
-): Function => {
+export const debounce: b = (handle: Function, delay = 200): Function => {
   let timer: NodeJS.Timeout
   return (): void => {
     if (timer) {
@@ -42,7 +38,7 @@ export const debounce: debounceInterface = (
  * 判断一个值是否为字符串
  * @param target 要检测的值
  */
-export const isString: getTypeInterface = (target: unknown): boolean => {
+export const isString: c = (target: unknown): boolean => {
   return (
     typeof target === 'string' &&
     Object.prototype.toString.call(target) === '[object String]'
@@ -54,9 +50,39 @@ export const isString: getTypeInterface = (target: unknown): boolean => {
  * @param target 要检测的数据
  * @returns boolean
  */
-export const isNumber: getTypeInterface = (target: unknown): boolean => {
+export const isNumber: c = (target: unknown): boolean => {
   return (
     typeof target === 'number' &&
     Object.prototype.toString.call(target) === '[object Number]'
   )
+}
+
+/**
+ * 计算从一个时间到现在过去多久
+ * @param time 开始时间 格式为：'2021-01-28 00:00'
+ * @returns xx天xx小时xx分钟xx秒
+ */
+export const pastTime: d = (
+  time: string,
+  format = 'DD天HH小时MM分钟SS秒'
+): string => {
+  const now: number = new Date().getTime()
+  const target: number = new Date(time.replace(/-/g, '/')).getTime()
+  const diff: number = now - target
+
+  const SECONDS: number = Math.floor(diff / 1000)
+  const MINUTES: number = Math.floor(SECONDS / 60)
+  const HOURS: number = Math.floor(MINUTES / 60)
+
+  const config: e = {
+    DD: Math.floor(HOURS / 24).toString(),
+    HH: (HOURS % 24).toString(),
+    MM: (MINUTES % 60).toString(),
+    SS: (SECONDS % 60).toString()
+  }
+
+  for (const key in config) {
+    format = format.replace(key, config[key])
+  }
+  return format
 }

@@ -3,7 +3,7 @@
   import { computed, ref } from 'vue'
   import { FIcon } from '@fighting-design/fighting-components'
   import type { ComputedRef, CSSProperties, Ref } from 'vue'
-  import type { handleCloseInterface } from './interface'
+  import type { handleCloseInterface as a } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -43,7 +43,7 @@
     return style
   })
 
-  const handleClose: handleCloseInterface = (evt: MouseEvent): void => {
+  const handleClose: a = (evt: MouseEvent): void => {
     isShow.value = false
     emit('close-end', evt)
   }

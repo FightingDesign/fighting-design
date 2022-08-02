@@ -1,8 +1,5 @@
 import type { PropType } from 'vue'
-import type {
-  // spacePosition,
-  spaceSize
-} from './interface'
+import type { spaceSize } from './interface'
 
 export const Props = {
   vertical: {

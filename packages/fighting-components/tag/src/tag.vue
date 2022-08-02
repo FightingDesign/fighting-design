@@ -2,7 +2,7 @@
   import { Props, Emits } from './tag'
   import { computed, ref } from 'vue'
   import { FIcon } from '@fighting-design/fighting-components'
-  import type { handleCloseInterface } from './interface'
+  import type { handleCloseInterface as a } from './interface'
   import type { ComputedRef, Ref } from 'vue'
 
   const prop = defineProps(Props)
@@ -28,7 +28,7 @@
     }
   )
 
-  const handleClose: handleCloseInterface = (evt: Event): void => {
+  const handleClose: a = (evt: Event): void => {
     isShow.value = false
     emit('close-end', evt)
   }

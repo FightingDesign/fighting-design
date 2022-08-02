@@ -4,8 +4,8 @@
   import { FIcon, FMask } from '@fighting-design/fighting-components'
   import type { CSSProperties, ComputedRef } from 'vue'
   import type {
-    handleCloseInterface,
-    transitionEventInterface
+    handleCloseInterface as a,
+    transitionEventInterface as b
   } from './interface'
 
   const prop = defineProps(Props)
@@ -25,23 +25,23 @@
     }
   )
 
-  const handleClose: handleCloseInterface = (): void => {
+  const handleClose: a = (): void => {
     emit('update:visible', false)
   }
 
-  const open: transitionEventInterface = (evt: MouseEvent): void => {
+  const open: b = (evt: MouseEvent): void => {
     emit('open', evt)
   }
 
-  const openEnd: transitionEventInterface = (evt: MouseEvent): void => {
+  const openEnd: b = (evt: MouseEvent): void => {
     emit('open-end', evt)
   }
 
-  const close: transitionEventInterface = (evt: MouseEvent): void => {
+  const close: b = (evt: MouseEvent): void => {
     emit('close', evt)
   }
 
-  const closeEnd: transitionEventInterface = (evt: MouseEvent): void => {
+  const closeEnd: b = (evt: MouseEvent): void => {
     emit('close-end', evt)
   }
 

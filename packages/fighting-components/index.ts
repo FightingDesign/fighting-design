@@ -38,7 +38,7 @@ import { FToolbar } from './toolbar'
 import { FToolbarItem } from './toolbar-item'
 import { FMessage } from './message'
 
-const components = {
+const COMPONENTS = {
   FButton,
   FButtonGroup,
   FIcon,
@@ -77,15 +77,15 @@ const components = {
   FToolbarItem
 }
 
-const plugins = {
+const PLUGINS = {
   FMessage
 }
 
 const install = (app: App): void => {
-  Object.entries(components).forEach(([key, value]) => {
+  Object.entries(COMPONENTS).forEach(([key, value]) => {
     app.component(key, value)
   })
-  Object.entries(plugins).forEach(([key, value]) => {
+  Object.entries(PLUGINS).forEach(([key, value]) => {
     app.config.globalProperties[key] = value
   })
 }
@@ -134,5 +134,5 @@ export type { FMessageInstance }
 
 export default {
   install,
-  ...components
+  ...COMPONENTS
 }

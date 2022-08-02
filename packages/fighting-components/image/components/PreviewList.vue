@@ -1,29 +1,41 @@
 <script lang="ts" setup name="PreviewList">
-  import { ref } from 'vue'
-  import { Props, Emits } from './PreviewList'
+  import { ref, inject, toRefs } from 'vue'
   import { FIcon } from '@fighting-design/fighting-components'
   import { keepDecimal } from '@fighting-design/fighting-utils'
+  import { ImagePropsKey } from '../src/image'
   import type { Ref } from 'vue'
   import type {
-    switchImageInterface,
-    optionClickInterface,
-    onImgMousewheelInterface
-  } from './interface'
-  import type { ordinaryFunctionInterface } from '../../button/src/interface'
+    switchImageInterface as a,
+    optionClickInterface as b,
+    onImgMousewheelInterface as c,
+    handleCloseInterface as d
+  } from '../src/interface'
+  import type { ordinaryFunctionInterface as e } from '../../button/src/interface'
+  import type { ImagePropsType as f } from '../src/image'
 
-  const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const injectImageProps: f = inject(ImagePropsKey)!
+  const emit = defineEmits({
+    close: (evt: MouseEvent): MouseEvent => evt
+  })
 
+  const {
+    previewZIndex,
+    previewList,
+    previewRound,
+    showCloseBtn,
+    previewShowOption
+  } = toRefs(injectImageProps)
   const previewShowIndex: Ref<number> = ref<number>(
-    prop.previewShowIndex > prop.previewList.length - 1
+    injectImageProps.previewShowIndex > injectImageProps.previewList.length - 1
       ? 0
-      : prop.previewShowIndex
+      : injectImageProps.previewShowIndex
   )
   const scale: Ref<number> = ref<number>(1)
   const rotate: Ref<number> = ref<number>(0)
 
-  const imagPreload: ordinaryFunctionInterface = (): void => {
-    const imgList: Array<string> = prop.previewList as Array<string>
+  // 图片加载
+  const imagPreload: e = (): void => {
+    const imgList: Array<string> = injectImageProps.previewList as Array<string>
 
     imgList.forEach((item: string): void => {
       const img: HTMLImageElement = new Image() as HTMLImageElement
@@ -31,32 +43,35 @@
     })
   }
 
-  const recovery: ordinaryFunctionInterface = (): void => {
+  // 还原图片
+  const recovery: e = (): void => {
     scale.value = 1
     rotate.value = 0
   }
 
-  const handleClose: ordinaryFunctionInterface = (): void => {
-    emit('close')
+  // 关闭图片预览
+  const handleClose: d = (evt: MouseEvent): void => {
+    emit('close', evt)
   }
 
-  const switchImage: switchImageInterface = (type: 'next' | 'prev'): void => {
+  // 左右切换按钮
+  const switchImage: a = (type: 'next' | 'prev'): void => {
     recovery()
 
-    const next: ordinaryFunctionInterface = (): void => {
-      if (previewShowIndex.value < prop.previewList.length - 1) {
+    const next: e = (): void => {
+      if (previewShowIndex.value < injectImageProps.previewList.length - 1) {
         previewShowIndex.value++
         return
       }
       previewShowIndex.value = 0
     }
 
-    const prev: ordinaryFunctionInterface = (): void => {
+    const prev: e = (): void => {
       if (previewShowIndex.value > 0) {
         previewShowIndex.value--
         return
       }
-      previewShowIndex.value = prop.previewList.length - 1
+      previewShowIndex.value = injectImageProps.previewList.length - 1
     }
 
     switch (type) {
@@ -69,32 +84,36 @@
     }
   }
 
-  const onEnter: ordinaryFunctionInterface = (): void => {
+  // 加载图片
+  const onEnter: e = (): void => {
     imagPreload()
   }
 
-  const smaller: ordinaryFunctionInterface = (): void => {
+  // 做小
+  const smaller: e = (): void => {
     if (keepDecimal(scale.value, 1) <= 0.2) {
       return
     }
     scale.value -= 0.2
   }
 
-  const bigger: ordinaryFunctionInterface = (): void => {
+  // 放大
+  const bigger: e = (): void => {
     if (scale.value >= 10) {
       return
     }
     scale.value += 0.2
   }
 
-  const optionClick: optionClickInterface = (evt: Event): void => {
+  // 点击操作栏
+  const optionClick: b = (evt: Event): void => {
     const className: string = (evt.target as HTMLElement).className
 
-    const turnLeft: ordinaryFunctionInterface = (): void => {
+    const turnLeft: e = (): void => {
       rotate.value += 90
     }
 
-    const turnRight: ordinaryFunctionInterface = (): void => {
+    const turnRight: e = (): void => {
       rotate.value -= 90
     }
 
@@ -117,13 +136,15 @@
     }
   }
 
-  const packingClose: ordinaryFunctionInterface = (): void => {
-    if (prop.modalClose) {
-      close()
+  // 点击遮罩层关闭
+  const packingClose: d = (evt: MouseEvent): void => {
+    if (injectImageProps.modalClose) {
+      handleClose(evt)
     }
   }
 
-  const onImgMousewheel: onImgMousewheelInterface = (evt: WheelEvent): void => {
+  // 滚轮缩放
+  const onImgMousewheel: c = (evt: WheelEvent): void => {
     evt.preventDefault()
     if (evt.deltaY > 1) {
       smaller()
