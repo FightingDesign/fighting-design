@@ -37,6 +37,7 @@ import type { FMessageInstance } from './message'
 import { FToolbar } from './toolbar'
 import { FToolbarItem } from './toolbar-item'
 import { FMessage } from './message'
+import { FSvgIcon } from './svg-icon'
 
 const COMPONENTS = {
   FButton,
@@ -74,7 +75,8 @@ const COMPONENTS = {
   FListItem,
   FMask,
   FToolbar,
-  FToolbarItem
+  FToolbarItem,
+  FSvgIcon
 }
 
 const PLUGINS = {
@@ -127,7 +129,8 @@ export {
   FMask,
   FMessage,
   FToolbar,
-  FToolbarItem
+  FToolbarItem,
+  FSvgIcon
 }
 
 export type { FMessageInstance }

@@ -4,7 +4,6 @@ module.exports = {
   extends: [
     '@eslint-sets/vue3-ts' // @eslint-sets/eslint-config-vue3-ts
   ],
-
   parserOptions: {
     parser: '@typescript-eslint/parser', // @typescript-eslint/parser
     sourceType: 'module',
@@ -14,9 +13,7 @@ module.exports = {
       jsx: true
     }
   },
-
   root: true,
-
   rules: {
     'vue/component-tags-order': [
       'error',

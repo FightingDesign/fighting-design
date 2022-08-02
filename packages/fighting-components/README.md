@@ -1,6 +1,6 @@
 # @fighting-design/fighting-components
 
-中文 | [英文](./README.en-US.md)
+中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.en-US.md)
 
 ## 说明
 
@@ -13,6 +13,7 @@
 如果想要新增组件，需要在 `fighting-components` 目录下新建一个`以组件名称`为名的文件夹，内部目录结构如下：
 
 ```
+├── components (其它相关组件 可选)
 ├── src
 |  ├── interface.d.ts
 |  ├── component.ts
@@ -93,6 +94,16 @@ const iconClass = computed(() => {})
 - 就算是类型自动推倒出来了，也要写入类型
 - `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 `interface.d.ts` 中定义
 - 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/FightingDesign/fighting-design/discussions) 或者群里提问
+- 定义函数类型通常命名规范为 `函数名+Interface`，但是由于这种规则定义的名称较长，你也可以使用简短的别名来定义，例如下面代码，取自 [preview-list](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/image/components/preview-list.vue)：
+
+```ts
+import type {
+  switchImageInterface as a,
+  optionClickInterface as b,
+  onImgMousewheelInterface as c,
+  handleCloseInterface as d
+} from '../src/interface'
+```
 
 下面举例常用的定义类型规范：
 
@@ -118,20 +129,18 @@ const com: ComputedRef<string> = computed<string>((): string => {
 
 - 定义函数
 
-`interface.d.ts` 中定义类型
-
 ```ts
+// interface.d.ts 中定义类型
 export interface funInterface {
   (a: number, b: number): number
 }
 ```
 
-引入使用类型
-
 ```ts
-import type { funInterface } from './interface'
+// 引入使用类型
+import type { funInterface as a } from './interface'
 
-const fun: funInterface = (a: number, b: number): number => {
+const fun: a = (a: number, b: number): number => {
   return a + b
 }
 ```

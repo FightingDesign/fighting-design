@@ -1,4 +1,4 @@
-<script lang="ts" setup name="PreviewList">
+<script lang="ts" setup name="FPreviewList">
   import { ref, inject, toRefs } from 'vue'
   import { FIcon } from '@fighting-design/fighting-components'
   import { keepDecimal } from '@fighting-design/fighting-utils'

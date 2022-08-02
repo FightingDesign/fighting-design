@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 export default defineConfig({
   plugins: [
@@ -12,6 +13,14 @@ export default defineConfig({
       insertTypesEntry: true,
       copyDtsFiles: true,
       cleanVueFileName: true
+    }),
+    createSvgIconsPlugin({
+      // 指定需要缓存的图标文件夹
+      iconDirs: [resolve(process.cwd(), 'packages/fighting-icon')],
+      // 指定symbolId格式
+      // symbolId: 'icon-[name]',
+      symbolId: 'icon-[dir]-[name]'
+      // inject: 'body-last'
     })
   ],
   build: {

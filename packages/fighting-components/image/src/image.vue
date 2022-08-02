@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FImage">
-  import PreviewList from '../components/PreviewList.vue'
+  import FPreviewList from '../components/preview-list.vue'
   import { Props, Emits, ImagePropsKey } from './image'
   import { onMounted, ref, provide } from 'vue'
   import { loadImage } from '@fighting-design/fighting-utils'
@@ -77,7 +77,7 @@
     </div>
 
     <!-- 大图预览框 -->
-    <preview-list
+    <f-preview-list
       v-if="prop.previewList && prop.previewList.length"
       v-show="isPreviewListShow"
       @close="handleClose"

@@ -1,6 +1,6 @@
 # @fighting-design/fighting-theme
 
-中文 | [英文](./README.en-US.md)
+中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.en-US.md)
 
 ## 说明
 

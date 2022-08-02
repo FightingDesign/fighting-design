@@ -1,6 +1,6 @@
 # @fighting-design/fighting-test
 
-English | [Chinese](./README.md)
+English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md)
 
 ## Introduction
 

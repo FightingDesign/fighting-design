@@ -1,6 +1,6 @@
 # @fighting-design/fighting-utils
 
-English | [Chinese](./README.md)
+English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-utils/README.md)
 
 ## Introduction
 

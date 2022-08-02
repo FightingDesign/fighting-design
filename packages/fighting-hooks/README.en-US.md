@@ -1,3 +1,3 @@
 # @fighting-design/fighting-hooks
 
-English | [Chinese](./README.md)
+English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-hooks/README.md)
