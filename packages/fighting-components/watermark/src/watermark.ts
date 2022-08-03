@@ -13,11 +13,11 @@ export const Props = {
   },
   fontSize: {
     type: String,
-    default: (): string => ''
+    default: (): string => '30px'
   },
   fontColor: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#333'
   },
   image: {
     type: String,

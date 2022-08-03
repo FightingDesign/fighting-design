@@ -7,18 +7,18 @@ export class Watermark implements WatermarkInterface {
   fontSize: string
   fontColor: string
 
-  constructor(
+  constructor (
     content = '',
-    width = 200,
-    height = 140,
-    fontSize = '30px',
-    fontColor = '#333'
+    width: number,
+    height: number,
+    fontSize: string,
+    fontColor: string
   ) {
     this.content = content
-    this.width = width
-    this.height = height
-    this.fontSize = fontSize
-    this.fontColor = fontColor
+    this.width = width || 200
+    this.height = height || 140
+    this.fontSize = fontSize || '30px'
+    this.fontColor = fontColor || '#333'
   }
 
   createBase64 = (): string => {
@@ -35,8 +35,8 @@ export class Watermark implements WatermarkInterface {
     ) as CanvasRenderingContext2D
     if (context) {
       context.rotate((-8 * Math.PI) / 100)
-      context.font = '30px serif'
-      context.fillStyle = 'black'
+      context.font = `${this.fontSize} serif`
+      context.fillStyle = this.fontColor
       context.textAlign = 'left'
       context.textBaseline = 'middle'
       context.fillText(this.content, this.width / 20, this.height)
