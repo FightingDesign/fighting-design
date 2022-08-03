@@ -38,8 +38,9 @@ import { FToolbar } from './toolbar'
 import { FToolbarItem } from './toolbar-item'
 import { FMessage } from './message'
 import { FSvgIcon } from './svg-icon'
+import { FWatermark } from './watermark'
 
-const COMPONENTS = {
+const components = {
   FButton,
   FButtonGroup,
   FIcon,
@@ -76,18 +77,19 @@ const COMPONENTS = {
   FMask,
   FToolbar,
   FToolbarItem,
-  FSvgIcon
+  FSvgIcon,
+  FWatermark
 }
 
-const PLUGINS = {
+const plugins = {
   FMessage
 }
 
 const install = (app: App): void => {
-  Object.entries(COMPONENTS).forEach(([key, value]) => {
+  Object.entries(components).forEach(([key, value]) => {
     app.component(key, value)
   })
-  Object.entries(PLUGINS).forEach(([key, value]) => {
+  Object.entries(plugins).forEach(([key, value]) => {
     app.config.globalProperties[key] = value
   })
 }
@@ -130,12 +132,13 @@ export {
   FMessage,
   FToolbar,
   FToolbarItem,
-  FSvgIcon
+  FSvgIcon,
+  FWatermark
 }
 
 export type { FMessageInstance }
 
 export default {
   install,
-  ...COMPONENTS
+  ...components
 }

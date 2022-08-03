@@ -15,3 +15,4 @@ export type {
   pastTimeConfigInterface
 } from './utils'
 export type { changeColorInterface } from './change-color'
+export type { WatermarkInterface } from './watermark'

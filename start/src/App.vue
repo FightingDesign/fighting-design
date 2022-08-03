@@ -1,12 +1,20 @@
-<script lang="ts" setup>
-  import Icon from '../components/svg-icon.vue'
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <!-- <Icon name="icon1"></Icon>
-  <Icon name="aiming"></Icon> -->
-  <!-- <f-svg-icon name="aiming"></f-svg-icon> -->
-  <f-novel-coronavirus />
+  <f-watermark content="机密文件">
+    <div id="box">
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+      <f-button type="success">成功按钮</f-button>
+      <f-button type="danger">危险按钮</f-button>
+      <f-button type="warning">警告按钮</f-button>
+    </div>
+  </f-watermark>
 </template>
 
-<style scoped></style>
+<style scoped>
+  #box {
+    width: 900px;
+    height: 700px;
+  }
+</style>
