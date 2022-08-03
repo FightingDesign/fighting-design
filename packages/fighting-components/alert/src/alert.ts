@@ -1,5 +1,5 @@
 import type { PropType, CSSProperties } from 'vue'
-import type { alertType, fixedStyleInterface } from './interface'
+import type { alertType, fixedStyleInterface, overflow } from './interface'
 
 export const Props = {
   type: {
@@ -11,7 +11,7 @@ export const Props = {
       ).includes(val)
     }
   },
-  size: {
+  fontSize: {
     type: String,
     default: (): string => ''
   },
@@ -63,6 +63,18 @@ export const Props = {
         return true
       }
       console.warn('fighting-design (Alert): fixed-style parameter error')
+      return false
+    }
+  },
+  overflow: {
+    type: String as PropType<overflow>,
+    default: (): string => '',
+    validator: (val: string) => {
+      if (['hidden', 'roll', 'ellipsis', ''].includes(val)) {
+        return true
+      } else {
+        console.warn('fighting-design (Alert): overflow options error')
+      }
       return false
     }
   }
