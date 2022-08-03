@@ -29,12 +29,12 @@
   )
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { size, color, background, fixed, fixedStyle } = prop
+    const { fontSize, color, background, fixed, fixedStyle } = prop
 
     const style = {
       color,
       background,
-      fontSize: size
+      fontSize
     } as const
 
     if (fixed && fixedStyle) {
@@ -42,7 +42,25 @@
     }
     return style
   })
-
+  const overflowList: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { overflow } = prop
+      let style: CSSProperties = {}
+      if (overflow === 'ellipsis') {
+        style.whiteSpace = 'nowrap'
+        style.overflow = 'hidden'
+        style.textOverflow = 'ellipsis'
+      } else if (overflow === 'hidden') {
+        style.whiteSpace = 'nowrap'
+        style.overflow = 'hidden'
+      } else if (overflow === 'roll') {
+        style.overflow = 'scroll'
+      } else {
+        style = {}
+      }
+      return style
+    }
+  )
   const handleClose: a = (evt: MouseEvent): void => {
     isShow.value = false
     emit('close-end', evt)
@@ -55,13 +73,7 @@
       <f-icon :icon="icon" />
       {{ title }}
     </div>
-    <div
-      v-if="$slots.default"
-      class="f-alert-sub-title"
-      :style="{
-        'margin-top': title ? '3px' : ''
-      }"
-    >
+    <div v-if="$slots.default" class="f-alert-sub-title" :style="overflowList">
       <slot />
     </div>
     <span v-if="close" class="f-alert-close" @click.stop="handleClose">
