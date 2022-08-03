@@ -7,7 +7,7 @@ export class Watermark implements WatermarkInterface {
   fontSize: string
   fontColor: string
 
-  constructor (
+  constructor(
     content = '',
     width = 200,
     height = 140,
