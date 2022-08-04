@@ -2,6 +2,22 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.4.2-bate.9 (2022-07-04)
+
+**fest**
+
+- `alert` component added `fixed` and `fixed style` configuration items
+- Add `f-list` component
+- Add `f-list-item` component
+- New `message` component
+- `F-text` component adds `center` configuration item
+- New `f-watermark` component
+
+**fix**
+
+- Repair `f-tag` component style details
+- Optimize `F-card` component detail style
+
 ## 0.4.2-bate.8 (2022-07-23)
 
 **fest**

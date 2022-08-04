@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.4.2-bate.9 (2022-07-04)
+
 **fest**
 
 - `Alert` 组件新增 `fixed` `fixed-style` 配置项
