@@ -2,13 +2,21 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.4.2-bate.9 (2022-07-04)
+
 **fest**
 
 - `Alert` 组件新增 `fixed` `fixed-style` 配置项
+- 新增 `f-list` 组件
+- 新增 `f-list-item` 组件
+- 新增 `message` 组件
+- `f-text` 组件新增 `center` 配置项
+- 新增 `f-watermark` 组件
 
 **fix**
 
-- 修复 `tag` 组件样式细节
+- 修复 `f-tag` 组件样式细节
+- 优化 `f-card` 组件细节样式
 
 ## 0.4.2-bate.8 (2022-07-23)
 
