@@ -29,24 +29,24 @@
 
 ## 不同文字大小
 
-`size` 属性可以配置不同大小的 `alert`
+`font-size` 属性可以配置不同大小的 `alert`
 
-`size` 必须写入指定的数值和单位才可以正常工作
+`font-size` 必须写入指定的数值和单位才可以正常工作
 
-<f-alert size="12px" type="default">默认提示信息</f-alert>
-<f-alert size="14px" type="primary">主要提示信息</f-alert>
-<f-alert size="16px" type="success">成功提示信息</f-alert>
-<f-alert size="20px" type="danger">危险提示信息</f-alert>
-<f-alert size="24px" type="warning">警告提示信息</f-alert>
+<f-alert font-size="12px" type="default">默认提示信息</f-alert>
+<f-alert font-size="14px" type="primary">主要提示信息</f-alert>
+<f-alert font-size="16px" type="success">成功提示信息</f-alert>
+<f-alert font-size="20px" type="danger">危险提示信息</f-alert>
+<f-alert font-size="24px" type="warning">警告提示信息</f-alert>
 
 ::: details 显示代码
 
 ```html
-<f-alert size="12px" type="default">默认提示信息</f-alert>
-<f-alert size="14px" type="primary">主要提示信息</f-alert>
-<f-alert size="16px" type="success">成功提示信息</f-alert>
-<f-alert size="20px" type="danger">危险提示信息</f-alert>
-<f-alert size="24px" type="warning">警告提示信息</f-alert>
+<f-alert font-size="12px" type="default">默认提示信息</f-alert>
+<f-alert font-size="14px" type="primary">主要提示信息</f-alert>
+<f-alert font-size="16px" type="success">成功提示信息</f-alert>
+<f-alert font-size="20px" type="danger">危险提示信息</f-alert>
+<f-alert font-size="24px" type="warning">警告提示信息</f-alert>
 ```
 
 :::
@@ -208,7 +208,7 @@
 | 参数          | 说明                                                 | 类型    | 可选值                                           | 默认值  |
 | ------------- | ---------------------------------------------------- | ------- | ------------------------------------------------ | ------- |
 | `type`        | 类型                                                 | string  | `default` `primary` `success` `danger` `warning` | primary |
-| `size`        | 文字大小，必须写入指定的数值和单位                   | string  | ——                                               | ——      |
+| `font-size`   | 文字大小，必须写入指定的数值和单位                   | string  | ——                                               | ——      |
 | `bold`        | 文字是否以粗体显示                                   | boolean | ——                                               | false   |
 | `center`      | 是否居中                                             | boolean | ——                                               | false   |
 | `icon`        | Icon                                                 | string  | ——                                               | ——      |
@@ -220,6 +220,7 @@
 | `color`       | 字体颜色                                             | string  | ——                                               | ——      |
 | `fixed`       | 是否固定定位                                         | boolean | ——                                               | false   |
 | `fixed-style` | 固定定位的样式，仅支持 `top` `right` `button` `left` | {}      | ——                                               | {}      |
+| `overflow`    | 文字超出的展示状态                                   | string  | `hidden` `roll` `ellipsis`                       | ——      |
 
 ## Slots
 
@@ -241,6 +242,10 @@
 
 <a href="https://github.com/jardeng" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/19302222?v=4" />
+</a>
+
+<a href="https://github.com/HeHasGun" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/66313154?v=4" />
 </a>
 
 <style scoped>

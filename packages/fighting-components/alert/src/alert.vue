@@ -42,9 +42,11 @@
     }
     return style
   })
+
   const overflowList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
       const { overflow } = prop
+
       let style: CSSProperties = {}
       if (overflow === 'ellipsis') {
         style.whiteSpace = 'nowrap'
@@ -61,6 +63,7 @@
       return style
     }
   )
+
   const handleClose: a = (evt: MouseEvent): void => {
     isShow.value = false
     emit('close-end', evt)

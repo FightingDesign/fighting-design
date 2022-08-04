@@ -1,5 +1,5 @@
 import type { PropType, CSSProperties } from 'vue'
-import type { alertType, fixedStyleInterface, overflow } from './interface'
+import type { alertType, fixedStyleInterface, overflowType } from './interface'
 
 export const Props = {
   type: {
@@ -67,15 +67,10 @@ export const Props = {
     }
   },
   overflow: {
-    type: String as PropType<overflow>,
-    default: (): string => '',
-    validator: (val: string) => {
-      if (['hidden', 'roll', 'ellipsis', ''].includes(val)) {
-        return true
-      } else {
-        console.warn('fighting-design (Alert): overflow options error')
-      }
-      return false
+    type: String as PropType<overflowType>,
+    default: (): overflowType => '',
+    validator: (val: overflowType) => {
+      return (['hidden', 'roll', 'ellipsis', ''] as const).includes(val)
     }
   }
 } as const
