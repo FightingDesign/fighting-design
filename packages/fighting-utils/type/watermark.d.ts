@@ -1,8 +1,9 @@
-export interface WatermarkInterface {
-  content: string
-  width: number
-  height: number
-  fontSize: string
-  fontColor: string
-  createBase64(): string
+export interface createBase64Interface {
+  (
+    content = '',
+    width: number,
+    height: number,
+    fontSize: string,
+    fontColor: string
+  ): string
 }

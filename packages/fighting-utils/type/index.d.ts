@@ -15,4 +15,4 @@ export type {
   pastTimeConfigInterface
 } from './utils'
 export type { changeColorInterface } from './change-color'
-export type { WatermarkInterface } from './watermark'
+export type { createBase64Interface } from './watermark'

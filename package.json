@@ -20,6 +20,7 @@
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:umd": "vite build --config vite.config.umd.ts",
     "build:docs": "pnpm run -C docs build",
+    "serve:docs": "pnpm run -C docs serve",
     "build:start": "pnpm run -C start build",
     "move": "node script/move-file.js",
     "new": "node script/new-component",

@@ -1,3 +1,4 @@
+import type { FMessageInstance } from './message'
 import type { App } from 'vue'
 import { FButton } from './button'
 import { FIcon } from './icon'
@@ -20,7 +21,6 @@ import { FBreadcrumb } from './breadcrumb'
 import { FBreadcrumbItem } from './breadcrumb-item'
 import { FText } from './text'
 import { FLoading } from './loading'
-import { FCaptcha } from './captcha'
 import { FProgress } from './progress'
 import { FSpace } from './space'
 import { FDialog } from './dialog'
@@ -32,7 +32,6 @@ import { FAlert } from './alert'
 import { FNovelCoronavirus } from './novel-coronavirus'
 import { FList } from './list'
 import { FListItem } from './list-item'
-import type { FMessageInstance } from './message'
 import { FToolbar } from './toolbar'
 import { FToolbarItem } from './toolbar-item'
 import { FMessage } from './message'
@@ -61,7 +60,6 @@ const components = {
   FBreadcrumb,
   FText,
   FLoading,
-  FCaptcha,
   FProgress,
   FSpace,
   FDialog,
@@ -114,7 +112,6 @@ export {
   FBreadcrumb,
   FText,
   FLoading,
-  FCaptcha,
   FProgress,
   FSpace,
   FDialog,

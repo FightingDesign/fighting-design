@@ -1,47 +1,37 @@
 <script lang="ts" setup name="FWatermark">
   import { Props } from './watermark'
-  import { Watermark } from '@fighting-design/fighting-utils'
-  import { computed } from 'vue'
-  import type { ComputedRef, CSSProperties } from 'vue'
+  import { createBase64 } from '@fighting-design/fighting-utils'
+  import { ref, onMounted } from 'vue'
+  import type { Ref, CSSProperties } from 'vue'
+  import type { CSSPropertiesInterface as a } from './interface'
 
   const prop = defineProps(Props)
 
-  const baseWatermark: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { content, width, height, fontSize, fontColor } = prop
-      let base64 = ''
-      const watermark: Watermark = new Watermark(
-        content,
-        width,
-        height,
-        fontSize,
-        fontColor
-      )
-
-      base64 = watermark.createBase64()
-
-      return {
-        backgroundImage: `url(${base64})`
-      }
-    }
+  const watermarkStyleList: Ref<CSSProperties> = ref<CSSProperties>(
+    null as unknown as CSSProperties
   )
 
-  const imageWatermark: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { image, width, height } = prop
+  const baseWatermark: a = (): CSSProperties => {
+    const { content, width, height, fontSize, fontColor } = prop
+    const watermark = createBase64(content, width, height, fontSize, fontColor)
 
-      return {
-        backgroundImage: `url(${image})`,
-        backgroundSize: `${width}px ${height}px`
-      }
-    }
-  )
+    return {
+      backgroundImage: `url(${watermark})`
+    } as CSSProperties
+  }
 
-  const watermarkStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      return prop.image ? imageWatermark.value : baseWatermark.value
-    }
-  )
+  const imageWatermark: a = (): CSSProperties => {
+    const { image, width, height } = prop
+
+    return {
+      backgroundImage: `url(${image})`,
+      backgroundSize: `${width}px ${height}px`
+    } as CSSProperties
+  }
+
+  onMounted((): void => {
+    watermarkStyleList.value = prop.image ? imageWatermark() : baseWatermark()
+  })
 </script>
 
 <template>
