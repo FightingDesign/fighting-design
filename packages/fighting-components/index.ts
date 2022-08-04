@@ -32,7 +32,6 @@ import { FAlert } from './alert'
 import { FNovelCoronavirus } from './novel-coronavirus'
 import { FList } from './list'
 import { FListItem } from './list-item'
-import { FMask } from './mask'
 import type { FMessageInstance } from './message'
 import { FToolbar } from './toolbar'
 import { FToolbarItem } from './toolbar-item'
@@ -74,7 +73,6 @@ const components = {
   FNovelCoronavirus,
   FList,
   FListItem,
-  FMask,
   FToolbar,
   FToolbarItem,
   FSvgIcon,
@@ -128,7 +126,6 @@ export {
   FNovelCoronavirus,
   FList,
   FListItem,
-  FMask,
   FMessage,
   FToolbar,
   FToolbarItem,
