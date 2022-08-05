@@ -13,7 +13,7 @@
       <img
         class="logo"
         draggable="false"
-        src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg"
+        src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
         alt="Fighting Design logo"
       />
     </div>
@@ -24,7 +24,7 @@
       <img
         class="logo"
         draggable="false"
-        src="https://tianyuhao.cn/fighting/imgs/FightingDesign.svg"
+        src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
         alt="Fighting Design logo"
       />
       <h1 class="title">Fighting Design</h1>
@@ -63,7 +63,9 @@
         <div v-for="(list, index) in lists" :key="index" class="advantage_item">
           <div class="img_box">
             <img
-              :src="`https://tianyuhao.cn/fighting/imgs/home-${index + 1}.svg`"
+              :src="`https://tianyuhao.cn/images/fighting-design/home-${
+                index + 1
+              }.svg`"
             />
           </div>
           <p class="text">{{ list }}</p>

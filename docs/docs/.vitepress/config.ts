@@ -10,7 +10,7 @@ export default defineConfig({
       'link',
       {
         rel: 'icon',
-        href: 'https://tianyuhao.cn/fighting/imgs/FightingDesign.svg'
+        href: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
       }
     ]
   ],
@@ -24,6 +24,6 @@ export default defineConfig({
         link: 'https://github.com/FightingDesign/fighting-design'
       }
     ],
-    logo: 'https://tianyuhao.cn/fighting/imgs/FightingDesign.svg'
+    logo: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
   }
 })
