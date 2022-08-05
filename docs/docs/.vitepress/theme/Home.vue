@@ -87,7 +87,7 @@
 
       <div class="footer_item">
         <h4 class="title">加入我们</h4>
-        <img src="https://tianyuhao.cn/images/weixin2.png" alt="weixin" />
+        <img src="https://tianyuhao.cn/images/auto/weixin.png" alt="weixin" />
       </div>
 
       <div class="footer_item">

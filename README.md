@@ -73,7 +73,7 @@ createApp(App).use(FightingDesign).mount('#app')
 
 添加微信请备注 `Github` 用户名
 
-![](https://tianyuhao.cn/images/weixin2.png)
+![](https://tianyuhao.cn/images/auto/weixin.png)
 
 ## 💌 特别感谢
 

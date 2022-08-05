@@ -13,7 +13,7 @@ export const sidebar = {
       link: '/docs/introduce',
       items: [
         { text: '介绍', link: '/docs/introduce' },
-        { text: '贡献指南', link: '/docs/contributing' },
+        { text: '贡献指南', link: '/docs/CONTRIBUTING' },
         { text: '加入我们', link: '/docs/join' }
       ]
     },

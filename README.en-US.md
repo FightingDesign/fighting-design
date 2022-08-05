@@ -73,7 +73,7 @@ createApp(App).use(FightingDesign).mount('#app')
 
 Add WeChat & please note the `Github` username
 
-![WeChat](https://tianyuhao.cn/images/weixin2.png)
+![WeChat](https://tianyuhao.cn/images/auto/weixin.png)
 
 ## 💌 Special Thanks
 
