@@ -25,25 +25,20 @@ export default (): UserConfigExport => {
       rollupOptions: {
         external: ['vue'], // 忽略打包vue文件
         input,
-        output: [
-          {
-            format: 'es',
-            dir: 'dist/es',
-            entryFileNames: '[name].js',
-            preserveModules: true, // 让打包目录和我们目录对应
-            preserveModulesRoot: 'components' // 配置打包根目录
+        output: {
+          format: 'es',
+          dir: 'dist/es',
+          entryFileNames: '[name].js',
+          preserveModules: true, // 让打包目录和我们目录对应
+          preserveModulesRoot: 'components', // 配置打包根目录
+          globals: {
+            vue: 'Vue'
           }
-        ]
+        }
       },
       lib: {
         entry: input,
         formats: ['es']
-      },
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true
-        }
       }
     },
     plugins: [

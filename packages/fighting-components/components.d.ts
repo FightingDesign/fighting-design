@@ -1,6 +1,4 @@
-import '@vue/runtime-core'
-
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   export interface GlobalComponents {
     FButton: typeof import('./button/src/button.vue')['default']
     FButtonGroup: typeof import('./button-group/src/button-group.vue')['default']

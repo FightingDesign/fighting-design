@@ -25,25 +25,20 @@ export default (): UserConfigExport => {
       rollupOptions: {
         external: ['vue'],
         input,
-        output: [
-          {
-            format: 'cjs',
-            dir: 'dist/lib',
-            entryFileNames: '[name].js',
-            preserveModules: true,
-            preserveModulesRoot: 'components'
+        output: {
+          format: 'cjs',
+          dir: 'dist/lib',
+          entryFileNames: '[name].js',
+          preserveModules: true,
+          preserveModulesRoot: 'components',
+          globals: {
+            vue: 'Vue'
           }
-        ]
+        }
       },
       lib: {
         entry: input,
         formats: ['cjs']
-      },
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true
-        }
       }
     },
     plugins: [

@@ -1,6 +1,6 @@
 export interface createBase64Interface {
   (
-    content = '',
+    content: string,
     width: number,
     height: number,
     fontSize: string,

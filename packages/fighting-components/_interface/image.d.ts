@@ -1,3 +1,5 @@
+import type { imageFit } from '../image/src/interface'
+
 export interface LazyInterface {
   observer(): IntersectionObserver
   lazyCreateImg(): void

@@ -1,3 +1,5 @@
+import type { buttonType } from '../button/src/interface'
+
 export interface RipplesInterface {
   evt: buttonEventInterface
   node: HTMLElement
