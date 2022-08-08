@@ -4,7 +4,7 @@
 
 ## 说明
 
-此目录是 `Fighting Design` 的所有组件的源文件。
+此目录是 `Fighting Design` 的所有组件的源文件目录。
 
 ## 新增组件
 
@@ -65,21 +65,8 @@ pnpm new <component-name>
 - `script` 上的 `name` 属性是组件的名字，使用的 [unplugin-vue-setup-extend-plus](https://github.com/chenxch/unplugin-vue-setup-extend-plus) 插件。组件名必须以 `F` 开头，后面跟组件名，组件名首字母大写，例如：`FButton`
 - 引入的类型，必须使用 `type` 标记，比如：`import type { xxx } from 'xxx'`
 - 在所有 `import` 之后要带有一个空行，之后是 `prop` 和 `emit`
-- `prop` 和 `emit` 之后，也要带一个空行
+- `prop` 和 `emit` 之后，也要带一个空行，再继续编写其它代码
 - 后面可以进行编写组件需要的逻辑函数，函数必须使用 `箭头函数`，除非特殊情况外，每个函数之间要有一个空行隔开。可见下面例子，取自 [f-button](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/button/src/button.vue)
-
-```ts
-import { computed, ComputedRef } from 'vue'
-import { Props, Emits } from './button'
-import type { onClickInterface } from '@fighting-design/fighting-type'
-
-const prop = defineProps(Props)
-const emit = defineEmits(Emits)
-
-const onClick = (evt) => {}
-
-const iconClass = computed(() => {})
-```
 
 **template 规范**
 
@@ -94,7 +81,7 @@ const iconClass = computed(() => {})
 - 就算是类型自动推倒出来了，也要写入类型
 - `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 `interface.d.ts` 中定义
 - 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/FightingDesign/fighting-design/discussions) 或者群里提问
-- 定义函数类型通常命名规范为 `函数名+Interface`，但是由于这种规则定义的名称较长，你也可以使用简短的别名来定义，例如下面代码，取自 [preview-list](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/image/components/preview-list.vue)：
+- 定义函数类型通常命名规范为 `函数名+Interface`，但是由于这种规则定义的名称较长，你也可以使用简短的别名来定义（别名的定义仅限于自定义的接口类型，例如 `ComputedRef` 是从 `vue` 中引入的则不可以设置别名），例如下面代码，取自 [preview-list](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/image/components/preview-list.vue)：
 
 ```ts
 import type {
@@ -170,9 +157,7 @@ const fun: a = (a: number, b: number): number => {
 
 - 每行代码之间要有一个空行
 - 结尾要有空行
-- 导出必须使用 `export { xxx }` 导出，而不是 `export default`
-
-例：
+- 导出统一使用默认导出，如下代码：
 
 ```ts
 import FButton from './src/button.vue'
@@ -181,8 +166,16 @@ import { install } from '../_utils'
 
 install(FButton, FButton.name)
 
-export { FButton }
+export default FButton
 ```
+
+## 工具函数
+
+在 `packages/fighting-components/_utils` 目录中可以定义一些工具函数和类，文件名统一使用短横杠连接，不可以出现大写字母。
+
+定义的函数需要在 `index.ts` 中统一导出。
+
+工具函数的类型可以在 `packages/fighting-components/_interface` 中进行定义。
 
 ## 主入口文件
 

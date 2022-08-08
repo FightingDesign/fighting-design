@@ -95,7 +95,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { FIcon } from '@fighting-design/fighting-components/icon'
+  import { FIcon } from 'fighting-design'
 </script>
 ```
 

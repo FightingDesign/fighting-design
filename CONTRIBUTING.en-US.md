@@ -1,5 +1,7 @@
 # CONTRIBUTING
 
+> English documents are not synchronized in time most of the time. Please refer to Chinese documents for details.
+
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
 
 ## Write in front
@@ -101,7 +103,6 @@ The main source files are in the `fighting-design/packages` directory, and each 
 - [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) Component source file directory
 - [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) Unit test directory
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) Style theme catalog
-- [fighting-utils](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-utils/README.md) Tool function directory
 
 The following is about the document specification:
 

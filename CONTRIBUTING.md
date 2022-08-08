@@ -51,7 +51,7 @@ pnpm start
   "build:docs": "pnpm run -C docs build", // 打包文档
   "build:start": "pnpm run -C start build", // 打包测试项目 start
   "move": "node script/move-file.ts", // 移动静态文件
-  "new": "node script/new-component", // 创建新组建
+  "new": "node script/new-component", // 创建新组件
   "test": "vitest", // 单元测试
   "prettier": "prettier --write .", // 全局格式化
   "commit": "cz", // 启用提交插件
@@ -82,10 +82,6 @@ pnpm start
 - [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) 组件源文件目录
 - [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) 单元测试目录
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) 样式主题目录
-- [fighting-utils](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-utils/README.md) 工具函数目录
-
-下面是关于文档规范：
-
 - [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md) 文档编写规范
 
 ## 提交规范

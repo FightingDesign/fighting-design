@@ -2,6 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.5.0-bate.1 (2022-08-08)
+
+主要修复了打包的相关的配置项，在[上一个版本](https://github.com/FightingDesign/fighting-design/releases/tag/0.4.2-bate.9)中，如果需要按需引入组件，那么会有很多异常的错误信息，这个版本主要是针对打包做了很大的优化，已经修复了按需引入导致的致命错误。
+
+对于目录结构也做了很大程度的优化，之前是将 `utils` 目录是单独抽离出来，但是现在也和组件是同级关系，只为了能够更好的打包。
+
 ## 0.4.2-bate.9 (2022-07-04)
 
 **fest**

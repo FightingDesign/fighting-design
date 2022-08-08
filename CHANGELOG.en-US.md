@@ -1,6 +1,14 @@
 # CHANGELOG
 
+> English documents are not synchronized in time most of the time. Please refer to Chinese documents for details.
+
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
+
+## 0.5.0-bate.1 (2022-08-08)
+
+It mainly fixes the related configuration items of packaging. In the [previous version](<(https://github.com/FightingDesign/fighting-design/releases/tag/0.4.2-bate.9)>), if you need to import components on demand, there will be many abnormal error messages. This version is mainly optimized for packaging and has fixed the fatal error caused by on-demand import.
+
+The directory structure has also been optimized to a great extent. Previously, the utils directory was separated from the component, but now it is also the same level as the component, just for better packaging.
 
 ## 0.4.2-bate.9 (2022-07-04)
 
