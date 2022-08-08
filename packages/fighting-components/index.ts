@@ -35,7 +35,6 @@ import { FListItem } from './list-item'
 import { FToolbar } from './toolbar'
 import { FToolbarItem } from './toolbar-item'
 import { FMessage } from './message'
-import { FSvgIcon } from './svg-icon'
 import { FWatermark } from './watermark'
 
 const components = {
@@ -73,7 +72,6 @@ const components = {
   FListItem,
   FToolbar,
   FToolbarItem,
-  FSvgIcon,
   FWatermark
 }
 
@@ -126,7 +124,6 @@ export {
   FMessage,
   FToolbar,
   FToolbarItem,
-  FSvgIcon,
   FWatermark
 }
 

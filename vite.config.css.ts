@@ -2,13 +2,13 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import { readdirSync } from 'fs'
 
-const input = resolve(__dirname, 'packages/fighting-theme/src')
+const input: string = resolve(__dirname, 'packages/fighting-theme/src')
 
 export default defineConfig({
   build: {
     assetsDir: 'theme',
     rollupOptions: {
-      input: readdirSync(input).map((name) => {
+      input: readdirSync(input).map((name): string => {
         return `${input}/${name}`
       }),
       output: {
