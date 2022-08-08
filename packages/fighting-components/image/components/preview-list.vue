@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FPreviewList">
   import { ref, inject, toRefs } from 'vue'
   import { FIcon } from '@fighting-design/fighting-components'
-  import { keepDecimal } from '@fighting-design/fighting-utils'
+  import { keepDecimal } from '../../_utils'
   import { ImagePropsKey } from '../src/image'
   import type { Ref } from 'vue'
   import type {

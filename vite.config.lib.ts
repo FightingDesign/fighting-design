@@ -1,38 +1,43 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import type { UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts'
-import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
+import Components from 'unplugin-vue-components/vite'
+
+const input: string = resolve(
+  __dirname,
+  'packages/fighting-components/index.ts'
+)
 
 export default (): UserConfigExport => {
   return {
-    plugins: [
-      vueSetupExtend(),
-      vue(),
-      dts({
-        insertTypesEntry: true,
-        copyDtsFiles: true,
-        cleanVueFileName: true
-      })
-    ],
+    mode: 'production',
     build: {
+      target: 'modules',
+      minify: false,
+      emptyOutDir: false,
+      chunkSizeWarningLimit: 2,
+      reportCompressedSize: false,
       outDir: resolve(__dirname, 'dist/lib'),
-      lib: {
-        entry: resolve(__dirname, 'packages/fighting-design/index.d.ts'),
-        formats: ['cjs'],
-        fileName: (target) => {
-          return `index.${target}.js`
-        }
-      },
       rollupOptions: {
         external: ['vue'],
-        preserveModules: true,
-        output: {
-          format: 'cjs',
-          globals: {
-            vue: 'Vue'
+        input,
+        output: [
+          {
+            format: 'cjs',
+            dir: 'dist/lib',
+            entryFileNames: '[name].js',
+            preserveModules: true,
+            preserveModulesRoot: 'components'
           }
-        }
+        ]
+      },
+      lib: {
+        entry: input,
+        formats: ['cjs']
       },
       terserOptions: {
         compress: {
@@ -40,6 +45,18 @@ export default (): UserConfigExport => {
           drop_debugger: true
         }
       }
-    }
+    },
+    plugins: [
+      vueSetupExtend(),
+      vue(),
+      dts({
+        insertTypesEntry: true,
+        copyDtsFiles: true,
+        cleanVueFileName: true
+      }),
+      Components({
+        dts: resolve(__dirname, '/packages/fighting-components/components.d.ts')
+      })
+    ]
   }
 }

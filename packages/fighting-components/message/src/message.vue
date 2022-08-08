@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FMessage">
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
   import { FIcon } from '@fighting-design/fighting-components'
-  import { isString } from '@fighting-design/fighting-utils'
+  import { isString } from '../../_utils'
   import { Props, Emits } from './message'
   import { getSiblingOffset, removeInstance } from './instances'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'

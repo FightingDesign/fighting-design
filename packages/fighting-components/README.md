@@ -177,7 +177,7 @@ const fun: a = (a: number, b: number): number => {
 ```ts
 import FButton from './src/button.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FButton, FButton.name)
 

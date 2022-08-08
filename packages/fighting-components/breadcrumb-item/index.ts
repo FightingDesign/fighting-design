@@ -1,7 +1,7 @@
 import FBreadcrumbItem from './src/breadcrumb-item.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FBreadcrumbItem, FBreadcrumbItem.name)
 
-export { FBreadcrumbItem }
+export default FBreadcrumbItem

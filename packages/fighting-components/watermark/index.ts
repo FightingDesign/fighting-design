@@ -1,7 +1,7 @@
 import FWatermark from './src/watermark.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FWatermark, FWatermark.name)
 
-export { FWatermark }
+export default FWatermark

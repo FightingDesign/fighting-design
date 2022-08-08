@@ -1,7 +1,7 @@
 import FAlert from './src/alert.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FAlert, FAlert.name)
 
-export { FAlert }
+export default FAlert

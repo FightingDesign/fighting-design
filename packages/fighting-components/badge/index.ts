@@ -1,7 +1,7 @@
 import FBadge from './src/badge.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FBadge, FBadge.name)
 
-export { FBadge }
+export default FBadge

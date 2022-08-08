@@ -1,5 +1,5 @@
-import type { RipplesInterface, buttonEventInterface } from './type'
-import type { buttonType } from '../fighting-components/button/src/interface'
+import type { RipplesInterface, buttonEventInterface } from '../_interface'
+import type { buttonType } from '../button/src/interface'
 
 const colorList = {
   default: '#f0f0f0',

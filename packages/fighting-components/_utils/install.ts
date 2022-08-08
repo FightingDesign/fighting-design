@@ -1,4 +1,4 @@
-import type { installInterface, mainVNodeInterface } from './type'
+import type { installInterface, mainVNodeInterface } from '../_interface'
 import type { App } from 'vue'
 
 /**
@@ -15,6 +15,11 @@ export const install: installInterface = (
   }
 }
 
+/**
+ * 注册内置组件
+ * @param main 组件实例
+ * @param name 组件名
+ */
 export const installFn: installInterface = (
   main: mainVNodeInterface,
   name: string

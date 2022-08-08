@@ -4,7 +4,7 @@ import type {
   getTypeInterface as c,
   pastTimeInterface as d,
   pastTimeConfigInterface as e
-} from './type'
+} from '../_interface'
 
 /**
  * 保留小数点后 n 位

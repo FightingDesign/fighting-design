@@ -1,7 +1,7 @@
 import FLink from './src/link.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FLink, FLink.name)
 
-export { FLink }
+export default FLink

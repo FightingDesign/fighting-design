@@ -1,6 +1,6 @@
-import { FDivider } from '@fighting-design/fighting-components'
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
+import { FDivider } from '@fighting-design/fighting-components'
 
 const text = '分割线' as const
 

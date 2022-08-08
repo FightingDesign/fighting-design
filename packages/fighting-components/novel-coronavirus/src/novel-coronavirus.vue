@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FNovelCoronavirus">
   import { ref } from 'vue'
-  import { pastTime } from '@fighting-design/fighting-utils'
+  import { pastTime } from '../../_utils'
   import type { Ref } from 'vue'
   import type { ordinaryFunctionInterface as a } from '../../button/src/interface'
 

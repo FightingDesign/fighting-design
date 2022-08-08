@@ -1,7 +1,7 @@
 import FDrawer from './src/drawer.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FDrawer, FDrawer.name)
 
-export { FDrawer }
+export default FDrawer

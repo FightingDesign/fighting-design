@@ -1,6 +1,6 @@
-import { FIcon } from '@fighting-design/fighting-components'
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
+import { FIcon } from '@fighting-design/fighting-components'
 
 describe('FIcon', () => {
   test('icon', () => {

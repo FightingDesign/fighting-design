@@ -1,3 +1,5 @@
 <script lang="ts" setup></script>
 
-<template></template>
+<template>
+  <f-alert></f-alert>
+</template>

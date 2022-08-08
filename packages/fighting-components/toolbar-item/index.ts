@@ -1,7 +1,7 @@
 import FToolbarItem from './src/toolbar-item.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FToolbarItem, FToolbarItem.name)
 
-export { FToolbarItem }
+export default FToolbarItem

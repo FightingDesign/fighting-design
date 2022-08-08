@@ -1,7 +1,7 @@
 import FListItem from './src/list-item.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FListItem, FListItem.name)
 
-export { FListItem }
+export default FListItem

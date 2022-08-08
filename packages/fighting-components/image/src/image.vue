@@ -2,7 +2,7 @@
   import FPreviewList from '../components/preview-list.vue'
   import { Props, Emits, ImagePropsKey } from './image'
   import { onMounted, ref, provide } from 'vue'
-  import { loadImage } from '@fighting-design/fighting-utils'
+  import { loadImage } from '../../_utils'
   import type { Ref } from 'vue'
   import type { callbackInterface as a } from './interface'
   import type { ordinaryFunctionInterface as b } from '../../button/src/interface'

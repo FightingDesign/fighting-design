@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FWatermark">
   import { Props } from './watermark'
-  import { createBase64 } from '@fighting-design/fighting-utils'
+  import { createBase64 } from '../../_utils'
   import { ref, onMounted } from 'vue'
   import type { Ref, CSSProperties } from 'vue'
   import type { CSSPropertiesInterface as a } from './interface'

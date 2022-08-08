@@ -1,11 +1,7 @@
 <script lang="ts" setup name="FAvatar">
   import { Props, Emits } from './avatar'
   import { computed, ref, onMounted } from 'vue'
-  import {
-    loadImage,
-    isNumber,
-    isString
-  } from '@fighting-design/fighting-utils'
+  import { loadImage, isNumber, isString } from '../../_utils'
   import { FIcon } from '@fighting-design/fighting-components'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
 

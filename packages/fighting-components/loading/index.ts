@@ -1,7 +1,7 @@
 import FLoading from './src/loading.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FLoading, FLoading.name)
 
-export { FLoading }
+export default FLoading

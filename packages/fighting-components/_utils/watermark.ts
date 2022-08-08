@@ -1,4 +1,4 @@
-import type { createBase64Interface as a } from './type'
+import type { createBase64Interface as a } from '../_interface'
 
 /**
  * 将 canvas 转换成 base64 图片格式

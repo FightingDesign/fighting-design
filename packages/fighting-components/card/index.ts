@@ -1,7 +1,7 @@
 import FCard from './src/card.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FCard, FCard.name)
 
-export { FCard }
+export default FCard

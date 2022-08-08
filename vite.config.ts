@@ -7,8 +7,45 @@ import { resolve } from 'path'
 import dts from 'vite-plugin-dts'
 import Components from 'unplugin-vue-components/vite'
 
+const input: string = resolve(
+  __dirname,
+  'packages/fighting-components/index.ts'
+)
+
 export default (): UserConfigExport => {
   return {
+    mode: 'production',
+    build: {
+      target: 'modules',
+      minify: false, // 压缩
+      emptyOutDir: false,
+      chunkSizeWarningLimit: 2, // 超过 2kb 警告提示
+      reportCompressedSize: false,
+      outDir: resolve(__dirname, 'dist/es'),
+      rollupOptions: {
+        external: ['vue'], // 忽略打包vue文件
+        input,
+        output: [
+          {
+            format: 'es',
+            dir: 'dist/es',
+            entryFileNames: '[name].js',
+            preserveModules: true, // 让打包目录和我们目录对应
+            preserveModulesRoot: 'components' // 配置打包根目录
+          }
+        ]
+      },
+      lib: {
+        entry: input,
+        formats: ['es']
+      },
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true
+        }
+      }
+    },
     plugins: [
       vueSetupExtend(),
       vue(),
@@ -20,35 +57,6 @@ export default (): UserConfigExport => {
       Components({
         dts: resolve(__dirname, '/packages/fighting-components/components.d.ts')
       })
-    ],
-    build: {
-      chunkSizeWarningLimit: 2, // 超过 2kb 警告提示
-      reportCompressedSize: false,
-      outDir: resolve(__dirname, 'dist/es'),
-      lib: {
-        entry: resolve(__dirname, 'packages/fighting-design/index.d.ts'),
-        formats: ['es'],
-        fileName: (target): string => {
-          return `index.${target}.js`
-        }
-      },
-      rollupOptions: {
-        external: ['vue'],
-        preserveModules: true,
-        output: {
-          format: 'es',
-          globals: {
-            vue: 'Vue'
-          }
-        }
-      },
-      terserOptions: {
-        // 打包取消 console 和 debugger
-        compress: {
-          drop_console: true,
-          drop_debugger: true
-        }
-      }
-    }
+    ]
   }
 }

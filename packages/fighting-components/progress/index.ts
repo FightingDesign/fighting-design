@@ -1,7 +1,7 @@
 import FProgress from './src/progress.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FProgress, FProgress.name)
 
-export { FProgress }
+export default FProgress

@@ -1,7 +1,7 @@
 import FMain from './src/main.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FMain, FMain.name)
 
-export { FMain }
+export default FMain

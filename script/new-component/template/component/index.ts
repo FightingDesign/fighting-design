@@ -1,6 +1,6 @@
 import <%= displayName %> from './src/<%= name %>.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(<%= displayName %>, <%= displayName %>.name)
 

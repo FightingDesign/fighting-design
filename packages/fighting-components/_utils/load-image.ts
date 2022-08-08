@@ -4,7 +4,7 @@ import type {
   loadImageInterface,
   propsInterface,
   callbackInterface
-} from './type'
+} from '../_interface'
 
 /**
  * 图片加载
@@ -26,7 +26,9 @@ class Load implements LoadInterface {
     this.emit = emit
     this.callback = callback
   }
-  // 加载当前的 src 地址图片
+  /**
+   * 加载当前的 src 地址图片
+   */
   loadCreateImg = (): void => {
     this.img.src = this.props.src
 

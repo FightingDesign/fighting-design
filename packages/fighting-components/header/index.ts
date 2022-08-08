@@ -1,7 +1,7 @@
 import FHeader from './src/header.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FHeader, FHeader.name)
 
-export { FHeader }
+export default FHeader

@@ -1,9 +1,9 @@
 import FMessage from './src/method'
 
-import { installFn } from '@fighting-design/fighting-utils'
+import { installFn } from '../_utils'
 
 installFn(FMessage, 'FMessage')
 
-export { FMessage }
+export default FMessage
 
 export type { FMessageInstance } from './src/interface'

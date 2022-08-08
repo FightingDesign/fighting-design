@@ -1,7 +1,7 @@
 import FSwitch from './src/switch.vue'
 
-import { install } from '@fighting-design/fighting-utils'
+import { install } from '../_utils'
 
 install(FSwitch, FSwitch.name)
 
-export { FSwitch }
+export default FSwitch
