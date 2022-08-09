@@ -1,11 +1,11 @@
 /// <reference types="vitest" />
 
 import type { UserConfigExport } from 'vite'
-import Vue from '@vitejs/plugin-vue'
+import vue from '@vitejs/plugin-vue'
 
 export default (): UserConfigExport => {
   return {
-    plugins: [Vue()],
+    plugins: [vue()],
     test: {
       environment: 'happy-dom',
       exclude: ['**/script/**'],

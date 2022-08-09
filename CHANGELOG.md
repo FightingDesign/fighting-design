@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.5.1-bate.1 (2022-08-09)
+
+- 修复了打包类型相关的问题
+
 ## 0.5.0-bate.2 (2022-08-08)
 
 测试修复打包的错误信息
