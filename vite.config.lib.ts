@@ -24,7 +24,7 @@ export default (): UserConfigExport => {
     mode: 'production',
     build: {
       target: 'modules',
-      minify: false,
+      minify: true,
       chunkSizeWarningLimit: 2,
       reportCompressedSize: false,
       outDir: resolve(__dirname, 'dist/lib'),
@@ -39,8 +39,8 @@ export default (): UserConfigExport => {
         external: ['vue'],
         preserveModules: true,
         output: {
-          format: 'cjs',
-          preserveModules: true,
+          // format: 'cjs',
+          // preserveModules: true,
           globals: {
             vue: 'Vue'
           }

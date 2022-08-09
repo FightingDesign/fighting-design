@@ -5,7 +5,7 @@ import type { UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import { resolve } from 'path'
-import dts from 'vite-plugin-dts'
+import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
 
 export default (): UserConfigExport => {
   return {
@@ -24,7 +24,7 @@ export default (): UserConfigExport => {
     mode: 'production',
     build: {
       target: 'modules',
-      minify: false, // 压缩
+      minify: true, // 压缩
       chunkSizeWarningLimit: 2, // 超过 2kb 警告提示
       reportCompressedSize: false,
       outDir: resolve(__dirname, 'dist/es'),
