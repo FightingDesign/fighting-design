@@ -13,7 +13,6 @@
 如果想要新增组件，需要在 `fighting-components` 目录下新建一个`以组件名称`为名的文件夹，内部目录结构如下：
 
 ```
-├── components (其它相关组件 可选)
 ├── src
 |  ├── interface.d.ts
 |  ├── component.ts
