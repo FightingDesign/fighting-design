@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FDialog">
   import { Props, Emits } from './dialog'
-  import { FIcon } from '@fighting-design/fighting-components'
+  import FIcon from '../../icon'
   import type {
     transitionEventInterface as a,
     closeDialogInterface as b

@@ -1,17 +1,17 @@
 <script lang="ts" setup name="FPreviewList">
   import { ref, inject, toRefs } from 'vue'
-  import { FIcon } from '@fighting-design/fighting-components'
-  import { keepDecimal } from '../../_utils'
-  import { ImagePropsKey } from '../src/image'
+  import FIcon from '../icon'
+  import { keepDecimal } from '../_utils'
+  import { ImagePropsKey } from '../image/src/image'
   import type { Ref } from 'vue'
   import type {
     switchImageInterface as a,
     optionClickInterface as b,
     onImgMousewheelInterface as c,
     handleCloseInterface as d
-  } from '../src/interface'
-  import type { ordinaryFunctionInterface as e } from '../../button/src/interface'
-  import type { ImagePropsType as f } from '../src/image'
+  } from '../image/src/interface'
+  import type { ordinaryFunctionInterface as e } from '../button/src/interface'
+  import type { ImagePropsType as f } from '../image/src/image'
 
   const injectImageProps: f = inject(ImagePropsKey)!
   const emit = defineEmits({

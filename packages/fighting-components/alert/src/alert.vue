@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FAlert">
   import { Props, Emits } from './alert'
   import { computed, ref } from 'vue'
-  import { FIcon } from '@fighting-design/fighting-components'
+  import FIcon from '../../icon'
   import type { ComputedRef, CSSProperties, Ref } from 'vue'
   import type { handleCloseInterface as a } from './interface'
 

@@ -18,7 +18,10 @@ export default (): UserConfigExport => {
         copyDtsFiles: true // 是否将 .d.ts 源文件复制到 outputDir 中
       }),
       Components({
-        dts: resolve(__dirname, '/packages/fighting-components/components.d.ts')
+        dts: resolve(
+          __dirname,
+          '/packages/fighting-components/global-components.d.ts'
+        )
       })
     ],
     mode: 'production',

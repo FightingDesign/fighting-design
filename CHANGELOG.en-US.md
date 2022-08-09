@@ -4,6 +4,26 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.5.1-bate.4 (2022-08-09)
+
+- Test and fix the problem of path error introduced by packaging
+
+## 0.5.1-bate.3 (2022-08-09)
+
+- Test and fix the problem of path error introduced by packaging
+
+## 0.5.1-bate.2 (2022-08-09)
+
+- Test and fix the problem of path error introduced by packaging
+
+## 0.5.1-bate.1 (2022-08-09)
+
+- Fixed issues related to packaging type
+
+## 0.5.0-bate.2 (2022-08-08)
+
+- Fixed issues related to packaging type
+
 ## 0.5.0-bate.1 (2022-08-08)
 
 It mainly fixes the related configuration items of packaging. In the [previous version](<(https://github.com/FightingDesign/fighting-design/releases/tag/0.4.2-bate.9)>), if you need to import components on demand, there will be many abnormal error messages. This version is mainly optimized for packaging and has fixed the fatal error caused by on-demand import.

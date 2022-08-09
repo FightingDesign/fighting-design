@@ -2,7 +2,7 @@
   import { getCurrentInstance, inject, ref, toRefs } from 'vue'
   import { BreadcrumbPropsKey } from '../../breadcrumb/src/breadcrumb'
   import { Props } from './breadcrumb-item'
-  import { FIcon } from '@fighting-design/fighting-components'
+  import FIcon from '../../icon'
   import type { ComponentInternalInstance, Ref } from 'vue'
   import type { handleClickInterface as a } from './interface'
 

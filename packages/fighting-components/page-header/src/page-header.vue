@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FPageHeader">
-  import { FIcon } from '@fighting-design/fighting-components'
+  import FIcon from '../../icon'
   import { Props, Emits } from './page-header'
   import type { ordinaryFunctionInterface as a } from '../../button/src/interface'
 

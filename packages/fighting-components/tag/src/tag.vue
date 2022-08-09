@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FTag">
   import { Props, Emits } from './tag'
   import { computed, ref } from 'vue'
-  import { FIcon } from '@fighting-design/fighting-components'
+  import FIcon from '../../icon'
   import type { handleCloseInterface as a } from './interface'
   import type { ComputedRef, Ref } from 'vue'
 

@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FImage">
-  import FPreviewList from '../components/preview-list.vue'
+  import FPreviewList from '../../_components/preview-list.vue'
   import { Props, Emits, ImagePropsKey } from './image'
   import { onMounted, ref, provide } from 'vue'
   import { loadImage } from '../../_utils'

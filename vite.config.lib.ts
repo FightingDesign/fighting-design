@@ -18,7 +18,10 @@ export default (): UserConfigExport => {
         copyDtsFiles: true
       }),
       Components({
-        dts: resolve(__dirname, '/packages/fighting-components/components.d.ts')
+        dts: resolve(
+          __dirname,
+          '/packages/fighting-components/global-components.d.ts'
+        )
       })
     ],
     mode: 'production',
@@ -39,8 +42,8 @@ export default (): UserConfigExport => {
         external: ['vue'],
         preserveModules: true,
         output: {
-          // format: 'cjs',
-          // preserveModules: true,
+          format: 'cjs',
+          preserveModules: true,
           globals: {
             vue: 'Vue'
           }

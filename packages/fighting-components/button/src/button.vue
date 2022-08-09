@@ -2,7 +2,7 @@
   import { computed, ref, onMounted } from 'vue'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor } from '../../_utils'
-  import { FIcon } from '@fighting-design/fighting-components'
+  import FIcon from '../../icon'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
     onClickInterface as a,

@@ -2,7 +2,7 @@
   import { Props, Emits } from './avatar'
   import { computed, ref, onMounted } from 'vue'
   import { loadImage, isNumber, isString } from '../../_utils'
-  import { FIcon } from '@fighting-design/fighting-components'
+  import FIcon from '../../icon'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
