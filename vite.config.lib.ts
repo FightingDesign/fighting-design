@@ -13,19 +13,26 @@ export default (): UserConfigExport => {
       vueSetupExtend(),
       vue(),
       dts({
+        insertTypesEntry: false,
+        cleanVueFileName: true,
         copyDtsFiles: true
       }),
       Components({
         dts: resolve(__dirname, '/packages/fighting-components/components.d.ts')
       })
     ],
+    mode: 'production',
     build: {
+      target: 'modules',
+      minify: false,
+      chunkSizeWarningLimit: 2,
+      reportCompressedSize: false,
       outDir: resolve(__dirname, 'dist/lib'),
       lib: {
         entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
         formats: ['cjs'],
-        fileName: (target): string => {
-          return `index.${target}.js`
+        fileName: (): string => {
+          return 'index.js'
         }
       },
       rollupOptions: {
@@ -33,6 +40,7 @@ export default (): UserConfigExport => {
         preserveModules: true,
         output: {
           format: 'cjs',
+          preserveModules: true,
           globals: {
             vue: 'Vue'
           }

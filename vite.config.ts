@@ -13,21 +13,26 @@ export default (): UserConfigExport => {
       vueSetupExtend(),
       vue(),
       dts({
+        insertTypesEntry: false,
+        cleanVueFileName: true,
         copyDtsFiles: true // 是否将 .d.ts 源文件复制到 outputDir 中
       }),
       Components({
         dts: resolve(__dirname, '/packages/fighting-components/components.d.ts')
       })
     ],
+    mode: 'production',
     build: {
+      target: 'modules',
+      minify: false, // 压缩
       chunkSizeWarningLimit: 2, // 超过 2kb 警告提示
       reportCompressedSize: false,
       outDir: resolve(__dirname, 'dist/es'),
       lib: {
         entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
         formats: ['es'],
-        fileName: (target): string => {
-          return `index.${target}.js`
+        fileName: (): string => {
+          return 'index.js'
         }
       },
       rollupOptions: {
@@ -35,6 +40,7 @@ export default (): UserConfigExport => {
         preserveModules: true,
         output: {
           format: 'es',
+          preserveModules: true, // 让打包目录和目录对应
           globals: {
             vue: 'Vue'
           }
