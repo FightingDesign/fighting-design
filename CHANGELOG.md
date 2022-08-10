@@ -2,6 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.5.1-bate.5 (2022-08-10)
+
+- `F-alert` 样式引入
+- `F-text` 细节样式优化
+- 加入版本号导出
+- 更新 prop 的类型
+
 ## 0.5.1-bate.4 (2022-08-09)
 
 - 测试修复打包引入路径错误的问题

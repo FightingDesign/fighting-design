@@ -4,6 +4,13 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.5.1-bate.5 (2022-08-10)
+
+- `F-alert` style Introduction
+- `F-text` detail style optimization
+- Add version number export
+- Update the type of prop
+
 ## 0.5.1-bate.4 (2022-08-09)
 
 - Test and fix the problem of path error introduced by packaging

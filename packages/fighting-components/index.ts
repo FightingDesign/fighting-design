@@ -17,5 +17,6 @@ const install = (app: App): void => {
 }
 
 export default {
+  version: '0.5.1-bate.5',
   install
 }
