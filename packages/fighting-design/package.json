@@ -10,8 +10,14 @@
     "components",
     "ui"
   ],
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "module": "es/index.es.mjs",
+  "main": "lib/index.cjs.js",
+  "unpkg": "dist/index.umd.js",
+  "style": "dist/style.css",
+  "sideEffects": [
+    "dist/*",
+    "theme/*.css"
+  ],
   "author": {
     "name": "tyh2001",
     "url": "https://tianyuhao.cn"
