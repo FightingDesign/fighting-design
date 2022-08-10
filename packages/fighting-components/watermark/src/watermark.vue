@@ -4,8 +4,9 @@
   import { ref, onMounted } from 'vue'
   import type { Ref, CSSProperties } from 'vue'
   import type { CSSPropertiesInterface as a } from './interface'
+  import type { FPropsType } from './watermark'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
 
   const watermarkStyleList: Ref<CSSProperties> = ref<CSSProperties>(
     null as unknown as CSSProperties

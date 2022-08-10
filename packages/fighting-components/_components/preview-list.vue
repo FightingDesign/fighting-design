@@ -10,10 +10,10 @@
     onImgMousewheelInterface as c,
     handleCloseInterface as d
   } from '../image/src/interface'
-  import type { ordinaryFunctionInterface as e } from '../button/src/interface'
-  import type { ImagePropsType as f } from '../image/src/image'
+  import type { ordinaryFunctionInterface as e } from '../_interface'
+  import type { FPropsType } from '../image/src/image'
 
-  const injectImageProps: f = inject(ImagePropsKey)!
+  const injectImageProps: FPropsType = inject(ImagePropsKey)!
   const emit = defineEmits({
     close: (evt: MouseEvent): MouseEvent => evt
   })

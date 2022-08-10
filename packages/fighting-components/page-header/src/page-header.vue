@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FPageHeader">
   import FIcon from '../../icon'
   import { Props, Emits } from './page-header'
-  import type { ordinaryFunctionInterface as a } from '../../button/src/interface'
+  import type { ordinaryFunctionInterface as a } from '../../_interface'
 
   defineProps(Props)
   const emit = defineEmits(Emits)

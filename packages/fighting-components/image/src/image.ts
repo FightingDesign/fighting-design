@@ -108,7 +108,6 @@ export const Emits = {
   error: (evt: Event): boolean => evt instanceof Event
 } as const
 
-export type ImagePropsType = ExtractPropTypes<typeof Props>
+export type FPropsType = ExtractPropTypes<typeof Props>
 
-export const ImagePropsKey: InjectionKey<ImagePropsType> =
-  Symbol('ImagePropsKey')
+export const ImagePropsKey: InjectionKey<FPropsType> = Symbol('ImagePropsKey')

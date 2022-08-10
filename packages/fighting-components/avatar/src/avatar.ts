@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { avatarFit, avatarSize } from './interface'
 
 export const Props = {
@@ -73,3 +73,5 @@ export const Emits = {
   load: (evt: Event): boolean => evt instanceof Event,
   error: (evt: Event): boolean => evt instanceof Event
 } as const
+
+export type FPropsType = ExtractPropTypes<typeof Props>

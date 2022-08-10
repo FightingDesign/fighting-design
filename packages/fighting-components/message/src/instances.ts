@@ -19,7 +19,7 @@ export const getSiblingOffset = (
   id: string,
   isNext: boolean
 ): number => {
-  const idx = getInstanceIndex(placement, id)
+  const idx: number = getInstanceIndex(placement, id)
   if (idx === -1) return 0
   const beforeInstance: FMessageInstance =
     instances[placement]![isNext ? idx + 1 : idx - 1] || null

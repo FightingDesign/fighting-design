@@ -2,7 +2,7 @@
   import { ref } from 'vue'
   import { pastTime } from '../../_utils'
   import type { Ref } from 'vue'
-  import type { ordinaryFunctionInterface as a } from '../../button/src/interface'
+  import type { ordinaryFunctionInterface as a } from '../../_interface'
 
   const time: Ref<string> = ref<string>('')
   const start = '2019-12-16' as const

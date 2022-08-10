@@ -16,3 +16,4 @@ export type {
 } from './utils'
 export type { changeColorInterface } from './change-color'
 export type { createBase64Interface } from './watermark'
+export type { ordinaryFunctionInterface } from './auto'

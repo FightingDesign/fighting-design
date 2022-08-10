@@ -1,4 +1,4 @@
-import type { VNode, PropType } from 'vue'
+import type { VNode, PropType, ExtractPropTypes } from 'vue'
 
 export const messageTypes = [
   'default',
@@ -87,3 +87,5 @@ export const Props = {
 } as const
 
 export const Emits = ['destroy']
+
+export type FPropsType = ExtractPropTypes<typeof Props>

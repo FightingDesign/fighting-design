@@ -1,39 +1,30 @@
 .f-breadcrumb {
   position: relative;
-  display: inline-block;
-  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
   font-size: 15px;
-  line-height: 1;
   user-select: none;
+}
 
-  &-item__separator {
-    margin: 0 9px;
-    font-weight: bold;
+.f-breadcrumb-item {
+  display: flex;
+  align-items: center;
+  cursor: default;
 
-    &-icon {
-      margin: 0 6px;
-      font-weight: normal;
-    }
+  .f-breadcrumb-item-inner {
+    color: #333;
   }
 
-  &-item {
-    float: left;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  .f-breadcrumb-item-separator {
+    color: #acacac;
+    margin: 0 9px;
+    font-weight: bold;
+  }
 
-    .f-breadcrumb-item__inner {
-      color: #333;
-    }
-
-    .f-breadcrumb-item__separator {
-      color: #acacac;
-    }
-
-    &:last-child {
-      .f-breadcrumb-item__separator {
-        display: none;
-      }
+  // 最后一个分隔符隐藏
+  &:last-child {
+    .f-breadcrumb-item-separator {
+      display: none;
     }
   }
 }

@@ -1,3 +1,5 @@
+import type { ExtractPropTypes } from 'vue'
+
 export const Props = {
   content: {
     type: String,
@@ -32,3 +34,5 @@ export const Props = {
     default: (): number => 100
   }
 } as const
+
+export type FPropsType = ExtractPropTypes<typeof Props>

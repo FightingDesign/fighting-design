@@ -8,7 +8,10 @@ export class ChangeColor implements changeColorInterface {
   constructor (color: string) {
     this.color = color
   }
-  // 将 hex 色号转换为 rgb
+  /**
+   * 将 hex 色号转换为 rgb
+   * @returns
+   */
   hexToRgb = (): Array<string> | void => {
     const r = /^\#?[0-9A-Fa-f]{6}$/
     if (!r.test(this.color)) {
@@ -21,7 +24,11 @@ export class ChangeColor implements changeColorInterface {
     }
     return hxs
   }
-  // 将 rgb 色号转换为 hex
+  /**
+   * 将 rgb 色号转换为 hex
+   * @param rgb rgb 色号
+   * @returns
+   */
   rgbToHex = (...rgb: Array<string>): string => {
     const hex: Array<string> = [...rgb]
     for (let i = 0; i < hex.length; i++) {
@@ -31,7 +38,11 @@ export class ChangeColor implements changeColorInterface {
     }
     return '#' + hex.join('')
   }
-  // 加深颜色
+  /**
+   * 加深颜色
+   * @param level 加深程度
+   * @returns
+   */
   getDarkColor = (level: number): string => {
     const rgb: Array<string> = this.hexToRgb() as Array<string>
     for (let i = 0; i < rgb.length; i++) {
@@ -39,7 +50,11 @@ export class ChangeColor implements changeColorInterface {
     }
     return this.rgbToHex(...rgb)
   }
-  // 减淡颜色
+  /**
+   * 减淡颜色
+   * @param level 减淡程度
+   * @returns
+   */
   getLightColor = (level: number): string => {
     const rgb: Array<string> = this.hexToRgb() as Array<string>
     for (let i = 0; i < rgb.length; i++) {

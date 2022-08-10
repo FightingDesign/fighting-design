@@ -2,8 +2,9 @@
   import { useSlots, computed } from 'vue'
   import { Props } from './divider'
   import type { ComputedRef, CSSProperties } from 'vue'
+  import type { FPropsType } from './divider'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
 
   const renderSlot: ComputedRef<boolean> = computed((): boolean => {
     return !prop.vertical && Boolean(useSlots().default)

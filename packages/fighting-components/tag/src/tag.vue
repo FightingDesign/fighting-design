@@ -4,8 +4,9 @@
   import FIcon from '../../icon'
   import type { handleCloseInterface as a } from './interface'
   import type { ComputedRef, Ref } from 'vue'
+  import type { FPropsType } from './tag'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const isShow: Ref<boolean> = ref<boolean>(true)

@@ -15,11 +15,15 @@ export const Props = {
   },
   separatorColor: {
     type: String,
-    default: (): string => 'gray'
+    default: (): string => ''
+  },
+  fontSize: {
+    type: String,
+    default: (): string => ''
   }
-}
+} as const
 
-type BreadcrumbProps = ExtractPropTypes<typeof Props>
+export type FPropsType = ExtractPropTypes<typeof Props>
 
-export const BreadcrumbPropsKey: InjectionKey<BreadcrumbProps> =
+export const BreadcrumbPropsKey: InjectionKey<FPropsType> =
   Symbol('BreadcrumbPropsKey')

@@ -4,8 +4,9 @@
   import { loadImage, isNumber, isString } from '../../_utils'
   import FIcon from '../../icon'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
+  import type { FPropsType } from './avatar'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const FAvatarImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(

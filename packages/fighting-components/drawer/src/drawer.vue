@@ -6,8 +6,9 @@
     transitionEventInterface,
     handleCloseInterface
   } from './interface'
+  import type { FPropsType } from './drawer'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const drawerStyle: ComputedRef<CSSProperties> = computed(

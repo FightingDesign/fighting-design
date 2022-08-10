@@ -2,8 +2,9 @@
   import type { ComputedRef, CSSProperties } from 'vue'
   import { provide, computed } from 'vue'
   import { Props, listPropsKey } from './list'
+  import type { FPropsType } from './list'
 
-  const props = defineProps(Props)
+  const props: FPropsType = defineProps(Props)
 
   provide(listPropsKey, props)
 

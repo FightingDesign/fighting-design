@@ -1,4 +1,4 @@
-import type { PropType, CSSProperties } from 'vue'
+import type { PropType, CSSProperties, ExtractPropTypes } from 'vue'
 import type { alertType, fixedStyleInterface, overflowType } from './interface'
 
 export const Props = {
@@ -62,7 +62,6 @@ export const Props = {
       if (val.bottom || val.left || val.right || val.top) {
         return true
       }
-      console.warn('fighting-design (Alert): fixed-style parameter error')
       return false
     }
   },
@@ -78,3 +77,5 @@ export const Props = {
 export const Emits = {
   'close-end': (evt: MouseEvent): MouseEvent => evt
 } as const
+
+export type FPropsType = ExtractPropTypes<typeof Props>

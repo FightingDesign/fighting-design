@@ -7,10 +7,10 @@
 
 ## 基本使用
 
-在 `f-breadcrumb` 中使用 `f-breadcrumb-item` 标签表示从首页开始的多级导航，`f-breadcrumb` 组件接收一个 `String` 类型的参数 `separator` 来作为分隔符，当前默认为`/`
+`f-breadcrumb` 的基本使用
 
-<f-breadcrumb separator="/">
-  <f-breadcrumb-item :to="{ path: '/' }">首页</f-breadcrumb-item>
+<f-breadcrumb>
+  <f-breadcrumb-item>首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
 </f-breadcrumb>
@@ -18,8 +18,8 @@
 ::: details 显示代码
 
 ```html
-<f-breadcrumb separator="/">
-  <f-breadcrumb-item :to="{ path: '/' }">首页</f-breadcrumb-item>
+<f-breadcrumb>
+  <f-breadcrumb-item>首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
 </f-breadcrumb>
@@ -27,12 +27,14 @@
 
 :::
 
-## 自定义分隔符、页面导航颜色
+## 自定义样式
 
-`f-breadcrumb` 组件接收一个 `String` 类型的参数 `separatorColor` 来作为分隔符颜色，默认为`gray`。`f-breadcrumb` 组件接收一个 `String` 类型的参数 `itemColor` 来作为页面导航颜色，默认为`gray`
+`separator-color` 可以自定义隔符颜色
 
-<f-breadcrumb separator="/" separatorColor="blue" itemColor="blue">
-  <f-breadcrumb-item :to="{ path: '/' }">首页</f-breadcrumb-item>
+`item-color` 可以配置导航文字颜色
+
+<f-breadcrumb separator-color="#333" item-color="blue">
+  <f-breadcrumb-item>首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
 </f-breadcrumb>
@@ -40,8 +42,8 @@
 ::: details 显示代码
 
 ```html
-<f-breadcrumb separator="/" separatorColor="blue" itemColor="blue">
-  <f-breadcrumb-item :to="{ path: '/' }">首页</f-breadcrumb-item>
+<f-breadcrumb separator-color="#333" item-color="blue">
+  <f-breadcrumb-item>首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
 </f-breadcrumb>
@@ -51,10 +53,10 @@
 
 ## 自定义分隔符
 
-`f-breadcrumb` 组件接收一个 `String` 类型的 `icon` 参数 `separator-icon` 来作为分隔符。
+`separator-icon` 属性可以自定义分隔符
 
 <f-breadcrumb separator-icon="f-icon-arrow-right">
-  <f-breadcrumb-item :to="{ path: '/' }">首页</f-breadcrumb-item>
+  <f-breadcrumb-item>首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
 </f-breadcrumb>
@@ -63,7 +65,7 @@
 
 ```html
 <f-breadcrumb separator-icon="f-icon-arrow-right">
-  <f-breadcrumb-item :to="{ path: '/' }">首页</f-breadcrumb-item>
+  <f-breadcrumb-item>首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
 </f-breadcrumb>
@@ -73,10 +75,12 @@
 
 ## 自定展示 icon
 
-`f-breadcrumb-item` 组件内可以添加`icon`作为导航名。
+`f-breadcrumb-item` 组件内可以添加 `icon` 作为导航名。
 
-<f-breadcrumb separator="/">
-  <f-breadcrumb-item :to="{ path: '/' }"><f-icon size="16px" icon="f-icon-collection"/></f-breadcrumb-item>
+<f-breadcrumb>
+  <f-breadcrumb-item>
+    <f-icon size="16px" icon="f-icon-collection" />
+  </f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
 </f-breadcrumb>
@@ -84,19 +88,35 @@
 ::: details 显示代码
 
 ```html
-<template>
-  <f-breadcrumb separator="/">
-    <f-breadcrumb-item :to="{ path: '/' }">
-      <f-icon size="16px" icon="f-icon-collection" />
-    </f-breadcrumb-item>
-    <f-breadcrumb-item>文章</f-breadcrumb-item>
-    <f-breadcrumb-item>列表</f-breadcrumb-item>
-  </f-breadcrumb>
-</template>
+<f-breadcrumb>
+  <f-breadcrumb-item>
+    <f-icon size="16px" icon="f-icon-collection" />
+  </f-breadcrumb-item>
+  <f-breadcrumb-item>文章</f-breadcrumb-item>
+  <f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
+```
 
-<script lang="ts" setup>
-  import { FIcon } from 'fighting-design'
-</script>
+:::
+
+## 自定义尺寸
+
+`font-size` 可以自定义你想要的文字大小
+
+<f-breadcrumb font-size="18px">
+  <f-breadcrumb-item>首页</f-breadcrumb-item>
+  <f-breadcrumb-item>文章</f-breadcrumb-item>
+  <f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
+
+::: details 显示代码
+
+```html
+<f-breadcrumb font-size="18px">
+  <f-breadcrumb-item>首页</f-breadcrumb-item>
+  <f-breadcrumb-item>文章</f-breadcrumb-item>
+  <f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
 ```
 
 :::
@@ -105,23 +125,17 @@
 
 | 属性              | 说明           | 类型     | 可选值 | 默认值 |
 | ----------------- | -------------- | -------- | ------ | ------ |
-| `separator`       | 分隔符         | `string` | ——     | ——     |
+| `separator`       | 分隔符         | `string` | ——     | /      |
 | `icon-separator`  | icon 分隔符    | `string` | ——     | ——     |
 | `separator-color` | 分隔符颜色     | `string` | ——     | ——     |
 | `item-color`      | 页面元素分隔符 | `string` | ——     | ——     |
+| `font-size`       | 自定义文字大小 | `string` | ——     | ——     |
 
 ## Breadcrumb Slots
 
-| 插槽名  | 自定义默认内容 | 子标签          |
-| ------- | -------------- | --------------- |
-| default | 自定义默认内容 | Breadcrumb Item |
-
-## Breadcrumb-item Attractive
-
-| 属性      | 说明                                            | 类型              | 可选值 | 默认值  |
-| --------- | ----------------------------------------------- | ----------------- | ------ | ------- |
-| `to`      | 路由跳转目标，类似 `vue-router` 的 `to`属性     | `string` `object` | —      | —       |
-| `replace` | 如果设置该属性为 `true`, 导航将不会留下历史记录 | `boolean`         | —      | `false` |
+| 插槽名  | 说明           |
+| ------- | -------------- |
+| default | 自定义默认内容 |
 
 ## Breadcrumb-item Slots
 
@@ -138,13 +152,3 @@
 <a href="https://github.com/onechuan" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/98402209?v=4" />
 </a>
-
-<style scoped>
-.f-button {
-  margin: 5px;
-}
-.f-button-group-vertical .f-button,
-.f-button-group .f-button {
-  margin: 0;
-}
-</style>

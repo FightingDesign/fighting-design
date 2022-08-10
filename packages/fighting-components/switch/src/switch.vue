@@ -2,10 +2,11 @@
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
   import FIcon from '../../icon'
-  import type { ordinaryFunctionInterface as a } from '../../button/src/interface'
+  import type { ordinaryFunctionInterface as a } from '../../_interface'
   import type { ComputedRef, CSSProperties } from 'vue'
+  import type { FPropsType } from './switch'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const changeSwitch: a = (): void => {

@@ -2,8 +2,9 @@
   import { Props } from './text'
   import { computed } from 'vue'
   import type { ComputedRef, CSSProperties } from 'vue'
+  import type { FPropsType } from './text'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {

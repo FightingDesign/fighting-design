@@ -2,8 +2,9 @@
   import { computed } from 'vue'
   import { Props } from './badge'
   import type { ComputedRef } from 'vue'
+  import type { FPropsType } from './badge'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
 
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {

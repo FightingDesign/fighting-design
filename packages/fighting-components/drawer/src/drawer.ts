@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { drawerDirectionType } from './interface'
 
 export const Props = {
@@ -51,3 +51,5 @@ export const Emits = {
   'open-end': (event: MouseEvent): MouseEvent => event,
   'close-end': (event: MouseEvent): MouseEvent => event
 } as const
+
+export type FPropsType = ExtractPropTypes<typeof Props>

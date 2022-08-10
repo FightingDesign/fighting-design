@@ -2,9 +2,11 @@
   import type { ComputedRef, CSSProperties } from 'vue'
   import { computed, inject } from 'vue'
   import { listPropsKey, Props } from '../../list/src/list'
+  import type { FPropsType } from './list-item'
+  import type { FPropsType as ListFPropsType } from '../../list/src/list'
 
-  const injectListProps = inject(listPropsKey)!
-  const prop = defineProps(Props)
+  const injectListProps: ListFPropsType = inject(listPropsKey)!
+  const prop: FPropsType = defineProps(Props)
 
   const listItemClass: ComputedRef<object | string[]> = computed(
     (): object | string[] => {

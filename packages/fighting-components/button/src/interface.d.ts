@@ -19,7 +19,3 @@ export type buttonEventInterface = PointerEvent & {
 export interface onClickInterface {
   (evt: buttonEventInterface): void
 }
-
-export interface ordinaryFunctionInterface {
-  (): void
-}

@@ -2,8 +2,9 @@
   import { Props, Emits } from './link'
   import FIcon from '../../icon'
   import type { handleClickInterface as a } from './interface'
+  import type { FPropsType } from './link'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const handleClick: a = (evt: Event): void => {

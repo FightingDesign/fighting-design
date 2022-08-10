@@ -5,9 +5,10 @@
   import { loadImage } from '../../_utils'
   import type { Ref } from 'vue'
   import type { callbackInterface as a } from './interface'
-  import type { ordinaryFunctionInterface as b } from '../../button/src/interface'
+  import type { ordinaryFunctionInterface as b } from '../../_interface'
+  import type { FPropsType } from './image'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   provide(ImagePropsKey, prop)

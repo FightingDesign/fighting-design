@@ -39,6 +39,11 @@ class Load implements LoadInterface {
       this.onload(evt)
     })
   }
+  /**
+   * 加载失败
+   * @param evt 事件对象
+   * @returns
+   */
   onerror = (evt: Event): void => {
     if (this.props.errSrc) {
       return this.loadNextImg()
@@ -48,13 +53,21 @@ class Load implements LoadInterface {
       this.callback(false, 0)
     }
   }
+  /**
+   * 加载图片
+   * @param evt 事件对象
+   */
   onload = (evt: Event): void => {
     this.emit('load', evt)
     if (this.callback) {
       this.callback(true, this.img.width)
     }
   }
-  // 如果加载 src 失败，则进入这里，加载 err-src 的图片地址
+  /**
+   * 尝试加载 err-src 的图片
+   *
+   * 如果加载 src 失败，则进入这里，加载 err-src 的图片地址
+   */
   loadNextImg = (): void => {
     const newImg: HTMLImageElement = new Image()
     newImg.src = this.props.errSrc
@@ -87,6 +100,10 @@ class Lazy extends Load implements LazyInterface {
   ) {
     super(img, props, emit, callback)
   }
+  /**
+   * 懒加载函数
+   * @returns
+   */
   observer = (): IntersectionObserver => {
     const observer: IntersectionObserver = new IntersectionObserver(
       (arr: Array<IntersectionObserverEntry>): void => {
@@ -107,6 +124,9 @@ class Lazy extends Load implements LazyInterface {
     )
     return observer
   }
+  /**
+   * 执行懒加载
+   */
   lazyCreateImg = (): void => {
     this.observer().observe(this.img)
   }
@@ -125,6 +145,10 @@ export const loadImage: loadImageInterface = (
   emit: Function,
   callback: callbackInterface | null
 ): void => {
+  /**
+   * 如果传入了 lazy 则执行懒加载类
+   * 否则执行正常加载类
+   */
   if (prop.lazy) {
     const lazy: Lazy = new Lazy(node, prop, emit, callback)
     return lazy.lazyCreateImg()

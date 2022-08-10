@@ -6,11 +6,12 @@
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
     onClickInterface as a,
-    ordinaryFunctionInterface as b,
     buttonEventInterface as c
   } from './interface'
+  import type { FPropsType } from './button'
+  import type { ordinaryFunctionInterface as b } from '../../_interface'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const FButton: Ref<HTMLButtonElement> = ref<HTMLButtonElement>(
