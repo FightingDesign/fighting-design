@@ -12,7 +12,7 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       dts({
-        insertTypesEntry: true,
+        insertTypesEntry: false,
         cleanVueFileName: true,
         copyDtsFiles: true
       }),
@@ -27,7 +27,7 @@ export default (): UserConfigExport => {
     mode: 'production',
     build: {
       target: 'modules',
-      minify: false,
+      minify: true,
       chunkSizeWarningLimit: 2,
       reportCompressedSize: false,
       emptyOutDir: false,

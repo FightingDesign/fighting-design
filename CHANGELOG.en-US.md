@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.0-bate.1 (2022-08-11)
+
+- Change the file name introduction method of the style sheet
+- Repair packaging configuration item
+
 ## 0.5.1-bate.5 (2022-08-10)
 
 - `F-alert` style Introduction

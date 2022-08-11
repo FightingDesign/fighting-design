@@ -12,7 +12,7 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       dts({
-        insertTypesEntry: true, // 是否生成类型声明入口
+        insertTypesEntry: false, // 是否生成类型声明入口
         cleanVueFileName: true, // 是否将 '.vue.d.ts' 文件名转换为 '.d.ts'
         copyDtsFiles: true // 是否将 .d.ts 源文件复制到 outputDir 中
       }),
@@ -27,7 +27,7 @@ export default (): UserConfigExport => {
     mode: 'production',
     build: {
       target: 'modules',
-      minify: false, // 压缩
+      minify: true, // 压缩
       chunkSizeWarningLimit: 2, // 超过 2kb 警告提示
       reportCompressedSize: false,
       emptyOutDir: false,

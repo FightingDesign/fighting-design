@@ -11,9 +11,9 @@
     "ui"
   ],
   "module": "es/index.es.mjs",
-  "main": "lib/index.es.d.ts",
+  "main": "lib/index.cjs.js",
   "unpkg": "dist/index.umd.js",
-  "style": "dist/index.css",
+  "style": "dist/style.css",
   "sideEffects": [
     "dist/*",
     "theme/*.css"

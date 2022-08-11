@@ -1,10 +1,10 @@
 import type { App } from 'vue'
 import * as components from './components'
 export * from './components'
-import FMessage from './message'
+// import FMessage from './message'
 
 const plugins = {
-  FMessage
+  FMessage: components.FMessage
 }
 
 const install = (app: App): void => {

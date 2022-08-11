@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.0-bate.1 (2022-08-11)
+
+- 改变样式表的文件名引入方式
+- 修复打包配置项
+
 ## 0.5.1-bate.5 (2022-08-10)
 
 - `F-alert` 样式引入

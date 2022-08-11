@@ -97,6 +97,7 @@ export type { FToolbarInstance } from './toolbar'
 export { default as FToolbarItem } from './toolbar-item'
 export type { FToolbarItemInstance } from './toolbar-item'
 
+export { default as FMessage } from './message'
 export type { FMessageInstance } from './message'
 
 export { default as FWatermark } from './watermark'
