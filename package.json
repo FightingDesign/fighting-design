@@ -34,6 +34,7 @@
     "@commitlint/cli": "^17.0.1",
     "@commitlint/config-conventional": "^17.0.0",
     "@fighting-design/fighting-components": "workspace:*",
+    "@fighting-design/fighting-icon": "workspace:*",
     "@fighting-design/fighting-theme": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/test-utils": "^2.0.0-rc.18",

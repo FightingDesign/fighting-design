@@ -8,6 +8,7 @@ importers:
       '@commitlint/config-conventional': ^17.0.0
       '@eslint-sets/eslint-config-vue3-ts': ^2.1.5
       '@fighting-design/fighting-components': workspace:*
+      '@fighting-design/fighting-icon': workspace:*
       '@fighting-design/fighting-theme': workspace:*
       '@juln/change-case': ^0.0.4
       '@types/node': ^17.0.42
@@ -37,6 +38,7 @@ importers:
       '@commitlint/cli': 17.0.3
       '@commitlint/config-conventional': 17.0.3
       '@fighting-design/fighting-components': link:packages/fighting-components
+      '@fighting-design/fighting-icon': link:packages/fighting-icon
       '@fighting-design/fighting-theme': link:packages/fighting-theme
       '@vitejs/plugin-vue': 3.0.1_vite@3.0.5+vue@3.2.37
       '@vue/test-utils': 2.0.2_vue@3.2.37
@@ -77,6 +79,9 @@ importers:
     specifiers: {}
 
   packages/fighting-design:
+    specifiers: {}
+
+  packages/fighting-icon:
     specifiers: {}
 
   packages/fighting-test:
@@ -4951,6 +4956,7 @@ packages:
     resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+    dev: false
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
