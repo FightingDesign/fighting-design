@@ -10,13 +10,13 @@ import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
 export default (): UserConfigExport => {
   return {
     plugins: [
-      vueSetupExtend(),
       vue(),
       dts({
-        insertTypesEntry: false,
-        cleanVueFileName: true,
+        insertTypesEntry: true, // 是否生成类型声明入口
+        cleanVueFileName: true, // 是否将 '.vue.d.ts' 文件名转换为 '.d.ts'
         copyDtsFiles: true // 是否将 .d.ts 源文件复制到 outputDir 中
       }),
+      vueSetupExtend(),
       Components({
         dts: resolve(
           __dirname,
@@ -27,9 +27,10 @@ export default (): UserConfigExport => {
     mode: 'production',
     build: {
       target: 'modules',
-      minify: true, // 压缩
+      minify: false, // 压缩
       chunkSizeWarningLimit: 2, // 超过 2kb 警告提示
       reportCompressedSize: false,
+      emptyOutDir: false,
       outDir: resolve(__dirname, 'dist/es'),
       lib: {
         entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
@@ -39,14 +40,9 @@ export default (): UserConfigExport => {
         }
       },
       rollupOptions: {
-        external: ['vue'],
-        preserveModules: true,
+        external: ['vue'], // 确保外部化处理那些你不想打包进库的依赖
         output: {
-          format: 'es',
-          preserveModules: true, // 让打包目录和目录对应
-          globals: {
-            vue: 'Vue'
-          }
+          preserveModules: true // 让打包目录和目录对应 https://rollupjs.org/guide/en/#outputpreservemodules
         }
       }
     }

@@ -10,13 +10,13 @@ import type { UserConfigExport } from 'vite'
 export default (): UserConfigExport => {
   return {
     plugins: [
-      vueSetupExtend(),
       vue(),
       dts({
-        insertTypesEntry: false,
+        insertTypesEntry: true,
         cleanVueFileName: true,
         copyDtsFiles: true
       }),
+      vueSetupExtend(),
       Components({
         dts: resolve(
           __dirname,
@@ -27,9 +27,10 @@ export default (): UserConfigExport => {
     mode: 'production',
     build: {
       target: 'modules',
-      minify: true,
+      minify: false,
       chunkSizeWarningLimit: 2,
       reportCompressedSize: false,
+      emptyOutDir: false,
       outDir: resolve(__dirname, 'dist/lib'),
       lib: {
         entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
@@ -40,13 +41,9 @@ export default (): UserConfigExport => {
       },
       rollupOptions: {
         external: ['vue'],
-        preserveModules: true,
         output: {
-          format: 'cjs',
-          preserveModules: true,
-          globals: {
-            vue: 'Vue'
-          }
+          preserveModules: true
+          // exports: 'named'
         }
       }
     }

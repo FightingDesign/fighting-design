@@ -17,7 +17,6 @@ declare module 'vue' {
     FBadge: typeof import('./badge/src/badge.vue')
     FAvatar: typeof import('./avatar/src/avatar.vue')
     FBackTop: typeof import('./back-top/src/back-top.vue')
-    FBreadcrumbItem: typeof import('./breadcrumb-item/src/breadcrumb-item.vue')
     FBreadcrumb: typeof import('./breadcrumb/src/breadcrumb.vue')
     FText: typeof import('./text/src/text.vue')
     FLoading: typeof import('./loading/src/loading.vue')

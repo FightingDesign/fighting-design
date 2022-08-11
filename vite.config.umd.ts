@@ -7,6 +7,7 @@ export default (): UserConfigExport => {
   return {
     plugins: [vue(), vueSetupExtend()],
     build: {
+      emptyOutDir: false,
       outDir: resolve(__dirname, 'dist/dist'),
       lib: {
         entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
@@ -20,6 +21,7 @@ export default (): UserConfigExport => {
         external: ['vue'],
         output: {
           format: 'umd',
+          // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
           globals: {
             vue: 'Vue'
           }

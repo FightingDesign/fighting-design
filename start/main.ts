@@ -6,9 +6,10 @@ import App from './src/App.vue'
 import '@fighting-design/fighting-theme'
 
 // 打包阶段引入
+// import FightingDesign from '../dist'
 import FightingDesign from '../dist'
 // import '../dist/dist/style.css'
 
-console.log(FightingDesign)
+console.log(typeof FightingDesign)
 
 createApp(App).use(FightingDesign).mount('#start')
