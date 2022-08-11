@@ -42,8 +42,8 @@ export default (): UserConfigExport => {
       rollupOptions: {
         external: ['vue'],
         output: {
-          preserveModules: true
-          // exports: 'named'
+          preserveModules: true,
+          exports: 'named' // https://rollupjs.org/guide/en/#outputexports
         }
       }
     }
