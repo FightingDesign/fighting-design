@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.0-bate.2 (2022-08-11)
+
+- 更新入口文件
+
 ## 0.6.0-bate.1 (2022-08-11)
 
 - 改变样式表的文件名引入方式
