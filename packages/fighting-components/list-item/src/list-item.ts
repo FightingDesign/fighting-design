@@ -1,7 +1,11 @@
 import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
-  maxHeight: {
+  background: {
+    type: String,
+    default: (): string => ''
+  },
+  color: {
     type: String,
     default: (): string => ''
   }

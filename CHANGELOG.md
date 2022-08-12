@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 优化 `f-list` 组件
+
 ## 0.6.0-bate.2 (2022-08-11)
 
 - 更新入口文件

@@ -1,11 +1,20 @@
-<script lang="ts" setup>
-  // import { FMessage } from '../../dist'
-  import { FIconAiming } from '@fighting-design/fighting-icon'
-</script>
+<script lang="ts" setup></script>
+
+<style>
+  .f-list {
+    margin: 30px;
+  }
+</style>
 
 <template>
-  <f-button href="https://tianyuhao.cn" target="_blank">123</f-button>
-  <FIconAiming fill="red" theme="outline" />
-
-  <aiming theme="outline" size="24" fill="#333" />
+  <br />
+  <br />
+  <br />
+  <f-list>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+  </f-list>
 </template>

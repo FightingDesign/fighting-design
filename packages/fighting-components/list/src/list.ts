@@ -2,19 +2,11 @@ import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { listSize } from './interface'
 
 export const Props = {
-  showNum: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  showDisc: {
-    type: Boolean,
-    default: (): boolean => false
+  listStyle: {
+    type: String,
+    default: (): string => ''
   },
   zebra: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  single: {
     type: Boolean,
     default: (): boolean => false
   },
@@ -22,23 +14,19 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  hoverShow: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  importantList: {
-    type: Array as PropType<number[]>,
-    default: (): number[] => []
-  },
+  // hoverBright: {
+  //   type: Boolean,
+  //   default: (): boolean => false
+  // },
+  // important: {
+  //   type: Array as PropType<number[]>,
+  //   default: (): number[] => []
+  // },
   textColor: {
     type: String,
     default: (): string => ''
   },
   borderColor: {
-    type: String,
-    default: (): string => ''
-  },
-  background: {
     type: String,
     default: (): string => ''
   },
@@ -48,10 +36,6 @@ export const Props = {
     validator: (val: listSize): boolean => {
       return (['large', 'middle', 'small'] as const).includes(val)
     }
-  },
-  split: {
-    type: Boolean,
-    default: (): boolean => false
   },
   maxHeight: {
     type: String,
