@@ -1,0 +1,24 @@
+<div style="width: 50vw; margin: 0 auto; border: 1px solid red;">
+    <!-- <f-empty></f-empty> -->
+    <!-- <f-empty content="测试"></f-empty> -->
+    <!-- <f-empty image-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fediterupload.eepw.com.cn%2F201907%2F1564455304668232.png&refer=http%3A%2F%2Fediterupload.eepw.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1662824257&t=3ec712105780e95af2a2b4b4bcd1af75"></f-empty> -->
+    <!-- <f-empty image-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fediterupload.eepw.com.cn%2F201907%2F1564455304668232.png&refer=http%3A%2F%2Fediterupload.eepw.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1662824257&t=3ec712105780e95af2a2b4b4bcd1af75">
+      <template #footer>自定义页脚</template>
+    </f-empty> -->
+    <!-- <f-empty image-src="https://t7.baidu.com/it/u=1956604245,3662848045&fm=193&f=GIF" image-size="90%">
+      <template #footer>自定义页脚</template>
+    </f-empty> -->
+    <!-- <f-empty :styleList="{ backgroundColor: '#3879AF', width: '90%', margin: '0 auto' }"></f-empty> -->
+    <!-- <f-empty background="#489EE2"></f-empty> -->
+    <!-- <f-empty contentColor="red"></f-empty> -->
+    <!-- <f-empty background="#489EE2" contentColor="orange"></f-empty> -->
+    <!-- <f-empty contentSize="30px"></f-empty> -->
+    <!-- <f-empty>
+      <template #footer>自定义页脚</template>
+    </f-empty> -->
+    <f-empty>
+      <template #image>
+        <img src="https://t7.baidu.com/it/u=1956604245,3662848045&fm=193&f=GIF" />
+      </template>
+    </f-empty>
+  </div>

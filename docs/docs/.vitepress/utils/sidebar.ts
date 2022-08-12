@@ -54,7 +54,8 @@ export const sidebar = {
         { text: 'Tag 标签', link: '/components/tag' },
         { text: 'Switch 开关', link: '/components/switch' },
         { text: 'Avatar 头像', link: '/components/avatar' },
-        { text: 'Progress 进度条', link: '/components/progress' }
+        { text: 'Progress 进度条', link: '/components/progress' },
+        { text: 'Empty 空状态', link: '/components/empty' }
       ]
     },
     {

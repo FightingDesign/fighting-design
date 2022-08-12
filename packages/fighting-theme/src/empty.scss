@@ -1,0 +1,31 @@
+.f-empty {
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    & .f-empty-pic-wrap {
+        // width: 100%;
+        text-align: center;
+
+        img {
+            width: 200px;
+        }
+
+        & svg {
+            width: 100%;
+        }
+    }
+
+    & .f-empty-desc {
+        margin: 10px 0px;
+        color: #7F7F7F;
+        font-weight: 500;
+    }
+
+    & .f-empty-footer {
+        margin: 10px 0px;
+    }
+}
