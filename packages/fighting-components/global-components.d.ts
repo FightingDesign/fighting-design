@@ -31,6 +31,7 @@ declare module 'vue' {
     FToolbar: typeof import('./toolbar/src/toolbar.vue')
     FToolbarItem: typeof import('./toolbar-item/src/toolbar-item.vue')
     FWatermark: typeof import('./watermark/src/watermark.vue')
+    FEmpty: typeof import('./empty/src/empty.vue')
   }
 }
 

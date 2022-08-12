@@ -102,3 +102,6 @@ export type { FMessageInstance } from './message'
 
 export { default as FWatermark } from './watermark'
 export type { FWatermarkInstance } from './watermark'
+
+export { default as FEmpty } from './empty'
+export type { FEmptyInstance } from './empty'
