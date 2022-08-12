@@ -26,7 +26,7 @@
 <template>
   <div class="f-list-item" :style="listItemStyleList">
     <li class="f-list-item-li">
-      <slot name="option" />
+      <!-- <slot name="option" /> -->
       <slot />
     </li>
   </div>

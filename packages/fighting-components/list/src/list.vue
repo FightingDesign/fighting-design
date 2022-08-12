@@ -37,8 +37,8 @@
 
 <template>
   <ul :class="listClass" :style="listStyle">
-    <slot name="header" />
+    <!-- <slot name="header" /> -->
     <slot />
-    <slot name="footer" />
+    <!-- <slot name="footer" /> -->
   </ul>
 </template>
