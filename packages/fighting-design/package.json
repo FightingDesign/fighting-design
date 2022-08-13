@@ -13,7 +13,7 @@
   "module": "es/index.es.mjs",
   "main": "lib/index.d.ts",
   "unpkg": "dist/index.umd.js",
-  "style": "dist/style.css",
+  "style": "dist/index.css",
   "sideEffects": [
     "dist/*",
     "theme/*.css"
