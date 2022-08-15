@@ -1,12 +1,5 @@
 export const Props = {
   /**
-   * 自定义图片尺寸
-   */
-  imageSize: {
-    type: String,
-    default: (): string => ''
-  },
-  /**
    * 展示的内容
    */
   content: {
@@ -14,14 +7,14 @@ export const Props = {
     default: (): string => ''
   },
   /**
-   * 展示的内容文字大小
+   * 内容文字大小
    */
   contentSize: {
     type: String,
     default: (): string => ''
   },
   /**
-   * 展示的内容文字颜色
+   * 内容文字颜色
    */
   contentColor: {
     type: String,
@@ -35,9 +28,9 @@ export const Props = {
     default: (): string => ''
   },
   /**
-   * 自定义样式对象
+   * 自定义图片尺寸
    */
-  styleList: {
+  imageSize: {
     type: String,
     default: (): string => ''
   },
@@ -47,6 +40,15 @@ export const Props = {
   background: {
     type: String,
     default: (): string => ''
+  },
+  /**
+   * 自定义样式
+   */
+  styleList: {
+    type: Object,
+    default: (): Object => {
+      return {}
+    }
   }
 } as const
 
