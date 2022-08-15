@@ -3,6 +3,7 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - 优化 `f-list` 组件
+- 修复 `f-card` 组件样式细节
 
 ## 0.6.0-bate.2 (2022-08-11)
 
