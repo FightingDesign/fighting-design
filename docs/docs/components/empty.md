@@ -21,7 +21,7 @@
 
 ## 内容文字大小
 
-`content-size` 属性可以配置 `empty` 内容的字体大小 
+`content-size` 属性可以配置 `empty` 内容的字体大小
 
 `content-size` 必须写入指定的数值和单位才可以正常工作
 
@@ -58,7 +58,9 @@
 ::: details 显示代码
 
 ```html
-<f-empty image-src="https://camo.githubusercontent.com/378572976169bd8157f335be2b2e26096431df2a71cc8776734e578e23bc8ab2/68747470733a2f2f7469616e797568616f2e636e2f696d616765732f6669676874696e672d64657369676e2f4669676874696e6744657369676e2e737667"></f-empty>
+<f-empty
+  image-src="https://camo.githubusercontent.com/378572976169bd8157f335be2b2e26096431df2a71cc8776734e578e23bc8ab2/68747470733a2f2f7469616e797568616f2e636e2f696d616765732f6669676874696e672d64657369676e2f4669676874696e6744657369676e2e737667"
+></f-empty>
 ```
 
 :::
@@ -72,7 +74,10 @@
 ::: details 显示代码
 
 ```html
-<f-empty image-src="https://camo.githubusercontent.com/378572976169bd8157f335be2b2e26096431df2a71cc8776734e578e23bc8ab2/68747470733a2f2f7469616e797568616f2e636e2f696d616765732f6669676874696e672d64657369676e2f4669676874696e6744657369676e2e737667" image-size="90%"></f-empty>
+<f-empty
+  image-src="https://camo.githubusercontent.com/378572976169bd8157f335be2b2e26096431df2a71cc8776734e578e23bc8ab2/68747470733a2f2f7469616e797568616f2e636e2f696d616765732f6669676874696e672d64657369676e2f4669676874696e6744657369676e2e737667"
+  image-size="90%"
+></f-empty>
 ```
 
 :::
@@ -100,22 +105,24 @@
 ::: details 显示代码
 
 ```html
-<f-empty style-list="{ backgroundColor: '#3879AF', width: '90%', margin: '0 auto' }"></f-empty>
+<f-empty
+  style-list="{ backgroundColor: '#3879AF', width: '90%', margin: '0 auto' }"
+></f-empty>
 ```
 
 :::
 
 ## Attributes
 
-| 参数           | 说明     | 类型   | 可选值 | 默认值 |
-| -------------- | -------- | ------ | ------ | ------ |
-| `content`      | 展示的内容 | string | ——     | ——     |
-| `content-size` | 内容文字大小 | string | ——     | ——     |
-| `content-color`| 内容文字颜色 | string | ——     | ——     |
-| `image-src`    | 自定义图片地址 | string | ——     | ——     |
-| `image-size`   | 自定义图片尺寸 | string | ——     | ——     |
-| `background`   | 自定义背景色 | string | ——     | ——     |
-| `style-list`   | 自定义样式 | Object | ——     | ——     |
+| 参数            | 说明           | 类型   | 可选值 | 默认值 |
+| --------------- | -------------- | ------ | ------ | ------ |
+| `content`       | 展示的内容     | string | ——     | ——     |
+| `content-size`  | 内容文字大小   | string | ——     | ——     |
+| `content-color` | 内容文字颜色   | string | ——     | ——     |
+| `image-src`     | 自定义图片地址 | string | ——     | ——     |
+| `image-size`    | 自定义图片尺寸 | string | ——     | ——     |
+| `background`    | 自定义背景色   | string | ——     | ——     |
+| `style-list`    | 自定义样式     | Object | ——     | ——     |
 
 ## Slots
 
@@ -125,6 +132,10 @@
 | `image`  | 自定义图片     |
 
 ## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
 
 <a href="https://github.com/jardeng" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/19302222?v=4" />

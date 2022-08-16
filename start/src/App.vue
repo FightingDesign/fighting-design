@@ -1,21 +1,11 @@
 <script lang="ts" setup></script>
 
-<style>
-  .f-list {
-    margin: 30px;
-  }
-</style>
-
 <template>
-  <br />
-  <br />
-  <br />
-  <f-list>
-    <template v-slot:header> 这是表头信息 </template>
-    <f-list-item>这是一段文字</f-list-item>
-    <f-list-item>这是一段文字</f-list-item>
-    <f-list-item>这是一段文字</f-list-item>
-    <f-list-item>这是一段文字</f-list-item>
-    <f-list-item>这是一段文字</f-list-item>
-  </f-list>
+  <f-empty content="在这里，后续提供更多服务">
+    <template v-slot:footer>
+      <h1>这是一个页脚</h1>
+    </template>
+  </f-empty>
 </template>
+
+<style scoped></style>

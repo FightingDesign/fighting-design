@@ -2,24 +2,9 @@
   import { Props } from './empty'
   import { computed } from 'vue'
   import type { ComputedRef, CSSProperties } from 'vue'
+  import type { FPropsType } from './empty'
 
-  const prop = defineProps(Props)
-
-  const classList: ComputedRef<object | string[]> = computed(
-    (): object | string[] => {
-      return ['f-empty'] as const
-    }
-  )
-
-  const wrapStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { background } = prop
-
-      return {
-        backgroundColor: background
-      } as const
-    }
-  )
+  const prop: FPropsType = defineProps(Props)
 
   const customImageStyleList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
@@ -44,7 +29,7 @@
 </script>
 
 <template>
-  <div :class="classList" :style="[wrapStyleList, styleList]">
+  <div class="f-empty" :style="{ background, ...styleList }">
     <div class="f-empty-pic-wrap">
       <div v-if="$slots.image">
         <slot name="image" />
@@ -348,9 +333,9 @@
         </svg>
       </template>
     </div>
-    <span class="f-empty-desc" :style="customContentStyleList">{{
-      content || '暂无数据'
-    }}</span>
+    <span class="f-empty-desc" :style="customContentStyleList">
+      {{ content || '暂无数据' }}
+    </span>
     <div v-if="$slots.footer" class="f-empty-footer">
       <slot name="footer" />
     </div>
