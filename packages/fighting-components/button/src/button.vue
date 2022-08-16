@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FButton">
-  import { computed, ref, onMounted } from 'vue'
+  import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor } from '../../_utils'
   import FIcon from '../../icon'
@@ -9,7 +9,6 @@
     buttonEventInterface as c
   } from './interface'
   import type { FPropsType } from './button'
-  import type { ordinaryFunctionInterface as b } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -45,6 +44,7 @@
           'f-button-round': round,
           'f-button-block': block,
           'f-button-bold': bold,
+          'f-button-color': color,
           'f-button-text': text && !color
         }
       ] as const
@@ -53,12 +53,11 @@
 
   const buttonStyleList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
-      const { fontSize, fontColor, color } = prop
+      const { fontSize, fontColor } = prop
 
       return {
         fontSize,
-        color: fontColor,
-        background: color
+        color: fontColor
       } as const
     }
   )
@@ -98,24 +97,19 @@
   })
 
   // 自定义颜色
-  const customColor: b = (): void => {
-    const { color } = prop
-    const changeColor: ChangeColor = new ChangeColor(color)
-    const light: string = changeColor.getLightColor(0.4)
-    const dark: string = changeColor.getDarkColor(0.1)
-    const node: HTMLButtonElement = FButton.value as HTMLButtonElement
+  const customColor: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const changeColor: ChangeColor = new ChangeColor(prop.color)
+      const light: string = changeColor.getLightColor(0.4)
+      const dark: string = changeColor.getDarkColor(0.2)
 
-    node.addEventListener('mouseover', () => (node.style.background = light))
-    node.addEventListener('mousedown', () => (node.style.background = dark))
-    node.addEventListener('mouseup', () => (node.style.background = light))
-    node.addEventListener('mouseout', () => (node.style.background = color))
-  }
-
-  onMounted((): void => {
-    if (prop.color) {
-      customColor()
+      return {
+        '--f-button-default-color': prop.color,
+        '--f-button-hover-color': light,
+        '--f-button-active-color': dark
+      } as const
     }
-  })
+  )
 </script>
 
 <template>
@@ -125,7 +119,7 @@
       :class="classList"
       :href="href"
       :target="target"
-      :style="{ boxShadow: shadow, ...buttonStyleList }"
+      :style="{ boxShadow: shadow, ...buttonStyleList, ...customColor }"
       @click="onClick"
     >
       <f-icon
@@ -146,7 +140,7 @@
       :autofocus="autofocus"
       :name="name"
       :type="nativeType"
-      :style="{ boxShadow: shadow, ...buttonStyleList }"
+      :style="{ boxShadow: shadow, ...buttonStyleList, ...customColor }"
       @click="onClick"
     >
       <f-icon

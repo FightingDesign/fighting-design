@@ -1,11 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <f-empty content="在这里，后续提供更多服务">
-    <template v-slot:footer>
-      <h1>这是一个页脚</h1>
-    </template>
-  </f-empty>
+  <f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
