@@ -13,8 +13,8 @@
 
   provide(ImagePropsKey, prop)
 
-  const isError: Ref<boolean> = ref<boolean>(true)
-  const isLoadOk: Ref<boolean> = ref<boolean>(false)
+  // 是否加载成功
+  const isSuccess: Ref<boolean> = ref<boolean>(true)
   const isPreviewListShow: Ref<boolean> = ref<boolean>(false)
   const captionWidth: Ref<number> = ref<number>(0)
   const FImageImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
@@ -34,8 +34,7 @@
   onMounted((): void => {
     const node: HTMLImageElement = FImageImg.value as HTMLImageElement
     const callback: a = (params: boolean, width: number): void => {
-      isError.value = params
-      isLoadOk.value = params
+      isSuccess.value = params
       captionWidth.value = width
     }
 
@@ -44,7 +43,7 @@
 </script>
 
 <template>
-  <div v-if="isError" :class="['f-image', { 'f-image-block': block }]">
+  <div v-if="isSuccess" :class="['f-image', { 'f-image-block': block }]">
     <img
       ref="FImageImg"
       src=""
@@ -65,7 +64,7 @@
 
     <div
       v-if="caption"
-      v-show="isLoadOk"
+      v-show="isSuccess"
       class="f-image-caption"
       :style="{
         width: width || `${captionWidth}px`,

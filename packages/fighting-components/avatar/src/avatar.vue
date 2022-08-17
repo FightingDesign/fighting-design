@@ -9,6 +9,8 @@
   const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
+  // 是否加载成功
+  const isSuccess: Ref<boolean> = ref<boolean>(true)
   const FAvatarImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
     null as unknown as HTMLImageElement
   )
@@ -50,13 +52,17 @@
   onMounted((): void => {
     if (!prop.icon && !prop.text) {
       const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
-      loadImage(node, prop, emit, null)
+      const callback = (params: boolean): void => {
+        isSuccess.value = params
+      }
+      loadImage(node, prop, emit, callback)
     }
   })
 </script>
 
 <template>
   <div
+    v-if="isSuccess"
     :class="['f-avatar', `f-avatar-${size}`, { 'f-avatar-round': round }]"
     :style="imageSizeStyleList"
   >
@@ -74,5 +80,11 @@
       :alt="alt"
       src=""
     />
+  </div>
+
+  <div v-else class="f-avatar-error" :style="imageSizeStyleList">
+    <slot name="error">
+      <span class="f-avatar-error-text">{{ alt || '加载失败' }}</span>
+    </slot>
   </div>
 </template>

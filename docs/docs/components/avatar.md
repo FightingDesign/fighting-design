@@ -156,6 +156,12 @@
 | `text`        | 文字头像                                                                                                 | string          | ——                                           | ——     |
 | `root-margin` | 触发懒加载的距离                                                                                         | string          | ——                                           | 100px  |
 
+## Slots
+
+| 插槽名称 | 说明说明           |
+| -------- | ------------------ |
+| `error`  | 自定义加载失败提示 |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

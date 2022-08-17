@@ -34,3 +34,18 @@
     color: #333;
   }
 }
+
+.f-avatar-error {
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  vertical-align: middle;
+
+  .f-avatar-error-text {
+    color: #333;
+    font-size: 13px;
+  }
+}

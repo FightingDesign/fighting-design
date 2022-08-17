@@ -15,7 +15,7 @@ class Load implements LoadInterface {
   emit: Function
   callback: callbackInterface | null
 
-  constructor(
+  constructor (
     img: HTMLImageElement,
     props: propsInterface,
     emit: Function,
@@ -27,15 +27,21 @@ class Load implements LoadInterface {
     this.callback = callback
   }
   /**
-   * 加载当前的 src 地址图片
+   * 第一步会进入到这里
+   * 首先加载当前的 src 地址图片
    */
   loadCreateImg = (): void => {
-    this.img.src = this.props.src
+    const newImg: HTMLImageElement = new Image()
 
-    this.img.addEventListener('error', (evt: Event): void => {
+    newImg.src = this.props.src
+
+    // src 加载失败
+    newImg.addEventListener('error', (evt: Event): void => {
       this.onerror(evt)
     })
-    this.img.addEventListener('load', (evt: Event): void => {
+
+    // src 加载成功
+    newImg.addEventListener('load', (evt: Event): void => {
       this.onload(evt)
     })
   }
@@ -45,9 +51,12 @@ class Load implements LoadInterface {
    * @returns
    */
   onerror = (evt: Event): void => {
+    // 如果由 errSrc 则继续尝试加载
     if (this.props.errSrc) {
       return this.loadNextImg()
     }
+
+    // 否则返回失败回调
     this.emit('error', evt)
     if (this.callback) {
       this.callback(false, 0)
@@ -58,6 +67,7 @@ class Load implements LoadInterface {
    * @param evt 事件对象
    */
   onload = (evt: Event): void => {
+    this.img.src = this.props.src
     this.emit('load', evt)
     if (this.callback) {
       this.callback(true, this.img.width)
@@ -92,7 +102,7 @@ class Load implements LoadInterface {
  * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */
 class Lazy extends Load implements LazyInterface {
-  constructor(
+  constructor (
     img: HTMLImageElement,
     props: propsInterface,
     emit: Function,
@@ -108,12 +118,13 @@ class Lazy extends Load implements LazyInterface {
     const observer: IntersectionObserver = new IntersectionObserver(
       (arr: Array<IntersectionObserverEntry>): void => {
         if (arr[0].isIntersecting) {
-          this.img.src = this.props.src
+          const newImg: HTMLImageElement = new Image()
+          newImg.src = this.props.src
 
-          this.img.addEventListener('error', (evt: Event): void => {
+          newImg.addEventListener('error', (evt: Event): void => {
             this.onerror(evt)
           })
-          this.img.addEventListener('load', (evt: Event): void => {
+          newImg.addEventListener('load', (evt: Event): void => {
             this.onload(evt)
           })
 

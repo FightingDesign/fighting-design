@@ -8,6 +8,8 @@
 - 新增 `f-empty` 空状态组件
 - 优化按钮自定义颜色配置项的 `hover` 和 `active` 的实现方式
 - `f-tooltip` 组件新增 `background` 和 `font-color` 配置项
+- 优化图片加载类
+- `f-avatar` 增加错误处理插槽，增加错误处理提示信息
 
 ## 0.6.0-bate.2 (2022-08-11)
 
