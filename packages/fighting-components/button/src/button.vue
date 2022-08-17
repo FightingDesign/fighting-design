@@ -53,10 +53,11 @@
 
   const buttonStyleList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
-      const { fontSize, fontColor } = prop
+      const { fontSize, fontColor, shadow } = prop
 
       return {
         fontSize,
+        boxShadow: shadow,
         color: fontColor
       } as const
     }
@@ -119,7 +120,7 @@
       :class="classList"
       :href="href"
       :target="target"
-      :style="{ boxShadow: shadow, ...buttonStyleList, ...customColor }"
+      :style="{ ...buttonStyleList, ...customColor }"
       @click="onClick"
     >
       <f-icon
@@ -140,7 +141,7 @@
       :autofocus="autofocus"
       :name="name"
       :type="nativeType"
-      :style="{ boxShadow: shadow, ...buttonStyleList, ...customColor }"
+      :style="{ ...buttonStyleList, ...customColor }"
       @click="onClick"
     >
       <f-icon
