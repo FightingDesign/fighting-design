@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { positionType, stateType } from './interface'
 
 export const Props = {
@@ -35,5 +35,15 @@ export const Props = {
   bright: {
     type: Boolean,
     default: (): boolean => false
+  },
+  background: {
+    type: String,
+    default: (): string => ''
+  },
+  fontColor: {
+    type: String,
+    default: (): string => ''
   }
 } as const
+
+export type FPropsType = ExtractPropTypes<typeof Props>

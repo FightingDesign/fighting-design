@@ -7,6 +7,7 @@
 - 更新 `success` 和 `warning` 的色号细节
 - 新增 `f-empty` 空状态组件
 - 优化按钮自定义颜色配置项的 `hover` 和 `active` 的实现方式
+- `f-tooltip` 组件新增 `background` 和 `font-color` 配置项
 
 ## 0.6.0-bate.2 (2022-08-11)
 
