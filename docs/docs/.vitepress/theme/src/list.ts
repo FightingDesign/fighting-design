@@ -24,14 +24,22 @@ export const bottomList = [
     title: '关于我',
     item: [
       { text: 'Tyh2001', link: 'https://tianyuhao.cn' },
-      { text: 'Blog', link: 'https://tianyuhao.cn/blog' }
+      { text: 'Blog', link: 'https://blog.tianyuhao.cn' }
     ]
   },
   {
     title: '其它开源',
     item: [
-      { text: 'Tyh Ui', link: 'https://tianyuhao.cn/v3' },
-      { text: 'TsMango', link: 'https://tianyuhao.cn/mango' }
+      { text: 'tyh-ui2', link: 'https://github.com/Tyh2001/tyh-ui2' },
+      { text: 'ts-mango', link: 'https://github.com/ts-mango/ts-mango' },
+      {
+        text: 'tyh-theme-vscode',
+        link: 'https://github.com/Tyh2001/tyh-theme-vscode'
+      },
+      {
+        text: 'vitepress-template',
+        link: 'https://github.com/Tyh2001/vitepress-template'
+      }
     ]
   },
   {
