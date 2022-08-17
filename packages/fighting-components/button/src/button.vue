@@ -100,12 +100,16 @@
   // 自定义颜色
   const customColor: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
-      const changeColor: ChangeColor = new ChangeColor(prop.color)
+      const { color } = prop
+
+      if (!color) return {} as const
+
+      const changeColor: ChangeColor = new ChangeColor(color)
       const light: string = changeColor.getLightColor(0.4)
       const dark: string = changeColor.getDarkColor(0.2)
 
       return {
-        '--f-button-default-color': prop.color,
+        '--f-button-default-color': color,
         '--f-button-hover-color': light,
         '--f-button-active-color': dark
       } as const
