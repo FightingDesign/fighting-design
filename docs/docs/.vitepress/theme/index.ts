@@ -5,7 +5,7 @@ import './style/vitepress.scss'
 
 export default {
   ...DefaultTheme,
-  enhanceApp ({ app }) {
+  enhanceApp({ app }) {
     app.use(FightingDesign)
   }
 }

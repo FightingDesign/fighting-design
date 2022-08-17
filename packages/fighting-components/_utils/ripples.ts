@@ -20,7 +20,7 @@ export class Ripples implements RipplesInterface {
   simple: boolean
   text: boolean
 
-  constructor (
+  constructor(
     evt: buttonEventInterface,
     node: HTMLElement,
     ripplesColor: string,
@@ -57,8 +57,8 @@ export class Ripples implements RipplesInterface {
     return this.ripplesColor
       ? this.ripplesColor
       : this.simple || this.text
-        ? colorList[this.type]
-        : '#fff'
+      ? colorList[this.type]
+      : '#fff'
   }
   /**
    * 渲染节点
