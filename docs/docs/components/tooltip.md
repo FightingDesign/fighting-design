@@ -115,15 +115,17 @@
 
 ## Attributes
 
-| 参数       | 说明             | 类型    | 可选值                        | 默认值 |
-| ---------- | ---------------- | ------- | ----------------------------- | ------ |
-| `content`  | 提示内容         | string  | ——                            | bottom |
-| `position` | 弹出方向         | string  | `top` `bottom` `right` `left` | bottom |
-| `disabled` | 是否禁用         | boolean | ——                            | false  |
-| `state`    | 展示状态         | string  | `hover` `active` `always`     | hover  |
-| `no-arrow` | 是否显示箭头     | boolean | ——                            | false  |
-| `bold`     | 是否加粗文字     | boolean | ——                            | false  |
-| `bright`   | 是否使用浅色主题 | boolean | ——                            | false  |
+| 参数         | 说明             | 类型    | 可选值                        | 默认值 |
+| ------------ | ---------------- | ------- | ----------------------------- | ------ |
+| `content`    | 提示内容         | string  | ——                            | bottom |
+| `position`   | 弹出方向         | string  | `top` `bottom` `right` `left` | bottom |
+| `disabled`   | 是否禁用         | boolean | ——                            | false  |
+| `state`      | 展示状态         | string  | `hover` `active` `always`     | hover  |
+| `no-arrow`   | 是否显示箭头     | boolean | ——                            | false  |
+| `bold`       | 是否加粗文字     | boolean | ——                            | false  |
+| `bright`     | 是否使用浅色主题 | boolean | ——                            | false  |
+| `background` | 自定义背景色     | string  | ——                            | ——     |
+| `bright`     | 自定义文字颜色   | string  | ——                            | ——     |
 
 ## Slots
 
