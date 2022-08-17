@@ -11,14 +11,14 @@
 
 `round` 属性可以配置圆角头像
 
-<f-avatar src="https://tianyuhao.cn/images/my.jpg" />
-<f-avatar round src="https://tianyuhao.cn/images/my.jpg" />
+<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
 
 ::: details 显示代码
 
 ```html
-<f-avatar src="https://tianyuhao.cn/images/my.jpg" />
-<f-avatar round src="https://tianyuhao.cn/images/my.jpg" />
+<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
 ```
 
 :::
@@ -69,20 +69,20 @@
 
 `size` 属性可以配置不同大小的头像，也可以传入指定的数字，会自动转换为 `px`
 
-<f-avatar :size="85" src="https://tianyuhao.cn/images/my.jpg" />
-<f-avatar size="large" src="https://tianyuhao.cn/images/my.jpg" />
-<f-avatar size="middle" src="https://tianyuhao.cn/images/my.jpg" />
-<f-avatar size="small" src="https://tianyuhao.cn/images/my.jpg" />
-<f-avatar size="mini" src="https://tianyuhao.cn/images/my.jpg" />
+<f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
 
 ::: details 显示代码
 
 ```html
-<f-avatar :size="85" src="https://tianyuhao.cn/images/my.jpg" />
-<f-avatar size="large" src="https://tianyuhao.cn/images/my.jpg" />
-<f-avatar size="middle" src="https://tianyuhao.cn/images/my.jpg" />
-<f-avatar size="small" src="https://tianyuhao.cn/images/my.jpg" />
-<f-avatar size="mini" src="https://tianyuhao.cn/images/my.jpg" />
+<f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
 ```
 
 :::
