@@ -28,21 +28,21 @@
 `fit` 属性可以配置头像不同适应容器的方式
 
 <f-avatar
-  v-for="(fit, index) in ['fill', 'contain', 'cover', 'none', 'scale-down']"
-  :key="index"
-  :fit="fit"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-/>
+    v-for="(fit, index) in ['fill', 'contain', 'cover', 'none', 'scale-down']"
+    :key="index"
+    :fit="fit"
+    src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
+  />
 
 <br />
 
 <f-avatar
-  v-for="(fit, index) in ['fill', 'contain', 'cover', 'none', 'scale-down']"
-  :key="index"
-  :fit="fit"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-  round
-/>
+    v-for="(fit, index) in ['fill', 'contain', 'cover', 'none', 'scale-down']"
+    :key="index"
+    :fit="fit"
+    src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
+    round
+  />
 
 ::: details 显示代码
 
