@@ -27,39 +27,34 @@
 
 `fit` 属性可以配置头像不同适应容器的方式
 
-<f-avatar
-    v-for="(fit, index) in ['fill', 'contain', 'cover', 'none', 'scale-down']"
-    :key="index"
-    :fit="fit"
-    src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-  />
-
-<br />
-
-<f-avatar
-    v-for="(fit, index) in ['fill', 'contain', 'cover', 'none', 'scale-down']"
-    :key="index"
-    :fit="fit"
-    src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-    round
-  />
+<f-avatar fit="fill" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
+<f-avatar fit="contain" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
+<f-avatar fit="cover" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
+<f-avatar fit="none" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
+<f-avatar fit="scale-down" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
 
 ::: details 显示代码
 
 ```html
 <f-avatar
-  v-for="(fit, index) in ['fill', 'contain', 'cover', 'none', 'scale-down']"
-  :key="index"
-  :fit="fit"
+  fit="fill"
   src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
 />
-
 <f-avatar
-  v-for="(fit, index) in ['fill', 'contain', 'cover', 'none', 'scale-down']"
-  :key="index"
-  :fit="fit"
+  fit="contain"
   src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-  round
+/>
+<f-avatar
+  fit="cover"
+  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
+/>
+<f-avatar
+  fit="none"
+  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
+/>
+<f-avatar
+  fit="scale-down"
+  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
 />
 ```
 
