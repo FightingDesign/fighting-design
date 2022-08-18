@@ -66,6 +66,10 @@ export const Props = {
   rootMargin: {
     type: String,
     default: (): string => '100px'
+  },
+  loadAnimation: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 

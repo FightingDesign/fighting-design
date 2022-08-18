@@ -25,7 +25,7 @@
     null as unknown as HTMLImageElement
   )
 
-  const classList: ComputedRef<object | string[]> = computed(
+  const nodeClassList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
       const { round, size, fit } = prop
 
@@ -37,6 +37,21 @@
           [`f-avatar-${fit}`]: fit
         }
       ] as const
+    }
+  )
+
+  const classList: ComputedRef<object | string[]> = computed(
+    (): object | string[] => {
+      const { size, round, src, loadAnimation } = prop
+
+      return [
+        'f-avatar',
+        {
+          'f-avatar-round': round,
+          [`f-avatar-${size}`]: isString(size),
+          'f-avatar-animation': loadAnimation && src && !isShowNode.value
+        }
+      ]
     }
   )
 
@@ -72,11 +87,7 @@
 </script>
 
 <template>
-  <div
-    v-if="isSuccess"
-    :class="['f-avatar', `f-avatar-${size}`, { 'f-avatar-round': round }]"
-    :style="imageSizeStyleList"
-  >
+  <div v-if="isSuccess" :class="classList" :style="imageSizeStyleList">
     <f-icon v-if="icon" :icon="icon" :color="fontColor" :size="fontSize" />
 
     <span v-else-if="text" :style="textStyleList" class="f-avatar-text">
@@ -88,7 +99,7 @@
       v-show="isShowNode"
       ref="FAvatarImg"
       :style="imageSizeStyleList"
-      :class="classList"
+      :class="nodeClassList"
       :alt="alt"
       src=""
     />
