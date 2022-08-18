@@ -10,6 +10,7 @@
 - `f-tooltip` 组件新增 `background` 和 `font-color` 配置项
 - 优化图片加载类
 - `f-avatar` 增加错误处理插槽，增加错误处理提示信息
+- 优化 `f-avatar` 加载细节处理
 
 ## 0.6.0-bate.2 (2022-08-11)
 

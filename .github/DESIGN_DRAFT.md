@@ -21,3 +21,4 @@
 - [Tabs 选项卡](https://www.figma.com/file/ZQYY0q9eIqBRQ2MbFoAGHL/Tabs-%E9%80%89%E9%A1%B9%E5%8D%A1?node-id=0%3A1)
 - [Message 提示](https://www.figma.com/file/zZwr2nPzMLz2sRuhumPbwJ/Message-%E6%8F%90%E7%A4%BA?node-id=0%3A1)
 - [Skeleton 骨架屏](https://www.figma.com/file/Ge2Dslin4SpSGG3oVNqAOg/Skeleton-%E9%AA%A8%E6%9E%B6%E5%B1%8F?node-id=0%3A1)
+- [Notification 通知](https://www.figma.com/file/wSQ8URqG1jtaoa6gQuk68F/Notification-%E9%80%9A%E7%9F%A5)

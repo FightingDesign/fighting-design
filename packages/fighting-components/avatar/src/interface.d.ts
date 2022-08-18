@@ -7,3 +7,7 @@ export type avatarFit =
   | ''
 
 export type avatarSize = 'large' | 'middle' | 'small' | 'mini'
+
+export interface callbackInterface {
+  (params: boolean): void
+}

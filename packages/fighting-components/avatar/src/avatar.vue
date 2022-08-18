@@ -5,12 +5,22 @@
   import FIcon from '../../icon'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { FPropsType } from './avatar'
+  import type { callbackInterface as a } from './interface'
 
   const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  // 是否加载成功
+  /**
+   * 判断是否加载成功
+   * 如果失败则会展示失败的状态
+   */
   const isSuccess: Ref<boolean> = ref<boolean>(true)
+  /**
+   * 是否展示 dom 元素
+   * 在加载还未完成之前，因为 src 是空，所以会展示一个 撕裂的图片
+   * 所以在加载期间先隐藏，加载完成之后再显示
+   */
+  const isShowNode: Ref<boolean> = ref<boolean>(false)
   const FAvatarImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
     null as unknown as HTMLImageElement
   )
@@ -52,8 +62,9 @@
   onMounted((): void => {
     if (!prop.icon && !prop.text) {
       const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
-      const callback = (params: boolean): void => {
+      const callback: a = (params: boolean): void => {
         isSuccess.value = params
+        isShowNode.value = params
       }
       loadImage(node, prop, emit, callback)
     }
@@ -74,6 +85,7 @@
 
     <img
       v-else
+      v-show="isShowNode"
       ref="FAvatarImg"
       :style="imageSizeStyleList"
       :class="classList"
