@@ -28,7 +28,7 @@
     const { top, behavior, listenEl } = prop
 
     if (listenEl) {
-      const listerNode: HTMLElement | null = document.querySelector(listenEl)
+      const listerNode: HTMLElement = document.querySelector(listenEl)!
       ;(listerNode as HTMLElement).scrollTo({
         top,
         behavior
@@ -45,9 +45,7 @@
 
   onMounted((): void => {
     if (prop.listenEl) {
-      const listerNode: HTMLElement | null = document.querySelector(
-        prop.listenEl
-      )
+      const listerNode: HTMLElement = document.querySelector(prop.listenEl)!
       ;(listerNode as HTMLElement).addEventListener(
         'scroll',
         handleScroll(listerNode)
