@@ -138,23 +138,68 @@
 
 :::
 
+## 加载动画
+
+`load-animation` 可以在网络不好的时候，启用加载中动画效果
+
+<f-avatar load-animation src="https://tianyuhao.cn/images/auto/my.jpg" />
+
+::: details 显示代码
+
+```html
+<f-avatar load-animation src="https://tianyuhao.cn/images/auto/my.jpg" />
+```
+
+:::
+
+## 加载失败
+
+默认加载失败会显示 `加载失败`，当然你也可以使用 `alt` 属性自定义加载失败的提示文字
+
+或者使用 `error` 插槽展示
+
+<f-avatar src="https://123.cn/images/auto/my.jpg" />
+<f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
+<f-avatar src="https://123.cn/images/auto/my.jpg">
+  <template v-slot:error>
+    <f-text type="danger" bold>失败了</f-text>
+  </template>
+</f-avatar>
+
+::: details 显示代码
+
+```html
+<f-avatar src="https://123.cn/images/auto/my.jpg" />
+
+<f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
+
+<f-avatar src="https://123.cn/images/auto/my.jpg">
+  <template v-slot:error>
+    <f-text type="danger" bold>失败了</f-text>
+  </template>
+</f-avatar>
+```
+
+:::
+
 ## Attributes
 
-| 参数          | 说明                                                                                                     | 类型            | 可选值                                       | 默认值 |
-| ------------- | -------------------------------------------------------------------------------------------------------- | --------------- | -------------------------------------------- | ------ |
-| `src`         | 图片路径                                                                                                 | string          | ——                                           | ——     |
-| `err-src`     | 加载失败时要显示的地址                                                                                   | string          | ——                                           | ——     |
-| `alt`         | 原生 [alt](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt) 属性                  | string          | ——                                           | ——     |
-| `round`       | 是否为圆角                                                                                               | boolean         | ——                                           | false  |
-| `lazy`        | 是否懒加载头像                                                                                           | boolean         | ——                                           | false  |
-| `fit`         | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性 | string          | `fill` `contain` `cover` `none` `scale-down` | ——     |
-| `size`        | 图片大小                                                                                                 | string / number | `large` `middle` `small` `mini`              | middle |
-| `background`  | 背景色                                                                                                   | string          | ——                                           | ——     |
-| `icon`        | icon 类名                                                                                                | string          | ——                                           | ——     |
-| `font-size`   | 字体大小                                                                                                 | string          | ——                                           | ——     |
-| `font-color`  | 字体的颜色                                                                                               | string          | ——                                           | ——     |
-| `text`        | 文字头像                                                                                                 | string          | ——                                           | ——     |
-| `root-margin` | 触发懒加载的距离                                                                                         | string          | ——                                           | 100px  |
+| 参数             | 说明                                                                                                     | 类型            | 可选值                                       | 默认值 |
+| ---------------- | -------------------------------------------------------------------------------------------------------- | --------------- | -------------------------------------------- | ------ |
+| `src`            | 图片路径                                                                                                 | string          | ——                                           | ——     |
+| `err-src`        | 加载失败时要显示的地址                                                                                   | string          | ——                                           | ——     |
+| `alt`            | 原生 [alt](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt) 属性                  | string          | ——                                           | ——     |
+| `round`          | 是否为圆角                                                                                               | boolean         | ——                                           | false  |
+| `lazy`           | 是否懒加载头像                                                                                           | boolean         | ——                                           | false  |
+| `fit`            | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性 | string          | `fill` `contain` `cover` `none` `scale-down` | ——     |
+| `size`           | 图片大小                                                                                                 | string / number | `large` `middle` `small` `mini`              | middle |
+| `background`     | 背景色                                                                                                   | string          | ——                                           | ——     |
+| `icon`           | icon 类名                                                                                                | string          | ——                                           | ——     |
+| `font-size`      | 字体大小                                                                                                 | string          | ——                                           | ——     |
+| `font-color`     | 字体的颜色                                                                                               | string          | ——                                           | ——     |
+| `text`           | 文字头像                                                                                                 | string          | ——                                           | ——     |
+| `root-margin`    | 触发懒加载的距离                                                                                         | string          | ——                                           | 100px  |
+| `load-animation` | 是否启用加载中动画                                                                                       | boolean         | ——                                           | false  |
 
 ## Slots
 
@@ -169,7 +214,8 @@
 </a>
 
 <style scoped>
-.f-avatar {
+.f-avatar,
+.f-avatar-error {
   margin: 5px;
 }
 </style>

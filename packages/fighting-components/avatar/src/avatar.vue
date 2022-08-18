@@ -19,8 +19,13 @@
    * 是否展示 dom 元素
    * 在加载还未完成之前，因为 src 是空，所以会展示一个 撕裂的图片
    * 所以在加载期间先隐藏，加载完成之后再显示
+   * 还可以借此实现 load-animation 配置项的动画效果
+   *
+   * 这里涉及到懒加载，那么如果在懒加载状态下将图片隐藏掉，是不会触发懒加载的
+   * 所以这里通过懒加载来判断，如果懒加载为 true 则不隐藏
+   * 为 false 的时候代表不是懒加载，所以可以先隐藏
    */
-  const isShowNode: Ref<boolean> = ref<boolean>(false)
+  const isShowNode: Ref<boolean> = ref<boolean>(prop.lazy)
   const FAvatarImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
     null as unknown as HTMLImageElement
   )
