@@ -69,6 +69,12 @@ import 'fighting-design/dist/index.css'
 createApp(App).use(FightingDesign).mount('#app')
 ```
 
+## 🐳 Related links
+
+- [CONTRIBUTING](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
+- [CHANGELOG](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
+- [Official documents](https://fighting.tianyuhao.cn)
+
 ## 🌈 Join Fighting Design
 
 Add WeChat & please note the `Github` username
