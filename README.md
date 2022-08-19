@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  是一款使用 TypeScript + Template 编写的 Vue3 轻量级组件库
+  Fighting Design 可在 vue3 应用程序中快速构建交互界面，看起来还不错。
 </p>
 
 <p align="center">
