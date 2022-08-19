@@ -132,7 +132,6 @@
 也可以使用 `caption-color` 配置不同的颜色
 
 <f-image height="190px" caption="普雷 伊希斯" src="https://tianyuhao.cn/images/auto/1.jpg" />
-
 <f-image height="190px" caption="看夜景" caption-color="skyblue" src="https://tianyuhao.cn/images/auto/2.jpg" />
 
 ::: details 显示代码
@@ -177,12 +176,12 @@
 
 `lazy` 属性可以设置图片懒加载，详情可参考 `DevTools` 的 `Network`
 
-<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.png" />
+<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
 
 ::: details 显示代码
 
 ```html
-<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.png" />
+<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
 ```
 
 :::

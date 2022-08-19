@@ -27,35 +27,20 @@
 
 `fit` 属性可以配置头像不同适应容器的方式
 
-<f-avatar fit="fill" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
-<f-avatar fit="contain" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
-<f-avatar fit="cover" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
-<f-avatar fit="none" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
-<f-avatar fit="scale-down" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
+<f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
 
 ::: details 显示代码
 
 ```html
-<f-avatar
-  fit="fill"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-/>
-<f-avatar
-  fit="contain"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-/>
-<f-avatar
-  fit="cover"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-/>
-<f-avatar
-  fit="none"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-/>
-<f-avatar
-  fit="scale-down"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-/>
+<f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
 ```
 
 :::
@@ -119,7 +104,7 @@
 
 `lazy` 属性可以设置图片懒加载，详情可参考 `DevTools` 的 `Network`
 
-<f-avatar width="200px" lazy src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a72738a7113.png" />
+<f-avatar width="200px" lazy src="https://tianyuhao.cn/images/auto/5.jpg" />
 
 ::: details 显示代码
 
