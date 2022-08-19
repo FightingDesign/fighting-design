@@ -1,4 +1,4 @@
-export type { RipplesInterface, buttonEventInterface } from './button'
+export type { RipplesInterface, RipplesNeedButtonPropsInterface } from './button'
 export type {
   LazyInterface,
   loadImageInterface,

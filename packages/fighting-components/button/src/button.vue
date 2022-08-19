@@ -1,19 +1,23 @@
 <script lang="ts" setup name="FButton">
+  import FIcon from '../../icon'
   import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor } from '../../_utils'
-  import FIcon from '../../icon'
+  import { useFilterProps } from '../../_hooks'
+  import type { FPropsType } from './button'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { onClickInterface as a } from './interface'
-  import type { FPropsType } from './button'
+  import type { RipplesNeedButtonPropsInterface as b } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
+  // dom 元素
   const FButton: Ref<HTMLButtonElement> = ref<HTMLButtonElement>(
     null as unknown as HTMLButtonElement
   )
 
+  // 类名列表
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
       const {
@@ -48,21 +52,20 @@
     }
   )
 
-  const buttonStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { fontSize, fontColor, shadow } = prop
+  // 样式列表
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { fontSize, fontColor, shadow } = prop
 
-      return {
-        fontSize,
-        boxShadow: shadow,
-        color: fontColor
-      } as const
-    }
-  )
+    return {
+      fontSize,
+      boxShadow: shadow,
+      color: fontColor
+    } as const
+  })
 
+  // 点击
   const handleClick: a = (evt: MouseEvent): void => {
-    const { disabled, loading, ripples, ripplesColor, type, simple, text } =
-      prop
+    const { disabled, loading, ripples } = prop
 
     if (disabled || loading) {
       evt.preventDefault()
@@ -70,15 +73,15 @@
     }
 
     if (ripples) {
-      const ripples: Ripples = new Ripples(
-        evt,
-        FButton.value as HTMLButtonElement,
-        ripplesColor,
-        type,
-        simple,
-        text
-      )
-      ripples.clickRipples()
+      // 拿到需要的 props 传递给类
+      const needProps: b = useFilterProps<FPropsType, b>(prop, [
+        'ripplesColor',
+        'type',
+        'simple',
+        'text'
+      ]).getProps()
+
+      Ripples.getInstance(evt, FButton.value as HTMLButtonElement, needProps)
     }
 
     emit('click', evt)
@@ -121,16 +124,16 @@
       :class="classList"
       :href="href"
       :target="target"
-      :style="{ ...buttonStyleList, ...customColor }"
+      :style="{ ...styleList, ...customColor }"
       @click="handleClick"
     >
       <f-icon
         v-if="leftIcon || loading"
         :icon="leftIconClass"
-        :style="buttonStyleList"
+        :style="styleList"
       />
       <slot />
-      <f-icon v-if="rightIcon" :icon="rightIcon" :style="buttonStyleList" />
+      <f-icon v-if="rightIcon" :icon="rightIcon" :style="styleList" />
     </a>
   </template>
 
@@ -142,16 +145,16 @@
       :autofocus="autofocus"
       :name="name"
       :type="nativeType"
-      :style="{ ...buttonStyleList, ...customColor }"
+      :style="{ ...styleList, ...customColor }"
       @click="handleClick"
     >
       <f-icon
         v-if="leftIcon || loading"
         :icon="leftIconClass"
-        :style="buttonStyleList"
+        :style="styleList"
       />
       <slot />
-      <f-icon v-if="rightIcon" :icon="rightIcon" :style="buttonStyleList" />
+      <f-icon v-if="rightIcon" :icon="rightIcon" :style="styleList" />
     </button>
   </template>
 </template>
