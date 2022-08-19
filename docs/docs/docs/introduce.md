@@ -15,7 +15,6 @@
     <a href="https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md"><img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-green" /></a>
   </p>
 </p>
-
 ## ✨ 特性
 
 - 💪 使用 Vue.js 最新特性开发
@@ -34,7 +33,7 @@
 - 🌍 更多配置项，灵活组件
 - 🛠 更多特性开发中
 
-## :key: 安装
+## 🔑 安装
 
 使用 `pnpm` 安装
 
@@ -54,7 +53,7 @@ npm install fighting-design
 yarn add fighting-Design
 ```
 
-## :tada: 快速上手
+## 🎉 快速上手
 
 在 `main.ts` 中引入下面内容
 
@@ -62,21 +61,27 @@ yarn add fighting-Design
 import { createApp } from 'vue'
 import App from './App.vue'
 import FightingDesign from 'fighting-design'
-import 'fighting-design/theme/style.css'
+import 'fighting-design/dist/index.css'
 
 createApp(App).use(FightingDesign).mount('#app')
 ```
 
-## 加入 Fighting Design
+## 🐳 相关链接
+
+- [贡献指南](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
+- [更新日志](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
+- [官方文档](https://fighting.tianyuhao.cn)
+
+## 🌈 加入 Fighting Design
 
 添加微信请备注 `Github` 用户名
 
 ![](https://tianyuhao.cn/images/auto/weixin.png)
 
-## 特别感谢
+## 💌 特别感谢
 
 感谢所有已经为 `Fighting Design` [做出贡献的人](https://github.com/FightingDesign/fighting-design/graphs/contributors)！
 
-## 执照
+## 💬 执照
 
 [MIT](https://github.com/FightingDesign/fighting-design/blob/master/LICENSE)

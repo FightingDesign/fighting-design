@@ -1,4 +1,7 @@
-import type { RipplesInterface, RipplesNeedButtonPropsInterface as a } from '../_interface'
+import type {
+  RipplesInterface,
+  RipplesNeedButtonPropsInterface as a
+} from '../_interface'
 
 /**
  * 按钮点击涟漪效果
@@ -9,11 +12,7 @@ export class Ripples implements RipplesInterface {
   props: a
   static instance: Ripples
 
-  constructor (
-    evt: MouseEvent,
-    node: HTMLElement,
-    props: a
-  ) {
+  constructor (evt: MouseEvent, node: HTMLElement, props: a) {
     this.evt = evt
     this.node = node
     this.props = props
@@ -21,10 +20,10 @@ export class Ripples implements RipplesInterface {
   /**
    * 类镜头方法，实现单例模式
    * 单例模式详情参考：https://blog.tianyuhao.cn/article/design-mode/design-3.html
-   * @param evt 
-   * @param node 
-   * @param props 
-   * @returns 
+   * @param evt
+   * @param node
+   * @param props
+   * @returns
    */
   static getInstance = (evt: MouseEvent, node: HTMLElement, props: a) => {
     if (!this.instance) {
@@ -41,9 +40,9 @@ export class Ripples implements RipplesInterface {
      * 可以直接获取点击元素的坐标
      * const x: number = this.evt.layerX
      * const y: number = this.evt.layerY
-     * 
+     *
      * https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/layerX
-     * 
+     *
      * 出于对浏览器的兼容和稳定，暂时先使用下面 API
      */
 
@@ -51,8 +50,10 @@ export class Ripples implements RipplesInterface {
      * clientX clientY 获取到点击相对于页面的坐标
      * https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
      */
-    const xInside: number = this.evt.clientX - (this.evt.target as HTMLElement).offsetTop
-    const yInside: number = this.evt.clientY - (this.evt.target as HTMLElement).offsetLeft
+    const xInside: number =
+      this.evt.clientX - (this.evt.target as HTMLElement).offsetTop
+    const yInside: number =
+      this.evt.clientY - (this.evt.target as HTMLElement).offsetLeft
 
     const ripples: HTMLSpanElement = this.renderElement(xInside, yInside)
 
@@ -61,7 +62,7 @@ export class Ripples implements RipplesInterface {
   }
   /**
    * 计算涟漪颜色
-   * 
+   *
    * 如果设置了 ripplesColor 则直接返回
    * 在 simple 和 text 模式下，根据 type 返回颜色
    * 否则返回默认白色

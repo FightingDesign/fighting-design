@@ -3,7 +3,7 @@
   import { Props, Emits, ImagePropsKey } from './image'
   import { onMounted, ref, provide } from 'vue'
   import { loadImage } from '../../_utils'
-  import { useFilterProps } from '../../_hooks'
+  import { useFilterProps } from '../../_hooks/useFilterProps'
   import type { Ref } from 'vue'
   import type { FPropsType } from './image'
   import type { callbackInterface as a } from './interface'

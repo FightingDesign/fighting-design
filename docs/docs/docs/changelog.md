@@ -2,6 +2,26 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.1 (2022-08-19)
+
+- 优化 `f-list` 组件
+- 修复 `f-card` 组件样式细节
+- 更新 `success` 和 `warning` 的色号细节
+- 新增 `f-empty` 空状态组件
+- 优化按钮自定义颜色配置项的 `hover` 和 `active` 的实现方式
+- `f-tooltip` 组件新增 `background` 和 `font-color` 配置项
+- 优化图片加载类
+- `f-avatar` 增加错误处理插槽，增加错误处理提示信息
+- 优化 `f-avatar` 加载细节处理
+- `f-avatar` 组件新增 `load-animation` 配置项
+- 优化掉 `f-drawer` 部分导致文档打包报错的逻辑
+- 增加了 `hooks` 对部分类和函数的参数抽离，性能优化了 `f-image` `f-avatar` `f-button` `f-watermark` 组件
+- `f-button` 对于涟漪效果做了单例模式的优化
+
+## 0.6.0-bate.2 (2022-08-11)
+
+- 更新入口文件
+
 ## 0.6.0-bate.1 (2022-08-11)
 
 - 改变样式表的文件名引入方式

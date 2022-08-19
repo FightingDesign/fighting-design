@@ -6,7 +6,7 @@ import FightingDesign from '@fighting-design/fighting-components'
 import '@fighting-design/fighting-theme'
 
 // 打包阶段引入
-// import FightingDesign from '../dist'
+// import FightingDesign from '../dist/es/index.es.mjs'
 // import '../dist/dist/index.css'
 
 console.log(FightingDesign)

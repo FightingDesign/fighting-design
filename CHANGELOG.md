@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.1 (2022-08-19)
+
 - 优化 `f-list` 组件
 - 修复 `f-card` 组件样式细节
 - 更新 `success` 和 `warning` 的色号细节

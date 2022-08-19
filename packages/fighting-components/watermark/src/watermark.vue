@@ -2,7 +2,7 @@
   import { Props } from './watermark'
   import { createBase64 } from '../../_utils'
   import { ref, onMounted } from 'vue'
-  import { useFilterProps } from '../../_hooks'
+  import { useFilterProps } from '../../_hooks/useFilterProps'
   import type { Ref, CSSProperties } from 'vue'
   import type { FPropsType } from './watermark'
   import type { CSSPropertiesInterface as a } from './interface'

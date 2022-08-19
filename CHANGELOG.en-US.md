@@ -4,6 +4,22 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.1 (2022-08-19)
+
+- Optimize `f-list` components
+- Fix `F-card` component style details
+- Update color number details of `success` and`warning`
+- Add `f-empty` empty status component
+- Optimize the implementation of `hover` and `active` of button custom color configuration items
+- The `f-tooltip` component adds`background`and `font-color`configuration items
+- Optimize picture loading class
+- `F-avatar` adds error handling slots and error handling prompts
+- Optimize `f-avatar` loading details
+- New `load animation`configuration item for `f-avatar` component
+- Optimize the logic of the `f-drawer` part that causes the document package to report an error
+- Added `hooks` to extract the parameters of some classes and functions, and optimized the performance of `f-image` `f-avatar` `f-button` and `f-watermark` components
+- The `f-button` optimizes the ripple effect in the singleton mode
+
 ## 0.6.0-bate.2 (2022-08-11)
 
 - Update entry file

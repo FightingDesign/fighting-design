@@ -1,8 +1,11 @@
-import type { createBase64Interface as a, createBase64NeedWatermarkPropsInterface as b } from '../_interface'
+import type {
+  createBase64Interface as a,
+  createBase64NeedWatermarkPropsInterface as b
+} from '../_interface'
 
 /**
  * 将 canvas 转换成 base64 图片格式
- * @param props 
+ * @param props
  * @returns base64 string
  */
 export const createBase64: a = (props: b): string => {

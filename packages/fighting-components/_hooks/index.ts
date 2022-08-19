@@ -1,1 +1,0 @@
-export { useFilterProps } from './useFilterProps'
