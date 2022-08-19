@@ -9,21 +9,12 @@
 
 使用 `src` 属性设置图片的路径，`width` 设置图片的宽度，`height` 可以设置图片的高度
 
-<f-image width="200px" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
-
-<f-image height="129px" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273b49ecf.png" />
+<f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
 
 ::: details 显示代码
 
 ```html
-<f-image
-  width="200px"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-/>
-<f-image
-  height="129px"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273b49ecf.png"
-/>
+<f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
 ```
 
 :::
@@ -32,15 +23,11 @@
 
 `fit` 属性可以配置不同的适应容器的方式，详见原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性
 
-<f-image
-    width="110px"
-    height="110px"
-    style="border:1px solid #333;margin:10px"
-    v-for="(fit, index) in ['fill', 'contain', 'cover', 'none', 'scale-down']"
-    :key="index"
-    :fit="fit"
-    src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-/>
+<f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
 
 ::: details 显示代码
 
@@ -48,11 +35,32 @@
 <f-image
   width="110px"
   height="110px"
-  style="border:1px solid #333;margin:10px"
-  v-for="(fit, index) in ['fill', 'contain', 'cover', 'none', 'scale-down']"
-  :key="index"
-  :fit="fit"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
+  fit="fill"
+  src="https://tianyuhao.cn/images/auto/4.jpg"
+/>
+<f-image
+  width="110px"
+  height="110px"
+  fit="contain"
+  src="https://tianyuhao.cn/images/auto/4.jpg"
+/>
+<f-image
+  width="110px"
+  height="110px"
+  fit="cover"
+  src="https://tianyuhao.cn/images/auto/4.jpg"
+/>
+<f-image
+  width="110px"
+  height="110px"
+  fit="none"
+  src="https://tianyuhao.cn/images/auto/4.jpg"
+/>
+<f-image
+  width="110px"
+  height="110px"
+  fit="scale-down"
+  src="https://tianyuhao.cn/images/auto/4.jpg"
 />
 ```
 
@@ -62,11 +70,7 @@
 
 你可以通过 `preview-list` 属性传入一个数组，存入需要预览的图片地址，可以实现预览效果
 
-<f-image
-  width="200px"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273b49ecf.png"
-  :preview-list="listImg"
-/>
+<f-image width="200px" :preview-list="listImg" src="https://tianyuhao.cn/images/auto/4.jpg" />
 
 ::: details 显示代码
 
@@ -74,16 +78,17 @@
 <template>
   <f-image
     width="200px"
-    src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273b49ecf.png"
     :preview-list="listImg"
+    src="https://tianyuhao.cn/images/auto/4.jpg"
   />
 </template>
 
 <script lang="ts" setup>
   const listImg = [
-    'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273b49ecf.png',
-    'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png',
-    'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a728be8afd5.png'
+    'https://tianyuhao.cn/images/auto/1.jpg',
+    'https://tianyuhao.cn/images/auto/2.jpg',
+    'https://tianyuhao.cn/images/auto/3.jpg',
+    'https://tianyuhao.cn/images/auto/4.jpg'
   ]
 </script>
 ```
@@ -94,12 +99,7 @@
 
 如果在大图预览的时候，你不需要使用下放的操作栏，可以通过 `preview-show-option` 属性将其隐藏
 
-<f-image
-  width="200px"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273b49ecf.png"
-  :preview-list="listImg"
-  :preview-show-option="false"
-/>
+<f-image width="200px" :preview-list="listImg" :preview-show-option="false" src="https://tianyuhao.cn/images/auto/4.jpg" />
 
 ::: details 显示代码
 
@@ -107,17 +107,18 @@
 <template>
   <f-image
     width="200px"
-    src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273b49ecf.png"
     :preview-list="listImg"
     :preview-show-option="false"
+    src="https://tianyuhao.cn/images/auto/4.jpg"
   />
 </template>
 
 <script lang="ts" setup>
   const listImg = [
-    'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273b49ecf.png',
-    'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png',
-    'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a728be8afd5.png'
+    'https://tianyuhao.cn/images/auto/1.jpg',
+    'https://tianyuhao.cn/images/auto/2.jpg',
+    'https://tianyuhao.cn/images/auto/3.jpg',
+    'https://tianyuhao.cn/images/auto/4.jpg'
   ]
 </script>
 ```
@@ -130,24 +131,24 @@
 
 也可以使用 `caption-color` 配置不同的颜色
 
-<f-image height="190px" caption="漂亮的玫瑰花" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
+<f-image height="190px" caption="普雷 伊希斯" src="https://tianyuhao.cn/images/auto/1.jpg" />
 
-<f-image height="190px" caption="看远处的埃菲尔铁塔" caption-color="skyblue" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a728be8afd5.png" />
+<f-image height="190px" caption="看夜景" caption-color="skyblue" src="https://tianyuhao.cn/images/auto/2.jpg" />
 
 ::: details 显示代码
 
 ```html
 <f-image
   height="190px"
-  caption="漂亮的玫瑰花"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
+  caption="普雷 伊希斯"
+  src="https://tianyuhao.cn/images/auto/1.jpg"
 />
 
 <f-image
   height="190px"
-  caption="看远处的埃菲尔铁塔"
+  caption="看夜景"
   caption-color="skyblue"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a728be8afd5.png"
+  src="https://tianyuhao.cn/images/auto/2.jpg"
 />
 ```
 
@@ -157,7 +158,7 @@
 
 `round` 属性可以配置圆角图片，你需要传入一个具体的数值单位
 
-<f-image round="30px" height="190px" caption="漂亮的玫瑰花" src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png" />
+<f-image round="30px" height="190px" caption="漂亮的玫瑰花" src="https://tianyuhao.cn/images/auto/4.jpg" />
 
 ::: details 显示代码
 
@@ -166,7 +167,7 @@
   round="30px"
   height="190px"
   caption="漂亮的玫瑰花"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
+  src="https://tianyuhao.cn/images/auto/4.jpg"
 />
 ```
 
@@ -176,16 +177,12 @@
 
 `lazy` 属性可以设置图片懒加载，详情可参考 `DevTools` 的 `Network`
 
-<f-image width="200px" lazy src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a72738a7113.png" />
+<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.png" />
 
 ::: details 显示代码
 
 ```html
-<f-image
-  width="200px"
-  lazy
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a72738a7113.png"
-/>
+<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.png" />
 ```
 
 :::
@@ -200,35 +197,22 @@
 
 你也可以使用 `error` 插槽自定义你的错误信息展示
 
-<f-image
-    width="200px"
-    src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a728be8afd5.png2"
-    block
-    err-src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
-/>
-
-<f-image
-    width="200px"
-    src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a728be8afd5.png2"
-    block
-    err-src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png2"
-/>
+<f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
+<f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
 
 ::: details 显示代码
 
 ```html
 <f-image
   width="200px"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a728be8afd5.png2"
-  block
-  err-src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png"
+  src="https://abc.com/1.png"
+  err-src="https://tianyuhao.cn/images/auto/1.jpg"
 />
-
 <f-image
   width="200px"
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a728be8afd5.png2"
-  block
-  err-src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png2"
+  src="https://abc.com/1.png"
+  err-src="https://abc.com/1.png"
+  alt="error"
 />
 ```
 
@@ -282,9 +266,10 @@
 
 <script setup>
   const listImg = [
-    'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273b49ecf.png',
-    'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a7273443773.png',
-    'https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a728be8afd5.png'
+    'https://tianyuhao.cn/images/auto/1.jpg',
+    'https://tianyuhao.cn/images/auto/2.jpg',
+    'https://tianyuhao.cn/images/auto/3.jpg',
+    'https://tianyuhao.cn/images/auto/4.jpg'
   ]
 </script>
 
