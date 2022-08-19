@@ -69,6 +69,12 @@ import 'fighting-design/dist/index.css'
 createApp(App).use(FightingDesign).mount('#app')
 ```
 
+## 🐳 相关链接
+
+- [贡献指南](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
+- [更新日志](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
+- [官方文档](https://fighting.tianyuhao.cn)
+
 ## 🌈 加入 Fighting Design
 
 添加微信请备注 `Github` 用户名
