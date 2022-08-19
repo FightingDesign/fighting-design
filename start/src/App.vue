@@ -1,7 +1,19 @@
-<script lang="ts" setup></script>
-
 <template>
-  <f-button type="danger" ripples simple>看看我</f-button>
+  <f-watermark content="机密文件" :height="100" :width="130">
+    <f-card title="绝对机密">
+      <!-- <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" /> -->
+      <f-text block>这是一个重要的文件</f-text>
+    </f-card>
+  </f-watermark>
 </template>
-
-<style lang="scss" scoped></style>
+<style scoped>
+  .f-watermark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+  }
+  .f-card {
+    width: 240px;
+  }
+</style>

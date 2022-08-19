@@ -2,9 +2,11 @@
   import { Props } from './watermark'
   import { createBase64 } from '../../_utils'
   import { ref, onMounted } from 'vue'
+  import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties } from 'vue'
-  import type { CSSPropertiesInterface as a } from './interface'
   import type { FPropsType } from './watermark'
+  import type { CSSPropertiesInterface as a } from './interface'
+  import type { createBase64NeedWatermarkPropsInterface as b } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
 
@@ -13,8 +15,15 @@
   )
 
   const baseWatermark: a = (): CSSProperties => {
-    const { content, width, height, fontSize, fontColor } = prop
-    const watermark = createBase64(content, width, height, fontSize, fontColor)
+    const needProps: b = useFilterProps<FPropsType, b>(prop, [
+      'content',
+      'width',
+      'height',
+      'fontSize',
+      'fontColor'
+    ]).getProps()
+
+    const watermark: string = createBase64(needProps)
 
     return {
       backgroundImage: `url(${watermark})`

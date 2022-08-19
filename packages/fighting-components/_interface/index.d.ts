@@ -15,5 +15,5 @@ export type {
   pastTimeConfigInterface
 } from './utils'
 export type { changeColorInterface } from './change-color'
-export type { createBase64Interface } from './watermark'
+export type { createBase64Interface, createBase64NeedWatermarkPropsInterface } from './watermark'
 export type { ordinaryFunctionInterface } from './auto'

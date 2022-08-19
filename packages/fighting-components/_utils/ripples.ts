@@ -28,11 +28,7 @@ export class Ripples implements RipplesInterface {
    */
   static getInstance = (evt: MouseEvent, node: HTMLElement, props: a) => {
     if (!this.instance) {
-      this.instance = new Ripples(
-        evt,
-        node,
-        props
-      )
+      this.instance = new Ripples(evt, node, props)
     }
     return this.instance.clickRipples()
   }

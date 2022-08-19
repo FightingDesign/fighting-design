@@ -15,6 +15,12 @@ class Load implements LoadInterface {
   emit: Function
   callback: callbackInterface | null
 
+  /**
+   * @param img 图片 dom 节点
+   * @param props props 参数
+   * @param emit 事件
+   * @param callback 回调参数
+   */
   constructor (
     img: HTMLImageElement,
     props: LoadNeedImagePropsInterface,
