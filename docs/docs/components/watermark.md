@@ -11,7 +11,7 @@
 
 <f-watermark content="机密文件" :height="100" :width="130">
   <f-card title="绝对机密">
-    <f-avatar round src="https://tianyuhao.cn/images/my.jpg" />
+    <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
     <f-text block>这是一个重要的文件</f-text>
   </f-card>
 </f-watermark>
@@ -22,7 +22,7 @@
 <template>
   <f-watermark content="机密文件" :height="100" :width="130">
     <f-card title="绝对机密">
-      <f-avatar round src="https://tianyuhao.cn/images/my.jpg" />
+      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
       <f-text block>这是一个重要的文件</f-text>
     </f-card>
   </f-watermark>
@@ -49,7 +49,7 @@
 
 <f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px">
   <f-card title="绝对机密">
-    <f-avatar round src="https://tianyuhao.cn/images/my.jpg" />
+    <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
     <f-text block>这是一个重要的文件</f-text>
   </f-card>
 </f-watermark>
@@ -66,7 +66,7 @@
     font-size="16px"
   >
     <f-card title="绝对机密">
-      <f-avatar round src="https://tianyuhao.cn/images/my.jpg" />
+      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
       <f-text block>这是一个重要的文件</f-text>
     </f-card>
   </f-watermark>
@@ -95,7 +95,7 @@
 
 <f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
   <f-card title="绝对机密">
-    <f-avatar round src="https://tianyuhao.cn/images/my.jpg" />
+    <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
     <f-text block>这是一个重要的文件</f-text>
   </f-card>
 </f-watermark>
@@ -108,7 +108,7 @@
     image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
   >
     <f-card title="绝对机密">
-      <f-avatar round src="https://tianyuhao.cn/images/my.jpg" />
+      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
       <f-text block>这是一个重要的文件</f-text>
     </f-card>
   </f-watermark>
