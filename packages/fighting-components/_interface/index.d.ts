@@ -3,8 +3,8 @@ export type {
   LazyInterface,
   loadImageInterface,
   LoadInterface,
-  propsInterface,
-  callbackInterface
+  callbackInterface,
+  LoadNeedImagePropsInterface
 } from './image'
 export type { installInterface, mainVNodeInterface } from './install'
 export type {

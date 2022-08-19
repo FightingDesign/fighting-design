@@ -1,4 +1,12 @@
-import type { imageFit } from '../image/src/interface'
+/**
+ * Load 类所需要的 props 参数
+ */
+export interface LoadNeedImagePropsInterface {
+  src: string
+  errSrc: string
+  rootMargin: string
+  lazy: boolean
+}
 
 export interface LazyInterface {
   observer(): IntersectionObserver
@@ -23,24 +31,6 @@ export interface LoadInterface {
   loadNextImg(): void
   onerror(evt: Event): void
   onload(evt: Event): void
-}
-
-export interface propsInterface {
-  src: string
-  alt?: string
-  draggable?: boolean
-  lazy?: boolean
-  rootMargin?: string
-  errSrc: string
-  width?: string
-  height?: string
-  block?: boolean
-  fit?: imageFit
-  select?: boolean
-  fontSize?: string
-  fontColor?: string
-  text?: string
-  size?: string | number
 }
 
 export interface callbackInterface {

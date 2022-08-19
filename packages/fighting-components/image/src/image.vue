@@ -3,10 +3,14 @@
   import { Props, Emits, ImagePropsKey } from './image'
   import { onMounted, ref, provide } from 'vue'
   import { loadImage } from '../../_utils'
+  import { useFilterProps } from '../../_hooks'
   import type { Ref } from 'vue'
-  import type { callbackInterface as a } from './interface'
-  import type { ordinaryFunctionInterface as b } from '../../_interface'
   import type { FPropsType } from './image'
+  import type { callbackInterface as a } from './interface'
+  import type {
+    ordinaryFunctionInterface as b,
+    LoadNeedImagePropsInterface as c
+  } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -38,7 +42,14 @@
       captionWidth.value = width
     }
 
-    loadImage(node, prop, emit, callback)
+    const needProps: c = useFilterProps<FPropsType, c>(prop, [
+      'src',
+      'errSrc',
+      'rootMargin',
+      'lazy'
+    ]).getProps()
+
+    loadImage(node, needProps, emit, callback)
   })
 </script>
 

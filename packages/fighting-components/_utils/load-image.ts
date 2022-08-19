@@ -2,7 +2,7 @@ import type {
   LazyInterface,
   LoadInterface,
   loadImageInterface,
-  propsInterface,
+  LoadNeedImagePropsInterface,
   callbackInterface
 } from '../_interface'
 
@@ -11,13 +11,13 @@ import type {
  */
 class Load implements LoadInterface {
   img: HTMLImageElement
-  props: propsInterface
+  props: LoadNeedImagePropsInterface
   emit: Function
   callback: callbackInterface | null
 
-  constructor(
+  constructor (
     img: HTMLImageElement,
-    props: propsInterface,
+    props: LoadNeedImagePropsInterface,
     emit: Function,
     callback: callbackInterface | null
   ) {
@@ -102,9 +102,9 @@ class Load implements LoadInterface {
  * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */
 class Lazy extends Load implements LazyInterface {
-  constructor(
+  constructor (
     img: HTMLImageElement,
-    props: propsInterface,
+    props: LoadNeedImagePropsInterface,
     emit: Function,
     callback: callbackInterface | null
   ) {
@@ -152,7 +152,7 @@ class Lazy extends Load implements LazyInterface {
  */
 export const loadImage: loadImageInterface = (
   node: HTMLImageElement,
-  prop: propsInterface,
+  prop: LoadNeedImagePropsInterface,
   emit: Function,
   callback: callbackInterface | null
 ): void => {
