@@ -3,9 +3,14 @@
   import { computed, ref, onMounted } from 'vue'
   import { loadImage, isNumber, isString } from '../../_utils'
   import FIcon from '../../icon'
+  import { useFilterProps } from '../../_hooks'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { FPropsType } from './avatar'
   import type { callbackInterface as a } from './interface'
+  import type {
+    LoadNeedImagePropsInterface as b,
+    ordinaryFunctionInterface as c
+  } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -30,6 +35,7 @@
     null as unknown as HTMLImageElement
   )
 
+  // img 元素的类名集合
   const nodeClassList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
       const { round, size, fit } = prop
@@ -45,6 +51,7 @@
     }
   )
 
+  // 类名集合
   const classList: ComputedRef<object | string[]> = computed(
     (): object | string[] => {
       const { size, round, src, loadAnimation } = prop
@@ -60,6 +67,7 @@
     }
   )
 
+  // 图片尺寸样式
   const imageSizeStyleList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
       const { background, size } = prop
@@ -71,6 +79,7 @@
     }
   )
 
+  // 文字头像的文字颜色
   const textStyleList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
       const { fontColor, fontSize } = prop
@@ -79,14 +88,25 @@
     }
   )
 
+  // 开始加载图片
+  const loadAction: c = (): void => {
+    const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
+    const callback: a = (params: boolean): void => {
+      isSuccess.value = params
+      isShowNode.value = params
+    }
+    const needProps: b = useFilterProps<FPropsType, b>(prop, [
+      'src',
+      'errSrc',
+      'rootMargin',
+      'lazy'
+    ]).getProps()
+    loadImage(node, needProps, emit, callback)
+  }
+
   onMounted((): void => {
     if (!prop.icon && !prop.text) {
-      const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
-      const callback: a = (params: boolean): void => {
-        isSuccess.value = params
-        isShowNode.value = params
-      }
-      loadImage(node, prop, emit, callback)
+      loadAction()
     }
   })
 </script>

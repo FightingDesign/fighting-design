@@ -13,6 +13,8 @@
 - 优化 `f-avatar` 加载细节处理
 - `f-avatar` 组件新增 `load-animation` 配置项
 - 优化掉 `f-drawer` 部分导致文档打包报错的逻辑
+- 增加了 `hooks` 对部分类和函数的参数抽离，性能优化了 `f-image` `f-avatar` `f-button` `f-watermark` 组件
+- `f-button` 对于涟漪效果做了单例模式的优化
 
 ## 0.6.0-bate.2 (2022-08-11)
 

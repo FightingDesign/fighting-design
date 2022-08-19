@@ -19,23 +19,28 @@
 
   // 是否加载成功
   const isSuccess: Ref<boolean> = ref<boolean>(true)
+  // 大图预览是否展示
   const isPreviewListShow: Ref<boolean> = ref<boolean>(false)
+  // 描述信息的宽度
   const captionWidth: Ref<number> = ref<number>(0)
   const FImageImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
     null as unknown as HTMLImageElement
   )
 
+  // 点击图片时候 开启大图预览
   const handleClick: b = (): void => {
     if (prop.previewList && prop.previewList.length) {
       isPreviewListShow.value = true
     }
   }
 
+  // 关闭大图预览
   const handleClose: b = (): void => {
     isPreviewListShow.value = false
   }
 
-  onMounted((): void => {
+  // 开始加载图片
+  const loadAction: b = (): void => {
     const node: HTMLImageElement = FImageImg.value as HTMLImageElement
     const callback: a = (params: boolean, width: number): void => {
       isSuccess.value = params
@@ -50,6 +55,10 @@
     ]).getProps()
 
     loadImage(node, needProps, emit, callback)
+  }
+
+  onMounted((): void => {
+    loadAction()
   })
 </script>
 
