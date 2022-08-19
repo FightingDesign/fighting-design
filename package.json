@@ -23,12 +23,10 @@
     "serve:docs": "pnpm run -C docs serve",
     "build:start": "pnpm run -C start build",
     "move": "node script/move-file.js",
-    "new": "node script/new-component",
+    "new": "node script/new-component/index.js",
     "test": "vitest",
     "prettier": "prettier --write .",
-    "commit": "cz",
-    "lint": "eslint 'packages/**/*.{js,ts,vue,jsx,tsx}'",
-    "prepare": "husky install"
+    "commit": "cz"
   },
   "dependencies": {
     "@commitlint/cli": "^17.0.1",
