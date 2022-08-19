@@ -4,10 +4,7 @@
   import { Ripples, ChangeColor } from '../../_utils'
   import FIcon from '../../icon'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
-  import type {
-    onClickInterface as a,
-    buttonEventInterface as c
-  } from './interface'
+  import type { onClickInterface as a } from './interface'
   import type { FPropsType } from './button'
 
   const prop: FPropsType = defineProps(Props)
@@ -63,7 +60,7 @@
     }
   )
 
-  const onClick: a = (evt: c): void => {
+  const handleClick: a = (evt: MouseEvent): void => {
     const { disabled, loading, ripples, ripplesColor, type, simple, text } =
       prop
 
@@ -125,7 +122,7 @@
       :href="href"
       :target="target"
       :style="{ ...buttonStyleList, ...customColor }"
-      @click="onClick"
+      @click="handleClick"
     >
       <f-icon
         v-if="leftIcon || loading"
@@ -146,7 +143,7 @@
       :name="name"
       :type="nativeType"
       :style="{ ...buttonStyleList, ...customColor }"
-      @click="onClick"
+      @click="handleClick"
     >
       <f-icon
         v-if="leftIcon || loading"

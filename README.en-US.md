@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  A Vue.js 3 lightweight UI library written by TypeScript & Template
+  Fighting design can quickly build interactive interfaces in vue3 applications, which looks good.
 </p>
 
 <p align="center">

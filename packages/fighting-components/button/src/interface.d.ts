@@ -11,11 +11,6 @@ export type buttonType =
 
 export type buttonNativeType = 'button' | 'submit' | 'reset'
 
-export type buttonEventInterface = PointerEvent & {
-  layerX: number
-  layerY: number
-}
-
 export interface onClickInterface {
-  (evt: buttonEventInterface): void
+  (evt: MouseEvent): void
 }

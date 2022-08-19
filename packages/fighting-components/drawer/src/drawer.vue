@@ -2,10 +2,8 @@
   import { Props, Emits } from './drawer'
   import { computed } from 'vue'
   import type { CSSProperties, ComputedRef } from 'vue'
-  import type {
-    transitionEventInterface,
-    handleCloseInterface
-  } from './interface'
+  import type { transitionEventInterface as a } from './interface'
+  import type { ordinaryFunctionInterface as b } from '../../_interface'
   import type { FPropsType } from './drawer'
 
   const prop: FPropsType = defineProps(Props)
@@ -25,7 +23,7 @@
     }
   )
 
-  const handleClose: handleCloseInterface = (): void => {
+  const handleClose: b = (): void => {
     emit('update:visible', false)
   }
 
@@ -38,19 +36,19 @@
   //   }
   // })
 
-  const open: transitionEventInterface = (evt: MouseEvent): void => {
+  const open: a = (evt: MouseEvent): void => {
     emit('open', evt)
   }
 
-  const openEnd: transitionEventInterface = (evt: MouseEvent): void => {
+  const openEnd: a = (evt: MouseEvent): void => {
     emit('open-end', evt)
   }
 
-  const close: transitionEventInterface = (evt: MouseEvent): void => {
+  const close: a = (evt: MouseEvent): void => {
     emit('close', evt)
   }
 
-  const closeEnd: transitionEventInterface = (evt: MouseEvent): void => {
+  const closeEnd: a = (evt: MouseEvent): void => {
     emit('close-end', evt)
   }
 </script>
