@@ -4,6 +4,15 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.2-alpha.2 (2022-08-20)
+
+- Fix known packaging issues
+
+## 0.6.2-alpha.1 (2022-08-20)
+
+- Repair button ripple effect class
+- Fix known packaging issues
+
 ## 0.6.1 (2022-08-19)
 
 - Optimize `f-list` components

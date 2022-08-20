@@ -35,8 +35,8 @@ export default (): UserConfigExport => {
       lib: {
         entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
         formats: ['es'],
-        fileName: (target): string => {
-          return `index.${target}.mjs`
+        fileName: (): string => {
+          return 'index.js'
         }
       },
       rollupOptions: {
