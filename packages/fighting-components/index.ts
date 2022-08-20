@@ -1,22 +1,18 @@
 import type { App } from 'vue'
+import type { AppInstallInterface } from './_interface'
 import * as components from './components'
 export * from './components'
 
-const plugins = {
-  FMessage: components.FMessage
-}
-
-const install = (app: App): void => {
+export const install: AppInstallInterface = (app: App): App => {
   Object.entries(components).forEach(([key, value]): void => {
     app.component(key, value)
   })
 
-  Object.entries(plugins).forEach(([key, value]): void => {
-    app.config.globalProperties[key] = value
-  })
+  app.config.globalProperties.FMessage = components.FMessage
+  return app
 }
 
 export default {
-  version: '0.6.1',
+  version: '0.6.2-alpha.1',
   install
 }

@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.2-alpha.1 (2022-08-20)
+
+- 修复按钮涟漪效果类
+- 修复已知打包问题
+
 ## 0.6.1 (2022-08-19)
 
 - 优化 `f-list` 组件

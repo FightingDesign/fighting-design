@@ -92,7 +92,9 @@ async function generate() {
     try {
       await callback()
     } catch (error) {
-      logError(`${info}\n    error: ${error}\n    ${error ? error.stack : ''}`)
+      logError(
+        info + '\n' + `error: ${error}` + '\n' + `${error ? error.stack : ''}`
+      )
     }
   }
   return Promise.all([

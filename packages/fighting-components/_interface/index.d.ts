@@ -22,4 +22,4 @@ export type {
   createBase64Interface,
   createBase64NeedWatermarkPropsInterface
 } from './watermark'
-export type { ordinaryFunctionInterface } from './auto'
+export type { ordinaryFunctionInterface, AppInstallInterface } from './auto'

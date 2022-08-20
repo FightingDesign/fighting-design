@@ -13,3 +13,7 @@
 export interface ordinaryFunctionInterface {
   (): void
 }
+
+export interface AppInstallInterface {
+  (app: App): App
+}
