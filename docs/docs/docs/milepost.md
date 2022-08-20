@@ -1,5 +1,11 @@
 # 里程碑
 
+## 2022-08-20
+
+在 [0.6.2-alpha.2](https://github.com/FightingDesign/fighting-design/releases/tag/0.6.2-alpha.2) 的版本中，已经将目前已知的打包问题全部解决了。
+
+打包这个东西，真的是一不一个坎坷。
+
 ## 2022-08-08
 
 最近我们新增了很多新组件，感觉还不错，今天我将项目整体大幅度改动了很多，修复了之前的一些打包的问题，这次的打包个人感觉还是比较满意的，详情可以查看 [0.5.0-bate.1](https://github.com/FightingDesign/fighting-design/releases/tag/0.5.0-bate.1)。

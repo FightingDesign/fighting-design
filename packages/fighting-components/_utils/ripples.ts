@@ -35,10 +35,15 @@ export class Ripples implements RipplesInterface {
      * clientX clientY 获取到点击相对于页面的坐标
      * https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
      */
-    const x: number =
-      this.evt.clientX - (this.evt.target as HTMLElement).offsetLeft
-    const y: number =
-      this.evt.clientY - (this.evt.target as HTMLElement).offsetTop
+    // const x: number =
+    //   this.evt.clientX - (this.evt.target as HTMLElement).offsetLeft
+    // const y: number =
+    //   this.evt.clientY - (this.evt.target as HTMLElement).offsetTop
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const x: number = (this.evt as any).layerX as number
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const y: number = (this.evt as any).layerY as number
 
     const ripples: HTMLSpanElement = this.renderElement(x, y)
 

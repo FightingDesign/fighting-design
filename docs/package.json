@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "clipboard": "^2.0.10",
-    "vitepress": "1.0.0-alpha.4"
+    "vitepress": "1.0.0-alpha.9"
   }
 }
