@@ -27,13 +27,15 @@ export default (): UserConfigExport => {
     mode: 'production',
     build: {
       target: 'modules',
-      minify: true,
+      minify: false,
       chunkSizeWarningLimit: 2,
       reportCompressedSize: false,
       emptyOutDir: false,
       outDir: resolve(__dirname, 'dist/lib'),
       lib: {
         entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
+        // entry: resolve(__dirname, 'packages/fighting-components/old-index.ts'),
+        // entry: resolve(__dirname, 'packages/fighting-components/components.ts'),
         formats: ['cjs'],
         fileName: (target): string => {
           return `index.${target}.js`

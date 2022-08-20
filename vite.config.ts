@@ -27,13 +27,15 @@ export default (): UserConfigExport => {
     mode: 'production',
     build: {
       target: 'modules',
-      minify: true, // 压缩
+      minify: false, // 压缩
       chunkSizeWarningLimit: 2, // 超过 2kb 警告提示
       reportCompressedSize: false,
       emptyOutDir: false,
       outDir: resolve(__dirname, 'dist/es'),
       lib: {
         entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
+        // entry: resolve(__dirname, 'packages/fighting-components/old-index.ts'),
+        // entry: resolve(__dirname, 'packages/fighting-components/components.ts'),
         formats: ['es'],
         fileName: (target): string => {
           return `index.${target}.mjs`

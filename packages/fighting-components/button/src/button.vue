@@ -81,7 +81,12 @@
         'text'
       ]).getProps()
 
-      Ripples.getInstance(evt, FButton.value as HTMLButtonElement, needProps)
+      const ripples: Ripples = new Ripples(
+        evt,
+        FButton.value as HTMLButtonElement,
+        needProps
+      )
+      ripples.clickRipples()
     }
 
     emit('click', evt)

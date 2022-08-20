@@ -10,26 +10,11 @@ export class Ripples implements RipplesInterface {
   evt: MouseEvent
   node: HTMLElement
   props: a
-  static instance: Ripples
 
   constructor (evt: MouseEvent, node: HTMLElement, props: a) {
     this.evt = evt
     this.node = node
     this.props = props
-  }
-  /**
-   * 类镜头方法，实现单例模式
-   * 单例模式详情参考：https://blog.tianyuhao.cn/article/design-mode/design-3.html
-   * @param evt
-   * @param node
-   * @param props
-   * @returns
-   */
-  static getInstance = (evt: MouseEvent, node: HTMLElement, props: a) => {
-    if (!this.instance) {
-      this.instance = new Ripples(evt, node, props)
-    }
-    return this.instance.clickRipples()
   }
   /**
    * 点击生成涟漪效果
@@ -50,12 +35,12 @@ export class Ripples implements RipplesInterface {
      * clientX clientY 获取到点击相对于页面的坐标
      * https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
      */
-    const xInside: number =
-      this.evt.clientX - (this.evt.target as HTMLElement).offsetTop
-    const yInside: number =
-      this.evt.clientY - (this.evt.target as HTMLElement).offsetLeft
+    const x: number =
+      this.evt.clientX - (this.evt.target as HTMLElement).offsetLeft
+    const y: number =
+      this.evt.clientY - (this.evt.target as HTMLElement).offsetTop
 
-    const ripples: HTMLSpanElement = this.renderElement(xInside, yInside)
+    const ripples: HTMLSpanElement = this.renderElement(x, y)
 
     this.node.appendChild(ripples)
     this.removeElement(ripples)

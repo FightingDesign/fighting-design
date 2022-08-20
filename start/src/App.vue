@@ -1,10 +1,11 @@
 <template>
-  <f-watermark content="机密文件" :height="100" :width="130">
-    <f-card title="绝对机密">
-      <!-- <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" /> -->
-      <f-text block>这是一个重要的文件</f-text>
-    </f-card>
-  </f-watermark>
+  <f-button type="primary">主要按钮</f-button>
+  <f-button type="success" ripples>涟漪效果</f-button>
+  <f-button type="warning" ripples>点我试试</f-button>
+  <f-button type="danger" ripples simple>看看我</f-button>
+  <f-button type="success" text ripples ripples-color="green">
+    自定义涟漪颜色
+  </f-button>
 </template>
 <style scoped>
   .f-watermark {
