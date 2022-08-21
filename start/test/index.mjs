@@ -1,1 +1,1 @@
-console.log('我的 ES6 模块')
+console.log('我是 ES6 模块')
