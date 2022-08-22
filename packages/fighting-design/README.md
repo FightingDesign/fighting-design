@@ -1,6 +1,6 @@
-# @fighting-design/fighting-components
+# fighting-design
 
-中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.en-US.md)
+中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/README.en-US.md)
 
 ## 说明
 
@@ -152,11 +152,10 @@ const fun: a = (a: number, b: number): number => {
 - [安装插件](https://staging-cn.vuejs.org/api/application.html#app-use)
 - [全局注册组件](https://staging-cn.vuejs.org/guide/components/registration.html#global-registration)
 
-这里规范并不多，只有四行代码
-
 - 每行代码之间要有一个空行
 - 结尾要有空行
-- 导出统一使用默认导出，如下代码：
+- 导出组件使用默认导出
+- 导出类型需要使用 `export` 导出
 
 ```ts
 import FButton from './src/button.vue'
@@ -165,20 +164,22 @@ import { install } from '../_utils'
 
 install(FButton, FButton.name)
 
+export type FToolbarItemInstance = InstanceType<typeof FButton>
+
 export default FButton
 ```
 
 ## 工具函数
 
-在 `packages/fighting-components/_utils` 目录中可以定义一些工具函数和类，文件名统一使用短横杠连接，不可以出现大写字母。
+在 `_utils` 目录中可以定义一些工具函数和类，文件名统一使用短横杠连接，不可以出现大写字母。
 
 定义的函数需要在 `index.ts` 中统一导出。
 
-工具函数的类型可以在 `packages/fighting-components/_interface` 中进行定义。
+工具函数的类型可以在 `_interface` 中进行定义。
 
 ## 主入口文件
 
-主入口文件是 `@fighting-design/fighting-components/index.ts` 这里导入了所有的组件
+主入口文件是 [index.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/index.ts) 这里导入了所有的组件
 
 如果你新建了一个新的组件，那么需要在此处进行引入，还需要在 `components` 对象中添加组件。
 
