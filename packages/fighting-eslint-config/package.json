@@ -1,0 +1,14 @@
+{
+  "name": "@fighting-design/fighting-eslint-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "devDependencies": {
+    "@eslint-sets/eslint-config-vue3-ts": "^2.1.5",
+    "@typescript-eslint/parser": "^5.33.0",
+    "eslint": "^8.18.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
