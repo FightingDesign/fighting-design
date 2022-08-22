@@ -73,7 +73,8 @@ export const sidebar = {
       items: [
         { text: 'Alert 提示', link: '/components/alert' },
         { text: 'Loading 加载', link: '/components/loading' },
-        { text: 'Message 消息提示', link: '/components/message' }
+        { text: 'Message 消息提示', link: '/components/message' },
+        { text: 'Skeleton 骨架屏', link: '/components/skeleton' }
       ]
     },
     {
