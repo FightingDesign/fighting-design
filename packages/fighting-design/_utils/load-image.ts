@@ -107,16 +107,7 @@ class Lazy extends Load implements LazyInterface {
     const observer: IntersectionObserver = new IntersectionObserver(
       (arr: Array<IntersectionObserverEntry>): void => {
         if (arr[0].isIntersecting) {
-          const newImg: HTMLImageElement = new Image()
-          newImg.src = this.props.src
-
-          newImg.addEventListener('error', (evt: Event): void => {
-            this.onerror(evt)
-          })
-          newImg.addEventListener('load', (evt: Event): void => {
-            this.onload(evt, newImg.src)
-          })
-
+          this.loadCreateImg()
           observer.unobserve(this.node)
         }
       },
