@@ -14,7 +14,7 @@
     "clean": "rimraf dist",
     "start": "pnpm run -C start dev",
     "dev:docs": "pnpm run -C docs dev",
-    "build": "pnpm clean && pnpm build:css && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move && pnpm success:build",
+    "build": "pnpm clean && pnpm build:css && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move",
     "build:es": "vite build --config vite.config.ts",
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:umd": "vite build --config vite.config.umd.ts",
@@ -27,8 +27,7 @@
     "new": "node script/new-component/index.js",
     "test": "vitest",
     "prettier": "prettier --write .",
-    "commit": "cz",
-    "success:build": "node script/version.js"
+    "commit": "cz"
   },
   "dependencies": {
     "@commitlint/cli": "^17.0.1",
