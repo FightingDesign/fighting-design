@@ -22,6 +22,7 @@
 
 - 💪 Developed with the latest features of Vue.js
 - 🐆 Fully based on Vite, fast enough
+- 🦩 Zero third party dependency
 - 🪐 Different packaging modes which compatible with different projects
 - 🏆 Support full import and on-demand import
 - ✅ Written with TypeScript & Template
