@@ -23,14 +23,14 @@ export interface loadImageInterface {
 }
 
 export interface LoadInterface {
-  img: HTMLImageElement
+  node: HTMLImageElement
   props: propsInterface
   emit: Function
   callback: callbackInterface | null
-  loadCreateImg(): void
-  loadNextImg(): void
+  loadCreateImg(errSrc?: string): void
+  // loadNextImg(): void
   onerror(evt: Event): void
-  onload(evt: Event): void
+  onload(evt: Event, src: string): void
 }
 
 export interface callbackInterface {

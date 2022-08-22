@@ -10,24 +10,24 @@ import type {
  * 图片加载
  */
 class Load implements LoadInterface {
-  img: HTMLImageElement
+  node: HTMLImageElement
   props: LoadNeedImagePropsInterface
   emit: Function
   callback: callbackInterface | null
 
   /**
-   * @param img 图片 dom 节点
+   * @param node 图片 dom 节点
    * @param props props 参数
    * @param emit 事件
    * @param callback 回调参数
    */
   constructor (
-    img: HTMLImageElement,
+    node: HTMLImageElement,
     props: LoadNeedImagePropsInterface,
     emit: Function,
     callback: callbackInterface | null
   ) {
-    this.img = img
+    this.node = node
     this.props = props
     this.emit = emit
     this.callback = callback
@@ -36,10 +36,13 @@ class Load implements LoadInterface {
    * 第一步会进入到这里
    * 首先加载当前的 src 地址图片
    */
-  loadCreateImg = (): void => {
+  loadCreateImg = (errSrc?: string): void => {
     const newImg: HTMLImageElement = new Image()
-
-    newImg.src = this.props.src
+    if (errSrc) {
+      newImg.src = errSrc
+    } else {
+      newImg.src = this.props.src
+    }
 
     // src 加载失败
     newImg.addEventListener('error', (evt: Event): void => {
@@ -48,7 +51,7 @@ class Load implements LoadInterface {
 
     // src 加载成功
     newImg.addEventListener('load', (evt: Event): void => {
-      this.onload(evt)
+      this.onload(evt, newImg.src)
     })
   }
   /**
@@ -57,9 +60,9 @@ class Load implements LoadInterface {
    * @returns
    */
   onerror = (evt: Event): void => {
-    // 如果由 errSrc 则继续尝试加载
+    // 如果存在 errSrc 则继续尝试加载
     if (this.props.errSrc) {
-      return this.loadNextImg()
+      return this.loadCreateImg(this.props.errSrc)
     }
 
     // 否则返回失败回调
@@ -72,33 +75,13 @@ class Load implements LoadInterface {
    * 加载图片
    * @param evt 事件对象
    */
-  onload = (evt: Event): void => {
-    this.img.src = this.props.src
+  onload = (evt: Event, src: string): void => {
+    this.node.src = src
     this.emit('load', evt)
+
     if (this.callback) {
-      this.callback(true, this.img.width)
+      this.callback(true, this.node.width)
     }
-  }
-  /**
-   * 尝试加载 err-src 的图片
-   *
-   * 如果加载 src 失败，则进入这里，加载 err-src 的图片地址
-   */
-  loadNextImg = (): void => {
-    const newImg: HTMLImageElement = new Image()
-    newImg.src = this.props.errSrc
-
-    newImg.addEventListener('error', (evt: Event): void => {
-      // 进入这里则说明 err-src 的图片也加载失败了
-      this.emit('error', evt)
-      if (this.callback) {
-        this.callback(false, 0)
-      }
-    })
-
-    newImg.addEventListener('load', (): void => {
-      this.img.src = newImg.src
-    })
   }
 }
 
@@ -131,10 +114,10 @@ class Lazy extends Load implements LazyInterface {
             this.onerror(evt)
           })
           newImg.addEventListener('load', (evt: Event): void => {
-            this.onload(evt)
+            this.onload(evt, newImg.src)
           })
 
-          observer.unobserve(this.img)
+          observer.unobserve(this.node)
         }
       },
       { rootMargin: this.props.rootMargin }
@@ -145,7 +128,7 @@ class Lazy extends Load implements LazyInterface {
    * 执行懒加载
    */
   lazyCreateImg = (): void => {
-    this.observer().observe(this.img)
+    this.observer().observe(this.node)
   }
 }
 
