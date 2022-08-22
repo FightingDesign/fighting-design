@@ -27,7 +27,6 @@
 ::: details 显示代码
 
 ```html
-<f-skeleton></f-skeleton>
 <f-skeleton rounded></f-skeleton>
 <f-skeleton circled></f-skeleton>
 ```
