@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FSpace } from '@fighting-design/fighting-components'
+import { FSpace } from '../index'
 
 describe('FSpace', () => {
   test('class', () => {

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FToolbar } from '@fighting-design/fighting-components'
+import { FToolbar } from '../index'
 
 describe('FToolbar', () => {
   test('class', () => {

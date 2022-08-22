@@ -1,8 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import FMessageVue from '@fighting-design/fighting-components/message/src/message.vue'
+import FMessageVue, { FMessage } from '../index'
 import type { ComponentPublicInstance } from 'vue'
-import { FMessage } from '@fighting-design/fighting-components'
 
 type MessageInstance = ComponentPublicInstance<{
   visible: boolean

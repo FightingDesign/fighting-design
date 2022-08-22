@@ -20,7 +20,7 @@ export default (): UserConfigExport => {
       Components({
         dts: resolve(
           __dirname,
-          '/packages/fighting-components/global-components.d.ts'
+          '/packages/fighting-design/global-components.d.ts'
         )
       })
     ],
@@ -33,7 +33,7 @@ export default (): UserConfigExport => {
       emptyOutDir: false,
       outDir: resolve(__dirname, 'dist/lib'),
       lib: {
-        entry: resolve(__dirname, 'packages/fighting-components/index.ts'),
+        entry: resolve(__dirname, 'packages/fighting-design/index.ts'),
         formats: ['cjs'],
         fileName: (): string => {
           return 'index.cjs'

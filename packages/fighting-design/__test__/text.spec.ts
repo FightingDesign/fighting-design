@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FText } from '@fighting-design/fighting-components'
+import { FText } from '../index'
 
 describe('FText', () => {
   test('class', () => {

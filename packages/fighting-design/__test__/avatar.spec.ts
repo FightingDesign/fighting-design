@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FAvatar } from '@fighting-design/fighting-components'
+import { FAvatar } from '../index'
 
 describe('FAvatar', () => {
   test('class', () => {

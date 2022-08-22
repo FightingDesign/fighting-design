@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FCard } from '@fighting-design/fighting-components'
+import { FCard } from '../index'
 
 describe('FCard', () => {
   test('class', () => {

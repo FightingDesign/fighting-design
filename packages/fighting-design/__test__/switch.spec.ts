@@ -1,6 +1,6 @@
-import { FSwitch } from '@fighting-design/fighting-components'
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
+import { FSwitch } from '../index'
 
 describe('FSwitch', () => {
   test('class', () => {

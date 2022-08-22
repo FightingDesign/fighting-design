@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FIcon } from '@fighting-design/fighting-components'
+import { FIcon } from '../index'
 
 describe('FIcon', () => {
   test('icon', () => {

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FBreadcrumbItem } from '@fighting-design/fighting-components'
+import { FBreadcrumbItem } from '../index'
 
 describe('FBreadcrumb', () => {
   test('class', () => {

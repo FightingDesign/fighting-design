@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FBadge } from '@fighting-design/fighting-components'
+import { FBadge } from '../index'
 
 describe('FBadge', () => {
   test('class', () => {

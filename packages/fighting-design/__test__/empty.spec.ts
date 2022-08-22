@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FEmpty } from '@fighting-design/fighting-components'
+import { FEmpty } from '../index'
 
 describe('FEmpty', () => {
   test('class', () => {

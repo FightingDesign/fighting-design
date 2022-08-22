@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FLink } from '@fighting-design/fighting-components'
+import { FLink } from '../index'
 
 describe('FLink', () => {
   test('class', () => {

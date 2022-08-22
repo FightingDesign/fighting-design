@@ -6,7 +6,7 @@ import {
   FHeader,
   FMain,
   FLayout
-} from '@fighting-design/fighting-components'
+} from '../index'
 
 describe('FAside', () => {
   test('class', () => {

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FButtonGroup } from '@fighting-design/fighting-components'
+import { FButtonGroup } from '../index'
 
 describe('FButtonGroup', () => {
   test('class', () => {

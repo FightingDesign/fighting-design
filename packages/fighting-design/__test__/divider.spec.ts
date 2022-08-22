@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FDivider } from '@fighting-design/fighting-components'
+import { FDivider } from '../index'
 
-const text = '分割线' as const
+const text = '分割线'
 
 describe('FDivider', () => {
   test('render with text', () => {

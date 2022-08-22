@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FLoading } from '@fighting-design/fighting-components'
+import { FLoading } from '../index'
 
 describe('FLoading', () => {
   test('class', () => {

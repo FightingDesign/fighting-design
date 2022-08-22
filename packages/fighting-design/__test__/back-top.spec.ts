@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FBackTop } from '@fighting-design/fighting-components'
+import { FBackTop } from '../index'
 
 describe('FBackTop', () => {
   test('class', () => {
