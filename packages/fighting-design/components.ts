@@ -105,3 +105,6 @@ export type { FWatermarkInstance } from './watermark'
 
 export { default as FEmpty } from './empty'
 export type { FEmptyInstance } from './empty'
+
+export { default as FSkeleton } from './skeleton'
+export type { FSkeletonInstance } from './skeleton'
