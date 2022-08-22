@@ -13,7 +13,7 @@
 在 `main.ts` 中，通过下面方式可以直接引入 `fighting-design/packages` 下开发好的组件
 
 ```ts
-import FightingDesign from '@fighting-design/fighting-components'
+import FightingDesign from '../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 ```
 
