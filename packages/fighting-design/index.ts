@@ -1,3 +1,4 @@
+import { version } from './package.json'
 import type { App } from 'vue'
 import type { AppInstallInterface } from './_interface'
 import * as components from './components'
@@ -13,6 +14,6 @@ export const install: AppInstallInterface = (app: App): App => {
 }
 
 export default {
-  version: '0.6.2-alpha.2',
+  version,
   install
 }
