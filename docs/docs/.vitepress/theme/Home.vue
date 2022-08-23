@@ -30,11 +30,10 @@
       <h1 class="title">Fighting Design</h1>
 
       <h1 class="subtitle">
-        一个用 TypeScript + Template 编写的 Vue3 组件库。
+        可在 vue3 应用程序中快速构建交互界面，看起来还不错。
       </h1>
       <p class="content">
-        <strong>🎨 Fighting Design</strong> 是一款灵活、优质的
-        <strong>vue3</strong>
+        <strong>🌈 Fighting Design</strong> 是一款灵活、优质的
         组件库，为开发者、设计师准备。希望开发者可以借用
         <strong>Fighting Design</strong>
         的设计，在不久的将来，孕育出更高阶的组件库。
