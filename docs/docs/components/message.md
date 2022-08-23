@@ -305,7 +305,7 @@
 
 <script setup>
 import { h } from 'vue'
-import { FMessage, FIcon } from '@fighting-design/fighting-components'
+import { FMessage, FIcon } from '../../../packages/fighting-design/index'
 
 const openMessage = () => {
   FMessage('这是一条消息提示')

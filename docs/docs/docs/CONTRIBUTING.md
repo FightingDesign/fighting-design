@@ -20,7 +20,7 @@
 如果你已经做好了前面的准备，可以直接跳过，从这里开始：
 
 - `Fork` [fighting-design](https://github.com/FightingDesign/fighting-design)
-- 将 `Fork` 的项目 `Clone` 到本地
+- 将 `fork` 的项目 `clone` 到本地
 
 接下来执行命令：
 
@@ -79,8 +79,7 @@ pnpm start
 
 **详细的规范在下面链接，千万不要忽略下面链接！！！**
 
-- [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) 组件源文件目录
-- [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) 单元测试目录
+- [fighting-design](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/README.md) 组件源文件目录
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) 样式主题目录
 - [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md) 文档编写规范
 
@@ -131,9 +130,7 @@ git push
 
 ## 常见问题
 
-常见问题请参考 [COMMON_PROBLEM](https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
-
-也可以直接和[我](https://github.com/Tyh2001/Tyh2001)进行联系
+常见问题请参考 [COMMON_PROBLEM.md](https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md)，也可以直接和[我](https://github.com/Tyh2001/Tyh2001)进行联系。
 
 ## 财务贡献
 

@@ -9,7 +9,7 @@ export default (): UserConfigExport => {
     test: {
       environment: 'happy-dom',
       exclude: ['**/script/**'],
-      include: ['**/fighting-test/*.{test,spec}.{ts,tsx}']
+      include: ['**/__test__/*.{test,spec}.{ts,tsx}']
     }
   }
 }

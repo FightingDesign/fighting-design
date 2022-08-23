@@ -1,11 +1,11 @@
 import DefaultTheme from 'vitepress/theme'
 import './style/vitepress.scss'
-import FightingDesign from '@fighting-design/fighting-components'
+import FightingDesign from '../../../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 
 export default {
   ...DefaultTheme,
-  enhanceApp({ app }) {
+  enhanceApp ({ app }) {
     app.use(FightingDesign)
   }
 }

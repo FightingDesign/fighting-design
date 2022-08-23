@@ -1,7 +1,0 @@
-export * from './button'
-export * from './image'
-export * from './install'
-export * from './utils'
-export * from './change-color'
-export * from './watermark'
-export * from './auto'

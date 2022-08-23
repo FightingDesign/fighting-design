@@ -15,10 +15,12 @@
     <a href="https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md"><img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-green" /></a>
   </p>
 </p>
+
 ## ✨ 特性
 
 - 💪 使用 Vue.js 最新特性开发
 - 🐆 全面基于 Vite，速度够快
+- 🦩 零第三方依赖
 - 🪐 不同打包模式，兼容不同项目
 - 🏆 支持完整引入和按需引入
 - ✅ 使用 TypeScript + Template 编写

@@ -22,7 +22,7 @@ Before you make a contribution, you need to run the `Fighting Design` project. T
 If you are ready, you can skip directly and start from here:
 
 - `Fork` [fighting-design](https://github.com/FightingDesign/fighting-design)
-- `Clone Fork` items locally
+- `Clone fork` items locally
 
 Next, execute the command:
 
@@ -57,56 +57,15 @@ There are many commands set in `Fighting Design`,You can see in [package.json](h
 },
 ```
 
-下面详细介绍每一条命令
-
-```shell
-# 清除 dist
-pnpm clean
-
-# 启动开发测试项目
-pnpm start
-
-# 启动文档项目
-pnpm dev:docs
-
-# 打包（主要的打包，打包之后就是需要发布的包）
-pnpm build
-
-# 打包组件样式主题
-pnpm build:theme
-
-# 打包文档
-pnpm build:docs
-
-# 运行打包后的文档
-pnpm serve:docs
-
-# 打包开发测试项目
-pnpm build:start
-
-# 单元测试
-pnpm test
-
-# 代码格式化
-pnpm prettier
-
-# 启用提交插件
-pnpm commit
-```
-
 ## Development specification
 
 The main source files are in the `fighting-design/packages` directory, and each subdirectory has a separate `README.md` describes the specified directory. Refer to the following documents for detailed specifications of each module:
 
 **The detailed specifications are listed in the following links. Do not ignore the following links!!!**
 
-- [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) Component source file directory
-- [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) Unit test directory
+- [fighting-design](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/README.md) Component source file directory
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) Style theme catalog
-
-The following is about the document specification:
-
-- [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md)
+- [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md) Document preparation specification
 
 ## Commit specification
 
@@ -153,9 +112,7 @@ Therefore, before submitting `PR`, please be sure to **pull the latest code, pul
 
 ## Common problem
 
-Please refer to [COMMON_PROBLEM](https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
-
-You can also contact [me](https://github.com/Tyh2001/Tyh2001) directly
+Please refer to [COMMON_PROBLEM.md](https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md), You can also contact [me](https://github.com/Tyh2001/Tyh2001) directly.
 
 ## Financial contribution
 
