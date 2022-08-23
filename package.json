@@ -1,6 +1,5 @@
 {
   "name": "fighting-design",
-  "description": "Fighting design can quickly build interactive interfaces in vue3 applications, which looks good.",
   "private": true,
   "workspaces": [
     "packages/*",
@@ -24,15 +23,16 @@
     "serve:docs": "pnpm run -C docs serve",
     "build:start": "pnpm run -C start build",
     "move": "node script/move-file.js",
-    "new": "node script/new-component/index.js",
+    "new": "node script/new-component",
     "test": "vitest",
     "prettier": "prettier --write .",
-    "commit": "cz"
+    "commit": "cz",
+    "lint": "eslint 'packages/**/*.{js,ts,vue,jsx,tsx}'",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@commitlint/cli": "^17.0.1",
     "@commitlint/config-conventional": "^17.0.0",
-    "@fighting-design/fighting-icon": "workspace:*",
     "@fighting-design/fighting-theme": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/test-utils": "^2.0.0-rc.18",
