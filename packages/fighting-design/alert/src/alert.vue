@@ -4,6 +4,7 @@
   import FIcon from '../../icon'
   import type { ComputedRef, CSSProperties, Ref } from 'vue'
   import type { handleCloseInterface as a } from './interface'
+  import type { classListInterface as b } from '../../_interface'
   import type { FPropsType } from './alert'
 
   const prop: FPropsType = defineProps(Props)
@@ -11,23 +12,32 @@
 
   const isShow: Ref<boolean> = ref<boolean>(true)
 
-  const classList: ComputedRef<object | string[]> = computed(
-    (): object | string[] => {
-      const { type, bold, simple, center, round, fixed } = prop
+  const classList: ComputedRef<b> = computed((): b => {
+    const { type, bold, simple, center, round, fixed } = prop
 
-      return [
-        'f-alert',
-        `f-alert-${type}`,
-        {
-          'f-alert-bold': bold,
-          'f-alert-simple': simple,
-          'f-alert-center': center,
-          'f-alert-round': round,
-          'f-alert-fixed': fixed
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-alert',
+      `f-alert-${type}`,
+      {
+        'f-alert-bold': bold,
+        'f-alert-simple': simple,
+        'f-alert-center': center,
+        'f-alert-round': round,
+        'f-alert-fixed': fixed
+      }
+    ] as const
+  })
+
+  const subTitleClassList: ComputedRef<b> = computed((): b => {
+    const { overflow } = prop
+
+    return [
+      'f-alert-sub-title',
+      {
+        [`f-alert-sub-title-${overflow}`]: overflow
+      }
+    ] as const
+  })
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, color, background, fixed, fixedStyle } = prop
@@ -44,27 +54,6 @@
     return style
   })
 
-  const overflowList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { overflow } = prop
-
-      let style: CSSProperties = {}
-      if (overflow === 'ellipsis') {
-        style.whiteSpace = 'nowrap'
-        style.overflow = 'hidden'
-        style.textOverflow = 'ellipsis'
-      } else if (overflow === 'hidden') {
-        style.whiteSpace = 'nowrap'
-        style.overflow = 'hidden'
-      } else if (overflow === 'roll') {
-        style.overflow = 'scroll'
-      } else {
-        style = {}
-      }
-      return style
-    }
-  )
-
   const handleClose: a = (evt: MouseEvent): void => {
     isShow.value = false
     emit('close-end', evt)
@@ -77,7 +66,7 @@
       <f-icon :icon="icon" />
       {{ title }}
     </div>
-    <div v-if="$slots.default" class="f-alert-sub-title" :style="overflowList">
+    <div v-if="$slots.default" :class="subTitleClassList">
       <slot />
     </div>
     <span v-if="close" class="f-alert-close" @click.stop="handleClose">

@@ -49,6 +49,17 @@
     display: block;
   }
 
+  .f-alert-sub-title-hidden {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .f-alert-sub-title-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   // 加粗
   &.f-alert-bold {
     font-weight: bold;

@@ -17,3 +17,8 @@ export interface ordinaryFunctionInterface {
 export interface AppInstallInterface {
   (app: App): App
 }
+
+/**
+ * 类名集合类型
+ */
+export type classListInterface = readonly (string | Record<readonly string, unknown>)[]
