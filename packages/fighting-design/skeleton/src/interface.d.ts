@@ -1,5 +1,1 @@
-export enum SizeSkeletion {
-  DEFAULT = 'default',
-  SMALL = 'small',
-  LARGE = 'large'
-}
+export type skeletonSize = 'default' | 'small' | 'large'

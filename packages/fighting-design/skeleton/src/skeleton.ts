@@ -1,5 +1,5 @@
-import { PropType } from 'vue'
-import { SizeSkeletion } from './interface.d'
+import type { PropType } from 'vue'
+import type { skeletonSize } from './interface'
 
 export const Props = {
   rounded: {
@@ -23,9 +23,7 @@ export const Props = {
     default: false
   },
   size: {
-    type: String as PropType<SizeSkeletion>,
-    default: SizeSkeletion.DEFAULT
+    type: String as PropType<skeletonSize>,
+    default: (): skeletonSize => 'default'
   }
 } as const
-
-export const Emits = {} as const

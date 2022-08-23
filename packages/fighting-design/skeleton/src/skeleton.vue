@@ -1,58 +1,37 @@
 <script lang="ts" setup name="FSkeleton">
-  import { computed, toRefs, useSlots } from 'vue'
-  import { Props, Emits } from './skeleton'
-  import { isNumber } from '../../_utils'
+  import { computed, useSlots } from 'vue'
+  import { Props } from './skeleton'
+  import type { ComputedRef } from 'vue'
+  import type { classListInterface as a } from '../../_interface'
 
-  const props = defineProps(Props)
+  const prop = defineProps(Props)
 
-  const { loading, rounded, animated, circled, rows, size } = toRefs(props)
+  const classList: ComputedRef<a> = computed((): a => {
+    const { rounded, animated, circled, size } = prop
 
-  defineEmits(Emits)
-
-  const mapClassSizes: {
-    [className: string]: boolean
-  } = {
-    'f-skeleton-size--default': size.value === 'default',
-    'f-skeleton-size--small': size.value === 'small',
-    'f-skeleton-size--large': size.value === 'large'
-  }
-
-  const classFSkeleton = computed(() => {
     return [
       'f-skeleton',
       {
-        'f-skeleton--rounded': rounded.value,
-        'f-skeleton--animated': animated.value,
-        'f-skeleton--circled': circled.value
-      },
-      {
-        ...mapClassSizes
+        'f-skeleton--rounded': rounded,
+        'f-skeleton--animated': animated,
+        'f-skeleton--circled': circled,
+        [`f-skeleton-size--${size}`]: size
       }
-    ]
+    ] as const
   })
 
-  const multiSkeleton = isNumber(rows.value) && rows.value > 1
-
-  const slots = useSlots()
-
-  const renderable = computed(() => {
+  const renderAble: ComputedRef<boolean> = computed((): boolean => {
+    const slots = useSlots()
     if (slots.default) {
-      return loading.value === true
-    } else {
-      return true
+      return prop.loading === true
     }
+    return true
   })
 </script>
 
 <template>
-  <template v-if="multiSkeleton">
-    <template v-if="renderable">
-      <div v-for="_ of rows" :class="classFSkeleton" v-bind="$attrs"></div>
-    </template>
-    <slot v-else></slot>
+  <template v-if="renderAble">
+    <div v-for="(n, i) in rows" :key="i" :class="classList" v-bind="$attrs" />
   </template>
-  <template v-else>
-    <div v-if="renderable" :class="classFSkeleton" v-bind="$attrs"></div>
-    <slot v-else></slot>
-  </template>
+  <slot v-else />
 </template>
