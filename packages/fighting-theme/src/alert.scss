@@ -1,10 +1,12 @@
 @import '../config/const-color.scss';
+@import '../config/const-size.scss';
 
 .f-alert {
-  padding: 10px 16px;
+  padding: 10px 22px;
   color: #fff;
   position: relative;
   box-sizing: border-box;
+  border-radius: $basicRadiusSize;
 
   @for $list from 1 to (length($allTypeColorList) + 1) {
     $item: nth($allTypeColorList, $list); // 获取数据中心第i项的值
