@@ -145,5 +145,5 @@ export const loadImage: loadImageInterface = (
     return lazy.lazyCreateImg()
   }
   const load: Load = new Load(node, prop, emit, callback)
-  load.loadCreateImg()
+  return load.loadCreateImg()
 }
