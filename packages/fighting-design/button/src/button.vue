@@ -99,7 +99,7 @@
     if (loading) {
       return `${loadingIcon || 'f-icon-loading'} f-loading-animation`
     }
-    return leftIcon
+    return leftIcon as string
   })
 
   // 自定义颜色
