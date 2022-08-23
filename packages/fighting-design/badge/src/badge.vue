@@ -3,20 +3,19 @@
   import { Props } from './badge'
   import type { ComputedRef } from 'vue'
   import type { FPropsType } from './badge'
+  import type { classListInterface as a } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
 
-  const classList: ComputedRef<object | string[]> = computed(
-    (): object | string[] => {
-      return [
-        'f-badge-content',
-        `f-badge-${prop.type}`,
-        {
-          'f-badge-dot': prop.dot
-        }
-      ] as const
-    }
-  )
+  const classList: ComputedRef<a> = computed((): a => {
+    return [
+      'f-badge-content',
+      `f-badge-${prop.type}`,
+      {
+        'f-badge-dot': prop.dot
+      }
+    ] as const
+  })
 
   const content: ComputedRef<string> = computed<string>((): string => {
     const { dot, max, value } = prop

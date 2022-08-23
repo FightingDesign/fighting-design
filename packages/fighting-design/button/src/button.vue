@@ -7,7 +7,10 @@
   import type { FPropsType } from './button'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { onClickInterface as a } from './interface'
-  import type { RipplesNeedButtonPropsInterface as b } from '../../_interface'
+  import type {
+    RipplesNeedButtonPropsInterface as b,
+    classListInterface as c
+  } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -18,39 +21,37 @@
   )
 
   // 类名列表
-  const classList: ComputedRef<object | string[]> = computed(
-    (): object | string[] => {
-      const {
-        type,
-        round,
-        simple,
-        block,
-        disabled,
-        loading,
-        bold,
-        size,
-        text,
-        circle,
-        color
-      } = prop
+  const classList: ComputedRef<c> = computed((): c => {
+    const {
+      type,
+      round,
+      simple,
+      block,
+      disabled,
+      loading,
+      bold,
+      size,
+      text,
+      circle,
+      color
+    } = prop
 
-      return [
-        'f-button',
-        `f-button-${type}`,
-        `f-button-${size}`,
-        {
-          'f-button-disabled': disabled || loading,
-          'f-button-simple': simple && !color,
-          'f-button-circle': circle,
-          'f-button-round': round,
-          'f-button-block': block,
-          'f-button-bold': bold,
-          'f-button-color': color,
-          'f-button-text': text && !color
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-button',
+      `f-button-${type}`,
+      `f-button-${size}`,
+      {
+        'f-button-disabled': disabled || loading,
+        'f-button-simple': simple && !color,
+        'f-button-circle': circle,
+        'f-button-round': round,
+        'f-button-block': block,
+        'f-button-bold': bold,
+        'f-button-color': color,
+        'f-button-text': text && !color
+      }
+    ] as const
+  })
 
   // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {

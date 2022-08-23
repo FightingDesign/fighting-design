@@ -9,7 +9,8 @@
   import type { callbackInterface as a } from './interface'
   import type {
     LoadNeedImagePropsInterface as b,
-    ordinaryFunctionInterface as c
+    ordinaryFunctionInterface as c,
+    classListInterface as d
   } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
@@ -36,36 +37,32 @@
   )
 
   // img 元素的类名集合
-  const nodeClassList: ComputedRef<object | string[]> = computed(
-    (): object | string[] => {
-      const { round, size, fit } = prop
+  const nodeClassList: ComputedRef<d> = computed((): d => {
+    const { round, size, fit } = prop
 
-      return [
-        'f-avatar-img',
-        {
-          'f-avatar-round': round,
-          [`f-avatar-${size}`]: isString(size),
-          [`f-avatar-${fit}`]: fit
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-avatar-img',
+      {
+        'f-avatar-round': round,
+        [`f-avatar-${size}`]: isString(size),
+        [`f-avatar-${fit}`]: fit
+      }
+    ] as const
+  })
 
   // 类名集合
-  const classList: ComputedRef<object | string[]> = computed(
-    (): object | string[] => {
-      const { size, round, src, loadAnimation } = prop
+  const classList: ComputedRef<d> = computed((): d => {
+    const { size, round, src, loadAnimation } = prop
 
-      return [
-        'f-avatar',
-        {
-          'f-avatar-round': round,
-          [`f-avatar-${size}`]: isString(size),
-          'f-avatar-animation': loadAnimation && src && !isShowNode.value
-        }
-      ]
-    }
-  )
+    return [
+      'f-avatar',
+      {
+        'f-avatar-round': round,
+        [`f-avatar-${size}`]: isString(size),
+        'f-avatar-animation': loadAnimation && src && !isShowNode.value
+      }
+    ]
+  })
 
   // 图片尺寸样式
   const imageSizeStyleList: ComputedRef<CSSProperties> = computed(

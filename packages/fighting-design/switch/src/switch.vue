@@ -2,7 +2,10 @@
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
   import FIcon from '../../icon'
-  import type { ordinaryFunctionInterface as a } from '../../_interface'
+  import type {
+    ordinaryFunctionInterface as a,
+    classListInterface as b
+  } from '../../_interface'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { FPropsType } from './switch'
 
@@ -32,20 +35,18 @@
     } as const
   })
 
-  const FSwitchClass: ComputedRef<object | string[]> = computed(
-    (): object | string[] => {
-      const { size, modelValue, square } = prop
+  const FSwitchClass: ComputedRef<b> = computed((): b => {
+    const { size, modelValue, square } = prop
 
-      return [
-        'f-switch-input',
-        {
-          [`f-switch-${size}`]: size,
-          'f-switch-close': !modelValue,
-          'f-switch-square': square
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-switch-input',
+      {
+        [`f-switch-${size}`]: size,
+        'f-switch-close': !modelValue,
+        'f-switch-square': square
+      }
+    ] as const
+  })
 </script>
 
 <template>

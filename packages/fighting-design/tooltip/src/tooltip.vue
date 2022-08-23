@@ -3,26 +3,25 @@
   import { computed } from 'vue'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { FPropsType } from './tooltip'
+  import type { classListInterface as a } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
 
-  const classList: ComputedRef<object | string[]> = computed(
-    (): object | string[] => {
-      const { position, state, disabled, bold, noArrow, bright } = prop
+  const classList: ComputedRef<a> = computed((): a => {
+    const { position, state, disabled, bold, noArrow, bright } = prop
 
-      return [
-        'f-tooltip',
-        `f-tooltip-${position}`,
-        `f-tooltip-${state}`,
-        {
-          'f-tooltip-disabled ': disabled,
-          'f-tooltip-bold': bold,
-          'f-tooltip-no-arrow': noArrow,
-          'f-tooltip-bright': bright
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-tooltip',
+      `f-tooltip-${position}`,
+      `f-tooltip-${state}`,
+      {
+        'f-tooltip-disabled ': disabled,
+        'f-tooltip-bold': bold,
+        'f-tooltip-no-arrow': noArrow,
+        'f-tooltip-bright': bright
+      }
+    ] as const
+  })
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { background, fontColor } = prop

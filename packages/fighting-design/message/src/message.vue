@@ -5,7 +5,10 @@
   import { Props, Emits } from './message'
   import { getSiblingOffset, removeInstance } from './instances'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
-  import type { ordinaryFunctionInterface as a } from '../../_interface'
+  import type {
+    ordinaryFunctionInterface as a,
+    classListInterface as b
+  } from '../../_interface'
   import type { FPropsType } from './message'
 
   const prop: FPropsType = defineProps(Props)
@@ -37,21 +40,19 @@
     })
   })
 
-  const classList: ComputedRef<object | string[]> = computed(
-    (): object | string[] => {
-      const { type, round, close, placement } = prop
+  const classList: ComputedRef<b> = computed((): b => {
+    const { type, round, close, placement } = prop
 
-      return [
-        'f-message',
-        `f-message-${type}`,
-        `f-message-${placement}`,
-        {
-          'f-message-round': round,
-          'f-message-hasClose': close
-        }
-      ]
-    }
-  )
+    return [
+      'f-message',
+      `f-message-${type}`,
+      `f-message-${placement}`,
+      {
+        'f-message-round': round,
+        'f-message-hasClose': close
+      }
+    ]
+  })
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { color, background, zIndex } = prop
@@ -130,7 +131,7 @@
       <component :is="message" v-if="isVNode(message)" />
       <div v-else class="f-message--text">{{ message }}</div>
       <!-- 关闭按钮 -->
-      <div v-if="close" class="f-message--close" @click="closeMessage">
+      <div v-if="prop.close" class="f-message--close" @click="closeMessage">
         <component :is="closeBtn" v-if="isVNode(closeBtn)" />
         <span v-else-if="closeBtn && isString(closeBtn)">{{ closeBtn }}</span>
         <f-icon v-else size="16px" icon="f-icon-close" />

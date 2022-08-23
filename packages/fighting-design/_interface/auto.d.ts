@@ -19,6 +19,6 @@ export interface AppInstallInterface {
 }
 
 /**
- * 类名集合类型
+ * class 类名集合类型
  */
 export type classListInterface = readonly (string | Record<readonly string, unknown>)[]
