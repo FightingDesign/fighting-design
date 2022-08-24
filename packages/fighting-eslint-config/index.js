@@ -249,16 +249,18 @@ module.exports = {
     // 使用单引号 https://eslint.org/docs/latest/rules/quotes#version
     quotes: ['error', 'single'],
     // 禁止分号 https://eslint.org/docs/latest/rules/semi#rule-details
-    semi: 'error',
+    // semi: 'error',
     // 禁止 debugger https://eslint.org/docs/latest/rules/no-debugger#rule-details
     'no-debugger': 'error'
   },
   //
   // parser: ['@typescript-eslint/parser', 'vue-eslint-parser'], // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
-  parser: '@typescript-eslint/parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
+  // parser: '@typescript-eslint/parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
+  parser: 'vue-eslint-parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   plugins: ['@typescript-eslint'],
   root: true,
   parserOptions: {
-    parser: '@typescript-eslint/parser' // 解决引入 type {} 报错问题
+    // 'ecmaVersion': 2018
+    // parser: '@typescript-eslint/parser' // 解决引入 type {} 报错问题
   }
 }

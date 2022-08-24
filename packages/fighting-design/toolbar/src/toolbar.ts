@@ -37,7 +37,6 @@ export const Props = {
       if (val.bottom || val.left || val.right || val.top) {
         return true
       }
-      console.warn('fighting-design (Toolbar): fixed-style parameter error')
       return false
     }
   },
