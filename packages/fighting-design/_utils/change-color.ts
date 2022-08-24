@@ -6,20 +6,20 @@ import type { changeColorInterface } from '../_interface'
 export class ChangeColor implements changeColorInterface {
   color: string
 
-  constructor (color: string) {
+  constructor(color: string) {
     this.color = color
   }
   /**
    * 将 hex 色号转换为 rgb
    * @returns
    */
-  hexToRgb = (): Array<string> | void => {
+  hexToRgb = (): string[] | void => {
     const r = /^\#?[0-9A-Fa-f]{6}$/
     if (!r.test(this.color)) {
       return console.warn('输入错误的 hex 值色号')
     }
     const color: string = this.color.replace('#', '')
-    const hxs: Array<string> = color.match(/../g) as Array<string>
+    const hxs: string[] = color.match(/../g) as string[]
     for (let i = 0; i < hxs.length; i++) {
       hxs[i] = parseInt(hxs[i], 16).toString()
     }
@@ -30,8 +30,8 @@ export class ChangeColor implements changeColorInterface {
    * @param rgb rgb 色号
    * @returns
    */
-  rgbToHex = (...rgb: Array<string>): string => {
-    const hex: Array<string> = [...rgb]
+  rgbToHex = (...rgb: string[]): string => {
+    const hex: string[] = [...rgb]
     for (let i = 0; i < hex.length; i++) {
       if (hex[i].length === 1) {
         hex[i] = '0' + hex[i]
@@ -45,7 +45,7 @@ export class ChangeColor implements changeColorInterface {
    * @returns
    */
   getDarkColor = (level: number): string => {
-    const rgb: Array<string> = this.hexToRgb() as Array<string>
+    const rgb: string[] = this.hexToRgb() as string[]
     for (let i = 0; i < rgb.length; i++) {
       rgb[i] = Math.floor(Number(rgb[i]) * (1 - level)).toString(16)
     }
@@ -57,7 +57,7 @@ export class ChangeColor implements changeColorInterface {
    * @returns
    */
   getLightColor = (level: number): string => {
-    const rgb: Array<string> = this.hexToRgb() as Array<string>
+    const rgb: string[] = this.hexToRgb() as string[]
     for (let i = 0; i < rgb.length; i++) {
       rgb[i] = Math.floor(
         (255 - Number(rgb[i])) * level + Number(rgb[i])

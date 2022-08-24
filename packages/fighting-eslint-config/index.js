@@ -182,7 +182,7 @@ module.exports = {
     // 强制返回语句存在于计算属性中 https://eslint.vuejs.org/rules/return-in-computed-property.html
     'vue/return-in-computed-property': 'error',
     // 需要有效的属性名称 https://eslint.vuejs.org/rules/valid-attribute-name.html
-    'vue/valid-attribute-name': 'error',
+    'vue/valid-attribute-name': 'off',
     // 强制执行有效的模板根 https://eslint.vuejs.org/rules/valid-template-root.html
     'vue/valid-template-root': 'off',
     // 执行有效v-bind指令 https://eslint.vuejs.org/rules/valid-v-bind.html
@@ -229,17 +229,33 @@ module.exports = {
      */
     // 规定数组类型定义方式 https://typescript-eslint.io/rules/array-type
     '@typescript-eslint/array-type': 'error',
-    // 类型名称必须小写 https://typescript-eslint.io/rules/ban-types
-    '@typescript-eslint/ban-types': 'error',
+    // 禁止的类型 https://typescript-eslint.io/rules/ban-types
+    '@typescript-eslint/ban-types': 'off', // beta
     // 不允许尾随逗号 https://typescript-eslint.io/rules/comma-dangle
     '@typescript-eslint/comma-dangle': 'error',
     // 自定义对象类型样式 https://typescript-eslint.io/rules/consistent-indexed-object-style
     '@typescript-eslint/consistent-indexed-object-style': ['warn', 'record'],
-
-    'comma-dangle': 'off'
+    // !禁止使用后缀运算符的非空断言 https://typescript-eslint.io/rules/no-non-null-assertion/
+    '@typescript-eslint/no-non-null-assertion': 'error',
+    /**
+     * eslint 配置项
+     */
+    // 不允许不必要的转义字符 https://eslint.org/docs/latest/rules/no-useless-escape
+    'no-useless-escape': 'off',
+    //
+    'comma-dangle': 'off',
+    // 禁止使用 var https://eslint.org/docs/latest/rules/no-var#rule-details
+    'no-var': 'error',
+    // 使用单引号 https://eslint.org/docs/latest/rules/quotes#version
+    quotes: ['error', 'single'],
+    // 禁止分号 https://eslint.org/docs/latest/rules/semi#rule-details
+    semi: 'error',
+    // 禁止 debugger https://eslint.org/docs/latest/rules/no-debugger#rule-details
+    'no-debugger': 'error'
   },
   //
-  parser: 'vue-eslint-parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
+  // parser: ['@typescript-eslint/parser', 'vue-eslint-parser'], // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
+  parser: '@typescript-eslint/parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   plugins: ['@typescript-eslint'],
   root: true,
   parserOptions: {

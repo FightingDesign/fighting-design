@@ -11,7 +11,7 @@ export class Ripples implements RipplesInterface {
   node: HTMLElement
   props: a
 
-  constructor (evt: MouseEvent, node: HTMLElement, props: a) {
+  constructor(evt: MouseEvent, node: HTMLElement, props: a) {
     this.evt = evt
     this.node = node
     this.props = props
@@ -79,7 +79,9 @@ export class Ripples implements RipplesInterface {
    * @param y 坐标 y
    */
   renderElement = (x: number, y: number): HTMLSpanElement => {
-    const ripples: HTMLSpanElement = document.createElement('span')!
+    const ripples: HTMLSpanElement = document.createElement(
+      'span'
+    ) as HTMLSpanElement
 
     ripples.className = 'f-design-ripples'
     ripples.style.background = this.computedRipplesColor()
