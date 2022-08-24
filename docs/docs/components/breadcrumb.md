@@ -2,7 +2,7 @@
 
 `Breadcrumb` 用于管理页面的导航链接
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/breadcrumb)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/breadcrumb)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/breadcrumb.md)
 
 ## 基本使用

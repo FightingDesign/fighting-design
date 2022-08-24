@@ -11,11 +11,11 @@ const compName = fetchCompName()
 const displayName = `F${changeCase(compName, 'upper-camel-case')}`
 const outputDir = resolve(
   __dirname,
-  '../../packages/fighting-components',
+  '../../packages/fighting-design',
   compName
 )
 const mainFilePath = join(
-  'packages/fighting-components',
+  'packages/fighting-design',
   compName,
   `${compName}.vue`
 )
@@ -82,8 +82,8 @@ function fetchCompName () {
 
 async function generate () {
   updatedFiles.push(
-    `packages/fighting-components/${compName}/**`,
-    'packages/fighting-components/index.ts',
+    `packages/fighting-design/${compName}/**`,
+    'packages/fighting-design/index.ts',
     `packages/fighting-theme/src/${compName}.scss`,
     'packages/fighting-theme/index.scss',
     `packages/fighting-test/${compName}.spec.ts`
@@ -117,7 +117,7 @@ async function generateComponentDir () {
 async function updateComponentEntry () {
   const entryFilePath = resolve(
     __dirname,
-    '../../packages/fighting-components/components.ts'
+    '../../packages/fighting-design/components.ts'
   )
   let content = (await readFile(entryFilePath)).toString()
 

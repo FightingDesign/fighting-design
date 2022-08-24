@@ -2,7 +2,7 @@
 
 `Alert` 用于页面中展示重要的提示信息
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/alert)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/alert)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/alert.md)
 
 ## 基本使用

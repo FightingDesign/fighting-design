@@ -2,7 +2,7 @@
 
 `Empty` 用于页面中展示空状态时的占位提示
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/empty)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/empty)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/empty.md)
 
 ## 基本使用

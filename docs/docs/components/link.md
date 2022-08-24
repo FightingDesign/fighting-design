@@ -2,7 +2,7 @@
 
 `Link` 用于超链接跳转
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/link)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/link)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/link.md)
 
 ## 基本使用
