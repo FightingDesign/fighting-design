@@ -2,7 +2,7 @@
 
 `Skeleton` 在数据完整加载之前将您的内容显示为一个占位的预览。
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/skeleton)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/skeleton)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/skeleton.md)
 
 ## 基本使用

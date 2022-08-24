@@ -2,7 +2,7 @@
 
 `Alert` 用于页面中展示重要的提示信息
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/alert)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/alert)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/alert.md)
 
 ## 基本使用
@@ -219,8 +219,8 @@
 | `background`  | 背景颜色                                             | string  | ——                                               | ——      |
 | `color`       | 字体颜色                                             | string  | ——                                               | ——      |
 | `fixed`       | 是否固定定位                                         | boolean | ——                                               | false   |
-| `fixed-style` | 固定定位的样式，仅支持 `top` `right` `button` `left` | {}      | ——                                               | {}      |
-| `overflow`    | 文字超出的展示状态                                   | string  | `hidden` `roll` `ellipsis`                       | ——      |
+| `fixed-style` | 固定定位的样式，仅支持 `top` `right` `button` `left` | object  | ——                                               | {}      |
+| `overflow`    | 文字超出的展示状态                                   | string  | `hidden` `ellipsis`                              | ——      |
 
 ## Slots
 

@@ -2,7 +2,7 @@
 
 设置组件之间的间距。
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/space)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/space)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/space.md)
 
 ## 基本使用

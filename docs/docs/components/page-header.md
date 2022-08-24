@@ -2,7 +2,7 @@
 
 `Page Header` 用于展示概览和引导页级操作
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/page-header)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/page-header)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/page-header.md)
 
 ## 基本使用

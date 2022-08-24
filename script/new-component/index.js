@@ -9,7 +9,11 @@ const logError = (...args) => console.error('\x1B[31m', ...args, '\x1B[0m')
 const updatedFiles = []
 const compName = fetchCompName()
 const displayName = `F${changeCase(compName, 'upper-camel-case')}`
-const outputDir = resolve(__dirname, '../../packages/fighting-design', compName)
+const outputDir = resolve(
+  __dirname,
+  '../../packages/fighting-design',
+  compName
+)
 const mainFilePath = join(
   'packages/fighting-design',
   compName,
@@ -18,7 +22,7 @@ const mainFilePath = join(
 
 newComponent()
 
-async function newComponent() {
+async function newComponent () {
   // 如果已经存在
   if (existsSync(outputDir) && fstatSync) {
     logError(`组件 ${compName}` + '\n' + `已存在${mainFilePath}`)
@@ -29,18 +33,18 @@ async function newComponent() {
     await generate()
     logInfo(
       '本次创建/修改的文件有：' +
-        '\n' +
-        '\n' +
-        `${updatedFiles.join('\n')}` +
-        '\n'
+      '\n' +
+      '\n' +
+      `${updatedFiles.join('\n')}` +
+      '\n'
     )
   } catch (error) {
     logError(
       `不好意思，组件[${compName}]创建失败了` +
-        '\n' +
-        `error: ${error}` +
-        '\n ' +
-        `${error ? error.stack : ''}`
+      '\n' +
+      `error: ${error}` +
+      '\n ' +
+      `${error ? error.stack : ''}`
     )
     process.exit(0)
   }
@@ -49,16 +53,16 @@ async function newComponent() {
 }
 
 // 检测组件名是否规范
-function fetchCompName() {
+function fetchCompName () {
   const input = process.argv[2]
 
   if (input === undefined) {
     logError(
       '\n' +
-        '命令使用方法为: pnpm new <component-name>' +
-        '\n' +
-        '例如: pnpm new user-avatar' +
-        '\n'
+      '命令使用方法为: pnpm new <component-name>' +
+      '\n' +
+      '例如: pnpm new user-avatar' +
+      '\n'
     )
     process.exit(0)
   }
@@ -76,13 +80,13 @@ function fetchCompName() {
   process.exit(0)
 }
 
-async function generate() {
+async function generate () {
   updatedFiles.push(
     `packages/fighting-design/${compName}/**`,
-    'packages/fighting-design/components.ts',
+    'packages/fighting-design/index.ts',
     `packages/fighting-theme/src/${compName}.scss`,
     'packages/fighting-theme/index.scss',
-    `packages/fighting-design/__test__/${compName}.spec.ts`
+    `packages/fighting-test/${compName}.spec.ts`
   )
   const catchError = async (callback, info) => {
     try {
@@ -102,7 +106,7 @@ async function generate() {
   ])
 }
 
-async function generateComponentDir() {
+async function generateComponentDir () {
   const tplDir = resolve(__dirname, './template/component')
 
   // 编译文件内容
@@ -110,7 +114,7 @@ async function generateComponentDir() {
 }
 
 // 修改组件入口文件
-async function updateComponentEntry() {
+async function updateComponentEntry () {
   const entryFilePath = resolve(
     __dirname,
     '../../packages/fighting-design/components.ts'
@@ -130,7 +134,7 @@ async function updateComponentEntry() {
 }
 
 // 创建样式文件
-async function incrementStyle() {
+async function incrementStyle () {
   const outputDir = resolve(__dirname, '../../packages/fighting-theme/src')
   const tplDir = resolve(__dirname, './template/style')
 
@@ -139,7 +143,7 @@ async function incrementStyle() {
 }
 
 // 添加样式入口
-async function updateStyleEntry() {
+async function updateStyleEntry () {
   const entryFilePath = resolve(
     __dirname,
     '../../packages/fighting-theme/index.scss'
@@ -153,16 +157,13 @@ async function updateStyleEntry() {
 }
 
 // 添加测试文件
-async function incrementTest() {
-  const outputDir = resolve(
-    __dirname,
-    '../../packages/fighting-design/__test__'
-  )
+async function incrementTest () {
+  const outputDir = resolve(__dirname, '../../packages/fighting-design/__test__')
   const tplDir = resolve(__dirname, './template/test')
   await superEjsGerenateDir(outputDir, tplDir)
 }
 
-async function superEjsGerenateDir(outputDir, tplDir) {
+async function superEjsGerenateDir (outputDir, tplDir) {
   return await superEjs.gerenateDir(
     outputDir,
     tplDir,

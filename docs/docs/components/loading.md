@@ -2,7 +2,7 @@
 
 `Loading` 用于加载状态的提示
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/loading)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/loading)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/loading.md)
 
 ## 基本使用

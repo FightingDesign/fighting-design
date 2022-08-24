@@ -20,6 +20,7 @@
   overflow: hidden;
   white-space: nowrap;
   vertical-align: middle;
+  border-radius: $basicRadiusSize;
 
   @for $list from 1 to (length($allTypeColorList) + 1) {
     $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
