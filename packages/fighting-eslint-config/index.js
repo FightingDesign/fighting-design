@@ -222,9 +222,23 @@ module.exports = {
         ],
         alphabetical: false
       }
-    ]
-  },
+    ],
+    /**
+     * typescript 规则配置
+     * https://typescript-eslint.io/rules/
+     */
+    // 规定数组类型定义方式 https://typescript-eslint.io/rules/array-type
+    '@typescript-eslint/array-type': 'error',
+    // 类型名称必须小写 https://typescript-eslint.io/rules/ban-types
+    '@typescript-eslint/ban-types': 'error',
+    // 不允许尾随逗号 https://typescript-eslint.io/rules/comma-dangle
+    '@typescript-eslint/comma-dangle': 'error',
+    // 自定义对象类型样式 https://typescript-eslint.io/rules/consistent-indexed-object-style
+    '@typescript-eslint/consistent-indexed-object-style': ['warn', 'record'],
 
+    'comma-dangle': 'off'
+  },
+  //
   parser: 'vue-eslint-parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   plugins: ['@typescript-eslint'],
   root: true,
