@@ -28,7 +28,7 @@ export const Props = {
   },
   showText: {
     type: Boolean,
-    default: (): Boolean => true
+    default: (): boolean => true
   },
   textColor: {
     type: String,
