@@ -80,8 +80,62 @@ module.exports = {
       "allowCoexistStyle": true
     }],
     // 不允许 export 进入 <script setup> https://eslint.vuejs.org/rules/no-export-in-script-setup.html
-    'vue/no-export-in-script-setup': 'error'
-
+    'vue/no-export-in-script-setup': 'error',
+    // 不允许修改 props https://eslint.vuejs.org/rules/no-mutating-props.html
+    'vue/no-mutating-props': 'error',
+    // 不允许解析错误的 template https://eslint.vuejs.org/rules/no-parsing-error.html
+    "vue/no-parsing-error": ["error", {
+      "abrupt-closing-of-empty-comment": true,
+      "absence-of-digits-in-numeric-character-reference": true,
+      "cdata-in-html-content": true,
+      "character-reference-outside-unicode-range": true,
+      "control-character-in-input-stream": true,
+      "control-character-reference": true,
+      "eof-before-tag-name": true,
+      "eof-in-cdata": true,
+      "eof-in-comment": true,
+      "eof-in-tag": true,
+      "incorrectly-closed-comment": true,
+      "incorrectly-opened-comment": true,
+      "invalid-first-character-of-tag-name": true,
+      "missing-attribute-value": true,
+      "missing-end-tag-name": true,
+      "missing-semicolon-after-character-reference": true,
+      "missing-whitespace-between-attributes": true,
+      "nested-comment": true,
+      "noncharacter-character-reference": true,
+      "noncharacter-in-input-stream": true,
+      "null-character-reference": true,
+      "surrogate-character-reference": true,
+      "surrogate-in-input-stream": true,
+      "unexpected-character-in-attribute-name": true,
+      "unexpected-character-in-unquoted-attribute-value": true,
+      "unexpected-equals-sign-before-attribute-name": true,
+      "unexpected-null-character": true,
+      "unexpected-question-mark-instead-of-tag-name": true,
+      "unexpected-solidus-in-tag": true,
+      "unknown-named-character-reference": true,
+      "end-tag-with-attributes": true,
+      "duplicate-attribute": true,
+      "end-tag-with-trailing-solidus": true,
+      "non-void-html-element-start-tag-with-trailing-solidus": false,
+      "x-invalid-end-tag": true,
+      "x-invalid-namespace": true
+    }],
+    // 禁止使用ref() 包装的值作为操作数 https://eslint.vuejs.org/rules/no-ref-as-operand.html
+    'vue/no-ref-as-operand': 'error',
+    // 不允许在组件定义中使用保留名称 https://eslint.vuejs.org/rules/no-ref-as-operand.html
+    'vue/no-reserved-component-names': 'error',
+    // 不允许覆盖保留键 https://eslint.vuejs.org/rules/no-reserved-keys.html
+    'vue/no-reserved-keys': 'error',
+    // 禁止 props 中的保留名称 https://eslint.vuejs.org/rules/no-reserved-props.html
+    "vue/no-reserved-props": ["error", {
+      "vueVersion": 3,
+    }],
+    // 不允许计算属性中的副作用 https://eslint.vuejs.org/rules/no-side-effects-in-computed-properties.html
+    'vue/no-side-effects-in-computed-properties': 'error',
+    // 禁用key属性<template> https://eslint.vuejs.org/rules/no-template-key.html
+    'vue/no-template-key': 'error'
   },
 
   parser: 'vue-eslint-parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
