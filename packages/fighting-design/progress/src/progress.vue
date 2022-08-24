@@ -36,7 +36,7 @@
     }
   )
 
-  export const isShowPercentage: a = (): boolean => {
+  const isShowPercentage: a = (): boolean => {
     return (isShow.value = fillRef.value.clientHeight >= 18 && prop.textInside)
   }
 
