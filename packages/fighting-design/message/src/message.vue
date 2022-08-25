@@ -36,7 +36,9 @@
 
   onMounted((): void => {
     nextTick((): void => {
-      messageHeight.value = messageRef.value!.getBoundingClientRect().height
+      messageHeight.value = (
+        messageRef.value as HTMLDivElement
+      ).getBoundingClientRect().height
     })
   })
 
@@ -129,7 +131,9 @@
       </div>
       <!-- 消息文本 -->
       <component :is="message" v-if="isVNode(message)" />
-      <div v-else class="f-message--text">{{ message }}</div>
+      <div v-else class="f-message--text">
+        {{ message }}
+      </div>
       <!-- 关闭按钮 -->
       <div v-if="prop.close" class="f-message--close" @click="closeMessage">
         <component :is="closeBtn" v-if="isVNode(closeBtn)" />

@@ -3,47 +3,47 @@ import type { PropType } from 'vue'
 export const Props = {
   icon: {
     type: String,
-    default: (): String => 'f-icon-leftarrow'
+    default: (): string => 'f-icon-leftarrow'
   },
   iconSize: {
     type: String,
-    default: (): String => ''
+    default: (): string => ''
   },
   backText: {
     type: String,
-    default: (): String => '返回'
+    default: (): string => '返回'
   },
   title: {
     type: String,
-    default: (): String => ''
+    default: (): string => ''
   },
   titleClass: {
     type: [String, Object, Array] as PropType<
-      String | Object | Array<String | Object>
+      string | object | (string | object)[]
     >,
-    default: (): String => ''
+    default: (): string => ''
   },
   titleBold: {
     type: Boolean,
-    default: (): Boolean => false
+    default: (): boolean => false
   },
   titleColor: {
     type: String,
-    default: (): String => ''
+    default: (): string => ''
   },
   titleCenter: {
     type: Boolean,
-    default: (): Boolean => false
+    default: (): boolean => false
   },
   subtitle: {
     type: String,
-    default: (): String => ''
+    default: (): string => ''
   },
   subtitleClass: {
     type: [String, Object, Array] as PropType<
-      String | Object | Array<String | Object>
+      string | object | (string | object)[]
     >,
-    default: (): String => ''
+    default: (): string => ''
   }
 } as const
 

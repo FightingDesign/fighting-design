@@ -1,5 +1,3 @@
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
 import Components from 'unplugin-vue-components/vite'
 import type { UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'

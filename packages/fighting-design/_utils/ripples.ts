@@ -79,7 +79,9 @@ export class Ripples implements RipplesInterface {
    * @param y 坐标 y
    */
   renderElement = (x: number, y: number): HTMLSpanElement => {
-    const ripples: HTMLSpanElement = document.createElement('span')!
+    const ripples: HTMLSpanElement = document.createElement(
+      'span'
+    ) as HTMLSpanElement
 
     ripples.className = 'f-design-ripples'
     ripples.style.background = this.computedRipplesColor()

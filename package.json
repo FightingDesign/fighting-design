@@ -27,13 +27,14 @@
     "test": "vitest",
     "prettier": "prettier --write .",
     "commit": "cz",
-    "lint": "eslint 'packages/**/*.{js,ts,vue,jsx,tsx}'",
-    "prepare": "husky install"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@commitlint/cli": "^17.0.1",
     "@commitlint/config-conventional": "^17.0.0",
     "@fighting-design/fighting-theme": "workspace:*",
+    "@fighting-design/fighting-eslint-config": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/test-utils": "^2.0.0-rc.18",
     "commitizen": "^4.2.4",
@@ -52,11 +53,8 @@
     "vue-tsc": "^0.39.5"
   },
   "devDependencies": {
-    "@eslint-sets/eslint-config-vue3-ts": "^2.1.5",
     "@juln/change-case": "^0.0.4",
     "@types/node": "^17.0.42",
-    "@typescript-eslint/parser": "^5.33.0",
-    "eslint": "^8.18.0",
     "fs-extra": "^10.1.0",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
@@ -70,8 +68,6 @@
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,vue}": [
       "prettier --write",
-      "eslint --fix",
-      "eslint",
       "git add"
     ]
   }

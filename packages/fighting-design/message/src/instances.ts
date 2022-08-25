@@ -11,7 +11,7 @@ const getInstanceIndex = (
   id: string
 ): number => {
   if (!instances[placement]) return -1
-  return instances[placement]!.findIndex((item) => item.id === id)
+  return (instances[placement] as FMessageInstance[]).findIndex((item) => item.id === id)
 }
 
 export const getSiblingOffset = (
@@ -22,15 +22,15 @@ export const getSiblingOffset = (
   const idx: number = getInstanceIndex(placement, id)
   if (idx === -1) return 0
   const beforeInstance: FMessageInstance =
-    instances[placement]![isNext ? idx + 1 : idx - 1] || null
+    (instances[placement] as FMessageInstance[])[isNext ? idx + 1 : idx - 1] || null
   if (!beforeInstance) return 0
-  return beforeInstance.vm.exposeProxy!.bottom
+  return (beforeInstance.vm.exposeProxy as FMessageInstance).bottom
 }
 
 export const removeInstance = (
   placement: messagePlacementType,
   id: string
 ): void => {
-  const idx: number = getInstanceIndex(placement, id)
-  instances[placement]!.splice(idx, 1)
+  const idx: number = getInstanceIndex(placement, id);
+  (instances[placement] as FMessageInstance[]).splice(idx, 1)
 }

@@ -1,0 +1,39 @@
+{
+  "name": "@fighting-design/fighting-eslint-config",
+  "version": "0.0.1",
+  "description": "Fighting design out of the box eslint configuration item.",
+  "main": "index.js",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "fighting-design",
+    "fighting-eslint-config",
+    "vue",
+    "typescript",
+    "eslint-plugin",
+    "typescript-eslint"
+  ],
+  "files": [
+    "index.js",
+    "package.json",
+    "README.md"
+  ],
+  "devDependencies": {
+    "eslint": "^8.18.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.34.0",
+    "@typescript-eslint/parser": "^5.34.0",
+    "eslint-plugin-vue": "^9.4.0"
+  },
+  "author": {
+    "name": "tyh2001",
+    "url": "https://tianyuhao.cn"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FightingDesign/fighting-design/issues"
+  },
+  "homepage": "https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-eslint-config",
+  "repository": "https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-eslint-config"
+}

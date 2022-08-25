@@ -1,5 +1,4 @@
-// script: "lint": "eslint 'packages/**/*.{js,ts,vue,jsx,tsx}'"
-/** @type {import('eslint').Linter.BaseConfig} */
+// eslint-disable-next-line no-undef
 module.exports = {
   extends: [
     '@eslint-sets/vue3-ts' // @eslint-sets/eslint-config-vue3-ts
