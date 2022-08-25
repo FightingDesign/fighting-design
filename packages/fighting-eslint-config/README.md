@@ -1,5 +1,7 @@
-## 问题列表
+# @fighting-design/fighting-eslint-config
 
-```ts
-Parsing error: Unexpected token {eslint
-```
+## 说明
+
+`Fighting Design` 开箱即用 `eslint` 配置项。
+
+## 安装
