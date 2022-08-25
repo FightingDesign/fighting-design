@@ -11,7 +11,7 @@ export class Ripples implements RipplesInterface {
   node: HTMLElement
   props: a
 
-  constructor(evt: MouseEvent, node: HTMLElement, props: a) {
+  constructor (evt: MouseEvent, node: HTMLElement, props: a) {
     this.evt = evt
     this.node = node
     this.props = props

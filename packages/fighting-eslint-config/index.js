@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
@@ -137,7 +136,7 @@ module.exports = {
         'x-invalid-namespace': true
       }
     ],
-    // 禁止使用ref() 包装的值作为操作数 https://eslint.vuejs.org/rules/no-ref-as-operand.html
+    // 禁止使用 ref() 包装的值作为操作数 https://eslint.vuejs.org/rules/no-ref-as-operand.html
     'vue/no-ref-as-operand': 'error',
     // 不允许在组件定义中使用保留名称 https://eslint.vuejs.org/rules/no-ref-as-operand.html
     'vue/no-reserved-component-names': 'error',
@@ -189,15 +188,15 @@ module.exports = {
     'vue/valid-v-bind': 'error',
     // 禁止在数据上使用不推荐使用的对象声明 https://eslint.vuejs.org/rules/no-deprecated-data-object-declaration.htm
     'vue/no-deprecated-data-object-declaration': 'error',
-    // 禁止使用已弃用destroyed和beforeDestroy生命周期挂钩 https://eslint.vuejs.org/rules/no-deprecated-destroyed-lifecycle.html
+    // 禁止使用已弃用 destroyed 和 beforeDestroy 生命周期挂钩 https://eslint.vuejs.org/rules/no-deprecated-destroyed-lifecycle.html
     'vue/no-deprecated-destroyed-lifecycle': 'error',
-    // 禁止使用已弃用$listeners https://eslint.vuejs.org/rules/no-deprecated-dollar-listeners-api.html
+    // 禁止使用已弃用 $listeners https://eslint.vuejs.org/rules/no-deprecated-dollar-listeners-api.html
     'vue/no-deprecated-dollar-listeners-api': 'error',
-    // 禁止<template v-for>放置在子元素上的键 https://eslint.vuejs.org/rules/no-v-for-template-key-on-child.html
+    // 禁止 <template v-for> 放置在子元素上的键 https://eslint.vuejs.org/rules/no-v-for-template-key-on-child.html
     'vue/no-v-for-template-key-on-child': 'error',
-    // 强制从“vue”导入，而不是从“@vue/*”导入 https://eslint.vuejs.org/rules/prefer-import-from-vue.html
+    // 强制从 vue 导入，而不是从 @vue/* 导入 https://eslint.vuejs.org/rules/prefer-import-from-vue.html
     'vue/prefer-import-from-vue': 'error',
-    // 要求控制里面内容的显示<transition> https://eslint.vuejs.org/rules/require-toggle-inside-transition.html
+    // 要求控制里面内容的显示 <transition> https://eslint.vuejs.org/rules/require-toggle-inside-transition.html
     'vue/require-toggle-inside-transition': 'error',
     // 执行有效v-is指令 https://eslint.vuejs.org/rules/valid-v-is.html
     'vue/valid-v-is': 'error',
@@ -245,6 +244,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'error',
     /**
      * eslint 配置项
+     * https://eslint.org/docs/latest/
      */
     // 不允许不必要的转义字符 https://eslint.org/docs/latest/rules/no-useless-escape
     'no-useless-escape': 'off',
@@ -258,9 +258,18 @@ module.exports = {
     // semi: 'error',
     // 禁止 debugger https://eslint.org/docs/latest/rules/no-debugger#rule-details
     'no-debugger': 'error',
-    'no-unused-vars': 'off',
+    // 禁止未使用的变量 https://eslint.org/docs/latest/rules/no-unused-vars#rule-details
+    'no-unused-vars': 'error',
     // 不允许使用未声明的变量 https://eslint.org/docs/latest/rules/no-undef
-    'no-undef': 'off'
+    'no-undef': 'off',
+    // 函数括号前的空格 https://eslint.org/docs/latest/rules/space-before-function-paren
+    'space-before-function-paren': ['error', 'always'],
+    // 禁止多个空行 https://eslint.org/docs/latest/rules/no-multiple-empty-lines#rule-details
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0, maxBOF: 0 }],
+    // 在文件末尾要求或禁止换行 https://eslint.org/docs/latest/rules/eol-last#rule-details
+    'eol-last': 'error',
+    // 禁止所有选项卡 https://eslint.org/docs/latest/rules/no-tabs#rule-details
+    'no-tabs': 'error'
   },
   //
   // parser: ['@typescript-eslint/parser', 'vue-eslint-parser'], // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint

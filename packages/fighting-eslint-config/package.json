@@ -3,10 +3,20 @@
   "version": "0.0.1",
   "description": "Fighting design out of the box eslint configuration item.",
   "main": "index.js",
-  "keywords": [],
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "fighting-design",
+    "fighting-eslint-config",
+    "vue",
+    "typescript",
+    "eslint-plugin",
+    "typescript-eslint"
+  ],
   "files": [
     "index.js",
-    "package.json"
+    "package.json",
+    "README.md"
   ],
   "devDependencies": {
     "eslint": "^8.18.0"

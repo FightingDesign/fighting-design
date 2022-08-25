@@ -21,7 +21,7 @@ class Load implements LoadInterface {
    * @param emit 事件
    * @param callback 回调参数
    */
-  constructor(
+  constructor (
     node: HTMLImageElement,
     props: LoadNeedImagePropsInterface,
     emit: Function,
@@ -91,7 +91,7 @@ class Load implements LoadInterface {
  * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */
 class Lazy extends Load implements LazyInterface {
-  constructor(
+  constructor (
     img: HTMLImageElement,
     props: LoadNeedImagePropsInterface,
     emit: Function,
