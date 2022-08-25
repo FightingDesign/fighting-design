@@ -237,6 +237,12 @@ module.exports = {
     '@typescript-eslint/consistent-indexed-object-style': ['warn', 'record'],
     // !禁止使用后缀运算符的非空断言 https://typescript-eslint.io/rules/no-non-null-assertion/
     '@typescript-eslint/no-non-null-assertion': 'error',
+    // 强制一致地使用类型导入 https://typescript-eslint.io/rules/consistent-type-imports
+    '@typescript-eslint/consistent-type-imports': 'off',
+    // 禁止未使用的变量 https://typescript-eslint.io/rules/no-unused-vars
+    '@typescript-eslint/no-unused-vars': 'error',
+    // 不可以有 any https://typescript-eslint.io/rules/no-explicit-any/
+    '@typescript-eslint/no-explicit-any': 'error',
     /**
      * eslint 配置项
      */
@@ -251,16 +257,18 @@ module.exports = {
     // 禁止分号 https://eslint.org/docs/latest/rules/semi#rule-details
     // semi: 'error',
     // 禁止 debugger https://eslint.org/docs/latest/rules/no-debugger#rule-details
-    'no-debugger': 'error'
+    'no-debugger': 'error',
+    'no-unused-vars': 'off'
   },
   //
   // parser: ['@typescript-eslint/parser', 'vue-eslint-parser'], // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   // parser: '@typescript-eslint/parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   parser: 'vue-eslint-parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   plugins: ['@typescript-eslint'],
+  // files: ['*.ts', '*.vue'], // beta
   root: true,
   parserOptions: {
     // 'ecmaVersion': 2018
-    // parser: '@typescript-eslint/parser' // 解决引入 type {} 报错问题
+    parser: '@typescript-eslint/parser' // 解决引入 type {} 报错问题
   }
 }

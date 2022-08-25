@@ -57,7 +57,7 @@ export const Props = {
   },
   fixedStyle: {
     type: Object as PropType<fixedStyleInterface> as PropType<unknown> as PropType<CSSProperties>,
-    default: (): void => {},
+    default: (): null => null,
     validator: (val: CSSProperties): boolean => {
       if (val.bottom || val.left || val.right || val.top) {
         return true

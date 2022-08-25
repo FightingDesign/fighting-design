@@ -1,6 +1,7 @@
 import messageVue from './message.vue'
 import { messageTypes } from './message'
 import type { messageType, messagePlacementType } from './message'
+import type { ComponentInternalInstance } from 'vue'
 import { createVNode, render } from 'vue'
 import { instances } from './instances'
 import type { FMessageInstance, MessageOptions } from './interface'
@@ -62,9 +63,10 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
 
   render(VNode, container)
 
-  document.body.appendChild(container.firstElementChild!)
+  document.body.appendChild(container.firstElementChild as HTMLElement)
 
-  const vm = VNode.component!
+  const vm: ComponentInternalInstance =
+    VNode.component as ComponentInternalInstance
 
   seed++
 
@@ -72,7 +74,9 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
     id,
     vm,
     close: () => {
-      vm.exposeProxy!.close()
+      ;(
+        (vm as ComponentInternalInstance).exposeProxy as Record<string, any>
+      ).close()
     }
   }
 
@@ -80,7 +84,7 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
    * 添加到实例组中
    */
   if (instances[props.placement]) {
-    instances[props.placement]!.push(instance)
+    instances[props.placement].push(instance)
   } else {
     instances[props.placement] = [instance]
   }

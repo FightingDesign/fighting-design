@@ -76,8 +76,8 @@ export const Props = {
     default: (): boolean => true
   },
   previewList: {
-    type: Array as PropType<Array<string>>,
-    default: (): Array<string> => []
+    type: Array as PropType<string[]>,
+    default: (): string[] => []
   },
   previewShowIndex: {
     type: Number,

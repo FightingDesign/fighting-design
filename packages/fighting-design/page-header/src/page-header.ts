@@ -19,7 +19,7 @@ export const Props = {
   },
   titleClass: {
     type: [String, Object, Array] as PropType<
-      string | object | Array<string | object>
+      string | object | (string | object)[]
     >,
     default: (): string => ''
   },
@@ -41,7 +41,7 @@ export const Props = {
   },
   subtitleClass: {
     type: [String, Object, Array] as PropType<
-      string | object | Array<string | object>
+      string | object | (string | object)[]
     >,
     default: (): string => ''
   }
