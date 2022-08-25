@@ -258,7 +258,9 @@ module.exports = {
     // semi: 'error',
     // 禁止 debugger https://eslint.org/docs/latest/rules/no-debugger#rule-details
     'no-debugger': 'error',
-    'no-unused-vars': 'off'
+    'no-unused-vars': 'off',
+    // 不允许使用未声明的变量 https://eslint.org/docs/latest/rules/no-undef
+    'no-undef': 'off'
   },
   //
   // parser: ['@typescript-eslint/parser', 'vue-eslint-parser'], // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint

@@ -74,17 +74,19 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
     id,
     vm,
     close: () => {
-      ;(
-        (vm as ComponentInternalInstance).exposeProxy as Record<string, any>
+      (
+        (vm as ComponentInternalInstance).exposeProxy as Record<string, Function>
       ).close()
-    }
+    },
+    bottom: 0,
+    visible: 0
   }
 
   /**
    * 添加到实例组中
    */
   if (instances[props.placement]) {
-    instances[props.placement].push(instance)
+    (instances[props.placement] as FMessageInstance[]).push(instance)
   } else {
     instances[props.placement] = [instance]
   }
