@@ -2,7 +2,7 @@
 
 `Image` 用于图片的展示
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/image)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/image)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/image.md)
 
 ## 基本使用

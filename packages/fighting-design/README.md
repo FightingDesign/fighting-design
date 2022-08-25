@@ -10,7 +10,7 @@
 
 在新增组件之前，请与[我](https://github.com/Tyh2001/Tyh2001)取得联系，或者在 [discussions](https://github.com/FightingDesign/fighting-design/discussions) 新建一个讨论，讨论的格式可参考[这里](https://github.com/FightingDesign/fighting-design/discussions/5)。
 
-如果想要新增组件，需要在 `fighting-components` 目录下新建一个`以组件名称`为名的文件夹，内部目录结构如下：
+如果想要新增组件，需要在 `fighting-design` 目录下新建一个`以组件名称`为名的文件夹，内部目录结构如下：
 
 ```
 ├── src
@@ -65,7 +65,7 @@ pnpm new <component-name>
 - 引入的类型，必须使用 `type` 标记，比如：`import type { xxx } from 'xxx'`
 - 在所有 `import` 之后要带有一个空行，之后是 `prop` 和 `emit`
 - `prop` 和 `emit` 之后，也要带一个空行，再继续编写其它代码
-- 后面可以进行编写组件需要的逻辑函数，函数必须使用 `箭头函数`，除非特殊情况外，每个函数之间要有一个空行隔开。可见下面例子，取自 [f-button](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/button/src/button.vue)
+- 后面可以进行编写组件需要的逻辑函数，函数必须使用 `箭头函数`，除非特殊情况外，每个函数之间要有一个空行隔开。可见下面例子，取自 [f-button](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/button/src/button.vue)
 
 **template 规范**
 
@@ -80,7 +80,7 @@ pnpm new <component-name>
 - 就算是类型自动推倒出来了，也要写入类型
 - `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 `interface.d.ts` 中定义
 - 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/FightingDesign/fighting-design/discussions) 或者群里提问
-- 定义函数类型通常命名规范为 `函数名+Interface`，但是由于这种规则定义的名称较长，你也可以使用简短的别名来定义（别名的定义仅限于自定义的接口类型，例如 `ComputedRef` 是从 `vue` 中引入的则不可以设置别名），例如下面代码，取自 [preview-list](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/image/components/preview-list.vue)：
+- 定义函数类型通常命名规范为 `函数名+Interface`，但是由于这种规则定义的名称较长，你也可以使用简短的别名来定义（别名的定义仅限于自定义的接口类型，例如 `ComputedRef` 是从 `vue` 中引入的则不可以设置别名），例如下面代码，取自 [preview-list](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/_components/preview-list.vue)：
 
 ```ts
 import type {

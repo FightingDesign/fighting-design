@@ -2,7 +2,7 @@
 
 `Button` 是一个灵活的按钮组件
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/button)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/button)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/button.md)
 
 ## 基本使用

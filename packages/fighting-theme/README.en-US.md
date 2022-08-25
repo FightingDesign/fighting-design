@@ -10,13 +10,11 @@ Theme style directory of `fighting-design`
 
 ```
 ├── config                Some style definitions common to components, such as type, etc
-├── dist                  Packaged folder
-├── font                  Font folder
 ├── src                   Main style sheet storage directory of each component
 ├── index.scss            The main style entry file is also a package entry file
 ├── package.json          package.json
 ├── README.en-US.md       README.en-US.md
-└──  README.md            README.md
+└── README.md            README.md
 ```
 
 ## Specification

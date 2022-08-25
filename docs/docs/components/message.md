@@ -2,7 +2,7 @@
 
 `Message` 用于主动操作后的反馈提示
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/message)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/message)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/message.md)
 
 ## 基本使用

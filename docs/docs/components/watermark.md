@@ -2,7 +2,7 @@
 
 据说水印容易让人讨厌？
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/watermark)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/watermark)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/watermark.md)
 
 ## 基本使用

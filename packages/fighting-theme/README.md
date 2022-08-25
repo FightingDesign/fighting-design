@@ -10,8 +10,6 @@
 
 ```
 ├── config                组件的一些配置变量
-├── dist                  打包的文件夹
-├── font                  字体文件夹
 ├── src                   每个组件的主样式表存放目录
 ├── index.scss            样式主入口文件，打包入口文件
 ├── package.json          package.json
