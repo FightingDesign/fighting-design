@@ -22,3 +22,4 @@
 - [Message 提示](https://www.figma.com/file/zZwr2nPzMLz2sRuhumPbwJ/Message-%E6%8F%90%E7%A4%BA?node-id=0%3A1)
 - [Skeleton 骨架屏](https://www.figma.com/file/Ge2Dslin4SpSGG3oVNqAOg/Skeleton-%E9%AA%A8%E6%9E%B6%E5%B1%8F?node-id=0%3A1)
 - [Notification 通知](https://www.figma.com/file/wSQ8URqG1jtaoa6gQuk68F/Notification-%E9%80%9A%E7%9F%A5)
+- [Radio 单选框](https://www.figma.com/file/2DuQ8GlyP1vjdhrIDIp66n/Radio-%E5%8D%95%E9%80%89%E6%A1%86?node-id=0%3A1)

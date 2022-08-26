@@ -1,5 +1,5 @@
 {
-  "name": "@fighting-design/fighting-eslint-config",
+  "name": "fighting-eslint-config",
   "version": "0.0.1",
   "description": "Fighting design out of the box eslint configuration item.",
   "main": "index.js",

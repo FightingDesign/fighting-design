@@ -1,4 +1,4 @@
-# @fighting-design/fighting-eslint-config
+# fighting-eslint-config
 
 ## 说明
 
