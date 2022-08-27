@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-fighting",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Fighting design out of the box eslint configuration item.",
   "main": "index.js",
   "scripts": {
@@ -16,13 +16,13 @@
     "eslint-plugin",
     "typescript-eslint"
   ],
-  "peerDependencies": {
-    "eslint": "^8.18.0"
-  },
-  "devDependencies": {
+  "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.34.0",
     "@typescript-eslint/parser": "^5.34.0",
     "eslint-plugin-vue": "^9.4.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.18.0"
   },
   "author": {
     "name": "tyh2001",
