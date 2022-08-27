@@ -242,6 +242,8 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     // 不可以有 any https://typescript-eslint.io/rules/no-explicit-any/
     '@typescript-eslint/no-explicit-any': 'error',
+    // 不可以有 require https://typescript-eslint.io/rules/no-var-requires/
+    '@typescript-eslint/no-var-requires': 'error',
     /**
      * eslint 配置项
      * https://eslint.org/docs/latest/
