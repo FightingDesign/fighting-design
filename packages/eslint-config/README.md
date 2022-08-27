@@ -1,4 +1,4 @@
-# eslint-config-fighting
+# eslint-config-fighting <a href="https://www.npmjs.com/package/eslint-config-fighting"><img src="https://badgen.net/npm/v/eslint-config-fighting" /></a>
 
 中文 | <a href="https://github.com/FightingDesign/fighting-design/blob/master/packages/eslint-config/README.en-US.md">English</a>
 
