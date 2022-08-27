@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import FMessageVue, { FMessage } from '../index'
+import FMessageVue from '../message/src/message.vue'
+import { FMessage } from '../index'
 import type { ComponentPublicInstance } from 'vue'
-import type { FMessageInstance } from '../message/src/interface.d'
 
 type MessageInstance = ComponentPublicInstance<{
   visible: boolean
@@ -58,8 +58,8 @@ describe('FMessage', () => {
     expect(messageReturn).toHaveProperty('vm')
     expect(messageReturn.vm.exposed).toHaveProperty('visible')
 
-    expect((messageReturn.vm.exposed as FMessageInstance).visible.value).toBe(true)
+    expect(messageReturn.vm.exposed!.visible.value).toBe(true)
     await sleep(3000)
-    expect((messageReturn.vm.exposed as FMessageInstance).visible.value).toBe(false)
+    expect(messageReturn.vm.exposed!.visible.value).toBe(false)
   })
 })

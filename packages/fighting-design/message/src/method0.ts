@@ -1,23 +1,18 @@
 import messageVue from './message.vue'
-import { messagePlacementType, messageType, messageTypes } from './message'
-import type { FPropsType } from './message'
-import type {
-  InstanceOptions,
-  FMessageInstance
-} from '../../_hooks/useMassageManage'
-import { useMassageManage } from '../../_hooks/useMassageManage'
-import { ComponentInternalInstance, render, createVNode } from 'vue'
+import { messageTypes } from './message'
+import type { messageType, messagePlacementType } from './message'
+import type { ComponentInternalInstance } from 'vue'
+import { createVNode, render } from 'vue'
+import { instances } from './instances'
+import type { FMessageInstance, MessageOptions } from './interface'
 
 type FMessageFnWithType = {
   [key in messageType]: (text: string) => void
 }
 
-type MessageOptions = InstanceOptions<FPropsType>
-interface FMessageFn {
+export interface FMessageFn {
   (options: MessageOptions | string): FMessageInstance
 }
-
-export const massageManage = useMassageManage<messagePlacementType>()
 
 const defaultOptions: {
   placement: messagePlacementType
@@ -39,7 +34,7 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
       message: options
     } as MessageOptions
   }
-  console.log('我出发了？')
+
   const props: MessageOptions & typeof defaultOptions = {
     id,
     ...defaultOptions,
@@ -65,27 +60,32 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
 
   seed++
 
-  const instance = massageManage.createInstance(
-    {
-      id,
-      vm,
-      close: () => {
-        ;(
-          (vm as ComponentInternalInstance).exposeProxy as Record<
-            string,
-            Function
-          >
-        ).close()
-      },
-      bottom: 0,
-      visible: 0
+  const instance: FMessageInstance = {
+    id,
+    vm,
+    close: () => {
+      ;(
+        (vm as ComponentInternalInstance).exposeProxy as Record<
+          string,
+          Function
+        >
+      ).close()
     },
-    props.placement
-  )
+    bottom: 0,
+    visible: 0
+  }
+
+  /**
+   * 添加到实例组中
+   */
+  if (instances[props.placement]) {
+    ;(instances[props.placement] as FMessageInstance[]).push(instance)
+  } else {
+    instances[props.placement] = [instance]
+  }
 
   return instance
 }
-
 messageTypes.forEach((type) => {
   FMessage[type] = (text: string) => {
     FMessage({ message: text, type })
