@@ -1,6 +1,6 @@
 # Link 链接
 
-`Link` 用于超链接跳转
+一个超链接
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/link)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/link.md)
@@ -164,7 +164,7 @@
 | `no-copy`    | 是否禁止 copy                                                                             | boolean | ——                                                     | false   |
 | `no-link`    | 是否禁止链接跳转及重新加载（取消默认事件）                                                | boolean | ——                                                     | false   |
 
-## Link Slots
+## Slots
 
 | 名称      | 说明        |
 | --------- | ----------- |

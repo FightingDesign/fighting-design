@@ -82,9 +82,6 @@ export type { FPageHeaderInstance } from './page-header'
 export { default as FAlert } from './alert'
 export type { FAlertInstance } from './alert'
 
-export { default as FNovelCoronavirus } from './novel-coronavirus'
-export type { FNovelCoronavirusInstance } from './novel-coronavirus'
-
 export { default as FList } from './list'
 export type { FListInstance } from './list'
 

@@ -1,10 +1,6 @@
 # Icon 图标
 
-:::danger
-Icon 图标将会在近期版本中永久弃用，请谨慎使用！
-::::
-
-`Icon` 用于展示网页中的小图标
+一个小图标组件
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/icon)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/icon.md)

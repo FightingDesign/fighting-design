@@ -7,6 +7,9 @@
 - 优化 `f-alert` 样式细节
 - 优化 `f-alert` 组件 `overflow` 配置项
 - 移除 `f-alert` 组件 `overflow` 配置项的 `roll` 可选参数
+- 移除 `f-novel-coronavirus` 组件
+- 修复 `Load` 图片加载类加载死循环的问题
+- 优化 `f-image` 组件加载过程中是撕裂样式
 
 ## 0.6.2-alpha.2 (2022-08-20)
 

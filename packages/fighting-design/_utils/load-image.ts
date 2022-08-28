@@ -38,6 +38,7 @@ class Load implements LoadInterface {
    */
   loadCreateImg = (errSrc?: string): void => {
     const newImg: HTMLImageElement = new Image()
+
     if (errSrc) {
       newImg.src = errSrc
     } else {
@@ -62,7 +63,9 @@ class Load implements LoadInterface {
   onerror = (evt: Event): void => {
     // 如果存在 errSrc 则继续尝试加载
     if (this.props.errSrc) {
-      return this.loadCreateImg(this.props.errSrc)
+      this.loadCreateImg(this.props.errSrc)
+      this.props.errSrc = ''
+      return
     }
 
     // 否则返回失败回调
