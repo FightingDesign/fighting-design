@@ -33,26 +33,13 @@
         可在 vue3 应用程序中快速构建交互界面，看起来还不错。
       </h1>
       <p class="content">
-        <strong>🌈 Fighting Design</strong> 是一款灵活、优质的
-        组件库，为开发者、设计师准备。希望开发者可以借用
-        <strong>Fighting Design</strong>
-        的设计，在不久的将来，孕育出更高阶的组件库。
+        <strong>🌈 Fighting Design</strong>
+        是一款灵活、优质的组件库，为开发者、设计师准备。希望开发者可以借用其中的的设计，在不久的将来，孕育出更高阶的组件库。
       </p>
 
       <div class="action">
         <f-button type="primary" size="large" href="/docs/install">
           开始使用
-        </f-button>
-        <f-button
-          class="code"
-          type="primary"
-          size="large"
-          blob
-          simple
-          data-clipboard-text="npm i filling-design"
-          @click="copyCode('.code')"
-        >
-          pnpm add filling-design
         </f-button>
       </div>
     </div>

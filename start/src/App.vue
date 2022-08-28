@@ -12,16 +12,21 @@
       blob
       simple
       data-clipboard-text="npm i filling-design"
-      @click="copyCode('.code')"
     >
       pnpm add filling-design
     </f-button>
   </div>
 </template>
 
-<style scoped>
-  #box {
-    width: 90px;
-    border: 1px solid red;
+<style lang="scss" scoped>
+  .action {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+
+    .code {
+      margin-left: 17px;
+      font-size: 21px;
+    }
   }
 </style>
