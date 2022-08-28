@@ -222,6 +222,8 @@ module.exports = {
         alphabetical: false
       }
     ],
+    // 在单行元素的内容之前和之后需要换行符 https://eslint.vuejs.org/rules/singleline-html-element-content-newline.html
+    'vue/singleline-html-element-content-newline': 'off',
     /**
      * typescript 规则配置
      * https://typescript-eslint.io/rules/
