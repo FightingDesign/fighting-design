@@ -16,12 +16,6 @@ pnpm add fighting-design
 npm install fighting-design
 ```
 
-全局安装
-
-```shell
-npm install fighting-design --save
-```
-
 ## yarn
 
 或者使用 `yarn` 进行安装

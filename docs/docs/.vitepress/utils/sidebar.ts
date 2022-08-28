@@ -1,11 +1,11 @@
 export const sidebar = {
   '/docs/': [
     {
-      text: '快速上手',
+      text: '开发指南',
       link: '/docs/install',
       items: [
         { text: '安装', link: '/docs/install' },
-        { text: '引入使用', link: '/docs/import' }
+        { text: '快速上手', link: '/docs/import' }
       ]
     },
     {
