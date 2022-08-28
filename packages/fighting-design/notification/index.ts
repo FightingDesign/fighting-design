@@ -1,9 +1,7 @@
-import FNotification from './src/notification.vue'
+import FNotification from './src/method'
 
-import { install } from '../_utils'
+import { installFn } from '../_utils'
 
-install(FNotification, FNotification.name)
-
-export type FNotificationInstance = InstanceType<typeof FNotification>
+installFn(FNotification, 'FNotification')
 
 export default FNotification

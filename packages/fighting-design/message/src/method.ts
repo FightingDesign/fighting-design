@@ -4,8 +4,8 @@ import type { FPropsType } from './message'
 import type {
   InstanceOptions,
   FMessageInstance
-} from '../../_hooks/useMassageManage'
-import { useMassageManage } from '../../_hooks/useMassageManage'
+} from '../../_hooks/useMessageMange'
+import { useMassageManage } from '../../_hooks/useMessageMange'
 import { ComponentInternalInstance, render, createVNode } from 'vue'
 
 type FMessageFnWithType = {

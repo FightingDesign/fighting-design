@@ -4,6 +4,6 @@ import { installFn } from '../_utils'
 
 installFn(FMessage, 'FMessage')
 
-export type { FMessageInstance } from './src/interface'
+export type { FMessageInstance } from '../_hooks/useMessageMange'
 
 export default FMessage

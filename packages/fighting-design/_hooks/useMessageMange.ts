@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
-import type { FMessageInstance } from './useMassageManage.d'
-export * from './useMassageManage.d'
+import type { FMessageInstance } from './useMessageMange.d'
+export * from './useMessageMange.d'
 
 /**
  * 创建弹出的消息体实例
