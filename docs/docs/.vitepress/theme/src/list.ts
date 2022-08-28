@@ -49,12 +49,3 @@ export const bottomList = [
     ]
   }
 ] as const
-
-// 合作者
-export const collaborator = [
-  {
-    name: '田同学',
-    photo: 'https://avatars.githubusercontent.com/u/73180970?v=4',
-    url: 'https://github.com/Tyh2001'
-  }
-] as const

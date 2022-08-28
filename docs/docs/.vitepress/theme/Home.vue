@@ -1,18 +1,13 @@
 <script lang="ts" setup>
-  import Clipboard from 'clipboard'
-  import { lists, bottomList, collaborator } from './src/list'
-
-  const copyCode = (node: string): void => {
-    return new Clipboard(node)
-  }
+  import { lists, bottomList } from './src/list'
 </script>
 
 <template>
   <div id="banner">
     <div class="logo_box">
-      <img
+      <f-image
         class="logo"
-        draggable="false"
+        :draggable="false"
         src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
         alt="Fighting Design logo"
       />
@@ -37,11 +32,9 @@
         是一款灵活、优质的组件库，为开发者、设计师准备。希望开发者可以借用其中的的设计，在不久的将来，孕育出更高阶的组件库。
       </p>
 
-      <div class="action">
-        <f-button type="primary" size="large" href="/docs/install">
-          开始使用
-        </f-button>
-      </div>
+      <f-button type="primary" size="large" href="/docs/install">
+        开始使用
+      </f-button>
     </div>
 
     <div id="introduce">
@@ -65,9 +58,9 @@
           <ul v-for="(listItem, index) in bottomList" :key="index">
             <h4>{{ listItem.title }}</h4>
             <li v-for="(list, i) in listItem.item" :key="i">
-              <a class="home_link" target="_back" :href="list.link">
+              <f-link target="_blank" :href="list.link">
                 {{ list.text }}
-              </a>
+              </f-link>
             </li>
           </ul>
         </div>
@@ -78,29 +71,10 @@
         <img src="https://tianyuhao.cn/images/auto/weixin.png" alt="weixin" />
       </div>
 
-      <div class="footer_item">
-        <h4 class="title">合作者</h4>
-        <a
-          v-for="(item, index) in collaborator"
-          :key="index"
-          class="collaborator"
-          target="_blank"
-          :href="item.url"
-        >
-          <img
-            draggable="false"
-            class="myPhoto"
-            :src="item.photo"
-            alt="photo"
-          />
-          <span class="userName">{{ item.name }}</span>
-        </a>
-      </div>
-
       <p class="code">
-        <a target="_back" href="https://beian.miit.gov.cn">
+        <f-link target="_blank" href="https://beian.miit.gov.cn">
           FightingDesign | 浙ICP备2021024540号-2
-        </a>
+        </f-link>
       </p>
     </div>
   </div>
@@ -195,15 +169,8 @@
         margin-top: 30px;
       }
 
-      .action {
+      .f-button-primary {
         margin-top: 30px;
-        display: flex;
-        align-items: center;
-
-        .code {
-          margin-left: 17px;
-          font-size: 21px;
-        }
       }
     }
 
@@ -276,28 +243,6 @@
               cursor: pointer;
               font-size: 14px;
             }
-          }
-        }
-
-        .collaborator {
-          width: 150px;
-          height: 50px;
-          display: inline-block;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-
-          .myPhoto {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-          }
-
-          .userName {
-            font-size: 20px;
-            margin-left: 10px;
-            color: #333;
           }
         }
       }
