@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.2-alpha.3 (2022-08-28)
+
+- Add `f-skeleton` skeleton screen component
+- Optimize the fillet style of `f-button` `f-alert` components
+- Optimize `f-alert` style details
+- Optimize the `overflow` configuration item of the `f-alert` component
+- Remove the `Roll` optional parameter of the `overflow` configuration item of the `f-alert` component
+- Remove the `f-novel-coronavirus` component
+- Fix the problem of `load` image loading class loading loop
+- Optimize the tear pattern during the loading of the `f-image` component
+
 ## 0.6.2-alpha.2 (2022-08-20)
 
 - Fix known packaging issues

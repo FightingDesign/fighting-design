@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.2-alpha.3 (2022-08-28)
+
 - 新增 `f-skeleton` 骨架屏组件
 - 优化 `f-button` `f-alert` 组件圆角样式
 - 优化 `f-alert` 样式细节

@@ -1,6 +1,6 @@
 {
   "name": "fighting-design",
-  "version": "0.6.2-alpha.2",
+  "version": "0.6.2-alpha.3",
   "type": "module",
   "description": "Fighting design can quickly build interactive interfaces in vue3 applications, which looks good.",
   "keywords": [
