@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**fest**
+
+- `f-image` 组件新增 `title` 配置项
+
 **fix**
 
 - 修复 `f-card` 组件样式细节

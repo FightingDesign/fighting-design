@@ -82,8 +82,9 @@
       :draggable="draggable"
       :referrer-policy="referrerPolicy"
       :alt="alt"
+      :title="title"
       @click="handleClick"
-    >
+    />
 
     <div
       v-if="caption"
