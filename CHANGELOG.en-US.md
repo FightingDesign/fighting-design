@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.2-alpha.4 (2022-08-29)
+
+**fest**
+
+-New ` title` configuration item for `f-image` component
+
+**fix**
+
+- Fix `F-card` component style details
+- Fix some style related details of `f-skeleton`
+
 ## 0.6.2-alpha.3 (2022-08-28)
 
 - Add `f-skeleton` skeleton screen component

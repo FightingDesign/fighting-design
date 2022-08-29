@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.2-alpha.4 (2022-08-29)
+
 **fest**
 
 - `f-image` 组件新增 `title` 配置项
