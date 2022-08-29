@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `f-loading-bar` 组件
+- 新增 `notification` 组件
+
 ## 0.6.2-alpha.4 (2022-08-29)
 
 **fest**
