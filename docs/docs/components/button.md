@@ -1,6 +1,6 @@
 # Button 按钮
 
-`Button` 是一个灵活的按钮组件
+点不坏的按钮
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/button)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/button.md)
@@ -193,34 +193,24 @@
 
 ## 带有阴影
 
-你可以自定义按钮的阴影样式，可传入一个原生 [box-shadow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow) 属性值
+可以自定义按钮的阴影样式，可传入一个原生 [box-shadow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow) 属性值
 
 或者也可以通过 [Neumorphism](https://neumorphism.io) 自己手动调节阴影样式
 
-<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="default">默认按钮</f-button>
-<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="primary">主要按钮</f-button>
-<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="success">成功按钮</f-button>
-<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="danger">危险按钮</f-button>
-<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="warning">警告按钮</f-button>
+<f-button shadow="0 2px 7px 0 #f0f0f0" type="default">默认按钮</f-button>
+<f-button shadow="0 2px 7px 0 #2d5af1" type="primary">主要按钮</f-button>
+<f-button shadow="0 2px 7px 0 #52b35e" type="success">成功按钮</f-button>
+<f-button shadow="0 2px 7px 0 #ff0200" type="danger">危险按钮</f-button>
+<f-button shadow="0 2px 7px 0 #fcc202" type="warning">警告按钮</f-button>
 
 ::: details 显示代码
 
 ```html
-<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="default">
-  默认按钮
-</f-button>
-<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="primary">
-  主要按钮
-</f-button>
-<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="success">
-  成功按钮
-</f-button>
-<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="danger">
-  危险按钮
-</f-button>
-<f-button shadow="7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4" type="warning">
-  警告按钮
-</f-button>
+<f-button shadow="0 2px 7px 0 #f0f0f0" type="default">默认按钮</f-button>
+<f-button shadow="0 2px 7px 0 #2d5af1" type="primary">主要按钮</f-button>
+<f-button shadow="0 2px 7px 0 #52b35e" type="success">成功按钮</f-button>
+<f-button shadow="0 2px 7px 0 #ff0200" type="danger">危险按钮</f-button>
+<f-button shadow="0 2px 7px 0 #fcc202" type="warning">警告按钮</f-button>
 ```
 
 :::
@@ -292,9 +282,7 @@
 
 `color` 属性可以自定义按钮的颜色，使用自定义颜色之后，`simple` 和 `text` 将不会再继续工作，不过自定义颜色仅支持 [hex](https://baike.baidu.com/item/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E9%A2%9C%E8%89%B2%E7%A0%81/10894232?fr=aladdin) 格式的色号
 
-使用自定义颜色之后 `Fighting Design` 会自动推断 `hover` 和 `active` 的效果
-
-那么你需要使用 `font-color` 来自定义文字的颜色
+使用自定义颜色之后 `Fighting Design` 会自动推断 `hover` 和 `active` 的效果，那么需要使用 `font-color` 来自定义文字的颜色
 
 <f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
 <f-button font-color="#fff" color="#22c1c3" loading>loading</f-button>

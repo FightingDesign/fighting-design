@@ -243,6 +243,7 @@
 | `preview-z-index`     | 图片预览展示的 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index)                           | number   | ——                                           | 999    |
 | `preview-show-option` | 是否展示图片预览下面的操作栏                                                                                 | boolean  | ——                                           | true   |
 | `preview-round`       | 预览图的圆角，传入一个单位                                                                                   | string   | ——                                           | ——     |
+| `title`               | img 的 title                                                                                                 | string   | ——                                           | ——     |
 
 ## Events
 

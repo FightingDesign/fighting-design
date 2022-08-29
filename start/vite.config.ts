@@ -5,9 +5,9 @@ import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 export default (): UserConfigExport => {
   return {
     base: './',
-    plugins: [
-      vue(),
-      vueSetupExtend()
-    ]
+    plugins: [vue(), vueSetupExtend()],
+    server: {
+      port: 1216
+    }
   }
 }

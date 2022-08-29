@@ -26,6 +26,7 @@
   const FImageImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
     null as unknown as HTMLImageElement
   )
+  const isShowNode: Ref<boolean> = ref<boolean>(prop.lazy)
 
   // 点击图片时候 开启大图预览
   const handleClick: b = (): void => {
@@ -44,6 +45,7 @@
     const node: HTMLImageElement = FImageImg.value as HTMLImageElement
     const callback: a = (params: boolean, width: number): void => {
       isSuccess.value = params
+      isShowNode.value = params
       captionWidth.value = width
     }
 
@@ -65,6 +67,7 @@
 <template>
   <div v-if="isSuccess" :class="['f-image', { 'f-image-block': block }]">
     <img
+      v-show="isShowNode"
       ref="FImageImg"
       src=""
       :class="[
@@ -79,6 +82,7 @@
       :draggable="draggable"
       :referrer-policy="referrerPolicy"
       :alt="alt"
+      :title="title"
       @click="handleClick"
     />
 

@@ -9,12 +9,12 @@
 
 `content` 属性可以配置展示的内容
 
-<f-empty content="在这里，后续提供更多服务"></f-empty>
+<f-empty content="在这里，后续提供更多服务" />
 
 ::: details 显示代码
 
 ```html
-<f-empty content="在这里，后续提供更多服务"></f-empty>
+<f-empty content="在这里，后续提供更多服务" />
 ```
 
 :::
@@ -25,12 +25,12 @@
 
 `content-size` 必须写入指定的数值和单位才可以正常工作
 
-<f-empty content-size="30px"></f-empty>
+<f-empty content-size="30px" />
 
 ::: details 显示代码
 
 ```html
-<f-empty content-size="30px"></f-empty>
+<f-empty content-size="30px" />
 ```
 
 :::
@@ -39,12 +39,12 @@
 
 `content-color` 属性可以配置 `empty` 内容文字的颜色
 
-<f-empty content-color="orange"></f-empty>
+<f-empty content-color="orange" />
 
 ::: details 显示代码
 
 ```html
-<f-empty content-color="orange"></f-empty>
+<f-empty content-color="orange" />
 ```
 
 :::
@@ -53,14 +53,12 @@
 
 `image-src` 属性可以配置 `empty` 展示数据状态的图片
 
-<f-empty image-src="https://camo.githubusercontent.com/378572976169bd8157f335be2b2e26096431df2a71cc8776734e578e23bc8ab2/68747470733a2f2f7469616e797568616f2e636e2f696d616765732f6669676874696e672d64657369676e2f4669676874696e6744657369676e2e737667"></f-empty>
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg"/>
 
 ::: details 显示代码
 
 ```html
-<f-empty
-  image-src="https://camo.githubusercontent.com/378572976169bd8157f335be2b2e26096431df2a71cc8776734e578e23bc8ab2/68747470733a2f2f7469616e797568616f2e636e2f696d616765732f6669676874696e672d64657369676e2f4669676874696e6744657369676e2e737667"
-></f-empty>
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" />
 ```
 
 :::
@@ -69,15 +67,12 @@
 
 `image-src` 属性可以配置 `empty` 展示数据状态的图片
 
-<f-empty image-src="https://camo.githubusercontent.com/378572976169bd8157f335be2b2e26096431df2a71cc8776734e578e23bc8ab2/68747470733a2f2f7469616e797568616f2e636e2f696d616765732f6669676874696e672d64657369676e2f4669676874696e6744657369676e2e737667" image-size="90%"></f-empty>
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="90%" />
 
 ::: details 显示代码
 
 ```html
-<f-empty
-  image-src="https://camo.githubusercontent.com/378572976169bd8157f335be2b2e26096431df2a71cc8776734e578e23bc8ab2/68747470733a2f2f7469616e797568616f2e636e2f696d616765732f6669676874696e672d64657369676e2f4669676874696e6744657369676e2e737667"
-  image-size="90%"
-></f-empty>
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="90%" />
 ```
 
 :::
@@ -100,14 +95,14 @@
 
 `style-list` 属性可以配置 `empty` 的自定义样式
 
-<f-empty style-list="{ backgroundColor: '#3879AF', width: '90%', margin: '0 auto' }"></f-empty>
+<f-empty :style-list="{ backgroundColor: '#3879AF', width: '90%', margin: '0 auto' }"/>
 
 ::: details 显示代码
 
 ```html
 <f-empty
-  style-list="{ backgroundColor: '#3879AF', width: '90%', margin: '0 auto' }"
-></f-empty>
+  :style-list="{ backgroundColor: '#3879AF', width: '90%', margin: '0 auto' }"
+/>
 ```
 
 :::

@@ -1,36 +1,77 @@
-# This is a basic workflow to help you get started with Actions
+name: Fighting Design Github Actions
 
-name: CI
-
-# Controls when the workflow will run
+# 指定此工作流程的触发事件 Event。 此示例使用 推送 事件，即执行 push 后，触发该流水线的执行
+# on: [push]
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [master]
   pull_request:
     branches: [master]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# Job 作业
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  # 指定一个Job的名称
+  build-components:
+    # 指定该Job在最新版本的 Ubuntu Linux 的 Runner(运行器)上运行
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # steps 作业列表
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3 # Action 获取当前分支的源码
+        with:
+          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
+          fetch-depth: 0
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Setup Node.js # 名称
+        uses: actions/setup-node@v3
+        with:
+          # 选择要使用的 node 版本
+          #  node-version: [10.x, 12.x, 14.x, 15.x]
+          node-version: '15'
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      # 缓存 node_modules
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # 如果缓存没有命中，安装依赖
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn --frozen-lockfile
+
+      # 运行构建脚本
+      - name: Build components
+        run: yarn build
+
+        # with:# 参数由 Action 的创建者指定，需要查看创建者的文档
+        # java-version: '11'
+        # distribution: 'adopt'
+        # cache: gradle
+
+      # - name: Grant execute permission for gradlew # Shell Command
+      #   run: chmod +x gradlew
+      # - name: Build with Gradle
+      #   run: ./gradlew build
+
+  # build:
+  #   runs-on: ubuntu-latest
+
+  #   strategy:
+  #     matrix:
+  #       node-version: [16.x]
+
+  #   # Step 步骤
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #     - run: npm ci
+  #     - run: npm run build

@@ -1,11 +1,11 @@
 export const sidebar = {
   '/docs/': [
     {
-      text: '快速上手',
+      text: '开发指南',
       link: '/docs/install',
       items: [
         { text: '安装', link: '/docs/install' },
-        { text: '引入使用', link: '/docs/import' }
+        { text: '快速上手', link: '/docs/import' }
       ]
     },
     {
@@ -37,11 +37,7 @@ export const sidebar = {
         { text: 'Text 文本', link: '/components/text' },
         { text: 'Layout 布局', link: '/components/layout' },
         { text: 'Space 间距', link: '/components/space' },
-        { text: 'Color 色彩', link: '/components/color' },
-        {
-          text: 'Novel Coronavirus 新型冠状病毒',
-          link: '/components/novel-coronavirus'
-        }
+        { text: 'Color 色彩', link: '/components/color' }
       ]
     },
     {

@@ -2,6 +2,28 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.2-alpha.4 (2022-08-29)
+
+**fest**
+
+- `f-image` 组件新增 `title` 配置项
+
+**fix**
+
+- 修复 `f-card` 组件样式细节
+- 修复 `f-skeleton` 的一些样式相关细节
+
+## 0.6.2-alpha.3 (2022-08-28)
+
+- 新增 `f-skeleton` 骨架屏组件
+- 优化 `f-button` `f-alert` 组件圆角样式
+- 优化 `f-alert` 样式细节
+- 优化 `f-alert` 组件 `overflow` 配置项
+- 移除 `f-alert` 组件 `overflow` 配置项的 `roll` 可选参数
+- 移除 `f-novel-coronavirus` 组件
+- 修复 `Load` 图片加载类加载死循环的问题
+- 优化 `f-image` 组件加载过程中是撕裂样式
+
 ## 0.6.2-alpha.2 (2022-08-20)
 
 - 修复已知打包问题

@@ -2,9 +2,10 @@
   import { computed, useSlots } from 'vue'
   import { Props } from './skeleton'
   import type { ComputedRef } from 'vue'
+  import type { FPropsType } from './skeleton'
   import type { classListInterface as a } from '../../_interface'
 
-  const prop = defineProps(Props)
+  const prop: FPropsType = defineProps(Props)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { rounded, animated, circled, size } = prop
@@ -12,15 +13,15 @@
     return [
       'f-skeleton',
       {
-        'f-skeleton--rounded': rounded,
-        'f-skeleton--animated': animated,
-        'f-skeleton--circled': circled,
-        [`f-skeleton-size--${size}`]: size
+        'f-skeleton-rounded': rounded,
+        'f-skeleton-animated': animated,
+        'f-skeleton-circled': circled,
+        [`f-skeleton-${size}`]: size
       }
     ] as const
   })
 
-  const renderAble: ComputedRef<boolean> = computed((): boolean => {
+  const isRender: ComputedRef<boolean> = computed((): boolean => {
     const slots = useSlots()
     if (slots.default) {
       return prop.loading === true
@@ -30,7 +31,7 @@
 </script>
 
 <template>
-  <template v-if="renderAble">
+  <template v-if="isRender">
     <div v-for="(n, i) in rows" :key="i" :class="classList" v-bind="$attrs" />
   </template>
   <slot v-else />

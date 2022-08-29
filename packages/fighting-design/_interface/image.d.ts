@@ -28,7 +28,6 @@ export interface LoadInterface {
   emit: Function
   callback: callbackInterface | null
   loadCreateImg(errSrc?: string): void
-  // loadNextImg(): void
   onerror(evt: Event): void
   onload(evt: Event, src: string): void
 }

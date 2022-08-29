@@ -2,19 +2,20 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FImage } from '../index'
 
+const src = 'https://tianyuhao.cn/images/auto/1.jpg' as const
+
 describe('FImage', () => {
   test('class', () => {
     const wrapper = mount(FImage)
     expect(wrapper.classes()).toContain('f-image')
   })
 
-  test('src', () => {
+  test('src', async () => {
     const wrapper = mount(FImage, {
-      props: { src: 'https://abc.com/1.jpg' }
+      props: { src }
     })
-    expect(wrapper.find('img').attributes('src')).toContain(
-      'https://abc.com/1.jpg'
-    )
+    const vNode = await wrapper.find('.f-image-img').attributes('src')
+    expect(vNode).toContain(src)
   })
 
   test('alt', () => {

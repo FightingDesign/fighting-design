@@ -100,6 +100,10 @@ export const Props = {
   previewRound: {
     type: String,
     default: (): string => ''
+  },
+  title: {
+    type: String,
+    default: (): string => ''
   }
 } as const
 

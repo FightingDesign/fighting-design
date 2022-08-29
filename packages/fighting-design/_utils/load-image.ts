@@ -21,7 +21,7 @@ class Load implements LoadInterface {
    * @param emit 事件
    * @param callback 回调参数
    */
-  constructor (
+  constructor(
     node: HTMLImageElement,
     props: LoadNeedImagePropsInterface,
     emit: Function,
@@ -38,6 +38,7 @@ class Load implements LoadInterface {
    */
   loadCreateImg = (errSrc?: string): void => {
     const newImg: HTMLImageElement = new Image()
+
     if (errSrc) {
       newImg.src = errSrc
     } else {
@@ -62,7 +63,9 @@ class Load implements LoadInterface {
   onerror = (evt: Event): void => {
     // 如果存在 errSrc 则继续尝试加载
     if (this.props.errSrc) {
-      return this.loadCreateImg(this.props.errSrc)
+      this.loadCreateImg(this.props.errSrc)
+      this.props.errSrc = ''
+      return
     }
 
     // 否则返回失败回调
@@ -91,7 +94,7 @@ class Load implements LoadInterface {
  * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */
 class Lazy extends Load implements LazyInterface {
-  constructor (
+  constructor(
     img: HTMLImageElement,
     props: LoadNeedImagePropsInterface,
     emit: Function,

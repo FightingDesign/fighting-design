@@ -142,10 +142,10 @@
 
 `stripe` 可以配置条纹样式
 
-<f-progress stripe type="primary" :percentage="num" />
-<f-progress stripe type="success" :percentage="num" />
-<f-progress stripe type="danger" :percentage="num" />
-<f-progress stripe type="warning" :percentage="num" />
+<f-progress :height="25" stripe type="primary" :percentage="num" />
+<f-progress :height="25" stripe type="success" :percentage="num" />
+<f-progress :height="25" stripe type="danger" :percentage="num" />
+<f-progress :height="25" stripe type="warning" :percentage="num" />
 
 <f-button-group>
   <f-button simple round type="primary" left-icon="f-icon-sami-select" @click="sun" />
@@ -156,10 +156,10 @@
 
 ```html
 <template>
-  <f-progress stripe type="primary" :percentage="num" />
-  <f-progress stripe type="success" :percentage="num" />
-  <f-progress stripe type="danger" :percentage="num" />
-  <f-progress stripe type="warning" :percentage="num" />
+  <f-progress :height="25" stripe type="primary" :percentage="num" />
+  <f-progress :height="25" stripe type="success" :percentage="num" />
+  <f-progress :height="25" stripe type="danger" :percentage="num" />
+  <f-progress :height="25" stripe type="warning" :percentage="num" />
 
   <f-button-group>
     <f-button
