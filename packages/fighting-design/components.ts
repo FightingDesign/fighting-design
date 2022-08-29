@@ -109,5 +109,6 @@ export type { FSkeletonInstance } from './skeleton'
 export { default as FNotification } from './notification'
 export type { FNotificationInstance } from './notification'
 
-export { default as FLoadingBar } from './loading-bar'
-export type { FLoadingBarInstance } from './loading-bar'
+// export { default as FLoadingBar } from './loading-bar'
+// export type { FLoadingBarInstance } from './loading-bar'
+// export { default as useLoadingBar } from './loading-bar'
