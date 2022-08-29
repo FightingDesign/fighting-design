@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { <%= displayName %> } from './index'
+import { <%= displayName %> } from '../index'
 
 describe('<%= displayName %>', () => {
   test('class', () => {

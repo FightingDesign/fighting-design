@@ -105,3 +105,6 @@ export type { FEmptyInstance } from './empty'
 
 export { default as FSkeleton } from './skeleton'
 export type { FSkeletonInstance } from './skeleton'
+
+export { default as FNotification } from './notification'
+export type { FNotificationInstance } from './notification'

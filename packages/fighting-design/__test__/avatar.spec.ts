@@ -37,7 +37,9 @@ describe('FAvatar', () => {
       const wrapper = mount(FAvatar, {
         props: { fit: item }
       })
-      expect(wrapper.find('.f-avatar-img').classes()).toContain(`f-avatar-${item}`)
+      expect(wrapper.find('.f-avatar-img').classes()).toContain(
+        `f-avatar-${item}`
+      )
     })
   })
 
@@ -47,7 +49,9 @@ describe('FAvatar', () => {
       const wrapper = mount(FAvatar, {
         props: { size: item }
       })
-      expect(wrapper.find('.f-avatar-img').classes()).toContain(`f-avatar-${item}`)
+      expect(wrapper.find('.f-avatar-img').classes()).toContain(
+        `f-avatar-${item}`
+      )
     })
   })
 

@@ -7,3 +7,7 @@ export interface mainVNodeInterface extends VNode {
 export interface installInterface {
   (main: mainVNodeInterface, name: string): void
 }
+
+export interface installFnInterface {
+  (main: any, name: string): void
+}

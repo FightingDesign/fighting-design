@@ -1,11 +1,33 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { FNotification } from '../../packages/fighting-design/index'
+  FNotification({
+    title: 'ds阿松大',
+    message: '这是一条通知',
+    duration: 0
+  })
+  const openMessage = (item: string) => {
+    FNotification({
+      title: item,
+      message: '这是一条消息提示这是一条消息提示这是一条消',
+      type: 'warning',
+      placement: item,
+      close: true,
+      duration: 0
+    })
+  }
+
+  const list = ['top-right', 'top-left', 'bottom-left', 'bottom-right']
+</script>
 
 <template>
-  <f-card title="卡片标题">
-    <template #header>
-      <h1>这是页头</h1>
-    </template>
-  </f-card>
+  <div>
+    <f-button
+      v-for="item in list"
+      :key="item"
+      type="primary"
+      @click="openMessage(item)"
+    >
+      {{ item }}
+    </f-button>
+  </div>
 </template>
-
-<style lang="scss" scoped></style>

@@ -1,6 +1,6 @@
-import messageVue from './message.vue'
-import { messagePlacementType, messageType, messageTypes } from './message'
-import type { FPropsType } from './message'
+import messageVue from './notification.vue'
+import { messagePlacementType, messageType, messageTypes } from './notification'
+import type { FPropsType } from './notification'
 import type {
   InstanceOptions,
   FMessageInstance
@@ -22,7 +22,7 @@ export const massageManage = useMassageManage<messagePlacementType>()
 const defaultOptions: {
   placement: messagePlacementType
 } = {
-  placement: 'top'
+  placement: 'top-right'
 }
 
 // message 的实例组
