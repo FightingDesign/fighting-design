@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FImage } from '../index'
 
-const src = 'https://tianyuhao.cn/images/auto/1.jpg' as const
+// const src = 'https://tianyuhao.cn/images/auto/1.jpg' as const
 
 describe('FImage', () => {
   test('class', () => {

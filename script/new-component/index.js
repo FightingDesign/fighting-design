@@ -20,37 +20,35 @@ const mainFilePath = join(
   `${compName}.vue`
 )
 
-newComponent()
+  (async () => {
+    // 如果已经存在
+    if (existsSync(outputDir) && fstatSync) {
+      logError(`组件 ${compName}` + '\n' + `已存在${mainFilePath}`)
+      return
+    }
 
-async function newComponent () {
-  // 如果已经存在
-  if (existsSync(outputDir) && fstatSync) {
-    logError(`组件 ${compName}` + '\n' + `已存在${mainFilePath}`)
-    return
-  }
+    try {
+      await generate()
+      logInfo(
+        '本次创建/修改的文件有：' +
+        '\n' +
+        '\n' +
+        `${updatedFiles.join('\n')}` +
+        '\n'
+      )
+    } catch (error) {
+      logError(
+        `不好意思，组件[${compName}]创建失败了` +
+        '\n' +
+        `error: ${error}` +
+        '\n ' +
+        `${error ? error.stack : ''}`
+      )
+      process.exit(0)
+    }
 
-  try {
-    await generate()
-    logInfo(
-      '本次创建/修改的文件有：' +
-      '\n' +
-      '\n' +
-      `${updatedFiles.join('\n')}` +
-      '\n'
-    )
-  } catch (error) {
-    logError(
-      `不好意思，组件[${compName}]创建失败了` +
-      '\n' +
-      `error: ${error}` +
-      '\n ' +
-      `${error ? error.stack : ''}`
-    )
-    process.exit(0)
-  }
-
-  logInfo(`${displayName} 组件创建完成 🎉🎉🎉` + '\n')
-}
+    logInfo(`${displayName} 组件创建完成 🎉🎉🎉` + '\n')
+  })()
 
 // 检测组件名是否规范
 function fetchCompName () {
