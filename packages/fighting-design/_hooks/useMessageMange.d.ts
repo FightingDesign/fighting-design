@@ -1,4 +1,3 @@
-import type { Props } from './message'
 import type { ComponentInternalInstance } from 'vue'
 
 export interface FMessageInstance {

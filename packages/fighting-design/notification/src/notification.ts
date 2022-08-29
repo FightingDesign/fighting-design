@@ -8,13 +8,19 @@ export const messageTypes = [
   'warning'
 ] as const
 
+export const notificationDefaultIcon = {
+  default: 'f-icon-prompt-fill',
+  primary: 'f-icon-remind-fill',
+  success: 'f-icon-success-fill',
+  danger: 'f-icon-reeor',
+  warning: 'f-icon-warning-fill'
+}
+
 export type messageType = typeof messageTypes[number]
 
 const messagePlacement = [
-  'top',
   'top-left',
   'top-right',
-  'bottom',
   'bottom-left',
   'bottom-right'
 ] as const
@@ -24,6 +30,10 @@ export type messagePlacementType = typeof messagePlacement[number]
 export const Props = {
   id: {
     type: String,
+    default: (): string => ''
+  },
+  title: {
+    type: [String, Object] as PropType<VNode | String>,
     default: (): string => ''
   },
   message: {
@@ -50,6 +60,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
+  showIcon: {
+    type: Boolean,
+    default: (): boolean => true
+  },
   icon: {
     type: [String, Object] as PropType<VNode | String>,
     default: (): string => ''
@@ -68,7 +82,7 @@ export const Props = {
   },
   placement: {
     type: String as PropType<messagePlacementType>,
-    default: (): messagePlacementType => 'top',
+    default: (): messagePlacementType => 'top-right',
     validator: (val: messagePlacementType): boolean => {
       return messagePlacement.includes(val)
     }
