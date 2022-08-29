@@ -105,3 +105,6 @@ export type { FEmptyInstance } from './empty'
 
 export { default as FSkeleton } from './skeleton'
 export type { FSkeletonInstance } from './skeleton'
+
+export { default as FAdmin } from './admin'
+export type { FAdminInstance } from './admin'

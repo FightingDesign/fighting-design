@@ -1,20 +1,22 @@
-const superEjs = require('super-ejs')
-const changeCase = require('@juln/change-case')
-const { resolve, join } = require('path')
-const { existsSync, fstatSync, readFile, writeFile } = require('fs-extra')
+import superEjs from 'super-ejs'
+import changeCase from '@juln/change-case'
+import path from 'path'
+import fsExtra from 'fs-extra'
 
-const logInfo = (...args) => console.info('\x1B[33m', ...args, '\x1B[0m')
-const logError = (...args) => console.error('\x1B[31m', ...args, '\x1B[0m')
+const logInfo = (...args: string[]): void => console.info('\x1B[33m', ...args, '\x1B[0m')
+const logError = (...args: string[]): void => console.error('\x1B[31m', ...args, '\x1B[0m')
 
-const updatedFiles = []
+const updatedFiles: string[] = []
 const compName = fetchCompName()
 const displayName = `F${changeCase(compName, 'upper-camel-case')}`
-const outputDir = resolve(
+const __dirname = path.resolve()
+const outputDir = path.resolve(
   __dirname,
-  '../../packages/fighting-design',
+  '../fighting-design',
+  // '../../packages/fighting-design',
   compName
 )
-const mainFilePath = join(
+const mainFilePath = path.join(
   'packages/fighting-design',
   compName,
   `${compName}.vue`
@@ -22,7 +24,7 @@ const mainFilePath = join(
 
 const detectPublic = async () => {
   // 如果已经存在
-  if (existsSync(outputDir) && fstatSync) {
+  if (fsExtra.existsSync(outputDir)) {
     logError(`组件 ${compName}` + '\n' + `已存在${mainFilePath}`)
     return
   }
@@ -36,7 +38,8 @@ const detectPublic = async () => {
       `${updatedFiles.join('\n')}` +
       '\n'
     )
-  } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
     logError(
       `不好意思，组件[${compName}]创建失败了` +
       '\n' +
@@ -86,12 +89,13 @@ async function generate () {
     'packages/fighting-design/index.ts',
     `packages/fighting-theme/src/${compName}.scss`,
     'packages/fighting-theme/index.scss',
-    `packages/fighting-test/${compName}.spec.ts`
+    `packages/fighting-design/__test__/${compName}.spec.ts`
   )
-  const catchError = async (callback, info) => {
+  const catchError = async (callback: Function, info: string) => {
     try {
       await callback()
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logError(
         info + '\n' + `error: ${error}` + '\n' + `${error ? error.stack : ''}`
       )
@@ -107,7 +111,7 @@ async function generate () {
 }
 
 async function generateComponentDir () {
-  const tplDir = resolve(__dirname, './template/component')
+  const tplDir = path.resolve(__dirname, './template/component')
 
   // 编译文件内容
   await superEjsGerenateDir(outputDir, tplDir)
@@ -115,11 +119,11 @@ async function generateComponentDir () {
 
 // 修改组件入口文件
 async function updateComponentEntry () {
-  const entryFilePath = resolve(
+  const entryFilePath = path.resolve(
     __dirname,
-    '../../packages/fighting-design/components.ts'
+    '../fighting-design/components.ts'
   )
-  let content = (await readFile(entryFilePath)).toString()
+  let content = (await fsExtra.readFile(entryFilePath)).toString()
 
   content =
     content.slice(0, -1) +
@@ -130,13 +134,13 @@ async function updateComponentEntry () {
     `export type { ${displayName}Instance } from './${compName}'` +
     '\n'
 
-  await writeFile(entryFilePath, content)
+  await fsExtra.writeFile(entryFilePath, content)
 }
 
 // 创建样式文件
 async function incrementStyle () {
-  const outputDir = resolve(__dirname, '../../packages/fighting-theme/src')
-  const tplDir = resolve(__dirname, './template/style')
+  const outputDir = path.resolve(__dirname, '../fighting-theme/src')
+  const tplDir = path.resolve(__dirname, './template/style')
 
   // 编译文件内容
   await superEjsGerenateDir(outputDir, tplDir)
@@ -144,26 +148,26 @@ async function incrementStyle () {
 
 // 添加样式入口
 async function updateStyleEntry () {
-  const entryFilePath = resolve(
+  const entryFilePath = path.resolve(
     __dirname,
-    '../../packages/fighting-theme/index.scss'
+    '../fighting-theme/index.scss'
   )
-  let content = (await readFile(entryFilePath)).toString()
+  let content = (await fsExtra.readFile(entryFilePath)).toString()
 
   content =
     content.slice(0, -1) + '\n' + `@use './src/${compName}.scss';` + '\n'
 
-  await writeFile(entryFilePath, content)
+  await fsExtra.writeFile(entryFilePath, content)
 }
 
 // 添加测试文件
 async function incrementTest () {
-  const outputDir = resolve(__dirname, '../../packages/fighting-design/__test__')
-  const tplDir = resolve(__dirname, './template/test')
+  const outputDir = path.resolve(__dirname, '../fighting-design/__test__')
+  const tplDir = path.resolve(__dirname, './template/test')
   await superEjsGerenateDir(outputDir, tplDir)
 }
 
-async function superEjsGerenateDir (outputDir, tplDir) {
+async function superEjsGerenateDir (outputDir: string, tplDir: string) {
   return await superEjs.gerenateDir(
     outputDir,
     tplDir,
