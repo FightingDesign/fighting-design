@@ -20,6 +20,9 @@ export default (): UserConfigExport => {
           }
         ]
       }
+    },
+    server: {
+      port: 9999
     }
   }
 }

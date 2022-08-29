@@ -8,6 +8,9 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       vueSetupExtend()
-    ]
+    ],
+    server: {
+      port: 1216
+    }
   }
 }
