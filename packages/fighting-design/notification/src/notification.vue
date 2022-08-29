@@ -91,7 +91,6 @@
     return styles
   })
 
-  // eslint-disable-next-line no-undef
   const timer = ref<NodeJS.Timeout>()
 
   const clearTimer: a = (): void => {

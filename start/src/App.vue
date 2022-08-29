@@ -1,10 +1,10 @@
 <script lang="ts" setup>
   import { FNotification } from '../../packages/fighting-design/index'
-  FNotification({
-    title: 'ds阿松大',
-    message: '这是一条通知',
-    duration: 0
-  })
+  // FNotification({
+  //   title: 'ds阿松大',
+  //   message: '这是一条通知',
+  //   duration: 0
+  // })
   const openMessage = (item: string) => {
     FNotification({
       title: item,
@@ -12,7 +12,7 @@
       type: 'warning',
       placement: item,
       close: true,
-      duration: 0
+      duration: 1000
     })
   }
 

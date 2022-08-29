@@ -4,7 +4,7 @@ import type { FPropsType } from './message'
 import type {
   InstanceOptions,
   FMessageInstance
-} from '../../_hooks/useMessageMange'
+} from '../../_interface'
 import { useMassageManage } from '../../_hooks/useMessageMange'
 import { ComponentInternalInstance, render, createVNode } from 'vue'
 
@@ -70,7 +70,7 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
       id,
       vm,
       close: () => {
-        ;(
+        (
           (vm as ComponentInternalInstance).exposeProxy as Record<
             string,
             Function

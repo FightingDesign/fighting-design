@@ -10,6 +10,7 @@ export const install: AppInstallInterface = (app: App): App => {
   })
 
   app.config.globalProperties.FMessage = components.FMessage
+  app.config.globalProperties.FNotification = components.FNotification
   return app
 }
 

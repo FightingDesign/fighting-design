@@ -70,7 +70,7 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
       id,
       vm,
       close: () => {
-        ;(
+        (
           (vm as ComponentInternalInstance).exposeProxy as Record<
             string,
             Function

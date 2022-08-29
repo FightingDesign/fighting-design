@@ -1,6 +1,5 @@
 import { reactive } from 'vue'
-import type { FMessageInstance } from './useMessageMange.d'
-export * from './useMessageMange.d'
+import type { FMessageInstance } from '../_interface'
 
 /**
  * 创建弹出的消息体实例
@@ -36,7 +35,7 @@ export const useMassageManage = <messagePlacementType extends string>() => {
     if (idx === -1) return 0
     const beforeInstance: FMessageInstance =
       (instances[placement] as FMessageInstance[])[
-        isNext ? idx + 1 : idx - 1
+      isNext ? idx + 1 : idx - 1
       ] || null
     if (!beforeInstance) return 0
     return (beforeInstance.vm.exposeProxy as FMessageInstance).bottom
@@ -47,7 +46,7 @@ export const useMassageManage = <messagePlacementType extends string>() => {
     id: string
   ): void => {
     const idx: number = getInstanceIndex(placement, id)
-    ;(instances[placement] as FMessageInstance[]).splice(idx, 1)
+      ; (instances[placement] as FMessageInstance[]).splice(idx, 1)
   }
 
   const createInstance = (
@@ -55,7 +54,7 @@ export const useMassageManage = <messagePlacementType extends string>() => {
     placement: messagePlacementType
   ): FMessageInstance => {
     if (instances[placement]) {
-      ;(instances[placement] as FMessageInstance[]).push(instance)
+      (instances[placement] as FMessageInstance[]).push(instance)
     } else {
       instances[placement] = [instance]
     }

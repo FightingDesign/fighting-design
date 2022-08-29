@@ -285,7 +285,7 @@
 
 ## Events
 
-`FNotification`调用之后返回`Notification`实例，如果需要手动关闭实例，可以调用它的 `close` 方法。
+`FNotification` 调用之后返回 `Notification` 实例，如果需要手动关闭实例，可以调用它的 `close` 方法。
 
 | 事件名称 | 说明                    | 类型         |
 | -------- | ----------------------- | ------------ |
