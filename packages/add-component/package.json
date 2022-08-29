@@ -8,7 +8,7 @@
   "keywords": [],
   "author": "",
   "scripts": {
-    "new": "node --trace-warnings --es-module-specifier-resolution=node --loader ts-node/esm ./index.ts"
+    "new": "node --trace-warnings --loader ts-node/esm ./index.ts"
   },
   "license": "ISC",
   "dependencies": {
