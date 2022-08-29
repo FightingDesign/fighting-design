@@ -224,6 +224,8 @@ module.exports = {
     ],
     // 在单行元素的内容之前和之后需要换行符 https://eslint.vuejs.org/rules/singleline-html-element-content-newline.html
     'vue/singleline-html-element-content-newline': 'off',
+    // 需要 props 的默认值 https://eslint.vuejs.org/rules/require-default-prop.html
+    'vue/require-default-prop': 'error',
     /**
      * typescript 规则配置
      * https://typescript-eslint.io/rules/

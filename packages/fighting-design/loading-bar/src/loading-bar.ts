@@ -1,3 +1,10 @@
-export const Props = {} as const
+import type { ExtractPropTypes } from 'vue'
 
-export const Emits = {} as const
+export const Props = {
+  type: {
+    type: String,
+    default: (): string => ''
+  }
+} as const
+
+export type FPropsType = ExtractPropTypes<typeof Props>
