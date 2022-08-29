@@ -22,8 +22,7 @@
     "build:docs": "pnpm run -C docs build",
     "serve:docs": "pnpm run -C docs serve",
     "build:start": "pnpm run -C start build",
-    "move": "node script/move-file.js",
-    "new1": "node script/new-component",
+    "move": "node script/move.js",
     "new": "pnpm run -C packages/add-component new",
     "test": "vitest",
     "prettier": "prettier --write .",
@@ -32,11 +31,11 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@commitlint/cli": "^17.0.1",
-    "@commitlint/config-conventional": "^17.0.0",
     "@fighting-design/fighting-theme": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/test-utils": "^2.0.0-rc.18",
+    "@commitlint/cli": "^17.0.1",
+    "@commitlint/config-conventional": "^17.0.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.23.0",
@@ -54,12 +53,9 @@
     "vue-tsc": "^0.39.5"
   },
   "devDependencies": {
-    "@juln/change-case": "^0.0.4",
     "@types/node": "^17.0.42",
-    "fs-extra": "^10.1.0",
     "prettier": "^2.6.2",
-    "rimraf": "^3.0.2",
-    "super-ejs": "^1.0.2"
+    "rimraf": "^3.0.2"
   },
   "config": {
     "commitizen": {

@@ -1,7 +1,13 @@
 # add-component
 
-## 依赖项
+中文 | <a href="https://github.com/FightingDesign/fighting-design/blob/master/packages/add-component/README.en-US.md">English</a>
 
-- [super-ejs](https://www.npmjs.com/package/super-ejs)
-- [@juln/change-case](https://www.npmjs.com/package/@juln/change-case) 提供一系列命名风格转换的 api
-- [fs-extra](https://www.npmjs.com/package/fs-extra)
+## 🤟 介绍
+
+`Add component` can quickly build new components that need to be developed. Help create all required files for the new component.
+
+## 🌵 使用
+
+```shell
+pnpm new <组建名>
+```

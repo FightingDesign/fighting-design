@@ -1,12 +1,10 @@
 {
   "name": "add-component",
   "version": "1.0.0",
-  "description": "",
+  "description": "Add a new component catalog file",
   "type": "module",
   "main": "index",
   "module": "index.ts",
-  "keywords": [],
-  "author": "",
   "scripts": {
     "new": "node --trace-warnings --loader ts-node/esm ./index.ts"
   },

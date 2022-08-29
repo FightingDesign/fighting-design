@@ -13,7 +13,6 @@ const __dirname = path.resolve()
 const outputDir = path.resolve(
   __dirname,
   '../fighting-design',
-  // '../../packages/fighting-design',
   compName
 )
 const mainFilePath = path.join(

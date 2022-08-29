@@ -11,19 +11,19 @@
 使用 `pnpm` 安装
 
 ```shell
-pnpm add eslint-config-fighting
+pnpm add eslint eslint-config-fighting
 ```
 
 使用 `npm` 安装
 
 ```shell
-npm install eslint-config-fighting
+npm install eslint eslint-config-fighting
 ```
 
 使用 `yarn` 安装
 
 ```shell
-yarn add eslint-config-fighting
+yarn add eslint eslint-config-fighting
 ```
 
 ## 🐳 使用
