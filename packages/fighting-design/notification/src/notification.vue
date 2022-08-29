@@ -1,25 +1,42 @@
 <script lang="ts" setup name="FMessage">
-  import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
+  import { computed, onMounted, ref, isVNode, nextTick, VNode } from 'vue'
   import FIcon from '../../icon'
   import { isString } from '../../_utils'
-  import { Props, Emits } from './message'
+  import { Props, Emits, notificationDefaultIcon } from './notification'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
     ordinaryFunctionInterface as a,
     classListInterface as b
   } from '../../_interface'
-  import type { FPropsType } from './message'
+  import type { FPropsType } from './notification'
   import { massageManage } from './method'
 
   const prop: FPropsType = defineProps(Props)
   defineEmits(Emits)
 
-  const messageRef = ref<HTMLDivElement>()
-  const messageHeight: Ref<number> = ref<number>(0)
+  /**
+   * 默认icon
+   */
+  const _icon: ComputedRef<String | null | VNode> = computed(() => {
+    if (prop.icon) {
+      return prop.icon
+    } else if (prop.type) {
+      return notificationDefaultIcon[prop.type]
+    } else {
+      return null
+    }
+  })
+
+  const notificationRef = ref<HTMLDivElement>()
+  const notificationHeight: Ref<number> = ref<number>(0)
   const visible: Ref<boolean> = ref<boolean>(false)
 
   const isTop: ComputedRef<boolean> = computed((): boolean =>
     prop.placement.includes('top')
+  )
+
+  const isRight: ComputedRef<boolean> = computed((): boolean =>
+    prop.placement.includes('right')
   )
 
   const siblingOffset: ComputedRef<number> = computed((): number =>
@@ -31,13 +48,13 @@
   )
 
   const bottom: ComputedRef<number> = computed(
-    (): number => messageHeight.value + offset.value
+    (): number => notificationHeight.value + offset.value
   )
 
   onMounted((): void => {
     nextTick((): void => {
-      messageHeight.value = (
-        messageRef.value as HTMLDivElement
+      notificationHeight.value = (
+        notificationRef.value as HTMLDivElement
       ).getBoundingClientRect().height
     })
   })
@@ -46,12 +63,12 @@
     const { type, round, close, placement } = prop
 
     return [
-      'f-message',
-      `f-message-${type}`,
-      `f-message-${placement}`,
+      'f-notification',
+      `f-notification-${type}`,
+      `f-notification-${placement}`,
       {
-        'f-message-round': round,
-        'f-message-hasClose': close
+        'f-notification-round': round,
+        'f-notification-hasClose': close
       }
     ]
   })
@@ -111,31 +128,45 @@
 
 <template>
   <transition
-    :name="`f-message-fade` + (isTop ? '-top' : '-bottom')"
+    :name="`f-notification-fade` + (isRight ? '-right' : '-left')"
     mode="out-in"
     @before-leave="closeMessageEnd"
     @after-leave="$emit('destroy')"
   >
     <div
       v-show="visible"
-      ref="messageRef"
+      ref="notificationRef"
       :class="classList"
       :style="styleList"
       @mouseleave="startTime"
       @mouseenter="clearTimer"
     >
       <!-- icon -->
-      <div v-if="icon" class="f-message--icon">
-        <component :is="icon" v-if="isVNode(icon)" />
-        <f-icon v-if="isString(icon)" size="24px" :icon="(icon as string)" />
+      <div v-if="showIcon && _icon" class="f-notification--icon">
+        <component :is="_icon" v-if="isVNode(_icon)" />
+        <f-icon v-if="isString(_icon)" size="24px" :icon="(_icon as string)" />
       </div>
-      <!-- 消息文本 -->
-      <component :is="message" v-if="isVNode(message)" />
-      <div v-else class="f-message--text">
-        {{ message }}
+      <!-- 主体内容 -->
+      <div class="f-notification--info">
+        <!-- 标题 -->
+        <div class="f-notification--title">
+          <component :is="title" v-if="isVNode(title)" />
+          <h3 v-else class="f-notification--title-text">
+            {{ title }}
+          </h3>
+        </div>
+        <!-- 消息文本 -->
+        <component :is="message" v-if="isVNode(message)" />
+        <div v-else class="f-notification--text">
+          {{ message }}
+        </div>
       </div>
       <!-- 关闭按钮 -->
-      <div v-if="prop.close" class="f-message--close" @click="closeMessage">
+      <div
+        v-if="prop.close"
+        class="f-notification--close"
+        @click="closeMessage"
+      >
         <component :is="closeBtn" v-if="isVNode(closeBtn)" />
         <span v-else-if="closeBtn && isString(closeBtn)">{{ closeBtn }}</span>
         <f-icon v-else size="16px" icon="f-icon-close" />

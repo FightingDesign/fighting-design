@@ -1,0 +1,111 @@
+@import '../config/const-color.scss';
+
+.f-notification {
+  position: fixed;
+  transition: opacity 0.3s, top 0.4s;
+  padding: 10px;
+  font-size: 14px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: rgb(237 237 237) 1px 1px 7px, rgb(237 237 237) -1px -1px 7px;
+  max-width: 500px;
+  transition: all 0.4s ease-out;
+  background: #fff;
+
+  @for $list from 1 to (length($allTypeColorList) + 1) {
+    $item: nth($allTypeColorList, $list);
+
+    &.f-notification-#{map-get($item, name)} .f-notification--icon {
+      // background: #fff;
+      color: map-get($item, simpleTextColor);
+    }
+  }
+
+  &.f-notification-round {
+    border-radius: 20px;
+  }
+
+  &.f-notification-top {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.f-notification-top-left {
+    left: 20px;
+  }
+
+  &.f-notification-top-right {
+    right: 20px;
+  }
+
+  &.f-notification-bottom {
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  &.f-notification-bottom-left {
+    left: 20px;
+    bottom: 0;
+  }
+
+  &.f-notification-bottom-right {
+    right: 20px;
+    bottom: 0;
+  }
+
+  .f-notification--close {
+    cursor: pointer;
+    text-align: center;
+    padding: 0 12px;
+    flex-shrink: 0;
+  }
+
+  .f-notification--icon {
+    width: 40px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .f-notification--title-text {
+    margin: 0;
+    margin-bottom: 2px;
+    font-size: 16px;
+  }
+}
+
+.f-notification-fade-right-enter-active,
+.f-notification-fade-left-enter-active {
+  transition: all 0.4s ease-out;
+}
+
+.f-notification-fade-right-leave-active,
+.f-notification-fade-left-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.f-notification-fade-right-enter-from,
+.f-notification-fade-right-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.f-notification-right.f-notification-fade-right-enter-from,
+.f-notification-right.f-notification-fade-right-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}
+
+.f-notification-fade-left-enter-from,
+.f-notification-fade-left-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.f-notification-left.f-notification-fade-left-enter-from,
+.f-notification-left.f-notification-fade-left-leave-to {
+  opacity: 0;
+  transform: translate(-50%, 100%);
+}
