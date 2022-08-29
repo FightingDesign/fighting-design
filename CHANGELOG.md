@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**fix**
+
+- 修复 `f-card` 组件样式细节
+
 ## 0.6.2-alpha.3 (2022-08-28)
 
 - 新增 `f-skeleton` 骨架屏组件

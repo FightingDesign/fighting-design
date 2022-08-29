@@ -1,5 +1,5 @@
 import type { cardShadow } from './interface'
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
   title: {
@@ -22,3 +22,5 @@ export const Props = {
     }
   }
 } as const
+
+export type FPropsType = ExtractPropTypes<typeof Props>
