@@ -1,25 +1,29 @@
 <script lang="ts" setup>
-  // import { useLoadingBar } from '../../packages/fighting-design'
-  // import f from '../../packages/fighting-design'
+  // import { useLoadingBar } from '../../packages/fighting-design/loading-bar/src/method'
+  import { useLoadingBar } from '../../packages/fighting-design/index'
 
-  // console.log(f)
+  const bar = useLoadingBar()
+  const start = () => {
+    bar.start()
 
-  // const loading = () => {
-  //   // console.dir(useLoadingBar)
-  //   const bar = useLoadingBar()
-  //   // console.dir(bar)
-  //   bar.start()
-  //   bar.start()
-  //   bar.start()
+    // setTimeout(() => {
+    // bar.finish()
+    // }, 1000)
+  }
 
-  //   setTimeout(() => {
-  //     bar.finish()
-  //   }, 1000)
-  // }
+  const finish = () => {
+    bar.finish()
+  }
+
+  const error = () => {
+    bar.error()
+  }
 </script>
 
 <template>
-  <!-- <f-button @click="loading">按钮</f-button> -->
+  <f-button @click="start">开始</f-button>
+  <f-button @click="finish">结束</f-button>
+  <f-button @click="error">报错</f-button>
 </template>
 
 <style scoped></style>
