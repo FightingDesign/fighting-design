@@ -4,6 +4,18 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.2-alpha.5 (2022-08-30)
+
+**fest**
+
+- Add `f-loading-bar` component
+- Add `notification` component
+
+**fix**
+
+- Repair button component style
+- Update the default value of the `shadow` parameter of the `f-card` component. Now changed to `never`
+
 ## 0.6.2-alpha.4 (2022-08-29)
 
 **fest**
