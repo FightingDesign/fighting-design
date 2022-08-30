@@ -2,6 +2,18 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.2-alpha.5 (2022-08-30)
+
+**fest**
+
+- 新增 `f-loading-bar` 组件
+- 新增 `notification` 组件
+
+**fix**
+
+- 修复按钮组件样式
+- 更新 `f-card` 组件 `shadow` 参数默认值。现改为 `never`
+
 ## 0.6.2-alpha.4 (2022-08-29)
 
 **fest**

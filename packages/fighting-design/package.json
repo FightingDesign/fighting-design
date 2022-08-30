@@ -15,6 +15,13 @@
   "main": "lib/index",
   "unpkg": "dist/index.umd.js",
   "style": "dist/index.css",
+  "exports": {
+    ".": {
+      "import": "./es/index",
+      "require": "./lib/index",
+      "types": "./es/index.d.ts"
+    }
+  },
   "sideEffects": [
     "dist/*",
     "theme/*.css"
