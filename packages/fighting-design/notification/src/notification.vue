@@ -1,9 +1,9 @@
 <script lang="ts" setup name="FMessage">
-  import { computed, onMounted, ref, isVNode, nextTick, VNode } from 'vue'
+  import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
   import FIcon from '../../icon'
   import { isString } from '../../_utils'
   import { Props, Emits, notificationDefaultIcon } from './notification'
-  import type { CSSProperties, ComputedRef, Ref } from 'vue'
+  import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
     ordinaryFunctionInterface as a,
     classListInterface as b
@@ -17,15 +17,16 @@
   /**
    * 默认icon
    */
-  const _icon: ComputedRef<String | null | VNode> = computed(() => {
-    if (prop.icon) {
-      return prop.icon
-    } else if (prop.type) {
-      return notificationDefaultIcon[prop.type]
-    } else {
+  const _icon: ComputedRef<String | null | VNode> = computed(
+    (): String | null | VNode => {
+      if (prop.icon) {
+        return prop.icon
+      } else if (prop.type) {
+        return notificationDefaultIcon[prop.type]
+      }
       return null
     }
-  })
+  )
 
   const notificationRef = ref<HTMLDivElement>()
   const notificationHeight: Ref<number> = ref<number>(0)
@@ -70,7 +71,7 @@
         'f-notification-round': round,
         'f-notification-hasClose': close
       }
-    ]
+    ] as const
   })
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {

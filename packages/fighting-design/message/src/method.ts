@@ -39,7 +39,6 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
       message: options
     } as MessageOptions
   }
-  console.log('我出发了？')
   const props: MessageOptions & typeof defaultOptions = {
     id,
     ...defaultOptions,

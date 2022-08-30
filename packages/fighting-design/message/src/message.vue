@@ -53,7 +53,7 @@
         'f-message-round': round,
         'f-message-hasClose': close
       }
-    ]
+    ] as const
   })
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {

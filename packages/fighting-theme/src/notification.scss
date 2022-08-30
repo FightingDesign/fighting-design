@@ -3,7 +3,7 @@
 .f-notification {
   position: fixed;
   transition: opacity 0.3s, top 0.4s;
-  padding: 10px;
+  padding: 13px 15px;
   font-size: 14px;
   overflow: hidden;
   display: flex;
@@ -18,7 +18,6 @@
     $item: nth($allTypeColorList, $list);
 
     &.f-notification-#{map-get($item, name)} .f-notification--icon {
-      // background: #fff;
       color: map-get($item, simpleTextColor);
     }
   }
@@ -64,9 +63,7 @@
   }
 
   .f-notification--icon {
-    width: 40px;
-    text-align: center;
-    flex-shrink: 0;
+    margin-right: 8px;
   }
 
   .f-notification--title-text {
@@ -78,12 +75,12 @@
 
 .f-notification-fade-right-enter-active,
 .f-notification-fade-left-enter-active {
-  transition: all 0.4s ease-out;
+  transition: all 0.15s ease-out;
 }
 
 .f-notification-fade-right-leave-active,
 .f-notification-fade-left-leave-active {
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.15s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .f-notification-fade-right-enter-from,

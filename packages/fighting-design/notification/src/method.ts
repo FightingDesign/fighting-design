@@ -4,7 +4,7 @@ import type { FPropsType } from './notification'
 import type {
   InstanceOptions,
   FMessageInstance
-} from '../../_hooks/useMessageMange'
+} from '../../_interface'
 import { useMassageManage } from '../../_hooks/useMessageMange'
 import { ComponentInternalInstance, render, createVNode } from 'vue'
 
@@ -39,7 +39,6 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
       message: options
     } as MessageOptions
   }
-  console.log('我出发了？')
   const props: MessageOptions & typeof defaultOptions = {
     id,
     ...defaultOptions,
