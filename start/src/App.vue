@@ -5,10 +5,6 @@
   const bar = useLoadingBar()
   const start = () => {
     bar.start()
-
-    // setTimeout(() => {
-    // bar.finish()
-    // }, 1000)
   }
 
   const finish = () => {

@@ -71,7 +71,8 @@ export const sidebar = {
         { text: 'Loading 加载', link: '/components/loading' },
         { text: 'Message 消息提示', link: '/components/message' },
         { text: 'Notification 通知', link: '/components/notification' },
-        { text: 'Skeleton 骨架屏', link: '/components/skeleton' }
+        { text: 'Skeleton 骨架屏', link: '/components/skeleton' },
+        { text: 'Loading Bar 加载条', link: '/components/loading-bar' }
       ]
     },
     {
