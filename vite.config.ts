@@ -10,9 +10,10 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       dts({
-        insertTypesEntry: false, // 是否生成类型声明入口
+        insertTypesEntry: true, // 是否生成类型声明入口
         cleanVueFileName: true, // 是否将 '.vue.d.ts' 文件名转换为 '.d.ts'
-        copyDtsFiles: true // 是否将 .d.ts 源文件复制到 outputDir 中
+        copyDtsFiles: true, // 是否将源码里的 .d.ts 文件复制到 outputDir
+        include: ['./packages/fighting-design'] // 手动设置包含路径的 glob
       }),
       vueSetupExtend(),
       Components({

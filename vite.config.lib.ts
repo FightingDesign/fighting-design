@@ -10,9 +10,10 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       dts({
-        insertTypesEntry: false,
+        insertTypesEntry: true,
         cleanVueFileName: true,
-        copyDtsFiles: true
+        copyDtsFiles: true,
+        include: ['./packages/fighting-design']
       }),
       vueSetupExtend(),
       Components({
