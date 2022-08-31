@@ -2,4 +2,4 @@ dist/*
 node_modules/*
 logo/*
 packages/add-component/template/*
-script/move.js
+script/move.ts

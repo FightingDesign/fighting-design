@@ -1,7 +1,7 @@
-const { copyFileSync } = require('fs')
+const fs = require('fs')
 const { version } = require('../packages/fighting-design/package.json')
 
-const FILE = [
+const files = [
   { input: './README.md', outDir: 'dist/README.md' },
   {
     input: './packages/fighting-design/package.json',
@@ -10,8 +10,8 @@ const FILE = [
   { input: './LICENSE', outDir: 'dist/LICENSE' }
 ]
 
-FILE.forEach((item) => {
-  copyFileSync(item.input, item.outDir)
+files.forEach((item) => {
+  fs.copyFileSync(item.input, item.outDir)
 })
 
 console.warn('\n' + `Fighting Design ${version} 版本打包成功 🎉🎉🎉` + '\n')
