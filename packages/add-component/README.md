@@ -4,7 +4,7 @@
 
 ## 🤟 介绍
 
-`Add component` can quickly build new components that need to be developed. Help create all required files for the new component.
+`Add-component` 可以快速构建需要开发的新组件。帮助创建新组件所需的所有文件。
 
 ## 🌵 使用
 
