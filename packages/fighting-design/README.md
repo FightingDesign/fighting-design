@@ -1,4 +1,4 @@
-# fighting-design
+# fighting-design <a href="https://www.npmjs.com/package/fighting-design"><img src="https://badgen.net/npm/v/fighting-design" /></a>
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/README.en-US.md)
 

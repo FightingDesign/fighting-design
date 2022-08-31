@@ -38,7 +38,7 @@ yarn add eslint eslint-config-fighting
 
 ## 🚧 规则
 
-详情参考 [RULE.md](https://github.com/FightingDesign/fighting-design/blob/master/packages/eslint-config/RULE.md)
+详情参考 [index.js](https://github.com/FightingDesign/fighting-design/blob/master/packages/eslint-config/index.js)
 
 ## 💬 执照
 

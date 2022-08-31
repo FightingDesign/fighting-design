@@ -38,7 +38,7 @@ Add the following code to the `.eslintrc` file
 
 ## 🚧 Rule
 
-Refer to [RULE.md](https://github.com/FightingDesign/fighting-design/blob/master/packages/eslint-config/RULE.md) for details
+Refer to [index.js](https://github.com/FightingDesign/fighting-design/blob/master/packages/eslint-config/index.js) for details
 
 ## 💬 License
 
