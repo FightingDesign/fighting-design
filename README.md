@@ -42,19 +42,19 @@
 使用 `pnpm` 安装
 
 ```shell
-pnpm add fighting-design
+pnpm add --save-dev fighting-design
 ```
 
 使用 `npm` 安装
 
 ```shell
-npm install fighting-design
+npm install --save-dev fighting-design
 ```
 
 使用 `yarn` 安装
 
 ```shell
-yarn add fighting-Design
+yarn add --save-dev fighting-Design
 ```
 
 ## 🎉 快速上手

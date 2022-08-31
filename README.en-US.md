@@ -42,19 +42,19 @@
 Use `pnpm` install
 
 ```shell
-pnpm add fighting-design
+pnpm add --save-dev fighting-design
 ```
 
 Use `npm` install
 
 ```shell
-npm install fighting-design
+npm install --save-dev fighting-design
 ```
 
 Use `yarn` install
 
 ```shell
-yarn add fighting-Design
+yarn add --save-dev fighting-Design
 ```
 
 ## 🎉 Quick Start
