@@ -34,14 +34,10 @@
     "@fighting-design/fighting-theme": "workspace:*",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/test-utils": "^2.0.0-rc.18",
-    "@commitlint/cli": "^17.0.1",
-    "@commitlint/config-conventional": "^17.0.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.23.0",
     "happy-dom": "^3.2.2",
     "husky": "^8.0.1",
-    "lint-staged": "^12.4.2",
     "sass": "^1.50.1",
     "typescript": "^4.7.4",
     "unplugin-vue-components": "^0.22.0",
@@ -55,7 +51,11 @@
   "devDependencies": {
     "@types/node": "^17.0.42",
     "prettier": "^2.6.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "eslint": "^8.23.0",
+    "@commitlint/cli": "^17.0.1",
+    "lint-staged": "^12.4.2",
+    "@commitlint/config-conventional": "^17.0.0"
   },
   "config": {
     "commitizen": {

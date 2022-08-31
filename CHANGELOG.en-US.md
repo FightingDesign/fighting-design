@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.2-alpha.6 (2022-08-31)
+
+- Fix some known introduction related configuration problems
+
 ## 0.6.2-alpha.5 (2022-08-30)
 
 **fest**

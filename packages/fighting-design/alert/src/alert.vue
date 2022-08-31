@@ -6,7 +6,7 @@
   import type { handleCloseInterface as a } from './interface'
   import type { classListInterface as b } from '../../_interface'
   import type { FPropsType } from './alert'
-
+  console.log('看到我了吗')
   const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 

@@ -37,6 +37,8 @@
   <f-button @click="finish">结束</f-button>
   <f-button @click="error">报错</f-button>
   <f-button type="primary" @click="openMessage">show</f-button>
+
+  <f-alert>123</f-alert>
 </template>
 
 <style scoped></style>

@@ -35,7 +35,7 @@
         <slot name="image" />
       </div>
       <template v-else>
-        <img v-if="imageSrc" :src="imageSrc" :style="customImageStyleList" />
+        <img v-if="imageSrc" :src="imageSrc" :style="customImageStyleList">
         <svg
           v-else
           viewBox="0 0 400 300"
