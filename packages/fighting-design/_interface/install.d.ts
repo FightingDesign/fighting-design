@@ -1,13 +1,3 @@
-import type { App, VNode } from 'vue'
+import type { Plugin } from 'vue'
 
-export interface mainVNodeInterface extends VNode {
-  install: (app: App) => void
-}
-
-export interface installInterface {
-  (main: mainVNodeInterface, name: string): void
-}
-
-export interface installFnInterface {
-  (main: any, name: string): void
-}
+export type InstallType<T> = T & Plugin

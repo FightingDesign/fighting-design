@@ -1,8 +1,4 @@
-import type {
-  installInterface,
-  installFnInterface,
-  mainVNodeInterface
-} from '../_interface'
+import type { InstallType } from '../_interface'
 import type { App } from 'vue'
 
 /**
@@ -10,11 +6,11 @@ import type { App } from 'vue'
  * @param main 组件实例
  * @param name 组件名
  */
-export const install: installInterface = (
-  main: mainVNodeInterface,
+export const install = <T>(
+  main: T,
   name: string
 ): void => {
-  main.install = (app: App): void => {
+  (main as InstallType<T>).install = (app: App): void => {
     app.component(name, main)
   }
 }
@@ -24,11 +20,11 @@ export const install: installInterface = (
  * @param main 组件实例
  * @param name 组件名
  */
-export const installFn: installFnInterface = (
-  main: any,
+export const installFn = <T>(
+  main: T,
   name: string
 ): void => {
-  main.install = (app: App): void => {
+  (main as InstallType<T>).install = (app: App): void => {
     app.config.globalProperties[name] = main
   }
 }

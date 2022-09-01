@@ -6,6 +6,7 @@ export * from './components'
 
 export const install: AppInstallInterface = (app: App): App => {
   Object.entries(components).forEach(([key, value]): void => {
+    // https://cn.vuejs.org/api/application.html#app-component
     app.component(key, value)
   })
 
