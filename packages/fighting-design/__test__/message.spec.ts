@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import FMessageVue, { FMessage } from '../index'
-// import type { ComponentPublicInstance } from 'vue'
+import type { Ref } from 'vue'
 
 // type MessageInstance = ComponentPublicInstance<{
 //   visible: boolean
@@ -56,9 +56,9 @@ describe('FMessage', () => {
     expect(messageReturn.vm.exposed).toHaveProperty('visible')
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    expect((messageReturn.vm.exposed as Record<string, any>).visible.value).toBe(true)
+    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(true)
     await sleep(3000)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    expect((messageReturn.vm.exposed as Record<string, any>).visible.value).toBe(false)
+    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(false)
   })
 })

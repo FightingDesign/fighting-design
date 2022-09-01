@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import FNotificationVue from '../notification/src/notification.vue'
 import { FNotification } from '../index'
-import type { ComponentPublicInstance } from 'vue'
+import type { ComponentPublicInstance, Ref } from 'vue'
 
 type MessageInstance = ComponentPublicInstance<{
   visible: boolean
@@ -60,8 +60,8 @@ describe('FNotification', () => {
     expect(messageReturn).toHaveProperty('vm')
     expect(messageReturn.vm.exposed).toHaveProperty('visible')
 
-    expect(messageReturn.vm.exposed!.visible.value).toBe(true)
+    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(true)
     await sleep(3000)
-    expect(messageReturn.vm.exposed!.visible.value).toBe(false)
+    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(false)
   })
 })

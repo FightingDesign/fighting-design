@@ -13,7 +13,7 @@
   import type { ordinaryFunctionInterface as e } from '../_interface'
   import type { FPropsType } from '../image/src/image'
 
-  const injectImageProps: FPropsType = inject(ImagePropsKey)!
+  const injectImageProps: FPropsType = inject(ImagePropsKey) as FPropsType
   const emit = defineEmits({
     close: (evt: MouseEvent): MouseEvent => evt
   })
@@ -35,7 +35,7 @@
 
   // 图片加载
   const imagPreload: e = (): void => {
-    const imgList: Array<string> = injectImageProps.previewList as Array<string>
+    const imgList: string[] = injectImageProps.previewList as string[]
 
     imgList.forEach((item: string): void => {
       const img: HTMLImageElement = new Image() as HTMLImageElement
@@ -170,7 +170,7 @@
           transform: `scale(${scale}) rotate(${rotate}deg)`,
           borderRadius: previewRound
         }"
-      />
+      >
 
       <!-- 左右切换按钮 -->
       <template v-if="previewList.length > 1">
