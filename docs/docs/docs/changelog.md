@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.3-alpha.2 (2022-08-02)
+
+- 修复的配置文件
+- 一件修复在 `vitepress` 的错误
+
 ## 0.6.3-alpha.1 (2022-08-02)
 
 - 已修复打包引入相关的问题
