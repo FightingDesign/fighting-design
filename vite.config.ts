@@ -4,6 +4,8 @@ import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
+import { visualizer } from 'rollup-plugin-visualizer' // https://github.com/btd/rollup-plugin-visualizer
+import { version } from './packages/fighting-design/package.json'
 
 export default (): UserConfigExport => {
   return {
@@ -21,6 +23,9 @@ export default (): UserConfigExport => {
           __dirname,
           '/packages/fighting-design/global-components.d.ts'
         )
+      }),
+      visualizer({
+        filename: `${version}.html`
       })
     ],
     mode: 'production',
