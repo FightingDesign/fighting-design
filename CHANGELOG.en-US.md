@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.3-alpha.2 (2022-08-02)
+
+- Fix config file
+- A bug fixed in `vitepress`
+
 ## 0.6.3-alpha.1 (2022-08-02)
 
 - Fixed issues related to package import
