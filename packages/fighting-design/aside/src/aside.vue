@@ -1,17 +1,20 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="FAside">
   import { Props } from './aside'
+  import { computed } from 'vue'
+  import type { FPropsType } from './aside'
+  import type { CSSProperties, ComputedRef } from 'vue'
 
-  defineProps(Props)
-</script>
+  const prop: FPropsType = defineProps(Props)
 
-<script lang="ts">
-  export default {
-    name: 'FAside'
-  }
+  const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { width } = prop
+
+    return { width } as const
+  })
 </script>
 
 <template>
-  <aside class="f-aside" :style="{ width }">
+  <aside class="f-aside" :style="classList">
     <slot />
   </aside>
 </template>
