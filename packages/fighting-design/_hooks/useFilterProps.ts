@@ -20,10 +20,6 @@ export const useFilterProps = <FPropsType, needPropsType>(
 ) => {
   type objectAny = Record<string, unknown>
 
-  interface getPropsInterface {
-    (): needPropsType
-  }
-
   const needProps: needPropsType | objectAny = reactive({} as const)
 
   //  过滤 props
@@ -36,7 +32,7 @@ export const useFilterProps = <FPropsType, needPropsType>(
   }
 
   //  获取结果
-  const getProps: getPropsInterface = (): needPropsType => {
+  const getProps = (): needPropsType => {
     filterProps()
     return needProps as needPropsType
   }

@@ -56,7 +56,7 @@
     "vite": "^3.0.9",
     "vite-plugin-dts": "^1.4.1",
     "vitest": "^0.10.0",
-    "vue-tsc": "^0.39.5"
+    "vue-tsc": "^0.40.5"
   },
   "config": {
     "commitizen": {

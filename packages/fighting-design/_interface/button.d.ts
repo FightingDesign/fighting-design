@@ -13,7 +13,7 @@ export interface RipplesNeedButtonPropsInterface {
 export interface RipplesInterface {
   evt: MouseEvent
   node: HTMLElement
-  props: buttonPropsInterface
+  props: RipplesNeedButtonPropsInterface
   clickRipples(): void
   computedRipplesColor(): string
   renderElement(x: number, y: number): HTMLSpanElement

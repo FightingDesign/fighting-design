@@ -11,19 +11,10 @@
     "components",
     "ui"
   ],
-  "module": "es/index",
-  "main": "lib/index",
+  "module": "es/index.d.ts",
+  "main": "lib/index.d.ts",
   "unpkg": "dist/index.umd.js",
   "style": "dist/index.css",
-  "exports": {
-    ".": {
-      "import": "./es/index",
-      "require": "./lib/index",
-      "types": "./es/index.d.ts"
-    },
-    "./dist/": "./dist/",
-    "./theme/": "./theme/"
-  },
   "sideEffects": [
     "dist/*",
     "theme/*.css"
