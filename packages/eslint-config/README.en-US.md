@@ -11,19 +11,19 @@
 Use `pnpm` install
 
 ```shell
-pnpm add eslint eslint-config-fighting
+pnpm add --save-dev eslint eslint-config-fighting
 ```
 
 Use `npm` install
 
 ```shell
-npm install eslint eslint-config-fighting
+npm install --save-dev eslint eslint-config-fighting
 ```
 
 Use `yarn` install
 
 ```shell
-yarn add eslint eslint-config-fighting
+yarn add --save-dev eslint eslint-config-fighting
 ```
 
 ## 🐳 Use
