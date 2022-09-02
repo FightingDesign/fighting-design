@@ -1,8 +1,8 @@
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 
 export const Props = {
   type: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   }
 } as const

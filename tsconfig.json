@@ -15,6 +15,11 @@
     ],
     "skipLibCheck": true,
     "baseUrl": ".",
+    "paths": {
+      "third-lib": [
+        "node_modules/third-lib"
+      ]
+    },
     "typeRoots": [
       "node_modules/@types",
       "@types"

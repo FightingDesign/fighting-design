@@ -3,11 +3,11 @@ import type { spaceSize } from './interface'
 
 export const Props = {
   vertical: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   wrap: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => true
   },
   spacing: {
@@ -18,11 +18,11 @@ export const Props = {
     }
   },
   rowGap: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   columnGap: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   }
 } as const

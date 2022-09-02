@@ -3,27 +3,27 @@ import type { avatarFit, avatarSize } from './interface'
 
 export const Props = {
   src: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   errSrc: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   alt: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   round: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   lazy: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   fit: {
-    type: String as PropType<avatarFit>,
+    type: String as PropType<string> as PropType<avatarFit>,
     default: (): avatarFit => '',
     validator: (val: avatarFit): boolean => {
       return (
@@ -44,31 +44,31 @@ export const Props = {
     }
   },
   background: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   icon: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   fontSize: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   fontColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   text: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   rootMargin: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => '100px'
   },
   loadAnimation: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   }
 } as const

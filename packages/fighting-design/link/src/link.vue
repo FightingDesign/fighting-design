@@ -7,7 +7,7 @@
   const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const handleClick: a = (evt: Event): void => {
+  const handleClick: a = (evt: MouseEvent): void => {
     if (prop.prohibit || prop.noLink) {
       evt.preventDefault()
       return

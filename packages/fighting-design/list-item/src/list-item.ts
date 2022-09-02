@@ -1,12 +1,12 @@
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 
 export const Props = {
   background: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   color: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   }
 } as const

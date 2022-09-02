@@ -3,7 +3,7 @@ import type { backTopBehavior } from './interface'
 
 export const Props = {
   round: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   behavior: {
@@ -14,36 +14,36 @@ export const Props = {
     }
   },
   visibleHeight: {
-    type: Number,
+    type: Number as PropType<number>,
     default: (): number => 200
   },
   right: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   bottom: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   zIndex: {
-    type: Number,
+    type: Number as PropType<number>,
     default: (): number => 200,
     validator: (val: number): boolean => val >= 0
   },
   top: {
-    type: Number,
+    type: Number as PropType<number>,
     default: (): number => 0
   },
   listenEl: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   background: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   color: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   }
 } as const

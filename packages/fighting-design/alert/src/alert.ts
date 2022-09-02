@@ -12,47 +12,47 @@ export const Props = {
     }
   },
   fontSize: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   bold: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   center: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   icon: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   close: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   simple: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   title: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   round: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   background: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   color: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   fixed: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   fixedStyle: {

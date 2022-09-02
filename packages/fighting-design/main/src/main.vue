@@ -1,17 +1,20 @@
-<script setup lang="ts">
+<script lang="ts" setup name="FMain">
   import { Props } from './main'
+  import { computed } from 'vue'
+  import type { FPropsType } from './main'
+  import type { CSSProperties, ComputedRef } from 'vue'
 
-  defineProps(Props)
-</script>
+  const prop: FPropsType = defineProps(Props)
 
-<script lang="ts">
-  export default {
-    name: 'FMain'
-  }
+  const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { padding } = prop
+
+    return { padding } as const
+  })
 </script>
 
 <template>
-  <main class="f-main" :style="{ padding }">
+  <main class="f-main" :style="classList">
     <slot />
   </main>
 </template>

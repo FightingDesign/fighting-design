@@ -8,23 +8,23 @@ import type {
 
 export const Props = {
   bold: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   circle: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   round: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   fontSize: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   fontColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   size: {
@@ -35,11 +35,11 @@ export const Props = {
     }
   },
   block: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   href: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   target: {
@@ -50,15 +50,15 @@ export const Props = {
     }
   },
   loading: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   disabled: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   loadingIcon: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   type: {
@@ -71,19 +71,19 @@ export const Props = {
     }
   },
   autofocus: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   name: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => 'f-button'
   },
   shadow: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   text: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   nativeType: {
@@ -94,27 +94,27 @@ export const Props = {
     }
   },
   simple: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   leftIcon: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   rightIcon: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   ripples: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   ripplesColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   color: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   }
 } as const
