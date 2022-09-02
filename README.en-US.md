@@ -27,6 +27,7 @@
 - 🏆 Support full import and on-demand import
 - ✅ Written with TypeScript & Template
 - 🖍️ Strict TypeScript Type
+- 🤟 Global no any type
 - ✔️ Easy to configure and easy to use
 - 🚩 Complete and adequate unit tests
 - 👍 Maintained by the community team
