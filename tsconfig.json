@@ -1,3 +1,4 @@
+// https://www.typescriptlang.org/tsconfig
 {
   "compilerOptions": {
     "target": "esnext", // 为发出的JavaScript设置JavaScript语言版本，并包括兼容的库声明。

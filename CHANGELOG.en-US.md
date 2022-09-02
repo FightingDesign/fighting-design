@@ -4,6 +4,27 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.3-alpha.1 (2022-08-02)
+
+- Fixed issues related to package import
+- However, there are still problems in `vitepress`, which can be used normally in normal projects
+
+## 0.6.2-alpha.10 (2022-08-02)
+
+- Test and repair problems introduced by build
+
+## 0.6.2-alpha.9 (2022-08-02)
+
+- Test and repair problems introduced by build
+
+## 0.6.2-alpha.8 (2022-08-02)
+
+- Test and repair problems introduced by build
+
+## 0.6.2-alpha.7 (2022-08-02)
+
+- Test and repair problems introduced by build
+
 ## 0.6.2-alpha.6 (2022-08-31)
 
 - Fix some known introduction related configuration problems

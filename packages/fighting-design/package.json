@@ -1,6 +1,6 @@
 {
   "name": "fighting-design",
-  "version": "0.6.2-alpha.10",
+  "version": "0.6.3-alpha.1",
   "description": "Fighting design can quickly build interactive interfaces in vue3 applications, which looks good.",
   "keywords": [
     "fighting",
@@ -19,8 +19,15 @@
       "require": "./lib/index",
       "types": "./es/index.d.ts"
     },
-    "./dist/": "./dist/",
-    "./theme/": "./theme/"
+    "./dist": "./dist/",
+    "./theme": "./theme/",
+    "./es": "./es/index.mjs",
+    "./es/*": "./es/*.mjs",
+    "./es/*.mjs": "./es/*.mjs",
+    "./lib": "./lib/index.cjs",
+    "./lib/*": "./lib/*.js",
+    "./lib/*.cjs": "./lib/*.cjs",
+    "./*": "./*"
   },
   "unpkg": "dist/index.umd.js",
   "style": "dist/index.css",

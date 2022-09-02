@@ -40,24 +40,27 @@ pnpm start
 `Fighting Design` 内部设置了很多的命令，在 [package.json](https://github.com/FightingDesign/fighting-design/blob/master/package.json) 中可以看到，下面详细介绍每一条命令
 
 ```json
-"scripts": {
-  "clean": "rimraf dist", // 清除 dist
-  "start": "pnpm run -C start dev", // 启动开发测试项目
-  "dev:docs": "pnpm run -C docs dev", // 启动文档项目
-  "build": "pnpm clean && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move", // 打包（主要的打包，打包之后就是需要发布的包）
-  "build:theme": "vite build --config vite.config.theme.ts", // 打包组件样式主题
-  "build:lib": "vite build --config vite.config.lib.ts", // lib 模式打包
-  "build:umd": "vite build --config vite.config.umd.ts", // umd 模式打包
-  "build:docs": "pnpm run -C docs build", // 打包文档
-  "build:start": "pnpm run -C start build", // 打包测试项目 start
-  "move": "node script/move-file.ts", // 移动静态文件
-  "new": "node script/new-component", // 创建新组件
-  "test": "vitest", // 单元测试
-  "prettier": "prettier --write .", // 全局格式化
-  "commit": "cz", // 启用提交插件
-  "lint": "eslint 'packages/**/*.{js,ts,vue,jsx,tsx}'",
-  "prepare": "husky install"
-}
+  "scripts": {
+    "clean": "rimraf dist",
+    "start": "pnpm run -C start dev",
+    "dev:docs": "pnpm run -C docs dev",
+    "build": "pnpm clean && pnpm build:css && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move",
+    "build:es": "vite build --config vite.config.ts",
+    "build:lib": "vite build --config vite.config.lib.ts",
+    "build:umd": "vite build --config vite.config.umd.ts",
+    "build:css": "vite build --config vite.config.css.ts",
+    "build:theme": "vite build --config vite.config.theme.ts",
+    "build:docs": "pnpm run -C docs build",
+    "serve:docs": "pnpm run -C docs serve",
+    "build:start": "pnpm run -C start build",
+    "move": "node script/move.ts",
+    "new": "pnpm run -C packages/add-component new",
+    "test": "vitest",
+    "prettier": "prettier --write .",
+    "commit": "cz",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
 ```
 
 ## 开发插件

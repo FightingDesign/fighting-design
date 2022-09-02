@@ -42,19 +42,27 @@ pnpm start
 There are many commands set in `Fighting Design`,You can see in [package.json](https://github.com/FightingDesign/fighting-design/blob/master/package.json):
 
 ```json
-"scripts": {
- "clean": "rimraf dist",
-  "start": "pnpm run -C start dev",
-  "dev:docs": "pnpm run -C docs dev",
-  "build": "pnpm clean && vite build && pnpm build:theme && pnpm move",
-  "build:theme": "vite build --config vite.config.theme.ts",
-  "build:docs": "pnpm run -C docs build",
-  "build:start": "pnpm run -C start build",
-  "move": "node script/moveFile.ts",
-  "test": "vitest",
-  "prettier": "prettier --write .",
-  "commit": "cz"
-},
+  "scripts": {
+    "clean": "rimraf dist",
+    "start": "pnpm run -C start dev",
+    "dev:docs": "pnpm run -C docs dev",
+    "build": "pnpm clean && pnpm build:css && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move",
+    "build:es": "vite build --config vite.config.ts",
+    "build:lib": "vite build --config vite.config.lib.ts",
+    "build:umd": "vite build --config vite.config.umd.ts",
+    "build:css": "vite build --config vite.config.css.ts",
+    "build:theme": "vite build --config vite.config.theme.ts",
+    "build:docs": "pnpm run -C docs build",
+    "serve:docs": "pnpm run -C docs serve",
+    "build:start": "pnpm run -C start build",
+    "move": "node script/move.ts",
+    "new": "pnpm run -C packages/add-component new",
+    "test": "vitest",
+    "prettier": "prettier --write .",
+    "commit": "cz",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
 ```
 
 ## Development specification

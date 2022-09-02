@@ -1,7 +1,6 @@
 node_modules
 /node_modules
 dist
-*.html
 stats.html
 
 npm-debug.log*
