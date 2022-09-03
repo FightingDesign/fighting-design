@@ -3,23 +3,23 @@ import type { skeletonSize } from './interface'
 
 export const Props = {
   rounded: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: false
   },
   animated: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: false
   },
   circled: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: false
   },
   rows: {
-    type: Number,
+    type: Number as PropType<number>,
     default: 1
   },
   loading: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: false
   },
   size: {

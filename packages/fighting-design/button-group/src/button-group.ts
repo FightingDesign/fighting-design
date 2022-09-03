@@ -10,7 +10,7 @@ export const Props = {
     }
   },
   vertical: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   }
 } as const

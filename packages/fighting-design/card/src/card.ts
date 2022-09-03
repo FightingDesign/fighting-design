@@ -3,15 +3,15 @@ import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
   title: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   round: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   padding: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => '20px'
   },
   shadow: {

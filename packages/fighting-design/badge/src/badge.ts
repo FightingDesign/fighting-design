@@ -7,15 +7,15 @@ export const Props = {
     default: (): string => ''
   },
   max: {
-    type: Number,
+    type: Number as PropType<number>,
     default: (): number => 99
   },
   dot: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   show: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   type: {
@@ -28,11 +28,11 @@ export const Props = {
     }
   },
   color: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   textColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   }
 } as const

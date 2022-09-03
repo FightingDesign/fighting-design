@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './src/App.vue'
 
 // 开发阶段引入
-import { FAlert } from '../packages/fighting-design/index'
+import { FButton } from '../packages/fighting-design/components'
 // import FightingDesign from '../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 
@@ -14,5 +14,5 @@ import '@fighting-design/fighting-theme'
 
 createApp(App)
   // .use(FightingDesign)
-  .use(FAlert)
+  .use(FButton)
   .mount('#start')

@@ -3,7 +3,7 @@ import type { progressType } from './interface'
 
 export const Props = {
   percentage: {
-    type: Number,
+    type: Number as PropType<number>,
     default: (): number => 10,
     validator: (val: number): boolean => {
       return val >= 0 && val <= 100
@@ -19,43 +19,43 @@ export const Props = {
     }
   },
   square: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   linear: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   showText: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => true
   },
   textColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   color: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   background: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   width: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   height: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => '6px'
   },
   stripe: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   textInside: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   }
 } as const

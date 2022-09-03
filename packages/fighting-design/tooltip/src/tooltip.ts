@@ -3,7 +3,7 @@ import type { positionType, stateType } from './interface'
 
 export const Props = {
   content: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   position: {
@@ -18,7 +18,7 @@ export const Props = {
     default: (): boolean => false
   },
   state: {
-    type: String,
+    type: String as PropType<string>,
     default: (): stateType => 'hover',
     validator: (val: stateType): boolean => {
       return (['hover', 'active', 'always'] as const).includes(val)
@@ -37,11 +37,11 @@ export const Props = {
     default: (): boolean => false
   },
   background: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   fontColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   }
 } as const

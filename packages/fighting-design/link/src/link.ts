@@ -12,11 +12,11 @@ export const Props = {
     }
   },
   href: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   size: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   state: {
@@ -27,15 +27,15 @@ export const Props = {
     }
   },
   prohibit: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   leftIcon: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   rightIcon: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   target: {
@@ -46,15 +46,15 @@ export const Props = {
     }
   },
   color: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   noCopy: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   noLink: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   }
 } as const

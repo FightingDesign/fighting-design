@@ -1,6 +1,8 @@
+import { PropType } from 'vue'
+
 export const Props = {
   color: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   }
 } as const

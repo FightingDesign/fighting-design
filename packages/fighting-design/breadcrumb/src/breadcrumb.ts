@@ -1,24 +1,24 @@
-import type { ExtractPropTypes, InjectionKey } from 'vue'
+import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 
 export const Props = {
   separator: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => '/'
   },
   separatorIcon: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   itemColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   separatorColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   fontSize: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   }
 } as const

@@ -3,19 +3,19 @@ import type { drawerDirectionType } from './interface'
 
 export const Props = {
   visible: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => true
   },
   appendToBody: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   lockScroll: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => true
   },
   modal: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => true
   },
   direction: {
@@ -26,19 +26,19 @@ export const Props = {
     }
   },
   size: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => '30%'
   },
   title: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   withHeader: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => true
   },
   zIndex: {
-    type: Number,
+    type: Number as PropType<number>,
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
   }

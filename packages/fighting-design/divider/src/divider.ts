@@ -10,23 +10,23 @@ export const Props = {
     }
   },
   vertical: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   color: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   fontColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   margin: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   background: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   type: {

@@ -3,19 +3,19 @@ import type { listSize } from './interface'
 
 export const Props = {
   listStyle: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   zebra: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   center: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   // hoverBright: {
-  //   type: Boolean,
+  //   type: Boolean as PropType<boolean>,
   //   default: (): boolean => false
   // },
   // important: {
@@ -23,11 +23,11 @@ export const Props = {
   //   default: (): number[] => []
   // },
   textColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   borderColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   size: {
@@ -38,7 +38,7 @@ export const Props = {
     }
   },
   maxHeight: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   }
 } as const

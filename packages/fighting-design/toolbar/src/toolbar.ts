@@ -4,7 +4,7 @@ import type { fixedStyleInterface } from '../../alert/src/interface'
 
 export const Props = {
   round: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   size: {
@@ -15,19 +15,19 @@ export const Props = {
     }
   },
   block: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   background: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   textColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   fixed: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   fixedStyle: {
@@ -41,15 +41,15 @@ export const Props = {
     }
   },
   width: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   height: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   vague: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   }
 } as const

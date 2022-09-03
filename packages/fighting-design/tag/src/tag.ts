@@ -12,27 +12,27 @@ export const Props = {
     }
   },
   close: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   round: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   background: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   color: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   leftIcon: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   rightIcon: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   size: {
@@ -43,15 +43,15 @@ export const Props = {
     }
   },
   simple: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   block: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   line: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   }
 } as const

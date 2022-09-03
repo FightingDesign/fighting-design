@@ -2,19 +2,19 @@ import type { PropType } from 'vue'
 
 export const Props = {
   icon: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => 'f-icon-leftarrow'
   },
   iconSize: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   backText: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => '返回'
   },
   title: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   titleClass: {
@@ -24,19 +24,19 @@ export const Props = {
     default: (): string => ''
   },
   titleBold: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   titleColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   titleCenter: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   subtitle: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   subtitleClass: {

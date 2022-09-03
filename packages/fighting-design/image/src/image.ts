@@ -3,35 +3,35 @@ import type { imageFit } from './interface'
 
 export const Props = {
   src: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   alt: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   draggable: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => true
   },
   lazy: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   rootMargin: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => '100px'
   },
   width: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   height: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   block: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   fit: {
@@ -44,35 +44,35 @@ export const Props = {
     }
   },
   noSelect: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   referrerPolicy: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   round: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   errSrc: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   caption: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   captionColor: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => '#fff'
   },
   modalClose: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => true
   },
   showCloseBtn: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => true
   },
   previewList: {
@@ -80,29 +80,29 @@ export const Props = {
     default: (): string[] => []
   },
   previewShowIndex: {
-    type: Number,
+    type: Number as PropType<number>,
     default: (): number => 0,
     validator: (val: number): boolean => {
       return val >= 0
     }
   },
   previewZIndex: {
-    type: Number,
+    type: Number as PropType<number>,
     default: (): number => 999,
     validator: (val: number): boolean => {
       return val >= 0
     }
   },
   previewShowOption: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => true
   },
   previewRound: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   title: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   }
 } as const

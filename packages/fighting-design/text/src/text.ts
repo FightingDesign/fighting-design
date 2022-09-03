@@ -12,55 +12,55 @@ export const Props = {
     }
   },
   size: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   color: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   background: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   block: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   spacing: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   lineHeight: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   textIndent: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   bold: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   decoration: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   padding: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   width: {
-    type: String,
+    type: String as PropType<string>,
     default: (): string => ''
   },
   ellipsis: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
   center: {
-    type: Boolean,
+    type: Boolean as PropType<boolean>,
     default: (): boolean => false
   }
 } as const
