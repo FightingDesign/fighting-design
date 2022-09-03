@@ -1,4 +1,3 @@
-// import Components from 'unplugin-vue-components/vite'
 import type { UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
@@ -20,12 +19,6 @@ export default (): UserConfigExport => {
         include: ['./packages/fighting-design'] // 手动设置包含路径的 glob
       }),
       vueSetupExtend(),
-      // Components({
-      //   dts: resolve(
-      //     __dirname,
-      //     '/packages/fighting-design/global-components.d.ts'
-      //   )
-      // }),
       visualizer()
     ],
     mode: 'production',

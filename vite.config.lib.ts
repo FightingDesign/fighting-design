@@ -1,4 +1,3 @@
-// import Components from 'unplugin-vue-components/vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts'
@@ -16,12 +15,6 @@ export default (): UserConfigExport => {
         include: ['./packages/fighting-design']
       }),
       vueSetupExtend()
-      // Components({
-      //   dts: resolve(
-      //     __dirname,
-      //     '/packages/fighting-design/global-components.d.ts'
-      //   )
-      // })
     ],
     mode: 'production',
     build: {
