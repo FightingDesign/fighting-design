@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { linkType, linkTarget, linkHover } from './interface'
 
 export const Props = {
@@ -12,11 +12,11 @@ export const Props = {
     }
   },
   href: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   size: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   state: {
@@ -27,15 +27,15 @@ export const Props = {
     }
   },
   prohibit: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   leftIcon: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   rightIcon: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   target: {
@@ -46,15 +46,15 @@ export const Props = {
     }
   },
   color: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   noCopy: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   noLink: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   }
 } as const
@@ -62,5 +62,3 @@ export const Props = {
 export const Emits = {
   click: (evt: Event): Event => evt
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

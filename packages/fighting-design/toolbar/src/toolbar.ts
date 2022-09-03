@@ -1,10 +1,10 @@
-import type { PropType, CSSProperties, ExtractPropTypes } from 'vue'
+import type { PropType, CSSProperties } from 'vue'
 import type { toolbarType } from './interface'
 import type { fixedStyleInterface } from '../../alert/src/interface'
 
 export const Props = {
   round: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   size: {
@@ -15,19 +15,19 @@ export const Props = {
     }
   },
   block: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   background: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   textColor: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   fixed: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   fixedStyle: {
@@ -41,17 +41,15 @@ export const Props = {
     }
   },
   width: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   height: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   vague: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

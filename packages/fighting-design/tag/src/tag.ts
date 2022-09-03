@@ -1,5 +1,5 @@
 import type { tagSize, tagType } from './interface'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   type: {
@@ -12,27 +12,27 @@ export const Props = {
     }
   },
   close: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   round: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   background: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   color: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   leftIcon: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   rightIcon: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   size: {
@@ -43,15 +43,15 @@ export const Props = {
     }
   },
   simple: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   block: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   line: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   }
 } as const
@@ -59,5 +59,3 @@ export const Props = {
 export const Emits = {
   'close-end': (evt: Event): Event => evt
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

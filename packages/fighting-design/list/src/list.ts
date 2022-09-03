@@ -14,14 +14,6 @@ export const Props = {
     type: Boolean as PropType<boolean>,
     default: (): boolean => false
   },
-  // hoverBright: {
-  //   type: Boolean as PropType<boolean>,
-  //   default: (): boolean => false
-  // },
-  // important: {
-  //   type: Array as PropType<number[]>,
-  //   default: (): number[] => []
-  // },
   textColor: {
     type: String as PropType<string>,
     default: (): string => ''

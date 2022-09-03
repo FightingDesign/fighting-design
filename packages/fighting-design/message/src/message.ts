@@ -1,4 +1,4 @@
-import type { VNode, PropType, ExtractPropTypes } from 'vue'
+import type { VNode, PropType } from 'vue'
 
 export const messageTypes = [
   'default',
@@ -23,7 +23,7 @@ export type messagePlacementType = typeof messagePlacement[number]
 
 export const Props = {
   id: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   message: {
@@ -39,15 +39,15 @@ export const Props = {
     }
   },
   close: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   duration: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 3000
   },
   round: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   icon: {
@@ -55,15 +55,15 @@ export const Props = {
     default: (): string => ''
   },
   color: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   background: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   offset: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 20
   },
   placement: {
@@ -74,7 +74,7 @@ export const Props = {
     }
   },
   zIndex: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 1000
   },
   closeBtn: {
@@ -87,5 +87,3 @@ export const Props = {
 } as const
 
 export const Emits = ['destroy']
-
-export type FPropsType = ExtractPropTypes<typeof Props>

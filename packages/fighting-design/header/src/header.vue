@@ -1,20 +1,17 @@
 <script lang="ts" setup name="FHeader">
   import { Props } from './header'
-  import { computed } from 'vue'
-  import type { CSSProperties, ComputedRef } from 'vue'
-  import type { FPropsType } from './header'
 
-  const prop: FPropsType = defineProps(Props)
+  defineProps(Props)
+</script>
 
-  const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { height } = prop
-
-    return { height } as const
-  })
+<script lang="ts">
+  export default {
+    name: 'FHeader'
+  }
 </script>
 
 <template>
-  <header class="f-header" :style="classList">
+  <header class="f-header" :style="{ height }">
     <slot />
   </header>
 </template>

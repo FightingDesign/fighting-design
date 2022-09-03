@@ -1,21 +1,21 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { drawerDirectionType } from './interface'
 
 export const Props = {
   visible: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   appendToBody: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   lockScroll: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   modal: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   direction: {
@@ -26,15 +26,15 @@ export const Props = {
     }
   },
   size: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => '30%'
   },
   title: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   withHeader: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   zIndex: {
@@ -51,5 +51,3 @@ export const Emits = {
   'open-end': (event: MouseEvent): MouseEvent => event,
   'close-end': (event: MouseEvent): MouseEvent => event
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

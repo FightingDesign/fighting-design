@@ -1,36 +1,36 @@
-import type { ExtractPropTypes, PropType } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   content: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   width: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 280
   },
   height: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 200
   },
   fontSize: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => '30px'
   },
   fontColor: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => '#333'
   },
   image: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   block: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   zIndex: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 100
   }
 } as const

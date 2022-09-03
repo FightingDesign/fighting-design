@@ -1,28 +1,28 @@
-import type { ExtractPropTypes, CSSProperties, PropType } from 'vue'
+import type { CSSProperties, PropType } from 'vue'
 
 export const Props = {
   content: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   contentSize: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   contentColor: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   imageSrc: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   imageSize: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   background: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   styleList: {
@@ -32,5 +32,3 @@ export const Props = {
     }
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

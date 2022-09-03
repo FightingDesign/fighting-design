@@ -1,9 +1,9 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { positionType, stateType } from './interface'
 
 export const Props = {
   content: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   position: {
@@ -18,7 +18,7 @@ export const Props = {
     default: (): boolean => false
   },
   state: {
-    type: String as PropType<string>,
+    type: String,
     default: (): stateType => 'hover',
     validator: (val: stateType): boolean => {
       return (['hover', 'active', 'always'] as const).includes(val)
@@ -37,13 +37,11 @@ export const Props = {
     default: (): boolean => false
   },
   background: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   fontColor: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

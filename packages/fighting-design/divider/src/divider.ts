@@ -1,5 +1,5 @@
 import type { dividerPosition, dividerType } from './interface'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   position: {
@@ -10,23 +10,23 @@ export const Props = {
     }
   },
   vertical: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   color: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   fontColor: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   margin: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   background: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   type: {
@@ -37,5 +37,3 @@ export const Props = {
     default: (): dividerType => 'solid'
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

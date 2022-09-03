@@ -1,25 +1,25 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { skeletonSize } from './interface'
 
 export const Props = {
   rounded: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: false
   },
   animated: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: false
   },
   circled: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: false
   },
   rows: {
-    type: Number as PropType<number>,
+    type: Number,
     default: 1
   },
   loading: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: false
   },
   size: {
@@ -27,5 +27,3 @@ export const Props = {
     default: (): skeletonSize => 'default'
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

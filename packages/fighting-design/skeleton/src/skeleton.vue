@@ -2,10 +2,9 @@
   import { computed, useSlots } from 'vue'
   import { Props } from './skeleton'
   import type { ComputedRef } from 'vue'
-  import type { FPropsType } from './skeleton'
   import type { classListInterface as a } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { rounded, animated, circled, size } = prop

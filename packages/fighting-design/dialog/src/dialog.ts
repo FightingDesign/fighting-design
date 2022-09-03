@@ -1,57 +1,55 @@
-import { PropType } from 'vue'
-
 export const Props = {
   title: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   visible: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false,
     require: true
   },
   appendToBody: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   width: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => '332px'
   },
   height: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => '188px'
   },
   fullscreen: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   modal: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   lockScroll: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   showClose: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   modalClose: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   top: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   closeIcon: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   zIndex: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
   }

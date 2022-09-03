@@ -7,9 +7,8 @@
     classListInterface as b
   } from '../../_interface'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { FPropsType } from './switch'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const changeSwitch: a = (): void => {

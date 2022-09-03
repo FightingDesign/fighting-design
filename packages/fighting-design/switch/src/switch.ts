@@ -1,9 +1,9 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { switchSize } from './interface'
 
 export const Props = {
   modelValue: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false,
     require: true
   },
@@ -15,31 +15,31 @@ export const Props = {
     }
   },
   disabled: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   icon: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   closeColor: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   openColor: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   openText: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   closeText: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   square: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   }
 } as const
@@ -48,5 +48,3 @@ export const Emits = {
   'update:modelValue': (target: boolean): boolean => target,
   'change': (target: boolean): boolean => target
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

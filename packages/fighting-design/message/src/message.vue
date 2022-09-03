@@ -8,10 +8,9 @@
     ordinaryFunctionInterface as a,
     classListInterface as b
   } from '../../_interface'
-  import type { FPropsType } from './message'
   import { massageManage } from './method'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   defineEmits(Emits)
 
   const messageRef = ref<HTMLDivElement>()

@@ -29,7 +29,7 @@ export type messagePlacementType = typeof messagePlacement[number]
 
 export const Props = {
   id: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   title: {
@@ -49,19 +49,19 @@ export const Props = {
     }
   },
   close: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   duration: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 3000
   },
   round: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   showIcon: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   icon: {
@@ -69,15 +69,15 @@ export const Props = {
     default: (): string => ''
   },
   color: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   background: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   offset: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 20
   },
   placement: {
@@ -88,7 +88,7 @@ export const Props = {
     }
   },
   zIndex: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 1000
   },
   closeBtn: {
@@ -96,7 +96,7 @@ export const Props = {
     default: (): string => ''
   },
   closeEnd: {
-    type: Function as PropType<Function>
+    type: Function
   }
 } as const
 

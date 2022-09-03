@@ -7,9 +7,8 @@
     handleScrollInterface as a,
     handleClickInterface as b
   } from './interface'
-  import type { FPropsType } from './back-top'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const visible: Ref<boolean> = ref<boolean>(false)

@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { textType } from './interface'
 
 export const Props = {
@@ -12,57 +12,55 @@ export const Props = {
     }
   },
   size: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   color: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   background: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   block: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   spacing: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   lineHeight: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   textIndent: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   bold: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   decoration: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   padding: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   width: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   ellipsis: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   center: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

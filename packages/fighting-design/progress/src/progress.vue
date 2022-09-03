@@ -3,9 +3,8 @@
   import { computed, ref, onMounted } from 'vue'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type { isShowPercentageInterface as a } from './interface'
-  import type { FPropsType } from './progress'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const isShow: Ref<boolean> = ref<boolean>(false)
   const fillRef: Ref<HTMLDivElement> = ref<HTMLDivElement>(

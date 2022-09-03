@@ -1,17 +1,17 @@
 import type { cardShadow } from './interface'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   title: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   round: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   padding: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => '20px'
   },
   shadow: {
@@ -22,5 +22,3 @@ export const Props = {
     }
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

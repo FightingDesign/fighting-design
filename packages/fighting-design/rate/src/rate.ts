@@ -1,16 +1,14 @@
-import type { PropType } from 'vue'
-
 export const Props = {
   count: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 5
   },
   readonly: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   modelValue: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 0
   }
 } as const

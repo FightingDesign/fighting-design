@@ -2,10 +2,9 @@
   import { computed } from 'vue'
   import { Props } from './badge'
   import type { ComputedRef } from 'vue'
-  import type { FPropsType } from './badge'
   import type { classListInterface as a } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const classList: ComputedRef<a> = computed((): a => {
     return [
