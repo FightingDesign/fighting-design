@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.4-alpha.1 (2022-09-03)
+
+- Fix type
+
 ## 0.6.3-alpha.3 (2022-09-03)
 
 - 修复了部分组件类型
