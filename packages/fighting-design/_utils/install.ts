@@ -11,7 +11,7 @@ export const install = <T>(
   name: string
 ): void => {
   (main as InstallType<T>).install = (app: App): void => {
-    app.component(name, main)
+    app.component(name, main as InstallType<T>)
   }
 }
 
