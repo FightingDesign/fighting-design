@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FPreviewList">
   import { ref, inject, toRefs } from 'vue'
-  import FIcon from '../icon'
+  import { FIcon } from '../icon'
   import { keepDecimal } from '../_utils'
   import { ImagePropsKey } from '../image/src/image'
   import type { Ref } from 'vue'

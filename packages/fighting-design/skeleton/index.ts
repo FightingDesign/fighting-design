@@ -1,7 +1,7 @@
-import FSkeleton from './src/skeleton.vue'
+import Skeleton from './src/skeleton.vue'
 
 import { install } from '../_utils'
 
-export type FSkeletonInstance = InstanceType<typeof FSkeleton>
+export const FSkeleton = install(Skeleton)
 
-export default install(FSkeleton)
+export type FSkeletonInstance = InstanceType<typeof Skeleton>

@@ -1,7 +1,7 @@
-import FLayout from './src/layout.vue'
+import Layout from './src/layout.vue'
 
 import { install } from '../_utils'
 
-export type FLayoutInstance = InstanceType<typeof FLayout>
+export const FLayout = install(Layout)
 
-export default install(FLayout)
+export type FLayoutInstance = InstanceType<typeof Layout>

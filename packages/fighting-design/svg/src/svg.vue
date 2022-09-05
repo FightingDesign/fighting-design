@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <div class="f-svg">
+  <i class="f-svg">
     FSvg
-  </div>
+  </i>
 </template>

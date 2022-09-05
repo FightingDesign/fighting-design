@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FMessage">
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import { isString } from '../../_utils'
   import { Props, Emits, notificationDefaultIcon } from './notification'
   import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'

@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FButton">
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor } from '../../_utils'

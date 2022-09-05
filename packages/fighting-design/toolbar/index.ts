@@ -1,7 +1,7 @@
-import FToolbar from './src/toolbar.vue'
+import Toolbar from './src/toolbar.vue'
 
 import { install } from '../_utils'
 
-export type FToolbarInstance = InstanceType<typeof FToolbar>
+export const FToolbar = install(Toolbar)
 
-export default install(FToolbar)
+export type FToolbarInstance = InstanceType<typeof Toolbar>

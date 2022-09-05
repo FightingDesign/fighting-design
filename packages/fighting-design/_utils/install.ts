@@ -10,7 +10,7 @@ export const install = <T>(main: T): T => {
     const { name } = main as { name: string }
     app.component(name, main as InstallType<T>)
   }
-  return main
+  return main as InstallType<T>
 }
 
 /**
@@ -18,11 +18,9 @@ export const install = <T>(main: T): T => {
  * @param main 组件实例
  * @param name 组件名
  */
-export const installFn = <T>(
-  main: T,
-  name: string
-): void => {
+export const installFn = <T>(main: T, name: string): T => {
   (main as InstallType<T>).install = (app: App): void => {
-    app.config.globalProperties[name] = main
+    app.config.globalProperties[name] = main as InstallType<T>
   }
+  return main as InstallType<T>
 }

@@ -1,7 +1,7 @@
-import FButton from './src/button.vue'
+import Button from './src/button.vue'
 
 import { install } from '../_utils'
 
-export type FButtonInstance = InstanceType<typeof FButton>
+export const FButton = install(Button)
 
-export default install(FButton)
+export type FButtonInstance = InstanceType<typeof Button>

@@ -1,7 +1,7 @@
-import FSwitch from './src/switch.vue'
+import Switch from './src/switch.vue'
 
 import { install } from '../_utils'
 
-export type FSwitchInstance = InstanceType<typeof FSwitch>
+export const FSwitch = install(Switch)
 
-export default install(FSwitch)
+export type FSwitchInstance = InstanceType<typeof Switch>

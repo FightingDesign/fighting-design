@@ -1,7 +1,7 @@
-import FCard from './src/card.vue'
+import Card from './src/card.vue'
 
 import { install } from '../_utils'
 
-export type FCardInstance = InstanceType<typeof FCard>
+export const FCard = install(Card)
 
-export default install(FCard)
+export type FCardInstance = InstanceType<typeof Card>

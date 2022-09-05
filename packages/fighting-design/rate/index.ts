@@ -1,7 +1,7 @@
-import FRate from './src/rate.vue'
+import Rate from './src/rate.vue'
 
 import { install } from '../_utils'
 
-export type FRateInstance = InstanceType<typeof FRate>
+export const FRate = install(Rate)
 
-export default install(FRate)
+export type FRateInstance = InstanceType<typeof Rate>

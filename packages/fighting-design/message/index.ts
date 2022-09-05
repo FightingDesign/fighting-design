@@ -1,9 +1,7 @@
-import FMessage from './src/method'
+import Message from './src/method'
 
 import { installFn } from '../_utils'
 
-installFn(FMessage, 'FMessage')
+export const FMessage = installFn(Message, 'FMessage')
 
 export type { FMessageInstance } from '../_interface'
-
-export default FMessage

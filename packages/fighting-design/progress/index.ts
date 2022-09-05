@@ -1,7 +1,7 @@
-import FProgress from './src/progress.vue'
+import Progress from './src/progress.vue'
 
 import { install } from '../_utils'
 
-export type FProgressInstance = InstanceType<typeof FProgress>
+export const FProgress = install(Progress)
 
-export default install(FProgress)
+export type FProgressInstance = InstanceType<typeof Progress>

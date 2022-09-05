@@ -1,7 +1,7 @@
-import FMain from './src/main.vue'
+import Main from './src/main.vue'
 
 import { install } from '../_utils'
 
-export type FMainInstance = InstanceType<typeof FMain>
+export const FMain = install(Main)
 
-export default install(FMain)
+export type FMainInstance = InstanceType<typeof Main>

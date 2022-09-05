@@ -1,7 +1,7 @@
-import FTag from './src/tag.vue'
+import Tag from './src/tag.vue'
 
 import { install } from '../_utils'
 
-export type FTagInstance = InstanceType<typeof FTag>
+export const FTag = install(Tag)
 
-export default install(FTag)
+export type FTagInstance = InstanceType<typeof Tag>

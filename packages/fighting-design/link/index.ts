@@ -1,7 +1,7 @@
-import FLink from './src/link.vue'
+import Link from './src/link.vue'
 
 import { install } from '../_utils'
 
-export type FLinkInstance = InstanceType<typeof FLink>
+export const FLink = install(Link)
 
-export default install(FLink)
+export type FLinkInstance = InstanceType<typeof Link>

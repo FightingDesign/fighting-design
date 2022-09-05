@@ -1,7 +1,7 @@
-import FList from './src/list.vue'
+import List from './src/list.vue'
 
 import { install } from '../_utils'
 
-export type FListInstance = InstanceType<typeof FList>
+export const FList = install(List)
 
-export default install(FList)
+export type FListInstance = InstanceType<typeof List>

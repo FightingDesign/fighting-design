@@ -1,7 +1,7 @@
-import FBadge from './src/badge.vue'
+import Badge from './src/badge.vue'
 
 import { install } from '../_utils'
 
-export type FBadgeInstance = InstanceType<typeof FBadge>
+export const FBadge = install(Badge)
 
-export default install(FBadge)
+export type FBadgeInstance = InstanceType<typeof Badge>

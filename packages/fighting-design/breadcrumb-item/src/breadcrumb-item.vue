@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FBreadcrumbItem">
   import { inject, toRefs } from 'vue'
   import { BreadcrumbPropsKey } from '../../breadcrumb/src/breadcrumb'
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import type { FPropsType } from '../../breadcrumb/src/breadcrumb'
 
   const breadcrumbContext = inject(BreadcrumbPropsKey) as FPropsType

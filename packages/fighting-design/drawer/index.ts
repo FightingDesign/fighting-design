@@ -1,7 +1,7 @@
-import FDrawer from './src/drawer.vue'
+import Drawer from './src/drawer.vue'
 
 import { install } from '../_utils'
 
-export type FDrawerInstance = InstanceType<typeof FDrawer>
+export const FDrawer = install(Drawer)
 
-export default install(FDrawer)
+export type FDrawerInstance = InstanceType<typeof Drawer>

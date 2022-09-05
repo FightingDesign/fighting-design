@@ -1,7 +1,7 @@
-import FEmpty from './src/empty.vue'
+import Empty from './src/empty.vue'
 
 import { install } from '../_utils'
 
-export type FEmptyInstance = InstanceType<typeof FEmpty>
+export const FEmpty = install(Empty)
 
-export default install(FEmpty)
+export type FEmptyInstance = InstanceType<typeof Empty>

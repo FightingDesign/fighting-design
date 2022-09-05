@@ -1,7 +1,7 @@
 <script setup lang="ts" name="FLoading">
   import { computed } from 'vue'
   import { Props, Emits } from './loading'
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import type { handleClickInterface as a } from './interface'
   import type { ComputedRef, CSSProperties } from 'vue'
 

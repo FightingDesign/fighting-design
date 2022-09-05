@@ -1,7 +1,7 @@
-import FIcon from './src/icon.vue'
+import Icon from './src/icon.vue'
 
 import { install } from '../_utils'
 
-export type FIconInstance = InstanceType<typeof FIcon>
+export const FIcon = install(Icon)
 
-export default install(FIcon)
+export type FIconInstance = InstanceType<typeof Icon>

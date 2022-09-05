@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FLink">
   import { Props, Emits } from './link'
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import type { handleClickInterface as a } from './interface'
 
   const prop = defineProps(Props)

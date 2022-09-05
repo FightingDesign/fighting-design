@@ -1,7 +1,7 @@
-import FHeader from './src/header.vue'
+import Header from './src/header.vue'
 
 import { install } from '../_utils'
 
-export type FHeaderInstance = InstanceType<typeof FHeader>
+export const FHeader = install(Header)
 
-export default install(FHeader)
+export type FHeaderInstance = InstanceType<typeof Header>

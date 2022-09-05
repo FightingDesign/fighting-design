@@ -1,7 +1,7 @@
-import FBreadcrumb from './src/breadcrumb.vue'
+import Breadcrumb from './src/breadcrumb.vue'
 
 import { install } from '../_utils'
 
-export type FBreadcrumbInstance = InstanceType<typeof FBreadcrumb>
+export const FBreadcrumb = install(Breadcrumb)
 
-export default install(FBreadcrumb)
+export type FBreadcrumbInstance = InstanceType<typeof Breadcrumb>

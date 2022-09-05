@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FPageHeader">
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import { Props, Emits } from './page-header'
   import type { ordinaryFunctionInterface as a } from '../../_interface'
 

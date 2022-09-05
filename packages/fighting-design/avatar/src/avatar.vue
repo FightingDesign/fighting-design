@@ -2,7 +2,7 @@
   import { Props, Emits } from './avatar'
   import { computed, ref, onMounted } from 'vue'
   import { loadImage, isNumber, isString } from '../../_utils'
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import { useFilterProps } from '../../_hooks/useFilterProps'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { FPropsType } from './avatar'
