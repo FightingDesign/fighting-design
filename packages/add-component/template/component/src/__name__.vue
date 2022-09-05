@@ -7,6 +7,6 @@
 
 <template>
   <div class="f-<%= name %>">
-    <%= displayName %>
+    F<%= displayName %>
   </div>
 </template>

@@ -8,7 +8,7 @@ const logError = (...args: string[]): void => console.error('\x1B[31m', ...args,
 
 const updatedFiles: string[] = []
 const compName: string = fetchCompName()
-const displayName = `F${changeCase(compName, 'upper-camel-case')}`
+const displayName = `${changeCase(compName, 'upper-camel-case')}`
 const __dirname: string = path.resolve()
 const outputDir: string = path.resolve(
   __dirname,
@@ -46,7 +46,7 @@ const detectPublic = async (): Promise<void> => {
     process.exit(0)
   }
 
-  logInfo(`${displayName} 组件创建完成 🎉🎉🎉` + '\n')
+  logInfo(`F${displayName} 组件创建完成 🎉🎉🎉` + '\n')
 }
 
 detectPublic()
@@ -122,9 +122,9 @@ async function updateComponentEntry (): Promise<void> {
     content.slice(0, -1) +
     '\n' +
     '\n' +
-    `export { default as ${displayName} } from './${compName}'` +
+    `export { F${displayName} } from './${compName}'` +
     '\n' +
-    `export type { ${displayName}Instance } from './${compName}'` +
+    `export type { F${displayName}Instance } from './${compName}'` +
     '\n'
 
   await fsExtra.writeFile(entryFilePath, content)

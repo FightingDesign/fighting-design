@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <i class="f-svg">
-    FSvg
+  <i class="f-svg" :style="{ color }">
+    <slot />
   </i>
 </template>
