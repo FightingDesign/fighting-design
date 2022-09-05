@@ -108,3 +108,6 @@ export type { FEmptyInstance } from './empty'
 
 export { default as FSkeleton } from './skeleton'
 export type { FSkeletonInstance } from './skeleton'
+
+export { default as FExpandCard } from './expandcard'
+export type { FExpandCardInstance } from './expandcard'
