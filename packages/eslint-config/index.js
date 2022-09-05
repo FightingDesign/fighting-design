@@ -32,6 +32,27 @@ module.exports = {
         order: ['script', 'template', 'style']
       }
     ],
+    // 禁止在模板中使用 this https://eslint.vuejs.org/rules/this-in-template.html
+    'vue/this-in-template': 'error',
+    // 禁止使用其他 lang https://eslint.vuejs.org/rules/block-lang.html
+    'vue/block-lang': ['error',
+      {
+        'script': {
+          'lang': 'ts'
+        }
+      }
+    ],
+    // 强制 api 形式 https://eslint.vuejs.org/rules/component-api-style.html
+    'vue/component-api-style': ['error',
+      ['script-setup', 'composition']
+    ],
+    // 自定义事件强制大小写 https://eslint.vuejs.org/rules/custom-event-name-casing.html
+    'vue/custom-event-name-casing': ['error',
+      'kebab-case',
+      {
+        'ignores': []
+      }
+    ],
     // 禁止使用 v-html 来防止 XSS 攻击 https://eslint.vuejs.org/rules/no-v-html.html
     'vue/no-v-html': 'error',
     // v-bind 当 value 为时需要简写形式属性 true https://eslint.vuejs.org/rules/prefer-true-attribute-shorthand.html
@@ -226,6 +247,12 @@ module.exports = {
     'vue/singleline-html-element-content-newline': 'off',
     // 需要 props 的默认值 https://eslint.vuejs.org/rules/require-default-prop.html
     'vue/require-default-prop': 'error',
+    // emit 必须是已经声名的方法 https://eslint.vuejs.org/rules/require-explicit-emits.html
+    'vue/require-explicit-emits': ['error', {
+      'allowProps': false
+    }],
+    // props 必须定义详细的类型 https://eslint.vuejs.org/rules/require-prop-types.html
+    'vue/require-prop-types': 'error',
     /**
      * typescript 规则配置
      * https://typescript-eslint.io/rules/
