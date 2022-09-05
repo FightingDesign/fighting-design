@@ -4,9 +4,8 @@
   import type { CSSProperties, ComputedRef } from 'vue'
   import type { transitionEventInterface as a } from './interface'
   import type { ordinaryFunctionInterface as b } from '../../_interface'
-  import type { FPropsType } from './drawer'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const drawerStyle: ComputedRef<CSSProperties> = computed(
@@ -26,15 +25,6 @@
   const handleClose: b = (): void => {
     emit('update:visible', false)
   }
-
-  // watchEffect(() => {
-  //   const { lockScroll, visible } = prop
-  //   if (lockScroll && visible) {
-  //     document.body.style.overflow = 'hidden'
-  //   } else {
-  //     document.body.style.overflow = 'auto'
-  //   }
-  // })
 
   const open: a = (evt: MouseEvent): void => {
     emit('open', evt)

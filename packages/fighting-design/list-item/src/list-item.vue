@@ -3,24 +3,21 @@
   import { computed, inject } from 'vue'
   import { listPropsKey } from '../../list/src/list'
   import { Props } from './list-item'
-  import type { FPropsType } from './list-item'
-  import type { FPropsType as ListFPropsType } from '../../list/src/list'
+  import type { FPropsType } from '../../list/src/list'
 
-  const injectListProps: ListFPropsType = inject(listPropsKey) as ListFPropsType
-  const prop: FPropsType = defineProps(Props)
+  const injectListProps: FPropsType = inject(listPropsKey) as FPropsType
+  const prop = defineProps(Props)
 
-  const styleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { textColor, borderColor } = injectListProps
-      const { background, color } = prop
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { textColor, borderColor } = injectListProps
+    const { background, color } = prop
 
-      return {
-        background,
-        color: color || textColor,
-        borderColor
-      } as const
-    }
-  )
+    return {
+      background,
+      color: color || textColor,
+      borderColor
+    } as const
+  })
 </script>
 
 <template>

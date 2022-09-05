@@ -1,13 +1,13 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { spaceSize } from './interface'
 
 export const Props = {
   vertical: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   wrap: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   spacing: {
@@ -18,13 +18,11 @@ export const Props = {
     }
   },
   rowGap: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   columnGap: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

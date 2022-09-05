@@ -2,10 +2,9 @@
   import { Props } from './card'
   import { computed } from 'vue'
   import type { ComputedRef } from 'vue'
-  import type { FPropsType } from './card'
   import type { classListInterface as a } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { round, shadow } = prop

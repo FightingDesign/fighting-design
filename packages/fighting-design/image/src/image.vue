@@ -84,7 +84,7 @@
       :alt="alt"
       :title="title"
       @click="handleClick"
-    />
+    >
 
     <div
       v-if="caption"

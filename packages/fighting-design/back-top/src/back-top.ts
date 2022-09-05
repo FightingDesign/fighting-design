@@ -1,9 +1,9 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { backTopBehavior } from './interface'
 
 export const Props = {
   round: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   behavior: {
@@ -14,36 +14,36 @@ export const Props = {
     }
   },
   visibleHeight: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 200
   },
   right: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   bottom: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   zIndex: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 200,
     validator: (val: number): boolean => val >= 0
   },
   top: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): number => 0
   },
   listenEl: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   background: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   color: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   }
 } as const
@@ -51,5 +51,3 @@ export const Props = {
 export const Emits = {
   click: (evt: Event): Event => evt
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

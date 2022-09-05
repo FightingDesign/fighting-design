@@ -1,4 +1,4 @@
-import type { PropType, CSSProperties, ExtractPropTypes } from 'vue'
+import type { PropType, CSSProperties } from 'vue'
 import type { alertType, fixedStyleInterface, overflowType } from './interface'
 
 export const Props = {
@@ -12,47 +12,47 @@ export const Props = {
     }
   },
   fontSize: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   bold: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   center: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   icon: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   close: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   simple: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   title: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   round: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   background: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   color: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   fixed: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   fixedStyle: {
@@ -77,5 +77,3 @@ export const Props = {
 export const Emits = {
   'close-end': (evt: MouseEvent): MouseEvent => evt
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

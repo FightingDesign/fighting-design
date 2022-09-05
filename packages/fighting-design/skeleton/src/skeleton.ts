@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { skeletonSize } from './interface'
 
 export const Props = {
@@ -27,5 +27,3 @@ export const Props = {
     default: (): skeletonSize => 'default'
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

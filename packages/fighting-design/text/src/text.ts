@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { textType } from './interface'
 
 export const Props = {
@@ -64,5 +64,3 @@ export const Props = {
     default: (): boolean => false
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

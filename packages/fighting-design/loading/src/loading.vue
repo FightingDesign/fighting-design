@@ -4,9 +4,8 @@
   import FIcon from '../../icon'
   import type { handleClickInterface as a } from './interface'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { FPropsType } from './loading'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const handleClick: a = (evt: MouseEvent): void => {

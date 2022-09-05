@@ -1,19 +1,26 @@
 <script lang="ts" setup name="FButtonGroup">
   import { Props } from './button-group'
+  import { computed } from 'vue'
+  import type { ComputedRef } from 'vue'
+  import type { classListInterface as a } from '../../_interface'
 
-  defineProps(Props)
-</script>
+  const prop = defineProps(Props)
 
-<template>
-  <div
-    :class="[
+  const classList: ComputedRef<a> = computed((): a => {
+    const { vertical, size } = prop
+
+    return [
       'f-button-group',
-      vertical ? 'f-button-group-vertical' : 'f-button-group-horizontal',
+      `f-button-group-${vertical ? 'vertical' : 'horizontal'}`,
       {
         [`f-button-group-${size}`]: size
       }
-    ]"
-  >
+    ] as const
+  })
+</script>
+
+<template>
+  <div :class="classList">
     <slot />
   </div>
 </template>

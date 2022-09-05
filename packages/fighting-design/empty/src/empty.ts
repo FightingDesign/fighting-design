@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, CSSProperties, PropType } from 'vue'
+import type { CSSProperties, PropType } from 'vue'
 
 export const Props = {
   content: {
@@ -32,5 +32,3 @@ export const Props = {
     }
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

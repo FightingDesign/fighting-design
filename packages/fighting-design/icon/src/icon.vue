@@ -1,12 +1,11 @@
 <script lang="ts" setup name="FIcon">
   import { Props, Emits } from './icon'
   import { computed } from 'vue'
-  import type { FPropsType } from './icon'
   import type { CSSProperties, ComputedRef } from 'vue'
   import type { handleClickInterface as a } from './interface'
   import type { classListInterface as b } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const handleClick: a = (evt: MouseEvent): void => {

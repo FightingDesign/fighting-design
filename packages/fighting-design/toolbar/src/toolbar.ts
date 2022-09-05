@@ -1,4 +1,4 @@
-import type { PropType, CSSProperties, ExtractPropTypes } from 'vue'
+import type { PropType, CSSProperties } from 'vue'
 import type { toolbarType } from './interface'
 import type { fixedStyleInterface } from '../../alert/src/interface'
 
@@ -53,5 +53,3 @@ export const Props = {
     default: (): boolean => false
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

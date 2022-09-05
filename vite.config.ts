@@ -1,4 +1,3 @@
-import Components from 'unplugin-vue-components/vite'
 import type { UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
@@ -14,18 +13,12 @@ export default (): UserConfigExport => {
         // root: './packages/fighting-design', // 执行的根目录
         // logDiagnostics: true, // 是否打印类型诊断信息
         // skipDiagnostics: false, // 是否跳过类型诊断
-        insertTypesEntry: false, // 是否生成类型声明入口
+        insertTypesEntry: true, // 是否生成类型声明入口
         cleanVueFileName: true, // 是否将 '.vue.d.ts' 文件名转换为 '.d.ts'
         copyDtsFiles: true, // 是否将源码里的 .d.ts 文件复制到 outputDir
         include: ['./packages/fighting-design'] // 手动设置包含路径的 glob
       }),
       vueSetupExtend(),
-      Components({
-        dts: resolve(
-          __dirname,
-          '/packages/fighting-design/global-components.d.ts'
-        )
-      }),
       visualizer()
     ],
     mode: 'production',

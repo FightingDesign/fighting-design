@@ -13,7 +13,7 @@
     classListInterface as d
   } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   /**
