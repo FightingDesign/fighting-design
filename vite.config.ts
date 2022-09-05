@@ -40,10 +40,11 @@ export default (): UserConfigExport => {
         external: ['vue'], // 确保外部化处理那些你不想打包进库的依赖
         output: {
           preserveModules: true // 让打包目录和目录对应 https://rollupjs.org/guide/en/#outputpreservemodules
-        },
-        treeshake: {
-          moduleSideEffects: false
         }
+        // https://rollupjs.org/guide/en/#treeshake
+        // treeshake: {
+        //   moduleSideEffects: false
+        // }
       }
     }
   }
