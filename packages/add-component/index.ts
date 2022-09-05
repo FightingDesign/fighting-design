@@ -121,6 +121,7 @@ async function updateComponentEntry (): Promise<void> {
   content =
     content.slice(0, -1) +
     '\n' +
+    '\n' +
     `export { default as ${displayName} } from './${compName}'` +
     '\n' +
     `export type { ${displayName}Instance } from './${compName}'` +

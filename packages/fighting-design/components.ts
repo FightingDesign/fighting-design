@@ -110,3 +110,6 @@ export { default as FNotification } from './notification'
 export type { FNotificationInstance } from './notification'
 
 export { default as useLoadingBar } from './loading-bar'
+
+export { default as FSvg } from './svg'
+export type { FSvgInstance } from './svg'
