@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FSwitchInstance = InstanceType<typeof FSwitch>
 
-export default install(FSwitch, FSwitch.name)
+export default install(FSwitch)

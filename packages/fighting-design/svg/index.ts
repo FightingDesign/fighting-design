@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FSvgInstance = InstanceType<typeof FSvg>
 
-export default install(FSvg, FSvg.name)
+export default install(FSvg)

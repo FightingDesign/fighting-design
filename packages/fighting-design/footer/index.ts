@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FFooterInstance = InstanceType<typeof FFooter>
 
-export default install(FFooter, FFooter.name)
+export default install(FFooter)

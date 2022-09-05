@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FEmptyInstance = InstanceType<typeof FEmpty>
 
-export default install(FEmpty, FEmpty.name)
+export default install(FEmpty)

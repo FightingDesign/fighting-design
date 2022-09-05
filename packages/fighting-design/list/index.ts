@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FListInstance = InstanceType<typeof FList>
 
-export default install(FList, FList.name)
+export default install(FList)

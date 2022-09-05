@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FWatermarkInstance = InstanceType<typeof FWatermark>
 
-export default install(FWatermark, FWatermark.name)
+export default install(FWatermark)

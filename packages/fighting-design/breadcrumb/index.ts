@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FBreadcrumbInstance = InstanceType<typeof FBreadcrumb>
 
-export default install(FBreadcrumb, FBreadcrumb.name)
+export default install(FBreadcrumb)

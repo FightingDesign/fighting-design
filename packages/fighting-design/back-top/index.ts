@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FBackTopInstance = InstanceType<typeof FBackTop>
 
-export default install(FBackTop, FBackTop.name)
+export default install(FBackTop)

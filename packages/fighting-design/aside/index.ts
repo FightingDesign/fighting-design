@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FAsideInstance = InstanceType<typeof FAside>
 
-export default install(FAside, FAside.name)
+export default install(FAside)

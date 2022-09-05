@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FIconInstance = InstanceType<typeof FIcon>
 
-export default install(FIcon, FIcon.name)
+export default install(FIcon)

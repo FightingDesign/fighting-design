@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FTextInstance = InstanceType<typeof FText>
 
-export default install(FText, FText.name)
+export default install(FText)

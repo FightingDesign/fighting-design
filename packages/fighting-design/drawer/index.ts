@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FDrawerInstance = InstanceType<typeof FDrawer>
 
-export default install(FDrawer, FDrawer.name)
+export default install(FDrawer)

@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FAlertInstance = InstanceType<typeof FAlert>
 
-export default install(FAlert, FAlert.name)
+export default install(FAlert)

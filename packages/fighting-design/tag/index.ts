@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FTagInstance = InstanceType<typeof FTag>
 
-export default install(FTag, FTag.name)
+export default install(FTag)

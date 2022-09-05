@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FDividerInstance = InstanceType<typeof FDivider>
 
-export default install(FDivider, FDivider.name)
+export default install(FDivider)

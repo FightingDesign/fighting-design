@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FSpaceInstance = InstanceType<typeof FSpace>
 
-export default install(FSpace, FSpace.name)
+export default install(FSpace)

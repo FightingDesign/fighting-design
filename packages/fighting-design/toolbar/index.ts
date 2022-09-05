@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FToolbarInstance = InstanceType<typeof FToolbar>
 
-export default install(FToolbar, FToolbar.name)
+export default install(FToolbar)

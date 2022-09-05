@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FRateInstance = InstanceType<typeof FRate>
 
-export default install(FRate, FRate.name)
+export default install(FRate)

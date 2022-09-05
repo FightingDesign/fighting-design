@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FDialogInstance = InstanceType<typeof FDialog>
 
-export default install(FDialog, FDialog.name)
+export default install(FDialog)

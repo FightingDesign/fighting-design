@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FProgressInstance = InstanceType<typeof FProgress>
 
-export default install(FProgress, FProgress.name)
+export default install(FProgress)

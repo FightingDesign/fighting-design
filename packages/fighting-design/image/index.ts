@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FImageInstance = InstanceType<typeof FImage>
 
-export default install(FImage, FImage.name)
+export default install(FImage)

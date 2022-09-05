@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FSkeletonInstance = InstanceType<typeof FSkeleton>
 
-export default install(FSkeleton, FSkeleton.name)
+export default install(FSkeleton)

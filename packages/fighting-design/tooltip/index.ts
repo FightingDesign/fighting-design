@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FTooltipInstance = InstanceType<typeof FTooltip>
 
-export default install(FTooltip, FTooltip.name)
+export default install(FTooltip)

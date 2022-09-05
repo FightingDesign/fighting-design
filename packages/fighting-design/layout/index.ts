@@ -4,4 +4,4 @@ import { install } from '../_utils'
 
 export type FLayoutInstance = InstanceType<typeof FLayout>
 
-export default install(FLayout, FLayout.name)
+export default install(FLayout)
