@@ -9,10 +9,11 @@ import type { App } from 'vue'
 export const install = <T>(
   main: T,
   name: string
-): void => {
+): T => {
   (main as InstallType<T>).install = (app: App): void => {
     app.component(name, main as InstallType<T>)
   }
+  return main
 }
 
 /**
