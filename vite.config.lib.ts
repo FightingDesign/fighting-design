@@ -36,6 +36,9 @@ export default (): UserConfigExport => {
         output: {
           preserveModules: true,
           exports: 'named' // https://rollupjs.org/guide/en/#outputexports
+        },
+        treeshake: {
+          moduleSideEffects: false
         }
       }
     }
