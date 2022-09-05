@@ -4,6 +4,14 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.4-alpha.3 (2022-09-055)
+
+- Test and repair side effect component registration
+
+## 0.6.4-alpha.2 (2022-09-055)
+
+- Test and repair side effect component registration
+
 ## 0.6.4-alpha.1 (2022-09-03)
 
 - Fix type
