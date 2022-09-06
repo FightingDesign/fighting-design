@@ -6,6 +6,8 @@
 
 `Fighting design` exclusive `eslint` configuration item, out of the box.
 
+`eslint-config-fighting` is mainly for `*.vue` and `*.ts` files have strong format verification rules. If you want to pursue stricter verification rules and better code style, you can use them with confidence. On the contrary, if you don't understand the specifications or are not used to too many mandatory verification rules, you may feel very painful in use.
+
 ## 🔑 Install
 
 Use `pnpm` install

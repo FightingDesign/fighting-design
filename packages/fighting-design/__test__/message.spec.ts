@@ -7,7 +7,7 @@ import type { Ref } from 'vue'
 //   visible: boolean
 // }>
 
-const sleep = (time: number) => {
+const sleep = (time: number): Promise<unknown> => {
   return new Promise((resolve) => {
     setTimeout(resolve, time)
   })

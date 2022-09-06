@@ -1,12 +1,13 @@
+import { render, createVNode } from 'vue'
 import messageVue from './notification.vue'
-import { messagePlacementType, messageType, messageTypes } from './notification'
-import type { FPropsType } from './notification'
+import { messageTypes } from './notification'
+import type { FPropsType, messagePlacementType, messageType } from './notification'
 import type {
   InstanceOptions,
   FMessageInstance
 } from '../../_interface'
 import { useMassageManage } from '../../_hooks/useMessageMange'
-import { ComponentInternalInstance, render, createVNode } from 'vue'
+import type { ComponentInternalInstance } from 'vue';
 
 type FMessageFnWithType = {
   [key in messageType]: (text: string) => void
