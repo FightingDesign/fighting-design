@@ -13,6 +13,8 @@ export const install = <T>(main: T): T => {
   return main as InstallType<T>
 }
 
+export const _install = /* @__PURE__ */ <T>(main: T) => install(main)
+
 /**
  * 注册内置组件
  * @param main 组件实例
