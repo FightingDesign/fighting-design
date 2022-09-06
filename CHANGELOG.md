@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.4-alpha.4 (2022-09-06)
+
+- 测试修复副作用组件注册
+
 ## 0.6.4-alpha.3 (2022-09-05)
 
 - 测试修复副作用组件注册
