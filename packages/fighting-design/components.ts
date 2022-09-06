@@ -113,3 +113,6 @@ export { LoadingBar as useLoadingBar } from './loading-bar'
 
 export { FSvg } from './svg'
 export type { FSvgInstance } from './svg'
+
+export { FRipple } from './ripple'
+export type { FRippleInstance } from './ripple'
