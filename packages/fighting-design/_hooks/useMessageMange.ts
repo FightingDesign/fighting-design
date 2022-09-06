@@ -1,11 +1,11 @@
 import { reactive } from 'vue'
-import type { FMessageInstance } from '../_interface'
+import type { FMessageInstance, useMassageManageReturnInterface } from '../_interface'
 
 /**
  * 创建弹出的消息体实例
  * @returns
  */
-export const useMassageManage = <messagePlacementType extends string>() => {
+export const useMassageManage = <messagePlacementType extends string>(): useMassageManageReturnInterface => {
   const instances: Partial<{
     [key in messagePlacementType]: FMessageInstance[]
   }> = reactive({})
@@ -67,5 +67,5 @@ export const useMassageManage = <messagePlacementType extends string>() => {
     getSiblingOffset,
     removeInstance,
     createInstance
-  }
+  } as const
 }

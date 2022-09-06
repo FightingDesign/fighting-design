@@ -1,12 +1,12 @@
 import messageVue from './message.vue'
 import { messageTypes } from './message'
-import type { FPropsType , messagePlacementType, messageType} from './message'
+import type { FPropsType, messagePlacementType, messageType } from './message'
 import type {
   InstanceOptions,
   FMessageInstance
 } from '../../_interface'
 import { useMassageManage } from '../../_hooks/useMessageMange'
-import type { ComponentInternalInstance} from 'vue';
+import type { ComponentInternalInstance } from 'vue';
 import { render, createVNode } from 'vue'
 
 type FMessageFnWithType = {
@@ -49,7 +49,7 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
   /**
    * 关闭动画结束时，移除dom
    */
-  props.onDestroy = () => {
+  props.onDestroy = (): void => {
     props.closeEnd?.()
     render(null, container)
   }
@@ -86,8 +86,8 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
   return instance
 }
 
-messageTypes.forEach((type) => {
-  FMessage[type] = (text: string) => {
+messageTypes.forEach((type): void => {
+  FMessage[type] = (text: string): void => {
     FMessage({ message: text, type })
   }
 })

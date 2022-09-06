@@ -6,5 +6,4 @@ import { install } from '../_utils'
 
 export const FSwitch = Switch
 
-
 export type FSwitchInstance = InstanceType<typeof Switch>

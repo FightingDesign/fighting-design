@@ -283,18 +283,18 @@ module.exports = {
     '@typescript-eslint/default-param-last': 'error',
     // 必须标记函数返回值 https://typescript-eslint.io/rules/explicit-function-return-type
     '@typescript-eslint/explicit-function-return-type': 'error',
-    // 接口和类型文字需要特定的成员分隔符样式 https://typescript-eslint.io/rules/member-delimiter-style
-    '@typescript-eslint/member-delimiter-style': ['error', {
-      'multiline': {
-        'delimiter': 'none',
-        'requireLast': true
-      },
-      'singleline': {
-        'delimiter': 'none',
-        'requireLast': true
-      },
-      'multilineDetection': 'brackets'
-    }],
+    // // 接口和类型文字需要特定的成员分隔符样式 https://typescript-eslint.io/rules/member-delimiter-style
+    // '@typescript-eslint/member-delimiter-style': ['error', {
+    //   'multiline': {
+    //     'delimiter': 'none',
+    //     'requireLast': true
+    //   },
+    //   'singleline': {
+    //     'delimiter': 'none',
+    //     'requireLast': true
+    //   },
+    //   'multilineDetection': 'brackets'
+    // }],
     /**
      * eslint 配置项
      * https://eslint.org/docs/latest/

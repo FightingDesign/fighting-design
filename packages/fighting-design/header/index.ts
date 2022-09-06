@@ -6,5 +6,4 @@ import { install } from '../_utils'
 
 export const FHeader = Header
 
-
 export type FHeaderInstance = InstanceType<typeof Header>

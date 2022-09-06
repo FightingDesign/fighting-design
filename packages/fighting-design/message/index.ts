@@ -7,5 +7,3 @@ import { installFn } from '../_utils'
 export const FMessage = Message
 
 export type { FMessageInstance } from '../_interface'
-
-
