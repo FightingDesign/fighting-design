@@ -1,35 +1,32 @@
 .f-ripple {
-  // height: 60px;
   display: inline-block;
   cursor: pointer;
   overflow: hidden;
   position: relative;
+
+  // 涟漪效果
+  .f-ripple-animation {
+    width: 0px;
+    height: 100%;
+    position: absolute;
+    transform: translate(-50%, -100%);
+    pointer-events: none;
+    border-radius: 10%;
+    animation: f-ripples-animation 0.4s linear;
+    opacity: 0.5;
+    background: #fff;
+  }
+
+  @keyframes f-ripples-animation {
+    from {
+      width: 0px;
+      opacity: 0.5;
+    }
+
+    to {
+      width: 1500px;
+      opacity: 0;
+      border-radius: 0px;
+    }
+  }
 }
-
-// 涟漪效果
-// .f-design-ripples {
-//   width: 2px;
-//   height: 100%;
-//   position: absolute;
-//   transform: translate(-50%, 0);
-//   pointer-events: none;
-//   border-radius: 10px;
-//   animation: f-ripples 0.4s linear;
-//   opacity: 0.5;
-//   background: #fff;
-//   animation-fill-mode: both;
-// }
-
-// @keyframes f-ripples {
-//   from {
-//     width: 2px;
-//     height: 100%;
-//     opacity: 0.5;
-//   }
-
-//   to {
-//     width: 1500px;
-//     height: 100%;
-//     // opacity: 0;
-//   }
-// }

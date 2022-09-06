@@ -4,7 +4,7 @@ import type { rippleType } from './interface'
 export const Props = {
   ripplesColor: {
     type: String,
-    default: (): string => '#dee5fd'
+    default: (): string => ''
   },
   duration: {
     type: Number,
@@ -18,5 +18,9 @@ export const Props = {
         ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
     }
+  },
+  disabled: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const

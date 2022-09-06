@@ -60,18 +60,18 @@ export class Ripples implements RipplesInterface {
   computedRipplesColor = (): string => {
     if (this.option.ripplesColor) return this.option.ripplesColor
 
-    if (this.option.simple || this.option.text) {
-      const COLOR_LIST = {
-        default: '#f0f0f0',
-        primary: '#2d5af1',
-        success: '#52b35e',
-        danger: '#ff0200',
-        warning: '#fcc202'
-      } as const
+    const COLOR_LIST = {
+      default: '#f0f0f0',
+      primary: '#2d5af1',
+      success: '#52b35e',
+      danger: '#ff0200',
+      warning: '#fcc202'
+    } as const
 
+    if (this.option.nodeType === 'button' && this.option.simple || this.option.text) {
       return COLOR_LIST[this.option.type]
     }
-    return '#fff'
+    return COLOR_LIST[this.option.type]
   }
   /**
    * 渲染节点
@@ -85,8 +85,8 @@ export class Ripples implements RipplesInterface {
 
     ripples.className = this.option.className
     ripples.style.background = this.computedRipplesColor()
+    ripples.style.left = `${x}px`
     if (this.option.nodeType === 'button') {
-      ripples.style.left = `${x}px`
       ripples.style.top = `${y}px`
     }
 
