@@ -2,4 +2,6 @@ import { useLoadingBar } from './src/method'
 
 import { installFn } from '../_utils'
 
-export const LoadingBar = /* @__PURE__ */ (() => installFn(useLoadingBar, 'FLoadingBar'))()
+/* @__PURE__ */ installFn(useLoadingBar, 'FLoadingBar')
+
+export const LoadingBar = useLoadingBar

@@ -2,6 +2,8 @@ import ListItem from './src/list-item.vue'
 
 import { install } from '../_utils'
 
-export const FListItem = /* @__PURE__ */ (() => install(ListItem))()
+/* @__PURE__ */ install(ListItem)
+
+export const FListItem = ListItem
 
 export type FListItemInstance = InstanceType<typeof ListItem>

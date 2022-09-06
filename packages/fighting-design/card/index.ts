@@ -2,6 +2,8 @@ import Card from './src/card.vue'
 
 import { install } from '../_utils'
 
-export const FCard = /* @__PURE__ */ (() => install(Card))()
+/* @__PURE__ */ install(Card)
+
+export const FCard = Card
 
 export type FCardInstance = InstanceType<typeof Card>

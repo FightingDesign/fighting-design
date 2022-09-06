@@ -2,6 +2,8 @@ import Dialog from './src/dialog.vue'
 
 import { install } from '../_utils'
 
-export const FDialog = /* @__PURE__ */ (() => install(Dialog))()
+/* @__PURE__ */ install(Dialog)
+
+export const FDialog = Dialog
 
 export type FDialogInstance = InstanceType<typeof Dialog>
