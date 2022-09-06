@@ -1,10 +1,8 @@
 <script lang="ts" setup name="FDialog">
   import { Props, Emits } from './dialog'
   import { FIcon } from '../../icon'
-  import type {
-    transitionEventInterface as a,
-    closeDialogInterface as b
-  } from './interface'
+  import type { transitionEventInterface as a } from './interface'
+  import type { ordinaryFunctionInterface as b } from '../../_interface'
 
   defineProps(Props)
   const emit = defineEmits(Emits)

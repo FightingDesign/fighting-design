@@ -1,3 +1,5 @@
+import type { App } from 'vue'
+
 /**
  * 这里是一些基础的接口
  *
@@ -14,6 +16,9 @@ export interface ordinaryFunctionInterface {
   (): void
 }
 
+/**
+ * 注册组件函数
+ */
 export interface AppInstallInterface {
   (app: App): App
 }
