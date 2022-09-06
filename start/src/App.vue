@@ -1,8 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <f-alert>123</f-alert>
-  <f-button>123</f-button>
+  <f-ripple>123</f-ripple>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
