@@ -1,6 +1,6 @@
 import type {
   RipplesInterface,
-  RipplesNeedButtonPropsInterface as a
+  RipplesOptionInterface as b
 } from '../_interface'
 
 /**
@@ -9,12 +9,12 @@ import type {
 export class Ripples implements RipplesInterface {
   evt: MouseEvent
   node: HTMLElement
-  props: a
+  option: b
 
-  constructor (evt: MouseEvent, node: HTMLElement, props: a) {
+  constructor (evt: MouseEvent, node: HTMLElement, option: b) {
     this.evt = evt
     this.node = node
-    this.props = props
+    this.option = option
   }
   /**
    * 点击生成涟漪效果
@@ -58,9 +58,9 @@ export class Ripples implements RipplesInterface {
    * 否则返回默认白色
    */
   computedRipplesColor = (): string => {
-    if (this.props.ripplesColor) return this.props.ripplesColor
+    if (this.option.ripplesColor) return this.option.ripplesColor
 
-    if (this.props.simple || this.props.text) {
+    if (this.option.simple || this.option.text) {
       const COLOR_LIST = {
         default: '#f0f0f0',
         primary: '#2d5af1',
@@ -69,7 +69,7 @@ export class Ripples implements RipplesInterface {
         warning: '#fcc202'
       } as const
 
-      return COLOR_LIST[this.props.type]
+      return COLOR_LIST[this.option.type]
     }
     return '#fff'
   }
@@ -83,10 +83,12 @@ export class Ripples implements RipplesInterface {
       'span'
     ) as HTMLSpanElement
 
-    ripples.className = 'f-design-ripples'
+    ripples.className = this.option.className
     ripples.style.background = this.computedRipplesColor()
-    ripples.style.left = `${x}px`
-    ripples.style.top = `${y}px`
+    if (this.option.nodeType === 'button') {
+      ripples.style.left = `${x}px`
+      ripples.style.top = `${y}px`
+    }
 
     return ripples
   }
@@ -97,6 +99,6 @@ export class Ripples implements RipplesInterface {
   removeElement = (node: HTMLElement): void => {
     setTimeout((): void => {
       node.remove()
-    }, 600)
+    }, this.option.duration)
   }
 }

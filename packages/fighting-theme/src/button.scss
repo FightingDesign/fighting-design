@@ -154,22 +154,22 @@
   }
 
   // 涟漪效果
-  .f-design-ripples {
+  .f-button-ripples {
     width: 2px;
     height: 2px;
     position: absolute;
     transform: translate(-50%, -50%);
     pointer-events: none;
     border-radius: 50%;
-    animation: f-ripples 0.7s linear;
+    animation: f-button-ripples 0.7s linear;
     opacity: 0.5;
     background: #fff;
   }
 
-  @keyframes f-ripples {
+  @keyframes f-button-ripples {
     from {
-      width: 0px;
-      height: 0px;
+      width: 2px;
+      height: 2px;
       opacity: 0.5;
     }
 

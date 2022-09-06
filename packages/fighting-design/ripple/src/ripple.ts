@@ -1,8 +1,22 @@
+import type { PropType } from 'vue'
+import type { rippleType } from './interface'
+
 export const Props = {
   ripplesColor: {
     type: String,
-    default: (): string => 'red'
+    default: (): string => '#dee5fd'
+  },
+  duration: {
+    type: Number,
+    default: (): number => 400
+  },
+  type: {
+    type: String as PropType<rippleType>,
+    default: (): rippleType => 'default',
+    validator: (val: rippleType): boolean => {
+      return (
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
+      ).includes(val)
+    }
   }
 } as const
-
-export const Emits = {} as const

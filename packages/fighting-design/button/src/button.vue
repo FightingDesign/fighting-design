@@ -3,12 +3,12 @@
   import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor } from '../../_utils'
-  import { useFilterProps } from '../../_hooks/useFilterProps'
+  // import { useFilterProps } from '../../_hooks/useFilterProps'
   import type { FPropsType } from './button'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { onClickInterface as a } from './interface'
   import type {
-    RipplesNeedButtonPropsInterface as b,
+    // RipplesNeedButtonPropsInterface as b,
     classListInterface as c
   } from '../../_interface'
 
@@ -75,17 +75,27 @@
 
     if (ripples) {
       // 拿到需要的 props 传递给类
-      const needProps: b = useFilterProps<FPropsType, b>(prop, [
-        'ripplesColor',
-        'type',
-        'simple',
-        'text'
-      ]).getProps()
+      // const needProps: b = useFilterProps<FPropsType, b>(prop, [
+      //   'ripplesColor',
+      //   'type',
+      //   'simple',
+      //   'text'
+      // ]).getProps()
+
+      const { ripplesColor, simple, text, type } = prop
 
       const ripples: Ripples = new Ripples(
         evt,
         FButton.value as HTMLButtonElement,
-        needProps
+        {
+          duration: 700,
+          nodeType: 'button',
+          className: 'f-button-ripples',
+          ripplesColor,
+          simple,
+          text,
+          type
+        }
       )
       ripples.clickRipples()
     }
