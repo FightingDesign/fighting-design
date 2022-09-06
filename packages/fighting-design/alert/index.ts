@@ -2,6 +2,8 @@ import Alert from './src/alert.vue'
 
 import { install } from '../_utils'
 
-export const FAlert = install(Alert)
+export const FAlert = /* @__PURE__ */ (() => {
+  return install(Alert)
+})()
 
 export type FAlertInstance = InstanceType<typeof Alert>
