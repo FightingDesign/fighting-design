@@ -38,6 +38,27 @@ Add the following code to the `.eslintrc` file
 }
 ```
 
+在 `package.json` 中新增以下配置：
+
+In The following configurations are added to `package.json`:
+
+```json
+"scripts": {
+  "lint": "eslint .",
+  "lint:fix": "eslint . --fix"
+}
+```
+
+Execute command：
+
+```shell
+# Detection code format specification
+pnpm lint
+
+# Fix format specification
+pnpm lint:fix
+```
+
 ## 🚧 Rule
 
 Refer to [index.js](https://github.com/FightingDesign/fighting-design/blob/master/packages/eslint-config/index.js) for details
