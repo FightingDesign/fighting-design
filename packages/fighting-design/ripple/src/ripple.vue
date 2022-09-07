@@ -2,6 +2,7 @@
   import { Props } from './ripple'
   import { Ripples } from '../../_utils'
   import { computed, ref } from 'vue'
+  import type { classListInterface as a } from '../../_interface'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
 
   const prop = defineProps(Props)
@@ -9,13 +10,18 @@
   const FRipple: Ref<HTMLElement> = ref(null as unknown as HTMLElement)
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { startOpacity, endOpacity, duration } = prop
+    const { startOpacity, endOpacity } = prop
 
     return {
       '--f-ripple-start-opacity': startOpacity,
-      '--f-ripple-end-opacity': endOpacity,
-      '--f-ripple-duration': `f-ripples-animation ${duration}s linear`
+      '--f-ripple-end-opacity': endOpacity
     }
+  })
+
+  const classList: ComputedRef<a> = computed((): a => {
+    const { noSelect } = prop
+
+    return ['f-ripple', { 'f-ripple-select': noSelect }] as const
   })
 
   const handleClick = (evt: MouseEvent): void => {
@@ -39,7 +45,7 @@
 </script>
 
 <template>
-  <div ref="FRipple" class="f-ripple" :style="styleList" @click="handleClick">
+  <div ref="FRipple" :class="classList" :style="styleList" @click="handleClick">
     <slot />
   </div>
 </template>

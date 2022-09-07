@@ -1,8 +1,11 @@
 .f-ripple {
-  // display: inline-block;
   cursor: pointer;
   overflow: hidden;
   position: relative;
+
+  &.f-ripple-select {
+    user-select: none;
+  }
 
   // 涟漪效果
   .f-ripple-animation {

@@ -187,6 +187,7 @@
 | `disabled`      | 是否禁用             | boolean | ——                                                      | false   |
 | `start-opacity` | 涟漪动画开始的透明度 | number  | ——                                                      | 0.5     |
 | `end-opacity`   | 涟漪动画结束的透明度 | number  | ——                                                      | 0       |
+| `no-select`     | 是否禁止选中         | boolean | ——                                                      | true    |
 
 ## Slots
 
