@@ -144,14 +144,49 @@
 
 :::
 
+## 自定义透明度
+
+`start-opacity` 和 `end-opacity`自定义涟漪开始和结束时候的透明度
+
+<f-ripple type="primary" :start-opacity="0.7" :end-opacity="0.3">
+  <div class="list">
+    <f-text type="primary">可以使用</f-text>
+  </div>
+</f-ripple>
+
+::: details 显示代码
+
+```html
+<template>
+  <f-ripple type="primary" :start-opacity="0.7" :end-opacity="0.3">
+    <div class="list">
+      <f-text type="primary">自定义涟漪透明度</f-text>
+    </div>
+  </f-ripple>
+</template>
+
+<style scoped>
+  .list {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+```
+
+:::
+
 ## Attributes
 
-| 参数            | 说明           | 类型    | 可选值                                                  | 默认值  |
-| --------------- | -------------- | ------- | ------------------------------------------------------- | ------- |
-| `type`          | 是否带圆角的   | boolean | `default` `primary` `success` <br /> `danger` `warning` | default |
-| `ripples-color` | 自定义涟漪颜色 | string  | ——                                                      | ——      |
-| `duration`      | 涟漪动画时间   | number  | ——                                                      | 400     |
-| `disabled`      | 是否禁用       | boolean | ——                                                      | false   |
+| 参数            | 说明                 | 类型    | 可选值                                                  | 默认值  |
+| --------------- | -------------------- | ------- | ------------------------------------------------------- | ------- |
+| `type`          | 是否带圆角的         | boolean | `default` `primary` `success` <br /> `danger` `warning` | default |
+| `ripples-color` | 自定义涟漪颜色       | string  | ——                                                      | ——      |
+| `duration`      | 移除涟漪节点的时间   | number  | ——                                                      | 400     |
+| `disabled`      | 是否禁用             | boolean | ——                                                      | false   |
+| `start-opacity` | 涟漪动画开始的透明度 | number  | ——                                                      | 0.5     |
+| `end-opacity`   | 涟漪动画结束的透明度 | number  | ——                                                      | 0       |
 
 ## Slots
 

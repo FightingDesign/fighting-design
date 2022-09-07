@@ -1,12 +1,22 @@
 <script lang="ts" setup name="Ripple">
   import { Props } from './ripple'
   import { Ripples } from '../../_utils'
-  import { ref } from 'vue'
-  import type { Ref } from 'vue'
+  import { computed, ref } from 'vue'
+  import type { Ref, CSSProperties, ComputedRef } from 'vue'
 
   const prop = defineProps(Props)
 
   const FRipple: Ref<HTMLElement> = ref(null as unknown as HTMLElement)
+
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { startOpacity, endOpacity, duration } = prop
+
+    return {
+      '--f-ripple-start-opacity': startOpacity,
+      '--f-ripple-end-opacity': endOpacity,
+      '--f-ripple-duration': `f-ripples-animation ${duration}s linear`
+    }
+  })
 
   const handleClick = (evt: MouseEvent): void => {
     const { type, ripplesColor, duration, disabled } = prop
@@ -29,7 +39,7 @@
 </script>
 
 <template>
-  <div ref="FRipple" class="f-ripple" @click="handleClick">
+  <div ref="FRipple" class="f-ripple" :style="styleList" @click="handleClick">
     <slot />
   </div>
 </template>

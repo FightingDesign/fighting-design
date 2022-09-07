@@ -15,7 +15,8 @@ export const Props = {
   },
   visibleHeight: {
     type: Number,
-    default: (): number => 200
+    default: (): number => 200,
+    validator: (val: number): boolean => val >= 0
   },
   right: {
     type: String,

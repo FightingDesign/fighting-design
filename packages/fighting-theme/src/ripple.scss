@@ -13,19 +13,19 @@
     pointer-events: none;
     border-radius: 10%;
     animation: f-ripples-animation 0.4s linear;
-    opacity: 0.5;
+    opacity: var(--f-ripple-start-opacity, 0.5);
     background: #fff;
   }
 
   @keyframes f-ripples-animation {
     from {
       width: 0px;
-      opacity: 0.5;
+      opacity: var(--f-ripple-start-opacity, 0.5);
     }
 
     to {
       width: 1500px;
-      opacity: 0;
+      opacity: var(--f-ripple-end-opacity, 0);
       border-radius: 0px;
     }
   }
