@@ -18,7 +18,7 @@
       FRipple.value as HTMLElement,
       {
         duration,
-        nodeType: 'ripples',
+        component: 'f-ripple',
         className: 'f-ripple-animation',
         type,
         ripplesColor

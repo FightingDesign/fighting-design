@@ -58,7 +58,9 @@ export class Ripples implements RipplesInterface {
    * 否则返回默认白色
    */
   computedRipplesColor = (): string => {
-    if (this.option.ripplesColor) return this.option.ripplesColor
+    if (this.option.ripplesColor) {
+      return this.option.ripplesColor
+    }
 
     const COLOR_LIST = {
       default: '#f0f0f0',
@@ -68,9 +70,17 @@ export class Ripples implements RipplesInterface {
       warning: '#fcc202'
     } as const
 
-    if (this.option.nodeType === 'button' && this.option.simple || this.option.text) {
-      return COLOR_LIST[this.option.type]
+    /**
+     * 如果是按钮组件
+     * 如果 simple, text 存在其中一个，那么就返回指定的色号，否则返回空字符串
+     */
+    if (this.option.component === 'f-button') {
+      const { simple, text } = this.option
+
+      return simple || text ? COLOR_LIST[this.option.type] : ''
     }
+
+    // 如果不是按钮组件，则可以直接返回指定色号
     return COLOR_LIST[this.option.type]
   }
   /**
@@ -86,7 +96,9 @@ export class Ripples implements RipplesInterface {
     ripples.className = this.option.className
     ripples.style.background = this.computedRipplesColor()
     ripples.style.left = `${x}px`
-    if (this.option.nodeType === 'button') {
+
+    // 只有在按钮组件的时候，才作用 y 轴的坐标
+    if (this.option.component === 'f-button') {
       ripples.style.top = `${y}px`
     }
 
@@ -99,6 +111,6 @@ export class Ripples implements RipplesInterface {
   removeElement = (node: HTMLElement): void => {
     setTimeout((): void => {
       node.remove()
-    }, this.option.duration)
+    }, this.option.duration || 400)
   }
 }

@@ -3,14 +3,10 @@
   import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor } from '../../_utils'
-  // import { useFilterProps } from '../../_hooks/useFilterProps'
   import type { FPropsType } from './button'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { onClickInterface as a } from './interface'
-  import type {
-    // RipplesNeedButtonPropsInterface as b,
-    classListInterface as c
-  } from '../../_interface'
+  import type { classListInterface as b } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -21,7 +17,7 @@
   )
 
   // 类名列表
-  const classList: ComputedRef<c> = computed((): c => {
+  const classList: ComputedRef<b> = computed((): b => {
     const {
       type,
       round,
@@ -74,14 +70,6 @@
     }
 
     if (ripples) {
-      // 拿到需要的 props 传递给类
-      // const needProps: b = useFilterProps<FPropsType, b>(prop, [
-      //   'ripplesColor',
-      //   'type',
-      //   'simple',
-      //   'text'
-      // ]).getProps()
-
       const { ripplesColor, simple, text, type } = prop
 
       const ripples: Ripples = new Ripples(
@@ -89,13 +77,13 @@
         FButton.value as HTMLButtonElement,
         {
           duration: 700,
-          nodeType: 'button',
+          component: 'f-button',
           className: 'f-button-ripples',
           ripplesColor,
           simple,
           text,
           type
-        }
+        } as const
       )
       ripples.clickRipples()
     }
@@ -108,7 +96,7 @@
     const { loading, loadingIcon, leftIcon } = prop
 
     if (loading) {
-      return `${loadingIcon || 'f-icon-loading'} f-loading-animation`
+      return `${loadingIcon || 'f-icon-loading'} f-loading-animation` as string
     }
     return leftIcon as string
   })

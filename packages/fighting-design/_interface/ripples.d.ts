@@ -3,7 +3,7 @@ import type { buttonType } from '../button/src/interface'
 /**
  * Ripples 类所需要的 props 参数
  * @param duration 动画时长
- * @param nodeType 节点类型 目前仅有 button 和 ripple 组件两种类型
+ * @param component 组件类型 目前仅有 button 和 ripple 组件两种类型
  * @param className 涟漪节点类名
  * @param ripplesColor 自定义涟漪背景色
  * @param type 组件 type
@@ -12,7 +12,7 @@ import type { buttonType } from '../button/src/interface'
  */
 export interface RipplesOptionInterface {
   duration: number
-  nodeType: 'ripples' | 'button'
+  component: 'f-ripple' | 'f-button'
   className: string
   ripplesColor: string
   type: buttonType
