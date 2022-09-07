@@ -1,9 +1,2 @@
-import FIconAiming from './src/f-icon-aiming.vue'
-
-const iconList = {
-  FIconAiming
-}
-
-export { FIconAiming }
-
-export default iconList
+export { default as FSvgA } from './svg/a.svg'
+export { default as FSvgB } from './svg/b.svg'

@@ -4,6 +4,7 @@ import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
 import { visualizer } from 'rollup-plugin-visualizer' // https://github.com/btd/rollup-plugin-visualizer
+import svgLoader from 'vite-svg-loader' // https://github.com/jpkleemans/vite-svg-loader
 
 export default (): UserConfigExport => {
   return {
@@ -19,7 +20,8 @@ export default (): UserConfigExport => {
         include: ['./packages/fighting-design'] // 手动设置包含路径的 glob
       }),
       vueSetupExtend(),
-      visualizer()
+      visualizer(),
+      svgLoader()
     ],
     mode: 'production',
     build: {

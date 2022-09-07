@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { FSvgA } from '../../packages/fighting-icon'
   const typeList = ['default', 'primary', 'success', 'danger', 'warning']
 </script>
 
@@ -14,6 +15,8 @@
   <f-button type="success" text ripples ripples-color="green">
     自定义涟漪颜色
   </f-button>
+
+  <f-svg-a />
 </template>
 
 <style scoped>
