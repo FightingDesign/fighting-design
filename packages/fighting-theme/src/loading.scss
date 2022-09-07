@@ -14,21 +14,28 @@
   background: #000;
   opacity: 0.7;
   color: $primary;
-}
 
-.f-loading-animation {
-  display: inline-block;
-  font-size: 22px;
-  animation: loading 1s linear infinite;
-  -webkit-animation: loading 1s linear infinite;
-}
-
-@keyframes loading {
-  0% {
-    transform: rotate(0deg);
+  .f-loading-animation {
+    display: inline-block;
+    font-size: 22px;
+    animation: f-loading-component 1s linear infinite;
+    -webkit-animation: f-loading-component 1s linear infinite;
   }
 
-  100% {
-    transform: rotate(360deg);
+  .f-loading-title {
+    color: $primary;
+    font-size: 15px;
+  }
+
+  @keyframes f-loading-component {
+    0% {
+      width: 22px;
+      transform: rotate(0deg);
+    }
+
+    100% {
+      width: 22px;
+      transform: rotate(360deg);
+    }
   }
 }

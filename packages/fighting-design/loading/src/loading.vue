@@ -12,29 +12,22 @@
     prop.close && emit('close', evt)
   }
 
-  const loadingStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { background, opacity, textColor } = prop
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { background, opacity, textColor } = prop
 
-      return {
-        background,
-        opacity,
-        color: textColor
-      } as const
-    }
-  )
+    return {
+      background,
+      opacity,
+      color: textColor
+    } as const
+  })
 </script>
 
 <template>
-  <div
-    v-if="show"
-    class="f-loading"
-    :style="loadingStyleList"
-    @click="handleClick"
-  >
+  <div v-if="show" class="f-loading" :style="styleList" @click="handleClick">
     <f-icon :icon="icon || 'f-icon-loading'" class="f-loading-animation" />
     <span class="f-loading-title" :style="{ fontSize: textSize }">
-      {{ text || '加载中' }}
+      {{ text || ' 玩命加载中...' }}
     </span>
   </div>
 </template>

@@ -1,32 +1,17 @@
 <script lang="ts" setup>
-  import { FSvgA } from '../../packages/fighting-icon'
-  const typeList = ['default', 'primary', 'success', 'danger', 'warning']
+  import { ref } from 'vue'
+
+  const loading1 = ref(true)
+
+  function onclick1 () {
+    loading1.value = true
+    setTimeout(() => {
+      loading1.value = false
+    }, 1500)
+  }
 </script>
 
 <template>
-  <f-ripple v-for="(item, i) in typeList" :key="i" :type="item">
-    <div class="list">
-      <f-text :type="item">{{ item }} 涟漪</f-text>
-    </div>
-  </f-ripple>
-
-  <hr>
-  <f-button type="danger" ripples simple>看看我</f-button>
-  <f-button type="success" text ripples ripples-color="green">
-    自定义涟漪颜色
-  </f-button>
-
-  <f-svg-a />
+  <f-button type="primary" @click="onclick1">开始 loading</f-button>
+  <f-loading :show="loading1" />
 </template>
-
-<style scoped>
-  .list {
-    width: 500px;
-    height: 60px;
-    display: flex;
-    font-size: 15px;
-    color: #333;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
