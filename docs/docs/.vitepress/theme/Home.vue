@@ -40,7 +40,9 @@
 
     <!-- 贡献者 -->
     <div id="contributors">
-      <f-text block center bold font-size="26px">Contributors</f-text>
+      <f-text block center bold size="22px" line-height="30px">
+        Contributors
+      </f-text>
       <div class="contributors-box">
         <a
           v-for="(item, i) in contributors"
@@ -51,6 +53,8 @@
           <f-avatar round :src="item.avatar" />
         </a>
       </div>
+
+      <f-button type="primary" href="/docs/CONTRIBUTING">加入其中</f-button>
     </div>
 
     <div id="footer">
@@ -179,6 +183,10 @@
     #contributors {
       margin-top: 50px;
       padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
       .contributors-box {
         max-width: 800px;
