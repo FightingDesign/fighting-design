@@ -4,6 +4,7 @@
 
 - 新增 `f-ripple` 涟漪组件
 - 修复 `f-button` `f-loading` 动画样式问题
+- 新增 `f-radio` `f-radio-group` 组件
 
 ## 0.6.4-alpha.5 (2022-09-06)
 
