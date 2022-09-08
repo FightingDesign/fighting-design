@@ -58,6 +58,18 @@ export const isNumber: c = (target: unknown): boolean => {
 }
 
 /**
+ * 检测一个数据是否为 Number 类型
+ * @param target 要检测的数据
+ * @returns boolean
+ */
+export const isBoolean: c = (target: unknown): boolean => {
+  return (
+    typeof target === 'boolean' &&
+    Object.prototype.toString.call(target) === '[object Boolean]'
+  )
+}
+
+/**
  * 计算从一个时间到现在过去多久
  * @param time 开始时间 格式为：'2021-01-28 00:00'
  * @returns xx天xx小时xx分钟xx秒

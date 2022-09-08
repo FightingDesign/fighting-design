@@ -6,4 +6,4 @@ import { install } from '../_utils'
 
 export const F<%= displayName %> = <%= displayName %>
 
-export type <%= displayName %>Instance = InstanceType<typeof <%= displayName %>>
+export type F<%= displayName %>Instance = InstanceType<typeof <%= displayName %>>

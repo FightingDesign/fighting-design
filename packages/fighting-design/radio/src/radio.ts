@@ -1,34 +1,32 @@
-import { isNumber, isString } from '../../_utils'
-import type { ExtractPropTypes } from 'vue'
-import type Radio from './radio.vue'
-function isBoolean (v:unknown):Boolean{
-  return typeof v == 'boolean'
-}
+import { isNumber, isString, isBoolean } from '../../_utils'
+// import type { ExtractPropTypes } from 'vue'
 
-export const radioProps = {
-  disabled:Boolean,
+export const Props = {
+  disabled: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   modelValue: {
     type: [String, Number, Boolean],
-    default: ''
+    default: (): string => ''
   },
   name: {
     type: String,
-    default: ''
+    default: (): string => ''
   },
-  label:{
+  label: {
     type: [String, Number, Boolean],
-    default: ''
+    default: (): string => ''
   }
 }
 
-export const radioEmits = {
-  'update:modelValue': (val:RadioProps['modelValue'] ):Boolean =>
+export const Emits = {
+  'update:modelValue': (val: string | number | boolean): boolean =>
     isString(val) || isNumber(val) || isBoolean(val),
-
-  change: (val:RadioProps['modelValue'] ):Boolean =>
+  change: (val: string | number | boolean): boolean =>
     isString(val) || isNumber(val) || isBoolean(val)
-}
+} as const
 
-export type RadioProps = ExtractPropTypes<typeof radioProps>
-export type RadioEmits = typeof radioEmits
-export type RadioInstance = InstanceType<typeof Radio>
+// export type RadioProps = ExtractPropTypes<typeof Emits>
+// export type RadioEmits = typeof Emits
+// export type RadioInstance = InstanceType<typeof Radio>

@@ -22,5 +22,6 @@ export const contributors = [
   { avatar: 'https://avatars.githubusercontent.com/u/29186785?v=4', homePage: 'https://github.com/JTR354' },
   { avatar: 'https://avatars.githubusercontent.com/u/23503047?v=4', homePage: 'https://github.com/ECO-M' },
   { avatar: 'https://avatars.githubusercontent.com/u/42713977?v=4', homePage: 'https://github.com/AisonSu' },
-  { avatar: 'https://avatars.githubusercontent.com/u/41283234?v=4', homePage: 'https://github.com/kiss5523' }
+  { avatar: 'https://avatars.githubusercontent.com/u/41283234?v=4', homePage: 'https://github.com/kiss5523' },
+  { avatar: 'https://avatars.githubusercontent.com/u/50451042?v=4', homePage: 'https://github.com/tangtts' },
 ]
