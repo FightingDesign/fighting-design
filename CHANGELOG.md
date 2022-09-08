@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `f-ripple` 涟漪组件
+- 修复 `f-button` `f-loading` 动画样式问题
+
 ## 0.6.4-alpha.5 (2022-09-06)
 
 - 测试修复副作用组件注册

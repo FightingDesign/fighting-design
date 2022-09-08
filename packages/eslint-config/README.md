@@ -38,6 +38,25 @@ yarn add --save-dev eslint eslint-config-fighting
 }
 ```
 
+在 `package.json` 中新增以下配置：
+
+```json
+"scripts": {
+  "lint": "eslint .",
+  "lint:fix": "eslint . --fix"
+}
+```
+
+执行命令：
+
+```shell
+# 检测代码格式规范
+pnpm lint
+
+# 修复格式规范
+pnpm lint:fix
+```
+
 ## 🚧 规则
 
 详情参考 [index.js](https://github.com/FightingDesign/fighting-design/blob/master/packages/eslint-config/index.js)

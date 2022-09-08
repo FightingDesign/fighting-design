@@ -85,7 +85,8 @@ export const sidebar = {
         { text: 'Dialog 对话框', link: '/components/dialog' },
         { text: 'Drawer 抽屉', link: '/components/drawer' },
         { text: 'Tooltip 消息提示', link: '/components/tooltip' },
-        { text: 'Watermark 水印', link: '/components/watermark' }
+        { text: 'Watermark 水印', link: '/components/watermark' },
+        { text: 'Ripple 涟漪', link: '/components/ripple' }
       ]
     }
   ]

@@ -8,19 +8,19 @@
   const event = ref()
   const instances = reactive<{ hover: boolean }[]>([])
 
-  const draw = (current: number) => {
+  const draw = (current: number): void => {
     for (let index = 0; index < instances.length; index++) {
       instances[index].hover = index <= current
     }
   }
 
-  onMounted(() => {
+  onMounted((): void => {
     for (let i = 0; i < prop.count; i++) {
       instances.push({ hover: false })
     }
   })
 
-  const redraw = () => {
+  const redraw = (): void => {
     draw(Number(prop.modelValue) - 1)
   }
 
