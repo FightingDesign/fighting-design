@@ -1,3 +1,4 @@
+import { FRadioGroup } from './../packages/fighting-design/radio/index';
 import { createApp } from 'vue'
 import App from './src/App.vue'
 
