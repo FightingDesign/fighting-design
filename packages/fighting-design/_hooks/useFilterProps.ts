@@ -22,6 +22,7 @@ export const useFilterProps = <
   A: F[]
 ): { getProps: () => Record<F, T[F]> } => {
   const f = reactive({}) as Record<F, T[F]>
+
   const filterProps = (): void => {
     for (const v of A) {
       if (v) {
@@ -29,6 +30,7 @@ export const useFilterProps = <
       }
     }
   }
+
   const getProps = (): Record<F, T[F]> => {
     filterProps()
     return f

@@ -1,13 +1,19 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const radio = ref('1')
+  const radio1 = ref('1')
   // const change = (): void => {
   //   console.log(radio.value)
   // }
 </script>
 
 <template>
+  <f-radio-group v-model="radio1">
+    <f-radio label="1">备选项1</f-radio>
+    <f-radio label="2">备选项2</f-radio>
+    <f-radio label="3">备选项3</f-radio>
+  </f-radio-group>
+
   <!-- <h1>{{ radio }}</h1>
   <f-radio-group
     v-for="(item, index) in ['large', 'middle', 'small', 'mini']"
@@ -44,5 +50,4 @@
   .f-card {
     width: 240px;
   }
-
 </style>

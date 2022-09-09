@@ -21,7 +21,7 @@
       'height',
       'fontSize',
       'fontColor'
-    ])
+    ]).getProps()
 
     console.log(needProps)
 
