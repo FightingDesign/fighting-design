@@ -93,7 +93,7 @@
       :name="name"
       @change="handleChange"
     >
-    <span class="f-radio-inner" />
+    <span v-if="!radioGroup?.border" class="f-radio-inner" />
     <span class="f-radio-text">
       <slot>{{ label }}</slot>
     </span>

@@ -1,13 +1,33 @@
+@import '../config/const-color.scss';
+
 .f-radio-group {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  transition: .3s;
+  transition: 0.3s;
   column-gap: 22px;
 
   // 纵向排列
   &.f-radio-group-vertical {
     flex-direction: column;
     row-gap: 10px;
+  }
+
+  // 边框
+  &.f-radio-group-border {
+    column-gap: 0;
+
+    .f-radio {
+      border: 1px solid #dee5fd;
+      padding: 10px 17px;
+
+      &.f-radio-checked {
+        border-color: $primary;
+      }
+
+      &:not(:first-child) {
+        // margin-left: -1px;
+      }
+    }
   }
 }
