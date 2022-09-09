@@ -10,6 +10,12 @@
 
 规范可能比较多，但是大多数都是一些比较细小的规范，请认真阅读。
 
+## 禁止抄袭
+
+众所周知，在市面上的组件库有很多，很多时候我们需要开发的新组件在市面上早已经开发好了，但是请勿直接复制其它第三方源码进行使用！
+
+开发组件库本身是一个学习进步的过程，不要仅仅是为了新增组件而新增组件，希望各位参与者可以在新增组件过程中学习到一些东西来提升自己的技术。如果在开发阶段的某个功能遇到了困难，你可以发起一个[讨论](https://github.com/FightingDesign/fighting-design/discussions)，或者也可以直接联系我或在群里求助，当然去学习参考其它开源库也是可以的，只是希望你在写的时候，是已经理解了问题，自己来动手实践的。
+
 ## 启动项目
 
 在贡献之前，你需要先将 `Fighting Design` 项目跑起来才行，那么前期的准备你需要：
@@ -41,25 +47,25 @@ pnpm start
 
 ```json
   "scripts": {
-    "clean": "rimraf dist",
-    "start": "pnpm run -C start dev",
-    "dev:docs": "pnpm run -C docs dev",
-    "build": "pnpm clean && pnpm build:css && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move",
-    "build:es": "vite build --config vite.config.ts",
-    "build:lib": "vite build --config vite.config.lib.ts",
-    "build:umd": "vite build --config vite.config.umd.ts",
-    "build:css": "vite build --config vite.config.css.ts",
-    "build:theme": "vite build --config vite.config.theme.ts",
-    "build:docs": "pnpm run -C docs build",
-    "serve:docs": "pnpm run -C docs serve",
-    "build:start": "pnpm run -C start build",
-    "move": "node script/move.ts",
-    "new": "pnpm run -C packages/add-component new",
-    "test": "vitest",
-    "prettier": "prettier --write .",
-    "commit": "cz",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "clean": "rimraf dist", // 清楚 dist
+    "start": "pnpm run -C start dev", // 启动测试开发项目
+    "dev:docs": "pnpm run -C docs dev", // 启动文档
+    "build": "pnpm clean && pnpm build:css && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move", // 打包命令整合
+    "build:es": "vite build --config vite.config.ts", // 打包 es 模块
+    "build:lib": "vite build --config vite.config.lib.ts", // 打包 lib 模块
+    "build:umd": "vite build --config vite.config.umd.ts", // 打包 umd
+    "build:css": "vite build --config vite.config.css.ts", // 分别打包 css
+    "build:theme": "vite build --config vite.config.theme.ts", // 打包主样式表
+    "build:docs": "pnpm run -C docs build", // 打包文档
+    "serve:docs": "pnpm run -C docs serve", // 预览打包后的文档
+    "build:start": "pnpm run -C start build", // 打包测试项目 start
+    "move": "node script/move.ts", // 移动所需要的静态文件
+    "new": "pnpm run -C packages/add-component new", // 构建全新组件
+    "test": "vitest", // 单元测试
+    "prettier": "prettier --write .", // 全局格式化
+    "commit": "cz", // commit 信息提示
+    "lint": "eslint .", // eslint 检测
+    "lint:fix": "eslint . --fix" // eslint 检测 + 修复
   }
 ```
 
@@ -78,7 +84,7 @@ pnpm start
 
 ## 开发规范
 
-主要源文件都在 `fighting-design/packages` 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档：
+主要源文件都在 `packages` 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档：
 
 **详细的规范在下面链接，千万不要忽略下面链接！！！**
 

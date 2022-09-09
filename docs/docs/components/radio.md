@@ -2,11 +2,7 @@
 
 > radio 单选组件
 
-```html
-<td-radio v-model="radio" label="1">备选项</td-radio>
-```
-
-## Radio Attributes
+## Attributes
 
 | 参数            | 说明                              | 类型                      | 可选值 | 默认值  |
 | --------------- | --------------------------------- | ------------------------- | ------ | ------- |
@@ -14,7 +10,7 @@
 | disabled        | 是否禁用                          | boolean                   | ——     | false   |
 | text-color      | 按钮形式的 Radio 激活时的文本颜色 | string                    | —      | #ffffff |
 
-## Radio Events
+## Events
 
 | 事件名称 | 说明                   | 回调参数              |
 | -------- | ---------------------- | --------------------- |
