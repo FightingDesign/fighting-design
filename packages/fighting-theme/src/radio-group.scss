@@ -13,20 +13,60 @@
     row-gap: 10px;
   }
 
+  &.f-radio-group-large {
+    .f-radio {
+      padding: 0 30px;
+      font-size: 17px;
+      height: 40px;
+
+      .f-radio-text {
+        font-size: 16px;
+      }
+    }
+  }
+  &.f-radio-group-middle {
+    .f-radio {
+      padding: 0 25px;
+      font-size: 16px;
+      height: 35px;
+
+      .f-radio-text {
+        font-size: 15px;
+      }
+    }
+  }
+  &.f-radio-group-small {
+    .f-radio {
+      padding: 0 20px;
+      font-size: 15px;
+      height: 30px;
+
+      .f-radio-text {
+        font-size: 14px;
+      }
+    }
+  }
+  &.f-radio-group-mini {
+    .f-radio {
+      padding: 0 15px;
+      font-size: 14px;
+      height: 25px;
+
+      .f-radio-text {
+        font-size: 13px;
+      }
+    }
+  }
+
   // 边框
   &.f-radio-group-border {
     column-gap: 0;
 
     .f-radio {
       border: 1px solid #dee5fd;
-      padding: 10px 17px;
 
       &.f-radio-checked {
         border-color: $primary;
-      }
-
-      &:not(:first-child) {
-        // margin-left: -1px;
       }
     }
   }

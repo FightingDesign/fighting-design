@@ -26,13 +26,13 @@
   provide(RadioGroupPropsKey, RadioGround)
 
   const classList: ComputedRef<a> = computed((): a => {
-    const { vertical, border } = prop
+    const { vertical, border, size } = prop
 
     return [
       'f-radio-group',
       {
         'f-radio-group-vertical': vertical,
-        'f-radio-group-border': border
+        [`f-radio-group-border f-radio-group-${size}`]: border
       }
     ] as const
   })
