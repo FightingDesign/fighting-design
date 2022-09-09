@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { lists, bottomList } from './src/list'
+  import { contributors } from './src/contributors.ts'
 </script>
 
 <template>
@@ -37,19 +38,23 @@
       </f-button>
     </div>
 
-    <div id="introduce">
-      <div class="advantage">
-        <div v-for="(list, index) in lists" :key="index" class="advantage_item">
-          <div class="img_box">
-            <img
-              :src="`https://tianyuhao.cn/images/fighting-design/home-${
-                index + 1
-              }.svg`"
-            />
-          </div>
-          <p class="text">{{ list }}</p>
-        </div>
+    <!-- 贡献者 -->
+    <div id="contributors">
+      <f-text block center bold size="26px">Contributors</f-text>
+      <div class="contributors-box">
+        <a
+          v-for="(item, i) in contributors"
+          :href="item.homePage"
+          :key="i"
+          target="_blank"
+        >
+          <f-avatar round :src="item.avatar" />
+        </a>
       </div>
+
+      <f-button simple type="primary" href="/docs/CONTRIBUTING" round>
+        加入其中
+      </f-button>
     </div>
 
     <div id="footer">
@@ -174,41 +179,33 @@
       }
     }
 
-    #introduce {
-      margin-bottom: 40px;
+    // 贡献者
+    #contributors {
+      margin-top: 66px;
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
-      .advantage {
-        margin-top: 80px;
-        width: 100%;
+      .f-text {
+        margin-bottom: 40px;
+      }
+
+      .f-button {
+        margin-top: 40px;
+      }
+
+      .contributors-box {
+        max-width: 800px;
+        margin: 0 auto;
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
-        user-select: none;
 
-        .advantage_item {
-          width: 50%;
-          padding: 20px;
-          box-sizing: border-box;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-
-          .img_box {
-            width: 70%;
-            overflow: hidden;
-            height: 12rem;
-
-            img {
-              width: 100%;
-              height: 200px;
-              transition: 0.3s;
-            }
-          }
-
-          .text {
-            margin-top: 30px;
-            font-size: 20px;
-          }
+        .f-avatar {
+          margin: 5px;
         }
       }
     }

@@ -62,7 +62,7 @@ createApp(App).use(FButton).use(FIcon).mount('#app')
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/fighting-design/dist/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fighting-design/dist/index.umd.js"></script>
   <script>
     const { createApp, ref } = Vue
 

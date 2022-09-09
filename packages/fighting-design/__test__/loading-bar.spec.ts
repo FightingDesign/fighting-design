@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FLoadingBar } from '../index'
+import FLoadingBar from '../loading-bar/src/loading-bar.vue'
 
 describe('FLoadingBar', () => {
   test('class', () => {
