@@ -14,17 +14,24 @@ import { reactive } from 'vue'
  * @returns 需要的 props
  * @examples let r = useFilterProps({ name: 'zs', age: 20 }, ['name']);
  */
-export const useFilterProps = <T extends Record<string, unknown>, F extends keyof T>(
-  props: T,
-  arr: F[]
-): Record<F, T[F]> => {
-  const result = reactive({}) as Record<F, T[F]>
-
-  for (const item of arr) {
-    if (item) {
-      result[item] = props[item]
+export const useFilterProps = <
+  T extends Record<string, unknown>,
+  F extends keyof T
+>(
+  O: T,
+  A: F[]
+): { getProps: () => Record<F, T[F]> } => {
+  const f = reactive({}) as Record<F, T[F]>
+  const filterProps = (): void => {
+    for (const v of A) {
+      if (v) {
+        f[v] = O[v]
+      }
     }
   }
-
-  return result
+  const getProps = (): Record<F, T[F]> => {
+    filterProps()
+    return f
+  }
+  return { getProps }
 }
