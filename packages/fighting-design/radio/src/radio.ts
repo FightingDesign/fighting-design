@@ -12,7 +12,7 @@ export const Props = {
   },
   name: {
     type: String,
-    default: (): string => ''
+    default: (): string => 'f-radio'
   },
   label: {
     type: [String, Number, Boolean],

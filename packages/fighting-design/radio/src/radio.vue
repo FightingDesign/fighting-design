@@ -30,35 +30,31 @@
       }
     }
   })
-  const name = 'radio'
   const isChecked = computed(() => modelValue.value == prop.label)
 </script>
 
 <template>
   <label
     :class="[
-      'f-radioLabel',
-      isChecked && 'radio-isChecked',
-      (disabled || radioGroup.disabled) && 'radio-isDisabled'
+      'f-radio',
+      {
+        'f-radio-checked': isChecked,
+        'f-radio-disabled': disabled || radioGroup.disabled
+      }
     ]"
   >
     <input
       v-model="modelValue"
-      class="f-radio"
+      hidden
+      type="radio"
       :value="label"
       :disabled="disabled"
-      type="radio"
       :name="name"
       @change="handleChange"
     >
-    <span
-      :style="{ backgroundColor: radioGroup?.textColor }"
-      class="f-radio-inner"
-    />
-    <span>
-      <slot>
-        {{ label }}
-      </slot>
+    <span class="f-radio-inner" />
+    <span class="f-radio-text">
+      <slot>{{ label }}</slot>
     </span>
   </label>
 </template>

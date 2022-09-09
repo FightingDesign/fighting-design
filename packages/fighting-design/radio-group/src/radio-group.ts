@@ -13,10 +13,6 @@ export const Props = {
   label: {
     type: String,
     default: (): string => ''
-  },
-  textColor: {
-    type: String,
-    default: (): string => ''
   }
 } as const
 
