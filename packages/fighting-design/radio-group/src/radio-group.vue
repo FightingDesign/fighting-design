@@ -1,0 +1,54 @@
+<script lang="ts" setup name="FRadioGroup">
+  import { provide, reactive, toRefs, computed } from 'vue'
+  import { Props, Emits, RadioGroupPropsKey } from './radio-group'
+  import { isString } from '../../_utils'
+  import type { ComputedRef, CSSProperties } from 'vue'
+  import type { classListInterface as a } from '../../_interface'
+  import type {
+    changeEventInterface as b,
+    RadioGroundInterface as c,
+    labelType
+  } from './interface'
+
+  const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
+
+  const changeEvent: b = (value: labelType): void => {
+    emit('update:modelValue', value)
+    emit('change', value)
+  }
+
+  const RadioGround: c = reactive({
+    ...toRefs(prop),
+    changeEvent
+  })
+
+  provide(RadioGroupPropsKey, RadioGround)
+
+  const classList: ComputedRef<a> = computed((): a => {
+    const { vertical, border, size } = prop
+
+    return [
+      'f-radio-group',
+      {
+        'f-radio-group-vertical': vertical,
+        [`f-radio-group-border f-radio-group-${size}`]: border
+      }
+    ] as const
+  })
+
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { columnGap, rowGap } = prop
+
+    return {
+      columnGap: isString(columnGap) ? columnGap : columnGap + 'px',
+      rowGap: isString(rowGap) ? rowGap : rowGap + 'px'
+    } as const
+  })
+</script>
+
+<template>
+  <div :class="classList" :style="styleList">
+    <slot />
+  </div>
+</template>

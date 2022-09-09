@@ -6,4 +6,4 @@ import { install } from '../_utils'
 
 export const FRipple = Ripple
 
-export type RippleInstance = InstanceType<typeof Ripple>
+export type FRippleInstance = InstanceType<typeof Ripple>

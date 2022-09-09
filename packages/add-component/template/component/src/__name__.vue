@@ -1,4 +1,4 @@
-<script lang="ts" setup name="<%= displayName %>">
+<script lang="ts" setup name="F<%= displayName %>">
   import { Props, Emits } from './<%= name %>'
 
   defineProps(Props)

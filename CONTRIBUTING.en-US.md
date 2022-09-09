@@ -12,6 +12,12 @@ I am glad that you are interested in contributing to `Fighting Design`. Before s
 
 There may be many specifications, but most of them are small specifications. Please read them carefully.
 
+## Plagiarism is prohibited
+
+As we all know, there are many component libraries on the market. Many of the new components we need to develop have already been developed on the market, but do not directly copy other third-party source codes for use!
+
+Developing a component library is a process of learning and progress. Don't just add components for the sake of adding new components. I hope that participants can learn something in the process of adding new components to improve their skills. If you encounter difficulties with a certain function in the development stage, you can initiate a [discussions](https://github.com/FightingDesign/fighting-design/discussions), or you can contact me directly or ask for help in the group. Of course, it is also possible to learn and refer to other open source libraries. I just hope that when you write, you have understood the problem and practice it yourself.
+
 ## Start project
 
 Before you make a contribution, you need to run the `Fighting Design` project. Then you need to:

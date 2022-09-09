@@ -49,12 +49,12 @@
       captionWidth.value = width
     }
 
-    const needProps: c = useFilterProps<FPropsType, c>(prop, [
+    const needProps = useFilterProps(prop, [
       'src',
       'errSrc',
       'rootMargin',
       'lazy'
-    ]).getProps()
+    ])
 
     loadImage(node, needProps, emit, callback)
   }

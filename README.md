@@ -73,9 +73,11 @@ createApp(App).use(FightingDesign).mount('#app')
 
 ## 🐳 相关链接
 
+- [官方文档](https://fighting.tianyuhao.cn)
+- [演练场](https://tianyuhao.cn/playground)
+- [NPM](https://www.npmjs.com/package/fighting-design)
 - [贡献指南](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
 - [更新日志](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
-- [官方文档](https://fighting.tianyuhao.cn)
 
 ## 🌈 加入 Fighting Design
 

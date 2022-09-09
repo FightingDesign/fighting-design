@@ -120,5 +120,5 @@ export type { FRippleInstance } from './ripple'
 export { FRadio } from './radio'
 export type { FRadioInstance } from './radio'
 
-export { FRadioGroup } from './radio'
-export type { FRadioGroupInstance } from './radio'
+export { FRadioGroup } from './radio-group'
+export type { RadioGroupInstance } from './radio-group'

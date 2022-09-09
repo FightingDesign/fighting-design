@@ -1,9 +1,4 @@
 import { reactive } from 'vue'
-import type {
-  ordinaryFunctionInterface as a,
-  useFilterPropsReturnInterface as b,
-  needPropsType as c
-} from '../_interface'
 
 /**
  * 过滤 props 需要使用的 props
@@ -40,24 +35,3 @@ export const useFilterProps = <
   }
   return { getProps }
 }
-
-// export const useFilterProps = <F, N>(props: F, need: string[]): b => {
-//   const needProps: N | c = reactive({} as const)
-
-//   //  过滤 props
-//   const filterProps: a = (): void => {
-//     for (const key of need) {
-//       if (Object.hasOwn(props as unknown as object, key)) {
-//         needProps[key] = (props as unknown as c)[key]
-//       }
-//     }
-//   }
-
-//   //  获取结果
-//   const getProps = (): N => {
-//     filterProps()
-//     return needProps as N
-//   }
-
-//   return { getProps } as b
-// }

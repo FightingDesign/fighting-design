@@ -1,9 +1,9 @@
 export interface createBase64NeedWatermarkPropsInterface {
   content: string
+  fontColor: string
+  fontSize: string
   width: number
   height: number
-  fontSize: string
-  fontColor: string
 }
 
 export interface createBase64Interface {
