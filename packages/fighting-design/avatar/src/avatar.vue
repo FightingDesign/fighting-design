@@ -92,12 +92,12 @@
       isSuccess.value = params
       isShowNode.value = params
     }
-    const needProps: b = useFilterProps<FPropsType, b>(prop, [
+    const needProps = useFilterProps(prop, [
       'src',
       'errSrc',
       'rootMargin',
       'lazy'
-    ]).getProps()
+    ])
     loadImage(node, needProps, emit, callback)
   }
 

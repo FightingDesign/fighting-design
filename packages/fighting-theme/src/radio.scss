@@ -59,13 +59,11 @@
       color: #d7d7d7;
     }
 
-    &.f-radio-checked {
-      .f-radio-inner {
-        border: 1px solid #d7d7d7;
+    .f-radio-circle {
+      border-color: #d7d7d7;
 
-        &::after {
-          background: #d7d7d7;
-        }
+      &::after {
+        background: #d7d7d7;
       }
     }
   }

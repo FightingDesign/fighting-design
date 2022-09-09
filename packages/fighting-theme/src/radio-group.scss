@@ -68,6 +68,14 @@
       &.f-radio-checked {
         border-color: $primary;
       }
+
+      &.f-radio-disabled {
+        border: 1px solid #d7d7d7;
+
+        .f-radio-circle {
+          border-color: #d7d7d7;
+        }
+      }
     }
   }
 }
