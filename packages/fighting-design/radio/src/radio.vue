@@ -1,8 +1,8 @@
 <script lang="ts" setup>
   import { Props, Emits } from './radio'
   import { computed, inject } from 'vue'
-  import { radioGroupKey } from '../../radio-group/src/radio-group'
-  import type { RadioGroundProps } from '../../radio-group/src/radio-group'
+  import { RadioGroupPropsKey } from '../../radio-group/src/radio-group'
+  import type { RadioGroundInterface as a } from '../../radio-group/src/interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -11,9 +11,7 @@
     !prop.disabled && emit('change', prop.modelValue)
   }
 
-  const radioGroup = inject(radioGroupKey) as RadioGroundProps & {
-    changeEvent(val: unknown): void
-  }
+  const radioGroup = inject(RadioGroupPropsKey) as a
   const isGroup = computed(() => !!radioGroup)
 
   const modelValue = computed({

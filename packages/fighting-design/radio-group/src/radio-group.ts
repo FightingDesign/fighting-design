@@ -13,11 +13,24 @@ export const Props = {
   label: {
     type: String,
     default: (): string => ''
+  },
+  vertical: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  columnGap: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
+  },
+  rowGap: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
   }
 } as const
 
 export type RadioGroundProps = ExtractPropTypes<typeof Props>
-export const radioGroupKey: InjectionKey<RadioGroundProps> =
+
+export const RadioGroupPropsKey: InjectionKey<RadioGroundProps> =
   Symbol('radioGroupKey')
 
 export const Emits = {

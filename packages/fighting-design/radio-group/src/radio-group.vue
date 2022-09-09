@@ -1,27 +1,49 @@
 <script lang="ts" setup name="FRadioGroup">
-  import { provide, reactive, nextTick, toRefs } from 'vue'
-  import { Props, Emits, radioGroupKey } from './radio-group'
+  import { provide, reactive, toRefs, computed } from 'vue'
+  import { Props, Emits, RadioGroupPropsKey } from './radio-group'
+  import { isString } from '../../_utils'
   import type { RadioGroundProps } from './radio-group'
+  import type { ComputedRef, CSSProperties } from 'vue'
+  import type { classListInterface as a } from '../../_interface'
+  import type {
+    changeEventInterface as b,
+    RadioGroundInterface as c
+  } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const changeEvent = (value: RadioGroundProps['modelValue']): void => {
+  const changeEvent: b = (value: RadioGroundProps['modelValue']): void => {
     emit('update:modelValue', value)
-    nextTick(() => emit('change', value))
+    emit('change', value)
   }
 
-  provide(
-    radioGroupKey,
-    reactive({
-      ...toRefs(prop),
-      changeEvent
-    })
-  )
+  const RadioGround: c = reactive({
+    ...toRefs(prop),
+    changeEvent
+  })
+
+  provide(RadioGroupPropsKey, RadioGround)
+
+  const classList: ComputedRef<a> = computed((): a => {
+    return [
+      'f-radio-group',
+      { 'f-radio-group-vertical': prop.vertical }
+    ] as const
+  })
+
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { columnGap, rowGap } = prop
+
+    return {
+      columnGap: isString(columnGap) ? columnGap : columnGap + 'px',
+      rowGap: isString(rowGap) ? rowGap : rowGap + 'px'
+    } as const
+  })
 </script>
 
 <template>
-  <div class="f-radio-group">
+  <div :class="classList" :style="styleList">
     <slot />
   </div>
 </template>

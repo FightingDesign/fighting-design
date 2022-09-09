@@ -2,4 +2,12 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  transition: .3s;
+  column-gap: 22px;
+
+  // 纵向排列
+  &.f-radio-group-vertical {
+    flex-direction: column;
+    row-gap: 10px;
+  }
 }
