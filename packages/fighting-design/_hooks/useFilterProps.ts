@@ -19,21 +19,27 @@ import type {
  * @returns 需要的 props
  * @examples let r = useFilterProps({ name: 'zs', age: 20 }, ['name']);
  */
- export const useFilterProps = <T extends Record<string,unknown>,F extends keyof T>( 
+export const useFilterProps = <
+  T extends Record<string, unknown>,
+  F extends keyof T
+>(
   O: T,
-  A:F[]
-):Record<F,T[F]> => {
-
-  const f = {} as Record<F,T[F]>;
-
-  for (const v of A) {
-    if (v) {
-      f[v] = O[v]
+  A: F[]
+): { getProps: () => Record<F, T[F]> } => {
+  const f = reactive({}) as Record<F, T[F]>
+  const filterProps = (): void => {
+    for (const v of A) {
+      if (v) {
+        f[v] = O[v]
+      }
     }
   }
-
-  return f;
-};
+  const getProps = (): Record<F, T[F]> => {
+    filterProps()
+    return f
+  }
+  return { getProps }
+}
 
 // export const useFilterProps = <F, N>(props: F, need: string[]): b => {
 //   const needProps: N | c = reactive({} as const)
