@@ -69,4 +69,8 @@
       }
     }
   }
+
+  &.f-radio-margin:not(:last-child) {
+    margin-right: 22px;
+  }
 }

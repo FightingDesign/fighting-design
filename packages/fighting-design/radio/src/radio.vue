@@ -75,6 +75,7 @@
       'f-radio',
       {
         'f-radio-checked': isChecked.value,
+        'f-radio-margin': !radioGroup.value,
         'f-radio-disabled': disabled || radioGroup.value?.disabled
       }
     ] as const
