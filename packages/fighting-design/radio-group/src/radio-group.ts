@@ -1,5 +1,6 @@
 import { isNumber, isString, isBoolean } from '../../_utils'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
+import type { labelType } from './interface'
 
 export const Props = {
   disabled: {
@@ -7,7 +8,7 @@ export const Props = {
     default: (): boolean => false
   },
   modelValue: {
-    type: [String, Number, Boolean] as PropType<string | number | boolean>,
+    type: [String, Number, Boolean] as PropType<labelType>,
     default: (): string => ''
   },
   label: {
@@ -25,19 +26,22 @@ export const Props = {
   rowGap: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
+  },
+  border: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 
-export type RadioGroundProps = ExtractPropTypes<typeof Props>
+type RadioGroundProps = ExtractPropTypes<typeof Props>
 
-export const RadioGroupPropsKey: InjectionKey<RadioGroundProps> =
-  Symbol('radioGroupKey')
+export const RadioGroupPropsKey = Symbol('') as InjectionKey<RadioGroundProps>
 
 export const Emits = {
-  'update:modelValue': (val: RadioGroundProps['modelValue']): boolean => {
+  'update:modelValue': (val: labelType): boolean => {
     return isString(val) || isNumber(val) || isBoolean(val)
   },
-  change: (val: RadioGroundProps['modelValue']): boolean => {
+  change: (val: labelType): boolean => {
     return isString(val) || isNumber(val) || isBoolean(val)
   }
 } as const

@@ -1,46 +1,88 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="FRadio">
   import { Props, Emits } from './radio'
-  import { computed, inject } from 'vue'
+  import { computed, inject, getCurrentInstance, ref } from 'vue'
   import { RadioGroupPropsKey } from '../../radio-group/src/radio-group'
-  import type { RadioGroundInterface as a } from '../../radio-group/src/interface'
+  import type {
+    ComputedRef,
+    WritableComputedRef,
+    ComponentInternalInstance,
+    Ref
+  } from 'vue'
+  import type {
+    RadioGroundInterface as a,
+    labelType
+  } from '../../radio-group/src/interface'
+  import type {
+    ordinaryFunctionInterface as b,
+    classListInterface as c
+  } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const handleChange = (): void => {
-    !prop.disabled && emit('change', prop.modelValue)
+  const radioGroup: Ref<null | a> = ref(null)
+
+  // 尝试获取父组件注入的依赖
+  const loadParentInject: b = (): void => {
+    const { parent } = getCurrentInstance() as ComponentInternalInstance
+    const parentName: string | undefined = (parent as ComponentInternalInstance)
+      .type.name
+
+    if (parentName && parentName === 'FRadioGroup') {
+      radioGroup.value = inject(RadioGroupPropsKey) as a
+    }
+  }
+  loadParentInject()
+
+  // 检测是否获取到父组件的依赖
+  const isGroup: ComputedRef<boolean> = computed(
+    (): boolean => !!radioGroup.value
+  )
+
+  const handleChange: b = (): void => {
+    if (prop.disabled) {
+      return
+    }
+    emit('change', prop.modelValue)
   }
 
-  const radioGroup = inject(RadioGroupPropsKey) as a
-  const isGroup = computed(() => !!radioGroup)
-
-  const modelValue = computed({
+  const modelValue: WritableComputedRef<labelType> = computed({
     get () {
-      return isGroup.value ? radioGroup.modelValue : prop.modelValue
+      return isGroup.value
+        ? (radioGroup.value as a).modelValue
+        : prop.modelValue
     },
     set (val) {
       if (isGroup.value) {
-        !radioGroup?.disabled && radioGroup.changeEvent(val || '')
+        !(radioGroup.value as a).disabled &&
+          (radioGroup.value as a).changeEvent(val || '')
       } else {
-        if (!prop.disabled) return
+        if (prop.disabled) return
         emit('change', val || '')
         emit('update:modelValue', val || '')
       }
     }
   })
-  const isChecked = computed(() => modelValue.value == prop.label)
+
+  const isChecked: ComputedRef<boolean> = computed(
+    (): boolean => (modelValue.value === prop.label) as boolean
+  )
+
+  const classList: ComputedRef<c> = computed((): c => {
+    const { disabled } = prop
+
+    return [
+      'f-radio',
+      {
+        'f-radio-checked': isChecked.value,
+        'f-radio-disabled': disabled || radioGroup.value?.disabled
+      }
+    ] as const
+  })
 </script>
 
 <template>
-  <label
-    :class="[
-      'f-radio',
-      {
-        'f-radio-checked': isChecked,
-        'f-radio-disabled': disabled || radioGroup.disabled
-      }
-    ]"
-  >
+  <label :class="classList">
     <input
       v-model="modelValue"
       hidden

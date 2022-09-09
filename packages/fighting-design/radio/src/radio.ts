@@ -1,5 +1,6 @@
 import { isNumber, isString, isBoolean } from '../../_utils'
-// import type { ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
+import type { labelType } from '../../radio-group/src/interface'
 
 export const Props = {
   disabled: {
@@ -7,7 +8,7 @@ export const Props = {
     default: (): boolean => false
   },
   modelValue: {
-    type: [String, Number, Boolean],
+    type: [String, Number, Boolean] as PropType<labelType>,
     default: (): string => ''
   },
   name: {
@@ -15,18 +16,16 @@ export const Props = {
     default: (): string => 'f-radio'
   },
   label: {
-    type: [String, Number, Boolean],
+    type: [String, Number, Boolean] as PropType<labelType>,
     default: (): string => ''
   }
-}
-
-export const Emits = {
-  'update:modelValue': (val: string | number | boolean): boolean =>
-    isString(val) || isNumber(val) || isBoolean(val),
-  change: (val: string | number | boolean): boolean =>
-    isString(val) || isNumber(val) || isBoolean(val)
 } as const
 
-// export type RadioProps = ExtractPropTypes<typeof Emits>
-// export type RadioEmits = typeof Emits
-// export type RadioInstance = InstanceType<typeof Radio>
+export const Emits = {
+  'update:modelValue': (val: labelType): boolean => {
+    return isString(val) || isNumber(val) || isBoolean(val)
+  },
+  change: (val: labelType): boolean => {
+    return isString(val) || isNumber(val) || isBoolean(val)
+  }
+} as const

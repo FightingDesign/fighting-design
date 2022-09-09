@@ -2,18 +2,18 @@
   import { provide, reactive, toRefs, computed } from 'vue'
   import { Props, Emits, RadioGroupPropsKey } from './radio-group'
   import { isString } from '../../_utils'
-  import type { RadioGroundProps } from './radio-group'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { classListInterface as a } from '../../_interface'
   import type {
     changeEventInterface as b,
-    RadioGroundInterface as c
+    RadioGroundInterface as c,
+    labelType
   } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const changeEvent: b = (value: RadioGroundProps['modelValue']): void => {
+  const changeEvent: b = (value: labelType): void => {
     emit('update:modelValue', value)
     emit('change', value)
   }
