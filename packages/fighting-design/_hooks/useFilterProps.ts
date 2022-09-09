@@ -17,24 +17,41 @@ import type {
  * @param props 原始 props
  * @param need 需要的键集合
  * @returns 需要的 props
+ * @examples let r = useFilterProps({ name: 'zs', age: 20 }, ['name']);
  */
-export const useFilterProps = <F, N>(props: F, need: string[]): b => {
-  const needProps: N | c = reactive({} as const)
+ export const useFilterProps = <T extends Record<string,unknown>,F extends keyof T>( 
+  O: T,
+  A:F[]
+):Record<F,T[F]> => {
 
-  //  过滤 props
-  const filterProps: a = (): void => {
-    for (const key of need) {
-      if (Object.hasOwn(props as unknown as object, key)) {
-        needProps[key] = (props as unknown as c)[key]
-      }
+  const f = {} as Record<F,T[F]>;
+
+  for (const v of A) {
+    if (v) {
+      f[v] = O[v]
     }
   }
 
-  //  获取结果
-  const getProps = (): N => {
-    filterProps()
-    return needProps as N
-  }
+  return f;
+};
 
-  return { getProps } as b
-}
+// export const useFilterProps = <F, N>(props: F, need: string[]): b => {
+//   const needProps: N | c = reactive({} as const)
+
+//   //  过滤 props
+//   const filterProps: a = (): void => {
+//     for (const key of need) {
+//       if (Object.hasOwn(props as unknown as object, key)) {
+//         needProps[key] = (props as unknown as c)[key]
+//       }
+//     }
+//   }
+
+//   //  获取结果
+//   const getProps = (): N => {
+//     filterProps()
+//     return needProps as N
+//   }
+
+//   return { getProps } as b
+// }
