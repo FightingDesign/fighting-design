@@ -2,9 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.4-alpha.6 (2022-09-11)
+
+**fest**
+
 - 新增 `f-ripple` 涟漪组件
-- 修复 `f-button` `f-loading` 动画样式问题
 - 新增 `f-radio` `f-radio-group` 组件
+
+**fix**
+
+- 修复 `f-button` `f-loading` 动画样式问题
+- 修复 `f-list-item` 换行高度不自适应的问题
 
 ## 0.6.4-alpha.5 (2022-09-06)
 

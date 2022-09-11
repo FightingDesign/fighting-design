@@ -1,10 +1,4 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const radio1 = ref('1')
-  // const change = (): void => {
-  //   console.log(radio.value)
-  // }
 </script>
 
 <template>

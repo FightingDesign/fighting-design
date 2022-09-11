@@ -4,6 +4,18 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.4-alpha.6 (2022-09-11)
+
+**fest**
+
+- Add `f-ripple` ripple component
+- Add `f-radio` `f-radio-group` component
+
+**fix**
+
+- Fix `f-button` and `f-loading` animation style problems
+- Fix the problem that the feed height of `f-list-item` is not adaptive
+
 ## 0.6.4-alpha.5 (2022-09-06)
 
 - Test and repair side effect component registration
