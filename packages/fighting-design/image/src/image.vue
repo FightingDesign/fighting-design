@@ -49,7 +49,7 @@
       captionWidth.value = width
     }
 
-    const needProps = useFilterProps(prop, [
+    const needProps: c = useFilterProps<FPropsType, c>(prop, [
       'src',
       'errSrc',
       'rootMargin',

@@ -92,7 +92,7 @@
       isSuccess.value = params
       isShowNode.value = params
     }
-    const needProps = useFilterProps(prop, [
+    const needProps: b = useFilterProps<FPropsType, b>(prop, [
       'src',
       'errSrc',
       'rootMargin',
