@@ -65,14 +65,11 @@
   })
 
   const isChecked: ComputedRef<boolean> = computed((): boolean => {
-    console.log(radioGroup?.value?.modelValue, prop.label)
     return (modelValue.value === prop.label) as boolean
   })
 
   const classList: ComputedRef<c> = computed((): c => {
     const { disabled } = prop
-
-    console.log(isChecked.value)
 
     return [
       'f-radio',
