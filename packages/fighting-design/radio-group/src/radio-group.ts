@@ -11,10 +11,6 @@ export const Props = {
     type: [String, Number, Boolean] as PropType<labelType>,
     default: (): string => ''
   },
-  label: {
-    type: String,
-    default: (): string => ''
-  },
   vertical: {
     type: Boolean,
     default: (): boolean => false

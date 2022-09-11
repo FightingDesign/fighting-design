@@ -8,9 +8,11 @@
 </script>
 
 <template>
-  <f-radio-group>
-    <f-radio label="1" disabled> 备选项1 </f-radio>
-    <f-radio label="2"> 备选项2 </f-radio>
-    <f-radio label="3"> 备选项3 </f-radio>
-  </f-radio-group>
+  <f-list>
+    <f-list-item>这是一段文字这是一段文字这是一段文字这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+  </f-list>
 </template>
