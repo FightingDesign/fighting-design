@@ -184,6 +184,12 @@
   &.f-button-color {
     background: var(--f-button-default-color);
 
+    &.f-button-disabled {
+      &:hover {
+        background: var(--f-button-default-color);
+      }
+    }
+
     &:hover {
       background: var(--f-button-hover-color);
     }

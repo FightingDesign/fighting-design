@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**fix**
+
+- 修复 `f-button` 组件自定义颜色的 `hover` 和 `disabled` 样式
+
 ## 0.6.4-alpha.6 (2022-09-11)
 
 **fest**
