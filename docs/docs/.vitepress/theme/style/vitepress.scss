@@ -57,8 +57,25 @@ details {
   }
 }
 
+// 顶部 logo
 .VPNavBarTitle.has-sidebar {
   border: none;
+}
+
+// 左侧选项链接
+.VPSidebarGroup {
+  .VPLink.link.link {
+    margin: 0;
+    padding: 5px 18px;
+    transition: 0.4s;
+  }
+  .VPLink.link.link.active {
+    background: lighten(#2d5af1, 39%);
+    border-radius: 6px;
+    .link-text {
+      font-weight: 600;
+    }
+  }
 }
 
 // 滚动条
