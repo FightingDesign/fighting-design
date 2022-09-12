@@ -1,5 +1,6 @@
 :root {
   --vp-c-green: #5d80f4;
+  --vp-c-brand-dark: #5d80f4;
 }
 
 .sidebar-link-item.active {
@@ -11,6 +12,7 @@ a {
   text-decoration: none;
 }
 
+// 代码片段下拉菜单
 details {
   padding: 10px !important;
   margin: 10px 0 !important;
