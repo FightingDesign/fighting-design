@@ -5,6 +5,11 @@
 **fix**
 
 - 修复 `f-button` 组件自定义颜色的 `hover` 和 `disabled` 样式
+- 修复 `f-page-header` 组件样式细节
+
+**fest**
+
+- 废除 `f-page-header` 的 `titleClass` 和 `subtitleClass` 配置项
 
 ## 0.6.4-alpha.6 (2022-09-11)
 

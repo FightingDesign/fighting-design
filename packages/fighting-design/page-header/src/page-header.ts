@@ -1,5 +1,3 @@
-import type { PropType } from 'vue'
-
 export const Props = {
   icon: {
     type: String,
@@ -17,12 +15,6 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  titleClass: {
-    type: [String, Object, Array] as PropType<
-      string | object | (string | object)[]
-    >,
-    default: (): string => ''
-  },
   titleBold: {
     type: Boolean,
     default: (): boolean => false
@@ -37,12 +29,6 @@ export const Props = {
   },
   subtitle: {
     type: String,
-    default: (): string => ''
-  },
-  subtitleClass: {
-    type: [String, Object, Array] as PropType<
-      string | object | (string | object)[]
-    >,
     default: (): string => ''
   }
 } as const

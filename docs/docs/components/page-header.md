@@ -1,21 +1,24 @@
 # Page Header 页头
 
-`Page Header` 用于展示概览和引导页级操作
+用于展示概览和引导页级操作
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/page-header)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/page-header.md)
 
 ## 基本使用
 
-<f-page-header @back="goBack" title="标题" />
+`title` 属性可以配置标题内容，点击右侧返回可以触发 `back` 回调函数
+
+<f-page-header title="标题" @back="goBack" />
 
 ::: details 显示代码
 ``
 
 ```html
 <template>
-  <f-page-header @back="goBack" title="标题" />
+  <f-page-header title="标题" @back="goBack" />
 </template>
+
 <script lang="ts" setup>
   const goBack = () => {
     console.log('go back')
@@ -25,7 +28,9 @@
 
 :::
 
-## 自定义返回图标与返回文本
+## 自定义样式
+
+`icon` 可以自定义返回图标，`back-text` 可以自定义返回文字内容
 
 <f-page-header icon="f-icon-arrow-left" back-text="返回上一页" title="标题" />
 
@@ -39,7 +44,9 @@
 
 :::
 
-## 自定义副标题内容
+## 副标题
+
+`subtitle` 可以配置带有副标题
 
 <f-page-header title="标题" subtitle="副标题" />
 
