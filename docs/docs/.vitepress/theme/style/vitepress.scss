@@ -1,15 +1,11 @@
 :root {
   --vp-c-green: #5d80f4;
   --vp-c-brand-dark: #5d80f4;
+  --vp-c-bg-alt: #fff;
 }
 
 .sidebar-link-item.active {
   background: rgba(82, 179, 94, 0.1);
-}
-
-a {
-  color: #2d5af1;
-  text-decoration: none;
 }
 
 // 代码片段下拉菜单
@@ -34,7 +30,43 @@ details {
   }
 }
 
-.vp-doc ul {
-  list-style: none;
-  padding-left: 0;
+.vp-doc {
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  // 表格
+  table {
+    width: 100%;
+    display: table;
+  }
+  th,
+  tr:nth-child(2n) {
+    background-color: transparent;
+  }
+  tr {
+    border-top: none;
+    border-bottom: 1px solid rgb(231, 230, 230);
+  }
+  td,
+  th {
+    text-align: center;
+    font-size: 15px;
+    border: none;
+  }
+}
+
+.VPNavBarTitle.has-sidebar {
+  border: none;
+}
+
+// 滚动条
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #dddddd;
+  border-radius: 6px;
 }
