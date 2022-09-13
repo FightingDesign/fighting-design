@@ -92,13 +92,13 @@
   }
 
   // 左侧 icon
-  const leftIconClass: ComputedRef<string> = computed<string>((): string => {
-    const { loading, loadingIcon, leftIcon } = prop
+  const beforeIconClass: ComputedRef<string> = computed<string>((): string => {
+    const { loading, loadingIcon, beforeIcon } = prop
 
     if (loading) {
       return `${loadingIcon || 'f-icon-loading'} f-loading-animation` as string
     }
-    return leftIcon as string
+    return beforeIcon as string
   })
 
   // 自定义颜色
@@ -132,12 +132,12 @@
       @click="handleClick"
     >
       <f-icon
-        v-if="leftIcon || loading"
-        :icon="leftIconClass"
+        v-if="beforeIcon || loading"
+        :icon="beforeIconClass"
         :style="styleList"
       />
       <slot />
-      <f-icon v-if="rightIcon" :icon="rightIcon" :style="styleList" />
+      <f-icon v-if="afterIcon" :icon="afterIcon" :style="styleList" />
     </a>
   </template>
 
@@ -153,12 +153,12 @@
       @click="handleClick"
     >
       <f-icon
-        v-if="leftIcon || loading"
-        :icon="leftIconClass"
+        v-if="beforeIcon || loading"
+        :icon="beforeIconClass"
         :style="styleList"
       />
       <slot />
-      <f-icon v-if="rightIcon" :icon="rightIcon" :style="styleList" />
+      <f-icon v-if="afterIcon" :icon="afterIcon" :style="styleList" />
     </button>
   </template>
 </template>

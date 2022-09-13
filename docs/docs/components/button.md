@@ -25,11 +25,11 @@
 
 `circle` 可以配置圆形按钮
 
-<f-button circle left-icon="f-icon-camera-fill" type="default" />
-<f-button circle left-icon="f-icon-good-fill" type="primary" />
-<f-button circle left-icon="f-icon-discount-fill" type="success" />
-<f-button circle left-icon="f-icon-Exportservices" type="danger" />
-<f-button circle left-icon="f-icon-map1" type="warning" />
+<f-button circle before-icon="f-icon-camera-fill" type="default" />
+<f-button circle before-icon="f-icon-good-fill" type="primary" />
+<f-button circle before-icon="f-icon-discount-fill" type="success" />
+<f-button circle before-icon="f-icon-Exportservices" type="danger" />
+<f-button circle before-icon="f-icon-map1" type="warning" />
 
 ::: details 显示代码
 
@@ -46,11 +46,11 @@
 <f-button simple type="danger">危险按钮</f-button>
 <f-button simple type="warning">警告按钮</f-button>
 
-<f-button circle left-icon="f-icon-camera-fill" type="default" />
-<f-button circle left-icon="f-icon-good-fill" type="primary" />
-<f-button circle left-icon="f-icon-discount-fill" type="success" />
-<f-button circle left-icon="f-icon-Exportservices" type="danger" />
-<f-button circle left-icon="f-icon-map1" type="warning" />
+<f-button circle before-icon="f-icon-camera-fill" type="default" />
+<f-button circle before-icon="f-icon-good-fill" type="primary" />
+<f-button circle before-icon="f-icon-discount-fill" type="success" />
+<f-button circle before-icon="f-icon-Exportservices" type="danger" />
+<f-button circle before-icon="f-icon-map1" type="warning" />
 ```
 
 :::
@@ -312,8 +312,8 @@
 | `loading`       | 是否展示 loading 状态                                                                                                                                       | boolean | ——                                                      | false    |
 | `loading-icon`  | loading 状态的 icon                                                                                                                                         | string  | ——                                                      | ——       |
 | `disabled`      | 是否禁用按钮                                                                                                                                                | boolean | ——                                                      | false    |
-| `left-icon`     | 自定义按钮左侧的 icon                                                                                                                                       | string  | ——                                                      | ——       |
-| `right-icon`    | 自定义按钮右侧的 icon                                                                                                                                       | string  | ——                                                      | ——       |
+| `before-icon`     | 自定义按钮左侧的 icon                                                                                                                                       | string  | ——                                                      | ——       |
+| `after-icon`    | 自定义按钮右侧的 icon                                                                                                                                       | string  | ——                                                      | ——       |
 | `type`          | 按钮的类型                                                                                                                                                  | string  | `default` `primary` `success` <br /> `danger` `warning` | default  |
 | `autofocus`     | 是否自动获取焦点                                                                                                                                            | boolean | ——                                                      | false    |
 | `name`          | 按钮的名字                                                                                                                                                  | string  | ——                                                      | f-button |
