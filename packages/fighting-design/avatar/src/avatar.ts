@@ -64,7 +64,7 @@ export const Props = {
     default: (): string => ''
   },
   rootMargin: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => '100px'
   },
   loadAnimation: {
