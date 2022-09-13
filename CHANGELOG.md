@@ -16,6 +16,8 @@
 
 - 废除 `f-page-header` 的 `titleClass` 和 `subtitleClass` 配置项
 - `f-lint` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-button` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-tag` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
 
 ## 0.6.4-alpha.6 (2022-09-11)
 

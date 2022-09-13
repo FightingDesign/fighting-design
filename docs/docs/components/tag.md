@@ -129,9 +129,9 @@
 
 ## 带有 icon
 
-通过 `left-icon` 和 `right-icon` 可以设置左右 icon 的值
+通过 `before-icon` 和 `after-icon` 可以设置左右 icon 的值
 
-注意：当同时设置 `right-icon` 与 `close` 时，关闭的 icon 将始终位于最右侧。
+注意：当同时设置 `after-icon` 与 `close` 时，关闭的 icon 将始终位于最右侧。
 
 <f-tag type="default" size="small" leftIcon="f-icon-Daytimemode">标签</f-tag>
 <f-tag type="primary" size="small" rightIcon="f-icon-email">标签</f-tag>
@@ -181,8 +181,8 @@
 | `round`      | 圆角           | boolean | ——                                               | false   |
 | `background` | 自定义背景色   | string  | ——                                               | ——      |
 | `color`      | 自定义文字颜色 | string  | ——                                               | ——      |
-| `left-icon`  | 左侧 icon      | string  | ——                                               | ——      |
-| `right-icon` | 右侧 icon      | string  | ——                                               | ——      |
+| `before-icon`  | 左侧 icon      | string  | ——                                               | ——      |
+| `after-icon` | 右侧 icon      | string  | ——                                               | ——      |
 | `size`       | 标签大小       | string  | `large` `middle` `small` `mini`                  | small   |
 | `simple`     | 是否为简约模式 | boolean | ——                                               | false   |
 | `block`      | 是否为块级元素 | boolean | ——                                               | false   |

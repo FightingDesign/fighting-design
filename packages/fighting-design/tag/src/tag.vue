@@ -35,9 +35,9 @@
 
 <template>
   <div v-if="isShow" :class="classList" :style="{ background, color }">
-    <f-icon v-if="leftIcon" :icon="leftIcon" />
+    <f-icon v-if="beforeIcon" :icon="beforeIcon" />
     <slot />
-    <f-icon v-if="rightIcon" :icon="rightIcon" />
+    <f-icon v-if="afterIcon" :icon="afterIcon" />
 
     <f-icon v-if="close" icon="f-icon-close" @click.stop="handleClose" />
   </div>

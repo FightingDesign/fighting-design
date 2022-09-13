@@ -27,11 +27,11 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  leftIcon: {
+  beforeIcon: {
     type: String,
     default: (): string => ''
   },
-  rightIcon: {
+  afterIcon: {
     type: String,
     default: (): string => ''
   },
