@@ -178,7 +178,7 @@
 | `font-size`      | 字体大小                                                                                                 | string          | ——                                           | ——     |
 | `font-color`     | 字体的颜色                                                                                               | string          | ——                                           | ——     |
 | `text`           | 文字头像                                                                                                 | string          | ——                                           | ——     |
-| `root-margin`    | 触发懒加载的距离                                                                                         | string          | ——                                           | 100px  |
+| `root-margin`    | 触发懒加载的距离                                                                                         | string / number | ——                                           | 100px  |
 | `load-animation` | 是否启用加载中动画                                                                                       | boolean         | ——                                           | false  |
 
 ## Slots

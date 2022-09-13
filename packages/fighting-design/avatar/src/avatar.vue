@@ -120,10 +120,10 @@
       v-else
       v-show="isShowNode"
       ref="FAvatarImg"
+      src=""
       :style="imageSizeStyleList"
       :class="nodeClassList"
       :alt="alt"
-      src=""
     >
   </div>
 

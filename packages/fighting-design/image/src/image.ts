@@ -8,7 +8,7 @@ export const Props = {
   },
   alt: {
     type: String,
-    default: (): string => '加载失败'
+    default: (): string => ''
   },
   draggable: {
     type: Boolean,

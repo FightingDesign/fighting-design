@@ -24,6 +24,7 @@
 - `f-loading` 组件的 `text-color` `text-size` 配置项更名为 `font-color` `font-size`
 - `f-empty` 组件废除 `style-list` 配置项
 - 拆分 `f-empty` 组件
+- 优化 `f-avatar` 样式细节
 
 ## 0.6.4-alpha.6 (2022-09-11)
 
