@@ -41,11 +41,9 @@ export class Ripples implements RipplesInterface {
     //   this.evt.clientY - (this.evt.target as HTMLElement).offsetTop
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const x: number = (this.evt as any).layerX as number
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const y: number = (this.evt as any).layerY as number
+    const { layerX, layerY }: { layerX: number, layerY: number } = this.evt as any
 
-    const ripples: HTMLSpanElement = this.renderElement(x, y)
+    const ripples: HTMLSpanElement = this.renderElement(layerX, layerY)
 
     this.node.appendChild(ripples)
     this.removeElement(ripples)

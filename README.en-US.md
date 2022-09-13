@@ -87,7 +87,11 @@ Add WeChat & please note the `Github` username
 
 ## 💌 Special Thanks
 
-Thanks to [everyone](https://github.com/FightingDesign/fighting-design/graphs/contributors) who has already contributed to `Fighting Design`
+Thanks to [everyone](https://github.com/FightingDesign/fighting-design/graphs/contributors) who has already contributed to `Fighting Design`!
+
+<a href="https://github.com/FightingDesign/fighting-design/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=FightingDesign/fighting-design" />
+</a>
 
 ## 💬 LICENSE
 
