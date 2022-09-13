@@ -12,6 +12,7 @@
 
 - `f-icon` 组件的 `size` 属性支持 `number` 类型
 - `f-button` 组件的 `font-size` 属性支持 `number` 类型
+- `f-image` 组件 `rootMargin` `width` `height` 属性支持 `number` 类型
 
 **other**
 
@@ -20,6 +21,8 @@
 - `f-button` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
 - `f-tag` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
 - `f-loading` 组件的 `text-color` `text-size` 配置项更名为 `font-color` `font-size`
+- `f-empty` 组件废除 `style-list` 配置项
+- 拆分 `f-empty` 组件
 
 ## 0.6.4-alpha.6 (2022-09-11)
 

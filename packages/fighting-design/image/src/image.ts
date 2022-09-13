@@ -3,35 +3,35 @@ import type { imageFit } from './interface'
 
 export const Props = {
   src: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   alt: {
-    type: String as PropType<string>,
-    default: (): string => ''
+    type: String,
+    default: (): string => '加载失败'
   },
   draggable: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   lazy: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   rootMargin: {
-    type: String as PropType<string>,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => '100px'
   },
   width: {
-    type: String as PropType<string>,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   height: {
-    type: String as PropType<string>,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   block: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   fit: {
@@ -44,35 +44,35 @@ export const Props = {
     }
   },
   noSelect: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => false
   },
   referrerPolicy: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   round: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   errSrc: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   caption: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   captionColor: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => '#fff'
   },
   modalClose: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   showCloseBtn: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   previewList: {
@@ -94,15 +94,15 @@ export const Props = {
     }
   },
   previewShowOption: {
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: (): boolean => true
   },
   previewRound: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   title: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   }
 } as const

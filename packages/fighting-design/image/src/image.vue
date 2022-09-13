@@ -1,15 +1,16 @@
 <script lang="ts" setup name="FImage">
   import FPreviewList from '../../_components/preview-list.vue'
   import { Props, Emits, ImagePropsKey } from './image'
-  import { onMounted, ref, provide } from 'vue'
-  import { loadImage } from '../../_utils'
+  import { onMounted, ref, provide, computed } from 'vue'
+  import { loadImage, isString } from '../../_utils'
   import { useFilterProps } from '../../_hooks/useFilterProps'
-  import type { Ref } from 'vue'
+  import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { FPropsType } from './image'
   import type { callbackInterface as a } from './interface'
   import type {
     ordinaryFunctionInterface as b,
-    LoadNeedImagePropsInterface as c
+    LoadNeedImagePropsInterface as c,
+    classListInterface as d
   } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
@@ -62,23 +63,53 @@
   onMounted((): void => {
     loadAction()
   })
+
+  const classList: ComputedRef<d> = computed((): d => {
+    const { fit, noSelect, previewList } = prop
+
+    return [
+      'f-image-img',
+      {
+        [`f-image-${fit}`]: fit,
+        'f-image-select': noSelect,
+        'f-image-pointer': previewList && previewList.length
+      }
+    ] as const
+  })
+
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { width, height, round } = prop
+
+    return {
+      width: isString(width) ? width : width + 'px',
+      height: isString(height) ? height : height + 'px',
+      borderRadius: round
+    } as const
+  })
+
+  const captionStyleList: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { width, captionColor, round } = prop
+
+      return {
+        width: width || `${captionWidth.value}px`,
+        color: captionColor,
+        borderBottomLeftRadius: round,
+        borderBottomRightRadius: round
+      } as const
+    }
+  )
 </script>
 
 <template>
   <div v-if="isSuccess" :class="['f-image', { 'f-image-block': block }]">
+    <!-- 真正展示的图片 -->
     <img
       v-show="isShowNode"
       ref="FImageImg"
       src=""
-      :class="[
-        'f-image-img',
-        {
-          [`f-image-${fit}`]: fit,
-          'f-image-select': noSelect,
-          'f-image-pointer': previewList && previewList.length
-        }
-      ]"
-      :style="{ width, height, borderRadius: round }"
+      :class="classList"
+      :style="styleList"
       :draggable="draggable"
       :referrer-policy="referrerPolicy"
       :alt="alt"
@@ -86,16 +117,12 @@
       @click="handleClick"
     >
 
+    <!-- 说明文字 -->
     <div
       v-if="caption"
       v-show="isSuccess"
       class="f-image-caption"
-      :style="{
-        width: width || `${captionWidth}px`,
-        color: captionColor,
-        borderBottomLeftRadius: round,
-        borderBottomRightRadius: round
-      }"
+      :style="captionStyleList"
     >
       {{ caption }}
     </div>
@@ -110,7 +137,7 @@
 
   <div v-else class="f-image-error">
     <slot name="error">
-      <span class="f-image-error-text">{{ alt || '加载失败' }}</span>
+      <span class="f-image-error-text">{{ alt }}</span>
     </slot>
   </div>
 </template>

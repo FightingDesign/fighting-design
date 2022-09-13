@@ -1,3 +1,4 @@
+import { isString } from './utils'
 import type {
   LazyInterface,
   LoadInterface,
@@ -114,7 +115,11 @@ class Lazy extends Load implements LazyInterface {
           observer.unobserve(this.node)
         }
       },
-      { rootMargin: this.props.rootMargin }
+      {
+        rootMargin: isString(this.props.rootMargin)
+          ? this.props.rootMargin
+          : this.props.rootMargin + 'px'
+      }
     )
     return observer
   }

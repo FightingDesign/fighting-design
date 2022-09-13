@@ -1,9 +1,9 @@
-import type { CSSProperties, PropType } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   content: {
     type: String,
-    default: (): string => ''
+    default: (): string => '暂无数据'
   },
   contentSize: {
     type: String,
@@ -18,17 +18,11 @@ export const Props = {
     default: (): string => ''
   },
   imageSize: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   background: {
     type: String,
     default: (): string => ''
-  },
-  styleList: {
-    type: Object as PropType<CSSProperties>,
-    default: (): CSSProperties => {
-      return {} as const
-    }
   }
 } as const

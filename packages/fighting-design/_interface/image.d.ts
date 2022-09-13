@@ -4,7 +4,7 @@
 export interface LoadNeedImagePropsInterface {
   src: string
   errSrc: string
-  rootMargin: string
+  rootMargin: string | number
   lazy: boolean
 }
 
