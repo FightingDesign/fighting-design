@@ -11,6 +11,7 @@
 **fest**
 
 - `f-icon` 组件的 `size` 属性支持 `number` 类型
+- `f-button` 组件的 `font-size` 属性支持 `number` 类型
 
 **other**
 

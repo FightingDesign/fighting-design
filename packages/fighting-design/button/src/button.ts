@@ -20,7 +20,7 @@ export const Props = {
     default: (): boolean => false
   },
   fontSize: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   fontColor: {

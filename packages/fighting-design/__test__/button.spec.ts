@@ -36,6 +36,13 @@ describe('FButton', () => {
     expect(wrapper.attributes('style')).toContain('20px')
   })
 
+  test('fontSize', () => {
+    const wrapper = mount(FButton, {
+      props: { fontSize: 17 }
+    })
+    expect(wrapper.attributes('style')).toContain('17px')
+  })
+
   test('fontColor', () => {
     const wrapper = mount(FButton, {
       props: { fontColor: 'red' }

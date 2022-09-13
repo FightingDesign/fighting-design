@@ -2,7 +2,7 @@
   import { FIcon } from '../../icon'
   import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
-  import { Ripples, ChangeColor } from '../../_utils'
+  import { Ripples, ChangeColor, isString } from '../../_utils'
   import type { FPropsType } from './button'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { onClickInterface as a } from './interface'
@@ -54,7 +54,7 @@
     const { fontSize, fontColor, shadow } = prop
 
     return {
-      fontSize,
+      fontSize: isString(fontSize) ? fontSize : fontSize + 'px',
       boxShadow: shadow,
       color: fontColor
     } as const
