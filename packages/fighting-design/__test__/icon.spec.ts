@@ -35,4 +35,11 @@ describe('FIcon', () => {
     })
     expect(wrapper.attributes('style')).toContain('15px')
   })
+
+  test('size', () => {
+    const wrapper = mount(FIcon, {
+      props: { size: 16 }
+    })
+    expect(wrapper.attributes('style')).toContain('16px')
+  })
 })
