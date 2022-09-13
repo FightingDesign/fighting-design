@@ -75,8 +75,8 @@
 | `close`      | 是否点击可以关闭 | boolean | ——     | false  |
 | `text`       | 说明文字         | string  | ——     | ——     |
 | `icon`       | loading 的 icon  | string  | ——     | ——     |
-| `text-color` | 说明文字颜色     | string  | ——     | ——     |
-| `text-size`  | 说明文字大小     | string  | ——     | ——     |
+| `font-color` | 说明文字颜色     | string  | ——     | ——     |
+| `font-size`  | 说明文字大小     | string  | ——     | ——     |
 | `background` | 遮罩层背景色     | string  | ——     | ——     |
 | `opacity`    | 遮罩层透明度     | number  | ——     | ——     |
 

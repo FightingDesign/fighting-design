@@ -15,11 +15,11 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  textColor: {
+  fontColor: {
     type: String,
     default: (): string => ''
   },
-  textSize: {
+  fontSize: {
     type: String,
     default: (): string => ''
   },

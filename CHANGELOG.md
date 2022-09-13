@@ -19,6 +19,7 @@
 - `f-lint` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
 - `f-button` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
 - `f-tag` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-loading` 组件的 `text-color` `text-size` 配置项更名为 `font-color` `font-size`
 
 ## 0.6.4-alpha.6 (2022-09-11)
 
