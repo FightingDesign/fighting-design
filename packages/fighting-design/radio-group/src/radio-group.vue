@@ -10,11 +10,7 @@
   import { isString } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { classListInterface as a } from '../../_interface'
-  import type {
-    changeEventInterface as b,
-    RadioGroundInterface as c,
-    labelType
-  } from './interface'
+  import type { changeEventInterface as b, labelType } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -24,10 +20,10 @@
     emit('change', value)
   }
 
-  const RadioGround: c = reactive({
+  const RadioGround = reactive({
     ...toRefs(prop),
     changeEvent
-  })
+  } as const)
 
   provide(RadioGroupPropsKey, RadioGround)
 
