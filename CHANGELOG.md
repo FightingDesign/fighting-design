@@ -6,6 +6,7 @@
 
 - 修复 `f-button` 组件自定义颜色的 `hover` 和 `disabled` 样式
 - 修复 `f-page-header` 组件样式细节
+- 修复 `f-button` 组件 `text` 配置项样式细节
 
 **fest**
 
