@@ -31,13 +31,11 @@
 
 `size` 属性可以配置不同大小的 `link`
 
-`size` 必须写入指定的数值和单位才可以正常工作
-
 <f-link href="" size="12px" type="default">默认链接</f-link>
 <f-link href="" size="12px" type="primary">主要链接</f-link>
 <f-link href="" size="16px" type="success">成功链接</f-link>
-<f-link href="" size="20px" type="danger">危险链接</f-link>
-<f-link href="" size="24px" type="warning">警告链接</f-link>
+<f-link href="" :size="20" type="danger">危险链接</f-link>
+<f-link href="" :size="24" type="warning">警告链接</f-link>
 
 ::: details 显示代码
 
@@ -45,8 +43,8 @@
 <f-link href="" size="12px" type="default">默认链接</f-link>
 <f-link href="" size="12px" type="primary">主要链接</f-link>
 <f-link href="" size="16px" type="success">成功链接</f-link>
-<f-link href="" size="20px" type="danger">危险链接</f-link>
-<f-link href="" size="24px" type="warning">警告链接</f-link>
+<f-link href="" :size="20" type="danger">危险链接</f-link>
+<f-link href="" :size="24" type="warning">警告链接</f-link>
 ```
 
 :::
@@ -119,50 +117,46 @@
 
 ## 带有 icon
 
-`left-icon` 和 `right-icon` 可以分别配置左侧和右侧的 `icon`
+`before-icon` 和 `after-icon` 可以分别配置左侧和右侧的 `icon`
 
-<f-link href="" type="primary" left-icon="f-icon-coupons-fill">左侧 icon</f-link>
-<f-link href="" type="success" right-icon="f-icon-Notvisible">右侧 icon</f-link>
-<f-link href="" type="danger" left-icon="f-icon-arrow-left" right-icon="f-icon-arrow-right">左右都有</f-link>
-<f-link href=""  left-icon="f-icon-attachent" color="#85efde">自定义颜色</f-link>
-<f-link href="" state="line" left-icon="f-icon-auto1">带有下划线</f-link>
+<f-link href="" type="primary" before-icon="f-icon-coupons-fill">左侧 icon</f-link>
+<f-link href="" type="success" after-icon="f-icon-Notvisible">右侧 icon</f-link>
+<f-link href="" type="danger" before-icon="f-icon-arrow-left" after-icon="f-icon-arrow-right">左右都有</f-link>
 
 ::: details 显示代码
 
 ```html
-<f-link href="" type="primary" left-icon="f-icon-coupons-fill">
+<f-link href="" type="primary" before-icon="f-icon-coupons-fill">
   左侧 icon
 </f-link>
-<f-link href="" type="success" right-icon="f-icon-Notvisible">右侧 icon</f-link>
+<f-link href="" type="success" after-icon="f-icon-Notvisible">右侧 icon</f-link>
 <f-link
   href=""
   type="danger"
-  left-icon="f-icon-arrow-left"
-  right-icon="f-icon-arrow-right"
+  before-icon="f-icon-arrow-left"
+  after-icon="f-icon-arrow-right"
 >
   左右都有
 </f-link>
-<f-link href="" left-icon="f-icon-attachent" color="#85efde">自定义颜色</f-link>
-<f-link href="" state="line" left-icon="f-icon-auto1">带有下划线</f-link>
 ```
 
 :::
 
 ## Attributes
 
-| 参数         | 说明                                                                                      | 类型    | 可选值                                                 | 默认值  |
-| ------------ | ----------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------ | ------- |
-| `type`       | link 的类型                                                                               | string  | `default` `primary` `success`<br /> `danger` `warning` | primary |
-| `href`       | 链接的地址                                                                                | string  | ——                                                     | ——      |
-| `size`       | link 的文字大小                                                                           | string  | ——                                                     | ——      |
-| `state`      | link 状态的样式状态                                                                       | string  | `line` `bag`                                           | ——      |
-| `prohibit`   | 是否禁用                                                                                  | boolean | ——                                                     | false   |
-| `left-icon`  | 左侧的 icon                                                                               | string  | ——                                                     | ——      |
-| `right-icon` | 右侧的 icon                                                                               | string  | ——                                                     | ——      |
-| `target`     | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | string  | `_self` `_blank` `_parent` `_top`                      | ——      |
-| `color`      | 自定义 link 颜色                                                                          | string  | ——                                                     | ——      |
-| `no-copy`    | 是否禁止 copy                                                                             | boolean | ——                                                     | false   |
-| `no-link`    | 是否禁止链接跳转及重新加载（取消默认事件）                                                | boolean | ——                                                     | false   |
+| 参数          | 说明                                                                                      | 类型            | 可选值                                                 | 默认值  |
+| ------------- | ----------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------ | ------- |
+| `type`        | link 的类型                                                                               | string          | `default` `primary` `success`<br /> `danger` `warning` | primary |
+| `href`        | 链接的地址                                                                                | string          | ——                                                     | ——      |
+| `size`        | link 的文字大小                                                                           | string / number | ——                                                     | ——      |
+| `state`       | link 状态的样式状态                                                                       | string          | `line` `bag`                                           | ——      |
+| `prohibit`    | 是否禁用                                                                                  | boolean         | ——                                                     | false   |
+| `before-icon` | 左侧的 icon                                                                               | string          | ——                                                     | ——      |
+| `after-icon`  | 右侧的 icon                                                                               | string          | ——                                                     | ——      |
+| `target`      | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | string          | `_self` `_blank` `_parent` `_top`                      | ——      |
+| `color`       | 自定义 link 颜色                                                                          | string          | ——                                                     | ——      |
+| `no-copy`     | 是否禁止 copy                                                                             | boolean         | ——                                                     | false   |
+| `no-link`     | 是否禁止链接跳转及重新加载（取消默认事件）                                                | boolean         | ——                                                     | false   |
 
 ## Slots
 

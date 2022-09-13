@@ -16,7 +16,7 @@ export const Props = {
     default: (): string => ''
   },
   size: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   state: {
@@ -30,11 +30,11 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  leftIcon: {
+  beforeIcon: {
     type: String,
     default: (): string => ''
   },
-  rightIcon: {
+  afterIcon: {
     type: String,
     default: (): string => ''
   },
