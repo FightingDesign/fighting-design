@@ -12,7 +12,7 @@
 
 - `f-icon` 组件的 `size` 属性支持 `number` 类型
 
-**其它**
+**other**
 
 - 废除 `f-page-header` 的 `titleClass` 和 `subtitleClass` 配置项
 - `f-lint` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
