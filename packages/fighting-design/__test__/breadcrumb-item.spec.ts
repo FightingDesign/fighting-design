@@ -7,4 +7,11 @@ describe('FBreadcrumb', () => {
     const wrapper = mount(FBreadcrumbItem)
     expect(wrapper.classes()).toContain('f-breadcrumb-item')
   })
+
+  test('slot', () => {
+    const wrapper = mount(FBreadcrumbItem, {
+      slots: { default: 'hello' }
+    })
+    expect(wrapper.text()).toBe('hello')
+  })
 })
