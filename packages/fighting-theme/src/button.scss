@@ -66,7 +66,7 @@
 
       // 文字按钮
       &.f-button-text {
-        background: #fff;
+        background: none;
         color: map-get($item, simpleTextColor);
 
         &:hover {
