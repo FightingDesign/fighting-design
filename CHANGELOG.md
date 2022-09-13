@@ -10,6 +10,7 @@
 **fest**
 
 - 废除 `f-page-header` 的 `titleClass` 和 `subtitleClass` 配置项
+- `f-icon` 组件的 `size` 属性支持 `number` 类型
 
 ## 0.6.4-alpha.6 (2022-09-11)
 

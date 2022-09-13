@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FIcon">
   import { Props, Emits } from './icon'
   import { computed } from 'vue'
+  import { isString } from '../../_utils'
   import type { CSSProperties, ComputedRef } from 'vue'
   import type { handleClickInterface as a } from './interface'
   import type { classListInterface as b } from '../../_interface'
@@ -21,7 +22,10 @@
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { color, size } = prop
 
-    return { color, fontSize: size } as const
+    return {
+      color,
+      fontSize: isString(size) ? size : size + 'px'
+    } as const
   })
 </script>
 

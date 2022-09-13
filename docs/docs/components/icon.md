@@ -31,12 +31,12 @@
 
 ## Attributes
 
-| 参数         | 说明                           | 类型   | 可选值                | 默认值 |
-| ------------ | ------------------------------ | ------ | --------------------- | ------ |
-| `icon`       | icon 的 class                  | string | ——                    | ——     |
-| `font-class` | FontClass 用于自定义 icon 集合 | string | ——                    | ——     |
-| `color`      | icon 的颜色                    | string | ——                    | ——     |
-| `size`       | icon 的字体大小                | string | ——                    | ——     |
+| 参数         | 说明                           | 类型            | 可选值 | 默认值 |
+| ------------ | ------------------------------ | --------------- | ------ | ------ |
+| `icon`       | icon 的 class                  | string          | ——     | ——     |
+| `font-class` | FontClass 用于自定义 icon 集合 | string          | ——     | ——     |
+| `color`      | icon 的颜色                    | string          | ——     | ——     |
+| `size`       | icon 的字体大小                | string / number | ——     | 16px   |
 
 ## Icon 集合
 
