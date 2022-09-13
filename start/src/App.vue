@@ -1,15 +1,11 @@
 <script lang="ts" setup>
-  const goBack = (): void => {
-    console.log('go back')
-  }
+  import dynamicIslandVue from './components/dynamic-Island.vue'
+  import { FAlert } from '../../packages/fighting-design/index'
 </script>
 
 <template>
-  <f-page-header
-    title="标题"
-    subtitle="副标题"
-    title-bold
-    title-color="red"
-    @back="goBack"
-  />
+  <dynamic-island-vue />
+  <f-alert>123</f-alert>
 </template>
+
+<style lang="scss" scoped></style>
