@@ -2,8 +2,6 @@ import Svg from './src/svg.vue'
 
 import { install } from '../_utils'
 
-/* @__PURE__ */ install(Svg)
-
-export const FSvg = Svg
+export const FSvg = install(Svg)
 
 export type FSvgInstance = InstanceType<typeof Svg>

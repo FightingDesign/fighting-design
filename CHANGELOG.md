@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.4-alpha.8 (2022-09-14)
+
+- 测试修复按需引入
+
 ## 0.6.4-alpha.7 (2022-09-14)
 
 **fix**
