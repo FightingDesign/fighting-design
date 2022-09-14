@@ -4,7 +4,10 @@ import { FImagePreview } from '../index'
 
 describe('ImagePreview', () => {
   test('class', () => {
-    const wrapper = mount(FImagePreview)
-    expect(wrapper.classes()).toContain('f-image-preview')
+    const wrapper = mount(FImagePreview, {
+      props: { visible: true }
+    })
+    console.log(wrapper.classes())
+    expect(wrapper.find('div').classes()).toContain('f-image-preview')
   })
 })
