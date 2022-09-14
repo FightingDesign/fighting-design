@@ -3,7 +3,7 @@ export interface switchImageInterface {
 }
 
 export interface optionClickInterface {
-  (evt: Event): void
+  ({ key }: { key: string }): void
 }
 
 export interface onImgMousewheelInterface {

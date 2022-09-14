@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FImagePreview">
   import { Props, Emits } from './image-preview'
   import { ref } from 'vue'
-  import { FIcon } from '../../icon'
+  import { FToolbar, FToolbarItem } from '../../index'
   import { keepDecimal } from '../../_utils'
   import type { Ref } from 'vue'
   import type {
@@ -87,61 +87,39 @@
   const switchImage: a = (type: 'next' | 'prev'): void => {
     recovery()
 
-    const next: e = (): void => {
-      if (previewShowIndex.value < prop.previewList.length - 1) {
-        previewShowIndex.value++
-        return
+    const optionFun = {
+      next: (): void => {
+        if (previewShowIndex.value < prop.previewList.length - 1) {
+          previewShowIndex.value++
+          return
+        }
+        previewShowIndex.value = 0
+      },
+      prev: (): void => {
+        if (previewShowIndex.value > 0) {
+          previewShowIndex.value--
+          return
+        }
+        previewShowIndex.value = prop.previewList.length - 1
       }
-      previewShowIndex.value = 0
-    }
-
-    const prev: e = (): void => {
-      if (previewShowIndex.value > 0) {
-        previewShowIndex.value--
-        return
-      }
-      previewShowIndex.value = prop.previewList.length - 1
-    }
-
-    switch (type) {
-      case 'next':
-        next()
-        break
-      case 'prev':
-        prev()
-        break
-    }
+    } as const
+    optionFun[type]()
   }
 
   // 点击操作栏
-  const optionClick: b = (evt: Event): void => {
-    const className: string = (evt.target as HTMLElement).className
-
-    const turnLeft: e = (): void => {
-      rotate.value += 90
-    }
-
-    const turnRight: e = (): void => {
-      rotate.value -= 90
-    }
-
-    switch (className) {
-      case 'f-icon f-icon-suoxiao':
-        smaller()
-        break
-      case 'f-icon f-icon-fangda':
-        bigger()
-        break
-      case 'f-icon f-icon-column1':
-        recovery()
-        break
-      case 'f-icon f-icon-xuanzhuan-1':
-        turnLeft()
-        break
-      case 'f-icon f-icon-xuanzhuan-2':
-        turnRight()
-        break
-    }
+  const optionClick: b = ({ key }: { key: string }): void => {
+    const optionFun = {
+      '1': (): void => smaller(),
+      '2': (): void => bigger(),
+      '3': (): void => recovery(),
+      '4': (): void => {
+        rotate.value += 90
+      },
+      '5': (): void => {
+        rotate.value += 90
+      }
+    } as const
+    optionFun[key]()
   }
 </script>
 
@@ -166,28 +144,48 @@
 
       <!-- 左右切换按钮 -->
       <template v-if="previewList.length > 1">
-        <div class="right_button" @click="switchImage('next')">
-          <f-icon size="30px" icon="f-icon-arrow-right" />
-        </div>
+        <f-toolbar
+          v-if="previewList.length > 1"
+          class="right-button"
+          round
+          @click="switchImage('next')"
+        >
+          <f-toolbar-item icon="f-icon-arrow-right" icon-size="25px" />
+        </f-toolbar>
 
-        <div class="left_button" @click="switchImage('prev')">
-          <f-icon size="30px" icon="f-icon-arrow-left" />
-        </div>
+        <f-toolbar
+          v-if="previewList.length > 1"
+          class="left-button"
+          round
+          @click="switchImage('prev')"
+        >
+          <f-toolbar-item icon="f-icon-arrow-left" icon-size="25px" />
+        </f-toolbar>
       </template>
 
       <!-- 关闭按钮 -->
-      <div v-if="showCloseBtn" class="close_button" @click="handleClose">
-        <f-icon size="20px" icon="f-icon-close" />
-      </div>
+      <f-toolbar
+        v-if="showCloseBtn"
+        class="close-button"
+        round
+        @click="handleClose"
+      >
+        <f-toolbar-item icon="f-icon-close" icon-size="20px" />
+      </f-toolbar>
 
       <!-- 操作栏 -->
-      <div v-if="previewShowOption" class="option" @click="optionClick">
-        <f-icon size="23px" icon="f-icon-suoxiao" />
-        <f-icon size="23px" icon="f-icon-fangda" />
-        <f-icon size="23px" icon="f-icon-column1" />
-        <f-icon size="23px" icon="f-icon-xuanzhuan-1" />
-        <f-icon size="23px" icon="f-icon-xuanzhuan-2" />
-      </div>
+      <f-toolbar
+        v-if="previewShowOption"
+        class="option-toolbar"
+        round
+        @click="optionClick"
+      >
+        <f-toolbar-item icon="f-icon-suoxiao" :data-key="1" />
+        <f-toolbar-item icon="f-icon-fangda" :data-key="2" />
+        <f-toolbar-item icon="f-icon-column1" :data-key="3" />
+        <f-toolbar-item icon="f-icon-xuanzhuan-1" :data-key="4" />
+        <f-toolbar-item icon="f-icon-xuanzhuan-2" :data-key="5" />
+      </f-toolbar>
     </div>
   </transition>
 </template>
