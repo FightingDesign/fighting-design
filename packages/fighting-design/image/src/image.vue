@@ -77,15 +77,14 @@
     } as const
   })
 
+  // 说明文字条样式
   const captionStyleList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
-      const { width, captionColor, round } = prop
+      const { captionColor, round } = prop
 
       return {
-        width: width || `${captionWidth.value}px`,
         color: captionColor,
-        borderBottomLeftRadius: round,
-        borderBottomRightRadius: round
+        borderRadius: `0 0 ${round} ${round}`
       } as const
     }
   )
@@ -103,6 +102,7 @@
       ref="FImageImg"
       src=""
       :class="classList"
+      :style="styleList"
       :draggable="draggable"
       :referrer-policy="referrerPolicy"
       :alt="alt"

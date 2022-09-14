@@ -12,8 +12,14 @@
 </script>
 
 <template>
-  <f-button type="primary" @click="show1 = true">打开</f-button>
+  <!-- <f-button type="primary" @click="show1 = true">打开</f-button> -->
   <f-image-preview v-model:visible="show1" :preview-list="listImg" />
+  <f-image
+    round="30px"
+    caption="漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花漂亮的玫瑰花"
+    src="https://tianyuhao.cn/images/auto/4.jpg"
+  />
+  <img src="https://tianyuhao.cn/images/auto/4.jpg" alt="">
 </template>
 
 <style scoped></style>
