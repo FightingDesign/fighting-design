@@ -89,7 +89,7 @@ const components = {
   FImagePreview
 }
 
-export const install = (app: App): App => {
+const install = (app: App): App => {
   Object.entries(components).forEach(([key, value]) => {
     app.component(key, value)
   })

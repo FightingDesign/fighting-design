@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FImagePreview">
   import { Props, Emits } from './image-preview'
   import { ref } from 'vue'
+  import { FIcon } from '../../icon'
   import { keepDecimal } from '../../_utils'
   import type { Ref } from 'vue'
   import type {
