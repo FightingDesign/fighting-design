@@ -4,6 +4,14 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.4-alpha.10 (2022-09-14)
+
+- Test Repair On Demand Import
+
+## 0.6.4-alpha.9 (2022-09-14)
+
+- Test Repair On Demand Import
+
 ## 0.6.4-alpha.8 (2022-09-14)
 
 - Test Repair On Demand Import
