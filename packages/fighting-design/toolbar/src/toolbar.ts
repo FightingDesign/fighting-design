@@ -1,5 +1,5 @@
 import type { PropType, CSSProperties } from 'vue'
-import type { toolbarType } from './interface'
+import type { toolbarType, clickEmitInterface } from './interface'
 import type { fixedStyleInterface } from '../../alert/src/interface'
 
 export const Props = {
@@ -52,4 +52,8 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   }
+} as const
+
+export const Emits = {
+  click: (target: clickEmitInterface): clickEmitInterface => target
 } as const

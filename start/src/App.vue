@@ -1,19 +1,17 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const show = ref(false)
-
-  const listImg = [
-    'https://tianyuhao.cn/images/auto/1.jpg',
-    'https://tianyuhao.cn/images/auto/2.jpg',
-    'https://tianyuhao.cn/images/auto/3.jpg',
-    'https://tianyuhao.cn/images/auto/4.jpg'
-  ]
+  function add ({ key }) {
+    console.log(key)
+  }
 </script>
 
 <template>
-  <f-button type="primary" @click="show = true">打开</f-button>
-  <f-image-preview v-model:visible="show" :preview-list="listImg" />
+  <f-toolbar @click="add">
+    <f-toolbar-item :data-key="1">
+      <f-button>12</f-button>
+    </f-toolbar-item>
+    <f-toolbar-item data-key="2">选项2</f-toolbar-item>
+    <f-toolbar-item data-key="3">选项3</f-toolbar-item>
+  </f-toolbar>
 </template>
 
 <style lang="scss" scoped></style>

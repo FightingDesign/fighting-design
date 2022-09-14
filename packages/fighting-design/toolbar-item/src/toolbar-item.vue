@@ -11,7 +11,12 @@
 </script>
 
 <template>
-  <span class="f-toolbar-item" :style="{ color }" @click="handleClick">
+  <span
+    class="f-toolbar-item"
+    :data-key="dataKey"
+    :style="{ color }"
+    @click="handleClick"
+  >
     <slot />
   </span>
 </template>
