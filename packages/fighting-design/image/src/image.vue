@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FImage">
-  import FPreviewList from '../../_components/preview-list.vue'
-  import { Props, Emits, ImagePropsKey } from './image'
-  import { onMounted, ref, provide, computed } from 'vue'
+  // import FPreviewList from '../../_components/preview-list.vue'
+  import { Props, Emits } from './image'
+  import { onMounted, ref, computed } from 'vue'
   import { loadImage, isString } from '../../_utils'
   import { useFilterProps } from '../../_hooks/useFilterProps'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
@@ -13,15 +13,15 @@
     classListInterface as d
   } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  provide(ImagePropsKey, prop)
+  // provide(ImagePropsKey, prop)
 
   // 是否加载成功
   const isSuccess: Ref<boolean> = ref<boolean>(true)
   // 大图预览是否展示
-  const isPreviewListShow: Ref<boolean> = ref<boolean>(false)
+  // const isPreviewListShow: Ref<boolean> = ref<boolean>(false)
   // 描述信息的宽度
   const captionWidth: Ref<number> = ref<number>(0)
   const FImageImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
@@ -31,15 +31,16 @@
 
   // 点击图片时候 开启大图预览
   const handleClick: b = (): void => {
-    if (prop.previewList && prop.previewList.length) {
-      isPreviewListShow.value = true
-    }
+    console.log('emits')
+    //   if (prop.previewList && prop.previewList.length) {
+    //     isPreviewListShow.value = true
+    //   }
   }
 
   // 关闭大图预览
-  const handleClose: b = (): void => {
-    isPreviewListShow.value = false
-  }
+  // const handleClose: b = (): void => {
+  //   isPreviewListShow.value = false
+  // }
 
   // 开始加载图片
   const loadAction: b = (): void => {
@@ -65,14 +66,13 @@
   })
 
   const classList: ComputedRef<d> = computed((): d => {
-    const { fit, noSelect, previewList } = prop
+    const { fit, noSelect } = prop
 
     return [
       'f-image-img',
       {
         [`f-image-${fit}`]: fit,
-        'f-image-select': noSelect,
-        'f-image-pointer': previewList && previewList.length
+        'f-image-select': noSelect
       }
     ] as const
   })
@@ -131,11 +131,11 @@
     </div>
 
     <!-- 大图预览框 -->
-    <f-preview-list
+    <!-- <f-preview-list
       v-if="prop.previewList && prop.previewList.length"
       v-show="isPreviewListShow"
       @close="handleClose"
-    />
+    /> -->
   </div>
 
   <div v-else class="f-image-error">

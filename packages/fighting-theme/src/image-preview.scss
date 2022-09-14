@@ -1,2 +1,88 @@
+// 预览图
 .f-image-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  user-select: none;
+
+  .right_button,
+  .left_button,
+  .close_button {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    position: absolute;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 200;
+  }
+
+  .left_button {
+    left: 30px;
+    top: 0;
+    bottom: 0;
+  }
+
+  .right_button {
+    right: 30px;
+    top: 0;
+    bottom: 0;
+  }
+
+  .close_button {
+    right: 30px;
+    top: 30px;
+  }
+
+  // 预览图
+  .option {
+    z-index: 200;
+    width: 270px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 25px;
+    margin: auto;
+
+    .f-icon {
+      cursor: pointer;
+    }
+  }
+
+  .f-image-showImg {
+    z-index: 100;
+    user-select: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    transition: 0.2s;
+  }
+}
+
+.f-image-preview-enter-active,
+.f-image-preview-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.f-image-preview-enter-from,
+.f-image-preview-leave-to {
+  opacity: 0;
 }
