@@ -9,7 +9,7 @@
     <f-toolbar-item :data-key="1">
       <f-button>12</f-button>
     </f-toolbar-item>
-    <f-toolbar-item data-key="2">选项2</f-toolbar-item>
+    <f-toolbar-item icon="f-icon-suoxiao" data-key="2">选项2</f-toolbar-item>
     <f-toolbar-item data-key="3">选项3</f-toolbar-item>
   </f-toolbar>
 </template>

@@ -1,5 +1,6 @@
 <script lang="ts" setup name="FToolbarItem">
   import { Emits, Props } from './toolbar-item'
+  import { FIcon } from '../../icon'
   import type { handleClickInterface as a } from './interface'
 
   defineProps(Props)
@@ -17,6 +18,7 @@
     :style="{ color }"
     @click="handleClick"
   >
+    <f-icon v-if="icon" :size="iconSize" :icon="icon" />
     <slot />
   </span>
 </template>

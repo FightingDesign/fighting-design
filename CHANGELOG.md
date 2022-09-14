@@ -5,7 +5,7 @@
 ## 0.6.4-alpha.11 (2022-09-14)
 
 - 优化 `f-toolbar-item` 和 `f-toolbar` 组件样式细节
-- `f-toolbar-item` 新增 `data-key` 配置项
+- `f-toolbar-item` 新增 `data-key` `icon` `icon-size` 配置项
 - `f-toolbar` 新增 `click` 回调参数
 
 ## 0.6.4-alpha.10 (2022-09-14)

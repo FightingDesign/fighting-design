@@ -5,6 +5,14 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
+  icon: {
+    type: String,
+    default: (): string => ''
+  },
+  iconSize: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => '16px'
+  },
   dataKey: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
