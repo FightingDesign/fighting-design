@@ -122,3 +122,6 @@ export type { FRadioInstance } from './radio'
 
 export { FRadioGroup } from './radio-group'
 export type { RadioGroupInstance } from './radio-group'
+
+export { FImagePreview } from './image-preview'
+export type { FImagePreviewInstance } from './image-preview'

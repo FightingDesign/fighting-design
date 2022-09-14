@@ -15,6 +15,7 @@
 - `f-button` 组件的 `font-size` 属性支持 `number` 类型
 - `f-image` 组件 `rootMargin` `width` `height` 属性支持 `number` 类型
 - `f-avatar` 组件 `rootMargin` 属性支持 `number` 类型
+- 新增 `f-image-preview` 组件
 
 **other**
 
