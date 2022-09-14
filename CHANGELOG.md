@@ -27,6 +27,8 @@
 - `f-empty` 组件废除 `style-list` 配置项
 - 拆分 `f-empty` 组件
 - 优化 `f-avatar` 样式细节
+- `f-image` 组件废除点击大图预览功能，此功能抽离至 `f-image-preview` 组件
+- `f-image` 组件废除属性：`modal-close` `show-close-btn` `preview-list` `preview-show-index` `preview-z-index` `preview-show-option` `preview-round`
 
 ## 0.6.4-alpha.6 (2022-09-11)
 
