@@ -1,6 +1,10 @@
 import type { PropType } from 'vue'
 
 export const Props = {
+  imgList: {
+    type: Array as PropType<string[]>,
+    default: (): string[] => []
+  },
   visible: {
     type: Boolean,
     default: (): boolean => false
@@ -9,33 +13,29 @@ export const Props = {
     type: Boolean,
     default: (): boolean => true
   },
-  showCloseBtn: {
+  isCloseBtn: {
     type: Boolean,
     default: (): boolean => true
   },
-  previewList: {
-    type: Array as PropType<string[]>,
-    default: (): string[] => []
-  },
-  previewShowIndex: {
+  showIndex: {
     type: Number,
     default: (): number => 0,
     validator: (val: number): boolean => {
       return val >= 0
     }
   },
-  previewZIndex: {
+  zIndex: {
     type: Number,
     default: (): number => 999,
     validator: (val: number): boolean => {
       return val >= 0
     }
   },
-  previewShowOption: {
+  isOption: {
     type: Boolean,
     default: (): boolean => true
   },
-  previewRound: {
+  round: {
     type: String,
     default: (): string => ''
   }

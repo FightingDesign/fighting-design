@@ -18,14 +18,12 @@
   const scale: Ref<number> = ref<number>(1)
   const rotate: Ref<number> = ref<number>(0)
   const previewShowIndex: Ref<number> = ref<number>(
-    prop.previewShowIndex > prop.previewList.length - 1
-      ? 0
-      : prop.previewShowIndex
+    prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex
   )
 
   // 图片加载
   const imagPreload: e = (): void => {
-    const imgList: string[] = prop.previewList as string[]
+    const imgList: string[] = prop.imgList as string[]
 
     imgList.forEach((item: string): void => {
       const img: HTMLImageElement = new Image() as HTMLImageElement
@@ -89,7 +87,7 @@
 
     const optionFun = {
       next: (): void => {
-        if (previewShowIndex.value < prop.previewList.length - 1) {
+        if (previewShowIndex.value < prop.imgList.length - 1) {
           previewShowIndex.value++
           return
         }
@@ -100,7 +98,7 @@
           previewShowIndex.value--
           return
         }
-        previewShowIndex.value = prop.previewList.length - 1
+        previewShowIndex.value = prop.imgList.length - 1
       }
     } as const
     optionFun[type]()
@@ -128,24 +126,24 @@
     <div
       v-if="visible"
       class="f-image-preview"
-      :style="{ zIndex: previewZIndex }"
+      :style="{ zIndex }"
       @click.self="packingClose"
       @mousewheel="onImgMousewheel"
     >
       <img
         class="f-image-showImg"
         draggable="false"
-        :src="previewList[previewShowIndex]"
+        :src="imgList[previewShowIndex]"
         :style="{
           transform: `scale(${scale}) rotate(${rotate}deg)`,
-          borderRadius: previewRound
+          borderRadius: round
         }"
       >
 
       <!-- 左右切换按钮 -->
-      <template v-if="previewList.length > 1">
+      <template v-if="imgList.length > 1">
         <f-toolbar
-          v-if="previewList.length > 1"
+          v-if="imgList.length > 1"
           class="right-button"
           round
           @click="switchImage('next')"
@@ -154,7 +152,7 @@
         </f-toolbar>
 
         <f-toolbar
-          v-if="previewList.length > 1"
+          v-if="imgList.length > 1"
           class="left-button"
           round
           @click="switchImage('prev')"
@@ -165,7 +163,7 @@
 
       <!-- 关闭按钮 -->
       <f-toolbar
-        v-if="showCloseBtn"
+        v-if="isCloseBtn"
         class="close-button"
         round
         @click="handleClose"
@@ -175,7 +173,7 @@
 
       <!-- 操作栏 -->
       <f-toolbar
-        v-if="previewShowOption"
+        v-if="isOption"
         class="option-toolbar"
         round
         @click="optionClick"

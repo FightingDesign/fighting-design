@@ -9,17 +9,17 @@
 
 `v-model:visible` 绑定一个布尔值来控制预览框的展示状态
 
-`preview-list` 需要传入一个图片的数组集合
+`img-list` 需要传入一个图片的数组集合
 
 <f-button type="primary" @click="show1 = true">打开</f-button>
-<f-image-preview v-model:visible="show1" :preview-list="listImg" />
+<f-image-preview v-model:visible="show1" :img-list="listImg" />
 
 ::: details 显示代码
 
 ```html
 <template>
   <f-button type="primary" @click="show1 = true">打开</f-button>
-  <f-image-preview v-model:visible="show1" :preview-list="listImg" />
+  <f-image-preview v-model:visible="show1" :img-list="listImg" />
 </template>
 
 <script lang="ts" setup>
@@ -40,10 +40,10 @@
 
 ## 隐藏预览操作栏
 
-通过 `preview-show-option` 属性将操作栏隐藏
+通过 `is-option` 属性将操作栏隐藏
 
 <f-button type="primary" @click="show2 = true">打开</f-button>
-<f-image-preview v-model:visible="show2" :preview-show-option="false" :preview-list="listImg" />
+<f-image-preview v-model:visible="show2" :is-option="false" :img-list="listImg" />
 
 ::: details 显示代码
 
@@ -52,8 +52,8 @@
   <f-button type="primary" @click="show2 = true">打开</f-button>
   <f-image-preview
     v-model:visible="show2"
-    :preview-show-option="false"
-    :preview-list="listImg"
+    :is-option="false"
+    :img-list="listImg"
   />
 </template>
 
@@ -75,14 +75,22 @@
 
 ## Attributes
 
-| 参数                  | 说明                                                                               | 类型     | 可选值 | 默认值 |
-| --------------------- | ---------------------------------------------------------------------------------- | -------- | ------ | ------ |
-| `modal-close`         | 是否点击遮罩层关闭预览窗                                                           | boolean  | ——     | true   |
-| `preview-list`        | 开启图片预览                                                                       | string[] | ——     | []     |
-| `preview-show-index`  | 图片预览展示的首张图的索引，从 0 开始                                              | number   | ——     | 0      |
-| `preview-z-index`     | 图片预览展示的 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) | number   | ——     | 999    |
-| `preview-show-option` | 是否展示图片预览下面的操作栏                                                       | boolean  | ——     | true   |
-| `preview-round`       | 预览图的圆角，传入一个单位                                                         | string   | ——     | ——     |
+| 参数              | 说明                                                                               | 类型     | 可选值 | 默认值 |
+| ----------------- | ---------------------------------------------------------------------------------- | -------- | ------ | ------ |
+| `v-model:visible` | 是否展示预览框                                                                     | boolean  | ——     | false  |
+| `img-list`        | 图片集合                                                                           | string[] | ——     | []     |
+| `modal-close`     | 是否点击遮罩层关闭预览窗                                                           | boolean  | ——     | true   |
+| `is-close-btn`    | 是否展示关闭按钮                                                                   | boolean  | ——     | true   |
+| `show-index`      | 图片预览展示的首张图的索引，从 0 开始                                              | number   | ——     | 0      |
+| `z-index`         | 图片预览展示的 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) | number   | ——     | 999    |
+| `is-option`       | 是否展示图片预览下面的操作栏                                                       | boolean  | ——     | true   |
+| `round`           | 预览图的圆角，传入一个单位                                                         | string   | ——     | ——     |
+
+## Events
+
+| 事件名称 | 说明           |
+| -------- | -------------- |
+| `close`  | 关闭之后的回调 |
 
 ## Contributors
 
