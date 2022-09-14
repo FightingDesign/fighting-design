@@ -5,7 +5,10 @@
   import { useFilterProps } from '../../_hooks/useFilterProps'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { FPropsType } from './image'
-  import type { callbackInterface as a } from './interface'
+  import type {
+    callbackInterface as a,
+    handleCloseInterface as e
+  } from './interface'
   import type {
     ordinaryFunctionInterface as b,
     LoadNeedImagePropsInterface as c,
@@ -25,11 +28,8 @@
   const isShowNode: Ref<boolean> = ref<boolean>(prop.lazy)
 
   // 点击图片时候 开启大图预览
-  const handleClick: b = (): void => {
-    console.log('emits')
-    //   if (prop.previewList && prop.previewList.length) {
-    //     isPreviewListShow.value = true
-    //   }
+  const handleClick: e = (evt: MouseEvent): void => {
+    emit('click', evt)
   }
 
   // 开始加载图片
