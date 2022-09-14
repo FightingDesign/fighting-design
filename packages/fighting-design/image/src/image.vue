@@ -102,14 +102,17 @@
 </script>
 
 <template>
-  <div v-if="isSuccess" :class="['f-image', { 'f-image-block': block }]">
+  <div
+    v-if="isSuccess"
+    :class="['f-image', { 'f-image-block': block }]"
+    :style="styleList"
+  >
     <!-- 真正展示的图片 -->
     <img
       v-show="isShowNode"
       ref="FImageImg"
       src=""
       :class="classList"
-      :style="styleList"
       :draggable="draggable"
       :referrer-policy="referrerPolicy"
       :alt="alt"

@@ -67,12 +67,12 @@
 
 `image-src` 属性可以配置 `empty` 展示数据状态的图片
 
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="90%" />
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="40%" />
 
 ::: details 显示代码
 
 ```html
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="90%" />
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="40%" />
 ```
 
 :::
@@ -81,28 +81,12 @@
 
 `background` 属性可以配置 `empty` 的背景颜色
 
-<f-empty background="#489EE2" />
+<f-empty background="#489EE2" image-size="300px"/>
 
 ::: details 显示代码
 
 ```html
-<f-empty background="#489EE2" />
-```
-
-:::
-
-## 自定义样式
-
-`style-list` 属性可以配置 `empty` 的自定义样式
-
-<f-empty :style-list="{ backgroundColor: '#3879AF', width: '90%', margin: '0 auto' }"/>
-
-::: details 显示代码
-
-```html
-<f-empty
-  :style-list="{ backgroundColor: '#3879AF', width: '90%', margin: '0 auto' }"
-/>
+<f-empty background="#489EE2" image-size="300px" />
 ```
 
 :::
