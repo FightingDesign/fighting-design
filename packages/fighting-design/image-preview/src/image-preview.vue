@@ -1,92 +1,35 @@
-<script lang="ts" setup name="FPreviewList">
-  import { ref, inject, toRefs } from 'vue'
-  import { FIcon } from '../icon'
-  import { keepDecimal } from '../_utils'
-  import { ImagePropsKey } from '../image/src/image'
+<script lang="ts" setup name="FImagePreview">
+  import { Props, Emits } from './image-preview'
+  import { ref } from 'vue'
+  import { keepDecimal } from '../../_utils'
   import type { Ref } from 'vue'
   import type {
     switchImageInterface as a,
     optionClickInterface as b,
     onImgMousewheelInterface as c,
     handleCloseInterface as d
-  } from '../image/src/interface'
-  import type { ordinaryFunctionInterface as e } from '../_interface'
-  import type { FPropsType } from '../image/src/image'
+  } from './interface'
+  import type { ordinaryFunctionInterface as e } from '../../_interface'
 
-  const injectImageProps: FPropsType = inject(ImagePropsKey) as FPropsType
-  const emit = defineEmits({
-    close: (evt: MouseEvent): MouseEvent => evt
-  })
+  const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
 
-  const {
-    previewZIndex,
-    previewList,
-    previewRound,
-    showCloseBtn,
-    previewShowOption
-  } = toRefs(injectImageProps)
-  const previewShowIndex: Ref<number> = ref<number>(
-    injectImageProps.previewShowIndex > injectImageProps.previewList.length - 1
-      ? 0
-      : injectImageProps.previewShowIndex
-  )
   const scale: Ref<number> = ref<number>(1)
   const rotate: Ref<number> = ref<number>(0)
+  const previewShowIndex: Ref<number> = ref<number>(
+    prop.previewShowIndex > prop.previewList.length - 1
+      ? 0
+      : prop.previewShowIndex
+  )
 
   // 图片加载
   const imagPreload: e = (): void => {
-    const imgList: string[] = injectImageProps.previewList as string[]
+    const imgList: string[] = prop.previewList as string[]
 
     imgList.forEach((item: string): void => {
       const img: HTMLImageElement = new Image() as HTMLImageElement
       img.src = item
     })
-  }
-
-  // 还原图片
-  const recovery: e = (): void => {
-    scale.value = 1
-    rotate.value = 0
-  }
-
-  // 关闭图片预览
-  const handleClose: d = (evt: MouseEvent): void => {
-    emit('close', evt)
-  }
-
-  // 左右切换按钮
-  const switchImage: a = (type: 'next' | 'prev'): void => {
-    recovery()
-
-    const next: e = (): void => {
-      if (previewShowIndex.value < injectImageProps.previewList.length - 1) {
-        previewShowIndex.value++
-        return
-      }
-      previewShowIndex.value = 0
-    }
-
-    const prev: e = (): void => {
-      if (previewShowIndex.value > 0) {
-        previewShowIndex.value--
-        return
-      }
-      previewShowIndex.value = injectImageProps.previewList.length - 1
-    }
-
-    switch (type) {
-      case 'next':
-        next()
-        break
-      case 'prev':
-        prev()
-        break
-    }
-  }
-
-  // 加载图片
-  const onEnter: e = (): void => {
-    imagPreload()
   }
 
   // 做小
@@ -103,6 +46,70 @@
       return
     }
     scale.value += 0.2
+  }
+
+  // 加载图片
+  const onEnter: e = (): void => {
+    imagPreload()
+  }
+
+  // 关闭图片预览
+  const handleClose: d = (evt: MouseEvent): void => {
+    emit('close', evt)
+    emit('update:visible', false)
+  }
+
+  // 点击遮罩层关闭
+  const packingClose: d = (evt: MouseEvent): void => {
+    if (prop.modalClose) {
+      handleClose(evt)
+    }
+  }
+
+  // 滚轮缩放
+  const onImgMousewheel: c = (evt: WheelEvent): void => {
+    evt.preventDefault()
+    if (evt.deltaY > 1) {
+      smaller()
+      return
+    }
+    bigger()
+  }
+
+  // 还原图片
+  const recovery: e = (): void => {
+    scale.value = 1
+    rotate.value = 0
+  }
+
+  // 左右切换按钮
+  const switchImage: a = (type: 'next' | 'prev'): void => {
+    recovery()
+
+    const next: e = (): void => {
+      if (previewShowIndex.value < prop.previewList.length - 1) {
+        previewShowIndex.value++
+        return
+      }
+      previewShowIndex.value = 0
+    }
+
+    const prev: e = (): void => {
+      if (previewShowIndex.value > 0) {
+        previewShowIndex.value--
+        return
+      }
+      previewShowIndex.value = prop.previewList.length - 1
+    }
+
+    switch (type) {
+      case 'next':
+        next()
+        break
+      case 'prev':
+        prev()
+        break
+    }
   }
 
   // 点击操作栏
@@ -135,28 +142,12 @@
         break
     }
   }
-
-  // 点击遮罩层关闭
-  const packingClose: d = (evt: MouseEvent): void => {
-    if (injectImageProps.modalClose) {
-      handleClose(evt)
-    }
-  }
-
-  // 滚轮缩放
-  const onImgMousewheel: c = (evt: WheelEvent): void => {
-    evt.preventDefault()
-    if (evt.deltaY > 1) {
-      smaller()
-      return
-    }
-    bigger()
-  }
 </script>
 
 <template>
   <transition name="f-image-preview" @enter="onEnter">
     <div
+      v-if="visible"
       class="f-image-preview"
       :style="{ zIndex: previewZIndex }"
       @click.self="packingClose"

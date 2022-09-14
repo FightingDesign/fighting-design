@@ -15,6 +15,8 @@
 - `f-button` 组件的 `font-size` 属性支持 `number` 类型
 - `f-image` 组件 `rootMargin` `width` `height` 属性支持 `number` 类型
 - `f-avatar` 组件 `rootMargin` 属性支持 `number` 类型
+- 新增 `f-image-preview` 组件
+- `f-image` 组件新增 `click` 回调
 
 **other**
 
@@ -26,6 +28,8 @@
 - `f-empty` 组件废除 `style-list` 配置项
 - 拆分 `f-empty` 组件
 - 优化 `f-avatar` 样式细节
+- `f-image` 组件废除点击大图预览功能，此功能抽离至 `f-image-preview` 组件
+- `f-image` 组件废除属性：`modal-close` `show-close-btn` `preview-list` `preview-show-index` `preview-z-index` `preview-show-option` `preview-round`
 
 ## 0.6.4-alpha.6 (2022-09-11)
 
