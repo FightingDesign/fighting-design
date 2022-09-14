@@ -56,6 +56,7 @@
   // 关闭图片预览
   const handleClose: d = (evt: MouseEvent): void => {
     emit('close', evt)
+    emit('update:visible', false)
   }
 
   // 点击遮罩层关闭
@@ -146,6 +147,7 @@
 <template>
   <transition name="f-image-preview" @enter="onEnter">
     <div
+      v-if="visible"
       class="f-image-preview"
       :style="{ zIndex: previewZIndex }"
       @click.self="packingClose"

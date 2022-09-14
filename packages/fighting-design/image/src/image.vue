@@ -1,5 +1,4 @@
 <script lang="ts" setup name="FImage">
-  // import FPreviewList from '../../_components/preview-list.vue'
   import { Props, Emits } from './image'
   import { onMounted, ref, computed } from 'vue'
   import { loadImage, isString } from '../../_utils'
@@ -16,12 +15,8 @@
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  // provide(ImagePropsKey, prop)
-
   // 是否加载成功
   const isSuccess: Ref<boolean> = ref<boolean>(true)
-  // 大图预览是否展示
-  // const isPreviewListShow: Ref<boolean> = ref<boolean>(false)
   // 描述信息的宽度
   const captionWidth: Ref<number> = ref<number>(0)
   const FImageImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
@@ -36,11 +31,6 @@
     //     isPreviewListShow.value = true
     //   }
   }
-
-  // 关闭大图预览
-  // const handleClose: b = (): void => {
-  //   isPreviewListShow.value = false
-  // }
 
   // 开始加载图片
   const loadAction: b = (): void => {
@@ -129,13 +119,6 @@
     >
       {{ caption }}
     </div>
-
-    <!-- 大图预览框 -->
-    <!-- <f-preview-list
-      v-if="prop.previewList && prop.previewList.length"
-      v-show="isPreviewListShow"
-      @close="handleClose"
-    /> -->
   </div>
 
   <div v-else class="f-image-error">

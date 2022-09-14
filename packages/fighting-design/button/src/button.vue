@@ -5,7 +5,7 @@
   import { Ripples, ChangeColor, isString } from '../../_utils'
   import type { FPropsType } from './button'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
-  import type { onClickInterface as a } from './interface'
+  import type { handleClickInterface as a } from './interface'
   import type { classListInterface as b } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
