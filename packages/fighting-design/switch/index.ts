@@ -5,3 +5,9 @@ import { install } from '../_utils'
 export const FSwitch = install(Switch)
 
 export type FSwitchInstance = InstanceType<typeof Switch>
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    FSwitch: typeof FSwitch
+  }
+}

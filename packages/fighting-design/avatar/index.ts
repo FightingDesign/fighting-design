@@ -5,3 +5,9 @@ import { install } from '../_utils'
 export const FAvatar = install(Avatar)
 
 export type FAvatarInstance = InstanceType<typeof Avatar>
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    FAvatar: typeof FAvatar
+  }
+}

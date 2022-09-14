@@ -5,3 +5,9 @@ import { install } from '../_utils'
 export const FLayout = install(Layout)
 
 export type FLayoutInstance = InstanceType<typeof Layout>
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    FLayout: typeof FLayout
+  }
+}
