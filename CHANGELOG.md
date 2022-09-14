@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.4-alpha.7 (2022-09-14)
+
 **fix**
 
 - 修复 `f-button` 组件自定义颜色的 `hover` 和 `disabled` 样式
@@ -30,6 +32,7 @@
 - 优化 `f-avatar` 样式细节
 - `f-image` 组件废除点击大图预览功能，此功能抽离至 `f-image-preview` 组件
 - `f-image` 组件废除属性：`modal-close` `show-close-btn` `preview-list` `preview-show-index` `preview-z-index` `preview-show-option` `preview-round`
+- 测试修复按需引入
 
 ## 0.6.4-alpha.6 (2022-09-11)
 

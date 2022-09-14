@@ -2,6 +2,38 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.4-alpha.7 (2022-09-14)
+
+**fix**
+
+- 修复 `f-button` 组件自定义颜色的 `hover` 和 `disabled` 样式
+- 修复 `f-page-header` 组件样式细节
+- 修复 `f-button` 组件 `text` 配置项样式细节
+- 修复 `f-image` 组件 `width` 属性的一些问题
+
+**fest**
+
+- `f-icon` 组件的 `size` 属性支持 `number` 类型
+- `f-button` 组件的 `font-size` 属性支持 `number` 类型
+- `f-image` 组件 `rootMargin` `width` `height` 属性支持 `number` 类型
+- `f-avatar` 组件 `rootMargin` 属性支持 `number` 类型
+- 新增 `f-image-preview` 组件
+- `f-image` 组件新增 `click` 回调
+
+**other**
+
+- 废除 `f-page-header` 的 `titleClass` 和 `subtitleClass` 配置项
+- `f-lint` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-button` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-tag` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-loading` 组件的 `text-color` `text-size` 配置项更名为 `font-color` `font-size`
+- `f-empty` 组件废除 `style-list` 配置项
+- 拆分 `f-empty` 组件
+- 优化 `f-avatar` 样式细节
+- `f-image` 组件废除点击大图预览功能，此功能抽离至 `f-image-preview` 组件
+- `f-image` 组件废除属性：`modal-close` `show-close-btn` `preview-list` `preview-show-index` `preview-z-index` `preview-show-option` `preview-round`
+- 测试修复按需引入
+
 ## 0.6.4-alpha.6 (2022-09-11)
 
 **fest**

@@ -4,6 +4,38 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.4-alpha.7 (2022-09-14)
+
+**fix**
+
+- Fix the `hover` and `disabled` styles of the `f-button` component`s custom colors
+- Fix `f-page-header` component style details
+- Fix `f-button` component `text` configuration item style details
+- Fix some problems with the `width` attribute of the `f-image` component
+
+**fest**
+
+- The `size` attribute of the `f-icon` component supports the `number` type
+- The `font size` attribute of the `f-button` component supports the `number` type
+- The `f-image ` component `root-margin` `width` `height` attributes support the `number` type
+- The `f-avatar` component `rootMargin` attribute supports the `number` type
+- Add `f-image preview` component
+- `click ` callback added to `f-image` component
+
+**other**
+
+- Abolish the `title-class` and` subtitle-class` configuration items of `f-page-header`
+- The `f-lint` component `left icon` `right-icon` configuration item is renamed to `before-icon` `after-icon`
+- The `f-button` component `left icon` `right-icon` configuration item is renamed to `before-icon` `after-icon`
+- The `f-tag` component `left-icon` `right-icon` configuration item is renamed to `before-icon` `after-icon`
+- The `text-color` `text-size` configuration item of the `f-loading` component is renamed to `font-color` `font-size`
+- `f-empty` component revokes`style list`configuration item
+- Split `f-empty` components
+- Optimize `f-avatar` style details
+- The `f-image` component cancels clicking the big picture preview function, which is separated from the `f-image preview` component
+- `f-image` Component Revocation Attribute: `module-close` `show-close-btn` `preview-list` `preview-show-index` `preview-z-index` `preview-show option` `preview-round`
+- Test Repair On Demand Import
+
 ## 0.6.4-alpha.6 (2022-09-11)
 
 **fest**
