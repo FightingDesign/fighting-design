@@ -1,9 +1,13 @@
-import FLoading from './src/loading.vue'
+import Loading from './src/loading.vue'
 
 import { install } from '../_utils'
 
-install(FLoading, FLoading.name)
+export const FLoading = install(Loading)
 
-export type FLoadingInstance = InstanceType<typeof FLoading>
+export type FLoadingInstance = InstanceType<typeof Loading>
 
-export default FLoading
+declare module 'vue' {
+  export interface GlobalComponents {
+    FLoading: typeof FLoading
+  }
+}

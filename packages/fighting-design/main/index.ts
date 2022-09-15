@@ -1,9 +1,13 @@
-import FMain from './src/main.vue'
+import Main from './src/main.vue'
 
 import { install } from '../_utils'
 
-install(FMain, FMain.name)
+export const FMain = install(Main)
 
-export type FMainInstance = InstanceType<typeof FMain>
+export type FMainInstance = InstanceType<typeof Main>
 
-export default FMain
+declare module 'vue' {
+  export interface GlobalComponents {
+    FMain: typeof FMain
+  }
+}

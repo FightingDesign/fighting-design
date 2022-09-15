@@ -8,7 +8,7 @@
   import type { CSSPropertiesInterface as a } from './interface'
   import type { createBase64NeedWatermarkPropsInterface as b } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const watermarkStyleList: Ref<CSSProperties> = ref<CSSProperties>(
     null as unknown as CSSProperties
@@ -21,7 +21,7 @@
       'height',
       'fontSize',
       'fontColor'
-    ]).getProps()
+    ])
 
     const watermark: string = createBase64(needProps)
 

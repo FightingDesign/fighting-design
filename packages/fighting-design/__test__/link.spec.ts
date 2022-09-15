@@ -32,6 +32,13 @@ describe('FLink', () => {
     expect(wrapper.attributes('style')).toContain('20px')
   })
 
+  test('size', () => {
+    const wrapper = mount(FLink, {
+      props: { size: 16 }
+    })
+    expect(wrapper.attributes('style')).toContain('16px')
+  })
+
   test('state', () => {
     const wrapper = mount(FLink, {
       props: { state: 'line' }

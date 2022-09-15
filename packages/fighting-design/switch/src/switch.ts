@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { switchSize } from './interface'
 
 export const Props = {
@@ -44,6 +44,7 @@ export const Props = {
   }
 } as const
 
-export const Emits = ['update:modelValue', 'change']
-
-export type FPropsType = ExtractPropTypes<typeof Props>
+export const Emits = {
+  'update:modelValue': (target: boolean): boolean => target,
+  'change': (target: boolean): boolean => target
+} as const

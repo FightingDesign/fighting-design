@@ -1,19 +1,26 @@
 <script lang="ts" setup name="FCard">
   import { Props } from './card'
+  import { computed } from 'vue'
+  import type { ComputedRef } from 'vue'
+  import type { classListInterface as a } from '../../_interface'
 
-  defineProps(Props)
-</script>
+  const prop = defineProps(Props)
 
-<template>
-  <div
-    :class="[
+  const classList: ComputedRef<a> = computed((): a => {
+    const { round, shadow } = prop
+
+    return [
       'f-card',
       {
         'f-card-round': round,
         [`f-card-shadow-${shadow}`]: shadow
       }
-    ]"
-  >
+    ] as const
+  })
+</script>
+
+<template>
+  <div :class="classList">
     <div v-if="$slots.header || title" class="f-card-header">
       <slot name="header">{{ title }}</slot>
     </div>

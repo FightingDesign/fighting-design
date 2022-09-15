@@ -36,6 +36,13 @@ describe('FButton', () => {
     expect(wrapper.attributes('style')).toContain('20px')
   })
 
+  test('fontSize', () => {
+    const wrapper = mount(FButton, {
+      props: { fontSize: 17 }
+    })
+    expect(wrapper.attributes('style')).toContain('17px')
+  })
+
   test('fontColor', () => {
     const wrapper = mount(FButton, {
       props: { fontColor: 'red' }
@@ -91,18 +98,18 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button-disabled')
   })
 
-  test('leftIcon', () => {
+  test('beforeIcon', () => {
     const wrapper = mount(FButton, {
-      props: { leftIcon: 'f-icon-Customermanagement' }
+      props: { beforeIcon: 'f-icon-Customermanagement' }
     })
     expect(wrapper.find('.f-icon').classes()).toContain(
       'f-icon-Customermanagement'
     )
   })
 
-  test('rightIcon', () => {
+  test('afterIcon', () => {
     const wrapper = mount(FButton, {
-      props: { rightIcon: 'f-icon-Customermanagement' }
+      props: { afterIcon: 'f-icon-Customermanagement' }
     })
     expect(wrapper.find('.f-icon').classes()).toContain(
       'f-icon-Customermanagement'

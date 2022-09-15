@@ -14,8 +14,8 @@
 <p align="center">
   <a href="https://github.com/FightingDesign/fighting-design/stargazers"><img src="https://img.shields.io/github/stars/FightingDesign/fighting-design" /></a>
   <a href="https://www.npmjs.com/package/fighting-design"><img src="https://badgen.net/npm/v/fighting-design" /></a>
-  <a href="https://fighting.tianyuhao.cn"><img src="https://img.shields.io/badge/Fighting%20Design-Docs-brightgreen" /></a>
-  <a href="https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md"><img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-green" /></a>
+  <a href="https://fighting.tianyuhao.cn"><img src="https://img.shields.io/badge/Fighting%20Design-Docs-blue" /></a>
+  <a href="https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md"><img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-blue" /></a>
 </p>
 
 ## ✨ 特性
@@ -27,6 +27,7 @@
 - 🏆 支持完整引入和按需引入
 - ✅ 使用 TypeScript + Template 编写
 - 🖍️ 严格的 TypeScript 类型
+- 🤟 全局无 any 类型
 - ✔️ 配置简单，上手容易
 - 🚩 单元测试
 - 👍 社区团队维护
@@ -42,19 +43,19 @@
 使用 `pnpm` 安装
 
 ```shell
-pnpm add fighting-design
+pnpm add --save-dev fighting-design
 ```
 
 使用 `npm` 安装
 
 ```shell
-npm install fighting-design
+npm install --save-dev fighting-design
 ```
 
 使用 `yarn` 安装
 
 ```shell
-yarn add fighting-Design
+yarn add --save-dev fighting-Design
 ```
 
 ## 🎉 快速上手
@@ -72,9 +73,11 @@ createApp(App).use(FightingDesign).mount('#app')
 
 ## 🐳 相关链接
 
+- [官方文档](https://fighting.tianyuhao.cn)
+- [演练场](https://tianyuhao.cn/playground)
+- [NPM](https://www.npmjs.com/package/fighting-design)
 - [贡献指南](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
 - [更新日志](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
-- [官方文档](https://fighting.tianyuhao.cn)
 
 ## 🌈 加入 Fighting Design
 
@@ -85,6 +88,10 @@ createApp(App).use(FightingDesign).mount('#app')
 ## 💌 特别感谢
 
 感谢所有已经为 `Fighting Design` [做出贡献的人](https://github.com/FightingDesign/fighting-design/graphs/contributors)！
+
+<a href="https://github.com/FightingDesign/fighting-design/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=FightingDesign/fighting-design" />
+</a>
 
 ## 💬 执照
 

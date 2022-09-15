@@ -1,9 +1,13 @@
-import FBackTop from './src/back-top.vue'
+import BackTop from './src/back-top.vue'
 
 import { install } from '../_utils'
 
-install(FBackTop, FBackTop.name)
+export const FBackTop = install(BackTop)
 
-export type FBackTopInstance = InstanceType<typeof FBackTop>
+export type FBackTopInstance = InstanceType<typeof BackTop>
 
-export default FBackTop
+declare module 'vue' {
+  export interface GlobalComponents {
+    FBackTop: typeof FBackTop
+  }
+}

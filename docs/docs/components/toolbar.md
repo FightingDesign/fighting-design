@@ -208,7 +208,6 @@
 | `text-color`  | 字体颜色                                             | string  | ——                              | ——     |
 | `fixed`       | 是否固定定位                                         | boolean | ——                              | false  |
 | `fixed-style` | 固定定位的样式，仅支持 `top` `right` `button` `left` | object  | ——                              | ——     |
-| `fixed`       | 是否固定定位                                         | boolean | ——                              | false  |
 | `width`       | 自定义宽度                                           | string  | ——                              | ——     |
 | `height`      | 自定义高度                                           | string  | ——                              | ——     |
 | `vague`       | 是否为毛玻璃效果                                     | boolean | ——                              | false  |
@@ -219,11 +218,20 @@
 | --------- | ------------ |
 | `default` | 子工具栏选项 |
 
+## Toolbar Events
+
+| 事件名称 | 说明               |
+| -------- | ------------------ |
+| `click`  | 点击之后触发的回调 |
+
 ## Toolbar-Item Attributes
 
-| 参数    | 说明           | 类型   | 可选值 | 默认值 |
-| ------- | -------------- | ------ | ------ | ------ |
-| `color` | 自定义文字颜色 | string | ——     | ——     |
+| 参数        | 说明             | 类型            | 可选值 | 默认值 |
+| ----------- | ---------------- | --------------- | ------ | ------ |
+| `data-key`  | 唯一值           | string / number | ——     | ——     |
+| `color`     | 自定义文字颜色   | string          | ——     | ——     |
+| `icon`      | 自定义 icon      | string          | ——     | ——     |
+| `icon-size` | 自定义 icon 大小 | string / number | ——     | 16px   |
 
 ## Toolbar-Item Slots
 
@@ -231,7 +239,7 @@
 | --------- | -------- |
 | `default` | 默认内容 |
 
-## Events
+## Toolbar-Item Events
 
 | 事件名称 | 说明               |
 | -------- | ------------------ |

@@ -1,9 +1,13 @@
-import FTooltip from './src/tooltip.vue'
+import Tooltip from './src/tooltip.vue'
 
 import { install } from '../_utils'
 
-install(FTooltip, FTooltip.name)
+export const FTooltip = install(Tooltip)
 
-export type FTooltipInstance = InstanceType<typeof FTooltip>
+export type FTooltipInstance = InstanceType<typeof Tooltip>
 
-export default FTooltip
+declare module 'vue' {
+  export interface GlobalComponents {
+    FTooltip: typeof FTooltip
+  }
+}

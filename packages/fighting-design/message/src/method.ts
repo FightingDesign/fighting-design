@@ -1,18 +1,24 @@
 import messageVue from './message.vue'
 import { messageTypes } from './message'
-import type { messageType, messagePlacementType } from './message'
-import type { ComponentInternalInstance } from 'vue'
-import { createVNode, render } from 'vue'
-import { instances } from './instances'
-import type { FMessageInstance, MessageOptions } from './interface'
+import type { FPropsType, messagePlacementType, messageType } from './message'
+import type {
+  InstanceOptions,
+  FMessageInstance
+} from '../../_interface'
+import { useMassageManage } from '../../_hooks/useMessageMange'
+import type { ComponentInternalInstance } from 'vue';
+import { render, createVNode } from 'vue'
 
 type FMessageFnWithType = {
   [key in messageType]: (text: string) => void
 }
 
-export interface FMessageFn {
+type MessageOptions = InstanceOptions<FPropsType>
+interface FMessageFn {
   (options: MessageOptions | string): FMessageInstance
 }
+
+export const massageManage = useMassageManage<messagePlacementType>()
 
 const defaultOptions: {
   placement: messagePlacementType
@@ -34,7 +40,6 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
       message: options
     } as MessageOptions
   }
-
   const props: MessageOptions & typeof defaultOptions = {
     id,
     ...defaultOptions,
@@ -44,20 +49,10 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
   /**
    * 关闭动画结束时，移除dom
    */
-  props.onDestroy = () => {
-    // const idx = instances[props.placement]!.findIndex(item => item.id === id)
-    // instances[props.placement]!.splice(idx, 1)
+  props.onDestroy = (): void => {
     props.closeEnd?.()
     render(null, container)
   }
-
-  /**
-   * 只有当
-   */
-  // instances.reduce((pre, cur) => {
-  //   pre += cur.vm.props.offset
-  //   return pre
-  // }, 0)
 
   const VNode = createVNode(messageVue, props)
 
@@ -70,31 +65,29 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
 
   seed++
 
-  const instance: FMessageInstance = {
-    id,
-    vm,
-    close: () => {
-      (
-        (vm as ComponentInternalInstance).exposeProxy as Record<string, Function>
-      ).close()
+  const instance = massageManage.createInstance(
+    {
+      id,
+      vm,
+      close: () => {
+        (
+          (vm as ComponentInternalInstance).exposeProxy as Record<
+            string,
+            Function
+          >
+        ).close()
+      },
+      bottom: 0,
+      visible: 0
     },
-    bottom: 0,
-    visible: 0
-  }
-
-  /**
-   * 添加到实例组中
-   */
-  if (instances[props.placement]) {
-    (instances[props.placement] as FMessageInstance[]).push(instance)
-  } else {
-    instances[props.placement] = [instance]
-  }
+    props.placement
+  )
 
   return instance
 }
-messageTypes.forEach((type) => {
-  FMessage[type] = (text: string) => {
+
+messageTypes.forEach((type): void => {
+  FMessage[type] = (text: string): void => {
     FMessage({ message: text, type })
   }
 })

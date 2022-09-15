@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { backTopBehavior } from './interface'
 
 export const Props = {
@@ -15,7 +15,8 @@ export const Props = {
   },
   visibleHeight: {
     type: Number,
-    default: (): number => 200
+    default: (): number => 200,
+    validator: (val: number): boolean => val >= 0
   },
   right: {
     type: String,
@@ -51,5 +52,3 @@ export const Props = {
 export const Emits = {
   click: (evt: Event): Event => evt
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

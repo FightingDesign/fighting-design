@@ -11,6 +11,6 @@ export type buttonType =
 
 export type buttonNativeType = 'button' | 'submit' | 'reset'
 
-export interface onClickInterface {
+export interface handleClickInterface {
   (evt: MouseEvent): void
 }

@@ -5,5 +5,5 @@ export type linkTarget = '_self' | '_blank' | '_parent' | '_top' | ''
 export type linkHover = 'line' | 'bag' | ''
 
 export interface handleClickInterface {
-  (evt: Event): void
+  (evt: MouseEvent): void
 }

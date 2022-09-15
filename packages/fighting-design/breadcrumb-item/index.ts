@@ -1,9 +1,13 @@
-import FBreadcrumbItem from './src/breadcrumb-item.vue'
+import BreadcrumbItem from './src/breadcrumb-item.vue'
 
 import { install } from '../_utils'
 
-install(FBreadcrumbItem, FBreadcrumbItem.name)
+export const FBreadcrumbItem = install(BreadcrumbItem)
 
-export type FBreadcrumbItemInstance = InstanceType<typeof FBreadcrumbItem>
+export type FBreadcrumbItemInstance = InstanceType<typeof BreadcrumbItem>
 
-export default FBreadcrumbItem
+declare module 'vue' {
+  export interface GlobalComponents {
+    FBreadcrumbItem: typeof FBreadcrumbItem
+  }
+}

@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="FHeader">
   import { Props } from './header'
 
   defineProps(Props)

@@ -1,9 +1,13 @@
-import FDialog from './src/dialog.vue'
+import Dialog from './src/dialog.vue'
 
 import { install } from '../_utils'
 
-install(FDialog, FDialog.name)
+export const FDialog = install(Dialog)
 
-export type FDialogInstance = InstanceType<typeof FDialog>
+export type FDialogInstance = InstanceType<typeof Dialog>
 
-export default FDialog
+declare module 'vue' {
+  export interface GlobalComponents {
+    FDialog: typeof FDialog
+  }
+}

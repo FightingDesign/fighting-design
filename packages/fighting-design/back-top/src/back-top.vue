@@ -7,9 +7,8 @@
     handleScrollInterface as a,
     handleClickInterface as b
   } from './interface'
-  import type { FPropsType } from './back-top'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const visible: Ref<boolean> = ref<boolean>(false)
@@ -28,7 +27,9 @@
     const { top, behavior, listenEl } = prop
 
     if (listenEl) {
-      const listerNode: HTMLElement = document.querySelector(listenEl)!
+      const listerNode: HTMLElement = document.querySelector(
+        listenEl
+      ) as HTMLElement
       ;(listerNode as HTMLElement).scrollTo({
         top,
         behavior
@@ -45,7 +46,9 @@
 
   onMounted((): void => {
     if (prop.listenEl) {
-      const listerNode: HTMLElement = document.querySelector(prop.listenEl)!
+      const listerNode: HTMLElement = document.querySelector(
+        prop.listenEl
+      ) as HTMLElement
       ;(listerNode as HTMLElement).addEventListener(
         'scroll',
         handleScroll(listerNode)

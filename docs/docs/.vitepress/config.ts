@@ -15,7 +15,9 @@ export default defineConfig({
     ]
   ],
   description,
+  lastUpdated: true,
   themeConfig: {
+    lastUpdatedText: '最后更新时间',
     nav,
     sidebar,
     socialLinks: [

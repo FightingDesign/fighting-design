@@ -1,9 +1,13 @@
-import FAside from './src/aside.vue'
+import Aside from './src/aside.vue'
 
 import { install } from '../_utils'
 
-install(FAside, FAside.name)
+export const FAside = install(Aside)
 
-export type FAsideInstance = InstanceType<typeof FAside>
+export type FAsideInstance = InstanceType<typeof Aside>
 
-export default FAside
+declare module 'vue' {
+  export interface GlobalComponents {
+    FAside: typeof FAside
+  }
+}

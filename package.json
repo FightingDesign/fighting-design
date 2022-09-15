@@ -22,8 +22,8 @@
     "build:docs": "pnpm run -C docs build",
     "serve:docs": "pnpm run -C docs serve",
     "build:start": "pnpm run -C start build",
-    "move": "node script/move-file.js",
-    "new": "node script/new-component",
+    "move": "node script/move.ts",
+    "new": "pnpm run -C packages/add-component new",
     "test": "vitest",
     "prettier": "prettier --write .",
     "commit": "cz",
@@ -31,34 +31,32 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
     "@commitlint/cli": "^17.0.1",
     "@commitlint/config-conventional": "^17.0.0",
     "@fighting-design/fighting-theme": "workspace:*",
-    "@fighting-design/fighting-eslint-config": "workspace:*",
+    "@types/node": "^17.0.42",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/test-utils": "^2.0.0-rc.18",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.23.0",
     "happy-dom": "^3.2.2",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.2",
-    "sass": "^1.50.1",
-    "typescript": "^4.7.4",
-    "unplugin-vue-components": "^0.22.0",
-    "unplugin-vue-setup-extend-plus": "^0.3.2",
-    "vite": "^3.0.8",
-    "vite-plugin-dts": "^1.4.1",
-    "vitest": "^0.10.0",
-    "vue": "^3.2.37",
-    "vue-tsc": "^0.39.5"
-  },
-  "devDependencies": {
-    "@juln/change-case": "^0.0.4",
-    "@types/node": "^17.0.42",
-    "fs-extra": "^10.1.0",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
-    "super-ejs": "^1.0.2"
+    "rollup-plugin-visualizer": "^5.8.0",
+    "sass": "^1.50.1",
+    "typescript": "^4.7.4",
+    "unplugin-vue-setup-extend-plus": "^0.3.2",
+    "vite": "^3.0.9",
+    "vite-plugin-dts": "^1.4.1",
+    "vite-svg-loader": "^3.6.0",
+    "vitest": "^0.10.0",
+    "vue-tsc": "^0.40.5"
   },
   "config": {
     "commitizen": {

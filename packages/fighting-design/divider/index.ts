@@ -1,9 +1,13 @@
-import FDivider from './src/divider.vue'
+import Divider from './src/divider.vue'
 
 import { install } from '../_utils'
 
-install(FDivider, FDivider.name)
+export const FDivider = install(Divider)
 
-export type FDividerInstance = InstanceType<typeof FDivider>
+export type FDividerInstance = InstanceType<typeof Divider>
 
-export default FDivider
+declare module 'vue' {
+  export interface GlobalComponents {
+    FDivider: typeof FDivider
+  }
+}

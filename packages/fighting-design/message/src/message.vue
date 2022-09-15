@@ -1,17 +1,16 @@
 <script lang="ts" setup name="FMessage">
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import { isString } from '../../_utils'
   import { Props, Emits } from './message'
-  import { getSiblingOffset, removeInstance } from './instances'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
     ordinaryFunctionInterface as a,
     classListInterface as b
   } from '../../_interface'
-  import type { FPropsType } from './message'
+  import { massageManage } from './method'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   defineEmits(Emits)
 
   const messageRef = ref<HTMLDivElement>()
@@ -23,7 +22,7 @@
   )
 
   const siblingOffset: ComputedRef<number> = computed((): number =>
-    getSiblingOffset(prop.placement, prop.id, !isTop.value)
+    massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value)
   )
 
   const offset: ComputedRef<number> = computed(
@@ -53,7 +52,7 @@
         'f-message-round': round,
         'f-message-hasClose': close
       }
-    ]
+    ] as const
   })
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
@@ -74,7 +73,6 @@
     return styles
   })
 
-  // eslint-disable-next-line no-undef
   const timer = ref<NodeJS.Timeout>()
 
   const clearTimer: a = (): void => {
@@ -87,7 +85,7 @@
     visible.value = false
   }
   const closeMessageEnd: a = (): void => {
-    removeInstance(prop.placement, prop.id)
+    massageManage.removeInstance(prop.placement, prop.id)
   }
 
   const startTime: a = (): void => {

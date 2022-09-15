@@ -20,7 +20,7 @@ export const Props = {
     default: (): boolean => false
   },
   fontSize: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   fontColor: {
@@ -97,11 +97,11 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  leftIcon: {
+  beforeIcon: {
     type: String,
     default: (): string => ''
   },
-  rightIcon: {
+  afterIcon: {
     type: String,
     default: (): string => ''
   },

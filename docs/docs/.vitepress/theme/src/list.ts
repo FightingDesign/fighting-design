@@ -28,21 +28,6 @@ export const bottomList = [
     ]
   },
   {
-    title: '其它开源',
-    item: [
-      { text: 'tyh-ui2', link: 'https://github.com/Tyh2001/tyh-ui2' },
-      { text: 'ts-mango', link: 'https://github.com/ts-mango/ts-mango' },
-      {
-        text: 'tyh-theme-vscode',
-        link: 'https://github.com/Tyh2001/tyh-theme-vscode'
-      },
-      {
-        text: 'vitepress-template',
-        link: 'https://github.com/Tyh2001/vitepress-template'
-      }
-    ]
-  },
-  {
     title: '帮助',
     item: [
       {
@@ -62,14 +47,5 @@ export const bottomList = [
         link: 'https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md'
       }
     ]
-  }
-] as const
-
-// 合作者
-export const collaborator = [
-  {
-    name: '田同学',
-    photo: 'https://avatars.githubusercontent.com/u/73180970?v=4',
-    url: 'https://github.com/Tyh2001'
   }
 ] as const

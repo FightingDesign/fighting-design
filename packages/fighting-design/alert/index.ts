@@ -1,9 +1,13 @@
-import FAlert from './src/alert.vue'
+import Alert from './src/alert.vue'
 
 import { install } from '../_utils'
 
-install(FAlert, FAlert.name)
+export const FAlert = install(Alert)
 
-export type FAlertInstance = InstanceType<typeof FAlert>
+export type FAlertInstance = InstanceType<typeof Alert>
 
-export default FAlert
+declare module 'vue' {
+  export interface GlobalComponents {
+    FAlert: typeof FAlert
+  }
+}

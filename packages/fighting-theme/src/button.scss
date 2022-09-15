@@ -17,10 +17,10 @@
   cursor: pointer;
   padding: 0 25px;
   background: $default;
-  overflow: hidden;
   white-space: nowrap;
   vertical-align: middle;
   border-radius: $basicRadiusSize;
+  overflow: hidden;
 
   @for $list from 1 to (length($allTypeColorList) + 1) {
     $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
@@ -66,7 +66,7 @@
 
       // 文字按钮
       &.f-button-text {
-        background: #fff;
+        background: none;
         color: map-get($item, simpleTextColor);
 
         &:hover {
@@ -133,8 +133,8 @@
   // loading
   .f-loading-animation {
     display: inline-block;
-    animation: loading 1s linear infinite;
-    -webkit-animation: loading 1s linear infinite;
+    animation: f-loading-button 1s linear infinite;
+    -webkit-animation: f-loading-button 1s linear infinite;
     margin-right: 3px;
     font-size: 16px;
   }
@@ -143,7 +143,7 @@
     background: transparent !important;
   }
 
-  @keyframes loading {
+  @keyframes f-loading-button {
     0% {
       transform: rotate(0deg);
     }
@@ -154,22 +154,22 @@
   }
 
   // 涟漪效果
-  .f-design-ripples {
+  .f-button-ripples {
     width: 2px;
     height: 2px;
     position: absolute;
     transform: translate(-50%, -50%);
     pointer-events: none;
     border-radius: 50%;
-    animation: f-ripples 0.7s linear;
+    animation: f-button-ripples 0.7s linear;
     opacity: 0.5;
     background: #fff;
   }
 
-  @keyframes f-ripples {
+  @keyframes f-button-ripples {
     from {
-      width: 0px;
-      height: 0px;
+      width: 2px;
+      height: 2px;
       opacity: 0.5;
     }
 
@@ -183,6 +183,12 @@
   // 自定义颜色
   &.f-button-color {
     background: var(--f-button-default-color);
+
+    &.f-button-disabled {
+      &:hover {
+        background: var(--f-button-default-color);
+      }
+    }
 
     &:hover {
       background: var(--f-button-hover-color);

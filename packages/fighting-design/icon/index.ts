@@ -1,9 +1,13 @@
-import FIcon from './src/icon.vue'
+import Icon from './src/icon.vue'
 
 import { install } from '../_utils'
 
-install(FIcon, FIcon.name)
+export const FIcon = install(Icon)
 
-export type FIconInstance = InstanceType<typeof FIcon>
+export type FIconInstance = InstanceType<typeof Icon>
 
-export default FIcon
+declare module 'vue' {
+  export interface GlobalComponents {
+    FIcon: typeof FIcon
+  }
+}

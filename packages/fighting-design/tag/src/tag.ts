@@ -1,5 +1,5 @@
 import type { tagSize, tagType } from './interface'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   type: {
@@ -27,11 +27,11 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  leftIcon: {
+  beforeIcon: {
     type: String,
     default: (): string => ''
   },
-  rightIcon: {
+  afterIcon: {
     type: String,
     default: (): string => ''
   },
@@ -59,5 +59,3 @@ export const Props = {
 export const Emits = {
   'close-end': (evt: Event): Event => evt
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

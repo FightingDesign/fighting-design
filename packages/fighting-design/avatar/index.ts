@@ -1,9 +1,13 @@
-import FAvatar from './src/avatar.vue'
+import Avatar from './src/avatar.vue'
 
 import { install } from '../_utils'
 
-install(FAvatar, FAvatar.name)
+export const FAvatar = install(Avatar)
 
-export type FAvatarInstance = InstanceType<typeof FAvatar>
+export type FAvatarInstance = InstanceType<typeof Avatar>
 
-export default FAvatar
+declare module 'vue' {
+  export interface GlobalComponents {
+    FAvatar: typeof FAvatar
+  }
+}

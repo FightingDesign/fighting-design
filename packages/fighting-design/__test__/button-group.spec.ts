@@ -28,4 +28,11 @@ describe('FButtonGroup', () => {
     })
     expect(wrapper.classes()).toContain('f-button-group-horizontal')
   })
+
+  test('slots', () => {
+    const wrapper = mount(FButtonGroup, {
+      slots: { default: '123' }
+    })
+    expect(wrapper.text()).toContain('123')
+  })
 })

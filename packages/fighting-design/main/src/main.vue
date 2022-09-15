@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup name="FMain">
   import { Props } from './main'
 
   defineProps(Props)

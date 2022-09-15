@@ -14,8 +14,8 @@
 <p align="center">
   <a href="https://github.com/FightingDesign/fighting-design/stargazers"><img src="https://img.shields.io/github/stars/FightingDesign/fighting-design" /></a>
   <a href="https://www.npmjs.com/package/fighting-design"><img src="https://badgen.net/npm/v/fighting-design" /></a>
-  <a href="https://fighting.tianyuhao.cn"><img src="https://img.shields.io/badge/Fighting%20Design-Docs-brightgreen" /></a>
-  <a href="https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md"><img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-green" /></a>
+  <a href="https://fighting.tianyuhao.cn"><img src="https://img.shields.io/badge/Fighting%20Design-Docs-blue" /></a>
+  <a href="https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md"><img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-blue" /></a>
 </p>
 
 ## ✨ Features
@@ -27,6 +27,7 @@
 - 🏆 Support full import and on-demand import
 - ✅ Written with TypeScript & Template
 - 🖍️ Strict TypeScript Type
+- 🤟 Global no any type
 - ✔️ Easy to configure and easy to use
 - 🚩 Complete and adequate unit tests
 - 👍 Maintained by the community team
@@ -42,19 +43,19 @@
 Use `pnpm` install
 
 ```shell
-pnpm add fighting-design
+pnpm add --save-dev fighting-design
 ```
 
 Use `npm` install
 
 ```shell
-npm install fighting-design
+npm install --save-dev fighting-design
 ```
 
 Use `yarn` install
 
 ```shell
-yarn add fighting-Design
+yarn add --save-dev fighting-Design
 ```
 
 ## 🎉 Quick Start
@@ -72,9 +73,11 @@ createApp(App).use(FightingDesign).mount('#app')
 
 ## 🐳 Related links
 
+- [Official documents](https://fighting.tianyuhao.cn)
+- [Playground](https://tianyuhao.cn/playground)
+- [NPM](https://www.npmjs.com/package/fighting-design)
 - [CONTRIBUTING](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
 - [CHANGELOG](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
-- [Official documents](https://fighting.tianyuhao.cn)
 
 ## 🌈 Join Fighting Design
 
@@ -84,7 +87,11 @@ Add WeChat & please note the `Github` username
 
 ## 💌 Special Thanks
 
-Thanks to [everyone](https://github.com/FightingDesign/fighting-design/graphs/contributors) who has already contributed to `Fighting Design`
+Thanks to [everyone](https://github.com/FightingDesign/fighting-design/graphs/contributors) who has already contributed to `Fighting Design`!
+
+<a href="https://github.com/FightingDesign/fighting-design/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=FightingDesign/fighting-design" />
+</a>
 
 ## 💬 LICENSE
 

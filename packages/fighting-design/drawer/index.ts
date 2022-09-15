@@ -1,9 +1,13 @@
-import FDrawer from './src/drawer.vue'
+import Drawer from './src/drawer.vue'
 
 import { install } from '../_utils'
 
-install(FDrawer, FDrawer.name)
+export const FDrawer =  install(Drawer)
 
-export type FDrawerInstance = InstanceType<typeof FDrawer>
+export type FDrawerInstance = InstanceType<typeof Drawer>
 
-export default FDrawer
+declare module 'vue' {
+  export interface GlobalComponents {
+    FDrawer: typeof FDrawer
+  }
+}

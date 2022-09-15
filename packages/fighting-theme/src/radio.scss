@@ -1,0 +1,74 @@
+@import '../config/const-color.scss';
+
+.f-radio {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  outline: none;
+  user-select: none;
+  color: #333;
+  transition: 0.4s;
+
+  // 选中状态
+  &.f-radio-checked {
+    .f-radio-text {
+      color: $primary;
+    }
+
+    .f-radio-circle {
+      border: 1px solid $primary;
+
+      &::after {
+        transform: translate(-50%, -50%) scale(2);
+        background: $primary;
+      }
+    }
+  }
+
+  // 小圆圈
+  .f-radio-circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #dee5fd;
+    margin-right: 7px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: #fff;
+      transition: transform 0.15s ease-in;
+    }
+  }
+
+  // 禁用状态
+  &.f-radio-disabled {
+    cursor: not-allowed;
+
+    .f-radio-text {
+      color: #d7d7d7;
+    }
+
+    .f-radio-circle {
+      border-color: #d7d7d7;
+
+      &::after {
+        background: #d7d7d7;
+      }
+    }
+  }
+
+  &.f-radio-margin:not(:last-child) {
+    margin-right: 22px;
+  }
+}

@@ -1,9 +1,13 @@
-import FSkeleton from './src/skeleton.vue'
+import Skeleton from './src/skeleton.vue'
 
 import { install } from '../_utils'
 
-install(FSkeleton, FSkeleton.name)
+export const FSkeleton = install(Skeleton)
 
-export type FSkeletonInstance = InstanceType<typeof FSkeleton>
+export type FSkeletonInstance = InstanceType<typeof Skeleton>
 
-export default FSkeleton
+declare module 'vue' {
+  export interface GlobalComponents {
+    FSkeleton: typeof FSkeleton
+  }
+}

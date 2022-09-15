@@ -1,34 +1,94 @@
+:root {
+  --vp-c-green: #5d80f4;
+  --vp-c-brand-dark: #5d80f4;
+  --vp-c-bg-alt: #fff; // 侧边栏
+}
+
+.dark {
+  --vp-c-bg-alt: rgb(36, 36, 36); // 深色模式侧边栏
+}
+
 .sidebar-link-item.active {
   background: rgba(82, 179, 94, 0.1);
 }
 
-a {
-  color: #2d5af1;
-  text-decoration: none;
-}
+.vp-doc {
+  // 代码片段下拉菜单
+  details {
+    padding: 10px !important;
+    margin: 10px 0 !important;
 
-details {
-  padding: 10px !important;
-  margin: 10px 0 !important;
+    summary {
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      margin: 0 !important;
 
-  summary {
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    margin: 0 !important;
+      &:hover {
+        transition: 0.5s;
+        color: #2d5af1;
+      }
+    }
 
-    &:hover {
-      transition: 0.5s;
-      color: #2d5af1;
+    &::before {
+      content: '' !important;
     }
   }
 
-  &::before {
-    content: '' !important;
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  // 表格
+  table {
+    width: 100%;
+    display: table;
+  }
+  th,
+  tr:nth-child(2n) {
+    background-color: transparent;
+  }
+  tr {
+    border-top: none;
+    border-bottom: 1px solid rgb(231, 230, 230);
+  }
+  td,
+  th {
+    text-align: center;
+    font-size: 15px;
+    border: none;
   }
 }
 
-.vp-doc ul {
-  list-style: none;
-  padding-left: 0;
+// 顶部 logo
+.VPNavBarTitle.has-sidebar {
+  border: none;
+}
+
+// 左侧选项链接
+.VPSidebarGroup {
+  .VPLink.link.link {
+    margin: 0;
+    padding: 5px 18px;
+    transition: 0.4s;
+  }
+  .VPLink.link.link.active {
+    background: lighten(#2d5af1, 39%);
+    border-radius: 6px;
+    .link-text {
+      font-weight: 600;
+    }
+  }
+}
+
+// 滚动条
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+// 滚动滑块
+::-webkit-scrollbar-thumb {
+  background: #dddddd;
+  border-radius: 6px;
 }

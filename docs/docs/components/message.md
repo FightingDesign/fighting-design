@@ -268,22 +268,22 @@
 
 ## Attributes
 
-| 参数         | 说明                                         | 类型             | 可选值                                                             | 默认值             |
-| ------------ | -------------------------------------------- | ---------------- | ------------------------------------------------------------------ | ------------------ |
-| `message`    | 消息文本                                     | `string` `VNode` | ——                                                                 | false              |
-| `type`       | 消息类型                                     | string           | `default` `primary` `success` <br /> `danger` `warning`            | `default`          |
-| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number           | ——                                                                 | 3000               |
-| `round`      | 圆角类型                                     | boolean          | ——                                                                 | `false`            |
-| `close`      | 可关闭                                       | boolean          | ——                                                                 | `false`            |
-| `icon`       | 消息`icon`                                   | `string` `VNode` | ——                                                                 | ——                 |
-| `color`      | 字体颜色                                     | string           | ——                                                                 | 跟随`type`         |
-| `background` | 背景色                                       | string           | ——                                                                 | `#fff`             |
-| `placement`  | 位置                                         | string           | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | `top`              |
-| `offset`     | 偏移距离                                     | number           | ——                                                                 | `20`               |
-| `background` | 背景色                                       | string           | ——                                                                 | `#fff`             |
-| `closeBtn`   | 关闭按钮                                     | `string` `VNode` | [more](https://fighting.tianyuhao.cn/components/icon.html)         | 图标`f-icon-close` |
-| `zIndex`     | 层级                                         | boolean          | ——                                                                 | 1000               |
-| `closeEnd`   | 关闭回调                                     | Function         | ——                                                                 | ——                 |
+| 参数         | 说明                                         | 类型           | 可选值                                                             | 默认值  |
+| ------------ | -------------------------------------------- | -------------- | ------------------------------------------------------------------ | ------- |
+| `message`    | 消息文本                                     | string / VNode | ——                                                                 | false   |
+| `type`       | 消息类型                                     | string         | `default` `primary` `success` <br /> `danger` `warning`            | default |
+| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number         | ——                                                                 | 3000    |
+| `round`      | 圆角类型                                     | boolean        | ——                                                                 | false   |
+| `close`      | 可关闭                                       | boolean        | ——                                                                 | false   |
+| `icon`       | 消息 icon                                    | string / VNode | ——                                                                 | ——      |
+| `color`      | 字体颜色                                     | string         | ——                                                                 | ——      |
+| `background` | 背景色                                       | string         | ——                                                                 | ——      |
+| `placement`  | 位置                                         | string         | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
+| `offset`     | 偏移距离                                     | number         | ——                                                                 | 20      |
+| `background` | 背景色                                       | string         | ——                                                                 | ——      |
+| `closeBtn`   | 关闭按钮                                     | string / VNode | ——                                                                 | ——      |
+| `zIndex`     | 层级                                         | boolean        | ——                                                                 | 1000    |
+| `closeEnd`   | 关闭回调                                     | Function       | ——                                                                 | ——      |
 
 ## Events
 

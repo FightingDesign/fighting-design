@@ -1,9 +1,13 @@
-import FSpace from './src/space.vue'
+import Space from './src/space.vue'
 
 import { install } from '../_utils'
 
-install(FSpace, FSpace.name)
+export const FSpace = install(Space)
 
-export type FSpaceInstance = InstanceType<typeof FSpace>
+export type FSpaceInstance = InstanceType<typeof Space>
 
-export default FSpace
+declare module 'vue' {
+  export interface GlobalComponents {
+    FSpace: typeof FSpace
+  }
+}

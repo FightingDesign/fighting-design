@@ -9,6 +9,9 @@ import '@fighting-design/fighting-theme'
 // import FightingDesign from '../dist'
 // import '../dist/dist/index.css'
 
+console.log(FightingDesign)
+
 createApp(App)
   .use(FightingDesign)
+  // .use(FightingDesign)
   .mount('#start')

@@ -1,4 +1,27 @@
 {
+  // "editor.formatOnSave": true, // 保存自动格式化
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.vueIndentScriptAndStyle": false,
+  "eslint.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.quiet": false,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "cSpell.words": [
     "alearance",
     "alicdn",
@@ -97,6 +120,7 @@
     "tradingdata",
     "tradingvolume",
     "Transfermoney",
+    "treeshake",
     "tvue",
     "typeof",
     "unplugin",
@@ -119,28 +143,5 @@
     "yiguanzhugongyingshang",
     "zhankai",
     "zijin"
-  ],
-  // "editor.formatOnSave": true, // 保存自动格式化
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.vueIndentScriptAndStyle": false,
-  "eslint.enable": true,
-  "eslint.lintTask.enable": true,
-  "eslint.quiet": false,
-  "eslint.probe": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue"
-  ],
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue"
-  ],
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  ]
 }

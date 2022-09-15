@@ -27,7 +27,7 @@
 
     &.f-list-#{map-get($item, name)} {
       .f-list-item {
-        height: map-get($item, height);
+        min-height: map-get($item, height);
         font-size: map-get($item, fontSize);
       }
     }
@@ -41,8 +41,7 @@
   background: #fff;
   font-size: 14px;
   flex-wrap: nowrap;
-  padding-left: 20px;
-  height: $large;
+  padding: 7px 20px;
   box-sizing: border-box;
   display: flex;
   align-items: center;

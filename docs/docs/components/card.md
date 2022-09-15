@@ -23,12 +23,12 @@
 
 `round` 是否为圆角卡片
 
-<f-card round>Card 卡片</f-card>
+<f-card round title="圆角的">Card 卡片</f-card>
 
 ::: details 显示代码
 
 ```html
-<f-card round>Card 卡片</f-card>
+<f-card round title="圆角的">Card 卡片</f-card>
 ```
 
 :::
@@ -39,14 +39,14 @@
 
 <f-card shadow="never">从不显示</f-card>
 <f-card shadow="hover">Hover 显示</f-card>
-<f-card shadow="always">一直显示</f-card>
+<f-card shadow="always">总是显示</f-card>
 
 ::: details 显示代码
 
 ```html
 <f-card shadow="never">从不显示</f-card>
 <f-card shadow="hover">Hover 显示</f-card>
-<f-card shadow="always">一直显示</f-card>
+<f-card shadow="always">总是显示</f-card>
 ```
 
 :::
@@ -60,6 +60,12 @@
 | `padding` | 卡片内边距     | string  | ——                       | 20px   |
 | `shadow`  | 阴影样式       | string  | `never` `hover` `always` | always |
 
+## Slots
+
+| 名称     | 说明       |
+| -------- | ---------- |
+| `header` | 自定义头部 |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
@@ -69,3 +75,9 @@
 <a href="https://github.com/konvyi" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/44802220?v=4" />
 </a>
+
+<style scoped>
+  .f-card {
+    margin: 15px;
+  }
+</style>

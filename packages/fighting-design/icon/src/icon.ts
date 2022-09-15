@@ -1,3 +1,5 @@
+import type { PropType } from 'vue'
+
 export const Props = {
   icon: {
     type: String,
@@ -12,7 +14,7 @@ export const Props = {
     default: (): string => ''
   },
   size: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   }
 } as const

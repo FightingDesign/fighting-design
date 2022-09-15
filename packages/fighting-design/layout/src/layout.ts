@@ -1,5 +1,5 @@
 import type { directionType } from './interface'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   direction: {
@@ -10,5 +10,3 @@ export const Props = {
     }
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

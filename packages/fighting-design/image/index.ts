@@ -1,9 +1,13 @@
-import FImage from './src/image.vue'
+import Image from './src/image.vue'
 
 import { install } from '../_utils'
 
-install(FImage, FImage.name)
+export const FImage = install(Image)
 
-export type FImageInstance = InstanceType<typeof FImage>
+export type FImageInstance = InstanceType<typeof Image>
 
-export default FImage
+declare module 'vue' {
+  export interface GlobalComponents {
+    FImage: typeof FImage
+  }
+}

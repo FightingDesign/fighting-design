@@ -1,13 +1,12 @@
 <script lang="ts" setup name="FTag">
   import { Props, Emits } from './tag'
   import { computed, ref } from 'vue'
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import type { ComputedRef, Ref } from 'vue'
-  import type { FPropsType } from './tag'
   import type { handleCloseInterface as a } from './interface'
   import type { classListInterface as b } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const isShow: Ref<boolean> = ref<boolean>(true)
@@ -36,9 +35,9 @@
 
 <template>
   <div v-if="isShow" :class="classList" :style="{ background, color }">
-    <f-icon v-if="leftIcon" :icon="leftIcon" />
+    <f-icon v-if="beforeIcon" :icon="beforeIcon" />
     <slot />
-    <f-icon v-if="rightIcon" :icon="rightIcon" />
+    <f-icon v-if="afterIcon" :icon="afterIcon" />
 
     <f-icon v-if="close" icon="f-icon-close" @click.stop="handleClose" />
   </div>

@@ -1,9 +1,13 @@
-import FWatermark from './src/watermark.vue'
+import Watermark from './src/watermark.vue'
 
 import { install } from '../_utils'
 
-install(FWatermark, FWatermark.name)
+export const FWatermark = install(Watermark)
 
-export type FWatermarkInstance = InstanceType<typeof FWatermark>
+export type FWatermarkInstance = InstanceType<typeof Watermark>
 
-export default FWatermark
+declare module 'vue' {
+  export interface GlobalComponents {
+    FWatermark: typeof FWatermark
+  }
+}

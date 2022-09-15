@@ -1,9 +1,13 @@
-import FPageHeader from './src/page-header.vue'
+import PageHeader from './src/page-header.vue'
 
 import { install } from '../_utils'
 
-install(FPageHeader, FPageHeader.name)
+export const FPageHeader = install(PageHeader)
 
-export type FPageHeaderInstance = InstanceType<typeof FPageHeader>
+export type FPageHeaderInstance = InstanceType<typeof PageHeader>
 
-export default FPageHeader
+declare module 'vue' {
+  export interface GlobalComponents {
+    FPageHeader: typeof FPageHeader
+  }
+}

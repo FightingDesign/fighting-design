@@ -118,18 +118,18 @@ fighting-design
 
 ## Attributes
 
-| 参数              | 说明                  | 类型    | 可选值                                                     | 默认值       |
-| ----------------- | --------------------- | ------- | ---------------------------------------------------------- | ------------ |
-| `v-model:visible` | 绑定值                | boolean | ——                                                         | false        |
-| `title`           | header 文案           | string  | ——                                                         | ——           |
-| `append-to-body`  | 是否追加到 `body`     | boolean | ——                                                         | false        |
-| `width`           | `Dialog` 宽度         | string  | ——                                                         | 332px        |
-| `height`          | `Dialog` 高度         | string  | ——                                                         | 188px        |
-| `top`             | `Dialog` 距离顶部高度 | string  | ——                                                         | 13vh         |
-| `modal`           | 是否展示蒙层          | boolean | ——                                                         | true         |
-| `modal-close`     | 点击蒙层是否关闭      | boolean | ——                                                         | true         |
-| `close-icon`      | 关闭图标              | string  | [more](https://fighting.tianyuhao.cn/components/icon.html) | f-icon-close |
-| `z-index`         | `Dialog` 层级         | boolean | ——                                                         | 1999         |
+| 参数              | 说明                  | 类型    | 可选值 | 默认值       |
+| ----------------- | --------------------- | ------- | ------ | ------------ |
+| `v-model:visible` | 绑定值                | boolean | ——     | false        |
+| `title`           | header 文案           | string  | ——     | ——           |
+| `append-to-body`  | 是否追加到 `body`     | boolean | ——     | false        |
+| `width`           | `Dialog` 宽度         | string  | ——     | 332px        |
+| `height`          | `Dialog` 高度         | string  | ——     | 188px        |
+| `top`             | `Dialog` 距离顶部高度 | string  | ——     | 13vh         |
+| `modal`           | 是否展示蒙层          | boolean | ——     | true         |
+| `modal-close`     | 点击蒙层是否关闭      | boolean | ——     | true         |
+| `close-icon`      | 关闭图标              | string  | ——     | f-icon-close |
+| `z-index`         | `Dialog` 层级         | boolean | ——     | 1999         |
 
 ## Slots
 
@@ -141,12 +141,12 @@ fighting-design
 
 ## Events
 
-| 事件名称    | 说明                  | 类型                    |
-| ----------- | --------------------- | ----------------------- |
-| `open`      | `Dialog` 打开之前回调 | `(e: Event) => boolean` |
-| `open-end`  | `Dialog` 打开之后回调 | `(e: Event) => boolean` |
-| `close`     | `Dialog` 关闭之前回调 | `(e: Event) => boolean` |
-| `close-end` | `Dialog` 关闭之后回调 | `(e: Event) => boolean` |
+| 事件名称    | 说明                          |
+| ----------- | ----------------------------- |
+| `open`      | `Dialog` 打开动画开始之前回调 |
+| `open-end`  | `Dialog` 打开动画开始之后回调 |
+| `close`     | `Dialog` 关闭动画开始之前回调 |
+| `close-end` | `Dialog` 关闭动画开始之后回调 |
 
 ## Contributors
 

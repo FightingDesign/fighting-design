@@ -1,9 +1,13 @@
-import FButtonGroup from './src/button-group.vue'
+import ButtonGroup from './src/button-group.vue'
 
 import { install } from '../_utils'
 
-install(FButtonGroup, FButtonGroup.name)
+export const FButtonGroup = install(ButtonGroup)
 
-export type FButtonGroupInstance = InstanceType<typeof FButtonGroup>
+export type FButtonGroupInstance = InstanceType<typeof ButtonGroup>
 
-export default FButtonGroup
+declare module 'vue' {
+  export interface GlobalComponents {
+    FButtonGroup: typeof FButtonGroup
+  }
+}

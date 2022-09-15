@@ -1,16 +1,12 @@
 <script lang="ts" setup name="FButton">
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
-  import { Ripples, ChangeColor } from '../../_utils'
-  import { useFilterProps } from '../../_hooks/useFilterProps'
+  import { Ripples, ChangeColor, isString } from '../../_utils'
   import type { FPropsType } from './button'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
-  import type { onClickInterface as a } from './interface'
-  import type {
-    RipplesNeedButtonPropsInterface as b,
-    classListInterface as c
-  } from '../../_interface'
+  import type { handleClickInterface as a } from './interface'
+  import type { classListInterface as b } from '../../_interface'
 
   const prop: FPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -21,7 +17,7 @@
   )
 
   // 类名列表
-  const classList: ComputedRef<c> = computed((): c => {
+  const classList: ComputedRef<b> = computed((): b => {
     const {
       type,
       round,
@@ -38,9 +34,9 @@
 
     return [
       'f-button',
-      `f-button-${type}`,
       `f-button-${size}`,
       {
+        [`f-button-${type}`]: !color,
         'f-button-disabled': disabled || loading,
         'f-button-simple': simple && !color,
         'f-button-circle': circle,
@@ -58,7 +54,7 @@
     const { fontSize, fontColor, shadow } = prop
 
     return {
-      fontSize,
+      fontSize: isString(fontSize) ? fontSize : fontSize + 'px',
       boxShadow: shadow,
       color: fontColor
     } as const
@@ -74,18 +70,20 @@
     }
 
     if (ripples) {
-      // 拿到需要的 props 传递给类
-      const needProps: b = useFilterProps<FPropsType, b>(prop, [
-        'ripplesColor',
-        'type',
-        'simple',
-        'text'
-      ]).getProps()
+      const { ripplesColor, simple, text, type } = prop
 
       const ripples: Ripples = new Ripples(
         evt,
         FButton.value as HTMLButtonElement,
-        needProps
+        {
+          duration: 700,
+          component: 'f-button',
+          className: 'f-button-ripples',
+          ripplesColor,
+          simple,
+          text,
+          type
+        } as const
       )
       ripples.clickRipples()
     }
@@ -94,13 +92,13 @@
   }
 
   // 左侧 icon
-  const leftIconClass: ComputedRef<string> = computed<string>((): string => {
-    const { loading, loadingIcon, leftIcon } = prop
+  const beforeIconClass: ComputedRef<string> = computed<string>((): string => {
+    const { loading, loadingIcon, beforeIcon } = prop
 
     if (loading) {
-      return `${loadingIcon || 'f-icon-loading'} f-loading-animation`
+      return `${loadingIcon || 'f-icon-loading'} f-loading-animation` as string
     }
-    return leftIcon as string
+    return beforeIcon as string
   })
 
   // 自定义颜色
@@ -134,12 +132,12 @@
       @click="handleClick"
     >
       <f-icon
-        v-if="leftIcon || loading"
-        :icon="leftIconClass"
+        v-if="beforeIcon || loading"
+        :icon="beforeIconClass"
         :style="styleList"
       />
       <slot />
-      <f-icon v-if="rightIcon" :icon="rightIcon" :style="styleList" />
+      <f-icon v-if="afterIcon" :icon="afterIcon" :style="styleList" />
     </a>
   </template>
 
@@ -155,12 +153,12 @@
       @click="handleClick"
     >
       <f-icon
-        v-if="leftIcon || loading"
-        :icon="leftIconClass"
+        v-if="beforeIcon || loading"
+        :icon="beforeIconClass"
         :style="styleList"
       />
       <slot />
-      <f-icon v-if="rightIcon" :icon="rightIcon" :style="styleList" />
+      <f-icon v-if="afterIcon" :icon="afterIcon" :style="styleList" />
     </button>
   </template>
 </template>

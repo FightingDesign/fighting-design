@@ -27,7 +27,7 @@ export const Props = {
     default: (): string => ''
   },
   message: {
-    type: [String, Object] as PropType<VNode | String>,
+    type: [String, Object] as PropType<VNode | string>,
     default: (): string => '',
     require: true
   },
@@ -51,7 +51,7 @@ export const Props = {
     default: (): boolean => false
   },
   icon: {
-    type: [String, Object] as PropType<VNode | String>,
+    type: [String, Object] as PropType<VNode | string>,
     default: (): string => ''
   },
   color: {
@@ -78,7 +78,7 @@ export const Props = {
     default: (): number => 1000
   },
   closeBtn: {
-    type: [String, Object] as PropType<VNode | String>,
+    type: [String, Object] as PropType<VNode | string>,
     default: (): string => ''
   },
   closeEnd: {

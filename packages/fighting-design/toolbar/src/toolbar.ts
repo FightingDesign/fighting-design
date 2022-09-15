@@ -1,5 +1,5 @@
-import type { PropType, CSSProperties, ExtractPropTypes } from 'vue'
-import type { toolbarType } from './interface'
+import type { PropType, CSSProperties } from 'vue'
+import type { toolbarType, clickEmitInterface } from './interface'
 import type { fixedStyleInterface } from '../../alert/src/interface'
 
 export const Props = {
@@ -54,4 +54,6 @@ export const Props = {
   }
 } as const
 
-export type FPropsType = ExtractPropTypes<typeof Props>
+export const Emits = {
+  click: (target: clickEmitInterface): clickEmitInterface => target
+} as const

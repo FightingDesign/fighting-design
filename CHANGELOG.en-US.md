@@ -4,6 +4,151 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.4-alpha.10 (2022-09-14)
+
+- Test Repair On Demand Import
+
+## 0.6.4-alpha.9 (2022-09-14)
+
+- Test Repair On Demand Import
+
+## 0.6.4-alpha.8 (2022-09-14)
+
+- Test Repair On Demand Import
+
+## 0.6.4-alpha.7 (2022-09-14)
+
+**fix**
+
+- Fix the `hover` and `disabled` styles of the `f-button` component`s custom colors
+- Fix `f-page-header` component style details
+- Fix `f-button` component `text` configuration item style details
+- Fix some problems with the `width` attribute of the `f-image` component
+
+**fest**
+
+- The `size` attribute of the `f-icon` component supports the `number` type
+- The `font size` attribute of the `f-button` component supports the `number` type
+- The `f-image ` component `root-margin` `width` `height` attributes support the `number` type
+- The `f-avatar` component `rootMargin` attribute supports the `number` type
+- Add `f-image preview` component
+- `click ` callback added to `f-image` component
+
+**other**
+
+- Abolish the `title-class` and` subtitle-class` configuration items of `f-page-header`
+- The `f-lint` component `left icon` `right-icon` configuration item is renamed to `before-icon` `after-icon`
+- The `f-button` component `left icon` `right-icon` configuration item is renamed to `before-icon` `after-icon`
+- The `f-tag` component `left-icon` `right-icon` configuration item is renamed to `before-icon` `after-icon`
+- The `text-color` `text-size` configuration item of the `f-loading` component is renamed to `font-color` `font-size`
+- `f-empty` component revokes`style list`configuration item
+- Split `f-empty` components
+- Optimize `f-avatar` style details
+- The `f-image` component cancels clicking the big picture preview function, which is separated from the `f-image preview` component
+- `f-image` Component Revocation Attribute: `module-close` `show-close-btn` `preview-list` `preview-show-index` `preview-z-index` `preview-show option` `preview-round`
+- Test Repair On Demand Import
+
+## 0.6.4-alpha.6 (2022-09-11)
+
+**fest**
+
+- Add `f-ripple` ripple component
+- Add `f-radio` `f-radio-group` component
+
+**fix**
+
+- Fix `f-button` and `f-loading` animation style problems
+- Fix the problem that the feed height of `f-list-item` is not adaptive
+
+## 0.6.4-alpha.5 (2022-09-06)
+
+- Test and repair side effect component registration
+
+## 0.6.4-alpha.4 (2022-09-06)
+
+- Test and repair side effect component registration
+
+## 0.6.4-alpha.3 (2022-09-05)
+
+- Test and repair side effect component registration
+
+## 0.6.4-alpha.2 (2022-09-05)
+
+- Test and repair side effect component registration
+
+## 0.6.4-alpha.1 (2022-09-03)
+
+- Fix type
+
+## 0.6.3-alpha.3 (2022-09-03)
+
+- 修复了部分组件类型
+- 修复了按需引入仍然全部打包的问题
+
+## 0.6.3-alpha.2 (2022-09-02)
+
+- Fix config file
+- A bug fixed in `vitepress`
+
+## 0.6.3-alpha.1 (2022-09-02)
+
+- Fixed issues related to package import
+- However, there are still problems in `vitepress`, which can be used normally in normal projects
+
+## 0.6.2-alpha.10 (2022-09-02)
+
+- Test and repair problems introduced by build
+
+## 0.6.2-alpha.9 (2022-09-02)
+
+- Test and repair problems introduced by build
+
+## 0.6.2-alpha.8 (2022-09-02)
+
+- Test and repair problems introduced by build
+
+## 0.6.2-alpha.7 (2022-09-02)
+
+- Test and repair problems introduced by build
+
+## 0.6.2-alpha.6 (2022-08-31)
+
+- Fix some known introduction related configuration problems
+
+## 0.6.2-alpha.5 (2022-08-30)
+
+**fest**
+
+- Add `f-loading-bar` component
+- Add `notification` component
+
+**fix**
+
+- Repair button component style
+- Update the default value of the `shadow` parameter of the `f-card` component. Now changed to `never`
+
+## 0.6.2-alpha.4 (2022-08-29)
+
+**fest**
+
+-New ` title` configuration item for `f-image` component
+
+**fix**
+
+- Fix `F-card` component style details
+- Fix some style related details of `f-skeleton`
+
+## 0.6.2-alpha.3 (2022-08-28)
+
+- Add `f-skeleton` skeleton screen component
+- Optimize the fillet style of `f-button` `f-alert` components
+- Optimize `f-alert` style details
+- Optimize the `overflow` configuration item of the `f-alert` component
+- Remove the `Roll` optional parameter of the `overflow` configuration item of the `f-alert` component
+- Remove the `f-novel-coronavirus` component
+- Fix the problem of `load` image loading class loading loop
+- Optimize the tear pattern during the loading of the `f-image` component
+
 ## 0.6.2-alpha.2 (2022-08-20)
 
 - Fix known packaging issues

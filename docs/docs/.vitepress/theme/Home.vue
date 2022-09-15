@@ -1,18 +1,14 @@
 <script lang="ts" setup>
-  import Clipboard from 'clipboard'
-  import { lists, bottomList, collaborator } from './src/list'
-
-  const copyCode = (node: string): void => {
-    return new Clipboard(node)
-  }
+  import { lists, bottomList } from './src/list'
+  import { contributors } from './src/contributors.ts'
 </script>
 
 <template>
   <div id="banner">
     <div class="logo_box">
-      <img
+      <f-image
         class="logo"
-        draggable="false"
+        :draggable="false"
         src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
         alt="Fighting Design logo"
       />
@@ -33,43 +29,32 @@
         可在 vue3 应用程序中快速构建交互界面，看起来还不错。
       </h1>
       <p class="content">
-        <strong>🌈 Fighting Design</strong> 是一款灵活、优质的
-        组件库，为开发者、设计师准备。希望开发者可以借用
-        <strong>Fighting Design</strong>
-        的设计，在不久的将来，孕育出更高阶的组件库。
+        <strong>🌈 Fighting Design</strong>
+        是一款灵活、优质的组件库，为开发者、设计师准备。希望开发者可以借用其中的的设计，在不久的将来，孕育出更高阶的组件库。
       </p>
 
-      <div class="action">
-        <f-button type="primary" size="large" href="/docs/install">
-          开始使用
-        </f-button>
-        <f-button
-          class="code"
-          type="primary"
-          size="large"
-          blob
-          simple
-          data-clipboard-text="npm i filling-design"
-          @click="copyCode('.code')"
-        >
-          pnpm add filling-design
-        </f-button>
-      </div>
+      <f-button type="primary" size="large" href="/docs/install">
+        开始使用
+      </f-button>
     </div>
 
-    <div id="introduce">
-      <div class="advantage">
-        <div v-for="(list, index) in lists" :key="index" class="advantage_item">
-          <div class="img_box">
-            <img
-              :src="`https://tianyuhao.cn/images/fighting-design/home-${
-                index + 1
-              }.svg`"
-            />
-          </div>
-          <p class="text">{{ list }}</p>
-        </div>
+    <!-- 贡献者 -->
+    <div id="contributors">
+      <f-text block center bold size="26px">Contributors</f-text>
+      <div class="contributors-box">
+        <a
+          v-for="(item, i) in contributors"
+          :href="item.homePage"
+          :key="i"
+          target="_blank"
+        >
+          <f-avatar round :src="item.avatar" />
+        </a>
       </div>
+
+      <f-button simple type="primary" href="/docs/CONTRIBUTING" round>
+        加入其中
+      </f-button>
     </div>
 
     <div id="footer">
@@ -78,9 +63,9 @@
           <ul v-for="(listItem, index) in bottomList" :key="index">
             <h4>{{ listItem.title }}</h4>
             <li v-for="(list, i) in listItem.item" :key="i">
-              <a class="home_link" target="_back" :href="list.link">
+              <f-link target="_blank" :href="list.link">
                 {{ list.text }}
-              </a>
+              </f-link>
             </li>
           </ul>
         </div>
@@ -91,29 +76,10 @@
         <img src="https://tianyuhao.cn/images/auto/weixin.png" alt="weixin" />
       </div>
 
-      <div class="footer_item">
-        <h4 class="title">合作者</h4>
-        <a
-          v-for="(item, index) in collaborator"
-          :key="index"
-          class="collaborator"
-          target="_blank"
-          :href="item.url"
-        >
-          <img
-            draggable="false"
-            class="myPhoto"
-            :src="item.photo"
-            alt="photo"
-          />
-          <span class="userName">{{ item.name }}</span>
-        </a>
-      </div>
-
       <p class="code">
-        <a target="_back" href="https://beian.miit.gov.cn">
+        <f-link target="_blank" href="https://beian.miit.gov.cn">
           FightingDesign | 浙ICP备2021024540号-2
-        </a>
+        </f-link>
       </p>
     </div>
   </div>
@@ -208,53 +174,38 @@
         margin-top: 30px;
       }
 
-      .action {
+      .f-button-primary {
         margin-top: 30px;
-        display: flex;
-        align-items: center;
-
-        .code {
-          margin-left: 17px;
-          font-size: 21px;
-        }
       }
     }
 
-    #introduce {
-      margin-bottom: 40px;
+    // 贡献者
+    #contributors {
+      margin-top: 66px;
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
-      .advantage {
-        margin-top: 80px;
-        width: 100%;
+      .f-text {
+        margin-bottom: 40px;
+      }
+
+      .f-button {
+        margin-top: 40px;
+      }
+
+      .contributors-box {
+        max-width: 800px;
+        margin: 0 auto;
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
-        user-select: none;
 
-        .advantage_item {
-          width: 50%;
-          padding: 20px;
-          box-sizing: border-box;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-
-          .img_box {
-            width: 70%;
-            overflow: hidden;
-            height: 12rem;
-
-            img {
-              width: 100%;
-              height: 200px;
-              transition: 0.3s;
-            }
-          }
-
-          .text {
-            margin-top: 30px;
-            font-size: 20px;
-          }
+        .f-avatar {
+          margin: 5px;
         }
       }
     }
@@ -289,28 +240,6 @@
               cursor: pointer;
               font-size: 14px;
             }
-          }
-        }
-
-        .collaborator {
-          width: 150px;
-          height: 50px;
-          display: inline-block;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-
-          .myPhoto {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-          }
-
-          .userName {
-            font-size: 20px;
-            margin-left: 10px;
-            color: #333;
           }
         }
       }

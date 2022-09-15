@@ -1,6 +1,6 @@
-# Docs 规范指南
+# Docs
 
-## 前言
+## 介绍
 
 `Docs` 是 `Fighting Design` 官方文档目录，使用 [VitePress](https://github.com/vuejs/vitepress) 进行开发。
 

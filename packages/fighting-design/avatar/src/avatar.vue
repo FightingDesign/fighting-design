@@ -2,7 +2,7 @@
   import { Props, Emits } from './avatar'
   import { computed, ref, onMounted } from 'vue'
   import { loadImage, isNumber, isString } from '../../_utils'
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import { useFilterProps } from '../../_hooks/useFilterProps'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { FPropsType } from './avatar'
@@ -13,7 +13,7 @@
     classListInterface as d
   } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   /**
@@ -97,7 +97,7 @@
       'errSrc',
       'rootMargin',
       'lazy'
-    ]).getProps()
+    ])
     loadImage(node, needProps, emit, callback)
   }
 
@@ -120,11 +120,11 @@
       v-else
       v-show="isShowNode"
       ref="FAvatarImg"
+      src=""
       :style="imageSizeStyleList"
       :class="nodeClassList"
       :alt="alt"
-      src=""
-    />
+    >
   </div>
 
   <div v-else class="f-avatar-error" :style="imageSizeStyleList">

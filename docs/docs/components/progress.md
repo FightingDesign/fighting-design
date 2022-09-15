@@ -22,8 +22,8 @@
 <f-progress type="success" :percentage="num" linear />
 
 <f-button-group>
-  <f-button simple round type="primary" left-icon="f-icon-sami-select" @click="sun" />
-  <f-button simple round type="primary" left-icon="f-icon-add-select" @click="add" />
+  <f-button simple round type="primary" before-icon="f-icon-sami-select" @click="sun" />
+  <f-button simple round type="primary" before-icon="f-icon-add-select" @click="add" />
 </f-button-group>
 
 ::: details 显示代码
@@ -43,14 +43,14 @@
       simple
       round
       type="primary"
-      left-icon="f-icon-sami-select"
+      before-icon="f-icon-sami-select"
       @click="sun"
     />
     <f-button
       simple
       round
       type="primary"
-      left-icon="f-icon-add-select"
+      before-icon="f-icon-add-select"
       @click="add"
     />
   </f-button-group>
@@ -142,24 +142,24 @@
 
 `stripe` 可以配置条纹样式
 
-<f-progress stripe type="primary" :percentage="num" />
-<f-progress stripe type="success" :percentage="num" />
-<f-progress stripe type="danger" :percentage="num" />
-<f-progress stripe type="warning" :percentage="num" />
+<f-progress :height="25" stripe type="primary" :percentage="num" />
+<f-progress :height="25" stripe type="success" :percentage="num" />
+<f-progress :height="25" stripe type="danger" :percentage="num" />
+<f-progress :height="25" stripe type="warning" :percentage="num" />
 
 <f-button-group>
-  <f-button simple round type="primary" left-icon="f-icon-sami-select" @click="sun" />
-  <f-button simple round type="primary" left-icon="f-icon-add-select" @click="add" />
+  <f-button simple round type="primary" before-icon="f-icon-sami-select" @click="sun" />
+  <f-button simple round type="primary" before-icon="f-icon-add-select" @click="add" />
 </f-button-group>
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-progress stripe type="primary" :percentage="num" />
-  <f-progress stripe type="success" :percentage="num" />
-  <f-progress stripe type="danger" :percentage="num" />
-  <f-progress stripe type="warning" :percentage="num" />
+  <f-progress :height="25" stripe type="primary" :percentage="num" />
+  <f-progress :height="25" stripe type="success" :percentage="num" />
+  <f-progress :height="25" stripe type="danger" :percentage="num" />
+  <f-progress :height="25" stripe type="warning" :percentage="num" />
 
   <f-button-group>
     <f-button

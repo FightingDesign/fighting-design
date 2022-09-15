@@ -1,26 +1,27 @@
-import Components from 'unplugin-vue-components/vite'
 import type { UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
+import { visualizer } from 'rollup-plugin-visualizer' // https://github.com/btd/rollup-plugin-visualizer
+// import svgLoader from 'vite-svg-loader' // https://github.com/jpkleemans/vite-svg-loader
 
 export default (): UserConfigExport => {
   return {
     plugins: [
       vue(),
       dts({
-        insertTypesEntry: false, // 是否生成类型声明入口
+        // root: './packages/fighting-design', // 执行的根目录
+        // logDiagnostics: true, // 是否打印类型诊断信息
+        // skipDiagnostics: false, // 是否跳过类型诊断
+        insertTypesEntry: true, // 是否生成类型声明入口
         cleanVueFileName: true, // 是否将 '.vue.d.ts' 文件名转换为 '.d.ts'
-        copyDtsFiles: true // 是否将 .d.ts 源文件复制到 outputDir 中
+        copyDtsFiles: true, // 是否将源码里的 .d.ts 文件复制到 outputDir
+        include: ['./packages/fighting-design'] // 手动设置包含路径的 glob
       }),
       vueSetupExtend(),
-      Components({
-        dts: resolve(
-          __dirname,
-          '/packages/fighting-design/global-components.d.ts'
-        )
-      })
+      visualizer()
+      // svgLoader()
     ],
     mode: 'production',
     build: {
@@ -42,6 +43,10 @@ export default (): UserConfigExport => {
         output: {
           preserveModules: true // 让打包目录和目录对应 https://rollupjs.org/guide/en/#outputpreservemodules
         }
+        // https://rollupjs.org/guide/en/#treeshake
+        // treeshake: {
+        //   moduleSideEffects: false
+        // }
       }
     }
   }

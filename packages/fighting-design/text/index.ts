@@ -1,9 +1,13 @@
-import FText from './src/text.vue'
+import Text from './src/text.vue'
 
 import { install } from '../_utils'
 
-install(FText, FText.name)
+export const FText = install(Text)
 
-export type FTextInstance = InstanceType<typeof FText>
+export type FTextInstance = InstanceType<typeof Text>
 
-export default FText
+declare module 'vue' {
+  export interface GlobalComponents {
+    FText: typeof FText
+  }
+}

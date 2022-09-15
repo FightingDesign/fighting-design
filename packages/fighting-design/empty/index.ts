@@ -1,9 +1,13 @@
-import FEmpty from './src/empty.vue'
+import Empty from './src/empty.vue'
 
 import { install } from '../_utils'
 
-install(FEmpty, FEmpty.name)
+export const FEmpty = install(Empty)
 
-export type FEmptyInstance = InstanceType<typeof FEmpty>
+export type FEmptyInstance = InstanceType<typeof Empty>
 
-export default FEmpty
+declare module 'vue' {
+  export interface GlobalComponents {
+    FEmpty: typeof FEmpty
+  }
+}

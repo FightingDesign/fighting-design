@@ -1,13 +1,12 @@
 <script lang="ts" setup name="FAlert">
   import { Props, Emits } from './alert'
   import { computed, ref } from 'vue'
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import type { ComputedRef, CSSProperties, Ref } from 'vue'
   import type { handleCloseInterface as a } from './interface'
   import type { classListInterface as b } from '../../_interface'
-  import type { FPropsType } from './alert'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const isShow: Ref<boolean> = ref<boolean>(true)

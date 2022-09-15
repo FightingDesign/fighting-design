@@ -1,11 +1,11 @@
 export const sidebar = {
   '/docs/': [
     {
-      text: '快速上手',
+      text: '开发指南',
       link: '/docs/install',
       items: [
         { text: '安装', link: '/docs/install' },
-        { text: '引入使用', link: '/docs/import' }
+        { text: '快速上手', link: '/docs/import' }
       ]
     },
     {
@@ -37,11 +37,7 @@ export const sidebar = {
         { text: 'Text 文本', link: '/components/text' },
         { text: 'Layout 布局', link: '/components/layout' },
         { text: 'Space 间距', link: '/components/space' },
-        { text: 'Color 色彩', link: '/components/color' },
-        {
-          text: 'Novel Coronavirus 新型冠状病毒',
-          link: '/components/novel-coronavirus'
-        }
+        { text: 'Color 色彩', link: '/components/color' }
       ]
     },
     {
@@ -50,13 +46,15 @@ export const sidebar = {
       items: [
         { text: 'Badge 角标', link: '/components/badge' },
         { text: 'Image 图片', link: '/components/image' },
+        { text: 'Image Preview 图片预览', link: '/components/image-preview' },
         { text: 'Card 卡片', link: '/components/card' },
         { text: 'Tag 标签', link: '/components/tag' },
         { text: 'Switch 开关', link: '/components/switch' },
         { text: 'Avatar 头像', link: '/components/avatar' },
         { text: 'Progress 进度条', link: '/components/progress' },
         { text: 'Empty 空状态', link: '/components/empty' },
-        { text: 'List 列表', link: '/components/list' }
+        { text: 'List 列表', link: '/components/list' },
+        { text: 'Radio 单选框', link: '/components/radio' },
       ]
     },
     {
@@ -74,7 +72,9 @@ export const sidebar = {
         { text: 'Alert 提示', link: '/components/alert' },
         { text: 'Loading 加载', link: '/components/loading' },
         { text: 'Message 消息提示', link: '/components/message' },
-        { text: 'Skeleton 骨架屏', link: '/components/skeleton' }
+        { text: 'Notification 通知', link: '/components/notification' },
+        { text: 'Skeleton 骨架屏', link: '/components/skeleton' },
+        { text: 'Loading Bar 加载条', link: '/components/loading-bar' }
       ]
     },
     {
@@ -87,7 +87,8 @@ export const sidebar = {
         { text: 'Dialog 对话框', link: '/components/dialog' },
         { text: 'Drawer 抽屉', link: '/components/drawer' },
         { text: 'Tooltip 消息提示', link: '/components/tooltip' },
-        { text: 'Watermark 水印', link: '/components/watermark' }
+        { text: 'Watermark 水印', link: '/components/watermark' },
+        { text: 'Ripple 涟漪', link: '/components/ripple' }
       ]
     }
   ]

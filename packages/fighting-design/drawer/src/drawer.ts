@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { drawerDirectionType } from './interface'
 
 export const Props = {
@@ -38,7 +38,7 @@ export const Props = {
     default: (): boolean => true
   },
   zIndex: {
-    type: Number,
+    type: Number as PropType<number>,
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
   }
@@ -51,5 +51,3 @@ export const Emits = {
   'open-end': (event: MouseEvent): MouseEvent => event,
   'close-end': (event: MouseEvent): MouseEvent => event
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

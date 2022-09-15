@@ -1,9 +1,13 @@
-import FToolbarItem from './src/toolbar-item.vue'
+import ToolbarItem from './src/toolbar-item.vue'
 
 import { install } from '../_utils'
 
-install(FToolbarItem, FToolbarItem.name)
+export const FToolbarItem = install(ToolbarItem)
 
-export type FToolbarItemInstance = InstanceType<typeof FToolbarItem>
+export type FToolbarItemInstance = InstanceType<typeof ToolbarItem>
 
-export default FToolbarItem
+declare module 'vue' {
+  export interface GlobalComponents {
+    FToolbarItem: typeof FToolbarItem
+  }
+}

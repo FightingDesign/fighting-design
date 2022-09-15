@@ -1,5 +1,5 @@
 import type { badgeType } from './interface'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   value: {
@@ -36,5 +36,3 @@ export const Props = {
     default: (): string => ''
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

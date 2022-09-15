@@ -1,18 +1,16 @@
-import type { installInterface, mainVNodeInterface } from '../_interface'
+import type { InstallType } from '../_interface'
 import type { App } from 'vue'
 
 /**
  * 注册组件
  * @param main 组件实例
- * @param name 组件名
  */
-export const install: installInterface = (
-  main: mainVNodeInterface,
-  name: string
-): void => {
-  main.install = (app: App): void => {
-    app.component(name, main)
+export const install = <T>(main: T): T => {
+  (main as InstallType<T>).install = (app: App): void => {
+    const { name } = main as { name: string }
+    app.component(name, main as InstallType<T>)
   }
+  return main as InstallType<T>
 }
 
 /**
@@ -20,11 +18,9 @@ export const install: installInterface = (
  * @param main 组件实例
  * @param name 组件名
  */
-export const installFn: installInterface = (
-  main: mainVNodeInterface,
-  name: string
-): void => {
-  main.install = (app: App): void => {
-    app.config.globalProperties[name] = main
+export const installFn = <T>(main: T, name: string): T => {
+  (main as InstallType<T>).install = (app: App): void => {
+    app.config.globalProperties[name] = main as InstallType<T>
   }
+  return main as InstallType<T>
 }

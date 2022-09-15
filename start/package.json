@@ -2,6 +2,6 @@
   "name": "start",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build"
+    "build": "rimraf dist && vue-tsc --noEmit && vite build"
   }
 }

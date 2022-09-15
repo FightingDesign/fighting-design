@@ -1,9 +1,13 @@
-import FFooter from './src/footer.vue'
+import Footer from './src/footer.vue'
 
 import { install } from '../_utils'
 
-install(FFooter, FFooter.name)
+export const FFooter = install(Footer)
 
-export type FFooterInstance = InstanceType<typeof FFooter>
+export type FFooterInstance = InstanceType<typeof Footer>
 
-export default FFooter
+declare module 'vue' {
+  export interface GlobalComponents {
+    FFooter: typeof FFooter
+  }
+}

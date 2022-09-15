@@ -2,11 +2,156 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.4-alpha.11 (2022-09-14)
+
+- 优化 `f-toolbar-item` 和 `f-toolbar` 组件样式细节
+- `f-toolbar-item` 新增 `data-key` `icon` `icon-size` 配置项
+- `f-toolbar` 新增 `click` 回调参数
+
+## 0.6.4-alpha.10 (2022-09-14)
+
+- 测试修复按需引入
+
+## 0.6.4-alpha.9 (2022-09-14)
+
+- 测试修复按需引入
+
+## 0.6.4-alpha.8 (2022-09-14)
+
+- 测试修复按需引入
+
+## 0.6.4-alpha.7 (2022-09-14)
+
+**fix**
+
+- 修复 `f-button` 组件自定义颜色的 `hover` 和 `disabled` 样式
+- 修复 `f-page-header` 组件样式细节
+- 修复 `f-button` 组件 `text` 配置项样式细节
+- 修复 `f-image` 组件 `width` 属性的一些问题
+
+**fest**
+
+- `f-icon` 组件的 `size` 属性支持 `number` 类型
+- `f-button` 组件的 `font-size` 属性支持 `number` 类型
+- `f-image` 组件 `rootMargin` `width` `height` 属性支持 `number` 类型
+- `f-avatar` 组件 `rootMargin` 属性支持 `number` 类型
+- 新增 `f-image-preview` 组件
+- `f-image` 组件新增 `click` 回调
+
+**other**
+
+- 废除 `f-page-header` 的 `titleClass` 和 `subtitleClass` 配置项
+- `f-lint` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-button` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-tag` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-loading` 组件的 `text-color` `text-size` 配置项更名为 `font-color` `font-size`
+- `f-empty` 组件废除 `style-list` 配置项
+- 拆分 `f-empty` 组件
+- 优化 `f-avatar` 样式细节
+- `f-image` 组件废除点击大图预览功能，此功能抽离至 `f-image-preview` 组件
+- `f-image` 组件废除属性：`modal-close` `show-close-btn` `preview-list` `preview-show-index` `preview-z-index` `preview-show-option` `preview-round`
+- 测试修复按需引入
+
+## 0.6.4-alpha.6 (2022-09-11)
+
+**fest**
+
+- 新增 `f-ripple` 涟漪组件
+- 新增 `f-radio` `f-radio-group` 组件
+
+**fix**
+
+- 修复 `f-button` `f-loading` 动画样式问题
+- 修复 `f-list-item` 换行高度不自适应的问题
+
+## 0.6.4-alpha.5 (2022-09-06)
+
+- 测试修复副作用组件注册
+
+## 0.6.4-alpha.4 (2022-09-06)
+
+- 测试修复副作用组件注册
+
+## 0.6.4-alpha.3 (2022-09-05)
+
+- 测试修复副作用组件注册
+
+## 0.6.4-alpha.2 (2022-09-05)
+
+- 测试修复副作用组件注册
+
+## 0.6.4-alpha.1 (2022-09-03)
+
+- 修复类型
+
+## 0.6.3-alpha.3 (2022-09-03)
+
+- 修复了部分组件类型
+- 修复了按需引入仍然全部打包的问题
+
+## 0.6.3-alpha.2 (2022-09-02)
+
+- 修复的配置文件
+- 一件修复在 `vitepress` 的错误
+
+## 0.6.3-alpha.1 (2022-09-02)
+
+- 已修复打包引入相关的问题
+- 但是在 `vitepress` 中仍存在问题，在正常项目中可以正常使用
+
+## 0.6.2-alpha.10 (2022-09-02)
+
+- 测试修复打包引入问题
+
+## 0.6.2-alpha.9 (2022-09-02)
+
+- 测试修复打包引入问题
+
+## 0.6.2-alpha.8 (2022-09-02)
+
+- 测试修复打包引入问题
+
+## 0.6.2-alpha.7 (2022-09-02)
+
+- 测试修复打包引入问题
+
+## 0.6.2-alpha.6 (2022-08-31)
+
+- 修复已知的一些引入相关配置问题
+
+## 0.6.2-alpha.5 (2022-08-30)
+
+**fest**
+
+- 新增 `f-loading-bar` 组件
+- 新增 `notification` 组件
+
+**fix**
+
+- 修复按钮组件样式
+- 更新 `f-card` 组件 `shadow` 参数默认值。现改为 `never`
+
+## 0.6.2-alpha.4 (2022-08-29)
+
+**fest**
+
+- `f-image` 组件新增 `title` 配置项
+
+**fix**
+
+- 修复 `f-card` 组件样式细节
+- 修复 `f-skeleton` 的一些样式相关细节
+
+## 0.6.2-alpha.3 (2022-08-28)
+
 - 新增 `f-skeleton` 骨架屏组件
 - 优化 `f-button` `f-alert` 组件圆角样式
 - 优化 `f-alert` 样式细节
 - 优化 `f-alert` 组件 `overflow` 配置项
 - 移除 `f-alert` 组件 `overflow` 配置项的 `roll` 可选参数
+- 移除 `f-novel-coronavirus` 组件
+- 修复 `Load` 图片加载类加载死循环的问题
+- 优化 `f-image` 组件加载过程中是撕裂样式
 
 ## 0.6.2-alpha.2 (2022-08-20)
 

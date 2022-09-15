@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { imageFit } from './interface'
 
 export const Props = {
@@ -19,15 +19,15 @@ export const Props = {
     default: (): boolean => false
   },
   rootMargin: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => '100px'
   },
   width: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   height: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   block: {
@@ -67,37 +67,7 @@ export const Props = {
     type: String,
     default: (): string => '#fff'
   },
-  modalClose: {
-    type: Boolean,
-    default: (): boolean => true
-  },
-  showCloseBtn: {
-    type: Boolean,
-    default: (): boolean => true
-  },
-  previewList: {
-    type: Array as PropType<string[]>,
-    default: (): string[] => []
-  },
-  previewShowIndex: {
-    type: Number,
-    default: (): number => 0,
-    validator: (val: number): boolean => {
-      return val >= 0
-    }
-  },
-  previewZIndex: {
-    type: Number,
-    default: (): number => 999,
-    validator: (val: number): boolean => {
-      return val >= 0
-    }
-  },
-  previewShowOption: {
-    type: Boolean,
-    default: (): boolean => true
-  },
-  previewRound: {
+  title: {
     type: String,
     default: (): string => ''
   }
@@ -105,9 +75,8 @@ export const Props = {
 
 export const Emits = {
   load: (evt: Event): boolean => evt instanceof Event,
-  error: (evt: Event): boolean => evt instanceof Event
+  error: (evt: Event): boolean => evt instanceof Event,
+  click: (evt: MouseEvent): Event => evt
 } as const
 
 export type FPropsType = ExtractPropTypes<typeof Props>
-
-export const ImagePropsKey: InjectionKey<FPropsType> = Symbol('ImagePropsKey')

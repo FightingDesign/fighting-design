@@ -7,11 +7,11 @@
 
 ## 基本使用
 
-`f-layout` 外层容器, 可以实现垂直、水平、嵌套布局  
-`f-main` 主体容器  
-`f-header` 头部容器  
-`f-aside` 侧栏容器
-`f-footer` 底栏容器
+- `f-layout` 外层容器, 可以实现垂直、水平、嵌套布局
+- `f-main` 主体容器
+- `f-header` 头部容器
+- `f-aside` 侧栏容器
+- `f-footer` 底栏容器
 
 ## 基本布局
 

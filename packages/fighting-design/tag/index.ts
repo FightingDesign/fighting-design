@@ -1,9 +1,13 @@
-import FTag from './src/tag.vue'
+import Tag from './src/tag.vue'
 
 import { install } from '../_utils'
 
-install(FTag, FTag.name)
+export const FTag = install(Tag)
 
-export type FTagInstance = InstanceType<typeof FTag>
+export type FTagInstance = InstanceType<typeof Tag>
 
-export default FTag
+declare module 'vue' {
+  export interface GlobalComponents {
+    FTag: typeof FTag
+  }
+}

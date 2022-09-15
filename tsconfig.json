@@ -1,24 +1,33 @@
+// https://www.typescriptlang.org/tsconfig
 {
   "compilerOptions": {
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
+    "target": "esnext", // 为发出的JavaScript设置JavaScript语言版本，并包括兼容的库声明。
+    "useDefineForClassFields": true, // 发出符合ECMAScript标准的类字段。
+    "module": "esnext", // 指定生成的模块代码。
+    "moduleResolution": "node", // 指定TypeScript如何从给定模块说明符中查找文件。
+    "strict": true, // 启用所有严格类型检查选项。
+    "sourceMap": true, // 为发出的JavaScript文件创建源映射文件。
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["dom", "esnext"],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "skipLibCheck": true,
     "baseUrl": ".",
-    "typeRoots": ["node_modules/@types", "@types"]
+    "paths": {
+      "third-lib": [
+        "node_modules/third-lib"
+      ]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "@types"
+    ]
   },
   "include": [
     "packages/**/*.ts",
-    "packages/**/*.d.ts",
-    "packages/**/*.tsx",
-    "@types/**/*.d.ts"
+    "packages/**/*.d.ts"
   ]
 }

@@ -12,15 +12,15 @@
     return [
       'f-skeleton',
       {
-        'f-skeleton--rounded': rounded,
-        'f-skeleton--animated': animated,
-        'f-skeleton--circled': circled,
-        [`f-skeleton-size--${size}`]: size
+        'f-skeleton-rounded': rounded,
+        'f-skeleton-animated': animated,
+        'f-skeleton-circled': circled,
+        [`f-skeleton-${size}`]: size
       }
     ] as const
   })
 
-  const renderAble: ComputedRef<boolean> = computed((): boolean => {
+  const isRender: ComputedRef<boolean> = computed((): boolean => {
     const slots = useSlots()
     if (slots.default) {
       return prop.loading === true
@@ -30,7 +30,7 @@
 </script>
 
 <template>
-  <template v-if="renderAble">
+  <template v-if="isRender">
     <div v-for="(n, i) in rows" :key="i" :class="classList" v-bind="$attrs" />
   </template>
   <slot v-else />

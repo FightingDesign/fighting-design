@@ -1,11 +1,12 @@
 <script lang="ts" setup name="FToolbar">
-  import { Props } from './toolbar'
+  import { Props, Emits } from './toolbar'
   import { computed } from 'vue'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { FPropsType } from './toolbar'
   import type { classListInterface as a } from '../../_interface'
+  import type { handleClickInterface as b } from './interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { size, round, fixed, vague } = prop
@@ -36,10 +37,20 @@
     }
     return style
   })
+
+  const handleClick: b = (evt: MouseEvent): void => {
+    const node: HTMLElement | undefined = (evt.path as HTMLElement[]).find(
+      (item: HTMLElement): boolean => {
+        return item.className === 'f-toolbar-item'
+      }
+    )
+    const key: string | undefined = node ? node.dataset.key : ''
+    emit('click', { evt, key })
+  }
 </script>
 
 <template>
-  <div :class="classList" :style="styleList">
+  <div :class="classList" :style="styleList" @click="handleClick">
     <slot />
   </div>
 </template>

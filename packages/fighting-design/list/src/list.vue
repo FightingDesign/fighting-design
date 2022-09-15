@@ -2,10 +2,9 @@
   import { provide, computed } from 'vue'
   import { Props, listPropsKey } from './list'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { FPropsType } from './list'
   import type { classListInterface as a } from '../../_interface'
 
-  const props: FPropsType = defineProps(Props)
+  const props = defineProps(Props)
 
   provide(listPropsKey, props)
 

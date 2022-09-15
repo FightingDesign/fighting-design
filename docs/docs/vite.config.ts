@@ -11,7 +11,7 @@ export default (): UserConfigExport => {
           {
             postcssPlugin: 'internal:charset-removal',
             AtRule: {
-              charset: (atRule) => {
+              charset: (atRule): void => {
                 if (atRule.name === 'charset') {
                   atRule.remove()
                 }
@@ -20,6 +20,9 @@ export default (): UserConfigExport => {
           }
         ]
       }
+    },
+    server: {
+      port: 9999
     }
   }
 }

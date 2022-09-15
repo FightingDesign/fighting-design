@@ -1,5 +1,3 @@
-import type { ExtractPropTypes } from 'vue'
-
 export const Props = {
   show: {
     type: Boolean,
@@ -17,11 +15,11 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  textColor: {
+  fontColor: {
     type: String,
     default: (): string => ''
   },
-  textSize: {
+  fontSize: {
     type: String,
     default: (): string => ''
   },
@@ -38,5 +36,3 @@ export const Props = {
 export const Emits = {
   close: (evt: MouseEvent): MouseEvent => evt
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>

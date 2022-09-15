@@ -15,7 +15,7 @@
     $item: nth($toolbarSize, $list); // 获取数组中第i项的值
 
     &.f-toolbar-#{map-get($item, name)} {
-      height: map-get($item, height);
+      min-height: map-get($item, height);
       padding: 0 map-get($item, padding);
       font-size: map-get($item, fontSize);
     }
@@ -36,12 +36,4 @@
   &.f-toolbar-vague {
     backdrop-filter: blur(10px);
   }
-}
-
-// 子组件
-.f-toolbar-item {
-  margin: 0 16px;
-  display: inline-block;
-  cursor: pointer;
-  user-select: none;
 }

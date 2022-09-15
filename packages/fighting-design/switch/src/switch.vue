@@ -1,15 +1,14 @@
 <script lang="ts" setup name="FSwitch">
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
-  import FIcon from '../../icon'
+  import { FIcon } from '../../icon'
   import type {
     ordinaryFunctionInterface as a,
     classListInterface as b
   } from '../../_interface'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { FPropsType } from './switch'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const changeSwitch: a = (): void => {

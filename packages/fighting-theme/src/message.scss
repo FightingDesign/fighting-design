@@ -67,12 +67,12 @@
 
 .f-message-fade-top-enter-active,
 .f-message-fade-bottom-enter-active {
-  transition: all 0.4s ease-out;
+  transition: all 0.15s ease-out;
 }
 
 .f-message-fade-top-leave-active,
 .f-message-fade-bottom-leave-active {
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.15s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .f-message-fade-top-enter-from,
