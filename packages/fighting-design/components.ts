@@ -125,3 +125,7 @@ export type { RadioGroupInstance } from './radio-group'
 
 export { FImagePreview } from './image-preview'
 export type { FImagePreviewInstance } from './image-preview'
+
+export { FExpandCard } from './expandcard'
+export type { FExpandCardInstance } from './expandcard'
+
