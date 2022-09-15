@@ -12,19 +12,34 @@ jobs:
     steps:
       # 下载仓库代码 / 校验
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3 # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
 
-      - name: install
+      - name: Setup pnpm
         uses: pnpm/action-setup@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
-          version: 6
+          node-version: '16.x'
+          cache: 'pnpm'
+
+      #   steps :
+      #     - uses : actions/checkout@v2
+      #     - uses : KSXGitHub/github-actions-setup-pnpm@master
+      #     with : version
+
+      # - name: install
+      #   uses: pnpm/action-setup@v2
+      #   with:
+      #     version: 6
 
       # 将 node 设置为 14
-      - name: Set node version to 14
-        uses: pnpm/action-setup@v2
-        with:
-          node-version: '14.x'
-          cache: 'pnpm@7.11.0'
+      # - name: Set node version to 16
+      #   # uses: pnpm/action-setup@v2
+      #   uses: actions/setup-node@master
+      #   with:
+      #     node-version: '16.x'
+      #     cache: 'pnpm'
 
       # 安装依赖项
       - name: Install dependencies
@@ -47,6 +62,17 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+          #  on :
+          #   - push
+          #     - pull_request
+
+          #     jobs :
+          #       runs-on : ubuntu-latest
+          #       steps :
+          #         - uses : actions/checkout@v2
+          #         - uses : KSXGitHub/github-actions-setup-pnpm@master
+          #         with : version
 
       # # 缓存依赖
       # - name: Get yarn cache
