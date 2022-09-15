@@ -10,20 +10,26 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
+    # strategy:
+    #   matrix:
+    #     node-version: [16.x]
 
     steps:
       # 下载仓库代码 / 校验
       - name: Checkout
         # uses: actions/checkout@v3 # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
-        uses: actions/checkout@v3
+        uses:
+          actions/checkout@v3
           # with:
           #   fetch-depth: 0
 
+      # - name: Setup pnpm
+      #   uses: pnpm/action-setup@v2
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
+        with:
+          version: 6
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -50,19 +56,19 @@ jobs:
       #     cache: 'pnpm'
 
       # 安装依赖项
-      - name: Install dependencies
+      - name: Install
         run: pnpm i
 
       # 单元测试
-      - name: test
+      - name: Test
         run: pnpm test
 
       # 打包组件
-      - name: build components
+      - name: Build components
         run: pnpm build
 
       # 打打包文档
-      - name: build docs
+      - name: Build docs
         run: pnpm build:docs
 
       # 向Codecov报告覆盖率
