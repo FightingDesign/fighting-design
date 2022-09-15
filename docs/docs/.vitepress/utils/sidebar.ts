@@ -55,6 +55,7 @@ export const sidebar = {
         { text: 'Empty 空状态', link: '/components/empty' },
         { text: 'List 列表', link: '/components/list' },
         { text: 'Radio 单选框', link: '/components/radio' },
+        { text: 'ExpandCard 折叠动效', link: '/components/expand-card' },
       ]
     },
     {

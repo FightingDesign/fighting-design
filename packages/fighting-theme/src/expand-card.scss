@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   .f-expand-card-item {
     flex: 0.5;
     background: no-repeat cover / center;
@@ -14,6 +15,7 @@
     position: relative;
     transition: flex 0.5s ease-in;
     overflow: hidden;
+
     &.f-expand-card-round {
       border-radius: 50px;
     }
@@ -22,6 +24,7 @@
       height: 100%;
       object-fit: cover;
     }
+
     .f-expand-card-item__title {
       font-size: 16px;
       color: #fff;
@@ -31,6 +34,7 @@
       transition: opacity 0.2s;
       opacity: 0;
     }
+
     &.active {
       .f-expand-card-item__title {
         opacity: 1;

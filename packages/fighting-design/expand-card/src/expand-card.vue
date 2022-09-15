@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FExpandCard">
   import { computed, ref } from 'vue'
-  import { Props } from './expandcard'
-  import type { FPropsType } from './expandcard'
+  import { Props } from './expand-card'
+  import type { FPropsType } from './expand-card'
   import type { Ref, ComputedRef } from 'vue'
 
   import type { classListInterface as d } from '../../_interface'

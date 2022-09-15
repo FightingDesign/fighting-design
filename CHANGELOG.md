@@ -2,11 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-## 0.6.4-alpha.11 (2022-09-14)
-
 - 优化 `f-toolbar-item` 和 `f-toolbar` 组件样式细节
 - `f-toolbar-item` 新增 `data-key` `icon` `icon-size` 配置项
 - `f-toolbar` 新增 `click` 回调参数
+
+- 新增 `f-expand-card` 组件
 
 ## 0.6.4-alpha.10 (2022-09-14)
 
