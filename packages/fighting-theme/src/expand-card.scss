@@ -7,7 +7,6 @@
 
   .f-expand-card-item {
     flex: 0.5;
-    background: no-repeat cover / center;
     height: 100%;
     color: #fff;
     cursor: pointer;
@@ -16,9 +15,10 @@
     transition: flex 0.5s ease-in;
     overflow: hidden;
 
-    &.f-expand-card-round {
-      border-radius: 50px;
+    .f-expand-card-round {
+      border-radius: 30px;
     }
+
     img {
       width: 100%;
       height: 100%;
@@ -35,7 +35,8 @@
       opacity: 0;
     }
 
-    &.active {
+    &.f-expand-card-active {
+      flex-grow: 3;
       .f-expand-card-item__title {
         opacity: 1;
       }
