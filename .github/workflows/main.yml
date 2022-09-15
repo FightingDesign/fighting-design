@@ -62,9 +62,9 @@ jobs:
       # - name: Install dependencies
       #   run: pnpm i
 
-      # # 单元测试
-      # - name: test
-      #   run: pnpm test
+      # 单元测试
+      - name: test
+        run: npm run test
 
       # # 打包组件
       # - name: build components
@@ -72,7 +72,7 @@ jobs:
 
       # 打打包文档
       - name: build docs
-        run: pnpm build:docs
+        run: npm run build:docs
 
       # 向Codecov报告覆盖率
       - name: Report coverage to Codecov
