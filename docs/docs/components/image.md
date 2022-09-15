@@ -19,6 +19,26 @@
 
 :::
 
+## 使用本地图片
+
+如需要使用本地图片，需要使用 [new URL(url, import.meta.url)](https://cn.vitejs.dev/guide/assets.html#new-url-url-import-meta-url) 手动导入图片资源使用：
+
+<f-image :src="url" />
+
+::: details 显示代码
+
+```html
+<script lang="ts" setup>
+  const url = new URL('./image/1.jpg', import.meta.url).href
+</script>
+
+<template>
+  <f-image :src="url" />
+</template>
+```
+
+:::
+
 ## 适应容器方式
 
 `fit` 属性可以配置不同的适应容器的方式，详见原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性
@@ -200,12 +220,7 @@
 </a>
 
 <script setup>
-  const listImg = [
-    'https://tianyuhao.cn/images/auto/1.jpg',
-    'https://tianyuhao.cn/images/auto/2.jpg',
-    'https://tianyuhao.cn/images/auto/3.jpg',
-    'https://tianyuhao.cn/images/auto/4.jpg'
-  ]
+  const url = new URL('./image/1.jpg', import.meta.url).href
 </script>
 
 <style scoped>

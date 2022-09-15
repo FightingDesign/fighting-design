@@ -23,6 +23,10 @@
 
 :::
 
+## 使用本地图片
+
+参考 [Image 使用本地图片](https://fighting.tianyuhao.cn/components/image.html#使用本地图片)
+
 ## 适应容器的方式
 
 `fit` 属性可以配置头像不同适应容器的方式
