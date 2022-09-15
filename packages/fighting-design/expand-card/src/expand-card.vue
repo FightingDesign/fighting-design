@@ -1,27 +1,21 @@
 <script lang="ts" setup name="FExpandCard">
   import { computed, ref } from 'vue'
   import { Props } from './expand-card'
-  import type { FPropsType } from './expand-card'
   import type { Ref, ComputedRef } from 'vue'
-
   import type { classListInterface as d } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
-  let currExpandIndex: Ref<number> = ref<number>(prop.expandIndex)
+  const currExpandIndex: Ref<number> = ref<number>(prop.expandIndex)
 
-  const switchExpandCard = (index): void => {
+  const switchExpandCard = (index: number): void => {
     currExpandIndex.value = index
   }
 
-  const imageLen = ref(0)
-  imageLen.value = (prop.imageList || []).length
   const nodeClassList: ComputedRef<d> = computed((): d => {
     const { round } = prop
-    return [
-      // 判断round是true或者是数字。就显示圆角
-      round ? 'f-expand-card-round' : ''
-    ] as const
+
+    return [{ 'f-expand-card-round': round }] as const
   })
 </script>
 
@@ -32,7 +26,7 @@
       :key="index"
       :style="[
         prop.round > 0 ? `border-radius:${prop.round}px` : '',
-        `flex-grow:${index === currExpandIndex ? imageLen : ''}`
+        `flex-grow:${index === currExpandIndex ? imageList.length : ''}`
       ]"
       :class="[
         'f-expand-card-item',
