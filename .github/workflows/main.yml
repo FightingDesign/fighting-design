@@ -1,77 +1,152 @@
 name: Fighting Design Github Actions
 
-# 指定此工作流程的触发事件 Event。 此示例使用 推送 事件，即执行 push 后，触发该流水线的执行
-# on: [push]
+# 当 master 分支 push 代码的时候触发 workflow
 on:
   push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+    branches:
+      - master
 
-# Job 作业
 jobs:
-  # 指定一个Job的名称
-  build-components:
-    # 指定该Job在最新版本的 Ubuntu Linux 的 Runner(运行器)上运行
+  build-deploy:
     runs-on: ubuntu-latest
-
-    # steps 作业列表
     steps:
-      - uses: actions/checkout@v3 # Action 获取当前分支的源码
-        with:
-          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
-          fetch-depth: 0
+      # 下载仓库代码 / 校验
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: Setup Node.js # 名称
-        uses: actions/setup-node@v3
+      - name: install
+        uses: pnpm/action-setup@v2
         with:
-          # 选择要使用的 node 版本
-          #  node-version: [10.x, 12.x, 14.x, 15.x]
-          node-version: '15'
+          version: 6
 
-      # 缓存 node_modules
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        id: yarn-cache
+      # 将 node 设置为 14
+      - name: Set node version to 14
         with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          node-version: '14.x'
+          cache: 'pnpm'
 
-      # 如果缓存没有命中，安装依赖
+      # 安装依赖项
       - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --frozen-lockfile
+        run: pnpm i
 
-      # 运行构建脚本
-      - name: Build components
-        run: yarn build
+      # 单元测试
+      - name: test
+        run: pnpm test
 
-        # with:# 参数由 Action 的创建者指定，需要查看创建者的文档
-        # java-version: '11'
-        # distribution: 'adopt'
-        # cache: gradle
+      # 打包组件
+      - name: build components
+        run: pnpm build
 
-      # - name: Grant execute permission for gradlew # Shell Command
-      #   run: chmod +x gradlew
-      # - name: Build with Gradle
-      #   run: ./gradlew build
+      # 打打包文档
+      - name: build docs
+        run: pnpm build:docs
 
-  # build:
-  #   runs-on: ubuntu-latest
+      # 向Codecov报告覆盖率
+      - name: Report coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
-  #   strategy:
-  #     matrix:
-  #       node-version: [16.x]
+      # # 缓存依赖
+      # - name: Get yarn cache
+      #   id: yarn-cache
+      #   run: echo "::set-output name=dir::$(yarn cache dir)"
+      # - uses: actions/cache@v1
+      #   with:
+      #     path: ${{ steps.yarn-cache.outputs.dir }}
+      #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-yarn-
 
-  #   # Step 步骤
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: Use Node.js ${{ matrix.node-version }}
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-  #     - run: npm ci
-  #     - run: npm run build
+      # # 安装依赖
+      # - run: yarn
+
+      # # 打包构建
+      # - run: yarn build
+
+      # # 发布到 GitHub Pages
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v2
+      #   env:
+      #     PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }} # 访问秘钥
+      #     PUBLISH_BRANCH: gh-pages # 推送分支
+      #     PUBLISH_DIR: ./dist # 部署目录
+# name: Fighting Design Github Actions
+
+# # 指定此工作流程的触发事件 Event。 此示例使用 推送 事件，即执行 push 后，触发该流水线的执行
+# # on: [push]
+# on:
+#   push:
+#     branches: [master]
+#   pull_request:
+#     branches: [master]
+
+# # Job 作业
+# jobs:
+#   # 指定一个Job的名称
+#   build-components:
+#     # 指定该Job在最新版本的 Ubuntu Linux 的 Runner(运行器)上运行
+#     runs-on: ubuntu-latest
+
+#     # steps 作业列表
+#     steps:
+#       - uses: actions/checkout@v3 # Action 获取当前分支的源码
+#         with:
+#           # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
+#           fetch-depth: 0
+
+#       - name: Setup Node.js # 名称
+#         uses: actions/setup-node@v3
+#         with:
+#           # 选择要使用的 node 版本
+#           #  node-version: [10.x, 12.x, 14.x, 15.x]
+#           node-version: '15'
+
+#       # 缓存 node_modules
+#       - name: Cache dependencies
+#         uses: actions/cache@v2
+#         id: yarn-cache
+#         with:
+#           path: |
+#             **/node_modules
+#           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+#           restore-keys: |
+#             ${{ runner.os }}-yarn-
+
+#       # 如果缓存没有命中，安装依赖
+#       - name: Install dependencies
+#         if: steps.yarn-cache.outputs.cache-hit != 'true'
+#         run: yarn --frozen-lockfile
+
+#       # 运行构建脚本
+#       - name: Build components
+#         run: yarn build
+
+# -----------------------------------
+
+# with:# 参数由 Action 的创建者指定，需要查看创建者的文档
+# java-version: '11'
+# distribution: 'adopt'
+# cache: gradle
+
+# - name: Grant execute permission for gradlew # Shell Command
+#   run: chmod +x gradlew
+# - name: Build with Gradle
+#   run: ./gradlew build
+
+# build:
+#   runs-on: ubuntu-latest
+
+#   strategy:
+#     matrix:
+#       node-version: [16.x]
+
+#   # Step 步骤
+#   steps:
+#     - uses: actions/checkout@v3
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: ${{ matrix.node-version }}
+#     - run: npm ci
+#     - run: npm run build
