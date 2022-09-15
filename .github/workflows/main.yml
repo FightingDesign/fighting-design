@@ -16,8 +16,11 @@ jobs:
 
     steps:
       # 下载仓库代码 / 校验
-      - name: Checkout
-        uses: actions/checkout@v3 # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
+      # - name: Checkout
+        # uses: actions/checkout@v3 # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
+      - uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
