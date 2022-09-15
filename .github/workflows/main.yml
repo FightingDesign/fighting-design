@@ -9,6 +9,11 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
     steps:
       # 下载仓库代码 / 校验
       - name: Checkout
