@@ -7,9 +7,7 @@
 
 ## 基本使用
 
-`round` 属性确定是否显示圆角
-
-`image-list` 属性是需要显示折叠动效的图片列表
+`image-list` 需要传入一个图片数组集合来展示
 
 <f-expand-card round :image-list="imageList" />
 
@@ -22,16 +20,9 @@
 
 <script lang="ts" setup>
   const imageList = [
-    {
-      url: 'https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-      text: '图片1'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'
-    }
+    'https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+    'https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+    'https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'
   ]
 </script>
 ```
@@ -53,16 +44,9 @@
 
 <script lang="ts" setup>
   const imageList = [
-    {
-      url: 'https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-      text: '图片1'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'
-    }
+    'https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+    'https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+    'https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'
   ]
 </script>
 ```
@@ -71,11 +55,12 @@
 
 ## Attributes
 
-| 参数         | 说明                    | 类型             | 可选值 | 默认值 |
-| ------------ | ----------------------- | ---------------- | ------ | ------ |
-| `image-list` | 需要展示的图片列表      | array            | ——     | []     |
-| `round`      | 是否显示圆角&圆角的尺寸 | boolean / number | ——     | false  |
-| `color`      | 左下角文字的颜色        | string           | ——     | '#fff' |
+| 参数         | 说明               | 类型            | 可选值 | 默认值 |
+| ------------ | ------------------ | --------------- | ------ | ------ |
+| `image-list` | 需要展示的图片列表 | array           | ——     | []     |
+| `round`      | 是否显示圆角       | boolean         | ——     | false  |
+| `height`     | 自定义高度         | string / number | ——     |        |
+| `color`      | 左下角文字的颜色   | string          | ——     | '#fff' |
 
 ## Contributors
 
