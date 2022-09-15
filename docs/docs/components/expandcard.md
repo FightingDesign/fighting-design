@@ -9,8 +9,9 @@
 
 `round` 属性确定是否显示圆角
 `image-list` 属性是需要显示折叠动效的图片列表
+`color` 左下角文本颜色
 
-<f-expand-card round :image-list="[{url:'xxx',text:'图片1'}]" />
+<f-expand-card color="#fff" round :image-list="[{url:'xxx',text:'图片1'}]" />
 
 ::: details 显示代码
 
