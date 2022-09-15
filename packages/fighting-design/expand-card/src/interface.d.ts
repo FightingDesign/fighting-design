@@ -1,6 +1,8 @@
-interface imageListInterface {
+export interface imageListInterface {
   url: string
   text?: string
 }
 
-export type imageListType = imageListInterface[]
+export interface switchExpandCardInterface {
+  (index: number): void
+}

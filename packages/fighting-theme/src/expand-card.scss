@@ -1,13 +1,13 @@
 .f-expand-card {
-  width: 100%;
-  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  height: 800px;
 
+  // 子元素
   .f-expand-card-item {
     flex: 0.5;
-    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #fff;
     cursor: pointer;
     margin: 10px;
@@ -15,17 +15,12 @@
     transition: flex 0.5s ease-in;
     overflow: hidden;
 
-    .f-expand-card-round {
-      border-radius: 30px;
+    // 圆角
+    &.f-expand-card-round {
+      border-radius: 20px;
     }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .f-expand-card-item__title {
+    .f-expand-card-title {
       font-size: 16px;
       color: #fff;
       position: absolute;
@@ -37,7 +32,11 @@
 
     &.f-expand-card-active {
       flex-grow: 3;
-      .f-expand-card-item__title {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      .f-expand-card-title {
         opacity: 1;
       }
     }

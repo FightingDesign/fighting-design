@@ -1,14 +1,14 @@
-import type { imageListType } from './interface'
+import type { imageListInterface } from './interface'
 import type { PropType } from 'vue'
 
 export const Props = {
   imageList: {
-    type: Array as PropType<imageListType>,
-    default: (): imageListType => []
+    type: Array as PropType<imageListInterface[] | string[]>,
+    default: (): string[] => []
   },
   round: {
-    type: [Boolean, Number] as PropType<boolean | number>,
-    default: (): boolean => true
+    type: Boolean,
+    default: (): boolean => false
   },
   expandIndex: {
     type: Number,
