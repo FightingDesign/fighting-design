@@ -16,20 +16,29 @@ jobs:
 
     steps:
       # 下载仓库代码 / 校验
-      # - name: Checkout
+      - name: Checkout
         # uses: actions/checkout@v3 # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
-      - uses: actions/checkout@v3
+        uses:
+          actions/checkout@v3
           # with:
           #   fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      # - name: Setup pnpm
+      #   uses: pnpm/action-setup@v2
 
-      - name: Setup node
-        uses: actions/setup-node@v3
+      # - name: Setup node
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '16.x'
+      #     cache: 'pnpm'
+
+      # 打包构建
+      - name: Build
+        uses: actions/setup-node@master
         with:
           node-version: '16.x'
-          cache: 'pnpm'
+      - run: npm install # 安装依赖
+      - run: npm run build # 打包
 
       #   steps :
       #     - uses : actions/checkout@v2
@@ -50,16 +59,16 @@ jobs:
       #     cache: 'pnpm'
 
       # 安装依赖项
-      - name: Install dependencies
-        run: pnpm i
+      # - name: Install dependencies
+      #   run: pnpm i
 
-      # 单元测试
-      - name: test
-        run: pnpm test
+      # # 单元测试
+      # - name: test
+      #   run: pnpm test
 
-      # 打包组件
-      - name: build components
-        run: pnpm build
+      # # 打包组件
+      # - name: build components
+      #   run: pnpm build
 
       # 打打包文档
       - name: build docs
