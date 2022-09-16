@@ -7,7 +7,7 @@
 
 ## 基本使用
 
-`date` 需要绑定一个日期对象
+`date` 属性需要绑定一个日期对象
 
 <f-calendar v-model:date="date" />
 
