@@ -8,6 +8,7 @@ export default (): UserConfigExport => {
     base: './',
     plugins: [vue(), vueSetupExtend(), svgLoader()],
     server: {
+      host: '0.0.0.0',
       port: 1216
     }
   }

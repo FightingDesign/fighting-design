@@ -8,9 +8,10 @@
     switchImageInterface as a,
     optionClickInterface as b,
     onImgMousewheelInterface as c,
-    handleCloseInterface as d
+    handleCloseInterface as d,
+    optionClickTargetKey as e
   } from './interface'
-  import type { ordinaryFunctionInterface as e } from '../../_interface'
+  import type { ordinaryFunctionInterface as f } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -22,7 +23,7 @@
   )
 
   // 图片加载
-  const imagPreload: e = (): void => {
+  const imagPreload: f = (): void => {
     const imgList: string[] = prop.imgList as string[]
 
     imgList.forEach((item: string): void => {
@@ -32,7 +33,7 @@
   }
 
   // 做小
-  const smaller: e = (): void => {
+  const smaller: f = (): void => {
     if (keepDecimal(scale.value, 1) <= 0.2) {
       return
     }
@@ -40,7 +41,7 @@
   }
 
   // 放大
-  const bigger: e = (): void => {
+  const bigger: f = (): void => {
     if (scale.value >= 10) {
       return
     }
@@ -48,7 +49,7 @@
   }
 
   // 加载图片
-  const onEnter: e = (): void => {
+  const onEnter: f = (): void => {
     imagPreload()
   }
 
@@ -76,7 +77,7 @@
   }
 
   // 还原图片
-  const recovery: e = (): void => {
+  const recovery: f = (): void => {
     scale.value = 1
     rotate.value = 0
   }
@@ -101,11 +102,12 @@
         previewShowIndex.value = prop.imgList.length - 1
       }
     } as const
+
     optionFun[type]()
   }
 
   // 点击操作栏
-  const optionClick: b = ({ key }: { key: string }): void => {
+  const optionClick: b = ({ key }: e): void => {
     const optionFun = {
       '1': (): void => smaller(),
       '2': (): void => bigger(),

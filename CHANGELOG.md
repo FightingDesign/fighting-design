@@ -7,6 +7,7 @@
 - `f-toolbar` 新增 `click` 回调参数
 
 - 新增 `f-expand-card` 组件
+- 针对 `f-toolbar` 对于苹果 safari 点击失效做出兼容
 
 ## 0.6.4-alpha.10 (2022-09-14)
 

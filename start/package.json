@@ -3,5 +3,8 @@
   "scripts": {
     "dev": "vite",
     "build": "rimraf dist && vue-tsc --noEmit && vite build"
+  },
+  "dependencies": {
+    "vconsole": "^3.14.6"
   }
 }

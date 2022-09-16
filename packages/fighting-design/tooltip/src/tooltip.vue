@@ -1,11 +1,10 @@
 <script lang="ts" setup name="FTooltip">
   import { Props } from './tooltip'
   import { computed } from 'vue'
-  import { ComputedRef, CSSProperties } from 'vue'
-  import type { FPropsType } from './tooltip'
+  import type { ComputedRef, CSSProperties } from 'vue'
   import type { classListInterface as a } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { position, state, disabled, bold, noArrow, bright } = prop
