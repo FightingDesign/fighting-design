@@ -89,7 +89,8 @@ export const sidebar = {
         { text: 'Drawer 抽屉', link: '/components/drawer' },
         { text: 'Tooltip 消息提示', link: '/components/tooltip' },
         { text: 'Watermark 水印', link: '/components/watermark' },
-        { text: 'Ripple 涟漪', link: '/components/ripple' }
+        { text: 'Ripple 涟漪', link: '/components/ripple' },
+        { text: 'Calendar 日历', link: '/components/calendar' },
       ]
     }
   ]
