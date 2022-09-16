@@ -128,3 +128,6 @@ export type { FImagePreviewInstance } from './image-preview'
 
 export { FExpandCard } from './expand-card'
 export type { FExpandCardInstance } from './expand-card'
+
+export { FCalendar } from './calendar'
+export type { FCalendarInstance } from './calendar'

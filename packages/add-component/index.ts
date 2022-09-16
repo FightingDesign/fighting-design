@@ -148,7 +148,7 @@ async function updateStyleEntry (): Promise<void> {
   let content: string = (await fsExtra.readFile(entryFilePath)).toString()
 
   content =
-    content.slice(0, -1) + '\n' + `@use './src/${compName}.scss';` + '\n'
+    content.slice(0, -1) + `@use './src/${compName}.scss';` + '\n'
 
   await fsExtra.writeFile(entryFilePath, content)
 }
