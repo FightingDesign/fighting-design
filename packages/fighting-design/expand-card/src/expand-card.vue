@@ -2,7 +2,7 @@
   import { computed, ref } from 'vue'
   import { Props } from './expand-card'
   import { isString } from '../../_utils'
-  import type { Ref, ComputedRef } from 'vue'
+  import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type { classListInterface as a } from '../../_interface'
   import type {
     switchExpandCardInterface as b,
@@ -38,10 +38,19 @@
       return item as c
     })
   })
+
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { width, height } = prop
+
+    return {
+      width: isString(width) ? width : width + 'px',
+      height: isString(height) ? height : height + 'px'
+    } as const
+  })
 </script>
 
 <template>
-  <div class="f-expand-card">
+  <div class="f-expand-card" :style="styleList">
     <div
       v-for="(item, index) in imageListArr"
       :key="index"

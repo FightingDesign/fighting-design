@@ -17,5 +17,13 @@ export const Props = {
   color: {
     type: String,
     default: (): string => '#fff'
+  },
+  width: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
+  },
+  height: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
   }
 } as const
