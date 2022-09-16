@@ -108,7 +108,7 @@
       :alt="alt"
       :title="title"
       @click="handleClick"
-    >
+    />
 
     <!-- 说明文字 -->
     <div

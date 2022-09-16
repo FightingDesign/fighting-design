@@ -13,7 +13,7 @@ You can write test code at will in `App.vue` and the original code can be delete
 In `main.ts`, components developed under `fighting-design/packages` can be directly introduced in the following ways
 
 ```ts
-import FightingDesign from '../packages/fighting-design/index'
+import FightingDesign from '../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 ```
 
@@ -23,5 +23,5 @@ If you want to test whether your package file can work normally after you execut
 
 ```ts
 import FightingDesign from '../dist'
-import '../dist/dist/style.css'
+import '../dist/dist/index.css'
 ```

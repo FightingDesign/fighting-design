@@ -4,7 +4,7 @@
     "dev": "vite",
     "build": "rimraf dist && vue-tsc --noEmit && vite build"
   },
-  "dependencies": {
+  "devDependencies": {
     "vconsole": "^3.14.6"
   }
 }

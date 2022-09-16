@@ -124,7 +124,7 @@
       :style="imageSizeStyleList"
       :class="nodeClassList"
       :alt="alt"
-    >
+    />
   </div>
 
   <div v-else class="f-avatar-error" :style="imageSizeStyleList">

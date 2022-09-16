@@ -1,11 +1,12 @@
 import { createApp } from 'vue'
 import App from './src/App.vue'
 
-import VConsole from 'vconsole'
-new VConsole()
+// 移动端测试
+// import VConsole from 'vconsole'
+// new VConsole()
 
 // 开发阶段引入
-import FightingDesign from '../packages/fighting-design/index'
+import FightingDesign from '../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 
 // 打包阶段引入
@@ -16,5 +17,4 @@ console.log(FightingDesign)
 
 createApp(App)
   .use(FightingDesign)
-  // .use(FightingDesign)
   .mount('#start')

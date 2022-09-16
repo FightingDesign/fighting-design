@@ -60,18 +60,7 @@ module.exports = {
     // 禁止注册不在模板中使用的组件 https://eslint.vuejs.org/rules/no-unused-components.html
     'vue/no-unused-components': 'error',
     // 可以使用单标签的强制使用单标签 https://eslint.vuejs.org/rules/html-self-closing.html
-    'vue/html-self-closing': [
-      'error',
-      {
-        html: {
-          void: 'never',
-          normal: 'always',
-          component: 'always'
-        },
-        svg: 'always',
-        math: 'always'
-      }
-    ],
+    'vue/html-self-closing': 'off',
     // 强制 html 闭合标签 https://eslint.vuejs.org/rules/html-end-tags.html
     'vue/html-end-tags': 'error',
     // template 的缩进规则 https://eslint.vuejs.org/rules/html-indent.html#vue-html-indent
