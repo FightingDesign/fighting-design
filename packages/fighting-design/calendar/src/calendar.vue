@@ -81,7 +81,7 @@
 
   // 给数字前面加 0
   const addPrefix: e = (num: number): string => {
-    return num > 10 ? num.toString() : `0${num}`
+    return num > 9 ? num.toString() : `0${num}`
   }
 
   const nowTime: ComputedRef<string> = computed((): string => {
