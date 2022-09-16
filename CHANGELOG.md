@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `f-calendar` 日历组件
+
 ## 0.6.5-alpha.1 (2022-09-16)
 
 - 新增 `f-expand-card` 组件
