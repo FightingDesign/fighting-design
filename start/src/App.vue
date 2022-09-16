@@ -1,8 +1,7 @@
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
+<template>
+  <f-calendar />
+</template>
 
-<template></template>
-
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

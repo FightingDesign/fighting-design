@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './src/App.vue'
+import App from './App.vue'
 
 // 移动端测试
 // import VConsole from 'vconsole'
