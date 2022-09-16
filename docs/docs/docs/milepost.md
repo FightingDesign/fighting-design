@@ -1,5 +1,13 @@
 # 里程碑
 
+## 2022-09-16
+
+按需引入也解决了，问题出在了 `import * as components from './components'` 这句代码上，又新建了一个新的入口文件就解决了这个问题。
+
+现在基础的组件都写的差不多了，现在开始向表单的方向上发展，目前 `input` 和 `select` 准备进行中，配件都写好了之后，就差不多可以写表单了~
+
+最近的 `Star` 增加了不少，也得到了不少人的认可，继续加油~😊😊😊
+
 ## 2022-08-20
 
 在 [0.6.2-alpha.2](https://github.com/FightingDesign/fighting-design/releases/tag/0.6.2-alpha.2) 的版本中，已经将目前已知的打包问题全部解决了。

@@ -4,6 +4,15 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.5-alpha.1 (2022-09-16)
+
+- Add `f-expand-card` component
+- Optimize `f-toolbar-item` and `f-toolbar` component style details
+- `f-toolbar-item` Add `data-key` `icon` `icon size` configuration item
+- `f-toolbar` Add `click` callback parameter
+- `f-toolbar` is compatible with Apple `Safari `click failure
+- `f-toolbar` component cancels`vague`configuration item
+
 ## 0.6.4-alpha.10 (2022-09-14)
 
 - Test Repair On Demand Import

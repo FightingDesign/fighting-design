@@ -28,6 +28,10 @@
 
 感谢所有已经为 `Fighting Design` [做出贡献的人](https://github.com/FightingDesign/fighting-design/graphs/contributors)！
 
+<a href="https://github.com/FightingDesign/fighting-design/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=FightingDesign/fighting-design" />
+</a>
+
 ## 💬 执照
 
 [MIT](https://github.com/FightingDesign/fighting-design/blob/master/LICENSE)
