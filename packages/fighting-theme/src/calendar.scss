@@ -8,6 +8,45 @@
   align-items: center;
   cursor: default;
 
+  // 头部
+  .f-calendar-header {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background: #eee;
+
+    // 当前时间
+    .f-calendar-time {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+
+      .f-calendar-time-now {
+        font-weight: 700;
+        color: #333;
+      }
+    }
+
+    // 操作栏
+    .f-calendar-option {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 50%;
+
+      .f-icon {
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+
   // 星期
   .f-calendar-week {
     padding: 0;
