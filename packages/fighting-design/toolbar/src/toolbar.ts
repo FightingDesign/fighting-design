@@ -47,10 +47,6 @@ export const Props = {
   height: {
     type: String,
     default: (): string => ''
-  },
-  vague: {
-    type: Boolean,
-    default: (): boolean => false
   }
 } as const
 

@@ -7,39 +7,23 @@
 
 ## 基本使用
 
-工具栏的基本使用
+工具栏的基本使用，`icon` 可以配置带有图表的选项
 
 <f-toolbar>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-default-template" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-Customermanagement" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-email" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-editor" />
-  </f-toolbar-item>
+  <f-toolbar-item icon="f-icon-default-template" />
+  <f-toolbar-item icon="f-icon-Customermanagement" />
+  <f-toolbar-item icon="f-icon-email" />
+  <f-toolbar-item icon="f-icon-editor" />
 </f-toolbar>
 
 ::: details 显示代码
 
 ```html
 <f-toolbar>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-default-template" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-Customermanagement" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-email" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-editor" />
-  </f-toolbar-item>
+  <f-toolbar-item icon="f-icon-default-template" />
+  <f-toolbar-item icon="f-icon-Customermanagement" />
+  <f-toolbar-item icon="f-icon-email" />
+  <f-toolbar-item icon="f-icon-editor" />
 </f-toolbar>
 ```
 
@@ -86,24 +70,12 @@
 `text-color` 可以自定义文字颜色
 
 <f-toolbar background="#42B883" text-color="#fff">
- <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-default-template" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-Customermanagement" />
-  </f-toolbar-item>
+  <f-toolbar-item>操作</f-toolbar-item>
+  <f-toolbar-item>更多</f-toolbar-item>
+  <f-toolbar-item>返回</f-toolbar-item>
 </f-toolbar>
 
 <f-toolbar background="#589EF8" text-color="#eee">
- <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-default-template" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-Customermanagement" />
-  </f-toolbar-item>
-</f-toolbar>
-
-<f-toolbar text-color="#333">
  <f-toolbar-item>
     <f-icon size="30px" icon="f-icon-default-template" />
   </f-toolbar-item>
@@ -116,24 +88,12 @@
 
 ```html
 <f-toolbar background="#42B883" text-color="#fff">
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-default-template" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-Customermanagement" />
-  </f-toolbar-item>
+  <f-toolbar-item>操作</f-toolbar-item>
+  <f-toolbar-item>更多</f-toolbar-item>
+  <f-toolbar-item>返回</f-toolbar-item>
 </f-toolbar>
 
 <f-toolbar background="#589EF8" text-color="#eee">
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-default-template" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-Customermanagement" />
-  </f-toolbar-item>
-</f-toolbar>
-
-<f-toolbar text-color="#333">
   <f-toolbar-item>
     <f-icon size="30px" icon="f-icon-default-template" />
   </f-toolbar-item>
@@ -145,55 +105,36 @@
 
 :::
 
-## 毛玻璃
+## 点击事件
 
-`vague` 属性可以将工具栏的背景变为毛玻璃效果，但是你的背景色 `background` 必须传入一个带有透明度的 [rgba](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba) 色值才可以正常工作
+`f-toolbar` 采用[事件委托](https://zh.javascript.info/event-delegation)，可以给 `f-toolbar` 添加事件，并给每个 `f-toolbar-item` 添加唯一的 `data-key`，那么在 `click` 的回调中就可以解构出 `key` 用于区分
 
-<div class="f-toolbar-vague-box">
-  <f-toolbar round text-color="#fff" background="rgba(0,0,0,0.3)" vague>
-    <f-toolbar-item>返回</f-toolbar-item>
-    <f-toolbar-item>
-      <f-icon size="30px" icon="f-icon-default-template" />
-    </f-toolbar-item>
-    <f-toolbar-item>
-      <f-icon size="30px" icon="f-icon-Customermanagement" />
-    </f-toolbar-item>
-    <f-toolbar-item>操作</f-toolbar-item>
-    <f-toolbar-item>激活</f-toolbar-item>
-  </f-toolbar>
-</div>
+也可以给每个 `f-toolbar-item` 单独添加点击事件
+
+<f-toolbar @click="handleClick">
+<f-toolbar-item data-key="1" icon="f-icon-default-template" />
+<f-toolbar-item data-key="2" icon="f-icon-Customermanagement" />
+<f-toolbar-item data-key="3" icon="f-icon-email" />
+<f-toolbar-item data-key="4" icon="f-icon-editor" />
+</f-toolbar>
 
 ::: details 显示代码
 
 ```html
 <template>
-  <div class="f-toolbar-vague-box">
-    <f-toolbar round text-color="#fff" background="rgba(0,0,0,0.3)" vague>
-      <f-toolbar-item>返回</f-toolbar-item>
-      <f-toolbar-item>
-        <f-icon size="30px" icon="f-icon-default-template" />
-      </f-toolbar-item>
-      <f-toolbar-item>
-        <f-icon size="30px" icon="f-icon-Customermanagement" />
-      </f-toolbar-item>
-      <f-toolbar-item>操作</f-toolbar-item>
-      <f-toolbar-item>激活</f-toolbar-item>
-    </f-toolbar>
-  </div>
+  <f-toolbar @click="handleClick">
+    <f-toolbar-item data-key="1" icon="f-icon-default-template" />
+    <f-toolbar-item data-key="2" icon="f-icon-Customermanagement" />
+    <f-toolbar-item data-key="3" icon="f-icon-email" />
+    <f-toolbar-item data-key="4" icon="f-icon-editor" />
+  </f-toolbar>
 </template>
 
-<style scoped>
-  .f-toolbar-vague-box {
-    width: 100%;
-    height: 200px;
-    background: url('https://pic3.zhimg.com/80/v2-4003384451219b69e0cfe7d3432ec3e6_720w.jpg')
-      no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+<script lang="ts" setup>
+  const handleClick = ({ key, evt }) => {
+    console.log(key, evt)
   }
-</style>
+</script>
 ```
 
 :::
@@ -210,7 +151,6 @@
 | `fixed-style` | 固定定位的样式，仅支持 `top` `right` `button` `left` | object  | ——                              | ——     |
 | `width`       | 自定义宽度                                           | string  | ——                              | ——     |
 | `height`      | 自定义高度                                           | string  | ——                              | ——     |
-| `vague`       | 是否为毛玻璃效果                                     | boolean | ——                              | false  |
 
 ## Toolbar Slots
 
@@ -255,18 +195,14 @@
   <f-avatar round src="https://avatars.githubusercontent.com/u/23503047?v=4" />
 </a>
 
+<script setup>
+  const handleClick = ({ key, evt }) => {
+    console.log(key, evt)
+  }
+</script>
+
 <style scoped>
 .f-toolbar {
   margin: 10px 0;
-}
-.f-toolbar-vague-box {
-  width: 100%;
-  height: 200px;
-  background: url('https://pic3.zhimg.com/80/v2-4003384451219b69e0cfe7d3432ec3e6_720w.jpg')
-    no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 </style>

@@ -5,9 +5,9 @@
 - 优化 `f-toolbar-item` 和 `f-toolbar` 组件样式细节
 - `f-toolbar-item` 新增 `data-key` `icon` `icon-size` 配置项
 - `f-toolbar` 新增 `click` 回调参数
-
 - 新增 `f-expand-card` 组件
-- 针对 `f-toolbar` 对于苹果 `Safari` 点击失效[做出兼容](https://blog.csdn.net/weixin_43388844/article/details/120002440)
+- `f-toolbar` 针对于苹果 `Safari` 点击失效做出兼容
+- `f-toolbar` 组件废除 `vague` 配置项
 
 ## 0.6.4-alpha.10 (2022-09-14)
 
