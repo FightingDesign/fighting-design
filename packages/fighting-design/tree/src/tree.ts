@@ -4,7 +4,6 @@ import type { dataInterface } from './interface'
 export const Props = {
   data: {
     type: Array as PropType<dataInterface[]>,
-    // type: Array,
     default: (): [] => []
   }
 } as const

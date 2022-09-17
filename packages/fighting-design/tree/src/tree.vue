@@ -1,10 +1,7 @@
 <script lang="ts" setup name="FTree">
-  import { Props, Emits } from './tree'
+  import { Props } from './tree'
 
-  const prop = defineProps(Props)
-  defineEmits(Emits)
-
-  console.log(prop)
+  defineProps(Props)
 </script>
 
 <template>
