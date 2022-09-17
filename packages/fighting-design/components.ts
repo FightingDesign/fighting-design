@@ -131,3 +131,6 @@ export type { FExpandCardInstance } from './expand-card'
 
 export { FCalendar } from './calendar'
 export type { FCalendarInstance } from './calendar'
+
+export { FTree } from './tree'
+export type { FTreeInstance } from './tree'
