@@ -3,12 +3,11 @@
   import { computed, ref } from 'vue'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor, isString } from '../../_utils'
-  import type { FPropsType } from './button'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { handleClickInterface as a } from './interface'
   import type { classListInterface as b } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   // dom 元素
