@@ -2,6 +2,7 @@
   import { Props } from './calendar'
   import { ref, computed } from 'vue'
   import { FIcon } from '../../index'
+  import { lunar } from '../../_utils'
   import type { Ref, ComputedRef } from 'vue'
   import type {
     dayMonthInterface as a,
@@ -10,6 +11,7 @@
     optionClickInterface as d,
     addPrefixInterface as e
   } from './interface'
+  import type { solar2lunarReturnInterface as f } from '../../_interface'
 
   const prop = defineProps(Props)
 
@@ -49,6 +51,7 @@
     return firstDayWeek === 0 ? 0 : firstDayWeek
   })
 
+  // 点击操作栏
   const optionClick: d = (evt: MouseEvent): void => {
     const option = {
       'f-icon f-icon-arrow-left': (): void => {
@@ -84,11 +87,21 @@
     return num > 9 ? num.toString() : `0${num}`
   }
 
+  // 当前时间
   const nowTime: ComputedRef<string> = computed((): string => {
     return `${getYear.value}年 ${addPrefix(getMonth.value + 1)}月 ${addPrefix(
       getDate.value
     )}日`
   })
+
+  // 农历
+  const getLunar = (day: number): f => {
+    const lunarDate = lunar.solar2lunar(getYear.value, getMonth.value + 1, day)
+    // const lunarDate = lunar.solar2lunar(getYear.value, 10, 1)
+    return lunarDate as f
+  }
+
+  console.log(getLunar(17))
 </script>
 
 <template>
@@ -122,7 +135,10 @@
         :class="['f-calendar-day-li', mowDataClassList(day)]"
         :style="{ 'margin-left': day === 1 ? `${dayWeek * 50}px` : '' }"
       >
-        {{ day }}
+        <span class="f-calendar-solar">{{ day }}</span>
+        <span class="f-calendar-lunar">
+          {{ getLunar(day).festival || getLunar(day).IDayCn }}
+        </span>
       </li>
     </ul>
   </div>

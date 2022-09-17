@@ -78,6 +78,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+
+      // 阳历
+      .f-calendar-solar {
+        font-size: 15px;
+      }
+
+      // 农历
+      .f-calendar-lunar {
+        font-size: 14px;
+      }
 
       // 今天
       &.f-calendar-day-today {
