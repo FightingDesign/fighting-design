@@ -1,2 +1,13 @@
 .f-tree {
+  .f-tree-data {
+    .f-tree-label {
+      border: 1px solid #333;
+    }
+  }
+
+  // 孩子节点
+  .f-tree-children {
+    padding-left: 30px;
+    box-sizing: border-box;
+  }
 }
