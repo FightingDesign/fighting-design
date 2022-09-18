@@ -1,21 +1,21 @@
 <script lang="ts" setup>
   const data = [
     {
-      label: 'Parent node 1',
+      label: 'Node 1',
       children: [
         {
-          label: 'Parent node 1-1',
+          label: 'Node 1-1',
           children: [
-            { label: 'Leaf node 1-1-1' },
-            { label: 'Leaf node 1-1-2' },
-            { label: 'Leaf node 1-1-3' }
+            { label: 'Node 1-1-1' },
+            { label: 'Node 1-1-2' },
+            { label: 'Node 1-1-3' }
           ]
         },
-        { label: 'Leaf node 1-2' },
-        { label: 'Leaf node 1-3' }
+        { label: 'Node 1-2' },
+        { label: 'Node 1-3' }
       ]
     },
-    { label: 'Leaf node 2' }
+    { label: 'Node 2' }
   ]
   // const date = new Date()
 </script>
