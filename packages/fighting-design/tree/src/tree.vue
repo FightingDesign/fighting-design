@@ -17,7 +17,7 @@
     <div v-for="(item, index) in treeDate" :key="index" class="f-tree-data">
       <div
         class="f-tree-label"
-        :style="{ paddingLeft: 20 * (item.level - 1) + 'px' }"
+        :style="{ paddingLeft: 25 * (item.level - 1) + 'px' }"
       >
         {{ item.label }}
       </div>
