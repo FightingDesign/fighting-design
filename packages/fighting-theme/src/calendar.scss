@@ -96,7 +96,7 @@
         border-radius: 50%;
         color: #fff;
         background: $primary;
-        transition: 0.3s;
+        transition: background 0.3s;
 
         &.f-calendar-day-today-square {
           border-radius: 0px;
@@ -116,6 +116,7 @@
       flex-wrap: wrap;
       justify-content: space-around;
       align-items: center;
+      margin: 0;
 
       li {
         display: inline-block;

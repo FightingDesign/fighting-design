@@ -25,6 +25,46 @@
 
 :::
 
+## 不显示页头
+
+`show-header` 可以控制是否显示头部操作栏
+
+<f-calendar v-model:date="date" :show-header="false"/>
+
+::: details 显示代码
+
+```html
+<template>
+  <f-calendar v-model:date="date" :show-header="false" />
+</template>
+
+<script lang="ts" setup>
+  const date = new Date()
+</script>
+```
+
+:::
+
+## 带有页脚
+
+`show-footer` 属性可以配置带有页脚详细信息的日历
+
+<f-calendar v-model:date="date" show-footer/>
+
+::: details 显示代码
+
+```html
+<template>
+  <f-calendar v-model:date="date" show-footer />
+</template>
+
+<script lang="ts" setup>
+  const date = new Date()
+</script>
+```
+
+:::
+
 ## Attributes
 
 | 参数           | 说明               | 类型    | 可选值 | 默认值   |
@@ -32,6 +72,8 @@
 | `v-model:date` | 绑定日期           | date    | ——     | new Date |
 | `lunar`        | 是否显示农历和节日 | boolean | ——     | false    |
 | `show-header`  | 是否显示头部       | boolean | ——     | true     |
+| `show-footer`  | 是否显示页脚       | boolean | ——     | false    |
+| `square`       | 是否日期直角样式   | boolean | ——     | false    |
 
 ## Contributors
 
