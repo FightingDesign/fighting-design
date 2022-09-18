@@ -27,9 +27,11 @@
 
 ## Attributes
 
-| 参数           | 说明     | 类型 | 可选值 | 默认值   |
-| -------------- | -------- | ---- | ------ | -------- |
-| `v-model:date` | 绑定日期 | date | ——     | new Date |
+| 参数           | 说明               | 类型    | 可选值 | 默认值   |
+| -------------- | ------------------ | ------- | ------ | -------- |
+| `v-model:date` | 绑定日期           | date    | ——     | new Date |
+| `lunar`        | 是否显示农历和节日 | boolean | ——     | false    |
+| `show-header`  | 是否显示头部       | boolean | ——     | true     |
 
 ## Contributors
 

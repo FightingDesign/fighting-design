@@ -2,7 +2,7 @@
   import { Props } from './calendar'
   import { ref, computed } from 'vue'
   import { FIcon } from '../../index'
-  import { lunar } from '../../_utils'
+  import { lunarCalendar } from '../../_utils'
   import type { Ref, ComputedRef } from 'vue'
   import type {
     dayMonthInterface as a,
@@ -96,17 +96,18 @@
 
   // 农历
   const getLunar = (day: number): f => {
-    const lunarDate = lunar.solar2lunar(getYear.value, getMonth.value + 1, day)
-    // const lunarDate = lunar.solar2lunar(getYear.value, 10, 1)
+    const lunarDate = lunarCalendar.solar2lunar(
+      getYear.value,
+      getMonth.value + 1,
+      day
+    )
     return lunarDate as f
   }
-
-  console.log(getLunar(17))
 </script>
 
 <template>
   <div class="f-calendar">
-    <header class="f-calendar-header">
+    <header v-if="showHeader" class="f-calendar-header">
       <!-- 当前时间 -->
       <div class="f-calendar-time">
         <span class="f-calendar-time-now">{{ nowTime }}</span>
@@ -136,7 +137,7 @@
         :style="{ 'margin-left': day === 1 ? `${dayWeek * 50}px` : '' }"
       >
         <span class="f-calendar-solar">{{ day }}</span>
-        <span class="f-calendar-lunar">
+        <span v-if="lunar" class="f-calendar-lunar">
           {{ getLunar(day).festival || getLunar(day).IDayCn }}
         </span>
       </li>

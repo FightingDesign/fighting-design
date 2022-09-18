@@ -17,7 +17,7 @@
 
 <template>
   <!-- <f-tree :data="data" /> -->
-  <f-calendar v-model:date="date" />
+  <f-calendar v-model:date="date" lunar :show-header="false" />
 </template>
 
 <style lang="scss">

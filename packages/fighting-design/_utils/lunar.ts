@@ -1,6 +1,6 @@
 import type { solar2lunarReturnInterface as a } from '../_interface'
 
-export const lunar = {
+export const lunarCalendar = {
   /**
    * 农历1900-2100的润大小信息表
    * @Array Of Property
