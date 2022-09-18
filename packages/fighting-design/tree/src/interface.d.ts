@@ -3,3 +3,8 @@ export interface dataInterface {
   children?: dataInterface[]
   level?: number
 }
+
+export interface itemInterface {
+  label: string
+  level: number
+}

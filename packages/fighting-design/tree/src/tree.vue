@@ -2,13 +2,13 @@
   import { Props } from './tree'
   import { computed } from 'vue'
   import { treeToFlat, treeAddLevel } from '../../_utils'
-  import type { dataInterface as a } from './interface'
+  import type { ComputedRef } from 'vue'
+  import type { treeAddLevelReturnInterface as a } from '../../_interface'
 
   const prop = defineProps(Props)
 
-  const treeDate = computed(() => {
-    console.log(treeAddLevel<a>(prop.data))
-    return treeToFlat<a>(treeAddLevel<a>(prop.data))
+  const treeDate: ComputedRef<a[]> = computed((): a[] => {
+    return treeToFlat(treeAddLevel(prop.data))
   })
 </script>
 

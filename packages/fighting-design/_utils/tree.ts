@@ -1,42 +1,56 @@
-import type { treeAddLevelReturnInterface as a } from '../_interface'
+import type {
+  treeAddLevelReturnInterface as a,
+  dataInterface as b
+} from '../_interface'
 
 /**
  * 扁平化树形结构
  * @param data 
  * @returns 
  */
-export const treeToFlat = <T>(data: T[]): a[] => {
+export const treeToFlat = (data: b[]): a[] => {
   const result: a[] = []
-  data.forEach((item: T): void => {
+
+  data.forEach((item: b): void => {
     const obj = {
       label: item.label,
       level: item.level
-    } as const
+    } as a
+
     result.push(obj)
+
     if (item.children) {
       result.push(...treeToFlat(item.children))
     }
   })
+
   return result
 }
 
 /**
- * 
+ * 给 tree 添加 level 层级标注
  * @param tree 
  * @returns 
  */
-export const treeAddLevel = <T>(tree: T[]): T[] => {
+export const treeAddLevel = (tree: b[]): b[] => {
   if (!Array.isArray(tree)) {
     return []
   }
-  const recursive = (array: T[], level = 0): T[] => {
+
+  const recursive = (array: b[], level = 0): b[] => {
     level++
-    return array.map((item: T) => {
+
+    return array.map((item: b): b => {
       item.level = level
-      const child: T[] = item.children
-      if (child && child.length) recursive(child, level)
+      const child: b[] = item.children as b[]
+
+      if (child && child.length) {
+        recursive(child, level)
+      }
+
       return item
     })
   }
+
   return recursive(tree)
 }

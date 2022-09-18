@@ -12,7 +12,7 @@
     },
     { label: 'Leaf node 2' }
   ]
-  const date = new Date()
+  // const date = new Date()
 </script>
 
 <template>
