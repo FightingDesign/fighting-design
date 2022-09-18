@@ -57,3 +57,24 @@
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup>
+  const data = [
+    {
+      label: 'Node 1',
+      children: [
+        {
+          label: 'Node 1-1',
+          children: [
+            { label: 'Node 1-1-1' },
+            { label: 'Node 1-1-2' },
+            { label: 'Node 1-1-3' }
+          ]
+        },
+        { label: 'Node 1-2' },
+        { label: 'Node 1-3' }
+      ]
+    },
+    { label: 'Node 2' }
+  ]
+</script>
