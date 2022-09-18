@@ -2,7 +2,7 @@
 
 `Tooltip` 消息信息提示组件
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/design/tooltip)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tooltip)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tooltip.md)
 
 ## 基本使用

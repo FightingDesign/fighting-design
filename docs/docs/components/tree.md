@@ -2,7 +2,7 @@
 
 树形结构
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/design/tree)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tree)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tree.md)
 
 :::warning
