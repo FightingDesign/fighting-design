@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FCalendar">
   import { Props } from './calendar'
-  import { ref, computed } from 'vue'
+  import { ref, computed, watchEffect } from 'vue'
   import { FIcon } from '../../index'
   import { lunarCalendar } from '../../_utils'
   import type { Ref, ComputedRef } from 'vue'
@@ -9,11 +9,13 @@
     convertUppercaseInterface as b,
     mowDataClassListInterface as c,
     optionClickInterface as d,
-    addPrefixInterface as e
+    addPrefixInterface as e,
+    getLunarInterface as f,
+    handleClickInterface as g
   } from './interface'
   import type {
-    solar2lunarReturnInterface as f,
-    classListInterface as g
+    solar2lunarReturnInterface as h,
+    classListInterface as i
   } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -21,6 +23,7 @@
   const getYear: Ref<number> = ref<number>(prop.date.getFullYear())
   const getMonth: Ref<number> = ref<number>(prop.date.getMonth())
   const getDate: Ref<number> = ref<number>(prop.date.getDate())
+  const detailDay: Ref<h> = ref<h>(null as unknown as h)
 
   // 获取每个月多少天
   const dayMonth: a = (month: number, year: number): number => {
@@ -42,7 +45,12 @@
   }
 
   // 当前日期高亮显示
-  const mowDataClassList: c = (data: number): g => {
+  const mowDataClassList: c = (data: number): i => {
+    // 获取当前的月份，如果和传入月份，日期一致，才高亮显示
+    // const dateNow: Date = new Date()
+    // const month: number = dateNow.getMonth()
+    //  && month === getMonth.value
+
     return [
       {
         'f-calendar-day-today': data === getDate.value,
@@ -73,6 +81,7 @@
       'f-icon f-icon-column1': (): void => {
         getMonth.value = prop.date.getMonth()
         getYear.value = prop.date.getFullYear()
+        getDate.value = prop.date.getDate()
       },
       'f-icon f-icon-arrow-right': (): void => {
         if (getMonth.value < 11) {
@@ -103,18 +112,34 @@
   })
 
   // 农历
-  const getLunar = (day: number): f => {
+  const getLunar: f = (day: number): h => {
     const lunarDate = lunarCalendar.solar2lunar(
       getYear.value,
       getMonth.value + 1,
       day
     )
-    return lunarDate as f
+    return lunarDate as h
+  }
+
+  // 修改下面页脚内容
+  watchEffect((): void => {
+    const lunarDate = lunarCalendar.solar2lunar(
+      getYear.value,
+      getMonth.value + 1,
+      getDate.value
+    )
+    detailDay.value = lunarDate as h
+  })
+
+  // 点击对每一天
+  const handleClick: g = (day: number): void => {
+    getDate.value = day
   }
 </script>
 
 <template>
   <div class="f-calendar">
+    <!-- 头部操作栏 -->
     <header v-if="showHeader" class="f-calendar-header">
       <!-- 当前时间 -->
       <div class="f-calendar-time">
@@ -143,6 +168,7 @@
         :key="day"
         :class="['f-calendar-day-li', ...mowDataClassList(day)]"
         :style="{ 'margin-left': day === 1 ? `${dayWeek * 50}px` : '' }"
+        @click="handleClick(day)"
       >
         <span class="f-calendar-solar">{{ day }}</span>
         <span v-if="lunar" class="f-calendar-lunar">
@@ -150,5 +176,19 @@
         </span>
       </li>
     </ul>
+
+    <!-- 页脚 -->
+    <footer v-if="showFooter" class="f-calendar-footer">
+      <ul class="f-calendar-footer-list">
+        <li>日期：{{ detailDay.date }}</li>
+        <li>农历：{{ detailDay.lunarDate }}</li>
+        <li>星期：{{ detailDay.ncWeek }}</li>
+        <li>属性：{{ detailDay.Animal }}</li>
+        <li>星座：{{ detailDay.constellation }}</li>
+        <li>纪年：{{ detailDay.gzYear }}</li>
+        <li>纪月：{{ detailDay.gzMonth }}</li>
+        <li>纪日：{{ detailDay.gzDay }}</li>
+      </ul>
+    </footer>
   </div>
 </template>

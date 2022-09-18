@@ -1,5 +1,6 @@
 import type {
-  classListInterface
+  classListInterface,
+  solar2lunarReturnInterface
 } from '../../_interface'
 
 export interface dayMonthInterface {
@@ -20,4 +21,12 @@ export interface optionClickInterface {
 
 export interface addPrefixInterface {
   (num: number): string
+}
+
+export interface getLunarInterface {
+  (day: number): solar2lunarReturnInterface
+}
+
+export interface handleClickInterface {
+  (day: number): void
 }

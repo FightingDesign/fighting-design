@@ -12,6 +12,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => true
   },
+  showFooter: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   square: {
     type: Boolean,
     default: (): boolean => false

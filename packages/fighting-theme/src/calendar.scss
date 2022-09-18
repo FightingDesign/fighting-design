@@ -71,6 +71,7 @@
     display: flex;
     flex-wrap: wrap;
     list-style: none;
+    cursor: pointer;
 
     .f-calendar-day-li {
       width: 50px;
@@ -95,10 +96,31 @@
         border-radius: 50%;
         color: #fff;
         background: $primary;
+        transition: 0.3s;
 
         &.f-calendar-day-today-square {
           border-radius: 0px;
         }
+      }
+    }
+  }
+
+  // 页脚
+  .f-calendar-footer {
+    padding: 15px;
+    background: #eee;
+
+    .f-calendar-footer-list {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+
+      li {
+        display: inline-block;
+        width: 150px;
+        font-size: 15px;
       }
     }
   }
