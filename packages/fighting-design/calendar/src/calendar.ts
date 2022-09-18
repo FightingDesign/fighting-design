@@ -11,5 +11,9 @@ export const Props = {
   showHeader: {
     type: Boolean,
     default: (): boolean => true
+  },
+  square: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const

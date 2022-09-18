@@ -11,7 +11,10 @@
     optionClickInterface as d,
     addPrefixInterface as e
   } from './interface'
-  import type { solar2lunarReturnInterface as f } from '../../_interface'
+  import type {
+    solar2lunarReturnInterface as f,
+    classListInterface as g
+  } from '../../_interface'
 
   const prop = defineProps(Props)
 
@@ -39,8 +42,13 @@
   }
 
   // 当前日期高亮显示
-  const mowDataClassList: c = (data: number): string => {
-    return data === getDate.value ? 'f-calendar-day-today' : ''
+  const mowDataClassList: c = (data: number): g => {
+    return [
+      {
+        'f-calendar-day-today': data === getDate.value,
+        'f-calendar-day-today-square': prop.square
+      }
+    ]
   }
 
   // 计算当月的第一天是周几，返回需要该空出的格数
@@ -133,7 +141,7 @@
       <li
         v-for="day in getDayMonth"
         :key="day"
-        :class="['f-calendar-day-li', mowDataClassList(day)]"
+        :class="['f-calendar-day-li', ...mowDataClassList(day)]"
         :style="{ 'margin-left': day === 1 ? `${dayWeek * 50}px` : '' }"
       >
         <span class="f-calendar-solar">{{ day }}</span>

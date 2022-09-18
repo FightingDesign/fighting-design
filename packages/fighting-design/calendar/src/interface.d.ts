@@ -1,3 +1,7 @@
+import type {
+  classListInterface
+} from '../../_interface'
+
 export interface dayMonthInterface {
   (month: number, year: number): number
 }
@@ -7,7 +11,7 @@ export interface convertUppercaseInterface {
 }
 
 export interface mowDataClassListInterface {
-  (data: number): string
+  (data: number): classListInterface
 }
 
 export interface optionClickInterface {

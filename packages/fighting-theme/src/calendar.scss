@@ -95,6 +95,10 @@
         border-radius: 50%;
         color: #fff;
         background: $primary;
+
+        &.f-calendar-day-today-square {
+          border-radius: 0px;
+        }
       }
     }
   }
