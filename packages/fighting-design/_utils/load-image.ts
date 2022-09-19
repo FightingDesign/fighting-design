@@ -36,6 +36,7 @@ class Load implements LoadInterface {
   /**
    * 第一步会进入到这里
    * 首先加载当前的 src 地址图片
+   * @param errSrc src 失败后的加载路径
    */
   loadCreateImg = (errSrc?: string): void => {
     const newImg: HTMLImageElement = new Image()
@@ -76,8 +77,9 @@ class Load implements LoadInterface {
     }
   }
   /**
-   * 加载图片
+   * 图片加载
    * @param evt 事件对象
+   * @param src 需要加载的 src
    */
   onload = (evt: Event, src: string): void => {
     this.node.src = src
