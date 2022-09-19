@@ -144,12 +144,23 @@
   const remainDayLastMonth = computed(() => {
     // 上个月的天数
     let dayNum: number = dayMonth(getMonth.value - 1, getYear.value)
+    const remainDayList = []
 
     for (let i = 0; i < dayWeek.value; i++) {
-      console.log(dayNum--)
+      console.log(getYear.value, getMonth.value - 1, dayNum)
+
+      // console.log(dayNum--)
+      dayNum--
+      const lunarDate = lunarCalendar.solar2lunar(
+        getYear.value,
+        getMonth.value - 1,
+        dayNum
+      )
+
+      remainDayList.push(lunarDate)
     }
 
-    return dayNum
+    return remainDayList.reverse()
   })
 
   console.log(remainDayLastMonth.value)
@@ -188,6 +199,18 @@
         :style="{ 'margin-left': day === 1 ? `${dayWeek * 50}px` : '' }"
         @click="handleClick(day)"
       > -->
+
+      <li
+        v-for="day in remainDayLastMonth"
+        :key="day"
+        :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
+      >
+        <span class="f-calendar-solar">{{ day.cDay }}</span>
+        <span v-if="lunar" class="f-calendar-lunar">
+          {{ day.festival || day.IDayCn }}
+        </span>
+      </li>
+
       <li
         v-for="day in getDayMonth"
         :key="day"

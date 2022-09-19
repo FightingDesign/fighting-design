@@ -82,6 +82,10 @@
       align-items: center;
       flex-direction: column;
 
+      &.f-calendar-day-li-last {
+        color: rgb(198, 198, 198);
+      }
+
       // 阳历
       .f-calendar-solar {
         font-size: 15px;
