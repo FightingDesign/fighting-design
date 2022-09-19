@@ -17,12 +17,12 @@
     },
     { label: 'Node 2' }
   ]
-  // const date = new Date()
+  const date = new Date()
 </script>
 
 <template>
-  <f-tree :data="data" />
-  <!-- <f-calendar v-model:date="date" lunar square show-footer /> -->
+  <f-calendar v-model:date="date" lunar />
+  <!-- <f-tree :data="data" /> -->
 </template>
 
 <style lang="scss">

@@ -53,8 +53,8 @@
 
     return [
       {
-        'f-calendar-day-today': data === getDate.value,
-        'f-calendar-day-today-square': prop.square
+        'f-calendar-day-today': data === getDate.value
+        // 'f-calendar-day-today-square': prop.square
       }
     ]
   }
@@ -135,6 +135,24 @@
   const handleClick: g = (day: number): void => {
     getDate.value = day
   }
+
+  // 获取上个月的剩余显示天数
+  // console.log(dayWeek.value)
+
+  // dayMonth(getMonth.value, getYear.value)
+
+  const remainDayLastMonth = computed(() => {
+    // 上个月的天数
+    let dayNum: number = dayMonth(getMonth.value - 1, getYear.value)
+
+    for (let i = 0; i < dayWeek.value; i++) {
+      console.log(dayNum--)
+    }
+
+    return dayNum
+  })
+
+  console.log(remainDayLastMonth.value)
 </script>
 
 <template>
@@ -163,11 +181,17 @@
 
     <!-- 每一天 -->
     <ul class="f-calendar-day">
-      <li
+      <!-- <li
         v-for="day in getDayMonth"
         :key="day"
         :class="['f-calendar-day-li', ...mowDataClassList(day)]"
         :style="{ 'margin-left': day === 1 ? `${dayWeek * 50}px` : '' }"
+        @click="handleClick(day)"
+      > -->
+      <li
+        v-for="day in getDayMonth"
+        :key="day"
+        :class="['f-calendar-day-li', ...mowDataClassList(day)]"
         @click="handleClick(day)"
       >
         <span class="f-calendar-solar">{{ day }}</span>

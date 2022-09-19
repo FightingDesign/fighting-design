@@ -16,7 +16,7 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  square: {
+  border: {
     type: Boolean,
     default: (): boolean => false
   }
