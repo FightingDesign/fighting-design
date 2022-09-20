@@ -34,18 +34,18 @@
   )
 
   // 上个月需要展示的天数
-  const lastMonthDay = computed((): [] => {
+  const lastMonthDay = computed((): h[] => {
     // 上个月的天数
     let lastDays: number = dayMonth(year.value, month.value - 1)
     // 需要展示的上个月信息
-    const showLastListResult = []
+    const showLastListResult: h[] = []
 
     for (let i = 0; i < firstDayWeek.value; i++) {
-      const dayList = lunarCalendar.solar2lunar(
+      const dayList: h = lunarCalendar.solar2lunar(
         year.value,
         month.value,
         lastDays
-      )
+      ) as h
       showLastListResult.push(dayList)
       lastDays--
     }
@@ -54,7 +54,7 @@
   })
 
   // 下个月需要展示的天数
-  const nextMonthDay = computed(() => {
+  const nextMonthDay = computed((): h[] => {
     // 获取当前月份的时间
     const thisMonthDay: number =
       dayMonth(year.value, month.value) + firstDayWeek.value
@@ -65,14 +65,14 @@
       return []
     }
 
-    const showNextListResult = []
+    const showNextListResult: h[] = []
 
     for (let i = 0; i < nextShowDay; i++) {
-      const dayList = lunarCalendar.solar2lunar(
+      const dayList: h = lunarCalendar.solar2lunar(
         year.value,
         month.value + 2,
         i + 1
-      )
+      ) as h
       showNextListResult.push(dayList)
     }
 
@@ -211,8 +211,8 @@
     <!-- 每一天 -->
     <ul class="f-calendar-day">
       <li
-        v-for="day in lastMonthDay"
-        :key="day"
+        v-for="(day, index) in lastMonthDay"
+        :key="index"
         :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
       >
         <span class="f-calendar-solar">{{ day.cDay }}</span>
@@ -234,8 +234,8 @@
       </li>
 
       <li
-        v-for="day in nextMonthDay"
-        :key="day"
+        v-for="(day, index) in nextMonthDay"
+        :key="index"
         :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
       >
         <span class="f-calendar-solar">{{ day.cDay }}</span>

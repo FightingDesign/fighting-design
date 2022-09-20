@@ -5,6 +5,9 @@
  * @returns 
  */
 export const dayMonth = (year: number, month: number): number => {
+  if (month === -1) {
+    return 31
+  }
   if (month !== 1) {
     const months = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] as const
     return months[month]
