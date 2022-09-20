@@ -21,7 +21,13 @@
 </script>
 
 <template>
-  <f-calendar v-model:date="date" lunar />
+  <f-calendar
+    v-model:date="date"
+    lunar
+    border
+    border-color="skyblue"
+    :day-cell-height="100"
+  />
   <!-- <f-tree :data="data" /> -->
 </template>
 

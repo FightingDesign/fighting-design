@@ -67,13 +67,16 @@
 
 ## Attributes
 
-| 参数           | 说明               | 类型    | 可选值 | 默认值   |
-| -------------- | ------------------ | ------- | ------ | -------- |
-| `v-model:date` | 绑定日期           | date    | ——     | new Date |
-| `lunar`        | 是否显示农历和节日 | boolean | ——     | false    |
-| `show-header`  | 是否显示头部       | boolean | ——     | true     |
-| `show-footer`  | 是否显示页脚       | boolean | ——     | false    |
-| `square`       | 是否日期直角样式   | boolean | ——     | false    |
+| 参数               | 说明               | 类型            | 可选值 | 默认值   |
+| ------------------ | ------------------ | --------------- | ------ | -------- |
+| `v-model:date`     | 绑定日期           | date            | ——     | new Date |
+| `lunar`            | 是否显示农历和节日 | boolean         | ——     | false    |
+| `show-header`      | 是否显示头部       | boolean         | ——     | true     |
+| `show-footer`      | 是否显示页脚       | boolean         | ——     | false    |
+| `border`           | 是否显示边框       | boolean         | ——     | false    |
+| `border-color`     | 自定义边框颜色     | string          | ——     | #eee     |
+| `day-cell-height`  | 日期单元格高度     | string / number | ——     | 85px     |
+| `week-cell-height` | 星期单元格高度     | string / number | ——     | 50px     |
 
 ## Contributors
 

@@ -2,8 +2,8 @@
   import { Props } from './calendar'
   import { ref, computed, watchEffect } from 'vue'
   import { FIcon } from '../../index'
-  import { addZero } from '../../_utils'
-  import type { Ref, ComputedRef } from 'vue'
+  import { addZero, isString } from '../../_utils'
+  import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
     mowDataClassListInterface as c,
     optionClickInterface as d,
@@ -81,10 +81,27 @@
   const handleClick: g = (day: number): void => {
     date.value = day
   }
+
+  const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { borderColor, dayCellHeight, weekCellHeight } = prop
+
+    return {
+      '--f-calendar-border-color': borderColor,
+      '--f-calendar-day-height': isString(dayCellHeight)
+        ? dayCellHeight
+        : dayCellHeight + 'px',
+      '--f-calendar-week-height': isString(weekCellHeight)
+        ? weekCellHeight
+        : weekCellHeight + 'px'
+    }
+  })
 </script>
 
 <template>
-  <div class="f-calendar">
+  <div
+    :class="['f-calendar', { 'f-calendar-border': border }]"
+    :style="classList"
+  >
     <!-- 头部操作栏 -->
     <header v-if="showHeader" class="f-calendar-header">
       <!-- 当前时间 -->
