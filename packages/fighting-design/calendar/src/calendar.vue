@@ -5,8 +5,6 @@
   import { lunarCalendar } from '../../_utils'
   import type { Ref, ComputedRef } from 'vue'
   import type {
-    // dayMonthInterface as a,
-    // convertUppercaseInterface as b,
     mowDataClassListInterface as c,
     optionClickInterface as d,
     addPrefixInterface as e,
@@ -14,10 +12,9 @@
     handleClickInterface as g
   } from './interface'
   import type {
-    solar2lunarReturnInterface as h,
-    classListInterface as i
+    solar2lunarReturnInterface as h
+    // classListInterface as i
   } from '../../_interface'
-  import { dayMonth } from '../../_model/calendar/utils'
   import { WEEK_DATA } from '../../_model/calendar/data'
   import { diffDay } from '../../_model/calendar/diff-day'
 
@@ -30,20 +27,11 @@
 
   const loadDiffDay = diffDay(getYear.value, getMonth.value)
 
-  const { lastMonthDay, nestMonthDay } = loadDiffDay
-
-  // 获取当前月份多少天
-  const getDayMonth: ComputedRef<number> = computed((): number => {
-    return dayMonth(getYear.value, getMonth.value)
-  })
+  const { lastMonthDay, nestMonthDay, currentMonthDay } = loadDiffDay
 
   // 当前日期高亮显示
-  const mowDataClassList: c = (data: number): i => {
-    return [
-      {
-        'f-calendar-day-today': data === getDate.value
-      }
-    ]
+  const mowDataClassList: c = (data: number): string => {
+    return data === getDate.value ? 'f-calendar-day-today' : ''
   }
 
   // 点击操作栏
@@ -158,9 +146,9 @@
       </li>
 
       <li
-        v-for="day in getDayMonth"
+        v-for="day in currentMonthDay"
         :key="day"
-        :class="['f-calendar-day-li', ...mowDataClassList(day)]"
+        :class="['f-calendar-day-li', mowDataClassList(day)]"
         @click="handleClick(day)"
       >
         <span class="f-calendar-solar">{{ day }}</span>

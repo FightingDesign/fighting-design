@@ -1,5 +1,4 @@
 import type {
-  classListInterface,
   solar2lunarReturnInterface
 } from '../../_interface'
 
@@ -12,7 +11,7 @@ export interface convertUppercaseInterface {
 }
 
 export interface mowDataClassListInterface {
-  (data: number): classListInterface
+  (data: number): string
 }
 
 export interface optionClickInterface {

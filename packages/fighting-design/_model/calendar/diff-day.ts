@@ -54,8 +54,14 @@ export const diffDay = (year: number, month: number) => {
     return showNextListResult
   })
 
+  // 获取当前月份多少天
+  const currentMonthDay = computed(() => {
+    return dayMonth(year, month)
+  })
+
   return {
     lastMonthDay,
-    nestMonthDay
+    nestMonthDay,
+    currentMonthDay
   }
 }
