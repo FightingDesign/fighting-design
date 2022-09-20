@@ -154,7 +154,7 @@ fighting-design
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<a href="https://github.com/Rin-Nohara" target="_blank">
+<a href="https://github.com/wmasfoe" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/61968242?v=4" />
 </a>
 

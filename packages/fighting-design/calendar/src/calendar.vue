@@ -2,7 +2,7 @@
   import { Props } from './calendar'
   import { ref, computed, watchEffect } from 'vue'
   import { FIcon } from '../../index'
-  import { lunarCalendar } from '../../_utils'
+  import { lunarCalendar, smallestDiffer } from '../../_utils'
   import type { Ref, ComputedRef } from 'vue'
   import type {
     dayMonthInterface as a,
@@ -168,24 +168,27 @@
   // 当月的天数 + 上个月展示的天数 = 之前展示的天数
 
   // 计算出下一个月需要提前展示多少天
-  const lastMonthShowDay = computed(() => {
+  const lastMonthShowDay = computed((): number => {
     // 当前月份的时间
     const thisMonthNum: number =
       dayMonth(getMonth.value, getYear.value) + dayWeek.value
 
-    const weekList: number[] = []
+    const lastNum: number = thisMonthNum % 7
 
-    // 日历展示的，每个月最多 42 天
-    for (let i = 1; i < 7; i++) {
-      weekList.push(i * 7)
-    }
-
-    console.log(weekList, thisMonthNum)
-
-    return ''
+    return !lastNum ? 0 : 7 - lastNum
   })
 
   console.log(lastMonthShowDay.value)
+
+  const numberDayDisplayNextMonth = computed(() => {
+    if (!lastMonthShowDay.value) {
+      return []
+    }
+
+    for (let i = 0; i < lastMonthShowDay.value; i++) {
+      console.log(i)
+    }
+  })
 </script>
 
 <template>
