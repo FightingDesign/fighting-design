@@ -84,10 +84,16 @@ export const diffDay: diffDayInterface = (
     month.value = 0
   }
 
+  // 获取当前月份多少天
+  const currentMonthDay: ComputedRef<number> = computed((): number => {
+    return dayMonth(year.value, month.value)
+  })
+
   return {
     lastMonthDay,
     nextMonthDay,
     changeLastMonth,
-    changeNextMonth
+    changeNextMonth,
+    currentMonthDay
   } as diffDayReturnInterface
 }
