@@ -1,7 +1,7 @@
 import type { ComputedRef, Ref } from 'vue'
 
 export interface getLunarDetailReturnInterface {
-  Animal: string // 生肖
+  animal: string // 生肖
   IDayCn: string // 农历日期
   IMonthCn: string // 当前月份
   Term: string | null

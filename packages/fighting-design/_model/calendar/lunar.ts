@@ -309,9 +309,6 @@ export class Lunar {
     const solarDate = y + '-' + m + '-' + d
     const lunarDate = year + '-' + month + '-' + day
 
-    const festival = SOLAR_CALENDAR_FESTIVE // 阳历节日
-    const lFestival = LUNAR_FESTIVE // 农历节日
-
     const festivalDate: string = m + '-' + d
     let lunarFestivalDate: string = month + '-' + day
 
@@ -323,32 +320,35 @@ export class Lunar {
     if (month === 12 && day === 29 && Lunar.monthDays(year, month) === 29) {
       lunarFestivalDate = '12-30'
     }
+
     return {
-      date: solarDate,
-      lunarDate: lunarDate,
-      festival: festival[festivalDate] ? festival[festivalDate].title : '',
-      lunarFestival: lFestival[lunarFestivalDate]
-        ? lFestival[lunarFestivalDate].title
-        : '',
-      lYear: year,
-      lMonth: month,
-      lDay: day,
-      Animal: Lunar.getAnimal(year),
+      date: solarDate, // 阳历
+      lunarDate, // 农历
+      festival: SOLAR_CALENDAR_FESTIVE[festivalDate]
+        ? SOLAR_CALENDAR_FESTIVE[festivalDate].title
+        : '', // 阳历节日
+      lunarFestival: LUNAR_FESTIVE[lunarFestivalDate]
+        ? LUNAR_FESTIVE[lunarFestivalDate].title
+        : '', // 农历节日
+      lYear: year, // 农历年份
+      lMonth: month,// 农历月份
+      lDay: day, // // 农历日
+      animal: Lunar.getAnimal(year), // 生肖
       IMonthCn: (isLeap ? '\u95f0' : '') + Lunar.toChinaMonth(month),
       IDayCn: Lunar.toChinaDay(day),
       cYear: y,
       cMonth: m,
       cDay: d,
-      gzYear: gzY,
-      gzMonth: gzM,
-      gzDay: gzD,
+      gzYear: gzY, // 纪年
+      gzMonth: gzM, // 纪月
+      gzDay: gzD, // 纪日
       isToday,
       isLeap,
       nWeek,
       ncWeek: '\u661f\u671f' + cWeek,
       isTerm,
       Term,
-      constellation
+      constellation // 星座
     } as getLunarDetailReturnInterface
   }
 }

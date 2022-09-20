@@ -154,7 +154,7 @@
         <li>日期：{{ detailDay.date }}</li>
         <li>农历：{{ detailDay.lunarDate }}</li>
         <li>星期：{{ detailDay.ncWeek }}</li>
-        <li>属性：{{ detailDay.Animal }}</li>
+        <li>属性：{{ detailDay.animal }}</li>
         <li>星座：{{ detailDay.constellation }}</li>
         <li>纪年：{{ detailDay.gzYear }}</li>
         <li>纪月：{{ detailDay.gzMonth }}</li>
