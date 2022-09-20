@@ -1,19 +1,19 @@
 <script lang="ts" setup name="FCalendar">
   import { Props } from './calendar'
-  import { ref, computed, watchEffect, watch } from 'vue'
+  import { ref, computed, watchEffect } from 'vue'
   import { FIcon } from '../../index'
-  import { lunarCalendar } from '../../_utils'
+  import { lunarCalendar, addZero } from '../../_utils'
   import type { Ref, ComputedRef } from 'vue'
   import type {
     mowDataClassListInterface as c,
     optionClickInterface as d,
-    addPrefixInterface as e,
     getLunarInterface as f,
     handleClickInterface as g
   } from './interface'
   import type { solar2lunarReturnInterface as h } from '../../_interface'
   import { WEEK_DATA } from '../../_model/calendar/data'
   import { dayMonth } from '../../_model/calendar/utils'
+  import { diffDay } from '../../_model/calendar/diff-day'
 
   const prop = defineProps(Props)
 
@@ -21,99 +21,16 @@
   const month: Ref<number> = ref<number>(prop.date.getMonth())
   const date: Ref<number> = ref<number>(prop.date.getDate())
   const detailDay: Ref<h> = ref<h>(null as unknown as h)
-  // 获取当前月份的 1号是周几
-  const firstDayWeek = ref(
-    new Date(`${year.value}/${month.value + 1}/1`).getDay()
-  )
-
-  watch(
-    () => month.value,
-    (newVal: number): void => {
-      firstDayWeek.value = new Date(`${year.value}/${newVal + 1}/1`).getDay()
-    }
-  )
-
-  // 上个月需要展示的天数
-  const lastMonthDay = computed((): h[] => {
-    // 上个月的天数
-    let lastDays: number = dayMonth(year.value, month.value - 1)
-    // 需要展示的上个月信息
-    const showLastListResult: h[] = []
-
-    for (let i = 0; i < firstDayWeek.value; i++) {
-      const dayList: h = lunarCalendar.solar2lunar(
-        year.value,
-        month.value,
-        lastDays
-      ) as h
-      showLastListResult.push(dayList)
-      lastDays--
-    }
-
-    return showLastListResult.reverse()
-  })
-
-  // 下个月需要展示的天数
-  const nextMonthDay = computed((): h[] => {
-    // 获取当前月份的时间
-    const thisMonthDay: number =
-      dayMonth(year.value, month.value) + firstDayWeek.value
-    // 下个月需要展示的天数
-    const nextShowDay: number = 7 - (thisMonthDay % 7)
-
-    if (!nextShowDay) {
-      return []
-    }
-
-    const showNextListResult: h[] = []
-
-    for (let i = 0; i < nextShowDay; i++) {
-      const dayList: h = lunarCalendar.solar2lunar(
-        year.value,
-        month.value + 2,
-        i + 1
-      ) as h
-      showNextListResult.push(dayList)
-    }
-
-    return showNextListResult
-  })
 
   // 获取当前月份多少天
   const currentMonthDay = computed(() => {
     return dayMonth(year.value, month.value)
   })
 
-  // 点击上个月切换按钮
-  const changeLastMonth = (): void => {
-    if (month.value > 0) {
-      month.value--
-      return
-    }
-    year.value--
-    month.value = 11
-  }
+  const loadDiffDay = diffDay(year, month)
 
-  // 点击下个月切换按钮
-  const changeNextMonth = (): void => {
-    if (month.value < 11) {
-      month.value++
-      return
-    }
-    year.value++
-    month.value = 0
-  }
-
-  // const loadDiffDay = diffDay(getYear.value, getMonth.value)
-  // const loadDiffDay = diffDay(prop.date)
-
-  // const {
-  //   lastMonthDay,
-  //   nextMonthDay,
-  //   currentMonthDay,
-  //   changeLastMonth,
-  //   changeNextMonth
-  // } = loadDiffDay
+  const { lastMonthDay, nextMonthDay, changeLastMonth, changeNextMonth } =
+    loadDiffDay
 
   // 当前日期高亮显示
   const mowDataClassList: c = (data: number): string => {
@@ -123,16 +40,12 @@
   // 点击操作栏
   const optionClick: d = (evt: MouseEvent): void => {
     const option = {
-      'f-icon f-icon-arrow-left': (): void => {
-        changeLastMonth()
-      },
+      'f-icon f-icon-arrow-left': (): void => changeLastMonth(),
+      'f-icon f-icon-arrow-right': (): void => changeNextMonth(),
       'f-icon f-icon-column1': (): void => {
         month.value = prop.date.getMonth()
         year.value = prop.date.getFullYear()
         date.value = prop.date.getDate()
-      },
-      'f-icon f-icon-arrow-right': (): void => {
-        changeNextMonth()
       }
     }
 
@@ -142,14 +55,9 @@
     }
   }
 
-  // 给数字前面加 0
-  const addPrefix: e = (num: number): string => {
-    return num > 9 ? num.toString() : `0${num}`
-  }
-
   // 当前时间
   const nowTime: ComputedRef<string> = computed((): string => {
-    return `${year.value}年 ${addPrefix(month.value + 1)}月 ${addPrefix(
+    return `${year.value}年 ${addZero(month.value + 1)}月 ${addZero(
       date.value
     )}日`
   })

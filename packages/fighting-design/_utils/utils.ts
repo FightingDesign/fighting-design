@@ -101,3 +101,12 @@ export const pastTime: d = (
   }
   return format
 }
+
+/**
+ * 给数字前面加 0
+ * @param num 日期
+ * @returns 
+ */
+export const addZero = (num: number): string => {
+  return num > 9 ? num.toString() : `0${num}`
+}

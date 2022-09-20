@@ -1,3 +1,5 @@
+import type { ComputedRef, Ref } from 'vue'
+
 export interface solar2lunarReturnInterface {
   Animal: string // 生肖
   IDayCn: string // 农历日期
@@ -22,4 +24,15 @@ export interface solar2lunarReturnInterface {
   lunarFestival: null
   nWeek: number
   ncWeek: string // 星期
+}
+
+export interface diffDayInterface {
+  (year: Ref<number>, month: Ref<number>): diffDayReturnInterface
+}
+
+export interface diffDayReturnInterface {
+  lastMonthDay: ComputedRef<h[]>
+  nextMonthDay: ComputedRef<h[]>
+  changeLastMonth(): void
+  changeNextMonth(): void
 }
