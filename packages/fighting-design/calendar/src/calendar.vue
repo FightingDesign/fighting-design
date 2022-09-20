@@ -2,11 +2,11 @@
   import { Props } from './calendar'
   import { ref, computed, watchEffect } from 'vue'
   import { FIcon } from '../../index'
-  import { lunarCalendar, smallestDiffer } from '../../_utils'
+  import { lunarCalendar } from '../../_utils'
   import type { Ref, ComputedRef } from 'vue'
   import type {
-    dayMonthInterface as a,
-    convertUppercaseInterface as b,
+    // dayMonthInterface as a,
+    // convertUppercaseInterface as b,
     mowDataClassListInterface as c,
     optionClickInterface as d,
     addPrefixInterface as e,
@@ -17,6 +17,9 @@
     solar2lunarReturnInterface as h,
     classListInterface as i
   } from '../../_interface'
+  import { dayMonth } from '../../_model/calendar/utils'
+  import { WEEK_DATA } from '../../_model/calendar/data'
+  import { diffDay } from '../../_model/calendar/diff-day'
 
   const prop = defineProps(Props)
 
@@ -25,36 +28,36 @@
   const getDate: Ref<number> = ref<number>(prop.date.getDate())
   const detailDay: Ref<h> = ref<h>(null as unknown as h)
 
+  const loadDiffDay = diffDay(getYear.value, getMonth.value)
+
+  const { lastMonthDay } = loadDiffDay
+
+  console.log(lastMonthDay.value)
+
   // 获取每个月多少天
-  const dayMonth: a = (month: number, year: number): number => {
-    if (month !== 1) {
-      const months = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] as const
-      return months[month]
-    }
-    return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 ? 29 : 28
-  }
+  // const dayMonth: a = (month: number, year: number): number => {
+  //   if (month !== 1) {
+  //     const months = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] as const
+  //     return months[month]
+  //   }
+  //   return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 ? 29 : 28
+  // }
 
   // 获取当前月份多少天
   const getDayMonth: ComputedRef<number> = computed((): number => {
-    return dayMonth(getMonth.value, getYear.value)
+    return dayMonth(getYear.value, getMonth.value)
   })
 
   // 将小写转换为大写
-  const convertUppercase: b = (week: number): string => {
-    return ['日', '一', '二', '三', '四', '五', '六'][week - 1]
-  }
+  // const convertUppercase: b = (week: number): string => {
+  //   return ['日', '一', '二', '三', '四', '五', '六'][week - 1]
+  // }
 
   // 当前日期高亮显示
   const mowDataClassList: c = (data: number): i => {
-    // 获取当前的月份，如果和传入月份，日期一致，才高亮显示
-    // const dateNow: Date = new Date()
-    // const month: number = dateNow.getMonth()
-    //  && month === getMonth.value
-
     return [
       {
         'f-calendar-day-today': data === getDate.value
-        // 'f-calendar-day-today-square': prop.square
       }
     ]
   }
@@ -136,33 +139,35 @@
     getDate.value = day
   }
 
-  // 获取上个月的剩余显示天数
-  // console.log(dayWeek.value)
-
-  // dayMonth(getMonth.value, getYear.value)
-
   // 获取了上个月剩余的天数
-  const remainDayLastMonth = computed(() => {
-    // 上个月的天数
-    let dayNum: number = dayMonth(getMonth.value - 1, getYear.value)
-    const remainDayList = []
+  // const remainDayLastMonth = computed(() => {
+  //   // 上个月的天数
+  //   let dayNum: number = dayMonth(getMonth.value - 1, getYear.value)
+  //   const remainDayList = []
 
-    for (let i = 0; i < dayWeek.value; i++) {
-      // console.log(getYear.value, getMonth.value - 1, dayNum)
+  //   const firstDayWeek: number = new Date(
+  //     `${getYear.value}/${getMonth.value + 1}/1`
+  //   ).getDay()
+  //   // return firstDayWeek === 0 ? 0 : firstDayWeek
 
-      // console.log(dayNum--)
-      dayNum--
-      const lunarDate = lunarCalendar.solar2lunar(
-        getYear.value,
-        getMonth.value - 1,
-        dayNum
-      )
+  //   console.log(firstDayWeek)
 
-      remainDayList.push(lunarDate)
-    }
+  //   for (let i = 0; i < dayWeek.value; i++) {
+  //     dayNum--
+  //     // const lunarDate = lunarCalendar.solar2lunar(
+  //     //   getYear.value,
+  //     //   getMonth.value - 1,
+  //     //   dayNum
+  //     // )
 
-    return remainDayList.reverse()
-  })
+  //     // remainDayList.push(lunarDate)
+  //   }
+
+  //   // return remainDayList.reverse()
+  //   return []
+  // })
+
+  // console.log(remainDayLastMonth.value)
 
   // 获取下个月需要多展示的天数
   // 当月的天数 + 上个月展示的天数 = 之前展示的天数
@@ -178,17 +183,26 @@
     return !lastNum ? 0 : 7 - lastNum
   })
 
-  console.log(lastMonthShowDay.value)
-
   const numberDayDisplayNextMonth = computed(() => {
     if (!lastMonthShowDay.value) {
       return []
     }
 
+    const remainDayList = []
+
     for (let i = 0; i < lastMonthShowDay.value; i++) {
-      console.log(i)
+      const lunarDate = lunarCalendar.solar2lunar(
+        getYear.value,
+        getMonth.value + 2,
+        i + 1
+      )
+      remainDayList.push(lunarDate)
     }
+
+    return remainDayList
   })
+
+  console.log(numberDayDisplayNextMonth.value)
 </script>
 
 <template>
@@ -210,23 +224,19 @@
 
     <!-- 周几 -->
     <ul class="f-calendar-week">
-      <li v-for="week in 7" :key="week" class="f-calendar-week-li">
-        {{ convertUppercase(week) }}
+      <li
+        v-for="(week, index) in WEEK_DATA"
+        :key="index"
+        class="f-calendar-week-li"
+      >
+        {{ week }}
       </li>
     </ul>
 
     <!-- 每一天 -->
     <ul class="f-calendar-day">
-      <!-- <li
-        v-for="day in getDayMonth"
-        :key="day"
-        :class="['f-calendar-day-li', ...mowDataClassList(day)]"
-        :style="{ 'margin-left': day === 1 ? `${dayWeek * 50}px` : '' }"
-        @click="handleClick(day)"
-      > -->
-
       <li
-        v-for="day in remainDayLastMonth"
+        v-for="day in lastMonthDay"
         :key="day"
         :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
       >
@@ -245,6 +255,17 @@
         <span class="f-calendar-solar">{{ day }}</span>
         <span v-if="lunar" class="f-calendar-lunar">
           {{ getLunar(day).festival || getLunar(day).IDayCn }}
+        </span>
+      </li>
+
+      <li
+        v-for="day in numberDayDisplayNextMonth"
+        :key="day"
+        :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
+      >
+        <span class="f-calendar-solar">{{ day.cDay }}</span>
+        <span v-if="lunar" class="f-calendar-lunar">
+          {{ day.festival || day.IDayCn }}
         </span>
       </li>
     </ul>

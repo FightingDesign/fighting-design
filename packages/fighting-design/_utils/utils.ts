@@ -101,13 +101,3 @@ export const pastTime: d = (
   }
   return format
 }
-
-export const smallestDiffer = (arr: number[], num: number): number => {
-  let res = 0
-  for (let i = 0; i < arr.length; i++) {
-    if (res < arr[i] && arr[i] < num) {
-      res = arr[i]
-    }
-  }
-  return res
-}
