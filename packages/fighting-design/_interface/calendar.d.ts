@@ -1,6 +1,6 @@
 import type { ComputedRef, Ref } from 'vue'
 
-export interface solar2lunarReturnInterface {
+export interface getLunarDetailReturnInterface {
   Animal: string // 生肖
   IDayCn: string // 农历日期
   IMonthCn: string // 当前月份
@@ -10,7 +10,7 @@ export interface solar2lunarReturnInterface {
   cMonth: number
   cYear: number
   date: string
-  festival: string | null // 节日
+  festival: string// 节日
   gzDay: string
   gzMonth: string
   gzYear: string
@@ -21,7 +21,7 @@ export interface solar2lunarReturnInterface {
   lMonth: number
   lYear: number
   lunarDate: string
-  lunarFestival: null
+  lunarFestival: ''
   nWeek: number
   ncWeek: string // 星期
 }
@@ -36,3 +36,9 @@ export interface diffDayReturnInterface {
   changeLastMonth(): void
   changeNextMonth(): void
 }
+
+export interface holidayListItemInterface {
+  title: string
+}
+
+export type holidayListType = Record<string, holidayListItemInterface>

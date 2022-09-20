@@ -2,18 +2,22 @@ import { computed, watch, ref } from 'vue'
 import { dayMonth } from './utils'
 import type { Ref, ComputedRef } from 'vue'
 import type {
-  solar2lunarReturnInterface as a,
+  getLunarDetailReturnInterface as a,
   diffDayReturnInterface,
   diffDayInterface
 } from '../../_interface'
-import { lunarCalendar } from '../../_utils'
+import { Lunar } from './lunar'
 
-export const diffDay: diffDayInterface = (year: Ref<number>, month: Ref<number>): diffDayReturnInterface => {
+export const diffDay: diffDayInterface = (
+  year: Ref<number>,
+  month: Ref<number>
+): diffDayReturnInterface => {
 
   // 获取当前月份的 1号是周几
   const firstDayWeek: Ref<number> = ref(
     new Date(`${year.value}/${month.value + 1}/1`).getDay()
   )
+  const lunar: Lunar = new Lunar()
 
   watch(
     (): number => month.value,
@@ -30,12 +34,7 @@ export const diffDay: diffDayInterface = (year: Ref<number>, month: Ref<number>)
     const showLastListResult: a[] = []
 
     for (let i = 0; i < firstDayWeek.value; i++) {
-      const dayList: a = lunarCalendar.solar2lunar(
-        year.value,
-        month.value,
-        lastDays
-      ) as a
-
+      const dayList: a = lunar.getLunarDetail(year.value, month.value, lastDays) as a
       showLastListResult.push(dayList)
       lastDays--
     }
@@ -47,8 +46,7 @@ export const diffDay: diffDayInterface = (year: Ref<number>, month: Ref<number>)
   // 下个月需要展示的天数
   const nextMonthDay: ComputedRef<a[]> = computed((): a[] => {
     // 获取当前月份的时间
-    const thisMonthDay: number =
-      dayMonth(year.value, month.value) + firstDayWeek.value
+    const thisMonthDay: number = dayMonth(year.value, month.value) + firstDayWeek.value
     // 下个月需要展示的天数
     const nextShowDay: number = 7 - (thisMonthDay % 7)
 
@@ -59,12 +57,7 @@ export const diffDay: diffDayInterface = (year: Ref<number>, month: Ref<number>)
     const showNextListResult: a[] = []
 
     for (let i = 0; i < nextShowDay; i++) {
-      const dayList: a = lunarCalendar.solar2lunar(
-        year.value,
-        month.value + 2,
-        i + 1
-      ) as a
-
+      const dayList: a = lunar.getLunarDetail(year.value, month.value + 2, i + 1) as a
       showNextListResult.push(dayList)
     }
 

@@ -1,8 +1,8 @@
 <script lang="ts" setup name="FCalendar">
   import { Props } from './calendar'
-  import { ref, computed, watchEffect } from 'vue'
+  import { ref, computed } from 'vue'
   import { FIcon } from '../../index'
-  import { lunarCalendar, addZero } from '../../_utils'
+  import { addZero } from '../../_utils'
   import type { Ref, ComputedRef } from 'vue'
   import type {
     mowDataClassListInterface as c,
@@ -10,10 +10,11 @@
     getLunarInterface as f,
     handleClickInterface as g
   } from './interface'
-  import type { solar2lunarReturnInterface as h } from '../../_interface'
+  import type { getLunarDetailReturnInterface as h } from '../../_interface'
   import { WEEK_DATA } from '../../_model/calendar/data'
   import { dayMonth } from '../../_model/calendar/utils'
   import { diffDay } from '../../_model/calendar/diff-day'
+  import { Lunar } from '../../_model/calendar/lunar'
 
   const prop = defineProps(Props)
 
@@ -21,6 +22,7 @@
   const month: Ref<number> = ref<number>(prop.date.getMonth())
   const date: Ref<number> = ref<number>(prop.date.getDate())
   const detailDay: Ref<h> = ref<h>(null as unknown as h)
+  const lunar: Lunar = new Lunar()
 
   // 获取当前月份多少天
   const currentMonthDay = computed(() => {
@@ -63,24 +65,21 @@
   })
 
   // 农历
+
   const getLunar: f = (day: number): h => {
-    const lunarDate = lunarCalendar.solar2lunar(
-      year.value,
-      month.value + 1,
-      day
-    )
+    const lunarDate = lunar.getLunarDetail(year.value, month.value + 1, day)
     return lunarDate as h
   }
 
   // 修改下面页脚内容
-  watchEffect((): void => {
-    const lunarDate = lunarCalendar.solar2lunar(
-      year.value,
-      month.value + 1,
-      date.value
-    )
-    detailDay.value = lunarDate as h
-  })
+  // watchEffect((): void => {
+  //   const lunarDate = lunarCalendar.solar2lunar(
+  //     year.value,
+  //     month.value + 1,
+  //     date.value
+  //   )
+  //   detailDay.value = lunarDate as h
+  // })
 
   // 点击对每一天
   const handleClick: g = (day: number): void => {
