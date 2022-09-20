@@ -15,7 +15,7 @@ export interface getLunarInterface {
 }
 
 export interface handleClickInterface {
-  (day: number): void
+  (day: number, moth?: number): void
 }
 
 export interface EmitChangeDateInterface {

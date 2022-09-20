@@ -32,8 +32,11 @@
     currentMonthDay
   } = diffDay(year, month)
 
+  console.log(new Date().getMonth() + 1)
+
   // 当前日期高亮显示
   const mowDataClassList: c = (data: number): string => {
+    console.log(month.value)
     return data === date.value ? 'f-calendar-day-today' : ''
   }
 
@@ -83,14 +86,18 @@
   })
 
   // 点击对每一天
-  const handleClick: g = (day: number): void => {
+  const handleClick: g = (day: number, moth?: number): void => {
     date.value = day
+
+    // if (moth) {
+    //   date.value = moth
+    // }
 
     emit('change-date', {
       year: year.value,
-      month: month.value,
+      month: moth || month.value,
       day
-    })
+    } as const)
   }
 
   const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
@@ -145,7 +152,7 @@
         v-for="(day, index) in lastMonthDay"
         :key="index"
         :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
-        @click="handleClick(day.cDay)"
+        @click="handleClick(day.cDay, day.cMonth)"
       >
         <span class="f-calendar-solar">{{ day.cDay }}</span>
         <span v-if="lunar" class="f-calendar-lunar">
@@ -169,7 +176,7 @@
         v-for="(day, index) in nextMonthDay"
         :key="index"
         :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
-        @click="handleClick(day.cDay)"
+        @click="handleClick(day.cDay, day.cMonth)"
       >
         <span class="f-calendar-solar">{{ day.cDay }}</span>
         <span v-if="lunar" class="f-calendar-lunar">

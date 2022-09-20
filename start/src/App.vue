@@ -21,6 +21,10 @@
   const date = new Date()
   const visible = ref(false)
   const visible2 = ref(false)
+
+  const change = (date) => {
+    console.log(date)
+  }
 </script>
 
 <template>
@@ -28,11 +32,17 @@
     v-model:date="date"
     border
     border-color="skyblue"
+    @change-date="change"
   />
   <!-- <f-tree :data="data" /> -->
   <f-button @click="visible = true">show dialog</f-button>
-  <f-dialog title="this is title1" v-model:visible="visible" :modal-blur="true">
-    <f-dialog title="this is inner dialog title2" v-model:visible="visible2" width="400" append-to-body>
+  <f-dialog v-model:visible="visible" title="this is title1" modal-blur>
+    <f-dialog
+      v-model:visible="visible2"
+      title="this is inner dialog title2"
+      width="400"
+      append-to-body
+    >
       inner - dialog
     </f-dialog>
     <f-button @click="visible2 = true">show inner dialog</f-button>
