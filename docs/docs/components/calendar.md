@@ -25,6 +25,46 @@
 
 :::
 
+## 显示农历
+
+`lunar` 可以配置显示农历的日历
+
+<f-calendar v-model:date="date" lunar/>
+
+::: details 显示代码
+
+```html
+<template>
+  <f-calendar v-model:date="date" lunar />
+</template>
+
+<script lang="ts" setup>
+  const date = new Date()
+</script>
+```
+
+:::
+
+## 带有边框
+
+`border` 可以配置带有边框的日历
+
+<f-calendar v-model:date="date" border/>
+
+::: details 显示代码
+
+```html
+<template>
+  <f-calendar v-model:date="date" border />
+</template>
+
+<script lang="ts" setup>
+  const date = new Date()
+</script>
+```
+
+:::
+
 ## 不显示页头
 
 `show-header` 可以控制是否显示头部操作栏

@@ -23,7 +23,6 @@
 <template>
   <f-calendar
     v-model:date="date"
-    lunar
     border
     border-color="skyblue"
     :day-cell-height="100"
