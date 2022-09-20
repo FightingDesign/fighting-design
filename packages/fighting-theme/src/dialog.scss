@@ -6,6 +6,9 @@
   bottom: 0;
   z-index: 1999;
   transition: 0.4s;
+  &.f-dialog-mask-blur {
+    backdrop-filter: blur(2px);
+  }
 
   // 遮罩层
   &.f-dialog-mask-modal {
@@ -25,14 +28,37 @@
     flex-flow: column nowrap;
     justify-content: space-between;
     margin: 13vh auto 0;
-
+    &.f-dialog-scale-in {
+      animation: scale-in-animation .12s ease-in both;
+    }
+    &.f-dialog-scale-out {
+      animation: scale-out-animation .12s ease-out both;
+    }
+    @keyframes scale-in-animation {
+      0% {
+        transform: scale(.6);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    @keyframes scale-out-animation {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(.4);
+        opacity: 0;
+      }
+    }
     // 阴影
     &.f-dialog-shadow {
       box-shadow: 1px 0px 10px 2px #ddd;
     }
 
     .f-dialog-header {
-      height: 30px;
+      height: 50px;
       border-bottom: 1px solid #eee;
       text-align: center;
       position: relative;
@@ -61,7 +87,7 @@
     }
 
     .f-dialog-footer {
-      height: 30px;
+      height: 50px;
       border-top: 1px solid #eee;
       display: flex;
       flex-flow: row nowrap;

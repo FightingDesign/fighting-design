@@ -42,7 +42,8 @@
         :class="[
           'f-dialog-mask',
           {
-            'f-dialog-mask-modal': modal
+            'f-dialog-mask-modal': modal,
+            'f-dialog-mask-blur': modalBlur
           }
         ]"
         :style="{ zIndex }"
@@ -51,6 +52,7 @@
         <div
           :class="[
             'f-dialog',
+            visible ? 'f-dialog-scale-in' : 'f-dialog-scale-out',
             {
               'f-dialog-shadow': !modal
             }

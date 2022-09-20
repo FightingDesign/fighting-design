@@ -37,12 +37,15 @@ fighting-design
 
 ## 多层嵌套
 
-如果需要在一个 `Dialog` 内部嵌套另一个 `Dialog`，可以直接写在默认插槽中。
+<!-- 如果需要在一个 `Dialog` 内部嵌套另一个 `Dialog`，可以直接写在默认插槽中。 -->
+如果需要在一个 Dialog 内部嵌套另一个 Dialog，需要使用 append-to-body 属性。
+
+通常不建议使用嵌套对话框。 如果你需要在页面上呈现多个对话框，你可以简单地打平它们，以便它们彼此之间是平级关系。 将内层 Dialog 的该属性设置为 true，它就会插入至 body 元素上，从而保证内外层 Dialog 和遮罩层级关系的正确。
 
 <f-button type="primary" @click="visible2 = true">show</f-button>
 <f-dialog width="500px" height="400px" title="Title" v-model:visible="visible2">
 <f-button @click="innerVisible = true">show inner</f-button>
-<f-dialog width="300px" title="Title" v-model:visible="innerVisible">
+<f-dialog width="300px" title="Title" v-model:visible="innerVisible" append-to-body>
 inner dialog
 </f-dialog>
 <template #title>
@@ -62,7 +65,7 @@ title slot
     v-model:visible="visible2"
   >
     <f-button @click="innerVisible = true">show inner</f-button>
-    <f-dialog width="300px" title="Title" v-model:visible="innerVisible">
+    <f-dialog width="300px" title="Title" v-model:visible="innerVisible" append-to-body>
       inner dialog
     </f-dialog>
     <template #title> title slot </template>
@@ -116,6 +119,35 @@ fighting-design
 
 :::
 
+
+## 高斯模糊遮罩层
+
+可以通过`modal-blur`属性设置是否高斯模糊遮罩层。
+
+<f-button type="primary" @click="visible4 = true">show</f-button>
+<f-dialog title="Title" v-model:visible="visible4" modal-blur>
+fighting-design
+</f-dialog>
+
+::: details 显示代码
+
+```html
+<template>
+  <f-button type="primary" @click="visible4 = true">show</f-button>
+  <f-dialog title="Title" v-model:visible="visible4" modal-blur>
+    fighting-design
+  </f-dialog>
+</template>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+  const visible4 = ref(false)
+</script>
+```
+
+:::
+
+
 ## Attributes
 
 | 参数              | 说明                  | 类型    | 可选值 | 默认值       |
@@ -158,11 +190,16 @@ fighting-design
   <f-avatar round src="https://avatars.githubusercontent.com/u/61968242?v=4" />
 </a>
 
+<a href="https://github.com/wmasfoe" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/40457081?v=4" />
+</a>
+
 <script setup>
   import { ref } from 'vue'
   const visible1 = ref(false)
   const visible2 = ref(false)
   const visible3 = ref(false)
+  const visible4 = ref(false)
   const innerVisible = ref(false)
   const close = () => {
     console.log('关闭之前');
