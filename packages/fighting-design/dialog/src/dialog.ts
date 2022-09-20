@@ -14,7 +14,7 @@ export const Props = {
   },
   width: {
     type: String,
-    default: (): string => '332px'
+    default: (): string => '521px'
   },
   height: {
     type: String,
@@ -52,6 +52,10 @@ export const Props = {
     type: Number,
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
+  },
+  modalBlur: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 

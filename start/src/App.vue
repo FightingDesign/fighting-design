@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { ref } from 'vue'
   // const data = [
   //   {
   //     label: 'Node 1',
@@ -18,6 +19,8 @@
   //   { label: 'Node 2' }
   // ]
   const date = new Date()
+  const visible = ref(false)
+  const visible2 = ref(false)
 </script>
 
 <template>
@@ -27,6 +30,17 @@
     border-color="skyblue"
   />
   <!-- <f-tree :data="data" /> -->
+  <f-button @click="visible = true">show dialog</f-button>
+  <f-dialog title="this is title1" v-model:visible="visible" :modal-blur="true">
+    <f-dialog title="this is inner dialog title2" v-model:visible="visible2" width="400" append-to-body>
+      inner - dialog
+    </f-dialog>
+    <f-button @click="visible2 = true">show inner dialog</f-button>
+    <template #footer>
+      <f-button @click="visible = false">取消</f-button>
+      <f-button type="primary">确定</f-button>
+    </template>
+  </f-dialog>
 </template>
 
 <style lang="scss">
