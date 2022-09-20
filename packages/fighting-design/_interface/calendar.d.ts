@@ -38,11 +38,7 @@ export interface diffDayReturnInterface {
   currentMonthDay: ComputedRef<number>
 }
 
-export interface holidayListItemInterface {
-  title: string
-}
-
-export type holidayListType = Record<string, holidayListItemInterface>
+export type holidayListType = Record<string, { title: string }>
 
 export interface LunarInterface {
   private static getLunarYearDays(year: number): number
