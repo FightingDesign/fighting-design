@@ -141,13 +141,14 @@
 
   // dayMonth(getMonth.value, getYear.value)
 
+  // 获取了上个月剩余的天数
   const remainDayLastMonth = computed(() => {
     // 上个月的天数
     let dayNum: number = dayMonth(getMonth.value - 1, getYear.value)
     const remainDayList = []
 
     for (let i = 0; i < dayWeek.value; i++) {
-      console.log(getYear.value, getMonth.value - 1, dayNum)
+      // console.log(getYear.value, getMonth.value - 1, dayNum)
 
       // console.log(dayNum--)
       dayNum--
@@ -163,7 +164,28 @@
     return remainDayList.reverse()
   })
 
-  console.log(remainDayLastMonth.value)
+  // 获取下个月需要多展示的天数
+  // 当月的天数 + 上个月展示的天数 = 之前展示的天数
+
+  // 计算出下一个月需要提前展示多少天
+  const lastMonthShowDay = computed(() => {
+    // 当前月份的时间
+    const thisMonthNum: number =
+      dayMonth(getMonth.value, getYear.value) + dayWeek.value
+
+    const weekList: number[] = []
+
+    // 日历展示的，每个月最多 42 天
+    for (let i = 1; i < 7; i++) {
+      weekList.push(i * 7)
+    }
+
+    console.log(weekList, thisMonthNum)
+
+    return ''
+  })
+
+  console.log(lastMonthShowDay.value)
 </script>
 
 <template>
