@@ -25,7 +25,6 @@
     v-model:date="date"
     border
     border-color="skyblue"
-    :day-cell-height="100"
   />
   <!-- <f-tree :data="data" /> -->
 </template>

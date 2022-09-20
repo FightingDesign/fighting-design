@@ -21,7 +21,7 @@
   const month: Ref<number> = ref<number>(prop.date.getMonth())
   const date: Ref<number> = ref<number>(prop.date.getDate())
   const detailDay: Ref<h> = ref<h>(null as unknown as h)
-  const lunar: Lunar = new Lunar()
+  const lunarClass: Lunar = new Lunar()
 
   const {
     lastMonthDay,
@@ -63,13 +63,17 @@
 
   // 农历
   const getLunar: f = (day: number): h => {
-    const lunarDate = lunar.getLunarDetail(year.value, month.value + 1, day)
+    const lunarDate = lunarClass.getLunarDetail(
+      year.value,
+      month.value + 1,
+      day
+    )
     return lunarDate as h
   }
 
   // 修改下面页脚内容
   watchEffect((): void => {
-    const lunarDate = lunar.getLunarDetail(
+    const lunarDate = lunarClass.getLunarDetail(
       year.value,
       month.value + 1,
       date.value
