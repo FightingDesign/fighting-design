@@ -30,28 +30,12 @@
 
   const loadDiffDay = diffDay(getYear.value, getMonth.value)
 
-  const { lastMonthDay } = loadDiffDay
-
-  console.log(lastMonthDay.value)
-
-  // 获取每个月多少天
-  // const dayMonth: a = (month: number, year: number): number => {
-  //   if (month !== 1) {
-  //     const months = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] as const
-  //     return months[month]
-  //   }
-  //   return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 ? 29 : 28
-  // }
+  const { lastMonthDay, nestMonthDay } = loadDiffDay
 
   // 获取当前月份多少天
   const getDayMonth: ComputedRef<number> = computed((): number => {
     return dayMonth(getYear.value, getMonth.value)
   })
-
-  // 将小写转换为大写
-  // const convertUppercase: b = (week: number): string => {
-  //   return ['日', '一', '二', '三', '四', '五', '六'][week - 1]
-  // }
 
   // 当前日期高亮显示
   const mowDataClassList: c = (data: number): i => {
@@ -61,14 +45,6 @@
       }
     ]
   }
-
-  // 计算当月的第一天是周几，返回需要该空出的格数
-  const dayWeek: ComputedRef<number> = computed((): number => {
-    const firstDayWeek: number = new Date(
-      `${getYear.value}/${getMonth.value + 1}/1`
-    ).getDay()
-    return firstDayWeek === 0 ? 0 : firstDayWeek
-  })
 
   // 点击操作栏
   const optionClick: d = (evt: MouseEvent): void => {
@@ -138,71 +114,6 @@
   const handleClick: g = (day: number): void => {
     getDate.value = day
   }
-
-  // 获取了上个月剩余的天数
-  // const remainDayLastMonth = computed(() => {
-  //   // 上个月的天数
-  //   let dayNum: number = dayMonth(getMonth.value - 1, getYear.value)
-  //   const remainDayList = []
-
-  //   const firstDayWeek: number = new Date(
-  //     `${getYear.value}/${getMonth.value + 1}/1`
-  //   ).getDay()
-  //   // return firstDayWeek === 0 ? 0 : firstDayWeek
-
-  //   console.log(firstDayWeek)
-
-  //   for (let i = 0; i < dayWeek.value; i++) {
-  //     dayNum--
-  //     // const lunarDate = lunarCalendar.solar2lunar(
-  //     //   getYear.value,
-  //     //   getMonth.value - 1,
-  //     //   dayNum
-  //     // )
-
-  //     // remainDayList.push(lunarDate)
-  //   }
-
-  //   // return remainDayList.reverse()
-  //   return []
-  // })
-
-  // console.log(remainDayLastMonth.value)
-
-  // 获取下个月需要多展示的天数
-  // 当月的天数 + 上个月展示的天数 = 之前展示的天数
-
-  // 计算出下一个月需要提前展示多少天
-  const lastMonthShowDay = computed((): number => {
-    // 当前月份的时间
-    const thisMonthNum: number =
-      dayMonth(getMonth.value, getYear.value) + dayWeek.value
-
-    const lastNum: number = thisMonthNum % 7
-
-    return !lastNum ? 0 : 7 - lastNum
-  })
-
-  const numberDayDisplayNextMonth = computed(() => {
-    if (!lastMonthShowDay.value) {
-      return []
-    }
-
-    const remainDayList = []
-
-    for (let i = 0; i < lastMonthShowDay.value; i++) {
-      const lunarDate = lunarCalendar.solar2lunar(
-        getYear.value,
-        getMonth.value + 2,
-        i + 1
-      )
-      remainDayList.push(lunarDate)
-    }
-
-    return remainDayList
-  })
-
-  console.log(numberDayDisplayNextMonth.value)
 </script>
 
 <template>
@@ -259,7 +170,7 @@
       </li>
 
       <li
-        v-for="day in numberDayDisplayNextMonth"
+        v-for="day in nestMonthDay"
         :key="day"
         :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
       >
