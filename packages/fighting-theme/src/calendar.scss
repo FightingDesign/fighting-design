@@ -84,6 +84,11 @@ $borderColor: red;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      transition: background 0.3s;
+
+      &:hover {
+        background: rgb(244, 244, 244);
+      }
 
       &.f-calendar-day-li-last {
         color: rgb(198, 198, 198);

@@ -17,3 +17,9 @@ export interface getLunarInterface {
 export interface handleClickInterface {
   (day: number): void
 }
+
+export interface EmitChangeDateInterface {
+  year: number
+  month: number
+  day: number
+}

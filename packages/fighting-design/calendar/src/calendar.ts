@@ -1,4 +1,5 @@
 import type { PropType } from 'vue'
+import type { EmitChangeDateInterface } from './interface'
 
 export const Props = {
   date: {
@@ -34,4 +35,8 @@ export const Props = {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   }
+} as const
+
+export const Emits = {
+  'change-date': (date: EmitChangeDateInterface): EmitChangeDateInterface => date
 } as const

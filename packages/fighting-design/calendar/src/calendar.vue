@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FCalendar">
-  import { Props } from './calendar'
+  import { Props, Emits } from './calendar'
   import { ref, computed, watchEffect } from 'vue'
   import { FIcon } from '../../index'
   import { addZero, isString } from '../../_utils'
@@ -16,6 +16,7 @@
   import { Lunar } from '../../_model/calendar/lunar'
 
   const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
 
   const year: Ref<number> = ref<number>(prop.date.getFullYear())
   const month: Ref<number> = ref<number>(prop.date.getMonth())
@@ -84,6 +85,12 @@
   // 点击对每一天
   const handleClick: g = (day: number): void => {
     date.value = day
+
+    emit('change-date', {
+      year: year.value,
+      month: month.value,
+      day
+    })
   }
 
   const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
@@ -138,6 +145,7 @@
         v-for="(day, index) in lastMonthDay"
         :key="index"
         :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
+        @click="handleClick(day.cDay)"
       >
         <span class="f-calendar-solar">{{ day.cDay }}</span>
         <span v-if="lunar" class="f-calendar-lunar">
@@ -161,6 +169,7 @@
         v-for="(day, index) in nextMonthDay"
         :key="index"
         :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
+        @click="handleClick(day.cDay)"
       >
         <span class="f-calendar-solar">{{ day.cDay }}</span>
         <span v-if="lunar" class="f-calendar-lunar">

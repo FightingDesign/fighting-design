@@ -28,4 +28,5 @@ export const contributors = [
   { avatar: 'https://avatars.githubusercontent.com/u/98402209?v=4', homePage: 'https://github.com/onechuan' },
   { avatar: 'https://avatars.githubusercontent.com/u/66806955?v=4', homePage: 'https://github.com/z-juln' },
   { avatar: 'https://avatars.githubusercontent.com/u/14799063?v=4', homePage: 'https://github.com/876843240' },
+  { avatar: 'https://avatars.githubusercontent.com/u/40457081?v=4', homePage: 'https://github.com/LAINE001' },
 ]

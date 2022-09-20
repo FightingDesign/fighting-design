@@ -38,6 +38,7 @@ fighting-design
 ## 多层嵌套
 
 <!-- 如果需要在一个 `Dialog` 内部嵌套另一个 `Dialog`，可以直接写在默认插槽中。 -->
+
 如果需要在一个 Dialog 内部嵌套另一个 Dialog，需要使用 append-to-body 属性。
 
 通常不建议使用嵌套对话框。 如果你需要在页面上呈现多个对话框，你可以简单地打平它们，以便它们彼此之间是平级关系。 将内层 Dialog 的该属性设置为 true，它就会插入至 body 元素上，从而保证内外层 Dialog 和遮罩层级关系的正确。
@@ -65,7 +66,12 @@ title slot
     v-model:visible="visible2"
   >
     <f-button @click="innerVisible = true">show inner</f-button>
-    <f-dialog width="300px" title="Title" v-model:visible="innerVisible" append-to-body>
+    <f-dialog
+      width="300px"
+      title="Title"
+      v-model:visible="innerVisible"
+      append-to-body
+    >
       inner dialog
     </f-dialog>
     <template #title> title slot </template>
@@ -119,7 +125,6 @@ fighting-design
 
 :::
 
-
 ## 高斯模糊遮罩层
 
 可以通过`modal-blur`属性设置是否高斯模糊遮罩层。
@@ -146,7 +151,6 @@ fighting-design
 ```
 
 :::
-
 
 ## Attributes
 
