@@ -55,21 +55,15 @@
   })
 
   // 点击对每一天
-  const handleClick: g = (day: number, moth: number): void => {
-    date.value = day
+  const handleClick: g = (_month: number, _date: number): void => {
+    date.value = _date
 
-    // if (moth) {
-    //   if (moth > month.value + 1) {
-    //     changeNextMonth()
-    //   } else {
-    //     changeLastMonth()
-    //   }
-    // }
+    console.log(_date, _month)
 
     emit('change-date', {
       year: year.value,
-      month: moth || month.value,
-      day
+      month: _month || month.value,
+      date: _date
     } as const)
   }
 
@@ -144,7 +138,7 @@
         v-for="(days, index) in AllMonthDays"
         :key="index"
         :class="['f-calendar-day-li', mowDataClassList(days.cDay)]"
-        @click="handleClick(days.cDay, days.cMonth)"
+        @click="handleClick(days.cMonth, days.cDay)"
       >
         <span class="f-calendar-solar">{{ days.cDay }}</span>
         <span v-if="lunar" class="f-calendar-lunar">

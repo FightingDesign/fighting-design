@@ -25,15 +25,15 @@ export const Props = {
   },
   borderColor: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#eee'
   },
   dayCellHeight: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): string => '85px'
   },
   weekCellHeight: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): string => '50px'
   },
   memorandum: {
     type: Object as PropType<memorandumType>,

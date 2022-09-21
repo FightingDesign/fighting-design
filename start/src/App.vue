@@ -23,7 +23,7 @@
   const visible2 = ref(false)
 
   const change = (date) => {
-    console.log(date)
+    // console.log(date)
   }
 
   const memorandumList = {
@@ -45,6 +45,7 @@
   <f-calendar
     v-model:date="date"
     border
+    lunar
     position="top-left"
     :memorandum="memorandumList"
     @change-date="change"

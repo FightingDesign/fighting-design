@@ -15,7 +15,7 @@ export interface handleClickInterface {
 export interface EmitChangeDateInterface {
   year: number
   month: number
-  day: number
+  date: number
 }
 
 export type targetType = 'last' | 'now' | 'next'
