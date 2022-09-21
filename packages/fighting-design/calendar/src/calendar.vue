@@ -27,9 +27,13 @@
 
   // 当前日期高亮显示
   const mowDataClassList: c = (_month: number, _date: number): string => {
-    return _date === date.value && _month === month.value + 1
-      ? 'f-calendar-day-today'
-      : ''
+    if (_date === date.value && _month === month.value + 1) {
+      return 'f-calendar-day-today'
+    }
+    if (_month !== month.value + 1) {
+      return 'f-calendar-not-month'
+    }
+    return ''
   }
 
   // 点击操作栏
@@ -58,6 +62,7 @@
   const handleClick: g = (_month: number, _date: number): void => {
     date.value = _date
 
+    // 如果点击上个月的选项，则调整上个月
     if (_month < month.value + 1) {
       changeLastMonth()
     } else if (_month > month.value + 1) {

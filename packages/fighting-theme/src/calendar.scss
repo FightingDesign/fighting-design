@@ -111,6 +111,11 @@
         transition: 0.3s;
       }
 
+      // 不是当月的时间
+      &.f-calendar-not-month {
+        color: rgb(206, 206, 206);
+      }
+
       // 备忘录
       .f-calendar-memorandum {
         position: absolute;
