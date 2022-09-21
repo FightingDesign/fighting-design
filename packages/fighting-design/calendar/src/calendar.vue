@@ -87,9 +87,13 @@
   const handleClick: g = (day: number, moth?: number): void => {
     date.value = day
 
-    // if (moth) {
-    //   date.value = moth
-    // }
+    if (moth) {
+      if (moth > month.value + 1) {
+        changeNextMonth()
+      } else {
+        changeLastMonth()
+      }
+    }
 
     emit('change-date', {
       year: year.value,
@@ -158,6 +162,7 @@
 
     <!-- 每一天 -->
     <ul class="f-calendar-day">
+      <!-- 上个月剩余天数 -->
       <li
         v-for="(day, index) in lastMonthDay"
         :key="index"
@@ -170,6 +175,7 @@
         </span>
       </li>
 
+      <!-- 实际本月天数 -->
       <li
         v-for="day in currentMonthDay"
         :key="day"
@@ -182,6 +188,7 @@
         </span>
       </li>
 
+      <!-- 下个月天数 -->
       <li
         v-for="(day, index) in nextMonthDay"
         :key="index"
