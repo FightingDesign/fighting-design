@@ -88,6 +88,9 @@
   })
 
   const isMemorandum = (date): boolean => {
+    if (!prop.memorandum) {
+      return false
+    }
     return Object.keys(prop.memorandum).includes(date)
   }
 </script>
