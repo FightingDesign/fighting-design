@@ -11,3 +11,5 @@ declare module 'vue' {
     FSkeleton: typeof FSkeleton
   }
 }
+
+export type { skeletonSizeType } from './src/interface'

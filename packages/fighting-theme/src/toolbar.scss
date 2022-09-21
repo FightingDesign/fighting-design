@@ -31,9 +31,4 @@
     position: fixed;
     z-index: 999;
   }
-
-  // 毛玻璃
-  &.f-toolbar-vague {
-    backdrop-filter: blur(10px);
-  }
 }

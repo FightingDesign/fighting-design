@@ -213,6 +213,14 @@
 | -------- | ------------------ |
 | `error`  | 自定义加载失败提示 |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { FImageInstance, imageFit } from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

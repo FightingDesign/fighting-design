@@ -11,3 +11,5 @@ declare module 'vue' {
     FLink: typeof FLink
   }
 }
+
+export type { linkType, linkTarget, linkHover } from './src/interface'

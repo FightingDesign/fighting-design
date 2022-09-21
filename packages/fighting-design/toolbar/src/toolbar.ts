@@ -1,6 +1,5 @@
 import type { PropType, CSSProperties } from 'vue'
-import type { toolbarType, clickEmitInterface } from './interface'
-import type { fixedStyleInterface } from '../../alert/src/interface'
+import type { toolbarTypeType, clickEmitInterface, toolbarFixedStyleInterface } from './interface'
 
 export const Props = {
   round: {
@@ -8,9 +7,9 @@ export const Props = {
     default: (): boolean => false
   },
   size: {
-    type: String as PropType<toolbarType>,
-    default: (): toolbarType => 'large',
-    validator: (val: toolbarType): boolean => {
+    type: String as PropType<toolbarTypeType>,
+    default: (): toolbarTypeType => 'large',
+    validator: (val: toolbarTypeType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -31,8 +30,8 @@ export const Props = {
     default: (): boolean => false
   },
   fixedStyle: {
-    type: Object as PropType<fixedStyleInterface> as PropType<unknown> as PropType<CSSProperties>,
-    default: (): null | object | fixedStyleInterface => null,
+    type: Object as PropType<toolbarFixedStyleInterface> as PropType<unknown> as PropType<CSSProperties>,
+    default: (): null | object | toolbarFixedStyleInterface => null,
     validator: (val: CSSProperties): boolean => {
       if (val.bottom || val.left || val.right || val.top) {
         return true

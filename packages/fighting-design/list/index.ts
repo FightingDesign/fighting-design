@@ -2,7 +2,7 @@ import List from './src/list.vue'
 
 import { install } from '../_utils'
 
-export const FList =  install(List)
+export const FList = install(List)
 
 export type FListInstance = InstanceType<typeof List>
 
@@ -11,3 +11,5 @@ declare module 'vue' {
     FList: typeof FList
   }
 }
+
+export type { listSizeType } from './src/interface'

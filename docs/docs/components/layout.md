@@ -233,6 +233,14 @@
 | -------- | ---- | ------ | ------ | ------ |
 | `height` | 高度 | string | ——     | 60px   |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { FLayoutInstance, layoutDirectionType } from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

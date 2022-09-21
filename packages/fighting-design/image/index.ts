@@ -11,3 +11,5 @@ declare module 'vue' {
     FImage: typeof FImage
   }
 }
+
+export type { imageFit } from './src/interface'

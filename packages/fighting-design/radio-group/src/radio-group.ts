@@ -1,6 +1,6 @@
 import { isNumber, isString, isBoolean } from '../../_utils'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type { labelType, radioGroupSize } from './interface'
+import type { labelType, radioGroupSizeType } from './interface'
 
 export const Props = {
   disabled: {
@@ -28,9 +28,9 @@ export const Props = {
     default: (): boolean => false
   },
   size: {
-    type: String as PropType<radioGroupSize>,
-    default: (): radioGroupSize => 'middle',
-    validator: (val: radioGroupSize): boolean => {
+    type: String as PropType<radioGroupSizeType>,
+    default: (): radioGroupSizeType => 'middle',
+    validator: (val: radioGroupSizeType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },

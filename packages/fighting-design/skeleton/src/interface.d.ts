@@ -1,1 +1,1 @@
-export type skeletonSize = 'default' | 'small' | 'large'
+export type skeletonSizeType = 'default' | 'small' | 'large'

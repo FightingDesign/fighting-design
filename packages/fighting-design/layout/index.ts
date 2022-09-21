@@ -11,3 +11,5 @@ declare module 'vue' {
     FLayout: typeof FLayout
   }
 }
+
+export type { layoutDirectionType } from './src/interface'

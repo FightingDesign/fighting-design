@@ -11,3 +11,5 @@ declare module 'vue' {
     FBackTop: typeof FBackTop
   }
 }
+
+export type { behaviorType } from './src/interface'

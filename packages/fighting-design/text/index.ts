@@ -11,3 +11,5 @@ declare module 'vue' {
     FText: typeof FText
   }
 }
+
+export type { textTypeType } from './src/interface'

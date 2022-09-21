@@ -11,3 +11,5 @@ declare module 'vue' {
     FTag: typeof FTag
   }
 }
+
+export type { tagSizeType, tagTypeType } from './src/interface'

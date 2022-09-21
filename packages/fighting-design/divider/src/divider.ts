@@ -1,11 +1,11 @@
-import type { dividerPosition, dividerType } from './interface'
+import type { positionType, dividerType } from './interface'
 import type { PropType } from 'vue'
 
 export const Props = {
   position: {
-    type: String as PropType<dividerPosition>,
-    default: (): dividerPosition => 'center',
-    validator: (value: dividerPosition): boolean => {
+    type: String as PropType<positionType>,
+    default: (): positionType => 'center',
+    validator: (value: positionType): boolean => {
       return (['left', 'center', 'right'] as const).includes(value)
     }
   },

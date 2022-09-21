@@ -129,6 +129,18 @@
 | `margin`     | 上下边距     | string  | ——                                 | ——     |
 | `type`       | 分隔符样式   | string  | `dashed` `dotted` `double` `solid` | solid  |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  FDividerInstance,
+  positionType,
+  dividerType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

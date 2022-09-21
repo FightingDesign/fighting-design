@@ -11,3 +11,5 @@ declare module 'vue' {
     FCard: typeof FCard
   }
 }
+
+export type { cardShadow } from './src/interface'

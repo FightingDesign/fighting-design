@@ -1,1 +1,1 @@
-export type textType = 'default' | 'primary' | 'success' | 'danger' | 'warning'
+export type textTypeType = 'default' | 'primary' | 'success' | 'danger' | 'warning'

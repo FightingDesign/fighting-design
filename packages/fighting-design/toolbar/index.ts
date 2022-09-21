@@ -11,3 +11,5 @@ declare module 'vue' {
     FToolbar: typeof FToolbar
   }
 }
+
+export type { toolbarTypeType, toolbarFixedStyleInterface } from './src/interface'

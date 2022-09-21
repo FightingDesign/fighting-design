@@ -11,3 +11,5 @@ declare module 'vue' {
     FTooltip: typeof FTooltip
   }
 }
+
+export type { tooltipPositionType, tooltipStateType } from './src/interface'

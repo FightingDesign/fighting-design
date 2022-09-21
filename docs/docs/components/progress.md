@@ -217,14 +217,24 @@
 | `background`  | 进度条背景色                 | string  | ——                                     | ——      |
 | `stripe`      | 是否开启条纹效果             | boolean | ——                                     | false   |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { FProgressInstance, progressType } from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
 <a href="https://github.com/ding139725" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/48934746?v=4" />
 </a>
+
 <a href="https://github.com/lzyaom" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/26430638?v=4" />
 </a>

@@ -185,6 +185,18 @@
 | -------- | ------------------ |
 | `click`  | 点击之后触发的回调 |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  FToolbarInstance,
+  toolbarTypeType,
+  toolbarFixedStyleInterface
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

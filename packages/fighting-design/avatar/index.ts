@@ -11,3 +11,5 @@ declare module 'vue' {
     FAvatar: typeof FAvatar
   }
 }
+
+export type { avatarFit, avatarSize } from './src/interface'

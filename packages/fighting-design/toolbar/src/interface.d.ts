@@ -1,6 +1,4 @@
-export type toolbarPositionType = 'top' | 'bottom' | 'right' | 'left'
-
-export type toolbarType = 'large' | 'middle' | 'small' | 'mini'
+export type toolbarTypeType = 'large' | 'middle' | 'small' | 'mini'
 
 export interface handleClickInterface {
   (event: MouseEvent): void
@@ -9,4 +7,11 @@ export interface handleClickInterface {
 export interface clickEmitInterface {
   evt: MouseEvent
   key: string | undefined
+}
+
+export interface toolbarFixedStyleInterface {
+  top?: string
+  button?: string
+  right?: string
+  left?: string
 }

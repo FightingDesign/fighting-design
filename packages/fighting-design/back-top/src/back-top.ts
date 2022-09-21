@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import type { backTopBehavior } from './interface'
+import type { behaviorType } from './interface'
 
 export const Props = {
   round: {
@@ -7,9 +7,9 @@ export const Props = {
     default: (): boolean => false
   },
   behavior: {
-    type: String as PropType<backTopBehavior>,
-    default: (): backTopBehavior => 'smooth',
-    validator: (val: backTopBehavior): boolean => {
+    type: String as PropType<behaviorType>,
+    default: (): behaviorType => 'smooth',
+    validator: (val: behaviorType): boolean => {
       return (['smooth', 'auto'] as const).includes(val)
     }
   },

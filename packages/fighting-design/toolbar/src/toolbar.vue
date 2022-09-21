@@ -9,15 +9,14 @@
   const emit = defineEmits(Emits)
 
   const classList: ComputedRef<a> = computed((): a => {
-    const { size, round, fixed, vague } = prop
+    const { size, round, fixed } = prop
 
     return [
       'f-toolbar',
       `f-toolbar-${size}`,
       {
         'f-toolbar-round': round,
-        'f-toolbar-fixed': fixed,
-        'f-toolbar-vague': vague
+        'f-toolbar-fixed': fixed
       }
     ] as const
   })

@@ -344,6 +344,20 @@
 | --------- | ------------ |
 | `default` | 按钮组的内容 |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  FButtonInstance,
+  buttonSize,
+  buttonTarget,
+  buttonType,
+  buttonNativeType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

@@ -11,3 +11,5 @@ declare module 'vue' {
     FAlert: typeof FAlert
   }
 }
+
+export type { alertType, fixedStyleInterface, overflowType } from './src/interface'

@@ -11,3 +11,5 @@ declare module 'vue' {
     FSpace: typeof FSpace
   }
 }
+
+export type { spaceSizeType } from './src/interface'

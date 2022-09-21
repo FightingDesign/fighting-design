@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import type { positionType, stateType } from './interface'
+import type { tooltipPositionType, tooltipStateType } from './interface'
 
 export const Props = {
   content: {
@@ -7,9 +7,9 @@ export const Props = {
     default: (): string => ''
   },
   position: {
-    type: String as PropType<positionType>,
-    default: (): positionType => 'bottom',
-    validator: (val: positionType): boolean => {
+    type: String as PropType<tooltipPositionType>,
+    default: (): tooltipPositionType => 'bottom',
+    validator: (val: tooltipPositionType): boolean => {
       return (['top', 'bottom', 'right', 'left'] as const).includes(val)
     }
   },
@@ -19,8 +19,8 @@ export const Props = {
   },
   state: {
     type: String,
-    default: (): stateType => 'hover',
-    validator: (val: stateType): boolean => {
+    default: (): tooltipStateType => 'hover',
+    validator: (val: tooltipStateType): boolean => {
       return (['hover', 'active', 'always'] as const).includes(val)
     }
   },

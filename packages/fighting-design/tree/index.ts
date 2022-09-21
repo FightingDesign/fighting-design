@@ -11,3 +11,5 @@ declare module 'vue' {
     FTree: typeof FTree
   }
 }
+
+export type { treeDataInterface } from './src/interface'

@@ -159,13 +159,13 @@ fighting-design
 | `v-model:visible` | 绑定值                | boolean | ——     | false        |
 | `title`           | header 文案           | string  | ——     | ——           |
 | `append-to-body`  | 是否追加到 `body`     | boolean | ——     | false        |
-| `width`           | `Dialog` 宽度         | string  | ——     | 332px        |
-| `height`          | `Dialog` 高度         | string  | ——     | 188px        |
-| `top`             | `Dialog` 距离顶部高度 | string  | ——     | 13vh         |
+| `width`           | `dialog` 宽度         | string  | ——     | 332px        |
+| `height`          | `dialog` 高度         | string  | ——     | 188px        |
+| `top`             | `dialog` 距离顶部高度 | string  | ——     | 13vh         |
 | `modal`           | 是否展示蒙层          | boolean | ——     | true         |
 | `modal-close`     | 点击蒙层是否关闭      | boolean | ——     | true         |
 | `close-icon`      | 关闭图标              | string  | ——     | f-icon-close |
-| `z-index`         | `Dialog` 层级         | boolean | ——     | 1999         |
+| `z-index`         | `dialog` 层级         | boolean | ——     | 1999         |
 
 ## Slots
 

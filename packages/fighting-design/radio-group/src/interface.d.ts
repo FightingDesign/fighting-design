@@ -4,7 +4,7 @@ export interface changeEventInterface {
   (value: labelType): void
 }
 
-export type radioGroupSize = 'large' | 'middle' | 'small' | 'mini'
+export type radioGroupSizeType = 'large' | 'middle' | 'small' | 'mini'
 
 export interface RadioGroundInterface {
   disabled: boolean

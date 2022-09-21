@@ -11,3 +11,5 @@ declare module 'vue' {
     FProgress: typeof FProgress
   }
 }
+
+export type { progressType } from './src/interface'

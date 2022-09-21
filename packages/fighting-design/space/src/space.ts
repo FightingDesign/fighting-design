@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import type { spaceSize } from './interface'
+import type { spaceSizeType } from './interface'
 
 export const Props = {
   vertical: {
@@ -11,9 +11,9 @@ export const Props = {
     default: (): boolean => true
   },
   spacing: {
-    type: String as PropType<spaceSize>,
-    default: (): spaceSize => 'middle',
-    validator: (val: spaceSize): boolean => {
+    type: String as PropType<spaceSizeType>,
+    default: (): spaceSizeType => 'middle',
+    validator: (val: spaceSizeType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },

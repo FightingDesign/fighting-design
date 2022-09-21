@@ -11,3 +11,5 @@ declare module 'vue' {
     FRipple: typeof FRipple
   }
 }
+
+export type { rippleType, rippleOpacityInterface } from './src/interface'

@@ -11,3 +11,5 @@ declare module 'vue' {
     FBadge: typeof FBadge
   }
 }
+
+export type { badgeType } from './src/interface'

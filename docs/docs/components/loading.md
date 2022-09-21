@@ -80,6 +80,14 @@
 | `background` | 遮罩层背景色     | string  | ——     | ——     |
 | `opacity`    | 遮罩层透明度     | number  | ——     | ——     |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { FLoadingInstance } from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

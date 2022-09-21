@@ -160,9 +160,22 @@
 
 ## Slots
 
-| 名称      | 说明        |
-| --------- | ----------- |
-| `default` | link 的内容 |
+| 名称      | 说明     |
+| --------- | -------- |
+| `default` | 默认内容 |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  FLinkInstance,
+  linkType,
+  linkTarget,
+  linkHover
+} from 'fighting-design'
+```
 
 ## Contributors
 

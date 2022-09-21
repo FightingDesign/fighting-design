@@ -11,3 +11,10 @@ declare module 'vue' {
     FButton: typeof FButton
   }
 }
+
+export type {
+  buttonSize,
+  buttonTarget,
+  buttonType,
+  buttonNativeType
+} from './src/interface'

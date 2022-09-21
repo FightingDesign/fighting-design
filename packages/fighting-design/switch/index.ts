@@ -11,3 +11,5 @@ declare module 'vue' {
     FSwitch: typeof FSwitch
   }
 }
+
+export type { switchSizeType } from './src/interface'

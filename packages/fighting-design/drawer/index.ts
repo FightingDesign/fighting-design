@@ -2,7 +2,7 @@ import Drawer from './src/drawer.vue'
 
 import { install } from '../_utils'
 
-export const FDrawer =  install(Drawer)
+export const FDrawer = install(Drawer)
 
 export type FDrawerInstance = InstanceType<typeof Drawer>
 
@@ -11,3 +11,5 @@ declare module 'vue' {
     FDrawer: typeof FDrawer
   }
 }
+
+export type { drawerDirectionType } from './src/interface'

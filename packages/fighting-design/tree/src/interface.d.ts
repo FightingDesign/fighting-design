@@ -1,6 +1,6 @@
-export interface dataInterface {
+export interface treeDataInterface {
   label: string
-  children?: dataInterface[]
+  children?: treeDataInterface[]
   level?: number
 }
 

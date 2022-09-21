@@ -1,11 +1,11 @@
-import type { tagSize, tagType } from './interface'
+import type { tagSizeType, tagTypeType } from './interface'
 import type { PropType } from 'vue'
 
 export const Props = {
   type: {
-    type: String as PropType<tagType>,
-    default: (): tagType => 'default',
-    validator: (val: tagType): boolean => {
+    type: String as PropType<tagTypeType>,
+    default: (): tagTypeType => 'default',
+    validator: (val: tagTypeType): boolean => {
       return (
         ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
@@ -36,9 +36,9 @@ export const Props = {
     default: (): string => ''
   },
   size: {
-    type: String as PropType<tagSize>,
-    default: (): tagSize => 'middle',
-    validator: (val: tagSize): boolean => {
+    type: String as PropType<tagSizeType>,
+    default: (): tagSizeType => 'middle',
+    validator: (val: tagSizeType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },

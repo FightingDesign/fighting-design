@@ -11,3 +11,5 @@ declare module 'vue' {
     FDivider: typeof FDivider
   }
 }
+
+export type { positionType, dividerType } from './src/interface'

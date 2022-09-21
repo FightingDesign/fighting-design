@@ -11,3 +11,5 @@ declare module 'vue' {
     FRadioGroup: typeof FRadioGroup
   }
 }
+
+export type { radioGroupSizeType } from './src/interface'

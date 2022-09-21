@@ -35,8 +35,6 @@
 
 <template>
   <ul :class="listClass" :style="listStyle">
-    <!-- <slot name="header" /> -->
     <slot />
-    <!-- <slot name="footer" /> -->
   </ul>
 </template>
