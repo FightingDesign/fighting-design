@@ -106,6 +106,7 @@
       // 今天
       &.f-calendar-day-today {
         color: $primary;
+        background: $simplePrimary;
         border-top: 3px solid $primary;
         transition: 0.3s;
       }
