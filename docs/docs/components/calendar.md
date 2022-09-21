@@ -89,6 +89,8 @@
 
 `memorandum` 将指定日期添加备忘事件项
 
+`border` 属性可以配置带有边框的日历
+
 <f-calendar v-model:date="date" border :memorandum="memorandumList" />
 
 ::: details 显示代码
@@ -126,7 +128,6 @@
 | `v-model:date`     | 绑定日期           | date            | ——     | new Date |
 | `lunar`            | 是否显示农历和节日 | boolean         | ——     | false    |
 | `show-header`      | 是否显示头部       | boolean         | ——     | true     |
-| `show-footer`      | 是否显示页脚       | boolean         | ——     | false    |
 | `border`           | 是否显示边框       | boolean         | ——     | false    |
 | `border-color`     | 自定义边框颜色     | string          | ——     | #eee     |
 | `day-cell-height`  | 日期单元格高度     | string / number | ——     | 85px     |
