@@ -89,13 +89,13 @@
 
 `memorandum` 将指定日期添加备忘事件项
 
-<f-calendar v-model:date="date" border :memorandum="memorandumList" />
+<f-calendar v-model:date="date" :memorandum="memorandumList" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-calendar v-model:date="date" border :memorandum="memorandumList" />
+  <f-calendar v-model:date="date" :memorandum="memorandumList" />
 </template>
 
 <script lang="ts" setup>
