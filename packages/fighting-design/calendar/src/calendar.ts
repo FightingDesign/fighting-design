@@ -39,13 +39,6 @@ export const Props = {
     type: Object as PropType<memorandumType>,
     default: (): null => null
   }
-  // position: {
-  //   type: String as PropType<positionType>,
-  //   default: (): positionType => 'center',
-  //   validator: (val: positionType): boolean => {
-  //     return (['center', 'top-center', 'bottom-center', 'top-right', 'bottom-right', 'top-left', 'bottom-left'] as const).includes(val)
-  //   }
-  // }
 } as const
 
 export const Emits = {

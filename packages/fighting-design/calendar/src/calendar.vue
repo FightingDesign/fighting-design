@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FCalendar">
   import { Props, Emits } from './calendar'
-  import { ref, computed } from 'vue'
+  import { ref, computed, watch } from 'vue'
   import { FButton, FText } from '../../index'
   import { addZero, isString } from '../../_utils'
   import { WEEK_DATA } from '../../_model/calendar/data'
@@ -96,6 +96,18 @@
     }
     return Object.keys(prop.memorandum).includes(date)
   }
+
+  // 当月份发生改变时候触发的回调
+  watch(
+    (): number => month.value,
+    (newValue: number): void => {
+      emit('change-switch', {
+        year: year.value,
+        month: newValue + 1,
+        date: date.value
+      } as const)
+    }
+  )
 </script>
 
 <template>
@@ -142,7 +154,7 @@
     </ul>
 
     <!-- 每一天 -->
-    <ul :class="['f-calendar-day']">
+    <ul class="f-calendar-day">
       <li
         v-for="(days, index) in AllMonthDays"
         :key="index"
