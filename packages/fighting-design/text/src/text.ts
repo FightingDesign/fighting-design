@@ -12,7 +12,7 @@ export const Props = {
     }
   },
   size: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   color: {

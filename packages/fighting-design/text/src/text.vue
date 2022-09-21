@@ -1,11 +1,11 @@
 <script lang="ts" setup name="FText">
   import { Props } from './text'
   import { computed } from 'vue'
+  import { isString } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { FPropsType } from './text'
   import type { classListInterface as a } from '../../_interface'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { type, block, bold, ellipsis, center } = prop
@@ -40,7 +40,7 @@
       textIndent,
       lineHeight,
       padding,
-      fontSize: size,
+      fontSize: isString(size) ? size : size + 'px',
       width,
       letterSpacing: spacing,
       textDecoration: decoration

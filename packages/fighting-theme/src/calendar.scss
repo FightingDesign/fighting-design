@@ -73,18 +73,20 @@
     grid-template-columns: repeat(7, minmax(0, 1fr));
 
     .f-calendar-day-li {
-      height: var(--f-calendar-day-height, 85px);
+      height: var(--f-calendar-day-height, 90px);
       box-sizing: border-box;
       padding: 10px;
       display: flex;
-      justify-content: center;
+      // justify-content: center;
       align-items: center;
       flex-direction: column;
-      transition: background 0.3s;
+      transition: 0.3s;
       overflow: auto;
+      position: relative;
+      border-top: 3px solid transparent;
 
       &:hover {
-        background: rgb(244, 244, 244);
+        background: rgb(247, 247, 247);
       }
 
       &.f-calendar-day-li-last {
@@ -103,9 +105,43 @@
 
       // 今天
       &.f-calendar-day-today {
-        color: #fff;
-        background: $primary;
-        transition: background 0.3s;
+        color: $primary;
+        border-top: 3px solid $primary;
+        transition: 0.3s;
+      }
+
+      // 备忘录
+      .f-calendar-memorandum {
+        position: absolute;
+        height: 26px;
+        bottom: 0px;
+        right: 0;
+        left: 0;
+        overflow: auto;
+        background: #fff;
+        cursor: pointer;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transition: height 0.5s;
+        padding: 10px;
+        box-sizing: border-box;
+        box-shadow: 0 -6px 12px 0 #5b78d817;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        &:hover {
+          height: 100%;
+        }
+
+        .f-calendar-memorandum-item {
+          margin-bottom: 8px;
+          cursor: pointer;
+        }
       }
     }
   }

@@ -1,8 +1,10 @@
 <script lang="ts" setup name="FCalendar">
   import { Props, Emits } from './calendar'
   import { ref, computed } from 'vue'
-  import { FButton } from '../../index'
+  import { FButton, FText } from '../../index'
   import { addZero, isString } from '../../_utils'
+  import { WEEK_DATA } from '../../_model/calendar/data'
+  import { diffDay } from '../../_model/calendar/diff-day'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
     mowDataClassListInterface as c,
@@ -10,9 +12,7 @@
     handleClickInterface as g,
     targetType
   } from './interface'
-  import type { getLunarDetailReturnInterface as h } from '../../_interface'
-  import { WEEK_DATA } from '../../_model/calendar/data'
-  import { diffDay } from '../../_model/calendar/diff-day'
+  // import type { getLunarDetailReturnInterface as h } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -20,7 +20,7 @@
   const year: Ref<number> = ref<number>(prop.date.getFullYear())
   const month: Ref<number> = ref<number>(prop.date.getMonth())
   const date: Ref<number> = ref<number>(prop.date.getDate())
-  const detailDay: Ref<h> = ref<h>(null as unknown as h)
+  // const detailDay: Ref<h> = ref<h>(null as unknown as h)
 
   const { AllMonthDays, changeLastMonth, changeNextMonth } = diffDay(
     year,
@@ -86,6 +86,10 @@
         : weekCellHeight + 'px'
     }
   })
+
+  const isMemorandum = (date): boolean => {
+    return Object.keys(prop.memorandum).includes(date)
+  }
 </script>
 
 <template>
@@ -143,11 +147,26 @@
         <span v-if="lunar" class="f-calendar-lunar">
           {{ days.festival || days.IDayCn }}
         </span>
+
+        <!-- 备忘栏 -->
+        <div v-if="isMemorandum(days.date)" class="f-calendar-memorandum">
+          <f-text
+            v-for="(item, i) in memorandum[days.date]"
+            :key="i"
+            :type="item.type || 'default'"
+            :size="14"
+            center
+            class="f-calendar-memorandum-item"
+          >
+            {{ item.content }}
+          </f-text>
+        </div>
       </li>
     </ul>
 
     <!-- 页脚 -->
-    <footer v-if="showFooter" class="f-calendar-footer">
+    <!-- <footer v-if="showFooter" class="f-calendar-footer">
+      页脚
       <ul class="f-calendar-footer-list">
         <li>日期：{{ detailDay.date }}</li>
         <li>农历：{{ detailDay.lunarDate }}</li>
@@ -158,6 +177,6 @@
         <li>纪月：{{ detailDay.gzMonth }}</li>
         <li>纪日：{{ detailDay.gzDay }}</li>
       </ul>
-    </footer>
+    </footer> -->
   </div>
 </template>

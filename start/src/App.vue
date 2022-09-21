@@ -46,7 +46,6 @@
     v-model:date="date"
     border
     position="top-left"
-    lunar
     :memorandum="memorandumList"
     @change-date="change"
   >

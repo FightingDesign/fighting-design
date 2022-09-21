@@ -28,8 +28,8 @@ export type positionType =
   | 'bottom'
 
 interface memorandumContentInterface {
-  type: buttonType
+  type?: buttonType
   content: string
 }
 
-export type memorandumType = Record<string, memorandumContentInterface>
+export type memorandumType = Record<string, memorandumContentInterface[]>
