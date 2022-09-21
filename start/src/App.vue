@@ -28,10 +28,10 @@
 
   const memorandumList = {
     '2022-9-21': [
-      { type: 'default', content: '今天要考试今天要考试121' },
-      { type: 'success', content: '今天要考试' },
       { type: 'danger', content: '今天要考试' },
-      { type: 'danger', content: '今天要考试' }
+      { type: 'success', content: '今天要去露营' },
+      { type: 'danger', content: '晚上有饭局' },
+      { type: 'danger', content: '今天早点睡' }
     ],
     '2022-9-27': [
       { type: 'default', content: '今天要考试' },

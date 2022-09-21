@@ -85,21 +85,35 @@
 
 :::
 
-## 带有页脚
+## 备忘事件
 
-`show-footer` 属性可以配置带有页脚详细信息的日历
+`memorandum` 将指定日期添加备忘事件项
 
-<f-calendar v-model:date="date" show-footer/>
+<f-calendar v-model:date="date" :memorandum="memorandumList"/>
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-calendar v-model:date="date" show-footer />
+  <f-calendar v-model:date="date" :memorandum="memorandumList" />
 </template>
 
 <script lang="ts" setup>
   const date = new Date()
+
+  const memorandumList = {
+    '2022-9-21': [
+      { type: 'danger', content: '今天要考试' },
+      { type: 'success', content: '今天要去露营' },
+      { type: 'danger', content: '晚上有饭局' },
+      { type: 'danger', content: '今天早点睡' }
+    ],
+    '2022-9-27': [
+      { type: 'default', content: '今天要考试' },
+      { type: 'danger', content: '今天要考试' },
+      { type: 'danger', content: '今天要考试' }
+    ]
+  }
 </script>
 ```
 
@@ -117,6 +131,7 @@
 | `border-color`     | 自定义边框颜色     | string          | ——     | #eee     |
 | `day-cell-height`  | 日期单元格高度     | string / number | ——     | 85px     |
 | `week-cell-height` | 星期单元格高度     | string / number | ——     | 50px     |
+| `memorandum`       | 备忘事件           | object          | ——     | null     |
 
 ## Slots
 
@@ -134,4 +149,18 @@
 
 <script setup>
   const date = new Date()
+
+  const memorandumList = {
+    '2022-9-21': [
+      { type: 'danger', content: '今天要考试' },
+      { type: 'success', content: '今天要去露营' },
+      { type: 'danger', content: '晚上有饭局' },
+      { type: 'danger', content: '今天早点睡' }
+    ],
+    '2022-9-27': [
+      { type: 'default', content: '今天要考试' },
+      { type: 'danger', content: '今天要考试' },
+      { type: 'danger', content: '今天要考试' }
+    ]
+  }
 </script>
