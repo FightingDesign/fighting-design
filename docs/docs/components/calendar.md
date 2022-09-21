@@ -118,6 +118,14 @@
 | `day-cell-height`  | 日期单元格高度     | string / number | ——     | 85px     |
 | `week-cell-height` | 星期单元格高度     | string / number | ——     | 50px     |
 
+## Slots
+
+| 名称          | 说明                 |
+| ------------- | -------------------- |
+| `last-change` | 自定义上个月切换按钮 |
+| `now-change`  | 自定义今天切换按钮   |
+| `next-change` | 自定义下个月切换按钮 |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

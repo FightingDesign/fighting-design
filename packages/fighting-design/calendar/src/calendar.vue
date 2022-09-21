@@ -1,14 +1,15 @@
 <script lang="ts" setup name="FCalendar">
   import { Props, Emits } from './calendar'
   import { ref, computed, watchEffect } from 'vue'
-  import { FIcon } from '../../index'
+  import { FButton } from '../../index'
   import { addZero, isString } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
     mowDataClassListInterface as c,
     optionClickInterface as d,
     getLunarInterface as f,
-    handleClickInterface as g
+    handleClickInterface as g,
+    targetType
   } from './interface'
   import type { getLunarDetailReturnInterface as h } from '../../_interface'
   import { WEEK_DATA } from '../../_model/calendar/data'
@@ -32,30 +33,27 @@
     currentMonthDay
   } = diffDay(year, month)
 
-  console.log(new Date().getMonth() + 1)
+  // console.log(new Date().getMonth() + 1)
 
   // 当前日期高亮显示
   const mowDataClassList: c = (data: number): string => {
-    console.log(month.value)
+    // console.log(month.value + 1)
     return data === date.value ? 'f-calendar-day-today' : ''
   }
 
   // 点击操作栏
-  const optionClick: d = (evt: MouseEvent): void => {
+  const optionClick: d = (target: targetType): void => {
     const option = {
-      'f-icon f-icon-arrow-left': (): void => changeLastMonth(),
-      'f-icon f-icon-arrow-right': (): void => changeNextMonth(),
-      'f-icon f-icon-column1': (): void => {
+      last: (): void => changeLastMonth(),
+      next: (): void => changeNextMonth(),
+      now: (): void => {
         month.value = prop.date.getMonth()
         year.value = prop.date.getFullYear()
         date.value = prop.date.getDate()
       }
     }
 
-    const className: string = (evt.target as HTMLElement).className
-    if (className !== 'f-calendar-option') {
-      option[className]()
-    }
+    option[target]()
   }
 
   // 当前时间
@@ -128,10 +126,22 @@
       </div>
 
       <!-- 操作栏 -->
-      <div class="f-calendar-option" @click="optionClick">
-        <f-icon :size="24" icon="f-icon-arrow-left" />
-        <f-icon :size="21" icon="f-icon-column1" />
-        <f-icon :size="24" icon="f-icon-arrow-right" />
+      <div class="f-calendar-option">
+        <div class="f-calendar-last" @click="optionClick('last')">
+          <slot name="last-change">
+            <f-button text size="mini" type="primary">上个月</f-button>
+          </slot>
+        </div>
+        <div class="f-calendar-now" @click="optionClick('now')">
+          <slot name="now-change">
+            <f-button text size="mini" type="primary">今天</f-button>
+          </slot>
+        </div>
+        <div class="f-calendar-next" @click="optionClick('next')">
+          <slot name="next-change">
+            <f-button text size="mini" type="primary">下个月</f-button>
+          </slot>
+        </div>
       </div>
     </header>
 

@@ -1,5 +1,4 @@
 @import '../config/const-color.scss';
-$borderColor: red;
 
 .f-calendar {
   flex-direction: column;
@@ -9,13 +8,13 @@ $borderColor: red;
 
   // 头部
   .f-calendar-header {
-    height: 45px;
+    box-sizing: border-box;
     width: 100%;
     background: #eee;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 7px 10px;
     box-sizing: border-box;
 
     // 当前时间
@@ -33,17 +32,14 @@ $borderColor: red;
     // 操作栏
     .f-calendar-option {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
-      width: 150px;
+      min-width: 250px;
 
-      .f-icon {
-        transition: 0.3s;
-        cursor: pointer;
-
-        &:hover {
-          color: $primary;
-        }
+      .f-calendar-last,
+      .f-calendar-now,
+      .f-calendar-next {
+        margin: 0 5px;
       }
     }
   }

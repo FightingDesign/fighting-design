@@ -28,12 +28,11 @@
 </script>
 
 <template>
-  <f-calendar
-    v-model:date="date"
-    border
-    border-color="skyblue"
-    @change-date="change"
-  />
+  <f-calendar v-model:date="date" border @change-date="change">
+    <template #next-change>
+      <f-button round type="primary">默认按钮默认按钮默认按钮</f-button>
+    </template>
+  </f-calendar>
   <!-- <f-tree :data="data" /> -->
   <f-button @click="visible = true">show dialog</f-button>
   <f-dialog v-model:visible="visible" title="this is title1" modal-blur>

@@ -7,7 +7,7 @@ export interface mowDataClassListInterface {
 }
 
 export interface optionClickInterface {
-  (evt: MouseEvent): void
+  (target: targetType): void
 }
 
 export interface getLunarInterface {
@@ -23,3 +23,5 @@ export interface EmitChangeDateInterface {
   month: number
   day: number
 }
+
+export type targetType = 'last' | 'now' | 'next' 
