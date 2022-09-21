@@ -12,7 +12,6 @@
     handleClickInterface as g,
     targetType
   } from './interface'
-  // import type { getLunarDetailReturnInterface as h } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -20,7 +19,6 @@
   const year: Ref<number> = ref<number>(prop.date.getFullYear())
   const month: Ref<number> = ref<number>(prop.date.getMonth())
   const date: Ref<number> = ref<number>(prop.date.getDate())
-  // const detailDay: Ref<h> = ref<h>(null as unknown as h)
 
   const { AllMonthDays, changeLastMonth, changeNextMonth } = diffDay(
     year,
@@ -28,8 +26,10 @@
   )
 
   // 当前日期高亮显示
-  const mowDataClassList: c = (data: number): string => {
-    return data === date.value ? 'f-calendar-day-today' : ''
+  const mowDataClassList: c = (_month: number, _date: number): string => {
+    return _date === date.value && _month === month.value + 1
+      ? 'f-calendar-day-today'
+      : ''
   }
 
   // 点击操作栏
@@ -58,7 +58,11 @@
   const handleClick: g = (_month: number, _date: number): void => {
     date.value = _date
 
-    console.log(_date, _month)
+    if (_month < month.value + 1) {
+      changeLastMonth()
+    } else if (_month > month.value + 1) {
+      changeNextMonth()
+    }
 
     emit('change-date', {
       year: year.value,
@@ -137,7 +141,7 @@
       <li
         v-for="(days, index) in AllMonthDays"
         :key="index"
-        :class="['f-calendar-day-li', mowDataClassList(days.cDay)]"
+        :class="['f-calendar-day-li', mowDataClassList(days.cMonth, days.cDay)]"
         @click="handleClick(days.cMonth, days.cDay)"
       >
         <span class="f-calendar-solar">{{ days.cDay }}</span>

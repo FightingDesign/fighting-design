@@ -1,7 +1,7 @@
 import type { buttonType } from '../../button/src/interface'
 
 export interface mowDataClassListInterface {
-  (data: number): string
+  (_month: number, _date: number): string
 }
 
 export interface optionClickInterface {
@@ -9,7 +9,7 @@ export interface optionClickInterface {
 }
 
 export interface handleClickInterface {
-  (day: number, moth: number): void
+  (_month: number, _date: number): void
 }
 
 export interface EmitChangeDateInterface {
