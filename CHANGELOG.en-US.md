@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.5-alpha.2 (2022-09-21)
+
+- add `f-calendar` component
+- The `size` attribute of the `f-text` component supports the `number` type
+- New component type export
+
 ## 0.6.5-alpha.1 (2022-09-16)
 
 - Add `f-expand-card` component

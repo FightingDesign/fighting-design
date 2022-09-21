@@ -1,7 +1,8 @@
 export type toolbarTypeType = 'large' | 'middle' | 'small' | 'mini'
 
 export interface handleClickInterface {
-  (event: MouseEvent): void
+  // (evt: MouseEvent & { path: HTMLElement[] }): void
+  (evt: MouseEvent): void
 }
 
 export interface clickEmitInterface {

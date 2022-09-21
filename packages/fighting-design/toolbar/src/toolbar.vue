@@ -37,11 +37,14 @@
     return style
   })
 
+  // const handleClick: b = (evt: MouseEvent & { path: HTMLElement[] }): void => {
   const handleClick: b = (evt: MouseEvent): void => {
     // 针对 Safari 点击事件 event.path 为 undefined 不存在做兼容
     // https://blog.csdn.net/weixin_43388844/article/details/120002440
     const path: HTMLElement[] =
-      evt.path || (evt.composedPath && evt.composedPath()) || []
+      (evt as unknown as { path: HTMLElement[] }).path ||
+      (evt.composedPath && evt.composedPath()) ||
+      []
     const node: HTMLElement | undefined = path.find(
       (item: HTMLElement): boolean => {
         return item.className === 'f-toolbar-item'
