@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
+  // import { ref } from 'vue'
+  import type { calendarEmitInterface } from '../../packages/fighting-design/index'
   // const data = [
   //   {
   //     label: 'Node 1',
@@ -19,11 +20,11 @@
   //   { label: 'Node 2' }
   // ]
   const date = new Date()
-  const visible = ref(false)
-  const visible2 = ref(false)
+  // const visible = ref(false)
+  // const visible2 = ref(false)
 
-  const change = (date) => {
-    // console.log(date)
+  const change = (date: calendarEmitInterface): void => {
+    console.log(date)
   }
 
   const memorandumList = {
@@ -40,9 +41,9 @@
     ]
   }
 
-  function switchChange (target) {
-    console.log(target)
-  }
+  // function switchChange (target) {
+  //   console.log(target)
+  // }
 </script>
 
 <template>

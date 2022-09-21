@@ -141,6 +141,25 @@
 | `now-change`  | 自定义今天切换按钮   |
 | `next-change` | 自定义下个月切换按钮 |
 
+## Events
+
+| 事件名称        | 说明                 | 参数                                            |
+| --------------- | -------------------- | ----------------------------------------------- |
+| `change-switch` | 月份改变时触发的回调 | `{ year: number, month: number, date: number }` |
+| `change-date`   | 日期改变时触发的回调 | `{ year: number, month: number, date: number }` |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  FCalendarInstance,
+  calendarEmitInterface,
+  memorandumType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

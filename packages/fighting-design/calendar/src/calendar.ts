@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import type { EmitChangeDateInterface, memorandumType } from './interface'
+import type { calendarEmitInterface, memorandumType } from './interface'
 
 export const Props = {
   date: {
@@ -42,6 +42,6 @@ export const Props = {
 } as const
 
 export const Emits = {
-  'change-date': (date: EmitChangeDateInterface): EmitChangeDateInterface => date,
-  'change-switch': (date: EmitChangeDateInterface): EmitChangeDateInterface => date
+  'change-date': (date: calendarEmitInterface): calendarEmitInterface => date,
+  'change-switch': (date: calendarEmitInterface): calendarEmitInterface => date
 } as const

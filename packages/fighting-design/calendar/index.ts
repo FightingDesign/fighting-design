@@ -11,3 +11,5 @@ declare module 'vue' {
     FCalendar: typeof FCalendar
   }
 }
+
+export type { calendarEmitInterface, memorandumType } from './src/interface'

@@ -12,7 +12,7 @@ export interface handleClickInterface {
   (_month: number, _date: number): void
 }
 
-export interface EmitChangeDateInterface {
+export interface calendarEmitInterface {
   year: number
   month: number
   date: number

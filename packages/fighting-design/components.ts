@@ -130,7 +130,7 @@ export { FExpandCard } from './expand-card'
 export type { FExpandCardInstance } from './expand-card'
 
 export { FCalendar } from './calendar'
-export type { FCalendarInstance } from './calendar'
+export type { FCalendarInstance, calendarEmitInterface, memorandumType } from './calendar'
 
 export { FTree } from './tree'
 export type { FTreeInstance } from './tree'
