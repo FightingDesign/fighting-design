@@ -1,20 +1,18 @@
 <script lang="ts" setup name="FCalendar">
   import { Props, Emits } from './calendar'
-  import { ref, computed, watchEffect } from 'vue'
+  import { ref, computed } from 'vue'
   import { FButton } from '../../index'
   import { addZero, isString } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
     mowDataClassListInterface as c,
     optionClickInterface as d,
-    getLunarInterface as f,
     handleClickInterface as g,
     targetType
   } from './interface'
   import type { getLunarDetailReturnInterface as h } from '../../_interface'
   import { WEEK_DATA } from '../../_model/calendar/data'
   import { diffDay } from '../../_model/calendar/diff-day'
-  import { Lunar } from '../../_model/calendar/lunar'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -23,21 +21,14 @@
   const month: Ref<number> = ref<number>(prop.date.getMonth())
   const date: Ref<number> = ref<number>(prop.date.getDate())
   const detailDay: Ref<h> = ref<h>(null as unknown as h)
-  const lunarClass: Lunar = new Lunar()
 
-  const {
-    lastMonthDay,
-    nextMonthDay,
-    changeLastMonth,
-    changeNextMonth,
-    currentMonthDay
-  } = diffDay(year, month)
-
-  // console.log(new Date().getMonth() + 1)
+  const { AllMonthDays, changeLastMonth, changeNextMonth } = diffDay(
+    year,
+    month
+  )
 
   // 当前日期高亮显示
   const mowDataClassList: c = (data: number): string => {
-    // console.log(month.value + 1)
     return data === date.value ? 'f-calendar-day-today' : ''
   }
 
@@ -63,37 +54,17 @@
     )}日`
   })
 
-  // 农历
-  const getLunar: f = (day: number): h => {
-    const lunarDate = lunarClass.getLunarDetail(
-      year.value,
-      month.value + 1,
-      day
-    )
-    return lunarDate as h
-  }
-
-  // 修改下面页脚内容
-  watchEffect((): void => {
-    const lunarDate = lunarClass.getLunarDetail(
-      year.value,
-      month.value + 1,
-      date.value
-    )
-    detailDay.value = lunarDate as h
-  })
-
   // 点击对每一天
-  const handleClick: g = (day: number, moth?: number): void => {
+  const handleClick: g = (day: number, moth: number): void => {
     date.value = day
 
-    if (moth) {
-      if (moth > month.value + 1) {
-        changeNextMonth()
-      } else {
-        changeLastMonth()
-      }
-    }
+    // if (moth) {
+    //   if (moth > month.value + 1) {
+    //     changeNextMonth()
+    //   } else {
+    //     changeLastMonth()
+    //   }
+    // }
 
     emit('change-date', {
       year: year.value,
@@ -161,43 +132,16 @@
     </ul>
 
     <!-- 每一天 -->
-    <ul class="f-calendar-day">
-      <!-- 上个月剩余天数 -->
+    <ul :class="['f-calendar-day']">
       <li
-        v-for="(day, index) in lastMonthDay"
+        v-for="(days, index) in AllMonthDays"
         :key="index"
-        :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
-        @click="handleClick(day.cDay, day.cMonth)"
+        :class="['f-calendar-day-li', mowDataClassList(days.cDay)]"
+        @click="handleClick(days.cDay, days.cMonth)"
       >
-        <span class="f-calendar-solar">{{ day.cDay }}</span>
+        <span class="f-calendar-solar">{{ days.cDay }}</span>
         <span v-if="lunar" class="f-calendar-lunar">
-          {{ day.festival || day.IDayCn }}
-        </span>
-      </li>
-
-      <!-- 实际本月天数 -->
-      <li
-        v-for="day in currentMonthDay"
-        :key="day"
-        :class="['f-calendar-day-li', mowDataClassList(day)]"
-        @click="handleClick(day)"
-      >
-        <span class="f-calendar-solar">{{ day }}</span>
-        <span v-if="lunar" class="f-calendar-lunar">
-          {{ getLunar(day).festival || getLunar(day).IDayCn }}
-        </span>
-      </li>
-
-      <!-- 下个月天数 -->
-      <li
-        v-for="(day, index) in nextMonthDay"
-        :key="index"
-        :class="['f-calendar-day-li', 'f-calendar-day-li-last']"
-        @click="handleClick(day.cDay, day.cMonth)"
-      >
-        <span class="f-calendar-solar">{{ day.cDay }}</span>
-        <span v-if="lunar" class="f-calendar-lunar">
-          {{ day.festival || day.IDayCn }}
+          {{ days.festival || days.IDayCn }}
         </span>
       </li>
     </ul>

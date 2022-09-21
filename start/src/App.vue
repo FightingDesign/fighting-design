@@ -25,10 +25,31 @@
   const change = (date) => {
     console.log(date)
   }
+
+  const memorandumList = {
+    '2022-9-21': [
+      { type: 'default', content: '今天要考试今天要考试121' },
+      { type: 'success', content: '今天要考试' },
+      { type: 'danger', content: '今天要考试' },
+      { type: 'danger', content: '今天要考试' }
+    ],
+    '2022-9-27': [
+      { type: 'default', content: '今天要考试' },
+      { type: 'danger', content: '今天要考试' },
+      { type: 'danger', content: '今天要考试' }
+    ]
+  }
 </script>
 
 <template>
-  <f-calendar v-model:date="date" border @change-date="change">
+  <f-calendar
+    v-model:date="date"
+    border
+    position="top-left"
+    lunar
+    :memorandum="memorandumList"
+    @change-date="change"
+  >
     <template #next-change>
       <f-button round type="primary">默认按钮默认按钮默认按钮</f-button>
     </template>

@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import type { EmitChangeDateInterface } from './interface'
+import type { EmitChangeDateInterface, memorandumType } from './interface'
 
 export const Props = {
   date: {
@@ -34,9 +34,21 @@ export const Props = {
   weekCellHeight: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
+  },
+  memorandum: {
+    type: Object as PropType<memorandumType>,
+    default: (): null => null
   }
+  // position: {
+  //   type: String as PropType<positionType>,
+  //   default: (): positionType => 'center',
+  //   validator: (val: positionType): boolean => {
+  //     return (['center', 'top-center', 'bottom-center', 'top-right', 'bottom-right', 'top-left', 'bottom-left'] as const).includes(val)
+  //   }
+  // }
 } as const
 
 export const Emits = {
-  'change-date': (date: EmitChangeDateInterface): EmitChangeDateInterface => date
+  'change-date': (date: EmitChangeDateInterface): EmitChangeDateInterface => date,
+  'change-switch': (date: EmitChangeDateInterface): EmitChangeDateInterface => date
 } as const

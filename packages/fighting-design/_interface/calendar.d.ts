@@ -31,11 +31,9 @@ export interface diffDayInterface {
 }
 
 export interface diffDayReturnInterface {
-  lastMonthDay: ComputedRef<h[]>
-  nextMonthDay: ComputedRef<h[]>
+  AllMonthDays: ComputedRef<h[]>
   changeLastMonth(): void
   changeNextMonth(): void
-  currentMonthDay: ComputedRef<number>
 }
 
 export type holidayListType = Record<string, { title: string }>

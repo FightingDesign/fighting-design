@@ -64,6 +64,19 @@ export const diffDay: diffDayInterface = (
     return showNextListResult
   })
 
+  // 当月需要展示的天数
+  const currentMonthDay: ComputedRef<a[]> = computed((): a[] => {
+    // 当月的时间
+    const monthDays: number = dayMonth(year.value, month.value)
+    const showNextListResult: a[] = []
+
+    for (let i = 0; i < monthDays; i++) {
+      const dayList: a = lunar.getLunarDetail(year.value, month.value + 1, i + 1) as a
+      showNextListResult.push(dayList)
+    }
+    return showNextListResult
+  })
+
   // 点击上个月切换按钮
   const changeLastMonth = (): void => {
     if (month.value > 0) {
@@ -84,16 +97,17 @@ export const diffDay: diffDayInterface = (
     month.value = 0
   }
 
-  // 获取当前月份多少天
-  const currentMonthDay: ComputedRef<number> = computed((): number => {
-    return dayMonth(year.value, month.value)
+  const AllMonthDays: ComputedRef<a[]> = computed((): a[] => {
+    return [
+      ...lastMonthDay.value,
+      ...currentMonthDay.value,
+      ...nextMonthDay.value
+    ]
   })
 
   return {
-    lastMonthDay,
-    nextMonthDay,
+    AllMonthDays,
     changeLastMonth,
-    changeNextMonth,
-    currentMonthDay
+    changeNextMonth
   } as diffDayReturnInterface
 }
