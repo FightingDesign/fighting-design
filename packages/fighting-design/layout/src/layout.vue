@@ -16,10 +16,11 @@
     if (slot && slot.default) {
       const vNodes: VNode[] = slot.default()
       return vNodes.some((node: VNode) => {
-        const name = (node.type as Component).name
+        const name: string | undefined = (node.type as Component).name
         return name === 'FHeader' || name === 'FFooter'
       })
     }
+
     return false
   })
 </script>
@@ -29,7 +30,7 @@
     :class="[
       'f-layout',
       {
-        'is-vertical': isVertical
+        'f-layout-vertical': isVertical
       }
     ]"
   >
