@@ -1,17 +1,31 @@
-<script setup lang="ts">
+<script lang="ts" setup>
   import { Props } from './footer'
+  import { computed } from 'vue'
+  import { isString } from '../../_utils'
+  import type { CSSProperties, ComputedRef } from 'vue'
 
-  defineProps(Props)
+  const prop = defineProps(Props)
+
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { height, padding } = prop
+
+    return {
+      height: isString(height) ? height : height + 'px',
+      padding: isString(padding) ? padding : padding + 'px'
+    } as const
+  })
 </script>
 
 <script lang="ts">
-  export default {
+  import { defineComponent } from 'vue'
+
+  export default defineComponent({
     name: 'FFooter'
-  }
+  })
 </script>
 
 <template>
-  <footer class="f-footer" :style="{ height }">
+  <footer class="f-footer" :style="styleList">
     <slot />
   </footer>
 </template>

@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-header` 组件新增 `padding` 类型
+- `f-header` 组件的 `height` 属性支持 `number` 类型
+- `f-footer` 组件新增 `padding` 类型
+- `f-footer` 组件的 `height` 属性支持 `number` 类型
+
 ## 0.6.5-alpha.2 (2022-09-21)
 
 - 新增 `f-calendar` 组件
