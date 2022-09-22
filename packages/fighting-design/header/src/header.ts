@@ -1,10 +1,12 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   height: {
-    type: String as PropType<string>,
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
+  },
+  padding: {
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   }
 } as const
-
-export type FPropsType = ExtractPropTypes<typeof Props>
