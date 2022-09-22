@@ -222,6 +222,12 @@
 | `height`  | 高度   | string / number | ——     | 60px   |
 | `padding` | 内边距 | string / number | ——     | ——     |
 
+## Main Attributes
+
+| 参数      | 说明   | 类型            | 可选值 | 默认值 |
+| --------- | ------ | --------------- | ------ | ------ |
+| `padding` | 内边距 | string / number | ——     | ——     |
+
 ## Aside Attributes
 
 | 参数    | 说明 | 类型   | 可选值 | 默认值 |
