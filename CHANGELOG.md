@@ -4,9 +4,11 @@
 
 - `f-header` 组件新增 `padding` 类型
 - `f-header` 组件的 `height` 属性支持 `number` 类型
-- `f-footer` 组件新增 `padding` 类型
+- `f-footer` 组件新增 `padding` 配置项
 - `f-footer` 组件的 `height` 属性支持 `number` 类型
 - `f-main` 组件的 `padding` 属性支持 `number` 类型
+- `f-aside` 组件的 `width` 属性支持 `number` 类型
+- `f-aside` 组件新增 `padding` 配置项
 
 ## 0.6.5-alpha.2 (2022-09-21)
 
