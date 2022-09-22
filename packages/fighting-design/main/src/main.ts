@@ -1,6 +1,8 @@
+import type { PropType } from 'vue'
+
 export const Props = {
   padding: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   }
 } as const
