@@ -4,6 +4,22 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.5-alpha.3 (2022-09-22)
+
+**fest**
+
+- `f-header` component adds a `padding` type
+- The `height` attribute of the `f-header` component supports the `number` type
+- `f-footer` component adds`padding`configuration item
+- The `height` attribute of the `f-footer` component supports the `number` type
+- The `padding` attribute of the `f-main` component supports the `number` type
+- The `width` attribute of the `f-aside` component supports the `number` type
+- `f-aside` component adds a `padding` configuration item
+
+**fix**
+
+- Fix the packaging type error caused by component `name`
+
 ## 0.6.5-alpha.2 (2022-09-21)
 
 - add `f-calendar` component

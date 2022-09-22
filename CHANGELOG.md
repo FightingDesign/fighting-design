@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.5-alpha.3 (2022-09-22)
+
+**fest**
+
 - `f-header` 组件新增 `padding` 类型
 - `f-header` 组件的 `height` 属性支持 `number` 类型
 - `f-footer` 组件新增 `padding` 配置项
@@ -9,6 +13,10 @@
 - `f-main` 组件的 `padding` 属性支持 `number` 类型
 - `f-aside` 组件的 `width` 属性支持 `number` 类型
 - `f-aside` 组件新增 `padding` 配置项
+
+**fix**
+
+- 修复组件 `name` 导致的打包类型报错问题
 
 ## 0.6.5-alpha.2 (2022-09-21)
 
