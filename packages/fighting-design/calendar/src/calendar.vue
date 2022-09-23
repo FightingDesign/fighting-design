@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FCalendar">
   import { Props, Emits } from './calendar'
   import { ref, computed, watch } from 'vue'
-  import { FButton, FText } from '../../index'
+  import { FButton } from '../../button'
+  import { FText } from '../../text'
   import { addZero, isString } from '../../_utils'
   import { WEEK_DATA } from '../../_model/calendar/data'
   import { diffDay } from '../../_model/calendar/diff-day'

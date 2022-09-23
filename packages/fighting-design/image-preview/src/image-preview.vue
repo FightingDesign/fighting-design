@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FImagePreview">
   import { Props, Emits } from './image-preview'
   import { ref } from 'vue'
-  import { FToolbar, FToolbarItem } from '../../index'
+  import { FToolbar } from '../../toolbar'
+  import { FToolbarItem } from '../../toolbar-item'
   import { keepDecimal } from '../../_utils'
   import type { Ref } from 'vue'
   import type {
@@ -140,7 +141,7 @@
           transform: `scale(${scale}) rotate(${rotate}deg)`,
           borderRadius: round
         }"
-      >
+      />
 
       <!-- 左右切换按钮 -->
       <template v-if="imgList.length > 1">
