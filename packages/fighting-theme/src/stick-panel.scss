@@ -1,0 +1,39 @@
+.f-stick-panel {
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%),
+      0 2px 4px 0 rgb(232 237 250 / 50%);
+  }
+
+  // 主内容
+  .f-stick-panel-content {
+    box-sizing: border-box;
+    height: 0px;
+    transition: 0.3s;
+    padding: 16px;
+    overflow: hidden;
+
+    &.f-stick-panel-content-open {
+      height: 500px;
+    }
+  }
+
+  // 操作栏
+  .f-stick-panel-option {
+    border-top: 1px solid #ebebeb;
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    font-size: 15px;
+    color: #333;
+    position: static;
+    bottom: 0;
+  }
+}
