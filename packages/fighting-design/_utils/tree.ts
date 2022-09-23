@@ -42,10 +42,11 @@ export const treeAddLevel = (tree: b[]): b[] => {
   const recursive = (array: b[], level = 0): b[] => {
     level++
 
-    return array.map((item: b,index): b => {
+    return array.map((item: b, index): b => {
       item.level = level
       item.index = index
-      item.show = level === 1 ? true : false
+      // item.show = level === 1 ? true : false
+      item.show = false
 
       const child: b[] = item.children as b[]
 
