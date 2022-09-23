@@ -15,6 +15,7 @@ export const treeToFlat = (data: b[]): a[] => {
     const obj = {
       label: item.label,
       level: item.level,
+      index: item.index,
       show: item.show
     } as a
 
@@ -41,8 +42,9 @@ export const treeAddLevel = (tree: b[]): b[] => {
   const recursive = (array: b[], level = 0): b[] => {
     level++
 
-    return array.map((item: b): b => {
+    return array.map((item: b,index): b => {
       item.level = level
+      item.index = index
       item.show = level === 1 ? true : false
 
       const child: b[] = item.children as b[]
