@@ -2,6 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.5-alpha.4 (2022-09-23)
+
+**fix**
+
+- 修复 `f-image-preview` 和 `f-calendar` 组件内容按需引入问题
+
 ## 0.6.5-alpha.3 (2022-09-22)
 
 **fest**

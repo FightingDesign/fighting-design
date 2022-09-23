@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.5-alpha.4 (2022-09-23)
+
+**fix**
+
+- Fix the problem of `f-image review` and `f-calendar` component content being imported on demand
+
 ## 0.6.5-alpha.3 (2022-09-22)
 
 **fest**
