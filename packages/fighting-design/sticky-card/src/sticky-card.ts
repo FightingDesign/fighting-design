@@ -20,7 +20,7 @@ export const Props = {
   },
   openHeight: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '1200px'
+    default: (): string => '800px'
   },
   borderColor: {
     type: String,

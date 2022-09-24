@@ -20,7 +20,7 @@
   .f-sticky-card-box {
     box-sizing: border-box;
     height: fit-content;
-    transition: max-height 0.3s;
+    transition: max-height 0.4s;
     max-height: 0;
     overflow: hidden;
     background: var(--sticky-card-content-background, #fff);
@@ -28,7 +28,7 @@
     &.f-sticky-card-box-open {
       border-top: 1px solid var(--sticky-card-border-color, #e5e5e5);
       overflow-y: auto;
-      max-height: var(--sticky-card-max-height, 1200px);
+      max-height: var(--sticky-card-max-height, 800px);
     }
 
     // 主要内容
