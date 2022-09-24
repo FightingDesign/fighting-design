@@ -1,3 +1,5 @@
+@import '../config/const-color.scss';
+
 .f-sticky-card {
   border: 1px solid #ebebeb;
   border-radius: 3px;
@@ -39,9 +41,19 @@
     align-items: center;
     user-select: none;
     font-size: 15px;
-    color: #333;
     position: sticky;
     bottom: 0;
     background: #fff;
+
+    .f-sticky-card-option-text {
+      color: #333;
+      transition: 0.4s;
+    }
+
+    &:hover {
+      .f-sticky-card-option-text {
+        color: $primary;
+      }
+    }
   }
 }

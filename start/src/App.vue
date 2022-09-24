@@ -10,7 +10,7 @@
   <h1>1111</h1>
   <h1>1111</h1>
   <h1>1111</h1>
-  <f-sticky-card :open="false">
+  <f-sticky-card :open="false" background="red">
     <div>这是一段代码格式</div>
     <div>这是一段代码格式</div>
     <div>这是一段代码格式</div>
