@@ -138,5 +138,5 @@ export type { FCalendarInstance, calendarEmitInterface, memorandumType } from '.
 export { FTree } from './tree'
 export type { FTreeInstance, treeDataInterface } from './tree'
 
-export { FStickPanel } from './stick-panel'
-export type { FStickPanelInstance } from './stick-panel'
+export { FStickyCard } from './sticky-card'
+export type { FStickyCardInstance } from './sticky-card'

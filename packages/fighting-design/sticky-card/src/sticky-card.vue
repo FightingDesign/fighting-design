@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FStickPanel">
-  import { Props } from './stick-panel'
+  import { Props } from './sticky-card'
   import { ref } from 'vue'
 
   const prop = defineProps(Props)
@@ -12,17 +12,21 @@
 </script>
 
 <template>
-  <div class="f-stick-panel">
+  <div class="f-sticky-card">
     <div
       :class="[
-        'f-stick-panel-content',
+        'f-sticky-card-box',
         {
-          'f-stick-panel-content-open': isOpen
+          'f-sticky-card-box-open': isOpen
         }
       ]"
     >
-      <slot />
+      <div class="f-sticky-card-content">
+        <slot />
+      </div>
     </div>
-    <div class="f-stick-panel-option" @click="handleClick">打开</div>
+    <div class="f-sticky-card-option" @click="handleClick">
+      {{ isOpen ? '关闭' : '打开' }}
+    </div>
   </div>
 </template>

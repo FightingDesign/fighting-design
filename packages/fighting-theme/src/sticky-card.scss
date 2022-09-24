@@ -1,4 +1,4 @@
-.f-stick-panel {
+.f-sticky-card {
   border: 1px solid #ebebeb;
   border-radius: 3px;
   transition: 0.3s;
@@ -9,21 +9,28 @@
       0 2px 4px 0 rgb(232 237 250 / 50%);
   }
 
-  // 主内容
-  .f-stick-panel-content {
+  // 内容盒子
+  .f-sticky-card-box {
     box-sizing: border-box;
-    height: 0px;
-    transition: 0.3s;
-    padding: 16px;
+    height: fit-content;
+    transition: max-height 0.3s;
+    max-height: 0;
     overflow: hidden;
 
-    &.f-stick-panel-content-open {
-      height: 500px;
+    &.f-sticky-card-box-open {
+      overflow-y: auto;
+      max-height: 400px;
+    }
+
+    // 主要内容
+    .f-sticky-card-content {
+      padding: 20px;
+      box-sizing: border-box;
     }
   }
 
   // 操作栏
-  .f-stick-panel-option {
+  .f-sticky-card-option {
     border-top: 1px solid #ebebeb;
     height: 45px;
     cursor: pointer;
@@ -33,7 +40,8 @@
     user-select: none;
     font-size: 15px;
     color: #333;
-    position: static;
+    position: sticky;
     bottom: 0;
+    background: #fff;
   }
 }
