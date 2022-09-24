@@ -45,23 +45,79 @@
 
 </f-sticky-card>
 
+## 来源内容
+
+`source` 插槽可以插入来源内容
+
+<f-sticky-card :open="open2">
+
+<template #source>
+
+<h1>你好世界！</h1>
+<h1>你好世界！</h1>
+<h1>你好世界！</h1>
+</template>
+
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+</f-sticky-card>
+
+<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+
+```html
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const open2 = ref(false)
+</script>
+
+<template>
+  <f-sticky-card :open="open2">
+    <template #source>
+      <h1>你好世界！</h1>
+      <h1>你好世界！</h1>
+      <h1>你好世界！</h1>
+    </template>
+
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+  </f-sticky-card>
+</template>
+```
+
+</f-sticky-card>
+
 ## Attributes
 
-| 参数          | 说明               | 类型              | 可选值 | 默认值 |
-| ------------- | ------------------ | ----------------- | ------ | ------ |
-| `open`        | 是否展开           | boolean           | ——     | false  |
-| `background`  | 内容背景色         | string            | ——     | #fff   |
-| `open-text`   | 操作栏展开时的文字 | string            | ——     | 关闭   |
-| `close-text`  | 操作栏关闭时的文字 | string            | ——     | 开启   |
-| `open-height` | 展开的高度         | string / number   | ——     | 400px  |
-| `open-end`    | 打开时的回调       | (e:boolean)=>void | ——     | null   |
-| `close-end`   | 关闭时的回调       | (e:boolean)=>void | ——     | null   |
+| 参数           | 说明               | 类型              | 可选值 | 默认值  |
+| -------------- | ------------------ | ----------------- | ------ | ------- |
+| `open`         | 是否展开           | boolean           | ——     | false   |
+| `background`   | 内容背景色         | string            | ——     | #fff    |
+| `open-text`    | 操作栏展开时的文字 | string            | ——     | 关闭    |
+| `close-text`   | 操作栏关闭时的文字 | string            | ——     | 开启    |
+| `open-height`  | 展开的高度         | string / number   | ——     | 400px   |
+| `border-color` | 自定义边框颜色     | string            | ——     | #e5e5e5 |
+| `open-end`     | 打开时的回调       | (e:boolean)=>void | ——     | null    |
+| `close-end`    | 关闭时的回调       | (e:boolean)=>void | ——     | null    |
 
 ## Slots
 
 | 名称           | 说明                 |
 | -------------- | -------------------- |
-| `default`      | 默认内容             |
+| `default`      | 默认折叠内容         |
+| `source`       | 来源内容             |
 | `option-left`  | 操作栏自定义左侧内容 |
 | `option-right` | 操作栏自定义右侧内容 |
 
@@ -83,10 +139,5 @@ import type { FStickyCardInstance } from 'fighting-design'
   import { ref } from 'vue'
 
   const open1 = ref(false)
+  const open2 = ref(false)
 </script>
-
-<style scoped>
-.f-sticky-card {
-  margin-top: 20px;
-}
-</style>

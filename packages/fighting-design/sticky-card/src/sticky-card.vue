@@ -32,10 +32,11 @@
 
   // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { background, openHeight } = prop
+    const { background, openHeight, borderColor } = prop
 
     return {
       '--sticky-card-content-background': background,
+      '--sticky-card-border-color': borderColor,
       '--sticky-card-max-height': isString(openHeight)
         ? openHeight
         : openHeight + 'px'
@@ -54,12 +55,19 @@
 
 <template>
   <div class="f-sticky-card" :style="styleList">
+    <div v-if="$slots.source" class="f-sticky-card-source">
+      <slot name="source" />
+    </div>
+
     <div :class="classList">
       <div class="f-sticky-card-content">
         <slot />
       </div>
     </div>
-    <div class="f-sticky-card-option" @click.self="handleClick">
+    <div
+      :class="['f-sticky-card-option', { 'f-sticky-card-option-open': isOpen }]"
+      @click.self="handleClick"
+    >
       <!-- 左侧插槽 -->
       <span class="f-sticky-card-option-left">
         <slot name="option-left" />

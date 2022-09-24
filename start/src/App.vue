@@ -6,6 +6,12 @@
 
 <template>
   <f-sticky-card :open="open1">
+    <template #source>
+      <div>Hello World！</div>
+      <div>Hello World！</div>
+      <div>Hello World！</div>
+      <div>Hello World！</div>
+    </template>
     <h1>Hello World！</h1>
     <h1>Hello World！</h1>
     <h1>Hello World！</h1>

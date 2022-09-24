@@ -9,13 +9,18 @@
 
 `type` 属性可以配置不同的按钮类型，展示不同的颜色状态
 
+`simple` 属性可以配置简约的按钮，样式依然由 `type` 控制
+
+<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+
+<template #source>
 <f-button type="default">默认按钮</f-button>
 <f-button type="primary">主要按钮</f-button>
 <f-button type="success">成功按钮</f-button>
 <f-button type="danger">危险按钮</f-button>
 <f-button type="warning">警告按钮</f-button>
 
-`simple` 属性可以配置简约的按钮，样式依然由 `type` 控制
+<br />
 
 <f-button simple type="default">默认按钮</f-button>
 <f-button simple type="primary">主要按钮</f-button>
@@ -23,15 +28,14 @@
 <f-button simple type="danger">危险按钮</f-button>
 <f-button simple type="warning">警告按钮</f-button>
 
-`circle` 可以配置圆形按钮
+<br />
 
 <f-button circle before-icon="f-icon-camera-fill" type="default" />
 <f-button circle before-icon="f-icon-good-fill" type="primary" />
 <f-button circle before-icon="f-icon-discount-fill" type="success" />
 <f-button circle before-icon="f-icon-Exportservices" type="danger" />
 <f-button circle before-icon="f-icon-map1" type="warning" />
-
-::: details 显示代码
+</template>
 
 ```html
 <f-button type="default">默认按钮</f-button>
@@ -53,12 +57,15 @@
 <f-button circle before-icon="f-icon-map1" type="warning" />
 ```
 
-:::
+</f-sticky-card>
 
 ## 圆角按钮
 
 `round` 属性可以将按钮变成圆角风格的按钮
 
+<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+
+<template #source>
 <f-button round type="default">默认按钮</f-button>
 <f-button round type="primary">主要按钮</f-button>
 <f-button round type="success">成功按钮</f-button>
@@ -72,8 +79,7 @@
 <f-button round simple type="success">成功按钮</f-button>
 <f-button round simple type="danger">危险按钮</f-button>
 <f-button round simple type="warning">警告按钮</f-button>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-button round type="default">默认按钮</f-button>
@@ -89,7 +95,7 @@
 <f-button round simple type="warning">警告按钮</f-button>
 ```
 
-:::
+</f-sticky-card>
 
 ## 禁用状态
 
@@ -97,6 +103,9 @@
 
 `loading` 属性可以将按钮变成 `loading` 状态，也可以通过 `loading-icon` 自定义 `loading` 图标样式
 
+<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+
+<template #source>
 <f-button disabled type="default">默认按钮</f-button>
 <f-button disabled type="primary">主要按钮</f-button>
 <f-button disabled type="success">成功按钮</f-button>
@@ -110,8 +119,7 @@
 <f-button loading loading-icon="f-icon-loading2" type="success">成功按钮</f-button>
 <f-button loading loading-icon="f-icon-loading3" type="danger">危险按钮</f-button>
 <f-button loading loading-icon="f-icon-loading4" type="warning">警告按钮</f-button>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-button disabled type="default">默认按钮</f-button>
@@ -135,18 +143,20 @@
 </f-button>
 ```
 
-:::
+</f-sticky-card>
 
 ## 不同尺寸
 
 `size` 属性可以配置不同尺寸的按钮
 
+<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+
+<template #source>
 <f-button size="large" type="primary">大型按钮</f-button>
 <f-button size="middle" type="success">中型按钮</f-button>
 <f-button size="small" type="danger">小型按钮</f-button>
 <f-button size="mini" type="warning">迷你按钮</f-button>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-button size="large" type="primary">大型按钮</f-button>
@@ -155,25 +165,29 @@
 <f-button size="mini" type="warning">迷你按钮</f-button>
 ```
 
-:::
+</f-sticky-card>
 
 ## 文字按钮
 
 `text` 属性可以将按钮设置成文字按钮
 
+<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+
+<template #source>
 <f-button text type="default">默认按钮</f-button>
 <f-button text type="primary">主要按钮</f-button>
 <f-button text type="success">成功按钮</f-button>
 <f-button text type="danger">危险按钮</f-button>
 <f-button text type="warning">警告按钮</f-button>
 
+<br />
+
 <f-button text round type="default">默认按钮</f-button>
 <f-button text round type="primary">主要按钮</f-button>
 <f-button text round type="success">成功按钮</f-button>
 <f-button text round type="danger">危险按钮</f-button>
 <f-button text round type="warning">警告按钮</f-button>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-button text type="default">默认按钮</f-button>
@@ -189,7 +203,7 @@
 <f-button text round type="warning">警告按钮</f-button>
 ```
 
-:::
+</f-sticky-card>
 
 ## 带有阴影
 
@@ -197,13 +211,15 @@
 
 或者也可以通过 [Neumorphism](https://neumorphism.io) 自己手动调节阴影样式
 
+<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+
+<template #source>
 <f-button shadow="0 2px 7px 0 #f0f0f0" type="default">默认按钮</f-button>
 <f-button shadow="0 2px 7px 0 #2d5af1" type="primary">主要按钮</f-button>
 <f-button shadow="0 2px 7px 0 #52b35e" type="success">成功按钮</f-button>
 <f-button shadow="0 2px 7px 0 #ff0200" type="danger">危险按钮</f-button>
 <f-button shadow="0 2px 7px 0 #fcc202" type="warning">警告按钮</f-button>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-button shadow="0 2px 7px 0 #f0f0f0" type="default">默认按钮</f-button>
@@ -213,19 +229,21 @@
 <f-button shadow="0 2px 7px 0 #fcc202" type="warning">警告按钮</f-button>
 ```
 
-:::
+</f-sticky-card>
 
 ## 涟漪效果
 
 `ripples` 可以配置是否展示点击涟漪效果，也可以通过 `ripples-color` 自定义涟漪背景色
 
+<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+
+<template #source>
 <f-button type="primary">主要按钮</f-button>
 <f-button type="success" ripples>涟漪效果</f-button>
 <f-button type="warning" ripples>点我试试</f-button>
 <f-button type="danger" ripples simple>看看我</f-button>
 <f-button type="success" text ripples ripples-color="green">自定义涟漪颜色</f-button>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-button type="primary">主要按钮</f-button>
@@ -237,7 +255,7 @@
 </f-button>
 ```
 
-:::
+</f-sticky-card>
 
 ## 按钮组
 
@@ -245,10 +263,13 @@
 
 `vertical` 属性可以配置纵向排列的按钮组
 
+<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+
+<template #source>
 <f-button-group>
-  <f-button round type="primary">左边的</f-button>
-  <f-button round type="primary">中间的</f-button>
-  <f-button round type="primary">右边的</f-button>
+<f-button round type="primary">左边的</f-button>
+<f-button round type="primary">中间的</f-button>
+<f-button round type="primary">右边的</f-button>
 </f-button-group>
 
 <br />
@@ -259,8 +280,7 @@
   <f-button type="primary">中间的</f-button>
   <f-button round type="primary">下边的</f-button>
 </f-button-group>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-button-group>
@@ -276,7 +296,7 @@
 </f-button-group>
 ```
 
-:::
+</f-sticky-card>
 
 ## 自定义颜色
 
@@ -284,17 +304,19 @@
 
 使用自定义颜色之后 `Fighting Design` 会自动推断 `hover` 和 `active` 的效果，那么需要使用 `font-color` 来自定义文字的颜色
 
+<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+
+<template #source>
 <f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
 <f-button font-color="#fff" color="#22c1c3" loading>loading</f-button>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
 <f-button font-color="#fff" color="#22c1c3" loading>loading</f-button>
 ```
 
-:::
+</f-sticky-card>
 
 ## Button Attributes
 

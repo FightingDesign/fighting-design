@@ -1,7 +1,7 @@
 @import '../config/const-color.scss';
 
 .f-sticky-card {
-  border: 1px solid #ebebeb;
+  border: 1px solid var(--sticky-card-border-color, #e5e5e5);
   border-radius: 3px;
   transition: 0.3s;
   cursor: pointer;
@@ -9,6 +9,11 @@
   &:hover {
     box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%),
       0 2px 4px 0 rgb(232 237 250 / 50%);
+  }
+
+  .f-sticky-card-source {
+    padding: 20px;
+    box-sizing: border-box;
   }
 
   // 内容盒子
@@ -21,6 +26,7 @@
     background: var(--sticky-card-content-background, #fff);
 
     &.f-sticky-card-box-open {
+      border-top: 1px solid var(--sticky-card-border-color, #e5e5e5);
       overflow-y: auto;
       max-height: var(--sticky-card-max-height, 400px);
     }
@@ -38,14 +44,14 @@
 
     // 滚动滑块
     &::-webkit-scrollbar-thumb {
-      background: #dddddd;
+      background: #ddd;
       border-radius: 6px;
     }
   }
 
   // 操作栏
   .f-sticky-card-option {
-    border-top: 1px solid #ebebeb;
+    border-top: 1px solid var(--sticky-card-border-color, #e5e5e5);
     height: 45px;
     cursor: pointer;
     display: flex;
@@ -53,12 +59,15 @@
     align-items: center;
     user-select: none;
     font-size: 15px;
-    position: sticky;
-    bottom: 0px;
     background: #fff;
     padding: 10px;
     box-sizing: border-box;
     z-index: 9999;
+
+    &.f-sticky-card-option-open {
+      position: sticky;
+      bottom: 0px;
+    }
 
     .f-sticky-card-option-text {
       color: #333;

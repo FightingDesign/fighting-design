@@ -22,6 +22,10 @@ export const Props = {
     type: [String, Number] as PropType<string | number>,
     default: (): string => '400px'
   },
+  borderColor: {
+    type: String,
+    default: (): string => '#e5e5e5'
+  },
   openEnd: {
     type: Function as PropType<emitInterface>,
     default: (): null => null
