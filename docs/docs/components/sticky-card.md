@@ -20,6 +20,31 @@
   <h1>Hello World！</h1>
 </f-sticky-card>
 
+<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+
+```html
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const open1 = ref(false)
+</script>
+
+<template>
+  <f-sticky-card :open="open1">
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+  </f-sticky-card>
+</template>
+```
+
+</f-sticky-card>
+
 ## Attributes
 
 | 参数          | 说明               | 类型              | 可选值 | 默认值 |
@@ -59,3 +84,9 @@ import type { FStickyCardInstance } from 'fighting-design'
 
   const open1 = ref(false)
 </script>
+
+<style scoped>
+.f-sticky-card {
+  margin-top: 20px;
+}
+</style>
