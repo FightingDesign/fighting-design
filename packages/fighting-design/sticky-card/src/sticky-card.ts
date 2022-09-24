@@ -1,4 +1,5 @@
 import type { PropType } from 'vue'
+import type { emitInterface } from './interface'
 
 export const Props = {
   open: {
@@ -19,8 +20,14 @@ export const Props = {
   },
   openHeight: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '300px'
+    default: (): string => '400px'
+  },
+  openEnd: {
+    type: Function as PropType<emitInterface>,
+    default: (): null => null
+  },
+  closeEnd: {
+    type: Function as PropType<emitInterface>,
+    default: (): null => null
   }
 } as const
-
-export const Emits = {} as const

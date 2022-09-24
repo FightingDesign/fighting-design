@@ -18,16 +18,28 @@
     transition: max-height 0.3s;
     max-height: 0;
     overflow: hidden;
+    background: var(--sticky-card-content-background, #fff);
 
     &.f-sticky-card-box-open {
       overflow-y: auto;
-      max-height: 400px;
+      max-height: var(--sticky-card-max-height, 400px);
     }
 
     // 主要内容
     .f-sticky-card-content {
       padding: 20px;
       box-sizing: border-box;
+    }
+
+    // 滚动条
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    // 滚动滑块
+    &::-webkit-scrollbar-thumb {
+      background: #dddddd;
+      border-radius: 6px;
     }
   }
 
@@ -37,13 +49,15 @@
     height: 45px;
     cursor: pointer;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     user-select: none;
     font-size: 15px;
     position: sticky;
-    bottom: 0;
+    bottom: 0px;
     background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
 
     .f-sticky-card-option-text {
       color: #333;
