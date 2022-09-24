@@ -56,7 +56,8 @@ export const sidebar = {
         { text: 'List 列表', link: '/components/list' },
         { text: 'Radio 单选框', link: '/components/radio' },
         { text: 'ExpandCard 折叠动效', link: '/components/expand-card' },
-        { text: 'Tree 树', link: '/components/tree' }
+        { text: 'Tree 树', link: '/components/tree' },
+        { text: 'StickyCard 粘性卡片', link: '/components/sticky-card' },
       ]
     },
     {
