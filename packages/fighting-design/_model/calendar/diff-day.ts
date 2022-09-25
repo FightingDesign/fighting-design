@@ -34,8 +34,17 @@ export const diffDay: diffDayInterface = (
     const showLastListResult: a[] = []
 
     for (let i = 0; i < firstDayWeek.value; i++) {
-      const dayList: a = lunar.getLunarDetail(year.value, month.value, lastDays) as a
-      showLastListResult.push(dayList)
+      const dayList: a | -1 = lunar.getLunarDetail(year.value, month.value, lastDays)
+
+      if (dayList !== -1) {
+        showLastListResult.push(dayList)
+      } else {
+        showLastListResult.push({
+          cDay: lastDays,
+          cMonth: month.value
+        } as unknown as a)
+      }
+
       lastDays--
     }
 
@@ -48,7 +57,7 @@ export const diffDay: diffDayInterface = (
     // 获取当前月份的时间
     const thisMonthDay: number = dayMonth(year.value, month.value) + firstDayWeek.value
     // 下个月需要展示的天数
-    const nextShowDay: number = 7 - (thisMonthDay % 7)
+    const nextShowDay: number = thisMonthDay % 7 === 0 ? 0 : 7 - (thisMonthDay % 7)
 
     if (!nextShowDay) {
       return []
@@ -57,8 +66,16 @@ export const diffDay: diffDayInterface = (
     const showNextListResult: a[] = []
 
     for (let i = 0; i < nextShowDay; i++) {
-      const dayList: a = lunar.getLunarDetail(year.value, month.value + 2, i + 1) as a
-      showNextListResult.push(dayList)
+      const dayList: a | -1 = lunar.getLunarDetail(year.value, month.value + 2, i + 1)
+
+      if (dayList !== -1) {
+        showNextListResult.push(dayList)
+      } else {
+        showNextListResult.push({
+          cDay: i + 1,
+          cMonth: month.value + 2
+        } as unknown as a)
+      }
     }
 
     return showNextListResult
@@ -71,9 +88,18 @@ export const diffDay: diffDayInterface = (
     const showNextListResult: a[] = []
 
     for (let i = 0; i < monthDays; i++) {
-      const dayList: a = lunar.getLunarDetail(year.value, month.value + 1, i + 1) as a
-      showNextListResult.push(dayList)
+      const dayList: a | -1 = lunar.getLunarDetail(year.value, month.value + 1, i + 1)
+
+      if (dayList !== -1) {
+        showNextListResult.push(dayList)
+      } else {
+        showNextListResult.push({
+          cDay: i + 1,
+          cMonth: month.value + 1
+        } as unknown as a)
+      }
     }
+
     return showNextListResult
   })
 

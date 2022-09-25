@@ -1,8 +1,13 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  const date = new Date('2101-12-7')
+</script>
 
 <template>
+  <f-calendar v-model:date="date" lunar />
+
   <f-list>
     <template #header>
+      <f-calendar v-model:date="date" lunar />
       <div>111</div>
       <div>111</div>
       <div>111</div>
