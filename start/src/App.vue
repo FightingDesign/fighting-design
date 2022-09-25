@@ -2,6 +2,12 @@
 
 <template>
   <f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+    <template #source> click me </template>
+
+    click me
+    <p><em>content</em></p>
+  </f-sticky-card>
+  <!-- <f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
     <template #source>
       <f-button disabled type="default">默认按钮</f-button>
       <f-button disabled type="primary">主要按钮</f-button>
@@ -39,7 +45,7 @@
     <h1>1212</h1>
     <h1>1212</h1>
     <h1>1212</h1>
-  </f-sticky-card>
+  </f-sticky-card> -->
 </template>
 
 <style scoped></style>
