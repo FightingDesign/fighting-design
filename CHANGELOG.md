@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `sticky-card` 组件
+- `f-list` 组件新增 `header` 和 `footer` 插槽
+
 ## 0.6.5-alpha.4 (2022-09-23)
 
 **fix**

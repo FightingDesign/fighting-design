@@ -1,6 +1,8 @@
 import MarkdownIt from 'markdown-it'
 import MarkdownItContainer from 'markdown-it-container'
 
+// https://juejin.cn/post/6844903688536850440
+
 const md = MarkdownIt().use(MarkdownItContainer, 'encoding', {
   validate: function (params) {
     return params.trim().match(/^encoding\s+(.*)$/)

@@ -35,6 +35,12 @@
 
 <template>
   <ul :class="listClass" :style="listStyle">
+    <header v-if="$slots.header" class="f-list-header">
+      <slot name="header" />
+    </header>
     <slot />
+    <footer v-if="$slots.footer" class="f-list-footer">
+      <slot name="footer" />
+    </footer>
   </ul>
 </template>
