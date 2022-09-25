@@ -4,6 +4,18 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.6.5-alpha.5 (2022-09-25)
+
+**fest**
+
+- Add `sticky-card` component
+- The `f-list` component adds `header` and `footer` slots
+- Optimize the performance of `f-button` components
+
+**fix**
+
+- Fix some date display errors in the `f-calendar` component
+
 ## 0.6.5-alpha.4 (2022-09-23)
 
 **fix**
@@ -28,7 +40,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.6.5-alpha.2 (2022-09-21)
 
-- add `f-calendar` component
+- Add `f-calendar` component
 - The `size` attribute of the `f-text` component supports the `number` type
 - New component type export
 

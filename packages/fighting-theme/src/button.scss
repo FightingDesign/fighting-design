@@ -6,7 +6,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: var(--f-button-font-size, 14px);
   border: none;
   outline: none;
   user-select: none;
@@ -21,6 +21,8 @@
   vertical-align: middle;
   border-radius: $basicRadiusSize;
   overflow: hidden;
+  box-shadow: var(--f-button-box-shadow);
+  color: var(--f-button-font-color, #fff);
 
   @for $list from 1 to (length($allTypeColorList) + 1) {
     $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
@@ -28,7 +30,7 @@
     // 不同类型
     &.f-button-#{map-get($item, name)} {
       background: map-get($item, default);
-      color: map-get($item, defaultTextColor);
+      color: var(--f-button-font-color, map-get($item, defaultTextColor));
 
       &:hover {
         background: map-get($item, defaultHover);
@@ -95,7 +97,7 @@
       height: map-get($item, height);
       padding: 0 map-get($item, padding);
       line-height: map-get($item, height);
-      font-size: map-get($item, fontSize);
+      font-size: var(--f-button-font-size, map-get($item, fontSize));
 
       // 圆形按钮
       &.f-button-circle {
@@ -136,10 +138,11 @@
     animation: f-loading-button 1s linear infinite;
     -webkit-animation: f-loading-button 1s linear infinite;
     margin-right: 3px;
-    font-size: 16px;
+    font-size: var(--f-button-font-size, 16px);
   }
 
   .f-icon {
+    font-size: var(--f-button-font-size, 14px);
     background: transparent !important;
   }
 

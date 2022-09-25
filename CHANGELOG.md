@@ -8,6 +8,7 @@
 
 - 新增 `sticky-card` 组件
 - `f-list` 组件新增 `header` 和 `footer` 插槽
+- 优化 `f-button` 组件性能
 
 **fix**
 

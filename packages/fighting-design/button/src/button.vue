@@ -48,17 +48,6 @@
     ] as const
   })
 
-  // 样式列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { fontSize, fontColor, shadow } = prop
-
-    return {
-      fontSize: isString(fontSize) ? fontSize : fontSize + 'px',
-      boxShadow: shadow,
-      color: fontColor
-    } as const
-  })
-
   // 点击
   const handleClick: a = (evt: MouseEvent): void => {
     const { disabled, loading, ripples } = prop
@@ -100,64 +89,62 @@
     return beforeIcon as string
   })
 
-  // 自定义颜色
-  const customColor: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { color } = prop
+  // 样式列表
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { fontSize, fontColor, shadow, color } = prop
 
-      if (!color) return {} as const
+    const style: CSSProperties = {
+      '--f-button-font-size': isString(fontSize) ? fontSize : fontSize + 'px',
+      '--f-button-font-color': fontColor,
+      '--f-button-box-shadow': shadow
+    } as const
 
+    if (color) {
       const changeColor: ChangeColor = new ChangeColor(color)
       const light: string = changeColor.getLightColor(0.4)
       const dark: string = changeColor.getDarkColor(0.2)
 
-      return {
-        '--f-button-default-color': color,
-        '--f-button-hover-color': light,
-        '--f-button-active-color': dark
-      } as const
+      style['--f-button-default-color'] = color
+      style['--f-button-hover-color'] = light
+      style['--f-button-active-color'] = dark
     }
-  )
+
+    return style
+  })
 </script>
 
 <template>
   <template v-if="href">
     <a
       ref="FButton"
+      role="button"
       :class="classList"
       :href="href"
       :target="target"
-      :style="{ ...styleList, ...customColor }"
+      :style="styleList"
       @click="handleClick"
     >
-      <f-icon
-        v-if="beforeIcon || loading"
-        :icon="beforeIconClass"
-        :style="styleList"
-      />
+      <f-icon v-if="beforeIcon || loading" :icon="beforeIconClass" />
       <slot />
-      <f-icon v-if="afterIcon" :icon="afterIcon" :style="styleList" />
+      <f-icon v-if="afterIcon" :icon="afterIcon" />
     </a>
   </template>
 
   <template v-else>
     <button
       ref="FButton"
+      role="button"
       :class="classList"
       :disabled="disabled || loading"
       :autofocus="autofocus"
       :name="name"
       :type="nativeType"
-      :style="{ ...styleList, ...customColor }"
+      :style="styleList"
       @click="handleClick"
     >
-      <f-icon
-        v-if="beforeIcon || loading"
-        :icon="beforeIconClass"
-        :style="styleList"
-      />
+      <f-icon v-if="beforeIcon || loading" :icon="beforeIconClass" />
       <slot />
-      <f-icon v-if="afterIcon" :icon="afterIcon" :style="styleList" />
+      <f-icon v-if="afterIcon" :icon="afterIcon" />
     </button>
   </template>
 </template>

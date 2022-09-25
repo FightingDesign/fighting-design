@@ -2,6 +2,18 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.6.5-alpha.5 (2022-09-25)
+
+**fest**
+
+- 新增 `sticky-card` 组件
+- `f-list` 组件新增 `header` 和 `footer` 插槽
+- 优化 `f-button` 组件性能
+
+**fix**
+
+- 修复 `f-calendar` 组件的一些日期显示错误的问题
+
 ## 0.6.5-alpha.4 (2022-09-23)
 
 **fix**
