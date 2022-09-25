@@ -77,7 +77,11 @@ export const sidebar = {
         { text: 'Message 消息提示', link: '/components/message' },
         { text: 'Notification 通知', link: '/components/notification' },
         { text: 'Skeleton 骨架屏', link: '/components/skeleton' },
-        { text: 'Loading Bar 加载条', link: '/components/loading-bar' }
+        { text: 'Loading Bar 加载条', link: '/components/loading-bar' },
+        { text: 'BackTop 返回顶部', link: '/components/back-top' },
+        { text: 'Dialog 对话框', link: '/components/dialog' },
+        { text: 'Drawer 抽屉', link: '/components/drawer' },
+        { text: 'Tooltip 消息提示', link: '/components/tooltip' }
       ]
     },
     {
@@ -86,10 +90,6 @@ export const sidebar = {
       items: [
         { text: 'Toolbar 工具栏', link: '/components/toolbar' },
         { text: 'Divider 分隔线', link: '/components/divider' },
-        { text: 'BackTop 返回顶部', link: '/components/back-top' },
-        { text: 'Dialog 对话框', link: '/components/dialog' },
-        { text: 'Drawer 抽屉', link: '/components/drawer' },
-        { text: 'Tooltip 消息提示', link: '/components/tooltip' },
         { text: 'Watermark 水印', link: '/components/watermark' },
         { text: 'Ripple 涟漪', link: '/components/ripple' },
         { text: 'Calendar 日历', link: '/components/calendar' },
