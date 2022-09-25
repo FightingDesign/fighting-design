@@ -25,7 +25,7 @@ export const Props = {
   },
   fontColor: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#fff'
   },
   size: {
     type: String as PropType<buttonSize>,
