@@ -6,7 +6,7 @@ import type {
   InstanceOptions,
   FMessageInstance
 } from '../../_interface'
-import { useMassageManage } from '../../_hooks/useMessageMange'
+import { useMassageManage } from '../../_hooks'
 import type { ComponentInternalInstance } from 'vue';
 
 type FMessageFnWithType = {

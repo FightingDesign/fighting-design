@@ -1,5 +1,5 @@
 import { reactive } from 'vue'
-import type { FMessageInstance, useMassageManageReturnInterface } from '../_interface'
+import type { FMessageInstance, useMassageManageReturnInterface } from '../../_interface'
 
 /**
  * 创建弹出的消息体实例

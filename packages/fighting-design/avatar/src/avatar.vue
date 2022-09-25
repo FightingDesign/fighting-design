@@ -3,7 +3,7 @@
   import { computed, ref, onMounted } from 'vue'
   import { loadImage, isNumber, isString } from '../../_utils'
   import { FIcon } from '../../icon'
-  import { useFilterProps } from '../../_hooks/useFilterProps'
+  import { useFilterProps } from '../../_hooks'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { FPropsType } from './avatar'
   import type { callbackInterface as a } from './interface'

@@ -2,7 +2,7 @@
   import { Props, Emits } from './image'
   import { onMounted, ref, computed } from 'vue'
   import { loadImage, isString } from '../../_utils'
-  import { useFilterProps } from '../../_hooks/useFilterProps'
+  import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { FPropsType } from './image'
   import type {
