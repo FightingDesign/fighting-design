@@ -50,7 +50,7 @@
 </script>
 
 <template>
-  <div :class="classList" :style="styleList">
+  <div rule="radio" :class="classList" :style="styleList">
     <slot />
   </div>
 </template>

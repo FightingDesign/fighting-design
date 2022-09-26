@@ -93,6 +93,7 @@
 <template>
   <div
     v-if="isSuccess"
+    rule="img"
     :class="['f-image', { 'f-image-block': block }]"
     :style="styleList"
   >

@@ -24,9 +24,9 @@
 
     <span
       v-else
-      :style="{ color: separatorColor }"
       class="f-breadcrumb-item-separator"
       role="presentation"
+      :style="{ color: separatorColor }"
     >
       {{ separator }}
     </span>

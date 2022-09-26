@@ -83,7 +83,7 @@
 </script>
 
 <template>
-  <label :class="classList">
+  <label rule="radio" :class="classList">
     <input
       v-model="modelValue"
       hidden
@@ -92,7 +92,7 @@
       :disabled="disabled"
       :name="name"
       @change="handleChange"
-    >
+    />
     <span
       v-if="!radioGroup?.border || radioGroup?.circle"
       class="f-radio-circle"
