@@ -123,15 +123,15 @@
 
 ## Attributes
 
-| 参数         | 说明                                          | 类型          | 可选值                                 | 默认值 |
-| ------------ | --------------------------------------------- | ------------- | -------------------------------------- | ------ |
-| `value`      | 显示值                                        | string number | ——                                     | ——     |
-| `max`        | `value` 为数字时的最大值，超出显示为 `value+` | number        | ——                                     | 99     |
-| `dot`        | 展示为一个点                                  | boolean       | ——                                     | false  |
-| `show`       | 是否显示                                      | boolean       | ——                                     | true   |
-| `type`       | 样式主题                                      | string        | `primary` `success` `danger` `warning` | danger |
-| `color`      | 自定义颜色                                    | string        | ——                                     | ——     |
-| `text-color` | 自定义文字颜色                                | string        | ——                                     | ——     |
+| 参数         | 说明                                          | 类型            | 可选值                                 | 默认值 |
+| ------------ | --------------------------------------------- | --------------- | -------------------------------------- | ------ |
+| `value`      | 显示值                                        | string / number | ——                                     | ——     |
+| `max`        | `value` 为数字时的最大值，超出显示为 `value+` | number          | ——                                     | 99     |
+| `dot`        | 展示为一个点                                  | boolean         | ——                                     | false  |
+| `show`       | 是否显示                                      | boolean         | ——                                     | true   |
+| `type`       | 样式主题                                      | string          | `primary` `success` `danger` `warning` | danger |
+| `color`      | 自定义颜色                                    | string          | ——                                     | ——     |
+| `text-color` | 自定义文字颜色                                | string          | ——                                     | ——     |
 
 ## Interface
 

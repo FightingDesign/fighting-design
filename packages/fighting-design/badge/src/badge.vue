@@ -1,27 +1,30 @@
 <script lang="ts" setup name="FBadge">
   import { computed } from 'vue'
   import { Props } from './badge'
+  import { isNumber } from '../../_utils'
   import type { ComputedRef } from 'vue'
   import type { classListInterface as a } from '../../_interface'
 
   const prop = defineProps(Props)
 
   const classList: ComputedRef<a> = computed((): a => {
+    const { type, dot } = prop
+
     return [
       'f-badge-content',
-      `f-badge-${prop.type}`,
+      `f-badge-${type}`,
       {
-        'f-badge-dot': prop.dot
+        'f-badge-dot': dot
       }
     ] as const
   })
 
-  const content: ComputedRef<string> = computed<string>((): string => {
+  const content: ComputedRef<string> = computed((): string => {
     const { dot, max, value } = prop
 
     if (dot) return ''
 
-    if (typeof max === 'number' && typeof value === 'number') {
+    if (isNumber(max) && isNumber(value)) {
       return max > value ? `${value}` : `${max}+`
     }
 
