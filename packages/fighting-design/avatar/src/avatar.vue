@@ -75,27 +75,6 @@
     } as const
   })
 
-  // 图片尺寸样式
-  // const imageSizeStyleList: ComputedRef<CSSProperties> = computed(
-  //   (): CSSProperties => {
-  //     const { background, size } = prop
-
-  //     if (isNumber(size)) {
-  //       return { width: `${size}px`, height: `${size}px`, background } as const
-  //     }
-  //     return { background } as const
-  //   }
-  // )
-
-  // 文字头像的文字颜色
-  // const textStyleList: ComputedRef<CSSProperties> = computed(
-  //   (): CSSProperties => {
-  //     const { fontColor, fontSize } = prop
-
-  //     return { color: fontColor, fontSize } as const
-  //   }
-  // )
-
   // 开始加载图片
   const loadAction: c = (): void => {
     const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
