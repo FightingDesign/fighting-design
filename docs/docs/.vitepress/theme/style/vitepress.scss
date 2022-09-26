@@ -86,6 +86,11 @@
   }
 }
 
+// 菜单栏
+.VPSidebar.open {
+  z-index: 99999;
+}
+
 // 滚动条
 ::-webkit-scrollbar {
   width: 7px;

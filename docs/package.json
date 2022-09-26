@@ -7,7 +7,12 @@
     "serve": "vitepress serve docs"
   },
   "dependencies": {
-    "clipboard": "^2.0.10",
     "vitepress": "1.0.0-alpha.9"
+  },
+  "devDependencies": {
+    "clipboard": "^2.0.10",
+    "highlight.js": "^11.6.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-container": "^3.0.0"
   }
 }

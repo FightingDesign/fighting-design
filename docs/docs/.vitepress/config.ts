@@ -2,6 +2,7 @@ import { nav } from './utils/nav'
 import { sidebar } from './utils/sidebar'
 import { description } from './utils/description'
 import { defineConfig } from 'vitepress'
+import { mdPlugin } from './config/plugins'
 
 export default defineConfig({
   title: 'Fighting Design',
@@ -27,5 +28,8 @@ export default defineConfig({
       }
     ],
     logo: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
+  },
+  markdown: {
+    config: (md) => mdPlugin(md),
   }
 })
