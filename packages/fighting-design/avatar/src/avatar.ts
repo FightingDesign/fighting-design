@@ -52,12 +52,12 @@ export const Props = {
     default: (): string => ''
   },
   fontSize: {
-    type: String,
-    default: (): string => ''
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => '15px'
   },
   fontColor: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#333'
   },
   text: {
     type: String,

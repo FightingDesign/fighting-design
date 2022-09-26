@@ -5,6 +5,14 @@
   justify-content: center;
   align-items: center;
   vertical-align: middle;
+  width: var(--f-avatar-size, 60px);
+  height: var(--f-avatar-size, 60px);
+  background: var(--f-avatar-background-color, none);
+
+  .f-avatar-img {
+    width: var(--f-avatar-size, 60px);
+    height: var(--f-avatar-size, 60px);
+  }
 
   // 不同大小
   @each $key, $value in $avatarSize {
@@ -29,8 +37,8 @@
   }
 
   .f-avatar-text {
-    font-size: 15px;
-    color: #333;
+    color: var(--f-avatar-font-color, #333);
+    font-size: var(--f-avatar-font-size, 15px);
   }
 
   @keyframes bgPos {
@@ -66,7 +74,7 @@
   vertical-align: middle;
 
   .f-avatar-error-text {
-    color: #333;
-    font-size: 13px;
+    color: var(--f-avatar-font-color, #333);
+    font-size: var(--f-avatar-font-size, 13px);
   }
 }

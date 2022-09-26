@@ -64,26 +64,37 @@
     ]
   })
 
-  // 图片尺寸样式
-  const imageSizeStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { background, size } = prop
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { background, size, fontColor, fontSize } = prop
 
-      if (isNumber(size)) {
-        return { width: `${size}px`, height: `${size}px`, background } as const
-      }
-      return { background } as const
-    }
-  )
+    return {
+      '--f-avatar-size': isNumber(size) ? size + 'px' : '',
+      '--f-avatar-background-color': background,
+      '--f-avatar-font-color': fontColor,
+      '--f-avatar-font-size': isString(fontSize) ? fontSize : fontSize + 'px'
+    } as const
+  })
+
+  // 图片尺寸样式
+  // const imageSizeStyleList: ComputedRef<CSSProperties> = computed(
+  //   (): CSSProperties => {
+  //     const { background, size } = prop
+
+  //     if (isNumber(size)) {
+  //       return { width: `${size}px`, height: `${size}px`, background } as const
+  //     }
+  //     return { background } as const
+  //   }
+  // )
 
   // 文字头像的文字颜色
-  const textStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { fontColor, fontSize } = prop
+  // const textStyleList: ComputedRef<CSSProperties> = computed(
+  //   (): CSSProperties => {
+  //     const { fontColor, fontSize } = prop
 
-      return { color: fontColor, fontSize } as const
-    }
-  )
+  //     return { color: fontColor, fontSize } as const
+  //   }
+  // )
 
   // 开始加载图片
   const loadAction: c = (): void => {
@@ -109,10 +120,10 @@
 </script>
 
 <template>
-  <div v-if="isSuccess" :class="classList" :style="imageSizeStyleList">
+  <div v-if="isSuccess" role="img" :class="classList" :style="styleList">
     <f-icon v-if="icon" :icon="icon" :color="fontColor" :size="fontSize" />
 
-    <span v-else-if="text" :style="textStyleList" class="f-avatar-text">
+    <span v-else-if="text" class="f-avatar-text">
       {{ text }}
     </span>
 
@@ -121,13 +132,12 @@
       v-show="isShowNode"
       ref="FAvatarImg"
       src=""
-      :style="imageSizeStyleList"
       :class="nodeClassList"
       :alt="alt"
     />
   </div>
 
-  <div v-else class="f-avatar-error" :style="imageSizeStyleList">
+  <div v-else class="f-avatar-error" :style="styleList">
     <slot name="error">
       <span class="f-avatar-error-text">{{ alt || '加载失败' }}</span>
     </slot>
