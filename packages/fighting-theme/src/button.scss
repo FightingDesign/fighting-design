@@ -30,7 +30,7 @@
     // 不同类型
     &.f-button-#{map-get($item, name)} {
       background: map-get($item, default);
-      color: var(--f-button-font-color, map-get($item, defaultTextColor));
+      color: map-get($item, defaultTextColor);
 
       &:hover {
         background: map-get($item, defaultHover);
