@@ -1,4 +1,4 @@
-import Message from './src/method'
+import Message from '../_model/message/method'
 
 import { installFn } from '../_utils'
 

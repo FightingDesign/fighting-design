@@ -1,6 +1,10 @@
 import MarkdownIt from 'markdown-it'
 import MarkdownItContainer from 'markdown-it-container'
 
+// export type Translate = ReturnType<typeof createTranslate>
+
+// export type ButtonProps = ExtractPropTypes<typeof buttonProps>
+
 // https://juejin.cn/post/6844903688536850440
 
 const md = MarkdownIt().use(MarkdownItContainer, 'encoding', {

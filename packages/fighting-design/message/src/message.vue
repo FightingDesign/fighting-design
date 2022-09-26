@@ -8,7 +8,7 @@
     ordinaryFunctionInterface as a,
     classListInterface as b
   } from '../../_interface'
-  import { massageManage } from './method'
+  import { massageManage } from '../../_model/message/method'
 
   const prop = defineProps(Props)
   defineEmits(Emits)

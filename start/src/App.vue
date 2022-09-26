@@ -1,9 +1,16 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { FMessage } from '../../packages/fighting-design/index'
+
+  const openMessage = (): void => {
+    FMessage({
+      message: '这是一条消息提示',
+      type: 'success'
+    })
+  }
+</script>
 
 <template>
-  <f-badge value="11">
-    <f-button>default</f-button>
-  </f-badge>
+  <f-button type="primary" @click="openMessage">show</f-button>
 </template>
 
 <style scoped></style>

@@ -1,4 +1,20 @@
 import type { ComponentInternalInstance } from 'vue'
+import type { MessagePropsType } from '../message/src/message'
+import type { messageType } from '../message/src/interface'
+import type {
+  InstanceOptions,
+  FMessageInstance
+} from '../../_interface'
+
+export type FMessageFnWithType = {
+  [key in messageType]: (text: string) => void
+}
+
+export type MessageOptions = InstanceOptions<MessagePropsType>
+
+export interface FMessageFn {
+  (options: MessageOptions | string): FMessageInstance
+}
 
 export interface FMessageInstance {
   visible: number
