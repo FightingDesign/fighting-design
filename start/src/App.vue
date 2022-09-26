@@ -1,16 +1,17 @@
 <script lang="ts" setup>
-  import { FNotification } from '../../packages/fighting-design/index'
+  import { mdPlugin } from './utils/index'
+  import { md } from './utils/md'
 
-  const openMessage = (): void => {
-    FNotification({
-      message: '这是一条消息提示',
-      type: 'success'
-    })
-  }
+  // console.log(md)
+  const mdRes = mdPlugin.render(md)
+  // console.log(mdRes)
+
+  // const res = mdPlugin(md)
+  // console.log(res)
 </script>
 
 <template>
-  <f-button type="primary" @click="openMessage">show</f-button>
+  <div v-html="mdRes"></div>
 </template>
 
 <style scoped></style>
