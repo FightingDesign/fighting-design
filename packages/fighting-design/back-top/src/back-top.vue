@@ -1,8 +1,8 @@
 <script lang="ts" setup name="FBackTop">
   import { Emits, Props } from './back-top'
-  import { onMounted, ref } from 'vue'
-  import { debounce } from '../../_utils'
-  import type { Ref } from 'vue'
+  import { onMounted, ref, computed } from 'vue'
+  import { debounce, isString } from '../../_utils'
+  import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
     handleScrollInterface as a,
     handleClickInterface as b
@@ -56,20 +56,27 @@
     }
     document.addEventListener('scroll', handleScroll(null))
   })
+
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { right, bottom, zIndex, background, color } = prop
+
+    return {
+      '--f-back-top-right': isString(right) ? right : right + 'px',
+      '--f-back-top-bottom': isString(bottom) ? bottom : bottom + 'px',
+      '--f-back-top-z-index': zIndex,
+      '--f-back-top-background': background,
+      '--f-back-top-color': color
+    } as const
+  })
 </script>
 
 <template>
   <div
     v-show="visible"
     :class="['f-back-top', { 'f-back-top-round': round }]"
-    :style="{ right, bottom, zIndex }"
+    :style="styleList"
+    @click.stop="handleClick"
   >
-    <div
-      class="f-back-top-item"
-      :style="{ background, color }"
-      @click.stop="handleClick"
-    >
-      <slot />
-    </div>
+    <slot />
   </div>
 </template>

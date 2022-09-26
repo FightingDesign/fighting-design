@@ -110,13 +110,13 @@
 | `round`          | 是否为圆角                                                               | boolean | ——              | false  |
 | `behavior`       | 滚动模式                                                                 | string  | `smooth` `auto` | smooth |
 | `visible-height` | 超出的距离展示                                                           | number  | ——              | 200    |
-| `right`          | 距离右侧的距离                                                           | string  | ——              | ——     |
-| `bottom`         | 距离底部的距离                                                           | string  | ——              | ——     |
+| `right`          | 距离右侧的距离                                                           | string  | ——              | 40px   |
+| `bottom`         | 距离底部的距离                                                           | string  | ——              | 40px   |
 | `z-index`        | 原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) | number  | ——              | 200    |
-| `top`            | 点击返回距离顶部的距离                                                   | number  | ——              | 0      |
+| `top`            | 点击返回距离顶部的距离                                                   | number  | ——              | 900    |
 | `listen-el`      | 监视指定元素，需要传入指定的 class 或 id，如：.box #app                  | string  | ——              | ——     |
-| `background`     | 背景色                                                                   | string  | ——              | ——     |
-| `color`          | 文字颜色                                                                 | string  | ——              | ——     |
+| `background`     | 背景色                                                                   | string  | ——              | #fff   |
+| `color`          | 文字颜色                                                                 | string  | ——              | #333   |
 
 ## Slots
 

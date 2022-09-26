@@ -4,6 +4,10 @@
 
 - 修复 `f-button` 组件 `font-color` 默认值
 - 修复 `f-button` 组件 `font-size` 默认值
+- 优化 `f-avatar` 组件部分样式的实现，减少代码开销
+- 优化 `f-back-top` 组件部分样式的实现，减少代码开销
+- `f-back-top` 组件 `right` `bottom` 配置项支持 `number` 类型
+- 优化 `f-back-top` 组件部分 `props` 默认值
 
 ## 0.6.5-alpha.5 (2022-09-25)
 

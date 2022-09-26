@@ -19,21 +19,22 @@ export const Props = {
     validator: (val: number): boolean => val >= 0
   },
   right: {
-    type: String,
-    default: (): string => ''
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => '40px'
   },
   bottom: {
-    type: String,
-    default: (): string => ''
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => '40px'
   },
   zIndex: {
     type: Number,
-    default: (): number => 200,
+    default: (): number => 900,
     validator: (val: number): boolean => val >= 0
   },
   top: {
     type: Number,
-    default: (): number => 0
+    default: (): number => 0,
+    validator: (val: number): boolean => val >= 0
   },
   listenEl: {
     type: String,
@@ -41,11 +42,11 @@ export const Props = {
   },
   background: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#fff'
   },
   color: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#333'
   }
 } as const
 
