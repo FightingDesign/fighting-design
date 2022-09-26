@@ -30,16 +30,21 @@
 
     return `${value}`
   })
+
+  const styleList = computed(() => {
+    const { color, textColor } = prop
+
+    return {
+      '--f-badge-background': color,
+      '--f-badge-text-color': textColor
+    } as const
+  })
 </script>
 
 <template>
-  <div class="f-badge">
+  <div class="f-badge" :style="styleList">
     <slot />
-    <sup
-      v-show="!show && (content || dot)"
-      :class="classList"
-      :style="{ background: color, color: textColor }"
-    >
+    <sup v-show="!show && (content || dot)" :class="classList">
       {{ content }}
     </sup>
   </div>
