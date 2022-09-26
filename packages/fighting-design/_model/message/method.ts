@@ -1,14 +1,9 @@
 import messageVue from '../../message/src/message.vue'
-import { messageTypes } from './type'
-import { useMassageManage } from '../../_hooks'
 import { render, createVNode } from 'vue'
+import { useMassageManage } from '../../_hooks'
+import { messageTypes } from './type'
 import type { messagePlacementType } from '../../message/src/interface'
-import type {
-  FMessageInstance,
-  FMessageFnWithType,
-  MessageOptions,
-  FMessageFn
-} from '../../_interface'
+import type { FMessageInstance, FMessageFnWithType, MessageOptions, FMessageFn } from '../../_interface'
 import type { ComponentInternalInstance } from 'vue'
 
 export const massageManage = useMassageManage<messagePlacementType>()

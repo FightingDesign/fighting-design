@@ -1,10 +1,18 @@
 import type { ComponentInternalInstance } from 'vue'
 import type { MessagePropsType } from '../message/src/message'
 import type { messageType } from '../message/src/interface'
-import type {
-  InstanceOptions,
-  FMessageInstance
-} from '../../_interface'
+
+export type InstanceOptions<T> = Partial<Mutable<T>> & {
+  onDestroy?: () => void
+}
+
+export interface FMessageInstance {
+  visible: number
+  bottom: number
+  id: string
+  vm: ComponentInternalInstance
+  close: () => void
+}
 
 export type FMessageFnWithType = {
   [key in messageType]: (text: string) => void
@@ -16,19 +24,7 @@ export interface FMessageFn {
   (options: MessageOptions | string): FMessageInstance
 }
 
-export interface FMessageInstance {
-  visible: number
-  bottom: number
-  id: string
-  vm: ComponentInternalInstance
-  close: () => void
-}
-
 type Mutable<T> = { -readonly [P in keyof T]: T[P] }
-
-export type InstanceOptions<T> = Partial<Mutable<T>> & {
-  onDestroy?: () => void
-}
 
 export interface useMassageManageReturnInterface {
   instances: Partial<{ [key in messagePlacementType]: FMessageInstance[] }>

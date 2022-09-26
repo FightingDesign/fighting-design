@@ -1,4 +1,4 @@
-import Notification from './src/method'
+import Notification from '../_model/notification/method'
 
 import { installFn } from '../_utils'
 

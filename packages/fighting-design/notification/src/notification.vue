@@ -2,16 +2,17 @@
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
   import { FIcon } from '../../icon'
   import { isString } from '../../_utils'
-  import { Props, Emits, notificationDefaultIcon } from './notification'
+  import { Props, Emits } from './notification'
+  import { notificationDefaultIcon } from '../../_model/notification/type'
+  import { massageManage } from '../../_model/notification/method'
   import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
     ordinaryFunctionInterface as a,
     classListInterface as b
   } from '../../_interface'
-  import type { FPropsType } from './notification'
-  import { massageManage } from './method'
+  import type { NotificationPropsType } from './notification'
 
-  const prop: FPropsType = defineProps(Props)
+  const prop: NotificationPropsType = defineProps(Props)
   defineEmits(Emits)
 
   /**

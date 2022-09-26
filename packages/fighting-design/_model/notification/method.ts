@@ -1,35 +1,23 @@
+import messageVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
-import messageVue from './notification.vue'
-import { messageTypes } from './notification'
-import type { FPropsType, messagePlacementType, messageType } from './notification'
-import type {
-  InstanceOptions,
-  FMessageInstance
-} from '../../_interface'
 import { useMassageManage } from '../../_hooks'
-import type { ComponentInternalInstance } from 'vue';
+import { notificationTypes } from './type'
+import type { FMessageInstance } from '../../_interface'
+import type { notificationPlacementType } from '../../notification/src/interface'
+import type { ComponentInternalInstance } from 'vue'
+import type { FNotificationFnWithType, FNotificationFn, NotificationOptions } from '../../_interface'
 
-type FMessageFnWithType = {
-  [key in messageType]: (text: string) => void
-}
-
-type MessageOptions = InstanceOptions<FPropsType>
-interface FMessageFn {
-  (options: MessageOptions | string): FMessageInstance
-}
-
-export const massageManage = useMassageManage<messagePlacementType>()
+export const massageManage = useMassageManage<notificationPlacementType>()
 
 const defaultOptions: {
-  placement: messagePlacementType
+  placement: notificationPlacementType
 } = {
   placement: 'top-right'
 }
 
-// message 的实例组
 let seed = 1
 
-const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
+const FMessage: FNotificationFn & Partial<FNotificationFnWithType> = (
   options
 ): FMessageInstance => {
   const container = document.createElement('div')
@@ -38,9 +26,9 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
   if (typeof options === 'string') {
     options = {
       message: options
-    } as MessageOptions
+    } as NotificationOptions
   }
-  const props: MessageOptions & typeof defaultOptions = {
+  const props: NotificationOptions & typeof defaultOptions = {
     id,
     ...defaultOptions,
     ...options
@@ -86,10 +74,10 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
   return instance
 }
 
-messageTypes.forEach((type): void => {
+notificationTypes.forEach((type): void => {
   FMessage[type] = (text: string): void => {
     FMessage({ message: text, type })
   }
 })
 
-export default FMessage as FMessageFn & FMessageFnWithType
+export default FMessage as FNotificationFn & FNotificationFnWithType

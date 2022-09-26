@@ -1,31 +1,6 @@
+import { notificationPlacements, notificationTypes } from '../../_model/notification/type'
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
-
-export const messageTypes = [
-  'default',
-  'primary',
-  'success',
-  'danger',
-  'warning'
-] as const
-
-export const notificationDefaultIcon = {
-  default: 'f-icon-prompt-fill',
-  primary: 'f-icon-remind-fill',
-  success: 'f-icon-success-fill',
-  danger: 'f-icon-reeor',
-  warning: 'f-icon-warning-fill'
-}
-
-export type messageType = typeof messageTypes[number]
-
-const messagePlacement = [
-  'top-left',
-  'top-right',
-  'bottom-left',
-  'bottom-right'
-] as const
-
-export type messagePlacementType = typeof messagePlacement[number]
+import type { notificationType, notificationPlacementType } from './interface'
 
 export const Props = {
   id: {
@@ -42,10 +17,10 @@ export const Props = {
     require: true
   },
   type: {
-    type: String as PropType<messageType>,
-    default: (): messageType => 'default',
-    validator: (val: messageType): boolean => {
-      return messageTypes.includes(val)
+    type: String as PropType<notificationType>,
+    default: (): notificationType => 'default',
+    validator: (val: notificationType): boolean => {
+      return notificationTypes.includes(val)
     }
   },
   close: {
@@ -81,10 +56,10 @@ export const Props = {
     default: (): number => 20
   },
   placement: {
-    type: String as PropType<messagePlacementType>,
-    default: (): messagePlacementType => 'top-right',
-    validator: (val: messagePlacementType): boolean => {
-      return messagePlacement.includes(val)
+    type: String as PropType<notificationPlacementType>,
+    default: (): notificationPlacementType => 'top-right',
+    validator: (val: notificationPlacementType): boolean => {
+      return notificationPlacements.includes(val)
     }
   },
   zIndex: {
@@ -102,4 +77,4 @@ export const Props = {
 
 export const Emits = ['destroy']
 
-export type FPropsType = ExtractPropTypes<typeof Props>
+export type NotificationPropsType = ExtractPropTypes<typeof Props>
