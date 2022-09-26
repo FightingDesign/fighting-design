@@ -50,6 +50,7 @@
         @click.self="modalClose && closeDialog()"
       >
         <div
+          role="dialog"
           :class="[
             'f-dialog',
             visible ? 'f-dialog-scale-in' : 'f-dialog-scale-out',

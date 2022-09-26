@@ -118,6 +118,7 @@
     <a
       ref="FButton"
       role="button"
+      tabindex="0"
       :class="classList"
       :href="href"
       :target="target"
@@ -134,6 +135,7 @@
     <button
       ref="FButton"
       role="button"
+      tabindex="0"
       :class="classList"
       :disabled="disabled || loading"
       :autofocus="autofocus"

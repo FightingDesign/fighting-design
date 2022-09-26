@@ -26,6 +26,7 @@
 
 <template>
   <div
+    role="separator"
     :class="[
       'f-divider',
       { 'f-divider-vertical': vertical, [`f-divider-${type}`]: type }

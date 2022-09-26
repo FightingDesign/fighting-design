@@ -49,7 +49,7 @@
 </script>
 
 <template>
-  <div :class="['f-switch', { 'f-switch-disabled': disabled }]">
+  <div role="switch" :class="['f-switch', { 'f-switch-disabled': disabled }]">
     <span
       v-if="closeText"
       :class="['f-switch-right-text', { 'f-switch-text-active': !modelValue }]"
