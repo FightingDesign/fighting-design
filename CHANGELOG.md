@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 修复 `f-button` 组件 `font-color` 默认值
+- 修复 `f-button` 组件 `font-size` 默认值
+
 ## 0.6.5-alpha.5 (2022-09-25)
 
 **fest**
