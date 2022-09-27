@@ -5,6 +5,6 @@ import { FStickyCard } from '../index'
 describe('StickPanel', () => {
   test('class', () => {
     const wrapper = mount(FStickyCard)
-    expect(wrapper.classes()).toContain('f-stick-panel')
+    expect(wrapper.classes()).toContain('f-sticky-card')
   })
 })

@@ -87,7 +87,6 @@ describe('FProgress', () => {
     const wrapper = mount(FProgress, {
       props: { stripe: true, percentage: 40 }
     })
-    console.log(wrapper.find('.f-progress-fill').classes())
     expect(wrapper.find('.f-progress-fill').classes()).toContain(
       'f-progress-stripe'
     )
