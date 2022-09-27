@@ -47,7 +47,7 @@ pnpm start
 
 ```json
   "scripts": {
-    "clean": "rimraf dist", // 清楚 dist
+    "clean": "rimraf dist", // 清除 dist
     "start": "pnpm run -C start dev", // 启动测试开发项目
     "dev:docs": "pnpm run -C docs dev", // 启动文档
     "build": "pnpm clean && pnpm build:css && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move", // 打包命令整合
