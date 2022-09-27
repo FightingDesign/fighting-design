@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FToolbarItem">
   import { Emits, Props } from './toolbar-item'
   import { FIcon } from '../../icon'
-  import type { handleClickInterface as a } from './interface'
+  import type { handleEventInterface as a } from '../../_interface'
 
   defineProps(Props)
   const emit = defineEmits(Emits)

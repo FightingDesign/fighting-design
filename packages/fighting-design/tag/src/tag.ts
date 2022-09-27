@@ -1,11 +1,11 @@
-import type { tagSizeType, tagTypeType } from './interface'
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { TagSizeType, TagType } from './interface'
 
 export const Props = {
   type: {
-    type: String as PropType<tagTypeType>,
-    default: (): tagTypeType => 'default',
-    validator: (val: tagTypeType): boolean => {
+    type: String as PropType<TagType>,
+    default: (): TagType => 'default',
+    validator: (val: TagType): boolean => {
       return (
         ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
@@ -36,9 +36,9 @@ export const Props = {
     default: (): string => ''
   },
   size: {
-    type: String as PropType<tagSizeType>,
-    default: (): tagSizeType => 'middle',
-    validator: (val: tagSizeType): boolean => {
+    type: String as PropType<TagSizeType>,
+    default: (): TagSizeType => 'middle',
+    validator: (val: TagSizeType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -59,3 +59,5 @@ export const Props = {
 export const Emits = {
   'close-end': (evt: Event): Event => evt
 } as const
+
+export type TagPropsType = ExtractPropTypes<typeof Props>

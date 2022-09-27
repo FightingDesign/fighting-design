@@ -2,8 +2,10 @@
   import { Props, Emits } from './toolbar'
   import { computed } from 'vue'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { classListInterface as a } from '../../_interface'
-  import type { handleClickInterface as b } from './interface'
+  import type {
+    classListInterface as a,
+    handleEventInterface as b
+  } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -22,19 +24,14 @@
   })
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { textColor, background, fixed, fixedStyle, width, height } = prop
+    const { textColor, background, width, height } = prop
 
-    const style = {
+    return {
       color: textColor,
       background,
       width,
       height
     } as const
-
-    if (fixed && fixedStyle) {
-      return { ...style, ...fixedStyle } as const
-    }
-    return style
   })
 
   const handleClick: b = (evt: MouseEvent): void => {

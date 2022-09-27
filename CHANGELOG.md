@@ -22,6 +22,7 @@
 - `f-footer` 组件 `height` `padding` 配置项添加默认值
 - `f-header` 组件 `height` `padding` 配置项添加默认值
 - `f-main` 组件 `padding` 配置项添加默认值
+- `f-toolbar` 组件废除 `fixed-style` 配置项
 
 ## 0.6.5-alpha.5 (2022-09-25)
 

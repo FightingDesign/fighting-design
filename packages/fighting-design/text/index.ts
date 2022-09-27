@@ -4,12 +4,14 @@ import { install } from '../_utils'
 
 export const FText = install(Text)
 
-export type FTextInstance = InstanceType<typeof Text>
+export type TextInstance = InstanceType<typeof Text>
+
+export type { TextPropsType } from './src/text'
+
+export type { TextType } from './src/interface'
 
 declare module 'vue' {
   export interface GlobalComponents {
     FText: typeof FText
   }
 }
-
-export type { textTypeType } from './src/interface'

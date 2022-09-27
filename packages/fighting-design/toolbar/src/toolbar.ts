@@ -1,5 +1,5 @@
-import type { PropType, CSSProperties } from 'vue'
-import type { toolbarTypeType, clickEmitInterface, toolbarFixedStyleInterface } from './interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { ToolbarType, ToolbarClickEmitInterface } from './interface'
 
 export const Props = {
   round: {
@@ -7,9 +7,9 @@ export const Props = {
     default: (): boolean => false
   },
   size: {
-    type: String as PropType<toolbarTypeType>,
-    default: (): toolbarTypeType => 'large',
-    validator: (val: toolbarTypeType): boolean => {
+    type: String as PropType<ToolbarType>,
+    default: (): ToolbarType => 'large',
+    validator: (val: ToolbarType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -29,16 +29,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  fixedStyle: {
-    type: Object as PropType<toolbarFixedStyleInterface> as PropType<unknown> as PropType<CSSProperties>,
-    default: (): null | object | toolbarFixedStyleInterface => null,
-    validator: (val: CSSProperties): boolean => {
-      if (val.bottom || val.left || val.right || val.top) {
-        return true
-      }
-      return false
-    }
-  },
   width: {
     type: String,
     default: (): string => ''
@@ -50,5 +40,7 @@ export const Props = {
 } as const
 
 export const Emits = {
-  click: (target: clickEmitInterface): clickEmitInterface => target
+  click: (target: ToolbarClickEmitInterface): ToolbarClickEmitInterface => target
 } as const
+
+export type ToolbarPropsType = ExtractPropTypes<typeof Props>

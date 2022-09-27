@@ -204,7 +204,12 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FTagInstance, tagSizeType, tagTypeType } from 'fighting-design'
+import type {
+  TagInstance,
+  TagPropsType,
+  TagSizeType,
+  TagType
+} from 'fighting-design'
 ```
 
 ## Contributors

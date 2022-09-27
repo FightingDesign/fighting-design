@@ -191,9 +191,12 @@
 
 ```ts
 import type {
-  FToolbarInstance,
-  toolbarTypeType,
-  toolbarFixedStyleInterface
+  ToolbarInstance,
+  ToolbarPropsType,
+  ToolbarType,
+  ToolbarClickEmitInterface,
+  ToolbarItemInstance,
+  ToolbarItemPropsType
 } from 'fighting-design'
 ```
 

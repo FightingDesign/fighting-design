@@ -251,7 +251,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FTextInstance, textTypeType } from 'fighting-design'
+import type { TextInstance, TextPropsType, TextType } from 'fighting-design'
 ```
 
 ## Contributors

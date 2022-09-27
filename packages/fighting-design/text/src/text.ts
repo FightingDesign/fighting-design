@@ -1,11 +1,11 @@
-import type { PropType } from 'vue'
-import type { textTypeType } from './interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { TextType } from './interface'
 
 export const Props = {
   type: {
-    type: String as PropType<textTypeType>,
-    default: (): textTypeType => 'default',
-    validator: (val: textTypeType): boolean => {
+    type: String as PropType<TextType>,
+    default: (): TextType => 'default',
+    validator: (val: TextType): boolean => {
       return (
         ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
@@ -64,3 +64,5 @@ export const Props = {
     default: (): boolean => false
   }
 } as const
+
+export type TextPropsType = ExtractPropTypes<typeof Props>

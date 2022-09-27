@@ -116,19 +116,19 @@ export { FSwitch } from './switch'
 export type { SwitchInstance, SwitchPropsType, SwitchSizeType } from './switch'
 
 export { FTag } from './tag'
-export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
+export type { TagInstance, TagPropsType, TagSizeType, TagType } from './tag'
 
 export { FText } from './text'
-export type { FTextInstance, textTypeType } from './text'
+export type { TextInstance, TextPropsType, TextType } from './text'
+
+export { FToolbar } from './toolbar'
+export type { ToolbarInstance, ToolbarPropsType, ToolbarType, ToolbarClickEmitInterface } from './toolbar'
+
+export { FToolbarItem } from './toolbar-item'
+export type { ToolbarItemInstance, ToolbarItemPropsType } from './toolbar-item'
 
 export { FTooltip } from './tooltip'
 export type { FTooltipInstance, tooltipPositionType, tooltipStateType } from './tooltip'
-
-export { FToolbar } from './toolbar'
-export type { FToolbarInstance, toolbarTypeType, toolbarFixedStyleInterface } from './toolbar'
-
-export { FToolbarItem } from './toolbar-item'
-export type { FToolbarItemInstance } from './toolbar-item'
 
 export { FMessage } from './message'
 export type { FMessageInstance } from './message'
