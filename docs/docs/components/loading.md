@@ -85,7 +85,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FLoadingInstance } from 'fighting-design'
+import type { LoadingInstance, LoadingPropsType } from 'fighting-design'
 ```
 
 ## Contributors

@@ -80,6 +80,9 @@ export type { ListInstance, ListPropsType, ListSizeType } from './list'
 export { FListItem } from './list-item'
 export type { ListItemInstance, ListItemPropsType } from './list-item'
 
+export { FLoading } from './loading'
+export type { LoadingInstance, LoadingPropsType } from './loading'
+
 export { FTag } from './tag'
 export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
 
@@ -91,9 +94,6 @@ export type { FSwitchInstance, switchSizeType } from './switch'
 
 export { FText } from './text'
 export type { FTextInstance, textTypeType } from './text'
-
-export { FLoading } from './loading'
-export type { FLoadingInstance } from './loading'
 
 export { FProgress } from './progress'
 export type { FProgressInstance, progressType } from './progress'
