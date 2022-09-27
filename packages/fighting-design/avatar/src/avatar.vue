@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FAvatar">
   import { Props, Emits } from './avatar'
   import { computed, ref, onMounted } from 'vue'
-  import { loadImage, isNumber, isString } from '../../_utils'
+  import { loadImage, isNumber, isString, sizeChange } from '../../_utils'
   import { FIcon } from '../../icon'
   import { useFilterProps } from '../../_hooks'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
@@ -71,7 +71,7 @@
       '--f-avatar-size': isNumber(size) ? size + 'px' : '',
       '--f-avatar-background-color': background,
       '--f-avatar-font-color': fontColor,
-      '--f-avatar-font-size': isString(fontSize) ? fontSize : fontSize + 'px'
+      '--f-avatar-font-size': sizeChange(fontSize)
     } as const
   })
 
