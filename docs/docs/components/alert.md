@@ -207,7 +207,7 @@
 
 | 参数          | 说明                                                 | 类型    | 可选值                                           | 默认值  |
 | ------------- | ---------------------------------------------------- | ------- | ------------------------------------------------ | ------- |
-| `type`        | 类型                                                 | string  | `default` `primary` `success` `danger` `warning` | primary |
+| `type`        | 类型                                                 | string  | `default` `primary` `success` `danger` `warning` | default |
 | `font-size`   | 文字大小，必须写入指定的数值和单位                   | string  | ——                                               | ——      |
 | `bold`        | 文字是否以粗体显示                                   | boolean | ——                                               | false   |
 | `center`      | 是否居中                                             | boolean | ——                                               | false   |
@@ -219,7 +219,6 @@
 | `background`  | 背景颜色                                             | string  | ——                                               | ——      |
 | `color`       | 字体颜色                                             | string  | ——                                               | ——      |
 | `fixed`       | 是否固定定位                                         | boolean | ——                                               | false   |
-| `fixed-style` | 固定定位的样式，仅支持 `top` `right` `button` `left` | object  | ——                                               | {}      |
 | `overflow`    | 文字超出的展示状态                                   | string  | `hidden` `ellipsis`                              | ——      |
 
 ## Slots

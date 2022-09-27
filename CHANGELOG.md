@@ -13,6 +13,11 @@
 - `f-image` 组件废除 `caption` 和 `caption-color` 配置项
 - `f-watermark` 组件 `fontSize` 配置项支持 `number` 类型参数
 - `f-progress` 组件 `width` `height` 配置项支持 `number` 类型参数
+- `f-alert` 组件废除 `fixed-style` 配置项
+- `f-alert` 组件 `font-size` 配置项支持 `number` 类型参数
+- `f-alert` 组件 `type` 默认值改为 `default`
+- `f-alert` 组件 `font-size` 默认值改为 `15px`
+- `f-alert` 组件新增 `title-size` 和 `title-color` 属性
 
 ## 0.6.5-alpha.5 (2022-09-25)
 

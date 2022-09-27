@@ -1,10 +1,10 @@
-import type { PropType, CSSProperties } from 'vue'
-import type { alertType, fixedStyleInterface, overflowType } from './interface'
+import type { PropType } from 'vue'
+import type { alertType, overflowType } from './interface'
 
 export const Props = {
   type: {
     type: String as PropType<alertType>,
-    default: (): alertType => 'primary',
+    default: (): alertType => 'default',
     validator: (val: alertType): boolean => {
       return (
         ['primary', 'success', 'danger', 'warning', 'default'] as const
@@ -12,8 +12,12 @@ export const Props = {
     }
   },
   fontSize: {
-    type: String,
-    default: (): string => ''
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => '15px'
+  },
+  titleSize: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => '17px'
   },
   bold: {
     type: Boolean,
@@ -51,19 +55,13 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
+  titleColor: {
+    type: String,
+    default: (): string => ''
+  },
   fixed: {
     type: Boolean,
     default: (): boolean => false
-  },
-  fixedStyle: {
-    type: Object as PropType<fixedStyleInterface> as PropType<unknown> as PropType<CSSProperties>,
-    default: (): null => null,
-    validator: (val: CSSProperties): boolean => {
-      if (val.bottom || val.left || val.right || val.top) {
-        return true
-      }
-      return false
-    }
   },
   overflow: {
     type: String as PropType<overflowType>,

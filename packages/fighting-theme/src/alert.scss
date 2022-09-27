@@ -3,7 +3,6 @@
 
 .f-alert {
   padding: 10px 22px;
-  color: #fff;
   position: relative;
   box-sizing: border-box;
   border-radius: $basicRadiusSize;
@@ -13,14 +12,14 @@
 
     // 不同类型
     &.f-alert-#{map-get($item, name)} {
-      background: map-get($item, default);
-      color: map-get($item, defaultTextColor);
+      background: var(--f-alert-background, map-get($item, default));
+      color: var(--f-alert-color, map-get($item, defaultTextColor));
     }
 
     // 简约的
     &.f-alert-simple.f-alert-#{map-get($item, name)} {
       background: map-get($item, simple);
-      color: map-get($item, simpleTextColor);
+      color: var(--f-alert-color, map-get($item, simpleTextColor));
     }
   }
 
@@ -44,11 +43,15 @@
   }
 
   .f-alert-title {
+    font-size: var(--f-alert-title-size, 17px);
+    color: var(--f-alert-title-color);
     font-weight: bold;
   }
 
+  // 副标题
   .f-alert-sub-title {
     display: block;
+    font-size: var(--f-alert-font-size, 15px);
   }
 
   .f-alert-sub-title-hidden {
