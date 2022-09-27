@@ -1,12 +1,14 @@
-import type { layoutDirectionType } from './interface'
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { LayoutDirectionType } from './interface'
 
 export const Props = {
   direction: {
-    type: String as PropType<layoutDirectionType>,
-    default: (): layoutDirectionType => '',
-    validator: (val: layoutDirectionType): boolean => {
+    type: String as PropType<LayoutDirectionType>,
+    default: (): LayoutDirectionType => '',
+    validator: (val: LayoutDirectionType): boolean => {
       return (['horizontal', 'vertical', ''] as const).includes(val)
     }
   }
 } as const
+
+export type LayoutPropsType = ExtractPropTypes<typeof Props>

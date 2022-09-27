@@ -68,6 +68,9 @@ export type { ImageInstance, ImagePropsType, ImageFitType } from './image'
 export { FImagePreview } from './image-preview'
 export type { ImagePreviewInstance, ImagePreviewPropsType } from './image-preview'
 
+export { FLayout } from './layout'
+export type { LayoutInstance, LayoutPropsType, LayoutDirectionType } from './layout'
+
 export { FLink } from './link'
 export type { FLinkInstance, linkType, linkTarget, linkHover } from './link'
 
@@ -76,9 +79,6 @@ export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
 
 export { FMain } from './main'
 export type { FMainInstance } from './main'
-
-export { FLayout } from './layout'
-export type { FLayoutInstance, layoutDirectionType } from './layout'
 
 export { FSwitch } from './switch'
 export type { FSwitchInstance, switchSizeType } from './switch'

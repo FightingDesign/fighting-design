@@ -253,7 +253,10 @@ import type {
   FooterInstance,
   FooterPropsType,
   HeaderInstance,
-  HeaderPropsType
+  HeaderPropsType,
+  LayoutInstance,
+  LayoutPropsType,
+  LayoutDirectionType
 } from 'fighting-design'
 ```
 
