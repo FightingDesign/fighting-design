@@ -10,6 +10,9 @@ export type { AvatarInstance, AvatarPropsType, AvatarFitType, AvatarSizeType } f
 export { FBackTop } from './back-top'
 export type { BackTopInstance, BackTopPropsType, BackTopBehaviorType } from './back-top'
 
+export { FBadge } from './badge'
+export type { BadgeInstance, BadgePropsType, BadgeType } from './badge'
+
 export { FButton } from './button'
 export type {
   FButtonInstance,
@@ -54,9 +57,6 @@ export type { FLayoutInstance, layoutDirectionType } from './layout'
 
 export { FSwitch } from './switch'
 export type { FSwitchInstance, switchSizeType } from './switch'
-
-export { FBadge } from './badge'
-export type { FBadgeInstance, badgeType } from './badge'
 
 export { FBreadcrumb } from './breadcrumb'
 export type { FBreadcrumbInstance } from './breadcrumb'

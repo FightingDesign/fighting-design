@@ -1,5 +1,5 @@
-import type { badgeType } from './interface'
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { BadgeType } from './interface'
 
 export const Props = {
   value: {
@@ -19,9 +19,9 @@ export const Props = {
     default: (): boolean => false
   },
   type: {
-    type: String as PropType<badgeType>,
-    default: (): badgeType => 'danger',
-    validator: (val: badgeType): boolean => {
+    type: String as PropType<BadgeType>,
+    default: (): BadgeType => 'danger',
+    validator: (val: BadgeType): boolean => {
       return (['primary', 'success', 'danger', 'warning'] as const).includes(
         val
       )
@@ -36,3 +36,5 @@ export const Props = {
     default: (): string => ''
   }
 } as const
+
+export type BadgePropsType = ExtractPropTypes<typeof Props>

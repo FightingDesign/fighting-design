@@ -138,7 +138,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FBadgeInstance, badgeType } from 'fighting-design'
+import type { BadgeInstance, BadgePropsType, BadgeType } from 'fighting-design'
 ```
 
 ## Contributors

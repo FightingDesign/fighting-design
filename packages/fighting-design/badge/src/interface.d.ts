@@ -1,1 +1,1 @@
-export type badgeType = 'primary' | 'success' | 'danger' | 'warning'
+export type BadgeType = 'primary' | 'success' | 'danger' | 'warning'
