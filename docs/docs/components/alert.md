@@ -221,13 +221,15 @@
 | `color`       | 副标题字体颜色     | string          | ——                                               | ——      |
 | `title-color` | 主标题字体颜色     | string          | ——                                               | ——      |
 | `fixed`       | 是否固定定位       | boolean         | ——                                               | false   |
-| `overflow`    | 文字超出的展示状态 | string          | `hidden` `ellipsis`                              | ——      |
+| `overflow`    | 文字超出的展示状态 | string          | `hidden`                                         | ——      |
 
 ## Slots
 
-| 名称      | 说明         |
-| --------- | ------------ |
-| `default` | 副标题的内容 |
+| 名称      | 说明               |
+| --------- | ------------------ |
+| `default` | 自定义副标题的内容 |
+| `title`   | 自定义主标题的内容 |
+| `close`   | 自定义关闭按钮     |
 
 ## Events
 

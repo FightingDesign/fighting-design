@@ -18,6 +18,7 @@
 - `f-alert` 组件 `type` 默认值改为 `default`
 - `f-alert` 组件 `font-size` 默认值改为 `15px`
 - `f-alert` 组件新增 `title-size` 和 `title-color` 属性
+- `f-alert` 组件 `overflow` 配置项移除 `ellipsis` 选项
 
 ## 0.6.5-alpha.5 (2022-09-25)
 

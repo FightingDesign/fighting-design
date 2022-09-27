@@ -67,7 +67,7 @@ export const Props = {
     type: String as PropType<overflowType>,
     default: (): overflowType => '',
     validator: (val: overflowType) => {
-      return (['hidden', 'roll', 'ellipsis', ''] as const).includes(val)
+      return (['hidden', ''] as const).includes(val)
     }
   }
 } as const

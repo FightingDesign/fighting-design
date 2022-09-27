@@ -6,6 +6,9 @@
   position: relative;
   box-sizing: border-box;
   border-radius: $basicRadiusSize;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   @for $list from 1 to (length($allTypeColorList) + 1) {
     $item: nth($allTypeColorList, $list); // 获取数据中心第i项的值
@@ -23,46 +26,58 @@
     }
   }
 
-  // 关闭按钮
-  .f-alert-close {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translate(0%, -50%);
+  // 主要内容
+  .f-alert-content {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex: 1;
 
-    &:hover {
-      transition: 0.5;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
+    .f-alert-icon {
+      margin-right: 13px;
+    }
+
+    // 主标题
+    .f-alert-title {
+      font-size: var(--f-alert-title-size, 17px);
+      color: var(--f-alert-title-color);
+      font-weight: bold;
+    }
+
+    // 副标题
+    .f-alert-sub-title {
+      display: block;
+      font-size: var(--f-alert-font-size, 15px);
+
+      &.f-alert-sub-title-ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 300px;
+      }
+    }
+
+    &.f-alert-content-hidden {
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
 
-  .f-alert-title {
-    font-size: var(--f-alert-title-size, 17px);
-    color: var(--f-alert-title-color);
-    font-weight: bold;
-  }
+  // 关闭按钮
+  .f-alert-close {
+    cursor: pointer;
+    min-width: 20px;
+    min-height: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5;
+    margin-left: 13px;
 
-  // 副标题
-  .f-alert-sub-title {
-    display: block;
-    font-size: var(--f-alert-font-size, 15px);
-  }
-
-  .f-alert-sub-title-hidden {
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .f-alert-sub-title-ellipsis {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+    }
   }
 
   // 加粗

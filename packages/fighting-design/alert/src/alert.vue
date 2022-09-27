@@ -28,13 +28,13 @@
     ] as const
   })
 
-  const subTitleClassList: ComputedRef<b> = computed((): b => {
+  const contentClassList: ComputedRef<b> = computed((): b => {
     const { overflow } = prop
 
     return [
-      'f-alert-sub-title',
+      'f-alert-content',
       {
-        [`f-alert-sub-title-${overflow}`]: overflow
+        [`f-alert-content-${overflow}`]: overflow
       }
     ] as const
   })
@@ -59,17 +59,26 @@
 
 <template>
   <div v-if="isShow" :class="classList" :style="styleList">
-    <div v-if="title" class="f-alert-title">
-      <f-icon :icon="icon" />
-      {{ title }}
+    <f-icon v-if="icon" :icon="icon" class="f-alert-icon" />
+
+    <div :class="contentClassList">
+      <div v-if="title" class="f-alert-title">
+        <slot name="title">{{ title }}</slot>
+      </div>
+
+      <div v-if="$slots.default" class="f-alert-sub-title">
+        <slot />
+      </div>
     </div>
 
-    <div v-if="$slots.default" :class="subTitleClassList">
-      <slot />
-    </div>
-
-    <span v-if="close" class="f-alert-close" @click.stop="handleClose">
-      <f-icon icon="f-icon-close" />
+    <span
+      v-if="close || $slots.close"
+      class="f-alert-close"
+      @click.stop="handleClose"
+    >
+      <slot name="close">
+        <f-icon icon="f-icon-close" />
+      </slot>
     </span>
   </div>
 </template>

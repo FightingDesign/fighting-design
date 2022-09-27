@@ -11,11 +11,20 @@
 </script>
 
 <template>
-  <f-alert title="你好" type="primary" title-color="red" close>
-    默认提示信息
+  <f-alert overflow="hidden">
+    认提示信息默认提示信息默认提示信息默认提示信息
+
+    <template #close>
+      <f-button type="primary">关闭</f-button>
+    </template>
   </f-alert>
 
   <!-- <div v-html="mdRes"></div> -->
 </template>
 
-<style scoped></style>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+</style>
