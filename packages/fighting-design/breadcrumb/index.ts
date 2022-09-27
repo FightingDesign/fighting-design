@@ -4,7 +4,9 @@ import { install } from '../_utils'
 
 export const FBreadcrumb = install(Breadcrumb)
 
-export type FBreadcrumbInstance = InstanceType<typeof Breadcrumb>
+export type BreadcrumbInstance = InstanceType<typeof Breadcrumb>
+
+export type { BreadcrumbPropsType } from './src/breadcrumb'
 
 declare module 'vue' {
   export interface GlobalComponents {

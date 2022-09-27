@@ -13,6 +13,12 @@ export type { BackTopInstance, BackTopPropsType, BackTopBehaviorType } from './b
 export { FBadge } from './badge'
 export type { BadgeInstance, BadgePropsType, BadgeType } from './badge'
 
+export { FBreadcrumb } from './breadcrumb'
+export type { BreadcrumbInstance, BreadcrumbPropsType } from './breadcrumb'
+
+export { FBreadcrumbItem } from './breadcrumb-item'
+export type { BreadcrumbItemInstance } from './breadcrumb-item'
+
 export { FButton } from './button'
 export type {
   FButtonInstance,
@@ -57,12 +63,6 @@ export type { FLayoutInstance, layoutDirectionType } from './layout'
 
 export { FSwitch } from './switch'
 export type { FSwitchInstance, switchSizeType } from './switch'
-
-export { FBreadcrumb } from './breadcrumb'
-export type { FBreadcrumbInstance } from './breadcrumb'
-
-export { FBreadcrumbItem } from './breadcrumb-item'
-export type { FBreadcrumbItemInstance } from './breadcrumb-item'
 
 export { FText } from './text'
 export type { FTextInstance, textTypeType } from './text'

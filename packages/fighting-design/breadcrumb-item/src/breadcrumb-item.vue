@@ -2,9 +2,9 @@
   import { inject, toRefs } from 'vue'
   import { BreadcrumbPropsKey } from '../../breadcrumb/src/breadcrumb'
   import { FIcon } from '../../icon'
-  import type { FPropsType } from '../../breadcrumb/src/breadcrumb'
+  import type { BreadcrumbPropsType } from '../../breadcrumb/src/breadcrumb'
 
-  const breadcrumbContext = inject(BreadcrumbPropsKey) as FPropsType
+  const breadcrumbContext = inject(BreadcrumbPropsKey) as BreadcrumbPropsType
   const { separator, separatorIcon, itemColor, separatorColor } =
     toRefs(breadcrumbContext)
 </script>

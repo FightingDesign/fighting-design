@@ -23,7 +23,7 @@ export const Props = {
   }
 } as const
 
-export type FPropsType = ExtractPropTypes<typeof Props>
+export type BreadcrumbPropsType = ExtractPropTypes<typeof Props>
 
-export const BreadcrumbPropsKey: InjectionKey<FPropsType> =
+export const BreadcrumbPropsKey: InjectionKey<BreadcrumbPropsType> =
   Symbol('BreadcrumbPropsKey')
