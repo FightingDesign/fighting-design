@@ -1,8 +1,11 @@
 export { FAlert } from './alert'
-export type { AlertProps, AlertInstance, AlertType, AlertOverflowType } from './alert'
+export type { AlertPropsType, AlertInstance, AlertType, AlertOverflowType } from './alert'
 
 export { FAside } from './aside'
-export type { AsideProps, AsideInstance } from './aside'
+export type { AsidePropsType, AsideInstance } from './aside'
+
+export { FAvatar } from './avatar'
+export type { AvatarInstance, AvatarPropsType, AvatarFitType, AvatarSizeType } from './avatar'
 
 export { FButton } from './button'
 export type {
@@ -51,9 +54,6 @@ export type { FSwitchInstance, switchSizeType } from './switch'
 
 export { FBadge } from './badge'
 export type { FBadgeInstance, badgeType } from './badge'
-
-export { FAvatar } from './avatar'
-export type { FAvatarInstance, avatarFit, avatarSize } from './avatar'
 
 export { FBackTop } from './back-top'
 export type { FBackTopInstance, behaviorType } from './back-top'

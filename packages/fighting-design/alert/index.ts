@@ -6,7 +6,7 @@ export const FAlert = install(Alert)
 
 export type AlertInstance = InstanceType<typeof Alert>
 
-export type { AlertProps } from './src/alert'
+export type { AlertPropsType } from './src/alert'
 
 export type { AlertType, AlertOverflowType } from './src/interface'
 

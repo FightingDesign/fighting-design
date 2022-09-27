@@ -247,12 +247,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  AsideProps,
-  AsideInstance,
-  FLayoutInstance,
-  layoutDirectionType
-} from 'fighting-design'
+import type { AsidePropsType, AsideInstance } from 'fighting-design'
 ```
 
 ## Contributors

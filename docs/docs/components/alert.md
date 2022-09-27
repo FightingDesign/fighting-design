@@ -243,10 +243,10 @@
 
 ```ts
 import type {
-  alertProps,
-  FAlertInstance,
-  alertType,
-  alertOverflowType
+  AlertPropsType,
+  AlertInstance,
+  AlertType,
+  AlertOverflowType
 } from 'fighting-design'
 ```
 

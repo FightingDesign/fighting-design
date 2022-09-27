@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { avatarFit, avatarSize } from './interface'
+import type { AvatarFitType, AvatarSizeType } from './interface'
 
 export const Props = {
   src: {
@@ -23,18 +23,18 @@ export const Props = {
     default: (): boolean => false
   },
   fit: {
-    type: String as PropType<avatarFit>,
-    default: (): avatarFit => '',
-    validator: (val: avatarFit): boolean => {
+    type: String as PropType<AvatarFitType>,
+    default: (): AvatarFitType => '',
+    validator: (val: AvatarFitType): boolean => {
       return (
         ['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const
       ).includes(val)
     }
   },
   size: {
-    type: [String, Number] as PropType<avatarSize | number>,
-    default: (): avatarSize => 'middle',
-    validator: (val: avatarSize | number): boolean => {
+    type: [String, Number] as PropType<AvatarSizeType | number>,
+    default: (): AvatarSizeType => 'middle',
+    validator: (val: AvatarSizeType | number): boolean => {
       if (typeof val === 'string') {
         return (['large', 'middle', 'small', 'mini'] as const).includes(val)
       } else if (typeof val === 'number') {
@@ -78,4 +78,4 @@ export const Emits = {
   error: (evt: Event): boolean => evt instanceof Event
 } as const
 
-export type FPropsType = ExtractPropTypes<typeof Props>
+export type AvatarPropsType = ExtractPropTypes<typeof Props>

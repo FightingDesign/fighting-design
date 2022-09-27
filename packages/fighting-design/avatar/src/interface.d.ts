@@ -1,4 +1,4 @@
-export type avatarFit =
+export type AvatarFitType =
   | 'fill'
   | 'contain'
   | 'cover'
@@ -6,4 +6,4 @@ export type avatarFit =
   | 'scale-down'
   | ''
 
-export type avatarSize = 'large' | 'middle' | 'small' | 'mini'
+export type AvatarSizeType = 'large' | 'middle' | 'small' | 'mini'

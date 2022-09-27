@@ -76,4 +76,4 @@ export const Emits = {
   'close-end': (evt: MouseEvent): MouseEvent => evt
 } as const
 
-export type AlertProps = ExtractPropTypes<typeof Props>
+export type AlertPropsType = ExtractPropTypes<typeof Props>
