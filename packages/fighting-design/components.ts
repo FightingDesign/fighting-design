@@ -1,3 +1,6 @@
+export { FAlert } from './alert'
+export type { alertProps, FAlertInstance, alertType, alertOverflowType } from './alert'
+
 export { FButton } from './button'
 export type {
   FButtonInstance,
@@ -84,9 +87,6 @@ export type { FDrawerInstance, drawerDirectionType } from './drawer'
 
 export { FPageHeader } from './page-header'
 export type { FPageHeaderInstance } from './page-header'
-
-export { FAlert } from './alert'
-export type { FAlertInstance, alertType, fixedStyleInterface, overflowType } from './alert'
 
 export { FList } from './list'
 export type { FListInstance, listSizeType } from './list'

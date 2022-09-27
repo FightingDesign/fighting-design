@@ -4,8 +4,10 @@
   import { FIcon } from '../../icon'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties, Ref } from 'vue'
-  import type { handleCloseInterface as a } from './interface'
-  import type { classListInterface as b } from '../../_interface'
+  import type {
+    handleEventInterface as a,
+    classListInterface as b
+  } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)

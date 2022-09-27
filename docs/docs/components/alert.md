@@ -243,10 +243,10 @@
 
 ```ts
 import type {
+  alertProps,
   FAlertInstance,
   alertType,
-  fixedStyleInterface,
-  overflowType
+  alertOverflowType
 } from 'fighting-design'
 ```
 

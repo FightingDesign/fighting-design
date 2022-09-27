@@ -12,4 +12,6 @@ declare module 'vue' {
   }
 }
 
-export type { alertType, fixedStyleInterface, overflowType } from './src/interface'
+export type { alertProps } from './src/alert'
+
+export type { alertType, alertOverflowType } from './src/interface'
