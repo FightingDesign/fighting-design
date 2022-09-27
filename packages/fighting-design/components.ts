@@ -83,11 +83,13 @@ export type { ListItemInstance, ListItemPropsType } from './list-item'
 export { FLoading } from './loading'
 export type { LoadingInstance, LoadingPropsType } from './loading'
 
-export { FTag } from './tag'
-export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
+export { LoadingBar as useLoadingBar } from './loading-bar'
 
 export { FMain } from './main'
-export type { FMainInstance } from './main'
+export type { MainInstance, MainPropsType } from './main'
+
+export { FTag } from './tag'
+export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
 
 export { FSwitch } from './switch'
 export type { FSwitchInstance, switchSizeType } from './switch'
@@ -124,8 +126,6 @@ export type { FSkeletonInstance, skeletonSizeType } from './skeleton'
 
 export { FNotification } from './notification'
 export type { FNotificationInstance } from './notification'
-
-export { LoadingBar as useLoadingBar } from './loading-bar'
 
 export { FRipple } from './ripple'
 export type { FRippleInstance, rippleType, rippleOpacityInterface } from './ripple'

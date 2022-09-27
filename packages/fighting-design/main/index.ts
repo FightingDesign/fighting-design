@@ -4,7 +4,9 @@ import { install } from '../_utils'
 
 export const FMain = install(Main)
 
-export type FMainInstance = InstanceType<typeof Main>
+export type MainInstance = InstanceType<typeof Main>
+
+export type { MainPropsType } from './src/main'
 
 declare module 'vue' {
   export interface GlobalComponents {

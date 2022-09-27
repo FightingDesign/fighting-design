@@ -10,7 +10,7 @@
     const { padding } = prop
 
     return {
-      padding: sizeChange(padding)
+      '--f-main-padding': sizeChange(padding)
     } as const
   })
 </script>

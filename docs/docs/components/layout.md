@@ -226,7 +226,7 @@
 
 | 参数      | 说明   | 类型            | 可选值 | 默认值 |
 | --------- | ------ | --------------- | ------ | ------ |
-| `padding` | 内边距 | string / number | ——     | ——     |
+| `padding` | 内边距 | string / number | ——     | 0      |
 
 ## Aside Attributes
 
@@ -256,7 +256,9 @@ import type {
   HeaderPropsType,
   LayoutInstance,
   LayoutPropsType,
-  LayoutDirectionType
+  LayoutDirectionType,
+  MainInstance,
+  MainPropsType
 } from 'fighting-design'
 ```
 
