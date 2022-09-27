@@ -6,7 +6,7 @@ export type InstanceOptions<T> = Partial<Mutable<T>> & {
   onDestroy?: () => void
 }
 
-export interface FMessageInstance {
+export interface MessageInstance {
   visible: number
   bottom: number
   id: string
@@ -21,14 +21,14 @@ export type FMessageFnWithType = {
 export type MessageOptions = InstanceOptions<MessagePropsType>
 
 export interface FMessageFn {
-  (options: MessageOptions | string): FMessageInstance
+  (options: MessageOptions | string): MessageInstance
 }
 
 type Mutable<T> = { -readonly [P in keyof T]: T[P] }
 
 export interface useMassageManageReturnInterface {
-  instances: Partial<{ [key in messagePlacementType]: FMessageInstance[] }>
+  instances: Partial<{ [key in messagePlacementType]: MessageInstance[] }>
   getSiblingOffset(placement: messagePlacementType, id: string, isNext: boolean): number
   removeInstance(placement: messagePlacementType, id: string): void
-  createInstance(instance: FMessageInstance, placement: messagePlacementType): FMessageInstance
+  createInstance(instance: MessageInstance, placement: messagePlacementType): MessageInstance
 }

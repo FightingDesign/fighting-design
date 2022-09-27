@@ -4,4 +4,14 @@ import { installFn } from '../_utils'
 
 export const FNotification = installFn(Notification, 'FNotification')
 
-export type { FMessageInstance as FNotificationInstance } from '../_interface'
+export type { NotificationInstance } from '../_interface'
+
+export type { NotificationPropsType } from './src/notification'
+
+export type { NotificationType, NotificationPlacementType } from './src/interface'
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    FNotification: typeof FNotification
+  }
+}

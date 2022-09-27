@@ -1,6 +1,6 @@
 import { notificationPlacements, notificationTypes } from '../../_model/notification/type'
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
-import type { notificationType, notificationPlacementType } from './interface'
+import type { NotificationType, NotificationPlacementType } from './interface'
 
 export const Props = {
   id: {
@@ -17,9 +17,9 @@ export const Props = {
     require: true
   },
   type: {
-    type: String as PropType<notificationType>,
-    default: (): notificationType => 'default',
-    validator: (val: notificationType): boolean => {
+    type: String as PropType<NotificationType>,
+    default: (): NotificationType => 'default',
+    validator: (val: NotificationType): boolean => {
       return notificationTypes.includes(val)
     }
   },
@@ -56,9 +56,9 @@ export const Props = {
     default: (): number => 20
   },
   placement: {
-    type: String as PropType<notificationPlacementType>,
-    default: (): notificationPlacementType => 'top-right',
-    validator: (val: notificationPlacementType): boolean => {
+    type: String as PropType<NotificationPlacementType>,
+    default: (): NotificationPlacementType => 'top-right',
+    validator: (val: NotificationPlacementType): boolean => {
       return notificationPlacements.includes(val)
     }
   },

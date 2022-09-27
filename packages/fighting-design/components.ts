@@ -89,10 +89,10 @@ export { FMain } from './main'
 export type { MainInstance, MainPropsType } from './main'
 
 export { FMessage } from './message'
-export type { FMessageInstance } from './message'
+export type { MessageInstance, MessagePropsType, MessageType, MessagePlacementType } from './message'
 
 export { FNotification } from './notification'
-export type { FNotificationInstance } from './notification'
+export type { NotificationInstance, NotificationPropsType, NotificationType, NotificationPlacementType } from './notification'
 
 export { FPageHeader } from './page-header'
 export type { PageHeaderInstance, PageHeaderPropsType } from './page-header'

@@ -296,7 +296,12 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FNotificationInstance } from 'fighting-design'
+import type {
+  NotificationInstance,
+  NotificationPropsType,
+  NotificationType,
+  NotificationPlacementType
+} from 'fighting-design'
 ```
 
 ## Contributors

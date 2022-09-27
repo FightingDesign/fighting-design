@@ -4,4 +4,14 @@ import { installFn } from '../_utils'
 
 export const FMessage = installFn(Message, 'FMessage')
 
-export type { FMessageInstance } from '../_interface'
+export type { MessageInstance } from '../_interface'
+
+export type { MessagePropsType } from './src/message'
+
+export type { MessageType, MessagePlacementType } from './src/interface'
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    FMessage: typeof FMessage
+  }
+}

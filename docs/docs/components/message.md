@@ -298,7 +298,12 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FMessageInstance } from 'fighting-design'
+import type {
+  MessageInstance,
+  MessagePropsType,
+  MessageType,
+  MessagePlacementType
+} from 'fighting-design'
 ```
 
 ## Contributors
