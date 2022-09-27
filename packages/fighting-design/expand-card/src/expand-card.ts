@@ -1,9 +1,9 @@
-import type { imageListInterface } from './interface'
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExpandCardImageListType } from './interface'
 
 export const Props = {
   imageList: {
-    type: Array as PropType<imageListInterface[] | string[]>,
+    type: Array as PropType<ExpandCardImageListType>,
     default: (): string[] => []
   },
   round: {
@@ -27,3 +27,5 @@ export const Props = {
     default: (): string => ''
   }
 } as const
+
+export type ExpandCardPropsType = ExtractPropTypes<typeof Props>

@@ -4,7 +4,11 @@ import { install } from '../_utils'
 
 export const FExpandCard = install(ExpandCard)
 
-export type FExpandCardInstance = InstanceType<typeof ExpandCard>
+export type ExpandCardInstance = InstanceType<typeof ExpandCard>
+
+export type { ExpandCardImageListType } from './src/interface'
+
+export type { ExpandCardPropsType } from './src/expand-card'
 
 declare module 'vue' {
   export interface GlobalComponents {

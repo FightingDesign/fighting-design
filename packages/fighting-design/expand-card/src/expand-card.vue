@@ -6,7 +6,7 @@
   import type { classListInterface as a } from '../../_interface'
   import type {
     switchExpandCardInterface as b,
-    imageListInterface as c
+    imageListItemInterface as c
   } from './interface'
 
   const prop = defineProps(Props)

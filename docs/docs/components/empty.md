@@ -109,6 +109,14 @@
 | `footer` | 自定义页脚内容 |
 | `image`  | 自定义图片     |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { EmptyInstance, EmptyPropsType } from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

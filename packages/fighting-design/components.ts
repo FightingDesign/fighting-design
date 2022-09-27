@@ -50,6 +50,9 @@ export type { DrawerInstance, DrawerPropsType, DrawerDirectionType } from './dra
 export { FEmpty } from './empty'
 export type { EmptyInstance, EmptyPropsType } from './empty'
 
+export { FExpandCard } from './expand-card'
+export type { ExpandCardInstance, ExpandCardImageListType, ExpandCardPropsType } from './expand-card'
+
 export { FIcon } from './icon'
 export type { FIconInstance } from './icon'
 
@@ -132,9 +135,6 @@ export type { RadioGroupInstance, radioGroupSizeType } from './radio-group'
 
 export { FImagePreview } from './image-preview'
 export type { FImagePreviewInstance } from './image-preview'
-
-export { FExpandCard } from './expand-card'
-export type { FExpandCardInstance } from './expand-card'
 
 export { FTree } from './tree'
 export type { FTreeInstance, treeDataInterface } from './tree'
