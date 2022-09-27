@@ -167,7 +167,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FSkeletonInstance, skeletonSizeType } from 'fighting-design'
+import type {
+  SkeletonInstance,
+  SkeletonPropsType,
+  SkeletonSizeType
+} from 'fighting-design'
 ```
 
 ## Contributors

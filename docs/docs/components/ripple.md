@@ -201,9 +201,10 @@
 
 ```ts
 import type {
-  FRippleInstance,
-  rippleType,
-  rippleOpacityInterface
+  RippleInstance,
+  RipplePropsType,
+  RippleType,
+  RippleOpacityType
 } from 'fighting-design'
 ```
 

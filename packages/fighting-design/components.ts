@@ -100,6 +100,12 @@ export type { RadioInstance, RadioPropsType } from './radio'
 export { FRadioGroup } from './radio-group'
 export type { RadioGroupInstance, RadioGroundPropsType, RadioGroupSizeType, RadioLabelType } from './radio-group'
 
+export { FRipple } from './ripple'
+export type { RippleInstance, RipplePropsType, RippleType, RippleOpacityType } from './ripple'
+
+export { FSkeleton } from './skeleton'
+export type { SkeletonInstance, SkeletonPropsType, SkeletonSizeType } from './skeleton'
+
 export { FTag } from './tag'
 export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
 
@@ -127,14 +133,8 @@ export type { FMessageInstance } from './message'
 export { FWatermark } from './watermark'
 export type { FWatermarkInstance } from './watermark'
 
-export { FSkeleton } from './skeleton'
-export type { FSkeletonInstance, skeletonSizeType } from './skeleton'
-
 export { FNotification } from './notification'
 export type { FNotificationInstance } from './notification'
-
-export { FRipple } from './ripple'
-export type { FRippleInstance, rippleType, rippleOpacityInterface } from './ripple'
 
 export { FTree } from './tree'
 export type { FTreeInstance, treeDataInterface } from './tree'

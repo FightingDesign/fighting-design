@@ -1,5 +1,5 @@
-import type { PropType } from 'vue'
-import type { skeletonSizeType } from './interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { SkeletonSizeType } from './interface'
 
 export const Props = {
   rounded: {
@@ -23,10 +23,12 @@ export const Props = {
     default: false
   },
   size: {
-    type: String as PropType<skeletonSizeType>,
-    default: (): skeletonSizeType => 'default',
-    validator: (val: skeletonSizeType): boolean => {
+    type: String as PropType<SkeletonSizeType>,
+    default: (): SkeletonSizeType => 'default',
+    validator: (val: SkeletonSizeType): boolean => {
       return (['default', 'small', 'large'] as const).includes(val)
     }
   }
 } as const
+
+export type SkeletonPropsType = ExtractPropTypes<typeof Props>

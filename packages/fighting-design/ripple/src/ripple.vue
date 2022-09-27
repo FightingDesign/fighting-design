@@ -2,7 +2,10 @@
   import { Props } from './ripple'
   import { Ripples } from '../../_utils'
   import { computed, ref } from 'vue'
-  import type { classListInterface as a } from '../../_interface'
+  import type {
+    classListInterface as a,
+    handleEventInterface as b
+  } from '../../_interface'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
 
   const prop = defineProps(Props)
@@ -24,7 +27,7 @@
     return ['f-ripple', { 'f-ripple-select': noSelect }] as const
   })
 
-  const handleClick = (evt: MouseEvent): void => {
+  const handleClick: b = (evt: MouseEvent): void => {
     const { type, ripplesColor, duration, disabled } = prop
 
     if (disabled) return

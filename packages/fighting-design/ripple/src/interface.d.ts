@@ -1,11 +1,11 @@
-export type rippleType =
+export type RippleType =
   | 'default'
   | 'primary'
   | 'success'
   | 'danger'
   | 'warning'
 
-export type rippleOpacityInterface =
+export type RippleOpacityType =
   | 0
   | 0.1
   | 0.2
