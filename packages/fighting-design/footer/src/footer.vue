@@ -10,8 +10,8 @@
     const { height, padding } = prop
 
     return {
-      height: sizeChange(height),
-      padding: sizeChange(padding)
+      '--f-footer-height': sizeChange(height),
+      '--f-footer-padding': sizeChange(padding)
     } as const
   })
 </script>

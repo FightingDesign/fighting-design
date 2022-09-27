@@ -53,6 +53,9 @@ export type { EmptyInstance, EmptyPropsType } from './empty'
 export { FExpandCard } from './expand-card'
 export type { ExpandCardInstance, ExpandCardImageListType, ExpandCardPropsType } from './expand-card'
 
+export { FFooter } from './footer'
+export type { FooterInstance, FooterPropsType } from './footer'
+
 export { FIcon } from './icon'
 export type { FIconInstance } from './icon'
 
@@ -64,9 +67,6 @@ export type { FImageInstance, imageFit } from './image'
 
 export { FTag } from './tag'
 export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
-
-export { FFooter } from './footer'
-export type { FFooterInstance } from './footer'
 
 export { FHeader } from './header'
 export type { FHeaderInstance } from './header'

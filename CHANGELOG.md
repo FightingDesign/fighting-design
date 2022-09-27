@@ -19,6 +19,7 @@
 - `f-alert` 组件 `font-size` 默认值改为 `15px`
 - `f-alert` 组件新增 `title-size` 和 `title-color` 属性
 - `f-alert` 组件 `overflow` 配置项移除 `ellipsis` 选项
+- `f-footer` 组件 `height` `padding` 配置项添加默认值
 
 ## 0.6.5-alpha.5 (2022-09-25)
 
