@@ -2,21 +2,21 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.en-US.md)
 
-## 写在前面
+## 👋 写在前面
 
-👋 你好！欢迎使用 `Fighting Design`！
+你好！欢迎使用 `Fighting Design`！
 
 我很高兴你有兴趣为 `Fighting Design` 做贡献。在提交您的贡献之前，请务必花点时间阅读以下指南。
 
 规范可能比较多，但是大多数都是一些比较细小的规范，请认真阅读。
 
-## 禁止抄袭
+## 🚫 禁止抄袭
 
 众所周知，在市面上的组件库有很多，很多时候我们需要开发的新组件在市面上早已经开发好了，但是请勿直接复制其它第三方源码进行使用！
 
 开发组件库本身是一个学习进步的过程，不要仅仅是为了新增组件而新增组件，希望各位参与者可以在新增组件过程中学习到一些东西来提升自己的技术。如果在开发阶段的某个功能遇到了困难，你可以发起一个[讨论](https://github.com/FightingDesign/fighting-design/discussions)，或者也可以直接联系我或在群里求助，当然去学习参考其它开源库也是可以的，只是希望你在写的时候，是已经理解了问题，自己来动手实践的。
 
-## 启动项目
+## 🛠️ 启动项目
 
 在贡献之前，你需要先将 `Fighting Design` 项目跑起来才行，那么前期的准备你需要：
 
@@ -39,9 +39,12 @@ pnpm i
 
 # 启动开发项目
 pnpm start
+
+# 启动文档
+pnpm dev:docs
 ```
 
-## 命令说明
+## 🔓 命令说明
 
 `Fighting Design` 内部设置了很多的命令，在 [package.json](https://github.com/FightingDesign/fighting-design/blob/master/package.json) 中可以看到，下面详细介绍每一条命令
 
@@ -69,7 +72,7 @@ pnpm start
   }
 ```
 
-## 开发插件
+## 📌 开发插件
 
 下面列举一些必要的 [Visual Studio Code](https://code.visualstudio.com) 开发插件，以免出现一些不可预期的错误
 
@@ -82,7 +85,7 @@ pnpm start
 
 `Chrome` 正版 `Vue3` 插件下载地址 [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=zh-CN)
 
-## 开发规范
+## 🚧 开发规范
 
 主要源文件都在 `packages` 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档：
 
@@ -90,9 +93,9 @@ pnpm start
 
 - [fighting-design](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/README.md) 组件源文件目录
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) 样式主题目录
-- [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md) 文档编写规范
+- [docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md) 文档编写规范
 
-## 提交规范
+## 🛸 提交规范
 
 [Git](https://git-scm.com) 允许我们在每次提交时，附带一个提交信息作为说明，当执行 `commit` 的时候，需要严格按照下方说明规范进行填写说明信息，提交信息必须是下面信息中的一个，后面跟随 `英文的冒号+空格+信息`
 
@@ -129,7 +132,7 @@ pnpm commit
 git push
 ```
 
-## 关于 PR
+## ✏️ 关于 PR
 
 在你提交 `PR` 之前，请务必保证你 `fork` 的仓库是当前最新的代码，以免发生冲突。
 
@@ -137,17 +140,17 @@ git push
 
 所以，在提交 `PR` 之前，请务必**拉取最新的代码，拉取最新的代码，拉取最新的代码！**
 
-## 常见问题
+## 🗒️ 常见问题
 
 常见问题请参考 [COMMON_PROBLEM.md](https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md)，也可以直接和[我](https://github.com/Tyh2001/Tyh2001)进行联系。
 
-## 财务贡献
+## 🔑 财务贡献
 
 开发不易，欢迎大家赞助！
 
 <img width="200px" src="https://tianyuhao.cn/images/tyh-ui/weixin.jpg" />
 <img width="200px" src="https://tianyuhao.cn/images/tyh-ui/zhifubao.jpg" />
 
-## 非常感谢
+## 💌 非常感谢
 
 感谢所有已经为 `Fighting Design` [做出贡献的人](https://github.com/FightingDesign/fighting-design/graphs/contributors)！
