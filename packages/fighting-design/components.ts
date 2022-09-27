@@ -65,6 +65,9 @@ export type { IconInstance, IconPropsType } from './icon'
 export { FImage } from './image'
 export type { ImageInstance, ImagePropsType, ImageFitType } from './image'
 
+export { FImagePreview } from './image-preview'
+export type { ImagePreviewInstance, ImagePreviewPropsType } from './image-preview'
+
 export { FLink } from './link'
 export type { FLinkInstance, linkType, linkTarget, linkHover } from './link'
 
@@ -132,9 +135,6 @@ export type { FRadioInstance } from './radio'
 
 export { FRadioGroup } from './radio-group'
 export type { RadioGroupInstance, radioGroupSizeType } from './radio-group'
-
-export { FImagePreview } from './image-preview'
-export type { FImagePreviewInstance } from './image-preview'
 
 export { FTree } from './tree'
 export type { FTreeInstance, treeDataInterface } from './tree'

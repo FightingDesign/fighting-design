@@ -13,7 +13,3 @@ export interface optionClickInterface {
 export interface onImgMousewheelInterface {
   (evt: WheelEvent): void
 }
-
-export interface handleCloseInterface {
-  (evt: MouseEvent): void
-}

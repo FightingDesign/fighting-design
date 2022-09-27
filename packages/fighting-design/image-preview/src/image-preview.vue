@@ -9,10 +9,12 @@
     switchImageInterface as a,
     optionClickInterface as b,
     onImgMousewheelInterface as c,
-    handleCloseInterface as d,
     optionClickTargetKey as e
   } from './interface'
-  import type { ordinaryFunctionInterface as f } from '../../_interface'
+  import type {
+    ordinaryFunctionInterface as f,
+    handleEventInterface as d
+  } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)

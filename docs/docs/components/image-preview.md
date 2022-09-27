@@ -92,6 +92,17 @@
 | -------- | -------------- |
 | `close`  | 关闭之后的回调 |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  ImagePreviewInstance,
+  ImagePreviewPropsType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
