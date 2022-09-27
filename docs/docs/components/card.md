@@ -71,7 +71,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FCardInstance, cardShadow } from 'fighting-design'
+import type {
+  CardInstance,
+  CardPropsType,
+  CardShadowType
+} from 'fighting-design'
 ```
 
 ## Contributors

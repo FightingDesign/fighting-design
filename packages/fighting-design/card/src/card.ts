@@ -1,5 +1,5 @@
-import type { cardShadow } from './interface'
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { CardShadowType } from './interface'
 
 export const Props = {
   title: {
@@ -15,10 +15,12 @@ export const Props = {
     default: (): string => '20px'
   },
   shadow: {
-    type: String as PropType<cardShadow>,
-    default: (): cardShadow => 'never',
-    validator: (val: cardShadow): boolean => {
+    type: String as PropType<CardShadowType>,
+    default: (): CardShadowType => 'never',
+    validator: (val: CardShadowType): boolean => {
       return (['never', 'hover', 'always'] as const).includes(val)
     }
   }
 } as const
+
+export type CardPropsType = ExtractPropTypes<typeof Props>

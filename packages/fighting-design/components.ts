@@ -35,6 +35,9 @@ export type { ButtonGroupInstance, ButtonGroupPropsType, ButtonGroupSizeType } f
 export { FCalendar } from './calendar'
 export type { CalendarInstance, CalendarPropsType, CalendarEmitInterface, CalendarMemorandumType } from './calendar'
 
+export { FCard } from './card'
+export type { CardInstance, CardPropsType, CardShadowType } from './card'
+
 export { FIcon } from './icon'
 export type { FIconInstance } from './icon'
 
@@ -43,9 +46,6 @@ export type { FLinkInstance, linkType, linkTarget, linkHover } from './link'
 
 export { FImage } from './image'
 export type { FImageInstance, imageFit } from './image'
-
-export { FCard } from './card'
-export type { FCardInstance, cardShadow } from './card'
 
 export { FTag } from './tag'
 export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
