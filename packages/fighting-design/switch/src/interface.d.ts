@@ -1,1 +1,1 @@
-export type switchSizeType = 'large' | 'middle' | 'small'
+export type SwitchSizeType = 'large' | 'middle' | 'small'

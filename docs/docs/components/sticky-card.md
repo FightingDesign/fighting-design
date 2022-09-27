@@ -126,7 +126,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FStickyCardInstance } from 'fighting-design'
+import type {
+  StickyCardInstance,
+  StickyCardPropsType,
+  StickyCardEmitInterface
+} from 'fighting-design'
 ```
 
 ## Contributors

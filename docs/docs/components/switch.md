@@ -182,7 +182,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FSwitchInstance, switchSizeType } from 'fighting-design'
+import type {
+  SwitchInstance,
+  SwitchPropsType,
+  SwitchSizeType
+} from 'fighting-design'
 ```
 
 ## Contributors

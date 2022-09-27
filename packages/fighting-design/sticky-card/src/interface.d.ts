@@ -1,3 +1,3 @@
-export interface emitInterface {
+export interface StickyCardEmitInterface {
   (target: boolean): void
 }

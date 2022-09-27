@@ -106,17 +106,20 @@ export type { RippleInstance, RipplePropsType, RippleType, RippleOpacityType } f
 export { FSkeleton } from './skeleton'
 export type { SkeletonInstance, SkeletonPropsType, SkeletonSizeType } from './skeleton'
 
+export { FSpace } from './space'
+export type { SpaceInstance, SpacePropsType, SpaceSizeType } from './space'
+
+export { FStickyCard } from './sticky-card'
+export type { StickyCardInstance, StickyCardPropsType, StickyCardEmitInterface } from './sticky-card'
+
+export { FSwitch } from './switch'
+export type { SwitchInstance, SwitchPropsType, SwitchSizeType } from './switch'
+
 export { FTag } from './tag'
 export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
 
-export { FSwitch } from './switch'
-export type { FSwitchInstance, switchSizeType } from './switch'
-
 export { FText } from './text'
 export type { FTextInstance, textTypeType } from './text'
-
-export { FSpace } from './space'
-export type { FSpaceInstance, spaceSizeType } from './space'
 
 export { FTooltip } from './tooltip'
 export type { FTooltipInstance, tooltipPositionType, tooltipStateType } from './tooltip'
@@ -138,6 +141,3 @@ export type { FNotificationInstance } from './notification'
 
 export { FTree } from './tree'
 export type { FTreeInstance, treeDataInterface } from './tree'
-
-export { FStickyCard } from './sticky-card'
-export type { FStickyCardInstance } from './sticky-card'

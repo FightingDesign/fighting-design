@@ -1,1 +1,1 @@
-export type spaceSizeType = 'large' | 'middle' | 'small' | 'mini'
+export type SpaceSizeType = 'large' | 'middle' | 'small' | 'mini'
