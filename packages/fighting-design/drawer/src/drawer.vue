@@ -2,8 +2,10 @@
   import { Props, Emits } from './drawer'
   import { computed } from 'vue'
   import type { CSSProperties, ComputedRef } from 'vue'
-  import type { transitionEventInterface as a } from './interface'
-  import type { ordinaryFunctionInterface as b } from '../../_interface'
+  import type {
+    handleEventInterface as a,
+    ordinaryFunctionInterface as b
+  } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)

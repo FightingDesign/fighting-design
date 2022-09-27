@@ -1,5 +1,1 @@
-export type drawerDirectionType = 'left' | 'top' | 'right' | 'bottom'
-
-export interface transitionEventInterface {
-  (evt: MouseEvent): void
-}
+export type DrawerDirectionType = 'left' | 'top' | 'right' | 'bottom'

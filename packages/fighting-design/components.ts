@@ -44,6 +44,9 @@ export type { DialogInstance, DialogPropsType } from './dialog'
 export { FDivider } from './divider'
 export type { DividerInstance, DividerPropsType, DividerPositionType, DividerType } from './divider'
 
+export { FDrawer } from './drawer'
+export type { DrawerInstance, DrawerPropsType, DrawerDirectionType } from './drawer'
+
 export { FIcon } from './icon'
 export type { FIconInstance } from './icon'
 
@@ -85,9 +88,6 @@ export type { FSpaceInstance, spaceSizeType } from './space'
 
 export { FTooltip } from './tooltip'
 export type { FTooltipInstance, tooltipPositionType, tooltipStateType } from './tooltip'
-
-export { FDrawer } from './drawer'
-export type { FDrawerInstance, drawerDirectionType } from './drawer'
 
 export { FPageHeader } from './page-header'
 export type { FPageHeaderInstance } from './page-header'

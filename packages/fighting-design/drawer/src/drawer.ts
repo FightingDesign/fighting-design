@@ -1,5 +1,5 @@
-import type { PropType } from 'vue'
-import type { drawerDirectionType } from './interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { DrawerDirectionType } from './interface'
 
 export const Props = {
   visible: {
@@ -19,9 +19,9 @@ export const Props = {
     default: (): boolean => true
   },
   direction: {
-    type: String as PropType<drawerDirectionType>,
-    default: (): drawerDirectionType => 'right',
-    validator: (val: drawerDirectionType): boolean => {
+    type: String as PropType<DrawerDirectionType>,
+    default: (): DrawerDirectionType => 'right',
+    validator: (val: DrawerDirectionType): boolean => {
       return (['left', 'top', 'right', 'bottom'] as const).includes(val)
     }
   },
@@ -51,3 +51,5 @@ export const Emits = {
   'open-end': (event: MouseEvent): MouseEvent => event,
   'close-end': (event: MouseEvent): MouseEvent => event
 } as const
+
+export type DrawerPropsType = ExtractPropTypes<typeof Props>
