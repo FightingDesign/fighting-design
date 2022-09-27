@@ -155,9 +155,10 @@
 
 ```ts
 import type {
-  FCalendarInstance,
-  calendarEmitInterface,
-  memorandumType
+  CalendarInstance,
+  CalendarPropsType,
+  CalendarEmitInterface,
+  CalendarMemorandumType
 } from 'fighting-design'
 ```
 

@@ -1,5 +1,3 @@
-import type { buttonType } from '../../button/src/interface'
-
 export interface mowDataClassListInterface {
   (_month: number, _date: number): string
 }
@@ -12,7 +10,7 @@ export interface handleClickInterface {
   (_month: number, _date: number): void
 }
 
-export interface calendarEmitInterface {
+export interface CalendarEmitInterface {
   year: number
   month: number
   date: number
@@ -20,16 +18,9 @@ export interface calendarEmitInterface {
 
 export type targetType = 'last' | 'now' | 'next'
 
-export type positionType =
-  | 'center'
-  | 'top'
-  | 'right'
-  | 'left'
-  | 'bottom'
-
 interface memorandumContentInterface {
-  type?: buttonType
+  type?: 'default' | 'primary' | 'success' | 'danger' | 'warning'
   content: string
 }
 
-export type memorandumType = Record<string, memorandumContentInterface[]>
+export type CalendarMemorandumType = Record<string, memorandumContentInterface[]>

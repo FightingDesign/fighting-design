@@ -32,6 +32,9 @@ export type {
 export { FButtonGroup } from './button-group'
 export type { ButtonGroupInstance, ButtonGroupPropsType, ButtonGroupSizeType } from './button-group'
 
+export { FCalendar } from './calendar'
+export type { CalendarInstance, CalendarPropsType, CalendarEmitInterface, CalendarMemorandumType } from './calendar'
+
 export { FIcon } from './icon'
 export type { FIconInstance } from './icon'
 
@@ -132,9 +135,6 @@ export type { FImagePreviewInstance } from './image-preview'
 
 export { FExpandCard } from './expand-card'
 export type { FExpandCardInstance } from './expand-card'
-
-export { FCalendar } from './calendar'
-export type { FCalendarInstance, calendarEmitInterface, memorandumType } from './calendar'
 
 export { FTree } from './tree'
 export type { FTreeInstance, treeDataInterface } from './tree'
