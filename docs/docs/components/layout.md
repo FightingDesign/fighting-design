@@ -220,7 +220,7 @@
 | 参数      | 说明   | 类型            | 可选值 | 默认值 |
 | --------- | ------ | --------------- | ------ | ------ |
 | `height`  | 高度   | string / number | ——     | 60px   |
-| `padding` | 内边距 | string / number | ——     | ——     |
+| `padding` | 内边距 | string / number | ——     | 0      |
 
 ## Main Attributes
 
@@ -240,7 +240,7 @@
 | 参数      | 说明   | 类型            | 可选值 | 默认值 |
 | --------- | ------ | --------------- | ------ | ------ |
 | `height`  | 高度   | string / number | ——     | 60px   |
-| `padding` | 内边距 | string / number | ——     | ——     |
+| `padding` | 内边距 | string / number | ——     | 0      |
 
 ## Interface
 
@@ -251,7 +251,9 @@ import type {
   AsidePropsType,
   AsideInstance,
   FooterInstance,
-  FooterPropsType
+  FooterPropsType,
+  HeaderInstance,
+  HeaderPropsType
 } from 'fighting-design'
 ```
 
