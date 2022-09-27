@@ -88,6 +88,12 @@ export { LoadingBar as useLoadingBar } from './loading-bar'
 export { FMain } from './main'
 export type { MainInstance, MainPropsType } from './main'
 
+export { FMessage } from './message'
+export type { FMessageInstance } from './message'
+
+export { FNotification } from './notification'
+export type { FNotificationInstance } from './notification'
+
 export { FPageHeader } from './page-header'
 export type { PageHeaderInstance, PageHeaderPropsType } from './page-header'
 
@@ -128,16 +134,10 @@ export { FToolbarItem } from './toolbar-item'
 export type { ToolbarItemInstance, ToolbarItemPropsType } from './toolbar-item'
 
 export { FTooltip } from './tooltip'
-export type { FTooltipInstance, tooltipPositionType, tooltipStateType } from './tooltip'
-
-export { FMessage } from './message'
-export type { FMessageInstance } from './message'
-
-export { FWatermark } from './watermark'
-export type { FWatermarkInstance } from './watermark'
-
-export { FNotification } from './notification'
-export type { FNotificationInstance } from './notification'
+export type { TooltipInstance, TooltipPropsType, TooltipPositionType, TooltipStateType } from './tooltip'
 
 export { FTree } from './tree'
-export type { FTreeInstance, treeDataInterface } from './tree'
+export type { TreeInstance, TreePropsType, TreeDataInterface } from './tree'
+
+export { FWatermark } from './watermark'
+export type { WatermarkInstance, WatermarkPropsType } from './watermark'

@@ -36,4 +36,4 @@ export const Props = {
   }
 } as const
 
-export type FPropsType = ExtractPropTypes<typeof Props>
+export type WatermarkPropsType = ExtractPropTypes<typeof Props>

@@ -139,9 +139,10 @@
 
 ```ts
 import type {
-  FTooltipInstance,
-  tooltipPositionType,
-  tooltipStateType
+  TooltipInstance,
+  TooltipPropsType,
+  TooltipPositionType,
+  TooltipStateType
 } from 'fighting-design'
 ```
 

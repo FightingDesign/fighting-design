@@ -1,3 +1,3 @@
-export type tooltipPositionType = 'top' | 'bottom' | 'right' | 'left'
+export type TooltipPositionType = 'top' | 'bottom' | 'right' | 'left'
 
-export type tooltipStateType = 'hover' | 'active' | 'always'
+export type TooltipStateType = 'hover' | 'active' | 'always'

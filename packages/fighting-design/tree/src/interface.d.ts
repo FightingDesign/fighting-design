@@ -1,10 +1,7 @@
-export interface treeDataInterface {
+export interface TreeDataItemInterface {
   label: string
-  children?: treeDataInterface[]
+  children?: TreeDataItemInterface[]
   level?: number
 }
 
-export interface itemInterface {
-  label: string
-  level: number
-}
+export type TreeDataInterface = TreeDataItemInterface[]

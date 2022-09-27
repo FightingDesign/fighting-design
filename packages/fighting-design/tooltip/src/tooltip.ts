@@ -1,5 +1,5 @@
-import type { PropType } from 'vue'
-import type { tooltipPositionType, tooltipStateType } from './interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { TooltipPositionType, TooltipStateType } from './interface'
 
 export const Props = {
   content: {
@@ -7,9 +7,9 @@ export const Props = {
     default: (): string => ''
   },
   position: {
-    type: String as PropType<tooltipPositionType>,
-    default: (): tooltipPositionType => 'bottom',
-    validator: (val: tooltipPositionType): boolean => {
+    type: String as PropType<TooltipPositionType>,
+    default: (): TooltipPositionType => 'bottom',
+    validator: (val: TooltipPositionType): boolean => {
       return (['top', 'bottom', 'right', 'left'] as const).includes(val)
     }
   },
@@ -19,8 +19,8 @@ export const Props = {
   },
   state: {
     type: String,
-    default: (): tooltipStateType => 'hover',
-    validator: (val: tooltipStateType): boolean => {
+    default: (): TooltipStateType => 'hover',
+    validator: (val: TooltipStateType): boolean => {
       return (['hover', 'active', 'always'] as const).includes(val)
     }
   },
@@ -45,3 +45,5 @@ export const Props = {
     default: (): string => ''
   }
 } as const
+
+export type TooltipPropsType = ExtractPropTypes<typeof Props>
