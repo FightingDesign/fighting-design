@@ -5,7 +5,7 @@
   import { FIcon } from '../../icon'
   import { useFilterProps } from '../../_hooks'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
-  import type { FPropsType } from './avatar'
+  import type { AvatarPropsType } from './avatar'
   import type {
     LoadNeedImagePropsInterface as b,
     ordinaryFunctionInterface as c,
@@ -82,7 +82,7 @@
       isSuccess.value = params
       isShowNode.value = params
     }
-    const needProps: b = useFilterProps<FPropsType, b>(prop, [
+    const needProps: b = useFilterProps<AvatarPropsType, b>(prop, [
       'src',
       'errSrc',
       'rootMargin',

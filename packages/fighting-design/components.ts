@@ -7,6 +7,9 @@ export type { AsidePropsType, AsideInstance } from './aside'
 export { FAvatar } from './avatar'
 export type { AvatarInstance, AvatarPropsType, AvatarFitType, AvatarSizeType } from './avatar'
 
+export { FBackTop } from './back-top'
+export type { BackTopInstance, BackTopPropsType, BackTopBehaviorType } from './back-top'
+
 export { FButton } from './button'
 export type {
   FButtonInstance,
@@ -54,9 +57,6 @@ export type { FSwitchInstance, switchSizeType } from './switch'
 
 export { FBadge } from './badge'
 export type { FBadgeInstance, badgeType } from './badge'
-
-export { FBackTop } from './back-top'
-export type { FBackTopInstance, behaviorType } from './back-top'
 
 export { FBreadcrumb } from './breadcrumb'
 export type { FBreadcrumbInstance } from './breadcrumb'

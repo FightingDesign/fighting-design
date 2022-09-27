@@ -1,9 +1,5 @@
-export type behaviorType = 'smooth' | 'auto'
+export type BackTopBehaviorType = 'smooth' | 'auto'
 
 export interface handleScrollInterface {
   (node: HTMLElement | null)
-}
-
-export interface handleClickInterface {
-  (evt: MouseEvent): void
 }

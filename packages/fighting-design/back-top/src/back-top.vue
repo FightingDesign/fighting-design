@@ -3,10 +3,8 @@
   import { onMounted, ref, computed } from 'vue'
   import { debounce, sizeChange } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type {
-    handleScrollInterface as a,
-    handleClickInterface as b
-  } from './interface'
+  import type { handleScrollInterface as a } from './interface'
+  import type { handleEventInterface as b } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)

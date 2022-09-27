@@ -129,7 +129,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FBackTopInstance, behaviorType } from 'fighting-design'
+import type {
+  BackTopInstance,
+  BackTopPropsType,
+  BackTopBehaviorType
+} from 'fighting-design'
 ```
 
 ## Contributors
