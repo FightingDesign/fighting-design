@@ -60,7 +60,7 @@ export { FHeader } from './header'
 export type { HeaderInstance, HeaderPropsType } from './header'
 
 export { FIcon } from './icon'
-export type { FIconInstance } from './icon'
+export type { IconInstance, IconPropsType } from './icon'
 
 export { FLink } from './link'
 export type { FLinkInstance, linkType, linkTarget, linkHover } from './link'
