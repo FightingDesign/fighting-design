@@ -2,16 +2,19 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.7.0-alpha.1 (2022-09-27)
+
+**fix**
+
 - 修复 `f-button` 组件 `font-color` 默认值
 - 修复 `f-button` 组件 `font-size` 默认值
-- 优化 `f-avatar` 组件部分样式的实现，减少代码开销
-- 优化 `f-back-top` 组件部分样式的实现，减少代码开销
+
+**fest**
+
 - `f-back-top` 组件 `right` `bottom` 配置项支持 `number` 类型
-- 优化 `f-back-top` 组件部分 `props` 默认值
-- 优化 `f-badge` 组件样式实现
 - `f-image` 组件 `round` 配置项支持 `number` 类型
 - `f-image` 组件废除 `caption` 和 `caption-color` 配置项
-- `f-watermark` 组件 `fontSize` 配置项支持 `number` 类型参数
+- `f-watermark` 组件 `font-size` 配置项支持 `number` 类型参数
 - `f-progress` 组件 `width` `height` 配置项支持 `number` 类型参数
 - `f-alert` 组件废除 `fixed-style` 配置项
 - `f-alert` 组件 `font-size` 配置项支持 `number` 类型参数
@@ -23,6 +26,13 @@
 - `f-header` 组件 `height` `padding` 配置项添加默认值
 - `f-main` 组件 `padding` 配置项添加默认值
 - `f-toolbar` 组件废除 `fixed-style` 配置项
+
+**perf**
+
+- 优化 `f-avatar` 组件部分样式的实现，减少代码开销
+- 优化 `f-back-top` 组件部分样式的实现，减少代码开销
+- 优化 `f-back-top` 组件部分 `props` 默认值
+- 优化 `f-badge` 组件样式实现
 
 ## 0.6.5-alpha.5 (2022-09-25)
 

@@ -4,6 +4,38 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.7.0-alpha.1 (2022-09-27)
+
+**fix**
+
+- Fix the default value of the `f-button` component `font-color`
+- Fix the default value of `f-button` component `font-size`
+
+**fest**
+
+- `f-back-top` component `right` `bottom` configuration item supports `number` type
+- `f-image` component `round` configuration item supports `number` type
+- `f-image` component cancels `caption` and `caption-color` configuration items
+- `f-watermark` component `font-size` configuration item supports `number` type parameter
+- `f-progress` component `width` `height` configuration item supports `number` type parameter
+- `f-alert` component cancels `fixed-style` configuration item
+- `f-alert` component `font-size` configuration item supports `number` type parameter
+- The default value of `f-alert` component `type` is changed to `default`
+- The default value of `f-alert` component `font-size` is changed to `15px`
+- The `f-alert` component adds `title-size` and `title-color` attributes
+- `f-alert` component `overflow` configuration item removal `ellipsis` option
+- Default value for adding `f-footer` component `height` `padding` configuration item
+- `f-header` component `height` `padding` add default value for configuration item
+- Default value for adding `f-main` component `padding` configuration item
+- `f-toolbar` component cancels `fixed-style` configuration item
+
+**perf**
+
+- Optimize the implementation of partial styles of `f-avatar` components to reduce code overhead
+- Optimize the implementation of `f-back-top` component styles to reduce code overhead
+- Optimize the `props` default value of the `f-back-top` component
+- Optimize the implementation of `f-badge` component style
+
 ## 0.6.5-alpha.5 (2022-09-25)
 
 **fest**
