@@ -135,9 +135,10 @@
 
 ```ts
 import type {
-  FDividerInstance,
-  positionType,
-  dividerType
+  DividerInstance,
+  DividerPropsType,
+  DividerPositionType,
+  DividerType
 } from 'fighting-design'
 ```
 

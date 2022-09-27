@@ -184,6 +184,14 @@ fighting-design
 | `close`     | `Dialog` 关闭动画开始之前回调 |
 | `close-end` | `Dialog` 关闭动画开始之后回调 |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { DialogInstance, DialogPropsType } from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

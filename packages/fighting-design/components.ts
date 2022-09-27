@@ -41,6 +41,9 @@ export type { CardInstance, CardPropsType, CardShadowType } from './card'
 export { FDialog } from './dialog'
 export type { DialogInstance, DialogPropsType } from './dialog'
 
+export { FDivider } from './divider'
+export type { DividerInstance, DividerPropsType, DividerPositionType, DividerType } from './divider'
+
 export { FIcon } from './icon'
 export type { FIconInstance } from './icon'
 
@@ -52,9 +55,6 @@ export type { FImageInstance, imageFit } from './image'
 
 export { FTag } from './tag'
 export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
-
-export { FDivider } from './divider'
-export type { FDividerInstance, positionType, dividerType } from './divider'
 
 export { FFooter } from './footer'
 export type { FFooterInstance } from './footer'

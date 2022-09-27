@@ -1,3 +1,3 @@
-export type positionType = 'left' | 'center' | 'right'
+export type DividerPositionType = 'left' | 'center' | 'right'
 
-export type dividerType = 'dashed' | 'dotted' | 'double' | 'solid'
+export type DividerType = 'dashed' | 'dotted' | 'double' | 'solid'
