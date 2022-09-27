@@ -1,3 +1,5 @@
+import type { ExtractPropTypes } from 'vue'
+
 export const Props = {
   title: {
     type: String,
@@ -66,3 +68,5 @@ export const Emits = {
   'open-end': (event: MouseEvent): MouseEvent => event,
   'close-end': (event: MouseEvent): MouseEvent => event
 } as const
+
+export type DialogPropsType = ExtractPropTypes<typeof Props>

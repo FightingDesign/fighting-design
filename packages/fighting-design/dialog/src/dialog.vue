@@ -1,8 +1,10 @@
 <script lang="ts" setup name="FDialog">
   import { Props, Emits } from './dialog'
   import { FIcon } from '../../icon'
-  import type { transitionEventInterface as a } from './interface'
-  import type { ordinaryFunctionInterface as b } from '../../_interface'
+  import type {
+    handleEventInterface as a,
+    ordinaryFunctionInterface as b
+  } from '../../_interface'
 
   defineProps(Props)
   const emit = defineEmits(Emits)
@@ -11,19 +13,19 @@
     emit('update:visible', false)
   }
 
-  const open: a = (evt: MouseEvent): void => {
+  const handleOpen: a = (evt: MouseEvent): void => {
     emit('open', evt)
   }
 
-  const openEnd: a = (evt: MouseEvent): void => {
+  const handleOpenEnd: a = (evt: MouseEvent): void => {
     emit('open-end', evt)
   }
 
-  const close: a = (evt: MouseEvent): void => {
+  const handleClose: a = (evt: MouseEvent): void => {
     emit('close', evt)
   }
 
-  const closeEnd: a = (evt: MouseEvent): void => {
+  const handleCloseEnd: a = (evt: MouseEvent): void => {
     emit('close-end', evt)
   }
 </script>
@@ -32,10 +34,10 @@
   <teleport to="body" :disabled="!appendToBody">
     <transition
       name="f-dialog-fade"
-      @before-enter="open"
-      @after-enter="openEnd"
-      @before-leave="close"
-      @after-leave="closeEnd"
+      @before-enter="handleOpen"
+      @after-enter="handleOpenEnd"
+      @before-leave="handleClose"
+      @after-leave="handleCloseEnd"
     >
       <div
         v-show="visible"

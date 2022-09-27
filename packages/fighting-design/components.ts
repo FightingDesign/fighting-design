@@ -38,6 +38,9 @@ export type { CalendarInstance, CalendarPropsType, CalendarEmitInterface, Calend
 export { FCard } from './card'
 export type { CardInstance, CardPropsType, CardShadowType } from './card'
 
+export { FDialog } from './dialog'
+export type { DialogInstance, DialogPropsType } from './dialog'
+
 export { FIcon } from './icon'
 export type { FIconInstance } from './icon'
 
@@ -79,9 +82,6 @@ export type { FProgressInstance, progressType } from './progress'
 
 export { FSpace } from './space'
 export type { FSpaceInstance, spaceSizeType } from './space'
-
-export { FDialog } from './dialog'
-export type { FDialogInstance } from './dialog'
 
 export { FTooltip } from './tooltip'
 export type { FTooltipInstance, tooltipPositionType, tooltipStateType } from './tooltip'
