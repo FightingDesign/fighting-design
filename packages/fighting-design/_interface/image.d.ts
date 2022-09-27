@@ -33,5 +33,5 @@ export interface LoadInterface {
 }
 
 export interface callbackInterface {
-  (params: boolean, width: number): void
+  (params: boolean): void
 }

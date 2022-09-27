@@ -7,9 +7,10 @@
 - 优化 `f-avatar` 组件部分样式的实现，减少代码开销
 - 优化 `f-back-top` 组件部分样式的实现，减少代码开销
 - `f-back-top` 组件 `right` `bottom` 配置项支持 `number` 类型
-- `f-image` 组件 `round` 配置项支持 `number` 类型
 - 优化 `f-back-top` 组件部分 `props` 默认值
 - 优化 `f-badge` 组件样式实现
+- `f-image` 组件 `round` 配置项支持 `number` 类型
+- `f-image` 组件废除 `caption` 和 `caption-color` 配置项
 
 ## 0.6.5-alpha.5 (2022-09-25)
 

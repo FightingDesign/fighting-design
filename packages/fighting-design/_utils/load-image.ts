@@ -73,7 +73,7 @@ class Load implements LoadInterface {
     // 否则返回失败回调
     this.emit('error', evt)
     if (this.callback) {
-      this.callback(false, 0)
+      this.callback(false)
     }
   }
   /**
@@ -86,7 +86,7 @@ class Load implements LoadInterface {
     this.emit('load', evt)
 
     if (this.callback) {
-      this.callback(true, this.node.width)
+      this.callback(true)
     }
   }
 }

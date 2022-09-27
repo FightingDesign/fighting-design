@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FImage">
   import { Props, Emits } from './image'
   import { onMounted, ref, computed } from 'vue'
-  import { loadImage, isString, sizeChange } from '../../_utils'
+  import { loadImage, sizeChange } from '../../_utils'
   import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { FPropsType } from './image'
@@ -20,8 +20,6 @@
 
   // 是否加载成功
   const isSuccess: Ref<boolean> = ref<boolean>(true)
-  // 描述信息的宽度
-  const captionWidth: Ref<number> = ref<number>(0)
   const FImageImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
     null as unknown as HTMLImageElement
   )
@@ -35,10 +33,9 @@
   // 开始加载图片
   const loadAction: b = (): void => {
     const node: HTMLImageElement = FImageImg.value as HTMLImageElement
-    const callback: a = (params: boolean, width: number): void => {
+    const callback: a = (params: boolean): void => {
       isSuccess.value = params
       isShowNode.value = params
-      captionWidth.value = width
     }
 
     const needProps: c = useFilterProps<FPropsType, c>(prop, [
@@ -68,36 +65,14 @@
   })
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { width, height, round, captionColor } = prop
+    const { width, height, round } = prop
 
     return {
       '--f-image-width': sizeChange(width),
       '--f-image-height': sizeChange(height),
-      '--f-image-border-radius': sizeChange(round),
-      '--f-image-caption-color': captionColor,
-      '--f-image-caption-border-radius': `0 0 ${sizeChange(round)} ${sizeChange(
-        round
-      )}`
-    }
-
-    // return {
-    //   width: isString(width) ? width : width + 'px',
-    //   height: isString(height) ? height : height + 'px',
-    //   borderRadius: round
-    // } as const
+      '--f-image-border-radius': sizeChange(round)
+    } as const
   })
-
-  // 说明文字条样式
-  // const captionStyleList: ComputedRef<CSSProperties> = computed(
-  //   (): CSSProperties => {
-  //     const { captionColor, round } = prop
-
-  //     return {
-  //       color: captionColor,
-  //       borderRadius: `0 0 ${round} ${round}`
-  //     } as const
-  //   }
-  // )
 </script>
 
 <template>
@@ -120,15 +95,6 @@
       :title="title"
       @click="handleClick"
     />
-
-    <!-- 说明文字 -->
-    <div
-      v-if="caption"
-      v-show="isSuccess"
-      class="f-image-caption"
-    >
-      {{ caption }}
-    </div>
   </div>
 
   <div v-else class="f-image-error">

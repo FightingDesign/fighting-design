@@ -59,14 +59,6 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  // caption: {
-  //   type: String,
-  //   default: (): string => ''
-  // },
-  // captionColor: {
-  //   type: String,
-  //   default: (): string => '#fff'
-  // },
   title: {
     type: String,
     default: (): string => ''
