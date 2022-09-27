@@ -31,6 +31,8 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 **perf**
 
+- Optimized `props` prompt of components
+- New Type Export
 - Optimize the implementation of partial styles of `f-avatar` components to reduce code overhead
 - Optimize the implementation of `f-back-top` component styles to reduce code overhead
 - Optimize the `props` default value of the `f-back-top` component
