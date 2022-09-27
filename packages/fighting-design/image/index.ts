@@ -4,12 +4,14 @@ import { install } from '../_utils'
 
 export const FImage = install(Image)
 
-export type FImageInstance = InstanceType<typeof Image>
+export type ImageInstance = InstanceType<typeof Image>
+
+export type { ImagePropsType } from './src/image'
+
+export type { ImageFitType } from './src/interface'
 
 declare module 'vue' {
   export interface GlobalComponents {
     FImage: typeof FImage
   }
 }
-
-export type { imageFit } from './src/interface'

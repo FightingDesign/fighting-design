@@ -187,7 +187,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FImageInstance, imageFit } from 'fighting-design'
+import type {
+  ImageInstance,
+  ImagePropsType,
+  ImageFitType
+} from 'fighting-design'
 ```
 
 ## Contributors

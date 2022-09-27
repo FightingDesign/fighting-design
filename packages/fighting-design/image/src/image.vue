@@ -4,9 +4,9 @@
   import { loadImage, sizeChange } from '../../_utils'
   import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
-  import type { FPropsType } from './image'
-  import type { handleCloseInterface as e } from './interface'
+  import type { ImagePropsType } from './image'
   import type {
+    handleEventInterface as e,
     ordinaryFunctionInterface as b,
     LoadNeedImagePropsInterface as c,
     classListInterface as d,
@@ -36,7 +36,7 @@
       isShowNode.value = params
     }
 
-    const needProps: c = useFilterProps<FPropsType, c>(prop, [
+    const needProps: c = useFilterProps<ImagePropsType, c>(prop, [
       'src',
       'errSrc',
       'rootMargin',

@@ -62,11 +62,11 @@ export type { HeaderInstance, HeaderPropsType } from './header'
 export { FIcon } from './icon'
 export type { IconInstance, IconPropsType } from './icon'
 
+export { FImage } from './image'
+export type { ImageInstance, ImagePropsType, ImageFitType } from './image'
+
 export { FLink } from './link'
 export type { FLinkInstance, linkType, linkTarget, linkHover } from './link'
-
-export { FImage } from './image'
-export type { FImageInstance, imageFit } from './image'
 
 export { FTag } from './tag'
 export type { FTagInstance, tagSizeType, tagTypeType } from './tag'

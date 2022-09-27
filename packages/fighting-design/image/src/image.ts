@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { imageFit } from './interface'
+import type { ImageFitType } from './interface'
 
 export const Props = {
   src: {
@@ -35,9 +35,9 @@ export const Props = {
     default: (): boolean => false
   },
   fit: {
-    type: String as PropType<imageFit>,
-    default: (): imageFit => '',
-    validator: (val: imageFit): boolean => {
+    type: String as PropType<ImageFitType>,
+    default: (): ImageFitType => '',
+    validator: (val: ImageFitType): boolean => {
       return (
         ['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const
       ).includes(val)
@@ -71,4 +71,4 @@ export const Emits = {
   click: (evt: MouseEvent): Event => evt
 } as const
 
-export type FPropsType = ExtractPropTypes<typeof Props>
+export type ImagePropsType = ExtractPropTypes<typeof Props>
