@@ -4,7 +4,9 @@ import { install } from '../_utils'
 
 export const FEmpty = install(Empty)
 
-export type FEmptyInstance = InstanceType<typeof Empty>
+export type EmptyInstance = InstanceType<typeof Empty>
+
+export type { EmptyPropsType } from './src/empty'
 
 declare module 'vue' {
   export interface GlobalComponents {

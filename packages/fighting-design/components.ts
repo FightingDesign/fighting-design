@@ -47,6 +47,9 @@ export type { DividerInstance, DividerPropsType, DividerPositionType, DividerTyp
 export { FDrawer } from './drawer'
 export type { DrawerInstance, DrawerPropsType, DrawerDirectionType } from './drawer'
 
+export { FEmpty } from './empty'
+export type { EmptyInstance, EmptyPropsType } from './empty'
+
 export { FIcon } from './icon'
 export type { FIconInstance } from './icon'
 
@@ -109,9 +112,6 @@ export type { FMessageInstance } from './message'
 
 export { FWatermark } from './watermark'
 export type { FWatermarkInstance } from './watermark'
-
-export { FEmpty } from './empty'
-export type { FEmptyInstance } from './empty'
 
 export { FSkeleton } from './skeleton'
 export type { FSkeletonInstance, skeletonSizeType } from './skeleton'
