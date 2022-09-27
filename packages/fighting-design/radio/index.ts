@@ -4,7 +4,9 @@ import { install } from '../_utils'
 
 export const FRadio = install(Radio)
 
-export type FRadioInstance = InstanceType<typeof FRadio>
+export type RadioInstance = InstanceType<typeof FRadio>
+
+export type { RadioPropsType } from './src/radio'
 
 declare module 'vue' {
   export interface GlobalComponents {

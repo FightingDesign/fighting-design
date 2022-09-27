@@ -222,7 +222,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FProgressInstance, progressType } from 'fighting-design'
+import type {
+  ProgressInstance,
+  ProgressPropsType,
+  ProgressType
+} from 'fighting-design'
 ```
 
 ## Contributors

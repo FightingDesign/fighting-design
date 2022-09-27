@@ -1,4 +1,4 @@
-export type progressType = 'primary' | 'success' | 'danger' | 'warning'
+export type ProgressType = 'primary' | 'success' | 'danger' | 'warning'
 
 export interface isShowPercentageInterface {
   (): boolean

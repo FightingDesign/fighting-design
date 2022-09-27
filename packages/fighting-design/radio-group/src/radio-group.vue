@@ -10,12 +10,12 @@
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { classListInterface as a } from '../../_interface'
-  import type { changeEventInterface as b, labelType } from './interface'
+  import type { changeEventInterface as b, RadioLabelType } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const changeEvent: b = (value: labelType): void => {
+  const changeEvent: b = (value: RadioLabelType): void => {
     emit('update:modelValue', value)
     emit('change', value)
   }

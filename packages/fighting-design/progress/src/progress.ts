@@ -1,5 +1,5 @@
-import type { PropType } from 'vue'
-import type { progressType } from './interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { ProgressType } from './interface'
 
 export const Props = {
   percentage: {
@@ -10,9 +10,9 @@ export const Props = {
     }
   },
   type: {
-    type: String as PropType<progressType>,
-    default: (): progressType => 'primary',
-    validator: (val: progressType): boolean => {
+    type: String as PropType<ProgressType>,
+    default: (): ProgressType => 'primary',
+    validator: (val: ProgressType): boolean => {
       return (['primary', 'success', 'danger', 'warning'] as const).includes(
         val
       )
@@ -59,3 +59,5 @@ export const Props = {
     default: (): boolean => false
   }
 } as const
+
+export type ProgressPropsType = ExtractPropTypes<typeof Props>

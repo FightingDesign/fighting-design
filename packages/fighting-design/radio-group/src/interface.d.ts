@@ -1,14 +1,14 @@
-export type labelType = string | number | boolean
+export type RadioLabelType = string | number | boolean
 
 export interface changeEventInterface {
-  (value: labelType): void
+  (value: RadioLabelType): void
 }
 
-export type radioGroupSizeType = 'large' | 'middle' | 'small' | 'mini'
+export type RadioGroupSizeType = 'large' | 'middle' | 'small' | 'mini'
 
 export interface RadioGroundInterface {
   disabled: boolean
-  modelValue: labelType
+  modelValue: RadioLabelType
   label: string
   vertical: boolean
   size: radioGroupSize

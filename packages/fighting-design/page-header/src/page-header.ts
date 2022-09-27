@@ -1,3 +1,5 @@
+import type { ExtractPropTypes } from 'vue'
+
 export const Props = {
   icon: {
     type: String,
@@ -36,3 +38,5 @@ export const Props = {
 export const Emits = {
   back: (): boolean => true
 } as const
+
+export type PageHeaderPropsType = ExtractPropTypes<typeof Props>

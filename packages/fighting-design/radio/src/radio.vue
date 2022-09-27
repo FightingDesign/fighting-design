@@ -10,7 +10,7 @@
   } from 'vue'
   import type {
     RadioGroundInterface as a,
-    labelType
+    RadioLabelType
   } from '../../radio-group/src/interface'
   import type {
     ordinaryFunctionInterface as b,
@@ -46,7 +46,7 @@
     emit('change', prop.modelValue)
   }
 
-  const modelValue: WritableComputedRef<labelType> = computed({
+  const modelValue: WritableComputedRef<RadioLabelType> = computed({
     get () {
       return isGroup.value
         ? (radioGroup.value as a).modelValue

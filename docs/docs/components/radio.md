@@ -309,9 +309,12 @@
 
 ```ts
 import type {
+  RadioInstance,
+  RadioPropsType,
+  RadioLabelType,
   RadioGroupInstance,
-  FRadioInstance,
-  radioGroupSizeType
+  RadioGroundPropsType,
+  RadioGroupSizeType
 } from 'fighting-design'
 ```
 

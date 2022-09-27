@@ -88,6 +88,18 @@ export { LoadingBar as useLoadingBar } from './loading-bar'
 export { FMain } from './main'
 export type { MainInstance, MainPropsType } from './main'
 
+export { FPageHeader } from './page-header'
+export type { PageHeaderInstance, PageHeaderPropsType } from './page-header'
+
+export { FProgress } from './progress'
+export type { ProgressInstance, ProgressPropsType, ProgressType } from './progress'
+
+export { FRadio } from './radio'
+export type { RadioInstance, RadioPropsType } from './radio'
+
+export { FRadioGroup } from './radio-group'
+export type { RadioGroupInstance, RadioGroundPropsType, RadioGroupSizeType, RadioLabelType } from './radio-group'
+
 export { FTag } from './tag'
 export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
 
@@ -97,17 +109,11 @@ export type { FSwitchInstance, switchSizeType } from './switch'
 export { FText } from './text'
 export type { FTextInstance, textTypeType } from './text'
 
-export { FProgress } from './progress'
-export type { FProgressInstance, progressType } from './progress'
-
 export { FSpace } from './space'
 export type { FSpaceInstance, spaceSizeType } from './space'
 
 export { FTooltip } from './tooltip'
 export type { FTooltipInstance, tooltipPositionType, tooltipStateType } from './tooltip'
-
-export { FPageHeader } from './page-header'
-export type { FPageHeaderInstance } from './page-header'
 
 export { FToolbar } from './toolbar'
 export type { FToolbarInstance, toolbarTypeType, toolbarFixedStyleInterface } from './toolbar'
@@ -129,12 +135,6 @@ export type { FNotificationInstance } from './notification'
 
 export { FRipple } from './ripple'
 export type { FRippleInstance, rippleType, rippleOpacityInterface } from './ripple'
-
-export { FRadio } from './radio'
-export type { FRadioInstance } from './radio'
-
-export { FRadioGroup } from './radio-group'
-export type { RadioGroupInstance, radioGroupSizeType } from './radio-group'
 
 export { FTree } from './tree'
 export type { FTreeInstance, treeDataInterface } from './tree'
