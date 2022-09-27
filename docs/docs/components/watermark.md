@@ -131,16 +131,16 @@
 
 ## Attributes
 
-| 参数        | 说明                                                                          | 类型    | 可选值 | 默认值 |
-| ----------- | ----------------------------------------------------------------------------- | ------- | ------ | ------ |
-| `content`   | 水印内容                                                                      | string  | ——     | ——     |
-| `width`     | 水印的宽度                                                                    | number  | ——     | 280    |
-| `height`    | 水印的高度                                                                    | number  | ——     | 200    |
-| `fontSize`  | 文字大小                                                                      | string  | ——     | 30px   |
-| `fontColor` | 文字颜色                                                                      | string  | ——     | #333   |
-| `image`     | 自定义图片水印                                                                | string  | ——     | ——     |
-| `block`     | 是否为块级元素                                                                | boolean | ——     | false  |
-| `zIndex`    | 原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number  | ——     | 100    |
+| 参数        | 说明                                                                          | 类型            | 可选值 | 默认值 |
+| ----------- | ----------------------------------------------------------------------------- | --------------- | ------ | ------ |
+| `content`   | 水印内容                                                                      | string          | ——     | ——     |
+| `width`     | 水印的宽度                                                                    | number          | ——     | 280    |
+| `height`    | 水印的高度                                                                    | number          | ——     | 200    |
+| `fontSize`  | 文字大小                                                                      | string / number | ——     | 30px   |
+| `fontColor` | 文字颜色                                                                      | string          | ——     | #333   |
+| `image`     | 自定义图片水印                                                                | string          | ——     | ——     |
+| `block`     | 是否为块级元素                                                                | boolean         | ——     | false  |
+| `zIndex`    | 原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number          | ——     | 100    |
 
 ## Slots
 

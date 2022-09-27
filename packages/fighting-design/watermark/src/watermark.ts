@@ -1,4 +1,5 @@
 import type { ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   content: {
@@ -14,7 +15,7 @@ export const Props = {
     default: (): number => 200
   },
   fontSize: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => '30px'
   },
   fontColor: {

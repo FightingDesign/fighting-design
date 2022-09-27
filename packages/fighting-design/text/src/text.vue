@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FText">
   import { Props } from './text'
   import { computed } from 'vue'
-  import { isString } from '../../_utils'
+  import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { classListInterface as a } from '../../_interface'
 
@@ -40,7 +40,7 @@
       textIndent,
       lineHeight,
       padding,
-      fontSize: isString(size) ? size : size + 'px',
+      fontSize: sizeChange(size),
       width,
       letterSpacing: spacing,
       textDecoration: decoration

@@ -2,7 +2,7 @@
   import { Props, Emits } from './link'
   import { FIcon } from '../../icon'
   import { computed } from 'vue'
-  import { isString } from '../../_utils'
+  import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { handleClickInterface as a } from './interface'
   import type { classListInterface as b } from '../../_interface'
@@ -37,7 +37,7 @@
 
     return {
       color,
-      fontSize: isString(size) ? size : size + 'px'
+      fontSize: sizeChange(size)
     } as const
   })
 </script>

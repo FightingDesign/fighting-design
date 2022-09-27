@@ -1,3 +1,4 @@
+import { sizeChange } from './utils'
 import type {
   createBase64Interface as a,
   createBase64NeedWatermarkPropsInterface as b
@@ -22,7 +23,7 @@ export const createBase64: a = (props: b): string => {
   ) as CanvasRenderingContext2D
   if (context) {
     context.rotate((-8 * Math.PI) / 100)
-    context.font = `${props.fontSize} serif`
+    context.font = `${sizeChange(props.fontSize)} serif`
     context.fillStyle = props.fontColor
     context.textAlign = 'left'
     context.textBaseline = 'middle'

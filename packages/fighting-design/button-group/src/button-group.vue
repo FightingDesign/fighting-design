@@ -20,7 +20,7 @@
 </script>
 
 <template>
-  <div :class="classList">
+  <div role="group" :class="classList">
     <slot />
   </div>
 </template>

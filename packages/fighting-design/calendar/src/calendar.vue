@@ -3,7 +3,7 @@
   import { ref, computed, watch } from 'vue'
   import { FButton } from '../../button'
   import { FText } from '../../text'
-  import { addZero, isString } from '../../_utils'
+  import { addZero, sizeChange } from '../../_utils'
   import { WEEK_DATA } from '../../_model/calendar/data'
   import { diffDay } from '../../_model/calendar/diff-day'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
@@ -82,12 +82,8 @@
 
     return {
       '--f-calendar-border-color': borderColor,
-      '--f-calendar-day-height': isString(dayCellHeight)
-        ? dayCellHeight
-        : dayCellHeight + 'px',
-      '--f-calendar-week-height': isString(weekCellHeight)
-        ? weekCellHeight
-        : weekCellHeight + 'px'
+      '--f-calendar-day-height': sizeChange(dayCellHeight),
+      '--f-calendar-week-height': sizeChange(weekCellHeight)
     }
   })
 

@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FIcon">
   import { Props, Emits } from './icon'
   import { computed } from 'vue'
-  import { isString } from '../../_utils'
+  import { sizeChange } from '../../_utils'
   import type { CSSProperties, ComputedRef } from 'vue'
   import type { handleClickInterface as a } from './interface'
   import type { classListInterface as b } from '../../_interface'
@@ -24,7 +24,7 @@
 
     return {
       color,
-      fontSize: isString(size) ? size : size + 'px'
+      fontSize: sizeChange(size)
     } as const
   })
 </script>

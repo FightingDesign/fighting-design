@@ -11,6 +11,8 @@
 - 优化 `f-badge` 组件样式实现
 - `f-image` 组件 `round` 配置项支持 `number` 类型
 - `f-image` 组件废除 `caption` 和 `caption-color` 配置项
+- `f-watermark` 组件 `fontSize` 配置项支持 `number` 类型参数
+- `f-progress` 组件 `width` `height` 配置项支持 `number` 类型参数
 
 ## 0.6.5-alpha.5 (2022-09-25)
 

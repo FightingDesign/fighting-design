@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FExpandCard">
   import { computed, ref } from 'vue'
   import { Props } from './expand-card'
-  import { isString } from '../../_utils'
+  import { sizeChange, isString } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type { classListInterface as a } from '../../_interface'
   import type {
@@ -43,8 +43,8 @@
     const { width, height } = prop
 
     return {
-      width: isString(width) ? width : width + 'px',
-      height: isString(height) ? height : height + 'px'
+      width: sizeChange(width),
+      height: sizeChange(height)
     } as const
   })
 </script>

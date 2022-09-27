@@ -1,5 +1,6 @@
 <script lang="ts" setup name="FProgress">
   import { Props } from './progress'
+  import { sizeChange } from '../../_utils'
   import { computed, ref, onMounted } from 'vue'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type { isShowPercentageInterface as a } from './interface'
@@ -16,7 +17,7 @@
       const { background, height, square } = prop
 
       return {
-        height,
+        height: sizeChange(height),
         background,
         borderRadius: square ? '0px' : '100px'
       } as const
@@ -46,12 +47,12 @@
 
 <template>
   <div
+    role="progressbar"
     :class="['f-progress', { 'f-progress-liner': linear }]"
-    :style="{ width: width }"
+    :style="{ width: sizeChange(width) }"
     :aria-value="percentage"
     :aria-valuemin="0"
     :aria-valuemax="100"
-    role="progressbar"
   >
     <div class="f-progress-bar" :style="progressStyle">
       <div

@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FStickyCard">
   import { Props } from './sticky-card'
   import { ref, computed, unref } from 'vue'
-  import { isString } from '../../_utils'
+  import { sizeChange } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
     classListInterface as a,
@@ -37,9 +37,7 @@
     return {
       '--sticky-card-content-background': background,
       '--sticky-card-border-color': borderColor,
-      '--sticky-card-max-height': isString(openHeight)
-        ? openHeight
-        : openHeight + 'px'
+      '--sticky-card-max-height': sizeChange(openHeight)
     } as const
   })
 

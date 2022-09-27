@@ -43,11 +43,11 @@ export const Props = {
     default: (): string => ''
   },
   width: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   height: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => '6px'
   },
   stripe: {

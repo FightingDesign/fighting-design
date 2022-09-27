@@ -7,7 +7,7 @@
 <script lang="ts" setup>
   import { provide, reactive, toRefs, computed } from 'vue'
   import { Props, Emits, RadioGroupPropsKey } from './radio-group'
-  import { isString } from '../../_utils'
+  import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { classListInterface as a } from '../../_interface'
   import type { changeEventInterface as b, labelType } from './interface'
@@ -43,8 +43,8 @@
     const { columnGap, rowGap } = prop
 
     return {
-      columnGap: isString(columnGap) ? columnGap : columnGap + 'px',
-      rowGap: isString(rowGap) ? rowGap : rowGap + 'px'
+      columnGap: sizeChange(columnGap),
+      rowGap: sizeChange(rowGap)
     } as const
   })
 </script>

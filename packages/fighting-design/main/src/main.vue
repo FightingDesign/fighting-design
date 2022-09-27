@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { Props } from './main'
   import { computed } from 'vue'
-  import { isString } from '../../_utils'
+  import { sizeChange } from '../../_utils'
   import type { CSSProperties, ComputedRef } from 'vue'
 
   const prop = defineProps(Props)
@@ -10,7 +10,7 @@
     const { padding } = prop
 
     return {
-      padding: isString(padding) ? padding : padding + 'px'
+      padding: sizeChange(padding)
     } as const
   })
 </script>

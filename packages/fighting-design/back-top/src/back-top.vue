@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FBackTop">
   import { Emits, Props } from './back-top'
   import { onMounted, ref, computed } from 'vue'
-  import { debounce, isString } from '../../_utils'
+  import { debounce, sizeChange } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
     handleScrollInterface as a,
@@ -61,8 +61,8 @@
     const { right, bottom, zIndex, background, color } = prop
 
     return {
-      '--f-back-top-right': isString(right) ? right : right + 'px',
-      '--f-back-top-bottom': isString(bottom) ? bottom : bottom + 'px',
+      '--f-back-top-right': sizeChange(right),
+      '--f-back-top-bottom': sizeChange(bottom),
       '--f-back-top-z-index': zIndex,
       '--f-back-top-background': background,
       '--f-back-top-color': color
