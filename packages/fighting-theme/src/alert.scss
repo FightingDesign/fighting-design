@@ -48,13 +48,6 @@
     .f-alert-sub-title {
       display: block;
       font-size: var(--f-alert-font-size, 15px);
-
-      &.f-alert-sub-title-ellipsis {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 300px;
-      }
     }
 
     &.f-alert-content-hidden {
