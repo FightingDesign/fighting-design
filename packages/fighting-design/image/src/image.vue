@@ -5,14 +5,12 @@
   import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { FPropsType } from './image'
-  import type {
-    callbackInterface as a,
-    handleCloseInterface as e
-  } from './interface'
+  import type { handleCloseInterface as e } from './interface'
   import type {
     ordinaryFunctionInterface as b,
     LoadNeedImagePropsInterface as c,
-    classListInterface as d
+    classListInterface as d,
+    callbackInterface
   } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -33,7 +31,7 @@
   // 开始加载图片
   const loadAction: b = (): void => {
     const node: HTMLImageElement = FImageImg.value as HTMLImageElement
-    const callback: a = (params: boolean): void => {
+    const callback: callbackInterface = (params: boolean): void => {
       isSuccess.value = params
       isShowNode.value = params
     }
