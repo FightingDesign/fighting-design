@@ -52,21 +52,21 @@ export const Props = {
     default: (): string => ''
   },
   round: {
-    type: String,
-    default: (): string => ''
+    type: [String, Number] as PropType<string | number>,
+    default: (): number => 0
   },
   errSrc: {
     type: String,
     default: (): string => ''
   },
-  caption: {
-    type: String,
-    default: (): string => ''
-  },
-  captionColor: {
-    type: String,
-    default: (): string => '#fff'
-  },
+  // caption: {
+  //   type: String,
+  //   default: (): string => ''
+  // },
+  // captionColor: {
+  //   type: String,
+  //   default: (): string => '#fff'
+  // },
   title: {
     type: String,
     default: (): string => ''

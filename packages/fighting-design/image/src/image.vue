@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FImage">
   import { Props, Emits } from './image'
   import { onMounted, ref, computed } from 'vue'
-  import { loadImage, isString } from '../../_utils'
+  import { loadImage, isString, sizeChange } from '../../_utils'
   import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { FPropsType } from './image'
@@ -68,26 +68,36 @@
   })
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { width, height, round } = prop
+    const { width, height, round, captionColor } = prop
 
     return {
-      width: isString(width) ? width : width + 'px',
-      height: isString(height) ? height : height + 'px',
-      borderRadius: round
-    } as const
+      '--f-image-width': sizeChange(width),
+      '--f-image-height': sizeChange(height),
+      '--f-image-border-radius': sizeChange(round),
+      '--f-image-caption-color': captionColor,
+      '--f-image-caption-border-radius': `0 0 ${sizeChange(round)} ${sizeChange(
+        round
+      )}`
+    }
+
+    // return {
+    //   width: isString(width) ? width : width + 'px',
+    //   height: isString(height) ? height : height + 'px',
+    //   borderRadius: round
+    // } as const
   })
 
   // 说明文字条样式
-  const captionStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { captionColor, round } = prop
+  // const captionStyleList: ComputedRef<CSSProperties> = computed(
+  //   (): CSSProperties => {
+  //     const { captionColor, round } = prop
 
-      return {
-        color: captionColor,
-        borderRadius: `0 0 ${round} ${round}`
-      } as const
-    }
-  )
+  //     return {
+  //       color: captionColor,
+  //       borderRadius: `0 0 ${round} ${round}`
+  //     } as const
+  //   }
+  // )
 </script>
 
 <template>
@@ -116,7 +126,6 @@
       v-if="caption"
       v-show="isSuccess"
       class="f-image-caption"
-      :style="captionStyleList"
     >
       {{ caption }}
     </div>

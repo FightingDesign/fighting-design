@@ -11,7 +11,9 @@
 </script>
 
 <template>
-  <div v-html="mdRes"></div>
+  <f-image width="200px" height="400px" :round="50" caption="哈哈哈哈哈哈哈" src="https://tianyuhao.cn/images/auto/1.jpg" />
+
+  <!-- <div v-html="mdRes"></div> -->
 </template>
 
 <style scoped></style>

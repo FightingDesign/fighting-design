@@ -110,3 +110,13 @@ export const pastTime: d = (
 export const addZero = (num: number): string => {
   return num > 9 ? num.toString() : `0${num}`
 }
+
+/**
+ * 将数字尺寸改为字符串
+ * @param size 
+ * @param target 
+ * @returns 
+ */
+export const sizeChange = (size: string | number, target = 'px'): string => {
+  return typeof size === 'string' ? size : size + target
+}

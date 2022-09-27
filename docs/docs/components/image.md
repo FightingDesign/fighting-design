@@ -193,7 +193,7 @@
 | `fit`             | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性     | string          | `fill` `contain` `cover` `none`<br /> `scale-down` | ——     |
 | `no-select`       | 是否禁止选择                                                                                                 | boolean         | ——                                                 | false  |
 | `referrer-policy` | 原生 [referrerPolicy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#syntax) 属性 | string          | ——                                                 | ——     |
-| `round`           | 配置圆角，传入一个单位                                                                                       | string          | ——                                                 | ——     |
+| `round`           | 配置圆角，传入一个数值                                                                                       | string / number | ——                                                 | 0      |
 | `err-src`         | 加载失败时要显示的地址                                                                                       | string          | ——                                                 | ——     |
 | `caption`         | 图片上的说明文字                                                                                             | string          | ——                                                 | ——     |
 | `caption-color`   | 图片上的说明文字的颜色                                                                                       | string          | ——                                                 | #fff   |
