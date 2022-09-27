@@ -1,12 +1,14 @@
-import type { PropType } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   background: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   },
   color: {
-    type: String as PropType<string>,
+    type: String,
     default: (): string => ''
   }
 } as const
+
+export type ListItemPropsType = ExtractPropTypes<typeof Props>

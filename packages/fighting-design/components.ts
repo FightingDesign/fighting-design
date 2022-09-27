@@ -74,6 +74,12 @@ export type { LayoutInstance, LayoutPropsType, LayoutDirectionType } from './lay
 export { FLink } from './link'
 export type { LinkInstance, LinkPropsType, LinkType, LinkTargetType, LinkHoverType } from './link'
 
+export { FList } from './list'
+export type { ListInstance, ListPropsType, ListSizeType } from './list'
+
+export { FListItem } from './list-item'
+export type { ListItemInstance, ListItemPropsType } from './list-item'
+
 export { FTag } from './tag'
 export type { FTagInstance, tagSizeType, tagTypeType } from './tag'
 
@@ -100,12 +106,6 @@ export type { FTooltipInstance, tooltipPositionType, tooltipStateType } from './
 
 export { FPageHeader } from './page-header'
 export type { FPageHeaderInstance } from './page-header'
-
-export { FList } from './list'
-export type { FListInstance, listSizeType } from './list'
-
-export { FListItem } from './list-item'
-export type { FListItemInstance } from './list-item'
 
 export { FToolbar } from './toolbar'
 export type { FToolbarInstance, toolbarTypeType, toolbarFixedStyleInterface } from './toolbar'

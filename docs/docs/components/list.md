@@ -221,7 +221,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FListInstance, listSizeType } from 'fighting-design'
+import type {
+  ListInstance,
+  ListPropsType,
+  ListSizeType,
+  ListItemInstance,
+  ListItemPropsType
+} from 'fighting-design'
 ```
 
 ## Contributors

@@ -3,9 +3,9 @@
   import { computed, inject } from 'vue'
   import { listPropsKey } from '../../list/src/list'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { FPropsType } from '../../list/src/list'
+  import type { ListPropsType } from '../../list/src/list'
 
-  const injectListProps: FPropsType = inject(listPropsKey) as FPropsType
+  const injectListProps: ListPropsType = inject(listPropsKey) as ListPropsType
   const prop = defineProps(Props)
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {

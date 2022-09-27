@@ -1,1 +1,1 @@
-export type listSizeType = 'large' | 'middle' | 'small'
+export type ListSizeType = 'large' | 'middle' | 'small'

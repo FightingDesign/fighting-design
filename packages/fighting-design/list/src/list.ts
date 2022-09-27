@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
-import type { listSizeType } from './interface'
+import type { ListSizeType } from './interface'
 
 export const Props = {
   listStyle: {
@@ -23,9 +23,9 @@ export const Props = {
     default: (): string => ''
   },
   size: {
-    type: String as PropType<listSizeType>,
-    default: (): listSizeType => 'middle',
-    validator: (val: listSizeType): boolean => {
+    type: String as PropType<ListSizeType>,
+    default: (): ListSizeType => 'middle',
+    validator: (val: ListSizeType): boolean => {
       return (['large', 'middle', 'small'] as const).includes(val)
     }
   },
@@ -35,6 +35,6 @@ export const Props = {
   }
 } as const
 
-export type FPropsType = ExtractPropTypes<typeof Props>
+export type ListPropsType = ExtractPropTypes<typeof Props>
 
-export const listPropsKey: InjectionKey<FPropsType> = Symbol('list-props')
+export const listPropsKey: InjectionKey<ListPropsType> = Symbol('list-props')
