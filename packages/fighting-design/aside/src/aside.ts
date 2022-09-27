@@ -1,12 +1,14 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
   width: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): string => '200px'
   },
   padding: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): number => 0
   }
 } as const
+
+export type AsideProps = ExtractPropTypes<typeof Props>

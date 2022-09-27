@@ -10,8 +10,8 @@
     const { width, padding } = prop
 
     return {
-      width: sizeChange(width),
-      padding: sizeChange(padding)
+      '--f-aside-width': sizeChange(width),
+      '--f-aside-padding': sizeChange(padding)
     } as const
   })
 </script>

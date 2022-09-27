@@ -1,6 +1,9 @@
 export { FAlert } from './alert'
 export type { AlertProps, AlertInstance, AlertType, AlertOverflowType } from './alert'
 
+export { FAside } from './aside'
+export type { AsideProps, AsideInstance } from './aside'
+
 export { FButton } from './button'
 export type {
   FButtonInstance,
@@ -36,9 +39,6 @@ export type { FFooterInstance } from './footer'
 
 export { FHeader } from './header'
 export type { FHeaderInstance } from './header'
-
-export { FAside } from './aside'
-export type { FAsideInstance } from './aside'
 
 export { FMain } from './main'
 export type { FMainInstance } from './main'

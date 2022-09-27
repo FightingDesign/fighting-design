@@ -233,7 +233,7 @@
 | 参数      | 说明   | 类型            | 可选值 | 默认值 |
 | --------- | ------ | --------------- | ------ | ------ |
 | `width`   | 宽度   | string / number | ——     | 200px  |
-| `padding` | 内边距 | string / number | ——     | ——     |
+| `padding` | 内边距 | string / number | ——     | 0      |
 
 ## Footer Attributes
 
@@ -247,7 +247,12 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FLayoutInstance, layoutDirectionType } from 'fighting-design'
+import type {
+  AsideProps,
+  AsideInstance,
+  FLayoutInstance,
+  layoutDirectionType
+} from 'fighting-design'
 ```
 
 ## Contributors
