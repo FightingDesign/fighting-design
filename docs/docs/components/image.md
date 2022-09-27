@@ -1,6 +1,6 @@
 # Image 图片
 
-`Image` 用于图片的展示
+预览图片
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/image)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/image.md)
@@ -86,39 +86,11 @@
 
 :::
 
-## 说明文字
-
-`caption` 属性可以在图片上加入一些说明文字
-
-也可以使用 `caption-color` 配置不同的颜色
-
-<f-image height="190px" caption="普雷 伊希斯" src="https://tianyuhao.cn/images/auto/1.jpg" />
-<f-image height="190px" caption="看夜景" caption-color="skyblue" src="https://tianyuhao.cn/images/auto/2.jpg" />
-
-::: details 显示代码
-
-```html
-<f-image
-  height="190px"
-  caption="普雷 伊希斯"
-  src="https://tianyuhao.cn/images/auto/1.jpg"
-/>
-
-<f-image
-  height="190px"
-  caption="看夜景"
-  caption-color="skyblue"
-  src="https://tianyuhao.cn/images/auto/2.jpg"
-/>
-```
-
-:::
-
 ## 圆角图片
 
 `round` 属性可以配置圆角图片，你需要传入一个具体的数值单位
 
-<f-image round="30px" height="190px" caption="漂亮的玫瑰花" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
 
 ::: details 显示代码
 
@@ -126,7 +98,6 @@
 <f-image
   round="30px"
   height="190px"
-  caption="漂亮的玫瑰花"
   src="https://tianyuhao.cn/images/auto/4.jpg"
 />
 ```
@@ -195,8 +166,6 @@
 | `referrer-policy` | 原生 [referrerPolicy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#syntax) 属性 | string          | ——                                                 | ——     |
 | `round`           | 配置圆角，传入一个数值                                                                                       | string / number | ——                                                 | 0      |
 | `err-src`         | 加载失败时要显示的地址                                                                                       | string          | ——                                                 | ——     |
-| `caption`         | 图片上的说明文字                                                                                             | string          | ——                                                 | ——     |
-| `caption-color`   | 图片上的说明文字的颜色                                                                                       | string          | ——                                                 | #fff   |
 | `show-close-btn`  | 是否展示预览窗口的关闭按钮                                                                                   | boolean         | ——                                                 | true   |
 | `title`           | img 的 title                                                                                                 | string          | ——                                                 | ——     |
 
