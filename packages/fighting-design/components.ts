@@ -72,7 +72,7 @@ export { FLayout } from './layout'
 export type { LayoutInstance, LayoutPropsType, LayoutDirectionType } from './layout'
 
 export { FLink } from './link'
-export type { FLinkInstance, linkType, linkTarget, linkHover } from './link'
+export type { LinkInstance, LinkPropsType, LinkType, LinkTargetType, LinkHoverType } from './link'
 
 export { FTag } from './tag'
 export type { FTagInstance, tagSizeType, tagTypeType } from './tag'

@@ -170,10 +170,11 @@
 
 ```ts
 import type {
-  FLinkInstance,
-  linkType,
-  linkTarget,
-  linkHover
+  LinkInstance,
+  LinkPropsType,
+  LinkType,
+  LinkTargetType,
+  LinkHoverType
 } from 'fighting-design'
 ```
 

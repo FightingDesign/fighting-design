@@ -1,11 +1,11 @@
-import type { PropType } from 'vue'
-import type { linkType, linkTarget, linkHover } from './interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { LinkType, LinkTargetType, LinkHoverType } from './interface'
 
 export const Props = {
   type: {
-    type: String as PropType<linkType>,
-    default: (): linkType => 'primary',
-    validator: (val: linkType): boolean => {
+    type: String as PropType<LinkType>,
+    default: (): LinkType => 'primary',
+    validator: (val: LinkType): boolean => {
       return (
         ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
@@ -20,9 +20,9 @@ export const Props = {
     default: (): string => ''
   },
   state: {
-    type: String as PropType<linkHover>,
-    default: (): linkHover => '',
-    validator: (val: linkHover): boolean => {
+    type: String as PropType<LinkHoverType>,
+    default: (): LinkHoverType => '',
+    validator: (val: LinkHoverType): boolean => {
       return (['line', 'bag', ''] as const).includes(val)
     }
   },
@@ -39,9 +39,9 @@ export const Props = {
     default: (): string => ''
   },
   target: {
-    type: String as PropType<linkTarget>,
-    default: (): linkTarget => '',
-    validator: (val: linkTarget): boolean => {
+    type: String as PropType<LinkTargetType>,
+    default: (): LinkTargetType => '',
+    validator: (val: LinkTargetType): boolean => {
       return (['_self', '_blank', '_parent', '_top', ''] as const).includes(val)
     }
   },
@@ -62,3 +62,5 @@ export const Props = {
 export const Emits = {
   click: (evt: Event): Event => evt
 } as const
+
+export type LinkPropsType = ExtractPropTypes<typeof Props>

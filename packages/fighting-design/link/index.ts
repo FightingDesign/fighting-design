@@ -4,12 +4,14 @@ import { install } from '../_utils'
 
 export const FLink = install(Link)
 
-export type FLinkInstance = InstanceType<typeof Link>
+export type LinkInstance = InstanceType<typeof Link>
+
+export type { LinkPropsType } from './src/link'
+
+export type { LinkType, LinkTargetType, LinkHoverType } from './src/interface'
 
 declare module 'vue' {
   export interface GlobalComponents {
     FLink: typeof FLink
   }
 }
-
-export type { linkType, linkTarget, linkHover } from './src/interface'

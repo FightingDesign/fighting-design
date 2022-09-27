@@ -1,9 +1,5 @@
-export type linkType = 'default' | 'primary' | 'success' | 'danger' | 'warning'
+export type LinkType = 'default' | 'primary' | 'success' | 'danger' | 'warning'
 
-export type linkTarget = '_self' | '_blank' | '_parent' | '_top' | ''
+export type LinkTargetType = '_self' | '_blank' | '_parent' | '_top' | ''
 
-export type linkHover = 'line' | 'bag' | ''
-
-export interface handleClickInterface {
-  (evt: MouseEvent): void
-}
+export type LinkHoverType = 'line' | 'bag' | ''
