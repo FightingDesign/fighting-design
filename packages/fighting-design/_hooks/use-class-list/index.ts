@@ -1,5 +1,5 @@
-const PREFIX = 'f-' as const
-const STATE = 'is-' as const
+// const PREFIX = 'f-' as const
+// const STATE = 'is-' as const
 
 /**
  * BEM 明明规范
@@ -10,12 +10,12 @@ const STATE = 'is-' as const
  * 
  * @param name 
  */
-export const useClassList = (name: string) => {
-  const _name: string = PREFIX + name
+// export const useClassList = (name: string) => {
+//   const _name: string = PREFIX + name
 
-  const n = (target: string): string => _name + target
+//   const n = (target: string): string => _name + target
 
-  const is = (target: string): string => STATE + target
+//   const is = (target: string): string => STATE + target
 
-  return { n, is }
-}
+//   return { n, is }
+// }
