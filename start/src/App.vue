@@ -11,6 +11,8 @@
 </script>
 
 <template>
+  <f-alert type="danger"></f-alert>
+
   <f-alert overflow="hidden">
     认提示信息默认提示信息默认提示信息默认提示信息
 

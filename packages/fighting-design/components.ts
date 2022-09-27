@@ -1,5 +1,5 @@
 export { FAlert } from './alert'
-export type { alertProps, FAlertInstance, alertType, alertOverflowType } from './alert'
+export type { AlertProps, AlertInstance, AlertType, AlertOverflowType } from './alert'
 
 export { FButton } from './button'
 export type {

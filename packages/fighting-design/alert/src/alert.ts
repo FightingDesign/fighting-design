@@ -1,11 +1,11 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { alertType, alertOverflowType } from './interface'
+import type { AlertType, AlertOverflowType } from './interface'
 
 export const Props = {
   type: {
-    type: String as PropType<alertType>,
-    default: (): alertType => 'default',
-    validator: (val: alertType): boolean => {
+    type: String as PropType<AlertType>,
+    default: (): AlertType => 'default',
+    validator: (val: AlertType): boolean => {
       return (
         ['primary', 'success', 'danger', 'warning', 'default'] as const
       ).includes(val)
@@ -64,9 +64,9 @@ export const Props = {
     default: (): boolean => false
   },
   overflow: {
-    type: String as PropType<alertOverflowType>,
-    default: (): alertOverflowType => '',
-    validator: (val: alertOverflowType) => {
+    type: String as PropType<AlertOverflowType>,
+    default: (): AlertOverflowType => '',
+    validator: (val: AlertOverflowType) => {
       return (['hidden', ''] as const).includes(val)
     }
   }
@@ -76,4 +76,4 @@ export const Emits = {
   'close-end': (evt: MouseEvent): MouseEvent => evt
 } as const
 
-export type alertProps = ExtractPropTypes<typeof Props>
+export type AlertProps = ExtractPropTypes<typeof Props>

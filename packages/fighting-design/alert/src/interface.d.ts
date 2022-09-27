@@ -1,3 +1,3 @@
-export type alertType = 'primary' | 'success' | 'danger' | 'warning' | 'default'
+export type AlertType = 'primary' | 'success' | 'danger' | 'warning' | 'default'
 
-export type alertOverflowType = 'hidden' | ''
+export type AlertOverflowType = 'hidden' | ''
