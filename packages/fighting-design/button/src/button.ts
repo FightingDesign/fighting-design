@@ -1,9 +1,9 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type {
-  buttonSize,
-  buttonTarget,
-  buttonType,
-  buttonNativeType
+  ButtonSizeType,
+  ButtonTargetType,
+  ButtonType,
+  ButtonNativeType
 } from './interface'
 
 export const Props = {
@@ -28,9 +28,9 @@ export const Props = {
     default: (): string => '#fff'
   },
   size: {
-    type: String as PropType<buttonSize>,
-    default: (): buttonSize => 'middle',
-    validator: (val: buttonSize): boolean => {
+    type: String as PropType<ButtonSizeType>,
+    default: (): ButtonSizeType => 'middle',
+    validator: (val: ButtonSizeType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -43,9 +43,9 @@ export const Props = {
     default: (): string => ''
   },
   target: {
-    type: String as PropType<buttonTarget>,
-    default: (): buttonTarget => '_self',
-    validator: (val: buttonTarget): boolean => {
+    type: String as PropType<ButtonTargetType>,
+    default: (): ButtonTargetType => '_self',
+    validator: (val: ButtonTargetType): boolean => {
       return (['_blank', '_self', '_parent', '_top'] as const).includes(val)
     }
   },
@@ -62,9 +62,9 @@ export const Props = {
     default: (): string => ''
   },
   type: {
-    type: String as PropType<buttonType>,
-    default: (): buttonType => 'default',
-    validator: (val: buttonType): boolean => {
+    type: String as PropType<ButtonType>,
+    default: (): ButtonType => 'default',
+    validator: (val: ButtonType): boolean => {
       return (
         ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
@@ -87,9 +87,9 @@ export const Props = {
     default: (): boolean => false
   },
   nativeType: {
-    type: String as PropType<buttonNativeType>,
-    default: (): buttonNativeType => 'button',
-    validator: (val: buttonNativeType): boolean => {
+    type: String as PropType<ButtonNativeType>,
+    default: (): ButtonNativeType => 'button',
+    validator: (val: ButtonNativeType): boolean => {
       return (['button', 'submit', 'reset'] as const).includes(val)
     }
   },
@@ -122,3 +122,5 @@ export const Props = {
 export const Emits = {
   click: (evt: Event): Event => evt
 } as const
+
+export type ButtonPropsType = ExtractPropTypes<typeof Props>

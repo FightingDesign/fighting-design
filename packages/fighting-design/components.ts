@@ -21,18 +21,19 @@ export type { BreadcrumbItemInstance } from './breadcrumb-item'
 
 export { FButton } from './button'
 export type {
-  FButtonInstance,
-  buttonSize,
-  buttonTarget,
-  buttonType,
-  buttonNativeType
+  ButtonInstance,
+  ButtonPropsType,
+  ButtonSizeType,
+  ButtonTargetType,
+  ButtonType,
+  ButtonNativeType
 } from './button'
+
+export { FButtonGroup } from './button-group'
+export type { ButtonGroupInstance, ButtonGroupPropsType, ButtonGroupSizeType } from './button-group'
 
 export { FIcon } from './icon'
 export type { FIconInstance } from './icon'
-
-export { FButtonGroup } from './button-group'
-export type { FButtonGroupInstance } from './button-group'
 
 export { FLink } from './link'
 export type { FLinkInstance, linkType, linkTarget, linkHover } from './link'

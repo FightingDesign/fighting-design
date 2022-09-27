@@ -1,1 +1,1 @@
-export type buttonGroupSize = 'large' | 'middle' | 'small' | 'mini'
+export type ButtonGroupSizeType = 'large' | 'middle' | 'small' | 'mini'

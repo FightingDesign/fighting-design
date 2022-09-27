@@ -4,8 +4,10 @@
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor, sizeChange } from '../../_utils'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
-  import type { handleClickInterface as a } from './interface'
-  import type { classListInterface as b } from '../../_interface'
+  import type {
+    handleEventInterface as a,
+    classListInterface as b
+  } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)

@@ -379,11 +379,15 @@
 
 ```ts
 import type {
-  FButtonInstance,
-  buttonSize,
-  buttonTarget,
-  buttonType,
-  buttonNativeType
+  ButtonInstance,
+  ButtonPropsType,
+  ButtonSizeType,
+  ButtonTargetType,
+  ButtonType,
+  ButtonNativeType,
+  ButtonGroupInstance,
+  ButtonGroupPropsType,
+  ButtonGroupSizeType
 } from 'fighting-design'
 ```
 
