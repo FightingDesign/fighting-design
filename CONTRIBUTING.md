@@ -21,7 +21,7 @@
 在贡献之前，你需要先将 `Fighting Design` 项目跑起来才行，那么前期的准备你需要：
 
 - 安装 [node](http://nodejs.cn)，版本 `>= 16`
-- 安装 [pnpm](https://pnpm.io/zh/)，最新版即可
+- 安装 [pnpm](https://pnpm.io/zh)，最新版即可
 
 如果你已经做好了前面的准备，可以直接跳过，从这里开始：
 
@@ -72,25 +72,31 @@ pnpm dev:docs
 
 ## 📌 开发插件
 
-下面列举一些必要的 [Visual Studio Code](https://code.visualstudio.com) 开发插件，以免出现一些不可预期的错误
+下面列举一些必要的开发插件，以免出现一些不可预期的错误：
+
+**Visual Studio Code**
 
 - [ESLint](https://github.com/Microsoft/vscode-eslint) - 代码格式
 - [Prettier - Code format](https://github.com/prettier/prettier-vscode) - 代码格式
 - [Vitest](https://github.com/vitest-dev/vscode) - 单元测试
 - [Vue Language Features (Volar)](https://github.com/johnsoncodehk/volar) - vue3 插件
 
-> 注意：请不要使用 [Vetur](https://github.com/vuejs/vetur)，这是 vue2 的插件，使用会报错！！！
+> 注意：请不要使用 [Vetur](https://github.com/vuejs/vetur)，这是 vue2 的插件，会有不可预期的报错！！！
 
-`Chrome` 正版 `Vue3` 插件下载地址 [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=zh-CN)
+**Chrome**
+
+- `Chrome` 正版 `Vue3` 插件下载地址 [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=zh-CN)
 
 ## 🚧 开发规范
 
-主要源文件都在 `packages` 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档：
+主要源文件都在 [packages](https://github.com/FightingDesign/fighting-design/tree/master/packages) 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档：
 
 **详细的规范在下面链接，千万不要忽略下面链接！！！**
 
 - [fighting-design](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/README.md) 组件源文件目录
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) 样式主题目录
+- [add-component](https://github.com/FightingDesign/fighting-design/blob/master/packages/add-component/README.md) 创建新组件
+- [eslint-config](https://github.com/FightingDesign/fighting-design/tree/master/packages/eslint-config/README.md) `Eslint` 配置项
 - [docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md) 文档编写规范
 
 ## 🛸 提交规范
@@ -105,19 +111,19 @@ git commit -m 'feat: 新增xxx功能'
 
 类型必须是下面类型之一，并对照类型描述填写。
 
-| 类型     | 描述                                 |
-| -------- | ------------------------------------ |
-| build    | 打包                                 |
-| chore    | 改变构建流程或者增加依赖库、工具等   |
-| ci       | CI 相关更改                          |
-| docs     | 文档改变                             |
-| feat     | 新功能                               |
-| fix      | 修复                                 |
-| perf     | 性能优化                             |
-| refactor | 既不修复错误也不添加功能的代码更改   |
-| revert   | 发布新版本                           |
-| style    | 标记、空格、格式、缺少分号           |
-| test     | 增加测试/测试用例                    |
+| 类型       | 描述                                 |
+| ---------- | ------------------------------------ |
+| `build`    | 打包                                 |
+| `chore`    | 改变构建流程或者增加依赖库、工具等   |
+| `ci`       | CI 相关更改                          |
+| `docs`     | 文档改变                             |
+| `feat`     | 新功能                               |
+| `fix`      | 修复                                 |
+| `perf`     | 性能优化                             |
+| `refactor` | 既不修复错误也不添加功能的代码更改   |
+| `revert`   | 发布新版本                           |
+| `style`    | 标记、空格、格式、缺少分号           |
+| `test`     | 增加测试/测试用例                    |
 
 但是 `Fighting Design` 内置了 [commitlint](https://github.com/conventional-changelog/commitlint) 插件可以辅助我们进行添加提交信息，那么就需要执行下面命令：
 
@@ -136,8 +142,6 @@ git push
 
 如果你并不了解如何提交 `PR`，可以参考我这篇文章 [Github 如何提交 PR？](https://juejin.cn/post/7108740596738719751)
 
-所以，在提交 `PR` 之前，请务必**拉取最新的代码，拉取最新的代码，拉取最新的代码！**
-
 ## 🗒️ 常见问题
 
 常见问题请参考 [COMMON_PROBLEM.md](https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md)，也可以直接和[我](https://github.com/Tyh2001/Tyh2001)进行联系。
@@ -152,3 +156,7 @@ git push
 ## 💌 非常感谢
 
 感谢所有已经为 `Fighting Design` [做出贡献的人](https://github.com/FightingDesign/fighting-design/graphs/contributors)！
+
+<a href="https://github.com/FightingDesign/fighting-design/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=FightingDesign/fighting-design" />
+</a>
