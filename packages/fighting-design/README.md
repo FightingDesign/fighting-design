@@ -2,11 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/README.en-US.md)
 
-## 说明
+## 🚀 说明
 
 此目录是 `Fighting Design` 的所有组件的源文件目录。
 
-## 新增组件
+## 🌻 新增组件
 
 在新增组件之前，请与[我](https://github.com/Tyh2001/Tyh2001)取得联系，或者在 [discussions](https://github.com/FightingDesign/fighting-design/discussions) 新建一个讨论，讨论的格式可参考[这里](https://github.com/FightingDesign/fighting-design/discussions/5)。
 
@@ -20,7 +20,7 @@
 └── index.ts
 ```
 
-`Fighting Design` 内置了新增组件的快捷命令，可以快速帮助你创建组件所需要的文件，参考 [new-component](https://github.com/FightingDesign/fighting-design/blob/master/script/new-component/README.md)，命令：
+`Fighting Design` 内置了新增组件的快捷命令，可以快速帮助你创建组件所需要的文件，参考 [add-component](https://github.com/FightingDesign/fighting-design/blob/master/packages/add-component/README.md)，命令：
 
 ```
 pnpm new <component-name>
@@ -35,11 +35,16 @@ pnpm new <component-name>
 
 下面将会分别介绍一下每个文件内部的一些规范。
 
-## interface.d.ts
+## 🌿 interface.d.ts
 
 `interface.d.ts` 用于定义类型，每个组件中变量、函数、`Props` 相关的所有类型需要在这里定义。
 
-导出统一使用 `export`
+导出统一使用 `export`。
+
+类型定义规则如下：
+
+- 类型名称必须是以组件名为开始，首字母大写
+-
 
 ## component.vue
 
