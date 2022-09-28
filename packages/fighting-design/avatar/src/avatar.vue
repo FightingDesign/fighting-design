@@ -8,9 +8,9 @@
   import type { AvatarPropsType } from './avatar'
   import type {
     LoadNeedImagePropsInterface as b,
-    ordinaryFunctionInterface as c,
-    classListInterface as d,
-    callbackInterface
+    OrdinaryFunctionInterface as c,
+    ClassListInterface as d,
+    CallbackInterface
   } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -78,7 +78,7 @@
   // 开始加载图片
   const loadAction: c = (): void => {
     const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
-    const callback: callbackInterface = (params: boolean): void => {
+    const callback: CallbackInterface = (params: boolean): void => {
       isSuccess.value = params
       isShowNode.value = params
     }

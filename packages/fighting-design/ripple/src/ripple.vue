@@ -3,8 +3,8 @@
   import { Ripples } from '../../_utils'
   import { computed, ref } from 'vue'
   import type {
-    classListInterface as a,
-    handleEventInterface as b
+    ClassListInterface as a,
+    HandleEventInterface as b
   } from '../../_interface'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
 

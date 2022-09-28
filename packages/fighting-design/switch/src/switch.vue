@@ -3,8 +3,8 @@
   import { Props, Emits } from './switch'
   import { FIcon } from '../../icon'
   import type {
-    ordinaryFunctionInterface as a,
-    classListInterface as b
+    OrdinaryFunctionInterface as a,
+    ClassListInterface as b
   } from '../../_interface'
   import type { ComputedRef, CSSProperties } from 'vue'
 

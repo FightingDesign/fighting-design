@@ -7,8 +7,8 @@
   import { massageManage } from '../../_model/notification/method'
   import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
-    ordinaryFunctionInterface as a,
-    classListInterface as b
+    OrdinaryFunctionInterface as a,
+    ClassListInterface as b
   } from '../../_interface'
   import type { NotificationPropsType } from './notification'
 

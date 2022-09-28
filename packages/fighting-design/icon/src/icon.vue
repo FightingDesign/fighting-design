@@ -4,8 +4,8 @@
   import { sizeChange } from '../../_utils'
   import type { CSSProperties, ComputedRef } from 'vue'
   import type {
-    handleEventInterface as a,
-    classListInterface as b
+    HandleEventInterface as a,
+    ClassListInterface as b
   } from '../../_interface'
 
   const prop = defineProps(Props)

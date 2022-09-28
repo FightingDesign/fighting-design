@@ -13,8 +13,8 @@
     RadioLabelType
   } from '../../radio-group/src/interface'
   import type {
-    ordinaryFunctionInterface as b,
-    classListInterface as c
+    OrdinaryFunctionInterface as b,
+    ClassListInterface as c
   } from '../../_interface'
 
   const prop = defineProps(Props)

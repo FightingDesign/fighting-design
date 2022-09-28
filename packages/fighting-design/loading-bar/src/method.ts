@@ -1,6 +1,6 @@
 import LoadingBarVue from './loading-bar.vue'
 import { render, h } from 'vue'
-import type { ordinaryFunctionInterface as a } from '../../_interface'
+import type { OrdinaryFunctionInterface as a } from '../../_interface'
 import type {
   UseLoadingBarInterface as b,
   UseLoadingBarReturnInterface as c

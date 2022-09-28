@@ -4,8 +4,8 @@
   import { Props, Emits } from './page-header'
   import type { ComputedRef } from 'vue'
   import type {
-    ordinaryFunctionInterface as a,
-    classListInterface as b
+    OrdinaryFunctionInterface as a,
+    ClassListInterface as b
   } from '../../_interface'
 
   const prop = defineProps(Props)

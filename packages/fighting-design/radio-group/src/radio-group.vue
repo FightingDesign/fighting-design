@@ -9,7 +9,7 @@
   import { Props, Emits, RadioGroupPropsKey } from './radio-group'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { classListInterface as a } from '../../_interface'
+  import type { ClassListInterface as a } from '../../_interface'
   import type { ChangeEventInterface as b, RadioLabelType } from './interface'
 
   const prop = defineProps(Props)

@@ -2,7 +2,7 @@
   import { Props } from './loading-bar'
   import { computed } from 'vue'
   import type { ComputedRef } from 'vue'
-  import type { classListInterface as a } from '../../_interface'
+  import type { ClassListInterface as a } from '../../_interface'
 
   const prop = defineProps(Props)
 

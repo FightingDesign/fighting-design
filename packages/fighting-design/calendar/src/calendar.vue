@@ -8,10 +8,10 @@
   import { diffDay } from '../../_model/calendar/diff-day'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
-    mowDataClassListInterface as c,
-    optionClickInterface as d,
-    handleClickInterface as g,
-    targetType
+    MowDataClassListInterface as c,
+    OptionClickInterface as d,
+    HandleClickInterface as g,
+    CalendarTargetType
   } from './interface'
 
   const prop = defineProps(Props)
@@ -38,7 +38,7 @@
   }
 
   // 点击操作栏
-  const optionClick: d = (target: targetType): void => {
+  const optionClick: d = (target: CalendarTargetType): void => {
     const option = {
       last: (): void => changeLastMonth(),
       next: (): void => changeNextMonth(),

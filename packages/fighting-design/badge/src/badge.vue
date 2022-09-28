@@ -3,7 +3,7 @@
   import { Props } from './badge'
   import { isNumber } from '../../_utils'
   import type { ComputedRef } from 'vue'
-  import type { classListInterface as a } from '../../_interface'
+  import type { ClassListInterface as a } from '../../_interface'
 
   const prop = defineProps(Props)
 

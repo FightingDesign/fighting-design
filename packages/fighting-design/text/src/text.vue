@@ -3,7 +3,7 @@
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { classListInterface as a } from '../../_interface'
+  import type { ClassListInterface as a } from '../../_interface'
 
   const prop = defineProps(Props)
 
