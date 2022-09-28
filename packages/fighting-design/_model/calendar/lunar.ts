@@ -13,8 +13,7 @@ import {
   SOLAR_TERM_LIST
 } from './data'
 import type {
-  getLunarDetailReturnInterface
-  // LunarInterface
+  GetLunarDetailReturnInterface
 } from '../../_interface'
 
 export class Lunar {
@@ -173,7 +172,7 @@ export class Lunar {
    * @param dPara 阳历日期
    * @returns 
    */
-  getLunarDetail = (yPara: number, mPara: number, dPara: number): -1 | getLunarDetailReturnInterface => {
+  getLunarDetail = (yPara: number, mPara: number, dPara: number): -1 | GetLunarDetailReturnInterface => {
     let y: number = parseInt(yPara.toString())
     let m: number = parseInt(mPara.toString())
     let d: number = parseInt(dPara.toString())
@@ -349,6 +348,6 @@ export class Lunar {
       isTerm,
       Term,
       constellation // 星座
-    } as getLunarDetailReturnInterface
+    } as GetLunarDetailReturnInterface
   }
 }

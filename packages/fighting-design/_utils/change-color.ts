@@ -1,9 +1,9 @@
-import type { changeColorInterface } from '../_interface'
+import type { ChangeColorInterface } from '../_interface'
 
 /**
  * 根据传入的 hex 计算出加深和减淡的颜色
  */
-export class ChangeColor implements changeColorInterface {
+export class ChangeColor implements ChangeColorInterface {
   color: string
 
   constructor (color: string) {

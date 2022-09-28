@@ -2,14 +2,14 @@ import messageVue from '../../message/src/message.vue'
 import { render, createVNode } from 'vue'
 import { useMassageManage } from '../../_hooks'
 import { messageTypes } from './type'
-import type { messagePlacementType } from '../../message/src/interface'
-import type { FMessageInstance, FMessageFnWithType, MessageOptions, FMessageFn } from '../../_interface'
+import type { MessagePlacementType } from '../../message/src/interface'
+import type { MessageInstance, MessageFnWithType, MessageOptions, MessageFn } from '../../_interface'
 import type { ComponentInternalInstance } from 'vue'
 
-export const massageManage = useMassageManage<messagePlacementType>()
+export const massageManage = useMassageManage<MessagePlacementType>()
 
 const defaultOptions: {
-  placement: messagePlacementType
+  placement: MessagePlacementType
 } = {
   placement: 'top'
 }
@@ -17,9 +17,9 @@ const defaultOptions: {
 // message 的实例组
 let seed = 1
 
-const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
+const FMessage: MessageFn & Partial<MessageFnWithType> = (
   options
-): FMessageInstance => {
+): MessageInstance => {
   const container = document.createElement('div')
   const id = `message-${seed}`
 
@@ -80,4 +80,4 @@ messageTypes.forEach((type): void => {
   }
 })
 
-export default FMessage as FMessageFn & FMessageFnWithType
+export default FMessage as MessageFn & MessageFnWithType

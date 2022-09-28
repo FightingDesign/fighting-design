@@ -13,7 +13,7 @@ export interface LazyInterface {
   lazyCreateImg(): void
 }
 
-export interface loadImageInterface {
+export interface LoadImageInterface {
   (
     node: HTMLImageElement,
     prop: LoadNeedImagePropsInterface,
@@ -32,6 +32,6 @@ export interface LoadInterface {
   onload(evt: Event, src: string): void
 }
 
-export interface callbackInterface {
+export interface CallbackInterface {
   (params: boolean): void
 }

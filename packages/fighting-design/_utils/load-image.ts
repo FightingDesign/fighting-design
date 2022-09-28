@@ -2,9 +2,9 @@ import { isString } from './utils'
 import type {
   LazyInterface,
   LoadInterface,
-  loadImageInterface,
+  LoadImageInterface,
   LoadNeedImagePropsInterface,
-  callbackInterface
+  CallbackInterface
 } from '../_interface'
 
 /**
@@ -14,7 +14,7 @@ class Load implements LoadInterface {
   node: HTMLImageElement
   props: LoadNeedImagePropsInterface
   emit: Function
-  callback: callbackInterface | null
+  callback: CallbackInterface | null
 
   /**
    * @param node 图片 dom 节点
@@ -26,7 +26,7 @@ class Load implements LoadInterface {
     node: HTMLImageElement,
     props: LoadNeedImagePropsInterface,
     emit: Function,
-    callback: callbackInterface | null
+    callback: CallbackInterface | null
   ) {
     this.node = node
     this.props = props
@@ -101,7 +101,7 @@ class Lazy extends Load implements LazyInterface {
     img: HTMLImageElement,
     props: LoadNeedImagePropsInterface,
     emit: Function,
-    callback: callbackInterface | null
+    callback: CallbackInterface | null
   ) {
     super(img, props, emit, callback)
   }
@@ -140,11 +140,11 @@ class Lazy extends Load implements LazyInterface {
  * @param emit Emits
  * @param callback 回调函数
  */
-export const loadImage: loadImageInterface = (
+export const loadImage: LoadImageInterface = (
   node: HTMLImageElement,
   prop: LoadNeedImagePropsInterface,
   emit: Function,
-  callback: callbackInterface | null
+  callback: CallbackInterface | null
 ): void => {
   /**
    * 如果传入了 lazy 则执行懒加载类

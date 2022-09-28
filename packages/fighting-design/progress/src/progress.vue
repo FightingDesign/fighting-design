@@ -3,7 +3,7 @@
   import { sizeChange } from '../../_utils'
   import { computed, ref, onMounted } from 'vue'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
-  import type { isShowPercentageInterface as a } from './interface'
+  import type { IsShowPercentageInterface as a } from './interface'
 
   const prop = defineProps(Props)
 

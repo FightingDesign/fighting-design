@@ -1,6 +1,6 @@
 export type RadioLabelType = string | number | boolean
 
-export interface changeEventInterface {
+export interface ChangeEventInterface {
   (value: RadioLabelType): void
 }
 
@@ -11,10 +11,10 @@ export interface RadioGroundInterface {
   modelValue: RadioLabelType
   label: string
   vertical: boolean
-  size: radioGroupSize
+  size: RadioGroupSizeType
   columnGap: string | number
   rowGap: string | number
   border: boolean
   circle: boolean
-  changeEvent: changeEventInterface
+  changeEvent: ChangeEventInterface
 }

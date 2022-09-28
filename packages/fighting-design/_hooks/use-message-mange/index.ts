@@ -1,13 +1,13 @@
 import { reactive } from 'vue'
-import type { FMessageInstance, useMassageManageReturnInterface } from '../../_interface'
+import type { MessageInstance, UseMassageManageReturnInterface } from '../../_interface'
 
 /**
  * 创建弹出的消息体实例
  * @returns
  */
-export const useMassageManage = <messagePlacementType extends string>(): useMassageManageReturnInterface => {
+export const useMassageManage = <messagePlacementType extends string>(): UseMassageManageReturnInterface => {
   const instances: Partial<{
-    [key in messagePlacementType]: FMessageInstance[]
+    [key in messagePlacementType]: MessageInstance[]
   }> = reactive({})
 
   /**
@@ -21,7 +21,7 @@ export const useMassageManage = <messagePlacementType extends string>(): useMass
     id: string
   ): number => {
     if (!instances[placement]) return -1
-    return (instances[placement] as FMessageInstance[]).findIndex(
+    return (instances[placement] as MessageInstance[]).findIndex(
       (item) => item.id === id
     )
   }
@@ -33,12 +33,12 @@ export const useMassageManage = <messagePlacementType extends string>(): useMass
   ): number => {
     const idx: number = getInstanceIndex(placement, id)
     if (idx === -1) return 0
-    const beforeInstance: FMessageInstance =
-      (instances[placement] as FMessageInstance[])[
+    const beforeInstance: MessageInstance =
+      (instances[placement] as MessageInstance[])[
       isNext ? idx + 1 : idx - 1
       ] || null
     if (!beforeInstance) return 0
-    return (beforeInstance.vm.exposeProxy as FMessageInstance).bottom
+    return (beforeInstance.vm.exposeProxy as MessageInstance).bottom
   }
 
   const removeInstance = (
@@ -46,15 +46,15 @@ export const useMassageManage = <messagePlacementType extends string>(): useMass
     id: string
   ): void => {
     const idx: number = getInstanceIndex(placement, id)
-      ; (instances[placement] as FMessageInstance[]).splice(idx, 1)
+      ; (instances[placement] as MessageInstance[]).splice(idx, 1)
   }
 
   const createInstance = (
-    instance: FMessageInstance,
+    instance: MessageInstance,
     placement: messagePlacementType
-  ): FMessageInstance => {
+  ): MessageInstance => {
     if (instances[placement]) {
-      (instances[placement] as FMessageInstance[]).push(instance)
+      (instances[placement] as MessageInstance[]).push(instance)
     } else {
       instances[placement] = [instance]
     }
