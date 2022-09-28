@@ -4,7 +4,7 @@ import { useMassageManage } from '../../_hooks'
 import { messageTypes } from './type'
 import type { MessagePlacementType } from '../../message/src/interface'
 import type { MessageInstance, MessageFnWithType, MessageOptions, MessageFn } from '../../_interface'
-import type { ComponentInternalInstance } from 'vue'
+import type { ComponentInternalInstance , VNode } from 'vue'
 
 export const massageManage = useMassageManage<MessagePlacementType>()
 
@@ -20,7 +20,7 @@ let seed = 1
 const FMessage: MessageFn & Partial<MessageFnWithType> = (
   options
 ): MessageInstance => {
-  const container = document.createElement('div')
+  const container: HTMLDivElement = document.createElement('div')
   const id = `message-${seed}`
 
   if (typeof options === 'string') {
@@ -42,7 +42,7 @@ const FMessage: MessageFn & Partial<MessageFnWithType> = (
     render(null, container)
   }
 
-  const VNode = createVNode(messageVue, props)
+  const VNode: VNode = createVNode(messageVue, props)
 
   render(VNode, container)
 
@@ -57,7 +57,7 @@ const FMessage: MessageFn & Partial<MessageFnWithType> = (
     {
       id,
       vm,
-      close: () => {
+      close: (): void => {
         (
           (vm as ComponentInternalInstance).exposeProxy as Record<
             string,

@@ -2,9 +2,10 @@ import messageVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
 import { useMassageManage } from '../../_hooks'
 import { notificationTypes } from './type'
+import { isString } from '../../_utils'
 import type { NotificationInstance } from '../../_interface'
 import type { NotificationPlacementType } from '../../notification/src/interface'
-import type { ComponentInternalInstance } from 'vue'
+import type { ComponentInternalInstance, VNode } from 'vue'
 import type { NotificationFnWithType, FNotificationFn, NotificationOptions } from '../../_interface'
 
 export const massageManage = useMassageManage<NotificationPlacementType>()
@@ -20,10 +21,10 @@ let seed = 1
 const FMessage: FNotificationFn & Partial<NotificationFnWithType> = (
   options
 ): NotificationInstance => {
-  const container = document.createElement('div')
+  const container: HTMLDivElement = document.createElement('div')
   const id = `message-${seed}`
 
-  if (typeof options === 'string') {
+  if (isString(options)) {
     options = {
       message: options
     } as NotificationOptions
@@ -42,7 +43,7 @@ const FMessage: FNotificationFn & Partial<NotificationFnWithType> = (
     render(null, container)
   }
 
-  const VNode = createVNode(messageVue, props)
+  const VNode: VNode = createVNode(messageVue, props)
 
   render(VNode, container)
 
@@ -57,7 +58,7 @@ const FMessage: FNotificationFn & Partial<NotificationFnWithType> = (
     {
       id,
       vm,
-      close: () => {
+      close: (): void => {
         (
           (vm as ComponentInternalInstance).exposeProxy as Record<
             string,
