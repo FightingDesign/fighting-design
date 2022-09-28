@@ -1,9 +1,9 @@
 import type {
-  keepDecimalInterface as a,
-  debounceInterface as b,
-  getTypeInterface as c,
-  pastTimeInterface as d,
-  pastTimeConfigInterface as e
+  KeepDecimalInterface as a,
+  DebounceInterface as b,
+  GetTypeInterface as c,
+  PastTimeInterface as d,
+  PastTimeConfigInterface as e
 } from '../_interface'
 
 /**

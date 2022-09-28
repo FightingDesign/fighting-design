@@ -1,17 +1,17 @@
-export interface keepDecimalInterface {
+export interface KeepDecimalInterface {
   (num: number, no: number): number
 }
 
-export interface debounceInterface {
+export interface DebounceInterface {
   (handle: Function, delay: number): Function
 }
 
-export interface getTypeInterface {
+export interface GetTypeInterface {
   (target: unknown): boolean
 }
 
-export interface pastTimeInterface {
+export interface PastTimeInterface {
   (time: string, format?: string): string
 }
 
-export type pastTimeConfigInterface = Record<string, string>
+export type PastTimeConfigInterface = Record<string, string>

@@ -1,8 +1,8 @@
 import type { ComponentInternalInstance } from 'vue'
 import type { NotificationPropsType } from '../notification/src/notification'
-import type { notificationType } from '../notification/src/interface'
+import type { NotificationType } from '../notification/src/interface'
 
-interface NotificationInstance {
+export interface NotificationInstance {
   visible: number
   bottom: number
   id: string
@@ -10,8 +10,8 @@ interface NotificationInstance {
   close: () => void
 }
 
-export type FNotificationFnWithType = {
-  [key in notificationType]: (text: string) => void
+export type NotificationFnWithType = {
+  [key in NotificationType]: (text: string) => void
 }
 
 export type NotificationOptions = InstanceOptions<NotificationPropsType>

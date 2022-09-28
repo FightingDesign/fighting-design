@@ -2,24 +2,24 @@ import messageVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
 import { useMassageManage } from '../../_hooks'
 import { notificationTypes } from './type'
-import type { FMessageInstance } from '../../_interface'
-import type { notificationPlacementType } from '../../notification/src/interface'
+import type { NotificationInstance } from '../../_interface'
+import type { NotificationPlacementType } from '../../notification/src/interface'
 import type { ComponentInternalInstance } from 'vue'
-import type { FNotificationFnWithType, FNotificationFn, NotificationOptions } from '../../_interface'
+import type { NotificationFnWithType, FNotificationFn, NotificationOptions } from '../../_interface'
 
-export const massageManage = useMassageManage<notificationPlacementType>()
+export const massageManage = useMassageManage<NotificationPlacementType>()
 
 const defaultOptions: {
-  placement: notificationPlacementType
+  placement: NotificationPlacementType
 } = {
   placement: 'top-right'
 }
 
 let seed = 1
 
-const FMessage: FNotificationFn & Partial<FNotificationFnWithType> = (
+const FMessage: FNotificationFn & Partial<NotificationFnWithType> = (
   options
-): FMessageInstance => {
+): NotificationInstance => {
   const container = document.createElement('div')
   const id = `message-${seed}`
 
@@ -80,4 +80,4 @@ notificationTypes.forEach((type): void => {
   }
 })
 
-export default FMessage as FNotificationFn & FNotificationFnWithType
+export default FMessage as FNotificationFn & NotificationFnWithType

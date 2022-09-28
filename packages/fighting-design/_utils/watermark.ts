@@ -1,7 +1,7 @@
 import { sizeChange } from './utils'
 import type {
-  createBase64Interface as a,
-  createBase64NeedWatermarkPropsInterface as b
+  CreateBase64Interface as a,
+  CreateBase64NeedWatermarkPropsInterface as b
 } from '../_interface'
 
 /**

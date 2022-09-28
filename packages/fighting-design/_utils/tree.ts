@@ -1,6 +1,6 @@
 import type {
-  treeAddLevelReturnInterface as a,
-  dataInterface as b
+  TreeAddLevelReturnInterface as a,
+  TreeDataInterface as b
 } from '../_interface'
 
 /**
