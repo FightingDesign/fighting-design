@@ -46,31 +46,29 @@ pnpm dev:docs
 
 ## 🔓 命令说明
 
-`Fighting Design` 内部设置了很多的命令，在 [package.json](https://github.com/FightingDesign/fighting-design/blob/master/package.json) 中可以看到，下面详细介绍每一条命令
+`Fighting Design` 内部设置了很多的命令，在 [package.json](https://github.com/FightingDesign/fighting-design/blob/master/package.json) 中可进行查看。下面详细介绍每一条命令：
 
-```json
-  "scripts": {
-    "clean": "rimraf dist", // 清除 dist
-    "start": "pnpm run -C start dev", // 启动测试开发项目
-    "dev:docs": "pnpm run -C docs dev", // 启动文档
-    "build": "pnpm clean && pnpm build:css && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move", // 打包命令整合
-    "build:es": "vite build --config vite.config.ts", // 打包 es 模块
-    "build:lib": "vite build --config vite.config.lib.ts", // 打包 lib 模块
-    "build:umd": "vite build --config vite.config.umd.ts", // 打包 umd
-    "build:css": "vite build --config vite.config.css.ts", // 分别打包 css
-    "build:theme": "vite build --config vite.config.theme.ts", // 打包主样式表
-    "build:docs": "pnpm run -C docs build", // 打包文档
-    "serve:docs": "pnpm run -C docs serve", // 预览打包后的文档
-    "build:start": "pnpm run -C start build", // 打包测试项目 start
-    "move": "node script/move.ts", // 移动所需要的静态文件
-    "new": "pnpm run -C packages/add-component new", // 构建全新组件
-    "test": "vitest", // 单元测试
-    "prettier": "prettier --write .", // 全局格式化
-    "commit": "cz", // commit 信息提示
-    "lint": "eslint .", // eslint 检测
-    "lint:fix": "eslint . --fix" // eslint 检测 + 修复
-  }
-```
+| script 字段   | 对应命令           | 命令说明                                                                                                                                                                                                                                                                         |
+| ------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `clear`       | `pnpm clear`       | 清除 dist 打包目录                                                                                                                                                                                                                                                               |
+| `start`       | `pnpm start`       | 启动测试开发项目[start](https://github.com/FightingDesign/fighting-design/tree/master/start)                                                                                                                                                                                     |
+| `dev:docs`    | `pnpm dev:docs`    | 启动文档项目 [docs](https://github.com/FightingDesign/fighting-design/tree/master/docs)                                                                                                                                                                                          |
+| `build`       | `pnpm build`       | 命令集合。打包所有组件、样式、类型。打包出来的就是最终需要发布的包                                                                                                                                                                                                               |
+| `build:es`    | `pnpm build:es`    | 打包组件的 `es` 模式，执行配置文件 [vite.config.ts](https://github.com/FightingDesign/fighting-design/blob/master/vite.config.ts)                                                                                                                                                |
+| `build:lib`   | `pnpm build:lib`   | 打包组件的 `lib` 模式，执行配置文件 [vite.config.lib.ts](https://github.com/FightingDesign/fighting-design/blob/master/vite.config.lib.ts)                                                                                                                                       |
+| `build:umd`   | `pnpm build:umd`   | 打包组件的 `umd` 模式，执行配置文件 [vite.config.umd.ts](https://github.com/FightingDesign/fighting-design/blob/master/vite.config.umd.ts)                                                                                                                                       |
+| `build:css`   | `pnpm build:css`   | 分别打包组件的样式，执行配置文件 [vite.config.css.ts](https://github.com/FightingDesign/fighting-design/blob/master/vite.config.css.ts)                                                                                                                                          |
+| `build:theme` | `pnpm build:theme` | 打包完整的主题样式，执行配置文件 [vite.config.theme.ts](https://github.com/FightingDesign/fighting-design/blob/master/vite.config.theme.ts)                                                                                                                                      |
+| `build:docs`  | `pnpm build:docs`  | 打包文档项目                                                                                                                                                                                                                                                                     |
+| `serve:docs`  | `pnpm serve:docs`  | 预览打包后的文档                                                                                                                                                                                                                                                                 |
+| `build:start` | `pnpm build:start` | 打包 `start` 测试项目                                                                                                                                                                                                                                                            |
+| `move`        | `pnpm move`        | 将所需要的配置文件移动至 `dist`，执行配置文件 [move.ts](https://github.com/FightingDesign/fighting-design/blob/master/script/move.ts)                                                                                                                                            |
+| `new`         | `pnpm new xxx`     | 构建全新组件，生产组件所需要的文件，执行配置文件 [index.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/add-component/index.ts)，详情参考 [README.md](https://github.com/FightingDesign/fighting-design/blob/master/packages/add-component/README.md) |
+| `test`        | `pnpm test`        | 执行单元测试，测试目录 [\_\_test\_\_](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/__test__)                                                                                                                                           |
+| `prettier`    | `pnpm prettier`    | 全局格式化                                                                                                                                                                                                                                                                       |
+| `commit`      | `pnpm commit`      | `commit` 钩子                                                                                                                                                                                                                                                                    |
+| `lint`        | `pnpm lint`        | 全局 `Eslint` 检测，规则参考 [](https://github.com/FightingDesign/fighting-design/blob/master/packages/eslint-config/index.js)                                                                                                                                                   |
+| `lint:fix`    | `pnpm lint:fix`    | 全局 `ESLint` 检测 + 修复                                                                                                                                                                                                                                                        |
 
 ## 📌 开发插件
 
