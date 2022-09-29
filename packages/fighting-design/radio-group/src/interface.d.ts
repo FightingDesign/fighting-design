@@ -1,6 +1,6 @@
 export type RadioLabelType = string | number | boolean
 
-export interface ChangeEventInterface {
+export interface RadioChangeEventInterface {
   (value: RadioLabelType): void
 }
 

@@ -5,8 +5,8 @@
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
   import type {
-    SwitchExpandCardInterface as b,
-    ImageListItemInterface as c
+    ExpandCardISwitchExpandCardInterface as b,
+    ExpandCardImageListItemInterface as c
   } from './interface'
 
   const prop = defineProps(Props)

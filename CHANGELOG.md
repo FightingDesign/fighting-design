@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.7.0-alpha.2 (2022-09-29)
+
+- 修复部分组件类型规范问题
+
 ## 0.7.0-alpha.1 (2022-09-27)
 
 **fix**

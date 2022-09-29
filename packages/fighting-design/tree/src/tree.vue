@@ -1,14 +1,16 @@
 <script lang="ts" setup name="FTree">
   import { Props } from './tree'
-  import { ref } from 'vue'
+  import { computed } from 'vue'
   import { treeToFlat, treeAddLevel } from '../../_utils'
-  import type { Ref } from 'vue'
+  import type { ComputedRef } from 'vue'
   import type { treeAddLevelReturnInterface as a } from '../../_interface'
 
   const prop = defineProps(Props)
 
   // 扁平的树
-  const treeData: Ref<a[]> = ref<a[]>(treeToFlat(treeAddLevel(prop.data)))
+  const treeData: ComputedRef<a[]> = computed((): a[] => {
+    return treeToFlat(treeAddLevel(prop.data))
+  })
 
   const handleClick = (item, index): void => {
     console.log(item, index)

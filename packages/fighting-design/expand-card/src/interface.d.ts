@@ -1,10 +1,10 @@
-export interface ImageListItemInterface {
+export interface ExpandCardImageListItemInterface {
   url: string
   text?: string
 }
 
-export type ExpandCardImageListType = imageListInterface[] | string[]
+export type ExpandCardImageListType = ExpandCardImageListItemInterface[] | string[]
 
-export interface SwitchExpandCardInterface {
+export interface ExpandCardISwitchExpandCardInterface {
   (index: number): void
 }

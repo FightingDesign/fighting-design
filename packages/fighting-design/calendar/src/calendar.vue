@@ -8,9 +8,9 @@
   import { diffDay } from '../../_model/calendar/diff-day'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
-    MowDataClassListInterface as c,
-    OptionClickInterface as d,
-    HandleClickInterface as g,
+    CalendarMowDataClassListInterface as c,
+    CalendarOptionClickInterface as d,
+    CalendarHandleClickInterface as g,
     CalendarTargetType
   } from './interface'
 

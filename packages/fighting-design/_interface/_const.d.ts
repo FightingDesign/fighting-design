@@ -31,7 +31,6 @@ export type ClassListInterface = readonly (string | Record<readonly string, unkn
 /**
  * 点击相关的类型
  */
-
 export interface HandleEventInterface {
   (evt: MouseEvent): void
 }

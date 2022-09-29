@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.7.0-alpha.2 (2022-09-29)
+
+- Fix some component type specification problems
+
 ## 0.7.0-alpha.1 (2022-09-27)
 
 **fix**

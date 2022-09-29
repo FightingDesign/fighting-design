@@ -1,5 +1,5 @@
 export type ProgressType = 'primary' | 'success' | 'danger' | 'warning'
 
-export interface IsShowPercentageInterface {
+export interface ProgressTIsShowPercentageInterface {
   (): boolean
 }

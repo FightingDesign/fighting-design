@@ -3,7 +3,7 @@
   import { computed, ref } from 'vue'
   import { FIcon } from '../../icon'
   import type { ComputedRef, Ref } from 'vue'
-  import type { HandleCloseInterface as a } from './interface'
+  import type { TagTHandleCloseInterface as a } from './interface'
   import type { ClassListInterface as b } from '../../_interface'
 
   const prop = defineProps(Props)

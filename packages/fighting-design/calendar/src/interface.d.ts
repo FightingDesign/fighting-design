@@ -1,12 +1,12 @@
-export interface MowDataClassListInterface {
+export interface CalendarMowDataClassListInterface {
   (_month: number, _date: number): string
 }
 
-export interface OptionClickInterface {
+export interface CalendarOptionClickInterface {
   (target: targetType): void
 }
 
-export interface HandleClickInterface {
+export interface CalendarHandleClickInterface {
   (_month: number, _date: number): void
 }
 
@@ -18,9 +18,9 @@ export interface CalendarEmitInterface {
 
 export type CalendarTargetType = 'last' | 'now' | 'next'
 
-interface MemorandumContentInterface {
+interface CalendarMemorandumContentInterface {
   type?: 'default' | 'primary' | 'success' | 'danger' | 'warning'
   content: string
 }
 
-export type CalendarMemorandumType = Record<string, MemorandumContentInterface[]>
+export type CalendarMemorandumType = Record<string, CalendarMemorandumContentInterface[]>

@@ -5,8 +5,8 @@
   import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties } from 'vue'
   import type { WatermarkPropsType } from './watermark'
-  import type { CSSPropertiesInterface as a } from './interface'
-  import type { createBase64NeedWatermarkPropsInterface as b } from '../../_interface'
+  import type { WatermarkCSSPropertiesInterface as a } from './interface'
+  import type { CreateBase64NeedWatermarkPropsInterface as b } from '../../_interface'
 
   const prop = defineProps(Props)
 

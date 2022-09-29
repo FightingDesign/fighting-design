@@ -1,9 +1,11 @@
 import type {
-  KeepDecimalInterface as a,
-  DebounceInterface as b,
-  GetTypeInterface as c,
-  PastTimeInterface as d,
-  PastTimeConfigInterface as e
+  UtilsKeepDecimalInterface as a,
+  UtilsDebounceInterface as b,
+  UtilsGetTypeInterface as c,
+  UtilsPastTimeInterface as d,
+  UtilsPastTimeConfigInterface as e,
+  UtilsAddZeroInterface as f,
+  UtilsSizeChangeInterface as g
 } from '../_interface'
 
 /**
@@ -107,7 +109,7 @@ export const pastTime: d = (
  * @param num 日期
  * @returns 
  */
-export const addZero = (num: number): string => {
+export const addZero: f = (num: number): string => {
   return num > 9 ? num.toString() : `0${num}`
 }
 
@@ -117,6 +119,6 @@ export const addZero = (num: number): string => {
  * @param target 
  * @returns 
  */
-export const sizeChange = (size: string | number, target = 'px'): string => {
+export const sizeChange: g = (size: string | number, target = 'px'): string => {
   return typeof size === 'string' ? size : size + target
 }
