@@ -16,7 +16,6 @@ export default (): UserConfigExport => {
       }),
       vueSetupExtend()
     ],
-    mode: 'production',
     build: {
       target: 'modules',
       minify: true,
@@ -27,9 +26,7 @@ export default (): UserConfigExport => {
       lib: {
         entry: resolve(__dirname, 'packages/fighting-design/index.ts'),
         formats: ['cjs'],
-        fileName: (): string => {
-          return 'index.cjs'
-        }
+        fileName: 'index.cjs'
       },
       rollupOptions: {
         external: ['vue'],

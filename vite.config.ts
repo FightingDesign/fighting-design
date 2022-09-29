@@ -11,7 +11,6 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       dts({
-        // root: './packages/fighting-design', // 执行的根目录
         // logDiagnostics: true, // 是否打印类型诊断信息
         // skipDiagnostics: false, // 是否跳过类型诊断
         insertTypesEntry: true, // 是否生成类型声明入口
@@ -23,30 +22,24 @@ export default (): UserConfigExport => {
       visualizer()
       // svgLoader()
     ],
-    mode: 'production',
     build: {
-      target: 'modules',
-      minify: true, // 压缩
-      chunkSizeWarningLimit: 2, // 超过 2kb 警告提示
-      reportCompressedSize: false,
+      target: 'modules', // 这是指 支持原生 ES 模块、原生 ESM 动态导入 
+      minify: true, // 压缩代码
+      chunkSizeWarningLimit: 2, // 打包的组件超过 2kb 警告提示
+      reportCompressedSize: true, // 启用 gzip 压缩大小报告
       emptyOutDir: false,
-      outDir: resolve(__dirname, 'dist/es'),
+      outDir: resolve(__dirname, 'dist/es'), // 指定输出路径
+      // 库模式 https://cn.vitejs.dev/guide/build.html#library-mode
       lib: {
-        entry: resolve(__dirname, 'packages/fighting-design/index.ts'),
-        formats: ['es'],
-        fileName: (): string => {
-          return 'index.mjs'
-        }
+        entry: resolve(__dirname, 'packages/fighting-design/index.ts'), // 打包入口文件
+        formats: ['es'], // 打包的模式
+        fileName: 'index.mjs' // 输出的包文件名
       },
       rollupOptions: {
         external: ['vue'], // 确保外部化处理那些你不想打包进库的依赖
         output: {
           preserveModules: true // 让打包目录和目录对应 https://rollupjs.org/guide/en/#outputpreservemodules
         }
-        // https://rollupjs.org/guide/en/#treeshake
-        // treeshake: {
-        //   moduleSideEffects: false
-        // }
       }
     }
   }
