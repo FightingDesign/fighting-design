@@ -33,7 +33,7 @@ export default (): UserConfigExport => {
       lib: {
         entry: resolve(__dirname, 'packages/fighting-design/index.ts'), // 打包入口文件
         formats: ['es'], // 打包的模式
-        fileName: 'index.mjs' // 输出的包文件名
+        fileName: () => 'index.js' // 输出的包文件名
       },
       rollupOptions: {
         external: ['vue'], // 确保外部化处理那些你不想打包进库的依赖

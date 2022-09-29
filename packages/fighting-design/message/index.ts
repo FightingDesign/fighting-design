@@ -11,7 +11,7 @@ export type { MessagePropsType } from './src/message'
 export type { MessageType, MessagePlacementType } from './src/interface'
 
 declare module 'vue' {
-  export interface GlobalComponents {
+  export interface ComponentCustomProperties {
     FMessage: typeof FMessage
   }
 }

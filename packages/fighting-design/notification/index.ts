@@ -11,7 +11,7 @@ export type { NotificationPropsType } from './src/notification'
 export type { NotificationType, NotificationPlacementType } from './src/interface'
 
 declare module 'vue' {
-  export interface GlobalComponents {
+  export interface ComponentCustomProperties {
     FNotification: typeof FNotification
   }
 }

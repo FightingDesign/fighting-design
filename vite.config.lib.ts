@@ -26,7 +26,7 @@ export default (): UserConfigExport => {
       lib: {
         entry: resolve(__dirname, 'packages/fighting-design/index.ts'),
         formats: ['cjs'],
-        fileName: 'index.cjs'
+        fileName: () => 'index.cjs'
       },
       rollupOptions: {
         external: ['vue'],
