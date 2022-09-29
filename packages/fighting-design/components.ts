@@ -1,5 +1,6 @@
 export { FAlert } from './alert'
 export type { AlertPropsType, AlertInstance, AlertType, AlertOverflowType } from './alert'
+// export type { AlertPropsType, AlertInstance, AlertType, AlertOverflowType } from './alert/src/interface'
 
 export { FAside } from './aside'
 export type { AsidePropsType, AsideInstance } from './aside'
