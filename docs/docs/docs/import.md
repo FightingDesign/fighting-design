@@ -31,15 +31,15 @@ import 'fighting-design/theme/icon.css'
 createApp(App).use(FButton).use(FIcon).mount('#app')
 ```
 
-## CND 引入
+## 使用 UMD
 
-可通过 `CNN` 在 `*.html` 中引入 `Fighting Design`，快速构建您的程序
+可通过 `UMD` 模式在 `*.html` 中引入 `Fighting Design`，快速构建您的程序
 
 ```html
 <head>
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/fighting-design/dist/style.css"
+    href="https://cdn.jsdelivr.net/npm/fighting-design/dist/index.css"
   />
 </head>
 
@@ -65,6 +65,7 @@ createApp(App).use(FButton).use(FIcon).mount('#app')
   <script src="https://cdn.jsdelivr.net/npm/fighting-design/dist/index.umd.js"></script>
   <script>
     const { createApp, ref } = Vue
+    const { FButton, FSpace, FDivider, FDialog } = FightingDesign
 
     const app = createApp({
       setup() {
@@ -74,7 +75,10 @@ createApp(App).use(FButton).use(FIcon).mount('#app')
       }
     })
 
-    app.use(FightingDesign)
+    app.use(FButton)
+    app.use(FSpace)
+    app.use(FDivider)
+    app.use(FDialog)
     app.mount('#app')
   </script>
 </body>
