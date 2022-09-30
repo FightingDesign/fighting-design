@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { computed } from 'vue'
   import { ChangeColor } from '../../../../packages/fighting-design/_utils'
-  import { FMessage } from '../../../../packages/fighting-design/index'
+  import { onCopy } from './utils/copy.ts'
   import type { ComputedRef } from 'vue'
 
   const colorList: ComputedRef<string[][]> = computed((): string[][] => {
@@ -23,18 +23,8 @@
     return allColorList
   })
 
-  const onCopy = (color: string): void => {
-    const copyInput: HTMLInputElement = document.createElement('input')
-    copyInput.value = color
-    document.body.appendChild(copyInput)
-    copyInput.select()
-    document.execCommand('Copy')
-    document.body.removeChild(copyInput)
-
-    FMessage({
-      message: '复制成功',
-      type: 'primary'
-    })
+  const handleClick = (color: string): void => {
+    onCopy(color)
   }
 </script>
 
@@ -46,7 +36,7 @@
         :key="i"
         class="f-color-item"
         :style="{ background: color }"
-        @click="onCopy(color)"
+        @click="handleClick(color)"
       >
         <f-text>{{ color }}</f-text>
       </div>
