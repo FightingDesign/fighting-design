@@ -1,44 +1,57 @@
 <script lang="ts" setup name="FRate">
-  import { Props, Emits } from './rate'
-  import { computed, ref } from 'vue'
-  import { FIcon } from '../../icon'
-  import type { ComputedRef, Ref } from 'vue'
-  import type { handleCloseInterface as a } from './interface'
-  import type { classListInterface as b } from '../../_interface'
+import { Props, Emits } from './rate'
+import { computed, onMounted, reactive, ref, watch, nextTick } from 'vue'
+import { sizeChange } from '../../_utils'
+import { FIcon } from '../../icon'
+const prop = defineProps(Props)
+const emit = defineEmits(Emits)
+const hoverIndex = ref(prop.modelValue)
 
-  const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
+const handleClick = (i: number) => {
+  if (prop.readonly) return
+  emit('update:modelValue', i)
+  emit('change', i)
 
-  const isShow: Ref<boolean> = ref<boolean>(true)
-
-  const classList: ComputedRef<b> = computed((): b => {
-    const { simple, type, size, block, round, line } = prop
-
-    return [
-      'f-tag',
-      `f-tag-${type}`,
-      `f-tag-${size}`,
-      {
-        'f-tag-simple': simple,
-        'f-tag-block': block,
-        'f-tag-round': round,
-        'f-tag-line': line
-      }
-    ] as const
-  })
-
-  const handleClose: a = (evt: Event): void => {
-    isShow.value = false
-    emit('close-end', evt)
-  }
+}
+const handleMouseenter = (i: number) => {
+  if (prop.readonly) return
+  hoverIndex.value = i
+}
+const handleMouseleave = (i: number) => {
+  if (prop.readonly) return
+  hoverIndex.value = prop.modelValue
+}
+const handleDblclick = (i: number) => {
+  if (!prop.doubleClear) return
+  if (i != 1) return
+  handleClick(0)
+}
+watch(() => prop.modelValue, () => { hoverIndex.value = prop.modelValue })
 </script>
 
 <template>
-  <div v-if="isShow" :class="classList" :style="{ background, color }">
-    <f-icon v-if="beforeIcon" :icon="beforeIcon" />
-    <slot />
-    <f-icon v-if="afterIcon" :icon="afterIcon" />
+  <div class="f-rate-container">
+    <div class="f-rate-row">
+      <template v-for="i in max">
+        <div class="f-rate-item" @dblclick.native="handleDblclick(i)" @mouseleave="handleMouseleave(i)" :class="{
+          'f-rate-full':hoverIndex >= i,
+          'f-rate-half':hoverIndex===i-.5,
+        }">
+          <div class="f-rate-left" @mouseenter="handleMouseenter(half?i -.5:i)" @click="handleClick(half?i -.5:i)">
+          </div>
+          <div class="f-rate-right" @mouseenter="handleMouseenter(i)" @click="handleClick(i+1)"></div>
+          <div class="f-rate-item-bottom">
+            <f-icon :size="sizeChange(size)" :color="invalidColor" icon="f-icon-collection" />
+          </div>
+          <div class="f-rate-item-top">
+            <f-icon :size="sizeChange(size)" :color="effectColor" icon="f-icon-collection-fill" />
+          </div>
 
-    <f-icon v-if="close" icon="f-icon-close" @click.stop="handleClose" />
+        </div>
+      </template>
+    </div>
+    <div v-if="textShow" :style="{color:textColor,fontSize:sizeChange(textSize)}">{{textArr[hoverIndex-1]}}</div>
+
   </div>
+
 </template>

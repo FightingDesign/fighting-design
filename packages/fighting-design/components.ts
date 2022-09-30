@@ -141,3 +141,6 @@ export type { TreeInstance, TreePropsType, TreeDataInterface } from './tree'
 
 export { FWatermark } from './watermark'
 export type { WatermarkInstance, WatermarkPropsType } from './watermark'
+
+export { FRate } from './rate'
+export type { RateInstance, RatePropsType } from './rate'

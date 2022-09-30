@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { RateSizeType, RateType } from './interface'
+import type { RateType } from './interface'
 
 export const Props = {
   type: {
@@ -10,10 +10,6 @@ export const Props = {
         ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
     }
-  },
-  line: {
-    type: Boolean,
-    default: (): boolean => false
   },
   effectColor: {
     type: String,
@@ -44,12 +40,12 @@ export const Props = {
     default: false
   },
   size: {
-    type: String as PropType<RateSizeType>,
+    type: [String, Number] as PropType<string | number>,
     default: 'default'
   },
   textShow: {
-    type: String as PropType<RateSizeType>,
-    default: 'default'
+    type: Boolean,
+    default: false
   },
   textColor: {
     type: String,
@@ -57,17 +53,21 @@ export const Props = {
   },
   textArr: {
     type: Array as PropType<string[]>,
-    default: ()=>([])
+    default: () => []
   },
   textSize: {
-    type: String as PropType<RateSizeType>,
+    type: [String, Number] as PropType<string | number>,
     default: 'default'
   },
-
+  modelValue: {
+    type: Number,
+    default: 0
+  }
 } as const
 
 export const Emits = {
-  'close-end': (evt: Event): Event => evt
+  change: (val: number) => val,
+  'update:modelValue': (val: number) => val
 } as const
 
 export type RatePropsType = ExtractPropTypes<typeof Props>
