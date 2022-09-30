@@ -21,9 +21,9 @@ export const Props = {
   },
   state: {
     type: String as PropType<LinkHoverType>,
-    default: (): LinkHoverType => '',
+    default: (): LinkHoverType | '' => '',
     validator: (val: LinkHoverType): boolean => {
-      return (['line', 'bag', ''] as const).includes(val)
+      return (['line', 'bag'] as const).includes(val)
     }
   },
   prohibit: {

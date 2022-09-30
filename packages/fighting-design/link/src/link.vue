@@ -25,11 +25,11 @@
 
     return [
       'f-link',
-      `f-link-${type}`,
-      `f-link-${state}`,
       {
+        [`f-link-${state}`]: state,
+        [`f-link-${type}`]: type,
         'f-link-prohibit': prohibit,
-        'f-link-noCopy': noCopy
+        'f-link-no-copy': noCopy
       }
     ] as const
   })
@@ -38,8 +38,8 @@
     const { size, color } = prop
 
     return {
-      color,
-      fontSize: sizeChange(size)
+      '--f-link-color': color,
+      '--f-link-font-size': sizeChange(size)
     } as const
   })
 </script>

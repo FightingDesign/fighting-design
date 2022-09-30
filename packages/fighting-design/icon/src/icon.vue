@@ -25,8 +25,8 @@
     const { color, size } = prop
 
     return {
-      color,
-      fontSize: sizeChange(size)
+      '--f-icon-color': color,
+      '--f-icon-font-size': sizeChange(size)
     } as const
   })
 </script>

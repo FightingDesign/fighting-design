@@ -2,15 +2,15 @@
 
 .f-link {
   cursor: pointer;
-  font-size: 15px;
   display: inline-block;
   text-decoration: none;
   transition: 0.3s;
   line-height: 1;
-  color: $primary;
+  font-size: var(--f-link-font-size, 15px);
+  color: var(--f-link-color, $primary);
 
-  &.f-icon {
-    font-size: 15px;
+  .f-icon {
+    font-size: var(--f-link-font-size, 15px);
   }
 
   &:hover {
@@ -23,7 +23,7 @@
 
     // 不同类型
     &.f-link-#{map-get($item, name)} {
-      color: map-get($item, simpleTextColor);
+      color: var(--f-link-color, map-get($item, simpleTextColor));
     }
   }
 
@@ -38,7 +38,7 @@
   }
 
   // 禁止 copy
-  &.f-link-noCopy {
+  &.f-link-no-copy {
     user-select: none;
   }
 
@@ -49,6 +49,7 @@
 
     &.f-link-bag {
       &:hover {
+        opacity: 0.5;
         background: none;
       }
     }

@@ -9,10 +9,11 @@
 
   const classList: ComputedRef<a> = computed((): a => {
     const { type, block, bold, ellipsis, center } = prop
+
     return [
       'f-text',
-      `f-text-${type}`,
       {
+        [`f-text-${type}`]: type,
         'f-text-block': block,
         'f-text-bold': bold,
         'f-text-center': center,
@@ -22,34 +23,22 @@
   })
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const {
-      size,
-      color,
-      lineHeight,
-      spacing,
-      textIndent,
-      background,
-      decoration,
-      padding,
-      width
-    } = prop
-
     return {
-      color,
-      background,
-      textIndent,
-      lineHeight,
-      padding,
-      fontSize: sizeChange(size),
-      width,
-      letterSpacing: spacing,
-      textDecoration: decoration
+      '--f-text-color': prop.color,
+      '--f-text-background': prop.background,
+      '--f-text-text-decoration': prop.decoration,
+      '--f-text-width': sizeChange(prop.width),
+      '--f-text-font-size': sizeChange(prop.size),
+      '--f-text-padding': sizeChange(prop.padding),
+      '--f-text-letter-spacing': sizeChange(prop.spacing),
+      '--f-text-line-height': sizeChange(prop.lineHeight),
+      '--f-text-text-indent': sizeChange(prop.indent)
     } as const
   })
 </script>
 
 <template>
-  <span :class="classList" :style="styleList">
+  <p :class="classList" :style="styleList">
     <slot />
-  </span>
+  </p>
 </template>

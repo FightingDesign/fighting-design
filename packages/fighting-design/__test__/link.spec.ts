@@ -29,21 +29,24 @@ describe('FLink', () => {
     const wrapper = mount(FLink, {
       props: { size: '20px' }
     })
-    expect(wrapper.attributes('style')).toContain('20px')
+    expect(wrapper.attributes('style')).toContain('--f-font-size: 20px')
   })
 
   test('size', () => {
     const wrapper = mount(FLink, {
       props: { size: 16 }
     })
-    expect(wrapper.attributes('style')).toContain('16px')
+    expect(wrapper.attributes('style')).toContain('--f-font-size: 16px')
   })
 
   test('state', () => {
-    const wrapper = mount(FLink, {
-      props: { state: 'line' }
+    const state = ['line', 'bag'] as const
+    state.forEach(item => {
+      const wrapper = mount(FLink, {
+        props: { state: item }
+      })
+      expect(wrapper.classes()).toContain(`f-link-${item}`)
     })
-    expect(wrapper.classes()).toContain('f-link-line')
   })
 
   test('prohibit', () => {

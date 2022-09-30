@@ -15,7 +15,7 @@ describe('FIcon', () => {
     expect(wrapper.classes()).toContain('f-icon-credit-level-fill')
   })
 
-  test('fontClass', () => {
+  test('font-class', () => {
     const wrapper = mount(FIcon, {
       props: { fontClass: 'my-font' }
     })
@@ -26,20 +26,26 @@ describe('FIcon', () => {
     const wrapper = mount(FIcon, {
       props: { color: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('red')
+    expect(wrapper.attributes('style')).toContain('--f-icon-color: red')
   })
 
   test('size', () => {
     const wrapper = mount(FIcon, {
       props: { size: '15px' }
     })
-    expect(wrapper.attributes('style')).toContain('15px')
+    expect(wrapper.attributes('style')).toContain('--f-icon-font-size: 15px')
   })
 
   test('size', () => {
     const wrapper = mount(FIcon, {
       props: { size: 16 }
     })
-    expect(wrapper.attributes('style')).toContain('16px')
+    expect(wrapper.attributes('style')).toContain('--f-icon-font-size: 16px')
+  })
+
+  test('on click', async () => {
+    const wrapper = mount(FIcon)
+    await wrapper.trigger('click')
+    expect(wrapper.emitted()).toBeDefined()
   })
 })

@@ -1,13 +1,21 @@
 @import '../config/const-color.scss';
 
 .f-text {
-  font-size: 15px;
+  margin: 0;
+  transition: 0.3s;
   display: inline-block;
   word-break: break-all;
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
   cursor: default;
+  color: var(--f-text-color, $default);
+  background: var(--f-text-background);
+  text-decoration: var(--f-text-text-decoration);
+  width: var(--f-text-width);
+  font-size: var(--f-text-font-size, 15px);
+  padding: var(--f-text-padding, 0);
+  letter-spacing: var(--f-text-letter-spacing);
+  line-height: var(--f-text-line-height);
+  text-indent: var(--f-text-text-indent);
 
   // 不同类型
   @for $list from 1 to (length($allTypeColorList) + 1) {
@@ -15,7 +23,7 @@
 
     // 不同类型
     &.f-text-#{map-get($item, name)} {
-      color: map-get($item, simpleTextColor);
+      color: var(--f-text-color, map-get($item, simpleTextColor));
     }
   }
 

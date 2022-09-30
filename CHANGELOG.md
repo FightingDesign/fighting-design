@@ -2,6 +2,14 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 优化 `f-icon` 组件样式实现
+- `f-link` 组件类名规范优化
+- 优化 `f-link` 组件内部实现
+- 优化 `f-text` 组件内部实现
+- `f-text` 组件 `size` `spacing` `line-height` `text-indent` `padding` `width` 属性支持 `number` 类型参数
+- `f-text` 组件 `text-indent` 属性改为 `indent`
+- `f-text` 内部导出新类型 `TextDecorationType`
+
 ## 0.7.0-alpha.2 (2022-09-29)
 
 - 修复部分组件类型规范问题

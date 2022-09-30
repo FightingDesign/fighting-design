@@ -1,6 +1,5 @@
 export { FAlert } from './alert'
 export type { AlertPropsType, AlertInstance, AlertType, AlertOverflowType } from './alert'
-// export type { AlertPropsType, AlertInstance, AlertType, AlertOverflowType } from './alert/src/interface'
 
 export { FAside } from './aside'
 export type { AsidePropsType, AsideInstance } from './aside'
@@ -126,7 +125,7 @@ export { FTag } from './tag'
 export type { TagInstance, TagPropsType, TagSizeType, TagType } from './tag'
 
 export { FText } from './text'
-export type { TextInstance, TextPropsType, TextType } from './text'
+export type { TextInstance, TextPropsType, TextType, TextDecorationType } from './text'
 
 export { FToolbar } from './toolbar'
 export type { ToolbarInstance, ToolbarPropsType, ToolbarType, ToolbarClickEmitInterface } from './toolbar'
