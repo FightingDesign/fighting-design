@@ -10,23 +10,23 @@
     "components",
     "ui"
   ],
-  "main": "lib/index.cjs",
-  "module": "es/index.mjs",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "types": "es/index.d.ts",
   "exports": {
     ".": {
-      "import": "./es/index.mjs",
-      "require": "./lib/index.cjs",
+      "import": "./es/index.js",
+      "require": "./lib/index.js",
       "types": "./es/index.d.ts"
     },
     "./dist": "./dist/",
     "./theme": "./theme/",
-    "./es": "./es/index.mjs",
-    "./es/*": "./es/*.mjs",
-    "./es/*.mjs": "./es/*.mjs",
-    "./lib": "./lib/index.cjs",
+    "./es": "./es/index.js",
+    "./es/*": "./es/*.js",
+    "./es/*.js": "./es/*.js",
+    "./lib": "./lib/index.js",
     "./lib/*": "./lib/*.js",
-    "./lib/*.cjs": "./lib/*.cjs",
+    "./lib/*.js": "./lib/*.js",
     "./*": "./*"
   },
   "unpkg": "dist/index.umd.js",
