@@ -25,3 +25,4 @@
 - [Radio 单选框](https://www.figma.com/file/2DuQ8GlyP1vjdhrIDIp66n/Radio-%E5%8D%95%E9%80%89%E6%A1%86?node-id=0%3A1)
 - [Select 选择器](https://www.figma.com/file/uuSEkcnUzwYs96IUpP3Gch/Select-%E9%80%89%E6%8B%A9%E5%99%A8?node-id=0%3A1)
 - [Rate 评分](https://www.figma.com/file/D0CQ9rdei7B3p190JzKdFl/Rate-%E8%AF%84%E5%88%86?node-id=0%3A1)
+- [Checkbox 复选框](https://www.figma.com/file/jo95ipROQQGA0fkTYPyJHy/Checkbox-%E5%A4%8D%E9%80%89%E6%A1%86?node-id=0%3A1)
