@@ -29,14 +29,14 @@ describe('FLink', () => {
     const wrapper = mount(FLink, {
       props: { size: '20px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-font-size: 20px')
+    expect(wrapper.attributes('style')).toContain('--f-link-font-size: 20px')
   })
 
   test('size', () => {
     const wrapper = mount(FLink, {
       props: { size: 16 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-font-size: 16px')
+    expect(wrapper.attributes('style')).toContain('--f-link-font-size: 16px')
   })
 
   test('state', () => {
@@ -74,6 +74,6 @@ describe('FLink', () => {
     const wrapper = mount(FLink, {
       props: { noCopy: true }
     })
-    expect(wrapper.classes()).toContain('f-link-noCopy')
+    expect(wrapper.classes()).toContain('f-link-no-copy')
   })
 })
