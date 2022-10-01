@@ -6,8 +6,16 @@ export interface UtilsDebounceInterface {
   (handle: Function, delay: number): Function
 }
 
-export interface UtilsGetTypeInterface {
-  (target: unknown): boolean
+export interface UtilsIsNumberInterface {
+  (target: unknown): target is number
+}
+
+export interface UtilsIsBooleanInterface {
+  (target: unknown): target is boolean
+}
+
+export interface UtilsIsStringInterface {
+  (target: unknown): target is string
 }
 
 export interface UtilsPastTimeInterface {
