@@ -69,7 +69,7 @@
     </div>
 
     <!-- 页脚 -->
-    <f-footer>
+    <div id="footer">
       <div class="footer-item">
         <ul class="list" v-for="(listItem, index) in bottomList" :key="index">
           <h4 class="title">{{ listItem.title }}</h4>
@@ -86,7 +86,7 @@
           FightingDesign | 浙ICP备2021024540号-2
         </f-link>
       </p>
-    </f-footer>
+    </div>
   </div>
 </template>
 
@@ -223,7 +223,7 @@
     }
 
     // 页脚
-    .f-footer {
+    #footer {
       border-top: 1px solid #eee;
       max-width: 800px;
       margin: 0 auto;
