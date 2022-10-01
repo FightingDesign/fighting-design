@@ -19,7 +19,6 @@ describe('FProgress', () => {
 
   test('type', () => {
     const types = ['primary', 'success', 'danger', 'warning'] as const
-
     types.forEach((item) => {
       const wrapper = mount(FProgress, {
         props: { type: item }
