@@ -79,6 +79,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
+
       .option-item {
         white-space: nowrap;
         list-style: none;

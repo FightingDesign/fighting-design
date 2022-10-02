@@ -25,6 +25,7 @@
     margin: 0;
     padding: 0;
   }
+
   .vue-repl {
     position: fixed;
     top: 55px;
@@ -35,6 +36,7 @@
     .file.active {
       color: #2d5af1;
       border-bottom: 3px solid #2d5af1;
+      
       .label {
         color: #2d5af1;
       }

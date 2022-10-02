@@ -2,7 +2,7 @@ export const sidebar = {
   '/docs/': [
     {
       text: '开发指南',
-      link: '/docs/install',
+      link: '/docs/',
       items: [
         { text: '安装', link: '/docs/install' },
         { text: '快速上手', link: '/docs/import' }
@@ -10,16 +10,16 @@ export const sidebar = {
     },
     {
       text: '指南',
-      link: '/docs/introduce',
+      link: '/docs/',
       items: [
         { text: '介绍', link: '/docs/introduce' },
-        { text: '贡献指南', link: '/docs/CONTRIBUTING' },
+        { text: '贡献指南', link: '/docs/contributing' },
         { text: '加入我们', link: '/docs/join' }
       ]
     },
     {
       text: '历程',
-      link: '/docs/changelog',
+      link: '/docs/',
       items: [
         { text: '更新日志', link: '/docs/changelog' },
         { text: '里程碑', link: '/docs/milepost' }
