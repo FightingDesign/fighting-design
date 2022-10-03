@@ -1,4 +1,4 @@
-// import type FAlert from './alert.vue'
+// import type FAlert  from './alert.vue'
 // import type { Props } from './alert'
 // import type { ExtractPropTypes } from 'vue'
 
