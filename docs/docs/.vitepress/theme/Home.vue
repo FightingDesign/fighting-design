@@ -63,7 +63,7 @@
         </f-link>
       </div>
 
-      <f-button simple type="primary" href="/docs/CONTRIBUTING" round>
+      <f-button simple type="primary" href="/docs/contributing.html" round>
         加入其中
       </f-button>
     </div>

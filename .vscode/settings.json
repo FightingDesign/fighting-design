@@ -150,5 +150,8 @@
     "yiguanzhugongyingshang",
     "zhankai",
     "zijin"
-  ]
+  ],
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
