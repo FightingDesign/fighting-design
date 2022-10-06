@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.7.0-alpha.3 (2022-10-06)
+
+- 更新 `umd` 打包入口
 - 优化 `f-icon` 组件样式实现
 - `f-link` 组件类名规范优化
 - 优化 `f-link` 组件内部实现

@@ -10,7 +10,7 @@ export default (): UserConfigExport => {
       emptyOutDir: false,
       outDir: resolve(__dirname, 'dist/dist'),
       lib: {
-        entry: resolve(__dirname, 'packages/fighting-design/index.ts'),
+        entry: resolve(__dirname, 'packages/fighting-design/defaults.ts'),
         name: 'FightingDesign',
         formats: ['umd'],
         fileName: (target): string => {
