@@ -141,3 +141,9 @@ export type { TreeInstance, TreePropsType, TreeDataInterface } from './tree'
 
 export { FWatermark } from './watermark'
 export type { WatermarkInstance, WatermarkPropsType } from './watermark'
+
+export { FCheckbox } from './checkbox'
+export type { CheckboxInstance, checkboxProps } from './checkbox'
+
+export { FCheckboxGroup } from './checkbox-group'
+export type { CheckboxGroupInstance, CheckboxGroupTypes } from './checkbox-group'
