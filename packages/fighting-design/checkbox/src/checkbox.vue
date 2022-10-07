@@ -14,7 +14,7 @@
     WritableComputedRef
   } from 'vue'
 
-  const props = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const checkboxGroupInjectData: Ref<a | undefined> = ref()
@@ -39,15 +39,15 @@
       if (isGroup.value) {
         return (checkboxGroupInjectData.value as a)?.modelValue
       }
-      return props.modelValue
+      return prop.modelValue
     },
     set (val) {
       if (isGroup.value) {
-        !props.disabled &&
+        !prop.disabled &&
           !checkboxGroupInjectData.value?.disabled &&
           checkboxGroupInjectData.value?.changeEvent(val)
       } else {
-        if (props.disabled) return
+        if (prop.disabled) return
         emit('update:modelValue', val)
       }
     }
@@ -56,11 +56,11 @@
   const isChecked = computed((): boolean => {
     const val = modelValue.value
     if (Array.isArray(val)) {
-      return val.includes(props.label)
+      return val.includes(prop.label)
     } else if (typeof val === 'boolean') {
       return val
     }
-    return (val === props.label) as boolean
+    return (val === prop.label) as boolean
   })
 
   const classList: ComputedRef<c> = computed((): c => {
@@ -71,7 +71,7 @@
         'f-checkbox--selected': isChecked.value,
         'f-checkbox--bordered': checkboxGroupInjectData.value?.border,
         'f-checkbox--disabled':
-          props.disabled || checkboxGroupInjectData.value?.disabled
+          prop.disabled || checkboxGroupInjectData.value?.disabled
       }
     ]
   })
