@@ -169,12 +169,10 @@
 组件导出以下类型定义：
 ```ts
 import type {
-  RadioInstance,
-  RadioPropsType,
-  RadioLabelType,
-  RadioGroupInstance,
-  RadioGroundPropsType,
-  RadioGroupSizeType
+  CheckboxInstance,
+  CheckboxLabelType,
+  CheckboxGroupInterface,
+  CheckboxGroupSizeType
 } from 'fighting-design'
 ```
 
