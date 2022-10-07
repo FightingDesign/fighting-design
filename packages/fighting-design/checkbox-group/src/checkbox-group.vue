@@ -3,26 +3,27 @@
     name: 'FCheckboxGroup'
   }
 </script>
-<script lang="ts" setup name="FCheckboxGroup">
-import { nextTick, provide, reactive, toRefs } from 'vue';
-import { checkboxGroupProps, checkboxGroupEmits, checkboxGroupCtxKey } from './checkbox-group'
-import type { CheckboxLabelType } from './interface'
-const props = defineProps(checkboxGroupProps)
-const emit = defineEmits(checkboxGroupEmits)
 
-const changeEvent = async (val: CheckboxLabelType): Promise<void> => {
-  emit('update:modelValue', val)
-  await nextTick()
-  emit('change', val)
-}
+<script lang="ts" setup>
+  import { nextTick, provide, reactive, toRefs } from 'vue'
+  import { Props, Emits, checkboxGroupCtxKey } from './checkbox-group'
+  import type { CheckboxLabelType } from './interface'
 
-const checkboxGroup = reactive({
-  ...toRefs(props),
-  changeEvent
-})
+  const props = defineProps(Props)
+  const emit = defineEmits(Emits)
 
-provide(checkboxGroupCtxKey, checkboxGroup)
+  const changeEvent = async (val: CheckboxLabelType): Promise<void> => {
+    emit('update:modelValue', val)
+    await nextTick()
+    emit('change', val)
+  }
 
+  const checkboxGroup = reactive({
+    ...toRefs(props),
+    changeEvent
+  })
+
+  provide(checkboxGroupCtxKey, checkboxGroup)
 </script>
 <template>
   <div class="f-checkbox-group">
