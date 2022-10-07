@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `checkbox` 组件
+
 ## 0.7.0-alpha.3 (2022-10-06)
 
 - 更新 `umd` 打包入口
