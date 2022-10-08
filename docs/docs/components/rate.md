@@ -1,6 +1,6 @@
-# Tag 标签
+# Rate 评分
 
-`Tag` 用于评分或打星
+用于评分或打星
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/rate)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/rate.md)
@@ -8,6 +8,7 @@
 ## 基本使用
 
 通过`v-model`绑定选中星星数量,通过`max`控制星星总个数
+
 <f-rate :max="10" v-model="rateVal" />
 
 ::: details 显示代码
@@ -16,9 +17,12 @@
 <f-rate :max="10" v-model="rateVal" />
 ```
 
+:::
+
 ## 自定义颜色
 
 `effect-color` 属性可以配置星星选中时的颜色, `invalid-color`属性可以配置星星未选中时的颜色
+
 <f-rate effect-color="red" invalid-color="green"  />
 
 ::: details 显示代码
@@ -27,13 +31,13 @@
 <f-rate effect-color="red" invalid-color="green" />
 ```
 
+:::
+
 ## 辅助文字
 
 `text-show`+`text-arr`属性可以配置星星选中时提示的文字
-<f-rate 
-    :text-arr="['一','二','三','四','五']" 
-    :text-show="true"
-  />
+
+<f-rate :text-arr="['一','二','三','四','五']" :text-show="true"/>
 
 ::: details 显示代码
 
@@ -81,5 +85,5 @@ import type { RatePropsType, RateInstance } from 'fighting-design'
 </a>
 
 <a href="https://github.com/caicailv" target="_blank">
-  <f-avatar round src="https://avatars.githubusercontent.com/u/46363316?s=400&u=1acd849d3c5c95055bf4eebd713532f613abdca3&v=4" />
+  <f-avatar round src="https://avatars.githubusercontent.com/u/46363316?v=4" />
 </a>

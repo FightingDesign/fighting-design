@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-export const Props = {
 
+export const Props = {
   effectColor: {
     type: String,
     default: ''
@@ -31,7 +31,7 @@ export const Props = {
   },
   size: {
     type: [String, Number] as PropType<string | number>,
-    default: 'default'
+    default: '26px'
   },
   textShow: {
     type: Boolean,
