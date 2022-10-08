@@ -9,18 +9,19 @@
 
 绑定单个复选框，配合 `v-model` 绑定一个 `boolean` 值
 
-<f-checkbox v-model="selected1" label="酸辣土豆丝" />
+<f-checkbox v-model="option1" label="酸辣土豆丝" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-checkbox v-model="selected1" label="酸辣土豆丝" />
+  <f-checkbox v-model="option1" label="酸辣土豆丝" />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  const selected1 = ref(false)
+
+  const option1 = ref(false)
 </script>
 ```
 
@@ -30,7 +31,7 @@
 
 多个选项可使用 `f-checkbox-group` 复选框组
 
-<f-checkbox-group v-model="selection">
+<f-checkbox-group v-model="option2">
   <f-checkbox label="鸡肉卷" />
   <f-checkbox label="鸡排" />
   <f-checkbox label="汉堡" />
@@ -40,7 +41,7 @@
 
 ```html
 <template>
-  <f-checkbox-group v-model="selection">
+  <f-checkbox-group v-model="option2">
     <f-checkbox label="鸡肉卷" />
     <f-checkbox label="鸡排" />
     <f-checkbox label="汉堡" />
@@ -50,7 +51,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const selection = ref(['汉堡'])
+  const option2 = ref(['汉堡'])
 </script>
 ```
 
@@ -62,13 +63,13 @@
 
 <f-checkbox label="选项一" disabled />
 
-<f-checkbox-group v-model="selection2" disabled>
+<f-checkbox-group v-model="option3" disabled>
 <f-checkbox label="选项一"/>
 <f-checkbox label="选项二"/>
 <f-checkbox label="选项三"/>
 </f-checkbox-group>
 
-<f-checkbox-group v-model="selection2">
+<f-checkbox-group v-model="option3">
   <f-checkbox label="选项一"/>
   <f-checkbox label="选项二" disabled/>
   <f-checkbox label="选项三"/>
@@ -80,13 +81,13 @@
 <template>
   <f-checkbox label="选项一" disabled />
 
-  <f-checkbox-group v-model="selection2" disabled>
+  <f-checkbox-group v-model="option3" disabled>
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />
   </f-checkbox-group>
 
-  <f-checkbox-group v-model="selection2">
+  <f-checkbox-group v-model="option3">
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" disabled />
     <f-checkbox label="选项三" />
@@ -96,7 +97,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const selection2 = ref([])
+  const option3 = ref([])
 </script>
 ```
 
@@ -107,7 +108,7 @@
 直接添加`border`属性可设置边框，只生效于`group`组件，
 `FightingDesign`还提供了`size`选项，默认为`middle`
 
-<f-checkbox-group v-model="selection3" border size="large">
+<f-checkbox-group v-model="option4" border size="large">
   <f-checkbox label="选项一" />
   <f-checkbox label="选项二" />
   <f-checkbox label="选项三" />
@@ -115,7 +116,7 @@
 
 <br />
 
-<f-checkbox-group v-model="selection3" border>
+<f-checkbox-group v-model="option4" border>
   <f-checkbox label="选项一" />
   <f-checkbox label="选项二" />
   <f-checkbox label="选项三" />
@@ -123,7 +124,7 @@
 
 <br />
 
-<f-checkbox-group v-model="selection3" border size="small">
+<f-checkbox-group v-model="option4" border size="small">
   <f-checkbox label="选项一" />
   <f-checkbox label="选项二" />
   <f-checkbox label="选项三" />
@@ -133,19 +134,19 @@
 
 ```html
 <template>
-  <f-checkbox-group v-model="selection3" border size="large">
+  <f-checkbox-group v-model="option4" border size="large">
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />
   </f-checkbox-group>
 
-  <f-checkbox-group v-model="selection3" border>
+  <f-checkbox-group v-model="option4" border>
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />
   </f-checkbox-group>
 
-  <f-checkbox-group v-model="selection3" border size="small">
+  <f-checkbox-group v-model="option4" border size="small">
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />
@@ -155,7 +156,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const selection3 = ref([])
+  const option4 = ref([])
 </script>
 ```
 
@@ -215,8 +216,8 @@ import type {
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-const selected1 = ref(false)
-const selection = ref([])
-const selection2 = ref([])
-const selection3 = ref([])
+const option1 = ref(false)
+const option2 = ref([])
+const option3 = ref([])
+const option4 = ref([])
 </script>

@@ -1,10 +1,9 @@
 <script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const option1 = ref(false)
 </script>
 
 <template>
-  <f-text background="#58c8de">背景颜色</f-text>
-  <f-text background="#e372ff">背景颜色</f-text>
-  <f-text background="#e49b33">背景颜色</f-text>
+  <f-checkbox v-model="option1" label="酸辣土豆丝" />
 </template>
-
-<style lang="scss" scoped></style>
