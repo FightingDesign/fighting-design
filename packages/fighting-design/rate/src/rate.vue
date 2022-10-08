@@ -50,7 +50,7 @@ watch(() => prop.modelValue, () => { hoverIndex.value = prop.modelValue })
         </div>
       </template>
     </div>
-    <div v-if="textShow" :style="{color:textColor,fontSize:sizeChange(textSize)}">{{textArr[hoverIndex-1]}}</div>
+    <div class="f-rate-text" v-if="textShow" :style="{color:textColor,fontSize:sizeChange(textSize)}">{{textArr[hoverIndex-1]}}</div>
 
   </div>
 

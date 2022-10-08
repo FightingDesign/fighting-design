@@ -1,16 +1,6 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { RateType } from './interface'
-
 export const Props = {
-  type: {
-    type: String as PropType<RateType>,
-    default: (): RateType => 'default',
-    validator: (val: RateType): boolean => {
-      return (
-        ['default', 'primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
-    }
-  },
+
   effectColor: {
     type: String,
     default: ''
