@@ -4,21 +4,22 @@ import type { CheckboxLabelType, CheckboxGroupSizeType } from './interface'
 export const Props = {
   modelValue: {
     type: [String, Number, Array] as PropType<CheckboxLabelType>,
-    default: () => []
+    default: (): [] => []
   },
   disabled: {
     type: Boolean,
     default: (): boolean => false
   },
   label: {
-    type: String
+    type: String,
+    default: (): string => ''
   },
   changeEvent: {
     type: Function
   },
   border: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   size: {
     type: String,
@@ -32,7 +33,7 @@ export const Props = {
 export const Emits = {
   'update:modelValue': (val: CheckboxLabelType): boolean => Array.isArray(val),
   change: (val: CheckboxLabelType): boolean => typeof val === 'object'
-}
+} as const
 
 export type CheckboxGroupProps = ExtractPropTypes<typeof Props>
 

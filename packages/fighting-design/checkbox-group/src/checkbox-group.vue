@@ -25,6 +25,7 @@
 
   provide(checkboxGroupCtxKey, checkboxGroup)
 </script>
+
 <template>
   <div class="f-checkbox-group">
     <slot />
