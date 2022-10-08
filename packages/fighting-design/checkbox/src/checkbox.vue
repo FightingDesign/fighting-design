@@ -3,10 +3,8 @@
   import { Props, Emits } from './checkbox'
   import { checkboxGroupCtxKey } from '../../checkbox-group/src/checkbox-group'
   import type { ClassListInterface as c } from '../../_interface'
-  import type {
-    CheckboxLabelType,
-    CheckboxGroupInterface as a
-  } from '../../checkbox-group/src/interface'
+  import type { CheckboxLabelType } from '../../checkbox-group/src/interface'
+  import type { CheckboxGroupPropsType as a } from '../../checkbox-group/src/checkbox-group'
   import type {
     ComputedRef,
     Ref,
@@ -30,7 +28,7 @@
   }
   getGroupInject()
 
-  const isGroup = computed((): boolean => {
+  const isGroup: ComputedRef<boolean> = computed((): boolean => {
     return !!checkboxGroupInjectData.value || false
   })
 
@@ -53,7 +51,7 @@
     }
   })
 
-  const isChecked = computed((): boolean => {
+  const isChecked: ComputedRef<boolean> = computed((): boolean => {
     const val = modelValue.value
     if (Array.isArray(val)) {
       return val.includes(prop.label)

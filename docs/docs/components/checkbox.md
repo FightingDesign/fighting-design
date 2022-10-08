@@ -198,8 +198,11 @@
 ```ts
 import type {
   CheckboxInstance,
+  CheckboxPropsType,
   CheckboxLabelType,
-  CheckboxGroupInterface,
+  CheckboxGroupInstance,
+  CheckboxGroupPropsType,
+  CheckboxGroupLabelType,
   CheckboxGroupSizeType
 } from 'fighting-design'
 ```
