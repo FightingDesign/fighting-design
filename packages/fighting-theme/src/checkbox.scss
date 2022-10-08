@@ -33,13 +33,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    .f-checkbox-input {
-      width: 0;
-      height: 0;
-      opacity: 0;
-      visibility: hidden;
-    }
   }
 
   .f-checkbox-icon {
@@ -64,20 +57,19 @@
 
     .f-checkbox-icon {
       border: 1px solid $primary;
-      background-color: $primary;
+      background: $primary;
 
       &::after {
-        content: ' ';
-        width: 3px;
+        content: '';
+        width: 4px;
         height: 9px;
-        background-color: none;
         transform: rotate(45deg) scaleY(1);
         border: 1px solid #fff;
         border-left: 0;
         border-top: 0;
-        animation: scale_ani 0.1s ease-in;
+        animation: f-checkbox-animation 0.1s ease-in;
 
-        @keyframes scale_ani {
+        @keyframes f-checkbox-animation {
           from {
             transform: rotate(45deg) scale(0);
           }
@@ -96,7 +88,7 @@
 
     .f-checkbox-icon {
       border-color: #c0c4cc;
-      background-color: #e1e5ec;
+      background: #e1e5ec;
 
       &::after {
         border-color: #c0c4cc;

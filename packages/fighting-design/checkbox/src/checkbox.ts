@@ -1,34 +1,33 @@
 import type { ExtractPropTypes } from 'vue'
-
-export type CheckboxLabelType = string | number | boolean
+import type { CheckboxLabelType } from './interface'
 
 export const Props = {
   modelValue: {
-    // type: [Number, String, Boolean],
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   label: {
-    type: String
+    type: String,
+    default: (): string => ''
   },
   disabled: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   border: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   size: {
     type: String,
     default: (): string => 'middle'
   }
-}
+} as const
 
 export const Emits = {
   'update:modelValue': (val: CheckboxLabelType): boolean => {
     return typeof val === 'string' || typeof val === 'number' || typeof val === 'boolean'
   }
-}
+} as const
 
-export type CheckboxProps = ExtractPropTypes<typeof Emits>
+export type CheckboxProps = ExtractPropTypes<typeof Props>

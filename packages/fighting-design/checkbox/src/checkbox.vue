@@ -33,7 +33,6 @@
     return !!checkboxGroupInjectData.value || false
   })
 
-  // checkbox 接收 [boolean, string, number] 和  boolean
   const modelValue: WritableComputedRef<CheckboxLabelType> = computed({
     get () {
       if (isGroup.value) {
@@ -76,6 +75,7 @@
     ]
   })
 </script>
+
 <template>
   <label :class="classList">
     <span class="f-checkbox-inner">
@@ -83,9 +83,10 @@
         v-model="modelValue"
         type="checkbox"
         class="f-checkbox-input"
+        hidden
         :value="label"
       />
-      <span class="f-checkbox-icon"></span>
+      <span class="f-checkbox-icon" />
       <span class="f-checkbox-label">
         <slot />
         <template v-if="!$slots.default">{{ label }}</template>

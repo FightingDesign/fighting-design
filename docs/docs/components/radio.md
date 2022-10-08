@@ -121,6 +121,7 @@
 </f-radio-group>
 
 <br />
+<br />
 
 <f-radio-group v-model="radio4" border size="middle">
   <f-radio label="1">备选项1</f-radio>
@@ -129,6 +130,7 @@
 </f-radio-group>
 
 <br />
+<br />
 
 <f-radio-group v-model="radio4" border size="small">
   <f-radio label="1">备选项1</f-radio>
@@ -136,6 +138,7 @@
   <f-radio label="3">备选项3</f-radio>
 </f-radio-group>
 
+<br />
 <br />
 
 <f-radio-group v-model="radio4" border size="mini">
@@ -263,12 +266,12 @@
 | ---------------------- | -------------- | ------------------------- | ------------------------------- | ------ |
 | `modelValue / v-model` | 绑定值         | string / number / boolean | ——                              | ——     |
 | `disabled`             | 是否禁用       | boolean                   | ——                              | false  |
-| `vertical`             | 是否禁用排列   | boolean                   | ——                              | false  |
+| `vertical`             | 是否纵向排列   | boolean                   | ——                              | false  |
 | `column-gap`           | 横向排列的间距 | string / number           | ——                              | false  |
 | `row-gap`              | 纵向排列的间距 | string / number           | ——                              | false  |
 | `border`               | 是否显示边框   | boolean                   | ——                              | false  |
 | `size`                 | 尺寸           | string                    | `large` `middle` `small` `mini` | middle |
-| `circle`               | 是否现在小圆圈 | boolean                   | ——                              | false  |
+| `circle`               | 是否出现小圆圈 | boolean                   | ——                              | false  |
 
 ## Radio Attributes
 
