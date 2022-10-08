@@ -1,13 +1,13 @@
-export interface treeAddLevelReturnInterface {
+export interface TreeAddLevelReturnInterface {
   label: string
   level: number
   index: number
   show: boolean
 }
 
-export interface dataInterface {
+export interface TreeDataInterface {
   label: string
-  children?: dataInterface[]
+  children?: TreeDataInterface[]
   level?: number
   index?: number
   show?: boolean

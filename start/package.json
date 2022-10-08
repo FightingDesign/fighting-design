@@ -6,9 +6,5 @@
   },
   "devDependencies": {
     "vconsole": "^3.14.6"
-  },
-  "dependencies": {
-    "markdown-it": "^13.0.1",
-    "markdown-it-container": "^3.0.0"
   }
 }

@@ -1,7 +1,9 @@
+import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {
+    plugins: [vueSetupExtend()],
     optimizeDeps: {
       exclude: ['vitepress']
     },

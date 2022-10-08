@@ -7,10 +7,10 @@
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { AvatarPropsType } from './avatar'
   import type {
+    CallbackInterface as a,
     LoadNeedImagePropsInterface as b,
-    ordinaryFunctionInterface as c,
-    classListInterface as d,
-    callbackInterface
+    OrdinaryFunctionInterface as c,
+    ClassListInterface as d
   } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -78,7 +78,7 @@
   // 开始加载图片
   const loadAction: c = (): void => {
     const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
-    const callback: callbackInterface = (params: boolean): void => {
+    const callback: a = (params: boolean): void => {
       isSuccess.value = params
       isShowNode.value = params
     }

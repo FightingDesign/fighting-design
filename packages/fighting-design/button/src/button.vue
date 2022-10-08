@@ -5,8 +5,8 @@
   import { Ripples, ChangeColor, sizeChange } from '../../_utils'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
-    handleEventInterface as a,
-    classListInterface as b
+    HandleEventInterface as a,
+    ClassListInterface as b
   } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -35,8 +35,8 @@
 
     return [
       'f-button',
-      `f-button-${size}`,
       {
+        [`f-button-${size}`]: size,
         [`f-button-${type}`]: !color,
         'f-button-disabled': disabled || loading,
         'f-button-simple': simple && !color,

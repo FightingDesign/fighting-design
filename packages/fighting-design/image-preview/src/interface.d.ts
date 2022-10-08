@@ -1,15 +1,15 @@
-export interface switchImageInterface {
+export interface ImagePreviewSwitchImageInterface {
   (type: 'next' | 'prev'): void
 }
 
-export interface optionClickTargetKey {
+export interface ImagePreviewOptionClickTargetKey {
   key: string
 }
 
-export interface optionClickInterface {
+export interface ImagePreviewOptionClickInterface {
   ({ key }: { key: string }): void
 }
 
-export interface onImgMousewheelInterface {
+export interface ImagePreviewOnImgMousewheelInterface {
   (evt: WheelEvent): void
 }

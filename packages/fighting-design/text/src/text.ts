@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { TextType } from './interface'
+import type { TextType, TextDecorationType } from './interface'
 
 export const Props = {
   type: {
@@ -28,15 +28,15 @@ export const Props = {
     default: (): boolean => false
   },
   spacing: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   lineHeight: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
-  textIndent: {
-    type: String,
+  indent: {
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   bold: {
@@ -44,15 +44,15 @@ export const Props = {
     default: (): boolean => false
   },
   decoration: {
-    type: String,
+    type: String as PropType<TextDecorationType>,
     default: (): string => ''
   },
   padding: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   width: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
   ellipsis: {

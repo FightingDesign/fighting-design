@@ -12,6 +12,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "start": "pnpm run -C start dev",
+    "dev:play": "pnpm run -C packages/fighting-playground dev",
     "dev:docs": "pnpm run -C docs dev",
     "build": "pnpm clean && pnpm build:css && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move",
     "build:es": "vite build --config vite.config.ts",
@@ -22,6 +23,7 @@
     "build:docs": "pnpm run -C docs build",
     "serve:docs": "pnpm run -C docs serve",
     "build:start": "pnpm run -C start build",
+    "build:play": "pnpm run -C packages/fighting-playground build",
     "move": "node script/move.ts",
     "new": "pnpm run -C packages/add-component new",
     "test": "vitest",

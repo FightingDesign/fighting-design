@@ -1,3 +1,5 @@
+import { version } from '../../../../packages/fighting-design/package.json'
+
 export const nav = [
   {
     text: '文档',
@@ -12,5 +14,9 @@ export const nav = [
   {
     text: 'Playground',
     link: 'https://tianyuhao.cn/playground'
+  },
+  {
+    text: version,
+    link: 'https://www.npmjs.com/package/fighting-design'
   }
 ]

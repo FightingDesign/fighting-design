@@ -2,8 +2,8 @@
   import { Props, Emits } from './dialog'
   import { FIcon } from '../../icon'
   import type {
-    handleEventInterface as a,
-    ordinaryFunctionInterface as b
+    HandleEventInterface as a,
+    OrdinaryFunctionInterface as b
   } from '../../_interface'
 
   defineProps(Props)

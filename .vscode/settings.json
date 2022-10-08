@@ -28,6 +28,7 @@
     "arro",
     "ashbin",
     "aspjiesuan",
+    "atou",
     "attachent",
     "banzhengfuwu",
     "becomeagoldsupplier",
@@ -59,6 +60,7 @@
     "Exportservices",
     "falg",
     "fangda",
+    "fflate",
     "Foreigncurrency",
     "Gerenate",
     "goumaipianhao",
@@ -112,6 +114,7 @@
     "staplefood",
     "suoxiao",
     "supplie",
+    "tabindex",
     "tada",
     "tongguan",
     "tongxunlu",
@@ -127,6 +130,7 @@
     "unplugin",
     "unref",
     "usercenter",
+    "utoa",
     "vconsole",
     "vehivles",
     "Vetur",
@@ -146,5 +150,8 @@
     "yiguanzhugongyingshang",
     "zhankai",
     "zijin"
-  ]
+  ],
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

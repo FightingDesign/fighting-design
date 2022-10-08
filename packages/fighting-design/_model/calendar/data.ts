@@ -1,4 +1,4 @@
-import type { holidayListType } from '../../_interface'
+import type { HolidayListType } from '../../_interface'
 
 // 星期
 export const WEEK_DATA = ['日', '一', '二', '三', '四', '五', '六'] as const
@@ -20,7 +20,7 @@ export const DAY_ZHI = ['\u5b50', '\u4e11', '\u5bc5', '\u536f', '\u8fb0', '\u5df
 export const ANIMALS = ['\u9f20', '\u725b', '\u864e', '\u5154', '\u9f99', '\u86c7', '\u9a6c', '\u7f8a', '\u7334', '\u9e21', '\u72d7', '\u732a'] as const
 
 // 阳历节日
-export const SOLAR_CALENDAR_FESTIVE: holidayListType = {
+export const SOLAR_CALENDAR_FESTIVE: HolidayListType = {
   '1-1': { title: '元旦节' },
   '2-14': { title: '情人节' },
   '5-1': { title: '劳动节' },
@@ -39,7 +39,7 @@ export const SOLAR_CALENDAR_FESTIVE: holidayListType = {
 } as const
 
 // 农历节日
-export const LUNAR_FESTIVE: holidayListType = {
+export const LUNAR_FESTIVE: HolidayListType = {
   '12-30': { title: '除夕' },
   '1-1': { title: '春节' },
   '1-15': { title: '元宵节' },

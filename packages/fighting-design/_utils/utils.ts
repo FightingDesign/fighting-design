@@ -1,9 +1,13 @@
 import type {
-  keepDecimalInterface as a,
-  debounceInterface as b,
-  getTypeInterface as c,
-  pastTimeInterface as d,
-  pastTimeConfigInterface as e
+  UtilsKeepDecimalInterface as a,
+  UtilsDebounceInterface as b,
+  UtilsIsNumberInterface as c,
+  UtilsPastTimeInterface as d,
+  UtilsPastTimeConfigInterface as e,
+  UtilsAddZeroInterface as f,
+  UtilsSizeChangeInterface as g,
+  UtilsIsBooleanInterface as h,
+  UtilsIsStringInterface as i
 } from '../_interface'
 
 /**
@@ -35,22 +39,11 @@ export const debounce: b = (handle: Function, delay = 200): Function => {
 }
 
 /**
- * 判断一个值是否为字符串
- * @param target 要检测的值
- */
-export const isString: c = (target: unknown): boolean => {
-  return (
-    typeof target === 'string' &&
-    Object.prototype.toString.call(target) === '[object String]'
-  )
-}
-
-/**
  * 检测一个数据是否为 Number 类型
  * @param target 要检测的数据
  * @returns boolean
  */
-export const isNumber: c = (target: unknown): boolean => {
+export const isNumber: c = (target: unknown): target is number => {
   return (
     typeof target === 'number' &&
     Object.prototype.toString.call(target) === '[object Number]'
@@ -58,14 +51,26 @@ export const isNumber: c = (target: unknown): boolean => {
 }
 
 /**
- * 检测一个数据是否为 Number 类型
+ * 检测一个数据是否为 boolean 类型
  * @param target 要检测的数据
  * @returns boolean
  */
-export const isBoolean: c = (target: unknown): boolean => {
+export const isBoolean: h = (target: unknown): target is boolean => {
   return (
     typeof target === 'boolean' &&
     Object.prototype.toString.call(target) === '[object Boolean]'
+  )
+}
+
+/**
+ * 判断一个值是否为字符串
+ * @param target 要检测的值
+ * @returns boolean
+ */
+export const isString: i = (target: unknown): target is string => {
+  return (
+    typeof target === 'string' &&
+    Object.prototype.toString.call(target) === '[object String]'
   )
 }
 
@@ -107,16 +112,16 @@ export const pastTime: d = (
  * @param num 日期
  * @returns 
  */
-export const addZero = (num: number): string => {
+export const addZero: f = (num: number): string => {
   return num > 9 ? num.toString() : `0${num}`
 }
 
 /**
  * 将数字尺寸改为字符串
- * @param size 
- * @param target 
+ * @param size 尺寸
+ * @param target 单位
  * @returns 
  */
-export const sizeChange = (size: string | number, target = 'px'): string => {
+export const sizeChange: g = (size: string | number, target = 'px'): string => {
   return typeof size === 'string' ? size : size + target
 }

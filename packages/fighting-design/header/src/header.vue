@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="FHeader">
   import { Props } from './header'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
@@ -14,12 +14,6 @@
       '--f-header-padding': sizeChange(padding)
     } as const
   })
-</script>
-
-<script lang="ts">
-  export default {
-    name: 'FHeader'
-  }
 </script>
 
 <template>

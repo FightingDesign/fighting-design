@@ -3,8 +3,8 @@
   import { computed } from 'vue'
   import type { CSSProperties, ComputedRef } from 'vue'
   import type {
-    handleEventInterface as a,
-    ordinaryFunctionInterface as b
+    HandleEventInterface as a,
+    OrdinaryFunctionInterface as b
   } from '../../_interface'
 
   const prop = defineProps(Props)

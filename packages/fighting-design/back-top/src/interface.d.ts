@@ -1,5 +1,5 @@
 export type BackTopBehaviorType = 'smooth' | 'auto'
 
-export interface handleScrollInterface {
+export interface BackTopHandleScrollInterface {
   (node: HTMLElement | null)
 }

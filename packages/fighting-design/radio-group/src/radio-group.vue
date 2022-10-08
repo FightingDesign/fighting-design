@@ -1,16 +1,13 @@
-<script lang="ts">
-  export default {
-    name: 'FRadioGroup'
-  }
-</script>
-
-<script lang="ts" setup>
+<script lang="ts" setup name="FRadioGroup">
   import { provide, reactive, toRefs, computed } from 'vue'
   import { Props, Emits, RadioGroupPropsKey } from './radio-group'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { classListInterface as a } from '../../_interface'
-  import type { changeEventInterface as b, RadioLabelType } from './interface'
+  import type { ClassListInterface as a } from '../../_interface'
+  import type {
+    RadioChangeEventInterface as b,
+    RadioLabelType
+  } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)

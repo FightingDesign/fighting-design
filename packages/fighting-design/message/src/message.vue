@@ -3,12 +3,12 @@
   import { FIcon } from '../../icon'
   import { isString } from '../../_utils'
   import { Props, Emits } from './message'
+  import { massageManage } from '../../_model/message/method'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
-    ordinaryFunctionInterface as a,
-    classListInterface as b
+    OrdinaryFunctionInterface as a,
+    ClassListInterface as b
   } from '../../_interface'
-  import { massageManage } from '../../_model/message/method'
 
   const prop = defineProps(Props)
   defineEmits(Emits)

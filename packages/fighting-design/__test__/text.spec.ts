@@ -62,7 +62,7 @@ describe('FText', () => {
 
   test('textIndent', () => {
     const wrapper = mount(FText, {
-      props: { textIndent: '100px' }
+      props: { indent: '100px' }
     })
     expect(wrapper.attributes('style')).toContain('text-indent')
   })

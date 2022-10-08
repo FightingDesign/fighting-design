@@ -6,14 +6,14 @@
   import { keepDecimal } from '../../_utils'
   import type { Ref } from 'vue'
   import type {
-    switchImageInterface as a,
-    optionClickInterface as b,
-    onImgMousewheelInterface as c,
-    optionClickTargetKey as e
+    ImagePreviewSwitchImageInterface as a,
+    ImagePreviewOptionClickInterface as b,
+    ImagePreviewOnImgMousewheelInterface as c,
+    ImagePreviewOptionClickTargetKey as e
   } from './interface'
   import type {
-    ordinaryFunctionInterface as f,
-    handleEventInterface as d
+    OrdinaryFunctionInterface as f,
+    HandleEventInterface as d
   } from '../../_interface'
 
   const prop = defineProps(Props)

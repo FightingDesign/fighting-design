@@ -4,6 +4,21 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.7.0-alpha.3 (2022-10-06)
+
+- Update `umd` packaging entry
+- Optimize the implementation of `f-icon` component style
+- `f-link` component class name specification optimization
+- Optimize the internal implementation of `f-link` components
+- Optimize the internal implementation of `f-text` components
+- The `f-text` component `size` `spacing` `line-height` `text-indent` `padding` `width` attribute supports the `number` type parameter
+- Change the attribute of `f-text` component `text-indent` to `indent``
+- `f-text` Internal Export New Type `TextDecorationType`
+
+## 0.7.0-alpha.2 (2022-09-29)
+
+- Fix some component type specification problems
+
 ## 0.7.0-alpha.1 (2022-09-27)
 
 **fix**

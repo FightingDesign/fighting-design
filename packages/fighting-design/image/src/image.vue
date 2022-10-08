@@ -6,11 +6,11 @@
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { ImagePropsType } from './image'
   import type {
-    handleEventInterface as e,
-    ordinaryFunctionInterface as b,
+    HandleEventInterface as e,
+    OrdinaryFunctionInterface as b,
     LoadNeedImagePropsInterface as c,
-    classListInterface as d,
-    callbackInterface
+    ClassListInterface as d,
+    CallbackInterface
   } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -31,7 +31,7 @@
   // 开始加载图片
   const loadAction: b = (): void => {
     const node: HTMLImageElement = FImageImg.value as HTMLImageElement
-    const callback: callbackInterface = (params: boolean): void => {
+    const callback: CallbackInterface = (params: boolean): void => {
       isSuccess.value = params
       isShowNode.value = params
     }

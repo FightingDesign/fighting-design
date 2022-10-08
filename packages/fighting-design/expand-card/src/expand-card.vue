@@ -3,10 +3,10 @@
   import { Props } from './expand-card'
   import { sizeChange, isString } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type { classListInterface as a } from '../../_interface'
+  import type { ClassListInterface as a } from '../../_interface'
   import type {
-    switchExpandCardInterface as b,
-    imageListItemInterface as c
+    ExpandCardISwitchExpandCardInterface as b,
+    ExpandCardImageListItemInterface as c
   } from './interface'
 
   const prop = defineProps(Props)

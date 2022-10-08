@@ -1,11 +1,15 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FButton } from '../index'
+import { ChangeColor } from '../_utils'
 
 describe('FButton', () => {
   test('class', () => {
     const wrapper = mount(FButton)
     expect(wrapper.classes()).toContain('f-button')
+    expect(wrapper.attributes('role')).toContain('button')
+    expect(wrapper.attributes('name')).toContain('f-button')
+    expect(wrapper.attributes('tabindex')).toContain('0')
   })
 
   test('bold', () => {
@@ -33,21 +37,21 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { fontSize: '20px' }
     })
-    expect(wrapper.attributes('style')).toContain('20px')
+    expect(wrapper.attributes('style')).toContain('--f-button-font-size: 20px')
   })
 
   test('fontSize', () => {
     const wrapper = mount(FButton, {
       props: { fontSize: 17 }
     })
-    expect(wrapper.attributes('style')).toContain('17px')
+    expect(wrapper.attributes('style')).toContain('--f-button-font-size: 17px')
   })
 
-  test('fontColor', () => {
+  test('font-color', () => {
     const wrapper = mount(FButton, {
       props: { fontColor: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('red')
+    expect(wrapper.attributes('style')).toContain('--f-button-font-color: red')
   })
 
   test('size', () => {
@@ -89,6 +93,17 @@ describe('FButton', () => {
       props: { loading: true }
     })
     expect(wrapper.classes()).toContain('f-button-disabled')
+    expect(wrapper.attributes('disabled')).toContain(true)
+    expect(wrapper.find('i').classes()).toContain('f-icon')
+    expect(wrapper.find('i').classes()).toContain('f-icon-loading')
+    expect(wrapper.find('i').classes()).toContain('f-loading-animation')
+  })
+
+  test('loading-icon', () => {
+    const wrapper = mount(FButton, {
+      props: { loading: true, loadingIcon: 'f-icon-suoxiao' }
+    })
+    expect(wrapper.find('i').classes()).toContain('f-icon-suoxiao')
   })
 
   test('disabled', () => {
@@ -96,9 +111,10 @@ describe('FButton', () => {
       props: { disabled: true }
     })
     expect(wrapper.classes()).toContain('f-button-disabled')
+    expect(wrapper.attributes('disabled')).toContain(true)
   })
 
-  test('beforeIcon', () => {
+  test('before-icon', () => {
     const wrapper = mount(FButton, {
       props: { beforeIcon: 'f-icon-Customermanagement' }
     })
@@ -107,7 +123,16 @@ describe('FButton', () => {
     )
   })
 
-  test('afterIcon', () => {
+  test('before-icon', () => {
+    const wrapper = mount(FButton, {
+      props: { beforeIcon: 'f-icon-Customermanagement', loading: true }
+    })
+    expect(wrapper.find('.f-icon').classes()).toContain(
+      'f-icon-loading'
+    )
+  })
+
+  test('after-icon', () => {
     const wrapper = mount(FButton, {
       props: { afterIcon: 'f-icon-Customermanagement' }
     })
@@ -145,7 +170,7 @@ describe('FButton', () => {
       props: { shadow: '7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4' }
     })
     expect(wrapper.attributes('style')).toContain(
-      '7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4'
+      '--f-button-box-shadow: 7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4'
     )
   })
 
@@ -156,7 +181,14 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button-text')
   })
 
-  test('nativeType', () => {
+  test('simple', () => {
+    const wrapper = mount(FButton, {
+      props: { simple: true }
+    })
+    expect(wrapper.classes()).toContain('f-button-simple')
+  })
+
+  test('native-type', () => {
     const nativeType = ['button', 'submit', 'reset'] as const
     nativeType.forEach((item) => {
       const wrapper = mount(FButton, {
@@ -166,11 +198,17 @@ describe('FButton', () => {
     })
   })
 
-  test('simple', () => {
+  test('color', () => {
+    const color = '#eeeeee'
+    const changeColor: ChangeColor = new ChangeColor(color)
+    const light: string = changeColor.getLightColor(0.4)
+    const dark: string = changeColor.getDarkColor(0.2)
     const wrapper = mount(FButton, {
-      props: { simple: true }
+      props: { color }
     })
-    expect(wrapper.classes()).toContain('f-button-simple')
+    expect(wrapper.attributes('style')).toContain(`--f-button-default-color: ${color}`)
+    expect(wrapper.attributes('style')).toContain(`--f-button-hover-color: ${light}`)
+    expect(wrapper.attributes('style')).toContain(`--f-button-active-color: ${dark}`)
   })
 
   test('default slot', () => {

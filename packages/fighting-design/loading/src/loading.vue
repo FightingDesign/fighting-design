@@ -2,8 +2,8 @@
   import { computed } from 'vue'
   import { Props, Emits } from './loading'
   import { FIcon } from '../../icon'
-  import type { handleEventInterface as a } from '../../_interface'
   import type { ComputedRef, CSSProperties } from 'vue'
+  import type { HandleEventInterface as a } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)

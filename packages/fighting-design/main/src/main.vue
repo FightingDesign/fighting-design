@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup class="FMain">
   import { Props } from './main'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
@@ -13,12 +13,6 @@
       '--f-main-padding': sizeChange(padding)
     } as const
   })
-</script>
-
-<script lang="ts">
-  export default {
-    name: 'FMain'
-  }
 </script>
 
 <template>

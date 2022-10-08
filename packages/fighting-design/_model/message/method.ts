@@ -2,14 +2,14 @@ import messageVue from '../../message/src/message.vue'
 import { render, createVNode } from 'vue'
 import { useMassageManage } from '../../_hooks'
 import { messageTypes } from './type'
-import type { messagePlacementType } from '../../message/src/interface'
-import type { FMessageInstance, FMessageFnWithType, MessageOptions, FMessageFn } from '../../_interface'
-import type { ComponentInternalInstance } from 'vue'
+import type { MessagePlacementType } from '../../message/src/interface'
+import type { MessageInstance, MessageFnWithType, MessageOptions, MessageFn } from '../../_interface'
+import type { ComponentInternalInstance , VNode } from 'vue'
 
-export const massageManage = useMassageManage<messagePlacementType>()
+export const massageManage = useMassageManage<MessagePlacementType>()
 
 const defaultOptions: {
-  placement: messagePlacementType
+  placement: MessagePlacementType
 } = {
   placement: 'top'
 }
@@ -17,10 +17,10 @@ const defaultOptions: {
 // message 的实例组
 let seed = 1
 
-const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
+const FMessage: MessageFn & Partial<MessageFnWithType> = (
   options
-): FMessageInstance => {
-  const container = document.createElement('div')
+): MessageInstance => {
+  const container: HTMLDivElement = document.createElement('div')
   const id = `message-${seed}`
 
   if (typeof options === 'string') {
@@ -42,7 +42,7 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
     render(null, container)
   }
 
-  const VNode = createVNode(messageVue, props)
+  const VNode: VNode = createVNode(messageVue, props)
 
   render(VNode, container)
 
@@ -57,7 +57,7 @@ const FMessage: FMessageFn & Partial<FMessageFnWithType> = (
     {
       id,
       vm,
-      close: () => {
+      close: (): void => {
         (
           (vm as ComponentInternalInstance).exposeProxy as Record<
             string,
@@ -80,4 +80,4 @@ messageTypes.forEach((type): void => {
   }
 })
 
-export default FMessage as FMessageFn & FMessageFnWithType
+export default FMessage as MessageFn & MessageFnWithType

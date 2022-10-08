@@ -12,7 +12,7 @@ import type { App } from 'vue'
  * 普通函数接口
  * 无参数，无返回值
  */
-export interface ordinaryFunctionInterface {
+export interface OrdinaryFunctionInterface {
   (): void
 }
 
@@ -26,12 +26,11 @@ export interface AppInstallInterface {
 /**
  * class 类名集合类型
  */
-export type classListInterface = readonly (string | Record<readonly string, unknown>)[]
+export type ClassListInterface = readonly (string | Record<readonly string, unknown>)[]
 
 /**
  * 点击相关的类型
  */
-
-export interface handleEventInterface {
+export interface HandleEventInterface {
   (evt: MouseEvent): void
 }

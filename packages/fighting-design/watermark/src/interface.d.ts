@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'vue'
 
-export interface CSSPropertiesInterface {
+export interface WatermarkCSSPropertiesInterface {
   (): CSSProperties
 }

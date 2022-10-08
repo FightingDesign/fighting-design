@@ -39,24 +39,18 @@ pnpm new <component-name>
 
 `interface.d.ts` 用于定义类型，每个组件中变量、函数、`Props` 相关的所有类型需要在这里定义。
 
-导出统一使用 `export`。
+- 导出统一使用 `export`
+- 类型命名规范：`组件名（首字母大写） + 描述 + Type | Interface`，例如 `ButtonSizeType` `ButtonTargetType`。结尾是 `Type` 还是 `Interface` 取决于是用什么方式定义
 
-类型定义规则如下：
+## ☘️ component.vue
 
-- 类型名称必须是以组件名为开始，首字母大写
--
-
-## component.vue
-
-这是组件的源文件，内部结构为：
+这是组件的源文件，内部结构为（script 在上 template 在下）：
 
 ```html
 <script lang="ts" setup name=""></script>
 
 <template></template>
 ```
-
-> 注意：\*.vue 文件必须将 script 在上 template 在下
 
 **结构规范**
 
@@ -70,7 +64,7 @@ pnpm new <component-name>
 - 引入的类型，必须使用 `type` 标记，比如：`import type { xxx } from 'xxx'`
 - 在所有 `import` 之后要带有一个空行，之后是 `prop` 和 `emit`
 - `prop` 和 `emit` 之后，也要带一个空行，再继续编写其它代码
-- 后面可以进行编写组件需要的逻辑函数，函数必须使用 `箭头函数`，除非特殊情况外，每个函数之间要有一个空行隔开。可见下面例子，取自 [f-button](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/button/src/button.vue)
+- 后面可以进行编写组件需要的逻辑函数，函数必须使用 `箭头函数`，除非特殊情况外，每个函数之间要有一个空行隔开
 
 **template 规范**
 
@@ -85,7 +79,7 @@ pnpm new <component-name>
 - 就算是类型自动推倒出来了，也要写入类型
 - `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 `interface.d.ts` 中定义
 - 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/FightingDesign/fighting-design/discussions) 或者群里提问
-- 定义函数类型通常命名规范为 `函数名+Interface`，但是由于这种规则定义的名称较长，你也可以使用简短的别名来定义（别名的定义仅限于自定义的接口类型，例如 `ComputedRef` 是从 `vue` 中引入的则不可以设置别名），例如下面代码，取自 [preview-list](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/_components/preview-list.vue)：
+- 定义函数类型通常命名规范为 `函数名+Interface`，但是由于这种规则定义的名称较长，你也可以使用简短的别名来定义（别名的定义仅限于自定义的接口类型，例如 `ComputedRef` 是从 `vue` 中引入的则不可以设置别名）
 
 ```ts
 import type {
@@ -136,7 +130,7 @@ const fun: a = (a: number, b: number): number => {
 }
 ```
 
-## component.ts
+## 🌵 component.ts
 
 这里是来定义组件的 `Props` 和 `Emits` 的文件
 
@@ -147,10 +141,15 @@ const fun: a = (a: number, b: number): number => {
 - `default` 和 `validator` 使用箭头函数定义，必须明确返回值和参数值的类型
 - `Props` 和 `Emits` 对象结尾必须加入 [as const](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-inference)
 - 数组结尾加入 `as const`
+- 需要导出 `Props` 的类型，使用 `ExtractPropTypes`，导出类型命名规范为：`组件名（首字母大写）+ PropsType`，例如：
+
+```ts
+export type ButtonPropsType = ExtractPropTypes<typeof Props>
+```
 
 ## index.ts
 
-这里需要用来定义、挂载、注册、导出组件
+这里需要用来注册、导出组件
 
 参考文档
 
@@ -161,35 +160,89 @@ const fun: a = (a: number, b: number): number => {
 - 结尾要有空行
 - 导出组件使用默认导出
 - 导出类型需要使用 `export` 导出
+- 需要导出组件的相关类型
+- 需要组件类型提示
+
+例：
 
 ```ts
-import FButton from './src/button.vue'
+import Button from './src/button.vue'
 
 import { install } from '../_utils'
 
-install(FButton, FButton.name)
+export const FButton = install(Button)
 
-export type FToolbarItemInstance = InstanceType<typeof FButton>
+export type ButtonInstance = InstanceType<typeof FButton>
 
-export default FButton
+export type { ButtonPropsType } from './src/button'
+
+export type {
+  ButtonSizeType,
+  ButtonTargetType,
+  ButtonType,
+  ButtonNativeType
+} from './src/interface'
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    FButton: typeof FButton
+  }
+}
 ```
 
-## 工具函数
+## 🍀 公共模块
 
-在 `_utils` 目录中可以定义一些工具函数和类，文件名统一使用短横杠连接，不可以出现大写字母。
+### [\_\_test\_\_](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/__test__)
 
-定义的函数需要在 `index.ts` 中统一导出。
+所有组件的单元测试目录
 
-工具函数的类型可以在 `_interface` 中进行定义。
+### [\_components](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_components)
 
-## 主入口文件
+在 `_components` 目录中存放全局一些公共组件
 
-主入口文件是 [index.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/index.ts) 这里导入了所有的组件
+- 文件名统一使用短横杠连接，不可以出现大写字母
 
-如果你新建了一个新的组件，那么需要在此处进行引入，还需要在 `components` 对象中添加组件。
+### [\_hooks](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_hooks)
 
-另外在 `export` 中也需要进行导出。
+在 `_hooks` 目录中存放全局 `hooks`
 
-## 写在结尾
+- 每个 `hooks` 必须新建一个文件夹，内部为 `index.ts` 导出
+- 文件名统一使用短横杠连接，不可以出现大写字母
+- 所有类型需要在 [index.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/_hooks/index.ts) 中统一导出
+- 公共的接口需要标注明确的注释
+
+### [\_interface](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_interface)
+
+在 `_interface` 目录中存放全局型接口
+
+- 需要将全局公共的类型抽离到这里
+- 文件名统一使用短横杠连接，不可以出现大写字母
+- 所有类型需要在 [index.d.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/_interface/index.d.ts) 中统一导出
+- 公共的接口需要标注明确的注释
+- 类型名称首字母大写
+
+### [\_model](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_model)
+
+在 `_model` 目录目录中存放一些组件抽离的模块，由于有些组件内部逻辑较多，可在此目录新建和组件名一致的文件夹，内部存放和该组件相关的一些模块进行抽离
+
+- 文件名统一使用短横杠连接，不可以出现大写字母
+- 内部标注详细的注释
+- 文件名必须和组件名一致
+
+### [\_utils](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_utils)
+
+在 `_utils` 目录中存放全局工具函数和类
+
+- 文件名统一使用短横杠连接，不可以出现大写字母
+- 定义的函数需要在 [index.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/_utils/index.ts) 中统一导出
+- 工具函数的类型可以在 [\_interface](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_interface) 中进行定义
+- 每个函数需要写好明确清晰的注释
+- 标记好每个参数、返回值、变量的类型
+
+## 🌳 主入口文件
+
+主入口文件是 [components.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/components.ts) 这里统一导出了所有的组件和相关的类型。
+
+## 🌺 写在结尾
 
 这里的规范可能比较多，此文件可能更新会较为频繁，请大家在开发全新组件的时候，请务必先阅读此文件。

@@ -125,7 +125,7 @@ export { FTag } from './tag'
 export type { TagInstance, TagPropsType, TagSizeType, TagType } from './tag'
 
 export { FText } from './text'
-export type { TextInstance, TextPropsType, TextType } from './text'
+export type { TextInstance, TextPropsType, TextType, TextDecorationType } from './text'
 
 export { FToolbar } from './toolbar'
 export type { ToolbarInstance, ToolbarPropsType, ToolbarType, ToolbarClickEmitInterface } from './toolbar'
@@ -141,6 +141,12 @@ export type { TreeInstance, TreePropsType, TreeDataInterface } from './tree'
 
 export { FWatermark } from './watermark'
 export type { WatermarkInstance, WatermarkPropsType } from './watermark'
+
+export { FCheckbox } from './checkbox'
+export type { CheckboxInstance, CheckboxPropsType, CheckboxLabelType } from './checkbox'
+
+export { FCheckboxGroup } from './checkbox-group'
+export type { CheckboxGroupInstance, CheckboxGroupPropsType, CheckboxGroupLabelType, CheckboxGroupSizeType } from './checkbox-group'
 
 export { FRate } from './rate'
 export type { RateInstance, RatePropsType } from './rate'
