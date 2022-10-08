@@ -18,11 +18,11 @@ https://tianyuhao.cn/playground
 本地调试：
 
 ```shell
-git clone git@github.com:FightingDesign/playground.git
+git clone git@github.com:FightingDesign/fighting-design.git
 
 pnpm i
 
-pnpm dev
+pnpm dev:play
 ```
 
 ## 🙏 设计支持
@@ -31,4 +31,4 @@ pnpm dev
 
 ## 💬 执照
 
-[MIT](https://github.com/FightingDesign/playground/blob/master/LICENSE)
+[MIT](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-playground/LICENSE)
