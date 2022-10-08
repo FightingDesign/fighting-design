@@ -6,7 +6,9 @@ export const FCheckbox = install(Checkbox)
 
 export type CheckboxInstance = InstanceType<typeof FCheckbox>
 
-export type { Props } from './src/checkbox'
+export type { CheckboxPropsType } from './src/checkbox'
+
+export type { CheckboxLabelType } from './src/interface'
 
 declare module 'vue' {
   export interface GlobalComponents {

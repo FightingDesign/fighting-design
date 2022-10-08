@@ -1,9 +1,9 @@
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
-import type { CheckboxLabelType, CheckboxGroupSizeType } from './interface'
+import type { CheckboxGroupLabelType, CheckboxGroupSizeType } from './interface'
 
 export const Props = {
   modelValue: {
-    type: [String, Number, Array] as PropType<CheckboxLabelType>,
+    type: [String, Number, Array] as PropType<CheckboxGroupLabelType>,
     default: (): [] => []
   },
   disabled: {
@@ -31,10 +31,10 @@ export const Props = {
 } as const
 
 export const Emits = {
-  'update:modelValue': (val: CheckboxLabelType): boolean => Array.isArray(val),
-  change: (val: CheckboxLabelType): boolean => typeof val === 'object'
+  'update:modelValue': (val: CheckboxGroupLabelType): boolean => Array.isArray(val),
+  change: (val: CheckboxGroupLabelType): boolean => typeof val === 'object'
 } as const
 
-export type CheckboxGroupProps = ExtractPropTypes<typeof Props>
+export type CheckboxGroupPropsType = ExtractPropTypes<typeof Props>
 
-export const checkboxGroupCtxKey: InjectionKey<CheckboxGroupProps> = Symbol('')
+export const checkboxGroupCtxKey: InjectionKey<CheckboxGroupPropsType> = Symbol('f-checkbox-group-props-key')

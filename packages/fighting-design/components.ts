@@ -143,7 +143,7 @@ export { FWatermark } from './watermark'
 export type { WatermarkInstance, WatermarkPropsType } from './watermark'
 
 export { FCheckbox } from './checkbox'
-export type { CheckboxInstance } from './checkbox'
+export type { CheckboxInstance, CheckboxPropsType, CheckboxLabelType } from './checkbox'
 
 export { FCheckboxGroup } from './checkbox-group'
-export type { CheckboxGroupInstance, CheckboxGroupProps } from './checkbox-group'
+export type { CheckboxGroupInstance, CheckboxGroupPropsType, CheckboxGroupLabelType, CheckboxGroupSizeType } from './checkbox-group'

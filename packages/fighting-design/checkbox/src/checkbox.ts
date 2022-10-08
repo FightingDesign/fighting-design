@@ -30,4 +30,4 @@ export const Emits = {
   }
 } as const
 
-export type CheckboxProps = ExtractPropTypes<typeof Props>
+export type CheckboxPropsType = ExtractPropTypes<typeof Props>

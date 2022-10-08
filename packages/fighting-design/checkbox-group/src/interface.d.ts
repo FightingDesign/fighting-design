@@ -1,14 +1,14 @@
-export type CheckboxLabelType = string | number | boolean
+export type CheckboxGroupLabelType = string | number | boolean
 
 export interface CheckboxChangeEventInterface {
-  (value: CheckboxLabelType): void
+  (value: CheckboxGroupLabelType): void
 }
 
 export type CheckboxGroupSizeType = 'large' | 'middle' | 'small'
 
 export interface CheckboxGroupInterface {
   disabled: boolean
-  modelValue: CheckboxLabelType
+  modelValue: CheckboxGroupLabelType
   label: string
   changeEvent: CheckboxChangeEventInterface
   border: boolean
