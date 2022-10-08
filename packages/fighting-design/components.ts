@@ -147,3 +147,6 @@ export type { CheckboxInstance, CheckboxPropsType, CheckboxLabelType } from './c
 
 export { FCheckboxGroup } from './checkbox-group'
 export type { CheckboxGroupInstance, CheckboxGroupPropsType, CheckboxGroupLabelType, CheckboxGroupSizeType } from './checkbox-group'
+
+export { FRate } from './rate'
+export type { RateInstance, RatePropsType } from './rate'
