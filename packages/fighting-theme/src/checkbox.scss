@@ -5,29 +5,35 @@
   cursor: pointer;
   user-select: none;
   color: #333;
+
   &.f-checkbox--bordered {
     border: 1px solid $simplePrimary;
     padding: 5px 10px;
+
     &.f-checkbox__large {
       padding: 8px 14px;
     }
+
     &.f-checkbox__small {
       padding: 4px 6px;
     }
+
     &:first-child {
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
     }
+
     &:last-child {
       border-top-right-radius: 4px;
       border-bottom-right-radius: 4px;
-      // border-left: none;
     }
   }
+
   .f-checkbox-inner {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .f-checkbox-input {
       width: 0;
       height: 0;
@@ -35,6 +41,7 @@
       visibility: hidden;
     }
   }
+
   .f-checkbox-icon {
     width: 14px;
     height: 14px;
@@ -50,12 +57,15 @@
 
   &.f-checkbox--selected {
     color: $primary;
+
     &.f-checkbox--bordered {
       border-color: $primary;
     }
+
     .f-checkbox-icon {
       border: 1px solid $primary;
       background-color: $primary;
+
       &::after {
         content: ' ';
         width: 3px;
@@ -65,12 +75,13 @@
         border: 1px solid #fff;
         border-left: 0;
         border-top: 0;
-        // margin-top: -2px;
-        animation: scale_ani .1s ease-in;
+        animation: scale_ani 0.1s ease-in;
+
         @keyframes scale_ani {
           from {
             transform: rotate(45deg) scale(0);
           }
+
           to {
             transform: rotate(45deg) scale(1);
           }
@@ -78,12 +89,15 @@
       }
     }
   }
+
   &.f-checkbox--disabled {
     cursor: not-allowed;
     color: #c0c4cc;
+
     .f-checkbox-icon {
       border-color: #c0c4cc;
       background-color: #e1e5ec;
+
       &::after {
         border-color: #c0c4cc;
       }
