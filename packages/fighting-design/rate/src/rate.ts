@@ -3,55 +3,55 @@ import type { PropType, ExtractPropTypes } from 'vue'
 export const Props = {
   effectColor: {
     type: String,
-    default: ''
+    default: (): string => ''
   },
   invalidColor: {
     type: String,
-    default: ''
+    default: (): string => ''
   },
   readonly: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   max: {
     type: Number,
-    default: 5
+    default: (): number => 5
   },
   half: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   icon: {
     type: String,
-    default: ''
+    default: (): string => ''
   },
   doubleClear: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   size: {
     type: [String, Number] as PropType<string | number>,
-    default: '26px'
+    default: (): string => '26px'
   },
   textShow: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   textColor: {
     type: String,
-    default: ''
+    default: (): string => ''
   },
   textArr: {
     type: Array as PropType<string[]>,
-    default: () => []
+    default: (): [] => []
   },
   textSize: {
     type: [String, Number] as PropType<string | number>,
-    default: 'default'
+    default: (): string => ''
   },
   modelValue: {
     type: Number,
-    default: 0
+    default: (): number => 0
   }
 } as const
 

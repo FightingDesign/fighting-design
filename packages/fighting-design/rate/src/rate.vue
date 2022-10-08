@@ -20,7 +20,7 @@
     hoverIndex.value = i
   }
 
-  const handleMouseleave = (i: number): void => {
+  const handleMouseleave = (): void => {
     if (prop.readonly) return
     hoverIndex.value = prop.modelValue
   }
@@ -52,7 +52,7 @@
             'f-rate-half': hoverIndex === i - 0.5
           }
         ]"
-        @dblclick.native="handleDblclick(i)"
+        @dblclick="handleDblclick(i)"
         @mouseleave="handleMouseleave(i)"
       >
         <div
