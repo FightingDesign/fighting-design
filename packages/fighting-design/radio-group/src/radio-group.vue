@@ -1,10 +1,4 @@
-<script lang="ts">
-  export default {
-    name: 'FRadioGroup'
-  }
-</script>
-
-<script lang="ts" setup>
+<script lang="ts" setup name="FRadioGroup">
   import { provide, reactive, toRefs, computed } from 'vue'
   import { Props, Emits, RadioGroupPropsKey } from './radio-group'
   import { sizeChange } from '../../_utils'

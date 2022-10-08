@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="FAside">
   import { Props } from './aside'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
@@ -14,12 +14,6 @@
       '--f-aside-padding': sizeChange(padding)
     } as const
   })
-</script>
-
-<script lang="ts">
-  export default {
-    name: 'FAside'
-  }
 </script>
 
 <template>

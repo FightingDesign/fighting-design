@@ -1,15 +1,9 @@
-<script lang="ts">
-  export default {
-    name: 'FCheckboxGroup'
-  }
-</script>
-
-<script lang="ts" setup>
+<script lang="ts" setup name="FCheckboxGroup">
   import { nextTick, provide, reactive, toRefs } from 'vue'
   import { Props, Emits, checkboxGroupCtxKey } from './checkbox-group'
   import type { CheckboxLabelType } from './interface'
 
-  const props = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const changeEvent = async (val: CheckboxLabelType): Promise<void> => {
@@ -19,7 +13,7 @@
   }
 
   const checkboxGroup = reactive({
-    ...toRefs(props),
+    ...toRefs(prop),
     changeEvent
   })
 

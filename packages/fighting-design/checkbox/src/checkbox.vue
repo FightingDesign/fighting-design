@@ -23,6 +23,7 @@
     const { parent } = getCurrentInstance() as ComponentInternalInstance
     const parentName: string | undefined = (parent as ComponentInternalInstance)
       .type.name
+
     if (parentName && parentName === 'FCheckboxGroup') {
       checkboxGroupInjectData.value = inject(checkboxGroupCtxKey) as a
     }
