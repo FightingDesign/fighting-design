@@ -32,8 +32,8 @@
   }
 
   watch(
-    () => prop.modelValue,
-    () => {
+    (): number => prop.modelValue,
+    (): void => {
       hoverIndex.value = prop.modelValue
     }
   )
