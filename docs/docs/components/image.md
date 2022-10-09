@@ -43,11 +43,28 @@
 
 `fit` 属性可以配置不同的适应容器的方式，详见原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性
 
-<f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-space spacing="large">
+  <div class="image-block">
+    <code>fill</code>
+    <f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  </div>
+  <div class="image-block">
+    <code>contain</code>
+    <f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  </div>
+  <div class="image-block">
+    <code>cover</code>
+    <f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  </div>
+  <div class="image-block">
+    <code>none</code>
+    <f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  </div>
+  <div class="image-block">
+    <code>scale-down</code>
+    <f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  </div>
+</f-space>
 
 ::: details 显示代码
 
@@ -128,8 +145,10 @@
 
 你也可以使用 `error` 插槽自定义你的错误信息展示
 
-<f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
-<f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
+<f-space spacing="large">
+  <f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
+  <f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
+</f-space>
 
 ::: details 显示代码
 
@@ -205,13 +224,21 @@ import type {
 </script>
 
 <style scoped>
-  .my-error {
-    width: 200px;
-    height: 150px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background: rgb(240, 239, 255);
-    border-radius: 10px;
-  }
+.my-error {
+  width: 200px;
+  height: 150px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(240, 239, 255);
+  border-radius: 10px;
+}
+.image-block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+code {
+  margin-bottom: 6px;
+}
 </style>
