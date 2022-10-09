@@ -66,9 +66,9 @@
       'f-checkbox',
       `f-checkbox__${checkboxGroupInjectData.value?.size}`,
       {
-        'f-checkbox--selected': isChecked.value,
-        'f-checkbox--bordered': checkboxGroupInjectData.value?.border,
-        'f-checkbox--disabled':
+        'f-checkbox-selected': isChecked.value,
+        'f-checkbox-bordered': checkboxGroupInjectData.value?.border,
+        'f-checkbox-disabled':
           prop.disabled || checkboxGroupInjectData.value?.disabled
       }
     ]
@@ -77,19 +77,17 @@
 
 <template>
   <label :class="classList">
-    <span class="f-checkbox-inner">
-      <input
-        v-model="modelValue"
-        type="checkbox"
-        class="f-checkbox-input"
-        hidden
-        :value="label"
-      />
-      <span class="f-checkbox-icon" />
-      <span class="f-checkbox-label">
-        <slot />
-        <template v-if="!$slots.default">{{ label }}</template>
-      </span>
+    <input
+      v-model="modelValue"
+      type="checkbox"
+      class="f-checkbox-input"
+      hidden
+      :value="label"
+    />
+    <span class="f-checkbox-box" />
+    <span class="f-checkbox-text">
+      <slot />
+      <template v-if="!$slots.default">{{ label }}</template>
     </span>
   </label>
 </template>

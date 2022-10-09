@@ -4,9 +4,29 @@
   display: inline-flex;
   cursor: pointer;
   user-select: none;
-  color: #333;
+  align-items: center;
 
-  &.f-checkbox--bordered {
+  // 选择框
+  .f-checkbox-box {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    border: 1px solid #dee5fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-right: 7px;
+  }
+
+  // 文字
+  .f-checkbox-text {
+    color: #333;
+    transition: color 0.3s;
+  }
+
+  // 边框
+  &.f-checkbox-bordered {
     border: 1px solid $simplePrimary;
     padding: 5px 10px;
 
@@ -29,33 +49,17 @@
     }
   }
 
-  .f-checkbox-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  // 选中状态
+  &.f-checkbox-selected {
+    .f-checkbox-text {
+      color: $primary;
+    }
 
-  .f-checkbox-icon {
-    width: 14px;
-    height: 14px;
-    border-radius: 2px;
-    border: 1px solid #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-right: 6px;
-    margin-top: 1px;
-  }
-
-  &.f-checkbox--selected {
-    color: $primary;
-
-    &.f-checkbox--bordered {
+    &.f-checkbox-bordered {
       border-color: $primary;
     }
 
-    .f-checkbox-icon {
+    .f-checkbox-box {
       border: 1px solid $primary;
       background: $primary;
 
@@ -63,6 +67,8 @@
         content: '';
         width: 4px;
         height: 9px;
+        position: absolute;
+        top: 0;
         transform: rotate(45deg) scaleY(1);
         border: 1px solid #fff;
         border-left: 0;
@@ -82,7 +88,8 @@
     }
   }
 
-  &.f-checkbox--disabled {
+  // 禁用状态
+  &.f-checkbox-disabled {
     cursor: not-allowed;
     color: #c0c4cc;
 
@@ -95,4 +102,12 @@
       }
     }
   }
+}
+
+.f-checkbox-group {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  column-gap: 22px;
 }
