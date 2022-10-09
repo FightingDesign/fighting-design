@@ -76,7 +76,7 @@
 </script>
 
 <template>
-  <label :class="classList">
+  <label :class="classList" role="checkbox">
     <input
       v-model="modelValue"
       type="checkbox"

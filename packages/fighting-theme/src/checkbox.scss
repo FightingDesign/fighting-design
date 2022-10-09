@@ -2,9 +2,13 @@
 
 .f-checkbox {
   display: inline-flex;
-  cursor: pointer;
-  user-select: none;
   align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  outline: none;
+  user-select: none;
+  color: #333;
+  transition: 0.4s;
 
   // 选择框
   .f-checkbox-box {

@@ -21,7 +21,7 @@
 </script>
 
 <template>
-  <div class="f-checkbox-group">
+  <div class="f-checkbox-group" role="group">
     <slot />
   </div>
 </template>
