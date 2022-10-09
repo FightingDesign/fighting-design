@@ -1,23 +1,25 @@
 <script lang="ts" setup name="FCheckboxGroup">
-  import { nextTick, provide, reactive, toRefs } from 'vue'
-  import { Props, Emits, checkboxGroupCtxKey } from './checkbox-group'
-  import type { CheckboxLabelType } from './interface'
+  import { provide, reactive, toRefs } from 'vue'
+  import { Props, Emits, checkboxGroupPropsKey } from './checkbox-group'
+  import type {
+    CheckboxGroupLabelType as a,
+    ChangeEventInterface as b
+  } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const changeEvent = async (val: CheckboxLabelType): Promise<void> => {
+  const changeEvent: b = (val: a): void => {
     emit('update:modelValue', val)
-    await nextTick()
     emit('change', val)
   }
 
-  const checkboxGroup = reactive({
+  const checkboxGroupProps = reactive({
     ...toRefs(prop),
     changeEvent
-  })
+  } as const)
 
-  provide(checkboxGroupCtxKey, checkboxGroup)
+  provide(checkboxGroupPropsKey, checkboxGroupProps)
 </script>
 
 <template>

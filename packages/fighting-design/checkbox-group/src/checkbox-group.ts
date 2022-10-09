@@ -37,4 +37,4 @@ export const Emits = {
 
 export type CheckboxGroupPropsType = ExtractPropTypes<typeof Props>
 
-export const checkboxGroupCtxKey: InjectionKey<CheckboxGroupPropsType> = Symbol('f-checkbox-group-props-key')
+export const checkboxGroupPropsKey: InjectionKey<CheckboxGroupPropsType> = Symbol('f-checkbox-group-props-key')
