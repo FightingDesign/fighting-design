@@ -96,9 +96,12 @@
   // 禁用状态
   &.f-checkbox-disabled {
     cursor: not-allowed;
-    color: #c0c4cc;
 
-    .f-checkbox-icon {
+    .f-checkbox-text {
+      color: #c0c4cc;
+    }
+
+    .f-checkbox-box {
       border-color: #c0c4cc;
       background: #e1e5ec;
 
