@@ -33,10 +33,6 @@ export const Props = {
     validator: (val: RadioGroupSizeType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
-  },
-  circle: {
-    type: Boolean,
-    default: (): boolean => false
   }
 } as const
 

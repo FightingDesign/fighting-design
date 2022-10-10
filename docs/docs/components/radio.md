@@ -271,7 +271,6 @@
 | `row-gap`              | 纵向排列的间距 | string / number           | ——                              | false  |
 | `border`               | 是否显示边框   | boolean                   | ——                              | false  |
 | `size`                 | 尺寸           | string                    | `large` `middle` `small` `mini` | middle |
-| `circle`               | 是否出现小圆圈 | boolean                   | ——                              | false  |
 
 ## Radio Attributes
 

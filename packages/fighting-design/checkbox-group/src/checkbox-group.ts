@@ -27,10 +27,6 @@ export const Props = {
     validator: (val: CheckboxGroupSizeType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
-  },
-  circle: {
-    type: Boolean,
-    default: (): boolean => false
   }
 } as const
 

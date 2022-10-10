@@ -75,7 +75,7 @@
 </script>
 
 <template>
-  <label :class="classList" role="checkbox">
+  <label role="checkbox" :class="classList">
     <input
       v-model="modelValue"
       type="checkbox"
@@ -83,7 +83,7 @@
       hidden
       :value="label"
     />
-    <span v-if="!groupProps?.border || groupProps?.circle" class="f-checkbox-box" />
+    <span v-if="!groupProps?.border" class="f-checkbox-box" />
     <span class="f-checkbox-text">
       <slot />
       <template v-if="!$slots.default">{{ label }}</template>

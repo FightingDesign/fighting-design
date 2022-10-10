@@ -24,6 +24,7 @@
 
 <template>
   <div
+    role="group"
     :class="[
       'f-checkbox-group',
       {
@@ -31,7 +32,6 @@
         [`f-checkbox-group-${size}`]: size && border
       }
     ]"
-    role="group"
   >
     <slot />
   </div>

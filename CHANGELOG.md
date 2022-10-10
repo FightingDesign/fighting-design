@@ -3,6 +3,8 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - 新增 `checkbox` 组件
+- 新增 `rate` 组件
+- `f-radio-group` 组件废除 `circle` 配置项
 
 ## 0.7.0-alpha.3 (2022-10-06)
 
