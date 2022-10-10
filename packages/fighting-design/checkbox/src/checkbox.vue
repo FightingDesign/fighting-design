@@ -64,7 +64,7 @@
   const classList: ComputedRef<c> = computed((): c => {
     return [
       'f-checkbox',
-      `f-checkbox-${groupProps.value?.size}`,
+      // `f-checkbox-${groupProps.value?.size}`,
       {
         'f-checkbox-selected': isChecked.value,
         'f-checkbox-bordered': groupProps.value?.border,
@@ -83,7 +83,7 @@
       hidden
       :value="label"
     />
-    <span class="f-checkbox-box" />
+    <span v-if="!groupProps?.border || groupProps?.circle" class="f-checkbox-box" />
     <span class="f-checkbox-text">
       <slot />
       <template v-if="!$slots.default">{{ label }}</template>

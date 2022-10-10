@@ -17,10 +17,6 @@ export const Props = {
   border: {
     type: Boolean,
     default: (): boolean => false
-  },
-  size: {
-    type: String,
-    default: (): string => 'middle'
   }
 } as const
 

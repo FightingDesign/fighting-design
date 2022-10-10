@@ -1,0 +1,60 @@
+.f-checkbox-group {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  column-gap: 22px;
+
+  // 带有边框
+  &.f-checkbox-group-border {
+    column-gap: 0;
+  }
+
+  &.f-checkbox-group-large {
+    .f-checkbox {
+      padding: 0 30px;
+      font-size: 17px;
+      height: 40px;
+
+      .f-checkbox-text {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &.f-checkbox-group-middle {
+    .f-checkbox {
+      padding: 0 25px;
+      font-size: 16px;
+      height: 35px;
+
+      .f-checkbox-text {
+        font-size: 15px;
+      }
+    }
+  }
+
+  &.f-checkbox-group-small {
+    .f-checkbox {
+      padding: 0 20px;
+      font-size: 15px;
+      height: 30px;
+
+      .f-checkbox-text {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &.f-checkbox-group-mini {
+    .f-checkbox {
+      padding: 0 15px;
+      font-size: 14px;
+      height: 25px;
+
+      .f-checkbox-text {
+        font-size: 13px;
+      }
+    }
+  }
+}

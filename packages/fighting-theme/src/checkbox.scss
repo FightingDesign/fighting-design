@@ -111,15 +111,3 @@
     }
   }
 }
-
-.f-checkbox-group {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.3s;
-  column-gap: 22px;
-
-  &.f-checkbox-group-border {
-    column-gap: 0;
-  }
-}
