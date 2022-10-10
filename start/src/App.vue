@@ -6,13 +6,13 @@
 </script>
 
 <template>
-  <f-radio-group v-model="radio6" border circle>
+  <f-radio-group v-model="radio6">
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2">备选项2</f-radio>
     <f-radio label="3">备选项3</f-radio>
   </f-radio-group>
   <br />
-  <f-checkbox-group v-model="option3" border circle>
+  <f-checkbox-group v-model="option3">
     <f-checkbox label="备选项1" />
     <f-checkbox label="备选项2" />
     <f-checkbox label="备选项3" />

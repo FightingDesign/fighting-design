@@ -29,6 +29,7 @@
       'f-checkbox-group',
       {
         'f-checkbox-group-border': border,
+        'f-checkbox-group-vertical': vertical,
         [`f-checkbox-group-${size}`]: size && border
       }
     ]"

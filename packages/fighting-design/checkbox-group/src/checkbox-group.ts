@@ -10,6 +10,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
+  vertical: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   label: {
     type: String,
     default: (): string => ''
