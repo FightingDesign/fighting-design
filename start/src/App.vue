@@ -1,13 +1,18 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const option3 = ref([])
+  const option3 = ref(['选项一'])
+  const radio6 = ref('1')
 </script>
 
 <template>
-  <f-checkbox label="选项一" disabled />
+  <f-radio-group v-model="radio6" border>
+    <f-radio label="1">备选项1</f-radio>
+    <f-radio label="2">备选项2</f-radio>
+    <f-radio label="3">备选项3</f-radio>
+  </f-radio-group>
   <br />
-  <f-checkbox-group v-model="option3" disabled>
+  <f-checkbox-group v-model="option3" border>
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />

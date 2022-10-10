@@ -23,7 +23,10 @@
 </script>
 
 <template>
-  <div class="f-checkbox-group" role="group">
+  <div
+    :class="['f-checkbox-group', { 'f-checkbox-group-border': border }]"
+    role="group"
+  >
     <slot />
   </div>
 </template>
