@@ -267,8 +267,8 @@
 | `modelValue / v-model` | 绑定值         | string / number / boolean | ——                              | ——     |
 | `disabled`             | 是否禁用       | boolean                   | ——                              | false  |
 | `vertical`             | 是否纵向排列   | boolean                   | ——                              | false  |
-| `column-gap`           | 横向排列的间距 | string / number           | ——                              | false  |
-| `row-gap`              | 纵向排列的间距 | string / number           | ——                              | false  |
+| `column-gap`           | 横向排列的间距 | string / number           | ——                              | ——     |
+| `row-gap`              | 纵向排列的间距 | string / number           | ——                              | ——     |
 | `border`               | 是否显示边框   | boolean                   | ——                              | false  |
 | `size`                 | 尺寸           | string                    | `large` `middle` `small` `mini` | middle |
 

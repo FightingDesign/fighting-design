@@ -31,6 +31,14 @@ export const Props = {
     validator: (val: CheckboxGroupSizeType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
+  },
+  columnGap: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
+  },
+  rowGap: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
   }
 } as const
 
