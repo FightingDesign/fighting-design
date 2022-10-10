@@ -64,7 +64,7 @@
   const classList: ComputedRef<c> = computed((): c => {
     return [
       'f-checkbox',
-      `f-checkbox__${groupProps.value?.size}`,
+      `f-checkbox-${groupProps.value?.size}`,
       {
         'f-checkbox-selected': isChecked.value,
         'f-checkbox-bordered': groupProps.value?.border,

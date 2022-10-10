@@ -22,10 +22,10 @@ export const Props = {
     default: (): boolean => false
   },
   size: {
-    type: String,
-    default: (): string => 'middle',
+    type: String as PropType<CheckboxGroupSizeType>,
+    default: (): CheckboxGroupSizeType => 'middle',
     validator: (val: CheckboxGroupSizeType): boolean => {
-      return (['large', 'middle', 'small'] as const).includes(val)
+      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   }
 } as const
