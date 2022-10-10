@@ -109,8 +109,7 @@
 
 ## 带边框
 
-直接添加`border`属性可设置边框，只生效于`group`组件，
-`FightingDesign`还提供了`size`选项，默认为`middle`
+`border` 属性可设置边框
 
 <f-checkbox-group v-model="option4" border size="large">
   <f-checkbox label="选项一" />
@@ -118,6 +117,7 @@
   <f-checkbox label="选项三" />
 </f-checkbox-group>
 
+<br />
 <br />
 
 <f-checkbox-group v-model="option4" border>
@@ -127,8 +127,18 @@
 </f-checkbox-group>
 
 <br />
+<br />
 
 <f-checkbox-group v-model="option4" border size="small">
+  <f-checkbox label="选项一" />
+  <f-checkbox label="选项二" />
+  <f-checkbox label="选项三" />
+</f-checkbox-group>
+
+<br />
+<br />
+
+<f-checkbox-group v-model="option4" border size="mini">
   <f-checkbox label="选项一" />
   <f-checkbox label="选项二" />
   <f-checkbox label="选项三" />

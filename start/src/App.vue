@@ -12,7 +12,7 @@
     <f-radio label="3">备选项3</f-radio>
   </f-radio-group>
   <br />
-  <f-checkbox-group v-model="option3" :column-gap="120">
+  <f-checkbox-group v-model="option3" border>
     <f-checkbox label="备选项1" />
     <f-checkbox label="备选项2" />
     <f-checkbox label="备选项3" />
