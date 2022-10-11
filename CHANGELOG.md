@@ -4,6 +4,8 @@
 
 - `drawer` 组件 `with-header` 配置项改为 `showHeader`
 - `drawer` 组件新增 `showCloseBtn` 和 `showFooter` 配置项
+- `drawer` 组件新增 `modal-blur` 配置项
+- `dialog` 组件新增 `modal-blur` 配置项
 
 ## 0.7.0-alpha.4 (2022-10-11)
 

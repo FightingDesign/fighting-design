@@ -20,21 +20,9 @@
     v-model:visible="visible1"
     title="Title"
     show-footer
-    :mask-close="false"
+    modal-blur
     :direction="direction"
   >
-    <template #title>
-      <f-button>1111</f-button>
-      <f-button>1111</f-button>
-      <f-button>1111</f-button>
-      <f-button>1111</f-button>
-      <f-button>1111</f-button>
-    </template>
-
-    <template #footer>
-      <h1>哈哈哈</h1>
-      <h1>哈哈哈</h1>
-    </template>
     fighting-design
     <h1>11</h1>
     <h1>11</h1>

@@ -49,6 +49,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => true
   },
+  modalBlur: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   zIndex: {
     type: Number as PropType<number>,
     default: (): Number => 1999,

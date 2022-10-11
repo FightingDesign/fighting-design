@@ -9,6 +9,11 @@
   overflow: hidden;
   margin: 0;
 
+  // 高斯模糊
+  &.f-drawer-mask-blur {
+    backdrop-filter: blur(2px);
+  }
+
   // 遮罩层
   &.f-drawer-mask-modal {
     position: fixed;

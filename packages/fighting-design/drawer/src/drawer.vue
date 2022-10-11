@@ -62,7 +62,8 @@
           'f-drawer-mask',
           'f-drawer-cover',
           {
-            'f-drawer-mask-modal': modal
+            'f-drawer-mask-modal': modal,
+            'f-drawer-mask-blur': modalBlur
           }
         ]"
         :style="{ zIndex }"
