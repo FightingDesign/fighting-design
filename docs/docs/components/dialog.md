@@ -2,7 +2,7 @@
 
 `Dialog` 组件在保留当前页面状态的情况下，弹出对话框，告知用户相关信息，并进行一些操作。
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/dialog)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/dialog)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/dialog.md)
 
 ## 基本使用
@@ -37,12 +37,16 @@ fighting-design
 
 ## 多层嵌套
 
-如果需要在一个 `Dialog` 内部嵌套另一个 `Dialog`，可以直接写在默认插槽中。
+<!-- 如果需要在一个 `Dialog` 内部嵌套另一个 `Dialog`，可以直接写在默认插槽中。 -->
+
+如果需要在一个 Dialog 内部嵌套另一个 Dialog，需要使用 append-to-body 属性。
+
+通常不建议使用嵌套对话框。 如果你需要在页面上呈现多个对话框，你可以简单地打平它们，以便它们彼此之间是平级关系。 将内层 Dialog 的该属性设置为 true，它就会插入至 body 元素上，从而保证内外层 Dialog 和遮罩层级关系的正确。
 
 <f-button type="primary" @click="visible2 = true">show</f-button>
 <f-dialog width="500px" height="400px" title="Title" v-model:visible="visible2">
 <f-button @click="innerVisible = true">show inner</f-button>
-<f-dialog width="300px" title="Title" v-model:visible="innerVisible">
+<f-dialog width="300px" title="Title" v-model:visible="innerVisible" append-to-body>
 inner dialog
 </f-dialog>
 <template #title>
@@ -62,7 +66,12 @@ title slot
     v-model:visible="visible2"
   >
     <f-button @click="innerVisible = true">show inner</f-button>
-    <f-dialog width="300px" title="Title" v-model:visible="innerVisible">
+    <f-dialog
+      width="300px"
+      title="Title"
+      v-model:visible="innerVisible"
+      append-to-body
+    >
       inner dialog
     </f-dialog>
     <template #title> title slot </template>
@@ -116,20 +125,47 @@ fighting-design
 
 :::
 
+## 高斯模糊遮罩层
+
+可以通过`modal-blur`属性设置是否高斯模糊遮罩层。
+
+<f-button type="primary" @click="visible4 = true">show</f-button>
+<f-dialog title="Title" v-model:visible="visible4" modal-blur>
+fighting-design
+</f-dialog>
+
+::: details 显示代码
+
+```html
+<template>
+  <f-button type="primary" @click="visible4 = true">show</f-button>
+  <f-dialog title="Title" v-model:visible="visible4" modal-blur>
+    fighting-design
+  </f-dialog>
+</template>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+  const visible4 = ref(false)
+</script>
+```
+
+:::
+
 ## Attributes
 
-| 参数              | 说明                  | 类型    | 可选值                                                     | 默认值       |
-| ----------------- | --------------------- | ------- | ---------------------------------------------------------- | ------------ |
-| `v-model:visible` | 绑定值                | boolean | ——                                                         | false        |
-| `title`           | header 文案           | string  | ——                                                         | ——           |
-| `append-to-body`  | 是否追加到 `body`     | boolean | ——                                                         | false        |
-| `width`           | `Dialog` 宽度         | string  | ——                                                         | 332px        |
-| `height`          | `Dialog` 高度         | string  | ——                                                         | 188px        |
-| `top`             | `Dialog` 距离顶部高度 | string  | ——                                                         | 13vh         |
-| `modal`           | 是否展示蒙层          | boolean | ——                                                         | true         |
-| `modal-close`     | 点击蒙层是否关闭      | boolean | ——                                                         | true         |
-| `close-icon`      | 关闭图标              | string  | [more](https://fighting.tianyuhao.cn/components/icon.html) | f-icon-close |
-| `z-index`         | `Dialog` 层级         | boolean | ——                                                         | 1999         |
+| 参数              | 说明                  | 类型    | 可选值 | 默认值       |
+| ----------------- | --------------------- | ------- | ------ | ------------ |
+| `v-model:visible` | 绑定值                | boolean | ——     | false        |
+| `title`           | header 文案           | string  | ——     | ——           |
+| `append-to-body`  | 是否追加到 `body`     | boolean | ——     | false        |
+| `width`           | `dialog` 宽度         | string  | ——     | 332px        |
+| `height`          | `dialog` 高度         | string  | ——     | 188px        |
+| `top`             | `dialog` 距离顶部高度 | string  | ——     | 13vh         |
+| `modal`           | 是否展示蒙层          | boolean | ——     | true         |
+| `modal-close`     | 点击蒙层是否关闭      | boolean | ——     | true         |
+| `close-icon`      | 关闭图标              | string  | ——     | f-icon-close |
+| `z-index`         | `dialog` 层级         | boolean | ——     | 1999         |
 
 ## Slots
 
@@ -141,12 +177,20 @@ fighting-design
 
 ## Events
 
-| 事件名称    | 说明                  | 类型                    |
-| ----------- | --------------------- | ----------------------- |
-| `open`      | `Dialog` 打开之前回调 | `(e: Event) => boolean` |
-| `open-end`  | `Dialog` 打开之后回调 | `(e: Event) => boolean` |
-| `close`     | `Dialog` 关闭之前回调 | `(e: Event) => boolean` |
-| `close-end` | `Dialog` 关闭之后回调 | `(e: Event) => boolean` |
+| 事件名称    | 说明                          |
+| ----------- | ----------------------------- |
+| `open`      | `Dialog` 打开动画开始之前回调 |
+| `open-end`  | `Dialog` 打开动画开始之后回调 |
+| `close`     | `Dialog` 关闭动画开始之前回调 |
+| `close-end` | `Dialog` 关闭动画开始之后回调 |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { DialogInstance, DialogPropsType } from 'fighting-design'
+```
 
 ## Contributors
 
@@ -154,8 +198,12 @@ fighting-design
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<a href="https://github.com/Rin-Nohara" target="_blank">
+<a href="https://github.com/wmasfoe" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/61968242?v=4" />
+</a>
+
+<a href="https://github.com/wmasfoe" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/40457081?v=4" />
 </a>
 
 <script setup>
@@ -163,6 +211,7 @@ fighting-design
   const visible1 = ref(false)
   const visible2 = ref(false)
   const visible3 = ref(false)
+  const visible4 = ref(false)
   const innerVisible = ref(false)
   const close = () => {
     console.log('关闭之前');

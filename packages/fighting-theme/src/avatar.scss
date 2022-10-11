@@ -4,8 +4,15 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background: #eee;
   vertical-align: middle;
+  width: var(--f-avatar-size, 60px);
+  height: var(--f-avatar-size, 60px);
+  background: var(--f-avatar-background-color, none);
+
+  .f-avatar-img {
+    width: var(--f-avatar-size, 60px);
+    height: var(--f-avatar-size, 60px);
+  }
 
   // 不同大小
   @each $key, $value in $avatarSize {
@@ -30,7 +37,44 @@
   }
 
   .f-avatar-text {
-    font-size: 15px;
-    color: #333;
+    color: var(--f-avatar-font-color, #333);
+    font-size: var(--f-avatar-font-size, 15px);
+  }
+
+  @keyframes bgPos {
+    0% {
+      background-position: 50% 0;
+    }
+
+    100% {
+      background-position: -150% 0;
+    }
+  }
+
+  &.f-avatar-animation {
+    background-image: linear-gradient(
+      to right,
+      #f6f7f8 0%,
+      #edeef1 10%,
+      #f6f7f8 20%,
+      #f6f7f8 100%
+    );
+    background-size: 200% 100%;
+    animation: bgPos 0.8s linear infinite;
+  }
+}
+
+.f-avatar-error {
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  vertical-align: middle;
+
+  .f-avatar-error-text {
+    color: var(--f-avatar-font-color, #333);
+    font-size: var(--f-avatar-font-size, 13px);
   }
 }

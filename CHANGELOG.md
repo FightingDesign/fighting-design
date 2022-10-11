@@ -2,13 +2,339 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-**fest**
+## 0.7.0-alpha.4 (2022-10-11)
 
-- `Alert` 组件新增 `fixed` `fixed-style` 配置项
+- 新增 `checkbox` 组件
+- 新增 `rate` 组件
+- 废除 `f-radio-group` 组件 `circle` 配置项
+- 修复 `f-radio` 组件 `border` 状态禁用样式细节
+- 优化部分组件语义化属性
+
+## 0.7.0-alpha.3 (2022-10-06)
+
+- 更新 `umd` 打包入口
+- 优化 `f-icon` 组件样式实现
+- `f-link` 组件类名规范优化
+- 优化 `f-link` 组件内部实现
+- 优化 `f-text` 组件内部实现
+- `f-text` 组件 `size` `spacing` `line-height` `text-indent` `padding` `width` 属性支持 `number` 类型参数
+- `f-text` 组件 `text-indent` 属性改为 `indent`
+- `f-text` 内部导出新类型 `TextDecorationType`
+
+## 0.7.0-alpha.2 (2022-09-29)
+
+- 修复部分组件类型规范问题
+
+## 0.7.0-alpha.1 (2022-09-27)
 
 **fix**
 
-- 修复 `tag` 组件样式细节
+- 修复 `f-button` 组件 `font-color` 默认值
+- 修复 `f-button` 组件 `font-size` 默认值
+
+**fest**
+
+- `f-back-top` 组件 `right` `bottom` 配置项支持 `number` 类型
+- `f-image` 组件 `round` 配置项支持 `number` 类型
+- `f-image` 组件废除 `caption` 和 `caption-color` 配置项
+- `f-watermark` 组件 `font-size` 配置项支持 `number` 类型参数
+- `f-progress` 组件 `width` `height` 配置项支持 `number` 类型参数
+- `f-alert` 组件废除 `fixed-style` 配置项
+- `f-alert` 组件 `font-size` 配置项支持 `number` 类型参数
+- `f-alert` 组件 `type` 默认值改为 `default`
+- `f-alert` 组件 `font-size` 默认值改为 `15px`
+- `f-alert` 组件新增 `title-size` 和 `title-color` 属性
+- `f-alert` 组件 `overflow` 配置项移除 `ellipsis` 选项
+- `f-footer` 组件 `height` `padding` 配置项添加默认值
+- `f-header` 组件 `height` `padding` 配置项添加默认值
+- `f-main` 组件 `padding` 配置项添加默认值
+- `f-toolbar` 组件废除 `fixed-style` 配置项
+
+**perf**
+
+- 优化了组件的 `props` 提示
+- 新增类型导出
+- 优化 `f-avatar` 组件部分样式的实现，减少代码开销
+- 优化 `f-back-top` 组件部分样式的实现，减少代码开销
+- 优化 `f-back-top` 组件部分 `props` 默认值
+- 优化 `f-badge` 组件样式实现
+
+## 0.6.5-alpha.5 (2022-09-25)
+
+**fest**
+
+- 新增 `sticky-card` 组件
+- `f-list` 组件新增 `header` 和 `footer` 插槽
+- 优化 `f-button` 组件性能
+
+**fix**
+
+- 修复 `f-calendar` 组件的一些日期显示错误的问题
+
+## 0.6.5-alpha.4 (2022-09-23)
+
+**fix**
+
+- 修复 `f-image-preview` 和 `f-calendar` 组件内容按需引入问题
+
+## 0.6.5-alpha.3 (2022-09-22)
+
+**fest**
+
+- `f-header` 组件新增 `padding` 类型
+- `f-header` 组件的 `height` 属性支持 `number` 类型
+- `f-footer` 组件新增 `padding` 配置项
+- `f-footer` 组件的 `height` 属性支持 `number` 类型
+- `f-main` 组件的 `padding` 属性支持 `number` 类型
+- `f-aside` 组件的 `width` 属性支持 `number` 类型
+- `f-aside` 组件新增 `padding` 配置项
+
+**fix**
+
+- 修复组件 `name` 导致的打包类型报错问题
+
+## 0.6.5-alpha.2 (2022-09-21)
+
+- 新增 `f-calendar` 组件
+- `f-text` 组件的 `size` 属性支持 `number` 类型
+- 新增组件类型导出
+
+## 0.6.5-alpha.1 (2022-09-16)
+
+- 新增 `f-expand-card` 组件
+- 优化 `f-toolbar-item` 和 `f-toolbar` 组件样式细节
+- `f-toolbar-item` 新增 `data-key` `icon` `icon-size` 配置项
+- `f-toolbar` 新增 `click` 回调参数
+- `f-toolbar` 针对于苹果 `Safari` 点击失效做出兼容
+- `f-toolbar` 组件废除 `vague` 配置项
+
+## 0.6.4-alpha.10 (2022-09-14)
+
+- 测试修复按需引入
+
+## 0.6.4-alpha.9 (2022-09-14)
+
+- 测试修复按需引入
+
+## 0.6.4-alpha.8 (2022-09-14)
+
+- 测试修复按需引入
+
+## 0.6.4-alpha.7 (2022-09-14)
+
+**fix**
+
+- 修复 `f-button` 组件自定义颜色的 `hover` 和 `disabled` 样式
+- 修复 `f-page-header` 组件样式细节
+- 修复 `f-button` 组件 `text` 配置项样式细节
+- 修复 `f-image` 组件 `width` 属性的一些问题
+
+**fest**
+
+- `f-icon` 组件的 `size` 属性支持 `number` 类型
+- `f-button` 组件的 `font-size` 属性支持 `number` 类型
+- `f-image` 组件 `rootMargin` `width` `height` 属性支持 `number` 类型
+- `f-avatar` 组件 `rootMargin` 属性支持 `number` 类型
+- 新增 `f-image-preview` 组件
+- `f-image` 组件新增 `click` 回调
+
+**other**
+
+- 废除 `f-page-header` 的 `titleClass` 和 `subtitleClass` 配置项
+- `f-lint` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-button` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-tag` 组件 `left-icon` `right-icon` 配置项更名为 `before-icon` `after-icon`
+- `f-loading` 组件的 `text-color` `text-size` 配置项更名为 `font-color` `font-size`
+- `f-empty` 组件废除 `style-list` 配置项
+- 拆分 `f-empty` 组件
+- 优化 `f-avatar` 样式细节
+- `f-image` 组件废除点击大图预览功能，此功能抽离至 `f-image-preview` 组件
+- `f-image` 组件废除属性：`modal-close` `show-close-btn` `preview-list` `preview-show-index` `preview-z-index` `preview-show-option` `preview-round`
+- 测试修复按需引入
+
+## 0.6.4-alpha.6 (2022-09-11)
+
+**fest**
+
+- 新增 `f-ripple` 涟漪组件
+- 新增 `f-radio` `f-radio-group` 组件
+
+**fix**
+
+- 修复 `f-button` `f-loading` 动画样式问题
+- 修复 `f-list-item` 换行高度不自适应的问题
+
+## 0.6.4-alpha.5 (2022-09-06)
+
+- 测试修复副作用组件注册
+
+## 0.6.4-alpha.4 (2022-09-06)
+
+- 测试修复副作用组件注册
+
+## 0.6.4-alpha.3 (2022-09-05)
+
+- 测试修复副作用组件注册
+
+## 0.6.4-alpha.2 (2022-09-05)
+
+- 测试修复副作用组件注册
+
+## 0.6.4-alpha.1 (2022-09-03)
+
+- 修复类型
+
+## 0.6.3-alpha.3 (2022-09-03)
+
+- 修复了部分组件类型
+- 修复了按需引入仍然全部打包的问题
+
+## 0.6.3-alpha.2 (2022-09-02)
+
+- 修复的配置文件
+- 一件修复在 `vitepress` 的错误
+
+## 0.6.3-alpha.1 (2022-09-02)
+
+- 已修复打包引入相关的问题
+- 但是在 `vitepress` 中仍存在问题，在正常项目中可以正常使用
+
+## 0.6.2-alpha.10 (2022-09-02)
+
+- 测试修复打包引入问题
+
+## 0.6.2-alpha.9 (2022-09-02)
+
+- 测试修复打包引入问题
+
+## 0.6.2-alpha.8 (2022-09-02)
+
+- 测试修复打包引入问题
+
+## 0.6.2-alpha.7 (2022-09-02)
+
+- 测试修复打包引入问题
+
+## 0.6.2-alpha.6 (2022-08-31)
+
+- 修复已知的一些引入相关配置问题
+
+## 0.6.2-alpha.5 (2022-08-30)
+
+**fest**
+
+- 新增 `f-loading-bar` 组件
+- 新增 `notification` 组件
+
+**fix**
+
+- 修复按钮组件样式
+- 更新 `f-card` 组件 `shadow` 参数默认值。现改为 `never`
+
+## 0.6.2-alpha.4 (2022-08-29)
+
+**fest**
+
+- `f-image` 组件新增 `title` 配置项
+
+**fix**
+
+- 修复 `f-card` 组件样式细节
+- 修复 `f-skeleton` 的一些样式相关细节
+
+## 0.6.2-alpha.3 (2022-08-28)
+
+- 新增 `f-skeleton` 骨架屏组件
+- 优化 `f-button` `f-alert` 组件圆角样式
+- 优化 `f-alert` 样式细节
+- 优化 `f-alert` 组件 `overflow` 配置项
+- 移除 `f-alert` 组件 `overflow` 配置项的 `roll` 可选参数
+- 移除 `f-novel-coronavirus` 组件
+- 修复 `Load` 图片加载类加载死循环的问题
+- 优化 `f-image` 组件加载过程中是撕裂样式
+
+## 0.6.2-alpha.2 (2022-08-20)
+
+- 修复已知打包问题
+
+## 0.6.2-alpha.1 (2022-08-20)
+
+- 修复按钮涟漪效果类
+- 修复已知打包问题
+
+## 0.6.1 (2022-08-19)
+
+- 优化 `f-list` 组件
+- 修复 `f-card` 组件样式细节
+- 更新 `success` 和 `warning` 的色号细节
+- 新增 `f-empty` 空状态组件
+- 优化按钮自定义颜色配置项的 `hover` 和 `active` 的实现方式
+- `f-tooltip` 组件新增 `background` 和 `font-color` 配置项
+- 优化图片加载类
+- `f-avatar` 增加错误处理插槽，增加错误处理提示信息
+- 优化 `f-avatar` 加载细节处理
+- `f-avatar` 组件新增 `load-animation` 配置项
+- 优化掉 `f-drawer` 部分导致文档打包报错的逻辑
+- 增加了 `hooks` 对部分类和函数的参数抽离，性能优化了 `f-image` `f-avatar` `f-button` `f-watermark` 组件
+- `f-button` 对于涟漪效果做了单例模式的优化
+
+## 0.6.0-bate.2 (2022-08-11)
+
+- 更新入口文件
+
+## 0.6.0-bate.1 (2022-08-11)
+
+- 改变样式表的文件名引入方式
+- 修复打包配置项
+
+## 0.5.1-bate.5 (2022-08-10)
+
+- `F-alert` 样式引入
+- `F-text` 细节样式优化
+- 加入版本号导出
+- 更新 prop 的类型
+
+## 0.5.1-bate.4 (2022-08-09)
+
+- 测试修复打包引入路径错误的问题
+
+## 0.5.1-bate.3 (2022-08-09)
+
+- 测试修复打包引入路径错误的问题
+
+## 0.5.1-bate.2 (2022-08-09)
+
+- 测试修复打包引入路径错误的问题
+
+## 0.5.1-bate.1 (2022-08-09)
+
+- 修复了打包类型相关的问题
+
+## 0.5.0-bate.2 (2022-08-08)
+
+- 修复了打包类型相关的问题
+
+## 0.5.0-bate.1 (2022-08-08)
+
+主要修复了打包的相关的配置项，在[上一个版本](https://github.com/FightingDesign/fighting-design/releases/tag/0.4.2-bate.9)中，如果需要按需引入组件，那么会有很多异常的错误信息，这个版本主要是针对打包做了很大的优化，已经修复了按需引入导致的致命错误。
+
+对于目录结构也做了很大程度的优化，之前是将 `utils` 目录是单独抽离出来，但是现在也和组件是同级关系，只为了能够更好的打包。
+
+## 0.4.2-bate.9 (2022-07-04)
+
+**fest**
+
+- `Alert` 组件新增 `fixed` `fixed-style` 配置项
+- 新增 `f-list` 组件
+- 新增 `f-list-item` 组件
+- 新增 `message` 组件
+- `f-text` 组件新增 `center` 配置项
+- 新增 `f-watermark` 组件
+
+**fix**
+
+- 修复 `f-tag` 组件样式细节
+- 优化 `f-card` 组件细节样式
 
 ## 0.4.2-bate.8 (2022-07-23)
 

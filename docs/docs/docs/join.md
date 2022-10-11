@@ -6,7 +6,7 @@
 
 加微信邀请入 `Fighting Design 社区讨论` 群
 
-<img width="200px" src="https://tianyuhao.cn/images/weixin2.png" />
+<img width="200px" src="https://tianyuhao.cn/images/auto/weixin.png" />
 
 ## 招募文章
 

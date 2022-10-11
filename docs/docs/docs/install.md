@@ -5,7 +5,7 @@
 使用快速的，节省磁盘空间的包管理工具 [pnpm](https://pnpm.io/zh/) 进行安装
 
 ```shell
-pnpm add fighting-design
+pnpm add --save-dev fighting-design
 ```
 
 ## npm
@@ -13,13 +13,7 @@ pnpm add fighting-design
 使用 `npm` 进行安装
 
 ```shell
-npm install fighting-design
-```
-
-全局安装
-
-```shell
-npm install fighting-design --save
+npm install --save-dev fighting-design
 ```
 
 ## yarn
@@ -27,5 +21,5 @@ npm install fighting-design --save
 或者使用 `yarn` 进行安装
 
 ```shell
-yarn add fighting-design
+yarn add --save-dev fighting-design
 ```

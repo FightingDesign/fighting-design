@@ -2,7 +2,7 @@
 
 `Switch` 是一个开关组件
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/switch)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/switch)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/switch.md)
 
 ## 基本使用
@@ -176,6 +176,18 @@
 | `open-text`            | 自定义右侧的文字描述 | string  | ——                       | ——     |
 | `close-text`           | 自定义左侧的文字描述 | string  | ——                       | ——     |
 | `square`               | 是否为方形开关       | boolean | ——                       | false  |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  SwitchInstance,
+  SwitchPropsType,
+  SwitchSizeType
+} from 'fighting-design'
+```
 
 ## Contributors
 

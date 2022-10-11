@@ -6,7 +6,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: var(--f-button-font-size, 14px);
   border: none;
   outline: none;
   user-select: none;
@@ -17,9 +17,12 @@
   cursor: pointer;
   padding: 0 25px;
   background: $default;
-  overflow: hidden;
   white-space: nowrap;
   vertical-align: middle;
+  border-radius: $basicRadiusSize;
+  overflow: hidden;
+  box-shadow: var(--f-button-box-shadow);
+  color: var(--f-button-font-color, #fff);
 
   @for $list from 1 to (length($allTypeColorList) + 1) {
     $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
@@ -65,7 +68,7 @@
 
       // 文字按钮
       &.f-button-text {
-        background: #fff;
+        background: none;
         color: map-get($item, simpleTextColor);
 
         &:hover {
@@ -94,7 +97,7 @@
       height: map-get($item, height);
       padding: 0 map-get($item, padding);
       line-height: map-get($item, height);
-      font-size: map-get($item, fontSize);
+      font-size: var(--f-button-font-size, map-get($item, fontSize));
 
       // 圆形按钮
       &.f-button-circle {
@@ -132,17 +135,18 @@
   // loading
   .f-loading-animation {
     display: inline-block;
-    animation: loading 1s linear infinite;
-    -webkit-animation: loading 1s linear infinite;
+    animation: f-loading-button 1s linear infinite;
+    -webkit-animation: f-loading-button 1s linear infinite;
     margin-right: 3px;
-    font-size: 16px;
+    font-size: var(--f-button-font-size, 16px);
   }
 
   .f-icon {
+    font-size: var(--f-button-font-size, 14px);
     background: transparent !important;
   }
 
-  @keyframes loading {
+  @keyframes f-loading-button {
     0% {
       transform: rotate(0deg);
     }
@@ -153,22 +157,22 @@
   }
 
   // 涟漪效果
-  .f-design-ripples {
+  .f-button-ripples {
     width: 2px;
     height: 2px;
     position: absolute;
     transform: translate(-50%, -50%);
     pointer-events: none;
     border-radius: 50%;
-    animation: f-ripples 0.7s linear;
+    animation: f-button-ripples 0.7s linear;
     opacity: 0.5;
     background: #fff;
   }
 
-  @keyframes f-ripples {
+  @keyframes f-button-ripples {
     from {
-      width: 0px;
-      height: 0px;
+      width: 2px;
+      height: 2px;
       opacity: 0.5;
     }
 
@@ -176,6 +180,24 @@
       width: 500px;
       height: 500px;
       opacity: 0;
+    }
+  }
+
+  // 自定义颜色
+  &.f-button-color {
+    background: var(--f-button-default-color);
+
+    &.f-button-disabled {
+      &:hover {
+        background: var(--f-button-default-color);
+      }
+    }
+
+    &:hover {
+      background: var(--f-button-hover-color);
+    }
+    &:active {
+      background: var(--f-button-active-color);
     }
   }
 }

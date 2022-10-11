@@ -1,9 +1,9 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value3 = ref(2)
+</script>
 
 <template>
-  <f-button>hello</f-button>
-
-  <f-icon name="aiming" />
+  <f-rate v-model="value3" />
 </template>
-
-<style scoped></style>

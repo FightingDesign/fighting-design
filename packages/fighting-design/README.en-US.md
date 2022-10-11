@@ -1,7 +1,7 @@
-# fighting-design
+# fighting-design <a href="https://www.npmjs.com/package/fighting-design"><img src="https://badgen.net/npm/v/fighting-design" /></a>
 
-English | [Chinese](./README.md)
+> English documents are not synchronized in time most of the time. Please refer to Chinese documents for details.
 
-## Introduction
+English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/README.md)
 
-Main entry file of `fighting-design`
+About to update.....

@@ -1,13 +1,13 @@
 /// <reference types="vitest" />
 
 import { defineConfig } from 'vite'
-import Vue from '@vitejs/plugin-vue'
+import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-  plugins: [Vue()],
+  plugins: [vue()],
   test: {
     environment: 'happy-dom',
-    exclude: ['**/script/**'],
-    include: ['**/fighting-test/*.{test,spec}.{ts,tsx}']
+    exclude: ['**/add-component/**'],
+    include: ['**/__test__/*.{test,spec}.{ts,tsx}']
   }
 })

@@ -1,67 +1,86 @@
 @import '../config/const-color.scss';
 
-// 弹窗
-.f-drawer {
-  position: absolute;
-  box-sizing: border-box;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%), 0 16px 24px 2px rgb(0 0 0 / 14%),
-    0 6px 30px 5px rgb(0 0 0 / 12%);
+.f-drawer-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   overflow: hidden;
-  outline: 0;
+  margin: 0;
 
-  .f-drawer-header {
+  // 遮罩层
+  &.f-drawer-mask-modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  // 弹窗
+  .f-drawer {
+    position: absolute;
+    box-sizing: border-box;
+    background: #fff;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #72767b;
-    padding: 20px;
-    padding-bottom: 0;
+    flex-direction: column;
+    box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%),
+      0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%);
+    overflow: hidden;
+    outline: 0;
 
-    .f-icon-close {
-      cursor: pointer;
+    .f-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #72767b;
+      padding: 20px;
+      padding-bottom: 0;
 
-      &:hover {
-        background: #eee;
-        color: $primary;
+      .f-icon-close {
+        cursor: pointer;
+
+        &:hover {
+          background: #eee;
+          color: $primary;
+        }
       }
     }
-  }
 
-  .f-drawer-body {
-    padding: 20px;
-    overflow: auto;
-    box-sizing: border-box;
-  }
+    .f-drawer-body {
+      padding: 20px;
+      overflow: auto;
+      box-sizing: border-box;
+    }
 
-  &.f-drawer-top {
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  &.f-drawer-right {
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    right: 0;
-  }
-
-  &.f-drawer-left {
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  &.f-drawer-bottom {
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    &.f-drawer-top {
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    &.f-drawer-right {
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+    &.f-drawer-left {
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+    &.f-drawer-bottom {
+      height: 100%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
   }
 }
 
@@ -97,7 +116,6 @@
 .f-drawer-leave-to .f-drawer-cover {
   opacity: 0;
 }
-
 /* 延迟嵌套元素的进入以获得交错效果 */
 .f-drawer-enter-active .f__drawer,
 .f-drawer-enter-active .f-drawer-cover {

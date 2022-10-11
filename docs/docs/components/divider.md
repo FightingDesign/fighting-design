@@ -2,7 +2,7 @@
 
 `Divider` 用户段落的分隔符
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/divider)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/divider)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/divider.md)
 
 ## 基本使用
@@ -128,6 +128,19 @@
 | `background` | 背景颜色     | boolean | ——                                 | ——     |
 | `margin`     | 上下边距     | string  | ——                                 | ——     |
 | `type`       | 分隔符样式   | string  | `dashed` `dotted` `double` `solid` | solid  |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  DividerInstance,
+  DividerPropsType,
+  DividerPositionType,
+  DividerType
+} from 'fighting-design'
+```
 
 ## Contributors
 

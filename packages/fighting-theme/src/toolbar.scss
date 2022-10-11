@@ -1,0 +1,34 @@
+@import '../config/var-toolbar.scss';
+@import '../config/const-color.scss';
+
+.f-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: $default;
+  flex-wrap: wrap;
+  cursor: default;
+
+  // 不同尺寸
+  @for $list from 1 to (length($toolbarSize) + 1) {
+    $item: nth($toolbarSize, $list); // 获取数组中第i项的值
+
+    &.f-toolbar-#{map-get($item, name)} {
+      min-height: map-get($item, height);
+      padding: 0 map-get($item, padding);
+      font-size: map-get($item, fontSize);
+    }
+  }
+
+  // 圆角
+  &.f-toolbar-round {
+    border-radius: 20px;
+  }
+
+  // 固定定位
+  &.f-toolbar-fixed {
+    position: fixed;
+    z-index: 999;
+  }
+}

@@ -1,0 +1,201 @@
+@import '../config/const-color.scss';
+
+.f-calendar {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+
+  // 头部
+  .f-calendar-header {
+    box-sizing: border-box;
+    width: 100%;
+    background: #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px;
+    box-sizing: border-box;
+
+    // 当前时间
+    .f-calendar-time {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .f-calendar-time-now {
+        font-weight: 700;
+        color: #333;
+      }
+    }
+
+    // 操作栏
+    .f-calendar-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-width: 250px;
+
+      .f-calendar-last,
+      .f-calendar-now,
+      .f-calendar-next {
+        margin: 0 5px;
+      }
+    }
+  }
+
+  // 星期
+  .f-calendar-week {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+
+    .f-calendar-week-li {
+      height: var(--f-calendar-week-height, 50px);
+      box-sizing: border-box;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  // 天
+  .f-calendar-day {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+
+    .f-calendar-day-li {
+      height: var(--f-calendar-day-height, 90px);
+      box-sizing: border-box;
+      padding: 10px;
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: 0.3s;
+      overflow: auto;
+      position: relative;
+      border-top: 3px solid transparent;
+
+      &:hover {
+        background: rgb(247, 247, 247);
+      }
+
+      &.f-calendar-day-li-last {
+        color: rgb(198, 198, 198);
+      }
+
+      // 阳历
+      .f-calendar-solar {
+        font-size: 15px;
+      }
+
+      // 农历
+      .f-calendar-lunar {
+        font-size: 14px;
+      }
+
+      // 今天
+      &.f-calendar-day-today {
+        color: $primary;
+        background: $simplePrimary;
+        border-top: 3px solid $primary;
+        transition: 0.3s;
+      }
+
+      // 不是当月的时间
+      &.f-calendar-not-month {
+        color: rgb(206, 206, 206);
+      }
+
+      // 备忘录
+      .f-calendar-memorandum {
+        position: absolute;
+        height: 26px;
+        bottom: 0px;
+        right: 0;
+        left: 0;
+        overflow: auto;
+        background: #fff;
+        cursor: pointer;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transition: height 0.5s;
+        padding: 10px;
+        box-sizing: border-box;
+        box-shadow: 0 -6px 12px 0 #5b78d817;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        &:hover {
+          height: 100%;
+        }
+
+        .f-calendar-memorandum-item {
+          margin-bottom: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  // 页脚
+  .f-calendar-footer {
+    padding: 15px;
+    background: #eee;
+
+    .f-calendar-footer-list {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0;
+
+      li {
+        display: inline-block;
+        width: 150px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  // 边框
+  &.f-calendar-border {
+    border-top: 1px solid var(--f-calendar-border-color, #eee);
+    border-left: 1px solid var(--f-calendar-border-color, #eee);
+
+    .f-calendar-header {
+      border-right: 1px solid var(--f-calendar-border-color, #eee);
+    }
+
+    .f-calendar-week {
+      border-bottom: 1px solid var(--f-calendar-border-color, #eee);
+      border-top: 1px solid var(--f-calendar-border-color, #eee);
+
+      .f-calendar-week-li {
+        border-right: 1px solid var(--f-calendar-border-color, #eee);
+      }
+    }
+
+    .f-calendar-day {
+      .f-calendar-day-li {
+        border-right: 1px solid var(--f-calendar-border-color, #eee);
+        border-bottom: 1px solid var(--f-calendar-border-color, #eee);
+      }
+    }
+  }
+}

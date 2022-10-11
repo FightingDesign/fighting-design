@@ -2,16 +2,16 @@
 
 `Layout` 用于处理常见的一些网页布局，实现快速搭建
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/layout)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/layout)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/layout.md)
 
 ## 基本使用
 
-`f-layout` 外层容器, 可以实现垂直、水平、嵌套布局  
-`f-main` 主体容器  
-`f-header` 头部容器  
-`f-aside` 侧栏容器
-`f-footer` 底栏容器
+- `f-layout` 外层容器, 可以实现垂直、水平、嵌套布局
+- `f-main` 主体容器
+- `f-header` 头部容器
+- `f-aside` 侧栏容器
+- `f-footer` 底栏容器
 
 ## 基本布局
 
@@ -217,21 +217,50 @@
 
 ## Header Attributes
 
-| 参数     | 说明 | 类型   | 可选值 | 默认值 |
-| -------- | ---- | ------ | ------ | ------ |
-| `height` | 高度 | string | ——     | 60px   |
+| 参数      | 说明   | 类型            | 可选值 | 默认值 |
+| --------- | ------ | --------------- | ------ | ------ |
+| `height`  | 高度   | string / number | ——     | 60px   |
+| `padding` | 内边距 | string / number | ——     | 0      |
+
+## Main Attributes
+
+| 参数      | 说明   | 类型            | 可选值 | 默认值 |
+| --------- | ------ | --------------- | ------ | ------ |
+| `padding` | 内边距 | string / number | ——     | 0      |
 
 ## Aside Attributes
 
-| 参数    | 说明 | 类型   | 可选值 | 默认值 |
-| ------- | ---- | ------ | ------ | ------ |
-| `width` | 宽度 | string | ——     | 200px  |
+| 参数      | 说明   | 类型            | 可选值 | 默认值 |
+| --------- | ------ | --------------- | ------ | ------ |
+| `width`   | 宽度   | string / number | ——     | 200px  |
+| `padding` | 内边距 | string / number | ——     | 0      |
 
 ## Footer Attributes
 
-| 参数     | 说明 | 类型   | 可选值 | 默认值 |
-| -------- | ---- | ------ | ------ | ------ |
-| `height` | 高度 | string | ——     | 60px   |
+| 参数      | 说明   | 类型            | 可选值 | 默认值 |
+| --------- | ------ | --------------- | ------ | ------ |
+| `height`  | 高度   | string / number | ——     | 60px   |
+| `padding` | 内边距 | string / number | ——     | 0      |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  AsidePropsType,
+  AsideInstance,
+  FooterInstance,
+  FooterPropsType,
+  HeaderInstance,
+  HeaderPropsType,
+  LayoutInstance,
+  LayoutPropsType,
+  LayoutDirectionType,
+  MainInstance,
+  MainPropsType
+} from 'fighting-design'
+```
 
 ## Contributors
 

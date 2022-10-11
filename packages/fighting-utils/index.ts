@@ -1,5 +1,0 @@
-export { install } from './install'
-export { loadImage } from './load-image'
-export { keepDecimal, debounce, isString, isNumber } from './utils'
-export { Ripples } from './ripples'
-export { ChangeColor } from './change-color'

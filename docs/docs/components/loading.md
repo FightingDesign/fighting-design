@@ -2,7 +2,7 @@
 
 `Loading` 用于加载状态的提示
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/loading)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/loading)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/loading.md)
 
 ## 基本使用
@@ -75,10 +75,18 @@
 | `close`      | 是否点击可以关闭 | boolean | ——     | false  |
 | `text`       | 说明文字         | string  | ——     | ——     |
 | `icon`       | loading 的 icon  | string  | ——     | ——     |
-| `text-color` | 说明文字颜色     | string  | ——     | ——     |
-| `text-size`  | 说明文字大小     | string  | ——     | ——     |
+| `font-color` | 说明文字颜色     | string  | ——     | ——     |
+| `font-size`  | 说明文字大小     | string  | ——     | ——     |
 | `background` | 遮罩层背景色     | string  | ——     | ——     |
 | `opacity`    | 遮罩层透明度     | number  | ——     | ——     |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { LoadingInstance, LoadingPropsType } from 'fighting-design'
+```
 
 ## Contributors
 

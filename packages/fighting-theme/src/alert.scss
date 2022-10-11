@@ -1,52 +1,76 @@
 @import '../config/const-color.scss';
+@import '../config/const-size.scss';
 
 .f-alert {
-  padding: 10px 16px;
-  color: #fff;
+  padding: 10px 22px;
   position: relative;
   box-sizing: border-box;
+  border-radius: $basicRadiusSize;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   @for $list from 1 to (length($allTypeColorList) + 1) {
     $item: nth($allTypeColorList, $list); // 获取数据中心第i项的值
 
     // 不同类型
     &.f-alert-#{map-get($item, name)} {
-      background: map-get($item, default);
-      color: map-get($item, defaultTextColor);
+      background: var(--f-alert-background, map-get($item, default));
+      color: var(--f-alert-color, map-get($item, defaultTextColor));
     }
 
     // 简约的
     &.f-alert-simple.f-alert-#{map-get($item, name)} {
       background: map-get($item, simple);
-      color: map-get($item, simpleTextColor);
+      color: var(--f-alert-color, map-get($item, simpleTextColor));
+    }
+  }
+
+  // 主要内容
+  .f-alert-content {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex: 1;
+
+    .f-alert-icon {
+      margin-right: 13px;
+    }
+
+    // 主标题
+    .f-alert-title {
+      font-size: var(--f-alert-title-size, 17px);
+      color: var(--f-alert-title-color);
+      font-weight: bold;
+    }
+
+    // 副标题
+    .f-alert-sub-title {
+      display: block;
+      font-size: var(--f-alert-font-size, 15px);
+    }
+
+    &.f-alert-content-hidden {
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
 
   // 关闭按钮
   .f-alert-close {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
     cursor: pointer;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translate(0%, -50%);
+    min-width: 20px;
+    min-height: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5;
+    margin-left: 13px;
 
     &:hover {
-      transition: 0.5;
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.2);
       border-radius: 50%;
     }
-  }
-
-  .f-alert-title {
-    font-weight: bold;
-  }
-
-  .f-alert-sub-title {
-    display: block;
   }
 
   // 加粗

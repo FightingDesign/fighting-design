@@ -1,17 +1,47 @@
 {
   "name": "fighting-design",
-  "version": "0.4.2-bate.8",
-  "description": "Fighting design is a Vue3 lightweight component library written with TypeScript + Template.",
+  "version": "0.7.0-alpha.4",
+  "description": "Fighting design can quickly build interactive interfaces in vue3 applications, which looks good.",
   "keywords": [
     "fighting",
     "design",
     "fighting-design",
     "vuejs",
     "components",
-    "ui"
+    "ui",
+    "vite",
+    "vue3",
+    "css",
+    "setup",
+    "typescript",
+    "javascript"
   ],
-  "main": "./es/index.ts",
-  "module": "./lib/index.ts",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js",
+      "types": "./es/index.d.ts"
+    },
+    "./dist": "./dist/",
+    "./theme": "./theme/",
+    "./es": "./es/index.js",
+    "./es/*": "./es/*.js",
+    "./es/*.js": "./es/*.js",
+    "./lib": "./lib/index.js",
+    "./lib/*": "./lib/*.js",
+    "./lib/*.js": "./lib/*.js",
+    "./*": "./*"
+  },
+  "unpkg": "dist/index.umd.js",
+  "style": "dist/index.css",
+  "sideEffects": [
+    "dist/index.css",
+    "theme/*",
+    "*.css"
+  ],
   "author": {
     "name": "tyh2001",
     "url": "https://tianyuhao.cn"

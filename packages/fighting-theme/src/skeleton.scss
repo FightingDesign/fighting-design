@@ -1,0 +1,67 @@
+$width-skeleton: 20px;
+$height-skeleton: 20px;
+
+@mixin rounded-skeleton-size {
+  &.f-skeleton-default {
+    border-radius: $height-skeleton;
+  }
+  &.f-skeleton-small {
+    border-radius: 15px;
+  }
+  &.f-skeleton-large {
+    border-radius: 25px;
+  }
+}
+
+@mixin circled-with-size {
+  &.f-skeleton-default {
+    width: $width-skeleton;
+  }
+  &.f-skeleton-small {
+    width: 15px;
+  }
+  &.f-skeleton-large {
+    width: 25px;
+  }
+}
+
+.f-skeleton {
+  background-color: #f4f4f4;
+  height: $height-skeleton;
+  margin-bottom: 12px;
+}
+
+.f-skeleton-rounded {
+  @include rounded-skeleton-size;
+}
+
+.f-skeleton-animated {
+  background: linear-gradient(90deg, #f4f4f4 25%, #ebebeb 37%, #f4f4f4 63%);
+  background-size: 400% 100%;
+  animation: f-skeleton-animated 1.2s ease infinite;
+}
+
+.f-skeleton-circled {
+  width: $width-skeleton;
+
+  @include circled-with-size;
+  @include rounded-skeleton-size;
+}
+
+.f-skeleton-small {
+  height: 15px;
+}
+
+.f-skeleton-large {
+  height: 25px;
+}
+
+@keyframes f-skeleton-animated {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}

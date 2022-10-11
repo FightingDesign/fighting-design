@@ -1,0 +1,111 @@
+@import '../config/const-color.scss';
+
+.f-checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  outline: none;
+  user-select: none;
+  color: #333;
+  transition: 0.4s;
+  cursor: pointer;
+
+  // 选择框
+  .f-checkbox-box {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    border: 1px solid #dee5fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-right: 7px;
+  }
+
+  // 文字
+  .f-checkbox-text {
+    color: #333;
+    transition: color 0.3s;
+  }
+
+  // 边框
+  &.f-checkbox-bordered {
+    border: 1px solid $simplePrimary;
+    padding: 5px 10px;
+
+    &.f-checkbox-large {
+      padding: 8px 14px;
+    }
+
+    &.f-checkbox-small {
+      padding: 4px 6px;
+    }
+  }
+
+  // 选中状态
+  &.f-checkbox-selected {
+    background: $simplePrimary;
+
+    .f-checkbox-text {
+      color: $primary;
+    }
+
+    &.f-checkbox-bordered {
+      border-color: $primary;
+    }
+
+    .f-checkbox-box {
+      border: 1px solid $primary;
+      background: $primary;
+
+      &::after {
+        content: '';
+        width: 4px;
+        height: 9px;
+        position: absolute;
+        top: 0;
+        transform: rotate(45deg) scaleY(1);
+        border: 1px solid #fff;
+        border-left: 0;
+        border-top: 0;
+        animation: f-checkbox-animation 0.1s ease-in;
+
+        @keyframes f-checkbox-animation {
+          from {
+            transform: rotate(45deg) scale(0);
+          }
+
+          to {
+            transform: rotate(45deg) scale(1);
+          }
+        }
+      }
+    }
+
+    // 选中的禁用状态
+    &.f-checkbox-disabled {
+      background: $default;
+      border-color: rgb(144, 144, 144);
+    }
+  }
+
+  // 禁用状态
+  &.f-checkbox-disabled {
+    cursor: not-allowed;
+
+    .f-checkbox-text {
+      color: #d7d7d7;
+    }
+
+    .f-checkbox-box {
+      border-color: #d7d7d7;
+      background: #f4f4f4;
+
+      &::after {
+        border-color: #d7d7d7;
+      }
+    }
+  }
+}

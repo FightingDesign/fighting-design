@@ -1,0 +1,83 @@
+@import '../config/const-color.scss';
+
+.f-sticky-card {
+  border: 1px solid var(--sticky-card-border-color, #e5e5e5);
+  border-radius: 3px;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%),
+      0 2px 4px 0 rgb(232 237 250 / 50%);
+  }
+
+  .f-sticky-card-source {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  // 内容盒子
+  .f-sticky-card-box {
+    box-sizing: border-box;
+    height: fit-content;
+    transition: max-height 0.4s;
+    max-height: 0;
+    overflow: hidden;
+    background: var(--sticky-card-content-background, #fff);
+
+    &.f-sticky-card-box-open {
+      border-top: 1px solid var(--sticky-card-border-color, #e5e5e5);
+      overflow-y: auto;
+      max-height: var(--sticky-card-max-height, 800px);
+    }
+
+    // 主要内容
+    .f-sticky-card-content {
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    // 滚动条
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    // 滚动滑块
+    &::-webkit-scrollbar-thumb {
+      background: #ddd;
+      border-radius: 6px;
+    }
+  }
+
+  // 操作栏
+  .f-sticky-card-option {
+    border-top: 1px solid var(--sticky-card-border-color, #e5e5e5);
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    font-size: 15px;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 9999;
+
+    &.f-sticky-card-option-open {
+      position: sticky;
+      bottom: 0px;
+    }
+
+    .f-sticky-card-option-text {
+      color: #333;
+      transition: 0.4s;
+    }
+
+    &:hover {
+      .f-sticky-card-option-text {
+        color: $primary;
+      }
+    }
+  }
+}

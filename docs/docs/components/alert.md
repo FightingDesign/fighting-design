@@ -2,7 +2,7 @@
 
 `Alert` 用于页面中展示重要的提示信息
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/alert)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/alert)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/alert.md)
 
 ## 基本使用
@@ -29,24 +29,24 @@
 
 ## 不同文字大小
 
-`size` 属性可以配置不同大小的 `alert`
+`font-size` 属性可以配置不同大小的 `alert`
 
-`size` 必须写入指定的数值和单位才可以正常工作
+`font-size` 必须写入指定的数值和单位才可以正常工作
 
-<f-alert size="12px" type="default">默认提示信息</f-alert>
-<f-alert size="14px" type="primary">主要提示信息</f-alert>
-<f-alert size="16px" type="success">成功提示信息</f-alert>
-<f-alert size="20px" type="danger">危险提示信息</f-alert>
-<f-alert size="24px" type="warning">警告提示信息</f-alert>
+<f-alert font-size="12px" type="default">默认提示信息</f-alert>
+<f-alert font-size="14px" type="primary">主要提示信息</f-alert>
+<f-alert font-size="16px" type="success">成功提示信息</f-alert>
+<f-alert font-size="20px" type="danger">危险提示信息</f-alert>
+<f-alert font-size="24px" type="warning">警告提示信息</f-alert>
 
 ::: details 显示代码
 
 ```html
-<f-alert size="12px" type="default">默认提示信息</f-alert>
-<f-alert size="14px" type="primary">主要提示信息</f-alert>
-<f-alert size="16px" type="success">成功提示信息</f-alert>
-<f-alert size="20px" type="danger">危险提示信息</f-alert>
-<f-alert size="24px" type="warning">警告提示信息</f-alert>
+<f-alert font-size="12px" type="default">默认提示信息</f-alert>
+<f-alert font-size="14px" type="primary">主要提示信息</f-alert>
+<f-alert font-size="16px" type="success">成功提示信息</f-alert>
+<f-alert font-size="20px" type="danger">危险提示信息</f-alert>
+<f-alert font-size="24px" type="warning">警告提示信息</f-alert>
 ```
 
 :::
@@ -205,33 +205,50 @@
 
 ## Attributes
 
-| 参数          | 说明                                                 | 类型    | 可选值                                           | 默认值  |
-| ------------- | ---------------------------------------------------- | ------- | ------------------------------------------------ | ------- |
-| `type`        | 类型                                                 | string  | `default` `primary` `success` `danger` `warning` | primary |
-| `size`        | 文字大小，必须写入指定的数值和单位                   | string  | ——                                               | ——      |
-| `bold`        | 文字是否以粗体显示                                   | boolean | ——                                               | false   |
-| `center`      | 是否居中                                             | boolean | ——                                               | false   |
-| `icon`        | Icon                                                 | string  | ——                                               | ——      |
-| `close`       | 可关闭                                               | boolean | ——                                               | ——      |
-| `simple`      | 简约模式                                             | boolean | ——                                               | ——      |
-| `title`       | 标题                                                 | string  | ——                                               | ——      |
-| `round`       | 显示为圆角                                           | boolean | ——                                               | ——      |
-| `background`  | 背景颜色                                             | string  | ——                                               | ——      |
-| `color`       | 字体颜色                                             | string  | ——                                               | ——      |
-| `fixed`       | 是否固定定位                                         | boolean | ——                                               | false   |
-| `fixed-style` | 固定定位的样式，仅支持 `top` `right` `button` `left` | {}      | ——                                               | {}      |
+| 参数          | 说明               | 类型            | 可选值                                           | 默认值  |
+| ------------- | ------------------ | --------------- | ------------------------------------------------ | ------- |
+| `type`        | 类型               | string          | `default` `primary` `success` `danger` `warning` | default |
+| `font-size`   | 副标题文字大小     | string / number | ——                                               | 15px    |
+| `title-size`  | 主标题文字大小     | string / number | ——                                               | 17px    |
+| `bold`        | 文字是否以粗体显示 | boolean         | ——                                               | false   |
+| `center`      | 是否居中           | boolean         | ——                                               | false   |
+| `icon`        | Icon               | string          | ——                                               | ——      |
+| `close`       | 可关闭             | boolean         | ——                                               | ——      |
+| `simple`      | 简约模式           | boolean         | ——                                               | ——      |
+| `title`       | 标题               | string          | ——                                               | ——      |
+| `round`       | 显示为圆角         | boolean         | ——                                               | ——      |
+| `background`  | 背景颜色           | string          | ——                                               | ——      |
+| `color`       | 副标题字体颜色     | string          | ——                                               | ——      |
+| `title-color` | 主标题字体颜色     | string          | ——                                               | ——      |
+| `fixed`       | 是否固定定位       | boolean         | ——                                               | false   |
+| `overflow`    | 文字超出的展示状态 | string          | `hidden`                                         | ——      |
 
 ## Slots
 
-| 名称      | 说明         |
-| --------- | ------------ |
-| `default` | 副标题的内容 |
+| 名称      | 说明               |
+| --------- | ------------------ |
+| `default` | 自定义副标题的内容 |
+| `title`   | 自定义主标题的内容 |
+| `close`   | 自定义关闭按钮     |
 
 ## Events
 
 | 事件名称    | 说明               |
 | ----------- | ------------------ |
 | `close-end` | 关闭之后触发的回调 |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  AlertPropsType,
+  AlertInstance,
+  AlertType,
+  AlertOverflowType
+} from 'fighting-design'
+```
 
 ## Contributors
 
@@ -241,6 +258,10 @@
 
 <a href="https://github.com/jardeng" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/19302222?v=4" />
+</a>
+
+<a href="https://github.com/HeHasGun" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/66313154?v=4" />
 </a>
 
 <style scoped>

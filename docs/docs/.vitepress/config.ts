@@ -2,6 +2,7 @@ import { nav } from './utils/nav'
 import { sidebar } from './utils/sidebar'
 import { description } from './utils/description'
 import { defineConfig } from 'vitepress'
+import { mdPlugin } from './config/plugins'
 
 export default defineConfig({
   title: 'Fighting Design',
@@ -10,12 +11,14 @@ export default defineConfig({
       'link',
       {
         rel: 'icon',
-        href: 'https://tianyuhao.cn/fighting/imgs/FightingDesign.svg'
+        href: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
       }
     ]
   ],
   description,
+  lastUpdated: true,
   themeConfig: {
+    lastUpdatedText: '最后更新时间',
     nav,
     sidebar,
     socialLinks: [
@@ -24,6 +27,9 @@ export default defineConfig({
         link: 'https://github.com/FightingDesign/fighting-design'
       }
     ],
-    logo: 'https://tianyuhao.cn/fighting/imgs/FightingDesign.svg'
+    logo: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
+  },
+  markdown: {
+    config: (md) => mdPlugin(md),
   }
 })

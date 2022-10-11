@@ -9,4 +9,4 @@ script/new-component/template/*
 dist
 node_modules
 pnpm-lock.yaml
-/script/move-file.ts
+/script/move-file.js

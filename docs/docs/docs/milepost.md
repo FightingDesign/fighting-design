@@ -1,5 +1,35 @@
 # 里程碑
 
+## 2022-10-04
+
+最近 `Fighting Design` 被选入了阮一峰老师的[科技爱好者周刊（第 225 期）：NPC 演员也是一种职业](https://www.ruanyifeng.com/blog/2022/09/weekly-issue-225.html)，马上 `200 star` 了~
+
+## 2022-09-24
+
+`2022-04-24 ~ 2022-09-24` 五个月时间
+
+`1474` 次 `commit` 终于获得了 **100 Star**
+
+感谢各位支持，继续加油~
+
+## 2022-09-16
+
+按需引入也解决了，问题出在了 `import * as components from './components'` 这句代码上，又新建了一个新的入口文件就解决了这个问题。
+
+现在基础的组件都写的差不多了，现在开始向表单的方向上发展，目前 `input` 和 `select` 准备进行中，配件都写好了之后，就差不多可以写表单了~
+
+最近的 `Star` 增加了不少，也得到了不少人的认可，继续加油~😊😊😊
+
+## 2022-08-20
+
+在 [0.6.2-alpha.2](https://github.com/FightingDesign/fighting-design/releases/tag/0.6.2-alpha.2) 的版本中，已经将目前已知的打包问题全部解决了。
+
+打包这个东西，真的是一不一个坎坷。
+
+## 2022-08-08
+
+最近我们新增了很多新组件，感觉还不错，今天我将项目整体大幅度改动了很多，修复了之前的一些打包的问题，这次的打包个人感觉还是比较满意的，详情可以查看 [0.5.0-bate.1](https://github.com/FightingDesign/fighting-design/releases/tag/0.5.0-bate.1)。
+
 ## 2022-06-12
 
 最近陆续的增加了 `Badge 角标`、`Divider 分隔线`、`FContainer布局容器` 组件，目前组件开发一直还算是非常顺利，只不过打包就没那么顺利了。
@@ -30,4 +60,4 @@
 
 ## 2022-04-24
 
-仓库第一次 [commit](https://github.com/Tyh2001/fighting-design/tree/bd0244a6fb0d71e4a99b0c9416b5cc253bbcc096)，就在这一天 `Fighting Design` 诞生！
+仓库第一次 [commit](https://github.com/FightingDesign/fighting-design/tree/bd0244a6fb0d71e4a99b0c9416b5cc253bbcc096)，就在这一天 `Fighting Design` 诞生！

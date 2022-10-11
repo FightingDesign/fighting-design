@@ -1,8 +1,8 @@
 # Text 文字
 
-`Text` 是一段可配置灵活的文字
+让文字活起来
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/text)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/text)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/text.md)
 
 ## 基本使用
@@ -30,8 +30,6 @@
 ## 不同大小
 
 `size` 属性可以配置不同大小的 `text`
-
-`size` 必须写入指定的数值和单位才可以正常工作
 
 <f-text size="12px" type="primary">主要文字</f-text>
 <f-text size="16px" type="success">成功文字</f-text>
@@ -67,7 +65,7 @@
 
 ## 背景颜色
 
-如果你希望文字带上背景颜色，你可以使用 `background` 属性自定义你的 `text` 背景颜色
+如果你希望文字带上背景颜色，你可以使用 `background` 属性自定义背景颜色
 
 <f-text background="#58c8de">背景颜色</f-text>
 <f-text background="#e372ff">背景颜色</f-text>
@@ -103,9 +101,7 @@
 
 ## 字间距
 
-使用 `spacing` 属性可增加或减少字符间的空白（字符间距）
-
-`spacing` 必须写入指定的数值和单位才可以正常工作
+使用 `spacing` 属性自定义字间距
 
 <f-text type="primary" spacing="10px" block>小间距</f-text>
 <f-text type="success" spacing="20px" block>中等间距</f-text>
@@ -117,46 +113,24 @@
 <f-text type="primary" spacing="10px" block>小间距</f-text>
 <f-text type="success" spacing="20px" block>中等间距</f-text>
 <f-text type="danger" spacing="30px" block>大间距</f-text>
-```
-
-:::
-
-## 行高
-
-使用 `line-height` 属性可设置行间的距离（行高）
-
-`line-height` 必须写入指定的数值和单位才可以正常工作
-
-<f-text type="primary" line-height="30px" block>文字</f-text>
-<f-text type="success" line-height="50px" block>文字</f-text>
-<f-text type="danger" line-height="70px" block>文字</f-text>
-
-::: details 显示代码
-
-```html
-<f-text type="primary" line-height="30px" block>文字</f-text>
-<f-text type="success" line-height="50px" block>文字</f-text>
-<f-text type="danger" line-height="70px" block>文字</f-text>
 ```
 
 :::
 
 ## 缩进量
 
-使用 `text-indent` 属性规定文字块中首行文字的缩进
+使用 `indent` 属性规定文字块中首行文字的缩进
 
-`text-indent` 必须写入指定的数值和单位才可以正常工作
-
-<f-text type="primary" text-indent="30px" block>文字</f-text>
-<f-text type="success" text-indent="50px" block>文字</f-text>
-<f-text type="danger" text-indent="70px" block>文字</f-text>
+<f-text type="primary" indent="30px" block>文字</f-text>
+<f-text type="success" indent="50px" block>文字</f-text>
+<f-text type="danger" indent="70px" block>文字</f-text>
 
 ::: details 显示代码
 
 ```html
-<f-text type="primary" text-indent="30px" block>文字</f-text>
-<f-text type="success" text-indent="50px" block>文字</f-text>
-<f-text type="danger" text-indent="70px" block>文字</f-text>
+<f-text type="primary" indent="30px" block>文字</f-text>
+<f-text type="success" indent="50px" block>文字</f-text>
+<f-text type="danger" indent="70px" block>文字</f-text>
 ```
 
 :::
@@ -225,25 +199,39 @@
 
 ## Attributes
 
-| 参数          | 说明                                                                           | 类型    | 可选值                                           | 默认值  |
-| ------------- | ------------------------------------------------------------------------------ | ------- | ------------------------------------------------ | ------- |
-| `type`        | 类型                                                                           | string  | `default` `primary` `success` `danger` `warning` | primary |
-| `size`        | 文字大小，必须写入指定的数值和单位                                             | string  | ——                                               | ——      |
-| `color`       | 字体颜色                                                                       | string  | ——                                               | ——      |
-| `background`  | 背景颜色                                                                       | string  | ——                                               | #FFF    |
-| `block`       | 是否独占一行                                                                   | boolean | ——                                               | false   |
-| `spacing`     | 字符间距，必须写入指定的数值和单位                                             | string  | ——                                               | ——      |
-| `line-height` | 行高，必须写入指定的数值和单位                                                 | string  | ——                                               | ——      |
-| `text-indent` | 首行文字的缩进量，必须写入指定的数值和单位                                     | string  | ——                                               | ——      |
-| `bold`        | 文字是否以粗体显示                                                             | boolean | ——                                               | false   |
-| `decoration`  | 文字的修饰，例如：上划线(overline)、中划线(line-through)、下划线(underline)等  | string  | ——                                               | ——      |
-| `padding`     | 定义元素边框与元素内容之间的空间，即上下左右的内边距，必须写入指定的数值和单位 | string  | ——                                               | ——      |
+| 参数          | 说明               | 类型            | 可选值                                           | 默认值  |
+| ------------- | ------------------ | --------------- | ------------------------------------------------ | ------- |
+| `type`        | 类型               | string          | `default` `primary` `success` `danger` `warning` | default |
+| `size`        | 文字大小           | string / number | ——                                               | 15px    |
+| `color`       | 字体颜色           | string          | ——                                               | ——      |
+| `background`  | 背景颜色           | string          | ——                                               | ——      |
+| `block`       | 是否独占一行       | boolean         | ——                                               | false   |
+| `spacing`     | 字间距             | string / number | ——                                               | ——      |
+| `line-height` | 行高               | string / number | ——                                               | 1       |
+| `indent`      | 首字符缩进量       | string / number | ——                                               | ——      |
+| `bold`        | 文字是否以粗体显示 | boolean         | ——                                               | false   |
+| `decoration`  | 文字的修饰         | string          | `overline` `line-through` `underline`            | ——      |
+| `padding`     | 内边距             | string / number | ——                                               | 0       |
+| `center`      | 是否居中           | boolean         | ——                                               | false   |
 
 ## Slots
 
 | 名称      | 说明        |
 | --------- | ----------- |
 | `default` | text 的内容 |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  TextInstance,
+  TextPropsType,
+  TextType,
+  TextDecorationType
+} from 'fighting-design'
+```
 
 ## Contributors
 

@@ -2,7 +2,7 @@
 
 `Tooltip` 消息信息提示组件
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/tooltip)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tooltip)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tooltip.md)
 
 ## 基本使用
@@ -115,21 +115,36 @@
 
 ## Attributes
 
-| 参数       | 说明             | 类型    | 可选值                        | 默认值 |
-| ---------- | ---------------- | ------- | ----------------------------- | ------ |
-| `content`  | 提示内容         | string  | ——                            | bottom |
-| `position` | 弹出方向         | string  | `top` `bottom` `right` `left` | bottom |
-| `disabled` | 是否禁用         | boolean | ——                            | false  |
-| `state`    | 展示状态         | string  | `hover` `active` `always`     | hover  |
-| `no-arrow` | 是否显示箭头     | boolean | ——                            | false  |
-| `bold`     | 是否加粗文字     | boolean | ——                            | false  |
-| `bright`   | 是否使用浅色主题 | boolean | ——                            | false  |
+| 参数         | 说明             | 类型    | 可选值                        | 默认值 |
+| ------------ | ---------------- | ------- | ----------------------------- | ------ |
+| `content`    | 提示内容         | string  | ——                            | bottom |
+| `position`   | 弹出方向         | string  | `top` `bottom` `right` `left` | bottom |
+| `disabled`   | 是否禁用         | boolean | ——                            | false  |
+| `state`      | 展示状态         | string  | `hover` `active` `always`     | hover  |
+| `no-arrow`   | 是否显示箭头     | boolean | ——                            | false  |
+| `bold`       | 是否加粗文字     | boolean | ——                            | false  |
+| `bright`     | 是否使用浅色主题 | boolean | ——                            | false  |
+| `background` | 自定义背景色     | string  | ——                            | ——     |
+| `fontColor`     | 自定义文字颜色   | string  | ——                            | ——     |
 
 ## Slots
 
 | 名称      | 说明     |
 | --------- | -------- |
 | `default` | 默认插槽 |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  TooltipInstance,
+  TooltipPropsType,
+  TooltipPositionType,
+  TooltipStateType
+} from 'fighting-design'
+```
 
 ## Contributors
 

@@ -1,0 +1,85 @@
+@import '../config/const-color.scss';
+
+.f-radio-group {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  column-gap: 22px;
+
+  // 纵向排列
+  &.f-radio-group-vertical {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  &.f-radio-group-large {
+    .f-radio {
+      padding: 0 30px;
+      font-size: 17px;
+      height: 40px;
+
+      .f-radio-text {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &.f-radio-group-middle {
+    .f-radio {
+      padding: 0 25px;
+      font-size: 16px;
+      height: 35px;
+
+      .f-radio-text {
+        font-size: 15px;
+      }
+    }
+  }
+
+  &.f-radio-group-small {
+    .f-radio {
+      padding: 0 20px;
+      font-size: 15px;
+      height: 30px;
+
+      .f-radio-text {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &.f-radio-group-mini {
+    .f-radio {
+      padding: 0 15px;
+      font-size: 14px;
+      height: 25px;
+
+      .f-radio-text {
+        font-size: 13px;
+      }
+    }
+  }
+
+  // 边框
+  &.f-radio-group-border {
+    column-gap: 0;
+    row-gap: 0;
+
+    .f-radio {
+      border: 1px solid #dee5fd;
+
+      &.f-radio-checked {
+        border-color: $primary;
+      }
+
+      &.f-radio-disabled {
+        border: 1px solid #d7d7d7;
+
+        .f-radio-circle {
+          border-color: #d7d7d7;
+        }
+      }
+    }
+  }
+}

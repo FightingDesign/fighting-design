@@ -2,7 +2,7 @@
 
 在浏览器中使用抽屉
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/drawer)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/drawer)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/drawer.md)
 
 ## 基本使用
@@ -157,6 +157,14 @@ fighting-design
 | 名称      | 说明     |
 | --------- | -------- |
 | `default` | 默认内容 |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { FDrawerInstance, drawerDirectionType } from 'fighting-design'
+```
 
 ## Contributors
 

@@ -1,6 +1,342 @@
 # CHANGELOG
 
+> English documents are not synchronized in time most of the time. Please refer to Chinese documents for details.
+
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
+
+## 0.7.0-alpha.4 (2022-10-11)
+
+- Add `checkbox` component
+- Add `rate` component
+- Revoke the `f-radio-group` component `circle` configuration item
+- Repair the `f-radio` component `border` status, disable style details
+- Optimize the semantic properties of some components
+
+## 0.7.0-alpha.3 (2022-10-06)
+
+- Update `umd` packaging entry
+- Optimize the implementation of `f-icon` component style
+- `f-link` component class name specification optimization
+- Optimize the internal implementation of `f-link` components
+- Optimize the internal implementation of `f-text` components
+- The `f-text` component `size` `spacing` `line-height` `text-indent` `padding` `width` attribute supports the `number` type parameter
+- Change the attribute of `f-text` component `text-indent` to `indent``
+- `f-text` Internal Export New Type `TextDecorationType`
+
+## 0.7.0-alpha.2 (2022-09-29)
+
+- Fix some component type specification problems
+
+## 0.7.0-alpha.1 (2022-09-27)
+
+**fix**
+
+- Fix the default value of the `f-button` component `font-color`
+- Fix the default value of `f-button` component `font-size`
+
+**fest**
+
+- `f-back-top` component `right` `bottom` configuration item supports `number` type
+- `f-image` component `round` configuration item supports `number` type
+- `f-image` component cancels `caption` and `caption-color` configuration items
+- `f-watermark` component `font-size` configuration item supports `number` type parameter
+- `f-progress` component `width` `height` configuration item supports `number` type parameter
+- `f-alert` component cancels `fixed-style` configuration item
+- `f-alert` component `font-size` configuration item supports `number` type parameter
+- The default value of `f-alert` component `type` is changed to `default`
+- The default value of `f-alert` component `font-size` is changed to `15px`
+- The `f-alert` component adds `title-size` and `title-color` attributes
+- `f-alert` component `overflow` configuration item removal `ellipsis` option
+- Default value for adding `f-footer` component `height` `padding` configuration item
+- `f-header` component `height` `padding` add default value for configuration item
+- Default value for adding `f-main` component `padding` configuration item
+- `f-toolbar` component cancels `fixed-style` configuration item
+
+**perf**
+
+- Optimized `props` prompt of components
+- New Type Export
+- Optimize the implementation of partial styles of `f-avatar` components to reduce code overhead
+- Optimize the implementation of `f-back-top` component styles to reduce code overhead
+- Optimize the `props` default value of the `f-back-top` component
+- Optimize the implementation of `f-badge` component style
+
+## 0.6.5-alpha.5 (2022-09-25)
+
+**fest**
+
+- Add `sticky-card` component
+- The `f-list` component adds `header` and `footer` slots
+- Optimize the performance of `f-button` components
+
+**fix**
+
+- Fix some date display errors in the `f-calendar` component
+
+## 0.6.5-alpha.4 (2022-09-23)
+
+**fix**
+
+- Fix the problem of `f-image review` and `f-calendar` component content being imported on demand
+
+## 0.6.5-alpha.3 (2022-09-22)
+
+**fest**
+
+- `f-header` component adds a `padding` type
+- The `height` attribute of the `f-header` component supports the `number` type
+- `f-footer` component adds`padding`configuration item
+- The `height` attribute of the `f-footer` component supports the `number` type
+- The `padding` attribute of the `f-main` component supports the `number` type
+- The `width` attribute of the `f-aside` component supports the `number` type
+- `f-aside` component adds a `padding` configuration item
+
+**fix**
+
+- Fix the packaging type error caused by component `name`
+
+## 0.6.5-alpha.2 (2022-09-21)
+
+- Add `f-calendar` component
+- The `size` attribute of the `f-text` component supports the `number` type
+- New component type export
+
+## 0.6.5-alpha.1 (2022-09-16)
+
+- Add `f-expand-card` component
+- Optimize `f-toolbar-item` and `f-toolbar` component style details
+- `f-toolbar-item` Add `data-key` `icon` `icon size` configuration item
+- `f-toolbar` Add `click` callback parameter
+- `f-toolbar` is compatible with Apple `Safari `click failure
+- `f-toolbar` component cancels`vague`configuration item
+
+## 0.6.4-alpha.10 (2022-09-14)
+
+- Test Repair On Demand Import
+
+## 0.6.4-alpha.9 (2022-09-14)
+
+- Test Repair On Demand Import
+
+## 0.6.4-alpha.8 (2022-09-14)
+
+- Test Repair On Demand Import
+
+## 0.6.4-alpha.7 (2022-09-14)
+
+**fix**
+
+- Fix the `hover` and `disabled` styles of the `f-button` component`s custom colors
+- Fix `f-page-header` component style details
+- Fix `f-button` component `text` configuration item style details
+- Fix some problems with the `width` attribute of the `f-image` component
+
+**fest**
+
+- The `size` attribute of the `f-icon` component supports the `number` type
+- The `font size` attribute of the `f-button` component supports the `number` type
+- The `f-image ` component `root-margin` `width` `height` attributes support the `number` type
+- The `f-avatar` component `rootMargin` attribute supports the `number` type
+- Add `f-image preview` component
+- `click ` callback added to `f-image` component
+
+**other**
+
+- Abolish the `title-class` and` subtitle-class` configuration items of `f-page-header`
+- The `f-lint` component `left icon` `right-icon` configuration item is renamed to `before-icon` `after-icon`
+- The `f-button` component `left icon` `right-icon` configuration item is renamed to `before-icon` `after-icon`
+- The `f-tag` component `left-icon` `right-icon` configuration item is renamed to `before-icon` `after-icon`
+- The `text-color` `text-size` configuration item of the `f-loading` component is renamed to `font-color` `font-size`
+- `f-empty` component revokes`style list`configuration item
+- Split `f-empty` components
+- Optimize `f-avatar` style details
+- The `f-image` component cancels clicking the big picture preview function, which is separated from the `f-image preview` component
+- `f-image` Component Revocation Attribute: `module-close` `show-close-btn` `preview-list` `preview-show-index` `preview-z-index` `preview-show option` `preview-round`
+- Test Repair On Demand Import
+
+## 0.6.4-alpha.6 (2022-09-11)
+
+**fest**
+
+- Add `f-ripple` ripple component
+- Add `f-radio` `f-radio-group` component
+
+**fix**
+
+- Fix `f-button` and `f-loading` animation style problems
+- Fix the problem that the feed height of `f-list-item` is not adaptive
+
+## 0.6.4-alpha.5 (2022-09-06)
+
+- Test and repair side effect component registration
+
+## 0.6.4-alpha.4 (2022-09-06)
+
+- Test and repair side effect component registration
+
+## 0.6.4-alpha.3 (2022-09-05)
+
+- Test and repair side effect component registration
+
+## 0.6.4-alpha.2 (2022-09-05)
+
+- Test and repair side effect component registration
+
+## 0.6.4-alpha.1 (2022-09-03)
+
+- Fix type
+
+## 0.6.3-alpha.3 (2022-09-03)
+
+- 修复了部分组件类型
+- 修复了按需引入仍然全部打包的问题
+
+## 0.6.3-alpha.2 (2022-09-02)
+
+- Fix config file
+- A bug fixed in `vitepress`
+
+## 0.6.3-alpha.1 (2022-09-02)
+
+- Fixed issues related to package import
+- However, there are still problems in `vitepress`, which can be used normally in normal projects
+
+## 0.6.2-alpha.10 (2022-09-02)
+
+- Test and repair problems introduced by build
+
+## 0.6.2-alpha.9 (2022-09-02)
+
+- Test and repair problems introduced by build
+
+## 0.6.2-alpha.8 (2022-09-02)
+
+- Test and repair problems introduced by build
+
+## 0.6.2-alpha.7 (2022-09-02)
+
+- Test and repair problems introduced by build
+
+## 0.6.2-alpha.6 (2022-08-31)
+
+- Fix some known introduction related configuration problems
+
+## 0.6.2-alpha.5 (2022-08-30)
+
+**fest**
+
+- Add `f-loading-bar` component
+- Add `notification` component
+
+**fix**
+
+- Repair button component style
+- Update the default value of the `shadow` parameter of the `f-card` component. Now changed to `never`
+
+## 0.6.2-alpha.4 (2022-08-29)
+
+**fest**
+
+-New ` title` configuration item for `f-image` component
+
+**fix**
+
+- Fix `F-card` component style details
+- Fix some style related details of `f-skeleton`
+
+## 0.6.2-alpha.3 (2022-08-28)
+
+- Add `f-skeleton` skeleton screen component
+- Optimize the fillet style of `f-button` `f-alert` components
+- Optimize `f-alert` style details
+- Optimize the `overflow` configuration item of the `f-alert` component
+- Remove the `Roll` optional parameter of the `overflow` configuration item of the `f-alert` component
+- Remove the `f-novel-coronavirus` component
+- Fix the problem of `load` image loading class loading loop
+- Optimize the tear pattern during the loading of the `f-image` component
+
+## 0.6.2-alpha.2 (2022-08-20)
+
+- Fix known packaging issues
+
+## 0.6.2-alpha.1 (2022-08-20)
+
+- Repair button ripple effect class
+- Fix known packaging issues
+
+## 0.6.1 (2022-08-19)
+
+- Optimize `f-list` components
+- Fix `F-card` component style details
+- Update color number details of `success` and`warning`
+- Add `f-empty` empty status component
+- Optimize the implementation of `hover` and `active` of button custom color configuration items
+- The `f-tooltip` component adds`background`and `font-color`configuration items
+- Optimize picture loading class
+- `F-avatar` adds error handling slots and error handling prompts
+- Optimize `f-avatar` loading details
+- New `load animation`configuration item for `f-avatar` component
+- Optimize the logic of the `f-drawer` part that causes the document package to report an error
+- Added `hooks` to extract the parameters of some classes and functions, and optimized the performance of `f-image` `f-avatar` `f-button` and `f-watermark` components
+- The `f-button` optimizes the ripple effect in the singleton mode
+
+## 0.6.0-bate.2 (2022-08-11)
+
+- Update entry file
+
+## 0.6.0-bate.1 (2022-08-11)
+
+- Change the file name introduction method of the style sheet
+- Repair packaging configuration item
+
+## 0.5.1-bate.5 (2022-08-10)
+
+- `F-alert` style Introduction
+- `F-text` detail style optimization
+- Add version number export
+- Update the type of prop
+
+## 0.5.1-bate.4 (2022-08-09)
+
+- Test and fix the problem of path error introduced by packaging
+
+## 0.5.1-bate.3 (2022-08-09)
+
+- Test and fix the problem of path error introduced by packaging
+
+## 0.5.1-bate.2 (2022-08-09)
+
+- Test and fix the problem of path error introduced by packaging
+
+## 0.5.1-bate.1 (2022-08-09)
+
+- Fixed issues related to packaging type
+
+## 0.5.0-bate.2 (2022-08-08)
+
+- Fixed issues related to packaging type
+
+## 0.5.0-bate.1 (2022-08-08)
+
+It mainly fixes the related configuration items of packaging. In the [previous version](<(https://github.com/FightingDesign/fighting-design/releases/tag/0.4.2-bate.9)>), if you need to import components on demand, there will be many abnormal error messages. This version is mainly optimized for packaging and has fixed the fatal error caused by on-demand import.
+
+The directory structure has also been optimized to a great extent. Previously, the utils directory was separated from the component, but now it is also the same level as the component, just for better packaging.
+
+## 0.4.2-bate.9 (2022-07-04)
+
+**fest**
+
+- `alert` component added `fixed` and `fixed style` configuration items
+- Add `f-list` component
+- Add `f-list-item` component
+- New `message` component
+- `F-text` component adds `center` configuration item
+- New `f-watermark` component
+
+**fix**
+
+- Repair `f-tag` component style details
+- Optimize `F-card` component detail style
 
 ## 0.4.2-bate.8 (2022-07-23)
 

@@ -1,0 +1,44 @@
+.f-expand-card {
+  display: flex;
+  height: 300px;
+
+  // 子元素
+  .f-expand-card-item {
+    flex: 0.5;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.5s ease-in;
+    overflow: hidden;
+
+    // 圆角
+    &.f-expand-card-round {
+      border-radius: 20px;
+    }
+
+    .f-expand-card-title {
+      font-size: 16px;
+      color: #fff;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      transition: opacity 0.2s;
+      opacity: 0;
+    }
+
+    &.f-expand-card-active {
+      flex-grow: 3;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      .f-expand-card-title {
+        opacity: 1;
+      }
+    }
+  }
+}

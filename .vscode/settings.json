@@ -1,10 +1,34 @@
 {
+  // "editor.formatOnSave": true, // 保存自动格式化
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.vueIndentScriptAndStyle": false,
+  "eslint.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.quiet": false,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "cSpell.words": [
     "alearance",
     "alicdn",
     "arro",
     "ashbin",
     "aspjiesuan",
+    "atou",
     "attachent",
     "banzhengfuwu",
     "becomeagoldsupplier",
@@ -15,6 +39,7 @@
     "centeralignment",
     "checkstand",
     "clould",
+    "Codecov",
     "commitlint",
     "composables",
     "copyfont",
@@ -35,6 +60,7 @@
     "Exportservices",
     "falg",
     "fangda",
+    "fflate",
     "Foreigncurrency",
     "Gerenate",
     "goumaipianhao",
@@ -55,10 +81,12 @@
     "messagecenter",
     "minifont",
     "Moneymanagement",
+    "Mousewheel",
     "namecard",
     "Neumorphism",
     "Newuserzone",
     "nightmode",
+    "noncharacter",
     "Notvisible",
     "ontimeshipment",
     "Parens",
@@ -86,6 +114,7 @@
     "staplefood",
     "suoxiao",
     "supplie",
+    "tabindex",
     "tada",
     "tongguan",
     "tongxunlu",
@@ -95,9 +124,14 @@
     "tradingdata",
     "tradingvolume",
     "Transfermoney",
+    "treeshake",
     "tvue",
+    "typeof",
     "unplugin",
+    "unref",
     "usercenter",
+    "utoa",
+    "vconsole",
     "vehivles",
     "Vetur",
     "viewgallery",
@@ -117,27 +151,7 @@
     "zhankai",
     "zijin"
   ],
-  // "editor.formatOnSave": true, // 保存自动格式化
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.vueIndentScriptAndStyle": false,
-  "eslint.enable": true,
-  "eslint.lintTask.enable": true,
-  "eslint.quiet": false,
-  "eslint.probe": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue"
-  ],
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue"
-  ],
-  "[css]": {
+  "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

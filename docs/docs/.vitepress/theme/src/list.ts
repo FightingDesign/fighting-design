@@ -24,14 +24,7 @@ export const bottomList = [
     title: '关于我',
     item: [
       { text: 'Tyh2001', link: 'https://tianyuhao.cn' },
-      { text: 'Blog', link: 'https://tianyuhao.cn/blog' }
-    ]
-  },
-  {
-    title: '其它开源',
-    item: [
-      { text: 'Tyh Ui', link: 'https://tianyuhao.cn/v3' },
-      { text: 'TsMango', link: 'https://tianyuhao.cn/mango' }
+      { text: 'Blog', link: 'https://blog.tianyuhao.cn' }
     ]
   },
   {
@@ -54,14 +47,5 @@ export const bottomList = [
         link: 'https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md'
       }
     ]
-  }
-] as const
-
-// 合作者
-export const collaborator = [
-  {
-    name: '田同学',
-    photo: 'https://avatars.githubusercontent.com/u/73180970?v=4',
-    url: 'https://github.com/Tyh2001'
   }
 ] as const

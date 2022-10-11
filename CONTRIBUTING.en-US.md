@@ -1,5 +1,7 @@
 # CONTRIBUTING
 
+> English documents are not synchronized in time most of the time. Please refer to Chinese documents for details.
+
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
 
 ## Write in front
@@ -9,6 +11,12 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 I am glad that you are interested in contributing to `Fighting Design`. Before submitting your contribution, be sure to take a moment to read the following guidelines.
 
 There may be many specifications, but most of them are small specifications. Please read them carefully.
+
+## Plagiarism is prohibited
+
+As we all know, there are many component libraries on the market. Many of the new components we need to develop have already been developed on the market, but do not directly copy other third-party source codes for use!
+
+Developing a component library is a process of learning and progress. Don't just add components for the sake of adding new components. I hope that participants can learn something in the process of adding new components to improve their skills. If you encounter difficulties with a certain function in the development stage, you can initiate a [discussions](https://github.com/FightingDesign/fighting-design/discussions), or you can contact me directly or ask for help in the group. Of course, it is also possible to learn and refer to other open source libraries. I just hope that when you write, you have understood the problem and practice it yourself.
 
 ## Start project
 
@@ -20,7 +28,7 @@ Before you make a contribution, you need to run the `Fighting Design` project. T
 If you are ready, you can skip directly and start from here:
 
 - `Fork` [fighting-design](https://github.com/FightingDesign/fighting-design)
-- `Clone Fork` items locally
+- `Clone fork` items locally
 
 Next, execute the command:
 
@@ -40,56 +48,27 @@ pnpm start
 There are many commands set in `Fighting Design`,You can see in [package.json](https://github.com/FightingDesign/fighting-design/blob/master/package.json):
 
 ```json
-"scripts": {
- "clean": "rimraf dist",
-  "start": "pnpm run -C start dev",
-  "dev:docs": "pnpm run -C docs dev",
-  "build": "pnpm clean && vite build && pnpm build:theme && pnpm move",
-  "build:theme": "vite build --config vite.config.theme.ts",
-  "build:docs": "pnpm run -C docs build",
-  "build:start": "pnpm run -C start build",
-  "move": "node script/moveFile.ts",
-  "test": "vitest",
-  "prettier": "prettier --write .",
-  "commit": "cz"
-},
-```
-
-下面详细介绍每一条命令
-
-```shell
-# 清除 dist
-pnpm clean
-
-# 启动开发测试项目
-pnpm start
-
-# 启动文档项目
-pnpm dev:docs
-
-# 打包（主要的打包，打包之后就是需要发布的包）
-pnpm build
-
-# 打包组件样式主题
-pnpm build:theme
-
-# 打包文档
-pnpm build:docs
-
-# 运行打包后的文档
-pnpm serve:docs
-
-# 打包开发测试项目
-pnpm build:start
-
-# 单元测试
-pnpm test
-
-# 代码格式化
-pnpm prettier
-
-# 启用提交插件
-pnpm commit
+  "scripts": {
+    "clean": "rimraf dist",
+    "start": "pnpm run -C start dev",
+    "dev:docs": "pnpm run -C docs dev",
+    "build": "pnpm clean && pnpm build:css && vite build && pnpm build:lib && pnpm build:umd && pnpm build:theme && pnpm move",
+    "build:es": "vite build --config vite.config.ts",
+    "build:lib": "vite build --config vite.config.lib.ts",
+    "build:umd": "vite build --config vite.config.umd.ts",
+    "build:css": "vite build --config vite.config.css.ts",
+    "build:theme": "vite build --config vite.config.theme.ts",
+    "build:docs": "pnpm run -C docs build",
+    "serve:docs": "pnpm run -C docs serve",
+    "build:start": "pnpm run -C start build",
+    "move": "node script/move.ts",
+    "new": "pnpm run -C packages/add-component new",
+    "test": "vitest",
+    "prettier": "prettier --write .",
+    "commit": "cz",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
 ```
 
 ## Development specification
@@ -98,14 +77,9 @@ The main source files are in the `fighting-design/packages` directory, and each 
 
 **The detailed specifications are listed in the following links. Do not ignore the following links!!!**
 
-- [fighting-components](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-components/README.md) Component source file directory
-- [fighting-test](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-test/README.md) Unit test directory
+- [fighting-design](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/README.md) Component source file directory
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) Style theme catalog
-- [fighting-utils](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-utils/README.md) Tool function directory
-
-The following is about the document specification:
-
-- [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md)
+- [Docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md) Document preparation specification
 
 ## Commit specification
 
@@ -152,9 +126,7 @@ Therefore, before submitting `PR`, please be sure to **pull the latest code, pul
 
 ## Common problem
 
-Please refer to [COMMON_PROBLEM](https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md)
-
-You can also contact [me](https://github.com/Tyh2001/Tyh2001) directly
+Please refer to [COMMON_PROBLEM.md](https://github.com/FightingDesign/fighting-design/blob/master/.github/COMMON_PROBLEM.md), You can also contact [me](https://github.com/Tyh2001/Tyh2001) directly.
 
 ## Financial contribution
 

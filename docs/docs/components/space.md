@@ -2,7 +2,7 @@
 
 设置组件之间的间距。
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/space)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/space)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/space.md)
 
 ## 基本使用
@@ -124,6 +124,14 @@
 | `wrap`       | 是否换行       | boolean | ——                              | true   |
 | `row-gap`    | 自定义纵向间距 | string  | ——                              | ——     |
 | `column-gap` | 自定义横向间距 | string  | ——                              | ——     |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { FSpaceInstance, spaceSizeType } from 'fighting-design'
+```
 
 ## Contributors
 

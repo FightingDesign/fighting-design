@@ -6,9 +6,10 @@
 
 .f-icon {
   font-family: 'f-icon' !important;
-  font-size: 16px;
+  font-size: var(--f-icon-font-size, 16px);
   line-height: 1;
   font-style: normal;
+  color: var(--f-icon-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

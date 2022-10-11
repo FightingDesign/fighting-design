@@ -2,7 +2,7 @@
 
 `Progress` 是一个进度条，用于展示进度
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-components/progress)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/progress)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/progress.md)
 
 ## 基本使用
@@ -22,8 +22,8 @@
 <f-progress type="success" :percentage="num" linear />
 
 <f-button-group>
-  <f-button simple round type="primary" left-icon="f-icon-sami-select" @click="sun" />
-  <f-button simple round type="primary" left-icon="f-icon-add-select" @click="add" />
+  <f-button simple round type="primary" before-icon="f-icon-sami-select" @click="sun" />
+  <f-button simple round type="primary" before-icon="f-icon-add-select" @click="add" />
 </f-button-group>
 
 ::: details 显示代码
@@ -43,14 +43,14 @@
       simple
       round
       type="primary"
-      left-icon="f-icon-sami-select"
+      before-icon="f-icon-sami-select"
       @click="sun"
     />
     <f-button
       simple
       round
       type="primary"
-      left-icon="f-icon-add-select"
+      before-icon="f-icon-add-select"
       @click="add"
     />
   </f-button-group>
@@ -142,24 +142,24 @@
 
 `stripe` 可以配置条纹样式
 
-<f-progress stripe type="primary" :percentage="num" />
-<f-progress stripe type="success" :percentage="num" />
-<f-progress stripe type="danger" :percentage="num" />
-<f-progress stripe type="warning" :percentage="num" />
+<f-progress :height="25" stripe type="primary" :percentage="num" />
+<f-progress :height="25" stripe type="success" :percentage="num" />
+<f-progress :height="25" stripe type="danger" :percentage="num" />
+<f-progress :height="25" stripe type="warning" :percentage="num" />
 
 <f-button-group>
-  <f-button simple round type="primary" left-icon="f-icon-sami-select" @click="sun" />
-  <f-button simple round type="primary" left-icon="f-icon-add-select" @click="add" />
+  <f-button simple round type="primary" before-icon="f-icon-sami-select" @click="sun" />
+  <f-button simple round type="primary" before-icon="f-icon-add-select" @click="add" />
 </f-button-group>
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-progress stripe type="primary" :percentage="num" />
-  <f-progress stripe type="success" :percentage="num" />
-  <f-progress stripe type="danger" :percentage="num" />
-  <f-progress stripe type="warning" :percentage="num" />
+  <f-progress :height="25" stripe type="primary" :percentage="num" />
+  <f-progress :height="25" stripe type="success" :percentage="num" />
+  <f-progress :height="25" stripe type="danger" :percentage="num" />
+  <f-progress :height="25" stripe type="warning" :percentage="num" />
 
   <f-button-group>
     <f-button
@@ -202,29 +202,43 @@
 
 ## Attributes
 
-| 参数          | 说明                         | 类型    | 可选值                                 | 默认值  |
-| ------------- | ---------------------------- | ------- | -------------------------------------- | ------- |
-| `progress`    | 百分比                       | number  | `0 ~ 100`                              | 0       |
-| `type`        | 进度条状态                   | string  | `primary` `success` `warning` `danger` | primary |
-| `width`       | 自定义宽度                   | string  | ——                                     | ——      |
-| `height`      | 自定义高度                   | string  | ——                                     | `6px`   |
-| `square`      | 方形                         | boolean | ——                                     | false   |
-| `linear`      | 线性                         | boolean | ——                                     | false   |
-| `show-text`   | 是否显示百分比文字内容       | boolean | ——                                     | true    |
-| `text-inside` | 百分比文字是否在进度条内显示 | boolean | ——                                     | false   |
-| `text-color`  | 百分比文字的颜色             | string  | ——                                     | ——      |
-| `color`       | 进度条颜色                   | string  | ——                                     | ——      |
-| `background`  | 进度条背景色                 | string  | ——                                     | ——      |
-| `stripe`      | 是否开启条纹效果             | boolean | ——                                     | false   |
+| 参数          | 说明                         | 类型            | 可选值                                 | 默认值  |
+| ------------- | ---------------------------- | --------------- | -------------------------------------- | ------- |
+| `progress`    | 百分比                       | number          | `0 ~ 100`                              | 0       |
+| `type`        | 进度条状态                   | string          | `primary` `success` `warning` `danger` | primary |
+| `width`       | 自定义宽度                   | string / number | ——                                     | ——      |
+| `height`      | 自定义高度                   | string / number | ——                                     | 6px     |
+| `square`      | 方形                         | boolean         | ——                                     | false   |
+| `linear`      | 线性                         | boolean         | ——                                     | false   |
+| `show-text`   | 是否显示百分比文字内容       | boolean         | ——                                     | true    |
+| `text-inside` | 百分比文字是否在进度条内显示 | boolean         | ——                                     | false   |
+| `text-color`  | 百分比文字的颜色             | string          | ——                                     | ——      |
+| `color`       | 进度条颜色                   | string          | ——                                     | ——      |
+| `background`  | 进度条背景色                 | string          | ——                                     | ——      |
+| `stripe`      | 是否开启条纹效果             | boolean         | ——                                     | false   |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  ProgressInstance,
+  ProgressPropsType,
+  ProgressType
+} from 'fighting-design'
+```
 
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
 <a href="https://github.com/ding139725" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/48934746?v=4" />
 </a>
+
 <a href="https://github.com/lzyaom" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/26430638?v=4" />
 </a>
