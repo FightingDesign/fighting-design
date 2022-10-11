@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FDrawer">
   import { Props, Emits } from './drawer'
   import { computed } from 'vue'
+  import { FIcon } from '../../icon'
   import type { CSSProperties, ComputedRef } from 'vue'
   import type {
     HandleEventInterface as a,
@@ -55,6 +56,7 @@
       @before-leave="close"
       @after-leave="closeEnd"
     >
+      <!-- 遮罩层 -->
       <div
         v-show="visible"
         :class="[
@@ -67,18 +69,34 @@
         :style="{ zIndex }"
         @click.self="handleClose"
       >
+        <!-- 抽屉 -->
         <div
           :class="['f-drawer', `f-drawer-${direction}`]"
           :style="drawerStyle"
         >
-          <header v-if="withHeader" class="f-drawer-header">
-            <span class="f-drawer-title">{{ title }}</span>
-            <i class="f-icon f-icon-close" @click.self="handleClose" />
+          <!-- 头部 -->
+          <header v-if="showHeader" class="f-drawer-header">
+            <slot name="title">
+              <div class="f-drawer-header-default">
+                <span class="f-drawer-title">{{ title }}</span>
+                <f-icon
+                  v-if="showCloseBtn"
+                  icon="f-icon-close"
+                  @click.self="handleClose"
+                />
+              </div>
+            </slot>
           </header>
 
+          <!-- 内容 -->
           <section class="f-drawer-body">
             <slot />
           </section>
+
+          <!-- 页脚 -->
+          <footer v-if="showFooter" class="f-drawer-footer">
+            <slot name="footer" />
+          </footer>
         </div>
       </div>
     </transition>

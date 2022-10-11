@@ -33,7 +33,15 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  withHeader: {
+  showHeader: {
+    type: Boolean,
+    default: (): boolean => true
+  },
+  showFooter: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  showCloseBtn: {
     type: Boolean,
     default: (): boolean => true
   },

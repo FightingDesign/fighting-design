@@ -26,60 +26,93 @@
     position: absolute;
     box-sizing: border-box;
     background: #fff;
-    display: flex;
     flex-direction: column;
     box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%),
       0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%);
     overflow: hidden;
     outline: 0;
+    display: flex;
+    flex-direction: column;
 
+    // 头部
     .f-drawer-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #72767b;
       padding: 20px;
-      padding-bottom: 0;
+      box-sizing: border-box;
 
-      .f-icon-close {
-        cursor: pointer;
+      .f-drawer-header-default {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        &:hover {
-          background: #eee;
-          color: $primary;
+        .f-drawer-title {
+          color: #72767b;
+        }
+
+        .f-icon-close {
+          cursor: pointer;
+          text-transform: 0.3s;
+
+          &:hover {
+            background: #eee;
+            color: $primary;
+          }
         }
       }
     }
 
+    // 身体
     .f-drawer-body {
       padding: 20px;
       overflow: auto;
+      height: 100%;
       box-sizing: border-box;
     }
 
+    // 页脚
+    .f-drawer-footer {
+      padding: 0 20px;
+      box-sizing: border-box;
+      background: red;
+    }
+
+    // 不同位置
     &.f-drawer-top {
       height: 100%;
       top: 0;
       left: 0;
       right: 0;
     }
+
     &.f-drawer-right {
       height: 100%;
       top: 0;
       bottom: 0;
       right: 0;
     }
+
     &.f-drawer-left {
       height: 100%;
       top: 0;
       bottom: 0;
       left: 0;
     }
+
     &.f-drawer-bottom {
       height: 100%;
       bottom: 0;
       left: 0;
       right: 0;
+    }
+
+    // 滚动条
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    // 滚动滑块
+    ::-webkit-scrollbar-thumb {
+      background: #dddddd;
+      border-radius: 6px;
     }
   }
 }
