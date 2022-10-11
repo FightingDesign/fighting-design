@@ -52,7 +52,7 @@ export class ReplStore implements Store {
       activeFile: files[mainFile],
       errors: [],
       vueRuntimeURL: this.defaultVueRuntimeURL,
-      fightingDesign: `${publicPath}es/index.mjs`
+      fightingDesign: `${publicPath}es/index.js`
     }) as unknown as StoreState
 
     this.initImportMap()
