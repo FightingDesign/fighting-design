@@ -5,7 +5,5 @@
 </script>
 
 <template>
-  <f-rate v-model="value3" text-show icon="f-icon-atm-fill" />
+  <f-rate v-model="value3" />
 </template>
-
-<style lang="scss" scoped></style>

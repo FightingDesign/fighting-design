@@ -2,10 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.7.0-alpha.4 (2022-10-11)
+
 - 新增 `checkbox` 组件
 - 新增 `rate` 组件
-- `f-radio-group` 组件废除 `circle` 配置项
+- 废除 `f-radio-group` 组件 `circle` 配置项
 - 修复 `f-radio` 组件 `border` 状态禁用样式细节
+- 优化部分组件语义化属性
 
 ## 0.7.0-alpha.3 (2022-10-06)
 

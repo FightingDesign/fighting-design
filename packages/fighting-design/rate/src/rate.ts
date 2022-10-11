@@ -23,10 +23,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  half: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  // half: {
+  //   type: Boolean,
+  //   default: (): boolean => false
+  // },
   icon: {
     type: String,
     default: (): string => 'f-icon-collection-fill'
