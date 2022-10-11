@@ -1,5 +1,8 @@
 .f-rate {
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
 
   .f-rate-list {
     margin: 0;
@@ -9,6 +12,19 @@
 
     .f-rate-star {
       cursor: pointer;
+
+      &:hover {
+        transition: 0.4s;
+        transform: scale(1.25);
+      }
+
+      .f-icon {
+        transition: background 0.4s;
+      }
     }
+  }
+
+  .f-text {
+    margin-left: 8px;
   }
 }
