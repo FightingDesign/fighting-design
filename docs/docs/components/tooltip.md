@@ -125,7 +125,7 @@
 | `bold`       | 是否加粗文字     | boolean | ——                            | false  |
 | `bright`     | 是否使用浅色主题 | boolean | ——                            | false  |
 | `background` | 自定义背景色     | string  | ——                            | ——     |
-| `bright`     | 自定义文字颜色   | string  | ——                            | ——     |
+| `fontColor`     | 自定义文字颜色   | string  | ——                            | ——     |
 
 ## Slots
 

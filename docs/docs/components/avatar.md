@@ -92,12 +92,14 @@
 
 `icon` 属性可以配置带有 `icon` 的图标头像
 
-当然你也可以设置背景色和 `icon` 的大小
+`background`属性可以配置背景色，`font-color`属性可以自定义图标颜色
 
-<f-avatar size="large" icon="f-icon-bussiness-man" background="skyblue" icon-size="35px" />
-<f-avatar size="middle" icon="f-icon-atm-away" icon-size="30px" icon-color="orange" round/>
-<f-avatar size="small" icon="f-icon-Customermanagement" icon-size="25px"/>
-<f-avatar size="mini" icon="f-icon-account" />
+`font-size`可以配置图标大小，后面必须要加入单位
+
+<f-avatar icon="f-icon-bussiness-man" background="skyblue" font-size="40px" />
+<f-avatar icon="f-icon-atm-away" font-color="orange" font-size="40px"/>
+<f-avatar icon="f-icon-Daytimemode" font-size="30px"/>
+<f-avatar icon="f-icon-Daytimemode" />
 
 ::: details 显示代码
 
