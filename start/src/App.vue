@@ -7,6 +7,7 @@
 <template>
   <f-rate
     v-model="value3"
+    half
     text-show
     :text-arr="['一', '二', '三', '四', '五']"
   />

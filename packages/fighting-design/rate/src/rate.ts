@@ -1,6 +1,10 @@
 import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
+  max: {
+    type: Number,
+    default: (): number => 5
+  },
   effectColor: {
     type: String,
     default: (): string => ''
@@ -13,10 +17,7 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  max: {
-    type: Number,
-    default: (): number => 5
-  },
+
   half: {
     type: Boolean,
     default: (): boolean => false

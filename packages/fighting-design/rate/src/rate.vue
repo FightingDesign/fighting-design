@@ -1,95 +1,57 @@
 <script lang="ts" setup name="FRate">
   import { Props, Emits } from './rate'
-  import { ref, watch } from 'vue'
-  import { sizeChange } from '../../_utils'
   import { FIcon } from '../../icon'
+  import { ref, watch } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const hoverIndex = ref(prop.modelValue)
+  const starValue = ref(prop.modelValue)
 
-  const handleClick = (i: number): void => {
-    if (prop.readonly) return
-    emit('update:modelValue', i)
-    emit('change', i)
+  // 反复移动时触发
+  const onMouseover = (index: number): void => {
+    starValue.value = index
   }
 
-  const handleMouseenter = (i: number): void => {
-    if (prop.readonly) return
-    hoverIndex.value = i
+  // 移出触发
+  const onMouseout = (): void => {
+    starValue.value = prop.modelValue
   }
 
-  const handleMouseleave = (): void => {
-    if (prop.readonly) return
-    hoverIndex.value = prop.modelValue
-  }
-
-  const handleDblclick = (i: number): void => {
-    if (!prop.doubleClear) return
-    if (i != 1) return
-    handleClick(0)
+  // 点击触发
+  const handleClick = (index: number): void => {
+    starValue.value = index
+    emit('update:modelValue', index)
+    emit('change', index)
   }
 
   watch(
     (): number => prop.modelValue,
     (): void => {
-      hoverIndex.value = prop.modelValue
+      starValue.value = prop.modelValue
     }
   )
 </script>
 
 <template>
   <div class="f-rate">
-    <div class="f-rate-row">
-      <div
-        v-for="i in max"
-        :key="i"
-        :class="[
-          'f-rate-item',
-          {
-            'f-rate-full': hoverIndex >= i,
-            'f-rate-half': hoverIndex === i - 0.5
-          }
-        ]"
-        @dblclick="handleDblclick(i)"
-        @mouseleave="handleMouseleave(i)"
+    <ul class="f-rate-list">
+      <li
+        v-for="(star, index) in max"
+        :key="index"
+        class="f-rate-star"
+        @mouseout="onMouseout"
+        @mouseover="onMouseover(index + 1)"
+        @click="handleClick(index + 1)"
       >
-        <div
-          class="f-rate-left"
-          @mouseenter="handleMouseenter(half ? i - 0.5 : i)"
-          @click="handleClick(half ? i - 0.5 : i)"
+        <f-icon
+          icon="f-icon-collection-fill"
+          :color="starValue > index ? '#fcc202' : '#eef'"
+          :size="25"
         />
-
-        <div
-          class="f-rate-right"
-          @mouseenter="handleMouseenter(i)"
-          @click="handleClick(i + 1)"
-        />
-
-        <div class="f-rate-item-bottom">
-          <f-icon
-            :size="sizeChange(size)"
-            :color="invalidColor"
-            icon="f-icon-collection"
-          />
-        </div>
-
-        <div class="f-rate-item-top">
-          <f-icon
-            :size="sizeChange(size)"
-            :color="effectColor"
-            icon="f-icon-collection-fill"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      v-if="textShow"
-      class="f-rate-text"
-      :style="{ color: textColor, fontSize: sizeChange(textSize) }"
-    >
-      {{ textArr[hoverIndex - 1] }}
-    </div>
+      </li>
+    </ul>
   </div>
 </template>
+
+<style lang="scss" scoped></style>

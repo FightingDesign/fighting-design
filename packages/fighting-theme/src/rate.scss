@@ -1,67 +1,82 @@
 .f-rate {
   display: inline-flex;
-  align-items: flex-end;
 
-  .f-rate-row {
-    display: flex;
+  .f-rate-list {
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    list-style: none;
 
-    .f-rate-item {
-      position: relative;
+    .f-rate-star {
       cursor: pointer;
-
-      &.f-rate-half {
-        .f-rate-item-bottom {
-          opacity: 1;
-        }
-
-        .f-rate-item-top {
-          opacity: 1;
-          right: 50%;
-          overflow: hidden;
-        }
-      }
-
-      &.f-rate-full {
-        .f-rate-item-bottom {
-          opacity: 0;
-        }
-
-        .f-rate-item-top {
-          opacity: 1;
-          right: 0;
-        }
-      }
-
-      .f-rate-left {
-        position: absolute;
-        left: 0;
-        width: 50%;
-        top: 0;
-        bottom: 0;
-        z-index: 2;
-      }
-
-      .f-rate-right {
-        position: absolute;
-        right: 0;
-        width: 50%;
-        top: 0;
-        bottom: 0;
-        z-index: 2;
-      }
-
-      .f-rate-item-top {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-      }
-
-      .f-rate-item-bottom {
-        opacity: 1;
-      }
     }
   }
 }
+
+// .f-rate {
+//   display: inline-flex;
+//   align-items: flex-end;
+
+//   .f-rate-row {
+//     display: flex;
+
+//     .f-rate-item {
+//       position: relative;
+//       cursor: pointer;
+
+//       &.f-rate-half {
+//         .f-rate-item-bottom {
+//           opacity: 1;
+//         }
+
+//         .f-rate-item-top {
+//           opacity: 1;
+//           right: 50%;
+//           overflow: hidden;
+//         }
+//       }
+
+//       &.f-rate-full {
+//         .f-rate-item-bottom {
+//           opacity: 0;
+//         }
+
+//         .f-rate-item-top {
+//           opacity: 1;
+//           right: 0;
+//         }
+//       }
+
+//       .f-rate-left {
+//         position: absolute;
+//         left: 0;
+//         width: 50%;
+//         top: 0;
+//         bottom: 0;
+//         z-index: 2;
+//       }
+
+//       .f-rate-right {
+//         position: absolute;
+//         right: 0;
+//         width: 50%;
+//         top: 0;
+//         bottom: 0;
+//         z-index: 2;
+//       }
+
+//       .f-rate-item-top {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         right: 0;
+//         bottom: 0;
+//         opacity: 0;
+//       }
+
+//       .f-rate-item-bottom {
+//         opacity: 1;
+//       }
+//     }
+//   }
+// }
