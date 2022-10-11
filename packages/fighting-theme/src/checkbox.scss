@@ -56,6 +56,8 @@
 
   // 选中状态
   &.f-checkbox-selected {
+    background: $simplePrimary;
+
     .f-checkbox-text {
       color: $primary;
     }
@@ -90,6 +92,12 @@
           }
         }
       }
+    }
+
+    // 选中的禁用状态
+    &.f-checkbox-disabled {
+      background: $default;
+      border-color: rgb(144, 144, 144);
     }
   }
 
