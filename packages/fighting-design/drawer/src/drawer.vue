@@ -76,7 +76,7 @@
         >
           <!-- 头部 -->
           <header v-if="showHeader" class="f-drawer-header">
-            <slot name="title">
+            <slot name="header">
               <div class="f-drawer-header-default">
                 <span class="f-drawer-title">{{ title }}</span>
                 <f-icon

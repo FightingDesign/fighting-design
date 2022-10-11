@@ -11,7 +11,6 @@
 
   // 高斯模糊
   &.f-drawer-mask-blur {
-    backdrop-filter: blur(2px);
   }
 
   // 遮罩层
@@ -41,7 +40,8 @@
 
     // 头部
     .f-drawer-header {
-      padding: 20px;
+      margin-top: 20px;
+      padding: 0 20px;
       box-sizing: border-box;
 
       .f-drawer-header-default {
