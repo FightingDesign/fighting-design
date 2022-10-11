@@ -54,13 +54,13 @@
       <li
         v-for="(star, index) in max"
         :key="index"
-        class="f-rate-star"
+        :class="['f-rate-star', { 'f-rate-star-readonly': readonly }]"
         @mouseout="onMouseout"
         @mouseover="onMouseover(index + 1)"
         @click="handleClick(index + 1)"
       >
         <f-icon
-          icon="f-icon-collection-fill"
+          :icon="icon"
           :color="starValue > index ? effectColor : invalidColor"
           :size="size"
         />

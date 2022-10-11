@@ -29,12 +29,8 @@ export const Props = {
   },
   icon: {
     type: String,
-    default: (): string => ''
+    default: (): string => 'f-icon-collection-fill'
   },
-  // doubleClear: {
-  //   type: Boolean,
-  //   default: (): boolean => false
-  // },
   size: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => '25px'
@@ -55,7 +51,6 @@ export const Props = {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   }
-
 } as const
 
 export const Emits = {

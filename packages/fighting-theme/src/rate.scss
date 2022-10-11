@@ -12,14 +12,14 @@
 
     .f-rate-star {
       cursor: pointer;
+      transition: 0.4s;
 
       &:hover {
-        transition: 0.4s;
         transform: scale(1.25);
       }
 
-      .f-icon {
-        transition: background 0.4s;
+      &.f-rate-star-readonly:hover {
+        transform: scale(1);
       }
     }
   }
