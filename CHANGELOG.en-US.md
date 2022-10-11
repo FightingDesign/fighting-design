@@ -4,6 +4,14 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.7.0-alpha.4 (2022-10-11)
+
+- Add `checkbox` component
+- Add `rate` component
+- Revoke the `f-radio-group` component `circle` configuration item
+- Repair the `f-radio` component `border` status, disable style details
+- Optimize the semantic properties of some components
+
 ## 0.7.0-alpha.3 (2022-10-06)
 
 - Update `umd` packaging entry
