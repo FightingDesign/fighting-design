@@ -31,7 +31,8 @@
       'f-radio-group',
       {
         'f-radio-group-vertical': vertical,
-        [`f-radio-group-border f-radio-group-${size}`]: border
+        'f-radio-group-border': border,
+        [`f-radio-group-${size}`]: size && border
       }
     ] as const
   })
@@ -47,7 +48,7 @@
 </script>
 
 <template>
-  <div rule="radio" :class="classList" :style="styleList">
+  <div role="radiogroup" :class="classList" :style="styleList">
     <slot />
   </div>
 </template>

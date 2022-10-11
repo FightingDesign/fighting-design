@@ -63,11 +63,15 @@
 
 <f-checkbox label="选项一" disabled />
 
+<br />
+
 <f-checkbox-group v-model="option3" disabled>
 <f-checkbox label="选项一"/>
 <f-checkbox label="选项二"/>
 <f-checkbox label="选项三"/>
 </f-checkbox-group>
+
+<br />
 
 <f-checkbox-group v-model="option3">
   <f-checkbox label="选项一"/>
@@ -105,8 +109,7 @@
 
 ## 带边框
 
-直接添加`border`属性可设置边框，只生效于`group`组件，
-`FightingDesign`还提供了`size`选项，默认为`middle`
+`border` 属性可设置边框
 
 <f-checkbox-group v-model="option4" border size="large">
   <f-checkbox label="选项一" />
@@ -114,6 +117,7 @@
   <f-checkbox label="选项三" />
 </f-checkbox-group>
 
+<br />
 <br />
 
 <f-checkbox-group v-model="option4" border>
@@ -123,8 +127,18 @@
 </f-checkbox-group>
 
 <br />
+<br />
 
 <f-checkbox-group v-model="option4" border size="small">
+  <f-checkbox label="选项一" />
+  <f-checkbox label="选项二" />
+  <f-checkbox label="选项三" />
+</f-checkbox-group>
+
+<br />
+<br />
+
+<f-checkbox-group v-model="option4" border size="mini">
   <f-checkbox label="选项一" />
   <f-checkbox label="选项二" />
   <f-checkbox label="选项三" />
@@ -164,12 +178,15 @@
 
 ## CheckboxGroup Attributes
 
-| 参数                   | 说明         | 类型    | 可选值                   | 默认值 |
-| ---------------------- | ------------ | ------- | ------------------------ | ------ |
-| `modelValue / v-model` | 绑定值       | array   | ——                       | ——     |
-| `disabled`             | 是否禁用     | boolean | ——                       | false  |
-| `border`               | 是否显示边框 | boolean | ——                       | false  |
-| `size`                 | 尺寸         | string  | `large` `middle` `small` | middle |
+| 参数                   | 说明           | 类型            | 可选值                          | 默认值 |
+| ---------------------- | -------------- | --------------- | ------------------------------- | ------ |
+| `modelValue / v-model` | 绑定值         | array           | ——                              | ——     |
+| `disabled`             | 是否禁用       | boolean         | ——                              | false  |
+| `border`               | 是否显示边框   | boolean         | ——                              | false  |
+| `size`                 | 尺寸           | string          | `large` `middle` `small` `mini` | middle |
+| `vertical`             | 是否纵向排列   | boolean         | ——                              | false  |
+| `column-gap`           | 横向排列的间距 | string / number | ——                              | ——     |
+| `row-gap`              | 纵向排列的间距 | string / number | ——                              | ——     |
 
 ## Checkbox Attributes
 

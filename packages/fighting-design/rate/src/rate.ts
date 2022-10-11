@@ -1,21 +1,27 @@
 import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
+  modelValue: {
+    type: Number,
+    default: (): number => 0,
+    validator: (val: number): boolean => val >= 0
+  },
+  max: {
+    type: Number,
+    default: (): number => 5,
+    validator: (val: number): boolean => val > 0
+  },
   effectColor: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#fcc202'
   },
   invalidColor: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#eef'
   },
   readonly: {
     type: Boolean,
     default: (): boolean => false
-  },
-  max: {
-    type: Number,
-    default: (): number => 5
   },
   half: {
     type: Boolean,
@@ -23,15 +29,11 @@ export const Props = {
   },
   icon: {
     type: String,
-    default: (): string => ''
-  },
-  doubleClear: {
-    type: Boolean,
-    default: (): boolean => false
+    default: (): string => 'f-icon-collection-fill'
   },
   size: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '26px'
+    default: (): string => '25px'
   },
   textShow: {
     type: Boolean,
@@ -43,21 +45,17 @@ export const Props = {
   },
   textArr: {
     type: Array as PropType<string[]>,
-    default: (): [] => []
+    default: (): string[] => ['极差', '失望', '一般', '不错', '很棒']
   },
   textSize: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
-  },
-  modelValue: {
-    type: Number,
-    default: (): number => 0
   }
 } as const
 
 export const Emits = {
-  change: (val: number) => val,
-  'update:modelValue': (val: number) => val
+  change: (val: number): number => val,
+  'update:modelValue': (val: number): number => val
 } as const
 
 export type RatePropsType = ExtractPropTypes<typeof Props>

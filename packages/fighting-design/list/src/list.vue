@@ -34,7 +34,7 @@
 </script>
 
 <template>
-  <ul :class="listClass" :style="listStyle">
+  <ul role="list" :class="listClass" :style="listStyle">
     <header v-if="$slots.header" class="f-list-header">
       <slot name="header" />
     </header>

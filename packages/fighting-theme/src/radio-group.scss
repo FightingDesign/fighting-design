@@ -24,6 +24,7 @@
       }
     }
   }
+
   &.f-radio-group-middle {
     .f-radio {
       padding: 0 25px;
@@ -35,6 +36,7 @@
       }
     }
   }
+
   &.f-radio-group-small {
     .f-radio {
       padding: 0 20px;
@@ -46,6 +48,7 @@
       }
     }
   }
+
   &.f-radio-group-mini {
     .f-radio {
       padding: 0 15px;
@@ -61,6 +64,7 @@
   // 边框
   &.f-radio-group-border {
     column-gap: 0;
+    row-gap: 0;
 
     .f-radio {
       border: 1px solid #dee5fd;

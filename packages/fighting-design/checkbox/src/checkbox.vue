@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FCheckbox">
   import { computed, inject, getCurrentInstance, ref } from 'vue'
   import { Props, Emits } from './checkbox'
-  import { checkboxGroupCtxKey } from '../../checkbox-group/src/checkbox-group'
+  import { checkboxGroupPropsKey } from '../../checkbox-group/src/checkbox-group'
   import type { ClassListInterface as c } from '../../_interface'
   import type { CheckboxLabelType } from '../../checkbox-group/src/interface'
   import type { CheckboxGroupPropsType as a } from '../../checkbox-group/src/checkbox-group'
@@ -15,7 +15,7 @@
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const checkboxGroupInjectData: Ref<a | undefined> = ref()
+  const groupProps: Ref<a | null> = ref(null)
 
   const getGroupInject = (): void => {
     const { parent } = getCurrentInstance() as ComponentInternalInstance
@@ -23,27 +23,27 @@
       .type.name
 
     if (parentName && parentName === 'FCheckboxGroup') {
-      checkboxGroupInjectData.value = inject(checkboxGroupCtxKey) as a
+      groupProps.value = inject(checkboxGroupPropsKey) as a
     }
   }
   getGroupInject()
 
   const isGroup: ComputedRef<boolean> = computed((): boolean => {
-    return !!checkboxGroupInjectData.value || false
+    return !!groupProps.value || false
   })
 
   const modelValue: WritableComputedRef<CheckboxLabelType> = computed({
     get () {
       if (isGroup.value) {
-        return (checkboxGroupInjectData.value as a)?.modelValue
+        return (groupProps.value as a)?.modelValue
       }
       return prop.modelValue
     },
     set (val) {
       if (isGroup.value) {
         !prop.disabled &&
-          !checkboxGroupInjectData.value?.disabled &&
-          checkboxGroupInjectData.value?.changeEvent(val)
+          !groupProps.value?.disabled &&
+          groupProps.value?.changeEvent(val)
       } else {
         if (prop.disabled) return
         emit('update:modelValue', val)
@@ -64,32 +64,35 @@
   const classList: ComputedRef<c> = computed((): c => {
     return [
       'f-checkbox',
-      `f-checkbox__${checkboxGroupInjectData.value?.size}`,
+      // `f-checkbox-${groupProps.value?.size}`,
       {
-        'f-checkbox--selected': isChecked.value,
-        'f-checkbox--bordered': checkboxGroupInjectData.value?.border,
-        'f-checkbox--disabled':
-          prop.disabled || checkboxGroupInjectData.value?.disabled
+        'f-checkbox-selected': isChecked.value,
+        'f-checkbox-bordered': groupProps.value?.border,
+        'f-checkbox-disabled': prop.disabled || groupProps.value?.disabled
       }
     ]
   })
 </script>
 
 <template>
-  <label :class="classList">
-    <span class="f-checkbox-inner">
-      <input
-        v-model="modelValue"
-        type="checkbox"
-        class="f-checkbox-input"
-        hidden
-        :value="label"
-      />
-      <span class="f-checkbox-icon" />
-      <span class="f-checkbox-label">
-        <slot />
-        <template v-if="!$slots.default">{{ label }}</template>
-      </span>
+  <label
+    role="checkbox"
+    aria-checked="false"
+    tabindex="0"
+    aria-labelledby="chk1-label"
+    :class="classList"
+  >
+    <input
+      v-model="modelValue"
+      type="checkbox"
+      class="f-checkbox-input"
+      hidden
+      :value="label"
+    />
+    <span v-if="!groupProps?.border" class="f-checkbox-box" />
+    <span class="f-checkbox-text">
+      <slot />
+      <template v-if="!$slots.default">{{ label }}</template>
     </span>
   </label>
 </template>

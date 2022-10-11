@@ -10,6 +10,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
+  vertical: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   label: {
     type: String,
     default: (): string => ''
@@ -22,11 +26,19 @@ export const Props = {
     default: (): boolean => false
   },
   size: {
-    type: String,
-    default: (): string => 'middle',
+    type: String as PropType<CheckboxGroupSizeType>,
+    default: (): CheckboxGroupSizeType => 'middle',
     validator: (val: CheckboxGroupSizeType): boolean => {
-      return (['large', 'middle', 'small'] as const).includes(val)
+      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
+  },
+  columnGap: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
+  },
+  rowGap: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
   }
 } as const
 
@@ -37,4 +49,4 @@ export const Emits = {
 
 export type CheckboxGroupPropsType = ExtractPropTypes<typeof Props>
 
-export const checkboxGroupCtxKey: InjectionKey<CheckboxGroupPropsType> = Symbol('f-checkbox-group-props-key')
+export const checkboxGroupPropsKey: InjectionKey<CheckboxGroupPropsType> = Symbol('f-checkbox-group-props-key')

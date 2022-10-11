@@ -41,6 +41,7 @@
     >
       <div
         v-show="visible"
+        role="dialog"
         :class="[
           'f-dialog-mask',
           {

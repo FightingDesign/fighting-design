@@ -16,7 +16,7 @@
 </script>
 
 <template>
-  <main class="f-main" :style="styleList">
+  <main role="main" class="f-main" :style="styleList">
     <slot />
   </main>
 </template>

@@ -25,6 +25,12 @@
         background: $primary;
       }
     }
+
+    // 选中的禁用状态
+    &.f-radio-disabled {
+      background: $default;
+      border-color: rgb(144, 144, 144);
+    }
   }
 
   // 小圆圈

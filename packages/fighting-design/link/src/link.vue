@@ -46,6 +46,7 @@
 
 <template>
   <a
+    role="link"
     :class="classList"
     :style="styleList"
     :href="href"

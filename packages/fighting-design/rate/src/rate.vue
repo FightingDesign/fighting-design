@@ -1,95 +1,74 @@
 <script lang="ts" setup name="FRate">
   import { Props, Emits } from './rate'
-  import { ref, watch } from 'vue'
-  import { sizeChange } from '../../_utils'
   import { FIcon } from '../../icon'
+  import { FText } from '../../text'
+  import { ref, watch, unref, computed } from 'vue'
+  import type { Ref, ComputedRef } from 'vue'
+  import type { OrdinaryFunctionInterface as a } from '../../_interface'
+  import type {
+    OnMouseoverInterface as b,
+    OnHandleClickInterface as c
+  } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const hoverIndex = ref(prop.modelValue)
+  const starValue: Ref<number> = ref<number>(prop.modelValue)
 
-  const handleClick = (i: number): void => {
+  // 反复移动时触发
+  const onMouseover: b = (index: number): void => {
     if (prop.readonly) return
-    emit('update:modelValue', i)
-    emit('change', i)
+    starValue.value = index
   }
 
-  const handleMouseenter = (i: number): void => {
+  // 移出触发
+  const onMouseout: a = (): void => {
     if (prop.readonly) return
-    hoverIndex.value = i
+    starValue.value = prop.modelValue
   }
 
-  const handleMouseleave = (): void => {
+  // 点击触发
+  const handleClick: c = (index: number): void => {
     if (prop.readonly) return
-    hoverIndex.value = prop.modelValue
-  }
-
-  const handleDblclick = (i: number): void => {
-    if (!prop.doubleClear) return
-    if (i != 1) return
-    handleClick(0)
+    starValue.value = index
+    emit('update:modelValue', index)
+    emit('change', index)
   }
 
   watch(
     (): number => prop.modelValue,
     (): void => {
-      hoverIndex.value = prop.modelValue
+      starValue.value = prop.modelValue
     }
   )
+
+  // 辅助文字内容
+  const textContent: ComputedRef<string> = computed((): string => {
+    return prop.textArr[unref(starValue) - 1]
+  })
 </script>
 
 <template>
-  <div class="f-rate">
-    <div class="f-rate-row">
-      <div
-        v-for="i in max"
-        :key="i"
-        :class="[
-          'f-rate-item',
-          {
-            'f-rate-full': hoverIndex >= i,
-            'f-rate-half': hoverIndex === i - 0.5
-          }
-        ]"
-        @dblclick="handleDblclick(i)"
-        @mouseleave="handleMouseleave(i)"
+  <div class="f-rate" role="slider">
+    <ul class="f-rate-list">
+      <li
+        v-for="(star, index) in max"
+        :key="index"
+        :class="['f-rate-star', { 'f-rate-star-readonly': readonly }]"
+        @mouseout="onMouseout"
+        @mouseover="onMouseover(index + 1)"
+        @click="handleClick(index + 1)"
       >
-        <div
-          class="f-rate-left"
-          @mouseenter="handleMouseenter(half ? i - 0.5 : i)"
-          @click="handleClick(half ? i - 0.5 : i)"
+        <f-icon
+          :icon="icon"
+          :color="starValue > index ? effectColor : invalidColor"
+          :size="size"
         />
+      </li>
+    </ul>
 
-        <div
-          class="f-rate-right"
-          @mouseenter="handleMouseenter(i)"
-          @click="handleClick(i + 1)"
-        />
-
-        <div class="f-rate-item-bottom">
-          <f-icon
-            :size="sizeChange(size)"
-            :color="invalidColor"
-            icon="f-icon-collection"
-          />
-        </div>
-
-        <div class="f-rate-item-top">
-          <f-icon
-            :size="sizeChange(size)"
-            :color="effectColor"
-            icon="f-icon-collection-fill"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      v-if="textShow"
-      class="f-rate-text"
-      :style="{ color: textColor, fontSize: sizeChange(textSize) }"
-    >
-      {{ textArr[hoverIndex - 1] }}
-    </div>
+    <f-text v-if="textShow" :size="textSize" :color="textColor">
+      {{ textContent }}
+    </f-text>
   </div>
 </template>

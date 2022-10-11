@@ -8,7 +8,13 @@
     "fighting-design",
     "vuejs",
     "components",
-    "ui"
+    "ui",
+    "vite",
+    "vue3",
+    "css",
+    "setup",
+    "typescript",
+    "javascript"
   ],
   "main": "lib/index.js",
   "module": "es/index.js",

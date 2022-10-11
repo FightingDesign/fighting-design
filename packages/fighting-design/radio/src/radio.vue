@@ -83,7 +83,14 @@
 </script>
 
 <template>
-  <label rule="radio" :class="classList">
+  <label
+    role="radio"
+    aria-checked="false"
+    tabindex="0"
+    aria-labelledby="q25_radio1-label"
+    data-value="True"
+    :class="classList"
+  >
     <input
       v-model="modelValue"
       hidden
@@ -93,10 +100,7 @@
       :name="name"
       @change="handleChange"
     />
-    <span
-      v-if="!radioGroup?.border || radioGroup?.circle"
-      class="f-radio-circle"
-    />
+    <span v-if="!radioGroup?.border" class="f-radio-circle" />
     <span class="f-radio-text">
       <slot>{{ label }}</slot>
     </span>

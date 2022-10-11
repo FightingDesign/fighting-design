@@ -21,7 +21,7 @@
 </script>
 
 <template>
-  <div class="f-list-item" :style="styleList">
+  <div role="listitem" class="f-list-item" :style="styleList">
     <li class="f-list-item-li">
       <slot />
     </li>

@@ -2,60 +2,61 @@
 
 .f-checkbox {
   display: inline-flex;
-  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  outline: none;
   user-select: none;
   color: #333;
+  transition: 0.4s;
+  cursor: pointer;
 
-  &.f-checkbox--bordered {
-    border: 1px solid $simplePrimary;
-    padding: 5px 10px;
-
-    &.f-checkbox__large {
-      padding: 8px 14px;
-    }
-
-    &.f-checkbox__small {
-      padding: 4px 6px;
-    }
-
-    &:first-child {
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
-    }
-
-    &:last-child {
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
-    }
-  }
-
-  .f-checkbox-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .f-checkbox-icon {
+  // 选择框
+  .f-checkbox-box {
     width: 14px;
     height: 14px;
     border-radius: 2px;
-    border: 1px solid #333;
+    border: 1px solid #dee5fd;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-right: 6px;
-    margin-top: 1px;
+    margin-right: 7px;
   }
 
-  &.f-checkbox--selected {
-    color: $primary;
+  // 文字
+  .f-checkbox-text {
+    color: #333;
+    transition: color 0.3s;
+  }
 
-    &.f-checkbox--bordered {
+  // 边框
+  &.f-checkbox-bordered {
+    border: 1px solid $simplePrimary;
+    padding: 5px 10px;
+
+    &.f-checkbox-large {
+      padding: 8px 14px;
+    }
+
+    &.f-checkbox-small {
+      padding: 4px 6px;
+    }
+  }
+
+  // 选中状态
+  &.f-checkbox-selected {
+    background: $simplePrimary;
+
+    .f-checkbox-text {
+      color: $primary;
+    }
+
+    &.f-checkbox-bordered {
       border-color: $primary;
     }
 
-    .f-checkbox-icon {
+    .f-checkbox-box {
       border: 1px solid $primary;
       background: $primary;
 
@@ -63,6 +64,8 @@
         content: '';
         width: 4px;
         height: 9px;
+        position: absolute;
+        top: 0;
         transform: rotate(45deg) scaleY(1);
         border: 1px solid #fff;
         border-left: 0;
@@ -80,18 +83,28 @@
         }
       }
     }
+
+    // 选中的禁用状态
+    &.f-checkbox-disabled {
+      background: $default;
+      border-color: rgb(144, 144, 144);
+    }
   }
 
-  &.f-checkbox--disabled {
+  // 禁用状态
+  &.f-checkbox-disabled {
     cursor: not-allowed;
-    color: #c0c4cc;
 
-    .f-checkbox-icon {
-      border-color: #c0c4cc;
-      background: #e1e5ec;
+    .f-checkbox-text {
+      color: #d7d7d7;
+    }
+
+    .f-checkbox-box {
+      border-color: #d7d7d7;
+      background: #f4f4f4;
 
       &::after {
-        border-color: #c0c4cc;
+        border-color: #d7d7d7;
       }
     }
   }

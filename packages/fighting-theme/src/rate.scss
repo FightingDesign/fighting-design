@@ -1,67 +1,30 @@
 .f-rate {
   display: inline-flex;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
 
-  .f-rate-row {
-    display: flex;
+  .f-rate-list {
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    list-style: none;
 
-    .f-rate-item {
-      position: relative;
+    .f-rate-star {
       cursor: pointer;
+      transition: 0.4s;
 
-      &.f-rate-half {
-        .f-rate-item-bottom {
-          opacity: 1;
-        }
-
-        .f-rate-item-top {
-          opacity: 1;
-          right: 50%;
-          overflow: hidden;
-        }
+      &:hover {
+        transform: scale(1.25);
       }
 
-      &.f-rate-full {
-        .f-rate-item-bottom {
-          opacity: 0;
-        }
-
-        .f-rate-item-top {
-          opacity: 1;
-          right: 0;
-        }
-      }
-
-      .f-rate-left {
-        position: absolute;
-        left: 0;
-        width: 50%;
-        top: 0;
-        bottom: 0;
-        z-index: 2;
-      }
-
-      .f-rate-right {
-        position: absolute;
-        right: 0;
-        width: 50%;
-        top: 0;
-        bottom: 0;
-        z-index: 2;
-      }
-
-      .f-rate-item-top {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-      }
-
-      .f-rate-item-bottom {
-        opacity: 1;
+      &.f-rate-star-readonly:hover {
+        transform: scale(1);
       }
     }
+  }
+
+  .f-text {
+    margin-left: 8px;
   }
 }
