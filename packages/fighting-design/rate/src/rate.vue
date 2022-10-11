@@ -34,7 +34,7 @@
 </script>
 
 <template>
-  <div class="f-rate">
+  <div class="f-rate" role="slider">
     <ul class="f-rate-list">
       <li
         v-for="(star, index) in max"

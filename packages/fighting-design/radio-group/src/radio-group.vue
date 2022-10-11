@@ -48,7 +48,7 @@
 </script>
 
 <template>
-  <div rule="radio" :class="classList" :style="styleList">
+  <div role="radiogroup" :class="classList" :style="styleList">
     <slot />
   </div>
 </template>

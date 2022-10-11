@@ -60,7 +60,7 @@
 </script>
 
 <template>
-  <div v-if="isShow" :class="classList" :style="styleList">
+  <div v-if="isShow" role="alert" :class="classList" :style="styleList">
     <f-icon v-if="icon" :icon="icon" class="f-alert-icon" />
 
     <div :class="contentClassList">

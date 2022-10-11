@@ -75,7 +75,13 @@
 </script>
 
 <template>
-  <label role="checkbox" :class="classList">
+  <label
+    role="checkbox"
+    aria-checked="false"
+    tabindex="0"
+    aria-labelledby="chk1-label"
+    :class="classList"
+  >
     <input
       v-model="modelValue"
       type="checkbox"

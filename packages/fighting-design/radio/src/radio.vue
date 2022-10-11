@@ -83,7 +83,14 @@
 </script>
 
 <template>
-  <label rule="radio" :class="classList">
+  <label
+    role="radio"
+    aria-checked="false"
+    tabindex="0"
+    aria-labelledby="q25_radio1-label"
+    data-value="True"
+    :class="classList"
+  >
     <input
       v-model="modelValue"
       hidden
