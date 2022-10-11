@@ -5,44 +5,76 @@
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/rate)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/rate.md)
 
+:::warning
+测试阶段，谨慎使用！
+:::
+
 ## 基本使用
 
-通过`v-model`绑定选中星星数量,通过`max`控制星星总个数
+通过 `v-model` 绑定一个值
 
-<f-rate :max="10" v-model="rateVal" />
+<f-rate v-model="value1" />
 
 ::: details 显示代码
 
 ```html
-<f-rate :max="10" v-model="rateVal" />
+<template>
+  <f-rate v-model="value1" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value1 = ref(1)
+</script>
 ```
 
 :::
 
 ## 自定义颜色
 
-`effect-color` 属性可以配置星星选中时的颜色, `invalid-color`属性可以配置星星未选中时的颜色
+`effect-color` 属性可以配置星星选中时的颜色， `invalid-color`属性可以配置星星未选中时的颜色
 
-<f-rate effect-color="red" invalid-color="green"  />
+<f-rate v-model="value2" effect-color="red" invalid-color="green" />
 
 ::: details 显示代码
 
 ```html
-<f-rate effect-color="red" invalid-color="green" />
+<template>
+  <f-rate v-model="value2" effect-color="red" invalid-color="green" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value2 = ref(2)
+</script>
 ```
 
 :::
 
 ## 辅助文字
 
-`text-show`+`text-arr`属性可以配置星星选中时提示的文字
+`text-show` 和 `text-arr` 属性可以配置星星选中时提示的文字
 
-<f-rate :text-arr="['一','二','三','四','五']" :text-show="true"/>
+<f-rate v-model="value3" text-show :text-arr="['一', '二', '三', '四', '五']" />
 
 ::: details 显示代码
 
 ```html
-<f-rate :text-arr="['一','二','三','四','五']" :text-show="true" />
+<template>
+  <f-rate
+    v-model="value3"
+    text-show
+    :text-arr="['一', '二', '三', '四', '五']"
+  />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value3 = ref(4)
+</script>
 ```
 
 :::
@@ -66,9 +98,9 @@
 
 ## Events
 
-| 事件名称 | 说明                                                   |
-| -------- | ------------------------------------------------------ |
-| `change` | 在非只读情况下,点击星星时触发,并且携带当前星星数量参数 |
+| 事件名称 | 说明                 |
+| -------- | -------------------- |
+| `change` | 当分数发生改变时触发 |
 
 ## Interface
 
@@ -87,3 +119,11 @@ import type { RatePropsType, RateInstance } from 'fighting-design'
 <a href="https://github.com/caicailv" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/46363316?v=4" />
 </a>
+
+<script setup>
+  import { ref } from 'vue'
+
+  const value1 = ref(2)
+  const value2 = ref(3)
+  const value3 = ref(4)
+</script>
