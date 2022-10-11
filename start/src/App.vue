@@ -20,6 +20,7 @@
     v-model:visible="visible1"
     title="Title"
     show-footer
+    :mask-close="false"
     :direction="direction"
   >
     <template #title>

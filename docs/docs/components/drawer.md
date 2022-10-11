@@ -141,18 +141,19 @@ fighting-design
 
 ## Attributes
 
-| 参数              | 说明             | 类型    | 可选值                        | 默认值 |
-| ----------------- | ---------------- | ------- | ----------------------------- | ------ |
-| `v-model:visible` | 绑定值           | boolean | ——                            | false  |
-| `direction`       | 弹出方向         | boolean | `top` `left` `bottom` `right` | right  |
-| `title`           | 标题             | string  | ——                            | ——     |
-| `show-header`     | 是否展示标题     | boolean | ——                            | true   |
-| `show-footer`     | 是否展示页脚     | boolean | ——                            | false  |
-| `show-close-btn`  | 是否展示关闭按钮 | boolean | ——                            | true   |
-| `append-to-body`  | 是否追加到 body  | boolean | ——                            | false  |
-| `size`            | 大小尺寸         | string  | ——                            | 30%    |
-| `modal`           | 是否展示蒙层     | boolean | ——                            | true   |
-| `z-index`         | 原生属性         | boolean | ——                            | 1999   |
+| 参数              | 说明                 | 类型    | 可选值                        | 默认值 |
+| ----------------- | -------------------- | ------- | ----------------------------- | ------ |
+| `v-model:visible` | 绑定值               | boolean | ——                            | false  |
+| `direction`       | 弹出方向             | boolean | `top` `left` `bottom` `right` | right  |
+| `title`           | 标题                 | string  | ——                            | ——     |
+| `show-header`     | 是否展示标题         | boolean | ——                            | true   |
+| `show-footer`     | 是否展示页脚         | boolean | ——                            | false  |
+| `show-close-btn`  | 是否展示关闭按钮     | boolean | ——                            | true   |
+| `append-to-body`  | 是否追加到 body      | boolean | ——                            | false  |
+| `mask-close`      | 点击遮罩层是否可关闭 | boolean | ——                            | true   |
+| `size`            | 大小尺寸             | string  | ——                            | 30%    |
+| `modal`           | 是否展示蒙层         | boolean | ——                            | true   |
+| `z-index`         | 原生属性             | boolean | ——                            | 1999   |
 
 ## Slots
 

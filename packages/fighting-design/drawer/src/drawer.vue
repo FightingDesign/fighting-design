@@ -3,10 +3,8 @@
   import { computed } from 'vue'
   import { FIcon } from '../../icon'
   import type { CSSProperties, ComputedRef } from 'vue'
-  import type {
-    HandleEventInterface as a,
-    OrdinaryFunctionInterface as b
-  } from '../../_interface'
+  import type { HandleEventInterface as a } from '../../_interface'
+  import type { HandleCloseInterface as b } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -25,7 +23,8 @@
     }
   )
 
-  const handleClose: b = (): void => {
+  const handleClose: b = (target: 'mask' | 'icon'): void => {
+    if (target === 'mask' && !prop.maskClose) return
     emit('update:visible', false)
   }
 
@@ -67,11 +66,11 @@
           }
         ]"
         :style="{ zIndex }"
-        @click.self="handleClose"
+        @click.self="handleClose('mask')"
       >
         <!-- 抽屉 -->
         <div
-          :class="['f-drawer', `f-drawer-${direction}`]"
+          :class="['f-drawer', { [`f-drawer-${direction}`]: direction }]"
           :style="drawerStyle"
         >
           <!-- 头部 -->
@@ -82,7 +81,7 @@
                 <f-icon
                   v-if="showCloseBtn"
                   icon="f-icon-close"
-                  @click.self="handleClose"
+                  @click.self="handleClose('icon')"
                 />
               </div>
             </slot>
