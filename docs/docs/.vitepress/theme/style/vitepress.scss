@@ -49,6 +49,7 @@
     width: 100%;
     display: table;
   }
+
   th,
   tr:nth-child(2n) {
     background-color: transparent;
@@ -57,6 +58,7 @@
     border-top: none;
     border-bottom: 1px solid rgb(231, 230, 230);
   }
+
   td,
   th {
     text-align: center;
@@ -83,7 +85,7 @@
   }
   .VPLink.link.link.active {
     background: lighten(#2d5af1, 39%);
-    border-radius: 6px;
+
     .link-text {
       font-weight: 600;
     }
