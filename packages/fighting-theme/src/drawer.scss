@@ -11,6 +11,7 @@
 
   // 高斯模糊
   &.f-drawer-mask-blur {
+    backdrop-filter: blur(2px);
   }
 
   // 遮罩层
