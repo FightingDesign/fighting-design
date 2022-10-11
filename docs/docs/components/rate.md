@@ -5,10 +5,6 @@
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/rate)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/rate.md)
 
-:::warning
-测试阶段，谨慎使用！
-:::
-
 ## 基本使用
 
 通过 `v-model` 绑定一个值
@@ -33,15 +29,15 @@
 
 ## 自定义颜色
 
-`effect-color` 属性可以配置星星选中时的颜色， `invalid-color`属性可以配置星星未选中时的颜色
+`effect-color` 属性可以配置星星选中时的颜色，`invalid-color`属性可以配置星星未选中时的颜色
 
-<f-rate v-model="value2" effect-color="red" invalid-color="green" />
+<f-rate v-model="value2" effect-color="red" invalid-color="#eee" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-rate v-model="value2" effect-color="red" invalid-color="green" />
+  <f-rate v-model="value2" effect-color="red" invalid-color="#eee" />
 </template>
 
 <script lang="ts" setup>
@@ -57,7 +53,7 @@
 
 `text-show` 和 `text-arr` 属性可以配置星星选中时提示的文字
 
-<f-rate v-model="value3" text-show :text-arr="['一', '二', '三', '四', '五']" />
+<f-rate v-model="value3" text-show :text-arr="['1星', '2星', '3星', '4星', '5星']" />
 
 ::: details 显示代码
 
@@ -66,7 +62,7 @@
   <f-rate
     v-model="value3"
     text-show
-    :text-arr="['一', '二', '三', '四', '五']"
+    :text-arr="['1星', '2星', '3星', '4星', '5星']"
   />
 </template>
 
@@ -79,22 +75,43 @@
 
 :::
 
+## 自定义 icon
+
+`icon` 属性可以自定义 `icon`
+
+<f-rate v-model="value4" icon="f-icon-Daytimemode-fill" />
+
+::: details 显示代码
+
+```html
+<template>
+  <f-rate v-model="value4" icon="f-icon-Daytimemode-fill" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value4 = ref(4)
+</script>
+```
+
+:::
+
 ## Attributes
 
-| 参数             | 说明                         | 类型            | 可选值 | 默认值 |
-| ---------------- | ---------------------------- | --------------- | ------ | ------ |
-| `v-model`        | 绑定值                       | number          | ——     | ——     |
-| `effect-color`   | 选中颜色                     | string          | ——     | ——     |
-| `invalid-color ` | 未选中的颜色                 | string          | ——     | ——     |
-| `readonly`       | 是否只读                     | boolean         | ——     | false  |
-| `max`            | 最大分值，展示的星星数量     | number          | ——     | 5      |
-| `half`           | 是否可半选                   | boolean         | ——     | false  |
-| `double-clear`   | 是否双击第一个颗星星可以清空 | boolean         | ——     | false  |
-| `size`           | 星星尺寸                     | string / number |        | ——     |
-| `text-show`      | 是否展示辅助文字             | boolean         | ——     | false  |
-| `text-color`     | 辅助文字颜色                 | string          | ——     | ——     |
-| `text-arr`       | 辅助文字数组                 | []              | ——     | ——     |
-| `text-size`      | 辅助文字尺寸                 | string / number | ——     | ——     |
+| 参数             | 说明                     | 类型            | 可选值 | 默认值                                   |
+| ---------------- | ------------------------ | --------------- | ------ | ---------------------------------------- |
+| `v-model`        | 绑定值                   | number          | ——     | ——                                       |
+| `max`            | 最大分值，展示的星星数量 | number          | ——     | 5                                        |
+| `effect-color`   | 选中颜色                 | string          | ——     | #fcc202                                  |
+| `invalid-color ` | 未选中的颜色             | string          | ——     | #eef                                     |
+| `readonly`       | 是否只读                 | boolean         | ——     | false                                    |
+| `icon`           | 自定义 icon              | string          | ——     | f-icon-collection-fill                   |
+| `size`           | 星星尺寸                 | string / number |        | 25px                                     |
+| `text-show`      | 是否展示辅助文字         | boolean         | ——     | false                                    |
+| `text-color`     | 辅助文字颜色             | string          | ——     | ——                                       |
+| `text-arr`       | 辅助文字数组             | []              | ——     | ['极差', '失望', '一般', '不错', '很棒'] |
+| `text-size`      | 辅助文字尺寸             | string / number | ——     | ——                                       |
 
 ## Events
 
@@ -126,4 +143,5 @@ import type { RatePropsType, RateInstance } from 'fighting-design'
   const value1 = ref(2)
   const value2 = ref(3)
   const value3 = ref(4)
+  const value4 = ref(4)
 </script>

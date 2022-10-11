@@ -13,6 +13,7 @@
     .f-rate-star {
       cursor: pointer;
       transition: 0.4s;
+      position: relative;
 
       &:hover {
         transform: scale(1.25);
