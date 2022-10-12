@@ -27,6 +27,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
+  circle:{
+    type: Boolean,
+    default: (): boolean => false
+  },
   size: {
     type: String as PropType<RadioGroupSizeType>,
     default: (): RadioGroupSizeType => 'middle',
