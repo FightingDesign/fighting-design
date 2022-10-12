@@ -10,9 +10,7 @@
 `v-model:visible` 属性来控制展示状态
 
 <f-button type="primary" @click="visible1 = true">打开</f-button>
-<f-dialog title="Title" v-model:visible="visible1">
-fighting-design
-</f-dialog>
+<f-dialog title="Title" v-model:visible="visible1">fighting-design</f-dialog>
 
 ::: details 显示代码
 
@@ -41,21 +39,14 @@ fighting-design
 > 通常不建议使用嵌套对话框。如果你需要在页面上呈现多个对话框，你可以简单地打平它们，以便它们彼此之间是平级关系。 将内层 dialog 的该属性设置为 true，它就会插入至 body 元素上，从而保证内外层 dialog 和遮罩层级关系的正确。
 
 <f-button type="primary" @click="visible2 = true">打开</f-button>
-<f-dialog width="500px" height="400px" title="Title" v-model:visible="visible2">
-<f-button @click="innerVisible = true">打开里层</f-button>
-<f-dialog width="300px" title="Title" v-model:visible="innerVisible" append-to-body>
-inner dialog
-</f-dialog>
-<template #title>
-title slot
-</template>
-</f-dialog>
+<f-dialog width="500px" height="400px" title="Title" v-model:visible="visible2"><f-button @click="innerVisible = true">打开里层</f-button><f-dialog width="300px" title="Title" v-model:visible="innerVisible" append-to-body>inner dialog</f-dialog></f-dialog>
 
 ::: details 显示代码
 
 ```html
 <template>
   <f-button type="primary" @click="visible2 = true">打开</f-button>
+
   <f-dialog
     width="500px"
     height="400px"
@@ -63,6 +54,7 @@ title slot
     v-model:visible="visible2"
   >
     <f-button @click="innerVisible = true">打开里层</f-button>
+
     <f-dialog
       width="300px"
       title="Title"
@@ -90,9 +82,7 @@ title slot
 提供了两个事件 `close`、`close-end` 分别用来表示关闭前、关闭后执行的事件。
 
 <f-button type="primary" @click="visible3 = true">打开</f-button>
-<f-dialog title="Title" v-model:visible="visible3" @close="close" @close-end="closeEnd">
-fighting-design
-</f-dialog>
+<f-dialog title="Title" v-model:visible="visible3" @close="close" @close-end="closeEnd">fighting-design</f-dialog>
 
 ::: details 显示代码
 
@@ -132,9 +122,7 @@ fighting-design
 可以通过 `modal-blur` 属性设置是否高斯模糊遮罩层
 
 <f-button type="primary" @click="visible4 = true">打开</f-button>
-<f-dialog title="Title" v-model:visible="visible4" modal-blur>
-fighting-design
-</f-dialog>
+<f-dialog title="Title" v-model:visible="visible4" modal-blur>fighting-design</f-dialog>
 
 ::: details 显示代码
 
@@ -213,6 +201,7 @@ import type { DialogInstance, DialogPropsType } from 'fighting-design'
 
 <script setup>
   import { ref } from 'vue'
+
   const visible1 = ref(false)
   const visible2 = ref(false)
   const visible3 = ref(false)
