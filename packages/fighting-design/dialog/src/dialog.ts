@@ -1,4 +1,4 @@
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 
 export const Props = {
   title: {
@@ -15,12 +15,12 @@ export const Props = {
     default: (): boolean => false
   },
   width: {
-    type: String,
-    default: (): string => '521px'
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
   },
   height: {
-    type: String,
-    default: (): string => '188px'
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
   },
   fullscreen: {
     type: Boolean,
@@ -41,10 +41,6 @@ export const Props = {
   modalClose: {
     type: Boolean,
     default: (): boolean => true
-  },
-  top: {
-    type: String,
-    default: (): string => ''
   },
   closeIcon: {
     type: String,

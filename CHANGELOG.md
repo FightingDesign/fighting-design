@@ -8,6 +8,8 @@
 - `drawer` 组件新增 `showCloseBtn` 配置项
 - `drawer` 组件新增 `modal-blur` 配置项
 - `dialog` 组件新增 `modal-blur` 配置项
+- `dialog` 组件移除 `top` 配置项
+- `dialog` 组件 `width` `height` 配置项支持 `number` 类型
 
 **Bug**
 

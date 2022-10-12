@@ -1,12 +1,15 @@
 <script lang="ts" setup name="FDialog">
   import { Props, Emits } from './dialog'
   import { FIcon } from '../../icon'
+  import { computed } from 'vue'
+  import { sizeChange } from '../../_utils'
+  import type { CSSProperties, ComputedRef } from 'vue'
   import type {
     HandleEventInterface as a,
     OrdinaryFunctionInterface as b
   } from '../../_interface'
 
-  defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const closeDialog: b = (): void => {
@@ -28,6 +31,15 @@
   const handleCloseEnd: a = (evt: MouseEvent): void => {
     emit('close-end', evt)
   }
+
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { width, height } = prop
+
+    return {
+      width: sizeChange(width),
+      height: sizeChange(height)
+    } as const
+  })
 </script>
 
 <template>
@@ -54,6 +66,7 @@
       >
         <div
           role="dialog"
+          :style="styleList"
           :class="[
             'f-dialog',
             visible ? 'f-dialog-scale-in' : 'f-dialog-scale-out',
@@ -62,11 +75,6 @@
             }
           ]"
         >
-          <!-- :style="{
-            width,
-            height,
-            marginTop: top
-          }" -->
           <!-- 头部 -->
           <header class="f-dialog-header">
             <slot name="header">
