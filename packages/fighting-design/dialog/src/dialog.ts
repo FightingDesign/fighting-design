@@ -1,14 +1,14 @@
 import type { ExtractPropTypes, PropType } from 'vue'
 
 export const Props = {
-  title: {
-    type: String,
-    default: (): string => ''
-  },
   visible: {
     type: Boolean,
     default: (): boolean => false,
     required: true
+  },
+  title: {
+    type: String,
+    default: (): string => ''
   },
   appendToBody: {
     type: Boolean,

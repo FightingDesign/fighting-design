@@ -9,9 +9,15 @@ export const Props = {
   appendToBody: {
     type: Boolean,
     default: (): boolean => false
+  },
+  maskClose: {
+    type: Boolean,
+    default: (): boolean => true
   }
 } as const
 
-export const Emits = {} as const
+export const Emits = {
+  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean'
+} as const
 
 export type MaskPropsType = ExtractPropTypes<typeof Props>

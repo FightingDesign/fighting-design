@@ -1,102 +1,55 @@
 <script lang="ts" setup name="FDialog">
   import { Props, Emits } from './dialog'
   import { FIcon } from '../../icon'
-  import { computed } from 'vue'
-  import { sizeChange } from '../../_utils'
-  import type { CSSProperties, ComputedRef } from 'vue'
-  import type {
-    HandleEventInterface as a,
-    OrdinaryFunctionInterface as b
-  } from '../../_interface'
+  import { FMask } from '../../mask'
+  import { ref, watch } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const closeDialog: b = (): void => {
+  const isVisible = ref(prop.visible)
+
+  const closeDialog = (): void => {
     emit('update:visible', false)
   }
 
-  const handleOpen: a = (evt: MouseEvent): void => {
-    emit('open', evt)
-  }
+  watch(
+    () => isVisible.value,
+    (newVal) => {
+      if (!newVal) {
+        closeDialog()
+      }
+    }
+  )
 
-  const handleOpenEnd: a = (evt: MouseEvent): void => {
-    emit('open-end', evt)
-  }
-
-  const handleClose: a = (evt: MouseEvent): void => {
-    emit('close', evt)
-  }
-
-  const handleCloseEnd: a = (evt: MouseEvent): void => {
-    emit('close-end', evt)
-  }
-
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { width, height } = prop
-
-    return {
-      width: sizeChange(width),
-      height: sizeChange(height)
-    } as const
-  })
+  watch(
+    () => prop.visible,
+    (newVal) => {
+      isVisible.value = newVal
+    }
+  )
 </script>
 
 <template>
-  <teleport to="body" :disabled="!appendToBody">
-    <transition
-      name="f-dialog-fade"
-      @before-enter="handleOpen"
-      @after-enter="handleOpenEnd"
-      @before-leave="handleClose"
-      @after-leave="handleCloseEnd"
-    >
-      <div
-        v-show="visible"
-        role="dialog"
-        :class="[
-          'f-dialog-mask',
-          {
-            'f-dialog-mask-modal': modal,
-            'f-dialog-mask-blur': modalBlur
-          }
-        ]"
-        :style="{ zIndex }"
-        @click.self="modalClose && closeDialog()"
-      >
-        <div
-          role="dialog"
-          :style="styleList"
-          :class="[
-            'f-dialog',
-            visible ? 'f-dialog-scale-in' : 'f-dialog-scale-out',
-            {
-              'f-dialog-shadow': !modal
-            }
-          ]"
-        >
-          <!-- 头部 -->
-          <header class="f-dialog-header">
-            <slot name="header">
-              <slot name="title">{{ title }}</slot>
-              <f-icon
-                :icon="closeIcon || 'f-icon-close'"
-                @click="closeDialog"
-              />
-            </slot>
-          </header>
+  <f-mask v-model:visible="isVisible">
+    <div role="dialog" class="f-dialog">
+      <!-- 头部 -->
+      <header class="f-dialog-header">
+        <slot name="header">
+          <span class="f-dialog-header-title">{{ title }}</span>
+          <f-icon :icon="closeIcon || 'f-icon-close'" @click="closeDialog" />
+        </slot>
+      </header>
 
-          <!-- 身体 -->
-          <section v-if="$slots.default" class="f-dialog-body">
-            <slot />
-          </section>
+      <!-- 身体 -->
+      <section v-if="$slots.default" class="f-dialog-body">
+        <slot />
+      </section>
 
-          <!-- 页脚 -->
-          <footer v-if="$slots.footer" class="f-dialog-footer">
-            <slot name="footer" />
-          </footer>
-        </div>
-      </div>
-    </transition>
-  </teleport>
+      <!-- 页脚 -->
+      <footer v-if="$slots.footer" class="f-dialog-footer">
+        <slot name="footer" />
+      </footer>
+    </div>
+  </f-mask>
 </template>
