@@ -24,7 +24,7 @@
 
 在 [0.6.2-alpha.2](https://github.com/FightingDesign/fighting-design/releases/tag/0.6.2-alpha.2) 的版本中，已经将目前已知的打包问题全部解决了。
 
-打包这个东西，真的是一不一个坎坷。
+打包这个东西，真的是一步一个坎坷。
 
 ## 2022-08-08
 
