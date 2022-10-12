@@ -9,8 +9,6 @@
 
   <f-dialog v-model:visible="visible1" title="Title">
     fighting-design
-    <template #footer>
-      <f-button>页脚</f-button>
-    </template>
+    <template #footer> 12121 </template>
   </f-dialog>
 </template>
