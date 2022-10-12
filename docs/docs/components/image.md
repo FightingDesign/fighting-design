@@ -220,7 +220,7 @@ import type {
 </a>
 
 <script setup>
-  const url = new URL('./image/1.jpg', import.meta.url).href
+  const url = new URL('./_image/1.jpg', import.meta.url).href
 </script>
 
 <style scoped>
@@ -233,11 +233,13 @@ import type {
   background: rgb(240, 239, 255);
   border-radius: 10px;
 }
+
 .image-block {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+
 code {
   margin-bottom: 6px;
 }

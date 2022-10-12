@@ -59,5 +59,5 @@ import type { IconInstance, IconPropsType } from 'fighting-design'
 </a>
 
 <script setup>
-import iconVue from './components/icon.vue'
+import iconVue from './_components/icon.vue'
 </script>

@@ -23,5 +23,5 @@
 </a>
 
 <script setup>
-import colorVue from './components/color.vue'
+import colorVue from './_components/color.vue'
 </script>

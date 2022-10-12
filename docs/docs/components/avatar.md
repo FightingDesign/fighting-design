@@ -230,6 +230,7 @@ import type {
 .f-avatar-error {
   margin: 5px;
 }
+
 .avatar-block {
   display: flex;
   align-items: center;
