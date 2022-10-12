@@ -17,8 +17,18 @@
 <template>
   <f-button type="primary" @click="visible1 = true">打开</f-button>
 
-  <f-dialog title="Title" v-model:visible="visible1">
-    fighting-design
+  <f-dialog v-model:visible="visible1" title="标题文字">
+    <p>这是一段文字</p>
+    <p>这是一段文字</p>
+    <p>这是一段文字</p>
+    <p>这是一段文字</p>
+    <p>这是一段文字</p>
+    <p>这是一段文字</p>
+
+    <template #footer>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+    </template>
   </f-dialog>
 </template>
 
