@@ -10,7 +10,7 @@
 ## 打包相关
 
 - 目前打包 [umd](https://fighting.tianyuhao.cn/docs/import.html#%E4%BD%BF%E7%94%A8-umd) 模式不能正确的引入使用
-- 打包的类型文件会导致文件路径丢失。可以先执行 `pnpm build` 之后，查看 `dist\es\components.d.ts` 文件中的类型，其实是引入失败的
+- 打包的类型文件会导致文件路径丢失。可以先执行 `pnpm build` 之后，查看 `dist\es\components.d.ts` 文件中的类型，其实是引入失败的（**重点**）
 - 目前 [install](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/_utils/install.ts) 函数的类型还是有些问题，在按需引入组件 `app.use(xxx)` 的时候，会有类型报错（**重点**）
 
 ## 测试
