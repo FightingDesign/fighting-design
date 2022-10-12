@@ -10,7 +10,7 @@ export const Props = {
   message: {
     type: [String, Object] as PropType<VNode | string>,
     default: (): string => '',
-    require: true
+    required: true
   },
   type: {
     type: String as PropType<MessageType>,

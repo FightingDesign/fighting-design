@@ -8,7 +8,7 @@ export const Props = {
   visible: {
     type: Boolean,
     default: (): boolean => false,
-    require: true
+    required: true
   },
   appendToBody: {
     type: Boolean,

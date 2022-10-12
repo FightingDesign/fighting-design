@@ -5,7 +5,7 @@ export const Props = {
   modelValue: {
     type: Boolean,
     default: (): boolean => false,
-    require: true
+    required: true
   },
   size: {
     type: String as PropType<SwitchSizeType>,
