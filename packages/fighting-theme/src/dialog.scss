@@ -44,6 +44,7 @@
       0% {
         transform: scale(0.6);
       }
+
       100% {
         transform: scale(1);
       }
@@ -54,6 +55,7 @@
         transform: scale(1);
         opacity: 1;
       }
+
       100% {
         transform: scale(0.4);
         opacity: 0;
@@ -124,11 +126,11 @@
 }
 
 .f-dialog-fade-enter-active {
-  transition: all 0.5s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .f-dialog-fade-leave-active {
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .f-dialog-fade-enter-from,
