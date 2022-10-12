@@ -2,10 +2,16 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**fest**
+
 - `drawer` 组件 `with-header` 配置项改为 `showHeader`
 - `drawer` 组件新增 `showCloseBtn` 配置项
 - `drawer` 组件新增 `modal-blur` 配置项
 - `dialog` 组件新增 `modal-blur` 配置项
+
+**Bug**
+
+- 修复 `message` `dialog` `switch` props 校验器的拼写错误
 
 ## 0.7.0-alpha.4 (2022-10-11)
 
