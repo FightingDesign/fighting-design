@@ -3,8 +3,10 @@
   import { computed } from 'vue'
   import { FIcon } from '../../icon'
   import type { CSSProperties, ComputedRef } from 'vue'
-  import type { HandleEventInterface as a } from '../../_interface'
-  import type { HandleCloseInterface as b } from './interface'
+  import type {
+    HandleEventInterface as a,
+    OrdinaryFunctionInterface as b
+  } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -23,8 +25,7 @@
     }
   )
 
-  const handleClose: b = (target: 'mask' | 'icon'): void => {
-    if (target === 'mask' && !prop.maskClose) return
+  const handleClose: b = (): void => {
     emit('update:visible', false)
   }
 
@@ -67,7 +68,7 @@
           }
         ]"
         :style="{ zIndex }"
-        @click.self="handleClose('mask')"
+        @click.self="maskClose && handleClose()"
       >
         <!-- 抽屉 -->
         <div
@@ -82,7 +83,7 @@
                 <f-icon
                   v-if="showCloseBtn"
                   icon="f-icon-close"
-                  @click.self="handleClose('icon')"
+                  @click.self="handleClose"
                 />
               </div>
             </slot>

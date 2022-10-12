@@ -7,6 +7,7 @@
   z-index: 1999;
   transition: 0.4s;
 
+  // 模糊状态
   &.f-dialog-mask-blur {
     backdrop-filter: blur(2px);
   }
