@@ -9,7 +9,7 @@
 
 通过 `v-model` 绑定一个值
 
-<f-rate text-color="red" v-model="value1" />
+<f-rate v-model="value1" />
 
 ::: details 显示代码
 
