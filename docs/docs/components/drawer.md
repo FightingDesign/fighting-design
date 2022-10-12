@@ -149,7 +149,6 @@ fighting-design
 | `direction`       | 弹出方向             | boolean | `top` `left` <br /> `bottom` `right` | right  |
 | `title`           | 标题                 | string  | ——                                   | ——     |
 | `show-header`     | 是否展示标题         | boolean | ——                                   | true   |
-| `show-footer`     | 是否展示页脚         | boolean | ——                                   | false  |
 | `show-close-btn`  | 是否展示关闭按钮     | boolean | ——                                   | true   |
 | `append-to-body`  | 是否追加到 body      | boolean | ——                                   | false  |
 | `mask-close`      | 点击遮罩层是否可关闭 | boolean | ——                                   | true   |

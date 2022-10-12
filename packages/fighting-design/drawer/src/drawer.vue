@@ -90,12 +90,12 @@
           </header>
 
           <!-- 内容 -->
-          <section class="f-drawer-body">
+          <section v-if="$slots.default" class="f-drawer-body">
             <slot />
           </section>
 
           <!-- 页脚 -->
-          <footer v-if="showFooter" class="f-drawer-footer">
+          <footer v-if="$slots.footer" class="f-drawer-footer">
             <slot name="footer" />
           </footer>
         </div>

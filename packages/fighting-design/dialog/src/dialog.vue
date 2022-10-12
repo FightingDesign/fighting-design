@@ -67,15 +67,23 @@
             marginTop: top
           }"
         >
+          <!-- 头部 -->
           <header class="f-dialog-header">
-            <slot name="title">{{ title }}</slot>
-            <f-icon :icon="closeIcon || 'f-icon-close'" @click="closeDialog" />
+            <slot name="header">
+              <slot name="title">{{ title }}</slot>
+              <f-icon
+                :icon="closeIcon || 'f-icon-close'"
+                @click="closeDialog"
+              />
+            </slot>
           </header>
 
+          <!-- 身体 -->
           <section v-if="$slots.default" class="f-dialog-body">
             <slot />
           </section>
 
+          <!-- 页脚 -->
           <footer v-if="$slots.footer" class="f-dialog-footer">
             <slot name="footer" />
           </footer>

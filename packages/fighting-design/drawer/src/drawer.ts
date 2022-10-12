@@ -37,10 +37,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => true
   },
-  showFooter: {
-    type: Boolean,
-    default: (): boolean => false
-  },
   showCloseBtn: {
     type: Boolean,
     default: (): boolean => true
