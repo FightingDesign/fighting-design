@@ -61,12 +61,12 @@
               'f-dialog-shadow': !modal
             }
           ]"
-          :style="{
+        >
+          <!-- :style="{
             width,
             height,
             marginTop: top
-          }"
-        >
+          }" -->
           <!-- 头部 -->
           <header class="f-dialog-header">
             <slot name="header">
