@@ -65,14 +65,14 @@
 
 ## 自定义图片大小
 
-`image-src` 属性可以配置 `empty` 展示数据状态的图片
+`image-size` 属性可以配置自定义的图片大小
 
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="40%" />
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
 
 ::: details 显示代码
 
 ```html
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="40%" />
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
 ```
 
 :::
