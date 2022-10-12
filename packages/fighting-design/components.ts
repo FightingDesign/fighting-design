@@ -150,3 +150,6 @@ export type { CheckboxGroupInstance, CheckboxGroupPropsType, CheckboxGroupLabelT
 
 export { FRate } from './rate'
 export type { RateInstance, RatePropsType } from './rate'
+
+export { FMask } from './mask'
+export type { FMaskInstance } from './mask'
