@@ -62,12 +62,14 @@
 ::: details 显示代码
 
 ```html
-<f-tag simple type="default">默认</f-tag>
-<f-tag simple type="primary">普通</f-tag>
-<f-tag simple type="warning">警告</f-tag>
-<f-tag simple type="success">成功</f-tag>
-<f-tag simple type="danger">失败</f-tag>
+<f-tag line type="default">默认</f-tag>
+<f-tag line type="primary">普通</f-tag>
+<f-tag line type="warning">警告</f-tag>
+<f-tag line type="success">成功</f-tag>
+<f-tag line type="danger">失败</f-tag>
 ```
+
+:::
 
 ## 自定义颜色
 
@@ -133,17 +135,17 @@
 
 注意：当同时设置 `after-icon` 与 `close` 时，关闭的 icon 将始终位于最右侧。
 
-<f-tag type="default" size="small" leftIcon="f-icon-Daytimemode">标签</f-tag>
-<f-tag type="primary" size="small" rightIcon="f-icon-email">标签</f-tag>
-<f-tag type="danger" simple size="small" rightIcon="f-icon-form-fill" close>标签</f-tag>
+<f-tag type="default" size="small" before-icon="f-icon-Daytimemode">标签</f-tag>
+<f-tag type="primary" size="small" after-icon="f-icon-email">标签</f-tag>
+<f-tag type="danger" simple size="small" after-Icon="f-icon-form-fill" close>标签
+</f-tag>
 
 ::: details 显示代码
 
 ```html
-<f-tag type="default" size="small" leftIcon="f-icon-Daytimemode">标签</f-tag>
-<f-tag type="primary" size="small" rightIcon="f-icon-email">标签</f-tag>
-<f-tag type="danger" simple size="small" rightIcon="f-icon-form-fill" closable>
-  标签
+<f-tag type="default" size="small" before-icon="f-icon-Daytimemode">标签</f-tag>
+<f-tag type="primary" size="small" after-icon="f-icon-email">标签</f-tag>
+<f-tag type="danger" simple size="small" after-Icon="f-icon-form-fill" close>标签
 </f-tag>
 ```
 
