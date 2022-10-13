@@ -2,10 +2,33 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.7.0-alpha.5 (2022-10-13)
+
+**新增**
+
+- 新增 `f-mask` 组件
+
+**新特性**
+
+- `f-drawer` 组件 `with-header` 配置项改为 `showHeader`
+- `f-drawer` 组件新增 `showCloseBtn` 配置项
+- `f-drawer` 组件新增 `modal-blur` 配置项
+- `f-dialog` 组件新增 `modal-blur` 配置项
+- `f-dialog` 组件移除 `top` 配置项
+- `f-dialog` 组件新增 `show-close-icon` 配置项
+- `f-dialog` 组件 `width` `height` 配置项支持 `number` 类型
+- `f-dialog` 组件的 `open`、`open-end`、`close`、`close-end` 回调参数由 `emit` 传递改为 `props` 传递
+- `f-loading` 组件新增 `icon-color` 属性
+- `f-dialog` 组件废除 `height` 组件
+
+**修复 Bug**
+
+- 修复 `message` `f-dialog` `f-switch` 组件 props 校验器的拼写错误
+
 ## 0.7.0-alpha.4 (2022-10-11)
 
-- 新增 `checkbox` 组件
-- 新增 `rate` 组件
+- 新增 `f-checkbox` 组件
+- 新增 `f-rate` 组件
 - 废除 `f-radio-group` 组件 `circle` 配置项
 - 修复 `f-radio` 组件 `border` 状态禁用样式细节
 - 优化部分组件语义化属性

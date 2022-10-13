@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.7.0-alpha.5 (2022-10-13)
+
 **新增**
 
 - 新增 `f-mask` 组件
