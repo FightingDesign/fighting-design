@@ -54,15 +54,23 @@ export const Props = {
   modalBlur: {
     type: Boolean,
     default: (): boolean => false
+  },
+  open: {
+    type: Function
+  },
+  openEnd: {
+    type: Function
+  },
+  close: {
+    type: Function
+  },
+  closeEnd: {
+    type: Function
   }
 } as const
 
 export const Emits = {
-  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean',
-  open: (event: MouseEvent): MouseEvent => event,
-  close: (event: MouseEvent): MouseEvent => event,
-  'open-end': (event: MouseEvent): MouseEvent => event,
-  'close-end': (event: MouseEvent): MouseEvent => event
+  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean'
 } as const
 
 export type DialogPropsType = ExtractPropTypes<typeof Props>

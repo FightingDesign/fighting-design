@@ -31,7 +31,13 @@
 </script>
 
 <template>
-  <f-mask v-model:visible="isVisible">
+  <f-mask
+    v-model:visible="isVisible"
+    @open="open"
+    @open-end="openEnd"
+    @close="close"
+    @close-end="closeEnd"
+  >
     <div role="dialog" class="f-dialog">
       <!-- 头部 -->
       <header class="f-dialog-header">
