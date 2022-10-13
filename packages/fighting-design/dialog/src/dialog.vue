@@ -36,10 +36,10 @@
   <f-mask
     v-model:visible="isVisible"
     :append-to-body="appendToBody"
-    :modal="modal"
-    :modal-close="modalClose"
+    :show-mask="showMask"
+    :mask-close="maskClose"
     :z-index="zIndex"
-    :modal-blur="modalBlur"
+    :mask-blur="maskBlur"
     @open="open"
     @open-end="openEnd"
     @close="close"

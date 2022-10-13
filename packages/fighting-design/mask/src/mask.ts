@@ -10,7 +10,7 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  modal: {
+  showMask: {
     type: Boolean,
     default: (): boolean => true
   },
@@ -18,15 +18,16 @@ export const Props = {
     type: Boolean,
     default: (): boolean => true
   },
+  maskBlur: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   zIndex: {
     type: Number,
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
-  },
-  modalBlur: {
-    type: Boolean,
-    default: (): boolean => false
   }
+
 } as const
 
 export const Emits = {

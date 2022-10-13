@@ -22,15 +22,19 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  modal: {
+  showMask: {
     type: Boolean,
     default: (): boolean => true
+  },
+  maskClose: {
+    type: Boolean,
+    default: (): boolean => true
+  },
+  maskBlur: {
+    type: Boolean,
+    default: (): boolean => false
   },
   showCloseIcon: {
-    type: Boolean,
-    default: (): boolean => true
-  },
-  modalClose: {
     type: Boolean,
     default: (): boolean => true
   },
@@ -43,10 +47,7 @@ export const Props = {
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
   },
-  modalBlur: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+
   open: {
     type: Function,
     default: (): null => null
