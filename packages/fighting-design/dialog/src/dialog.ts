@@ -30,6 +30,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => true
   },
+  showCloseIcon: {
+    type: Boolean,
+    default: (): boolean => true
+  },
   lockScroll: {
     type: Boolean,
     default: (): boolean => true

@@ -43,7 +43,11 @@
       <header class="f-dialog-header">
         <slot name="header">
           <span class="f-dialog-header-title">{{ title }}</span>
-          <f-icon :icon="closeIcon || 'f-icon-close'" @click="closeDialog" />
+          <f-icon
+            v-if="showCloseIcon"
+            :icon="closeIcon || 'f-icon-close'"
+            @click="closeDialog"
+          />
         </slot>
       </header>
 

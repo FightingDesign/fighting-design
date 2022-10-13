@@ -13,6 +13,7 @@
 - `drawer` 组件新增 `modal-blur` 配置项
 - `dialog` 组件新增 `modal-blur` 配置项
 - `dialog` 组件移除 `top` 配置项
+- `dialog` 组件新增 `show-close-icon` 配置项
 - `dialog` 组件 `width` `height` 配置项支持 `number` 类型
 - `dialog` 组件的 `open`、`open-end`、`close`、`close-end` 回调参数由 `emit` 传递改为 `props` 传递
 
