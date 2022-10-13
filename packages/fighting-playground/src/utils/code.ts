@@ -9,7 +9,7 @@ export const fightingPlugin = 'fighting.ts'
 
 // 引入 es 模块代码
 export const fightingImports = {
-  'fighting-design': `${publicPath}es/index.mjs`
+  'fighting-design': `${publicPath}es/index.js`
 }
 
 export const fightingPluginCode = `
