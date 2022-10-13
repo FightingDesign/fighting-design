@@ -8,12 +8,7 @@
 <template>
   <f-button type="primary" @click="visible2 = true">打开</f-button>
 
-  <f-dialog
-    v-model:visible="visible2"
-    width="500px"
-    height="400px"
-    title="Title"
-  >
+  <f-dialog v-model:visible="visible2" width="500px" title="Title">
     <f-button @click="innerVisible = true">打开里层</f-button>
 
     <f-dialog

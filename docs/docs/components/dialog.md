@@ -55,12 +55,7 @@
 <template>
   <f-button type="primary" @click="visible2 = true">打开</f-button>
 
-  <f-dialog
-    width="500px"
-    height="400px"
-    title="Title"
-    v-model:visible="visible2"
-  >
+  <f-dialog width="500px" title="Title" v-model:visible="visible2">
     <f-button @click="innerVisible = true">打开里层</f-button>
 
     <f-dialog
@@ -124,31 +119,6 @@
 
 :::
 
-## 遮罩层模糊
-
-可以通过 `modal-blur` 属性设置是否高斯模糊遮罩层
-
-<demo4-vue />
-
-::: details 显示代码
-
-```html
-<template>
-  <f-button type="primary" @click="visible4 = true">show</f-button>
-
-  <f-dialog title="Title" v-model:visible="visible4" modal-blur>
-    fighting-design
-  </f-dialog>
-</template>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const visible4 = ref(false)
-</script>
-```
-
-:::
 
 ## Attributes
 
@@ -205,5 +175,4 @@ import type { DialogInstance, DialogPropsType } from 'fighting-design'
   import demo1Vue from './_demos/dialog/demo1.vue'
   import demo2Vue from './_demos/dialog/demo2.vue'
   import demo3Vue from './_demos/dialog/demo3.vue'
-  import demo4Vue from './_demos/dialog/demo4.vue'
 </script>
