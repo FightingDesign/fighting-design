@@ -56,16 +56,20 @@ export const Props = {
     default: (): boolean => false
   },
   open: {
-    type: Function
+    type: Function,
+    default: (): null => null
   },
   openEnd: {
-    type: Function
+    type: Function,
+    default: (): null => null
   },
   close: {
-    type: Function
+    type: Function,
+    default: (): null => null
   },
   closeEnd: {
-    type: Function
+    type: Function,
+    default: (): null => null
   }
 } as const
 

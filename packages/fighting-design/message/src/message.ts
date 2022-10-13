@@ -63,7 +63,8 @@ export const Props = {
     default: (): string => ''
   },
   closeEnd: {
-    type: Function
+    type: Function,
+    default: (): null => null
   }
 } as const
 
