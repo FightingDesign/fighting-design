@@ -26,21 +26,21 @@ describe('FIcon', () => {
     const wrapper = mount(FIcon, {
       props: { color: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-icon-color: red')
+    expect(wrapper.attributes('style')).toContain('red')
   })
 
   test('size', () => {
     const wrapper = mount(FIcon, {
       props: { size: '15px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-icon-font-size: 15px')
+    expect(wrapper.attributes('style')).toContain('15px')
   })
 
   test('size', () => {
     const wrapper = mount(FIcon, {
       props: { size: 16 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-icon-font-size: 16px')
+    expect(wrapper.attributes('style')).toContain('16px')
   })
 
   test('on click', async () => {

@@ -4,7 +4,9 @@ import { FMask } from '../index'
 
 describe('Mask', () => {
   test('class', () => {
-    const wrapper = mount(FMask)
-    expect(wrapper.classes()).toContain('f-mask')
+    const wrapper = mount(FMask, {
+      props: { visible: true }
+    })
+    expect(wrapper.find('div').classes()).toContain('f-mask')
   })
 })
