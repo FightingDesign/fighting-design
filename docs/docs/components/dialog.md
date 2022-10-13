@@ -152,35 +152,30 @@
 
 ## Attributes
 
-| 参数              | 说明              | 类型            | 可选值 | 默认值       |
-| ----------------- | ----------------- | --------------- | ------ | ------------ |
-| `v-model:visible` | 绑定值            | boolean         | ——     | false        |
-| `title`           | header 文案       | string          | ——     | ——           |
-| `append-to-body`  | 是否追加到 `body` | boolean         | ——     | false        |
-| `width`           | `dialog` 宽度     | string / number | ——     | ——           |
-| `height`          | `dialog` 高度     | string / number | ——     | ——           |
-| `modal`           | 是否展示蒙层      | boolean         | ——     | true         |
-| `modal-close`     | 点击蒙层是否关闭  | boolean         | ——     | true         |
-| `close-icon`      | 关闭图标          | string          | ——     | f-icon-close |
-| `z-index`         | `dialog` 层级     | number          | ——     | 1999         |
-| `modal-blur`      | 是否模糊遮罩层    | boolean         | ——     | false        |
+| 参数              | 说明               | 类型            | 可选值 | 默认值       |
+| ----------------- | ------------------ | --------------- | ------ | ------------ |
+| `v-model:visible` | 绑定值             | boolean         | ——     | false        |
+| `title`           | header 文案        | string          | ——     | ——           |
+| `append-to-body`  | 是否追加到 `body`  | boolean         | ——     | false        |
+| `width`           | `dialog` 宽度      | string / number | ——     | ——           |
+| `height`          | `dialog` 高度      | string / number | ——     | ——           |
+| `modal`           | 是否展示蒙层       | boolean         | ——     | true         |
+| `modal-close`     | 点击蒙层是否关闭   | boolean         | ——     | true         |
+| `close-icon`      | 关闭图标           | string          | ——     | f-icon-close |
+| `z-index`         | `dialog` 层级      | number          | ——     | 1999         |
+| `modal-blur`      | 是否模糊遮罩层     | boolean         | ——     | false        |
+| `open`            | 打开动画开始的回调 | Function        | ——     | null         |
+| `open-end`        | 打开动画结束的回调 | Function        | ——     | null         |
+| `close`           | 关闭动画开始的回调 | Function        | ——     | null         |
+| `close-end`       | 关闭动画结束的回调 | Function        | ——     | null         |
 
 ## Slots
 
 | 名称      | 说明              |
 | --------- | ----------------- |
 | `default` | `Dialog` 内容     |
-| `title`   | `Dialog` 顶部内容 |
+| `header`  | `Dialog` 顶部内容 |
 | `footer`  | `Dialog` 底部内容 |
-
-## Events
-
-| 事件名称    | 说明                          |
-| ----------- | ----------------------------- |
-| `open`      | `Dialog` 打开动画开始之前回调 |
-| `open-end`  | `Dialog` 打开动画开始之后回调 |
-| `close`     | `Dialog` 关闭动画开始之前回调 |
-| `close-end` | `Dialog` 关闭动画开始之后回调 |
 
 ## Interface
 
