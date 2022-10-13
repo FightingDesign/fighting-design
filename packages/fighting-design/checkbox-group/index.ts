@@ -12,6 +12,6 @@ export type { CheckboxGroupLabelType, CheckboxGroupSizeType } from './src/interf
 
 declare module 'vue' {
   export interface GlobalComponents {
-    FRadioGroup: typeof FCheckboxGroup
+    FCheckboxGroup: typeof FCheckboxGroup
   }
 }

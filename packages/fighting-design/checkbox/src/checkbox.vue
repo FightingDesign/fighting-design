@@ -3,7 +3,7 @@
   import { Props, Emits } from './checkbox'
   import { checkboxGroupPropsKey } from '../../checkbox-group/src/checkbox-group'
   import type { ClassListInterface as c } from '../../_interface'
-  import type { CheckboxLabelType } from '../../checkbox-group/src/interface'
+  import type { CheckboxGroupLabelType } from '../../checkbox-group/src/interface'
   import type { CheckboxGroupPropsType as a } from '../../checkbox-group/src/checkbox-group'
   import type {
     ComputedRef,
@@ -32,7 +32,7 @@
     return !!groupProps.value || false
   })
 
-  const modelValue: WritableComputedRef<CheckboxLabelType> = computed({
+  const modelValue: WritableComputedRef<CheckboxGroupLabelType> = computed({
     get () {
       if (isGroup.value) {
         return (groupProps.value as a)?.modelValue
