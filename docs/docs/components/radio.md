@@ -65,51 +65,6 @@
 
 :::
 
-## 展示小圆圈
-
-在边框单选中，默认隐藏小圆圈，你也可以通过 `circle` 来设置是否展示小圆圈，但是对于非边框的单选不会工作
-
-<f-radio-group v-model="radio3" border>
-  <f-radio label="1">备选项1</f-radio>
-  <f-radio label="2">备选项2</f-radio>
-  <f-radio label="3">备选项3</f-radio>
-</f-radio-group>
-
-<br />
-<br />
-
-<f-radio-group v-model="radio3" border circle>
-  <f-radio label="1">备选项1</f-radio>
-  <f-radio label="2">备选项2</f-radio>
-  <f-radio label="3">备选项3</f-radio>
-</f-radio-group>
-
-::: details 显示代码
-
-```html
-<template>
-  <f-radio-group v-model="radio3" border>
-    <f-radio label="1">备选项1</f-radio>
-    <f-radio label="2">备选项2</f-radio>
-    <f-radio label="3">备选项3</f-radio>
-  </f-radio-group>
-
-  <f-radio-group v-model="radio3" border circle>
-    <f-radio label="1">备选项1</f-radio>
-    <f-radio label="2">备选项2</f-radio>
-    <f-radio label="3">备选项3</f-radio>
-  </f-radio-group>
-</template>
-
-<script setup>
-  import { ref } from 'vue'
-
-  const radio3 = ref('1')
-</script>
-```
-
-:::
-
 ## 不同尺寸
 
 `size` 属性可以配置不同的尺寸
