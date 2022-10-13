@@ -21,6 +21,10 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
+  iconColor: {
+    type: String,
+    default: (): string => ''
+  },
   fontSize: {
     type: String,
     default: (): string => ''

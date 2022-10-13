@@ -38,7 +38,7 @@
 
 ## 自定义文案
 
-`text` 和 `icon` 属性可以自定义展示的 `icon` 和说明文字
+`text` 和 `icon` 属性可以自定义说明文字和展示的 `icon` 
 
 <f-button type="primary" @click="onclick2">玩命加载</f-button>
 <f-loading :show="loading2" text="玩命加载中……" icon="f-icon-loading6" />
@@ -76,6 +76,7 @@
 | `text`       | 说明文字         | string  | ——     | ——     |
 | `icon`       | loading 的 icon  | string  | ——     | ——     |
 | `font-color` | 说明文字颜色     | string  | ——     | ——     |
+| `icon-color` | loading 的 icon 颜色     | string  | ——     | ——     |
 | `font-size`  | 说明文字大小     | string  | ——     | ——     |
 | `background` | 遮罩层背景色     | string  | ——     | ——     |
 | `opacity`    | 遮罩层透明度     | number  | ——     | ——     |
@@ -96,6 +97,10 @@ import type { LoadingInstance, LoadingPropsType } from 'fighting-design'
 
 <a href="https://github.com/yn22638" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/48940123?v=4" />
+</a>
+
+<a href="https://github.com/Alphatrionty" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/57850101?v=4" />
 </a>
 
 <script setup>
