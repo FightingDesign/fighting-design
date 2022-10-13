@@ -1,6 +1,7 @@
 @import '../config/const-color.scss';
 
 .f-message {
+  z-index: 4000;
   position: fixed;
   transition: opacity 0.3s, top 0.4s;
   padding: 10px 20px;

@@ -9,7 +9,21 @@
 
 `v-model:visible` 属性来控制展示状态
 
-<demo1-vue />
+<f-button type="primary" @click="visible1 = true">打开</f-button>
+
+<f-dialog v-model:visible="visible1" title="标题文字">
+  <p>这是一段文字</p>
+  <p>这是一段文字</p>
+  <p>这是一段文字</p>
+  <p>这是一段文字</p>
+  <p>这是一段文字</p>
+  <p>这是一段文字</p>
+
+<template #footer>
+<f-button type="default">默认按钮</f-button>
+<f-button type="primary">主要按钮</f-button>
+</template>
+</f-dialog>
 
 ::: details 显示代码
 
@@ -47,7 +61,15 @@
 
 > 通常不建议使用嵌套对话框。如果你需要在页面上呈现多个对话框，你可以简单地打平它们，以便它们彼此之间是平级关系。 将内层 dialog 的该属性设置为 true，它就会插入至 body 元素上，从而保证内外层 dialog 和遮罩层级关系的正确。
 
-<demo2-vue />
+<f-button type="primary" @click="visible2 = true">打开</f-button>
+
+<f-dialog width="500px" title="Title" v-model:visible="visible2">
+  <f-button @click="innerVisible = true">打开里层</f-button>
+
+  <f-dialog width="300px" title="Title" v-model:visible="innerVisible" append-to-body>
+    inner dialog
+  </f-dialog>
+</f-dialog>
 
 ::: details 显示代码
 
@@ -66,7 +88,6 @@
     >
       inner dialog
     </f-dialog>
-    <template #title> title slot </template>
   </f-dialog>
 </template>
 
@@ -80,11 +101,17 @@
 
 :::
 
-## 关闭时销毁
+## 触发事件
 
-提供了两个事件 `close`、`close-end` 分别用来表示关闭前、关闭后执行的事件。
+`open` 和 `open-end` 分别用来表示打开动画结束前后的事件
 
-<demo3-vue />
+`close` 和 `close-end` 分别用来表示关闭动画结束前后执行的事件
+
+<f-button type="primary" @click="visible3 = true">打开</f-button>
+
+<f-dialog title="Title" v-model:visible="visible3" :open="open" :open-end="openEnd" :close="close" :close-end="closeEnd">
+  fighting-design
+</f-dialog>
 
 ::: details 显示代码
 
@@ -95,8 +122,10 @@
   <f-dialog
     title="Title"
     v-model:visible="visible3"
-    @close="close"
-    @close-end="closeEnd"
+    :open="open"
+    :open-end="openEnd"
+    :close="close"
+    :close-end="closeEnd"
   >
     fighting-design
   </f-dialog>
@@ -104,21 +133,19 @@
 
 <script setup lang="ts">
   import { ref } from 'vue'
+  import { FMessage } from 'fighting-design'
 
   const visible3 = ref(false)
 
-  const close = () => {
-    console.log('关闭之前')
-  }
+  const open = () => FMessage('打开动画开始')
+  const openEnd = () => FMessage('打开动画结束')
 
-  const closeEnd = () => {
-    console.log('关闭之后')
-  }
+  const close = () => FMessage('关闭动画开始')
+  const closeEnd = () => FMessage('打开动画结束')
 </script>
 ```
 
 :::
-
 
 ## Attributes
 
@@ -172,7 +199,16 @@ import type { DialogInstance, DialogPropsType } from 'fighting-design'
 
 <script setup>
   import { ref } from 'vue'
-  import demo1Vue from './_demos/dialog/demo1.vue'
-  import demo2Vue from './_demos/dialog/demo2.vue'
-  import demo3Vue from './_demos/dialog/demo3.vue'
+  import { FMessage } from '../../../packages/fighting-design/message'
+
+  const visible1 = ref(false)
+  const visible2 = ref(false)
+  const visible3 = ref(false)
+  const innerVisible = ref(false)
+
+  const open = () => FMessage('打开动画开始')
+  const openEnd = () => FMessage('打开动画结束')
+
+  const close = () => FMessage('关闭动画开始')
+  const closeEnd = () => FMessage('打开动画结束')
 </script>

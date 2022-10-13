@@ -45,7 +45,7 @@
     @close="close"
     @close-end="closeEnd"
   >
-    <details-dialog
+    <div
       role="dialog"
       aria-modal="true"
       tabindex="-1"
@@ -74,6 +74,6 @@
       <footer v-if="$slots.footer" class="f-dialog-footer">
         <slot name="footer" />
       </footer>
-    </details-dialog>
+    </div>
   </f-mask>
 </template>

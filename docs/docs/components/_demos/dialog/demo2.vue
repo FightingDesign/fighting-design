@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
   import { ref } from 'vue'
 
   const visible2 = ref(false)
@@ -19,7 +19,5 @@
     >
       inner dialog
     </f-dialog>
-
-    <template #title> title slot </template>
   </f-dialog>
 </template>

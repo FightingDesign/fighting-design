@@ -82,9 +82,12 @@
     margin: 0;
     padding: 5px 18px;
     transition: 0.4s;
+    padding-left: 14px !important;
   }
+
   .VPLink.link.link.active {
     background: lighten(#2d5af1, 39%);
+    box-sizing: border-box;
 
     .link-text {
       font-weight: 600;

@@ -290,7 +290,6 @@ import type {
 
   const radio1 = ref('1')
   const radio2 = ref('1')
-  const radio3 = ref('1')
   const radio4 = ref('1')
   const radio5 = ref('1')
   const radio6 = ref('1')

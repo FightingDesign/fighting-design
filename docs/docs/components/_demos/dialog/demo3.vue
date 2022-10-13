@@ -1,13 +1,13 @@
-<script setup lang="ts">
+<script setup>
   import { ref } from 'vue'
 
   const visible3 = ref(false)
 
-  const close = (): void => {
+  const close = () => {
     console.log('关闭之前')
   }
 
-  const closeEnd = (): void => {
+  const closeEnd = () => {
     console.log('关闭之后')
   }
 </script>
