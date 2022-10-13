@@ -17,6 +17,7 @@
 - `f-dialog` 组件 `width` `height` 配置项支持 `number` 类型
 - `f-dialog` 组件的 `open`、`open-end`、`close`、`close-end` 回调参数由 `emit` 传递改为 `props` 传递
 - `f-loading` 组件新增 `icon-color` 属性
+- `f-dialog` 组件废除 `height` 组件
 
 **修复 Bug**
 

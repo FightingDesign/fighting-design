@@ -15,6 +15,7 @@
   <f-dialog
     v-model:visible="show"
     title="标题文字"
+    width="900px"
     :open="onOpen"
     :open-end="onOpenEnd"
     :close="onClose"

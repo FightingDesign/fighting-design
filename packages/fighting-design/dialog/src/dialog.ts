@@ -18,10 +18,6 @@ export const Props = {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
-  height: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
-  },
   fullscreen: {
     type: Boolean,
     default: (): boolean => false
@@ -31,14 +27,6 @@ export const Props = {
     default: (): boolean => true
   },
   showCloseIcon: {
-    type: Boolean,
-    default: (): boolean => true
-  },
-  lockScroll: {
-    type: Boolean,
-    default: (): boolean => true
-  },
-  showClose: {
     type: Boolean,
     default: (): boolean => true
   },

@@ -10,9 +10,22 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
+  modal: {
+    type: Boolean,
+    default: (): boolean => true
+  },
   maskClose: {
     type: Boolean,
     default: (): boolean => true
+  },
+  zIndex: {
+    type: Number,
+    default: (): Number => 1999,
+    validator: (val: number): boolean => val >= 0
+  },
+  modalBlur: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 

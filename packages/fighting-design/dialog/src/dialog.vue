@@ -3,11 +3,13 @@
   import { FIcon } from '../../icon'
   import { FMask } from '../../mask'
   import { ref, watch } from 'vue'
+  import { sizeChange } from '../../_utils'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const isVisible = ref(prop.visible)
+  const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
 
   const closeDialog = (): void => {
     emit('update:visible', false)
@@ -33,12 +35,17 @@
 <template>
   <f-mask
     v-model:visible="isVisible"
+    :append-to-body="appendToBody"
+    :modal="modal"
+    :modal-close="modalClose"
+    :z-index="zIndex"
+    :modal-blur="modalBlur"
     @open="open"
     @open-end="openEnd"
     @close="close"
     @close-end="closeEnd"
   >
-    <div role="dialog" class="f-dialog">
+    <div role="dialog" class="f-dialog" :style="{ width: sizeChange(width) }">
       <!-- 头部 -->
       <header class="f-dialog-header">
         <slot name="header">
