@@ -2,7 +2,7 @@
   import { Props, Emits } from './icon'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
-  import type { CSSProperties, ComputedRef } from 'vue'
+  import type { ComputedRef } from 'vue'
   import type {
     HandleEventInterface as a,
     ClassListInterface as b
@@ -20,19 +20,14 @@
 
     return ['f-icon', icon, fontClass] as const
   })
-
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { color, size } = prop
-
-    return {
-      '--f-icon-color': color,
-      '--f-icon-font-size': sizeChange(size)
-    } as const
-  })
 </script>
 
 <template>
-  <i :class="classList" :style="styleList" @click="handleClick">
+  <i
+    :class="classList"
+    :style="{ color, fontSize: sizeChange(size) }"
+    @click="handleClick"
+  >
     <slot />
   </i>
 </template>

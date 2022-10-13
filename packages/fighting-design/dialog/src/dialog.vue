@@ -45,6 +45,7 @@
           <span class="f-dialog-header-title">{{ title }}</span>
           <f-icon
             v-if="showCloseIcon"
+            :size="21"
             :icon="closeIcon || 'f-icon-close'"
             @click="closeDialog"
           />
