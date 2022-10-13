@@ -9,7 +9,8 @@
     ImagePreviewSwitchImageInterface as a,
     ImagePreviewOptionClickInterface as b,
     ImagePreviewOnImgMousewheelInterface as c,
-    ImagePreviewOptionClickTargetKey as e
+    ImagePreviewOptionClickTargetKey as e,
+    OptionFunInterface as g
   } from './interface'
   import type {
     OrdinaryFunctionInterface as f,
@@ -121,7 +122,8 @@
       '5': (): void => {
         rotate.value += 90
       }
-    } as const
+    } as g
+
     optionFun[key]()
   }
 </script>

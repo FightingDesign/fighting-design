@@ -3,8 +3,7 @@ export interface ImagePreviewSwitchImageInterface {
 }
 
 export interface ImagePreviewOptionClickTargetKey {
-  // key: string
-  key: '1' | '2' | '3' | '4' | '5'
+  key: string
 }
 
 export interface ImagePreviewOptionClickInterface {
@@ -14,3 +13,5 @@ export interface ImagePreviewOptionClickInterface {
 export interface ImagePreviewOnImgMousewheelInterface {
   (evt: WheelEvent): void
 }
+
+export type OptionFunInterface = Record<string, Function>
