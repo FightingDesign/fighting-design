@@ -136,8 +136,8 @@ export type { ToolbarItemInstance, ToolbarItemPropsType } from './toolbar-item'
 export { FTooltip } from './tooltip'
 export type { TooltipInstance, TooltipPropsType, TooltipPositionType, TooltipStateType } from './tooltip'
 
-export { FTree } from './tree'
-export type { TreeInstance, TreePropsType, TreeDataInterface } from './tree'
+// export { FTree } from './tree'
+// export type { TreeInstance, TreePropsType, TreeDataInterface } from './tree'
 
 export { FWatermark } from './watermark'
 export type { WatermarkInstance, WatermarkPropsType } from './watermark'
@@ -152,4 +152,4 @@ export { FRate } from './rate'
 export type { RateInstance, RatePropsType } from './rate'
 
 export { FMask } from './mask'
-export type { FMaskInstance } from './mask'
+export type { MaskInstance } from './mask'

@@ -7,7 +7,7 @@ import type { App } from 'vue'
  */
 export const install = <T>(main: T): T => {
   (main as InstallType<T>).install = (app: App): void => {
-    const { name } = main as { name: string }
+    const { name } = main as unknown as { name: string }
     app.component(name, main as InstallType<T>)
   }
   return main as InstallType<T>

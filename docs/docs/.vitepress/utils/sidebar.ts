@@ -57,7 +57,7 @@ export const sidebar = {
         { text: 'Radio 单选框', link: '/components/radio' },
         { text: 'Checkbox 复选框', link: '/components/checkbox' },
         { text: 'ExpandCard 折叠动效', link: '/components/expand-card' },
-        { text: 'Tree 树', link: '/components/tree' },
+        // { text: 'Tree 树', link: '/components/tree' },
         { text: 'StickyCard 粘性卡片', link: '/components/sticky-card' },
         { text: 'Rate 评分', link: '/components/rate' },
       ]

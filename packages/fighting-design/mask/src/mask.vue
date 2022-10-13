@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FMask">
   import { Props, Emits } from './mask'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
+  import type { MaskHandleChangeInterface as b } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -10,19 +11,19 @@
     emit('update:visible', false)
   }
 
-  const handleOpen: a = (evt: MouseEvent): void => {
+  const handleOpen: b = (evt: MouseEvent): void => {
     emit('open', evt)
   }
 
-  const handleOpenEnd: a = (evt: MouseEvent): void => {
+  const handleOpenEnd: b = (evt: MouseEvent): void => {
     emit('open-end', evt)
   }
 
-  const handleClose: a = (evt: MouseEvent): void => {
+  const handleClose: b = (evt: MouseEvent): void => {
     emit('close', evt)
   }
 
-  const handleCloseEnd: a = (evt: MouseEvent): void => {
+  const handleCloseEnd: b = (evt: MouseEvent): void => {
     emit('close-end', evt)
   }
 </script>

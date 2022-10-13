@@ -87,7 +87,7 @@
     }
   })
 
-  const isMemorandum = (date): boolean => {
+  const isMemorandum = (date: string): boolean => {
     if (!prop.memorandum) {
       return false
     }

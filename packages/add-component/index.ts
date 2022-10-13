@@ -124,7 +124,7 @@ async function updateComponentEntry (): Promise<void> {
     '\n' +
     `export { F${displayName} } from './${compName}'` +
     '\n' +
-    `export type { F${displayName}Instance } from './${compName}'` +
+    `export type { ${displayName}Instance } from './${compName}'` +
     '\n'
 
   await fsExtra.writeFile(entryFilePath, content)
