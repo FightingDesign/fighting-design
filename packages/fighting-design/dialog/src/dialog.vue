@@ -45,8 +45,10 @@
     @close="close"
     @close-end="closeEnd"
   >
-    <div
+    <details-dialog
       role="dialog"
+      aria-modal="true"
+      tabindex="-1"
       :class="['f-dialog', { 'f-dialog-fullscreen': fullscreen }]"
       :style="{ width: sizeChange(width) }"
     >
@@ -72,6 +74,6 @@
       <footer v-if="$slots.footer" class="f-dialog-footer">
         <slot name="footer" />
       </footer>
-    </div>
+    </details-dialog>
   </f-mask>
 </template>

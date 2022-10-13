@@ -19,10 +19,11 @@
 
     .f-mask-wrapper {
       background: #fff;
-      border-radius: 3px;
+      border-radius: 6px;
       box-sizing: border-box;
       max-height: 90%;
       overflow-y: auto;
+      box-shadow: 0 0 18px rgb(0 0 0 / 40%);
     }
   }
 }
