@@ -47,7 +47,6 @@ export const Props = {
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
   },
-
   open: {
     type: Function,
     default: (): null => null

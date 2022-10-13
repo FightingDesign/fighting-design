@@ -158,13 +158,13 @@
 | `title`           | `title` 内容       | string          | ——     | ——           |
 | `append-to-body`  | 是否追加到 `body`  | boolean         | ——     | false        |
 | `width`           | `dialog` 宽度      | string / number | ——     | ——           |
-| `height`          | `dialog` 高度      | string / number | ——     | ——           |
-| `modal`           | 是否展示蒙层       | boolean         | ——     | true         |
-| `modal-close`     | 点击蒙层是否关闭   | boolean         | ——     | true         |
-| `close-icon`      | 自定义关闭图标     | string          | ——     | f-icon-close |
-| `show-close-icon` | 是否展示关闭图标   | boolean         | ——     | true         |
-| `z-index`         | `dialog` 层级      | number          | ——     | 1999         |
+| `full-screen`     | 是否全屏展示       | boolean         | ——     | false        |
+| `show-mask`       | 是否展示遮罩层     | boolean         | ——     | true         |
+| `mask-close`      | 是否点击遮罩层关闭 | boolean         | ——     | true         |
 | `modal-blur`      | 是否模糊遮罩层     | boolean         | ——     | false        |
+| `show-close-icon` | 是否展示关闭图标   | boolean         | ——     | true         |
+| `close-icon`      | 自定义关闭图标     | string          | ——     | f-icon-close |
+| `z-index`         | `dialog` 层级      | number          | ——     | 1999         |
 | `open`            | 打开动画开始的回调 | Function        | ——     | null         |
 | `open-end`        | 打开动画结束的回调 | Function        | ——     | null         |
 | `close`           | 关闭动画开始的回调 | Function        | ——     | null         |
