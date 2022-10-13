@@ -3,7 +3,7 @@
   import { computed } from 'vue'
   import { treeToFlat, treeAddLevel } from '../../_utils'
   import type { ComputedRef } from 'vue'
-  import type { treeAddLevelReturnInterface as a } from '../../_interface'
+  import type { TreeAddLevelReturnInterface as a } from '../../_interface'
 
   const prop = defineProps(Props)
 
@@ -12,7 +12,7 @@
     return treeToFlat(treeAddLevel(prop.data))
   })
 
-  const handleClick = (item, index): void => {
+  const handleClick = (item: a, index: number): void => {
     console.log(item, index)
   }
 </script>

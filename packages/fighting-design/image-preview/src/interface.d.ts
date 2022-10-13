@@ -3,7 +3,8 @@ export interface ImagePreviewSwitchImageInterface {
 }
 
 export interface ImagePreviewOptionClickTargetKey {
-  key: string
+  // key: string
+  key: '1' | '2' | '3' | '4' | '5'
 }
 
 export interface ImagePreviewOptionClickInterface {

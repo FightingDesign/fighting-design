@@ -1,4 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
+import type { MaskHandleChangeInterface } from './interface'
 
 export const Props = {
   visible: {
@@ -48,19 +49,19 @@ export const Props = {
     validator: (val: number): boolean => val >= 0
   },
   open: {
-    type: Function,
+    type: Function as PropType<MaskHandleChangeInterface>,
     default: (): null => null
   },
   openEnd: {
-    type: Function,
+    type: Function as PropType<MaskHandleChangeInterface>,
     default: (): null => null
   },
   close: {
-    type: Function,
+    type: Function as PropType<MaskHandleChangeInterface>,
     default: (): null => null
   },
   closeEnd: {
-    type: Function,
+    type: Function as PropType<MaskHandleChangeInterface>,
     default: (): null => null
   }
 } as const
