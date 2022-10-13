@@ -13,7 +13,7 @@ export const nav = [
   },
   {
     text: 'Playground',
-    link: 'https://tianyuhao.cn/playground'
+    link: 'https://sfc.tianyuhao.cn'
   },
   {
     text: version,
