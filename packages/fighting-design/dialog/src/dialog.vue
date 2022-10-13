@@ -45,7 +45,11 @@
     @close="close"
     @close-end="closeEnd"
   >
-    <div role="dialog" class="f-dialog" :style="{ width: sizeChange(width) }">
+    <div
+      role="dialog"
+      :class="['f-dialog', { 'f-dialog-fullscreen': fullscreen }]"
+      :style="{ width: sizeChange(width) }"
+    >
       <!-- 头部 -->
       <header class="f-dialog-header">
         <slot name="header">
