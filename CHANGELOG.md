@@ -2,7 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-**fest**
+**新增**
+
+- 新增 `mask` 组件
+
+**新特性**
 
 - `drawer` 组件 `with-header` 配置项改为 `showHeader`
 - `drawer` 组件新增 `showCloseBtn` 配置项
@@ -10,9 +14,9 @@
 - `dialog` 组件新增 `modal-blur` 配置项
 - `dialog` 组件移除 `top` 配置项
 - `dialog` 组件 `width` `height` 配置项支持 `number` 类型
-- 新增 `mask` 组件
+- `dialog` 组件的 `open`、`open-end`、`close`、`close-end` 回调参数由 `emit` 传递改为 `props` 传递
 
-**Bug**
+**修复 Bug**
 
 - 修复 `message` `dialog` `switch` props 校验器的拼写错误
 
