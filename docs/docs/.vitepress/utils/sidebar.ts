@@ -83,7 +83,8 @@ export const sidebar = {
         { text: 'BackTop 返回顶部', link: '/components/back-top' },
         { text: 'Dialog 对话框', link: '/components/dialog' },
         { text: 'Drawer 抽屉', link: '/components/drawer' },
-        { text: 'Tooltip 消息提示', link: '/components/tooltip' }
+        { text: 'Tooltip 消息提示', link: '/components/tooltip' },
+        { text: 'Mask 遮罩层', link: '/components/mask' }
       ]
     },
     {
