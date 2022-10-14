@@ -17,7 +17,7 @@
 
     return {
       background,
-      opacity,
+      opacity
     } as const
   })
 </script>

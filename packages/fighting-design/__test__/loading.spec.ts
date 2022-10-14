@@ -24,12 +24,19 @@ describe('FLoading', () => {
     expect(wrapper.find('.f-loading-animation').attributes('class')).toContain('f-icon-abc')
   })
 
-  // test('font-color', () => {
-  //   const wrapper = mount(FLoading, {
-  //     props: { show: true, fontColor: 'red' }
-  //   })
-  //   expect(wrapper.attributes('style')).toContain('red')
-  // })
+  test('font-color', () => {
+    const wrapper = mount(FLoading, {
+      props: { show: true, fontColor: 'red' }
+    })
+    expect(wrapper.find('.f-loading-title').attributes('style')).toContain('red')
+  })
+
+  test('icon-color', () => {
+    const wrapper = mount(FLoading, {
+      props: { show: true, iconColor: 'black' }
+    })
+    expect(wrapper.find('.f-icon').attributes('style')).toContain('black')
+  })
 
   test('font-size', () => {
     const wrapper = mount(FLoading, {
