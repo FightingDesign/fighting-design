@@ -78,7 +78,6 @@
     .f-drawer-footer {
       padding: 0 20px;
       box-sizing: border-box;
-      background: red;
     }
 
     // 不同位置
@@ -151,12 +150,12 @@
   transform: translateY(100%);
 }
 
-.f-drawer-enter-from .f-drawer-cover,
-.f-drawer-leave-to .f-drawer-cover {
-  opacity: 0;
-}
+// .f-drawer-enter-from .f-drawer-cover,
+// .f-drawer-leave-to .f-drawer-cover {
+//   opacity: 0;
+// }
 /* 延迟嵌套元素的进入以获得交错效果 */
-.f-drawer-enter-active .f__drawer,
-.f-drawer-enter-active .f-drawer-cover {
-  transition-delay: 0.1s;
-}
+// .f-drawer-enter-active .f__drawer,
+// .f-drawer-enter-active .f-drawer-cover {
+//   // transition-delay: 0.1s;
+// }

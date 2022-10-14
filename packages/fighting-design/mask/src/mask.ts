@@ -1,4 +1,5 @@
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
+import type { MaskDirectionType } from './interface'
 
 export const Props = {
   visible: {
@@ -35,6 +36,13 @@ export const Props = {
     type: Number,
     default: (): null => null,
     validator: (val: number): boolean => val >= 0 && val <= 1
+  },
+  direction: {
+    type: String as PropType<MaskDirectionType>,
+    default: (): MaskDirectionType => 'center',
+    validator: (val: MaskDirectionType): boolean => {
+      return (['left', 'right', 'top', 'bottom', 'center'] as const).includes(val)
+    }
   }
 } as const
 

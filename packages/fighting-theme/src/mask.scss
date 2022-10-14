@@ -6,6 +6,7 @@
   bottom: 0;
   z-index: 2000;
 
+  // 遮罩层
   .f-mask-mask {
     position: absolute;
     top: 0;
@@ -16,7 +17,8 @@
     background: rgba(35, 39, 46);
   }
 
-  .f-mask-container {
+  // 主容器居中
+  .f-mask-container-center {
     position: absolute;
     top: 0;
     right: 0;
@@ -35,4 +37,135 @@
       box-shadow: 0 0 18px rgb(0 0 0 / 40%);
     }
   }
+
+  // 主容器左侧
+  .f-mask-container-left {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .f-mask-wrapper {
+      background: #fff;
+      box-sizing: border-box;
+      overflow-y: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  // 主容器右侧
+  .f-mask-container-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .f-mask-wrapper {
+      background: #fff;
+      box-sizing: border-box;
+      overflow-y: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  // 主容器上侧
+  .f-mask-container-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .f-mask-wrapper {
+      background: #fff;
+      box-sizing: border-box;
+      overflow-y: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  // 主容器下侧
+  .f-mask-container-bottom {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .f-mask-wrapper {
+      background: #fff;
+      border-radius: 6px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
 }
+
+// 居中
+.f-mask-center-enter-active {
+  transition: all 0.2s ease-out;
+}
+
+.f-mask-center-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.f-mask-center-enter-from,
+.f-mask-center-leave-to {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+// 其它方向
+/* 应用于嵌套元素的规则 */
+.f-mask-other-enter-active .f-mask,
+.f-mask-other-enter-active .f-mask-cover,
+.f-mask-other-leave-active .f-mask,
+.f-mask-other-leave-active .f-mask-cover {
+  transition: all 0.3s ease-in-out;
+}
+
+.f-mask-other-enter-from .f-mask-right,
+.f-mask-other-leave-to .f-mask-right {
+  transform: translateX(100%);
+}
+
+.f-mask-other-enter-from .f-mask-left,
+.f-mask-other-leave-to .f-mask-left {
+  transform: translateX(-100%);
+}
+
+.f-mask-other-enter-from .f-mask-top,
+.f-mask-other-leave-to .f-mask-top {
+  transform: translateY(-100%);
+}
+
+.f-mask-other-enter-from .f-mask-bottom,
+.f-mask-other-leave-to .f-mask-bottom {
+  transform: translateY(100%);
+}
+
+// .f-mask-other-enter-from .f-mask-cover,
+// .f-mask-other-leave-to .f-mask-cover {
+//   opacity: 0;
+// }
+// /* 延迟嵌套元素的进入以获得交错效果 */
+// .f-mask-other-enter-active .f__mask,
+// .f-mask-other-enter-active .f-mask-cover {
+//   transition-delay: 0.1s;
+// }

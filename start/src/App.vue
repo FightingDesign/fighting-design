@@ -10,14 +10,12 @@
 </script>
 
 <template>
-  <button @click="show = true">打开</button>
+  <f-button @click="show = true">打开</f-button>
 
-  <f-button>222</f-button>
-
-  <f-dialog
+  <f-mask
     v-model:visible="show"
     title="标题文字"
-    mask-background="red"
+    direction="center"
     :open="onOpen"
     :open-end="onOpenEnd"
     :close="onClose"
@@ -34,14 +32,14 @@
       <f-button type="danger">危险按钮</f-button>
       <f-button type="warning">警告按钮</f-button>
     </template>
-  </f-dialog>
 
-  <!-- <f-mask v-model:visible="show">
+    <!-- <f-mask v-model:visible="show">
     <div>哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
     <div>title</div>
     <div>title</div>
     <div>title</div>
   </f-mask> -->
+  </f-mask>
 </template>
 
 <style lang="scss" scoped></style>

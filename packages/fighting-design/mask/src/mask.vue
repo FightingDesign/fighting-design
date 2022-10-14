@@ -31,13 +31,13 @@
 <template>
   <teleport to="body" :disabled="!appendToBody">
     <transition
-      name="f-mask-fade"
+      :name="direction === 'center' ? 'f-mask-center' : 'f-mask-other'"
       @before-enter="handleOpen"
       @after-enter="handleOpenEnd"
       @before-leave="handleClose"
       @after-leave="handleCloseEnd"
     >
-      <div v-show="visible" class="f-mask" :style="{ zIndex }">
+      <div v-show="visible" :class="['f-mask']" :style="{ zIndex }">
         <!-- 遮罩层 -->
         <div
           v-if="showMask"
@@ -46,7 +46,10 @@
         />
 
         <!-- 主容器 -->
-        <div class="f-mask-container" @click.self="closeMask">
+        <div
+          :class="['f-mask-container', `f-mask-container-${direction}`]"
+          @click.self="closeMask"
+        >
           <div class="f-mask-wrapper">
             <slot />
           </div>
