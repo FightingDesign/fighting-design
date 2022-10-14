@@ -26,8 +26,16 @@ export const Props = {
     type: Number,
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
+  },
+  maskBackground: {
+    type: String,
+    default: (): string => ''
+  },
+  maskOpacity: {
+    type: Number,
+    default: (): null => null,
+    validator: (val: number): boolean => val >= 0 && val <= 1
   }
-
 } as const
 
 export const Emits = {

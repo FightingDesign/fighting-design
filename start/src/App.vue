@@ -12,10 +12,12 @@
 <template>
   <button @click="show = true">打开</button>
 
+  <f-button>222</f-button>
+
   <f-dialog
     v-model:visible="show"
     title="标题文字"
-    :mask-close="false"
+    mask-background="red"
     :open="onOpen"
     :open-end="onOpenEnd"
     :close="onClose"

@@ -38,6 +38,14 @@
       @after-leave="handleCloseEnd"
     >
       <div v-show="visible" class="f-mask" :style="{ zIndex }">
+        <!-- 遮罩层 -->
+        <div
+          v-if="showMask"
+          class="f-mask-mask"
+          :style="{ background: maskBackground, opacity: maskOpacity }"
+        />
+
+        <!-- 主容器 -->
         <div class="f-mask-container" @click.self="closeMask">
           <div class="f-mask-wrapper">
             <slot />

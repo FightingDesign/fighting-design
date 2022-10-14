@@ -9,4 +9,11 @@ describe('FMask', () => {
     })
     expect(wrapper.find('div').classes()).toContain('f-mask')
   })
+
+  test('z-index', () => {
+    const wrapper = mount(FMask, {
+      props: { visible: true, zIndex: 200 }
+    })
+    expect(wrapper.find('div').attributes('style')).toContain('200')
+  })
 })

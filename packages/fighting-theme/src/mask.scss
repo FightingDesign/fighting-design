@@ -6,6 +6,16 @@
   bottom: 0;
   z-index: 2000;
 
+  .f-mask-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+    background: rgba(35, 39, 46);
+  }
+
   .f-mask-container {
     position: absolute;
     top: 0;
@@ -15,7 +25,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(35, 39, 46, 0.5);
 
     .f-mask-wrapper {
       background: #fff;
