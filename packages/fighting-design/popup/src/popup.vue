@@ -42,7 +42,7 @@
         <div
           v-if="showPopup"
           :class="['f-popup-mask', { 'f-popup-blur': maskBlur }]"
-          :style="{ background: popupBackground, opacity: popupOpacity }"
+          :style="{ background: maskBackground, opacity: maskOpacity }"
         />
 
         <!-- 主容器 -->

@@ -28,11 +28,11 @@ export const Props = {
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
   },
-  popupBackground: {
+  maskBackground: {
     type: String,
     default: (): string => ''
   },
-  popupOpacity: {
+  maskOpacity: {
     type: Number,
     default: (): null => null,
     validator: (val: number): boolean => val >= 0 && val <= 1
