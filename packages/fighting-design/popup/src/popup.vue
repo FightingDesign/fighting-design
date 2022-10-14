@@ -1,12 +1,12 @@
-<script lang="ts" setup name="FMask">
-  import { Props, Emits } from './mask'
+<script lang="ts" setup name="FPopup">
+  import { Props, Emits } from './popup'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
-  import type { MaskHandleChangeInterface as b } from './interface'
+  import type { popupHandleChangeInterface as b } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const closeMask: a = (): void => {
+  const closePopup: a = (): void => {
     if (!prop.maskClose) return
     emit('update:visible', false)
   }
@@ -31,26 +31,26 @@
 <template>
   <teleport to="body" :disabled="!appendToBody">
     <transition
-      :name="direction === 'center' ? 'f-mask-center' : 'f-mask-other'"
+      :name="direction === 'center' ? 'f-popup-center' : 'f-popup-other'"
       @before-enter="handleOpen"
       @after-enter="handleOpenEnd"
       @before-leave="handleClose"
       @after-leave="handleCloseEnd"
     >
-      <div v-show="visible" :class="['f-mask']" :style="{ zIndex }">
+      <div v-show="visible" class="f-popup" :style="{ zIndex }">
         <!-- 遮罩层 -->
         <div
-          v-if="showMask"
-          class="f-mask-mask"
-          :style="{ background: maskBackground, opacity: maskOpacity }"
+          v-if="showPopup"
+          :class="['f-popup-mask', { 'f-popup-blur': maskBlur }]"
+          :style="{ background: popupBackground, opacity: popupOpacity }"
         />
 
         <!-- 主容器 -->
         <div
-          :class="['f-mask-container', `f-mask-container-${direction}`]"
-          @click.self="closeMask"
+          :class="['f-popup-container', `f-popup-container-${direction}`]"
+          @click.self="closePopup"
         >
-          <div class="f-mask-wrapper">
+          <div class="f-popup-wrapper">
             <slot />
           </div>
         </div>

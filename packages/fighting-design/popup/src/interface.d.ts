@@ -1,4 +1,4 @@
-export interface MaskHandleChangeInterface {
+export interface PopopHandleChangeInterface {
   (evt: MouseEvent): void
 }
 

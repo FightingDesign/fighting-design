@@ -1,17 +1,17 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FMask } from '../index'
+import { FPopup } from '../index'
 
-describe('FMask', () => {
+describe('FPopup', () => {
   test('class', () => {
-    const wrapper = mount(FMask, {
+    const wrapper = mount(FPopup, {
       props: { visible: true }
     })
-    expect(wrapper.find('div').classes()).toContain('f-mask')
+    expect(wrapper.find('div').classes()).toContain('f-popup')
   })
 
   test('z-index', () => {
-    const wrapper = mount(FMask, {
+    const wrapper = mount(FPopup, {
       props: { visible: true, zIndex: 200 }
     })
     expect(wrapper.find('div').attributes('style')).toContain('200')

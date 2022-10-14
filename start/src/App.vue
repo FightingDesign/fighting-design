@@ -12,34 +12,20 @@
 <template>
   <f-button @click="show = true">打开</f-button>
 
-  <f-mask
+  <f-popup
     v-model:visible="show"
-    title="标题文字"
-    direction="center"
-    :open="onOpen"
-    :open-end="onOpenEnd"
-    :close="onClose"
-    :close-end="onCloseEnd"
+    direction="left"
+    @open="onOpen"
+    @open-end="onOpenEnd"
+    @close="onClose"
+    @close-end="onCloseEnd"
   >
     <p>这是一段文字</p>
     <p>这是一段文字</p>
     <p>这是一段文字</p>
     <p>这是一段文字</p>
     <p>这是一段文字</p>
-    <p>这是一段文字</p>
-
-    <template #footer>
-      <f-button type="danger">危险按钮</f-button>
-      <f-button type="warning">警告按钮</f-button>
-    </template>
-
-    <!-- <f-mask v-model:visible="show">
-    <div>哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
-    <div>title</div>
-    <div>title</div>
-    <div>title</div>
-  </f-mask> -->
-  </f-mask>
+  </f-popup>
 </template>
 
 <style lang="scss" scoped></style>

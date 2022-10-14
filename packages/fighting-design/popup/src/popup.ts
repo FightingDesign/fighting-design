@@ -11,7 +11,7 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  showMask: {
+  showPopup: {
     type: Boolean,
     default: (): boolean => true
   },
@@ -28,11 +28,11 @@ export const Props = {
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
   },
-  maskBackground: {
+  popupBackground: {
     type: String,
     default: (): string => ''
   },
-  maskOpacity: {
+  popupOpacity: {
     type: Number,
     default: (): null => null,
     validator: (val: number): boolean => val >= 0 && val <= 1
@@ -54,4 +54,4 @@ export const Emits = {
   'close-end': (event: MouseEvent): MouseEvent => event
 } as const
 
-export type MaskPropsType = ExtractPropTypes<typeof Props>
+export type PopupPropsType = ExtractPropTypes<typeof Props>

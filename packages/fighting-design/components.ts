@@ -151,5 +151,5 @@ export type { CheckboxGroupInstance, CheckboxGroupPropsType, CheckboxGroupLabelT
 export { FRate } from './rate'
 export type { RateInstance, RatePropsType } from './rate'
 
-export { FMask } from './mask'
-export type { MaskInstance } from './mask'
+export { FPopup } from './popup'
+export type { PopupPropsType } from './popup'

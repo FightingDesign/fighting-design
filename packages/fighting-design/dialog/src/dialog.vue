@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FDialog">
   import { Props, Emits } from './dialog'
   import { FIcon } from '../../icon'
-  import { FMask } from '../../mask'
+  import { FPopup } from '../../popup'
   import { ref, watch } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { Ref } from 'vue'
@@ -33,13 +33,13 @@
 </script>
 
 <template>
-  <f-mask
+  <f-popup
     v-model:visible="isVisible"
     :append-to-body="appendToBody"
     :show-mask="showMask"
-    :mask-close="maskClose"
+    :popup-close="popupClose"
     :z-index="zIndex"
-    :mask-blur="maskBlur"
+    :popup-blur="popupBlur"
     @open="open"
     @open-end="openEnd"
     @close="close"
@@ -75,5 +75,5 @@
         <slot name="footer" />
       </footer>
     </div>
-  </f-mask>
+  </f-popup>
 </template>
