@@ -1,105 +1,91 @@
 <script lang="ts" setup name="FDrawer">
   import { Props, Emits } from './drawer'
-  import { computed } from 'vue'
+  import { watch, ref } from 'vue'
   import { FIcon } from '../../icon'
-  import type { CSSProperties, ComputedRef } from 'vue'
-  import type {
-    HandleEventInterface as a,
-    OrdinaryFunctionInterface as b
-  } from '../../_interface'
+  import { FPopup } from '../../popup'
+  // import type { CSSProperties, ComputedRef } from 'vue'
+  // import type {
+  //   HandleEventInterface as a,
+  //   OrdinaryFunctionInterface as b
+  // } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const drawerStyle: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { direction, size } = prop
+  const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
 
-      if (['left', 'right'].includes(direction)) {
-        return { width: size } as const
-      } else if (['top', 'bottom'].includes(direction)) {
-        return { height: size } as const
-      }
-
-      return { width: size } as const
-    }
-  )
-
-  const handleClose: b = (): void => {
+  const closeDrawer = (): void => {
     emit('update:visible', false)
   }
 
-  const open: a = (evt: MouseEvent): void => {
-    emit('open', evt)
-  }
+  watch(
+    () => isVisible.value,
+    (newVal) => {
+      if (!newVal) {
+        closeDrawer()
+      }
+    }
+  )
 
-  const openEnd: a = (evt: MouseEvent): void => {
-    emit('open-end', evt)
-  }
+  watch(
+    () => prop.visible,
+    (newVal) => {
+      isVisible.value = newVal
+    }
+  )
 
-  const close: a = (evt: MouseEvent): void => {
-    emit('close', evt)
-  }
+  // const drawerStyle: ComputedRef<CSSProperties> = computed(
+  //   (): CSSProperties => {
+  //     const { direction, size } = prop
 
-  const closeEnd: a = (evt: MouseEvent): void => {
-    emit('close-end', evt)
-  }
+  //     if (['left', 'right'].includes(direction)) {
+  //       return { width: size } as const
+  //     } else if (['top', 'bottom'].includes(direction)) {
+  //       return { height: size } as const
+  //     }
+
+  //     return { width: size } as const
+  //   }
+  // )
 </script>
 
 <template>
-  <teleport to="body" :disabled="!appendToBody">
-    <transition
-      name="f-drawer"
-      :duration="400"
-      @before-enter="open"
-      @after-enter="openEnd"
-      @before-leave="close"
-      @after-leave="closeEnd"
-    >
-      <!-- 遮罩层 -->
-      <div
-        v-show="visible"
-        :class="[
-          'f-drawer-mask',
-          'f-drawer-cover',
-          {
-            'f-drawer-mask-modal': modal,
-            'f-drawer-mask-blur': modalBlur
-          }
-        ]"
-        :style="{ zIndex }"
-        @click.self="maskClose && handleClose()"
-      >
-        <!-- 抽屉 -->
-        <div
-          :class="['f-drawer', { [`f-drawer-${direction}`]: direction }]"
-          :style="drawerStyle"
-        >
-          <!-- 头部 -->
-          <header v-if="showHeader" class="f-drawer-header">
-            <slot name="header">
-              <div class="f-drawer-header-default">
-                <span class="f-drawer-title">{{ title }}</span>
-                <f-icon
-                  v-if="showCloseBtn"
-                  icon="f-icon-close"
-                  @click.self="handleClose"
-                />
-              </div>
-            </slot>
-          </header>
+  <f-popup
+    v-model:visible="isVisible"
+    :append-to-body="appendToBody"
+    :show-mask="showMask"
+    :mask-close="maskClose"
+    :z-index="zIndex"
+    :mask-blur="maskBlur"
+    :direction="direction"
+    @open="open"
+    @open-end="openEnd"
+    @close="close"
+    @close-end="closeEnd"
+  >
+    <div class="f-drawer">
+      <!-- 头部 -->
+      <header class="f-drawer-header">
+        <slot name="header">
+          <span class="f-drawer-header-title">{{ title }}</span>
+          <f-icon
+            v-if="showCloseIcon"
+            :size="21"
+            :icon="closeIcon || 'f-icon-close'"
+            @click="closeDrawer"
+          />
+        </slot>
+      </header>
 
-          <!-- 内容 -->
-          <section v-if="$slots.default" class="f-drawer-body">
-            <slot />
-          </section>
+      <!-- 身体 -->
+      <section v-if="$slots.default" class="f-drawer-body">
+        <slot />
+      </section>
 
-          <!-- 页脚 -->
-          <footer v-if="$slots.footer" class="f-drawer-footer">
-            <slot name="footer" />
-          </footer>
-        </div>
-      </div>
-    </transition>
-  </teleport>
+      <!-- 页脚 -->
+      <footer v-if="$slots.footer" class="f-drawer-footer">
+        <slot name="footer" />
+      </footer>
+    </div>
+  </f-popup>
 </template>

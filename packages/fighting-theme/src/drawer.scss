@@ -1,161 +1,80 @@
 @import '../config/const-color.scss';
 
-.f-drawer-mask {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  overflow: hidden;
-  margin: 0;
+.f-drawer {
+  z-index: 999;
+  width: 521px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  display: inline-flex;
+  flex-direction: column;
+  height: 99vh;
 
-  // 高斯模糊
-  &.f-drawer-mask-blur {
-    backdrop-filter: blur(2px);
-  }
-
-  // 遮罩层
-  &.f-drawer-mask-modal {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    overflow: hidden;
-    margin: 0;
-    background: rgba(0, 0, 0, 0.3);
-  }
-
-  // 弹窗
-  .f-drawer {
-    position: absolute;
-    box-sizing: border-box;
-    background: #fff;
-    flex-direction: column;
-    box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%),
-      0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%);
-    overflow: hidden;
-    outline: 0;
+  // 头部
+  .f-drawer-header {
+    padding: 12px 14px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
 
-    // 头部
-    .f-drawer-header {
-      margin-top: 20px;
-      padding: 0 20px;
-      box-sizing: border-box;
+    .f-drawer-header-title {
+      font-size: 15px;
+      color: #333;
+    }
 
-      .f-drawer-header-default {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .f-icon {
+      font-size: 14px;
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
 
-        .f-drawer-title {
-          color: #72767b;
-        }
-
-        .f-icon-close {
-          cursor: pointer;
-          text-transform: 0.3s;
-
-          &:hover {
-            background: #eee;
-            color: $primary;
-          }
-        }
+      &:hover {
+        transition: 0.3s;
+        background: #eee;
       }
     }
+  }
 
-    // 身体
-    .f-drawer-body {
-      padding: 20px;
-      overflow: auto;
-      height: 100%;
-      box-sizing: border-box;
-    }
+  // 身体
+  .f-drawer-body {
+    padding: 15px;
+    box-sizing: border-box;
+    flex: 1;
+  }
 
-    // 页脚
-    .f-drawer-footer {
-      padding: 0 20px;
-      box-sizing: border-box;
-    }
+  // 页脚
+  .f-drawer-footer {
+    padding: 10px 14px;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+  }
 
-    // 不同位置
-    &.f-drawer-top {
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-    }
+  // 全屏展示
+  &.f-drawer-fullscreen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-    &.f-drawer-right {
-      height: 100%;
-      top: 0;
-      bottom: 0;
-      right: 0;
-    }
+  // 滚动条
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
 
-    &.f-drawer-left {
-      height: 100%;
-      top: 0;
-      bottom: 0;
-      left: 0;
-    }
-
-    &.f-drawer-bottom {
-      height: 100%;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-
-    // 滚动条
-    ::-webkit-scrollbar {
-      width: 7px;
-    }
-
-    // 滚动滑块
-    ::-webkit-scrollbar-thumb {
-      background: #dddddd;
-      border-radius: 6px;
-    }
+  // 滚动滑块
+  ::-webkit-scrollbar-thumb {
+    background: #dddddd;
+    border-radius: 6px;
   }
 }
-
-/* 应用于嵌套元素的规则 */
-.f-drawer-enter-active .f-drawer,
-.f-drawer-enter-active .f-drawer-cover,
-.f-drawer-leave-active .f-drawer,
-.f-drawer-leave-active .f-drawer-cover {
-  transition: all 0.3s ease-in-out;
-}
-
-.f-drawer-enter-from .f-drawer-right,
-.f-drawer-leave-to .f-drawer-right {
-  transform: translateX(100%);
-}
-
-.f-drawer-enter-from .f-drawer-left,
-.f-drawer-leave-to .f-drawer-left {
-  transform: translateX(-100%);
-}
-
-.f-drawer-enter-from .f-drawer-top,
-.f-drawer-leave-to .f-drawer-top {
-  transform: translateY(-100%);
-}
-
-.f-drawer-enter-from .f-drawer-bottom,
-.f-drawer-leave-to .f-drawer-bottom {
-  transform: translateY(100%);
-}
-
-// .f-drawer-enter-from .f-drawer-cover,
-// .f-drawer-leave-to .f-drawer-cover {
-//   opacity: 0;
-// }
-/* 延迟嵌套元素的进入以获得交错效果 */
-// .f-drawer-enter-active .f__drawer,
-// .f-drawer-enter-active .f-drawer-cover {
-//   // transition-delay: 0.1s;
-// }

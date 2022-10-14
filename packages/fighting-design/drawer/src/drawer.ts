@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { DrawerDirectionType } from './interface'
+import type { DrawerDirectionType, MaskHandleChangeInterface } from './interface'
 
 export const Props = {
   visible: {
@@ -9,14 +9,6 @@ export const Props = {
   appendToBody: {
     type: Boolean,
     default: (): boolean => false
-  },
-  lockScroll: {
-    type: Boolean,
-    default: (): boolean => true
-  },
-  modal: {
-    type: Boolean,
-    default: (): boolean => true
   },
   direction: {
     type: String as PropType<DrawerDirectionType>,
@@ -33,11 +25,7 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  showHeader: {
-    type: Boolean,
-    default: (): boolean => true
-  },
-  showCloseBtn: {
+  showMask: {
     type: Boolean,
     default: (): boolean => true
   },
@@ -45,23 +33,43 @@ export const Props = {
     type: Boolean,
     default: (): boolean => true
   },
-  modalBlur: {
+  maskBlur: {
     type: Boolean,
     default: (): boolean => false
   },
+  showCloseIcon: {
+    type: Boolean,
+    default: (): boolean => true
+  },
+  closeIcon: {
+    type: String,
+    default: (): string => ''
+  },
   zIndex: {
-    type: Number as PropType<number>,
+    type: Number,
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
+  },
+  open: {
+    type: Function as PropType<MaskHandleChangeInterface>,
+    default: (): null => null
+  },
+  openEnd: {
+    type: Function as PropType<MaskHandleChangeInterface>,
+    default: (): null => null
+  },
+  close: {
+    type: Function as PropType<MaskHandleChangeInterface>,
+    default: (): null => null
+  },
+  closeEnd: {
+    type: Function as PropType<MaskHandleChangeInterface>,
+    default: (): null => null
   }
 } as const
 
 export const Emits = {
-  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean',
-  open: (event: MouseEvent): MouseEvent => event,
-  close: (event: MouseEvent): MouseEvent => event,
-  'open-end': (event: MouseEvent): MouseEvent => event,
-  'close-end': (event: MouseEvent): MouseEvent => event
+  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean'
 } as const
 
 export type DrawerPropsType = ExtractPropTypes<typeof Props>

@@ -11,7 +11,7 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  showPopup: {
+  showMask: {
     type: Boolean,
     default: (): boolean => true
   },

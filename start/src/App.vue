@@ -14,8 +14,13 @@
 <template>
   <f-button type="primary" @click="visible2 = true">打开drawer</f-button>
 
-  <f-drawer v-model:visible="visible2" title="Title" :show-header="false">
+  <f-drawer v-model:visible="visible2" title="Title" direction="top">
     fighting-design
+
+    <template #footer>
+      <h1>12</h1>
+      <h1>12</h1>
+    </template>
   </f-drawer>
 
   <f-button @click="show = true">打开 popup</f-button>

@@ -40,7 +40,7 @@
       <div v-show="visible" class="f-popup" :style="{ zIndex }">
         <!-- 遮罩层 -->
         <div
-          v-if="showPopup"
+          v-if="showMask"
           :class="['f-popup-mask', { 'f-popup-blur': maskBlur }]"
           :style="{ background: maskBackground, opacity: maskOpacity }"
         />
