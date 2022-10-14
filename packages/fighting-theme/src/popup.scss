@@ -18,33 +18,12 @@
 
     // 高斯谋划
     &.f-popup-blur {
-
+      backdrop-filter: blur(2px);
     }
   }
 
-  // 主容器居中
-  .f-popup-container-center {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .f-popup-wrapper {
-      background: #fff;
-      border-radius: 6px;
-      box-sizing: border-box;
-      max-height: 90%;
-      overflow-y: auto;
-      box-shadow: 0 0 18px rgb(0 0 0 / 40%);
-    }
-  }
-
-  // 主容器左侧
-  .f-popup-container-left {
+  // 主容器公共样式
+  .f-popup-container {
     position: absolute;
     top: 0;
     right: 0;
@@ -56,6 +35,25 @@
       box-sizing: border-box;
       overflow-y: auto;
       position: absolute;
+    }
+  }
+
+  // 主容器居中
+  .f-popup-container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .f-popup-wrapper {
+      border-radius: 6px;
+      max-height: 90%;
+      box-shadow: 0 0 18px rgb(0 0 0 / 40%);
+    }
+  }
+
+  // 主容器左侧
+  .f-popup-container-left {
+    .f-popup-wrapper {
       top: 0;
       bottom: 0;
       left: 0;
@@ -64,17 +62,7 @@
 
   // 主容器右侧
   .f-popup-container-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
     .f-popup-wrapper {
-      background: #fff;
-      box-sizing: border-box;
-      overflow-y: auto;
-      position: absolute;
       top: 0;
       bottom: 0;
       right: 0;
@@ -83,17 +71,7 @@
 
   // 主容器上侧
   .f-popup-container-top {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
     .f-popup-wrapper {
-      background: #fff;
-      box-sizing: border-box;
-      overflow-y: auto;
-      position: absolute;
       top: 0;
       left: 0;
       right: 0;
@@ -102,18 +80,7 @@
 
   // 主容器下侧
   .f-popup-container-bottom {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
     .f-popup-wrapper {
-      background: #fff;
-      border-radius: 6px;
-      box-sizing: border-box;
-      overflow-y: auto;
-      position: absolute;
       left: 0;
       bottom: 0;
       right: 0;

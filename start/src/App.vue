@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const show = ref(false)
+  const show = ref(true)
 
   const onOpen = (): void => console.log('打开了')
   const onOpenEnd = (): void => console.log('打开完成')
@@ -14,7 +14,7 @@
 
   <f-popup
     v-model:visible="show"
-    direction="left"
+    direction="center"
     @open="onOpen"
     @open-end="onOpenEnd"
     @close="onClose"
