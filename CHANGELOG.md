@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 修复 `f-mack` 组件 `z-index` 属性丢失问题
+
 ## 0.7.0-alpha.5 (2022-10-13)
 
 **新增**

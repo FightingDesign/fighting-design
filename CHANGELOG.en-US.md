@@ -4,6 +4,29 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.7.0-alpha.5 (2022-10-13)
+
+**New**
+
+- Add `f-mask` component
+
+**New features**
+
+- Change the `f-drawer` component `with-header` configuration item to `show-header`
+- `f-drawer` component adds `show-close-btn` configuration item
+- `f-drawer` component adds `modal-blur` configuration item
+- `f-dialog` component adds `module-blue` configuration item
+- Remove the `top` configuration item from the `f-dialog` component
+- `f-dialog` component adds `show-close-icon `configuration item
+- `f-dialog` component `width` `height` configuration item supports `number` type
+- The `open`, `open-end`, `close-end` and `close-end` callback parameters of the `f-dialog` component have been changed from `emit` to `props`
+- `f-loading` component adds `icon-color `attribute
+- `f-dialog` component cancels `height` component
+
+**Fix Bugs**
+
+- Fix the spelling error of the `message` `f-dialog` `f-switch` component props verifier
+
 ## 0.7.0-alpha.4 (2022-10-11)
 
 - Add `checkbox` component

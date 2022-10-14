@@ -37,7 +37,7 @@
       @before-leave="handleClose"
       @after-leave="handleCloseEnd"
     >
-      <div v-show="visible" class="f-mask">
+      <div v-show="visible" class="f-mask" :style="{ zIndex }">
         <div class="f-mask-container" @click.self="closeMask">
           <div class="f-mask-wrapper">
             <slot />
