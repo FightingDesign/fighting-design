@@ -1,1 +1,1 @@
-export type MaskDirectionType = 'left' | 'right' | 'top' | 'bottom' | 'center'
+export type PopupDirectionType = 'left' | 'right' | 'top' | 'bottom' | 'center'

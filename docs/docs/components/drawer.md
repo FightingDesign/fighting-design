@@ -170,7 +170,12 @@ fighting-design
 组件导出以下类型定义：
 
 ```ts
-import type { FDrawerInstance, drawerDirectionType } from 'fighting-design'
+import type {
+  DrawerInstance,
+  DrawerPropsType,
+  DrawerDirectionType,
+  DrawerCallbackInterface
+} from 'fighting-design'
 ```
 
 ## Contributors

@@ -16,7 +16,7 @@
   }
 
   watch(
-    (): number => isVisible.value,
+    (): boolean => isVisible.value,
     (newVal: boolean): void => {
       // 监视 isVisible，如果变为假，则关闭
       if (!newVal) {
@@ -26,7 +26,7 @@
   )
 
   watch(
-    (): number => prop.visible,
+    (): boolean => prop.visible,
     (newVal: boolean): void => {
       isVisible.value = newVal
     }

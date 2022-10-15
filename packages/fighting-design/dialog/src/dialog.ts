@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { MaskHandleChangeInterface } from './interface'
+import type { DialogCallBackInterface } from './interface'
 
 export const Props = {
   visible: {
@@ -49,19 +49,19 @@ export const Props = {
     validator: (val: number): boolean => val >= 0
   },
   open: {
-    type: Function as PropType<MaskHandleChangeInterface>,
+    type: Function as PropType<DialogCallBackInterface>,
     default: (): null => null
   },
   openEnd: {
-    type: Function as PropType<MaskHandleChangeInterface>,
+    type: Function as PropType<DialogCallBackInterface>,
     default: (): null => null
   },
   close: {
-    type: Function as PropType<MaskHandleChangeInterface>,
+    type: Function as PropType<DialogCallBackInterface>,
     default: (): null => null
   },
   closeEnd: {
-    type: Function as PropType<MaskHandleChangeInterface>,
+    type: Function as PropType<DialogCallBackInterface>,
     default: (): null => null
   }
 } as const

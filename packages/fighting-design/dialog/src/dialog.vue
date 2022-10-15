@@ -5,19 +5,20 @@
   import { ref, watch } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { Ref } from 'vue'
+  import type { OrdinaryFunctionInterface as a } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
 
-  const closeDialog = (): void => {
+  const closeDialog: a = (): void => {
     emit('update:visible', false)
   }
 
   watch(
-    () => isVisible.value,
-    (newVal) => {
+    (): boolean => isVisible.value,
+    (newVal: boolean): void => {
       if (!newVal) {
         closeDialog()
       }
@@ -25,8 +26,8 @@
   )
 
   watch(
-    () => prop.visible,
-    (newVal) => {
+    (): boolean => prop.visible,
+    (newVal: boolean): void => {
       isVisible.value = newVal
     }
   )

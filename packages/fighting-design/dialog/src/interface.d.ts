@@ -1,3 +1,3 @@
-export interface MaskHandleChangeInterface {
+export interface DialogCallBackInterface {
   (evt: MouseEvent): void
 }

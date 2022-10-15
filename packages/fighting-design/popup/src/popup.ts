@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { MaskDirectionType } from './interface'
+import type { PopupDirectionType } from './interface'
 
 export const Props = {
   visible: {
@@ -38,9 +38,9 @@ export const Props = {
     validator: (val: number): boolean => val >= 0 && val <= 1
   },
   direction: {
-    type: String as PropType<MaskDirectionType>,
-    default: (): MaskDirectionType => 'center',
-    validator: (val: MaskDirectionType): boolean => {
+    type: String as PropType<PopupDirectionType>,
+    default: (): PopupDirectionType => 'center',
+    validator: (val: PopupDirectionType): boolean => {
       return (['left', 'right', 'top', 'bottom', 'center'] as const).includes(val)
     }
   },

@@ -39,7 +39,7 @@ export { FCard } from './card'
 export type { CardInstance, CardPropsType, CardShadowType } from './card'
 
 export { FDialog } from './dialog'
-export type { DialogInstance, DialogPropsType } from './dialog'
+export type { DialogInstance, DialogPropsType, DialogCallBackInterface } from './dialog'
 
 export { FDivider } from './divider'
 export type { DividerInstance, DividerPropsType, DividerPositionType, DividerType } from './divider'
@@ -152,4 +152,4 @@ export { FRate } from './rate'
 export type { RateInstance, RatePropsType } from './rate'
 
 export { FPopup } from './popup'
-export type { PopupPropsType } from './popup'
+export type { PopupInstance, PopupPropsType, PopupDirectionType } from './popup'
