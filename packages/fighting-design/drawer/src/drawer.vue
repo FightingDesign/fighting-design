@@ -63,7 +63,7 @@
     @close="close"
     @close-end="closeEnd"
   >
-    <div class="f-drawer">
+    <div :class="['f-drawer', { [`f-drawer-${direction}`]: direction }]">
       <!-- 头部 -->
       <header class="f-drawer-header">
         <slot name="header">

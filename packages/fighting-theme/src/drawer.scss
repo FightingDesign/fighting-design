@@ -2,13 +2,22 @@
 
 .f-drawer {
   z-index: 999;
-  width: 521px;
   background: #fff;
   border-radius: 4px;
   border: 1px solid #eee;
   display: inline-flex;
   flex-direction: column;
-  height: 99vh;
+
+  &.f-drawer-left,
+  &.f-drawer-right {
+    width: 521px;
+  }
+
+  &.f-drawer-bottom,
+  &.f-drawer-top {
+    height: 30%;
+    width: 100%;
+  }
 
   // 头部
   .f-drawer-header {

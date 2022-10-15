@@ -14,7 +14,7 @@
 <template>
   <f-button type="primary" @click="visible2 = true">打开drawer</f-button>
 
-  <f-drawer v-model:visible="visible2" title="Title" direction="top">
+  <f-drawer v-model:visible="visible2" title="Title" direction="right">
     fighting-design
 
     <template #footer>
