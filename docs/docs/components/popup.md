@@ -69,7 +69,6 @@
 <f-button type="primary" @click="onShow('right')">从右往左开</f-button>
 <f-button type="primary" @click="onShow('top')">从上往下开</f-button>
 <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
-</f-space>
 
 <f-popup :direction="direction" v-model:visible="visible2" :padding="30">
   <h3>沁园春·雪</h3>
@@ -86,6 +85,7 @@
   <p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
   <p>俱往矣，数风流人物，还看今朝。</p>
 </f-popup>
+</f-space>
 
 ::: details 显示代码
 
