@@ -6,5 +6,7 @@
 </script>
 
 <template>
-  <i class="f-svg-icon"> FSvgIcon </i>
+  <i class="f-svg-icon">
+    <slot />
+  </i>
 </template>
