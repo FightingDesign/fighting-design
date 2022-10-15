@@ -153,3 +153,6 @@ export type { RateInstance, RatePropsType } from './rate'
 
 export { FPopup } from './popup'
 export type { PopupInstance, PopupPropsType, PopupDirectionType } from './popup'
+
+export { FSvgIcon } from './svg-icon'
+export type { SvgIconInstance } from './svg-icon'
