@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <f-svg-icon>
+  <f-svg-icon :style="{ fontSize: '30px' }">
     <f-sign-in />
   </f-svg-icon>
 </template>

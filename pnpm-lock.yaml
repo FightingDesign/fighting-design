@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@commitlint/cli': ^17.0.1
       '@commitlint/config-conventional': ^17.0.0
+      '@fighting-design/fighting-icon': workspace:*
       '@fighting-design/fighting-theme': workspace:*
       '@types/node': ^17.0.42
       '@vitejs/plugin-vue': ^3.0.1
@@ -33,6 +34,7 @@ importers:
     devDependencies:
       '@commitlint/cli': 17.1.2
       '@commitlint/config-conventional': 17.1.0
+      '@fighting-design/fighting-icon': link:packages/fighting-icon
       '@fighting-design/fighting-theme': link:packages/fighting-theme
       '@types/node': 17.0.45
       '@vitejs/plugin-vue': 3.0.3_vite@3.0.9+vue@3.2.37
