@@ -9,25 +9,7 @@
 
 `v-model:visible` 属性来控制展示状态
 
-<f-button type="primary" @click="visible1 = true">打开</f-button>
-
-<f-dialog v-model:visible="visible1" title="标题文字">
-<h3>沁园春·雪</h3>
-<p>北国风光，千里冰封，万里雪飘。</p>
-<p>望长城内外，惟余莽莽；大河上下，顿失滔滔。</p>
-<p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
-<p>须晴日，看红装素裹，分外妖娆。</p>
-<br />
-<p>江山如此多娇，引无数英雄竞折腰。</p>
-<p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
-<p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
-<p>俱往矣，数风流人物，还看今朝。</p>
-
-<template #footer>
-<f-button type="default">默认按钮</f-button>
-<f-button type="primary">主要按钮</f-button>
-</template>
-</f-dialog>
+<demo1-vue />
 
 ::: details 显示代码
 
@@ -70,15 +52,7 @@
 
 如果需要在一个 `dialog` 内部嵌套另一个 `dialog`，需要使用 `append-to-body` 属性
 
-<f-button type="primary" @click="visible2 = true">打开</f-button>
-
-<f-dialog width="500px" title="Title" v-model:visible="visible2">
-  <f-button @click="innerVisible = true">打开里层</f-button>
-
-  <f-dialog width="300px" title="Title" v-model:visible="innerVisible" append-to-body>
-    inner dialog
-  </f-dialog>
-</f-dialog>
+<demo2-vue />
 
 ::: details 显示代码
 
@@ -116,20 +90,7 @@
 
 `close` 和 `close-end` 分别用来表示关闭动画结束前后执行的事件
 
-<f-button type="primary" @click="visible3 = true">打开</f-button>
-
-<f-dialog title="Title" v-model:visible="visible3" :open="open" :open-end="openEnd" :close="close" :close-end="closeEnd">
-  <h3>沁园春·雪</h3>
-  <p>北国风光，千里冰封，万里雪飘。</p>
-  <p>望长城内外，惟余莽莽；大河上下，顿失滔滔。</p>
-  <p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
-  <p>须晴日，看红装素裹，分外妖娆。</p>
-  <br />
-  <p>江山如此多娇，引无数英雄竞折腰。</p>
-  <p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
-  <p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
-  <p>俱往矣，数风流人物，还看今朝。</p>
-</f-dialog>
+<demo3-vue />
 
 ::: details 显示代码
 
@@ -232,17 +193,7 @@ import type {
 </a>
 
 <script setup>
-  import { ref } from 'vue'
-  import { FMessage } from '../../../packages/fighting-design/message'
-
-  const visible1 = ref(false)
-  const visible2 = ref(false)
-  const visible3 = ref(false)
-  const innerVisible = ref(false)
-
-  const open = () => FMessage('打开动画开始')
-  const openEnd = () => FMessage('打开动画结束')
-
-  const close = () => FMessage('关闭动画开始')
-  const closeEnd = () => FMessage('打开动画结束')
+  import demo1Vue from './_demos/dialog/demo1.vue'
+  import demo2Vue from './_demos/dialog/demo2.vue'
+  import demo3Vue from './_demos/dialog/demo3.vue'
 </script>

@@ -7,39 +7,20 @@
 
 ## 基本使用
 
-呼出一个临时的侧边栏, 可以从多个方向呼出
+`v-model:visible` 属性来控制展示状态
 
-<f-space>
-  <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
-  <f-button type="primary" @click="onShow('right')">从右往左开</f-button>
-  <f-button type="primary" @click="onShow('top')">从上往下开</f-button>
-  <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
-
-  <f-drawer title="Title" :direction="direction" v-model:visible="visible1">
-  <h3>沁园春·雪</h3>
-
-  <p>北国风光，千里冰封，万里雪飘。</p>
-  <p>望长城内外，惟余莽莽；大河上下，顿失滔滔。</p>
-  <p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
-  <p>须晴日，看红装素裹，分外妖娆。</p>
-
-  <br />
-
-  <p>江山如此多娇，引无数英雄竞折腰。</p>
-  <p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
-  <p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
-  <p>俱往矣，数风流人物，还看今朝。</p>
-  </f-drawer>
-</f-space>
+<demo1-vue />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
-  <f-button type="primary" @click="onShow('right')">从右往左开</f-button>
-  <f-button type="primary" @click="onShow('top')">从上往下开</f-button>
-  <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
+  <f-space>
+    <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
+    <f-button type="primary" @click="onShow('right')">从右往左开</f-button>
+    <f-button type="primary" @click="onShow('top')">从上往下开</f-button>
+    <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
+  </f-space>
 
   <f-drawer title="Title" :direction="direction" v-model:visible="visible1">
     <h3>沁园春·雪</h3>
@@ -77,13 +58,7 @@
 
 `Drawer` 组件也拥有多层嵌套的方法
 
-<f-button type="primary" @click="visible4 = true">打开</f-button>
-<f-drawer title="Title" size="50%" append-to-body v-model:visible="visible4">
-<f-button type="primary" @click="visible5 = true">打开内层 drawer</f-button>
-<f-drawer title="Title" v-model:visible="visible5">
-内层 drawer
-</f-drawer>
-</f-drawer>
+<demo2-vue />
 
 ::: details 显示代码
 
@@ -159,17 +134,6 @@ import type {
 </a>
 
 <script setup>
-  import { ref } from 'vue'
-
-  const visible1 = ref(false)
-  const visible2 = ref(false)
-  const visible4 = ref(false)
-  const visible5 = ref(false)
-
-  const direction = ref('right')
-
-  const onShow = dir => {
-    direction.value = dir
-    visible1.value = true
-  }
+  import demo1Vue from './_demos/drawer/demo1.vue'
+  import demo2Vue from './_demos/drawer/demo2.vue'
 </script>
