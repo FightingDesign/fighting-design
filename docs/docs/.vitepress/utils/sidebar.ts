@@ -84,7 +84,7 @@ export const sidebar = {
         { text: 'Dialog 对话框', link: '/components/dialog' },
         { text: 'Drawer 抽屉', link: '/components/drawer' },
         { text: 'Tooltip 消息提示', link: '/components/tooltip' },
-        { text: 'Mask 遮罩层', link: '/components/mask' }
+        { text: 'Popup 弹出窗口', link: '/components/popup' }
       ]
     },
     {

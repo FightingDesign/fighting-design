@@ -149,23 +149,23 @@
 
 ## Attributes
 
-| 参数              | 说明               | 类型            | 可选值 | 默认值       |
-| ----------------- | ------------------ | --------------- | ------ | ------------ |
-| `v-model:visible` | 绑定值             | boolean         | ——     | false        |
-| `title`           | `title` 内容       | string          | ——     | ——           |
-| `append-to-body`  | 是否追加到 `body`  | boolean         | ——     | false        |
-| `width`           | `dialog` 宽度      | string / number | ——     | ——           |
-| `full-screen`     | 是否全屏展示       | boolean         | ——     | false        |
-| `show-mask`       | 是否展示遮罩层     | boolean         | ——     | true         |
-| `mask-close`      | 是否点击遮罩层关闭 | boolean         | ——     | true         |
-| `modal-blur`      | 是否模糊遮罩层     | boolean         | ——     | false        |
-| `show-close-icon` | 是否展示关闭图标   | boolean         | ——     | true         |
-| `close-icon`      | 自定义关闭图标     | string          | ——     | f-icon-close |
-| `z-index`         | `dialog` 层级      | number          | ——     | 1999         |
-| `open`            | 打开动画开始的回调 | Function        | ——     | null         |
-| `open-end`        | 打开动画结束的回调 | Function        | ——     | null         |
-| `close`           | 关闭动画开始的回调 | Function        | ——     | null         |
-| `close-end`       | 关闭动画结束的回调 | Function        | ——     | null         |
+| 参数              | 说明                 | 类型            | 可选值 | 默认值       |
+| ----------------- | -------------------- | --------------- | ------ | ------------ |
+| `v-model:visible` | 绑定值，控制是否展示 | boolean         | ——     | false        |
+| `title`           | 标题文字内容         | string          | ——     | ——           |
+| `append-to-body`  | 是否追加到 `body`    | boolean         | ——     | false        |
+| `width`           | 自定义宽度           | string / number | ——     | ——           |
+| `full-screen`     | 是否全屏展示         | boolean         | ——     | false        |
+| `show-mask`       | 是否展示遮罩层       | boolean         | ——     | true         |
+| `mask-close`      | 是否点击遮罩层关闭   | boolean         | ——     | true         |
+| `modal-blur`      | 是否模糊遮罩层       | boolean         | ——     | false        |
+| `show-close-icon` | 是否展示关闭图标     | boolean         | ——     | true         |
+| `close-icon`      | 自定义关闭图标       | string          | ——     | f-icon-close |
+| `z-index`         | 层级                 | number          | ——     | 1999         |
+| `open`            | 打开动画开始的回调   | Function        | ——     | null         |
+| `open-end`        | 打开动画结束的回调   | Function        | ——     | null         |
+| `close`           | 关闭动画开始的回调   | Function        | ——     | null         |
+| `close-end`       | 关闭动画结束的回调   | Function        | ——     | null         |
 
 ## Slots
 
@@ -180,7 +180,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DialogInstance, DialogPropsType } from 'fighting-design'
+import type {
+  DialogInstance,
+  DialogPropsType,
+  DialogCallBackInterface
+} from 'fighting-design'
 ```
 
 ## Contributors
