@@ -32,13 +32,19 @@
 
   const wrapperStyleList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
-      const { direction, popupSize } = prop
+      const { direction, popupSize, padding } = prop
 
       if (direction === 'top' || direction === 'bottom') {
-        return { height: sizeChange(popupSize) } as const
+        return {
+          height: sizeChange(popupSize),
+          padding: sizeChange(padding)
+        } as const
       }
 
-      return { width: sizeChange(popupSize) } as const
+      return {
+        width: sizeChange(popupSize),
+        padding: sizeChange(padding)
+      } as const
     }
   )
 </script>

@@ -16,7 +16,19 @@
   <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
 
   <f-drawer title="Title" :direction="direction" v-model:visible="visible1">
-    fighting-design
+  <h3>沁园春·雪</h3>
+
+  <p>北国风光，千里冰封，万里雪飘。</p>
+  <p>望长城内外，惟余莽莽；大河上下，顿失滔滔。</p>
+  <p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+  <p>须晴日，看红装素裹，分外妖娆。</p>
+
+  <br />
+
+  <p>江山如此多娇，引无数英雄竞折腰。</p>
+  <p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
+  <p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
+  <p>俱往矣，数风流人物，还看今朝。</p>
   </f-drawer>
 </f-space>
 
@@ -30,7 +42,19 @@
   <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
 
   <f-drawer title="Title" :direction="direction" v-model:visible="visible1">
-    fighting-design
+    <h3>沁园春·雪</h3>
+
+    <p>北国风光，千里冰封，万里雪飘。</p>
+    <p>望长城内外，惟余莽莽；大河上下，顿失滔滔。</p>
+    <p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+    <p>须晴日，看红装素裹，分外妖娆。</p>
+
+    <br />
+
+    <p>江山如此多娇，引无数英雄竞折腰。</p>
+    <p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
+    <p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
+    <p>俱往矣，数风流人物，还看今朝。</p>
   </f-drawer>
 </template>
 
@@ -44,64 +68,6 @@
     direction.value = dir
     visible1.value = true
   }
-</script>
-```
-
-:::
-
-## 不显示 title
-
-当你不需要标题到时候, 你还可以去掉标题
-
-<f-button type="primary" @click="visible2 = true">打开</f-button>
-<f-drawer title="Title" :show-header="false" v-model:visible="visible2">
-fighting-design
-</f-drawer>
-
-::: details 显示代码
-
-```html
-<template>
-  <f-button type="primary" @click="visible2 = true">打开</f-button>
-
-  <f-drawer title="Title" :show-header="false" v-model:visible="visible2">
-    fighting-design
-  </f-drawer>
-</template>
-
-<script setup>
-  import { ref } from 'vue'
-
-  const visible2 = ref(false)
-</script>
-```
-
-:::
-
-## 自定义内容
-
-和 `Dialog` 组件一样, `Drawer` 同样可以在其内部嵌套各种丰富的操作
-
-<f-button type="primary" @click="visible3 = true">打开</f-button>
-<f-drawer title="Title" v-model:visible="visible3">
-<f-button type="warning" @click="visible3 = false">关闭</f-button>
-</f-drawer>
-
-::: details 显示代码
-
-```html
-<template>
-  <f-button type="primary" @click="visible3 = true">打开</f-button>
-
-  <f-drawer title="Title" v-model:visible="visible3">
-    <f-button type="warning" @click="visible3 = false">关闭</f-button>
-  </f-drawer>
-</template>
-
-<script setup>
-  import { ref } from 'vue'
-
-  const visible3 = ref(false)
 </script>
 ```
 
@@ -197,7 +163,6 @@ import type {
 
   const visible1 = ref(false)
   const visible2 = ref(false)
-  const visible3 = ref(false)
   const visible4 = ref(false)
   const visible5 = ref(false)
 

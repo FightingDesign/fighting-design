@@ -12,12 +12,16 @@
 <f-button type="primary" @click="visible1 = true">打开</f-button>
 
 <f-dialog v-model:visible="visible1" title="标题文字">
-  <p>这是一段文字</p>
-  <p>这是一段文字</p>
-  <p>这是一段文字</p>
-  <p>这是一段文字</p>
-  <p>这是一段文字</p>
-  <p>这是一段文字</p>
+<h3>沁园春·雪</h3>
+<p>北国风光，千里冰封，万里雪飘。</p>
+<p>望长城内外，惟余莽莽；大河上下，顿失滔滔。</p>
+<p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+<p>须晴日，看红装素裹，分外妖娆。</p>
+<br />
+<p>江山如此多娇，引无数英雄竞折腰。</p>
+<p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
+<p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
+<p>俱往矣，数风流人物，还看今朝。</p>
 
 <template #footer>
 <f-button type="default">默认按钮</f-button>
@@ -32,12 +36,19 @@
   <f-button type="primary" @click="visible1 = true">打开</f-button>
 
   <f-dialog v-model:visible="visible1" title="标题文字">
-    <p>这是一段文字</p>
-    <p>这是一段文字</p>
-    <p>这是一段文字</p>
-    <p>这是一段文字</p>
-    <p>这是一段文字</p>
-    <p>这是一段文字</p>
+    <h3>沁园春·雪</h3>
+
+    <p>北国风光，千里冰封，万里雪飘。</p>
+    <p>望长城内外，惟余莽莽；大河上下，顿失滔滔。</p>
+    <p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+    <p>须晴日，看红装素裹，分外妖娆。</p>
+
+    <br />
+
+    <p>江山如此多娇，引无数英雄竞折腰。</p>
+    <p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
+    <p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
+    <p>俱往矣，数风流人物，还看今朝。</p>
 
     <template #footer>
       <f-button type="default">默认按钮</f-button>
@@ -58,8 +69,6 @@
 ## 多层嵌套
 
 如果需要在一个 `dialog` 内部嵌套另一个 `dialog`，需要使用 `append-to-body` 属性
-
-> 通常不建议使用嵌套对话框。如果你需要在页面上呈现多个对话框，你可以简单地打平它们，以便它们彼此之间是平级关系。 将内层 dialog 的该属性设置为 true，它就会插入至 body 元素上，从而保证内外层 dialog 和遮罩层级关系的正确。
 
 <f-button type="primary" @click="visible2 = true">打开</f-button>
 
@@ -110,7 +119,16 @@
 <f-button type="primary" @click="visible3 = true">打开</f-button>
 
 <f-dialog title="Title" v-model:visible="visible3" :open="open" :open-end="openEnd" :close="close" :close-end="closeEnd">
-  fighting-design
+  <h3>沁园春·雪</h3>
+  <p>北国风光，千里冰封，万里雪飘。</p>
+  <p>望长城内外，惟余莽莽；大河上下，顿失滔滔。</p>
+  <p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+  <p>须晴日，看红装素裹，分外妖娆。</p>
+  <br />
+  <p>江山如此多娇，引无数英雄竞折腰。</p>
+  <p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
+  <p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
+  <p>俱往矣，数风流人物，还看今朝。</p>
 </f-dialog>
 
 ::: details 显示代码
@@ -127,7 +145,19 @@
     :close="close"
     :close-end="closeEnd"
   >
-    fighting-design
+    <h3>沁园春·雪</h3>
+
+    <p>北国风光，千里冰封，万里雪飘。</p>
+    <p>望长城内外，惟余莽莽；大河上下，顿失滔滔。</p>
+    <p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+    <p>须晴日，看红装素裹，分外妖娆。</p>
+
+    <br />
+
+    <p>江山如此多娇，引无数英雄竞折腰。</p>
+    <p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
+    <p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
+    <p>俱往矣，数风流人物，还看今朝。</p>
   </f-dialog>
 </template>
 

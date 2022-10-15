@@ -47,6 +47,10 @@ export const Props = {
   popupSize: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
+  },
+  padding: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
   }
 } as const
 
