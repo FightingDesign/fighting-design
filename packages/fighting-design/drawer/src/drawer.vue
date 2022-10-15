@@ -3,19 +3,22 @@
   import { watch, ref } from 'vue'
   import { FIcon } from '../../icon'
   import { FPopup } from '../../popup'
+  import type { Ref } from 'vue'
+  import type { OrdinaryFunctionInterface as a } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
 
-  const closeDrawer = (): void => {
+  const closeDrawer: a = (): void => {
     emit('update:visible', false)
   }
 
   watch(
-    () => isVisible.value,
-    (newVal) => {
+    (): number => isVisible.value,
+    (newVal: boolean): void => {
+      // 监视 isVisible，如果变为假，则关闭
       if (!newVal) {
         closeDrawer()
       }
@@ -23,8 +26,8 @@
   )
 
   watch(
-    () => prop.visible,
-    (newVal) => {
+    (): number => prop.visible,
+    (newVal: boolean): void => {
       isVisible.value = newVal
     }
   )

@@ -8,7 +8,7 @@ export type DrawerInstance = InstanceType<typeof Drawer>
 
 export type { DrawerPropsType } from './src/drawer'
 
-export type { DrawerDirectionType } from './src/interface'
+export type { DrawerDirectionType, DrawerCallbackInterface } from './src/interface'
 
 declare module 'vue' {
   export interface GlobalComponents {

@@ -45,7 +45,7 @@ export { FDivider } from './divider'
 export type { DividerInstance, DividerPropsType, DividerPositionType, DividerType } from './divider'
 
 export { FDrawer } from './drawer'
-export type { DrawerInstance, DrawerPropsType, DrawerDirectionType } from './drawer'
+export type { DrawerInstance, DrawerPropsType, DrawerDirectionType, DrawerCallbackInterface } from './drawer'
 
 export { FEmpty } from './empty'
 export type { EmptyInstance, EmptyPropsType } from './empty'

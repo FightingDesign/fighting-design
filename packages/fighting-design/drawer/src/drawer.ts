@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { DrawerDirectionType, MaskHandleChangeInterface } from './interface'
+import type { DrawerDirectionType, DrawerCallbackInterface } from './interface'
 
 export const Props = {
   visible: {
@@ -51,19 +51,19 @@ export const Props = {
     validator: (val: number): boolean => val >= 0
   },
   open: {
-    type: Function as PropType<MaskHandleChangeInterface>,
+    type: Function as PropType<DrawerCallbackInterface>,
     default: (): null => null
   },
   openEnd: {
-    type: Function as PropType<MaskHandleChangeInterface>,
+    type: Function as PropType<DrawerCallbackInterface>,
     default: (): null => null
   },
   close: {
-    type: Function as PropType<MaskHandleChangeInterface>,
+    type: Function as PropType<DrawerCallbackInterface>,
     default: (): null => null
   },
   closeEnd: {
-    type: Function as PropType<MaskHandleChangeInterface>,
+    type: Function as PropType<DrawerCallbackInterface>,
     default: (): null => null
   }
 } as const
