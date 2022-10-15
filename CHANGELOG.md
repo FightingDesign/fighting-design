@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.7.0-alpha.6 (2022-10-15)
+
 **重点更新**
 
 - `f-mask` 组件现已更名为 `f-popup`
@@ -10,7 +12,7 @@
 **修复 Bug**
 
 - 修复 `f-popup` 组件 `z-index` 属性丢失问题
-- `f-popup` 组件新增 `mask-background` 和 `mask-opacity` `popup-size` 配置项
+- `f-popup` 组件新增 `mask-background` 和 `mask-opacity` `popup-size` `padding` 配置项
 
 ## 0.7.0-alpha.5 (2022-10-13)
 

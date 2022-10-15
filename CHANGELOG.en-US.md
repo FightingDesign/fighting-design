@@ -4,6 +4,18 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.7.0-alpha.6 (2022-10-15)
+
+**Key updates**
+
+- The `f-mask` component has been renamed as `f-popup`
+- Further optimize and encapsulate relevant pop-up components for `f-popup` `f-drawer` `f-dialog`
+
+**Fix Bugs**
+
+- Fix the loss of the `z-index` attribute of the `f-popup` component
+- The `f-popup` component adds `mask-background` and` mask-opacity` `popup-size` `padding` configuration items
+
 ## 0.7.0-alpha.5 (2022-10-13)
 
 **New**
