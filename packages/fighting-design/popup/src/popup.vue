@@ -1,5 +1,8 @@
 <script lang="ts" setup name="FPopup">
   import { Props, Emits } from './popup'
+  import { computed } from 'vue'
+  import { sizeChange } from '../../_utils'
+  import type { ComputedRef, CSSProperties } from 'vue'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
   import type { popupHandleChangeInterface as b } from './interface'
 
@@ -26,6 +29,18 @@
   const handleCloseEnd: b = (evt: MouseEvent): void => {
     emit('close-end', evt)
   }
+
+  const wrapperStyleList: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { direction, popupSize } = prop
+
+      if (direction === 'top' || direction === 'bottom') {
+        return { height: sizeChange(popupSize) } as const
+      }
+
+      return { width: sizeChange(popupSize) } as const
+    }
+  )
 </script>
 
 <template>
@@ -50,7 +65,7 @@
           :class="['f-popup-container', `f-popup-container-${direction}`]"
           @click.self="closePopup"
         >
-          <div class="f-popup-wrapper">
+          <div class="f-popup-wrapper" :style="wrapperStyleList">
             <slot />
           </div>
         </div>

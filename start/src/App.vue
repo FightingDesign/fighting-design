@@ -14,14 +14,34 @@
 <template>
   <f-button type="primary" @click="visible2 = true">打开drawer</f-button>
 
-  <f-drawer v-model:visible="visible2" title="Title" direction="right">
-    fighting-design
+  <!-- <f-popup v-model:visible="visible2" direction="top">
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+  </f-popup> -->
+
+  <f-dialog v-model:visible="visible2" title="Title">
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
 
     <template #footer>
       <h1>12</h1>
       <h1>12</h1>
     </template>
-  </f-drawer>
+  </f-dialog>
 
   <f-button @click="show = true">打开 popup</f-button>
 

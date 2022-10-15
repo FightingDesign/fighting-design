@@ -43,6 +43,10 @@ export const Props = {
     validator: (val: MaskDirectionType): boolean => {
       return (['left', 'right', 'top', 'bottom', 'center'] as const).includes(val)
     }
+  },
+  popupSize: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
   }
 } as const
 

@@ -3,11 +3,6 @@
   import { watch, ref } from 'vue'
   import { FIcon } from '../../icon'
   import { FPopup } from '../../popup'
-  // import type { CSSProperties, ComputedRef } from 'vue'
-  // import type {
-  //   HandleEventInterface as a,
-  //   OrdinaryFunctionInterface as b
-  // } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -33,20 +28,6 @@
       isVisible.value = newVal
     }
   )
-
-  // const drawerStyle: ComputedRef<CSSProperties> = computed(
-  //   (): CSSProperties => {
-  //     const { direction, size } = prop
-
-  //     if (['left', 'right'].includes(direction)) {
-  //       return { width: size } as const
-  //     } else if (['top', 'bottom'].includes(direction)) {
-  //       return { height: size } as const
-  //     }
-
-  //     return { width: size } as const
-  //   }
-  // )
 </script>
 
 <template>
@@ -58,12 +39,13 @@
     :z-index="zIndex"
     :mask-blur="maskBlur"
     :direction="direction"
+    :popup-size="size"
     @open="open"
     @open-end="openEnd"
     @close="close"
     @close-end="closeEnd"
   >
-    <div :class="['f-drawer', { [`f-drawer-${direction}`]: direction }]">
+    <div class="f-drawer">
       <!-- 头部 -->
       <header class="f-drawer-header">
         <slot name="header">

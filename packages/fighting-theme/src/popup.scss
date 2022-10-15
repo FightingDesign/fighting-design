@@ -32,11 +32,11 @@
     transition: 0.3s;
 
     .f-popup-wrapper {
+      position: absolute;
       background: #fff;
       box-sizing: border-box;
       overflow-y: auto;
       overflow-x: hidden;
-      position: absolute;
     }
   }
 
@@ -77,6 +77,7 @@
       top: 0;
       left: 0;
       right: 0;
+      height: 30%;
     }
   }
 
@@ -87,6 +88,17 @@
       bottom: 0;
       right: 0;
     }
+  }
+
+  // 滚动条
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  // 滚动滑块
+  ::-webkit-scrollbar-thumb {
+    background: #dddddd;
+    border-radius: 6px;
   }
 }
 
@@ -106,7 +118,6 @@
 }
 
 // 其它方向
-/* 应用于嵌套元素的规则 */
 .f-popup-other-enter-active,
 .f-popup-other-leave-active {
   transition: all 0.3s ease-out;

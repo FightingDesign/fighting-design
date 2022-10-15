@@ -63,15 +63,4 @@
     width: 100%;
     height: 100%;
   }
-
-  // 滚动条
-  ::-webkit-scrollbar {
-    width: 7px;
-  }
-
-  // 滚动滑块
-  ::-webkit-scrollbar-thumb {
-    background: #dddddd;
-    border-radius: 6px;
-  }
 }
