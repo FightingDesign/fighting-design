@@ -3,7 +3,9 @@ import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {
-    plugins: [vueSetupExtend()],
+    plugins: [
+      vueSetupExtend()
+    ],
     optimizeDeps: {
       exclude: ['vitepress']
     },
