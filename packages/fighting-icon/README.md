@@ -1,4 +1,4 @@
-# @fighting-design/fighting-icon
+# @fighting-design/fighting-icon <a href="https://www.npmjs.com/package/@fighting-design/fighting-icon"><img src="https://badgen.net/npm/v/@fighting-design/fighting-icon" /></a>
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-icon/README.en-US.md)
 
