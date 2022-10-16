@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <f-svg-icon :style="{ fontSize: '30px' }">
+  <f-svg-icon :style="{ fontSize: '30px', color: 'red' }">
     <f-icon-gamepad />
   </f-svg-icon>
 </template>
