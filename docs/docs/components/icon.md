@@ -38,6 +38,12 @@
 | `color`      | icon 的颜色                    | string          | ——     | ——     |
 | `size`       | icon 的字体大小                | string / number | ——     | 16px   |
 
+## Events
+
+| 事件名称 | 说明     |
+| -------- | -------- |
+| `click`  | 点击触发 |
+
 ## Icon 集合
 
 点击即可复制类名

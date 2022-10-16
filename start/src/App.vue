@@ -1,10 +1,22 @@
 <script lang="ts" setup>
-  import { FIconGamepad } from '@fighting-design/fighting-icon'
+  import {
+    FIconApps,
+    FIconBluetooth,
+    FIconBook
+  } from '@fighting-design/fighting-icon'
 </script>
 
 <template>
-  <f-svg-icon :style="{ fontSize: '30px', color: 'red' }">
-    <f-icon-gamepad />
+  <f-svg-icon>
+    <f-icon-apps />
+  </f-svg-icon>
+
+  <f-svg-icon color="red">
+    <f-icon-bluetooth />
+  </f-svg-icon>
+
+  <f-svg-icon size="34px">
+    <f-icon-book />
   </f-svg-icon>
 </template>
 
