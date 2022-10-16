@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-  import { FSignIn } from '@fighting-design/fighting-icon'
+  import { FIconGamepad } from '@fighting-design/fighting-icon'
 </script>
 
 <template>
   <f-svg-icon :style="{ fontSize: '30px' }">
-    <f-sign-in />
+    <f-icon-gamepad />
   </f-svg-icon>
 </template>
 
