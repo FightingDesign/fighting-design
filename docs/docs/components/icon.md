@@ -48,7 +48,7 @@
 
 点击即可复制类名
 
-<icon-vue />
+<demo1-vue />
 
 ## Interface
 
@@ -65,5 +65,5 @@ import type { IconInstance, IconPropsType } from 'fighting-design'
 </a>
 
 <script setup>
-import iconVue from './_components/icon.vue'
+import demo1Vue from './_demos/icon/demo1.vue'
 </script>

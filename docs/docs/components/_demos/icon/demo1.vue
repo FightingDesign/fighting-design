@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import { iconLists } from './utils/icon-list'
-  import { onCopy } from './utils/copy.ts'
+  import { iconLists } from '../_utils/icon-list'
+  import { onCopy } from '../_utils/copy.ts'
 
   const handleClick = (icon: string): void => {
     onCopy(icon)
@@ -25,6 +25,7 @@
   .icon-list {
     display: flex;
     flex-wrap: wrap;
+
     .icon-box {
       cursor: pointer;
       width: 120px;
@@ -34,6 +35,7 @@
       flex-direction: column;
       padding: 10px;
       box-sizing: border-box;
+
       span {
         word-break: break-all;
         text-align: center;
@@ -43,9 +45,11 @@
         height: 36px;
         color: rgb(153, 150, 150);
       }
+
       &:hover {
         transition: 0.3s;
         background: #f4f5f5;
+
         span,
         .f-icon {
           color: #2d5af1;

@@ -1,4 +1,4 @@
-import { FMessage } from '../../../../../packages/fighting-design/index'
+import { FMessage } from '../../../../../packages/fighting-design/message'
 
 export const onCopy = (target: string): void => {
   const copyInput: HTMLInputElement = document.createElement('input')

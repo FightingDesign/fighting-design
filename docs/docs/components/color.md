@@ -10,7 +10,7 @@
 
 点击即可复制色号
 
-<color-vue />
+<demo1-vue />
 
 ## 其它推荐
 
@@ -23,5 +23,5 @@
 </a>
 
 <script setup>
-import colorVue from './_components/color.vue'
+import demo1Vue from './_demos/color/demo1.vue'
 </script>

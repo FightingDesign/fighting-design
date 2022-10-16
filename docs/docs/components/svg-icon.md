@@ -56,6 +56,10 @@ yarn add @fighting-design/fighting-icon
 
 :::
 
+## 集合
+
+
+
 ## Attributes
 
 | 参数    | 说明          | 类型            | 可选值 | 默认值 |
