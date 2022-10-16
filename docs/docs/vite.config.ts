@@ -1,10 +1,12 @@
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import type { UserConfigExport } from 'vite'
+import svgLoader from 'vite-svg-loader'
 
 export default (): UserConfigExport => {
   return {
     plugins: [
-      vueSetupExtend()
+      vueSetupExtend(),
+      svgLoader()
     ],
     optimizeDeps: {
       exclude: ['vitepress']

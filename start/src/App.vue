@@ -4,6 +4,8 @@
     FIconBluetooth,
     FIconBook
   } from '@fighting-design/fighting-icon'
+
+  console.log(FIconBook)
 </script>
 
 <template>

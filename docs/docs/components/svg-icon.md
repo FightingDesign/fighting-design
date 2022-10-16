@@ -58,7 +58,7 @@ yarn add @fighting-design/fighting-icon
 
 ## 集合
 
-
+<demo2-vue />
 
 ## Attributes
 
@@ -91,4 +91,5 @@ yarn add @fighting-design/fighting-icon
 
 <script setup>
   import demo1Vue from './_demos/svg-icon/demo1.vue'
+  import demo2Vue from './_demos/svg-icon/demo2.vue'
 </script>
