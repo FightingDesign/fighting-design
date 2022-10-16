@@ -1,25 +1,9 @@
 <script lang="ts" setup>
-  import {
-    FIconApps,
-    FIconBluetooth,
-    FIconBook
-  } from '@fighting-design/fighting-icon'
+  import svg from '@fighting-design/fighting-icon'
 
-  console.log(FIconBook)
+  console.log(svg)
 </script>
 
-<template>
-  <f-svg-icon>
-    <f-icon-apps />
-  </f-svg-icon>
-
-  <f-svg-icon color="red">
-    <f-icon-bluetooth />
-  </f-svg-icon>
-
-  <f-svg-icon size="34px">
-    <f-icon-book />
-  </f-svg-icon>
-</template>
+<template></template>
 
 <style lang="scss" scoped></style>
