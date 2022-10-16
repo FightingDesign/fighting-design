@@ -5,6 +5,10 @@ svg icon
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/svg-icon)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/svg-icon.md)
 
+:::danger
+该组件仍在测试阶段，谨慎使用，请注意更新日志。
+:::
+
 ## 使用之前
 
 在使用 `svg-icon` 组件之前，需要先进行安装
@@ -57,6 +61,8 @@ yarn add @fighting-design/fighting-icon
 :::
 
 ## 集合
+
+`svg-icon` 集合，点击即可直接复制
 
 <demo2-vue />
 

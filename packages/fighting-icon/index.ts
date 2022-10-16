@@ -1,5 +1,5 @@
-import * as svg from './svg'
+import * as Svg from './svg'
 
-export * as svg from './svg'
+export * from './svg'
 
-export default svg
+export default Svg
