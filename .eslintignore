@@ -1,4 +1,5 @@
 dist/*
+dist-svg/*
 node_modules/*
 logo/*
 start/dist/*

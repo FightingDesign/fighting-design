@@ -1,6 +1,7 @@
 node_modules
 /node_modules
 dist
+dist-svg
 stats.html
 
 npm-debug.log*
