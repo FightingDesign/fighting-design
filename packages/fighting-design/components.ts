@@ -158,4 +158,4 @@ export { FSvgIcon } from './svg-icon'
 export type { SvgIconInstance } from './svg-icon'
 
 export { FCloseBtn } from './close-btn'
-export type { CloseBtnInstance } from './close-btn'
+export type { CloseBtnInstance, CloseBtnPropsType } from './close-btn'
