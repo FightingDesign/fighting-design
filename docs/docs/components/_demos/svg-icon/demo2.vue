@@ -1,9 +1,9 @@
 <script lang="ts" setup>
   import Svg from '@fighting-design/fighting-icon'
-  import { onCopy } from '../_utils/copy.ts'
+  import { onCopy } from '../_utils/copy'
 
   const handleClick = (icon: string): void => {
-    onCopy(`<${icon} />`)
+    onCopy(icon)
   }
 </script>
 
