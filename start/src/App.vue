@@ -1,13 +1,13 @@
 <script setup lang="ts">
   import { ref } from 'vue'
 
-  const visible1 = ref(false)
+  const visible1 = ref(true)
 </script>
 
 <template>
   <f-button type="primary" @click="visible1 = true">打开</f-button>
 
-  <f-dialog v-model:visible="visible1" title="标题文字" fullscreen>
+  <f-dialog v-model:visible="visible1" title="1213">
     <h3>沁园春·雪</h3>
 
     <p>北国风光，千里冰封，万里雪飘。</p>
