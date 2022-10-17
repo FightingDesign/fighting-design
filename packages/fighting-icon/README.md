@@ -2,9 +2,22 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-icon/README.en-US.md)
 
-## 🐳 说明
+## 🐳 介绍
 
-`Fighting Design` svg-icon 目录
+`Fighting Design` 专用 `svg` 图标库。
+
+## ⚒️ 安装
+
+```shell
+# pnpm
+pnpm add @fighting-design/fighting-icon
+
+# npm
+npm i @fighting-design/fighting-icon
+
+# yarn
+yarn add @fighting-design/fighting-icon
+```
 
 ## 🔑 在线地址
 
@@ -18,7 +31,7 @@
 
 [CHANGELOG](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-icon/CHANGELOG.md)
 
-# 💌 感谢支持
+## 💌 特别感谢
 
 - [icones](https://github.com/antfu/icones)
 - [vite-svg-loader](https://github.com/jpkleemans/vite-svg-loader)
