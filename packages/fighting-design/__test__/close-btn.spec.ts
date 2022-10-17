@@ -4,7 +4,25 @@ import { FCloseBtn } from '../index'
 
 describe('CloseBtn', () => {
   test('class', () => {
-    const wrapper = mount(FCloseBtn)
+    const wrapper = mount(FCloseBtn, {
+      slots: { default: '123' }
+    })
     expect(wrapper.classes()).toContain('f-close-btn')
+  })
+
+  test('class', () => {
+    const wrapper = mount(FCloseBtn, {
+      slots: { default: '123' },
+      props: { round: true }
+    })
+    expect(wrapper.classes()).toContain('f-close-btn-round')
+  })
+
+  test('class', () => {
+    const wrapper = mount(FCloseBtn, {
+      slots: { default: '123' },
+      props: { disabled: true }
+    })
+    expect(wrapper.classes()).toContain('f-close-btn-disabled')
   })
 })
