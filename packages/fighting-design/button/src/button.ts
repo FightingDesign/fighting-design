@@ -120,7 +120,7 @@ export const Props = {
 } as const
 
 export const Emits = {
-  click: (evt: Event): Event => evt
+  click: (evt: MouseEvent): MouseEvent => evt
 } as const
 
 export type ButtonPropsType = ExtractPropTypes<typeof Props>
