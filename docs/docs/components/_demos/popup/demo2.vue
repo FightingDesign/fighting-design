@@ -11,11 +11,13 @@
 </script>
 
 <template>
-  <f-button type="primary" @click="onShow('center')">居中弹出</f-button>
-  <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
-  <f-button type="primary" @click="onShow('right')">从右往左开</f-button>
-  <f-button type="primary" @click="onShow('top')">从上往下开</f-button>
-  <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
+  <f-space>
+    <f-button type="primary" @click="onShow('center')">居中弹出</f-button>
+    <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
+    <f-button type="primary" @click="onShow('right')">从右往左开</f-button>
+    <f-button type="primary" @click="onShow('top')">从上往下开</f-button>
+    <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
+  </f-space>
 
   <f-popup v-model:visible="visible2" :direction="direction" :padding="30">
     <h3>沁园春·雪</h3>
@@ -33,9 +35,3 @@
     <p>俱往矣，数风流人物，还看今朝。</p>
   </f-popup>
 </template>
-
-<style lang="scss" scoped>
-  .f-button {
-    margin-right: 10px;
-  }
-</style>
