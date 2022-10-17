@@ -1,5 +1,6 @@
 <script lang="ts" setup name="FCloseBtn">
   import { Props, Emits } from './close-btn'
+  import { FSvgIcon } from '../../svg-icon'
 
   defineProps(Props)
   defineEmits(Emits)
@@ -7,6 +8,8 @@
 
 <template>
   <div class="f-close-btn">
-    FCloseBtn
+    <f-svg-icon>
+      <slot />
+    </f-svg-icon>
   </div>
 </template>

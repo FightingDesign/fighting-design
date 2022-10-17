@@ -1,6 +1,11 @@
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 
-export const Props = {} as const
+export const Props = {
+  size: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => ''
+  }
+} as const
 
 export const Emits = {} as const
 
