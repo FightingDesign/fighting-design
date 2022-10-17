@@ -4,6 +4,18 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.7.0-alpha.7 (2022-10-17)
+
+**fest**
+
+- Add `f-svg-icon` components
+- Add `f-close-btn` components
+
+**fix**
+
+- Fix the parameter error of the `f-dialog` component
+- Fix `f-dialog` component style details
+
 ## 0.7.0-alpha.6 (2022-10-15)
 
 **Key updates**

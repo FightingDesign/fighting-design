@@ -146,7 +146,7 @@
 | `title`           | 标题文字内容         | string          | ——     | ——           |
 | `append-to-body`  | 是否追加到 `body`    | boolean         | ——     | false        |
 | `width`           | 自定义宽度           | string / number | ——     | ——           |
-| `full-screen`     | 是否全屏展示         | boolean         | ——     | false        |
+| `fullscreen`      | 是否全屏展示         | boolean         | ——     | false        |
 | `show-mask`       | 是否展示遮罩层       | boolean         | ——     | true         |
 | `mask-close`      | 是否点击遮罩层关闭   | boolean         | ——     | true         |
 | `modal-blur`      | 是否模糊遮罩层       | boolean         | ——     | false        |
