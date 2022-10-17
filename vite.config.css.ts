@@ -1,6 +1,6 @@
-import type { UserConfigExport } from 'vite'
 import { resolve } from 'path'
 import { readdirSync } from 'fs'
+import type { UserConfigExport } from 'vite'
 
 const input: string = resolve(__dirname, 'packages/fighting-theme/src')
 

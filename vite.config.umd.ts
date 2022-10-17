@@ -1,7 +1,7 @@
-import type { UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
+import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {

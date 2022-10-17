@@ -4,8 +4,6 @@ import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
 import { visualizer } from 'rollup-plugin-visualizer' // https://github.com/btd/rollup-plugin-visualizer
-// import svgLoader from 'vite-svg-loader' // https://github.com/jpkleemans/vite-svg-loader
-// import dts from './script/dts'
 
 export default (): UserConfigExport => {
   return {
@@ -21,7 +19,6 @@ export default (): UserConfigExport => {
       }),
       vueSetupExtend(),
       visualizer()
-      // svgLoader()
     ],
     build: {
       target: 'modules', // 这是指 支持原生 ES 模块、原生 ESM 动态导入

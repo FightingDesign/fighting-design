@@ -1,5 +1,5 @@
-import type { UserConfigExport } from 'vite'
 import { resolve } from 'path'
+import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {

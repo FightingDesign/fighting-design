@@ -1,14 +1,12 @@
-import type { UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
-import svgLoader from 'vite-svg-loader'
+import svgLoader from 'vite-svg-loader' // https://github.com/jpkleemans/vite-svg-loader
 import { resolve } from 'path'
+import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {
     plugins: [
       vue(),
-      vueSetupExtend(),
       svgLoader()
     ],
     build: {
