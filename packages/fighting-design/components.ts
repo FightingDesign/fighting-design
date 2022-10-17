@@ -156,3 +156,6 @@ export type { PopupInstance, PopupPropsType, PopupDirectionType } from './popup'
 
 export { FSvgIcon } from './svg-icon'
 export type { SvgIconInstance } from './svg-icon'
+
+export { FCloseBtn } from './close-btn'
+export type { CloseBtnInstance } from './close-btn'
