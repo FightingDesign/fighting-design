@@ -9,3 +9,4 @@
 # 💌 感谢支持
 
 - [icones](https://github.com/antfu/icones)
+- [vite-svg-loader](https://github.com/jpkleemans/vite-svg-loader)
