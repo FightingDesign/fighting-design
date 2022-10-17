@@ -5,8 +5,8 @@
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/icon)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/icon.md)
 
-:::warning
-`icon` 组件将会在近期永久废弃使用，改为使用 svg-icon
+:::danger
+`icon` 组件将会在近期永久废弃使用，改为使用 [svg-icon](https://fighting.tianyuhao.cn/components/svg-icon.html)
 :::
 
 ## 基本使用
