@@ -5,6 +5,10 @@
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/icon)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/icon.md)
 
+:::warning
+`icon` 组件将会在近期永久废弃使用，改为使用 svg-icon
+:::
+
 ## 基本使用
 
 通过 `icon` 属性来给 `icon` 添加类名，来显示不同的图标
