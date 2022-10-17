@@ -19,7 +19,7 @@
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:umd": "vite build --config vite.config.umd.ts",
     "build:css": "vite build --config vite.config.css.ts",
-    "build:icon": "vite build --config vite.config.icon.ts",
+    "build:icon": "rimraf dist-icon && vite build --config vite.config.icon.ts && node script/move-icon.ts",
     "build:theme": "vite build --config vite.config.theme.ts",
     "build:docs": "pnpm run -C docs build",
     "serve:docs": "pnpm run -C docs serve",
