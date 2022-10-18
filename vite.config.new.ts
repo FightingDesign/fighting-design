@@ -1,19 +1,20 @@
 import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import { resolve } from 'path'
-// import dts from 'vite-plugin-dts'
+import dts from 'vite-plugin-dts'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {
     plugins: [
       vue(),
-      // dts({
-      //   insertTypesEntry: true,
-      //   cleanVueFileName: true,
-      //   copyDtsFiles: true,
-      //   include: ['./packages/fighting-design']
-      // }),
+      dts({
+        outputDir: ['lib', 'es'],
+        insertTypesEntry: true,
+        cleanVueFileName: true,
+        copyDtsFiles: true,
+        include: ['./packages/fighting-design']
+      }),
       vueSetupExtend()
     ],
     build: {
