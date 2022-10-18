@@ -1,6 +1,6 @@
 {
   "name": "@fighting-design/eslint-config",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Fighting design out of the box eslint configuration item.",
   "main": "index.js",
   "scripts": {
@@ -33,6 +33,6 @@
   "bugs": {
     "url": "https://github.com/FightingDesign/fighting-design/issues"
   },
-  "homepage": "https://github.com/FightingDesign/fighting-design/tree/master/packages/eslint-config",
-  "repository": "https://github.com/FightingDesign/fighting-design/tree/master/packages/eslint-config"
+  "homepage": "https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-eslint-config",
+  "repository": "https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-eslint-config"
 }
