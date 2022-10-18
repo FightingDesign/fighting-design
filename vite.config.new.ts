@@ -34,14 +34,14 @@ export default (): UserConfigExport => {
           {
             format: 'umd', // 打包模式
             exports: 'named', //  // https://rollupjs.org/guide/en/#outputexports
-            sourcemap: false,
+            sourcemap: false, // https://rollupjs.org/guide/en/#outputsourcemap
             dir: 'dist/dist',
             entryFileNames: 'index.umd.js', // 打包后的文件名
             chunkFileNames: '[name].js',
             assetFileNames: '[name].[ext]',
-            namespaceToStringTag: true,
-            inlineDynamicImports: false,
-            manualChunks: undefined,
+            namespaceToStringTag: true, // https://rollupjs.org/guide/en/#outputnamespacetostringtag
+            inlineDynamicImports: false, // https://rollupjs.org/guide/en/#outputinlinedynamicimports
+            // manualChunks: undefined,
             globals: { vue: 'Vue' }  // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
           },
           {
