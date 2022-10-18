@@ -1,9 +1,9 @@
-import type { UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
 import { visualizer } from 'rollup-plugin-visualizer' // https://github.com/btd/rollup-plugin-visualizer
+import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {
