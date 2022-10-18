@@ -9,7 +9,7 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       dts({
-        outputDir: ['lib', 'es'],
+        outputDir: ['./dist/lib', './dist/es'],
         insertTypesEntry: true,
         cleanVueFileName: true,
         copyDtsFiles: true,
