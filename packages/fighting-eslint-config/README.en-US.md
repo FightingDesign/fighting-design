@@ -1,4 +1,4 @@
-# eslint-config-fighting <a href="https://www.npmjs.com/package/eslint-config-fighting"><img src="https://badgen.net/npm/v/eslint-config-fighting" /></a>
+# @fighting-design/eslint-config <a href="https://www.npmjs.com/package/eslint-config-fighting"><img src="https://badgen.net/npm/v/eslint-config-fighting" /></a>
 
 <a href="https://github.com/FightingDesign/fighting-design/blob/master/packages/eslint-config/README.md">Chinese</a> | English
 

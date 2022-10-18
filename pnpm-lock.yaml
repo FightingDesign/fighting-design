@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@commitlint/cli': ^17.0.1
       '@commitlint/config-conventional': ^17.0.0
+      '@fighting-design/eslint-config': workspace:*
       '@fighting-design/fighting-icon': workspace:*
       '@fighting-design/fighting-theme': workspace:*
       '@types/node': ^17.0.42
@@ -34,6 +35,7 @@ importers:
     devDependencies:
       '@commitlint/cli': 17.1.2
       '@commitlint/config-conventional': 17.1.0
+      '@fighting-design/eslint-config': link:packages/fighting-eslint-config
       '@fighting-design/fighting-icon': link:packages/fighting-icon
       '@fighting-design/fighting-theme': link:packages/fighting-theme
       '@types/node': 17.0.45
@@ -84,7 +86,10 @@ importers:
       super-ejs: 1.0.3
       ts-node: 10.9.1
 
-  packages/eslint-config:
+  packages/fighting-design:
+    specifiers: {}
+
+  packages/fighting-eslint-config:
     specifiers:
       '@typescript-eslint/eslint-plugin': ^5.34.0
       '@typescript-eslint/parser': ^5.34.0
@@ -93,9 +98,6 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.34.0_wqntizuldaftjcwrwgccolh7aq
       '@typescript-eslint/parser': 5.34.0
       eslint-plugin-vue: 9.4.0
-
-  packages/fighting-design:
-    specifiers: {}
 
   packages/fighting-icon:
     specifiers: {}
