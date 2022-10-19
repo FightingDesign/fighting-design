@@ -54,6 +54,7 @@ export default (): UserConfigExport => {
             chunkFileNames: '[name].js',
             assetFileNames: '[name].[ext]',
             namespaceToStringTag: true,
+            manualChunks: undefined,
             inlineDynamicImports: false,
             globals: { vue: 'Vue' }  // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
           },
@@ -67,6 +68,7 @@ export default (): UserConfigExport => {
             assetFileNames: '[name].[ext]', // 输出资产文件名 https://rollupjs.org/guide/en/#outputassetfilenames
             namespaceToStringTag: true, // https://rollupjs.org/guide/en/#outputnamespacetostringtag
             inlineDynamicImports: false, // https://rollupjs.org/guide/en/#outputinlinedynamicimports
+            manualChunks: undefined,
             preserveModules: true // https://rollupjs.org/guide/en/#outputpreservemodules
           },
           {
@@ -79,6 +81,7 @@ export default (): UserConfigExport => {
             assetFileNames: '[name].[ext]',
             namespaceToStringTag: true,
             inlineDynamicImports: false,
+            manualChunks: undefined,
             preserveModules: true
           }
         ]
