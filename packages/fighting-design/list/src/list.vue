@@ -1,15 +1,22 @@
-<script lang="ts" setup name="FList">
+<script lang="ts">
+  export default {
+    name: 'FList'
+  }
+</script>
+
+<script lang="ts" setup>
   import { provide, computed } from 'vue'
   import { Props, listPropsKey } from './list'
+  import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
 
-  const props = defineProps(Props)
+  const prop = defineProps(Props)
 
-  provide(listPropsKey, props)
+  provide(listPropsKey, prop)
 
-  const listClass: ComputedRef<a> = computed((): a => {
-    const { maxHeight, zebra, center, size } = props
+  const classList: ComputedRef<a> = computed((): a => {
+    const { maxHeight, zebra, center, size } = prop
 
     return [
       'f-list',
@@ -22,19 +29,19 @@
     ] as const
   })
 
-  const listStyle: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { maxHeight, borderColor, listStyle } = props
+  const styleLIst: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { maxHeight, borderColor, listStyle } = prop
 
     return {
-      maxHeight,
       borderColor,
+      maxHeight: sizeChange(maxHeight),
       listStyle
     } as const
   })
 </script>
 
 <template>
-  <ul role="list" :class="listClass" :style="listStyle">
+  <ul role="list" :class="classList" :style="styleLIst">
     <header v-if="$slots.header" class="f-list-header">
       <slot name="header" />
     </header>

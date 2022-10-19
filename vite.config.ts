@@ -15,6 +15,7 @@ export default (): UserConfigExport => {
         // logDiagnostics: true, // 是否打印类型诊断信息
         // skipDiagnostics: false, // 是否跳过类型诊断
         // aliasesExclude: ['./alert.vue'], // 设置在转换别名时哪些路径需要排除
+        staticImport: true,   //是否将动态引入转换为静态
         outputDir: ['./dist/lib', './dist/es'], // 可以指定一个数组来输出到多个目录中
         insertTypesEntry: true, // 是否生成类型声明入口
         cleanVueFileName: true, // 是否将 '.vue.d.ts' 文件名转换为 '.d.ts'
@@ -73,6 +74,7 @@ export default (): UserConfigExport => {
             exports: 'named',
             dir: 'dist/lib',
             sourcemap: false,
+            entryFileNames: 'index.js',
             chunkFileNames: '[name].js',
             assetFileNames: '[name].[ext]',
             namespaceToStringTag: true,

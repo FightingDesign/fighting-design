@@ -1,7 +1,7 @@
+import * as components from './components'
 import { version } from './package.json'
 import type { App } from 'vue'
 import type { AppInstallInterface } from './_interface'
-import * as components from './components'
 
 const install: AppInstallInterface = (app: App): App => {
   Object.entries(components).forEach(([key, value]): void => {

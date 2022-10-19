@@ -30,7 +30,7 @@ export const Props = {
     }
   },
   maxHeight: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   }
 } as const

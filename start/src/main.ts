@@ -6,15 +6,16 @@ import App from './App.vue'
 // new VConsole()
 
 // 开发阶段引入
-import FightingDesign from '../../packages/fighting-design/index'
+// import FightingDesign from '../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 
 // 打包阶段引入
-// import FightingDesign, { FAlert } from '../../dist'
+import { FButton, FDialog } from '../../dist'
 // import '../dist/dist/index.css'
 
-console.log(FightingDesign)
+// console.log(FightingDesign)
 
 createApp(App)
-  .use(FightingDesign)
+  .use(FButton)
+  .use(FDialog)
   .mount('#start')
