@@ -9,6 +9,7 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       dts({
+        staticImport: true, //是否将动态引入转换为静态
         insertTypesEntry: true,
         cleanVueFileName: true,
         copyDtsFiles: true,
