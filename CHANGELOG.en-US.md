@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.7.0-alpha.9 (2022-10-19)
+
+- 更新类型入口配置文件
+
 ## 0.7.0-alpha.8 (2022-10-19)
 
 - Mainly optimized for packaging type files
