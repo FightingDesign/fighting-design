@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.7.0-alpha.8 (2022-10-19)
+
+- Mainly optimized for packaging type files
+
 ## 0.7.0-alpha.7 (2022-10-17)
 
 **fest**

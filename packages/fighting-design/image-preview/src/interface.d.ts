@@ -1,3 +1,5 @@
+export type { ImagePreviewPropsType } from './image-preview'
+
 export interface ImagePreviewSwitchImageInterface {
   (type: 'next' | 'prev'): void
 }

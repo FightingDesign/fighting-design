@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.7.0-alpha.8 (2022-10-19)
+
+- 主要针对打包类型文件做了优化
+
 ## 0.7.0-alpha.7 (2022-10-17)
 
 **新功能**
