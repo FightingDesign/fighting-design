@@ -20,7 +20,7 @@
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:umd": "vite build --config vite.config.umd.ts",
     "build:css": "vite build --config vite.config.css.ts",
-    "build:new": "vite build --config vite.config.new.ts && pnpm move",
+    "build:new": "pnpm clean && pnpm build:css && pnpm build:theme && vite build --config vite.config.new.ts && pnpm move",
     "build:icon": "rimraf dist-icon && vite build --config vite.config.icon.ts && node script/move-icon.ts",
     "build:theme": "vite build --config vite.config.theme.ts",
     "build:docs": "pnpm run -C docs build",
@@ -36,9 +36,6 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@rollup/pluginutils": "^5.0.1",
-    "@vue/compiler-sfc": "^3.2.41",
-    "ts-morph": "^16.0.0",
     "vue": "^3.2.37"
   },
   "devDependencies": {

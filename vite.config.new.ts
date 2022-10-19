@@ -9,10 +9,11 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       dts({
-        outputDir: ['./dist/lib', './dist/es'],
+        outputDir: ['./dist/lib', './dist/es'], // 可以指定一个数组来输出到多个目录中
         insertTypesEntry: true,
         cleanVueFileName: true,
-        copyDtsFiles: true,
+        // copyDtsFiles: true,
+        copyDtsFiles: false,
         include: ['./packages/fighting-design']
       }),
       vueSetupExtend()
@@ -24,7 +25,6 @@ export default (): UserConfigExport => {
       reportCompressedSize: true,
       emptyOutDir: false,
       outDir: resolve(__dirname, './dist'),
-      // outDir: resolve(__dirname, 'dist/es'),
       lib: {
         entry: resolve(__dirname, 'packages/fighting-design/index.ts'),
         name: 'FightingDesign'
@@ -55,7 +55,7 @@ export default (): UserConfigExport => {
             assetFileNames: '[name].[ext]',
             namespaceToStringTag: true,
             inlineDynamicImports: false,
-            manualChunks: undefined,
+            // manualChunks: undefined,
             preserveModules: true
           },
           {
