@@ -26,11 +26,13 @@
 如果你已经做好了前面的准备，可以直接跳过，从这里开始：
 
 - `Fork` [fighting-design](https://github.com/FightingDesign/fighting-design)
-- 将 `fork` 的项目 `clone` 到本地
 
 接下来执行命令：
 
 ```shell
+# clone 项目
+clone git@github.com:FightingDesign/fighting-design.git
+
 # 进入项目目录
 cd fighting-design
 
@@ -69,23 +71,6 @@ pnpm dev:docs
 | `lint`        | `pnpm lint`        | 全局 `Eslint` 检测，规则参考 [](https://github.com/FightingDesign/fighting-design/blob/master/packages/eslint-config/index.js)                                                                                                                                                   |
 | `lint:fix`    | `pnpm lint:fix`    | 全局 `ESLint` 检测 + 修复                                                                                                                                                                                                                                                        |
 
-## 📌 开发插件
-
-下面列举一些必要的开发插件，以免出现一些不可预期的错误：
-
-**Visual Studio Code**
-
-- [ESLint](https://github.com/Microsoft/vscode-eslint) - 代码格式
-- [Prettier - Code format](https://github.com/prettier/prettier-vscode) - 代码格式
-- [Vitest](https://github.com/vitest-dev/vscode) - 单元测试
-- [Vue Language Features (Volar)](https://github.com/johnsoncodehk/volar) - vue3 插件
-
-> 注意：请不要使用 [Vetur](https://github.com/vuejs/vetur)，这是 vue2 的插件，会有不可预期的报错！！！
-
-**Chrome**
-
-- `Chrome` 正版 `Vue3` 插件下载地址 [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=zh-CN)
-
 ## 🚧 开发规范
 
 主要源文件都在 [packages](https://github.com/FightingDesign/fighting-design/tree/master/packages) 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档：
@@ -100,12 +85,12 @@ pnpm dev:docs
 
 ## 🛸 提交规范
 
-[Git](https://git-scm.com) 允许我们在每次提交时，附带一个提交信息作为说明，当执行 `commit` 的时候，需要严格按照下方说明规范进行填写说明信息，提交信息必须是下面信息中的一个，后面跟随 `英文的冒号+空格+信息`
+`Git` 允许我们在每次提交时，附带一个提交信息作为说明，当执行 `commit` 的时候，需要严格按照下方说明规范进行填写说明信息，提交信息必须是下面信息中的一个，后面跟随 `英文的冒号+空格+信息`
 
 例如：
 
 ```shell
-git commit -m 'feat: 新增xxx功能'
+git commit -m 'feat: 新增 xxx 功能'
 ```
 
 类型必须是下面类型之一，并对照类型描述填写。

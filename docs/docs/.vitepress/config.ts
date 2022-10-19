@@ -30,6 +30,6 @@ export default defineConfig({
     logo: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
   },
   markdown: {
-    config: (md) => mdPlugin(md),
+    config: (md) => mdPlugin(md)
   }
 })

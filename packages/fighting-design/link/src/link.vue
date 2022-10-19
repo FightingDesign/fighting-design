@@ -38,8 +38,8 @@
     const { size, color } = prop
 
     return {
-      '--f-link-color': color,
-      '--f-link-font-size': sizeChange(size)
+      color,
+      fontSize: sizeChange(size)
     } as const
   })
 </script>

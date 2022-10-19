@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import { lists, bottomList } from './src/list'
-  import { contributors } from './src/contributors.ts'
+  import { bottomList } from './src/list'
+  import { contributors } from './src/contributors'
 </script>
 
 <template>

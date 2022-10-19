@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Add a new component catalog file",
   "type": "module",
-  "main": "index",
+  "main": "index.ts",
   "module": "index.ts",
   "scripts": {
     "new": "node --trace-warnings --loader ts-node/esm ./index.ts"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@juln/change-case": "^0.0.4",
     "@types/fs-extra": "^9.0.13",
