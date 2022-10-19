@@ -10,11 +10,15 @@ export default (): UserConfigExport => {
       vue(),
       dts({
         outputDir: ['./dist/lib', './dist/es'], // 可以指定一个数组来输出到多个目录中
-        insertTypesEntry: true,
+        insertTypesEntry: true, // 是否生成类型声明入口
         cleanVueFileName: true,
-        // copyDtsFiles: true,
-        copyDtsFiles: false,
-        include: ['./packages/fighting-design']
+        copyDtsFiles: true,
+        aliasesExclude: ['./alert.vue'], // 设置在转换别名时哪些路径需要排除
+        include: ['./packages/fighting-design'],
+        // 构建后回调钩子
+        // afterBuild: () => {
+        // console.log('构建结束了')
+        // }
       }),
       vueSetupExtend()
     ],
