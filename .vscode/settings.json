@@ -155,5 +155,6 @@
   ],
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "nuxt.isNuxtApp": false
 }
