@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, VNode } from 'vue'
 
 export const Props = {
   color: {
@@ -6,8 +6,8 @@ export const Props = {
     default: (): string => ''
   },
   icon: {
-    type: String,
-    default: (): string => ''
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   iconSize: {
     type: [String, Number] as PropType<string | number>,

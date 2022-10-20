@@ -32,8 +32,8 @@ export const Props = {
     default: (): boolean => false
   },
   icon: {
-    type: [String, Object] as PropType<VNode | string>,
-    default: (): string => ''
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   color: {
     type: String,
@@ -56,11 +56,11 @@ export const Props = {
   },
   zIndex: {
     type: Number,
-    default: (): number => 1000
+    default: (): null => null
   },
   closeBtn: {
     type: [String, Object] as PropType<VNode | string>,
-    default: (): string => ''
+    default: (): null => null
   },
   closeEnd: {
     type: Function,

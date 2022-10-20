@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, VNode } from 'vue'
 import type { SwitchSizeType } from './interface'
 
 export const Props = {
@@ -19,8 +19,8 @@ export const Props = {
     default: (): boolean => false
   },
   icon: {
-    type: String,
-    default: (): string => ''
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   closeColor: {
     type: String,

@@ -1,6 +1,10 @@
-import type { ExtractPropTypes, PropType } from 'vue'
+import type { ExtractPropTypes, PropType, VNode } from 'vue'
 
 export const Props = {
+  icon: {
+    type: Object as PropType<VNode>,
+    default: (): null => null
+  },
   color: {
     type: String,
     default: (): string => ''

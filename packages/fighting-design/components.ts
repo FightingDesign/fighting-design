@@ -102,11 +102,6 @@ import type { default as Header } from './header'
 export type { HeaderPropsType } from './header/src/interface'
 export type HeaderInstance = InstanceType<typeof Header>
 
-export { FIcon } from './icon'
-import type { default as Icon } from './icon'
-export type { IconPropsType } from './icon/src/interface'
-export type IconInstance = InstanceType<typeof Icon>
-
 export { FImage } from './image'
 import type { default as Image } from './image'
 export type { ImagePropsType, ImageFitType } from './image/src/interface'
@@ -254,3 +249,8 @@ export { FInput } from './input'
 import type { default as Input } from './input'
 export type { InputPropsType } from './input/src/interface'
 export type InputInstance = InstanceType<typeof Input>
+
+export { FSwap } from './swap'
+import type { default as Swap } from './swap'
+export type { SwapPropsType } from './swap/src/interface'
+export type SwapInstance = InstanceType<typeof Swap>

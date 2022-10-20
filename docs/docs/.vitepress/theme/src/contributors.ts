@@ -31,4 +31,5 @@ export const contributors = [
   { avatar: 'https://avatars.githubusercontent.com/u/40457081?v=4', homePage: 'https://github.com/LAINE001' },
   { avatar: 'https://avatars.githubusercontent.com/u/46363316?v=4', homePage: 'https://github.com/caicailv' },
   { avatar: 'https://avatars.githubusercontent.com/u/57850101?v=4', homePage: 'https://github.com/Alphatrionty' },
+  { avatar: 'https://avatars.githubusercontent.com/u/44160015?v=4', homePage: 'https://github.com/ChetSerenade' },
 ] as const

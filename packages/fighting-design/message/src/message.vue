@@ -1,8 +1,9 @@
 <script lang="ts" setup name="FMessage">
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
-  import { FIcon } from '../../icon'
-  import { isString } from '../../_utils'
+  import { FSvgIcon } from '../../svg-icon'
+  import { FCloseBtn } from '../../close-btn'
   import { Props, Emits } from './message'
+  import { isString } from '../../_utils'
   import { massageManage } from '../../_model/message/method'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
@@ -42,15 +43,14 @@
   })
 
   const classList: ComputedRef<b> = computed((): b => {
-    const { type, round, close, placement } = prop
+    const { type, round, placement } = prop
 
     return [
       'f-message',
-      `f-message-${type}`,
-      `f-message-${placement}`,
       {
-        'f-message-round': round,
-        'f-message-hasClose': close
+        [`f-message__${type}`]: type,
+        [`f-message__${placement}`]: placement,
+        'f-message__round': round
       }
     ] as const
   })
@@ -109,8 +109,8 @@
 
 <template>
   <transition
-    :name="`f-message-fade` + (isTop ? '-top' : '-bottom')"
     mode="out-in"
+    :name="`f-message-fade` + (isTop ? '-top' : '-bottom')"
     @before-leave="closeMessageEnd"
     @after-leave="$emit('destroy')"
   >
@@ -123,20 +123,22 @@
       @mouseenter="clearTimer"
     >
       <!-- icon -->
-      <div v-if="icon" class="f-message--icon">
-        <component :is="icon" v-if="isVNode(icon)" />
-        <f-icon v-if="isString(icon)" size="24px" :icon="(icon as string)" />
-      </div>
+      <f-svg-icon v-if="isVNode(icon)" :size="24" class="f-message__icon">
+        <component :is="icon" />
+      </f-svg-icon>
+
       <!-- 消息文本 -->
       <component :is="message" v-if="isVNode(message)" />
-      <div v-else class="f-message--text">
+      <div v-else class="f-message__text">
         {{ message }}
       </div>
+
       <!-- 关闭按钮 -->
-      <div v-if="prop.close" class="f-message--close" @click="closeMessage">
-        <component :is="closeBtn" v-if="isVNode(closeBtn)" />
-        <span v-else-if="closeBtn && isString(closeBtn)">{{ closeBtn }}</span>
-        <f-icon v-else size="16px" icon="f-icon-close" />
+      <div v-if="prop.close" class="f-message__close" @click="closeMessage">
+        <template v-if="isString(closeBtn)">{{ closeBtn }}</template>
+        <f-close-btn v-else :size="16">
+          <component :is="closeBtn" />
+        </f-close-btn>
       </div>
     </div>
   </transition>

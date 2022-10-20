@@ -40,8 +40,8 @@ export const Props = {
     default: (): boolean => true
   },
   icon: {
-    type: [String, Object] as PropType<VNode | string>,
-    default: (): string => ''
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   color: {
     type: String,
@@ -68,7 +68,7 @@ export const Props = {
   },
   closeBtn: {
     type: [String, Object] as PropType<VNode | string>,
-    default: (): string => ''
+    default: (): null => null
   },
   closeEnd: {
     type: Function,

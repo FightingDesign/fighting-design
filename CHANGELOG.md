@@ -3,6 +3,7 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - 新增 `f-input` 组件
+- 新增 `f-swap` 组件
 - 废除 `f-dialog` 组件 `close-icon` 属性
 - 新增 `f-dialog` 组件 `closeIcon` 插槽
 - 废除 `f-drawer` 组件 `close-icon` 属性
@@ -18,6 +19,16 @@
 - 新增 `f-avatar` 组件 `icon` 插槽
 - 废除 `f-loading` 组件 `icon` 配置项
 - 新增 `f-loading` 组件 `loadingIcon` 插槽
+- 更新 `f-message` 组件 `icon` 默认值和可选类型
+- `f-page-header` 组件 `icon-size` 支持 `number` 类型
+- `f-page-header` 组件 `icon` 改为 `VNode` 类型
+- `f-rate` 组件 `icon` 改为 `VNode` 类型，默认值修改为 `null`
+- `f-toolbar-item` 组件 `icon` 改为 `VNode` 类型，默认值修改为 `null`
+- `f-tag` 组件 `before-icon` `after-icon` 改为 `VNode` 类型，默认值修改为 `null`
+- `f-svg-icon` 新增 `icon` 配置项
+- `f-breadcrumb` 组件 `separator` 配置项改为 `VNode` 类型，默认值修改为 `null`
+- `f-notification` 组件 `close-btn` 参数默认值改为 `null`
+- `f-icon` 组件永久废除
 
 ## 0.7.0-alpha.9 (2022-10-19)
 

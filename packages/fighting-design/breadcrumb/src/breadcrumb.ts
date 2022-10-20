@@ -1,13 +1,9 @@
-import type { ExtractPropTypes, InjectionKey } from 'vue'
+import type { ExtractPropTypes, InjectionKey, PropType, VNode } from 'vue'
 
 export const Props = {
   separator: {
-    type: String,
-    default: (): string => '/'
-  },
-  separatorIcon: {
-    type: String,
-    default: (): string => ''
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   itemColor: {
     type: String,

@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, VNode } from 'vue'
 import type { TagSizeType, TagType } from './interface'
 
 export const Props = {
@@ -28,12 +28,12 @@ export const Props = {
     default: (): string => ''
   },
   beforeIcon: {
-    type: String,
-    default: (): string => ''
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   afterIcon: {
-    type: String,
-    default: (): string => ''
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   size: {
     type: String as PropType<TagSizeType>,

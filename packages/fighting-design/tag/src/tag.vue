@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FTag">
   import { Props, Emits } from './tag'
   import { computed, ref } from 'vue'
-  import { FIcon } from '../../icon'
+  import { FSvgIcon } from '../../svg-icon'
+  import { FCloseBtn } from '../../close-btn'
   import type { ComputedRef, Ref } from 'vue'
   import type { TagTHandleCloseInterface as a } from './interface'
   import type { ClassListInterface as b } from '../../_interface'
@@ -16,9 +17,9 @@
 
     return [
       'f-tag',
-      `f-tag-${type}`,
-      `f-tag-${size}`,
       {
+        [`f-tag-${type}`]: type,
+        [`f-tag-${size}`]: size,
         'f-tag-simple': simple,
         'f-tag-block': block,
         'f-tag-round': round,
@@ -35,10 +36,16 @@
 
 <template>
   <div v-if="isShow" :class="classList" :style="{ background, color }">
-    <f-icon v-if="beforeIcon" :icon="beforeIcon" />
-    <slot />
-    <f-icon v-if="afterIcon" :icon="afterIcon" />
+    <f-svg-icon v-if="beforeIcon">
+      <component :is="beforeIcon" />
+    </f-svg-icon>
 
-    <f-icon v-if="close" icon="f-icon-close" @click.stop="handleClose" />
+    <slot />
+
+    <f-svg-icon v-if="afterIcon">
+      <component :is="afterIcon" />
+    </f-svg-icon>
+
+    <f-close-btn v-if="close" @click.stop="handleClose" />
   </div>
 </template>
