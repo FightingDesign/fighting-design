@@ -3,7 +3,6 @@
   import { watch, ref } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
-  import FIconCrossVue from '../../_components/svg/f-icon-cross.vue'
   import type { Ref } from 'vue'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
 
@@ -55,9 +54,7 @@
         <slot name="header">
           <span class="f-drawer-header-title">{{ title }}</span>
           <f-close-btn v-if="showCloseIcon" @click="closeDrawer">
-            <slot name="close-icon">
-              <f-icon-cross-vue />
-            </slot>
+            <slot name="close-icon" />
           </f-close-btn>
         </slot>
       </header>
