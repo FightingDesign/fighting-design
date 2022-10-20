@@ -117,48 +117,6 @@
 
 :::
 
-## 自定义图标
-
-传递 `icon` 属性, 可以自定义图标。
-可以传递`string`使用`FIcon`图标，也可以传递`VNode`来展示其他内容
-
-<f-space>
-  <f-button type="primary" @click="openMessageIcon1">show</f-button>
-  <f-button type="primary" @click="openMessageIcon2">show</f-button>
-</f-space>
-
-::: details 显示代码
-
-```html
-<template>
-  <f-button type="primary" @click="openMessageIcon1">show</f-button>
-  <f-button type="primary" @click="openMessageIcon2">show</f-button>
-</template>
-
-<script setup lang="ts">
-  import { h } from 'vue'
-  import { FMessage } from 'fighting-design'
-
-  const openMessageIcon1 = () => {
-    FMessage({
-      message: '这是一条消息提示',
-      type: 'success',
-      icon: 'f-icon-success'
-    })
-  }
-
-  const openMessageIcon2 = () => {
-    FMessage({
-      message: '这是一条消息提示',
-      type: 'warning',
-      icon: h(FIcon, { icon: 'f-icon-atm-fill', size: '24px' })
-    })
-  }
-</script>
-```
-
-:::
-
 ## 可关闭
 
 可以添加关闭按钮。
@@ -318,7 +276,7 @@ import type {
 
 <script setup>
 import { h } from 'vue'
-import { FMessage, FIcon } from '../../../packages/fighting-design/index'
+import { FMessage } from '../../../packages/fighting-design/index'
 
 const openMessage = () => {
   FMessage('这是一条消息提示')
@@ -338,22 +296,6 @@ const openMessageWarning = () => {
 
 const openMessageDanger = () => {
   FMessage.danger('这是一条失败消息提示')
-}
-
-const openMessageIcon1 = () => {
-  FMessage({
-    message: '这是一条成功消息提示',
-    type: 'success',
-    icon: 'f-icon-success',
-  })
-}
-
-const openMessageIcon2 = () => {
-  FMessage({
-    message: '这是一条自定义Icon的消息提示',
-    type: 'warning',
-    icon: h(FIcon, { icon: 'f-icon-atm-fill', size: '24px' }),
-  })
 }
 
 const openMessageClose1 = () => {

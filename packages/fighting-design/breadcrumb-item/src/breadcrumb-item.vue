@@ -5,7 +5,6 @@
   import FIconChevronRight from '../../_components/svg/f-icon-chevron-right.vue'
   import type { BreadcrumbPropsType } from '../../breadcrumb/src/breadcrumb'
 
-  console.log(h(FIconChevronRight))
   const breadcrumbContext = inject(BreadcrumbPropsKey) as BreadcrumbPropsType
   const { separator, itemColor, separatorColor } = toRefs(breadcrumbContext)
 </script>

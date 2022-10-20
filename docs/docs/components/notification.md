@@ -121,48 +121,6 @@
 
 :::
 
-## 自定义图标
-
-传递 `icon` 属性, 可以自定义图标。
-可以传递`string`使用`FIcon`图标，也可以传递`VNode`来展示其他内容
-
-<f-space>
-  <f-button type="primary" @click="openNotificationIcon1">show</f-button>
-  <f-button type="primary" @click="openNotificationIcon2">show</f-button>
-</f-space>
-
-::: details 显示代码
-
-```html
-<template>
-  <f-button type="primary" @click="openNotificationIcon1">show</f-button>
-  <f-button type="primary" @click="openNotificationIcon2">show</f-button>
-</template>
-
-<script setup lang="ts">
-  import { h } from 'vue'
-  import { FNotification } from 'fighting-design'
-
-  const openNotificationIcon1 = () => {
-    FNotification({
-      message: '这是一条通知',
-      type: 'success',
-      icon: 'f-icon-success'
-    })
-  }
-
-  const openNotificationIcon2 = () => {
-    FNotification({
-      message: '这是一条通知',
-      type: 'warning',
-      icon: h(FIcon, { icon: 'f-icon-atm-fill', size: '24px' })
-    })
-  }
-</script>
-```
-
-:::
-
 ## 可关闭
 
 可以添加关闭按钮。
@@ -316,7 +274,7 @@ import type {
 
 <script setup>
 import { h } from 'vue'
-import { FNotification, FIcon } from '../../../packages/fighting-design/index'
+import { FNotification } from '../../../packages/fighting-design/index'
 
 const openNotification = () => {
   FNotification({
@@ -341,23 +299,6 @@ const openNotificationDanger = () => {
   FNotification.danger('这是一条失败通知')
 }
 
-const openNotificationIcon1 = () => {
-  FNotification({
-    title: '一条通知',
-    message: '这是一条成功通知',
-    type: 'success',
-    icon: 'f-icon-success',
-  })
-}
-
-const openNotificationIcon2 = () => {
-  FNotification({
-    title: '一条通知',
-    message: '这是一条自定义Icon的通知',
-    type: 'warning',
-    icon: h(FIcon, { icon: 'f-icon-atm-fill', size: '24px' }),
-  })
-}
 
 const openNotificationClose1 = () => {
   FNotification({
