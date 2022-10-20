@@ -30,14 +30,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  beforeIcon: {
-    type: String,
-    default: (): string => ''
-  },
-  afterIcon: {
-    type: String,
-    default: (): string => ''
-  },
   target: {
     type: String as PropType<LinkTargetType>,
     default: (): LinkTargetType => '',

@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FLink">
   import { Props, Emits } from './link'
-  import { FIcon } from '../../icon'
+  import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
@@ -53,8 +53,14 @@
     :target="target"
     @click="handleClick"
   >
-    <f-icon v-if="beforeIcon" :icon="beforeIcon" :size="size" />
+    <f-svg-icon v-if="$slots.beforeIcon" :size="size">
+      <slot name="beforeIcon" />
+    </f-svg-icon>
+
     <slot />
-    <f-icon v-if="afterIcon" :icon="afterIcon" :size="size" />
+
+    <f-svg-icon v-if="$slots.afterIcon" :size="size">
+      <slot name="beforeIcon" />
+    </f-svg-icon>
   </a>
 </template>

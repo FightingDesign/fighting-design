@@ -335,8 +335,8 @@
 | 名称          | 说明              |
 | ------------- | ----------------- |
 | `default`     | 按钮的内容        |
-| `beforeIcon`  | 按钮之前的 icon   |
-| `afterIcon`   | 按钮之后的 icon   |
+| `beforeIcon`  | 之前的 icon       |
+| `afterIcon`   | 之后的 icon       |
 | `loadingIcon` | 按钮 loading icon |
 
 ## ButtonGroup Slots
