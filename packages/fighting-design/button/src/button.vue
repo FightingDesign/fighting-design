@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FButton">
-  import { FIcon } from '../../icon'
   import { computed, ref } from 'vue'
+  import { FSvgIcon } from '../../svg-icon'
+  import FIconLoadingAVue from '../../_components/svg/f-icon-loading-a.vue'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor, sizeChange } from '../../_utils'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
@@ -81,16 +82,6 @@
     emit('click', evt)
   }
 
-  // 左侧 icon
-  const beforeIconClass: ComputedRef<string> = computed<string>((): string => {
-    const { loading, loadingIcon, beforeIcon } = prop
-
-    if (loading) {
-      return `${loadingIcon || 'f-icon-loading'} f-loading-animation` as string
-    }
-    return beforeIcon as string
-  })
-
   // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, fontColor, shadow, color } = prop
@@ -127,9 +118,18 @@
       :style="styleList"
       @click="handleClick"
     >
-      <f-icon v-if="beforeIcon || loading" :icon="beforeIconClass" />
+      <f-svg-icon v-if="$slots.beforeIcon || loading" :size="16">
+        <slot v-if="loading" name="loadingIcon">
+          <f-icon-loading-a-vue class="f-button-loading-animation" />
+        </slot>
+        <slot v-else name="beforeIcon" />
+      </f-svg-icon>
+
       <slot />
-      <f-icon v-if="afterIcon" :icon="afterIcon" />
+
+      <f-svg-icon v-if="$slots.afterIcon" :size="16">
+        <slot name="afterIcon" />
+      </f-svg-icon>
     </a>
   </template>
 
@@ -146,9 +146,18 @@
       :style="styleList"
       @click="handleClick"
     >
-      <f-icon v-if="beforeIcon || loading" :icon="beforeIconClass" />
+      <f-svg-icon v-if="$slots.beforeIcon || loading" :size="16">
+        <slot v-if="loading" name="loadingIcon">
+          <f-icon-loading-a-vue class="f-button-loading-animation" />
+        </slot>
+        <slot v-else name="beforeIcon" />
+      </f-svg-icon>
+
       <slot />
-      <f-icon v-if="afterIcon" :icon="afterIcon" />
+
+      <f-svg-icon v-if="$slots.afterIcon" :size="16">
+        <slot name="afterIcon" />
+      </f-svg-icon>
     </button>
   </template>
 </template>

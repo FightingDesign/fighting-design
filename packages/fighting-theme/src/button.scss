@@ -133,20 +133,12 @@
   }
 
   // loading
-  .f-loading-animation {
-    display: inline-block;
-    animation: f-loading-button 1s linear infinite;
-    -webkit-animation: f-loading-button 1s linear infinite;
-    margin-right: 3px;
-    font-size: var(--f-button-font-size, 16px);
+  .f-button-loading-animation {
+    animation: f-button-loading-animation 1s linear infinite;
+    -webkit-animation: f-button-loading-animation 1s linear infinite;
   }
 
-  .f-icon {
-    font-size: var(--f-button-font-size, 14px);
-    background: transparent !important;
-  }
-
-  @keyframes f-loading-button {
+  @keyframes f-button-loading-animation {
     0% {
       transform: rotate(0deg);
     }

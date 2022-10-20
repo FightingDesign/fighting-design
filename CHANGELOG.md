@@ -10,6 +10,8 @@
 - 废除 `f-alert` 组件 `icon` 属性
 - 新增 `f-alert` 组件 `prefixIcon` 和 `closeIcon` 插槽
 - 新增 `f-close-btn` 组件 `color` 属性
+- 废除 `f-button` 组件 `before-icon` `after-icon` 配置项
+- 新增 `f-button` 组件 `beforeIcon` `afterIcon` `loadingIcon` 插槽
 
 ## 0.7.0-alpha.9 (2022-10-19)
 
