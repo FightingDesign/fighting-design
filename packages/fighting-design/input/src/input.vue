@@ -4,7 +4,7 @@
   defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const handleInput = (evt: InputEvent): void => {
+  const handleInput = (evt: Event): void => {
     emit('update:modelValue', (evt.target as HTMLInputElement).value)
     emit('change', (evt.target as HTMLInputElement).value)
   }
@@ -13,11 +13,32 @@
 <template>
   <div class="f-input">
     <template v-if="type === 'textarea'">
-      <textarea :value="modelValue" @input="handleInput" />
+      <textarea
+        :id="id"
+        :max="max"
+        :min="min"
+        :maxlength="maxLength"
+        :value="modelValue"
+        :disabled="disabled"
+        :autofocus="autofocus"
+        :name="name"
+        @input="handleInput"
+      />
     </template>
 
     <template v-else>
-      <input :type="type" :value="modelValue" @input="handleInput" />
+      <input
+        :id="id"
+        :type="type"
+        :max="max"
+        :min="min"
+        :maxlength="maxLength"
+        :value="modelValue"
+        :disabled="disabled"
+        :autofocus="autofocus"
+        :name="name"
+        @input="handleInput"
+      />
     </template>
   </div>
 </template>

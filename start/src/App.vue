@@ -3,13 +3,13 @@
 
   const value = ref('')
 
-  const onChange = (val): void => {
+  const onChange = (val: string): void => {
     console.log(val)
   }
 </script>
 
 <template>
-  <f-input v-model="value" type="text" @change="onChange" />
+  <f-input v-model="value" type="text" :max-length="3" @change="onChange" />
 </template>
 
 <style lang="scss" scoped></style>
