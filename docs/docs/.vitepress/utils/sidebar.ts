@@ -32,7 +32,6 @@ export const sidebar = {
       link: '/components/',
       items: [
         { text: 'Button 按钮', link: '/components/button' },
-        { text: 'Icon 图标', link: '/components/icon' },
         { text: 'Svg Icon 图标', link: '/components/svg-icon' },
         { text: 'Link 链接', link: '/components/link' },
         { text: 'Text 文本', link: '/components/text' },

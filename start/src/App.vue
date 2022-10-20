@@ -1,31 +1,5 @@
-<script setup lang="ts">
-  import { FNotification } from '../../packages/fighting-design/notification'
+<script lang="ts" setup></script>
 
-  const openNotificationPlacement = (placement) => {
-    FNotification({
-      title: '一条通知',
-      message: '这是一条自定义位置的消息',
-      type: 'default',
-      close: true,
-      duration: 0,
-      placement: placement
-    })
-  }
-</script>
+<template></template>
 
-<template>
-  <f-space>
-    <f-button type="primary" @click="openNotificationPlacement('top-left')">
-      左上
-    </f-button>
-    <f-button type="primary" @click="openNotificationPlacement('top-right')">
-      右上
-    </f-button>
-    <f-button type="success" @click="openNotificationPlacement('bottom-left')">
-      左下
-    </f-button>
-    <f-button type="success" @click="openNotificationPlacement('bottom-right')">
-      右下
-    </f-button>
-  </f-space>
-</template>
+<style lang="scss" scoped></style>

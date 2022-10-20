@@ -22,7 +22,6 @@ declare module '@vue/runtime-core' {
     FExpandCard: typeof components.FExpandCard
     FFooter: typeof components.FFooter
     FHeader: typeof components.FHeader
-    FIcon: typeof components.FIcon
     FImage: typeof components.FImage
     FImagePreview: typeof components.FImagePreview
     FLayout: typeof components.FLayout

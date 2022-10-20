@@ -102,11 +102,6 @@ import type { default as Header } from './header'
 export type { HeaderPropsType } from './header/src/interface'
 export type HeaderInstance = InstanceType<typeof Header>
 
-export { FIcon } from './icon'
-import type { default as Icon } from './icon'
-export type { IconPropsType } from './icon/src/interface'
-export type IconInstance = InstanceType<typeof Icon>
-
 export { FImage } from './image'
 import type { default as Image } from './image'
 export type { ImagePropsType, ImageFitType } from './image/src/interface'
