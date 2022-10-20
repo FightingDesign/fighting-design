@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FRate">
   import { Props, Emits } from './rate'
-  import { FIcon } from '../../icon'
+  import { FSvgIcon } from '../../svg-icon'
+  import FIconStarBVue from '../../_components/svg/f-icon-star-b.vue'
   import { FText } from '../../text'
   import { ref, watch, unref, computed } from 'vue'
   import type { Ref, ComputedRef } from 'vue'
@@ -59,11 +60,12 @@
         @mouseover="onMouseover(index + 1)"
         @click="handleClick(index + 1)"
       >
-        <f-icon
-          :icon="icon"
-          :color="starValue > index ? effectColor : invalidColor"
+        <f-svg-icon
           :size="size"
-        />
+          :color="starValue > index ? effectColor : invalidColor"
+        >
+          <component :is="icon || FIconStarBVue" />
+        </f-svg-icon>
       </li>
     </ul>
 

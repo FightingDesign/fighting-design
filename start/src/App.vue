@@ -3,6 +3,9 @@
   import CloseIconVue from '../../packages/fighting-design/_components/svg/f-icon-cross.vue'
   import { FMessage } from '../../packages/fighting-design/message'
   import { isVNode, h } from 'vue'
+  import { ref } from 'vue'
+
+  const value1 = ref(1)
 
   console.log(isVNode(h(CloseIconVue)))
 
@@ -19,5 +22,5 @@
 </script>
 
 <template>
-  <f-page-header title="标题" :icon="h(CloseIconVue)" @back="goBack" />
+  <f-rate v-model="value1" :icon="h(CloseIconVue)" />
 </template>
