@@ -47,10 +47,6 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  icon: {
-    type: String,
-    default: (): string => ''
-  },
   fontSize: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => '15px'

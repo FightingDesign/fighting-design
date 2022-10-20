@@ -1,8 +1,8 @@
 <script lang="ts" setup name="FAvatar">
   import { Props, Emits } from './avatar'
-  import { computed, ref, onMounted } from 'vue'
+  import { computed, ref, onMounted, useSlots } from 'vue'
   import { loadImage, isNumber, isString, sizeChange } from '../../_utils'
-  import { FIcon } from '../../icon'
+  import { FSvgIcon } from '../../svg-icon'
   import { useFilterProps } from '../../_hooks'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { AvatarPropsType } from './avatar'
@@ -15,6 +15,7 @@
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
+  const slot = useSlots()
 
   /**
    * 判断是否加载成功
@@ -92,7 +93,7 @@
   }
 
   onMounted((): void => {
-    if (!prop.icon && !prop.text) {
+    if (!slot.icon && !prop.text) {
       loadAction()
     }
   })
@@ -100,7 +101,9 @@
 
 <template>
   <div v-if="isSuccess" role="img" :class="classList" :style="styleList">
-    <f-icon v-if="icon" :icon="icon" :color="fontColor" :size="fontSize" />
+    <f-svg-icon v-if="$slots.icon" :size="fontSize" :color="fontColor">
+      <slot name="icon" />
+    </f-svg-icon>
 
     <span v-else-if="text" class="f-avatar-text">
       {{ text }}
