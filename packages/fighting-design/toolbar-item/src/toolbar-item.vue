@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FToolbarItem">
   import { Emits, Props } from './toolbar-item'
-  import { FIcon } from '../../icon'
+  // import { FIcon } from '../../icon'
+  import { FSvgIcon } from '../../svg-icon'
   import type { HandleEventInterface as a } from '../../_interface'
 
   defineProps(Props)
@@ -18,7 +19,9 @@
     :style="{ color }"
     @click="handleClick"
   >
-    <f-icon v-if="icon" :size="iconSize" :icon="icon" />
+    <f-svg-icon v-if="icon" :size="iconSize">
+      <component :is="icon" />
+    </f-svg-icon>
     <slot />
   </span>
 </template>
