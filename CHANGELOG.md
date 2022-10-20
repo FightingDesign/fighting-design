@@ -28,6 +28,7 @@
 - `f-svg-icon` 新增 `icon` 配置项
 - `f-breadcrumb` 组件 `separator` 配置项改为 `VNode` 类型，默认值修改为 `null`
 - `f-notification` 组件 `close-btn` 参数默认值改为 `null`
+- `f-icon` 组件永久废除
 
 ## 0.7.0-alpha.9 (2022-10-19)
 
