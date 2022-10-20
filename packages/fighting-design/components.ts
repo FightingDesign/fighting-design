@@ -251,6 +251,6 @@ export type { WatermarkPropsType } from './watermark/src/interface'
 export type WatermarkInstance = InstanceType<typeof Watermark>
 
 export { FInput } from './input'
-import { default as Input } from './input'
+import type { default as Input } from './input'
 export type { InputPropsType } from './input/src/interface'
 export type InputInstance = InstanceType<typeof Input>
