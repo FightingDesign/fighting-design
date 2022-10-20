@@ -19,6 +19,9 @@
 - 废除 `f-loading` 组件 `icon` 配置项
 - 新增 `f-loading` 组件 `loadingIcon` 插槽
 - 更新 `f-message` 组件 `icon` 默认值和可选类型
+- `f-page-header` 组件 `icon-size` 支持 `number` 类型
+- `f-page-header` 组件 `icon` 改为 `VNode` 类型
+- `f-rate` 组件 `icon` 改为 `VNode` 类型，默认值修改为 `null`
 
 ## 0.7.0-alpha.9 (2022-10-19)
 

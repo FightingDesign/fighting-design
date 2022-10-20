@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, VNode } from 'vue'
 
 export const Props = {
   modelValue: {
@@ -23,13 +23,9 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  // half: {
-  //   type: Boolean,
-  //   default: (): boolean => false
-  // },
   icon: {
-    type: String,
-    default: (): string => 'f-icon-collection-fill'
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   size: {
     type: [String, Number] as PropType<string | number>,

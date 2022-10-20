@@ -1,13 +1,13 @@
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType, VNode } from 'vue'
 
 export const Props = {
   icon: {
-    type: String,
-    default: (): string => 'f-icon-leftarrow'
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   iconSize: {
-    type: String,
-    default: (): string => ''
+    type: [String, Number] as PropType<string | number>,
+    default: (): string => '16px'
   },
   backText: {
     type: String,

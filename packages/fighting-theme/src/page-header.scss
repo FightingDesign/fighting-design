@@ -6,56 +6,49 @@
   background: #fff;
 
   // 后退
-  .f-page-header-left {
+  .f-page-header__left {
     height: 100%;
     padding: 0 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    color: #414141;
     cursor: pointer;
     user-select: none;
     border-right: 1px solid #d9d9d9;
+    color: #333;
 
-    .f-page-header-icon {
-      margin-right: 6px;
-      font-size: 18px;
-
-      .f-icon {
-        font-size: inherit;
-      }
-    }
-
-    .f-page-header-text {
+    // 返回文字
+    .f-page-header__text {
       font-size: 14px;
+      margin-left: 3px;
     }
   }
 
   // 主体
-  .f-page-header-main {
+  .f-page-header__main {
     display: flex;
     align-items: center;
     height: 100%;
     padding: 0 15px;
 
     // 居中
-    &.f-page-header-main-center {
+    &.f-page-header__main-center {
       justify-content: center;
     }
 
     // 标题
-    .f-page-header-main-title {
+    .f-page-header__main-title {
       font-size: 17px;
       color: #333;
 
-      &.f-page-header-main-title-bold {
+      &.f-page-header__main-title-bold {
         font-weight: bold;
       }
     }
 
     // 副标题
-    .f-page-header-main-subtitle {
+    .f-page-header__main-subtitle {
       margin-left: 10px;
       font-size: 16px;
       color: #adadad;
