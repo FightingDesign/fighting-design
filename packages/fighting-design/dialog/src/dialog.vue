@@ -1,8 +1,8 @@
 <script lang="ts" setup name="FDialog">
   import { Props, Emits } from './dialog'
   import { FCloseBtn } from '../../close-btn'
-  import { FPopup } from '../../popup'
   import FIconCrossVue from '../../_components/svg/f-icon-cross.vue'
+  import { FPopup } from '../../popup'
   import { ref, watch } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { Ref } from 'vue'

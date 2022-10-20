@@ -29,7 +29,7 @@
 
 <template>
   <div v-if="$slots.default" :class="classList" @click="handleClick">
-    <f-svg-icon :size="size">
+    <f-svg-icon :size="size" :color="color">
       <slot />
     </f-svg-icon>
   </div>

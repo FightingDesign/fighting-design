@@ -12,6 +12,10 @@ export const Props = {
   disabled: {
     type: Boolean,
     default: (): boolean => false
+  },
+  color: {
+    type: String,
+    default: (): string => ''
   }
 } as const
 

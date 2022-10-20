@@ -27,10 +27,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  icon: {
-    type: String,
-    default: (): string => ''
-  },
   close: {
     type: Boolean,
     default: (): boolean => false

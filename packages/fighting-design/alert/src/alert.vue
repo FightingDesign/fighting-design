@@ -1,7 +1,9 @@
 <script lang="ts" setup name="FAlert">
   import { Props, Emits } from './alert'
   import { computed, ref } from 'vue'
-  import { FIcon } from '../../icon'
+  import { FCloseBtn } from '../../close-btn'
+  import { FSvgIcon } from '../../svg-icon'
+  import FIconCrossVue from '../../_components/svg/f-icon-cross.vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties, Ref } from 'vue'
   import type {
@@ -19,8 +21,8 @@
 
     return [
       'f-alert',
-      `f-alert-${type}`,
       {
+        [`f-alert-${type}`]: type,
         'f-alert-bold': bold,
         'f-alert-simple': simple,
         'f-alert-center': center,
@@ -61,7 +63,9 @@
 
 <template>
   <div v-if="isShow" role="alert" :class="classList" :style="styleList">
-    <f-icon v-if="icon" :icon="icon" class="f-alert-icon" />
+    <f-svg-icon v-if="$slots.prefixIcon">
+      <slot name="prefixIcon" />
+    </f-svg-icon>
 
     <div :class="contentClassList">
       <div v-if="title" class="f-alert-title">
@@ -73,14 +77,10 @@
       </div>
     </div>
 
-    <span
-      v-if="close || $slots.close"
-      class="f-alert-close"
-      @click.stop="handleClose"
-    >
-      <slot name="close">
-        <f-icon icon="f-icon-close" />
+    <f-close-btn v-if="close" @click.stop="handleClose">
+      <slot name="close-icon">
+        <f-icon-cross-vue />
       </slot>
-    </span>
+    </f-close-btn>
   </div>
 </template>

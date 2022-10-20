@@ -60,6 +60,7 @@
 | `size`     | 自定义尺寸   | string / number | ——     | ——     |
 | `round`    | 是否为圆角的 | boolean         | ——     | false  |
 | `disabled` | 是否禁用     | boolean         | ——     | false  |
+| `color`    | 自定义颜色   | string          | ——     | ——     |
 
 ## Slots
 

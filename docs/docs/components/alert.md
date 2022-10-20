@@ -212,7 +212,6 @@
 | `title-size`  | 主标题文字大小     | string / number | ——                                               | 17px    |
 | `bold`        | 文字是否以粗体显示 | boolean         | ——                                               | false   |
 | `center`      | 是否居中           | boolean         | ——                                               | false   |
-| `icon`        | Icon               | string          | ——                                               | ——      |
 | `close`       | 可关闭             | boolean         | ——                                               | ——      |
 | `simple`      | 简约模式           | boolean         | ——                                               | ——      |
 | `title`       | 标题               | string          | ——                                               | ——      |
@@ -225,11 +224,12 @@
 
 ## Slots
 
-| 名称      | 说明               |
-| --------- | ------------------ |
-| `default` | 自定义副标题的内容 |
-| `title`   | 自定义主标题的内容 |
-| `close`   | 自定义关闭按钮     |
+| 名称         | 说明               |
+| ------------ | ------------------ |
+| `default`    | 自定义副标题的内容 |
+| `title`      | 自定义主标题的内容 |
+| `closeIcon`  | 自定义关闭 icon    |
+| `prefixIcon` | 自定义前缀 icon    |
 
 ## Events
 
