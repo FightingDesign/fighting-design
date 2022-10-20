@@ -39,10 +39,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => true
   },
-  closeIcon: {
-    type: String,
-    default: (): string => ''
-  },
   zIndex: {
     type: Number,
     default: (): Number => 1999,

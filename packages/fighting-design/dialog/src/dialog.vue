@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FDialog">
   import { Props, Emits } from './dialog'
-  import { FIcon } from '../../icon'
+  import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
+  import FIconCrossVue from '../../_components/svg/f-icon-cross.vue'
   import { ref, watch } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { Ref } from 'vue'
@@ -57,12 +58,11 @@
       <header class="f-dialog-header">
         <slot name="header">
           <span class="f-dialog-header-title">{{ title }}</span>
-          <f-icon
-            v-if="showCloseIcon"
-            :size="21"
-            :icon="closeIcon || 'f-icon-close'"
-            @click="closeDialog"
-          />
+          <f-close-btn v-if="showCloseIcon" @click="closeDialog">
+            <slot name="close-icon">
+              <f-icon-cross-vue />
+            </slot>
+          </f-close-btn>
         </slot>
       </header>
 
