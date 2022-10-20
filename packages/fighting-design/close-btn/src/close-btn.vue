@@ -2,6 +2,7 @@
   import { Props, Emits } from './close-btn'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
+  import FIconCrossVue from '../../_components/svg/f-icon-cross.vue'
   import type { ComputedRef } from 'vue'
   import type {
     HandleEventInterface as a,
@@ -28,9 +29,11 @@
 </script>
 
 <template>
-  <div v-if="$slots.default" :class="classList" @click="handleClick">
+  <div :class="classList" @click="handleClick">
     <f-svg-icon :size="size" :color="color">
-      <slot />
+      <slot>
+        <f-icon-cross-vue />
+      </slot>
     </f-svg-icon>
   </div>
 </template>

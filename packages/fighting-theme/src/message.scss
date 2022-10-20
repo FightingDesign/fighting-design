@@ -3,7 +3,6 @@
 .f-message {
   z-index: 4000;
   position: fixed;
-  transition: opacity 0.3s, top 0.4s;
   padding: 10px 20px;
   font-size: 14px;
   overflow: hidden;
@@ -17,51 +16,53 @@
   @for $list from 1 to (length($allTypeColorList) + 1) {
     $item: nth($allTypeColorList, $list);
 
-    &.f-message-#{map-get($item, name)} {
+    &.f-message__#{map-get($item, name)} {
       background: #fff;
       color: map-get($item, simpleTextColor);
     }
   }
 
-  &.f-message-round {
+  &.f-message__round {
     border-radius: 20px;
   }
 
-  &.f-message-top {
+  &.f-message__top {
     left: 50%;
     transform: translateX(-50%);
   }
 
-  &.f-message-top-left {
+  &.f-message__top-left {
     left: 20px;
   }
 
-  &.f-message-top-right {
+  &.f-message__top-right {
     right: 20px;
   }
 
-  &.f-message-bottom {
+  &.f-message__bottom {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
   }
 
-  &.f-message-bottom-left {
+  &.f-message__bottom-left {
     left: 20px;
     bottom: 0;
   }
 
-  &.f-message-bottom-right {
+  &.f-message__bottom-right {
     right: 20px;
     bottom: 0;
   }
 
-  .f-message--close {
+  .f-message__close {
     margin-left: 10px;
-    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .f-message--icon {
+  .f-message__icon {
     margin-right: 10px;
   }
 }
@@ -82,8 +83,8 @@
   transform: translateY(-100%);
 }
 
-.f-message-top.f-message-fade-top-enter-from,
-.f-message-top.f-message-fade-top-leave-to {
+.f-message__top.f-message-fade-top-enter-from,
+.f-message__top.f-message-fade-top-leave-to {
   opacity: 0;
   transform: translate(-50%, -100%);
 }
@@ -94,8 +95,8 @@
   transform: translateY(100%);
 }
 
-.f-message-bottom.f-message-fade-bottom-enter-from,
-.f-message-bottom.f-message-fade-bottom-leave-to {
+.f-message__bottom.f-message-fade-bottom-enter-from,
+.f-message__bottom.f-message-fade-bottom-leave-to {
   opacity: 0;
   transform: translate(-50%, 100%);
 }
