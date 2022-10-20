@@ -15,15 +15,14 @@
   opacity: 0.7;
   color: $primary;
 
-  .f-loading-animation {
-    display: inline-block;
-    font-size: 22px;
+  .f-loading__animation {
     animation: f-loading-component 1s linear infinite;
     -webkit-animation: f-loading-component 1s linear infinite;
   }
 
-  .f-loading-title {
+  .f-loading__title {
     font-size: 15px;
+    margin-top: 5px;
   }
 
   @keyframes f-loading-component {

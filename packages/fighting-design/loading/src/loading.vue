@@ -1,7 +1,8 @@
 <script setup lang="ts" name="FLoading">
   import { computed } from 'vue'
   import { Props, Emits } from './loading'
-  import { FIcon } from '../../icon'
+  import { FSvgIcon } from '../../svg-icon'
+  import FIconLoadingAVue from '../../_components/svg/f-icon-loading-a.vue'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { HandleEventInterface as a } from '../../_interface'
 
@@ -24,8 +25,13 @@
 
 <template>
   <div v-if="show" class="f-loading" :style="styleList" @click="handleClick">
-    <f-icon :icon="icon || 'f-icon-loading'" class="f-loading-animation" :color="iconColor" />
-    <span class="f-loading-title" :style="{ fontSize, color: fontColor }">
+    <f-svg-icon :size="20" class="f-loading__animation">
+      <slot name="loadingIcon">
+        <f-icon-loading-a-vue />
+      </slot>
+    </f-svg-icon>
+
+    <span class="f-loading__title" :style="{ fontSize, color: fontColor }">
       {{ text || ' 玩命加载中...' }}
     </span>
   </div>

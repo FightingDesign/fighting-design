@@ -13,10 +13,6 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  icon: {
-    type: String,
-    default: (): string => ''
-  },
   fontColor: {
     type: String,
     default: (): string => ''

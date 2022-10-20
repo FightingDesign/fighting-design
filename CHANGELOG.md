@@ -16,6 +16,8 @@
 - 新增 `f-ink` 组件 `beforeIcon` `afterIcon` 插槽
 - 废除 `f-avatar` 组件 `icon` 配置项
 - 新增 `f-avatar` 组件 `icon` 插槽
+- 废除 `f-loading` 组件 `icon` 配置项
+- 新增 `f-loading` 组件 `loadingIcon` 插槽
 
 ## 0.7.0-alpha.9 (2022-10-19)
 
