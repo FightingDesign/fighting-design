@@ -1,21 +1,31 @@
-<script lang="ts" setup>
-  import { h, ref } from 'vue'
-  import CloseIconVue from '../../packages/fighting-design/_components/svg/f-icon-cross.vue'
-  const value9 = ref(true)
+<script setup lang="ts">
+  import { FNotification } from '../../packages/fighting-design/notification'
 
-  const onChange = (target: boolean): void => {
-    console.log(target)
+  const openNotificationPlacement = (placement) => {
+    FNotification({
+      title: '一条通知',
+      message: '这是一条自定义位置的消息',
+      type: 'default',
+      close: true,
+      duration: 0,
+      placement: placement
+    })
   }
 </script>
 
 <template>
-  <!-- <f-switch v-model="value9" :icon="h(CloseIconVue)" @change="onChange" /> -->
-
-  <f-breadcrumb>
-    <f-breadcrumb-item>首页</f-breadcrumb-item>
-    <f-breadcrumb-item>文章</f-breadcrumb-item>
-    <f-breadcrumb-item>列表</f-breadcrumb-item>
-  </f-breadcrumb>
+  <f-space>
+    <f-button type="primary" @click="openNotificationPlacement('top-left')">
+      左上
+    </f-button>
+    <f-button type="primary" @click="openNotificationPlacement('top-right')">
+      右上
+    </f-button>
+    <f-button type="success" @click="openNotificationPlacement('bottom-left')">
+      左下
+    </f-button>
+    <f-button type="success" @click="openNotificationPlacement('bottom-right')">
+      右下
+    </f-button>
+  </f-space>
 </template>
-
-<style lang="scss" scoped></style>

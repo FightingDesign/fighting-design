@@ -1,9 +1,9 @@
 <script lang="ts" setup name="FMessage">
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
-  import { FIcon } from '../../icon'
+  import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
   import { Props, Emits } from './notification'
-  // import { notificationDefaultIcon } from '../../_model/notification/type'
+  import { notificationDefaultIcon } from '../../_model/notification/type'
   import { massageManage } from '../../_model/notification/method'
   import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
@@ -18,16 +18,16 @@
   /**
    * 默认icon
    */
-  // const _icon: ComputedRef<String | null | VNode> = computed(
-  //   (): String | null | VNode => {
-  //     if (prop.icon) {
-  //       return prop.icon
-  //     } else if (prop.type) {
-  //       return notificationDefaultIcon[prop.type]
-  //     }
-  //     return null
-  //   }
-  // )
+  const _icon: ComputedRef<String | null | VNode> = computed(
+    (): String | null | VNode => {
+      if (prop.icon) {
+        return prop.icon
+      } else if (prop.type) {
+        return notificationDefaultIcon[prop.type]
+      }
+      return null
+    }
+  )
 
   const notificationRef = ref<HTMLDivElement>()
   const notificationHeight: Ref<number> = ref<number>(0)
@@ -144,8 +144,8 @@
     >
       <!-- icon -->
       <div v-if="showIcon && _icon" class="f-notification--icon">
-        <component :is="_icon" v-if="isVNode(_icon)" />
-        <f-icon v-if="isString(_icon)" size="24px" :icon="(_icon as string)" />
+        <component :is="_icon" v-if="isVNode(_icon)" :size="28" />
+        <!-- <f-icon v-if="isString(_icon)" size="24px" :icon="(_icon as string)" /> -->
       </div>
 
       <!-- 主体内容 -->
@@ -157,6 +157,7 @@
             {{ title }}
           </h3>
         </div>
+
         <!-- 消息文本 -->
         <component :is="message" v-if="isVNode(message)" />
         <div v-else class="f-notification--text">
@@ -165,7 +166,7 @@
       </div>
 
       <!-- 关闭按钮 -->
-      <div
+      <!-- <div
         v-if="prop.close"
         class="f-notification--close"
         @click="closeMessage"
@@ -173,6 +174,17 @@
         <component :is="closeBtn" v-if="isVNode(closeBtn)" />
         <span v-else-if="closeBtn && isString(closeBtn)">{{ closeBtn }}</span>
         <f-icon v-else size="16px" icon="f-icon-close" />
+      </div> -->
+      <!-- 关闭按钮 -->
+      <div
+        v-if="prop.close"
+        class="f-notification--close"
+        @click="closeMessage"
+      >
+        <template v-if="isString(closeBtn)">{{ closeBtn }}</template>
+        <f-close-btn v-else :size="16">
+          <!-- <component :is="closeBtn" /> -->
+        </f-close-btn>
       </div>
     </div>
   </transition>

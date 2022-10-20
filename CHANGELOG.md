@@ -27,6 +27,7 @@
 - `f-tag` 组件 `before-icon` `after-icon` 改为 `VNode` 类型，默认值修改为 `null`
 - `f-svg-icon` 新增 `icon` 配置项
 - `f-breadcrumb` 组件 `separator` 配置项改为 `VNode` 类型，默认值修改为 `null`
+- `f-notification` 组件 `close-btn` 参数默认值改为 `null`
 
 ## 0.7.0-alpha.9 (2022-10-19)
 
