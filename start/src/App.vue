@@ -19,5 +19,5 @@
 </script>
 
 <template>
-  <f-page-header title="标题" @back="goBack" />
+  <f-page-header title="标题" :icon="h(CloseIconVue)" @back="goBack" />
 </template>

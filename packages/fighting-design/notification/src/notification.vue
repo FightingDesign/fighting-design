@@ -3,7 +3,7 @@
   import { FIcon } from '../../icon'
   import { isString } from '../../_utils'
   import { Props, Emits } from './notification'
-  import { notificationDefaultIcon } from '../../_model/notification/type'
+  // import { notificationDefaultIcon } from '../../_model/notification/type'
   import { massageManage } from '../../_model/notification/method'
   import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
@@ -18,16 +18,16 @@
   /**
    * 默认icon
    */
-  const _icon: ComputedRef<String | null | VNode> = computed(
-    (): String | null | VNode => {
-      if (prop.icon) {
-        return prop.icon
-      } else if (prop.type) {
-        return notificationDefaultIcon[prop.type]
-      }
-      return null
-    }
-  )
+  // const _icon: ComputedRef<String | null | VNode> = computed(
+  //   (): String | null | VNode => {
+  //     if (prop.icon) {
+  //       return prop.icon
+  //     } else if (prop.type) {
+  //       return notificationDefaultIcon[prop.type]
+  //     }
+  //     return null
+  //   }
+  // )
 
   const notificationRef = ref<HTMLDivElement>()
   const notificationHeight: Ref<number> = ref<number>(0)
@@ -129,8 +129,8 @@
 
 <template>
   <transition
-    :name="`f-notification-fade` + (isRight ? '-right' : '-left')"
     mode="out-in"
+    :name="`f-notification-fade` + (isRight ? '-right' : '-left')"
     @before-leave="closeMessageEnd"
     @after-leave="$emit('destroy')"
   >
@@ -147,6 +147,7 @@
         <component :is="_icon" v-if="isVNode(_icon)" />
         <f-icon v-if="isString(_icon)" size="24px" :icon="(_icon as string)" />
       </div>
+
       <!-- 主体内容 -->
       <div class="f-notification--info">
         <!-- 标题 -->
@@ -162,6 +163,7 @@
           {{ message }}
         </div>
       </div>
+
       <!-- 关闭按钮 -->
       <div
         v-if="prop.close"
