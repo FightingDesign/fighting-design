@@ -9,7 +9,13 @@
 </script>
 
 <template>
-  <f-switch v-model="value9" :icon="h(CloseIconVue)" @change="onChange" />
+  <!-- <f-switch v-model="value9" :icon="h(CloseIconVue)" @change="onChange" /> -->
+
+  <f-breadcrumb>
+    <f-breadcrumb-item>首页</f-breadcrumb-item>
+    <f-breadcrumb-item>文章</f-breadcrumb-item>
+    <f-breadcrumb-item>列表</f-breadcrumb-item>
+  </f-breadcrumb>
 </template>
 
 <style lang="scss" scoped></style>
