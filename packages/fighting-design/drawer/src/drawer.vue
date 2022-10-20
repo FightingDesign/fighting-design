@@ -1,8 +1,9 @@
 <script lang="ts" setup name="FDrawer">
   import { Props, Emits } from './drawer'
   import { watch, ref } from 'vue'
-  import { FIcon } from '../../icon'
+  import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
+  import FIconCrossVue from '../../_components/svg/f-icon-cross.vue'
   import type { Ref } from 'vue'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
 
@@ -53,12 +54,11 @@
       <header class="f-drawer-header">
         <slot name="header">
           <span class="f-drawer-header-title">{{ title }}</span>
-          <f-icon
-            v-if="showCloseIcon"
-            :size="21"
-            :icon="closeIcon || 'f-icon-close'"
-            @click="closeDrawer"
-          />
+          <f-close-btn v-if="showCloseIcon" @click="closeDrawer">
+            <slot name="close-icon">
+              <f-icon-cross-vue />
+            </slot>
+          </f-close-btn>
         </slot>
       </header>
 

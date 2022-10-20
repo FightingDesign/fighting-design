@@ -5,6 +5,8 @@
 - 新增 `f-input` 组件
 - 废除 `f-dialog` 组件 `close-icon` 属性
 - 新增 `f-dialog` 组件 `close-icon` 插槽
+- 废除 `f-drawer` 组件 `close-icon` 属性
+- 新增 `f-drawer` 组件 `close-icon` 插槽
 
 ## 0.7.0-alpha.9 (2022-10-19)
 

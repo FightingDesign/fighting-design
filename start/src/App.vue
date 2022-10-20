@@ -1,13 +1,24 @@
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
 
   const visible1 = ref(true)
+  const direction = ref('right')
+
+  const onShow = (dir: string): void => {
+    direction.value = dir
+    visible1.value = true
+  }
 </script>
 
 <template>
-  <f-button type="primary" @click="visible1 = true">打开</f-button>
+  <f-space>
+    <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
+    <f-button type="primary" @click="onShow('right')">从右往左开</f-button>
+    <f-button type="primary" @click="onShow('top')">从上往下开</f-button>
+    <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
+  </f-space>
 
-  <f-dialog v-model:visible="visible1" title="标题文字">
+  <f-drawer v-model:visible="visible1" title="Title" :direction="direction">
     <h3>沁园春·雪</h3>
 
     <p>北国风光，千里冰封，万里雪飘。</p>
@@ -21,10 +32,5 @@
     <p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
     <p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
     <p>俱往矣，数风流人物，还看今朝。</p>
-
-    <template #footer>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-    </template>
-  </f-dialog>
+  </f-drawer>
 </template>
