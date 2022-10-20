@@ -46,7 +46,7 @@ export const Props = {
 
 export const Emits = {
   'update:modelValue': (target: boolean): boolean => target,
-  'change': (target: boolean): boolean => target
+  change: (target: boolean): boolean => target
 } as const
 
 export type SwitchPropsType = ExtractPropTypes<typeof Props>

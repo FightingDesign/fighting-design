@@ -11,10 +11,8 @@
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const changeSwitch: a = (): void => {
-    if (prop.disabled) {
-      return
-    }
+  const handleClick: a = (): void => {
+    if (prop.disabled) return
     emit('update:modelValue', !prop.modelValue)
     emit('change', !prop.modelValue)
   }
@@ -60,7 +58,7 @@
     <div
       :class="FSwitchClass"
       :style="{ background: modelValue ? openColor : closeColor }"
-      @click="changeSwitch"
+      @click="handleClick"
     >
       <span class="f-switch-roll" :style="rollStyle">
         <f-svg-icon v-if="icon" :icon="icon" :size="14" />
