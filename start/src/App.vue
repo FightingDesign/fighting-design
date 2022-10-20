@@ -1,11 +1,14 @@
 <script lang="ts" setup>
-  import { h } from 'vue'
+  import { h, ref } from 'vue'
   import CloseIconVue from '../../packages/fighting-design/_components/svg/f-icon-cross.vue'
-  console.log(CloseIconVue)
-  console.log(h(CloseIconVue))
+  // console.log(CloseIconVue)
+  // console.log(h(CloseIconVue))
+  const value9 = ref(true)
 </script>
 
 <template>
+  <f-switch v-model="value9" :icon="h(CloseIconVue)" />
+
   <f-toolbar>
     <f-toolbar-item :icon="h(CloseIconVue)" />
     <f-toolbar-item :icon="h(CloseIconVue)" />

@@ -3,6 +3,7 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - 新增 `f-input` 组件
+- 新增 `f-swap` 组件
 - 废除 `f-dialog` 组件 `close-icon` 属性
 - 新增 `f-dialog` 组件 `closeIcon` 插槽
 - 废除 `f-drawer` 组件 `close-icon` 属性
@@ -24,6 +25,7 @@
 - `f-rate` 组件 `icon` 改为 `VNode` 类型，默认值修改为 `null`
 - `f-toolbar-item` 组件 `icon` 改为 `VNode` 类型，默认值修改为 `null`
 - `f-tag` 组件 `before-icon` `after-icon` 改为 `VNode` 类型，默认值修改为 `null`
+- `f-svg-icon` 新增 `icon` 配置项
 
 ## 0.7.0-alpha.9 (2022-10-19)
 

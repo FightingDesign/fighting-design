@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FSwitch">
   import { computed } from 'vue'
   import { Props, Emits } from './switch'
-  import { FIcon } from '../../icon'
+  import { FSvgIcon } from '../../svg-icon'
   import type {
     OrdinaryFunctionInterface as a,
     ClassListInterface as b
@@ -63,7 +63,7 @@
       @click="changeSwitch"
     >
       <span class="f-switch-roll" :style="rollStyle">
-        <f-icon v-if="icon" :icon="icon" />
+        <f-svg-icon v-if="icon" :icon="icon" :size="14" />
       </span>
     </div>
 

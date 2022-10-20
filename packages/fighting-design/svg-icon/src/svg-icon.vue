@@ -27,6 +27,7 @@
     text-indent="middle"
     @click="handleClick"
   >
-    <slot />
+    <slot v-if="$slots.default" />
+    <component :is="icon" v-else />
   </i>
 </template>
