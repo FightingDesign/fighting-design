@@ -46,23 +46,23 @@ describe('FTag', () => {
     expect(wrapper.attributes('style')).toContain('orange')
   })
 
-  test('before-icon', () => {
-    const wrapper = mount(FTag, {
-      props: { beforeIcon: 'f-icon-Customermanagement' }
-    })
-    expect(wrapper.find('.f-icon').classes()).toContain(
-      'f-icon-Customermanagement'
-    )
-  })
+  // test('before-icon', () => {
+  //   const wrapper = mount(FTag, {
+  //     props: { beforeIcon: 'f-icon-Customermanagement' }
+  //   })
+  //   expect(wrapper.find('.f-icon').classes()).toContain(
+  //     'f-icon-Customermanagement'
+  //   )
+  // })
 
-  test('after-icon', () => {
-    const wrapper = mount(FTag, {
-      props: { afterIcon: 'f-icon-Customermanagement' }
-    })
-    expect(wrapper.find('.f-icon').classes()).toContain(
-      'f-icon-Customermanagement'
-    )
-  })
+  // test('after-icon', () => {
+  //   const wrapper = mount(FTag, {
+  //     props: { afterIcon: 'f-icon-Customermanagement' }
+  //   })
+  //   expect(wrapper.find('.f-icon').classes()).toContain(
+  //     'f-icon-Customermanagement'
+  //   )
+  // })
 
   test('size', () => {
     const size = ['large', 'middle', 'small', 'mini'] as const
