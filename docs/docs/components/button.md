@@ -1,12 +1,5 @@
 # Button 按钮
 
-<!-- ::: demo
-<f-button type="default">默认按钮</f-button>
-<f-button type="success">成功按钮</f-button>
-<f-button type="danger">危险按钮</f-button>
-<f-button type="warning">警告按钮</f-button>
-::: -->
-
 功能很强大的按钮
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/button)
@@ -35,13 +28,6 @@
 <f-button simple type="danger">危险按钮</f-button>
 <f-button simple type="warning">警告按钮</f-button>
 
-<br />
-
-<f-button circle before-icon="f-icon-camera-fill" type="default" />
-<f-button circle before-icon="f-icon-good-fill" type="primary" />
-<f-button circle before-icon="f-icon-discount-fill" type="success" />
-<f-button circle before-icon="f-icon-Exportservices" type="danger" />
-<f-button circle before-icon="f-icon-map1" type="warning" />
 </template>
 
 ```html
@@ -56,12 +42,6 @@
 <f-button simple type="success">成功按钮</f-button>
 <f-button simple type="danger">危险按钮</f-button>
 <f-button simple type="warning">警告按钮</f-button>
-
-<f-button circle before-icon="f-icon-camera-fill" type="default" />
-<f-button circle before-icon="f-icon-good-fill" type="primary" />
-<f-button circle before-icon="f-icon-discount-fill" type="success" />
-<f-button circle before-icon="f-icon-Exportservices" type="danger" />
-<f-button circle before-icon="f-icon-map1" type="warning" />
 ```
 
 </f-sticky-card>
@@ -108,7 +88,7 @@
 
 `disabled` 属性可以将按钮变成禁用状态
 
-`loading` 属性可以将按钮变成 `loading` 状态，也可以通过 `loading-icon` 自定义 `loading` 图标样式
+`loading` 属性可以将按钮变成 `loading` 状态
 
 <f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
 
@@ -122,10 +102,10 @@
 <br />
 
 <f-button loading type="default">默认按钮</f-button>
-<f-button loading loading-icon="f-icon-loading1" type="primary">主要按钮</f-button>
-<f-button loading loading-icon="f-icon-loading2" type="success">成功按钮</f-button>
-<f-button loading loading-icon="f-icon-loading3" type="danger">危险按钮</f-button>
-<f-button loading loading-icon="f-icon-loading4" type="warning">警告按钮</f-button>
+<f-button loading type="primary">主要按钮</f-button>
+<f-button loading type="success">成功按钮</f-button>
+<f-button loading type="danger">危险按钮</f-button>
+<f-button loading type="warning">警告按钮</f-button>
 </template>
 
 ```html
@@ -136,18 +116,10 @@
 <f-button disabled type="warning">警告按钮</f-button>
 
 <f-button loading type="default">默认按钮</f-button>
-<f-button loading loading-icon="f-icon-loading1" type="primary">
-  主要按钮
-</f-button>
-<f-button loading loading-icon="f-icon-loading2" type="success">
-  成功按钮
-</f-button>
-<f-button loading loading-icon="f-icon-loading3" type="danger">
-  危险按钮
-</f-button>
-<f-button loading loading-icon="f-icon-loading4" type="warning">
-  警告按钮
-</f-button>
+<f-button loading type="primary">主要按钮</f-button>
+<f-button loading type="success">成功按钮</f-button>
+<f-button loading type="danger">危险按钮</f-button>
+<f-button loading type="warning">警告按钮</f-button>
 ```
 
 </f-sticky-card>
@@ -339,10 +311,7 @@
 | `href`          | 链接按钮的地址                                                                                                                                              | string          | ——                                                      | ——       |
 | `target`        | 原生 target 属性，在 link 类型存在时生效                                                                                                                    | string          | `_blank` `_self` `_parent` `_top`                       | \_self   |
 | `loading`       | 是否展示 loading 状态                                                                                                                                       | boolean         | ——                                                      | false    |
-| `loading-icon`  | loading 状态的 icon                                                                                                                                         | string          | ——                                                      | ——       |
 | `disabled`      | 是否禁用按钮                                                                                                                                                | boolean         | ——                                                      | false    |
-| `before-icon`   | 自定义按钮左侧的 icon                                                                                                                                       | string          | ——                                                      | ——       |
-| `after-icon`    | 自定义按钮右侧的 icon                                                                                                                                       | string          | ——                                                      | ——       |
 | `type`          | 按钮的类型                                                                                                                                                  | string          | `default` `primary` `success` <br /> `danger` `warning` | default  |
 | `autofocus`     | 是否自动获取焦点                                                                                                                                            | boolean         | ——                                                      | false    |
 | `name`          | 按钮的名字                                                                                                                                                  | string          | ——                                                      | f-button |
@@ -363,9 +332,12 @@
 
 ## Button Slots
 
-| 名称      | 说明       |
-| --------- | ---------- |
-| `default` | 按钮的内容 |
+| 名称          | 说明              |
+| ------------- | ----------------- |
+| `default`     | 按钮的内容        |
+| `beforeIcon`  | 按钮之前的 icon   |
+| `afterIcon`   | 按钮之后的 icon   |
+| `loadingIcon` | 按钮 loading icon |
 
 ## ButtonGroup Slots
 
