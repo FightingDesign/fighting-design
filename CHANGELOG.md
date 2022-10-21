@@ -5,14 +5,16 @@
 - 新增 `f-input` 组件
 - 新增 `f-swap` 组件
 - `f-button` 组件 `before-icon` `after-icon` `loading-icon` 配置项改为 `VNode` 类型，默认值修改为 `null`
-- `f-close-btn` 新增 `icon` 配置项
+- 新增 `f-close-btn` 组件 `icon` 配置项
+- 废除 `f-alert` 组件 `icon` 属性
+- 新增 `f-alert` 组件 `prefixIcon` 和 `closeIcon` 插槽
+- 新增 `f-alert` 组件 `prefixIcon` 和 `closeIcon` 配置项
+- 永久废除 `f-icon` 组件
 
 - 废除 `f-dialog` 组件 `close-icon` 属性
 - 新增 `f-dialog` 组件 `closeIcon` 插槽
 - 废除 `f-drawer` 组件 `close-icon` 属性
 - 新增 `f-drawer` 组件 `closeIcon` 插槽
-- 废除 `f-alert` 组件 `icon` 属性
-- 新增 `f-alert` 组件 `prefixIcon` 和 `closeIcon` 插槽
 - 新增 `f-close-btn` 组件 `color` 属性
 - 废除 `f-ink` 组件 `before-icon` `after-icon` 配置项
 - 新增 `f-ink` 组件 `beforeIcon` `afterIcon` 插槽
@@ -29,7 +31,6 @@
 - `f-svg-icon` 新增 `icon` 配置项
 - `f-breadcrumb` 组件 `separator` 配置项改为 `VNode` 类型，默认值修改为 `null`
 - `f-notification` 组件 `close-btn` 参数默认值改为 `null`
-- `f-icon` 组件永久废除
 - `f-button` 组件 `before-icon` `loading-icon` `after-icon` 配置项改为 `VNode` 类型，默认值修改为 `null`
 
 ## 0.7.0-alpha.9 (2022-10-19)
