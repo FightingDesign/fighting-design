@@ -28,7 +28,7 @@
     $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
 
     // 不同类型
-    &.f-button-#{map-get($item, name)} {
+    &.f-button__#{map-get($item, name)} {
       background: map-get($item, default);
       color: map-get($item, defaultTextColor);
 
@@ -41,13 +41,13 @@
       }
 
       // 普通按钮禁用效果
-      &.f-button-disabled:hover {
+      &.f-button__disabled:hover {
         background: map-get($item, default);
         color: map-get($item, defaultTextColor);
       }
 
       // 简约按钮
-      &.f-button-simple {
+      &.f-button__simple {
         color: map-get($item, simpleTextColor);
         background: map-get($item, simple);
 
@@ -60,14 +60,14 @@
         }
 
         // 简约按钮禁用效果
-        &.f-button-disabled:hover {
+        &.f-button__disabled:hover {
           color: map-get($item, simpleTextColor);
           background: map-get($item, simple);
         }
       }
 
       // 文字按钮
-      &.f-button-text {
+      &.f-button__text {
         background: none;
         color: map-get($item, simpleTextColor);
 
@@ -80,7 +80,7 @@
         }
 
         // 文字按钮禁用状态
-        &.f-button-disabled:hover {
+        &.f-button__disabled:hover {
           background: #fff;
           color: map-get($item, simpleTextColor);
           border: 1px solid map-get($item, simpleTextColor);
@@ -93,14 +93,14 @@
   @for $list from 1 to (length($buttonSize) + 1) {
     $item: nth($buttonSize, $list); // 获取数组中第i项的值
 
-    &.f-button-#{map-get($item, name)} {
+    &.f-button__#{map-get($item, name)} {
       height: map-get($item, height);
       padding: 0 map-get($item, padding);
       line-height: map-get($item, height);
       font-size: var(--f-button-font-size, map-get($item, fontSize));
 
       // 圆形按钮
-      &.f-button-circle {
+      &.f-button__circle {
         height: map-get($item, height);
         width: map-get($item, height);
         line-height: 1;
@@ -111,23 +111,23 @@
   }
 
   // 圆角
-  &.f-button-round {
+  &.f-button__round {
     border-radius: 30px;
   }
 
   // 块级元素
-  &.f-button-block {
+  &.f-button__block {
     display: block;
     width: 100%;
   }
 
   // 文字加粗
-  &.f-button-bold {
+  &.f-button__bold {
     font-weight: bold;
   }
 
   // 禁用状态
-  &.f-button-disabled {
+  &.f-button__disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
@@ -155,7 +155,7 @@
   }
 
   // 涟漪效果
-  .f-button-ripples {
+  .f-button__ripples {
     width: 2px;
     height: 2px;
     position: absolute;
@@ -182,7 +182,7 @@
   }
 
   // 自定义颜色
-  &.f-button-color {
+  &.f-button__color {
     background: var(--f-button-default-color);
 
     &.f-button-disabled {
@@ -194,6 +194,7 @@
     &:hover {
       background: var(--f-button-hover-color);
     }
+
     &:active {
       background: var(--f-button-active-color);
     }

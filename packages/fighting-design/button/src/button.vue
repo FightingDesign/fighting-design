@@ -37,16 +37,16 @@
     return [
       'f-button',
       {
-        [`f-button-${size}`]: size,
-        [`f-button-${type}`]: !color,
-        'f-button-disabled': disabled || loading,
-        'f-button-simple': simple && !color,
-        'f-button-circle': circle,
-        'f-button-round': round,
-        'f-button-block': block,
-        'f-button-bold': bold,
-        'f-button-color': color,
-        'f-button-text': text && !color
+        [`f-button__${size}`]: size,
+        [`f-button__${type}`]: !color,
+        'f-button__disabled': disabled || loading,
+        'f-button__simple': simple && !color,
+        'f-button__circle': circle,
+        'f-button__round': round,
+        'f-button__block': block,
+        'f-button__bold': bold,
+        'f-button__color': color,
+        'f-button__text': text && !color
       }
     ] as const
   })
@@ -69,7 +69,7 @@
         {
           duration: 700,
           component: 'f-button',
-          className: 'f-button-ripples',
+          className: 'f-button__ripples',
           ripplesColor,
           simple,
           text,
