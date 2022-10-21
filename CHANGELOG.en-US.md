@@ -7,41 +7,46 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 ## 0.7.0-beta.1 (2022-10-21)
 
 **Important Updates**
--Permanently revoke 'f-icon' component
--Update the 'class' naming convention for all components
+
+- Permanently revoke `f-icon` component
+- Update the `class` naming convention for all components
+
 **New Features**
--Add 'f-close btn' component 'icon' configuration item
--Add 'f-close btn' component 'color' attribute
--Add 'f-alert' component 'beforeIcon' and 'closeIcon' slots
--Add 'f-alert' component 'before icon' and 'close icon' configuration items
--Add 'f-dialog' component 'closeIcon' slot
--Add 'f-dialog' component 'close icon' configuration item
--Add 'f-drawer' component 'closeIcon' slot
--New 'f-drawer' component 'close icon' configuration item
--Add 'f-link' component 'beforeIcon' 'afterIcon' slot
--Add 'f-avatar' component 'icon' slot
--New 'f-avatar' component 'icon' configuration item is changed to 'VNode/Component' type, and the default value is changed to 'null`
--Add 'f-loading' component 'icon' slot
--Add 'f-svg icon' component 'icon' configuration item
+
+- Add `f-close btn` component `icon` configuration item
+- Add `f-close btn` component `color` attribute
+- Add `f-alert` component `beforeIcon` and `closeIcon` slots
+- Add `f-alert` component `before-icon` and `close-icon` configuration items
+- Add `f-dialog` component `closeIcon` slot
+- Add `f-dialog` component `close-icon` configuration item
+- Add `f-drawer` component `closeIcon` slot
+- New `f-drawer` component `close-icon` configuration item
+- Add `f-link` component `beforeIcon` `afterIcon` slot
+- Add `f-avatar` component `icon` slot
+- New `f-avatar` component `icon` configuration item is changed to `VNode / Component` type, and the default value is changed to `null`
+- Add `f-loading` component `icon` slot
+- Add `f-svg icon` component `icon` configuration item
+
 **Other changes**
--The 'f-link' component 'before icon' 'after icon' configuration item is changed to the 'VNode/Component' type, and the default value is changed to 'null`
--The 'f-button' component 'before icon' 'after icon' 'loading icon' configuration item is changed to the 'VNode/Component' type, and the default value is changed to 'null`
--The 'f-avatar' component 'icon' configuration item is changed to the 'VNode/Component' type, and the default value is changed to 'null`
--The 'f-loading' component 'icon' configuration item is changed to the 'VNode/Component' type, and the default value is changed to 'null`
--'f-page header' component 'icon size' supports' number 'type
--The 'f-page-header' component 'icon' configuration item is changed to the 'VNode/Component' type, and the default value is changed to 'null`
--The 'f-rate' component 'icon' is changed to the 'VNode/Component' type, and the default value is changed to 'null`
--'f-toolbar item' component 'icon' is changed to 'VNode/Component' type, and the default value is changed to 'null`
--The 'f-tag' component 'before icon' 'after icon' is changed to the 'VNode/Component' type, and the default value is changed to 'null`
--The 'f-breadcrumb' component 'separator icon' configuration item is renamed as' separator`
--The 'f-breadcrumb' component 'separator' configuration item is changed to the 'VNode/Component' type, and the default value is changed to 'null`
--The default value of the 'f-notification' component 'close btn' parameter is changed to 'null`
--The 'f-button' component 'before icon' 'loading icon' 'after icon' configuration item is changed to the 'VNode/Component' type, and the default value is changed to 'null`
--The 'f-stick card' component slot name is changed from 'option left' 'option right' to 'optionLeft' 'optionRight`
--Update 'f-message' component 'icon' default values and optional types
--Cancel the 'f-calendar' component 'show footer' configuration item
--Revoke the 'f-alert' component 'icon' attribute
--Revoke the 'f-avatar' component 'load initialization' configuration item
+
+- The `f-link` component `before-icon` `after-icon` configuration item is changed to the `VNode / Component` type, and the default value is changed to `null`
+- The `f-button` component `before-icon` `after-icon` `loading icon` configuration item is changed to the `VNode / Component` type, and the default value is changed to `null`
+- The `f-avatar` component `icon` configuration item is changed to the `VNode / Component` type, and the default value is changed to `null`
+- The `f-loading` component `icon` configuration item is changed to the `VNode / Component` type, and the default value is changed to `null`
+- `f-page header` component `icon size` supports`number`type
+- The `f-page-header` component `icon` configuration item is changed to the `VNode / Component` type, and the default value is changed to `null`
+- The `f-rate` component `icon` is changed to the `VNode / Component` type, and the default value is changed to `null`
+- `f-toolbar-item` component `icon` is changed to `VNode / Component` type, and the default value is changed to `null`
+- The `f-tag` component `before-icon` `after-icon` is changed to the `VNode / Component` type, and the default value is changed to `null`
+- The `f-breadcrumb` component `separator-icon` configuration item is renamed as` separator`
+- The `f-breadcrumb` component `separator` configuration item is changed to the `VNode / Component` type, and the default value is changed to `null`
+- The default value of the `f-notification` component `close-btn` parameter is changed to `null`
+- The `f-button` component `before-icon` `loading icon` `after-icon` configuration item is changed to the `VNode / Component` type, and the default value is changed to `null`
+- The `f-stick card` component slot name is changed from `option-left` `option-right` to `optionLeft` `optionRight`
+- Update `f-message` component `icon` default values and optional types
+- Cancel the `f-calendar` component `show-footer` configuration item
+- Revoke the `f-alert` component `icon` attribute
+- Revoke the `f-avatar` component `load-initialization` configuration item
 
 ## 0.7.0-alpha.9 (2022-10-19)
 
