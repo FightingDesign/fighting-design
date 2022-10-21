@@ -55,18 +55,19 @@
 
 ## Attributes
 
-| 参数       | 说明         | 类型            | 可选值 | 默认值 |
-| ---------- | ------------ | --------------- | ------ | ------ |
-| `size`     | 自定义尺寸   | string / number | ——     | ——     |
-| `round`    | 是否为圆角的 | boolean         | ——     | false  |
-| `disabled` | 是否禁用     | boolean         | ——     | false  |
-| `color`    | 自定义颜色   | string          | ——     | ——     |
+| 参数       | 说明         | 类型                       | 可选值 | 默认值 |
+| ---------- | ------------ | -------------------------- | ------ | ------ |
+| `size`     | 自定义尺寸   | string / number            | ——     | ——     |
+| `round`    | 是否为圆角的 | boolean                    | ——     | false  |
+| `disabled` | 是否禁用     | boolean                    | ——     | false  |
+| `color`    | 自定义颜色   | string                     | ——     | ——     |
+| `icon`     | 自定义 icon  | object (VNode / Component) | ——     | null   |
 
 ## Slots
 
-| 名称      | 说明     |
-| --------- | -------- |
-| `default` | 默认插槽 |
+| 名称      | 说明                     |
+| --------- | ------------------------ |
+| `default` | 默认插槽，自定义关闭按钮 |
 
 ## Interface
 

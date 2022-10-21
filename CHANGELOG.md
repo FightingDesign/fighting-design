@@ -12,8 +12,8 @@
 - 新增 `f-input` 组件
 - 新增 `f-swap` 组件
 - 新增 `f-close-btn` 组件 `icon` 配置项
-- 新增 `f-alert` 组件 `prefixIcon` 和 `closeIcon` 插槽
-- 新增 `f-alert` 组件 `prefixIcon` 和 `closeIcon` 配置项
+- 新增 `f-alert` 组件 `beforeIcon` 和 `closeIcon` 插槽
+- 新增 `f-alert` 组件 `beforeIcon` 和 `closeIcon` 配置项
 - 新增 `f-dialog` 组件 `closeIcon` 插槽
 - 新增 `f-drawer` 组件 `closeIcon` 插槽
 - 新增 `f-close-btn` 组件 `color` 属性

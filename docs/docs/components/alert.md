@@ -91,26 +91,6 @@
 
 :::
 
-## 带有 Icon
-
-使用 `icon` 属性可增加某种状态的可读性
-
-`icon` 必须使用内置的 [f-icon](https://fighting.tianyuhao.cn/components/icon.html)
-
-<f-alert type="primary" icon="f-icon-template">主要提示信息</f-alert>
-<f-alert type="success" icon="f-icon-success">成功提示信息</f-alert>
-<f-alert type="danger" icon="f-icon-email">危险提示信息</f-alert>
-
-::: details 显示代码
-
-```html
-<f-alert type="primary" icon="f-icon-template">主要提示信息</f-alert>
-<f-alert type="success" icon="f-icon-success">成功提示信息</f-alert>
-<f-alert type="danger" icon="f-icon-email">危险提示信息</f-alert>
-```
-
-:::
-
 ## 可关闭
 
 使用 `close` 属性可以让 `alert` 被关闭
@@ -205,22 +185,23 @@
 
 ## Attributes
 
-| 参数          | 说明               | 类型            | 可选值                                           | 默认值  |
-| ------------- | ------------------ | --------------- | ------------------------------------------------ | ------- |
-| `type`        | 类型               | string          | `default` `primary` `success` `danger` `warning` | default |
-| `font-size`   | 副标题文字大小     | string / number | ——                                               | 15px    |
-| `title-size`  | 主标题文字大小     | string / number | ——                                               | 17px    |
-| `bold`        | 文字是否以粗体显示 | boolean         | ——                                               | false   |
-| `center`      | 是否居中           | boolean         | ——                                               | false   |
-| `close`       | 可关闭             | boolean         | ——                                               | ——      |
-| `simple`      | 简约模式           | boolean         | ——                                               | ——      |
-| `title`       | 标题               | string          | ——                                               | ——      |
-| `round`       | 显示为圆角         | boolean         | ——                                               | ——      |
-| `background`  | 背景颜色           | string          | ——                                               | ——      |
-| `color`       | 副标题字体颜色     | string          | ——                                               | ——      |
-| `title-color` | 主标题字体颜色     | string          | ——                                               | ——      |
-| `fixed`       | 是否固定定位       | boolean         | ——                                               | false   |
-| `overflow`    | 文字超出的展示状态 | string          | `hidden`                                         | ——      |
+| 参数          | 说明               | 类型                       | 可选值                                           | 默认值  |
+| ------------- | ------------------ | -------------------------- | ------------------------------------------------ | ------- |
+| `type`        | 类型               | string                     | `default` `primary` `success` `danger` `warning` | default |
+| `font-size`   | 副标题文字大小     | string / number            | ——                                               | 15px    |
+| `title-size`  | 主标题文字大小     | string / number            | ——                                               | 17px    |
+| `bold`        | 文字是否以粗体显示 | boolean                    | ——                                               | false   |
+| `center`      | 是否居中           | boolean                    | ——                                               | false   |
+| `close`       | 可关闭             | boolean                    | ——                                               | ——      |
+| `simple`      | 简约模式           | boolean                    | ——                                               | ——      |
+| `title`       | 标题               | string                     | ——                                               | ——      |
+| `round`       | 显示为圆角         | boolean                    | ——                                               | ——      |
+| `background`  | 背景颜色           | string                     | ——                                               | ——      |
+| `color`       | 副标题字体颜色     | string                     | ——                                               | ——      |
+| `title-color` | 主标题字体颜色     | string                     | ——                                               | ——      |
+| `fixed`       | 是否固定定位       | boolean                    | ——                                               | false   |
+| `overflow`    | 文字超出的展示状态 | string                     | `hidden`                                         | ——      |
+| `before-icon` | 自定义前缀 icon    | object (VNode / Component) | ——                                               | null    |
 
 ## Slots
 
@@ -229,7 +210,7 @@
 | `default`    | 自定义副标题的内容 |
 | `title`      | 自定义主标题的内容 |
 | `closeIcon`  | 自定义关闭 icon    |
-| `prefixIcon` | 自定义前缀 icon    |
+| `beforeIcon` | 自定义前缀 icon    |
 
 ## Events
 

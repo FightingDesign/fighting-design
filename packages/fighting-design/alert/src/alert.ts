@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes, VNode } from 'vue'
+import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { AlertType, AlertOverflowType } from './interface'
 
 export const Props = {
@@ -67,11 +67,11 @@ export const Props = {
     }
   },
   closeIcon: {
-    type: Object as PropType<VNode>,
+    type: Object as PropType<VNode | Component>,
     default: (): null => null
   },
-  prefixIcon: {
-    type: Object as PropType<VNode>,
+  beforeIcon: {
+    type: Object as PropType<VNode | Component>,
     default: (): null => null
   }
 } as const

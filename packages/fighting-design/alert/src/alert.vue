@@ -62,8 +62,8 @@
 
 <template>
   <div v-if="isShow" role="alert" :class="classList" :style="styleList">
-    <f-svg-icon v-if="$slots.prefixIcon || prefixIcon" :icon="prefixIcon">
-      <slot name="prefixIcon" />
+    <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon">
+      <slot name="beforeIcon" />
     </f-svg-icon>
 
     <div :class="contentClassList">
@@ -77,7 +77,7 @@
     </div>
 
     <f-close-btn v-if="close" :icon="closeIcon" @click.stop="handleClose">
-      <slot name="close-icon" />
+      <slot name="closeIcon" />
     </f-close-btn>
   </div>
 </template>
