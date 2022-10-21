@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const show1 = ref(true)
-
-  const listImg = [
-    'https://tianyuhao.cn/images/auto/1.jpg',
-    'https://tianyuhao.cn/images/auto/2.jpg',
-    'https://tianyuhao.cn/images/auto/3.jpg',
-    'https://tianyuhao.cn/images/auto/4.jpg'
-  ]
+  import {
+    FIconApps,
+    FIconBlock,
+    FIconCameraVideoSlash,
+    FIconClock
+  } from '@fighting-design/fighting-icon'
 </script>
 
 <template>
-  <f-button type="primary" @click="show1 = true">打开</f-button>
-  <f-image-preview v-model:visible="show1" :img-list="listImg" />
+  <f-toolbar>
+    <f-toolbar-item :icon="FIconApps" />
+    <f-toolbar-item :icon="FIconBlock" />
+    <f-toolbar-item :icon="FIconCameraVideoSlash" />
+    <f-toolbar-item :icon="FIconClock" />
+  </f-toolbar>
 </template>

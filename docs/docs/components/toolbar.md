@@ -10,21 +10,32 @@
 工具栏的基本使用，`icon` 可以配置带有图表的选项
 
 <f-toolbar>
-  <f-toolbar-item icon="f-icon-default-template" />
-  <f-toolbar-item icon="f-icon-Customermanagement" />
-  <f-toolbar-item icon="f-icon-email" />
-  <f-toolbar-item icon="f-icon-editor" />
+  <f-toolbar-item :icon="FIconApps" />
+  <f-toolbar-item :icon="FIconBlock" />
+  <f-toolbar-item :icon="FIconCameraVideoSlash" />
+  <f-toolbar-item :icon="FIconClock" />
 </f-toolbar>
 
 ::: details 显示代码
 
 ```html
-<f-toolbar>
-  <f-toolbar-item icon="f-icon-default-template" />
-  <f-toolbar-item icon="f-icon-Customermanagement" />
-  <f-toolbar-item icon="f-icon-email" />
-  <f-toolbar-item icon="f-icon-editor" />
-</f-toolbar>
+<template>
+  <f-toolbar>
+    <f-toolbar-item :icon="FIconApps" />
+    <f-toolbar-item :icon="FIconBlock" />
+    <f-toolbar-item :icon="FIconCameraVideoSlash" />
+    <f-toolbar-item :icon="FIconClock" />
+  </f-toolbar>
+</template>
+
+<script lang="ts" setup>
+  import {
+    FIconApps,
+    FIconBlock,
+    FIconCameraVideoSlash,
+    FIconClock
+  } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
@@ -75,15 +86,6 @@
   <f-toolbar-item>返回</f-toolbar-item>
 </f-toolbar>
 
-<f-toolbar background="#589EF8" text-color="#eee">
- <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-default-template" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-Customermanagement" />
-  </f-toolbar-item>
-</f-toolbar>
-
 ::: details 显示代码
 
 ```html
@@ -91,15 +93,6 @@
   <f-toolbar-item>操作</f-toolbar-item>
   <f-toolbar-item>更多</f-toolbar-item>
   <f-toolbar-item>返回</f-toolbar-item>
-</f-toolbar>
-
-<f-toolbar background="#589EF8" text-color="#eee">
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-default-template" />
-  </f-toolbar-item>
-  <f-toolbar-item>
-    <f-icon size="30px" icon="f-icon-Customermanagement" />
-  </f-toolbar-item>
 </f-toolbar>
 ```
 
@@ -112,10 +105,10 @@
 也可以给每个 `f-toolbar-item` 单独添加点击事件
 
 <f-toolbar @click="handleClick">
-<f-toolbar-item data-key="1" icon="f-icon-default-template" />
-<f-toolbar-item data-key="2" icon="f-icon-Customermanagement" />
-<f-toolbar-item data-key="3" icon="f-icon-email" />
-<f-toolbar-item data-key="4" icon="f-icon-editor" />
+<f-toolbar-item data-key="1" :icon="FIconApps" />
+<f-toolbar-item data-key="2" :icon="FIconBlock" />
+<f-toolbar-item data-key="3" :icon="FIconCameraVideoSlash" />
+<f-toolbar-item data-key="4" :icon="FIconClock" />
 </f-toolbar>
 
 ::: details 显示代码
@@ -123,14 +116,21 @@
 ```html
 <template>
   <f-toolbar @click="handleClick">
-    <f-toolbar-item data-key="1" icon="f-icon-default-template" />
-    <f-toolbar-item data-key="2" icon="f-icon-Customermanagement" />
-    <f-toolbar-item data-key="3" icon="f-icon-email" />
-    <f-toolbar-item data-key="4" icon="f-icon-editor" />
+    <f-toolbar-item data-key="1" :icon="FIconApps" />
+    <f-toolbar-item data-key="2" :icon="FIconBlock" />
+    <f-toolbar-item data-key="3" :icon="FIconCameraVideoSlash" />
+    <f-toolbar-item data-key="4" :icon="FIconClock" />
   </f-toolbar>
 </template>
 
 <script lang="ts" setup>
+  import {
+    FIconApps,
+    FIconBlock,
+    FIconCameraVideoSlash,
+    FIconClock
+  } from '@fighting-design/fighting-icon'
+
   const handleClick = ({ key, evt }) => {
     console.log(key, evt)
   }
@@ -211,6 +211,8 @@ import type {
 </a>
 
 <script setup>
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+
   const handleClick = ({ key, evt }) => {
     console.log(key, evt)
   }
