@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { AvatarFitType, AvatarSizeType } from './interface'
 
 export const Props = {
@@ -9,6 +9,10 @@ export const Props = {
   errSrc: {
     type: String,
     default: (): string => ''
+  },
+  icon: {
+    type: Object as PropType<VNode | Component>,
+    default: (): null => null
   },
   alt: {
     type: String,

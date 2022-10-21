@@ -17,9 +17,9 @@
 - 新增 `f-close-btn` 组件 `color` 属性
 - `f-link` 组件 `before-icon` `after-icon` 配置项改为 `VNode` 类型，默认值修改为 `null`
 - 新增 `f-link` 组件 `beforeIcon` `afterIcon` 插槽
-
-- 废除 `f-avatar` 组件 `icon` 配置项
+- `f-avatar` 组件 `icon` 配置项改为 `VNode` 类型，默认值修改为 `null`
 - 新增 `f-avatar` 组件 `icon` 插槽
+
 - 废除 `f-loading` 组件 `icon` 配置项
 - 新增 `f-loading` 组件 `loadingIcon` 插槽
 - 更新 `f-message` 组件 `icon` 默认值和可选类型

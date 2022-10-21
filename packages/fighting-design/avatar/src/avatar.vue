@@ -101,7 +101,12 @@
 
 <template>
   <div v-if="isSuccess" role="img" :class="classList" :style="styleList">
-    <f-svg-icon v-if="$slots.icon" :size="fontSize" :color="fontColor">
+    <f-svg-icon
+      v-if="$slots.icon || icon"
+      :size="fontSize"
+      :color="fontColor"
+      :icon="icon"
+    >
       <slot name="icon" />
     </f-svg-icon>
 

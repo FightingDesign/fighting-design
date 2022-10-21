@@ -26,6 +26,15 @@
 </script>
 
 <template>
+  <f-avatar
+    src="https://tianyuhao.cn/images/auto/my.jpg"
+    :font-size="30"
+    background="#eee"
+  >
+    <template #icon>
+      <svg2 />
+    </template>
+  </f-avatar>
   <f-link href="" size="40px" type="default">
     <template #beforeIcon>
       <svg2 />
