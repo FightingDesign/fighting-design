@@ -23,9 +23,16 @@
   // const visible1 = ref(true)
 
   // console.log(FIconUmbrella)
+  const loading1 = true
 </script>
 
 <template>
+  <!-- <f-button type="primary" @click="onclick1">开始 loading</f-button> -->
+  <f-loading :show="loading1" :icon="Svg">
+    <template #icon>
+      <svg2 />
+    </template>
+  </f-loading>
   <f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
   <f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
   <f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />

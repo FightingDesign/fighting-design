@@ -25,8 +25,8 @@
 
 <template>
   <div v-if="show" class="f-loading" :style="styleList" @click="handleClick">
-    <f-svg-icon :size="20" class="f-loading__animation">
-      <slot name="loadingIcon">
+    <f-svg-icon :size="20" class="f-loading__animation" :icon="icon">
+      <slot name="icon">
         <f-icon-loading-a-vue />
       </slot>
     </f-svg-icon>

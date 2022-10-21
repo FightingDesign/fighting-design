@@ -1,4 +1,4 @@
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
 
 export const Props = {
   show: {
@@ -32,6 +32,10 @@ export const Props = {
   opacity: {
     type: Number,
     default: (): number | null => null
+  },
+  icon: {
+    type: Object as PropType<VNode | Component>,
+    default: (): null => null
   }
 } as const
 
