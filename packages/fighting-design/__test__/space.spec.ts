@@ -15,7 +15,7 @@ describe('FSpace', () => {
       props: { vertical: true },
       slots: { default: '123' }
     })
-    expect(wrapper.classes()).toContain('f-space-vertical')
+    expect(wrapper.classes()).toContain('f-space__vertical')
   })
 
   test('wrap', () => {
@@ -23,7 +23,7 @@ describe('FSpace', () => {
       props: { wrap: true },
       slots: { default: '123' }
     })
-    expect(wrapper.classes()).toContain('f-space-wrap')
+    expect(wrapper.classes()).toContain('f-space__wrap')
   })
 
   test('spacing', () => {
@@ -33,7 +33,7 @@ describe('FSpace', () => {
         props: { spacing: item },
         slots: { default: '123' }
       })
-      expect(wrapper.classes()).toContain(`f-space-${item}`)
+      expect(wrapper.classes()).toContain(`f-space__${item}`)
     })
   })
 })

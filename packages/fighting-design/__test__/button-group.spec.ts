@@ -12,21 +12,21 @@ describe('FButtonGroup', () => {
     const wrapper = mount(FButtonGroup, {
       props: { size: 'large', vertical: false }
     })
-    expect(wrapper.classes()).toContain('f-button-group-large')
+    expect(wrapper.classes()).toContain('f-button-group__large')
   })
 
   test('vertical', () => {
     const wrapper = mount(FButtonGroup, {
       props: { vertical: true }
     })
-    expect(wrapper.classes()).toContain('f-button-group-vertical')
+    expect(wrapper.classes()).toContain('f-button-group__vertical')
   })
 
   test('vertical', () => {
     const wrapper = mount(FButtonGroup, {
       props: { vertical: false }
     })
-    expect(wrapper.classes()).toContain('f-button-group-horizontal')
+    expect(wrapper.classes()).toContain('f-button-group__horizontal')
   })
 
   test('slots', () => {

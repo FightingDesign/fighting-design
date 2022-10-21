@@ -16,42 +16,42 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { bold: true }
     })
-    expect(wrapper.classes()).toContain('f-button-bold')
+    expect(wrapper.classes()).toContain('f-button__bold')
   })
 
   test('circle', () => {
     const wrapper = mount(FButton, {
       props: { circle: true }
     })
-    expect(wrapper.classes()).toContain('f-button-circle')
+    expect(wrapper.classes()).toContain('f-button__circle')
   })
 
   test('round', () => {
     const wrapper = mount(FButton, {
       props: { round: true }
     })
-    expect(wrapper.classes()).toContain('f-button-round')
+    expect(wrapper.classes()).toContain('f-button__round')
   })
 
   test('fontSize', () => {
     const wrapper = mount(FButton, {
       props: { fontSize: '20px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-button-font-size: 20px')
+    expect(wrapper.attributes('style')).toContain('20px')
   })
 
   test('fontSize', () => {
     const wrapper = mount(FButton, {
       props: { fontSize: 17 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-button-font-size: 17px')
+    expect(wrapper.attributes('style')).toContain('17px')
   })
 
   test('font-color', () => {
     const wrapper = mount(FButton, {
       props: { fontColor: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-button-font-color: red')
+    expect(wrapper.attributes('style')).toContain('red')
   })
 
   test('size', () => {
@@ -60,7 +60,7 @@ describe('FButton', () => {
       const wrapper = mount(FButton, {
         props: { size: item }
       })
-      expect(wrapper.classes()).toContain(`f-button-${item}`)
+      expect(wrapper.classes()).toContain(`f-button__${item}`)
     })
   })
 
@@ -68,7 +68,7 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { block: true }
     })
-    expect(wrapper.classes()).toContain('f-button-block')
+    expect(wrapper.classes()).toContain('f-button__block')
   })
 
   test('href', () => {
@@ -92,7 +92,7 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { loading: true }
     })
-    expect(wrapper.classes()).toContain('f-button-disabled')
+    expect(wrapper.classes()).toContain('f-button__disabled')
     expect(wrapper.attributes('disabled')).toContain(true)
     // expect(wrapper.find('i').classes()).toContain('f-icon')
     // expect(wrapper.find('i').classes()).toContain('f-icon-loading')
@@ -110,7 +110,7 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { disabled: true }
     })
-    expect(wrapper.classes()).toContain('f-button-disabled')
+    expect(wrapper.classes()).toContain('f-button__disabled')
     expect(wrapper.attributes('disabled')).toContain(true)
   })
 
@@ -147,7 +147,7 @@ describe('FButton', () => {
       const wrapper = mount(FButton, {
         props: { type: item }
       })
-      expect(wrapper.classes()).toContain(`f-button-${item}`)
+      expect(wrapper.classes()).toContain(`f-button__${item}`)
     })
   })
 
@@ -178,14 +178,14 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { text: true }
     })
-    expect(wrapper.classes()).toContain('f-button-text')
+    expect(wrapper.classes()).toContain('f-button__text')
   })
 
   test('simple', () => {
     const wrapper = mount(FButton, {
       props: { simple: true }
     })
-    expect(wrapper.classes()).toContain('f-button-simple')
+    expect(wrapper.classes()).toContain('f-button__simple')
   })
 
   test('native-type', () => {

@@ -14,8 +14,8 @@ describe('FSwitch', () => {
       const wrapper = mount(FSwitch, {
         props: { size: item }
       })
-      expect(wrapper.find('.f-switch-input').classes()).toContain(
-        `f-switch-${item}`
+      expect(wrapper.find('.f-switch__input').classes()).toContain(
+        `f-switch__${item}`
       )
     })
   })
@@ -26,7 +26,7 @@ describe('FSwitch', () => {
         disabled: true
       }
     })
-    expect(wrapper.classes()).toContain('f-switch-disabled')
+    expect(wrapper.classes()).toContain('f-switch__disabled')
   })
 
   test('click', () => {

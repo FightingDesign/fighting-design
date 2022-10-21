@@ -12,7 +12,7 @@ describe('FBackTop', () => {
     const wrapper = mount(FBackTop, {
       props: { round: true }
     })
-    expect(wrapper.classes()).toContain('f-back-top-round')
+    expect(wrapper.classes()).toContain('f-back-top__round')
   })
 
   test('right', () => {

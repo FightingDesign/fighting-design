@@ -22,12 +22,11 @@ describe('FMessage', () => {
       }
     })
     expect(wrapper.find('.f-message').exists()).toBe(false)
-    // expect(wrapper.find('.f-message--text').text()).toBe('message-test')
-    expect(wrapper.find('.f-message-success').exists()).toBe(false)
+    expect(wrapper.find('.f-message__success').exists()).toBe(false)
     await wrapper.setProps({ type: 'primary' })
-    expect(wrapper.find('.f-message-primary').exists()).toBe(false)
+    expect(wrapper.find('.f-message__primary').exists()).toBe(false)
     await wrapper.setProps({ close: true })
-    expect(wrapper.find('.f-message--close').exists()).toBe(false)
+    expect(wrapper.find('.f-message__close').exists()).toBe(false)
   })
 
   test('click-close', async () => {
@@ -40,9 +39,9 @@ describe('FMessage', () => {
       }
     })
 
-    expect(wrapper.find('.f-message--close').exists()).toBe(false)
+    expect(wrapper.find('.f-message__close').exists()).toBe(false)
     // expect(wrapper.find('.f-message').isVisible()).toBe(true)
-    // await wrapper.find('.f-message--close').trigger('click')
+    // await wrapper.find('.f-message__-close').trigger('click')
     // expect((wrapper.vm as unknown as MessageInstance).visible).toBe(false)
   })
 

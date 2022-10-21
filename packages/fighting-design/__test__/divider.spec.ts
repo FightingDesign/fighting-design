@@ -20,7 +20,7 @@ describe('FDivider', () => {
         vertical: true
       }
     })
-    expect(wrapper.classes()).toContain('f-divider-vertical')
+    expect(wrapper.classes()).toContain('f-divider__vertical')
     expect(wrapper.find('span').exists()).toBe(false)
   })
 
@@ -33,7 +33,7 @@ describe('FDivider', () => {
         position: 'left'
       }
     })
-    expect(wrapper.find('span').classes()).toContain('f-divider-text-left')
+    expect(wrapper.find('span').classes()).toContain('f-divider__text-left')
   })
 
   test('fontColor', () => {

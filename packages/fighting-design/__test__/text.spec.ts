@@ -14,7 +14,7 @@ describe('FText', () => {
       const wrapper = mount(FText, {
         props: { type: item }
       })
-      expect(wrapper.classes()).toContain(`f-text-${item}`)
+      expect(wrapper.classes()).toContain(`f-text__${item}`)
     })
   })
 
@@ -43,7 +43,7 @@ describe('FText', () => {
     const wrapper = mount(FText, {
       props: { block: true }
     })
-    expect(wrapper.classes()).toContain('f-text-block')
+    expect(wrapper.classes()).toContain('f-text__block')
   })
 
   test('spacing', () => {
@@ -71,7 +71,7 @@ describe('FText', () => {
     const wrapper = mount(FText, {
       props: { bold: true }
     })
-    expect(wrapper.classes()).toContain('f-text-bold')
+    expect(wrapper.classes()).toContain('f-text__bold')
   })
 
   test('decoration', () => {

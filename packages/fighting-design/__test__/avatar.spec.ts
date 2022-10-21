@@ -14,7 +14,7 @@ describe('FAvatar', () => {
   //   const wrapper = mount(FAvatar, {
   //     props: { src }
   //   })
-  //   expect(wrapper.find('.f-avatar-img').attributes('src')).toContain(src)
+  //   expect(wrapper.find('.f-avatar__img').attributes('src')).toContain(src)
   // })
 
   test('alt', () => {
@@ -28,7 +28,7 @@ describe('FAvatar', () => {
     const wrapper = mount(FAvatar, {
       props: { round: true }
     })
-    expect(wrapper.classes()).toContain('f-avatar-round')
+    expect(wrapper.classes()).toContain('f-avatar__round')
   })
 
   test('fit', () => {
@@ -37,8 +37,8 @@ describe('FAvatar', () => {
       const wrapper = mount(FAvatar, {
         props: { fit: item }
       })
-      expect(wrapper.find('.f-avatar-img').classes()).toContain(
-        `f-avatar-${item}`
+      expect(wrapper.find('.f-avatar__img').classes()).toContain(
+        `f-avatar__${item}`
       )
     })
   })
@@ -49,8 +49,8 @@ describe('FAvatar', () => {
       const wrapper = mount(FAvatar, {
         props: { size: item }
       })
-      expect(wrapper.find('.f-avatar-img').classes()).toContain(
-        `f-avatar-${item}`
+      expect(wrapper.find('.f-avatar__img').classes()).toContain(
+        `f-avatar__${item}`
       )
     })
   })

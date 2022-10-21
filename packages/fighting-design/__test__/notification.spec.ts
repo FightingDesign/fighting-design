@@ -23,14 +23,14 @@ describe('FNotification', () => {
       }
     })
     expect(wrapper.find('.f-notification').exists()).toBe(true)
-    expect(wrapper.find('.f-notification--text').text()).toBe(
+    expect(wrapper.find('.f-notification__text').text()).toBe(
       'notification-test'
     )
-    expect(wrapper.find('.f-notification-success').exists()).toBe(true)
+    expect(wrapper.find('.f-notification__success').exists()).toBe(true)
     await wrapper.setProps({ type: 'primary' })
-    expect(wrapper.find('.f-notification-primary').exists()).toBe(true)
+    expect(wrapper.find('.f-notification__primary').exists()).toBe(true)
     await wrapper.setProps({ close: true })
-    expect(wrapper.find('.f-notification--close').exists()).toBe(true)
+    expect(wrapper.find('.f-notification__close').exists()).toBe(true)
   })
 
   test('click-close', async () => {
@@ -43,11 +43,11 @@ describe('FNotification', () => {
       }
     })
 
-    expect(wrapper.find('.f-notification--close').exists()).toBe(true)
+    expect(wrapper.find('.f-notification__close').exists()).toBe(true)
 
     expect(wrapper.find('.f-notification').isVisible()).toBe(true)
 
-    await wrapper.find('.f-notification--close').trigger('click')
+    await wrapper.find('.f-notification__close').trigger('click')
     expect((wrapper.vm as unknown as MessageInstance).visible).toBe(false)
   })
 

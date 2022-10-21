@@ -16,7 +16,7 @@ describe('FSkeleton', () => {
       props: { loading: true, rounded: true },
       slots: { default: '123' }
     })
-    expect(wrapper.find('div').classes()).toContain('f-skeleton-rounded')
+    expect(wrapper.find('div').classes()).toContain('f-skeleton__rounded')
   })
 
   test('animated', () => {
@@ -24,7 +24,7 @@ describe('FSkeleton', () => {
       props: { loading: true, animated: true },
       slots: { default: '123' }
     })
-    expect(wrapper.find('div').classes()).toContain('f-skeleton-animated')
+    expect(wrapper.find('div').classes()).toContain('f-skeleton__animated')
   })
 
   test('circled', () => {
@@ -32,7 +32,7 @@ describe('FSkeleton', () => {
       props: { loading: true, circled: true },
       slots: { default: '123' }
     })
-    expect(wrapper.find('div').classes()).toContain('f-skeleton-circled')
+    expect(wrapper.find('div').classes()).toContain('f-skeleton__circled')
   })
 
   test('size', () => {
@@ -42,7 +42,7 @@ describe('FSkeleton', () => {
         props: { loading: true, size: item },
         slots: { default: '123' }
       })
-      expect(wrapper.find('div').classes()).toContain(`f-skeleton-${item}`)
+      expect(wrapper.find('div').classes()).toContain(`f-skeleton__${item}`)
     })
   })
 })

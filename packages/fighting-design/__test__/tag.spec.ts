@@ -14,7 +14,7 @@ describe('FTag', () => {
       const wrapper = mount(FTag, {
         props: { type: item }
       })
-      expect(wrapper.classes()).toContain(`f-tag-${item}`)
+      expect(wrapper.classes()).toContain(`f-tag__${item}`)
     })
   })
 
@@ -22,14 +22,14 @@ describe('FTag', () => {
     const wrapper = mount(FTag, {
       props: { line: true }
     })
-    expect(wrapper.classes()).toContain('f-tag-line')
+    expect(wrapper.classes()).toContain('f-tag__line')
   })
 
   test('round', () => {
     const wrapper = mount(FTag, {
       props: { round: true }
     })
-    expect(wrapper.classes()).toContain('f-tag-round')
+    expect(wrapper.classes()).toContain('f-tag__round')
   })
 
   test('background', () => {
@@ -70,7 +70,7 @@ describe('FTag', () => {
       const wrapper = mount(FTag, {
         props: { size: item }
       })
-      expect(wrapper.classes()).toContain(`f-tag-${item}`)
+      expect(wrapper.classes()).toContain(`f-tag__${item}`)
     })
   })
 
@@ -78,13 +78,13 @@ describe('FTag', () => {
     const wrapper = mount(FTag, {
       props: { simple: true }
     })
-    expect(wrapper.classes()).toContain('f-tag-simple')
+    expect(wrapper.classes()).toContain('f-tag__simple')
   })
 
   test('block', () => {
     const wrapper = mount(FTag, {
       props: { block: true }
     })
-    expect(wrapper.classes()).toContain('f-tag-block')
+    expect(wrapper.classes()).toContain('f-tag__block')
   })
 })

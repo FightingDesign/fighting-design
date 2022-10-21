@@ -14,7 +14,7 @@ describe('FImage', () => {
   //   const wrapper = mount(FImage, {
   //     props: { src }
   //   })
-  //   expect(wrapper.find('.f-image-img').attributes('src')).toContain(src)
+  //   expect(wrapper.find('.f-image__img').attributes('src')).toContain(src)
   // })
 
   test('alt', () => {
@@ -49,14 +49,14 @@ describe('FImage', () => {
     const wrapper = mount(FImage, {
       props: { block: true }
     })
-    expect(wrapper.classes()).toContain('f-image-block')
+    expect(wrapper.classes()).toContain('f-image__block')
   })
 
   test('fit', () => {
     const wrapper = mount(FImage, {
       props: { fit: 'cover' }
     })
-    expect(wrapper.find('img').classes()).toContain('f-image-cover')
+    expect(wrapper.find('img').classes()).toContain('f-image__cover')
   })
 
   test('fit', () => {
@@ -65,7 +65,7 @@ describe('FImage', () => {
       const wrapper = mount(FImage, {
         props: { fit: item }
       })
-      expect(wrapper.find('img').classes()).toContain(`f-image-${item}`)
+      expect(wrapper.find('img').classes()).toContain(`f-image__${item}`)
     })
   })
 
@@ -73,7 +73,7 @@ describe('FImage', () => {
     const wrapper = mount(FImage, {
       props: { noSelect: true }
     })
-    expect(wrapper.find('img').classes()).toContain('f-image-select')
+    expect(wrapper.find('img').classes()).toContain('f-image__select')
   })
 
   test('referrer-policy', () => {

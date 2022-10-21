@@ -15,7 +15,7 @@ describe('CloseBtn', () => {
       slots: { default: '123' },
       props: { round: true }
     })
-    expect(wrapper.classes()).toContain('f-close-btn-round')
+    expect(wrapper.classes()).toContain('f-close-btn__round')
   })
 
   test('class', () => {
@@ -23,6 +23,6 @@ describe('CloseBtn', () => {
       slots: { default: '123' },
       props: { disabled: true }
     })
-    expect(wrapper.classes()).toContain('f-close-btn-disabled')
+    expect(wrapper.classes()).toContain('f-close-btn__disabled')
   })
 })

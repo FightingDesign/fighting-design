@@ -14,7 +14,7 @@ describe('FLink', () => {
       const wrapper = mount(FLink, {
         props: { type: item }
       })
-      expect(wrapper.classes()).toContain(`f-link-${item}`)
+      expect(wrapper.classes()).toContain(`f-link__${item}`)
     })
   })
 
@@ -45,7 +45,7 @@ describe('FLink', () => {
       const wrapper = mount(FLink, {
         props: { state: item }
       })
-      expect(wrapper.classes()).toContain(`f-link-${item}`)
+      expect(wrapper.classes()).toContain(`f-link__${item}`)
     })
   })
 
@@ -53,7 +53,7 @@ describe('FLink', () => {
     const wrapper = mount(FLink, {
       props: { prohibit: true }
     })
-    expect(wrapper.classes()).toContain('f-link-prohibit')
+    expect(wrapper.classes()).toContain('f-link__prohibit')
   })
 
   test('target', () => {
@@ -74,6 +74,6 @@ describe('FLink', () => {
     const wrapper = mount(FLink, {
       props: { noCopy: true }
     })
-    expect(wrapper.classes()).toContain('f-link-no-copy')
+    expect(wrapper.classes()).toContain('f-link__no-copy')
   })
 })

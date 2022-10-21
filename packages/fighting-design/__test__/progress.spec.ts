@@ -12,7 +12,7 @@ describe('FProgress', () => {
     const wrapper = mount(FProgress, {
       props: { percentage: 50 }
     })
-    expect(wrapper.find('.f-progress-fill').attributes('style')).toContain(
+    expect(wrapper.find('.f-progress__fill').attributes('style')).toContain(
       '50%'
     )
   })
@@ -23,8 +23,8 @@ describe('FProgress', () => {
       const wrapper = mount(FProgress, {
         props: { type: item }
       })
-      expect(wrapper.find('.f-progress-fill').classes()).toContain(
-        `f-progress-fill-${item}`
+      expect(wrapper.find('.f-progress__fill').classes()).toContain(
+        `f-progress__fill-${item}`
       )
     })
   })
@@ -33,15 +33,15 @@ describe('FProgress', () => {
     const wrapper = mount(FProgress, {
       props: { square: true, percentage: 25 }
     })
-    expect(wrapper.find('.f-progress-bar').attributes('style')).toContain('0')
-    expect(wrapper.find('.f-progress-fill').attributes('style')).toContain('0')
+    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain('0')
+    expect(wrapper.find('.f-progress__fill').attributes('style')).toContain('0')
   })
 
   test('linear', () => {
     const wrapper = mount(FProgress, {
       props: { linear: true, percentage: 40 }
     })
-    expect(wrapper.classes()).toContain('f-progress-liner')
+    expect(wrapper.classes()).toContain('f-progress__liner')
   })
 
   test('color', () => {
@@ -51,7 +51,7 @@ describe('FProgress', () => {
         color: 'red'
       }
     })
-    expect(wrapper.find('.f-progress-fill').attributes('style')).toContain(
+    expect(wrapper.find('.f-progress__fill').attributes('style')).toContain(
       'red'
     )
   })
@@ -63,7 +63,7 @@ describe('FProgress', () => {
         background: '#f4d1d1'
       }
     })
-    expect(wrapper.find('.f-progress-bar').attributes('style')).toContain(
+    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain(
       '#f4d1d1'
     )
   })
@@ -77,7 +77,7 @@ describe('FProgress', () => {
       }
     })
     expect(wrapper.attributes('style')).toContain('400px')
-    expect(wrapper.find('.f-progress-bar').attributes('style')).toContain(
+    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain(
       '26px'
     )
   })
@@ -86,8 +86,8 @@ describe('FProgress', () => {
     const wrapper = mount(FProgress, {
       props: { stripe: true, percentage: 40 }
     })
-    expect(wrapper.find('.f-progress-fill').classes()).toContain(
-      'f-progress-stripe'
+    expect(wrapper.find('.f-progress__fill').classes()).toContain(
+      'f-progress__stripe'
     )
   })
 })

@@ -8,21 +8,21 @@ describe('Ripple', () => {
     expect(wrapper.classes()).toContain('f-ripple')
   })
 
-  test('noSelect', () => {
+  test('no-select', () => {
     const wrapper = mount(FRipple, {
       props: { noSelect: true }
     })
-    expect(wrapper.classes()).toContain('f-ripple-select')
+    expect(wrapper.classes()).toContain('f-ripple__select')
   })
 
-  test('startOpacity', () => {
+  test('start-opacity', () => {
     const wrapper = mount(FRipple, {
       props: { startOpacity: 0.3, endOpacity: 0 }
     })
     expect(wrapper.attributes('style')).toContain(0.3)
   })
 
-  test('endOpacity', () => {
+  test('end-opacity', () => {
     const wrapper = mount(FRipple, {
       props: { endOpacity: 0 }
     })
