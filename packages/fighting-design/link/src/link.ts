@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { LinkType, LinkTargetType, LinkHoverType } from './interface'
 
 export const Props = {
@@ -48,6 +48,14 @@ export const Props = {
   noLink: {
     type: Boolean,
     default: (): boolean => false
+  },
+  beforeIcon: {
+    type: Object as PropType<VNode | Component>,
+    default: (): null => null
+  },
+  afterIcon: {
+    type: Object as PropType<VNode | Component>,
+    default: (): null => null
   }
 } as const
 

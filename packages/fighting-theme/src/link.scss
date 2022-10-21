@@ -2,14 +2,16 @@
 
 .f-link {
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   transition: 0.3s;
   line-height: 1;
   font-size: var(--f-link-font-size, 15px);
   color: var(--f-link-color, $primary);
 
-  .f-icon {
+  .f-svg-icon {
     font-size: var(--f-link-font-size, 15px);
   }
 
@@ -22,32 +24,32 @@
     $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
 
     // 不同类型
-    &.f-link-#{map-get($item, name)} {
+    &.f-link__#{map-get($item, name)} {
       color: var(--f-link-color, map-get($item, simpleTextColor));
     }
   }
 
   // 不同样式
-  &.f-link-line {
+  &.f-link__line {
     text-decoration: underline;
   }
 
-  &.f-link-bag:hover {
+  &.f-link__bag:hover {
     background: #eee;
     border-radius: 2px;
   }
 
   // 禁止 copy
-  &.f-link-no-copy {
+  &.f-link__no-copy {
     user-select: none;
   }
 
   // 禁用
-  &.f-link-prohibit {
+  &.f-link__prohibit {
     opacity: 0.5;
     cursor: not-allowed;
 
-    &.f-link-bag {
+    &.f-link__bag {
       &:hover {
         opacity: 0.5;
         background: none;

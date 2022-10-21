@@ -26,6 +26,23 @@
 </script>
 
 <template>
+  <f-link href="" size="40px" type="default">
+    <template #beforeIcon>
+      <svg2 />
+    </template>
+    默认链接
+  </f-link>
+  <f-link href="" :before-icon="Svg" size="40px" type="primary">
+    主要链接
+  </f-link>
+  <f-link href="" :before-icon="Svg" size="40px" type="success">
+    成功链接
+  </f-link>
+  <f-link href="" :before-icon="Svg" size="40px" type="danger">危险链接</f-link>
+  <f-link href="" :before-icon="Svg" size="40px" type="warning">
+    警告链接
+  </f-link>
+
   <f-button type="primary" @click="visible1 = true">打开</f-button>
 
   <f-dialog v-model:visible="visible1" title="标题文字" :close-icon="Svg">

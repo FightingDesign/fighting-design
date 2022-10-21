@@ -26,10 +26,10 @@
     return [
       'f-link',
       {
-        [`f-link-${state}`]: state,
-        [`f-link-${type}`]: type,
-        'f-link-prohibit': prohibit,
-        'f-link-no-copy': noCopy
+        [`f-link__${state}`]: state,
+        [`f-link__${type}`]: type,
+        'f-link__prohibit': prohibit,
+        'f-link__no-copy': noCopy
       }
     ] as const
   })
@@ -53,14 +53,22 @@
     :target="target"
     @click="handleClick"
   >
-    <f-svg-icon v-if="$slots.beforeIcon" :size="size">
+    <f-svg-icon
+      v-if="$slots.beforeIcon || beforeIcon"
+      :icon="beforeIcon"
+      :size="size || 16"
+    >
       <slot name="beforeIcon" />
     </f-svg-icon>
 
     <slot />
 
-    <f-svg-icon v-if="$slots.afterIcon" :size="size">
-      <slot name="beforeIcon" />
+    <f-svg-icon
+      v-if="$slots.afterIcon || afterIcon"
+      :icon="afterIcon"
+      :size="size"
+    >
+      <slot name="afterIcon" />
     </f-svg-icon>
   </a>
 </template>
