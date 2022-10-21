@@ -10,13 +10,13 @@ Special `svg` icon library for `fighting-design`.
 
 ```shell
 # pnpm
-pnpm add @fighting-design/fighting-icon
+pnpm add --save-dev @fighting-design/fighting-icon
 
 # npm
-npm i @fighting-design/fighting-icon
+npm i --save-dev @fighting-design/fighting-icon
 
 # yarn
-yarn add @fighting-design/fighting-icon
+yarn --save-dev add @fighting-design/fighting-icon
 ```
 
 ## 🔑 Online address

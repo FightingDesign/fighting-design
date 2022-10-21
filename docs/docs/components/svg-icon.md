@@ -11,14 +11,18 @@ svg icon
 
 ```shell
 # pnpm
-pnpm add @fighting-design/fighting-icon
+pnpm add --save-dev @fighting-design/fighting-icon
 
 # npm
-npm i @fighting-design/fighting-icon
+npm i --save-dev @fighting-design/fighting-icon
 
 # yarn
-yarn add @fighting-design/fighting-icon
+yarn add --save-dev @fighting-design/fighting-icon
 ```
+
+## 你需要注意
+
+- `svg-icon` 同时支持 `icon` 配置项和默认插槽来实现 `icon` 的展示，但 `icon` 配置项的优先级高于插槽。其它依赖 `svg-icon` 的所有组件，都依赖这个规则
 
 ## 基本使用
 
