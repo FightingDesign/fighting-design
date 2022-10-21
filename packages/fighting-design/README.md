@@ -28,16 +28,16 @@ pnpm new <component-name>
 
 下面分别介绍一下每个文件的作用：
 
-- `interface.d.ts` 写入组件和 `Props` 相关的所有类型
-- `component.ts` 写入 `Props` 和 `Emits`
-- `component.vue` 组件的源文件
-- `index.ts`主入口文件 包含注册组件
+- `interface.d.ts` 导出组件和 `Props` 相关的所有类型
+- `component.ts` 导出 `Props` 和 `Emits`
+- `component.vue` 组件源文件
+- `index.ts` 组件如理文件包含注册组件
 
 下面将会分别介绍一下每个文件内部的一些规范。
 
 ## 🌿 interface.d.ts
 
-`interface.d.ts` 用于定义类型，每个组件中变量、函数、`Props` 相关的所有类型需要在这里定义。
+`interface.d.ts` 用于定义类型，每个组件中变量、函数、props 相关的所有类型需要在这里定义。
 
 - 导出统一使用 `export`
 - 类型命名规范：`组件名（首字母大写） + 描述 + Type | Interface`，例如 `ButtonSizeType` `ButtonTargetType`。结尾是 `Type` 还是 `Interface` 取决于是用什么方式定义
@@ -72,6 +72,27 @@ pnpm new <component-name>
 - 单个 `class` 不使用数组。反面例子：`:class="['f-button']"`；正面例子：`class="f-button"`
 - 可以使用单标签均使用单标签，比如：`<slot />`
 - 可以简化的都需要简化，比如 `:style="{ color }"`
+
+**class 命名规范**
+
+- 组件最外层标签必须以 `f-` + 当前组件名
+- 类名不能出现大写字母
+- 当前组件下所有的类名都必须以 `f-xxx` 为开始
+- 子标签类名后续描述信息必须以 `__` 双下划线连接，连接后面均使用 `-` 短斜线连接，例如：
+
+```
+合法的：
+f-button__title
+f-button__title-sub
+f-button__title-sub-p
+
+不合法的：
+f-button-title
+f-button__title_sub
+f_button__title
+f_button_title
+f_button-name
+```
 
 **Ts 类型规范**
 
