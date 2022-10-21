@@ -2,7 +2,7 @@
   import { Props, Emits } from './close-btn'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
-  import FIconCrossVue from '../../_components/svg/f-icon-cross.vue'
+  import { FIconCrossVue } from '../../_components/svg/index'
   import type { ComputedRef } from 'vue'
   import type {
     HandleEventInterface as a,

@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FPageHeader">
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
-  import fIconArrowLeftVue from '../../_components/svg/f-icon-arrow-left.vue'
+  import { FIconArrowLeftVue } from '../../_components/svg/index'
   import { FSvgIcon } from '../../svg-icon'
   import { Props, Emits } from './page-header'
   import type { ComputedRef } from 'vue'
@@ -38,7 +38,7 @@
     <div class="f-page-header__left" @click="handleClick">
       <f-svg-icon :size="sizeChange(iconSize)">
         <slot name="icon">
-          <component :is="icon || fIconArrowLeftVue" />
+          <component :is="icon || FIconArrowLeftVue" />
         </slot>
       </f-svg-icon>
       <div class="f-page-header__text">{{ backText }}</div>

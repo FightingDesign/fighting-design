@@ -2,7 +2,7 @@
   import { computed } from 'vue'
   import { Props, Emits } from './loading'
   import { FSvgIcon } from '../../svg-icon'
-  import FIconLoadingAVue from '../../_components/svg/f-icon-loading-a.vue'
+  import { FIconLoadingAVue } from '../../_components/svg/index'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { HandleEventInterface as a } from '../../_interface'
 

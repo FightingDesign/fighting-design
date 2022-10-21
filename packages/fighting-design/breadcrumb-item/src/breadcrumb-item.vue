@@ -1,8 +1,8 @@
 <script lang="ts" setup name="FBreadcrumbItem">
-  import { inject, toRefs, h } from 'vue'
+  import { inject, toRefs } from 'vue'
   import { BreadcrumbPropsKey } from '../../breadcrumb/src/breadcrumb'
   import { FSvgIcon } from '../../svg-icon'
-  import FIconChevronRight from '../../_components/svg/f-icon-chevron-right.vue'
+  import { FIconChevronRightVue } from '../../_components/svg/index'
   import type { BreadcrumbPropsType } from '../../breadcrumb/src/breadcrumb'
 
   const breadcrumbContext = inject(BreadcrumbPropsKey) as BreadcrumbPropsType
@@ -16,7 +16,7 @@
     </span>
 
     <f-svg-icon
-      :icon="separator || h(FIconChevronRight)"
+      :icon="separator || FIconChevronRightVue"
       :color="separatorColor"
       :size="16"
     />
