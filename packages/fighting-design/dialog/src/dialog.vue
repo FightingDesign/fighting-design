@@ -50,26 +50,30 @@
       role="dialog"
       aria-modal="true"
       tabindex="-1"
-      :class="['f-dialog', { 'f-dialog-fullscreen': fullscreen }]"
+      :class="['f-dialog', { 'f-dialog__fullscreen': fullscreen }]"
       :style="{ width: sizeChange(width) }"
     >
       <!-- 头部 -->
-      <header class="f-dialog-header">
+      <header class="f-dialog__header">
         <slot name="header">
-          <span class="f-dialog-header-title">{{ title }}</span>
-          <f-close-btn v-if="showCloseIcon" @click="closeDialog">
-            <slot name="close-icon" />
+          <span class="f-dialog__header-title">{{ title }}</span>
+          <f-close-btn
+            v-if="showCloseIcon"
+            :icon="closeIcon"
+            @click="closeDialog"
+          >
+            <slot name="closeIcon" />
           </f-close-btn>
         </slot>
       </header>
 
       <!-- 身体 -->
-      <section v-if="$slots.default" class="f-dialog-body">
+      <section v-if="$slots.default" class="f-dialog__body">
         <slot />
       </section>
 
       <!-- 页脚 -->
-      <footer v-if="$slots.footer" class="f-dialog-footer">
+      <footer v-if="$slots.footer" class="f-dialog__footer">
         <slot name="footer" />
       </footer>
     </div>

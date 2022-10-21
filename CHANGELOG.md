@@ -10,9 +10,9 @@
 - 新增 `f-alert` 组件 `prefixIcon` 和 `closeIcon` 插槽
 - 新增 `f-alert` 组件 `prefixIcon` 和 `closeIcon` 配置项
 - 永久废除 `f-icon` 组件
-
-- 废除 `f-dialog` 组件 `close-icon` 属性
+- `f-dialog` 组件 `close-icon` 配置项改为 `VNode` 类型，默认值修改为 `null`
 - 新增 `f-dialog` 组件 `closeIcon` 插槽
+
 - 废除 `f-drawer` 组件 `close-icon` 属性
 - 新增 `f-drawer` 组件 `closeIcon` 插槽
 - 新增 `f-close-btn` 组件 `color` 属性
