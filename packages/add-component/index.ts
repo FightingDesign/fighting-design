@@ -52,7 +52,7 @@ const detectPublic = async (): Promise<void> => {
 detectPublic()
 
 // 检测组件名是否规范
-function fetchCompName(): string {
+function fetchCompName (): string {
   const input: string = process.argv[2]
 
   if (input === undefined) {
@@ -79,7 +79,7 @@ function fetchCompName(): string {
   process.exit(0)
 }
 
-async function generate(): Promise<[void, void, void, void, void]> {
+async function generate (): Promise<[void, void, void, void, void]> {
   updatedFiles.push(
     `packages/fighting-design/${compName}/**`,
     'packages/fighting-design/index.ts',
@@ -103,7 +103,7 @@ async function generate(): Promise<[void, void, void, void, void]> {
   ] as const)
 }
 
-async function generateComponentDir(): Promise<void> {
+async function generateComponentDir (): Promise<void> {
   const tplDir: string = path.resolve(__dirname, './template/component')
 
   // 编译文件内容
@@ -111,7 +111,7 @@ async function generateComponentDir(): Promise<void> {
 }
 
 // 修改组件入口文件
-async function updateComponentEntry(): Promise<void> {
+async function updateComponentEntry (): Promise<void> {
   const entryFilePath: string = path.resolve(
     __dirname,
     '../fighting-design/components.ts'
@@ -135,7 +135,7 @@ async function updateComponentEntry(): Promise<void> {
 }
 
 // 创建样式文件
-async function incrementStyle(): Promise<void> {
+async function incrementStyle (): Promise<void> {
   const outputDir: string = path.resolve(__dirname, '../fighting-theme/src')
   const tplDir: string = path.resolve(__dirname, './template/style')
 
@@ -144,7 +144,7 @@ async function incrementStyle(): Promise<void> {
 }
 
 // 添加样式入口
-async function updateStyleEntry(): Promise<void> {
+async function updateStyleEntry (): Promise<void> {
   const entryFilePath: string = path.resolve(
     __dirname,
     '../fighting-theme/index.scss'
@@ -158,13 +158,13 @@ async function updateStyleEntry(): Promise<void> {
 }
 
 // 添加测试文件
-async function incrementTest(): Promise<void> {
+async function incrementTest (): Promise<void> {
   const outputDir: string = path.resolve(__dirname, '../fighting-design/__test__')
   const tplDir: string = path.resolve(__dirname, './template/test')
   await superEjsGerenateDir(outputDir, tplDir)
 }
 
-async function superEjsGerenateDir(outputDir: string, tplDir: string): Promise<void> {
+async function superEjsGerenateDir (outputDir: string, tplDir: string): Promise<void> {
   return await superEjs.gerenateDir(
     outputDir,
     tplDir,
