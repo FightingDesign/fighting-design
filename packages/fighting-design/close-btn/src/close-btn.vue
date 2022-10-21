@@ -31,7 +31,8 @@
 <template>
   <div :class="classList" @click="handleClick">
     <f-svg-icon :size="size" :color="color">
-      <slot>
+      <component :is="icon" v-if="icon" />
+      <slot v-else>
         <f-icon-cross-vue />
       </slot>
     </f-svg-icon>

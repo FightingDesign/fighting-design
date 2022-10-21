@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, VNode } from 'vue'
 import type { AlertType, AlertOverflowType } from './interface'
 
 export const Props = {
@@ -65,6 +65,14 @@ export const Props = {
     validator: (val: AlertOverflowType) => {
       return (['hidden', ''] as const).includes(val)
     }
+  },
+  closeIcon: {
+    type: Object as PropType<VNode>,
+    default: (): null => null
+  },
+  prefixIcon: {
+    type: Object as PropType<VNode>,
+    default: (): null => null
   }
 } as const
 

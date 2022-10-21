@@ -3,7 +3,6 @@
   import { computed, ref } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
-  import FIconCrossVue from '../../_components/svg/f-icon-cross.vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties, Ref } from 'vue'
   import type {
@@ -22,12 +21,12 @@
     return [
       'f-alert',
       {
-        [`f-alert-${type}`]: type,
-        'f-alert-bold': bold,
-        'f-alert-simple': simple,
-        'f-alert-center': center,
-        'f-alert-round': round,
-        'f-alert-fixed': fixed
+        [`f-alert__${type}`]: type,
+        'f-alert__bold': bold,
+        'f-alert__simple': simple,
+        'f-alert__center': center,
+        'f-alert__round': round,
+        'f-alert__fixed': fixed
       }
     ] as const
   })
@@ -36,9 +35,9 @@
     const { overflow } = prop
 
     return [
-      'f-alert-content',
+      'f-alert__content',
       {
-        [`f-alert-content-${overflow}`]: overflow
+        [`f-alert__content-${overflow}`]: overflow
       }
     ] as const
   })
@@ -63,24 +62,22 @@
 
 <template>
   <div v-if="isShow" role="alert" :class="classList" :style="styleList">
-    <f-svg-icon v-if="$slots.prefixIcon">
+    <f-svg-icon v-if="$slots.prefixIcon || prefixIcon" :icon="prefixIcon">
       <slot name="prefixIcon" />
     </f-svg-icon>
 
     <div :class="contentClassList">
-      <div v-if="title" class="f-alert-title">
+      <div v-if="title" class="f-alert__title">
         <slot name="title">{{ title }}</slot>
       </div>
 
-      <div v-if="$slots.default" class="f-alert-sub-title">
+      <div v-if="$slots.default" class="f-alert__sub-title">
         <slot />
       </div>
     </div>
 
-    <f-close-btn v-if="close" @click.stop="handleClose">
-      <slot name="close-icon">
-        <f-icon-cross-vue />
-      </slot>
+    <f-close-btn v-if="close" :icon="closeIcon" @click.stop="handleClose">
+      <slot name="close-icon" />
     </f-close-btn>
   </div>
 </template>
