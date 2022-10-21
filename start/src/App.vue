@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+  import { h, isVNode } from 'vue'
+  import { FIconUmbrella } from '@fighting-design/fighting-icon'
+  console.log(FIconUmbrella)
 
-const goBack = () => {
-  console.log('go back')
-}
-
-const switchValue = ref ( false );
-
+  console.log(isVNode(FIconUmbrella))
 </script>
 
 <template>
-  <f-page-header title="标题" @back="goBack" />
-  <f-switch v-model="switchValue"></f-switch>
+  <f-button type="default" loading>
+    默认按钮
+  </f-button>
 </template>
+
+<style lang="scss" scoped></style>

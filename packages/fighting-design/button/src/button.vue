@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FButton">
-  import { computed, ref } from 'vue'
+  import { computed, ref, h } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import FIconLoadingAVue from '../../_components/svg/f-icon-loading-a.vue'
   import { Props, Emits } from './button'
@@ -118,18 +118,19 @@
       :style="styleList"
       @click="handleClick"
     >
-      <f-svg-icon v-if="$slots.beforeIcon || loading" :size="16">
-        <slot v-if="loading" name="loadingIcon">
-          <f-icon-loading-a-vue class="f-button-loading-animation" />
-        </slot>
-        <slot v-else name="beforeIcon" />
-      </f-svg-icon>
+      <f-svg-icon
+        v-if="loading || beforeIcon"
+        :class="[
+          'f-button__before-icon',
+          { 'f-button__loading-animation': loading }
+        ]"
+        :icon="loading ? loadingIcon || h(FIconLoadingAVue) : beforeIcon"
+        :size="16"
+      />
 
       <slot />
 
-      <f-svg-icon v-if="$slots.afterIcon" :size="16">
-        <slot name="afterIcon" />
-      </f-svg-icon>
+      <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="16" />
     </a>
   </template>
 
@@ -146,18 +147,19 @@
       :style="styleList"
       @click="handleClick"
     >
-      <f-svg-icon v-if="$slots.beforeIcon || loading" :size="16">
-        <slot v-if="loading" name="loadingIcon">
-          <f-icon-loading-a-vue class="f-button-loading-animation" />
-        </slot>
-        <slot v-else name="beforeIcon" />
-      </f-svg-icon>
+      <f-svg-icon
+        v-if="loading || beforeIcon"
+        :class="[
+          'f-button__before-icon',
+          { 'f-button__loading-animation': loading }
+        ]"
+        :icon="loading ? loadingIcon || h(FIconLoadingAVue) : beforeIcon"
+        :size="16"
+      />
 
       <slot />
 
-      <f-svg-icon v-if="$slots.afterIcon" :size="16">
-        <slot name="afterIcon" />
-      </f-svg-icon>
+      <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="16" />
     </button>
   </template>
 </template>

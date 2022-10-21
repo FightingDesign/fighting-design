@@ -2,7 +2,7 @@ node_modules
 /node_modules
 dist
 dist-icon
-stats.
+stats.html
 .idea
 
 npm-debug.log*

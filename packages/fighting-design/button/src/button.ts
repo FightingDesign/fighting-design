@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, VNode } from 'vue'
 import type {
   ButtonSizeType,
   ButtonTargetType,
@@ -58,8 +58,8 @@ export const Props = {
     default: (): boolean => false
   },
   loadingIcon: {
-    type: String,
-    default: (): string => ''
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   type: {
     type: String as PropType<ButtonType>,
@@ -98,12 +98,12 @@ export const Props = {
     default: (): boolean => false
   },
   beforeIcon: {
-    type: String,
-    default: (): string => ''
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   afterIcon: {
-    type: String,
-    default: (): string => ''
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
   ripples: {
     type: Boolean,
