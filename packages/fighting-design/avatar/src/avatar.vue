@@ -42,25 +42,24 @@
     const { round, size, fit } = prop
 
     return [
-      'f-avatar-img',
+      'f-avatar__img',
       {
-        'f-avatar-round': round,
-        [`f-avatar-${size}`]: isString(size),
-        [`f-avatar-${fit}`]: fit
+        'f-avatar__round': round,
+        [`f-avatar__${size}`]: isString(size),
+        [`f-avatar__${fit}`]: fit
       }
     ] as const
   })
 
   // 类名集合
   const classList: ComputedRef<d> = computed((): d => {
-    const { size, round, src, loadAnimation } = prop
+    const { size, round } = prop
 
     return [
       'f-avatar',
       {
-        'f-avatar-round': round,
-        [`f-avatar-${size}`]: isString(size),
-        'f-avatar-animation': loadAnimation && src && !isShowNode.value
+        'f-avatar__round': round,
+        [`f-avatar__${size}`]: isString(size)
       }
     ]
   })
@@ -110,7 +109,7 @@
       <slot name="icon" />
     </f-svg-icon>
 
-    <span v-else-if="text" class="f-avatar-text">
+    <span v-else-if="text" class="f-avatar__text">
       {{ text }}
     </span>
 
@@ -124,9 +123,9 @@
     />
   </div>
 
-  <div v-else class="f-avatar-error" :style="styleList">
+  <div v-else class="f-avatar__error" :style="styleList">
     <slot name="error">
-      <span class="f-avatar-error-text">{{ alt || '加载失败' }}</span>
+      <span class="f-avatar__error-text">{{ alt || '加载失败' }}</span>
     </slot>
   </div>
 </template>

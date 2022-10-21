@@ -26,6 +26,12 @@
 </script>
 
 <template>
+  <f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+
   <f-avatar
     src="https://tianyuhao.cn/images/auto/my.jpg"
     :font-size="30"
