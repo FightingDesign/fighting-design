@@ -12,10 +12,10 @@
 - 永久废除 `f-icon` 组件
 - `f-dialog` 组件 `close-icon` 配置项改为 `VNode` 类型，默认值修改为 `null`
 - 新增 `f-dialog` 组件 `closeIcon` 插槽
-
-- 废除 `f-drawer` 组件 `close-icon` 属性
+- `f-drawer` 组件 `close-icon` 配置项改为 `VNode` 类型，默认值修改为 `null`
 - 新增 `f-drawer` 组件 `closeIcon` 插槽
 - 新增 `f-close-btn` 组件 `color` 属性
+
 - 废除 `f-ink` 组件 `before-icon` `after-icon` 配置项
 - 新增 `f-ink` 组件 `beforeIcon` `afterIcon` 插槽
 - 废除 `f-avatar` 组件 `icon` 配置项

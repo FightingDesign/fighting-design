@@ -29,7 +29,7 @@
 </script>
 
 <template>
-  <div :class="classList" @click="handleClick">
+  <div role="button" :class="classList" @click="handleClick">
     <f-svg-icon :size="size" :color="color">
       <component :is="icon" v-if="icon" />
       <slot v-else>
