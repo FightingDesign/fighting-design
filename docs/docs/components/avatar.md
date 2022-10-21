@@ -169,27 +169,28 @@
 
 ## Attributes
 
-| 参数          | 说明                                                                                                     | 类型                      | 可选值                                       | 默认值   |
-| ------------- | -------------------------------------------------------------------------------------------------------- | ------------------------- | -------------------------------------------- | -------- |
-| `src`         | 图片路径                                                                                                 | string                    | ——                                           | ——       |
-| `err-src`     | 加载失败时要显示的地址                                                                                   | string                    | ——                                           | ——       |
-| `alt`         | 原生 [alt](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt) 属性                  | string                    | ——                                           | 加载失败 |
-| `round`       | 是否为圆角                                                                                               | boolean                   | ——                                           | false    |
-| `lazy`        | 是否懒加载头像                                                                                           | boolean                   | ——                                           | false    |
-| `fit`         | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性 | string                    | `fill` `contain` `cover` `none` `scale-down` | ——       |
-| `size`        | 图片大小                                                                                                 | string / number           | `large` `middle` `small` `mini`              | middle   |
-| `background`  | 背景色                                                                                                   | string                    | ——                                           | ——       |
-| `icon`        | 图标头像                                                                                                 | object(VNode / Component) | ——                                           | ——       |
-| `font-size`   | 字体大小                                                                                                 | string                    | ——                                           | 15px     |
-| `font-color`  | 字体的颜色                                                                                               | string                    | ——                                           | #333     |
-| `text`        | 文字头像                                                                                                 | string                    | ——                                           | ——       |
-| `root-margin` | 触发懒加载的距离                                                                                         | string / number           | ——                                           | 100px    |
+| 参数          | 说明                                                                                                     | 类型                       | 可选值                                       | 默认值   |
+| ------------- | -------------------------------------------------------------------------------------------------------- | -------------------------- | -------------------------------------------- | -------- |
+| `src`         | 图片路径                                                                                                 | string                     | ——                                           | ——       |
+| `err-src`     | 加载失败时要显示的地址                                                                                   | string                     | ——                                           | ——       |
+| `alt`         | 原生 [alt](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt) 属性                  | string                     | ——                                           | 加载失败 |
+| `round`       | 是否为圆角                                                                                               | boolean                    | ——                                           | false    |
+| `lazy`        | 是否懒加载头像                                                                                           | boolean                    | ——                                           | false    |
+| `fit`         | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性 | string                     | `fill` `contain` `cover` `none` `scale-down` | ——       |
+| `size`        | 图片大小                                                                                                 | string / number            | `large` `middle` `small` `mini`              | middle   |
+| `background`  | 背景色                                                                                                   | string                     | ——                                           | ——       |
+| `icon`        | 图标头像                                                                                                 | object (VNode / Component) | ——                                           | null     |
+| `font-size`   | 字体大小                                                                                                 | string                     | ——                                           | 15px     |
+| `font-color`  | 字体的颜色                                                                                               | string                     | ——                                           | #333     |
+| `text`        | 文字头像                                                                                                 | string                     | ——                                           | ——       |
+| `root-margin` | 触发懒加载的距离                                                                                         | string / number            | ——                                           | 100px    |
 
 ## Slots
 
 | 插槽名称 | 说明说明           |
 | -------- | ------------------ |
 | `error`  | 自定义加载失败提示 |
+| `icon`   | 自定义 icon 头像   |
 
 ## Events
 

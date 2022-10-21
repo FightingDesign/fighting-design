@@ -72,17 +72,23 @@
 
 ## Attributes
 
-| 参数         | 说明                 | 类型    | 可选值 | 默认值 |
-| ------------ | -------------------- | ------- | ------ | ------ |
-| `show`       | 是否展示 loading     | boolean | ——     | false  |
-| `close`      | 是否点击可以关闭     | boolean | ——     | false  |
-| `text`       | 说明文字             | string  | ——     | ——     |
-| `icon`       | loading 的 icon      | string  | ——     | ——     |
-| `font-color` | 说明文字颜色         | string  | ——     | ——     |
-| `icon-color` | loading 的 icon 颜色 | string  | ——     |
-| `font-size`  | 说明文字大小         | string  | ——     | ——     |
-| `background` | 遮罩层背景色         | string  | ——     | ——     |
-| `opacity`    | 遮罩层透明度         | number  | ——     | ——     |
+| 参数         | 说明                 | 类型                       | 可选值 | 默认值 |
+| ------------ | -------------------- | -------------------------- | ------ | ------ |
+| `show`       | 是否展示 loading     | boolean                    | ——     | false  |
+| `close`      | 是否点击可以关闭     | boolean                    | ——     | false  |
+| `text`       | 说明文字             | string                     | ——     | ——     |
+| `icon`       | loading 的 icon      | object (VNode / Component) | ——     | null   |
+| `font-color` | 说明文字颜色         | string                     | ——     | ——     |
+| `icon-color` | loading 的 icon 颜色 | string                     | ——     |
+| `font-size`  | 说明文字大小         | string                     | ——     | ——     |
+| `background` | 遮罩层背景色         | string                     | ——     | ——     |
+| `opacity`    | 遮罩层透明度         | number                     | ——     | ——     |
+
+## Slots
+
+| 插槽名称 | 说明说明    |
+| -------- | ----------- |
+| `icon`   | 自定义 icon |
 
 ## Interface
 

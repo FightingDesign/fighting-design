@@ -140,31 +140,32 @@
 
 ## Attributes
 
-| 参数              | 说明                 | 类型            | 可选值 | 默认值 |
-| ----------------- | -------------------- | --------------- | ------ | ------ |
-| `v-model:visible` | 绑定值，控制是否展示 | boolean         | ——     | false  |
-| `title`           | 标题文字内容         | string          | ——     | ——     |
-| `append-to-body`  | 是否追加到 `body`    | boolean         | ——     | false  |
-| `width`           | 自定义宽度           | string / number | ——     | ——     |
-| `fullscreen`      | 是否全屏展示         | boolean         | ——     | false  |
-| `show-mask`       | 是否展示遮罩层       | boolean         | ——     | true   |
-| `mask-close`      | 是否点击遮罩层关闭   | boolean         | ——     | true   |
-| `modal-blur`      | 是否模糊遮罩层       | boolean         | ——     | false  |
-| `show-close-icon` | 是否展示关闭图标     | boolean         | ——     | true   |
-| `z-index`         | 层级                 | number          | ——     | 1999   |
-| `open`            | 打开动画开始的回调   | Function        | ——     | null   |
-| `open-end`        | 打开动画结束的回调   | Function        | ——     | null   |
-| `close`           | 关闭动画开始的回调   | Function        | ——     | null   |
-| `close-end`       | 关闭动画结束的回调   | Function        | ——     | null   |
+| 参数              | 说明                 | 类型                       | 可选值 | 默认值 |
+| ----------------- | -------------------- | -------------------------- | ------ | ------ |
+| `v-model:visible` | 绑定值，控制是否展示 | boolean                    | ——     | false  |
+| `title`           | 标题文字内容         | string                     | ——     | ——     |
+| `append-to-body`  | 是否追加到 `body`    | boolean                    | ——     | false  |
+| `width`           | 自定义宽度           | string / number            | ——     | ——     |
+| `fullscreen`      | 是否全屏展示         | boolean                    | ——     | false  |
+| `show-mask`       | 是否展示遮罩层       | boolean                    | ——     | true   |
+| `mask-close`      | 是否点击遮罩层关闭   | boolean                    | ——     | true   |
+| `modal-blur`      | 是否模糊遮罩层       | boolean                    | ——     | false  |
+| `close-icon`      | 自定义关闭按钮 icon  | object (VNode / Component) | ——     | null   |
+| `show-close-icon` | 是否展示关闭图标     | boolean                    | ——     | true   |
+| `z-index`         | 层级                 | number                     | ——     | 1999   |
+| `open`            | 打开动画开始的回调   | Function                   | ——     | null   |
+| `open-end`        | 打开动画结束的回调   | Function                   | ——     | null   |
+| `close`           | 关闭动画开始的回调   | Function                   | ——     | null   |
+| `close-end`       | 关闭动画结束的回调   | Function                   | ——     | null   |
 
 ## Slots
 
-| 名称         | 说明               |
-| ------------ | ------------------ |
-| `default`    | `Dialog` 内容      |
-| `header`     | `Dialog` 顶部内容  |
-| `footer`     | `Dialog` 底部内容  |
-| `close-icon` | 自定义关闭按钮图标 |
+| 名称        | 说明               |
+| ----------- | ------------------ |
+| `default`   | 默认内容           |
+| `header`    | 自定义顶部内容     |
+| `footer`    | 自定义底部内容     |
+| `closeIcon` | 自定义关闭按钮图标 |
 
 ## Interface
 

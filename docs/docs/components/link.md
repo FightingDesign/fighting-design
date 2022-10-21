@@ -117,17 +117,19 @@
 
 ## Attributes
 
-| 参数       | 说明                                                                                      | 类型            | 可选值                                                 | 默认值  |
-| ---------- | ----------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------ | ------- |
-| `type`     | link 的类型                                                                               | string          | `default` `primary` `success`<br /> `danger` `warning` | primary |
-| `href`     | 链接的地址                                                                                | string          | ——                                                     | ——      |
-| `size`     | link 的文字大小                                                                           | string / number | ——                                                     | ——      |
-| `state`    | link 状态的样式状态                                                                       | string          | `line` `bag`                                           | ——      |
-| `prohibit` | 是否禁用                                                                                  | boolean         | ——                                                     | false   |
-| `target`   | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | string          | `_self` `_blank` `_parent` `_top`                      | ——      |
-| `color`    | 自定义 link 颜色                                                                          | string          | ——                                                     | ——      |
-| `no-copy`  | 是否禁止 copy                                                                             | boolean         | ——                                                     | false   |
-| `no-link`  | 是否禁止链接跳转及重新加载（取消默认事件）                                                | boolean         | ——                                                     | false   |
+| 参数          | 说明                                                                                      | 类型                       | 可选值                                                 | 默认值  |
+| ------------- | ----------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------ | ------- |
+| `type`        | link 的类型                                                                               | string                     | `default` `primary` `success`<br /> `danger` `warning` | primary |
+| `href`        | 链接的地址                                                                                | string                     | ——                                                     | ——      |
+| `size`        | link 的文字大小                                                                           | string / number            | ——                                                     | ——      |
+| `state`       | link 状态的样式状态                                                                       | string                     | `line` `bag`                                           | ——      |
+| `prohibit`    | 是否禁用                                                                                  | boolean                    | ——                                                     | false   |
+| `target`      | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | string                     | `_self` `_blank` `_parent` `_top`                      | ——      |
+| `color`       | 自定义 link 颜色                                                                          | string                     | ——                                                     | ——      |
+| `no-copy`     | 是否禁止 copy                                                                             | boolean                    | ——                                                     | false   |
+| `no-link`     | 是否禁止链接跳转及重新加载（取消默认事件）                                                | boolean                    | ——                                                     | false   |
+| `after-icon`  | 之前的 icon                                                                               | object (VNode / Component) | ——                                                     | null    |
+| `before-icon` | 之后的 icon                                                                               | object (VNode / Component) | ——                                                     | null    |
 
 ## Slots
 
