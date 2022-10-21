@@ -2,6 +2,50 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.7.0-beta.1 (2022-10-21)
+
+**重要更新**
+
+- 永久废除 `f-icon` 组件
+- 更新所有组件的 `class` 命名规范
+
+**新功能**
+
+- 新增 `f-close-btn` 组件 `icon` 配置项
+- 新增 `f-close-btn` 组件 `color` 属性
+- 新增 `f-alert` 组件 `beforeIcon` 和 `closeIcon` 插槽
+- 新增 `f-alert` 组件 `before-icon` 和 `close-icon` 配置项
+- 新增 `f-dialog` 组件 `closeIcon` 插槽
+- 新增 `f-dialog` 组件 `close-icon` 配置项
+- 新增 `f-drawer` 组件 `closeIcon` 插槽
+- 新增 `f-drawer` 组件 `close-icon` 配置项
+- 新增 `f-link` 组件 `beforeIcon` `afterIcon` 插槽
+- 新增 `f-avatar` 组件 `icon` 插槽
+- 新增 `f-avatar` 组件 `icon` 配置项改为 `VNode / Component` 类型，默认值修改为 `null`
+- 新增 `f-loading` 组件 `icon` 插槽
+- 新增 `f-svg-icon` 组件 `icon` 配置项
+
+**其它改动**
+
+- `f-link` 组件 `before-icon` `after-icon` 配置项改为 `VNode / Component` 类型，默认值修改为 `null`
+- `f-button` 组件 `before-icon` `after-icon` `loading-icon` 配置项改为 `VNode / Component` 类型，默认值修改为 `null`
+- `f-avatar` 组件 `icon` 配置项改为 `VNode / Component` 类型，默认值修改为 `null`
+- `f-loading` 组件 `icon` 配置项改为 `VNode / Component` 类型，默认值修改为 `null`
+- `f-page-header` 组件 `icon-size` 支持 `number` 类型
+- `f-page-header` 组件 `icon` 配置项改为 `VNode / Component` 类型，默认值修改为 `null`
+- `f-rate` 组件 `icon` 改为 `VNode / Component` 类型，默认值修改为 `null`
+- `f-toolbar-item` 组件 `icon` 改为 `VNode / Component` 类型，默认值修改为 `null`
+- `f-tag` 组件 `before-icon` `after-icon` 改为 `VNode / Component` 类型，默认值修改为 `null`
+- `f-breadcrumb` 组件 `separator-icon` 配置项更名为 `separator`
+- `f-breadcrumb` 组件 `separator` 配置项改为 `VNode / Component` 类型，默认值修改为 `null`
+- `f-notification` 组件 `close-btn` 参数默认值改为 `null`
+- `f-button` 组件 `before-icon` `loading-icon` `after-icon` 配置项改为 `VNode / Component` 类型，默认值修改为 `null`
+- `f-sticky-card` 组件插槽名由 `option-left` `option-right` 改为 `optionLeft` `optionRight`
+- 更新 `f-message` 组件 `icon` 默认值和可选类型
+- 废除 `f-calendar` 组件 `show-footer` 配置项
+- 废除 `f-alert` 组件 `icon` 属性
+- 废除 `f-avatar` 组件 `load-animation` 配置项
+
 ## 0.7.0-alpha.9 (2022-10-19)
 
 - 更新类型入口配置文件

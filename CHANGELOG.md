@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `f-input` 组件
+- 新增 `f-swap` 组件
+
+## 0.7.0-beta.1 (2022-10-21)
+
 **重要更新**
 
 - 永久废除 `f-icon` 组件
@@ -9,8 +14,6 @@
 
 **新功能**
 
-- 新增 `f-input` 组件
-- 新增 `f-swap` 组件
 - 新增 `f-close-btn` 组件 `icon` 配置项
 - 新增 `f-close-btn` 组件 `color` 属性
 - 新增 `f-alert` 组件 `beforeIcon` 和 `closeIcon` 插槽
