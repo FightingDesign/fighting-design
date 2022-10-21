@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { DrawerDirectionType, DrawerCallbackInterface } from './interface'
 
 export const Props = {
@@ -40,6 +40,10 @@ export const Props = {
   showCloseIcon: {
     type: Boolean,
     default: (): boolean => true
+  },
+  closeIcon: {
+    type: Object as PropType<VNode | Component>,
+    default: (): null => null
   },
   zIndex: {
     type: Number,

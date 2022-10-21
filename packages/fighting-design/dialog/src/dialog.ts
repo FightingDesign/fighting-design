@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType, VNode } from 'vue'
+import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
 import type { DialogCallBackInterface } from './interface'
 
 export const Props = {
@@ -40,7 +40,7 @@ export const Props = {
     default: (): boolean => true
   },
   closeIcon: {
-    type: Object as PropType<VNode>,
+    type: Object as PropType<VNode | Component>,
     default: (): null => null
   },
   zIndex: {
