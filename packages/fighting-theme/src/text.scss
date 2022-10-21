@@ -22,30 +22,30 @@
     $item: nth($allTypeColorList, $list); // 获取数据中心第i项的值
 
     // 不同类型
-    &.f-text-#{map-get($item, name)} {
+    &.f-text__#{map-get($item, name)} {
       color: var(--f-text-color, map-get($item, simpleTextColor));
     }
   }
 
   // 加粗
-  &.f-text-bold {
+  &.f-text__bold {
     font-weight: bold;
   }
 
   // 独占一行
-  &.f-text-block {
+  &.f-text__block {
     display: block;
   }
 
   // 是否省略文本
-  &.f-text-ellipsis {
+  &.f-text__ellipsis {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   // 居中
-  &.f-text-center {
+  &.f-text__center {
     text-align: center;
     display: block;
   }

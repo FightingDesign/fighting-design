@@ -12,8 +12,8 @@
     return [
       'f-card',
       {
-        'f-card-round': round,
-        [`f-card-shadow-${shadow}`]: shadow
+        'f-card__round': round,
+        [`f-card__shadow-${shadow}`]: shadow
       }
     ] as const
   })
@@ -21,10 +21,11 @@
 
 <template>
   <div :class="classList">
-    <div v-if="$slots.header || title" class="f-card-header">
+    <div v-if="$slots.header || title" class="f-card__header">
       <slot name="header">{{ title }}</slot>
     </div>
-    <div class="f-card-body" :style="{ padding }">
+
+    <div class="f-card__body" :style="{ padding }">
       <slot />
     </div>
   </div>

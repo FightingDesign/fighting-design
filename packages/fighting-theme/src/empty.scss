@@ -6,7 +6,7 @@
   align-items: center;
   box-sizing: border-box;
 
-  .f-empty-pic-wrap {
+  &__pic-wrap {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -22,13 +22,13 @@
   }
 
   // 描述文字
-  .f-empty-desc {
+  &__desc {
     margin: 10px 0px;
     color: #7f7f7f;
     font-weight: 500;
   }
 
-  .f-empty-footer {
+  &__footer {
     margin: 10px 0px;
   }
 }

@@ -48,32 +48,31 @@
 <template>
   <div
     role="progressbar"
-    :class="['f-progress', { 'f-progress-liner': linear }]"
+    :class="['f-progress', { 'f-progress__liner': linear }]"
     :style="{ width: sizeChange(width) }"
     :aria-value="percentage"
     :aria-valuemin="0"
     :aria-valuemax="100"
   >
-    <div class="f-progress-bar" :style="progressStyle">
+    <div class="f-progress__bar" :style="progressStyle">
       <div
         ref="fillRef"
         :class="[
-          'f-progress-fill',
-          `f-progress-fill-${type}`,
-          { 'f-progress-stripe': stripe }
+          'f-progress__fill',
+          { [`f-progress__fill-${type}`]: type, 'f-progress__stripe': stripe }
         ]"
         :style="progressFillStyle"
       >
         <span
           v-if="isShow && showText"
-          class="f-progress-percentage"
+          class="f-progress__percentage"
           :style="{ color: textColor }"
         >
           {{ percentage }}%
         </span>
       </div>
     </div>
-    <div v-if="!isShow && showText" class="f-progress-text">
+    <div v-if="!isShow && showText" class="f-progress__text">
       {{ percentage }}%
     </div>
   </div>

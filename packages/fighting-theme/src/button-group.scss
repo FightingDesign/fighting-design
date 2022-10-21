@@ -4,7 +4,7 @@
   display: inline-block;
 
   // 按钮的尺寸
-  &.f-button-group-large {
+  &.f-button-group__large {
     .f-button {
       height: $large;
       padding: 0 28px;
@@ -16,7 +16,7 @@
     }
   }
 
-  &.f-button-group-middle {
+  &.f-button-group__middle {
     .f-button {
       height: $middle;
       padding: 0 25px;
@@ -28,7 +28,7 @@
     }
   }
 
-  &.f-button-group-small {
+  &.f-button-group__small {
     .f-button {
       height: $small;
       padding: 0 22px;
@@ -40,7 +40,7 @@
     }
   }
 
-  &.f-button-group-mini {
+  &.f-button-group__mini {
     .f-button {
       height: $mini;
       padding: 0 19px;
@@ -53,7 +53,7 @@
   }
 
   // 横向排列
-  &.f-button-group-horizontal {
+  &.f-button-group__horizontal {
     .f-button:first-child {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
@@ -70,7 +70,7 @@
   }
 
   // 纵向排列
-  &.f-button-group-vertical {
+  &.f-button-group__vertical {
     display: inline-flex;
     flex-direction: column;
 

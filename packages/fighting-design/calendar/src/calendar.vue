@@ -29,10 +29,10 @@
   // 当前日期高亮显示
   const mowDataClassList: c = (_month: number, _date: number): string => {
     if (_date === date.value && _month === month.value + 1) {
-      return 'f-calendar-day-today'
+      return 'f-calendar__day-today'
     }
     if (_month !== month.value + 1) {
-      return 'f-calendar-not-month'
+      return 'f-calendar__not-month'
     }
     return ''
   }
@@ -109,29 +109,29 @@
 
 <template>
   <div
-    :class="['f-calendar', { 'f-calendar-border': border }]"
+    :class="['f-calendar', { 'f-calendar__border': border }]"
     :style="classList"
   >
     <!-- 头部操作栏 -->
-    <header v-if="showHeader" class="f-calendar-header">
+    <header v-if="showHeader" class="f-calendar__header">
       <!-- 当前时间 -->
-      <div class="f-calendar-time">
-        <span class="f-calendar-time-now">{{ nowTime }}</span>
+      <div class="f-calendar__time">
+        <span class="f-calendar__time-now">{{ nowTime }}</span>
       </div>
 
       <!-- 操作栏 -->
-      <div class="f-calendar-option">
-        <div class="f-calendar-last" @click="optionClick('last')">
+      <div class="f-calendar__option">
+        <div class="f-calendar__last" @click="optionClick('last')">
           <slot name="last-change">
             <f-button text size="mini" type="primary">上个月</f-button>
           </slot>
         </div>
-        <div class="f-calendar-now" @click="optionClick('now')">
+        <div class="f-calendar__now" @click="optionClick('now')">
           <slot name="now-change">
             <f-button text size="mini" type="primary">今天</f-button>
           </slot>
         </div>
-        <div class="f-calendar-next" @click="optionClick('next')">
+        <div class="f-calendar__next" @click="optionClick('next')">
           <slot name="next-change">
             <f-button text size="mini" type="primary">下个月</f-button>
           </slot>
@@ -140,58 +140,46 @@
     </header>
 
     <!-- 周几 -->
-    <ul class="f-calendar-week">
+    <ul class="f-calendar__week">
       <li
         v-for="(week, index) in WEEK_DATA"
         :key="index"
-        class="f-calendar-week-li"
+        class="f-calendar__week-li"
       >
         {{ week }}
       </li>
     </ul>
 
     <!-- 每一天 -->
-    <ul class="f-calendar-day">
+    <ul class="f-calendar__day">
       <li
         v-for="(days, index) in AllMonthDays"
         :key="index"
-        :class="['f-calendar-day-li', mowDataClassList(days.cMonth, days.cDay)]"
+        :class="[
+          'f-calendar__day-li',
+          mowDataClassList(days.cMonth, days.cDay)
+        ]"
         @click="handleClick(days.cMonth, days.cDay)"
       >
-        <span class="f-calendar-solar">{{ days.cDay }}</span>
-        <span v-if="lunar" class="f-calendar-lunar">
+        <span class="f-calendar__solar">{{ days.cDay }}</span>
+        <span v-if="lunar" class="f-calendar__lunar">
           {{ days.festival || days.IDayCn }}
         </span>
 
         <!-- 备忘栏 -->
-        <div v-if="isMemorandum(days.date)" class="f-calendar-memorandum">
+        <div v-if="isMemorandum(days.date)" class="f-calendar__memorandum">
           <f-text
             v-for="(item, i) in memorandum[days.date]"
             :key="i"
             :type="item.type || 'default'"
             :size="14"
             center
-            class="f-calendar-memorandum-item"
+            class="f-calendar__memorandum-item"
           >
             {{ item.content }}
           </f-text>
         </div>
       </li>
     </ul>
-
-    <!-- 页脚 -->
-    <!-- <footer v-if="showFooter" class="f-calendar-footer">
-      页脚
-      <ul class="f-calendar-footer-list">
-        <li>日期：{{ detailDay.date }}</li>
-        <li>农历：{{ detailDay.lunarDate }}</li>
-        <li>星期：{{ detailDay.ncWeek }}</li>
-        <li>属性：{{ detailDay.animal }}</li>
-        <li>星座：{{ detailDay.constellation }}</li>
-        <li>纪年：{{ detailDay.gzYear }}</li>
-        <li>纪月：{{ detailDay.gzMonth }}</li>
-        <li>纪日：{{ detailDay.gzDay }}</li>
-      </ul>
-    </footer> -->
   </div>
 </template>

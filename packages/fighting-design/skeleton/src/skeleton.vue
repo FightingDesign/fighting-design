@@ -12,10 +12,10 @@
     return [
       'f-skeleton',
       {
-        'f-skeleton-rounded': rounded,
-        'f-skeleton-animated': animated,
-        'f-skeleton-circled': circled,
-        [`f-skeleton-${size}`]: size
+        'f-skeleton__rounded': rounded,
+        'f-skeleton__animated': animated,
+        'f-skeleton__circled': circled,
+        [`f-skeleton__${size}`]: size
       }
     ] as const
   })

@@ -138,7 +138,7 @@
       @mousewheel="onImgMousewheel"
     >
       <img
-        class="f-image-showImg"
+        class="f-image-preview__exhibition"
         draggable="false"
         :src="imgList[previewShowIndex]"
         :style="{

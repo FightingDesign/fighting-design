@@ -19,13 +19,13 @@
 
   const activeClass = (index: number): string | void => {
     if (index !== currExpandIndex.value) return
-    return 'f-expand-card-active'
+    return 'f-expand-card__active'
   }
 
   const classList: ComputedRef<a> = computed((): a => {
     const { round } = prop
 
-    return ['f-expand-card-item', { 'f-expand-card-round': round }] as const
+    return ['f-expand-card__item', { 'f-expand-card__round': round }] as const
   })
 
   const imageListArr = computed((): c[] => {
@@ -58,7 +58,7 @@
       :style="{ backgroundImage: `url(${item.url})` }"
       @click="switchExpandCard(index)"
     >
-      <h3 v-if="item.text" class="f-expand-card-title" :style="{ color }">
+      <h3 v-if="item.text" class="f-expand-card__title" :style="{ color }">
         {{ item.text }}
       </h3>
     </div>

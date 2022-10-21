@@ -43,9 +43,9 @@
 
   const classList: ComputedRef<a> = computed((): a => {
     return [
-      'f-sticky-card-box',
+      'f-sticky-card__box',
       {
-        'f-sticky-card-box-open': unref(isOpen)
+        'f-sticky-card__box-open': unref(isOpen)
       }
     ] as const
   })
@@ -53,31 +53,34 @@
 
 <template>
   <div class="f-sticky-card" :style="styleList">
-    <div v-if="$slots.source" class="f-sticky-card-source">
+    <div v-if="$slots.source" class="f-sticky-card__source">
       <slot name="source" />
     </div>
 
     <div :class="classList">
-      <div class="f-sticky-card-content">
+      <div class="f-sticky-card__content">
         <slot />
       </div>
     </div>
     <div
-      :class="['f-sticky-card-option', { 'f-sticky-card-option-open': isOpen }]"
+      :class="[
+        'f-sticky-card__option',
+        { 'f-sticky-card__option-open': isOpen }
+      ]"
       @click.self="handleClick"
     >
       <!-- 左侧插槽 -->
-      <span class="f-sticky-card-option-left">
-        <slot name="option-left" />
+      <span class="f-sticky-card__option-left">
+        <slot name="optionLeft" />
       </span>
 
-      <span class="f-sticky-card-option-text" @click.self="handleClick">
+      <span class="f-sticky-card__option-text" @click.self="handleClick">
         {{ optionText }}
       </span>
 
       <!-- 右侧插槽 -->
-      <span class="f-sticky-card-option-right">
-        <slot name="option-right" />
+      <span class="f-sticky-card__option-right">
+        <slot name="optionRight" />
       </span>
     </div>
   </div>

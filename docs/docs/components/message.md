@@ -148,7 +148,6 @@
     FMessage({
       message: '这是一条5秒后消失的消息',
       type: 'primary',
-      icon: 'f-icon-primary',
       close: true,
       duration: 5000
     })
@@ -158,7 +157,6 @@
     FMessage({
       message: '这是一条不会自动消失的消息',
       type: 'primary',
-      icon: 'f-icon-primary',
       close: true,
       closeBtn: '关闭',
       duration: 0
@@ -213,7 +211,6 @@
     FMessage({
       message: '这是一条自定义位置的消息',
       type: 'primary',
-      icon: 'f-icon-primary',
       close: true,
       duration: 0,
       placement: placement
@@ -302,7 +299,6 @@ const openMessageClose1 = () => {
   FMessage({
     message: '这是一条5秒后消失的消息',
     type: 'primary',
-    icon: 'f-icon-primary',
     close: true,
     duration: 5000
   })
@@ -312,7 +308,6 @@ const openMessageClose2 = () => {
   FMessage({
     message: '这是一条不会自动消失的消息',
     type: 'primary',
-    icon: 'f-icon-primary',
     close: true,
     closeBtn: '关闭',
     duration: 0
@@ -323,7 +318,6 @@ const openMessagePlacement = (placement) => {
   FMessage({
     message: '这是一条自定义位置的消息',
     type: 'primary',
-    icon: 'f-icon-primary',
     close: true,
     placement: placement
   })

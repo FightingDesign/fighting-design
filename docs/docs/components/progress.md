@@ -22,8 +22,8 @@
 <f-progress type="success" :percentage="num" linear />
 
 <f-button-group>
-  <f-button simple round type="primary" before-icon="f-icon-sami-select" @click="sun" />
-  <f-button simple round type="primary" before-icon="f-icon-add-select" @click="add" />
+  <f-button simple round type="primary" @click="sun">减少</f-button>
+  <f-button simple round type="primary" @click="add">增加</f-button>
 </f-button-group>
 
 ::: details 显示代码
@@ -39,20 +39,8 @@
   <f-progress type="success" :percentage="num" linear />
 
   <f-button-group>
-    <f-button
-      simple
-      round
-      type="primary"
-      before-icon="f-icon-sami-select"
-      @click="sun"
-    />
-    <f-button
-      simple
-      round
-      type="primary"
-      before-icon="f-icon-add-select"
-      @click="add"
-    />
+    <f-button simple round type="primary" @click="sun">减少</f-button>
+    <f-button simple round type="primary" @click="add">增加</f-button>
   </f-button-group>
 </template>
 
@@ -148,8 +136,8 @@
 <f-progress :height="25" stripe type="warning" :percentage="num" />
 
 <f-button-group>
-  <f-button simple round type="primary" before-icon="f-icon-sami-select" @click="sun" />
-  <f-button simple round type="primary" before-icon="f-icon-add-select" @click="add" />
+  <f-button simple round type="primary" @click="sun">减少</f-button>
+  <f-button simple round type="primary" @click="add">增加</f-button>
 </f-button-group>
 
 ::: details 显示代码
@@ -162,24 +150,12 @@
   <f-progress :height="25" stripe type="warning" :percentage="num" />
 
   <f-button-group>
-    <f-button
-      simple
-      round
-      type="primary"
-      left-icon="f-icon-sami-select"
-      @click="sun"
-    />
-    <f-button
-      simple
-      round
-      type="primary"
-      left-icon="f-icon-add-select"
-      @click="add"
-    />
+    <f-button simple round type="primary" @click="sun">减少</f-button>
+    <f-button simple round type="primary" @click="add">增加</f-button>
   </f-button-group>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { ref } from 'vue'
 
   const num = ref(10)

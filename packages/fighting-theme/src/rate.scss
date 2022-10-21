@@ -4,13 +4,13 @@
   align-items: center;
   white-space: nowrap;
 
-  .f-rate-list {
+  &__list {
     margin: 0;
     padding: 0;
     display: inline-flex;
     list-style: none;
 
-    .f-rate-star {
+    .f-rate__star {
       cursor: pointer;
       transition: 0.4s;
       position: relative;

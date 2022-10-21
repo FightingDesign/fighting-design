@@ -3,7 +3,7 @@
   height: 300px;
 
   // 子元素
-  .f-expand-card-item {
+  &__item {
     flex: 0.5;
     background-size: cover;
     background-position: center;
@@ -16,11 +16,11 @@
     overflow: hidden;
 
     // 圆角
-    &.f-expand-card-round {
+    &.f-expand-card__round {
       border-radius: 20px;
     }
 
-    .f-expand-card-title {
+    .f-expand-card__title {
       font-size: 16px;
       color: #fff;
       position: absolute;
@@ -30,13 +30,13 @@
       opacity: 0;
     }
 
-    &.f-expand-card-active {
+    &.f-expand-card__active {
       flex-grow: 3;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
 
-      .f-expand-card-title {
+      .f-expand-card__title {
         opacity: 1;
       }
     }

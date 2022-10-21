@@ -92,7 +92,7 @@
   }
 
   onMounted((): void => {
-    if (!slot.icon && !prop.text) {
+    if (!slot.icon && !prop.icon && !prop.text) {
       loadAction()
     }
   })

@@ -11,13 +11,13 @@
 
     return [
       'f-tooltip',
-      `f-tooltip-${position}`,
-      `f-tooltip-${state}`,
       {
-        'f-tooltip-disabled ': disabled,
-        'f-tooltip-bold': bold,
-        'f-tooltip-no-arrow': noArrow,
-        'f-tooltip-bright': bright
+        [`f-tooltip__${position}`]: position,
+        [`f-tooltip__${state}`]: state,
+        'f-tooltip__disabled ': disabled,
+        'f-tooltip__bold': bold,
+        'f-tooltip__no-arrow': noArrow,
+        'f-tooltip__bright': bright
       }
     ] as const
   })

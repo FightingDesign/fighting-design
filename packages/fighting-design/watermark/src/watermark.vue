@@ -46,7 +46,7 @@
 
 <template>
   <div
-    :class="['f-watermark', { 'f-watermark-block': block }]"
+    :class="['f-watermark', { 'f-watermark__block': block }]"
     :style="[watermarkStyleList, { zIndex }]"
   >
     <slot />

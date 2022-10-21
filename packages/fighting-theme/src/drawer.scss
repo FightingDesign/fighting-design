@@ -8,7 +8,7 @@
   width: 100%;
 
   // 头部
-  .f-drawer-header {
+  &__header {
     padding: 12px 14px;
     border-bottom: 1px solid #eee;
     text-align: center;
@@ -18,7 +18,7 @@
     justify-content: center;
     align-items: center;
 
-    .f-drawer-header-title {
+    &-title {
       font-size: 15px;
       color: #333;
     }
@@ -30,14 +30,14 @@
   }
 
   // 身体
-  .f-drawer-body {
+  &__body {
     padding: 15px;
     box-sizing: border-box;
     flex: 1;
   }
 
   // 页脚
-  .f-drawer-footer {
+  &__footer {
     padding: 10px 14px;
     border-top: 1px solid #eee;
     display: flex;
@@ -47,7 +47,7 @@
   }
 
   // 全屏展示
-  &.f-drawer-fullscreen {
+  &.f-drawer__fullscreen {
     position: absolute;
     top: 0;
     right: 0;

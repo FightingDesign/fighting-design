@@ -71,7 +71,7 @@
 <template>
   <div
     v-show="visible"
-    :class="['f-back-top', { 'f-back-top-round': round }]"
+    :class="['f-back-top', { 'f-back-top__round': round }]"
     :style="styleList"
     @click.stop="handleClick"
   >

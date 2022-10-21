@@ -6,60 +6,60 @@
   column-gap: 22px;
 
   // 纵向排列
-  &.f-checkbox-group-vertical {
+  &.f-checkbox-group__vertical {
     flex-direction: column;
     row-gap: 10px;
   }
 
   // 带有边框
-  &.f-checkbox-group-border {
+  &.f-checkbox-group__border {
     column-gap: 0;
     row-gap: 0;
   }
 
-  &.f-checkbox-group-large {
+  &.f-checkbox-group__large {
     .f-checkbox {
       padding: 0 30px;
       font-size: 17px;
       height: 40px;
 
-      .f-checkbox-text {
+      .f-checkbox__text {
         font-size: 16px;
       }
     }
   }
 
-  &.f-checkbox-group-middle {
+  &.f-checkbox-group__middle {
     .f-checkbox {
       padding: 0 25px;
       font-size: 16px;
       height: 35px;
 
-      .f-checkbox-text {
+      .f-checkbox__text {
         font-size: 15px;
       }
     }
   }
 
-  &.f-checkbox-group-small {
+  &.f-checkbox-group__small {
     .f-checkbox {
       padding: 0 20px;
       font-size: 15px;
       height: 30px;
 
-      .f-checkbox-text {
+      .f-checkbox__text {
         font-size: 14px;
       }
     }
   }
 
-  &.f-checkbox-group-mini {
+  &.f-checkbox-group__mini {
     .f-checkbox {
       padding: 0 15px;
       font-size: 14px;
       height: 25px;
 
-      .f-checkbox-text {
+      .f-checkbox__text {
         font-size: 13px;
       }
     }

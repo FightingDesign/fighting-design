@@ -39,9 +39,9 @@
     return [
       'f-checkbox-group',
       {
-        'f-checkbox-group-border': border,
-        'f-checkbox-group-vertical': vertical,
-        [`f-checkbox-group-${size}`]: size && border
+        'f-checkbox-group__border': border,
+        'f-checkbox-group__vertical': vertical,
+        [`f-checkbox-group__${size}`]: size && border
       }
     ] as const
   })

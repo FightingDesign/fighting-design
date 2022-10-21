@@ -2,32 +2,32 @@
   display: inline-flex;
 
   // 排列方式
-  &.f-space-vertical {
+  &.f-space__vertical {
     flex-direction: column-reverse;
   }
 
   // 是否换行
-  &.f-space-wrap {
+  &.f-space__wrap {
     flex-wrap: wrap;
   }
 
   // 不同尺寸
-  &.f-space-large {
+  &.f-space__large {
     column-gap: 14px;
     row-gap: 14px;
   }
 
-  &.f-space-middle {
+  &.f-space__middle {
     column-gap: 10px;
     row-gap: 10px;
   }
 
-  &.f-space-small {
+  &.f-space__small {
     column-gap: 6px;
     row-gap: 6px;
   }
 
-  &.f-space-mini {
+  &.f-space__mini {
     column-gap: 2px;
     row-gap: 2px;
   }

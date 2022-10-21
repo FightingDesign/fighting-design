@@ -2,7 +2,7 @@
   import { computed } from 'vue'
   import { Props } from './badge'
   import { isNumber } from '../../_utils'
-  import type { ComputedRef } from 'vue'
+  import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -11,10 +11,10 @@
     const { type, dot } = prop
 
     return [
-      'f-badge-content',
-      `f-badge-${type}`,
+      'f-badge__content',
       {
-        'f-badge-dot': dot
+        [`f-badge__${type}`]: type,
+        'f-badge__dot': dot
       }
     ] as const
   })
@@ -31,7 +31,7 @@
     return `${value}`
   })
 
-  const styleList = computed(() => {
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { color, textColor } = prop
 
     return {

@@ -4,7 +4,7 @@
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
-  import type {  PopupHandleChangeInterface as b } from './interface'
+  import type { PopupHandleChangeInterface as b } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -62,16 +62,19 @@
         <!-- 遮罩层 -->
         <div
           v-if="showMask"
-          :class="['f-popup-mask', { 'f-popup-blur': maskBlur }]"
+          :class="['f-popup__mask', { 'f-popup__blur': maskBlur }]"
           :style="{ background: maskBackground, opacity: maskOpacity }"
         />
 
         <!-- 主容器 -->
         <div
-          :class="['f-popup-container', `f-popup-container-${direction}`]"
+          :class="[
+            'f-popup__container',
+            { [`f-popup__container-${direction}`]: direction }
+          ]"
           @click.self="closePopup"
         >
-          <div class="f-popup-wrapper" :style="wrapperStyleList">
+          <div class="f-popup__wrapper" :style="wrapperStyleList">
             <slot />
           </div>
         </div>

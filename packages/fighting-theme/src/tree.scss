@@ -1,5 +1,5 @@
 .f-tree {
-  .f-tree-data {
+  &__data {
     height: 30px;
     cursor: pointer;
     display: flex;
@@ -11,7 +11,7 @@
       background: #eee;
     }
 
-    .f-tree-label {
+    .f-tree__label {
       color: #333;
     }
   }

@@ -21,8 +21,8 @@
     return [
       {
         'f-close-btn': !prop.disabled,
-        'f-close-btn-round': prop.round,
-        'f-close-btn-disabled': prop.disabled
+        'f-close-btn__round': prop.round,
+        'f-close-btn__disabled': prop.disabled
       } as const
     ] as const
   })

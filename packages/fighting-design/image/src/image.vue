@@ -54,10 +54,10 @@
     const { fit, noSelect } = prop
 
     return [
-      'f-image-img',
+      'f-image__img',
       {
-        [`f-image-${fit}`]: fit,
-        'f-image-select': noSelect
+        [`f-image__${fit}`]: fit,
+        'f-image__select': noSelect
       }
     ] as const
   })
@@ -77,7 +77,7 @@
   <div
     v-if="isSuccess"
     role="img"
-    :class="['f-image', { 'f-image-block': block }]"
+    :class="['f-image', { 'f-image__block': block }]"
     :style="styleList"
   >
     <!-- 真正展示的图片 -->
@@ -95,9 +95,9 @@
     />
   </div>
 
-  <div v-else class="f-image-error">
+  <div v-else class="f-image__error">
     <slot name="error">
-      <span class="f-image-error-text">{{ alt || '加载失败' }}</span>
+      <span class="f-image__error-text">{{ alt || '加载失败' }}</span>
     </slot>
   </div>
 </template>

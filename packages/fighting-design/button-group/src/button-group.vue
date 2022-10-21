@@ -11,9 +11,9 @@
 
     return [
       'f-button-group',
-      `f-button-group-${vertical ? 'vertical' : 'horizontal'}`,
+      `f-button-group__${vertical ? 'vertical' : 'horizontal'}`,
       {
-        [`f-button-group-${size}`]: size
+        [`f-button-group__${size}`]: size
       }
     ] as const
   })

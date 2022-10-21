@@ -51,20 +51,22 @@
 
 <template>
   <div class="f-rate" role="slider">
-    <ul class="f-rate-list">
+    <ul class="f-rate__list">
       <li
         v-for="(star, index) in max"
         :key="index"
-        :class="['f-rate-star', { 'f-rate-star-readonly': readonly }]"
+        :class="['f-rate__star', { 'f-rate__star-readonly': readonly }]"
         @mouseout="onMouseout"
         @mouseover="onMouseover(index + 1)"
         @click="handleClick(index + 1)"
       >
         <f-svg-icon
           :size="size"
+          :icon="icon"
           :color="starValue > index ? effectColor : invalidColor"
         >
-          <component :is="icon || FIconStarBVue" />
+          <!-- <component :is="icon || FIconStarBVue" /> -->
+          <component :is="FIconStarBVue" />
         </f-svg-icon>
       </li>
     </ul>

@@ -13,11 +13,11 @@
     return [
       'f-text',
       {
-        [`f-text-${type}`]: type,
-        'f-text-block': block,
-        'f-text-bold': bold,
-        'f-text-center': center,
-        'f-text-ellipsis': ellipsis
+        [`f-text__${type}`]: type,
+        'f-text__block': block,
+        'f-text__bold': bold,
+        'f-text__center': center,
+        'f-text__ellipsis': ellipsis
       }
     ] as const
   })

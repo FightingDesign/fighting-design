@@ -11,10 +11,10 @@
 
     return [
       'f-space',
-      `f-space-${spacing}`,
       {
-        'f-space-wrap': wrap,
-        'f-space-vertical': vertical
+        [`f-space__${spacing}`]: spacing,
+        'f-space__wrap': wrap,
+        'f-space__vertical': vertical
       }
     ] as const
   })

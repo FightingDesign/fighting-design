@@ -66,11 +66,11 @@
 
     return [
       'f-notification',
-      `f-notification-${type}`,
-      `f-notification-${placement}`,
       {
-        'f-notification-round': round,
-        'f-notification-hasClose': close
+        [`f-notification__${type}`]: type,
+        [`f-notification__${placement}`]: placement,
+        'f-notification__round': round,
+        'f-notification__hasClose': close
       }
     ] as const
   })
@@ -143,42 +143,31 @@
       @mouseenter="clearTimer"
     >
       <!-- icon -->
-      <div v-if="showIcon && _icon" class="f-notification--icon">
+      <div v-if="showIcon && _icon" class="f-notification__icon">
         <component :is="_icon" v-if="isVNode(_icon)" :size="28" />
-        <!-- <f-icon v-if="isString(_icon)" size="24px" :icon="(_icon as string)" /> -->
       </div>
 
       <!-- 主体内容 -->
-      <div class="f-notification--info">
+      <div class="f-notification__info">
         <!-- 标题 -->
-        <div class="f-notification--title">
+        <div class="f-notification__title">
           <component :is="title" v-if="isVNode(title)" />
-          <h3 v-else class="f-notification--title-text">
+          <h3 v-else class="f-notification__title-text">
             {{ title }}
           </h3>
         </div>
 
         <!-- 消息文本 -->
         <component :is="message" v-if="isVNode(message)" />
-        <div v-else class="f-notification--text">
+        <div v-else class="f-notification__text">
           {{ message }}
         </div>
       </div>
 
       <!-- 关闭按钮 -->
-      <!-- <div
-        v-if="prop.close"
-        class="f-notification--close"
-        @click="closeMessage"
-      >
-        <component :is="closeBtn" v-if="isVNode(closeBtn)" />
-        <span v-else-if="closeBtn && isString(closeBtn)">{{ closeBtn }}</span>
-        <f-icon v-else size="16px" icon="f-icon-close" />
-      </div> -->
-      <!-- 关闭按钮 -->
       <div
         v-if="prop.close"
-        class="f-notification--close"
+        class="f-notification__close"
         @click="closeMessage"
       >
         <template v-if="isString(closeBtn)">{{ closeBtn }}</template>

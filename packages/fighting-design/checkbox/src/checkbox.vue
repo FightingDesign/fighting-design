@@ -64,11 +64,10 @@
   const classList: ComputedRef<c> = computed((): c => {
     return [
       'f-checkbox',
-      // `f-checkbox-${groupProps.value?.size}`,
       {
-        'f-checkbox-selected': isChecked.value,
-        'f-checkbox-bordered': groupProps.value?.border,
-        'f-checkbox-disabled': prop.disabled || groupProps.value?.disabled
+        'f-checkbox__selected': isChecked.value,
+        'f-checkbox__bordered': groupProps.value?.border,
+        'f-checkbox__disabled': prop.disabled || groupProps.value?.disabled
       }
     ]
   })
@@ -85,12 +84,12 @@
     <input
       v-model="modelValue"
       type="checkbox"
-      class="f-checkbox-input"
+      class="f-checkbox__input"
       hidden
       :value="label"
     />
-    <span v-if="!groupProps?.border" class="f-checkbox-box" />
-    <span class="f-checkbox-text">
+    <span v-if="!groupProps?.border" class="f-checkbox__box" />
+    <span class="f-checkbox__text">
       <slot />
       <template v-if="!$slots.default">{{ label }}</template>
     </span>

@@ -12,12 +12,12 @@
   transition: 0.4s;
 
   // 选中状态
-  &.f-radio-checked {
-    .f-radio-text {
+  &.f-radio__checked {
+    .f-radio__text {
       color: $primary;
     }
 
-    .f-radio-circle {
+    .f-radio__circle {
       border: 1px solid $primary;
 
       &::after {
@@ -27,14 +27,14 @@
     }
 
     // 选中的禁用状态
-    &.f-radio-disabled {
+    &.f-radio__disabled {
       background: $default;
       border-color: rgb(144, 144, 144);
     }
   }
 
   // 小圆圈
-  .f-radio-circle {
+  &__circle {
     width: 14px;
     height: 14px;
     border-radius: 50%;
@@ -58,14 +58,14 @@
   }
 
   // 禁用状态
-  &.f-radio-disabled {
+  &.f-radio__disabled {
     cursor: not-allowed;
 
-    .f-radio-text {
+    .f-radio__text {
       color: #d7d7d7;
     }
 
-    .f-radio-circle {
+    .f-radio__circle {
       border-color: #d7d7d7;
 
       &::after {
@@ -74,7 +74,7 @@
     }
   }
 
-  &.f-radio-margin:not(:last-child) {
+  &.f-radio__margin:not(:last-child) {
     margin-right: 22px;
   }
 }

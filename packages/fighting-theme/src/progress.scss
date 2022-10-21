@@ -5,13 +5,13 @@
   align-items: center;
   line-height: 1;
 
-  .f-progress-bar {
+  &__bar {
     flex-grow: 1;
     box-sizing: border-box;
     background: #f1f1f1;
   }
 
-  .f-progress-fill {
+  &__fill {
     height: 100%;
     transition: 0.3s;
     border-radius: 100px;
@@ -19,7 +19,7 @@
     text-align: right;
 
     // 百分百文字
-    .f-progress-percentage {
+    .f-progress__percentage {
       color: #fff;
       font-size: 12px;
       margin: 0 8px;
@@ -37,14 +37,14 @@
   }
 
   // 右侧显示百分比
-  .f-progress-text {
+  &__text {
     min-width: 40px;
     line-height: 1;
     margin-left: 5px;
     font-size: 14px;
   }
 
-  @keyframes panoramic {
+  @keyframes f-progress-animation-panoramic {
     to {
       background-position: 200% 0;
     }
@@ -54,12 +54,12 @@
     $item: nth($progressStripeType, $list);
 
     // 基本的颜色
-    .f-progress-fill-#{map-get($item, name)} {
+    .f-progress__fill-#{map-get($item, name)} {
       background: map-get($item, default);
     }
 
     // 条纹背景
-    .f-progress-fill-#{map-get($item, name)}.f-progress-stripe {
+    .f-progress__fill-#{map-get($item, name)}.f-progress__stripe {
       background: repeating-linear-gradient(
         -45deg,
         map-get($item, default) 25%,
@@ -70,7 +70,7 @@
         map-get($item, light) 0
       );
       background-size: 35px 35px;
-      animation: panoramic 30s linear infinite;
+      animation: f-progress-animation-panoramic 30s linear infinite;
     }
   }
 }

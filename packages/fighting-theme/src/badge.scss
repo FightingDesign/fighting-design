@@ -7,7 +7,7 @@
   transition: 0.4s;
   cursor: default;
 
-  .f-badge-content {
+  .f-badge__content {
     position: absolute;
     border-radius: 10px;
     font-size: 12px;
@@ -24,13 +24,13 @@
       $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
 
       // 不同类型
-      &.f-badge-#{map-get($item, name)} {
+      &.f-badge__#{map-get($item, name)} {
         color: var(--f-badge-text-color, #fff);
         background: var(--f-badge-background, map-get($item, default));
       }
     }
 
-    &.f-badge-dot {
+    &.f-badge__dot {
       border-radius: 50%;
       width: 8px;
       height: 8px;

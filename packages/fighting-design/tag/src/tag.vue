@@ -18,12 +18,12 @@
     return [
       'f-tag',
       {
-        [`f-tag-${type}`]: type,
-        [`f-tag-${size}`]: size,
-        'f-tag-simple': simple,
-        'f-tag-block': block,
-        'f-tag-round': round,
-        'f-tag-line': line
+        [`f-tag__${type}`]: type,
+        [`f-tag__${size}`]: size,
+        'f-tag__simple': simple,
+        'f-tag__block': block,
+        'f-tag__round': round,
+        'f-tag__line': line
       }
     ] as const
   })

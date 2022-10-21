@@ -50,9 +50,9 @@
   >
     <div class="f-drawer">
       <!-- 头部 -->
-      <header class="f-drawer-header">
+      <header class="f-drawer__header">
         <slot name="header">
-          <span class="f-drawer-header-title">{{ title }}</span>
+          <span class="f-drawer__header-title">{{ title }}</span>
           <f-close-btn
             v-if="showCloseIcon"
             :icon="closeIcon"
@@ -64,12 +64,12 @@
       </header>
 
       <!-- 身体 -->
-      <section v-if="$slots.default" class="f-drawer-body">
+      <section v-if="$slots.default" class="f-drawer__body">
         <slot />
       </section>
 
       <!-- 页脚 -->
-      <footer v-if="$slots.footer" class="f-drawer-footer">
+      <footer v-if="$slots.footer" class="f-drawer__footer">
         <slot name="footer" />
       </footer>
     </div>

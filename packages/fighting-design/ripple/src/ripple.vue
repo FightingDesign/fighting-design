@@ -24,7 +24,7 @@
   const classList: ComputedRef<a> = computed((): a => {
     const { noSelect } = prop
 
-    return ['f-ripple', { 'f-ripple-select': noSelect }] as const
+    return ['f-ripple', { 'f-ripple__select': noSelect }] as const
   })
 
   const handleClick: b = (evt: MouseEvent): void => {
@@ -38,7 +38,7 @@
       {
         duration,
         component: 'f-ripple',
-        className: 'f-ripple-animation',
+        className: 'f-ripple__animation',
         type,
         ripplesColor
       } as const

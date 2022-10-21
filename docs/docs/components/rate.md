@@ -79,16 +79,17 @@
 
 `icon` 属性可以自定义 `icon`
 
-<f-rate v-model="value4" icon="f-icon-Daytimemode-fill" />
+<f-rate v-model="value4" :icon="FIconKey" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-rate v-model="value4" icon="f-icon-Daytimemode-fill" />
+  <f-rate v-model="value4" :icon="FIconKey" />
 </template>
 
 <script lang="ts" setup>
+  import { FIconKey } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
   const value4 = ref(4)
@@ -138,6 +139,7 @@ import type { RatePropsType, RateInstance } from 'fighting-design'
 </a>
 
 <script setup>
+  import { FIconKey } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
   const value1 = ref(2)

@@ -55,14 +55,14 @@
     bottom: 0;
   }
 
-  .f-message__close {
+  &__close {
     margin-left: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .f-message__icon {
+  &__icon {
     margin-right: 10px;
   }
 }

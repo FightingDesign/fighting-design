@@ -74,9 +74,9 @@
     return [
       'f-radio',
       {
-        'f-radio-checked': isChecked.value,
-        'f-radio-margin': !radioGroup.value,
-        'f-radio-disabled': disabled || radioGroup.value?.disabled
+        'f-radio__checked': isChecked.value,
+        'f-radio__margin': !radioGroup.value,
+        'f-radio__disabled': disabled || radioGroup.value?.disabled
       }
     ] as const
   })
@@ -100,8 +100,8 @@
       :name="name"
       @change="handleChange"
     />
-    <span v-if="!radioGroup?.border" class="f-radio-circle" />
-    <span class="f-radio-text">
+    <span v-if="!radioGroup?.border" class="f-radio__circle" />
+    <span class="f-radio__text">
       <slot>{{ label }}</slot>
     </span>
   </label>

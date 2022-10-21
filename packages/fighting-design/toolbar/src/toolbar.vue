@@ -15,10 +15,10 @@
 
     return [
       'f-toolbar',
-      `f-toolbar-${size}`,
       {
-        'f-toolbar-round': round,
-        'f-toolbar-fixed': fixed
+        [`f-toolbar__${size}`]: size,
+        'f-toolbar__round': round,
+        'f-toolbar__fixed': fixed
       }
     ] as const
   })

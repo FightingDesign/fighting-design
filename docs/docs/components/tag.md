@@ -129,28 +129,6 @@
 
 :::
 
-## 带有 icon
-
-通过 `before-icon` 和 `after-icon` 可以设置左右 icon 的值
-
-注意：当同时设置 `after-icon` 与 `close` 时，关闭的 icon 将始终位于最右侧。
-
-<f-tag type="default" size="small" before-icon="f-icon-Daytimemode">标签</f-tag>
-<f-tag type="primary" size="small" after-icon="f-icon-email">标签</f-tag>
-<f-tag type="danger" simple size="small" after-Icon="f-icon-form-fill" close>标签
-</f-tag>
-
-::: details 显示代码
-
-```html
-<f-tag type="default" size="small" before-icon="f-icon-Daytimemode">标签</f-tag>
-<f-tag type="primary" size="small" after-icon="f-icon-email">标签</f-tag>
-<f-tag type="danger" simple size="small" after-Icon="f-icon-form-fill" close>标签
-</f-tag>
-```
-
-:::
-
 ## 可关闭的
 
 `close` 可配置可以关闭的

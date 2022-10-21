@@ -40,15 +40,19 @@
 `round` 属性可以配置圆形的样式
 
 <f-back-top bottom="190px" round>
-  <f-icon size="20px" icon="f-icon-rising" />
+  <f-svg-icon :icon="FIconSnowflake" />
 </f-back-top>
 
 ::: details 显示代码
 
 ```html
 <f-back-top bottom="190px" round>
-  <f-icon size="20px" icon="f-icon-rising" />
+  <f-svg-icon :icon="FIconSnowflake" />
 </f-back-top>
+
+<script lang="ts" setup>
+  import { FIconSnowflake, FIconUpload } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
@@ -58,15 +62,19 @@
 你也可以自定义 `back-top` 的样式和位置
 
 <f-back-top bottom="190px" right="100px" round color="red">
-  <f-icon size="20px" icon="f-icon-favorites-fill" />
+  <f-svg-icon :icon="FIconUpload" />
 </f-back-top>
 
 ::: details 显示代码
 
 ```html
 <f-back-top bottom="190px" right="100px" round color="red">
-  <f-icon size="20px" icon="f-icon-favorites-fill" />
+  <f-svg-icon :icon="FIconUpload" />
 </f-back-top>
+
+<script setup>
+  import { FIconUpload } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
@@ -145,6 +153,10 @@ import type {
 <a href="https://github.com/XiaoLi-sach" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/55753927?v=4" />
 </a>
+
+<script setup>
+  import { FIconSnowflake, FIconUpload } from '@fighting-design/fighting-icon'
+</script>
 
 <style scoped>
   .f-box {

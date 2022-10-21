@@ -10,7 +10,7 @@
   white-space: pre;
   margin: 30px 0;
 
-  &.f-divider-vertical {
+  &.f-divider__vertical {
     border: 0;
     border-left: 1px solid #b0b0b0;
     display: inline-block;
@@ -23,13 +23,13 @@
 
   // 不同的线条类型
   @each $key, $value in $dividerType {
-    &.f-divider-#{$key} {
+    &.f-divider__#{$key} {
       border-style: $value;
     }
   }
 
   // 分割线上的文字
-  .f-divider-text {
+  &__text {
     position: absolute;
     top: 50%;
     box-sizing: border-box;
@@ -39,23 +39,18 @@
     line-height: 2;
     background: #fff;
 
-    i,
-    .f-icon {
-      vertical-align: middle;
-    }
-
     // 文字不同的位置
-    &.f-divider-text-center {
+    &.f-divider__text-center {
       left: 50%;
       transform: translate(-50%, -50%);
     }
 
-    &.f-divider-text-right {
+    &.f-divider__text-right {
       right: 5%;
       transform: translateY(-50%);
     }
 
-    &.f-divider-text-left {
+    &.f-divider__text-left {
       left: 5%;
       transform: translateY(-50%);
     }

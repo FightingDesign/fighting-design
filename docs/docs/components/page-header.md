@@ -12,7 +12,6 @@
 <f-page-header title="标题" @back="goBack" />
 
 ::: details 显示代码
-``
 
 ```html
 <template>
@@ -32,14 +31,18 @@
 
 `icon` 可以自定义返回图标，`back-text` 可以自定义返回文字内容
 
-<f-page-header icon="f-icon-arrow-left" back-text="返回上一页" title="标题" />
+<f-page-header :icon="FIconReply" back-text="返回上一页" title="标题" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-page-header icon="f-icon-arrow-left" back-text="返回上一页" title="标题" />
+  <f-page-header :icon="FIconReply" back-text="返回上一页" title="标题" />
 </template>
+
+<script lang="ts" setup>
+  import { FIconReply } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
@@ -62,16 +65,16 @@
 
 ## Attributes
 
-| 属性           | 说明         | 类型      | 默认值             |
-| -------------- | ------------ | --------- | ------------------ |
-| `icon`         | 返回图标     | `string`  | `f-icon-leftarrow` |
-| `icon-size`    | 返回图标大小 | `string`  | ——                 |
-| `back-text`    | 返回文本     | `string`  | `返回`             |
-| `title`        | 标题文本     | `string`  | `标题`             |
-| `title-bold`   | 标题是否粗体 | `boolean` | `false`            |
-| `title-center` | 标题是否居中 | `boolean` | `false`            |
-| `title-color`  | 标题颜色     | `string`  | `false`            |
-| `subtitle`     | 副标题文本   | `string`  | ——                 |
+| 属性           | 说明         | 类型      | 可选值 | 默认值 |
+| -------------- | ------------ | --------- | ------ | ------ |
+| `icon`         | 返回图标     | `string`  | ——     | ——     |
+| `icon-size`    | 返回图标大小 | `string`  | ——     | ——     |
+| `back-text`    | 返回文本     | `string`  | ——     | 返回   |
+| `title`        | 标题文本     | `string`  | ——     | 标题   |
+| `title-bold`   | 标题是否粗体 | `boolean` | ——     | false  |
+| `title-center` | 标题是否居中 | `boolean` | ——     | false  |
+| `title-color`  | 标题颜色     | `string`  | ——     | false  |
+| `subtitle`     | 副标题文本   | `string`  | ——     | ——     |
 
 ## Slots
 
@@ -85,7 +88,7 @@
 
 | 属性   | 说明             | 参数 |
 | ------ | ---------------- | ---- |
-| `back` | 点击左侧区域触发 | —    |
+| `back` | 点击左侧区域触发 | ——   |
 
 ## Interface
 
@@ -105,10 +108,9 @@ import type { PageHeaderInstance, PageHeaderPropsType } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/42865478?v=4" />
 </a>
 
-<style scoped>
-</style>
-
 <script setup>
+  import { FIconReply } from '@fighting-design/fighting-icon'
+
   const goBack = () => {
     console.log('go back')
   }

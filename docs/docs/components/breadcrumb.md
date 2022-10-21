@@ -53,9 +53,9 @@
 
 ## 自定义分隔符
 
-`separator-icon` 属性可以自定义分隔符
+`separator` 属性可以自定义分隔符
 
-<f-breadcrumb separator-icon="f-icon-arrow-right">
+<f-breadcrumb :separator="FIconTag">
   <f-breadcrumb-item>首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
@@ -64,22 +64,28 @@
 ::: details 显示代码
 
 ```html
-<f-breadcrumb separator-icon="f-icon-arrow-right">
-  <f-breadcrumb-item>首页</f-breadcrumb-item>
-  <f-breadcrumb-item>文章</f-breadcrumb-item>
-  <f-breadcrumb-item>列表</f-breadcrumb-item>
-</f-breadcrumb>
+<template>
+  <f-breadcrumb :separator="FIconTag">
+    <f-breadcrumb-item>首页</f-breadcrumb-item>
+    <f-breadcrumb-item>文章</f-breadcrumb-item>
+    <f-breadcrumb-item>列表</f-breadcrumb-item>
+  </f-breadcrumb>
+</template>
+
+<script lang="ts" setup>
+  import { FIconTag } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
 
 ## 自定展示 icon
 
-`f-breadcrumb-item` 组件内可以添加 `icon` 作为导航名。
+`f-breadcrumb-item` 组件内可以插入 `icon`
 
 <f-breadcrumb>
   <f-breadcrumb-item>
-    <f-icon size="16px" icon="f-icon-collection" />
+    <f-icon-skull />
   </f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
@@ -88,13 +94,19 @@
 ::: details 显示代码
 
 ```html
-<f-breadcrumb>
-  <f-breadcrumb-item>
-    <f-icon size="16px" icon="f-icon-collection" />
-  </f-breadcrumb-item>
-  <f-breadcrumb-item>文章</f-breadcrumb-item>
-  <f-breadcrumb-item>列表</f-breadcrumb-item>
-</f-breadcrumb>
+<template>
+  <f-breadcrumb>
+    <f-breadcrumb-item>
+      <f-icon-skull />
+    </f-breadcrumb-item>
+    <f-breadcrumb-item>文章</f-breadcrumb-item>
+    <f-breadcrumb-item>列表</f-breadcrumb-item>
+  </f-breadcrumb>
+</template>
+
+<script lang="ts" setup>
+  import { FIconSkull } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
@@ -123,13 +135,12 @@
 
 ## Breadcrumb Attractive
 
-| 属性              | 说明           | 类型     | 可选值 | 默认值 |
-| ----------------- | -------------- | -------- | ------ | ------ |
-| `separator`       | 分隔符         | `string` | ——     | /      |
-| `icon-separator`  | icon 分隔符    | `string` | ——     | ——     |
-| `separator-color` | 分隔符颜色     | `string` | ——     | ——     |
-| `item-color`      | 页面元素分隔符 | `string` | ——     | ——     |
-| `font-size`       | 自定义文字大小 | `string` | ——     | ——     |
+| 属性              | 说明           | 类型   | 可选值 | 默认值 |
+| ----------------- | -------------- | ------ | ------ | ------ |
+| `separator`       | 自定义分隔符   | object | ——     | ——     |
+| `separator-color` | 分隔符颜色     | string | ——     | ——     |
+| `item-color`      | 页面元素分隔符 | string | ——     | ——     |
+| `font-size`       | 自定义文字大小 | string | ——     | ——     |
 
 ## Breadcrumb Slots
 
@@ -164,3 +175,7 @@ import type {
 <a href="https://github.com/onechuan" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/98402209?v=4" />
 </a>
+
+<script setup>
+  import { FIconTag, FIconSkull } from '@fighting-design/fighting-icon'
+</script>

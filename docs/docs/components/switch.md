@@ -146,17 +146,19 @@
 
 `icon` 可以让 `switch` 上带有 `icon`
 
-<f-switch v-model="value9" icon="f-icon-editor" />
+<f-switch v-model="value9" :icon="FIconSnowflake" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-switch v-model="value9" icon="f-icon-editor" />
+  <f-switch v-model="value9" :icon="FIconSnowflake" />
 </template>
 
 <script lang="ts" setup>
+  import { FIconSnowflake } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
+
   const value9 = ref(true)
 </script>
 ```
@@ -201,6 +203,8 @@ import type {
 
 <script setup>
   import { ref } from 'vue'
+  import { FIconSnowflake } from '@fighting-design/fighting-icon'
+
   const value1 = ref(true)
   const value2 = ref(false)
   const value3 = ref(true)

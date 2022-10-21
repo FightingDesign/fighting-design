@@ -17,56 +17,56 @@
   @for $list from 1 to (length($allTypeColorList) + 1) {
     $item: nth($allTypeColorList, $list);
 
-    &.f-notification-#{map-get($item, name)} .f-notification--icon {
+    &.f-notification__#{map-get($item, name)} .f-notification__icon {
       color: map-get($item, simpleTextColor);
     }
   }
 
-  &.f-notification-round {
+  &.f-notification__round {
     border-radius: 20px;
   }
 
-  &.f-notification-top {
+  &.f-notification__top {
     left: 50%;
     transform: translateX(-50%);
   }
 
-  &.f-notification-top-left {
+  &.f-notification__top-left {
     left: 20px;
   }
 
-  &.f-notification-top-right {
+  &.f-notification__top-right {
     right: 20px;
   }
 
-  &.f-notification-bottom {
+  &.f-notification__bottom {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
   }
 
-  &.f-notification-bottom-left {
+  &.f-notification__bottom-left {
     left: 20px;
     bottom: 0;
   }
 
-  &.f-notification-bottom-right {
+  &.f-notification__bottom-right {
     right: 20px;
     bottom: 0;
   }
 
-  .f-notification--close {
+  &__close {
     cursor: pointer;
     text-align: center;
     padding: 0 12px;
     flex-shrink: 0;
   }
 
-  .f-notification--icon {
+  &__icon {
     margin-right: 8px;
   }
 
-  .f-notification--title-text {
+  &__title-text {
     margin: 0;
     margin-bottom: 2px;
     font-size: 16px;
@@ -89,8 +89,8 @@
   transform: translateX(100%);
 }
 
-.f-notification-right.f-notification-fade-right-enter-from,
-.f-notification-right.f-notification-fade-right-leave-to {
+.f-notification__right.f-notification-fade-right-enter-from,
+.f-notification__right.f-notification-fade-right-leave-to {
   opacity: 0;
   transform: translate(-50%, -100%);
 }
@@ -101,8 +101,8 @@
   transform: translateX(-100%);
 }
 
-.f-notification-left.f-notification-fade-left-enter-from,
-.f-notification-left.f-notification-fade-left-leave-to {
+.f-notification__left.f-notification-fade-left-enter-from,
+.f-notification__left.f-notification-fade-left-leave-to {
   opacity: 0;
   transform: translate(-50%, 100%);
 }

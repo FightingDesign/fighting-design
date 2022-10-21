@@ -7,7 +7,7 @@
   z-index: 2000;
 
   // 遮罩层
-  .f-popup-mask {
+  &__mask {
     position: absolute;
     top: 0;
     right: 0;
@@ -17,13 +17,13 @@
     background: rgba(35, 39, 46);
 
     // 高斯谋划
-    &.f-popup-blur {
+    &.f-popup__blur {
       backdrop-filter: blur(2px);
     }
   }
 
   // 主容器公共样式
-  .f-popup-container {
+  &__container {
     position: absolute;
     top: 0;
     right: 0;
@@ -31,7 +31,7 @@
     left: 0;
     transition: 0.3s;
 
-    .f-popup-wrapper {
+    .f-popup__wrapper {
       position: absolute;
       background: #fff;
       box-sizing: border-box;
@@ -41,12 +41,12 @@
   }
 
   // 主容器居中
-  .f-popup-container-center {
+  &__container-center {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .f-popup-wrapper {
+    .f-popup__wrapper {
       border-radius: 6px;
       max-height: 90%;
       box-shadow: 0 0 18px rgb(0 0 0 / 40%);
@@ -54,8 +54,8 @@
   }
 
   // 主容器左侧
-  .f-popup-container-left {
-    .f-popup-wrapper {
+  &__container-left {
+    .f-popup__wrapper {
       top: 0;
       bottom: 0;
       left: 0;
@@ -63,8 +63,8 @@
   }
 
   // 主容器右侧
-  .f-popup-container-right {
-    .f-popup-wrapper {
+  &__container-right {
+    .f-popup__wrapper {
       top: 0;
       bottom: 0;
       right: 0;
@@ -72,8 +72,8 @@
   }
 
   // 主容器上侧
-  .f-popup-container-top {
-    .f-popup-wrapper {
+  &__container-top {
+    .f-popup__wrapper {
       top: 0;
       left: 0;
       right: 0;
@@ -81,8 +81,8 @@
   }
 
   // 主容器下侧
-  .f-popup-container-bottom {
-    .f-popup-wrapper {
+  &__container-bottom {
+    .f-popup__wrapper {
       left: 0;
       bottom: 0;
       right: 0;
@@ -122,27 +122,27 @@
   transition: all 0.3s ease-out;
 }
 
-.f-popup-other-enter-from .f-popup-container-right,
-.f-popup-other-leave-to .f-popup-container-right {
+.f-popup-other-enter-from .f-popup__container-right,
+.f-popup-other-leave-to .f-popup__container-right {
   transform: translateX(100%);
 }
 
-.f-popup-other-enter-from .f-popup-container-left,
-.f-popup-other-leave-to .f-popup-container-left {
+.f-popup-other-enter-from .f-popup__container-left,
+.f-popup-other-leave-to .f-popup__container-left {
   transform: translateX(-100%);
 }
 
-.f-popup-other-enter-from .f-popup-container-top,
-.f-popup-other-leave-to .f-popup-container-top {
+.f-popup-other-enter-from .f-popup__container-top,
+.f-popup-other-leave-to .f-popup__container-top {
   transform: translateY(-100%);
 }
 
-.f-popup-other-enter-from .f-popup-container-bottom,
-.f-popup-other-leave-to .f-popup-container-bottom {
+.f-popup-other-enter-from .f-popup__container-bottom,
+.f-popup-other-leave-to .f-popup__container-bottom {
   transform: translateY(100%);
 }
 
-.f-popup-other-enter-from .f-popup-container,
-.f-popup-other-leave-to .f-popup-container {
+.f-popup-other-enter-from .f-popup__container,
+.f-popup-other-leave-to .f-popup__container {
   opacity: 0;
 }

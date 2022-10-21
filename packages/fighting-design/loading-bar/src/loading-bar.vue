@@ -9,7 +9,7 @@
   const classList: ComputedRef<a> = computed((): a => {
     const { type } = prop
 
-    return ['f-loading-bar', { [`f-loading-bar-${type}`]: type }] as const
+    return ['f-loading-bar', { [`f-loading-bar__${type}`]: type }] as const
   })
 </script>
 

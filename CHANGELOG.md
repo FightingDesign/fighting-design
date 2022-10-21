@@ -30,9 +30,12 @@
 - `f-toolbar-item` 组件 `icon` 改为 `VNode` 类型，默认值修改为 `null`
 - `f-tag` 组件 `before-icon` `after-icon` 改为 `VNode` 类型，默认值修改为 `null`
 - `f-svg-icon` 新增 `icon` 配置项
+- `f-breadcrumb` 组件 `separator-icon` 配置项更名为 `separator`
 - `f-breadcrumb` 组件 `separator` 配置项改为 `VNode` 类型，默认值修改为 `null`
 - `f-notification` 组件 `close-btn` 参数默认值改为 `null`
 - `f-button` 组件 `before-icon` `loading-icon` `after-icon` 配置项改为 `VNode` 类型，默认值修改为 `null`
+- 移除 `f-calendar` 组件 `show-footer` 配置项
+- `f-sticky-card` 组件插槽名由 `option-left` `option-right` 改为 `optionLeft` `optionRight`
 
 ## 0.7.0-alpha.9 (2022-10-19)
 

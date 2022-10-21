@@ -12,12 +12,12 @@
     transition: all 0.3s ease 0.05s;
   }
 
-  &.f-tooltip-hover:hover::before,
-  &.f-tooltip-hover:hover::after,
-  &.f-tooltip-active:active::before,
-  &.f-tooltip-active:active::after,
-  &.f-tooltip-always::before,
-  &.f-tooltip-always::after {
+  &.f-tooltip__hover:hover::before,
+  &.f-tooltip__hover:hover::after,
+  &.f-tooltip__active:active::before,
+  &.f-tooltip__active:active::after,
+  &.f-tooltip__always::before,
+  &.f-tooltip__always::after {
     visibility: visible;
     opacity: 1;
   }
@@ -43,148 +43,148 @@
     border-radius: 2px;
   }
 
-  &.f-tooltip-top::before {
+  &.f-tooltip__top::before {
     border-top-color: var(--f-tooltip-background, #333);
   }
 
-  &.f-tooltip-right::before {
+  &.f-tooltip__right::before {
     border-right-color: var(--f-tooltip-background, #333);
   }
 
-  &.f-tooltip-bottom::before {
+  &.f-tooltip__bottom::before {
     border-bottom-color: var(--f-tooltip-background, #333);
   }
 
-  &.f-tooltip-left::before {
+  &.f-tooltip__left::before {
     border-left-color: var(--f-tooltip-background, #333);
   }
 
-  &.f-tooltip-top.f-tooltip-bright::before {
+  &.f-tooltip__top.f-tooltip__bright::before {
     border-top-color: #eee;
   }
 
-  &.f-tooltip-right.f-tooltip-bright::before {
+  &.f-tooltip__right.f-tooltip__bright::before {
     border-right-color: #eee;
   }
 
-  &.f-tooltip-bottom.f-tooltip-bright::before {
+  &.f-tooltip__bottom.f-tooltip__bright::before {
     border-bottom-color: #eee;
   }
 
-  &.f-tooltip-left.f-tooltip-bright::before {
+  &.f-tooltip__left.f-tooltip__bright::before {
     border-left-color: #eee;
   }
 
   // top && bottom
-  &.f-tooltip-top::before,
-  &.f-tooltip-bottom::before {
+  &.f-tooltip__top::before,
+  &.f-tooltip__bottom::before {
     left: calc(50% - 6px);
   }
 
-  &.f-tooltip-top::after,
-  &.f-tooltip-bottom::after {
+  &.f-tooltip__top::after,
+  &.f-tooltip__bottom::after {
     left: 50%;
     transform: translateX(-50%);
   }
 
-  &.f-tooltip-top::before {
+  &.f-tooltip__top::before {
     top: 0px;
   }
 
-  &.f-tooltip-top::after {
+  &.f-tooltip__top::after {
     bottom: 100%;
     margin-bottom: -1px;
   }
 
-  &.f-tooltip-bottom::before {
+  &.f-tooltip__bottom::before {
     bottom: 0;
   }
 
-  &.f-tooltip-bottom::after {
+  &.f-tooltip__bottom::after {
     top: 100%;
     margin-top: -1px;
   }
 
-  &.f-tooltip-top.f-tooltip-hover:hover::before,
-  &.f-tooltip-top.f-tooltip-active:active::before,
-  &.f-tooltip-top.f-tooltip-always::before {
+  &.f-tooltip__top.f-tooltip__hover:hover::before,
+  &.f-tooltip__top.f-tooltip__active:active::before,
+  &.f-tooltip__top.f-tooltip__always::before {
     transform: translateX(0%) translateY(-10px);
   }
 
-  &.f-tooltip-top.f-tooltip-hover:hover::after,
-  &.f-tooltip-top.f-tooltip-active:active::after,
-  &.f-tooltip-top.f-tooltip-always::after {
+  &.f-tooltip__top.f-tooltip__hover:hover::after,
+  &.f-tooltip__top.f-tooltip__active:active::after,
+  &.f-tooltip__top.f-tooltip__always::after {
     transform: translateX(-50%) translateY(-10px);
   }
 
-  &.f-tooltip-bottom.f-tooltip-hover:hover::before,
-  &.f-tooltip-bottom.f-tooltip-active:active::before,
-  &.f-tooltip-bottom.f-tooltip-always::before {
+  &.f-tooltip__bottom.f-tooltip__hover:hover::before,
+  &.f-tooltip__bottom.f-tooltip__active:active::before,
+  &.f-tooltip__bottom.f-tooltip__always::before {
     transform: translateX(0%) translateY(10px);
   }
 
-  &.f-tooltip-bottom.f-tooltip-hover:hover::after,
-  &.f-tooltip-bottom.f-tooltip-active:active::after,
-  &.f-tooltip-bottom.f-tooltip-always::after {
+  &.f-tooltip__bottom.f-tooltip__hover:hover::after,
+  &.f-tooltip__bottom.f-tooltip__active:active::after,
+  &.f-tooltip__bottom.f-tooltip__always::after {
     transform: translateX(-50%) translateY(10px);
   }
 
   //  left && right
-  &.f-tooltip-right::before,
-  &.f-tooltip-left::before {
+  &.f-tooltip__right::before,
+  &.f-tooltip__left::before {
     top: calc(50% - 6px);
   }
 
-  &.f-tooltip-right::after,
-  &.f-tooltip-left::after {
+  &.f-tooltip__right::after,
+  &.f-tooltip__left::after {
     top: 50%;
     transform: translateY(-50%);
   }
 
-  &.f-tooltip-right::before {
+  &.f-tooltip__right::before {
     right: 0;
   }
 
-  &.f-tooltip-right::after {
+  &.f-tooltip__right::after {
     left: 100%;
     margin-left: -1px;
   }
 
-  &.f-tooltip-left::before {
+  &.f-tooltip__left::before {
     left: 0;
   }
 
-  &.f-tooltip-left::after {
+  &.f-tooltip__left::after {
     right: 100%;
     margin-right: -1px;
   }
 
-  &.f-tooltip-left.f-tooltip-hover:hover::after,
-  &.f-tooltip-left.f-tooltip-active:active::after,
-  &.f-tooltip-left.f-tooltip-always::after {
+  &.f-tooltip__left.f-tooltip__hover:hover::after,
+  &.f-tooltip__left.f-tooltip__active:active::after,
+  &.f-tooltip__left.f-tooltip__always::after {
     transform: translateX(-10px) translateY(-50%);
   }
 
-  &.f-tooltip-left.f-tooltip-hover:hover::before,
-  &.f-tooltip-left.f-tooltip-active:active::before,
-  &.f-tooltip-left.f-tooltip-always::before {
+  &.f-tooltip__left.f-tooltip__hover:hover::before,
+  &.f-tooltip__left.f-tooltip__active:active::before,
+  &.f-tooltip__left.f-tooltip__always::before {
     transform: translateX(-10px) translateY(0%);
   }
 
-  &.f-tooltip-right.f-tooltip-hover:hover::before,
-  &.f-tooltip-right.f-tooltip-active:active::before,
-  &.f-tooltip-right.f-tooltip-always::before {
+  &.f-tooltip__right.f-tooltip__hover:hover::before,
+  &.f-tooltip__right.f-tooltip__active:active::before,
+  &.f-tooltip__right.f-tooltip__always::before {
     transform: translateX(10px) translateY(0%);
   }
 
-  &.f-tooltip-right.f-tooltip-hover:hover::after,
-  &.f-tooltip-right.f-tooltip-active:active::after,
-  &.f-tooltip-right.f-tooltip-always::after {
+  &.f-tooltip__right.f-tooltip__hover:hover::after,
+  &.f-tooltip__right.f-tooltip__active:active::after,
+  &.f-tooltip__right.f-tooltip__always::after {
     transform: translateX(10px) translateY(-50%);
   }
 
   // 是否禁用
-  &.f-tooltip-disabled {
+  &.f-tooltip__disabled {
     &:hover::before,
     &:hover::after {
       visibility: hidden;
@@ -193,14 +193,14 @@
   }
 
   // 文字加粗
-  &.f-tooltip-bold {
+  &.f-tooltip__bold {
     &::after {
       font-weight: bold;
     }
   }
 
   // 不带箭头
-  &.f-tooltip-no-arrow {
+  &.f-tooltip__no-arrow {
     &::before {
       display: none;
       visibility: hidden;
@@ -209,7 +209,7 @@
   }
 
   // 浅色主题
-  &.f-tooltip-bright {
+  &.f-tooltip__bright {
     &::after {
       background: #fff;
       color: #333;

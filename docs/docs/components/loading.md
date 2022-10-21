@@ -25,8 +25,9 @@
 
   const loading1 = ref(false)
 
-  function onclick1() {
+  const onclick1 = () => {
     loading1.value = true
+
     setTimeout(() => {
       loading1.value = false
     }, 1500)
@@ -41,23 +42,25 @@
 `text` 和 `icon` 属性可以自定义说明文字和展示的 `icon`
 
 <f-button type="primary" @click="onclick2">玩命加载</f-button>
-<f-loading :show="loading2" text="玩命加载中……" icon="f-icon-loading6" />
+<f-loading :show="loading2" text="玩命加载中……" :icon="FIconSnowflake" />
 
 ::: details 显示代码
 
 ```html
 <template>
   <f-button type="primary" @click="onclick2">玩命加载</f-button>
-  <f-loading :show="loading2" text="玩命加载中……" icon="f-icon-loading6" />
+  <f-loading :show="loading2" text="玩命加载中……" :icon="FIconSnowflake" />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import { FIconSnowflake } from '@fighting-design/fighting-icon'
 
   const loading2 = ref(false)
 
-  function onclick2() {
+  const onclick2 = () => {
     loading2.value = true
+
     setTimeout(() => {
       loading2.value = false
     }, 1500)
@@ -105,10 +108,11 @@ import type { LoadingInstance, LoadingPropsType } from 'fighting-design'
 
 <script setup>
   import { ref } from 'vue'
+  import { FIconSnowflake } from '@fighting-design/fighting-icon'
 
   const loading1 = ref(false)
 
-  function onclick1() {
+  const onclick1 = () => {
     loading1.value = true
     setTimeout(() => {
       loading1.value = false
@@ -117,7 +121,7 @@ import type { LoadingInstance, LoadingPropsType } from 'fighting-design'
 
   const loading2 = ref(false)
 
-  function onclick2() {
+  const onclick2 = () => {
     loading2.value = true
     setTimeout(() => {
       loading2.value = false

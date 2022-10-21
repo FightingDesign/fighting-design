@@ -22,7 +22,7 @@
 
 <template>
   <div role="listitem" class="f-list-item" :style="styleList">
-    <li class="f-list-item-li">
+    <li class="f-list-item__li">
       <slot />
     </li>
   </div>

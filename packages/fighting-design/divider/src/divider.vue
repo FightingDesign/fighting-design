@@ -29,13 +29,13 @@
     role="separator"
     :class="[
       'f-divider',
-      { 'f-divider-vertical': vertical, [`f-divider-${type}`]: type }
+      { 'f-divider__vertical': vertical, [`f-divider__${type}`]: type }
     ]"
     :style="dividerStyle"
   >
     <span
       v-if="renderSlot"
-      :class="['f-divider-text', `f-divider-text-${position}`]"
+      :class="['f-divider__text', `f-divider__text-${position}`]"
       :style="{
         background,
         color: fontColor

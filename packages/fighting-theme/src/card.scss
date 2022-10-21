@@ -3,24 +3,24 @@
   transition: 0.3s;
   background: #fff;
 
-  .f-card-header {
+  &__header {
     padding: 16px 20px;
     border-bottom: 1px solid #eee;
   }
 
-  &.f-card-shadow-never {
+  &.f-card__shadow-never {
     box-shadow: none;
   }
 
-  &.f-card-shadow-always {
+  &.f-card__shadow-always {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
 
-  &.f-card-shadow-hover:hover {
+  &.f-card__shadow-hover:hover {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
 
-  &.f-card-round {
+  &.f-card__round {
     border-radius: 10px;
   }
 }

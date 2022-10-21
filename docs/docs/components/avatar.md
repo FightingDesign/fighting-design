@@ -1,6 +1,6 @@
 # Avatar 头像
 
-`Avatar` 用于用户的头像展示
+用于用户的头像展示
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/avatar)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/avatar.md)
@@ -92,22 +92,29 @@
 
 `icon` 属性可以配置带有 `icon` 的图标头像
 
-`background`属性可以配置背景色，`font-color`属性可以自定义图标颜色
+`background` 属性可以配置背景色，`font-color` 属性可以自定义图标颜色
 
 `font-size`可以配置图标大小，后面必须要加入单位
 
-<f-avatar icon="f-icon-bussiness-man" background="skyblue" font-size="40px" />
-<f-avatar icon="f-icon-atm-away" font-color="orange" font-size="40px" />
-<f-avatar icon="f-icon-Daytimemode" font-size="30px" />
-<f-avatar icon="f-icon-Daytimemode" />
+<f-avatar :icon="FIconFaceSmile" background="skyblue" :font-size="30" />
+<f-avatar :icon="FIconBug" background="orange" font-color="#fff" :font-size="30" />
 
 ::: details 显示代码
 
 ```html
-<f-avatar icon="f-icon-bussiness-man" background="skyblue" font-size="40px" />
-<f-avatar icon="f-icon-atm-away" font-color="orange" font-size="40px" />
-<f-avatar icon="f-icon-Daytimemode" font-size="30px" />
-<f-avatar icon="f-icon-Daytimemode" />
+<template>
+  <f-avatar :icon="FIconFaceSmile" :font-size="30" background="skyblue" />
+  <f-avatar
+    background="orange"
+    font-color="#fff"
+    :icon="FIconBug"
+    :font-size="30"
+  />
+</template>
+
+<script lang="ts" setup>
+  import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
@@ -126,20 +133,6 @@
   lazy
   src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a72738a7113.png"
 />
-```
-
-:::
-
-## 加载动画
-
-`load-animation` 可以在网络不好的时候，启用加载中动画效果
-
-<f-avatar load-animation src="https://tianyuhao.cn/images/auto/my.jpg" />
-
-::: details 显示代码
-
-```html
-<f-avatar load-animation src="https://tianyuhao.cn/images/auto/my.jpg" />
 ```
 
 :::
@@ -176,22 +169,21 @@
 
 ## Attributes
 
-| 参数             | 说明                                                                                                     | 类型            | 可选值                                       | 默认值   |
-| ---------------- | -------------------------------------------------------------------------------------------------------- | --------------- | -------------------------------------------- | -------- |
-| `src`            | 图片路径                                                                                                 | string          | ——                                           | ——       |
-| `err-src`        | 加载失败时要显示的地址                                                                                   | string          | ——                                           | ——       |
-| `alt`            | 原生 [alt](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt) 属性                  | string          | ——                                           | 加载失败 |
-| `round`          | 是否为圆角                                                                                               | boolean         | ——                                           | false    |
-| `lazy`           | 是否懒加载头像                                                                                           | boolean         | ——                                           | false    |
-| `fit`            | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性 | string          | `fill` `contain` `cover` `none` `scale-down` | ——       |
-| `size`           | 图片大小                                                                                                 | string / number | `large` `middle` `small` `mini`              | middle   |
-| `background`     | 背景色                                                                                                   | string          | ——                                           | ——       |
-| `icon`           | icon 类名                                                                                                | string          | ——                                           | ——       |
-| `font-size`      | 字体大小                                                                                                 | string          | ——                                           | 15px     |
-| `font-color`     | 字体的颜色                                                                                               | string          | ——                                           | #333     |
-| `text`           | 文字头像                                                                                                 | string          | ——                                           | ——       |
-| `root-margin`    | 触发懒加载的距离                                                                                         | string / number | ——                                           | 100px    |
-| `load-animation` | 是否启用加载中动画                                                                                       | boolean         | ——                                           | false    |
+| 参数          | 说明                                                                                                     | 类型                      | 可选值                                       | 默认值   |
+| ------------- | -------------------------------------------------------------------------------------------------------- | ------------------------- | -------------------------------------------- | -------- |
+| `src`         | 图片路径                                                                                                 | string                    | ——                                           | ——       |
+| `err-src`     | 加载失败时要显示的地址                                                                                   | string                    | ——                                           | ——       |
+| `alt`         | 原生 [alt](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt) 属性                  | string                    | ——                                           | 加载失败 |
+| `round`       | 是否为圆角                                                                                               | boolean                   | ——                                           | false    |
+| `lazy`        | 是否懒加载头像                                                                                           | boolean                   | ——                                           | false    |
+| `fit`         | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性 | string                    | `fill` `contain` `cover` `none` `scale-down` | ——       |
+| `size`        | 图片大小                                                                                                 | string / number           | `large` `middle` `small` `mini`              | middle   |
+| `background`  | 背景色                                                                                                   | string                    | ——                                           | ——       |
+| `icon`        | 图标头像                                                                                                 | object(VNode / Component) | ——                                           | ——       |
+| `font-size`   | 字体大小                                                                                                 | string                    | ——                                           | 15px     |
+| `font-color`  | 字体的颜色                                                                                               | string                    | ——                                           | #333     |
+| `text`        | 文字头像                                                                                                 | string                    | ——                                           | ——       |
+| `root-margin` | 触发懒加载的距离                                                                                         | string / number           | ——                                           | 100px    |
 
 ## Slots
 
@@ -224,6 +216,10 @@ import type {
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup>
+  import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
+</script>
 
 <style scoped>
 .f-avatar,

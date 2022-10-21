@@ -3,12 +3,12 @@
   overflow: hidden;
   position: relative;
 
-  &.f-ripple-select {
+  &.f-ripple__select {
     user-select: none;
   }
 
   // 涟漪效果
-  .f-ripple-animation {
+  .f-ripple__animation {
     width: 0px;
     height: 100%;
     position: absolute;

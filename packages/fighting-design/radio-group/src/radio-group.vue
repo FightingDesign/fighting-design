@@ -30,9 +30,9 @@
     return [
       'f-radio-group',
       {
-        'f-radio-group-vertical': vertical,
-        'f-radio-group-border': border,
-        [`f-radio-group-${size}`]: size && border
+        'f-radio-group__vertical': vertical,
+        'f-radio-group__border': border,
+        [`f-radio-group__${size}`]: size && border
       }
     ] as const
   })

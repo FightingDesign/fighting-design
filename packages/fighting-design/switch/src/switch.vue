@@ -36,21 +36,24 @@
     const { size, modelValue, square } = prop
 
     return [
-      'f-switch-input',
+      'f-switch__input',
       {
-        [`f-switch-${size}`]: size,
-        'f-switch-close': !modelValue,
-        'f-switch-square': square
+        [`f-switch__${size}`]: size,
+        'f-switch__close': !modelValue,
+        'f-switch__square': square
       }
     ] as const
   })
 </script>
 
 <template>
-  <div role="switch" :class="['f-switch', { 'f-switch-disabled': disabled }]">
+  <div role="switch" :class="['f-switch', { 'f-switch__disabled': disabled }]">
     <span
       v-if="closeText"
-      :class="['f-switch-right-text', { 'f-switch-text-active': !modelValue }]"
+      :class="[
+        'f-switch__right-text',
+        { 'f-switch__text-active': !modelValue }
+      ]"
     >
       {{ closeText }}
     </span>
@@ -60,14 +63,14 @@
       :style="{ background: modelValue ? openColor : closeColor }"
       @click="handleClick"
     >
-      <span class="f-switch-roll" :style="rollStyle">
+      <span class="f-switch__roll" :style="rollStyle">
         <f-svg-icon v-if="icon" :icon="icon" :size="14" />
       </span>
     </div>
 
     <span
       v-if="openText"
-      :class="['f-switch-left-text', { 'f-switch-text-active': modelValue }]"
+      :class="['f-switch__left-text', { 'f-switch__text-active': modelValue }]"
     >
       {{ openText }}
     </span>

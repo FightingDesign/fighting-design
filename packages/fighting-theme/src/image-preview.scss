@@ -36,7 +36,7 @@
     top: 30px;
   }
 
-  // 预览图
+  // 操作栏
   .option-toolbar {
     width: 370px;
     position: absolute;
@@ -47,7 +47,8 @@
     z-index: 200;
   }
 
-  .f-image-showImg {
+  // 预览图
+  &__exhibition {
     z-index: 100;
     user-select: none;
     position: fixed;

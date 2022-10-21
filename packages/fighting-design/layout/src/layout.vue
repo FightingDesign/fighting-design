@@ -30,7 +30,7 @@
     :class="[
       'f-layout',
       {
-        'f-layout-vertical': isVertical
+        'f-layout__vertical': isVertical
       }
     ]"
   >
