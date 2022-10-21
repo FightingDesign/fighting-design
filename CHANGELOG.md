@@ -23,10 +23,9 @@
 - 废除 `f-avatar` 组件 `load-animation` 配置项
 - `f-loading` 组件 `icon` 配置项改为 `VNode` 类型，默认值修改为 `null`
 - 新增 `f-loading` 组件 `icon` 插槽
-
 - 更新 `f-message` 组件 `icon` 默认值和可选类型
 - `f-page-header` 组件 `icon-size` 支持 `number` 类型
-- `f-page-header` 组件 `icon` 改为 `VNode` 类型
+- `f-page-header` 组件 `icon` 配置项改为 `VNode` 类型，默认值修改为 `null`
 - `f-rate` 组件 `icon` 改为 `VNode` 类型，默认值修改为 `null`
 - `f-toolbar-item` 组件 `icon` 改为 `VNode` 类型，默认值修改为 `null`
 - `f-tag` 组件 `before-icon` `after-icon` 改为 `VNode` 类型，默认值修改为 `null`
