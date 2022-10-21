@@ -135,8 +135,8 @@ const fun: a = (a: number, b: number): number => {
 这里是来定义组件的 `Props` 和 `Emits` 的文件
 
 - 导出的名称必须叫 `Props` 和 `Emits` （首字母大写）
-- 每个 `props` 都必须标记类型
 - 每个 `props` 都必须标记默认值，就算默认值是 `false` 或者是空字符串也要标记
+- 默认值必须以箭头函数形式进行返回
 - 如有可选项需要对其进行校验，一般使用 `validator` + `ts` 双重校验。可参考文档 [Prop 校验](https://staging-cn.vuejs.org/guide/components/props.html#prop-validation) 和 [PropType](https://staging-cn.vuejs.org/api/utility-types.html#proptypet)
 - `default` 和 `validator` 使用箭头函数定义，必须明确返回值和参数值的类型
 - `Props` 和 `Emits` 对象结尾必须加入 [as const](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-inference)
@@ -149,46 +149,22 @@ export type ButtonPropsType = ExtractPropTypes<typeof Props>
 
 ## index.ts
 
-这里需要用来注册、导出组件
-
-参考文档
-
-- [安装插件](https://staging-cn.vuejs.org/api/application.html#app-use)
-- [全局注册组件](https://staging-cn.vuejs.org/guide/components/registration.html#global-registration)
-
-- 每行代码之间要有一个空行
-- 结尾要有空行
-- 导出组件使用默认导出
-- 导出类型需要使用 `export` 导出
-- 需要导出组件的相关类型
-- 需要组件类型提示
-
-例：
+这里需要用来注册、导出组件，多数时候只有四行代码，例如：
 
 ```ts
-import Button from './src/button.vue'
+import Space from './src/space.vue'
 
 import { install } from '../_utils'
 
-export const FButton = install(Button)
+export const FSpace = install(Space)
 
-export type ButtonInstance = InstanceType<typeof FButton>
-
-export type { ButtonPropsType } from './src/button'
-
-export type {
-  ButtonSizeType,
-  ButtonTargetType,
-  ButtonType,
-  ButtonNativeType
-} from './src/interface'
-
-declare module 'vue' {
-  export interface GlobalComponents {
-    FButton: typeof FButton
-  }
-}
+export default Space
 ```
+
+参考文档：
+
+- [安装插件](https://staging-cn.vuejs.org/api/application.html#app-use)
+- [全局注册组件](https://staging-cn.vuejs.org/guide/components/registration.html#global-registration)
 
 ## 🍀 公共模块
 
