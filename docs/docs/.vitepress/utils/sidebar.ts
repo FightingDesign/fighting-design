@@ -86,7 +86,7 @@ export const sidebar = {
         { text: 'Drawer 抽屉', link: '/components/drawer' },
         { text: 'Tooltip 消息提示', link: '/components/tooltip' },
         { text: 'Popup 弹出窗口', link: '/components/popup' },
-        { text: 'Swap切换', link: '/components/swap' }
+        { text: 'Swap 切换', link: '/components/swap' }
       ]
     },
     {
