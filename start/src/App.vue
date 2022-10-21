@@ -1,10 +1,17 @@
 <script lang="ts" setup>
-  import { FIconSnowflake } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
-  const value9 = ref(true)
+  const show1 = ref(true)
+
+  const listImg = [
+    'https://tianyuhao.cn/images/auto/1.jpg',
+    'https://tianyuhao.cn/images/auto/2.jpg',
+    'https://tianyuhao.cn/images/auto/3.jpg',
+    'https://tianyuhao.cn/images/auto/4.jpg'
+  ]
 </script>
 
 <template>
-  <f-switch v-model="value9" :icon="FIconSnowflake" />
+  <f-button type="primary" @click="show1 = true">打开</f-button>
+  <f-image-preview v-model:visible="show1" :img-list="listImg" />
 </template>

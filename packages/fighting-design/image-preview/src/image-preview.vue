@@ -4,6 +4,16 @@
   import { FToolbar } from '../../toolbar'
   import { FToolbarItem } from '../../toolbar-item'
   import { keepDecimal } from '../../_utils'
+  import {
+    FIconChevronLeftVue,
+    FIconChevronRightVue,
+    FIconRotateAntiClockwiseVue,
+    FIconRotateClockwiseVue,
+    FIconCrossVue,
+    FIconLayoutRowsVue,
+    FIconZoomInVue,
+    FIconZoomOutVue
+  } from '../../_components/svg/index'
   import type { Ref } from 'vue'
   import type {
     ImagePreviewSwitchImageInterface as a,
@@ -155,7 +165,7 @@
           round
           @click="switchImage('next')"
         >
-          <f-toolbar-item icon="f-icon-arrow-right" icon-size="25px" />
+          <f-toolbar-item :icon="FIconChevronRightVue" icon-size="25px" />
         </f-toolbar>
 
         <f-toolbar
@@ -164,7 +174,7 @@
           round
           @click="switchImage('prev')"
         >
-          <f-toolbar-item icon="f-icon-arrow-left" icon-size="25px" />
+          <f-toolbar-item :icon="FIconChevronLeftVue" icon-size="25px" />
         </f-toolbar>
       </template>
 
@@ -175,7 +185,7 @@
         round
         @click="handleClose"
       >
-        <f-toolbar-item icon="f-icon-close" icon-size="20px" />
+        <f-toolbar-item :icon="FIconCrossVue" icon-size="20px" />
       </f-toolbar>
 
       <!-- 操作栏 -->
@@ -185,11 +195,11 @@
         round
         @click="optionClick"
       >
-        <f-toolbar-item icon="f-icon-suoxiao" :data-key="1" />
-        <f-toolbar-item icon="f-icon-fangda" :data-key="2" />
-        <f-toolbar-item icon="f-icon-column1" :data-key="3" />
-        <f-toolbar-item icon="f-icon-xuanzhuan-1" :data-key="4" />
-        <f-toolbar-item icon="f-icon-xuanzhuan-2" :data-key="5" />
+        <f-toolbar-item :icon="FIconZoomOutVue" :data-key="1" />
+        <f-toolbar-item :icon="FIconZoomInVue" :data-key="2" />
+        <f-toolbar-item :icon="FIconLayoutRowsVue" :data-key="3" />
+        <f-toolbar-item :icon="FIconRotateClockwiseVue" :data-key="4" />
+        <f-toolbar-item :icon="FIconRotateAntiClockwiseVue" :data-key="5" />
       </f-toolbar>
     </div>
   </transition>
