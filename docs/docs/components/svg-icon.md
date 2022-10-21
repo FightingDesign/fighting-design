@@ -64,10 +64,11 @@ yarn add @fighting-design/fighting-icon
 
 ## Attributes
 
-| 参数    | 说明          | 类型            | 可选值 | 默认值 |
-| ------- | ------------- | --------------- | ------ | ------ |
-| `color` | icon 颜色     | string          | ——     | ——     |
-| `size`  | icon 字体大小 | string / number | ——     | 21px   |
+| 参数    | 说明          | 类型                       | 可选值 | 默认值 |
+| ------- | ------------- | -------------------------- | ------ | ------ |
+| `color` | icon 颜色     | string                     | ——     | ——     |
+| `size`  | icon 字体大小 | string / number            | ——     | 21px   |
+| `icon`  | icon 内容     | object (VNode / Component) | ——     | null   |
 
 ## Slots
 

@@ -228,17 +228,17 @@
 | `message`    | 消息文本                                     | string / VNode | ——                                                                 | false   |
 | `type`       | 消息类型                                     | string         | `default` `primary` `success` <br /> `danger` `warning`            | default |
 | `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number         | ——                                                                 | 3000    |
-| `round`      | 圆角类型                                     | boolean        | ——                                                                 | false   |
-| `close`      | 可关闭                                       | boolean        | ——                                                                 | false   |
-| `icon`       | 消息 icon                                    | string / VNode | ——                                                                 | ——      |
+| `round`      | 是否为圆角类型                               | boolean        | ——                                                                 | false   |
+| `close`      | 是否可关闭                                   | boolean        | ——                                                                 | false   |
+| `icon`       | 消息 icon                                    | string / VNode | ——                                                                 | null    |
 | `color`      | 字体颜色                                     | string         | ——                                                                 | ——      |
 | `background` | 背景色                                       | string         | ——                                                                 | ——      |
 | `placement`  | 位置                                         | string         | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
 | `offset`     | 偏移距离                                     | number         | ——                                                                 | 20      |
-| `background` | 背景色                                       | string         | ——                                                                 | ——      |
-| `closeBtn`   | 关闭按钮                                     | string / VNode | ——                                                                 | ——      |
-| `zIndex`     | 层级                                         | boolean        | ——                                                                 | 1000    |
-| `closeEnd`   | 关闭回调                                     | Function       | ——                                                                 | ——      |
+| `background` | 自定义背景色                                 | string         | ——                                                                 | ——      |
+| `close-btn`  | 关闭按钮                                     | string / VNode | ——                                                                 | ——      |
+| `z-index`    | 层级                                         | boolean        | ——                                                                 | 1000    |
+| `close-end`  | 关闭回调                                     | Function       | ——                                                                 | ——      |
 
 ## Events
 

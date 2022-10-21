@@ -135,12 +135,12 @@
 
 ## Breadcrumb Attractive
 
-| 属性              | 说明           | 类型   | 可选值 | 默认值 |
-| ----------------- | -------------- | ------ | ------ | ------ |
-| `separator`       | 自定义分隔符   | object | ——     | ——     |
-| `separator-color` | 分隔符颜色     | string | ——     | ——     |
-| `item-color`      | 页面元素分隔符 | string | ——     | ——     |
-| `font-size`       | 自定义文字大小 | string | ——     | ——     |
+| 属性              | 说明           | 类型                       | 可选值 | 默认值 |
+| ----------------- | -------------- | -------------------------- | ------ | ------ |
+| `separator`       | 自定义分隔符   | object (VNode / Component) | ——     | null   |
+| `item-color`      | 导航文字颜色   | string                     | ——     | ——     |
+| `separator-color` | 分隔符颜色     | string                     | ——     | ——     |
+| `font-size`       | 自定义文字大小 | string / number            | ——     | ——     |
 
 ## Breadcrumb Slots
 

@@ -166,12 +166,12 @@
 
 ## Toolbar-Item Attributes
 
-| 参数        | 说明             | 类型            | 可选值 | 默认值 |
-| ----------- | ---------------- | --------------- | ------ | ------ |
-| `data-key`  | 唯一值           | string / number | ——     | ——     |
-| `color`     | 自定义文字颜色   | string          | ——     | ——     |
-| `icon`      | 自定义 icon      | string          | ——     | ——     |
-| `icon-size` | 自定义 icon 大小 | string / number | ——     | 16px   |
+| 参数        | 说明             | 类型                       | 可选值 | 默认值 |
+| ----------- | ---------------- | -------------------------- | ------ | ------ |
+| `data-key`  | 唯一值           | string / number            | ——     | ——     |
+| `color`     | 自定义文字颜色   | string                     | ——     | ——     |
+| `icon`      | 自定义 icon      | object (VNode / Component) | ——     | null   |
+| `icon-size` | 自定义 icon 大小 | string / number            | ——     | 16px   |
 
 ## Toolbar-Item Slots
 

@@ -23,6 +23,7 @@
 - 新增 `f-avatar` 组件 `icon` 插槽
 - 新增 `f-avatar` 组件 `icon` 配置项改为 `VNode / Component` 类型，默认值修改为 `null`
 - 新增 `f-loading` 组件 `icon` 插槽
+- 新增 `f-svg-icon` 组件 `icon` 配置项
 
 **其它改动**
 
@@ -35,7 +36,6 @@
 - `f-rate` 组件 `icon` 改为 `VNode / Component` 类型，默认值修改为 `null`
 - `f-toolbar-item` 组件 `icon` 改为 `VNode / Component` 类型，默认值修改为 `null`
 - `f-tag` 组件 `before-icon` `after-icon` 改为 `VNode / Component` 类型，默认值修改为 `null`
-- `f-svg-icon` 新增 `icon` 配置项
 - `f-breadcrumb` 组件 `separator-icon` 配置项更名为 `separator`
 - `f-breadcrumb` 组件 `separator` 配置项改为 `VNode / Component` 类型，默认值修改为 `null`
 - `f-notification` 组件 `close-btn` 参数默认值改为 `null`

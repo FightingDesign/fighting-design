@@ -14,7 +14,7 @@ export const Props = {
     default: (): string => ''
   },
   fontSize: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   }
 } as const
