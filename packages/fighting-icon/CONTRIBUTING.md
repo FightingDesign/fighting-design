@@ -8,10 +8,11 @@
 
 ## 🔓 贡献
 
-`fighting-icon` 使用 [icones](https://github.com/antfu/icones) 作为图标库，可以在上面下载 `svg`，添加到 [fighting-icon/src](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-icon/src) 目录下。
+`fighting-icon` 使用 [icones](https://github.com/antfu/icones) 作为图标库，如何需要全新的 svg 可进行贡献，规则如下：
 
 ## 🚧 规范
 
-- 文件名称必须的以 `f-icon-` 开头，名称不能出现大写字母
-- 后缀名必须以 `*.svg` 结尾
-- 需要在 [svg.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-icon/svg.ts) 中做统一导出
+- 可在 [icones](https://icones.js.org) 官网搜索需要的 svg 进行添加到 [fighting-icon/src](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-icon/src) 目录下
+- 命名必须以 `f-icon-` 开头，`.svg` 结尾
+- 文件名必须以全部小写形式，中间使用短横线连接
+- 添加的 svg 需要在 [fighting-icon/svg.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-icon/svg.ts) 目录中统一导出

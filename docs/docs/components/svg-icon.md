@@ -62,7 +62,7 @@ yarn add --save-dev @fighting-design/fighting-icon
 
 ## 集合
 
-`svg-icon` 集合，点击即可直接复制
+`svg-icon` 集合，点击即可直接复制，共收入 {{num}} 个图标
 
 <demo2-vue />
 
@@ -99,4 +99,7 @@ yarn add --save-dev @fighting-design/fighting-icon
 <script setup>
   import demo1Vue from './_demos/svg-icon/demo1.vue'
   import demo2Vue from './_demos/svg-icon/demo2.vue'
+  import Svg from '@fighting-design/fighting-icon'
+
+  const num = Object.keys(Svg).length
 </script>
