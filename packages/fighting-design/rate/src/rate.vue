@@ -51,8 +51,8 @@
 
 <template>
   <div class="f-rate" role="slider">
-    <ul class="f-rate__list">
-      <li
+    <div class="f-rate__list">
+      <div
         v-for="(star, index) in max"
         :key="index"
         :class="['f-rate__star', { 'f-rate__star-readonly': readonly }]"
@@ -62,14 +62,11 @@
       >
         <f-svg-icon
           :size="size"
-          :icon="icon"
+          :icon="icon || FIconStarBVue"
           :color="starValue > index ? effectColor : invalidColor"
-        >
-          <!-- <component :is="icon || FIconStarBVue" /> -->
-          <component :is="FIconStarBVue" />
-        </f-svg-icon>
-      </li>
-    </ul>
+        />
+      </div>
+    </div>
 
     <f-text v-if="textShow" :size="textSize" :color="textColor">
       {{ textContent }}

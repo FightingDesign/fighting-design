@@ -5,10 +5,7 @@
   white-space: nowrap;
 
   &__list {
-    margin: 0;
-    padding: 0;
     display: inline-flex;
-    list-style: none;
 
     .f-rate__star {
       cursor: pointer;
