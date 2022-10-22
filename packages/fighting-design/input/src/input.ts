@@ -31,10 +31,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  id: {
-    type: String,
-    default: (): string => ''
-  },
   max: {
     type: Number,
     default: (): null => null

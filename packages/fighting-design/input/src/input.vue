@@ -66,7 +66,6 @@
       <f-svg-icon v-if="icon" class="f-input__icon" :icon="icon" :size="13" />
 
       <input
-        :id="id"
         class="f-input__input"
         :type="inputType"
         :max="max"

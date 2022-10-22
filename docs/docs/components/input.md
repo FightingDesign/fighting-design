@@ -27,6 +27,165 @@
 
 :::
 
+## 不同尺寸
+
+`size` 属性可以配置不同尺寸的文本框
+
+<demo1-vue />
+
+::: details 显示代码
+
+```html
+<template>
+  <f-input v-model="value2" type="text" size="large" />
+  <f-input v-model="value2" type="text" size="middle" />
+  <f-input v-model="value2" type="text" size="small" />
+  <f-input v-model="value2" type="text" size="mini" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value2 = ref('不同尺寸的')
+</script>
+```
+
+:::
+
+## 搜索框
+
+`search` 可配置可搜索的输入框
+
+<f-input v-model="value3" type="text" search placeholder="请输入...." />
+
+::: details 显示代码
+
+```html
+<template>
+  <f-input v-model="value3" type="text" search placeholder="请输入...." />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value3 = ref('')
+</script>
+```
+
+:::
+
+## 不同类型
+
+`type` 可配置不同类型的输入框
+
+<demo2-vue />
+
+::: details 显示代码
+
+```html
+<template>
+  <f-input v-model="value4" type="text" placeholder="请输入...." />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value4 = ref('')
+</script>
+```
+
+:::
+
+## 展示密码
+
+`show-password` 可展示密码内容
+
+<f-input v-model="value5" type="password" show-password />
+
+::: details 显示代码
+
+```html
+<template>
+  <f-input v-model="value5" type="password" show-password />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value5 = ref('123456')
+</script>
+```
+
+:::
+
+## 前缀 icon
+
+`icon` 可配置前缀 `icon`
+
+<f-input v-model="value6" type="text" :icon="FIconCloud" />
+
+::: details 显示代码
+
+```html
+<template>
+  <f-input v-model="value6" type="text" :icon="FIconCloud" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  import { FIconCloud } from '@fighting-design/fighting-icon'
+
+  const value6 = ref('')
+</script>
+```
+
+:::
+
+## 可清空
+
+`clear` 属性可配置可清空的文本框
+
+<f-input v-model="value7" type="text" clear />
+
+::: details 显示代码
+
+```html
+<template>
+  <f-input v-model="value7" type="text" clear />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value7 = ref('可清空的')
+</script>
+```
+
+:::
+
+## 只读或禁用
+
+`readonly` 和 `disabled` 属性可配置只读或禁用的文本框
+
+<demo3-vue />
+
+::: details 显示代码
+
+```html
+<template>
+  <f-input v-model="value8" type="text" readonly />
+  <f-input v-model="value8" type="text" disabled />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value8 = ref('点我试试吧')
+</script>
+```
+
+:::
+
 ## Attributes
 
 | 参数            | 说明                       | 类型                       | 可选值                          | 默认值  |
@@ -35,7 +194,6 @@
 | `type`          | 类型                       | string                     | `text` `password`               | text    |
 | `size`          | 尺寸                       | string                     | `large` `middle` `small` `mini` | middle  |
 | `disabled`      | 是否禁用                   | boolean                    | ——                              | false   |
-| `id`            | 原生 id 属性               | string                     | ——                              | ——      |
 | `max`           | 最大值                     | number                     | ——                              | null    |
 | `min`           | 最小值                     | number                     | ——                              | null    |
 | `max-length`    | 最大输入长度上限           | number                     | ——                              | null    |
@@ -84,5 +242,14 @@ import type {
 
 <script setup>
   import { ref } from 'vue'
+  import demo1Vue from './_demos/input/demo1.vue'
+  import demo2Vue from './_demos/input/demo2.vue'
+  import demo3Vue from './_demos/input/demo3.vue'
+  import { FIconCloud } from '@fighting-design/fighting-icon'
+
   const value1 = ref('')
+  const value3 = ref('')
+  const value5 = ref('123456')
+  const value6 = ref('')
+  const value7 = ref('可清空的')
 </script>
