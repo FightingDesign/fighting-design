@@ -1,2 +1,44 @@
+@import '../config/const-color.scss';
+
 .f-input {
+  border: 1px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  transition: 0.3s;
+  background: #eee;
+
+  &__wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    .f-input__icon {
+      color: #333;
+    }
+
+    // 输入框
+    .f-input__input {
+      height: 100%;
+      border: none;
+      outline: none;
+      background: none;
+      margin: 0 5px;
+      color: #333;
+    }
+
+    // 清楚按钮
+    .f-input__clear-btn {
+      cursor: pointer;
+      color: rgb(195, 195, 195);
+    }
+  }
+
+  &:focus-within {
+    background: #fff;
+    border-color: $primary;
+  }
 }

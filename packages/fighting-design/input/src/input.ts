@@ -1,5 +1,5 @@
-import type { ExtractPropTypes, PropType } from 'vue'
-import type { InputType } from './interface'
+import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
+import type { InputType, InputSizeType } from './interface'
 
 export const Props = {
   modelValue: {
@@ -10,7 +10,14 @@ export const Props = {
     type: String as PropType<InputType>,
     default: (): InputType => 'text',
     validator: (val: InputType): boolean => {
-      return (['text', 'password', 'textarea'] as const).includes(val)
+      return (['text', 'password'] as const).includes(val)
+    }
+  },
+  size: {
+    type: String as PropType<InputSizeType>,
+    default: (): InputSizeType => 'middle',
+    validator: (val: InputSizeType): boolean => {
+      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
   disabled: {
@@ -41,6 +48,18 @@ export const Props = {
   name: {
     type: String,
     default: (): string => 'f-input'
+  },
+  placeholder: {
+    type: String,
+    default: (): string => ''
+  },
+  clear: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  icon: {
+    type: Object as PropType<VNode | Component>,
+    default: (): null => null
   }
 } as const
 
