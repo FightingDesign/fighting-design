@@ -7,8 +7,9 @@
   <f-input
     v-model="value1"
     search
-    type="text"
-    readonly
+    type="password"
+    clear
+    show-password
     placeholder="请输入...."
   >
   </f-input>

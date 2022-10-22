@@ -45,6 +45,7 @@
 | `clear`                 | 是否可清空                 | boolean                    | ——                              | false   |
 | `search`                | 是否为搜索框               | boolean                    | ——                              | false   |
 | `readonly`              | 是否只读                   | boolean                    | ——                              | false   |
+| `show-password`         | 是否展示显示密码图标       | boolean                    | ——                              | false   |
 | `enter-search`          | 是否按下回车触发搜索       | boolean                    | ——                              | false   |
 | `icon`                  | 自定义前缀 icon            | object (VNode / Component) | ——                              | null    |
 | `on-search`             | 点击搜索触发的回调         | Function                   | ——                              | null    |

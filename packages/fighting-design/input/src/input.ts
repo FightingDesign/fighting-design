@@ -72,6 +72,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
+  showPassword: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   enterSearch: {
     type: Boolean,
     default: (): boolean => false

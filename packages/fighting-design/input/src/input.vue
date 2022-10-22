@@ -2,10 +2,19 @@
   import { Props, Emits } from './input'
   import { FSvgIcon } from '../../svg-icon'
   import { FButton } from '../../button'
-  import { FIconCrossVue } from '../../_components/svg/index'
+  import { ref } from 'vue'
+  import {
+    FIconCrossVue,
+    FIconEyeOffOutlineVue,
+    FIconEyeOutlineVue
+  } from '../../_components/svg/index'
+  import type { Ref } from 'vue'
+  import type { InputType } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
+
+  const inputType: Ref<InputType> = ref<InputType>(prop.type)
 
   // 输入框输入
   const handleInput = (evt: Event): void => {
@@ -40,6 +49,15 @@
       onEnter(evt)
     }
   }
+
+  // 查看密码
+  const handleShowPassword = (target: 'down' | 'up'): void => {
+    if (target === 'down') {
+      inputType.value = 'text'
+      return
+    }
+    inputType.value = 'password'
+  }
 </script>
 
 <template>
@@ -50,7 +68,7 @@
       <input
         :id="id"
         class="f-input__input"
-        :type="type"
+        :type="inputType"
         :max="max"
         :min="min"
         :maxlength="maxLength"
@@ -66,6 +84,7 @@
         @focus="onFocus"
       />
 
+      <!-- 左侧 icon -->
       <f-svg-icon
         v-if="clear"
         class="f-input__clear-btn"
@@ -73,8 +92,21 @@
         :size="14"
         @click="handleClear"
       />
+
+      <!-- 查看密码 -->
+      <f-svg-icon
+        v-if="type === 'password' && showPassword"
+        class="f-input__show-password"
+        :icon="
+          inputType === 'text' ? FIconEyeOutlineVue : FIconEyeOffOutlineVue
+        "
+        :size="14"
+        @mousedown="handleShowPassword('down')"
+        @mouseup="handleShowPassword('up')"
+      />
     </div>
 
+    <!-- 搜索框 -->
     <div v-if="search" class="f-input__search" @click="handleSearch">
       <slot name="searchBtn">
         <f-button type="primary">搜索</f-button>
