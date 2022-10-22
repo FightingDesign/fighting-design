@@ -21,7 +21,7 @@
 </script>
 
 <template>
-  <f-close-btn disabled>
+  <f-close-btn>
     <f-icon-cross />
   </f-close-btn>
 </template>
