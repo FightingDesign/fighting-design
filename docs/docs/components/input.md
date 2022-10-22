@@ -20,6 +20,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+
   const value1 = ref('')
 </script>
 ```
@@ -28,15 +29,34 @@
 
 ## Attributes
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 |
-| ---- | ---- | ---- | ------ | ------ |
-| ``   |      |      | ——     | ——     |
+| 参数                   | 说明                       | 类型                       | 可选值                          | 默认值  |
+| ---------------------- | -------------------------- | -------------------------- | ------------------------------- | ------- |
+| `v-model / modelValue` | 绑定值                     | string                     | ——                              | ——      |
+| `type`                 | 类型                       | string                     | `text` `password`               | text    |
+| `size`                 | 尺寸                       | string                     | `large` `middle` `small` `mini` | middle  |
+| `disabled`             | 是否禁用                   | boolean                    | ——                              | false   |
+| `id`                   | 原生 id 属性               | string                     | ——                              | ——      |
+| `max`                  | 最大值                     | number                     | ——                              | null    |
+| `min`                  | 最小值                     | number                     | ——                              | null    |
+| `max-length`           | 最大输入长度上限           | number                     | ——                              | null    |
+| `autofocus`            | 是否自动获取焦点           | boolean                    | ——                              | false   |
+| `name`                 | 原生 name 属性             | string                     | ——                              | f-input |
+| `placeholder`          | 占位符                     | string                     | ——                              | ——      |
+| `clear`                | 是否可清空                 | boolean                    | ——                              | false   |
+| `search`               | 是否为搜索框               | boolean                    | ——                              | false   |
+| `enter-search`         | 是否按下回车触发搜索       | boolean                    | ——                              | false   |
+| `icon`                 | 自定义前缀 icon            | object (VNode / Component) | ——                              | null    |
+| `on-search`            | 点击搜索触发的回调         | Function                   | ——                              | null    |
+| `on-change`            | 绑定值发生变化时触发的回调 | Function                   | ——                              | null    |
+| `on-blur`              | 失去焦点触发的回调         | Function                   | ——                              | null    |
+| `on-focus`             | 获取焦点触发的回调         | Function                   | ——                              | null    |
+| `on-enter`             | 按下回车触发的回调         | Function                   | ——                              | null    |
 
 ## Slots
 
-| 插槽名称 | 说明说明 |
-| -------- | -------- |
-| ``       |          |
+| 插槽名称    | 说明说明       |
+| ----------- | -------------- |
+| `searchBtn` | 自定义搜索按钮 |
 
 ## Interface
 
