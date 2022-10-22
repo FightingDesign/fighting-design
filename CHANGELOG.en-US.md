@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.7.0-beta.2 (2022-10-22)
+
+- Add `f-input` component
+
 ## 0.7.0-beta.1 (2022-10-21)
 
 **Important Updates**

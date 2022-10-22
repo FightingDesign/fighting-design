@@ -2,8 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- 新增 `f-input` 组件
 - 新增 `f-swap` 组件
+
+## 0.7.0-beta.2 (2022-10-22)
+
+- 新增 `f-input` 组件
 
 ## 0.7.0-beta.1 (2022-10-21)
 
