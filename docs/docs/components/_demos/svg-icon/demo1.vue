@@ -15,7 +15,5 @@
     <f-icon-bluetooth />
   </f-svg-icon>
 
-  <f-svg-icon size="34px">
-    <f-icon-book />
-  </f-svg-icon>
+  <f-svg-icon size="34px" :icon="FIconBook" />
 </template>
