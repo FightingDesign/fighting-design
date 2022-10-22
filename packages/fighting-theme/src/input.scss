@@ -4,9 +4,6 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  // padding: 5px;
-  // box-sizing: border-box;
-  // border-radius: 2px;
   height: 35px;
 
   // 主容器
@@ -47,10 +44,24 @@
     }
   }
 
+  // 搜索
   &__search {
+    cursor: pointer;
+
     .f-button {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+    }
+  }
+
+  // 禁用状态
+  &__disabled {
+    cursor: not-allowed;
+
+    .f-input__clear-btn,
+    .f-input__input {
+      cursor: not-allowed;
+      color: rgb(117, 117, 117);
     }
   }
 }

@@ -1,5 +1,12 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { InputType, InputSizeType } from './interface'
+import type {
+  InputType,
+  InputSizeType,
+  InputFocusInterface,
+  InputChangeInterface,
+  InputSearchInterface,
+  InputEnterInterface
+} from './interface'
 
 export const Props = {
   modelValue: {
@@ -61,19 +68,38 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
+  enterSearch: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   icon: {
     type: Object as PropType<VNode | Component>,
     default: (): null => null
   },
   onSearch: {
-    type: Function,
+    type: Function as PropType<InputSearchInterface>,
+    default: (): null => null
+  },
+  onChange: {
+    type: Function as PropType<InputChangeInterface>,
+    default: (): null => null
+  },
+  onBlur: {
+    type: Function as PropType<InputFocusInterface>,
+    default: (): null => null
+  },
+  onFocus: {
+    type: Function as PropType<InputFocusInterface>,
+    default: (): null => null
+  },
+  onEnter: {
+    type: Function as PropType<InputEnterInterface>,
     default: (): null => null
   }
 } as const
 
 export const Emits = {
-  'update:modelValue': (val: string): string => val,
-  change: (val: string): string => val
+  'update:modelValue': (val: string): string => val
 } as const
 
 export type InputPropsType = ExtractPropTypes<typeof Props>

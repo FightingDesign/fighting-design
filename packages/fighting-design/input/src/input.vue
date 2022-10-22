@@ -10,20 +10,41 @@
   // 输入框输入
   const handleInput = (evt: Event): void => {
     emit('update:modelValue', (evt.target as HTMLInputElement).value)
-    emit('change', (evt.target as HTMLInputElement).value)
+    if (prop.onChange) {
+      prop.onChange((evt.target as HTMLInputElement).value)
+    }
   }
 
   // 点击搜索
-  const handleSearch = (evt: MouseEvent): void => {
+  const handleSearch = (evt: Event): void => {
     if (prop.onSearch) {
       prop.onSearch({ evt, value: prop.modelValue })
+    }
+  }
+
+  // 清空
+  const handleClear = (): void => {
+    if (prop.disabled) return
+    emit('update:modelValue', '')
+  }
+
+  // 按下回车
+  const handleEnter = (evt: Event): void => {
+    const { search, enterSearch, onEnter } = prop
+
+    if (search && enterSearch) {
+      handleSearch(evt)
+    }
+
+    if (onEnter) {
+      onEnter(evt)
     }
   }
 </script>
 
 <template>
   <div class="f-input">
-    <div class="f-input__wrapper">
+    <div :class="['f-input__wrapper', { 'f-input__disabled': disabled }]">
       <f-svg-icon v-if="icon" class="f-input__icon" :icon="icon" :size="13" />
 
       <input
@@ -39,6 +60,9 @@
         :name="name"
         :placeholder="placeholder"
         @input="handleInput"
+        @keyup.enter="handleEnter"
+        @blur="onBlur"
+        @focus="onFocus"
       />
 
       <f-svg-icon
@@ -46,11 +70,14 @@
         class="f-input__clear-btn"
         :icon="FIconCrossVue"
         :size="14"
+        @click="handleClear"
       />
     </div>
 
-    <div v-if="search" class="f-input__search">
-      <f-button type="primary" @click="handleSearch">搜索</f-button>
+    <div v-if="search" class="f-input__search" @click="handleSearch">
+      <slot name="searchBtn">
+        <f-button type="primary">搜索</f-button>
+      </slot>
     </div>
   </div>
 </template>
