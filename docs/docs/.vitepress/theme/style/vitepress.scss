@@ -36,12 +36,16 @@
   }
 
   ul {
-    // list-style: none;
+    list-style: disc;
     padding-left: 0;
 
     li {
       margin-top: 0;
     }
+  }
+
+  ul.f-list {
+    list-style: none;
   }
 
   // 表格
@@ -54,6 +58,7 @@
   tr:nth-child(2n) {
     background-color: transparent;
   }
+
   tr {
     border-top: none;
     border-bottom: 1px solid rgb(231, 230, 230);
