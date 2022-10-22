@@ -51,17 +51,14 @@
   // 表格
   table {
     width: 100%;
-    display: table;
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: block;
   }
 
   th,
   tr:nth-child(2n) {
     background-color: transparent;
-  }
-
-  tr {
-    border-top: none;
-    border-bottom: 1px solid rgb(231, 230, 230);
   }
 
   td,
