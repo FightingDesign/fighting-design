@@ -4,11 +4,14 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: nowrap;
   height: 35px;
+  width: 100%;
 
   // 主容器
   &__wrapper {
     display: inline-flex;
+    flex: 1;
     justify-content: center;
     align-items: center;
     padding: 3px 7px;
@@ -16,6 +19,7 @@
     transition: 0.3s;
     background: #eee;
     height: 100%;
+    // width: 100%;
     border: 1px solid transparent;
 
     .f-input__icon {
@@ -25,6 +29,7 @@
     // 输入框
     .f-input__input {
       height: 100%;
+      width: 100%;
       border: none;
       outline: none;
       background: none;

@@ -60,6 +60,7 @@ export const sidebar = {
         { text: 'Tree 树', link: '/components/tree' },
         { text: 'StickyCard 粘性卡片', link: '/components/sticky-card' },
         { text: 'Rate 评分', link: '/components/rate' },
+        { text: 'Input 输入框', link: '/components/input' }
       ]
     },
     {
@@ -86,7 +87,7 @@ export const sidebar = {
         { text: 'Drawer 抽屉', link: '/components/drawer' },
         { text: 'Tooltip 消息提示', link: '/components/tooltip' },
         { text: 'Popup 弹出窗口', link: '/components/popup' },
-        // { text: 'Swap 切换', link: '/components/swap' }
+        { text: 'Swap 切换', link: '/components/swap' }
       ]
     },
     {
