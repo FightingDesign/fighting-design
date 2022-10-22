@@ -54,6 +54,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      text-align: center;
       width: 80px;
     }
   }

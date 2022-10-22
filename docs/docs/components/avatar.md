@@ -31,28 +31,7 @@
 
 `fit` 属性可以配置头像不同适应容器的方式，详见原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性
 
-<f-space spacing="mini">
-  <div class="avatar-block">
-    <code>fill</code>
-    <f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
-  </div>
-  <div class="avatar-block">
-    <code>contain</code>
-    <f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
-  </div>
-  <div class="avatar-block">
-    <code>cover</code>
-    <f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
-  </div>
-  <div class="avatar-block">
-    <code>none</code>
-    <f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
-  </div>
-  <div class="avatar-block">
-    <code>scale-down</code>
-    <f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
-  </div>
-</f-space>
+<demo1-vue />
 
 ::: details 显示代码
 
@@ -219,6 +198,7 @@ import type {
 </a>
 
 <script setup>
+  import demo1Vue from './_demos/avatar/demo1.vue'
   import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
 </script>
 
@@ -226,11 +206,5 @@ import type {
 .f-avatar,
 .f-avatar-error {
   margin: 5px;
-}
-
-.avatar-block {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 }
 </style>
