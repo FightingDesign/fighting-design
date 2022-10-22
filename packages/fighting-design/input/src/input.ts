@@ -57,8 +57,16 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
+  search: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   icon: {
     type: Object as PropType<VNode | Component>,
+    default: (): null => null
+  },
+  onSearch: {
+    type: Function,
     default: (): null => null
   }
 } as const

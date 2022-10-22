@@ -1,20 +1,25 @@
 @import '../config/const-color.scss';
 
 .f-input {
-  border: 1px solid transparent;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
-  box-sizing: border-box;
-  border-radius: 2px;
-  transition: 0.3s;
-  background: #eee;
+  // padding: 5px;
+  // box-sizing: border-box;
+  // border-radius: 2px;
+  height: 35px;
 
+  // 主容器
   &__wrapper {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    padding: 3px 7px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    background: #eee;
+    height: 100%;
+    border: 1px solid transparent;
 
     .f-input__icon {
       color: #333;
@@ -35,10 +40,17 @@
       cursor: pointer;
       color: rgb(195, 195, 195);
     }
+
+    &:focus-within {
+      background: #fff;
+      border-color: $primary;
+    }
   }
 
-  &:focus-within {
-    background: #fff;
-    border-color: $primary;
+  &__search {
+    .f-button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 }
