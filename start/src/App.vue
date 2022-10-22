@@ -5,14 +5,15 @@
 
 <template>
   <f-input
+    v-for="(item, i) in ['large', 'middle', 'small', 'mini']"
+    :key="i"
     v-model="value1"
     search
-    type="password"
+    :size="item"
     clear
     show-password
     placeholder="请输入...."
-  >
-  </f-input>
+  />
 </template>
 
 <style lang="scss" scoped></style>

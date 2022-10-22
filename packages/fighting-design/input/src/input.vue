@@ -61,7 +61,7 @@
 </script>
 
 <template>
-  <div class="f-input">
+  <div :class="['f-input', { [`f-input__${size}`]: size }]">
     <div :class="['f-input__wrapper', { 'f-input__disabled': disabled }]">
       <f-svg-icon v-if="icon" class="f-input__icon" :icon="icon" :size="13" />
 
@@ -109,7 +109,7 @@
     <!-- 搜索框 -->
     <div v-if="search" class="f-input__search" @click="handleSearch">
       <slot name="searchBtn">
-        <f-button type="primary">搜索</f-button>
+        <f-button type="primary" :size="size">搜索</f-button>
       </slot>
     </div>
   </div>

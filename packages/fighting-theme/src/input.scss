@@ -1,4 +1,5 @@
 @import '../config/const-color.scss';
+@import '../config/const-size.scss';
 
 .f-input {
   display: inline-flex;
@@ -19,7 +20,6 @@
     transition: 0.3s;
     background: #eee;
     height: 100%;
-    // width: 100%;
     border: 1px solid transparent;
 
     .f-input__icon {
@@ -35,6 +35,7 @@
       background: none;
       margin: 0 5px;
       color: #333;
+      font-size: 14px;
     }
 
     // 清楚按钮
@@ -68,6 +69,39 @@
     .f-input__input {
       cursor: not-allowed;
       color: rgb(117, 117, 117);
+    }
+  }
+
+  // 不同尺寸
+  &.f-input__large {
+    height: $large;
+
+    .f-input__input {
+      font-size: 15px;
+    }
+  }
+
+  &.f-input__middle {
+    height: $middle;
+
+    .f-input__input {
+      font-size: 14px;
+    }
+  }
+
+  &.f-input__small {
+    height: $small;
+
+    .f-input__input {
+      font-size: 13px;
+    }
+  }
+
+  &.f-input__mini {
+    height: $mini;
+
+    .f-input__input {
+      font-size: 12px;
     }
   }
 }
