@@ -68,6 +68,10 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
+  readonly: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   enterSearch: {
     type: Boolean,
     default: (): boolean => false

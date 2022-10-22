@@ -1,10 +1,16 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
-  const value1 = ref('')
+  const value1 = ref('22222222')
 </script>
 
 <template>
-  <f-input v-model="value1" search type="text" placeholder="请输入....">
+  <f-input
+    v-model="value1"
+    search
+    type="text"
+    readonly
+    placeholder="请输入...."
+  >
   </f-input>
 </template>
 

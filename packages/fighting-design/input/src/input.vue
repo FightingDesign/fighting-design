@@ -56,6 +56,7 @@
         :maxlength="maxLength"
         :value="modelValue"
         :disabled="disabled"
+        :readonly="readonly"
         :autofocus="autofocus"
         :name="name"
         :placeholder="placeholder"
