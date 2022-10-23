@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, VNode } from 'vue'
 import type { SwapSizeType, SwapType } from './interface'
 
 export const Props = {
@@ -16,28 +16,20 @@ export const Props = {
   },
   type: {
     type: String as PropType<SwapType>,
-    default: (): SwapType => 'sound',
+    default: (): SwapType => 'f--default',
     validator: (val: SwapType): boolean => {
       return (
-        ['sound', 'theme', 'rotate', 'flip', 'favorites'] as const
+        ['f--sound', 'f--swap', 'f--default'] as const
       ).includes(val)
     }
   },
-  sound: {
-    type: String,
-    default: (): string => ''
+  iconOn: {
+    type: Object as PropType<VNode>,
+    default: (): null => null
   },
-  theme: {
-    type: String,
-    default: (): string => ''
-  },
-  unfold: {
-    type: String,
-    default: (): string => ''
-  },
-  favorites: {
-    type: String,
-    default: (): string => ''
+  iconOff: {
+    type: Object as PropType<VNode>,
+    default: (): null => null
   }
 } as const
 

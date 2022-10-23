@@ -7,6 +7,38 @@
   align-items: center;
   cursor: pointer;
 
+  .f--default-on {
+    transform: rotate(0deg);
+    transition-duration: .3s;
+  }
+
+  .f--default-off {
+    transform: rotate(0deg);
+    transition-duration: .3s;
+  }
+
+  .f--sound-on {
+    transform: rotate(80deg);
+    transition-duration: .3s;
+  }
+
+  .f--sound-off {
+    transform: rotate(0deg);
+    transition-duration: .3s;
+  }
+
+  .f--swap-on {
+    transition-duration: .3s;
+    transform: rotateY(180deg);
+    opacity: 1;
+  }
+
+  .f--swap-off {
+    transition-duration: .3s;
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+
   .f-swap-off {
     z-index: 5;
     height: auto !important;
@@ -14,34 +46,9 @@
     @each $key,
     $value in $switchSize {
       &.f-swap-#{$key} {
-        width: $value * 2;
-        height: $value;
         font-size: $value * 2;
-        transition-duration: .3s;
+        vertical-align: bottom !important;
       }
     }
-
-    .swap-on {
-      transition-duration: .3s;
-      transform: rotateY(180deg);
-      opacity: 1;
-    }
-
-    .swap-off {
-      transition-duration: .3s;
-      transform: rotateY(0deg);
-      opacity: 1;
-    }
-
-    .sound-on {
-      transform: rotate(80deg);
-      transition-duration: .3s;
-    }
-
-    .sound-off {
-      transform: rotate(0deg);
-      transition-duration: .3s;
-    }
-
   }
 }
