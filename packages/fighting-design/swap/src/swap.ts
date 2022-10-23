@@ -18,9 +18,7 @@ export const Props = {
     type: String as PropType<SwapType>,
     default: (): SwapType => 'f--default',
     validator: (val: SwapType): boolean => {
-      return (
-        ['f--sound', 'f--swap', 'f--default'] as const
-      ).includes(val)
+      return (['f--sound', 'f--swap', 'f--default'] as const).includes(val)
     }
   },
   iconOn: {

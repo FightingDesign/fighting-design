@@ -154,10 +154,6 @@
     "zijin"
   ],
   "[vue]": {
-    "editor.defaultFormatter": "octref.vetur"
-  },
-  "nuxt.isNuxtApp": false,
-  "[markdown]": {
-    "editor.defaultFormatter": "darkriszty.markdown-table-prettify"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
