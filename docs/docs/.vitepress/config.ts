@@ -13,6 +13,13 @@ export default defineConfig({
         rel: 'icon',
         href: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
       }
+    ],
+    [
+      'meta',
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1.0,user-scalable=no'
+      }
     ]
   ],
   description,
