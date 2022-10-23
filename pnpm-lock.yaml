@@ -64,9 +64,9 @@ importers:
       highlight.js: ^11.6.0
       markdown-it: ^13.0.1
       markdown-it-container: ^3.0.0
-      vitepress: 1.0.0-alpha.20
+      vitepress: 1.0.0-alpha.22
     dependencies:
-      vitepress: 1.0.0-alpha.20
+      vitepress: 1.0.0-alpha.22
     devDependencies:
       highlight.js: 11.6.0
       markdown-it: 13.0.1
@@ -4377,8 +4377,8 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitepress/1.0.0-alpha.20:
-    resolution: {integrity: sha512-8WXPQbWsoAckdS9FqhZ8MQWLDhq6DQG8dhuEtwsZmPMYtl/ezRYWoV/8gJD0T0xUbz6O6vJ8Sddq7OvEwLFUFA==}
+  /vitepress/1.0.0-alpha.22:
+    resolution: {integrity: sha512-IWqnAxMDNaiyl6Bz+/79l40Ho6xsjrqxRp/WZw0+5BXR0BTZbmHyhGtI3XrH6oSn8MisLPjCccikaj3mcmCoWg==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.2.1
