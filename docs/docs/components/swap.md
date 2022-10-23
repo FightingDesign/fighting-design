@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { FIconSoundUp,FIconSoundMute, } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
   const value1 = ref(true)
   const value2 = ref(false)
@@ -42,6 +43,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { FIconSun,FIconMoon, } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
   const value3 = ref(false)
 </script>
@@ -66,6 +68,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { FIconSun,FIconMoon,FIconFaceFrown,FIconFaceSmile,FIconEye,FIconEyeSlash } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
   const value4 = ref(true)
   const value5 = ref(true)
@@ -89,6 +92,7 @@
 </template>
 
 <script lang="ts" setup>
+    import { FIconSun,FIconMoon,FIconFaceFrown,FIconFaceSmile} from '@fighting-design/
   import { ref } from 'vue'
   const value7 = ref(true)
   const value8 = ref(true)
