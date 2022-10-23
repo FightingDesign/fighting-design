@@ -5,19 +5,19 @@
 ## 基本使用
 
 `Swap` 的基本使用，需要使用 `v-model` 绑定一个值
-
-<f-swap v-model="value1" />
-<f-swap v-model="value2" />
+<f-swap v-model="value1" :icon-on="FIconSoundUp"  :icon-off="FIconSoundMute"/>
+<f-swap v-model="value2" :icon-on="FIconSoundUp"  :icon-off="FIconSoundMute" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-swap v-model="value1" />
-  <f-swap v-model="value2" />
+  <f-swap v-model="value1"  :icon-on="FIconSun" :icon-off="FIconMoon"/>
+  <f-swap v-model="value2"  :icon-on="FIconSun" :icon-off="FIconMoon"/>
 </template>
 
 <script lang="ts" setup>
+  import { FIconSoundUp,FIconSoundMute, } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
   const value1 = ref(true)
   const value2 = ref(false)
@@ -29,21 +29,21 @@
 ## 不同大小
 
 `size` 属性可以配置不同大小的 `swap`
-
-  <f-swap v-model="value3" size="large" />
-  <f-swap v-model="value3" size="middle" />
-  <f-swap v-model="value3" size="small" />
+  <f-swap v-model="value3" type='f--sound' size="large" :icon-on="FIconSun" :icon-off="FIconMoon" />
+  <f-swap v-model="value3" type='f--sound' size="middle" :icon-on="FIconSun" :icon-off="FIconMoon" />
+  <f-swap v-model="value3" type='f--sound' size="small"  :icon-on="FIconSun" :icon-off="FIconMoon"/>
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-swap v-model="value3" size="large" />
-  <f-swap v-model="value3" size="middle" />
-  <f-swap v-model="value3" size="small" />
+  <f-swap v-model="value3" type='f--sound' size="large" :icon-on="FIconSun" :icon-off="FIconMoon" />
+  <f-swap v-model="value3" type='f--sound' size="middle" :icon-on="FIconSun" :icon-off="FIconMoon" />
+  <f-swap v-model="value3" type='f--sound' size="small"  :icon-on="FIconSun" :icon-off="FIconMoon"/>
 </template>
 
 <script lang="ts" setup>
+  import { FIconSun,FIconMoon, } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
   const value3 = ref(false)
 </script>
@@ -53,47 +53,49 @@
 
 ## 不同类型
 
-`type` 属性可以配置不同类型的 `swap`
-<f-swap v-model="value4" size="middle" type="sound" />
-<f-swap v-model="value5" size="middle" type="theme"/>
-<f-swap v-model="value6" size="middle" type="flip" />
-<f-swap v-model="value7" size="middle" type="favorites" />
+`icon-on、icon-off` 属性可以配置不同类型的 `swap`
+<f-swap v-model="value4" size="middle" type='f--sound'  :icon-on="FIconSun" :icon-off="FIconMoon" :cartoon="sound" />
+<f-swap v-model="value5" size="middle" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown"/>
+<f-swap v-model="value6" size="middle" :icon-on="FIconEye" :icon-off="FIconEyeSlash"/>
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-swap v-model="value4" size="middle" type="sound" />
-  <f-swap v-model="value5" size="middle" type="theme" />
-  <f-swap v-model="value6" size="middle" type="flip" />
-  <f-swap v-model="value7" size="middle" type="favorites" />
+<f-swap v-model="value4" size="middle" :icon-on="FIconSun" :icon-off="FIconMoon" :cartoon="sound" />
+<f-swap v-model="value5" size="middle" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown"/>
+<f-swap v-model="value6" size="middle" :icon-on="FIconEye" :icon-off="FIconEyeSlash"/>
 </template>
 
 <script lang="ts" setup>
+  import { FIconSun,FIconMoon,FIconFaceFrown,FIconFaceSmile,FIconEye,FIconEyeSlash } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
   const value4 = ref(true)
   const value5 = ref(true)
   const value6 = ref(true)
-  const value7 = ref(true)
 </script>
 ```
 
 :::
 
-## 图标转换
+## 不同动画
 
-`type` 属性可以配置不同类型的 `swap`
-<f-swap v-model="value9" size="middle" type="rotate" />
+`type` 属性可以配置不同的动画类型
+<f-swap v-model="value7" size="middle" type='f--sound' :icon-on="FIconSun" :icon-off="FIconMoon" />
+<f-swap v-model="value8" size="middle" type='f--swap'  :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown"/>
 ::: details 显示代码
 
 ```html
 <template>
-  <f-swap v-model="value9" size="middle" type="rotate" />
+<f-swap v-model="value7" size="middle" type='f--sound' :icon-on="FIconSun" :icon-off="FIconMoon" />
+<f-swap v-model="value8" size="middle" type='f--swap'  :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown"/>
 </template>
 
 <script lang="ts" setup>
+    import { FIconSun,FIconMoon,FIconFaceFrown,FIconFaceSmile} from '@fighting-design/
   import { ref } from 'vue'
-  const value9 = ref(true)
+  const value7 = ref(true)
+  const value8 = ref(true)
 </script>
 ```
 
@@ -101,12 +103,13 @@
 
 ## Attributes
 
-| 参数      | 说明     | 类型   | 可选值                                      | 默认值 |
-| --------- | -------- | ------ | ------------------------------------------- | ------ |
-| `v-model` | 绑定值   | string | ——                                          | false  |
-| `size`    | 组件尺寸 | string | `large` `middle` `small`                    | middle |
-| `type`    | 类型     | string | `sound` `theme` `rotate` `flip` `favorites` | sound  |
-
+| 参数       | 说明           | 类型   | 可选值                            | 默认值     |
+|------------|--------------|--------|-----------------------------------|------------|
+| `v-model`  | 绑定值         | string | ——                                | false      |
+| `size`     | 组件尺寸       | string | `large` `middle` `small`          | middle     |
+| `type`     | 动画类型       | string | `f--sound` `f--swap` `f--default` | f--default |
+| `icon-on`  | 图表类型状态一 | string | `必传值`                          | ——         |
+| `icon-off` | 图表类型状态二 | string | `必传值`                          | ——         |
 ## Interface
 
 组件导出以下类型定义：
@@ -129,16 +132,25 @@ import type {
 </a>
 
 <script lang="ts" setup>
+  import { 
+   FIconSoundUp,
+   FIconSoundMute,
+   FIconSun,
+   FIconMoon,
+   FIconFaceSmile,
+   FIconFaceFrown,
+   FIconEye,
+   FIconEyeSlash
+   } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
   const value1 = ref(true)
   const value2 = ref(false)
-  const value3 = ref(false)
+  const value3 = ref(true)
   const value4 = ref(true)
   const value5 = ref(true)
   const value6 = ref(true)
   const value7 = ref(true)
   const value8 = ref(true)
-  const value9 = ref(true)
 </script>
 
 <style scoped>
