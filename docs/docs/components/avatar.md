@@ -122,13 +122,15 @@
 
 或者使用 `error` 插槽展示
 
-<f-avatar src="https://123.cn/images/auto/my.jpg" />
-<f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
-<f-avatar src="https://123.cn/images/auto/my.jpg">
-  <template v-slot:error>
-    <f-text type="danger" bold>失败了</f-text>
-  </template>
-</f-avatar>
+<f-space>
+  <f-avatar src="https://123.cn/images/auto/my.jpg" />
+  <f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
+  <f-avatar src="https://123.cn/images/auto/my.jpg">
+    <template v-slot:error>
+      <f-text type="danger" bold>失败了</f-text>
+    </template>
+  </f-avatar>
+</f-space>
 
 ::: details 显示代码
 
