@@ -130,7 +130,7 @@
         rotate.value += 90
       },
       '5': (): void => {
-        rotate.value += 90
+        rotate.value -= 90
       }
     } as g
 
