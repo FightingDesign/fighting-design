@@ -8,7 +8,7 @@
   const openEnd = (): void => FMessage('打开动画结束')
 
   const close = (): void => FMessage('关闭动画开始')
-  const closeEnd = (): void => FMessage('打开动画结束')
+  const closeEnd = (): void => FMessage('关闭动画结束')
 </script>
 
 <template>
