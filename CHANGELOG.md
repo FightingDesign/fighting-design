@@ -3,6 +3,7 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - 新增 `f-swap` 组件
+- 修复 `f-image-preview` 组件预览旋转方向错误的问题
 
 ## 0.7.0-beta.2 (2022-10-22)
 
