@@ -1,5 +1,5 @@
-import type { PropType, ExtractPropTypes, VNode } from 'vue'
-import type { SwapSizeType, SwapType } from './interface'
+import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { SwapType, SwapOnChangeInterface } from './interface'
 
 export const Props = {
   modelValue: {
@@ -8,32 +8,32 @@ export const Props = {
     require: true
   },
   size: {
-    type: String as PropType<SwapSizeType>,
-    default: (): SwapSizeType => 'small',
-    validator: (val: SwapSizeType): boolean => {
-      return (['large', 'middle', 'small'] as const).includes(val)
-    }
+    type: [String, Number] as PropType<string | number>,
+    default: (): number => 40
   },
   type: {
     type: String as PropType<SwapType>,
-    default: (): SwapType => 'f--default',
+    default: (): SwapType => 'default',
     validator: (val: SwapType): boolean => {
-      return (['f--sound', 'f--swap', 'f--default'] as const).includes(val)
+      return (['sound', 'swap', 'default'] as const).includes(val)
     }
   },
   iconOn: {
-    type: Object as PropType<VNode>,
+    type: Object as PropType<VNode | Component>,
     default: (): null => null
   },
   iconOff: {
-    type: Object as PropType<VNode>,
+    type: Object as PropType<VNode | Component>,
+    default: (): null => null
+  },
+  onChange: {
+    type: Function as PropType<SwapOnChangeInterface>,
     default: (): null => null
   }
 } as const
 
 export const Emits = {
-  'update:modelValue': (target: boolean): boolean => target,
-  change: (target: boolean): boolean => target
+  'update:modelValue': (target: boolean): boolean => target
 } as const
 
 export type SwapPropsType = ExtractPropTypes<typeof Props>

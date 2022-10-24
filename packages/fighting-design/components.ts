@@ -252,5 +252,5 @@ export type InputInstance = InstanceType<typeof Input>
 
 export { FSwap } from './swap'
 import type { default as Swap } from './swap'
-export type { SwapPropsType } from './swap/src/interface'
+export type { SwapPropsType, SwapType, SwapOnChangeInterface } from './swap/src/interface'
 export type SwapInstance = InstanceType<typeof Swap>
