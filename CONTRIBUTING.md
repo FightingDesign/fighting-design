@@ -80,7 +80,7 @@ pnpm dev:docs
 - [fighting-design](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/README.md) 组件源文件目录
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) 样式主题目录
 - [add-component](https://github.com/FightingDesign/fighting-design/blob/master/packages/add-component/README.md) 创建新组件
-- [eslint-config](https://github.com/FightingDesign/fighting-design/tree/master/packages/eslint-config/README.md) `Eslint` 配置项
+- [eslint-config](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-eslint-config/README.md) `Eslint` 配置项
 - [docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md) 文档编写规范
 
 ## 🛸 提交规范
