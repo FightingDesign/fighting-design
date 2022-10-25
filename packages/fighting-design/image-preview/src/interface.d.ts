@@ -1,15 +1,12 @@
 export type { ImagePreviewPropsType } from './image-preview'
+import type { ToolbarClickEmitInterface } from '../../toolbar/src/interface'
 
 export interface ImagePreviewSwitchImageInterface {
   (type: 'next' | 'prev'): void
 }
 
-export interface ImagePreviewOptionClickTargetKey {
-  key: string
-}
-
 export interface ImagePreviewOptionClickInterface {
-  ({ key }: { key: string }): void
+  (target: ToolbarClickEmitInterface): void
 }
 
 export interface ImagePreviewOnImgMousewheelInterface {

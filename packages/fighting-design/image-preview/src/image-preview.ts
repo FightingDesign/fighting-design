@@ -1,13 +1,13 @@
 import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
-  imgList: {
-    type: Array as PropType<string[]>,
-    default: (): string[] => []
-  },
   visible: {
     type: Boolean,
     default: (): boolean => false
+  },
+  imgList: {
+    type: Array as PropType<string[]>,
+    default: (): string[] => []
   },
   modalClose: {
     type: Boolean,
@@ -38,6 +38,10 @@ export const Props = {
   round: {
     type: String,
     default: (): string => ''
+  },
+  close: {
+    type: Function,
+    default: (): null => null
   }
 } as const
 

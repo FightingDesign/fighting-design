@@ -1,36 +1,17 @@
 <script lang="ts" setup>
-  import {
-    FIconSun,
-    FIconMoon,
-    FIconFaceSmile,
-    FIconFaceFrown,
-    FIconEye,
-    FIconEyeSlash
-  } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
-  const value5 = ref(true)
-  const value6 = ref(true)
-  const value7 = ref(true)
+  const show1 = ref(false)
+
+  const listImg = [
+    'https://tianyuhao.cn/images/auto/1.jpg',
+    'https://tianyuhao.cn/images/auto/2.jpg',
+    'https://tianyuhao.cn/images/auto/3.jpg',
+    'https://tianyuhao.cn/images/auto/4.jpg'
+  ]
 </script>
 
 <template>
-  <f-swap
-    v-model="value5"
-    type="default"
-    :icon-on="FIconEye"
-    :icon-off="FIconEyeSlash"
-  />
-  <f-swap
-    v-model="value6"
-    type="sound"
-    :icon-on="FIconSun"
-    :icon-off="FIconMoon"
-  />
-  <f-swap
-    v-model="value7"
-    type="swap"
-    :icon-on="FIconFaceSmile"
-    :icon-off="FIconFaceFrown"
-  />
+  <f-button type="primary" @click="show1 = true">打开</f-button>
+  <f-image-preview v-model:visible="show1" :img-list="listImg" />
 </template>

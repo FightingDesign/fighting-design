@@ -1,45 +1,33 @@
-// 预览图
 .f-image-preview {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3);
-  user-select: none;
-
-  .right-button,
-  .left-button,
-  .close-button {
-    width: 40px;
-    height: 50px;
-    border-radius: 50%;
-    position: absolute;
+  &__next,
+  &__prev,
+  &__close {
+    position: fixed;
     margin: auto;
     z-index: 200;
   }
 
-  .left-button {
+  &__prev {
     left: 30px;
     top: 0;
     bottom: 0;
   }
 
-  .right-button {
+  &__next {
     right: 30px;
     top: 0;
     bottom: 0;
   }
 
-  .close-button {
+  &__close {
     right: 30px;
     top: 30px;
   }
 
   // 操作栏
-  .option-toolbar {
+  &__option {
     width: 370px;
-    position: absolute;
+    position: fixed;
     right: 0;
     left: 0;
     bottom: 25px;
@@ -61,14 +49,4 @@
     max-width: 100%;
     transition: 0.2s;
   }
-}
-
-.f-image-preview-enter-active,
-.f-image-preview-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.f-image-preview-enter-from,
-.f-image-preview-leave-to {
-  opacity: 0;
 }

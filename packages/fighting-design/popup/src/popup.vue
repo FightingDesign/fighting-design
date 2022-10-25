@@ -15,19 +15,19 @@
   }
 
   const handleOpen: b = (evt: MouseEvent): void => {
-    emit('open', evt)
+    prop.open && prop.open(evt)
   }
 
   const handleOpenEnd: b = (evt: MouseEvent): void => {
-    emit('open-end', evt)
+    prop.openEnd && prop.openEnd(evt)
   }
 
   const handleClose: b = (evt: MouseEvent): void => {
-    emit('close', evt)
+    prop.close && prop.close(evt)
   }
 
   const handleCloseEnd: b = (evt: MouseEvent): void => {
-    emit('close-end', evt)
+    prop.closeEnd && prop.closeEnd(evt)
   }
 
   const wrapperStyleList: ComputedRef<CSSProperties> = computed(

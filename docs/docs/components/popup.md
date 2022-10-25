@@ -72,15 +72,10 @@
 | `direction`       | 弹出方向             | string          | `left` `right` <br /> `top` `bottom` `center` | center           |
 | `popupSize`       | 弹出窗口尺寸         | string / number | ——                                            | ——               |
 | `padding`         | 自定义内边距         | string / number | ——                                            | ——               |
-
-## Events
-
-| 事件名称    | 说明               |
-| ----------- | ------------------ |
-| `open`      | 打开动画开始的回调 |
-| `open-end`  | 打开动画结束的回调 |
-| `close`     | 关闭动画开始的回调 |
-| `close-end` | 关闭动画结束的回调 |
+| `open`            | 打开动画开始的回调   | Function        | ——                                            | null             |
+| `open-end`        | 打开动画结束的回调   | Function        | ——                                            | null             |
+| `close`           | 关闭动画开始的回调   | Function        | ——                                            | null             |
+| `close-end`       | 关闭动画结束的回调   | Function        | ——                                            | null             |
 
 ## Slots
 

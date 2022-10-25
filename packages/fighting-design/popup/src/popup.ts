@@ -51,15 +51,27 @@ export const Props = {
   padding: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
+  },
+  open: {
+    type: Function,
+    default: (): null => null
+  },
+  close: {
+    type: Function,
+    default: (): null => null
+  },
+  openEnd: {
+    type: Function,
+    default: (): null => null
+  },
+  closeEnd: {
+    type: Function,
+    default: (): null => null
   }
 } as const
 
 export const Emits = {
-  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean',
-  open: (event: MouseEvent): MouseEvent => event,
-  close: (event: MouseEvent): MouseEvent => event,
-  'open-end': (event: MouseEvent): MouseEvent => event,
-  'close-end': (event: MouseEvent): MouseEvent => event
+  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean'
 } as const
 
 export type PopupPropsType = ExtractPropTypes<typeof Props>
