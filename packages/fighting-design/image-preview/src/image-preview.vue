@@ -30,7 +30,6 @@
 
   const { scale, rotate, smaller, bigger, onImgMousewheel, recovery } =
     useOperationImg()
-
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
   const previewShowIndex: Ref<number> = ref<number>(
     prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex
@@ -45,7 +44,6 @@
   watch(
     (): boolean => isVisible.value,
     (newVal: boolean): void => {
-      // 监视 isVisible，如果变为假，则关闭
       if (!newVal) {
         handleClose()
       }
@@ -65,7 +63,6 @@
 
     imgList.forEach((item: string): void => {
       const img: HTMLImageElement = new Image() as HTMLImageElement
-      console.log(img)
       img.src = item
     })
   }
