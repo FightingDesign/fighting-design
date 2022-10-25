@@ -9,8 +9,4 @@ export interface ImagePreviewOptionClickInterface {
   (target: ToolbarClickEmitInterface): void
 }
 
-export interface ImagePreviewOnImgMousewheelInterface {
-  (evt: WheelEvent): void
-}
-
 export type OptionFunInterface = Record<string, Function>

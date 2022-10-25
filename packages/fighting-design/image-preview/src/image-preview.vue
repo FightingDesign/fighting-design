@@ -4,7 +4,6 @@
   import { FButton } from '../../button'
   import { FToolbar } from '../../toolbar'
   import { FToolbarItem } from '../../toolbar-item'
-  import { keepDecimal } from '../../_utils'
   import { FPopup } from '../../popup'
   import {
     FIconChevronLeftVue,
@@ -16,11 +15,11 @@
     FIconZoomInVue,
     FIconZoomOutVue
   } from '../../_components/svg/index'
+  import { useOperationImg } from '../../_hooks'
   import type { Ref } from 'vue'
   import type {
     ImagePreviewSwitchImageInterface as a,
     ImagePreviewOptionClickInterface as b,
-    ImagePreviewOnImgMousewheelInterface as c,
     OptionFunInterface as g
   } from './interface'
   import type { OrdinaryFunctionInterface as f } from '../../_interface'
@@ -29,9 +28,10 @@
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
 
+  const { scale, rotate, smaller, bigger, onImgMousewheel, recovery } =
+    useOperationImg()
+
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
-  const scale: Ref<number> = ref<number>(1)
-  const rotate: Ref<number> = ref<number>(0)
   const previewShowIndex: Ref<number> = ref<number>(
     prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex
   )
@@ -68,38 +68,6 @@
       console.log(img)
       img.src = item
     })
-  }
-
-  // 做小
-  const smaller: f = (): void => {
-    if (keepDecimal(scale.value, 1) <= 0.2) {
-      return
-    }
-    scale.value -= 0.2
-  }
-
-  // 放大
-  const bigger: f = (): void => {
-    if (scale.value >= 10) {
-      return
-    }
-    scale.value += 0.2
-  }
-
-  // 滚轮缩放
-  const onImgMousewheel: c = (evt: WheelEvent): void => {
-    evt.preventDefault()
-    if (evt.deltaY > 1) {
-      smaller()
-      return
-    }
-    bigger()
-  }
-
-  // 还原图片
-  const recovery: f = (): void => {
-    scale.value = 1
-    rotate.value = 0
   }
 
   // 左右切换按钮
