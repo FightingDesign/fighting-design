@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { PopupDirectionType } from './interface'
+import type { PopupDirectionType, PopupCallbackInterface } from './interface'
 
 export const Props = {
   visible: {
@@ -53,19 +53,19 @@ export const Props = {
     default: (): string => ''
   },
   open: {
-    type: Function,
+    type: Function as PropType<PopupCallbackInterface>,
     default: (): null => null
   },
   close: {
-    type: Function,
+    type: Function as PropType<PopupCallbackInterface>,
     default: (): null => null
   },
   openEnd: {
-    type: Function,
+    type: Function as PropType<PopupCallbackInterface>,
     default: (): null => null
   },
   closeEnd: {
-    type: Function,
+    type: Function as PropType<PopupCallbackInterface>,
     default: (): null => null
   }
 } as const
