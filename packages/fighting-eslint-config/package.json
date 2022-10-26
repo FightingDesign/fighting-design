@@ -1,6 +1,6 @@
 {
   "name": "@fighting-design/eslint-config",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Fighting design out of the box eslint configuration item.",
   "main": "index.js",
   "scripts": {

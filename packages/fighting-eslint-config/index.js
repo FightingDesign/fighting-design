@@ -242,6 +242,8 @@ module.exports = {
     }],
     // props 必须定义详细的类型 https://eslint.vuejs.org/rules/require-prop-types.html
     'vue/require-prop-types': 'error',
+    // 支持＜template＞中的注释指令 https://eslint.vuejs.org/rules/comment-directive.html
+    'vue/comment-directive': 'off',
     /**
      * typescript 规则配置
      * https://typescript-eslint.io/rules/
