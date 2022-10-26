@@ -1,17 +1,5 @@
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<script lang="ts" setup></script>
 
-  const show1 = ref(false)
+<template></template>
 
-  const listImg = [
-    'https://tianyuhao.cn/images/auto/1.jpg',
-    'https://tianyuhao.cn/images/auto/2.jpg',
-    'https://tianyuhao.cn/images/auto/3.jpg',
-    'https://tianyuhao.cn/images/auto/4.jpg'
-  ]
-</script>
-
-<template>
-  <f-button type="primary" @click="show1 = true">打开</f-button>
-  <f-image-preview v-model:visible="show1" :img-list="listImg" />
-</template>
+<style lang="scss" scoped></style>

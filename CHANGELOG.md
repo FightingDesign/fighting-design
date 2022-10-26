@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.7.1-alpha.2 (2022-10-26)
+
+- 优化组件打包后的类型
+
 ## 0.7.1-alpha.1 (2022-10-25)
 
 - 新增 `f-swap` 组件

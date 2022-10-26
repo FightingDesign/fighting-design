@@ -10,7 +10,7 @@ import FightingDesign from '../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 
 // 打包阶段引入
-// import { FButton, FDialog } from '../../dist'
+// import FightingDesign from '../../dist'
 // import '../dist/dist/index.css'
 
 console.log(FightingDesign)

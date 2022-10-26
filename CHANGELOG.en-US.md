@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.7.1-alpha.2 (2022-10-26)
+
+- Optimize the type of packaged components
+
 ## 0.7.1-alpha.1 (2022-10-25)
 
 - Add `f-swap` component
