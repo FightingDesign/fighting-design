@@ -30,7 +30,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "vue": "3.2.26"
   },
   "devDependencies": {
     "@fighting-design/eslint-config": "workspace:*",
