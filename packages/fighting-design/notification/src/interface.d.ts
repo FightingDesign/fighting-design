@@ -1,5 +1,3 @@
-export type { NotificationPropsType } from './notification'
-
 export type { NotificationInstance } from '../../_interface'
 
 export type NotificationType = 'default' | 'primary' | 'success' | 'danger' | 'warning'

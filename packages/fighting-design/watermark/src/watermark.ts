@@ -1,4 +1,3 @@
-import type { ExtractPropTypes } from 'vue'
 import type { PropType } from 'vue'
 
 export const Props = {
@@ -35,5 +34,3 @@ export const Props = {
     default: (): number => 100
   }
 } as const
-
-export type WatermarkPropsType = ExtractPropTypes<typeof Props>

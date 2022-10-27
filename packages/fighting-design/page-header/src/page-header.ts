@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
+import type { PropType, VNode, Component } from 'vue'
 
 export const Props = {
   icon: {
@@ -38,5 +38,3 @@ export const Props = {
 export const Emits = {
   back: (): boolean => true
 } as const
-
-export type PageHeaderPropsType = ExtractPropTypes<typeof Props>

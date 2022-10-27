@@ -1,10 +1,8 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   padding: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '0'
+    default: (): number => 0
   }
 } as const
-
-export type MainPropsType = ExtractPropTypes<typeof Props>

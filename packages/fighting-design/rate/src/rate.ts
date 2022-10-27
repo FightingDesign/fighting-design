@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { PropType, VNode, Component } from 'vue'
 
 export const Props = {
   modelValue: {
@@ -53,5 +53,3 @@ export const Emits = {
   change: (val: number): number => val,
   'update:modelValue': (val: number): number => val
 } as const
-
-export type RatePropsType = ExtractPropTypes<typeof Props>

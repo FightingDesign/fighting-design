@@ -1,5 +1,3 @@
-export type { RatePropsType } from './rate'
-
 export interface OnMouseoverInterface {
   (index: number): void
 }

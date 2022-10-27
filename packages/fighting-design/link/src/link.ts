@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { PropType, VNode, Component } from 'vue'
 import type { LinkType, LinkTargetType, LinkHoverType } from './interface'
 
 export const Props = {
@@ -62,5 +62,3 @@ export const Props = {
 export const Emits = {
   click: (evt: Event): Event => evt
 } as const
-
-export type LinkPropsType = ExtractPropTypes<typeof Props>

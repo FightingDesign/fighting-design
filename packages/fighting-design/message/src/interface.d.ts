@@ -1,5 +1,3 @@
-export type { MessagePropsType } from './message'
-
 export type { MessageInstance } from '../../_interface'
 
 export type MessageType = 'default' | 'primary' | 'success' | 'danger' | 'warning'

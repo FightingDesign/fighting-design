@@ -1,5 +1,5 @@
 import { isNumber, isString, isBoolean } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { RadioLabelType } from '../../radio-group/src/interface'
 
 export const Props = {
@@ -29,5 +29,3 @@ export const Emits = {
     return isString(val) || isNumber(val) || isBoolean(val)
   }
 } as const
-
-export type RadioPropsType = ExtractPropTypes<typeof Props>

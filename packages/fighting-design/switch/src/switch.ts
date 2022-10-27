@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes, VNode } from 'vue'
+import type { PropType, VNode } from 'vue'
 import type { SwitchSizeType } from './interface'
 
 export const Props = {
@@ -48,5 +48,3 @@ export const Emits = {
   'update:modelValue': (target: boolean): string => String(target),
   'change': (target: boolean): string => String(target)
 } as const
-
-export type SwitchPropsType = ExtractPropTypes<typeof Props>
