@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { CalendarEmitInterface, CalendarMemorandumType } from './interface'
 
 export const Props = {
@@ -41,5 +41,3 @@ export const Emits = {
   'change-date': (date: CalendarEmitInterface): CalendarEmitInterface => date,
   'change-switch': (date: CalendarEmitInterface): CalendarEmitInterface => date
 } as const
-
-export type CalendarPropsType = ExtractPropTypes<typeof Props>

@@ -4,7 +4,7 @@
   import { FIconLoadingAVue } from '../../_components/svg/index'
   import { Props, Emits } from './button'
   import { Ripples, ChangeColor, sizeChange } from '../../_utils'
-  import type { ComputedRef, Ref, CSSProperties } from 'vue'
+  import type { ComputedRef, Ref } from 'vue'
   import type {
     HandleEventInterface as a,
     ClassListInterface as b
@@ -83,10 +83,10 @@
   }
 
   // 样式列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList: ComputedRef<object> = computed((): object => {
     const { fontSize, fontColor, shadow, color } = prop
 
-    const style: CSSProperties = {
+    const style = {
       '--f-button-font-size': sizeChange(fontSize),
       '--f-button-font-color': fontColor,
       '--f-button-box-shadow': shadow

@@ -1,5 +1,3 @@
-export type { AvatarPropsType } from './avatar'
-
 export type AvatarFitType =
   | 'fill'
   | 'contain'

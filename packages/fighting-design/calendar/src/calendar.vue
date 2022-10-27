@@ -6,7 +6,7 @@
   import { addZero, sizeChange } from '../../_utils'
   import { WEEK_DATA } from '../../_model/calendar/data'
   import { diffDay } from '../../_model/calendar/diff-day'
-  import type { Ref, ComputedRef, CSSProperties } from 'vue'
+  import type { Ref, ComputedRef } from 'vue'
   import type {
     CalendarMowDataClassListInterface as c,
     CalendarOptionClickInterface as d,
@@ -77,7 +77,7 @@
     } as const)
   }
 
-  const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const classList: ComputedRef<object> = computed((): object => {
     const { borderColor, dayCellHeight, weekCellHeight } = prop
 
     return {

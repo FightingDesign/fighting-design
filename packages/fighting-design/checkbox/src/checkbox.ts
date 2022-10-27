@@ -1,4 +1,3 @@
-import type { ExtractPropTypes } from 'vue'
 import type { CheckboxLabelType } from './interface'
 
 export const Props = {
@@ -25,5 +24,3 @@ export const Emits = {
     return typeof val === 'string' || typeof val === 'number' || typeof val === 'boolean'
   }
 } as const
-
-export type CheckboxPropsType = ExtractPropTypes<typeof Props>

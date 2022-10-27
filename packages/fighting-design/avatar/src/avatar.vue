@@ -4,7 +4,7 @@
   import { loadImage, isNumber, isString, sizeChange } from '../../_utils'
   import { FSvgIcon } from '../../svg-icon'
   import { useFilterProps } from '../../_hooks'
-  import type { ComputedRef, Ref, CSSProperties } from 'vue'
+  import type { ComputedRef, Ref } from 'vue'
   import type { AvatarPropsType } from './avatar'
   import type {
     CallbackInterface as a,
@@ -64,7 +64,7 @@
     ]
   })
 
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList: ComputedRef<object> = computed((): object => {
     const { background, size, fontColor, fontSize } = prop
 
     return {
