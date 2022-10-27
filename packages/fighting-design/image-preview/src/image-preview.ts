@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   visible: {
@@ -49,5 +49,3 @@ export const Emits = {
   'update:visible': (visible: boolean): boolean => typeof visible === 'boolean',
   close: (evt: MouseEvent): MouseEvent => evt
 } as const
-
-export type ImagePreviewPropsType = ExtractPropTypes<typeof Props>

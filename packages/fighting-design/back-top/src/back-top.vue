@@ -2,7 +2,7 @@
   import { Emits, Props } from './back-top'
   import { onMounted, ref, computed } from 'vue'
   import { debounce, sizeChange } from '../../_utils'
-  import type { Ref, ComputedRef } from 'vue'
+  import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type { BackTopHandleScrollInterface as a } from './interface'
   import type { HandleEventInterface as b } from '../../_interface'
 
@@ -55,7 +55,7 @@
     document.addEventListener('scroll', handleScroll(null))
   })
 
-  const styleList: ComputedRef<object> = computed((): object => {
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { right, bottom, zIndex, background, color } = prop
 
     return {

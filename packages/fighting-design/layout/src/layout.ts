@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { LayoutDirectionType } from './interface'
 
 export const Props = {
@@ -10,5 +10,3 @@ export const Props = {
     }
   }
 } as const
-
-export type LayoutPropsType = ExtractPropTypes<typeof Props>

@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
+import type { PropType, VNode, Component } from 'vue'
 import type {
   InputType,
   InputSizeType,
@@ -105,5 +105,3 @@ export const Props = {
 export const Emits = {
   'update:modelValue': (val: string): string => val
 } as const
-
-export type InputPropsType = ExtractPropTypes<typeof Props>

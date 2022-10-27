@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 import type { DividerPositionType, DividerType } from './interface'
 
 export const Props = {
@@ -37,5 +37,3 @@ export const Props = {
     default: (): DividerType => 'solid'
   }
 } as const
-
-export type DividerPropsType = ExtractPropTypes<typeof Props>

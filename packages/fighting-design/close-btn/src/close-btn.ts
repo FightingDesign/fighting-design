@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
+import type { PropType, VNode, Component } from 'vue'
 
 export const Props = {
   size: {
@@ -26,5 +26,3 @@ export const Props = {
 export const Emits = {
   click: (evt: MouseEvent): MouseEvent => evt
 } as const
-
-export type CloseBtnPropsType = ExtractPropTypes<typeof Props>

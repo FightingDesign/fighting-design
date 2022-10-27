@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType } from 'vue'
 
 export const Props = {
   height: {
@@ -10,5 +10,3 @@ export const Props = {
     default: (): string => '0'
   }
 } as const
-
-export type HeaderPropsType = ExtractPropTypes<typeof Props>

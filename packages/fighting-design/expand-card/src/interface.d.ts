@@ -1,5 +1,3 @@
-export type { ExpandCardPropsType } from './expand-card'
-
 export interface ExpandCardImageListItemInterface {
   url: string
   text?: string
