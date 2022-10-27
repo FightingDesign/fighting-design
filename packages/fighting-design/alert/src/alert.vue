@@ -4,13 +4,14 @@
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
   import { sizeChange } from '../../_utils'
-  import type { ComputedRef, CSSProperties, Ref } from 'vue'
+  import type { ComputedRef, Ref } from 'vue'
   import type {
     HandleEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import type { AlertPropsType } from './alert'
 
-  const prop = defineProps(Props)
+  const prop: AlertPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const isShow: Ref<boolean> = ref<boolean>(true)
@@ -42,7 +43,7 @@
     ] as const
   })
 
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList: ComputedRef<object> = computed((): object => {
     const { fontSize, color, background, titleSize, titleColor } = prop
 
     return {
