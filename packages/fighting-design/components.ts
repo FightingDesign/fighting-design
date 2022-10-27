@@ -1,7 +1,11 @@
+// export { FAlert } from './alert'
+// import type { default as Alert } from './alert'
+// export type { AlertPropsType, AlertType, AlertOverflowType } from './alert/src/interface'
+// export type AlertInstance = InstanceType<typeof Alert>
 export { FAlert } from './alert'
-import type { default as Alert } from './alert'
-export type { AlertPropsType, AlertType, AlertOverflowType } from './alert/src/interface'
-export type AlertInstance = InstanceType<typeof Alert>
+// import type { default as Alert } from './alert'
+export type { AlertInstance, AlertPropsType, AlertType, AlertOverflowType } from './alert'
+// export type AlertInstance = InstanceType<typeof Alert>
 
 export { FAside } from './aside'
 import type { default as Aside } from './aside'

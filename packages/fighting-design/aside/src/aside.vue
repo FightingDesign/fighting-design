@@ -1,17 +1,18 @@
 <script lang="ts" setup name="FAside">
   import { Props } from './aside'
-  import { computed } from 'vue'
+  import { computed, toRefs } from 'vue'
   import { sizeChange } from '../../_utils'
-  import type { CSSProperties, ComputedRef } from 'vue'
+  import type { ComputedRef } from 'vue'
+  import type { AsidePropsType } from './aside'
 
-  const prop = defineProps(Props)
+  const prop: AsidePropsType = defineProps(Props)
 
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { width, padding } = prop
+  const styleList: ComputedRef<object> = computed((): object => {
+    const { width, padding } = toRefs(prop)
 
     return {
-      '--f-aside-width': sizeChange(width),
-      '--f-aside-padding': sizeChange(padding)
+      '--f-aside-width': sizeChange(width.value),
+      '--f-aside-padding': sizeChange(padding.value)
     } as const
   })
 </script>
