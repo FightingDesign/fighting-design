@@ -44,7 +44,6 @@
     "eslint": "^8.23.0",
     "happy-dom": "^3.2.2",
     "husky": "^8.0.1",
-    "lint-staged": "^12.4.2",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "rollup-plugin-visualizer": "^5.8.0",
@@ -57,15 +56,10 @@
     "vitest": "^0.24.3",
     "vue-tsc": "^0.40.5"
   },
+  "license": "MIT",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,vue}": [
-      "prettier --write",
-      "git add"
-    ]
   }
 }

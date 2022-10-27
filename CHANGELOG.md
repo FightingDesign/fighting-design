@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 移除所有组件类型导出
+- 优化组件代码属性提示
+
 ## 0.7.1-alpha.2 (2022-10-26)
 
 - 优化组件打包后的类型
