@@ -1,4 +1,8 @@
 .f-image-preview {
+  .f-button__before-icon {
+    margin-right: 0;
+  }
+  
   &__next,
   &__prev,
   &__close {
