@@ -242,26 +242,6 @@
 | `height`  | 高度   | string / number | ——     | 60px   |
 | `padding` | 内边距 | string / number | ——     | 0      |
 
-## Interface
-
-组件导出以下类型定义：
-
-```ts
-import type {
-  AsidePropsType,
-  AsideInstance,
-  FooterInstance,
-  FooterPropsType,
-  HeaderInstance,
-  HeaderPropsType,
-  LayoutInstance,
-  LayoutPropsType,
-  LayoutDirectionType,
-  MainInstance,
-  MainPropsType
-} from 'fighting-design'
-```
-
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

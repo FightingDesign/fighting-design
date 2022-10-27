@@ -96,18 +96,6 @@
 | `width`      | 自定义宽度         | string / number | ——     | ——     |
 | `color`      | 左下角文字的颜色   | string          | ——     | '#fff' |
 
-## Interface
-
-组件导出以下类型定义：
-
-```ts
-import type {
-  ExpandCardInstance,
-  ExpandCardImageListType,
-  ExpandCardPropsType
-} from 'fighting-design'
-```
-
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

@@ -193,18 +193,6 @@
 | `background`  | 进度条背景色                 | string          | ——                                     | ——      |
 | `stripe`      | 是否开启条纹效果             | boolean         | ——                                     | false   |
 
-## Interface
-
-组件导出以下类型定义：
-
-```ts
-import type {
-  ProgressInstance,
-  ProgressPropsType,
-  ProgressType
-} from 'fighting-design'
-```
-
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

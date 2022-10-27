@@ -133,14 +133,6 @@
 | `color`      | 自定义颜色                                    | string          | ——                                     | ——     |
 | `text-color` | 自定义文字颜色                                | string          | ——                                     | ——     |
 
-## Interface
-
-组件导出以下类型定义：
-
-```ts
-import type { BadgeInstance, BadgePropsType, BadgeType } from 'fighting-design'
-```
-
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

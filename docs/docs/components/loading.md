@@ -90,14 +90,6 @@
 | -------- | ----------- |
 | `icon`   | 自定义 icon |
 
-## Interface
-
-组件导出以下类型定义：
-
-```ts
-import type { LoadingInstance, LoadingPropsType } from 'fighting-design'
-```
-
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

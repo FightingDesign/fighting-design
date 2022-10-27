@@ -136,19 +136,6 @@
 | `icon-off`  | 关闭展示的图标               | object (VNode / Component) | ——                       | null    |
 | `on-change` | 当绑定值发生改变时触发的回调 | Function                   | ——                       | null    |
 
-## Interface
-
-组件导出以下类型定义：
-
-```ts
-import type {
-  SwapInstance,
-  SwapPropsType,
-  SwapType,
-  SwapOnChangeInterface
-} from 'fighting-design'
-```
-
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

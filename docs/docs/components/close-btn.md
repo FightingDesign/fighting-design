@@ -69,14 +69,6 @@
 | --------- | ------------------------ |
 | `default` | 默认插槽，自定义关闭按钮 |
 
-## Interface
-
-组件导出以下类型定义：
-
-```ts
-import type { CloseBtnInstance, CloseBtnPropsType } from 'fighting-design'
-```
-
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

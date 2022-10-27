@@ -86,7 +86,7 @@
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, fontColor, shadow, color } = prop
 
-    const style = {
+    const style: CSSProperties = {
       '--f-button-font-size': sizeChange(fontSize),
       '--f-button-font-color': fontColor,
       '--f-button-box-shadow': shadow

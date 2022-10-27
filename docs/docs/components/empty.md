@@ -72,7 +72,10 @@
 ::: details 显示代码
 
 ```html
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
+<f-empty
+  image-src="https://tianyuhao.cn/images/auto/1.jpg"
+  image-size="200px"
+/>
 ```
 
 :::
@@ -108,14 +111,6 @@
 | -------- | -------------- |
 | `footer` | 自定义页脚内容 |
 | `image`  | 自定义图片     |
-
-## Interface
-
-组件导出以下类型定义：
-
-```ts
-import type { EmptyInstance, EmptyPropsType } from 'fighting-design'
-```
 
 ## Contributors
 

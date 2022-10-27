@@ -120,14 +120,6 @@
 | -------- | -------------------- |
 | `change` | 当分数发生改变时触发 |
 
-## Interface
-
-组件导出以下类型定义：
-
-```ts
-import type { RatePropsType, RateInstance } from 'fighting-design'
-```
-
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

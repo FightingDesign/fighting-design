@@ -121,18 +121,6 @@
 | `optionLeft`  | 操作栏自定义左侧内容 |
 | `optionRight` | 操作栏自定义右侧内容 |
 
-## Interface
-
-组件导出以下类型定义：
-
-```ts
-import type {
-  StickyCardInstance,
-  StickyCardPropsType,
-  StickyCardEmitInterface
-} from 'fighting-design'
-```
-
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
