@@ -1,1 +1,1 @@
-export type { HeaderPropsType } from './header'
+export type { HeaderPropsType } from './props'

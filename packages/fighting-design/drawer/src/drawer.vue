@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FDrawer">
-  import { Props, Emits } from './drawer'
+  import { Props, Emits } from './props'
   import { watch, ref } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'

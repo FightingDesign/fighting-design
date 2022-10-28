@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FImagePreview">
-  import { Props, Emits } from './image-preview'
+  import { Props, Emits } from './props'
   import { ref, watch } from 'vue'
   import { FButton } from '../../button'
   import { FToolbar } from '../../toolbar'

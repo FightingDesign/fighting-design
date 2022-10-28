@@ -1,11 +1,11 @@
 <script lang="ts" setup name="FAvatar">
-  import { Props, Emits } from './avatar'
+  import { Props, Emits } from './props'
   import { computed, ref, onMounted, useSlots } from 'vue'
   import { loadImage, isNumber, isString, sizeChange } from '../../_utils'
   import { FSvgIcon } from '../../svg-icon'
   import { useFilterProps } from '../../_hooks'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
-  import type { AvatarPropsType } from './avatar'
+  import type { AvatarPropsType } from './props'
   import type {
     CallbackInterface as a,
     LoadNeedImagePropsInterface as b,

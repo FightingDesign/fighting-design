@@ -6,7 +6,6 @@ export type AlertInstance = InstanceType<typeof Alert>
 export { FAside } from './aside'
 export type { AsideInstance, AsidePropsType } from './aside'
 
-
 export { FAvatar } from './avatar'
 import type { default as Avatar } from './avatar'
 export type { AvatarPropsType, AvatarFitType, AvatarSizeType } from './avatar/src/interface'

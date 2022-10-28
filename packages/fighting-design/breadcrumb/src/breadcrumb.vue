@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FBreadcrumb">
   import { provide } from 'vue'
   import { sizeChange } from '../../_utils'
-  import { BreadcrumbPropsKey, Props } from './breadcrumb'
+  import { BreadcrumbPropsKey, Props } from './props'
 
   const prop = defineProps(Props)
 

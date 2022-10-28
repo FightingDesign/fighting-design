@@ -1,4 +1,4 @@
-export type { DividerPropsType } from './divider'
+export type { DividerPropsType } from './props'
 
 export type DividerPositionType = 'left' | 'center' | 'right'
 

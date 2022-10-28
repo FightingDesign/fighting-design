@@ -1,4 +1,4 @@
-export type { ImagePreviewPropsType } from './image-preview'
+export type { ImagePreviewPropsType } from './props'
 import type { ToolbarClickEmitInterface } from '../../toolbar/src/interface'
 
 export interface ImagePreviewSwitchImageInterface {

@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FCloseBtn">
-  import { Props, Emits } from './close-btn'
+  import { Props, Emits } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
   import { FIconCrossVue } from '../../_components/svg/index'

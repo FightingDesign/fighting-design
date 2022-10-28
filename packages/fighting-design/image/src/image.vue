@@ -1,10 +1,10 @@
 <script lang="ts" setup name="FImage">
-  import { Props, Emits } from './image'
+  import { Props, Emits } from './props'
   import { onMounted, ref, computed } from 'vue'
   import { loadImage, sizeChange } from '../../_utils'
   import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
-  import type { ImagePropsType } from './image'
+  import type { ImagePropsType } from './props'
   import type {
     HandleEventInterface as e,
     OrdinaryFunctionInterface as b,

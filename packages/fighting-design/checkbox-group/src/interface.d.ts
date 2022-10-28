@@ -1,4 +1,4 @@
-export type { CheckboxGroupPropsType } from './checkbox-group'
+export type { CheckboxGroupPropsType } from './props'
 
 export type CheckboxGroupLabelType = string | number | boolean
 
