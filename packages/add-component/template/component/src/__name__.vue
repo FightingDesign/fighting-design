@@ -1,5 +1,5 @@
 <script lang="ts" setup name="F<%= displayName %>">
-  import { Props, Emits } from './<%= name %>'
+  import { Props, Emits } from './props'
 
   defineProps(Props)
   defineEmits(Emits)

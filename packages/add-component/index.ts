@@ -124,11 +124,7 @@ async function updateComponentEntry (): Promise<void> {
     '\n' +
     `export { F${displayName} } from './${compName}'` +
     '\n' +
-    `import { default as ${displayName} } from './${compName}'` +
-    '\n' +
-    `export type { ${displayName}PropsType } from './${compName}/src/interface'` +
-    '\n' +
-    `export type ${displayName}Instance = InstanceType<typeof ${displayName}>` +
+    `export type { ${displayName}Instance, ${displayName}PropsType } from './${compName}'` +
     '\n'
 
   await fsExtra.writeFile(entryFilePath, content)
