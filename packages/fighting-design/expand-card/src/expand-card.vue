@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FExpandCard">
   import { computed, ref } from 'vue'
-  import { Props } from './expand-card'
+  import { Props } from './props'
   import { sizeChange, isString } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'

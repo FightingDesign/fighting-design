@@ -4,4 +4,8 @@ import { install } from '../_utils'
 
 export const FCheckboxGroup = install(CheckboxGroup)
 
+export type CheckboxGroupInstance = InstanceType<typeof CheckboxGroup>
+
+export * from './src/interface.d'
+
 export default CheckboxGroup

@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FDivider">
   import { useSlots, computed } from 'vue'
-  import { Props } from './divider'
+  import { Props } from './props'
   import type { ComputedRef, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)

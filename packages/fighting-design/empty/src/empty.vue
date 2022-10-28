@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FEmpty">
   import emptySvgVue from '../../_components/empty-svg.vue'
-  import { Props } from './empty'
+  import { Props } from './props'
   import { computed } from 'vue'
   import { FImage } from '../../image'
   import type { ComputedRef, CSSProperties } from 'vue'

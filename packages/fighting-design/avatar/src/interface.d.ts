@@ -1,4 +1,4 @@
-export type { AvatarPropsType } from './avatar'
+export type { AvatarPropsType } from './props'
 
 export type AvatarFitType =
   | 'fill'

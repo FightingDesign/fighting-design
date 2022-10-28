@@ -1,4 +1,4 @@
-export type { CalendarPropsType } from './calendar'
+export type { CalendarPropsType } from './props'
 
 export interface CalendarMowDataClassListInterface {
   (_month: number, _date: number): string

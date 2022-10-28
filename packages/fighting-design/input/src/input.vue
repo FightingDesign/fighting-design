@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FInput">
-  import { Props, Emits } from './input'
+  import { Props, Emits } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FButton } from '../../button'
   import { ref } from 'vue'

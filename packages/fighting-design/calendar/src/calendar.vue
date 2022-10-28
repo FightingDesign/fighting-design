@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FCalendar">
-  import { Props, Emits } from './calendar'
+  import { Props, Emits } from './props'
   import { ref, computed, watch } from 'vue'
   import { FButton } from '../../button'
   import { FText } from '../../text'

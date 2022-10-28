@@ -4,4 +4,8 @@ import { install } from '../_utils'
 
 export const FAlert = install(Alert)
 
-export default Alert
+export type AlertInstance = InstanceType<typeof Alert>
+
+export * from './src/interface.d';
+
+export default Alert;
