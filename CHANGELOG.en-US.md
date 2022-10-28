@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.8.0-alpha.2 (2022-10-28)
+
+- Fix problems with importing component types on demand [#232](https://github.com/FightingDesign/fighting-design/pull/232)
+
 ## 0.8.0-alpha.1 (2022-10-28)
 
 - Fix some types of problems

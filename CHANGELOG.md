@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.8.0-alpha.2 (2022-10-28)
+
+- 修复按需导入组件类型的问题 [#232](https://github.com/FightingDesign/fighting-design/pull/232)
+
 ## 0.8.0-alpha.1 (2022-10-28)
 
 - 修复一些类型的问题
