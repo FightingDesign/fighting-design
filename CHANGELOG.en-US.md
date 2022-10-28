@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.8.0-alpha.1 (2022-10-28)
+
+- Optimize component code attribute prompt
+- Optimize construction products
+- Optimize the style details of `f-image-preview` component [#227](https://github.com/FightingDesign/fighting-design/pull/227)
+
 ## 0.7.1-alpha.2 (2022-10-26)
 
 - Optimize the type of packaged components
