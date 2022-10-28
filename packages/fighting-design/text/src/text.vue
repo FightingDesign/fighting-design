@@ -33,7 +33,7 @@
       '--f-text-letter-spacing': sizeChange(prop.spacing),
       '--f-text-line-height': sizeChange(prop.lineHeight),
       '--f-text-text-indent': sizeChange(prop.indent)
-    } as const
+    } as CSSProperties
   })
 </script>
 

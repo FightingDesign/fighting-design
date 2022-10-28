@@ -38,7 +38,7 @@
       '--sticky-card-content-background': background,
       '--sticky-card-border-color': borderColor,
       '--sticky-card-max-height': sizeChange(openHeight)
-    } as const
+    } as CSSProperties
   })
 
   const classList: ComputedRef<a> = computed((): a => {

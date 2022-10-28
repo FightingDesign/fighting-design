@@ -6,6 +6,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.8.0-alpha.1 (2022-10-28)
 
+- Fix some types of problems
 - Optimize component code attribute prompt
 - Optimize construction products
 - Optimize the style details of `f-image-preview` component [#227](https://github.com/FightingDesign/fighting-design/pull/227)

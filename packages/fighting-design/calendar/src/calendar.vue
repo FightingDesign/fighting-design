@@ -84,7 +84,7 @@
       '--f-calendar-border-color': borderColor,
       '--f-calendar-day-height': sizeChange(dayCellHeight),
       '--f-calendar-week-height': sizeChange(weekCellHeight)
-    }
+    } as CSSProperties
   })
 
   const isMemorandum = (date: string): boolean => {

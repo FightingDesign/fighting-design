@@ -4,6 +4,7 @@
 
 ## 0.8.0-alpha.1 (2022-10-28)
 
+- 修复一些类型的问题
 - 优化组件代码属性提示
 - 优化构建产物
 - 优化 `f-image-preview` 组件样式细节 [#227](https://github.com/FightingDesign/fighting-design/pull/227)

@@ -18,7 +18,7 @@
     return {
       '--f-ripple-start-opacity': startOpacity,
       '--f-ripple-end-opacity': endOpacity
-    }
+    } as CSSProperties
   })
 
   const classList: ComputedRef<a> = computed((): a => {

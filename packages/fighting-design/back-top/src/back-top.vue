@@ -64,7 +64,7 @@
       '--f-back-top-z-index': zIndex,
       '--f-back-top-background': background,
       '--f-back-top-color': color
-    } as const
+    } as CSSProperties
   })
 </script>
 

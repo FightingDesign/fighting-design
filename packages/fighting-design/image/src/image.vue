@@ -69,7 +69,7 @@
       '--f-image-width': sizeChange(width),
       '--f-image-height': sizeChange(height),
       '--f-image-border-radius': sizeChange(round)
-    } as const
+    } as CSSProperties
   })
 </script>
 

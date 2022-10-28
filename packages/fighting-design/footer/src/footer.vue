@@ -12,7 +12,7 @@
     return {
       '--f-footer-height': sizeChange(height),
       '--f-footer-padding': sizeChange(padding)
-    } as const
+    } as CSSProperties
   })
 </script>
 

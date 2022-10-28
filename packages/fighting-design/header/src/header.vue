@@ -12,7 +12,7 @@
     return {
       '--f-header-height': sizeChange(height),
       '--f-header-padding': sizeChange(padding)
-    } as const
+    } as CSSProperties
   })
 </script>
 

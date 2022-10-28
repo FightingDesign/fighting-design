@@ -90,7 +90,7 @@
       '--f-button-font-size': sizeChange(fontSize),
       '--f-button-font-color': fontColor,
       '--f-button-box-shadow': shadow
-    } as const
+    } as CSSProperties
 
     if (color) {
       const changeColor: ChangeColor = new ChangeColor(color)

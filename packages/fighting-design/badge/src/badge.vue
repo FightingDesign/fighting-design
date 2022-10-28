@@ -37,7 +37,7 @@
     return {
       '--f-badge-background': color,
       '--f-badge-text-color': textColor
-    } as const
+    } as CSSProperties
   })
 </script>
 

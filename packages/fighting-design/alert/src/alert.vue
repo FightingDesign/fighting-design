@@ -51,7 +51,7 @@
       '--f-alert-background': background,
       '--f-alert-font-size': sizeChange(fontSize),
       '--f-alert-title-size': sizeChange(titleSize)
-    } as const
+    } as CSSProperties
   })
 
   const handleClose: a = (evt: MouseEvent): void => {

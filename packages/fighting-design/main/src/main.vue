@@ -11,7 +11,7 @@
 
     return {
       '--f-main-padding': sizeChange(padding)
-    } as const
+    } as CSSProperties
   })
 </script>
 

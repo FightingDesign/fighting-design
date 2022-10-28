@@ -12,7 +12,7 @@
     return {
       '--f-aside-width': sizeChange(width),
       '--f-aside-padding': sizeChange(padding)
-    } as const
+    } as CSSProperties
   })
 </script>
 

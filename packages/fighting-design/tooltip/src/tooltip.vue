@@ -28,7 +28,7 @@
     return {
       '--f-tooltip-background': background,
       '--f-tooltip-font-color': fontColor
-    } as const
+    } as CSSProperties
   })
 </script>
 

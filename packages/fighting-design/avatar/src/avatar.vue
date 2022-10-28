@@ -72,7 +72,7 @@
       '--f-avatar-background-color': background,
       '--f-avatar-font-color': fontColor,
       '--f-avatar-font-size': sizeChange(fontSize)
-    } as const
+    } as CSSProperties
   })
 
   // 开始加载图片
