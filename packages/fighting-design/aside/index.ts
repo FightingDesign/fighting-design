@@ -4,4 +4,6 @@ import { install } from '../_utils'
 
 export const FAside = install(Aside)
 
-export default Aside
+export type AsideInstance = InstanceType<typeof Aside>
+
+export * from './src/interface.d';
