@@ -4,7 +4,7 @@
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
   import { sizeChange } from '../../_utils'
-  import type { ComputedRef, Ref, CSSProperties } from 'vue'
+  import type { ComputedRef, CSSProperties, Ref } from 'vue'
   import type {
     HandleEventInterface as a,
     ClassListInterface as b

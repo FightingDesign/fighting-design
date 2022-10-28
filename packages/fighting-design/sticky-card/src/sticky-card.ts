@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { StickyCardEmitInterface } from './interface'
 
 export const Props = {
@@ -35,3 +35,5 @@ export const Props = {
     default: (): null => null
   }
 } as const
+
+export type StickyCardPropsType = ExtractPropTypes<typeof Props>

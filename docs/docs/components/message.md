@@ -248,6 +248,19 @@
 | -------- | ------------------ | ------------ |
 | `close`  | 关闭当前的 Message | `() => void` |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  MessageInstance,
+  MessagePropsType,
+  MessageType,
+  MessagePlacementType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

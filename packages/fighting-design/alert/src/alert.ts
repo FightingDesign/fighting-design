@@ -1,4 +1,4 @@
-import type { PropType, VNode, Component } from 'vue'
+import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { AlertType, AlertOverflowType } from './interface'
 
 export const Props = {
@@ -79,3 +79,5 @@ export const Props = {
 export const Emits = {
   'close-end': (evt: MouseEvent): MouseEvent => evt
 } as const
+
+export type AlertPropsType = ExtractPropTypes<typeof Props>

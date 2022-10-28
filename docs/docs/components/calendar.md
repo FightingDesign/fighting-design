@@ -149,6 +149,19 @@
 | `change-switch` | 月份改变时触发的回调 | `{ year: number, month: number, date: number }` |
 | `change-date`   | 日期改变时触发的回调 | `{ year: number, month: number, date: number }` |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  CalendarInstance,
+  CalendarPropsType,
+  CalendarEmitInterface,
+  CalendarMemorandumType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

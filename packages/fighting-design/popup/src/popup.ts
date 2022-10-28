@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 import type { PopupDirectionType, PopupCallbackInterface } from './interface'
 
 export const Props = {
@@ -73,3 +73,5 @@ export const Props = {
 export const Emits = {
   'update:visible': (visible: boolean): boolean => typeof visible === 'boolean'
 } as const
+
+export type PopupPropsType = ExtractPropTypes<typeof Props>

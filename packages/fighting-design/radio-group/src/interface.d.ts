@@ -1,3 +1,5 @@
+export type { RadioGroundPropsType } from './radio-group'
+
 export type RadioLabelType = string | number | boolean
 
 export interface RadioChangeEventInterface {

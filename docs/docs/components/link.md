@@ -139,6 +139,20 @@
 | `beforeIcon` | 之前的 icon |
 | `afterIcon`  | 之后的 icon |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  LinkInstance,
+  LinkPropsType,
+  LinkType,
+  LinkTargetType,
+  LinkHoverType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

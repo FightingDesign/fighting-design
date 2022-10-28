@@ -260,6 +260,21 @@
 | --------- | -------------- |
 | `default` | 单选框对应的值 |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  RadioInstance,
+  RadioPropsType,
+  RadioLabelType,
+  RadioGroupInstance,
+  RadioGroundPropsType,
+  RadioGroupSizeType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

@@ -1,4 +1,4 @@
-import type { PropType, VNode, Component } from 'vue'
+import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
 
 export const Props = {
   show: {
@@ -42,3 +42,5 @@ export const Props = {
 export const Emits = {
   close: (evt: MouseEvent): MouseEvent => evt
 } as const
+
+export type LoadingPropsType = ExtractPropTypes<typeof Props>

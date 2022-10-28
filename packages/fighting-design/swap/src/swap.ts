@@ -1,4 +1,4 @@
-import type { PropType, VNode, Component } from 'vue'
+import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { SwapType, SwapOnChangeInterface } from './interface'
 
 export const Props = {
@@ -35,3 +35,5 @@ export const Props = {
 export const Emits = {
   'update:modelValue': (target: boolean): boolean => target
 } as const
+
+export type SwapPropsType = ExtractPropTypes<typeof Props>

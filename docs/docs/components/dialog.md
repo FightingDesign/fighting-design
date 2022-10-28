@@ -167,6 +167,18 @@
 | `footer`    | 自定义底部内容     |
 | `closeIcon` | 自定义关闭按钮图标 |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  DialogInstance,
+  DialogPropsType,
+  DialogCallBackInterface
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

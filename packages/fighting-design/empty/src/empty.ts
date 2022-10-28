@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
   content: {
@@ -26,3 +26,5 @@ export const Props = {
     default: (): string => ''
   }
 } as const
+
+export type EmptyPropsType = ExtractPropTypes<typeof Props>

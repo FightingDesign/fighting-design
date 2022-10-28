@@ -195,6 +195,19 @@
 | --------- | -------------- |
 | `default` | 默认插入的内容 |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  RippleInstance,
+  RipplePropsType,
+  RippleType,
+  RippleOpacityType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

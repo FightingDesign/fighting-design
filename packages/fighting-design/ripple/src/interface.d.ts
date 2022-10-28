@@ -1,3 +1,5 @@
+export type { RipplePropsType } from './ripple'
+
 export type RippleType =
   | 'default'
   | 'primary'

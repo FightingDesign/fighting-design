@@ -179,6 +179,18 @@
 | `close-text`           | 自定义左侧的文字描述 | string  | ——                       | ——     |
 | `square`               | 是否为方形开关       | boolean | ——                       | false  |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  SwitchInstance,
+  SwitchPropsType,
+  SwitchSizeType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

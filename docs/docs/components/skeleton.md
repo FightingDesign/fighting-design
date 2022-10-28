@@ -162,6 +162,18 @@
 | --------- | ------------------------ |
 | `default` | `loading` 结束待渲染组件 |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  SkeletonInstance,
+  SkeletonPropsType,
+  SkeletonSizeType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

@@ -2,7 +2,6 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- 移除所有组件类型导出
 - 优化组件代码属性提示
 - 优化 `f-image-preview` 组件样式细节 [#227](https://github.com/FightingDesign/fighting-design/pull/227)
 

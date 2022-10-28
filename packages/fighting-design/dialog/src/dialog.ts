@@ -1,4 +1,4 @@
-import type { PropType, VNode, Component } from 'vue'
+import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
 import type { DialogCallBackInterface } from './interface'
 
 export const Props = {
@@ -69,3 +69,5 @@ export const Props = {
 export const Emits = {
   'update:visible': (visible: boolean): boolean => typeof visible === 'boolean'
 } as const
+
+export type DialogPropsType = ExtractPropTypes<typeof Props>

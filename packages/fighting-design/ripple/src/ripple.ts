@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { RippleType, RippleOpacityType } from './interface'
 
 export const Props = {
@@ -43,3 +43,5 @@ export const Props = {
     default: (): boolean => true
   }
 } as const
+
+export type RipplePropsType = ExtractPropTypes<typeof Props>

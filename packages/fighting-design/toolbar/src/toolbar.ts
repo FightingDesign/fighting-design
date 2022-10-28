@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { ToolbarType, ToolbarClickEmitInterface } from './interface'
 
 export const Props = {
@@ -42,3 +42,5 @@ export const Props = {
 export const Emits = {
   click: (target: ToolbarClickEmitInterface): ToolbarClickEmitInterface => target
 } as const
+
+export type ToolbarPropsType = ExtractPropTypes<typeof Props>

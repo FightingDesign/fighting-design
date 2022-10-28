@@ -1,4 +1,4 @@
-import type { PropType, VNode, Component } from 'vue'
+import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 
 export const Props = {
   color: {
@@ -22,3 +22,5 @@ export const Props = {
 export const Emits = {
   click: (evt: MouseEvent): MouseEvent => evt
 } as const
+
+export type ToolbarItemPropsType = ExtractPropTypes<typeof Props>

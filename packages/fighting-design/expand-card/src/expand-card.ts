@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { ExpandCardImageListType } from './interface'
 
 export const Props = {
@@ -27,3 +27,5 @@ export const Props = {
     default: (): string => ''
   }
 } as const
+
+export type ExpandCardPropsType = ExtractPropTypes<typeof Props>

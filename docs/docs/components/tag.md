@@ -179,6 +179,19 @@
 | ----------- | ---------------- |
 | `close-end` | 点击关闭按钮触发 |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  TagInstance,
+  TagPropsType,
+  TagSizeType,
+  TagType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

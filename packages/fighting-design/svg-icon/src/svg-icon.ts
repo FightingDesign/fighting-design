@@ -1,4 +1,4 @@
-import type { PropType, VNode, Component } from 'vue'
+import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
 
 export const Props = {
   icon: {
@@ -18,3 +18,5 @@ export const Props = {
 export const Emits = {
   click: (evt: MouseEvent): MouseEvent => evt
 } as const
+
+export type SvgIconPropsType = ExtractPropTypes<typeof Props>

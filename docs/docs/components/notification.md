@@ -249,6 +249,19 @@
 | -------- | ----------------------- |
 | `close`  | 关闭当前的 Notification |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type {
+  NotificationInstance,
+  NotificationPropsType,
+  NotificationType,
+  NotificationPlacementType
+} from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

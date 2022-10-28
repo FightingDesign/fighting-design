@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
   height: {
@@ -10,3 +10,5 @@ export const Props = {
     default: (): string => '0'
   }
 } as const
+
+export type FooterPropsType = ExtractPropTypes<typeof Props>

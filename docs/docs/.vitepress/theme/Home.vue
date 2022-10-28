@@ -44,7 +44,12 @@
         是一款灵活、优质的组件库，为开发者、设计师准备。希望开发者可以借用其中的设计，在不久的将来，孕育出更高阶的组件库。
       </p>
 
-      <f-button type="primary" size="large" href="/docs/install">
+      <f-button
+        class="start-btn"
+        type="primary"
+        size="large"
+        href="/docs/install"
+      >
         开始使用
       </f-button>
     </div>
@@ -168,6 +173,10 @@
         .f-image {
           margin-left: 20px;
         }
+      }
+
+      .f-button {
+        margin-top: 19px;
       }
 
       .subtitle {

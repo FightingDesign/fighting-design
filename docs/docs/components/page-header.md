@@ -90,6 +90,14 @@
 | ------ | ---------------- | ---- |
 | `back` | 点击左侧区域触发 | ——   |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { PageHeaderInstance, PageHeaderPropsType } from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

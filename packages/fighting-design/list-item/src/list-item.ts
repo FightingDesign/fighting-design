@@ -1,3 +1,5 @@
+import type { ExtractPropTypes } from 'vue'
+
 export const Props = {
   background: {
     type: String,
@@ -8,3 +10,5 @@ export const Props = {
     default: (): string => ''
   }
 } as const
+
+export type ListItemPropsType = ExtractPropTypes<typeof Props>

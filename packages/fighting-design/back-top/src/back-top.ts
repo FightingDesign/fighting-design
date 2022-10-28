@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { BackTopBehaviorType } from './interface'
 
 export const Props = {
@@ -53,3 +53,5 @@ export const Props = {
 export const Emits = {
   click: (evt: Event): Event => evt
 } as const
+
+export type BackTopPropsType = ExtractPropTypes<typeof Props>
