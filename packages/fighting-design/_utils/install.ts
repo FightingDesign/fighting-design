@@ -5,7 +5,7 @@ import type { App } from 'vue'
  * 注册组件
  * @param main 组件实例
  */
-export const install = <T>(main: T): T => {
+export const install = <T>(main: T): InstallType<T> => {
   (main as InstallType<T>).install = (app: App): void => {
     const { name } = main as unknown as { name: string }
     app.component(name, main as InstallType<T>)
@@ -18,7 +18,7 @@ export const install = <T>(main: T): T => {
  * @param main 组件实例
  * @param name 组件名
  */
-export const installFn = <T>(main: T, name: string): T => {
+export const installFn = <T>(main: T, name: string): InstallType<T> => {
   (main as InstallType<T>).install = (app: App): void => {
     app.config.globalProperties[name] = main as InstallType<T>
   }
