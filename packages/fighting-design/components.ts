@@ -4,9 +4,8 @@ export type { AlertPropsType, AlertType, AlertOverflowType } from './alert/src/i
 export type AlertInstance = InstanceType<typeof Alert>
 
 export { FAside } from './aside'
-import type { default as Aside } from './aside'
-export type { AsidePropsType } from './aside/src/interface'
-export type AsideInstance = InstanceType<typeof Aside>
+export type { AsideInstance, AsidePropsType } from './aside'
+
 
 export { FAvatar } from './avatar'
 import type { default as Avatar } from './avatar'
