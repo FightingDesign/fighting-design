@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FPopup">
-  import { Props, Emits } from './popup'
+  import { Props, Emits } from './props'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'

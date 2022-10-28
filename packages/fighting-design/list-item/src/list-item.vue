@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FListItem">
-  import { Props } from './list-item'
+  import { Props } from './props'
   import { computed, inject } from 'vue'
   import { listPropsKey } from '../../list/src/props'
   import type { ComputedRef, CSSProperties } from 'vue'
