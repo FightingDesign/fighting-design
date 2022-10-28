@@ -1,4 +1,4 @@
-export type { RadioGroundPropsType } from './radio-group'
+export type { RadioGroundPropsType } from './props'
 
 export type RadioLabelType = string | number | boolean
 

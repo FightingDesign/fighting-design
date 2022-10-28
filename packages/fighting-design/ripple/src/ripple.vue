@@ -1,5 +1,5 @@
 <script lang="ts" setup name="Ripple">
-  import { Props } from './ripple'
+  import { Props } from './props'
   import { Ripples } from '../../_utils'
   import { computed, ref } from 'vue'
   import type {

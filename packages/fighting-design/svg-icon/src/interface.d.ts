@@ -1,1 +1,1 @@
-export type { SvgIconPropsType } from './svg-icon'
+export type { SvgIconPropsType } from './props'

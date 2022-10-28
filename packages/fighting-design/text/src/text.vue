@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FText">
-  import { Props } from './text'
+  import { Props } from './props'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'

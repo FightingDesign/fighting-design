@@ -1,3 +1,3 @@
-export type { SwitchPropsType } from './switch'
+export type { SwitchPropsType } from './props'
 
 export type SwitchSizeType = 'large' | 'middle' | 'small'

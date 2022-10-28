@@ -1,6 +1,6 @@
 <script setup lang="ts" name="FLayout">
   import { useSlots, computed } from 'vue'
-  import { Props } from './layout'
+  import { Props } from './props'
   import type { VNode, Component } from 'vue'
 
   const prop = defineProps(Props)

@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FRadioGroup">
   import { provide, reactive, toRefs, computed } from 'vue'
-  import { Props, Emits, RadioGroupPropsKey } from './radio-group'
+  import { Props, Emits, RadioGroupPropsKey } from './props'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'

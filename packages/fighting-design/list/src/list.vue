@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FList">
   import { provide, computed } from 'vue'
-  import { Props, listPropsKey } from './list'
+  import { Props, listPropsKey } from './props'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'

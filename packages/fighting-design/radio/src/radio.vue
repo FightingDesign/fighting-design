@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FRadio">
-  import { Props, Emits } from './radio'
+  import { Props, Emits } from './props'
   import { computed, inject, getCurrentInstance, ref } from 'vue'
-  import { RadioGroupPropsKey } from '../../radio-group/src/radio-group'
+  import { RadioGroupPropsKey } from '../../radio-group/src/props'
   import type {
     ComputedRef,
     WritableComputedRef,

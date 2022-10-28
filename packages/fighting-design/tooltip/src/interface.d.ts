@@ -1,4 +1,4 @@
-export type { TooltipPropsType } from './tooltip'
+export type { TooltipPropsType } from './props'
 
 export type TooltipPositionType = 'top' | 'bottom' | 'right' | 'left'
 

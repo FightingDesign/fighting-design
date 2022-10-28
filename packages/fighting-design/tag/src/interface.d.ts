@@ -1,4 +1,4 @@
-export type { TagPropsType } from './tag'
+export type { TagPropsType } from './props'
 
 export type TagSizeType = 'large' | 'middle' | 'small' | 'mini'
 

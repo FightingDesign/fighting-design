@@ -1,5 +1,5 @@
 import type { ComponentInternalInstance } from 'vue'
-import type { NotificationPropsType } from '../notification/src/notification'
+import type { NotificationPropsType } from '../notification/src/props'
 import type { NotificationType } from '../notification/src/interface'
 
 export type InstanceOptions<T> = Partial<Mutable<T>> & {

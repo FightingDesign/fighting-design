@@ -1,4 +1,4 @@
-export type { RipplePropsType } from './ripple'
+export type { RipplePropsType } from './props'
 
 export type RippleType =
   | 'default'

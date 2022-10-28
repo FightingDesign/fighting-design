@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FStickyCard">
-  import { Props } from './sticky-card'
+  import { Props } from './props'
   import { ref, computed, unref } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
