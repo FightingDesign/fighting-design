@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FSvgIcon">
-  import { Props, Emits } from './svg-icon'
+  import { Props, Emits } from './props'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'

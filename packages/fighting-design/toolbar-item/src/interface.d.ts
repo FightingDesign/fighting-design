@@ -1,1 +1,1 @@
-export type { ToolbarItemPropsType } from './toolbar-item'
+export type { ToolbarItemPropsType } from './props'

@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FToolbarItem">
-  import { Emits, Props } from './toolbar-item'
+  import { Emits, Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import type { HandleEventInterface as a } from '../../_interface'
 

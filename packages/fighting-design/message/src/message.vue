@@ -2,7 +2,7 @@
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
-  import { Props, Emits } from './message'
+  import { Props, Emits } from './props'
   import { isString } from '../../_utils'
   import { massageManage } from '../../_model/message/method'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'

@@ -1,1 +1,1 @@
-export type { RadioPropsType } from './radio'
+export type { RadioPropsType } from './props'

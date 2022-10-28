@@ -1,4 +1,4 @@
-export type { ProgressPropsType } from './progress'
+export type { ProgressPropsType } from './props'
 
 export type ProgressType = 'primary' | 'success' | 'danger' | 'warning'
 

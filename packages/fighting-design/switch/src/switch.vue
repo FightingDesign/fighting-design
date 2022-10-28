@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FSwitch">
   import { computed } from 'vue'
-  import { Props, Emits } from './switch'
+  import { Props, Emits } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import type {
     OrdinaryFunctionInterface as a,

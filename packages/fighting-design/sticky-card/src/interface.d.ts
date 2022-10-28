@@ -1,4 +1,4 @@
-export type { StickyCardPropsType } from './sticky-card'
+export type { StickyCardPropsType } from './props'
 
 export interface StickyCardEmitInterface {
   (target: boolean): void

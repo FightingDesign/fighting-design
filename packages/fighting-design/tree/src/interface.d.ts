@@ -1,4 +1,4 @@
-export type { TreePropsType } from './tree'
+export type { TreePropsType } from './props'
 
 export interface TreeDataItemInterface {
   label: string

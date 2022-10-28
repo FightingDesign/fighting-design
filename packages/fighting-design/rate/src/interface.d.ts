@@ -1,4 +1,4 @@
-export type { RatePropsType } from './rate'
+export type { RatePropsType } from './props'
 
 export interface OnMouseoverInterface {
   (index: number): void

@@ -1,4 +1,4 @@
-export type { TextPropsType } from './text'
+export type { TextPropsType } from './props'
 
 export type TextType = 'default' | 'primary' | 'success' | 'danger' | 'warning'
 

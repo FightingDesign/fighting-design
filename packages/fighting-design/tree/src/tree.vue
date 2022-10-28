@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FTree">
-  import { Props } from './tree'
+  import { Props } from './props'
   import { computed } from 'vue'
   import { treeToFlat, treeAddLevel } from '../../_utils'
   import type { ComputedRef } from 'vue'

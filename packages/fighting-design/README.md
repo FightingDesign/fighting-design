@@ -15,7 +15,7 @@
 ```
 ├── src
 |  ├── interface.d.ts
-|  ├── component.ts
+|  ├── props.ts
 |  └── component.vue
 └── index.ts
 ```
@@ -29,7 +29,7 @@ pnpm new <component-name>
 下面分别介绍一下每个文件的作用：
 
 - `interface.d.ts` 导出组件和 `Props` 相关的所有类型
-- `component.ts` 导出 `Props` 和 `Emits`
+- `props.ts` 导出 `Props` 和 `Emits`
 - `component.vue` 组件源文件
 - `index.ts` 组件如理文件包含注册组件
 
@@ -151,7 +151,7 @@ const fun: a = (a: number, b: number): number => {
 }
 ```
 
-## 🌵 component.ts
+## 🌵 props.ts
 
 这里是来定义组件的 `Props` 和 `Emits` 的文件
 
@@ -170,16 +170,20 @@ export type ButtonPropsType = ExtractPropTypes<typeof Props>
 
 ## index.ts
 
-这里需要用来注册、导出组件，多数时候只有四行代码，例如：
+这里需要用来注册、导出组件、导出所有类型，例如：
 
 ```ts
-import Space from './src/space.vue'
+import Rate from './src/rate.vue'
 
 import { install } from '../_utils'
 
-export const FSpace = install(Space)
+export const FRate = install(Rate)
 
-export default Space
+export type RateInstance = InstanceType<typeof Rate>
+
+export * from './src/interface.d'
+
+export default Rate
 ```
 
 参考文档：

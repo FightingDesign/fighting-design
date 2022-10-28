@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FTag">
-  import { Props, Emits } from './tag'
+  import { Props, Emits } from './props'
   import { computed, ref } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'

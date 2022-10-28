@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FRate">
-  import { Props, Emits } from './rate'
+  import { Props, Emits } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconStarBVue } from '../../_components/svg/index'
   import { FText } from '../../text'

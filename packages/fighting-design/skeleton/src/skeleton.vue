@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FSkeleton">
   import { computed, useSlots } from 'vue'
-  import { Props } from './skeleton'
+  import { Props } from './props'
   import type { ComputedRef } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
 

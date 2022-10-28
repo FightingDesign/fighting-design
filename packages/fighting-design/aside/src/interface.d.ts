@@ -1,1 +1,1 @@
-export type { AsidePropsType } from './props';
+export type { AsidePropsType } from './props'

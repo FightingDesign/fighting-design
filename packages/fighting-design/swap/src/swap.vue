@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FSwap">
-  import { Props, Emits } from './swap'
+  import { Props, Emits } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
   import type { ComputedRef } from 'vue'

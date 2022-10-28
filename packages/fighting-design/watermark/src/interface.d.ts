@@ -1,4 +1,4 @@
-export type { WatermarkPropsType } from './watermark'
+export type { WatermarkPropsType } from './props'
 
 import type { CSSProperties } from 'vue'
 

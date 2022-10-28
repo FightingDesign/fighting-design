@@ -1,3 +1,3 @@
-export type { ListPropsType } from './list'
+export type { ListPropsType } from './props'
 
 export type ListSizeType = 'large' | 'middle' | 'small'

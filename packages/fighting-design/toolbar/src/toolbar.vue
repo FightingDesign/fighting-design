@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FToolbar">
-  import { Props, Emits } from './toolbar'
+  import { Props, Emits } from './props'
   import { computed } from 'vue'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type {
