@@ -254,3 +254,8 @@ export { FSwap } from './swap'
 import type { default as Swap } from './swap'
 export type { SwapPropsType } from './swap/src/interface'
 export type SwapInstance = InstanceType<typeof Swap>
+
+
+export { FWaterfall } from './waterfall'
+import type { default as Waterfall } from './waterfall'
+export type WaterfallInstance = InstanceType<typeof Waterfall>
