@@ -273,7 +273,7 @@ module.exports = {
     // 带有默认值的函数参数在最后 https://typescript-eslint.io/rules/default-param-last
     '@typescript-eslint/default-param-last': 'error',
     // 必须标记函数返回值 https://typescript-eslint.io/rules/explicit-function-return-type
-    '@typescript-eslint/explicit-function-return-type': 'error',
+    '@typescript-eslint/explicit-function-return-type': 'off',
     // // 接口和类型文字需要特定的成员分隔符样式 https://typescript-eslint.io/rules/member-delimiter-style
     // '@typescript-eslint/member-delimiter-style': ['error', {
     //   'multiline': {
