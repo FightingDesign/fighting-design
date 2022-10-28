@@ -60,7 +60,6 @@ export type { FooterInstance, FooterPropsType } from './footer'
 
 export { FHeader } from './header'
 export type { HeaderInstance, HeaderPropsType } from './header'
-export type  = InstanceType<typeof Header>
 
 export { FImage } from './image'
 export type { ImageInstance, ImagePropsType, ImageFitType } from './image'
