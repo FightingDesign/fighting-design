@@ -8,4 +8,4 @@ export type AsideInstance = InstanceType<typeof Aside>
 
 export * from './src/interface.d'
 
-export default Aside;
+export default Aside

@@ -17,7 +17,7 @@ export { FBreadcrumb } from './breadcrumb'
 export type { BreadcrumbInstance, BreadcrumbPropsType } from './breadcrumb'
 
 export { FBreadcrumbItem } from './breadcrumb-item'
-export type { BreadcrumbItemInstance } from './breadcrumb'
+export type { BreadcrumbItemInstance } from './breadcrumb-item'
 
 export { FButton } from './button'
 export type { ButtonInstance, ButtonPropsType, ButtonSizeType, ButtonTargetType, ButtonType, ButtonNativeType } from './button'
