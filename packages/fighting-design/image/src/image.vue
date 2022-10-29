@@ -6,7 +6,6 @@
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { ImagePropsType } from './props'
   import type {
-    HandleEventInterface as e,
     OrdinaryFunctionInterface as b,
     LoadNeedImagePropsInterface as c,
     ClassListInterface as d,
@@ -22,11 +21,6 @@
     null as unknown as HTMLImageElement
   )
   const isShowNode: Ref<boolean> = ref<boolean>(prop.lazy)
-
-  // 点击图片时候 开启大图预览
-  const handleClick: e = (evt: MouseEvent): void => {
-    emit('click', evt)
-  }
 
   // 开始加载图片
   const loadAction: b = (): void => {
@@ -91,7 +85,6 @@
       :referrer-policy="referrerPolicy"
       :alt="alt"
       :title="title"
-      @click="handleClick"
     />
   </div>
 

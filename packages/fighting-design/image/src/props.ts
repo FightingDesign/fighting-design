@@ -67,8 +67,7 @@ export const Props = {
 
 export const Emits = {
   load: (evt: Event): boolean => evt instanceof Event,
-  error: (evt: Event): boolean => evt instanceof Event,
-  click: (evt: MouseEvent): Event => evt
+  error: (evt: Event): boolean => evt instanceof Event
 } as const
 
 export type ImagePropsType = ExtractPropTypes<typeof Props>
