@@ -69,7 +69,7 @@ export const sidebar = {
       items: [
         { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' },
         { text: 'Page Header 页头', link: '/components/page-header' },
-        { text: 'Close Btn 关闭按钮', link: '/components/close-btn' },
+        { text: 'Close Btn 关闭按钮', link: '/components/close-btn' }
       ]
     },
     {
@@ -99,6 +99,7 @@ export const sidebar = {
         { text: 'Watermark 水印', link: '/components/watermark' },
         { text: 'Ripple 涟漪', link: '/components/ripple' },
         { text: 'Calendar 日历', link: '/components/calendar' },
+        { text: 'Waterfall 瀑布流', link: '/components/waterfall' }
       ]
     }
   ]

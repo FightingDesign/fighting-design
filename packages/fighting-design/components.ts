@@ -155,3 +155,5 @@ export type { InputInstance, InputPropsType, InputType, InputSizeType, InputFocu
 
 export { FSwap } from './swap'
 export type { SwapInstance, SwapPropsType, SwapType, SwapOnChangeInterface } from './swap'
+
+export { FWaterfall } from './waterfall'
