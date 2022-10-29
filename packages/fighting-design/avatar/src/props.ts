@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { AvatarFitType, AvatarSizeType } from './interface'
+import type { AvatarFitType, AvatarSizeType, AvatarCallBackInterface } from './interface'
 
 export const Props = {
   src: {
@@ -67,15 +67,14 @@ export const Props = {
     type: [String, Number] as PropType<string | number>,
     default: (): string => '100px'
   },
-  loadAnimation: {
-    type: Boolean,
-    default: (): boolean => false
+  load: {
+    type: Function as PropType<AvatarCallBackInterface>,
+    default: (): null => null
+  },
+  error: {
+    type: Function as PropType<AvatarCallBackInterface>,
+    default: (): null => null
   }
-} as const
-
-export const Emits = {
-  load: (evt: Event): boolean => evt instanceof Event,
-  error: (evt: Event): boolean => evt instanceof Event
 } as const
 
 export type AvatarPropsType = ExtractPropTypes<typeof Props>

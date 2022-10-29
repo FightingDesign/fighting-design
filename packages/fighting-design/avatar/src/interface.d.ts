@@ -9,3 +9,7 @@ export type AvatarFitType =
   | ''
 
 export type AvatarSizeType = 'large' | 'middle' | 'small' | 'mini'
+
+export interface AvatarCallBackInterface {
+  (evt: MouseEvent): void
+}

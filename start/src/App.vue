@@ -8,10 +8,10 @@
 </script>
 
 <template>
-  <f-image
+  <f-avatar
     width="200px"
     src="https://tianyuhao.cn/images/auto/21.jpg"
-    err-src="https://tianyuhao.cn/images/auto/21.jpg"
+    err-src="https://tianyuhao.cn/images/auto/1.jpg"
     :load="onLoad"
     :error="onError"
   />

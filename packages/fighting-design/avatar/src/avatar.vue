@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FAvatar">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { computed, ref, onMounted, useSlots } from 'vue'
   import { loadImage, isNumber, isString, sizeChange } from '../../_utils'
   import { FSvgIcon } from '../../svg-icon'
@@ -14,7 +14,6 @@
   } from '../../_interface'
 
   const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
   const slot = useSlots()
 
   /**
@@ -26,7 +25,6 @@
    * 是否展示 dom 元素
    * 在加载还未完成之前，因为 src 是空，所以会展示一个 撕裂的图片
    * 所以在加载期间先隐藏，加载完成之后再显示
-   * 还可以借此实现 load-animation 配置项的动画效果
    *
    * 这里涉及到懒加载，那么如果在懒加载状态下将图片隐藏掉，是不会触发懒加载的
    * 所以这里通过懒加载来判断，如果懒加载为 true 则不隐藏
@@ -86,9 +84,11 @@
       'src',
       'errSrc',
       'rootMargin',
-      'lazy'
+      'lazy',
+      'load',
+      'error'
     ])
-    loadImage(node, needProps, emit, callback)
+    loadImage(node, needProps, callback)
   }
 
   onMounted((): void => {
