@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { ImageFitType } from './interface'
+import type { ImageFitType, ImageCallBackInterface } from './interface'
 
 export const Props = {
   src: {
@@ -62,13 +62,15 @@ export const Props = {
   title: {
     type: String,
     default: (): string => ''
+  },
+  load: {
+    type: Function as PropType<ImageCallBackInterface>,
+    default: (): null => null
+  },
+  error: {
+    type: Function as PropType<ImageCallBackInterface>,
+    default: (): null => null
   }
-} as const
-
-export const Emits = {
-  load: (evt: Event): boolean => evt instanceof Event,
-  error: (evt: Event): boolean => evt instanceof Event,
-  click: (evt: MouseEvent): Event => evt
 } as const
 
 export type ImagePropsType = ExtractPropTypes<typeof Props>

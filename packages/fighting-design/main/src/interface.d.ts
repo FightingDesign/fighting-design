@@ -1,1 +1,1 @@
-export type { MainPropsType } from './main'
+export type { MainPropsType } from './props'

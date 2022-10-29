@@ -132,7 +132,7 @@
   const openEnd = () => FMessage('打开动画结束')
 
   const close = () => FMessage('关闭动画开始')
-  const closeEnd = () => FMessage('打开动画结束')
+  const closeEnd = () => FMessage('关闭动画结束')
 </script>
 ```
 

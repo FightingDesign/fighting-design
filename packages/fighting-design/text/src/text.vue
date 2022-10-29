@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FText">
-  import { Props } from './text'
+  import { Props } from './props'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
@@ -33,7 +33,7 @@
       '--f-text-letter-spacing': sizeChange(prop.spacing),
       '--f-text-line-height': sizeChange(prop.lineHeight),
       '--f-text-text-indent': sizeChange(prop.indent)
-    } as const
+    } as CSSProperties
   })
 </script>
 

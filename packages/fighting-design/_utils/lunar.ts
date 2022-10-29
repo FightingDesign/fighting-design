@@ -14,7 +14,7 @@ import {
 } from './data'
 import type {
   GetLunarDetailReturnInterface
-} from '../../_interface'
+} from '../_interface'
 
 export class Lunar {
   /**

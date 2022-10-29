@@ -1,5 +1,3 @@
-@import '../config/var-swap.scss';
-
 .f-swap {
   user-select: none;
   display: inline-flex;
@@ -7,41 +5,23 @@
   align-items: center;
   cursor: pointer;
 
-  .f-swap-off {
-    z-index: 5;
-    height: auto !important;
+  &.f-swap__sound-on {
+    transform: rotate(80deg);
+    transition-duration: 0.3s;
+  }
 
-    @each $key,
-    $value in $switchSize {
-      &.f-swap-#{$key} {
-        width: $value * 2;
-        height: $value;
-        font-size: $value * 2;
-        transition-duration: .3s;
-      }
-    }
+  &.f-swap__sound-off {
+    transform: rotate(0deg);
+    transition-duration: 0.3s;
+  }
 
-    .swap-on {
-      transition-duration: .3s;
-      transform: rotateY(180deg);
-      opacity: 1;
-    }
+  &.f-swap__swap-on {
+    transition-duration: 0.3s;
+    transform: rotateY(180deg);
+  }
 
-    .swap-off {
-      transition-duration: .3s;
-      transform: rotateY(0deg);
-      opacity: 1;
-    }
-
-    .sound-on {
-      transform: rotate(80deg);
-      transition-duration: .3s;
-    }
-
-    .sound-off {
-      transform: rotate(0deg);
-      transition-duration: .3s;
-    }
-
+  &.f-swap__swap-off {
+    transition-duration: 0.3s;
+    transform: rotateY(0deg);
   }
 }

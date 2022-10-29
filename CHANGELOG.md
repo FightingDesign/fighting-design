@@ -2,7 +2,32 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-image` `f-avatar` 组件废除 `error` 和 `load` emit 回调
+- `f-image` `f-avatar` 组件新增 `error` 和 `load` props 可选项
+- `f-calendar` 组件废除 `change-date` 和 `change-switch` emit 回调
+- `f-calendar` 组件新增 `change-date` 和 `change-switch` props 可选项
+
+## 0.8.0-alpha.2 (2022-10-28)
+
+- 修复按需导入组件类型的问题 [#232](https://github.com/FightingDesign/fighting-design/pull/232)
+
+## 0.8.0-alpha.1 (2022-10-28)
+
+- 修复一些类型的问题
+- 优化组件代码属性提示
+- 优化构建产物
+- 优化 `f-image-preview` 组件样式细节 [#227](https://github.com/FightingDesign/fighting-design/pull/227)
+
+## 0.7.1-alpha.2 (2022-10-26)
+
+- 优化组件打包后的类型
+
+## 0.7.1-alpha.1 (2022-10-25)
+
 - 新增 `f-swap` 组件
+- 修复 `f-image-preview` 组件预览旋转方向错误的问题
+- 优化 `f-image-preview` 组件内部性能
+- `f-popup` 组件 `open` `open-end` `close` `close-end` 改为 `props` 参数
 
 ## 0.7.0-beta.2 (2022-10-22)
 

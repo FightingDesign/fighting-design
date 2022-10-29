@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { PopupDirectionType } from './interface'
+import type { PopupDirectionType, PopupCallbackInterface } from './interface'
 
 export const Props = {
   visible: {
@@ -51,15 +51,27 @@ export const Props = {
   padding: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
+  },
+  open: {
+    type: Function as PropType<PopupCallbackInterface>,
+    default: (): null => null
+  },
+  close: {
+    type: Function as PropType<PopupCallbackInterface>,
+    default: (): null => null
+  },
+  openEnd: {
+    type: Function as PropType<PopupCallbackInterface>,
+    default: (): null => null
+  },
+  closeEnd: {
+    type: Function as PropType<PopupCallbackInterface>,
+    default: (): null => null
   }
 } as const
 
 export const Emits = {
-  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean',
-  open: (event: MouseEvent): MouseEvent => event,
-  close: (event: MouseEvent): MouseEvent => event,
-  'open-end': (event: MouseEvent): MouseEvent => event,
-  'close-end': (event: MouseEvent): MouseEvent => event
+  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean'
 } as const
 
 export type PopupPropsType = ExtractPropTypes<typeof Props>

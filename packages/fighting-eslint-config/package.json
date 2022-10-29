@@ -1,6 +1,6 @@
 {
   "name": "@fighting-design/eslint-config",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Fighting design out of the box eslint configuration item.",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "typescript-eslint"
   ],
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.34.0",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.34.0",
     "eslint-plugin-vue": "^9.4.0"
   },
@@ -29,7 +29,7 @@
     "name": "tyh2001",
     "url": "https://tianyuhao.cn"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/FightingDesign/fighting-design/issues"
   },

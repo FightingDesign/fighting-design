@@ -1,4 +1,4 @@
-export type { AvatarPropsType } from './avatar'
+export type { AvatarPropsType } from './props'
 
 export type AvatarFitType =
   | 'fill'
@@ -9,3 +9,7 @@ export type AvatarFitType =
   | ''
 
 export type AvatarSizeType = 'large' | 'middle' | 'small' | 'mini'
+
+export interface AvatarCallBackInterface {
+  (evt: MouseEvent): void
+}

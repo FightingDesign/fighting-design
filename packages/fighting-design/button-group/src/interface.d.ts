@@ -1,3 +1,3 @@
-export type { ButtonGroupPropsType } from './button-group'
+export type { ButtonGroupPropsType } from './props'
 
 export type ButtonGroupSizeType = 'large' | 'middle' | 'small' | 'mini'

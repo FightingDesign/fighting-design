@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FAside">
-  import { Props } from './aside'
+  import { Props } from './props'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { CSSProperties, ComputedRef } from 'vue'
@@ -12,7 +12,7 @@
     return {
       '--f-aside-width': sizeChange(width),
       '--f-aside-padding': sizeChange(padding)
-    } as const
+    } as CSSProperties
   })
 </script>
 

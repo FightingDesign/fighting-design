@@ -2,7 +2,7 @@
   import { computed, ref, h } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_components/svg/index'
-  import { Props, Emits } from './button'
+  import { Props, Emits } from './props'
   import { Ripples, ChangeColor, sizeChange } from '../../_utils'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
@@ -90,7 +90,7 @@
       '--f-button-font-size': sizeChange(fontSize),
       '--f-button-font-color': fontColor,
       '--f-button-box-shadow': shadow
-    } as const
+    } as CSSProperties
 
     if (color) {
       const changeColor: ChangeColor = new ChangeColor(color)

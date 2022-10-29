@@ -1,12 +1,11 @@
 <script lang="ts" setup name="FImage">
-  import { Props, Emits } from './image'
+  import { Props } from './props'
   import { onMounted, ref, computed } from 'vue'
   import { loadImage, sizeChange } from '../../_utils'
   import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
-  import type { ImagePropsType } from './image'
+  import type { ImagePropsType } from './props'
   import type {
-    HandleEventInterface as e,
     OrdinaryFunctionInterface as b,
     LoadNeedImagePropsInterface as c,
     ClassListInterface as d,
@@ -14,7 +13,6 @@
   } from '../../_interface'
 
   const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
 
   // 是否加载成功
   const isSuccess: Ref<boolean> = ref<boolean>(true)
@@ -22,11 +20,6 @@
     null as unknown as HTMLImageElement
   )
   const isShowNode: Ref<boolean> = ref<boolean>(prop.lazy)
-
-  // 点击图片时候 开启大图预览
-  const handleClick: e = (evt: MouseEvent): void => {
-    emit('click', evt)
-  }
 
   // 开始加载图片
   const loadAction: b = (): void => {
@@ -40,10 +33,12 @@
       'src',
       'errSrc',
       'rootMargin',
-      'lazy'
+      'lazy',
+      'load',
+      'error'
     ])
 
-    loadImage(node, needProps, emit, callback)
+    loadImage(node, needProps, callback)
   }
 
   onMounted((): void => {
@@ -69,7 +64,7 @@
       '--f-image-width': sizeChange(width),
       '--f-image-height': sizeChange(height),
       '--f-image-border-radius': sizeChange(round)
-    } as const
+    } as CSSProperties
   })
 </script>
 
@@ -91,7 +86,6 @@
       :referrer-policy="referrerPolicy"
       :alt="alt"
       :title="title"
-      @click="handleClick"
     />
   </div>
 

@@ -1,24 +1,31 @@
 # Swap 切换
 
-`Swap` 是一个切换组件
+精致的切换组件
+
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/swap)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/swap.md)
 
 ## 基本使用
 
-`Swap` 的基本使用，需要使用 `v-model` 绑定一个值
+需要使用 `v-model` 绑定一个值
 
-<f-swap v-model="value1" />
-<f-swap v-model="value2" />
+`icon-on` 和 `icon-off` 分别控制切换的不同图标
+
+<f-swap v-model="value1" :icon-on="FIconSun" :icon-off="FIconMoon" />
+<f-swap v-model="value2" :icon-on="FIconSun" :icon-off="FIconMoon" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-swap v-model="value1" />
-  <f-swap v-model="value2" />
+  <f-swap v-model="value1" :icon-on="FIconSun" :icon-off="FIconMoon" />
+  <f-swap v-model="value2" :icon-on="FIconSun" :icon-off="FIconMoon" />
 </template>
 
 <script lang="ts" setup>
+  import { FIconSun, FIconMoon } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
+
   const value1 = ref(true)
   const value2 = ref(false)
 </script>
@@ -26,52 +33,90 @@
 
 :::
 
-## 不同大小
+## 不同尺寸
 
-`size` 属性可以配置不同大小的 `swap`
+`size` 属性可配置不同的尺寸
 
-  <f-swap v-model="value3" size="large" />
-  <f-swap v-model="value3" size="middle" />
-  <f-swap v-model="value3" size="small" />
+<f-swap v-model="value3" :size="50" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
+<f-swap v-model="value4" size="30px" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-swap v-model="value3" size="large" />
-  <f-swap v-model="value3" size="middle" />
-  <f-swap v-model="value3" size="small" />
+  <f-swap
+    v-model="value5"
+    :size="50"
+    :icon-on="FIconFaceSmile"
+    :icon-off="FIconFaceFrown"
+  />
+  <f-swap
+    v-model="value6"
+    size="30px"
+    :icon-on="FIconEye"
+    :icon-off="FIconEyeSlash"
+  />
 </template>
 
 <script lang="ts" setup>
+  import {
+    FIconFaceFrown,
+    FIconFaceSmile,
+    FIconEye,
+    FIconEyeSlash
+  } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
-  const value3 = ref(false)
+
+  const value3 = ref(true)
+  const value4 = ref(true)
 </script>
 ```
 
 :::
 
-## 不同类型
+## 不同动画
 
-`type` 属性可以配置不同类型的 `swap`
-<f-swap v-model="value4" size="middle" type="sound" />
-<f-swap v-model="value5" size="middle" type="theme"/>
-<f-swap v-model="value6" size="middle" type="flip" />
-<f-swap v-model="value7" size="middle" type="favorites" />
+`type` 属性可以配置不同的动画类型
+
+<f-swap v-model="value5" type="default" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
+<f-swap v-model="value6" type="sound" :icon-on="FIconSun" :icon-off="FIconMoon" />
+<f-swap v-model="value7" type="swap" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-swap v-model="value4" size="middle" type="sound" />
-  <f-swap v-model="value5" size="middle" type="theme" />
-  <f-swap v-model="value6" size="middle" type="flip" />
-  <f-swap v-model="value7" size="middle" type="favorites" />
+  <f-swap
+    v-model="value5"
+    type="default"
+    :icon-on="FIconEye"
+    :icon-off="FIconEyeSlash"
+  />
+  <f-swap
+    v-model="value6"
+    type="sound"
+    :icon-on="FIconSun"
+    :icon-off="FIconMoon"
+  />
+  <f-swap
+    v-model="value7"
+    type="swap"
+    :icon-on="FIconFaceSmile"
+    :icon-off="FIconFaceFrown"
+  />
 </template>
 
 <script lang="ts" setup>
+  import {
+    FIconSun,
+    FIconMoon,
+    FIconFaceSmile,
+    FIconFaceFrown,
+    FIconEye,
+    FIconEyeSlash
+  } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
-  const value4 = ref(true)
+
   const value5 = ref(true)
   const value6 = ref(true)
   const value7 = ref(true)
@@ -80,41 +125,27 @@
 
 :::
 
-## 图标转换
-
-`type` 属性可以配置不同类型的 `swap`
-<f-swap v-model="value9" size="middle" type="rotate" />
-::: details 显示代码
-
-```html
-<template>
-  <f-swap v-model="value9" size="middle" type="rotate" />
-</template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-  const value9 = ref(true)
-</script>
-```
-
-:::
-
 ## Attributes
 
-| 参数      | 说明     | 类型   | 可选值                                      | 默认值 |
-| --------- | -------- | ------ | ------------------------------------------- | ------ |
-| `v-model` | 绑定值   | string | ——                                          | false  |
-| `size`    | 组件尺寸 | string | `large` `middle` `small`                    | middle |
-| `type`    | 类型     | string | `sound` `theme` `rotate` `flip` `favorites` | sound  |
+| 参数        | 说明                         | 类型                       | 可选值                   | 默认值  |
+| ----------- | ---------------------------- | -------------------------- | ------------------------ | ------- |
+| `v-model`   | 绑定值                       | boolean                    | ——                       | false   |
+| `size`      | 组件尺寸                     | string / number            | ——                       | 40      |
+| `type`      | 动画类型                     | string                     | `sound` `swap` `default` | default |
+| `icon-on`   | 打开展示的图标               | object (VNode / Component) | ——                       | null    |
+| `icon-off`  | 关闭展示的图标               | object (VNode / Component) | ——                       | null    |
+| `on-change` | 当绑定值发生改变时触发的回调 | Function                   | ——                       | null    |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type { 
+import type {
+  SwapInstance,
   SwapPropsType,
-  SwapInstance, 
+  SwapType,
+  SwapOnChangeInterface
 } from 'fighting-design'
 ```
 
@@ -129,16 +160,25 @@ import type {
 </a>
 
 <script lang="ts" setup>
+  import { 
+   FIconSoundUp,
+   FIconSoundMute,
+   FIconSun,
+   FIconMoon,
+   FIconFaceSmile,
+   FIconFaceFrown,
+   FIconEye,
+   FIconEyeSlash
+   } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
+
   const value1 = ref(true)
   const value2 = ref(false)
-  const value3 = ref(false)
+  const value3 = ref(true)
   const value4 = ref(true)
   const value5 = ref(true)
   const value6 = ref(true)
   const value7 = ref(true)
-  const value8 = ref(true)
-  const value9 = ref(true)
 </script>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FDialog">
-  import { Props, Emits } from './dialog'
+  import { Props, Emits } from './props'
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
   import { ref, watch } from 'vue'

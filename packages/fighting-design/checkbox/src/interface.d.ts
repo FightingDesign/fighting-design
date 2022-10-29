@@ -1,3 +1,3 @@
-export type { CheckboxPropsType } from './checkbox'
+export type { CheckboxPropsType } from './props'
 
 export type CheckboxLabelType = string | number | boolean

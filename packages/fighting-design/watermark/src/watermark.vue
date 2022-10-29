@@ -1,10 +1,10 @@
 <script lang="ts" setup name="FWatermark">
-  import { Props } from './watermark'
+  import { Props } from './props'
   import { createBase64 } from '../../_utils'
   import { ref, onMounted } from 'vue'
   import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties } from 'vue'
-  import type { WatermarkPropsType } from './watermark'
+  import type { WatermarkPropsType } from './props'
   import type { WatermarkCSSPropertiesInterface as a } from './interface'
   import type { CreateBase64NeedWatermarkPropsInterface as b } from '../../_interface'
 

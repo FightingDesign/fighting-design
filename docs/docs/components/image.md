@@ -166,13 +166,8 @@
 | `err-src`         | 加载失败时要显示的地址                                                                                       | string          | ——                                                 | ——     |
 | `show-close-btn`  | 是否展示预览窗口的关闭按钮                                                                                   | boolean         | ——                                                 | true   |
 | `title`           | img 的 title                                                                                                 | string          | ——                                                 | ——     |
-
-## Events
-
-| 事件名称 | 说明             |
-| -------- | ---------------- |
-| `load`   | 图片加载成功触发 |
-| `error`  | 图片加载失败触发 |
+| `load`            | 图片加载成功触发的回调                                                                                       | Function        | ——                                                 | null   |
+| `error`           | 图片加载失败触发的回调                                                                                       | Function        | ——                                                 | null   |
 
 ## Slots
 

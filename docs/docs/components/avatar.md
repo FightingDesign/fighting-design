@@ -122,13 +122,15 @@
 
 或者使用 `error` 插槽展示
 
-<f-avatar src="https://123.cn/images/auto/my.jpg" />
-<f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
-<f-avatar src="https://123.cn/images/auto/my.jpg">
-  <template v-slot:error>
-    <f-text type="danger" bold>失败了</f-text>
-  </template>
-</f-avatar>
+<f-space>
+  <f-avatar src="https://123.cn/images/auto/my.jpg" />
+  <f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
+  <f-avatar src="https://123.cn/images/auto/my.jpg">
+    <template v-slot:error>
+      <f-text type="danger" bold>失败了</f-text>
+    </template>
+  </f-avatar>
+</f-space>
 
 ::: details 显示代码
 
@@ -163,6 +165,8 @@
 | `font-color`  | 字体的颜色                                                                                               | string                     | ——                                           | #333     |
 | `text`        | 文字头像                                                                                                 | string                     | ——                                           | ——       |
 | `root-margin` | 触发懒加载的距离                                                                                         | string / number            | ——                                           | 100px    |
+| `load`        | 图片加载成功触发的回调                                                                                   | Function                   | ——                                           | null     |
+| `error`       | 图片加载失败触发的回调                                                                                   | Function                   | ——                                           | null     |
 
 ## Slots
 
@@ -170,13 +174,6 @@
 | -------- | ------------------ |
 | `error`  | 自定义加载失败提示 |
 | `icon`   | 自定义 icon 头像   |
-
-## Events
-
-| 事件名称 | 说明             |
-| -------- | ---------------- |
-| `load`   | 图片加载成功触发 |
-| `error`  | 图片加载失败触发 |
 
 ## Interface
 

@@ -1,4 +1,4 @@
-export type { InputPropsType } from './input'
+export type { InputPropsType } from './props'
 
 export type InputType = 'text' | 'password'
 

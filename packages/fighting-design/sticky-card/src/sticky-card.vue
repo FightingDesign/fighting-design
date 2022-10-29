@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FStickyCard">
-  import { Props } from './sticky-card'
+  import { Props } from './props'
   import { ref, computed, unref } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
@@ -38,7 +38,7 @@
       '--sticky-card-content-background': background,
       '--sticky-card-border-color': borderColor,
       '--sticky-card-max-height': sizeChange(openHeight)
-    } as const
+    } as CSSProperties
   })
 
   const classList: ComputedRef<a> = computed((): a => {

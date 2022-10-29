@@ -2,7 +2,7 @@
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
-  import { Props, Emits } from './notification'
+  import { Props, Emits } from './props'
   import { notificationDefaultIcon } from '../../_model/notification/type'
   import { massageManage } from '../../_model/notification/method'
   import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'
@@ -10,7 +10,7 @@
     OrdinaryFunctionInterface as a,
     ClassListInterface as b
   } from '../../_interface'
-  import type { NotificationPropsType } from './notification'
+  import type { NotificationPropsType } from './props'
 
   const prop: NotificationPropsType = defineProps(Props)
   defineEmits(Emits)

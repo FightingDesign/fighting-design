@@ -4,6 +4,28 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.8.0-alpha.2 (2022-10-28)
+
+- Fix problems with importing component types on demand [#232](https://github.com/FightingDesign/fighting-design/pull/232)
+
+## 0.8.0-alpha.1 (2022-10-28)
+
+- Fix some types of problems
+- Optimize component code attribute prompt
+- Optimize construction products
+- Optimize the style details of `f-image-preview` component [#227](https://github.com/FightingDesign/fighting-design/pull/227)
+
+## 0.7.1-alpha.2 (2022-10-26)
+
+- Optimize the type of packaged components
+
+## 0.7.1-alpha.1 (2022-10-25)
+
+- Add `f-swap` component
+- Fix the wrong rotation direction of the `f-image-preview` component preview
+- Optimize the internal performance of the `f-image-preview` component
+- Change `f-popup` component `open` `open-end` `close` `close-end` to `props` parameter
+
 ## 0.7.0-beta.2 (2022-10-22)
 
 - Add `f-input` component

@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FTooltip">
-  import { Props } from './tooltip'
+  import { Props } from './props'
   import { computed } from 'vue'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
@@ -28,7 +28,7 @@
     return {
       '--f-tooltip-background': background,
       '--f-tooltip-font-color': fontColor
-    } as const
+    } as CSSProperties
   })
 </script>
 

@@ -1,4 +1,4 @@
-export type { LinkPropsType } from './link'
+export type { LinkPropsType } from './props'
 
 export type LinkType = 'default' | 'primary' | 'success' | 'danger' | 'warning'
 

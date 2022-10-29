@@ -1,4 +1,4 @@
-export type { ToolbarPropsType } from './toolbar'
+export type { ToolbarPropsType } from './props'
 
 export type ToolbarType = 'large' | 'middle' | 'small' | 'mini'
 

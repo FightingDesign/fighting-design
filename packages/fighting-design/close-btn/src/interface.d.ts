@@ -1,1 +1,1 @@
-export type { CloseBtnPropsType } from './close-btn'
+export type { CloseBtnPropsType } from './props'

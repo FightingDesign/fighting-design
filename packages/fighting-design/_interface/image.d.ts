@@ -6,6 +6,8 @@ export interface LoadNeedImagePropsInterface {
   errSrc: string
   rootMargin: string
   lazy: boolean
+  load: Function
+  error: Function
 }
 
 export interface LazyInterface {
@@ -17,7 +19,6 @@ export interface LoadImageInterface {
   (
     node: HTMLImageElement,
     prop: LoadNeedImagePropsInterface,
-    emit: Function,
     callback: callbackInterface | null
   ): void
 }
@@ -25,7 +26,6 @@ export interface LoadImageInterface {
 export interface LoadInterface {
   node: HTMLImageElement
   props: LoadNeedImagePropsInterface
-  emit: Function
   callback: callbackInterface | null
   loadCreateImg(errSrc?: string): void
   onerror(evt: Event): void

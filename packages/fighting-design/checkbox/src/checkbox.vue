@@ -1,10 +1,10 @@
 <script lang="ts" setup name="FCheckbox">
   import { computed, inject, getCurrentInstance, ref } from 'vue'
-  import { Props, Emits } from './checkbox'
-  import { checkboxGroupPropsKey } from '../../checkbox-group/src/checkbox-group'
+  import { Props, Emits } from './props'
+  import { checkboxGroupPropsKey } from '../../checkbox-group/src/props'
   import type { ClassListInterface as c } from '../../_interface'
   import type { CheckboxGroupLabelType } from '../../checkbox-group/src/interface'
-  import type { CheckboxGroupPropsType as a } from '../../checkbox-group/src/checkbox-group'
+  import type { CheckboxGroupPropsType as a } from '../../checkbox-group/src/props'
   import type {
     ComputedRef,
     Ref,

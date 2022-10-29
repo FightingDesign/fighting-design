@@ -3,7 +3,7 @@
   import { sizeChange } from '../../_utils'
   import { FIconArrowLeftVue } from '../../_components/svg/index'
   import { FSvgIcon } from '../../svg-icon'
-  import { Props, Emits } from './page-header'
+  import { Props, Emits } from './props'
   import type { ComputedRef } from 'vue'
   import type {
     OrdinaryFunctionInterface as a,

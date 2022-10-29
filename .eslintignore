@@ -3,5 +3,5 @@ dist-icon/*
 node_modules/*
 logo/*
 start/dist/*
+start/src/*
 packages/add-component/template/*
-script/*

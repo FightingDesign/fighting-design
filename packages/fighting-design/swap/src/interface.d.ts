@@ -1,5 +1,7 @@
-export type { SwapPropsType } from './swap'
+export type { SwapPropsType } from './props'
 
-export type SwapSizeType = 'large' | 'middle' | 'small'
+export type SwapType = 'sound' | 'swap' | 'default'
 
-export type SwapType = 'sound' | 'theme' | 'rotate' | 'flip' | 'favorites'
+export interface SwapOnChangeInterface {
+  (target: boolean): void
+}

@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FFooter">
-  import { Props } from './footer'
+  import { Props } from './props'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { CSSProperties, ComputedRef } from 'vue'
@@ -12,7 +12,7 @@
     return {
       '--f-footer-height': sizeChange(height),
       '--f-footer-padding': sizeChange(padding)
-    } as const
+    } as CSSProperties
   })
 </script>
 

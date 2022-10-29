@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FButtonGroup">
-  import { Props } from './button-group'
+  import { Props } from './props'
   import { computed } from 'vue'
   import type { ComputedRef } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'

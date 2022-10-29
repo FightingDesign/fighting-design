@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FAlert">
-  import { Props, Emits } from './alert'
+  import { Props, Emits } from './props'
   import { computed, ref } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
@@ -51,7 +51,7 @@
       '--f-alert-background': background,
       '--f-alert-font-size': sizeChange(fontSize),
       '--f-alert-title-size': sizeChange(titleSize)
-    }
+    } as CSSProperties
   })
 
   const handleClose: a = (evt: MouseEvent): void => {

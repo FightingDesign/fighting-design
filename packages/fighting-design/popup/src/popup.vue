@@ -1,10 +1,10 @@
 <script lang="ts" setup name="FPopup">
-  import { Props, Emits } from './popup'
+  import { Props, Emits } from './props'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
-  import type { PopupHandleChangeInterface as b } from './interface'
+  import type { PopupCallbackInterface as b } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -15,19 +15,19 @@
   }
 
   const handleOpen: b = (evt: MouseEvent): void => {
-    emit('open', evt)
+    prop.open && prop.open(evt)
   }
 
   const handleOpenEnd: b = (evt: MouseEvent): void => {
-    emit('open-end', evt)
+    prop.openEnd && prop.openEnd(evt)
   }
 
   const handleClose: b = (evt: MouseEvent): void => {
-    emit('close', evt)
+    prop.close && prop.close(evt)
   }
 
   const handleCloseEnd: b = (evt: MouseEvent): void => {
-    emit('close-end', evt)
+    prop.closeEnd && prop.closeEnd(evt)
   }
 
   const wrapperStyleList: ComputedRef<CSSProperties> = computed(

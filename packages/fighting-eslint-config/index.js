@@ -242,6 +242,8 @@ module.exports = {
     }],
     // props 必须定义详细的类型 https://eslint.vuejs.org/rules/require-prop-types.html
     'vue/require-prop-types': 'error',
+    // 支持＜template＞中的注释指令 https://eslint.vuejs.org/rules/comment-directive.html
+    'vue/comment-directive': 'off',
     /**
      * typescript 规则配置
      * https://typescript-eslint.io/rules/
@@ -272,18 +274,6 @@ module.exports = {
     '@typescript-eslint/default-param-last': 'error',
     // 必须标记函数返回值 https://typescript-eslint.io/rules/explicit-function-return-type
     '@typescript-eslint/explicit-function-return-type': 'error',
-    // // 接口和类型文字需要特定的成员分隔符样式 https://typescript-eslint.io/rules/member-delimiter-style
-    // '@typescript-eslint/member-delimiter-style': ['error', {
-    //   'multiline': {
-    //     'delimiter': 'none',
-    //     'requireLast': true
-    //   },
-    //   'singleline': {
-    //     'delimiter': 'none',
-    //     'requireLast': true
-    //   },
-    //   'multilineDetection': 'brackets'
-    // }],
     /**
      * eslint 配置项
      * https://eslint.org/docs/latest/
@@ -314,15 +304,11 @@ module.exports = {
     'no-tabs': 'error',
     'default-param-last': 'off'
   },
-  //
-  // parser: ['@typescript-eslint/parser', 'vue-eslint-parser'], // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   // parser: '@typescript-eslint/parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   parser: 'vue-eslint-parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   plugins: ['@typescript-eslint'],
-  // files: ['*.ts', '*.vue'], // beta
   root: true,
   parserOptions: {
-    // 'ecmaVersion': 2018
     parser: '@typescript-eslint/parser' // 解决引入 type {} 报错问题
   }
 }

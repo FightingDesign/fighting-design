@@ -1,1 +1,1 @@
-export type { LoadingPropsType } from './loading'
+export type { LoadingPropsType } from './props'

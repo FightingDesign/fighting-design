@@ -1,3 +1,3 @@
-export type { LayoutPropsType } from './layout'
+export type { LayoutPropsType } from './props'
 
 export type LayoutDirectionType = 'horizontal' | 'vertical' | ''

@@ -1,4 +1,4 @@
-export type { BackTopPropsType } from './back-top'
+export type { BackTopPropsType } from './props'
 
 export type BackTopBehaviorType = 'smooth' | 'auto'
 

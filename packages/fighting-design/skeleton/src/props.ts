@@ -4,23 +4,23 @@ import type { SkeletonSizeType } from './interface'
 export const Props = {
   rounded: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   animated: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   circled: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   rows: {
     type: Number,
-    default: 1
+    default: (): number => 1
   },
   loading: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   size: {
     type: String as PropType<SkeletonSizeType>,

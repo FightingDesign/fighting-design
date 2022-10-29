@@ -1,4 +1,4 @@
-export type { CalendarPropsType } from './calendar'
+export type { CalendarPropsType } from './props'
 
 export interface CalendarMowDataClassListInterface {
   (_month: number, _date: number): string
@@ -12,10 +12,8 @@ export interface CalendarHandleClickInterface {
   (_month: number, _date: number): void
 }
 
-export interface CalendarEmitInterface {
-  year: number
-  month: number
-  date: number
+export interface CalendarCallbackInterface {
+  ({ year: number, month: number, date: number }): void
 }
 
 export type CalendarTargetType = 'last' | 'now' | 'next'

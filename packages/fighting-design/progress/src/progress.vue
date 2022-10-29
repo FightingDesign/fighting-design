@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FProgress">
-  import { Props } from './progress'
+  import { Props } from './props'
   import { sizeChange } from '../../_utils'
   import { computed, ref, onMounted } from 'vue'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'

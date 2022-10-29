@@ -1,5 +1,5 @@
 <script lang="ts" setup name="Ripple">
-  import { Props } from './ripple'
+  import { Props } from './props'
   import { Ripples } from '../../_utils'
   import { computed, ref } from 'vue'
   import type {
@@ -18,7 +18,7 @@
     return {
       '--f-ripple-start-opacity': startOpacity,
       '--f-ripple-end-opacity': endOpacity
-    }
+    } as CSSProperties
   })
 
   const classList: ComputedRef<a> = computed((): a => {

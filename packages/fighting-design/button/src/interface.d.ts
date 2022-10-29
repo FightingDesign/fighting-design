@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes } from 'vue'
 
-export type { ButtonPropsType } from './button'
+export type { ButtonPropsType } from './props'
 
 export type ButtonSizeType = 'large' | 'middle' | 'small' | 'mini'
 

@@ -1,4 +1,4 @@
-export type { MessagePropsType } from './message'
+export type { MessagePropsType } from './props'
 
 export type { MessageInstance } from '../../_interface'
 

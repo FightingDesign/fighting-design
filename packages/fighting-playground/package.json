@@ -11,5 +11,6 @@
   },
   "devDependencies": {
     "fflate": "^0.7.3"
-  }
+  },
+  "license": "MIT"
 }

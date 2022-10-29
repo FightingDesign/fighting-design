@@ -1,5 +1,5 @@
 <script lang="ts" setup class="FMain">
-  import { Props } from './main'
+  import { Props } from './props'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { CSSProperties, ComputedRef } from 'vue'
@@ -11,7 +11,7 @@
 
     return {
       '--f-main-padding': sizeChange(padding)
-    } as const
+    } as CSSProperties
   })
 </script>
 

@@ -1,4 +1,4 @@
-export type { NotificationPropsType } from './notification'
+export type { NotificationPropsType } from './props'
 
 export type { NotificationInstance } from '../../_interface'
 

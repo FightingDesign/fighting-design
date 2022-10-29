@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FLink">
-  import { Props, Emits } from './link'
+  import { Props, Emits } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'

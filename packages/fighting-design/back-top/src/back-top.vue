@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FBackTop">
-  import { Emits, Props } from './back-top'
+  import { Emits, Props } from './props'
   import { onMounted, ref, computed } from 'vue'
   import { debounce, sizeChange } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
@@ -64,7 +64,7 @@
       '--f-back-top-z-index': zIndex,
       '--f-back-top-background': background,
       '--f-back-top-color': color
-    } as const
+    } as CSSProperties
   })
 </script>
 

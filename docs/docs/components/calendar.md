@@ -133,6 +133,8 @@
 | `day-cell-height`  | 日期单元格高度                           | string / number | ——     | 85px     |
 | `week-cell-height` | 星期单元格高度                           | string / number | ——     | 50px     |
 | `memorandum`       | 备忘事件                                 | object          | ——     | null     |
+| `change-switch`    | 月份改变时触发的回调                     | Function        | ——     | null     |
+| `change-date`      | 日期改变时触发的回调                     | Function        | ——     | null     |
 
 ## Slots
 
@@ -141,13 +143,6 @@
 | `last-change` | 自定义上个月切换按钮 |
 | `now-change`  | 自定义今天切换按钮   |
 | `next-change` | 自定义下个月切换按钮 |
-
-## Events
-
-| 事件名称        | 说明                 | 参数                                            |
-| --------------- | -------------------- | ----------------------------------------------- |
-| `change-switch` | 月份改变时触发的回调 | `{ year: number, month: number, date: number }` |
-| `change-date`   | 日期改变时触发的回调 | `{ year: number, month: number, date: number }` |
 
 ## Interface
 

@@ -17,7 +17,7 @@
     "build": "pnpm clean && pnpm build:css && pnpm build:theme && vite build",
     "build:css": "vite build --config vite.config.css.ts",
     "build:theme": "vite build --config vite.config.theme.ts",
-    "build:icon": "rimraf dist-icon && vite build --config vite.config.icon.ts && node script/move-icon.ts",
+    "build:icon": "rimraf dist-icon && vite build --config vite.config.icon.ts",
     "build:docs": "pnpm run -C docs build",
     "build:start": "pnpm run -C start build",
     "build:play": "pnpm run -C packages/fighting-playground build",
@@ -30,14 +30,12 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "vue": "3.2.26"
   },
   "devDependencies": {
     "@fighting-design/eslint-config": "workspace:*",
     "@fighting-design/fighting-icon": "workspace:*",
     "@fighting-design/fighting-theme": "workspace:*",
-    "@commitlint/cli": "^17.0.1",
-    "@commitlint/config-conventional": "^17.0.0",
     "@types/node": "^17.0.42",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/test-utils": "^2.0.0-rc.18",
@@ -46,7 +44,6 @@
     "eslint": "^8.23.0",
     "happy-dom": "^3.2.2",
     "husky": "^8.0.1",
-    "lint-staged": "^12.4.2",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "rollup-plugin-visualizer": "^5.8.0",
@@ -59,15 +56,10 @@
     "vitest": "^0.24.3",
     "vue-tsc": "^0.40.5"
   },
+  "license": "MIT",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,vue}": [
-      "prettier --write",
-      "git add"
-    ]
   }
 }

@@ -1,6 +1,5 @@
 import { computed, watch, ref } from 'vue'
-import { dayMonth } from './utils'
-import { Lunar } from './lunar'
+import { getDayMonth, Lunar } from '../../_utils'
 import type { Ref, ComputedRef } from 'vue'
 import type {
   GetLunarDetailReturnInterface as a,
@@ -8,7 +7,7 @@ import type {
   DiffDayInterface
 } from '../../_interface'
 
-export const diffDay: DiffDayInterface = (
+export const useCalculiTime: DiffDayInterface = (
   year: Ref<number>,
   month: Ref<number>
 ): DiffDayReturnInterface => {
@@ -29,7 +28,7 @@ export const diffDay: DiffDayInterface = (
   // 上个月需要展示的天数
   const lastMonthDay: ComputedRef<a[]> = computed((): a[] => {
     // 上个月的天数
-    let lastDays: number = dayMonth(year.value, month.value - 1)
+    let lastDays: number = getDayMonth(year.value, month.value - 1)
     // 需要展示的上个月信息
     const showLastListResult: a[] = []
 
@@ -55,7 +54,7 @@ export const diffDay: DiffDayInterface = (
   // 下个月需要展示的天数
   const nextMonthDay: ComputedRef<a[]> = computed((): a[] => {
     // 获取当前月份的时间
-    const thisMonthDay: number = dayMonth(year.value, month.value) + firstDayWeek.value
+    const thisMonthDay: number = getDayMonth(year.value, month.value) + firstDayWeek.value
     // 下个月需要展示的天数
     const nextShowDay: number = thisMonthDay % 7 === 0 ? 0 : 7 - (thisMonthDay % 7)
 
@@ -84,7 +83,7 @@ export const diffDay: DiffDayInterface = (
   // 当月需要展示的天数
   const currentMonthDay: ComputedRef<a[]> = computed((): a[] => {
     // 当月的时间
-    const monthDays: number = dayMonth(year.value, month.value)
+    const monthDays: number = getDayMonth(year.value, month.value)
     const showNextListResult: a[] = []
 
     for (let i = 0; i < monthDays; i++) {

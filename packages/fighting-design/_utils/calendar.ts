@@ -4,7 +4,7 @@
  * @param month 月份
  * @returns 
  */
-export const dayMonth = (year: number, month: number): number => {
+export const getDayMonth = (year: number, month: number): number => {
   if (month === -1) {
     return 31
   }

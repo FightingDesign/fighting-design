@@ -1,3 +1,3 @@
-export type { CardPropsType } from './card'
+export type { CardPropsType } from './props'
 
 export type CardShadowType = 'never' | 'hover' | 'always'
