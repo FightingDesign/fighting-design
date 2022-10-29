@@ -4,6 +4,8 @@
 
 - `f-image` `f-avatar` 组件废除 `error` 和 `load` emit 回调
 - `f-image` `f-avatar` 组件新增 `error` 和 `load` props 可选项
+- `f-calendar` 组件废除 `change-date` 和 `change-switch` emit 回调
+- `f-calendar` 组件新增 `change-date` 和 `change-switch` props 可选项
 
 ## 0.8.0-alpha.2 (2022-10-28)
 
