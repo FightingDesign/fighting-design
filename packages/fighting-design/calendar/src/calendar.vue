@@ -1,11 +1,10 @@
 <script lang="ts" setup name="FCalendar">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { ref, computed, watch } from 'vue'
   import { FButton } from '../../button'
   import { FText } from '../../text'
-  import { addZero, sizeChange } from '../../_utils'
-  import { WEEK_DATA } from '../../_model/calendar/data'
-  import { diffDay } from '../../_model/calendar/diff-day'
+  import { addZero, sizeChange, WEEK_DATA } from '../../_utils'
+  import { useCalculiTime } from '../../_hooks'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
     CalendarMowDataClassListInterface as c,
@@ -15,13 +14,12 @@
   } from './interface'
 
   const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
 
   const year: Ref<number> = ref<number>(prop.date.getFullYear())
   const month: Ref<number> = ref<number>(prop.date.getMonth())
   const date: Ref<number> = ref<number>(prop.date.getDate())
 
-  const { AllMonthDays, changeLastMonth, changeNextMonth } = diffDay(
+  const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(
     year,
     month
   )
@@ -70,11 +68,13 @@
       changeNextMonth()
     }
 
-    emit('change-date', {
-      year: year.value,
-      month: _month || month.value,
-      date: _date
-    } as const)
+    if (prop.changeDate) {
+      prop.changeDate({
+        year: year.value,
+        month: _month || month.value,
+        date: _date
+      })
+    }
   }
 
   const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
@@ -98,11 +98,13 @@
   watch(
     (): number => month.value,
     (newValue: number): void => {
-      emit('change-switch', {
-        year: year.value,
-        month: newValue + 1,
-        date: date.value
-      } as const)
+      if (prop.changeSwitch) {
+        prop.changeSwitch({
+          year: year.value,
+          month: newValue + 1,
+          date: date.value
+        })
+      }
     }
   )
 </script>

@@ -1,4 +1,4 @@
-import type { HolidayListType } from '../../_interface'
+import type { HolidayListType } from '../_interface'
 
 // 星期
 export const WEEK_DATA = ['日', '一', '二', '三', '四', '五', '六'] as const

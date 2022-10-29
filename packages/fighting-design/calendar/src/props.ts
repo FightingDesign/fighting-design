@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { CalendarEmitInterface, CalendarMemorandumType } from './interface'
+import type { CalendarCallbackInterface, CalendarMemorandumType } from './interface'
 
 export const Props = {
   date: {
@@ -34,12 +34,15 @@ export const Props = {
   memorandum: {
     type: Object as PropType<CalendarMemorandumType>,
     default: (): null => null
+  },
+  changeDate: {
+    type: Function as PropType<CalendarCallbackInterface>,
+    default: (): null => null
+  },
+  changeSwitch: {
+    type: Function as PropType<CalendarCallbackInterface>,
+    default: (): null => null
   }
-} as const
-
-export const Emits = {
-  'change-date': (date: CalendarEmitInterface): CalendarEmitInterface => date,
-  'change-switch': (date: CalendarEmitInterface): CalendarEmitInterface => date
 } as const
 
 export type CalendarPropsType = ExtractPropTypes<typeof Props>

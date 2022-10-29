@@ -1,20 +1,18 @@
-<script lang="ts" setup>
-  const onLoad = (e) => {
-    console.log('成功了')
-  }
-  const onError = (e) => {
-    console.log('失败了')
-  }
-</script>
-
 <template>
-  <f-avatar
-    width="200px"
-    src="https://tianyuhao.cn/images/auto/21.jpg"
-    err-src="https://tianyuhao.cn/images/auto/1.jpg"
-    :load="onLoad"
-    :error="onError"
+  <f-calendar
+    v-model:date="date"
+    :change-switch="Change1"
+    :change-date="Change2"
   />
 </template>
 
-<style lang="scss" scoped></style>
+<script lang="ts" setup>
+  const date = new Date()
+
+  function Change1(a) {
+    console.log(a)
+  }
+  function Change2(a) {
+    console.log(a)
+  }
+</script>
