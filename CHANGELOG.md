@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-image` `f-avatar` 组件废除 `error` 和 `load` emit 回调
+- `f-image` `f-avatar` 组件新增 `error` 和 `load` props 可选项
+
 ## 0.8.0-alpha.2 (2022-10-28)
 
 - 修复按需导入组件类型的问题 [#232](https://github.com/FightingDesign/fighting-design/pull/232)
