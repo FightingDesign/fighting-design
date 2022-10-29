@@ -1,25 +1,26 @@
-import type { waterfallRowType as rt } from './interface'
+import type { WaterfallRowType } from './interface'
 import type { PropType } from 'vue'
+
 export const Props = {
   list: {
-    type: [] as PropType<rt[]>,
-    default: () => []
+    type: [] as PropType<WaterfallRowType[]>,
+    default: (): [] => []
   },
   cols: {
     type: Number,
-    default: () => 2
+    default: (): number => 2
   },
   minWidth: {
     type: Number,
-    default: () => 200
+    default: (): number => 200
   },
   rowGap: {
     type: String,
-    default: () => '0px'
+    default: (): string => '0px'
   },
   colGap: {
     type: String,
-    default: () => '0px'
+    default: (): string => '0px'
   }
 } as const
 

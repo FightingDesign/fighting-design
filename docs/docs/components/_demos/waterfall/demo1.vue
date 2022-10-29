@@ -1,18 +1,5 @@
-# Waterfall 瀑布流
-
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/waterfall)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/waterfall.md)
-
-## 基本使用
-
-<demo1-vue />
-
-::: details 显示代码
-
-```html
 <script lang="ts" setup>
   import { ref } from 'vue'
-
   const handleEnd = (): void => {
     data.value.push({
       src: 'https://film-grab.com/wp-content/uploads/2022/07/The-Adjuster-006.jpg',
@@ -66,11 +53,7 @@
   </div>
 </template>
 
-<script setup>
-  import demo1Vue from './_demos/waterfall/demo1.vue'
-</script>
-
-<style lang="scss" scoped>
+<style lang="scss">
   * {
     padding: 0;
     margin: 0;
@@ -118,56 +101,5 @@
     color: transparent;
     transform: translateY(100%);
     transition: all 1s;
-  }
-</style>
-```
-
-:::
-
-## Attributes
-
-| 参数       | 说明         | 类型   | 可选值 | 默认值 |
-| ---------- | ------------ | ------ | ------ | ------ |
-| `list`     | 数据         | array  | ——     | array  |
-| `colGap`   | 列间隙       | number | ——     | 0      |
-| `rowGap`   | 行间隙       | number | ——     | 0      |
-| `minWidth` | 单行最小宽度 | number | ——     | ——     |
-| `cols`     | 列数         | number | ——     | 2      |
-
-## Slots
-
-| 名称      | 说明             |
-| --------- | ---------------- |
-| `default` | 瀑布流单项的内容 |
-
-## Events
-
-| 事件名称     | 说明       | 参数 |
-| ------------ | ---------- | ---- |
-| `scroll-end` | 滚动到底部 |      |
-
-## Interface
-
-组件导出以下类型定义：
-
-```ts
-import type { WaterfallRowType } from 'fighting-design'
-```
-
-## Contributors
-
-<a href="https://gitee.com/gz_lib" target="_blank">
-  <f-avatar round src="https://avatars.githubusercontent.com/u/80079124?v=4" />
-</a>
-
-<style scoped>
-  .f-watermark {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 500px;
-  }
-  .f-card {
-    width: 240px;
   }
 </style>
