@@ -49,23 +49,27 @@
   }
 
   // 表格
-  table {
+  .vp-table__container {
     width: 100%;
     overflow-y: hidden;
     overflow-x: auto;
-    display: block;
-  }
 
-  th,
-  tr:nth-child(2n) {
-    background-color: transparent;
-  }
+    table {
+      width: 100%;
+      display: inline-table;
+    }
 
-  td,
-  th {
-    text-align: center;
-    font-size: 15px;
-    border: none;
+    th,
+    tr:nth-child(2n) {
+      background-color: transparent;
+    }
+
+    td,
+    th {
+      text-align: center;
+      font-size: 15px;
+      border: none;
+    }
   }
 
   p.f-text {
