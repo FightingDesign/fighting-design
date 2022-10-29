@@ -1,18 +1,15 @@
 <template>
-  <f-calendar
-    v-model:date="date"
-    :change-switch="Change1"
-    :change-date="Change2"
-  />
+  <f-button type="primary" @click="openNotification">show</f-button>
 </template>
 
 <script lang="ts" setup>
-  const date = new Date()
+  import { FMessage } from '../../packages/fighting-design/index'
 
-  function Change1(a) {
-    console.log(a)
-  }
-  function Change2(a) {
-    console.log(a)
+  const openNotification = () => {
+    FMessage({
+      message: '这是一条消息提示',
+      type: 'success',
+      placement: 'top'
+    })
   }
 </script>
