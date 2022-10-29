@@ -2,7 +2,7 @@ export interface ScrollInterface {
   (evt: FocusEvent): void
 }
 
-export interface waterfallRowType {
+export interface WaterfallRowType {
   src?: string
   _order?: number
   index?: number

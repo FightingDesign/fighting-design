@@ -1,10 +1,10 @@
 <script lang="ts" setup name="Waterfall">
   import { onMounted, ref, reactive, onUnmounted, watch, nextTick } from 'vue'
-
-  import { Props, Emits } from './waterfall'
-  import type { waterfallRowType as rt } from './interface'
+  import { Props, Emits } from './props'
+  import type { WaterfallRowType as rt } from './interface'
 
   const prop = defineProps(Props)
+
   let cols: Number = prop.cols as Number
   const emit = defineEmits(Emits)
   const waterfall = ref()
