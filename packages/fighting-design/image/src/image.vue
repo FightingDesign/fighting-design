@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FImage">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { onMounted, ref, computed } from 'vue'
   import { loadImage, sizeChange } from '../../_utils'
   import { useFilterProps } from '../../_hooks'
@@ -13,7 +13,6 @@
   } from '../../_interface'
 
   const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
 
   // 是否加载成功
   const isSuccess: Ref<boolean> = ref<boolean>(true)
@@ -34,10 +33,12 @@
       'src',
       'errSrc',
       'rootMargin',
-      'lazy'
+      'lazy',
+      'load',
+      'error'
     ])
 
-    loadImage(node, needProps, emit, callback)
+    loadImage(node, needProps, callback)
   }
 
   onMounted((): void => {
