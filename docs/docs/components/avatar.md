@@ -165,6 +165,8 @@
 | `font-color`  | 字体的颜色                                                                                               | string                     | ——                                           | #333     |
 | `text`        | 文字头像                                                                                                 | string                     | ——                                           | ——       |
 | `root-margin` | 触发懒加载的距离                                                                                         | string / number            | ——                                           | 100px    |
+| `load`        | 图片加载成功触发的回调                                                                                   | Function                   | ——                                           | null     |
+| `error`       | 图片加载失败触发的回调                                                                                   | Function                   | ——                                           | null     |
 
 ## Slots
 
@@ -172,13 +174,6 @@
 | -------- | ------------------ |
 | `error`  | 自定义加载失败提示 |
 | `icon`   | 自定义 icon 头像   |
-
-## Events
-
-| 事件名称 | 说明             |
-| -------- | ---------------- |
-| `load`   | 图片加载成功触发 |
-| `error`  | 图片加载失败触发 |
 
 ## Interface
 
