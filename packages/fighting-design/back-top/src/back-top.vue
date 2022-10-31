@@ -1,13 +1,12 @@
 <script lang="ts" setup name="FBackTop">
-  import { Emits, Props } from './props'
+  import { Props } from './props'
   import { onMounted, ref, computed } from 'vue'
   import { debounce, sizeChange } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type { BackTopHandleScrollInterface as a } from './interface'
-  import type { HandleEventInterface as b } from '../../_interface'
+  import type { OrdinaryFunctionInterface as b } from '../../_interface'
 
   const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
 
   const visible: Ref<boolean> = ref<boolean>(false)
 
@@ -21,7 +20,7 @@
     }, 200)
   }
 
-  const handleClick: b = (evt: MouseEvent): void => {
+  const handleClick: b = (): void => {
     const { top, behavior, listenEl } = prop
 
     if (listenEl) {
@@ -39,7 +38,6 @@
       top,
       behavior
     } as const)
-    emit('click', evt)
   }
 
   onMounted((): void => {
