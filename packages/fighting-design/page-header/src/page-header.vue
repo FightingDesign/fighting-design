@@ -3,18 +3,19 @@
   import { sizeChange } from '../../_utils'
   import { FIconArrowLeftVue } from '../../_components/svg/index'
   import { FSvgIcon } from '../../svg-icon'
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import type { ComputedRef } from 'vue'
   import type {
-    OrdinaryFunctionInterface as a,
+    HandleEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
 
   const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
 
-  const handleClick: a = (): void => {
-    emit('back')
+  const handleClick: a = (evt: MouseEvent): void => {
+    if (prop.back) {
+      prop.back(evt)
+    }
   }
 
   const rightClassList: ComputedRef<b> = computed((): b => {

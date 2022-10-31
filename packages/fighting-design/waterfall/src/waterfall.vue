@@ -23,7 +23,7 @@
     }
   )
 
-  const preload = async (data: rt[]): Promise => {
+  const preload = async (data: rt[]): Promise<unknown[]> => {
     return Promise.all(
       data.map((item) => {
         return new Promise((resolve: Function) => {
@@ -40,14 +40,26 @@
     )
   }
 
-  const init = (): void => {
-    const containerWidth = waterfall.value.clientWidth
+  const init = (load = true): void => {
+    let containerWidth = waterfall.value.clientWidth
+
+    // 容器可分配宽度=容器原宽度 -（列数-1）* 列间隙
+    containerWidth =
+      containerWidth -
+      (Math.floor(containerWidth / prop.minWidth) - 1) * parseInt(prop.colGap)
 
     if (prop.minWidth) {
       cols = Math.floor(containerWidth / prop.minWidth)
     }
+
+    // 以最终的列数-1*间隙
+    if (cols !== Math.floor(waterfall.value.clientWidth / prop.minWidth)) {
+      containerWidth =
+        waterfall.value.clientWidth - (Number(cols) - 1) * parseInt(prop.colGap)
+    }
+
     const itemWidth = containerWidth / Number(cols) + 'px'
-    // console.log(itemWidth, cols, 'minWIdth')
+    containerWidth = waterfall.value.clientWidth
     data.length = 0
     data.push(
       ...prop.list.map((o: rt) => ({
@@ -60,11 +72,14 @@
       }))
     )
 
-    nextTick(async () => {
-      await preload(data)
-      const boxs = waterfall.value.querySelectorAll('.f-waterfall-box')
-      let hs = Object.values(boxs).map((o, index) => ({
-        height: o.clientHeight,
+    nextTick(async (): Promise<void> => {
+      if (load) {
+        await preload(data)
+      }
+      const nodes: HTMLDivElement =
+        waterfall.value.querySelectorAll('.f-waterfall-box')
+      let hs = Object.values(nodes).map((n: HTMLElement, index) => ({
+        height: n.clientHeight,
         index
       }))
       const columns = Array(cols)
@@ -116,8 +131,9 @@
       clearTimeout(times)
     }
     times = setTimeout(() => {
-      init()
-    }, 50)
+      init(false)
+    }, 10)
+    // init(false)
   }
 
   onMounted(async () => {
@@ -153,7 +169,11 @@
   <div
     ref="waterfall"
     class="f-waterfall"
-    :style="{ height: containerHeight }"
+    :style="{
+      height: containerHeight,
+      'row-gap': prop.rowGap,
+      'column-gap': prop.colGap
+    }"
     @scroll="handleScroll"
   >
     <div
@@ -163,9 +183,7 @@
       :style="{
         order: item._order,
         minWidth: item._minWidth,
-        width: item._width,
-        marginBottom: prop.rowGap,
-        marginRight: prop.colGap
+        width: item._width
       }"
     >
       <slot name="default" :row="item">
