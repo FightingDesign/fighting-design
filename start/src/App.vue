@@ -4,15 +4,15 @@
   <!-- <input type="file" name="" id="" /> -->
   <f-up-load />
 
-  <f-alert type="primary" close :close-end="end">主要提示信息</f-alert>
-  <f-alert type="success" close>成功提示信息</f-alert>
-  <f-alert type="danger" close>危险提示信息</f-alert>
 
-  <f-page-header title="标题" :back="goBack" />
+  <f-rate v-model="value1" :change="goBack" />
 </template>
 
 <script lang="ts" setup>
   import { FMessage } from '../../packages/fighting-design/index'
+  import { ref } from 'vue'
+
+  const value1 = ref(1)
 
   function goBack(e) {
     console.log(e)
