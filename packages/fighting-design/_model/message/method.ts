@@ -52,18 +52,12 @@ const FMessage: MessageFn & Partial<MessageFnWithType> = (
     VNode.component as ComponentInternalInstance
 
   seed++
-
   const instance = massageManage.createInstance(
     {
       id,
       vm,
       close: (): void => {
-        (
-          (vm as ComponentInternalInstance).exposeProxy as Record<
-            string,
-            Function
-          >
-        ).close()
+        (vm as ComponentInternalInstance).exposed!.close()
       },
       bottom: 0,
       visible: 0
