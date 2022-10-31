@@ -13,9 +13,7 @@
   const prop = defineProps(Props)
 
   const handleClick: a = (evt: MouseEvent): void => {
-    if (prop.back) {
-      prop.back(evt)
-    }
+    prop.back && prop.back(evt)
   }
 
   const rightClassList: ComputedRef<b> = computed((): b => {

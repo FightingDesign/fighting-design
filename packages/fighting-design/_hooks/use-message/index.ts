@@ -45,7 +45,7 @@ export const useMessage = (target: 'message' | 'notification'): { instance: Mess
      * 关闭动画结束时，移除dom
      */
     props.onDestroy = (): void => {
-      props.closeEnd?.()
+      props.closeEnd && props.closeEnd()
       render(null, container)
     }
 
@@ -56,7 +56,7 @@ export const useMessage = (target: 'message' | 'notification'): { instance: Mess
     const vm: ComponentInternalInstance = VNode.component as ComponentInternalInstance
 
     seed++
-    const instance = massageManage.createInstance(
+    const instance: MessageInstance = massageManage.createInstance(
       {
         id,
         vm,
@@ -80,5 +80,5 @@ export const useMessage = (target: 'message' | 'notification'): { instance: Mess
 
   return {
     instance
-  }
+  } as const
 }

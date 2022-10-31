@@ -29,9 +29,7 @@
 
   const handleClose: a = (evt: MouseEvent): void => {
     isShow.value = false
-    if (prop.closeEnd) {
-      prop.closeEnd(evt)
-    }
+    prop.closeEnd && prop.closeEnd(evt)
   }
 </script>
 

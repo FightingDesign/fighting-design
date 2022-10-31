@@ -67,13 +67,8 @@ class Load implements LoadInterface {
     }
 
     // 否则返回失败回调
-    if (this.props.error) {
-      this.props.error(evt)
-    }
-
-    if (this.callback) {
-      this.callback(false)
-    }
+    this.props.error && this.props.error(evt)
+    this.callback && this.callback(false)
   }
   /**
    * 图片加载
@@ -82,14 +77,8 @@ class Load implements LoadInterface {
    */
   onload = (evt: Event, src: string): void => {
     this.node.src = src
-
-    if (this.props.load) {
-      this.props.load(evt)
-    }
-
-    if (this.callback) {
-      this.callback(true)
-    }
+    this.props.load && this.props.load(evt)
+    this.callback && this.callback(true)
   }
 }
 

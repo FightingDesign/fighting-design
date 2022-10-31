@@ -68,13 +68,12 @@
       changeNextMonth()
     }
 
-    if (prop.changeDate) {
+    prop.changeDate &&
       prop.changeDate({
         year: year.value,
         month: _month || month.value,
         date: _date
       })
-    }
   }
 
   const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
@@ -98,13 +97,12 @@
   watch(
     (): number => month.value,
     (newValue: number): void => {
-      if (prop.changeSwitch) {
+      prop.changeSwitch &&
         prop.changeSwitch({
           year: year.value,
           month: newValue + 1,
           date: date.value
         })
-      }
     }
   )
 </script>

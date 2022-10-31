@@ -33,9 +33,7 @@
     if (prop.readonly) return
     starValue.value = index
     emit('update:modelValue', index)
-    if (prop.change) {
-      prop.change(index)
-    }
+    prop.change && prop.change(index)
   }
 
   watch(
