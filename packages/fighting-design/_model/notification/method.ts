@@ -59,7 +59,7 @@ const FMessage: FNotificationFn & Partial<NotificationFnWithType> = (
       id,
       vm,
       close: (): void => {
-        (vm as ComponentInternalInstance).exposed!.close()
+        ((vm as ComponentInternalInstance).exposed as NotificationInstance).close()
       },
       bottom: 0,
       visible: 0

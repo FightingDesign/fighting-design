@@ -30,7 +30,7 @@ import { useLoadingBar } from 'fighting-design'
   <f-button type="danger" @click="error">报错</f-button>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { useLoadingBar } from 'fighting-design'
 
   const bar = useLoadingBar()

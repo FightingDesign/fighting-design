@@ -26,7 +26,7 @@
   </f-radio-group>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { ref } from 'vue'
 
   const radio1 = ref('1')
@@ -56,7 +56,7 @@
   </f-radio-group>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { ref } from 'vue'
 
   const radio2 = ref('1')
@@ -131,7 +131,7 @@
   </f-radio-group>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { ref } from 'vue'
 
   const radio4 = ref('1')
@@ -161,7 +161,7 @@
   </f-radio-group>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { ref } from 'vue'
 
   const radio5 = ref('1')
@@ -206,7 +206,7 @@
   </f-radio-group>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { ref } from 'vue'
 
   const radio6 = ref('1')

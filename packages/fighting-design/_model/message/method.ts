@@ -4,7 +4,7 @@ import { useMassageManage } from '../../_hooks'
 import { messageTypes } from './type'
 import type { MessagePlacementType } from '../../message/src/interface'
 import type { MessageInstance, MessageFnWithType, MessageOptions, MessageFn } from '../../_interface'
-import type { ComponentInternalInstance , VNode } from 'vue'
+import type { ComponentInternalInstance, VNode } from 'vue'
 
 export const massageManage = useMassageManage<MessagePlacementType>()
 
@@ -57,7 +57,7 @@ const FMessage: MessageFn & Partial<MessageFnWithType> = (
       id,
       vm,
       close: (): void => {
-        (vm as ComponentInternalInstance).exposed!.close()
+        ((vm as ComponentInternalInstance).exposed as MessageInstance).close()
       },
       bottom: 0,
       visible: 0

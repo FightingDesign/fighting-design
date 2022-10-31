@@ -72,7 +72,7 @@
   <f-svg-icon :icon="FIconUpload" />
 </f-back-top>
 
-<script setup>
+<script lang="ts" setup>
   import { FIconUpload } from '@fighting-design/fighting-icon'
 </script>
 ```

@@ -1,30 +1,23 @@
 <template>
+  <f-button type="primary" @click="openMessage">show</f-button>
+
   <f-button type="primary" @click="openNotification">show</f-button>
-  <f-button type="primary" @click="openNotification2">show2</f-button>
-
-  <!-- <input type="file" name="" id="" /> -->
-  <f-up-load />
-
-
-  <f-rate v-model="value1" :change="goBack" />
 </template>
 
 <script lang="ts" setup>
-  import { FMessage } from '../../packages/fighting-design/index'
-  import { FNotification } from '../../packages/fighting-design/notification/index';
+  import { FMessage, FNotification } from '../../packages/fighting-design/index'
 
-  const openNotification = () => {
+  const openMessage = () => {
     FMessage({
       message: '这是一条消息提示',
-      type: 'success',
-      placement: 'top'
+      type: 'success'
     })
   }
 
-  const openNotification2 = () => {
+  const openNotification = () => {
     FNotification({
-      title: '啊啊啊',
-      message: '123123'
+      title: '这是一条通知',
+      message: '这是通知内容'
     })
   }
 </script>
