@@ -1,12 +1,35 @@
 <script lang="ts" setup name="FUpLoad">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
+  import { FButton } from '../../button'
+  import { ref } from 'vue'
+  import type { Ref } from 'vue'
 
   defineProps(Props)
-  defineEmits(Emits)
+
+  const FUpLoadInput: Ref<HTMLInputElement> = ref(
+    null as unknown as HTMLInputElement
+  )
+
+  const handleClick = (e): void => {
+    console.log(e)
+  }
 </script>
 
 <template>
   <div class="f-up-load">
-    FUpLoad
+    <div class="f-up-load__content" @click="handleClick">
+      <slot>
+        <f-button>选择文件</f-button>
+      </slot>
+    </div>
+
+    <input
+      ref="FUpLoadInput"
+      type="file"
+      hidden
+      :name="name"
+      :accept="accept"
+      :multiple="multiple"
+    />
   </div>
 </template>
