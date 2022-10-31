@@ -1,14 +1,13 @@
 <script lang="ts" setup name="FTag">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { computed, ref } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import type { ComputedRef, Ref } from 'vue'
-  import type { TagTHandleCloseInterface as a } from './interface'
+  import type { TagCloseEndInterface as a } from './interface'
   import type { ClassListInterface as b } from '../../_interface'
 
   const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
 
   const isShow: Ref<boolean> = ref<boolean>(true)
 
@@ -28,9 +27,11 @@
     ] as const
   })
 
-  const handleClose: a = (evt: Event): void => {
+  const handleClose: a = (evt: MouseEvent): void => {
     isShow.value = false
-    emit('close-end', evt)
+    if (prop.closeEnd) {
+      prop.closeEnd(evt)
+    }
   }
 </script>
 

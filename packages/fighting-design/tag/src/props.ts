@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode } from 'vue'
-import type { TagSizeType, TagType } from './interface'
+import type { TagSizeType, TagType, TagCloseEndInterface } from './interface'
 
 export const Props = {
   type: {
@@ -53,11 +53,11 @@ export const Props = {
   line: {
     type: Boolean,
     default: (): boolean => false
+  },
+  closeEnd: {
+    type: Function as PropType<TagCloseEndInterface>,
+    default: (): null => null
   }
-} as const
-
-export const Emits = {
-  'close-end': (evt: Event): Event => evt
 } as const
 
 export type TagPropsType = ExtractPropTypes<typeof Props>
