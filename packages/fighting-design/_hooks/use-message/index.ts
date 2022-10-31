@@ -2,11 +2,12 @@ import messageVue from '../../message/src/message.vue'
 import notificationVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
 import { useMassageManage } from '../../_hooks'
-import { messageTypes } from '../../_model/message/type'
 import type { MessageInstance, MessageFnWithType, MessageOptions, MessageFn } from '../../_interface'
 import type { ComponentInternalInstance, VNode } from 'vue'
 
 export const massageManage = useMassageManage()
+
+const messageTypes = ['default', 'primary', 'success', 'danger', 'warning']
 
 export const useMessage = (target: 'message' | 'notification'): object => {
   let seed = 1

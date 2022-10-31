@@ -3,7 +3,13 @@
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
   import { Props, Emits } from './props'
-  import { notificationDefaultIcon } from '../../_model/notification/type'
+  import {
+    FIconSmileLineVue,
+    FIconLightbulbVue,
+    FIconThumbUpVue,
+    FIconCircleCrossVue,
+    FIconWarningVue
+  } from '../../_components/svg/index'
   import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
     OrdinaryFunctionInterface as a,
@@ -14,6 +20,14 @@
 
   const prop: NotificationPropsType = defineProps(Props)
   defineEmits(Emits)
+
+  const notificationDefaultIcon = {
+    default: FIconSmileLineVue,
+    primary: FIconLightbulbVue,
+    success: FIconThumbUpVue,
+    danger: FIconCircleCrossVue,
+    warning: FIconWarningVue
+  } as const
 
   /**
    * 默认icon

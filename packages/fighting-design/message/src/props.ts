@@ -1,4 +1,3 @@
-import { messageTypes, messagePlacements } from '../../_model/message/type'
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
 import type { MessageType, MessagePlacementType } from './interface'
 
@@ -16,7 +15,7 @@ export const Props = {
     type: String as PropType<MessageType>,
     default: (): MessageType => 'default',
     validator: (val: MessageType): boolean => {
-      return messageTypes.includes(val)
+      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
   close: {
@@ -51,7 +50,7 @@ export const Props = {
     type: String as PropType<MessagePlacementType>,
     default: (): MessagePlacementType => 'top',
     validator: (val: MessagePlacementType): boolean => {
-      return messagePlacements.includes(val)
+      return (['top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right'] as const).includes(val)
     }
   },
   zIndex: {
