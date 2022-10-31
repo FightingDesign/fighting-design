@@ -15,7 +15,7 @@
 
   const changeEvent: b = (val: a): void => {
     emit('update:modelValue', val)
-    emit('change', val)
+    prop.change && prop.change(val)
   }
 
   const checkboxGroupProps = reactive({

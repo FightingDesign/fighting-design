@@ -3,9 +3,11 @@
   import { onMounted, ref, computed } from 'vue'
   import { debounce, sizeChange } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type { BackTopHandleScrollInterface as a } from './interface'
+  import type {
+    BackTopHandleScrollInterface as a,
+    BackTopPropsType
+  } from './interface'
   import type { OrdinaryFunctionInterface as b } from '../../_interface'
-  import type { BackTopPropsType } from './props'
 
   const prop: BackTopPropsType = defineProps(Props)
 

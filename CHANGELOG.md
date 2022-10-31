@@ -14,6 +14,7 @@
 - `f-tag` 组件废除 `close-end` emit 回调，新增 `close-end` props 可选项
 - `f-page-header` 组件废除 `back` emit 回调，新增 `back` props 可选项
 - `f-rate` 组件废除 `change` emit 回调，新增 `change` props 可选项
+- `f-checkbox-group` 组件废除 `change` emit 回调，新增 `change` props 可选项
 
 ## 0.8.0-alpha.2 (2022-10-28)
 

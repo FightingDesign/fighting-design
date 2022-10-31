@@ -1,23 +1,17 @@
 <template>
-  <f-button type="primary" @click="openMessage">show</f-button>
-
-  <f-button type="primary" @click="openNotification">show</f-button>
+  <f-checkbox-group v-model="option2" :change="change">
+    <f-checkbox label="鸡肉卷" />
+    <f-checkbox label="鸡排" />
+    <f-checkbox label="汉堡" />
+  </f-checkbox-group>
 </template>
 
 <script lang="ts" setup>
-  import { FMessage, FNotification } from '../../packages/fighting-design/index'
+  import { ref } from 'vue'
 
-  const openMessage = () => {
-    FMessage({
-      message: '这是一条消息提示',
-      type: 'success'
-    })
-  }
+  const option2 = ref(['汉堡'])
 
-  const openNotification = () => {
-    FNotification({
-      title: '这是一条通知',
-      message: '这是通知内容'
-    })
+  function change(e) {
+    console.log(e)
   }
 </script>
