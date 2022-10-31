@@ -4,13 +4,13 @@
   import { isString } from '../../_utils'
   import { Props, Emits } from './props'
   import { notificationDefaultIcon } from '../../_model/notification/type'
-  import { massageManage } from '../../_model/notification/method'
   import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
     OrdinaryFunctionInterface as a,
     ClassListInterface as b
   } from '../../_interface'
   import type { NotificationPropsType } from './props'
+  import { massageManage } from '../../_hooks'
 
   const prop: NotificationPropsType = defineProps(Props)
   defineEmits(Emits)
@@ -171,9 +171,7 @@
         @click="closeMessage"
       >
         <template v-if="isString(closeBtn)">{{ closeBtn }}</template>
-        <f-close-btn v-else :size="16">
-          <!-- <component :is="closeBtn" /> -->
-        </f-close-btn>
+        <f-close-btn v-else :size="16" />
       </div>
     </div>
   </transition>

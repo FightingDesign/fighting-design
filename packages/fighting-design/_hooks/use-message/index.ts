@@ -1,24 +1,27 @@
 import messageVue from '../../message/src/message.vue'
+import notificationVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
 import { useMassageManage } from '../../_hooks'
 import { messageTypes } from '../../_model/message/type'
-import type { MessagePlacement } from './interface'
-import type { MessagePlacementType } from '../../message/src/interface'
 import type { MessageInstance, MessageFnWithType, MessageOptions, MessageFn } from '../../_interface'
 import type { ComponentInternalInstance, VNode } from 'vue'
 
-export const massageManage = useMassageManage<MessagePlacementType>()
+export const massageManage = useMassageManage()
 
-export const useMessage = (): object => {
+export const useMessage = (target: 'message' | 'notification'): object => {
   let seed = 1
 
-  const defaultOptions: MessagePlacement = {
-    placement: 'top'
+  const defaultOptions = {
+    message: { placement: 'top' },
+    notification: { placement: 'top-right' }
   }
 
-  const FMessage: MessageFn & Partial<MessageFnWithType> = (
-    options
-  ): MessageInstance => {
+  const componentVue = {
+    message: messageVue,
+    notification: notificationVue
+  }
+
+  const FMessage: MessageFn & Partial<MessageFnWithType> = (options): MessageInstance => {
     const container: HTMLDivElement = document.createElement('div')
     const id = `message-${seed}`
 
@@ -29,7 +32,7 @@ export const useMessage = (): object => {
     }
     const props: MessageOptions & typeof defaultOptions = {
       id,
-      ...defaultOptions,
+      ...defaultOptions[target],
       ...options
     }
 
@@ -41,7 +44,8 @@ export const useMessage = (): object => {
       render(null, container)
     }
 
-    const VNode: VNode = createVNode(messageVue, props)
+    // const VNode: VNode = createVNode(messageVue, props)
+    const VNode: VNode = createVNode(componentVue[target], props)
 
     render(VNode, container)
 
