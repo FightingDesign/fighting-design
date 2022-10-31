@@ -130,6 +130,7 @@
 | `no-link`     | 是否禁止链接跳转及重新加载（取消默认事件）                                                | boolean                    | ——                                                     | false   |
 | `after-icon`  | 之前的 icon                                                                               | object (VNode / Component) | ——                                                     | null    |
 | `before-icon` | 之后的 icon                                                                               | object (VNode / Component) | ——                                                     | null    |
+| `click`       | 点击执行的回调                                                                            | Function                   | ——                                                     | null    |
 
 ## Slots
 

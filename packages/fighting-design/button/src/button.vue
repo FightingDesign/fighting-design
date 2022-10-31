@@ -2,7 +2,7 @@
   import { computed, ref, h } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_components/svg/index'
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { Ripples, ChangeColor, sizeChange } from '../../_utils'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
@@ -12,7 +12,6 @@
   import type { ButtonPropsType } from './props'
 
   const prop: ButtonPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
 
   // dom 元素
   const FButton: Ref<HTMLButtonElement> = ref<HTMLButtonElement>(
@@ -80,7 +79,7 @@
       ripples.clickRipples()
     }
 
-    emit('click', evt)
+    prop.click && prop.click(evt)
   }
 
   // 样式列表

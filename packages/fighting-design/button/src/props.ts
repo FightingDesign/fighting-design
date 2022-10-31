@@ -5,6 +5,7 @@ import type {
   ButtonType,
   ButtonNativeType
 } from './interface'
+import type { HandleEventInterface } from '../../_interface'
 
 export const Props = {
   bold: {
@@ -116,11 +117,11 @@ export const Props = {
   color: {
     type: String,
     default: (): string => ''
+  },
+  click: {
+    type: Function as PropType<HandleEventInterface>,
+    default: (): null => null
   }
-} as const
-
-export const Emits = {
-  click: (evt: MouseEvent): MouseEvent => evt
 } as const
 
 export type ButtonPropsType = ExtractPropTypes<typeof Props>

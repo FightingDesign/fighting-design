@@ -15,6 +15,8 @@
 - `f-page-header` 组件废除 `back` emit 回调，新增 `back` props 可选项
 - `f-rate` 组件废除 `change` emit 回调，新增 `change` props 可选项
 - `f-checkbox-group` 组件废除 `change` emit 回调，新增 `change` props 可选项
+- `f-link` 组件废除 `click` emit 回调，新增 `click` props 可选项
+- `f-button` 组件废除 `click` emit 回调，新增 `click` props 可选项
 
 ## 0.8.0-alpha.2 (2022-10-28)
 
