@@ -2,6 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复 Bug**
+
+- 修复 `FMessage` `FNotification` 组件的报错问题
+
+**改进优化**
+
 - `f-image` `f-avatar` 组件废除 `error` 和 `load` emit 回调，新增 `error` 和 `load` props 可选项
 - `f-calendar` 组件废除 `change-date` 和 `change-switch` emit 回调，新增 `change-date` 和 `change-switch` props 可选项
 - `f-alert` 组件废除 `close-end` emit 回调，新增 `close-end` props 可选项
