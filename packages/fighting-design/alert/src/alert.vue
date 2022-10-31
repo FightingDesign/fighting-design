@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FAlert">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { computed, ref } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
@@ -11,7 +11,6 @@
   } from '../../_interface'
 
   const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
 
   const isShow: Ref<boolean> = ref<boolean>(true)
 
@@ -56,7 +55,10 @@
 
   const handleClose: a = (evt: MouseEvent): void => {
     isShow.value = false
-    emit('close-end', evt)
+
+    if (prop.closeEnd) {
+      prop.closeEnd(evt)
+    }
   }
 </script>
 
