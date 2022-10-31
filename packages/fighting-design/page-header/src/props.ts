@@ -1,4 +1,5 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
+import type { PageHeaderBackInterface } from './interface'
 
 export const Props = {
   icon: {
@@ -32,11 +33,11 @@ export const Props = {
   subtitle: {
     type: String,
     default: (): string => ''
+  },
+  back: {
+    type: Function as PropType<PageHeaderBackInterface>,
+    default: (): null => null
   }
-} as const
-
-export const Emits = {
-  back: (): boolean => true
 } as const
 
 export type PageHeaderPropsType = ExtractPropTypes<typeof Props>

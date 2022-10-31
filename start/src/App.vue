@@ -3,8 +3,10 @@
   <f-button type="primary" @click="openNotification2">show2</f-button>
 
   <!-- <input type="file" name="" id="" /> -->
-
   <f-up-load />
+
+
+  <f-rate v-model="value1" :change="goBack" />
 </template>
 
 <script lang="ts" setup>

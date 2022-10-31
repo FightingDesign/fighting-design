@@ -113,12 +113,7 @@
 | `text-color`     | 辅助文字颜色             | string                     | ——     | ——                                       |
 | `text-arr`       | 辅助文字数组             | []                         | ——     | ['极差', '失望', '一般', '不错', '很棒'] |
 | `text-size`      | 辅助文字尺寸             | string / number            | ——     | ——                                       |
-
-## Events
-
-| 事件名称 | 说明                 |
-| -------- | -------------------- |
-| `change` | 当分数发生改变时触发 |
+| `change`         | 当分数发生改变时触发     | Function                   | ——     | null                                     |
 
 ## Interface
 
