@@ -1,4 +1,7 @@
-import Message from '../_model/message/method'
+// import Message from '../_model/message/method'
+import { useMessage } from '../_hooks'
+
+const { FMessage: Message } = useMessage()
 
 import { installFn } from '../_utils'
 

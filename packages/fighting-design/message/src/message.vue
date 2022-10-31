@@ -4,12 +4,12 @@
   import { FCloseBtn } from '../../close-btn'
   import { Props, Emits } from './props'
   import { isString } from '../../_utils'
-  import { massageManage } from '../../_model/message/method'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
     OrdinaryFunctionInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import { massageManage } from '../../_hooks'
 
   const prop = defineProps(Props)
   defineEmits(Emits)

@@ -6,7 +6,8 @@ import type { MessagePlacementType } from '../../message/src/interface'
 import type { MessageInstance, MessageFnWithType, MessageOptions, MessageFn } from '../../_interface'
 import type { ComponentInternalInstance, VNode } from 'vue'
 
-export const massageManage = useMassageManage<MessagePlacementType>()
+// export const massageManage = useMassageManage<MessagePlacementType>()
+export const massageManage = useMassageManage()
 
 const defaultOptions: {
   placement: MessagePlacementType

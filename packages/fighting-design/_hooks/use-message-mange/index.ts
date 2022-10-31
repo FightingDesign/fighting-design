@@ -1,36 +1,31 @@
 import { reactive } from 'vue'
-import type { MessageInstance, UseMassageManageReturnInterface } from '../../_interface'
+import type { MessageInstance } from '../../_interface'
+import type { MessageInstancesType, UseMassageManageReturnInterface } from './interface'
+import type { MessagePlacementType } from '../../message/src/interface'
 
 /**
  * 创建弹出的消息体实例
  * @returns
  */
-export const useMassageManage = <messagePlacementType extends string>(): UseMassageManageReturnInterface => {
-  const instances: Partial<{
-    [key in messagePlacementType]: MessageInstance[]
-  }> = reactive({})
+// export const useMassageManage = <MessagePlacementType extends string>(): UseMassageManageReturnInterface => {
+export const useMassageManage = (): UseMassageManageReturnInterface => {
+  // 组件实例对象
+  const instances: MessageInstancesType = reactive({})
 
   /**
-   * 通过方位与id，获取目标实例
-   * @param placement
-   * @param id
-   * @returns
+   * 通过方位与 id，获取目标实例
+   * @param placement 方位
+   * @param id id
+   * @returns 
    */
-  const getInstanceIndex = (
-    placement: messagePlacementType,
-    id: string
-  ): number => {
+  const getInstanceIndex = (placement: MessagePlacementType, id: string): number => {
     if (!instances[placement]) return -1
-    return (instances[placement] as MessageInstance[]).findIndex(
-      (item) => item.id === id
-    )
+    return (instances[placement] as MessageInstance[]).findIndex((item: MessageInstance) => {
+      return item.id === id
+    })
   }
 
-  const getSiblingOffset = (
-    placement: messagePlacementType,
-    id: string,
-    isNext: boolean
-  ): number => {
+  const getSiblingOffset = (placement: MessagePlacementType, id: string, isNext: boolean): number => {
     const idx: number = getInstanceIndex(placement, id)
     if (idx === -1) return 0
     const beforeInstance: MessageInstance =
@@ -41,32 +36,38 @@ export const useMassageManage = <messagePlacementType extends string>(): UseMass
 
     /**
      * 在vue3.2.32版本进行了调整
-     * 
      * 在之后版本使用 exposeProxy 代替 exposed
-     * 
      * 其他用到 exposed 的地方需同步修改
      */
     return (beforeInstance.vm.exposed as MessageInstance).bottom
   }
 
-  const removeInstance = (
-    placement: messagePlacementType,
-    id: string
-  ): void => {
+  /**
+   * 移除实例对象
+   * @param placement 
+   * @param id 
+   */
+  const removeInstance = (placement: MessagePlacementType, id: string): void => {
     const idx: number = getInstanceIndex(placement, id)
+
+    console.log(instances, placement, id)
+      // debugger
+
       ; (instances[placement] as MessageInstance[]).splice(idx, 1)
   }
 
-  const createInstance = (
-    instance: MessageInstance,
-    placement: messagePlacementType
-  ): MessageInstance => {
+  /**
+   * 创建实例
+   * @param instance 
+   * @param placement 
+   * @returns 
+   */
+  const createInstance = (instance: MessageInstance, placement: MessagePlacementType): MessageInstance => {
     if (instances[placement]) {
       (instances[placement] as MessageInstance[]).push(instance)
     } else {
       instances[placement] = [instance]
     }
-
     return instance
   }
 
