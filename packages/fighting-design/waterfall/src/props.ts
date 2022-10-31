@@ -1,10 +1,14 @@
-import type { WaterfallRowType } from './interface'
+import type { WaterfallRowType, WaterfallType } from './interface'
 import type { PropType } from 'vue'
 
 export const Props = {
   list: {
     type: [] as PropType<WaterfallRowType[]>,
     default: (): [] => []
+  },
+  type: {
+    type: String as PropType<WaterfallType>,
+    default: (): string => 'flex'
   },
   cols: {
     type: Number,

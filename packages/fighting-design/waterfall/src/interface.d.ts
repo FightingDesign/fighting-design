@@ -8,3 +8,5 @@ export interface WaterfallRowType {
   index?: number
   height?: number
 }
+
+export type WaterfallType = 'flex' | 'column'
