@@ -5,12 +5,15 @@
 
   const prop = defineProps(Props)
 
-  let cols: Number = prop.cols as Number
+  let cols: number = prop.cols as number
   const emit = defineEmits(Emits)
   const waterfall = ref()
   const data = reactive([]) as rt[]
   const containerHeight = ref('auto') //容器高度
   const uuid = (): string => Math.random().toString(16).substring(2)
+
+  const columns = ref(0)
+  const colWidth = ref('0px')
 
   watch(
     () => prop.list.length,
@@ -57,8 +60,11 @@
       containerWidth =
         waterfall.value.clientWidth - (Number(cols) - 1) * parseInt(prop.colGap)
     }
+    columns.value = cols
 
     const itemWidth = containerWidth / Number(cols) + 'px'
+    colWidth.value = itemWidth
+
     containerWidth = waterfall.value.clientWidth
     data.length = 0
     data.push(
@@ -169,8 +175,12 @@
   <div
     ref="waterfall"
     class="f-waterfall"
+    :class="[`f-waterfall__${prop.type}`]"
     :style="{
-      height: containerHeight,
+      '--colCount': columns,
+      '--colWidth': colWidth,
+      height: prop.type === 'flex' ? containerHeight : '100%',
+      '--rowGap': prop.rowGap,
       'row-gap': prop.rowGap,
       'column-gap': prop.colGap
     }"
@@ -181,9 +191,9 @@
       :key="`waterfall_${index}`"
       class="f-waterfall-box"
       :style="{
-        order: item._order,
-        minWidth: item._minWidth,
-        width: item._width
+        order: prop.type === 'flex' && item._order,
+        minWidth: prop.type === 'flex' && item._minWidth,
+        width: prop.type === 'flex' && item._width
       }"
     >
       <slot name="default" :row="item">
@@ -195,20 +205,26 @@
 
 <style lang="scss" scope>
   .f-waterfall {
-    display: flex;
-    flex-flow: column wrap;
-    width: 100%;
-    height: 100%;
-    overflow: hidden auto;
+    &__flex {
+      width: 100%;
+      overflow: hidden auto;
+      display: flex;
+      flex-flow: column wrap;
+    }
+
+    &__column {
+      overflow: auto;
+      column-count: var(--colCount);
+      // column-width: var(--colWidth);
+      .f-waterfall-box {
+        width: var(--colWidth);
+        margin-bottom: var(--rowGap);
+      }
+    }
 
     .f-waterfall-box {
       height: auto;
       display: flex;
-      img {
-        height: auto;
-        width: 100%;
-        object-fit: cover;
-      }
     }
   }
 </style>
