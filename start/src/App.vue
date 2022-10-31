@@ -5,7 +5,6 @@
   <!-- <input type="file" name="" id="" /> -->
   <f-up-load />
 
-
   <f-rate v-model="value1" :change="goBack" />
 </template>
 
