@@ -10,10 +10,11 @@
     CalendarMowDataClassListInterface as c,
     CalendarOptionClickInterface as d,
     CalendarHandleClickInterface as g,
-    CalendarTargetType
+    CalendarTargetType,
+    CalendarPropsType
   } from './interface'
 
-  const prop = defineProps(Props)
+  const prop: CalendarPropsType = defineProps(Props)
 
   const year: Ref<number> = ref<number>(prop.date.getFullYear())
   const month: Ref<number> = ref<number>(prop.date.getMonth())

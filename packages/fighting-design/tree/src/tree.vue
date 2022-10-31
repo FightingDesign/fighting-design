@@ -4,8 +4,9 @@
   import { treeToFlat, treeAddLevel } from '../../_utils'
   import type { ComputedRef } from 'vue'
   import type { TreeAddLevelReturnInterface as a } from '../../_interface'
+  import type { TreePropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: TreePropsType = defineProps(Props)
 
   // 扁平的树
   const treeData: ComputedRef<a[]> = computed((): a[] => {

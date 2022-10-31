@@ -8,8 +8,9 @@
     HandleEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import type { CloseBtnPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: CloseBtnPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const handleClick: a = (evt: MouseEvent): void => {

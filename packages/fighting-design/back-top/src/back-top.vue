@@ -5,8 +5,9 @@
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type { BackTopHandleScrollInterface as a } from './interface'
   import type { OrdinaryFunctionInterface as b } from '../../_interface'
+  import type { BackTopPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: BackTopPropsType = defineProps(Props)
 
   const visible: Ref<boolean> = ref<boolean>(false)
 

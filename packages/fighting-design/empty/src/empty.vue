@@ -4,8 +4,9 @@
   import { computed } from 'vue'
   import { FImage } from '../../image'
   import type { ComputedRef, CSSProperties } from 'vue'
+  import type { EmptyPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: EmptyPropsType = defineProps(Props)
 
   const customContentStyleList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {

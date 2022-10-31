@@ -12,7 +12,7 @@
     CallbackInterface
   } from '../../_interface'
 
-  const prop = defineProps(Props)
+  const prop: ImagePropsType = defineProps(Props)
 
   // 是否加载成功
   const isSuccess: Ref<boolean> = ref<boolean>(true)

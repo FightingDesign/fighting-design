@@ -5,8 +5,9 @@
   import { FPopup } from '../../popup'
   import type { Ref } from 'vue'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
+  import type { DrawerPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: DrawerPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)

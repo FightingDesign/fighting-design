@@ -24,8 +24,9 @@
   } from './interface'
   import type { OrdinaryFunctionInterface as f } from '../../_interface'
   import type { ToolbarClickEmitInterface } from '../../toolbar/src/interface'
+  import type { ImagePreviewPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: ImagePreviewPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const { scale, rotate, smaller, bigger, onImgMousewheel, recovery } =

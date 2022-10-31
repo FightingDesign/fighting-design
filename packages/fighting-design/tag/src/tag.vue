@@ -4,10 +4,10 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import type { ComputedRef, Ref } from 'vue'
-  import type { TagCloseEndInterface as a } from './interface'
+  import type { TagCloseEndInterface as a, TagPropsType } from './interface'
   import type { ClassListInterface as b } from '../../_interface'
 
-  const prop = defineProps(Props)
+  const prop: TagPropsType = defineProps(Props)
 
   const isShow: Ref<boolean> = ref<boolean>(true)
 

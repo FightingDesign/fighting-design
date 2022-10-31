@@ -7,8 +7,9 @@
     OrdinaryFunctionInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import type { SwapPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: SwapPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const changeSwap: a = (): void => {

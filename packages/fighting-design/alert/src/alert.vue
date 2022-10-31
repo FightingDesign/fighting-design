@@ -9,8 +9,9 @@
     HandleEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import type { AlertPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: AlertPropsType = defineProps(Props)
 
   const isShow: Ref<boolean> = ref<boolean>(true)
 

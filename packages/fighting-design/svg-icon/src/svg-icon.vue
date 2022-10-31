@@ -4,8 +4,9 @@
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { HandleEventInterface as a } from '../../_interface'
+  import type { SvgIconPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: SvgIconPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const handleClick: a = (evt: MouseEvent): void => {

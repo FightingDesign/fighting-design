@@ -5,7 +5,9 @@
   import { FIconChevronRightVue } from '../../_components/svg/index'
   import type { BreadcrumbPropsType } from '../../breadcrumb'
 
-  const breadcrumbContext = inject(BreadcrumbPropsKey) as BreadcrumbPropsType
+  const breadcrumbContext: BreadcrumbPropsType = inject(
+    BreadcrumbPropsKey
+  ) as BreadcrumbPropsType
   const { separator, itemColor, separatorColor } = toRefs(breadcrumbContext)
 </script>
 

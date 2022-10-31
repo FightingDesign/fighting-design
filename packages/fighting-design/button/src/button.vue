@@ -9,8 +9,9 @@
     HandleEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import type { ButtonPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: ButtonPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   // dom 元素

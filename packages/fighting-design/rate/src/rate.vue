@@ -8,10 +8,11 @@
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
   import type {
     RateMouseoverInterface as b,
-    RateHandleClickInterface as c
+    RateHandleClickInterface as c,
+    RatePropsType
   } from './interface'
 
-  const prop = defineProps(Props)
+  const prop: RatePropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const starValue: Ref<number> = ref<number>(prop.modelValue)

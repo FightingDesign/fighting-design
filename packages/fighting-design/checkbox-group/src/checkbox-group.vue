@@ -8,8 +8,9 @@
   } from './interface'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as c } from '../../_interface'
+  import type { CheckboxGroupPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: CheckboxGroupPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const changeEvent: b = (val: a): void => {

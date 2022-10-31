@@ -16,8 +16,9 @@
     OrdinaryFunctionInterface as b,
     ClassListInterface as c
   } from '../../_interface'
+  import type { RadioPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: RadioPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const radioGroup: Ref<null | a> = ref(null)

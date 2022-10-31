@@ -9,8 +9,9 @@
     HandleEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import type { PageHeaderPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: PageHeaderPropsType = defineProps(Props)
 
   const handleClick: a = (evt: MouseEvent): void => {
     prop.back && prop.back(evt)

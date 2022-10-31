@@ -6,8 +6,9 @@
     ClassListInterface as a,
     HandleEventInterface as b
   } from '../../_interface'
+  import type { ToolbarPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: ToolbarPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const classList: ComputedRef<a> = computed((): a => {

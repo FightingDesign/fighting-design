@@ -10,8 +10,9 @@
     ClassListInterface as b
   } from '../../_interface'
   import { massageManage } from '../../_hooks'
+  import type { MessagePropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: MessagePropsType = defineProps(Props)
   defineEmits(Emits)
 
   const messageRef = ref<HTMLDivElement>()

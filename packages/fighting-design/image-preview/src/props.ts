@@ -1,4 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
+import type { ImagePreviewCloseInterface } from './interface'
 
 export const Props = {
   visible: {
@@ -40,14 +41,13 @@ export const Props = {
     default: (): string => ''
   },
   close: {
-    type: Function,
+    type: Function as PropType<ImagePreviewCloseInterface>,
     default: (): null => null
   }
 } as const
 
 export const Emits = {
-  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean',
-  close: (evt: MouseEvent): MouseEvent => evt
+  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean'
 } as const
 
 export type ImagePreviewPropsType = ExtractPropTypes<typeof Props>

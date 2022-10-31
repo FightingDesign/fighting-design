@@ -3,9 +3,12 @@
   import { sizeChange } from '../../_utils'
   import { computed, ref, onMounted } from 'vue'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
-  import type { ProgressTIsShowPercentageInterface as a } from './interface'
+  import type {
+    ProgressTIsShowPercentageInterface as a,
+    ProgressPropsType
+  } from './interface'
 
-  const prop = defineProps(Props)
+  const prop: ProgressPropsType = defineProps(Props)
 
   const isShow: Ref<boolean> = ref<boolean>(false)
   const fillRef: Ref<HTMLDivElement> = ref<HTMLDivElement>(

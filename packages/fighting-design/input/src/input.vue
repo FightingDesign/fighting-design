@@ -10,8 +10,9 @@
   } from '../../_components/svg/index'
   import type { Ref } from 'vue'
   import type { InputType } from './interface'
+  import type { InputPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: InputPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const inputType: Ref<InputType> = ref<InputType>(prop.type)

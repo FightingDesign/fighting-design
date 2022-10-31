@@ -11,8 +11,9 @@
     ComponentInternalInstance,
     WritableComputedRef
   } from 'vue'
+  import type { CheckboxPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: CheckboxPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const groupProps: Ref<a | null> = ref(null)
@@ -23,7 +24,7 @@
       .type.name
 
     if (parentName && parentName === 'FCheckboxGroup') {
-      groupProps.value = inject(checkboxGroupPropsKey) as a
+      groupProps.value = inject<CheckboxPropsType>(checkboxGroupPropsKey) as a
     }
   }
   getGroupInject()
@@ -52,7 +53,7 @@
   })
 
   const isChecked: ComputedRef<boolean> = computed((): boolean => {
-    const val = modelValue.value
+    const val: CheckboxGroupLabelType = modelValue.value
     if (Array.isArray(val)) {
       return val.includes(prop.label)
     } else if (typeof val === 'boolean') {
@@ -69,7 +70,7 @@
         'f-checkbox__bordered': groupProps.value?.border,
         'f-checkbox__disabled': prop.disabled || groupProps.value?.disabled
       }
-    ]
+    ] as const
   })
 </script>
 

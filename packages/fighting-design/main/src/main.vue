@@ -3,8 +3,9 @@
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { CSSProperties, ComputedRef } from 'vue'
+  import type { MainPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: MainPropsType = defineProps(Props)
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { padding } = prop

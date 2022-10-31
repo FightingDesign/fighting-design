@@ -8,8 +8,9 @@
     HandleEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import type { LinkPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: LinkPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const handleClick: a = (evt: MouseEvent): void => {

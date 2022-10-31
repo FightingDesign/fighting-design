@@ -4,10 +4,11 @@
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
+  import type { ListPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: ListPropsType = defineProps(Props)
 
-  provide(listPropsKey, prop)
+  provide<ListPropsType>(listPropsKey, prop)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { maxHeight, zebra, center, size } = prop

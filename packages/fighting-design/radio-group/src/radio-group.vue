@@ -6,10 +6,11 @@
   import type { ClassListInterface as a } from '../../_interface'
   import type {
     RadioChangeEventInterface as b,
-    RadioLabelType
+    RadioLabelType,
+    RadioGroundPropsType
   } from './interface'
 
-  const prop = defineProps(Props)
+  const prop: RadioGroundPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const changeEvent: b = (value: RadioLabelType): void => {
@@ -22,7 +23,7 @@
     changeEvent
   } as const)
 
-  provide(RadioGroupPropsKey, RadioGround)
+  provide<RadioGroundPropsType>(RadioGroupPropsKey, RadioGround)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { vertical, border, size } = prop

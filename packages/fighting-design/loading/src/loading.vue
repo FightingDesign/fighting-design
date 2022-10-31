@@ -5,8 +5,9 @@
   import { FIconLoadingAVue } from '../../_components/svg/index'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { HandleEventInterface as a } from '../../_interface'
+  import type { LoadingPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: LoadingPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const handleClick: a = (evt: MouseEvent): void => {
