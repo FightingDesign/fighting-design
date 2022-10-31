@@ -1,5 +1,9 @@
 <template>
-  <f-button type="primary" @click="openNotification">show</f-button>
+  <!-- <f-button type="primary" @click="openNotification">show</f-button> -->
+
+  <!-- <input type="file" name="" id="" /> -->
+
+  <f-up-load />
 </template>
 
 <script lang="ts" setup>

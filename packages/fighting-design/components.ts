@@ -157,3 +157,6 @@ export { FSwap } from './swap'
 export type { SwapInstance, SwapPropsType, SwapType, SwapOnChangeInterface } from './swap'
 
 export { FWaterfall } from './waterfall'
+
+export { FUpLoad } from './up-load'
+export type { UpLoadInstance, UpLoadPropsType } from './up-load'
