@@ -1,6 +1,6 @@
 import { useMessage } from '../_hooks'
 
-const { FMessage: Notification } = useMessage('notification')
+const { instance: Notification } = useMessage('notification')
 
 import { installFn } from '../_utils'
 

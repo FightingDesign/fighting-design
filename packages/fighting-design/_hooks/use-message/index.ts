@@ -4,25 +4,28 @@ import { render, createVNode } from 'vue'
 import { useMassageManage } from '../../_hooks'
 import type { MessageInstance, MessageFnWithType, MessageOptions, MessageFn } from '../../_interface'
 import type { ComponentInternalInstance, VNode } from 'vue'
+import type { DefaultOptionsInterface, ComponentVueInterface } from './interface'
 
 export const massageManage = useMassageManage()
 
-const messageTypes = ['default', 'primary', 'success', 'danger', 'warning']
+const messageTypes = ['default', 'primary', 'success', 'danger', 'warning'] as const
 
-export const useMessage = (target: 'message' | 'notification'): object => {
+export const useMessage = (target: 'message' | 'notification'): { instance: MessageFn & Partial<MessageFnWithType> } => {
   let seed = 1
 
-  const defaultOptions = {
+  // 位置信息
+  const defaultOptions: DefaultOptionsInterface = {
     message: { placement: 'top' },
     notification: { placement: 'top-right' }
-  }
+  } as const
 
-  const componentVue = {
+  // 组件实例
+  const componentVue: ComponentVueInterface = {
     message: messageVue,
     notification: notificationVue
   }
 
-  const FMessage: MessageFn & Partial<MessageFnWithType> = (options): MessageInstance => {
+  const instance: MessageFn & Partial<MessageFnWithType> = (options): MessageInstance => {
     const container: HTMLDivElement = document.createElement('div')
     const id = `message-${seed}`
 
@@ -31,11 +34,12 @@ export const useMessage = (target: 'message' | 'notification'): object => {
         message: options
       } as MessageOptions
     }
-    const props: MessageOptions & typeof defaultOptions = {
+    // const props: MessageOptions & typeof defaultOptions = {
+    const props: MessageOptions = {
       id,
       ...defaultOptions[target],
       ...options
-    }
+    } as const
 
     /**
      * 关闭动画结束时，移除dom
@@ -45,15 +49,11 @@ export const useMessage = (target: 'message' | 'notification'): object => {
       render(null, container)
     }
 
-    // const VNode: VNode = createVNode(messageVue, props)
     const VNode: VNode = createVNode(componentVue[target], props)
 
     render(VNode, container)
-
     document.body.appendChild(container.firstElementChild as HTMLElement)
-
-    const vm: ComponentInternalInstance =
-      VNode.component as ComponentInternalInstance
+    const vm: ComponentInternalInstance = VNode.component as ComponentInternalInstance
 
     seed++
     const instance = massageManage.createInstance(
@@ -73,14 +73,12 @@ export const useMessage = (target: 'message' | 'notification'): object => {
   }
 
   messageTypes.forEach((type): void => {
-    FMessage[type] = (text: string): void => {
-      FMessage({ message: text, type })
+    instance[type] = (text: string): void => {
+      instance({ message: text, type })
     }
   })
 
   return {
-    // massageManage,
-    FMessage
+    instance
   }
-
 }
