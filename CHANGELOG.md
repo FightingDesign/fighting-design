@@ -2,14 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- `f-image` `f-avatar` 组件废除 `error` 和 `load` emit 回调
-- `f-image` `f-avatar` 组件新增 `error` 和 `load` props 可选项
-- `f-calendar` 组件废除 `change-date` 和 `change-switch` emit 回调
-- `f-calendar` 组件新增 `change-date` 和 `change-switch` props 可选项
-- `f-alert` 组件移除 `close-end` emit 回调，新增 `close-end` props 可选项
-- `f-tag` 组件移除 `close-end` emit 回调，新增 `close-end` props 可选项
-- `f-page-header` 组件移除 `back` emit 回调，新增 `back` props 可选项
-- `f-rate` 组件移除 `change` emit 回调，新增 `change` props 可选项
+- `f-image` `f-avatar` 组件废除 `error` 和 `load` emit 回调，新增 `error` 和 `load` props 可选项
+- `f-calendar` 组件废除 `change-date` 和 `change-switch` emit 回调，新增 `change-date` 和 `change-switch` props 可选项
+- `f-alert` 组件废除 `close-end` emit 回调，新增 `close-end` props 可选项
+- `f-tag` 组件废除 `close-end` emit 回调，新增 `close-end` props 可选项
+- `f-page-header` 组件废除 `back` emit 回调，新增 `back` props 可选项
+- `f-rate` 组件废除 `change` emit 回调，新增 `change` props 可选项
 
 ## 0.8.0-alpha.2 (2022-10-28)
 
