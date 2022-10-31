@@ -46,7 +46,7 @@ export const useMassageManage = <messagePlacementType extends string>(): UseMass
      * 
      * 其他用到 exposed 的地方需同步修改
      */
-    return beforeInstance.vm.exposed!.bottom
+    return (beforeInstance.vm.exposed as MessageInstance).bottom
   }
 
   const removeInstance = (
@@ -54,7 +54,7 @@ export const useMassageManage = <messagePlacementType extends string>(): UseMass
     id: string
   ): void => {
     const idx: number = getInstanceIndex(placement, id)
-    ; (instances[placement] as MessageInstance[]).splice(idx, 1)
+      ; (instances[placement] as MessageInstance[]).splice(idx, 1)
   }
 
   const createInstance = (
