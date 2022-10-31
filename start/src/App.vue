@@ -10,13 +10,6 @@
 
 <script lang="ts" setup>
   import { FMessage } from '../../packages/fighting-design/index'
-  import { ref } from 'vue'
-
-  const value1 = ref(1)
-
-  function goBack(e) {
-    console.log(e)
-  }
 
   const openNotification = () => {
     FMessage({
