@@ -23,7 +23,7 @@
     }
   )
 
-  const preload = async (data: rt[]): Promise => {
+  const preload = async (data: rt[]): Promise<unknown[]> => {
     return Promise.all(
       data.map((item) => {
         return new Promise((resolve: Function) => {
@@ -72,13 +72,14 @@
       }))
     )
 
-    nextTick(async () => {
+    nextTick(async (): Promise<void> => {
       if (load) {
         await preload(data)
       }
-      const boxs = waterfall.value.querySelectorAll('.f-waterfall-box')
-      let hs = Object.values(boxs).map((o, index) => ({
-        height: o.clientHeight,
+      const nodes: HTMLDivElement =
+        waterfall.value.querySelectorAll('.f-waterfall-box')
+      let hs = Object.values(nodes).map((n: HTMLElement, index) => ({
+        height: n.clientHeight,
         index
       }))
       const columns = Array(cols)
