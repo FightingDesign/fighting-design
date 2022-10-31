@@ -16,7 +16,7 @@
   <f-button type="primary" @click="openNotification">show</f-button>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { FNotification } from 'fighting-design'
 
   const openNotification = () => {
@@ -45,7 +45,7 @@
   <f-button type="primary" @click="openNotificationVNode">show</f-button>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { h } from 'vue'
   import { FNotification } from 'fighting-design'
 
