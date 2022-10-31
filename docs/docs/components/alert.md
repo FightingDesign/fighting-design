@@ -202,6 +202,7 @@
 | `fixed`       | 是否固定定位       | boolean                    | ——                                               | false   |
 | `overflow`    | 文字超出的展示状态 | string                     | `hidden`                                         | ——      |
 | `before-icon` | 自定义前缀 icon    | object (VNode / Component) | ——                                               | null    |
+| `close-end`   | 关闭之后触发的回调 | Function                   | ——                                               | null    |
 
 ## Slots
 
@@ -211,12 +212,6 @@
 | `title`      | 自定义主标题的内容 |
 | `closeIcon`  | 自定义关闭 icon    |
 | `beforeIcon` | 自定义前缀 icon    |
-
-## Events
-
-| 事件名称    | 说明               |
-| ----------- | ------------------ |
-| `close-end` | 关闭之后触发的回调 |
 
 ## Interface
 

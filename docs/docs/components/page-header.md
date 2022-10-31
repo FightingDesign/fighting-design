@@ -9,13 +9,13 @@
 
 `title` 属性可以配置标题内容，点击右侧返回可以触发 `back` 回调函数
 
-<f-page-header title="标题" @back="goBack" />
+<f-page-header title="标题" :back="goBack" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-page-header title="标题" @back="goBack" />
+  <f-page-header title="标题" :back="goBack" />
 </template>
 
 <script lang="ts" setup>
@@ -65,16 +65,17 @@
 
 ## Attributes
 
-| 属性           | 说明         | 类型                       | 可选值 | 默认值 |
-| -------------- | ------------ | -------------------------- | ------ | ------ |
-| `icon`         | 返回图标     | object (VNode / Component) | ——     | null   |
-| `icon-size`    | 返回图标大小 | string / number            | ——     | 16px   |
-| `back-text`    | 返回文本     | string                     | ——     | 返回   |
-| `title`        | 标题文本     | string                     | ——     | 标题   |
-| `title-bold`   | 标题是否粗体 | boolean                    | ——     | false  |
-| `title-center` | 标题是否居中 | boolean                    | ——     | false  |
-| `title-color`  | 标题颜色     | string                     | ——     | false  |
-| `subtitle`     | 副标题文本   | string                     | ——     | ——     |
+| 属性           | 说明             | 类型                       | 可选值 | 默认值 |
+| -------------- | ---------------- | -------------------------- | ------ | ------ |
+| `icon`         | 返回图标         | object (VNode / Component) | ——     | null   |
+| `icon-size`    | 返回图标大小     | string / number            | ——     | 16px   |
+| `back-text`    | 返回文本         | string                     | ——     | 返回   |
+| `title`        | 标题文本         | string                     | ——     | 标题   |
+| `title-bold`   | 标题是否粗体     | boolean                    | ——     | false  |
+| `title-center` | 标题是否居中     | boolean                    | ——     | false  |
+| `title-color`  | 标题颜色         | string                     | ——     | false  |
+| `subtitle`     | 副标题文本       | string                     | ——     | ——     |
+| `back`         | 点击左侧区域触发 | Function                   | ——     | null   |
 
 ## Slots
 
@@ -83,12 +84,6 @@
 | `icon`     | 自定义返回图标   |
 | `title`    | 自定义标题内容   |
 | `subtitle` | 自定义副标题内容 |
-
-## Events
-
-| 属性   | 说明             | 参数 |
-| ------ | ---------------- | ---- |
-| `back` | 点击左侧区域触发 | ——   |
 
 ## Interface
 

@@ -7,8 +7,8 @@
   import type { Ref, ComputedRef } from 'vue'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
   import type {
-    OnMouseoverInterface as b,
-    OnHandleClickInterface as c
+    RateMouseoverInterface as b,
+    RateHandleClickInterface as c
   } from './interface'
 
   const prop = defineProps(Props)
@@ -33,7 +33,9 @@
     if (prop.readonly) return
     starValue.value = index
     emit('update:modelValue', index)
-    emit('change', index)
+    if (prop.change) {
+      prop.change(index)
+    }
   }
 
   watch(

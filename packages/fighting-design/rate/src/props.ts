@@ -1,4 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { RateChangeInterface } from './interface'
 
 export const Props = {
   modelValue: {
@@ -46,11 +47,14 @@ export const Props = {
   textSize: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
+  },
+  change: {
+    type: Function as PropType<RateChangeInterface>,
+    default: (): null => null
   }
 } as const
 
 export const Emits = {
-  change: (val: number): number => val,
   'update:modelValue': (val: number): number => val
 } as const
 

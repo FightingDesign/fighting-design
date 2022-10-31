@@ -1,9 +1,13 @@
 export type { RatePropsType } from './props'
 
-export interface OnMouseoverInterface {
+export interface RateMouseoverInterface {
   (index: number): void
 }
 
-export interface OnHandleClickInterface {
+export interface RateHandleClickInterface {
   (index: number): void
+}
+
+export interface RateChangeInterface {
+  (val: number): number
 }

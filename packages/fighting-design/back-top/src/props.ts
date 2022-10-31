@@ -50,8 +50,4 @@ export const Props = {
   }
 } as const
 
-export const Emits = {
-  click: (evt: Event): Event => evt
-} as const
-
 export type BackTopPropsType = ExtractPropTypes<typeof Props>
