@@ -7,12 +7,14 @@
   <f-alert type="primary" close :close-end="end">主要提示信息</f-alert>
   <f-alert type="success" close>成功提示信息</f-alert>
   <f-alert type="danger" close>危险提示信息</f-alert>
+
+  <f-page-header title="标题" :back="goBack" />
 </template>
 
 <script lang="ts" setup>
   import { FMessage } from '../../packages/fighting-design/index'
 
-  function end(e) {
+  function goBack(e) {
     console.log(e)
   }
 
