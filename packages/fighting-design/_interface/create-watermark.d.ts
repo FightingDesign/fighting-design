@@ -1,4 +1,4 @@
-export interface CreateBase64NeedWatermarkPropsInterface {
+export interface CreateWatermarkPropsInterface {
   content: string
   fontColor: string
   fontSize: string

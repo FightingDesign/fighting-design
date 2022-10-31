@@ -175,14 +175,14 @@
   <div
     ref="waterfall"
     class="f-waterfall"
-    :class="[`f-waterfall__${prop.type}`]"
+    :class="[`f-waterfall__${type}`]"
     :style="{
       '--colCount': columns,
       '--colWidth': colWidth,
-      height: prop.type === 'flex' ? containerHeight : '100%',
-      '--rowGap': prop.rowGap,
-      'row-gap': prop.rowGap,
-      'column-gap': prop.colGap
+      height: type === 'flex' ? containerHeight : '100%',
+      '--rowGap': rowGap,
+      'row-gap': rowGap,
+      'column-gap': colGap
     }"
     @scroll="handleScroll"
   >
@@ -191,9 +191,9 @@
       :key="`waterfall_${index}`"
       class="f-waterfall-box"
       :style="{
-        order: prop.type === 'flex' && item._order,
-        minWidth: prop.type === 'flex' && item._minWidth,
-        width: prop.type === 'flex' && item._width
+        order: type === 'flex' && item._order,
+        minWidth: type === 'flex' && item._minWidth,
+        width: type === 'flex' && item._width
       }"
     >
       <slot name="default" :row="item">

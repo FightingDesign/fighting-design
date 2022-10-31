@@ -7,10 +7,7 @@ import type {
   DiffDayInterface
 } from '../../_interface'
 
-export const useCalculiTime: DiffDayInterface = (
-  year: Ref<number>,
-  month: Ref<number>
-): DiffDayReturnInterface => {
+export const useCalculiTime: DiffDayInterface = (year: Ref<number>, month: Ref<number>): DiffDayReturnInterface => {
 
   // 获取当前月份的 1号是周几
   const firstDayWeek: Ref<number> = ref(

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { computed } from 'vue'
   import { ChangeColor } from '../../../../../packages/fighting-design/_utils'
-  import { onCopy } from '../_utils/copy.ts'
+  import { onCopy } from '../_utils/copy'
   import type { ComputedRef } from 'vue'
 
   const colorList: ComputedRef<string[][]> = computed((): string[][] => {
