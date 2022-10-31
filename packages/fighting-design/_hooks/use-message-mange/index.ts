@@ -38,7 +38,15 @@ export const useMassageManage = <messagePlacementType extends string>(): UseMass
       isNext ? idx + 1 : idx - 1
       ] || null
     if (!beforeInstance) return 0
-    return (beforeInstance.vm.exposeProxy as MessageInstance).bottom
+
+    /**
+     * 在vue3.2.32版本进行了调整
+     * 
+     * 在之后版本使用 exposeProxy 代替 exposed
+     * 
+     * 其他用到 exposed 的地方需同步修改
+     */
+    return beforeInstance.vm.exposed!.bottom
   }
 
   const removeInstance = (
@@ -46,7 +54,7 @@ export const useMassageManage = <messagePlacementType extends string>(): UseMass
     id: string
   ): void => {
     const idx: number = getInstanceIndex(placement, id)
-      ; (instances[placement] as MessageInstance[]).splice(idx, 1)
+    ; (instances[placement] as MessageInstance[]).splice(idx, 1)
   }
 
   const createInstance = (
