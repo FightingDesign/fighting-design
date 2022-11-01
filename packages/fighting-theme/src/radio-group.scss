@@ -13,6 +13,7 @@
     row-gap: 10px;
   }
 
+  // 不同尺寸
   &.f-radio-group__large {
     .f-radio {
       padding: 0 30px;
@@ -61,7 +62,7 @@
     }
   }
 
-  // 边框
+  // 边框状态
   &.f-radio-group__border {
     column-gap: 0;
     row-gap: 0;
@@ -69,16 +70,27 @@
     .f-radio {
       border: 1px solid #dee5fd;
 
+      // 边框选中状态
       &.f-radio__checked {
-        border-color: $primary;
+        background: $primary;
+
+        .f-radio__text {
+          color: #fff;
+        }
+
+        // 边框选中状态禁用状态
+        &.f-radio__disabled {
+          background: $default;
+
+          .f-radio__text {
+            color: rgb(176, 176, 176);
+          }
+        }
       }
 
+      // 禁用状态
       &.f-radio__disabled {
-        border: 1px solid #d7d7d7;
-
-        .f-radio__circle {
-          border-color: #d7d7d7;
-        }
+        border-color: #d7d7d7;
       }
     }
   }

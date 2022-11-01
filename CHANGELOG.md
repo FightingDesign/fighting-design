@@ -5,6 +5,7 @@
 **修复 Bug**
 
 - 修复 `FMessage` `FNotification` 组件的报错问题
+- 修复 `f-radio` 禁用状态的样式问题
 
 **改进优化**
 
@@ -25,6 +26,7 @@
 - `f-svg-icon` 组件废除 `click` emit 回调，新增 `click` props 可选项
 - `f-radio` 组件废除 `change` emit 回调，新增 `change` props 可选项
 - `f-radio-group` 组件废除 `change` emit 回调，新增 `change` props 可选项
+- `f-radio` 组件在边框状态下样式做了改变
 
 ## 0.8.0-alpha.2 (2022-10-28)
 
