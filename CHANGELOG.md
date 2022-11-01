@@ -22,6 +22,7 @@
 - `f-switch` 组件废除 `change` emit 回调，新增 `change` props 可选项
 - `f-close-btn` 组件废除 `click` emit 回调，新增 `click` props 可选项
 - `f-loading` 组件废除 `close` emit 回调，新增 `close-end` props 可选项
+- `f-svg-icon` 组件废除 `click` emit 回调，新增 `click` props 可选项
 
 ## 0.8.0-alpha.2 (2022-10-28)
 
