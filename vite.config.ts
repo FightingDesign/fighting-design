@@ -68,8 +68,7 @@ export default (): UserConfigExport => {
             assetFileNames: '[name].[ext]', // 输出资产文件名 https://rollupjs.org/guide/en/#outputassetfilenames
             namespaceToStringTag: true, // https://rollupjs.org/guide/en/#outputnamespacetostringtag
             inlineDynamicImports: false, // https://rollupjs.org/guide/en/#outputinlinedynamicimports
-            manualChunks: undefined,
-            preserveModules: true // https://rollupjs.org/guide/en/#outputpreservemodules
+            manualChunks: undefined
           },
           {
             format: 'cjs',
@@ -81,8 +80,7 @@ export default (): UserConfigExport => {
             assetFileNames: '[name].[ext]',
             namespaceToStringTag: true,
             inlineDynamicImports: false,
-            manualChunks: undefined,
-            preserveModules: true
+            manualChunks: undefined
           }
         ]
       }
