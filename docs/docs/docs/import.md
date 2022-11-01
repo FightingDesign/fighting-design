@@ -13,6 +13,47 @@ import 'fighting-design/dist/index.css'
 
 createApp(App).use(FightingDesign).mount('#app')
 ```
+## 自动导入
+
+首先你需要安装unplugin-vue-components 和 unplugin-auto-import这两款插件
+
+```node
+npm install -D unplugin-vue-components unplugin-auto-import
+```
+然后把下列代码插入到你的 Vite 或 Webpack 的配置文件中
+
+### vite
+
+```js
+// vite.config.ts
+import { defineConfig } from 'vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+
+function FightingDesignResolver (componentName) {
+  if (componentName.startsWith('F'))
+    return {
+      name: componentName,
+      from: 'fighting-design',
+      sideEffects: [
+        `fighting-design/theme/${componentName.slice(1).toLowerCase()}.css`
+      ]
+    }
+}
+
+export default defineConfig({
+  // ...
+  plugins: [
+    // ...
+    AutoImport({
+      resolvers: [FightingDesignResolver],
+    }),
+    Components({
+      resolvers: [FightingDesignResolver],
+    }),
+  ],
+})
+```
 
 ## 按需引入
 

@@ -1,25 +1,15 @@
 <template>
-  <f-checkbox-group v-model="option4" border size="large">
-    <f-checkbox label="选项一" />
-    <f-checkbox label="选项二" />
-    <f-checkbox label="选项三" />
-  </f-checkbox-group>
-
-  <f-checkbox-group v-model="option4" border>
-    <f-checkbox label="选项一" />
-    <f-checkbox label="选项二" />
-    <f-checkbox label="选项三" />
-  </f-checkbox-group>
-
-  <f-checkbox-group v-model="option4" border size="small">
-    <f-checkbox label="选项一" />
-    <f-checkbox label="选项二" />
-    <f-checkbox label="选项三" />
-  </f-checkbox-group>
+  <f-button @click="openMessage">查看消息</f-button>
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
+  import { FMessage } from '../../packages/fighting-design/index'
 
-  const option4 = ref([])
+  const openMessage = () => {
+    const info = FMessage({
+      message: '这是一条消息提示',
+      type: 'success',
+      duration: 0
+    })
+  }
 </script>
