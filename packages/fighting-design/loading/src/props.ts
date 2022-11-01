@@ -1,4 +1,5 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
+import type { HandleEventInterface } from '../../_interface'
 
 export const Props = {
   show: {
@@ -36,11 +37,11 @@ export const Props = {
   icon: {
     type: Object as PropType<VNode | Component>,
     default: (): null => null
+  },
+  closeEnd: {
+    type: Function as PropType<HandleEventInterface>,
+    default: (): null => null
   }
-} as const
-
-export const Emits = {
-  close: (evt: MouseEvent): MouseEvent => evt
 } as const
 
 export type LoadingPropsType = ExtractPropTypes<typeof Props>
