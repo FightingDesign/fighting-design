@@ -76,7 +76,13 @@
       </div>
     </div>
 
-    <f-close-btn v-if="close" :icon="closeIcon" @click.stop="handleClose">
+    <f-close-btn
+      v-if="close"
+      no-hover
+      color="#fff"
+      :icon="closeIcon"
+      @click.stop="handleClose"
+    >
       <slot name="closeIcon" />
     </f-close-btn>
   </div>

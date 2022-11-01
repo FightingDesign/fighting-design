@@ -25,6 +25,10 @@ export const Props = {
   click: {
     type: Function as PropType<HandleEventInterface>,
     default: (): null => null
+  },
+  noHover: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 

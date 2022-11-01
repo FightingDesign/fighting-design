@@ -22,7 +22,8 @@
       {
         'f-close-btn': !prop.disabled,
         'f-close-btn__round': prop.round,
-        'f-close-btn__disabled': prop.disabled
+        'f-close-btn__disabled': prop.disabled,
+        'f-close-btn__no-hover': prop.noHover
       } as const
     ] as const
   })
