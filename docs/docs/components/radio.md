@@ -217,36 +217,26 @@
 
 ## RadioGroup Attributes
 
-| 参数                   | 说明           | 类型                      | 可选值                          | 默认值 |
-| ---------------------- | -------------- | ------------------------- | ------------------------------- | ------ |
-| `modelValue / v-model` | 绑定值         | string / number / boolean | ——                              | ——     |
-| `disabled`             | 是否禁用       | boolean                   | ——                              | false  |
-| `vertical`             | 是否纵向排列   | boolean                   | ——                              | false  |
-| `column-gap`           | 横向排列的间距 | string / number           | ——                              | ——     |
-| `row-gap`              | 纵向排列的间距 | string / number           | ——                              | ——     |
-| `border`               | 是否显示边框   | boolean                   | ——                              | false  |
-| `size`                 | 尺寸           | string                    | `large` `middle` `small` `mini` | middle |
+| 参数                   | 说明             | 类型                      | 可选值                          | 默认值 |
+| ---------------------- | ---------------- | ------------------------- | ------------------------------- | ------ |
+| `modelValue / v-model` | 绑定值           | string / number / boolean | ——                              | ——     |
+| `disabled`             | 是否禁用         | boolean                   | ——                              | false  |
+| `vertical`             | 是否纵向排列     | boolean                   | ——                              | false  |
+| `column-gap`           | 横向排列的间距   | string / number           | ——                              | ——     |
+| `row-gap`              | 纵向排列的间距   | string / number           | ——                              | ——     |
+| `border`               | 是否显示边框     | boolean                   | ——                              | false  |
+| `size`                 | 尺寸             | string                    | `large` `middle` `small` `mini` | middle |
+| `change`               | 绑定值变化时触发 | Function                  | ——                              | null   |
 
 ## Radio Attributes
 
-| 参数                   | 说明           | 类型                      | 可选值 | 默认值  |
-| ---------------------- | -------------- | ------------------------- | ------ | ------- |
-| `modelValue / v-model` | 绑定值         | string / number / boolean | ——     | ——      |
-| `disabled`             | 是否禁用       | boolean                   | ——     | false   |
-| `name`                 | 自定义 name    | string                    | ——     | f-radio |
-| `label`                | 单选框对应的值 | string / number / boolean | ——     | ——      |
-
-## RadioGroup Events
-
-| 事件名称 | 说明             |
-| -------- | ---------------- |
-| `change` | 绑定值变化时触发 |
-
-## Radio Events
-
-| 事件名称 | 说明             |
-| -------- | ---------------- |
-| `change` | 绑定值变化时触发 |
+| 参数                   | 说明             | 类型                      | 可选值 | 默认值  |
+| ---------------------- | ---------------- | ------------------------- | ------ | ------- |
+| `modelValue / v-model` | 绑定值           | string / number / boolean | ——     | ——      |
+| `disabled`             | 是否禁用         | boolean                   | ——     | false   |
+| `name`                 | 自定义 name      | string                    | ——     | f-radio |
+| `label`                | 单选框对应的值   | string / number / boolean | ——     | ——      |
+| `change`               | 绑定值变化时触发 | Function                  | ——     | null    |
 
 ## RadioGroup Slots
 
