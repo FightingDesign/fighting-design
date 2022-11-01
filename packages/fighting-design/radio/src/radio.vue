@@ -21,7 +21,7 @@
   const prop: RadioPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const radioGroup: Ref<a | null> = ref(null)
+  const groupProps: Ref<a | null> = ref(null)
 
   // 尝试获取父组件注入的依赖
   const loadParentInject: b = (): void => {
@@ -30,7 +30,7 @@
       .type.name
 
     if (parentName && parentName === 'FRadioGroup') {
-      radioGroup.value = inject(RadioGroupPropsKey) as a
+      groupProps.value = inject(RadioGroupPropsKey) as a
     }
   }
   loadParentInject()
@@ -43,15 +43,15 @@
      */
     get () {
       return (
-        (radioGroup.value && radioGroup.value.modelValue) || prop.modelValue
+        (groupProps.value && groupProps.value.modelValue) || prop.modelValue
       )
     },
     /**
      * 设置值
      */
     set (val) {
-      if (radioGroup.value && !radioGroup.value.disabled) {
-        radioGroup.value.changeEvent(val)
+      if (groupProps.value && !groupProps.value.disabled) {
+        groupProps.value.changeEvent(val)
         return
       }
       if (prop.disabled) return
@@ -67,9 +67,9 @@
       'f-radio',
       {
         'f-radio__checked': modelValue.value === prop.label,
-        'f-radio__margin': !radioGroup.value,
+        'f-radio__margin': !groupProps.value,
         'f-radio__disabled':
-          disabled || (radioGroup.value && radioGroup.value.disabled)
+          disabled || (groupProps.value && groupProps.value.disabled)
       }
     ] as const
   })
@@ -92,7 +92,7 @@
       :disabled="disabled"
       :name="name"
     />
-    <span v-if="!radioGroup?.border" class="f-radio__circle" />
+    <span v-if="!groupProps?.border" class="f-radio__circle" />
     <span class="f-radio__text">
       <slot>{{ label }}</slot>
     </span>

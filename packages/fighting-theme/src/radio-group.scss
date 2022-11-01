@@ -68,7 +68,7 @@
     row-gap: 0;
 
     .f-radio {
-      border: 1px solid #dee5fd;
+      border: 1px solid $simplePrimary;
 
       // 边框选中状态
       &.f-radio__checked {

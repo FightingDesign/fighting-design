@@ -5,7 +5,8 @@
 **修复 Bug**
 
 - 修复 `FMessage` `FNotification` 组件的报错问题
-- 修复 `f-radio` 禁用状态的样式问题
+- 修复 `f-radio` `f-radio-group` 组件禁用状态的样式问题
+- 修复 `f-checkbox` `f-checkbox-group` 组件禁用状态的样式问题
 
 **改进优化**
 
