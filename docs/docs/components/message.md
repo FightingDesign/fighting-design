@@ -141,8 +141,7 @@
 </template>
 
 <script setup lang="ts">
-  import { h } from 'vue'
-  import { FMessage } from '@fighting-design'
+  import { FMessage } from 'fighting-design'
 
   const openMessageClose1 = () => {
     FMessage({
