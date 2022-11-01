@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FToolbar">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { computed } from 'vue'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type {
@@ -9,7 +9,6 @@
   import type { ToolbarPropsType } from './props'
 
   const prop: ToolbarPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { size, round, fixed } = prop
@@ -48,7 +47,7 @@
       }
     )
     const key: string | undefined = node ? node.dataset.key : ''
-    emit('click', { evt, key })
+    prop.click && prop.click({ evt, key })
   }
 </script>
 

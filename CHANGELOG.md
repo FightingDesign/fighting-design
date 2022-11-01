@@ -17,6 +17,8 @@
 - `f-checkbox-group` 组件废除 `change` emit 回调，新增 `change` props 可选项
 - `f-link` 组件废除 `click` emit 回调，新增 `click` props 可选项
 - `f-button` 组件废除 `click` emit 回调，新增 `click` props 可选项
+- `f-toolbar` 组件废除 `click` emit 回调，新增 `click` props 可选项
+- `f-toolbar-item` 组件废除 `click` emit 回调，新增 `click` props 可选项
 
 ## 0.8.0-alpha.2 (2022-10-28)
 
