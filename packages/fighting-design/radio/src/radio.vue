@@ -21,7 +21,7 @@
   const prop: RadioPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const radioGroup: Ref<null | a> = ref(null)
+  const radioGroup: Ref<a | null> = ref(null)
 
   // 尝试获取父组件注入的依赖
   const loadParentInject: b = (): void => {
@@ -35,38 +35,29 @@
   }
   loadParentInject()
 
-  // 检测是否获取到父组件的依赖
-  const isGroup: ComputedRef<boolean> = computed(
-    (): boolean => !!radioGroup.value
-  )
-
-  const handleChange: b = (): void => {
-    if (prop.disabled) {
-      return
-    }
-    emit('change', prop.modelValue)
-  }
-
   const modelValue: WritableComputedRef<RadioLabelType> = computed({
+    /**
+     * 获取值
+     * 如果父组件有依赖注入则使用
+     * 否则使用之身 props 参数
+     */
     get () {
-      return isGroup.value
-        ? (radioGroup.value as a).modelValue
-        : prop.modelValue
+      return (
+        (radioGroup.value && radioGroup.value.modelValue) || prop.modelValue
+      )
     },
+    /**
+     * 设置值
+     */
     set (val) {
-      if (isGroup.value) {
-        !(radioGroup.value as a).disabled &&
-          (radioGroup.value as a).changeEvent(val || '')
-      } else {
-        if (prop.disabled) return
-        emit('change', val || '')
-        emit('update:modelValue', val || '')
+      if (radioGroup.value && !radioGroup.value.disabled) {
+        radioGroup.value.changeEvent(val)
+        return
       }
+      if (prop.disabled) return
+      emit('update:modelValue', val)
+      prop.change && prop.change(val)
     }
-  })
-
-  const isChecked: ComputedRef<boolean> = computed((): boolean => {
-    return (modelValue.value === prop.label) as boolean
   })
 
   const classList: ComputedRef<c> = computed((): c => {
@@ -75,9 +66,10 @@
     return [
       'f-radio',
       {
-        'f-radio__checked': isChecked.value,
+        'f-radio__checked': modelValue.value === prop.label,
         'f-radio__margin': !radioGroup.value,
-        'f-radio__disabled': disabled || radioGroup.value?.disabled
+        'f-radio__disabled':
+          disabled || (radioGroup.value && radioGroup.value.disabled)
       }
     ] as const
   })
@@ -99,7 +91,6 @@
       :value="label"
       :disabled="disabled"
       :name="name"
-      @change="handleChange"
     />
     <span v-if="!radioGroup?.border" class="f-radio__circle" />
     <span class="f-radio__text">

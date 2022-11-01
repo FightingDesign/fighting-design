@@ -5,7 +5,7 @@
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
   import type {
-    RadioChangeEventInterface as b,
+    RadioChangeInterface as b,
     RadioLabelType,
     RadioGroundPropsType
   } from './interface'
@@ -15,10 +15,10 @@
 
   const changeEvent: b = (value: RadioLabelType): void => {
     emit('update:modelValue', value)
-    emit('change', value)
+    prop.change && prop.change(value)
   }
 
-  const RadioGround = reactive({
+  const RadioGround: RadioGroundPropsType = reactive({
     ...toRefs(prop),
     changeEvent
   } as const)
