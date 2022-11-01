@@ -26,7 +26,7 @@ export interface AppInstallInterface {
 /**
  * class 类名集合类型
  */
-export type ClassListInterface = readonly (string | Record<readonly string, unknown>)[]
+export type ClassListInterface = readonly (string | Record<string, unknown>)[]
 
 /**
  * 点击相关的类型

@@ -2,7 +2,9 @@ import type { ComponentInternalInstance } from 'vue'
 import type { NotificationPropsType } from '../notification/src/props'
 import type { NotificationType } from '../notification/src/interface'
 
-export type InstanceOptions<T> = Partial<Mutable<T>> & {
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }
+
+type InstanceOptions<T> = Partial<Mutable<T>> & {
   onDestroy?: () => void
 }
 

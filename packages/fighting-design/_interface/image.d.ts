@@ -10,6 +10,10 @@ export interface LoadNeedImagePropsInterface {
   error: Function
 }
 
+export interface CallbackInterface {
+  (params: boolean): void
+}
+
 export interface LazyInterface {
   observer(): IntersectionObserver
   lazyCreateImg(): void
@@ -19,19 +23,15 @@ export interface LoadImageInterface {
   (
     node: HTMLImageElement,
     prop: LoadNeedImagePropsInterface,
-    callback: callbackInterface | null
+    callback: CallbackInterface | null
   ): void
 }
 
 export interface LoadInterface {
   node: HTMLImageElement
   props: LoadNeedImagePropsInterface
-  callback: callbackInterface | null
+  callback: CallbackInterface | null
   loadCreateImg(errSrc?: string): void
   onerror(evt: Event): void
   onload(evt: Event, src: string): void
-}
-
-export interface CallbackInterface {
-  (params: boolean): void
 }

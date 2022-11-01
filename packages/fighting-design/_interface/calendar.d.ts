@@ -31,7 +31,7 @@ export interface DiffDayInterface {
 }
 
 export interface DiffDayReturnInterface {
-  AllMonthDays: ComputedRef<h[]>
+  AllMonthDays: ComputedRef<GetLunarDetailReturnInterface[]>
   changeLastMonth(): void
   changeNextMonth(): void
 }
@@ -39,16 +39,16 @@ export interface DiffDayReturnInterface {
 export type HolidayListType = Record<string, { title: string }>
 
 export interface LunarInterface {
-  private static getLunarYearDays(year: number): number
-  private static leapMonth(year: number): number
-  private static leapDays(year: number): number
-  private static monthDays(year: number, month: number): number
-  private static toGanZhiYear(lYear: number): string
-  private static toConstellation(cMonth: number, cDay: number): string
-  private static toGanZhi(offset: number): string
-  private static getTerm(year: number, n: number): number
-  private static toChinaMonth(month: number): string | -1
-  private static toChinaDay(day: number): string
-  private static getAnimal(year: number): string
+  getLunarYearDays(year: number): number
+  leapMonth(year: number): number
+  leapDays(year: number): number
+  monthDays(year: number, month: number): number
+  toGanZhiYear(lYear: number): string
+  toConstellation(cMonth: number, cDay: number): string
+  toGanZhi(offset: number): string
+  getTerm(year: number, n: number): number
+  toChinaMonth(month: number): string | -1
+  toChinaDay(day: number): string
+  getAnimal(year: number): string
   getLunarDetail(yPara: number, mPara: number, dPara: number): -1 | GetLunarDetailReturnInterface
 }
