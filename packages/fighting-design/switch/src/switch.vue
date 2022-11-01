@@ -15,7 +15,7 @@
   const handleClick: a = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', !prop.modelValue)
-    emit('change', !prop.modelValue)
+    prop.change && prop.change(!prop.modelValue)
   }
 
   const rollStyle: ComputedRef<CSSProperties> = computed((): CSSProperties => {
