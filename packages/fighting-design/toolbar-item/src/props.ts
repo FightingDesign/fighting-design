@@ -1,4 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { HandleEventInterface } from '../../_interface'
 
 export const Props = {
   color: {
@@ -16,11 +17,11 @@ export const Props = {
   dataKey: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
+  },
+  click: {
+    type: Function as PropType<HandleEventInterface>,
+    default: (): null => null
   }
-} as const
-
-export const Emits = {
-  click: (evt: MouseEvent): MouseEvent => evt
 } as const
 
 export type ToolbarItemPropsType = ExtractPropTypes<typeof Props>
