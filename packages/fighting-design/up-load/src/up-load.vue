@@ -10,7 +10,7 @@
     null as unknown as HTMLInputElement
   )
 
-  const handleClick = (e): void => {
+  const handleClick = (e: Event): void => {
     console.log(e)
   }
 </script>

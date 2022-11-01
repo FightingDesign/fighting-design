@@ -86,23 +86,26 @@
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, fontColor, shadow, color } = prop
 
-    const style: CSSProperties = {
-      '--f-button-font-size': sizeChange(fontSize),
-      '--f-button-font-color': fontColor,
-      '--f-button-box-shadow': shadow
-    } as CSSProperties
-
     if (color) {
       const changeColor: ChangeColor = new ChangeColor(color)
       const light: string = changeColor.getLightColor(0.4)
       const dark: string = changeColor.getDarkColor(0.2)
 
-      style['--f-button-default-color'] = color
-      style['--f-button-hover-color'] = light
-      style['--f-button-active-color'] = dark
+      return {
+        '--f-button-font-size': sizeChange(fontSize),
+        '--f-button-font-color': fontColor,
+        '--f-button-box-shadow': shadow,
+        '--f-button-default-color': color,
+        '--f-button-hover-color': light,
+        '--f-button-active-color': dark
+      } as CSSProperties
     }
 
-    return style
+    return {
+      '--f-button-font-size': sizeChange(fontSize),
+      '--f-button-font-color': fontColor,
+      '--f-button-box-shadow': shadow
+    } as CSSProperties
   })
 </script>
 

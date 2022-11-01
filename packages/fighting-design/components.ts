@@ -26,7 +26,7 @@ export { FButtonGroup } from './button-group'
 export type { ButtonGroupInstance, ButtonGroupPropsType, ButtonGroupSizeType } from './button-group'
 
 export { FCalendar } from './calendar'
-export type { CalendarInstance, CalendarPropsType, CalendarEmitInterface, CalendarMemorandumType } from './calendar'
+export type { CalendarInstance, CalendarPropsType, CalendarMemorandumType } from './calendar'
 
 export { FCard } from './card'
 export type { CardInstance, CardPropsType, CardShadowType } from './card'

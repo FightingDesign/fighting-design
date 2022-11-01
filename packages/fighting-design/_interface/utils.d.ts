@@ -29,5 +29,5 @@ export interface UtilsAddZeroInterface {
 }
 
 export interface UtilsSizeChangeInterface {
-  (size: string | number, target): string
+  (size: string | number, target?: string): string
 }
