@@ -8,6 +8,7 @@
 - 修复 `f-radio` `f-radio-group` 组件禁用状态的样式问题
 - 修复 `f-checkbox` `f-checkbox-group` 组件禁用状态的样式问题
 - 修复 `f-alert` 关闭按钮样式细节
+- 修复 `f-tag` 关闭按钮样式细节
 
 **改进优化**
 

@@ -1,9 +1,11 @@
 <script lang="ts" setup></script>
 
 <template>
-  <f-alert type="primary" close>主要提示信息</f-alert>
-  <f-alert type="success" close>成功提示信息</f-alert>
-  <f-alert type="danger" close>危险提示信息</f-alert>
+  <f-tag close type="default">默认</f-tag>
+  <f-tag close type="primary">普通</f-tag>
+  <f-tag close type="warning">警告</f-tag>
+  <f-tag close type="success">成功</f-tag>
+  <f-tag close type="danger">失败</f-tag>
 </template>
 
 <style lang="scss" scoped></style>
