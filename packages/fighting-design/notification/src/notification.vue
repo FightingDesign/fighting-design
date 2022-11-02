@@ -9,7 +9,7 @@
     FIconThumbUpVue,
     FIconCircleCrossVue,
     FIconWarningVue
-  } from '../../_components/svg/index'
+  } from '../../_svg'
   import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
     OrdinaryFunctionInterface as a,

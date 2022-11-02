@@ -7,7 +7,7 @@
     FIconCrossVue,
     FIconEyeOffOutlineVue,
     FIconEyeOutlineVue
-  } from '../../_components/svg/index'
+  } from '../../_svg'
   import type { Ref } from 'vue'
   import type { InputType } from './interface'
   import type { InputPropsType } from './props'

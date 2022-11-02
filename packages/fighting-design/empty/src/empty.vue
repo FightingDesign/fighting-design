@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FEmpty">
-  import emptySvgVue from '../../_components/empty-svg.vue'
+  import { FIconEmptyState } from '../../_svg'
   import { Props } from './props'
   import { computed } from 'vue'
   import { FImage } from '../../image'
@@ -28,7 +28,7 @@
 
       <template v-else>
         <f-image v-if="imageSrc" :src="imageSrc" :width="imageSize" />
-        <empty-svg-vue v-else />
+        <f-icon-empty-state v-else />
       </template>
     </div>
 
