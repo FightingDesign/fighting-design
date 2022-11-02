@@ -6,7 +6,7 @@
   "main": "index.ts",
   "module": "index.ts",
   "scripts": {
-    "new": "node --trace-warnings --loader ts-node/esm ./index.ts"
+    "new": "node --trace-warnings --loader ts-node ./index.ts"
   },
   "license": "MIT",
   "dependencies": {
