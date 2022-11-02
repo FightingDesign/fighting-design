@@ -29,27 +29,17 @@ npm install -D unplugin-vue-components unplugin-auto-import
 import { defineConfig } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-
-function FightingDesignResolver (componentName) {
-  if (componentName.startsWith('F'))
-    return {
-      name: componentName,
-      from: 'fighting-design',
-      sideEffects: [
-        `fighting-design/theme/${componentName.slice(1).toLowerCase()}.css`
-      ]
-    }
-}
+import FightingDesignResolver from 'fighting-design/resolver'
 
 export default defineConfig({
   // ...
   plugins: [
     // ...
     AutoImport({
-      resolvers: [FightingDesignResolver],
+      resolvers: [FightingDesignResolver()],
     }),
     Components({
-      resolvers: [FightingDesignResolver],
+      resolvers: [FightingDesignResolver()],
     }),
   ],
 })
