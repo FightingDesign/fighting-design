@@ -9,6 +9,7 @@ importers:
       '@fighting-design/eslint-config': workspace:*
       '@fighting-design/fighting-icon': workspace:*
       '@fighting-design/fighting-theme': workspace:*
+      '@fighting-design/fighting-web-component-wrapper': workspace:*
       '@types/node': ^17.0.42
       '@vitejs/plugin-vue': ^3.0.1
       '@vue/test-utils': ^2.0.0-rc.18
@@ -39,6 +40,7 @@ importers:
       '@fighting-design/eslint-config': link:packages/fighting-eslint-config
       '@fighting-design/fighting-icon': link:packages/fighting-icon
       '@fighting-design/fighting-theme': link:packages/fighting-theme
+      '@fighting-design/fighting-web-component-wrapper': link:packages/fighting-web-component-wrapper
       '@types/node': 17.0.45
       '@vitejs/plugin-vue': 3.2.0_vite@3.2.0+vue@3.2.26
       '@vue/test-utils': 2.2.0_vue@3.2.26
@@ -114,6 +116,9 @@ importers:
       fflate: 0.7.4
 
   packages/fighting-theme:
+    specifiers: {}
+
+  packages/fighting-web-component-wrapper:
     specifiers: {}
 
   start:
