@@ -11,11 +11,11 @@ import {
   DATE_CHANG_LUNAR_CALENDAR,
   CHANG_MONTH_LUNAR_CALENDAR,
   SOLAR_TERM_LIST
-} from './data'
+} from '../calendar-data'
 import type {
   GetLunarDetailReturnInterface,
   LunarInterface
-} from '../_interface'
+} from './interface'
 
 export class Lunar implements LunarInterface {
   /**

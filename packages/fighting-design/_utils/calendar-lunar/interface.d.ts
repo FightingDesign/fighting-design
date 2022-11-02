@@ -24,8 +24,6 @@ export interface GetLunarDetailReturnInterface {
   ncWeek: string // 星期
 }
 
-export type HolidayListType = Record<string, { title: string }>
-
 export interface LunarInterface {
   getLunarYearDays(year: number): number
   leapMonth(year: number): number

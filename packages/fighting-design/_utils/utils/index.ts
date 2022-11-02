@@ -8,7 +8,7 @@ import type {
   UtilsSizeChangeInterface as g,
   UtilsIsBooleanInterface as h,
   UtilsIsStringInterface as i
-} from '../_interface'
+} from './interface'
 
 /**
  * 保留小数点后 n 位
