@@ -2,9 +2,9 @@
 
 ## 完整引入
 
-在 `main.js` 中引入下面内容
+在 `main.ts` 中引入下面内容
 
-```js
+```ts
 import { createApp } from 'vue'
 import App from './App.vue'
 
@@ -13,18 +13,24 @@ import 'fighting-design/dist/index.css'
 
 createApp(App).use(FightingDesign).mount('#app')
 ```
+
 ## 自动导入
 
-首先你需要安装unplugin-vue-components 和 unplugin-auto-import这两款插件
+:::danger
+测试功能，暂未实现
+:::
 
-```node
+首先你需要安装 unplugin-vue-components 和 unplugin-auto-import 这两款插件
+
+```shell
 npm install -D unplugin-vue-components unplugin-auto-import
 ```
+
 然后把下列代码插入到你的 Vite 或 Webpack 的配置文件中
 
-### vite
+## vite
 
-```js
+```ts
 // vite.config.ts
 import { defineConfig } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -36,12 +42,12 @@ export default defineConfig({
   plugins: [
     // ...
     AutoImport({
-      resolvers: [FightingDesignResolver()],
+      resolvers: [FightingDesignResolver()]
     }),
     Components({
-      resolvers: [FightingDesignResolver()],
-    }),
-  ],
+      resolvers: [FightingDesignResolver()]
+    })
+  ]
 })
 ```
 
@@ -49,18 +55,18 @@ export default defineConfig({
 
 为了减小体积，只希望引入部分组件，可以使用按需引入的方式
 
-```js
+```ts
 import { createApp } from 'vue'
 import App from './App.vue'
 
 // 组件按需引入
-import { FButton, FIcon } from 'fighting-design'
+import { FButton, FCard } from 'fighting-design'
 
 // 样式按需引入
 import 'fighting-design/theme/button.css'
-import 'fighting-design/theme/icon.css'
+import 'fighting-design/theme/card.css'
 
-createApp(App).use(FButton).use(FIcon).mount('#app')
+createApp(App).use(FButton).use(FCard).mount('#app')
 ```
 
 ## 使用 UMD
