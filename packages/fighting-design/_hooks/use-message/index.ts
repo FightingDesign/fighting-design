@@ -2,14 +2,18 @@ import messageVue from '../../message/src/message.vue'
 import notificationVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
 import { useMassageManage } from '../../_hooks'
-import type { MessageInstance, MessageFnWithType, MessageOptions, MessageFn } from '../../_interface'
 import type { ComponentInternalInstance, VNode } from 'vue'
-import type { DefaultOptionsInterface, ComponentVueInterface } from './interface'
-import type { MessagePlacementType } from '../../message/src/interface'
+import type {
+  DefaultOptionsInterface,
+  ComponentVueInterface,
+  MessageInstance,
+  MessageFn,
+  MessageOptions,
+  MessageFnWithType,
+  MessagePlacementType
+} from './interface'
 
 export const massageManage = useMassageManage()
-
-const messageTypes = ['default', 'primary', 'success', 'danger', 'warning'] as const
 
 export const useMessage = (target: 'message' | 'notification'): { instance: MessageFn & Partial<MessageFnWithType> } => {
   let seed = 1
@@ -72,6 +76,8 @@ export const useMessage = (target: 'message' | 'notification'): { instance: Mess
 
     return instance
   }
+
+  const messageTypes = ['default', 'primary', 'success', 'danger', 'warning'] as const
 
   messageTypes.forEach((type): void => {
     instance[type] = (text: string): void => {

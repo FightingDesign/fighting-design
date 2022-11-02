@@ -1,4 +1,5 @@
 import { reactive } from 'vue'
+import type { NeedPropsType } from './interface'
 
 /**
  * 过滤 props 需要使用的 props
@@ -11,11 +12,11 @@ import { reactive } from 'vue'
  * @returns 需要的 props
  */
 export const useFilterProps = <T, F>(props: T, arr: string[]): F => {
-  const needProps = reactive({}) as Record<string, unknown>
+  const needProps = reactive({}) as NeedPropsType
 
   for (const key of arr) {
     if (key) {
-      needProps[key] = (props as Record<string, unknown>)[key]
+      needProps[key] = (props as NeedPropsType)[key]
     }
   }
 

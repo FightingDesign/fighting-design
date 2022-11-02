@@ -1,5 +1,3 @@
-import type { ComputedRef, Ref } from 'vue'
-
 export interface GetLunarDetailReturnInterface {
   animal: string // 生肖
   IDayCn: string // 农历日期
@@ -10,7 +8,7 @@ export interface GetLunarDetailReturnInterface {
   cMonth: number
   cYear: number
   date: string
-  festival: string// 节日
+  festival: string // 节日
   gzDay: string
   gzMonth: string
   gzYear: string
@@ -24,16 +22,6 @@ export interface GetLunarDetailReturnInterface {
   lunarFestival: ''
   nWeek: number
   ncWeek: string // 星期
-}
-
-export interface DiffDayInterface {
-  (year: Ref<number>, month: Ref<number>): DiffDayReturnInterface
-}
-
-export interface DiffDayReturnInterface {
-  AllMonthDays: ComputedRef<GetLunarDetailReturnInterface[]>
-  changeLastMonth(): void
-  changeNextMonth(): void
 }
 
 export type HolidayListType = Record<string, { title: string }>

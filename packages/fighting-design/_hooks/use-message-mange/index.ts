@@ -1,7 +1,10 @@
 import { reactive } from 'vue'
-import type { MessageInstance } from '../../_interface'
-import type { MessageInstancesType, UseMassageManageReturnInterface } from './interface'
-import type { MessagePlacementType } from '../../message/src/interface'
+import type {
+  MessageInstancesType,
+  UseMassageManageReturnInterface,
+  MessageInstance,
+  MessagePlacementType
+} from './interface'
 
 /**
  * 创建弹出的消息体实例
