@@ -1,10 +1,12 @@
+import type { getDayMonthInterface } from './interface'
+
 /**
  * 获取每个月有多少天
  * @param year 年份
  * @param month 月份
  * @returns 
  */
-export const getDayMonth = (year: number, month: number): number => {
+export const getDayMonth: getDayMonthInterface = (year: number, month: number): number => {
   if (month === -1) {
     return 31
   }
