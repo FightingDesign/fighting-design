@@ -1,12 +1,15 @@
+import { defineCustomElement } from 'vue'
 import * as components from './components'
 import { version } from './package.json'
-import type { App } from 'vue'
+import { setWebComponentName } from './_utils'
+import type { App, ComponentPublicInstance } from 'vue'
 import type { AppInstallInterface } from './_interface'
 
 const install: AppInstallInterface = (app: App): App => {
   Object.entries(components).forEach(([key, value]): void => {
-    // https://cn.vuejs.org/api/application.html#app-component
-    app.component(key, value)
+    // app.component(key, value)
+
+    customElements.define(setWebComponentName(key), defineCustomElement(value as unknown as ComponentPublicInstance))
   })
 
   app.config.globalProperties.FMessage = components.FMessage

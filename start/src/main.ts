@@ -6,8 +6,7 @@ import App from './App.vue'
 // new VConsole()
 
 // 开发阶段引入
-import FightingDesign from '../../packages/fighting-design/index'
-import { default as FButton } from '../../packages/fighting-design/button/src/button.vue'
+import FightingDesign, { FButton } from '../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 
 // 打包阶段引入
@@ -36,5 +35,5 @@ customElements.define('a-button-ce', AButtonCeElement)
 customElements.define('f-button', FButtonElement)
 
 createApp(App)
-// .use(FightingDesign)
-.mount('#start')
+  // .use(FightingDesign)
+  .mount('#start')
