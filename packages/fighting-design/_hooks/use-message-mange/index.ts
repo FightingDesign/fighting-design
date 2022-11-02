@@ -1,6 +1,5 @@
 import { reactive } from 'vue'
-import type { MessageInstance } from '../../_interface'
-import type { MessageInstancesType, UseMassageManageReturnInterface } from './interface'
+import type { MessageInstancesType, UseMassageManageReturnInterface, MessageInstance } from './interface'
 import type { MessagePlacementType } from '../../message/src/interface'
 
 /**
@@ -34,7 +33,7 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
     placement: MessagePlacementType,
     id: string,
     isNext: boolean
-  ): ComputedRef<number> => {
+  ): number => {
     const idx: number = getInstanceIndex(placement, id)
     if (idx === -1) return 0
     const beforeInstance: MessageInstance =
@@ -66,7 +65,7 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
     id: string
   ): void => {
     const idx: number = getInstanceIndex(placement, id)
-    ;(instances[placement] as MessageInstance[]).splice(idx, 1)
+      ; (instances[placement] as MessageInstance[]).splice(idx, 1)
   }
 
   /**

@@ -1,5 +1,5 @@
 import type { MessagePlacementType } from '../../message/src/interface'
-import type { MessageInstance } from '../../_interface'
+import type { MessageInstance } from '../use-message/interface'
 export type { MessageInstance } from '../use-message/interface'
 export type { MessagePlacementType } from '../../message/src/interface'
 
