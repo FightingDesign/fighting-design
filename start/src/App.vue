@@ -8,8 +8,7 @@
   const openMessage = () => {
     const info = FMessage({
       message: '这是一条消息提示',
-      type: 'success',
-      duration: 0
+      type: 'success'
     })
   }
 </script>

@@ -8,7 +8,7 @@ export type InstanceOptions<T> = Partial<Mutable<T>> & {
 
 export interface MessageInstance {
   visible: number
-  bottom: number
+  bottom: ComputedRef<number>
   id: string
   vm: ComponentInternalInstance
   close: () => void
@@ -28,7 +28,14 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }
 
 export interface UseMassageManageReturnInterface {
   instances: Partial<{ [key in messagePlacementType]: MessageInstance[] }>
-  getSiblingOffset(placement: messagePlacementType, id: string, isNext: boolean): number
+  getSiblingOffset(
+    placement: messagePlacementType,
+    id: string,
+    isNext: boolean
+  ): number
   removeInstance(placement: messagePlacementType, id: string): void
-  createInstance(instance: MessageInstance, placement: messagePlacementType): MessageInstance
+  createInstance(
+    instance: MessageInstance,
+    placement: messagePlacementType
+  ): MessageInstance
 }
