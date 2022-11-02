@@ -25,6 +25,11 @@
       "require": "./lib/index.js",
       "types": "./es/index.d.ts"
     },
+    "./resolver": {
+      "require": "./resolver/index.js",
+      "import": "./resolver/index.mjs",
+      "types": "./resolver/index.d.ts"
+    },
     "./dist": "./dist/",
     "./theme": "./theme/",
     "./es": "./es/index.js",

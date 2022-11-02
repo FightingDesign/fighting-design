@@ -9,7 +9,7 @@ export type MessageInstancesType = Partial<{
 
 export interface UseMassageManageReturnInterface {
   instances: Partial<{ [key in MessagePlacementType]: MessageInstance[] }>
-  getSiblingOffset(placement: MessagePlacementType, id: string, isNext: boolean): number
+  getSiblingOffset(placement: MessagePlacementType, id: string, isNext: boolean): ComputedRef<number>
   removeInstance(placement: MessagePlacementType, id: string): void
   createInstance(instance: MessageInstance, placement: MessagePlacementType): MessageInstance
 }
