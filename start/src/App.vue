@@ -1,9 +1,5 @@
-<script lang="ts" setup>
-  import WButton from './components/button.vue'
-</script>
+<script lang="ts" setup></script>
 
-<template>
-  <w-button>按钮</w-button>
-</template>
+<template></template>
 
 <style lang="scss" scoped></style>

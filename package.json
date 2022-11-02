@@ -36,7 +36,6 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@fighting-design/eslint-config": "workspace:*",
-    "@fighting-design/fighting-web-component-wrapper": "workspace:*",
     "@fighting-design/fighting-icon": "workspace:*",
     "@fighting-design/fighting-theme": "workspace:*",
     "@types/node": "^17.0.42",
