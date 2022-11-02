@@ -13,15 +13,16 @@ import {
   SOLAR_TERM_LIST
 } from './data'
 import type {
-  GetLunarDetailReturnInterface
+  GetLunarDetailReturnInterface,
+  LunarInterface
 } from '../_interface'
 
-export class Lunar {
+export class Lunar implements LunarInterface {
   /**
    * 返回农历 year 年一整年的总天数
    * @param year 年份
    */
-  private static getLunarYearDays = (year: number): number => {
+  getLunarYearDays = (year: number): number => {
     let i: number
     let sum = 348
     for (i = 0x8000; i > 0x8; i >>= 1) {
@@ -35,7 +36,7 @@ export class Lunar {
    * @param year 年份
    * @returns 
    */
-  private static leapMonth = (year: number): number => {
+  leapMonth = (year: number): number => {
     return LUNAR_INFO[year - 1900] & 0xf
   }
 
@@ -44,7 +45,7 @@ export class Lunar {
    * @param year 年份
    * @returns 
    */
-  private static leapDays = (year: number): number => {
+  leapDays = (year: number): number => {
     if (this.leapMonth(year)) {
       return LUNAR_INFO[year - 1900] & 0x10000 ? 30 : 29
     }
@@ -56,7 +57,7 @@ export class Lunar {
    * @param year 农历年份
    * @param month 农历月份
    */
-  private static monthDays = (year: number, month: number): number => {
+  monthDays = (year: number, month: number): number => {
     if (month > 12 || month < 1) {
       // 月份参数从 1 至 12，参数错误返回 -1
       return -1
@@ -69,7 +70,7 @@ export class Lunar {
    * @param lYear 农历年份
    * @return
    */
-  private static toGanZhiYear = (lYear: number): string => {
+  toGanZhiYear = (lYear: number): string => {
     let ganKey: number = (lYear - 3) % 10
     let zhiKey: number = (lYear - 3) % 12
     if (ganKey === 0) ganKey = 10 // 如果余数为 0 则为最后一个天干
@@ -82,7 +83,7 @@ export class Lunar {
    * @param cMonth 公历月
    * @param cDay 公历日
    */
-  private static toConstellation = (cMonth: number, cDay: number): string => {
+  toConstellation = (cMonth: number, cDay: number): string => {
     const s = '\u9b54\u7faf\u6c34\u74f6\u53cc\u9c7c\u767d\u7f8a\u91d1\u725b\u53cc\u5b50\u5de8\u87f9\u72ee\u5b50\u5904\u5973\u5929\u79e4\u5929\u874e\u5c04\u624b\u9b54\u7faf' as const
     const arr = [20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22, 22] as const
     return (s.substr(cMonth * 2 - (cDay < arr[cMonth - 1] ? 2 : 0), 2) + '\u5ea7')
@@ -93,7 +94,7 @@ export class Lunar {
    * @param offset 相对甲子的偏移量
    * @returns 
    */
-  private static toGanZhi = (offset: number): string => {
+  toGanZhi = (offset: number): string => {
     return DAY_GAN[offset % 10] + DAY_ZHI[offset % 12]
   }
 
@@ -103,7 +104,7 @@ export class Lunar {
    * @param n  n二十四节气中的第几个节气 (1~24)；从 n=1 (小寒) 算起
    * @returns day Number
    */
-  private static getTerm = (year: number, n: number): number => {
+  getTerm = (year: number, n: number): number => {
     if (year < 1900 || year > 2100 || n < 1 || n > 24) {
       return -1
     }
@@ -122,7 +123,7 @@ export class Lunar {
    * @param month 农历月份
    * @returns 
    */
-  private static toChinaMonth = (month: number): string | -1 => {
+  toChinaMonth = (month: number): string | -1 => {
     // 若参数错误 返回-1
     if (month > 12 || month < 1) {
       return -1
@@ -137,7 +138,7 @@ export class Lunar {
    * @param day 农历日期
    * @returns 
    */
-  private static toChinaDay = (day: number): string => {
+  toChinaDay = (day: number): string => {
     let s: string
     switch (day) {
       case 10:
@@ -161,7 +162,7 @@ export class Lunar {
    * @param year 年份
    * @returns 
    */
-  private static getAnimal = (year: number): string => {
+  getAnimal = (year: number): string => {
     return ANIMALS[(year - 4) % 12]
   }
 
@@ -209,7 +210,7 @@ export class Lunar {
       86400000
 
     for (i = 1900; i < 2101 && offset > 0; i++) {
-      temp = Lunar.getLunarYearDays(i)
+      temp = this.getLunarYearDays(i)
       offset -= temp
     }
     if (offset < 0) {
@@ -239,7 +240,7 @@ export class Lunar {
     }
     // 农历年
     const year: number = i
-    leap = Lunar.leapMonth(i) // 闰哪个月
+    leap = this.leapMonth(i) // 闰哪个月
     let isLeap = false
 
     // 效验闰月
@@ -248,9 +249,9 @@ export class Lunar {
       if (leap > 0 && i === leap + 1 && isLeap === false) {
         --i
         isLeap = true
-        temp = Lunar.leapDays(year) // 计算农历闰月天数
+        temp = this.leapDays(year) // 计算农历闰月天数
       } else {
-        temp = Lunar.monthDays(year, i) // 计算农历普通月天数
+        temp = this.monthDays(year, i) // 计算农历普通月天数
       }
       // 解除闰月
       if (isLeap === true && i === leap + 1) {
@@ -275,16 +276,16 @@ export class Lunar {
     const month: number = i // 农历月
     const day: number = offset + 1 // 农历日
     const sm: number = m - 1 // 天干地支处理
-    const gzY: string = Lunar.toGanZhiYear(year)
+    const gzY: string = this.toGanZhiYear(year)
 
     // 当月的两个节气
-    const firstNode: number = Lunar.getTerm(y, m * 2 - 1) // 返回当月「节」为几日开始
-    const secondNode: number = Lunar.getTerm(y, m * 2) // 返回当月「节」为几日开始
+    const firstNode: number = this.getTerm(y, m * 2 - 1) // 返回当月「节」为几日开始
+    const secondNode: number = this.getTerm(y, m * 2) // 返回当月「节」为几日开始
 
     // 依据 12 节气修正干支月
-    let gzM: string = Lunar.toGanZhi((y - 1900) * 12 + m + 11)
+    let gzM: string = this.toGanZhi((y - 1900) * 12 + m + 11)
     if (d >= firstNode) {
-      gzM = Lunar.toGanZhi((y - 1900) * 12 + m + 12)
+      gzM = this.toGanZhi((y - 1900) * 12 + m + 12)
     }
 
     // 传入的日期的节气与否
@@ -301,9 +302,9 @@ export class Lunar {
     }
     // 日柱 当月一日与 1900/1/1 相差天数
     const dayCyclical: number = Date.UTC(y, sm, 1, 0, 0, 0, 0) / 86400000 + 25567 + 10
-    const gzD: string = Lunar.toGanZhi(dayCyclical + d - 1)
+    const gzD: string = this.toGanZhi(dayCyclical + d - 1)
     // 该日期所属的星座
-    const constellation: string = Lunar.toConstellation(m, d)
+    const constellation: string = this.toConstellation(m, d)
 
     const solarDate = y + '-' + m + '-' + d
     const lunarDate = year + '-' + month + '-' + day
@@ -316,7 +317,7 @@ export class Lunar {
     // 此处取巧修正：当前为农历12月29号时增加一次判断并且把lunarFestivalDate设置为12-30以正确取得除夕
     // 天朝农历节日遇闰月过前不过后的原则，此处取农历12月天数不考虑闰月
     // 农历润12月在本工具支持的200年区间内仅1574年出现
-    if (month === 12 && day === 29 && Lunar.monthDays(year, month) === 29) {
+    if (month === 12 && day === 29 && this.monthDays(year, month) === 29) {
       lunarFestivalDate = '12-30'
     }
 
@@ -332,9 +333,9 @@ export class Lunar {
       lYear: year, // 农历年份
       lMonth: month,// 农历月份
       lDay: day, // // 农历日
-      animal: Lunar.getAnimal(year), // 生肖
-      IMonthCn: (isLeap ? '\u95f0' : '') + Lunar.toChinaMonth(month),
-      IDayCn: Lunar.toChinaDay(day),
+      animal: this.getAnimal(year), // 生肖
+      IMonthCn: (isLeap ? '\u95f0' : '') + this.toChinaMonth(month),
+      IDayCn: this.toChinaDay(day),
       cYear: y,
       cMonth: m,
       cDay: d,

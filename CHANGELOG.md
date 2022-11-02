@@ -2,10 +2,15 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.8.0-alpha.3 (2022-11-01)
+
 **修复 Bug**
 
 - 修复 `FMessage` `FNotification` 组件的报错问题
-- 修复 `f-radio` 禁用状态的样式问题
+- 修复 `f-radio` `f-radio-group` 组件禁用状态的样式问题
+- 修复 `f-checkbox` `f-checkbox-group` 组件禁用状态的样式问题
+- 修复 `f-alert` 关闭按钮样式细节
+- 修复 `f-tag` 关闭按钮样式细节
 
 **改进优化**
 
@@ -27,6 +32,7 @@
 - `f-radio` 组件废除 `change` emit 回调，新增 `change` props 可选项
 - `f-radio-group` 组件废除 `change` emit 回调，新增 `change` props 可选项
 - `f-radio` 组件在边框状态下样式做了改变
+- `f-close-btn` 新增 `no-hover` 配置项
 
 ## 0.8.0-alpha.2 (2022-10-28)
 

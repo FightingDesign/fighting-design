@@ -7,5 +7,5 @@ export interface CreateWatermarkPropsInterface {
 }
 
 export interface CreateBase64Interface {
-  (props: createBase64NeedWatermarkPropsInterface): string
+  (props: CreateWatermarkPropsInterface): string
 }

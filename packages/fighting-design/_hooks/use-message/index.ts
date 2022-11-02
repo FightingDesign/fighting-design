@@ -5,6 +5,7 @@ import { useMassageManage } from '../../_hooks'
 import type { MessageInstance, MessageFnWithType, MessageOptions, MessageFn } from '../../_interface'
 import type { ComponentInternalInstance, VNode } from 'vue'
 import type { DefaultOptionsInterface, ComponentVueInterface } from './interface'
+import type { MessagePlacementType } from '../../message/src/interface'
 
 export const massageManage = useMassageManage()
 
@@ -66,7 +67,7 @@ export const useMessage = (target: 'message' | 'notification'): { instance: Mess
         bottom: 0,
         visible: 0
       },
-      props.placement
+      props.placement as MessagePlacementType
     )
 
     return instance

@@ -2,7 +2,7 @@ export type { ToolbarPropsType } from './props'
 
 export type ToolbarType = 'large' | 'middle' | 'small' | 'mini'
 
-interface ToolbarClickEmitInterface {
+export interface ToolbarClickEmitInterface {
   evt: Event
   key: string | undefined
 }

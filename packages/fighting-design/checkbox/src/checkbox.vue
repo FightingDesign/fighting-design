@@ -29,26 +29,19 @@
   }
   getGroupInject()
 
-  const isGroup: ComputedRef<boolean> = computed((): boolean => {
-    return !!groupProps.value || false
-  })
-
   const modelValue: WritableComputedRef<CheckboxGroupLabelType> = computed({
     get () {
-      if (isGroup.value) {
-        return (groupProps.value as a)?.modelValue
-      }
-      return prop.modelValue
+      return (
+        (groupProps.value && groupProps.value.modelValue) || prop.modelValue
+      )
     },
     set (val) {
-      if (isGroup.value) {
-        !prop.disabled &&
-          !groupProps.value?.disabled &&
-          groupProps.value?.changeEvent(val)
-      } else {
-        if (prop.disabled) return
-        emit('update:modelValue', val)
+      if (groupProps.value && !groupProps.value.disabled) {
+        groupProps.value.changeEvent(val)
+        return
       }
+      if (prop.disabled) return
+      emit('update:modelValue', val)
     }
   })
 
@@ -67,8 +60,9 @@
       'f-checkbox',
       {
         'f-checkbox__selected': isChecked.value,
-        'f-checkbox__bordered': groupProps.value?.border,
-        'f-checkbox__disabled': prop.disabled || groupProps.value?.disabled
+        'f-checkbox__bordered': groupProps.value && groupProps.value.border,
+        'f-checkbox__disabled':
+          prop.disabled || (groupProps.value && groupProps.value.disabled)
       }
     ] as const
   })
@@ -88,8 +82,9 @@
       class="f-checkbox__input"
       hidden
       :value="label"
+      :disabled="disabled || (!!groupProps && groupProps.disabled)"
     />
-    <span v-if="!groupProps?.border" class="f-checkbox__box" />
+    <span v-if="!(groupProps && groupProps.border)" class="f-checkbox__box" />
     <span class="f-checkbox__text">
       <slot />
       <template v-if="!$slots.default">{{ label }}</template>

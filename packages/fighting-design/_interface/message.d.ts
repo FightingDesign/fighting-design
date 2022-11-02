@@ -1,6 +1,7 @@
 import type { ComponentInternalInstance } from 'vue'
 import type { MessagePropsType } from '../message/src/props'
 import type { MessageType } from '../message/src/interface'
+import type { MessagePlacementType } from '../message/src/interface'
 
 export type InstanceOptions<T> = Partial<Mutable<T>> & {
   onDestroy?: () => void
@@ -27,15 +28,8 @@ export interface MessageFn {
 type Mutable<T> = { -readonly [P in keyof T]: T[P] }
 
 export interface UseMassageManageReturnInterface {
-  instances: Partial<{ [key in messagePlacementType]: MessageInstance[] }>
-  getSiblingOffset(
-    placement: messagePlacementType,
-    id: string,
-    isNext: boolean
-  ): number
-  removeInstance(placement: messagePlacementType, id: string): void
-  createInstance(
-    instance: MessageInstance,
-    placement: messagePlacementType
-  ): MessageInstance
+  instances: Partial<{ [key in MessagePlacementType]: MessageInstance[] }>
+  getSiblingOffset(placement: MessagePlacementType, id: string, isNext: boolean): ComputedRef<number>
+  removeInstance(placement: MessagePlacementType, id: string): void
+  createInstance(instance: MessageInstance, placement: MessagePlacementType): MessageInstance
 }

@@ -45,6 +45,12 @@
       <component :is="afterIcon" />
     </f-svg-icon>
 
-    <f-close-btn v-if="close" @click.stop="handleClose" />
+    <f-close-btn
+      v-if="close"
+      no-hover
+      :color="type === 'default' ? '#333' : '#fff'"
+      :size="14"
+      @click.stop="handleClose"
+    />
   </div>
 </template>

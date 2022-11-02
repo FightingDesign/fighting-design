@@ -1,3 +1,5 @@
+@import '../config/const-color.scss';
+
 .f-checkbox-group {
   display: inline-flex;
   justify-content: center;
@@ -15,6 +17,44 @@
   &.f-checkbox-group__border {
     column-gap: 0;
     row-gap: 0;
+
+    .f-checkbox {
+      border: 1px solid $simplePrimary;
+      padding: 5px 10px;
+
+      // 带有边框的选中状态下的禁用
+      &.f-checkbox__selected {
+        &.f-checkbox__disabled {
+          background: $default;
+
+          .f-checkbox__text {
+            color: #d7d7d7;
+          }
+        }
+      }
+
+      // 禁用状态
+      &.f-checkbox__disabled {
+        border-color: #d7d7d7;
+      }
+
+      &.f-checkbox__large {
+        padding: 8px 14px;
+      }
+
+      &.f-checkbox__small {
+        padding: 4px 6px;
+      }
+
+      // 边框状态选中
+      &.f-checkbox__selected {
+        background: $primary;
+
+        .f-checkbox__text {
+          color: #fff;
+        }
+      }
+    }
   }
 
   &.f-checkbox-group__large {

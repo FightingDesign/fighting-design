@@ -2,6 +2,38 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.8.0-alpha.3 (2022-11-01)
+
+**修复 Bug**
+
+- 修复 `FMessage` `FNotification` 组件的报错问题
+- 修复 `f-radio` `f-radio-group` 组件禁用状态的样式问题
+- 修复 `f-checkbox` `f-checkbox-group` 组件禁用状态的样式问题
+- 修复 `f-alert` 关闭按钮样式细节
+- 修复 `f-tag` 关闭按钮样式细节
+
+**改进优化**
+
+- `f-image` `f-avatar` 组件废除 `error` 和 `load` emit 回调，新增 `error` 和 `load` props 可选项
+- `f-calendar` 组件废除 `change-date` 和 `change-switch` emit 回调，新增 `change-date` 和 `change-switch` props 可选项
+- `f-alert` 组件废除 `close-end` emit 回调，新增 `close-end` props 可选项
+- `f-tag` 组件废除 `close-end` emit 回调，新增 `close-end` props 可选项
+- `f-page-header` 组件废除 `back` emit 回调，新增 `back` props 可选项
+- `f-rate` 组件废除 `change` emit 回调，新增 `change` props 可选项
+- `f-checkbox-group` 组件废除 `change` emit 回调，新增 `change` props 可选项
+- `f-link` 组件废除 `click` emit 回调，新增 `click` props 可选项
+- `f-button` 组件废除 `click` emit 回调，新增 `click` props 可选项
+- `f-toolbar` 组件废除 `click` emit 回调，新增 `click` props 可选项
+- `f-toolbar-item` 组件废除 `click` emit 回调，新增 `click` props 可选项
+- `f-switch` 组件废除 `change` emit 回调，新增 `change` props 可选项
+- `f-close-btn` 组件废除 `click` emit 回调，新增 `click` props 可选项
+- `f-loading` 组件废除 `close` emit 回调，新增 `close-end` props 可选项
+- `f-svg-icon` 组件废除 `click` emit 回调，新增 `click` props 可选项
+- `f-radio` 组件废除 `change` emit 回调，新增 `change` props 可选项
+- `f-radio-group` 组件废除 `change` emit 回调，新增 `change` props 可选项
+- `f-radio` 组件在边框状态下样式做了改变
+- `f-close-btn` 新增 `no-hover` 配置项
+
 ## 0.8.0-alpha.2 (2022-10-28)
 
 - 修复按需导入组件类型的问题 [#232](https://github.com/FightingDesign/fighting-design/pull/232)
