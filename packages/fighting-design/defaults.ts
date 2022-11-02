@@ -7,13 +7,23 @@ import type { AppInstallInterface } from './_interface'
 
 const install: AppInstallInterface = (app: App): App => {
   Object.entries(components).forEach(([key, value]): void => {
-    // app.component(key, value)
+    let styles = ''
 
-    customElements.define(setWebComponentName(key), defineCustomElement(value as unknown as ComponentPublicInstance))
+    import(`../fighting-theme/src/${key.toLowerCase().slice(1)}.scss`).then(res => {
+      styles = res.default
+      if (res.default) {
+        setStyle()
+      }
+    })
+
+    function setStyle (): void {
+      value.styles = [styles]
+      customElements.define(setWebComponentName(key), defineCustomElement(value as unknown as ComponentPublicInstance))
+    }
   })
 
-  app.config.globalProperties.FMessage = components.FMessage
-  app.config.globalProperties.FNotification = components.FNotification
+  // app.config.globalProperties.FMessage = components.FMessage
+  // app.config.globalProperties.FNotification = components.FNotification
   return app
 }
 

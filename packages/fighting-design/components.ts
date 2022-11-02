@@ -82,7 +82,7 @@ export * from './list-item'
 export { FLoading } from './loading'
 export * from './loading'
 
-export { LoadingBar as useLoadingBar } from './loading-bar'
+// export { LoadingBar as useLoadingBar } from './loading-bar'
 
 export { FMain } from './main'
 export * from './main'
@@ -156,7 +156,7 @@ export * from './input'
 export { FSwap } from './swap'
 export * from './swap'
 
-export { FWaterfall } from './waterfall'
+// export { FWaterfall } from './waterfall'
 
-export { FUpLoad } from './up-load'
-export * from './up-load'
+// export { FUpLoad } from './up-load'
+// export * from './up-load'

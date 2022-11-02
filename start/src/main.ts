@@ -13,26 +13,26 @@ import '@fighting-design/fighting-theme'
 // import FightingDesign from '../../dist'
 // import '../dist/dist/index.css'
 
-import css from '../../packages/fighting-theme/src/button.scss'
+// import css from '../../packages/fighting-theme/src/button.scss'
 
-console.log(css)
+FightingDesign.install()
 
-import AButton from './components/button.vue'
-import AButtonCe from './components/button.ce.vue'
+// import AButton from './components/button.vue'
+// import AButtonCe from './components/button.ce.vue'
 
-const AButtonElement = defineCustomElement(AButton)
-const AButtonCeElement = defineCustomElement(AButtonCe)
-const FButtonElement = defineCustomElement(FButton)
+// const AButtonElement = defineCustomElement(AButton)
+// const AButtonCeElement = defineCustomElement(AButtonCe)
+// const FButtonElement = defineCustomElement(FButton)
 
-FButton.styles = [css]
+// FButton.styles = [css]
 
-console.dir(AButton)
-console.dir(AButtonCe)
-console.dir(FButton)
+// console.dir(AButton)
+// console.dir(AButtonCe)
+// console.dir(FButton)
 
-customElements.define('a-button', AButtonElement)
-customElements.define('a-button-ce', AButtonCeElement)
-customElements.define('f-button', FButtonElement)
+// customElements.define('a-button', AButtonElement)
+// customElements.define('a-button-ce', AButtonCeElement)
+// customElements.define('f-button', FButtonElement)
 
 createApp(App)
   // .use(FightingDesign)
