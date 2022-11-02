@@ -1,6 +1,6 @@
 import { resolve } from 'path'
-import type { UserConfigExport } from 'vite'
 import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
+import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {

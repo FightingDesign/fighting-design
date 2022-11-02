@@ -1,8 +1,10 @@
-function FightingDesignResolver() {
+import type { ResolveReturnInterface, FightingDesignResolverInterface } from './interface'
+
+export const FightingDesignResolver = (): FightingDesignResolverInterface => {
   return {
     type: 'component',
-    resolve: (name: string) => {
-      if (name.match(/^(F[A-Z]|f-[a-z])/))
+    resolve: (name: string): ResolveReturnInterface | undefined => {
+      if (name.match(/^(F[A-Z]|f-[a-z])/)) {
         return {
           name,
           from: 'fighting-design',
@@ -10,8 +12,7 @@ function FightingDesignResolver() {
             `fighting-design/theme/${name.slice(1).toLowerCase()}.css`
           ]
         }
+      }
     }
-  }
+  } as const
 }
-
-export default FightingDesignResolver

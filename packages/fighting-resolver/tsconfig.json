@@ -10,9 +10,18 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "skipLibCheck": true
   },
-  "include": ["index.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "index.ts"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
