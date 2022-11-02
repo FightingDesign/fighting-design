@@ -1,11 +1,11 @@
-import { isString } from './utils'
+import { isString } from '../utils'
 import type {
   LazyInterface,
   LoadInterface,
   LoadImageInterface,
   LoadNeedImagePropsInterface,
   CallbackInterface
-} from '../_interface'
+} from './interface'
 
 /**
  * 图片加载

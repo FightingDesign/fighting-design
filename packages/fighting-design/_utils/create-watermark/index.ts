@@ -1,8 +1,8 @@
-import { sizeChange } from './utils'
+import { sizeChange } from '../utils'
 import type {
   CreateBase64Interface as a,
   CreateWatermarkPropsInterface as b
-} from '../_interface'
+} from './interface'
 
 /**
  * 将 canvas 转换成 base64 图片格式

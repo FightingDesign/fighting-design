@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FPageHeader">
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
-  import { FIconArrowLeftVue } from '../../_components/svg/index'
+  import { FIconArrowLeftVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
   import { Props } from './props'
   import type { ComputedRef } from 'vue'

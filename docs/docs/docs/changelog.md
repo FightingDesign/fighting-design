@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.8.0-alpha.4 (2022-11-02)
+
+- 主要针对目录结构进行了规范处理
+- 优化一些类型文件的位置
+
 ## 0.8.0-alpha.3 (2022-11-01)
 
 **修复 Bug**

@@ -1,7 +1,25 @@
-import type { MessagePlacementType } from '../../message/src/interface'
+import type { Component, ComponentInternalInstance } from 'vue'
+import type {
+  MessagePlacementType,
+  MessageType,
+  MessagePropsType
+} from '../../message/src/interface'
 import type { NotificationPlacementType } from '../../notification/src/interface'
-import type { MessageInstance } from '../../_interface'
-import type { Component } from 'vue'
+export * from '../../message/src/interface'
+
+type InstanceOptions<T> = Partial<Mutable<T>> & {
+  onDestroy?: () => void
+}
+
+export interface MessageFn {
+  (options: MessageOptions | string): MessageInstance
+}
+
+export type MessageFnWithType = {
+  [key in MessageType]: (text: string) => void
+}
+
+export type MessageOptions = InstanceOptions<MessagePropsType>
 
 export interface DefaultOptionsInterface {
   message: { placement: MessagePlacementType }
@@ -13,6 +31,10 @@ export interface ComponentVueInterface {
   notification: Component
 }
 
-export interface InstanceInterface {
-  (options): MessageInstance
+export interface MessageInstance {
+  visible: number
+  bottom: number
+  id: string
+  vm: ComponentInternalInstance
+  close: () => void
 }

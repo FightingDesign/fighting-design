@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.8.0-alpha.4 (2022-11-02)
+
+- Mainly standardized the directory structure
+- Optimize the bit of some types of files
+
 ## 0.8.0-alpha.3 (2022-11-01)
 
 **Fix Bug**

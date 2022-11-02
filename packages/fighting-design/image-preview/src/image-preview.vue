@@ -14,7 +14,7 @@
     FIconLayoutRowsVue,
     FIconZoomInVue,
     FIconZoomOutVue
-  } from '../../_components/svg/index'
+  } from '../../_svg'
   import { useOperationImg } from '../../_hooks'
   import type { Ref } from 'vue'
   import type {

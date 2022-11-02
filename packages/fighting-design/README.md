@@ -197,9 +197,9 @@ export default Rate
 
 所有组件的单元测试目录
 
-### [\_components](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_components)
+### [\_svg](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_svg)
 
-在 `_components` 目录中存放全局一些公共组件
+在 `_svg` 目录中存放全局一些公共 svg
 
 - 文件名统一使用短横杠连接，不可以出现大写字母
 
