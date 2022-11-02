@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
-  import { FIconCrossVue } from '../../_components/svg/index'
+  import { FIconCrossVue } from '../../_svg'
   import type { ComputedRef } from 'vue'
   import type {
     HandleEventInterface as a,

@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FRate">
   import { Props, Emits } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { FIconStarBVue } from '../../_components/svg/index'
+  import { FIconStarBVue } from '../../_svg'
   import { FText } from '../../text'
   import { ref, watch, unref, computed } from 'vue'
   import type { Ref, ComputedRef } from 'vue'

@@ -1,9 +1,6 @@
 import { reactive } from 'vue'
 import type { MessageInstance } from '../../_interface'
-import type {
-  MessageInstancesType,
-  UseMassageManageReturnInterface
-} from './interface'
+import type { MessageInstancesType, UseMassageManageReturnInterface } from './interface'
 import type { MessagePlacementType } from '../../message/src/interface'
 
 /**

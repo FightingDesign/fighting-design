@@ -1,8 +1,11 @@
 import { ref } from 'vue'
 import { keepDecimal } from '../../_utils'
 import type { Ref } from 'vue'
-import type { OrdinaryFunctionInterface as a } from '../../_interface'
-import type { OnImgMousewheelInterface as b, UseOperationImgReturnInterface as c } from './interface'
+import type {
+  OrdinaryFunctionInterface as a,
+  OnImgMousewheelInterface as b,
+  UseOperationImgReturnInterface as c
+} from './interface'
 
 /**
  * 用于 image-preview 组件的图片操作 hooks

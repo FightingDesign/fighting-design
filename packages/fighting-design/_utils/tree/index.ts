@@ -1,7 +1,7 @@
 import type {
   TreeAddLevelReturnInterface as a,
   TreeDataInterface as b
-} from '../_interface'
+} from './interface'
 
 /**
  * 扁平化树形结构

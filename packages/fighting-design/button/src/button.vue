@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FButton">
   import { computed, ref, h } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
-  import { FIconLoadingAVue } from '../../_components/svg/index'
+  import { FIconLoadingAVue } from '../../_svg'
   import { Props } from './props'
   import { Ripples, ChangeColor, sizeChange } from '../../_utils'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'

@@ -2,10 +2,10 @@ import { computed, watch, ref } from 'vue'
 import { getDayMonth, Lunar } from '../../_utils'
 import type { Ref, ComputedRef } from 'vue'
 import type {
-  GetLunarDetailReturnInterface as a,
   DiffDayReturnInterface,
-  DiffDayInterface
-} from '../../_interface'
+  DiffDayInterface,
+  GetLunarDetailReturnInterface as a
+} from './interface'
 
 export const useCalculiTime: DiffDayInterface = (year: Ref<number>, month: Ref<number>): DiffDayReturnInterface => {
 
