@@ -1,6 +1,15 @@
-<script lang="ts" setup name="Waterfall">
-  import { onMounted, ref, reactive, onUnmounted, watch, nextTick } from 'vue'
+<script lang="ts" setup name="FWaterfall">
+  import {
+    onMounted,
+    ref,
+    reactive,
+    onUnmounted,
+    watch,
+    nextTick,
+    computed
+  } from 'vue'
   import { Props, Emits } from './props'
+  import type { ComputedRef, CSSProperties } from 'vue'
   import type { WaterfallRowType as rt } from './interface'
 
   const prop = defineProps(Props)
@@ -9,7 +18,7 @@
   const emit = defineEmits(Emits)
   const waterfall = ref()
   const data = reactive([]) as rt[]
-  const containerHeight = ref('auto') //容器高度
+  let containerHeight = ref('auto') //容器高度
   const uuid = (): string => Math.random().toString(16).substring(2)
 
   const columns = ref(0)
@@ -55,7 +64,7 @@
       cols = Math.floor(containerWidth / prop.minWidth)
     }
 
-    // 以最终的列数-1*间隙
+    // 以最终的列数 - 1 * 间隙
     if (cols !== Math.floor(waterfall.value.clientWidth / prop.minWidth)) {
       containerWidth =
         waterfall.value.clientWidth - (Number(cols) - 1) * parseInt(prop.colGap)
@@ -82,14 +91,15 @@
       if (load) {
         await preload(data)
       }
-      const nodes: HTMLDivElement =
-        waterfall.value.querySelectorAll('.f-waterfall-box')
+      const nodes: HTMLDivElement = waterfall.value.querySelectorAll(
+        '.f-waterfall__block'
+      )
       let hs = Object.values(nodes).map((n: HTMLElement, index) => ({
         height: n.clientHeight,
         index
       }))
       const columns = Array(cols)
-        .fill(0)
+        .fill(null)
         .map(() => [])
       hs = hs.sort((o1, o2) => o2.height - o1.height)
 
@@ -121,9 +131,7 @@
 
       containerHeight.value =
         maxCol.reduce((pre, cur: rt) => pre + Number(cur.height), 0) + 'px'
-
       const result: rt[] = columns.flat(1)
-      // <rt[]>
       result.reverse().forEach((row: rt, index) => {
         const item: rt = data[row?.index || 0]
         item._order = index
@@ -139,7 +147,6 @@
     times = setTimeout(() => {
       init(false)
     }, 10)
-    // init(false)
   }
 
   onMounted(async () => {
@@ -165,66 +172,97 @@
     const clientHeight = e.target.clientHeight
     const scrollTop = Math.ceil(e.target.scrollTop)
     const scrollHeight = e.target.scrollHeight
-    if (clientHeight + scrollTop === scrollHeight) {
-      emit('scroll-end')
+
+    if (times) {
+      clearTimeout(times)
     }
+
+    times = setTimeout(() => {
+      if (clientHeight + scrollTop >= scrollHeight) {
+        emit('scroll-end')
+      }
+    }, prop.scrollAwait)
   }
+
+  const classList: ComputedRef = computed(() => {
+    const { type } = prop
+    const classList = [`f-waterfall__${type}`, 'f-waterfall']
+    return classList
+  })
+
+  const wrapStyleList: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { wrapHeight } = prop
+
+      const style: CSSProperties = {
+        height: wrapHeight
+      } as CSSProperties
+      return style
+    }
+  )
+
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { rowGap, colGap } = prop
+
+    const style: CSSProperties = {
+      '--f-col-count': columns.value,
+      '--f-col-width': colWidth.value,
+      '--f-row-gap': rowGap,
+      height: prop.type === 'flex' ? containerHeight.value : 'auto',
+      'row-gap': rowGap,
+      'column-gap': colGap
+    } as CSSProperties
+    return style
+  })
 </script>
 
 <template>
-  <div
-    ref="waterfall"
-    class="f-waterfall"
-    :class="[`f-waterfall__${prop.type}`]"
-    :style="{
-      '--colCount': columns,
-      '--colWidth': colWidth,
-      height: prop.type === 'flex' ? containerHeight : '100%',
-      '--rowGap': prop.rowGap,
-      'row-gap': prop.rowGap,
-      'column-gap': prop.colGap
-    }"
-    @scroll="handleScroll"
-  >
-    <div
-      v-for="(item, index) in data"
-      :key="`waterfall_${index}`"
-      class="f-waterfall-box"
-      :style="{
-        order: prop.type === 'flex' && item._order,
-        minWidth: prop.type === 'flex' && item._minWidth,
-        width: prop.type === 'flex' && item._width
-      }"
-    >
-      <slot name="default" :row="item">
-        <img :src="item.src" />
-      </slot>
+  <div :style="wrapStyleList" class="f-waterfall__wrap" @scroll="handleScroll">
+    <div ref="waterfall" :class="classList" :style="styleList">
+      <div
+        v-for="(item, index) in data"
+        :key="`waterfall_${index}`"
+        class="f-waterfall__block"
+        :style="{
+          order: prop.type === 'flex' && item._order,
+          minWidth: prop.type === 'flex' && item._minWidth,
+          width: prop.type === 'flex' && item._width
+        }"
+      >
+        <slot name="default" :row="item">
+          <img :src="item.src" />
+        </slot>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scope>
-  .f-waterfall {
-    &__flex {
-      width: 100%;
-      overflow: hidden auto;
-      display: flex;
-      flex-flow: column wrap;
-    }
-
-    &__column {
-      overflow: auto;
-      column-count: var(--colCount);
-      // column-width: var(--colWidth);
-      .f-waterfall-box {
-        width: var(--colWidth);
-        margin-bottom: var(--rowGap);
+  .f-waterfall__wrap {
+    height: auto;
+    overflow: hidden auto;
+    width: auto;
+    .f-waterfall {
+      &__flex {
+        width: 100%;
+        overflow: hidden auto;
+        display: flex;
+        flex-flow: column wrap;
       }
-    }
 
-    .f-waterfall-box {
-      height: auto;
-      display: flex;
+      &__column {
+        overflow: auto;
+        column-count: var(--f-col-count);
+        .f-waterfall__block {
+          width: var(--f-col-width);
+          margin-bottom: var(--f-row-gap);
+        }
+      }
+
+      .f-waterfall__block {
+        height: auto;
+        display: flex;
+      }
     }
   }
 </style>
