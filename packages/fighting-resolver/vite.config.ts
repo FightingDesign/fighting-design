@@ -8,7 +8,8 @@ export default (): UserConfigExport => {
       outDir: resolve(__dirname, '../../dist/resolver'),
       lib: {
         entry: resolve(__dirname, 'index.ts'), // 打包入口
-        formats: ['es'] // 仅需打包es模块即可
+        formats: ['es', 'cjs'],
+        fileName: 'index'
       }
     },
     plugins: [dts()]
