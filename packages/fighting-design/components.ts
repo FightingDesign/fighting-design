@@ -87,11 +87,11 @@ export * from './loading'
 export { FMain } from './main'
 export * from './main'
 
-export { FMessage } from './message'
-export * from './message'
+// export { FMessage } from './message'
+// export * from './message'
 
-export { FNotification } from './notification'
-export * from './notification'
+// export { FNotification } from './notification'
+// export * from './notification'
 
 export { FPageHeader } from './page-header'
 export * from './page-header'
