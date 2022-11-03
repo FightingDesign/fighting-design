@@ -1,8 +1,8 @@
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 
 export const Props = {
   files: {
-    type: Array,
+    type: Array as PropType<File[]>,
     default: (): [] => []
   },
   accept: {
@@ -20,7 +20,19 @@ export const Props = {
   maxSize: {
     type: Number,
     default: (): null => null
+  },
+  disabled: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  load: {
+    type: Function,
+    default: (): null => null
   }
 } as const
 
 export type UpLoadPropsType = ExtractPropTypes<typeof Props>
+
+export const Emits = {
+  'update:files': (files: File[]): File[] => files
+}

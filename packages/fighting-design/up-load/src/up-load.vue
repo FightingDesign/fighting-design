@@ -1,14 +1,15 @@
 <script lang="ts" setup name="FUpLoad">
-  import { Props } from './props'
+  import { Props, Emits } from './props'
   import { FButton } from '../../button'
   import { ref } from 'vue'
+  import { FSvgIcon } from '../../svg-icon'
+  import { FIconNotesVue } from '../../_svg'
   import type { Ref } from 'vue'
 
-  defineProps(Props)
+  const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
 
-  const fileList: Ref<FileList | null> = ref<FileList>(
-    null as unknown as FileList
-  )
+  const fileList: Ref<File[] | null> = ref<File[]>(null as unknown as File[])
   const FUpLoadInput: Ref<HTMLInputElement> = ref(
     null as unknown as HTMLInputElement
   )
@@ -18,8 +19,17 @@
   }
 
   const handleChange = (evt: Event): void => {
-    console.dir((evt.target as HTMLInputElement).files)
-    fileList.value = (evt.target as HTMLInputElement).files
+    const files: FileList | null = (evt.target as HTMLInputElement).files
+
+    // 拦截过大的文件
+    if (prop.maxSize && files) {
+      fileList.value = [...files].filter(
+        (file: File) => file.size < prop.maxSize
+      )
+    }
+
+    fileList.value && emit('update:files', fileList.value)
+    prop.load && prop.load()
   }
 </script>
 
@@ -36,15 +46,21 @@
       type="file"
       hidden
       :name="name"
+      :disabled="disabled"
       :accept="accept"
       :multiple="multiple"
       @change="handleChange"
     />
-
-    <ul v-if="fileList && fileList.length" class="f-up-load__file-list">
-      <li v-for="(file, index) in fileList" :key="index">
-        {{ file.name }}
-      </li>
-    </ul>
   </div>
+
+  <ul v-if="fileList && fileList.length" class="f-up-load__file-list">
+    <li
+      v-for="(file, index) in fileList"
+      :key="index"
+      class="f-up-load__file-list-item"
+    >
+      <f-svg-icon :icon="FIconNotesVue" />
+      <span class="f-up-load__file-name">{{ file.name }}</span>
+    </li>
+  </ul>
 </template>

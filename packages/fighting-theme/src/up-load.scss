@@ -1,14 +1,30 @@
 .f-up-load {
-  display: inline-block;
-
   .f-up-load__content {
     display: inline-block;
   }
+}
 
-  // 列表
-  .f-up-load__file-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+// 列表
+.f-up-load__file-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  .f-up-load__file-list-item {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background: #eee;
+    }
+
+    .f-up-load__file-name {
+      color: #333;
+      margin-left: 4px;
+      font-size: 15px;
+    }
   }
 }
