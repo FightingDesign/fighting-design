@@ -16,7 +16,11 @@ export const Props = {
   },
   minWidth: {
     type: Number,
-    default: (): number => 200
+    default: (): number => 0
+  },
+  wrapHeight: {
+    type: String,
+    default: (): string => 'auto'
   },
   rowGap: {
     type: String,
@@ -25,6 +29,10 @@ export const Props = {
   colGap: {
     type: String,
     default: (): string => '0px'
+  },
+  scrollAwait: {
+    type: Number,
+    default: (): number => 100
   }
 } as const
 
