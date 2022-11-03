@@ -16,6 +16,10 @@ export const Props = {
   multiple: {
     type: Boolean,
     default: (): boolean => false
+  },
+  maxSize: {
+    type: Number,
+    default: (): null => null
   }
 } as const
 

@@ -1,2 +1,14 @@
 .f-up-load {
+  display: inline-block;
+
+  .f-up-load__content {
+    display: inline-block;
+  }
+
+  // 列表
+  .f-up-load__file-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 }
