@@ -1,4 +1,4 @@
-import type { App } from 'vue'
+import type { App, ComponentPublicInstance } from 'vue'
 import type { InstallType } from './interface'
 
 /**
@@ -23,4 +23,15 @@ export const installFn = <T>(main: T, name: string): InstallType<T> => {
     app.config.globalProperties[name] = main as InstallType<T>
   }
   return main as InstallType<T>
+}
+
+/**
+ * 注册 Web Components 组件
+ * @param main 组件实例
+ * @param style 样式
+ * @returns 
+ */
+export const installWebComponent = <T>(main: T, style: string): ComponentPublicInstance => {
+  (main as T & { styles: string[] }).styles = [style]
+  return main as unknown as ComponentPublicInstance
 }
