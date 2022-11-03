@@ -13,6 +13,14 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
+  isRemove: {
+    type: Boolean,
+    default: (): boolean => true
+  },
+  showList: {
+    type: Boolean,
+    default: (): boolean => true
+  },
   multiple: {
     type: Boolean,
     default: (): boolean => false

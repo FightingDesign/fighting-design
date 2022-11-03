@@ -70,7 +70,10 @@
   </div>
 
   <!-- 文件列表 -->
-  <ul v-if="fileList && fileList.length" class="f-up-load__file-list">
+  <ul
+    v-if="showList && fileList && fileList.length"
+    class="f-up-load__file-list"
+  >
     <li
       v-for="(file, index) in fileList"
       :key="index"
@@ -81,7 +84,7 @@
         {{ file.name }}
       </span>
 
-      <f-close-btn :size="14" @click="removeFile(index)" />
+      <f-close-btn v-if="isRemove" :size="14" @click="removeFile(index)" />
     </li>
   </ul>
 </template>
