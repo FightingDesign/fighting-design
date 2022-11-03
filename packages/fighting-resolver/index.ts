@@ -1,18 +1,44 @@
-import type { ResolveReturnInterface, FightingDesignResolverInterface } from './interface'
+import { existsSync } from 'fs'
 
-export const FightingDesignResolver = (): FightingDesignResolverInterface => {
+const setWebComponentName = (
+  name: string
+): string => {
+  /**
+   * 区分F、f-
+   */
+  if (name.includes('F')) {
+    const result = name.slice(1).replace(/([A-Z])/g, ' $1').trim()
+    return result.split(' ').join('-').toLowerCase()
+  } else if (name.includes('f-')) {
+    return name.slice(2)
+  }
+  return ''
+}
+
+interface ResolveReturnInterface {
+  name: string
+  from: string
+  sideEffects: string[]
+}
+
+export function FightingDesignResolver(): {
+  type: string,
+  resolve: (name: string) => ResolveReturnInterface | undefined
+}
+export function FightingDesignResolver() {
   return {
     type: 'component',
-    resolve: (name: string): ResolveReturnInterface | undefined => {
+    resolve: (name: string) => {
       if (name.match(/^(F[A-Z]|f-[a-z])/)) {
+        const cssPath = `fighting-design/theme/${setWebComponentName(name)}.css`
+        const sideEffects = existsSync(cssPath) ? [cssPath] : []
+
         return {
           name,
-          from: 'fighting-design',
-          sideEffects: [
-            `fighting-design/theme/${name.slice(1).toLowerCase()}.css`
-          ]
+          sideEffects,
+          from: 'fighting-design'
         }
       }
     }
-  } as const
+  }
 }
