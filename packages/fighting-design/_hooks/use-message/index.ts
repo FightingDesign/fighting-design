@@ -39,7 +39,7 @@ export const useMessage = (target: 'message' | 'notification'): { instance: Mess
         message: options
       } as MessageOptions
     }
-    // const props: MessageOptions & typeof defaultOptions = {
+
     const props: MessageOptions = {
       id,
       ...defaultOptions[target],
@@ -85,7 +85,5 @@ export const useMessage = (target: 'message' | 'notification'): { instance: Mess
     }
   })
 
-  return {
-    instance
-  } as const
+  return { instance } as const
 }

@@ -1,5 +1,5 @@
 export interface ScrollInterface {
-  (evt: FocusEvent): void
+  (): void
 }
 
 export interface WaterfallRowType {

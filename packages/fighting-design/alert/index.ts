@@ -1,13 +1,13 @@
-// import Alert from './src/alert.vue'
+import Alert from './src/alert.vue'
 
-// import { install } from '../_utils'
+import style from '../../fighting-theme/src/alert.scss'
 
-// export const FAlert = install(Alert)
+import { installWebComponent } from '../_utils'
 
-// export type AlertInstance = InstanceType<typeof Alert>
+import type { ComponentPublicInstance } from 'vue'
 
-// export * from './src/interface.d'
+export const FAlert: ComponentPublicInstance = installWebComponent(Alert, style)
 
-// export default Alert
+export * from './src/interface.d'
 
-export { default as FAlert } from './src/alert.vue'
+export default FAlert

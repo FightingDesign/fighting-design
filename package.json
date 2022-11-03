@@ -14,7 +14,7 @@
     "start": "pnpm run -C start dev",
     "dev:play": "pnpm run -C packages/fighting-playground dev",
     "dev:docs": "pnpm run -C docs dev",
-    "build": "pnpm clean && pnpm build:css && pnpm build:theme && pnpm build:resolver && vite build",
+    "build": "pnpm clean && vite build",
     "build:css": "vite build --config vite.config.css.ts",
     "build:theme": "vite build --config vite.config.theme.ts",
     "build:icon": "rimraf dist-icon && vite build --config vite.config.icon.ts",

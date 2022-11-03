@@ -26,3 +26,11 @@ export type ClassListInterface = readonly (string | Record<string, unknown>)[]
 export interface HandleEventInterface {
   (evt: MouseEvent): void
 }
+
+/**
+ * Web Components 返回值
+ */
+export interface FightingDesignWebComponentsReturn {
+  version: string
+  register(): void
+}
