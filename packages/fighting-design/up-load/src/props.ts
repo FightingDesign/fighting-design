@@ -21,6 +21,10 @@ export const Props = {
     type: Number,
     default: (): null => null
   },
+  maxLength: {
+    type: Number,
+    default: (): null => null
+  },
   disabled: {
     type: Boolean,
     default: (): boolean => false

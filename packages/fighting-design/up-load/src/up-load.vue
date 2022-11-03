@@ -22,12 +22,22 @@
   // 当文本框发生改变时
   const handleChange = (evt: Event): void => {
     const files: FileList | null = (evt.target as HTMLInputElement).files
+    const { maxSize, maxLength } = prop
 
-    // 拦截过大的文件
-    if (prop.maxSize && files) {
-      fileList.value = [...files].filter(
-        (file: File) => file.size < prop.maxSize
-      )
+    if (files) {
+      let list: File[] = [...files]
+
+      // 拦截过大的文件
+      if (maxSize) {
+        list = list.filter((file: File) => file.size < maxSize)
+      }
+
+      // 截取最大上传的数量
+      if (maxLength) {
+        list = list.splice(0, maxLength)
+      }
+
+      fileList.value = list
     }
 
     fileList.value && emit('update:files', fileList.value)
@@ -52,6 +62,7 @@
       ref="FUpLoadInput"
       type="file"
       hidden
+      :max="maxLength"
       :name="name"
       :disabled="disabled"
       :accept="accept"

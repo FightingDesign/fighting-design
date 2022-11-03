@@ -10,7 +10,12 @@
 </script>
 
 <template>
-  <f-up-load multiple v-model:files="files" :load="load" :max-size="1000" />
+  <f-up-load
+    multiple
+    v-model:files="files"
+    :load="load"
+    :max-length="2"
+  />
 </template>
 
 <style lang="scss" scoped></style>
