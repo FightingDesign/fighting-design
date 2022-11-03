@@ -6,16 +6,20 @@ import type { UserConfigExport } from 'vite'
 export default (): UserConfigExport => {
   return {
     base: './',
-    plugins: [vue({
-      template: {
-        compilerOptions: {
-          // 将所有带短横线的标签名都视为自定义元素
-          isCustomElement: (tag) => tag.includes('-')
+    plugins: [
+      vue({
+        template: {
+          compilerOptions: {
+            // 将所有带短横线的标签名都视为自定义元素
+            isCustomElement: (tag) => tag.includes('-')
+          }
         }
-      }
-    }),
-    vueSetupExtend(),
-    svgLoader()
-    ]
+      }),
+      vueSetupExtend(),
+      svgLoader()
+    ],
+    server: {
+      port: 1216
+    }
   }
 }

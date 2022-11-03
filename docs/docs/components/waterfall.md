@@ -12,8 +12,8 @@
 ```html
 <script lang="ts" setup>
   import { ref } from 'vue'
-
   const handleEnd = (): void => {
+    console.log('handleEnd')
     data.value.push({
       src: 'https://film-grab.com/wp-content/uploads/2022/07/The-Adjuster-006.jpg',
       name: 'test'
@@ -31,16 +31,6 @@
       'https://film-grab.com/wp-content/uploads/2022/04/Diamonds-are-Forever-060.jpg',
       'https://film-grab.com/wp-content/uploads/2022/02/Prisoners-of-Ghostland-002.jpg',
       'https://film-grab.com/wp-content/uploads/2022/02/Dune-2021-022.jpg',
-      'https://film-grab.com/wp-content/uploads/2022/02/Celeste-005.jpg',
-      'https://film-grab.com/wp-content/uploads/2022/04/On-Her-Majestys-Secret-Service-023.jpg',
-      'https://film-grab.com/wp-content/uploads/2022/05/NightmareAlley010.jpg',
-      'https://film-grab.com/wp-content/uploads/2022/05/Paris-13th010.jpg',
-      'https://film-grab.com/wp-content/uploads/2020/10/Taking-Off-019.jpg',
-      'https://film-grab.com/wp-content/uploads/2022/02/The-Eyes-of-Tammy-Faye-001.jpg',
-      'https://film-grab.com/wp-content/uploads/2022/05/CmonCmon019.jpg',
-      'https://film-grab.com/wp-content/uploads/2022/02/Frighteners-021.jpg',
-      'https://film-grab.com/wp-content/uploads/2022/04/You-Only-Live-Twice-003.jpg',
-      'https://film-grab.com/wp-content/uploads/2022/04/In-Which-We-Serve-008.jpg',
       'https://film-grab.com/wp-content/uploads/2022/05/Apollo101_2036.jpg',
       'https://film-grab.com/wp-content/uploads/2022/05/InTheEarth035.jpg'
     ].map((el) => {
@@ -53,24 +43,23 @@
 </script>
 
 <template>
-  <div style="height: 400px; overflow: auto; width: 100%">
-    <f-waterfall :list="data" @scroll-end="handleEnd">
-      <template #default="{ row }">
-        <div style="height: auto; width: 100%; display: flex" class="pic">
-          <img :src="row.src" style="height: auto; width: 100%" />
+  <f-waterfall
+    wrap-height="300px"
+    type="column"
+    :list="data"
+    @scroll-end="handleEnd"
+  >
+    <template #default="{ row }">
+      <div style="height: auto; width: 100%; display: flex" class="pic">
+        <img :src="row.src" style="height: auto; width: 100%" />
 
-          <div class="pic-name">{{ row.name }}</div>
-        </div>
-      </template>
-    </f-waterfall>
-  </div>
+        <div class="pic-name">{{ row.name }}</div>
+      </div>
+    </template>
+  </f-waterfall>
 </template>
 
-<script setup>
-  import demo1Vue from './_demos/waterfall/demo1.vue'
-</script>
-
-<style lang="scss" scoped>
+<style lang="scss">
   * {
     padding: 0;
     margin: 0;
@@ -126,13 +115,15 @@
 
 ## Attributes
 
-| 参数       | 说明         | 类型   | 可选值 | 默认值 |
-| ---------- | ------------ | ------ | ------ | ------ |
-| `list`     | 数据         | array  | ——     | array  |
-| `colGap`   | 列间隙       | number | ——     | 0      |
-| `rowGap`   | 行间隙       | number | ——     | 0      |
-| `minWidth` | 单行最小宽度 | number | ——     | ——     |
-| `cols`     | 列数         | number | ——     | 2      |
+| 参数          | 说明                    | 类型          | 可选值 | 默认值 |
+| ------------- | ----------------------- | ------------- | ------ | ------ |
+| `list`        | 数据                    | array         | ——     | array  |
+| `type`        | 布局方式                | (flex,column) | ——     | flex   |
+| `colGap`      | 列间隙                  | number        | ——     | 0      |
+| `rowGap`      | 行间隙                  | number        | ——     | 0      |
+| `minWidth`    | 单行最小宽度            | number        | ——     | 0      |
+| `cols`        | 列数,不指定最小宽度生效 | number        | ——     | 2      |
+| `scrollAwait` | 滚动节流时间            | number        | ——     | 100    |
 
 ## Slots
 
@@ -160,14 +151,6 @@ import type { WaterfallRowType } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/80079124?v=4" />
 </a>
 
-<style scoped>
-  .f-watermark {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 500px;
-  }
-  .f-card {
-    width: 240px;
-  }
-</style>
+<script setup lang="ts">
+  import demo1Vue from './_demos/waterfall/demo1.vue'
+</script>
