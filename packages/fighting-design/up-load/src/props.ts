@@ -13,6 +13,10 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
+  drag: {
+    type: Boolean,
+    default: (): boolean => false
+  },
   isRemove: {
     type: Boolean,
     default: (): boolean => true

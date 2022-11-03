@@ -40,7 +40,7 @@
 </script>
 
 <template>
-  <f-up-load multiple v-model:files="files" :load="load" :max-length="2" />
+  <f-up-load drag multiple v-model:files="files" :load="load" :max-length="2" />
 
   <div class="file" @drop.prevent="onDrop" @dragover.prevent="onDragover"></div>
 </template>

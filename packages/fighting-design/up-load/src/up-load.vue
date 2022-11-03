@@ -4,7 +4,7 @@
   import { ref } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
-  import { FIconNotesVue } from '../../_svg'
+  import { FIconNotesVue, FIconPlusVue } from '../../_svg'
   import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
@@ -51,7 +51,13 @@
 
 <template>
   <div class="f-up-load">
-    <div class="f-up-load__content" @click="handleClick">
+    <div v-if="drag" class="f-up-load__drag" @click="handleClick">
+      <slot>
+        <f-svg-icon :icon="FIconPlusVue" />
+      </slot>
+    </div>
+
+    <div v-else class="f-up-load__content" @click="handleClick">
       <slot>
         <f-button>选择文件</f-button>
       </slot>

@@ -1,4 +1,16 @@
 .f-up-load {
+  // 拖拽上传
+  .f-up-load__drag {
+    width: 88px;
+    height: 88px;
+    background: #eee;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  // 普通上传
   .f-up-load__content {
     display: inline-block;
   }
