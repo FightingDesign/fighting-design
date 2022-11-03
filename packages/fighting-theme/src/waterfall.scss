@@ -1,0 +1,29 @@
+.f-waterfall__wrap {
+  height: auto;
+  overflow: hidden auto;
+  width: auto;
+  
+  .f-waterfall {
+    &__flex {
+      width: 100%;
+      overflow: hidden auto;
+      display: flex;
+      flex-flow: column wrap;
+    }
+
+    &__column {
+      overflow: auto;
+      column-count: var(--f-col-count);
+
+      .f-waterfall__block {
+        width: var(--f-col-width);
+        margin-bottom: var(--f-row-gap);
+      }
+    }
+
+    .f-waterfall__block {
+      height: auto;
+      display: flex;
+    }
+  }
+}
