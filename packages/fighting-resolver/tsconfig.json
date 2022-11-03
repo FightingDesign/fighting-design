@@ -1,27 +1,22 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "outDir": "../../dist/resolver",
     "useDefineForClassFields": true,
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
+    "sourceMap": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "declaration": true,
     "lib": [
-      "esnext",
-      "dom"
+      "esnext"
     ],
     "skipLibCheck": true
   },
   "include": [
     "index.ts"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
   ]
 }

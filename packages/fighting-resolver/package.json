@@ -6,7 +6,7 @@
   "module": "index",
   "types": "index.d.ts",
   "scripts": {
-    "build": "vite build"
+    "build": "tsc"
   },
   "license": "MIT"
 }
