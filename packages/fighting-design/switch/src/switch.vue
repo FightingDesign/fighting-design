@@ -7,14 +7,15 @@
     ClassListInterface as b
   } from '../../_interface'
   import type { ComputedRef, CSSProperties } from 'vue'
+  import type { SwitchPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: SwitchPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const handleClick: a = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', !prop.modelValue)
-    emit('change', !prop.modelValue)
+    prop.change && prop.change(!prop.modelValue)
   }
 
   const rollStyle: ComputedRef<CSSProperties> = computed((): CSSProperties => {

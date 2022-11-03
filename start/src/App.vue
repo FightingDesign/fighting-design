@@ -1,20 +1,25 @@
 <template>
-  <!-- <f-button type="primary" @click="openNotification">show</f-button> -->
+  <f-checkbox-group v-model="option4" border size="large">
+    <f-checkbox label="选项一" />
+    <f-checkbox label="选项二" />
+    <f-checkbox label="选项三" />
+  </f-checkbox-group>
 
-  <!-- <input type="file" name="" id="" /> -->
-  <f-up-load />
+  <f-checkbox-group v-model="option4" border>
+    <f-checkbox label="选项一" />
+    <f-checkbox label="选项二" />
+    <f-checkbox label="选项三" />
+  </f-checkbox-group>
 
-  <f-rate v-model="value1" :change="goBack" />
+  <f-checkbox-group v-model="option4" border size="small">
+    <f-checkbox label="选项一" />
+    <f-checkbox label="选项二" />
+    <f-checkbox label="选项三" />
+  </f-checkbox-group>
 </template>
 
 <script lang="ts" setup>
-  import { FMessage } from '../../packages/fighting-design/index'
+  import { ref } from 'vue'
 
-  const openNotification = () => {
-    FMessage({
-      message: '这是一条消息提示',
-      type: 'success',
-      placement: 'top'
-    })
-  }
+  const option4 = ref([])
 </script>

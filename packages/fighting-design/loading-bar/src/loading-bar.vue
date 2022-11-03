@@ -3,8 +3,9 @@
   import { computed } from 'vue'
   import type { ComputedRef } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
+  import type { LoadingBarPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: LoadingBarPropsType = defineProps(Props)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { type } = prop

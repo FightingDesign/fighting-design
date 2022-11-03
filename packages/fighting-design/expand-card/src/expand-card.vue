@@ -6,10 +6,11 @@
   import type { ClassListInterface as a } from '../../_interface'
   import type {
     ExpandCardISwitchExpandCardInterface as b,
-    ExpandCardImageListItemInterface as c
+    ExpandCardImageListItemInterface as c,
+    ExpandCardPropsType
   } from './interface'
 
-  const prop = defineProps(Props)
+  const prop: ExpandCardPropsType = defineProps(Props)
 
   const currExpandIndex: Ref<number> = ref<number>(prop.expandIndex)
 

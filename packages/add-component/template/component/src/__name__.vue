@@ -1,7 +1,8 @@
 <script lang="ts" setup name="F<%= displayName %>">
   import { Props, Emits } from './props'
+  import type { <%= displayName %>PropsType } from './props'
 
-  defineProps(Props)
+  const prop: <%= displayName %>PropsType = defineProps(Props)
   defineEmits(Emits)
 </script>
 

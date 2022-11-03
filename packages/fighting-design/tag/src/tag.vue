@@ -4,10 +4,10 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import type { ComputedRef, Ref } from 'vue'
-  import type { TagCloseEndInterface as a } from './interface'
+  import type { TagCloseEndInterface as a, TagPropsType } from './interface'
   import type { ClassListInterface as b } from '../../_interface'
 
-  const prop = defineProps(Props)
+  const prop: TagPropsType = defineProps(Props)
 
   const isShow: Ref<boolean> = ref<boolean>(true)
 
@@ -29,9 +29,7 @@
 
   const handleClose: a = (evt: MouseEvent): void => {
     isShow.value = false
-    if (prop.closeEnd) {
-      prop.closeEnd(evt)
-    }
+    prop.closeEnd && prop.closeEnd(evt)
   }
 </script>
 
@@ -47,6 +45,12 @@
       <component :is="afterIcon" />
     </f-svg-icon>
 
-    <f-close-btn v-if="close" @click.stop="handleClose" />
+    <f-close-btn
+      v-if="close"
+      no-hover
+      :color="type === 'default' ? '#333' : '#fff'"
+      :size="14"
+      @click.stop="handleClose"
+    />
   </div>
 </template>

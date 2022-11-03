@@ -1,4 +1,3 @@
-import { notificationPlacements, notificationTypes } from '../../_model/notification/type'
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
 import type { NotificationType, NotificationPlacementType } from './interface'
 
@@ -20,7 +19,7 @@ export const Props = {
     type: String as PropType<NotificationType>,
     default: (): NotificationType => 'default',
     validator: (val: NotificationType): boolean => {
-      return notificationTypes.includes(val)
+      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
   close: {
@@ -59,7 +58,7 @@ export const Props = {
     type: String as PropType<NotificationPlacementType>,
     default: (): NotificationPlacementType => 'top-right',
     validator: (val: NotificationPlacementType): boolean => {
-      return notificationPlacements.includes(val)
+      return (['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const).includes(val)
     }
   },
   zIndex: {

@@ -1,5 +1,6 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { LinkType, LinkTargetType, LinkHoverType } from './interface'
+import type { HandleEventInterface } from '../../_interface'
 
 export const Props = {
   type: {
@@ -56,11 +57,11 @@ export const Props = {
   afterIcon: {
     type: Object as PropType<VNode | Component>,
     default: (): null => null
+  },
+  click: {
+    type: Function as PropType<HandleEventInterface>,
+    default: (): null => null
   }
-} as const
-
-export const Emits = {
-  click: (evt: Event): Event => evt
 } as const
 
 export type LinkPropsType = ExtractPropTypes<typeof Props>

@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
-import type { CheckboxGroupLabelType, CheckboxGroupSizeType } from './interface'
+import type { CheckboxGroupLabelType, CheckboxGroupSizeType, CheckboxGroupChangeInterface } from './interface'
 
 export const Props = {
   modelValue: {
@@ -40,12 +40,15 @@ export const Props = {
   rowGap: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
+  },
+  change: {
+    type: Function as PropType<CheckboxGroupChangeInterface>,
+    default: (): null => null
   }
 } as const
 
 export const Emits = {
-  'update:modelValue': (val: CheckboxGroupLabelType): boolean => Array.isArray(val),
-  change: (val: CheckboxGroupLabelType): boolean => typeof val === 'object'
+  'update:modelValue': (val: CheckboxGroupLabelType): boolean => Array.isArray(val)
 } as const
 
 export type CheckboxGroupPropsType = ExtractPropTypes<typeof Props>

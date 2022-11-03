@@ -1,20 +1,20 @@
 <script lang="ts" setup name="FCloseBtn">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
-  import { FIconCrossVue } from '../../_components/svg/index'
+  import { FIconCrossVue } from '../../_svg'
   import type { ComputedRef } from 'vue'
   import type {
     HandleEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import type { CloseBtnPropsType } from './props'
 
-  const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const prop: CloseBtnPropsType = defineProps(Props)
 
   const handleClick: a = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    emit('click', evt)
+    prop.click && prop.click(evt)
   }
 
   const classList: ComputedRef<b> = computed((): b => {
@@ -22,7 +22,8 @@
       {
         'f-close-btn': !prop.disabled,
         'f-close-btn__round': prop.round,
-        'f-close-btn__disabled': prop.disabled
+        'f-close-btn__disabled': prop.disabled,
+        'f-close-btn__no-hover': prop.noHover
       } as const
     ] as const
   })

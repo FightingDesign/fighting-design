@@ -2,21 +2,22 @@ export type { RadioGroundPropsType } from './props'
 
 export type RadioLabelType = string | number | boolean
 
-export interface RadioChangeEventInterface {
+export interface RadioChangeInterface {
   (value: RadioLabelType): void
 }
 
 export type RadioGroupSizeType = 'large' | 'middle' | 'small' | 'mini'
 
 export interface RadioGroundInterface {
-  disabled: boolean
-  modelValue: RadioLabelType
-  label: string
-  vertical: boolean
-  size: RadioGroupSizeType
-  columnGap: string | number
-  rowGap: string | number
-  border: boolean
-  circle: boolean
-  changeEvent: ChangeEventInterface
+  readonly disabled: boolean
+  readonly modelValue: RadioLabelType
+  readonly label: string
+  readonly vertical: boolean
+  readonly size: RadioGroupSizeType
+  readonly columnGap: string | number
+  readonly rowGap: string | number
+  readonly border: boolean
+  readonly circle: boolean
+  readonly change: RadioChangeInterface
+  readonly changeEvent: ChangeEventInterface
 }

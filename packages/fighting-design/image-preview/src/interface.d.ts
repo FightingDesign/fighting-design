@@ -10,3 +10,7 @@ export interface ImagePreviewOptionClickInterface {
 }
 
 export type OptionFunInterface = Record<string, Function>
+
+export interface ImagePreviewCloseInterface {
+  (): void
+}

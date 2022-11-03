@@ -202,6 +202,7 @@
 | `fixed`       | 是否固定定位       | boolean                    | ——                                               | false   |
 | `overflow`    | 文字超出的展示状态 | string                     | `hidden`                                         | ——      |
 | `before-icon` | 自定义前缀 icon    | object (VNode / Component) | ——                                               | null    |
+| `close-icon`  | 自定义关闭 icon    | object (VNode / Component) | ——                                               | null    |
 | `close-end`   | 关闭之后触发的回调 | Function                   | ——                                               | null    |
 
 ## Slots

@@ -14,7 +14,7 @@
     FIconLayoutRowsVue,
     FIconZoomInVue,
     FIconZoomOutVue
-  } from '../../_components/svg/index'
+  } from '../../_svg'
   import { useOperationImg } from '../../_hooks'
   import type { Ref } from 'vue'
   import type {
@@ -24,8 +24,9 @@
   } from './interface'
   import type { OrdinaryFunctionInterface as f } from '../../_interface'
   import type { ToolbarClickEmitInterface } from '../../toolbar/src/interface'
+  import type { ImagePreviewPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: ImagePreviewPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const { scale, rotate, smaller, bigger, onImgMousewheel, recovery } =

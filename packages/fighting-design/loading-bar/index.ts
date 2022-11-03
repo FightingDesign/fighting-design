@@ -1,4 +1,4 @@
-import { useLoadingBar } from './src/method'
+import { useLoadingBar } from '../_hooks'
 
 import { installFn } from '../_utils'
 

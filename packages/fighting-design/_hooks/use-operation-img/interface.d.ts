@@ -1,6 +1,7 @@
 import type { Ref } from 'vue'
-import type { OrdinaryFunctionInterface as a } from '../../_interface'
-import type { OnImgMousewheelInterface as b } from './interface'
+import type { OrdinaryFunctionInterface } from '../../_interface'
+import type { OnImgMousewheelInterface } from './interface'
+export type { OrdinaryFunctionInterface } from '../../_interface'
 
 export interface OnImgMousewheelInterface {
   (evt: WheelEvent): void
@@ -9,8 +10,8 @@ export interface OnImgMousewheelInterface {
 export interface UseOperationImgReturnInterface {
   scale: Ref<number>
   rotate: Ref<number>
-  smaller: a
-  bigger: a
-  onImgMousewheel: b
-  recovery: a
+  smaller: OrdinaryFunctionInterface
+  bigger: OrdinaryFunctionInterface
+  onImgMousewheel: OnImgMousewheelInterface
+  recovery: OrdinaryFunctionInterface
 }

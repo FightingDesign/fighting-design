@@ -83,6 +83,7 @@
 | `font-size`  | 说明文字大小         | string                     | ——     | ——     |
 | `background` | 遮罩层背景色         | string                     | ——     | ——     |
 | `opacity`    | 遮罩层透明度         | number                     | ——     | ——     |
+| `close-end`  | 关闭之后执行的回调   | Function                   | ——     | null   |
 
 ## Slots
 

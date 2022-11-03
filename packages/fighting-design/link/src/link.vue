@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FLink">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
@@ -8,16 +8,16 @@
     HandleEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import type { LinkPropsType } from './props'
 
-  const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const prop: LinkPropsType = defineProps(Props)
 
   const handleClick: a = (evt: MouseEvent): void => {
     if (prop.prohibit || prop.noLink) {
       evt.preventDefault()
       return
     }
-    emit('click', evt)
+    prop.click && prop.click(evt)
   }
 
   const classList: ComputedRef<b> = computed((): b => {

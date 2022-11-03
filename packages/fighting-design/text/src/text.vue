@@ -4,8 +4,9 @@
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
+  import type { TextPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: TextPropsType = defineProps(Props)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { type, block, bold, ellipsis, center } = prop

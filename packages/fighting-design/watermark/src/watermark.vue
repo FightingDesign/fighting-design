@@ -1,14 +1,14 @@
 <script lang="ts" setup name="FWatermark">
   import { Props } from './props'
-  import { createBase64 } from '../../_utils'
+  import { createWatermark } from '../../_utils'
   import { ref, onMounted } from 'vue'
   import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties } from 'vue'
   import type { WatermarkPropsType } from './props'
   import type { WatermarkCSSPropertiesInterface as a } from './interface'
-  import type { CreateBase64NeedWatermarkPropsInterface as b } from '../../_interface'
+  import type { CreateWatermarkPropsInterface as b } from '../../_interface'
 
-  const prop = defineProps(Props)
+  const prop: WatermarkPropsType = defineProps(Props)
 
   const watermarkStyleList: Ref<CSSProperties> = ref<CSSProperties>(
     null as unknown as CSSProperties
@@ -23,7 +23,7 @@
       'fontColor'
     ])
 
-    const watermark: string = createBase64(needProps)
+    const watermark: string = createWatermark(needProps)
 
     return {
       backgroundImage: `url(${watermark})`

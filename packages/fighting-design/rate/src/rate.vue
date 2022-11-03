@@ -1,17 +1,18 @@
 <script lang="ts" setup name="FRate">
   import { Props, Emits } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { FIconStarBVue } from '../../_components/svg/index'
+  import { FIconStarBVue } from '../../_svg'
   import { FText } from '../../text'
   import { ref, watch, unref, computed } from 'vue'
   import type { Ref, ComputedRef } from 'vue'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
   import type {
     RateMouseoverInterface as b,
-    RateHandleClickInterface as c
+    RateHandleClickInterface as c,
+    RatePropsType
   } from './interface'
 
-  const prop = defineProps(Props)
+  const prop: RatePropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const starValue: Ref<number> = ref<number>(prop.modelValue)
@@ -33,9 +34,7 @@
     if (prop.readonly) return
     starValue.value = index
     emit('update:modelValue', index)
-    if (prop.change) {
-      prop.change(index)
-    }
+    prop.change && prop.change(index)
   }
 
   watch(

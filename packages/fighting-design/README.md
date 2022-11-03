@@ -197,9 +197,9 @@ export default Rate
 
 所有组件的单元测试目录
 
-### [\_components](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_components)
+### [\_svg](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_svg)
 
-在 `_components` 目录中存放全局一些公共组件
+在 `_svg` 目录中存放全局一些公共 svg
 
 - 文件名统一使用短横杠连接，不可以出现大写字母
 
@@ -221,14 +221,6 @@ export default Rate
 - 所有类型需要在 [index.d.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/_interface/index.d.ts) 中统一导出
 - 公共的接口需要标注明确的注释
 - 类型名称首字母大写
-
-### [\_model](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_model)
-
-在 `_model` 目录目录中存放一些组件抽离的模块，由于有些组件内部逻辑较多，可在此目录新建和组件名一致的文件夹，内部存放和该组件相关的一些模块进行抽离
-
-- 文件名统一使用短横杠连接，不可以出现大写字母
-- 内部标注详细的注释
-- 文件名必须和组件名一致
 
 ### [\_utils](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_utils)
 

@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FPageHeader">
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
-  import { FIconArrowLeftVue } from '../../_components/svg/index'
+  import { FIconArrowLeftVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
   import { Props } from './props'
   import type { ComputedRef } from 'vue'
@@ -9,13 +9,12 @@
     HandleEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import type { PageHeaderPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: PageHeaderPropsType = defineProps(Props)
 
   const handleClick: a = (evt: MouseEvent): void => {
-    if (prop.back) {
-      prop.back(evt)
-    }
+    prop.back && prop.back(evt)
   }
 
   const rightClassList: ComputedRef<b> = computed((): b => {

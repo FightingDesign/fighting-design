@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { ToolbarType, ToolbarClickEmitInterface } from './interface'
+import type { ToolbarType, ToolbarClickInterface } from './interface'
 
 export const Props = {
   round: {
@@ -36,11 +36,11 @@ export const Props = {
   height: {
     type: String,
     default: (): string => ''
+  },
+  click: {
+    type: Function as PropType<ToolbarClickInterface>,
+    default: (): null => null
   }
-} as const
-
-export const Emits = {
-  click: (target: ToolbarClickEmitInterface): ToolbarClickEmitInterface => target
 } as const
 
 export type ToolbarPropsType = ExtractPropTypes<typeof Props>

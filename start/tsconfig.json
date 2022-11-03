@@ -16,7 +16,7 @@
     ],
     "skipLibCheck": true,
     "types": [
-      "../dist/es"
+      "node"
     ]
   },
   "include": [

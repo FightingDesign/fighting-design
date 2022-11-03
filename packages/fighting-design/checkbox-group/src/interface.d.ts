@@ -7,3 +7,7 @@ export type CheckboxGroupSizeType = 'large' | 'middle' | 'small' | 'mini'
 export interface ChangeEventInterface {
   (val: CheckboxGroupLabelType): void
 }
+
+export interface CheckboxGroupChangeInterface {
+  (val: CheckboxGroupLabelType): boolean
+}

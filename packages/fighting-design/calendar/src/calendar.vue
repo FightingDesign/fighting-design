@@ -10,10 +10,11 @@
     CalendarMowDataClassListInterface as c,
     CalendarOptionClickInterface as d,
     CalendarHandleClickInterface as g,
-    CalendarTargetType
+    CalendarTargetType,
+    CalendarPropsType
   } from './interface'
 
-  const prop = defineProps(Props)
+  const prop: CalendarPropsType = defineProps(Props)
 
   const year: Ref<number> = ref<number>(prop.date.getFullYear())
   const month: Ref<number> = ref<number>(prop.date.getMonth())
@@ -68,13 +69,12 @@
       changeNextMonth()
     }
 
-    if (prop.changeDate) {
+    prop.changeDate &&
       prop.changeDate({
         year: year.value,
         month: _month || month.value,
         date: _date
       })
-    }
   }
 
   const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
@@ -98,13 +98,12 @@
   watch(
     (): number => month.value,
     (newValue: number): void => {
-      if (prop.changeSwitch) {
+      prop.changeSwitch &&
         prop.changeSwitch({
           year: year.value,
           month: newValue + 1,
           date: date.value
         })
-      }
     }
   )
 </script>

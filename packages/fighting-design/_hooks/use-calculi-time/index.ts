@@ -2,15 +2,12 @@ import { computed, watch, ref } from 'vue'
 import { getDayMonth, Lunar } from '../../_utils'
 import type { Ref, ComputedRef } from 'vue'
 import type {
-  GetLunarDetailReturnInterface as a,
   DiffDayReturnInterface,
-  DiffDayInterface
-} from '../../_interface'
+  DiffDayInterface,
+  GetLunarDetailReturnInterface as a
+} from './interface'
 
-export const useCalculiTime: DiffDayInterface = (
-  year: Ref<number>,
-  month: Ref<number>
-): DiffDayReturnInterface => {
+export const useCalculiTime: DiffDayInterface = (year: Ref<number>, month: Ref<number>): DiffDayReturnInterface => {
 
   // 获取当前月份的 1号是周几
   const firstDayWeek: Ref<number> = ref(

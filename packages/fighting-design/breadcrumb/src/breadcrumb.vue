@@ -2,10 +2,11 @@
   import { provide } from 'vue'
   import { sizeChange } from '../../_utils'
   import { BreadcrumbPropsKey, Props } from './props'
+  import type { BreadcrumbPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: BreadcrumbPropsType = defineProps(Props)
 
-  provide(BreadcrumbPropsKey, prop)
+  provide<BreadcrumbPropsType>(BreadcrumbPropsKey, prop)
 </script>
 
 <template>

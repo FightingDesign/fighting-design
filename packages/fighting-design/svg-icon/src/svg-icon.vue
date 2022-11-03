@@ -1,15 +1,15 @@
 <script lang="ts" setup name="FSvgIcon">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { HandleEventInterface as a } from '../../_interface'
+  import type { SvgIconPropsType } from './props'
 
-  const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const prop: SvgIconPropsType = defineProps(Props)
 
   const handleClick: a = (evt: MouseEvent): void => {
-    emit('click', evt)
+    prop.click && prop.click(evt)
   }
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
@@ -23,8 +23,8 @@
 <template>
   <i
     class="f-svg-icon"
-    :style="styleList"
     text-indent="middle"
+    :style="styleList"
     @click="handleClick"
   >
     <component :is="icon" v-if="icon" />

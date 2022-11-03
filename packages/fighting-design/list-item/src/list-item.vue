@@ -4,9 +4,10 @@
   import { listPropsKey } from '../../list/src/props'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ListPropsType } from '../../list/src/props'
+  import type { ListItemPropsType } from './props'
 
+  const prop: ListItemPropsType = defineProps(Props)
   const injectListProps: ListPropsType = inject(listPropsKey) as ListPropsType
-  const prop = defineProps(Props)
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { textColor, borderColor } = injectListProps

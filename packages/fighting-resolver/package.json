@@ -1,0 +1,12 @@
+{
+  "name": "@fighting-design/fighting-resolver",
+  "version": "1.0.0",
+  "description": "Configuration item for unplugin-vue-components",
+  "main": "index",
+  "module": "index",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "license": "MIT"
+}
