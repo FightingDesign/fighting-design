@@ -1,11 +1,13 @@
 import Tag from './src/tag.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/tag.scss'
 
-export const FTag = install(Tag)
+import { installWebComponent } from '../_utils'
 
-export type TagInstance = InstanceType<typeof Tag>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FTag: ComponentPublicInstance = installWebComponent(Tag, style)
 
 export * from './src/interface.d'
 
-export default Tag
+export default FTag

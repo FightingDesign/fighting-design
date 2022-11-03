@@ -1,11 +1,13 @@
 import UpLoad from './src/up-load.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/up-load.scss'
 
-export const FUpLoad = install(UpLoad)
+import { installWebComponent } from '../_utils'
 
-export type UpLoadInstance = InstanceType<typeof UpLoad>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FUpLoad: ComponentPublicInstance = installWebComponent(UpLoad, style)
 
 export * from './src/interface.d'
 
-export default UpLoad
+export default FUpLoad

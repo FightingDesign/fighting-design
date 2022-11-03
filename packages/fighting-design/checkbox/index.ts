@@ -1,11 +1,13 @@
 import Checkbox from './src/checkbox.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/checkbox.scss'
 
-export const FCheckbox = install(Checkbox)
+import { installWebComponent } from '../_utils'
 
-export type CheckboxInstance = InstanceType<typeof Checkbox>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FCheckbox: ComponentPublicInstance = installWebComponent(Checkbox, style)
 
 export * from './src/interface.d'
 
-export default Checkbox
+export default FCheckbox

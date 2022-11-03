@@ -1,11 +1,13 @@
 import CloseBtn from './src/close-btn.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/close-btn.scss'
 
-export const FCloseBtn = install(CloseBtn)
+import { installWebComponent } from '../_utils'
 
-export type CloseBtnInstance = InstanceType<typeof CloseBtn>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FCloseBtn: ComponentPublicInstance = installWebComponent(CloseBtn, style)
 
 export * from './src/interface.d'
 
-export default CloseBtn
+export default FCloseBtn

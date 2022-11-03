@@ -1,11 +1,13 @@
 import Footer from './src/footer.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/footer.scss'
 
-export const FFooter = install(Footer)
+import { installWebComponent } from '../_utils'
 
-export type FooterInstance = InstanceType<typeof Footer>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FFooter: ComponentPublicInstance = installWebComponent(Footer, style)
 
 export * from './src/interface.d'
 
-export default Footer
+export default FFooter

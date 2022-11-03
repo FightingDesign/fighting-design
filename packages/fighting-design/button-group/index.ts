@@ -1,11 +1,13 @@
 import ButtonGroup from './src/button-group.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/button-group.scss'
 
-export const FButtonGroup = install(ButtonGroup)
+import { installWebComponent } from '../_utils'
 
-export type ButtonGroupInstance = InstanceType<typeof ButtonGroup>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FButtonGroup: ComponentPublicInstance = installWebComponent(ButtonGroup, style)
 
 export * from './src/interface.d'
 
-export default ButtonGroup
+export default FButtonGroup

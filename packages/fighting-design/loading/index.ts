@@ -1,11 +1,13 @@
 import Loading from './src/loading.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/loading.scss'
 
-export const FLoading = install(Loading)
+import { installWebComponent } from '../_utils'
 
-export type LoadingInstance = InstanceType<typeof Loading>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FLoading: ComponentPublicInstance = installWebComponent(Loading, style)
 
 export * from './src/interface.d'
 
-export default Loading
+export default FLoading

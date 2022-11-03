@@ -1,11 +1,13 @@
 import Layout from './src/layout.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/layout.scss'
 
-export const FLayout = install(Layout)
+import { installWebComponent } from '../_utils'
 
-export type LayoutInstance = InstanceType<typeof Layout>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FLayout: ComponentPublicInstance = installWebComponent(Layout, style)
 
 export * from './src/interface.d'
 
-export default Layout
+export default FLayout

@@ -1,11 +1,13 @@
 import Ripple from './src/ripple.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/ripple.scss'
 
-export const FRipple = install(Ripple)
+import { installWebComponent } from '../_utils'
 
-export type RippleInstance = InstanceType<typeof Ripple>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FRipple: ComponentPublicInstance = installWebComponent(Ripple, style)
 
 export * from './src/interface.d'
 
-export default Ripple
+export default FRipple

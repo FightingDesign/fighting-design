@@ -1,11 +1,13 @@
 import Avatar from './src/avatar.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/avatar.scss'
 
-export const FAvatar = install(Avatar)
+import { installWebComponent } from '../_utils'
 
-export type AvatarInstance = InstanceType<typeof Avatar>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FAvatar: ComponentPublicInstance = installWebComponent(Avatar, style)
 
 export * from './src/interface.d'
 
-export default Avatar
+export default FAvatar

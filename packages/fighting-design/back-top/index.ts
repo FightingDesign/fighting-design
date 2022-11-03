@@ -1,11 +1,13 @@
 import BackTop from './src/back-top.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/back-top.scss'
 
-export const FBackTop = install(BackTop)
+import { installWebComponent } from '../_utils'
 
-export type BackTopInstance = InstanceType<typeof BackTop>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FBackTop: ComponentPublicInstance = installWebComponent(BackTop, style)
 
 export * from './src/interface.d'
 
-export default BackTop
+export default FBackTop

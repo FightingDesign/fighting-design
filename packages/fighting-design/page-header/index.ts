@@ -1,11 +1,13 @@
 import PageHeader from './src/page-header.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/page-header.scss'
 
-export const FPageHeader = install(PageHeader)
+import { installWebComponent } from '../_utils'
 
-export type PageHeaderInstance = InstanceType<typeof PageHeader>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FPageHeader: ComponentPublicInstance = installWebComponent(PageHeader, style)
 
 export * from './src/interface.d'
 
-export default PageHeader
+export default FPageHeader

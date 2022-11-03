@@ -1,11 +1,13 @@
 import Divider from './src/divider.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/divider.scss'
 
-export const FDivider = install(Divider)
+import { installWebComponent } from '../_utils'
 
-export type DividerInstance = InstanceType<typeof Divider>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FDivider: ComponentPublicInstance = installWebComponent(Divider, style)
 
 export * from './src/interface.d'
 
-export default Divider
+export default FDivider

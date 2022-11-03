@@ -1,11 +1,13 @@
 import Tree from './src/tree.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/tree.scss'
 
-export const FTree = install(Tree)
+import { installWebComponent } from '../_utils'
 
-export type TreeInstance = InstanceType<typeof Tree>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FTree: ComponentPublicInstance = installWebComponent(Tree, style)
 
 export * from './src/interface.d'
 
-export default Tree
+export default FTree

@@ -1,11 +1,13 @@
 import Switch from './src/switch.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/switch.scss'
 
-export const FSwitch = install(Switch)
+import { installWebComponent } from '../_utils'
 
-export type SwitchInstance = InstanceType<typeof Switch>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FSwitch: ComponentPublicInstance = installWebComponent(Switch, style)
 
 export * from './src/interface.d'
 
-export default Switch
+export default FSwitch

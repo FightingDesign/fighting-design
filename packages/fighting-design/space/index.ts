@@ -1,11 +1,13 @@
 import Space from './src/space.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/space.scss'
 
-export const FSpace = install(Space)
+import { installWebComponent } from '../_utils'
 
-export type SpaceInstance = InstanceType<typeof Space>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FSpace: ComponentPublicInstance = installWebComponent(Space, style)
 
 export * from './src/interface.d'
 
-export default Space
+export default FSpace

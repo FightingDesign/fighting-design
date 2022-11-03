@@ -1,11 +1,13 @@
 import Rate from './src/rate.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/rate.scss'
 
-export const FRate = install(Rate)
+import { installWebComponent } from '../_utils'
 
-export type RateInstance = InstanceType<typeof Rate>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FRate: ComponentPublicInstance = installWebComponent(Rate, style)
 
 export * from './src/interface.d'
 
-export default Rate
+export default FRate

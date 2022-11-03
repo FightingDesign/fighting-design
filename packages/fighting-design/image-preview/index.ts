@@ -1,11 +1,13 @@
 import ImagePreview from './src/image-preview.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/image-preview.scss'
 
-export const FImagePreview = install(ImagePreview)
+import { installWebComponent } from '../_utils'
+
+import type { ComponentPublicInstance } from 'vue'
+
+export const FImagePreview: ComponentPublicInstance = installWebComponent(ImagePreview, style)
 
 export * from './src/interface.d'
 
-export type ImagePreviewInstance = InstanceType<typeof ImagePreview>
-
-export default ImagePreview
+export default FImagePreview

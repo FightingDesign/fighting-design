@@ -1,11 +1,13 @@
 import Button from './src/button.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/button.scss'
 
-export const FButton = install(Button)
+import { installWebComponent } from '../_utils'
 
-export type ButtonInstance = InstanceType<typeof Button>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FButton: ComponentPublicInstance = installWebComponent(Button, style)
 
 export * from './src/interface.d'
 
-export default Button
+export default FButton

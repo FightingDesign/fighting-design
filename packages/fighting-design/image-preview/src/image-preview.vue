@@ -122,27 +122,25 @@
         draggable="false"
         :src="imgList[previewShowIndex]"
         :style="{
-          transform: `scale(${scale}) rotate(${rotate}deg)`,
-          borderRadius: round
+          transform: `scale(${scale}) rotate(${rotate}deg)`
         }"
       />
 
-      <!-- 左右切换按钮 -->
-      <template v-if="imgList.length > 1">
-        <f-button
-          class="f-image-preview__next"
-          circle
-          :before-icon="FIconChevronRightVue"
-          @click="switchImage('next')"
-        />
+      <f-button
+        v-if="imgList.length > 1"
+        class="f-image-preview__next"
+        circle
+        :before-icon="FIconChevronRightVue"
+        @click="switchImage('next')"
+      />
 
-        <f-button
-          class="f-image-preview__prev"
-          circle
-          :before-icon="FIconChevronLeftVue"
-          @click="switchImage('prev')"
-        />
-      </template>
+      <f-button
+        v-if="imgList.length > 1"
+        class="f-image-preview__prev"
+        circle
+        :before-icon="FIconChevronLeftVue"
+        @click="switchImage('prev')"
+      />
 
       <!-- 关闭按钮 -->
       <f-button

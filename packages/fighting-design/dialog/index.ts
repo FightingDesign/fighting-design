@@ -1,11 +1,13 @@
 import Dialog from './src/dialog.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/dialog.scss'
 
-export const FDialog = install(Dialog)
+import { installWebComponent } from '../_utils'
 
-export type DialogInstance = InstanceType<typeof Dialog>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FDialog: ComponentPublicInstance = installWebComponent(Dialog, style)
 
 export * from './src/interface.d'
 
-export default Dialog
+export default FDialog

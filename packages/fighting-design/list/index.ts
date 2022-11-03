@@ -1,11 +1,13 @@
 import List from './src/list.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/list.scss'
 
-export const FList = install(List)
+import { installWebComponent } from '../_utils'
 
-export type ListInstance = InstanceType<typeof List>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FList: ComponentPublicInstance = installWebComponent(List, style)
 
 export * from './src/interface.d'
 
-export default List
+export default FList

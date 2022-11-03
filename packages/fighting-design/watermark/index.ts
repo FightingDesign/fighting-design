@@ -1,11 +1,13 @@
 import Watermark from './src/watermark.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/watermark.scss'
 
-export const FWatermark = install(Watermark)
+import { installWebComponent } from '../_utils'
 
-export type WatermarkInstance = InstanceType<typeof Watermark>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FWatermark: ComponentPublicInstance = installWebComponent(Watermark, style)
 
 export * from './src/interface.d'
 
-export default Watermark
+export default FWatermark

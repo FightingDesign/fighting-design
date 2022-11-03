@@ -1,11 +1,13 @@
 import Progress from './src/progress.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/progress.scss'
 
-export const FProgress = install(Progress)
+import { installWebComponent } from '../_utils'
 
-export type ProgressInstance = InstanceType<typeof Progress>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FProgress: ComponentPublicInstance = installWebComponent(Progress, style)
 
 export * from './src/interface.d'
 
-export default Progress
+export default FProgress

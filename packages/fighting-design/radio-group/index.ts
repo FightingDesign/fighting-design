@@ -1,11 +1,13 @@
 import RadioGroup from './src/radio-group.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/radio-group.scss'
 
-export const FRadioGroup = install(RadioGroup)
+import { installWebComponent } from '../_utils'
 
-export type RadioGroupInstance = InstanceType<typeof RadioGroup>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FRadioGroup: ComponentPublicInstance = installWebComponent(RadioGroup, style)
 
 export * from './src/interface.d'
 
-export default RadioGroup
+export default FRadioGroup

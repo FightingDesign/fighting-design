@@ -1,11 +1,13 @@
 import Drawer from './src/drawer.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/drawer.scss'
 
-export const FDrawer = install(Drawer)
+import { installWebComponent } from '../_utils'
 
-export type DrawerInstance = InstanceType<typeof Drawer>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FDrawer: ComponentPublicInstance = installWebComponent(Drawer, style)
 
 export * from './src/interface.d'
 
-export default Drawer
+export default FDrawer

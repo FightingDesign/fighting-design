@@ -1,11 +1,13 @@
 import CheckboxGroup from './src/checkbox-group.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/checkbox-group.scss'
 
-export const FCheckboxGroup = install(CheckboxGroup)
+import { installWebComponent } from '../_utils'
 
-export type CheckboxGroupInstance = InstanceType<typeof CheckboxGroup>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FCheckboxGroup: ComponentPublicInstance = installWebComponent(CheckboxGroup, style)
 
 export * from './src/interface.d'
 
-export default CheckboxGroup
+export default FCheckboxGroup

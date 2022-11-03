@@ -1,11 +1,13 @@
 import Aside from './src/aside.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/aside.scss'
 
-export const FAside = install(Aside)
+import { installWebComponent } from '../_utils'
 
-export type AsideInstance = InstanceType<typeof Aside>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FAside: ComponentPublicInstance = installWebComponent(Aside, style)
 
 export * from './src/interface.d'
 
-export default Aside
+export default FAside

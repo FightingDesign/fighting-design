@@ -1,11 +1,13 @@
 import Text from './src/text.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/text.scss'
 
-export const FText = install(Text)
+import { installWebComponent } from '../_utils'
 
-export type TextInstance = InstanceType<typeof Text>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FText: ComponentPublicInstance = installWebComponent(Text, style)
 
 export * from './src/interface.d'
 
-export default Text
+export default FText

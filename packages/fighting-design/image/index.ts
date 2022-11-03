@@ -1,11 +1,13 @@
 import Image from './src/image.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/image.scss'
 
-export const FImage = install(Image)
+import { installWebComponent } from '../_utils'
 
-export type ImageInstance = InstanceType<typeof Image>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FImage: ComponentPublicInstance = installWebComponent(Image, style)
 
 export * from './src/interface.d'
 
-export default Image
+export default FImage

@@ -1,11 +1,13 @@
 import Main from './src/main.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/main.scss'
 
-export const FMain = install(Main)
+import { installWebComponent } from '../_utils'
 
-export type MainInstance = InstanceType<typeof Main>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FMain: ComponentPublicInstance = installWebComponent(Main, style)
 
 export * from './src/interface.d'
 
-export default Main
+export default FMain

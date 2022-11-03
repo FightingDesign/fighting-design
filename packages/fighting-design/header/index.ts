@@ -1,11 +1,13 @@
 import Header from './src/header.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/header.scss'
 
-export const FHeader = install(Header)
+import { installWebComponent } from '../_utils'
 
-export type HeaderInstance = InstanceType<typeof Header>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FHeader: ComponentPublicInstance = installWebComponent(Header, style)
 
 export * from './src/interface.d'
 
-export default Header
+export default FHeader

@@ -1,11 +1,13 @@
 import Empty from './src/empty.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/empty.scss'
 
-export const FEmpty = install(Empty)
+import { installWebComponent } from '../_utils'
 
-export type EmptyInstance = InstanceType<typeof Empty>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FEmpty: ComponentPublicInstance = installWebComponent(Empty, style)
 
 export * from './src/interface.d'
 
-export default Empty
+export default FEmpty

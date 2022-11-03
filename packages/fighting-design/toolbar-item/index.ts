@@ -1,11 +1,13 @@
 import ToolbarItem from './src/toolbar-item.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/toolbar-item.scss'
 
-export const FToolbarItem = install(ToolbarItem)
+import { installWebComponent } from '../_utils'
 
-export type ToolbarItemInstance = InstanceType<typeof ToolbarItem>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FToolbarItem: ComponentPublicInstance = installWebComponent(ToolbarItem, style)
 
 export * from './src/interface.d'
 
-export default ToolbarItem
+export default FToolbarItem

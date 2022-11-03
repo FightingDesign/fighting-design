@@ -1,11 +1,13 @@
 import Swap from './src/swap.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/swap.scss'
 
-export const FSwap = install(Swap)
+import { installWebComponent } from '../_utils'
 
-export type SwapInstance = InstanceType<typeof Swap>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FSwap: ComponentPublicInstance = installWebComponent(Swap, style)
 
 export * from './src/interface.d'
 
-export default Swap
+export default FSwap

@@ -1,11 +1,13 @@
 import ExpandCard from './src/expand-card.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/expand-card.scss'
 
-export const FExpandCard = install(ExpandCard)
+import { installWebComponent } from '../_utils'
 
-export type ExpandCardInstance = InstanceType<typeof ExpandCard>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FExpandCard: ComponentPublicInstance = installWebComponent(ExpandCard, style)
 
 export * from './src/interface.d'
 
-export default ExpandCard
+export default FExpandCard

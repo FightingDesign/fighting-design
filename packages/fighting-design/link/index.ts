@@ -1,11 +1,13 @@
 import Link from './src/link.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/link.scss'
 
-export const FLink = install(Link)
+import { installWebComponent } from '../_utils'
 
-export type LinkInstance = InstanceType<typeof Link>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FLink: ComponentPublicInstance = installWebComponent(Link, style)
 
 export * from './src/interface.d'
 
-export default Link
+export default FLink

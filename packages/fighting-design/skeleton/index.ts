@@ -1,11 +1,13 @@
 import Skeleton from './src/skeleton.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/skeleton.scss'
 
-export const FSkeleton = install(Skeleton)
+import { installWebComponent } from '../_utils'
 
-export type SkeletonInstance = InstanceType<typeof Skeleton>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FSkeleton: ComponentPublicInstance = installWebComponent(Skeleton, style)
 
 export * from './src/interface.d'
 
-export default Skeleton
+export default FSkeleton

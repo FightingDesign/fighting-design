@@ -1,11 +1,13 @@
 import Input from './src/input.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/input.scss'
 
-export const FInput = install(Input)
+import { installWebComponent } from '../_utils'
 
-export type InputInstance = InstanceType<typeof Input>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FInput: ComponentPublicInstance = installWebComponent(Input, style)
 
 export * from './src/interface.d'
 
-export default Input
+export default FInput

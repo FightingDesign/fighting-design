@@ -1,11 +1,13 @@
 import SvgIcon from './src/svg-icon.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/svg-icon.scss'
 
-export const FSvgIcon = install(SvgIcon)
+import { installWebComponent } from '../_utils'
 
-export type SvgIconInstance = InstanceType<typeof SvgIcon>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FSvgIcon: ComponentPublicInstance = installWebComponent(SvgIcon, style)
 
 export * from './src/interface.d'
 
-export default SvgIcon
+export default FSvgIcon

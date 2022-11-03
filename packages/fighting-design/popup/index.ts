@@ -1,11 +1,13 @@
 import Popup from './src/popup.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/popup.scss'
 
-export const FPopup = install(Popup)
+import { installWebComponent } from '../_utils'
 
-export type PopupInstance = InstanceType<typeof Popup>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FPopup: ComponentPublicInstance = installWebComponent(Popup, style)
 
 export * from './src/interface.d'
 
-export default Popup
+export default FPopup

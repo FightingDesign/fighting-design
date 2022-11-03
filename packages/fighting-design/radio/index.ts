@@ -1,11 +1,13 @@
 import Radio from './src/radio.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/radio.scss'
 
-export const FRadio = install(Radio)
+import { installWebComponent } from '../_utils'
 
-export type RadioInstance = InstanceType<typeof Radio>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FRadio: ComponentPublicInstance = installWebComponent(Radio, style)
 
 export * from './src/interface.d'
 
-export default Radio
+export default FRadio

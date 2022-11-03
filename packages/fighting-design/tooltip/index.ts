@@ -1,11 +1,13 @@
 import Tooltip from './src/tooltip.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/tooltip.scss'
 
-export const FTooltip = install(Tooltip)
+import { installWebComponent } from '../_utils'
 
-export type TooltipInstance = InstanceType<typeof Tooltip>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FTooltip: ComponentPublicInstance = installWebComponent(Tooltip, style)
 
 export * from './src/interface.d'
 
-export default Tooltip
+export default FTooltip

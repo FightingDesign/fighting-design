@@ -1,7 +1,11 @@
 import Waterfall from './src/waterfall.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/waterfall.scss'
 
-export const FWaterfall = install(Waterfall)
+import { installWebComponent } from '../_utils'
 
-export default Waterfall
+import type { ComponentPublicInstance } from 'vue'
+
+export const FWaterfall: ComponentPublicInstance = installWebComponent(Waterfall, style)
+
+export default FWaterfall

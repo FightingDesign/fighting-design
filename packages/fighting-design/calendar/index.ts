@@ -1,11 +1,13 @@
 import Calendar from './src/calendar.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/calendar.scss'
 
-export const FCalendar = install(Calendar)
+import { installWebComponent } from '../_utils'
 
-export type CalendarInstance = InstanceType<typeof Calendar>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FCalendar: ComponentPublicInstance = installWebComponent(Calendar, style)
 
 export * from './src/interface.d'
 
-export default Calendar
+export default FCalendar

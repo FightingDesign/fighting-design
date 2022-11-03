@@ -1,11 +1,13 @@
 import Badge from './src/badge.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/badge.scss'
 
-export const FBadge = install(Badge)
+import { installWebComponent } from '../_utils'
 
-export type BadgeInstance = InstanceType<typeof Badge>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FBadge: ComponentPublicInstance = installWebComponent(Badge, style)
 
 export * from './src/interface.d'
 
-export default Badge
+export default FBadge

@@ -1,11 +1,13 @@
 import Card from './src/card.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/card.scss'
 
-export const FCard = install(Card)
+import { installWebComponent } from '../_utils'
 
-export type CardInstance = InstanceType<typeof Card>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FCard: ComponentPublicInstance = installWebComponent(Card, style)
 
 export * from './src/interface.d'
 
-export default Card
+export default FCard

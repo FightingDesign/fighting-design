@@ -1,9 +1,11 @@
 import BreadcrumbItem from './src/breadcrumb-item.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/breadcrumb-item.scss'
 
-export const FBreadcrumbItem = install(BreadcrumbItem)
+import { installWebComponent } from '../_utils'
 
-export type BreadcrumbItemInstance = InstanceType<typeof BreadcrumbItem>
+import type { ComponentPublicInstance } from 'vue'
 
-export default BreadcrumbItem
+export const FBreadcrumbItem: ComponentPublicInstance = installWebComponent(BreadcrumbItem, style)
+
+export default FBreadcrumbItem

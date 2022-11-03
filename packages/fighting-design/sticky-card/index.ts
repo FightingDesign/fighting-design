@@ -1,11 +1,13 @@
 import StickyCard from './src/sticky-card.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/sticky-card.scss'
 
-export const FStickyCard = install(StickyCard)
+import { installWebComponent } from '../_utils'
 
-export type StickyCardInstance = InstanceType<typeof StickyCard>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FStickyCard: ComponentPublicInstance = installWebComponent(StickyCard, style)
 
 export * from './src/interface.d'
 
-export default StickyCard
+export default FStickyCard
