@@ -10,8 +10,26 @@
 ::: details 显示代码
 
 ```html
+<template>
+  <f-waterfall
+    wrap-height="300px"
+    type="column"
+    :list="data"
+    @scroll-end="handleEnd"
+  >
+    <template #default="{ row }">
+      <div style="height: auto; width: 100%; display: flex" class="pic">
+        <img :src="row.src" style="height: auto; width: 100%" />
+
+        <div class="pic-name">{{ row.name }}</div>
+      </div>
+    </template>
+  </f-waterfall>
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
+
   const handleEnd = (): void => {
     console.log('handleEnd')
     data.value.push({
@@ -41,23 +59,6 @@
     })
   )
 </script>
-
-<template>
-  <f-waterfall
-    wrap-height="300px"
-    type="column"
-    :list="data"
-    @scroll-end="handleEnd"
-  >
-    <template #default="{ row }">
-      <div style="height: auto; width: 100%; display: flex" class="pic">
-        <img :src="row.src" style="height: auto; width: 100%" />
-
-        <div class="pic-name">{{ row.name }}</div>
-      </div>
-    </template>
-  </f-waterfall>
-</template>
 
 <style lang="scss">
   * {
