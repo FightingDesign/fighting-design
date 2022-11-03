@@ -3,6 +3,7 @@
   import { FButton } from '../../button'
   import { ref } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
+  import { FCloseBtn } from '../../close-btn'
   import { FIconNotesVue } from '../../_svg'
   import type { Ref } from 'vue'
 
@@ -18,6 +19,7 @@
     FUpLoadInput.value.click()
   }
 
+  // 当文本框发生改变时
   const handleChange = (evt: Event): void => {
     const files: FileList | null = (evt.target as HTMLInputElement).files
 
@@ -30,6 +32,11 @@
 
     fileList.value && emit('update:files', fileList.value)
     prop.load && prop.load()
+  }
+
+  // 删除文件
+  const removeFile = (index: number): void => {
+    (fileList.value as File[]).splice(index, 1)
   }
 </script>
 
@@ -53,14 +60,19 @@
     />
   </div>
 
+  <!-- 文件列表 -->
   <ul v-if="fileList && fileList.length" class="f-up-load__file-list">
     <li
       v-for="(file, index) in fileList"
       :key="index"
       class="f-up-load__file-list-item"
     >
-      <f-svg-icon :icon="FIconNotesVue" />
-      <span class="f-up-load__file-name">{{ file.name }}</span>
+      <span class="f-up-load__file-name">
+        <f-svg-icon :icon="FIconNotesVue" />
+        {{ file.name }}
+      </span>
+
+      <f-close-btn :size="14" @click="removeFile(index)" />
     </li>
   </ul>
 </template>
