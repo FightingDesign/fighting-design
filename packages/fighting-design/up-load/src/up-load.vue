@@ -38,10 +38,9 @@
       }
 
       fileList.value = list
+      emit('update:files', fileList.value)
+      prop.load && prop.load()
     }
-
-    fileList.value && emit('update:files', fileList.value)
-    prop.load && prop.load()
   }
 
   // 删除文件
@@ -62,7 +61,6 @@
       ref="FUpLoadInput"
       type="file"
       hidden
-      :max="maxLength"
       :name="name"
       :disabled="disabled"
       :accept="accept"
