@@ -6,14 +6,14 @@ import App from './App.vue'
 // new VConsole()
 
 // 开发阶段引入
-import FightingDesign from '../../packages/fighting-design/index'
-import '@fighting-design/fighting-theme'
+import { register } from '../../packages/fighting-design/index'
+// import '@fighting-design/fighting-theme'
 
 // 打包阶段引入
 // import FightingDesign from '../../dist'
 // import '../dist/dist/index.css'
 
-FightingDesign.install()
+register()
 
 createApp(App)
   // .use(FightingDesign)
