@@ -21,11 +21,11 @@ interface ResolveReturnInterface {
   sideEffects: string[]
 }
 
-export function FightingDesignResolver(): {
+function FightingDesignResolver(): {
   type: string,
   resolve: (name: string) => ResolveReturnInterface | undefined
 }
-export function FightingDesignResolver() {
+function FightingDesignResolver() {
   return {
     type: 'component',
     resolve: (name: string) => {
@@ -42,3 +42,5 @@ export function FightingDesignResolver() {
     }
   }
 }
+
+export default FightingDesignResolver
