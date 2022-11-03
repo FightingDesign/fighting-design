@@ -1,0 +1,20 @@
+.f-breadcrumb-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .f-svg-icon {
+    margin: 0 6px;
+  }
+
+  .f-breadcrumb-item__inner {
+    color: #333;
+  }
+
+  // 最后一个分隔符隐藏
+  &:last-child {
+    .f-svg-icon {
+      display: none;
+    }
+  }
+}

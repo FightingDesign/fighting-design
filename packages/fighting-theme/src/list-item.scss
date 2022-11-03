@@ -1,0 +1,16 @@
+.f-list-item {
+  border-bottom: 1px solid #e3e3e3;
+  color: #333;
+  background: #fff;
+  font-size: 14px;
+  flex-wrap: nowrap;
+  padding: 7px 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
