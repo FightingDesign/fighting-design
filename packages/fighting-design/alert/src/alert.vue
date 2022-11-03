@@ -71,7 +71,7 @@
         <slot name="title">{{ title }}</slot>
       </div>
 
-      <div v-if="$slots.default" class="f-alert__sub-title">
+      <div class="f-alert__sub-title">
         <slot />
       </div>
     </div>
