@@ -13,9 +13,9 @@
   import type { WaterfallRowType as rt } from './interface'
 
   const prop = defineProps(Props)
+  const emit = defineEmits(Emits)
 
   let cols: number = prop.cols as number
-  const emit = defineEmits(Emits)
   const waterfall = ref()
   const data = reactive([]) as rt[]
   let containerHeight = ref('auto') //容器高度
@@ -236,33 +236,3 @@
     </div>
   </div>
 </template>
-
-<style lang="scss" scope>
-  .f-waterfall__wrap {
-    height: auto;
-    overflow: hidden auto;
-    width: auto;
-    .f-waterfall {
-      &__flex {
-        width: 100%;
-        overflow: hidden auto;
-        display: flex;
-        flex-flow: column wrap;
-      }
-
-      &__column {
-        overflow: auto;
-        column-count: var(--f-col-count);
-        .f-waterfall__block {
-          width: var(--f-col-width);
-          margin-bottom: var(--f-row-gap);
-        }
-      }
-
-      .f-waterfall__block {
-        height: auto;
-        display: flex;
-      }
-    }
-  }
-</style>
