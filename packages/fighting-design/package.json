@@ -27,7 +27,7 @@
     },
     "./resolver": {
       "require": "./resolver/index.js",
-      "import": "./resolver/index.mjs",
+      "import": "./resolver/index.js",
       "types": "./resolver/index.d.ts"
     },
     "./dist": "./dist/",
