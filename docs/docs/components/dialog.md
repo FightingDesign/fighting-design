@@ -172,11 +172,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  DialogInstance,
-  DialogPropsType,
-  DialogCallBackInterface
-} from 'fighting-design'
+import type { DialogInstance, DialogPropsType } from 'fighting-design'
 ```
 
 ## Contributors
