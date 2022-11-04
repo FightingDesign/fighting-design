@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FUpLoad">
   import { Props, Emits } from './props'
   import { FButton } from '../../button'
-  import { ref } from 'vue'
+  import { ref, watch } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { FIconNotesVue, FIconPlusVue } from '../../_svg'
@@ -14,32 +14,43 @@
   const FUpLoadInput: Ref<HTMLInputElement> = ref(
     null as unknown as HTMLInputElement
   )
+  const dragIng: Ref<boolean> = ref(false)
 
+  // 点击上传
   const handleClick = (): void => {
     FUpLoadInput.value.click()
+  }
+
+  // 更新最新的文件列表
+  const updateFiles = (files: File[]): void => {
+    fileList.value = files
+    emit('update:files', files)
+    prop.load && prop.load()
+  }
+
+  // 过滤文件
+  const filterFiles = (files: FileList): File[] => {
+    const { maxSize, maxLength } = prop
+    let list: File[] = [...files]
+
+    // 拦截过大的文件
+    if (maxSize) {
+      list = list.filter((file: File) => file.size < maxSize)
+    }
+
+    // 截取最大上传的数量
+    if (maxLength) {
+      list = list.splice(0, maxLength)
+    }
+
+    return list
   }
 
   // 当文本框发生改变时
   const handleChange = (evt: Event): void => {
     const files: FileList | null = (evt.target as HTMLInputElement).files
-    const { maxSize, maxLength } = prop
-
     if (files) {
-      let list: File[] = [...files]
-
-      // 拦截过大的文件
-      if (maxSize) {
-        list = list.filter((file: File) => file.size < maxSize)
-      }
-
-      // 截取最大上传的数量
-      if (maxLength) {
-        list = list.splice(0, maxLength)
-      }
-
-      fileList.value = list
-      emit('update:files', fileList.value)
-      prop.load && prop.load()
+      updateFiles(filterFiles(files))
     }
   }
 
@@ -47,11 +58,45 @@
   const removeFile = (index: number): void => {
     (fileList.value as File[]).splice(index, 1)
   }
+
+  // 将文件拖拽进来时触发
+  const onDragover = (evt: DragEvent): void => {
+    evt.preventDefault()
+    dragIng.value = true
+  }
+
+  // 放置时触发
+  const onDrop = (evt: DragEvent): void => {
+    dragIng.value = false
+    const files = (evt.dataTransfer as DataTransfer).files
+    if (files) {
+      updateFiles(filterFiles(files))
+    }
+  }
+
+  // 如果文件发生改变时触发
+  const onChange = (): void => {
+    if (!prop.change) return
+    watch(
+      (): File[] => prop.files,
+      (): void => {
+        prop.change && prop.change()
+      },
+      { deep: true }
+    )
+  }
+  onChange()
 </script>
 
 <template>
   <div class="f-up-load">
-    <div v-if="drag" class="f-up-load__drag" @click="handleClick">
+    <div
+      v-if="drag"
+      class="f-up-load__drag"
+      @click="handleClick"
+      @drop.prevent="onDrop"
+      @dragover.prevent="onDragover"
+    >
       <slot>
         <f-svg-icon :icon="FIconPlusVue" />
       </slot>

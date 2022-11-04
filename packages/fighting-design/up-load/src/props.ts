@@ -44,6 +44,10 @@ export const Props = {
   load: {
     type: Function,
     default: (): null => null
+  },
+  change: {
+    type: Function,
+    default: (): null => null
   }
 } as const
 
