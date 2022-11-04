@@ -97,19 +97,11 @@ f_button-name
 **Ts 类型规范**
 
 - 能定义类型的地方就要定义类型
+- 类型或接口必须以大写字母开始，`type` 或者 `interface` 结尾
 - 就算是类型自动推倒出来了，也要写入类型
 - `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 `interface.d.ts` 中定义
 - 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/FightingDesign/fighting-design/discussions) 或者群里提问
-- 定义函数类型通常命名规范为 `函数名+Interface`，但是由于这种规则定义的名称较长，你也可以使用简短的别名来定义（别名的定义仅限于自定义的接口类型，例如 `ComputedRef` 是从 `vue` 中引入的则不可以设置别名）
-
-```ts
-import type {
-  switchImageInterface as a,
-  optionClickInterface as b,
-  onImgMousewheelInterface as c,
-  handleCloseInterface as d
-} from '../src/interface'
-```
+- 定义函数类型通常命名规范为 `组件名 + 函数名 + Interface`
 
 下面举例常用的定义类型规范：
 
@@ -137,16 +129,16 @@ const com: ComputedRef<string> = computed<string>((): string => {
 
 ```ts
 // interface.d.ts 中定义类型
-export interface funInterface {
+export interface FunInterface {
   (a: number, b: number): number
 }
 ```
 
 ```ts
 // 引入使用类型
-import type { funInterface as a } from './interface'
+import type { funInterface } from './interface'
 
-const fun: a = (a: number, b: number): number => {
+const fun: funInterface = (a: number, b: number): number => {
   return a + b
 }
 ```
@@ -226,9 +218,10 @@ export default Rate
 
 在 `_utils` 目录中存放全局工具函数和类
 
+- 每个工具函数必须新建一个文件夹，内部为 `index.ts` 导出
+- 工具函数的类型可以在文件夹内部新建 `interface.d.ts` 中进行定义
 - 文件名统一使用短横杠连接，不可以出现大写字母
 - 定义的函数需要在 [index.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/_utils/index.ts) 中统一导出
-- 工具函数的类型可以在 [\_interface](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_interface) 中进行定义
 - 每个函数需要写好明确清晰的注释
 - 标记好每个参数、返回值、变量的类型
 
