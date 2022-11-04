@@ -210,7 +210,10 @@ import type {
   CheckboxGroupInstance,
   CheckboxGroupPropsType,
   CheckboxGroupLabelType,
-  CheckboxGroupSizeType
+  CheckboxGroupSizeType,
+  CheckboxGroupChangeEventInterface,
+  CheckboxGroupChangeInterface,
+  CheckboxGroupInjectPropsType
 } from 'fighting-design'
 ```
 
