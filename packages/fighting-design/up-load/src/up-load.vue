@@ -7,15 +7,15 @@
   import { FIconNotesVue, FIconPlusVue } from '../../_svg'
   import type { Ref } from 'vue'
   import type {
-    OrdinaryFunctionInterface as a,
-    HandleEventInterface as b,
-    HandleDragEventInterface as f
+    OrdinaryFunctionInterface,
+    HandleEventInterface,
+    HandleDragEventInterface
   } from '../../_interface'
   import type {
     UpLoadPropsType,
-    UpLoadUpdateFilesInterface as c,
-    UpLoadFilterFilesInterface as d,
-    UpLoadRemoveFileInterface as e
+    UpLoadUpdateFilesInterface,
+    UpLoadFilterFilesInterface,
+    UpLoadRemoveFileInterface
   } from './interface'
 
   const prop: UpLoadPropsType = defineProps(Props)
@@ -28,19 +28,19 @@
   const dragIng: Ref<boolean> = ref(false)
 
   // 点击上传
-  const handleClick: a = (): void => {
+  const handleClick: OrdinaryFunctionInterface = (): void => {
     FUpLoadInput.value.click()
   }
 
   // 更新最新的文件列表
-  const updateFiles: c = (files: File[]): void => {
+  const updateFiles: UpLoadUpdateFilesInterface = (files: File[]): void => {
     fileList.value = files
     emit('update:files', files)
     prop.load && prop.load()
   }
 
   // 过滤文件
-  const filterFiles: d = (files: FileList): File[] => {
+  const filterFiles: UpLoadFilterFilesInterface = (files: FileList): File[] => {
     const { maxSize, maxLength } = prop
     let list: File[] = [...files]
 
@@ -58,7 +58,7 @@
   }
 
   // 当文本框发生改变时
-  const handleChange: b = (evt: Event): void => {
+  const handleChange: HandleEventInterface = (evt: Event): void => {
     const files: FileList | null = (evt.target as HTMLInputElement).files
     if (files) {
       updateFiles(filterFiles(files))
@@ -66,18 +66,18 @@
   }
 
   // 删除文件
-  const removeFile: e = (index: number): void => {
+  const removeFile: UpLoadRemoveFileInterface = (index: number): void => {
     (fileList.value as File[]).splice(index, 1)
   }
 
   // 将文件拖拽进来时触发
-  const onDragover: f = (evt: DragEvent): void => {
+  const onDragover: HandleDragEventInterface = (evt: DragEvent): void => {
     evt.preventDefault()
     dragIng.value = true
   }
 
   // 放置时触发
-  const onDrop: f = (evt: DragEvent): void => {
+  const onDrop: HandleDragEventInterface = (evt: DragEvent): void => {
     dragIng.value = false
     const files = (evt.dataTransfer as DataTransfer).files
     if (files) {
@@ -86,7 +86,7 @@
   }
 
   // 如果文件发生改变时触发
-  const onChange: a = (): void => {
+  const onChange: OrdinaryFunctionInterface = (): void => {
     if (!prop.change) return
     watch(
       (): File[] => prop.files,
