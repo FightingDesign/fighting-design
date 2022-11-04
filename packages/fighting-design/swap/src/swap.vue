@@ -4,29 +4,31 @@
   import { computed } from 'vue'
   import type { ComputedRef } from 'vue'
   import type {
-    OrdinaryFunctionInterface as a,
-    ClassListInterface as b
+    OrdinaryFunctionInterface,
+    ClassListInterface
   } from '../../_interface'
   import type { SwapPropsType } from './props'
 
   const prop: SwapPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const changeSwap: a = (): void => {
+  const changeSwap: OrdinaryFunctionInterface = (): void => {
     emit('update:modelValue', !prop.modelValue)
     if (prop.onChange) {
       prop.onChange(!prop.modelValue)
     }
   }
 
-  const classList: ComputedRef<b> = computed((): b => {
-    const { modelValue, type } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { modelValue, type } = prop
 
-    return [
-      'f-swap',
-      modelValue ? `f-swap__${type}-on` : `f-swap__${type}-off`
-    ] as const
-  })
+      return [
+        'f-swap',
+        modelValue ? `f-swap__${type}-on` : `f-swap__${type}-off`
+      ] as const
+    }
+  )
 </script>
 
 <template>

@@ -6,8 +6,8 @@
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties, Ref } from 'vue'
   import type {
-    HandleEventInterface as a,
-    ClassListInterface as b
+    HandleMouseEventInterface,
+    ClassListInterface
   } from '../../_interface'
   import type { AlertPropsType } from './props'
 
@@ -15,33 +15,40 @@
 
   const isShow: Ref<boolean> = ref<boolean>(true)
 
-  const classList: ComputedRef<b> = computed((): b => {
-    const { type, bold, simple, center, round, fixed } = prop
+  // class 类名列表
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { type, bold, simple, center, round, fixed } = prop
 
-    return [
-      'f-alert',
-      {
-        [`f-alert__${type}`]: type,
-        'f-alert__bold': bold,
-        'f-alert__simple': simple,
-        'f-alert__center': center,
-        'f-alert__round': round,
-        'f-alert__fixed': fixed
-      }
-    ] as const
-  })
+      return [
+        'f-alert',
+        {
+          [`f-alert__${type}`]: type,
+          'f-alert__bold': bold,
+          'f-alert__simple': simple,
+          'f-alert__center': center,
+          'f-alert__round': round,
+          'f-alert__fixed': fixed
+        }
+      ] as const
+    }
+  )
 
-  const contentClassList: ComputedRef<b> = computed((): b => {
-    const { overflow } = prop
+  // content class 列表
+  const contentClassList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { overflow } = prop
 
-    return [
-      'f-alert__content',
-      {
-        [`f-alert__content-${overflow}`]: overflow
-      }
-    ] as const
-  })
+      return [
+        'f-alert__content',
+        {
+          [`f-alert__content-${overflow}`]: overflow
+        }
+      ] as const
+    }
+  )
 
+  // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, color, background, titleSize, titleColor } = prop
 
@@ -54,7 +61,8 @@
     } as CSSProperties
   })
 
-  const handleClose: a = (evt: MouseEvent): void => {
+  // 关闭
+  const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     isShow.value = false
     prop.closeEnd && prop.closeEnd(evt)
   }

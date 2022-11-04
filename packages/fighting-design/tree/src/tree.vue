@@ -3,17 +3,22 @@
   import { computed } from 'vue'
   import { treeToFlat, treeAddLevel } from '../../_utils'
   import type { ComputedRef } from 'vue'
-  import type { TreeAddLevelReturnInterface as a } from '../../_interface'
+  import type { TreeAddLevelReturnInterface } from '../../_utils/tree/interface'
   import type { TreePropsType } from './props'
 
   const prop: TreePropsType = defineProps(Props)
 
   // 扁平的树
-  const treeData: ComputedRef<a[]> = computed((): a[] => {
-    return treeToFlat(treeAddLevel(prop.data))
-  })
+  const treeData: ComputedRef<TreeAddLevelReturnInterface[]> = computed(
+    (): TreeAddLevelReturnInterface[] => {
+      return treeToFlat(treeAddLevel(prop.data))
+    }
+  )
 
-  const handleClick = (item: a, index: number): void => {
+  const handleClick = (
+    item: TreeAddLevelReturnInterface,
+    index: number
+  ): void => {
     console.log(item, index)
   }
 </script>

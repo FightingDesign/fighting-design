@@ -156,7 +156,5 @@ export * from './input'
 export { FSwap } from './swap'
 export * from './swap'
 
-// export { FWaterfall } from './waterfall'
-
-// export { FUpLoad } from './up-load'
-// export * from './up-load'
+export { FUpLoad } from './up-load'
+export * from './up-load'

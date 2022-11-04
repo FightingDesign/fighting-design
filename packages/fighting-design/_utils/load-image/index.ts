@@ -1,10 +1,10 @@
 import { isString } from '../utils'
 import type {
-  LazyInterface,
+  LoadLazyInterface,
   LoadInterface,
   LoadImageInterface,
   LoadNeedImagePropsInterface,
-  CallbackInterface
+  LoadCallbackInterface
 } from './interface'
 
 /**
@@ -13,7 +13,7 @@ import type {
 class Load implements LoadInterface {
   node: HTMLImageElement
   props: LoadNeedImagePropsInterface
-  callback: CallbackInterface | null
+  callback: LoadCallbackInterface | null
 
   /**
    * @param node 图片 dom 节点
@@ -23,7 +23,7 @@ class Load implements LoadInterface {
   constructor (
     node: HTMLImageElement,
     props: LoadNeedImagePropsInterface,
-    callback: CallbackInterface | null
+    callback: LoadCallbackInterface | null
   ) {
     this.node = node
     this.props = props
@@ -87,11 +87,11 @@ class Load implements LoadInterface {
  * 使用 IntersectionObserver 监视图片
  * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */
-class Lazy extends Load implements LazyInterface {
+class Lazy extends Load implements LoadLazyInterface {
   constructor (
     img: HTMLImageElement,
     props: LoadNeedImagePropsInterface,
-    callback: CallbackInterface | null
+    callback: LoadCallbackInterface | null
   ) {
     super(img, props, callback)
   }
@@ -132,7 +132,7 @@ class Lazy extends Load implements LazyInterface {
 export const loadImage: LoadImageInterface = (
   node: HTMLImageElement,
   prop: LoadNeedImagePropsInterface,
-  callback: CallbackInterface | null
+  callback: LoadCallbackInterface | null
 ): void => {
   /**
    * 如果传入了 lazy 则执行懒加载类

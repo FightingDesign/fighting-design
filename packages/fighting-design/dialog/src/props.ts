@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { DialogCallBackInterface } from './interface'
+import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
   visible: {
@@ -49,19 +49,19 @@ export const Props = {
     validator: (val: number): boolean => val >= 0
   },
   open: {
-    type: Function as PropType<DialogCallBackInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   },
   openEnd: {
-    type: Function as PropType<DialogCallBackInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   },
   close: {
-    type: Function as PropType<DialogCallBackInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   },
   closeEnd: {
-    type: Function as PropType<DialogCallBackInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }
 } as const

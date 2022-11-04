@@ -1,24 +1,24 @@
 import { render, h } from 'vue'
 import LoadingBarVue from '../../loading-bar/src/loading-bar.vue'
 import type {
-  OrdinaryFunctionInterface as a,
-  UseLoadingBarInterface as b,
-  UseLoadingBarReturnInterface as c
+  OrdinaryFunctionInterface,
+  UseLoadingBarInterface,
+  UseLoadingBarReturnInterface
 } from './interface'
 import type { VNode } from 'vue'
 
-export const useLoadingBar: b = (): c => {
-  const start: a = (): void => {
+export const useLoadingBar: UseLoadingBarInterface = (): UseLoadingBarReturnInterface => {
+  const start: OrdinaryFunctionInterface = (): void => {
     const node: VNode = h(LoadingBarVue)
     render(node, document.body)
   }
 
-  const finish: a = (): void => {
+  const finish: OrdinaryFunctionInterface = (): void => {
     const node: VNode = h(LoadingBarVue, { type: 'finish' })
     render(node, document.body)
   }
 
-  const error: a = (): void => {
+  const error: OrdinaryFunctionInterface = (): void => {
     const node: VNode = h(LoadingBarVue, { type: 'error' })
     render(node, document.body)
   }

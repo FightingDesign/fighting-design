@@ -6,8 +6,8 @@
   import { isString } from '../../_utils'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
-    OrdinaryFunctionInterface as a,
-    ClassListInterface as b
+    OrdinaryFunctionInterface,
+    ClassListInterface
   } from '../../_interface'
   import { massageManage } from '../../_hooks'
   import type { MessagePropsType } from './props'
@@ -43,18 +43,20 @@
     })
   })
 
-  const classList: ComputedRef<b> = computed((): b => {
-    const { type, round, placement } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { type, round, placement } = prop
 
-    return [
-      'f-message',
-      {
-        [`f-message__${type}`]: type,
-        [`f-message__${placement}`]: placement,
-        'f-message__round': round
-      }
-    ] as const
-  })
+      return [
+        'f-message',
+        {
+          [`f-message__${type}`]: type,
+          [`f-message__${placement}`]: placement,
+          'f-message__round': round
+        }
+      ] as const
+    }
+  )
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { color, background, zIndex } = prop
@@ -76,20 +78,20 @@
 
   const timer = ref<NodeJS.Timeout>()
 
-  const clearTimer: a = (): void => {
+  const clearTimer: OrdinaryFunctionInterface = (): void => {
     if (!timer.value) return
     clearTimeout(timer.value)
   }
 
-  const closeMessage: a = (): void => {
+  const closeMessage: OrdinaryFunctionInterface = (): void => {
     clearTimer()
     visible.value = false
   }
-  const closeMessageEnd: a = (): void => {
+  const closeMessageEnd: OrdinaryFunctionInterface = (): void => {
     massageManage.removeInstance(prop.placement, prop.id)
   }
 
-  const startTime: a = (): void => {
+  const startTime: OrdinaryFunctionInterface = (): void => {
     if (!prop.duration) return
     timer.value = setTimeout((): void => {
       closeMessage()

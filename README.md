@@ -4,11 +4,11 @@
 </p>
 
 <p align="center">
-  Fighting Design 可在 vue3 应用程序中快速构建交互界面，看起来还不错。
+  Fighting design can quickly build interactive interfaces in vue3 applications, which looks good.
 </p>
 
 <p align="center">
-  中文 | <a href="https://github.com/FightingDesign/fighting-design/blob/master/README.en-US.md">English</a>
+  <a href="https://github.com/FightingDesign/fighting-design/blob/master/README.zh-CN.md">Chinese</a> | English 
 </p>
 
 <p align="center">
@@ -18,50 +18,49 @@
   <a href="https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md"><img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-blue" /></a>
 </p>
 
-## ✨ 特性
+## ✨ Features
 
-- 💪 使用 Vue.js 最新特性开发
-- 🐆 全面基于 Vite，速度够快
-- 🦩 零第三方依赖
-- ✂️ 完善的代码提示
-- 🪐 不同打包模式，兼容不同项目
-- 🏆 支持完整引入和按需引入
-- ✅ 使用 TypeScript + Template 编写
-- 🖍️ 严格的 TypeScript 类型
-- 🤟 全局无 any 类型
-- ✔️ 配置简单，上手容易
-- 🚩 单元测试
-- 👍 社区团队维护
-- ❤️ 根据实际需求开发
-- 📃 优质详细的文档
-- 📌 完善 RFC
-- ☝️ 提出需求，不断完善
-- 🌍 更多配置项，灵活组件
-- 🛠 更多特性开发中
+- 💪 Developed with the latest features of Vue.js
+- 🐆 Fully based on Vite, fast enough
+- 🦩 Zero third party dependency
+- 🪐 Different packaging modes which compatible with different projects
+- 🏆 Support full import and on-demand import
+- ✅ Written with TypeScript & Template
+- 🖍️ Strict TypeScript Type
+- 🤟 Global no any type
+- ✔️ Easy to configure and easy to use
+- 🚩 Complete and adequate unit tests
+- 👍 Maintained by the community team
+- ❤️ Developed according to actual demand
+- 📃 High quality detailed documentation
+- 📌 Improve RFC
+- ☝️ Put forward demands and keep improving
+- 🌍 More configuration options & flexible components
+- 🛠 More features are under development
 
-## 🔑 安装
+## 🔑 Install
 
-使用 `pnpm` 安装
+Use `pnpm` install
 
 ```shell
 pnpm add --save-dev fighting-design
 ```
 
-使用 `npm` 安装
+Use `npm` install
 
 ```shell
 npm install --save-dev fighting-design
 ```
 
-使用 `yarn` 安装
+Use `yarn` install
 
 ```shell
 yarn add --save-dev fighting-design
 ```
 
-## 🎉 快速上手
+## 🎉 Quick Start
 
-在 `main.ts` 中引入下面内容
+Put the following code into `main.ts`
 
 ```ts
 import { createApp } from 'vue'
@@ -72,28 +71,28 @@ import 'fighting-design/dist/index.css'
 createApp(App).use(FightingDesign).mount('#app')
 ```
 
-## 🐳 相关链接
+## 🐳 Related links
 
-- [官方文档](https://fighting.tianyuhao.cn)
-- [演练场](https://sfc.tianyuhao.cn)
+- [Official documents](https://fighting.tianyuhao.cn)
+- [Playground](https://sfc.tianyuhao.cn)
 - [NPM](https://www.npmjs.com/package/fighting-design)
-- [贡献指南](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
-- [更新日志](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
+- [CONTRIBUTING](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
+- [CHANGELOG](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
-## 🌈 加入 Fighting Design
+## 🌈 Join Fighting Design
 
-添加微信请备注 `Github` 用户名
+Add WeChat & please note the `Github` username
 
-![](https://tianyuhao.cn/images/auto/weixin.png)
+![WeChat](https://tianyuhao.cn/images/auto/weixin.png)
 
-## 💌 特别感谢
+## 💌 Special Thanks
 
-感谢所有已经为 `Fighting Design` [做出贡献的人](https://github.com/FightingDesign/fighting-design/graphs/contributors)！
+Thanks to [everyone](https://github.com/FightingDesign/fighting-design/graphs/contributors) who has already contributed to `Fighting Design`!
 
 <a href="https://github.com/FightingDesign/fighting-design/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=FightingDesign/fighting-design" />
 </a>
 
-## 💬 执照
+## 💬 LICENSE
 
 [MIT](https://github.com/FightingDesign/fighting-design/blob/master/LICENSE)

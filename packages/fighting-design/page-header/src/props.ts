@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { PageHeaderBackInterface } from './interface'
+import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
   icon: {
@@ -35,7 +35,7 @@ export const Props = {
     default: (): string => ''
   },
   back: {
-    type: Function as PropType<PageHeaderBackInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }
 } as const

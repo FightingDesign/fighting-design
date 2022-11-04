@@ -18,13 +18,13 @@
   import { useOperationImg } from '../../_hooks'
   import type { Ref } from 'vue'
   import type {
-    ImagePreviewSwitchImageInterface as a,
-    ImagePreviewOptionClickInterface as b,
-    OptionFunInterface as g
+    ImagePreviewSwitchImageInterface,
+    ImagePreviewOptionClickInterface,
+    OptionFunInterface,
+    ImagePreviewPropsType
   } from './interface'
-  import type { OrdinaryFunctionInterface as f } from '../../_interface'
+  import type { OrdinaryFunctionInterface } from '../../_interface'
   import type { ToolbarClickEmitInterface } from '../../toolbar/src/interface'
-  import type { ImagePreviewPropsType } from './props'
 
   const prop: ImagePreviewPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -37,7 +37,7 @@
   )
 
   // 关闭图片预览
-  const handleClose: f = (): void => {
+  const handleClose: OrdinaryFunctionInterface = (): void => {
     emit('update:visible', false)
     prop.close && prop.close()
   }
@@ -59,7 +59,7 @@
   )
 
   // 图片加载
-  const imagPreload: f = (): void => {
+  const imagPreload: OrdinaryFunctionInterface = (): void => {
     const imgList: string[] = prop.imgList as string[]
 
     imgList.forEach((item: string): void => {
@@ -69,7 +69,9 @@
   }
 
   // 左右切换按钮
-  const switchImage: a = (type: 'next' | 'prev'): void => {
+  const switchImage: ImagePreviewSwitchImageInterface = (
+    type: 'next' | 'prev'
+  ): void => {
     recovery()
 
     const optionFun = {
@@ -95,8 +97,10 @@
   }
 
   // 点击操作栏
-  const optionClick: b = (target: ToolbarClickEmitInterface): void => {
-    const optionFun = {
+  const optionClick: ImagePreviewOptionClickInterface = (
+    target: ToolbarClickEmitInterface
+  ): void => {
+    const optionFun: OptionFunInterface = {
       1: (): void => smaller(),
       2: (): void => bigger(),
       3: (): void => recovery(),
@@ -106,7 +110,7 @@
       5: (): void => {
         rotate.value -= 90
       }
-    } as g
+    } as const
 
     if (optionFun[target.key as string]) {
       optionFun[target.key as string]()

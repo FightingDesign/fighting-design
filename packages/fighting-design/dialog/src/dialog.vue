@@ -5,7 +5,7 @@
   import { ref, watch } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { Ref } from 'vue'
-  import type { OrdinaryFunctionInterface as a } from '../../_interface'
+  import type { OrdinaryFunctionInterface } from '../../_interface'
   import type { DialogPropsType } from './props'
 
   const prop: DialogPropsType = defineProps(Props)
@@ -13,7 +13,8 @@
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
 
-  const closeDialog: a = (): void => {
+  // 关闭时
+  const closeDialog: OrdinaryFunctionInterface = (): void => {
     emit('update:visible', false)
   }
 

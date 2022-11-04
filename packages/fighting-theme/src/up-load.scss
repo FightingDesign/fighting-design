@@ -1,2 +1,43 @@
 .f-up-load {
+  // 拖拽上传
+  .f-up-load__drag {
+    width: 88px;
+    height: 88px;
+    background: #eee;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  // 普通上传
+  .f-up-load__content {
+    display: inline-block;
+  }
+}
+
+// 列表
+.f-up-load__file-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  .f-up-load__file-list-item {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    justify-content: space-between;
+
+    &:hover {
+      background: #eee;
+    }
+
+    .f-up-load__file-name {
+      color: #333;
+      margin-left: 4px;
+      font-size: 15px;
+    }
+  }
 }

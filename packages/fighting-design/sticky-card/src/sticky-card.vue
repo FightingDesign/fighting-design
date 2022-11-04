@@ -4,8 +4,8 @@
   import { sizeChange } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
-    ClassListInterface as a,
-    OrdinaryFunctionInterface as b
+    ClassListInterface,
+    OrdinaryFunctionInterface
   } from '../../_interface'
   import type { StickyCardPropsType } from './props'
 
@@ -13,7 +13,7 @@
 
   const isOpen: Ref<boolean> = ref<boolean>(prop.open)
 
-  const handleClick: b = (): void => {
+  const handleClick: OrdinaryFunctionInterface = (): void => {
     isOpen.value = !unref(isOpen)
 
     const { openEnd, closeEnd } = prop
@@ -42,14 +42,16 @@
     } as CSSProperties
   })
 
-  const classList: ComputedRef<a> = computed((): a => {
-    return [
-      'f-sticky-card__box',
-      {
-        'f-sticky-card__box-open': unref(isOpen)
-      }
-    ] as const
-  })
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      return [
+        'f-sticky-card__box',
+        {
+          'f-sticky-card__box-open': unref(isOpen)
+        }
+      ] as const
+    }
+  )
 </script>
 
 <template>

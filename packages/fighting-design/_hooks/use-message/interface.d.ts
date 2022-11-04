@@ -38,3 +38,9 @@ export interface MessageInstance {
   vm: ComponentInternalInstance
   close: () => void
 }
+
+export interface UseMessageReturnInterface { instance: MessageFn & Partial<MessageFnWithType> }
+
+export interface UseMessageInterface {
+  (target: 'message' | 'notification'): UseMessageReturnInterface
+}

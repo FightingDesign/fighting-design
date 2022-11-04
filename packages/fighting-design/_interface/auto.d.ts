@@ -2,6 +2,7 @@ import type { App } from 'vue'
 
 /**
  * 普通函数接口
+ * 
  * 无参数，无返回值
  */
 export interface OrdinaryFunctionInterface {
@@ -17,15 +18,10 @@ export interface AppInstallInterface {
 
 /**
  * class 类名集合类型
+ * 
+ * 多数情况下在 computed 中计算返回
  */
 export type ClassListInterface = readonly (string | Record<string, unknown>)[]
-
-/**
- * 点击相关的类型
- */
-export interface HandleEventInterface {
-  (evt: MouseEvent): void
-}
 
 /**
  * Web Components 返回值

@@ -41,7 +41,7 @@ export const sidebar = {
       ]
     },
     {
-      text: '数据展示',
+      text: '数据输入',
       link: '/components/',
       items: [
         { text: 'Badge 角标', link: '/components/badge' },
@@ -60,7 +60,8 @@ export const sidebar = {
         { text: 'Tree 树', link: '/components/tree' },
         { text: 'StickyCard 粘性卡片', link: '/components/sticky-card' },
         { text: 'Rate 评分', link: '/components/rate' },
-        { text: 'Input 输入框', link: '/components/input' }
+        { text: 'Input 输入框', link: '/components/input' },
+        { text: 'Up Load 文件上传', link: '/components/up-load' }
       ]
     },
     {
@@ -98,8 +99,7 @@ export const sidebar = {
         { text: 'Divider 分隔线', link: '/components/divider' },
         { text: 'Watermark 水印', link: '/components/watermark' },
         { text: 'Ripple 涟漪', link: '/components/ripple' },
-        { text: 'Calendar 日历', link: '/components/calendar' },
-        // { text: 'Waterfall 瀑布流', link: '/components/waterfall' }
+        { text: 'Calendar 日历', link: '/components/calendar' }
       ]
     }
   ]

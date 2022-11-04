@@ -1,7 +1,8 @@
 import type {
   RipplesInterface,
-  RipplesOptionInterface as b
+  RipplesOptionInterface
 } from './interface'
+import type { OrdinaryFunctionInterface } from '../../_interface'
 
 /**
  * 按钮点击涟漪效果
@@ -9,9 +10,9 @@ import type {
 export class Ripples implements RipplesInterface {
   evt: MouseEvent
   node: HTMLElement
-  option: b
+  option: RipplesOptionInterface
 
-  constructor (evt: MouseEvent, node: HTMLElement, option: b) {
+  constructor (evt: MouseEvent, node: HTMLElement, option: RipplesOptionInterface) {
     this.evt = evt
     this.node = node
     this.option = option
@@ -19,7 +20,7 @@ export class Ripples implements RipplesInterface {
   /**
    * 点击生成涟漪效果
    */
-  clickRipples = (): void => {
+  clickRipples: OrdinaryFunctionInterface = (): void => {
     /**
      * layerX 和 layerY 属性暂时使用，未来可能会涉及到兼容性的问题
      * 可以直接获取点击元素的坐标

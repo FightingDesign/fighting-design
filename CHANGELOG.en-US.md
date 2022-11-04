@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.8.0-alpha.5 (2022-11-04)
+
+- Further optimization has been made for the ts type
+- Add `f-up-load` component
+
 ## 0.8.0-alpha.4 (2022-11-02)
 
 - Mainly standardized the directory structure

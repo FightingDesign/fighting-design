@@ -2,33 +2,43 @@
   import { computed, inject, getCurrentInstance, ref } from 'vue'
   import { Props, Emits } from './props'
   import { checkboxGroupPropsKey } from '../../checkbox-group/src/props'
-  import type { ClassListInterface as c } from '../../_interface'
-  import type { CheckboxGroupLabelType } from '../../checkbox-group/src/interface'
-  import type { CheckboxGroupPropsType as a } from '../../checkbox-group/src/props'
+  import type { ClassListInterface } from '../../_interface'
+  import type {
+    CheckboxGroupLabelType,
+    CheckboxGroupInjectPropsType
+  } from '../../checkbox-group/src/interface'
   import type {
     ComputedRef,
     Ref,
     ComponentInternalInstance,
     WritableComputedRef
   } from 'vue'
-  import type { CheckboxPropsType } from './props'
+  import type { CheckboxPropsType } from './interface'
 
   const prop: CheckboxPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const groupProps: Ref<a | null> = ref(null)
+  const groupProps: Ref<CheckboxGroupInjectPropsType | null> = ref(null)
 
+  // 获取父组件注入的依赖项
   const getGroupInject = (): void => {
     const { parent } = getCurrentInstance() as ComponentInternalInstance
     const parentName: string | undefined = (parent as ComponentInternalInstance)
       .type.name
 
+    /**
+     * 检测父组件是不是 FCheckboxGroup
+     * 只有 FCheckboxGroup 才是可注入依赖的父组件
+     */
     if (parentName && parentName === 'FCheckboxGroup') {
-      groupProps.value = inject<CheckboxPropsType>(checkboxGroupPropsKey) as a
+      groupProps.value = inject<CheckboxGroupInjectPropsType>(
+        checkboxGroupPropsKey
+      ) as CheckboxGroupInjectPropsType
     }
   }
   getGroupInject()
 
+  // 绑定值
   const modelValue: WritableComputedRef<CheckboxGroupLabelType> = computed({
     get () {
       return (
@@ -45,6 +55,7 @@
     }
   })
 
+  // 是否被选中
   const isChecked: ComputedRef<boolean> = computed((): boolean => {
     const val: CheckboxGroupLabelType = modelValue.value
     if (Array.isArray(val)) {
@@ -55,17 +66,20 @@
     return (val === prop.label) as boolean
   })
 
-  const classList: ComputedRef<c> = computed((): c => {
-    return [
-      'f-checkbox',
-      {
-        'f-checkbox__selected': isChecked.value,
-        'f-checkbox__bordered': groupProps.value && groupProps.value.border,
-        'f-checkbox__disabled':
-          prop.disabled || (groupProps.value && groupProps.value.disabled)
-      }
-    ] as const
-  })
+  // 类名列表
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      return [
+        'f-checkbox',
+        {
+          'f-checkbox__selected': isChecked.value,
+          'f-checkbox__bordered': groupProps.value && groupProps.value.border,
+          'f-checkbox__disabled':
+            prop.disabled || (groupProps.value && groupProps.value.disabled)
+        }
+      ] as const
+    }
+  )
 </script>
 
 <template>

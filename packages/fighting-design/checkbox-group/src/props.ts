@@ -18,10 +18,6 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
-  changeEvent: {
-    type: Function,
-    default: (): null => null
-  },
   border: {
     type: Boolean,
     default: (): boolean => false

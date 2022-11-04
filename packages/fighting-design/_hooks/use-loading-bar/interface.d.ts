@@ -1,4 +1,3 @@
-import type { OrdinaryFunctionInterface } from '../../_interface'
 export type { OrdinaryFunctionInterface } from '../../_interface'
 
 export interface UseLoadingBarInterface {

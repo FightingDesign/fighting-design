@@ -4,30 +4,33 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import type { ComputedRef, Ref } from 'vue'
-  import type { TagCloseEndInterface as a, TagPropsType } from './interface'
-  import type { ClassListInterface as b } from '../../_interface'
+  import type { TagPropsType } from './interface'
+  import type { ClassListInterface } from '../../_interface'
+  import type { HandleMouseEventInterface } from '../../_interface'
 
   const prop: TagPropsType = defineProps(Props)
 
   const isShow: Ref<boolean> = ref<boolean>(true)
 
-  const classList: ComputedRef<b> = computed((): b => {
-    const { simple, type, size, block, round, line } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { simple, type, size, block, round, line } = prop
 
-    return [
-      'f-tag',
-      {
-        [`f-tag__${type}`]: type,
-        [`f-tag__${size}`]: size,
-        'f-tag__simple': simple,
-        'f-tag__block': block,
-        'f-tag__round': round,
-        'f-tag__line': line
-      }
-    ] as const
-  })
+      return [
+        'f-tag',
+        {
+          [`f-tag__${type}`]: type,
+          [`f-tag__${size}`]: size,
+          'f-tag__simple': simple,
+          'f-tag__block': block,
+          'f-tag__round': round,
+          'f-tag__line': line
+        }
+      ] as const
+    }
+  )
 
-  const handleClose: a = (evt: MouseEvent): void => {
+  const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     isShow.value = false
     prop.closeEnd && prop.closeEnd(evt)
   }

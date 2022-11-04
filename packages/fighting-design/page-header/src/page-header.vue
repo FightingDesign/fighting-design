@@ -6,30 +6,34 @@
   import { Props } from './props'
   import type { ComputedRef } from 'vue'
   import type {
-    HandleEventInterface as a,
-    ClassListInterface as b
+    HandleMouseEventInterface,
+    ClassListInterface
   } from '../../_interface'
   import type { PageHeaderPropsType } from './props'
 
   const prop: PageHeaderPropsType = defineProps(Props)
 
-  const handleClick: a = (evt: MouseEvent): void => {
+  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     prop.back && prop.back(evt)
   }
 
-  const rightClassList: ComputedRef<b> = computed((): b => {
-    return [
-      'f-page-header__main',
-      { 'f-page-header__main-center': prop.titleCenter }
-    ] as const
-  })
+  const rightClassList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      return [
+        'f-page-header__main',
+        { 'f-page-header__main-center': prop.titleCenter }
+      ] as const
+    }
+  )
 
-  const rightTitleClassList: ComputedRef<b> = computed((): b => {
-    return [
-      'f-page-header__main-title',
-      { 'f-page-header__main-title-bold': prop.titleBold }
-    ] as const
-  })
+  const rightTitleClassList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      return [
+        'f-page-header__main-title',
+        { 'f-page-header__main-title-bold': prop.titleBold }
+      ] as const
+    }
+  )
 </script>
 
 <template>

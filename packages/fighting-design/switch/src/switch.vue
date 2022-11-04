@@ -3,8 +3,8 @@
   import { Props, Emits } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import type {
-    OrdinaryFunctionInterface as a,
-    ClassListInterface as b
+    OrdinaryFunctionInterface,
+    ClassListInterface
   } from '../../_interface'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { SwitchPropsType } from './props'
@@ -12,7 +12,7 @@
   const prop: SwitchPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const handleClick: a = (): void => {
+  const handleClick: OrdinaryFunctionInterface = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', !prop.modelValue)
     prop.change && prop.change(!prop.modelValue)
@@ -33,18 +33,20 @@
     } as const
   })
 
-  const FSwitchClass: ComputedRef<b> = computed((): b => {
-    const { size, modelValue, square } = prop
+  const FSwitchClass: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { size, modelValue, square } = prop
 
-    return [
-      'f-switch__input',
-      {
-        [`f-switch__${size}`]: size,
-        'f-switch__close': !modelValue,
-        'f-switch__square': square
-      }
-    ] as const
-  })
+      return [
+        'f-switch__input',
+        {
+          [`f-switch__${size}`]: size,
+          'f-switch__close': !modelValue,
+          'f-switch__square': square
+        }
+      ] as const
+    }
+  )
 </script>
 
 <template>

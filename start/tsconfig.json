@@ -12,7 +12,8 @@
     "esModuleInterop": true,
     "lib": [
       "ESNext",
-      "DOM"
+      "DOM",
+      "dom.iterable"
     ],
     "skipLibCheck": true,
     "types": [

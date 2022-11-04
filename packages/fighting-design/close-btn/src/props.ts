@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { HandleEventInterface } from '../../_interface'
+import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
   size: {
@@ -23,7 +23,7 @@ export const Props = {
     default: (): null => null
   },
   click: {
-    type: Function as PropType<HandleEventInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   },
   noHover: {

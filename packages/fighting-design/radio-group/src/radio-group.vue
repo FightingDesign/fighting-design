@@ -3,9 +3,9 @@
   import { Props, Emits, RadioGroupPropsKey } from './props'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface as a } from '../../_interface'
+  import type { ClassListInterface } from '../../_interface'
   import type {
-    RadioChangeInterface as b,
+    RadioChangeInterface,
     RadioLabelType,
     RadioGroundPropsType
   } from './interface'
@@ -13,7 +13,7 @@
   const prop: RadioGroundPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const changeEvent: b = (value: RadioLabelType): void => {
+  const changeEvent: RadioChangeInterface = (value: RadioLabelType): void => {
     emit('update:modelValue', value)
     prop.change && prop.change(value)
   }
@@ -25,18 +25,20 @@
 
   provide<RadioGroundPropsType>(RadioGroupPropsKey, RadioGround)
 
-  const classList: ComputedRef<a> = computed((): a => {
-    const { vertical, border, size } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { vertical, border, size } = prop
 
-    return [
-      'f-radio-group',
-      {
-        'f-radio-group__vertical': vertical,
-        'f-radio-group__border': border,
-        [`f-radio-group__${size}`]: size && border
-      }
-    ] as const
-  })
+      return [
+        'f-radio-group',
+        {
+          'f-radio-group__vertical': vertical,
+          'f-radio-group__border': border,
+          [`f-radio-group__${size}`]: size && border
+        }
+      ] as const
+    }
+  )
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { columnGap, rowGap } = prop

@@ -1,5 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { PopupDirectionType, PopupCallbackInterface } from './interface'
+import type { PopupDirectionType } from './interface'
+import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
   visible: {
@@ -53,19 +54,19 @@ export const Props = {
     default: (): string => ''
   },
   open: {
-    type: Function as PropType<PopupCallbackInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   },
   close: {
-    type: Function as PropType<PopupCallbackInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   },
   openEnd: {
-    type: Function as PropType<PopupCallbackInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   },
   closeEnd: {
-    type: Function as PropType<PopupCallbackInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }
 } as const

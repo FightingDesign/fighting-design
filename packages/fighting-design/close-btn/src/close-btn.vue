@@ -5,28 +5,32 @@
   import { FIconCrossVue } from '../../_svg'
   import type { ComputedRef } from 'vue'
   import type {
-    HandleEventInterface as a,
-    ClassListInterface as b
+    HandleMouseEventInterface,
+    ClassListInterface
   } from '../../_interface'
   import type { CloseBtnPropsType } from './props'
 
   const prop: CloseBtnPropsType = defineProps(Props)
 
-  const handleClick: a = (evt: MouseEvent): void => {
+  // 点击触发
+  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     if (prop.disabled) return
     prop.click && prop.click(evt)
   }
 
-  const classList: ComputedRef<b> = computed((): b => {
-    return [
-      {
-        'f-close-btn': !prop.disabled,
-        'f-close-btn__round': prop.round,
-        'f-close-btn__disabled': prop.disabled,
-        'f-close-btn__no-hover': prop.noHover
-      } as const
-    ] as const
-  })
+  // 类名列表
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      return [
+        {
+          'f-close-btn': !prop.disabled,
+          'f-close-btn__round': prop.round,
+          'f-close-btn__disabled': prop.disabled,
+          'f-close-btn__no-hover': prop.noHover
+        } as const
+      ] as const
+    }
+  )
 </script>
 
 <template>

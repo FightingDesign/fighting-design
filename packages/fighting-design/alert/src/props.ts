@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { AlertType, AlertOverflowType } from './interface'
-import type { HandleEventInterface } from '../../_interface'
+import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
   type: {
@@ -76,7 +76,7 @@ export const Props = {
     default: (): null => null
   },
   closeEnd: {
-    type: Function as PropType<HandleEventInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }
 } as const

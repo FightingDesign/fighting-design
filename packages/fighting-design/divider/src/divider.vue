@@ -6,23 +6,23 @@
 
   const prop: DividerPropsType = defineProps(Props)
 
+  // 是否有插槽
   const renderSlot: ComputedRef<boolean> = computed((): boolean => {
     return !prop.vertical && Boolean(useSlots().default)
   })
 
-  const dividerStyle: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { color, margin } = prop
+  // 样式列表
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { color, margin } = prop
 
-      if (margin) {
-        return {
-          margin: `${margin} 0`,
-          borderColor: color
-        } as const
-      }
-      return { borderColor: color } as const
+    if (margin) {
+      return {
+        margin: `${margin} 0`,
+        borderColor: color
+      } as const
     }
-  )
+    return { borderColor: color } as const
+  })
 </script>
 
 <template>
@@ -32,7 +32,7 @@
       'f-divider',
       { 'f-divider__vertical': vertical, [`f-divider__${type}`]: type }
     ]"
-    :style="dividerStyle"
+    :style="styleList"
   >
     <span
       v-if="renderSlot"

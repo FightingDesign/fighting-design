@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.8.0-alpha.5 (2022-11-04)
+
+- 对于 ts 类型方面，做了进一步的优化
+- 新增 `f-up-load` 组件
+
 ## 0.8.0-alpha.4 (2022-11-02)
 
 - 主要针对目录结构进行了规范处理

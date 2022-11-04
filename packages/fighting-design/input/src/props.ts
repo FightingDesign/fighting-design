@@ -2,11 +2,10 @@ import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
 import type {
   InputType,
   InputSizeType,
-  InputFocusInterface,
   InputChangeInterface,
-  InputSearchInterface,
-  InputEnterInterface
+  InputSearchInterface
 } from './interface'
+import type { HandleFocusEventInterface, HandleEventInterface } from '../../_interface'
 
 export const Props = {
   modelValue: {
@@ -89,15 +88,15 @@ export const Props = {
     default: (): null => null
   },
   onBlur: {
-    type: Function as PropType<InputFocusInterface>,
+    type: Function as PropType<HandleFocusEventInterface>,
     default: (): null => null
   },
   onFocus: {
-    type: Function as PropType<InputFocusInterface>,
+    type: Function as PropType<HandleFocusEventInterface>,
     default: (): null => null
   },
   onEnter: {
-    type: Function as PropType<InputEnterInterface>,
+    type: Function as PropType<HandleEventInterface>,
     default: (): null => null
   }
 } as const

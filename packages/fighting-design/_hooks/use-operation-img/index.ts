@@ -2,16 +2,17 @@ import { ref } from 'vue'
 import { keepDecimal } from '../../_utils'
 import type { Ref } from 'vue'
 import type {
-  OrdinaryFunctionInterface as a,
-  OnImgMousewheelInterface as b,
-  UseOperationImgReturnInterface as c
+  OrdinaryFunctionInterface,
+  HandleWheelEventInterface,
+  UseOperationImgReturnInterface,
+  UseOperationImgInterface
 } from './interface'
 
 /**
  * 用于 image-preview 组件的图片操作 hooks
  * @returns { UseOperationImgReturnInterface }
  */
-export const useOperationImg = (): c => {
+export const useOperationImg: UseOperationImgInterface = (): UseOperationImgReturnInterface => {
   const scale: Ref<number> = ref<number>(1)
   const rotate: Ref<number> = ref<number>(0)
 
@@ -19,7 +20,7 @@ export const useOperationImg = (): c => {
    * 图片缩小
    * @returns 
    */
-  const smaller: a = (): void => {
+  const smaller: OrdinaryFunctionInterface = (): void => {
     if (keepDecimal(scale.value, 1) <= 0.2) {
       return
     }
@@ -30,7 +31,7 @@ export const useOperationImg = (): c => {
    * 图片放大
    * @returns 
    */
-  const bigger: a = (): void => {
+  const bigger: OrdinaryFunctionInterface = (): void => {
     if (scale.value >= 10) {
       return
     }
@@ -42,7 +43,7 @@ export const useOperationImg = (): c => {
    * @param evt 事件对象
    * @returns 
    */
-  const onImgMousewheel: b = (evt: WheelEvent): void => {
+  const onImgMousewheel: HandleWheelEventInterface = (evt: WheelEvent): void => {
     evt.preventDefault()
     if (evt.deltaY > 1) {
       smaller()
@@ -54,7 +55,7 @@ export const useOperationImg = (): c => {
   /**
    * 还原图片
    */
-  const recovery: a = (): void => {
+  const recovery: OrdinaryFunctionInterface = (): void => {
     scale.value = 1
     rotate.value = 0
   }
@@ -66,5 +67,5 @@ export const useOperationImg = (): c => {
     bigger,
     onImgMousewheel,
     recovery
-  } as c
+  } as UseOperationImgReturnInterface
 }

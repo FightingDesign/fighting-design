@@ -2,23 +2,25 @@
   import { computed } from 'vue'
   import { Props } from './props'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface as a } from '../../_interface'
+  import type { ClassListInterface } from '../../_interface'
   import type { SpacePropsType } from './props'
 
   const prop: SpacePropsType = defineProps(Props)
 
-  const spaceClassList: ComputedRef<a> = computed((): a => {
-    const { wrap, vertical, spacing } = prop
+  const spaceClassList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { wrap, vertical, spacing } = prop
 
-    return [
-      'f-space',
-      {
-        [`f-space__${spacing}`]: spacing,
-        'f-space__wrap': wrap,
-        'f-space__vertical': vertical
-      }
-    ] as const
-  })
+      return [
+        'f-space',
+        {
+          [`f-space__${spacing}`]: spacing,
+          'f-space__wrap': wrap,
+          'f-space__vertical': vertical
+        }
+      ] as const
+    }
+  )
 
   const spaceStyleList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {

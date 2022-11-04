@@ -7,11 +7,13 @@
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { AvatarPropsType } from './props'
   import type {
-    CallbackInterface as a,
-    LoadNeedImagePropsInterface as b,
-    OrdinaryFunctionInterface as c,
-    ClassListInterface as d
+    OrdinaryFunctionInterface,
+    ClassListInterface
   } from '../../_interface'
+  import type {
+    LoadNeedImagePropsInterface,
+    LoadCallbackInterface
+  } from '../../_utils/load-image/interface'
 
   const prop: AvatarPropsType = defineProps(Props)
   const slot = useSlots()
@@ -36,32 +38,37 @@
   )
 
   // img 元素的类名集合
-  const nodeClassList: ComputedRef<d> = computed((): d => {
-    const { round, size, fit } = prop
+  const nodeClassList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { round, size, fit } = prop
 
-    return [
-      'f-avatar__img',
-      {
-        'f-avatar__round': round,
-        [`f-avatar__${size}`]: isString(size),
-        [`f-avatar__${fit}`]: fit
-      }
-    ] as const
-  })
+      return [
+        'f-avatar__img',
+        {
+          'f-avatar__round': round,
+          [`f-avatar__${size}`]: isString(size),
+          [`f-avatar__${fit}`]: fit
+        }
+      ] as const
+    }
+  )
 
   // 类名集合
-  const classList: ComputedRef<d> = computed((): d => {
-    const { size, round } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { size, round } = prop
 
-    return [
-      'f-avatar',
-      {
-        'f-avatar__round': round,
-        [`f-avatar__${size}`]: isString(size)
-      }
-    ]
-  })
+      return [
+        'f-avatar',
+        {
+          'f-avatar__round': round,
+          [`f-avatar__${size}`]: isString(size)
+        }
+      ]
+    }
+  )
 
+  // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { background, size, fontColor, fontSize } = prop
 
@@ -74,20 +81,16 @@
   })
 
   // 开始加载图片
-  const loadAction: c = (): void => {
+  const loadAction: OrdinaryFunctionInterface = (): void => {
     const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
-    const callback: a = (params: boolean): void => {
+    const callback: LoadCallbackInterface = (params: boolean): void => {
       isSuccess.value = params
       isShowNode.value = params
     }
-    const needProps: b = useFilterProps<AvatarPropsType, b>(prop, [
-      'src',
-      'errSrc',
-      'rootMargin',
-      'lazy',
-      'load',
-      'error'
-    ])
+    const needProps: LoadNeedImagePropsInterface = useFilterProps<
+      AvatarPropsType,
+      LoadNeedImagePropsInterface
+    >(prop, ['src', 'errSrc', 'rootMargin', 'lazy', 'load', 'error'])
     loadImage(node, needProps, callback)
   }
 

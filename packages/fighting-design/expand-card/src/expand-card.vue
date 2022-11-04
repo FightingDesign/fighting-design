@@ -3,10 +3,10 @@
   import { Props } from './props'
   import { sizeChange, isString } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface as a } from '../../_interface'
+  import type { ClassListInterface } from '../../_interface'
   import type {
-    ExpandCardISwitchExpandCardInterface as b,
-    ExpandCardImageListItemInterface as c,
+    ExpandCardISwitchExpandCardInterface,
+    ExpandCardImageListItemInterface,
     ExpandCardPropsType
   } from './interface'
 
@@ -14,7 +14,9 @@
 
   const currExpandIndex: Ref<number> = ref<number>(prop.expandIndex)
 
-  const switchExpandCard: b = (index: number): void => {
+  const switchExpandCard: ExpandCardISwitchExpandCardInterface = (
+    index: number
+  ): void => {
     currExpandIndex.value = index
   }
 
@@ -23,21 +25,27 @@
     return 'f-expand-card__active'
   }
 
-  const classList: ComputedRef<a> = computed((): a => {
-    const { round } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { round } = prop
 
-    return ['f-expand-card__item', { 'f-expand-card__round': round }] as const
-  })
+      return ['f-expand-card__item', { 'f-expand-card__round': round }] as const
+    }
+  )
 
-  const imageListArr = computed((): c[] => {
+  const imageListArr = computed((): ExpandCardImageListItemInterface[] => {
     const { imageList } = prop
 
-    return imageList.map((item: string | c): c => {
-      if (isString(item)) {
-        return { url: item } as c
+    return imageList.map(
+      (
+        item: string | ExpandCardImageListItemInterface
+      ): ExpandCardImageListItemInterface => {
+        if (isString(item)) {
+          return { url: item } as ExpandCardImageListItemInterface
+        }
+        return item as ExpandCardImageListItemInterface
       }
-      return item as c
-    })
+    )
   })
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
