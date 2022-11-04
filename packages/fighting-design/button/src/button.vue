@@ -6,8 +6,8 @@
   import { Ripples, ChangeColor, sizeChange } from '../../_utils'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
-    HandleMouseEventInterface as a,
-    ClassListInterface as b
+    HandleMouseEventInterface,
+    ClassListInterface
   } from '../../_interface'
   import type { ButtonPropsType } from './props'
 
@@ -19,42 +19,43 @@
   )
 
   // 类名列表
-  const classList: ComputedRef<b> = computed((): b => {
-    const {
-      type,
-      round,
-      simple,
-      block,
-      disabled,
-      loading,
-      bold,
-      size,
-      text,
-      circle,
-      color
-    } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const {
+        type,
+        round,
+        simple,
+        block,
+        disabled,
+        loading,
+        bold,
+        size,
+        text,
+        circle,
+        color
+      } = prop
 
-    return [
-      'f-button',
-      {
-        [`f-button__${size}`]: size,
-        [`f-button__${type}`]: !color,
-        'f-button__disabled': disabled || loading,
-        'f-button__simple': simple && !color,
-        'f-button__circle': circle,
-        'f-button__round': round,
-        'f-button__block': block,
-        'f-button__bold': bold,
-        'f-button__color': color,
-        'f-button__text': text && !color
-      }
-    ] as const
-  })
+      return [
+        'f-button',
+        {
+          [`f-button__${size}`]: size,
+          [`f-button__${type}`]: !color,
+          'f-button__disabled': disabled || loading,
+          'f-button__simple': simple && !color,
+          'f-button__circle': circle,
+          'f-button__round': round,
+          'f-button__block': block,
+          'f-button__bold': bold,
+          'f-button__color': color,
+          'f-button__text': text && !color
+        }
+      ] as const
+    }
+  )
 
-  // 点击
-  const handleClick: a = (evt: MouseEvent): void => {
+  // 按钮点击
+  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     const { disabled, loading, ripples } = prop
-    console.log(evt)
 
     if (disabled || loading) {
       evt.preventDefault()
