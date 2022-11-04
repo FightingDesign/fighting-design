@@ -152,8 +152,14 @@
 import type {
   CalendarInstance,
   CalendarPropsType,
-  CalendarEmitInterface,
-  CalendarMemorandumType
+  CalendarMowDataClassListInterface,
+  CalendarOptionClickInterface,
+  CalendarHandleClickInterface,
+  CalendarCallbackInterface,
+  CalendarMemorandumContentInterface,
+  CalendarMemorandumType,
+  CalendarIsMemorandumInterface,
+  CalendarOptionInterface
 } from 'fighting-design'
 ```
 

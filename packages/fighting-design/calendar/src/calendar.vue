@@ -7,11 +7,13 @@
   import { useCalculiTime } from '../../_hooks'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
-    CalendarMowDataClassListInterface as c,
-    CalendarOptionClickInterface as d,
-    CalendarHandleClickInterface as g,
+    CalendarMowDataClassListInterface,
+    CalendarOptionClickInterface,
+    CalendarHandleClickInterface,
     CalendarTargetType,
-    CalendarPropsType
+    CalendarPropsType,
+    CalendarIsMemorandumInterface,
+    CalendarOptionInterface
   } from './interface'
 
   const prop: CalendarPropsType = defineProps(Props)
@@ -26,7 +28,10 @@
   )
 
   // 当前日期高亮显示
-  const mowDataClassList: c = (_month: number, _date: number): string => {
+  const mowDataClassList: CalendarMowDataClassListInterface = (
+    _month: number,
+    _date: number
+  ): string => {
     if (_date === date.value && _month === month.value + 1) {
       return 'f-calendar__day-today'
     }
@@ -37,8 +42,10 @@
   }
 
   // 点击操作栏
-  const optionClick: d = (target: CalendarTargetType): void => {
-    const option = {
+  const optionClick: CalendarOptionClickInterface = (
+    target: CalendarTargetType
+  ): void => {
+    const option: CalendarOptionInterface = {
       last: (): void => changeLastMonth(),
       next: (): void => changeNextMonth(),
       now: (): void => {
@@ -46,7 +53,7 @@
         year.value = prop.date.getFullYear()
         date.value = prop.date.getDate()
       }
-    }
+    } as const
 
     option[target]()
   }
@@ -59,7 +66,10 @@
   })
 
   // 点击对每一天
-  const handleClick: g = (_month: number, _date: number): void => {
+  const handleClick: CalendarHandleClickInterface = (
+    _month: number,
+    _date: number
+  ): void => {
     date.value = _date
 
     // 如果点击上个月的选项，则调整上个月
@@ -77,6 +87,7 @@
       })
   }
 
+  // 类名列表
   const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { borderColor, dayCellHeight, weekCellHeight } = prop
 
@@ -87,7 +98,10 @@
     } as CSSProperties
   })
 
-  const isMemorandum = (date: string): boolean => {
+  // 检测当前日期是否存在备忘录
+  const isMemorandum: CalendarIsMemorandumInterface = (
+    date: string
+  ): boolean => {
     if (!prop.memorandum) {
       return false
     }
