@@ -2,24 +2,26 @@
   import { computed, useSlots } from 'vue'
   import { Props } from './props'
   import type { ComputedRef } from 'vue'
-  import type { ClassListInterface as a } from '../../_interface'
+  import type { ClassListInterface } from '../../_interface'
   import type { SkeletonPropsType } from './props'
 
   const prop: SkeletonPropsType = defineProps(Props)
 
-  const classList: ComputedRef<a> = computed((): a => {
-    const { rounded, animated, circled, size } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { rounded, animated, circled, size } = prop
 
-    return [
-      'f-skeleton',
-      {
-        'f-skeleton__rounded': rounded,
-        'f-skeleton__animated': animated,
-        'f-skeleton__circled': circled,
-        [`f-skeleton__${size}`]: size
-      }
-    ] as const
-  })
+      return [
+        'f-skeleton',
+        {
+          'f-skeleton__rounded': rounded,
+          'f-skeleton__animated': animated,
+          'f-skeleton__circled': circled,
+          [`f-skeleton__${size}`]: size
+        }
+      ] as const
+    }
+  )
 
   const isRender: ComputedRef<boolean> = computed((): boolean => {
     const slots = useSlots()

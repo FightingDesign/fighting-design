@@ -5,10 +5,10 @@
   import { FText } from '../../text'
   import { ref, watch, unref, computed } from 'vue'
   import type { Ref, ComputedRef } from 'vue'
-  import type { OrdinaryFunctionInterface as a } from '../../_interface'
+  import type { OrdinaryFunctionInterface } from '../../_interface'
   import type {
-    RateMouseoverInterface as b,
-    RateHandleClickInterface as c,
+    RateMouseoverInterface,
+    RateHandleClickInterface,
     RatePropsType
   } from './interface'
 
@@ -18,19 +18,19 @@
   const starValue: Ref<number> = ref<number>(prop.modelValue)
 
   // 反复移动时触发
-  const onMouseover: b = (index: number): void => {
+  const onMouseover: RateMouseoverInterface = (index: number): void => {
     if (prop.readonly) return
     starValue.value = index
   }
 
   // 移出触发
-  const onMouseout: a = (): void => {
+  const onMouseout: OrdinaryFunctionInterface = (): void => {
     if (prop.readonly) return
     starValue.value = prop.modelValue
   }
 
   // 点击触发
-  const handleClick: c = (index: number): void => {
+  const handleClick: RateHandleClickInterface = (index: number): void => {
     if (prop.readonly) return
     starValue.value = index
     emit('update:modelValue', index)

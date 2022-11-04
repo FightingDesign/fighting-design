@@ -5,8 +5,8 @@
   import { useFilterProps } from '../../_hooks'
   import type { Ref, CSSProperties } from 'vue'
   import type { WatermarkPropsType } from './props'
-  import type { WatermarkCSSPropertiesInterface as a } from './interface'
-  import type { CreateWatermarkPropsInterface as b } from '../../_interface'
+  import type { WatermarkCSSPropertiesInterface } from './interface'
+  import type { CreateWatermarkPropsInterface } from '../../_utils/create-watermark/interface'
 
   const prop: WatermarkPropsType = defineProps(Props)
 
@@ -14,14 +14,11 @@
     null as unknown as CSSProperties
   )
 
-  const baseWatermark: a = (): CSSProperties => {
-    const needProps: b = useFilterProps<WatermarkPropsType, b>(prop, [
-      'content',
-      'width',
-      'height',
-      'fontSize',
-      'fontColor'
-    ])
+  const baseWatermark: WatermarkCSSPropertiesInterface = (): CSSProperties => {
+    const needProps: CreateWatermarkPropsInterface = useFilterProps<
+      WatermarkPropsType,
+      CreateWatermarkPropsInterface
+    >(prop, ['content', 'width', 'height', 'fontSize', 'fontColor'])
 
     const watermark: string = createWatermark(needProps)
 
@@ -30,7 +27,7 @@
     } as CSSProperties
   }
 
-  const imageWatermark: a = (): CSSProperties => {
+  const imageWatermark: WatermarkCSSPropertiesInterface = (): CSSProperties => {
     const { image, width, height } = prop
 
     return {

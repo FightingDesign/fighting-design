@@ -3,25 +3,27 @@
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface as a } from '../../_interface'
+  import type { ClassListInterface } from '../../_interface'
   import type { TextPropsType } from './props'
 
   const prop: TextPropsType = defineProps(Props)
 
-  const classList: ComputedRef<a> = computed((): a => {
-    const { type, block, bold, ellipsis, center } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { type, block, bold, ellipsis, center } = prop
 
-    return [
-      'f-text',
-      {
-        [`f-text__${type}`]: type,
-        'f-text__block': block,
-        'f-text__bold': bold,
-        'f-text__center': center,
-        'f-text__ellipsis': ellipsis
-      }
-    ] as const
-  })
+      return [
+        'f-text',
+        {
+          [`f-text__${type}`]: type,
+          'f-text__block': block,
+          'f-text__bold': bold,
+          'f-text__center': center,
+          'f-text__ellipsis': ellipsis
+        }
+      ] as const
+    }
+  )
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     return {

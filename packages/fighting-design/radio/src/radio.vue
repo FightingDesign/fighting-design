@@ -9,28 +9,28 @@
     Ref
   } from 'vue'
   import type {
-    RadioGroundInterface as a,
+    RadioGroundInterface,
     RadioLabelType
   } from '../../radio-group/src/interface'
   import type {
-    OrdinaryFunctionInterface as b,
-    ClassListInterface as c
+    OrdinaryFunctionInterface,
+    ClassListInterface
   } from '../../_interface'
   import type { RadioPropsType } from './props'
 
   const prop: RadioPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const groupProps: Ref<a | null> = ref(null)
+  const groupProps: Ref<RadioGroundInterface | null> = ref(null)
 
   // 尝试获取父组件注入的依赖
-  const loadParentInject: b = (): void => {
+  const loadParentInject: OrdinaryFunctionInterface = (): void => {
     const { parent } = getCurrentInstance() as ComponentInternalInstance
     const parentName: string | undefined = (parent as ComponentInternalInstance)
       .type.name
 
     if (parentName && parentName === 'FRadioGroup') {
-      groupProps.value = inject(RadioGroupPropsKey) as a
+      groupProps.value = inject(RadioGroupPropsKey) as RadioGroundInterface
     }
   }
   loadParentInject()
@@ -60,19 +60,21 @@
     }
   })
 
-  const classList: ComputedRef<c> = computed((): c => {
-    const { disabled } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { disabled } = prop
 
-    return [
-      'f-radio',
-      {
-        'f-radio__checked': modelValue.value === prop.label,
-        'f-radio__margin': !groupProps.value,
-        'f-radio__disabled':
-          disabled || (groupProps.value && groupProps.value.disabled)
-      }
-    ] as const
-  })
+      return [
+        'f-radio',
+        {
+          'f-radio__checked': modelValue.value === prop.label,
+          'f-radio__margin': !groupProps.value,
+          'f-radio__disabled':
+            disabled || (groupProps.value && groupProps.value.disabled)
+        }
+      ] as const
+    }
+  )
 </script>
 
 <template>

@@ -3,8 +3,8 @@
   import { Ripples } from '../../_utils'
   import { computed, ref } from 'vue'
   import type {
-    ClassListInterface as a,
-    HandleMouseEventInterface as b
+    ClassListInterface,
+    HandleMouseEventInterface
   } from '../../_interface'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { RipplePropsType } from './props'
@@ -22,13 +22,15 @@
     } as CSSProperties
   })
 
-  const classList: ComputedRef<a> = computed((): a => {
-    const { noSelect } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { noSelect } = prop
 
-    return ['f-ripple', { 'f-ripple__select': noSelect }] as const
-  })
+      return ['f-ripple', { 'f-ripple__select': noSelect }] as const
+    }
+  )
 
-  const handleClick: b = (evt: MouseEvent): void => {
+  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     const { type, ripplesColor, duration, disabled } = prop
 
     if (disabled) return

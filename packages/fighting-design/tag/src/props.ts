@@ -1,5 +1,6 @@
 import type { PropType, ExtractPropTypes, VNode } from 'vue'
-import type { TagSizeType, TagType, TagCloseEndInterface } from './interface'
+import type { TagSizeType, TagType } from './interface'
+import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
   type: {
@@ -55,7 +56,7 @@ export const Props = {
     default: (): boolean => false
   },
   closeEnd: {
-    type: Function as PropType<TagCloseEndInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }
 } as const
