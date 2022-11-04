@@ -140,7 +140,8 @@
 import type {
   BackTopInstance,
   BackTopPropsType,
-  BackTopBehaviorType
+  BackTopBehaviorType,
+  BackTopHandleScrollInterface
 } from 'fighting-design'
 ```
 
