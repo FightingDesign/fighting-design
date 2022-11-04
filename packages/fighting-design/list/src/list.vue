@@ -10,6 +10,7 @@
 
   provide<ListPropsType>(listPropsKey, prop)
 
+  // 类名列表
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { maxHeight, zebra, center, size } = prop
@@ -26,7 +27,8 @@
     }
   )
 
-  const styleLIst: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  // 样式列表
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { maxHeight, borderColor, listStyle } = prop
 
     return {
@@ -38,7 +40,7 @@
 </script>
 
 <template>
-  <ul role="list" :class="classList" :style="styleLIst">
+  <ul role="list" :class="classList" :style="styleList">
     <header v-if="$slots.header" class="f-list__header">
       <slot name="header" />
     </header>

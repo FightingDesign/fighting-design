@@ -99,7 +99,11 @@
 ```ts
 import type {
   ImagePreviewInstance,
-  ImagePreviewPropsType
+  ImagePreviewPropsType,
+  ImagePreviewSwitchImageInterface,
+  ImagePreviewOptionClickInterface,
+  ImagePreviewSwitchImageOptionMapInterface,
+  ImagePreviewOptionClickOptionMapInterface
 } from 'fighting-design'
 ```
 

@@ -9,6 +9,7 @@
   const prop: ListItemPropsType = defineProps(Props)
   const injectListProps: ListPropsType = inject(listPropsKey) as ListPropsType
 
+  // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { textColor, borderColor } = injectListProps
     const { background, color } = prop

@@ -20,8 +20,9 @@
   import type {
     ImagePreviewSwitchImageInterface,
     ImagePreviewOptionClickInterface,
-    OptionFunInterface,
-    ImagePreviewPropsType
+    ImagePreviewOptionClickOptionMapInterface,
+    ImagePreviewPropsType,
+    ImagePreviewSwitchImageOptionMapInterface
   } from './interface'
   import type { OrdinaryFunctionInterface } from '../../_interface'
   import type { ToolbarClickEmitInterface } from '../../toolbar/src/interface'
@@ -74,7 +75,7 @@
   ): void => {
     recovery()
 
-    const optionFun = {
+    const optionMap: ImagePreviewSwitchImageOptionMapInterface = {
       next: (): void => {
         if (previewShowIndex.value < prop.imgList.length - 1) {
           previewShowIndex.value++
@@ -91,8 +92,8 @@
       }
     } as const
 
-    if (optionFun[type]) {
-      optionFun[type]()
+    if (optionMap[type]) {
+      optionMap[type]()
     }
   }
 
@@ -100,7 +101,7 @@
   const optionClick: ImagePreviewOptionClickInterface = (
     target: ToolbarClickEmitInterface
   ): void => {
-    const optionFun: OptionFunInterface = {
+    const optionMap: ImagePreviewOptionClickOptionMapInterface = {
       1: (): void => smaller(),
       2: (): void => bigger(),
       3: (): void => recovery(),
@@ -112,8 +113,8 @@
       }
     } as const
 
-    if (optionFun[target.key as string]) {
-      optionFun[target.key as string]()
+    if (optionMap[target.key as string]) {
+      optionMap[target.key as string]()
     }
   }
 </script>
