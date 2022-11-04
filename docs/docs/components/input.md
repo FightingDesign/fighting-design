@@ -227,10 +227,9 @@ import type {
   InputPropsType,
   InputType,
   InputSizeType,
-  InputFocusInterface,
   InputChangeInterface,
   InputSearchInterface,
-  InputEnterInterface
+  InputHandleShowPasswordInterface
 } from 'fighting-design'
 ```
 

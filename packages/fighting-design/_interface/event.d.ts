@@ -26,3 +26,7 @@ export interface HandleEventInterface {
 export interface HandleDragEventInterface {
   (evt: DragEvent): void
 }
+
+export interface HandleFocusEventInterface {
+  (evt: FocusEvent): void
+}

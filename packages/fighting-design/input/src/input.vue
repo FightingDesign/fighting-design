@@ -9,8 +9,12 @@
     FIconEyeOutlineVue
   } from '../../_svg'
   import type { Ref } from 'vue'
-  import type { InputType } from './interface'
+  import type { InputType, InputHandleShowPasswordInterface } from './interface'
   import type { InputPropsType } from './props'
+  import type {
+    HandleEventInterface,
+    OrdinaryFunctionInterface
+  } from '../../_interface'
 
   const prop: InputPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
@@ -18,7 +22,7 @@
   const inputType: Ref<InputType> = ref<InputType>(prop.type)
 
   // 输入框输入
-  const handleInput = (evt: Event): void => {
+  const handleInput: HandleEventInterface = (evt: Event): void => {
     emit('update:modelValue', (evt.target as HTMLInputElement).value)
     if (prop.onChange) {
       prop.onChange((evt.target as HTMLInputElement).value)
@@ -26,20 +30,20 @@
   }
 
   // 点击搜索
-  const handleSearch = (evt: Event): void => {
+  const handleSearch: HandleEventInterface = (evt: Event): void => {
     if (prop.onSearch) {
       prop.onSearch({ evt, value: prop.modelValue })
     }
   }
 
   // 清空
-  const handleClear = (): void => {
+  const handleClear: OrdinaryFunctionInterface = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', '')
   }
 
   // 按下回车
-  const handleEnter = (evt: Event): void => {
+  const handleEnter: HandleEventInterface = (evt: Event): void => {
     const { search, enterSearch, onEnter } = prop
 
     if (search && enterSearch) {
@@ -52,7 +56,9 @@
   }
 
   // 查看密码
-  const handleShowPassword = (target: 'down' | 'up'): void => {
+  const handleShowPassword: InputHandleShowPasswordInterface = (
+    target: 'down' | 'up'
+  ): void => {
     if (target === 'down') {
       inputType.value = 'text'
       return
