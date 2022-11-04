@@ -8,16 +8,14 @@
 
   const prop: EmptyPropsType = defineProps(Props)
 
-  const customContentStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { contentColor, contentSize } = prop
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { contentColor, contentSize } = prop
 
-      return {
-        color: contentColor,
-        fontSize: contentSize
-      } as const
-    }
-  )
+    return {
+      color: contentColor,
+      fontSize: contentSize
+    } as const
+  })
 </script>
 
 <template>
@@ -33,7 +31,7 @@
     </div>
 
     <!-- 描述文字 -->
-    <span class="f-empty__desc" :style="customContentStyleList">
+    <span class="f-empty__desc" :style="styleList">
       {{ content }}
     </span>
 

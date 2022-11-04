@@ -6,11 +6,13 @@
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { ImagePropsType } from './props'
   import type {
-    OrdinaryFunctionInterface as b,
-    LoadNeedImagePropsInterface as c,
-    ClassListInterface as d,
-    CallbackInterface
+    OrdinaryFunctionInterface,
+    ClassListInterface
   } from '../../_interface'
+  import type {
+    LoadNeedImagePropsInterface,
+    LoadCallbackInterface
+  } from '../../_utils/load-image/interface'
 
   const prop: ImagePropsType = defineProps(Props)
 
@@ -22,21 +24,17 @@
   const isShowNode: Ref<boolean> = ref<boolean>(prop.lazy)
 
   // 开始加载图片
-  const loadAction: b = (): void => {
+  const loadAction: OrdinaryFunctionInterface = (): void => {
     const node: HTMLImageElement = FImageImg.value as HTMLImageElement
-    const callback: CallbackInterface = (params: boolean): void => {
+    const callback: LoadCallbackInterface = (params: boolean): void => {
       isSuccess.value = params
       isShowNode.value = params
     }
 
-    const needProps: c = useFilterProps<ImagePropsType, c>(prop, [
-      'src',
-      'errSrc',
-      'rootMargin',
-      'lazy',
-      'load',
-      'error'
-    ])
+    const needProps: LoadNeedImagePropsInterface = useFilterProps<
+      ImagePropsType,
+      LoadNeedImagePropsInterface
+    >(prop, ['src', 'errSrc', 'rootMargin', 'lazy', 'load', 'error'])
 
     loadImage(node, needProps, callback)
   }
@@ -45,17 +43,19 @@
     loadAction()
   })
 
-  const classList: ComputedRef<d> = computed((): d => {
-    const { fit, noSelect } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { fit, noSelect } = prop
 
-    return [
-      'f-image__img',
-      {
-        [`f-image__${fit}`]: fit,
-        'f-image__select': noSelect
-      }
-    ] as const
-  })
+      return [
+        'f-image__img',
+        {
+          [`f-image__${fit}`]: fit,
+          'f-image__select': noSelect
+        }
+      ] as const
+    }
+  )
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { width, height, round } = prop

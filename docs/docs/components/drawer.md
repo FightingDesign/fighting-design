@@ -119,8 +119,7 @@
 import type {
   DrawerInstance,
   DrawerPropsType,
-  DrawerDirectionType,
-  DrawerCallbackInterface
+  DrawerDirectionType
 } from 'fighting-design'
 ```
 
