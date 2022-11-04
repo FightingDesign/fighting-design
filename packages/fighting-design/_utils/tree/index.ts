@@ -1,6 +1,6 @@
 import type {
-  TreeAddLevelReturnInterface as a,
-  TreeDataInterface as b
+  TreeAddLevelReturnInterface,
+  TreeDataInterface
 } from './interface'
 
 /**
@@ -8,16 +8,16 @@ import type {
  * @param data 
  * @returns 
  */
-export const treeToFlat = (data: b[]): a[] => {
-  const result: a[] = []
+export const treeToFlat = (data: TreeDataInterface[]): TreeAddLevelReturnInterface[] => {
+  const result: TreeAddLevelReturnInterface[] = []
 
-  data.forEach((item: b): void => {
-    const obj = {
+  data.forEach((item: TreeDataInterface): void => {
+    const obj: TreeAddLevelReturnInterface = {
       label: item.label,
       level: item.level,
       index: item.index,
       show: item.show
-    } as a
+    } as TreeAddLevelReturnInterface
 
     result.push(obj)
 
@@ -34,21 +34,20 @@ export const treeToFlat = (data: b[]): a[] => {
  * @param tree 
  * @returns 
  */
-export const treeAddLevel = (tree: b[]): b[] => {
+export const treeAddLevel = (tree: TreeDataInterface[]): TreeDataInterface[] => {
   if (!Array.isArray(tree)) {
     return []
   }
 
-  const recursive = (array: b[], level = 0): b[] => {
+  const recursive = (array: TreeDataInterface[], level = 0): TreeDataInterface[] => {
     level++
 
-    return array.map((item: b, index): b => {
+    return array.map((item: TreeDataInterface, index): TreeDataInterface => {
       item.level = level
       item.index = index
-      // item.show = level === 1 ? true : false
       item.show = false
 
-      const child: b[] = item.children as b[]
+      const child: TreeDataInterface[] = item.children as TreeDataInterface[]
 
       if (child && child.length) {
         recursive(child, level)

@@ -3,50 +3,52 @@
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { OrdinaryFunctionInterface as a } from '../../_interface'
-  import type { PopupCallbackInterface as b, PopupPropsType } from './interface'
+  import type {
+    OrdinaryFunctionInterface,
+    HandleMouseEventInterface
+  } from '../../_interface'
+  import type { PopupPropsType } from './interface'
 
   const prop: PopupPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const closePopup: a = (): void => {
+  const closePopup: OrdinaryFunctionInterface = (): void => {
     if (!prop.maskClose) return
     emit('update:visible', false)
   }
 
-  const handleOpen: b = (evt: MouseEvent): void => {
+  const handleOpen: HandleMouseEventInterface = (evt: MouseEvent): void => {
     prop.open && prop.open(evt)
   }
 
-  const handleOpenEnd: b = (evt: MouseEvent): void => {
+  const handleOpenEnd: HandleMouseEventInterface = (evt: MouseEvent): void => {
     prop.openEnd && prop.openEnd(evt)
   }
 
-  const handleClose: b = (evt: MouseEvent): void => {
+  const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     prop.close && prop.close(evt)
   }
 
-  const handleCloseEnd: b = (evt: MouseEvent): void => {
+  const handleCloseEnd: HandleMouseEventInterface = (evt: MouseEvent): void => {
     prop.closeEnd && prop.closeEnd(evt)
   }
 
-  const wrapperStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { direction, popupSize, padding } = prop
+  // 样式列表
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { direction, popupSize, padding } = prop
 
-      if (direction === 'top' || direction === 'bottom') {
-        return {
-          height: sizeChange(popupSize),
-          padding: sizeChange(padding)
-        } as const
-      }
-
+    if (direction === 'top' || direction === 'bottom') {
       return {
-        width: sizeChange(popupSize),
+        height: sizeChange(popupSize),
         padding: sizeChange(padding)
       } as const
     }
-  )
+
+    return {
+      width: sizeChange(popupSize),
+      padding: sizeChange(padding)
+    } as const
+  })
 </script>
 
 <template>
@@ -74,7 +76,7 @@
           ]"
           @click.self="closePopup"
         >
-          <div class="f-popup__wrapper" :style="wrapperStyleList">
+          <div class="f-popup__wrapper" :style="styleList">
             <slot />
           </div>
         </div>

@@ -1,13 +1,17 @@
 import { reactive } from 'vue'
-import type { MessageInstancesType, UseMassageManageReturnInterface, MessageInstance } from './interface'
-import type { MessagePlacementType } from '../../message/src/interface'
+import type {
+  MessageInstancesType,
+  UseMassageManageReturnInterface,
+  MessageInstance,
+  UseMassageManageInterface,
+  MessagePlacementType
+} from './interface'
 
 /**
  * 创建弹出的消息体实例
  * @returns
  */
-// export const useMassageManage = <MessagePlacementType extends string>(): UseMassageManageReturnInterface => {
-export const useMassageManage = (): UseMassageManageReturnInterface => {
+export const useMassageManage: UseMassageManageInterface = (): UseMassageManageReturnInterface => {
   // 组件实例对象
   const instances: MessageInstancesType = reactive({})
 

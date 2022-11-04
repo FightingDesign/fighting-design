@@ -1,12 +1,13 @@
 import type { Ref, ComputedRef } from 'vue'
-export type { GetLunarDetailReturnInterface } from '../../_interface'
+export type { OrdinaryFunctionInterface } from '../../_interface'
+export type { GetLunarDetailReturnInterface } from '../../_utils/calendar-lunar/interface'
 
-export interface DiffDayReturnInterface {
+export interface UseCalculiTimeReturnInterface {
   AllMonthDays: ComputedRef<GetLunarDetailReturnInterface[]>
   changeLastMonth(): void
   changeNextMonth(): void
 }
 
-export interface DiffDayInterface {
+export interface UseCalculiTimeInterface {
   (year: Ref<number>, month: Ref<number>): DiffDayReturnInterface
 }

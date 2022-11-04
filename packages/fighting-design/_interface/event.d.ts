@@ -30,3 +30,14 @@ export interface HandleDragEventInterface {
 export interface HandleFocusEventInterface {
   (evt: FocusEvent): void
 }
+
+/**
+ * WheelEvent 鼠标滚轮事件接口
+ * 
+ * 目前用作 image-preview 组件滚轮放大缩小
+ * 
+ * https://developer.mozilla.org/zh-CN/docs/Web/API/WheelEvent
+ */
+export interface HandleWheelEventInterface {
+  (evt: WheelEvent): void
+}

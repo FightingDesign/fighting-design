@@ -1,7 +1,7 @@
 import { sizeChange } from '../utils'
 import type {
-  CreateBase64Interface as a,
-  CreateWatermarkPropsInterface as b
+  CreateBase64Interface,
+  CreateWatermarkPropsInterface
 } from './interface'
 
 /**
@@ -9,7 +9,7 @@ import type {
  * @param props
  * @returns base64 string
  */
-export const createWatermark: a = (props: b): string => {
+export const createWatermark: CreateBase64Interface = (props: CreateWatermarkPropsInterface): string => {
   const canvas: HTMLCanvasElement = document.createElement('canvas')
   const ratio: number = window.devicePixelRatio || 1
 

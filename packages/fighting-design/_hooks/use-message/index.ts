@@ -10,12 +10,14 @@ import type {
   MessageFn,
   MessageOptions,
   MessageFnWithType,
-  MessagePlacementType
+  MessagePlacementType,
+  UseMessageInterface,
+  UseMessageReturnInterface
 } from './interface'
 
 export const massageManage = useMassageManage()
 
-export const useMessage = (target: 'message' | 'notification'): { instance: MessageFn & Partial<MessageFnWithType> } => {
+export const useMessage: UseMessageInterface = (target: 'message' | 'notification'): UseMessageReturnInterface => {
   let seed = 1
 
   // 位置信息

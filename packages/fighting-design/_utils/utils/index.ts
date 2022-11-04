@@ -1,13 +1,13 @@
 import type {
-  UtilsKeepDecimalInterface as a,
-  UtilsDebounceInterface as b,
-  UtilsIsNumberInterface as c,
-  UtilsPastTimeInterface as d,
-  UtilsPastTimeConfigInterface as e,
-  UtilsAddZeroInterface as f,
-  UtilsSizeChangeInterface as g,
-  UtilsIsBooleanInterface as h,
-  UtilsIsStringInterface as i
+  UtilsKeepDecimalInterface,
+  UtilsDebounceInterface,
+  UtilsIsNumberInterface,
+  UtilsPastTimeInterface,
+  UtilsPastTimeConfigInterface,
+  UtilsAddZeroInterface,
+  UtilsSizeChangeInterface,
+  UtilsIsBooleanInterface,
+  UtilsIsStringInterface
 } from './interface'
 
 /**
@@ -16,7 +16,7 @@ import type {
  * @param no 保留位数
  * @returns 转换结果
  */
-export const keepDecimal: a = (num: number, no = 2): number => {
+export const keepDecimal: UtilsKeepDecimalInterface = (num: number, no = 2): number => {
   return Number(num.toFixed(no))
 }
 
@@ -26,7 +26,7 @@ export const keepDecimal: a = (num: number, no = 2): number => {
  * @param delay 时间
  * @returns Function
  */
-export const debounce: b = (handle: Function, delay = 200): Function => {
+export const debounce: UtilsDebounceInterface = (handle: Function, delay = 200): Function => {
   let timer: NodeJS.Timeout
   return (): void => {
     if (timer) {
@@ -43,7 +43,7 @@ export const debounce: b = (handle: Function, delay = 200): Function => {
  * @param target 要检测的数据
  * @returns boolean
  */
-export const isNumber: c = (target: unknown): target is number => {
+export const isNumber: UtilsIsNumberInterface = (target: unknown): target is number => {
   return (
     typeof target === 'number' &&
     Object.prototype.toString.call(target) === '[object Number]'
@@ -55,7 +55,7 @@ export const isNumber: c = (target: unknown): target is number => {
  * @param target 要检测的数据
  * @returns boolean
  */
-export const isBoolean: h = (target: unknown): target is boolean => {
+export const isBoolean: UtilsIsBooleanInterface = (target: unknown): target is boolean => {
   return (
     typeof target === 'boolean' &&
     Object.prototype.toString.call(target) === '[object Boolean]'
@@ -67,7 +67,7 @@ export const isBoolean: h = (target: unknown): target is boolean => {
  * @param target 要检测的值
  * @returns boolean
  */
-export const isString: i = (target: unknown): target is string => {
+export const isString: UtilsIsStringInterface = (target: unknown): target is string => {
   return (
     typeof target === 'string' &&
     Object.prototype.toString.call(target) === '[object String]'
@@ -79,7 +79,7 @@ export const isString: i = (target: unknown): target is string => {
  * @param time 开始时间 格式为：'2021-01-28 00:00'
  * @returns xx天xx小时xx分钟xx秒
  */
-export const pastTime: d = (
+export const pastTime: UtilsPastTimeInterface = (
   time: string,
   format = 'DD天HH小时MM分钟SS秒'
 ): string => {
@@ -91,7 +91,7 @@ export const pastTime: d = (
   const MINUTES: number = Math.floor(SECONDS / 60)
   const HOURS: number = Math.floor(MINUTES / 60)
 
-  const config: e = {
+  const config: UtilsPastTimeConfigInterface = {
     DD: Math.floor(HOURS / 24).toString(),
     HH: HOURS % 24 > 9 ? (HOURS % 24).toString() : '0' + (HOURS % 24),
     MM: MINUTES % 60 > 9 ? (MINUTES % 60).toString() : '0' + (MINUTES % 60),
@@ -112,7 +112,7 @@ export const pastTime: d = (
  * @param num 日期
  * @returns 
  */
-export const addZero: f = (num: number): string => {
+export const addZero: UtilsAddZeroInterface = (num: number): string => {
   return num > 9 ? num.toString() : `0${num}`
 }
 
@@ -122,6 +122,6 @@ export const addZero: f = (num: number): string => {
  * @param target 单位
  * @returns 
  */
-export const sizeChange: g = (size: string | number, target = 'px'): string => {
+export const sizeChange: UtilsSizeChangeInterface = (size: string | number, target = 'px'): string => {
   return typeof size === 'string' ? size : size + target
 }
