@@ -19,10 +19,3 @@ export interface AppInstallInterface {
  * class 类名集合类型
  */
 export type ClassListInterface = readonly (string | Record<string, unknown>)[]
-
-/**
- * 点击相关的类型
- */
-export interface HandleEventInterface {
-  (evt: MouseEvent): void
-}

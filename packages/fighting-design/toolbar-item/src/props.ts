@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { HandleEventInterface } from '../../_interface'
+import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
   color: {
@@ -19,7 +19,7 @@ export const Props = {
     default: (): string => ''
   },
   click: {
-    type: Function as PropType<HandleEventInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }
 } as const

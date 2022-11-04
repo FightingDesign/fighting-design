@@ -5,7 +5,7 @@ import type {
   ButtonType,
   ButtonNativeType
 } from './interface'
-import type { HandleEventInterface } from '../../_interface'
+import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
   bold: {
@@ -119,7 +119,7 @@ export const Props = {
     default: (): string => ''
   },
   click: {
-    type: Function as PropType<HandleEventInterface>,
+    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }
 } as const

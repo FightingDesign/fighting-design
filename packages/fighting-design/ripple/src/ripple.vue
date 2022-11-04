@@ -4,7 +4,7 @@
   import { computed, ref } from 'vue'
   import type {
     ClassListInterface as a,
-    HandleEventInterface as b
+    HandleMouseEventInterface as b
   } from '../../_interface'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { RipplePropsType } from './props'

@@ -6,7 +6,7 @@
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties, Ref } from 'vue'
   import type {
-    HandleEventInterface as a,
+    HandleMouseEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
   import type { AlertPropsType } from './props'

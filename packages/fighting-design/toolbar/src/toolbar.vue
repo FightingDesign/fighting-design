@@ -4,7 +4,7 @@
   import type { ComputedRef, CSSProperties } from 'vue'
   import type {
     ClassListInterface as a,
-    HandleEventInterface as b
+    HandleMouseEventInterface as b
   } from '../../_interface'
   import type { ToolbarPropsType } from './props'
 

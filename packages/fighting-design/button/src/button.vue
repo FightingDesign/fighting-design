@@ -6,7 +6,7 @@
   import { Ripples, ChangeColor, sizeChange } from '../../_utils'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
-    HandleEventInterface as a,
+    HandleMouseEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
   import type { ButtonPropsType } from './props'
@@ -54,6 +54,7 @@
   // 点击
   const handleClick: a = (evt: MouseEvent): void => {
     const { disabled, loading, ripples } = prop
+    console.log(evt)
 
     if (disabled || loading) {
       evt.preventDefault()

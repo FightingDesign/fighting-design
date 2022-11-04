@@ -4,7 +4,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { HandleEventInterface as a } from '../../_interface'
+  import type { HandleMouseEventInterface as a } from '../../_interface'
   import type { LoadingPropsType } from './props'
 
   const prop: LoadingPropsType = defineProps(Props)

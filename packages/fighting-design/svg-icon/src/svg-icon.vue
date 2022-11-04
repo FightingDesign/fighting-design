@@ -3,7 +3,7 @@
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { HandleEventInterface as a } from '../../_interface'
+  import type { HandleMouseEventInterface as a } from '../../_interface'
   import type { SvgIconPropsType } from './props'
 
   const prop: SvgIconPropsType = defineProps(Props)

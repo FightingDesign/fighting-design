@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FToolbarItem">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import type { HandleEventInterface as a } from '../../_interface'
+  import type { HandleMouseEventInterface as a } from '../../_interface'
   import type { ToolbarItemPropsType } from './props'
 
   const prop: ToolbarItemPropsType = defineProps(Props)

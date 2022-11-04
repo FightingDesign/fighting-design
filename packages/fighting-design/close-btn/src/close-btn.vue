@@ -5,7 +5,7 @@
   import { FIconCrossVue } from '../../_svg'
   import type { ComputedRef } from 'vue'
   import type {
-    HandleEventInterface as a,
+    HandleMouseEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
   import type { CloseBtnPropsType } from './props'

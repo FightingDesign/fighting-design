@@ -14,5 +14,6 @@
 </script>
 
 <template>
+  <f-button type="default">默认按钮</f-button>
   <f-up-load drag multiple v-model:files="files" :change="change" />
 </template>
