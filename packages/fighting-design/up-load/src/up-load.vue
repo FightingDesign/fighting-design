@@ -21,11 +21,11 @@
   const prop: UpLoadPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
+  const dragIng: Ref<boolean> = ref(false)
   const fileList: Ref<File[] | null> = ref<File[]>(null as unknown as File[])
   const FUpLoadInput: Ref<HTMLInputElement> = ref(
     null as unknown as HTMLInputElement
   )
-  const dragIng: Ref<boolean> = ref(false)
 
   // 点击上传
   const handleClick: OrdinaryFunctionInterface = (): void => {
@@ -46,7 +46,7 @@
 
     // 拦截过大的文件
     if (maxSize) {
-      list = list.filter((file: File) => file.size < maxSize)
+      list = list.filter((file: File): boolean => file.size < maxSize)
     }
 
     // 截取最大上传的数量

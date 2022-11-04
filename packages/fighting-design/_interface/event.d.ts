@@ -19,6 +19,8 @@ export interface HandleEventInterface {
 /**
  * DragEvent 拖放事件接口
  * 
+ * 主要用在拖动文件上传
+ * 
  * https://developer.mozilla.org/zh-CN/docs/Web/API/DragEvent
  */
 export interface HandleDragEventInterface {
