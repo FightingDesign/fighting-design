@@ -3,23 +3,27 @@
   import { Props } from './props'
   import { isNumber } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface as a } from '../../_interface'
+  import type { ClassListInterface } from '../../_interface'
   import type { BadgePropsType } from './props'
 
   const prop: BadgePropsType = defineProps(Props)
 
-  const classList: ComputedRef<a> = computed((): a => {
-    const { type, dot } = prop
+  // 类名集合
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { type, dot } = prop
 
-    return [
-      'f-badge__content',
-      {
-        [`f-badge__${type}`]: type,
-        'f-badge__dot': dot
-      }
-    ] as const
-  })
+      return [
+        'f-badge__content',
+        {
+          [`f-badge__${type}`]: type,
+          'f-badge__dot': dot
+        }
+      ] as const
+    }
+  )
 
+  // 展示的内容
   const content: ComputedRef<string> = computed((): string => {
     const { dot, max, value } = prop
 
@@ -32,6 +36,7 @@
     return `${value}`
   })
 
+  // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { color, textColor } = prop
 
