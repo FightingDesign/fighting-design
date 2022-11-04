@@ -12,8 +12,8 @@
   } from '../../_svg'
   import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
-    OrdinaryFunctionInterface as a,
-    ClassListInterface as b
+    OrdinaryFunctionInterface,
+    ClassListInterface
   } from '../../_interface'
   import type { NotificationPropsType } from './props'
   import { massageManage } from '../../_hooks'
@@ -75,19 +75,21 @@
     })
   })
 
-  const classList: ComputedRef<b> = computed((): b => {
-    const { type, round, close, placement } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { type, round, close, placement } = prop
 
-    return [
-      'f-notification',
-      {
-        [`f-notification__${type}`]: type,
-        [`f-notification__${placement}`]: placement,
-        'f-notification__round': round,
-        'f-notification__hasClose': close
-      }
-    ] as const
-  })
+      return [
+        'f-notification',
+        {
+          [`f-notification__${type}`]: type,
+          [`f-notification__${placement}`]: placement,
+          'f-notification__round': round,
+          'f-notification__hasClose': close
+        }
+      ] as const
+    }
+  )
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { color, background, zIndex } = prop
@@ -109,20 +111,20 @@
 
   const timer = ref<NodeJS.Timeout>()
 
-  const clearTimer: a = (): void => {
+  const clearTimer: OrdinaryFunctionInterface = (): void => {
     if (!timer.value) return
     clearTimeout(timer.value)
   }
 
-  const closeMessage: a = (): void => {
+  const closeMessage: OrdinaryFunctionInterface = (): void => {
     clearTimer()
     visible.value = false
   }
-  const closeMessageEnd: a = (): void => {
+  const closeMessageEnd: OrdinaryFunctionInterface = (): void => {
     massageManage.removeInstance(prop.placement, prop.id)
   }
 
-  const startTime: a = (): void => {
+  const startTime: OrdinaryFunctionInterface = (): void => {
     if (!prop.duration) return
     timer.value = setTimeout((): void => {
       closeMessage()

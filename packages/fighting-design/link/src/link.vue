@@ -5,14 +5,14 @@
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type {
-    HandleMouseEventInterface as a,
-    ClassListInterface as b
+    HandleMouseEventInterface,
+    ClassListInterface
   } from '../../_interface'
   import type { LinkPropsType } from './props'
 
   const prop: LinkPropsType = defineProps(Props)
 
-  const handleClick: a = (evt: MouseEvent): void => {
+  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     if (prop.prohibit || prop.noLink) {
       evt.preventDefault()
       return
@@ -20,19 +20,21 @@
     prop.click && prop.click(evt)
   }
 
-  const classList: ComputedRef<b> = computed((): b => {
-    const { type, state, prohibit, noCopy } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { type, state, prohibit, noCopy } = prop
 
-    return [
-      'f-link',
-      {
-        [`f-link__${state}`]: state,
-        [`f-link__${type}`]: type,
-        'f-link__prohibit': prohibit,
-        'f-link__no-copy': noCopy
-      }
-    ] as const
-  })
+      return [
+        'f-link',
+        {
+          [`f-link__${state}`]: state,
+          [`f-link__${type}`]: type,
+          'f-link__prohibit': prohibit,
+          'f-link__no-copy': noCopy
+        }
+      ] as const
+    }
+  )
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { size, color } = prop

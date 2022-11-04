@@ -2,16 +2,18 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import type { ComputedRef } from 'vue'
-  import type { ClassListInterface as a } from '../../_interface'
+  import type { ClassListInterface } from '../../_interface'
   import type { LoadingBarPropsType } from './props'
 
   const prop: LoadingBarPropsType = defineProps(Props)
 
-  const classList: ComputedRef<a> = computed((): a => {
-    const { type } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { type } = prop
 
-    return ['f-loading-bar', { [`f-loading-bar__${type}`]: type }] as const
-  })
+      return ['f-loading-bar', { [`f-loading-bar__${type}`]: type }] as const
+    }
+  )
 </script>
 
 <template>
