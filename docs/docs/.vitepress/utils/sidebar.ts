@@ -41,7 +41,7 @@ export const sidebar = {
       ]
     },
     {
-      text: '数据展示',
+      text: '数据输入',
       link: '/components/',
       items: [
         { text: 'Badge 角标', link: '/components/badge' },
