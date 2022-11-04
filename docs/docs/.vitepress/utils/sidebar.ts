@@ -60,7 +60,8 @@ export const sidebar = {
         { text: 'Tree 树', link: '/components/tree' },
         { text: 'StickyCard 粘性卡片', link: '/components/sticky-card' },
         { text: 'Rate 评分', link: '/components/rate' },
-        { text: 'Input 输入框', link: '/components/input' }
+        { text: 'Input 输入框', link: '/components/input' },
+        { text: 'Up Load 文件上传', link: '/components/up-load' }
       ]
     },
     {
