@@ -8,6 +8,7 @@
 
   const prop: TextPropsType = defineProps(Props)
 
+  // 类名列表
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { type, block, bold, ellipsis, center } = prop
@@ -25,6 +26,7 @@
     }
   )
 
+  // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     return {
       '--f-text-color': prop.color,

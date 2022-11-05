@@ -42,6 +42,7 @@
     } as CSSProperties
   })
 
+  // 类名列表
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       return [
