@@ -43,7 +43,7 @@
 </button>
 ```
 
-因为在组件中都会有一个唯一的 `class`，也就是 `f-button`，那么对于 `f-button-round` 的属性前面，也应该加入 `f-button` 才可以防止样式污染。
+因为在组件中都会有一个唯一的 `class`，也就是 `f-button`，那么对于 `f-button__round` 的属性前面，也应该加入 `f-button` 才可以防止样式污染。
 
 反面例子：
 
@@ -51,7 +51,7 @@
 .f-button {
   /*  */
 }
-.f-button-round {
+.f-button__round {
   border-radius: 4px;
 }
 ```
@@ -62,7 +62,7 @@
 .f-button {
   /*  */
 }
-.f-button.f-button-round {
+.f-button.f-button__round {
   border-radius: 4px;
 }
 ```

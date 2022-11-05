@@ -43,7 +43,7 @@ For example, in the `FButton` component, the round corner attribute can be confi
 </button>
 ```
 
-Because there will be a unique `class` in a component, that is,`f-button`, then `f-button` should also be added in front of the `f-button-round` attribute to prevent style pollution.
+Because there will be a unique `class` in a component, that is,`f-button`, then `f-button` should also be added in front of the `f-button__round` attribute to prevent style pollution.
 
 Negative example:
 
@@ -51,7 +51,7 @@ Negative example:
 .f-button {
   /*  */
 }
-.f-button-round {
+.f-button__round {
   border-radius: 4px;
 }
 ```
@@ -62,7 +62,7 @@ Positive examples:
 .f-button {
   /*  */
 }
-.f-button.f-button-round {
+.f-button.f-button__round {
   border-radius: 4px;
 }
 ```
