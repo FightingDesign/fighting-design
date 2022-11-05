@@ -18,7 +18,7 @@ export const useOperationImg: UseOperationImgInterface = (): UseOperationImgRetu
 
   /**
    * 图片缩小
-   * @returns 
+   * @returns { void }
    */
   const smaller: OrdinaryFunctionInterface = (): void => {
     if (keepDecimal(scale.value, 1) <= 0.2) {
@@ -29,7 +29,7 @@ export const useOperationImg: UseOperationImgInterface = (): UseOperationImgRetu
 
   /**
    * 图片放大
-   * @returns 
+   * @returns { void }
    */
   const bigger: OrdinaryFunctionInterface = (): void => {
     if (scale.value >= 10) {
@@ -40,8 +40,8 @@ export const useOperationImg: UseOperationImgInterface = (): UseOperationImgRetu
 
   /**
    * 滚轮缩放
-   * @param evt 事件对象
-   * @returns 
+   * @param evt 鼠标滚轮事件对象
+   * @returns { void }
    */
   const onImgMousewheel: HandleWheelEventInterface = (evt: WheelEvent): void => {
     evt.preventDefault()
@@ -54,6 +54,7 @@ export const useOperationImg: UseOperationImgInterface = (): UseOperationImgRetu
 
   /**
    * 还原图片
+   * @return { void }
    */
   const recovery: OrdinaryFunctionInterface = (): void => {
     scale.value = 1
