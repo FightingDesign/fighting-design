@@ -15,9 +15,13 @@ export type { OrdinaryFunctionInterface, HandleWheelEventInterface } from '../..
  * 
  * bigger 缩小操作
  * 
- * onImgMousewheel 滚轮缩放
+ * scrollZoom 滚轮缩放
  * 
  * recovery 还原图片
+ * 
+ * rotateClockwise: 顺时针旋转
+ * 
+ * rotateCounterClock 逆时针旋转
  * 
  */
 export interface UseOperationImgReturnInterface {
@@ -25,8 +29,10 @@ export interface UseOperationImgReturnInterface {
   rotate: Ref<number>
   smaller: OrdinaryFunctionInterface
   bigger: OrdinaryFunctionInterface
-  onImgMousewheel: HandleWheelEventInterface
+  scrollZoom: HandleWheelEventInterface
   recovery: OrdinaryFunctionInterface
+  rotateClockwise: OrdinaryFunctionInterface
+  rotateCounterClock: OrdinaryFunctionInterface
 }
 
 /**

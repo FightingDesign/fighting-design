@@ -30,8 +30,17 @@
   const prop: ImagePreviewPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const { scale, rotate, smaller, bigger, onImgMousewheel, recovery } =
-    useOperationImg()
+  const {
+    scale,
+    rotate,
+    smaller,
+    bigger,
+    scrollZoom,
+    recovery,
+    rotateClockwise,
+    rotateCounterClock
+  } = useOperationImg()
+
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
   const previewShowIndex: Ref<number> = ref<number>(
     prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex
@@ -106,15 +115,9 @@
       1: (): void => smaller(),
       2: (): void => bigger(),
       3: (): void => recovery(),
-      4: (): void => {
-        rotate.value += 90
-      },
-      5: (): void => {
-        rotate.value -= 90
-      }
+      4: (): void => rotateClockwise(),
+      5: (): void => rotateCounterClock()
     } as const
-
-    console.log(target)
 
     if (optionMap[target.key as string]) {
       optionMap[target.key as string]()
@@ -123,7 +126,7 @@
 </script>
 
 <template>
-  <div class="f-image-preview" @mousewheel="onImgMousewheel">
+  <div class="f-image-preview" @mousewheel="scrollZoom">
     <f-popup v-model:visible="isVisible" :open="imagPreload">
       <img
         class="f-image-preview__exhibition"
