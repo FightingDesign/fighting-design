@@ -2,6 +2,20 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.8.0-alpha.6 (2022-11-06)
+
+**Fix Bugs**
+
+- Fix the failure of clicking the `f-image-preview` image preview component operation bar
+- Optimize some component types
+
+## 0.8.0-alpha.6 (2022-11-06)
+
+**修复 Bug**
+
+- 修复 `f-image-preview` 图片预览组件操作栏点击失效的问题
+- 优化部分组件类型
+
 ## 0.8.0-alpha.5 (2022-11-04)
 
 - 对于 ts 类型方面，做了进一步的优化
