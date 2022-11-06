@@ -13,7 +13,9 @@ import type {
  * @returns { UseOperationImgReturnInterface }
  */
 export const useOperationImg: UseOperationImgInterface = (): UseOperationImgReturnInterface => {
+  // 放大倍数
   const scale: Ref<number> = ref<number>(1)
+  // 旋转度数
   const rotate: Ref<number> = ref<number>(0)
 
   /**
