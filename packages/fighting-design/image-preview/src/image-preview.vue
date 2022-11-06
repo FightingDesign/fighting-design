@@ -43,6 +43,7 @@
     prop.close && prop.close()
   }
 
+  // 监视绑定值，如果为假，则关闭
   watch(
     (): boolean => isVisible.value,
     (newVal: boolean): void => {
@@ -113,6 +114,8 @@
       }
     } as const
 
+    console.log(target)
+
     if (optionMap[target.key as string]) {
       optionMap[target.key as string]()
     }
@@ -162,7 +165,7 @@
         v-if="isOption"
         class="f-image-preview__option"
         round
-        @click="optionClick"
+        :click="optionClick"
       >
         <f-toolbar-item :icon="FIconZoomOutVue" :data-key="1" />
         <f-toolbar-item :icon="FIconZoomInVue" :data-key="2" />

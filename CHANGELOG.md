@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复 Bug**
+
+- 修复 Image Preview 图片预览组件操作栏点击失效的问题
+
 ## 0.8.0-alpha.5 (2022-11-04)
 
 - 对于 ts 类型方面，做了进一步的优化
