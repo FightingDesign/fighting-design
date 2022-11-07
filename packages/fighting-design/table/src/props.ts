@@ -39,6 +39,20 @@ export const Props = {
   num: {
     type: Boolean,
     default: (): boolean => false
+  },
+  /**
+   * 是否显示斑马纹
+   */
+  zebra: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  /**
+   * 自定义斑马纹颜色
+   */
+  zebraColor: {
+    type: String,
+    default: (): null => null
   }
 } as const
 

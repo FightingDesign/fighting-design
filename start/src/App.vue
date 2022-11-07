@@ -40,7 +40,7 @@
 </script>
 
 <template>
-  <f-table border :data="data" :columns="columns" />
+  <f-table border num :data="data" :columns="columns" align="center" zebra />
 </template>
 
 <style lang="scss">
