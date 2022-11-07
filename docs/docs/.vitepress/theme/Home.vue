@@ -32,6 +32,7 @@
         >
           <f-image
             src="https://img.shields.io/github/stars/FightingDesign/fighting-design?style=social"
+            alt="Fighting Design"
           />
         </f-link>
       </h1>
