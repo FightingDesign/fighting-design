@@ -84,9 +84,16 @@ export const addZero: UtilsAddZeroInterface = (num: number): string => {
 
 /**
  * 将数字尺寸改为字符串
+ * 
+ * 有些 props 传入的参数可能是 string 或者 number 类型
+ * 
+ * 这些数值需要转换成单位，所以默认 string 类型是有单位的，如 1px、20%
+ * 
+ * 对于 number 类型的参数，就需要追加 target 类型的单位
+ * 
  * @param size 尺寸
  * @param target 单位
- * @returns { string }
+ * @returns { string } 已经追加单位的字符串数值
  */
 export const sizeChange: UtilsSizeChangeInterface = (size: string | number, target = 'px'): string => {
   return typeof size === 'string' ? size : size + target

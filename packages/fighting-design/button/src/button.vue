@@ -18,7 +18,9 @@
     null as unknown as HTMLButtonElement
   )
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const {
@@ -53,7 +55,9 @@
     }
   )
 
-  // 按钮点击
+  /**
+   * 按钮点击
+   */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     const { disabled, loading, ripples } = prop
 
@@ -84,7 +88,9 @@
     prop.click && prop.click(evt)
   }
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, fontColor, shadow, color } = prop
 

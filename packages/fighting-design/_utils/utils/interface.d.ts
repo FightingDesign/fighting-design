@@ -67,6 +67,8 @@ export interface UtilsAddZeroInterface {
  * 这些数值需要转换成单位，所以默认 string 类型是有单位的，如 1px、20%
  * 
  * 对于 number 类型的参数，就需要追加 target 类型的单位
+ * 
+ * 返回已经追加单位的字符串数值
  */
 export interface UtilsSizeChangeInterface {
   (size: string | number, target?: string): string
