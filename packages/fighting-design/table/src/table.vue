@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FTable">
   import { Props } from './props'
   import { computed } from 'vue'
+  import { sizeChange } from '../../_utils'
   import type { ClassListInterface } from '../../_interface'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { TablePropsType } from './interface'
@@ -28,17 +29,36 @@
    * 样式列表
    */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { zebraColor } = prop
+    const { zebraColor, height } = prop
 
     return {
-      '--f-table-zebra-color': zebraColor
+      '--f-table-zebra-color': zebraColor,
+      '--f-table-height': sizeChange(height)
     } as CSSProperties
   })
 </script>
 
 <template>
-  <div class="f-table">
-    <table border="0" :class="classList" :style="styleList">
+  <div class="f-table" :style="styleList">
+    <div class="f-table__content">
+      <div v-if="height" class="f-table__header">
+        <table>
+          <colgroup>
+            <col width="150" />
+            <col width="190" />
+            <col width="240" />
+          </colgroup>
+          <tr>
+            <th v-if="num">序号</th>
+            <th v-for="(column, index) in columns" :key="index">
+              {{ column.title }}
+            </th>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <table border="0" :class="classList">
       <!-- 头部 -->
       <thead class="f-table__thead" :align="align">
         <tr class="f-table__tr">

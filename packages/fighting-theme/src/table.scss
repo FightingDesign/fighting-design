@@ -2,8 +2,8 @@
 
 .f-table {
   width: 100%;
-  overflow-y: hidden;
-  overflow-x: auto;
+  overflow: auto;
+  height: var(--f-table-height);
 
   // 主容器
   &__container {
@@ -12,6 +12,7 @@
     border-color: #eee;
     border-spacing: 0;
     border-collapse: collapse;
+    position: relative;
 
     // 头部
     .f-table__thead {
@@ -26,6 +27,11 @@
           font-weight: 500;
         }
       }
+    }
+
+    // 身体
+    .f-table__tbody {
+      height: calc(var(--f-table-height) - 45px);
     }
 
     // 边框状态
@@ -60,5 +66,16 @@
         }
       }
     }
+  }
+
+  // 滚动条
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  // 滚动滑块
+  &::-webkit-scrollbar-thumb {
+    background: #dddddd;
+    border-radius: 6px;
   }
 }

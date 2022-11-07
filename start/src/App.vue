@@ -35,12 +35,117 @@
       date: '2021-11-03',
       name: '李逵',
       address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-12-04',
+      name: '李四',
+      address: '浙江省杭州市西湖区 12 号'
+    },
+    {
+      date: '2021-10-01',
+      name: '王英',
+      address: '浙江省杭州市临平区 2 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-12-04',
+      name: '李四',
+      address: '浙江省杭州市西湖区 12 号'
+    },
+    {
+      date: '2021-10-01',
+      name: '王英',
+      address: '浙江省杭州市临平区 2 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
+    },
+    {
+      date: '2021-11-03',
+      name: '李逵',
+      address: '浙江省杭州市拱墅区 199 号'
     }
   ]
 </script>
 
 <template>
-  <f-table border num :data="data" :columns="columns" align="center" zebra />
+  <f-table :data="data" :columns="columns" height="500px" />
 </template>
 
 <style lang="scss">

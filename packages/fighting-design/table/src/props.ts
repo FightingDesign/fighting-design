@@ -53,6 +53,13 @@ export const Props = {
   zebraColor: {
     type: String,
     default: (): null => null
+  },
+  /**
+   * 自定义高度
+   */
+  height: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): null => null
   }
 } as const
 
