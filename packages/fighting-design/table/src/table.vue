@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
-  import { TableColgroupVue } from './components'
+  // import { TableColgroupVue } from './components'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { TablePropsType } from './interface'
 
@@ -26,12 +26,21 @@
     <div class="f-table__container">
       <!-- 头部 -->
       <header v-if="height" class="f-table__header">
-        <table>
-          <table-colgroup-vue />
+        <table class="f-table__table">
+          <colgroup :align="align">
+            <col />
+            <col />
+            <col />
+          </colgroup>
           <thead>
             <tr>
               <th v-if="num">序号</th>
-              <th v-for="(column, index) in columns" :key="index">
+              <th
+                v-for="(column, index) in columns"
+                :key="index"
+                colspan="1"
+                rowspan="1"
+              >
                 {{ column.title }}
               </th>
             </tr>
@@ -41,8 +50,12 @@
 
       <!-- 身体 -->
       <main :class="['f-table__body', { 'f-table__body-margin': height }]">
-        <table>
-          <table-colgroup-vue />
+        <table class="f-table__table">
+          <colgroup :align="align">
+            <col />
+            <col />
+            <col />
+          </colgroup>
           <thead v-if="!height" :align="align">
             <tr>
               <th v-if="num">序号</th>

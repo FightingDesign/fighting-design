@@ -1,30 +1,30 @@
 @import '../config/const-color.scss';
 
 .f-table {
-  width: 100%;
   height: var(--f-table-height);
 
   &__container {
     position: relative;
-    width: 100%;
     background: #fff;
     height: var(--f-table-height);
     box-sizing: border-box;
     border: 1px solid #eee;
 
+    .f-table__table {
+      width: 100%;
+      border-spacing: 0;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
     // 头部
     .f-table__header {
       position: absolute;
-      width: 100%;
       right: 0;
       left: 0;
       top: 0;
 
       table {
-        border-spacing: 0;
-        border-collapse: collapse;
-        width: 100%;
-
         thead {
           background: rgb(247, 247, 247);
           font-size: 16px;
@@ -52,10 +52,6 @@
       }
 
       table {
-        width: 100%;
-        border-spacing: 0;
-        border-collapse: collapse;
-
         thead {
           background: rgb(247, 247, 247);
           font-size: 16px;

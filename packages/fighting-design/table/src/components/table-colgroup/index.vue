@@ -2,8 +2,11 @@
 
 <template>
   <colgroup>
-    <col width="150px" />
+    <!-- <col width="150px" />
     <col width="90px" />
-    <col width="auto" />
+    <col width="auto" /> -->
+    <col />
+    <col />
+    <col />
   </colgroup>
 </template>

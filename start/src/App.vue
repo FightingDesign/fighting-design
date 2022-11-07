@@ -145,7 +145,7 @@
 </script>
 
 <template>
-  <f-table :data="data" :columns="columns" height="500px" align="center" />
+  <f-table :data="data" :columns="columns" />
 </template>
 
 <style lang="scss">
