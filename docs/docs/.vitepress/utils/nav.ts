@@ -1,5 +1,8 @@
 import { version } from '../../../../packages/fighting-design/package.json'
 
+/**
+ * 顶部导航栏菜单
+ */
 export const nav = [
   {
     text: '文档',

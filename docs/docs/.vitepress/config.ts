@@ -1,27 +1,13 @@
 import { nav } from './utils/nav'
 import { sidebar } from './utils/sidebar'
 import { description } from './utils/description'
+import { head } from './utils/head'
 import { defineConfig } from 'vitepress'
 import { mdPlugin } from './config/plugins'
 
 export default defineConfig({
   title: 'Fighting Design',
-  head: [
-    [
-      'link',
-      {
-        rel: 'icon',
-        href: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
-      }
-    ],
-    [
-      'meta',
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1.0,user-scalable=no'
-      }
-    ]
-  ],
+  head,
   description,
   lastUpdated: true,
   themeConfig: {

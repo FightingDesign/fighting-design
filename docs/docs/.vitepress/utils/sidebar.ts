@@ -1,3 +1,6 @@
+/**
+ * 侧边栏菜单
+ */
 export const sidebar = {
   '/docs/': [
     {
