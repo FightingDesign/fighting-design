@@ -1,2 +1,71 @@
 .f-table {
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  // 主容器
+  &__container {
+    width: 100%;
+    display: inline-table;
+    border-collapse: collapse;
+
+    // 头部
+    .f-table__thead {
+      background: rgb(247, 247, 247);
+      font-size: 16px;
+      color: #333;
+      height: 45px;
+      .f-table__tr {
+        .f-table__th {
+          font-weight: 500;
+        }
+      }
+    }
+
+    // 身体
+    .f-table__tbody {
+      .f-table__tr {
+        border-bottom: 1px solid #eee;
+      }
+    }
+
+    // 公共样式
+    .f-table__thead,
+    .f-table__tbody {
+      .f-table__tr {
+        // border-bottom: 1px solid #eee;
+
+        .f-table__th,
+        .f-table__td {
+          font-weight: 500;
+          padding: 12px;
+          box-sizing: border-box;
+        }
+      }
+    }
+
+    &.f-table__left {
+      tr,
+      td,
+      th {
+        text-align: left;
+      }
+    }
+
+    &.f-table__center {
+      tr,
+      td,
+      th {
+        text-align: center;
+      }
+    }
+
+    &.f-table__right {
+      tr,
+      td,
+      th {
+        text-align: right;
+      }
+    }
+  }
 }
