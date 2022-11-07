@@ -2,8 +2,6 @@ import type {
   UtilsKeepDecimalInterface,
   UtilsDebounceInterface,
   UtilsIsNumberInterface,
-  UtilsPastTimeInterface,
-  UtilsPastTimeConfigInterface,
   UtilsAddZeroInterface,
   UtilsSizeChangeInterface,
   UtilsIsBooleanInterface,
@@ -11,10 +9,10 @@ import type {
 } from './interface'
 
 /**
- * 保留小数点后 n 位
+ * 保留小数点后 no 位
  * @param num 带有小数的数字
  * @param no 保留位数
- * @returns 转换结果
+ * @returns { Number } 转换后的数字
  */
 export const keepDecimal: UtilsKeepDecimalInterface = (num: number, no = 2): number => {
   return Number(num.toFixed(no))
@@ -22,18 +20,19 @@ export const keepDecimal: UtilsKeepDecimalInterface = (num: number, no = 2): num
 
 /**
  * 防抖
- * @param handle 回调函数
- * @param delay 时间
- * @returns Function
+ * 来处理对于短时间内连续触发的事件加以限制
+ * @param callback 回调函数
+ * @param delay 延时的时间
+ * @returns { Function }
  */
-export const debounce: UtilsDebounceInterface = (handle: Function, delay = 200): Function => {
+export const debounce: UtilsDebounceInterface = (callback: Function, delay = 200): Function => {
   let timer: NodeJS.Timeout
   return (): void => {
     if (timer) {
       clearTimeout(timer)
     }
     timer = setTimeout((): void => {
-      handle()
+      callback()
     }, delay)
   }
 }
@@ -41,7 +40,7 @@ export const debounce: UtilsDebounceInterface = (handle: Function, delay = 200):
 /**
  * 检测一个数据是否为 Number 类型
  * @param target 要检测的数据
- * @returns boolean
+ * @returns { boolean }
  */
 export const isNumber: UtilsIsNumberInterface = (target: unknown): target is number => {
   return (
@@ -53,7 +52,7 @@ export const isNumber: UtilsIsNumberInterface = (target: unknown): target is num
 /**
  * 检测一个数据是否为 boolean 类型
  * @param target 要检测的数据
- * @returns boolean
+ * @returns { boolean }
  */
 export const isBoolean: UtilsIsBooleanInterface = (target: unknown): target is boolean => {
   return (
@@ -65,7 +64,7 @@ export const isBoolean: UtilsIsBooleanInterface = (target: unknown): target is b
 /**
  * 判断一个值是否为字符串
  * @param target 要检测的值
- * @returns boolean
+ * @returns { boolean }
  */
 export const isString: UtilsIsStringInterface = (target: unknown): target is string => {
   return (
@@ -75,42 +74,9 @@ export const isString: UtilsIsStringInterface = (target: unknown): target is str
 }
 
 /**
- * 计算从一个时间到现在过去多久
- * @param time 开始时间 格式为：'2021-01-28 00:00'
- * @returns xx天xx小时xx分钟xx秒
- */
-export const pastTime: UtilsPastTimeInterface = (
-  time: string,
-  format = 'DD天HH小时MM分钟SS秒'
-): string => {
-  const now: number = new Date().getTime()
-  const target: number = new Date(time.replace(/-/g, '/')).getTime()
-  const diff: number = now - target
-
-  const SECONDS: number = Math.floor(diff / 1000)
-  const MINUTES: number = Math.floor(SECONDS / 60)
-  const HOURS: number = Math.floor(MINUTES / 60)
-
-  const config: UtilsPastTimeConfigInterface = {
-    DD: Math.floor(HOURS / 24).toString(),
-    HH: HOURS % 24 > 9 ? (HOURS % 24).toString() : '0' + (HOURS % 24),
-    MM: MINUTES % 60 > 9 ? (MINUTES % 60).toString() : '0' + (MINUTES % 60),
-    SS:
-      SECONDS % 60 > 9
-        ? (SECONDS % 60).toString().toString()
-        : '0' + (SECONDS % 60)
-  }
-
-  for (const key in config) {
-    format = format.replace(key, config[key])
-  }
-  return format
-}
-
-/**
- * 给数字前面加 0
+ * 给数字小于 10 的数字前面加 0
  * @param num 日期
- * @returns 
+ * @returns { string }
  */
 export const addZero: UtilsAddZeroInterface = (num: number): string => {
   return num > 9 ? num.toString() : `0${num}`
@@ -120,7 +86,7 @@ export const addZero: UtilsAddZeroInterface = (num: number): string => {
  * 将数字尺寸改为字符串
  * @param size 尺寸
  * @param target 单位
- * @returns 
+ * @returns { string }
  */
 export const sizeChange: UtilsSizeChangeInterface = (size: string | number, target = 'px'): string => {
   return typeof size === 'string' ? size : size + target

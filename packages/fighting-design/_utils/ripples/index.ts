@@ -19,6 +19,7 @@ export class Ripples implements RipplesInterface {
   }
   /**
    * 点击生成涟漪效果
+   * @return { void }
    */
   clickRipples: OrdinaryFunctionInterface = (): void => {
     /**
@@ -55,6 +56,7 @@ export class Ripples implements RipplesInterface {
    * 如果设置了 ripplesColor 则直接返回
    * 在 simple 和 text 模式下，根据 type 返回颜色
    * 否则返回默认白色
+   * @return { String }
    */
   computedRipplesColor = (): string => {
     if (this.option.ripplesColor) {
@@ -86,6 +88,7 @@ export class Ripples implements RipplesInterface {
    * 渲染节点
    * @param x 坐标 x
    * @param y 坐标 y
+   * @return { HTMLSpanElement }
    */
   renderElement = (x: number, y: number): HTMLSpanElement => {
     const ripples: HTMLSpanElement = document.createElement(
@@ -106,6 +109,7 @@ export class Ripples implements RipplesInterface {
   /**
    * 删除涟漪节点
    * @param node dom
+   * @return { void } 
    */
   removeElement = (node: HTMLElement): void => {
     setTimeout((): void => {
