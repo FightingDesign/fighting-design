@@ -15,6 +15,7 @@
       border-spacing: 0;
       border-collapse: collapse;
       table-layout: fixed;
+      text-align: left;
     }
 
     // 头部
@@ -35,6 +36,8 @@
           tr {
             th {
               font-weight: 500;
+              padding: 12px;
+              box-sizing: border-box;
             }
           }
         }
@@ -63,9 +66,9 @@
             th {
               font-weight: 500;
               padding: 12px;
+              box-sizing: border-box;
               font-size: 15px;
               color: rgb(79, 79, 79);
-              box-sizing: border-box;
             }
           }
         }

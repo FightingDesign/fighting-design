@@ -27,20 +27,15 @@
       <!-- 头部 -->
       <header v-if="height" class="f-table__header">
         <table class="f-table__table">
-          <colgroup :align="align">
+          <colgroup>
             <col />
             <col />
             <col />
           </colgroup>
-          <thead>
+          <thead :align="align">
             <tr>
               <th v-if="num">序号</th>
-              <th
-                v-for="(column, index) in columns"
-                :key="index"
-                colspan="1"
-                rowspan="1"
-              >
+              <th v-for="(column, index) in columns" :key="index">
                 {{ column.title }}
               </th>
             </tr>
@@ -51,7 +46,7 @@
       <!-- 身体 -->
       <main :class="['f-table__body', { 'f-table__body-margin': height }]">
         <table class="f-table__table">
-          <colgroup :align="align">
+          <colgroup>
             <col />
             <col />
             <col />
