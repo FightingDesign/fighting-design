@@ -132,11 +132,6 @@
     cursor: not-allowed;
   }
 
-  // 前缀 icon
-  &__before-icon {
-    margin-right: 5px;
-  }
-
   // loading
   &__loading-animation {
     animation: f-button-loading-animation 1s linear infinite;

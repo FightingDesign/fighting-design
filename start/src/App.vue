@@ -1,17 +1,25 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const show1 = ref(true)
-
-  const listImg = [
-    'https://tianyuhao.cn/images/auto/1.jpg',
-    'https://tianyuhao.cn/images/auto/2.jpg',
-    'https://tianyuhao.cn/images/auto/3.jpg',
-    'https://tianyuhao.cn/images/auto/4.jpg'
-  ]
+  import { FIconArrowLeft } from '@fighting-design/fighting-icon'
 </script>
 
 <template>
-  <f-button type="primary" @click="show1 = true">打开</f-button>
-  <f-image-preview v-model:visible="show1" :img-list="listImg" />
+  <f-button circle :before-icon="FIconArrowLeft" type="default"></f-button>
+  <f-button circle :after-icon="FIconArrowLeft" type="default"></f-button>
+  <f-button
+    :after-icon="FIconArrowLeft"
+    :before-icon="FIconArrowLeft"
+    type="default"
+  >
+    <f-svg-icon :icon="FIconArrowLeft" />
+    <f-svg-icon :icon="FIconArrowLeft" />
+    <f-svg-icon :icon="FIconArrowLeft" />
+    文字内容
+  </f-button>
+
+  <f-button circle type="primary">
+    <f-svg-icon :icon="FIconArrowLeft" />
+  </f-button>
+  <f-button :before-icon="FIconArrowLeft" type="primary">基础按钮</f-button>
 </template>
+
+<style lang="scss" scoped></style>

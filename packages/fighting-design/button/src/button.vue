@@ -125,10 +125,7 @@
     >
       <f-svg-icon
         v-if="loading || beforeIcon"
-        :class="[
-          'f-button__before-icon',
-          { 'f-button__loading-animation': loading }
-        ]"
+        :class="{ 'f-button__loading-animation': loading }"
         :icon="loading ? loadingIcon || h(FIconLoadingAVue) : beforeIcon"
         :size="16"
       />
@@ -154,10 +151,7 @@
     >
       <f-svg-icon
         v-if="loading || beforeIcon"
-        :class="[
-          'f-button__before-icon',
-          { 'f-button__loading-animation': loading }
-        ]"
+        :class="{ 'f-button__loading-animation': loading }"
         :icon="loading ? loadingIcon || h(FIconLoadingAVue) : beforeIcon"
         :size="16"
       />
