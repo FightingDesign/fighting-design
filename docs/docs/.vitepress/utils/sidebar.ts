@@ -64,7 +64,8 @@ export const sidebar = {
         { text: 'StickyCard 粘性卡片', link: '/components/sticky-card' },
         { text: 'Rate 评分', link: '/components/rate' },
         { text: 'Input 输入框', link: '/components/input' },
-        { text: 'Up Load 文件上传', link: '/components/up-load' }
+        { text: 'Up Load 文件上传', link: '/components/up-load' },
+        { text: 'Table 表格', link: '/components/table' }
       ]
     },
     {
