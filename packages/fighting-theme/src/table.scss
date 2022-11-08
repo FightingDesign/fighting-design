@@ -9,7 +9,6 @@
     position: relative;
     height: var(--f-table-height);
     box-sizing: border-box;
-    border: 1px solid #eee;
 
     // 在限制高度时展示的头部
     .f-table__header {
@@ -57,6 +56,8 @@
         cursor: default;
 
         tr {
+          border-bottom: 1px solid #eee;
+
           th {
             font-weight: 500;
             padding: 12px;
@@ -74,16 +75,25 @@
         cursor: default;
 
         tr {
+          border-bottom: 1px solid #eee;
+
           td {
             font-weight: 500;
             padding: 12px;
             font-size: 15px;
             color: #333;
             box-sizing: border-box;
-            border-bottom: 1px solid #eee;
           }
         }
       }
+    }
+  }
+
+  // 边框状态
+  &__border {
+    th,
+    td {
+      border-right: 1px solid #eee;
     }
   }
 }

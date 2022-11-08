@@ -75,14 +75,7 @@
 </script>
 
 <template>
-  <f-table
-    :data="data"
-    optional
-    :columns="columns"
-    border
-    bg-color="red"
-    head-bg-color="#333"
-  />
+  <f-table :data="data" :columns="columns" />
 </template>
 
 <style lang="scss">
