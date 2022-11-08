@@ -8,7 +8,7 @@
     {
       title: '姓名',
       key: 'name',
-      width: '100px'
+      width: '300px'
     },
     {
       title: '地址',

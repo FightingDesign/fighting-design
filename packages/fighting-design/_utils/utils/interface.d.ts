@@ -69,7 +69,9 @@ export interface UtilsAddZeroInterface {
  * 对于 number 类型的参数，就需要追加 target 类型的单位
  * 
  * 返回已经追加单位的字符串数值
+ * 
+ * 有些情况下也有可能传入的是 undefined，所以也要加入该类型
  */
 export interface UtilsSizeChangeInterface {
-  (size: string | number, target?: string): string
+  (size: string | number | undefined, target?: string): string
 }

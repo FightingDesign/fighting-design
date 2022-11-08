@@ -16,5 +16,5 @@ export type TableDateType = object[]
 export interface TableColumnsInterface {
   title: string
   key: string
-  width?: number | string
+  width?: number | string | undefined
 }

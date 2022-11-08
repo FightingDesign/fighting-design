@@ -1,12 +1,17 @@
-<script lang="ts" setup name="FTableColgroup"></script>
+<script lang="ts" setup name="FTableColgroup">
+  import { Props } from './props'
+  import { sizeChange } from '../../../../_utils'
+  import type { TablePropsType } from './interface'
+
+  const prop: TablePropsType = defineProps(Props)
+</script>
 
 <template>
   <colgroup>
-    <!-- <col width="150px" />
-    <col width="90px" />
-    <col width="auto" /> -->
-    <col />
-    <col />
-    <col />
+    <col
+      v-for="(column, index) in prop.columns"
+      :key="index"
+      :width="sizeChange(column.width)"
+    />
   </colgroup>
 </template>

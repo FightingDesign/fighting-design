@@ -95,7 +95,7 @@ export const addZero: UtilsAddZeroInterface = (num: number): string => {
  * @param target 单位
  * @returns { string } 已经追加单位的字符串数值
  */
-export const sizeChange: UtilsSizeChangeInterface = (size: string | number, target = 'px'): string => {
+export const sizeChange: UtilsSizeChangeInterface = (size: string | number | undefined, target = 'px'): string => {
   if (!size) return ''
   return typeof size === 'string' ? size : size + target
 }
