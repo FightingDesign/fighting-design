@@ -23,8 +23,10 @@
     } as CSSProperties
   })
 
+  /**
+   * 处理自定义渲染内容
+   */
   const columnsSlotData = (target: Function): VNode => {
-    console.dir(target)
     return target(h)
   }
 </script>
