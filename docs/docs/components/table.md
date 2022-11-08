@@ -414,13 +414,13 @@
 
 `height` 属性可自定义表格的高度，当设置了合法的 `height` 之后，表头变为固定样式
 
-<f-table :data="data" :columns="columns" :height="230" />
+<f-table :data="data2" :columns="columns" :height="300" />
 
 ::: details 显示代码
 
 ```html
 <template>
-  <f-table :data="data" :columns="columns" :height="230" />
+  <f-table :data="data2" :columns="columns" :height="300" />
 </template>
 
 <script lang="ts" setup>
@@ -440,12 +440,26 @@
       key: 'introduce'
     }
   ])
-
   const data = ref([
     {
       name: '卡莉斯塔',
       age: '22',
       introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
+    },
+    {
+      name: '艾希',
+      age: '16',
+      introduce: '拥有强大减速和控制能力的远程射手'
+    },
+    {
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
+    },
+    {
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
     },
     {
       name: '艾希',
@@ -838,4 +852,41 @@ import type {
     }
   ])
 
+  const data2 = ref([
+    {
+      name: '卡莉斯塔',
+      age: '22',
+      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
+    },
+    {
+      name: '艾希',
+      age: '16',
+      introduce: '拥有强大减速和控制能力的远程射手'
+    },
+    {
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
+    },
+    {
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
+    },
+    {
+      name: '艾希',
+      age: '16',
+      introduce: '拥有强大减速和控制能力的远程射手'
+    },
+    {
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
+    },
+    {
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
+    }
+  ])
 </script>

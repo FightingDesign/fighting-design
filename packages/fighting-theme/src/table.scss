@@ -11,6 +11,7 @@ $tableZebra: #f7f7f7;
     position: relative;
     height: var(--f-table-height);
     box-sizing: border-box;
+    border: 1px solid #eee;
 
     // 在限制高度时展示的头部
     .f-table__header {
