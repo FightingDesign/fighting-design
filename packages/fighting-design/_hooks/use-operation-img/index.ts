@@ -9,11 +9,17 @@ import type {
 } from './interface'
 
 /**
- * 用于 image-preview 组件的图片操作 hooks
+ * 用于 image-preview 组件的图片操作 hook
+ * 
+ * 主要用作图片的放大、缩小、滚轮缩放
+ * 
  * @returns { UseOperationImgReturnInterface }
  */
 export const useOperationImg: UseOperationImgInterface = (): UseOperationImgReturnInterface => {
+
+  // 放大倍数
   const scale: Ref<number> = ref<number>(1)
+  // 旋转度数
   const rotate: Ref<number> = ref<number>(0)
 
   /**
@@ -21,10 +27,7 @@ export const useOperationImg: UseOperationImgInterface = (): UseOperationImgRetu
    * @returns { void }
    */
   const smaller: OrdinaryFunctionInterface = (): void => {
-    if (keepDecimal(scale.value, 1) <= 0.2) {
-      return
-    }
-    scale.value -= 0.2
+    (keepDecimal(scale.value, 1) >= 0.2) && (scale.value -= 0.2)
   }
 
   /**
@@ -32,10 +35,7 @@ export const useOperationImg: UseOperationImgInterface = (): UseOperationImgRetu
    * @returns { void }
    */
   const bigger: OrdinaryFunctionInterface = (): void => {
-    if (scale.value >= 10) {
-      return
-    }
-    scale.value += 0.2
+    (scale.value <= 10) && (scale.value += 0.2)
   }
 
   /**
@@ -43,13 +43,9 @@ export const useOperationImg: UseOperationImgInterface = (): UseOperationImgRetu
    * @param evt 鼠标滚轮事件对象
    * @returns { void }
    */
-  const onImgMousewheel: HandleWheelEventInterface = (evt: WheelEvent): void => {
+  const scrollZoom: HandleWheelEventInterface = (evt: WheelEvent): void => {
     evt.preventDefault()
-    if (evt.deltaY > 1) {
-      smaller()
-      return
-    }
-    bigger()
+    evt.deltaY > 1 ? smaller() : bigger()
   }
 
   /**
@@ -61,12 +57,30 @@ export const useOperationImg: UseOperationImgInterface = (): UseOperationImgRetu
     rotate.value = 0
   }
 
+  /**
+   * 顺时针旋转
+   * @return { void }
+   */
+  const rotateClockwise: OrdinaryFunctionInterface = (): void => {
+    rotate.value += 90
+  }
+
+  /**
+   * 逆时针旋转
+   * @return { void }
+   */
+  const rotateCounterClock: OrdinaryFunctionInterface = (): void => {
+    rotate.value -= 90
+  }
+
   return {
     scale,
     rotate,
     smaller,
     bigger,
-    onImgMousewheel,
-    recovery
+    scrollZoom,
+    recovery,
+    rotateClockwise,
+    rotateCounterClock
   } as UseOperationImgReturnInterface
 }

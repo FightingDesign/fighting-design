@@ -1,3 +1,6 @@
+/**
+ * 贡献者列表
+ */
 export const contributors = [
   { avatar: 'https://avatars.githubusercontent.com/u/73180970?v=4', homePage: 'https://github.com/Tyh2001' },
   { avatar: 'https://avatars.githubusercontent.com/u/44802220?v=4', homePage: 'https://github.com/konvyi' },

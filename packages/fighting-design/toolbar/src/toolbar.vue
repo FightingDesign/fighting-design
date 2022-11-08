@@ -6,7 +6,7 @@
     ClassListInterface,
     HandleMouseEventInterface
   } from '../../_interface'
-  import type { ToolbarPropsType } from './props'
+  import type { ToolbarPropsType, ToolbarClickEmitInterface } from './interface'
 
   const prop: ToolbarPropsType = defineProps(Props)
 
@@ -36,20 +36,17 @@
     } as const
   })
 
-  const handleClick: HandleMouseEventInterface = (evt: Event): void => {
-    // 针对 Safari 点击事件 event.path 为 undefined 不存在做兼容
-    // https://blog.csdn.net/weixin_43388844/article/details/120002440
-    const path: HTMLElement[] =
-      (evt as unknown as { path: HTMLElement[] }).path ||
-      (evt.composedPath && evt.composedPath()) ||
-      []
+  // 点击的时候
+  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+    const path: HTMLElement[] = evt.composedPath() as HTMLElement[]
+
     const node: HTMLElement | undefined = path.find(
-      (item: HTMLElement): boolean => {
-        return item.className === 'f-toolbar-item'
-      }
+      (item: HTMLElement): boolean => item.className === 'f-toolbar-item'
     )
+
     const key: string | undefined = node ? node.dataset.key : ''
-    prop.click && prop.click({ evt, key })
+
+    prop.click && prop.click({ evt, key } as ToolbarClickEmitInterface)
   }
 </script>
 

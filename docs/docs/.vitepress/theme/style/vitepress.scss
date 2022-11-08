@@ -52,6 +52,19 @@
     list-style: none;
   }
 
+  // 移除表格默认样式
+  table {
+    margin: 0;
+
+    th,
+    tr,
+    td,
+    tr:nth-child(2n) {
+      border: none;
+      background: none;
+    }
+  }
+
   // 表格
   .vp-table__container {
     width: 100%;
@@ -72,7 +85,7 @@
     th {
       text-align: center;
       font-size: 15px;
-      border: none;
+      border-bottom: 1px solid #eee;
     }
   }
 

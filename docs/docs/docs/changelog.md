@@ -2,6 +2,26 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.8.1-alpha.1 (2022-11-08)
+
+**新特性**
+
+- `f-checkbox` 组件新增 `show-label` 配置项
+- `f-checkbox` 组件 `modelValue` 配置项新增 `array` 类型
+- 新增 `f-table` 组件
+
+**其它**
+
+- 优化了些 `f-button` 组件的样式细节
+- 优化 `f-toolbar` 组件的一些内部实现和类型
+
+## 0.8.0-alpha.6 (2022-11-06)
+
+**修复 Bug**
+
+- 修复 `f-image-preview` 图片预览组件操作栏点击失效的问题
+- 优化部分组件类型
+
 ## 0.8.0-alpha.5 (2022-11-04)
 
 - 对于 ts 类型方面，做了进一步的优化

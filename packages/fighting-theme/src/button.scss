@@ -132,11 +132,6 @@
     cursor: not-allowed;
   }
 
-  // 前缀 icon
-  &__before-icon {
-    margin-right: 5px;
-  }
-
   // loading
   &__loading-animation {
     animation: f-button-loading-animation 1s linear infinite;
@@ -185,7 +180,7 @@
   &.f-button__color {
     background: var(--f-button-default-color);
 
-    &.f-button-disabled {
+    &.f-button__disabled {
       &:hover {
         background: var(--f-button-default-color);
       }
