@@ -12,6 +12,7 @@
     prop.click && prop.click(evt)
   }
 
+  // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     return {
       fontSize: sizeChange(prop.size),

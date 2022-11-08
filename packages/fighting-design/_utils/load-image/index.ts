@@ -33,6 +33,7 @@ class Load implements LoadInterface {
    * 第一步会进入到这里
    * 首先加载当前的 src 地址图片
    * @param errSrc src 失败后的加载路径
+   * @return { void }
    */
   loadCreateImg = (errSrc?: string): void => {
     const newImg: HTMLImageElement = new Image()
@@ -56,7 +57,7 @@ class Load implements LoadInterface {
   /**
    * 加载失败
    * @param evt 事件对象
-   * @returns
+   * @return { void }
    */
   onerror = (evt: Event): void => {
     // 如果存在 errSrc 则继续尝试加载
@@ -74,6 +75,7 @@ class Load implements LoadInterface {
    * 图片加载
    * @param evt 事件对象
    * @param src 需要加载的 src
+   * @return { void }
    */
   onload = (evt: Event, src: string): void => {
     this.node.src = src
@@ -97,7 +99,7 @@ class Lazy extends Load implements LoadLazyInterface {
   }
   /**
    * 懒加载函数
-   * @returns
+   * @returns { IntersectionObserver }
    */
   observer = (): IntersectionObserver => {
     const observer: IntersectionObserver = new IntersectionObserver(
@@ -117,6 +119,7 @@ class Lazy extends Load implements LoadLazyInterface {
   }
   /**
    * 执行懒加载
+   * @return { void }
    */
   lazyCreateImg = (): void => {
     this.observer().observe(this.node)
@@ -128,6 +131,7 @@ class Lazy extends Load implements LoadLazyInterface {
  * @param node img 元素
  * @param prop Props
  * @param callback 回调函数
+ * @return { void }
  */
 export const loadImage: LoadImageInterface = (
   node: HTMLImageElement,

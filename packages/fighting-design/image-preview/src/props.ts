@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { ImagePreviewCloseInterface } from './interface'
+import type { OrdinaryFunctionInterface } from '../../_interface'
 
 export const Props = {
   visible: {
@@ -41,7 +41,7 @@ export const Props = {
     default: (): string => ''
   },
   close: {
-    type: Function as PropType<ImagePreviewCloseInterface>,
+    type: Function as PropType<OrdinaryFunctionInterface>,
     default: (): null => null
   }
 } as const

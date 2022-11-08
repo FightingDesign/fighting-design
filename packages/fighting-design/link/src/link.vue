@@ -12,6 +12,7 @@
 
   const prop: LinkPropsType = defineProps(Props)
 
+  // 点击
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     if (prop.prohibit || prop.noLink) {
       evt.preventDefault()
@@ -20,6 +21,7 @@
     prop.click && prop.click(evt)
   }
 
+  // 类名列表
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { type, state, prohibit, noCopy } = prop
@@ -36,6 +38,7 @@
     }
   )
 
+  // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { size, color } = prop
 

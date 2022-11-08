@@ -7,7 +7,8 @@
 
   const prop: SpacePropsType = defineProps(Props)
 
-  const spaceClassList: ComputedRef<ClassListInterface> = computed(
+  // 样式列表
+  const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { wrap, vertical, spacing } = prop
 
@@ -22,17 +23,16 @@
     }
   )
 
-  const spaceStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { rowGap, columnGap } = prop
+  // 类名列表
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { rowGap, columnGap } = prop
 
-      return { rowGap, columnGap } as const
-    }
-  )
+    return { rowGap, columnGap } as const
+  })
 </script>
 
 <template>
-  <div v-if="$slots.default" :class="spaceClassList" :style="spaceStyleList">
+  <div v-if="$slots.default" :class="classList" :style="styleList">
     <slot />
   </div>
 </template>

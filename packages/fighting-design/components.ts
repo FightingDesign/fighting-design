@@ -158,3 +158,6 @@ export * from './swap'
 
 export { FUpLoad } from './up-load'
 export * from './up-load'
+
+export { FTable } from './table'
+export * from './table'

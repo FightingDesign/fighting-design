@@ -1,7 +1,9 @@
 dist/*
+**/dist/**
 dist-icon/*
 node_modules/*
+*/node_modules/*
+**/node_modules/**
 logo/*
 start/dist/*
-start/src/*
 packages/add-component/template/*

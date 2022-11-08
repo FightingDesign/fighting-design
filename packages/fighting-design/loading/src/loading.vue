@@ -9,10 +9,12 @@
 
   const prop: LoadingPropsType = defineProps(Props)
 
+  // 点击
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     prop.closeEnd && prop.closeEnd(evt)
   }
 
+  // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { background, opacity } = prop
 

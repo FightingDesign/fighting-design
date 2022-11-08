@@ -7,6 +7,7 @@
 
   const prop: SkeletonPropsType = defineProps(Props)
 
+  // 类名列表
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { rounded, animated, circled, size } = prop

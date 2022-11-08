@@ -103,8 +103,11 @@
 ```ts
 import type {
   ExpandCardInstance,
+  ExpandCardPropsType,
+  ExpandCardImageListItemInterface,
   ExpandCardImageListType,
-  ExpandCardPropsType
+  ExpandCardSwitchExpandCardInterface,
+  ExpandCardActiveClassInterface
 } from 'fighting-design'
 ```
 

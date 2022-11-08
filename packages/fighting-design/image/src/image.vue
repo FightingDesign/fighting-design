@@ -43,6 +43,7 @@
     loadAction()
   })
 
+  // 类名列表
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { fit, noSelect } = prop
@@ -57,6 +58,7 @@
     }
   )
 
+  // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { width, height, round } = prop
 

@@ -12,28 +12,33 @@
   const prop: SwitchPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
+  // 点击切换
   const handleClick: OrdinaryFunctionInterface = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', !prop.modelValue)
     prop.change && prop.change(!prop.modelValue)
   }
 
-  const rollStyle: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { modelValue, closeColor, openColor, size } = prop
+  // 小球样式
+  const rollStyleList: ComputedRef<CSSProperties> = computed(
+    (): CSSProperties => {
+      const { modelValue, closeColor, openColor, size } = prop
 
-    const _size = {
-      large: '24px',
-      middle: '20px',
-      small: '16px'
-    } as const
+      const _size = {
+        large: '24px',
+        middle: '20px',
+        small: '16px'
+      } as const
 
-    return {
-      right: modelValue ? '0px' : _size[size],
-      borderColor: modelValue ? openColor : closeColor
-    } as const
-  })
+      return {
+        right: modelValue ? '0px' : _size[size],
+        borderColor: modelValue ? openColor : closeColor
+      } as const
+    }
+  )
 
-  const FSwitchClass: ComputedRef<ClassListInterface> = computed(
+  // 类名集合
+  const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { size, modelValue, square } = prop
 
@@ -62,11 +67,11 @@
     </span>
 
     <div
-      :class="FSwitchClass"
+      :class="classList"
       :style="{ background: modelValue ? openColor : closeColor }"
       @click="handleClick"
     >
-      <span class="f-switch__roll" :style="rollStyle">
+      <span class="f-switch__roll" :style="rollStyleList">
         <f-svg-icon v-if="icon" :icon="icon" :size="14" />
       </span>
     </div>

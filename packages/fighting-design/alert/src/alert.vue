@@ -15,7 +15,9 @@
 
   const isShow: Ref<boolean> = ref<boolean>(true)
 
-  // class 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { type, bold, simple, center, round, fixed } = prop
@@ -34,7 +36,9 @@
     }
   )
 
-  // content class 列表
+  /**
+   * content 类名列表
+   */
   const contentClassList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { overflow } = prop
@@ -48,7 +52,9 @@
     }
   )
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, color, background, titleSize, titleColor } = prop
 
@@ -61,7 +67,9 @@
     } as CSSProperties
   })
 
-  // 关闭
+  /**
+   * 点击关闭按钮
+   */
   const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     isShow.value = false
     prop.closeEnd && prop.closeEnd(evt)

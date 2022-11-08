@@ -20,8 +20,9 @@
   import type {
     ImagePreviewSwitchImageInterface,
     ImagePreviewOptionClickInterface,
-    OptionFunInterface,
-    ImagePreviewPropsType
+    ImagePreviewOptionClickOptionMapInterface,
+    ImagePreviewPropsType,
+    ImagePreviewSwitchImageOptionMapInterface
   } from './interface'
   import type { OrdinaryFunctionInterface } from '../../_interface'
   import type { ToolbarClickEmitInterface } from '../../toolbar/src/interface'
@@ -29,8 +30,17 @@
   const prop: ImagePreviewPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const { scale, rotate, smaller, bigger, onImgMousewheel, recovery } =
-    useOperationImg()
+  const {
+    scale,
+    rotate,
+    smaller,
+    bigger,
+    scrollZoom,
+    recovery,
+    rotateClockwise,
+    rotateCounterClock
+  } = useOperationImg()
+
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
   const previewShowIndex: Ref<number> = ref<number>(
     prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex
@@ -42,6 +52,7 @@
     prop.close && prop.close()
   }
 
+  // 监视绑定值，如果为假，则关闭
   watch(
     (): boolean => isVisible.value,
     (newVal: boolean): void => {
@@ -74,7 +85,7 @@
   ): void => {
     recovery()
 
-    const optionFun = {
+    const optionMap: ImagePreviewSwitchImageOptionMapInterface = {
       next: (): void => {
         if (previewShowIndex.value < prop.imgList.length - 1) {
           previewShowIndex.value++
@@ -91,8 +102,8 @@
       }
     } as const
 
-    if (optionFun[type]) {
-      optionFun[type]()
+    if (optionMap[type]) {
+      optionMap[type]()
     }
   }
 
@@ -100,26 +111,22 @@
   const optionClick: ImagePreviewOptionClickInterface = (
     target: ToolbarClickEmitInterface
   ): void => {
-    const optionFun: OptionFunInterface = {
+    const optionMap: ImagePreviewOptionClickOptionMapInterface = {
       1: (): void => smaller(),
       2: (): void => bigger(),
       3: (): void => recovery(),
-      4: (): void => {
-        rotate.value += 90
-      },
-      5: (): void => {
-        rotate.value -= 90
-      }
+      4: (): void => rotateClockwise(),
+      5: (): void => rotateCounterClock()
     } as const
 
-    if (optionFun[target.key as string]) {
-      optionFun[target.key as string]()
+    if (optionMap[target.key as string]) {
+      optionMap[target.key as string]()
     }
   }
 </script>
 
 <template>
-  <div class="f-image-preview" @mousewheel="onImgMousewheel">
+  <div class="f-image-preview" @mousewheel="scrollZoom">
     <f-popup v-model:visible="isVisible" :open="imagPreload">
       <img
         class="f-image-preview__exhibition"
@@ -159,7 +166,7 @@
         v-if="isOption"
         class="f-image-preview__option"
         round
-        @click="optionClick"
+        :click="optionClick"
       >
         <f-toolbar-item :icon="FIconZoomOutVue" :data-key="1" />
         <f-toolbar-item :icon="FIconZoomInVue" :data-key="2" />

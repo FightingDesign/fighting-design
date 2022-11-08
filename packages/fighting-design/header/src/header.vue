@@ -7,6 +7,7 @@
 
   const prop: HeaderPropsType = defineProps(Props)
 
+  // 样式列表
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { height, padding } = prop
 
