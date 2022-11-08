@@ -58,9 +58,11 @@
 
     th,
     tr,
-    td,
-    tr:nth-child(2n) {
+    td {
       border: none;
+      background: none;
+    }
+    tr:nth-child(2n) {
       background: none;
     }
   }
