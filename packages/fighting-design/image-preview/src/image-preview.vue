@@ -5,6 +5,7 @@
   import { FToolbar } from '../../toolbar'
   import { FToolbarItem } from '../../toolbar-item'
   import { FPopup } from '../../popup'
+  import { isString } from '../../_utils'
   import {
     FIconChevronLeftVue,
     FIconChevronRightVue,
@@ -119,8 +120,8 @@
       5: (): void => rotateCounterClock()
     } as const
 
-    if (optionMap[target.key as string]) {
-      optionMap[target.key as string]()
+    if (isString(target.key) && optionMap[target.key]) {
+      optionMap[target.key]()
     }
   }
 </script>

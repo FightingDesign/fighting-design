@@ -4,6 +4,13 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.8.1-alpha.2 (2022-11-08)
+
+**Fix**
+
+- Fix the style details of the `f-button` components custom colors
+- Fix `f-table` component style details
+
 ## 0.8.1-alpha.1 (2022-11-08)
 
 **New features**
