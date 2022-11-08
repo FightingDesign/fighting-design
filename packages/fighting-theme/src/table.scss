@@ -2,46 +2,21 @@
 
 .f-table {
   height: var(--f-table-height);
+  background: var(--f-table-bg-color, #fff);
 
+  // 主容器
   &__container {
     position: relative;
-    background: #fff;
     height: var(--f-table-height);
     box-sizing: border-box;
     border: 1px solid #eee;
 
-    .f-table__table {
-      width: 100%;
-      border-spacing: 0;
-      border-collapse: collapse;
-      table-layout: fixed;
-      text-align: left;
-    }
-
-    // 头部
+    // 在限制高度时展示的头部
     .f-table__header {
       position: absolute;
       right: 0;
       left: 0;
       top: 0;
-
-      table {
-        thead {
-          background: rgb(247, 247, 247);
-          font-size: 16px;
-          color: rgb(78, 78, 78);
-          height: 45px;
-          cursor: default;
-
-          tr {
-            th {
-              font-weight: 500;
-              padding: 12px;
-              box-sizing: border-box;
-            }
-          }
-        }
-      }
     }
 
     // 身体
@@ -54,44 +29,6 @@
         margin-top: 45px;
       }
 
-      table {
-        thead {
-          background: rgb(247, 247, 247);
-          font-size: 16px;
-          color: rgb(78, 78, 78);
-          height: 45px;
-          cursor: default;
-
-          tr {
-            th {
-              font-weight: 500;
-              padding: 12px;
-              box-sizing: border-box;
-              font-size: 15px;
-              color: rgb(79, 79, 79);
-            }
-          }
-        }
-
-        tbody {
-          font-size: 16px;
-          color: rgb(78, 78, 78);
-          height: 45px;
-          cursor: default;
-
-          tr {
-            td {
-              font-weight: 500;
-              padding: 12px;
-              font-size: 15px;
-              color: #333;
-              box-sizing: border-box;
-              border-bottom: 1px solid #eee;
-            }
-          }
-        }
-      }
-
       // 滚动条
       &::-webkit-scrollbar {
         width: 7px;
@@ -101,6 +38,51 @@
       &::-webkit-scrollbar-thumb {
         background: #dddddd;
         border-radius: 6px;
+      }
+    }
+
+    // table 公共样式
+    table {
+      width: 100%;
+      border-spacing: 0;
+      border-collapse: collapse;
+      table-layout: fixed;
+      text-align: left;
+
+      thead {
+        background: var(--f-table-head-bg-color, rgb(247, 247, 247));
+        font-size: 16px;
+        color: rgb(78, 78, 78);
+        height: 45px;
+        cursor: default;
+
+        tr {
+          th {
+            font-weight: 500;
+            padding: 12px;
+            box-sizing: border-box;
+            font-size: 15px;
+            color: rgb(79, 79, 79);
+          }
+        }
+      }
+
+      tbody {
+        font-size: 16px;
+        color: rgb(78, 78, 78);
+        height: 45px;
+        cursor: default;
+
+        tr {
+          td {
+            font-weight: 500;
+            padding: 12px;
+            font-size: 15px;
+            color: #333;
+            box-sizing: border-box;
+            border-bottom: 1px solid #eee;
+          }
+        }
       }
     }
   }

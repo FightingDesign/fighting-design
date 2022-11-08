@@ -67,6 +67,20 @@ export const Props = {
   optional: {
     type: Boolean,
     default: (): boolean => false
+  },
+  /**
+   * 自定义背景颜色
+   */
+  bgColor: {
+    type: String,
+    default: (): null => null
+  },
+  /**
+   * 自定义头部背景颜色
+   */
+  headBgColor: {
+    type: String,
+    default: (): null => null
   }
 } as const
 
