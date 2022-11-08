@@ -1,4 +1,4 @@
-import type { App } from 'vue'
+import type { App, Directive } from 'vue'
 import type { InstallType } from './interface'
 
 /**
@@ -21,6 +21,13 @@ export const install = <T>(main: T): InstallType<T> => {
 export const installFn = <T>(main: T, name: string): InstallType<T> => {
   (main as InstallType<T>).install = (app: App): void => {
     app.config.globalProperties[name] = main as InstallType<T>
+  }
+  return main as InstallType<T>
+}
+
+export const installDirective = <T extends Directive>(main: T, name: string): T => {
+  (main as InstallType<T>).install = (app: App): void => {
+    app.directive(name, main as InstallType<T>)
   }
   return main as InstallType<T>
 }
