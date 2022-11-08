@@ -54,6 +54,8 @@
 
   // 移除表格默认样式
   table {
+    margin: 0;
+
     th,
     tr,
     td,
@@ -83,7 +85,7 @@
     th {
       text-align: center;
       font-size: 15px;
-      border: none;
+      border-bottom: 1px solid #eee;
     }
   }
 

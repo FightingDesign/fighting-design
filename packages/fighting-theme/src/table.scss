@@ -3,6 +3,8 @@ $tableZebra: #f7f7f7;
 .f-table {
   height: var(--f-table-height);
   background: var(--f-table-bg-color, #fff);
+  border: 1px solid #eee;
+  border-right: none;
 
   // 主容器
   &__container {
@@ -47,6 +49,7 @@ $tableZebra: #f7f7f7;
       border-collapse: collapse;
       table-layout: fixed;
       text-align: left;
+      display: inline-table;
 
       thead {
         background: var(--f-table-head-bg-color, $tableZebra);
@@ -87,13 +90,13 @@ $tableZebra: #f7f7f7;
         }
       }
     }
-  }
 
-  // 边框状态
-  &__border {
-    th,
-    td {
-      border-right: 1px solid #eee;
+    // 边框状态
+    &.f-table__border {
+      th,
+      td {
+        border-right: 1px solid #eee;
+      }
     }
   }
 
