@@ -180,7 +180,7 @@
   &.f-button__color {
     background: var(--f-button-default-color);
 
-    &.f-button-disabled {
+    &.f-button__disabled {
       &:hover {
         background: var(--f-button-default-color);
       }
