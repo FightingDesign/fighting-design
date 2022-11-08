@@ -1,11 +1,13 @@
 import Table from './src/table.vue'
 
-import { install } from '../_utils'
+import style from '../../fighting-theme/src/table.scss'
 
-export const FTable = install(Table)
+import { installWebComponent } from '../_utils'
 
-export type TableInstance = InstanceType<typeof Table>
+import type { ComponentPublicInstance } from 'vue'
+
+export const FTable: ComponentPublicInstance = installWebComponent(Table, style)
 
 export * from './src/interface.d'
 
-export default Table
+export default FTable
