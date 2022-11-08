@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 修复 `f-button` 组件自定义颜色的样式细节
+
 ## 0.8.1-alpha.1 (2022-11-08)
 
 **新特性**
