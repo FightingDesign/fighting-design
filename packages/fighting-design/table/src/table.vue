@@ -3,12 +3,13 @@
   import { computed, ref } from 'vue'
   import { sizeChange } from '../../_utils'
   import { TableColgroupVue } from './components'
-  import type { ComputedRef, CSSProperties } from 'vue'
+  import type { ComputedRef, CSSProperties, Ref } from 'vue'
   import type { TablePropsType } from './interface'
 
   const prop: TablePropsType = defineProps(Props)
 
-  const optionalList = ref([])
+  // 多选项
+  const optionalList: Ref<string[]> = ref([])
 
   /**
    * 样式列表
@@ -51,6 +52,7 @@
           <thead v-if="!height" :align="align">
             <tr>
               <th v-if="num">序号</th>
+              <th v-if="optional">选择</th>
               <th v-for="(column, index) in columns" :key="index">
                 {{ column.title }}
               </th>
@@ -60,9 +62,13 @@
           <tbody :align="align">
             <tr v-for="(dataItem, m) in data" :key="m">
               <td v-if="num">{{ m + 1 }}</td>
-              <th v-if="optional">
-                <f-checkbox v-model="optionalList" :label="m" />
-              </th>
+              <td v-if="optional">
+                <f-checkbox
+                  v-model="optionalList"
+                  :show-label="false"
+                  :label="(m + 1).toString()"
+                />
+              </td>
               <td v-for="(column, i) in columns" :key="i">
                 {{ dataItem[column.key] }}
               </td>

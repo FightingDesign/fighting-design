@@ -148,13 +148,7 @@
 </script>
 
 <template>
-  <f-checkbox v-model="option2" :show-label="false" label="鸡肉卷" />
-  <f-checkbox v-model="option2" :show-label="false" label="鸡排" />
-  <f-checkbox v-model="option2" :show-label="false" label="汉堡" />
-
-  <h1>{{ option2 }}</h1>
-
-  <f-table :data="data" optional :columns="columns" height="500px" />
+  <f-table :data="data" optional :columns="columns" />
 </template>
 
 <style lang="scss">
