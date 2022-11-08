@@ -4,6 +4,8 @@
 
 - 优化了些 `f-button` 组件的样式细节
 - 优化 `f-toolbar` 组件的一些内部实现和类型
+- `f-checkbox` 组件新增 `show-label` 配置项
+- `f-checkbox` 组件 `modelValue` 配置项新增 `array` 类型
 
 ## 0.8.0-alpha.6 (2022-11-06)
 

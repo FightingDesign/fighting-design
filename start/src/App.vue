@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const option2 = ref(['汉堡'])
   const columns = [
     {
       title: '日期',
@@ -145,7 +148,13 @@
 </script>
 
 <template>
-  <f-table :data="data" :columns="columns" height="500px" />
+  <f-checkbox v-model="option2" :show-label="false" label="鸡肉卷" />
+  <f-checkbox v-model="option2" :show-label="false" label="鸡排" />
+  <f-checkbox v-model="option2" :show-label="false" label="汉堡" />
+
+  <h1>{{ option2 }}</h1>
+
+  <f-table :data="data" optional :columns="columns" height="500px" />
 </template>
 
 <style lang="scss">
