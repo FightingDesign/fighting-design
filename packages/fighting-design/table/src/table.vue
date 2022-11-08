@@ -35,7 +35,12 @@
 
 <template>
   <div class="f-table" :style="styleList">
-    <div :class="['f-table__container', { 'f-table__border': border }]">
+    <div
+      :class="[
+        'f-table__container',
+        { 'f-table__border': border, 'f-table__zebra': zebra }
+      ]"
+    >
       <template v-if="columns || data">
         <!-- 在限制高度时展示的头部 -->
         <header v-if="height" class="f-table__header">

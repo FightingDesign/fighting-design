@@ -1,4 +1,4 @@
-@import '../config/const-color.scss';
+$tableZebra: #f7f7f7;
 
 .f-table {
   height: var(--f-table-height);
@@ -49,9 +49,9 @@
       text-align: left;
 
       thead {
-        background: var(--f-table-head-bg-color, rgb(247, 247, 247));
+        background: var(--f-table-head-bg-color, $tableZebra);
         font-size: 16px;
-        color: rgb(78, 78, 78);
+        color: #4e4e4e;
         height: 45px;
         cursor: default;
 
@@ -94,6 +94,16 @@
     th,
     td {
       border-right: 1px solid #eee;
+    }
+  }
+
+  // 斑马纹
+  &__zebra {
+    tbody {
+      // https://developer.mozilla.org/zh-CN/docs/Web/CSS/:nth-child
+      tr:nth-child(2n) {
+        background: var(--f-table-zebra-color, $tableZebra);
+      }
     }
   }
 }

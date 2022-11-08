@@ -75,7 +75,7 @@
 </script>
 
 <template>
-  <f-table :data="data" :columns="columns" />
+  <f-table :data="data" :columns="columns" zebra />
 </template>
 
 <style lang="scss">
