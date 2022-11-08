@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
+  import { FButton } from '../../packages/fighting-design/index'
 
-  const option2 = ref(['汉堡'])
   const columns = [
     {
       title: '日期',
@@ -16,114 +15,42 @@
     {
       title: '地址',
       key: 'address'
+    },
+    {
+      title: '操作',
+      render: (h: Function): Function => {
+        return h('div', { class: 'box' }, [
+          h(
+            FButton,
+            {
+              type: 'primary',
+              round: true,
+              click: () => {
+                console.log('查看详情')
+              }
+            },
+            {
+              default: () => '查看详情'
+            }
+          ),
+          h(
+            FButton,
+            {
+              type: 'primary',
+              round: true,
+              click: () => {
+                console.log('查看详情')
+              }
+            },
+            {
+              default: () => '查看详情'
+            }
+          )
+        ])
+      }
     }
   ]
   const data = [
-    {
-      date: '2021-11-02',
-      name: '张三',
-      address: '浙江省杭州市上城区 231 号'
-    },
-    {
-      date: '2021-12-04',
-      name: '李四',
-      address: '浙江省杭州市西湖区 12 号'
-    },
-    {
-      date: '2021-10-01',
-      name: '王英',
-      address: '浙江省杭州市临平区 2 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-12-04',
-      name: '李四',
-      address: '浙江省杭州市西湖区 12 号'
-    },
-    {
-      date: '2021-10-01',
-      name: '王英',
-      address: '浙江省杭州市临平区 2 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-12-04',
-      name: '李四',
-      address: '浙江省杭州市西湖区 12 号'
-    },
-    {
-      date: '2021-10-01',
-      name: '王英',
-      address: '浙江省杭州市临平区 2 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
-    {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
-    },
     {
       date: '2021-11-03',
       name: '李逵',

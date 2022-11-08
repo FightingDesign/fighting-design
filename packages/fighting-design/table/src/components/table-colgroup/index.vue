@@ -7,6 +7,7 @@
 </script>
 
 <template>
+  <!-- https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/colgroup -->
   <colgroup>
     <col
       v-for="(column, index) in prop.columns"

@@ -1,9 +1,9 @@
 <script lang="ts" setup name="FTable">
   import { Props } from './props'
-  import { computed, ref } from 'vue'
+  import { computed, ref, h } from 'vue'
   import { sizeChange } from '../../_utils'
   import { TableColgroupVue } from './components'
-  import type { ComputedRef, CSSProperties, Ref } from 'vue'
+  import type { ComputedRef, CSSProperties, Ref, VNode } from 'vue'
   import type { TablePropsType } from './interface'
 
   const prop: TablePropsType = defineProps(Props)
@@ -22,12 +22,17 @@
       '--f-table-height': sizeChange(height)
     } as CSSProperties
   })
+
+  const columnsSlotData = (target: Function): VNode => {
+    console.dir(target)
+    return target(h)
+  }
 </script>
 
 <template>
   <div class="f-table" :style="styleList">
     <div v-if="columns || data" class="f-table__container">
-      <!-- 头部 -->
+      <!-- 在限制高度时展示的头部 -->
       <header v-if="height" class="f-table__header">
         <table class="f-table__table">
           <table-colgroup-vue :columns="columns" />
@@ -49,6 +54,7 @@
         <table class="f-table__table">
           <table-colgroup-vue :columns="columns" />
 
+          <!-- 在没有限制高度时候展示的表头 -->
           <thead v-if="!height" :align="align">
             <tr>
               <th v-if="num">序号</th>
@@ -59,9 +65,10 @@
             </tr>
           </thead>
 
-          <tbody :align="align">
-            <tr v-for="(dataItem, m) in data" :key="m">
-              <td v-if="num">{{ m + 1 }}</td>
+          <!-- 主要渲染内容的表体 -->
+          <tbody v-if="data.length" :align="align">
+            <tr v-for="(item, m) in data" :key="m">
+              <!-- 多选框 -->
               <td v-if="optional">
                 <f-checkbox
                   v-model="optionalList"
@@ -69,8 +76,21 @@
                   :label="(m + 1).toString()"
                 />
               </td>
+
+              <!-- 序号列表 -->
+              <td v-if="num">{{ m + 1 }}</td>
+
+              <!-- 主内容 -->
               <td v-for="(column, i) in columns" :key="i">
-                {{ dataItem[column.key] }}
+                <!-- 如果有自定义插槽渲染 -->
+                <template v-if="column.render">
+                  <component :is="columnsSlotData(column.render)" />
+                </template>
+
+                <!-- 普通渲染数据 -->
+                <template v-else>
+                  {{ item[column.key] }}
+                </template>
               </td>
             </tr>
           </tbody>
