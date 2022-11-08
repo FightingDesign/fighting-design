@@ -23,7 +23,7 @@
 
 <template>
   <div class="f-table" :style="styleList">
-    <div class="f-table__container">
+    <div v-if="columns || data" class="f-table__container">
       <!-- 头部 -->
       <header v-if="height" class="f-table__header">
         <table class="f-table__table">
@@ -65,5 +65,10 @@
         </table>
       </main>
     </div>
+
+    <!-- 基础的 -->
+    <table v-else>
+      <slot />
+    </table>
   </div>
 </template>

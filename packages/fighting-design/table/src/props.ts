@@ -60,6 +60,13 @@ export const Props = {
   height: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
+  },
+  /**
+   * 是否支持多选
+   */
+  optional: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 
