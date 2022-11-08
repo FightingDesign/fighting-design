@@ -10,7 +10,7 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 标题配置
+   * 标题数据
    */
   columns: {
     type: Array as PropType<TableColumnsInterface[]>,
@@ -55,7 +55,7 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 自定义高度
+   * 自定义表格高度
    */
   height: {
     type: [String, Number] as PropType<string | number>,

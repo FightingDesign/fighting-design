@@ -52,6 +52,17 @@
     list-style: none;
   }
 
+  // 移除表格默认样式
+  table {
+    th,
+    tr,
+    td,
+    tr:nth-child(2n) {
+      border: none;
+      background: none;
+    }
+  }
+
   // 表格
   .vp-table__container {
     width: 100%;

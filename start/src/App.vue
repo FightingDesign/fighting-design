@@ -1,86 +1,56 @@
 <script lang="ts" setup>
-  import { FButton } from '../../packages/fighting-design/index'
-
-  const columns = [
-    {
-      title: '日期',
-      key: 'date',
-      width: '100px'
-    },
+  import { ref } from 'vue'
+  const columns = ref([
     {
       title: '姓名',
-      key: 'name',
-      width: '300px'
+      key: 'name'
     },
     {
-      title: '地址',
-      key: 'address'
+      title: '年龄',
+      key: 'age'
     },
     {
-      title: '操作',
-      render: (h: Function): Function => {
-        return h('div', { class: 'box' }, [
-          h(
-            FButton,
-            {
-              type: 'primary',
-              round: true,
-              click: () => {
-                console.log('查看详情')
-              }
-            },
-            {
-              default: () => '查看详情'
-            }
-          ),
-          h(
-            FButton,
-            {
-              type: 'primary',
-              round: true,
-              click: () => {
-                console.log('查看详情')
-              }
-            },
-            {
-              default: () => '查看详情'
-            }
-          )
-        ])
-      }
+      title: '介绍',
+      key: 'introduce'
     }
-  ]
-  const data = [
+  ])
+  const data = ref([
     {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
+      name: '卡莉斯塔',
+      age: '22',
+      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
     },
     {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
+      name: '艾希',
+      age: '16',
+      introduce: '拥有强大减速和控制能力的远程射手'
     },
     {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
     },
     {
-      date: '2021-11-03',
-      name: '李逵',
-      address: '浙江省杭州市拱墅区 199 号'
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
     }
-  ]
+  ])
 </script>
 
 <template>
-  <f-table :data="data" :columns="columns" zebra />
+  <div>
+    <f-table :data="data" :columns="columns" />
+  </div>
 </template>
 
 <style lang="scss">
   * {
     margin: 0;
     padding: 0;
+  }
+  div {
+    width: 900px;
+    margin: auto;
   }
 </style>

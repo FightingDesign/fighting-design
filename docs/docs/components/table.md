@@ -7,20 +7,23 @@
 
 ## 基本使用
 
+<f-table :data="data" :columns="columns" />
+
 ## Attributes
 
-| 参数                   | 说明                       | 类型     | 可选值                   | 默认值 |
-| ---------------------- | -------------------------- | -------- | ------------------------ | ------ |
-| `modelValue / v-model` | 绑定值                     | string   | ——                       | false  |
-| `size`                 | 组件尺寸                   | string   | `large` `middle` `small` | middle |
-| `disabled`             | 是否禁用                   | boolean  | ——                       | false  |
-| `icon`                 | 自定义 icon                | string   | ——                       | ——     |
-| `close-color`          | 自定义关闭状态背景色       | string   | ——                       | ——     |
-| `open-color`           | 自定义开启状态背景色       | string   | ——                       | ——     |
-| `open-text`            | 自定义右侧的文字描述       | string   | ——                       | ——     |
-| `close-text`           | 自定义左侧的文字描述       | string   | ——                       | ——     |
-| `square`               | 是否为方形开关             | boolean  | ——                       | false  |
-| `change`               | 绑定值发生改变时触发的回调 | Function | ——                       | null   |
+| 参数            | 说明               | 类型    | 可选值                  | 默认值 |
+| --------------- | ------------------ | ------- | ----------------------- | ------ |
+| `data`          | 数据列表           | array   | ——                      | null   |
+| `columns`       | 标题数据           | array   | ——                      | null   |
+| `align`         | 内容对齐方式       | string  | `left` `center` `right` | left   |
+| `border`        | 是否显示边框       | boolean | ——                      | false  |
+| `num`           | 是否显示序号       | boolean | ——                      | false  |
+| `zebra`         | 是否显示斑马纹     | boolean | ——                      | false  |
+| `zebra-color`   | 自定义斑马纹颜色   | string  | ——                      | null   |
+| `height`        | 自定义表格高度     | string  | ——                      | null   |
+| `optional`      | 是否支持多选       | boolean | ——                      | false  |
+| `bg-color`      | 自定义背景颜色     | string  | ——                      | null   |
+| `head-bg-color` | 自定义头部背景颜色 | string  | ——                      | null   |
 
 ## Interface
 
@@ -28,9 +31,11 @@
 
 ```ts
 import type {
-  SwitchInstance,
-  SwitchPropsType,
-  SwitchSizeType
+  TablePropsType,
+  TableInstance,
+  TableAlignType,
+  TableDateType,
+  TableColumnsInterface
 } from 'fighting-design'
 ```
 
@@ -42,5 +47,41 @@ import type {
 
 <script setup>
   import { ref } from 'vue'
+  const columns = ref([
+    {
+      title: '姓名',
+      key: 'name'
+    },
+    {
+      title: '年龄',
+      key: 'age'
+    },
+    {
+      title: '介绍',
+      key: 'introduce'
+    }
+  ])
+  const data = ref([
+    {
+      name: '卡莉斯塔',
+      age: '22',
+      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
+    },
+    {
+      name: '艾希',
+      age: '16',
+      introduce: '拥有强大减速和控制能力的远程射手'
+    },
+    {
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
+    },
+    {
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
+    }
+  ])
 
 </script>
