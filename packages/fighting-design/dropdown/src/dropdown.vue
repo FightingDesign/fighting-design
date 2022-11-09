@@ -47,7 +47,7 @@
   >
     <!-- 触发器 -->
     <div class="f-dropdown__trigger">
-      <slot name="default" />
+      <slot />
     </div>
 
     <!-- 展示的内容 -->

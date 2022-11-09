@@ -15,7 +15,15 @@
 </script>
 
 <template>
-  <li class="f-dropdown-item" @click.stop="handleClick">
+  <li
+    :class="[
+      'f-dropdown-item',
+      {
+        'f-dropdown-item__disabled': disabled
+      }
+    ]"
+    @click.stop="handleClick"
+  >
     <slot />
   </li>
 </template>

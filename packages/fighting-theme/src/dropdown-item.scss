@@ -2,6 +2,22 @@
   padding: 8px 13px;
   font-size: 15px;
   color: #333;
-  border-bottom: 1px solid #eee;
   cursor: pointer;
+  margin: 4px;
+  transition: background 0.3s;
+  user-select: none;
+
+  &:hover {
+    background: #eee;
+  }
+
+  // 禁用
+  &__disabled {
+    cursor: not-allowed;
+    color: #afafaf;
+
+    &:hover {
+      background: none;
+    }
+  }
 }
