@@ -164,3 +164,6 @@ export * from './table'
 
 export { FDropdown } from './dropdown'
 export * from './dropdown'
+
+export { FDropdownItem } from './dropdown-item'
+export * from './dropdown-item'
