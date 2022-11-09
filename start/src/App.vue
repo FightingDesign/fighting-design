@@ -53,8 +53,17 @@
       introduce: '取得优势的武器可以输出成吨的伤害'
     }
   ])
+
+  const aa = ref('123')
 </script>
 
 <template>
-  <f-table :data="data" :columns="columns" :height="300" />
+  <f-input v-model="aa"></f-input>
+  <f-tabs>
+    <f-tabs-pane name="home" label="首页">哈哈哈</f-tabs-pane>
+    <f-tabs-pane name="about">
+      <template #label>你猜</template>
+      哈2123哈哈
+    </f-tabs-pane>
+  </f-tabs>
 </template>

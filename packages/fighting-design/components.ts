@@ -161,3 +161,9 @@ export * from './up-load'
 
 export { FTable } from './table'
 export * from './table'
+
+export { FTabs } from './tabs'
+export * from './tabs'
+
+export { FTabsPane } from './tabs-pane'
+export * from './tabs-pane'
