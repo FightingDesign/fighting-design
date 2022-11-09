@@ -14,7 +14,9 @@
   // 展示状态
   const visible: Ref<boolean> = ref<boolean>(false)
 
-  // 滚动状态监视
+  /**
+   * 滚动状态监视
+   */
   const handleScroll: BackTopHandleScrollInterface = (
     node: HTMLElement | null
   ): Function => {
@@ -27,7 +29,9 @@
     }, 200)
   }
 
-  // 点击的时候触发
+  /**
+   * 点击的时候触发
+   */
   const handleClick: OrdinaryFunctionInterface = (): void => {
     const { top, behavior, listenEl } = prop
 
@@ -61,7 +65,9 @@
     document.addEventListener('scroll', handleScroll(null))
   })
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { right, bottom, zIndex, background, color } = prop
 

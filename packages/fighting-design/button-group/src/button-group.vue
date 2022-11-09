@@ -7,7 +7,9 @@
 
   const prop: ButtonGroupPropsType = defineProps(Props)
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { vertical, size } = prop
