@@ -1,3 +1,8 @@
+/**
+ * input 方法类型接口
+ * 
+ * 传入事件对象，无返回值
+ */
 export interface InputInterface {
   (evt: Event): void
 }
