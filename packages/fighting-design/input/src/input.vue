@@ -21,7 +21,9 @@
 
   const inputType: Ref<InputType> = ref<InputType>(prop.type)
 
-  // 输入框输入
+  /**
+   * 输入框输入
+   */
   const handleInput: HandleEventInterface = (evt: Event): void => {
     emit('update:modelValue', (evt.target as HTMLInputElement).value)
     if (prop.onChange) {

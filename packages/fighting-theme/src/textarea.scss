@@ -1,2 +1,27 @@
+@import '../config/const-color.scss';
+
 .f-textarea {
+  display: inline-block;
+  background: #eee;
+  overflow: hidden;
+  transition: 0.3s;
+  border: 1px solid transparent;
+
+  &__textarea {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    color: #333;
+    padding: 6px 9px;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+
+  &:focus-within {
+    background: #fff;
+    border-color: $primary;
+  }
 }

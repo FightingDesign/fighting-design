@@ -1,3 +1,9 @@
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const value = ref('1')
+</script>
+
 <template>
   <f-dropdown>
     <f-button type="primary">下拉菜单</f-button>
@@ -10,5 +16,12 @@
     </template>
   </f-dropdown>
 
-  <f-textarea></f-textarea>
+  <f-textarea v-model="value"></f-textarea>
 </template>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+</style>
