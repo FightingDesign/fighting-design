@@ -161,3 +161,6 @@ export * from './up-load'
 
 export { FTable } from './table'
 export * from './table'
+
+export { FDropdown } from './dropdown'
+export * from './dropdown'

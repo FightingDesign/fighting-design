@@ -36,25 +36,12 @@
       name: '贾克斯',
       age: '109',
       introduce: '取得优势的武器可以输出成吨的伤害'
-    },
-    {
-      name: '艾希',
-      age: '16',
-      introduce: '拥有强大减速和控制能力的远程射手'
-    },
-    {
-      name: '李青',
-      age: '34',
-      introduce: '非常优秀的打野英雄'
-    },
-    {
-      name: '贾克斯',
-      age: '109',
-      introduce: '取得优势的武器可以输出成吨的伤害'
     }
   ])
 </script>
 
 <template>
-  <f-table :data="data" :columns="columns" :height="300" />
+  <f-table :data="data" :columns="columns" />
+
+  <f-dropdown></f-dropdown>
 </template>
