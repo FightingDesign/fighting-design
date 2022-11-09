@@ -3,6 +3,7 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - 新增 `f-dropdown` 组件
+- 新增 `f-table` 组件 `show-head` 配置项
 
 ## 0.8.1-alpha.2 (2022-11-08)
 

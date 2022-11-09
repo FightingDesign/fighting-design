@@ -81,6 +81,13 @@ export const Props = {
   headBgColor: {
     type: String,
     default: (): null => null
+  },
+  /**
+   * 是否展示头部
+   */
+  showHead: {
+    type: Boolean,
+    default: (): boolean => true
   }
 } as const
 
