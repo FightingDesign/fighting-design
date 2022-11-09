@@ -1,13 +1,25 @@
 <script lang="ts" setup name="FTextarea">
   import { Props, Emits } from './props'
-  import { useUpdateInput } from '../../_hooks'
+  import { useUpdateInput, useFilterProps } from '../../_hooks'
   import type { TextareaPropsType } from './interface'
   import type { HandleEventInterface } from '../../_interface'
+  import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
 
   const prop: TextareaPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  const { input } = useUpdateInput(emit, prop.change)
+  /**
+   * 使用 useUpdateInput hook 实现同步数据
+   *
+   * useFilterProps 过滤出需要的参数
+   */
+  const { input } = useUpdateInput(
+    emit,
+    useFilterProps<TextareaPropsType, UseUpdateInputPropsInterface>(prop, [
+      'change',
+      'disabled'
+    ])
+  )
 
   /**
    * 输入框输入
