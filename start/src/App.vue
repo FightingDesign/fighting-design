@@ -9,4 +9,6 @@
       <f-dropdown-item>柠檬</f-dropdown-item>
     </template>
   </f-dropdown>
+
+  <f-textarea></f-textarea>
 </template>

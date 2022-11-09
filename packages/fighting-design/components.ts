@@ -167,3 +167,6 @@ export * from './dropdown'
 
 export { FDropdownItem } from './dropdown-item'
 export * from './dropdown-item'
+
+export { FTextarea } from './textarea'
+export * from './textarea'
