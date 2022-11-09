@@ -52,9 +52,9 @@
 
     <!-- 展示的内容 -->
     <transition name="f-dropdown">
-      <ul v-show="showContent" class="f-dropdown__content">
+      <div v-show="showContent" class="f-dropdown__content">
         <slot name="content" />
-      </ul>
+      </div>
     </transition>
   </div>
 </template>

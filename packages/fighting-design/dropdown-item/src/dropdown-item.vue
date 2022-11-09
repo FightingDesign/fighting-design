@@ -15,7 +15,7 @@
 </script>
 
 <template>
-  <li
+  <div
     :class="[
       'f-dropdown-item',
       {
@@ -25,5 +25,5 @@
     @click.stop="handleClick"
   >
     <slot />
-  </li>
+  </div>
 </template>
