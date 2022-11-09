@@ -29,7 +29,9 @@ export const Props = {
     default: (): number => 3
   },
   /**
-   * 禁用状态
+   * 是否禁用
+   * 
+   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-disabled
    */
   disabled: {
     type: Boolean,
