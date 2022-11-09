@@ -20,7 +20,7 @@
 <template>
   <div class="f-textarea">
     <textarea
-      class="f-textarea__textarea"
+      :class="['f-textarea__textarea', { 'f-textarea__disabled': disabled }]"
       :cols="cols"
       :rows="rows"
       :value="modelValue"

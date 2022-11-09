@@ -28,47 +28,76 @@ export const Props = {
     type: [String, Number] as PropType<string | number>,
     default: (): number => 3
   },
+  /**
+   * 禁用状态
+   */
   disabled: {
     type: Boolean,
     default: (): boolean => false
   },
-  max: {
-    type: Number,
-    default: (): null => null
-  },
-  min: {
-    type: Number,
-    default: (): null => null
-  },
+  /**
+   * 最大输入长度
+   * 
+   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-maxlength
+   */
   maxLength: {
     type: Number,
     default: (): null => null,
     validator: (val: number): boolean => val >= 0
   },
+  /**
+   * 是否自动获取焦点
+   * 
+   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-autofocus
+   */
   autofocus: {
     type: Boolean,
     default: (): boolean => false
   },
+  /**
+   * 原生 name 属性
+   * 
+   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-name
+   */
   name: {
     type: String,
     default: (): string => 'f-textarea'
   },
+  /**
+   * 占位符
+   * 
+   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-placeholder
+   */
   placeholder: {
     type: String,
     default: (): string => ''
   },
+  /**
+   * 是否只读
+   * 
+   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-readonly
+   */
   readonly: {
     type: Boolean,
     default: (): boolean => false
   },
+  /**
+   * 绑定值发生变化时触发的回调
+   */
   onChange: {
     type: Function as PropType<TextareaChangeInterface>,
     default: (): null => null
   },
+  /**
+   * 失去焦点时触发的回调
+   */
   onBlur: {
     type: Function as PropType<HandleFocusEventInterface>,
     default: (): null => null
   },
+  /**
+   * 获取焦点时触发的回调
+   */
   onFocus: {
     type: Function as PropType<HandleFocusEventInterface>,
     default: (): null => null

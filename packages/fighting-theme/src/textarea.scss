@@ -20,6 +20,12 @@
     font-size: 15px;
   }
 
+  // 禁用状态
+  &__disabled {
+    cursor: not-allowed;
+    color: #757575;
+  }
+
   &:focus-within {
     background: #fff;
     border-color: $primary;

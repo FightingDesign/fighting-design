@@ -16,7 +16,7 @@
     </template>
   </f-dropdown>
 
-  <f-textarea v-model="value"></f-textarea>
+  <f-textarea v-model="value" />
 </template>
 
 <style>
