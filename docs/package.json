@@ -7,7 +7,7 @@
     "serve": "vitepress serve docs"
   },
   "dependencies": {
-    "vitepress": "1.0.0-alpha.26"
+    "vitepress": "1.0.0-alpha.28"
   },
   "devDependencies": {
     "highlight.js": "^11.6.0",

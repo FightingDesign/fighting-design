@@ -7,6 +7,9 @@
 
   const prop: CardPropsType = defineProps(Props)
 
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { round, shadow } = prop

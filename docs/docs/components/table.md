@@ -714,6 +714,7 @@
 | `optional`      | 是否支持多选       | boolean | ——                      | false  |
 | `bg-color`      | 自定义背景颜色     | string  | ——                      | null   |
 | `head-bg-color` | 自定义头部背景颜色 | string  | ——                      | null   |
+| `show-head`     | 是否展示头部       | boolean | ——                      | true   |
 
 ## Slots
 

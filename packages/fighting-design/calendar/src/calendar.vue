@@ -27,7 +27,9 @@
     month
   )
 
-  // 当前日期高亮显示
+  /**
+   * 当前日期高亮显示
+   */
   const mowDataClassList: CalendarMowDataClassListInterface = (
     _month: number,
     _date: number
@@ -41,7 +43,9 @@
     return ''
   }
 
-  // 点击操作栏
+  /**
+   * 点击操作栏
+   */
   const optionClick: CalendarOptionClickInterface = (
     target: CalendarTargetType
   ): void => {
@@ -58,14 +62,18 @@
     option[target]()
   }
 
-  // 当前时间
+  /**
+   * 当前时间
+   */
   const nowTime: ComputedRef<string> = computed((): string => {
     return `${year.value}年 ${addZero(month.value + 1)}月 ${addZero(
       date.value
     )}日`
   })
 
-  // 点击对每一天
+  /**
+   * 点击对每一天
+   */
   const handleClick: CalendarHandleClickInterface = (
     _month: number,
     _date: number
@@ -87,7 +95,9 @@
       })
   }
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { borderColor, dayCellHeight, weekCellHeight } = prop
 
@@ -108,7 +118,9 @@
     return Object.keys(prop.memorandum).includes(date)
   }
 
-  // 当月份发生改变时候触发的回调
+  /**
+   * 当月份发生改变时候触发的回调
+   */
   watch(
     (): number => month.value,
     (newValue: number): void => {

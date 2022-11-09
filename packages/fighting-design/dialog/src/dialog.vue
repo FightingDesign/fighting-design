@@ -13,7 +13,9 @@
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
 
-  // 关闭时
+  /**
+   * 关闭时
+   */
   const closeDialog: OrdinaryFunctionInterface = (): void => {
     emit('update:visible', false)
   }

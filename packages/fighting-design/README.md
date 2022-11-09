@@ -31,7 +31,7 @@ pnpm new <component-name>
 - `interface.d.ts` 导出组件和 `Props` 相关的所有类型
 - `props.ts` 导出 `Props` 和 `Emits`
 - `component.vue` 组件源文件
-- `index.ts` 组件如理文件包含注册组件
+- `index.ts` 组件处理文件包含注册组件
 
 下面将会分别介绍一下每个文件内部的一些规范。
 

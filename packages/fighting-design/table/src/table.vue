@@ -38,12 +38,15 @@
     <div
       :class="[
         'f-table__container',
-        { 'f-table__border': border, 'f-table__zebra': zebra }
+        {
+          'f-table__border': border,
+          'f-table__zebra': zebra
+        }
       ]"
     >
       <template v-if="columns || data">
         <!-- 在限制高度时展示的头部 -->
-        <header v-if="height" class="f-table__header">
+        <header v-if="height && showHead" class="f-table__header">
           <table class="f-table__table">
             <table-colgroup-vue :columns="columns" />
 
@@ -60,12 +63,17 @@
         </header>
 
         <!-- 身体 -->
-        <main :class="['f-table__body', { 'f-table__body-margin': height }]">
+        <main
+          :class="[
+            'f-table__body',
+            { 'f-table__body-margin': height && showHead }
+          ]"
+        >
           <table class="f-table__table">
             <table-colgroup-vue :columns="columns" />
 
             <!-- 在没有限制高度时候展示的表头 -->
-            <thead v-if="!height" :align="align">
+            <thead v-if="!height && showHead" :align="align">
               <tr>
                 <th v-if="num">序号</th>
                 <th v-if="optional">选择</th>

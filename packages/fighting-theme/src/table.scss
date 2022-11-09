@@ -1,17 +1,13 @@
 $tableZebra: #f7f7f7;
 
 .f-table {
-  height: var(--f-table-height);
-  background: var(--f-table-bg-color, #fff);
-  border: 1px solid #eee;
-  border-right: none;
-
   // 主容器
   &__container {
     position: relative;
-    height: var(--f-table-height);
     box-sizing: border-box;
-    border: 1px solid #eee;
+    overflow: hidden;
+    height: var(--f-table-height);
+    background: var(--f-table-bg-color, #fff);
 
     // 在限制高度时展示的头部
     .f-table__header {
