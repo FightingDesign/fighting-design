@@ -174,7 +174,7 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 按下回车触发的回调
+   * 按下回车触发的
    */
   onEnter: {
     type: Function as PropType<HandleEventInterface>,

@@ -6,9 +6,17 @@ import type {
   UseUpdateInputPropsInterface
 } from './interface'
 
+/**
+ * 文本框输入的方法
+ * 可处理文本框输入和清空
+ * 
+ * @param prop 组件的 props 参数
+ * @param emit 回调参数
+ * @returns { UseUpdateInputInterface } 
+ */
 export const useUpdateInput: UseUpdateInputInterface = (
-  emit: Function,
-  prop: UseUpdateInputPropsInterface
+  prop: UseUpdateInputPropsInterface,
+  emit: Function
 ): UseUpdateInputReturnInterface => {
 
   /**
@@ -16,7 +24,7 @@ export const useUpdateInput: UseUpdateInputInterface = (
    * @param evt input 事件对象
    * @return { void }
    */
-  const input: InputInterface = (evt: Event): void => {
+  const onInput: InputInterface = (evt: Event): void => {
     emit('update:modelValue', (evt.target as HTMLInputElement).value)
     prop.onChange && prop.onChange((evt.target as HTMLInputElement).value)
   }
@@ -25,13 +33,13 @@ export const useUpdateInput: UseUpdateInputInterface = (
    * 清空文本框
    * @returns { void }
    */
-  const clear: OrdinaryFunctionInterface = (): void => {
+  const onClear: OrdinaryFunctionInterface = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', '')
   }
 
   return {
-    input,
-    clear
+    onInput,
+    onClear
   } as UseUpdateInputReturnInterface
 }

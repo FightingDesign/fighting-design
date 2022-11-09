@@ -6,7 +6,7 @@ export type { OrdinaryFunctionInterface } from '../../_interface'
 /**
  * input 方法类型接口
  * 
- * 传入事件对象，无返回值
+ * evt 传入事件对象，无返回值
  */
 export interface InputInterface {
   (evt: Event): void
@@ -26,15 +26,24 @@ export interface UseUpdateInputPropsInterface {
 
 /**
  * useUpdateInput 类型接口
+ * 
+ * prop 件的 props 参数
+ * 
+ * emit 回调参数
+ * 
  */
 export interface UseUpdateInputInterface {
-  (emit: Function, prop: UseUpdateInputPropsInterface): UseUpdateInputReturnInterface
+  (prop: UseUpdateInputPropsInterface, emit: Function): UseUpdateInputReturnInterface
 }
 
 /**
  * useUpdateInput hook 返回值类型接口
+ * 
+ * onInput 处理文本框输入
+ * 
+ * onClear清空文本框
  */
 export interface UseUpdateInputReturnInterface {
-  input: InputInterface
-  clear: OrdinaryFunctionInterface
+  onInput: InputInterface
+  onClear: OrdinaryFunctionInterface
 }

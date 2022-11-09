@@ -13,19 +13,19 @@
    *
    * useFilterProps 过滤出需要的参数
    */
-  const { input } = useUpdateInput(
-    emit,
+  const { onInput } = useUpdateInput(
     useFilterProps<TextareaPropsType, UseUpdateInputPropsInterface>(prop, [
       'change',
       'disabled'
-    ])
+    ]),
+    emit
   )
 
   /**
    * 输入框输入
    */
   const handleInput: HandleEventInterface = (evt: Event): void => {
-    input(evt)
+    onInput(evt)
   }
 </script>
 

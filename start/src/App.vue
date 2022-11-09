@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import { ref } from 'vue'
 
+  const value7 = ref('可清空的')
+
   const value = ref('1')
 </script>
 
@@ -17,6 +19,8 @@
   </f-dropdown>
 
   <f-textarea v-model="value" />
+
+  <f-input v-model="value7" type="text" clear />
 </template>
 
 <style>
