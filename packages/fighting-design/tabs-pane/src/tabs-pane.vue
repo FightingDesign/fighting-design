@@ -2,7 +2,7 @@
   import { Props, Emits } from './props'
   import type { TabsPanePropsType } from './interface'
   import { TabsProvideKey } from '../../tabs/src/props'
-import { computed, inject, ref } from 'vue';
+import { computed, inject, ref, watch } from 'vue';
 import { TabsProvide } from '../../tabs/src/interface';
 
   const prop: TabsPanePropsType = defineProps(Props)
@@ -18,6 +18,11 @@ import { TabsProvide } from '../../tabs/src/interface';
    * 该组件是否显示
    */
   const isShow = computed(() => tabsProvide.currentName.value === prop.name)
+
+
+watch(() => prop.name, () => {
+  console.log('change',prop.name)
+})
 </script>
 
 <template>

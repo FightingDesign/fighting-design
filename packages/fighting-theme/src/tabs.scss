@@ -1,10 +1,61 @@
-.f-tabs {
+@import '../config/const-color.scss';
 
+.f-tabs {
+  display: flex;
+  &.f-tabs__position_top{
+    flex-direction: column;
+  }
+  &.f-tabs__position_bottom{
+    flex-direction: column-reverse;
+  }
+  &.f-tabs__position_left{
+    flex-direction: row;
+  }
+  &.f-tabs__position_right{
+    flex-direction: row-reverse;
+  }
+
+
+  .f-tabs-content{
+    flex: 1
+  }
 }
 
 
 .f-tabs-nav{
+  &.f-tabs-nav__type_line{
+    .f-tabs-nav--line{
+      width: 100%;
+      height: 1px;
+      background-color: #ccc;
+    }
+
+    .f-tabs-nav--line__active{
+      height: 1px;
+      background: $primary;
+      transition: all .3s;
+    }
+  }
   .f-tabs-nav--items{
     display: flex;
+    .f-tabs-nav--item{
+      cursor: pointer;
+      padding-top: 8px;
+      padding-bottom: 12px;
+
+      &:not(:first-child):not(:last-child) {
+        padding-left: 10px;
+        padding-right: 10px;
+      };
+      &:first-child{
+        padding-right: 10px;
+      }
+      &:last-child{
+        padding-left: 10px;
+      }
+    }
+    .f-tabs-nav--item__active{
+      color: $primary;
+    }
   }
 }

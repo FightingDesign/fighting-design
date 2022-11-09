@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import { TabsNavInstance, TabsPaneName } from '../../interface'
+import { TabsNavInstance, TabsPaneName, TabsPosition, TabsType } from '../../interface'
 
 export const Props = {
   /**
@@ -7,6 +7,15 @@ export const Props = {
    */
   navs: {
     type: Array as PropType<TabsNavInstance[]>
+  },
+  type: {
+    type: String as PropType<TabsType>
+  },
+  position: {
+    type: String as PropType<TabsPosition>,
+  },
+  currentName: {
+    type: [String, Number] as PropType<TabsPaneName>
   }
 }
 
