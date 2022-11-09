@@ -5,7 +5,7 @@
   // 触发器
   &__trigger {
     display: inline-block;
-    padding-bottom: 8px;
+    padding-bottom: var(--f-dropdown-spacing-size, 8px);
   }
 
   // 主要内容

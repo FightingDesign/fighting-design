@@ -1,12 +1,21 @@
 <script lang="ts" setup name="FDropdownItem">
   import { Props } from './props'
   import type { DropdownItemPropsType } from './interface'
+  import type { HandleMouseEventInterface } from '../../_interface'
 
   const prop: DropdownItemPropsType = defineProps(Props)
+
+  /**
+   * 点击时触发
+   */
+  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+    if (prop.disabled) return
+    prop.click && prop.click(evt)
+  }
 </script>
 
 <template>
-  <li class="f-dropdown-item">
+  <li class="f-dropdown-item" @click.stop="handleClick">
     <slot />
   </li>
 </template>
