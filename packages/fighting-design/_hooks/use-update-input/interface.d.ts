@@ -1,16 +1,10 @@
-import type { OrdinaryFunctionInterface } from '../../_interface'
+import type {
+  OrdinaryFunctionInterface,
+  HandleEventInterface
+} from '../../_interface'
 import type { TextareaChangeInterface } from '../../textarea/src/interface'
 
-export type { OrdinaryFunctionInterface } from '../../_interface'
-
-/**
- * input 方法类型接口
- * 
- * evt 传入事件对象，无返回值
- */
-export interface InputInterface {
-  (evt: Event): void
-}
+export type { OrdinaryFunctionInterface, HandleEventInterface } from '../../_interface'
 
 /**
  * 传入的 props 类型接口
@@ -33,7 +27,10 @@ export interface UseUpdateInputPropsInterface {
  * 
  */
 export interface UseUpdateInputInterface {
-  (prop: UseUpdateInputPropsInterface, emit: Function): UseUpdateInputReturnInterface
+  (
+    prop: UseUpdateInputPropsInterface,
+    emit: UseUpdateInputEmitInterface
+  ): UseUpdateInputReturnInterface
 }
 
 /**
@@ -44,6 +41,13 @@ export interface UseUpdateInputInterface {
  * onClear清空文本框
  */
 export interface UseUpdateInputReturnInterface {
-  onInput: InputInterface
+  onInput: HandleEventInterface
   onClear: OrdinaryFunctionInterface
+}
+
+/**
+ * 回调函数类型
+ */
+export interface UseUpdateInputEmitInterface {
+  (event: 'update:modelValue', val: string): void
 }

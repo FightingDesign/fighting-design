@@ -1,9 +1,10 @@
 import type {
-  InputInterface,
-  UseUpdateInputReturnInterface,
   UseUpdateInputInterface,
-  OrdinaryFunctionInterface,
-  UseUpdateInputPropsInterface
+  UseUpdateInputEmitInterface,
+  UseUpdateInputPropsInterface,
+  UseUpdateInputReturnInterface,
+  HandleEventInterface,
+  OrdinaryFunctionInterface
 } from './interface'
 
 /**
@@ -16,7 +17,7 @@ import type {
  */
 export const useUpdateInput: UseUpdateInputInterface = (
   prop: UseUpdateInputPropsInterface,
-  emit: Function
+  emit: UseUpdateInputEmitInterface
 ): UseUpdateInputReturnInterface => {
 
   /**
@@ -24,7 +25,7 @@ export const useUpdateInput: UseUpdateInputInterface = (
    * @param evt input 事件对象
    * @return { void }
    */
-  const onInput: InputInterface = (evt: Event): void => {
+  const onInput: HandleEventInterface = (evt: Event): void => {
     emit('update:modelValue', (evt.target as HTMLInputElement).value)
     prop.onChange && prop.onChange((evt.target as HTMLInputElement).value)
   }
