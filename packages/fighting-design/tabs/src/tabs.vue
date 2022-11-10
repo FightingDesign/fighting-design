@@ -1,12 +1,11 @@
 <script lang="ts" setup name="FTabs">
-  import { Props, Emits, TabsProvideKey } from './props'
+  import { Props, TabsProvideKey, Emits } from './props'
   import type { TabsPropsType, TabsNavInstance, TabsProvide, TabsPaneName } from './interface'
   import { onMounted, ref, provide, computed, ComponentInternalInstance, getCurrentInstance, watch, onBeforeUpdate, nextTick } from 'vue'
   import { TabsNav } from './components'
   import { debugWarn, __DEV__ } from '../../_utils'
-  import { flattedChildren, getChildrenComponent } from './utils'
+  import { getChildrenComponent } from './utils'
   const instance:ComponentInternalInstance = getCurrentInstance()
-
 
   const prop: TabsPropsType = defineProps(Props)
   const emits = defineEmits(Emits)
@@ -85,7 +84,7 @@
   <div class="f-tabs" :class="styleList">
     <tabs-nav
       :navs="navs"
-      :type="prop.type"
+      :type="type"
       :currentName="currentName"
       :position="position"
       @setCurrentName="setCurrentName"

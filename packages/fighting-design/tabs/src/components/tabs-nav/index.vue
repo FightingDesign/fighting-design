@@ -28,7 +28,7 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
 
   const currentIndex = computed(() => Math.max(prop.navs.findIndex(e => e.name === prop.currentName), 0))
   
-  watch(() => [currentIndex.value, prop.position], updateActiveLineStyle)
+  watch([currentIndex, () => prop.position, () => prop.type], updateActiveLineStyle)
 
   async function updateActiveLineStyle() {
     await nextTick()
@@ -50,6 +50,7 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
       activeStyle.transform = `translateY(${nextItem.offsetTop - parent.offsetTop + Number.parseFloat(nextItemStyle.paddingTop)}px)`
     }
     activeLineStyle.value = activeStyle
+
   }
 
   onMounted((): void => {

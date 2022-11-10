@@ -2,7 +2,7 @@
   import { ref } from 'vue'
 
   const position = ref('top')
-  const type = ref('line')
+  const type = ref('card')
   const tab = ref(2)
 
   const text = ref('asdd')
@@ -17,6 +17,7 @@
 
 <template>
   <div style="padding: 20px">
+  <!-- <f-button @click="">add</f-button> -->
 
   <f-card>
     <f-tabs :position="position" :type="type" v-model="tab">

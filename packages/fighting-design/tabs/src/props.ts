@@ -23,7 +23,7 @@ export const Props = {
 } as const
 
 export const Emits = {
-  'update:modelValue': (val: String | Number):typeof val => val
+  'update:modelValue': (val: String | Number) => true // 下标可能为0
 } as const
 
 export type TabsPropsType = ExtractPropTypes<typeof Props>
