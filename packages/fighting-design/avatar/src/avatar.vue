@@ -11,7 +11,7 @@
     ClassListInterface
   } from '../../_interface'
   import type {
-    LoadNeedImagePropsInterface,
+    LoadImagePropsInterface,
     LoadCallbackInterface
   } from '../../_utils/load-image/interface'
 
@@ -93,9 +93,9 @@
       isSuccess.value = params
       isShowNode.value = params
     }
-    const needProps: LoadNeedImagePropsInterface = useFilterProps<
+    const needProps: LoadImagePropsInterface = useFilterProps<
       AvatarPropsType,
-      LoadNeedImagePropsInterface
+      LoadImagePropsInterface
     >(prop, ['src', 'errSrc', 'rootMargin', 'lazy', 'load', 'error'])
     loadImage(node, needProps, callback)
   }

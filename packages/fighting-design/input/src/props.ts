@@ -1,3 +1,4 @@
+import { isString } from '../../_utils'
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
 import type {
   InputType,
@@ -174,7 +175,7 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 按下回车触发的回调
+   * 按下回车触发的
    */
   onEnter: {
     type: Function as PropType<HandleEventInterface>,
@@ -183,7 +184,7 @@ export const Props = {
 } as const
 
 export const Emits = {
-  'update:modelValue': (val: string): string => val
+  'update:modelValue': (val: string): boolean => isString(val)
 } as const
 
 export type InputPropsType = ExtractPropTypes<typeof Props>

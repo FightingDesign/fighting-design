@@ -6,3 +6,8 @@ export type { TextareaPropsType } from './textarea'
 export interface TextareaChangeInterface {
   (val: string): void
 }
+
+/**
+ * 拉伸方式类型
+ */
+export type TextareaResizeType = 'none' | 'both' | 'horizontal' | 'vertical'

@@ -3,9 +3,10 @@
  */
 export const contributors = [
   { avatar: 'https://avatars.githubusercontent.com/u/73180970?v=4', homePage: 'https://github.com/Tyh2001' },
+  { avatar: 'https://avatars.githubusercontent.com/u/117809217?v=4', homePage: 'https://github.com/Fightingweiwei' },
+  { avatar: 'https://avatars.githubusercontent.com/u/36356701?v=4', homePage: 'https://github.com/xluoyu' },
   { avatar: 'https://avatars.githubusercontent.com/u/44802220?v=4', homePage: 'https://github.com/konvyi' },
   { avatar: 'https://avatars.githubusercontent.com/u/48940123?v=4', homePage: 'https://github.com/yn22638' },
-  { avatar: 'https://avatars.githubusercontent.com/u/36356701?v=4', homePage: 'https://github.com/xluoyu' },
   { avatar: 'https://avatars.githubusercontent.com/u/19302222?v=4', homePage: 'https://github.com/jardeng' },
   { avatar: 'https://avatars.githubusercontent.com/u/26430638?v=4', homePage: 'https://github.com/lzyaom' },
   { avatar: 'https://avatars.githubusercontent.com/u/55753927?v=4', homePage: 'https://github.com/XiaoLi-sach' },
