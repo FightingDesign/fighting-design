@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, InjectionKey } from 'vue'
+import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { SelectProvideInterface } from './interface'
 
 export const Props = {
@@ -8,6 +8,47 @@ export const Props = {
   modelValue: {
     type: String,
     default: (): string => ''
+  },
+  /**
+   * 自定义宽度
+   */
+  width: {
+    type: [Number, String] as PropType<number | string>,
+    default: (): null => null
+  },
+  /**
+ * 原生 name 属性
+ * 
+ * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
+ */
+  name: {
+    type: String,
+    default: (): string => 'f-select'
+  },
+  /**
+   * 占位符
+   * 
+   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
+   */
+  placeholder: {
+    type: String,
+    default: (): string => ''
+  },
+  /**
+   * 是否可清除
+   */
+  clear: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  /**
+   * 是否禁用
+   * 
+   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
+   */
+  disabled: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 
