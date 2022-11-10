@@ -67,8 +67,8 @@
         font-size: 17px;
         background: -webkit-linear-gradient(
           55deg,
-          rgb(57, 92, 227) 10%,
-          rgb(94, 224, 221)
+          #395ce3 10%,
+          #5ee0dd
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -93,7 +93,7 @@
         &:hover {
           transition: 0.3s;
           color: #2d5af1;
-          background: rgb(240, 240, 240);
+          background: #f0f0f0;
         }
       }
     }

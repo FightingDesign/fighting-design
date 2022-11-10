@@ -193,7 +193,7 @@
     line-height: 60px;
   }
   .f-aside {
-    background: rgb(101, 173, 240);
+    background: #65adf0;
     color: #fff;
     text-align: center;
     line-height: 200px;
@@ -281,7 +281,7 @@ import type {
     line-height: 60px;
   }
   .f-aside {
-    background: rgb(101, 173, 240);
+    background: #65adf0;
     color: #fff;
     text-align: center;
     line-height: 200px;
