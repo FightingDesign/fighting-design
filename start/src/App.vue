@@ -7,6 +7,7 @@
 </script>
 
 <template>
+  <f-button type="primary" font-color="red">下拉菜单</f-button>
   <f-dropdown>
     <f-button type="primary">下拉菜单</f-button>
 
@@ -18,7 +19,7 @@
     </template>
   </f-dropdown>
 
-  <f-textarea v-model="value" />
+  <f-textarea v-model="value" resize="horizontal" clear />
 
   <f-input v-model="value7" type="text" clear />
 </template>

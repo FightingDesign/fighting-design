@@ -1,6 +1,8 @@
 <script lang="ts" setup name="FTextarea">
   import { Props, Emits } from './props'
   import { useUpdateInput, useFilterProps } from '../../_hooks'
+  import { FIconCrossVue } from '../../_svg'
+  import { FSvgIcon } from '../../svg-icon'
   import type { TextareaPropsType } from './interface'
   import type { HandleEventInterface } from '../../_interface'
   import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
@@ -13,7 +15,7 @@
    *
    * useFilterProps 过滤出需要的参数
    */
-  const { onInput } = useUpdateInput(
+  const { onInput, onClear } = useUpdateInput(
     useFilterProps<TextareaPropsType, UseUpdateInputPropsInterface>(prop, [
       'change',
       'disabled'
@@ -33,6 +35,7 @@
   <div class="f-textarea">
     <textarea
       :class="['f-textarea__textarea', { 'f-textarea__disabled': disabled }]"
+      :style="{ resize }"
       :cols="cols"
       :rows="rows"
       :value="modelValue"
@@ -43,6 +46,15 @@
       @input="handleInput"
       @blur="onBlur"
       @focus="onFocus"
+    />
+
+    <!-- 清空按钮 -->
+    <f-svg-icon
+      v-if="clear"
+      class="f-textarea__clear-btn"
+      :icon="FIconCrossVue"
+      :size="14"
+      @click="onClear"
     />
   </div>
 </template>
