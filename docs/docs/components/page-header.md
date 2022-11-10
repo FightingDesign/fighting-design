@@ -19,8 +19,10 @@
 </template>
 
 <script lang="ts" setup>
+  import { FMessage } from 'fighting-design'
+
   const goBack = () => {
-    console.log('go back')
+    FMessage.primary('Go Back')
   }
 </script>
 ```
@@ -105,8 +107,9 @@ import type { PageHeaderInstance, PageHeaderPropsType } from 'fighting-design'
 
 <script setup lang="ts">
   import { FIconReply } from '@fighting-design/fighting-icon'
+  import { FMessage } from '../../../packages/fighting-design/index'
 
   const goBack = () => {
-    console.log('go back')
+    FMessage.primary('Go Back')
   }
 </script>
