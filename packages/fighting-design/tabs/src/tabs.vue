@@ -1,9 +1,12 @@
 <script lang="ts" setup name="FTabs">
   import { Props, Emits, TabsProvideKey } from './props'
   import type { TabsPropsType, TabsNavInstance, TabsProvide, TabsPaneName } from './interface'
-  import { onMounted, ref, provide, computed, ComponentInternalInstance, watch } from 'vue'
+  import { onMounted, ref, provide, computed, ComponentInternalInstance, getCurrentInstance, watch, onBeforeUpdate, nextTick } from 'vue'
   import { TabsNav } from './components'
   import { debugWarn, __DEV__ } from '../../_utils'
+  import { flattedChildren, getChildrenComponent } from './utils'
+  const instance:ComponentInternalInstance = getCurrentInstance()
+
 
   const prop: TabsPropsType = defineProps(Props)
   const emits = defineEmits(Emits)
@@ -20,17 +23,19 @@
    */
   const panes = ref([])
   /**
-   * 注册pane
+   * 更新pane列表
    * @param pane 
    */
-  function registerPane(pane: ComponentInternalInstance) {
-    panes.value.push(pane)
+  function updatePaneList() {
+    nextTick(() => {
+      panes.value = getChildrenComponent(instance, 'FTabsPane').map(e => e.component)
+    })
   }
   /**
    * nav列表
    */
   const navs = computed<TabsNavInstance[]>(() => {
-    return panes.value.sort((a, b) => a.uid - b.uid).map((e, i) => {
+    return panes.value.map((e, i) => {
       return {
         name: e.props.name || (e.props.name = i), // name如果没填，用下标代替
         label: e.slots['label'] || e.props.label
@@ -53,7 +58,6 @@
   onMounted(() => {
     currentName.value = prop.modelValue || navs.value[0].name // 如果没有传value，默认选中第一个
   })
-
   
   const styleList = computed(() => {
     const { position } = prop
@@ -72,7 +76,7 @@
 
   provide<TabsProvide>(TabsProvideKey, {
     currentName,
-    registerPane
+    updatePaneList
   })
 
 </script>

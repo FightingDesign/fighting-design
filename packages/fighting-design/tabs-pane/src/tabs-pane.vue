@@ -2,10 +2,8 @@
   import { Props, Emits } from './props'
   import type { TabsPanePropsType } from './interface'
   import { TabsProvideKey } from '../../tabs/src/props'
-import { ComponentInternalInstance, computed, getCurrentInstance, inject, ref, watch } from 'vue';
-import { TabsProvide } from '../../tabs/src/interface';
-
-  const instance:ComponentInternalInstance = getCurrentInstance()
+  import { computed, inject, onBeforeUnmount } from 'vue';
+  import { TabsProvide } from '../../tabs/src/interface';
 
   const prop: TabsPanePropsType = defineProps(Props)
   defineEmits(Emits)
@@ -15,16 +13,27 @@ import { TabsProvide } from '../../tabs/src/interface';
   /**
    * 该组件是否加载
    */
-  const isLoad = ref(!prop.lazy)
+  const isLoad = computed(() => {
+    if (tabsProvide.currentName.value === prop.name) {
+      return true
+    } else {
+      return !prop.lazy
+    }
+  })
+
   /**
    * 该组件是否显示
    */
   const isShow = computed(() => tabsProvide.currentName.value === prop.name)
 
   /**
-   * 注册当前pane
+   * 在组件插入及卸载时都要更新父级的pane列表
    */
-  tabsProvide.registerPane(instance)
+  tabsProvide.updatePaneList()
+
+  onBeforeUnmount(() => {
+    tabsProvide.updatePaneList()
+  })
 </script>
 
 <template>

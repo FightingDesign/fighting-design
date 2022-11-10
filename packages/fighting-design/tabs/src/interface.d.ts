@@ -25,5 +25,5 @@ export type TabsNavInstance = {
 
 export type TabsProvide = {
   currentName: Ref<String | Number>,
-  registerPane: (a: any) => void
+  updatePaneList: () => void
 }

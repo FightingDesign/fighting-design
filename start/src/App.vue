@@ -5,10 +5,14 @@
   const type = ref('line')
   const tab = ref(2)
 
+  const text = ref('asdd')
+
+  const as = ref(true)
 
   setTimeout(() => {
-    tab.value = 'about123'
-  }, 1000)
+    text.value = 'asdadfdbdfg'
+    as.value = false
+  }, 2000)
 </script>
 
 <template>
@@ -16,11 +20,12 @@
 
   <f-card>
     <f-tabs :position="position" :type="type" v-model="tab">
-      <f-tabs-pane name="home" label="首页">哈哈哈</f-tabs-pane>
-      <f-tabs-pane label="很长很长的一个标签">Config</f-tabs-pane>
-      <f-tabs-pane label="Jinx">Role</f-tabs-pane>
-      <f-tabs-pane label="ThisIsSparta">Task</f-tabs-pane>
-      <f-tabs-pane name="about">
+      <f-tabs-pane name="home" label="首页">{{text}}</f-tabs-pane>
+      <f-tabs-pane label="很长很长的一个标签" lazy>Config</f-tabs-pane>
+      <f-tabs-pane label="Jinx" lazy>Role</f-tabs-pane>
+      <f-tabs-pane label="ThisIsSparta" lazy>Task</f-tabs-pane>
+      <f-tabs-pane label="动态节点" v-if="as">动态节点的内容</f-tabs-pane>
+      <f-tabs-pane name="about" lazy>
         <template #label>你猜</template>
         哈2123哈哈
       </f-tabs-pane>
