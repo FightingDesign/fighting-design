@@ -59,7 +59,7 @@
 
 <template>
   <div class="f-select" :style="styleList">
-    <f-dropdown>
+    <f-dropdown trigger="click">
       <f-input
         v-model="inputValue"
         readonly

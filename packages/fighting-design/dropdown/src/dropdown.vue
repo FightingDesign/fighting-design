@@ -61,7 +61,11 @@
 
     <!-- 展示的内容 -->
     <transition name="f-dropdown">
-      <div v-show="showContent" class="f-dropdown__content">
+      <div
+        v-show="showContent"
+        class="f-dropdown__content"
+        @click.stop="contentHidden"
+      >
         <slot name="content" />
       </div>
     </transition>
