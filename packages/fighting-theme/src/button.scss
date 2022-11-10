@@ -6,7 +6,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--f-button-font-size, 14px);
+  font-size: var(--f-button-font-size);
   border: none;
   outline: none;
   user-select: none;
@@ -97,7 +97,6 @@
       height: map-get($item, height);
       padding: 0 map-get($item, padding);
       line-height: map-get($item, height);
-      font-size: var(--f-button-font-size, map-get($item, fontSize));
 
       // 圆形按钮
       &.f-button__circle {
