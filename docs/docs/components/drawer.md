@@ -133,7 +133,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/50623519?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import demo1Vue from './_demos/drawer/demo1.vue'
   import demo2Vue from './_demos/drawer/demo2.vue'
 </script>

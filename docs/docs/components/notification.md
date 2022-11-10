@@ -272,80 +272,79 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
 </a>
 
-<script setup>
-import { h } from 'vue'
-import { FNotification } from '../../../packages/fighting-design/index'
+<script setup lang="ts">
+  import { h } from 'vue'
+  import { FNotification } from '../../../packages/fighting-design/index'
 
-const openNotification = () => {
-  FNotification({
-    title: '这是一条通知',
-    message: '这是通知内容'
-  })
-}
+  const openNotification = () => {
+    FNotification({
+      title: '这是一条通知',
+      message: '这是通知内容'
+    })
+  }
 
-const openNotificationPrimary = () => {
-  FNotification.primary('这是一条重要通知')
-}
+  const openNotificationPrimary = () => {
+    FNotification.primary('这是一条重要通知')
+  }
 
-const openNotificationSuccess = () => {
-  FNotification.success('这是一条成功通知')
-}
+  const openNotificationSuccess = () => {
+    FNotification.success('这是一条成功通知')
+  }
 
-const openNotificationWarning = () => {
-  FNotification.warning('这是一条警告通知')
-}
+  const openNotificationWarning = () => {
+    FNotification.warning('这是一条警告通知')
+  }
 
-const openNotificationDanger = () => {
-  FNotification.danger('这是一条失败通知')
-}
+  const openNotificationDanger = () => {
+    FNotification.danger('这是一条失败通知')
+  }
 
+  const openNotificationClose1 = () => {
+    FNotification({
+      title: '一条通知',
+      message: '这是一条5秒后消失的消息',
+      type: 'primary',
+      close: true,
+      duration: 5000
+    })
+  }
 
-const openNotificationClose1 = () => {
-  FNotification({
-    title: '一条通知',
-    message: '这是一条5秒后消失的消息',
-    type: 'primary',
-    close: true,
-    duration: 5000
-  })
-}
+  const openNotificationClose2 = () => {
+    FNotification({
+      title: '一条通知',
+      message: '这是一条不会自动消失的消息',
+      type: 'primary',
+      close: true,
+      closeBtn: '关闭',
+      duration: 0
+    })
+  }
 
-const openNotificationClose2 = () => {
-  FNotification({
-    title: '一条通知',
-    message: '这是一条不会自动消失的消息',
-    type: 'primary',
-    close: true,
-    closeBtn: '关闭',
-    duration: 0
-  })
-}
+  const openNotificationPlacement = (placement) => {
+    FNotification({
+      title: '一条通知',
+      message: '这是一条自定义位置的消息',
+      type: 'primary',
+      close: true,
+      placement: placement
+    })
+  }
 
-const openNotificationPlacement = (placement) => {
-  FNotification({
-    title: '一条通知',
-    message: '这是一条自定义位置的消息',
-    type: 'primary',
-    close: true,
-    placement: placement
-  })
-}
-
-const openNotificationVNode = () => {
-  FNotification({
-    title: h('span', [
-      h('span', '这是'),
-      h('b', '自定义标题'),
-    ]),
-    message: h('div', [
-      h('p', [
-        h('span', '这是一条'),
-        h('b', ' 非常重要 '),
-        h('span', '的通知')
+  const openNotificationVNode = () => {
+    FNotification({
+      title: h('span', [
+        h('span', '这是'),
+        h('b', '自定义标题'),
       ]),
-      h('p', '这里是一些不重要的内容')
-    ]),
-    type: 'primary',
-  })
-}
+      message: h('div', [
+        h('p', [
+          h('span', '这是一条'),
+          h('b', ' 非常重要 '),
+          h('span', '的通知')
+        ]),
+        h('p', '这里是一些不重要的内容')
+      ]),
+      type: 'primary',
+    })
+  }
 </script>

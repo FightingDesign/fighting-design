@@ -184,7 +184,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/37285048?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { ref } from 'vue'
 
   const loading = ref(false)

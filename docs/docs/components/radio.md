@@ -275,7 +275,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/50451042?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { ref } from 'vue'
 
   const radio1 = ref('1')

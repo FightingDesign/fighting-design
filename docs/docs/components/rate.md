@@ -133,7 +133,7 @@ import type { RatePropsType, RateInstance } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/46363316?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { FIconKey } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 

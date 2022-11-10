@@ -189,7 +189,7 @@ import type { DialogInstance, DialogPropsType } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/40457081?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import demo1Vue from './_demos/dialog/demo1.vue'
   import demo2Vue from './_demos/dialog/demo2.vue'
   import demo3Vue from './_demos/dialog/demo3.vue'

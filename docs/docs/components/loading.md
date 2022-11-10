@@ -113,7 +113,7 @@ import type { LoadingInstance, LoadingPropsType } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/57850101?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { ref } from 'vue'
   import { FIconSnowflake } from '@fighting-design/fighting-icon'
 

@@ -115,8 +115,8 @@
       overflow: hidden;
       background: -webkit-linear-gradient(
         815deg,
-        rgb(57, 92, 227) 10%,
-        rgb(94, 224, 221)
+        #395ce3 10%,
+        #5ee0dd
       );
       -webkit-mask: url('./images/banner.svg') 100% -150px / cover no-repeat;
 
@@ -165,8 +165,8 @@
         margin-top: 20px;
         background: -webkit-linear-gradient(
           55deg,
-          rgb(57, 92, 227) 10%,
-          rgb(94, 224, 221)
+          #395ce3 10%,
+          #5ee0dd
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

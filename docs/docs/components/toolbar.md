@@ -200,7 +200,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/23503047?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
 
   const handleClick = ({ key, evt }) => {
