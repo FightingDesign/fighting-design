@@ -2,47 +2,31 @@
 
 .f-tabs {
   display: flex;
+
   &.f-tabs__position_top{
     flex-direction: column;
   }
+
   &.f-tabs__position_bottom{
     flex-direction: column-reverse;
   }
-  &.f-tabs__position_left{
-    flex-direction: row;
-  }
-  &.f-tabs__position_right{
-    flex-direction: row-reverse;
-  }
 
-
-  .f-tabs-content{
-    flex: 1
-  }
-}
-
-
-.f-tabs-nav{
-  &.f-tabs-nav__type_line{
-    .f-tabs-nav--line{
-      width: 100%;
-      height: 1px;
-      background-color: #ccc;
+  &.f-tabs__position_top, &.f-tabs__position_bottom{
+    .f-tabs-nav {
+      &.f-tabs-nav__type_line{
+        .f-tabs-nav--line{
+          width: 100%;
+          height: 1px;
+        }
+        .f-tabs-nav--line__active{
+          height: 1px;
+        }
+      }
     }
 
-    .f-tabs-nav--line__active{
-      height: 1px;
-      background: $primary;
-      transition: all .3s;
-    }
-  }
-  .f-tabs-nav--items{
-    display: flex;
     .f-tabs-nav--item{
-      cursor: pointer;
-      padding-top: 8px;
-      padding-bottom: 12px;
-
+      padding-top: 10px;
+      padding-bottom: 10px;
       &:not(:first-child):not(:last-child) {
         padding-left: 10px;
         padding-right: 10px;
@@ -53,6 +37,83 @@
       &:last-child{
         padding-left: 10px;
       }
+    }
+  }
+
+  &.f-tabs__position_left, &.f-tabs__position_right{
+    .f-tabs-nav {
+      .f-tabs-nav--items{
+        flex-direction:column;
+        align-items: flex-end;
+      }
+      &.f-tabs-nav__type_line{
+        display: flex;
+        .f-tabs-nav--line{
+          width:1px;
+          height:100%;
+        }
+        .f-tabs-nav--line__active{
+          width: 1px;
+        }
+      }
+    }
+
+    .f-tabs-nav--item{
+      padding-left: 10px;
+      padding-right: 10px;
+      &:not(:first-child):not(:last-child) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      };
+      &:first-child{
+        padding-bottom: 10px;
+      }
+      &:last-child{
+        padding-top: 10px;
+      }
+    }
+  }
+
+  &.f-tabs__position_left{
+    flex-direction: row;
+  }
+
+  &.f-tabs__position_right{
+    flex-direction: row-reverse;
+    .f-tabs-nav {
+      .f-tabs-nav--items{
+        align-items: flex-start;
+      }
+      &.f-tabs-nav__type_line{
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+
+  .f-tabs-content{
+    flex: 1
+  }
+}
+
+
+.f-tabs-nav{
+  flex-shrink: 0;
+  &.f-tabs-nav__type_line{
+    flex-shrink: 0;
+    .f-tabs-nav--line{
+      background-color: #ccc;
+    }
+
+    .f-tabs-nav--line__active{
+      background: $primary;
+      transition: all .3s;
+    }
+  }
+  .f-tabs-nav--items{
+    display: flex;
+    .f-tabs-nav--item{
+      cursor: pointer;
     }
     .f-tabs-nav--item__active{
       color: $primary;

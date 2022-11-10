@@ -25,43 +25,35 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
    * 仅针对line模式下的，活动线条的样式
    */
   const activeLineStyle = ref<CSSProperties>({})
-  // const activeLineStyle = computed<null | CSSProperties>(() => {
 
-    
-
-  //   return {
-  //     width: '',
-  //     transform: 'translateX(0px);'
-  //   }
-  // })
-
-  const currentIndex = computed(() => prop.navs.findIndex(e => e.name === prop.currentName))
+  const currentIndex = computed(() => Math.max(prop.navs.findIndex(e => e.name === prop.currentName), 0))
   
-  watch(currentIndex, updateActiveLineStyle)
+  watch(() => [currentIndex.value, prop.position], updateActiveLineStyle)
 
-  function updateActiveLineStyle() {
-    if (prop.type !== 'line') return
+  async function updateActiveLineStyle() {
+    await nextTick()
+    if (!prop.navs.length || prop.type !== 'line') return
     const { position } = prop
     const activeStyle:CSSProperties = {}
     const children = instance.subTree.el.querySelectorAll('.f-tabs-nav--item') as HTMLElement[]
+    
     if (!children.length) return
     const nextItem = children[currentIndex.value]
+
     const parent = nextItem.parentElement
     const nextItemStyle = window.getComputedStyle(nextItem)
     if (position === 'top' || position === 'bottom') {
       activeStyle.width = nextItem.clientWidth - Number.parseFloat(nextItemStyle.paddingLeft) - Number.parseFloat(nextItemStyle.paddingRight) + 'px'
       activeStyle.transform = `translateX(${nextItem.offsetLeft - parent.offsetLeft + Number.parseFloat(nextItemStyle.paddingLeft)}px)`
     } else {
-
+      activeStyle.height = nextItem.clientHeight - Number.parseFloat(nextItemStyle.paddingTop) - Number.parseFloat(nextItemStyle.paddingBottom) + 'px'
+      activeStyle.transform = `translateY(${nextItem.offsetTop - parent.offsetTop + Number.parseFloat(nextItemStyle.paddingTop)}px)`
     }
     activeLineStyle.value = activeStyle
-
   }
 
   onMounted((): void => {
-    nextTick(() => {
-      updateActiveLineStyle()
-    })
+    updateActiveLineStyle()
   })
 
 </script>
