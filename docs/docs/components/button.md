@@ -305,8 +305,8 @@
 | `circle`        | 是否为圆形按钮                                                                                                                                              | boolean                    | ——                                                      | false    |
 | `round`         | 是否为圆角按钮                                                                                                                                              | boolean                    | ——                                                      | false    |
 | `font-size`     | 文字字体大小                                                                                                                                                | string / number            | ——                                                      | 14px     |
-| `font-color`    | 文字字体颜色                                                                                                                                                | string                     | ——                                                      | #fff     |
-| `size`          | 按钮尺寸                                                                                                                                                    | string                     | `large` `middle` `small` `mini`                         | middle   |
+| `font-color`    | 文字字体颜色                                                                                                                                                | string                     | ——                                                      |''    |
+| `size`          | 按钮尺寸，设置按钮的高度和水平padding                                                                                                                                                    | string                     | `large` `middle` `small` `mini`                         | middle   |
 | `block`         | 是否为块级元素                                                                                                                                              | boolean                    | ——                                                      | false    |
 | `href`          | 链接按钮的地址                                                                                                                                              | string                     | ——                                                      | ——       |
 | `target`        | 原生 target 属性，在 link 类型存在时生效                                                                                                                    | string                     | `_blank` `_self` `_parent` `_top`                       | \_self   |
@@ -315,16 +315,16 @@
 | `before-icon`   | 之前的 icon                                                                                                                                                 | object (VNode / Component) | ——                                                      | null     |
 | `after-icon`    | 之后的 icon                                                                                                                                                 | object (VNode / Component) | ——                                                      | null     |
 | `loading-icon`  | loading 状态下的 icon                                                                                                                                       | object (VNode / Component) | ——                                                      | null     |
-| `type`          | 按钮的类型                                                                                                                                                  | string                     | `default` `primary` `success` <br /> `danger` `warning` | default  |
+| `type`          | 按钮的类型 （不同类型对应不同的背景和字体颜色，非自定义按钮颜色时有效）                                                                                                                                                 | string                     | `default` `primary` `success` <br /> `danger` `warning` | default  |
 | `autofocus`     | 是否自动获取焦点                                                                                                                                            | boolean                    | ——                                                      | false    |
 | `name`          | 按钮的名字                                                                                                                                                  | string                     | ——                                                      | f-button |
 | `shadow`        | 按钮的阴影                                                                                                                                                  | string                     | ——                                                      | ——       |
-| `text`          | 是否为文字按钮                                                                                                                                              | boolean                    | ——                                                      | false    |
-| `simple`        | 是否为简约按钮                                                                                                                                              | boolean                    | ——                                                      | false    |
+| `text`          | 是否为文字按钮 （非自定义按钮颜色时有效）                                                                                                                                             | boolean                    | ——                                                      | false    |
+| `simple`        | 是否为简约按钮        （非自定义按钮颜色时有效）                                                                                                                                      | boolean                    | ——                                                      | false    |
 | `ripples`       | 是否启用点击涟漪效果                                                                                                                                        | boolean                    | ——                                                      | false    |
 | `ripples-color` | 涟漪背景色                                                                                                                                                  | string                     | ——                                                      | #fff     |
 | `native-type`   | 按钮的原生类型                                                                                                                                              | string                     | `button` `submit` `reset`                               | button   |
-| `color`         | 自定义按钮的颜色，仅支持 [hex](https://baike.baidu.com/item/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E9%A2%9C%E8%89%B2%E7%A0%81/10894232?fr=aladdin) 格式的色号 | string                     | ——                                                      | ——       |
+| `color`         | 自定义按钮的背景颜色，仅支持 [hex](https://baike.baidu.com/item/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E9%A2%9C%E8%89%B2%E7%A0%81/10894232?fr=aladdin) 格式的色号。如果未指定`font-color`，则字体颜色默认为白色 | string                     | ——                                                      | ——       |
 | `click`         | 点击执行的回调                                                                                                                                              | Function                   | ——                                                      | null     |
 
 ## ButtonGroup Attributes
@@ -375,6 +375,10 @@ import type {
 
 <a href="https://github.com/lxqddd" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/56574505?v=4" />
+</a>
+
+<a href="https://github.com/long-life233" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/77321887?v=4" />
 </a>
 
 <style scoped>

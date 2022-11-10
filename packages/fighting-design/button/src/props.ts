@@ -41,7 +41,7 @@ export const Props = {
    */
   fontColor: {
     type: String,
-    default: (): string => '#fff'
+    default: (): string => ''
   },
   /**
    * 按钮尺寸
@@ -103,7 +103,7 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 按钮的类型
+   * 按钮的类型（非自定义按钮颜色时有效）
    */
   type: {
     type: String as PropType<ButtonType>,
@@ -138,7 +138,7 @@ export const Props = {
     default: (): string => ''
   },
   /**
-   * 是否为文字按钮
+   * 是否为文字按钮（非自定义按钮颜色时有效）
    */
   text: {
     type: Boolean,
@@ -157,7 +157,7 @@ export const Props = {
     }
   },
   /**
-   * 是否为简约的按钮
+   * 是否为简约的按钮（非自定义按钮颜色时有效）
    */
   simple: {
     type: Boolean,
