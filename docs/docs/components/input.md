@@ -239,7 +239,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { ref } from 'vue'
   import demo1Vue from './_demos/input/demo1.vue'
   import demo2Vue from './_demos/input/demo2.vue'

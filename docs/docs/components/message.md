@@ -270,69 +270,69 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
 </a>
 
-<script setup>
-import { h } from 'vue'
-import { FMessage } from '../../../packages/fighting-design/index'
+<script setup lang="ts">
+  import { h } from 'vue'
+  import { FMessage } from '../../../packages/fighting-design/index'
 
-const openMessage = () => {
-  FMessage('这是一条消息提示')
-}
+  const openMessage = () => {
+    FMessage('这是一条消息提示')
+  }
 
-const openMessagePrimary = () => {
-  FMessage.primary('这是一条重要消息提示')
-}
+  const openMessagePrimary = () => {
+    FMessage.primary('这是一条重要消息提示')
+  }
 
-const openMessageSuccess = () => {
-  FMessage.success('这是一条成功消息提示')
-}
+  const openMessageSuccess = () => {
+    FMessage.success('这是一条成功消息提示')
+  }
 
-const openMessageWarning = () => {
-  FMessage.warning('这是一条警告消息提示')
-}
+  const openMessageWarning = () => {
+    FMessage.warning('这是一条警告消息提示')
+  }
 
-const openMessageDanger = () => {
-  FMessage.danger('这是一条失败消息提示')
-}
+  const openMessageDanger = () => {
+    FMessage.danger('这是一条失败消息提示')
+  }
 
-const openMessageClose1 = () => {
-  FMessage({
-    message: '这是一条5秒后消失的消息',
-    type: 'primary',
-    close: true,
-    duration: 5000
-  })
-}
+  const openMessageClose1 = () => {
+    FMessage({
+      message: '这是一条5秒后消失的消息',
+      type: 'primary',
+      close: true,
+      duration: 5000
+    })
+  }
 
-const openMessageClose2 = () => {
-  FMessage({
-    message: '这是一条不会自动消失的消息',
-    type: 'primary',
-    close: true,
-    closeBtn: '关闭',
-    duration: 0
-  })
-}
+  const openMessageClose2 = () => {
+    FMessage({
+      message: '这是一条不会自动消失的消息',
+      type: 'primary',
+      close: true,
+      closeBtn: '关闭',
+      duration: 0
+    })
+  }
 
-const openMessagePlacement = (placement) => {
-  FMessage({
-    message: '这是一条自定义位置的消息',
-    type: 'primary',
-    close: true,
-    placement: placement
-  })
-}
+  const openMessagePlacement = (placement) => {
+    FMessage({
+      message: '这是一条自定义位置的消息',
+      type: 'primary',
+      close: true,
+      placement: placement
+    })
+  }
 
-const openMessageVNode = () => {
-  FMessage({
-    message: h('div', [
-      h('p', [
-        h('span', '这是一条'),
-        h('b', ' 非常重要 '),
-        h('span', '的消息提示')
+  const openMessageVNode = () => {
+    FMessage({
+      message: h('div', [
+        h('p', [
+          h('span', '这是一条'),
+          h('b', ' 非常重要 '),
+          h('span', '的消息提示')
+        ]),
+        h('p', '这里是一些不重要的内容')
       ]),
-      h('p', '这里是一些不重要的内容')
-    ]),
-    type: 'primary',
-  })
-}
+      type: 'primary',
+    })
+  }
 </script>

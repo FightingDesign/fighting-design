@@ -193,7 +193,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import demo1Vue from './_demos/image/demo1.vue'
   const url = new URL('./_image/1.jpg', import.meta.url).href
 </script>

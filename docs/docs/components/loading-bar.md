@@ -65,8 +65,9 @@ import { useLoadingBar } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { useLoadingBar } from '../../../packages/fighting-design/index'
+
   const bar = useLoadingBar()
   const start = () => {
     bar.start()

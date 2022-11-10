@@ -121,12 +121,13 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/14799063?v=4" />
 </a>
 
-<script setup>
-    const imageList = [
+<script setup lang="ts">
+  const imageList = [
     'https://tianyuhao.cn/images/fighting-design/1.jpg',
     'https://tianyuhao.cn/images/fighting-design/2.jpg',
     'https://tianyuhao.cn/images/fighting-design/3.jpg'
   ]
+
   const imageList2 = [
     {
       url: 'https://tianyuhao.cn/images/fighting-design/1.jpg',

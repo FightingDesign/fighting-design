@@ -92,7 +92,7 @@ yarn add --save-dev @fighting-design/fighting-icon
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import demo1Vue from './_demos/svg-icon/demo1.vue'
   import demo2Vue from './_demos/svg-icon/demo2.vue'
   import Svg from '@fighting-design/fighting-icon'

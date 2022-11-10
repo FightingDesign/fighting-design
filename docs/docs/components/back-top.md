@@ -155,7 +155,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/55753927?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { FIconSnowflake, FIconUpload } from '@fighting-design/fighting-icon'
 </script>
 

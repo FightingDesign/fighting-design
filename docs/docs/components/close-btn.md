@@ -85,6 +85,6 @@ import type { CloseBtnInstance, CloseBtnPropsType } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { FIconCross } from '../../../packages/fighting-icon/index.ts'
 </script>

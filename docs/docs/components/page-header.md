@@ -103,7 +103,7 @@ import type { PageHeaderInstance, PageHeaderPropsType } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/42865478?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { FIconReply } from '@fighting-design/fighting-icon'
 
   const goBack = () => {
