@@ -1,3 +1,4 @@
+import { isString } from '../../_utils'
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
 import type {
   InputType,
@@ -183,7 +184,7 @@ export const Props = {
 } as const
 
 export const Emits = {
-  'update:modelValue': (val: string): string => val
+  'update:modelValue': (val: string): boolean => isString(val)
 } as const
 
 export type InputPropsType = ExtractPropTypes<typeof Props>

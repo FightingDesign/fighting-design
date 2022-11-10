@@ -1,3 +1,4 @@
+import { isString } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { TextareaChangeInterface } from './interface'
 import type { HandleFocusEventInterface } from '../../_interface'
@@ -107,7 +108,7 @@ export const Props = {
 } as const
 
 export const Emits = {
-  'update:modelValue': (val: string): string => val
+  'update:modelValue': (val: string): boolean => isString(val)
 } as const
 
 export type TextareaPropsType = ExtractPropTypes<typeof Props>
