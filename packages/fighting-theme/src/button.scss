@@ -11,11 +11,8 @@
   outline: none;
   user-select: none;
   text-decoration: none;
-  height: $middle;
   transition: 0.3s;
-  line-height: 1;
   cursor: pointer;
-  padding: 0 25px;
   background: $default;
   white-space: nowrap;
   vertical-align: middle;
@@ -23,6 +20,7 @@
   overflow: hidden;
   box-shadow: var(--f-button-box-shadow);
 
+  // 不同背景和字体颜色
   @for $list from 1 to (length($allTypeColorList) + 1) {
     $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
 
@@ -95,13 +93,10 @@
     &.f-button__#{map-get($item, name)} {
       height: map-get($item, height);
       padding: 0 map-get($item, padding);
-      line-height: map-get($item, height);
 
       // 圆形按钮
       &.f-button__circle {
-        height: map-get($item, height);
         width: map-get($item, height);
-        line-height: 1;
         padding: 0;
         border-radius: 50%;
       }
