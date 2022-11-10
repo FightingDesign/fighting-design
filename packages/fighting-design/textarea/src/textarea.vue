@@ -17,7 +17,7 @@
    */
   const { onInput, onClear } = useUpdateInput(
     useFilterProps<TextareaPropsType, UseUpdateInputPropsInterface>(prop, [
-      'change',
+      'onChange',
       'disabled'
     ]),
     emit

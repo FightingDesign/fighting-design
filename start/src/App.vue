@@ -1,32 +1,27 @@
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value7 = ref('可清空的')
+  const value = ref('')
 
-  const value = ref('1')
+  function change (e) {
+    console.log(e)
+  }
 </script>
 
 <template>
-  <f-button type="primary" font-color="red">下拉菜单</f-button>
-  <f-dropdown>
-    <f-button type="primary">下拉菜单</f-button>
+  <f-input
+    v-model="value"
+    type="text"
+    placeholder="请输入...."
+    :on-change="change"
+  />
 
-    <template #content>
-      <f-dropdown-item>猕猴桃</f-dropdown-item>
-      <f-dropdown-item>哈密瓜</f-dropdown-item>
-      <f-dropdown-item>火龙果</f-dropdown-item>
-      <f-dropdown-item>柠檬</f-dropdown-item>
-    </template>
-  </f-dropdown>
-
-  <f-textarea v-model="value" resize="horizontal" clear />
-
-  <f-input v-model="value7" type="text" clear />
+  <f-select v-model="value">
+    <f-option value="选项1"></f-option>
+    <f-option value="选项2"></f-option>
+    <f-option value="选项3"></f-option>
+    <f-option value="选项4"></f-option>
+  </f-select>
 </template>
 
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-</style>
+<style lang="scss" scoped></style>

@@ -27,7 +27,7 @@
    */
   const { onInput, onClear } = useUpdateInput(
     useFilterProps<InputPropsType, UseUpdateInputPropsInterface>(prop, [
-      'change',
+      'onChange',
       'disabled'
     ]),
     emit
