@@ -17,10 +17,10 @@ export const Props = {
     default: (): null => null
   },
   /**
- * 原生 name 属性
- * 
- * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
- */
+   * 原生 name 属性
+   * 
+   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
+   */
   name: {
     type: String,
     default: (): string => 'f-select'

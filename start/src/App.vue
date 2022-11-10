@@ -1,27 +1,22 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const type = ref('primary')
 
-  function change (e) {
-    console.log(e)
+  const change = (): void => {
+    type.value = 'default'
   }
 </script>
 
 <template>
-  <f-input
-    v-model="value"
-    type="text"
-    placeholder="请输入...."
-    :on-change="change"
-  />
+  <f-button :type="type" :click="change">主要按钮</f-button>
 
-  <f-select v-model="value">
+  <!-- <f-select v-model="value">
     <f-option value="选项1"></f-option>
-    <f-option value="选项2"></f-option>
+    <f-option disabled value="选项2"></f-option>
     <f-option value="选项3"></f-option>
     <f-option value="选项4"></f-option>
-  </f-select>
+  </f-select> -->
 </template>
 
 <style lang="scss" scoped></style>

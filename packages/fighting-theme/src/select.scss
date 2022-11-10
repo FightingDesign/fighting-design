@@ -1,2 +1,7 @@
 .f-select {
+  display: inline-block;
+
+  .f-dropdown__content {
+    width: 100%;
+  }
 }
