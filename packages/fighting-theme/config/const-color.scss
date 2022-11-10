@@ -15,66 +15,57 @@ $simpleWarning: lighten($warning, 42%);
 // 不同类型的颜色状态
 $allTypeColorList: (
   (
-    // 类名拼接
-    name: 'default',
-    // 默认背景色
-    default: $default,
-    // 简约状态背景色
-    simple: $simpleDefault,
-    // 默认字体颜色
-    defaultTextColor: #333,
-    // 简约的字体颜色
-    simpleTextColor: #333,
-    // hover 状态背景色
-    defaultHover: darken($default, 3%),
-    // Active 状态背景色
-    defaultActive: darken($default, 10%),
-    // 简约的 hover 状态背景色
-    simpleHover: darken($simpleDefault, 3%),
-    // 简约的 Active 状态背景色
-    simpleActive: darken($simpleDefault, 9%)
+    name: 'default', // 类名拼接
+    default: $default, // 默认背景色
+    defaultTextColor: #333, // 默认字体颜色
+    defaultHover: darken($default, 3%), // 默认hover 状态背景色
+    defaultActive: darken($default, 10%), // 默认Active 状态背景色
+    simple: $simpleDefault, // 简约状态背景色
+    simpleTextColor: #333, // 简约的字体颜色
+    simpleHover: darken($simpleDefault, 3%), // 简约的 hover 状态背景色
+    simpleActive: darken($simpleDefault, 9%) // 简约的 Active 状态背景色
   ),
   (
     name: 'primary',
     default: $primary,
-    simple: $simplePrimary,
     defaultTextColor: #fff,
-    simpleTextColor: #2d5af1,
     defaultHover: lighten($primary, 10%),
     defaultActive: darken($primary, 10%),
+    simple: $simplePrimary,
+    simpleTextColor: #2d5af1,
     simpleHover: lighten($simplePrimary, 3%),
     simpleActive: darken($simplePrimary, 3%)
   ),
   (
     name: 'success',
     default: $success,
-    simple: $simpleSuccess,
     defaultTextColor: #fff,
-    simpleTextColor: #52b35e,
     defaultHover: lighten($success, 10%),
     defaultActive: darken($success, 10%),
+    simple: $simpleSuccess,
+    simpleTextColor: #52b35e,
     simpleHover: lighten($simpleSuccess, 3%),
     simpleActive: darken($simpleSuccess, 3%)
   ),
   (
     name: 'danger',
     default: $danger,
-    simple: $simpleDanger,
     defaultTextColor: #fff,
-    simpleTextColor: #ff0200,
     defaultHover: lighten($danger, 17%),
     defaultActive: darken($danger, 10%),
+    simple: $simpleDanger,
+    simpleTextColor: #ff0200,
     simpleHover: lighten($simpleDanger, 3%),
     simpleActive: darken($simpleDanger, 3%)
   ),
   (
     name: 'warning',
     default: $warning,
-    simple: $simpleWarning,
     defaultTextColor: #fff,
-    simpleTextColor: #fcc202,
     defaultHover: lighten($warning, 14%),
     defaultActive: darken($warning, 10%),
+    simple: $simpleWarning,
+    simpleTextColor: #fcc202,
     simpleHover: lighten($simpleWarning, 3%),
     simpleActive: darken($simpleWarning, 3%)
   )
