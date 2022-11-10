@@ -80,7 +80,7 @@
         // 文字按钮禁用状态
         &.f-button__disabled:hover {
           background: #fff;
-          border: 1px solid map-get($item, simpleTextColor);
+          outline: 1px solid map-get($item, simpleTextColor);
         }
       }
     }
