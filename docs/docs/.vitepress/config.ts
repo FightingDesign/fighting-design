@@ -23,6 +23,7 @@ export default defineConfig({
     logo: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
   },
   markdown: {
+    // 自定义 markdown 语法
     config: (md) => mdPlugin(md)
   }
 })

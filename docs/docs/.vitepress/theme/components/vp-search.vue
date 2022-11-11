@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="VpSearch">
   import { ref } from 'vue'
   import { searchList } from './src/search-list'
 
@@ -43,21 +43,23 @@
 </script>
 
 <template>
-  <div class="search-box">
+  <div class="vp-search">
     <f-input
       v-model="value"
       type="text"
       placeholder="搜索组件"
       :on-enter="onSearch"
     />
+
+    <!-- 搜索结果 -->
     <div
       v-if="isShow && resultList && resultList.length"
-      class="search-result"
+      class="vp-search__result"
       @click.stop="hiddenResult"
     >
       <a
         v-for="(item, index) in resultList"
-        class="search-link"
+        class="vp-search__link"
         :key="index"
         :href="`/${item.url}.html`"
       >
@@ -68,13 +70,7 @@
 </template>
 
 <style lang="scss" scoped>
-  @media screen and (max-width: 810px) and (min-width: 710px) {
-    .search-box {
-      width: 170px;
-      transition: width 0.4s;
-    }
-  }
-  .search-box {
+  .vp-search {
     max-width: 200px;
     min-width: 100px;
     margin: 0 16px;
@@ -82,13 +78,14 @@
     display: inline-block;
     position: relative;
 
-    .search-result {
+    // 搜索结果
+    .vp-search__result {
       position: absolute;
       background: #fff;
       width: 100%;
       box-shadow: 0 1px 6px rgb(0 0 0 / 20%);
 
-      .search-link {
+      .vp-search__link {
         margin: 4px;
         transition: 0.3s;
         display: block;
@@ -101,6 +98,13 @@
           color: #2d5af1;
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 810px) and (min-width: 710px) {
+    .vp-search {
+      width: 170px;
+      transition: width 0.4s;
     }
   }
 </style>
