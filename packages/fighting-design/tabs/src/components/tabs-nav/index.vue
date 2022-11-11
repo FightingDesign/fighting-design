@@ -15,9 +15,10 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
   }
 
   const classList = computed(() => {
-    const { type } = prop
+    const { type, position } = prop
     return [
-      `f-tabs-nav__type_${type}`
+      `f-tabs-nav__type_${type}`,
+      `f-tabs-nav__type_${type}_${position}`
     ]
   })
 

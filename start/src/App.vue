@@ -2,7 +2,7 @@
   import { ref } from 'vue'
 
   const position = ref('top')
-  const type = ref('card')
+  const type = ref('segment')
   const tab = ref(2)
 
   const text = ref('asdd')
