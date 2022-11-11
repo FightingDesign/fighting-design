@@ -41,7 +41,7 @@ export const Props = {
    */
   fontColor: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#fff'
   },
   /**
    * 按钮尺寸
