@@ -231,7 +231,7 @@
 | `round`      | 是否为圆角类型                               | boolean        | ——                                                      | false     |
 | `close`      | 是否可关闭                                   | boolean        | ——                                                      | false     |
 | `show-icon`  | 是否显示按钮                                 | boolean        | ——                                                      | true      |
-| `icon`       | 自定义前缀 icon                              | string / VNode | ——                                                      | null      |
+| `icon`       | 自定义前缀 icon                              | object (VNode / Component)| ——                                           | null      |
 | `color`      | 自定义字体颜色                               | string         | ——                                                      | ——        |
 | `background` | 自定义背景色                                 | string         | ——                                                      | ——        |
 | `placement`  | 弹出位置                                     | string         | `top-left` `top-right` `bottom-left` `bottom-right`     | top-right |
@@ -270,6 +270,10 @@ import type {
 
 <a href="https://github.com/xluoyu" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
+</a>
+
+<a href="https://github.com/Alphatrionty" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/57850101?v=4" />
 </a>
 
 <script setup lang="ts">
