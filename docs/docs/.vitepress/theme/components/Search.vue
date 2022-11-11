@@ -2,21 +2,40 @@
   import { ref } from 'vue'
   import { searchList } from './src/search-list'
 
+  // 输入框输入的内容
   const value = ref('')
+  // 是否展示下拉菜单
   const isShow = ref(false)
-
+  // 搜索结果列表
   const resultList = ref()
 
+  /**
+   * 按下回车触发搜索
+   */
   const onSearch = (): void => {
+    // 过滤搜索结果
     resultList.value = searchList.filter((item) => {
       return item.rule.includes(value.value)
     })
 
+    // 检测有结果
     if (resultList.value && resultList.value.length) {
       isShow.value = true
+
+      setTimeout(() => {
+        const link: HTMLLinkElement[] = document.querySelectorAll(
+          '.search-link'
+        ) as unknown as HTMLLinkElement[]
+        if (link.length === 1) {
+          link[0].click()
+        }
+      }, 200)
     }
   }
 
+  /**
+   * 关闭搜索结果菜单
+   */
   const hiddenResult = (): void => {
     isShow.value = false
     value.value = ''
@@ -38,9 +57,9 @@
     >
       <a
         v-for="(item, index) in resultList"
-        class="link"
+        class="search-link"
         :key="index"
-        :href="`/components/${item.url}.html`"
+        :href="`/${item.url}.html`"
       >
         {{ item.title }}
       </a>
@@ -49,9 +68,17 @@
 </template>
 
 <style lang="scss" scoped>
+  @media screen and (max-width: 810px) and (min-width: 710px) {
+    .search-box {
+      width: 170px;
+      transition: width 0.4s;
+    }
+  }
   .search-box {
-    width: 200px;
-    margin-right: 20px;
+    max-width: 200px;
+    min-width: 100px;
+    margin: 0 16px;
+    transition: width 0.4s;
     display: inline-block;
     position: relative;
 
@@ -61,7 +88,7 @@
       width: 100%;
       box-shadow: 0 1px 6px rgb(0 0 0 / 20%);
 
-      .link {
+      .search-link {
         margin: 4px;
         transition: 0.3s;
         display: block;
