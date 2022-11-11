@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import { TabsPaneName, TabsPosition, TabsType } from './interface'
+import { TabsPaneName, TabsPosition, TabsType, TabsAlign } from './interface'
 
 export const Props = {
   /**
@@ -19,6 +19,10 @@ export const Props = {
   type: {
     type: String as PropType<TabsType>,
     default: 'line'
+  },
+  align: {
+    type: String as PropType<TabsAlign>,
+    default: 'left'
   }
 } as const
 

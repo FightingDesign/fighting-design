@@ -16,6 +16,8 @@ export type TabsPosition = 'left' | 'right' | 'top' | 'bottom'
  */
 export type TabsType = 'line' | 'card' | 'segment'
 
+export type TabsAlign = 'left' | 'center' | 'right'
+
 export type TabsPaneName = string | number
 
 export type TabsNavInstance = {

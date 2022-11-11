@@ -57,12 +57,22 @@
   onMounted(() => {
     currentName.value = prop.modelValue || navs.value[0].name // 如果没有传value，默认选中第一个
   })
+
+  const _position = computed(() => {
+    const { position, type } = prop
+
+    let _position = position
+    if (type === 'segment' && (position === 'right' || position === 'left')) {
+      _position = 'top'
+      debugWarn('FTabs', 'segment 风格只支持 top、bottom 两种方向')
+    }
+    return _position
+  })
   
   const styleList = computed(() => {
-    const { position } = prop
 
     return [
-      `f-tabs__position_${position}`
+      `f-tabs__position_${_position.value}`,
     ]
   })
 
@@ -73,6 +83,9 @@
     currentName,
   })
 
+  /**
+   * 将信息传递给子组件
+   */
   provide<TabsProvide>(TabsProvideKey, {
     currentName,
     updatePaneList
@@ -86,7 +99,7 @@
       :navs="navs"
       :type="type"
       :currentName="currentName"
-      :position="position"
+      :position="_position"
       @setCurrentName="setCurrentName"
     />
     <div class="f-tabs-content">
