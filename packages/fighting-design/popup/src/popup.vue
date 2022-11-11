@@ -71,15 +71,17 @@
         />
 
         <!-- 主容器 -->
-        <div class="f-popup__container" @click.self="closePopup">
+        <div
+          :class="[
+            'f-popup__container',
+            {
+              [`f-popup__container-${direction}`]: direction
+            }
+          ]"
+          @click.self="closePopup"
+        >
           <!-- 主内容 -->
-          <transition
-            :name="
-              direction === 'center'
-                ? 'f-popup__wrapper'
-                : `f-popup__wrapper-${direction}`
-            "
-          >
+          <transition name="f-popup__wrapper-transition">
             <div
               v-show="visible"
               :class="[

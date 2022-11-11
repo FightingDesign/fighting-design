@@ -41,70 +41,115 @@
   }
 
   // 主容器居中
-  &__container {
+  &__container-center {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .f-popup__wrapper-center {
+    .f-popup__wrapper {
       border-radius: 6px;
       max-height: 90%;
       box-shadow: 0 0 18px #00000066;
+    }
 
-      // 主内容动画样式
-      &-enter-active,
-      &-leave-active {
-        transition: all 0.2s ease-out;
-      }
+    // 主内容动画样式
+    .f-popup__wrapper-transition-enter-active,
+    .f-popup__wrapper-transition-leave-active {
+      transition: all 0.2s ease-out;
+    }
 
-      &-enter-from,
-      &-leave-to {
-        transform: scale(0.4);
-        opacity: 0;
-      }
+    .f-popup__wrapper-transition-enter-from,
+    .f-popup__wrapper-transition-leave-to {
+      transform: scale(0.4);
+      opacity: 0;
     }
   }
 
-  // 主容器左侧
-  .f-popup__wrapper-left {
-    top: 0;
-    bottom: 0;
-    left: 0;
+  // 左侧弹出
+  &__container-left {
+    .f-popup__wrapper {
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    // 主内容动画样式
+    .f-popup__wrapper-transition-enter-active,
+    .f-popup__wrapper-transition-leave-active {
+      transition: all 0.2s ease-out;
+    }
+
+    .f-popup__wrapper-transition-enter-from,
+    .f-popup__wrapper-transition-leave-to {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
   }
 
-  // 主容器右侧
-  .f-popup__wrapper-right {
-    top: 0;
-    bottom: 0;
-    right: 0;
+  // 右侧弹出
+  &__container-right {
+    .f-popup__wrapper {
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    // 主内容动画样式
+    .f-popup__wrapper-transition-enter-active,
+    .f-popup__wrapper-transition-leave-active {
+      transition: all 0.2s ease-out;
+    }
+
+    .f-popup__wrapper-transition-enter-from,
+    .f-popup__wrapper-transition-leave-to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
   }
 
-  // 主容器上侧
-  .f-popup__wrapper-top {
-    top: 0;
-    left: 0;
-    right: 0;
+  // 上方弹出
+  &__container-top {
+    .f-popup__wrapper {
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    // 主内容动画样式
+    .f-popup__wrapper-transition-enter-active,
+    .f-popup__wrapper-transition-leave-active {
+      transition: all 0.2s ease-out;
+    }
+
+    .f-popup__wrapper-transition-enter-from,
+    .f-popup__wrapper-transition-leave-to {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
   }
 
-  // 主容器下侧
-  .f-popup__wrapper-bottom {
-    left: 0;
-    bottom: 0;
-    right: 0;
+  // 下方弹出
+  &__container-bottom {
+    .f-popup__wrapper {
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    // 主内容动画样式
+    .f-popup__wrapper-transition-enter-active,
+    .f-popup__wrapper-transition-leave-active {
+      transition: all 0.2s ease-out;
+    }
+
+    .f-popup__wrapper-transition-enter-from,
+    .f-popup__wrapper-transition-leave-to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
   }
 
-  // 滚动条
-  ::-webkit-scrollbar {
-    width: 7px;
-  }
-
-  // 滚动滑块
-  ::-webkit-scrollbar-thumb {
-    background: #dddddd;
-    border-radius: 6px;
-  }
-
-  // 居中动画效果
+  // 遮罩层动画
   &__transition-enter-active {
     transition: all 0.2s ease-out;
   }
@@ -117,35 +162,15 @@
   &__transition-leave-to {
     opacity: 0;
   }
-}
 
-// 其它方向
-.f-popup-other-enter-active,
-.f-popup-other-leave-active {
-  transition: all 0.3s ease-out;
-}
+  // 滚动条
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
 
-.f-popup-other-enter-from .f-popup__container-right,
-.f-popup-other-leave-to .f-popup__container-right {
-  transform: translateX(100%);
-}
-
-.f-popup-other-enter-from .f-popup__container-left,
-.f-popup-other-leave-to .f-popup__container-left {
-  transform: translateX(-100%);
-}
-
-.f-popup-other-enter-from .f-popup__container-top,
-.f-popup-other-leave-to .f-popup__container-top {
-  transform: translateY(-100%);
-}
-
-.f-popup-other-enter-from .f-popup__container-bottom,
-.f-popup-other-leave-to .f-popup__container-bottom {
-  transform: translateY(100%);
-}
-
-.f-popup-other-enter-from .f-popup__container,
-.f-popup-other-leave-to .f-popup__container {
-  opacity: 0;
+  // 滚动滑块
+  ::-webkit-scrollbar-thumb {
+    background: #dddddd;
+    border-radius: 6px;
+  }
 }
