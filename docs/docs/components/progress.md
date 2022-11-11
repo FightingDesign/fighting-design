@@ -11,12 +11,12 @@
 
 `type` 属性可以配置不同的进度条样式，展示不同的颜色状态
 
+`square` 和 `linear` 属性可以分别配置方形或线形的进度条
+
 <f-progress type="primary" :percentage="num" />
 <f-progress type="success" :percentage="num" />
 <f-progress type="danger" :percentage="num" />
 <f-progress type="warning" :percentage="num" />
-
-`square` 和 `linear` 属性可以分别配置方形或线形的进度条
 
 <f-progress type="primary" :percentage="num" square />
 <f-progress type="success" :percentage="num" linear />
@@ -26,7 +26,23 @@
   <f-button simple round type="primary" @click="add">增加</f-button>
 </f-button-group>
 
-::: details 显示代码
+::: demo
+
+<template #source>
+<f-progress type="primary" :percentage="num" />
+<f-progress type="success" :percentage="num" />
+<f-progress type="danger" :percentage="num" />
+<f-progress type="warning" :percentage="num" />
+
+<f-progress type="primary" :percentage="num" square />
+<f-progress type="success" :percentage="num" linear />
+
+<f-button-group>
+  <f-button simple round type="primary" @click="sun">减少</f-button>
+  <f-button simple round type="primary" @click="add">增加</f-button>
+</f-button-group>
+
+</template>
 
 ```html
 <template>
@@ -69,12 +85,16 @@
 
 `show-text` 属性用来展示进度条百分比，线性的不会显示，当自定义高度小于 `18px` 自动隐藏百分比。可以通过 `text-inside` 属性控制百分比内容是否在进度条内显示
 
+>
+
+::: demo
+
+<template #source>
 <f-progress :percentage="10" show-text />
 <f-progress type="success" :percentage="40" :show-text="false" />
 <f-progress type="danger" :percentage="70" linear height="18px" text-inside />
-<f-progress type="warning" :percentage="90" linear show-text />
-
-::: details 显示代码
+<f-progress type="warning" :percentage="90" linear show-text /
+</template>
 
 ```html
 <f-progress :percentage="10" show-text />
@@ -89,10 +109,12 @@
 
 `width` 和 `height` 属性接收一个字符串，用于自定义进度条宽高
 
+::: demo
+
+<template #source>
 <f-progress :percentage="10" width="360px" height="27px" show-text />
 <f-progress type="success" :percentage="40" width="100%" height="20px" show-text text-inside/>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-progress :percentage="10" width="360px" :height="27" show-text />
@@ -114,10 +136,12 @@
 
 `background` 属性来设置进度条背景色
 
+::: demo
+
+<template #source>
 <f-progress type="danger" :percentage="70" color="#ff386a" />
 <f-progress type="success" :percentage="40" background="#C3FFBD" />
-
-::: details 显示代码
+</template>
 
 ```html
 <f-progress type="danger" :percentage="70" color="#ff386a" />
@@ -130,6 +154,9 @@
 
 `stripe` 可以配置条纹样式
 
+::: demo
+
+<template #source>
 <f-progress :height="25" stripe type="primary" :percentage="num" />
 <f-progress :height="25" stripe type="success" :percentage="num" />
 <f-progress :height="25" stripe type="danger" :percentage="num" />
@@ -139,8 +166,7 @@
   <f-button simple round type="primary" @click="sun">减少</f-button>
   <f-button simple round type="primary" @click="add">增加</f-button>
 </f-button-group>
-
-::: details 显示代码
+</template>
 
 ```html
 <template>

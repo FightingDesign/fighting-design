@@ -13,9 +13,11 @@
 
 需要传入一个 `data` 的树形结构来展示
 
-<f-tree :data="data" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-tree :data="data" />
+</template>
 
 ```html
 <template>

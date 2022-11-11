@@ -7,9 +7,11 @@
 
 ## 基本使用
 
-<f-button type="primary" @click="openNotification">show</f-button>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-button type="primary" @click="openNotification">show</f-button>
+</template>
 
 ```html
 <template>
@@ -36,9 +38,11 @@
 
 限定最大宽度为`500px`
 
-<f-button type="primary" @click="openNotificationVNode">show</f-button>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-button type="primary" @click="openNotificationVNode">show</f-button>
+</template>
 
 ```html
 <template>
@@ -70,15 +74,17 @@
 
 ## 多种类型
 
-<f-space>
-  <f-button @click="openNotification">default</f-button>
-  <f-button type="primary" @click="openNotificationPrimary">primary</f-button>
-  <f-button type="success" @click="openNotificationSuccess">success</f-button>
-  <f-button type="warning" @click="openNotificationWarning">warning</f-button>
-  <f-button type="danger" @click="openNotificationDanger">danger</f-button>
-</f-space>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-space>
+<f-button @click="openNotification">default</f-button>
+<f-button type="primary" @click="openNotificationPrimary">primary</f-button>
+<f-button type="success" @click="openNotificationSuccess">success</f-button>
+<f-button type="warning" @click="openNotificationWarning">warning</f-button>
+<f-button type="danger" @click="openNotificationDanger">danger</f-button>
+</f-space>
+</template>
 
 ```html
 <template>
@@ -131,12 +137,15 @@
 
 可以传递`closeBtn`属性来自定义关闭按钮，支持字符串与`VNode`。
 
+::: demo
+
+<template #source>
 <f-space>
-  <f-button type="primary" @click="openNotificationClose1">5秒后关闭</f-button>
-  <f-button type="primary" @click="openNotificationClose2">不自动关闭</f-button>
+<f-button type="primary" @click="openNotificationClose1">5 秒后关闭</f-button>
+<f-button type="primary" @click="openNotificationClose2">不自动关闭</f-button>
 </f-space>
 
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -175,14 +184,16 @@
 
 ## 多个位置
 
-<f-space>
-  <f-button type="primary" @click="openNotificationPlacement('top-left')">左上</f-button>
-  <f-button type="primary" @click="openNotificationPlacement('top-right')">右上</f-button>
-  <f-button type="success" @click="openNotificationPlacement('bottom-left')">左下</f-button>
-  <f-button type="success" @click="openNotificationPlacement('bottom-right')">右下</f-button>
-</f-space>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-space>
+<f-button type="primary" @click="openNotificationPlacement('top-left')">左上</f-button>
+<f-button type="primary" @click="openNotificationPlacement('top-right')">右上</f-button>
+<f-button type="success" @click="openNotificationPlacement('bottom-left')">左下</f-button>
+<f-button type="success" @click="openNotificationPlacement('bottom-right')">右下</f-button>
+</f-space>
+</template>
 
 ```html
 <template>
@@ -222,24 +233,24 @@
 
 ## Attributes
 
-| 参数         | 说明                                         | 类型           | 可选值                                                  | 默认值    |
-| ------------ | -------------------------------------------- | -------------- | ------------------------------------------------------- | --------- |
-| `title`      | 通知标题                                     | string / VNode | ——                                                      | ——        |
-| `message`    | 通知文本                                     | string / VNode | ——                                                      | ——        |
-| `type`       | 消息类型                                     | string         | `default` `primary` `success` <br /> `danger` `warning` | default   |
-| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number         | ——                                                      | 3000      |
-| `round`      | 是否为圆角类型                               | boolean        | ——                                                      | false     |
-| `close`      | 是否可关闭                                   | boolean        | ——                                                      | false     |
-| `show-icon`  | 是否显示按钮                                 | boolean        | ——                                                      | true      |
-| `icon`       | 自定义前缀 icon                              | object (VNode / Component)| ——                                           | null      |
-| `color`      | 自定义字体颜色                               | string         | ——                                                      | ——        |
-| `background` | 自定义背景色                                 | string         | ——                                                      | ——        |
-| `placement`  | 弹出位置                                     | string         | `top-left` `top-right` `bottom-left` `bottom-right`     | top-right |
-| `offset`     | 偏移距离                                     | number         | ——                                                      | 20        |
-| `background` | 背景色                                       | string         | ——                                                      | ——        |
-| `close-btn`  | 自定义关闭按钮                               | string / VNode | ——                                                      | null      |
-| `z-index`    | 层级                                         | boolean        | ——                                                      | 1000      |
-| `close-end`  | 关闭之后回调                                 | Function       | ——                                                      | ——        |
+| 参数         | 说明                                         | 类型                       | 可选值                                                  | 默认值    |
+| ------------ | -------------------------------------------- | -------------------------- | ------------------------------------------------------- | --------- |
+| `title`      | 通知标题                                     | string / VNode             | ——                                                      | ——        |
+| `message`    | 通知文本                                     | string / VNode             | ——                                                      | ——        |
+| `type`       | 消息类型                                     | string                     | `default` `primary` `success` <br /> `danger` `warning` | default   |
+| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                     | ——                                                      | 3000      |
+| `round`      | 是否为圆角类型                               | boolean                    | ——                                                      | false     |
+| `close`      | 是否可关闭                                   | boolean                    | ——                                                      | false     |
+| `show-icon`  | 是否显示按钮                                 | boolean                    | ——                                                      | true      |
+| `icon`       | 自定义前缀 icon                              | object (VNode / Component) | ——                                                      | null      |
+| `color`      | 自定义字体颜色                               | string                     | ——                                                      | ——        |
+| `background` | 自定义背景色                                 | string                     | ——                                                      | ——        |
+| `placement`  | 弹出位置                                     | string                     | `top-left` `top-right` `bottom-left` `bottom-right`     | top-right |
+| `offset`     | 偏移距离                                     | number                     | ——                                                      | 20        |
+| `background` | 背景色                                       | string                     | ——                                                      | ——        |
+| `close-btn`  | 自定义关闭按钮                               | string / VNode             | ——                                                      | null      |
+| `z-index`    | 层级                                         | boolean                    | ——                                                      | 1000      |
+| `close-end`  | 关闭之后回调                                 | Function                   | ——                                                      | ——        |
 
 ## Events
 

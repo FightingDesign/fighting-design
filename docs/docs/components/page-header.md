@@ -9,9 +9,11 @@
 
 `title` 属性可以配置标题内容，点击右侧返回可以触发 `back` 回调函数
 
-<f-page-header title="标题" :back="goBack" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-page-header title="标题" :back="goBack" />
+</template>
 
 ```html
 <template>
@@ -33,9 +35,11 @@
 
 `icon` 可以自定义返回图标，`back-text` 可以自定义返回文字内容
 
-<f-page-header :icon="FIconReply" back-text="返回上一页" title="标题" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-page-header :icon="FIconReply" back-text="返回上一页" title="标题" />
+</template>
 
 ```html
 <template>
@@ -53,9 +57,11 @@
 
 `subtitle` 可以配置带有副标题
 
-<f-page-header title="标题" subtitle="副标题" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-page-header title="标题" subtitle="副标题" />
+</template>
 
 ```html
 <template>

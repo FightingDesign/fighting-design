@@ -9,6 +9,10 @@
 
 `content` 设置弹出的信息内容，`position` 可以配置不同的弹出方向
 
+::: demo
+
+<template #source>
+
 <div class="tooltip-box">
   <f-tooltip content="上边的提示信息" position="top">
     <f-tag type="primary">上边的</f-tag>
@@ -26,8 +30,7 @@
     <f-tag type="warning">右边的</f-tag>
   </f-tooltip>
 </div>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-tooltip content="上边的提示信息" position="top">
@@ -53,6 +56,10 @@
 
 `state` 属性可以配置不同的展示状态
 
+::: demo
+
+<template #source>
+
 <div class="tooltip-box">
   <f-tooltip content="Hover 展示" position="top" state="hover">
     <f-tag type="primary">Hover 展示</f-tag>
@@ -66,8 +73,7 @@
     <f-tag type="warning">Always 展示</f-tag>
   </f-tooltip>
 </div>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-tooltip content="Hover 展示" position="top" state="hover">
@@ -89,6 +95,10 @@
 
 `no-arrow` 可以禁止显示箭头
 
+::: demo
+
+<template #source>
+
 <div class="tooltip-box">
   <f-tooltip content="有箭头的" position="top">
     <f-tag type="primary">有箭头的</f-tag>
@@ -98,8 +108,7 @@
     <f-tag type="success">没有箭头</f-tag>
   </f-tooltip>
 </div>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-tooltip content="Hover 展示" position="top">
@@ -125,7 +134,7 @@
 | `bold`       | 是否加粗文字     | boolean | ——                            | false  |
 | `bright`     | 是否使用浅色主题 | boolean | ——                            | false  |
 | `background` | 自定义背景色     | string  | ——                            | ——     |
-| `fontColor`     | 自定义文字颜色   | string  | ——                            | ——     |
+| `fontColor`  | 自定义文字颜色   | string  | ——                            | ——     |
 
 ## Slots
 

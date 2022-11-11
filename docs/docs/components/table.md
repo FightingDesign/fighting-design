@@ -15,9 +15,11 @@
 
 `columns` 属性配置表格的头部内容，其中 `title` 为每一项的表头内容，`key` 对应 `data` 中每一项的键
 
-<f-table :data="data" :columns="columns" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-table :data="data" :columns="columns" />
+</template>
 
 ```html
 <template>
@@ -75,9 +77,11 @@
 
 `Fighting Design` 帮你内置好了样式
 
-<demo1-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo1-vue />
+</template>
 
 ```html
 <template>
@@ -122,9 +126,11 @@
 
 `columns` 属性可携带一个可选的 `width` 属性来配置每一列的宽度，该值可为 string 或者 number 类型
 
-<f-table :data="data" :columns="columns3" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-table :data="data" :columns="columns3" />
+</template>
 
 ```html
 <template>
@@ -182,9 +188,11 @@
 
 `border` 属性可配置带有边框的表格
 
-<f-table :data="data" :columns="columns" border/>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-table :data="data" :columns="columns" border />
+</template>
 
 ```html
 <template>
@@ -240,9 +248,11 @@
 
 `zebra` 属性可配置带有斑马纹的表格
 
-<f-table :data="data" :columns="columns" zebra/>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-table :data="data" :columns="columns" zebra />
+</template>
 
 ```html
 <template>
@@ -298,9 +308,11 @@
 
 `num` 属性可配置带有序号的表格
 
-<f-table :data="data" :columns="columns" num/>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-table :data="data" :columns="columns" num />
+</template>
 
 ```html
 <template>
@@ -356,9 +368,11 @@
 
 `optional` 属性可配置可多选的表格
 
-<f-table :data="data" :columns="columns" optional/>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-table :data="data" :columns="columns" optional />
+</template>
 
 ```html
 <template>
@@ -414,9 +428,11 @@
 
 `height` 属性可自定义表格的高度，当设置了合法的 `height` 之后，表头变为固定样式
 
-<f-table :data="data2" :columns="columns" :height="300" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-table :data="data2" :columns="columns" :height="300" />
+</template>
 
 ```html
 <template>
@@ -486,9 +502,11 @@
 
 `align` 属性配置表格的对齐方式
 
-<f-table :data="data" :columns="columns" align="center" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-table :data="data" :columns="columns" align="center" />
+</template>
 
 ```html
 <template>
@@ -544,9 +562,11 @@
 
 `columns` 属性可携带一个 `render` 函数，以自定义该列的渲染模板，使用 vue 内置的 [h 函数](https://cn.vuejs.org/api/render-function.html#h) 渲染
 
-<f-table :data="data" :columns="columns2" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-table :data="data" :columns="columns2" />
+</template>
 
 ```html
 <template>
@@ -638,9 +658,11 @@
 
 可以通过属性来自定义一些样式细节
 
-<f-table :data="data" :columns="columns" zebra zebra-color="skyblue" head-bg-color="orange" bg-color="#eef" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-table :data="data" :columns="columns" zebra zebra-color="skyblue" head-bg-color="orange" bg-color="#eef" />
+</template>
 
 ```html
 <template>

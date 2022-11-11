@@ -37,9 +37,11 @@ yarn add --save-dev @fighting-design/fighting-icon
 
 它同时支持 `icon` 属性传递和插槽
 
-<demo1-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo1-vue />
+</template>
 
 ```html
 <template>

@@ -9,14 +9,16 @@
 
 `content` 可以配置想要显示的文字内容，`height` 和 `width` 可以配置背景图片的尺寸
 
-<f-watermark content="机密文件" :height="100" :width="130">
-  <f-card title="绝对机密">
-    <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
-    <f-text block>这是一个重要的文件</f-text>
-  </f-card>
-</f-watermark>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-watermark content="机密文件" :height="100" :width="130">
+<f-card title="绝对机密">
+<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-text block>这是一个重要的文件</f-text>
+</f-card>
+</f-watermark>
+</template>
 
 ```html
 <template>
@@ -47,14 +49,16 @@
 
 `font-color` 和 `font-size` 可以自定义你需要的文字大小和颜色
 
-<f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px">
-  <f-card title="绝对机密">
-    <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
-    <f-text block>这是一个重要的文件</f-text>
-  </f-card>
-</f-watermark>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px">
+<f-card title="绝对机密">
+<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-text block>这是一个重要的文件</f-text>
+</f-card>
+</f-watermark>
+</template>
 
 ```html
 <template>
@@ -93,14 +97,16 @@
 
 `image` 的优先级高于 `content` 的水印内容
 
-<f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
-  <f-card title="绝对机密">
-    <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
-    <f-text block>这是一个重要的文件</f-text>
-  </f-card>
-</f-watermark>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
+<f-card title="绝对机密">
+<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-text block>这是一个重要的文件</f-text>
+</f-card>
+</f-watermark>
+</template>
 
 ```html
 <template>

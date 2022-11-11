@@ -9,13 +9,15 @@
 
 需要使用 `v-model` 绑定一个值
 
-<f-radio-group v-model="radio1">
-  <f-radio label="1">备选项1</f-radio>
-  <f-radio label="2">备选项2</f-radio>
-  <f-radio label="3">备选项3</f-radio>
-</f-radio-group>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-radio-group v-model="radio1">
+<f-radio label="1">备选项 1</f-radio>
+<f-radio label="2">备选项 2</f-radio>
+<f-radio label="3">备选项 3</f-radio>
+</f-radio-group>
+</template>
 
 ```html
 <template>
@@ -39,13 +41,15 @@
 
 `border` 属性可以配置带有边框的效果
 
-<f-radio-group v-model="radio2" border>
-  <f-radio label="1">备选项1</f-radio>
-  <f-radio label="2">备选项2</f-radio>
-  <f-radio label="3">备选项3</f-radio>
-</f-radio-group>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-radio-group v-model="radio2" border>
+<f-radio label="1">备选项 1</f-radio>
+<f-radio label="2">备选项 2</f-radio>
+<f-radio label="3">备选项 3</f-radio>
+</f-radio-group>
+</template>
 
 ```html
 <template>
@@ -69,10 +73,13 @@
 
 `size` 属性可以配置不同的尺寸
 
+::: demo
+
+<template #source>
 <f-radio-group v-model="radio4" border size="large">
-  <f-radio label="1">备选项1</f-radio>
-  <f-radio label="2">备选项2</f-radio>
-  <f-radio label="3">备选项3</f-radio>
+<f-radio label="1">备选项 1</f-radio>
+<f-radio label="2">备选项 2</f-radio>
+<f-radio label="3">备选项 3</f-radio>
 </f-radio-group>
 
 <br />
@@ -102,7 +109,7 @@
   <f-radio label="3">备选项3</f-radio>
 </f-radio-group>
 
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -144,13 +151,15 @@
 
 `vertical` 属性可以纵向排列
 
-<f-radio-group v-model="radio5" vertical>
-  <f-radio label="1">备选项1</f-radio>
-  <f-radio label="2">备选项2</f-radio>
-  <f-radio label="3">备选项3</f-radio>
-</f-radio-group>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-radio-group v-model="radio5" vertical>
+<f-radio label="1">备选项 1</f-radio>
+<f-radio label="2">备选项 2</f-radio>
+<f-radio label="3">备选项 3</f-radio>
+</f-radio-group>
+</template>
 
 ```html
 <template>
@@ -174,10 +183,13 @@
 
 `disabled` 属性可以禁用指定选项，作用在 `f-radio-group` 组件上可以全部禁用，作用在 `f-radio` 上可以指定禁用某一项
 
+::: demo
+
+<template #source>
 <f-radio-group v-model="radio6" disabled>
-  <f-radio label="1">备选项1</f-radio>
-  <f-radio label="2">备选项2</f-radio>
-  <f-radio label="3">备选项3</f-radio>
+<f-radio label="1">备选项 1</f-radio>
+<f-radio label="2">备选项 2</f-radio>
+<f-radio label="3">备选项 3</f-radio>
 </f-radio-group>
 
 <br />
@@ -188,8 +200,7 @@
   <f-radio label="2" disabled>备选项2</f-radio>
   <f-radio label="3">备选项3</f-radio>
 </f-radio-group>
-
-::: details 显示代码
+</template>
 
 ```html
 <template>

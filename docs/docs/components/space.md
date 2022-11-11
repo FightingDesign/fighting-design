@@ -9,13 +9,15 @@
 
 `Space` 的基本使用
 
-<f-space>
-  <f-button type="primary">主要按钮</f-button>
-  <f-button type="success">成功按钮</f-button>
-  <f-button type="warning">警告按钮</f-button>
-</f-space>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-space>
+<f-button type="primary">主要按钮</f-button>
+<f-button type="success">成功按钮</f-button>
+<f-button type="warning">警告按钮</f-button>
+</f-space>
+</template>
 
 ```html
 <f-space>
@@ -31,11 +33,14 @@
 
 可使用 `spacing` 设置间距大小
 
+::: demo
+
+<template #source>
 <f-space style="margin-top: 15px" spacing="large">
-  <f-button type="primary">大型间距</f-button>
-  <f-button type="primary">大型间距</f-button>
-  <f-button type="primary">大型间距</f-button>
-  <f-button type="primary">大型间距</f-button>
+<f-button type="primary">大型间距</f-button>
+<f-button type="primary">大型间距</f-button>
+<f-button type="primary">大型间距</f-button>
+<f-button type="primary">大型间距</f-button>
 </f-space>
 
 <f-space style="margin-top: 15px" spacing="middle">
@@ -59,7 +64,7 @@
   <f-button type="primary">迷你间距</f-button>
 </f-space>
 
-::: details 显示代码
+</template>
 
 ```html
 <f-space style="margin-top: 15px" spacing="large">
@@ -97,13 +102,16 @@
 
 可使用 `vertical` 设置间距是否为垂直方向。
 
+::: demo
+
+<template #source>
+
 <f-space vertical>
   <f-button type="primary">主要按钮</f-button>
   <f-button type="success">成功按钮</f-button>
   <f-button type="danger">危险按钮</f-button>
 </f-space>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-space vertical>

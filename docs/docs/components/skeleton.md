@@ -9,9 +9,11 @@
 
 最简单的占位使用。
 
-<f-skeleton />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-skeleton />
+</template>
 
 ```html
 <f-skeleton />
@@ -21,10 +23,12 @@
 
 `rounded` 圆角类型
 
+::: demo
+
+<template #source>
 <f-skeleton rounded />
 <f-skeleton circled />
-
-::: details 显示代码
+</template>
 
 ```html
 <f-skeleton rounded />
@@ -38,9 +42,11 @@
 
 `rows` 可以配置多行效果
 
-<f-skeleton :rows="3" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-skeleton :rows="3" />
+</template>
 
 ```html
 <f-skeleton :rows="3" />
@@ -52,11 +58,13 @@
 
 `animated` 可以配置动画效果
 
+::: demo
+
+<template #source>
 <f-skeleton animated />
 <f-skeleton rounded animated />
 <f-skeleton circled animated />
-
-::: details 显示代码
+</template>
 
 ```html
 <f-skeleton animated />
@@ -70,6 +78,9 @@
 
 `size` 属性可以配置不同大小
 
+::: demo
+
+<template #source>
 <f-skeleton size="small" />
 <f-skeleton size="default" />
 <f-skeleton size="large" />
@@ -81,8 +92,7 @@
 <f-skeleton circled size="small" />
 <f-skeleton circled size="default" />
 <f-skeleton circled size="large" />
-
-::: details 显示代码
+</template>
 
 ```html
 <f-skeleton size="small" />
@@ -102,18 +112,20 @@
 
 ## 搭配组件使用
 
+::: demo
+
+<template #source>
 <f-skeleton animated :rows="2" :loading="loading">
-  <f-list>
-    <f-list-item>这是一段文字</f-list-item>
-    <f-list-item>这是一段文字</f-list-item>
-  </f-list>
+<f-list>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+</f-list>
 </f-skeleton>
 
 <f-button :loading="loading" simple type="primary" @click="startLoad">
 {{ loading ? '加载中...' : `开始加载` }}
 </f-button>
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
