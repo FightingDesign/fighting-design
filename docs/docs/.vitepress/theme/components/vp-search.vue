@@ -24,7 +24,7 @@
 
       setTimeout(() => {
         const link: HTMLLinkElement[] = document.querySelectorAll(
-          '.search-link'
+          '.vp-search__link'
         ) as unknown as HTMLLinkElement[]
         if (link.length === 1) {
           link[0].click()
