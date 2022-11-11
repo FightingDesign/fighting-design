@@ -15,7 +15,7 @@
   /**
    * 当前选中的pane
    */
-  const currentName = ref<TabsPaneName>(999)
+  const currentName = ref<TabsPaneName>(0)
 
   function setCurrentName (name: TabsPaneName) {
     // 如果用户没有设置v-model, 这里可以直接在内部修改

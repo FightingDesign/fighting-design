@@ -99,6 +99,7 @@ export const sidebar = {
       text: '其它',
       link: '/components/',
       items: [
+        { text: 'Tabs 标签页', link: '/components/tabs' },
         { text: 'Toolbar 工具栏', link: '/components/toolbar' },
         { text: 'Divider 分隔线', link: '/components/divider' },
         { text: 'Watermark 水印', link: '/components/watermark' },
