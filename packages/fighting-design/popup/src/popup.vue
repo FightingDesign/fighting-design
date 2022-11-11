@@ -56,7 +56,7 @@
 <template>
   <teleport to="body" :disabled="!appendToBody">
     <transition
-      :name="direction === 'center' ? 'f-popup-center' : 'f-popup-other'"
+      name="f-popup__transition"
       @before-enter="handleOpen"
       @after-enter="handleOpenEnd"
       @before-leave="handleClose"
@@ -71,16 +71,28 @@
         />
 
         <!-- 主容器 -->
-        <div
-          :class="[
-            'f-popup__container',
-            { [`f-popup__container-${direction}`]: direction }
-          ]"
-          @click.self="closePopup"
-        >
-          <div class="f-popup__wrapper" :style="styleList">
-            <slot />
-          </div>
+        <div class="f-popup__container" @click.self="closePopup">
+          <!-- 主内容 -->
+          <transition
+            :name="
+              direction === 'center'
+                ? 'f-popup__wrapper'
+                : `f-popup__wrapper-${direction}`
+            "
+          >
+            <div
+              v-show="visible"
+              :class="[
+                'f-popup__wrapper',
+                {
+                  [`f-popup__wrapper-${direction}`]: direction
+                }
+              ]"
+              :style="styleList"
+            >
+              <slot />
+            </div>
+          </transition>
         </div>
       </div>
     </transition>
