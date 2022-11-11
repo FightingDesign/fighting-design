@@ -82,12 +82,14 @@
 </script>
 
 <template>
-  <div
-    v-show="visible"
-    :class="['f-back-top', { 'f-back-top__round': round }]"
-    :style="styleList"
-    @click.stop="handleClick"
-  >
-    <slot />
-  </div>
+  <transition name="f-back-top">
+    <div
+      v-show="visible"
+      :class="['f-back-top', { 'f-back-top__round': round }]"
+      :style="styleList"
+      @click.stop="handleClick"
+    >
+      <slot />
+    </div>
+  </transition>
 </template>

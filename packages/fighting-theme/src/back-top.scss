@@ -26,4 +26,15 @@
   &:hover {
     box-shadow: #dddddd 1px 1px 10px, #dddddd -1px -1px 10px;
   }
+
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.1s ease-out;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: scale(0.5);
+    opacity: 0;
+  }
 }
