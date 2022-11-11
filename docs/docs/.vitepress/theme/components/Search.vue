@@ -22,14 +22,11 @@
     if (resultList.value && resultList.value.length) {
       isShow.value = true
 
-      setTimeout(() => {
-        const link: HTMLLinkElement[] = document.querySelectorAll(
-          '.search-link'
-        ) as unknown as HTMLLinkElement[]
-        if (link.length === 1) {
-          link[0].click()
-        }
-      }, 200)
+      const link: HTMLLinkElement[] = document.querySelectorAll(
+        '.search-link'
+      ) as unknown as HTMLLinkElement[]
+
+      link.length === 1 && setTimeout(() => link[0].click(), 200)
     }
   }
 
