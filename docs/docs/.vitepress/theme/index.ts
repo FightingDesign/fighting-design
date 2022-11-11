@@ -4,6 +4,7 @@ import './style/vitepress.scss'
 import FightingDesign from '../../../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 import Search from './components/Search.vue'
+import Demo from './components/Demo.vue'
 
 export default {
   ...Theme,
@@ -20,5 +21,6 @@ export default {
   },
   enhanceApp({ app }) {
     app.use(FightingDesign)
+    app.component('Demo', Demo)
   }
 }
