@@ -94,38 +94,51 @@
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, fontColor, shadow, color } = prop
 
-    const cssPropertiesObject: CSSProperties = {}
-
-    if(color) {
+    if (color) {
       const changeColor: ChangeColor = new ChangeColor(color)
       const light: string = changeColor.getLightColor(0.4)
       const dark: string = changeColor.getDarkColor(0.2)
-
-      Object.assign(cssPropertiesObject, {
+      return {
+        '--f-button-font-size': sizeChange(fontSize),
+        '--f-button-font-color': fontColor,
+        '--f-button-box-shadow': shadow,
         '--f-button-default-color': color,
         '--f-button-hover-color': light,
         '--f-button-active-color': dark
-      })
+      } as CSSProperties
     }
+    return {
+      '--f-button-font-size': sizeChange(fontSize),
+      '--f-button-font-color': fontColor,
+      '--f-button-box-shadow': shadow
+    } as CSSProperties
 
-    if(fontColor) {
-      Object.assign(cssPropertiesObject, {
-        '--f-button-font-size': fontColor
-      })
-    }
+    // const cssPropertiesObject: CSSProperties = {}
 
-    if(shadow) {
-      Object.assign(cssPropertiesObject, {
-        '--f-button-box-shadow': shadow
-      })
-    }
+    // if (color) {
+    //   const changeColor: ChangeColor = new ChangeColor(color)
+    //   const light: string = changeColor.getLightColor(0.4)
+    //   const dark: string = changeColor.getDarkColor(0.2)
 
-    Object.assign(cssPropertiesObject, {
-      '--f-button-font-size': sizeChange(fontSize)
-    })
+    //   Object.assign(cssPropertiesObject, {
+    //     '--f-button-default-color': color,
+    //     '--f-button-hover-color': light,
+    //     '--f-button-active-color': dark
+    //   })
+    // }
 
-    return cssPropertiesObject
+    // fontColor &&
+    //   Object.assign(cssPropertiesObject, { '--f-button-font-size': fontColor })
 
+    // shadow &&
+    //   Object.assign(cssPropertiesObject, { '--f-button-box-shadow': shadow })
+
+    // fontSize &&
+    //   Object.assign(cssPropertiesObject, {
+    //     '--f-button-font-size': sizeChange(fontSize)
+    //   })
+
+    // return cssPropertiesObject
   })
 </script>
 
