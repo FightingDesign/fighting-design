@@ -38,6 +38,17 @@
       overflow-y: auto;
       overflow-x: hidden;
     }
+
+    // 主内容动画样式
+    .f-popup__wrapper-transition-enter-active,
+    .f-popup__wrapper-transition-leave-active {
+      transition: all 0.2s ease-out;
+    }
+
+    .f-popup__wrapper-transition-enter-from,
+    .f-popup__wrapper-transition-leave-to {
+      opacity: 0;
+    }
   }
 
   // 主容器居中
@@ -52,16 +63,9 @@
       box-shadow: 0 0 18px #00000066;
     }
 
-    // 主内容动画样式
-    .f-popup__wrapper-transition-enter-active,
-    .f-popup__wrapper-transition-leave-active {
-      transition: all 0.2s ease-out;
-    }
-
     .f-popup__wrapper-transition-enter-from,
     .f-popup__wrapper-transition-leave-to {
       transform: scale(0.4);
-      opacity: 0;
     }
   }
 
@@ -73,16 +77,9 @@
       left: 0;
     }
 
-    // 主内容动画样式
-    .f-popup__wrapper-transition-enter-active,
-    .f-popup__wrapper-transition-leave-active {
-      transition: all 0.2s ease-out;
-    }
-
     .f-popup__wrapper-transition-enter-from,
     .f-popup__wrapper-transition-leave-to {
       transform: translateX(-100%);
-      opacity: 0;
     }
   }
 
@@ -94,16 +91,9 @@
       right: 0;
     }
 
-    // 主内容动画样式
-    .f-popup__wrapper-transition-enter-active,
-    .f-popup__wrapper-transition-leave-active {
-      transition: all 0.2s ease-out;
-    }
-
     .f-popup__wrapper-transition-enter-from,
     .f-popup__wrapper-transition-leave-to {
       transform: translateX(100%);
-      opacity: 0;
     }
   }
 
@@ -115,16 +105,9 @@
       right: 0;
     }
 
-    // 主内容动画样式
-    .f-popup__wrapper-transition-enter-active,
-    .f-popup__wrapper-transition-leave-active {
-      transition: all 0.2s ease-out;
-    }
-
     .f-popup__wrapper-transition-enter-from,
     .f-popup__wrapper-transition-leave-to {
       transform: translateY(-100%);
-      opacity: 0;
     }
   }
 
@@ -134,12 +117,6 @@
       bottom: 0;
       left: 0;
       right: 0;
-    }
-
-    // 主内容动画样式
-    .f-popup__wrapper-transition-enter-active,
-    .f-popup__wrapper-transition-leave-active {
-      transition: all 0.2s ease-out;
     }
 
     .f-popup__wrapper-transition-enter-from,
