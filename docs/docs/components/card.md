@@ -9,9 +9,11 @@
 
 `title` 属性可以配置卡片的标题
 
-<f-card title="卡片标题">Card 卡片</f-card>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-card title="卡片标题">Card 卡片</f-card>
+</template>
 
 ```html
 <f-card title="卡片标题">Card 卡片</f-card>
@@ -23,9 +25,11 @@
 
 `round` 是否为圆角卡片
 
-<f-card round title="圆角的">Card 卡片</f-card>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-card round title="圆角的">Card 卡片</f-card>
+</template>
 
 ```html
 <f-card round title="圆角的">Card 卡片</f-card>
@@ -37,11 +41,13 @@
 
 `shadow` 属性可以配置阴影样式
 
+::: demo
+
+<template #source>
 <f-card shadow="never">从不显示</f-card>
 <f-card shadow="hover">Hover 显示</f-card>
 <f-card shadow="always">总是显示</f-card>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-card shadow="never">从不显示</f-card>

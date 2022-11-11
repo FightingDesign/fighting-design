@@ -9,9 +9,11 @@
 
 绑定单个复选框，配合 `v-model` 绑定一个 `boolean` 值
 
-<f-checkbox v-model="option1" label="酸辣土豆丝" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-checkbox v-model="option1" label="酸辣土豆丝" />
+</template>
 
 ```html
 <template>
@@ -31,13 +33,15 @@
 
 多个选项可使用 `f-checkbox-group` 复选框组
 
-<f-checkbox-group v-model="option2">
-  <f-checkbox label="鸡肉卷" />
-  <f-checkbox label="鸡排" />
-  <f-checkbox label="汉堡" />
-</f-checkbox-group>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-checkbox-group v-model="option2">
+<f-checkbox label="鸡肉卷" />
+<f-checkbox label="鸡排" />
+<f-checkbox label="汉堡" />
+</f-checkbox-group>
+</template>
 
 ```html
 <template>
@@ -61,6 +65,9 @@
 
 直接添加`disabled` 属性即可，当在 `f-checkbox-group` 组件上使用 `disabled` 属性时，会将其内部组件全部禁用掉
 
+::: demo
+
+<template #source>
 <f-checkbox label="选项一" disabled />
 
 <br />
@@ -78,8 +85,7 @@
   <f-checkbox label="选项二" disabled/>
   <f-checkbox label="选项三"/>
 </f-checkbox-group>
-
-::: details 展开代码
+</template>
 
 ```html
 <template>
@@ -111,10 +117,13 @@
 
 `border` 属性可设置边框
 
+::: demo
+
+<template #source>
 <f-checkbox-group v-model="option4" border size="large">
-  <f-checkbox label="选项一" />
-  <f-checkbox label="选项二" />
-  <f-checkbox label="选项三" />
+<f-checkbox label="选项一" />
+<f-checkbox label="选项二" />
+<f-checkbox label="选项三" />
 </f-checkbox-group>
 
 <br />
@@ -143,8 +152,7 @@
   <f-checkbox label="选项二" />
   <f-checkbox label="选项三" />
 </f-checkbox-group>
-
-:::details 显示代码
+</template>
 
 ```html
 <template>

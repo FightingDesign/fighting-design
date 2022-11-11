@@ -9,9 +9,11 @@
 
 `date` 属性需要绑定一个日期对象
 
-<f-calendar v-model:date="date" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-calendar v-model:date="date" />
+</template>
 
 ```html
 <template>
@@ -29,9 +31,11 @@
 
 `lunar` 可以配置显示农历的日历
 
-<f-calendar v-model:date="date" lunar/>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-calendar v-model:date="date" lunar />
+</template>
 
 ```html
 <template>
@@ -49,9 +53,11 @@
 
 `border` 可以配置带有边框的日历
 
-<f-calendar v-model:date="date" border/>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-calendar v-model:date="date" border />
+</template>
 
 ```html
 <template>
@@ -69,9 +75,11 @@
 
 `show-header` 可以控制是否显示头部操作栏
 
-<f-calendar v-model:date="date" :show-header="false"/>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-calendar v-model:date="date" :show-header="false"/>
+</template>
 
 ```html
 <template>
@@ -91,9 +99,11 @@
 
 `border` 属性可以配置带有边框的日历
 
-<f-calendar v-model:date="date" border :memorandum="memorandumList" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-calendar v-model:date="date" border :memorandum="memorandumList" />
+</template>
 
 ```html
 <template>

@@ -11,7 +11,7 @@
 
 `simple` 属性可以配置简约的按钮，样式依然由 `type` 控制
 
-<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+::: demo
 
 <template #source>
 <f-button type="default">默认按钮</f-button>
@@ -44,13 +44,13 @@
 <f-button simple type="warning">警告按钮</f-button>
 ```
 
-</f-sticky-card>
+:::
 
 ## 圆角按钮
 
 `round` 属性可以将按钮变成圆角风格的按钮
 
-<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+::: demo
 
 <template #source>
 <f-button round type="default">默认按钮</f-button>
@@ -82,7 +82,7 @@
 <f-button round simple type="warning">警告按钮</f-button>
 ```
 
-</f-sticky-card>
+:::
 
 ## 禁用状态
 
@@ -90,7 +90,7 @@
 
 `loading` 属性可以将按钮变成 `loading` 状态
 
-<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+::: demo
 
 <template #source>
 <f-button disabled type="default">默认按钮</f-button>
@@ -122,13 +122,13 @@
 <f-button loading type="warning">警告按钮</f-button>
 ```
 
-</f-sticky-card>
+:::
 
 ## 不同尺寸
 
 `size` 属性可以配置不同尺寸的按钮
 
-<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+::: demo
 
 <template #source>
 <f-button size="large" type="primary">大型按钮</f-button>
@@ -144,13 +144,13 @@
 <f-button size="mini" type="warning">迷你按钮</f-button>
 ```
 
-</f-sticky-card>
+:::
 
 ## 文字按钮
 
 `text` 属性可以将按钮设置成文字按钮
 
-<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+::: demo
 
 <template #source>
 <f-button text type="default">默认按钮</f-button>
@@ -182,7 +182,7 @@
 <f-button text round type="warning">警告按钮</f-button>
 ```
 
-</f-sticky-card>
+:::
 
 ## 带有阴影
 
@@ -190,7 +190,7 @@
 
 或者也可以通过 [Neumorphism](https://neumorphism.io) 自己手动调节阴影样式
 
-<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+::: demo
 
 <template #source>
 <f-button shadow="0 2px 7px 0 #f0f0f0" type="default">默认按钮</f-button>
@@ -208,13 +208,13 @@
 <f-button shadow="0 2px 7px 0 #fcc202" type="warning">警告按钮</f-button>
 ```
 
-</f-sticky-card>
+:::
 
 ## 涟漪效果
 
 `ripples` 可以配置是否展示点击涟漪效果，也可以通过 `ripples-color` 自定义涟漪背景色
 
-<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+::: demo
 
 <template #source>
 <f-button type="primary">主要按钮</f-button>
@@ -234,7 +234,7 @@
 </f-button>
 ```
 
-</f-sticky-card>
+:::
 
 ## 按钮组
 
@@ -242,7 +242,7 @@
 
 `vertical` 属性可以配置纵向排列的按钮组
 
-<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+::: demo
 
 <template #source>
 <f-button-group>
@@ -275,7 +275,7 @@
 </f-button-group>
 ```
 
-</f-sticky-card>
+:::
 
 ## 自定义颜色
 
@@ -283,7 +283,7 @@
 
 使用自定义颜色之后 `Fighting Design` 会自动推断 `hover` 和 `active` 的效果，那么需要使用 `font-color` 来自定义文字的颜色
 
-<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+::: demo
 
 <template #source>
 <f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
@@ -295,37 +295,37 @@
 <f-button font-color="#fff" color="#22c1c3" loading>loading</f-button>
 ```
 
-</f-sticky-card>
+:::
 
 ## Button Attributes
 
-| 参数            | 说明                                                                                                                                                        | 类型                       | 可选值                                                  | 默认值   |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------- | -------- |
-| `bold`          | 按钮文字是否加粗                                                                                                                                            | boolean                    | ——                                                      | false    |
-| `circle`        | 是否为圆形按钮                                                                                                                                              | boolean                    | ——                                                      | false    |
-| `round`         | 是否为圆角按钮                                                                                                                                              | boolean                    | ——                                                      | false    |
-| `font-size`     | 文字字体大小                                                                                                                                                | string / number            | ——                                                      | 14px     |
-| `font-color`    | 文字字体颜色                                                                                                                                                | string                     | ——                                                      |''    |
-| `size`          | 按钮尺寸，设置按钮的高度和水平padding                                                                                                                                                    | string                     | `large` `middle` `small` `mini`                         | middle   |
-| `block`         | 是否为块级元素                                                                                                                                              | boolean                    | ——                                                      | false    |
-| `href`          | 链接按钮的地址                                                                                                                                              | string                     | ——                                                      | ——       |
-| `target`        | 原生 target 属性，在 link 类型存在时生效                                                                                                                    | string                     | `_blank` `_self` `_parent` `_top`                       | \_self   |
-| `loading`       | 是否展示 loading 状态                                                                                                                                       | boolean                    | ——                                                      | false    |
-| `disabled`      | 是否禁用按钮                                                                                                                                                | boolean                    | ——                                                      | false    |
-| `before-icon`   | 之前的 icon                                                                                                                                                 | object (VNode / Component) | ——                                                      | null     |
-| `after-icon`    | 之后的 icon                                                                                                                                                 | object (VNode / Component) | ——                                                      | null     |
-| `loading-icon`  | loading 状态下的 icon                                                                                                                                       | object (VNode / Component) | ——                                                      | null     |
-| `type`          | 按钮的类型 （不同类型对应不同的背景和字体颜色，非自定义按钮颜色时有效）                                                                                                                                                 | string                     | `default` `primary` `success` <br /> `danger` `warning` | default  |
-| `autofocus`     | 是否自动获取焦点                                                                                                                                            | boolean                    | ——                                                      | false    |
-| `name`          | 按钮的名字                                                                                                                                                  | string                     | ——                                                      | f-button |
-| `shadow`        | 按钮的阴影                                                                                                                                                  | string                     | ——                                                      | ——       |
-| `text`          | 是否为文字按钮 （非自定义按钮颜色时有效）                                                                                                                                             | boolean                    | ——                                                      | false    |
-| `simple`        | 是否为简约按钮        （非自定义按钮颜色时有效）                                                                                                                                      | boolean                    | ——                                                      | false    |
-| `ripples`       | 是否启用点击涟漪效果                                                                                                                                        | boolean                    | ——                                                      | false    |
-| `ripples-color` | 涟漪背景色                                                                                                                                                  | string                     | ——                                                      | #fff     |
-| `native-type`   | 按钮的原生类型                                                                                                                                              | string                     | `button` `submit` `reset`                               | button   |
+| 参数            | 说明                                                                                                                                                                                                          | 类型                       | 可选值                                                  | 默认值   |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------- | -------- |
+| `bold`          | 按钮文字是否加粗                                                                                                                                                                                              | boolean                    | ——                                                      | false    |
+| `circle`        | 是否为圆形按钮                                                                                                                                                                                                | boolean                    | ——                                                      | false    |
+| `round`         | 是否为圆角按钮                                                                                                                                                                                                | boolean                    | ——                                                      | false    |
+| `font-size`     | 文字字体大小                                                                                                                                                                                                  | string / number            | ——                                                      | 14px     |
+| `font-color`    | 文字字体颜色                                                                                                                                                                                                  | string                     | ——                                                      | ''       |
+| `size`          | 按钮尺寸，设置按钮的高度和水平 padding                                                                                                                                                                        | string                     | `large` `middle` `small` `mini`                         | middle   |
+| `block`         | 是否为块级元素                                                                                                                                                                                                | boolean                    | ——                                                      | false    |
+| `href`          | 链接按钮的地址                                                                                                                                                                                                | string                     | ——                                                      | ——       |
+| `target`        | 原生 target 属性，在 link 类型存在时生效                                                                                                                                                                      | string                     | `_blank` `_self` `_parent` `_top`                       | \_self   |
+| `loading`       | 是否展示 loading 状态                                                                                                                                                                                         | boolean                    | ——                                                      | false    |
+| `disabled`      | 是否禁用按钮                                                                                                                                                                                                  | boolean                    | ——                                                      | false    |
+| `before-icon`   | 之前的 icon                                                                                                                                                                                                   | object (VNode / Component) | ——                                                      | null     |
+| `after-icon`    | 之后的 icon                                                                                                                                                                                                   | object (VNode / Component) | ——                                                      | null     |
+| `loading-icon`  | loading 状态下的 icon                                                                                                                                                                                         | object (VNode / Component) | ——                                                      | null     |
+| `type`          | 按钮的类型 （不同类型对应不同的背景和字体颜色，非自定义按钮颜色时有效）                                                                                                                                       | string                     | `default` `primary` `success` <br /> `danger` `warning` | default  |
+| `autofocus`     | 是否自动获取焦点                                                                                                                                                                                              | boolean                    | ——                                                      | false    |
+| `name`          | 按钮的名字                                                                                                                                                                                                    | string                     | ——                                                      | f-button |
+| `shadow`        | 按钮的阴影                                                                                                                                                                                                    | string                     | ——                                                      | ——       |
+| `text`          | 是否为文字按钮 （非自定义按钮颜色时有效）                                                                                                                                                                     | boolean                    | ——                                                      | false    |
+| `simple`        | 是否为简约按钮 （非自定义按钮颜色时有效）                                                                                                                                                                     | boolean                    | ——                                                      | false    |
+| `ripples`       | 是否启用点击涟漪效果                                                                                                                                                                                          | boolean                    | ——                                                      | false    |
+| `ripples-color` | 涟漪背景色                                                                                                                                                                                                    | string                     | ——                                                      | #fff     |
+| `native-type`   | 按钮的原生类型                                                                                                                                                                                                | string                     | `button` `submit` `reset`                               | button   |
 | `color`         | 自定义按钮的背景颜色，仅支持 [hex](https://baike.baidu.com/item/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E9%A2%9C%E8%89%B2%E7%A0%81/10894232?fr=aladdin) 格式的色号。如果未指定`font-color`，则字体颜色默认为白色 | string                     | ——                                                      | ——       |
-| `click`         | 点击执行的回调                                                                                                                                              | Function                   | ——                                                      | null     |
+| `click`         | 点击执行的回调                                                                                                                                                                                                | Function                   | ——                                                      | null     |
 
 ## ButtonGroup Attributes
 
