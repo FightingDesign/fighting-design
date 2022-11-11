@@ -28,9 +28,8 @@
     <f-input
       v-model="value"
       type="text"
-      placeholder="请输入...."
+      placeholder="搜索组件"
       :on-enter="onSearch"
-      :on-blur="hiddenResult"
     />
     <div
       v-if="isShow && resultList && resultList.length"
