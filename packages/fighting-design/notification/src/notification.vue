@@ -1,5 +1,6 @@
 <script lang="ts" setup name="FMessage">
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
+  import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
   import { Props, Emits } from './props'
@@ -160,7 +161,9 @@
     >
       <!-- icon -->
       <div v-if="showIcon && _icon" class="f-notification__icon">
-        <component :is="_icon" v-if="isVNode(_icon)" :size="28" />
+        <f-svg-icon :icon="_icon" :size="28">
+          <component v-if="isVNode(_icon)" :is="_icon" />
+        </f-svg-icon>
       </div>
 
       <!-- 主体内容 -->
