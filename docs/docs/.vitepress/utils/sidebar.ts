@@ -65,7 +65,8 @@ export const sidebar = {
         { text: 'Rate 评分', link: '/components/rate' },
         { text: 'Input 输入框', link: '/components/input' },
         { text: 'Up Load 文件上传', link: '/components/up-load' },
-        { text: 'Table 表格', link: '/components/table' }
+        { text: 'Table 表格', link: '/components/table' },
+        { text: 'Select 选择器', link: '/components/select' }
       ]
     },
     {
