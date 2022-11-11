@@ -8,13 +8,18 @@
   const instance:ComponentInternalInstance = getCurrentInstance()
 
   const prop: TabsPropsType = defineProps(Props)
-  const emits = defineEmits(Emits)
+  const emits = defineEmits<{
+    (e: 'update:modelValue', name: TabsPaneName): void,
+    (e: 'before-enter', name: TabsPaneName): boolean | void,
+  }>()
   /**
    * 当前选中的pane
    */
-  const currentName = ref<TabsPaneName>(0)
+  const currentName = ref<TabsPaneName>(999)
 
-  function setCurrentName(name: TabsPaneName) {
+  function setCurrentName (name: TabsPaneName) {
+    // 如果用户没有设置v-model, 这里可以直接在内部修改
+    currentName.value = name
     emits('update:modelValue', name)
   }
   /**
@@ -54,7 +59,8 @@
     immediate: true
   })
 
-  onMounted(() => {
+  onMounted(async () => {
+    await nextTick()
     currentName.value = prop.modelValue || navs.value[0].name // 如果没有传value，默认选中第一个
   })
 
@@ -100,7 +106,9 @@
       :type="type"
       :currentName="currentName"
       :position="_position"
+      :beforeEnter="beforeEnter"
       @setCurrentName="setCurrentName"
+      v-if="navs.length"
     />
     <div class="f-tabs-content">
       <slot></slot>

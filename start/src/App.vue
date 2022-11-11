@@ -21,14 +21,32 @@
     text.value = 'asdadfdbdfg'
     as.value = false
   }, 2000)
+
+  function beforeEnter(name: string | number) {
+    console.log(name)
+    if (name === 'about') {
+      console.log('禁止通行')
+      return false
+    }
+    return true
+  }
+
 </script>
 
 <template>
   <div style="padding: 20px">
-
+    {{tab}}
   <f-card>
     <f-tabs :position="position" :type="type" :align="align" v-model="tab">
       <f-tabs-pane :label="item.label" v-for="item in list">{{item.content}}</f-tabs-pane>
+    </f-tabs>
+  </f-card>
+
+  <f-card>
+    <f-tabs :beforeEnter="beforeEnter">
+      <f-tabs-pane name="home" label="home">homeC</f-tabs-pane>
+      <f-tabs-pane name="about" label="about">aboutC</f-tabs-pane>
+      <f-tabs-pane label="cav">NavC</f-tabs-pane>
     </f-tabs>
   </f-card>
 

@@ -14,7 +14,13 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
   const instance:ComponentInternalInstance = getCurrentInstance()
 
   function clickNavItem(name: TabsPaneName, index: number) {
-    emit('setCurrentName', name)
+    let res:boolean | void = true
+    if (prop.beforeEnter) {
+      res = prop.beforeEnter(name)
+    }
+    if (typeof res === 'boolean' && !res) return
+  
+    emit('set-current-name', name)
   }
   /**
    * 仅针对card模式下的，items的样式
@@ -29,7 +35,6 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
       if (wrapperStyle.value.width) return
       const children = instance.subTree.el.querySelectorAll('.f-tabs-nav--item:not(.f-tabs-nav--item__active)') as HTMLElement[]
       const maxHeight = Math.max(...Array.from(children).map(e => e.offsetWidth))
-      console.log(maxHeight)
       wrapperStyle.value = {width: maxHeight + 12 + 'px'}
     } else {
       if (wrapperStyle.value.height) return
@@ -49,7 +54,6 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
 
   async function updateActiveLineStyle() {
     await nextTick()
-    if (!prop.navs.length) return
     const { position } = prop
     const activeStyle:CSSProperties = {}
     const children = instance.subTree.el.querySelectorAll('.f-tabs-nav--item') as HTMLElement[]
@@ -81,8 +85,6 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
    */
   function handleWheel(e) {
     ;(e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
-    e.preventDefault()
-    console.log(e)
     deriveScrollShadow(e.currentTarget)
   }
 
@@ -103,7 +105,7 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
     if (prop.type === 'line') {
       updateActiveLineStyle()
     }
-    
+
     if (prop.type === 'card') {
       updateWrapperStyle()
     } else {
@@ -130,7 +132,7 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
 
 <template>
   <div class="f-tabs-nav" :class="classList">
-    <div class="f-tabs-nav__scroll" @wheel="handleWheel">
+    <div class="f-tabs-nav__scroll" @wheel.passive="handleWheel">
       <div class="f-tabs-nav__wrapper">
         <div class="f-tabs-nav--items" :style="wrapperStyle">
           <div class="f-tabs-nav--item"

@@ -23,11 +23,15 @@ export const Props = {
   align: {
     type: String as PropType<TabsAlign>,
     default: 'left'
+  },
+  beforeEnter: {
+    type: Function as PropType<(name: TabsPaneName) => boolean|void>
   }
 } as const
 
 export const Emits = {
-  'update:modelValue': (val: String | Number) => true // 下标可能为0
+  'update:modelValue': (val: String | Number) => true, // 下标可能为0
+  // 'before-enter': (name: TabsPaneName): boolean => true
 } as const
 
 export type TabsPropsType = ExtractPropTypes<typeof Props>

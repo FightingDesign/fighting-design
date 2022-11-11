@@ -16,11 +16,15 @@ export const Props = {
   },
   currentName: {
     type: [String, Number] as PropType<TabsPaneName>
+  },
+  beforeEnter: {
+    type: Function as PropType<(name: TabsPaneName) => boolean|void>
   }
 }
 
 export const Emits = {
-  'setCurrentName': (name: TabsPaneName):TabsPaneName => name
+  'set-current-name': (name: TabsPaneName):boolean => true,
+  // 'before-enter': (name: TabsPaneName): boolean => true
 } as const
 
 export type TabsNavPropsType = ExtractPropTypes<typeof Props>
