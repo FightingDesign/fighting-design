@@ -52,5 +52,6 @@ export const searchList = [
   { title: 'Divider 分隔线', rule: 'dividerDivider分隔线', url: 'components/divider' },
   { title: 'Watermark 水印', rule: 'watermarkWatermark水印', url: 'components/watermark' },
   { title: 'Ripple 涟漪', rule: 'rippleRipple涟漪', url: 'components/ripple' },
-  { title: 'Calendar 日历', rule: 'calendarCalendar日历', url: 'components/calendar' }
+  { title: 'Calendar 日历', rule: 'calendarCalendar日历', url: 'components/calendar' },
+  { title: 'Select 选择器', rule: 'selectSelect选择器', url: 'components/select' }
 ] as const
