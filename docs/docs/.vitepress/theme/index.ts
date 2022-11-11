@@ -3,8 +3,8 @@ import Theme from 'vitepress/theme'
 import './style/vitepress.scss'
 import FightingDesign from '../../../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
-import Search from './components/Search.vue'
-import Demo from './components/Demo.vue'
+import vpSearch from './components/vp-search.vue'
+import vpDemo from './components/vp-demo.vue'
 
 export default {
   ...Theme,
@@ -16,11 +16,11 @@ export default {
         * 
         * https://github.com/vuejs/vitepress/blob/main/docs/guide/theme-introduction.md 
         */
-      'nav-bar-content-before': () => h(Search)
+      'nav-bar-content-before': () => h(vpSearch)
     })
   },
   enhanceApp({ app }) {
     app.use(FightingDesign)
-    app.component('Demo', Demo)
+    app.component('vp-demo', vpDemo)
   }
 }

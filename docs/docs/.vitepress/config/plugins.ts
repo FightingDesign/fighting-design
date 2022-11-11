@@ -24,12 +24,12 @@ export const mdPlugin = (md: MarkdownIt) => {
       if (tokens[idx].nesting === 1) {
 
         return `
-          <Demo :open="false">
+          <vp-demo :open="false">
 
           ${encodeURIComponent(markdown.render(description))}
           `
       } else {
-        return '</Demo>'
+        return '</vp-demo>'
       }
     }
   })
