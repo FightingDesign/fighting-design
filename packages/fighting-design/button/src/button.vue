@@ -110,7 +110,7 @@
 
     if(fontColor) {
       Object.assign(cssPropertiesObject, {
-        '--f-button-font-size': fontColor
+        '--f-button-font-color': fontColor
       })
     }
 
