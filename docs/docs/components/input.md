@@ -9,9 +9,11 @@
 
 需要使用 `v-model` 绑定一个值
 
-<f-input v-model="value1" type="text" placeholder="请输入...." />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-input v-model="value1" type="text" placeholder="请输入...." />
+</template>
 
 ```html
 <template>
@@ -31,9 +33,11 @@
 
 `size` 属性可以配置不同尺寸的文本框
 
-<demo1-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo1-vue />
+</template>
 
 ```html
 <template>
@@ -56,9 +60,11 @@
 
 `search` 可配置可搜索的输入框
 
-<f-input v-model="value3" type="text" search placeholder="请输入...." />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-input v-model="value3" type="text" search placeholder="请输入...." />
+</template>
 
 ```html
 <template>
@@ -78,9 +84,11 @@
 
 `type` 可配置不同类型的输入框
 
-<demo2-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo2-vue />
+</template>
 
 ```html
 <template>
@@ -100,9 +108,11 @@
 
 `show-password` 可展示密码内容
 
-<f-input v-model="value5" type="password" show-password />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-input v-model="value5" type="password" show-password />
+</template>
 
 ```html
 <template>
@@ -122,9 +132,11 @@
 
 `icon` 可配置前缀 `icon`
 
-<f-input v-model="value6" type="text" :icon="FIconCloud" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-input v-model="value6" type="text" :icon="FIconCloud" />
+</template>
 
 ```html
 <template>
@@ -145,9 +157,11 @@
 
 `clear` 属性可配置可清空的文本框
 
-<f-input v-model="value7" type="text" clear />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-input v-model="value7" type="text" clear />
+</template>
 
 ```html
 <template>
@@ -167,9 +181,11 @@
 
 `readonly` 和 `disabled` 属性可配置只读或禁用的文本框
 
-<demo3-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo3-vue />
+</template>
 
 ```html
 <template>

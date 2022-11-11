@@ -9,9 +9,11 @@
 
 `image-list` 需要传入一个图片数组集合来展示
 
-<f-expand-card  :image-list="imageList" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-expand-card  :image-list="imageList" />
+</template>
 
 ```html
 <template>
@@ -33,9 +35,11 @@
 
 `image-list` 可以传入一个对象类型的数组，里面包含 `url` 和一个可选的 `text`，`text` 可用作图片的描述信息
 
-<f-expand-card  :image-list="imageList2" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-expand-card  :image-list="imageList2" />
+</template>
 
 ```html
 <template>
@@ -66,9 +70,11 @@
 
 `round` 属性可以配置圆角图片
 
-<f-expand-card round :image-list="imageList" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-expand-card round :image-list="imageList" />
+</template>
 
 ```html
 <template>

@@ -9,9 +9,11 @@
 
 使用 `src` 属性设置图片的路径，`width` 设置图片的宽度，`height` 可以设置图片的高度
 
-<f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
+</template>
 
 ```html
 <f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
@@ -23,9 +25,11 @@
 
 如需要使用本地图片，需要使用 [new URL(url, import.meta.url)](https://cn.vitejs.dev/guide/assets.html#new-url-url-import-meta-url) 手动导入图片资源使用：
 
-<f-image :src="url" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-image :src="url" />
+</template>
 
 ```html
 <script lang="ts" setup>
@@ -43,9 +47,11 @@
 
 `fit` 属性可以配置不同的适应容器的方式，详见原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性
 
-<demo1-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo1-vue />
+</template>
 
 ```html
 <f-image
@@ -86,9 +92,11 @@
 
 `round` 属性可以配置圆角图片，你需要传入一个具体的数值单位
 
-<f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</template>
 
 ```html
 <f-image
@@ -104,9 +112,12 @@
 
 `lazy` 属性可以设置图片懒加载，详情可参考 `DevTools` 的 `Network`
 
-<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
+::: demo
 
-::: details 显示代码
+<template #source>
+
+<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
+</template>
 
 ```html
 <f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
@@ -124,12 +135,15 @@
 
 你也可以使用 `error` 插槽自定义你的错误信息展示
 
+::: demo
+
+<template #source>
 <f-space spacing="large">
-  <f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
-  <f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
+<f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
+<f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
 </f-space>
 
-::: details 显示代码
+</template>
 
 ```html
 <f-image

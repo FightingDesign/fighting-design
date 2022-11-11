@@ -7,9 +7,11 @@
 
 ## 基本使用
 
-<f-button type="primary" @click="openMessage">show</f-button>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-button type="primary" @click="openMessage">show</f-button>
+</template>
 
 ```html
 <template>
@@ -36,9 +38,11 @@
 
 限定最大宽度为`500px`
 
-<f-button type="primary" @click="openMessageVNode">show</f-button>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-button type="primary" @click="openMessageVNode">show</f-button>
+</template>
 
 ```html
 <template>
@@ -69,15 +73,17 @@
 
 ## 多种类型
 
-<f-space>
-  <f-button @click="openMessage">default</f-button>
-  <f-button type="primary" @click="openMessagePrimary">primary</f-button>
-  <f-button type="success" @click="openMessageSuccess">success</f-button>
-  <f-button type="warning" @click="openMessageWarning">warning</f-button>
-  <f-button type="danger" @click="openMessageDanger">danger</f-button>
-</f-space>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-space>
+<f-button @click="openMessage">default</f-button>
+<f-button type="primary" @click="openMessagePrimary">primary</f-button>
+<f-button type="success" @click="openMessageSuccess">success</f-button>
+<f-button type="warning" @click="openMessageWarning">warning</f-button>
+<f-button type="danger" @click="openMessageDanger">danger</f-button>
+</f-space>
+</template>
 
 ```html
 <template>
@@ -127,12 +133,14 @@
 
 可以传递`closeBtn`属性来自定义关闭按钮，支持字符串与`VNode`。
 
-<f-space>
-  <f-button type="primary" @click="openMessageClose1">5秒后关闭</f-button>
-  <f-button type="primary" @click="openMessageClose2">不自动关闭</f-button>
-</f-space>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-space>
+<f-button type="primary" @click="openMessageClose1">5 秒后关闭</f-button>
+<f-button type="primary" @click="openMessageClose2">不自动关闭</f-button>
+</f-space>
+</template>
 
 ```html
 <template>
@@ -168,16 +176,18 @@
 
 ## 多个位置
 
-<f-space>
-  <f-button type="primary" @click="openMessagePlacement('top')">顶部</f-button>
-  <f-button type="primary" @click="openMessagePlacement('top-left')">左上</f-button>
-  <f-button type="primary" @click="openMessagePlacement('top-right')">右上</f-button>
-  <f-button type="success" @click="openMessagePlacement('bottom')">底部</f-button>
-  <f-button type="success" @click="openMessagePlacement('bottom-left')">左下</f-button>
-  <f-button type="success" @click="openMessagePlacement('bottom-right')">右下</f-button>
-</f-space>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-space>
+<f-button type="primary" @click="openMessagePlacement('top')">顶部</f-button>
+<f-button type="primary" @click="openMessagePlacement('top-left')">左上</f-button>
+<f-button type="primary" @click="openMessagePlacement('top-right')">右上</f-button>
+<f-button type="success" @click="openMessagePlacement('bottom')">底部</f-button>
+<f-button type="success" @click="openMessagePlacement('bottom-left')">左下</f-button>
+<f-button type="success" @click="openMessagePlacement('bottom-right')">右下</f-button>
+</f-space>
+</template>
 
 ```html
 <template>
@@ -222,22 +232,22 @@
 
 ## Attributes
 
-| 参数         | 说明                                         | 类型           | 可选值                                                             | 默认值  |
-| ------------ | -------------------------------------------- | -------------- | ------------------------------------------------------------------ | ------- |
-| `message`    | 消息文本                                     | string / VNode | ——                                                                 | false   |
-| `type`       | 消息类型                                     | string         | `default` `primary` `success` <br /> `danger` `warning`            | default |
-| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number         | ——                                                                 | 3000    |
-| `round`      | 是否为圆角类型                               | boolean        | ——                                                                 | false   |
-| `close`      | 是否可关闭                                   | boolean        | ——                                                                 | false   |
-| `icon`       | 消息 icon                                    | object (VNode / Component) | ——                                                     | null    |
-| `color`      | 字体颜色                                     | string         | ——                                                                 | ——      |
-| `background` | 背景色                                       | string         | ——                                                                 | ——      |
-| `placement`  | 位置                                         | string         | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
-| `offset`     | 偏移距离                                     | number         | ——                                                                 | 20      |
-| `background` | 自定义背景色                                 | string         | ——                                                                 | ——      |
-| `close-btn`  | 关闭按钮                                     | string / VNode | ——                                                                 | ——      |
-| `z-index`    | 层级                                         | boolean        | ——                                                                 | 1000    |
-| `close-end`  | 关闭回调                                     | Function       | ——                                                                 | ——      |
+| 参数         | 说明                                         | 类型                       | 可选值                                                             | 默认值  |
+| ------------ | -------------------------------------------- | -------------------------- | ------------------------------------------------------------------ | ------- |
+| `message`    | 消息文本                                     | string / VNode             | ——                                                                 | false   |
+| `type`       | 消息类型                                     | string                     | `default` `primary` `success` <br /> `danger` `warning`            | default |
+| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                     | ——                                                                 | 3000    |
+| `round`      | 是否为圆角类型                               | boolean                    | ——                                                                 | false   |
+| `close`      | 是否可关闭                                   | boolean                    | ——                                                                 | false   |
+| `icon`       | 消息 icon                                    | object (VNode / Component) | ——                                                                 | null    |
+| `color`      | 字体颜色                                     | string                     | ——                                                                 | ——      |
+| `background` | 背景色                                       | string                     | ——                                                                 | ——      |
+| `placement`  | 位置                                         | string                     | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
+| `offset`     | 偏移距离                                     | number                     | ——                                                                 | 20      |
+| `background` | 自定义背景色                                 | string                     | ——                                                                 | ——      |
+| `close-btn`  | 关闭按钮                                     | string / VNode             | ——                                                                 | ——      |
+| `z-index`    | 层级                                         | boolean                    | ——                                                                 | 1000    |
+| `close-end`  | 关闭回调                                     | Function                   | ——                                                                 | ——      |
 
 ## Events
 

@@ -9,9 +9,11 @@
 
 `content` 属性可以配置展示的内容
 
-<f-empty content="在这里，后续提供更多服务" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-empty content="在这里，后续提供更多服务" />
+</template>
 
 ```html
 <f-empty content="在这里，后续提供更多服务" />
@@ -25,9 +27,12 @@
 
 `content-size` 必须写入指定的数值和单位才可以正常工作
 
+::: demo
+
+<template #source>
 <f-empty content-size="30px" />
 
-::: details 显示代码
+</template>
 
 ```html
 <f-empty content-size="30px" />
@@ -39,9 +44,11 @@
 
 `content-color` 属性可以配置 `empty` 内容文字的颜色
 
-<f-empty content-color="orange" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-empty content-color="orange" />
+</template>
 
 ```html
 <f-empty content-color="orange" />
@@ -53,9 +60,11 @@
 
 `image-src` 属性可以配置 `empty` 展示数据状态的图片
 
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg"/>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg"/>
+</template>
 
 ```html
 <f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" />
@@ -67,12 +76,17 @@
 
 `image-size` 属性可以配置自定义的图片大小
 
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
+</template>
 
 ```html
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
+<f-empty
+  image-src="https://tianyuhao.cn/images/auto/1.jpg"
+  image-size="200px"
+/>
 ```
 
 :::
@@ -81,9 +95,11 @@
 
 `background` 属性可以配置 `empty` 的背景颜色
 
-<f-empty background="#489EE2" image-size="300px"/>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-empty background="#489EE2" image-size="300px"/>
+</template>
 
 ```html
 <f-empty background="#489EE2" image-size="300px" />

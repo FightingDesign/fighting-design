@@ -9,10 +9,12 @@
 
 `show` 属性可以控制是否展示 `loading` 加载
 
+::: demo
+
+<template #source>
 <f-button type="primary" @click="onclick1">开始 loading</f-button>
 <f-loading :show="loading1" />
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -41,10 +43,12 @@
 
 `text` 和 `icon` 属性可以自定义说明文字和展示的 `icon`
 
+::: demo
+
+<template #source>
 <f-button type="primary" @click="onclick2">玩命加载</f-button>
 <f-loading :show="loading2" text="玩命加载中……" :icon="FIconSnowflake" />
-
-::: details 显示代码
+</template>
 
 ```html
 <template>

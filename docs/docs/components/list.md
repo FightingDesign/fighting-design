@@ -9,15 +9,17 @@
 
 `List` 列表的基本使用
 
-<f-list>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-</f-list>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-list>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+</f-list>
+</template>
 
 ```html
 <f-list>
@@ -35,15 +37,17 @@
 
 `zebra` 属性可以配置斑马纹
 
-<f-list zebra>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-</f-list>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-list zebra>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+</f-list>
+</template>
 
 ```html
 <f-list zebra>
@@ -61,15 +65,18 @@
 
 `center` 属性可以居中显示文本
 
+::: demo
+
+<template #source>
 <f-list center>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
 </f-list>
 
-::: details 显示代码
+</template>
 
 ```html
 <f-list center>
@@ -87,12 +94,15 @@
 
 `size` 属性可以配置不同尺寸的列表
 
+::: demo
+
+<template #source>
 <f-list size="large">
-  <f-list-item>这是大号尺寸列表</f-list-item>
-  <f-list-item>这是大号尺寸列表</f-list-item>
-  <f-list-item>这是大号尺寸列表</f-list-item>
-  <f-list-item>这是大号尺寸列表</f-list-item>
-  <f-list-item>这是大号尺寸列表</f-list-item>
+<f-list-item>这是大号尺寸列表</f-list-item>
+<f-list-item>这是大号尺寸列表</f-list-item>
+<f-list-item>这是大号尺寸列表</f-list-item>
+<f-list-item>这是大号尺寸列表</f-list-item>
+<f-list-item>这是大号尺寸列表</f-list-item>
 </f-list>
 
 <f-list size="middle">
@@ -110,8 +120,7 @@
   <f-list-item>这是小号尺寸列表</f-list-item>
   <f-list-item>这是小号尺寸列表</f-list-item>
 </f-list>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-list size="large">
@@ -145,12 +154,15 @@
 
 `list-style` 属性配置不同的前缀，原生 [list-style-type](https://developer.mozilla.org/zh-CN/docs/Web/CSS/list-style-type) 属性
 
+::: demo
+
+<template #source>
 <f-list list-style="decimal">
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
 </f-list>
 
 <f-list list-style="circle">
@@ -160,8 +172,7 @@
   <f-list-item>这是一段文字</f-list-item>
   <f-list-item>这是一段文字</f-list-item>
 </f-list>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-list list-style="decimal">
