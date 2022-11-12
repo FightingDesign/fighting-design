@@ -9,9 +9,11 @@
 
 默认插槽可插入触发器，`content` 插槽插入展示的内容
 
-<demo1-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo1-vue />
+</template>
 
 ```html
 <f-dropdown>
@@ -30,9 +32,11 @@
 
 ## 禁用状态
 
-<demo2-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo2-vue />
+</template>
 
 ```html
 <f-dropdown disabled>
@@ -100,7 +104,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import demo1Vue from './_demos/dropdown/demo1.vue'
   import demo2Vue from './_demos/dropdown/demo2.vue'
 </script>

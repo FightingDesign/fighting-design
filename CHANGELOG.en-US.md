@@ -4,6 +4,21 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.8.1-alpha.3 (2022-11-11)
+
+**Fest**
+
+- Add `f-dropdown` component
+- Add `f-dropdown-item` component
+- Add `f-option` component
+- Add `f-select` component
+- Add `f-table` component `show-head` configuration item
+
+**Fix**
+
+- Fix `f-button` component style details
+- Fix the failure of `f-drawer` and `f-dialog` component callback parameters
+
 ## 0.8.1-alpha.2 (2022-11-08)
 
 **Fix**

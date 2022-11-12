@@ -9,9 +9,11 @@
 
 分隔线的基本使用
 
-<f-divider margin="20px">我是分隔线</f-divider>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-divider margin="20px">我是分隔线</f-divider>
+</template>
 
 ```html
 <f-divider>我是分隔线</f-divider>
@@ -23,6 +25,10 @@
 
 `position` 属性可以配置文字显示的位置
 
+::: demo
+
+<template #source>
+
 <p/>
 <f-divider position='left'>我是左边的文字</f-divider>
 <p/>
@@ -30,8 +36,7 @@
 <p/>
 <f-divider position='right'>我是右边的文字</f-divider>
 <p/>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-divider position="left">我是左边的文字</f-divider>
@@ -49,11 +54,14 @@
 
 `background` 属性配置文字背景颜色
 
+::: demo
+
+<template #source>
 <f-divider margin="40px">默认颜色</f-divider>
 <f-divider color='green' margin="40px" fontColor="green" background="#eee">我是绿色</f-divider>
 <f-divider color='blue' margin="40px" fontColor="#fff" background="blue">我是蓝色</f-divider>
 
-::: details 显示代码
+</template>
 
 ```html
 <f-divider margin="40px">默认颜色</f-divider>
@@ -71,11 +79,14 @@
 
 `margin` 可以配置上下的距离
 
+::: demo
+
+<template #source>
+
 <div>假装是内容</div>
 <f-divider margin="60px" fontColor="blue">距离上下60px</f-divider>
 <div>假装是内容</div>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-divider margin="60px" fontColor="blue">距离上下60px</f-divider>
@@ -89,9 +100,11 @@
 
 如果使用 `vertical`属性，`color`&`background` 将会失效
 
-<f-divider vertical>竖着显示</f-divider>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-divider vertical>竖着显示</f-divider>
+</template>
 
 ```html
 <f-divider vertical>竖着显示</f-divider>
@@ -103,11 +116,13 @@
 
 当你厌倦了直线分隔符 `type` 属性可以让它换一个样式
 
+::: demo
+
+<template #source>
 <f-divider type="dashed">我是虚线</f-divider>
 <f-divider type="dotted">我是圆点</f-divider>
 <f-divider type="double">我是双实线</f-divider>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-divider type="dashed">我是虚线</f-divider>

@@ -11,9 +11,11 @@
 
 `direction` 属性可以配置不同的弹出方向
 
-<demo2-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo2-vue />
+</template>
 
 ```html
 <template>

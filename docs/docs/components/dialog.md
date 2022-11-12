@@ -9,9 +9,11 @@
 
 `v-model:visible` 属性来控制展示状态
 
-<demo1-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo1-vue />
+</template>
 
 ```html
 <template>
@@ -52,9 +54,11 @@
 
 如果需要在一个 `dialog` 内部嵌套另一个 `dialog`，需要使用 `append-to-body` 属性
 
-<demo2-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo2-vue />
+</template>
 
 ```html
 <template>
@@ -90,9 +94,11 @@
 
 `close` 和 `close-end` 分别用来表示关闭动画结束前后执行的事件
 
-<demo3-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo3-vue />
+</template>
 
 ```html
 <template>
@@ -189,7 +195,7 @@ import type { DialogInstance, DialogPropsType } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/40457081?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import demo1Vue from './_demos/dialog/demo1.vue'
   import demo2Vue from './_demos/dialog/demo2.vue'
   import demo3Vue from './_demos/dialog/demo3.vue'

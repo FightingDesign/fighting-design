@@ -9,11 +9,13 @@
 
 插槽插入一个 `svg-icon` 即可
 
-<f-close-btn>
-  <f-icon-cross />
-</f-close-btn>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-close-btn>
+<f-icon-cross />
+</f-close-btn>
+</template>
 
 ```html
 <script lang="ts" setup>
@@ -33,11 +35,13 @@
 
 `disabled` 可禁用一个关闭按钮
 
-<f-close-btn disabled>
-  <f-icon-cross />
-</f-close-btn>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-close-btn disabled>
+<f-icon-cross />
+</f-close-btn>
+</template>
 
 ```html
 <script lang="ts" setup>
@@ -85,6 +89,6 @@ import type { CloseBtnInstance, CloseBtnPropsType } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { FIconCross } from '../../../packages/fighting-icon/index.ts'
 </script>

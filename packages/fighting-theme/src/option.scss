@@ -1,0 +1,25 @@
+.f-option {
+  display: block;
+  padding: 8px 13px;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+  margin: 4px;
+  transition: background 0.3s;
+  user-select: none;
+  background: #fff;
+
+  &:hover {
+    background: #eee;
+  }
+
+  // 禁用
+  &__disabled {
+    cursor: not-allowed;
+    color: #afafaf;
+
+    &:hover {
+      background: none;
+    }
+  }
+}

@@ -9,13 +9,16 @@
 
 `type` 属性可以配置不同的按钮类型，展示不同的颜色状态
 
+::: demo
+
+<template #source>
 <f-ripple v-for="(item, i) in typeList" :key="i" :type="item">
+
   <div class="list">
     <f-text :type="item">{{ item }} 涟漪</f-text>
   </div>
 </f-ripple>
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -46,7 +49,11 @@
 
 `ripples-color` 属性可以自定义涟漪颜色
 
+::: demo
+
+<template #source>
 <f-ripple ripples-color="orange">
+
   <div class="list">
     <f-text color="orange">自定义涟漪颜色</f-text>
   </div>
@@ -63,8 +70,7 @@
     <f-text color="purple">自定义涟漪颜色</f-text>
   </div>
 </f-ripple>
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -103,7 +109,11 @@
 
 `disabled` 可以禁用涟漪效果
 
+::: demo
+
+<template #source>
 <f-ripple type="primary" disabled>
+
   <div class="list">
     <f-text type="primary">禁止使用</f-text>
   </div>
@@ -114,8 +124,7 @@
     <f-text type="primary">可以使用</f-text>
   </div>
 </f-ripple>
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -148,13 +157,16 @@
 
 `start-opacity` 和 `end-opacity`自定义涟漪开始和结束时候的透明度
 
+::: demo
+
+<template #source>
 <f-ripple type="primary" :start-opacity="0.7" :end-opacity="0.3">
+
   <div class="list">
     <f-text type="primary">可以使用</f-text>
   </div>
 </f-ripple>
-
-::: details 显示代码
+</template>
 
 ```html
 <template>

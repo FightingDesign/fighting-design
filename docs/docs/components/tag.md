@@ -9,13 +9,15 @@
 
 `type` 属性可以配置不同的按钮类型，展示不同的颜色状态
 
+::: demo
+
+<template #source>
 <f-tag type="default">默认</f-tag>
 <f-tag type="primary">普通</f-tag>
 <f-tag type="warning">警告</f-tag>
 <f-tag type="success">成功</f-tag>
 <f-tag type="danger">失败</f-tag>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-tag type="default">默认</f-tag>
@@ -31,13 +33,15 @@
 
 `simple` 属性可以配置简约的提示，样式依然由 `type` 控制
 
+::: demo
+
+<template #source>
 <f-tag simple type="default">默认</f-tag>
 <f-tag simple type="primary">普通</f-tag>
 <f-tag simple type="warning">警告</f-tag>
 <f-tag simple type="success">成功</f-tag>
 <f-tag simple type="danger">失败</f-tag>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-tag simple type="default">默认</f-tag>
@@ -53,13 +57,15 @@
 
 `line` 属性可以配置线性的提示，样式依然由 `type` 控制
 
+::: demo
+
+<template #source>
 <f-tag line type="default">默认</f-tag>
 <f-tag line type="primary">普通</f-tag>
 <f-tag line type="warning">警告</f-tag>
 <f-tag line type="success">成功</f-tag>
 <f-tag line type="danger">失败</f-tag>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-tag line type="default">默认</f-tag>
@@ -75,10 +81,12 @@
 
 `background` 和 `color` 可以自定义标签颜色，将覆盖原有的 `type`
 
+::: demo
+
+<template #source>
 <f-tag background="skyblue">天蓝色</f-tag>
 <f-tag background="blue" color="#fff">深蓝色</f-tag>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-tag background="skyblue">天蓝色</f-tag>
@@ -91,12 +99,14 @@
 
 `size` 自定义标签大小
 
+::: demo
+
+<template #source>
 <f-tag type="primary" size="large">大标签</f-tag>
 <f-tag type="primary" size="middle">中等标签</f-tag>
 <f-tag type="primary" size="small">小标签</f-tag>
 <f-tag type="primary" size="mini">超小标签</f-tag>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-tag type="primary" size="large">大标签</f-tag>
@@ -111,13 +121,15 @@
 
 通过 `block` 属性可以将标签设置为块级元素。
 
+::: demo
+
+<template #source>
 <f-tag block type="default">默认</f-tag>
 <f-tag block type="primary">普通</f-tag>
 <f-tag block type="warning">警告</f-tag>
 <f-tag block type="success">成功</f-tag>
 <f-tag block type="danger">失败</f-tag>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-tag block type="default">默认</f-tag>
@@ -133,13 +145,15 @@
 
 `close` 可配置可以关闭的
 
+::: demo
+
+<template #source>
 <f-tag close type="default">默认</f-tag>
 <f-tag close type="primary">普通</f-tag>
 <f-tag close type="warning">警告</f-tag>
 <f-tag close type="success">成功</f-tag>
 <f-tag close type="danger">失败</f-tag>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-tag close type="default">默认</f-tag>

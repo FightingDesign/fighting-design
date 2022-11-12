@@ -2,8 +2,23 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-back-top` 组件新增显示隐藏的动画样式
+- 优化 `f-popup` 弹出动画样式
+
+## 0.8.1-alpha.3 (2022-11-11)
+
+**新增**
+
 - 新增 `f-dropdown` 组件
+- 新增 `f-dropdown-item` 组件
+- 新增 `f-option` 组件
+- 新增 `f-select` 组件
 - 新增 `f-table` 组件 `show-head` 配置项
+
+**修复**
+
+- 修复　`f-button` 组件样式细节
+- 修复　`f-drawer` 和 `f-dialog` 组件回调参数失效问题
 
 ## 0.8.1-alpha.2 (2022-11-08)
 

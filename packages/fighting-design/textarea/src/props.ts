@@ -1,5 +1,6 @@
+import { isString } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { TextareaChangeInterface } from './interface'
+import type { TextareaChangeInterface, TextareaResizeType } from './interface'
 import type { HandleFocusEventInterface } from '../../_interface'
 
 export const Props = {
@@ -103,11 +104,30 @@ export const Props = {
   onFocus: {
     type: Function as PropType<HandleFocusEventInterface>,
     default: (): null => null
+  },
+  /**
+   * 拉伸方式
+   * 
+   * https://developer.mozilla.org/zh-CN/docs/Web/CSS/resize
+   */
+  resize: {
+    type: String as PropType<TextareaResizeType>,
+    default: (): TextareaResizeType => 'none',
+    validator: (val: TextareaResizeType): boolean => {
+      return (['none', 'both', 'horizontal', 'vertical'] as const).includes(val)
+    }
+  },
+  /**
+   * 是否可清空
+   */
+  clear: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 
 export const Emits = {
-  'update:modelValue': (val: string): string => val
+  'update:modelValue': (val: string): boolean => isString(val)
 } as const
 
 export type TextareaPropsType = ExtractPropTypes<typeof Props>

@@ -11,10 +11,12 @@
 
 `icon-on` 和 `icon-off` 分别控制切换的不同图标
 
+::: demo
+
+<template #source>
 <f-swap v-model="value1" :icon-on="FIconSun" :icon-off="FIconMoon" />
 <f-swap v-model="value2" :icon-on="FIconSun" :icon-off="FIconMoon" />
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -37,10 +39,12 @@
 
 `size` 属性可配置不同的尺寸
 
+::: demo
+
+<template #source>
 <f-swap v-model="value3" :size="50" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
 <f-swap v-model="value4" size="30px" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -78,11 +82,13 @@
 
 `type` 属性可以配置不同的动画类型
 
+::: demo
+
+<template #source>
 <f-swap v-model="value5" type="default" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
 <f-swap v-model="value6" type="sound" :icon-on="FIconSun" :icon-off="FIconMoon" />
 <f-swap v-model="value7" type="swap" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
-
-::: details 显示代码
+</template>
 
 ```html
 <template>

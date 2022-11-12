@@ -75,7 +75,7 @@ Events
 
 code....
 
-<script setup>
+<script setup lang="ts">
 javascript code...
 </script>
 

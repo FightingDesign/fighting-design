@@ -3,8 +3,13 @@ import type {
   LoadLazyInterface,
   LoadInterface,
   LoadImageInterface,
-  LoadNeedImagePropsInterface,
-  LoadCallbackInterface
+  LoadImagePropsInterface,
+  LoadCallbackInterface,
+  LoadCreateImgInterface,
+  LoadOnloadInterface,
+  LoadLazyObserverInterface,
+  HandleEventInterface,
+  OrdinaryFunctionInterface
 } from './interface'
 
 /**
@@ -12,7 +17,7 @@ import type {
  */
 class Load implements LoadInterface {
   node: HTMLImageElement
-  props: LoadNeedImagePropsInterface
+  props: LoadImagePropsInterface
   callback: LoadCallbackInterface | null
 
   /**
@@ -22,7 +27,7 @@ class Load implements LoadInterface {
    */
   constructor (
     node: HTMLImageElement,
-    props: LoadNeedImagePropsInterface,
+    props: LoadImagePropsInterface,
     callback: LoadCallbackInterface | null
   ) {
     this.node = node
@@ -35,7 +40,7 @@ class Load implements LoadInterface {
    * @param errSrc src 失败后的加载路径
    * @return { void }
    */
-  loadCreateImg = (errSrc?: string): void => {
+  loadCreateImg: LoadCreateImgInterface = (errSrc?: string): void => {
     const newImg: HTMLImageElement = new Image()
 
     if (errSrc) {
@@ -59,7 +64,7 @@ class Load implements LoadInterface {
    * @param evt 事件对象
    * @return { void }
    */
-  onerror = (evt: Event): void => {
+  onerror: HandleEventInterface = (evt: Event): void => {
     // 如果存在 errSrc 则继续尝试加载
     if (this.props.errSrc) {
       this.loadCreateImg(this.props.errSrc)
@@ -77,7 +82,7 @@ class Load implements LoadInterface {
    * @param src 需要加载的 src
    * @return { void }
    */
-  onload = (evt: Event, src: string): void => {
+  onload: LoadOnloadInterface = (evt: Event, src: string): void => {
     this.node.src = src
     this.props.load && this.props.load(evt)
     this.callback && this.callback(true)
@@ -92,7 +97,7 @@ class Load implements LoadInterface {
 class Lazy extends Load implements LoadLazyInterface {
   constructor (
     img: HTMLImageElement,
-    props: LoadNeedImagePropsInterface,
+    props: LoadImagePropsInterface,
     callback: LoadCallbackInterface | null
   ) {
     super(img, props, callback)
@@ -101,7 +106,7 @@ class Lazy extends Load implements LoadLazyInterface {
    * 懒加载函数
    * @returns { IntersectionObserver }
    */
-  observer = (): IntersectionObserver => {
+  observer: LoadLazyObserverInterface = (): IntersectionObserver => {
     const observer: IntersectionObserver = new IntersectionObserver(
       (arr: IntersectionObserverEntry[]): void => {
         if (arr[0].isIntersecting) {
@@ -121,7 +126,7 @@ class Lazy extends Load implements LoadLazyInterface {
    * 执行懒加载
    * @return { void }
    */
-  lazyCreateImg = (): void => {
+  lazyCreateImg: OrdinaryFunctionInterface = (): void => {
     this.observer().observe(this.node)
   }
 }
@@ -135,7 +140,7 @@ class Lazy extends Load implements LoadLazyInterface {
  */
 export const loadImage: LoadImageInterface = (
   node: HTMLImageElement,
-  prop: LoadNeedImagePropsInterface,
+  prop: LoadImagePropsInterface,
   callback: LoadCallbackInterface | null
 ): void => {
   /**

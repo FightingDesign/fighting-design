@@ -9,13 +9,15 @@
 
 `f-breadcrumb` 的基本使用
 
-<f-breadcrumb>
-  <f-breadcrumb-item>首页</f-breadcrumb-item>
-  <f-breadcrumb-item>文章</f-breadcrumb-item>
-  <f-breadcrumb-item>列表</f-breadcrumb-item>
-</f-breadcrumb>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-breadcrumb>
+<f-breadcrumb-item>首页</f-breadcrumb-item>
+<f-breadcrumb-item>文章</f-breadcrumb-item>
+<f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
+</template>
 
 ```html
 <f-breadcrumb>
@@ -33,13 +35,15 @@
 
 `item-color` 可以配置导航文字颜色
 
-<f-breadcrumb separator-color="#333" item-color="blue">
-  <f-breadcrumb-item>首页</f-breadcrumb-item>
-  <f-breadcrumb-item>文章</f-breadcrumb-item>
-  <f-breadcrumb-item>列表</f-breadcrumb-item>
-</f-breadcrumb>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-breadcrumb separator-color="#333" item-color="blue">
+<f-breadcrumb-item>首页</f-breadcrumb-item>
+<f-breadcrumb-item>文章</f-breadcrumb-item>
+<f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
+</template>
 
 ```html
 <f-breadcrumb separator-color="#333" item-color="blue">
@@ -55,13 +59,15 @@
 
 `separator` 属性可以自定义分隔符
 
-<f-breadcrumb :separator="FIconTag">
-  <f-breadcrumb-item>首页</f-breadcrumb-item>
-  <f-breadcrumb-item>文章</f-breadcrumb-item>
-  <f-breadcrumb-item>列表</f-breadcrumb-item>
-</f-breadcrumb>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-breadcrumb :separator="FIconTag">
+<f-breadcrumb-item>首页</f-breadcrumb-item>
+<f-breadcrumb-item>文章</f-breadcrumb-item>
+<f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
+</template>
 
 ```html
 <template>
@@ -83,15 +89,17 @@
 
 `f-breadcrumb-item` 组件内可以插入 `icon`
 
-<f-breadcrumb>
-  <f-breadcrumb-item>
-    <f-icon-skull />
-  </f-breadcrumb-item>
-  <f-breadcrumb-item>文章</f-breadcrumb-item>
-  <f-breadcrumb-item>列表</f-breadcrumb-item>
-</f-breadcrumb>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-breadcrumb>
+<f-breadcrumb-item>
+<f-icon-skull />
+</f-breadcrumb-item>
+<f-breadcrumb-item>文章</f-breadcrumb-item>
+<f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
+</template>
 
 ```html
 <template>
@@ -115,13 +123,15 @@
 
 `font-size` 可以自定义你想要的文字大小
 
-<f-breadcrumb font-size="18px">
-  <f-breadcrumb-item>首页</f-breadcrumb-item>
-  <f-breadcrumb-item>文章</f-breadcrumb-item>
-  <f-breadcrumb-item>列表</f-breadcrumb-item>
-</f-breadcrumb>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-breadcrumb font-size="18px">
+<f-breadcrumb-item>首页</f-breadcrumb-item>
+<f-breadcrumb-item>文章</f-breadcrumb-item>
+<f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
+</template>
 
 ```html
 <f-breadcrumb font-size="18px">
@@ -176,6 +186,6 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/98402209?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { FIconTag, FIconSkull } from '@fighting-design/fighting-icon'
 </script>

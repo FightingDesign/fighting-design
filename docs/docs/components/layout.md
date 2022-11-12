@@ -17,6 +17,10 @@
 
 下面是由 `Fighting Design` 提供的几种常见的页面布局演示
 
+::: demo
+
+<template #source>
+
 <f-layout>
   <f-header>Header</f-header>
   <f-main>Main</f-main>
@@ -110,7 +114,7 @@
 </f-layout>
 </f-layout>
 
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -193,7 +197,7 @@
     line-height: 60px;
   }
   .f-aside {
-    background: rgb(101, 173, 240);
+    background: #65adf0;
     color: #fff;
     text-align: center;
     line-height: 200px;
@@ -281,7 +285,7 @@ import type {
     line-height: 60px;
   }
   .f-aside {
-    background: rgb(101, 173, 240);
+    background: #65adf0;
     color: #fff;
     text-align: center;
     line-height: 200px;

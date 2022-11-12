@@ -9,11 +9,13 @@
 
 `switch` 的基本使用，需要使用 `v-model` 绑定一个值
 
+::: demo
+
+<template #source>
 <f-switch v-model="value1" />
 <br />
 <f-switch v-model="value2" />
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -34,11 +36,13 @@
 
 `size` 属性可以配置不同大小的 `switch`
 
-  <f-switch v-model="value3" size="large" />
-  <f-switch v-model="value3" size="middle" />
-  <f-switch v-model="value3" size="small" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-switch v-model="value3" size="large" />
+<f-switch v-model="value3" size="middle" />
+<f-switch v-model="value3" size="small" />
+</template>
 
 ```html
 <template>
@@ -59,10 +63,12 @@
 
 `disabled` 属性可以禁用 `switch`
 
+::: demo
+
+<template #source>
 <f-switch v-model="value4" disabled />
 <f-switch v-model="value5" disabled />
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -83,9 +89,11 @@
 
 `square` 属性可以将 `switch` 设置为方形样式
 
-<f-switch v-model="value6" square />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-switch v-model="value6" square />
+</template>
 
 ```html
 <template>
@@ -104,9 +112,11 @@
 
 `close-color` 和 `open-color` 可以自定义开关的颜色
 
-<f-switch v-model="value7" close-color="red" open-color="skyblue" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-switch v-model="value7" close-color="red" open-color="skyblue" />
+</template>
 
 ```html
 <template>
@@ -125,9 +135,11 @@
 
 `close-text` 和 `open-text` 可以自定义开关左右的描述文字
 
-<f-switch v-model="value8" close-text="关闭" open-text="开启" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-switch v-model="value8" close-text="关闭" open-text="开启" />
+</template>
 
 ```html
 <template>
@@ -146,9 +158,11 @@
 
 `icon` 可以让 `switch` 上带有 `icon`
 
-<f-switch v-model="value9" :icon="FIconSnowflake" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-switch v-model="value9" :icon="FIconSnowflake" />
+</template>
 
 ```html
 <template>
@@ -202,7 +216,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/34115313?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { ref } from 'vue'
   import { FIconSnowflake } from '@fighting-design/fighting-icon'
 

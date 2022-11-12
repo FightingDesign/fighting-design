@@ -9,9 +9,11 @@
 
 `v-model:visible` 属性来控制展示状态
 
-<demo1-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo1-vue />
+</template>
 
 ```html
 <template>
@@ -58,9 +60,11 @@
 
 `Drawer` 组件也拥有多层嵌套的方法
 
-<demo2-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo2-vue />
+</template>
 
 ```html
 <template>
@@ -133,7 +137,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/50623519?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import demo1Vue from './_demos/drawer/demo1.vue'
   import demo2Vue from './_demos/drawer/demo2.vue'
 </script>

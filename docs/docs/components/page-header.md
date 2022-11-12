@@ -9,9 +9,11 @@
 
 `title` 属性可以配置标题内容，点击右侧返回可以触发 `back` 回调函数
 
-<f-page-header title="标题" :back="goBack" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-page-header title="标题" :back="goBack" />
+</template>
 
 ```html
 <template>
@@ -19,8 +21,10 @@
 </template>
 
 <script lang="ts" setup>
+  import { FMessage } from 'fighting-design'
+
   const goBack = () => {
-    console.log('go back')
+    FMessage.primary('Go Back')
   }
 </script>
 ```
@@ -31,9 +35,11 @@
 
 `icon` 可以自定义返回图标，`back-text` 可以自定义返回文字内容
 
-<f-page-header :icon="FIconReply" back-text="返回上一页" title="标题" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-page-header :icon="FIconReply" back-text="返回上一页" title="标题" />
+</template>
 
 ```html
 <template>
@@ -51,9 +57,11 @@
 
 `subtitle` 可以配置带有副标题
 
-<f-page-header title="标题" subtitle="副标题" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-page-header title="标题" subtitle="副标题" />
+</template>
 
 ```html
 <template>
@@ -103,10 +111,11 @@ import type { PageHeaderInstance, PageHeaderPropsType } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/42865478?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { FIconReply } from '@fighting-design/fighting-icon'
+  import { FMessage } from '../../../packages/fighting-design/index'
 
   const goBack = () => {
-    console.log('go back')
+    FMessage.primary('Go Back')
   }
 </script>
