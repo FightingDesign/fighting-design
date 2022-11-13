@@ -1,4 +1,3 @@
-import { isNumber, isString, isBoolean } from '../../_utils'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type { RadioLabelType, RadioGroupSizeType, RadioChangeInterface } from './interface'
 
@@ -40,12 +39,6 @@ export const Props = {
   }
 } as const
 
-export const Emits = {
-  'update:modelValue': (val: RadioLabelType): boolean => {
-    return isString(val) || isNumber(val) || isBoolean(val)
-  }
-} as const
-
 export type RadioGroundPropsType = ExtractPropTypes<typeof Props>
 
-export const RadioGroupPropsKey = Symbol('') as InjectionKey<RadioGroundPropsType>
+export const RADIO_GROUP_PROPS_kEY = Symbol('') as InjectionKey<RadioGroundPropsType>

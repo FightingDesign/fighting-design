@@ -1,11 +1,12 @@
 <script lang="ts" setup name="FImagePreview">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { ref, watch } from 'vue'
   import { FButton } from '../../button'
   import { FToolbar } from '../../toolbar'
   import { FToolbarItem } from '../../toolbar-item'
   import { FPopup } from '../../popup'
-  import { isString } from '../../_utils'
+  import { isString, isBoolean } from '../../_utils'
+  import { useEmit } from '../../_hooks'
   import {
     FIconChevronLeftVue,
     FIconChevronRightVue,
@@ -29,7 +30,9 @@
   import type { ToolbarClickEmitInterface } from '../../toolbar/src/interface'
 
   const prop: ImagePreviewPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(
+    useEmit((visible: boolean): boolean => isBoolean(visible), 'visible')
+  )
 
   const {
     scale,

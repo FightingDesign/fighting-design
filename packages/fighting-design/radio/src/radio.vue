@@ -1,7 +1,9 @@
 <script lang="ts" setup name="FRadio">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
+  import { isString, isBoolean, isNumber } from '../../_utils'
+  import { useEmit } from '../../_hooks'
   import { computed, inject, getCurrentInstance, ref } from 'vue'
-  import { RadioGroupPropsKey } from '../../radio-group/src/props'
+  import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
   import type {
     ComputedRef,
     WritableComputedRef,
@@ -19,7 +21,12 @@
   import type { RadioPropsType } from './props'
 
   const prop: RadioPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(
+    useEmit(
+      (val: RadioLabelType): boolean =>
+        isString(val) || isNumber(val) || isBoolean(val)
+    )
+  )
 
   const groupProps: Ref<RadioGroundInterface | null> = ref(null)
 
@@ -30,7 +37,7 @@
       .type.name
 
     if (parentName && parentName === 'FRadioGroup') {
-      groupProps.value = inject(RadioGroupPropsKey) as RadioGroundInterface
+      groupProps.value = inject(RADIO_GROUP_PROPS_kEY) as RadioGroundInterface
     }
   }
   loadParentInject()

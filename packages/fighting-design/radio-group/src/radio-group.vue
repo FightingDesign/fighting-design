@@ -1,6 +1,8 @@
 <script lang="ts" setup name="FRadioGroup">
+  import { Props, RADIO_GROUP_PROPS_kEY } from './props'
   import { provide, reactive, toRefs, computed } from 'vue'
-  import { Props, Emits, RadioGroupPropsKey } from './props'
+  import { isString, isBoolean, isNumber } from '../../_utils'
+  import { useEmit } from '../../_hooks'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
@@ -11,7 +13,12 @@
   } from './interface'
 
   const prop: RadioGroundPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(
+    useEmit(
+      (val: RadioLabelType): boolean =>
+        isString(val) || isNumber(val) || isBoolean(val)
+    )
+  )
 
   const changeEvent: RadioChangeInterface = (value: RadioLabelType): void => {
     emit('update:modelValue', value)
@@ -23,7 +30,7 @@
     changeEvent
   } as const)
 
-  provide<RadioGroundPropsType>(RadioGroupPropsKey, RadioGround)
+  provide<RadioGroundPropsType>(RADIO_GROUP_PROPS_kEY, RadioGround)
 
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {

@@ -88,7 +88,3 @@ export const Props = {
 } as const
 
 export type UpLoadPropsType = ExtractPropTypes<typeof Props>
-
-export const Emits = {
-  'update:files': (files: File[]): File[] => files
-}

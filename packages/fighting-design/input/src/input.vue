@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FInput">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FButton } from '../../button'
   import { ref } from 'vue'
@@ -8,7 +8,8 @@
     FIconEyeOffOutlineVue,
     FIconEyeOutlineVue
   } from '../../_svg'
-  import { useUpdateInput, useFilterProps } from '../../_hooks'
+  import { isString } from '../../_utils'
+  import { useUpdateInput, useFilterProps, useEmit } from '../../_hooks'
   import type { Ref } from 'vue'
   import type { InputType, InputHandleShowPasswordInterface } from './interface'
   import type { InputPropsType } from './props'
@@ -16,7 +17,7 @@
   import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
 
   const prop: InputPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(useEmit((val: string): boolean => isString(val)))
 
   // type 类型
   const inputType: Ref<InputType> = ref<InputType>(prop.type)

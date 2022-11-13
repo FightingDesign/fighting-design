@@ -54,8 +54,4 @@ export const Props = {
   }
 } as const
 
-export const Emits = {
-  'update:modelValue': (val: number): number => val
-} as const
-
 export type RatePropsType = ExtractPropTypes<typeof Props>

@@ -1,5 +1,7 @@
 <script lang="ts" setup name="FDrawer">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
+  import { isBoolean } from '../../_utils'
+  import { useEmit } from '../../_hooks'
   import { watch, ref } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
@@ -8,7 +10,9 @@
   import type { DrawerPropsType } from './props'
 
   const prop: DrawerPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(
+    useEmit((visible: boolean): boolean => isBoolean(visible), 'visible')
+  )
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
 

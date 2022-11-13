@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FCheckboxGroup">
   import { provide, reactive, toRefs, computed } from 'vue'
-  import { Props, Emits, checkboxGroupPropsKey } from './props'
+  import { Props, CHECKBOX_GROUP_PROPS_KEY } from './props'
   import { sizeChange } from '../../_utils'
+  import { useEmit } from '../../_hooks'
   import type {
     CheckboxGroupPropsType,
     CheckboxGroupLabelType,
@@ -12,7 +13,9 @@
   import type { ClassListInterface } from '../../_interface'
 
   const prop: CheckboxGroupPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(
+    useEmit((val: CheckboxGroupLabelType): boolean => Array.isArray(val))
+  )
 
   /**
    * 绑定值发生改变时候触
@@ -30,7 +33,7 @@
     changeEvent
   } as const)
 
-  provide(checkboxGroupPropsKey, checkboxGroupProps)
+  provide(CHECKBOX_GROUP_PROPS_KEY, checkboxGroupProps)
 
   /**
    * 样式列表

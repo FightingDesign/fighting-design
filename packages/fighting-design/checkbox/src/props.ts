@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { CheckboxLabelType, CheckboxChangeInterface } from './interface'
+import type { CheckboxChangeInterface } from './interface'
 
 export const Props = {
   /**
@@ -51,10 +51,6 @@ export const Props = {
     type: Function as PropType<CheckboxChangeInterface>,
     default: (): null => null
   }
-} as const
-
-export const Emits = {
-  'update:modelValue': (val: CheckboxLabelType): CheckboxLabelType | [] => typeof val !== 'object'
 } as const
 
 export type CheckboxPropsType = ExtractPropTypes<typeof Props>

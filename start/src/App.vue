@@ -1,9 +1,13 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value1 = ref('')
+  const option2 = ref(['汉堡'])
 </script>
 
 <template>
-  <f-textarea v-model="value1" type="text" placeholder="请输入...." />
+  <f-checkbox-group v-model="option2">
+    <f-checkbox label="鸡肉卷" />
+    <f-checkbox label="鸡排" />
+    <f-checkbox label="汉堡" />
+  </f-checkbox-group>
 </template>
