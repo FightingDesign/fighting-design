@@ -29,7 +29,7 @@ pnpm new <component-name>
 下面分别介绍一下每个文件的作用：
 
 - `interface.d.ts` 导出组件和 `Props` 相关的所有类型
-- `props.ts` 导出 `Props` 和 `Emits`
+- `props.ts` 导出 `Props` 和 `Props` 的类型
 - `component.vue` 组件源文件
 - `index.ts` 组件处理文件包含注册组件
 
@@ -145,14 +145,14 @@ const fun: funInterface = (a: number, b: number): number => {
 
 ## 🌵 props.ts
 
-这里是来定义组件的 `Props` 和 `Emits` 的文件
+这里是来定义组件的 `Props`
 
-- 导出的名称必须叫 `Props` 和 `Emits` （首字母大写）
+- 导出的名称必须叫 `Props` （首字母大写）
 - 每个 `props` 都必须标记默认值，就算默认值是 `false` 或者是空字符串也要标记
 - 默认值必须以箭头函数形式进行返回
 - 如有可选项需要对其进行校验，一般使用 `validator` + `ts` 双重校验。可参考文档 [Prop 校验](https://staging-cn.vuejs.org/guide/components/props.html#prop-validation) 和 [PropType](https://staging-cn.vuejs.org/api/utility-types.html#proptypet)
 - `default` 和 `validator` 使用箭头函数定义，必须明确返回值和参数值的类型
-- `Props` 和 `Emits` 对象结尾必须加入 [as const](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-inference)
+- `Props` 对象结尾必须加入 [as const](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-inference)
 - 数组结尾加入 `as const`
 - 需要导出 `Props` 的类型，使用 `ExtractPropTypes`，导出类型命名规范为：`组件名（首字母大写）+ PropsType`，例如：
 
