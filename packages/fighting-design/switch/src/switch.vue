@@ -12,14 +12,18 @@
   const prop: SwitchPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  // 点击切换
+  /**
+   * 点击切换
+   */
   const handleClick: OrdinaryFunctionInterface = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', !prop.modelValue)
     prop.change && prop.change(!prop.modelValue)
   }
 
-  // 小球样式
+  /**
+   * 小球样式
+   */
   const rollStyleList: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
       const { modelValue, closeColor, openColor, size } = prop
@@ -37,7 +41,9 @@
     }
   )
 
-  // 类名集合
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { size, modelValue, square } = prop

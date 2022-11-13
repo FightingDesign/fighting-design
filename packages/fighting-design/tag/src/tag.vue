@@ -10,8 +10,12 @@
 
   const prop: TagPropsType = defineProps(Props)
 
+  // 是否展示
   const isShow: Ref<boolean> = ref<boolean>(true)
 
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { simple, type, size, block, round, line } = prop
@@ -30,6 +34,9 @@
     }
   )
 
+  /**
+   * 点击关闭按钮
+   */
   const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     isShow.value = false
     prop.closeEnd && prop.closeEnd(evt)

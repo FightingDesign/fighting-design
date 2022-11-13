@@ -1,16 +1,9 @@
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const value1 = ref('')
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <f-select v-model="value1" placeholder="请选择……">
-    <f-option :value="1">香蕉</f-option>
-    <f-option :value="2">苹果</f-option>
-    <f-option :value="3">哈密瓜</f-option>
-    <f-option :value="4">樱桃</f-option>
-  </f-select>
+  <f-alert type="primary" close>主要提示信息</f-alert>
+  <f-alert type="success" close>成功提示信息</f-alert>
+  <f-alert type="danger" close>危险提示信息</f-alert>
 </template>
 
 <style lang="scss" scoped></style>

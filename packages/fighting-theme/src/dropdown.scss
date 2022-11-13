@@ -28,7 +28,7 @@
 
   &-enter-from,
   &-leave-to {
-    // transform: translateX(16px);
+    transform: translateY(-16px);
     opacity: 0;
   }
 }
