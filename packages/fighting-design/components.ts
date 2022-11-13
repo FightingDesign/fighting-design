@@ -158,3 +158,6 @@ export * from './swap'
 
 export { FUpLoad } from './up-load'
 export * from './up-load'
+
+export { FPagination } from './pagination'
+export * from './pagination'
