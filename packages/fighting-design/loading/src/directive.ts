@@ -22,7 +22,7 @@ const optionsOrganizer = (
   }
   const getProp = <K extends keyof LoadingPropsType>(
     propKey: K
-  ): LoadingPropsType[K] | string=> {
+  ): LoadingPropsType[K] | string => {
     return getBindingProp(propKey) || el.getAttribute(`f-loading-${propKey}`) || ''
   }
 
