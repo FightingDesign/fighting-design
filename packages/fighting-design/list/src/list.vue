@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FList">
+  import { Props, LIST_PROPS_KEY } from './props'
   import { provide, computed } from 'vue'
-  import { Props, listPropsKey } from './props'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
@@ -8,7 +8,7 @@
 
   const prop: ListPropsType = defineProps(Props)
 
-  provide<ListPropsType>(listPropsKey, prop)
+  provide<ListPropsType>(LIST_PROPS_KEY, prop)
 
   /**
    * 类名列表
