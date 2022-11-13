@@ -9,6 +9,8 @@
     FIconChevronRight
   } from '@fighting-design/fighting-icon'
   import FInput from '../../input'
+  import FSelect from '../../select'
+  import FOptions from '../../option'
   import type { InputChangeInterface } from '../../input/src/interface'
   import { FSvgIcon } from '../../svg-icon'
 
@@ -16,6 +18,7 @@
 
   const emit = defineEmits(Emits)
 
+  // 当前快速跳转的页码
   const jumpCurrent: Ref<number> = ref(1)
 
   // 计算出最大页码数
@@ -35,12 +38,18 @@
 
   // 点击上一页触发的回调
   const toPrev = (): void => {
+    if (prop.disabled) {
+      return
+    }
     const newCurrent = prop.current === 1 ? 1 : prop.current - 1
     prop.prevClick(newCurrent, prop.pageSize)
   }
 
   // 点击下一页触发的回调
   const toNext = (): void => {
+    if (prop.disabled) {
+      return
+    }
     const newCurrent =
       prop.current === maxCount.value ? maxCount.value : prop.current + 1
 
@@ -49,28 +58,54 @@
 
   // 点击指定页面的回调
   const change = (newCurrent: number): void => {
+    if (prop.disabled) {
+      return
+    }
     emit('update:current', newCurrent)
     prop.change(newCurrent, prop.pageSize)
   }
 
   // 快速跳转至某一页chang回调
   const jumpChange: InputChangeInterface = (currentValue: string): void => {
+    if (prop.disabled) {
+      return
+    }
     jumpCurrent.value = Number(currentValue)
   }
 
   // 快速跳转框确定值的行为目前设定为:失焦或enter确定
   const jumpHandleValue = (): void => {
+    if (prop.disabled) {
+      return
+    }
     emit('update:current', jumpCurrent.value)
   }
 </script>
 
 <template>
   <div class="f-pagination">
+    <f-select
+      v-if="pageSizes.length"
+      :width="60"
+      :model-value="String(pageSize)"
+      @update:model-value="
+        (newPages) => emit('update:pageSize', Number(newPages))
+      "
+    >
+      <f-options
+        v-for="item in pageSizes"
+        :key="item"
+        :value="item"
+        :label="item + '/页'"
+      ></f-options>
+    </f-select>
+
     <button
       :class="[
         'f-pagination__prev',
         { 'f-pagination__btn__background': background },
-        { 'f-pagination__btn__circle': round }
+        { 'f-pagination__btn__circle': round },
+        { 'f-pagination__disabled': disabled }
       ]"
     >
       <f-svg-icon :size="15" :icon="prevIcon" @click="toPrev">
@@ -95,7 +130,10 @@
               current === item && background
           },
           { 'f-pagination__background': background },
-          { 'f-pagination__circle': round }
+          { 'f-pagination__circle': round },
+          {
+            'f-pagination__disabled f-pagination__pages__li__disabled': disabled
+          }
         ]"
         @click="change(item)"
       >
@@ -106,7 +144,8 @@
       :class="[
         'f-pagination__next',
         { 'f-pagination__btn__background': background },
-        { 'f-pagination__btn__circle': round }
+        { 'f-pagination__btn__circle': round },
+        { 'f-pagination__disabled': disabled }
       ]"
     >
       <f-svg-icon :size="15" :icon="nextIcon" @click="toNext">
@@ -121,6 +160,7 @@
       :on-change="jumpChange"
       :on-blur="jumpHandleValue"
       :on-enter="jumpHandleValue"
+      :disabled="disabled"
     />
   </div>
 </template>

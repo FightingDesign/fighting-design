@@ -9,10 +9,7 @@
     background: #fff;
     border: none;
     padding: 0;
-
-    i {
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 
   &__pages {
@@ -34,6 +31,10 @@
       &__background__choose {
         background: #2d5af1;
         color: #fff;
+      }
+
+      &__disabled {
+        cursor: not-allowed;
       }
     }
   }
@@ -68,6 +69,12 @@
   &__jump {
     width: 145px;
     margin-left: 10px;
+  }
+
+  &__disabled {
+    background: #f0f0f0;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 
