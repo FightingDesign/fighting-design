@@ -75,6 +75,32 @@
       }
     }
   }
+  &.f-checkbox__half {
+    .f-checkbox__box {
+      border: 1px solid $primary;
+      background: $primary;
+
+      &::after {
+        content: '';
+        width: 8px;
+        height: 2px;
+        position: absolute;
+        top: calc(50% - 1px);
+        background-color: #fff;
+        animation: f-checkbox-animation2 0.1s ease-in;
+
+        @keyframes f-checkbox-animation2 {
+          from {
+            transform: scale(0);
+          }
+
+          to {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
 
   // 禁用状态
   &.f-checkbox__disabled {

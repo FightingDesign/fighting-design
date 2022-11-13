@@ -13,12 +13,14 @@
 
   const prop: CheckboxGroupPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
+  // const parent = getCurrentInstance() as ComponentInternalInstance
 
   // 绑定值发生改变时候触
   const changeEvent: CheckboxGroupChangeEventInterface = (
     val: CheckboxGroupLabelType
   ): void => {
     emit('update:modelValue', val)
+    emit('change', val)
     prop.change && prop.change(val)
   }
 
@@ -55,6 +57,43 @@
       ] as const
     }
   )
+  
+  // const flattenVNodes = (children: VNodeNormalizedChildren): VNode[] => {
+  //   const result: VNode[] = []
+
+  //   const loop = (children: VNodeNormalizedChildren): void => {
+  //     if (Array.isArray(children)) {
+  //       children.forEach((item) => {
+  //         if (isVNode(item)) {
+  //           if (item.el) {
+  //             if (item.el.nodeType === 1 && item.el.role === 'checkbox') {
+  //               result.push(item)
+  //             }
+  //           }
+  //           // if (typeof item.type === 'object' && item.type.name === 'FCheckbox') {
+  //           //   result.push(item)
+  //           // }
+  //           if (item.children) {
+  //             loop(item.children)
+  //           }
+  //         }
+  //       })
+  //     }
+  //   }
+  //   loop(children)
+  //   return result
+  // }
+
+  // const toggleAll = (bool?: boolean): void => {
+    // const vnodes = flattenVNodes(parent.subTree.children)
+    // // console.log(vnodes)
+    // const newValue = vnodes.map((item: object): string => item.props.label || '')
+    // const val = bool ? newValue : []
+    // changeEvent(val)
+    // emit('update:modelValue', val)
+    // emit('change', val)
+  // }
+  // defineExpose({ toggleAll })
 </script>
 
 <template>

@@ -36,11 +36,19 @@ export const Props = {
   showLabel: {
     type: Boolean,
     default: (): boolean => true
+  },
+   /**
+   * 是否展示 半选状态样式
+   */
+  halfCheck: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 
 export const Emits = {
-  'update:modelValue': (val: CheckboxLabelType | []): CheckboxLabelType | [] => val
+  'update:modelValue': (val: CheckboxLabelType): CheckboxLabelType | [] => typeof val !== 'object',
+  change: (val: CheckboxLabelType): CheckboxLabelType | [] => typeof val !== 'object'
 } as const
 
 export type CheckboxPropsType = ExtractPropTypes<typeof Props>
