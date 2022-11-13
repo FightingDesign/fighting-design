@@ -8,11 +8,16 @@
 
   const prop: SvgIconPropsType = defineProps(Props)
 
+  /**
+   * 点击触发
+   */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     prop.click && prop.click(evt)
   }
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     return {
       fontSize: sizeChange(prop.size),

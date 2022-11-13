@@ -1,8 +1,15 @@
+/**
+ * 贡献者列表
+ * 
+ * avatar：头像地址（右键复制 github 头像，复制图片地址）
+ * homePage：Github 首页地址
+ */
 export const contributors = [
   { avatar: 'https://avatars.githubusercontent.com/u/73180970?v=4', homePage: 'https://github.com/Tyh2001' },
+  { avatar: 'https://avatars.githubusercontent.com/u/117809217?v=4', homePage: 'https://github.com/Fightingweiwei' },
+  { avatar: 'https://avatars.githubusercontent.com/u/36356701?v=4', homePage: 'https://github.com/xluoyu' },
   { avatar: 'https://avatars.githubusercontent.com/u/44802220?v=4', homePage: 'https://github.com/konvyi' },
   { avatar: 'https://avatars.githubusercontent.com/u/48940123?v=4', homePage: 'https://github.com/yn22638' },
-  { avatar: 'https://avatars.githubusercontent.com/u/36356701?v=4', homePage: 'https://github.com/xluoyu' },
   { avatar: 'https://avatars.githubusercontent.com/u/19302222?v=4', homePage: 'https://github.com/jardeng' },
   { avatar: 'https://avatars.githubusercontent.com/u/26430638?v=4', homePage: 'https://github.com/lzyaom' },
   { avatar: 'https://avatars.githubusercontent.com/u/55753927?v=4', homePage: 'https://github.com/XiaoLi-sach' },
@@ -34,5 +41,6 @@ export const contributors = [
   { avatar: 'https://avatars.githubusercontent.com/u/44160015?v=4', homePage: 'https://github.com/ChetSerenade' },
   { avatar: 'https://avatars.githubusercontent.com/u/24975063?v=4', homePage: 'https://github.com/zguiyang' },
   { avatar: 'https://avatars.githubusercontent.com/u/24283492?v=4', homePage: 'https://github.com/AngryChocobo' },
-  { avatar: 'https://avatars.githubusercontent.com/u/80079124?v=4', homePage: 'https://github.com/gzlibiao' }
+  { avatar: 'https://avatars.githubusercontent.com/u/80079124?v=4', homePage: 'https://github.com/gzlibiao' },
+  { avatar: 'https://avatars.githubusercontent.com/u/77321887?v=4', homePage: 'https://github.com/long-life233' }
 ] as const

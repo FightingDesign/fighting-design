@@ -22,6 +22,6 @@ import '@fighting-design/fighting-theme'
 如果你执行了 `pnpm build` 之后，想要测试你的打包文件是否可以正常工作，那么可以通过下面方式引入 `dist` 目录下的组件进行测试
 
 ```ts
-import FightingDesign from '../dist'
-import '../dist/dist/index.css'
+import FightingDesign from '../../dist'
+import '@fighting-design/fighting-theme'
 ```

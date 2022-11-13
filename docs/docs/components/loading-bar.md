@@ -15,13 +15,15 @@ import { useLoadingBar } from 'fighting-design'
 
 `useLoadingBar` 函数中，暴露出了 `start` `finish` `error` 三个方法，来实现开始加载、加载完成、加载出错三个状态
 
-<f-space>
-  <f-button type="primary" @click="start">开始</f-button>
-  <f-button type="success" @click="finish">结束</f-button>
-  <f-button type="danger" @click="error">报错</f-button>
-</f-space>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-space>
+<f-button type="primary" @click="start">开始</f-button>
+<f-button type="success" @click="finish">结束</f-button>
+<f-button type="danger" @click="error">报错</f-button>
+</f-space>
+</template>
 
 ```html
 <template>
@@ -65,8 +67,9 @@ import { useLoadingBar } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { useLoadingBar } from '../../../packages/fighting-design/index'
+
   const bar = useLoadingBar()
   const start = () => {
     bar.start()

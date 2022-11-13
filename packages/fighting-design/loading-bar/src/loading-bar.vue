@@ -7,7 +7,9 @@
 
   const prop: LoadingBarPropsType = defineProps(Props)
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { type } = prop

@@ -8,7 +8,9 @@
 
   const prop: BadgePropsType = defineProps(Props)
 
-  // 类名集合
+  /**
+   * 类名集合
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { type, dot } = prop
@@ -23,7 +25,9 @@
     }
   )
 
-  // 展示的内容
+  /**
+   * 展示的内容
+   */
   const content: ComputedRef<string> = computed((): string => {
     const { dot, max, value } = prop
 
@@ -36,7 +40,9 @@
     return `${value}`
   })
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { color, textColor } = prop
 

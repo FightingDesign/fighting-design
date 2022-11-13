@@ -1,3 +1,6 @@
+/**
+ * 侧边栏菜单
+ */
 export const sidebar = {
   '/docs/': [
     {
@@ -61,7 +64,9 @@ export const sidebar = {
         { text: 'StickyCard 粘性卡片', link: '/components/sticky-card' },
         { text: 'Rate 评分', link: '/components/rate' },
         { text: 'Input 输入框', link: '/components/input' },
-        { text: 'Up Load 文件上传', link: '/components/up-load' }
+        { text: 'Up Load 文件上传', link: '/components/up-load' },
+        { text: 'Table 表格', link: '/components/table' },
+        { text: 'Select 选择器', link: '/components/select' }
       ]
     },
     {
@@ -70,7 +75,8 @@ export const sidebar = {
       items: [
         { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' },
         { text: 'Page Header 页头', link: '/components/page-header' },
-        { text: 'Close Btn 关闭按钮', link: '/components/close-btn' }
+        { text: 'Close Btn 关闭按钮', link: '/components/close-btn' },
+        { text: 'Dropdown 下拉菜单', link: '/components/dropdown' }
       ]
     },
     {

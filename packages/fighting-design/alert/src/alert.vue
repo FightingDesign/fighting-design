@@ -13,9 +13,12 @@
 
   const prop: AlertPropsType = defineProps(Props)
 
+  // 展示状态
   const isShow: Ref<boolean> = ref<boolean>(true)
 
-  // class 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { type, bold, simple, center, round, fixed } = prop
@@ -34,7 +37,9 @@
     }
   )
 
-  // content class 列表
+  /**
+   * content 类名列表
+   */
   const contentClassList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { overflow } = prop
@@ -48,7 +53,9 @@
     }
   )
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, color, background, titleSize, titleColor } = prop
 
@@ -61,7 +68,9 @@
     } as CSSProperties
   })
 
-  // 关闭
+  /**
+   * 点击关闭按钮
+   */
   const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     isShow.value = false
     prop.closeEnd && prop.closeEnd(evt)
@@ -69,29 +78,31 @@
 </script>
 
 <template>
-  <div v-if="isShow" role="alert" :class="classList" :style="styleList">
-    <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon">
-      <slot name="beforeIcon" />
-    </f-svg-icon>
+  <transition name="f-alert">
+    <div v-if="isShow" role="alert" :class="classList" :style="styleList">
+      <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon">
+        <slot name="beforeIcon" />
+      </f-svg-icon>
 
-    <div :class="contentClassList">
-      <div v-if="title" class="f-alert__title">
-        <slot name="title">{{ title }}</slot>
+      <div :class="contentClassList">
+        <div v-if="title" class="f-alert__title">
+          <slot name="title">{{ title }}</slot>
+        </div>
+
+        <div v-if="$slots.default" class="f-alert__sub-title">
+          <slot />
+        </div>
       </div>
 
-      <div v-if="$slots.default" class="f-alert__sub-title">
-        <slot />
-      </div>
+      <f-close-btn
+        v-if="close"
+        no-hover
+        color="#fff"
+        :icon="closeIcon"
+        @click.stop="handleClose"
+      >
+        <slot name="closeIcon" />
+      </f-close-btn>
     </div>
-
-    <f-close-btn
-      v-if="close"
-      no-hover
-      color="#fff"
-      :icon="closeIcon"
-      @click.stop="handleClose"
-    >
-      <slot name="closeIcon" />
-    </f-close-btn>
-  </div>
+  </transition>
 </template>

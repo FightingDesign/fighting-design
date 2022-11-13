@@ -1,5 +1,10 @@
 export type { CheckboxGroupPropsType } from './props'
 
+/**
+ * 绑定值类型
+ * 
+ * 绑定值可能是 string、number、boolean
+ */
 export type CheckboxGroupLabelType = string | number | boolean
 
 export type CheckboxGroupSizeType = 'large' | 'middle' | 'small' | 'mini'

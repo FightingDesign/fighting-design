@@ -9,9 +9,11 @@
 
 需要使用 `v-model:files` 绑定一个数组
 
-<f-up-load v-model:files="files1" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-up-load v-model:files="files1" />
+</template>
 
 ```html
 <template>
@@ -31,9 +33,11 @@
 
 `multiple` 属性可配置上传多个文件
 
-<f-up-load v-model:files="files2" multiple />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-up-load v-model:files="files2" multiple />
+</template>
 
 ```html
 <template>
@@ -53,9 +57,11 @@
 
 `max-length` 属性可限制上传文件的数量
 
-<f-up-load v-model:files="files3" multiple :max-length="4" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-up-load v-model:files="files3" multiple :max-length="4" />
+</template>
 
 ```html
 <template>
@@ -75,9 +81,11 @@
 
 `drag` 属性可配置拖拽上传
 
-<f-up-load v-model:files="files4" multiple drag/>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-up-load v-model:files="files4" multiple drag />
+</template>
 
 ```html
 <template>
@@ -136,7 +144,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { ref } from 'vue'
 
   const files1 = ref([])

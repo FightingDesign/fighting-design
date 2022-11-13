@@ -7,7 +7,9 @@
 
   const prop: SpacePropsType = defineProps(Props)
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { wrap, vertical, spacing } = prop
@@ -23,7 +25,9 @@
     }
   )
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { rowGap, columnGap } = prop
 

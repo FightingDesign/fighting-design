@@ -38,13 +38,21 @@
   }
   getGroupInject()
 
-  // 绑定值
+  /**
+   * 绑定值
+   */
   const modelValue: WritableComputedRef<CheckboxGroupLabelType> = computed({
+    /**
+     * 获取值
+     */
     get () {
       return (
         (groupProps.value && groupProps.value.modelValue) || prop.modelValue
       )
     },
+    /**
+     * 设置值
+     */
     set (val) {
       if (groupProps.value && !groupProps.value.disabled) {
         groupProps.value.changeEvent(val)
@@ -66,7 +74,9 @@
     return (val === prop.label) as boolean
   })
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       return [
@@ -101,7 +111,7 @@
     <span v-if="!(groupProps && groupProps.border)" class="f-checkbox__box" />
     <span class="f-checkbox__text">
       <slot />
-      <template v-if="!$slots.default">{{ label }}</template>
+      <template v-if="!$slots.default && showLabel">{{ label }}</template>
     </span>
   </label>
 </template>

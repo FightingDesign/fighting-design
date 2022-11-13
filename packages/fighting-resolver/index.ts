@@ -25,7 +25,7 @@ function FightingDesignResolver(): {
   type: string,
   resolve: (name: string) => ResolveReturnInterface | undefined
 }
-function FightingDesignResolver() {
+function FightingDesignResolver () {
   return {
     type: 'component',
     resolve: (name: string) => {

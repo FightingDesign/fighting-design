@@ -44,10 +44,10 @@
     :mask-blur="maskBlur"
     :direction="direction"
     :popup-size="size"
-    @open="open"
-    @open-end="openEnd"
-    @close="close"
-    @close-end="closeEnd"
+    :open="open"
+    :open-end="openEnd"
+    :close="close"
+    :close-end="closeEnd"
   >
     <div class="f-drawer">
       <!-- 头部 -->

@@ -4,6 +4,55 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.8.1-alpha.4 (2022-11-13)
+
+- Add `f-back-top` component to display hidden animation style
+- Add `f-alert` component to display hidden animation style
+- Optimize `f-popup` pop-up animation style
+- Optimize `f-dropdown` pop-up animation style
+
+## 0.8.1-alpha.3 (2022-11-11)
+
+**Fest**
+
+- Add `f-dropdown` component
+- Add `f-dropdown-item` component
+- Add `f-option` component
+- Add `f-select` component
+- Add `f-table` component `show-head` configuration item
+
+**Fix**
+
+- Fix `f-button` component style details
+- Fix the failure of `f-drawer` and `f-dialog` component callback parameters
+
+## 0.8.1-alpha.2 (2022-11-08)
+
+**Fix**
+
+- Fix the style details of the `f-button` components custom colors
+- Fix `f-table` component style details
+
+## 0.8.1-alpha.1 (2022-11-08)
+
+**New features**
+
+- `f-checkbox` component adds `show-label` configuration item
+- `f-checkbox` component `modelValue` configuration item adding `array` type
+- Add `f-table` component
+
+**Others**
+
+- Optimized the style details of some `f-button` components
+- Optimize some internal implementations and types of `f-toolbar` components
+
+## 0.8.0-alpha.6 (2022-11-06)
+
+**Fix Bugs**
+
+- Fix the failure of clicking the `f-image-preview` image preview component operation bar
+- Optimize some component types
+
 ## 0.8.0-alpha.5 (2022-11-04)
 
 - Further optimization has been made for the ts type

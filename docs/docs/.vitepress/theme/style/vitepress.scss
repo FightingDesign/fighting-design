@@ -5,7 +5,7 @@
 }
 
 .dark {
-  --vp-c-bg-alt: rgb(36, 36, 36); // 深色模式侧边栏
+  --vp-c-bg-alt: #242424; // 深色模式侧边栏
 }
 
 .sidebar-link-item.active {
@@ -35,6 +35,12 @@
     }
   }
 
+  .f-dropdown {
+    ul {
+      list-style: none;
+    }
+  }
+
   ul {
     list-style: disc;
     padding-left: 0;
@@ -50,6 +56,21 @@
 
   ul.f-list {
     list-style: none;
+  }
+
+  // 移除表格默认样式
+  table {
+    margin: 0;
+
+    th,
+    tr,
+    td {
+      border: none;
+      background: none;
+    }
+    tr:nth-child(2n) {
+      background: none;
+    }
   }
 
   // 表格
@@ -72,7 +93,7 @@
     th {
       text-align: center;
       font-size: 15px;
-      border: none;
+      border-bottom: 1px solid #eee;
     }
   }
 

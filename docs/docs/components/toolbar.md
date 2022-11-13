@@ -9,14 +9,16 @@
 
 工具栏的基本使用，`icon` 可以配置带有图表的选项
 
-<f-toolbar>
-  <f-toolbar-item :icon="FIconApps" />
-  <f-toolbar-item :icon="FIconBlock" />
-  <f-toolbar-item :icon="FIconCameraVideoSlash" />
-  <f-toolbar-item :icon="FIconClock" />
-</f-toolbar>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-toolbar>
+<f-toolbar-item :icon="FIconApps" />
+<f-toolbar-item :icon="FIconBlock" />
+<f-toolbar-item :icon="FIconCameraVideoSlash" />
+<f-toolbar-item :icon="FIconClock" />
+</f-toolbar>
+</template>
 
 ```html
 <template>
@@ -44,12 +46,14 @@
 
 `size` 属性可以配置不同的大小
 
+::: demo
+
+<template #source>
 <f-toolbar size="large">大型工具栏</f-toolbar>
 <f-toolbar size="middle">中型工具栏</f-toolbar>
 <f-toolbar size="small">小型工具栏</f-toolbar>
 <f-toolbar size="mini">迷你工具栏</f-toolbar>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-toolbar size="large">大型工具栏</f-toolbar>
@@ -64,9 +68,11 @@
 
 `round` 属性为圆角
 
-<f-toolbar round>圆角</f-toolbar>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-toolbar round>圆角</f-toolbar>
+</template>
 
 ```html
 <f-toolbar round>圆角</f-toolbar>
@@ -80,13 +86,16 @@
 
 `text-color` 可以自定义文字颜色
 
+::: demo
+
+<template #source>
 <f-toolbar background="#42B883" text-color="#fff">
-  <f-toolbar-item>操作</f-toolbar-item>
-  <f-toolbar-item>更多</f-toolbar-item>
-  <f-toolbar-item>返回</f-toolbar-item>
+<f-toolbar-item>操作</f-toolbar-item>
+<f-toolbar-item>更多</f-toolbar-item>
+<f-toolbar-item>返回</f-toolbar-item>
 </f-toolbar>
 
-::: details 显示代码
+</template>
 
 ```html
 <f-toolbar background="#42B883" text-color="#fff">
@@ -104,14 +113,16 @@
 
 也可以给每个 `f-toolbar-item` 单独添加点击事件
 
+::: demo
+
+<template #source>
 <f-toolbar @click="handleClick">
 <f-toolbar-item data-key="1" :icon="FIconApps" />
 <f-toolbar-item data-key="2" :icon="FIconBlock" />
 <f-toolbar-item data-key="3" :icon="FIconCameraVideoSlash" />
 <f-toolbar-item data-key="4" :icon="FIconClock" />
 </f-toolbar>
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -143,12 +154,11 @@
 
 | 参数          | 说明                                                 | 类型     | 可选值                          | 默认值 |
 | ------------- | ---------------------------------------------------- | -------- | ------------------------------- | ------ |
-| `size`        | 文字大小，必须写入指定的数值和单位                   | string   | `large` `middle` `small` `mini` | large  |
+| `size`        | 尺寸                                                 | string   | `large` `middle` `small` `mini` | large  |
 | `round`       | 显示为圆角                                           | boolean  | ——                              | false  |
 | `background`  | 背景颜色                                             | string   | ——                              | ——     |
 | `text-color`  | 字体颜色                                             | string   | ——                              | ——     |
 | `fixed`       | 是否固定定位                                         | boolean  | ——                              | false  |
-| `fixed-style` | 固定定位的样式，仅支持 `top` `right` `button` `left` | object   | ——                              | ——     |
 | `width`       | 自定义宽度                                           | string   | ——                              | ——     |
 | `height`      | 自定义高度                                           | string   | ——                              | ——     |
 | `click`       | 点击之后触发的回调                                   | Function | ——                              | null   |
@@ -200,7 +210,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/23503047?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
 
   const handleClick = ({ key, evt }) => {

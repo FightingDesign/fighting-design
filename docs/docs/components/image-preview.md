@@ -11,10 +11,12 @@
 
 `img-list` 需要传入一个图片的数组集合
 
+::: demo
+
+<template #source>
 <f-button type="primary" @click="show1 = true">打开</f-button>
 <f-image-preview v-model:visible="show1" :img-list="listImg" />
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -42,10 +44,12 @@
 
 通过 `is-option` 属性将操作栏隐藏
 
+::: demo
+
+<template #source>
 <f-button type="primary" @click="show2 = true">打开</f-button>
 <f-image-preview v-model:visible="show2" :is-option="false" :img-list="listImg" />
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -113,7 +117,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { ref } from 'vue'
 
   const show1 = ref(false)

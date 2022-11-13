@@ -1,29 +1,25 @@
 @import '../config/const-size.scss';
 
-// 不同大小
+// 不同大小（高度和padding不相同）
 $buttonSize: (
   (
     name: 'large',
     height: $large,
-    fontSize: 15px,
     padding: 30px
   ),
   (
     name: 'middle',
     height: $middle,
-    fontSize: 14px,
     padding: 25px
   ),
   (
     name: 'small',
     height: $small,
-    fontSize: 13px,
     padding: 20px
   ),
   (
     name: 'mini',
     height: $mini,
-    fontSize: 12px,
     padding: 15px
   )
 );

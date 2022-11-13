@@ -9,9 +9,11 @@
 
 通过 `v-model` 绑定一个值
 
-<f-rate v-model="value1" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-rate v-model="value1" />
+</template>
 
 ```html
 <template>
@@ -31,9 +33,12 @@
 
 `effect-color` 属性可以配置星星选中时的颜色，`invalid-color`属性可以配置星星未选中时的颜色
 
-<f-rate v-model="value2" effect-color="red" invalid-color="#eee" />
+::: demo
 
-::: details 显示代码
+<template #source>
+
+<f-rate v-model="value2" effect-color="red" invalid-color="#eee" />
+</template>
 
 ```html
 <template>
@@ -53,9 +58,11 @@
 
 `text-show` 和 `text-arr` 属性可以配置星星选中时提示的文字
 
-<f-rate v-model="value3" text-show :text-arr="['1星', '2星', '3星', '4星', '5星']" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-rate v-model="value3" text-show :text-arr="['1星', '2星', '3星', '4星', '5星']" />
+</template>
 
 ```html
 <template>
@@ -79,9 +86,11 @@
 
 `icon` 属性可以自定义 `icon`
 
-<f-rate v-model="value4" :icon="FIconKey" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-rate v-model="value4" :icon="FIconKey" />
+</template>
 
 ```html
 <template>
@@ -133,7 +142,7 @@ import type { RatePropsType, RateInstance } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/46363316?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { FIconKey } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 

@@ -9,20 +9,22 @@
 
 `type` 属性可以配置角标的主题
 
+::: demo
+
+<template #source>
 <f-badge value="11">
-  <f-button>default</f-button>
+<f-button>default</f-button>
 </f-badge>
 <f-badge value="12" type="primary">
-  <f-button>primary</f-button>
+<f-button>primary</f-button>
 </f-badge>
 <f-badge value="13" type="success">
-  <f-button>success</f-button>
+<f-button>success</f-button>
 </f-badge>
 <f-badge value="14" type="warning">
-  <f-button>warning</f-button>
+<f-button>warning</f-button>
 </f-badge>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-badge value="11">
@@ -45,14 +47,16 @@
 
 `max` 属性可以配置角标的最大值，该值仅在 `value` 的值是 `Number` 时生效
 
+::: demo
+
+<template #source>
 <f-badge :value="123">
-  <f-button>默认最多99</f-button>
+<f-button>默认最多 99</f-button>
 </f-badge>
 <f-badge :value="37" :max="20">
-  <f-button>最多20</f-button>
+<f-button>最多 20</f-button>
 </f-badge>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-badge :value="123">
@@ -69,9 +73,11 @@
 
 设置 `dot` 属性，展示为一个点
 
-<f-badge dot class="item">消息</f-badge>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-badge dot class="item">消息</f-badge>
+</template>
 
 ```html
 <f-badge dot class="item">消息</f-badge>
@@ -83,14 +89,16 @@
 
 `value` 除了 `Number` 类型，还可以是 `String`，自定义内容
 
+::: demo
+
+<template #source>
 <f-badge value="hot">
-  <f-button>customize</f-button>
+<f-button>customize</f-button>
 </f-badge>
 <f-badge value="new">
-  <f-button>customize</f-button>
+<f-button>customize</f-button>
 </f-badge>
-
-::: details 显示代码
+</template>
 
 ```html
 <f-badge value="hot">
@@ -107,11 +115,13 @@
 
 你也可以自定义 `badge` 的颜色
 
-<f-badge :value="123" color="skyblue" text-color="black">
-  <f-button>自定义颜色</f-button>
-</f-badge>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-badge :value="123" color="skyblue" text-color="black">
+<f-button>自定义颜色</f-button>
+</f-badge>
+</template>
 
 ```html
 <f-badge :value="123" color="skyblue" text-color="black">

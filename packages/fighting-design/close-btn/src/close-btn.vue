@@ -12,13 +12,17 @@
 
   const prop: CloseBtnPropsType = defineProps(Props)
 
-  // 点击触发
+  /**
+   * 点击触发
+   */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     if (prop.disabled) return
     prop.click && prop.click(evt)
   }
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       return [

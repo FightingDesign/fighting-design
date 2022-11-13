@@ -7,7 +7,9 @@
 
   const prop: MainPropsType = defineProps(Props)
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { padding } = prop
 

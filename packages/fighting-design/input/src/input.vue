@@ -8,41 +8,50 @@
     FIconEyeOffOutlineVue,
     FIconEyeOutlineVue
   } from '../../_svg'
+  import { useUpdateInput, useFilterProps } from '../../_hooks'
   import type { Ref } from 'vue'
   import type { InputType, InputHandleShowPasswordInterface } from './interface'
   import type { InputPropsType } from './props'
-  import type {
-    HandleEventInterface,
-    OrdinaryFunctionInterface
-  } from '../../_interface'
+  import type { HandleEventInterface } from '../../_interface'
+  import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
 
   const prop: InputPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
+  // type 类型
   const inputType: Ref<InputType> = ref<InputType>(prop.type)
+  /**
+   * 使用 useUpdateInput hook 实现同步数据
+   *
+   * useFilterProps 过滤出需要的参数
+   */
+  const { onInput, onClear } = useUpdateInput(
+    useFilterProps<InputPropsType, UseUpdateInputPropsInterface>(prop, [
+      'onChange',
+      'disabled'
+    ]),
+    emit
+  )
 
-  // 输入框输入
+  /**
+   * 输入框输入
+   */
   const handleInput: HandleEventInterface = (evt: Event): void => {
-    emit('update:modelValue', (evt.target as HTMLInputElement).value)
-    if (prop.onChange) {
-      prop.onChange((evt.target as HTMLInputElement).value)
-    }
+    onInput(evt)
   }
 
-  // 点击搜索
+  /**
+   * 点击搜索
+   */
   const handleSearch: HandleEventInterface = (evt: Event): void => {
     if (prop.onSearch) {
       prop.onSearch({ evt, value: prop.modelValue })
     }
   }
 
-  // 清空
-  const handleClear: OrdinaryFunctionInterface = (): void => {
-    if (prop.disabled) return
-    emit('update:modelValue', '')
-  }
-
-  // 按下回车
+  /**
+   * 按下回车
+   */
   const handleEnter: HandleEventInterface = (evt: Event): void => {
     const { search, enterSearch, onEnter } = prop
 
@@ -55,7 +64,9 @@
     }
   }
 
-  // 查看密码
+  /**
+   * 查看密码
+   */
   const handleShowPassword: InputHandleShowPasswordInterface = (
     target: 'down' | 'up'
   ): void => {
@@ -96,7 +107,7 @@
         class="f-input__clear-btn"
         :icon="FIconCrossVue"
         :size="14"
-        @click="handleClear"
+        @click="onClear"
       />
 
       <!-- 查看密码 -->

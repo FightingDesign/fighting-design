@@ -72,4 +72,16 @@
     width: 100%;
     position: fixed;
   }
+
+  // 关闭动画
+  &-enter-active,
+  &-leave-active  {
+    transition: all 0.2s ease-out;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: translateY(-12px);
+    opacity: 0;
+  }
 }

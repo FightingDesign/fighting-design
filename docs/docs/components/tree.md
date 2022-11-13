@@ -13,9 +13,11 @@
 
 需要传入一个 `data` 的树形结构来展示
 
-<f-tree :data="data" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-tree :data="data" />
+</template>
 
 ```html
 <template>
@@ -66,7 +68,7 @@ import type { FTreeInstance, treeDataInterface } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   const data = [
     {
       label: 'Node 1',

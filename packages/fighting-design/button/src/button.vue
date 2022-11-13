@@ -18,7 +18,9 @@
     null as unknown as HTMLButtonElement
   )
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const {
@@ -53,7 +55,9 @@
     }
   )
 
-  // 按钮点击
+  /**
+   * 按钮点击
+   */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     const { disabled, loading, ripples } = prop
 
@@ -84,30 +88,30 @@
     prop.click && prop.click(evt)
   }
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, fontColor, shadow, color } = prop
+
+    const styles = {
+      '--f-button-font-size': sizeChange(fontSize)
+    } as CSSProperties
 
     if (color) {
       const changeColor: ChangeColor = new ChangeColor(color)
       const light: string = changeColor.getLightColor(0.4)
       const dark: string = changeColor.getDarkColor(0.2)
 
-      return {
-        '--f-button-font-size': sizeChange(fontSize),
-        '--f-button-font-color': fontColor,
-        '--f-button-box-shadow': shadow,
-        '--f-button-default-color': color,
-        '--f-button-hover-color': light,
-        '--f-button-active-color': dark
-      } as CSSProperties
+      styles['--f-button-default-color'] = color
+      styles['--f-button-hover-color'] = light
+      styles['--f-button-active-color'] = dark
     }
 
-    return {
-      '--f-button-font-size': sizeChange(fontSize),
-      '--f-button-font-color': fontColor,
-      '--f-button-box-shadow': shadow
-    } as CSSProperties
+    if (fontColor) styles['--f-button-font-color'] = fontColor
+    if (shadow) styles['--f-button-box-shadow'] = shadow
+
+    return styles
   })
 </script>
 
@@ -125,10 +129,7 @@
     >
       <f-svg-icon
         v-if="loading || beforeIcon"
-        :class="[
-          'f-button__before-icon',
-          { 'f-button__loading-animation': loading }
-        ]"
+        :class="{ 'f-button__loading-animation': loading }"
         :icon="loading ? loadingIcon || h(FIconLoadingAVue) : beforeIcon"
         :size="16"
       />
@@ -154,10 +155,7 @@
     >
       <f-svg-icon
         v-if="loading || beforeIcon"
-        :class="[
-          'f-button__before-icon',
-          { 'f-button__loading-animation': loading }
-        ]"
+        :class="{ 'f-button__loading-animation': loading }"
         :icon="loading ? loadingIcon || h(FIconLoadingAVue) : beforeIcon"
         :size="16"
       />

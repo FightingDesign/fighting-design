@@ -14,7 +14,7 @@
     bottom: 0;
     left: 0;
     opacity: 0.5;
-    background: rgba(35, 39, 46);
+    background: #23272e;
 
     // 高斯谋划
     &.f-popup__blur {
@@ -37,6 +37,17 @@
       box-sizing: border-box;
       overflow-y: auto;
       overflow-x: hidden;
+
+      // 主内容动画样式
+      &-transition-enter-active,
+      &-transition-leave-active {
+        transition: all 0.2s ease-out;
+      }
+
+      &-transition-enter-from,
+      &-transition-leave-to {
+        opacity: 0;
+      }
     }
   }
 
@@ -49,44 +60,84 @@
     .f-popup__wrapper {
       border-radius: 6px;
       max-height: 90%;
-      box-shadow: 0 0 18px rgb(0 0 0 / 40%);
+      box-shadow: 0 0 18px #00000066;
+
+      &-transition-enter-from,
+      &-transition-leave-to {
+        transform: scale(0.4);
+      }
     }
   }
 
-  // 主容器左侧
+  // 左侧弹出
   &__container-left {
     .f-popup__wrapper {
       top: 0;
       bottom: 0;
       left: 0;
+
+      &-transition-enter-from,
+      &-transition-leave-to {
+        transform: translateX(-100%);
+      }
     }
   }
 
-  // 主容器右侧
+  // 右侧弹出
   &__container-right {
     .f-popup__wrapper {
       top: 0;
       bottom: 0;
       right: 0;
+
+      &-transition-enter-from,
+      &-transition-leave-to {
+        transform: translateX(100%);
+      }
     }
   }
 
-  // 主容器上侧
+  // 上方弹出
   &__container-top {
     .f-popup__wrapper {
       top: 0;
       left: 0;
       right: 0;
+
+      &-transition-enter-from,
+      &-transition-leave-to {
+        transform: translateY(-100%);
+      }
     }
   }
 
-  // 主容器下侧
+  // 下方弹出
   &__container-bottom {
     .f-popup__wrapper {
-      left: 0;
       bottom: 0;
+      left: 0;
       right: 0;
+
+      &-transition-enter-from,
+      &-transition-leave-to {
+        transform: translateY(100%);
+        opacity: 0;
+      }
     }
+  }
+
+  // 遮罩层动画
+  &__transition-enter-active {
+    transition: all 0.2s ease-out;
+  }
+
+  &__transition-leave-active {
+    transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  &__transition-enter-from,
+  &__transition-leave-to {
+    opacity: 0;
   }
 
   // 滚动条
@@ -99,50 +150,4 @@
     background: #dddddd;
     border-radius: 6px;
   }
-}
-
-// 居中
-.f-popup-center-enter-active {
-  transition: all 0.2s ease-out;
-}
-
-.f-popup-center-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.f-popup-center-enter-from,
-.f-popup-center-leave-to {
-  transform: translateY(-20px);
-  opacity: 0;
-}
-
-// 其它方向
-.f-popup-other-enter-active,
-.f-popup-other-leave-active {
-  transition: all 0.3s ease-out;
-}
-
-.f-popup-other-enter-from .f-popup__container-right,
-.f-popup-other-leave-to .f-popup__container-right {
-  transform: translateX(100%);
-}
-
-.f-popup-other-enter-from .f-popup__container-left,
-.f-popup-other-leave-to .f-popup__container-left {
-  transform: translateX(-100%);
-}
-
-.f-popup-other-enter-from .f-popup__container-top,
-.f-popup-other-leave-to .f-popup__container-top {
-  transform: translateY(-100%);
-}
-
-.f-popup-other-enter-from .f-popup__container-bottom,
-.f-popup-other-leave-to .f-popup__container-bottom {
-  transform: translateY(100%);
-}
-
-.f-popup-other-enter-from .f-popup__container,
-.f-popup-other-leave-to .f-popup__container {
-  opacity: 0;
 }

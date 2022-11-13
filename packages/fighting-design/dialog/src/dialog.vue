@@ -13,7 +13,9 @@
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
 
-  // 关闭时
+  /**
+   * 关闭时
+   */
   const closeDialog: OrdinaryFunctionInterface = (): void => {
     emit('update:visible', false)
   }
@@ -43,10 +45,10 @@
     :mask-close="maskClose"
     :z-index="zIndex"
     :mask-blur="maskBlur"
-    @open="open"
-    @open-end="openEnd"
-    @close="close"
-    @close-end="closeEnd"
+    :open="open"
+    :open-end="openEnd"
+    :close="close"
+    :close-end="closeEnd"
   >
     <div
       role="dialog"

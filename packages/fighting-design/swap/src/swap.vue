@@ -12,7 +12,9 @@
   const prop: SwapPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
-  // 切换时执行
+  /**
+   * 切换时执行
+   */
   const changeSwap: OrdinaryFunctionInterface = (): void => {
     emit('update:modelValue', !prop.modelValue)
     if (prop.onChange) {
@@ -20,7 +22,9 @@
     }
   }
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { modelValue, type } = prop

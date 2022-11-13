@@ -9,7 +9,11 @@
 
 `open` 可以控制卡片是否展开
 
+::: demo
+
+<template #source>
 <f-sticky-card :open="open1">
+
   <h1>Hello World！</h1>
   <h1>Hello World！</h1>
   <h1>Hello World！</h1>
@@ -19,8 +23,7 @@
   <h1>Hello World！</h1>
   <h1>Hello World！</h1>
 </f-sticky-card>
-
-<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+</template>
 
 ```html
 <script lang="ts" setup>
@@ -43,12 +46,15 @@
 </template>
 ```
 
-</f-sticky-card>
+:::
 
 ## 来源内容
 
 `source` 插槽可以插入来源内容
 
+::: demo
+
+<template #source>
 <f-sticky-card :open="open2">
 
 <template #source>
@@ -67,8 +73,7 @@
   <h1>Hello World！</h1>
   <h1>Hello World！</h1>
 </f-sticky-card>
-
-<f-sticky-card :open="false" close-text="展开代码" open-text="折叠代码">
+</template>
 
 ```html
 <script lang="ts" setup>
@@ -97,7 +102,7 @@
 </template>
 ```
 
-</f-sticky-card>
+:::
 
 ## Attributes
 
@@ -139,7 +144,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import { ref } from 'vue'
 
   const open1 = ref(false)

@@ -20,6 +20,9 @@ export interface RipplesOptionInterface {
   text?: boolean
 }
 
+/**
+ * Ripples 类的类型接口
+ */
 export interface RipplesInterface {
   evt: MouseEvent
   node: HTMLElement

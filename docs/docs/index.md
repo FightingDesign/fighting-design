@@ -5,6 +5,6 @@ title: Fighting Design
 
 <Home />
 
-<script setup>
+<script setup lang="ts">
 import Home from '@theme/Home.vue'
 </script>

@@ -1,0 +1,109 @@
+$tableZebra: #f7f7f7;
+
+.f-table {
+  // 主容器
+  &__container {
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: var(--f-table-height);
+    background: var(--f-table-bg-color, #fff);
+
+    // 在限制高度时展示的头部
+    .f-table__header {
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 0;
+    }
+
+    // 身体
+    .f-table__body {
+      height: calc(var(--f-table-height) - 45px);
+      overflow: auto;
+
+      // 在限制高度的时候加这个样式
+      &.f-table__body-margin {
+        margin-top: 45px;
+      }
+
+      // 滚动条
+      &::-webkit-scrollbar {
+        width: 7px;
+      }
+
+      // 滚动滑块
+      &::-webkit-scrollbar-thumb {
+        background: #dddddd;
+        border-radius: 6px;
+      }
+    }
+
+    // table 公共样式
+    table {
+      width: 100%;
+      border-spacing: 0;
+      border-collapse: collapse;
+      table-layout: fixed;
+      text-align: left;
+      display: inline-table;
+
+      thead {
+        background: var(--f-table-head-bg-color, $tableZebra);
+        font-size: 16px;
+        color: #4e4e4e;
+        height: 45px;
+        cursor: default;
+
+        tr {
+          border-bottom: 1px solid #eee;
+
+          th {
+            font-weight: 500;
+            padding: 12px;
+            box-sizing: border-box;
+            font-size: 15px;
+            color: #4f4f4f;
+          }
+        }
+      }
+
+      tbody {
+        font-size: 16px;
+        color: #4e4e4e;
+        height: 45px;
+        cursor: default;
+
+        tr {
+          border-bottom: 1px solid #eee;
+
+          td {
+            font-weight: 500;
+            padding: 12px;
+            font-size: 15px;
+            color: #333;
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+
+    // 边框状态
+    &.f-table__border {
+      th,
+      td {
+        border-right: 1px solid #eee;
+      }
+    }
+  }
+
+  // 斑马纹
+  &__zebra {
+    tbody {
+      // https://developer.mozilla.org/zh-CN/docs/Web/CSS/:nth-child
+      tr:nth-child(2n) {
+        background: var(--f-table-zebra-color, $tableZebra);
+      }
+    }
+  }
+}

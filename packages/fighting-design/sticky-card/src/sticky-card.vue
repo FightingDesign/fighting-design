@@ -11,8 +11,12 @@
 
   const prop: StickyCardPropsType = defineProps(Props)
 
+  // 是否展示
   const isOpen: Ref<boolean> = ref<boolean>(prop.open)
 
+  /**
+   * 点击触发
+   */
   const handleClick: OrdinaryFunctionInterface = (): void => {
     isOpen.value = !unref(isOpen)
 
@@ -25,13 +29,18 @@
     }
   }
 
+  /**
+   * 展示的文字内容
+   */
   const optionText: ComputedRef<string> = computed((): string => {
     const { openText, closeText } = prop
 
     return `${unref(isOpen) ? openText : closeText}`
   })
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { background, openHeight, borderColor } = prop
 
@@ -42,7 +51,9 @@
     } as CSSProperties
   })
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       return [

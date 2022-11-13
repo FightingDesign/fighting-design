@@ -86,11 +86,11 @@
       border-top: 3px solid transparent;
 
       &:hover {
-        background: rgb(247, 247, 247);
+        background: #f7f7f7;
       }
 
       &.f-calendar__day-li-last {
-        color: rgb(198, 198, 198);
+        color: #c6c6c6;
       }
 
       // 阳历
@@ -113,7 +113,7 @@
 
       // 不是当月的时间
       &.f-calendar__not-month {
-        color: rgb(206, 206, 206);
+        color: #cecece;
       }
 
       // 备忘录

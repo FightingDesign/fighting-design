@@ -1,6 +1,6 @@
 <script lang="ts" setup name="F<%= displayName %>">
   import { Props, Emits } from './props'
-  import type { <%= displayName %>PropsType } from './props'
+  import type { <%= displayName %>PropsType } from './interface'
 
   const prop: <%= displayName %>PropsType = defineProps(Props)
   defineEmits(Emits)

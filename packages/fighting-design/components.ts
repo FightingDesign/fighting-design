@@ -161,3 +161,21 @@ export * from './up-load'
 
 export { FPagination } from './pagination'
 export * from './pagination'
+
+export { FTable } from './table'
+export * from './table'
+
+export { FDropdown } from './dropdown'
+export * from './dropdown'
+
+export { FDropdownItem } from './dropdown-item'
+export * from './dropdown-item'
+
+export { FTextarea } from './textarea'
+export * from './textarea'
+
+export { FSelect } from './select'
+export * from './select'
+
+export { FOption } from './option'
+export * from './option'

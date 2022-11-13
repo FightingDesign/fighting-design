@@ -7,6 +7,9 @@
 
   const prop: AsidePropsType = defineProps(Props)
 
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { width, padding } = prop
 

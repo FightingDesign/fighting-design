@@ -11,10 +11,12 @@
 
 `round` 属性可以配置圆角头像
 
+::: demo
+
+<template #source>
 <f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
 <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
-
-::: details 显示代码
+</template>
 
 ```html
 <f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
@@ -31,9 +33,11 @@
 
 `fit` 属性可以配置头像不同适应容器的方式，详见原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性
 
-<demo1-vue />
+::: demo
 
-::: details 显示代码
+<template #source>
+<demo1-vue />
+</template>
 
 ```html
 <f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
@@ -49,13 +53,15 @@
 
 `size` 属性可以配置不同大小的头像，也可以传入指定的数字，会自动转换为 `px`
 
+::: demo
+
+<template #source>
 <f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
 <f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
 <f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
 <f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
 <f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
-
-::: details 显示代码
+</template>
 
 ```html
 <f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
@@ -75,10 +81,12 @@
 
 `font-size`可以配置图标大小，后面必须要加入单位
 
+::: demo
+
+<template #source>
 <f-avatar :icon="FIconFaceSmile" background="skyblue" :font-size="30" />
 <f-avatar :icon="FIconBug" background="orange" font-color="#fff" :font-size="30" />
-
-::: details 显示代码
+</template>
 
 ```html
 <template>
@@ -102,9 +110,11 @@
 
 `lazy` 属性可以设置图片懒加载，详情可参考 `DevTools` 的 `Network`
 
-<f-avatar width="200px" lazy src="https://tianyuhao.cn/images/auto/5.jpg" />
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-avatar width="200px" lazy src="https://tianyuhao.cn/images/auto/5.jpg" />
+</template>
 
 ```html
 <f-avatar
@@ -122,17 +132,19 @@
 
 或者使用 `error` 插槽展示
 
-<f-space>
-  <f-avatar src="https://123.cn/images/auto/my.jpg" />
-  <f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
-  <f-avatar src="https://123.cn/images/auto/my.jpg">
-    <template v-slot:error>
-      <f-text type="danger" bold>失败了</f-text>
-    </template>
-  </f-avatar>
-</f-space>
+::: demo
 
-::: details 显示代码
+<template #source>
+<f-space>
+<f-avatar src="https://123.cn/images/auto/my.jpg" />
+<f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
+<f-avatar src="https://123.cn/images/auto/my.jpg">
+<template v-slot:error>
+<f-text type="danger" bold>失败了</f-text>
+</template>
+</f-avatar>
+</f-space>
+</template>
 
 ```html
 <f-avatar src="https://123.cn/images/auto/my.jpg" />
@@ -194,7 +206,7 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script setup>
+<script setup lang="ts">
   import demo1Vue from './_demos/avatar/demo1.vue'
   import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
 </script>

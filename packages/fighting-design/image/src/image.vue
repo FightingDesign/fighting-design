@@ -10,7 +10,7 @@
     ClassListInterface
   } from '../../_interface'
   import type {
-    LoadNeedImagePropsInterface,
+    LoadImagePropsInterface,
     LoadCallbackInterface
   } from '../../_utils/load-image/interface'
 
@@ -31,9 +31,9 @@
       isShowNode.value = params
     }
 
-    const needProps: LoadNeedImagePropsInterface = useFilterProps<
+    const needProps: LoadImagePropsInterface = useFilterProps<
       ImagePropsType,
-      LoadNeedImagePropsInterface
+      LoadImagePropsInterface
     >(prop, ['src', 'errSrc', 'rootMargin', 'lazy', 'load', 'error'])
 
     loadImage(node, needProps, callback)
@@ -43,7 +43,9 @@
     loadAction()
   })
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { fit, noSelect } = prop
@@ -58,7 +60,9 @@
     }
   )
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { width, height, round } = prop
 

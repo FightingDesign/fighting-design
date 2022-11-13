@@ -1,0 +1,45 @@
+@import '../config/const-color.scss';
+
+.f-textarea {
+  display: inline-block;
+  background: #eee;
+  overflow: hidden;
+  transition: 0.3s;
+  border: 1px solid transparent;
+  position: relative;
+
+  &__textarea {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    color: #333;
+    padding: 6px 9px;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+
+  // 禁用状态
+  &__disabled {
+    cursor: not-allowed;
+    color: #757575;
+  }
+
+  // 获取焦点
+  &:focus-within {
+    background: #fff;
+    border-color: $primary;
+  }
+
+  &__clear-btn {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+    color: #c3c3c3;
+  }
+}

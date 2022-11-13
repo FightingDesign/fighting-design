@@ -1,15 +1,18 @@
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
-import type { UserConfigExport } from 'vite'
 import svgLoader from 'vite-svg-loader'
+import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {
     plugins: [
-      vueSetupExtend(),
-      svgLoader()
+      vueSetupExtend(), // 组建名设置插件
+      svgLoader() // svg 插件
     ],
     optimizeDeps: {
       exclude: ['vitepress']
+    },
+    server: {
+      port: 9999 // 端口号
     },
     css: {
       postcss: {
@@ -26,9 +29,6 @@ export default (): UserConfigExport => {
           }
         ]
       }
-    },
-    server: {
-      port: 9999
     }
   }
 }

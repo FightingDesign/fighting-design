@@ -6,11 +6,11 @@
 
   const current = ref(3)
 
-  const toPrev = (page: number) => {
+  const toPrev = (page: number): void => {
     current.value = page
   }
 
-  const toNext = (page: number) => {
+  const toNext = (page: number): void => {
     current.value = page
   }
 </script>
@@ -18,12 +18,14 @@
 <template>
   <p>页码:{{ current }}</p>
   <f-pagination
-    :total="total"
     v-model:current="current"
+    :total="total"
     :prev-click="toPrev"
     :next-click="toNext"
-    :round="true"
-    jumpSearch
+    round
+    jump-search
     :prev-icon="FIconCamera"
   />
 </template>
+
+<style lang="scss" scoped></style>
