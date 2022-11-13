@@ -11,7 +11,9 @@
     return !prop.vertical && Boolean(useSlots().default)
   })
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { color, margin } = prop
 

@@ -30,7 +30,9 @@
 
   provide(checkboxGroupPropsKey, checkboxGroupProps)
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { columnGap, rowGap } = prop
 
@@ -40,7 +42,9 @@
     } as const
   })
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { border, vertical, size } = prop

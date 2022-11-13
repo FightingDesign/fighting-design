@@ -74,7 +74,9 @@
     return (val === prop.label) as boolean
   })
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       return [
