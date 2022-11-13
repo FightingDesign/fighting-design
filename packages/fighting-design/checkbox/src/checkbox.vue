@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FCheckbox">
+  import { Props } from './props'
+  import { useEmit } from '../../_hooks'
   import { computed, inject, getCurrentInstance, ref } from 'vue'
-  import { Props, Emits } from './props'
-  import { checkboxGroupPropsKey } from '../../checkbox-group/src/props'
+  import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import type { ClassListInterface } from '../../_interface'
   import type {
     CheckboxGroupLabelType,
@@ -13,10 +14,15 @@
     ComponentInternalInstance,
     WritableComputedRef
   } from 'vue'
-  import type { CheckboxPropsType } from './interface'
+  import type { CheckboxPropsType, CheckboxLabelType } from './interface'
 
   const prop: CheckboxPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(
+    useEmit(
+      (val: CheckboxLabelType): CheckboxLabelType | [] =>
+        typeof val !== 'object'
+    )
+  )
 
   const groupProps: Ref<CheckboxGroupInjectPropsType | null> = ref(null)
 
@@ -32,7 +38,7 @@
      */
     if (parentName && parentName === 'FCheckboxGroup') {
       groupProps.value = inject<CheckboxGroupInjectPropsType>(
-        checkboxGroupPropsKey
+        CHECKBOX_GROUP_PROPS_KEY
       ) as CheckboxGroupInjectPropsType
     }
   }
@@ -59,6 +65,7 @@
         return
       }
       if (prop.disabled) return
+      prop.change && prop.change(val)
       emit('update:modelValue', val)
     }
   })
@@ -83,6 +90,7 @@
         'f-checkbox',
         {
           'f-checkbox__selected': isChecked.value,
+          'f-checkbox__indeterminate': prop.indeterminate,
           'f-checkbox__bordered': groupProps.value && groupProps.value.border,
           'f-checkbox__disabled':
             prop.disabled || (groupProps.value && groupProps.value.disabled)

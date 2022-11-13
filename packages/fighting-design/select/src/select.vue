@@ -1,8 +1,9 @@
 <script lang="ts" setup name="FSelect">
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
+  import { isString } from '../../_utils'
+  import { useEmit } from '../../_hooks'
   import { provide, reactive, ref, computed, watch } from 'vue'
-  import { Emits } from '../../input/src/props'
   import { FDropdown } from '../../dropdown'
   import { sizeChange } from '../../_utils'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
@@ -13,7 +14,7 @@
   } from './interface'
 
   const prop: SelectPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(useEmit((val: string): boolean => isString(val)))
 
   // 绑定值
   const inputValue: Ref<string> = ref<string>(prop.modelValue)

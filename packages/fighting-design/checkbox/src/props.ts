@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { CheckboxLabelType } from './interface'
+import type { CheckboxChangeInterface } from './interface'
 
 export const Props = {
   /**
@@ -36,11 +36,21 @@ export const Props = {
   showLabel: {
     type: Boolean,
     default: (): boolean => true
+  },
+  /**
+  * 是否为半选状态
+  */
+  indeterminate: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  /**
+   * 绑定值发生改变时触发
+   */
+  change: {
+    type: Function as PropType<CheckboxChangeInterface>,
+    default: (): null => null
   }
-} as const
-
-export const Emits = {
-  'update:modelValue': (val: CheckboxLabelType | []): CheckboxLabelType | [] => val
 } as const
 
 export type CheckboxPropsType = ExtractPropTypes<typeof Props>

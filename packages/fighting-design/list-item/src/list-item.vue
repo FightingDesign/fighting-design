@@ -1,13 +1,13 @@
 <script lang="ts" setup name="FListItem">
   import { Props } from './props'
   import { computed, inject } from 'vue'
-  import { listPropsKey } from '../../list/src/props'
+  import { LIST_PROPS_KEY } from '../../list/src/props'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ListPropsType } from '../../list/src/props'
   import type { ListItemPropsType } from './props'
 
   const prop: ListItemPropsType = defineProps(Props)
-  const injectListProps: ListPropsType = inject(listPropsKey) as ListPropsType
+  const injectListProps: ListPropsType = inject(LIST_PROPS_KEY) as ListPropsType
 
   /**
    * 样式列表

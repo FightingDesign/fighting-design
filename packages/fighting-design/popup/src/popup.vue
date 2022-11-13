@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FPopup">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { computed } from 'vue'
-  import { sizeChange } from '../../_utils'
+  import { sizeChange, isBoolean } from '../../_utils'
+  import { useEmit } from '../../_hooks'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type {
     OrdinaryFunctionInterface,
@@ -10,7 +11,9 @@
   import type { PopupPropsType } from './interface'
 
   const prop: PopupPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(
+    useEmit((visible: boolean): boolean => isBoolean(visible), 'visible')
+  )
 
   const closePopup: OrdinaryFunctionInterface = (): void => {
     if (!prop.maskClose) return

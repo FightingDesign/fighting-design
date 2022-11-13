@@ -1,15 +1,18 @@
 <script lang="ts" setup name="FDialog">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
   import { ref, watch } from 'vue'
-  import { sizeChange } from '../../_utils'
+  import { sizeChange, isBoolean } from '../../_utils'
+  import { useEmit } from '../../_hooks'
   import type { Ref } from 'vue'
   import type { OrdinaryFunctionInterface } from '../../_interface'
   import type { DialogPropsType } from './props'
 
   const prop: DialogPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(
+    useEmit((visible: boolean): boolean => isBoolean(visible), 'visible')
+  )
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
 

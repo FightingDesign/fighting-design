@@ -48,8 +48,4 @@ export const Props = {
   }
 } as const
 
-export const Emits = {
-  'update:modelValue': (target: boolean): string => String(target)
-} as const
-
 export type SwitchPropsType = ExtractPropTypes<typeof Props>

@@ -1,12 +1,12 @@
 <script lang="ts" setup name="FBreadcrumbItem">
   import { inject, toRefs } from 'vue'
-  import { BreadcrumbPropsKey } from '../../breadcrumb/src/props'
+  import { BREADCRUMB_PROPS_KEY } from '../../breadcrumb/src/props'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronRightVue } from '../../_svg'
   import type { BreadcrumbPropsType } from '../../breadcrumb'
 
   const breadcrumbContext: BreadcrumbPropsType = inject(
-    BreadcrumbPropsKey
+    BREADCRUMB_PROPS_KEY
   ) as BreadcrumbPropsType
   const { separator, itemColor, separatorColor } = toRefs(breadcrumbContext)
 </script>

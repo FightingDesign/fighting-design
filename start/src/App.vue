@@ -1,31 +1,13 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import { FIconCamera } from '@fighting-design/fighting-icon'
 
-  const total = ref(100)
-
-  const current = ref(3)
-
-  const toPrev = (page: number): void => {
-    current.value = page
-  }
-
-  const toNext = (page: number): void => {
-    current.value = page
-  }
+  const option2 = ref(['汉堡'])
 </script>
 
 <template>
-  <p>页码:{{ current }}</p>
-  <f-pagination
-    v-model:current="current"
-    :total="total"
-    :prev-click="toPrev"
-    :next-click="toNext"
-    round
-    jump-search
-    :prev-icon="FIconCamera"
-  />
+  <f-checkbox-group v-model="option2">
+    <f-checkbox label="鸡肉卷" />
+    <f-checkbox label="鸡排" />
+    <f-checkbox label="汉堡" />
+  </f-checkbox-group>
 </template>
-
-<style lang="scss" scoped></style>

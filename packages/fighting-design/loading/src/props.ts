@@ -1,47 +1,35 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { HandleMouseEventInterface } from '../../_interface'
+// import type { HandleMouseEventInterface } from '../../_interface'
+import type { LoadingBackgroundMode } from './interface'
 
 export const Props = {
-  show: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  close: {
+  visible: {
     type: Boolean,
     default: (): boolean => false
   },
   text: {
-    type: String,
-    default: (): string => ''
+    type: String
   },
   fontColor: {
-    type: String,
-    default: (): string => ''
+    type: String
   },
-  iconColor: {
-    type: String,
-    default: (): string => ''
-  },
-  fontSize: {
-    type: String,
-    default: (): string => ''
+  fullscreen: {
+    type: Boolean
   },
   background: {
-    type: String,
-    default: (): string => ''
+    type: String
   },
-  opacity: {
-    type: Number,
-    default: (): number | null => null
+  mode: {
+    type: String as PropType<LoadingBackgroundMode>
   },
   icon: {
     type: Object as PropType<VNode | Component>,
     default: (): null => null
-  },
-  closeEnd: {
-    type: Function as PropType<HandleMouseEventInterface>,
-    default: (): null => null
   }
+  // closeEnd: {
+  //   type: Function as PropType<HandleMouseEventInterface>,
+  //   default: (): null => null
+  // }
 } as const
 
 export type LoadingPropsType = ExtractPropTypes<typeof Props>
