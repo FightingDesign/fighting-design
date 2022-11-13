@@ -30,7 +30,9 @@
     return 'f-expand-card__active'
   }
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { round } = prop
@@ -56,7 +58,9 @@
       )
     })
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { width, height } = prop
 

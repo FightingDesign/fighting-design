@@ -13,6 +13,7 @@
 
   const prop: AlertPropsType = defineProps(Props)
 
+  // 展示状态
   const isShow: Ref<boolean> = ref<boolean>(true)
 
   /**
@@ -77,29 +78,31 @@
 </script>
 
 <template>
-  <div v-if="isShow" role="alert" :class="classList" :style="styleList">
-    <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon">
-      <slot name="beforeIcon" />
-    </f-svg-icon>
+  <transition name="f-alert">
+    <div v-if="isShow" role="alert" :class="classList" :style="styleList">
+      <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon">
+        <slot name="beforeIcon" />
+      </f-svg-icon>
 
-    <div :class="contentClassList">
-      <div v-if="title" class="f-alert__title">
-        <slot name="title">{{ title }}</slot>
+      <div :class="contentClassList">
+        <div v-if="title" class="f-alert__title">
+          <slot name="title">{{ title }}</slot>
+        </div>
+
+        <div v-if="$slots.default" class="f-alert__sub-title">
+          <slot />
+        </div>
       </div>
 
-      <div v-if="$slots.default" class="f-alert__sub-title">
-        <slot />
-      </div>
+      <f-close-btn
+        v-if="close"
+        no-hover
+        color="#fff"
+        :icon="closeIcon"
+        @click.stop="handleClose"
+      >
+        <slot name="closeIcon" />
+      </f-close-btn>
     </div>
-
-    <f-close-btn
-      v-if="close"
-      no-hover
-      color="#fff"
-      :icon="closeIcon"
-      @click.stop="handleClose"
-    >
-      <slot name="closeIcon" />
-    </f-close-btn>
-  </div>
+  </transition>
 </template>

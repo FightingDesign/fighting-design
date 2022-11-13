@@ -10,7 +10,9 @@
 
   provide<ListPropsType>(listPropsKey, prop)
 
-  // 类名列表
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { maxHeight, zebra, center, size } = prop
@@ -27,7 +29,9 @@
     }
   )
 
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { maxHeight, borderColor, listStyle } = prop
 

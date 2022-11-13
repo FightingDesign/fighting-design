@@ -1,3 +1,10 @@
+/**
+ * 搜索列表
+ * 
+ * title：展示的标题
+ * rule：匹配规则
+ * url：跳转的地址
+ */
 export const searchList = [
   { title: '安装', rule: '安装', url: 'docs/install' },
   { title: '快速上手', rule: '快速上手完整引入自动导入按需引入', url: 'docs/import' },

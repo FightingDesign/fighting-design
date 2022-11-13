@@ -2,8 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- `f-back-top` 组件新增显示隐藏的动画样式
+## 0.8.1-alpha.4 (2022-11-13)
+
+- 新增 `f-back-top` 组件显示隐藏的动画样式
+- 新增 `f-alert` 组件显示隐藏的动画样式
 - 优化 `f-popup` 弹出动画样式
+- 优化 `f-dropdown` 弹出动画样式
 
 ## 0.8.1-alpha.3 (2022-11-11)
 

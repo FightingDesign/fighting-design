@@ -4,6 +4,13 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.8.1-alpha.4 (2022-11-13)
+
+- Add `f-back-top` component to display hidden animation style
+- Add `f-alert` component to display hidden animation style
+- Optimize `f-popup` pop-up animation style
+- Optimize `f-dropdown` pop-up animation style
+
 ## 0.8.1-alpha.3 (2022-11-11)
 
 **Fest**

@@ -10,6 +10,9 @@
 
   const prop: ToolbarPropsType = defineProps(Props)
 
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { size, round, fixed } = prop
@@ -25,6 +28,9 @@
     }
   )
 
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { textColor, background, width, height } = prop
 
@@ -36,7 +42,9 @@
     } as const
   })
 
-  // 点击的时候
+  /**
+   * 点击触发
+   */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     const path: HTMLElement[] = evt.composedPath() as HTMLElement[]
 
