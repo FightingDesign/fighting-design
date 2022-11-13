@@ -6,7 +6,9 @@
 
   const prop: ToolbarItemPropsType = defineProps(Props)
 
-  // 点击
+  /**
+   * 点击
+   */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     prop.click && prop.click(evt)
   }

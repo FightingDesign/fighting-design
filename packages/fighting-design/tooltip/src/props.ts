@@ -2,10 +2,16 @@ import type { PropType, ExtractPropTypes } from 'vue'
 import type { TooltipPositionType, TooltipStateType } from './interface'
 
 export const Props = {
+  /**
+   * 提示内容
+   */
   content: {
     type: String,
     default: (): string => ''
   },
+  /**
+   * 弹出方向
+   */
   position: {
     type: String as PropType<TooltipPositionType>,
     default: (): TooltipPositionType => 'bottom',
@@ -13,10 +19,16 @@ export const Props = {
       return (['top', 'bottom', 'right', 'left'] as const).includes(val)
     }
   },
+  /**
+   * 是否禁用
+   */
   disabled: {
     type: Boolean,
     default: (): boolean => false
   },
+  /**
+   * 展示状态
+   */
   state: {
     type: String,
     default: (): TooltipStateType => 'hover',
@@ -24,22 +36,37 @@ export const Props = {
       return (['hover', 'active', 'always'] as const).includes(val)
     }
   },
+  /**
+   * 是否显示箭头
+   */
   noArrow: {
     type: Boolean,
     default: (): boolean => false
   },
+  /**
+   * 是否加粗文字
+   */
   bold: {
     type: Boolean,
     default: (): boolean => false
   },
+  /**
+   * 是否使用浅色主题
+   */
   bright: {
     type: Boolean,
     default: (): boolean => false
   },
+  /**
+   * 自定义背景色
+   */
   background: {
     type: String,
     default: (): string => ''
   },
+  /**
+   * 自定义文字颜色
+   */
   fontColor: {
     type: String,
     default: (): string => ''
