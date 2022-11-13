@@ -1,18 +1,18 @@
 <script lang="ts" setup name="FPagination">
   import { Props } from './props'
-  import type { PaginationPropsType } from './props'
   import { Emits } from './props'
-  import type { ComputedRef, Ref } from 'vue'
   import { computed, ref } from 'vue'
   import {
-    FIconChevronLeft,
-    FIconChevronRight
-  } from '@fighting-design/fighting-icon'
+    FIconChevronLeftVue as FIconChevronLeft,
+    FIconChevronRightVue as FIconChevronRight
+  } from '../../_svg'
   import FInput from '../../input'
   import FSelect from '../../select'
   import FOptions from '../../option'
-  import type { InputChangeInterface } from '../../input/src/interface'
   import { FSvgIcon } from '../../svg-icon'
+  import type { ComputedRef, Ref } from 'vue'
+  import type { InputChangeInterface } from '../../input/src/interface'
+  import type { PaginationPropsType } from './props'
 
   const prop: PaginationPropsType = defineProps(Props)
 
@@ -85,7 +85,7 @@
 <template>
   <div class="f-pagination">
     <f-select
-      v-if="pageSizes.length"
+      v-if="pageSizes && pageSizes.length"
       :width="60"
       :model-value="String(pageSize)"
       @update:model-value="

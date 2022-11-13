@@ -25,8 +25,8 @@ export const Props = {
    * 每页多少条
    */
   pageSizes: {
-    type: Array<number>,
-    default: (): number[] => [10, 20, 30, 40, 50]
+    type: [Array<number>, null] as PropType<number[] | null>,
+    default: (): null => null
   },
   /**
    * 是否需要背景色
