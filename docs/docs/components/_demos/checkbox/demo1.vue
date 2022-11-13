@@ -21,12 +21,14 @@
 </script>
 
 <template>
-  <f-checkbox
-    v-model="checkAll"
-    label="全都要"
-    :indeterminate="indeterminate"
-    :change="onCheckboxChange"
-  />
+  <div>
+    <f-checkbox
+      v-model="checkAll"
+      label="全都要"
+      :indeterminate="indeterminate"
+      :change="onCheckboxChange"
+    />
+  </div>
 
   <f-checkbox-group v-model="checkedOptions" :change="onGroupChange">
     <f-checkbox

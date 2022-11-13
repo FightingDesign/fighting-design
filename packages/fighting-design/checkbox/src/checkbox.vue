@@ -59,8 +59,8 @@
         return
       }
       if (prop.disabled) return
+      prop.change && prop.change(val)
       emit('update:modelValue', val)
-      emit('change', val)
     }
   })
 
@@ -84,7 +84,7 @@
         'f-checkbox',
         {
           'f-checkbox__selected': isChecked.value,
-          'f-checkbox__half': prop.halfCheck,
+          'f-checkbox__indeterminate': prop.indeterminate,
           'f-checkbox__bordered': groupProps.value && groupProps.value.border,
           'f-checkbox__disabled':
             prop.disabled || (groupProps.value && groupProps.value.disabled)

@@ -63,34 +63,30 @@
 
 ## 全选及半选
 
-给复选框添加`half-check`属性使其显示半选时的状态，且此属性仅控制样式
+给复选框添加 `indeterminate` 属性使其显示半选时的状态，且此属性仅控制样式
 
 ::: demo
 <template #source>
-<f-checkbox :half-check="halfCheck" label="全都要" v-model="checkAll" @change="onCheckboxChange" />
-<br />
-<f-checkbox-group v-model="checkedOptions" @change="onGroupChange" ref="checkboxGroupRef">
-  <f-checkbox v-for="(item, index) in optionList" :label="item" :key="index" />
-</f-checkbox-group>
-<br />
-
-<!-- <f-button type="primary" @click="onToggleAll">toggle all</f-button>
-<br /> -->
+<demo1-vue />
 </template>
 
 ```html
 <template>
-  <f-checkbox
-    :half-check="halfCheck"
-    label="全都要"
-    v-model="checkAll"
-    @change="onCheckboxChange"
-  />
-  <f-checkbox-group
-    v-model="checkedOptions"
-    @change="onGroupChange"
-  >
-    <f-checkbox v-for="(item, index) in optionList" :label="item" :key="index" />
+  <div>
+    <f-checkbox
+      v-model="checkAll"
+      label="全都要"
+      :indeterminate="indeterminate"
+      :change="onCheckboxChange"
+    />
+  </div>
+
+  <f-checkbox-group v-model="checkedOptions" :change="onGroupChange">
+    <f-checkbox
+      v-for="(item, index) in optionList"
+      :key="index"
+      :label="item"
+    />
   </f-checkbox-group>
 </template>
 
@@ -98,22 +94,21 @@
   import { ref } from 'vue'
 
   const checkAll = ref(false)
-  const halfCheck = ref(false)
-  const checkedOptions = ref([])
-  const optionList = ref([
-    '红buff',
-    '蓝buff',
-    '大龙',
-    '小龙'
-  ])
-  const onCheckboxChange = (e) => {
+  const indeterminate = ref(false)
+  const checkedOptions = ref<string[]>([])
+  const optionList = ref(['红buff', '蓝buff', '大龙', '小龙'])
+
+  const onCheckboxChange = (e: boolean): void => {
     checkedOptions.value = e ? optionList.value : []
-    halfCheck.value = false
+    indeterminate.value = false
   }
-  const onGroupChange = (val) => {
+
+  const onGroupChange = (val: string[]): void => {
     const halfStatus = !!(val.length && val.length < optionList.value.length)
-    checkAll.value = val.length === optionList.value.length
-    halfCheck.value = halfStatus
+    if (val.length === optionList.value.length) {
+      checkAll.value = true
+    }
+    indeterminate.value = halfStatus
   }
 </script>
 ```
@@ -258,13 +253,13 @@
 
 ## Checkbox Attributes
 
-| 参数                   | 说明             | 类型                      | 可选值 | 默认值 |
-| ---------------------- | ---------------- | ------------------------- | ------ | ------ |
-| `modelValue / v-model` | 绑定值           | boolean                   | ——     | ——     |
-| `disabled`             | 是否禁用         | boolean                   | ——     | false  |
-| `label`                | 单选框对应的值   | string / number / boolean | ——     | ——     |
-| `change`               | 绑定值变化时触发 | Function                  | ——     | null   |
-| `half-check`           | 是否为半选状态样式   | boolean                  | ——     |  ——  |
+| 参数                   | 说明               | 类型                      | 可选值 | 默认值 |
+| ---------------------- | ------------------ | ------------------------- | ------ | ------ |
+| `modelValue / v-model` | 绑定值             | boolean                   | ——     | ——     |
+| `disabled`             | 是否禁用           | boolean                   | ——     | false  |
+| `label`                | 单选框对应的值     | string / number / boolean | ——     | ——     |
+| `change`               | 绑定值变化时触发   | Function                  | ——     | null   |
+| `indeterminate`        | 是否为半选状态样式 | boolean                   | ——     | false  |
 
 ## Interface
 
@@ -296,35 +291,11 @@ import type {
 </a>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-const option1 = ref(false)
-const option2 = ref([])
-const option3 = ref([])
-const option4 = ref([])
+  import { ref } from 'vue'
+  import demo1Vue from './_demos/checkbox/demo1.vue'
 
-const checkAll = ref(false)
-const halfCheck = ref(false)
-const checkedOptions = ref([])
-const optionList = ref([
-  '红buff',
-  '蓝buff',
-  '大龙',
-  '小龙'
-])
-const onCheckboxChange = (e) => {
-  checkedOptions.value = e ? optionList.value : []
-  halfCheck.value = false
-}
-const onGroupChange = (val) => {
-  const halfStatus = !!(val.length && val.length < optionList.value.length)
-  checkAll.value = val.length === optionList.value.length
-  halfCheck.value = halfStatus
-}
-
-const isCheckedAll = ref(false)
-const checkboxGroupRef = ref()
-const onToggleAll = () => {
-  isCheckedAll.value = !isCheckedAll.value
-  checkboxGroupRef.value.toggleAll(isCheckedAll.value)
-}
+  const option1 = ref(false)
+  const option2 = ref([])
+  const option3 = ref([])
+  const option4 = ref([])
 </script>

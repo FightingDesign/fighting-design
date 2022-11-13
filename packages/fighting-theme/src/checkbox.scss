@@ -75,7 +75,8 @@
       }
     }
   }
-  &.f-checkbox__half {
+
+  &.f-checkbox__indeterminate {
     .f-checkbox__box {
       border: 1px solid $primary;
       background: $primary;

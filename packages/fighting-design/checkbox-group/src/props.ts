@@ -68,8 +68,7 @@ export const Props = {
 } as const
 
 export const Emits = {
-  'update:modelValue': (val: CheckboxGroupLabelType): boolean => Array.isArray(val),
-  change: (val: CheckboxGroupLabelType): boolean => Array.isArray(val)
+  'update:modelValue': (val: CheckboxGroupLabelType): boolean => Array.isArray(val)
 } as const
 
 export type CheckboxGroupPropsType = ExtractPropTypes<typeof Props>
