@@ -37,17 +37,17 @@
       box-sizing: border-box;
       overflow-y: auto;
       overflow-x: hidden;
-    }
 
-    // 主内容动画样式
-    .f-popup__wrapper-transition-enter-active,
-    .f-popup__wrapper-transition-leave-active {
-      transition: all 0.2s ease-out;
-    }
+      // 主内容动画样式
+      &-transition-enter-active,
+      &-transition-leave-active {
+        transition: all 0.2s ease-out;
+      }
 
-    .f-popup__wrapper-transition-enter-from,
-    .f-popup__wrapper-transition-leave-to {
-      opacity: 0;
+      &-transition-enter-from,
+      &-transition-leave-to {
+        opacity: 0;
+      }
     }
   }
 
@@ -61,11 +61,11 @@
       border-radius: 6px;
       max-height: 90%;
       box-shadow: 0 0 18px #00000066;
-    }
 
-    .f-popup__wrapper-transition-enter-from,
-    .f-popup__wrapper-transition-leave-to {
-      transform: scale(0.4);
+      &-transition-enter-from,
+      &-transition-leave-to {
+        transform: scale(0.4);
+      }
     }
   }
 
@@ -75,11 +75,11 @@
       top: 0;
       bottom: 0;
       left: 0;
-    }
 
-    .f-popup__wrapper-transition-enter-from,
-    .f-popup__wrapper-transition-leave-to {
-      transform: translateX(-100%);
+      &-transition-enter-from,
+      &-transition-leave-to {
+        transform: translateX(-100%);
+      }
     }
   }
 
@@ -89,11 +89,11 @@
       top: 0;
       bottom: 0;
       right: 0;
-    }
 
-    .f-popup__wrapper-transition-enter-from,
-    .f-popup__wrapper-transition-leave-to {
-      transform: translateX(100%);
+      &-transition-enter-from,
+      &-transition-leave-to {
+        transform: translateX(100%);
+      }
     }
   }
 
@@ -103,11 +103,11 @@
       top: 0;
       left: 0;
       right: 0;
-    }
 
-    .f-popup__wrapper-transition-enter-from,
-    .f-popup__wrapper-transition-leave-to {
-      transform: translateY(-100%);
+      &-transition-enter-from,
+      &-transition-leave-to {
+        transform: translateY(-100%);
+      }
     }
   }
 
@@ -117,12 +117,12 @@
       bottom: 0;
       left: 0;
       right: 0;
-    }
 
-    .f-popup__wrapper-transition-enter-from,
-    .f-popup__wrapper-transition-leave-to {
-      transform: translateY(100%);
-      opacity: 0;
+      &-transition-enter-from,
+      &-transition-leave-to {
+        transform: translateY(100%);
+        opacity: 0;
+      }
     }
   }
 
