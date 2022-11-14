@@ -1,3 +1,4 @@
+@use './src/_root.scss';
 @use './src/button.scss';
 @use './src/button-group.scss';
 @use './src/link.scss';
@@ -51,4 +52,5 @@
 @use './src/close-btn.scss';
 @use './src/input.scss';
 @use './src/swap.scss';
-@use './src/up-load.scss';@use './src/table.scss';@use './src/dropdown.scss';@use './src/dropdown-item.scss';@use './src/textarea.scss';@use './src/select.scss';@use './src/option.scss';
+@use './src/up-load.scss';
+@use './src/table.scss';@use './src/dropdown.scss';@use './src/dropdown-item.scss';@use './src/textarea.scss';@use './src/select.scss';@use './src/option.scss';

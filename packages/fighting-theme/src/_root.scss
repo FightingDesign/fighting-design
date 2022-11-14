@@ -1,5 +1,8 @@
 /**
  * Fighting Design 内部主要颜色
+ *
+ * :root 伪类参考：
+ * https://developer.mozilla.org/zh-CN/docs/Web/CSS/:root
  */
 :root {
   // 主要颜色
@@ -45,8 +48,8 @@
   --f-design-color-warning-6: #fff2c6;
 
   // 字体颜色
-  --f-design-color-text-dark: #333333;
-  --f-design-color-text-light: #ffffff;
+  --f-design-color-text-1: #333333;
+  --f-design-color-text-2: #ffffff;
 
   // 边框或背景色颜色
   --f-design-color-border-1: #eeeeee; // card
