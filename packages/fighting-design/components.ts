@@ -79,9 +79,6 @@ export * from './list'
 export { FListItem } from './list-item'
 export * from './list-item'
 
-// export { FLoading } from './loading'
-// export * from './loading'
-
 export { LoadingBar as useLoadingBar } from './loading-bar'
 
 export { FMain } from './main'
