@@ -37,12 +37,12 @@
     <textarea
       :class="['f-textarea__textarea', { 'f-textarea__disabled': disabled }]"
       :style="{ resize }"
-      :cols="cols"
       :rows="rows"
       :value="modelValue"
       :disabled="disabled"
       :readonly="readonly"
       :autofocus="autofocus"
+      :placeholder="placeholder"
       :name="name"
       @input="handleInput"
       @blur="onBlur"

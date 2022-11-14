@@ -11,15 +11,6 @@ export const Props = {
     default: (): string => ''
   },
   /**
-   * 可视宽度
-   * 
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-cols
-   */
-  cols: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): number => 50
-  },
-  /**
    * 元素的输入文本的行数
    * 
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-rows
