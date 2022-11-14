@@ -94,13 +94,14 @@
 
 ## Attributes
 
-| 参数         | 说明               | 类型            | 可选值 | 默认值 |
-| ------------ | ------------------ | --------------- | ------ | ------ |
-| `image-list` | 需要展示的图片列表 | array           | ——     | []     |
-| `round`      | 是否显示圆角       | boolean         | ——     | false  |
-| `height`     | 自定义高度         | string / number | ——     | 300px  |
-| `width`      | 自定义宽度         | string / number | ——     | ——     |
-| `color`      | 左下角文字的颜色   | string          | ——     | '#fff' |
+| 参数           | 说明                      | 类型            | 可选值 | 默认值 |
+| -------------- | ------------------------- | --------------- | ------ | ------ |
+| `image-list`   | 需要展示的图片列表        | array           | ——     | []     |
+| `round`        | 是否显示圆角              | boolean         | ——     | false  |
+| `height`       | 自定义高度                | string / number | ——     | 300px  |
+| `width`        | 自定义宽度                | string / number | ——     | null   |
+| `color`        | 左下角文字的颜色          | string          | ——     | #fff   |
+| `expand-index` | 默认展开的索引，从 0 开始 | number          | ——     | 0      |
 
 ## Interface
 

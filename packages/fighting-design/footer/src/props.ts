@@ -1,13 +1,19 @@
 import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
+  /**
+   * 自定义高度
+   */
   height: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '60px'
+    default: (): number => 60
   },
+  /**
+   * 自定义内边距
+   */
   padding: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '0'
+    default: (): null => null
   }
 } as const
 

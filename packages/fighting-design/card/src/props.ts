@@ -7,7 +7,7 @@ export const Props = {
    */
   title: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否为圆角卡片

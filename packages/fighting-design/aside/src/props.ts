@@ -6,14 +6,14 @@ export const Props = {
    */
   width: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '200px'
+    default: (): number => 200
   },
   /**
    * 自定义内边距
    */
   padding: {
     type: [String, Number] as PropType<string | number>,
-    default: (): number => 0
+    default: (): null => null
   }
 } as const
 
