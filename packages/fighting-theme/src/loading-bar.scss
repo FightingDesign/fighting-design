@@ -1,4 +1,4 @@
-@import '../config/const-color.scss';
+@import './_root.scss';
 
 .f-loading-bar {
   position: fixed;
@@ -7,18 +7,18 @@
   top: 0;
   left: 0;
   width: 0%;
-  background: $primary;
   animation: loading 3s linear both;
+  background: var(--f-design-color-primary-1);
 
   &.f-loading-bar__finish {
     width: 100%;
-    background: $success;
+    background: var(--f-design-color-success-1);
     animation: loadingFinish ease-in-out 1.4s both;
   }
 
   &.f-loading-bar__error {
     width: 100%;
-    background: $danger;
+    background: var(--f-design-color-danger-1);
     animation: loadingFinish ease-in-out 1.4s both;
   }
 }

@@ -1,3 +1,4 @@
+@import './_root.scss';
 @import '../config/var-switch.scss';
 
 .f-switch {
@@ -13,7 +14,7 @@
     border-radius: 30px;
     z-index: 5;
     transition: 0.2s;
-    background: $primary;
+    background: var(--f-design-color-primary-1);
     width: 40px;
     height: 20px;
 
@@ -31,7 +32,7 @@
           width: $value - 4;
           height: $value - 4;
           background: #fff;
-          border: 2px solid $primary;
+          border: 2px solid var(--f-design-color-primary-1);
           border-radius: 50%;
           position: absolute;
           right: 0;
@@ -78,13 +79,13 @@
 
   &__right-text {
     font-size: 13px;
-    color: #333;
+    color: var(--f-design-color-text-1);
     margin-right: 5px;
     transition: 0.2s;
   }
 
   &__text-active {
-    color: $primary;
+    color: var(--f-design-color-primary-1);
   }
 
   // 禁用状态

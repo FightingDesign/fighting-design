@@ -1,5 +1,6 @@
-@import '../config/const-color.scss';
-@import '../config/var-tag.scss';
+@import './_root.scss';
+@import '../config/const-type.scss';
+@import '../config/const-size.scss';
 
 .f-tag {
   min-width: 60px;
@@ -8,13 +9,13 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  height: $middle;
   transition: 0.5;
   cursor: default;
+  height: var(--f-design-height-middle);
 
   // 不同的类型
-  @for $list from 1 to (length($allTypeColorList) + 1) {
-    $item: nth($allTypeColorList, $list);
+  @for $list from 1 to (length($ComponentsType) + 1) {
+    $item: nth($ComponentsType, $list);
 
     // 不同类型
     &.f-tag__#{map-get($item, name)} {
@@ -37,8 +38,8 @@
   }
 
   // 不同的尺寸
-  @for $list from 1 to (length($tagSize) + 1) {
-    $item: nth($tagSize, $list);
+  @for $list from 1 to (length($ComponentsType) + 1) {
+    $item: nth($ComponentsType, $list);
 
     &.f-tag__#{map-get($item, name)} {
       height: map-get($item, size);
@@ -53,7 +54,7 @@
 
   // 圆角
   &.f-tag__round {
-    border-radius: 30px;
+    border-radius: var(--f-design-border-radius-2);
   }
 
   // 关闭按钮

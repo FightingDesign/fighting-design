@@ -1,21 +1,5 @@
-@import '../src/_root.scss';
-
-// 正常色号
-$default: #f0f0f0;
-$primary: #2d5af1;
-$success: #52b35e;
-$danger: #ff0200;
-$warning: #fcc202;
-
-// 简约的色号
-$simpleDefault: lighten($default, 3%);
-$simplePrimary: lighten($primary, 37%);
-$simpleSuccess: lighten($success, 42%);
-$simpleDanger: lighten($danger, 42%);
-$simpleWarning: lighten($warning, 42%);
-
 // 不同类型的颜色状态
-$allTypeColorList: (
+$ComponentsType: (
   (
     // 类名拼接
     name: 'default',

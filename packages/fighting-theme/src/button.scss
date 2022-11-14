@@ -1,28 +1,29 @@
-@import '../config/const-color.scss';
-@import '../config/var-button.scss';
+@import './_root.scss';
+@import '../config/const-type.scss';
+@import '../config/const-size.scss';
 
 .f-button {
   position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--f-button-font-size);
   border: none;
   outline: none;
   user-select: none;
   text-decoration: none;
   transition: 0.3s;
   cursor: pointer;
-  background: $default;
   white-space: nowrap;
   vertical-align: middle;
-  border-radius: $basicRadiusSize;
   overflow: hidden;
+  border-radius: var(--f-design-border-radius-1);
+  background: var(--f-design-color-default-1);
   box-shadow: var(--f-button-box-shadow);
+  font-size: var(--f-button-font-size, --f-design-font-size-middle);
 
   // 不同背景和字体颜色
-  @for $list from 1 to (length($allTypeColorList) + 1) {
-    $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
+  @for $list from 1 to (length($ComponentsType) + 1) {
+    $item: nth($ComponentsType, $list); // 获取数组中第i项的值
 
     // 不同类型
     &.f-button__#{map-get($item, name)} {
@@ -70,16 +71,16 @@
         color: var(--f-button-font-color, $simpleTextColor);
 
         &:hover {
-          background: $default;
+          background: var(--f-design-color-default-1);
         }
 
         &:active {
-          background: darken($default, 5%);
+          background: var(--f-design-color-default-3);
         }
 
         // 文字按钮禁用状态
         &.f-button__disabled:hover {
-          background: #fff;
+          background: var(--f-design-color-text-2);
           outline: 1px solid map-get($item, simpleTextColor);
         }
       }
@@ -87,8 +88,8 @@
   }
 
   // 不同尺寸
-  @for $list from 1 to (length($buttonSize) + 1) {
-    $item: nth($buttonSize, $list); // 获取数组中第i项的值
+  @for $list from 1 to (length($ComponentsSize) + 1) {
+    $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
 
     &.f-button__#{map-get($item, name)} {
       height: map-get($item, height);

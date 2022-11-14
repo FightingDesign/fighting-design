@@ -1,4 +1,4 @@
-@import '../config/const-color.scss';
+@import './_root.scss';
 
 .f-calendar {
   flex-direction: column;
@@ -77,7 +77,6 @@
       box-sizing: border-box;
       padding: 10px;
       display: flex;
-      // justify-content: center;
       align-items: center;
       flex-direction: column;
       transition: 0.3s;
@@ -105,9 +104,9 @@
 
       // 今天
       &.f-calendar__day-today {
-        color: $primary;
-        background: $simplePrimary;
-        border-top: 3px solid $primary;
+        color: var(--f-design-color-primary-1);
+        background: var(--f-design-color-primary-4);
+        border-top: 3px solid var(--f-design-color-primary-1);
         transition: 0.3s;
       }
 

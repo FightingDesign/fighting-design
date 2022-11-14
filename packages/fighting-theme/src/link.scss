@@ -1,4 +1,5 @@
-@import '../config/const-color.scss';
+@import './_root.scss';
+@import '../config/const-type.scss';
 
 .f-link {
   cursor: pointer;
@@ -8,11 +9,11 @@
   text-decoration: none;
   transition: 0.3s;
   line-height: 1;
-  font-size: var(--f-link-font-size, 15px);
-  color: var(--f-link-color, $primary);
+  font-size: var(--f-link-font-size, --f-design-font-size-middle);
+  color: var(--f-link-color, --f-design-color-primary-1);
 
   .f-svg-icon {
-    font-size: var(--f-link-font-size, 15px);
+    font-size: var(--f-link-font-size, --f-design-font-size-middle);
   }
 
   &:hover {
@@ -20,8 +21,8 @@
   }
 
   // 不同类型
-  @for $list from 1 to (length($allTypeColorList) + 1) {
-    $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
+  @for $list from 1 to (length($ComponentsType) + 1) {
+    $item: nth($ComponentsType, $list); // 获取数组中第i项的值
 
     // 不同类型
     &.f-link__#{map-get($item, name)} {
@@ -35,7 +36,7 @@
   }
 
   &.f-link__bag:hover {
-    background: #eee;
+    background: var(--f-design-color-border-1);
     border-radius: 2px;
   }
 

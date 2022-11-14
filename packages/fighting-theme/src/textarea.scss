@@ -1,4 +1,4 @@
-@import '../config/const-color.scss';
+@import './_root.scss';
 
 .f-textarea {
   display: inline-block;
@@ -32,7 +32,7 @@
   // 获取焦点
   &:focus-within {
     background: #fff;
-    border-color: $primary;
+    border-color: var(--f-design-color-primary-1);
   }
 
   &__clear-btn {

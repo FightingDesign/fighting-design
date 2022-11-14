@@ -1,4 +1,4 @@
-@import '../config/const-color.scss';
+@import './_root.scss';
 
 .f-drawer {
   z-index: 999;
@@ -20,7 +20,7 @@
 
     &-title {
       font-size: 15px;
-      color: #333;
+      color: var(--f-design-color-text-1);
     }
 
     .f-close-btn {

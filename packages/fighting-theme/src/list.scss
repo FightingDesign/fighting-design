@@ -1,4 +1,5 @@
-@import '../config/var-list.scss';
+@import './_root.scss';
+@import '../config/const-size.scss';
 
 .f-list {
   margin: 0;
@@ -33,8 +34,8 @@
   }
 
   // 不同尺寸
-  @for $list from 1 to (length($listSize) + 1) {
-    $item: nth($listSize, $list); // 获取数组中第i项的值
+  @for $list from 1 to (length($ComponentsSize) + 1) {
+    $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
 
     &.f-list__#{map-get($item, name)} {
       .f-list__item {

@@ -1,4 +1,4 @@
-@import '../config/const-color.scss';
+@import './_root.scss';
 
 .f-checkbox {
   display: inline-flex;
@@ -33,13 +33,13 @@
   // 正常状态选中状态
   &.f-checkbox__selected {
     .f-checkbox__text {
-      color: $primary;
+      color: var(--f-design-color-primary-1);
     }
 
     // 前面盒子
     .f-checkbox__box {
-      border: 1px solid $primary;
-      background: $primary;
+      border: 1px solid var(--f-design-color-primary-1);
+      background: var(--f-design-color-primary-1);
 
       &::after {
         content: '';
@@ -67,7 +67,6 @@
 
     // 选中的禁用状态
     &.f-checkbox__disabled {
-      // background: $default;
       border-color: #d7d7d7;
 
       .f-checkbox__text {
@@ -78,8 +77,8 @@
 
   &.f-checkbox__indeterminate {
     .f-checkbox__box {
-      border: 1px solid $primary;
-      background: $primary;
+      border: 1px solid var(--f-design-color-primary-1);
+      background: var(--f-design-color-primary-1);
 
       &::after {
         content: '';

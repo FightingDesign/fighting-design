@@ -1,7 +1,27 @@
-$large: 40px;
-$middle: 35px;
-$small: 30px;
-$mini: 25px;
-
-// 基础圆角大小
-$basicRadiusSize: 2px;
+// 不同尺寸
+$ComponentsSize: (
+  (
+    name: 'large',
+    height: var(--f-design-height-large),
+    padding: var(--f-design-padding-large),
+    fontSize: var(--f-design-font-size-large)
+  ),
+  (
+    name: 'middle',
+    height: var(--f-design-height-middle),
+    padding: var(--f-design-padding-middle),
+    fontSize: var(--f-design-font-size-middle)
+  ),
+  (
+    name: 'small',
+    height: var(--f-design-height-small),
+    padding: var(--f-design-padding-small),
+    fontSize: var(--f-design-font-size-small)
+  ),
+  (
+    name: 'mini',
+    height: var(--f-design-height-mini),
+    padding: var(--f-design-padding-mini),
+    fontSize: var(--f-design-font-size-mini)
+  )
+);

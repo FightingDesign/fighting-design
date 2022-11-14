@@ -1,4 +1,5 @@
-@import '../config/const-color.scss';
+@import './_root.scss';
+@import '../config/const-type.scss';
 @import '../config/const-size.scss';
 
 .f-input {
@@ -47,8 +48,8 @@
     }
 
     &:focus-within {
-      background: #fff;
-      border-color: $primary;
+      background: var(--f-design-color-text-2);
+      border-color: var(--f-design-color-primary-1);
     }
   }
 
@@ -74,35 +75,15 @@
   }
 
   // 不同尺寸
-  &.f-input__large {
-    height: $large;
+  @for $list from 1 to (length($ComponentsSize) + 1) {
+    $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
 
-    .f-input__input {
-      font-size: 15px;
-    }
-  }
+    &.f-input__#{map-get($item, name)} {
+      height: map-get($item, height);
 
-  &.f-input__middle {
-    height: $middle;
-
-    .f-input__input {
-      font-size: 14px;
-    }
-  }
-
-  &.f-input__small {
-    height: $small;
-
-    .f-input__input {
-      font-size: 13px;
-    }
-  }
-
-  &.f-input__mini {
-    height: $mini;
-
-    .f-input__input {
-      font-size: 12px;
+      .f-input__input {
+        font-size: map-get($item, fontSize);
+      }
     }
   }
 }

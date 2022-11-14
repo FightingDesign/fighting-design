@@ -1,4 +1,4 @@
-@import '../config/const-color.scss';
+@import './_root.scss';
 
 .f-sticky-card {
   border: 1px solid var(--sticky-card-border-color, #e5e5e5);
@@ -75,7 +75,7 @@
 
     &:hover {
       .f-sticky-card__option-text {
-        color: $primary;
+        color: var(--f-design-color-primary-1);
       }
     }
   }

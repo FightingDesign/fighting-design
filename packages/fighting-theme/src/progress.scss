@@ -1,4 +1,5 @@
-@import '../config/var-progress.scss';
+@import './_root.scss';
+@import '../config/const-type.scss';
 
 .f-progress {
   display: flex;
@@ -15,7 +16,7 @@
     height: 100%;
     transition: 0.3s;
     border-radius: 100px;
-    background: $primary;
+    background: var(--f-design-color-primary-1);
     text-align: right;
 
     // 百分百文字
@@ -50,8 +51,8 @@
     }
   }
 
-  @for $list from 1 to (length($progressStripeType) + 1) {
-    $item: nth($progressStripeType, $list);
+  @for $list from 1 to (length($ComponentsType) + 1) {
+    $item: nth($ComponentsType, $list);
 
     // 基本的颜色
     .f-progress__fill-#{map-get($item, name)} {
@@ -65,9 +66,9 @@
         map-get($item, default) 25%,
         map-get($item, default) 0,
         map-get($item, default) 50%,
-        map-get($item, light) 0,
-        map-get($item, light) 75%,
-        map-get($item, light) 0
+        map-get($item, defaultHover) 0,
+        map-get($item, defaultHover) 75%,
+        map-get($item, defaultHover) 0
       );
       background-size: 35px 35px;
       animation: f-progress-animation-panoramic 30s linear infinite;
