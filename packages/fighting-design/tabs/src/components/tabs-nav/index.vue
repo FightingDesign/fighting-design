@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FTabsNav">
   import { Emits, Props } from './props'
   import type { TabsNavPropsType } from './interface'
-  import { isString } from '../../../../_utils'
+  import { isString, sizeToNum } from '../../../../_utils'
 import { TabsPaneName } from '../../interface';
 import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance, nextTick, ref, watch } from 'vue';
 
@@ -25,21 +25,60 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
   /**
    * 仅针对card模式下的，items的样式
    * 
-   * 主要用于items的高度或宽度固定，防止在切换时抖动
+   * 估算最长元素active状态下的高度，设置为固定高度
+   * 
+   * 防止在切换标签时出现跳动的情况
    */
   const wrapperStyle = ref<CSSProperties>({})
   async function updateWrapperStyle() {
     await nextTick()
     if (!prop.navs.length) return
-    const wrapperEl = instance.subTree.el.querySelector('.f-tabs-nav--items') as HTMLElement
-
+    const positionVar = {a: 'height', b: 'offsetHeight', c: 'paddingBottom'}
     if (prop.position === 'left' || prop.position === 'right') {
-      if (wrapperStyle.value.width) return
-      wrapperStyle.value = {width: wrapperEl.offsetWidth + 8 + 'px'}
+      positionVar.a = 'width'
+      positionVar.b = 'offsetWidth'
     } else {
-      if (wrapperStyle.value.height) return
-      wrapperStyle.value = {height: wrapperEl.offsetHeight + 12 + 'px'}
+      positionVar.a = 'height'
+      positionVar.b = 'offsetHeight'
     }
+
+    switch (prop.position) {
+      case 'top':
+        positionVar.c = 'paddingBottom'
+        break
+      case 'bottom':
+        positionVar.c = 'paddingTop'
+        break
+      case 'left':
+        positionVar.c = 'paddingRight'
+        break
+      case 'right':
+        positionVar.c = 'paddingLeft'
+        break
+    }
+
+    // 当前nav的高度
+    const wrapperEl = instance.subTree.el as HTMLElement
+    // 获取除active元素外最高的子元素
+    const children = instance.subTree.el.querySelectorAll('.f-tabs-nav--item:not(.f-tabs-nav--item__active)') as HTMLElement[]
+    const maxChildren = Array.from(children).reduce((pre, cur) => {
+      pre = cur[positionVar.b] > pre[positionVar.b] ? cur : pre
+      return pre
+    }, children[0])
+    // 最高的子元素的padding
+    const padding = sizeToNum(window.getComputedStyle(maxChildren)[positionVar.c])
+    // css变量
+    const cardActiveDiffHeight = window.getComputedStyle(wrapperEl).getPropertyValue('--cardActiveDiffHeight')
+    // 最高的子元素avtive状态下的高度
+    const maxChildrenNum = sizeToNum(maxChildren[positionVar.b]) - padding + sizeToNum(cardActiveDiffHeight)
+
+    /**
+     * 比较当前储存高度(初次为0)、标签显示高度(wrapperEl)、最高元素预估高度，取得最大值
+     * 
+     * 估值高度取得是除active外的元素
+     * 如果当前active的元素本身是最大的话，会体现在wrapperEl.offset上
+     */
+    wrapperStyle.value = {[positionVar.a]: Math.max(wrapperEl[positionVar.b], maxChildrenNum) + 'px'} 
   }
 
 
@@ -98,18 +137,26 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
   /**
    * 风格样式调整
    */
+  watch([currentIndex], () => {
+    if (prop.type === 'line') {
+      updateActiveLineStyle()
+    }
+  })
   watch(
     [
-      currentIndex,
       () => prop.position,
       () => prop.type, 
       () => prop.justifyContent
     ],
     () => {
+      wrapperStyle.value = {}
       if (prop.type === 'card') {
         updateWrapperStyle()
-      } else {
-        wrapperStyle.value = {}
+        if (prop.position === 'left' || prop.position === 'right') {
+          leftReachedRef.value = false
+          rightReachedRef.value = false
+          return
+        }
       }
 
       if (prop.type === 'line') {
@@ -132,38 +179,43 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
     
     return [
       `f-tabs-nav__type_${type}`,
-      `f-tabs-nav__type_${type}_${position}`,
-      {
-        'f-tabs-nav__scroll_before': leftReachedRef.value,
-        'f-tabs-nav__scroll_after': rightReachedRef.value
-      }
+      `f-tabs-nav__type_${type}_${position}`
     ]
+  })
+
+  const scrollClassList = computed(() => {
+    return {
+      'f-tabs-nav__scroll_before': leftReachedRef.value,
+      'f-tabs-nav__scroll_after': rightReachedRef.value
+    }
   })
 </script>
 
 <template>
   <div class="f-tabs-nav" :class="classList">
     <slot name="prefix"></slot>
-    <div class="f-tabs-nav__scroll" @wheel.passive="handleWheel">
-      <div class="f-tabs-nav__wrapper">
-        <div class="f-tabs-nav--items" :style="wrapperStyle">
-          <div class="f-tabs-nav--item"
-            :class="[{
-              'f-tabs-nav--item__active': item.name === prop.currentName
-            }]"
-            v-for="item, i in prop.navs"
-            :key="item.name"
-            @click="clickNavItem(item.name, i)"
-          >
-            <span v-if="isString(item.label)">{{item.label}}</span>
-            <component :is="item.label" v-else></component>
+    <div class="f-tabs-nav__main" :class="scrollClassList">
+      <div class="f-tabs-nav__scroll" @wheel.passive="handleWheel">
+        <div class="f-tabs-nav__wrapper">
+          <div class="f-tabs-nav--items" :style="wrapperStyle">
+            <div class="f-tabs-nav--item"
+              :class="[{
+                'f-tabs-nav--item__active': item.name === prop.currentName
+              }]"
+              v-for="item, i in prop.navs"
+              :key="item.name"
+              @click="clickNavItem(item.name, i)"
+            >
+              <span v-if="isString(item.label)">{{item.label}}</span>
+              <component :is="item.label" v-else></component>
+            </div>
           </div>
+          <template  v-if="prop.type === 'line'">
+            <div class="f-tabs-nav--line" :style="lineStyle">
+              <div class="f-tabs-nav--line__active" :style="activeLineStyle"></div>
+            </div>
+          </template>
         </div>
-        <template  v-if="prop.type === 'line'">
-          <div class="f-tabs-nav--line" :style="lineStyle">
-            <div class="f-tabs-nav--line__active" :style="activeLineStyle"></div>
-          </div>
-        </template>
       </div>
     </div>
     <slot name="suffix"></slot>

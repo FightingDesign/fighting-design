@@ -12,7 +12,7 @@
     {label: '第一个', content: '哈哈哈哈'}
   ])
 
-  for(let i = 0; i < 15; i++) {
+  for(let i = 0; i < 30; i++) {
     list.value.push({label: `第${i}个hhh`, content: '哈哈哈哈' + i})
   }
   const as = ref(true)
@@ -37,19 +37,17 @@
   <div style="padding: 20px">
     {{tab}}
   <f-card>
-    <f-tabs :position="position" :type="type" :align="align" v-model="tab">
+    <f-tabs :position="position" :type="type" v-model="tab">
+      <template #prefix>
+        <span>测试一下</span>
+      </template>
+      <template #suffix>
+        <span>这是结尾</span>
+      </template>
       <f-tabs-pane :label="item.label" v-for="item in list">{{item.content}}</f-tabs-pane>
+      
     </f-tabs>
   </f-card>
-
-  <f-card>
-    <f-tabs :beforeEnter="beforeEnter">
-      <f-tabs-pane name="home" label="home">homeC</f-tabs-pane>
-      <f-tabs-pane name="about" label="about">aboutC</f-tabs-pane>
-      <f-tabs-pane label="cav">NavC</f-tabs-pane>
-    </f-tabs>
-  </f-card>
-
 
   <f-card>
     <p>

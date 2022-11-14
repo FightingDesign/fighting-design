@@ -5,7 +5,8 @@ import type {
   UtilsAddZeroInterface,
   UtilsSizeChangeInterface,
   UtilsIsBooleanInterface,
-  UtilsIsStringInterface
+  UtilsIsStringInterface,
+UtilsSizeToNumInterface
 } from './interface'
 
 export * from './error'
@@ -100,4 +101,17 @@ export const addZero: UtilsAddZeroInterface = (num: number): string => {
 export const sizeChange: UtilsSizeChangeInterface = (size: string | number | undefined, target = 'px'): string => {
   if (!size) return ''
   return typeof size === 'string' ? size : size + target
+}
+
+/**
+ * 将字符串化的尺寸转为数字
+ * 
+ * 例如: 12px => 12
+ * 
+ * @param size 尺寸
+ */
+export const sizeToNum:UtilsSizeToNumInterface = (size: string | number) => {
+  if (!size) return 0
+  if (typeof size === 'number') return size
+  return Number.parseFloat(size) || 0
 }

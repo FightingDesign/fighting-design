@@ -75,3 +75,7 @@ export interface UtilsAddZeroInterface {
 export interface UtilsSizeChangeInterface {
   (size: string | number | undefined, target?: string): string
 }
+
+export interface UtilsSizeToNumInterface {
+  (size: string | number): number
+}

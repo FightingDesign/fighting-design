@@ -4,22 +4,25 @@
   display: flex;
   &.f-tabs__position_top{
     flex-direction: column;
+    .f-tabs-nav{ align-items: flex-end;}
   }
   &.f-tabs__position_bottom{
     flex-direction: column-reverse;
+    .f-tabs-nav{ align-items: flex-start;}
   }
   &.f-tabs__position_top, &.f-tabs__position_bottom{
+    .f-tabs-nav{
+      justify-content: space-between;
+    }
     .f-tabs-nav__wrapper{
       min-width: 100%;
     }
   }
   
   &.f-tabs__position_left, &.f-tabs__position_right{
-    .f-tabs-nav {
-      .f-tabs-nav--items{
-        flex-direction:column;
-        align-items: flex-end;
-      }
+    .f-tabs-nav, .f-tabs-nav--items{
+      flex-direction:column;
+      align-items: flex-end;
     }
   }
   &.f-tabs__position_left{
@@ -27,10 +30,8 @@
   }
   &.f-tabs__position_right{
     flex-direction: row-reverse;
-    .f-tabs-nav {
-      .f-tabs-nav--items{
-        align-items: flex-start;
-      }
+    .f-tabs-nav, .f-tabs-nav--items{
+      align-items: flex-start;
     }
   }
 
@@ -52,10 +53,14 @@
 .f-tabs-pane{
   padding: 4px 8px;
 }
-
+.f-tabs-nav__main{
+  flex:1;
+  overflow: hidden;
+}
 .f-tabs__position_top, .f-tabs__position_bottom{
   .f-tabs-nav__scroll{
     overflow-x: auto;
+    overflow-y: hidden;
     &::-webkit-scrollbar {
       width: 0;
       height: 0;
@@ -64,33 +69,40 @@
 }
 
 .f-tabs-nav{
+  display: flex;
   flex-shrink: 0;
-  position: relative;
   
   .f-tabs-nav__wrapper{
     width: fit-content;
     height: fit-content;
   }
   
-  &::after, &::before{
-    transition: box-shadow .3s var(--n-bezier);
-    pointer-events: none;
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 20px;
-    z-index: 1;
+  
+  .f-tabs-nav__main{
+    position: relative;
+    .f-tabs-nav__scroll{
+      width: 100%;
+    }
+    &::after, &::before{
+      transition: box-shadow .3s var(--n-bezier);
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 20px;
+      z-index: 1;
+    }
+    &.f-tabs-nav__scroll_before::before{
+      left: 0;
+      box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, .12);
+    }
+    &.f-tabs-nav__scroll_after::after{
+      right: 0;
+      box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, .12);
+    }
   }
 
-  &.f-tabs-nav__scroll_before::before{
-    left: 0;
-    box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, .12);
-  }
-  &.f-tabs-nav__scroll_after::after{
-    right: 0;
-    box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, .12);
-  }
 
   .f-tabs-nav--items{
     display: flex;
