@@ -1,5 +1,6 @@
 import * as components from './components'
 import { version } from './package.json'
+import { FLoading } from './loading'
 import type { App } from 'vue'
 import type { AppInstallInterface } from './_interface'
 
@@ -11,7 +12,7 @@ const install: AppInstallInterface = (app: App): App => {
 
   app.config.globalProperties.FMessage = components.FMessage
   app.config.globalProperties.FNotification = components.FNotification
-  app.directive('loading', components.FLoading.directive)
+  app.directive('loading', FLoading.directive)
   return app
 }
 
