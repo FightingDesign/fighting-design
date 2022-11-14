@@ -66,7 +66,8 @@ export const sidebar = {
         { text: 'Input 输入框', link: '/components/input' },
         { text: 'Up Load 文件上传', link: '/components/up-load' },
         { text: 'Table 表格', link: '/components/table' },
-        { text: 'Select 选择器', link: '/components/select' }
+        { text: 'Select 选择器', link: '/components/select' },
+        { text: 'Textarea 文本域', link: '/components/textarea' }
       ]
     },
     {

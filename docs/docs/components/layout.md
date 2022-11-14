@@ -223,28 +223,28 @@
 
 | 参数      | 说明   | 类型            | 可选值 | 默认值 |
 | --------- | ------ | --------------- | ------ | ------ |
-| `height`  | 高度   | string / number | ——     | 60px   |
-| `padding` | 内边距 | string / number | ——     | 0      |
+| `height`  | 高度   | string / number | ——     | 60     |
+| `padding` | 内边距 | string / number | ——     | null   |
 
 ## Main Attributes
 
 | 参数      | 说明   | 类型            | 可选值 | 默认值 |
 | --------- | ------ | --------------- | ------ | ------ |
-| `padding` | 内边距 | string / number | ——     | 0      |
+| `padding` | 内边距 | string / number | ——     | null   |
 
 ## Aside Attributes
 
 | 参数      | 说明   | 类型            | 可选值 | 默认值 |
 | --------- | ------ | --------------- | ------ | ------ |
-| `width`   | 宽度   | string / number | ——     | 200px  |
-| `padding` | 内边距 | string / number | ——     | 0      |
+| `width`   | 宽度   | string / number | ——     | 200    |
+| `padding` | 内边距 | string / number | ——     | null   |
 
 ## Footer Attributes
 
 | 参数      | 说明   | 类型            | 可选值 | 默认值 |
 | --------- | ------ | --------------- | ------ | ------ |
-| `height`  | 高度   | string / number | ——     | 60px   |
-| `padding` | 内边距 | string / number | ——     | 0      |
+| `height`  | 高度   | string / number | ——     | 60     |
+| `padding` | 内边距 | string / number | ——     | null   |
 
 ## Interface
 

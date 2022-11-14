@@ -1,4 +1,3 @@
-import { isString } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { TextareaChangeInterface, TextareaResizeType } from './interface'
 import type { HandleFocusEventInterface } from '../../_interface'
@@ -10,15 +9,6 @@ export const Props = {
   modelValue: {
     type: String,
     default: (): string => ''
-  },
-  /**
-   * 可视宽度
-   * 
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-cols
-   */
-  cols: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): number => 50
   },
   /**
    * 元素的输入文本的行数
@@ -124,10 +114,6 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   }
-} as const
-
-export const Emits = {
-  'update:modelValue': (val: string): boolean => isString(val)
 } as const
 
 export type TextareaPropsType = ExtractPropTypes<typeof Props>

@@ -7,6 +7,7 @@
   transition: 0.3s;
   border: 1px solid transparent;
   position: relative;
+  width: 100%;
 
   &__textarea {
     display: block;
@@ -19,6 +20,7 @@
     padding: 6px 9px;
     box-sizing: border-box;
     font-size: 15px;
+    cursor: pointer;
   }
 
   // 禁用状态

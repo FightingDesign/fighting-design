@@ -1,10 +1,11 @@
 <script lang="ts" setup name="FUpLoad">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { FButton } from '../../button'
   import { ref, watch } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { FIconNotesVue, FIconPlusVue } from '../../_svg'
+  import { useEmit } from '../../_hooks'
   import type { Ref } from 'vue'
   import type {
     OrdinaryFunctionInterface,
@@ -19,7 +20,7 @@
   } from './interface'
 
   const prop: UpLoadPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(useEmit((files: File[]): File[] => files, 'files'))
 
   const dragIng: Ref<boolean> = ref(false)
   const fileList: Ref<File[] | null> = ref<File[]>(null as unknown as File[])

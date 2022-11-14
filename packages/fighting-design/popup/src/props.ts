@@ -71,8 +71,4 @@ export const Props = {
   }
 } as const
 
-export const Emits = {
-  'update:visible': (visible: boolean): boolean => typeof visible === 'boolean'
-} as const
-
 export type PopupPropsType = ExtractPropTypes<typeof Props>

@@ -10,7 +10,9 @@ export interface OrdinaryFunctionInterface {
 }
 
 /**
- * 注册组件函数
+ * 注册组件函数接口
+ * 
+ * app 应用实例
  */
 export interface AppInstallInterface {
   (app: App): App

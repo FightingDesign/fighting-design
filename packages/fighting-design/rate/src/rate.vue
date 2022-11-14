@@ -1,8 +1,9 @@
 <script lang="ts" setup name="FRate">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconStarBVue } from '../../_svg'
   import { FText } from '../../text'
+  import { useEmit } from '../../_hooks'
   import { ref, watch, unref, computed } from 'vue'
   import type { Ref, ComputedRef } from 'vue'
   import type { OrdinaryFunctionInterface } from '../../_interface'
@@ -13,7 +14,7 @@
   } from './interface'
 
   const prop: RatePropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(useEmit((val: number): number => val))
 
   const starValue: Ref<number> = ref<number>(prop.modelValue)
 

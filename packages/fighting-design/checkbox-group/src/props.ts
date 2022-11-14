@@ -67,10 +67,6 @@ export const Props = {
   }
 } as const
 
-export const Emits = {
-  'update:modelValue': (val: CheckboxGroupLabelType): boolean => Array.isArray(val)
-} as const
-
 export type CheckboxGroupPropsType = ExtractPropTypes<typeof Props>
 
-export const checkboxGroupPropsKey: InjectionKey<CheckboxGroupPropsType> = Symbol('f-checkbox-group-props-key')
+export const CHECKBOX_GROUP_PROPS_KEY: InjectionKey<CheckboxGroupPropsType> = Symbol('f-checkbox-group-props-key')

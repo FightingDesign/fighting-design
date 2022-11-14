@@ -1,9 +1,14 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { FMessage } from '@/index'
+
+  const openMessage = (): void => {
+    FMessage({
+      message: '这是一条消息提示',
+      type: 'success'
+    })
+  }
+</script>
 
 <template>
-  <f-alert type="primary" close>主要提示信息</f-alert>
-  <f-alert type="success" close>成功提示信息</f-alert>
-  <f-alert type="danger" close>危险提示信息</f-alert>
+  <f-button type="primary" @click="openMessage">show</f-button>
 </template>
-
-<style lang="scss" scoped></style>

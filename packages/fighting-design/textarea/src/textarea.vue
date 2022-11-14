@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FTextarea">
-  import { Props, Emits } from './props'
-  import { useUpdateInput, useFilterProps } from '../../_hooks'
+  import { Props } from './props'
+  import { useUpdateInput, useFilterProps, useEmit } from '../../_hooks'
+  import { isString } from '../../_utils'
   import { FIconCrossVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
   import type { TextareaPropsType } from './interface'
@@ -8,7 +9,7 @@
   import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
 
   const prop: TextareaPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(useEmit((val: string): boolean => isString(val)))
 
   /**
    * 使用 useUpdateInput hook 实现同步数据
@@ -36,12 +37,12 @@
     <textarea
       :class="['f-textarea__textarea', { 'f-textarea__disabled': disabled }]"
       :style="{ resize }"
-      :cols="cols"
       :rows="rows"
       :value="modelValue"
       :disabled="disabled"
       :readonly="readonly"
       :autofocus="autofocus"
+      :placeholder="placeholder"
       :name="name"
       @input="handleInput"
       @blur="onBlur"

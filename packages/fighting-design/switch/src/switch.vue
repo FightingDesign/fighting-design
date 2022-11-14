@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FSwitch">
   import { computed } from 'vue'
-  import { Props, Emits } from './props'
+  import { Props } from './props'
+  import { useEmit } from '../../_hooks'
   import { FSvgIcon } from '../../svg-icon'
   import type {
     OrdinaryFunctionInterface,
@@ -10,7 +11,7 @@
   import type { SwitchPropsType } from './props'
 
   const prop: SwitchPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(useEmit((target: boolean): string => String(target)))
 
   /**
    * 点击切换

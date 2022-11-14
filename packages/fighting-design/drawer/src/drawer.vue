@@ -1,5 +1,7 @@
 <script lang="ts" setup name="FDrawer">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
+  import { isBoolean } from '../../_utils'
+  import { useEmit } from '../../_hooks'
   import { watch, ref } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
@@ -8,24 +10,34 @@
   import type { DrawerPropsType } from './props'
 
   const prop: DrawerPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(
+    useEmit((visible: boolean): boolean => isBoolean(visible), 'visible')
+  )
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
 
+  /**
+   * 关闭 drawer
+   */
   const closeDrawer: OrdinaryFunctionInterface = (): void => {
     emit('update:visible', false)
   }
 
+  /**
+   * 监视 isVisible，如果变为假，则关闭
+   */
   watch(
     (): boolean => isVisible.value,
     (newVal: boolean): void => {
-      // 监视 isVisible，如果变为假，则关闭
       if (!newVal) {
         closeDrawer()
       }
     }
   )
 
+  /**
+   * 监视 prop.visible，同步数据给 isVisible
+   */
   watch(
     (): boolean => prop.visible,
     (newVal: boolean): void => {

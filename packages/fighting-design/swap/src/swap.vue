@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FSwap">
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
+  import { useEmit } from '../../_hooks'
   import type { ComputedRef } from 'vue'
   import type {
     OrdinaryFunctionInterface,
@@ -10,7 +11,7 @@
   import type { SwapPropsType } from './props'
 
   const prop: SwapPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(useEmit((target: boolean): string => String(target)))
 
   /**
    * 切换时执行

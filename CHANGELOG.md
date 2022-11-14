@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `f-checkbox` 组件 `indeterminate` 配置项
+- 新增 `f-textarea` 组件
+- 重构 `loading` 组件
+
 ## 0.8.1-alpha.4 (2022-11-13)
 
 - 新增 `f-back-top` 组件显示隐藏的动画样式

@@ -1,45 +1,42 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
-  show: {
+  /**
+   * 是否展示
+   */
+  visible: {
     type: Boolean,
     default: (): boolean => false
   },
-  close: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  /**
+   * 文字内容
+   */
   text: {
-    type: String,
-    default: (): string => ''
+    type: String
   },
+  /**
+   * 自定义文字颜色
+   */
   fontColor: {
-    type: String,
-    default: (): string => ''
+    type: String
   },
-  iconColor: {
-    type: String,
-    default: (): string => ''
+  /**
+   * 是否全屏显示
+   */
+  fullscreen: {
+    type: Boolean
   },
-  fontSize: {
-    type: String,
-    default: (): string => ''
-  },
+  /**
+   * 自定义背景色
+   */
   background: {
-    type: String,
-    default: (): string => ''
+    type: String
   },
-  opacity: {
-    type: Number,
-    default: (): number | null => null
-  },
+  /**
+   * 自定义 icon
+   */
   icon: {
     type: Object as PropType<VNode | Component>,
-    default: (): null => null
-  },
-  closeEnd: {
-    type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }
 } as const
