@@ -240,6 +240,7 @@
 
 ```ts
 import type {
+  InputInstance,
   InputPropsType,
   InputType,
   InputSizeType,
