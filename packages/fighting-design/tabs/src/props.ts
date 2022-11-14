@@ -20,10 +20,23 @@ export const Props = {
     type: String as PropType<TabsType>,
     default: 'line'
   },
+  /**
+   * 对齐方式
+   */
   justifyContent: {
     type: String as PropType<TabsJustifyContent>,
     default: 'flex-start'
   },
+  /**
+   * 编辑状态
+   */
+  editStatus: {
+    type: Boolean,
+    default: false
+  },
+  /**
+   * 切换前的回调
+   */
   beforeEnter: {
     type: Function as PropType<(name: TabsPaneName) => boolean|void>
   }
@@ -31,6 +44,7 @@ export const Props = {
 
 export const Emits = {
   'update:modelValue': (val: String | Number) => true, // 下标可能为0
+  'edit': (name: TabsPaneName, index: number):boolean => true
 } as const
 
 export type TabsPropsType = ExtractPropTypes<typeof Props>

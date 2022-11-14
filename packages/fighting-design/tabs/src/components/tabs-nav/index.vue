@@ -2,8 +2,10 @@
   import { Emits, Props } from './props'
   import type { TabsNavPropsType } from './interface'
   import { isString, sizeToNum } from '../../../../_utils'
-import { TabsPaneName } from '../../interface';
-import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance, nextTick, ref, watch } from 'vue';
+  import { TabsPaneName } from '../../interface';
+  import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance, nextTick, ref, watch } from 'vue';
+  import { FIconCrossVue } from '../../../../_svg'
+  import { FSvgIcon } from '../../../../svg-icon'
 
   const prop: TabsNavPropsType = defineProps(Props)
 
@@ -13,7 +15,7 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
 
   const instance:ComponentInternalInstance = getCurrentInstance()
 
-  async function clickNavItem(name: TabsPaneName, index: number) {
+  async function clickNavItem(name: TabsPaneName) {
     let res:boolean | void = true
     if (prop.beforeEnter) {
       res = await prop.beforeEnter(name)
@@ -21,6 +23,10 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
     if (typeof res === 'boolean' && !res) return
   
     emit('set-current-name', name)
+  }
+
+  async function closeItem(name: TabsPaneName, i: number) {
+    emit('edit', name, i)
   }
   /**
    * 仅针对card模式下的，items的样式
@@ -204,10 +210,13 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
               }]"
               v-for="item, i in prop.navs"
               :key="item.name"
-              @click="clickNavItem(item.name, i)"
+              @click="clickNavItem(item.name)"
             >
               <span v-if="isString(item.label)">{{item.label}}</span>
-              <component :is="item.label" v-else></component>
+              <div v-else>
+                <component :is="item.label"></component>
+              </div>
+              <FSvgIcon :icon="FIconCrossVue" v-if="editStatus" @click.stop="closeItem(item.name, i)"></FSvgIcon>
             </div>
           </div>
           <template  v-if="prop.type === 'line'">

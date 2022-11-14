@@ -22,12 +22,15 @@ export const Props = {
   },
   justifyContent: {
     type: String as PropType<TabsJustifyContent>
+  },
+  editStatus: {
+    type: Boolean
   }
 }
 
 export const Emits = {
   'set-current-name': (name: TabsPaneName):boolean => true,
-  // 'before-enter': (name: TabsPaneName): boolean => true
+  'edit': (name: TabsPaneName, index: number):boolean => true
 } as const
 
 export type TabsNavPropsType = ExtractPropTypes<typeof Props>

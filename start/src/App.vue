@@ -4,48 +4,24 @@
   const position = ref('top')
   const type = ref('card')
   const align = ref('left')
-  const tab = ref(2)
-
-  const text = ref('asdd')
+  const tab = ref(0)
 
   const list = ref([
-    {label: '第一个', content: '哈哈哈哈'}
+    {label: '第一个', content: '哈哈哈哈'},
+    {label: '第二个', content: '哈哈哈哈a'},
   ])
 
-  for(let i = 0; i < 30; i++) {
-    list.value.push({label: `第${i}个hhh`, content: '哈哈哈哈' + i})
+  function edit(name: string) {
+    console.log('当前点击的时', name)
   }
-  const as = ref(true)
-
-  setTimeout(() => {
-    text.value = 'asdadfdbdfg'
-    as.value = false
-  }, 2000)
-
-  function beforeEnter(name: string | number) {
-    console.log(name)
-    if (name === 'about') {
-      console.log('禁止通行')
-      return false
-    }
-    return true
-  }
-
 </script>
 
 <template>
   <div style="padding: 20px">
     {{tab}}
   <f-card>
-    <f-tabs :position="position" :type="type" v-model="tab">
-      <template #prefix>
-        <span>测试一下</span>
-      </template>
-      <template #suffix>
-        <span>这是结尾</span>
-      </template>
+    <f-tabs :position="position" editStatus :type="type" v-model="tab" @edit="edit">
       <f-tabs-pane :label="item.label" v-for="item in list">{{item.content}}</f-tabs-pane>
-      
     </f-tabs>
   </f-card>
 

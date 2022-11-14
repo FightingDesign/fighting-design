@@ -8,10 +8,7 @@
   const instance:ComponentInternalInstance = getCurrentInstance()
 
   const prop: TabsPropsType = defineProps(Props)
-  const emits = defineEmits<{
-    (e: 'update:modelValue', name: TabsPaneName): void,
-    (e: 'before-enter', name: TabsPaneName): boolean | void,
-  }>()
+  const emits = defineEmits(Emits)
   /**
    * 当前选中的pane
    */
@@ -21,6 +18,12 @@
     // 如果用户没有设置v-model, 这里可以直接在内部修改
     currentName.value = name
     emits('update:modelValue', name)
+  }
+  /**
+   * 触发用户的emit
+   */
+  function edit(name: TabsPaneName, i: number) {
+    emits('edit', name, i)
   }
   /**
    * panes集合
@@ -106,9 +109,11 @@
       :type="type"
       :currentName="currentName"
       :position="_position"
+      :editStatus="editStatus"
       :justifyContent="justifyContent"
       :beforeEnter="beforeEnter"
       @setCurrentName="setCurrentName"
+      @edit="edit"
       v-if="navs.length"
     >
       <template #prefix>
