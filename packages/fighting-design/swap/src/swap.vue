@@ -11,7 +11,7 @@
   import type { SwapPropsType } from './props'
 
   const prop: SwapPropsType = defineProps(Props)
-  const emit = defineEmits(useEmit((target: boolean): boolean => target))
+  const emit = defineEmits(useEmit((target: boolean): string => String(target)))
 
   /**
    * 切换时执行
