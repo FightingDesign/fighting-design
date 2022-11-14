@@ -1,30 +1,14 @@
 <script lang="ts" setup>
-  import { reactive, ref } from 'vue'
+  import { FMessage } from '@/index'
 
-  const isloading = ref(false)
-  const loadingObj = reactive({
-    text: '加载中'
-  })
-
-  const change = (): void => {
-    isloading.value = true
-
-    setTimeout(() => {
-      // loading.value = false
-    }, 2000)
+  const openMessage = (): void => {
+    FMessage({
+      message: '这是一条消息提示',
+      type: 'success'
+    })
   }
 </script>
 
 <template>
-  <f-button :click="change">开始</f-button>
-  <div v-loading="loadingObj" class="box"></div>
+  <f-button type="primary" @click="openMessage">show</f-button>
 </template>
-
-<style lang="scss" scoped>
-  .box {
-    width: 300px;
-    height: 200px;
-    margin: auto;
-    border: 1px solid red;
-  }
-</style>

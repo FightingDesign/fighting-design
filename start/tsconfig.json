@@ -10,6 +10,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "paths": {
+      "@/*": ["../packages/fighting-design/*"]
+    },
     "lib": [
       "ESNext",
       "DOM",
