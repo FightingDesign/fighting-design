@@ -1,5 +1,4 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-// import type { HandleMouseEventInterface } from '../../_interface'
 import type { LoadingBackgroundMode } from './interface'
 
 export const Props = {
@@ -26,10 +25,6 @@ export const Props = {
     type: Object as PropType<VNode | Component>,
     default: (): null => null
   }
-  // closeEnd: {
-  //   type: Function as PropType<HandleMouseEventInterface>,
-  //   default: (): null => null
-  // }
 } as const
 
 export type LoadingPropsType = ExtractPropTypes<typeof Props>

@@ -25,14 +25,18 @@
       color: fontColor
     } as const
   })
+
+  /**
+   * 类名列表
+   */
   const classList = computed(() => {
     const { mode, background, fullscreen = false } = prop
 
     return [
       'f-loading',
       {
-        'f-loading--dark': !background && mode === 'dark',
-        'f-loading--fullscreen': fullscreen
+        'f-loading__dark': !background && mode === 'dark',
+        'f-loading__fullscreen': fullscreen
       }
     ]
   })

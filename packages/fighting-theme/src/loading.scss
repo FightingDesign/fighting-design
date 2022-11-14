@@ -13,14 +13,17 @@
   justify-content: center;
   // background: #000;
   // opacity: 0.7;
-  background: rgba($color: #666, $alpha: .82);
+  background: rgba($color: #666, $alpha: 0.82);
   color: $primary;
-  &.f-loading--dark {
-    background: rgba($color: #fff, $alpha: .82);
+
+  &.f-loading__dark {
+    background: rgba($color: #fff, $alpha: 0.82);
   }
-  &.f-loading--fullscreen {
+
+  &.f-loading__fullscreen {
     position: fixed;
   }
+
   &__animation {
     animation: f-loading-component 1s linear infinite;
     -webkit-animation: f-loading-component 1s linear infinite;
