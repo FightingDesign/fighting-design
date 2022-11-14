@@ -3,23 +3,18 @@
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
+  import type { ClassListInterface } from '../../_interface'
   import type { ComputedRef, CSSProperties } from 'vue'
-
-  // import type { HandleMouseEventInterface } from '../../_interface'
   import type { LoadingPropsType } from './props'
 
   const prop: LoadingPropsType = defineProps(Props)
-
-  // 点击
-  // const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-  //   prop.closeEnd && prop.closeEnd(evt)
-  // }
 
   /**
    * 样式列表
    */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { background, fontColor } = prop
+
     return {
       background,
       color: fontColor
@@ -29,17 +24,18 @@
   /**
    * 类名列表
    */
-  const classList = computed(() => {
-    const { mode, background, fullscreen = false } = prop
+  const classList: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { fullscreen = false } = prop
 
-    return [
-      'f-loading',
-      {
-        'f-loading__dark': !background && mode === 'dark',
-        'f-loading__fullscreen': fullscreen
-      }
-    ]
-  })
+      return [
+        'f-loading',
+        {
+          'f-loading__fullscreen': fullscreen
+        }
+      ] as const
+    }
+  )
 </script>
 
 <template>

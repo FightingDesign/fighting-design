@@ -1,19 +1,23 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  const loading = ref(false)
+  import { reactive, ref } from 'vue'
+
+  const isloading = ref(false)
+  const loadingObj = reactive({
+    text: '加载中'
+  })
 
   const change = (): void => {
-    loading.value = true
+    isloading.value = true
 
     setTimeout(() => {
-      loading.value = false
+      // loading.value = false
     }, 2000)
   }
 </script>
 
 <template>
   <f-button :click="change">开始</f-button>
-  <div v-loading="loading" class="box"></div>
+  <div v-loading="loadingObj" class="box"></div>
 </template>
 
 <style lang="scss" scoped>

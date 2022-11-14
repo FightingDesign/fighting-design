@@ -16,10 +16,6 @@
   background: rgba($color: #666, $alpha: 0.82);
   color: $primary;
 
-  &.f-loading__dark {
-    background: rgba($color: #fff, $alpha: 0.82);
-  }
-
   &.f-loading__fullscreen {
     position: fixed;
   }
