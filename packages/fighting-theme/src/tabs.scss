@@ -49,6 +49,10 @@
   // }
 }
 
+.f-tabs-pane{
+  padding: 4px 8px;
+}
+
 .f-tabs__position_top, .f-tabs__position_bottom{
   .f-tabs-nav__scroll{
     overflow-x: auto;
@@ -119,10 +123,10 @@
     &.f-tabs-nav__type_line_top, &.f-tabs-nav__type_line_bottom{
       .f-tabs-nav--line{
         width: 100%;
-        height: 1px;
+        height: 2px;
       }
       .f-tabs-nav--line__active{
-        height: 1px;
+        height: 2px;
       }
 
       .f-tabs-nav--item{
@@ -146,11 +150,11 @@
         display: flex;
       }
       .f-tabs-nav--line{
-        width:1px;
+        width:2px;
         height:100%;
       }
       .f-tabs-nav--line__active{
-        width: 1px;
+        width: 2px;
       }
 
       .f-tabs-nav--item{
@@ -179,6 +183,7 @@
   // card 风格
   &.f-tabs-nav__type_card{
     --radius: 8px;
+    --cardActiveDiffHeight: 16px;
     --cardActiveBg: #fff;
     --cardBgColor: #f5f7fa;
     --cardBorerColor: #ddd;
@@ -234,7 +239,7 @@
         }
         &.f-tabs-nav--item__active{
           border-bottom: none;
-          padding-bottom: 24px;
+          padding-bottom: var(--cardActiveDiffHeight);
           
           &::before {
             border-radius: 0 0 var(--radius) 0;
@@ -265,7 +270,7 @@
           top: -1px;
         }
         &.f-tabs-nav--item__active{
-          padding-top: 24px;
+          padding-top: var(--cardActiveDiffHeight);
           border-top: none;
           &::before {
             top: 0px;
@@ -286,7 +291,7 @@
     // 上下公用
     &.f-tabs-nav__type_card_top, &.f-tabs-nav__type_card_bottom{
       .f-tabs-nav--item{
-        padding: 8px 16px;
+        padding: 4px 12px;
       }
 
       .f-tabs-nav--item+.f-tabs-nav--item{
@@ -309,7 +314,7 @@
     // 左右公用
     &.f-tabs-nav__type_card_left, &.f-tabs-nav__type_card_right{
       .f-tabs-nav--item{
-        padding: 8px 12px;
+        padding: 4px 8px;
       }
       .f-tabs-nav--item+.f-tabs-nav--item{
         margin-top: -1px;
@@ -342,7 +347,7 @@
         }
         &.f-tabs-nav--item__active{
           border-right: none;
-          padding-right: 24px;
+          padding-right: var(--cardActiveDiffHeight);
           
           &::before {
             border-radius: 0 0 var(--radius) 0;
@@ -371,7 +376,7 @@
         }
         &.f-tabs-nav--item__active{
           border-left: none;
-          padding-left: 24px;
+          padding-left: var(--cardActiveDiffHeight);
           
           &::before {
             border-radius: 0 0  0 var(--radius);
@@ -397,7 +402,7 @@
     padding: 4px;
 
     .f-tabs-nav--item{
-      padding: 8px;
+      padding: 4px 8px;
       flex: 1;
 
       &.f-tabs-nav--item__active{

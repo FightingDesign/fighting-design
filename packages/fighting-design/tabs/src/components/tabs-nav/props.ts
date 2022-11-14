@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import { TabsNavInstance, TabsPaneName, TabsPosition, TabsType } from '../../interface'
+import { TabsNavInstance, TabsPaneName, TabsPosition, TabsType, TabsJustifyContent } from '../../interface'
 
 export const Props = {
   /**
@@ -19,6 +19,9 @@ export const Props = {
   },
   beforeEnter: {
     type: Function as PropType<(name: TabsPaneName) => boolean|void>
+  },
+  justifyContent: {
+    type: String as PropType<TabsJustifyContent>
   }
 }
 

@@ -106,10 +106,18 @@
       :type="type"
       :currentName="currentName"
       :position="_position"
+      :justifyContent="justifyContent"
       :beforeEnter="beforeEnter"
       @setCurrentName="setCurrentName"
       v-if="navs.length"
-    />
+    >
+      <template #prefix>
+        <slot name="prefix"></slot>
+      </template>
+      <template #suffix>
+        <slot name="suffix"></slot>
+      </template>
+    </tabs-nav>
     <div class="f-tabs-content">
       <slot></slot>
     </div>

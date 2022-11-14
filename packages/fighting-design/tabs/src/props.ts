@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import { TabsPaneName, TabsPosition, TabsType, TabsAlign } from './interface'
+import { TabsPaneName, TabsPosition, TabsType, TabsJustifyContent } from './interface'
 
 export const Props = {
   /**
@@ -20,9 +20,9 @@ export const Props = {
     type: String as PropType<TabsType>,
     default: 'line'
   },
-  align: {
-    type: String as PropType<TabsAlign>,
-    default: 'left'
+  justifyContent: {
+    type: String as PropType<TabsJustifyContent>,
+    default: 'flex-start'
   },
   beforeEnter: {
     type: Function as PropType<(name: TabsPaneName) => boolean|void>
@@ -31,7 +31,6 @@ export const Props = {
 
 export const Emits = {
   'update:modelValue': (val: String | Number) => true, // 下标可能为0
-  // 'before-enter': (name: TabsPaneName): boolean => true
 } as const
 
 export type TabsPropsType = ExtractPropTypes<typeof Props>

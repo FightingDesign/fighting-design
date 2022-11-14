@@ -31,17 +31,14 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
   async function updateWrapperStyle() {
     await nextTick()
     if (!prop.navs.length) return
+    const wrapperEl = instance.subTree.el.querySelector('.f-tabs-nav--items') as HTMLElement
+
     if (prop.position === 'left' || prop.position === 'right') {
       if (wrapperStyle.value.width) return
-      const children = instance.subTree.el.querySelectorAll('.f-tabs-nav--item:not(.f-tabs-nav--item__active)') as HTMLElement[]
-      const maxHeight = Math.max(...Array.from(children).map(e => e.offsetWidth))
-      wrapperStyle.value = {width: maxHeight + 12 + 'px'}
+      wrapperStyle.value = {width: wrapperEl.offsetWidth + 8 + 'px'}
     } else {
       if (wrapperStyle.value.height) return
-      const children = instance.subTree.el.querySelectorAll('.f-tabs-nav--item:not(.f-tabs-nav--item__active)') as HTMLElement[]
-      const maxHeight = Math.max(...Array.from(children).map(e => e.offsetHeight))
-
-      wrapperStyle.value = {height: maxHeight + 16 + 'px'}
+      wrapperStyle.value = {height: wrapperEl.offsetHeight + 12 + 'px'}
     }
   }
 
@@ -101,19 +98,33 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
   /**
    * 风格样式调整
    */
-  watch([currentIndex, () => prop.position, () => prop.type], () => {
-    if (prop.type === 'line') {
-      updateActiveLineStyle()
-    }
+  watch(
+    [
+      currentIndex,
+      () => prop.position,
+      () => prop.type, 
+      () => prop.justifyContent
+    ],
+    () => {
+      if (prop.type === 'card') {
+        updateWrapperStyle()
+      } else {
+        wrapperStyle.value = {}
+      }
 
-    if (prop.type === 'card') {
-      updateWrapperStyle()
-    } else {
-      wrapperStyle.value = {}
+      if (prop.type === 'line') {
+        updateActiveLineStyle()
+        if (prop.position === 'top' || prop.position === 'bottom') {
+          wrapperStyle.value = {
+            justifyContent: prop.justifyContent
+          }
+        }
+      }
+    },
+    {
+      immediate: true
     }
-  }, {
-    immediate: true
-  })
+  )
 
   const classList = computed(() => {
     const { type, position } = prop
@@ -132,6 +143,7 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
 
 <template>
   <div class="f-tabs-nav" :class="classList">
+    <slot name="prefix"></slot>
     <div class="f-tabs-nav__scroll" @wheel.passive="handleWheel">
       <div class="f-tabs-nav__wrapper">
         <div class="f-tabs-nav--items" :style="wrapperStyle">
@@ -154,5 +166,6 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
         </template>
       </div>
     </div>
+    <slot name="suffix"></slot>
   </div>
 </template>
