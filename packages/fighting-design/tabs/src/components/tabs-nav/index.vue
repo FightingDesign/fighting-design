@@ -13,10 +13,10 @@ import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance,
 
   const instance:ComponentInternalInstance = getCurrentInstance()
 
-  function clickNavItem(name: TabsPaneName, index: number) {
+  async function clickNavItem(name: TabsPaneName, index: number) {
     let res:boolean | void = true
     if (prop.beforeEnter) {
-      res = prop.beforeEnter(name)
+      res = await prop.beforeEnter(name)
     }
     if (typeof res === 'boolean' && !res) return
   

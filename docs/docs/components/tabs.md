@@ -177,12 +177,82 @@
 
 :::
 
+## 切换时的回调
+
+<f-tabs :beforeEnter="beforeEnter">
+  <f-tabs-pane label="个人信息" name="name">
+    <p>小芳，女</p>
+  </f-tabs-pane>
+  <f-tabs-pane label="爱好(等一秒)" name="hobby">
+    <p>疯狂星期四，V我50~</p>
+  </f-tabs-pane>
+  <f-tabs-pane label="年龄" name="age">
+  </f-tabs-pane>
+</f-tabs>
+
+::: details 显示代码
+
+```html
+<f-tabs :beforeEnter="beforeEnter">
+  <f-tabs-pane label="个人信息" name="name">
+    <p>小芳，女</p>
+  </f-tabs-pane>
+  <f-tabs-pane label="爱好(等一秒)" name="hobby">
+    <p>疯狂星期四，V我50~</p>
+  </f-tabs-pane>
+  <f-tabs-pane label="年龄" name="age">
+  </f-tabs-pane>
+</f-tabs>
+
+<script lang="ts" setup>
+import { FMessage } from 'fighting-design'
+
+const beforeEnter = (name) => {
+  switch(name) {
+    case 'hobby':
+      return new Promise<boolean>((resolve) => {
+        FMessage.warning('稍等一下~')
+        setTimeout(() => {
+          resolve(true)
+        }, 1000)
+      })
+    case 'age':
+      FMessage.danger('这个不能说')
+      return false
+    default: 
+      return true
+  }
+}
+</script>
+```
+
+:::
+
+
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import { FMessage } from '../../../packages/fighting-design/index'
 
   const type = ref('line')
   const position = ref('top')
   const justifyContent = ref('line')
+
+  const beforeEnter = (name) => {
+    switch(name) {
+      case 'hobby':
+        return new Promise<boolean>((resolve) => {
+          FMessage.warning('稍等一下~')
+          setTimeout(() => {
+            resolve(true)
+          }, 1000)
+        })
+      case 'age':
+        FMessage.danger('这个不能说')
+        return false
+      default: 
+        return true
+    }
+  }
 </script>
 
 ## Tabs Attributes
@@ -193,6 +263,7 @@
 | `type`    |  风格类型     |  string    | `line` `card` `segment`         | `line`  |
 | `position`    |  头部位置    |  string    | `left` `right` `top` `bottom`     | `top`  |
 | `justifyContent`    |  对齐方式(仅针对上下方向的`line`有效)    |  string    | `flex-start` `center` `flex-end` `space-between` `space-around`     | `flex-start`  |
+| `beforeEnter` | 切换前的回调 | (name: String \| Number) => Boolean | —— |  —— | 
 
 ## Tabs Slots
 
