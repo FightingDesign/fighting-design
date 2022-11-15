@@ -40,13 +40,12 @@
 
 <template>
   <f-select v-model="value1" placeholder="请选择……">
-    <f-option label="香蕉" :value="1"></f-option>
-    <f-option label="苹果" :value="2"></f-option>
-    <f-option label="哈密瓜" :value="3"></f-option>
-    <f-option label="樱桃" :value="4"></f-option>
+    <f-option label="香蕉" :value="1" />
+    <f-option label="苹果" :value="2" />
+    <f-option label="哈密瓜" :value="3" />
+    <f-option label="樱桃" :value="4" />
   </f-select>
 
-  <f-option label="香蕉" :value="1"></f-option>
   <!-- <div style="padding: 20px">
     <f-card>
       <f-tabs
