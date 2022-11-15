@@ -1,14 +1,19 @@
 <script lang="ts" setup>
-  import { FMessage } from '@/index'
+  import { FSlider } from '@/index'
+import { ref } from 'vue';
 
-  const openMessage = (): void => {
-    FMessage({
-      message: '这是一条消息提示',
-      type: 'success'
-    })
-  }
+  const value = ref(25)
+
+  const disabled = ref(false)
 </script>
 
 <template>
-  <f-button type="primary" @click="openMessage">show</f-button>
+  <div style="padding: 0 100px">
+    <f-slider v-model="value" :disabled="disabled" :vertical="false" :step="1" :min="0" :max="100"></f-slider>
+
+    <button @click="disabled=!disabled">禁用</button>
+  </div>
+  <div style="height: 500px;">
+    <f-slider vertical></f-slider>
+  </div>
 </template>

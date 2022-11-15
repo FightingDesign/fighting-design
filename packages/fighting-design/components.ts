@@ -173,3 +173,6 @@ export * from './select'
 
 export { FOption } from './option'
 export * from './option'
+
+export { FSlider } from './slider'
+export * from './slider'
