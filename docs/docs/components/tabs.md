@@ -273,9 +273,103 @@ const beforeEnter = (name) => {
 
 <f-card>
   <f-tabs editStatus type="card" @edit="edit">
-    <f-tabs-pane :label="item.label" v-for="item in list">{{item.content}}</f-tabs-pane>
+    <f-tabs-pane :label="item.label" :name="item.name" v-for="item in list">{{item.content}}</f-tabs-pane>
   </f-tabs>
 </f-card>
+
+::: details 显示代码
+
+```html
+<f-card>
+  <f-tabs editStatus type="card" @edit="edit">
+    <f-tabs-pane :label="item.label" :name="item.name" v-for="item in list">{{item.content}}</f-tabs-pane>
+  </f-tabs>
+</f-card>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+let tabIndex = 2
+const list = ref([
+  {label: '第一个', content: '哈哈哈哈', name: '1'},
+  {label: '第二个', content: '哈哈哈哈a', name: '2'},
+])
+
+function edit(action:"remove" | "add", name: string, i:number) {
+  switch (action) {
+    case "add":
+    const newTabName = `${++tabIndex}`
+      list.value.push({label: '新的' + newTabName, content: '新的标签页' + newTabName, name: newTabName})
+      break;
+    case "remove":
+      list.value.splice(i, 1)
+      break;
+  }
+}
+</script>
+```
+:::
+
+## 触发方式
+
+配置`trigger`改变触发方式
+
+<f-card>
+  <f-tabs :trigger="trigger">
+    <f-tabs-pane label="如烟">
+      <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
+      <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
+    </f-tabs-pane>
+    <f-tabs-pane label="盛夏光年">
+      <p>长大 难道是人必经的溃烂。</p>
+    </f-tabs-pane>
+    <f-tabs-pane label="我心中尚未崩坏的地方">
+      <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
+    </f-tabs-pane>
+  </f-tabs>
+
+  <p>
+    触发方式：
+    <f-radio-group v-model="trigger">
+      <f-radio label="click">click</f-radio>
+      <f-radio label="hover">hover</f-radio>
+    </f-radio-group>
+  </p>
+</f-card>
+
+::: details 显示代码
+
+```html
+<f-card>
+  <f-tabs :trigger="trigger">
+    <f-tabs-pane label="如烟">
+      <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
+      <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
+    </f-tabs-pane>
+    <f-tabs-pane label="盛夏光年">
+      <p>长大 难道是人必经的溃烂。</p>
+    </f-tabs-pane>
+    <f-tabs-pane label="我心中尚未崩坏的地方">
+      <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
+    </f-tabs-pane>
+  </f-tabs>
+
+  <p>
+    触发方式：
+    <f-radio-group v-model="trigger">
+      <f-radio label="click">click</f-radio>
+      <f-radio label="hover">hover</f-radio>
+    </f-radio-group>
+  </p>
+</f-card>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const trigger = ref('click')
+</script>
+```
+:::
 
 
 
@@ -285,7 +379,7 @@ const beforeEnter = (name) => {
 
   const type = ref('line')
   const position = ref('top')
-  const justifyContent = ref('line')
+  const justifyContent = ref('flex-start')
 
   const beforeEnter = (name) => {
     switch(name) {
@@ -304,16 +398,18 @@ const beforeEnter = (name) => {
     }
   }
 
-  const list = ref([
-    {label: '第一个', content: '哈哈哈哈'},
-    {label: '第二个', content: '哈哈哈哈a'},
-  ])
+  const trigger = ref('click')
 
+  let tabIndex = 2
+  const list = ref([
+    {label: '第一个', content: '哈哈哈哈', name: '1'},
+    {label: '第二个', content: '哈哈哈哈a', name: '2'},
+  ])
   function edit(action:"remove" | "add", name: string, i:number) {
     switch (action) {
       case "add":
-        const index = list.value.length
-        list.value.push({label: '新的' + index, content: '新的标签页' + index})
+      const newTabName = `${++tabIndex}`
+        list.value.push({label: '新的' + newTabName, content: '新的标签页' + newTabName, name: newTabName})
         break;
       case "remove":
         list.value.splice(i, 1)
@@ -331,6 +427,8 @@ const beforeEnter = (name) => {
 | `position`    |  头部位置    |  string    | `left` `right` `top` `bottom`     | `top`  |
 | `justifyContent`    |  对齐方式(仅针对上下方向的`line`有效)    |  string    | `flex-start` `center` `flex-end` `space-between` `space-around`     | `flex-start`  |
 | `beforeEnter` | 切换前的回调 | (name: String \| Number) => Boolean | —— |  —— | 
+| `editStatus` | 编辑模式 | Boolean | —— |  `false` | 
+| `trigger` | 触发方式 | String | `click` `hover` |  `click` | 
 
 ## Tabs Slots
 
