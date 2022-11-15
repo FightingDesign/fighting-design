@@ -22,7 +22,10 @@
   import type { ComponentInternalInstance } from 'vue'
 
   const prop: TabsPropsType = defineProps(Props)
-  const emits = defineEmits(['update:modelValue', 'edit'])
+  const emits = defineEmits<{
+    (e: 'update:modelValue', name: TabsPaneName): void
+    (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void
+  }>()
 
   const instance: ComponentInternalInstance | null = getCurrentInstance()
 
@@ -31,7 +34,7 @@
    */
   const currentName = ref<TabsPaneName>(0)
 
-  function setCurrentName (name: TabsPaneName): void {
+  function setCurrentName(name: TabsPaneName): void {
     // 如果用户没有设置v-model, 这里可以直接在内部修改
     currentName.value = name
     emits('update:modelValue', name)
@@ -39,7 +42,7 @@
   /**
    * 触发用户的emit
    */
-  function edit (
+  function edit(
     action: 'remove' | 'add',
     name?: TabsPaneName,
     i?: number
@@ -54,7 +57,7 @@
    * 更新pane列表
    * @param pane
    */
-  function updatePaneList (): void {
+  function updatePaneList(): void {
     nextTick(() => {
       if (!instance) return
       panes.value = getChildrenComponent(instance, 'FTabsPane').map(

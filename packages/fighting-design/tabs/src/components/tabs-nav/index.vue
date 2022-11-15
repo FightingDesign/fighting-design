@@ -16,7 +16,10 @@
   import type { ComponentInternalInstance, CSSProperties } from 'vue'
 
   const prop: TabsNavPropsType = defineProps(Props)
-  const emit = defineEmits(['set-current-name', 'edit'])
+  const emit = defineEmits<{
+    (e: 'set-current-name', name: TabsPaneName): void
+    (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void
+  }>()
 
   const currentIndex = computed(() =>
     prop.navs
@@ -29,7 +32,7 @@
 
   const instance: ComponentInternalInstance | null = getCurrentInstance()
 
-  async function clickNavItem (name: TabsPaneName): Promise<void> {
+  async function clickNavItem(name: TabsPaneName): Promise<void> {
     let res: boolean | void = true
     if (prop.beforeEnter) {
       res = await prop.beforeEnter(name)
@@ -39,7 +42,7 @@
     emit('set-current-name', name)
   }
 
-  function editItem (
+  function editItem(
     action: 'remove' | 'add',
     name?: TabsPaneName,
     i?: number
@@ -54,7 +57,7 @@
    * 防止在切换标签时出现跳动的情况
    */
   const wrapperStyle = ref<CSSProperties>({})
-  async function updateWrapperStyle (): Promise<void> {
+  async function updateWrapperStyle(): Promise<void> {
     await nextTick()
     if (!prop.navs) return
     const positionVar: {
@@ -128,7 +131,7 @@
    */
   const activeLineStyle = ref<CSSProperties>({})
 
-  async function updateActiveLineStyle (): Promise<void> {
+  async function updateActiveLineStyle(): Promise<void> {
     await nextTick()
     if (!instance || !instance.subTree.el) return
     const { position } = prop
@@ -175,8 +178,8 @@
    *
    * 实现横向滚动效果
    */
-  function handleWheel (e: WheelEvent): void {
-    (e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
+  function handleWheel(e: WheelEvent): void {
+    ;(e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
     deriveScrollShadow(e.currentTarget as HTMLElement)
   }
 
@@ -186,7 +189,7 @@
   const leftReachedRef = ref(false)
   const rightReachedRef = ref(false)
 
-  function deriveScrollShadow (el: HTMLElement | null): void {
+  function deriveScrollShadow(el: HTMLElement | null): void {
     if (!el) return
     const { scrollLeft, scrollWidth, offsetWidth } = el
     leftReachedRef.value = scrollLeft > 0

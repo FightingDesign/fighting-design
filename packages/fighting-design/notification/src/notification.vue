@@ -20,7 +20,9 @@
   import { massageManage } from '../../_hooks'
 
   const prop: NotificationPropsType = defineProps(Props)
-  const emit = defineEmits(['destroy'])
+  const emit = defineEmits<{
+    (e: 'destroy'): void
+  }>()
 
   const notificationDefaultIcon = {
     default: FIconSmileLineVue,

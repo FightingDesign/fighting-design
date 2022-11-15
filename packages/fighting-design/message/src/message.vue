@@ -13,7 +13,9 @@
   import type { MessagePropsType } from './props'
 
   const prop: MessagePropsType = defineProps(Props)
-  const emit = defineEmits(['destroy'])
+  const emit = defineEmits<{
+    (e: 'destroy'): void
+  }>()
 
   const messageRef = ref<HTMLDivElement>()
   const messageHeight: Ref<number> = ref<number>(0)
