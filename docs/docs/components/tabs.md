@@ -18,6 +18,7 @@
     <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
   </f-tabs-pane>
 </f-tabs>
+
 ::: details 显示代码
 
 ```html
@@ -264,6 +265,20 @@ const beforeEnter = (name) => {
 
 :::
 
+## Edit模式
+
+仅在`card`风格下支持`edit`模式
+
+需添加`editStatus`属性，并配置`edit`回调事件
+
+<f-card>
+  <f-tabs editStatus type="card" @edit="edit">
+    <f-tabs-pane :label="item.label" v-for="item in list">{{item.content}}</f-tabs-pane>
+  </f-tabs>
+</f-card>
+
+
+
 <script lang="ts" setup>
   import { ref } from 'vue'
   import { FMessage } from '../../../packages/fighting-design/index'
@@ -286,6 +301,23 @@ const beforeEnter = (name) => {
         return false
       default: 
         return true
+    }
+  }
+
+  const list = ref([
+    {label: '第一个', content: '哈哈哈哈'},
+    {label: '第二个', content: '哈哈哈哈a'},
+  ])
+
+  function edit(action:"remove" | "add", name: string, i:number) {
+    switch (action) {
+      case "add":
+        const index = list.value.length
+        list.value.push({label: '新的' + index, content: '新的标签页' + index})
+        break;
+      case "remove":
+        list.value.splice(i, 1)
+        break;
     }
   }
 </script>

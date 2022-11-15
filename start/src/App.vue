@@ -7,24 +7,24 @@
   const tab = ref(0)
 
   const list = ref([
-    {label: '第一个', content: '哈哈哈哈'},
-    {label: '第二个', content: '哈哈哈哈a'},
+    {label: '第一个', content: '哈哈哈哈', name: '1'},
+    {label: '第二个', content: '哈哈哈哈a', name: '2'},
   ])
 
-  for (let i = 0; i < 10; i++) {
-    list.value.push(
-      {label: `第${i}个`, content: '哈哈哈哈a' + i},
-    )
-  }
-
+  // for (let i = 0; i < 5; i++) {
+  //   list.value.push(
+  //     {label: `第${i}个`, content: '哈哈哈哈a' + i, name: i + ''},
+  //   )
+  // }
+  let tabIndex = 2
   function edit(action:"remove" | "add", name: string, i:number) {
     switch (action) {
       case "add":
-        list.value.push({label: '新的', content: '新的标签页'})
+      const newTabName = `${++tabIndex}`
+        list.value.push({label: '新的' + newTabName, content: '新的标签页' + newTabName, name: newTabName})
         break;
       case "remove":
         list.value.splice(i, 1)
-      default:
         break;
     }
   }
@@ -33,10 +33,8 @@
 <template>
   <div style="padding: 20px">
   <f-card>
-    <f-tabs trigger="hover" :position="position" :justifyContent="justifyContent" editStatus :type="type" v-model="tab" @edit="edit">
-      <template #prefix>前</template>
-      <template #suffix>后</template>
-      <f-tabs-pane :label="item.label" v-for="item in list">{{item.content}}</f-tabs-pane>
+    <f-tabs :position="position" :justifyContent="justifyContent" editStatus :type="type" v-model="tab" @edit="edit">
+      <f-tabs-pane :name="item.name" :label="item.label" v-for="item,i in list">{{item.content}}</f-tabs-pane>
     </f-tabs>
   </f-card>
 

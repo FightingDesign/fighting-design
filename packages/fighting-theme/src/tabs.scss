@@ -130,6 +130,9 @@
 
 
     .f-tabs-nav--item{
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       text-align: center;
       word-break: keep-all;

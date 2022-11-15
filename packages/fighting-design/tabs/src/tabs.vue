@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FTabs">
   import { Props, TabsProvideKey, Emits } from './props'
   import type { TabsPropsType, TabsNavInstance, TabsProvide, TabsPaneName } from './interface'
-  import { onMounted, ref, provide, computed, ComponentInternalInstance, getCurrentInstance, watch, onBeforeUpdate, nextTick } from 'vue'
+  import { onMounted, ref, provide, computed, ComponentInternalInstance, getCurrentInstance, watch, onBeforeUpdate, nextTick, useSlots } from 'vue'
   import { TabsNav } from './components'
   import { debugWarn, __DEV__ } from '../../_utils'
   import { getChildrenComponent } from './utils'
@@ -100,6 +100,7 @@
     updatePaneList
   })
 
+  const slots = useSlots()
 </script>
 
 <template>
@@ -117,10 +118,10 @@
       @edit="edit"
       v-if="navs.length"
     >
-      <template #prefix>
+      <template #prefix v-if="slots.prefix">
         <slot name="prefix"></slot>
       </template>
-      <template #suffix>
+      <template #suffix v-if="slots.suffix">
         <slot name="suffix"></slot>
       </template>
     </tabs-nav>

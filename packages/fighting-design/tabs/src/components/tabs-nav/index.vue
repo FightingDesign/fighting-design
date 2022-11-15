@@ -3,7 +3,7 @@
   import type { TabsNavPropsType } from './interface'
   import { isString, sizeToNum } from '../../../../_utils'
   import { TabsPaneName } from '../../interface';
-  import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance, nextTick, ref, watch } from 'vue';
+  import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance, nextTick, ref, useSlots, watch } from 'vue';
   import { FIconCrossVue, FIconPlusVue } from '../../../../_svg'
   import { FSvgIcon } from '../../../../svg-icon'
 
@@ -196,14 +196,19 @@
     }
   })
 
+  /**
+   * 事件处理
+   */
   const trigger = computed(() => {
     return prop.trigger === 'hover' ? 'mouseenter' : 'click'
   })
+
+  const slots = useSlots()
 </script>
 
 <template>
   <div class="f-tabs-nav" :class="classList">
-    <div class="f-tabs-nav__prefix">
+    <div class="f-tabs-nav__prefix" v-if="slots.prefix">
       <slot name="prefix"></slot>
     </div>
     <div class="f-tabs-nav__main" :class="scrollClassList">
@@ -223,14 +228,14 @@
             </div>
             <FSvgIcon class="f-tabs-nav--item__card_close" :icon="FIconCrossVue" v-if="type === 'card' && editStatus" @click.stop="editItem('remove', item.name, i)"></FSvgIcon>
           </div>
-          <div class="f-tabs-nav--item" @click="editItem('add')">
+          <div class="f-tabs-nav--item" @click="editItem('add')" v-if="type === 'card' && editStatus">
             <FSvgIcon :icon="FIconPlusVue" color="#666"></FSvgIcon>
           </div>
           <div class="f-tabs-nav--line__active" :style="activeLineStyle"  v-if="prop.type === 'line'"></div>
         </div>
       </div>
     </div>
-    <div class="f-tabs-nav__suffix">
+    <div class="f-tabs-nav__suffix" v-if="slots.suffix">
       <slot name="suffix"></slot>
     </div>
   </div>
