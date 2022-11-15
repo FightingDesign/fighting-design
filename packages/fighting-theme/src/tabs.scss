@@ -17,12 +17,24 @@
     .f-tabs-nav__wrapper{
       min-width: 100%;
     }
+    .f-tabs-nav__prefix{
+      padding-right: 10px;
+    }
+    .f-tabs-nav__suffix{
+      padding-left: 10px;
+    }
   }
   
   &.f-tabs__position_left, &.f-tabs__position_right{
-    .f-tabs-nav, .f-tabs-nav--items{
+    .f-tabs-nav, .f-tabs-nav__wrapper{
       flex-direction:column;
       align-items: flex-end;
+    }
+    .f-tabs-nav__prefix{
+      padding-bottom: 10px;
+    }
+    .f-tabs-nav__suffix{
+      padding-top: 10px;
     }
   }
   &.f-tabs__position_left{
@@ -30,7 +42,7 @@
   }
   &.f-tabs__position_right{
     flex-direction: row-reverse;
-    .f-tabs-nav, .f-tabs-nav--items{
+    .f-tabs-nav, .f-tabs-nav__wrapper{
       align-items: flex-start;
     }
   }
@@ -69,8 +81,16 @@
 }
 
 .f-tabs-nav{
+  --padding: 0;
   display: flex;
   flex-shrink: 0;
+
+  .f-tabs-nav__suffix, .f-tabs-nav__prefix{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding);
+  }
   
   .f-tabs-nav__wrapper{
     width: fit-content;
@@ -104,13 +124,16 @@
   }
 
 
-  .f-tabs-nav--items{
+  .f-tabs-nav__wrapper{
     display: flex;
+    position: relative;
+
 
     .f-tabs-nav--item{
       cursor: pointer;
       text-align: center;
       word-break: keep-all;
+      padding: var(--padding);
 
       &:hover{
         color: $primary;
@@ -123,27 +146,22 @@
   // line风格
   &.f-tabs-nav__type_line{
     flex-shrink: 0;
-    .f-tabs-nav--line{
-      background-color: #ccc;
-    }
 
     .f-tabs-nav--line__active{
       background: $primary;
       transition: all .3s;
+      position: absolute;
     }
     // 上下方向
     &.f-tabs-nav__type_line_top, &.f-tabs-nav__type_line_bottom{
-      .f-tabs-nav--line{
-        width: 100%;
-        height: 2px;
-      }
+      --padding: 10px 0;
+
+      border-bottom: 1px solid #ddd;
       .f-tabs-nav--line__active{
         height: 2px;
       }
 
       .f-tabs-nav--item{
-        padding-top: 10px;
-        padding-bottom: 10px;
         &:not(:first-child):not(:last-child) {
           padding-left: 10px;
           padding-right: 10px;
@@ -158,20 +176,13 @@
     }
     // 左右方向
     &.f-tabs-nav__type_line_left,  &.f-tabs-nav__type_line_right{
-      .f-tabs-nav__wrapper{
-        display: flex;
-      }
-      .f-tabs-nav--line{
-        width:2px;
-        height:100%;
-      }
+      --padding: 0 10px;
+
       .f-tabs-nav--line__active{
         width: 2px;
       }
 
       .f-tabs-nav--item{
-        padding-left: 10px;
-        padding-right: 10px;
         &:not(:first-child):not(:last-child) {
           padding-top: 10px;
           padding-bottom: 10px;
@@ -184,11 +195,11 @@
         }
       }
     }
-
+    &.f-tabs-nav__type_line_left{
+      border-right: 1px solid #ccc;
+    }
     &.f-tabs-nav__type_line_right{
-      .f-tabs-nav__wrapper{
-        flex-direction: row-reverse;
-      }
+      border-left: 1px solid #ccc;
     }
   }
 
@@ -239,7 +250,7 @@
 
     // 上方
     &.f-tabs-nav__type_card_top{
-      .f-tabs-nav--items{
+      .f-tabs-nav__wrapper{
         align-items: flex-end;
       }
       .f-tabs-nav--item{
@@ -271,7 +282,7 @@
     }
     // 下方
     &.f-tabs-nav__type_card_bottom{
-      .f-tabs-nav--items{
+      .f-tabs-nav__wrapper{
         align-items: flex-start;
       }
       .f-tabs-nav--item{
@@ -302,9 +313,11 @@
     }
     // 上下公用
     &.f-tabs-nav__type_card_top, &.f-tabs-nav__type_card_bottom{
-      .f-tabs-nav--item{
-        padding: 4px 12px;
-      }
+      // .f-tabs-nav--item{
+      //   padding: 4px 12px;
+      // }
+      --padding: 4px 12px;
+
 
       .f-tabs-nav--item+.f-tabs-nav--item{
         margin-left: -1px;
@@ -325,9 +338,11 @@
     }
     // 左右公用
     &.f-tabs-nav__type_card_left, &.f-tabs-nav__type_card_right{
-      .f-tabs-nav--item{
-        padding: 4px 8px;
-      }
+      --padding: 4px 8px;
+
+      // .f-tabs-nav--item{
+      //   padding: 4px 8px;
+      // }
       .f-tabs-nav--item+.f-tabs-nav--item{
         margin-top: -1px;
       }
@@ -409,12 +424,13 @@
   }
   // segment 风格
   &.f-tabs-nav__type_segment{
+    --padding: 4px 8px;
     --segmentBgColor: #f7f7fa;
     background: var(--segmentBgColor);
     padding: 4px;
 
     .f-tabs-nav--item{
-      padding: 4px 8px;
+      // padding: 4px 8px;
       flex: 1;
 
       &.f-tabs-nav--item__active{

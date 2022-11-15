@@ -92,7 +92,6 @@
    * 仅针对line模式下的，活动线条的样式
    */
   const activeLineStyle = ref<CSSProperties>({})
-  const lineStyle = ref<CSSProperties>({})
 
   async function updateActiveLineStyle() {
     await nextTick()
@@ -105,16 +104,19 @@
 
     const parent = nextItem.parentElement
     const nextItemStyle = window.getComputedStyle(nextItem)
+    console.log(nextItem.offsetLeft , parent.offsetLeft)
     if (position === 'top' || position === 'bottom') {
       activeStyle.width = nextItem.clientWidth - Number.parseFloat(nextItemStyle.paddingLeft) - Number.parseFloat(nextItemStyle.paddingRight) + 'px'
-      activeStyle.transform = `translateX(${nextItem.offsetLeft - parent.offsetLeft + Number.parseFloat(nextItemStyle.paddingLeft)}px)`
-      lineStyle.value = {}
+      activeStyle.left = `${nextItem.offsetLeft + Number.parseFloat(nextItemStyle.paddingLeft)}px`
+      activeStyle.bottom = '0px'
     } else {
       activeStyle.height = nextItem.clientHeight - Number.parseFloat(nextItemStyle.paddingTop) - Number.parseFloat(nextItemStyle.paddingBottom) + 'px'
-      activeStyle.transform = `translateY(${nextItem.offsetTop - parent.offsetTop + Number.parseFloat(nextItemStyle.paddingTop)}px)`
-    
-      const wrapperEl = instance.subTree.el.querySelector('.f-tabs-nav__wrapper')
-      lineStyle.value.height = wrapperEl.scrollHeight + 'px'
+      activeStyle.top = `${nextItem.offsetTop + Number.parseFloat(nextItemStyle.paddingTop)}px`
+      if (position === 'left') {
+        activeStyle.right = '0px'
+      } else {
+        activeStyle.left = '0px'
+      }
     }
     activeLineStyle.value = activeStyle
   }
@@ -199,34 +201,32 @@
 
 <template>
   <div class="f-tabs-nav" :class="classList">
-    <slot name="prefix"></slot>
+    <div class="f-tabs-nav__prefix">
+      <slot name="prefix"></slot>
+    </div>
     <div class="f-tabs-nav__main" :class="scrollClassList">
       <div class="f-tabs-nav__scroll" @wheel.passive="handleWheel">
-        <div class="f-tabs-nav__wrapper">
-          <div class="f-tabs-nav--items" :style="wrapperStyle">
-            <div class="f-tabs-nav--item"
-              :class="[{
-                'f-tabs-nav--item__active': item.name === prop.currentName
-              }]"
-              v-for="item, i in prop.navs"
-              :key="item.name"
-              @click="clickNavItem(item.name)"
-            >
-              <span v-if="isString(item.label)">{{item.label}}</span>
-              <div v-else>
-                <component :is="item.label"></component>
-              </div>
-              <FSvgIcon :icon="FIconCrossVue" v-if="editStatus" @click.stop="closeItem(item.name, i)"></FSvgIcon>
+        <div class="f-tabs-nav__wrapper" :style="wrapperStyle">
+          <div class="f-tabs-nav--item"
+            :class="[{
+              'f-tabs-nav--item__active': item.name === prop.currentName
+            }]"
+            v-for="item, i in prop.navs"
+            :key="item.name"
+            @click="clickNavItem(item.name)"
+          >
+            <span v-if="isString(item.label)">{{item.label}}</span>
+            <div v-else>
+              <component :is="item.label"></component>
             </div>
+            <FSvgIcon :icon="FIconCrossVue" v-if="type === 'card' && editStatus" @click.stop="closeItem(item.name, i)"></FSvgIcon>
           </div>
-          <template  v-if="prop.type === 'line'">
-            <div class="f-tabs-nav--line" :style="lineStyle">
-              <div class="f-tabs-nav--line__active" :style="activeLineStyle"></div>
-            </div>
-          </template>
+          <div class="f-tabs-nav--line__active" :style="activeLineStyle"  v-if="prop.type === 'line'"></div>
         </div>
       </div>
     </div>
-    <slot name="suffix"></slot>
+    <div class="f-tabs-nav__suffix">
+      <slot name="suffix"></slot>
+    </div>
   </div>
 </template>
