@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import {
+import type {
   TabsNavInstance,
   TabsPaneName,
   TabsPosition,
@@ -36,14 +36,5 @@ export const Props = {
     type: String as PropType<'click' | 'hover'>
   }
 }
-
-export const Emits = {
-  'set-current-name': (name: TabsPaneName): boolean => true,
-  edit: (
-    action: 'remove' | 'add',
-    name: TabsPaneName,
-    index: number
-  ): boolean => true
-} as const
 
 export type TabsNavPropsType = ExtractPropTypes<typeof Props>

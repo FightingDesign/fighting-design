@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FTabsNav">
-  import { Emits, Props } from './props'
+  import { Props } from './props'
   import { isString, sizeToNum } from '../../../../_utils'
   import {
     computed,
@@ -13,22 +13,23 @@
   import { FSvgIcon } from '../../../../svg-icon'
   import type { TabsNavPropsType } from './interface'
   import type { TabsPaneName } from '../../interface'
-  import type { ComponentInternalInstance, CSSProperties } from 'vue'
+  import type { ComponentInternalInstance, CSSProperties} from 'vue'
 
   const prop: TabsNavPropsType = defineProps(Props)
 
-  const emit = defineEmits(Emits)
+  const emit = defineEmits(['set-current-name', 'edit'])
 
   const currentIndex = computed(() =>
+    prop.navs ?
     Math.max(
       prop.navs.findIndex((e) => e.name === prop.currentName),
       0
-    )
+    ) : 0
   )
 
-  const instance: ComponentInternalInstance = getCurrentInstance()
+  const instance: ComponentInternalInstance | null = getCurrentInstance()
 
-  async function clickNavItem (name: TabsPaneName) {
+  async function clickNavItem (name: TabsPaneName):Promise<void> {
     let res: boolean | void = true
     if (prop.beforeEnter) {
       res = await prop.beforeEnter(name)
@@ -38,11 +39,11 @@
     emit('set-current-name', name)
   }
 
-  async function editItem (
+  function editItem (
     action: 'remove' | 'add',
     name?: TabsPaneName,
     i?: number
-  ) {
+  ): void {
     emit('edit', action, name, i)
   }
   /**
@@ -53,10 +54,14 @@
    * 防止在切换标签时出现跳动的情况
    */
   const wrapperStyle = ref<CSSProperties>({})
-  async function updateWrapperStyle () {
+  async function updateWrapperStyle ():Promise<void> {
     await nextTick()
-    if (!prop.navs.length) return
-    const positionVar = { a: 'height', b: 'offsetHeight', c: 'paddingBottom' }
+    if (!prop.navs) return
+    const positionVar:{
+      a: keyof HTMLObjectElement,
+      b: keyof HTMLObjectElement,
+      c: keyof CSSStyleDeclaration
+    } = { a: 'height', b: 'offsetHeight', c: 'paddingBottom' }
     if (prop.position === 'left' || prop.position === 'right') {
       positionVar.a = 'width'
       positionVar.b = 'offsetWidth'
@@ -79,20 +84,20 @@
         positionVar.c = 'paddingLeft'
         break
     }
-
     // 当前nav的高度
-    const wrapperEl = instance.subTree.el as HTMLElement
+    if (!instance || !instance.subTree.el) return
+    const wrapperEl = instance.subTree.el as HTMLObjectElement
     // 获取除active元素外最高的子元素
     const children = instance.subTree.el.querySelectorAll(
       '.f-tabs-nav--item:not(.f-tabs-nav--item__active)'
-    ) as HTMLElement[]
+    ) as HTMLObjectElement[]
     const maxChildren = Array.from(children).reduce((pre, cur) => {
-      pre = cur[positionVar.b] > pre[positionVar.b] ? cur : pre
+      pre = (cur[positionVar.b] as Number) > (pre[positionVar.b] as Number) ? cur : pre
       return pre
     }, children[0])
     // 最高的子元素的padding
     const padding = sizeToNum(
-      window.getComputedStyle(maxChildren)[positionVar.c]
+      window.getComputedStyle(maxChildren)[positionVar.c] as string
     )
     // css变量
     const cardActiveDiffHeight = window
@@ -120,8 +125,9 @@
    */
   const activeLineStyle = ref<CSSProperties>({})
 
-  async function updateActiveLineStyle () {
+  async function updateActiveLineStyle ():Promise<void> {
     await nextTick()
+    if (!instance || !instance.subTree.el) return
     const { position } = prop
     const activeStyle: CSSProperties = {}
     const children = instance.subTree.el.querySelectorAll(
@@ -166,9 +172,9 @@
    *
    * 实现横向滚动效果
    */
-  function handleWheel (e) {
+  function handleWheel (e: WheelEvent):void {
     (e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
-    deriveScrollShadow(e.currentTarget)
+    deriveScrollShadow(e.currentTarget as HTMLElement)
   }
 
   /**
@@ -193,7 +199,11 @@
     }
   })
   watch(
-    [() => prop.position, () => prop.type, () => prop.justifyContent],
+    [
+      ():unknown => prop.position,
+      ():unknown => prop.type,
+      ():unknown => prop.justifyContent
+    ],
     () => {
       wrapperStyle.value = {}
       if (prop.type === 'card') {

@@ -1,5 +1,3 @@
-import type { VNode } from 'vue'
-
 export type { TabsPropsType } from './tabs'
 
 /**
@@ -28,7 +26,7 @@ export type TabsPaneName = string | number
 
 export interface TabsNavInstance {
   name: TabsPaneName
-  label: VNode | string
+  label: unknown
 }
 
 export interface TabsProvide {
