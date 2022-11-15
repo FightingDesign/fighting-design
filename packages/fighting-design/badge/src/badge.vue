@@ -4,8 +4,9 @@
   import { isNumber } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
+  import type { BadgePropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: BadgePropsType = defineProps(Props)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { type, dot } = prop

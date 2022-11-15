@@ -1,13 +1,13 @@
 <script lang="ts" setup name="FToolbarItem">
-  import { Emits, Props } from './props'
+  import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import type { HandleEventInterface as a } from '../../_interface'
+  import type { ToolbarItemPropsType } from './props'
 
-  defineProps(Props)
-  const emit = defineEmits(Emits)
+  const prop: ToolbarItemPropsType = defineProps(Props)
 
   const handleClick: a = (evt: MouseEvent): void => {
-    emit('click', evt)
+    prop.click && prop.click(evt)
   }
 </script>
 

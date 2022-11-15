@@ -1,16 +1,16 @@
 <script setup lang="ts" name="FLoading">
   import { computed } from 'vue'
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { FIconLoadingAVue } from '../../_components/svg/index'
+  import { FIconLoadingAVue } from '../../_svg'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { HandleEventInterface as a } from '../../_interface'
+  import type { LoadingPropsType } from './props'
 
-  const prop = defineProps(Props)
-  const emit = defineEmits(Emits)
+  const prop: LoadingPropsType = defineProps(Props)
 
   const handleClick: a = (evt: MouseEvent): void => {
-    prop.close && emit('close', evt)
+    prop.closeEnd && prop.closeEnd(evt)
   }
 
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {

@@ -6,10 +6,10 @@ import svgLoader from 'vite-svg-loader'
 export default (): UserConfigExport => {
   return {
     base: './',
-    plugins: [vue(), vueSetupExtend(), svgLoader()],
-    server: {
-      host: '0.0.0.0',
-      port: 1216
-    }
+    plugins: [vue(), vueSetupExtend(), svgLoader()]
+    // server: {
+    //   host: '0.0.0.0',
+    //   port: 1216
+    // }
   }
 }

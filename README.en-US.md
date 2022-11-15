@@ -55,7 +55,7 @@ npm install --save-dev fighting-design
 Use `yarn` install
 
 ```shell
-yarn add --save-dev fighting-Design
+yarn add --save-dev fighting-design
 ```
 
 ## 🎉 Quick Start

@@ -44,7 +44,7 @@
   </f-button-group>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { ref } from 'vue'
 
   const num = ref(10)

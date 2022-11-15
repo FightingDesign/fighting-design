@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode } from 'vue'
-import type { SwitchSizeType } from './interface'
+import type { SwitchSizeType, SwitchChangeInterface } from './interface'
 
 export const Props = {
   modelValue: {
@@ -41,12 +41,15 @@ export const Props = {
   square: {
     type: Boolean,
     default: (): boolean => false
+  },
+  change: {
+    type: Function as PropType<SwitchChangeInterface>,
+    default: (): null => null
   }
 } as const
 
 export const Emits = {
-  'update:modelValue': (target: boolean): string => String(target),
-  'change': (target: boolean): string => String(target)
+  'update:modelValue': (target: boolean): string => String(target)
 } as const
 
 export type SwitchPropsType = ExtractPropTypes<typeof Props>

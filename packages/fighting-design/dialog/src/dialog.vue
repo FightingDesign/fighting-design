@@ -6,8 +6,9 @@
   import { sizeChange } from '../../_utils'
   import type { Ref } from 'vue'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
+  import type { DialogPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: DialogPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)

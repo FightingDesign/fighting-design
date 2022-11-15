@@ -4,6 +4,43 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.8.0-alpha.4 (2022-11-02)
+
+- Mainly standardized the directory structure
+- Optimize the bit of some types of files
+
+## 0.8.0-alpha.3 (2022-11-01)
+
+**Fix Bug**
+
+- Fix the error reported by the `FMessage` `FNotification` component
+- Fix the style problem of disabled `f-radio` `f-radio-group` components
+- Fix the style problem of disabled `f-checkbox` `f-checkbox-group` components
+- Fix `f-alert` close button style details
+- Fix `f-tag` close button style details
+
+**Improve optimization**
+
+- `f-image` `f-avatar` component cancels `error` and `load` exit callback, and adds `error` and `load` props options
+- `f-calendar` component cancels `change-date` and `change-switch`exit callback, and adds `change-date` and `change-switch` props options
+- The `f-alert` component cancels the `close-end` exit callback, and adds the `close-end` props option
+- The `f-tag` component cancels the `close-end` exit callback, and adds the `close-end` props option
+- The `f-page-header` component cancels the `back` exit callback, and adds the `back` props option
+- The `f-rate` component cancels the `change` exit callback, and adds the `change` props option
+- The `f-checkbox-group` component cancels the `change` exit callback, and adds the `change` props option
+- The `f-link` component cancels the `click` exit callback and adds the `click` props option
+- The `f-button` component cancels the `click` exit callback, and adds the `click` props option
+- The `f-toolbar` component cancels the `click` exit callback, and adds the `click` props option
+- `f-toolbar item` component cancels `click` exit callback, and adds `click` props option
+- The `f-switch` component cancels the `change` exit callback, and adds the `change` props option
+- The `f-close btn` component cancels the `click` exit callback, and adds the `click` props option
+- The `f-loading` component cancels the `close` emit callback, and adds the `close-end` props option
+- The `f-svg-icon` component cancels the `click` exit callback, and adds the `click` props option
+- The `f-radio` component cancels the `change` exit callback, and adds the `change` props option
+- `f-radio group` component cancels `change` exit callback, and adds `change` props option
+- The style of the `f-radio` component has changed in the border state
+- `f-close-btn` Add `no-cover` configuration item
+
 ## 0.8.0-alpha.2 (2022-10-28)
 
 - Fix problems with importing component types on demand [#232](https://github.com/FightingDesign/fighting-design/pull/232)

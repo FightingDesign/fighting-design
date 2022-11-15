@@ -9,8 +9,9 @@
     HandleEventInterface as a,
     ClassListInterface as b
   } from '../../_interface'
+  import type { AlertPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: AlertPropsType = defineProps(Props)
 
   const isShow: Ref<boolean> = ref<boolean>(true)
 
@@ -55,10 +56,7 @@
 
   const handleClose: a = (evt: MouseEvent): void => {
     isShow.value = false
-
-    if (prop.closeEnd) {
-      prop.closeEnd(evt)
-    }
+    prop.closeEnd && prop.closeEnd(evt)
   }
 </script>
 
@@ -78,7 +76,13 @@
       </div>
     </div>
 
-    <f-close-btn v-if="close" :icon="closeIcon" @click.stop="handleClose">
+    <f-close-btn
+      v-if="close"
+      no-hover
+      color="#fff"
+      :icon="closeIcon"
+      @click.stop="handleClose"
+    >
       <slot name="closeIcon" />
     </f-close-btn>
   </div>

@@ -7,8 +7,9 @@
     ClassListInterface as a,
     OrdinaryFunctionInterface as b
   } from '../../_interface'
+  import type { StickyCardPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: StickyCardPropsType = defineProps(Props)
 
   const isOpen: Ref<boolean> = ref<boolean>(prop.open)
 

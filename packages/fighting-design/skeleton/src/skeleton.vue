@@ -3,8 +3,9 @@
   import { Props } from './props'
   import type { ComputedRef } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
+  import type { SkeletonPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: SkeletonPropsType = defineProps(Props)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { rounded, animated, circled, size } = prop

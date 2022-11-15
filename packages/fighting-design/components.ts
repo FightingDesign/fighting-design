@@ -1,15 +1,20 @@
 export { FAlert } from './alert'
+<<<<<<< HEAD
 export type {
   AlertInstance,
   AlertPropsType,
   AlertType,
   AlertOverflowType
 } from './alert'
+=======
+export * from './alert'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FAside } from './aside'
-export type { AsideInstance, AsidePropsType } from './aside'
+export * from './aside'
 
 export { FAvatar } from './avatar'
+<<<<<<< HEAD
 export type {
   AvatarInstance,
   AvatarPropsType,
@@ -23,17 +28,24 @@ export type {
   BackTopPropsType,
   BackTopBehaviorType
 } from './back-top'
+=======
+export * from './avatar'
+
+export { FBackTop } from './back-top'
+export * from './back-top'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FBadge } from './badge'
-export type { BadgeInstance, BadgePropsType, BadgeType } from './badge'
+export * from './badge'
 
 export { FBreadcrumb } from './breadcrumb'
-export type { BreadcrumbInstance, BreadcrumbPropsType } from './breadcrumb'
+export * from './breadcrumb'
 
 export { FBreadcrumbItem } from './breadcrumb-item'
-export type { BreadcrumbItemInstance } from './breadcrumb-item'
+export * from './breadcrumb-item'
 
 export { FButton } from './button'
+<<<<<<< HEAD
 export type {
   ButtonInstance,
   ButtonPropsType,
@@ -57,11 +69,21 @@ export type {
   CalendarEmitInterface,
   CalendarMemorandumType
 } from './calendar'
+=======
+export * from './button'
+
+export { FButtonGroup } from './button-group'
+export * from './button-group'
+
+export { FCalendar } from './calendar'
+export * from './calendar'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FCard } from './card'
-export type { CardInstance, CardPropsType, CardShadowType } from './card'
+export * from './card'
 
 export { FCheckbox } from './checkbox'
+<<<<<<< HEAD
 export type {
   CheckboxInstance,
   CheckboxPropsType,
@@ -75,11 +97,18 @@ export type {
   CheckboxGroupLabelType,
   CheckboxGroupSizeType
 } from './checkbox-group'
+=======
+export * from './checkbox'
+
+export { FCheckboxGroup } from './checkbox-group'
+export * from './checkbox-group'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FCloseBtn } from './close-btn'
-export type { CloseBtnInstance, CloseBtnPropsType } from './close-btn'
+export * from './close-btn'
 
 export { FDialog } from './dialog'
+<<<<<<< HEAD
 export type {
   DialogInstance,
   DialogPropsType,
@@ -101,27 +130,41 @@ export type {
   DrawerDirectionType,
   DrawerCallbackInterface
 } from './drawer'
+=======
+export * from './dialog'
+
+export { FDivider } from './divider'
+export * from './divider'
+
+export { FDrawer } from './drawer'
+export * from './drawer'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FEmpty } from './empty'
-export type { EmptyInstance, EmptyPropsType } from './empty'
+export * from './empty'
 
 export { FExpandCard } from './expand-card'
+<<<<<<< HEAD
 export type {
   ExpandCardInstance,
   ExpandCardImageListType,
   ExpandCardPropsType
 } from './expand-card'
+=======
+export * from './expand-card'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FFooter } from './footer'
-export type { FooterInstance, FooterPropsType } from './footer'
+export * from './footer'
 
 export { FHeader } from './header'
-export type { HeaderInstance, HeaderPropsType } from './header'
+export * from './header'
 
 export { FImage } from './image'
-export type { ImageInstance, ImagePropsType, ImageFitType } from './image'
+export * from './image'
 
 export { FImagePreview } from './image-preview'
+<<<<<<< HEAD
 export type {
   ImagePreviewInstance,
   ImagePreviewPropsType
@@ -142,22 +185,32 @@ export type {
   LinkTargetType,
   LinkHoverType
 } from './link'
+=======
+export * from './image-preview'
+
+export { FLayout } from './layout'
+export * from './layout'
+
+export { FLink } from './link'
+export * from './link'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FList } from './list'
-export type { ListInstance, ListPropsType, ListSizeType } from './list'
+export * from './list'
 
 export { FListItem } from './list-item'
-export type { ListItemInstance, ListItemPropsType } from './list-item'
+export * from './list-item'
 
 export { FLoading } from './loading'
-export type { LoadingInstance, LoadingPropsType } from './loading'
+export * from './loading'
 
 export { LoadingBar as useLoadingBar } from './loading-bar'
 
 export { FMain } from './main'
-export type { MainInstance, MainPropsType } from './main'
+export * from './main'
 
 export { FMessage } from './message'
+<<<<<<< HEAD
 export type {
   MessageInstance,
   MessagePropsType,
@@ -172,35 +225,50 @@ export type {
   NotificationType,
   NotificationPlacementType
 } from './notification'
+=======
+export * from './message'
+
+export { FNotification } from './notification'
+export * from './notification'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FPageHeader } from './page-header'
-export type { PageHeaderInstance, PageHeaderPropsType } from './page-header'
+export * from './page-header'
 
 export { FPopup } from './popup'
-export type { PopupInstance, PopupPropsType, PopupDirectionType } from './popup'
+export * from './popup'
 
 export { FProgress } from './progress'
+<<<<<<< HEAD
 export type {
   ProgressInstance,
   ProgressPropsType,
   ProgressType
 } from './progress'
+=======
+export * from './progress'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FRadio } from './radio'
-export type { RadioInstance, RadioPropsType } from './radio'
+export * from './radio'
 
 export { FRadioGroup } from './radio-group'
+<<<<<<< HEAD
 export type {
   RadioGroupInstance,
   RadioGroundPropsType,
   RadioGroupSizeType,
   RadioLabelType
 } from './radio-group'
+=======
+export * from './radio-group'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FRate } from './rate'
-export type { RateInstance, RatePropsType } from './rate'
+export * from './rate'
 
 export { FRipple } from './ripple'
+<<<<<<< HEAD
 export type {
   RippleInstance,
   RipplePropsType,
@@ -214,27 +282,38 @@ export type {
   SkeletonPropsType,
   SkeletonSizeType
 } from './skeleton'
+=======
+export * from './ripple'
+
+export { FSkeleton } from './skeleton'
+export * from './skeleton'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FSpace } from './space'
-export type { SpaceInstance, SpacePropsType, SpaceSizeType } from './space'
+export * from './space'
 
 export { FStickyCard } from './sticky-card'
+<<<<<<< HEAD
 export type {
   StickyCardInstance,
   StickyCardPropsType,
   StickyCardEmitInterface
 } from './sticky-card'
+=======
+export * from './sticky-card'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FSvgIcon } from './svg-icon'
-export type { SvgIconInstance, SvgIconPropsType } from './svg-icon'
+export * from './svg-icon'
 
 export { FSwitch } from './switch'
-export type { SwitchInstance, SwitchPropsType, SwitchSizeType } from './switch'
+export * from './switch'
 
 export { FTag } from './tag'
-export type { TagInstance, TagPropsType, TagSizeType, TagType } from './tag'
+export * from './tag'
 
 export { FText } from './text'
+<<<<<<< HEAD
 export type {
   TextInstance,
   TextPropsType,
@@ -249,25 +328,36 @@ export type {
   ToolbarType,
   ToolbarClickEmitInterface
 } from './toolbar'
+=======
+export * from './text'
+
+export { FToolbar } from './toolbar'
+export * from './toolbar'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FToolbarItem } from './toolbar-item'
-export type { ToolbarItemInstance, ToolbarItemPropsType } from './toolbar-item'
+export * from './toolbar-item'
 
 export { FTooltip } from './tooltip'
+<<<<<<< HEAD
 export type {
   TooltipInstance,
   TooltipPropsType,
   TooltipPositionType,
   TooltipStateType
 } from './tooltip'
+=======
+export * from './tooltip'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FTree } from './tree'
-export type { TreeInstance, TreePropsType, TreeDataInterface } from './tree'
+export * from './tree'
 
 export { FWatermark } from './watermark'
-export type { WatermarkInstance, WatermarkPropsType } from './watermark'
+export * from './watermark'
 
 export { FInput } from './input'
+<<<<<<< HEAD
 export type {
   InputInstance,
   InputPropsType,
@@ -286,11 +376,21 @@ export type {
   SwapType,
   SwapOnChangeInterface
 } from './swap'
+=======
+export * from './input'
+
+export { FSwap } from './swap'
+export * from './swap'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649
 
 export { FWaterfall } from './waterfall'
 
 export { FUpLoad } from './up-load'
+<<<<<<< HEAD
 export type { UpLoadInstance, UpLoadPropsType } from './up-load'
 
 export { FCarousel } from './carousel'
 export type {} from './carousel'
+=======
+export * from './up-load'
+>>>>>>> 92e60848925d51c8c70da68f94b2048c6dc69649

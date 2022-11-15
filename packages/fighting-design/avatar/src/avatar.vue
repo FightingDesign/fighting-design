@@ -13,7 +13,7 @@
     ClassListInterface as d
   } from '../../_interface'
 
-  const prop = defineProps(Props)
+  const prop: AvatarPropsType = defineProps(Props)
   const slot = useSlots()
 
   /**

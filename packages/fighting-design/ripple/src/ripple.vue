@@ -7,8 +7,9 @@
     HandleEventInterface as b
   } from '../../_interface'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
+  import type { RipplePropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: RipplePropsType = defineProps(Props)
 
   const FRipple: Ref<HTMLElement> = ref(null as unknown as HTMLElement)
 

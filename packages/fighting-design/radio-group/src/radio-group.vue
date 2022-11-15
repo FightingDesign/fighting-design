@@ -5,24 +5,25 @@
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface as a } from '../../_interface'
   import type {
-    RadioChangeEventInterface as b,
-    RadioLabelType
+    RadioChangeInterface as b,
+    RadioLabelType,
+    RadioGroundPropsType
   } from './interface'
 
-  const prop = defineProps(Props)
+  const prop: RadioGroundPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const changeEvent: b = (value: RadioLabelType): void => {
     emit('update:modelValue', value)
-    emit('change', value)
+    prop.change && prop.change(value)
   }
 
-  const RadioGround = reactive({
+  const RadioGround: RadioGroundPropsType = reactive({
     ...toRefs(prop),
     changeEvent
   } as const)
 
-  provide(RadioGroupPropsKey, RadioGround)
+  provide<RadioGroundPropsType>(RadioGroupPropsKey, RadioGround)
 
   const classList: ComputedRef<a> = computed((): a => {
     const { vertical, border, size } = prop

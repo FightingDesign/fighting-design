@@ -16,7 +16,7 @@
   <f-button type="primary" @click="openMessage">show</f-button>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { FMessage } from 'fighting-design'
 
   const openMessage = () => {
@@ -45,7 +45,7 @@
   <f-button type="primary" @click="openMessageVNode">show</f-button>
 </template>
 
-<script setup>
+<script lang="ts" setup>
   import { h } from 'vue'
   import { FMessage } from 'fighting-design'
 
@@ -141,8 +141,7 @@
 </template>
 
 <script setup lang="ts">
-  import { h } from 'vue'
-  import { FMessage } from '@fighting-design'
+  import { FMessage } from 'fighting-design'
 
   const openMessageClose1 = () => {
     FMessage({

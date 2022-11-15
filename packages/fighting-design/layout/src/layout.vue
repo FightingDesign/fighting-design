@@ -2,8 +2,9 @@
   import { useSlots, computed } from 'vue'
   import { Props } from './props'
   import type { VNode, Component } from 'vue'
+  import type { LayoutPropsType } from './props'
 
-  const prop = defineProps(Props)
+  const prop: LayoutPropsType = defineProps(Props)
   const slot = useSlots()
 
   const isVertical: Component<boolean> = computed((): boolean => {

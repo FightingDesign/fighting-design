@@ -1,6 +1,6 @@
 import { isNumber, isString, isBoolean } from '../../_utils'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type { RadioLabelType, RadioGroupSizeType } from './interface'
+import type { RadioLabelType, RadioGroupSizeType, RadioChangeInterface } from './interface'
 
 export const Props = {
   disabled: {
@@ -33,14 +33,15 @@ export const Props = {
     validator: (val: RadioGroupSizeType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
+  },
+  change: {
+    type: Function as PropType<RadioChangeInterface>,
+    default: (): null => null
   }
 } as const
 
 export const Emits = {
   'update:modelValue': (val: RadioLabelType): boolean => {
-    return isString(val) || isNumber(val) || isBoolean(val)
-  },
-  change: (val: RadioLabelType): boolean => {
     return isString(val) || isNumber(val) || isBoolean(val)
   }
 } as const

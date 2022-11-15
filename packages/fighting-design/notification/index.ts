@@ -1,7 +1,9 @@
-import Notification from '../_model/notification/method'
+import { useMessage } from '../_hooks'
+
+const { instance: Notification } = useMessage('notification')
 
 import { installFn } from '../_utils'
 
-export const FNotification = installFn(Notification, 'FNotification')
+export const FNotification = installFn(Notification, 'FMessage')
 
 export * from './src/interface.d'

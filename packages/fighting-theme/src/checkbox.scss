@@ -30,32 +30,13 @@
     transition: color 0.3s;
   }
 
-  // 边框
-  &.f-checkbox__bordered {
-    border: 1px solid $simplePrimary;
-    padding: 5px 10px;
-
-    &.f-checkbox__large {
-      padding: 8px 14px;
-    }
-
-    &.f-checkbox__small {
-      padding: 4px 6px;
-    }
-  }
-
-  // 选中状态
+  // 正常状态选中状态
   &.f-checkbox__selected {
-    background: $simplePrimary;
-
     .f-checkbox__text {
       color: $primary;
     }
 
-    &.f-checkbox__bordered {
-      border-color: $primary;
-    }
-
+    // 前面盒子
     .f-checkbox__box {
       border: 1px solid $primary;
       background: $primary;
@@ -86,8 +67,12 @@
 
     // 选中的禁用状态
     &.f-checkbox__disabled {
-      background: $default;
-      border-color: rgb(144, 144, 144);
+      // background: $default;
+      border-color: #d7d7d7;
+
+      .f-checkbox__text {
+        color: #d7d7d7;
+      }
     }
   }
 

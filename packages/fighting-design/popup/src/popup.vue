@@ -4,9 +4,9 @@
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { OrdinaryFunctionInterface as a } from '../../_interface'
-  import type { PopupCallbackInterface as b } from './interface'
+  import type { PopupCallbackInterface as b, PopupPropsType } from './interface'
 
-  const prop = defineProps(Props)
+  const prop: PopupPropsType = defineProps(Props)
   const emit = defineEmits(Emits)
 
   const closePopup: a = (): void => {
