@@ -1,12 +1,8 @@
 <script lang="ts" setup name="FTabsNav">
   import { Emits, Props } from './props'
-  import type { TabsNavPropsType } from './interface'
   import { isString, sizeToNum } from '../../../../_utils'
-  import { TabsPaneName } from '../../interface'
   import {
-    ComponentInternalInstance,
     computed,
-    CSSProperties,
     getCurrentInstance,
     nextTick,
     ref,
@@ -15,6 +11,9 @@
   } from 'vue'
   import { FIconCrossVue, FIconPlusVue } from '../../../../_svg'
   import { FSvgIcon } from '../../../../svg-icon'
+  import type { TabsNavPropsType } from './interface'
+  import type { TabsPaneName } from '../../interface'
+  import type { ComponentInternalInstance, CSSProperties } from 'vue'
 
   const prop: TabsNavPropsType = defineProps(Props)
 
@@ -29,7 +28,7 @@
 
   const instance: ComponentInternalInstance = getCurrentInstance()
 
-  async function clickNavItem(name: TabsPaneName) {
+  async function clickNavItem (name: TabsPaneName) {
     let res: boolean | void = true
     if (prop.beforeEnter) {
       res = await prop.beforeEnter(name)
@@ -39,7 +38,7 @@
     emit('set-current-name', name)
   }
 
-  async function editItem(
+  async function editItem (
     action: 'remove' | 'add',
     name?: TabsPaneName,
     i?: number
@@ -54,7 +53,7 @@
    * 防止在切换标签时出现跳动的情况
    */
   const wrapperStyle = ref<CSSProperties>({})
-  async function updateWrapperStyle() {
+  async function updateWrapperStyle () {
     await nextTick()
     if (!prop.navs.length) return
     const positionVar = { a: 'height', b: 'offsetHeight', c: 'paddingBottom' }
@@ -121,7 +120,7 @@
    */
   const activeLineStyle = ref<CSSProperties>({})
 
-  async function updateActiveLineStyle() {
+  async function updateActiveLineStyle () {
     await nextTick()
     const { position } = prop
     const activeStyle: CSSProperties = {}
@@ -167,8 +166,8 @@
    *
    * 实现横向滚动效果
    */
-  function handleWheel(e) {
-    ;(e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
+  function handleWheel (e) {
+    (e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
     deriveScrollShadow(e.currentTarget)
   }
 
@@ -178,7 +177,7 @@
   const leftReachedRef = ref(false)
   const rightReachedRef = ref(false)
 
-  function deriveScrollShadow(el: HTMLElement | null): void {
+  function deriveScrollShadow (el: HTMLElement | null): void {
     if (!el) return
     const { scrollLeft, scrollWidth, offsetWidth } = el
     leftReachedRef.value = scrollLeft > 0
@@ -244,50 +243,50 @@
 
 <template>
   <div class="f-tabs-nav" :class="classList">
-    <div class="f-tabs-nav__prefix" v-if="slots.prefix">
+    <div v-if="slots.prefix" class="f-tabs-nav__prefix">
       <slot name="prefix"></slot>
     </div>
     <div class="f-tabs-nav__main" :class="scrollClassList">
       <div class="f-tabs-nav__scroll" @wheel.passive="handleWheel">
         <div class="f-tabs-nav__wrapper" :style="wrapperStyle">
           <div
+            v-for="(item, i) in prop.navs"
+            :key="item.name"
             class="f-tabs-nav--item"
             :class="[
               {
                 'f-tabs-nav--item__active': item.name === prop.currentName
               }
             ]"
-            v-for="(item, i) in prop.navs"
-            :key="item.name"
-            v-on:[trigger]="clickNavItem(item.name)"
+            @[trigger]="clickNavItem(item.name)"
           >
             <span v-if="isString(item.label)">{{ item.label }}</span>
             <div v-else>
               <component :is="item.label"></component>
             </div>
-            <FSvgIcon
+            <f-svg-icon
+              v-if="type === 'card' && editStatus"
               class="f-tabs-nav--item__card_close"
               :icon="FIconCrossVue"
-              v-if="type === 'card' && editStatus"
               @click.stop="editItem('remove', item.name, i)"
-            ></FSvgIcon>
+            ></f-svg-icon>
           </div>
           <div
+            v-if="type === 'card' && editStatus"
             class="f-tabs-nav--item"
             @click="editItem('add')"
-            v-if="type === 'card' && editStatus"
           >
-            <FSvgIcon :icon="FIconPlusVue" color="#666"></FSvgIcon>
+            <f-svg-icon :icon="FIconPlusVue" color="#666"></f-svg-icon>
           </div>
           <div
+            v-if="prop.type === 'line'"
             class="f-tabs-nav--line__active"
             :style="activeLineStyle"
-            v-if="prop.type === 'line'"
           ></div>
         </div>
       </div>
     </div>
-    <div class="f-tabs-nav__suffix" v-if="slots.suffix">
+    <div v-if="slots.suffix" class="f-tabs-nav__suffix">
       <slot name="suffix"></slot>
     </div>
   </div>

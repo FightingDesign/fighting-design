@@ -1,10 +1,10 @@
-import {
+import { isVNode } from 'vue'
+import type {
   VNode,
   VNodeNormalizedChildren,
-  isVNode,
   ComponentInternalInstance,
   Component
-} from 'vue'
+} from 'vue';
 
 const isArray = Array.isArray
 
@@ -39,7 +39,7 @@ export const flattedChildren = (
  * @param root
  * @param component
  */
-export function getChildrenComponent(
+export function getChildrenComponent (
   root: ComponentInternalInstance,
   component: string
 ) {

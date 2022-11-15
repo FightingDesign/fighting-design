@@ -1,9 +1,9 @@
 <script lang="ts" setup name="FTabsPane">
   import { Props, Emits } from './props'
-  import type { TabsPanePropsType } from './interface'
   import { TabsProvideKey } from '../../tabs/src/props'
   import { computed, inject, onBeforeUnmount } from 'vue'
-  import { TabsProvide } from '../../tabs/src/interface'
+  import type { TabsPanePropsType } from './interface'
+  import type { TabsProvide } from '../../tabs/src/interface'
 
   const prop: TabsPanePropsType = defineProps(Props)
   defineEmits(Emits)
@@ -37,7 +37,7 @@
 </script>
 
 <template>
-  <div class="f-tabs-pane" v-if="isLoad" v-show="isShow">
+  <div v-if="isLoad" v-show="isShow" class="f-tabs-pane">
     <slot></slot>
   </div>
 </template>

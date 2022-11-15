@@ -1,4 +1,4 @@
-import { VNode } from 'vue'
+import type { VNode } from 'vue'
 
 export type { TabsPropsType } from './tabs'
 
@@ -26,12 +26,12 @@ export type TabsJustifyContent =
 
 export type TabsPaneName = string | number
 
-export type TabsNavInstance = {
+export interface TabsNavInstance {
   name: TabsPaneName
   label: VNode | string
 }
 
-export type TabsProvide = {
+export interface TabsProvide {
   currentName: Ref<String | Number>
   updatePaneList: () => void
 }
