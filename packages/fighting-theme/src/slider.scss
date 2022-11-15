@@ -8,33 +8,32 @@
     border-radius: 30px;
     cursor: var(--f-slider-cursor-type);
 
-    .f-slider__selected {
+    .f-slider__left__icon {
       user-select: none;
       border-radius: 30px;
       position: absolute;
-      left: 0;
+      left: calc(var(--f-slider-left-icon-percent) - 15px);
       top: 0;
-      width: var(--f-slider-selected-right-value);
-      height: 100%;
+      bottom: 0;
+      margin: auto 0;
+      width: 30px;
+      height: 30px;
       background-color: #2D5AF1;
-
-      .selected-left-icon {
-        box-sizing: border-box;
-      }
-      
-      .selected-right-icon {
-        box-sizing: border-box;
-        position: absolute;
-        right: calc(-15px);
-        top: 0;
-        bottom: 0;
-        margin: auto 0;
-        width: 30px;
-        height: 30px;
-        background-color: #fff;
-        border-radius: 100%;
-        border: 10px solid #2D5AF1;
-      }
+    }
+    .f-slider__selected {
+    
+    }
+    .f-slider__right__icon {
+      user-select: none;
+      border-radius: 30px;
+      position: absolute;
+      left: calc(var(--f-slider-right-icon-percent) - 15px);
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      width: 30px;
+      height: 30px;
+      background-color: red;
     }
   }
 
