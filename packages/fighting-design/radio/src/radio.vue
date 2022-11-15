@@ -1,7 +1,6 @@
 <script lang="ts" setup name="FRadio">
   import { Props } from './props'
   import { isString, isBoolean, isNumber } from '../../_utils'
-  import { useEmit } from '../../_hooks'
   import { computed, inject } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
   import type { ComputedRef, WritableComputedRef } from 'vue'
@@ -13,12 +12,10 @@
   import type { RadioPropsType } from './props'
 
   const prop: RadioPropsType = defineProps(Props)
-  const emit = defineEmits(
-    useEmit(
-      (val: RadioLabelType): boolean =>
-        isString(val) || isNumber(val) || isBoolean(val)
-    )
-  )
+  const emit = defineEmits({
+    'update:modelValue': (val: RadioLabelType): boolean =>
+      isString(val) || isNumber(val) || isBoolean(val)
+  })
 
   // 父组件注入的依赖项
   const groupProps: RadioGroundInterface | undefined = inject<

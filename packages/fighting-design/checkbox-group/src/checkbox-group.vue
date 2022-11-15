@@ -2,7 +2,6 @@
   import { provide, reactive, toRefs, computed } from 'vue'
   import { Props, CHECKBOX_GROUP_PROPS_KEY } from './props'
   import { sizeChange } from '../../_utils'
-  import { useEmit } from '../../_hooks'
   import type {
     CheckboxGroupPropsType,
     CheckboxGroupLabelType,
@@ -13,9 +12,10 @@
   import type { ClassListInterface } from '../../_interface'
 
   const prop: CheckboxGroupPropsType = defineProps(Props)
-  const emit = defineEmits(
-    useEmit((val: CheckboxGroupLabelType): boolean => Array.isArray(val))
-  )
+  const emit = defineEmits({
+    'update:modelValue': (val: CheckboxGroupLabelType): boolean =>
+      Array.isArray(val)
+  })
 
   /**
    * 绑定值发生改变时候触

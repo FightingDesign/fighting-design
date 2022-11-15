@@ -6,7 +6,6 @@
   import { FToolbarItem } from '../../toolbar-item'
   import { FPopup } from '../../popup'
   import { isString, isBoolean } from '../../_utils'
-  import { useEmit } from '../../_hooks'
   import {
     FIconChevronLeftVue,
     FIconChevronRightVue,
@@ -30,9 +29,9 @@
   import type { ToolbarClickEmitInterface } from '../../toolbar/src/interface'
 
   const prop: ImagePreviewPropsType = defineProps(Props)
-  const emit = defineEmits(
-    useEmit((visible: boolean): boolean => isBoolean(visible), 'visible')
-  )
+  const emit = defineEmits({
+    'update:visible': (visible: boolean): boolean => isBoolean(visible)
+  })
 
   const {
     scale,

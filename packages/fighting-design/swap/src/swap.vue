@@ -2,7 +2,6 @@
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
-  import { useEmit } from '../../_hooks'
   import type { ComputedRef } from 'vue'
   import type {
     OrdinaryFunctionInterface,
@@ -11,7 +10,9 @@
   import type { SwapPropsType } from './props'
 
   const prop: SwapPropsType = defineProps(Props)
-  const emit = defineEmits(useEmit((target: boolean): string => String(target)))
+  const emit = defineEmits({
+    'update:modelValue': (target: boolean): string => String(target)
+  })
 
   /**
    * 切换时执行

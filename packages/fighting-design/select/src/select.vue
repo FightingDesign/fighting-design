@@ -1,7 +1,6 @@
 <script lang="ts" setup name="FSelect">
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
-  import { useEmit } from '../../_hooks'
   import { provide, reactive, computed, useSlots } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { sizeChange } from '../../_utils'
@@ -22,9 +21,9 @@
 
   const prop: SelectPropsType = defineProps(Props)
   const slot = useSlots()
-  const emit = defineEmits(
-    useEmit((val: SelectModelValueType): boolean => !!val)
-  )
+  const emit = defineEmits({
+    'update:modelValue': (val: SelectModelValueType): boolean => !!val
+  })
 
   /**
    * 获取子元素 option
