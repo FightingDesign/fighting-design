@@ -4,6 +4,6 @@ import { install } from '../_utils'
 
 export const FCarousel = install(Carousel)
 
-export type CheckboxInstance = InstanceType<typeof Carousel>
+export type CarouselInstance = InstanceType<typeof Carousel>
 
 export default Carousel
