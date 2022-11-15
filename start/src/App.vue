@@ -33,7 +33,7 @@
 <template>
   <div style="padding: 20px">
   <f-card>
-    <f-tabs :position="position" :justifyContent="justifyContent" editStatus :type="type" v-model="tab" @edit="edit">
+    <f-tabs trigger="hover" :position="position" :justifyContent="justifyContent" editStatus :type="type" v-model="tab" @edit="edit">
       <template #prefix>前</template>
       <template #suffix>后</template>
       <f-tabs-pane :label="item.label" v-for="item in list">{{item.content}}</f-tabs-pane>

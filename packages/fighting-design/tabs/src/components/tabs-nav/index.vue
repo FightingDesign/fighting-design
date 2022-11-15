@@ -195,6 +195,10 @@
       'f-tabs-nav__scroll_after': rightReachedRef.value
     }
   })
+
+  const trigger = computed(() => {
+    return prop.trigger === 'hover' ? 'mouseenter' : 'click'
+  })
 </script>
 
 <template>
@@ -211,7 +215,7 @@
             }]"
             v-for="item, i in prop.navs"
             :key="item.name"
-            @click="clickNavItem(item.name)"
+            v-on:[trigger]="clickNavItem(item.name)"
           >
             <span v-if="isString(item.label)">{{item.label}}</span>
             <div v-else>

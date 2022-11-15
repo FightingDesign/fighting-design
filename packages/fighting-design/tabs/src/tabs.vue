@@ -112,6 +112,7 @@
       :editStatus="editStatus"
       :justifyContent="justifyContent"
       :beforeEnter="beforeEnter"
+      :trigger="trigger"
       @setCurrentName="setCurrentName"
       @edit="edit"
       v-if="navs.length"

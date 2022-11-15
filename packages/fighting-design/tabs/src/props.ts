@@ -39,6 +39,13 @@ export const Props = {
    */
   beforeEnter: {
     type: Function as PropType<(name: TabsPaneName) => boolean|void>
+  },
+  /**
+   * 触发事件
+   */
+  trigger: {
+    type: String as PropType<'click' | 'hover'>,
+    default: 'click'
   }
 } as const
 

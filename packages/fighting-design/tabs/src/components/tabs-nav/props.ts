@@ -25,6 +25,9 @@ export const Props = {
   },
   editStatus: {
     type: Boolean
+  },
+  trigger: {
+    type: String as PropType<'click' | 'hover'>
   }
 }
 
