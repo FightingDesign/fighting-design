@@ -2,8 +2,8 @@
   import { Props, Emits } from './props'
   import type { TabsPanePropsType } from './interface'
   import { TabsProvideKey } from '../../tabs/src/props'
-  import { computed, inject, onBeforeUnmount } from 'vue';
-  import { TabsProvide } from '../../tabs/src/interface';
+  import { computed, inject, onBeforeUnmount } from 'vue'
+  import { TabsProvide } from '../../tabs/src/interface'
 
   const prop: TabsPanePropsType = defineProps(Props)
   defineEmits(Emits)

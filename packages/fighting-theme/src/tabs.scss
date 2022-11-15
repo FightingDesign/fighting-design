@@ -2,53 +2,61 @@
 
 .f-tabs {
   display: flex;
-  &.f-tabs__position_top{
+  &.f-tabs__position_top {
     flex-direction: column;
-    .f-tabs-nav{ align-items: flex-end;}
+    .f-tabs-nav {
+      align-items: flex-end;
+    }
   }
-  &.f-tabs__position_bottom{
+  &.f-tabs__position_bottom {
     flex-direction: column-reverse;
-    .f-tabs-nav{ align-items: flex-start;}
+    .f-tabs-nav {
+      align-items: flex-start;
+    }
   }
-  &.f-tabs__position_top, &.f-tabs__position_bottom{
-    .f-tabs-nav{
+  &.f-tabs__position_top,
+  &.f-tabs__position_bottom {
+    .f-tabs-nav {
       justify-content: space-between;
     }
-    .f-tabs-nav__wrapper{
+    .f-tabs-nav__wrapper {
       min-width: 100%;
     }
-    .f-tabs-nav__prefix{
+    .f-tabs-nav__prefix {
       padding-right: 10px;
     }
-    .f-tabs-nav__suffix{
+    .f-tabs-nav__suffix {
       padding-left: 10px;
     }
   }
-  
-  &.f-tabs__position_left, &.f-tabs__position_right{
-    .f-tabs-nav, .f-tabs-nav__wrapper{
-      flex-direction:column;
+
+  &.f-tabs__position_left,
+  &.f-tabs__position_right {
+    .f-tabs-nav,
+    .f-tabs-nav__wrapper {
+      flex-direction: column;
       align-items: flex-end;
     }
-    .f-tabs-nav__prefix{
+    .f-tabs-nav__prefix {
       padding-bottom: 10px;
     }
-    .f-tabs-nav__suffix{
+    .f-tabs-nav__suffix {
       padding-top: 10px;
     }
   }
-  &.f-tabs__position_left{
+  &.f-tabs__position_left {
     flex-direction: row;
   }
-  &.f-tabs__position_right{
+  &.f-tabs__position_right {
     flex-direction: row-reverse;
-    .f-tabs-nav, .f-tabs-nav__wrapper{
+    .f-tabs-nav,
+    .f-tabs-nav__wrapper {
       align-items: flex-start;
     }
   }
 
-  .f-tabs-content{
-    flex: 1
+  .f-tabs-content {
+    flex: 1;
   }
 
   // &.f-tabs__align_left .f-tabs-nav{
@@ -62,15 +70,16 @@
   // }
 }
 
-.f-tabs-pane{
+.f-tabs-pane {
   padding: 4px 8px;
 }
-.f-tabs-nav__main{
-  flex:1;
+.f-tabs-nav__main {
+  flex: 1;
   overflow: hidden;
 }
-.f-tabs__position_top, .f-tabs__position_bottom{
-  .f-tabs-nav__scroll{
+.f-tabs__position_top,
+.f-tabs__position_bottom {
+  .f-tabs-nav__scroll {
     overflow-x: auto;
     overflow-y: hidden;
     &::-webkit-scrollbar {
@@ -80,56 +89,55 @@
   }
 }
 
-.f-tabs-nav{
+.f-tabs-nav {
   --padding: 0;
   display: flex;
   flex-shrink: 0;
 
-  .f-tabs-nav__suffix, .f-tabs-nav__prefix{
+  .f-tabs-nav__suffix,
+  .f-tabs-nav__prefix {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: var(--padding);
   }
-  
-  .f-tabs-nav__wrapper{
+
+  .f-tabs-nav__wrapper {
     width: fit-content;
     height: fit-content;
   }
-  
-  
-  .f-tabs-nav__main{
+
+  .f-tabs-nav__main {
     position: relative;
-    .f-tabs-nav__scroll{
+    .f-tabs-nav__scroll {
       width: 100%;
     }
-    &::after, &::before{
-      transition: box-shadow .3s var(--n-bezier);
+    &::after,
+    &::before {
+      transition: box-shadow 0.3s var(--n-bezier);
       pointer-events: none;
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       bottom: 0;
       width: 20px;
       z-index: 1;
     }
-    &.f-tabs-nav__scroll_before::before{
+    &.f-tabs-nav__scroll_before::before {
       left: 0;
-      box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, .12);
+      box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.12);
     }
-    &.f-tabs-nav__scroll_after::after{
+    &.f-tabs-nav__scroll_after::after {
       right: 0;
-      box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, .12);
+      box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.12);
     }
   }
 
-
-  .f-tabs-nav__wrapper{
+  .f-tabs-nav__wrapper {
     display: flex;
     position: relative;
 
-
-    .f-tabs-nav--item{
+    .f-tabs-nav--item {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -138,152 +146,155 @@
       word-break: keep-all;
       padding: var(--padding);
 
-      &:hover{
+      &:hover {
         color: $primary;
       }
     }
-    .f-tabs-nav--item__active{
+    .f-tabs-nav--item__active {
       color: $primary;
     }
   }
   // line风格
-  &.f-tabs-nav__type_line{
+  &.f-tabs-nav__type_line {
     flex-shrink: 0;
 
-    .f-tabs-nav--line__active{
+    .f-tabs-nav--line__active {
       background: $primary;
-      transition: all .3s;
+      transition: all 0.3s;
       position: absolute;
     }
     // 上下方向
-    &.f-tabs-nav__type_line_top, &.f-tabs-nav__type_line_bottom{
+    &.f-tabs-nav__type_line_top,
+    &.f-tabs-nav__type_line_bottom {
       --padding: 10px 0;
 
       border-bottom: 1px solid #ddd;
-      .f-tabs-nav--line__active{
+      .f-tabs-nav--line__active {
         height: 2px;
       }
 
-      .f-tabs-nav--item{
+      .f-tabs-nav--item {
         &:not(:first-child):not(:last-child) {
           padding-left: 10px;
           padding-right: 10px;
-        };
-        &:first-child{
+        }
+        &:first-child {
           padding-right: 10px;
         }
-        &:last-child{
+        &:last-child {
           padding-left: 10px;
         }
       }
     }
     // 左右方向
-    &.f-tabs-nav__type_line_left,  &.f-tabs-nav__type_line_right{
+    &.f-tabs-nav__type_line_left,
+    &.f-tabs-nav__type_line_right {
       --padding: 0 10px;
 
-      .f-tabs-nav--line__active{
+      .f-tabs-nav--line__active {
         width: 2px;
       }
 
-      .f-tabs-nav--item{
+      .f-tabs-nav--item {
         &:not(:first-child):not(:last-child) {
           padding-top: 10px;
           padding-bottom: 10px;
-        };
-        &:first-child{
+        }
+        &:first-child {
           padding-bottom: 10px;
         }
-        &:last-child{
+        &:last-child {
           padding-top: 10px;
         }
       }
     }
-    &.f-tabs-nav__type_line_left{
+    &.f-tabs-nav__type_line_left {
       border-right: 1px solid #ccc;
     }
-    &.f-tabs-nav__type_line_right{
+    &.f-tabs-nav__type_line_right {
       border-left: 1px solid #ccc;
     }
   }
 
   // card 风格
-  &.f-tabs-nav__type_card{
+  &.f-tabs-nav__type_card {
     --radius: 8px;
     --cardActiveDiffHeight: 16px;
     --cardActiveBg: #fff;
     --cardBgColor: #f5f7fa;
     --cardBorerColor: #ddd;
-    
-    .f-tabs-nav--item{
+
+    .f-tabs-nav--item {
       border: 1px solid var(--cardBorerColor);
       position: relative;
       background: var(--cardBgColor);
-      
+
       &:not(:first-of-type)::before,
       &:not(:first-of-type)::after {
-        content: "";
+        content: '';
         width: var(--radius);
         height: var(--radius);
         position: absolute;
       }
 
-      &.f-tabs-nav--item__active{
-        transition: all .3s;
+      &.f-tabs-nav--item__active {
+        transition: all 0.3s;
         background: var(--cardActiveBg);
         &::before {
           background: var(--cardBgColor);
           z-index: 2;
         }
         &::after {
-          background:var(--cardActiveBg);
+          background: var(--cardActiveBg);
           z-index: 1;
         }
-        &+.f-tabs-nav--item {
+        & + .f-tabs-nav--item {
           &::before {
             background: var(--cardActiveBg);
             z-index: 1;
           }
           &::after {
-            background:var(--cardBgColor);
+            background: var(--cardBgColor);
             z-index: 2;
           }
         }
       }
 
-      .f-tabs-nav--item__card_close{
+      .f-tabs-nav--item__card_close {
         font-size: 0px;
-        transition: font-size .3s
+        transition: font-size 0.3s;
       }
-      &:hover, &.f-tabs-nav--item__active{
-        .f-tabs-nav--item__card_close{
+      &:hover,
+      &.f-tabs-nav--item__active {
+        .f-tabs-nav--item__card_close {
           font-size: 20px;
-        }    
+        }
       }
     }
 
     // 上方
-    &.f-tabs-nav__type_card_top{
-      .f-tabs-nav__wrapper{
+    &.f-tabs-nav__type_card_top {
+      .f-tabs-nav__wrapper {
         align-items: flex-end;
       }
-      .f-tabs-nav--item{
+      .f-tabs-nav--item {
         border-top-left-radius: var(--radius);
         border-top-right-radius: var(--radius);
         &:not(:first-of-type)::before,
         &:not(:first-of-type)::after {
           bottom: -1px;
         }
-        &.f-tabs-nav--item__active{
+        &.f-tabs-nav--item__active {
           border-bottom: none;
           padding-bottom: var(--cardActiveDiffHeight);
-          
+
           &::before {
             border-radius: 0 0 var(--radius) 0;
             border-bottom: 1px solid var(--cardBorerColor);
             border-right: 1px solid var(--cardBorerColor);
             bottom: 0px;
           }
-          &+.f-tabs-nav--item {
+          & + .f-tabs-nav--item {
             &::after {
               border-radius: 0 0 0 var(--radius);
               border-left: 1px solid var(--cardBorerColor);
@@ -294,18 +305,18 @@
       }
     }
     // 下方
-    &.f-tabs-nav__type_card_bottom{
-      .f-tabs-nav__wrapper{
+    &.f-tabs-nav__type_card_bottom {
+      .f-tabs-nav__wrapper {
         align-items: flex-start;
       }
-      .f-tabs-nav--item{
+      .f-tabs-nav--item {
         border-bottom-left-radius: var(--radius);
         border-bottom-right-radius: var(--radius);
         &:not(:first-of-type)::before,
         &:not(:first-of-type)::after {
           top: -1px;
         }
-        &.f-tabs-nav--item__active{
+        &.f-tabs-nav--item__active {
           padding-top: var(--cardActiveDiffHeight);
           border-top: none;
           &::before {
@@ -314,7 +325,7 @@
             border-top: 1px solid var(--cardBorerColor);
             border-right: 1px solid var(--cardBorerColor);
           }
-          &+.f-tabs-nav--item {
+          & + .f-tabs-nav--item {
             &::after {
               border-radius: var(--radius) 0 0 0;
               border-left: 1px solid var(--cardBorerColor);
@@ -325,48 +336,50 @@
       }
     }
     // 上下公用
-    &.f-tabs-nav__type_card_top, &.f-tabs-nav__type_card_bottom{
+    &.f-tabs-nav__type_card_top,
+    &.f-tabs-nav__type_card_bottom {
       // .f-tabs-nav--item{
       //   padding: 4px 12px;
       // }
       --padding: 4px 12px;
 
-
-      .f-tabs-nav--item+.f-tabs-nav--item{
+      .f-tabs-nav--item + .f-tabs-nav--item {
         margin-left: -1px;
       }
-      .f-tabs-nav--item__active{
+      .f-tabs-nav--item__active {
         &::before {
           left: calc(0px - var(--radius) - 1px);
         }
         &::after {
           left: calc(0px - var(--radius));
         }
-        &+.f-tabs-nav--item {
-          &::before, &::after {
+        & + .f-tabs-nav--item {
+          &::before,
+          &::after {
             left: -1px;
           }
         }
       }
     }
     // 左右公用
-    &.f-tabs-nav__type_card_left, &.f-tabs-nav__type_card_right{
+    &.f-tabs-nav__type_card_left,
+    &.f-tabs-nav__type_card_right {
       --padding: 4px 8px;
 
       // .f-tabs-nav--item{
       //   padding: 4px 8px;
       // }
-      .f-tabs-nav--item+.f-tabs-nav--item{
+      .f-tabs-nav--item + .f-tabs-nav--item {
         margin-top: -1px;
       }
-      .f-tabs-nav--item__active{
+      .f-tabs-nav--item__active {
         &::before {
           top: calc(0px - var(--radius) - 1px);
         }
         &::after {
           top: calc(0px - var(--radius));
         }
-        &+.f-tabs-nav--item {
+        & + .f-tabs-nav--item {
           &::before {
             top: -1px;
           }
@@ -377,27 +390,27 @@
       }
     }
     // 左
-    &.f-tabs-nav__type_card_left{
-      .f-tabs-nav--item{
+    &.f-tabs-nav__type_card_left {
+      .f-tabs-nav--item {
         border-top-left-radius: var(--radius);
         border-bottom-left-radius: var(--radius);
         &:not(:first-of-type)::before,
         &:not(:first-of-type)::after {
           right: -1px;
         }
-        &.f-tabs-nav--item__active{
+        &.f-tabs-nav--item__active {
           border-right: none;
           padding-right: var(--cardActiveDiffHeight);
-          
+
           &::before {
             border-radius: 0 0 var(--radius) 0;
             border-bottom: 1px solid var(--cardBorerColor);
             border-right: 1px solid var(--cardBorerColor);
             right: 0px;
           }
-          &+.f-tabs-nav--item {
+          & + .f-tabs-nav--item {
             &::after {
-              border-radius: 0 var(--radius) 0 0 ;
+              border-radius: 0 var(--radius) 0 0;
               border-top: 1px solid var(--cardBorerColor);
               border-right: 1px solid var(--cardBorerColor);
             }
@@ -406,25 +419,25 @@
       }
     }
     // 右
-    &.f-tabs-nav__type_card_right{
-      .f-tabs-nav--item{
+    &.f-tabs-nav__type_card_right {
+      .f-tabs-nav--item {
         border-top-right-radius: var(--radius);
         border-bottom-right-radius: var(--radius);
         &:not(:first-of-type)::before,
         &:not(:first-of-type)::after {
           left: -1px;
         }
-        &.f-tabs-nav--item__active{
+        &.f-tabs-nav--item__active {
           border-left: none;
           padding-left: var(--cardActiveDiffHeight);
-          
+
           &::before {
-            border-radius: 0 0  0 var(--radius);
+            border-radius: 0 0 0 var(--radius);
             border-bottom: 1px solid var(--cardBorerColor);
             border-left: 1px solid var(--cardBorerColor);
             left: 0px;
           }
-          &+.f-tabs-nav--item {
+          & + .f-tabs-nav--item {
             &::after {
               border-radius: var(--radius) 0 0 0;
               border-top: 1px solid var(--cardBorerColor);
@@ -436,17 +449,17 @@
     }
   }
   // segment 风格
-  &.f-tabs-nav__type_segment{
+  &.f-tabs-nav__type_segment {
     --padding: 4px 8px;
     --segmentBgColor: #f7f7fa;
     background: var(--segmentBgColor);
     padding: 4px;
 
-    .f-tabs-nav--item{
+    .f-tabs-nav--item {
       // padding: 4px 8px;
       flex: 1;
 
-      &.f-tabs-nav--item__active{
+      &.f-tabs-nav--item__active {
         background: #fff;
       }
     }

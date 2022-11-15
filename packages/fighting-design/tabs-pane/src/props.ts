@@ -5,14 +5,14 @@ export const Props = {
    * 每种标签的key
    */
   name: {
-    type: [String, Number] as PropType<string | number>,
+    type: [String, Number] as PropType<string | number>
   },
   /**
    * label上显示的文字
    */
   label: {
     type: String,
-    default: '',
+    default: ''
   },
   lazy: {
     type: Boolean,

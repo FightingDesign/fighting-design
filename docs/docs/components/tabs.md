@@ -6,6 +6,7 @@
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tabs.md)
 
 ## 基本使用
+
 <f-tabs>
   <f-tabs-pane label="如烟">
     <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
@@ -72,7 +73,6 @@
     </f-radio-group>
   </p>
 </f-card>
-
 
 ::: details 显示代码
 
@@ -199,29 +199,28 @@
   <f-tabs-pane label="爱好(等一秒)" name="hobby">
     <p>疯狂星期四，V我50~</p>
   </f-tabs-pane>
-  <f-tabs-pane label="年龄" name="age">
-  </f-tabs-pane>
+  <f-tabs-pane label="年龄" name="age"> </f-tabs-pane>
 </f-tabs>
 
 <script lang="ts" setup>
-import { FMessage } from 'fighting-design'
+  import { FMessage } from 'fighting-design'
 
-const beforeEnter = (name) => {
-  switch(name) {
-    case 'hobby':
-      return new Promise<boolean>((resolve) => {
-        FMessage.warning('稍等一下~')
-        setTimeout(() => {
-          resolve(true)
-        }, 1000)
-      })
-    case 'age':
-      FMessage.danger('这个不能说')
-      return false
-    default: 
-      return true
+  const beforeEnter = (name) => {
+    switch (name) {
+      case 'hobby':
+        return new Promise<boolean>((resolve) => {
+          FMessage.warning('稍等一下~')
+          setTimeout(() => {
+            resolve(true)
+          }, 1000)
+        })
+      case 'age':
+        FMessage.danger('这个不能说')
+        return false
+      default:
+        return true
+    }
   }
-}
 </script>
 ```
 
@@ -265,7 +264,7 @@ const beforeEnter = (name) => {
 
 :::
 
-## Edit模式
+## Edit 模式
 
 仅在`card`风格下支持`edit`模式
 
@@ -282,32 +281,39 @@ const beforeEnter = (name) => {
 ```html
 <f-card>
   <f-tabs editStatus type="card" @edit="edit">
-    <f-tabs-pane :label="item.label" :name="item.name" v-for="item in list">{{item.content}}</f-tabs-pane>
+    <f-tabs-pane :label="item.label" :name="item.name" v-for="item in list"
+      >{{item.content}}</f-tabs-pane
+    >
   </f-tabs>
 </f-card>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+  import { ref } from 'vue'
 
-let tabIndex = 2
-const list = ref([
-  {label: '第一个', content: '哈哈哈哈', name: '1'},
-  {label: '第二个', content: '哈哈哈哈a', name: '2'},
-])
+  let tabIndex = 2
+  const list = ref([
+    { label: '第一个', content: '哈哈哈哈', name: '1' },
+    { label: '第二个', content: '哈哈哈哈a', name: '2' }
+  ])
 
-function edit(action:"remove" | "add", name: string, i:number) {
-  switch (action) {
-    case "add":
-    const newTabName = `${++tabIndex}`
-      list.value.push({label: '新的' + newTabName, content: '新的标签页' + newTabName, name: newTabName})
-      break;
-    case "remove":
-      list.value.splice(i, 1)
-      break;
+  function edit(action: 'remove' | 'add', name: string, i: number) {
+    switch (action) {
+      case 'add':
+        const newTabName = `${++tabIndex}`
+        list.value.push({
+          label: '新的' + newTabName,
+          content: '新的标签页' + newTabName,
+          name: newTabName
+        })
+        break
+      case 'remove':
+        list.value.splice(i, 1)
+        break
+    }
   }
-}
 </script>
 ```
+
 :::
 
 ## 触发方式
@@ -369,9 +375,8 @@ function edit(action:"remove" | "add", name: string, i:number) {
   const trigger = ref('click')
 </script>
 ```
+
 :::
-
-
 
 <script lang="ts" setup>
   import { ref } from 'vue'
@@ -420,39 +425,38 @@ function edit(action:"remove" | "add", name: string, i:number) {
 
 ## Tabs Attributes
 
-| 参数            | 说明               | 类型    | 可选值                  | 默认值 |
-| -------------- | ------------------ | ------- | ----------------------- | ------ |
-| `v-model`    |  绑定值，选中选项卡的 name  | string / number   | ——        | 第一个选项卡的 name  |
-| `type`    |  风格类型     |  string    | `line` `card` `segment`         | `line`  |
-| `position`    |  头部位置    |  string    | `left` `right` `top` `bottom`     | `top`  |
-| `justifyContent`    |  对齐方式(仅针对上下方向的`line`有效)    |  string    | `flex-start` `center` `flex-end` `space-between` `space-around`     | `flex-start`  |
-| `beforeEnter` | 切换前的回调 | (name: String \| Number) => Boolean | —— |  —— | 
-| `editStatus` | 编辑模式 | Boolean | —— |  `false` | 
-| `trigger` | 触发方式 | String | `click` `hover` |  `click` | 
+| 参数             | 说明                                 | 类型                                | 可选值                                                          | 默认值              |
+| ---------------- | ------------------------------------ | ----------------------------------- | --------------------------------------------------------------- | ------------------- |
+| `v-model`        | 绑定值，选中选项卡的 name            | string / number                     | ——                                                              | 第一个选项卡的 name |
+| `type`           | 风格类型                             | string                              | `line` `card` `segment`                                         | `line`              |
+| `position`       | 头部位置                             | string                              | `left` `right` `top` `bottom`                                   | `top`               |
+| `justifyContent` | 对齐方式(仅针对上下方向的`line`有效) | string                              | `flex-start` `center` `flex-end` `space-between` `space-around` | `flex-start`        |
+| `beforeEnter`    | 切换前的回调                         | (name: String \| Number) => Boolean | ——                                                              | ——                  |
+| `editStatus`     | 编辑模式                             | Boolean                             | ——                                                              | `false`             |
+| `trigger`        | 触发方式                             | String                              | `click` `hover`                                                 | `click`             |
 
 ## Tabs Slots
 
-| 名称            | 说明               |
-| -------------- | ------------------ |
-| `default`    |  标签的内容     |
-| `prefix`	|	标签的前缀 |
-| `suffix`	|	标签的后缀 |
-
+| 名称      | 说明       |
+| --------- | ---------- |
+| `default` | 标签的内容 |
+| `prefix`  | 标签的前缀 |
+| `suffix`  | 标签的后缀 |
 
 ## TabsPane Attributes
 
-| 参数            | 说明               | 类型    | 可选值                  | 默认值 |
-| -------------- | ------------------ | ------- | ----------------------- | ------ |
-| `name`    |  标签的标识符     |  string / number    | ——     | ——  |
-| `label`    |  标签项的标题    |  string    | ——    | ——  |
-| `lazy`    |  标签内容是否延迟渲染    |  boolean    | ——    | `false`  |
+| 参数    | 说明                 | 类型            | 可选值 | 默认值  |
+| ------- | -------------------- | --------------- | ------ | ------- |
+| `name`  | 标签的标识符         | string / number | ——     | ——      |
+| `label` | 标签项的标题         | string          | ——     | ——      |
+| `lazy`  | 标签内容是否延迟渲染 | boolean         | ——     | `false` |
 
 ## TabsPane Slots
 
-| 名称            | 说明               |
-| -------------- | ------------------ |
-| `default`    |  标签项的内容     |
-| `label`    |  标签项的标题内容     |
+| 名称      | 说明             |
+| --------- | ---------------- |
+| `default` | 标签项的内容     |
+| `label`   | 标签项的标题内容 |
 
 ## Contributors
 

@@ -1,11 +1,27 @@
 <script lang="ts" setup name="FTabs">
   import { Props, TabsProvideKey, Emits } from './props'
-  import type { TabsPropsType, TabsNavInstance, TabsProvide, TabsPaneName } from './interface'
-  import { onMounted, ref, provide, computed, ComponentInternalInstance, getCurrentInstance, watch, onBeforeUpdate, nextTick, useSlots } from 'vue'
+  import type {
+    TabsPropsType,
+    TabsNavInstance,
+    TabsProvide,
+    TabsPaneName
+  } from './interface'
+  import {
+    onMounted,
+    ref,
+    provide,
+    computed,
+    ComponentInternalInstance,
+    getCurrentInstance,
+    watch,
+    onBeforeUpdate,
+    nextTick,
+    useSlots
+  } from 'vue'
   import { TabsNav } from './components'
   import { debugWarn, __DEV__ } from '../../_utils'
   import { getChildrenComponent } from './utils'
-  const instance:ComponentInternalInstance = getCurrentInstance()
+  const instance: ComponentInternalInstance = getCurrentInstance()
 
   const prop: TabsPropsType = defineProps(Props)
   const emits = defineEmits(Emits)
@@ -14,7 +30,7 @@
    */
   const currentName = ref<TabsPaneName>(0)
 
-  function setCurrentName (name: TabsPaneName) {
+  function setCurrentName(name: TabsPaneName) {
     // 如果用户没有设置v-model, 这里可以直接在内部修改
     currentName.value = name
     emits('update:modelValue', name)
@@ -22,7 +38,7 @@
   /**
    * 触发用户的emit
    */
-  function edit(action: "remove" | "add", name?: TabsPaneName, i?: number) {
+  function edit(action: 'remove' | 'add', name?: TabsPaneName, i?: number) {
     emits('edit', action, name, i)
   }
   /**
@@ -31,11 +47,13 @@
   const panes = ref([])
   /**
    * 更新pane列表
-   * @param pane 
+   * @param pane
    */
   function updatePaneList() {
     nextTick(() => {
-      panes.value = getChildrenComponent(instance, 'FTabsPane').map(e => e.component)
+      panes.value = getChildrenComponent(instance, 'FTabsPane').map(
+        (e) => e.component
+      )
     })
   }
   /**
@@ -52,15 +70,23 @@
   /**
    * 将prop.modelValue同步到currentName中
    */
-   watch(() => prop.modelValue, (val) => {
-    currentName.value = val
+  watch(
+    () => prop.modelValue,
+    (val) => {
+      currentName.value = val
 
-    if (__DEV__ && navs.value.length && navs.value.every(e => e.name !== val)) {
-      debugWarn('FTabs', `未找到名为 ${val} 的标签`)
+      if (
+        __DEV__ &&
+        navs.value.length &&
+        navs.value.every((e) => e.name !== val)
+      ) {
+        debugWarn('FTabs', `未找到名为 ${val} 的标签`)
+      }
+    },
+    {
+      immediate: true
     }
-  }, {
-    immediate: true
-  })
+  )
 
   onMounted(async () => {
     await nextTick()
@@ -77,19 +103,16 @@
     }
     return _position
   })
-  
-  const styleList = computed(() => {
 
-    return [
-      `f-tabs__position_${_position.value}`,
-    ]
+  const styleList = computed(() => {
+    return [`f-tabs__position_${_position.value}`]
   })
 
   /**
    * 通过refs 抛出当前选中的值
    */
   defineExpose({
-    currentName,
+    currentName
   })
 
   /**

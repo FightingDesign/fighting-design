@@ -6,7 +6,7 @@ import type {
   UtilsSizeChangeInterface,
   UtilsIsBooleanInterface,
   UtilsIsStringInterface,
-UtilsSizeToNumInterface
+  UtilsSizeToNumInterface
 } from './interface'
 
 export * from './error'
@@ -17,7 +17,10 @@ export * from './error'
  * @param no 保留位数
  * @returns { Number } 转换后的数字
  */
-export const keepDecimal: UtilsKeepDecimalInterface = (num: number, no = 2): number => {
+export const keepDecimal: UtilsKeepDecimalInterface = (
+  num: number,
+  no = 2
+): number => {
   return Number(num.toFixed(no))
 }
 
@@ -28,7 +31,10 @@ export const keepDecimal: UtilsKeepDecimalInterface = (num: number, no = 2): num
  * @param delay 延时的时间
  * @returns { Function }
  */
-export const debounce: UtilsDebounceInterface = (callback: Function, delay = 200): Function => {
+export const debounce: UtilsDebounceInterface = (
+  callback: Function,
+  delay = 200
+): Function => {
   let timer: NodeJS.Timeout
   return (): void => {
     if (timer) {
@@ -45,7 +51,9 @@ export const debounce: UtilsDebounceInterface = (callback: Function, delay = 200
  * @param target 要检测的数据
  * @returns { boolean }
  */
-export const isNumber: UtilsIsNumberInterface = (target: unknown): target is number => {
+export const isNumber: UtilsIsNumberInterface = (
+  target: unknown
+): target is number => {
   return (
     typeof target === 'number' &&
     Object.prototype.toString.call(target) === '[object Number]'
@@ -57,7 +65,9 @@ export const isNumber: UtilsIsNumberInterface = (target: unknown): target is num
  * @param target 要检测的数据
  * @returns { boolean }
  */
-export const isBoolean: UtilsIsBooleanInterface = (target: unknown): target is boolean => {
+export const isBoolean: UtilsIsBooleanInterface = (
+  target: unknown
+): target is boolean => {
   return (
     typeof target === 'boolean' &&
     Object.prototype.toString.call(target) === '[object Boolean]'
@@ -69,7 +79,9 @@ export const isBoolean: UtilsIsBooleanInterface = (target: unknown): target is b
  * @param target 要检测的值
  * @returns { boolean }
  */
-export const isString: UtilsIsStringInterface = (target: unknown): target is string => {
+export const isString: UtilsIsStringInterface = (
+  target: unknown
+): target is string => {
   return (
     typeof target === 'string' &&
     Object.prototype.toString.call(target) === '[object String]'
@@ -87,30 +99,33 @@ export const addZero: UtilsAddZeroInterface = (num: number): string => {
 
 /**
  * 将数字尺寸改为字符串
- * 
+ *
  * 有些 props 传入的参数可能是 string 或者 number 类型
- * 
+ *
  * 这些数值需要转换成单位，所以默认 string 类型是有单位的，如 1px、20%
- * 
+ *
  * 对于 number 类型的参数，就需要追加 target 类型的单位
- * 
+ *
  * @param size 尺寸
  * @param target 单位
  * @returns { string } 已经追加单位的字符串数值
  */
-export const sizeChange: UtilsSizeChangeInterface = (size: string | number | undefined, target = 'px'): string => {
+export const sizeChange: UtilsSizeChangeInterface = (
+  size: string | number | undefined,
+  target = 'px'
+): string => {
   if (!size) return ''
   return typeof size === 'string' ? size : size + target
 }
 
 /**
  * 将字符串化的尺寸转为数字
- * 
+ *
  * 例如: 12px => 12
- * 
+ *
  * @param size 尺寸
  */
-export const sizeToNum:UtilsSizeToNumInterface = (size: string | number) => {
+export const sizeToNum: UtilsSizeToNumInterface = (size: string | number) => {
   if (!size) return 0
   if (typeof size === 'number') return size
   return Number.parseFloat(size) || 0

@@ -1,5 +1,11 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import { TabsNavInstance, TabsPaneName, TabsPosition, TabsType, TabsJustifyContent } from '../../interface'
+import {
+  TabsNavInstance,
+  TabsPaneName,
+  TabsPosition,
+  TabsType,
+  TabsJustifyContent
+} from '../../interface'
 
 export const Props = {
   /**
@@ -12,13 +18,13 @@ export const Props = {
     type: String as PropType<TabsType>
   },
   position: {
-    type: String as PropType<TabsPosition>,
+    type: String as PropType<TabsPosition>
   },
   currentName: {
     type: [String, Number] as PropType<TabsPaneName>
   },
   beforeEnter: {
-    type: Function as PropType<(name: TabsPaneName) => boolean|void>
+    type: Function as PropType<(name: TabsPaneName) => boolean | void>
   },
   justifyContent: {
     type: String as PropType<TabsJustifyContent>
@@ -32,8 +38,12 @@ export const Props = {
 }
 
 export const Emits = {
-  'set-current-name': (name: TabsPaneName):boolean => true,
-  'edit': (action: "remove" | "add", name: TabsPaneName, index: number):boolean => true
+  'set-current-name': (name: TabsPaneName): boolean => true,
+  edit: (
+    action: 'remove' | 'add',
+    name: TabsPaneName,
+    index: number
+  ): boolean => true
 } as const
 
 export type TabsNavPropsType = ExtractPropTypes<typeof Props>

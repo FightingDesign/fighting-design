@@ -1,5 +1,10 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import { TabsPaneName, TabsPosition, TabsType, TabsJustifyContent } from './interface'
+import {
+  TabsPaneName,
+  TabsPosition,
+  TabsType,
+  TabsJustifyContent
+} from './interface'
 
 export const Props = {
   /**
@@ -38,7 +43,7 @@ export const Props = {
    * 切换前的回调
    */
   beforeEnter: {
-    type: Function as PropType<(name: TabsPaneName) => boolean|void>
+    type: Function as PropType<(name: TabsPaneName) => boolean | void>
   },
   /**
    * 触发事件
@@ -51,7 +56,11 @@ export const Props = {
 
 export const Emits = {
   'update:modelValue': (val: String | Number) => true, // 下标可能为0
-  'edit': (action: 'remove'|'add', name: TabsPaneName, index: number):boolean => true
+  edit: (
+    action: 'remove' | 'add',
+    name: TabsPaneName,
+    index: number
+  ): boolean => true
 } as const
 
 export type TabsPropsType = ExtractPropTypes<typeof Props>

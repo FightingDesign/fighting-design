@@ -1,4 +1,10 @@
-import { VNode, VNodeNormalizedChildren, isVNode, ComponentInternalInstance, Component } from "vue"
+import {
+  VNode,
+  VNodeNormalizedChildren,
+  isVNode,
+  ComponentInternalInstance,
+  Component
+} from 'vue'
 
 const isArray = Array.isArray
 
@@ -6,7 +12,7 @@ const isObject = (obj: any) => typeof obj === 'object' && obj !== null
 
 /**
  * 将所有子的组件扁平化
- * @param children 
+ * @param children
  */
 export const flattedChildren = (
   children: VNode | VNodeNormalizedChildren
@@ -30,11 +36,16 @@ export const flattedChildren = (
 
 /**
  * 筛选出根组件下所有名称符合的组件
- * @param root 
- * @param component 
+ * @param root
+ * @param component
  */
-export function getChildrenComponent(root: ComponentInternalInstance, component: string) {
-  if (!root.subTree) return[]
+export function getChildrenComponent(
+  root: ComponentInternalInstance,
+  component: string
+) {
+  if (!root.subTree) return []
   const flaChildren = flattedChildren(root.subTree.children)
-  return flaChildren.filter(e => isObject(e.type) && (e.type as Component).name === component)
+  return flaChildren.filter(
+    (e) => isObject(e.type) && (e.type as Component).name === component
+  )
 }
