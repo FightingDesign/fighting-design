@@ -1,39 +1,37 @@
 <script lang="ts" setup name="FSelect">
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
-  import { isString } from '../../_utils'
   import { useEmit } from '../../_hooks'
-  import { provide, reactive, ref, computed, watch } from 'vue'
+  import { provide, reactive, ref, computed } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { sizeChange } from '../../_utils'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
     SelectPropsType,
     SelectSetValueInterface,
-    SelectProvideInterface
+    SelectProvideInterface,
+    SelectModelValueType
   } from './interface'
 
   const prop: SelectPropsType = defineProps(Props)
-  const emit = defineEmits(useEmit((val: string): boolean => isString(val)))
+  const emit = defineEmits(
+    useEmit((val: SelectModelValueType): boolean => !!val)
+  )
 
   // 绑定值
-  const inputValue: Ref<string> = ref<string>(prop.modelValue)
-
-  /**
-   * 监视绑定值发生变化同步数据
-   */
-  watch(
-    (): string => inputValue.value,
-    (newVal: string): void => {
-      emit('update:modelValue', newVal)
-    }
-  )
+  const inputValue: Ref<string> = ref<string>('')
 
   /**
    * 设置新的值
+   * @param newValue 新的 value 值
+   * @param newLabel 新增 label 值
    */
-  const setValue: SelectSetValueInterface = (newVal: string): void => {
-    inputValue.value = newVal
+  const setValue: SelectSetValueInterface = (
+    newValue: string,
+    newLabel: SelectModelValueType
+  ): void => {
+    inputValue.value = newValue
+    emit('update:modelValue', newLabel)
   }
 
   /**

@@ -1,13 +1,13 @@
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
-import type { SelectProvideInterface } from './interface'
+import type { SelectProvideInterface, SelectModelValueType } from './interface'
 
 export const Props = {
   /**
    * 绑定值
    */
   modelValue: {
-    type: String,
-    default: (): string => ''
+    type: [String, Number, Boolean] as PropType<SelectModelValueType>,
+    default: (): null => null
   },
   /**
    * 自定义宽度
