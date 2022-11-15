@@ -1,4 +1,4 @@
-@import '../config/var-switch.scss';
+@import '../config/const-size.scss';
 
 .f-switch {
   user-select: none;
@@ -17,19 +17,24 @@
     width: 40px;
     height: 20px;
 
-    // 打开状态
-    @each $key, $value in $switchSize {
-      &.f-switch__#{$key} {
-        width: $value * 2;
-        height: $value;
+    // 不同尺寸
+    @for $list from 1 to (length($ComponentsSize) + 1) {
+      $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
+
+      $inputSize: calc(map-get($item, height) - 10px);
+      $rollSize: calc(map-get($item, height) - 10px - 4px);
+
+      &.f-switch__#{map-get($item, name)} {
+        height: $inputSize;
+        width: calc($inputSize * 2);
 
         // 小球
         .f-switch__roll {
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          width: $value - 4;
-          height: $value - 4;
+          width: $rollSize;
+          height: $rollSize;
           background: #fff;
           border: 2px solid var(--f-design-color-primary-1);
           border-radius: 50%;
@@ -42,8 +47,8 @@
           box-sizing: content-box;
           box-shadow: 0 2px 3px #00000021, 0 0 4px #0000000d;
 
-          .f-icon {
-            font-size: 13px;
+          .f-svg-icon {
+            font-size: calc(map-get($item, fontSize) - 1px);
           }
         }
       }

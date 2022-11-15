@@ -1,10 +1,17 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import { FIconSnowflake } from '@fighting-design/fighting-icon'
 
+  const value3 = ref(true)
   const value1 = ref('')
 </script>
 
 <template>
+  <f-switch v-model="value3" :icon="FIconSnowflake" size="large" />
+  <f-switch v-model="value3" :icon="FIconSnowflake" size="middle" />
+  <f-switch v-model="value3" :icon="FIconSnowflake" size="small" />
+  <f-switch v-model="value3" :icon="FIconSnowflake" size="mini" />
+
   <f-select v-model="value1" placeholder="请选择……">
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2">苹果</f-option>
