@@ -13,7 +13,6 @@
   import type { WaterfallRowType as rt } from './interface'
 
   const prop = defineProps(Props)
-
   let cols: number = prop.cols as number
   const emit = defineEmits(Emits)
   const waterfall = ref()

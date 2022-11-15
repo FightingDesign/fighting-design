@@ -1,20 +1,36 @@
 <template>
-  <!-- <f-button type="primary" @click="openNotification">show</f-button> -->
-
-  <!-- <input type="file" name="" id="" /> -->
-  <f-up-load />
-
-  <f-rate v-model="value1" :change="goBack" />
+  <div class="home-banner">
+    <f-carousel :data="sliders">
+      <template #body="{ row }">
+        <img :src="row.url" alt="" />
+      </template>
+    </f-carousel>
+  </div>
 </template>
-
-<script lang="ts" setup>
-  import { FMessage } from '../../packages/fighting-design/index'
-
-  const openNotification = () => {
-    FMessage({
-      message: '这是一条消息提示',
-      type: 'success',
-      placement: 'top'
-    })
+<script>
+  import { ref } from 'vue'
+  export default {
+    name: 'HomeBanner',
+    setup() {
+      const sliders = ref([
+        {
+          url: 'https://picsum.photos/200/300'
+        },
+        {
+          url: 'https://picsum.photos/200/300'
+        },
+        {
+          url: 'https://picsum.photos/200/300'
+        }
+      ])
+      return { sliders }
+    }
   }
 </script>
+<style lang="css">
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<style scoped lang="scss"></style>
