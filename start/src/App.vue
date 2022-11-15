@@ -2,7 +2,7 @@
   import { ref } from 'vue'
 
   const position = ref('top')
-  const type = ref('line')
+  const type = ref('card')
   const justifyContent = ref('flex-start')
   const tab = ref(0)
 
@@ -17,8 +17,16 @@
     )
   }
 
-  function edit(name: string) {
-    console.log('当前点击的时', name)
+  function edit(action:"remove" | "add", name: string, i:number) {
+    switch (action) {
+      case "add":
+        list.value.push({label: '新的', content: '新的标签页'})
+        break;
+      case "remove":
+        list.value.splice(i, 1)
+      default:
+        break;
+    }
   }
 </script>
 

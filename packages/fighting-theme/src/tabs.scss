@@ -210,7 +210,7 @@
     --cardActiveBg: #fff;
     --cardBgColor: #f5f7fa;
     --cardBorerColor: #ddd;
-
+    
     .f-tabs-nav--item{
       border: 1px solid var(--cardBorerColor);
       position: relative;
@@ -245,6 +245,16 @@
             z-index: 2;
           }
         }
+      }
+
+      .f-tabs-nav--item__card_close{
+        font-size: 0px;
+        transition: font-size .3s
+      }
+      &:hover, &.f-tabs-nav--item__active{
+        .f-tabs-nav--item__card_close{
+          font-size: 20px;
+        }    
       }
     }
 

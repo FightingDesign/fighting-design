@@ -30,7 +30,7 @@ export const Props = {
 
 export const Emits = {
   'set-current-name': (name: TabsPaneName):boolean => true,
-  'edit': (name: TabsPaneName, index: number):boolean => true
+  'edit': (action: "remove" | "add", name: TabsPaneName, index: number):boolean => true
 } as const
 
 export type TabsNavPropsType = ExtractPropTypes<typeof Props>

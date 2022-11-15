@@ -44,7 +44,7 @@ export const Props = {
 
 export const Emits = {
   'update:modelValue': (val: String | Number) => true, // 下标可能为0
-  'edit': (name: TabsPaneName, index: number):boolean => true
+  'edit': (action: 'remove'|'add', name: TabsPaneName, index: number):boolean => true
 } as const
 
 export type TabsPropsType = ExtractPropTypes<typeof Props>

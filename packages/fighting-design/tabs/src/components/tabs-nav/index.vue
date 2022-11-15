@@ -4,7 +4,7 @@
   import { isString, sizeToNum } from '../../../../_utils'
   import { TabsPaneName } from '../../interface';
   import { ComponentInternalInstance, computed, CSSProperties, getCurrentInstance, nextTick, ref, watch } from 'vue';
-  import { FIconCrossVue } from '../../../../_svg'
+  import { FIconCrossVue, FIconPlusVue } from '../../../../_svg'
   import { FSvgIcon } from '../../../../svg-icon'
 
   const prop: TabsNavPropsType = defineProps(Props)
@@ -25,8 +25,8 @@
     emit('set-current-name', name)
   }
 
-  async function closeItem(name: TabsPaneName, i: number) {
-    emit('edit', name, i)
+  async function editItem(action:'remove'|'add', name?: TabsPaneName, i?: number) {
+    emit('edit', action, name, i)
   }
   /**
    * 仅针对card模式下的，items的样式
@@ -102,9 +102,7 @@
     if (!children.length) return
     const nextItem = children[currentIndex.value]
 
-    const parent = nextItem.parentElement
     const nextItemStyle = window.getComputedStyle(nextItem)
-    console.log(nextItem.offsetLeft , parent.offsetLeft)
     if (position === 'top' || position === 'bottom') {
       activeStyle.width = nextItem.clientWidth - Number.parseFloat(nextItemStyle.paddingLeft) - Number.parseFloat(nextItemStyle.paddingRight) + 'px'
       activeStyle.left = `${nextItem.offsetLeft + Number.parseFloat(nextItemStyle.paddingLeft)}px`
@@ -219,7 +217,10 @@
             <div v-else>
               <component :is="item.label"></component>
             </div>
-            <FSvgIcon :icon="FIconCrossVue" v-if="type === 'card' && editStatus" @click.stop="closeItem(item.name, i)"></FSvgIcon>
+            <FSvgIcon class="f-tabs-nav--item__card_close" :icon="FIconCrossVue" v-if="type === 'card' && editStatus" @click.stop="editItem('remove', item.name, i)"></FSvgIcon>
+          </div>
+          <div class="f-tabs-nav--item" @click="editItem('add')">
+            <FSvgIcon :icon="FIconPlusVue" color="#666"></FSvgIcon>
           </div>
           <div class="f-tabs-nav--line__active" :style="activeLineStyle"  v-if="prop.type === 'line'"></div>
         </div>

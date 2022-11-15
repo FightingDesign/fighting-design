@@ -22,8 +22,8 @@
   /**
    * 触发用户的emit
    */
-  function edit(name: TabsPaneName, i: number) {
-    emits('edit', name, i)
+  function edit(action: "remove" | "add", name?: TabsPaneName, i?: number) {
+    emits('edit', action, name, i)
   }
   /**
    * panes集合
