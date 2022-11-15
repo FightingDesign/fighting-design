@@ -6,6 +6,8 @@
   const justifyContent = ref('flex-start')
   const tab = ref(0)
 
+  const radio1 = ref('1')
+
   const list = ref([
     { label: '第一个', content: '哈哈哈哈', name: '1' },
     { label: '第二个', content: '哈哈哈哈a', name: '2' }
@@ -35,6 +37,11 @@
 </script>
 
 <template>
+  <f-radio-group v-model="radio1">
+    <f-radio label="1">备选项1</f-radio>
+    <f-radio label="2">备选项2</f-radio>
+    <f-radio label="3">备选项3</f-radio>
+  </f-radio-group>
   <div style="padding: 20px">
     <f-card>
       <f-tabs
