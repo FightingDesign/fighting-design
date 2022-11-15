@@ -15,11 +15,14 @@ export const nav = [
     link: '/components/button'
   },
   {
-    text: 'Playground',
-    link: 'https://sfc.tianyuhao.cn'
-  },
-  {
     text: version,
     link: 'https://www.npmjs.com/package/fighting-design'
+  },
+  {
+    text: '生态系统',
+    items: [
+      { text: '演练场', link: 'https://sfc.tianyuhao.cn' },
+      { text: '自定义主题', activeMatch: '^/theme/', link: '/theme/start' }
+    ]
   }
 ]
