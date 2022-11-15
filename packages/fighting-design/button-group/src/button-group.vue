@@ -1,11 +1,14 @@
 <script lang="ts" setup name="FButtonGroup">
-  import { Props } from './props'
-  import { computed } from 'vue'
+  import { Props, BUTTON_GROUP_PROPS_KEY } from './props'
+  import { computed, provide } from 'vue'
   import type { ComputedRef } from 'vue'
   import type { ClassListInterface } from '../../_interface'
-  import type { ButtonGroupPropsType } from './props'
+  import type { ButtonGroupPropsType, ButtonGroupSizeType } from './interface'
 
   const prop: ButtonGroupPropsType = defineProps(Props)
+
+  // 注入尺寸依赖
+  provide<ButtonGroupSizeType>(BUTTON_GROUP_PROPS_KEY, prop.size)
 
   /**
    * 类名列表

@@ -4,6 +4,7 @@
 
 - 新增 `f-checkbox` 组件 `indeterminate` 配置项
 - 新增 `f-textarea` 组件
+- 新增 `f-pagination` 组件
 - 重构 `loading` 组件
 - `f-switch` 组件 `size` 配置项新增 `mini` 可选择
 - `f-switch` 组件新增 `icon-size` 配置项

@@ -1,17 +1,23 @@
 <script lang="ts" setup name="FButton">
-  import { computed, ref, h } from 'vue'
+  import { Props } from './props'
+  import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
+  import { computed, ref, inject } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import { Props } from './props'
   import { Ripples, ChangeColor, sizeChange } from '../../_utils'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
     HandleMouseEventInterface,
     ClassListInterface
   } from '../../_interface'
-  import type { ButtonPropsType } from './props'
+  import type { ButtonPropsType, ButtonSizeType } from './interface'
 
   const prop: ButtonPropsType = defineProps(Props)
+
+  // 父组件注入的依赖项
+  const buttonGroupSize: ButtonSizeType | undefined = inject<
+    ButtonSizeType | undefined
+  >(BUTTON_GROUP_PROPS_KEY, undefined)
 
   // dom 元素
   const FButton: Ref<HTMLButtonElement> = ref<HTMLButtonElement>(
@@ -40,7 +46,7 @@
       return [
         'f-button',
         {
-          [`f-button__${size}`]: size,
+          [`f-button__${buttonGroupSize || size}`]: buttonGroupSize || size,
           [`f-button__${type}`]: !color,
           'f-button__disabled': disabled || loading,
           'f-button__simple': simple && !color,
@@ -130,7 +136,7 @@
       <f-svg-icon
         v-if="loading || beforeIcon"
         :class="{ 'f-button__loading-animation': loading }"
-        :icon="loading ? loadingIcon || h(FIconLoadingAVue) : beforeIcon"
+        :icon="loading ? loadingIcon || FIconLoadingAVue : beforeIcon"
         :size="16"
       />
 
@@ -156,7 +162,7 @@
       <f-svg-icon
         v-if="loading || beforeIcon"
         :class="{ 'f-button__loading-animation': loading }"
-        :icon="loading ? loadingIcon || h(FIconLoadingAVue) : beforeIcon"
+        :icon="loading ? loadingIcon || FIconLoadingAVue : beforeIcon"
         :size="16"
       />
 

@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { ButtonGroupSizeType } from './interface'
 
 export const Props = {
@@ -22,3 +22,5 @@ export const Props = {
 } as const
 
 export type ButtonGroupPropsType = ExtractPropTypes<typeof Props>
+
+export const BUTTON_GROUP_PROPS_KEY: InjectionKey<ButtonGroupPropsType> = Symbol('button-group-props-key')
