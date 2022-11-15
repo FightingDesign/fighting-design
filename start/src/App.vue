@@ -17,7 +17,7 @@
   //   )
   // }
   let tabIndex = 2
-  function edit(action: 'remove' | 'add', name: string, i: number) {
+  function edit (action: 'remove' | 'add', name: string, i: number) {
     switch (action) {
       case 'add':
         const newTabName = `${++tabIndex}`
@@ -38,19 +38,20 @@
   <div style="padding: 20px">
     <f-card>
       <f-tabs
-        :position="position"
-        :justifyContent="justifyContent"
-        editStatus
-        :type="type"
         v-model="tab"
+        :position="position"
+        :justify-content="justifyContent"
+        edit-status
+        :type="type"
         @edit="edit"
       >
         <f-tabs-pane
+          v-for="(item, i) in list"
           :name="item.name"
           :label="item.label"
-          v-for="(item, i) in list"
-          >{{ item.content }}</f-tabs-pane
         >
+          {{ item.content }}
+        </f-tabs-pane>
       </f-tabs>
     </f-card>
 

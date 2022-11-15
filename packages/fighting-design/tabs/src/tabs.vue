@@ -1,26 +1,26 @@
 <script lang="ts" setup name="FTabs">
   import { Props, TabsProvideKey, Emits } from './props'
+  import {
+    onMounted,
+    ref,
+    provide,
+    computed,
+    getCurrentInstance,
+    watch,
+    nextTick,
+    useSlots
+  } from 'vue'
   import type {
     TabsPropsType,
     TabsNavInstance,
     TabsProvide,
     TabsPaneName
   } from './interface'
-  import {
-    onMounted,
-    ref,
-    provide,
-    computed,
-    ComponentInternalInstance,
-    getCurrentInstance,
-    watch,
-    onBeforeUpdate,
-    nextTick,
-    useSlots
-  } from 'vue'
+  import type { ComponentInternalInstance } from 'vue'
   import { TabsNav } from './components'
   import { debugWarn, __DEV__ } from '../../_utils'
   import { getChildrenComponent } from './utils'
+
   const instance: ComponentInternalInstance = getCurrentInstance()
 
   const prop: TabsPropsType = defineProps(Props)
@@ -30,7 +30,7 @@
    */
   const currentName = ref<TabsPaneName>(0)
 
-  function setCurrentName(name: TabsPaneName) {
+  function setCurrentName (name: TabsPaneName) {
     // 如果用户没有设置v-model, 这里可以直接在内部修改
     currentName.value = name
     emits('update:modelValue', name)
@@ -38,7 +38,7 @@
   /**
    * 触发用户的emit
    */
-  function edit(action: 'remove' | 'add', name?: TabsPaneName, i?: number) {
+  function edit (action: 'remove' | 'add', name?: TabsPaneName, i?: number) {
     emits('edit', action, name, i)
   }
   /**
@@ -49,7 +49,7 @@
    * 更新pane列表
    * @param pane
    */
-  function updatePaneList() {
+  function updatePaneList () {
     nextTick(() => {
       panes.value = getChildrenComponent(instance, 'FTabsPane').map(
         (e) => e.component
@@ -129,22 +129,22 @@
 <template>
   <div class="f-tabs" :class="styleList">
     <tabs-nav
+      v-if="navs.length"
       :navs="navs"
       :type="type"
-      :currentName="currentName"
+      :current-name="currentName"
       :position="_position"
-      :editStatus="editStatus"
-      :justifyContent="justifyContent"
-      :beforeEnter="beforeEnter"
+      :edit-status="editStatus"
+      :justify-content="justifyContent"
+      :before-enter="beforeEnter"
       :trigger="trigger"
       @setCurrentName="setCurrentName"
       @edit="edit"
-      v-if="navs.length"
     >
-      <template #prefix v-if="slots.prefix">
+      <template v-if="slots.prefix" #prefix>
         <slot name="prefix"></slot>
       </template>
-      <template #suffix v-if="slots.suffix">
+      <template v-if="slots.suffix" #suffix>
         <slot name="suffix"></slot>
       </template>
     </tabs-nav>

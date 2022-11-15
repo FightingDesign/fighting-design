@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import {
+import type {
   TabsPaneName,
   TabsPosition,
   TabsType,

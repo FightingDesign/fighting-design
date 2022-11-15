@@ -9,8 +9,6 @@ import type {
   UtilsSizeToNumInterface
 } from './interface'
 
-export * from './error'
-
 /**
  * 保留小数点后 no 位
  * @param num 带有小数的数字

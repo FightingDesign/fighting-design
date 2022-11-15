@@ -1,30 +1,35 @@
-@import './root.scss';
-
 .f-tabs {
   display: flex;
+
   &.f-tabs__position_top {
     flex-direction: column;
+
     .f-tabs-nav {
       align-items: flex-end;
     }
   }
   &.f-tabs__position_bottom {
     flex-direction: column-reverse;
+
     .f-tabs-nav {
       align-items: flex-start;
     }
   }
+
   &.f-tabs__position_top,
   &.f-tabs__position_bottom {
     .f-tabs-nav {
       justify-content: space-between;
     }
+
     .f-tabs-nav__wrapper {
       min-width: 100%;
     }
+
     .f-tabs-nav__prefix {
       padding-right: 10px;
     }
+
     .f-tabs-nav__suffix {
       padding-left: 10px;
     }
@@ -37,18 +42,23 @@
       flex-direction: column;
       align-items: flex-end;
     }
+
     .f-tabs-nav__prefix {
       padding-bottom: 10px;
     }
+
     .f-tabs-nav__suffix {
       padding-top: 10px;
     }
   }
+
   &.f-tabs__position_left {
     flex-direction: row;
   }
+
   &.f-tabs__position_right {
     flex-direction: row-reverse;
+
     .f-tabs-nav,
     .f-tabs-nav__wrapper {
       align-items: flex-start;
@@ -63,10 +73,12 @@
 .f-tabs-pane {
   padding: 4px 8px;
 }
+
 .f-tabs-nav__main {
   flex: 1;
   overflow: hidden;
 }
+
 .f-tabs__position_top,
 .f-tabs__position_bottom {
   .f-tabs-nav__scroll {
@@ -99,9 +111,11 @@
 
   .f-tabs-nav__main {
     position: relative;
+
     .f-tabs-nav__scroll {
       width: 100%;
     }
+
     &::after,
     &::before {
       transition: box-shadow 0.3s;
@@ -113,10 +127,12 @@
       width: 20px;
       z-index: 1;
     }
+
     &.f-tabs-nav__scroll_before::before {
       left: 0;
       box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.12);
     }
+
     &.f-tabs-nav__scroll_after::after {
       right: 0;
       box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.12);
@@ -140,10 +156,12 @@
         color: var(--f-design-color-primary-1);
       }
     }
+
     .f-tabs-nav--item__active {
       color: var(--f-design-color-primary-1);
     }
   }
+
   // line风格
   &.f-tabs-nav__type_line {
     flex-shrink: 0;
@@ -153,12 +171,13 @@
       transition: all 0.3s;
       position: absolute;
     }
+
     // 上下方向
     &.f-tabs-nav__type_line_top,
     &.f-tabs-nav__type_line_bottom {
       --padding: 10px 0;
-
       border-bottom: 1px solid #ddd;
+
       .f-tabs-nav--line__active {
         height: 2px;
       }
@@ -168,14 +187,17 @@
           padding-left: 10px;
           padding-right: 10px;
         }
+
         &:first-child {
           padding-right: 10px;
         }
+
         &:last-child {
           padding-left: 10px;
         }
       }
     }
+
     // 左右方向
     &.f-tabs-nav__type_line_left,
     &.f-tabs-nav__type_line_right {
@@ -190,17 +212,21 @@
           padding-top: 10px;
           padding-bottom: 10px;
         }
+
         &:first-child {
           padding-bottom: 10px;
         }
+
         &:last-child {
           padding-top: 10px;
         }
       }
     }
+
     &.f-tabs-nav__type_line_left {
       border-right: 1px solid #ccc;
     }
+
     &.f-tabs-nav__type_line_right {
       border-left: 1px solid #ccc;
     }
@@ -230,14 +256,17 @@
       &.f-tabs-nav--item__active {
         transition: all 0.3s;
         background: var(--cardActiveBg);
+
         &::before {
           background: var(--cardBgColor);
           z-index: 2;
         }
+
         &::after {
           background: var(--cardActiveBg);
           z-index: 1;
         }
+
         & + .f-tabs-nav--item {
           &::before {
             background: var(--cardActiveBg);
@@ -254,6 +283,7 @@
         font-size: 0px;
         transition: font-size 0.3s;
       }
+
       &:hover,
       &.f-tabs-nav--item__active {
         .f-tabs-nav--item__card_close {
@@ -270,6 +300,7 @@
       .f-tabs-nav--item {
         border-top-left-radius: var(--radius);
         border-top-right-radius: var(--radius);
+
         &:not(:first-of-type)::before,
         &:not(:first-of-type)::after {
           bottom: -1px;
@@ -284,6 +315,7 @@
             border-right: 1px solid var(--cardBorerColor);
             bottom: 0px;
           }
+
           & + .f-tabs-nav--item {
             &::after {
               border-radius: 0 0 0 var(--radius);
@@ -299,9 +331,11 @@
       .f-tabs-nav__wrapper {
         align-items: flex-start;
       }
+
       .f-tabs-nav--item {
         border-bottom-left-radius: var(--radius);
         border-bottom-right-radius: var(--radius);
+
         &:not(:first-of-type)::before,
         &:not(:first-of-type)::after {
           top: -1px;
@@ -309,12 +343,14 @@
         &.f-tabs-nav--item__active {
           padding-top: var(--cardActiveDiffHeight);
           border-top: none;
+
           &::before {
             top: 0px;
             border-radius: 0 var(--radius) 0 0;
             border-top: 1px solid var(--cardBorerColor);
             border-right: 1px solid var(--cardBorerColor);
           }
+
           & + .f-tabs-nav--item {
             &::after {
               border-radius: var(--radius) 0 0 0;
@@ -325,6 +361,7 @@
         }
       }
     }
+
     // 上下公用
     &.f-tabs-nav__type_card_top,
     &.f-tabs-nav__type_card_bottom {
@@ -333,13 +370,16 @@
       .f-tabs-nav--item + .f-tabs-nav--item {
         margin-left: -1px;
       }
+
       .f-tabs-nav--item__active {
         &::before {
           left: calc(0px - var(--radius) - 1px);
         }
+
         &::after {
           left: calc(0px - var(--radius));
         }
+
         & + .f-tabs-nav--item {
           &::before,
           &::after {
@@ -348,13 +388,16 @@
         }
       }
     }
+
     // 左右公用
     &.f-tabs-nav__type_card_left,
     &.f-tabs-nav__type_card_right {
       --padding: 4px 8px;
+
       .f-tabs-nav--item + .f-tabs-nav--item {
         margin-top: -1px;
       }
+
       .f-tabs-nav--item__active {
         &::before {
           top: calc(0px - var(--radius) - 1px);
@@ -372,6 +415,7 @@
         }
       }
     }
+
     // 左
     &.f-tabs-nav__type_card_left {
       .f-tabs-nav--item {
@@ -391,6 +435,7 @@
             border-right: 1px solid var(--cardBorerColor);
             right: 0px;
           }
+
           & + .f-tabs-nav--item {
             &::after {
               border-radius: 0 var(--radius) 0 0;
@@ -401,15 +446,18 @@
         }
       }
     }
+
     // 右
     &.f-tabs-nav__type_card_right {
       .f-tabs-nav--item {
         border-top-right-radius: var(--radius);
         border-bottom-right-radius: var(--radius);
+
         &:not(:first-of-type)::before,
         &:not(:first-of-type)::after {
           left: -1px;
         }
+
         &.f-tabs-nav--item__active {
           border-left: none;
           padding-left: var(--cardActiveDiffHeight);
@@ -420,6 +468,7 @@
             border-left: 1px solid var(--cardBorerColor);
             left: 0px;
           }
+
           & + .f-tabs-nav--item {
             &::after {
               border-radius: var(--radius) 0 0 0;
@@ -431,6 +480,7 @@
       }
     }
   }
+
   // segment 风格
   &.f-tabs-nav__type_segment {
     --padding: 4px 8px;
