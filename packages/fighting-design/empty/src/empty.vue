@@ -8,6 +8,9 @@
 
   const prop: EmptyPropsType = defineProps(Props)
 
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { contentColor, contentSize } = prop
 

@@ -1,17 +1,16 @@
-@import '../config/const-color.scss';
-@import '../config/const-size.scss';
+@import '../config/const-type.scss';
 
 .f-alert {
   padding: 10px 22px;
   position: relative;
   box-sizing: border-box;
-  border-radius: $basicRadiusSize;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: var(--f-design-border-radius-1);
 
-  @for $list from 1 to (length($allTypeColorList) + 1) {
-    $item: nth($allTypeColorList, $list); // 获取数据中心第i项的值
+  @for $list from 1 to (length($ComponentsType) + 1) {
+    $item: nth($ComponentsType, $list); // 获取数据中心第i项的值
 
     // 不同类型
     &.f-alert__#{map-get($item, name)} {
@@ -75,7 +74,7 @@
 
   // 关闭动画
   &-enter-active,
-  &-leave-active  {
+  &-leave-active {
     transition: all 0.2s ease-out;
   }
 

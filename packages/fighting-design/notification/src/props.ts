@@ -75,6 +75,4 @@ export const Props = {
   }
 } as const
 
-export const Emits = ['destroy']
-
 export type NotificationPropsType = ExtractPropTypes<typeof Props>

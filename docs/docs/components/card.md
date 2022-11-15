@@ -61,7 +61,7 @@
 
 | 参数      | 说明           | 类型    | 可选值                   | 默认值 |
 | --------- | -------------- | ------- | ------------------------ | ------ |
-| `title`   | 卡片标题       | string  | ——                       | ——     |
+| `title`   | 卡片标题       | string  | ——                       | null   |
 | `round`   | 是否为圆角卡片 | boolean | ——                       | false  |
 | `padding` | 卡片内边距     | string  | ——                       | 20px   |
 | `shadow`  | 阴影样式       | string  | `never` `hover` `always` | always |

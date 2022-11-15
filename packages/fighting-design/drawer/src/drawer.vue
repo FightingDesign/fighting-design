@@ -16,20 +16,28 @@
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
 
+  /**
+   * 关闭 drawer
+   */
   const closeDrawer: OrdinaryFunctionInterface = (): void => {
     emit('update:visible', false)
   }
 
+  /**
+   * 监视 isVisible，如果变为假，则关闭
+   */
   watch(
     (): boolean => isVisible.value,
     (newVal: boolean): void => {
-      // 监视 isVisible，如果变为假，则关闭
       if (!newVal) {
         closeDrawer()
       }
     }
   )
 
+  /**
+   * 监视 prop.visible，同步数据给 isVisible
+   */
   watch(
     (): boolean => prop.visible,
     (newVal: boolean): void => {

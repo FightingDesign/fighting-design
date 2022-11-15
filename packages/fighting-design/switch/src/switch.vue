@@ -29,14 +29,15 @@
     (): CSSProperties => {
       const { modelValue, closeColor, openColor, size } = prop
 
-      const _size = {
-        large: '24px',
-        middle: '20px',
-        small: '16px'
+      const SIZE_LIST = {
+        large: '30px',
+        middle: '25px',
+        small: '20px',
+        mini: '15px'
       } as const
 
       return {
-        right: modelValue ? '0px' : _size[size],
+        right: modelValue ? '0px' : SIZE_LIST[size],
         borderColor: modelValue ? openColor : closeColor
       } as const
     }
@@ -79,7 +80,7 @@
       @click="handleClick"
     >
       <span class="f-switch__roll" :style="rollStyleList">
-        <f-svg-icon v-if="icon" :icon="icon" :size="14" />
+        <f-svg-icon v-if="icon" :icon="icon" :size="iconSize" />
       </span>
     </div>
 

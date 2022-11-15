@@ -27,6 +27,13 @@ export interface HandleDragEventInterface {
   (evt: DragEvent): void
 }
 
+/**
+ * FocusEvent 焦点事件接口
+ * 
+ * 主要处理获取焦点和失去焦点类型方法
+ * 
+ * https://developer.mozilla.org/zh-CN/docs/Web/API/FocusEvent
+ */
 export interface HandleFocusEventInterface {
   (evt: FocusEvent): void
 }

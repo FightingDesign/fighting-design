@@ -1,4 +1,4 @@
-@import '../config/const-color.scss';
+@import '../config/const-type.scss';
 
 .f-text {
   margin: 0;
@@ -7,19 +7,19 @@
   word-break: break-all;
   box-sizing: border-box;
   cursor: default;
-  color: var(--f-text-color, $default);
+  color: var(--f-text-color, --f-design-color-text-1);
   background: var(--f-text-background);
   text-decoration: var(--f-text-text-decoration);
   width: var(--f-text-width);
-  font-size: var(--f-text-font-size, 15px);
+  font-size: var(--f-text-font-size, --f-design-font-size-middle);
   padding: var(--f-text-padding, 0);
   letter-spacing: var(--f-text-letter-spacing);
   line-height: var(--f-text-line-height);
   text-indent: var(--f-text-text-indent);
 
   // 不同类型
-  @for $list from 1 to (length($allTypeColorList) + 1) {
-    $item: nth($allTypeColorList, $list); // 获取数据中心第i项的值
+  @for $list from 1 to (length($ComponentsType) + 1) {
+    $item: nth($ComponentsType, $list); // 获取数据中心第i项的值
 
     // 不同类型
     &.f-text__#{map-get($item, name)} {

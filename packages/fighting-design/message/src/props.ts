@@ -67,6 +67,4 @@ export const Props = {
   }
 } as const
 
-export const Emits = ['destroy']
-
 export type MessagePropsType = ExtractPropTypes<typeof Props>

@@ -165,6 +165,10 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/44160015?v=4" />
 </a>
 
+<a href="https://github.com/Alphatrionty" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/57850101?v=4" />
+</a>
+
 <script lang="ts" setup>
   import { 
    FIconSoundUp,

@@ -3,7 +3,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import {
     FIconSmileLineVue,
     FIconLightbulbVue,
@@ -20,7 +20,7 @@
   import { massageManage } from '../../_hooks'
 
   const prop: NotificationPropsType = defineProps(Props)
-  defineEmits(Emits)
+  const emit = defineEmits(['destroy'])
 
   const notificationDefaultIcon = {
     default: FIconSmileLineVue,
@@ -149,7 +149,7 @@
     mode="out-in"
     :name="`f-notification-fade` + (isRight ? '-right' : '-left')"
     @before-leave="closeMessageEnd"
-    @after-leave="$emit('destroy')"
+    @after-leave="emit('destroy')"
   >
     <div
       v-show="visible"
@@ -162,7 +162,7 @@
       <!-- icon -->
       <div v-if="showIcon && _icon" class="f-notification__icon">
         <f-svg-icon :icon="_icon" :size="28">
-          <component v-if="isVNode(_icon)" :is="_icon" />
+          <component :is="_icon" v-if="isVNode(_icon)" />
         </f-svg-icon>
       </div>
 

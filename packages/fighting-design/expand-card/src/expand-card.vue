@@ -13,16 +13,22 @@
 
   const prop: ExpandCardPropsType = defineProps(Props)
 
+  // 当前显示的位置
   const currExpandIndex: Ref<number> = ref<number>(prop.expandIndex)
 
-  // 切换卡片
+  /**
+   * 切换卡片
+   */
   const switchExpandCard: ExpandCardSwitchExpandCardInterface = (
     index: number
   ): void => {
     currExpandIndex.value = index
   }
 
-  // 展开的类名
+  /**
+   * 展开的类名
+   * @param index 索引
+   */
   const activeClass: ExpandCardActiveClassInterface = (
     index: number
   ): string | void => {
@@ -41,7 +47,9 @@
     }
   )
 
-  // 将传入的 imageList 改变成指定的类型进行渲染
+  /**
+   * 将传入的 imageList 改变成指定的类型进行渲染
+   */
   const imageListArr: ComputedRef<ExpandCardImageListItemInterface[]> =
     computed((): ExpandCardImageListItemInterface[] => {
       const { imageList } = prop

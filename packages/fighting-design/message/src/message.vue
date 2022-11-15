@@ -2,7 +2,7 @@
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
-  import { Props, Emits } from './props'
+  import { Props } from './props'
   import { isString } from '../../_utils'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
@@ -13,7 +13,7 @@
   import type { MessagePropsType } from './props'
 
   const prop: MessagePropsType = defineProps(Props)
-  defineEmits(Emits)
+  const emit = defineEmits(['destroy'])
 
   const messageRef = ref<HTMLDivElement>()
   const messageHeight: Ref<number> = ref<number>(0)
@@ -115,7 +115,7 @@
     mode="out-in"
     :name="`f-message-fade` + (isTop ? '-top' : '-bottom')"
     @before-leave="closeMessageEnd"
-    @after-leave="$emit('destroy')"
+    @after-leave="emit('destroy')"
   >
     <div
       v-show="visible"

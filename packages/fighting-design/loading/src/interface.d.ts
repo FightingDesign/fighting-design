@@ -1,3 +1,13 @@
+import type { ComponentPublicInstance, App } from 'vue'
+
 export type { LoadingPropsType } from './props'
 
-export type LoadingBackgroundMode = 'light' | 'dark'
+/**
+ * FLoading 元素节点类型接口
+ */
+export interface LoadingElInterface extends HTMLElement {
+  vm: ComponentPublicInstance
+  loadingInstance: App | null
+  originalPosition: string
+  style: CSSStyleDeclaration
+}

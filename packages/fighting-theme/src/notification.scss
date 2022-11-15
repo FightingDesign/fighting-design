@@ -1,4 +1,4 @@
-@import '../config/const-color.scss';
+@import '../config/const-type.scss';
 
 .f-notification {
   position: fixed;
@@ -14,8 +14,8 @@
   transition: all 0.4s ease-out;
   background: #fff;
 
-  @for $list from 1 to (length($allTypeColorList) + 1) {
-    $item: nth($allTypeColorList, $list);
+  @for $list from 1 to (length($ComponentsType) + 1) {
+    $item: nth($ComponentsType, $list);
 
     &.f-notification__#{map-get($item, name)} .f-notification__icon {
       color: map-get($item, simpleTextColor);

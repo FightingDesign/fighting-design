@@ -7,7 +7,9 @@
   const prop: LayoutPropsType = defineProps(Props)
   const slot = useSlots()
 
-  // 判断排列方式
+  /**
+   * 判断排列方式
+   */
   const isVertical: Component<boolean> = computed((): boolean => {
     if (prop.direction === 'vertical') {
       return true

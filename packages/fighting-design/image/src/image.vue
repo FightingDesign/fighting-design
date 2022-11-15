@@ -23,7 +23,9 @@
   )
   const isShowNode: Ref<boolean> = ref<boolean>(prop.lazy)
 
-  // 开始加载图片
+  /**
+   * 开始加载图片
+   */
   const loadAction: OrdinaryFunctionInterface = (): void => {
     const node: HTMLImageElement = FImageImg.value as HTMLImageElement
     const callback: LoadCallbackInterface = (params: boolean): void => {
