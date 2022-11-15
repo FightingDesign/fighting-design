@@ -1,6 +1,6 @@
 .f-radio-group {
   display: inline-flex;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   transition: 0.3s;
   column-gap: 22px;
