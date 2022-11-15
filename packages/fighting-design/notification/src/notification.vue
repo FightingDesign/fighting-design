@@ -1,9 +1,9 @@
 <script lang="ts" setup name="FMessage">
+  import { Props } from './props'
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
-  import { Props } from './props'
   import {
     FIconSmileLineVue,
     FIconLightbulbVue,
@@ -20,9 +20,9 @@
   import { massageManage } from '../../_hooks'
 
   const prop: NotificationPropsType = defineProps(Props)
-  const emit = defineEmits<{
-    (e: 'destroy'): void
-  }>()
+  const emit = defineEmits({
+    destroy: (): boolean => true
+  })
 
   const notificationDefaultIcon = {
     default: FIconSmileLineVue,
