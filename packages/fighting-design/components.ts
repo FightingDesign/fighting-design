@@ -176,3 +176,9 @@ export * from './select'
 
 export { FOption } from './option'
 export * from './option'
+
+export { FTabs } from './tabs'
+export * from './tabs'
+
+export { FTabsPane } from './tabs-pane'
+export * from './tabs-pane'
