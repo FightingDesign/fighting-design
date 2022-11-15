@@ -8,7 +8,7 @@ import type {
 
 const isArray = Array.isArray
 
-const isObject = (obj: unknown):boolean => typeof obj === 'object' && obj !== null
+const isObject = (obj: unknown): boolean => typeof obj === 'object' && obj !== null
 
 /**
  * 将所有子的组件扁平化
@@ -42,7 +42,7 @@ export const flattedChildren = (
 export function getChildrenComponent (
   root: ComponentInternalInstance,
   component: string
-):VNode[] {
+): VNode[] {
   if (!root.subTree) return []
   const flaChildren = flattedChildren(root.subTree.children)
   return flaChildren.filter(

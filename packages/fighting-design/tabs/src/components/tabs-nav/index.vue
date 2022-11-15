@@ -13,23 +13,23 @@
   import { FSvgIcon } from '../../../../svg-icon'
   import type { TabsNavPropsType } from './interface'
   import type { TabsPaneName } from '../../interface'
-  import type { ComponentInternalInstance, CSSProperties} from 'vue'
+  import type { ComponentInternalInstance, CSSProperties } from 'vue'
 
   const prop: TabsNavPropsType = defineProps(Props)
-
   const emit = defineEmits(['set-current-name', 'edit'])
 
   const currentIndex = computed(() =>
-    prop.navs ?
-    Math.max(
-      prop.navs.findIndex((e) => e.name === prop.currentName),
-      0
-    ) : 0
+    prop.navs
+      ? Math.max(
+          prop.navs.findIndex((e) => e.name === prop.currentName),
+          0
+        )
+      : 0
   )
 
   const instance: ComponentInternalInstance | null = getCurrentInstance()
 
-  async function clickNavItem (name: TabsPaneName):Promise<void> {
+  async function clickNavItem (name: TabsPaneName): Promise<void> {
     let res: boolean | void = true
     if (prop.beforeEnter) {
       res = await prop.beforeEnter(name)
@@ -54,12 +54,12 @@
    * 防止在切换标签时出现跳动的情况
    */
   const wrapperStyle = ref<CSSProperties>({})
-  async function updateWrapperStyle ():Promise<void> {
+  async function updateWrapperStyle (): Promise<void> {
     await nextTick()
     if (!prop.navs) return
-    const positionVar:{
-      a: keyof HTMLObjectElement,
-      b: keyof HTMLObjectElement,
+    const positionVar: {
+      a: keyof HTMLObjectElement
+      b: keyof HTMLObjectElement
       c: keyof CSSStyleDeclaration
     } = { a: 'height', b: 'offsetHeight', c: 'paddingBottom' }
     if (prop.position === 'left' || prop.position === 'right') {
@@ -92,7 +92,10 @@
       '.f-tabs-nav--item:not(.f-tabs-nav--item__active)'
     ) as HTMLObjectElement[]
     const maxChildren = Array.from(children).reduce((pre, cur) => {
-      pre = (cur[positionVar.b] as Number) > (pre[positionVar.b] as Number) ? cur : pre
+      pre =
+        (cur[positionVar.b] as Number) > (pre[positionVar.b] as Number)
+          ? cur
+          : pre
       return pre
     }, children[0])
     // 最高的子元素的padding
@@ -125,7 +128,7 @@
    */
   const activeLineStyle = ref<CSSProperties>({})
 
-  async function updateActiveLineStyle ():Promise<void> {
+  async function updateActiveLineStyle (): Promise<void> {
     await nextTick()
     if (!instance || !instance.subTree.el) return
     const { position } = prop
@@ -167,12 +170,12 @@
   }
 
   /**
-   * whell => 滚轮事件
+   * wheel => 滚轮事件
    * https://www.runoob.com/jsref/event-onwheel.html
    *
    * 实现横向滚动效果
    */
-  function handleWheel (e: WheelEvent):void {
+  function handleWheel (e: WheelEvent): void {
     (e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
     deriveScrollShadow(e.currentTarget as HTMLElement)
   }
@@ -200,9 +203,9 @@
   })
   watch(
     [
-      ():unknown => prop.position,
-      ():unknown => prop.type,
-      ():unknown => prop.justifyContent
+      (): unknown => prop.position,
+      (): unknown => prop.type,
+      (): unknown => prop.justifyContent
     ],
     () => {
       wrapperStyle.value = {}

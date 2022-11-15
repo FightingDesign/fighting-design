@@ -45,7 +45,7 @@
   /**
    * 输入框绑定的值
    */
-  const inputValue: WritableComputedRef<SelectModelValueType> = computed({
+  const inputValue: WritableComputedRef<string> = computed({
     /**
      * 通过获取到的子元素，计算当前绑定值对应的 label 展示文本框的内容
      */
@@ -55,9 +55,9 @@
       const bound: VNode[] = options.value.filter((node: VNode): boolean => {
         return (node.props as OptionPropsType).value === prop.modelValue
       })
-      return (bound[0] as OptionPropsType).props.label as SelectModelValueType
+      return (bound[0] as OptionPropsType).props.label as string
     },
-    set (val: SelectModelValueType) {
+    set (val: string) {
       return val
     }
   })

@@ -10,6 +10,9 @@
     nextTick,
     useSlots
   } from 'vue'
+  import { TabsNav } from './components'
+  import { debugWarn, __DEV__ } from '../../_utils'
+  import { getChildrenComponent } from './utils'
   import type {
     TabsPropsType,
     TabsNavInstance,
@@ -17,20 +20,18 @@
     TabsPaneName
   } from './interface'
   import type { ComponentInternalInstance } from 'vue'
-  import { TabsNav } from './components'
-  import { debugWarn, __DEV__ } from '../../_utils'
-  import { getChildrenComponent } from './utils'
-
-  const instance: ComponentInternalInstance | null = getCurrentInstance()
 
   const prop: TabsPropsType = defineProps(Props)
   const emits = defineEmits(['update:modelValue', 'edit'])
+
+  const instance: ComponentInternalInstance | null = getCurrentInstance()
+
   /**
    * 当前选中的pane
    */
   const currentName = ref<TabsPaneName>(0)
 
-  function setCurrentName (name: TabsPaneName):void {
+  function setCurrentName (name: TabsPaneName): void {
     // 如果用户没有设置v-model, 这里可以直接在内部修改
     currentName.value = name
     emits('update:modelValue', name)
@@ -38,7 +39,11 @@
   /**
    * 触发用户的emit
    */
-  function edit (action: 'remove' | 'add', name?: TabsPaneName, i?: number):void {
+  function edit (
+    action: 'remove' | 'add',
+    name?: TabsPaneName,
+    i?: number
+  ): void {
     emits('edit', action, name, i)
   }
   /**
@@ -49,7 +54,7 @@
    * 更新pane列表
    * @param pane
    */
-  function updatePaneList ():void {
+  function updatePaneList (): void {
     nextTick(() => {
       if (!instance) return
       panes.value = getChildrenComponent(instance, 'FTabsPane').map(
