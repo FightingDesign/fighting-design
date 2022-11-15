@@ -48,6 +48,8 @@
           box-shadow: 0 2px 3px #00000021, 0 0 4px #0000000d;
 
           .f-svg-icon {
+            transition: color 0.2s;
+            color: var(--f-design-color-primary-1);
             font-size: calc(map-get($item, fontSize) - 1px);
           }
         }
@@ -60,6 +62,10 @@
 
       .f-switch__roll {
         border: 2px solid #bbbbbb;
+
+        .f-svg-icon {
+          color: #bbbbbb;
+        }
       }
     }
 
