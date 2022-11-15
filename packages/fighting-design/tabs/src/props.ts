@@ -54,15 +54,6 @@ export const Props = {
   }
 } as const
 
-export const Emits = {
-  'update:modelValue': (val: String | Number) => true, // 下标可能为0
-  edit: (
-    action: 'remove' | 'add',
-    name: TabsPaneName,
-    index: number
-  ): boolean => true
-} as const
-
 export type TabsPropsType = ExtractPropTypes<typeof Props>
 
 export const TabsProvideKey = Symbol('f-tabs')

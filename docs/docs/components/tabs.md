@@ -432,7 +432,7 @@
 | `v-model`        | 绑定值，选中选项卡的 name            | string / number                     | ——                                                              | 第一个选项卡的 name |
 | `type`           | 风格类型                             | string                              | `line` `card` `segment`                                         | `line`              |
 | `position`       | 头部位置                             | string                              | `left` `right` `top` `bottom`                                   | `top`               |
-| `justifyContent` | 对齐方式(仅针对上下方向的`line`有效) | string                              | `flex-start` `center` `flex-end` `space-between` `space-around` | `flex-start`        |
+| `justifyContent` | 对齐方式(仅针对上下方向的`line`有效) | string                              | `justify-content` 的`css`属性 | `flex-start`        |
 | `beforeEnter`    | 切换前的回调                         | (name: String \| Number) => Boolean | ——                                                              | ——                  |
 | `editStatus`     | 编辑模式                             | Boolean                             | ——                                                              | `false`             |
 | `trigger`        | 触发方式                             | String                              | `click` `hover`                                                 | `click`             |

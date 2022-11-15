@@ -1,5 +1,5 @@
 <script lang="ts" setup name="FTabs">
-  import { Props, TabsProvideKey, Emits } from './props'
+  import { Props, TabsProvideKey } from './props'
   import {
     onMounted,
     ref,
@@ -21,16 +21,16 @@
   import { debugWarn, __DEV__ } from '../../_utils'
   import { getChildrenComponent } from './utils'
 
-  const instance: ComponentInternalInstance = getCurrentInstance()
+  const instance: ComponentInternalInstance | null = getCurrentInstance()
 
   const prop: TabsPropsType = defineProps(Props)
-  const emits = defineEmits(Emits)
+  const emits = defineEmits(['update:modelValue', 'edit'])
   /**
    * 当前选中的pane
    */
   const currentName = ref<TabsPaneName>(0)
 
-  function setCurrentName (name: TabsPaneName) {
+  function setCurrentName (name: TabsPaneName):void {
     // 如果用户没有设置v-model, 这里可以直接在内部修改
     currentName.value = name
     emits('update:modelValue', name)
@@ -38,21 +38,22 @@
   /**
    * 触发用户的emit
    */
-  function edit (action: 'remove' | 'add', name?: TabsPaneName, i?: number) {
+  function edit (action: 'remove' | 'add', name?: TabsPaneName, i?: number):void {
     emits('edit', action, name, i)
   }
   /**
    * panes集合
    */
-  const panes = ref([])
+  const panes = ref<ComponentInternalInstance[]>([])
   /**
    * 更新pane列表
    * @param pane
    */
-  function updatePaneList () {
+  function updatePaneList ():void {
     nextTick(() => {
+      if (!instance) return
       panes.value = getChildrenComponent(instance, 'FTabsPane').map(
-        (e) => e.component
+        (e) => e.component as ComponentInternalInstance
       )
     })
   }
@@ -62,7 +63,7 @@
   const navs = computed<TabsNavInstance[]>(() => {
     return panes.value.map((e, i) => {
       return {
-        name: e.props.name || (e.props.name = i), // name如果没填，用下标代替
+        name: (e.props.name || (e.props.name = i)) as TabsPaneName, // name如果没填，用下标代替
         label: e.slots['label'] || e.props.label
       }
     })
@@ -138,7 +139,7 @@
       :justify-content="justifyContent"
       :before-enter="beforeEnter"
       :trigger="trigger"
-      @setCurrentName="setCurrentName"
+      @set-current-name="setCurrentName"
       @edit="edit"
     >
       <template v-if="slots.prefix" #prefix>

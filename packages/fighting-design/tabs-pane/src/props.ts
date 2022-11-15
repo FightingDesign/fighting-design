@@ -20,6 +20,4 @@ export const Props = {
   }
 } as const
 
-export const Emits = {} as const
-
 export type TabsPanePropsType = ExtractPropTypes<typeof Props>
