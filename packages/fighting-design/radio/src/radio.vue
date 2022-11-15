@@ -2,22 +2,14 @@
   import { Props } from './props'
   import { isString, isBoolean, isNumber } from '../../_utils'
   import { useEmit } from '../../_hooks'
-  import { computed, inject, getCurrentInstance, ref } from 'vue'
+  import { computed, inject } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
-  import type {
-    ComputedRef,
-    WritableComputedRef,
-    ComponentInternalInstance,
-    Ref
-  } from 'vue'
+  import type { ComputedRef, WritableComputedRef } from 'vue'
   import type {
     RadioGroundInterface,
     RadioLabelType
   } from '../../radio-group/src/interface'
-  import type {
-    OrdinaryFunctionInterface,
-    ClassListInterface
-  } from '../../_interface'
+  import type { ClassListInterface } from '../../_interface'
   import type { RadioPropsType } from './props'
 
   const prop: RadioPropsType = defineProps(Props)
@@ -28,19 +20,10 @@
     )
   )
 
-  const groupProps: Ref<RadioGroundInterface | null> = ref(null)
-
-  // 尝试获取父组件注入的依赖
-  const loadParentInject: OrdinaryFunctionInterface = (): void => {
-    const { parent } = getCurrentInstance() as ComponentInternalInstance
-    const parentName: string | undefined = (parent as ComponentInternalInstance)
-      .type.name
-
-    if (parentName && parentName === 'FRadioGroup') {
-      groupProps.value = inject(RADIO_GROUP_PROPS_kEY) as RadioGroundInterface
-    }
-  }
-  loadParentInject()
+  // 父组件注入的依赖项
+  const groupProps: RadioGroundInterface | undefined = inject<
+    RadioGroundInterface | undefined
+  >(RADIO_GROUP_PROPS_kEY, undefined)
 
   const modelValue: WritableComputedRef<RadioLabelType> = computed({
     /**
@@ -49,16 +32,14 @@
      * 否则使用之身 props 参数
      */
     get () {
-      return (
-        (groupProps.value && groupProps.value.modelValue) || prop.modelValue
-      )
+      return (groupProps && groupProps.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
     set (val) {
-      if (groupProps.value && !groupProps.value.disabled) {
-        groupProps.value.changeEvent(val)
+      if (groupProps && !groupProps.disabled) {
+        groupProps.changeEvent(val)
         return
       }
       if (prop.disabled) return
@@ -75,9 +56,8 @@
         'f-radio',
         {
           'f-radio__checked': modelValue.value === prop.label,
-          'f-radio__margin': !groupProps.value,
-          'f-radio__disabled':
-            disabled || (groupProps.value && groupProps.value.disabled)
+          'f-radio__margin': !groupProps,
+          'f-radio__disabled': disabled || (groupProps && groupProps.disabled)
         }
       ] as const
     }

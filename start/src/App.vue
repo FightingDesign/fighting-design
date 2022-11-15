@@ -5,9 +5,11 @@
   // const value3 = ref(true)
   // const value1 = ref('')
 
-  const current = ref(10)
-  const total = ref(100)
-  const pageSizes = ref([10, 20, 30, 40])
+  // const current = ref(10)
+  // const total = ref(100)
+  // const pageSizes = ref([10, 20, 30, 40])
+
+  const radio1 = ref('1')
 </script>
 
 <template>
@@ -18,11 +20,17 @@
     jump-search
   /> -->
 
+  <f-radio-group v-model="radio1">
+    <f-radio label="1">备选项1</f-radio>
+    <f-radio label="2">备选项2</f-radio>
+    <f-radio label="3">备选项3</f-radio>
+  </f-radio-group>
+
   <f-button round type="primary">左边的</f-button>
   <f-button-group>
-    <f-button round type="primary">左边的</f-button>
-    <f-button round type="primary">中间的</f-button>
-    <f-button round type="primary">右边的</f-button>
+    <f-button>左边的</f-button>
+    <f-button>中间的</f-button>
+    <f-button>右边的</f-button>
   </f-button-group>
   <!-- 
   <f-button-group size="small">
