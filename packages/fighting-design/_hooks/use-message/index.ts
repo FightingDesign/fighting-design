@@ -17,7 +17,9 @@ import type {
 
 export const massageManage = useMassageManage()
 
-export const useMessage: UseMessageInterface = (target: 'message' | 'notification'): UseMessageReturnInterface => {
+export const useMessage: UseMessageInterface = (
+  target: 'message' | 'notification'
+): UseMessageReturnInterface => {
   let seed = 1
 
   // 位置信息
@@ -32,7 +34,9 @@ export const useMessage: UseMessageInterface = (target: 'message' | 'notificatio
     notification: notificationVue
   }
 
-  const instance: MessageFn & Partial<MessageFnWithType> = (options): MessageInstance => {
+  const instance: MessageFn & Partial<MessageFnWithType> = (
+    options
+  ): MessageInstance => {
     const container: HTMLDivElement = document.createElement('div')
     const id = `message-${seed}`
 
@@ -60,7 +64,8 @@ export const useMessage: UseMessageInterface = (target: 'message' | 'notificatio
 
     render(VNode, container)
     document.body.appendChild(container.firstElementChild as HTMLElement)
-    const vm: ComponentInternalInstance = VNode.component as ComponentInternalInstance
+    const vm: ComponentInternalInstance =
+      VNode.component as ComponentInternalInstance
 
     seed++
     const instance: MessageInstance = massageManage.createInstance(
@@ -68,7 +73,9 @@ export const useMessage: UseMessageInterface = (target: 'message' | 'notificatio
         id,
         vm,
         close: (): void => {
-          ((vm as ComponentInternalInstance).exposed as MessageInstance).close()
+          ;(
+            (vm as ComponentInternalInstance).exposed as MessageInstance
+          ).close()
         },
         bottom: 0,
         visible: 0
@@ -79,13 +86,21 @@ export const useMessage: UseMessageInterface = (target: 'message' | 'notificatio
     return instance
   }
 
-  const messageTypes = ['default', 'primary', 'success', 'danger', 'warning'] as const
+  const messageTypes = [
+    'default',
+    'primary',
+    'success',
+    'danger',
+    'warning'
+  ] as const
 
   messageTypes.forEach((type): void => {
-    instance[type] = (text: string): void => {
-      instance({ message: text, type })
+    instance[type] = (text: string): MessageInstance => {
+      return instance({ message: text, type })
     }
   })
 
-  return { instance } as const
+  return { instance } as {
+    instance: MessageFn & MessageFnWithType
+  }
 }
