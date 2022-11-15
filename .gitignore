@@ -4,6 +4,7 @@ dist
 dist-icon
 stats.html
 .idea
+.npmrc
 
 npm-debug.log*
 yarn-debug.log*

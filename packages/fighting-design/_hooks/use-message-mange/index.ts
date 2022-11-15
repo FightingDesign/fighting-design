@@ -56,7 +56,7 @@ export const useMassageManage: UseMassageManageInterface = (): UseMassageManageR
      * exposeProxy: null
      * exposed: 响应式
      */
-    return (beforeInstance.vm.exposed as MessageInstance).bottom
+    return (beforeInstance.vm.exposeProxy || beforeInstance.vm.exposed as MessageInstance).bottom
   }
 
   /**
