@@ -148,7 +148,7 @@ const fun: funInterface = (a: number, b: number): number => {
 这里是来定义组件的 `Props`
 
 - 导出的名称必须叫 `Props` （首字母大写）
-- 每个 `props` 都必须标记默认值，就算默认值是 `false` 或者是空字符串也要标记
+- 每个 `props` 都必须标记默认值，就算默认值是 `false` 或者是空字符串也要标记（**严禁默认值为空字符串，空字符串在某些场景会有问题，可选择为 null**）
 - 默认值必须以箭头函数形式进行返回
 - 如有可选项需要对其进行校验，一般使用 `validator` + `ts` 双重校验。可参考文档 [Prop 校验](https://staging-cn.vuejs.org/guide/components/props.html#prop-validation) 和 [PropType](https://staging-cn.vuejs.org/api/utility-types.html#proptypet)
 - `default` 和 `validator` 使用箭头函数定义，必须明确返回值和参数值的类型

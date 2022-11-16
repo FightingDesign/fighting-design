@@ -15,7 +15,7 @@ export interface UpLoadUpdateFilesInterface {
  * 传入 FileList 对象，通过过滤，返回 File 类型的数组
  */
 export interface UpLoadFilterFilesInterface {
-  (files: FileList): File[]
+  (files: File[]): File[]
 }
 
 /**

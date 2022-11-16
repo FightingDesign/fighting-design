@@ -42,7 +42,7 @@
   }
 
   // 过滤文件
-  const filterFiles: UpLoadFilterFilesInterface = (files: FileList): File[] => {
+  const filterFiles: UpLoadFilterFilesInterface = (files: File[]): File[] => {
     const { maxSize, maxLength } = prop
     let list: File[] = [...files]
 
@@ -63,7 +63,7 @@
   const handleChange: HandleEventInterface = (evt: Event): void => {
     const files: FileList | null = (evt.target as HTMLInputElement).files
     if (files) {
-      updateFiles(filterFiles(files))
+      updateFiles(filterFiles(files as unknown as File[]))
     }
   }
 
@@ -81,9 +81,9 @@
   // 放置时触发
   const onDrop: HandleDragEventInterface = (evt: DragEvent): void => {
     dragIng.value = false
-    const files = (evt.dataTransfer as DataTransfer).files
+    const files: FileList = (evt.dataTransfer as DataTransfer).files
     if (files) {
-      updateFiles(filterFiles(files))
+      updateFiles(filterFiles(files as unknown as File[]))
     }
   }
 
