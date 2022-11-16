@@ -12,7 +12,7 @@
 ::: demo
 
 <template #source>
-<f-text>普通文字普通文字普通文字</f-text>
+<f-text>普通文字</f-text>
 <f-text type="primary">主要文字</f-text>
 <f-text type="success">成功文字</f-text>
 <f-text type="danger">危险文字</f-text>
