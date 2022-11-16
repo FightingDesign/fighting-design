@@ -41,7 +41,7 @@ export const Props = {
    */
   fontColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 按钮尺寸
@@ -65,7 +65,7 @@ export const Props = {
    */
   href: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 针对 href 处理的跳转方式
@@ -135,7 +135,7 @@ export const Props = {
    */
   shadow: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否为文字按钮（非自定义按钮颜色时有效）
@@ -189,14 +189,14 @@ export const Props = {
    */
   ripplesColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义按钮颜色
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 点击之后的回调函数
