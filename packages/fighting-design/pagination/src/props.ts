@@ -12,7 +12,8 @@ export const Props = {
    */
   current: {
     type: Number,
-    default: (): Number => 1
+    default: (): Number => 1,
+    require: true
   },
   /**
    * 每页条数
@@ -106,11 +107,6 @@ export const Props = {
     type: Function as PropType<HandlePageChange>,
     default: (): null => null
   }
-} as const
-
-export const Emits = {
-  'update:current': (current: number): boolean => typeof current === 'number',
-  'update:pageSize': (pageSize: number): boolean => typeof pageSize === 'number'
 } as const
 
 export type PaginationPropsType = ExtractPropTypes<typeof Props>

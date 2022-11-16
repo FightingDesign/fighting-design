@@ -15,7 +15,7 @@
   &__pages {
     display: flex;
 
-    .f-pagination__pages__li {
+    .f-pagination__pages-li {
       width: 34px;
       height: 34px;
       line-height: 34px;
@@ -24,16 +24,16 @@
       cursor: pointer;
       color: var(--f-design-color-text-1);
 
-      &__choose {
+      &-choose {
         color: var(--f-design-color-primary-1);
       }
 
-      &__background__choose {
+      &-background-choose {
         background: var(--f-design-color-primary-1);
         color: var(--f-design-color-text-2);
       }
 
-      &__disabled {
+      &-disabled {
         cursor: not-allowed;
       }
     }
@@ -47,9 +47,9 @@
   }
 
   &__background,
-  &__btn__background,
+  &__btn-background,
   &__circle,
-  &__btn__circle {
+  &__btn-circle {
     background: #f8f8f8;
   }
 
@@ -57,7 +57,7 @@
     margin: 0 5px;
   }
 
-  &__btn__circle {
+  &__btn-circle {
     border-radius: 17px;
   }
 
