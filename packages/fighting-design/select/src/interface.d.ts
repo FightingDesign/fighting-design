@@ -1,3 +1,5 @@
+import type { VNode } from 'vue'
+
 export type { SelectPropsType } from './select'
 
 export type SelectModelValueType = string | number | boolean
@@ -18,4 +20,10 @@ export interface SelectSetValueInterface {
  */
 export interface SelectProvideInterface {
   setValue: SelectSetValueInterface
+}
+
+export interface SelectChildrenInterface extends VNode {
+  children: {
+    default(): VNode[]
+  }
 }

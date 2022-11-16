@@ -15,7 +15,8 @@
     SelectPropsType,
     SelectSetValueInterface,
     SelectProvideInterface,
-    SelectModelValueType
+    SelectModelValueType,
+    SelectChildrenInterface
   } from './interface'
   import type { OptionPropsType } from '../../option'
 
@@ -70,7 +71,10 @@
           }
 
           // 如果没有传递 props 则根据插槽来判断
-          return node.children.default()[0].children === prop.modelValue
+          return (
+            (node as SelectChildrenInterface).children.default()[0].children ===
+            prop.modelValue
+          )
         }
       )
 
