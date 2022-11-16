@@ -35,10 +35,9 @@
 </script>
 
 <template>
-  <div class="f-textarea">
+  <div class="f-textarea" :style="{ resize }">
     <textarea
       :class="['f-textarea__textarea', { 'f-textarea__disabled': disabled }]"
-      :style="{ resize }"
       :rows="rows"
       :value="modelValue"
       :disabled="disabled"

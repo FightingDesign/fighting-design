@@ -2,7 +2,7 @@
   display: inline-block;
   background: #eee;
   overflow: hidden;
-  transition: 0.3s;
+  transition: background 0.3s;
   border: 1px solid transparent;
   position: relative;
   width: 100%;
@@ -19,6 +19,7 @@
     box-sizing: border-box;
     font-size: 15px;
     cursor: pointer;
+    resize: none;
   }
 
   // 禁用状态
