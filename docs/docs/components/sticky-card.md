@@ -76,12 +76,6 @@
 </template>
 
 ```html
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const open2 = ref(false)
-</script>
-
 <template>
   <f-sticky-card :open="open2">
     <template #source>
@@ -100,6 +94,12 @@
     <h1>Hello World！</h1>
   </f-sticky-card>
 </template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const open2 = ref(false)
+</script>
 ```
 
 :::
