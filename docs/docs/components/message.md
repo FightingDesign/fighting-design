@@ -241,7 +241,6 @@
 | `close`      | 是否可关闭                                   | boolean                    | ——                                                                 | false   |
 | `icon`       | 消息 icon                                    | object (VNode / Component) | ——                                                                 | null    |
 | `color`      | 字体颜色                                     | string                     | ——                                                                 | ——      |
-| `background` | 背景色                                       | string                     | ——                                                                 | ——      |
 | `placement`  | 位置                                         | string                     | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
 | `offset`     | 偏移距离                                     | number                     | ——                                                                 | 20      |
 | `background` | 自定义背景色                                 | string                     | ——                                                                 | ——      |
