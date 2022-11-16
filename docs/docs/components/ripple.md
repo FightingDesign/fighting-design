@@ -193,7 +193,7 @@
 
 | 参数            | 说明                 | 类型    | 可选值                                                  | 默认值  |
 | --------------- | -------------------- | ------- | ------------------------------------------------------- | ------- |
-| `type`          | 是否带圆角的         | boolean | `default` `primary` `success` <br /> `danger` `warning` | default |
+| `type`          | 涟漪类型         | boolean | `default` `primary` `success` <br /> `danger` `warning` | default |
 | `ripples-color` | 自定义涟漪颜色       | string  | ——                                                      | ——      |
 | `duration`      | 移除涟漪节点的时间   | number  | ——                                                      | 400     |
 | `disabled`      | 是否禁用             | boolean | ——                                                      | false   |
