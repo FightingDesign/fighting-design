@@ -38,12 +38,43 @@
 
 :::
 
+## 优先级
+
+`label` 的展示方式分为两种：`label` 属性和插槽，都可以实现，但有些时候这些属性可能都存在或者都不存在，所以 label 的优先级为：`slot > label > value`，也就是说，如果 slot 和 label 都不存在的时候，默认展示 value
+
+`value` 也有着上面的情况，优先级关系为 `value > label > slot`
+
+::: demo
+
+<template #source>
+<demo2-vue />
+</template>
+
+```html
+<template>
+  <f-select v-model="value" placeholder="请选择……">
+    <f-option label="香蕉" :value="1"></f-option>
+    <f-option :value="2">苹果</f-option>
+    <f-option :value="3"></f-option>
+    <f-option label="樱桃">樱桃</f-option>
+  </f-select>
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value = ref('')
+</script>
+```
+
+:::
+
 ## Select Attributes
 
 | 参数                   | 说明           | 类型            | 可选值 | 默认值 |
 | ---------------------- | -------------- | --------------- | ------ | ------ |
 | `v-model / modelValue` | 绑定值         | string          | ——     | ——     |
-| `width`                | 自定义宽度     | string / number | ——     | ——     |
+| `width`                | 自定义宽度     | string / number | ——     | null   |
 | `name`                 | 原生 name 属性 | string          | ——     | ——     |
 | `placeholder`          | 占位符         | string          | ——     | ——     |
 | `clear`                | 是否可清除     | boolean         | ——     | false  |
@@ -86,6 +117,7 @@ import type {} from 'fighting-design'
 <script lang="ts" setup>
   import { ref } from 'vue'
   import demo1Vue from './_demos/select/demo1.vue'
+  import demo2Vue from './_demos/select/demo2.vue'
 
   const value1 = ref('')
 </script>

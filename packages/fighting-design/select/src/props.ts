@@ -7,7 +7,8 @@ export const Props = {
    */
   modelValue: {
     type: [String, Number, Boolean] as PropType<SelectModelValueType>,
-    default: (): null => null
+    default: (): null => null,
+    required: true
   },
   /**
    * 自定义宽度

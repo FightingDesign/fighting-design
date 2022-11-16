@@ -43,6 +43,7 @@
 
 <template>
   <div
+    v-if="$slots.default || label || value"
     :class="['f-option', { 'f-option__disabled': disabled }]"
     @click="handleClick"
   >

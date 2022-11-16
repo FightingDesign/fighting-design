@@ -60,9 +60,20 @@
        */
       const currentOption: VNode[] = options.value.filter(
         (node: VNode): boolean => {
-          return (node.props as OptionPropsType).value === prop.modelValue
+          const optionProp: OptionPropsType = node.props as OptionPropsType
+
+          // 判断是否有传递 props
+          if (optionProp) {
+            return optionProp.value
+              ? optionProp.value === prop.modelValue
+              : optionProp.label === prop.modelValue
+          }
+
+          // 如果没有传递 props 则根据插槽来判断
+          return node.children.default()[0].children === prop.modelValue
         }
       )
+
       /**
        * 如果没有通过插槽找出和绑定值相同的
        *
@@ -76,9 +87,9 @@
       const slot: string | undefined =
         children.children && children.children.default()[0].children
       // 获取到当前子元素的 label 参数
-      const label: string | undefined = children.props.label
+      const label: string | undefined = children.props && children.props.label
       // 获取到当前子元素的 value 参数
-      const value: string | undefined = children.props.value
+      const value: string | undefined = children.props && children.props.value
       // 优先级：插槽 > label > value
       return slot || label || (value && value.toString()) || ''
     },
@@ -97,6 +108,7 @@
     newLabel: SelectModelValueType
   ): void => {
     inputValue.value = newValue
+    console.log(newValue)
     emit('update:modelValue', newLabel)
   }
 

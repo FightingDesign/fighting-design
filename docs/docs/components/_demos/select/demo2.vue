@@ -9,6 +9,6 @@
     <f-option label="香蕉" :value="1"></f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3"></f-option>
-    <f-option>樱桃</f-option>
+    <f-option label="樱桃">樱桃</f-option>
   </f-select>
 </template>
