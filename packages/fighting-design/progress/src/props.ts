@@ -13,7 +13,7 @@ export const Props = {
     }
   },
   /**
-   * 进度条类型	
+   * 进度条类型
    */
   type: {
     type: String as PropType<ProgressType>,
