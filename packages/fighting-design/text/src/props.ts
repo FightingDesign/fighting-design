@@ -91,6 +91,9 @@ export const Props = {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
+  /**
+   * 是否省略文本，需配合 `width` 宽度使用
+   */
   ellipsis: {
     type: Boolean,
     default: (): boolean => false
