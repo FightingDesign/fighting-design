@@ -1,4 +1,4 @@
-@import '../config/const-color.scss';
+@import '../config/const-type.scss';
 
 .f-message {
   z-index: 4000;
@@ -13,8 +13,8 @@
   max-width: 500px;
   transition: all 0.4s ease-out;
 
-  @for $list from 1 to (length($allTypeColorList) + 1) {
-    $item: nth($allTypeColorList, $list);
+  @for $list from 1 to (length($ComponentsType) + 1) {
+    $item: nth($ComponentsType, $list);
 
     &.f-message__#{map-get($item, name)} {
       background: #fff;

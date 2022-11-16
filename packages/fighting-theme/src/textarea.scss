@@ -1,10 +1,8 @@
-@import '../config/const-color.scss';
-
 .f-textarea {
   display: inline-block;
   background: #eee;
   overflow: hidden;
-  transition: 0.3s;
+  transition: background 0.3s;
   border: 1px solid transparent;
   position: relative;
   width: 100%;
@@ -21,6 +19,7 @@
     box-sizing: border-box;
     font-size: 15px;
     cursor: pointer;
+    resize: none;
   }
 
   // 禁用状态
@@ -32,7 +31,7 @@
   // 获取焦点
   &:focus-within {
     background: #fff;
-    border-color: $primary;
+    border-color: var(--f-design-color-primary-1);
   }
 
   &__clear-btn {

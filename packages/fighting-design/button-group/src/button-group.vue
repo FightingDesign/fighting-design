@@ -1,11 +1,23 @@
 <script lang="ts" setup name="FButtonGroup">
-  import { Props } from './props'
-  import { computed } from 'vue'
+  import { Props, BUTTON_GROUP_PROPS_KEY } from './props'
+  import { computed, provide, reactive, toRef } from 'vue'
   import type { ComputedRef } from 'vue'
   import type { ClassListInterface } from '../../_interface'
-  import type { ButtonGroupPropsType } from './props'
+  import type {
+    ButtonGroupPropsType,
+    ButtonGroupProvideInterface
+  } from './interface'
 
   const prop: ButtonGroupPropsType = defineProps(Props)
+
+  // 注入依赖
+  provide<ButtonGroupProvideInterface>(
+    BUTTON_GROUP_PROPS_KEY,
+    reactive({
+      size: toRef(prop, 'size'),
+      type: toRef(prop, 'type')
+    })
+  )
 
   /**
    * 类名列表

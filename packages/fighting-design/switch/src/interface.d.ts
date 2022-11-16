@@ -1,6 +1,6 @@
 export type { SwitchPropsType } from './props'
 
-export type SwitchSizeType = 'large' | 'middle' | 'small'
+export type SwitchSizeType = 'large' | 'middle' | 'small' | 'mini'
 
 /**
  * 切换时候执行的回调方法接口

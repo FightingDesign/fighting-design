@@ -1,8 +1,8 @@
 <script lang="ts" setup name="FMessage">
+  import { Props } from './props'
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
-  import { Props } from './props'
   import { isString } from '../../_utils'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
   import type {
@@ -13,7 +13,9 @@
   import type { MessagePropsType } from './props'
 
   const prop: MessagePropsType = defineProps(Props)
-  const emit = defineEmits(['destroy'])
+  const emit = defineEmits({
+    destroy: (): boolean => true
+  })
 
   const messageRef = ref<HTMLDivElement>()
   const messageHeight: Ref<number> = ref<number>(0)

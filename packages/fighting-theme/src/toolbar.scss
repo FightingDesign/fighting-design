@@ -1,18 +1,17 @@
-@import '../config/var-toolbar.scss';
-@import '../config/const-color.scss';
+@import '../config/const-size.scss';
 
 .f-toolbar {
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  background: $default;
   flex-wrap: wrap;
   cursor: default;
+  background: var(--f-design-color-default-1);
 
   // 不同尺寸
-  @for $list from 1 to (length($toolbarSize) + 1) {
-    $item: nth($toolbarSize, $list); // 获取数组中第i项的值
+  @for $list from 1 to (length($ComponentsSize) + 1) {
+    $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
 
     &.f-toolbar__#{map-get($item, name)} {
       min-height: map-get($item, height);

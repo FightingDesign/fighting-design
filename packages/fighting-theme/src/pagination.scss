@@ -1,0 +1,88 @@
+.f-pagination {
+  display: flex;
+
+  &__prev,
+  &__next {
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    background: #fff;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  &__pages {
+    display: flex;
+
+    .f-pagination__pages__li {
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+
+      &__choose {
+        color: #2d5af1;
+      }
+
+      &__background__choose {
+        background: #2d5af1;
+        color: #fff;
+      }
+
+      &__disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  /**
+  * 这个样式是针对于当前分页处于圆形或带背景时触发
+  */
+  &__state {
+    margin: 0 5px;
+  }
+
+  &__background,
+  &__btn__background,
+  &__circle,
+  &__btn__circle {
+    background: #f8f8f8;
+  }
+
+  &__background {
+    margin: 0 5px;
+  }
+
+  &__btn__circle {
+    border-radius: 17px;
+  }
+
+  &__circle {
+    border-radius: 17px;
+    margin: 0 5px;
+  }
+
+  &__jump {
+    width: 145px;
+    margin-left: 10px;
+  }
+
+  &__disabled {
+    background: #f0f0f0;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style-type: none;
+}

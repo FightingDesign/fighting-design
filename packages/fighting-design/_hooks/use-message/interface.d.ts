@@ -16,7 +16,7 @@ export interface MessageFn {
 }
 
 export type MessageFnWithType = {
-  [key in MessageType]: (text: string) => void
+  [key in MessageType]: (text: string) => MessageInstance
 }
 
 export type MessageOptions = InstanceOptions<MessagePropsType>
@@ -39,7 +39,9 @@ export interface MessageInstance {
   close: () => void
 }
 
-export interface UseMessageReturnInterface { instance: MessageFn & Partial<MessageFnWithType> }
+export interface UseMessageReturnInterface {
+  instance: MessageFn & MessageFnWithType
+}
 
 export interface UseMessageInterface {
   (target: 'message' | 'notification'): UseMessageReturnInterface

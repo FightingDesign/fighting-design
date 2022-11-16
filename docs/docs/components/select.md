@@ -16,17 +16,12 @@
 ::: demo
 
 <template #source>
-<f-select v-model="value1" placeholder="请选择……">
-<f-option :value="1">香蕉</f-option>
-<f-option :value="2">苹果</f-option>
-<f-option :value="3">哈密瓜</f-option>
-<f-option :value="4">樱桃</f-option>
-</f-select>
+<demo1-vue />
 </template>
 
 ```html
 <template>
-  <f-select v-model="value1" placeholder="请选择……">
+  <f-select v-model="value" placeholder="请选择……">
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
@@ -37,7 +32,74 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value1 = ref('')
+  const value = ref('')
+</script>
+```
+
+:::
+
+## 优先级
+
+`label` 的展示方式分为两种：`label` 属性和插槽，都可以实现，但有些时候这些属性可能都存在或者都不存在，所以 label 的优先级为：`slot > label > value`，也就是说，如果 slot 和 label 都不存在的时候，默认展示 value
+
+`value` 也有着上面的情况，优先级关系为 `value > label > slot`
+
+::: demo
+
+<template #source>
+<demo2-vue />
+</template>
+
+```html
+<template>
+  <f-select v-model="value" placeholder="请选择……">
+    <f-option label="香蕉" :value="1"></f-option>
+    <f-option :value="2">苹果</f-option>
+    <f-option :value="3"></f-option>
+    <f-option label="樱桃">樱桃</f-option>
+  </f-select>
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value = ref('')
+</script>
+```
+
+:::
+
+## 禁用状态
+
+`disabled` 属性可以禁用整个选择器，也可以禁用指定选项
+
+::: demo
+
+<template #source>
+<demo3-vue />
+</template>
+
+```html
+<template>
+  <f-select v-model="value" placeholder="请选择……" disabled>
+    <f-option :value="1">香蕉</f-option>
+    <f-option :value="2">苹果</f-option>
+    <f-option :value="3">哈密瓜</f-option>
+    <f-option :value="4">樱桃</f-option>
+  </f-select>
+
+  <f-select v-model="value" placeholder="请选择……" style="margin-left: 30px">
+    <f-option :value="1">香蕉</f-option>
+    <f-option :value="2" disabled>苹果</f-option>
+    <f-option :value="3">哈密瓜</f-option>
+    <f-option :value="4">樱桃</f-option>
+  </f-select>
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value = ref('')
 </script>
 ```
 
@@ -48,7 +110,7 @@
 | 参数                   | 说明           | 类型            | 可选值 | 默认值 |
 | ---------------------- | -------------- | --------------- | ------ | ------ |
 | `v-model / modelValue` | 绑定值         | string          | ——     | ——     |
-| `width`                | 自定义宽度     | string / number | ——     | ——     |
+| `width`                | 自定义宽度     | string / number | ——     | null   |
 | `name`                 | 原生 name 属性 | string          | ——     | ——     |
 | `placeholder`          | 占位符         | string          | ——     | ——     |
 | `clear`                | 是否可清除     | boolean         | ——     | false  |
@@ -79,7 +141,15 @@
 组件导出以下类型定义：
 
 ```ts
-import type {} from 'fighting-design'
+import type {
+  SelectInstance,
+  SelectPropsType,
+  SelectModelValueType,
+  SelectSetValueInterface,
+  SelectProvideInterface,
+  OptionInstance,
+  OptionPropsType
+} from 'fighting-design'
 ```
 
 ## Contributors
@@ -90,6 +160,7 @@ import type {} from 'fighting-design'
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-
-  const value1 = ref('')
+  import demo1Vue from './_demos/select/demo1.vue'
+  import demo2Vue from './_demos/select/demo2.vue'
+  import demo3Vue from './_demos/select/demo3.vue'
 </script>

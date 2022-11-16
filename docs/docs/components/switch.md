@@ -25,6 +25,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+
   const value1 = ref(true)
   const value2 = ref(false)
 </script>
@@ -42,6 +43,7 @@
 <f-switch v-model="value3" size="large" />
 <f-switch v-model="value3" size="middle" />
 <f-switch v-model="value3" size="small" />
+<f-switch v-model="value3" size="mini" />
 </template>
 
 ```html
@@ -49,10 +51,12 @@
   <f-switch v-model="value3" size="large" />
   <f-switch v-model="value3" size="middle" />
   <f-switch v-model="value3" size="small" />
+  <f-switch v-model="value3" size="mini" />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+
   const value3 = ref(true)
 </script>
 ```
@@ -78,6 +82,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+
   const value4 = ref(true)
   const value5 = ref(false)
 </script>
@@ -102,6 +107,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+
   const value6 = ref(true)
 </script>
 ```
@@ -125,6 +131,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+
   const value7 = ref(true)
 </script>
 ```
@@ -148,6 +155,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+
   const value8 = ref(true)
 </script>
 ```
@@ -181,18 +189,19 @@
 
 ## Attributes
 
-| 参数                   | 说明                       | 类型     | 可选值                   | 默认值 |
-| ---------------------- | -------------------------- | -------- | ------------------------ | ------ |
-| `modelValue / v-model` | 绑定值                     | string   | ——                       | false  |
-| `size`                 | 组件尺寸                   | string   | `large` `middle` `small` | middle |
-| `disabled`             | 是否禁用                   | boolean  | ——                       | false  |
-| `icon`                 | 自定义 icon                | string   | ——                       | ——     |
-| `close-color`          | 自定义关闭状态背景色       | string   | ——                       | ——     |
-| `open-color`           | 自定义开启状态背景色       | string   | ——                       | ——     |
-| `open-text`            | 自定义右侧的文字描述       | string   | ——                       | ——     |
-| `close-text`           | 自定义左侧的文字描述       | string   | ——                       | ——     |
-| `square`               | 是否为方形开关             | boolean  | ——                       | false  |
-| `change`               | 绑定值发生改变时触发的回调 | Function | ——                       | null   |
+| 参数                   | 说明                       | 类型                       | 可选值                                 | 默认值 |
+| ---------------------- | -------------------------- | -------------------------- | -------------------------------------- | ------ |
+| `modelValue / v-model` | 绑定值                     | string                     | ——                                     | false  |
+| `size`                 | 组件尺寸                   | string                     | `large` `middle` <br /> `small` `mini` | middle |
+| `disabled`             | 是否禁用                   | boolean                    | ——                                     | false  |
+| `icon`                 | 自定义 icon                | object (VNode / Component) | ——                                     | null   |
+| `close-color`          | 自定义关闭状态背景色       | string                     | ——                                     | null   |
+| `open-color`           | 自定义开启状态背景色       | string                     | ——                                     | null   |
+| `open-text`            | 自定义右侧的文字描述       | string                     | ——                                     | null   |
+| `close-text`           | 自定义左侧的文字描述       | string                     | ——                                     | null   |
+| `square`               | 是否为方形开关             | boolean                    | ——                                     | false  |
+| `change`               | 绑定值发生改变时触发的回调 | Function                   | ——                                     | null   |
+| `icon-size`            | 自定义 icon 大小           | string / number            | ——                                     | null   |
 
 ## Interface
 

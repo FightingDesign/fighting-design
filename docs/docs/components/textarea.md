@@ -53,12 +53,92 @@
 
 :::
 
+## 禁用状态
+
+`disabled` 属性可禁用文本域
+
+::: demo
+
+<template #source>
+<f-textarea v-model="value3" placeholder="请输入...." disabled />
+</template>
+
+```html
+<template>
+  <f-textarea v-model="value3" placeholder="请输入...." disabled />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value3 = ref('禁用的')
+</script>
+```
+
+:::
+
+## 只读状态
+
+`readonly` 属性可配置只读文本域
+
+::: demo
+
+<template #source>
+<f-textarea v-model="value4" placeholder="请输入...." readonly />
+</template>
+
+```html
+<template>
+  <f-textarea v-model="value4" placeholder="请输入...." readonly />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value4 = ref('只读状态')
+</script>
+```
+
+:::
+
+## 不同拉伸方式
+
+`resize` 属性可配置文本域不同的拉伸方式
+
+::: demo
+
+<template #source>
+<f-textarea v-model="value5" placeholder="禁止拉伸" resize="none" />
+<f-textarea v-model="value6" placeholder="随意拉伸" resize="both" />
+<f-textarea v-model="value7" placeholder="水平拉伸" resize="horizontal" />
+<f-textarea v-model="value8" placeholder="垂直拉伸" resize="vertical" />
+</template>
+
+```html
+<template>
+  <f-textarea v-model="value5" placeholder="禁止拉伸" resize="none" />
+  <f-textarea v-model="value6" placeholder="随意拉伸" resize="both" />
+  <f-textarea v-model="value7" placeholder="水平拉伸" resize="horizontal" />
+  <f-textarea v-model="value8" placeholder="垂直拉伸" resize="vertical" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value5 = ref('none 禁止拉伸')
+  const value6 = ref('both 随意拉伸')
+  const value7 = ref('horizontal 水平拉伸')
+  const value8 = ref('vertical 垂直拉伸')
+</script>
+```
+
+:::
+
 ## Attributes
 
 | 参数          | 说明                       | 类型            | 可选值                                       | 默认值  |
 | ------------- | -------------------------- | --------------- | -------------------------------------------- | ------- |
 | `v-model`     | 绑定值                     | string          | ——                                           | ——      |
-| `cols`        | 可视宽度                   | string / number |                                              | 50      |
 | `rows`        | 元素的输入文本的行数       | string / number | ——                                           | 3       |
 | `disabled`    | 是否禁用                   | boolean         | ——                                           | false   |
 | `max-length`  | 最大输入长度上限           | number          | ——                                           | null    |
@@ -96,4 +176,10 @@ import type {
 
   const value1 = ref('')
   const value2 = ref('可清空的')
+  const value3 = ref('禁用的')
+  const value4 = ref('只读状态')
+  const value5 = ref('none 禁止拉伸')
+  const value6 = ref('both 随意拉伸')
+  const value7 = ref('horizontal 水平拉伸')
+  const value8 = ref('vertical 垂直拉伸')
 </script>

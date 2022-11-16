@@ -2,7 +2,6 @@
   import { Props, RADIO_GROUP_PROPS_kEY } from './props'
   import { provide, reactive, toRefs, computed } from 'vue'
   import { isString, isBoolean, isNumber } from '../../_utils'
-  import { useEmit } from '../../_hooks'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
@@ -13,12 +12,10 @@
   } from './interface'
 
   const prop: RadioGroundPropsType = defineProps(Props)
-  const emit = defineEmits(
-    useEmit(
-      (val: RadioLabelType): boolean =>
-        isString(val) || isNumber(val) || isBoolean(val)
-    )
-  )
+  const emit = defineEmits({
+    'update:modelValue': (val: RadioLabelType): boolean =>
+      isString(val) || isNumber(val) || isBoolean(val)
+  })
 
   const changeEvent: RadioChangeInterface = (value: RadioLabelType): void => {
     emit('update:modelValue', value)

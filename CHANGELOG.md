@@ -2,9 +2,24 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**新功能**
+
 - 新增 `f-checkbox` 组件 `indeterminate` 配置项
 - 新增 `f-textarea` 组件
+- 新增 `f-pagination` 组件
+- 新增 `f-tabs` 组件
 - 重构 `loading` 组件
+
+**修复**
+
+- 修复 `f-select` 组件在存在绑定值之后不显示 `label` 的问题
+- 修复 `f-radio-group` 组件样式细节
+- 修复 `f-text` 组件样式细节
+
+**其它**
+
+- `f-switch` 组件 `size` 配置项新增 `mini` 可选择
+- `f-switch` 组件新增 `icon-size` 配置项
 
 ## 0.8.1-alpha.4 (2022-11-13)
 

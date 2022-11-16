@@ -9,7 +9,7 @@
     FIconEyeOutlineVue
   } from '../../_svg'
   import { isString } from '../../_utils'
-  import { useUpdateInput, useFilterProps, useEmit } from '../../_hooks'
+  import { useUpdateInput, useFilterProps } from '../../_hooks'
   import type { Ref } from 'vue'
   import type { InputType, InputHandleShowPasswordInterface } from './interface'
   import type { InputPropsType } from './props'
@@ -17,7 +17,9 @@
   import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
 
   const prop: InputPropsType = defineProps(Props)
-  const emit = defineEmits(useEmit((val: string): boolean => isString(val)))
+  const emit = defineEmits({
+    'update:modelValue': (val: string): boolean => isString(val)
+  })
 
   // type 类型
   const inputType: Ref<InputType> = ref<InputType>(prop.type)

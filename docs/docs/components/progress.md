@@ -191,8 +191,8 @@
 
 | 参数          | 说明                         | 类型            | 可选值                                 | 默认值  |
 | ------------- | ---------------------------- | --------------- | -------------------------------------- | ------- |
-| `progress`    | 百分比                       | number          | `0 ~ 100`                              | 0       |
-| `type`        | 进度条状态                   | string          | `primary` `success` `warning` `danger` | primary |
+| `percentage`    | 百分比                       | number          | `0 ~ 100`                              | 0       |
+| `type`        | 进度条类型                   | string          | `primary` `success` `warning` `danger` | primary |
 | `width`       | 自定义宽度                   | string / number | ——                                     | ——      |
 | `height`      | 自定义高度                   | string / number | ——                                     | 6px     |
 | `square`      | 方形                         | boolean         | ——                                     | false   |

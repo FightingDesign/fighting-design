@@ -1,5 +1,3 @@
-@import '../config/const-color.scss';
-
 .f-radio {
   cursor: pointer;
   display: inline-flex;
@@ -14,15 +12,15 @@
   // 选中状态
   &.f-radio__checked {
     .f-radio__text {
-      color: $primary;
+      color: var(--f-design-color-primary-1);
     }
 
     .f-radio__circle {
-      border: 1px solid $primary;
+      border: 1px solid var(--f-design-color-primary-1);
 
       &::after {
         transform: translate(-50%, -50%) scale(2);
-        background: $primary;
+        background: var(--f-design-color-primary-1);
       }
     }
   }

@@ -4,7 +4,9 @@ import { FOption } from '../index'
 
 describe('Option', () => {
   test('class', () => {
-    const wrapper = mount(FOption)
+    const wrapper = mount(FOption, {
+      props: { label: '选项1' }
+    })
     expect(wrapper.classes()).toContain('f-option')
   })
 })

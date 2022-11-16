@@ -1,8 +1,6 @@
-@import '../config/const-color.scss';
-
 .f-radio-group {
   display: inline-flex;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   transition: 0.3s;
   column-gap: 22px;
@@ -68,11 +66,11 @@
     row-gap: 0;
 
     .f-radio {
-      border: 1px solid $simplePrimary;
+      border: 1px solid #dee5fd;
 
       // 边框选中状态
       &.f-radio__checked {
-        background: $primary;
+        background: var(--f-design-color-primary-1);
 
         .f-radio__text {
           color: #fff;
@@ -80,7 +78,7 @@
 
         // 边框选中状态禁用状态
         &.f-radio__disabled {
-          background: $default;
+          background: var(--f-design-color-default-1);
 
           .f-radio__text {
             color: #d7d7d7;

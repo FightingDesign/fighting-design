@@ -1,6 +1,5 @@
 <script lang="ts" setup name="FCheckbox">
   import { Props } from './props'
-  import { useEmit } from '../../_hooks'
   import { computed, inject, getCurrentInstance, ref } from 'vue'
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import type { ClassListInterface } from '../../_interface'
@@ -17,12 +16,10 @@
   import type { CheckboxPropsType, CheckboxLabelType } from './interface'
 
   const prop: CheckboxPropsType = defineProps(Props)
-  const emit = defineEmits(
-    useEmit(
-      (val: CheckboxLabelType): CheckboxLabelType | [] =>
-        typeof val !== 'object'
-    )
-  )
+  const emit = defineEmits({
+    'update:modelValue': (val: CheckboxLabelType): CheckboxLabelType | [] =>
+      typeof val !== 'object'
+  })
 
   const groupProps: Ref<CheckboxGroupInjectPropsType | null> = ref(null)
 

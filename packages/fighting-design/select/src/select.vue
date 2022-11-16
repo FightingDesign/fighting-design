@@ -1,50 +1,121 @@
 <script lang="ts" setup name="FSelect">
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
-  import { isString } from '../../_utils'
-  import { useEmit } from '../../_hooks'
-  import { provide, reactive, ref, computed, watch } from 'vue'
+  import { provide, reactive, computed, useSlots } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { sizeChange } from '../../_utils'
-  import type { CSSProperties, ComputedRef, Ref } from 'vue'
+  import type {
+    CSSProperties,
+    ComputedRef,
+    VNode,
+    Component,
+    WritableComputedRef
+  } from 'vue'
   import type {
     SelectPropsType,
     SelectSetValueInterface,
-    SelectProvideInterface
+    SelectProvideInterface,
+    SelectModelValueType
   } from './interface'
+  import type { OptionPropsType } from '../../option'
 
   const prop: SelectPropsType = defineProps(Props)
-  const emit = defineEmits(useEmit((val: string): boolean => isString(val)))
-
-  // 绑定值
-  const inputValue: Ref<string> = ref<string>(prop.modelValue)
+  const slot = useSlots()
+  const emit = defineEmits({
+    'update:modelValue': (val: SelectModelValueType): boolean => !!val
+  })
 
   /**
-   * 监视绑定值发生变化同步数据
+   * 获取子元素 option
+   *
+   * 通过插槽插入的内容，过滤出有效的子元素返回
    */
-  watch(
-    (): string => inputValue.value,
-    (newVal: string): void => {
-      emit('update:modelValue', newVal)
+  const options: ComputedRef<VNode[]> = computed((): VNode[] => {
+    // 如果没有插槽内容，返回空数组
+    if (!slot.default) return []
+
+    const vNodes: VNode[] = slot.default()
+
+    return vNodes.filter((node: VNode): boolean => {
+      const name: string | undefined = (node.type as Component).name
+      return name === 'FOption'
+    })
+  })
+
+  /**
+   * 输入框绑定的值
+   */
+  const inputValue: WritableComputedRef<string> = computed({
+    /**
+     * 通过获取到的子元素，计算当前绑定值对应的 label 展示文本框的内容
+     */
+    get () {
+      // 如果插槽没内容，则返回空字符串
+      if (!options.value.length) return ''
+
+      /**
+       * 通过插槽内容
+       *
+       * 过滤出和绑定值相同的那一项
+       */
+      const currentOption: VNode[] = options.value.filter(
+        (node: VNode): boolean => {
+          const optionProp: OptionPropsType = node.props as OptionPropsType
+
+          // 判断是否有传递 props
+          if (optionProp) {
+            return optionProp.value
+              ? optionProp.value === prop.modelValue
+              : optionProp.label === prop.modelValue
+          }
+
+          // 如果没有传递 props 则根据插槽来判断
+          return node.children.default()[0].children === prop.modelValue
+        }
+      )
+
+      /**
+       * 如果没有通过插槽找出和绑定值相同的
+       *
+       * 则返回空
+       */
+      if (!currentOption.length) return ''
+
+      // 获取到当前满足要求的子元素
+      const children: OptionPropsType = currentOption[0] as OptionPropsType
+      // 获取到当前子元素的插槽内容
+      const slot: string | undefined =
+        children.children && children.children.default()[0].children
+      // 获取到当前子元素的 label 参数
+      const label: string | undefined = children.props && children.props.label
+      // 获取到当前子元素的 value 参数
+      const value: string | undefined = children.props && children.props.value
+      // 优先级：插槽 > label > value
+      return slot || label || (value && value.toString()) || ''
+    },
+    set (val: string) {
+      return val
     }
-  )
+  })
 
   /**
    * 设置新的值
+   * @param newValue 新的 value 值
+   * @param newLabel 新增 label 值
    */
-  const setValue: SelectSetValueInterface = (newVal: string): void => {
-    inputValue.value = newVal
+  const setValue: SelectSetValueInterface = (
+    newValue: string,
+    newLabel: SelectModelValueType
+  ): void => {
+    inputValue.value = newValue
+    console.log(newValue)
+    emit('update:modelValue', newLabel)
   }
 
   /**
    * 向自组件注入依赖项
    */
-  provide<SelectProvideInterface>(
-    SELECT_PROPS_TOKEN,
-    reactive({
-      setValue
-    })
-  )
+  provide<SelectProvideInterface>(SELECT_PROPS_TOKEN, reactive({ setValue }))
 
   /**
    * 样式列表
@@ -60,7 +131,7 @@
 
 <template>
   <div class="f-select" :style="styleList">
-    <f-dropdown trigger="click">
+    <f-dropdown trigger="click" :disabled="disabled">
       <f-input
         v-model="inputValue"
         readonly

@@ -156,6 +156,9 @@ export * from './swap'
 export { FUpLoad } from './up-load'
 export * from './up-load'
 
+export { FPagination } from './pagination'
+export * from './pagination'
+
 export { FTable } from './table'
 export * from './table'
 
@@ -176,3 +179,9 @@ export * from './option'
 
 export { FSlider } from './slider'
 export * from './slider'
+
+export { FTabs } from './tabs'
+export * from './tabs'
+
+export { FTabsPane } from './tabs-pane'
+export * from './tabs-pane'
