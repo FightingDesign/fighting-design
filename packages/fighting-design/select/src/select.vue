@@ -116,7 +116,6 @@
     newLabel: SelectModelValueType
   ): void => {
     inputValue.value = newValue
-    console.log(newValue)
     emit('update:modelValue', newLabel)
   }
 

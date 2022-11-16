@@ -147,6 +147,7 @@ import type {
   SelectModelValueType,
   SelectSetValueInterface,
   SelectProvideInterface,
+  SelectChildrenInterface,
   OptionInstance,
   OptionPropsType
 } from 'fighting-design'
