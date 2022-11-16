@@ -3,7 +3,10 @@
   import { FInput } from '../../input'
   import { provide, reactive, computed, useSlots } from 'vue'
   import { FDropdown } from '../../dropdown'
-  import { sizeChange } from '../../_utils'
+  import {
+    sizeChange
+    // isObject
+  } from '../../_utils'
   import type {
     CSSProperties,
     ComputedRef,
@@ -27,6 +30,27 @@
   })
 
   /**
+   * 寻找亲孩子
+   */
+  // const seekChildren = (vNode: VNode[]): VNode[] => {
+  //   // console.log(vNode)
+  //   // console.log(isObject(vNode[0].type))
+  //   /**
+  //    * 如果 type 不是一个 object 类型
+  //    *
+  //    * 则不是一个组件，就是说不是自己的亲孩子
+  //    */
+  //   if (!isObject(vNode[0].type)) {
+  //     // console.log(vNode[0].children)
+  //     // debugger
+  //     seekChildren(vNode[0].children)
+  //   } else {
+  //     console.log(vNode)
+  //     // if(vNode[0].type === '')
+  //   }
+  // }
+
+  /**
    * 获取子元素 option
    *
    * 通过插槽插入的内容，过滤出有效的子元素返回
@@ -36,6 +60,12 @@
     if (!slot.default) return []
 
     const vNodes: VNode[] = slot.default()
+
+    // const myChild = seekChildren(vNodes)
+
+    // console.log(vNodes[0].type.toString() === 'Symbol(Fragment)')
+    // console.log(myChild)
+    // console.log(vNodes)
 
     return vNodes.filter((node: VNode): boolean => {
       const name: string | undefined = (node.type as Component).name

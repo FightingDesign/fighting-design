@@ -12,7 +12,15 @@ export const Props = {
    */
   current: {
     type: Number,
-    default: (): Number => 1,
+    default: (): number => 1,
+    require: true
+  },
+  /**
+   * 总数
+   */
+  total: {
+    type: Number,
+    default: (): number => 0,
     require: true
   },
   /**
@@ -20,7 +28,7 @@ export const Props = {
    */
   pageSize: {
     type: Number,
-    default: (): Number => 10
+    default: (): number => 10
   },
   /**
    * 每页多少条
@@ -34,22 +42,14 @@ export const Props = {
    */
   background: {
     type: Boolean,
-    default: (): Boolean => false
+    default: (): boolean => false
   },
   /**
    * 是否需要圆角
    */
   round: {
     type: Boolean,
-    default: (): Boolean => false
-  },
-  /**
-   * 总数
-   */
-  total: {
-    type: Number,
-    default: 0,
-    require: true
+    default: (): boolean => false
   },
   /**
    * 自定义的上一页图标
@@ -70,7 +70,7 @@ export const Props = {
    */
   disabled: {
     type: Boolean,
-    default: (): Boolean => false
+    default: (): boolean => false
   },
   /**
    * 改变页码回调函数
@@ -84,7 +84,7 @@ export const Props = {
    */
   jumpSearch: {
     type: Boolean,
-    default: (): Boolean => false
+    default: (): boolean => false
   },
   /**
    * 点击上一页触发的回调

@@ -51,6 +51,15 @@ export interface UtilsIsStringInterface {
 }
 
 /**
+ * 检测一个数据是否为 String 类型方法类型接口
+ *
+ * 传入一个未知的类型，返回布尔值
+ */
+export interface UtilsIsObjectInterface {
+  (target: unknown): target is Object
+}
+
+/**
  * 给数字小于 10 的数字前面加 0 方法类型接口
  *
  * 多数用于对时间的处理
