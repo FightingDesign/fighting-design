@@ -15,11 +15,13 @@
 - 修复 `f-select` 组件在存在绑定值之后不显示 `label` 的问题
 - 修复 `f-radio-group` 组件样式细节
 - 修复 `f-text` 组件样式细节
+- 修复 `f-button` 组件样式细节
 
 **其它**
 
 - `f-switch` 组件 `size` 配置项新增 `mini` 可选择
 - `f-switch` 组件新增 `icon-size` 配置项
+- 优化全局组件部分参数默认值
 
 ## 0.8.1-alpha.4 (2022-11-13)
 
