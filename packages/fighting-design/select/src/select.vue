@@ -51,10 +51,35 @@
     get () {
       // 如果插槽没内容，则返回空字符串
       if (!options.value) return ''
-      const bound: VNode[] = options.value.filter((node: VNode): boolean => {
-        return (node.props as OptionPropsType).value === prop.modelValue
-      })
-      return (bound[0] as OptionPropsType).props.label as string
+
+      /**
+       * 通过插槽内容
+       *
+       * 过滤出和绑定值相同的那一项
+       */
+      const currentOption: VNode[] = options.value.filter(
+        (node: VNode): boolean => {
+          return (node.props as OptionPropsType).value === prop.modelValue
+        }
+      )
+      /**
+       * 如果没有通过插槽找出和绑定值相同的
+       *
+       * 则返回空
+       */
+      if (!currentOption) return ''
+
+      // 获取到当前满足要求的子元素
+      const children: OptionPropsType = currentOption[0] as OptionPropsType
+      // 获取到当前子元素的插槽内容
+      const slot: string | undefined =
+        children.children && children.children.default()[0].children
+      // 获取到当前子元素的 label 参数
+      const label: string | undefined = children.props.label
+      // 获取到当前子元素的 value 参数
+      const value: string | undefined = children.props.value
+      // 优先级：插槽 > label > value
+      return slot || label || (value && value.toString()) || ''
     },
     set (val: string) {
       return val

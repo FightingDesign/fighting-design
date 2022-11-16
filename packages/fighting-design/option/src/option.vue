@@ -48,6 +48,9 @@
   >
     <slot v-if="$slots.default" />
 
-    {{ label }}
+    <!-- 如果插槽不存在。就显示 label 或者 value -->
+    <template v-else>
+      {{ label || value }}
+    </template>
   </div>
 </template>
