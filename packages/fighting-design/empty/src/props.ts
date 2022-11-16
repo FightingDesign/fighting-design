@@ -12,7 +12,7 @@ export const Props = {
    * 内容文字大小
    */
   contentSize: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /**
@@ -42,6 +42,13 @@ export const Props = {
   background: {
     type: String,
     default: (): null => null
+  },
+  /**
+   * 自定义 icon 大小
+   */
+  iconSize: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): number => 30
   }
 } as const
 

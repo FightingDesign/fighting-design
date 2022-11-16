@@ -1,31 +1,23 @@
 .f-empty {
-  display: flex;
+  display: inline-flex;
   padding: 20px;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
 
-  &__pic-wrap {
-    width: 100%;
+  &__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    img {
-      width: 100%;
-    }
-
-    & svg {
-      width: 100%;
-    }
   }
 
   // 描述文字
-  &__desc {
+  &__content {
     margin: 10px 0px;
-    color: #7f7f7f;
     font-weight: 500;
+    color: #7f7f7f;
   }
 
   &__footer {

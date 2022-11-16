@@ -1,8 +1,10 @@
 <script lang="ts" setup name="FEmpty">
-  import { FIconEmptyState } from '../../_svg'
   import { Props } from './props'
+  import { FIconFullSharp } from '../../_svg'
   import { computed } from 'vue'
+  import { FSvgIcon } from '../../svg-icon'
   import { FImage } from '../../image'
+  import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { EmptyPropsType } from './props'
 
@@ -16,7 +18,7 @@
 
     return {
       color: contentColor,
-      fontSize: contentSize
+      fontSize: sizeChange(contentSize)
     } as const
   })
 </script>
@@ -24,17 +26,17 @@
 <template>
   <div class="f-empty" :style="{ background }">
     <!-- 图片 -->
-    <div class="f-empty__pic-wrap">
-      <slot v-if="$slots.image" name="image" />
+    <div class="f-empty__wrapper">
+      <slot v-if="$slots.default" />
 
       <template v-else>
         <f-image v-if="imageSrc" :src="imageSrc" :width="imageSize" />
-        <f-icon-empty-state v-else />
+        <f-svg-icon v-else :icon="FIconFullSharp" :size="iconSize" />
       </template>
     </div>
 
     <!-- 描述文字 -->
-    <span class="f-empty__desc" :style="styleList">
+    <span class="f-empty__content" :style="styleList">
       {{ content }}
     </span>
 

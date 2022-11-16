@@ -1,6 +1,6 @@
 # Empty 空状态
 
-`Empty` 用于页面中展示空状态时的占位提示
+在展示空状态时的占位提示
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/empty)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/empty.md)
@@ -25,17 +25,15 @@
 
 `content-size` 属性可以配置 `empty` 内容的字体大小
 
-`content-size` 必须写入指定的数值和单位才可以正常工作
-
 ::: demo
 
 <template #source>
-<f-empty content-size="30px" />
+<f-empty :content-size="25" :icon-size="50" />
 
 </template>
 
 ```html
-<f-empty content-size="30px" />
+<f-empty :content-size="25" :icon-size="50" />
 ```
 
 :::
@@ -56,23 +54,9 @@
 
 :::
 
-## 自定义图片地址
+## 自定义图片
 
 `image-src` 属性可以配置 `empty` 展示数据状态的图片
-
-::: demo
-
-<template #source>
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg"/>
-</template>
-
-```html
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" />
-```
-
-:::
-
-## 自定义图片大小
 
 `image-size` 属性可以配置自定义的图片大小
 
@@ -107,23 +91,44 @@
 
 :::
 
+## 自定义页脚
+
+`footer` 插槽可自定义页脚
+
+::: demo
+
+<template #source>
+<f-empty>
+<template #footer>我的数据哪去了？</template>
+</f-empty>
+</template>
+
+```html
+<f-empty>
+  <template #footer>我的数据哪去了？</template>
+</f-empty>
+```
+
+:::
+
 ## Attributes
 
-| 参数            | 说明           | 类型   | 可选值 | 默认值   |
-| --------------- | -------------- | ------ | ------ | -------- |
-| `content`       | 展示的内容     | string | ——     | 暂无数据 |
-| `content-size`  | 内容文字大小   | string | ——     | ——       |
-| `content-color` | 内容文字颜色   | string | ——     | ——       |
-| `image-src`     | 自定义图片地址 | string | ——     | ——       |
-| `image-size`    | 自定义图片尺寸 | string | ——     | ——       |
-| `background`    | 自定义背景色   | string | ——     | ——       |
+| 参数            | 说明             | 类型   | 可选值 | 默认值   |
+| --------------- | ---------------- | ------ | ------ | -------- |
+| `content`       | 展示的内容       | string | ——     | 暂无数据 |
+| `content-size`  | 内容文字大小     | string | ——     | ——       |
+| `content-color` | 内容文字颜色     | string | ——     | ——       |
+| `image-src`     | 自定义图片地址   | string | ——     | ——       |
+| `image-size`    | 自定义图片尺寸   | string | ——     | ——       |
+| `icon-size`     | 自定义 icon 尺寸 | string | ——     | 30       |
+| `background`    | 自定义背景色     | string | ——     | ——       |
 
 ## Slots
 
-| 名称     | 说明           |
-| -------- | -------------- |
-| `footer` | 自定义页脚内容 |
-| `image`  | 自定义图片     |
+| 名称      | 说明           |
+| --------- | -------------- |
+| `default` | 自定义插入内容 |
+| `footer`  | 自定义页脚内容 |
 
 ## Interface
 

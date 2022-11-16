@@ -9,6 +9,8 @@
 - 新增 `f-pagination` 组件
 - 新增 `f-tabs` 组件
 - 重构 `loading` 组件
+- `f-empty` 组件 `content-size` 配置项支持 `number` 类型
+- `f-empty` 组件新增 `icon-size` 配置项
 
 **修复**
 
