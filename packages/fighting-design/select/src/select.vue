@@ -131,7 +131,7 @@
 
 <template>
   <div class="f-select" :style="styleList">
-    <f-dropdown trigger="click">
+    <f-dropdown trigger="click" :disabled="disabled">
       <f-input
         v-model="inputValue"
         readonly

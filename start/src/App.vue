@@ -5,10 +5,14 @@
 </script>
 
 <template>
-  <f-select v-model="value" placeholder="请选择……">
-    <f-option label="香蕉" :value="1"></f-option>
-    <f-option :value="2">苹果</f-option>
-    <f-option :value="3"></f-option>
-    <f-option>樱桃</f-option>
-  </f-select>
+  <f-dropdown disabled>
+    <f-button type="primary">下拉菜单</f-button>
+
+    <template #content>
+      <f-dropdown-item>猕猴桃</f-dropdown-item>
+      <f-dropdown-item>哈密瓜</f-dropdown-item>
+      <f-dropdown-item>火龙果</f-dropdown-item>
+      <f-dropdown-item>柠檬</f-dropdown-item>
+    </template>
+  </f-dropdown>
 </template>
