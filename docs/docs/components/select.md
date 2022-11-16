@@ -21,7 +21,7 @@
 
 ```html
 <template>
-  <f-select v-model="value1" placeholder="请选择……">
+  <f-select v-model="value" placeholder="请选择……">
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
@@ -32,7 +32,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value1 = ref('')
+  const value = ref('')
 </script>
 ```
 
@@ -57,6 +57,42 @@
     <f-option :value="2">苹果</f-option>
     <f-option :value="3"></f-option>
     <f-option label="樱桃">樱桃</f-option>
+  </f-select>
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value = ref('')
+</script>
+```
+
+:::
+
+## 禁用状态
+
+`disabled` 属性可以禁用整个选择器，也可以禁用指定选项
+
+::: demo
+
+<template #source>
+<demo3-vue />
+</template>
+
+```html
+<template>
+  <f-select v-model="value" placeholder="请选择……" disabled>
+    <f-option :value="1">香蕉</f-option>
+    <f-option :value="2">苹果</f-option>
+    <f-option :value="3">哈密瓜</f-option>
+    <f-option :value="4">樱桃</f-option>
+  </f-select>
+
+  <f-select v-model="value" placeholder="请选择……" style="margin-left: 30px">
+    <f-option :value="1">香蕉</f-option>
+    <f-option :value="2" disabled>苹果</f-option>
+    <f-option :value="3">哈密瓜</f-option>
+    <f-option :value="4">樱桃</f-option>
   </f-select>
 </template>
 
@@ -105,7 +141,15 @@
 组件导出以下类型定义：
 
 ```ts
-import type {} from 'fighting-design'
+import type {
+  SelectInstance,
+  SelectPropsType,
+  SelectModelValueType,
+  SelectSetValueInterface,
+  SelectProvideInterface,
+  OptionInstance,
+  OptionPropsType
+} from 'fighting-design'
 ```
 
 ## Contributors
@@ -118,6 +162,5 @@ import type {} from 'fighting-design'
   import { ref } from 'vue'
   import demo1Vue from './_demos/select/demo1.vue'
   import demo2Vue from './_demos/select/demo2.vue'
-
-  const value1 = ref('')
+  import demo3Vue from './_demos/select/demo3.vue'
 </script>
