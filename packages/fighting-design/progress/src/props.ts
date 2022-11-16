@@ -50,28 +50,28 @@ export const Props = {
    */
   textColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 进度条颜色
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 进度条背景色
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义宽度
    */
   width: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义高度

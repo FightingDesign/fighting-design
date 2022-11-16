@@ -14,7 +14,7 @@ export const Props = {
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 操作栏展开时的文字

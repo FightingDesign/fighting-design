@@ -14,7 +14,7 @@ export const Props = {
    */
   label: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否禁用

@@ -13,7 +13,7 @@ export const Props = {
    */
   modelValue: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 类型
@@ -99,7 +99,7 @@ export const Props = {
    */
   placeholder: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否可清除

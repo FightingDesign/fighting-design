@@ -8,7 +8,7 @@ export const Props = {
    */
   modelValue: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 元素的输入文本的行数
@@ -63,7 +63,7 @@ export const Props = {
    */
   placeholder: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否只读

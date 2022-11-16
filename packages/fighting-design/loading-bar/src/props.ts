@@ -6,7 +6,7 @@ export const Props = {
    */
   type: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   }
 } as const
 

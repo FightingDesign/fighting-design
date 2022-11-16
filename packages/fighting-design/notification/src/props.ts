@@ -4,21 +4,21 @@ import type { NotificationType, NotificationPlacementType } from './interface'
 export const Props = {
   id: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 通知标题
    */
   title: {
     type: [String, Object] as PropType<VNode | string>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 通知文本
    */
   message: {
     type: [String, Object] as PropType<VNode | string>,
-    default: (): string => '',
+    default: (): null => null,
     required: true
   },
   /**
@@ -71,14 +71,14 @@ export const Props = {
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义背景色
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 偏移距离

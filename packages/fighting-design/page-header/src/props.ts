@@ -28,10 +28,10 @@ export const Props = {
    */
   title: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
-   * 标题是否粗体	
+   * 标题是否粗体
    */
   titleBold: {
     type: Boolean,
@@ -42,7 +42,7 @@ export const Props = {
    */
   titleColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 标题是否居中
@@ -56,7 +56,7 @@ export const Props = {
    */
   subtitle: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 点击左侧区域触发

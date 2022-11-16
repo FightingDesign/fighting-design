@@ -2,16 +2,19 @@ import type { VNode, PropType, ExtractPropTypes } from 'vue'
 import type { MessageType, MessagePlacementType } from './interface'
 
 export const Props = {
+  /**
+   * 唯一值
+   */
   id: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 消息文本
    */
   message: {
     type: [String, Object] as PropType<VNode | string>,
-    default: (): string => '',
+    default: (): null => null,
     required: true
   },
   /**
@@ -57,14 +60,14 @@ export const Props = {
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义背景色
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 偏移距离

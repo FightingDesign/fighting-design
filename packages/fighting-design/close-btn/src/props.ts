@@ -7,7 +7,7 @@ export const Props = {
    */
   size: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否为圆角的
@@ -28,7 +28,7 @@ export const Props = {
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义 icon

@@ -62,7 +62,7 @@ export const Props = {
    */
   title: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否为圆角
@@ -76,21 +76,21 @@ export const Props = {
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义颜色
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义 title 颜色
    */
   titleColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否为固定定位

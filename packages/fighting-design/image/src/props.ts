@@ -8,7 +8,7 @@ export const Props = {
    */
   src: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 原生 alt 属性
@@ -17,7 +17,7 @@ export const Props = {
    */
   alt: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否可以拖动
@@ -45,14 +45,14 @@ export const Props = {
    */
   width: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 图片的高度
    */
   height: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否为块级元素
@@ -89,10 +89,10 @@ export const Props = {
    */
   referrerPolicy: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
-   * 配置圆角，传入一个数值	
+   * 配置圆角，传入一个数值
    */
   round: {
     type: [String, Number] as PropType<string | number>,
@@ -103,17 +103,17 @@ export const Props = {
    */
   errSrc: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * img 的 title
    */
   title: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
-   * 图片加载成功触发的回调	
+   * 图片加载成功触发的回调
    */
   load: {
     type: Function as PropType<HandleMouseEventInterface>,

@@ -52,7 +52,7 @@ export const Props = {
    */
   maskBackground: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 遮罩层透明度
@@ -77,14 +77,14 @@ export const Props = {
    */
   popupSize: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义内边距
    */
   padding: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 打开动画开始的回调

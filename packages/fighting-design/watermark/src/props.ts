@@ -7,7 +7,7 @@ export const Props = {
    */
   content: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 水印的宽度
@@ -42,7 +42,7 @@ export const Props = {
    */
   image: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否为块级元素

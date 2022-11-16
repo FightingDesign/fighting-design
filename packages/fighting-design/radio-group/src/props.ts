@@ -14,7 +14,7 @@ export const Props = {
    */
   modelValue: {
     type: [String, Number, Boolean] as PropType<RadioLabelType>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否纵向排列
@@ -28,14 +28,14 @@ export const Props = {
    */
   columnGap: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 纵向排列的间距
    */
   rowGap: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否显示边框

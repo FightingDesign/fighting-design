@@ -19,21 +19,21 @@ export const Props = {
    */
   size: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 文字颜色
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 背景颜色
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否独占一行
@@ -47,21 +47,21 @@ export const Props = {
    */
   spacing: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 行高
    */
   lineHeight: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 首字符缩进量
    */
   indent: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 文字是否以粗体显示
@@ -75,21 +75,21 @@ export const Props = {
    */
   decoration: {
     type: String as PropType<TextDecorationType>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 内边距
    */
   padding: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 宽度
    */
   width: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否省略文本，需配合 `width` 宽度使用

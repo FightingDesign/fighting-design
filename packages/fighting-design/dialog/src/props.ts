@@ -15,7 +15,7 @@ export const Props = {
    */
   title: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否追加到 body

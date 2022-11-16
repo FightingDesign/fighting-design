@@ -24,14 +24,14 @@ export const Props = {
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 字体颜色
    */
   textColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否固定定位
@@ -45,14 +45,14 @@ export const Props = {
    */
   width: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义高度
    */
   height: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 点击之后触发的回调

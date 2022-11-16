@@ -7,7 +7,7 @@ export const Props = {
    */
   ripplesColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 移除涟漪节点的时间

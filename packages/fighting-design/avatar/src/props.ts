@@ -8,14 +8,14 @@ export const Props = {
    */
   src: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 加载失败时要显示的地址
    */
   errSrc: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 图标头像
@@ -31,7 +31,7 @@ export const Props = {
    */
   alt: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否为圆角
@@ -87,7 +87,7 @@ export const Props = {
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 字体大小
@@ -108,7 +108,7 @@ export const Props = {
    */
   text: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 触发懒加载的距离

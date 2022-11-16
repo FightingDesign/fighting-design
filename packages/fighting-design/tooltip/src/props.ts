@@ -7,7 +7,7 @@ export const Props = {
    */
   content: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 弹出方向
@@ -62,14 +62,14 @@ export const Props = {
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义文字颜色
    */
   fontColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   }
 } as const
 

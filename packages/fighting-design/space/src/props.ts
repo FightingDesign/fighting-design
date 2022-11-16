@@ -31,14 +31,14 @@ export const Props = {
    */
   rowGap: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义横向间距
    */
   columnGap: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   }
 } as const
 

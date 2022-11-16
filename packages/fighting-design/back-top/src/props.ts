@@ -64,7 +64,7 @@ export const Props = {
    */
   listenEl: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 背景色

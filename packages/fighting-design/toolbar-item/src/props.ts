@@ -7,7 +7,7 @@ export const Props = {
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义 icon
@@ -28,7 +28,7 @@ export const Props = {
    */
   dataKey: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 点击之后触发的回调

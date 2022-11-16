@@ -33,7 +33,7 @@ export const Props = {
    */
   placeholder: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否可清除

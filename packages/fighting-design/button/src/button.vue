@@ -121,28 +121,6 @@
       '--f-button-box-shadow': shadow
     } as CSSProperties
   })
-  // const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-  //   const { fontSize, fontColor, shadow, color } = prop
-
-  //   const styles = {
-  //     '--f-button-font-size': sizeChange(fontSize)
-  //   } as CSSProperties
-
-  //   if (color) {
-  //     const changeColor: ChangeColor = new ChangeColor(color)
-  //     const light: string = changeColor.getLightColor(0.4)
-  //     const dark: string = changeColor.getDarkColor(0.2)
-
-  //     styles['--f-button-default-color'] = color
-  //     styles['--f-button-hover-color'] = light
-  //     styles['--f-button-active-color'] = dark
-  //   }
-
-  //   if (fontColor) styles['--f-button-font-color'] = fontColor
-  //   if (shadow) styles['--f-button-box-shadow'] = shadow
-
-  //   return styles
-  // })
 </script>
 
 <template>
