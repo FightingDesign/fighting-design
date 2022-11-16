@@ -1,7 +1,7 @@
 {
   "name": "@fighting-design/fighting-theme",
   "version": "1.0.0",
-  "description": "All style are settled here",
+  "description": "Fighting Design all style are settled here",
   "main": "index.scss",
   "license": "MIT"
 }
