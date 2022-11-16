@@ -110,7 +110,7 @@
 | 参数                   | 说明           | 类型            | 可选值 | 默认值 |
 | ---------------------- | -------------- | --------------- | ------ | ------ |
 | `v-model / modelValue` | 绑定值         | string          | ——     | ——     |
-| `width`                | 自定义宽度     | string / number | ——     | null   |
+| `width`                | 自定义宽度     | string / number | ——     | ——     |
 | `name`                 | 原生 name 属性 | string          | ——     | ——     |
 | `placeholder`          | 占位符         | string          | ——     | ——     |
 | `clear`                | 是否可清除     | boolean         | ——     | false  |
@@ -126,8 +126,8 @@
 
 | 参数       | 说明                                    | 类型            | 可选值 | 默认值 |
 | ---------- | --------------------------------------- | --------------- | ------ | ------ |
-| `value`    | 选项的值                                | string / number | ——     | null   |
-| `label`    | 选项的标签，若不设置则默认与 value 相同 | string / number | ——     | null   |
+| `value`    | 选项的值                                | string / number | ——     | ——     |
+| `label`    | 选项的标签，若不设置则默认与 value 相同 | string / number | ——     | ——     |
 | `disabled` | 是否禁用                                | boolean         | ——     | false  |
 
 ## Option Slots

@@ -112,11 +112,11 @@
 | 参数            | 说明           | 类型   | 可选值 | 默认值   |
 | --------------- | -------------- | ------ | ------ | -------- |
 | `content`       | 展示的内容     | string | ——     | 暂无数据 |
-| `content-size`  | 内容文字大小   | string | ——     | null     |
-| `content-color` | 内容文字颜色   | string | ——     | null     |
-| `image-src`     | 自定义图片地址 | string | ——     | null     |
-| `image-size`    | 自定义图片尺寸 | string | ——     | null     |
-| `background`    | 自定义背景色   | string | ——     | null     |
+| `content-size`  | 内容文字大小   | string | ——     | ——       |
+| `content-color` | 内容文字颜色   | string | ——     | ——       |
+| `image-src`     | 自定义图片地址 | string | ——     | ——       |
+| `image-size`    | 自定义图片尺寸 | string | ——     | ——       |
+| `background`    | 自定义背景色   | string | ——     | ——       |
 
 ## Slots
 

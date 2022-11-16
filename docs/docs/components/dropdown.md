@@ -68,7 +68,7 @@
 
 | 参数       | 说明                   | 类型            | 可选值 | 默认值 |
 | ---------- | ---------------------- | --------------- | ------ | ------ |
-| `spacing`  | 触发器和内容直接的间距 | string / number | ——     | null   |
+| `spacing`  | 触发器和内容直接的间距 | string / number | ——     | ——     |
 | `disabled` | 是否禁用               | boolean         | ——     | false  |
 
 ## DropdownItem Attributes
@@ -76,7 +76,7 @@
 | 参数       | 说明               | 类型     | 可选值 | 默认值 |
 | ---------- | ------------------ | -------- | ------ | ------ |
 | `disabled` | 是否禁用           | boolean  | ——     | false  |
-| `click`    | 点击之后的回调函数 | Function | ——     | null   |
+| `click`    | 点击之后的回调函数 | Function | ——     | ——     |
 
 ## Slots
 

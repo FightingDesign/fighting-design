@@ -242,12 +242,12 @@
 | `round`      | 是否为圆角类型                               | boolean                    | ——                                                      | false     |
 | `close`      | 是否可关闭                                   | boolean                    | ——                                                      | false     |
 | `show-icon`  | 是否显示按钮                                 | boolean                    | ——                                                      | true      |
-| `icon`       | 自定义前缀 icon                              | object (VNode / Component) | ——                                                      | null      |
+| `icon`       | 自定义前缀 icon                              | object (VNode / Component) | ——                                                      | ——        |
 | `color`      | 自定义字体颜色                               | string                     | ——                                                      | ——        |
 | `background` | 自定义背景色                                 | string                     | ——                                                      | ——        |
 | `placement`  | 弹出位置                                     | string                     | `top-left` `top-right` `bottom-left` `bottom-right`     | top-right |
 | `offset`     | 偏移距离                                     | number                     | ——                                                      | 20        |
-| `close-btn`  | 自定义关闭按钮                               | string / VNode             | ——                                                      | null      |
+| `close-btn`  | 自定义关闭按钮                               | string / VNode             | ——                                                      | ——        |
 | `z-index`    | 层级                                         | boolean                    | ——                                                      | 1000      |
 | `close-end`  | 关闭之后回调                                 | Function                   | ——                                                      | ——        |
 

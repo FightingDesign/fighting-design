@@ -112,11 +112,11 @@
 | `is-remove`     | 是否可删除                         | boolean  | ——     | true   |
 | `showList`      | 是否展示文件列表                   | boolean  | ——     | true   |
 | `multiple`      | 是否可多选                         | boolean  | ——     | false  |
-| `max-size`      | 最大上传尺寸                       | number   | ——     | null   |
-| `max-length`    | 最大上传数量                       | number   | ——     | null   |
+| `max-size`      | 最大上传尺寸                       | number   | ——     | ——     |
+| `max-length`    | 最大上传数量                       | number   | ——     | ——     |
 | `disabled`      | 是否禁用                           | boolean  | ——     | false  |
-| `load`          | 上传成功后执行的回调               | Function | ——     | null   |
-| `change`        | 绑定的文件列表发生改变时触发的回调 | Function | ——     | null   |
+| `load`          | 上传成功后执行的回调               | Function | ——     | ——     |
+| `change`        | 绑定的文件列表发生改变时触发的回调 | Function | ——     | ——     |
 
 ## Slots
 

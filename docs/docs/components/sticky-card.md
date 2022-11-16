@@ -106,16 +106,16 @@
 
 ## Attributes
 
-| 参数           | 说明               | 类型              | 可选值 | 默认值  |
-| -------------- | ------------------ | ----------------- | ------ | ------- |
-| `open`         | 是否展开           | boolean           | ——     | false   |
-| `background`   | 内容背景色         | string            | ——     | #fff    |
-| `open-text`    | 操作栏展开时的文字 | string            | ——     | 关闭    |
-| `close-text`   | 操作栏关闭时的文字 | string            | ——     | 开启    |
-| `open-height`  | 展开的高度         | string / number   | ——     | 800px   |
-| `border-color` | 自定义边框颜色     | string            | ——     | #e5e5e5 |
-| `open-end`     | 打开时的回调       | (e:boolean)=>void | ——     | null    |
-| `close-end`    | 关闭时的回调       | (e:boolean)=>void | ——     | null    |
+| 参数           | 说明               | 类型            | 可选值 | 默认值  |
+| -------------- | ------------------ | --------------- | ------ | ------- |
+| `open`         | 是否展开           | boolean         | ——     | false   |
+| `background`   | 内容背景色         | string          | ——     | #fff    |
+| `open-text`    | 操作栏展开时的文字 | string          | ——     | 关闭    |
+| `close-text`   | 操作栏关闭时的文字 | string          | ——     | 开启    |
+| `open-height`  | 展开的高度         | string / number | ——     | 800px   |
+| `border-color` | 自定义边框颜色     | string          | ——     | #e5e5e5 |
+| `open-end`     | 打开时的回调       | Function        | ——     | ——      |
+| `close-end`    | 关闭时的回调       | Function        | ——     | ——      |
 
 ## Slots
 

@@ -172,13 +172,13 @@
 | `fit`         | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性 | string                     | `fill` `contain` `cover` `none` `scale-down` | ——       |
 | `size`        | 图片大小                                                                                                 | string / number            | `large` `middle` `small` `mini`              | middle   |
 | `background`  | 背景色                                                                                                   | string                     | ——                                           | ——       |
-| `icon`        | 图标头像                                                                                                 | object (VNode / Component) | ——                                           | null     |
+| `icon`        | 图标头像                                                                                                 | object (VNode / Component) | ——                                           | ——       |
 | `font-size`   | 字体大小                                                                                                 | string                     | ——                                           | 15px     |
 | `font-color`  | 字体的颜色                                                                                               | string                     | ——                                           | #333     |
 | `text`        | 文字头像                                                                                                 | string                     | ——                                           | ——       |
 | `root-margin` | 触发懒加载的距离                                                                                         | string / number            | ——                                           | 100px    |
-| `load`        | 图片加载成功触发的回调                                                                                   | Function                   | ——                                           | null     |
-| `error`       | 图片加载失败触发的回调                                                                                   | Function                   | ——                                           | null     |
+| `load`        | 图片加载成功触发的回调                                                                                   | Function                   | ——                                           | ——       |
+| `error`       | 图片加载失败触发的回调                                                                                   | Function                   | ——                                           | ——       |
 
 ## Slots
 

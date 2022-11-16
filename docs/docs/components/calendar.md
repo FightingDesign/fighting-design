@@ -142,9 +142,9 @@
 | `border-color`     | 自定义边框颜色                           | string          | ——     | #eee     |
 | `day-cell-height`  | 日期单元格高度                           | string / number | ——     | 85px     |
 | `week-cell-height` | 星期单元格高度                           | string / number | ——     | 50px     |
-| `memorandum`       | 备忘事件                                 | object          | ——     | null     |
-| `change-switch`    | 月份改变时触发的回调                     | Function        | ——     | null     |
-| `change-date`      | 日期改变时触发的回调                     | Function        | ——     | null     |
+| `memorandum`       | 备忘事件                                 | object          | ——     | ——       |
+| `change-switch`    | 月份改变时触发的回调                     | Function        | ——     | ——       |
+| `change-date`      | 日期改变时触发的回调                     | Function        | ——     | ——       |
 
 ## Slots
 

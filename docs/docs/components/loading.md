@@ -81,13 +81,13 @@
 | `show`       | 是否展示 loading     | boolean                    | ——     | false  |
 | `close`      | 是否点击可以关闭     | boolean                    | ——     | false  |
 | `text`       | 说明文字             | string                     | ——     | ——     |
-| `icon`       | loading 的 icon      | object (VNode / Component) | ——     | null   |
+| `icon`       | loading 的 icon      | object (VNode / Component) | ——     | ——     |
 | `font-color` | 说明文字颜色         | string                     | ——     | ——     |
-| `icon-color` | loading 的 icon 颜色 | string                     | ——     |
+| `icon-color` | loading 的 icon 颜色 | string                     | ——     | ——     |
 | `font-size`  | 说明文字大小         | string                     | ——     | ——     |
 | `background` | 遮罩层背景色         | string                     | ——     | ——     |
 | `opacity`    | 遮罩层透明度         | number                     | ——     | ——     |
-| `close-end`  | 关闭之后执行的回调   | Function                   | ——     | null   |
+| `close-end`  | 关闭之后执行的回调   | Function                   | ——     | ——     |
 
 ## Slots
 

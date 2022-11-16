@@ -725,17 +725,17 @@
 
 | 参数            | 说明               | 类型    | 可选值                  | 默认值 |
 | --------------- | ------------------ | ------- | ----------------------- | ------ |
-| `data`          | 数据列表           | array   | ——                      | null   |
-| `columns`       | 标题数据           | array   | ——                      | null   |
+| `data`          | 数据列表           | array   | ——                      | ——     |
+| `columns`       | 标题数据           | array   | ——                      | ——     |
 | `align`         | 内容对齐方式       | string  | `left` `center` `right` | left   |
 | `border`        | 是否显示边框       | boolean | ——                      | false  |
 | `num`           | 是否显示序号       | boolean | ——                      | false  |
 | `zebra`         | 是否显示斑马纹     | boolean | ——                      | false  |
-| `zebra-color`   | 自定义斑马纹颜色   | string  | ——                      | null   |
-| `height`        | 自定义表格高度     | string  | ——                      | null   |
+| `zebra-color`   | 自定义斑马纹颜色   | string  | ——                      | ——     |
+| `height`        | 自定义表格高度     | string  | ——                      | ——     |
 | `optional`      | 是否支持多选       | boolean | ——                      | false  |
-| `bg-color`      | 自定义背景颜色     | string  | ——                      | null   |
-| `head-bg-color` | 自定义头部背景颜色 | string  | ——                      | null   |
+| `bg-color`      | 自定义背景颜色     | string  | ——                      | ——     |
+| `head-bg-color` | 自定义头部背景颜色 | string  | ——                      | ——     |
 | `show-head`     | 是否展示头部       | boolean | ——                      | true   |
 
 ## Slots

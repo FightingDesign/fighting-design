@@ -210,9 +210,9 @@
 | `type`          | 类型                       | string                     | `text` `password`               | text    |
 | `size`          | 尺寸                       | string                     | `large` `middle` `small` `mini` | middle  |
 | `disabled`      | 是否禁用                   | boolean                    | ——                              | false   |
-| `max`           | 最大值                     | number                     | ——                              | null    |
-| `min`           | 最小值                     | number                     | ——                              | null    |
-| `max-length`    | 最大输入长度上限           | number                     | ——                              | null    |
+| `max`           | 最大值                     | number                     | ——                              | ——      |
+| `min`           | 最小值                     | number                     | ——                              | ——      |
+| `max-length`    | 最大输入长度上限           | number                     | ——                              | ——      |
 | `autofocus`     | 是否自动获取焦点           | boolean                    | ——                              | false   |
 | `name`          | 原生 name 属性             | string                     | ——                              | f-input |
 | `placeholder`   | 占位符                     | string                     | ——                              | ——      |
@@ -221,12 +221,12 @@
 | `readonly`      | 是否只读                   | boolean                    | ——                              | false   |
 | `show-password` | 是否展示显示密码图标       | boolean                    | ——                              | false   |
 | `enter-search`  | 是否按下回车触发搜索       | boolean                    | ——                              | false   |
-| `icon`          | 自定义前缀 icon            | object (VNode / Component) | ——                              | null    |
-| `on-search`     | 点击搜索触发的回调         | Function                   | ——                              | null    |
-| `on-change`     | 绑定值发生变化时触发的回调 | Function                   | ——                              | null    |
-| `on-blur`       | 失去焦点触发的回调         | Function                   | ——                              | null    |
-| `on-focus`      | 获取焦点触发的回调         | Function                   | ——                              | null    |
-| `on-enter`      | 按下回车触发的回调         | Function                   | ——                              | null    |
+| `icon`          | 自定义前缀 icon            | object (VNode / Component) | ——                              | ——      |
+| `on-search`     | 点击搜索触发的回调         | Function                   | ——                              | ——      |
+| `on-change`     | 绑定值发生变化时触发的回调 | Function                   | ——                              | ——      |
+| `on-blur`       | 失去焦点触发的回调         | Function                   | ——                              | ——      |
+| `on-focus`      | 获取焦点触发的回调         | Function                   | ——                              | ——      |
+| `on-enter`      | 按下回车触发的回调         | Function                   | ——                              | ——      |
 
 ## Slots
 
