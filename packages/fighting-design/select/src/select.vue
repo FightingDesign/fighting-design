@@ -30,16 +30,17 @@
    *
    * 通过插槽插入的内容，过滤出有效的子元素返回
    */
-  const options: ComputedRef<VNode[] | undefined> = computed(
-    (): VNode[] | undefined => {
-      if (!slot.default) return
-      const vNodes: VNode[] = slot.default()
-      return vNodes.filter((node: VNode) => {
-        const name: string | undefined = (node.type as Component).name
-        return name === 'FOption'
-      })
-    }
-  )
+  const options: ComputedRef<VNode[]> = computed((): VNode[] => {
+    // 如果没有插槽内容，返回空数组
+    if (!slot.default) return []
+
+    const vNodes: VNode[] = slot.default()
+
+    return vNodes.filter((node: VNode): boolean => {
+      const name: string | undefined = (node.type as Component).name
+      return name === 'FOption'
+    })
+  })
 
   /**
    * 输入框绑定的值
@@ -50,7 +51,7 @@
      */
     get () {
       // 如果插槽没内容，则返回空字符串
-      if (!options.value) return ''
+      if (!options.value.length) return ''
 
       /**
        * 通过插槽内容
@@ -67,7 +68,7 @@
        *
        * 则返回空
        */
-      if (!currentOption) return ''
+      if (!currentOption.length) return ''
 
       // 获取到当前满足要求的子元素
       const children: OptionPropsType = currentOption[0] as OptionPropsType

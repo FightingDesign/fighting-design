@@ -16,12 +16,7 @@
 ::: demo
 
 <template #source>
-<f-select v-model="value1" placeholder="请选择……">
-<f-option :value="1">香蕉</f-option>
-<f-option :value="2">苹果</f-option>
-<f-option :value="3">哈密瓜</f-option>
-<f-option :value="4">樱桃</f-option>
-</f-select>
+<demo1-vue />
 </template>
 
 ```html
@@ -90,6 +85,7 @@ import type {} from 'fighting-design'
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import demo1Vue from './_demos/select/demo1.vue'
 
   const value1 = ref('')
 </script>
