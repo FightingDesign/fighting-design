@@ -6,15 +6,24 @@ export const Props = {
     type: String,
     default: (): string => ''
   },
+  /**
+   * 通知标题
+   */
   title: {
     type: [String, Object] as PropType<VNode | string>,
     default: (): string => ''
   },
+  /**
+   * 通知文本
+   */
   message: {
     type: [String, Object] as PropType<VNode | string>,
     default: (): string => '',
     required: true
   },
+  /**
+   * 消息类型
+   */
   type: {
     type: String as PropType<NotificationType>,
     default: (): NotificationType => 'default',
@@ -22,38 +31,65 @@ export const Props = {
       return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
+  /**
+   * 是否可关闭
+   */
   close: {
     type: Boolean,
     default: (): boolean => false
   },
+  /**
+   * 显示时间，单位为毫秒。 设为 0 则不会自动关闭
+   */
   duration: {
     type: Number,
     default: (): number => 3000
   },
+  /**
+   * 是否为圆角类型
+   */
   round: {
     type: Boolean,
     default: (): boolean => false
   },
+  /**
+   * 是否显示按钮
+   */
   showIcon: {
     type: Boolean,
     default: (): boolean => true
   },
+  /**
+   * 自定义前缀 icon
+   */
   icon: {
     type: Object as PropType<VNode>,
     default: (): null => null
   },
+  /**
+   * 自定义字体颜色
+   */
   color: {
     type: String,
     default: (): string => ''
   },
+  /**
+   * 自定义背景色
+   */
   background: {
     type: String,
     default: (): string => ''
   },
+  /**
+   * 偏移距离
+   */
   offset: {
     type: Number,
     default: (): number => 20
   },
+  /**
+   * 弹出位置
+   */
   placement: {
     type: String as PropType<NotificationPlacementType>,
     default: (): NotificationPlacementType => 'top-right',
@@ -61,14 +97,23 @@ export const Props = {
       return (['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const).includes(val)
     }
   },
+  /**
+   * 层级
+   */
   zIndex: {
     type: Number,
     default: (): number => 1000
   },
+  /**
+   * 自定义关闭按钮
+   */
   closeBtn: {
     type: [String, Object] as PropType<VNode | string>,
     default: (): null => null
   },
+  /**
+   * 关闭之后回调
+   */
   closeEnd: {
     type: Function,
     default: (): null => null

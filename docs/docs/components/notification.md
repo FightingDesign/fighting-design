@@ -247,7 +247,6 @@
 | `background` | 自定义背景色                                 | string                     | ——                                                      | ——        |
 | `placement`  | 弹出位置                                     | string                     | `top-left` `top-right` `bottom-left` `bottom-right`     | top-right |
 | `offset`     | 偏移距离                                     | number                     | ——                                                      | 20        |
-| `background` | 背景色                                       | string                     | ——                                                      | ——        |
 | `close-btn`  | 自定义关闭按钮                               | string / VNode             | ——                                                      | null      |
 | `z-index`    | 层级                                         | boolean                    | ——                                                      | 1000      |
 | `close-end`  | 关闭之后回调                                 | Function                   | ——                                                      | ——        |

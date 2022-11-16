@@ -3,6 +3,9 @@ import type { LinkType, LinkTargetType, LinkHoverType } from './interface'
 import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
+  /**
+   * link 的类型	
+   */
   type: {
     type: String as PropType<LinkType>,
     default: (): LinkType => 'primary',
@@ -12,14 +15,23 @@ export const Props = {
       ).includes(val)
     }
   },
+  /**
+   * 链接的地址	
+   */
   href: {
     type: String,
     default: (): string => ''
   },
+  /**
+   * link 的文字大小	
+   */
   size: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => ''
   },
+  /**
+   * link 状态的样式状态	
+   */
   state: {
     type: String as PropType<LinkHoverType>,
     default: (): LinkHoverType => '',
@@ -27,10 +39,18 @@ export const Props = {
       return (['line', 'bag', ''] as const).includes(val)
     }
   },
+  /**
+   * 是否禁用	
+   */
   prohibit: {
     type: Boolean,
     default: (): boolean => false
   },
+  /**
+   * 原生 target 属性
+   * 
+   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href
+   */
   target: {
     type: String as PropType<LinkTargetType>,
     default: (): LinkTargetType => '',
@@ -38,26 +58,44 @@ export const Props = {
       return (['_self', '_blank', '_parent', '_top', ''] as const).includes(val)
     }
   },
+  /**
+   * 自定义 link 颜色	
+   */
   color: {
     type: String,
     default: (): string => ''
   },
+  /**
+   * 是否禁止 copy	
+   */
   noCopy: {
     type: Boolean,
     default: (): boolean => false
   },
+  /**
+   * 是否禁止链接跳转及重新加载（取消默认事件）	
+   */
   noLink: {
     type: Boolean,
     default: (): boolean => false
   },
+  /**
+   * 之前的 icon	
+   */
   beforeIcon: {
     type: Object as PropType<VNode | Component>,
     default: (): null => null
   },
+  /**
+   * 之后的 icon	
+   */
   afterIcon: {
     type: Object as PropType<VNode | Component>,
     default: (): null => null
   },
+  /**
+   * 点击执行的回调
+   */
   click: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
