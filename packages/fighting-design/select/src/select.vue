@@ -70,7 +70,11 @@
               : optionProp.label === prop.modelValue
           }
 
-          // 如果没有传递 props 则根据插槽来判断
+          /**
+           * 如果没有传递 props 则根据插槽来判断
+           *
+           * 放心，这里一定会有插槽，子组件已经做了判断
+           */
           return (
             (node as SelectChildrenInterface).children.default()[0].children ===
             prop.modelValue

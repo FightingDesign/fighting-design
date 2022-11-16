@@ -22,6 +22,9 @@ export interface SelectProvideInterface {
   setValue: SelectSetValueInterface
 }
 
+/**
+ * 获取子元素插槽类型接口
+ */
 export interface SelectChildrenInterface extends VNode {
   children: {
     default(): VNode[]
