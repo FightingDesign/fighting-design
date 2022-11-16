@@ -1,9 +1,4 @@
 .f-back-top {
-  z-index: var(--f-back-top-z-index, 900);
-  right: var(--f-back-top-right, 40px);
-  bottom: var(--f-back-top-bottom, 40px);
-  color: var(--f-back-top-color, #333);
-  background: var(--f-back-top-background, #fff);
   position: fixed;
   min-width: 40px;
   height: 40px;
@@ -17,6 +12,11 @@
   cursor: pointer;
   transition: 0.6s;
   box-shadow: #ededed 1px 1px 7px, #ededed -1px -1px 7px;
+  right: var(--f-back-top-right, 40px);
+  bottom: var(--f-back-top-bottom, 40px);
+  z-index: var(--f-back-top-z-index, 900);
+  color: var(--f-back-top-color, --f-design-color-text-1);
+  background: var(--f-back-top-background, --f-design-color-text-2);
 
   &.f-back-top__round {
     padding: 0;

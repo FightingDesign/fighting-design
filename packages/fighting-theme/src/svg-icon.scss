@@ -1,11 +1,11 @@
 .f-svg-icon {
-  height: 1em;
   width: 1em;
+  height: 1em;
+  font-size: 21px;
   line-height: 1em;
+  position: relative;
+  align-items: center;
+  vertical-align: top;
   display: inline-flex;
   justify-content: center;
-  align-items: center;
-  position: relative;
-  font-size: 21px;
-  vertical-align: top;
 }

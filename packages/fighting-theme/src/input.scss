@@ -18,12 +18,12 @@
     padding: 3px 7px;
     box-sizing: border-box;
     transition: 0.3s;
-    background: #eee;
     height: 100%;
     border: 1px solid transparent;
+    background: var(--f-design-color-border-1);
 
     .f-input__icon {
-      color: #333;
+      color: var(--f-design-color-text-1);
     }
 
     // 输入框
@@ -34,9 +34,9 @@
       outline: none;
       background: none;
       margin: 0 5px;
-      color: #333;
       font-size: 14px;
       cursor: pointer;
+      color: var(--f-design-color-text-1);
     }
 
     // 清楚按钮

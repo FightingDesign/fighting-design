@@ -1,25 +1,25 @@
 .f-textarea {
-  display: inline-block;
-  background: #eee;
+  width: 100%;
   overflow: hidden;
+  position: relative;
+  display: inline-block;
   transition: background 0.3s;
   border: 1px solid transparent;
-  position: relative;
-  width: 100%;
+  background: var(--f-design-color-border-1);
 
   &__textarea {
-    display: block;
-    height: 100%;
     width: 100%;
+    height: 100%;
     border: none;
+    resize: none;
     outline: none;
-    background: none;
-    color: #333;
-    padding: 6px 9px;
-    box-sizing: border-box;
+    display: block;
     font-size: 15px;
     cursor: pointer;
-    resize: none;
+    background: none;
+    padding: 6px 9px;
+    box-sizing: border-box;
+    color: var(--f-design-color-text-1);
   }
 
   // 禁用状态
@@ -30,17 +30,17 @@
 
   // 获取焦点
   &:focus-within {
-    background: #fff;
+    background: var(--f-design-color-text-2);
     border-color: var(--f-design-color-primary-1);
   }
 
   &__clear-btn {
-    position: absolute;
-    right: 5px;
     top: 0;
     bottom: 0;
+    right: 5px;
     margin: auto;
     cursor: pointer;
     color: #c3c3c3;
+    position: absolute;
   }
 }

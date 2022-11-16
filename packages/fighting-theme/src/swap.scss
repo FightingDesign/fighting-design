@@ -1,9 +1,9 @@
 .f-swap {
+  cursor: pointer;
   user-select: none;
+  align-items: center;
   display: inline-flex;
   justify-content: center;
-  align-items: center;
-  cursor: pointer;
 
   &.f-swap__sound-on {
     transform: rotate(80deg);

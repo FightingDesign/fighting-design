@@ -1,12 +1,12 @@
 @import '../config/const-type.scss';
 
 .f-alert {
+  display: flex;
   padding: 10px 22px;
   position: relative;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  justify-content: space-between;
   border-radius: var(--f-design-border-radius-1);
 
   @for $list from 1 to (length($ComponentsType) + 1) {
@@ -14,8 +14,8 @@
 
     // 不同类型
     &.f-alert__#{map-get($item, name)} {
-      background: var(--f-alert-background, map-get($item, default));
       color: var(--f-alert-color, map-get($item, defaultTextColor));
+      background: var(--f-alert-background, map-get($item, default));
     }
 
     // 简约的
@@ -27,16 +27,16 @@
 
   // 主要内容
   &__content {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
     // 主标题
     .f-alert__title {
+      font-weight: bold;
       font-size: var(--f-alert-title-size, 17px);
       color: var(--f-alert-title-color);
-      font-weight: bold;
     }
 
     // 副标题
@@ -63,7 +63,7 @@
 
   // 圆角
   &.f-alert__round {
-    border-radius: 20px;
+    border-radius: var(--f-design-border-radius-2);
   }
 
   // 固定定位

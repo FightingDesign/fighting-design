@@ -1,38 +1,37 @@
 .f-calendar {
+  cursor: default;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  cursor: default;
 
   // 头部
   &__header {
-    box-sizing: border-box;
     width: 100%;
-    background: #eee;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 7px 10px;
+    align-items: center;
     box-sizing: border-box;
+    justify-content: space-between;
+    background: var(--f-design-color-border-1);
 
     // 当前时间
     .f-calendar__time {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
 
       .f-calendar__time-now {
         font-weight: 700;
-        color: #333;
+        color: var(--f-design-color-text-1);
       }
     }
 
     // 操作栏
     .f-calendar__option {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       min-width: 250px;
+      align-items: center;
+      justify-content: space-between;
 
       .f-calendar__last,
       .f-calendar__now,
@@ -44,43 +43,43 @@
 
   // 星期
   &__week {
-    padding: 0;
     margin: 0;
+    padding: 0;
     width: 100%;
-    list-style: none;
     display: grid;
+    list-style: none;
     grid-template-columns: repeat(7, minmax(0, 1fr));
 
     .f-calendar__week-li {
-      height: var(--f-calendar-week-height, 50px);
-      box-sizing: border-box;
       padding: 10px;
       display: flex;
-      justify-content: center;
       align-items: center;
+      box-sizing: border-box;
+      justify-content: center;
+      height: var(--f-calendar-week-height, 50px);
     }
   }
 
   // 天
   &__day {
-    padding: 0;
     margin: 0;
-    list-style: none;
-    cursor: pointer;
+    padding: 0;
     display: grid;
+    cursor: pointer;
+    list-style: none;
     grid-template-columns: repeat(7, minmax(0, 1fr));
 
     .f-calendar__day-li {
-      height: var(--f-calendar-day-height, 90px);
-      box-sizing: border-box;
       padding: 10px;
       display: flex;
+      overflow: auto;
+      transition: 0.3s;
+      position: relative;
       align-items: center;
       flex-direction: column;
-      transition: 0.3s;
-      overflow: auto;
-      position: relative;
+      box-sizing: border-box;
       border-top: 3px solid transparent;
+      height: var(--f-calendar-day-height, 90px);
 
       &:hover {
         background: #f7f7f7;
@@ -102,10 +101,10 @@
 
       // 今天
       &.f-calendar__day-today {
+        transition: 0.3s;
         color: var(--f-design-color-primary-1);
         background: var(--f-design-color-primary-4);
         border-top: 3px solid var(--f-design-color-primary-1);
-        transition: 0.3s;
       }
 
       // 不是当月的时间
@@ -121,7 +120,6 @@
         right: 0;
         left: 0;
         overflow: auto;
-        background: #fff;
         cursor: pointer;
         scrollbar-width: none;
         -ms-overflow-style: none;
@@ -132,6 +130,7 @@
         padding: 10px;
         box-sizing: border-box;
         box-shadow: 0 -6px 12px 0 #5b78d817;
+        background: var(--f-design-color-text-2);
 
         &::-webkit-scrollbar {
           display: none;
@@ -151,26 +150,34 @@
 
   // 边框
   &.f-calendar__border {
-    border-top: 1px solid var(--f-calendar-border-color, #eee);
-    border-left: 1px solid var(--f-calendar-border-color, #eee);
+    border-top: 1px solid
+      var(--f-calendar-border-color, --f-design-color-border-1);
+    border-left: 1px solid
+      var(--f-calendar-border-color, --f-design-color-border-1);
 
     .f-calendar__header {
-      border-right: 1px solid var(--f-calendar-border-color, #eee);
+      border-right: 1px solid
+        var(--f-calendar-border-color, --f-design-color-border-1);
     }
 
     .f-calendar__week {
-      border-bottom: 1px solid var(--f-calendar-border-color, #eee);
-      border-top: 1px solid var(--f-calendar-border-color, #eee);
+      border-bottom: 1px solid
+        var(--f-calendar-border-color, --f-design-color-border-1);
+      border-top: 1px solid
+        var(--f-calendar-border-color, --f-design-color-border-1);
 
       .f-calendar__week-li {
-        border-right: 1px solid var(--f-calendar-border-color, #eee);
+        border-right: 1px solid
+          var(--f-calendar-border-color, --f-design-color-border-1);
       }
     }
 
     .f-calendar__day {
       .f-calendar__day-li {
-        border-right: 1px solid var(--f-calendar-border-color, #eee);
-        border-bottom: 1px solid var(--f-calendar-border-color, #eee);
+        border-right: 1px solid
+          var(--f-calendar-border-color, --f-design-color-border-1);
+        border-bottom: 1px solid
+          var(--f-calendar-border-color, --f-design-color-border-1);
       }
     }
   }

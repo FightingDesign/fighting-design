@@ -1,26 +1,26 @@
 .f-dialog {
   z-index: 999;
   width: 521px;
-  background: #fff;
   border-radius: 4px;
-  border: 1px solid #eee;
   display: inline-flex;
   flex-direction: column;
+  background: var(--f-design-color-text-2);
+  border: 1px solid var(--f-design-color-border-1);
 
   // 头部
   &__header {
     padding: 12px 14px;
-    border-bottom: 1px solid #eee;
     text-align: center;
     position: relative;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid var(--f-design-color-border-1);
 
     &-title {
       font-size: 15px;
-      color: #333;
+      color: var(--f-design-color-text-1);
     }
 
     .f-close-btn {
@@ -39,11 +39,11 @@
   // 页脚
   &__footer {
     padding: 10px 14px;
-    border-top: 1px solid #eee;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
     align-items: center;
+    border-top: 1px solid var(--f-design-color-border-1);
   }
 
   // 全屏展示

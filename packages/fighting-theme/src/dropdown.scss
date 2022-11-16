@@ -10,11 +10,11 @@
 
   // 主要内容
   &__content {
-    background: #fff;
     box-shadow: 0 1px 6px #00000033;
     position: absolute;
     width: max-content;
     z-index: 2000;
+    background: var(--f-design-color-text-2);
   }
 
   // 出入动画

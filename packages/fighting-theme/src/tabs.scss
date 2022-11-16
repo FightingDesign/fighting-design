@@ -463,10 +463,10 @@
           padding-left: var(--cardActiveDiffHeight);
 
           &::before {
+            left: 0px;
             border-radius: 0 0 0 var(--radius);
             border-bottom: 1px solid var(--cardBorerColor);
             border-left: 1px solid var(--cardBorerColor);
-            left: 0px;
           }
 
           & + .f-tabs-nav--item {
@@ -492,7 +492,7 @@
       flex: 1;
 
       &.f-tabs-nav--item__active {
-        background: #fff;
+        background: var(--f-design-color-text-2);
       }
     }
   }

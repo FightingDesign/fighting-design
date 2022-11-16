@@ -33,10 +33,10 @@
 
     .f-popup__wrapper {
       position: absolute;
-      background: #fff;
       box-sizing: border-box;
       overflow-y: auto;
       overflow-x: hidden;
+      background: var(--f-design-color-text-2);
 
       // 主内容动画样式
       &-transition-enter-active,

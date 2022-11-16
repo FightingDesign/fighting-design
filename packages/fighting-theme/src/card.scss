@@ -1,11 +1,11 @@
 .f-card {
-  border: #e5e5e5 solid 1px;
   transition: 0.3s;
-  background: #fff;
+  border: #e5e5e5 solid 1px;
+  background: var(--f-design-color-text-2);
 
   &__header {
     padding: 16px 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--f-design-color-border-1);
   }
 
   &.f-card__shadow-never {

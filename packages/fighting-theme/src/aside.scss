@@ -1,7 +1,7 @@
 .f-aside {
-  box-sizing: border-box;
   flex-shrink: 0;
   overflow: auto;
+  box-sizing: border-box;
   width: var(--f-aside-width, 200px);
   padding: var(--f-aside-padding, 0);
 }

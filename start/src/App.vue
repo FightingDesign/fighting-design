@@ -1,14 +1,23 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const open1 = ref(false)
+</script>
 
 <template>
-  <f-dropdown disabled>
-    <f-button type="primary">下拉菜单</f-button>
-
-    <template #content>
-      <f-dropdown-item>猕猴桃</f-dropdown-item>
-      <f-dropdown-item>哈密瓜</f-dropdown-item>
-      <f-dropdown-item>火龙果</f-dropdown-item>
-      <f-dropdown-item>柠檬</f-dropdown-item>
+  <f-sticky-card :open="open1">
+    <template #source>
+      <p>展示</p>
+      <p>展示</p>
+      <p>展示</p>
     </template>
-  </f-dropdown>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+  </f-sticky-card>
 </template>

@@ -20,11 +20,11 @@
 
     // 百分百文字
     .f-progress__percentage {
-      color: #fff;
       font-size: 12px;
       margin: 0 8px;
       display: inline-block;
       vertical-align: middle;
+      color: var(--f-design-color-text-2);
     }
 
     // 垂直居中百分比

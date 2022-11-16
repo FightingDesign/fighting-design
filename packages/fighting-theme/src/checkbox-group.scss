@@ -1,9 +1,9 @@
 .f-checkbox-group {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
   transition: 0.3s;
   column-gap: 22px;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
 
   // 纵向排列
   &.f-checkbox-group__vertical {
@@ -17,8 +17,8 @@
     row-gap: 0;
 
     .f-checkbox {
-      border: 1px solid var(--f-design-color-primary-4);
       padding: 5px 10px;
+      border: 1px solid var(--f-design-color-primary-4);
 
       // 带有边框的选中状态下的禁用
       &.f-checkbox__selected {
@@ -26,14 +26,14 @@
           background: var(--f-design-color-default-1);
 
           .f-checkbox__text {
-            color: #d7d7d7;
+            color: var(--f-design-color-default-3);
           }
         }
       }
 
       // 禁用状态
       &.f-checkbox__disabled {
-        border-color: #d7d7d7;
+        border-color: var(--f-design-color-default-3);
       }
 
       &.f-checkbox__large {
@@ -49,7 +49,7 @@
         background: var(--f-design-color-primary-1);
 
         .f-checkbox__text {
-          color: #fff;
+          color: var(--f-design-color-text-2);
         }
       }
     }

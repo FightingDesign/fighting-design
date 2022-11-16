@@ -38,7 +38,7 @@ export const Props = {
     default: (): string => '800px'
   },
   /**
-   * 自定义边框颜色	
+   * 自定义边框颜色
    */
   borderColor: {
     type: String,

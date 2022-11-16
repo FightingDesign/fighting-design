@@ -6,10 +6,10 @@
     width: 34px;
     height: 34px;
     text-align: center;
-    background: #fff;
     border: none;
     padding: 0;
     cursor: pointer;
+    background: var(--f-design-color-text-2);
   }
 
   &__pages {
@@ -21,16 +21,16 @@
       line-height: 34px;
       text-align: center;
       font-size: 16px;
-      color: #333;
       cursor: pointer;
+      color: var(--f-design-color-text-1);
 
       &__choose {
-        color: #2d5af1;
+        color: var(--f-design-color-primary-1);
       }
 
       &__background__choose {
-        background: #2d5af1;
-        color: #fff;
+        background: var(--f-design-color-primary-1);
+        color: var(--f-design-color-text-2);
       }
 
       &__disabled {

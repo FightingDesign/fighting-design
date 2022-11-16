@@ -1,20 +1,20 @@
 .f-drawer {
   z-index: 999;
-  background: #fff;
   display: inline-flex;
   flex-direction: column;
   width: 100%;
+  background: var(--f-design-color-text-2);
 
   // 头部
   &__header {
     padding: 12px 14px;
-    border-bottom: 1px solid #eee;
     text-align: center;
     position: relative;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid var(--f-design-color-border-1);
 
     &-title {
       font-size: 15px;
@@ -37,7 +37,7 @@
   // 页脚
   &__footer {
     padding: 10px 14px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--f-design-color-border-1);
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;

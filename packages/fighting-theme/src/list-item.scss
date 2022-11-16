@@ -1,7 +1,5 @@
 .f-list-item {
   border-bottom: 1px solid #e3e3e3;
-  color: #333;
-  background: #fff;
   font-size: 14px;
   flex-wrap: nowrap;
   padding: 7px 20px;
@@ -9,6 +7,8 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  color: var(--f-design-color-text-1);
+  background: var(--f-design-color-text-2);
 
   &:last-child {
     border-bottom: none;

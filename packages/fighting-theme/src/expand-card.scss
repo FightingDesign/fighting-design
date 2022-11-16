@@ -8,26 +8,26 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: #fff;
     cursor: pointer;
     margin: 10px;
     position: relative;
     transition: flex 0.5s ease-in;
     overflow: hidden;
+    color: var(--f-design-color-text-2);
 
     // 圆角
     &.f-expand-card__round {
-      border-radius: 20px;
+      border-radius: var(--f-design-border-radius-2);
     }
 
     .f-expand-card__title {
       font-size: 16px;
-      color: #fff;
       position: absolute;
       bottom: 20px;
       left: 20px;
       transition: opacity 0.2s;
       opacity: 0;
+      color: var(--f-design-color-text-2);
     }
 
     &.f-expand-card__active {

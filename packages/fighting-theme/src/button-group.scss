@@ -31,8 +31,8 @@
     }
 
     .f-button:last-child {
-      border-top-right-radius: 0;
       border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
 
     .f-button:not(:first-child):not(:last-child) {

@@ -3,29 +3,32 @@
   import { ref, computed, unref } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type {
-    ClassListInterface,
-    OrdinaryFunctionInterface
-  } from '../../_interface'
+  import type { OrdinaryFunctionInterface } from '../../_interface'
   import type { StickyCardPropsType } from './props'
 
   const prop: StickyCardPropsType = defineProps(Props)
 
   // 是否展示
   const isOpen: Ref<boolean> = ref<boolean>(prop.open)
+  const content: Ref<HTMLDivElement> = ref(null as unknown as HTMLDivElement)
 
   /**
    * 点击触发
    */
   const handleClick: OrdinaryFunctionInterface = (): void => {
-    isOpen.value = !unref(isOpen)
-
-    const { openEnd, closeEnd } = prop
-
-    if (unref(isOpen)) {
-      openEnd(true)
+    if (!isOpen.value) {
+      content.value.style.height = 'auto'
+      const height: number = content.value.offsetHeight
+      content.value.style.height = '0'
+      content.value.offsetHeight
+      content.value.style.transition = '0.33s'
+      content.value.style.height = height + 'px'
+      isOpen.value = true
+      prop.openEnd && prop.openEnd(isOpen.value)
     } else {
-      closeEnd(false)
+      content.value.style.height = '0'
+      isOpen.value = false
+      prop.closeEnd && prop.closeEnd(isOpen.value)
     }
   }
 
@@ -50,52 +53,30 @@
       '--sticky-card-max-height': sizeChange(openHeight)
     } as CSSProperties
   })
-
-  /**
-   * 类名列表
-   */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      return [
-        'f-sticky-card__box',
-        {
-          'f-sticky-card__box-open': unref(isOpen)
-        }
-      ] as const
-    }
-  )
 </script>
 
 <template>
   <div class="f-sticky-card" :style="styleList">
+    <!-- 展示的内容 -->
     <div v-if="$slots.source" class="f-sticky-card__source">
       <slot name="source" />
     </div>
 
-    <div :class="classList">
-      <div class="f-sticky-card__content">
-        <slot />
-      </div>
+    <!-- 折叠的内容 -->
+    <div ref="content" class="f-sticky-card__box">
+      <slot />
     </div>
+
+    <!-- 点击展开 / 折叠的区域 -->
     <div
       :class="[
         'f-sticky-card__option',
         { 'f-sticky-card__option-open': isOpen }
       ]"
-      @click.self="handleClick"
+      @click="handleClick"
     >
-      <!-- 左侧插槽 -->
-      <span class="f-sticky-card__option-left">
-        <slot name="optionLeft" />
-      </span>
-
-      <span class="f-sticky-card__option-text" @click.self="handleClick">
+      <span class="f-sticky-card__option-text">
         {{ optionText }}
-      </span>
-
-      <!-- 右侧插槽 -->
-      <span class="f-sticky-card__option-right">
-        <slot name="optionRight" />
       </span>
     </div>
   </div>

@@ -1,18 +1,18 @@
 .f-tree {
   &__data {
     height: 30px;
-    cursor: pointer;
     display: flex;
-    align-items: center;
+    cursor: pointer;
     padding: 5px 15px;
+    align-items: center;
     box-sizing: border-box;
 
     &:hover {
-      background: #eee;
+      background: var(--f-design-color-border-1);
     }
 
     .f-tree__label {
-      color: #333;
+      color: var(--f-design-color-text-1);
     }
   }
 }

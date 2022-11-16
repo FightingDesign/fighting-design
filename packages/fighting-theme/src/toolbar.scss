@@ -2,11 +2,11 @@
 
 .f-toolbar {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
   flex-wrap: wrap;
   cursor: default;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
   background: var(--f-design-color-default-1);
 
   // 不同尺寸
@@ -27,7 +27,7 @@
 
   // 固定定位
   &.f-toolbar__fixed {
-    position: fixed;
     z-index: 999;
+    position: fixed;
   }
 }
