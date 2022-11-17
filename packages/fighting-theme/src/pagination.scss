@@ -1,11 +1,15 @@
 .f-pagination {
-  display: flex;
+  display: inline-flex;
+  align-items: center;
 
+  // 左右切换的按钮
   &__prev,
   &__next {
     width: 34px;
     height: 34px;
-    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     padding: 0;
     cursor: pointer;

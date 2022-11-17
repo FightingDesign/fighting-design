@@ -62,6 +62,6 @@ export const searchList = [
   { title: 'Calendar 日历', rule: 'calendarCalendar日历', url: 'components/calendar' },
   { title: 'Select 选择器', rule: 'selectSelect选择器', url: 'components/select' },
   { title: 'Tabs 标签页', rule: 'tabsTabs标签页', url: 'components/tabs' },
-  { title: 'Textarea 文本域', rule: 'textareaTextarea 文本域', url: 'components/textarea' }
-
+  { title: 'Textarea 文本域', rule: 'textareaTextarea文本域', url: 'components/textarea' },
+  { title: 'Pagination 分页器', rule: 'paginationPagination分页器', url: 'components/pagination' }
 ] as const

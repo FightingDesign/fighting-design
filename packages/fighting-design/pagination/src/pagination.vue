@@ -154,8 +154,8 @@
     </button>
 
     <!-- 分页主内容 -->
-    <ul v-if="prop.total > 0" :class="listClassList">
-      <li
+    <div v-if="prop.total > 0" :class="listClassList">
+      <div
         v-for="item in pages"
         :key="item"
         :class="[
@@ -172,8 +172,8 @@
         @click="change(item)"
       >
         <span>{{ item }}</span>
-      </li>
-    </ul>
+      </div>
+    </div>
 
     <!-- 右侧侧切换按钮 -->
     <button :class="nextClassList" @click="toNext">
