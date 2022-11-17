@@ -7,7 +7,8 @@ import type {
   UtilsIsBooleanInterface,
   UtilsIsStringInterface,
   UtilsSizeToNumInterface,
-  UtilsIsObjectInterface
+  UtilsIsObjectInterface,
+  UtilsIsArrayInterface
 } from './interface'
 
 /**
@@ -88,7 +89,7 @@ export const isString: UtilsIsStringInterface = (
 }
 
 /**
- * 判断一个值是否为字符串
+ * 判断一个值是否为对象
  * @param target 要检测的值
  * @returns { boolean }
  */
@@ -98,6 +99,20 @@ export const isObject: UtilsIsObjectInterface = (
   return (
     typeof target === 'object' &&
     Object.prototype.toString.call(target) === '[object Object]'
+  )
+}
+
+/**
+ * 判断一个值是否为数组
+ * @param target 要检测的值
+ * @returns { boolean }
+ */
+export const isArray: UtilsIsArrayInterface = (
+  target: unknown
+): target is [] => {
+  return (
+    typeof target === 'object' &&
+    Object.prototype.toString.call(target) === '[object Array]'
   )
 }
 

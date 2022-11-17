@@ -3,10 +3,7 @@
   import { FInput } from '../../input'
   import { provide, reactive, computed, useSlots } from 'vue'
   import { FDropdown } from '../../dropdown'
-  import {
-    sizeChange
-    // isObject
-  } from '../../_utils'
+  import { sizeChange, isObject, isArray } from '../../_utils'
   import type {
     CSSProperties,
     ComputedRef,
@@ -32,23 +29,48 @@
   /**
    * 寻找亲孩子
    */
-  // const seekChildren = (vNode: VNode[]): VNode[] => {
-  //   // console.log(vNode)
-  //   // console.log(isObject(vNode[0].type))
-  //   /**
-  //    * 如果 type 不是一个 object 类型
-  //    *
-  //    * 则不是一个组件，就是说不是自己的亲孩子
-  //    */
-  //   if (!isObject(vNode[0].type)) {
-  //     // console.log(vNode[0].children)
-  //     // debugger
-  //     seekChildren(vNode[0].children)
-  //   } else {
-  //     console.log(vNode)
-  //     // if(vNode[0].type === '')
-  //   }
-  // }
+  const getOptions = (children: VNode[], componentName: string): VNode[] => {
+    let components: VNode[] = []
+
+    // 传入的子节点必须是一个有效数组
+    if (isArray(children) && children.length) {
+      children.forEach((child: VNode): void => {
+        // 获取到每个组件的 name
+        const name: string | undefined | boolean =
+          isObject(child.type) && (child.type as Component).name
+
+        // 如果是 FOption 则的亲孩子节点
+        if (name === componentName) {
+          components.push(child)
+        }
+
+        /**
+         * 否则不是亲孩子就继续判断，孩子的孩子是不是一个有效数组
+         *
+         * 如果是则继续递归遍历
+         *
+         */
+        if (
+          name !== componentName &&
+          child.children &&
+          isArray(child.children)
+        ) {
+          const childChildren: VNode[] = getOptions(
+            child.children,
+            componentName
+          )
+          /**
+           * 将得到的返回值和 components 合并
+           *
+           * https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+           */
+          components = components.concat(childChildren)
+        }
+      })
+    }
+
+    return components
+  }
 
   /**
    * 获取子元素 option
@@ -58,19 +80,7 @@
   const options: ComputedRef<VNode[]> = computed((): VNode[] => {
     // 如果没有插槽内容，返回空数组
     if (!slot.default) return []
-
-    const vNodes: VNode[] = slot.default()
-
-    // const myChild = seekChildren(vNodes)
-
-    // console.log(vNodes[0].type.toString() === 'Symbol(Fragment)')
-    // console.log(myChild)
-    // console.log(vNodes)
-
-    return vNodes.filter((node: VNode): boolean => {
-      const name: string | undefined = (node.type as Component).name
-      return name === 'FOption'
-    })
+    return getOptions(slot.default(), 'FOption')
   })
 
   /**
