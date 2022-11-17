@@ -34,7 +34,7 @@ export const Props = {
    * 每页多少条
    */
   pageSizes: {
-    type: [Array<number>, null] as PropType<number[] | null>,
+    type: Array as PropType<number[]>,
     default: (): null => null
   },
   /**

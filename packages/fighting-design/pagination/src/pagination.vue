@@ -18,9 +18,8 @@
   })
 
   // 当前快速跳转的页码
-  const jumpCurrent: Ref<string> = ref('1')
-
-  const pagesLen: Ref<number> = ref(10)
+  const jumpCurrent: Ref<string> = ref<string>('1')
+  const pagesLen: Ref<number> = ref<number>(10)
 
   /**
    * 计算出最大页码数
@@ -35,43 +34,50 @@
   /**
    * 计算出上一页按钮的样式
    */
-  const prevClass: ComputedRef<ClassListInterface> = computed(
+  const prevClassList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { background, round, disabled } = prop
+
       return [
         'f-pagination__prev',
-        { 'f-pagination__btn-background': background },
-        { 'f-pagination__btn-circle': round },
-        { 'f-pagination__disabled': disabled }
-      ]
+        {
+          'f-pagination__btn-background': background,
+          'f-pagination__btn-circle': round,
+          'f-pagination__disabled': disabled
+        }
+      ] as const
     }
   )
 
   /**
    * ul的计算样式
    */
-  const listClass: ComputedRef<ClassListInterface> = computed(
+  const listClassList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { background, round } = prop
+
       return [
         'f-pagination__pages',
         { 'f-pagination__state': background || round }
-      ]
+      ] as const
     }
   )
 
   /**
    * 下一页按钮的计算样式
    */
-  const nextClass: ComputedRef<ClassListInterface> = computed(
+  const nextClassList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { background, round, disabled } = prop
+
       return [
         'f-pagination__next',
-        { 'f-pagination__btn-background': background },
-        { 'f-pagination__btn-circle': round },
-        { 'f-pagination__disabled': disabled }
-      ]
+        {
+          'f-pagination__btn-background': background,
+          'f-pagination__btn-circle': round,
+          'f-pagination__disabled': disabled
+        }
+      ] as const
     }
   )
 
@@ -100,8 +106,7 @@
     const newCurrent: number =
       prop.current === maxCount.value ? maxCount.value : prop.current + 1
     emit('update:current', newCurrent)
-
-    prop.nextClick(newCurrent, prop.pageSize)
+    prop.nextClick && prop.nextClick(newCurrent, prop.pageSize)
   }
 
   /**
@@ -110,7 +115,7 @@
   const change = (newCurrent: number): void => {
     if (prop.disabled) return
     emit('update:current', newCurrent)
-    prop.change(newCurrent, prop.pageSize)
+    prop.change && prop.change(newCurrent, prop.pageSize)
   }
 
   /**
@@ -118,6 +123,7 @@
    */
   const jumpHandleValue = (): void => {
     if (prop.disabled) return
+
     if (Number(jumpCurrent.value) > pages.value.length) {
       jumpCurrent.value = String(pages.value.length)
     }
@@ -140,30 +146,26 @@
         :key="item"
         :value="item"
         :label="item + '/页'"
-      ></f-option>
+      />
     </f-select>
 
-    <button :class="prevClass" @click="toPrev">
-      <f-svg-icon :size="15" :icon="prevIcon">
-        <f-icon-chevron-left-vue />
-      </f-svg-icon>
+    <button :class="prevClassList" @click="toPrev">
+      <f-svg-icon :size="15" :icon="prevIcon || FIconChevronLeftVue" />
     </button>
 
     <!-- 分页主内容 -->
-    <ul v-if="prop.total > 0" :class="listClass">
+    <ul v-if="prop.total > 0" :class="listClassList">
       <li
         v-for="item in pages"
         :key="item"
         :class="[
           'f-pagination__pages-li',
-          { 'f-pagination__pages-li-choose': current === item },
           {
+            'f-pagination__pages-li-choose': current === item,
             'f-pagination__pages-li-background-choose':
-              current === item && background
-          },
-          { 'f-pagination__background': background },
-          { 'f-pagination__circle': round },
-          {
+              current === item && background,
+            'f-pagination__background': background,
+            'f-pagination__circle': round,
             'f-pagination__disabled f-pagination__pages-li-disabled': disabled
           }
         ]"
@@ -174,10 +176,8 @@
     </ul>
 
     <!-- 右侧侧切换按钮 -->
-    <button :class="nextClass" @click="toNext">
-      <f-svg-icon :size="15" :icon="nextIcon">
-        <f-icon-chevron-right-vue />
-      </f-svg-icon>
+    <button :class="nextClassList" @click="toNext">
+      <f-svg-icon :size="15" :icon="nextIcon || FIconChevronRightVue" />
     </button>
 
     <!-- 快速跳转搜索框 -->
