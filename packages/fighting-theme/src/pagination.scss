@@ -1,6 +1,7 @@
 .f-pagination {
   display: inline-flex;
   align-items: center;
+  vertical-align: middle;
 
   // 左右切换的按钮
   &__prev,
