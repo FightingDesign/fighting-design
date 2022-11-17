@@ -1,19 +1,7 @@
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
-import type { ButtonSizeType, ButtonType } from '../../button'
+import type { ButtonSizeType } from '../../button'
 
 export const Props = {
-  /**
-  * 按钮的类型（非自定义按钮颜色时有效）
-  */
-  type: {
-    type: String as PropType<ButtonType>,
-    default: (): ButtonType => 'default',
-    validator: (val: ButtonType): boolean => {
-      return (
-        ['default', 'primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
-    }
-  },
   /**
    * 按钮尺寸
    */

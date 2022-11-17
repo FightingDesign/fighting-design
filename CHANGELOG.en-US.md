@@ -4,6 +4,31 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.9.0-alpha.1 (2022-11-17)
+
+**New Features**
+
+- Add `f-checkbox` component `indeterminate` configuration item
+- Add `f-textarea` component
+- Add `f-pagination` component
+- Add `f-tabs` component
+- Refactoring `loading` components
+- `f-empty` component `content-size` configuration item supports `number` type
+- `f-empty` component adds`icon-size`configuration item
+
+**Fix Bug**
+
+- Fix the problem that the `f-select` component does not display `label` after the binding value exists
+- Fix `f-radio-group` component style details
+- Fix `f-text` component style details
+- Fix `f-button` component style details
+
+**Others**
+
+- `f-switch` component `size` configuration item adding `mini` can be selected
+- `f-switch` component adds `icon-size` configuration item
+- Optimize global component partial parameter defaults
+
 ## 0.8.1-alpha.4 (2022-11-13)
 
 - Add `f-back-top` component to display hidden animation style

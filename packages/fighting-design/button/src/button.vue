@@ -5,19 +5,18 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
   import { Ripples, ChangeColor, sizeChange } from '../../_utils'
-  import type { ButtonGroupProvideInterface } from '../../button-group'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
     HandleMouseEventInterface,
     ClassListInterface
   } from '../../_interface'
-  import type { ButtonPropsType } from './interface'
+  import type { ButtonPropsType, ButtonSizeType } from './interface'
 
   const prop: ButtonPropsType = defineProps(Props)
 
   // 父组件注入的依赖项
-  const GroupProps: ButtonGroupProvideInterface | undefined = inject<
-    ButtonGroupProvideInterface | undefined
+  const groupSize: ButtonSizeType | undefined = inject<
+    ButtonSizeType | undefined
   >(BUTTON_GROUP_PROPS_KEY, undefined)
 
   // dom 元素
@@ -47,10 +46,8 @@
       return [
         'f-button',
         {
-          [`f-button__${(GroupProps && GroupProps.size) || size}`]:
-            (GroupProps && GroupProps.size) || size,
-          [`f-button__${(GroupProps && GroupProps.type) || type}`]:
-            (GroupProps && GroupProps.type) || (type && !color),
+          [`f-button__${groupSize || size}`]: groupSize || size,
+          [`f-button__${type}`]: type && !color,
           'f-button__disabled': disabled || loading,
           'f-button__simple': simple && !color,
           'f-button__circle': circle,
