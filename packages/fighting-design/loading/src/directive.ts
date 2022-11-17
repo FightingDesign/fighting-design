@@ -98,7 +98,6 @@ export const vLoading: Directive = {
    * @param binding 一个对象，包含一些配置参数
    */
   updated (el: LoadingElInterface, binding: DirectiveBinding): void {
-    console.log(binding.value, 'updated')
     if (binding.value !== binding.oldValue) {
       if (!binding.value) {
         removeLoadingDom(el)

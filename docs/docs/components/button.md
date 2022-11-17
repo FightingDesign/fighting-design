@@ -1,6 +1,6 @@
 # Button 按钮
 
-功能很强大的按钮
+这个按钮可不简单
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/button)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/button.md)

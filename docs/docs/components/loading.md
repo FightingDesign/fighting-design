@@ -1,74 +1,80 @@
 # Loading 加载
 
-`Loading` 用于加载状态的提示
+加载中……
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/loading)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/loading.md)
 
-## 基本使用
-
-`show` 属性可以控制是否展示 `loading` 加载
-
-::: demo
-
-<template #source>
-<f-button type="primary" @click="onclick1">开始 loading</f-button>
-<f-loading :show="loading1" />
-</template>
-
-```html
-<template>
-  <f-button type="primary" @click="onclick1">开始 loading</f-button>
-  <f-loading :show="loading1" />
-</template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const loading1 = ref(false)
-
-  const onclick1 = () => {
-    loading1.value = true
-
-    setTimeout(() => {
-      loading1.value = false
-    }, 1500)
-  }
-</script>
-```
-
+:::danger
+组件仍在测试阶段，高频更新中，部分参数暂不稳定！
 :::
 
-## 自定义文案
+## 基本使用
 
-`text` 和 `icon` 属性可以自定义说明文字和展示的 `icon`
+可以在指定元素上绑定 `v-loading` 属性来实现加载状态
 
 ::: demo
 
 <template #source>
-<f-button type="primary" @click="onclick2">玩命加载</f-button>
-<f-loading :show="loading2" text="玩命加载中……" :icon="FIconSnowflake" />
+<demo1-vue />
 </template>
 
 ```html
 <template>
-  <f-button type="primary" @click="onclick2">玩命加载</f-button>
-  <f-loading :show="loading2" text="玩命加载中……" :icon="FIconSnowflake" />
+  <f-button :click="startLoading">开始加载</f-button>
+  <f-table v-loading="loading" :data="data" :columns="columns" />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import { FIconSnowflake } from '@fighting-design/fighting-icon'
 
-  const loading2 = ref(false)
+  const loading = ref(false)
 
-  const onclick2 = () => {
-    loading2.value = true
+  const startLoading = (): void => {
+    loading.value = true
 
     setTimeout(() => {
-      loading2.value = false
-    }, 1500)
+      loading.value = false
+    }, 2000)
   }
+
+  const columns = ref([
+    {
+      title: '姓名',
+      key: 'name'
+    },
+    {
+      title: '年龄',
+      key: 'age'
+    },
+    {
+      title: '介绍',
+      key: 'introduce'
+    }
+  ])
+
+  const data = ref([
+    {
+      name: '卡莉斯塔',
+      age: '22',
+      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
+    },
+    {
+      name: '艾希',
+      age: '16',
+      introduce: '拥有强大减速和控制能力的远程射手'
+    },
+    {
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
+    },
+    {
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
+    }
+  ])
 </script>
 ```
 
@@ -76,18 +82,14 @@
 
 ## Attributes
 
-| 参数         | 说明                 | 类型                       | 可选值 | 默认值 |
-| ------------ | -------------------- | -------------------------- | ------ | ------ |
-| `show`       | 是否展示 loading     | boolean                    | ——     | false  |
-| `close`      | 是否点击可以关闭     | boolean                    | ——     | false  |
-| `text`       | 说明文字             | string                     | ——     | ——     |
-| `icon`       | loading 的 icon      | object (VNode / Component) | ——     | ——     |
-| `font-color` | 说明文字颜色         | string                     | ——     | ——     |
-| `icon-color` | loading 的 icon 颜色 | string                     | ——     | ——     |
-| `font-size`  | 说明文字大小         | string                     | ——     | ——     |
-| `background` | 遮罩层背景色         | string                     | ——     | ——     |
-| `opacity`    | 遮罩层透明度         | number                     | ——     | ——     |
-| `close-end`  | 关闭之后执行的回调   | Function                   | ——     | ——     |
+| 参数         | 说明               | 类型                       | 可选值 | 默认值 |
+| ------------ | ------------------ | -------------------------- | ------ | ------ |
+| `v-loading`  | 是否开始 loading   | boolean                    | ——     | false  |
+| `text`       | 加载中文案         | string                     | ——     | ——     |
+| `font-color` | 加载中文案颜色     | string                     | ——     | ——     |
+| `fullscreen` | 是否全屏显示       | boolean                    | ——     | false  |
+| `background` | 自定义遮罩层背景色 | string                     | ——     | ——     |
+| `icon`       | 自定义 icon        | object (VNode / Component) | ——     | ——     |
 
 ## Slots
 
@@ -100,7 +102,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { LoadingInstance, LoadingPropsType } from 'fighting-design'
+import type {
+  LoadingInstance,
+  LoadingPropsType,
+  LoadingElInterface
+} from 'fighting-design'
 ```
 
 ## Contributors
@@ -117,25 +123,11 @@ import type { LoadingInstance, LoadingPropsType } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/57850101?v=4" />
 </a>
 
+<a href="https://github.com/LAINE001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/40457081?v=4" />
+</a>
+
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import demo1Vue from './_demos/loading/demo1.vue'
   import { FIconSnowflake } from '@fighting-design/fighting-icon'
-
-  const loading1 = ref(false)
-
-  const onclick1 = () => {
-    loading1.value = true
-    setTimeout(() => {
-      loading1.value = false
-    }, 1500)
-  }
-
-  const loading2 = ref(false)
-
-  const onclick2 = () => {
-    loading2.value = true
-    setTimeout(() => {
-      loading2.value = false
-    }, 1500)
-  }
 </script>
