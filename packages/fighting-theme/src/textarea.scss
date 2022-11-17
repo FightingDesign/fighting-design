@@ -4,13 +4,12 @@
   position: relative;
   display: inline-block;
   transition: background 0.3s;
-  border: 1px solid transparent;
   background: var(--f-design-color-border-1);
 
   &__textarea {
     width: 100%;
     height: 100%;
-    border: none;
+    border: 1px solid transparent;
     resize: none;
     outline: none;
     display: block;
@@ -19,6 +18,7 @@
     background: none;
     padding: 6px 9px;
     box-sizing: border-box;
+    transition: border 0.2s;
     color: var(--f-design-color-text-1);
   }
 
@@ -31,7 +31,10 @@
   // 获取焦点
   &:focus-within {
     background: var(--f-design-color-text-2);
-    border-color: var(--f-design-color-primary-1);
+
+    .f-textarea__textarea {
+      border: 1px solid var(--f-design-color-primary-1);
+    }
   }
 
   &__clear-btn {
