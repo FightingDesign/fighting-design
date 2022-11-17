@@ -65,6 +65,7 @@ pnpm new <component-name>
 - 在所有 `import` 之后要带有一个空行，之后是 `prop` 和 `emit`
 - `prop` 和 `emit` 之后，也要带一个空行，再继续编写其它代码
 - 后面可以进行编写组件需要的逻辑函数，函数必须使用 `箭头函数`，除非特殊情况外，每个函数之间要有一个空行隔开
+- 很多时候，应该避免使用 [可选链运算符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Optional_chaining)，因为它在打包之后的代码是很冗余的，详情参考 [core#4882](https://github.com/vuejs/core/pull/4882)
 
 **template 规范**
 
@@ -72,6 +73,7 @@ pnpm new <component-name>
 - 单个 `class` 不使用数组。反面例子：`:class="['f-button']"`；正面例子：`class="f-button"`
 - 可以使用单标签均使用单标签，比如：`<slot />`
 - 可以简化的都需要简化，比如 `:style="{ color }"`
+- 尽量避免使用 [\<ul>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/ul) 标签，因为它的默认样式较多，在部分框架中会受到一些特殊的样式所影响，应该采用兼容更好的 [\<div>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/div)
 
 **class 命名规范**
 
@@ -145,10 +147,10 @@ const fun: funInterface = (a: number, b: number): number => {
 
 ## 🌵 props.ts
 
-这里是来定义组件的 `Props`
+这里是来定义组件的 props 和 props 相关类型
 
 - 导出的名称必须叫 `Props` （首字母大写）
-- 每个 `props` 都必须标记默认值，就算默认值是 `false` 或者是空字符串也要标记（**严禁默认值为空字符串，空字符串在某些场景会有问题，可选择为 null**）
+- 每个 props 都必须标记默认值，就算默认值是 `false` 也要标记（**严禁默认值为空字符串，空字符串在某些场景会有问题，可选择为 null**）
 - 默认值必须以箭头函数形式进行返回
 - 如有可选项需要对其进行校验，一般使用 `validator` + `ts` 双重校验。可参考文档 [Prop 校验](https://staging-cn.vuejs.org/guide/components/props.html#prop-validation) 和 [PropType](https://staging-cn.vuejs.org/api/utility-types.html#proptypet)
 - `default` 和 `validator` 使用箭头函数定义，必须明确返回值和参数值的类型
@@ -160,7 +162,7 @@ const fun: funInterface = (a: number, b: number): number => {
 export type ButtonPropsType = ExtractPropTypes<typeof Props>
 ```
 
-## index.ts
+## 🏷️ index.ts
 
 这里需要用来注册、导出组件、导出所有类型，例如：
 
@@ -199,10 +201,10 @@ export default Rate
 
 在 `_hooks` 目录中存放全局 `hooks`
 
-- 每个 `hooks` 必须新建一个文件夹，内部为 `index.ts` 导出
 - 文件名统一使用短横杠连接，不可以出现大写字母
-- 所有类型需要在 [index.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/_hooks/index.ts) 中统一导出
-- 公共的接口需要标注明确的注释
+- 每个 `hooks` 必须新建一个文件夹，内部为 `index.ts` 导出
+- 所有 hook 需要在 [index.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/_hooks/index.ts) 中统一导出
+- 每个 hook 和类型需要标注详细的 jsDoc 形式注释
 
 ### [\_interface](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_interface)
 
@@ -225,9 +227,9 @@ export default Rate
 - 每个函数需要写好明确清晰的注释
 - 标记好每个参数、返回值、变量的类型
 
-## 🌳 主入口文件
+## 🌳 入口文件
 
-主入口文件是 [components.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/components.ts) 这里统一导出了所有的组件和相关的类型。
+入口文件是 [components.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/components.ts) 这里统一导出了所有的组件和相关的类型。
 
 ## 🌺 写在结尾
 
