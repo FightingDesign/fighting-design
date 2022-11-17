@@ -56,6 +56,13 @@ declare module '@vue/runtime-core' {
     FTextarea: typeof components.FTextarea
     FSelect: typeof components.FSelect
     FOption: typeof components.FOption
+    FInput: typeof components.FInput
+    FTabs: typeof components.FTabs
+    FTabsPane: typeof components.FTabsPane
+    FPopup: typeof components.FPopup
+    FPagination: typeof components.FPagination
+    FCheckboxGroup: typeof components.FCheckboxGroup
+    FSwap: typeof components.FSwap
   }
 
   interface ComponentCustomProperties {

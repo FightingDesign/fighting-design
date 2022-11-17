@@ -1,6 +1,6 @@
 .f-empty {
   display: inline-flex;
-  padding: 20px;
+  padding: 8px 20px;
   width: 100%;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +15,7 @@
 
   // 描述文字
   &__content {
-    margin: 10px 0px;
+    margin: 8px 0px;
     font-weight: 500;
     color: #7f7f7f;
   }

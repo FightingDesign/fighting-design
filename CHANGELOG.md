@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复 Bug**
+
+- 修复 `f-swap` 组件样式细节
+- 修复 `f-empty` 组件样式细节
+
 ## 0.9.0-alpha.1 (2022-11-17)
 
 **新功能**
