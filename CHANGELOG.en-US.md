@@ -4,6 +4,19 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.9.0-alpha.2 (2022-11-17)
+
+**Fix Bug**
+
+- Fix `f-swap` component style details
+- Fix `f-empty` component style details
+- Fix `f-pagination` component style details
+- Fix `f-up-load` component style details
+- Fix `f-switch` component style details
+- Fix `f-card` component style details
+- Fix `f-textarea` component style details
+- Update Type Profile
+
 ## 0.9.0-alpha.1 (2022-11-17)
 
 **New Features**
