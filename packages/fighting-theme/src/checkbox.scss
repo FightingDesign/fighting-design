@@ -45,11 +45,11 @@
         height: 9px;
         position: absolute;
         top: 0;
+        transform: rotate(45deg) scaleY(1);
+        border: 1px solid var(--f-design-color-text-2);
         border-left: 0;
         border-top: 0;
-        transform: rotate(45deg) scaleY(1);
         animation: f-checkbox-animation 0.1s ease-in;
-        border: 1px solid var(--f-design-color-text-2);
 
         @keyframes f-checkbox-animation {
           from {

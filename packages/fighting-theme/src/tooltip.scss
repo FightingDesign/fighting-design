@@ -5,9 +5,9 @@
 
   &::before,
   &::after {
+    visibility: hidden;
     opacity: 0;
     z-index: 600;
-    visibility: hidden;
     transform: translate3d(0, 0, 0);
     transition: all 0.3s ease 0.05s;
   }
@@ -18,61 +18,61 @@
   &.f-tooltip__active:active::after,
   &.f-tooltip__always::before,
   &.f-tooltip__always::after {
-    opacity: 1;
     visibility: visible;
+    opacity: 1;
   }
 
   &::before {
     content: '';
+    position: absolute;
     width: 0;
     height: 0;
-    position: absolute;
     border: 6px solid transparent;
   }
 
   &::after {
     content: attr(f-content);
+    position: absolute;
+    background: var(--f-tooltip-background, #333);
     font-size: 12px;
+    font-weight: normal;
+    color: var(--f-tooltip-font-color, #fff);
     line-height: 14px;
     padding: 6px 12px;
-    position: absolute;
     white-space: nowrap;
-    font-weight: normal;
-    border-radius: var(--f-design-border-radius-1);
-    color: var(--f-tooltip-font-color, --f-design-color-text-2);
-    background: var(--f-tooltip-background, --f-design-color-text-1);
+    border-radius: 2px;
   }
 
   &.f-tooltip__top::before {
-    border-top-color: var(--f-tooltip-background, --f-design-color-text-1);
+    border-top-color: var(--f-tooltip-background, #333);
   }
 
   &.f-tooltip__right::before {
-    border-right-color: var(--f-tooltip-background, --f-design-color-text-1);
+    border-right-color: var(--f-tooltip-background, #333);
   }
 
   &.f-tooltip__bottom::before {
-    border-bottom-color: var(--f-tooltip-background, --f-design-color-text-1);
+    border-bottom-color: var(--f-tooltip-background, #333);
   }
 
   &.f-tooltip__left::before {
-    border-left-color: var(--f-tooltip-background, --f-design-color-text-1);
+    border-left-color: var(--f-tooltip-background, #333);
   }
 
   &.f-tooltip__top.f-tooltip__bright::before {
-    border-top-color: var(--f-design-color-border-1);
+    border-top-color: #eee;
   }
 
   &.f-tooltip__right.f-tooltip__bright::before {
-    border-right-color: var(--f-design-color-border-1);
+    border-right-color: #eee;
   }
 
   &.f-tooltip__bottom.f-tooltip__bright::before {
-    border-bottom-color: var(--f-design-color-border-1);
+    border-bottom-color: #eee;
   }
 
   &.f-tooltip__left.f-tooltip__bright::before {
-    border-left-color: var(--f-design-color-border-1);
+    border-left-color: #eee;
   }
 
   // top && bottom
@@ -187,8 +187,8 @@
   &.f-tooltip__disabled {
     &:hover::before,
     &:hover::after {
-      opacity: 0;
       visibility: hidden;
+      opacity: 0;
     }
   }
 
@@ -202,18 +202,18 @@
   // 不带箭头
   &.f-tooltip__no-arrow {
     &::before {
-      opacity: 0;
       display: none;
       visibility: hidden;
+      opacity: 0;
     }
   }
 
   // 浅色主题
   &.f-tooltip__bright {
     &::after {
-      color: var(--f-design-color-text-1);
-      background: var(--f-design-color-text-2);
-      border: 0.5px solid var(--f-design-color-text-1);
+      background: #fff;
+      color: #333;
+      border: 0.5px solid #333;
     }
   }
 }

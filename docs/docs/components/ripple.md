@@ -163,7 +163,7 @@
 <f-ripple type="primary" :start-opacity="0.7" :end-opacity="0.3">
 
   <div class="list">
-    <f-text type="primary">可以使用</f-text>
+    <f-text type="primary">自定义涟漪透明度</f-text>
   </div>
 </f-ripple>
 </template>
@@ -193,7 +193,7 @@
 
 | 参数            | 说明                 | 类型    | 可选值                                                  | 默认值  |
 | --------------- | -------------------- | ------- | ------------------------------------------------------- | ------- |
-| `type`          | 涟漪类型         | boolean | `default` `primary` `success` <br /> `danger` `warning` | default |
+| `type`          | 涟漪类型             | boolean | `default` `primary` `success` <br /> `danger` `warning` | default |
 | `ripples-color` | 自定义涟漪颜色       | string  | ——                                                      | ——      |
 | `duration`      | 移除涟漪节点的时间   | number  | ——                                                      | 400     |
 | `disabled`      | 是否禁用             | boolean | ——                                                      | false   |

@@ -26,8 +26,8 @@
 
       // 不同类型
       &.f-badge__#{map-get($item, name)} {
-        color: var(--f-badge-text-color, --f-design-color-text-2);
         background: var(--f-badge-background, map-get($item, default));
+        color: var(--f-badge-text-color, map-get($item, defaultTextColor));
       }
     }
 
