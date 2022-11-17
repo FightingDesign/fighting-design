@@ -129,5 +129,4 @@ import type {
 
 <script setup lang="ts">
   import demo1Vue from './_demos/loading/demo1.vue'
-  import { FIconSnowflake } from '@fighting-design/fighting-icon'
 </script>

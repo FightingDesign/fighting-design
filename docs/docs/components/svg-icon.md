@@ -1,6 +1,6 @@
 # Svg Icon 图标
 
-svg icon
+使用 svg 的图标库
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/svg-icon)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/svg-icon.md)
@@ -23,11 +23,11 @@ yarn add --save-dev @fighting-design/fighting-icon
 ## 你需要注意
 
 - `svg-icon` 同时支持 `icon` 配置项和默认插槽来实现 `icon` 的展示，但 `icon` 配置项的优先级高于插槽
-- `Fighting Design` 内部其它一切依赖 `svg-icon` 的所有组件，都依赖这个规则
+- Fighting Design 内部其它一切依赖 `svg-icon` 的所有组件，都依赖这个规则
 
 ## 贡献
 
-如下面 `svg` 满足不了当前的需求，可进行贡献，贡献指南参考 [CONTRIBUTING.md](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-icon/CONTRIBUTING.md)
+Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下面图表满足不了当前的需求，可进行贡献，贡献指南参考 [CONTRIBUTING.md](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-icon/CONTRIBUTING.md)
 
 ## 基本使用
 

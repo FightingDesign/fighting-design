@@ -1,5 +1,3 @@
-import * as Svg from './svg'
-
-export * from './svg'
-
-export default Svg
+import * as svgList from './default'
+export * from './default'
+export default svgList

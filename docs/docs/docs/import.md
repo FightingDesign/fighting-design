@@ -20,15 +20,13 @@ createApp(App).use(FightingDesign).mount('#app')
 测试功能，暂未实现
 :::
 
-首先你需要安装 unplugin-vue-components 和 unplugin-auto-import 这两款插件
+首先你需要安装 [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components) 和 [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import) 这两款插件
 
 ```shell
-npm install -D unplugin-vue-components unplugin-auto-import
+pnpm add -D unplugin-vue-components unplugin-auto-import
 ```
 
 然后把下列代码插入到你的 Vite 或 Webpack 的配置文件中
-
-## vite
 
 ```ts
 // vite.config.ts

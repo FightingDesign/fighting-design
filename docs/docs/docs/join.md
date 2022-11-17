@@ -8,10 +8,6 @@
 
 <img width="200px" src="https://tianyuhao.cn/images/auto/weixin.png" />
 
-## 招募文章
-
-- [Vue3 开源组件库 Fighting Design 成员招募](https://juejin.cn/post/7105020582516752392)
-
 ## 社区组织
 
 - [FightingDesign](https://github.com/FightingDesign)
