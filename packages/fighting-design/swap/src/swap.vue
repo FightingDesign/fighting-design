@@ -19,9 +19,7 @@
    */
   const changeSwap: OrdinaryFunctionInterface = (): void => {
     emit('update:modelValue', !prop.modelValue)
-    if (prop.onChange) {
-      prop.onChange(!prop.modelValue)
-    }
+    prop.onChange && prop.onChange(!prop.modelValue)
   }
 
   /**

@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FCheckboxGroup">
   import { provide, reactive, toRefs, computed } from 'vue'
   import { Props, CHECKBOX_GROUP_PROPS_KEY } from './props'
-  import { sizeChange } from '../../_utils'
+  import { sizeChange, isArray } from '../../_utils'
   import type {
     CheckboxGroupPropsType,
     CheckboxGroupLabelType,
@@ -13,8 +13,7 @@
 
   const prop: CheckboxGroupPropsType = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: CheckboxGroupLabelType): boolean =>
-      Array.isArray(val)
+    'update:modelValue': (val: CheckboxGroupLabelType): boolean => isArray(val)
   })
 
   /**

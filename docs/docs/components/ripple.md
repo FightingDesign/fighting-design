@@ -30,7 +30,17 @@
 </template>
 
 <script lang="ts" setup>
-  const typeList = ['default', 'primary', 'success', 'danger', 'warning']
+  import { ref } from 'vue'
+  import type { Ref } from 'vue'
+  import type { PopupDirectionType, RippleType } from 'fighting-design'
+
+  const typeList: Ref<RippleType[]> = ref<RippleType[]>([
+    'default',
+    'primary',
+    'success',
+    'danger',
+    'warning'
+  ])
 </script>
 
 <style scoped>

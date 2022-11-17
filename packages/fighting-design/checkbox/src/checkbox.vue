@@ -1,12 +1,13 @@
 <script lang="ts" setup name="FCheckbox">
   import { Props } from './props'
   import { computed, inject, getCurrentInstance, ref } from 'vue'
+  import { isArray } from '../../_utils'
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import type { ClassListInterface } from '../../_interface'
   import type {
     CheckboxGroupLabelType,
     CheckboxGroupInjectPropsType
-  } from '../../checkbox-group/src/interface'
+  } from '../../checkbox-group'
   import type {
     ComputedRef,
     Ref,
@@ -70,8 +71,9 @@
   // 是否被选中
   const isChecked: ComputedRef<boolean> = computed((): boolean => {
     const val: CheckboxGroupLabelType = modelValue.value
-    if (Array.isArray(val)) {
-      return val.includes(prop.label)
+
+    if (isArray(val)) {
+      return val.includes(prop.label as never)
     } else if (typeof val === 'boolean') {
       return val
     }
