@@ -4,7 +4,6 @@
   "description": "Special svg icon library for fighting-design.",
   "main": "index",
   "module": "index",
-  "types": "index.d.ts",
   "keywords": [
     "svg",
     "icon",
