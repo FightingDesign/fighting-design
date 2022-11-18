@@ -3,7 +3,7 @@ import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite' // https://github.com/chenxch/unplugin-vue-setup-extend-plus
 import { resolve } from 'path'
 import { copyFileSync } from 'fs'
-import { version } from './packages/fighting-design/package.json'
+import { name, version } from './packages/fighting-design/package.json'
 import { visualizer } from 'rollup-plugin-visualizer' // https://github.com/btd/rollup-plugin-visualizer
 import type { UserConfigExport } from 'vite'
 
@@ -12,9 +12,8 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       dts({
-        // logDiagnostics: true, // 是否打印类型诊断信息
-        // skipDiagnostics: false, // 是否跳过类型诊断
-        // aliasesExclude: ['./alert.vue'], // 设置在转换别名时哪些路径需要排除
+        logDiagnostics: false, // 是否打印类型诊断信息
+        skipDiagnostics: true, // 是否跳过类型诊断
         staticImport: true,   //是否将动态引入转换为静态
         outputDir: ['./dist/lib', './dist/es'], // 可以指定一个数组来输出到多个目录中
         insertTypesEntry: true, // 是否生成类型声明入口
@@ -104,5 +103,5 @@ const move = (): void => {
     copyFileSync(item.input, item.outDir)
   })
 
-  console.warn('\n' + `Fighting Design ${version} 版本打包成功 🎉🎉🎉` + '\n')
+  console.warn('\n' + `${name} ${version} 版本打包成功 🎉🎉🎉` + '\n')
 }

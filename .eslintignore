@@ -7,3 +7,4 @@ node_modules/*
 logo/*
 start/dist/*
 packages/add-component/template/*
+script/*

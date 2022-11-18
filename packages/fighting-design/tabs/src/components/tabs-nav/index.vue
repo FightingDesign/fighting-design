@@ -32,7 +32,7 @@
 
   const instance: ComponentInternalInstance | null = getCurrentInstance()
 
-  async function clickNavItem(name: TabsPaneName): Promise<void> {
+  const clickNavItem = async (name: TabsPaneName): Promise<void> => {
     let res: boolean | void = true
     if (prop.beforeEnter) {
       res = await prop.beforeEnter(name)
@@ -42,11 +42,11 @@
     emit('set-current-name', name)
   }
 
-  function editItem(
+  const editItem = (
     action: 'remove' | 'add',
     name?: TabsPaneName,
     i?: number
-  ): void {
+  ): void => {
     emit('edit', action, name, i)
   }
   /**
@@ -57,7 +57,7 @@
    * 防止在切换标签时出现跳动的情况
    */
   const wrapperStyle = ref<CSSProperties>({})
-  async function updateWrapperStyle(): Promise<void> {
+  const updateWrapperStyle = async (): Promise<void> => {
     await nextTick()
     if (!prop.navs) return
     const positionVar: {
@@ -131,7 +131,7 @@
    */
   const activeLineStyle = ref<CSSProperties>({})
 
-  async function updateActiveLineStyle(): Promise<void> {
+  const updateActiveLineStyle = async (): Promise<void> => {
     await nextTick()
     if (!instance || !instance.subTree.el) return
     const { position } = prop
@@ -173,27 +173,27 @@
   }
 
   /**
-   * wheel => 滚轮事件
-   * https://www.runoob.com/jsref/event-onwheel.html
-   *
-   * 实现横向滚动效果
-   */
-  function handleWheel(e: WheelEvent): void {
-    ;(e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
-    deriveScrollShadow(e.currentTarget as HTMLElement)
-  }
-
-  /**
    * 左右侧的滚动阴影
    */
   const leftReachedRef = ref(false)
   const rightReachedRef = ref(false)
 
-  function deriveScrollShadow(el: HTMLElement | null): void {
+  const deriveScrollShadow = (el: HTMLElement | null): void => {
     if (!el) return
     const { scrollLeft, scrollWidth, offsetWidth } = el
     leftReachedRef.value = scrollLeft > 0
     rightReachedRef.value = scrollLeft + offsetWidth < scrollWidth - 1 // -1 是因为计算有误差
+  }
+
+  /**
+   * wheel => 滚轮事件
+   * https://www.runoob.com/jsref/event-onwheel.html
+   *
+   * 实现横向滚动效果
+   */
+  const handleWheel = (e: WheelEvent): void => {
+    (e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
+    deriveScrollShadow(e.currentTarget as HTMLElement)
   }
 
   /**
@@ -237,14 +237,17 @@
 
   const classList = computed(() => {
     const { type, position } = prop
-    return [`f-tabs-nav__type_${type}`, `f-tabs-nav__type_${type}_${position}`]
+    return [
+      `f-tabs-nav__type_${type}`,
+      `f-tabs-nav__type_${type}_${position}`
+    ] as const
   })
 
   const scrollClassList = computed(() => {
     return {
       'f-tabs-nav__scroll_before': leftReachedRef.value,
       'f-tabs-nav__scroll_after': rightReachedRef.value
-    }
+    } as const
   })
 
   /**

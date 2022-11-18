@@ -4,6 +4,7 @@
   "description": "Special svg icon library for fighting-design.",
   "main": "index",
   "module": "index",
+  "types": "index.d.ts",
   "keywords": [
     "svg",
     "icon",
@@ -11,6 +12,7 @@
     "vuejs",
     "fighting",
     "design",
+    "fighting-icon",
     "fighting-design"
   ],
   "sideEffects": false,
