@@ -11,7 +11,9 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "paths": {
-      "@/*": ["../packages/fighting-design/*"]
+      "@/*": [
+        "../packages/fighting-design/*"
+      ]
     },
     "lib": [
       "ESNext",
@@ -27,7 +29,8 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "src/global.d.ts"
   ],
   "references": [
     {
