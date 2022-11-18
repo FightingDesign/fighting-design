@@ -63,9 +63,9 @@ importers:
     specifiers:
       markdown-it: ^13.0.1
       markdown-it-container: ^3.0.0
-      vitepress: 1.0.0-alpha.28
+      vitepress: 1.0.0-alpha.29
     dependencies:
-      vitepress: 1.0.0-alpha.28
+      vitepress: 1.0.0-alpha.29
     devDependencies:
       markdown-it: 13.0.1
       markdown-it-container: 3.0.0
@@ -4533,8 +4533,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress/1.0.0-alpha.28:
-    resolution: {integrity: sha512-pvbLssDMgLUN1terajmPlFBxHSDGO4DqwexKbjFyr7LeELerVuwGrG6F2J1hxmwOlbpLd1kHXEDqGm9JX/kTDQ==}
+  /vitepress/1.0.0-alpha.29:
+    resolution: {integrity: sha512-oaRaeMLcN9M3Bxz97fFVF6Gzm3Aqtb0CijTt5TOW0XPzNPuKA0YpFnsmS97gdKmA+VztM6itRJ8K7JJuU0VS3g==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.0

@@ -2,7 +2,7 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-## 0.9.0-alpha.2 (2022-11-17)
+## 0.9.0-alpha.2 (2022-11-18)
 
 **修复 Bug**
 
@@ -13,6 +13,7 @@
 - 修复 `f-switch` 组件样式细节
 - 修复 `f-card` 组件样式细节
 - 修复 `f-textarea` 组件样式细节
+- 修复 `f-checkbox-group` 类型错误
 - 更新类型配置文件
 
 ## 0.9.0-alpha.1 (2022-11-17)

@@ -4,7 +4,7 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
-## 0.9.0-alpha.2 (2022-11-17)
+## 0.9.0-alpha.2 (2022-11-18)
 
 **Fix Bug**
 
@@ -15,6 +15,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Fix `f-switch` component style details
 - Fix `f-card` component style details
 - Fix `f-textarea` component style details
+- Fix the `f-checkbox-group` type error
 - Update Type Profile
 
 ## 0.9.0-alpha.1 (2022-11-17)
