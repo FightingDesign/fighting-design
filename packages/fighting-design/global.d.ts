@@ -61,6 +61,7 @@ declare module '@vue/runtime-core' {
     FTabsPane: typeof components.FTabsPane
     FPopup: typeof components.FPopup
     FPagination: typeof components.FPagination
+    FCheckbox: typeof components.FCheckbox
     FCheckboxGroup: typeof components.FCheckboxGroup
     FSwap: typeof components.FSwap
   }
@@ -72,4 +73,4 @@ declare module '@vue/runtime-core' {
   }
 }
 
-export {}
+export { }
