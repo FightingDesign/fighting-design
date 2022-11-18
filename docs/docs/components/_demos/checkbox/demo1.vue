@@ -13,9 +13,7 @@
 
   const onGroupChange = (val: string[]): void => {
     const halfStatus = !!(val.length && val.length < optionList.value.length)
-    if (val.length === optionList.value.length) {
-      checkAll.value = true
-    }
+    checkAll.value = val.length === optionList.value.length
     indeterminate.value = halfStatus
   }
 </script>
