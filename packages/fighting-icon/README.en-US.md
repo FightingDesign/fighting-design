@@ -34,7 +34,6 @@ yarn --save-dev add @fighting-design/fighting-icon
 ## 💌 Special thanks
 
 - [icones](https://github.com/antfu/icones)
-- [vite-svg-loader](https://github.com/jpkleemans/vite-svg-loader)
 
 ## 💬 LICENSE
 
