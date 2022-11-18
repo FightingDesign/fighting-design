@@ -86,16 +86,17 @@
         height: 2px;
         position: absolute;
         top: calc(50% - 1px);
+        transform: rotate(0) scale(1);
         animation: f-checkbox-animation2 0.1s ease-in;
         background-color: var(--f-design-color-text-2);
 
         @keyframes f-checkbox-animation2 {
           from {
-            transform: scale(0);
+            transform: rotate(0) scale(0);
           }
 
           to {
-            transform: scale(1);
+            transform: rotate(0) scale(1);
           }
         }
       }
