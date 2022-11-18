@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.9.0-alpha.3 (2022-11-18)
+
+- 更新类型配置文件
+- 修复 `f-checkbox-group` 类型错误
+
 ## 0.9.0-alpha.2 (2022-11-18)
 
 **修复 Bug**
