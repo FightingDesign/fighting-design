@@ -28,7 +28,9 @@ export const Props = {
     type: String as PropType<NotificationType>,
     default: (): NotificationType => 'default',
     validator: (val: NotificationType): boolean => {
-      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+      return (
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
+      ).includes(val)
     }
   },
   /**
@@ -94,7 +96,9 @@ export const Props = {
     type: String as PropType<NotificationPlacementType>,
     default: (): NotificationPlacementType => 'top-right',
     validator: (val: NotificationPlacementType): boolean => {
-      return (['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const).includes(val)
+      return (
+        ['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const
+      ).includes(val)
     }
   },
   /**

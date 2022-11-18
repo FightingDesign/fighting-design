@@ -24,12 +24,12 @@
 </template>
 
 <style scoped>
-.f-avatar {
-  margin: 5px;
-}
-.avatar-block {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+  .f-avatar {
+    margin: 5px;
+  }
+  .avatar-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 </style>

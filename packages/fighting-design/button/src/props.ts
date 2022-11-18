@@ -69,9 +69,9 @@ export const Props = {
   },
   /**
    * 针对 href 处理的跳转方式
-   * 
+   *
    * 原生属性
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: {
@@ -123,7 +123,7 @@ export const Props = {
   },
   /**
    * 原生 name 属性
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-name
    */
   name: {
@@ -146,7 +146,7 @@ export const Props = {
   },
   /**
    * 原生 type 属性
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
    */
   nativeType: {

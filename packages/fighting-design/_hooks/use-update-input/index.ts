@@ -10,16 +10,15 @@ import type {
 /**
  * 文本框输入的方法
  * 可处理文本框输入和清空
- * 
+ *
  * @param prop 组件的 props 参数
  * @param emit 回调参数
- * @returns { UseUpdateInputInterface } 
+ * @returns { UseUpdateInputInterface }
  */
 export const useUpdateInput: UseUpdateInputInterface = (
   prop: UseUpdateInputPropsInterface,
   emit: UseUpdateInputEmitInterface
 ): UseUpdateInputReturnInterface => {
-
   /**
    * 处理文本框输入
    * @param evt input 事件对象

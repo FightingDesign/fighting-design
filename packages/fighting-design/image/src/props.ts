@@ -12,7 +12,7 @@ export const Props = {
   },
   /**
    * 原生 alt 属性
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
    */
   alt: {
@@ -63,7 +63,7 @@ export const Props = {
   },
   /**
    * 如何适应容器，原生 object-fit 属性
-   * 
+   *
    * https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    */
   fit: {
@@ -84,7 +84,7 @@ export const Props = {
   },
   /**
    * 原生 referrerPolicy 属性
-   * 
+   *
    * https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#syntax
    */
   referrerPolicy: {

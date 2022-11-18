@@ -18,7 +18,7 @@ export const Props = {
   },
   /**
    * 触发方式
-   * 
+   *
    * 移入、点击
    */
   trigger: {

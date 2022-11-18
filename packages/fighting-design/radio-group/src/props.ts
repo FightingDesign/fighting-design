@@ -1,5 +1,9 @@
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type { RadioLabelType, RadioGroupSizeType, RadioChangeInterface } from './interface'
+import type {
+  RadioLabelType,
+  RadioGroupSizeType,
+  RadioChangeInterface
+} from './interface'
 
 export const Props = {
   /**
@@ -65,4 +69,6 @@ export const Props = {
 
 export type RadioGroundPropsType = ExtractPropTypes<typeof Props>
 
-export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundPropsType> = Symbol('radio-group-props-key') as InjectionKey<RadioGroundPropsType>
+export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundPropsType> = Symbol(
+  'radio-group-props-key'
+) as InjectionKey<RadioGroundPropsType>

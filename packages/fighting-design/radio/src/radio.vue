@@ -28,13 +28,13 @@
      * 如果父组件有依赖注入则使用
      * 否则使用之身 props 参数
      */
-    get () {
+    get() {
       return (groupProps && groupProps.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set (val) {
+    set(val) {
       if (groupProps && !groupProps.disabled) {
         groupProps.changeEvent(val)
         return

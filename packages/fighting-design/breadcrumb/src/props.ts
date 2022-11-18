@@ -1,4 +1,10 @@
-import type { ExtractPropTypes, InjectionKey, PropType, VNode, Component } from 'vue'
+import type {
+  ExtractPropTypes,
+  InjectionKey,
+  PropType,
+  VNode,
+  Component
+} from 'vue'
 
 export const Props = {
   /**
@@ -33,4 +39,6 @@ export const Props = {
 
 export type BreadcrumbPropsType = ExtractPropTypes<typeof Props>
 
-export const BREADCRUMB_PROPS_KEY: InjectionKey<BreadcrumbPropsType> = Symbol('breadcrumb-props-key')
+export const BREADCRUMB_PROPS_KEY: InjectionKey<BreadcrumbPropsType> = Symbol(
+  'breadcrumb-props-key'
+)

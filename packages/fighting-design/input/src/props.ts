@@ -5,7 +5,10 @@ import type {
   InputChangeInterface,
   InputSearchInterface
 } from './interface'
-import type { HandleFocusEventInterface, HandleEventInterface } from '../../_interface'
+import type {
+  HandleFocusEventInterface,
+  HandleEventInterface
+} from '../../_interface'
 
 export const Props = {
   /**
@@ -17,7 +20,7 @@ export const Props = {
   },
   /**
    * 类型
-   * 
+   *
    * 文字输入框或者密码输入框
    */
   type: {
@@ -39,7 +42,7 @@ export const Props = {
   },
   /**
    * 是否禁用
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
   disabled: {
@@ -48,7 +51,7 @@ export const Props = {
   },
   /**
    * 最大（数字或日期时间）值
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-max
    */
   max: {
@@ -57,7 +60,7 @@ export const Props = {
   },
   /**
    * 最小（数字或日期时间）值
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-min
    */
   min: {
@@ -66,7 +69,7 @@ export const Props = {
   },
   /**
    * 最大输入长度
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-minlength
    */
   maxLength: {
@@ -76,7 +79,7 @@ export const Props = {
   },
   /**
    * 是否自动获取焦点
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-autofocus
    */
   autofocus: {
@@ -85,7 +88,7 @@ export const Props = {
   },
   /**
    * 原生 name 属性
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
   name: {
@@ -94,7 +97,7 @@ export const Props = {
   },
   /**
    * 占位符
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
    */
   placeholder: {
@@ -117,7 +120,7 @@ export const Props = {
   },
   /**
    * 是否只读
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-readonly
    */
   readonly: {

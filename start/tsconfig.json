@@ -11,19 +11,11 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "paths": {
-      "@/*": [
-        "../packages/fighting-design/*"
-      ]
+      "@/*": ["../packages/fighting-design/*"]
     },
-    "lib": [
-      "ESNext",
-      "DOM",
-      "dom.iterable"
-    ],
+    "lib": ["ESNext", "DOM", "dom.iterable"],
     "skipLibCheck": true,
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   },
   "include": [
     "src/**/*.ts",

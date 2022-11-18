@@ -43,7 +43,9 @@ export const Props = {
     type: Number as PropType<RippleOpacityType>,
     default: (): RippleOpacityType => 0.5,
     validator: (val: RippleOpacityType): boolean => {
-      return ([0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as const).includes(val)
+      return (
+        [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as const
+      ).includes(val)
     }
   },
   /**
@@ -53,7 +55,9 @@ export const Props = {
     type: Number as PropType<RippleOpacityType>,
     default: (): RippleOpacityType => 0,
     validator: (val: RippleOpacityType): boolean => {
-      return ([0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as const).includes(val)
+      return (
+        [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as const
+      ).includes(val)
     }
   },
   /**

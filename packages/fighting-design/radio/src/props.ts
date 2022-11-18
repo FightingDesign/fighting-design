@@ -1,5 +1,8 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { RadioLabelType, RadioChangeInterface } from '../../radio-group/src/interface'
+import type {
+  RadioLabelType,
+  RadioChangeInterface
+} from '../../radio-group/src/interface'
 
 export const Props = {
   /**

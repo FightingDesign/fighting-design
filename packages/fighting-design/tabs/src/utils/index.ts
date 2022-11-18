@@ -4,11 +4,12 @@ import type {
   VNodeNormalizedChildren,
   ComponentInternalInstance,
   Component
-} from 'vue';
+} from 'vue'
 
 const isArray = Array.isArray
 
-const isObject = (obj: unknown): boolean => typeof obj === 'object' && obj !== null
+const isObject = (obj: unknown): boolean =>
+  typeof obj === 'object' && obj !== null
 
 /**
  * 将所有子的组件扁平化

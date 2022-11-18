@@ -22,7 +22,6 @@ export const mdPlugin = (md: MarkdownIt) => {
 
       console.log(description)
       if (tokens[idx].nesting === 1) {
-
         return `
           <vp-demo :open="false">
 

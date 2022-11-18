@@ -3,8 +3,10 @@ import changeCase from '@juln/change-case'
 import path from 'path'
 import fsExtra from 'fs-extra'
 
-const logInfo = (...args: string[]): void => console.info('\x1B[33m', ...args, '\x1B[0m')
-const logError = (...args: string[]): void => console.error('\x1B[31m', ...args, '\x1B[0m')
+const logInfo = (...args: string[]): void =>
+  console.info('\x1B[33m', ...args, '\x1B[0m')
+const logError = (...args: string[]): void =>
+  console.error('\x1B[31m', ...args, '\x1B[0m')
 
 const updatedFiles: string[] = []
 const compName: string = fetchCompName()
@@ -32,17 +34,13 @@ const detectPublic = async (): Promise<void> => {
     await generate()
     logInfo(
       '本次创建/修改的文件有：' +
-      '\n' +
-      '\n' +
-      `${updatedFiles.join('\n')}` +
-      '\n'
+        '\n' +
+        '\n' +
+        `${updatedFiles.join('\n')}` +
+        '\n'
     )
   } catch (error: unknown) {
-    logError(
-      `不好意思，组件[${compName}]创建失败了` +
-      '\n' +
-      `error: ${error}`
-    )
+    logError(`不好意思，组件[${compName}]创建失败了` + '\n' + `error: ${error}`)
     process.exit(0)
   }
 
@@ -58,10 +56,10 @@ function fetchCompName (): string {
   if (input === undefined) {
     logError(
       '\n' +
-      '命令使用方法为: pnpm new <component-name>' +
-      '\n' +
-      '例如: pnpm new user-avatar' +
-      '\n'
+        '命令使用方法为: pnpm new <component-name>' +
+        '\n' +
+        '例如: pnpm new user-avatar' +
+        '\n'
     )
     process.exit(0)
   }
@@ -87,7 +85,10 @@ async function generate (): Promise<[void, void, void, void, void]> {
     'packages/fighting-theme/index.scss',
     `packages/fighting-design/__test__/${compName}.spec.ts`
   )
-  const catchError = async (callback: Function, info: string): Promise<void> => {
+  const catchError = async (
+    callback: Function,
+    info: string
+  ): Promise<void> => {
     try {
       await callback()
     } catch (error: unknown) {
@@ -147,20 +148,25 @@ async function updateStyleEntry (): Promise<void> {
   )
   let content: string = (await fsExtra.readFile(entryFilePath)).toString()
 
-  content =
-    content.slice(0, -1) + `@use './src/${compName}.scss';` + '\n'
+  content = content.slice(0, -1) + `@use './src/${compName}.scss';` + '\n'
 
   await fsExtra.writeFile(entryFilePath, content)
 }
 
 // 添加测试文件
 async function incrementTest (): Promise<void> {
-  const outputDir: string = path.resolve(__dirname, '../fighting-design/__test__')
+  const outputDir: string = path.resolve(
+    __dirname,
+    '../fighting-design/__test__'
+  )
   const tplDir: string = path.resolve(__dirname, './template/test')
   await superEjsGerenateDir(outputDir, tplDir)
 }
 
-async function superEjsGerenateDir (outputDir: string, tplDir: string): Promise<void> {
+async function superEjsGerenateDir (
+  outputDir: string,
+  tplDir: string
+): Promise<void> {
   return await superEjs.gerenateDir(
     outputDir,
     tplDir,

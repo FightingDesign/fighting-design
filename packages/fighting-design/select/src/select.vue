@@ -90,7 +90,7 @@
     /**
      * 通过获取到的子元素，计算当前绑定值对应的 label 展示文本框的内容
      */
-    get () {
+    get() {
       // 如果插槽没内容，则返回空字符串
       if (!options.value.length) return ''
 
@@ -141,7 +141,7 @@
       // 优先级：插槽 > label > value
       return slot || label || (value && value.toString()) || ''
     },
-    set (val: string) {
+    set(val: string) {
       return val
     }
   })

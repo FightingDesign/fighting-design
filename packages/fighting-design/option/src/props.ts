@@ -16,10 +16,10 @@ export const Props = {
     default: (): null => null
   },
   /**
-    * 是否禁用
-    * 
-    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
-    */
+   * 是否禁用
+   *
+   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
+   */
   disabled: {
     type: Boolean,
     default: (): boolean => false

@@ -6,7 +6,5 @@
 </script>
 
 <template>
-  <div class="f-<%= name %>">
-    F<%= displayName %>
-  </div>
+  <div class="f-<%= name %>">F<%= displayName %></div>
 </template>

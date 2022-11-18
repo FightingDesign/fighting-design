@@ -23,4 +23,5 @@ export const Props = {
 
 export type ButtonGroupPropsType = ExtractPropTypes<typeof Props>
 
-export const BUTTON_GROUP_PROPS_KEY: InjectionKey<ButtonGroupPropsType> = Symbol('button-group-props-key')
+export const BUTTON_GROUP_PROPS_KEY: InjectionKey<ButtonGroupPropsType> =
+  Symbol('button-group-props-key')

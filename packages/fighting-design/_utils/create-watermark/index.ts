@@ -9,7 +9,9 @@ import type {
  * @param props 需要传递到 参数
  * @returns { String } base64 格式的图片
  */
-export const createWatermark: CreateBase64Interface = (props: CreateWatermarkPropsInterface): string => {
+export const createWatermark: CreateBase64Interface = (
+  props: CreateWatermarkPropsInterface
+): string => {
   const canvas: HTMLCanvasElement = document.createElement('canvas')
   const ratio: number = window.devicePixelRatio || 1
 

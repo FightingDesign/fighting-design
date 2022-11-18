@@ -77,18 +77,18 @@ export const Props = {
     default: (): null => null
   },
   /**
-    * 层级 原生属性
-    * 
-    * https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
-    */
+   * 层级 原生属性
+   *
+   * https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+   */
   zIndex: {
     type: Number,
     default: (): Number => 1999,
     validator: (val: number): boolean => val >= 0
   },
   /**
- * 打开动画开始的回调
- */
+   * 打开动画开始的回调
+   */
   open: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null

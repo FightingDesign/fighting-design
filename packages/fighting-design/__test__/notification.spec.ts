@@ -60,8 +60,12 @@ describe('FNotification', () => {
     expect(messageReturn).toHaveProperty('vm')
     expect(messageReturn.vm.exposed).toHaveProperty('visible')
 
-    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(true)
+    expect(
+      (messageReturn.vm.exposed as Record<string, Ref>).visible.value
+    ).toBe(true)
     await sleep(3000)
-    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(false)
+    expect(
+      (messageReturn.vm.exposed as Record<string, Ref>).visible.value
+    ).toBe(false)
   })
 })

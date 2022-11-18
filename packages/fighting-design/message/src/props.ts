@@ -24,7 +24,9 @@ export const Props = {
     type: String as PropType<MessageType>,
     default: (): MessageType => 'default',
     validator: (val: MessageType): boolean => {
-      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+      return (
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
+      ).includes(val)
     }
   },
   /**
@@ -83,7 +85,16 @@ export const Props = {
     type: String as PropType<MessagePlacementType>,
     default: (): MessagePlacementType => 'top',
     validator: (val: MessagePlacementType): boolean => {
-      return (['top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right'] as const).includes(val)
+      return (
+        [
+          'top',
+          'top-left',
+          'top-right',
+          'bottom',
+          'bottom-left',
+          'bottom-right'
+        ] as const
+      ).includes(val)
     }
   },
   /**

@@ -206,9 +206,15 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { color }
     })
-    expect(wrapper.attributes('style')).toContain(`--f-button-default-color: ${color}`)
-    expect(wrapper.attributes('style')).toContain(`--f-button-hover-color: ${light}`)
-    expect(wrapper.attributes('style')).toContain(`--f-button-active-color: ${dark}`)
+    expect(wrapper.attributes('style')).toContain(
+      `--f-button-default-color: ${color}`
+    )
+    expect(wrapper.attributes('style')).toContain(
+      `--f-button-hover-color: ${light}`
+    )
+    expect(wrapper.attributes('style')).toContain(
+      `--f-button-active-color: ${dark}`
+    )
   })
 
   test('default slot', () => {

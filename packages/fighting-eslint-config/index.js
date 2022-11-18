@@ -35,22 +35,22 @@ module.exports = {
     // 禁止在模板中使用 this https://eslint.vuejs.org/rules/this-in-template.html
     'vue/this-in-template': 'error',
     // 禁止使用其他 lang https://eslint.vuejs.org/rules/block-lang.html
-    'vue/block-lang': ['error',
+    'vue/block-lang': [
+      'error',
       {
-        'script': {
-          'lang': 'ts'
+        script: {
+          lang: 'ts'
         }
       }
     ],
     // 强制 api 形式 https://eslint.vuejs.org/rules/component-api-style.html
-    'vue/component-api-style': ['error',
-      ['script-setup', 'composition']
-    ],
+    'vue/component-api-style': ['error', ['script-setup', 'composition']],
     // 自定义事件强制大小写 https://eslint.vuejs.org/rules/custom-event-name-casing.html
-    'vue/custom-event-name-casing': ['error',
+    'vue/custom-event-name-casing': [
+      'error',
       'kebab-case',
       {
-        'ignores': []
+        ignores: []
       }
     ],
     // 禁止使用 v-html 来防止 XSS 攻击 https://eslint.vuejs.org/rules/no-v-html.html
@@ -237,9 +237,12 @@ module.exports = {
     // 需要 props 的默认值 https://eslint.vuejs.org/rules/require-default-prop.html
     'vue/require-default-prop': 'error',
     // emit 必须是已经声名的方法 https://eslint.vuejs.org/rules/require-explicit-emits.html
-    'vue/require-explicit-emits': ['error', {
-      'allowProps': false
-    }],
+    'vue/require-explicit-emits': [
+      'error',
+      {
+        allowProps: false
+      }
+    ],
     // props 必须定义详细的类型 https://eslint.vuejs.org/rules/require-prop-types.html
     'vue/require-prop-types': 'error',
     // 支持＜template＞中的注释指令 https://eslint.vuejs.org/rules/comment-directive.html
@@ -263,7 +266,10 @@ module.exports = {
     // !禁止使用后缀运算符的非空断言 https://typescript-eslint.io/rules/no-non-null-assertion/
     '@typescript-eslint/no-non-null-assertion': 'error',
     // 强制一致地使用类型导入 https://typescript-eslint.io/rules/consistent-type-imports
-    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { prefer: 'type-imports' }
+    ],
     // 禁止未使用的变量 https://typescript-eslint.io/rules/no-unused-vars
     '@typescript-eslint/no-unused-vars': 'error',
     // 不可以有 any https://typescript-eslint.io/rules/no-explicit-any/
@@ -280,7 +286,7 @@ module.exports = {
      */
     // 不允许不必要的转义字符 https://eslint.org/docs/latest/rules/no-useless-escape
     'no-useless-escape': 'off',
-    // 
+    //
     'comma-dangle': 'off',
     // 禁止使用 var https://eslint.org/docs/latest/rules/no-var#rule-details
     'no-var': 'error',

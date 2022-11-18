@@ -48,7 +48,7 @@ export const Props = {
   },
   /**
    * 原生 target 属性
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href
    */
   target: {

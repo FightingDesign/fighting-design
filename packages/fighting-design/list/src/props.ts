@@ -58,4 +58,5 @@ export const Props = {
 
 export type ListPropsType = ExtractPropTypes<typeof Props>
 
-export const LIST_PROPS_KEY: InjectionKey<ListPropsType> = Symbol('list-props-key')
+export const LIST_PROPS_KEY: InjectionKey<ListPropsType> =
+  Symbol('list-props-key')

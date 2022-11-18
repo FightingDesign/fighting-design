@@ -49,12 +49,12 @@
 </template>
 
 <style scoped>
-.image-block {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-code {
-  margin-bottom: 6px;
-}
+  .image-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  code {
+    margin-bottom: 6px;
+  }
 </style>

@@ -13,7 +13,7 @@ export default (): UserConfigExport => {
       vue(),
       dts({
         skipDiagnostics: true, // 是否跳过类型诊断
-        staticImport: true,   //是否将动态引入转换为静态
+        staticImport: true, //是否将动态引入转换为静态
         outputDir: ['./dist/lib', './dist/es'], // 可以指定一个数组来输出到多个目录中
         insertTypesEntry: true, // 是否生成类型声明入口
         cleanVueFileName: true, // 是否将 '.vue.d.ts' 文件名转换为 '.d.ts'
@@ -54,7 +54,7 @@ export default (): UserConfigExport => {
             namespaceToStringTag: true,
             manualChunks: undefined,
             inlineDynamicImports: false,
-            globals: { vue: 'Vue' }  // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
+            globals: { vue: 'Vue' } // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
           },
           {
             format: 'es', // 打包模式 https://rollupjs.org/guide/en/#outputformat

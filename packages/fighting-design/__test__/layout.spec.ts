@@ -1,12 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import {
-  FAside,
-  FFooter,
-  FHeader,
-  FMain,
-  FLayout
-} from '../index'
+import { FAside, FFooter, FHeader, FMain, FLayout } from '../index'
 
 describe('f-aside', () => {
   test('class', () => {

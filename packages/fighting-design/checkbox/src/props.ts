@@ -38,8 +38,8 @@ export const Props = {
     default: (): boolean => true
   },
   /**
-  * 是否为半选状态
-  */
+   * 是否为半选状态
+   */
   indeterminate: {
     type: Boolean,
     default: (): boolean => false

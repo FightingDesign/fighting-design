@@ -69,7 +69,7 @@
 
   // 删除文件
   const removeFile: UpLoadRemoveFileInterface = (index: number): void => {
-    (fileList.value as File[]).splice(index, 1)
+    ;(fileList.value as File[]).splice(index, 1)
   }
 
   // 将文件拖拽进来时触发

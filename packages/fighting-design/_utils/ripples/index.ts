@@ -1,7 +1,4 @@
-import type {
-  RipplesInterface,
-  RipplesOptionInterface
-} from './interface'
+import type { RipplesInterface, RipplesOptionInterface } from './interface'
 import type { OrdinaryFunctionInterface } from '../../_interface'
 
 /**
@@ -12,7 +9,11 @@ export class Ripples implements RipplesInterface {
   node: HTMLElement
   option: RipplesOptionInterface
 
-  constructor (evt: MouseEvent, node: HTMLElement, option: RipplesOptionInterface) {
+  constructor (
+    evt: MouseEvent,
+    node: HTMLElement,
+    option: RipplesOptionInterface
+  ) {
     this.evt = evt
     this.node = node
     this.option = option
@@ -43,7 +44,7 @@ export class Ripples implements RipplesInterface {
     //   this.evt.clientY - (this.evt.target as HTMLElement).offsetTop
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { layerX, layerY }: { layerX: number, layerY: number } = this.evt as any
+    const { layerX, layerY }: { layerX: number; layerY: number } = this.evt as any
 
     const ripples: HTMLSpanElement = this.renderElement(layerX, layerY)
 
@@ -109,7 +110,7 @@ export class Ripples implements RipplesInterface {
   /**
    * 删除涟漪节点
    * @param node dom
-   * @return { void } 
+   * @return { void }
    */
   removeElement = (node: HTMLElement): void => {
     setTimeout((): void => {

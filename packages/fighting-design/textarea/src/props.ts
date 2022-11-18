@@ -12,7 +12,7 @@ export const Props = {
   },
   /**
    * 元素的输入文本的行数
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-rows
    */
   rows: {
@@ -21,7 +21,7 @@ export const Props = {
   },
   /**
    * 是否禁用
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-disabled
    */
   disabled: {
@@ -30,7 +30,7 @@ export const Props = {
   },
   /**
    * 最大输入长度
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-maxlength
    */
   maxLength: {
@@ -40,7 +40,7 @@ export const Props = {
   },
   /**
    * 是否自动获取焦点
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-autofocus
    */
   autofocus: {
@@ -49,7 +49,7 @@ export const Props = {
   },
   /**
    * 原生 name 属性
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-name
    */
   name: {
@@ -58,7 +58,7 @@ export const Props = {
   },
   /**
    * 占位符
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-placeholder
    */
   placeholder: {
@@ -67,7 +67,7 @@ export const Props = {
   },
   /**
    * 是否只读
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-readonly
    */
   readonly: {
@@ -97,7 +97,7 @@ export const Props = {
   },
   /**
    * 拉伸方式
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/CSS/resize
    */
   resize: {

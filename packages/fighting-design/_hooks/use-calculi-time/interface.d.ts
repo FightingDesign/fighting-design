@@ -4,11 +4,11 @@ export type { GetLunarDetailReturnInterface } from '../../_utils/calendar-lunar/
 
 /**
  * 日历组件 hook 返回值类型接口
- * 
+ *
  * AllMonthDays 当前月份展示的天数
- * 
+ *
  * changeLastMonth 上个月切换
- * 
+ *
  * changeNextMonth 下个月切换
  */
 export interface UseCalculiTimeReturnInterface {
@@ -19,9 +19,9 @@ export interface UseCalculiTimeReturnInterface {
 
 /**
  * 日历组件 hook 类型接口
- * 
+ *
  * 传入年份和月份的 ref 响应式数据
- * 
+ *
  * 返回 UseCalculiTimeReturnInterface 类型对象
  */
 export interface UseCalculiTimeInterface {

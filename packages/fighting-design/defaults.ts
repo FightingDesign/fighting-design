@@ -12,7 +12,7 @@ import type { AppInstallInterface } from './_interface'
 const install: AppInstallInterface = (app: App): App => {
   /**
    * 注册组件
-   * 
+   *
    * https://cn.vuejs.org/guide/components/registration.html
    */
   Object.entries(components).forEach(([key, value]): void => {
@@ -21,7 +21,7 @@ const install: AppInstallInterface = (app: App): App => {
 
   /**
    * 注册能够被应用内所有组件实例访问到的全局组件
-   * 
+   *
    * https://cn.vuejs.org/api/application.html#app-config-globalproperties
    */
   app.config.globalProperties.FMessage = components.FMessage
@@ -29,7 +29,7 @@ const install: AppInstallInterface = (app: App): App => {
 
   /**
    * 注册自定义指令组件
-   * 
+   *
    * https://cn.vuejs.org/api/application.html#app-directive
    */
   app.directive('loading', FLoading.directive)

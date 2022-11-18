@@ -41,7 +41,7 @@ describe('FLink', () => {
 
   test('state', () => {
     const state = ['line', 'bag'] as const
-    state.forEach(item => {
+    state.forEach((item) => {
       const wrapper = mount(FLink, {
         props: { state: item }
       })
