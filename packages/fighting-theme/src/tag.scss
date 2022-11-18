@@ -1,5 +1,6 @@
-@import '../config/const-type.scss';
-@import '../config/const-size.scss';
+@use './root';
+@import '../config/const-type';
+@import '../config/const-size';
 
 .f-tag {
   min-width: 60px;

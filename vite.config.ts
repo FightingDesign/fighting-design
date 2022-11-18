@@ -12,7 +12,6 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       dts({
-        logDiagnostics: false, // 是否打印类型诊断信息
         skipDiagnostics: true, // 是否跳过类型诊断
         staticImport: true,   //是否将动态引入转换为静态
         outputDir: ['./dist/lib', './dist/es'], // 可以指定一个数组来输出到多个目录中
