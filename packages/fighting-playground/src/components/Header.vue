@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+  import { FLink } from '@/link'
+  import { FAvatar } from '@/avatar'
+  import '~/_root.scss'
+  import '~/link.scss'
+  import '~/avatar.scss'
+</script>
+
 <template>
   <header class="header">
     <f-link
@@ -65,11 +73,7 @@
         margin-left: 10px;
         font-weight: bold;
         font-size: 17px;
-        background: -webkit-linear-gradient(
-          55deg,
-          #395ce3 10%,
-          #5ee0dd
-        );
+        background: -webkit-linear-gradient(55deg, #395ce3 10%, #5ee0dd);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
