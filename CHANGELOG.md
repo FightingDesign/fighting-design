@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-input` 新增 `number` 类型
+
 ## 0.9.0-alpha.3 (2022-11-18)
 
 - 更新类型配置文件

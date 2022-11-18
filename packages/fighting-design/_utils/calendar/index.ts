@@ -4,7 +4,7 @@ import type { GetDayMonthInterface } from './interface'
  * 获取每个月有多少天
  * @param year 年份
  * @param month 月份
- * @returns
+ * @returns { number } 当前月份的天数
  */
 export const getDayMonth: GetDayMonthInterface = (
   year: number,

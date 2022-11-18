@@ -27,7 +27,7 @@ export const Props = {
     type: String as PropType<InputType>,
     default: (): InputType => 'text',
     validator: (val: InputType): boolean => {
-      return (['text', 'password'] as const).includes(val)
+      return (['text', 'password', 'number'] as const).includes(val)
     }
   },
   /**

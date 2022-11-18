@@ -3,7 +3,7 @@ import type { App } from 'vue'
 /**
  * 普通函数接口
  *
- * 无参数，无返回值
+ * @return { void } 无参数，无返回值
  */
 export interface OrdinaryFunctionInterface {
   (): void
@@ -12,7 +12,7 @@ export interface OrdinaryFunctionInterface {
 /**
  * 注册组件函数接口
  *
- * app 应用实例
+ * @param app 应用实例
  */
 export interface AppInstallInterface {
   (app: App): App

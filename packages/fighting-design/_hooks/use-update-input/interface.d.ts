@@ -12,9 +12,8 @@ export type {
 /**
  * 传入的 props 类型接口
  *
- * disabled 是否禁用
- *
- * onChange 绑定值改变时触发的回调
+ * @param disabled 是否禁用
+ * @param onChange 绑定值改变时触发的回调
  */
 export interface UseUpdateInputPropsInterface {
   disabled?: boolean
@@ -24,10 +23,9 @@ export interface UseUpdateInputPropsInterface {
 /**
  * useUpdateInput 类型接口
  *
- * prop 件的 props 参数
- *
- * emit 回调参数
- *
+ * @param prop 件的 props 参数
+ * @param emit 回调参数
+ * @return { UseUpdateInputReturnInterface }
  */
 export interface UseUpdateInputInterface {
   (
@@ -39,9 +37,8 @@ export interface UseUpdateInputInterface {
 /**
  * useUpdateInput hook 返回值类型接口
  *
- * onInput 处理文本框输入
- *
- * onClear清空文本框
+ * @param onInput 处理文本框输入
+ * @param onClear 清空文本框
  */
 export interface UseUpdateInputReturnInterface {
   onInput: HandleEventInterface
@@ -50,6 +47,10 @@ export interface UseUpdateInputReturnInterface {
 
 /**
  * 回调函数类型
+ * 
+ * @param event 回调事件名
+ * @param val 回调参数
+ * @return { void }
  */
 export interface UseUpdateInputEmitInterface {
   (event: 'update:modelValue', val: string): void
