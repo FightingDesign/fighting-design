@@ -9,7 +9,7 @@
   const prop: TablePropsType = defineProps(Props)
 
   // 多选项
-  const optionalList: Ref<string[]> = ref([])
+  const optionalList: Ref<string[]> = ref<string[]>([])
 
   /**
    * 样式列表

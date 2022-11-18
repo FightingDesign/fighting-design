@@ -6,7 +6,7 @@ export const Props = {
    * 绑定值
    */
   modelValue: {
-    type: [Boolean, Array] as PropType<boolean | []>,
+    type: [Boolean, Array] as PropType<boolean | string[]>,
     default: (): boolean => false
   },
   /**

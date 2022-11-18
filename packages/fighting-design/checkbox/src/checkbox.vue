@@ -49,7 +49,7 @@
     /**
      * 获取值
      */
-    get() {
+    get () {
       return (
         (groupProps.value && groupProps.value.modelValue) || prop.modelValue
       )
@@ -57,7 +57,7 @@
     /**
      * 设置值
      */
-    set(val) {
+    set (val) {
       if (groupProps.value && !groupProps.value.disabled) {
         groupProps.value.changeEvent(val)
         return
