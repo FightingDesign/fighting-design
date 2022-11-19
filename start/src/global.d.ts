@@ -64,6 +64,7 @@ declare module 'vue' {
     FCheckbox: typeof components.FCheckbox
     FCheckboxGroup: typeof components.FCheckboxGroup
     FSwap: typeof components.FSwap
+    FDatePicker: typeof components.FDatePicker
   }
 
   interface ComponentCustomProperties {

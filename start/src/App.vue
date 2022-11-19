@@ -1,9 +1,13 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value5 = ref('123456')
+  const value5 = ref('')
 </script>
 
 <template>
-  <f-input v-model="value5" type="password" show-password />
+  <h1>{{ value5 }}</h1>
+
+  <input v-model="value5" type="date" />
+
+  <f-date-picker></f-date-picker>
 </template>

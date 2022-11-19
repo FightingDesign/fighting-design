@@ -182,3 +182,6 @@ export * from './tabs'
 
 export { FTabsPane } from './tabs-pane'
 export * from './tabs-pane'
+
+export { FDatePicker } from './date-picker'
+export * from './date-picker'
