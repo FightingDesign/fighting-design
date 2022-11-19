@@ -2,7 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- `f-input` 新增 `number` 类型
+- `f-input` 组件 `type` 属性新增 `number` 类型
+- `f-input` 组件新增 `after-icon` 配置项
 - `f-input` 组件优化查看密码方式
 - `f-input` 组件加入查看密码切换动画效果
 - 重构 `f-calendar` 组件头部样式

@@ -116,7 +116,7 @@
         @focus="onFocus"
       />
 
-      <!-- 左侧 icon -->
+      <!-- 清楚 icon -->
       <f-svg-icon
         v-if="clear"
         class="f-input__clear-btn"
@@ -124,6 +124,9 @@
         :size="14"
         @click="onClear"
       />
+
+      <!-- 左侧 icon -->
+      <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="14" />
 
       <!-- 查看密码 -->
       <f-swap

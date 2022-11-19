@@ -4,6 +4,7 @@
   import { FInput } from '../../input'
   import { FDropdown } from '../../dropdown'
   import { addZero, isString } from '../../_utils'
+  import { FIconClockTime } from '../../_svg'
   import type { Ref } from 'vue'
   import type {
     TimePickerPropsType,
@@ -65,7 +66,13 @@
 <template>
   <div class="f-time-picker">
     <f-dropdown>
-      <f-input v-model="pickerTime" type="text" readonly clear />
+      <f-input
+        v-model="pickerTime"
+        type="text"
+        readonly
+        clear
+        :after-icon="FIconClockTime"
+      />
 
       <template #content>
         <div class="f-time-picker__content">
