@@ -185,3 +185,6 @@ export * from './tabs-pane'
 
 export { FDatePicker } from './date-picker'
 export * from './date-picker'
+
+export { FTimePicker } from './time-picker'
+export * from './time-picker'
