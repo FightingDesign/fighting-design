@@ -16,7 +16,7 @@ export const Props = {
     require: true
   },
   /**
-   * 总数
+   * 总页数
    */
   total: {
     type: Number,
@@ -38,14 +38,14 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 是否需要背景色
+   * 是否带有背景色
    */
   background: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
-   * 是否需要圆角
+   * 是否带有圆角
    */
   round: {
     type: Boolean,
