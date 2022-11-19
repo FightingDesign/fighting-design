@@ -5,6 +5,8 @@
 - `f-input` 新增 `number` 类型
 - `f-input` 组件优化查看密码方式
 - `f-input` 组件加入查看密码切换动画效果
+- 重构 `f-calendar` 组件头部样式
+- 重构 `f-calendar` 组件内部细节
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

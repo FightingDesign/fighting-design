@@ -1,2 +1,10 @@
 .f-date-picker {
+  width: 240px;
+  display: inline-flex;
+
+  .f-dropdown {
+    .f-date-picker__content {
+      width: 300px;
+    }
+  }
 }

@@ -1,8 +1,9 @@
 <script lang="ts" setup name="FCalendar">
   import { Props } from './props'
   import { ref, computed, watch } from 'vue'
-  import { FButton } from '../../button'
+  import { FSvgIcon } from '../../svg-icon'
   import { FText } from '../../text'
+  import { FIconChevronLeftVue, FIconChevronRightVue } from '../../_svg'
   import { addZero, sizeChange, WEEK_DATA } from '../../_utils'
   import { useCalculiTime } from '../../_hooks'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
@@ -66,9 +67,9 @@
    * 当前时间
    */
   const nowTime: ComputedRef<string> = computed((): string => {
-    return `${year.value}年 ${addZero(month.value + 1)}月 ${addZero(
+    return `${year.value} / ${addZero(month.value + 1)} / ${addZero(
       date.value
-    )}日`
+    )}`
   })
 
   /**
@@ -141,29 +142,18 @@
   >
     <!-- 头部操作栏 -->
     <header v-if="showHeader" class="f-calendar__header">
-      <!-- 当前时间 -->
-      <div class="f-calendar__time">
-        <span class="f-calendar__time-now">{{ nowTime }}</span>
-      </div>
-
-      <!-- 操作栏 -->
+      <f-svg-icon
+        :icon="FIconChevronLeftVue"
+        @click.stop="optionClick('last')"
+      />
       <div class="f-calendar__option">
-        <div class="f-calendar__last" @click="optionClick('last')">
-          <slot name="last-change">
-            <f-button text size="mini" type="primary">上个月</f-button>
-          </slot>
-        </div>
-        <div class="f-calendar__now" @click="optionClick('now')">
-          <slot name="now-change">
-            <f-button text size="mini" type="primary">今天</f-button>
-          </slot>
-        </div>
-        <div class="f-calendar__next" @click="optionClick('next')">
-          <slot name="next-change">
-            <f-button text size="mini" type="primary">下个月</f-button>
-          </slot>
-        </div>
+        <span class="f-calendar__now-time">{{ nowTime }}</span>
+        <span class="f-calendar__now-date" @click.stop="optionClick('now')">今天</span>
       </div>
+      <f-svg-icon
+        :icon="FIconChevronRightVue"
+        @click.stop="optionClick('next')"
+      />
     </header>
 
     <!-- 周几 -->
@@ -186,7 +176,7 @@
           'f-calendar__day-li',
           mowDataClassList(days.cMonth, days.cDay)
         ]"
-        @click="handleClick(days.cMonth, days.cDay)"
+        @click.stop="handleClick(days.cMonth, days.cDay)"
       >
         <span class="f-calendar__solar">{{ days.cDay }}</span>
         <span v-if="lunar" class="f-calendar__lunar">

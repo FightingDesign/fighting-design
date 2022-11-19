@@ -10,35 +10,40 @@
   &__header {
     width: 100%;
     display: flex;
-    padding: 7px 10px;
+    padding: 7px 20px;
     align-items: center;
     box-sizing: border-box;
     justify-content: space-between;
-    background: var(--f-design-color-border-1);
 
-    // 当前时间
-    .f-calendar__time {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    // 切换按钮
+    .f-svg-icon {
+      cursor: pointer;
+      padding: 4px;
+      transition: background var(--f-design-transition-time);
 
-      .f-calendar__time-now {
-        font-weight: 700;
-        color: var(--f-design-color-text-1);
+      &:hover {
+        background: var(--f-design-color-border-1);
       }
     }
 
-    // 操作栏
+    // 当前时间
     .f-calendar__option {
-      display: flex;
-      min-width: 250px;
+      display: inline-flex;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
+      font-size: 15px;
 
-      .f-calendar__last,
-      .f-calendar__now,
-      .f-calendar__next {
-        margin: 0 5px;
+      .f-calendar__now-time {
+        color: var(--f-design-color-text-1);
+        margin-right: 7px;
+      }
+
+      // 今天
+      .f-calendar__now-date {
+        color: var(--f-design-color-primary-1);
+        cursor: pointer;
+        font-weight: 600;
+        user-select: none;
       }
     }
   }
@@ -74,7 +79,7 @@
     .f-calendar__day-li {
       padding: 10px;
       display: flex;
-      overflow: auto;
+      overflow: hidden;
       transition: 0.3s;
       position: relative;
       align-items: center;

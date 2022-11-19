@@ -2,12 +2,22 @@
   import { ref } from 'vue'
 
   const value5 = ref('')
+  const date = new Date()
 </script>
 
 <template>
-  <h1>{{ value5 }}</h1>
+  <!-- <h1>{{ value5 }}</h1> -->
+
+  <f-calendar v-model:date="date" />
 
   <input v-model="value5" type="date" />
 
   <f-date-picker></f-date-picker>
 </template>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+</style>
