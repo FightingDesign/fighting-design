@@ -17,10 +17,3 @@ export interface InputChangeInterface {
 export interface InputSearchInterface {
   ({ evt: Event, value: string }): void
 }
-
-/**
- * 点击 input 查看密码按钮时的函数类型接口
- */
-export interface InputHandleShowPasswordInterface {
-  (target: 'down' | 'up'): void
-}

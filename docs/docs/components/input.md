@@ -207,7 +207,7 @@
 | 参数            | 说明                       | 类型                       | 可选值                          | 默认值  |
 | --------------- | -------------------------- | -------------------------- | ------------------------------- | ------- |
 | `v-model`       | 绑定值                     | string                     | ——                              | ——      |
-| `type`          | 类型                       | string                     | `text` `password`               | text    |
+| `type`          | 类型                       | string                     | `text` `password` `number`      | text    |
 | `size`          | 尺寸                       | string                     | `large` `middle` `small` `mini` | middle  |
 | `disabled`      | 是否禁用                   | boolean                    | ——                              | false   |
 | `max`           | 最大值                     | number                     | ——                              | ——      |
@@ -245,8 +245,7 @@ import type {
   InputType,
   InputSizeType,
   InputChangeInterface,
-  InputSearchInterface,
-  InputHandleShowPasswordInterface
+  InputSearchInterface
 } from 'fighting-design'
 ```
 

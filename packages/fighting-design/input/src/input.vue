@@ -2,6 +2,7 @@
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FButton } from '../../button'
+  import { FSwap } from '../../swap'
   import { ref } from 'vue'
   import {
     FIconCrossVue,
@@ -11,9 +12,12 @@
   import { isString } from '../../_utils'
   import { useUpdateInput, useFilterProps } from '../../_hooks'
   import type { Ref } from 'vue'
-  import type { InputType, InputHandleShowPasswordInterface } from './interface'
+  import type { InputType } from './interface'
   import type { InputPropsType } from './props'
-  import type { HandleEventInterface } from '../../_interface'
+  import type {
+    HandleEventInterface,
+    OrdinaryFunctionInterface
+  } from '../../_interface'
   import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
 
   const prop: InputPropsType = defineProps(Props)
@@ -23,6 +27,8 @@
 
   // type 类型
   const inputType: Ref<InputType> = ref<InputType>(prop.type)
+  // 是否展示密码
+  const showPass: Ref<boolean> = ref<boolean>(false)
   /**
    * 使用 useUpdateInput hook 实现同步数据
    *
@@ -37,7 +43,9 @@
   )
 
   /**
-   * 输入框输入
+   * 文本输入
+   *
+   * @param evt 事件对象
    */
   const handleInput: HandleEventInterface = (evt: Event): void => {
     onInput(evt)
@@ -45,6 +53,8 @@
 
   /**
    * 点击搜索
+   *
+   * @param evt 事件对象
    */
   const handleSearch: HandleEventInterface = (evt: Event): void => {
     if (prop.onSearch) {
@@ -54,6 +64,8 @@
 
   /**
    * 按下回车
+   *
+   * @param evt 事件对象
    */
   const handleEnter: HandleEventInterface = (evt: Event): void => {
     const { search, enterSearch, onEnter } = prop
@@ -70,14 +82,14 @@
   /**
    * 查看密码
    */
-  const handleShowPassword: InputHandleShowPasswordInterface = (
-    target: 'down' | 'up'
-  ): void => {
-    if (target === 'down') {
+  const handleShowPassword: OrdinaryFunctionInterface = (): void => {
+    if (showPass.value) {
       inputType.value = 'text'
+      showPass.value = true
       return
     }
     inputType.value = 'password'
+    showPass.value = false
   }
 </script>
 
@@ -114,15 +126,14 @@
       />
 
       <!-- 查看密码 -->
-      <f-svg-icon
-        v-if="type === 'password' && showPassword"
+      <f-swap
+        v-model="showPass"
         class="f-input__show-password"
-        :icon="
-          inputType === 'text' ? FIconEyeOutlineVue : FIconEyeOffOutlineVue
-        "
+        type="swap"
+        :icon-on="FIconEyeOutlineVue"
+        :icon-off="FIconEyeOffOutlineVue"
         :size="14"
-        @mousedown="handleShowPassword('down')"
-        @mouseup="handleShowPassword('up')"
+        :on-change="handleShowPassword"
       />
     </div>
 

@@ -152,8 +152,9 @@ export const sizeChange: UtilsSizeChangeInterface = (
  * 例如: 12px => 12
  *
  * @param size 尺寸
+ * @returns { number } 数字尺寸
  */
-export const sizeToNum: UtilsSizeToNumInterface = (size: string | number) => {
+export const sizeToNum: UtilsSizeToNumInterface = (size: string | number): number => {
   if (!size) return 0
   if (typeof size === 'number') return size
   return Number.parseFloat(size) || 0
