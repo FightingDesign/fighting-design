@@ -163,7 +163,7 @@
           {
             'f-pagination__pages-li-choose': current === item,
             'f-pagination__pages-li-background-choose':
-              current === item && background,
+              current === item && (background || round),
             'f-pagination__background': background,
             'f-pagination__circle': round,
             'f-pagination__disabled f-pagination__pages-li-disabled': disabled

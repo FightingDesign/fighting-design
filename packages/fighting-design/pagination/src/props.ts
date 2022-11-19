@@ -31,7 +31,7 @@ export const Props = {
     default: (): number => 10
   },
   /**
-   * 每页多少条
+   * 是否启用选择器选择最大页数
    */
   pageSizes: {
     type: Array as PropType<number[]>,
