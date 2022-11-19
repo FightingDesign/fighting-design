@@ -8,11 +8,11 @@
 <template>
   <!-- <h1>{{ value5 }}</h1> -->
 
-  <f-calendar v-model:date="date" />
+  <!-- <f-calendar v-model:date="date" />
 
-  <input v-model="value5" type="date" />
+  <input v-model="value5" type="date" /> -->
 
-  <f-date-picker></f-date-picker>
+  <f-date-picker v-model:date="value5"></f-date-picker>
 </template>
 
 <style>

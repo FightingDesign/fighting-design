@@ -127,6 +127,7 @@
 
       <!-- 查看密码 -->
       <f-swap
+        v-if="showPassword"
         v-model="showPass"
         class="f-input__show-password"
         type="swap"
