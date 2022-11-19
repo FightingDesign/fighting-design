@@ -4,7 +4,7 @@
   import { computed, ref, inject } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import { Ripples, ChangeColor, sizeChange } from '../../_utils'
+  import { Ripples, ChangeColor, sizeChange, runCallback } from '../../_utils'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
     HandleMouseEventInterface,
@@ -91,7 +91,7 @@
       ripples.clickRipples()
     }
 
-    prop.click && prop.click(evt)
+    runCallback(prop.click, evt)
   }
 
   /**
@@ -99,6 +99,7 @@
    */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, fontColor, shadow, color } = prop
+
     if (color) {
       const changeColor: ChangeColor = new ChangeColor(color)
       const light: string = changeColor.getLightColor(0.4)
