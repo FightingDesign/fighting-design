@@ -7,6 +7,7 @@
 - `f-input` 组件加入查看密码切换动画效果
 - 重构 `f-calendar` 组件头部样式
 - 重构 `f-calendar` 组件内部细节
+- 新增 `f-date-picker` 组件
 
 ## 0.9.0-alpha.3 (2022-11-18)
 
