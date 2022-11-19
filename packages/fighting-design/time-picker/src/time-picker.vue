@@ -21,7 +21,7 @@
   const nowDate: Date = new Date()
   // 选择的日期
   const pickerTime: Ref<string> = ref<string>(prop.time)
-  // 当前小时
+  // 当前日期对象
   const timeList: TimePickerTimeListInterface =
     reactive<TimePickerTimeListInterface>({
       hover: addZero(nowDate.getHours()),
