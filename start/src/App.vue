@@ -53,7 +53,21 @@
     :model-value="num"
     model="button"
     size="large"
-    :step="10"
+    :min="0"
+    :max="50"
+    @update:model-value="handleClick"
+    @change="handleChange"
+    @blur="handleBlur"
+    @focus="handleFocus"
+    @enter="handleEnter"
+  ></f-input-number>
+
+  <f-input-number
+    clear
+    autofocus
+    :model-value="num"
+    model="switch"
+    size="large"
     :min="0"
     :max="50"
     @update:model-value="handleClick"

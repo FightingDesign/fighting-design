@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FInputNumber">
-  import { ref, computed } from 'vue'
   import { Props } from './props'
+  import { ref, computed } from 'vue'
   import { FIconCrossVue } from '../../_svg'
   import type { ComputedRef } from 'vue'
   import type {
@@ -10,8 +10,7 @@
     HandleKeyboardEventInterface
   } from '../../_interface'
 
-  const props = defineProps(Props)
-
+  const prop = defineProps(Props)
   const emit = defineEmits<{
     (e: 'update:modelValue', val: number): void
     (e: 'change', val: number): void
@@ -21,31 +20,31 @@
   }>()
 
   const inputRef = ref()
-  let initValue = ref(props.modelValue)
+  const initValue = ref(prop.modelValue)
 
   const displayValue: ComputedRef<string> = computed<string>(() =>
-    Number(props.modelValue)?.toFixed(props.precision)
+    Number(prop.modelValue)?.toFixed(prop.precision)
   )
 
   /**
    * 最小值禁用
    */
   const minDisabled: ComputedRef<boolean> = computed<boolean>(
-    () => +props.modelValue - +props.step <= props.min
+    () => +prop.modelValue - +prop.step <= prop.min
   )
 
   /**
    * 最大值禁用
    */
   const maxDisabled: ComputedRef<boolean> = computed<boolean>(
-    () => +props.modelValue + +props.step >= props.max
+    () => +prop.modelValue + +prop.step >= prop.max
   )
 
   /**
    * 输入框输入
    */
   const handleInput: HandleEventInterface = (evt: Event): void => {
-    const { min, max } = props
+    const { min, max } = prop
     let val = +(evt.target as HTMLInputElement).value
     if (val > max || val < min) {
       val = val > max ? max : min
@@ -66,23 +65,23 @@
    * 点击减号
    */
   const handleMinus: OrdinaryFunctionInterface = (): void => {
-    if (props.disabled || props.readonly || minDisabled.value) return
-    emit('update:modelValue', +props.modelValue - +props.step)
+    if (prop.disabled || prop.readonly || minDisabled.value) return
+    emit('update:modelValue', +prop.modelValue - +prop.step)
   }
 
   /**
    * 点击加号
    */
   const handlePlus: OrdinaryFunctionInterface = (): void => {
-    if (props.disabled || props.readonly || maxDisabled.value) return
-    emit('update:modelValue', +props.modelValue + +props.step)
+    if (prop.disabled || prop.readonly || maxDisabled.value) return
+    emit('update:modelValue', +prop.modelValue + +prop.step)
   }
 
   /**
    * 点击清除按钮
    */
   const handleClear: OrdinaryFunctionInterface = (): void => {
-    if (props.disabled || props.readonly) return
+    if (prop.disabled || prop.readonly) return
     emit('update:modelValue', initValue.value)
   }
 
@@ -92,10 +91,10 @@
   const handleBlur: HandleFocusEventInterface = (evt: FocusEvent): void => {
     const inputEle = inputRef.value
     let val = +(evt.target as HTMLInputElement).value
-    if (val > props.max || val < props.min) {
-      val = val > props.max ? props.max : props.min
+    if (val > prop.max || val < prop.min) {
+      val = val > prop.max ? prop.max : prop.min
     }
-    inputEle.value = val.toFixed(props.precision)
+    inputEle.value = val.toFixed(prop.precision)
     emit('blur', evt)
   }
 
