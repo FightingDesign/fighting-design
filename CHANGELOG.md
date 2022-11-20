@@ -6,6 +6,7 @@
 - `f-input` 组件新增 `after-icon` 配置项
 - `f-input` 组件优化查看密码方式
 - `f-input` 组件新增 `on-input` 配置项
+- `f-input` 组件新增 `after` 插槽
 - `f-textarea` 组件新增 `on-input` 配置项
 - 修复 `f-input` 组件 `on-change` 回调错误的问题
 - 修复 `f-textarea` 组件 `on-change` 回调错误的问题

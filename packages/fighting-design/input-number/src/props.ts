@@ -6,14 +6,17 @@ import type {
 
 export const Props = {
   /**
-   * 绑定值
+   * @zh 绑定值
+   * @defaultValue 1
    */
   modelValue: {
     type: Number,
     default: (): number => 1
   },
   /**
-   * 类型
+   * @zh 模式
+   * @values default button switch
+   * @defaultValue default
    */
   model: {
     type: String as PropType<InputNumberModelType>,
@@ -23,21 +26,21 @@ export const Props = {
     }
   },
   /**
-   * 数值精度
+   * @zh 数值精度
    */
   precision: {
     type: Number,
     default: (): number => 0
   },
   /**
-   * 步长
+   * @zh 步长
    */
   step: {
     type: Number,
     default: (): number => 1
   },
   /**
-   * 尺寸
+   * @zh 尺寸
    */
   size: {
     type: String as PropType<InputNumberSizeType>,
@@ -47,28 +50,28 @@ export const Props = {
     }
   },
   /**
-   * 是否禁用
+   * @zh 是否禁用
    */
   disabled: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
-   * 最大值（数字）
+   * @zh 最大值（数字）
    */
   max: {
     type: Number,
     default: (): null => null
   },
   /**
-   * 最小值（数字）
+   * @zh 最小值（数字）
    */
   min: {
     type: Number,
     default: (): null => null
   },
   /**
-   * 最大输入长度
+   * @zh 最大输入长度
    */
   maxLength: {
     type: Number,
@@ -83,28 +86,28 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 原生name属性
+   * @zh 原生 name 属性
    */
   name: {
     type: String,
     default: (): string => 'f-input-number'
   },
   /**
-   * 占位符
+   * @zh 占位符
    */
   placeholder: {
     type: String,
     default: (): null => null
   },
   /**
-   * 是否可清除
+   * @zh 是否可清除
    */
   clear: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
-   * 是否只读
+   * @zh 是否只读
    */
   readonly: {
     type: Boolean,
@@ -118,21 +121,21 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 失去焦点时触发的回调
+   * @zh 失去焦点时触发的回调
    */
   onBlur: {
     type: Function as PropType<HandleFocusEventInterface>,
     default: (): null => null
   },
   /**
-   * 获得焦点时触发的回调
+   * @zh 获得焦点时触发的回调
    */
   onFocus: {
     type: Function as PropType<HandleFocusEventInterface>,
     default: (): null => null
   },
   /**
-   * input 事件触发的回调
+   * @zh input 事件触发的回调
    */
   onInput: {
     type: Function as PropType<HandleFocusEventInterface>,

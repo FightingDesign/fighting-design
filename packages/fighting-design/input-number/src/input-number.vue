@@ -9,12 +9,8 @@
   } from '../../_svg'
   import { FInput } from '../../input'
   import { FButton } from '../../button'
-  import { runCallback } from '../../_utils'
   import type { ComputedRef } from 'vue'
-  import type {
-    OrdinaryFunctionInterface,
-    HandleFocusEventInterface
-  } from '../../_interface'
+  import type { OrdinaryFunctionInterface } from '../../_interface'
   import type { InputNumberPropsType } from './interface'
 
   const prop: InputNumberPropsType = defineProps(Props)
@@ -41,33 +37,6 @@
     if (prop.disabled || prop.readonly) return
     emit('update:modelValue', +prop.modelValue + +prop.step)
   }
-
-  /**
-   * input 事件监听
-   *
-   * @param evt 事件对象
-   */
-  const handleInput: HandleFocusEventInterface = (evt: Event): void => {
-    runCallback(prop.onInput, evt)
-  }
-
-  /**
-   * 失去焦点
-   *
-   * @param evt 事件对象
-   */
-  const handleBlur: HandleFocusEventInterface = (evt: Event): void => {
-    runCallback(prop.onBlur, evt)
-  }
-
-  /**
-   * 获取焦点
-   *
-   * @param evt 事件对象
-   */
-  const handleFocus: HandleFocusEventInterface = (evt: FocusEvent): void => {
-    runCallback(prop.onFocus, evt)
-  }
 </script>
 
 <template>
@@ -93,9 +62,10 @@
         :name="name"
         :clear="clear"
         :placeholder="placeholder"
-        :on-blur="handleBlur"
-        :on-focus="handleFocus"
-        :on-input="handleInput"
+        :on-blur="onBlur"
+        :on-focus="onFocus"
+        :on-input="onInput"
+        :on-change="onChange"
       >
         <template #after>
           <div v-if="model === 'switch'" class="f-input-number__switch">
