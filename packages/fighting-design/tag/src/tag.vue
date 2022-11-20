@@ -3,6 +3,7 @@
   import { computed, ref } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
+  import { runCallback } from '../../_utils'
   import type { ComputedRef, Ref } from 'vue'
   import type { TagPropsType } from './interface'
   import type { ClassListInterface } from '../../_interface'
@@ -36,10 +37,12 @@
 
   /**
    * 点击关闭按钮
+   *
+   * @param evt 事件对象
    */
   const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     isShow.value = false
-    prop.closeEnd && prop.closeEnd(evt)
+    runCallback(prop.closeEnd, evt)
   }
 </script>
 

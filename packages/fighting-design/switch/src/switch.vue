@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FSwitch">
-  import { computed } from 'vue'
   import { Props } from './props'
+  import { computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
+  import { runCallback } from '../../_utils'
   import type {
     OrdinaryFunctionInterface,
     ClassListInterface
@@ -20,7 +21,7 @@
   const handleClick: OrdinaryFunctionInterface = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', !prop.modelValue)
-    prop.change && prop.change(!prop.modelValue)
+    runCallback(prop.change, !prop.modelValue)
   }
 
   /**

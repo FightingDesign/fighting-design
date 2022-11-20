@@ -182,6 +182,13 @@ export const Props = {
   onEnter: {
     type: Function as PropType<HandleEventInterface>,
     default: (): null => null
+  },
+  /**
+   * 后缀 icon
+   */
+  afterIcon: {
+    type: Object as PropType<VNode | Component>,
+    default: (): null => null
   }
 } as const
 

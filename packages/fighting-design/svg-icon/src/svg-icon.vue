@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FSvgIcon">
   import { Props } from './props'
   import { computed } from 'vue'
-  import { sizeChange } from '../../_utils'
+  import { sizeChange, runCallback } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { HandleMouseEventInterface } from '../../_interface'
   import type { SvgIconPropsType } from './props'
@@ -10,18 +10,22 @@
 
   /**
    * 点击触发
+   *
+   * @param evt 事件对象
    */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    prop.click && prop.click(evt)
+    runCallback(prop.click, evt)
   }
 
   /**
    * 样式列表
    */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    const { size, color } = prop
+
     return {
-      fontSize: sizeChange(prop.size),
-      color: prop.color
+      fontSize: sizeChange(size),
+      color
     } as const
   })
 </script>

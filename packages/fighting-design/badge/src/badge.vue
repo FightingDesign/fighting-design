@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FBadge">
-  import { computed } from 'vue'
   import { Props } from './props'
+  import { computed } from 'vue'
   import { isNumber } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'

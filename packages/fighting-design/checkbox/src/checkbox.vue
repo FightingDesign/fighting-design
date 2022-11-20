@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FCheckbox">
   import { Props } from './props'
   import { computed, inject, getCurrentInstance, ref } from 'vue'
-  import { isArray } from '../../_utils'
+  import { isArray, runCallback } from '../../_utils'
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import type { ClassListInterface } from '../../_interface'
   import type {
@@ -63,7 +63,7 @@
         return
       }
       if (prop.disabled) return
-      prop.change && prop.change(val)
+      runCallback(prop.change, val)
       emit('update:modelValue', val)
     }
   })

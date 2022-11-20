@@ -33,6 +33,7 @@
    * 为 false 的时候代表不是懒加载，所以可以先隐藏
    */
   const isShowNode: Ref<boolean> = ref<boolean>(prop.lazy)
+  // 图片 dom 节点
   const FAvatarImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
     null as unknown as HTMLImageElement
   )
@@ -86,7 +87,9 @@
     } as CSSProperties
   })
 
-  // 开始加载图片
+  /**
+   * 开始加载图片
+   */
   const loadAction: OrdinaryFunctionInterface = (): void => {
     const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
     const callback: LoadCallbackInterface = (params: boolean): void => {

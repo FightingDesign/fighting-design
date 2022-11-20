@@ -9,11 +9,14 @@
 
   const prop: WatermarkPropsType = defineProps(Props)
 
+  // 水印样式列表
   const watermarkStyleList: Ref<CSSProperties> = ref<CSSProperties>(
     null as unknown as CSSProperties
   )
 
-  // 文字水印
+  /**
+   * 文字水印
+   */
   const baseWatermark: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
       const needProps: CreateWatermarkPropsInterface = useFilterProps<
@@ -29,7 +32,9 @@
     }
   )
 
-  // 图片水印
+  /**
+   * 图片水印
+   */
   const imageWatermark: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
       const { image, width, height } = prop

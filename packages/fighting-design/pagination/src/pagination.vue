@@ -95,7 +95,7 @@
     if (prop.disabled) return
     const newCurrent = prop.current === 1 ? 1 : prop.current - 1
     emit('update:current', newCurrent)
-    prop.prevClick(newCurrent, prop.pageSize)
+    prop.prevClick && prop.prevClick(newCurrent, prop.pageSize)
   }
 
   /**
@@ -163,7 +163,7 @@
           {
             'f-pagination__pages-li-choose': current === item,
             'f-pagination__pages-li-background-choose':
-              current === item && background,
+              current === item && (background || round),
             'f-pagination__background': background,
             'f-pagination__circle': round,
             'f-pagination__disabled f-pagination__pages-li-disabled': disabled

@@ -2,12 +2,15 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- `f-input` 新增 `number` 类型
+- `f-input` 组件 `type` 属性新增 `number` 类型
+- `f-input` 组件新增 `after-icon` 配置项
 - `f-input` 组件优化查看密码方式
 - `f-input` 组件加入查看密码切换动画效果
 - 重构 `f-calendar` 组件头部样式
+- 优化 `f-dropdown` 组件样式细节
 - 重构 `f-calendar` 组件内部细节
 - 新增 `f-date-picker` 组件
+- 新增 `f-time-picker` 组件
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

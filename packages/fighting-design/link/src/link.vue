@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
-  import { sizeChange } from '../../_utils'
+  import { sizeChange, runCallback } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type {
     HandleMouseEventInterface,
@@ -12,13 +12,17 @@
 
   const prop: LinkPropsType = defineProps(Props)
 
-  // 点击
+  /**
+   * 点击触发
+   *
+   * @param evt 事件对象
+   */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     if (prop.prohibit || prop.noLink) {
       evt.preventDefault()
       return
     }
-    prop.click && prop.click(evt)
+    runCallback(prop.click, evt)
   }
 
   /**

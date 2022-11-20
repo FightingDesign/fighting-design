@@ -3,7 +3,7 @@
   import { computed, ref } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
-  import { sizeChange } from '../../_utils'
+  import { sizeChange, runCallback } from '../../_utils'
   import type { ComputedRef, CSSProperties, Ref } from 'vue'
   import type {
     HandleMouseEventInterface,
@@ -73,7 +73,7 @@
    */
   const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     isShow.value = false
-    prop.closeEnd && prop.closeEnd(evt)
+    runCallback(prop.closeEnd, evt)
   }
 </script>
 

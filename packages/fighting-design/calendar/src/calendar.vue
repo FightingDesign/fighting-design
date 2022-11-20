@@ -4,7 +4,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FText } from '../../text'
   import { FIconChevronLeftVue, FIconChevronRightVue } from '../../_svg'
-  import { addZero, sizeChange, WEEK_DATA } from '../../_utils'
+  import { addZero, sizeChange, WEEK_DATA, runCallback } from '../../_utils'
   import { useCalculiTime } from '../../_hooks'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
@@ -88,12 +88,11 @@
       changeNextMonth()
     }
 
-    prop.changeDate &&
-      prop.changeDate({
-        year: year.value,
-        month: _month || month.value,
-        date: _date
-      })
+    runCallback(prop.changeDate, {
+      year: year.value,
+      month: _month || month.value,
+      date: _date
+    })
   }
 
   /**
@@ -125,12 +124,11 @@
   watch(
     (): number => month.value,
     (newValue: number): void => {
-      prop.changeSwitch &&
-        prop.changeSwitch({
-          year: year.value,
-          month: newValue + 1,
-          date: date.value
-        })
+      runCallback(prop.changeSwitch, {
+        year: year.value,
+        month: newValue + 1,
+        date: date.value
+      })
     }
   )
 </script>

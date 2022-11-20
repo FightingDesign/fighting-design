@@ -3,13 +3,13 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FButton } from '../../button'
   import { FSwap } from '../../swap'
-  import { ref } from 'vue'
+  import { ref, toRefs } from 'vue'
   import {
     FIconCrossVue,
     FIconEyeOffOutlineVue,
     FIconEyeOutlineVue
   } from '../../_svg'
-  import { isString } from '../../_utils'
+  import { isString, runCallback } from '../../_utils'
   import { useUpdateInput, useFilterProps } from '../../_hooks'
   import type { Ref } from 'vue'
   import type { InputType } from './interface'
@@ -57,9 +57,7 @@
    * @param evt 事件对象
    */
   const handleSearch: HandleEventInterface = (evt: Event): void => {
-    if (prop.onSearch) {
-      prop.onSearch({ evt, value: prop.modelValue })
-    }
+    runCallback(prop.onSearch, { evt, value: prop.modelValue })
   }
 
   /**
@@ -68,15 +66,13 @@
    * @param evt 事件对象
    */
   const handleEnter: HandleEventInterface = (evt: Event): void => {
-    const { search, enterSearch, onEnter } = prop
+    const { search, enterSearch, onEnter } = toRefs(prop)
 
-    if (search && enterSearch) {
+    if (search.value && enterSearch.value) {
       handleSearch(evt)
     }
 
-    if (onEnter) {
-      onEnter(evt)
-    }
+    runCallback(onEnter.value, evt)
   }
 
   /**
@@ -116,7 +112,7 @@
         @focus="onFocus"
       />
 
-      <!-- 左侧 icon -->
+      <!-- 清楚 icon -->
       <f-svg-icon
         v-if="clear"
         class="f-input__clear-btn"
@@ -124,6 +120,9 @@
         :size="14"
         @click="onClear"
       />
+
+      <!-- 左侧 icon -->
+      <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="14" />
 
       <!-- 查看密码 -->
       <f-swap
