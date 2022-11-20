@@ -1,32 +1,65 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value5 = ref('')
+  // const value1 = ref('')
 
+  const num = ref(3)
+
+  const handleInput1 = (val: unknown): void => {
+    console.log('handleInput1-val :>> ', val)
+    // num.value += val
+  }
+
+  const handleClick = (val: number): void => {
+    console.log('handleClick-val :>> ', val)
+    // num.value += +val
+    num.value = val
+  }
+
+  const handleChange = (val: unknown): void => {
+    console.log('handleChange-val :>> ', val)
+    // num.value += val
+  }
+
+  const handleBlur = (e: unknown): void => {
+    console.log('blur-e :>> ', e)
+  }
+
+  const handleFocus = (e: unknown): void => {
+    console.log('focus-e :>> ', e)
+  }
+
+  const handleEnter = (e: unknown): void => {
+    console.log('handleEnter--e :>> ', e)
+  }
 </script>
 
 <template>
-  <!-- <h1>{{ value5 }}</h1> -->
+  <div style="height: 100px"></div>
 
-  <!-- <f-calendar v-model:date="date" />
+  <f-input
+    model-value="hello"
+    size="large"
+    clear
+    readonly
+    @change="handleInput1"
+  ></f-input>
 
-  <input v-model="value5" type="date" /> -->
+  <div style="height: 100px"></div>
 
-  <input v-model="value5" type="time" />
-
-  <!-- <f-date-picker v-model:date="value5"></f-date-picker> -->
-  <f-time-picker v-model:time="value5"></f-time-picker>
-
-  <!-- <f-button type="primary" @click="onShow">从下往上开</f-button>
-
-  <f-popup v-model:visible="visible2" :direction="direction" :padding="30">
-    <h3>h12</h3>
-  </f-popup> -->
+  <f-input-number
+    clear
+    autofocus
+    :model-value="num"
+    model="button"
+    size="large"
+    :step="10"
+    :min="0"
+    :max="50"
+    @update:model-value="handleClick"
+    @change="handleChange"
+    @blur="handleBlur"
+    @focus="handleFocus"
+    @enter="handleEnter"
+  ></f-input-number>
 </template>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-</style>
