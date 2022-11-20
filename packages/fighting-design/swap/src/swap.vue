@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FSwap">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
+  import { runCallback } from '../../_utils'
   import { computed } from 'vue'
   import type { ComputedRef } from 'vue'
   import type {
@@ -19,7 +20,7 @@
    */
   const changeSwap: OrdinaryFunctionInterface = (): void => {
     emit('update:modelValue', !prop.modelValue)
-    prop.onChange && prop.onChange(!prop.modelValue)
+    runCallback(prop.onChange, !prop.modelValue)
   }
 
   /**

@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FRadio">
   import { Props } from './props'
-  import { isString, isBoolean, isNumber } from '../../_utils'
+  import { isString, isBoolean, isNumber, runCallback } from '../../_utils'
   import { computed, inject } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
   import type { ComputedRef, WritableComputedRef } from 'vue'
@@ -28,20 +28,20 @@
      * 如果父组件有依赖注入则使用
      * 否则使用之身 props 参数
      */
-    get() {
+    get () {
       return (groupProps && groupProps.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set(val) {
+    set (val) {
       if (groupProps && !groupProps.disabled) {
         groupProps.changeEvent(val)
         return
       }
       if (prop.disabled) return
       emit('update:modelValue', val)
-      prop.change && prop.change(val)
+      runCallback(prop.change, val)
     }
   })
 

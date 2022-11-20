@@ -6,5 +6,5 @@
  * @return { void } 没有返回值
  */
 export interface runCallbackInterface {
-  <T extends Function, F>(callback: T | null, params: F | null): void
+  <T extends Function, F>(callback: T | null, params?: F | null): void
 }

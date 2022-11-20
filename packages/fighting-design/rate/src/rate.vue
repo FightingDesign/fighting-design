@@ -3,6 +3,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FIconStarBVue } from '../../_svg'
   import { FText } from '../../text'
+  import { runCallback } from '../../_utils'
   import { ref, watch, unref, computed } from 'vue'
   import type { Ref, ComputedRef } from 'vue'
   import type { OrdinaryFunctionInterface } from '../../_interface'
@@ -36,7 +37,7 @@
     if (prop.readonly) return
     starValue.value = index
     emit('update:modelValue', index)
-    prop.change && prop.change(index)
+    runCallback(prop.change, index)
   }
 
   watch(

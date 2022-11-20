@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
-  import { sizeChange } from '../../_utils'
+  import { sizeChange, runCallback } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type {
     HandleMouseEventInterface,
@@ -18,7 +18,7 @@
       evt.preventDefault()
       return
     }
-    prop.click && prop.click(evt)
+    runCallback(prop.click, evt)
   }
 
   /**
