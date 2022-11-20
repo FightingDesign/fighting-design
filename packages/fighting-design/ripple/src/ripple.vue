@@ -60,6 +60,7 @@
         ripplesColor: ripplesColor.value
       } as const
     )
+
     ripples.clickRipples()
   }
 </script>

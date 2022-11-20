@@ -1,5 +1,6 @@
 <script lang="ts" setup name="FDropdownItem">
   import { Props } from './props'
+  import { runCallback } from '../../_utils'
   import type { DropdownItemPropsType } from './interface'
   import type { HandleMouseEventInterface } from '../../_interface'
 
@@ -7,10 +8,12 @@
 
   /**
    * 点击时触发
+   *
+   * @param evt 事件对象
    */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    prop.click && prop.click(evt)
+    runCallback(prop.click, evt)
   }
 </script>
 
