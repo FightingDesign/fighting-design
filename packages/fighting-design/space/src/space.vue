@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FSpace">
-  import { computed } from 'vue'
   import { Props } from './props'
+  import { computed } from 'vue'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
   import type { SpacePropsType } from './props'

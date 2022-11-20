@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FCheckboxGroup">
-  import { provide, reactive, toRefs, computed } from 'vue'
   import { Props, CHECKBOX_GROUP_PROPS_KEY } from './props'
+  import { provide, reactive, toRefs, computed } from 'vue'
   import { sizeChange, isArray } from '../../_utils'
   import type {
     CheckboxGroupPropsType,

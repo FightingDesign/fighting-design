@@ -1,6 +1,6 @@
 <script setup lang="ts" name="FLoading">
-  import { computed } from 'vue'
   import { Props } from './props'
+  import { computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
   import type { ClassListInterface } from '../../_interface'

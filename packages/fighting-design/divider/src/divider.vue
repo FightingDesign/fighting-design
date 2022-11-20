@@ -1,12 +1,14 @@
 <script lang="ts" setup name="FDivider">
-  import { useSlots, computed } from 'vue'
   import { Props } from './props'
+  import { useSlots, computed } from 'vue'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { DividerPropsType } from './props'
 
   const prop: DividerPropsType = defineProps(Props)
 
-  // 是否有插槽
+  /**
+   * 是否有插槽
+   */
   const renderSlot: ComputedRef<boolean> = computed((): boolean => {
     return !prop.vertical && Boolean(useSlots().default)
   })
