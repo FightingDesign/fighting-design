@@ -9,7 +9,7 @@ export const Props = {
     default: (): number => 0
   },
   /**
-   * 步长
+   * 步长（注意和步数区别开来）
    */
   step: {
     type: [Number, String] as PropType<number | string>,
@@ -19,14 +19,14 @@ export const Props = {
    * 最小值
    */
   min: {
-    type: [Number, String] as PropType<number | string>,
+    type: Number,
     default: (): number => 0
   },
   /**
    * 最大值
    */
   max: {
-    type: [Number, String] as PropType<number | string>,
+    type: Number,
     default: (): number => 100
   },
   /**
@@ -48,7 +48,7 @@ export const Props = {
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): string => '#2D5AF1'
   },
   /**
    * 自定义滑块背景色

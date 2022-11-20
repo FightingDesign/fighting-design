@@ -1,6 +1,8 @@
 <script lang="ts" setup name="FSlider">
   import { Props } from './props'
-  import { computed,onMounted, onBeforeUnmount, ref } from 'vue'
+  import { computed,onMounted, ref, nextTick } from 'vue'
+  import dragDirective from './drag'
+  import { FSvgIcon } from '../../svg-icon'
   import type { SliderPropsType } from './interface'
   import type { ComputedRef, CSSProperties, Ref } from 'vue';
   import type { ClassListInterface } from '../../_interface';
@@ -11,132 +13,94 @@
   const FSlider: Ref<HTMLDivElement> = ref<HTMLDivElement>(
     null as unknown as HTMLDivElement
   )
+  const width = ref(0)
 
+  // 步长宽度
+  const stepWidth = computed(() => {
+    const {min, max, step} = prop
+    return width.value / ((max - min) / step)
+  })
+
+  // 自定义指令
+  const vDrag = dragDirective
   /**
    * 类名列表
    */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
-      const {
-        step,
-        min,
-        max,
-        disabled,
-        range,
-        color,
-        bgColor,
-        vertical,
-        icon
-      } = prop
-
-      // if(Array.isArray(modelValue)) {
-
-      // } else {
-
-      // }
-
       return [
-        'f-slider',
-        {
-          'f-slider__vertical': vertical,
-          'f-slider__horizontal': !vertical
-        }
+        'f-slider'
       ] as const
     }
   )
-
-  // 样式列表
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { min, max, disabled} = prop
-
-    const leftIconPercent = percent.value[0] * 100 + '%'
-    const rightIconPercent = percent.value[1] * 100 + '%'
-
-    const cursorType = disabled ? 'not-allowed' : isDraging.value ? 'grabbing' : 'grab'
+    const { bgColor } = prop
 
     const styles = {
-      '--f-slider-left-icon-percent': leftIconPercent,
-      '--f-slider-right-icon-percent': rightIconPercent,
-      '--f-slider-cursor-type': cursorType
+      '--f-slider-bg-color': bgColor
     } as CSSProperties
 
     return styles
   })
 
-  // 动画百分比
-  const percent = ref([0, 0])
+  // 
+  const leftTx = ref(0)
+  const rightTx = ref(0)
+
   onMounted(() => {
-    const { min, max, modelValue} = prop
-    const leftIconPercent = ((modelValue[0] - min) / (max - min))
-    const rightIconPercent = ((modelValue[1] - min) / (max - min))
-
-    percent.value = [leftIconPercent, rightIconPercent]
+    const {min, max, modelValue} = prop
+    updateSiderWidth()
+    leftTx.value = width.value * modelValue[0] / (max - min)
+    rightTx.value = width.value * modelValue[1] / (max -min)
   })
-  // 是否开启滑动缓冲动画
-  const isOpenAnimation = ref<'width .3s' | ''>('width .3s')
-  // 是否正在拖动
-  const isDraging = ref(false)
 
-  const drag = (e): void => {
-    const fSliderLeft = FSlider.value.offsetLeft
-    const fSliderWidth = FSlider.value.clientWidth
-
-    let distanceX = e.pageX - fSliderLeft
-    const rightIconLeft = fSliderWidth * percent.value[1]
-
-    if(distanceX < 0) distanceX = 0
-    if(distanceX > (rightIconLeft)) distanceX = rightIconLeft
-
-    isOpenAnimation.value = ''
-    percent.value[0] = (distanceX / fSliderWidth)
-
+  const updateSiderWidth = (): void=>{
+      const rect = FSlider?.value?.getBoundingClientRect()
+      if(!rect)return
+      if(width.value != rect.width)
+          width.value = rect.width
   }
 
-  const cancelDrag = (e): void => {
-    if(!isDraging.value || prop.disabled) return
-    /**
-     0. 左控件的offsetLeft，是相对它的定位父元素的。
-     1. 相对原先滑块，移动的距离是多少？
-     2. 一个步长的宽度是多少？
-     3. 相对原先滑块，移动的步长是多少？
-     4. 移动后的滑块占百分比多少？
-     */
-    document.removeEventListener('mousemove', drag, true)
-    document.body.style.cursor = ''
-    const fSliderLeft = FSlider.value.offsetLeft
-    const fSliderWidth = FSlider.value.clientWidth
-    const rightIconLeft = fSliderWidth * percent.value[1]
-    let distanceX = e.pageX - fSliderLeft
-    if(distanceX < 0) distanceX = 0
-    if(distanceX > (rightIconLeft)) distanceX = rightIconLeft
-    const {min, max, step} = prop
-    const stepWidth = fSliderWidth * (step / (max - min))
-    const rightIconStepNum = rightIconLeft / stepWidth
-    let stepNum = distanceX / stepWidth
-    let decimal = stepNum % 1
-    stepNum = parseInt(stepNum + '') + (decimal > 0.5 ? 1 : 0)
-    if(stepNum >= rightIconStepNum) stepNum -= 1
-    const newPercent = stepNum / ((max - min))
-    console.log(newPercent);
+  // 正在拽动左边的按钮
+  const onLeftDrag = (e: EventTarget, {x}: {x: number, y: number}): void => {
+    if(x < 0) x = 0
+    if(x > rightTx.value - stepWidth.value ) x = rightTx.value - stepWidth.value
     
-    percent.value[0] = newPercent
-    // console.log(stepNum, '移动步长');
+    leftTx.value  = x
+    notify()
+  }
+
+  // 正在拽动右边的按钮
+  const onRightDrag = (e: EventTarget, {x}: {x: number, y: number}): void => {
+    if(x < leftTx.value + stepWidth.value) x = leftTx.value + stepWidth.value
+    if(x > width.value ) x = width.value
+
+    rightTx.value  = x
+    notify()
+  }
+
+  const notify = (): void => {
+    const {min, max} = prop
+
+    const leftValue = Math.round((max - min) * leftTx.value / width.value)
+    const rightValue = Math.round((max - min) * rightTx.value / width.value)
     
+    emit('update:modelValue', [leftValue, rightValue])
   }
 
-  // 取消拖动监听
-  onMounted(() => document.addEventListener('mouseup', cancelDrag, true))
-    // 卸载 取消拖动监听
-    onBeforeUnmount(() => document.removeEventListener('mouseup', cancelDrag, true))
+  const selectedStyle = computed(() => {
+    const {color} = prop
+    return `
+      transform: translateX(${leftTx.value}px);
+      width: ${rightTx.value - leftTx.value}px;
+      background-color: ${color};
+    `
+  })
 
-  const onLeftIconMousedown = (): void => {
-    if(prop.disabled) return
-
-    isDraging.value = true
-    document.body.style.cursor = 'grabbing'
-    // 拖动监听
-    document.addEventListener('mousemove', drag, true)
-  }
+  // nextTick(() => updateSiderWidth())
 
   const emit = defineEmits(['update:modelValue'])
 
@@ -145,12 +109,22 @@
 <template>
   <div ref="FSlider" :class="classList" :style="styleList">
     <div 
-      class="f-slider__left__icon"
-      @mousedown="onLeftIconMousedown"
-    ></div>
-    <div class="f-slider__selected"></div>
+      v-drag="onLeftDrag"
+      class="f-slider__left__icon f-slider__icon"
+      :style="`transform: translateX(${leftTx}px)`"
+    >
+      <f-svg-icon v-if="icon" size="20px" :icon="icon" />
+    </div>
     <div 
-      class="f-slider__right__icon"
+      class="f-slider__selected"
+      :style="selectedStyle"
     ></div>
+    <div 
+      v-drag="onRightDrag"
+      class="f-slider__right__icon f-slider__icon"
+      :style="`transform: translateX(${rightTx}px)`"
+    >
+      <f-svg-icon v-if="icon" size="20px" :icon="icon" />
+    </div>
   </div>
 </template>
