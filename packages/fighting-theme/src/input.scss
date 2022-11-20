@@ -38,6 +38,16 @@
       font-size: 14px;
       cursor: pointer;
       color: var(--f-design-color-text-1);
+
+      // 禁用原生右侧上下选择箭头
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+
+      &[type='number'] {
+        -moz-appearance: textfield;
+      }
     }
 
     // 清楚按钮

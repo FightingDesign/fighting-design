@@ -146,6 +146,8 @@
         :size="14"
         :on-change="handleShowPassword"
       />
+
+      <slot name="after" />
     </div>
 
     <!-- 搜索框 -->

@@ -1,9 +1,13 @@
 <script lang="ts" setup name="FInputNumber">
   import { Props } from './props'
   import { ref, computed } from 'vue'
-  import { FIconCrossVue } from '../../_svg'
+  import {
+    FIconChevronLeftVue,
+    FIconChevronRightVue,
+    FIconChevronUp,
+    FIconChevronDown
+  } from '../../_svg'
   import { FInput } from '../../input'
-  import { FSvgIcon } from '../../svg-icon'
   import { FButton } from '../../button'
   import type { ComputedRef } from 'vue'
   import type {
@@ -24,7 +28,6 @@
   }>()
 
   const inputRef = ref()
-  const initValue = ref(prop.modelValue)
 
   const displayValue: ComputedRef<string> = computed<string>(() =>
     Number(prop.modelValue)?.toFixed(prop.precision)
@@ -82,15 +85,9 @@
   }
 
   /**
-   * 点击清除按钮
-   */
-  const handleClear: OrdinaryFunctionInterface = (): void => {
-    if (prop.disabled || prop.readonly) return
-    emit('update:modelValue', initValue.value)
-  }
-
-  /**
    * 失去焦点
+   *
+   * @param evt 事件对象
    */
   const handleBlur: HandleFocusEventInterface = (evt: FocusEvent): void => {
     const inputEle = inputRef.value
@@ -104,6 +101,8 @@
 
   /**
    * 获取焦点
+   *
+   * @param evt 事件对象
    */
   const handleFocus: HandleFocusEventInterface = (evt: FocusEvent): void => {
     emit('focus', evt)
@@ -117,9 +116,8 @@
       type="primary"
       :disabled="disabled"
       :click="handleMinus"
-    >
-      +
-    </f-button>
+      :before-icon="FIconChevronLeftVue"
+    />
 
     <div class="f-input-number__wrapper">
       <f-input
@@ -138,25 +136,30 @@
         :on-focus="handleFocus"
         :on-enter="handleEnter"
         :on-input="handleInput"
-      />
-
-      <div v-if="model === 'switch'" class="f-input-number__switch">
-        <f-button type="primary" :disabled="disabled" @click="handlePlus">
-          +
-        </f-button>
-        <f-button type="primary" :disabled="disabled" @click="handleMinus">
-          -
-        </f-button>
-      </div>
+      >
+        <template #after>
+          <div v-if="model === 'switch'" class="f-input-number__switch">
+            <f-button
+              :disabled="disabled"
+              :before-icon="FIconChevronUp"
+              :click="handlePlus"
+            />
+            <f-button
+              :disabled="disabled"
+              :before-icon="FIconChevronDown"
+              :click="handleMinus"
+            />
+          </div>
+        </template>
+      </f-input>
     </div>
 
     <f-button
       v-if="model === 'button'"
       type="primary"
       :disabled="disabled"
+      :before-icon="FIconChevronRightVue"
       :click="handlePlus"
-    >
-      -
-    </f-button>
+    />
   </div>
 </template>
