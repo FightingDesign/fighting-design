@@ -101,6 +101,7 @@
         justify-content: center;
         width: 100%;
         height: 50%;
+
         .f-input-number__switch-up-icon,
         .f-input-number__switch-down-icon {
           width: 6px;
@@ -110,14 +111,17 @@
           transform: rotate(-45deg);
           margin-top: 6px;
         }
+
         .f-input-number__switch-down-icon {
           transform: rotate(135deg);
           margin-bottom: 6px;
         }
       }
+
       .f-input-number__switch-up:hover .f-input-number__switch-up-icon {
         border-color: var(--f-design-color-primary-1);
       }
+
       .f-input-number__switch-down:hover .f-input-number__switch-down-icon {
         border-color: var(--f-design-color-primary-1);
       }

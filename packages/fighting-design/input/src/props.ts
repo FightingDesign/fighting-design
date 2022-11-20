@@ -177,6 +177,13 @@ export const Props = {
     default: (): null => null
   },
   /**
+   * input 事件触发的回调
+   */
+  onInput: {
+    type: Function as PropType<HandleFocusEventInterface>,
+    default: (): null => null
+  },
+  /**
    * 按下回车触发的
    */
   onEnter: {

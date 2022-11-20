@@ -34,21 +34,31 @@
    *
    * useFilterProps 过滤出需要的参数
    */
-  const { onInput, onClear } = useUpdateInput(
+  const { onInput, onClear, onChange } = useUpdateInput(
     useFilterProps<InputPropsType, UseUpdateInputPropsInterface>(prop, [
       'onChange',
+      'onInput',
       'disabled'
     ]),
     emit
   )
 
   /**
-   * 文本输入
+   * 文本输入 input 事件
    *
    * @param evt 事件对象
    */
   const handleInput: HandleEventInterface = (evt: Event): void => {
     onInput(evt)
+  }
+
+  /**
+   * 文本输入 change 事件
+   *
+   * @param evt 事件对象
+   */
+  const handleChange: HandleEventInterface = (evt: Event): void => {
+    onChange(evt)
   }
 
   /**
@@ -107,6 +117,7 @@
         :name="name"
         :placeholder="placeholder"
         @input="handleInput"
+        @change="handleChange"
         @keyup.enter="handleEnter"
         @blur="onBlur"
         @focus="onFocus"

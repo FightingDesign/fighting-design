@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { InputNumberSizeType } from './interface'
+import type { InputNumberSizeType, InputNumberModelType } from './interface'
 
 export const Props = {
   /**
@@ -13,10 +13,10 @@ export const Props = {
    * 类型
    */
   model: {
-    type: String,
-    default: (): string => 'default',
-    validator: (val: string): boolean => {
-      return ['default', 'button', 'switch'].includes(val)
+    type: String as PropType<InputNumberModelType>,
+    default: (): InputNumberModelType => 'default',
+    validator: (val: InputNumberModelType): boolean => {
+      return (['default', 'button', 'switch'] as const).includes(val)
     }
   },
   /**
@@ -55,14 +55,14 @@ export const Props = {
    */
   max: {
     type: Number,
-    default: (): number => Infinity
+    default: (): null => null
   },
   /**
    * 最小值（数字）
    */
   min: {
     type: Number,
-    default: (): number => -Infinity
+    default: (): null => null
   },
   /**
    * 最大输入长度
@@ -84,14 +84,14 @@ export const Props = {
    */
   name: {
     type: String,
-    default: (): string => ''
+    default: (): string => 'f-input-number'
   },
   /**
    * 占位符
    */
   placeholder: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否可清除

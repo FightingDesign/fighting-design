@@ -4,6 +4,7 @@
   // const value1 = ref('')
 
   const num = ref(3)
+  const value1 = ref('')
 
   const handleInput1 = (val: unknown): void => {
     console.log('handleInput1-val :>> ', val)
@@ -32,20 +33,20 @@
   const handleEnter = (e: unknown): void => {
     console.log('handleEnter--e :>> ', e)
   }
+
+  const change = (e) => console.log(e)
+  const input = (e) => console.log(e)
 </script>
 
 <template>
-  <div style="height: 100px"></div>
-
   <f-input
-    model-value="hello"
-    size="large"
-    clear
-    readonly
-    @change="handleInput1"
-  ></f-input>
-
-  <div style="height: 100px"></div>
+    v-model="value1"
+    type="text"
+    disabled
+    placeholder="请输入...."
+    :on-change="change"
+    :on-input="input"
+  />
 
   <f-input-number
     clear
@@ -55,6 +56,7 @@
     size="large"
     :min="0"
     :max="50"
+    disabled
     @update:model-value="handleClick"
     @change="handleChange"
     @blur="handleBlur"

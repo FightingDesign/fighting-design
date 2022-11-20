@@ -16,8 +16,9 @@ export type {
  * @param onChange 绑定值改变时触发的回调
  */
 export interface UseUpdateInputPropsInterface {
-  disabled?: boolean
-  onChange?: TextareaChangeInterface | null
+  onInput: TextareaChangeInterface | null
+  onChange: TextareaChangeInterface | null
+  disabled: boolean
 }
 
 /**
@@ -42,6 +43,7 @@ export interface UseUpdateInputInterface {
  */
 export interface UseUpdateInputReturnInterface {
   onInput: HandleEventInterface
+  onChange: HandleEventInterface
   onClear: OrdinaryFunctionInterface
 }
 
@@ -50,7 +52,6 @@ export interface UseUpdateInputReturnInterface {
  * 
  * @param event 回调事件名
  * @param val 回调参数
- * @return { void }
  */
 export interface UseUpdateInputEmitInterface {
   (event: 'update:modelValue', val: string): void

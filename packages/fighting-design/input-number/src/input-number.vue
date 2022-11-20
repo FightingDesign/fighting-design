@@ -2,6 +2,8 @@
   import { Props } from './props'
   import { ref, computed } from 'vue'
   import { FIconCrossVue } from '../../_svg'
+  import { FInput } from '../../input'
+  import { FSvgIcon } from '../../svg-icon'
   import type { ComputedRef } from 'vue'
   import type {
     HandleEventInterface,
@@ -9,8 +11,9 @@
     HandleFocusEventInterface,
     HandleKeyboardEventInterface
   } from '../../_interface'
+  import type { InputNumberPropsType } from './interface'
 
-  const prop = defineProps(Props)
+  const prop: InputNumberPropsType = defineProps(Props)
   const emit = defineEmits<{
     (e: 'update:modelValue', val: number): void
     (e: 'change', val: number): void
@@ -120,13 +123,30 @@
       @click="handleMinus"
     ></i>
 
-    <div
+    <!-- <div
       :class="[
         'f-input-number__wrapper',
         { 'f-input-number__disabled': disabled }
       ]"
-    >
-      <input
+    > -->
+    <div class="f-input-number__wrapper">
+      <f-input
+        ref="inputRef"
+        v-model="displayValue"
+        type="number"
+        :max="max"
+        :min="min"
+        :disabled="disabled"
+        :readonly="readonly"
+        :autofocus="autofocus"
+        :name="name"
+        :placeholder="placeholder"
+        :on-blur="handleBlur"
+        :on-focus="handleFocus"
+        :on-enter="handleEnter"
+        :input="handleInput"
+      />
+      <!-- <input
         ref="inputRef"
         class="f-input-number__input"
         type="number"
@@ -142,7 +162,7 @@
         @keyup.enter="handleEnter"
         @blur="handleBlur"
         @focus="handleFocus"
-      />
+      /> -->
 
       <!-- clear icon -->
       <f-svg-icon
