@@ -95,7 +95,7 @@
     if (prop.disabled) return
     const newCurrent = prop.current === 1 ? 1 : prop.current - 1
     emit('update:current', newCurrent)
-    prop.prevClick(newCurrent, prop.pageSize)
+    prop.prevClick && prop.prevClick(newCurrent, prop.pageSize)
   }
 
   /**

@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FRadioGroup">
   import { Props, RADIO_GROUP_PROPS_kEY } from './props'
   import { provide, reactive, toRefs, computed } from 'vue'
-  import { isString, isBoolean, isNumber } from '../../_utils'
+  import { isString, isBoolean, isNumber, runCallback } from '../../_utils'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
@@ -19,7 +19,7 @@
 
   const changeEvent: RadioChangeInterface = (value: RadioLabelType): void => {
     emit('update:modelValue', value)
-    prop.change && prop.change(value)
+    runCallback(prop.change, value)
   }
 
   const RadioGround: RadioGroundPropsType = reactive({

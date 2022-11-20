@@ -62,7 +62,10 @@
         ref="fillRef"
         :class="[
           'f-progress__fill',
-          { [`f-progress__fill-${type}`]: type, 'f-progress__stripe': stripe }
+          {
+            [`f-progress__fill-${type}`]: type,
+            'f-progress__stripe': stripe
+          }
         ]"
         :style="progressFillStyle"
       >
