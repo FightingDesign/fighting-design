@@ -75,6 +75,13 @@ export const Props = {
     default: (): boolean => false
   },
   /**
+   * input 事件触发的回调
+   */
+  onInput: {
+    type: Function as PropType<HandleFocusEventInterface>,
+    default: (): null => null
+  },
+  /**
    * 绑定值发生变化时触发的回调
    */
   onChange: {

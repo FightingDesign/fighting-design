@@ -6,7 +6,9 @@
 - `f-input` 组件新增 `after-icon` 配置项
 - `f-input` 组件优化查看密码方式
 - `f-input` 组件新增 `on-input` 配置项
+- `f-textarea` 组件新增 `on-input` 配置项
 - 修复 `f-input` 组件 `on-change` 回调错误的问题
+- 修复 `f-textarea` 组件 `on-change` 回调错误的问题
 - `f-input` 组件加入查看密码切换动画效果
 - 重构 `f-calendar` 组件头部样式
 - 优化 `f-dropdown` 组件样式细节

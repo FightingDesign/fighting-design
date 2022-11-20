@@ -18,9 +18,10 @@
    *
    * useFilterProps 过滤出需要的参数
    */
-  const { onInput, onClear } = useUpdateInput(
+  const { onInput, onClear, onChange } = useUpdateInput(
     useFilterProps<TextareaPropsType, UseUpdateInputPropsInterface>(prop, [
       'onChange',
+      'onInput',
       'disabled'
     ]),
     emit
@@ -33,6 +34,15 @@
    */
   const handleInput: HandleEventInterface = (evt: Event): void => {
     onInput(evt)
+  }
+
+  /**
+   * 文本输入 change 事件
+   *
+   * @param evt 事件对象
+   */
+  const handleChange: HandleEventInterface = (evt: Event): void => {
+    onChange(evt)
   }
 </script>
 
@@ -50,6 +60,7 @@
       @input="handleInput"
       @blur="onBlur"
       @focus="onFocus"
+      @change="handleChange"
     />
 
     <!-- 清空按钮 -->
