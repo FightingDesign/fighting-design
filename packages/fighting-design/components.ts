@@ -177,6 +177,9 @@ export * from './select'
 export { FOption } from './option'
 export * from './option'
 
+export { FInputNumber } from './input-number'
+export * from './input-number'
+
 export { FTabs } from './tabs'
 export * from './tabs'
 
