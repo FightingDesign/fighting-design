@@ -1,5 +1,9 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { InputNumberSizeType, InputNumberModelType, InputNumberChangeInterface } from './interface'
+import type {
+  InputNumberSizeType,
+  InputNumberModelType,
+  InputNumberChangeInterface
+} from './interface'
 import type {
   HandleFocusEventInterface
 } from '../../_interface'
@@ -79,7 +83,7 @@ export const Props = {
     validator: (val: number): boolean => val >= 0
   },
   /**
-   * 是否自动聚焦
+   * @zh 是否自动聚焦
    */
   autofocus: {
     type: Boolean,
@@ -114,8 +118,8 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-  * 绑定值发生改变时触发的回调
-  */
+   * @zh 绑定值发生改变时触发的回调
+   */
   onChange: {
     type: Function as PropType<InputNumberChangeInterface>,
     default: (): null => null

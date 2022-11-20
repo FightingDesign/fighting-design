@@ -23,10 +23,24 @@
   )
 
   /**
+   * 最小值禁用
+   */
+  const minDisabled: ComputedRef<boolean> = computed<boolean>(
+    () => +prop.modelValue - +prop.step <= prop.min
+  )
+
+  /**
+   * 最大值禁用
+   */
+  const maxDisabled: ComputedRef<boolean> = computed<boolean>(
+    () => +prop.modelValue + +prop.step >= prop.max
+  )
+
+  /**
    * 点击减号
    */
   const handleMinus: OrdinaryFunctionInterface = (): void => {
-    if (prop.disabled || prop.readonly) return
+    if (prop.disabled || prop.readonly || minDisabled.value) return
     emit('update:modelValue', +prop.modelValue - +prop.step)
   }
 
@@ -34,7 +48,7 @@
    * 点击加号
    */
   const handlePlus: OrdinaryFunctionInterface = (): void => {
-    if (prop.disabled || prop.readonly) return
+    if (prop.disabled || prop.readonly || maxDisabled.value) return
     emit('update:modelValue', +prop.modelValue + +prop.step)
   }
 </script>
