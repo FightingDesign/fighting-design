@@ -98,7 +98,9 @@ export const vLoading: Directive = {
       getComputedStyle(el)['position'] || 'static'
     el.originalPosition = originalPosition
     if (binding.value) {
-      renderLoadingDom(el, binding) // 这个好像没执行
+      // 这个好像没执行 x
+      // 绑定值为true是执行 
+      renderLoadingDom(el, binding)
     }
   },
   /**

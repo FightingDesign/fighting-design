@@ -2,13 +2,8 @@
   import { ref } from 'vue'
 
   const loading = ref(false)
-
-  const startLoading = (): void => {
-    loading.value = true
-
-    setTimeout(() => {
-      loading.value = false
-    }, 2000)
+  const toggleLoading = (): void => {
+    loading.value = !loading.value
   }
 
   const columns = ref([
@@ -51,6 +46,6 @@
 </script>
 
 <template>
-  <f-button :click="startLoading">开始加载</f-button>
+  <f-button :click="toggleLoading">切换加载状态</f-button>
   <f-table v-loading="loading" :data="data" :columns="columns" />
 </template>
