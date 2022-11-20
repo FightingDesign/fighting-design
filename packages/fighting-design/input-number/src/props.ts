@@ -1,5 +1,8 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { InputNumberSizeType, InputNumberModelType } from './interface'
+import type { InputNumberSizeType, InputNumberModelType, InputNumberChangeInterface } from './interface'
+import type {
+  HandleFocusEventInterface
+} from '../../_interface'
 
 export const Props = {
   /**
@@ -106,6 +109,34 @@ export const Props = {
   readonly: {
     type: Boolean,
     default: (): boolean => false
+  },
+  /**
+  * 绑定值发生改变时触发的回调
+  */
+  onChange: {
+    type: Function as PropType<InputNumberChangeInterface>,
+    default: (): null => null
+  },
+  /**
+   * 失去焦点时触发的回调
+   */
+  onBlur: {
+    type: Function as PropType<HandleFocusEventInterface>,
+    default: (): null => null
+  },
+  /**
+   * 获得焦点时触发的回调
+   */
+  onFocus: {
+    type: Function as PropType<HandleFocusEventInterface>,
+    default: (): null => null
+  },
+  /**
+   * input 事件触发的回调
+   */
+  onInput: {
+    type: Function as PropType<HandleFocusEventInterface>,
+    default: (): null => null
   }
 } as const
 

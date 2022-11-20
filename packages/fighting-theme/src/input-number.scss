@@ -4,6 +4,17 @@
   align-items: center;
   flex-wrap: nowrap;
   width: 100%;
+  user-select: none;
+
+  .f-input-number__minus {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .f-input-number__plus {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
 
   &__wrapper {
     display: inline-flex;

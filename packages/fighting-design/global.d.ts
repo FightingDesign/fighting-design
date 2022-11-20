@@ -66,6 +66,7 @@ declare module '@vue/runtime-core' {
     FSwap: typeof components.FSwap
     FDatePicker: typeof components.FDatePicker
     FTimePicker: typeof components.FTimePicker
+    FInputNumber: typeof components.FInputNumber
   }
 
   interface ComponentCustomProperties {

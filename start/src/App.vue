@@ -56,11 +56,7 @@
     size="large"
     :min="0"
     :max="50"
-    @update:model-value="handleClick"
-    @change="handleChange"
-    @blur="handleBlur"
-    @focus="handleFocus"
-    @enter="handleEnter"
+    disabled
   ></f-input-number>
 
   <br />
