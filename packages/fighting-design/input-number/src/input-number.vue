@@ -4,6 +4,7 @@
   import { FIconCrossVue } from '../../_svg'
   import { FInput } from '../../input'
   import { FSvgIcon } from '../../svg-icon'
+  import { FButton } from '../../button'
   import type { ComputedRef } from 'vue'
   import type {
     HandleEventInterface,
@@ -110,25 +111,16 @@
 </script>
 
 <template>
-  <div :class="['f-input-number', { [`f-input-number__${size}`]: size }]">
-    <i
+  <div class="f-input-number">
+    <f-button
       v-if="model === 'button'"
-      :class="[
-        'f-input-number__minus',
-        {
-          [`f-input-number__${size}`]: size,
-          'f-input-number__disabled': disabled
-        }
-      ]"
-      @click="handleMinus"
-    ></i>
+      type="primary"
+      :disabled="disabled"
+      :click="handleMinus"
+    >
+      +
+    </f-button>
 
-    <!-- <div
-      :class="[
-        'f-input-number__wrapper',
-        { 'f-input-number__disabled': disabled }
-      ]"
-    > -->
     <div class="f-input-number__wrapper">
       <f-input
         ref="inputRef"
@@ -140,65 +132,31 @@
         :readonly="readonly"
         :autofocus="autofocus"
         :name="name"
+        :clear="clear"
         :placeholder="placeholder"
         :on-blur="handleBlur"
         :on-focus="handleFocus"
         :on-enter="handleEnter"
-        :input="handleInput"
-      />
-      <!-- <input
-        ref="inputRef"
-        class="f-input-number__input"
-        type="number"
-        :max="max"
-        :min="min"
-        :value="displayValue"
-        :disabled="disabled"
-        :readonly="readonly"
-        :autofocus="autofocus"
-        :name="name"
-        :placeholder="placeholder"
-        @input="handleInput"
-        @keyup.enter="handleEnter"
-        @blur="handleBlur"
-        @focus="handleFocus"
-      /> -->
-
-      <!-- clear icon -->
-      <f-svg-icon
-        v-if="clear && !readonly"
-        class="f-input-number__clear-btn"
-        :icon="FIconCrossVue"
-        :size="14"
-        @click="handleClear"
+        :on-input="handleInput"
       />
 
-      <div
-        v-if="model === 'switch'"
-        :class="[
-          'f-input-number__switch',
-          { 'f-input-number__disabled': disabled }
-        ]"
-      >
-        <span class="f-input-number__switch-up" @click="handlePlus">
-          <i class="f-input-number__switch-up-icon"></i>
-        </span>
-        <span class="f-input-number__switch-down" @click="handleMinus">
-          <i class="f-input-number__switch-down-icon"></i>
-        </span>
+      <div v-if="model === 'switch'" class="f-input-number__switch">
+        <f-button type="primary" :disabled="disabled" @click="handlePlus">
+          +
+        </f-button>
+        <f-button type="primary" :disabled="disabled" @click="handleMinus">
+          -
+        </f-button>
       </div>
     </div>
 
-    <i
+    <f-button
       v-if="model === 'button'"
-      :class="[
-        'f-input-number__plus',
-        {
-          [`f-input-number__${size}`]: size,
-          'f-input-number__disabled': disabled
-        }
-      ]"
-      @click="handlePlus"
-    ></i>
+      type="primary"
+      :disabled="disabled"
+      :click="handlePlus"
+    >
+      -
+    </f-button>
   </div>
 </template>

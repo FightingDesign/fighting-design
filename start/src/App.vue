@@ -39,14 +39,14 @@
 </script>
 
 <template>
-  <f-input
+  <!-- <f-input
     v-model="value1"
     type="text"
     disabled
     placeholder="请输入...."
     :on-change="change"
     :on-input="input"
-  />
+  /> -->
 
   <f-input-number
     clear
@@ -56,13 +56,16 @@
     size="large"
     :min="0"
     :max="50"
-    disabled
     @update:model-value="handleClick"
     @change="handleChange"
     @blur="handleBlur"
     @focus="handleFocus"
     @enter="handleEnter"
   ></f-input-number>
+
+  <br />
+  <br />
+  <br />
 
   <f-input-number
     clear
