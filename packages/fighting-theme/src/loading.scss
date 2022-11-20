@@ -1,3 +1,5 @@
+@use './root';
+
 .f-loading {
   position: absolute;
   top: 0;
@@ -9,7 +11,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba($color: #666, $alpha: 0.82);
+  transition: background 0.3s;
+  background: rgb(35, 39, 46, 0.5);
   color: var(--f-design-color-primary-1);
 
   &.f-loading__fullscreen {

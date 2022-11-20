@@ -180,8 +180,17 @@ export * from './option'
 export { FSlider } from './slider'
 export * from './slider'
 
+export { FInputNumber } from './input-number'
+export * from './input-number'
+
 export { FTabs } from './tabs'
 export * from './tabs'
 
 export { FTabsPane } from './tabs-pane'
 export * from './tabs-pane'
+
+export { FDatePicker } from './date-picker'
+export * from './date-picker'
+
+export { FTimePicker } from './time-picker'
+export * from './time-picker'

@@ -13,14 +13,14 @@ export const Props = {
    */
   accept: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 原生 name 属性
    */
   name: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否可拖拽上传

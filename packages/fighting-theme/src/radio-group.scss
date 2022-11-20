@@ -1,3 +1,5 @@
+@use './root';
+
 .f-radio-group {
   display: inline-flex;
   flex-wrap: wrap;
@@ -73,7 +75,7 @@
         background: var(--f-design-color-primary-1);
 
         .f-radio__text {
-          color: #fff;
+          color: var(--f-design-color-text-2);
         }
 
         // 边框选中状态禁用状态
@@ -81,14 +83,14 @@
           background: var(--f-design-color-default-1);
 
           .f-radio__text {
-            color: #d7d7d7;
+            color: var(--f-design-color-default-3);
           }
         }
       }
 
       // 禁用状态
       &.f-radio__disabled {
-        border-color: #d7d7d7;
+        border-color: var(--f-design-color-default-3);
       }
     }
   }

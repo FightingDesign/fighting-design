@@ -9,13 +9,13 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 文字内容
+   * 加载中文案
    */
   text: {
     type: String
   },
   /**
-   * 自定义文字颜色
+   * 加载中文案颜色
    */
   fontColor: {
     type: String
@@ -27,7 +27,7 @@ export const Props = {
     type: Boolean
   },
   /**
-   * 自定义背景色
+   * 自定义遮罩层背景色
    */
   background: {
     type: String

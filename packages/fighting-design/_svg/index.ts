@@ -1,4 +1,3 @@
-export { default as FIconEmptyState } from './f-icon-empty-state/index.vue'
 export { default as FIconArrowLeftVue } from './f-icon-arrow-left/index.vue'
 export { default as FIconChevronLeftVue } from './f-icon-chevron-left/index.vue'
 export { default as FIconChevronRightVue } from './f-icon-chevron-right/index.vue'
@@ -19,3 +18,7 @@ export { default as FIconEyeOffOutlineVue } from './f-icon-eye-off-outline/index
 export { default as FIconEyeOutlineVue } from './f-icon-eye-outline/index.vue'
 export { default as FIconNotesVue } from './f-icon-notes/index.vue'
 export { default as FIconPlusVue } from './f-icon-plus/index.vue'
+export { default as FIconFullSharp } from './f-icon-full-sharp/index.vue'
+export { default as FIconClockTime } from './f-icon-clock-time/index.vue'
+export { default as FIconChevronUp } from './f-icon-chevron-up/index.vue'
+export { default as FIconChevronDown } from './f-icon-chevron-down/index.vue'

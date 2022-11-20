@@ -1,4 +1,10 @@
-import type { ExtractPropTypes, InjectionKey, PropType, VNode, Component } from 'vue'
+import type {
+  ExtractPropTypes,
+  InjectionKey,
+  PropType,
+  VNode,
+  Component
+} from 'vue'
 
 export const Props = {
   /**
@@ -13,24 +19,26 @@ export const Props = {
    */
   itemColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 分隔符颜色
    */
   separatorColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义文字大小
    */
   fontSize: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   }
 } as const
 
 export type BreadcrumbPropsType = ExtractPropTypes<typeof Props>
 
-export const BREADCRUMB_PROPS_KEY: InjectionKey<BreadcrumbPropsType> = Symbol('breadcrumb-props-key')
+export const BREADCRUMB_PROPS_KEY: InjectionKey<BreadcrumbPropsType> = Symbol(
+  'breadcrumb-props-key'
+)

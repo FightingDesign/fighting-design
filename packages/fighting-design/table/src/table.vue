@@ -9,7 +9,7 @@
   const prop: TablePropsType = defineProps(Props)
 
   // 多选项
-  const optionalList: Ref<string[]> = ref([])
+  const optionalList: Ref<string[]> = ref<string[]>([])
 
   /**
    * 样式列表
@@ -27,6 +27,8 @@
 
   /**
    * 处理自定义渲染内容
+   *
+   * @param target 渲染函数
    */
   const columnsSlotData = (target: Function): VNode => {
     return target(h)

@@ -40,17 +40,13 @@ describe('FBackTop', () => {
     const wrapper = mount(FBackTop, {
       props: { background: 'red' }
     })
-    expect(wrapper.find('div').attributes('style')).toContain(
-      'red'
-    )
+    expect(wrapper.find('div').attributes('style')).toContain('red')
   })
 
   test('color', () => {
     const wrapper = mount(FBackTop, {
       props: { color: 'orange' }
     })
-    expect(wrapper.find('div').attributes('style')).toContain(
-      'orange'
-    )
+    expect(wrapper.find('div').attributes('style')).toContain('orange')
   })
 })

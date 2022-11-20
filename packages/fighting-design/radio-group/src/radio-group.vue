@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FRadioGroup">
   import { Props, RADIO_GROUP_PROPS_kEY } from './props'
   import { provide, reactive, toRefs, computed } from 'vue'
-  import { isString, isBoolean, isNumber } from '../../_utils'
+  import { isString, isBoolean, isNumber, runCallback } from '../../_utils'
   import { sizeChange } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
@@ -17,11 +17,17 @@
       isString(val) || isNumber(val) || isBoolean(val)
   })
 
+  /**
+   * 改变同步数据
+   *
+   * @param value 最新值
+   */
   const changeEvent: RadioChangeInterface = (value: RadioLabelType): void => {
     emit('update:modelValue', value)
-    prop.change && prop.change(value)
+    runCallback(prop.change, value)
   }
 
+  // 需要注入的依赖项
   const RadioGround: RadioGroundPropsType = reactive({
     ...toRefs(prop),
     changeEvent
@@ -29,6 +35,9 @@
 
   provide<RadioGroundPropsType>(RADIO_GROUP_PROPS_kEY, RadioGround)
 
+  /**
+   * 类名列表
+   */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
       const { vertical, border, size } = prop
@@ -44,6 +53,9 @@
     }
   )
 
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { columnGap, rowGap } = prop
 

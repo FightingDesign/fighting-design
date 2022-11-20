@@ -12,43 +12,44 @@ export const Props = {
    */
   current: {
     type: Number,
-    default: (): Number => 1
+    default: (): number => 1,
+    require: true
+  },
+  /**
+   * 总页数
+   */
+  total: {
+    type: Number,
+    default: (): number => 0,
+    require: true
   },
   /**
    * 每页条数
    */
   pageSize: {
     type: Number,
-    default: (): Number => 10
+    default: (): number => 10
   },
   /**
-   * 每页多少条
+   * 是否启用选择器选择最大页数
    */
   pageSizes: {
-    type: [Array<number>, null] as PropType<number[] | null>,
+    type: Array as PropType<number[]>,
     default: (): null => null
   },
   /**
-   * 是否需要背景色
+   * 是否带有背景色
    */
   background: {
     type: Boolean,
-    default: (): Boolean => false
+    default: (): boolean => false
   },
   /**
-   * 是否需要圆角
+   * 是否带有圆角
    */
   round: {
     type: Boolean,
-    default: (): Boolean => false
-  },
-  /**
-   * 总数
-   */
-  total: {
-    type: Number,
-    default: 0,
-    require: true
+    default: (): boolean => false
   },
   /**
    * 自定义的上一页图标
@@ -69,7 +70,7 @@ export const Props = {
    */
   disabled: {
     type: Boolean,
-    default: (): Boolean => false
+    default: (): boolean => false
   },
   /**
    * 改变页码回调函数
@@ -83,7 +84,7 @@ export const Props = {
    */
   jumpSearch: {
     type: Boolean,
-    default: (): Boolean => false
+    default: (): boolean => false
   },
   /**
    * 点击上一页触发的回调
@@ -106,11 +107,6 @@ export const Props = {
     type: Function as PropType<HandlePageChange>,
     default: (): null => null
   }
-} as const
-
-export const Emits = {
-  'update:current': (current: number): boolean => typeof current === 'number',
-  'update:pageSize': (pageSize: number): boolean => typeof pageSize === 'number'
 } as const
 
 export type PaginationPropsType = ExtractPropTypes<typeof Props>

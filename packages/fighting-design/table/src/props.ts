@@ -1,5 +1,9 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { TableAlignType, TableDateType, TableColumnsInterface } from './interface'
+import type {
+  TableAlignType,
+  TableDateType,
+  TableColumnsInterface
+} from './interface'
 
 export const Props = {
   /**

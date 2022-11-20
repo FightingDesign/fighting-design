@@ -8,14 +8,14 @@ export const Props = {
    */
   src: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 加载失败时要显示的地址
    */
   errSrc: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 图标头像
@@ -26,12 +26,12 @@ export const Props = {
   },
   /**
    * 原生 alt 属性
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
    */
   alt: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否为圆角
@@ -49,9 +49,9 @@ export const Props = {
   },
   /**
    * 如何适应容器
-   * 
+   *
    * 原生样式属性
-   * 
+   *
    * https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    */
   fit: {
@@ -65,9 +65,9 @@ export const Props = {
   },
   /**
    * 图片大小
-   * 
+   *
    * 可传入字符串使用内置大小
-   * 
+   *
    * 也可以传入数字，数字将自动转换为 px 单位
    */
   size: {
@@ -87,7 +87,7 @@ export const Props = {
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 字体大小
@@ -108,7 +108,7 @@ export const Props = {
    */
   text: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 触发懒加载的距离

@@ -75,7 +75,7 @@
 
 | 属性           | 说明             | 类型                       | 可选值 | 默认值 |
 | -------------- | ---------------- | -------------------------- | ------ | ------ |
-| `icon`         | 返回图标         | object (VNode / Component) | ——     | null   |
+| `icon`         | 返回图标         | object (VNode / Component) | ——     | ——     |
 | `icon-size`    | 返回图标大小     | string / number            | ——     | 16px   |
 | `back-text`    | 返回文本         | string                     | ——     | 返回   |
 | `title`        | 标题文本         | string                     | ——     | 标题   |
@@ -83,7 +83,7 @@
 | `title-center` | 标题是否居中     | boolean                    | ——     | false  |
 | `title-color`  | 标题颜色         | string                     | ——     | false  |
 | `subtitle`     | 副标题文本       | string                     | ——     | ——     |
-| `back`         | 点击左侧区域触发 | Function                   | ——     | null   |
+| `back`         | 点击左侧区域触发 | Function                   | ——     | ——     |
 
 ## Slots
 

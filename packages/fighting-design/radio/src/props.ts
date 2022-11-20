@@ -1,5 +1,8 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { RadioLabelType, RadioChangeInterface } from '../../radio-group/src/interface'
+import type {
+  RadioLabelType,
+  RadioChangeInterface
+} from '../../radio-group/src/interface'
 
 export const Props = {
   /**
@@ -14,7 +17,7 @@ export const Props = {
    */
   modelValue: {
     type: [String, Number, Boolean] as PropType<RadioLabelType>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义 name
@@ -28,7 +31,7 @@ export const Props = {
    */
   label: {
     type: [String, Number, Boolean] as PropType<RadioLabelType>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 绑定值变化时触发

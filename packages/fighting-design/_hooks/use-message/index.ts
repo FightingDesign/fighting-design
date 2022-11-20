@@ -73,7 +73,7 @@ export const useMessage: UseMessageInterface = (
         id,
         vm,
         close: (): void => {
-          ;(
+          (
             (vm as ComponentInternalInstance).exposed as MessageInstance
           ).close()
         },

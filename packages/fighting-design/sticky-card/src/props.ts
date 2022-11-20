@@ -14,7 +14,7 @@ export const Props = {
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 操作栏展开时的文字
@@ -38,7 +38,7 @@ export const Props = {
     default: (): string => '800px'
   },
   /**
-   * 自定义边框颜色	
+   * 自定义边框颜色
    */
   borderColor: {
     type: String,

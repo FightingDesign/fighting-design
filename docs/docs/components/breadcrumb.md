@@ -147,7 +147,7 @@
 
 | 属性              | 说明           | 类型                       | 可选值 | 默认值 |
 | ----------------- | -------------- | -------------------------- | ------ | ------ |
-| `separator`       | 自定义分隔符   | object (VNode / Component) | ——     | null   |
+| `separator`       | 自定义分隔符   | object (VNode / Component) | ——     | ——     |
 | `item-color`      | 导航文字颜色   | string                     | ——     | ——     |
 | `separator-color` | 分隔符颜色     | string                     | ——     | ——     |
 | `font-size`       | 自定义文字大小 | string / number            | ——     | ——     |

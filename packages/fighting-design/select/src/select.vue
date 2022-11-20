@@ -3,19 +3,19 @@
   import { FInput } from '../../input'
   import { provide, reactive, computed, useSlots } from 'vue'
   import { FDropdown } from '../../dropdown'
-  import { sizeChange } from '../../_utils'
+  import { sizeChange, getChildren } from '../../_utils'
   import type {
     CSSProperties,
     ComputedRef,
     VNode,
-    Component,
     WritableComputedRef
   } from 'vue'
   import type {
     SelectPropsType,
     SelectSetValueInterface,
     SelectProvideInterface,
-    SelectModelValueType
+    SelectModelValueType,
+    SelectChildrenInterface
   } from './interface'
   import type { OptionPropsType } from '../../option'
 
@@ -34,12 +34,7 @@
     // 如果没有插槽内容，返回空数组
     if (!slot.default) return []
 
-    const vNodes: VNode[] = slot.default()
-
-    return vNodes.filter((node: VNode): boolean => {
-      const name: string | undefined = (node.type as Component).name
-      return name === 'FOption'
-    })
+    return getChildren(slot.default(), 'FOption')
   })
 
   /**
@@ -69,8 +64,15 @@
               : optionProp.label === prop.modelValue
           }
 
-          // 如果没有传递 props 则根据插槽来判断
-          return node.children.default()[0].children === prop.modelValue
+          /**
+           * 如果没有传递 props 则根据插槽来判断
+           *
+           * 放心，这里一定会有插槽，子组件已经做了判断
+           */
+          return (
+            (node as SelectChildrenInterface).children.default()[0].children ===
+            prop.modelValue
+          )
         }
       )
 
@@ -100,6 +102,7 @@
 
   /**
    * 设置新的值
+   *
    * @param newValue 新的 value 值
    * @param newLabel 新增 label 值
    */
@@ -108,7 +111,6 @@
     newLabel: SelectModelValueType
   ): void => {
     inputValue.value = newValue
-    console.log(newValue)
     emit('update:modelValue', newLabel)
   }
 

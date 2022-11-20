@@ -4,21 +4,21 @@ import type { NotificationType, NotificationPlacementType } from './interface'
 export const Props = {
   id: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 通知标题
    */
   title: {
     type: [String, Object] as PropType<VNode | string>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 通知文本
    */
   message: {
     type: [String, Object] as PropType<VNode | string>,
-    default: (): string => '',
+    default: (): null => null,
     required: true
   },
   /**
@@ -28,7 +28,9 @@ export const Props = {
     type: String as PropType<NotificationType>,
     default: (): NotificationType => 'default',
     validator: (val: NotificationType): boolean => {
-      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+      return (
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
+      ).includes(val)
     }
   },
   /**
@@ -71,14 +73,14 @@ export const Props = {
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义背景色
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 偏移距离
@@ -94,7 +96,9 @@ export const Props = {
     type: String as PropType<NotificationPlacementType>,
     default: (): NotificationPlacementType => 'top-right',
     validator: (val: NotificationPlacementType): boolean => {
-      return (['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const).includes(val)
+      return (
+        ['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const
+      ).includes(val)
     }
   },
   /**

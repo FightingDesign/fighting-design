@@ -113,11 +113,7 @@
       max-width: 1368px;
       z-index: -1;
       overflow: hidden;
-      background: -webkit-linear-gradient(
-        815deg,
-        #395ce3 10%,
-        #5ee0dd
-      );
+      background: -webkit-linear-gradient(815deg, #395ce3 10%, #5ee0dd);
       -webkit-mask: url('./images/banner.svg') 100% -150px / cover no-repeat;
 
       .logo {
@@ -163,11 +159,7 @@
         justify-content: center;
         align-items: center;
         margin-top: 20px;
-        background: -webkit-linear-gradient(
-          55deg,
-          #395ce3 10%,
-          #5ee0dd
-        );
+        background: -webkit-linear-gradient(55deg, #395ce3 10%, #5ee0dd);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 

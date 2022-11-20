@@ -15,7 +15,7 @@ export const Props = {
    */
   title: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否追加到 body
@@ -75,7 +75,7 @@ export const Props = {
   },
   /**
    * 层级 原生属性
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
   zIndex: {

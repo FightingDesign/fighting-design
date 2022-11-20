@@ -1,13 +1,17 @@
+@use './root';
+
 .f-up-load {
+  display: inline-block;
+
   // 拖拽上传
   .f-up-load__drag {
     width: 88px;
     height: 88px;
-    background: #eee;
+    cursor: pointer;
+    align-items: center;
     display: inline-flex;
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    background: var(--f-design-color-border-1);
   }
 
   // 普通上传
@@ -25,19 +29,19 @@
   .f-up-load__file-list-item {
     height: 24px;
     display: flex;
-    align-items: center;
     cursor: pointer;
     transition: 0.3s;
+    align-items: center;
     justify-content: space-between;
 
     &:hover {
-      background: #eee;
+      background: var(--f-design-color-border-1);
     }
 
     .f-up-load__file-name {
-      color: #333;
       margin-left: 4px;
       font-size: 15px;
+      color: var(--f-design-color-text-1);
     }
   }
 }

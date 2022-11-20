@@ -1,0 +1,12 @@
+.f-date-picker {
+  width: 240px;
+  display: inline-flex;
+
+  .f-dropdown {
+    .f-date-picker__content {
+      padding: 14px;
+      box-sizing: border-box;
+      width: 320px;
+    }
+  }
+}

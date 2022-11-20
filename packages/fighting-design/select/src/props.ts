@@ -19,7 +19,7 @@ export const Props = {
   },
   /**
    * 原生 name 属性
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
   name: {
@@ -28,12 +28,12 @@ export const Props = {
   },
   /**
    * 占位符
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
    */
   placeholder: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否可清除
@@ -44,7 +44,7 @@ export const Props = {
   },
   /**
    * 是否禁用
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
   disabled: {
@@ -55,4 +55,5 @@ export const Props = {
 
 export type SelectPropsType = ExtractPropTypes<typeof Props>
 
-export const SELECT_PROPS_TOKEN: InjectionKey<SelectProvideInterface> = Symbol('f-select-props-key')
+export const SELECT_PROPS_TOKEN: InjectionKey<SelectProvideInterface> =
+  Symbol('f-select-props-key')

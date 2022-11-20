@@ -1,4 +1,5 @@
-@import '../config/const-type.scss';
+@use './root';
+@import '../config/const-type';
 
 .f-link {
   cursor: pointer;
@@ -36,7 +37,7 @@
 
   &.f-link__bag:hover {
     background: var(--f-design-color-border-1);
-    border-radius: 2px;
+    border-radius: var(--f-design-border-radius-1);
   }
 
   // 禁止 copy

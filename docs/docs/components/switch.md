@@ -194,14 +194,14 @@
 | `modelValue / v-model` | 绑定值                     | string                     | ——                                     | false  |
 | `size`                 | 组件尺寸                   | string                     | `large` `middle` <br /> `small` `mini` | middle |
 | `disabled`             | 是否禁用                   | boolean                    | ——                                     | false  |
-| `icon`                 | 自定义 icon                | object (VNode / Component) | ——                                     | null   |
-| `close-color`          | 自定义关闭状态背景色       | string                     | ——                                     | null   |
-| `open-color`           | 自定义开启状态背景色       | string                     | ——                                     | null   |
-| `open-text`            | 自定义右侧的文字描述       | string                     | ——                                     | null   |
-| `close-text`           | 自定义左侧的文字描述       | string                     | ——                                     | null   |
+| `icon`                 | 自定义 icon                | object (VNode / Component) | ——                                     | ——     |
+| `close-color`          | 自定义关闭状态背景色       | string                     | ——                                     | ——     |
+| `open-color`           | 自定义开启状态背景色       | string                     | ——                                     | ——     |
+| `open-text`            | 自定义右侧的文字描述       | string                     | ——                                     | ——     |
+| `close-text`           | 自定义左侧的文字描述       | string                     | ——                                     | ——     |
 | `square`               | 是否为方形开关             | boolean                    | ——                                     | false  |
-| `change`               | 绑定值发生改变时触发的回调 | Function                   | ——                                     | null   |
-| `icon-size`            | 自定义 icon 大小           | string / number            | ——                                     | null   |
+| `change`               | 绑定值发生改变时触发的回调 | Function                   | ——                                     | ——     |
+| `icon-size`            | 自定义 icon 大小           | string / number            | ——                                     | ——     |
 
 ## Interface
 

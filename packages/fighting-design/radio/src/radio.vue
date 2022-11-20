@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FRadio">
   import { Props } from './props'
-  import { isString, isBoolean, isNumber } from '../../_utils'
+  import { isString, isBoolean, isNumber, runCallback } from '../../_utils'
   import { computed, inject } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
   import type { ComputedRef, WritableComputedRef } from 'vue'
@@ -41,7 +41,7 @@
       }
       if (prop.disabled) return
       emit('update:modelValue', val)
-      prop.change && prop.change(val)
+      runCallback(prop.change, val)
     }
   })
 

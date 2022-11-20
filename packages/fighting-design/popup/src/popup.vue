@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FPopup">
   import { Props } from './props'
   import { computed } from 'vue'
-  import { sizeChange, isBoolean } from '../../_utils'
+  import { sizeChange, isBoolean, runCallback } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type {
     OrdinaryFunctionInterface,
@@ -14,25 +14,48 @@
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
 
+  /**
+   * 点击遮罩层关闭
+   */
   const closePopup: OrdinaryFunctionInterface = (): void => {
     if (!prop.maskClose) return
     emit('update:visible', false)
   }
 
+  /**
+   * 打开动画开始执行的回调
+   *
+   * @param evt 事件对象
+   */
   const handleOpen: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    prop.open && prop.open(evt)
+    runCallback(prop.open, evt)
   }
 
+  /**
+   * 打开动画结束执行的回调
+   *
+   * @param evt 事件对象
+   */
   const handleOpenEnd: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    prop.openEnd && prop.openEnd(evt)
+    runCallback(prop.openEnd, evt)
   }
 
+  /**
+   * 关闭动画开始执行的回调
+   *
+   * @param evt 事件对象
+   */
   const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    prop.close && prop.close(evt)
+    runCallback(prop.close, evt)
   }
 
+  /**
+   * 关闭动画结束执行的回调
+   *
+   * @param evt 事件对象
+   */
   const handleCloseEnd: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    prop.closeEnd && prop.closeEnd(evt)
+    runCallback(prop.closeEnd, evt)
   }
 
   /**

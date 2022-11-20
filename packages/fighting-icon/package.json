@@ -1,6 +1,6 @@
 {
   "name": "@fighting-design/fighting-icon",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "description": "Special svg icon library for fighting-design.",
   "main": "index",
   "module": "index",
@@ -12,6 +12,7 @@
     "vuejs",
     "fighting",
     "design",
+    "fighting-icon",
     "fighting-design"
   ],
   "sideEffects": false,

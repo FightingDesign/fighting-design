@@ -1,0 +1,53 @@
+@use './root';
+
+.f-time-picker {
+  width: 240px;
+  display: inline-flex;
+
+  .f-dropdown {
+    width: 100%;
+
+    // 主内容
+    .f-time-picker__content {
+      padding: 14px;
+      box-sizing: border-box;
+      width: 240px;
+      display: flex;
+      justify-content: space-between;
+
+      // 小时
+      .f-time-picker__minute,
+      .f-time-picker__hour {
+        flex: 1;
+        height: 300px;
+        overflow: auto;
+        padding: 0 6px;
+        box-sizing: border-box;
+
+        .f-time-picker__hour-item,
+        .f-time-picker__minute-item {
+          height: 50px;
+          width: 100%;
+          cursor: pointer;
+          user-select: none;
+          display: inline-flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          transition: background var(--f-design-transition-time);
+          color: var(--f-design-color-text-1);
+
+          &:hover {
+            background: var(--f-design-color-border-1);
+          }
+        }
+
+        // 滚动条
+        &::-webkit-scrollbar,
+        &::-webkit-scrollbar-thumb {
+          display: none;
+        }
+      }
+    }
+  }
+}

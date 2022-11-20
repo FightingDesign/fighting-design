@@ -4,7 +4,7 @@ export type { ImagePreviewPropsType } from './props'
 
 /**
  * 左右切换按钮切换图片
- * 
+ *
  * 根据传入的参数，执行映射对象中指定键值的方法
  */
 export interface ImagePreviewSwitchImageInterface {
@@ -13,7 +13,7 @@ export interface ImagePreviewSwitchImageInterface {
 
 /**
  * 点击操作栏执行指定对象映射的方法
- * 
+ *
  * target Toolbar 组件返回类型
  */
 export interface ImagePreviewOptionClickInterface {

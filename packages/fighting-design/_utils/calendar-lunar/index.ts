@@ -12,10 +12,7 @@ import {
   CHANG_MONTH_LUNAR_CALENDAR,
   SOLAR_TERM_LIST
 } from '../calendar-data'
-import type {
-  GetLunarDetailReturnInterface,
-  LunarInterface
-} from './interface'
+import type { GetLunarDetailReturnInterface, LunarInterface } from './interface'
 
 export class Lunar implements LunarInterface {
   /**
@@ -34,7 +31,7 @@ export class Lunar implements LunarInterface {
   /**
    * 返回农历 year 年闰月是哪个月；若 year 年没有闰月 则返回 0
    * @param year 年份
-   * @returns 
+   * @returns
    */
   leapMonth = (year: number): number => {
     return LUNAR_INFO[year - 1900] & 0xf
@@ -43,7 +40,7 @@ export class Lunar implements LunarInterface {
   /**
    * 返回农历 year 年闰月的天数 若该年没有闰月则返回 0
    * @param year 年份
-   * @returns 
+   * @returns
    */
   leapDays = (year: number): number => {
     if (this.leapMonth(year)) {
@@ -84,15 +81,16 @@ export class Lunar implements LunarInterface {
    * @param cDay 公历日
    */
   toConstellation = (cMonth: number, cDay: number): string => {
-    const s = '\u9b54\u7faf\u6c34\u74f6\u53cc\u9c7c\u767d\u7f8a\u91d1\u725b\u53cc\u5b50\u5de8\u87f9\u72ee\u5b50\u5904\u5973\u5929\u79e4\u5929\u874e\u5c04\u624b\u9b54\u7faf' as const
+    const s =
+      '\u9b54\u7faf\u6c34\u74f6\u53cc\u9c7c\u767d\u7f8a\u91d1\u725b\u53cc\u5b50\u5de8\u87f9\u72ee\u5b50\u5904\u5973\u5929\u79e4\u5929\u874e\u5c04\u624b\u9b54\u7faf' as const
     const arr = [20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22, 22] as const
-    return (s.substr(cMonth * 2 - (cDay < arr[cMonth - 1] ? 2 : 0), 2) + '\u5ea7')
+    return s.substr(cMonth * 2 - (cDay < arr[cMonth - 1] ? 2 : 0), 2) + '\u5ea7'
   }
 
   /**
    * 传入 offset 偏移量返回干支
    * @param offset 相对甲子的偏移量
-   * @returns 
+   * @returns
    */
   toGanZhi = (offset: number): string => {
     return DAY_GAN[offset % 10] + DAY_ZHI[offset % 12]
@@ -121,7 +119,7 @@ export class Lunar implements LunarInterface {
   /**
    * 传入农历数字月份返回汉语通俗表示法
    * @param month 农历月份
-   * @returns 
+   * @returns
    */
   toChinaMonth = (month: number): string | -1 => {
     // 若参数错误 返回-1
@@ -136,7 +134,7 @@ export class Lunar implements LunarInterface {
   /**
    * 传入农历日期数字返回汉字表示法
    * @param day 农历日期
-   * @returns 
+   * @returns
    */
   toChinaDay = (day: number): string => {
     let s: string
@@ -160,7 +158,7 @@ export class Lunar implements LunarInterface {
   /**
    * 年份转生肖[!仅能大致转换] => 精确划分生肖分界线是“立春”
    * @param year 年份
-   * @returns 
+   * @returns
    */
   getAnimal = (year: number): string => {
     return ANIMALS[(year - 4) % 12]
@@ -171,9 +169,13 @@ export class Lunar implements LunarInterface {
    * @param yPara 阳历年份
    * @param mPara 阳历月份
    * @param dPara 阳历日期
-   * @returns 
+   * @returns
    */
-  getLunarDetail = (yPara: number, mPara: number, dPara: number): -1 | GetLunarDetailReturnInterface => {
+  getLunarDetail = (
+    yPara: number,
+    mPara: number,
+    dPara: number
+  ): -1 | GetLunarDetailReturnInterface => {
     let y: number = parseInt(yPara.toString())
     let m: number = parseInt(mPara.toString())
     let d: number = parseInt(dPara.toString())
@@ -197,7 +199,9 @@ export class Lunar implements LunarInterface {
       objDate = new Date(y, parseInt(m.toString()) - 1, d)
     }
 
-    let i, leap = 0, temp = 0
+    let i,
+      leap = 0,
+      temp = 0
 
     // 修正ymd参数
     y = objDate.getFullYear()
@@ -301,7 +305,8 @@ export class Lunar implements LunarInterface {
       Term = SOLAR_TERM[m * 2 - 1]
     }
     // 日柱 当月一日与 1900/1/1 相差天数
-    const dayCyclical: number = Date.UTC(y, sm, 1, 0, 0, 0, 0) / 86400000 + 25567 + 10
+    const dayCyclical: number =
+      Date.UTC(y, sm, 1, 0, 0, 0, 0) / 86400000 + 25567 + 10
     const gzD: string = this.toGanZhi(dayCyclical + d - 1)
     // 该日期所属的星座
     const constellation: string = this.toConstellation(m, d)
@@ -331,7 +336,7 @@ export class Lunar implements LunarInterface {
         ? LUNAR_FESTIVE[lunarFestivalDate].title
         : '', // 农历节日
       lYear: year, // 农历年份
-      lMonth: month,// 农历月份
+      lMonth: month, // 农历月份
       lDay: day, // // 农历日
       animal: this.getAnimal(year), // 生肖
       IMonthCn: (isLeap ? '\u95f0' : '') + this.toChinaMonth(month),

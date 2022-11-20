@@ -7,7 +7,6 @@ describe('ImagePreview', () => {
     const wrapper = mount(FImagePreview, {
       props: { visible: true }
     })
-    console.log(wrapper.classes())
     expect(wrapper.find('div').classes()).toContain('f-image-preview')
   })
 })

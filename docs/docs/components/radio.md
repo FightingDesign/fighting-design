@@ -237,7 +237,7 @@
 | `row-gap`              | 纵向排列的间距   | string / number           | ——                              | ——     |
 | `border`               | 是否显示边框     | boolean                   | ——                              | false  |
 | `size`                 | 尺寸             | string                    | `large` `middle` `small` `mini` | middle |
-| `change`               | 绑定值变化时触发 | Function                  | ——                              | null   |
+| `change`               | 绑定值变化时触发 | Function                  | ——                              | ——     |
 
 ## Radio Attributes
 
@@ -247,7 +247,7 @@
 | `disabled`             | 是否禁用         | boolean                   | ——     | false   |
 | `name`                 | 自定义 name      | string                    | ——     | f-radio |
 | `label`                | 单选框对应的值   | string / number / boolean | ——     | ——      |
-| `change`               | 绑定值变化时触发 | Function                  | ——     | null    |
+| `change`               | 绑定值变化时触发 | Function                  | ——     | ——      |
 
 ## RadioGroup Slots
 

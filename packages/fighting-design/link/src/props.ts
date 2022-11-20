@@ -4,7 +4,7 @@ import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
   /**
-   * link 的类型	
+   * link 的类型
    */
   type: {
     type: String as PropType<LinkType>,
@@ -16,21 +16,21 @@ export const Props = {
     }
   },
   /**
-   * 链接的地址	
+   * 链接的地址
    */
   href: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
-   * link 的文字大小	
+   * link 的文字大小
    */
   size: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
-   * link 状态的样式状态	
+   * link 状态的样式状态
    */
   state: {
     type: String as PropType<LinkHoverType>,
@@ -40,7 +40,7 @@ export const Props = {
     }
   },
   /**
-   * 是否禁用	
+   * 是否禁用
    */
   prohibit: {
     type: Boolean,
@@ -48,7 +48,7 @@ export const Props = {
   },
   /**
    * 原生 target 属性
-   * 
+   *
    * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href
    */
   target: {
@@ -59,35 +59,35 @@ export const Props = {
     }
   },
   /**
-   * 自定义 link 颜色	
+   * 自定义 link 颜色
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
-   * 是否禁止 copy	
+   * 是否禁止 copy
    */
   noCopy: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
-   * 是否禁止链接跳转及重新加载（取消默认事件）	
+   * 是否禁止链接跳转及重新加载（取消默认事件）
    */
   noLink: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
-   * 之前的 icon	
+   * 之前的 icon
    */
   beforeIcon: {
     type: Object as PropType<VNode | Component>,
     default: (): null => null
   },
   /**
-   * 之后的 icon	
+   * 之后的 icon
    */
   afterIcon: {
     type: Object as PropType<VNode | Component>,

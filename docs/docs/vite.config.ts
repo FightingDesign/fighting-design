@@ -1,12 +1,10 @@
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
-import svgLoader from 'vite-svg-loader'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {
     plugins: [
-      vueSetupExtend(), // 组建名设置插件
-      svgLoader() // svg 插件
+      vueSetupExtend() // 设置组件名插件
     ],
     optimizeDeps: {
       exclude: ['vitepress']

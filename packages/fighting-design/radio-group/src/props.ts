@@ -1,5 +1,9 @@
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type { RadioLabelType, RadioGroupSizeType, RadioChangeInterface } from './interface'
+import type {
+  RadioLabelType,
+  RadioGroupSizeType,
+  RadioChangeInterface
+} from './interface'
 
 export const Props = {
   /**
@@ -14,7 +18,7 @@ export const Props = {
    */
   modelValue: {
     type: [String, Number, Boolean] as PropType<RadioLabelType>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否纵向排列
@@ -28,14 +32,14 @@ export const Props = {
    */
   columnGap: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 纵向排列的间距
    */
   rowGap: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否显示边框
@@ -65,4 +69,6 @@ export const Props = {
 
 export type RadioGroundPropsType = ExtractPropTypes<typeof Props>
 
-export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundPropsType> = Symbol('radio-group-props-key') as InjectionKey<RadioGroundPropsType>
+export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundPropsType> = Symbol(
+  'radio-group-props-key'
+) as InjectionKey<RadioGroundPropsType>

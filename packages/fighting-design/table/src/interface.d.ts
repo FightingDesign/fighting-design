@@ -8,7 +8,7 @@ export type TableAlignType = 'left' | 'center' | 'right'
 /**
  * 表格数据类型
  */
-export type TableDateType = object[]
+export type TableDateType = Record<string, unknown>[]
 
 /**
  * 表格表头每一项配置类型

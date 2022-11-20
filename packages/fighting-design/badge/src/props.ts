@@ -7,7 +7,7 @@ export const Props = {
    */
   value: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * value 为数字时的最大值，超出显示为 value+
@@ -47,14 +47,14 @@ export const Props = {
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义文字颜色
    */
   textColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   }
 } as const
 

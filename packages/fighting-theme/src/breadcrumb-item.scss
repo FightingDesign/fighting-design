@@ -1,3 +1,5 @@
+@use './root';
+
 .f-breadcrumb-item {
   display: flex;
   align-items: center;
@@ -8,7 +10,7 @@
   }
 
   .f-breadcrumb-item__inner {
-    color: #333;
+    color: var(--f-design-color-text-1);
   }
 
   // 最后一个分隔符隐藏

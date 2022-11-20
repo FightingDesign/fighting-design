@@ -1,10 +1,11 @@
-@import '../config/var-avatar.scss';
+@use './root';
+@import '../config/var-avatar';
 
 .f-avatar {
-  display: inline-flex;
-  justify-content: center;
   align-items: center;
+  display: inline-flex;
   vertical-align: middle;
+  justify-content: center;
   width: var(--f-avatar-size, 60px);
   height: var(--f-avatar-size, 60px);
   background: var(--f-avatar-background-color, none);
@@ -37,22 +38,22 @@
   }
 
   &__text {
-    color: var(--f-avatar-font-color, #333);
     font-size: var(--f-avatar-font-size, 15px);
+    color: var(--f-avatar-font-color, --f-design-color-text-1);
   }
 }
 
 .f-avatar__error {
   width: 60px;
   height: 60px;
-  display: inline-flex;
-  justify-content: center;
   align-items: center;
-  background: #eee;
+  display: inline-flex;
   vertical-align: middle;
+  justify-content: center;
+  background: var(--f-design-color-border-1);
 
   .f-avatar__error-text {
-    color: var(--f-avatar-font-color, #333);
     font-size: var(--f-avatar-font-size, 13px);
+    color: var(--f-avatar-font-color, --f-design-color-text-1);
   }
 }

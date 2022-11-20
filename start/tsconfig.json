@@ -13,21 +13,16 @@
     "paths": {
       "@/*": ["../packages/fighting-design/*"]
     },
-    "lib": [
-      "ESNext",
-      "DOM",
-      "dom.iterable"
-    ],
+    "lib": ["ESNext", "DOM", "dom.iterable"],
     "skipLibCheck": true,
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "src/global.d.ts"
   ],
   "references": [
     {

@@ -1,38 +1,24 @@
+@use './root';
+
 .f-sticky-card {
-  border: 1px solid var(--sticky-card-border-color, #e5e5e5);
-  border-radius: 3px;
-  transition: 0.3s;
   cursor: pointer;
+  transition: 0.3s;
+  border-radius: 3px;
+  border: 1px solid #e5e5e5;
 
-  &:hover {
-    box-shadow: 0 0 8px 0 #e8edfa99, 0 2px 4px 0 #e8edfa80;
-  }
-
+  // 展示的内容
   &__source {
     padding: 20px;
     box-sizing: border-box;
   }
 
-  // 内容盒子
+  // 折叠的内容
   &__box {
-    box-sizing: border-box;
-    height: fit-content;
-    transition: max-height 0.4s;
-    max-height: 0;
+    height: 0;
     overflow: hidden;
-    background: var(--sticky-card-content-background, #fff);
-
-    &.f-sticky-card__box-open {
-      border-top: 1px solid var(--sticky-card-border-color, #e5e5e5);
-      overflow-y: auto;
-      max-height: var(--sticky-card-max-height, 800px);
-    }
-
-    // 主要内容
-    .f-sticky-card__content {
-      padding: 20px;
-      box-sizing: border-box;
-    }
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-top: 1px solid var(--f-design-color-border-1);
 
     // 滚动条
     &::-webkit-scrollbar {
@@ -46,29 +32,33 @@
     }
   }
 
-  // 操作栏
+  // 点击的操作栏
   &__option {
-    border-top: 1px solid var(--sticky-card-border-color, #e5e5e5);
+    border-top: 1px solid #e5e5e5;
     height: 45px;
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     user-select: none;
     font-size: 15px;
-    background: #fff;
     padding: 10px;
     box-sizing: border-box;
     z-index: 9999;
+    background: var(--f-design-color-text-2);
+    color: var(--f-design-color-text-1);
 
+    // 展开使用粘性定位
     &.f-sticky-card__option-open {
       position: sticky;
       bottom: 0px;
     }
 
+    // 描述文字
     &__option-text {
-      color: #333;
       transition: 0.4s;
+      text-align: center;
+      display: block;
     }
 
     &:hover {
@@ -76,5 +66,10 @@
         color: var(--f-design-color-primary-1);
       }
     }
+  }
+
+  // 鼠标移入
+  &:hover {
+    box-shadow: 0 0 8px 0 #e8edfa99, 0 2px 4px 0 #e8edfa80;
   }
 }

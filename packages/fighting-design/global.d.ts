@@ -2,7 +2,7 @@ import type * as components from './components'
 
 /**
  * Volar 插件实现代码提示
- * 
+ *
  * https://github.com/johnsoncodehk/volar/blob/master/extensions/vscode-vue-language-features/README.md
  */
 
@@ -56,6 +56,17 @@ declare module '@vue/runtime-core' {
     FTextarea: typeof components.FTextarea
     FSelect: typeof components.FSelect
     FOption: typeof components.FOption
+    FInput: typeof components.FInput
+    FTabs: typeof components.FTabs
+    FTabsPane: typeof components.FTabsPane
+    FPopup: typeof components.FPopup
+    FPagination: typeof components.FPagination
+    FCheckbox: typeof components.FCheckbox
+    FCheckboxGroup: typeof components.FCheckboxGroup
+    FSwap: typeof components.FSwap
+    FDatePicker: typeof components.FDatePicker
+    FTimePicker: typeof components.FTimePicker
+    FInputNumber: typeof components.FInputNumber
   }
 
   interface ComponentCustomProperties {

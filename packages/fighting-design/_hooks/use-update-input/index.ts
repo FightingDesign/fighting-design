@@ -1,3 +1,4 @@
+import { runCallback } from '../../_utils'
 import type {
   UseUpdateInputInterface,
   UseUpdateInputEmitInterface,
@@ -10,10 +11,10 @@ import type {
 /**
  * 文本框输入的方法
  * 可处理文本框输入和清空
- * 
+ *
  * @param prop 组件的 props 参数
  * @param emit 回调参数
- * @returns { UseUpdateInputInterface } 
+ * @returns { UseUpdateInputInterface }
  */
 export const useUpdateInput: UseUpdateInputInterface = (
   prop: UseUpdateInputPropsInterface,
@@ -21,18 +22,26 @@ export const useUpdateInput: UseUpdateInputInterface = (
 ): UseUpdateInputReturnInterface => {
 
   /**
-   * 处理文本框输入
-   * @param evt input 事件对象
-   * @return { void }
+   * 处理文本框输入 input 事件
+   *
+   * @param evt 事件对象
    */
   const onInput: HandleEventInterface = (evt: Event): void => {
     emit('update:modelValue', (evt.target as HTMLInputElement).value)
-    prop.onChange && prop.onChange((evt.target as HTMLInputElement).value)
+    runCallback(prop.onInput, (evt.target as HTMLInputElement).value)
+  }
+
+  /**
+   * 处理文本框输入 change 事件
+   *
+   * @param evt 事件对象
+   */
+  const onChange: HandleEventInterface = (evt: Event): void => {
+    runCallback(prop.onChange, (evt.target as HTMLInputElement).value)
   }
 
   /**
    * 清空文本框
-   * @returns { void }
    */
   const onClear: OrdinaryFunctionInterface = (): void => {
     if (prop.disabled) return
@@ -41,6 +50,7 @@ export const useUpdateInput: UseUpdateInputInterface = (
 
   return {
     onInput,
+    onChange,
     onClear
   } as UseUpdateInputReturnInterface
 }

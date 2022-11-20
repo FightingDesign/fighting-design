@@ -152,16 +152,16 @@
 
 ## Toolbar Attributes
 
-| 参数          | 说明                                                 | 类型     | 可选值                          | 默认值 |
-| ------------- | ---------------------------------------------------- | -------- | ------------------------------- | ------ |
-| `size`        | 尺寸                                                 | string   | `large` `middle` `small` `mini` | large  |
-| `round`       | 显示为圆角                                           | boolean  | ——                              | false  |
-| `background`  | 背景颜色                                             | string   | ——                              | ——     |
-| `text-color`  | 字体颜色                                             | string   | ——                              | ——     |
-| `fixed`       | 是否固定定位                                         | boolean  | ——                              | false  |
-| `width`       | 自定义宽度                                           | string   | ——                              | ——     |
-| `height`      | 自定义高度                                           | string   | ——                              | ——     |
-| `click`       | 点击之后触发的回调                                   | Function | ——                              | null   |
+| 参数         | 说明               | 类型     | 可选值                          | 默认值 |
+| ------------ | ------------------ | -------- | ------------------------------- | ------ |
+| `size`       | 尺寸               | string   | `large` `middle` `small` `mini` | large  |
+| `round`      | 显示为圆角         | boolean  | ——                              | false  |
+| `background` | 背景颜色           | string   | ——                              | ——     |
+| `text-color` | 字体颜色           | string   | ——                              | ——     |
+| `fixed`      | 是否固定定位       | boolean  | ——                              | false  |
+| `width`      | 自定义宽度         | string   | ——                              | ——     |
+| `height`     | 自定义高度         | string   | ——                              | ——     |
+| `click`      | 点击之后触发的回调 | Function | ——                              | ——     |
 
 ## Toolbar Slots
 
@@ -175,9 +175,9 @@
 | ----------- | ------------------ | -------------------------- | ------ | ------ |
 | `data-key`  | 唯一值             | string / number            | ——     | ——     |
 | `color`     | 自定义文字颜色     | string                     | ——     | ——     |
-| `icon`      | 自定义 icon        | object (VNode / Component) | ——     | null   |
+| `icon`      | 自定义 icon        | object (VNode / Component) | ——     | ——     |
 | `icon-size` | 自定义 icon 大小   | string / number            | ——     | 16px   |
-| `click`     | 点击之后触发的回调 | Function                   | ——     | null   |
+| `click`     | 点击之后触发的回调 | Function                   | ——     | ——     |
 
 ## Toolbar-Item Slots
 

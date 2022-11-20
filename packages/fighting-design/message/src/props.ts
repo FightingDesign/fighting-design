@@ -2,16 +2,19 @@ import type { VNode, PropType, ExtractPropTypes } from 'vue'
 import type { MessageType, MessagePlacementType } from './interface'
 
 export const Props = {
+  /**
+   * 唯一值
+   */
   id: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 消息文本
    */
   message: {
     type: [String, Object] as PropType<VNode | string>,
-    default: (): string => '',
+    default: (): null => null,
     required: true
   },
   /**
@@ -21,7 +24,9 @@ export const Props = {
     type: String as PropType<MessageType>,
     default: (): MessageType => 'default',
     validator: (val: MessageType): boolean => {
-      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+      return (
+        ['default', 'primary', 'success', 'danger', 'warning'] as const
+      ).includes(val)
     }
   },
   /**
@@ -57,14 +62,14 @@ export const Props = {
    */
   color: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义背景色
    */
   background: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 偏移距离
@@ -80,7 +85,16 @@ export const Props = {
     type: String as PropType<MessagePlacementType>,
     default: (): MessagePlacementType => 'top',
     validator: (val: MessagePlacementType): boolean => {
-      return (['top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right'] as const).includes(val)
+      return (
+        [
+          'top',
+          'top-left',
+          'top-right',
+          'bottom',
+          'bottom-left',
+          'bottom-right'
+        ] as const
+      ).includes(val)
     }
   },
   /**

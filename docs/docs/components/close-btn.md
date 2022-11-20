@@ -65,8 +65,8 @@
 | `round`    | 是否为圆角的             | boolean                    | ——     | false  |
 | `disabled` | 是否禁用                 | boolean                    | ——     | false  |
 | `color`    | 自定义颜色               | string                     | ——     | ——     |
-| `icon`     | 自定义 icon              | object (VNode / Component) | ——     | null   |
-| `click`    | 点击之后执行的回调       | Function                   | ——     | null   |
+| `icon`     | 自定义 icon              | object (VNode / Component) | ——     | ——     |
+| `click`    | 点击之后执行的回调       | Function                   | ——     | ——     |
 | `no-hover` | hover 状态是否取消背景色 | boolean                    | ——     | false  |
 
 ## Slots

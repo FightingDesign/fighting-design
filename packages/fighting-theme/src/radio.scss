@@ -1,3 +1,5 @@
+@use './root';
+
 .f-radio {
   cursor: pointer;
   display: inline-flex;
@@ -6,8 +8,8 @@
   white-space: nowrap;
   outline: none;
   user-select: none;
-  color: #333;
   transition: 0.4s;
+  color: var(--f-design-color-text-1);
 
   // 选中状态
   &.f-radio__checked {
@@ -31,9 +33,9 @@
     height: 14px;
     border-radius: 50%;
     position: relative;
-    background-color: #fff;
     border: 1px solid #dee5fd;
     margin-right: 7px;
+    background-color: var(--f-design-color-text-2);
 
     &::after {
       content: '';
@@ -44,8 +46,8 @@
       left: 50%;
       border-radius: 50%;
       transform: translate(-50%, -50%) scale(0);
-      background: #fff;
       transition: transform 0.15s ease-in;
+      background: var(--f-design-color-text-2);
     }
   }
 
@@ -54,14 +56,14 @@
     cursor: not-allowed;
 
     .f-radio__text {
-      color: #d7d7d7;
+      color: var(--f-design-color-default-3);
     }
 
     .f-radio__circle {
-      border-color: #d7d7d7;
+      border-color: var(--f-design-color-default-3);
 
       &::after {
-        background: #d7d7d7;
+        background: var(--f-design-color-default-3);
       }
     }
   }

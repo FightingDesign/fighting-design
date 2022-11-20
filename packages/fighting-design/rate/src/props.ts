@@ -65,7 +65,7 @@ export const Props = {
    */
   textColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 辅助文字数组
@@ -79,7 +79,7 @@ export const Props = {
    */
   textSize: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 当分数发生改变时触发

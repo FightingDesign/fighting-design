@@ -1,39 +1,19 @@
 <script lang="ts" setup name="FPageHeader">
-  import { computed } from 'vue'
-  import { sizeChange } from '../../_utils'
+  import { Props } from './props'
+  import { sizeChange, runCallback } from '../../_utils'
   import { FIconArrowLeftVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
-  import { Props } from './props'
-  import type { ComputedRef } from 'vue'
-  import type {
-    HandleMouseEventInterface,
-    ClassListInterface
-  } from '../../_interface'
+  import type { HandleMouseEventInterface } from '../../_interface'
   import type { PageHeaderPropsType } from './props'
 
   const prop: PageHeaderPropsType = defineProps(Props)
 
+  /**
+   * 点击之后执行
+   */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    prop.back && prop.back(evt)
+    runCallback(prop.back, evt)
   }
-
-  const rightClassList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      return [
-        'f-page-header__main',
-        { 'f-page-header__main-center': prop.titleCenter }
-      ] as const
-    }
-  )
-
-  const rightTitleClassList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      return [
-        'f-page-header__main-title',
-        { 'f-page-header__main-title-bold': prop.titleBold }
-      ] as const
-    }
-  )
 </script>
 
 <template>
@@ -49,9 +29,20 @@
     </div>
 
     <!-- 右侧部分 -->
-    <div :class="rightClassList">
+    <div
+      :class="[
+        'f-page-header__main',
+        { 'f-page-header__main-center': titleCenter }
+      ]"
+    >
       <!-- 标题 -->
-      <div :style="{ color: titleColor }" :class="rightTitleClassList">
+      <div
+        :style="{ color: titleColor }"
+        :class="[
+          'f-page-header__main-title',
+          { 'f-page-header__main-title-bold': titleBold }
+        ]"
+      >
         <slot name="title">{{ title }}</slot>
       </div>
 

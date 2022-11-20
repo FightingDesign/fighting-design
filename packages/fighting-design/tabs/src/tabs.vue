@@ -34,7 +34,7 @@
    */
   const currentName = ref<TabsPaneName>(0)
 
-  function setCurrentName(name: TabsPaneName): void {
+  const setCurrentName = (name: TabsPaneName): void => {
     // 如果用户没有设置v-model, 这里可以直接在内部修改
     currentName.value = name
     emits('update:modelValue', name)
@@ -42,11 +42,11 @@
   /**
    * 触发用户的emit
    */
-  function edit(
+  const edit = (
     action: 'remove' | 'add',
     name?: TabsPaneName,
     i?: number
-  ): void {
+  ): void => {
     emits('edit', action, name, i)
   }
   /**
@@ -57,7 +57,7 @@
    * 更新pane列表
    * @param pane
    */
-  function updatePaneList(): void {
+  const updatePaneList = (): void => {
     nextTick(() => {
       if (!instance) return
       panes.value = getChildrenComponent(instance, 'FTabsPane').map(

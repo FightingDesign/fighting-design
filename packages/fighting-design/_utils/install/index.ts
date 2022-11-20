@@ -33,7 +33,10 @@ export const installFn = <T>(main: T, name: string): InstallType<T> => {
  * @param name 组件名
  * @returns { T } 组件实例
  */
-export const installDirective = <T extends Directive>(main: T, name: string): InstallType<T> => {
+export const installDirective = <T extends Directive>(
+  main: T,
+  name: string
+): InstallType<T> => {
   (main as InstallType<T>).install = (app: App): void => {
     app.directive(name, main as InstallType<T>)
   }

@@ -6,7 +6,7 @@ export const Props = {
    * 绑定值
    */
   modelValue: {
-    type: [Boolean, Array] as PropType<boolean | []>,
+    type: [Boolean, Array] as PropType<boolean | string[]>,
     default: (): boolean => false
   },
   /**
@@ -14,7 +14,7 @@ export const Props = {
    */
   label: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否禁用
@@ -38,8 +38,8 @@ export const Props = {
     default: (): boolean => true
   },
   /**
-  * 是否为半选状态
-  */
+   * 是否为半选状态
+   */
   indeterminate: {
     type: Boolean,
     default: (): boolean => false

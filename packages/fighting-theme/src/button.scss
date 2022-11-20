@@ -1,11 +1,12 @@
-@import '../config/const-type.scss';
-@import '../config/const-size.scss';
+@use './root';
+@import '../config/const-type';
+@import '../config/const-size';
 
 .f-button {
   position: relative;
   display: inline-flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   border: none;
   outline: none;
   user-select: none;
@@ -105,7 +106,7 @@
 
   // 圆角
   &.f-button__round {
-    border-radius: 30px;
+    border-radius: var(--f-design-border-radius-2);
   }
 
   // 块级元素
@@ -152,7 +153,7 @@
     border-radius: 50%;
     animation: f-button-ripples 0.7s linear;
     opacity: 0.5;
-    background: #fff;
+    background: var(--f-design-color-text-2);
   }
 
   @keyframes f-button-ripples {
@@ -163,16 +164,16 @@
     }
 
     to {
+      opacity: 0;
       width: 500px;
       height: 500px;
-      opacity: 0;
     }
   }
 
   // 自定义颜色
   &.f-button__color {
     background: var(--f-button-default-color);
-    color: var(--f-button-font-color, #fff);
+    color: var(--f-button-font-color, --f-design-color-text-2);
 
     &:hover {
       background: var(--f-button-hover-color);

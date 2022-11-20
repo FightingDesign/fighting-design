@@ -1,0 +1,39 @@
+.f-input-number {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  user-select: none;
+
+  .f-input-number__minus {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .f-input-number__plus {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &__wrapper {
+    display: inline-flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+
+    // switch 按钮
+    .f-input-number__switch {
+      display: flex;
+      flex-direction: column;
+
+      .f-button {
+        width: 20px;
+        padding: 0;
+        flex: 1;
+      }
+    }
+  }
+}

@@ -3,11 +3,11 @@ import type { ListSizeType } from './interface'
 
 export const Props = {
   /**
-   * 前缀样式，原生属性	
+   * 前缀样式，原生属性
    */
   listStyle: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否显示斑马纹
@@ -17,7 +17,7 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 是否居中	
+   * 是否居中
    */
   center: {
     type: Boolean,
@@ -28,17 +28,17 @@ export const Props = {
    */
   textColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 自定义边框颜色
    */
   borderColor: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
-   * 尺寸	
+   * 尺寸
    */
   size: {
     type: String as PropType<ListSizeType>,
@@ -52,10 +52,11 @@ export const Props = {
    */
   maxHeight: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   }
 } as const
 
 export type ListPropsType = ExtractPropTypes<typeof Props>
 
-export const LIST_PROPS_KEY: InjectionKey<ListPropsType> = Symbol('list-props-key')
+export const LIST_PROPS_KEY: InjectionKey<ListPropsType> =
+  Symbol('list-props-key')

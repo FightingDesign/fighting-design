@@ -1,3 +1,5 @@
+@use './root';
+
 $width-skeleton: 20px;
 $height-skeleton: 20px;
 
@@ -26,9 +28,9 @@ $height-skeleton: 20px;
 }
 
 .f-skeleton {
-  background-color: #f4f4f4;
+  background: #f4f4f4;
   height: $height-skeleton;
-  margin-bottom: 12px;
+  margin: 8px 0;
 }
 
 .f-skeleton__rounded {

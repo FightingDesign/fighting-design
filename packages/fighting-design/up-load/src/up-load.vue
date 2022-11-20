@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FUpLoad">
   import { Props } from './props'
   import { FButton } from '../../button'
+  import { runCallback } from '../../_utils'
   import { ref, watch } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
@@ -29,20 +30,32 @@
     null as unknown as HTMLInputElement
   )
 
-  // 点击上传
+  /**
+   * 点击上传
+   */
   const handleClick: OrdinaryFunctionInterface = (): void => {
     FUpLoadInput.value.click()
   }
 
-  // 更新最新的文件列表
+  /**
+   * 更新最新的文件列表
+   *
+   * @param files 文件列表
+   */
   const updateFiles: UpLoadUpdateFilesInterface = (files: File[]): void => {
     fileList.value = files
     emit('update:files', files)
     prop.load && prop.load()
+    runCallback(prop.load)
   }
 
-  // 过滤文件
-  const filterFiles: UpLoadFilterFilesInterface = (files: FileList): File[] => {
+  /**
+   * 过滤文件
+   *
+   * @param files 文件列表
+   * @return { File[] } 过滤后的文件列表
+   */
+  const filterFiles: UpLoadFilterFilesInterface = (files: File[]): File[] => {
     const { maxSize, maxLength } = prop
     let list: File[] = [...files]
 
@@ -59,35 +72,53 @@
     return list
   }
 
-  // 当文本框发生改变时
+  /**
+   * 当文本框发生改变时
+   *
+   * @param evt 事件对象
+   */
   const handleChange: HandleEventInterface = (evt: Event): void => {
     const files: FileList | null = (evt.target as HTMLInputElement).files
     if (files) {
-      updateFiles(filterFiles(files))
+      updateFiles(filterFiles(files as unknown as File[]))
     }
   }
 
-  // 删除文件
+  /**
+   * 删除文件
+   *
+   * @param index 需要删除的文件索引
+   */
   const removeFile: UpLoadRemoveFileInterface = (index: number): void => {
     (fileList.value as File[]).splice(index, 1)
   }
 
-  // 将文件拖拽进来时触发
+  /**
+   * 将文件拖拽进来时触发
+   *
+   * @param evt 事件对象
+   */
   const onDragover: HandleDragEventInterface = (evt: DragEvent): void => {
     evt.preventDefault()
     dragIng.value = true
   }
 
-  // 放置时触发
+  /**
+   * 放置时触发
+   *
+   * @param evt 事件对象
+   */
   const onDrop: HandleDragEventInterface = (evt: DragEvent): void => {
     dragIng.value = false
-    const files = (evt.dataTransfer as DataTransfer).files
+    const files: FileList = (evt.dataTransfer as DataTransfer).files
     if (files) {
-      updateFiles(filterFiles(files))
+      updateFiles(filterFiles(files as unknown as File[]))
     }
   }
 
-  // 如果文件发生改变时触发
+  /**
+   * 如果文件发生改变时触发
+   */
   const onChange: OrdinaryFunctionInterface = (): void => {
     if (!prop.change) return
     watch(

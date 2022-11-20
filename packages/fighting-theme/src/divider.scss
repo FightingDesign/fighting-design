@@ -1,4 +1,5 @@
-@import '../config/var-divider.scss';
+@use './root';
+@import '../config/var-divider';
 
 .f-divider {
   position: relative;
@@ -37,7 +38,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 2;
-    background: #fff;
+    background: var(--f-design-color-text-2);
 
     // 文字不同的位置
     &.f-divider__text-center {

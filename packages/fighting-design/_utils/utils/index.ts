@@ -6,7 +6,9 @@ import type {
   UtilsSizeChangeInterface,
   UtilsIsBooleanInterface,
   UtilsIsStringInterface,
-  UtilsSizeToNumInterface
+  UtilsSizeToNumInterface,
+  UtilsIsObjectInterface,
+  UtilsIsArrayInterface
 } from './interface'
 
 /**
@@ -87,6 +89,34 @@ export const isString: UtilsIsStringInterface = (
 }
 
 /**
+ * 判断一个值是否为对象
+ * @param target 要检测的值
+ * @returns { boolean }
+ */
+export const isObject: UtilsIsObjectInterface = (
+  target: unknown
+): target is Object => {
+  return (
+    typeof target === 'object' &&
+    Object.prototype.toString.call(target) === '[object Object]'
+  )
+}
+
+/**
+ * 判断一个值是否为数组
+ * @param target 要检测的值
+ * @returns { boolean }
+ */
+export const isArray: UtilsIsArrayInterface = (
+  target: unknown
+): target is [] => {
+  return (
+    typeof target === 'object' &&
+    Object.prototype.toString.call(target) === '[object Array]'
+  )
+}
+
+/**
  * 给数字小于 10 的数字前面加 0
  * @param num 日期
  * @returns { string }
@@ -122,8 +152,9 @@ export const sizeChange: UtilsSizeChangeInterface = (
  * 例如: 12px => 12
  *
  * @param size 尺寸
+ * @returns { number } 数字尺寸
  */
-export const sizeToNum: UtilsSizeToNumInterface = (size: string | number) => {
+export const sizeToNum: UtilsSizeToNumInterface = (size: string | number): number => {
   if (!size) return 0
   if (typeof size === 'number') return size
   return Number.parseFloat(size) || 0

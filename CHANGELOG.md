@@ -2,6 +2,41 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-input` 组件 `type` 属性新增 `number` 类型
+- `f-input` 组件新增 `after-icon` 配置项
+- `f-input` 组件优化查看密码方式
+- `f-input` 组件新增 `on-input` 配置项
+- `f-textarea` 组件新增 `on-input` 配置项
+- 修复 `f-input` 组件 `on-change` 回调错误的问题
+- 修复 `f-textarea` 组件 `on-change` 回调错误的问题
+- `f-input` 组件加入查看密码切换动画效果
+- 重构 `f-calendar` 组件头部样式
+- 优化 `f-dropdown` 组件样式细节
+- 重构 `f-calendar` 组件内部细节
+- 新增 `f-date-picker` 组件
+- 新增 `f-time-picker` 组件
+
+## 0.9.0-alpha.3 (2022-11-18)
+
+- 更新类型配置文件
+- 修复 `f-checkbox-group` 类型错误
+
+## 0.9.0-alpha.2 (2022-11-18)
+
+**修复 Bug**
+
+- 修复 `f-swap` 组件样式细节
+- 修复 `f-empty` 组件样式细节
+- 修复 `f-pagination` 组件样式细节
+- 修复 `f-up-load` 组件样式细节
+- 修复 `f-switch` 组件样式细节
+- 修复 `f-card` 组件样式细节
+- 修复 `f-textarea` 组件样式细节
+- 修复 `f-checkbox-group` 类型错误
+- 更新类型配置文件
+
+## 0.9.0-alpha.1 (2022-11-17)
+
 **新功能**
 
 - 新增 `f-checkbox` 组件 `indeterminate` 配置项
@@ -9,17 +44,21 @@
 - 新增 `f-pagination` 组件
 - 新增 `f-tabs` 组件
 - 重构 `loading` 组件
+- `f-empty` 组件 `content-size` 配置项支持 `number` 类型
+- `f-empty` 组件新增 `icon-size` 配置项
 
 **修复**
 
 - 修复 `f-select` 组件在存在绑定值之后不显示 `label` 的问题
 - 修复 `f-radio-group` 组件样式细节
 - 修复 `f-text` 组件样式细节
+- 修复 `f-button` 组件样式细节
 
 **其它**
 
 - `f-switch` 组件 `size` 配置项新增 `mini` 可选择
 - `f-switch` 组件新增 `icon-size` 配置项
+- 优化全局组件部分参数默认值
 
 ## 0.8.1-alpha.4 (2022-11-13)
 

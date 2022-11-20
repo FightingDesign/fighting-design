@@ -138,10 +138,10 @@
 | ------------ | ------------ | ------- | ---------------------------------- | ------ |
 | `position`   | 文字显示位置 | string  | `left` `center` `right`            | center |
 | `vertical`   | 是否为竖线   | boolean | ——                                 | false  |
-| `color`      | 线条颜色     | string  | ——                                 | null   |
-| `font-color` | 文字颜色     | string  | ——                                 | null   |
-| `background` | 背景颜色     | boolean | ——                                 | null   |
-| `margin`     | 上下边距     | string  | ——                                 | null   |
+| `color`      | 线条颜色     | string  | ——                                 | ——     |
+| `font-color` | 文字颜色     | string  | ——                                 | ——     |
+| `background` | 背景颜色     | boolean | ——                                 | ——     |
+| `margin`     | 上下边距     | string  | ——                                 | ——     |
 | `type`       | 分隔符类型   | string  | `dashed` `dotted` `double` `solid` | solid  |
 
 ## Interface

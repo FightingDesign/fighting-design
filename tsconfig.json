@@ -10,24 +10,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "third-lib": [
-        "node_modules/third-lib"
-      ]
+      "third-lib": ["node_modules/third-lib"]
     },
-    "typeRoots": [
-      "node_modules/@types",
-      "@types"
-    ]
+    "typeRoots": ["node_modules/@types", "@types"]
   },
-  "include": [
-    "packages/**/*.ts",
-    "packages/**/*.d.ts"
-  ]
+  "include": ["packages/**/*.ts", "packages/**/*.d.ts"]
 }

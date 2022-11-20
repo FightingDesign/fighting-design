@@ -12,7 +12,10 @@ export const bottomList = [
         link: 'https://github.com/FightingDesign/fighting-design'
       },
       { text: 'Npm 组织', link: 'https://www.npmjs.com/org/fighting-design' },
-      { text: 'Npm 仓库', link: 'https://www.npmjs.com/package/fighting-design' }
+      {
+        text: 'Npm 仓库',
+        link: 'https://www.npmjs.com/package/fighting-design'
+      }
     ]
   },
   {

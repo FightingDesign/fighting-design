@@ -1,7 +1,9 @@
+@use './root';
+
 .f-image {
   position: relative;
-  display: inline-block;
   vertical-align: top;
+  display: inline-block;
   width: var(--f-image-width);
   height: var(--f-image-height);
   border-radius: var(--f-image-border-radius);
@@ -49,10 +51,10 @@
 
   .f-image__error-text {
     display: inline-block;
-    background: #eee;
     padding: 0 3px;
     border-radius: 3px;
     font-size: 15px;
-    color: #333;
+    background: var(--f-design-color-border-1);
+    color: var(--f-design-color-text-1);
   }
 }

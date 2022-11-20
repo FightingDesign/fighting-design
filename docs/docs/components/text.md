@@ -235,22 +235,22 @@
 
 ## Attributes
 
-| 参数          | 说明                                 | 类型            | 可选值                                           | 默认值  |
-| ------------- | ----------------------------------  | --------------- | ------------------------------------------------ | ------- |
-| `type`        | 类型                                | string          | `default` `primary` `success` `danger` `warning` | default |
-| `size`        | 文字大小                             | string / number | ——                                               | 15px    |
-| `color`       | 文字颜色                             | string          | ——                                               | ——      |
-| `background`  | 背景颜色                             | string          | ——                                               | ——      |
-| `block`       | 是否独占一行                         | boolean         | ——                                               | false   |
-| `spacing`     | 文字间距                            | string / number | ——                                               | ——      |
-| `line-height` | 行高                                | string / number | ——                                               | 1       |
-| `indent`      | 首字符缩进量                         | string / number | ——                                               | ——      |
-| `bold`        | 文字是否以粗体显示                    | boolean         | ——                                                | false   |
-| `decoration`  | 文字的修饰                           | string          | `overline` `line-through` `underline`             | ——      |
-| `padding`     | 内边距                               | string / number | ——                                               | 0       |
-| `width`       | 宽度                                 | string / number | ——                                               | ——       |
-| `ellipsis`    | 是否省略文本，需配合 `width` 宽度使用  | boolean          | ——                                               | ——       |
-| `center`      | 是否居中                             | boolean         | ——                                                | false   |
+| 参数          | 说明                                  | 类型            | 可选值                                           | 默认值  |
+| ------------- | ------------------------------------- | --------------- | ------------------------------------------------ | ------- |
+| `type`        | 类型                                  | string          | `default` `primary` `success` `danger` `warning` | default |
+| `size`        | 文字大小                              | string / number | ——                                               | 15px    |
+| `color`       | 文字颜色                              | string          | ——                                               | ——      |
+| `background`  | 背景颜色                              | string          | ——                                               | ——      |
+| `block`       | 是否独占一行                          | boolean         | ——                                               | false   |
+| `spacing`     | 文字间距                              | string / number | ——                                               | ——      |
+| `line-height` | 行高                                  | string / number | ——                                               | 1       |
+| `indent`      | 首字符缩进量                          | string / number | ——                                               | ——      |
+| `bold`        | 文字是否以粗体显示                    | boolean         | ——                                               | false   |
+| `decoration`  | 文字的修饰                            | string          | `overline` `line-through` `underline`            | ——      |
+| `padding`     | 内边距                                | string / number | ——                                               | 0       |
+| `width`       | 宽度                                  | string / number | ——                                               | ——      |
+| `ellipsis`    | 是否省略文本，需配合 `width` 宽度使用 | boolean         | ——                                               | ——      |
+| `center`      | 是否居中                              | boolean         | ——                                               | false   |
 
 ## Slots
 

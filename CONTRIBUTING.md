@@ -46,6 +46,17 @@ pnpm start
 pnpm dev:docs
 ```
 
+## 🔍 开发工具和插件
+
+请先阅读 [IDE 支持](https://cn.vuejs.org/guide/typescript/overview.html#ide-support)
+
+编辑器强烈推荐使用 [Visual Studio Code](https://code.visualstudio.com/)，内置插件请务必安装以下几款：
+
+- [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) Vue3 官方开发插件
+- [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) 用于支持在 TS 中 import `*.vue` 文件
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 代码格式校验，如果不安装，那么 [fighting-eslint-config](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-eslint-config/README.md) 则不生效
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) 用于检测单词拼写错误
+
 ## 🔓 命令说明
 
 `Fighting Design` 内部设置了很多的命令，在 [package.json](https://github.com/FightingDesign/fighting-design/blob/master/package.json) 中可进行查看。下面详细介绍每一条命令：
@@ -76,11 +87,13 @@ pnpm dev:docs
 主要源文件都在 [packages](https://github.com/FightingDesign/fighting-design/tree/master/packages) 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档：
 
 **详细的规范在下面链接，千万不要忽略下面链接！！！**
+**详细的规范在下面链接，千万不要忽略下面链接！！！**
+**详细的规范在下面链接，千万不要忽略下面链接！！！**
 
 - [fighting-design](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/README.md) 组件源文件目录
 - [fighting-theme](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-theme/README.md) 样式主题目录
 - [add-component](https://github.com/FightingDesign/fighting-design/blob/master/packages/add-component/README.md) 创建新组件
-- [eslint-config](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-eslint-config/README.md) `Eslint` 配置项
+- [fighting-eslint-config](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-eslint-config/README.md) Eslint 配置项
 - [docs](https://github.com/FightingDesign/fighting-design/blob/master/docs/README.md) 文档编写规范
 
 ## 🛸 提交规范

@@ -1,6 +1,8 @@
+@use './root';
+
 .f-header {
-  box-sizing: border-box;
   flex-shrink: 0;
+  box-sizing: border-box;
   height: var(--f-footer-height, 60px);
   padding: var(--f-footer-padding, 0);
 }

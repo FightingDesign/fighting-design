@@ -4,20 +4,19 @@
   import { computed, ref, inject } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import { Ripples, ChangeColor, sizeChange } from '../../_utils'
-  import type { ButtonGroupProvideInterface } from '../../button-group'
+  import { Ripples, ChangeColor, sizeChange, runCallback } from '../../_utils'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type {
     HandleMouseEventInterface,
     ClassListInterface
   } from '../../_interface'
-  import type { ButtonPropsType } from './interface'
+  import type { ButtonPropsType, ButtonSizeType } from './interface'
 
   const prop: ButtonPropsType = defineProps(Props)
 
   // 父组件注入的依赖项
-  const GroupProps: ButtonGroupProvideInterface | undefined = inject<
-    ButtonGroupProvideInterface | undefined
+  const groupSize: ButtonSizeType | undefined = inject<
+    ButtonSizeType | undefined
   >(BUTTON_GROUP_PROPS_KEY, undefined)
 
   // dom 元素
@@ -47,10 +46,8 @@
       return [
         'f-button',
         {
-          [`f-button__${(GroupProps && GroupProps.size) || size}`]:
-            (GroupProps && GroupProps.size) || size,
-          [`f-button__${(GroupProps && GroupProps.type) || type}`]:
-            (GroupProps && GroupProps.type) || (type && !color),
+          [`f-button__${groupSize || size}`]: groupSize || size,
+          [`f-button__${type}`]: type && !color,
           'f-button__disabled': disabled || loading,
           'f-button__simple': simple && !color,
           'f-button__circle': circle,
@@ -94,7 +91,7 @@
       ripples.clickRipples()
     }
 
-    prop.click && prop.click(evt)
+    runCallback(prop.click, evt)
   }
 
   /**
@@ -103,24 +100,24 @@
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { fontSize, fontColor, shadow, color } = prop
 
-    const styles = {
-      '--f-button-font-size': sizeChange(fontSize)
-    } as CSSProperties
-
     if (color) {
       const changeColor: ChangeColor = new ChangeColor(color)
       const light: string = changeColor.getLightColor(0.4)
       const dark: string = changeColor.getDarkColor(0.2)
-
-      styles['--f-button-default-color'] = color
-      styles['--f-button-hover-color'] = light
-      styles['--f-button-active-color'] = dark
+      return {
+        '--f-button-font-size': sizeChange(fontSize),
+        '--f-button-font-color': fontColor,
+        '--f-button-box-shadow': shadow,
+        '--f-button-default-color': color,
+        '--f-button-hover-color': light,
+        '--f-button-active-color': dark
+      } as CSSProperties
     }
-
-    if (fontColor) styles['--f-button-font-color'] = fontColor
-    if (shadow) styles['--f-button-box-shadow'] = shadow
-
-    return styles
+    return {
+      '--f-button-font-size': sizeChange(fontSize),
+      '--f-button-font-color': fontColor,
+      '--f-button-box-shadow': shadow
+    } as CSSProperties
   })
 </script>
 

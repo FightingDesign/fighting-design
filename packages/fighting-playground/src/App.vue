@@ -36,7 +36,7 @@
     .file.active {
       color: #2d5af1;
       border-bottom: 3px solid #2d5af1;
-      
+
       .label {
         color: #2d5af1;
       }

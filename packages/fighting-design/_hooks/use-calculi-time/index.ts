@@ -10,15 +10,15 @@ import type {
 
 /**
  * 日历组件 hook
- * 
+ *
  * @param year 年分响应式数据
  * @param month 月份响应式数据
  * @returns { UseCalculiTimeInterface } 当前月份展示的天数、上个月切换、下个月切换
  */
 export const useCalculiTime: UseCalculiTimeInterface = (
-  year: Ref<number>, month: Ref<number>
+  year: Ref<number>,
+  month: Ref<number>
 ): UseCalculiTimeReturnInterface => {
-
   // 获取当前月份的 1号是周几
   const firstDayWeek: Ref<number> = ref(
     new Date(`${year.value}/${month.value + 1}/1`).getDay()
@@ -49,7 +49,8 @@ export const useCalculiTime: UseCalculiTimeInterface = (
       const showLastListResult: GetLunarDetailReturnInterface[] = []
 
       for (let i = 0; i < firstDayWeek.value; i++) {
-        const dayList: GetLunarDetailReturnInterface | -1 = lunar.getLunarDetail(year.value, month.value, lastDays)
+        const dayList: GetLunarDetailReturnInterface | -1 =
+          lunar.getLunarDetail(year.value, month.value, lastDays)
 
         if (dayList !== -1) {
           showLastListResult.push(dayList)
@@ -74,9 +75,11 @@ export const useCalculiTime: UseCalculiTimeInterface = (
   const nextMonthDay: ComputedRef<GetLunarDetailReturnInterface[]> = computed(
     (): GetLunarDetailReturnInterface[] => {
       // 获取当前月份的时间
-      const thisMonthDay: number = getDayMonth(year.value, month.value) + firstDayWeek.value
+      const thisMonthDay: number =
+        getDayMonth(year.value, month.value) + firstDayWeek.value
       // 下个月需要展示的天数
-      const nextShowDay: number = thisMonthDay % 7 === 0 ? 0 : 7 - (thisMonthDay % 7)
+      const nextShowDay: number =
+        thisMonthDay % 7 === 0 ? 0 : 7 - (thisMonthDay % 7)
 
       if (!nextShowDay) {
         return []
@@ -85,7 +88,8 @@ export const useCalculiTime: UseCalculiTimeInterface = (
       const showNextListResult: GetLunarDetailReturnInterface[] = []
 
       for (let i = 0; i < nextShowDay; i++) {
-        const dayList: GetLunarDetailReturnInterface | -1 = lunar.getLunarDetail(year.value, month.value + 2, i + 1)
+        const dayList: GetLunarDetailReturnInterface | -1 =
+          lunar.getLunarDetail(year.value, month.value + 2, i + 1)
 
         if (dayList !== -1) {
           showNextListResult.push(dayList)
@@ -104,15 +108,15 @@ export const useCalculiTime: UseCalculiTimeInterface = (
   /**
    * 当月需要展示的天数
    */
-  const currentMonthDay: ComputedRef<GetLunarDetailReturnInterface[]> = computed(
-    (): GetLunarDetailReturnInterface[] => {
-
+  const currentMonthDay: ComputedRef<GetLunarDetailReturnInterface[]> =
+    computed((): GetLunarDetailReturnInterface[] => {
       // 当月的时间
       const monthDays: number = getDayMonth(year.value, month.value)
       const showNextListResult: GetLunarDetailReturnInterface[] = []
 
       for (let i = 0; i < monthDays; i++) {
-        const dayList: GetLunarDetailReturnInterface | -1 = lunar.getLunarDetail(year.value, month.value + 1, i + 1)
+        const dayList: GetLunarDetailReturnInterface | -1 =
+          lunar.getLunarDetail(year.value, month.value + 1, i + 1)
 
         if (dayList !== -1) {
           showNextListResult.push(dayList)
@@ -125,8 +129,7 @@ export const useCalculiTime: UseCalculiTimeInterface = (
       }
 
       return showNextListResult
-    }
-  )
+    })
 
   /**
    * 点击上个月切换按钮

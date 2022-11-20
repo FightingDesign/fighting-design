@@ -3,8 +3,10 @@ import Loading from './loading.vue'
 import type { Directive, ComponentPublicInstance, DirectiveBinding } from 'vue'
 import type { LoadingElInterface, LoadingPropsType } from './interface'
 
-const optionsOrganizer = (el: LoadingElInterface, binding: DirectiveBinding): LoadingPropsType => {
-
+const optionsOrganizer = (
+  el: LoadingElInterface,
+  binding: DirectiveBinding
+): LoadingPropsType => {
   /**
    * 获取 props 中的值
    * @param propKey props 的键
@@ -24,7 +26,9 @@ const optionsOrganizer = (el: LoadingElInterface, binding: DirectiveBinding): Lo
   const getProp = <K extends keyof LoadingPropsType>(
     propKey: K
   ): LoadingPropsType[K] | string => {
-    return getBindingProp(propKey) || el.getAttribute(`f-loading-${propKey}`) || ''
+    return (
+      getBindingProp(propKey) || el.getAttribute(`f-loading-${propKey}`) || ''
+    )
   }
 
   return {
@@ -42,7 +46,10 @@ const optionsOrganizer = (el: LoadingElInterface, binding: DirectiveBinding): Lo
  * @param binding 一个对象，包含一些配置参数
  * @return { void }
  */
-const renderLoadingDom = (el: LoadingElInterface, binding: DirectiveBinding): void => {
+const renderLoadingDom = (
+  el: LoadingElInterface,
+  binding: DirectiveBinding
+): void => {
   /**
    * 判断是否有绝对定位或者固定定位
    * 首先要给容器设置相对定位
@@ -52,7 +59,9 @@ const renderLoadingDom = (el: LoadingElInterface, binding: DirectiveBinding): vo
   }
   const options = optionsOrganizer(el, binding)
   const loadingInstance = createApp(Loading, options)
-  const _vm = loadingInstance.mount(document.createElement('div')) as ComponentPublicInstance
+  const _vm = loadingInstance.mount(
+    document.createElement('div')
+  ) as ComponentPublicInstance
   el.vm = _vm
   el.loadingInstance = loadingInstance
   el.appendChild(_vm.$el)
@@ -73,7 +82,7 @@ const removeLoadingDom = (el: LoadingElInterface): void => {
 
 /**
  * 自定义 loading 指令
- * 
+ *
  * https://cn.vuejs.org/guide/reusability/custom-directives.html#directive-hooks
  */
 export const vLoading: Directive = {
@@ -85,10 +94,13 @@ export const vLoading: Directive = {
    */
   mounted (el: LoadingElInterface, binding: DirectiveBinding): void {
     // 获取到当前元素的定位样式
-    const originalPosition: string = getComputedStyle(el)['position'] || 'static'
+    const originalPosition: string =
+      getComputedStyle(el)['position'] || 'static'
     el.originalPosition = originalPosition
     if (binding.value) {
-      renderLoadingDom(el, binding) // 这个好像没执行
+      // 这个好像没执行 x
+      // 绑定值为true是执行 
+      renderLoadingDom(el, binding)
     }
   },
   /**
@@ -98,7 +110,6 @@ export const vLoading: Directive = {
    * @param binding 一个对象，包含一些配置参数
    */
   updated (el: LoadingElInterface, binding: DirectiveBinding): void {
-    console.log(binding.value, 'updated')
     if (binding.value !== binding.oldValue) {
       if (!binding.value) {
         removeLoadingDom(el)

@@ -11,11 +11,11 @@ export default {
   Layout() {
     return h(Theme.Layout, null, {
       /**
-        * 导航栏插入搜索的输入框插槽
-        * 更多插槽参考
-        * 
-        * https://github.com/vuejs/vitepress/blob/main/docs/guide/theme-introduction.md 
-        */
+       * 导航栏插入搜索的输入框插槽
+       * 更多插槽参考
+       *
+       * https://github.com/vuejs/vitepress/blob/main/docs/guide/theme-introduction.md
+       */
       'nav-bar-content-before': () => h(vpSearch)
     })
   },

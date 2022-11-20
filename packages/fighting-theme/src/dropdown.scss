@@ -1,20 +1,22 @@
+@use './root';
+
 .f-dropdown {
   display: inline-block;
   position: relative;
 
   // 触发器
   &__trigger {
-    display: inline-block;
+    width: 100%;
     padding-bottom: var(--f-dropdown-spacing-size, 8px);
   }
 
   // 主要内容
   &__content {
-    background: #fff;
     box-shadow: 0 1px 6px #00000033;
     position: absolute;
     width: max-content;
     z-index: 2000;
+    background: var(--f-design-color-text-2);
   }
 
   // 出入动画

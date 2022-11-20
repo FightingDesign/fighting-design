@@ -1,5 +1,9 @@
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
-import type { CheckboxGroupLabelType, CheckboxGroupSizeType, CheckboxGroupChangeInterface } from './interface'
+import type {
+  CheckboxGroupLabelType,
+  CheckboxGroupSizeType,
+  CheckboxGroupChangeInterface
+} from './interface'
 
 export const Props = {
   /**
@@ -25,7 +29,7 @@ export const Props = {
   },
   label: {
     type: String,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 是否显示边框
@@ -49,14 +53,14 @@ export const Props = {
    */
   columnGap: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 纵向排列的间距
    */
   rowGap: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
+    default: (): null => null
   },
   /**
    * 绑定值变化时触发
@@ -69,4 +73,5 @@ export const Props = {
 
 export type CheckboxGroupPropsType = ExtractPropTypes<typeof Props>
 
-export const CHECKBOX_GROUP_PROPS_KEY: InjectionKey<CheckboxGroupPropsType> = Symbol('f-checkbox-group-props-key')
+export const CHECKBOX_GROUP_PROPS_KEY: InjectionKey<CheckboxGroupPropsType> =
+  Symbol('f-checkbox-group-props-key')

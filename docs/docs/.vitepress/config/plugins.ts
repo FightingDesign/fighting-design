@@ -20,9 +20,7 @@ export const mdPlugin = (md: MarkdownIt) => {
       const m: RegExpMatchArray = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
       const description: string = m && m.length > 1 ? m[1] : ''
 
-      console.log(description)
       if (tokens[idx].nesting === 1) {
-
         return `
           <vp-demo :open="false">
 

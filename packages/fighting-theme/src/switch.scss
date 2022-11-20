@@ -1,4 +1,5 @@
-@import '../config/const-size.scss';
+@use './root';
+@import '../config/const-size';
 
 .f-switch {
   user-select: none;
@@ -6,6 +7,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  vertical-align: middle;
 
   &__input {
     position: relative;
@@ -35,8 +37,6 @@
           align-items: center;
           width: $rollSize;
           height: $rollSize;
-          background: #fff;
-          border: 2px solid var(--f-design-color-primary-1);
           border-radius: 50%;
           position: absolute;
           right: 0;
@@ -46,11 +46,13 @@
           transition: 0.2s;
           box-sizing: content-box;
           box-shadow: 0 2px 3px #00000021, 0 0 4px #0000000d;
+          border: 2px solid var(--f-design-color-primary-1);
+          background: var(--f-design-color-text-2);
 
           .f-svg-icon {
             transition: color 0.2s;
-            color: var(--f-design-color-primary-1);
             font-size: calc(map-get($item, fontSize) - 1px);
+            color: var(--f-design-color-primary-1);
           }
         }
       }
@@ -82,16 +84,16 @@
   // 左右的文字
   &__left-text {
     font-size: 13px;
-    color: #333;
     margin-left: 5px;
     transition: 0.2s;
+    color: var(--f-design-color-text-1);
   }
 
   &__right-text {
     font-size: 13px;
-    color: var(--f-design-color-text-1);
     margin-right: 5px;
     transition: 0.2s;
+    color: var(--f-design-color-text-1);
   }
 
   &__text-active {
