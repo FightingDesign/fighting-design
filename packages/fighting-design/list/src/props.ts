@@ -3,13 +3,6 @@ import type { ListSizeType } from './interface'
 
 export const Props = {
   /**
-   * 前缀样式，原生属性
-   */
-  listStyle: {
-    type: String,
-    default: (): null => null
-  },
-  /**
    * 是否显示斑马纹
    */
   zebra: {

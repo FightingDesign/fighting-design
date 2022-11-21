@@ -16,6 +16,7 @@
 - 重构 `f-calendar` 组件内部细节
 - 新增 `f-date-picker` 组件
 - 新增 `f-time-picker` 组件
+- 废除 `f-list` 组件 `list-style` 配置项
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

@@ -12,6 +12,27 @@
 </script>
 
 <template>
+  <!-- <f-list> -->
+  <f-list-item>这是一段文字</f-list-item>
+  <f-list-item>这是一段文字</f-list-item>
+  <f-list-item>这是一段文字</f-list-item>
+  <f-list-item>这是一段文字</f-list-item>
+  <f-list-item>这是一段文字</f-list-item>
+  <!-- </f-list> -->
+
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <f-list list-style="decimal">
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+  </f-list>
+
   <f-input-number
     v-model="num"
     clear
