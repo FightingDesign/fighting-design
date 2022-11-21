@@ -5,32 +5,39 @@
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/time-picker)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/time-picker.md)
 
+:::danger
+组件仍在测试阶段，高频更新中，部分参数暂不稳定！
+:::
+
 ## 基本使用
+
+使用 `v-model:time` 绑定一个值
 
 ::: demo
 
 <template #source>
+<f-time-picker v-model:time="value1" />
 </template>
 
 ```html
-<script lang="ts" setup></script>
+<template>
+  <f-time-picker v-model:time="value1" />
+</template>
 
-<template> </template>
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value1 = ref('')
+</script>
 ```
 
 :::
 
 ## Attributes
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 |
-| ---- | ---- | ---- | ------ | ------ |
-| ``   |      |      | ——     | ——     |
-
-## Slots
-
-| 名称      | 说明 |
-| --------- | ---- |
-| `default` |      |
+| 参数           | 说明   | 类型   | 可选值 | 默认值 |
+| -------------- | ------ | ------ | ------ | ------ |
+| `v-model:time` | 绑定值 | string | ——     | ——     |
 
 ## Interface
 
@@ -47,4 +54,7 @@ import type {} from 'fighting-design'
 </a>
 
 <script setup lang="ts">
+  import { ref } from 'vue'
+
+  const value1 = ref('')
 </script>

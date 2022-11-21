@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  // const value1 = ref('')
+  const value1 = ref('')
 
   const num = ref(46)
   const loading = ref(true)
@@ -17,6 +17,10 @@
 </script>
 
 <template>
+  <f-input-number v-model="value1" />
+  <f-input-number v-model="value1" model="switch" />
+  <f-input-number v-model="value1" model="button" />
+
   <f-skeleton animated size="large" />
   <f-skeleton animated size="middle" />
   <f-skeleton animated size="small" />

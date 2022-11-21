@@ -227,6 +227,7 @@
 | `on-blur`       | 失去焦点触发的回调         | Function                   | ——                              | ——      |
 | `on-focus`      | 获取焦点触发的回调         | Function                   | ——                              | ——      |
 | `on-enter`      | 按下回车触发的回调         | Function                   | ——                              | ——      |
+| `on-input`      | 原生 input 事件回调        | Function                   | ——                              | ——      |
 
 ## Slots
 
