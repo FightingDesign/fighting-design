@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-  import { bottomList } from './src/list'
-  import { contributors } from './src/contributors'
+  import { footerList, contributors } from '../_utils'
 </script>
 
 <template>
@@ -77,7 +76,7 @@
     <!-- 页脚 -->
     <div id="footer">
       <div class="footer-item">
-        <ul class="list" v-for="(listItem, index) in bottomList" :key="index">
+        <ul class="list" v-for="(listItem, index) in footerList" :key="index">
           <h4 class="title">{{ listItem.title }}</h4>
           <li class="item" v-for="(list, i) in listItem.item" :key="i">
             <f-link target="_blank" :href="list.link">

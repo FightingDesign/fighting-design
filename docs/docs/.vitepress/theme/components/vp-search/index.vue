@@ -1,6 +1,6 @@
 <script lang="ts" setup name="VpSearch">
   import { ref } from 'vue'
-  import { searchList } from './src/search-list'
+  import { searchList } from '../_utils'
 
   // 输入框输入的内容
   const value = ref('')
