@@ -182,6 +182,7 @@
           justify-content: center;
           align-items: center;
           margin-top: 20px;
+          color: transparent;
           background: -webkit-linear-gradient(55deg, #395ce3 10%, #5ee0dd);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
