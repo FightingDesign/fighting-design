@@ -67,6 +67,7 @@ declare module 'vue' {
     FDatePicker: typeof components.FDatePicker
     FTimePicker: typeof components.FTimePicker
     FInputNumber: typeof components.FInputNumber
+    FCloseBtn: typeof components.FCloseBtn
   }
 
   interface ComponentCustomProperties {

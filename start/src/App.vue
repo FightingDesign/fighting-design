@@ -17,6 +17,30 @@
 </script>
 
 <template>
+  <!-- <btn-vue></btn-vue> -->
+  <!-- <f-button type="primary">主要按钮</f-button> -->
+
+  <f-close-btn color="red"></f-close-btn>
+  <f-close-btn round></f-close-btn>
+  <f-close-btn round disabled></f-close-btn>
+
+  <f-tooltip content="上边的提示信息" position="top">
+    <f-tag type="primary">信息</f-tag>
+  </f-tooltip>
+
+  <f-tooltip content="下边的提示信息" position="bottom">
+    <f-tag type="success">信息</f-tag>
+  </f-tooltip>
+
+  <f-tooltip content="左边的提示信息" position="left">
+    <f-tag type="danger">信息</f-tag>
+  </f-tooltip>
+
+  <f-tooltip content="右边的提示信息" position="right">
+    <f-tag type="warning">信息</f-tag>
+  </f-tooltip>
+
+  <!--
   <f-tag close type="default">默认</f-tag>
   <f-tag close type="primary">普通</f-tag>
   <f-tag close type="warning">警告</f-tag>
@@ -75,6 +99,5 @@
     :on-input="input"
     :on-blur="blur"
     :on-focus="focus"
-  />
-  -->
+  /> -->
 </template>

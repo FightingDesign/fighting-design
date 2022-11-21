@@ -32,6 +32,7 @@
 - 废除 `f-list` 组件 `list-style` 配置项
 - 重构 `f-skeleton` 组件 `size` 配置项
 - 废除 `f-skeleton` 组件 `circled` 配置项
+- 废除 `f-close-btn` 组件 `no-hover` 配置项
 - `f-breadcrumb` 组件 `separator-color` 参数改为 `icon-color`
 - `f-breadcrumb` 组件 `item-color` 参数改为 `color`
 - `f-skeleton` 组件 `rounded` 参数改为 `round`

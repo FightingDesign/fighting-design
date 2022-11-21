@@ -32,6 +32,7 @@
         }
       }
 
+      // 关闭按钮
       .f-close-btn {
         color: map-get($item, defaultTextColor);
       }
@@ -42,6 +43,7 @@
       background: map-get($item, simple);
       color: map-get($item, simpleTextColor);
 
+      // 关闭按钮
       .f-close-btn {
         color: map-get($item, simpleTextColor);
       }
