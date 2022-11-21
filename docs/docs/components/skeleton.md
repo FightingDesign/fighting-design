@@ -1,6 +1,6 @@
 # Skeleton 骨架屏
 
-`Skeleton` 在数据完整加载之前将您的内容显示为一个占位的预览。
+在数据完整加载之前显示的占位骨架
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/skeleton)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/skeleton.md)
@@ -13,30 +13,14 @@
 
 <template #source>
 <f-skeleton />
+<f-skeleton />
 </template>
 
 ```html
 <f-skeleton />
+
+<f-skeleton />
 ```
-
-:::
-
-`rounded` 圆角类型
-
-::: demo
-
-<template #source>
-<f-skeleton rounded />
-<f-skeleton circled />
-</template>
-
-```html
-<f-skeleton rounded />
-
-<f-skeleton circled />
-```
-
-:::
 
 ## 多行骨架屏
 
@@ -63,13 +47,12 @@
 <template #source>
 <f-skeleton animated />
 <f-skeleton rounded animated />
-<f-skeleton circled animated />
 </template>
 
 ```html
 <f-skeleton animated />
+
 <f-skeleton rounded animated />
-<f-skeleton circled animated />
 ```
 
 :::
@@ -81,31 +64,27 @@
 ::: demo
 
 <template #source>
-<f-skeleton size="small" />
-<f-skeleton size="default" />
-<f-skeleton size="large" />
+<f-skeleton animated size="large" />
+<f-skeleton animated size="middle" />
+<f-skeleton animated size="small" />
+<f-skeleton animated size="mini" />
 
-<f-skeleton rounded size="small" />
-<f-skeleton rounded size="default" />
-<f-skeleton rounded size="large" />
-
-<f-skeleton circled size="small" />
-<f-skeleton circled size="default" />
-<f-skeleton circled size="large" />
+<f-skeleton animated round size="large" />
+<f-skeleton animated round size="middle" />
+<f-skeleton animated round size="small" />
+<f-skeleton animated round size="mini" />
 </template>
 
 ```html
-<f-skeleton size="small" />
-<f-skeleton size="default" />
-<f-skeleton size="large" />
+<f-skeleton animated size="large" />
+<f-skeleton animated size="middle" />
+<f-skeleton animated size="small" />
+<f-skeleton animated size="mini" />
 
-<f-skeleton rounded size="small" />
-<f-skeleton rounded size="default" />
-<f-skeleton rounded size="large" />
-
-<f-skeleton circled size="small" />
-<f-skeleton circled size="default" />
-<f-skeleton circled size="large" />
+<f-skeleton animated round size="large" />
+<f-skeleton animated round size="middle" />
+<f-skeleton animated round size="small" />
+<f-skeleton animated round size="mini" />
 ```
 
 :::
@@ -159,14 +138,13 @@
 
 ## Attributes
 
-| 参数       | 说明                                     | 类型    | 可选值                    | 默认值  |
-| ---------- | ---------------------------------------- | ------- | ------------------------- | ------- |
-| `rounded`  | 是否带圆角的                             | boolean | --                        | false   |
-| `animated` | 是否展示波浪动画                         | boolean | --                        | false   |
-| `circled`  | 圆形占位图                               | boolean | --                        | false   |
-| `rows`     | 渲染多行占位图                           | number  | --                        | 1       |
-| `loading`  | 为 true 时，显示占位图。false 展示子组件 | boolean | --                        | false   |
-| `size`     | 设置尺寸，提供三个属性值，默认 `default` | string  | `default` `small` `large` | default |
+| 参数       | 说明                                     | 类型    | 可选值                          | 默认值 |
+| ---------- | ---------------------------------------- | ------- | ------------------------------- | ------ |
+| `round`    | 是否带圆角的                             | boolean | ——                              | false  |
+| `animated` | 是否展示波浪动画                         | boolean | ——                              | false  |
+| `rows`     | 渲染多行占位图                           | number  | ——                              | 1      |
+| `loading`  | 为 true 时，显示占位图。false 展示子组件 | boolean | ——                              | false  |
+| `size`     | 自定义尺寸                               | string  | `large` `middle` `small` `mini` | middle |
 
 ## Slots
 
