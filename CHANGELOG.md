@@ -18,6 +18,9 @@
 - 新增 `f-time-picker` 组件
 - 废除 `f-list` 组件 `list-style` 配置项
 - 修复 `f-list-item` 单独使用报错的问题
+- `f-breadcrumb` 组件 `separator-color` 参数改为 `icon-color`
+- `f-breadcrumb` 组件 `item-color` 参数改为 `color`
+- `f-breadcrumb-item` 组件新增 `color` `icon-color` `separator` 配置项
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

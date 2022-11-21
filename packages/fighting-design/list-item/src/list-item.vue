@@ -13,16 +13,15 @@
    */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     // 获取到注入的依赖项
-    const INJECT_DEPEND: ListPropsType | undefined = inject<ListPropsType>(
-      LIST_PROPS_KEY,
-      undefined
-    )
+    const INJECT_DEPEND: ListPropsType | undefined = inject<
+      ListPropsType | undefined
+    >(LIST_PROPS_KEY, undefined)
 
     const { background, color } = prop
 
     // 如果没有注入依赖，则直接返回自己的参数
     if (!INJECT_DEPEND) {
-      return { background, color } as cost
+      return { background, color } as const
     }
 
     const { textColor, borderColor } = INJECT_DEPEND

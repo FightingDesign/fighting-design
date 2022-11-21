@@ -31,14 +31,14 @@
 
 ## 自定义样式
 
-`separator-color` 可以自定义隔符颜色
+`color` 可以配置导航文字颜色
 
-`item-color` 可以配置导航文字颜色
+`icon-color` 可以自定义 icon 颜色
 
 ::: demo
 
 <template #source>
-<f-breadcrumb separator-color="#333" item-color="blue">
+<f-breadcrumb icon-color="#333" color="blue">
 <f-breadcrumb-item>首页</f-breadcrumb-item>
 <f-breadcrumb-item>文章</f-breadcrumb-item>
 <f-breadcrumb-item>列表</f-breadcrumb-item>
@@ -46,7 +46,7 @@
 </template>
 
 ```html
-<f-breadcrumb separator-color="#333" item-color="blue">
+<f-breadcrumb icon-color="#333" color="blue">
   <f-breadcrumb-item>首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
@@ -85,7 +85,7 @@
 
 :::
 
-## 自定展示 icon
+## 自定义 icon
 
 `f-breadcrumb-item` 组件内可以插入 `icon`
 
@@ -145,18 +145,26 @@
 
 ## Breadcrumb Attractive
 
-| 属性              | 说明           | 类型                       | 可选值 | 默认值 |
-| ----------------- | -------------- | -------------------------- | ------ | ------ |
-| `separator`       | 自定义分隔符   | object (VNode / Component) | ——     | ——     |
-| `item-color`      | 导航文字颜色   | string                     | ——     | ——     |
-| `separator-color` | 分隔符颜色     | string                     | ——     | ——     |
-| `font-size`       | 自定义文字大小 | string / number            | ——     | ——     |
+| 属性         | 说明               | 类型                       | 可选值 | 默认值 |
+| ------------ | ------------------ | -------------------------- | ------ | ------ |
+| `separator`  | 自定义分隔符       | object (VNode / Component) | ——     | ——     |
+| `color`      | 自定义导航文字颜色 | string                     | ——     | ——     |
+| `icon-color` | 自定义 icon 颜色   | string                     | ——     | ——     |
+| `font-size`  | 自定义文字大小     | string / number            | ——     | ——     |
 
 ## Breadcrumb Slots
 
 | 插槽名    | 说明           |
 | --------- | -------------- |
 | `default` | 自定义默认内容 |
+
+## Breadcrumb-item Attributes
+
+| 属性         | 说明               | 类型                       | 可选值 | 默认值 |
+| ------------ | ------------------ | -------------------------- | ------ | ------ |
+| `separator`  | 自定义分隔符       | object (VNode / Component) | ——     | ——     |
+| `color`      | 自定义导航文字颜色 | string                     | ——     | ——     |
+| `icon-color` | 自定义 icon 颜色   | string                     | ——     | ——     |
 
 ## Breadcrumb-item Slots
 
@@ -172,7 +180,8 @@
 import type {
   BreadcrumbInstance,
   BreadcrumbPropsType,
-  BreadcrumbItemInstance
+  BreadcrumbItemInstance,
+  BreadcrumbItemPropsType
 } from 'fighting-design'
 ```
 

@@ -12,13 +12,17 @@
 </script>
 
 <template>
-  <!-- <f-list> -->
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <!-- </f-list> -->
+  <f-breadcrumb-item icon-color="red">首页</f-breadcrumb-item>
+  <f-breadcrumb-item>文章</f-breadcrumb-item>
+  <f-breadcrumb-item>列表</f-breadcrumb-item>
+
+  <br />
+
+  <f-breadcrumb icon-color="red">
+    <f-breadcrumb-item>首页</f-breadcrumb-item>
+    <f-breadcrumb-item>文章</f-breadcrumb-item>
+    <f-breadcrumb-item>列表</f-breadcrumb-item>
+  </f-breadcrumb>
 
   <br />
   <br />

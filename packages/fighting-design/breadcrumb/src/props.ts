@@ -8,28 +8,28 @@ import type {
 
 export const Props = {
   /**
-   * 自定义分隔符
+   * @zh 自定义分隔符
    */
   separator: {
     type: Object as PropType<VNode | Component>,
     default: (): null => null
   },
   /**
-   * 导航文字颜色
+   * @zh 导航文字颜色
    */
   itemColor: {
     type: String,
     default: (): null => null
   },
   /**
-   * 分隔符颜色
+   * @zh icon 颜色
    */
-  separatorColor: {
+  iconColor: {
     type: String,
     default: (): null => null
   },
   /**
-   * 自定义文字大小
+   * @zh 自定义文字大小
    */
   fontSize: {
     type: [String, Number] as PropType<string | number>,
