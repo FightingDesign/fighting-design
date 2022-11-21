@@ -1,31 +1,39 @@
 <script lang="ts" setup name="VpSearch">
   import { ref } from 'vue'
   import { searchList } from '../_utils'
+  import type { Ref } from 'vue'
+  import type { SearchListInterface } from '../_utils/search-list/interface'
+  import type { OrdinaryFunctionInterface } from '../_interface'
 
   // 输入框输入的内容
-  const value = ref('')
+  const value: Ref<string> = ref<string>('')
   // 是否展示下拉菜单
-  const isShow = ref(false)
+  const isShow: Ref<boolean> = ref<boolean>(false)
   // 搜索结果列表
-  const resultList = ref()
+  const resultList: Ref<SearchListInterface[]> = ref<SearchListInterface[]>(
+    null as unknown as SearchListInterface[]
+  )
 
   /**
    * 按下回车触发搜索
    */
-  const onSearch = (): void => {
+  const onSearch: OrdinaryFunctionInterface = (): void => {
     // 过滤搜索结果
-    resultList.value = searchList.filter((item) => {
-      return item.rule.includes(value.value)
-    })
+    resultList.value = searchList.filter(
+      (item: SearchListInterface): boolean => {
+        return item.rule.includes(value.value)
+      }
+    )
 
     // 检测有结果
     if (resultList.value && resultList.value.length) {
       isShow.value = true
 
-      setTimeout(() => {
+      setTimeout((): void => {
         const link: HTMLLinkElement[] = document.querySelectorAll(
           '.vp-search__link'
         ) as unknown as HTMLLinkElement[]
+
         if (link.length === 1) {
           link[0].click()
         }
@@ -36,7 +44,7 @@
   /**
    * 关闭搜索结果菜单
    */
-  const hiddenResult = (): void => {
+  const hiddenResult: OrdinaryFunctionInterface = (): void => {
     isShow.value = false
     value.value = ''
   }

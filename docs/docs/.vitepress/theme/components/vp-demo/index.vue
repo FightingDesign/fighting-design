@@ -1,6 +1,7 @@
 <script lang="ts" setup name="VpDemo">
   import { ref } from 'vue'
   import type { Ref } from 'vue'
+  import type { OrdinaryFunctionInterface } from '../_interface'
 
   // 是否展示内容
   const isOpen: Ref<boolean> = ref<boolean>(false)
@@ -9,7 +10,7 @@
   /**
    * 点击执行
    */
-  const handleClick = (): void => {
+  const handleClick: OrdinaryFunctionInterface = (): void => {
     if (!isOpen.value) {
       content.value.style.height = 'auto'
       const height: number = content.value.offsetHeight

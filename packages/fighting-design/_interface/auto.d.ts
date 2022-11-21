@@ -2,8 +2,8 @@ import type { App } from 'vue'
 
 /**
  * 普通函数接口
- *
- * @return { void } 无参数，无返回值
+ * 
+ * 无参数，无返回值
  */
 export interface OrdinaryFunctionInterface {
   (): void

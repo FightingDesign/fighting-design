@@ -1,4 +1,4 @@
-import type { SearchListInterface } from './interfacd'
+import type { SearchListInterface } from './interface'
 
 /**
  * 搜索列表
