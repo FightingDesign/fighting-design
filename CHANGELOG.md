@@ -17,6 +17,7 @@
 - 新增 `f-date-picker` 组件
 - 新增 `f-time-picker` 组件
 - 废除 `f-list` 组件 `list-style` 配置项
+- 修复 `f-list-item` 单独使用报错的问题
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

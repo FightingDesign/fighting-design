@@ -150,61 +150,16 @@
 
 :::
 
-## 不同前缀
-
-`list-style` 属性配置不同的前缀，原生 [list-style-type](https://developer.mozilla.org/zh-CN/docs/Web/CSS/list-style-type) 属性
-
-::: demo
-
-<template #source>
-<f-list list-style="decimal">
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-</f-list>
-
-<f-list list-style="circle">
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-</f-list>
-</template>
-
-```html
-<f-list list-style="decimal">
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-</f-list>
-
-<f-list list-style="circle">
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-</f-list>
-```
-
-:::
-
 ## List Attributes
 
-| 参数           | 说明               | 类型    | 可选值                   | 默认值 |
-| -------------- | ------------------ | ------- | ------------------------ | ------ |
-| `list-style`   | 前缀样式，原生属性 | string  | ——                       | ——     |
-| `zebra`        | 是否显示斑马纹     | boolean | ——                       | false  |
-| `center`       | 是否居中           | boolean | ——                       | false  |
-| `text-color`   | 自定义文字颜色     | string  | ——                       | ——     |
-| `border-color` | 自定义边框颜色     | string  | ——                       | ——     |
-| `size`         | 尺寸               | string  | `large` `middle` `small` | middle |
-| `max-height`   | 最大高度           | string  | ——                       | ——     |
+| 参数           | 说明           | 类型    | 可选值                   | 默认值 |
+| -------------- | -------------- | ------- | ------------------------ | ------ |
+| `zebra`        | 是否显示斑马纹 | boolean | ——                       | false  |
+| `center`       | 是否居中       | boolean | ——                       | false  |
+| `text-color`   | 自定义文字颜色 | string  | ——                       | ——     |
+| `border-color` | 自定义边框颜色 | string  | ——                       | ——     |
+| `size`         | 尺寸           | string  | `large` `middle` `small` | middle |
+| `max-height`   | 最大高度       | string  | ——                       | ——     |
 
 ## List Slots
 
