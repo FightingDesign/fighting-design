@@ -7,8 +7,9 @@
 
   const prop: TabsPanePropsType = defineProps(Props)
 
-  const INJECT_DEPEND: TabsProvide | undefined =
-    inject<TabsProvide>(TabsProvideKey)
+  const INJECT_DEPEND: TabsProvide | undefined = inject<
+    TabsProvide | undefined
+  >(TabsProvideKey, undefined)
 
   /**
    * 该组件是否加载

@@ -16,10 +16,9 @@
    */
   const handleClick: OrdinaryFunctionInterface = (): void => {
     // 获取父组件注入的依赖项
-    const INJECT_DEPEND: SelectProvideInterface | undefined = inject(
-      SELECT_PROPS_TOKEN,
-      undefined
-    )
+    const INJECT_DEPEND: SelectProvideInterface | undefined = inject<
+      SelectProvideInterface | undefined
+    >(SELECT_PROPS_TOKEN, undefined)
 
     /**
      * 如果没有获取到注入的依赖项或者禁用状态

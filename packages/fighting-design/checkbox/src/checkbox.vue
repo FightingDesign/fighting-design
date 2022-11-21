@@ -19,7 +19,7 @@
 
   // 父组件注入的依赖项
   const INJECT_DEPEND: CheckboxGroupInjectPropsType | undefined = inject<
-    RadioGroundInterface | undefined
+    CheckboxGroupInjectPropsType | undefined
   >(CHECKBOX_GROUP_PROPS_KEY, undefined)
 
   /**
