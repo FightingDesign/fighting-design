@@ -47,23 +47,25 @@
 </script>
 
 <template>
-  <div v-if="isShow" :class="classList" :style="{ background, color }">
-    <f-svg-icon v-if="beforeIcon">
-      <component :is="beforeIcon" />
-    </f-svg-icon>
+  <transition name="f-tag">
+    <div v-if="isShow" :class="classList" :style="{ background, color }">
+      <f-svg-icon v-if="beforeIcon">
+        <component :is="beforeIcon" />
+      </f-svg-icon>
 
-    <slot />
+      <slot />
 
-    <f-svg-icon v-if="afterIcon">
-      <component :is="afterIcon" />
-    </f-svg-icon>
+      <f-svg-icon v-if="afterIcon">
+        <component :is="afterIcon" />
+      </f-svg-icon>
 
-    <f-close-btn
-      v-if="close"
-      no-hover
-      :color="type === 'default' ? '#333' : '#fff'"
-      :size="14"
-      @click.stop="handleClose"
-    />
-  </div>
+      <f-close-btn
+        v-if="close"
+        no-hover
+        :color="type === 'default' ? '#333' : '#fff'"
+        :size="14"
+        @click.stop="handleClose"
+      />
+    </div>
+  </transition>
 </template>

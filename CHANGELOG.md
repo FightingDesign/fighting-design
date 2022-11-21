@@ -14,6 +14,7 @@
 - 新增 `f-textarea` 组件 `on-input` 配置项
 - 新增 `f-input` 组件加入查看密码切换动画效果
 - 新增 `f-breadcrumb-item` 组件 `color` `icon-color` `separator` 配置项
+- 新增 `f-tag` 组件关闭动画
 
 **修复 Bug**
 
