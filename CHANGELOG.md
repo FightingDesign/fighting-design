@@ -28,6 +28,7 @@
 - 优化 `f-dropdown` 组件样式细节
 - 重构 `f-calendar` 组件头部样式
 - 重构 `f-calendar` 组件内部细节
+- 重构 `f-tag` 组件内部细节
 - 废除 `f-list` 组件 `list-style` 配置项
 - 重构 `f-skeleton` 组件 `size` 配置项
 - 废除 `f-skeleton` 组件 `circled` 配置项
