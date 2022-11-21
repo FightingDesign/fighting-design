@@ -18,7 +18,7 @@
   })
 
   // 父组件注入的依赖项
-  const groupProps: RadioGroundInterface | undefined = inject<
+  const INJECT_DEPEND: RadioGroundInterface | undefined = inject<
     RadioGroundInterface | undefined
   >(RADIO_GROUP_PROPS_kEY, undefined)
 
@@ -29,14 +29,14 @@
      * 否则使用之身 props 参数
      */
     get () {
-      return (groupProps && groupProps.modelValue) || prop.modelValue
+      return (INJECT_DEPEND && INJECT_DEPEND.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
     set (val) {
-      if (groupProps && !groupProps.disabled) {
-        groupProps.changeEvent(val)
+      if (INJECT_DEPEND && !INJECT_DEPEND.disabled) {
+        INJECT_DEPEND.changeEvent(val)
         return
       }
       if (prop.disabled) return
@@ -53,8 +53,8 @@
         'f-radio',
         {
           'f-radio__checked': modelValue.value === prop.label,
-          'f-radio__margin': !groupProps,
-          'f-radio__disabled': disabled || (groupProps && groupProps.disabled)
+          'f-radio__margin': !INJECT_DEPEND,
+          'f-radio__disabled': disabled || (INJECT_DEPEND && INJECT_DEPEND.disabled)
         }
       ] as const
     }
@@ -78,7 +78,7 @@
       :disabled="disabled"
       :name="name"
     />
-    <span v-if="!groupProps?.border" class="f-radio__circle" />
+    <span v-if="!INJECT_DEPEND?.border" class="f-radio__circle" />
     <span class="f-radio__text">
       <slot>{{ label }}</slot>
     </span>

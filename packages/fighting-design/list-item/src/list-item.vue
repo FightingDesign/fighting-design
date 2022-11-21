@@ -7,13 +7,15 @@
   import type { ListItemPropsType } from './props'
 
   const prop: ListItemPropsType = defineProps(Props)
-  const injectListProps: ListPropsType = inject(LIST_PROPS_KEY) as ListPropsType
 
   /**
    * 样式列表
    */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { textColor, borderColor } = injectListProps
+    // 获取到注入的依赖项
+    const INJECT_DEPEND: ListPropsType = inject(LIST_PROPS_KEY) as ListPropsType
+
+    const { textColor, borderColor } = INJECT_DEPEND
     const { background, color } = prop
 
     return {

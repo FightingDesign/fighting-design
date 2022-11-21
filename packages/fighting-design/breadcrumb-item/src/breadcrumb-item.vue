@@ -5,10 +5,12 @@
   import { FIconChevronRightVue } from '../../_svg'
   import type { BreadcrumbPropsType } from '../../breadcrumb'
 
-  const breadcrumbContext: BreadcrumbPropsType = inject(
+  // 注入依赖项
+  const INJECT_DEPEND: BreadcrumbPropsType = inject(
     BREADCRUMB_PROPS_KEY
   ) as BreadcrumbPropsType
-  const { separator, itemColor, separatorColor } = toRefs(breadcrumbContext)
+
+  const { separator, itemColor, separatorColor } = toRefs(INJECT_DEPEND)
 </script>
 
 <template>

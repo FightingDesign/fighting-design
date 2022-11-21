@@ -14,11 +14,6 @@
 
   const prop: ButtonPropsType = defineProps(Props)
 
-  // 父组件注入的依赖项
-  const groupSize: ButtonSizeType | undefined = inject<
-    ButtonSizeType | undefined
-  >(BUTTON_GROUP_PROPS_KEY, undefined)
-
   // dom 元素
   const FButton: Ref<HTMLButtonElement> = ref<HTMLButtonElement>(
     null as unknown as HTMLButtonElement
@@ -43,10 +38,15 @@
         color
       } = prop
 
+      // 父组件注入的依赖项
+      const INJECT_DEPEND: ButtonSizeType | undefined = inject<
+        ButtonSizeType | undefined
+      >(BUTTON_GROUP_PROPS_KEY, undefined)
+
       return [
         'f-button',
         {
-          [`f-button__${groupSize || size}`]: groupSize || size,
+          [`f-button__${INJECT_DEPEND || size}`]: INJECT_DEPEND || size,
           [`f-button__${type}`]: type && !color,
           'f-button__disabled': disabled || loading,
           'f-button__simple': simple && !color,

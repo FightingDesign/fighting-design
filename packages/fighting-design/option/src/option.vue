@@ -9,23 +9,23 @@
   const prop: OptionPropsType = defineProps(Props)
   const slot = useSlots()
 
-  // 获取父组件注入的依赖项
-  const selectProps: SelectProvideInterface | undefined = inject(
-    SELECT_PROPS_TOKEN,
-    undefined
-  )
-
   /**
    * 点击传入指定的 value
    *
    * 让父组件同步 input
    */
   const handleClick: OrdinaryFunctionInterface = (): void => {
+    // 获取父组件注入的依赖项
+    const INJECT_DEPEND: SelectProvideInterface | undefined = inject(
+      SELECT_PROPS_TOKEN,
+      undefined
+    )
+
     /**
      * 如果没有获取到注入的依赖项或者禁用状态
      * 则返回
      */
-    if (!selectProps || prop.disabled) return
+    if (!INJECT_DEPEND || prop.disabled) return
 
     const { value, label } = toRefs(prop)
     const slotLabel: string | undefined =
@@ -35,7 +35,7 @@
      * label 返回优先级：插槽 > label > value
      * value 返回优先级：value > label > 插槽
      */
-    selectProps.setValue(
+    INJECT_DEPEND.setValue(
       slotLabel || label.value || value.value,
       value.value || label.value || slotLabel
     )
