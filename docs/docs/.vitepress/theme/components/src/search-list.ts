@@ -175,5 +175,20 @@ export const searchList = [
     title: 'Pagination 分页器',
     rule: 'paginationPagination分页器',
     url: 'components/pagination'
+  },
+  {
+    title: 'Time Picker 时间选择器',
+    rule: 'time-pickerTimePicker时间选择器',
+    url: 'components/time-picker'
+  },
+  {
+    title: 'Date Picker 日期选择器',
+    rule: 'date-pickerDatePicker日期选择器',
+    url: 'components/date-picker'
+  },
+  {
+    title: 'Input Number 数字输入框',
+    rule: 'input-numberInputNumber数字输入框',
+    url: 'components/input-number'
   }
 ] as const

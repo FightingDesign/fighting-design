@@ -68,7 +68,10 @@ export const sidebar = {
         { text: 'Table 表格', link: '/components/table' },
         { text: 'Select 选择器', link: '/components/select' },
         { text: 'Textarea 文本域', link: '/components/textarea' },
-        { text: 'Pagination 分页器', link: '/components/pagination' }
+        { text: 'Pagination 分页器', link: '/components/pagination' },
+        { text: 'Time Picker 时间选择器', link: '/components/time-picker' },
+        { text: 'Date Picker 日期选择器', link: '/components/date-picker' },
+        { text: 'Input Number 数字输入框', link: '/components/input-number' }
       ]
     },
     {

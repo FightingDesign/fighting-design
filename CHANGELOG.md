@@ -2,28 +2,37 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- `f-input` 组件 `type` 属性新增 `number` 类型
-- `f-input` 组件新增 `after-icon` 配置项
-- `f-input` 组件优化查看密码方式
-- `f-input` 组件新增 `on-input` 配置项
-- `f-input` 组件新增 `after` 插槽
-- `f-textarea` 组件新增 `on-input` 配置项
-- 修复 `f-input` 组件 `on-change` 回调错误的问题
-- 修复 `f-textarea` 组件 `on-change` 回调错误的问题
-- `f-input` 组件加入查看密码切换动画效果
-- 重构 `f-calendar` 组件头部样式
-- 优化 `f-dropdown` 组件样式细节
-- 重构 `f-calendar` 组件内部细节
+**新功能**
+
 - 新增 `f-date-picker` 组件
 - 新增 `f-time-picker` 组件
-- 废除 `f-list` 组件 `list-style` 配置项
+- 新增 `f-input-number` 组件
+- 新增 `f-input` 组件 `type` 属性 `number` 类型
+- 新增 `f-input` 组件 `after-icon` 配置项
+- 新增 `f-input` 组件 `on-input` 配置项
+- 新增 `f-input` 组件 `after` 插槽
+- 新增 `f-textarea` 组件 `on-input` 配置项
+- 新增 `f-input` 组件加入查看密码切换动画效果
+- 新增 `f-breadcrumb-item` 组件 `color` `icon-color` `separator` 配置项
+
+**修复 Bug**
+
+- 修复 `f-input` 组件 `on-change` 回调错误的问题
+- 修复 `f-textarea` 组件 `on-change` 回调错误的问题
 - 修复 `f-list-item` 单独使用报错的问题
+
+**其它更新**
+
+- 优化 `f-input` 组件查看密码方式
+- 优化 `f-dropdown` 组件样式细节
+- 重构 `f-calendar` 组件头部样式
+- 重构 `f-calendar` 组件内部细节
+- 废除 `f-list` 组件 `list-style` 配置项
+- 重构 `f-skeleton` 组件 `size` 配置项
+- 废除 `f-skeleton` 组件 `circled` 配置项
 - `f-breadcrumb` 组件 `separator-color` 参数改为 `icon-color`
 - `f-breadcrumb` 组件 `item-color` 参数改为 `color`
-- `f-breadcrumb-item` 组件新增 `color` `icon-color` `separator` 配置项
-- `f-skeleton` 组件废除 `circled` 配置项
-- `f-skeleton` 组件 `rounded` 配置项改为 `round`
-- `f-skeleton` 组件 `size` 配置项重构
+- `f-skeleton` 组件 `rounded` 参数改为 `round`
 
 ## 0.9.0-alpha.3 (2022-11-18)
 
