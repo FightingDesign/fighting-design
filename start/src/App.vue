@@ -1,19 +1,19 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
+  // import { ref } from 'vue'
 
-  const value1 = ref('')
+  // const value1 = ref('')
 
-  const num = ref(46)
-  const loading = ref(true)
+  // const num = ref(46)
+  // const loading = ref(true)
 
-  setTimeout(() => {
-    loading.value = false
-  }, 2000)
+  // setTimeout(() => {
+  //   loading.value = false
+  // }, 2000)
 
-  const change = (e: Event): void => console.log(e, 'change')
-  const input = (e: Event): void => console.log(e, 'input')
-  const blur = (e: Event): void => console.log(e, 'blur')
-  const focus = (e: Event): void => console.log(e, 'focus')
+  // const change = (e: Event): void => console.log(e, 'change')
+  // const input = (e: Event): void => console.log(e, 'input')
+  // const blur = (e: Event): void => console.log(e, 'blur')
+  // const focus = (e: Event): void => console.log(e, 'focus')
 </script>
 
 <template>
