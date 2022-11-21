@@ -6,8 +6,7 @@ export const Props = {
    */
   time: {
     type: String,
-    default: (): string => '',
-    required: true
+    default: (): string => ''
   }
 } as const
 

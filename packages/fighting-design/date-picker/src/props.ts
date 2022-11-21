@@ -6,8 +6,7 @@ export const Props = {
    */
   date: {
     type: String,
-    default: (): string => '',
-    required: true
+    default: (): string => ''
   }
 } as const
 
