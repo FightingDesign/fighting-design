@@ -4,6 +4,11 @@
   // const value1 = ref('')
 
   const num = ref(46)
+  const loading = ref(true)
+
+  setTimeout(() => {
+    loading.value = false
+  }, 2000)
 
   const change = (e: Event): void => console.log(e, 'change')
   const input = (e: Event): void => console.log(e, 'input')
@@ -12,6 +17,19 @@
 </script>
 
 <template>
+  <f-skeleton animated size="large" />
+  <f-skeleton animated size="middle" />
+  <f-skeleton animated size="small" />
+  <f-skeleton animated size="mini" />
+
+  <f-skeleton :loading="loading">
+    <h1>1111</h1>
+  </f-skeleton>
+
+  <f-skeleton rounded />
+
+  <f-skeleton circled />
+
   <f-breadcrumb-item icon-color="red">首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
