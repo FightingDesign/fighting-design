@@ -43,6 +43,7 @@
 - `toolbar-item` 组件 `data-key` 参数改为 `index`
 - `toolbar-item` 组件 `icon-size` 参数改为默认值 16
 - `toolbar` 组件 `click` 参数改为 `on-click`
+- `image-preview` 组件 `close` 回调改为 `on-close`
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

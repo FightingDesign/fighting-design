@@ -3,35 +3,35 @@ import type { OrdinaryFunctionInterface } from '../../_interface'
 
 export const Props = {
   /**
-   * 是否展示预览框
+   * @zh 是否展示预览框
    */
   visible: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
-   * 图片集合
+   * @zh 图片集合
    */
   imgList: {
     type: Array as PropType<string[]>,
     default: (): string[] => []
   },
   /**
-   * 是否点击遮罩层关闭预览窗
+   * @zh 是否点击遮罩层关闭预览窗
    */
   modalClose: {
     type: Boolean,
     default: (): boolean => true
   },
   /**
-   * 是否展示关闭按钮
+   * @zh 是否展示关闭按钮
    */
   isCloseBtn: {
     type: Boolean,
     default: (): boolean => true
   },
   /**
-   * 图片预览展示的首张图的索引，从 0 开始
+   * @zh 图片预览展示的首张图的索引，从 0 开始
    */
   showIndex: {
     type: Number,
@@ -41,8 +41,7 @@ export const Props = {
     }
   },
   /**
-   * 图片预览展示的 z-index
-   *
+   * @zh 图片预览展示的 z-index
    * https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
   zIndex: {
@@ -53,23 +52,23 @@ export const Props = {
     }
   },
   /**
-   * 是否展示图片预览下面的操作栏
+   * @zh 是否展示图片预览下面的操作栏
    */
   isOption: {
     type: Boolean,
     default: (): boolean => true
   },
   /**
-   * 预览图的圆角，传入一个单位
+   * @zh 预览图的圆角，传入一个单位
    */
   round: {
     type: String,
     default: (): null => null
   },
   /**
-   * 关闭之后的回调
+   * @zh 关闭之后的回调
    */
-  close: {
+  onClose: {
     type: Function as PropType<OrdinaryFunctionInterface>,
     default: (): null => null
   }
