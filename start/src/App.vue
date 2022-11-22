@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(17)
+  // const value = ref(17)
 
   const num = ref(123)
   // const loading = ref(true)
@@ -17,6 +17,46 @@
 </script>
 
 <template>
+  <f-alert close type="default">默认</f-alert>
+  <f-alert close type="primary">普通</f-alert>
+  <f-alert close type="warning">警告</f-alert>
+  <f-tag close type="success">成功</f-tag>
+  <f-tag close type="danger">失败</f-tag>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
+  <h1>1</h1>
   <f-input-number
     v-model="num"
     clear
@@ -26,6 +66,7 @@
     :on-blur="blur"
     :on-focus="focus"
   />
+  <f-back-top>返回顶部</f-back-top>
 
   <!-- <input
     id="number"

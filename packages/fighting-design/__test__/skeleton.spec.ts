@@ -11,12 +11,12 @@ describe('FSkeleton', () => {
     expect(wrapper.find('div').classes()).toContain('f-skeleton')
   })
 
-  test('rounded', () => {
+  test('round', () => {
     const wrapper = mount(FSkeleton, {
-      props: { loading: true, rounded: true },
+      props: { loading: true, round: true },
       slots: { default: '123' }
     })
-    expect(wrapper.find('div').classes()).toContain('f-skeleton__rounded')
+    expect(wrapper.find('div').classes()).toContain('f-skeleton__round')
   })
 
   test('animated', () => {
@@ -27,16 +27,8 @@ describe('FSkeleton', () => {
     expect(wrapper.find('div').classes()).toContain('f-skeleton__animated')
   })
 
-  test('circled', () => {
-    const wrapper = mount(FSkeleton, {
-      props: { loading: true, circled: true },
-      slots: { default: '123' }
-    })
-    expect(wrapper.find('div').classes()).toContain('f-skeleton__circled')
-  })
-
   test('size', () => {
-    const size = ['default', 'small', 'large'] as const
+    const size = ['large', 'middle', 'small', 'mini'] as const
     size.forEach((item) => {
       const wrapper = mount(FSkeleton, {
         props: { loading: true, size: item },

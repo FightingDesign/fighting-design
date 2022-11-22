@@ -90,7 +90,6 @@
 </script>
 
 <template>
-  {{ inputValue }}
   <div class="f-input-number">
     <f-button
       v-if="model === 'button'"

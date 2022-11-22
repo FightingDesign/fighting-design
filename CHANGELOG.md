@@ -26,6 +26,8 @@
 
 - 优化 `f-input` 组件查看密码方式
 - 优化 `f-dropdown` 组件样式细节
+- 优化 `f-alert` 组件样式细节
+- 优化 `f-back-top` 组件样式细节
 - 重构 `f-calendar` 组件头部样式
 - 重构 `f-calendar` 组件内部细节
 - 重构 `f-tag` 组件内部细节
@@ -36,6 +38,7 @@
 - `f-breadcrumb` 组件 `separator-color` 参数改为 `icon-color`
 - `f-breadcrumb` 组件 `item-color` 参数改为 `color`
 - `f-skeleton` 组件 `rounded` 参数改为 `round`
+- `f-back-top` 组件 `bottom` `right` `background` `color` 参数默认值更新
 
 ## 0.9.0-alpha.3 (2022-11-18)
 
