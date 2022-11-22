@@ -15,9 +15,9 @@
   import type { InputNumberPropsType } from './interface'
 
   const prop: InputNumberPropsType = defineProps(Props)
-  const emit = defineEmits<{
-    (e: 'update:modelValue', val: number): void
-  }>()
+  const emit = defineEmits({
+    'update:modelValue': (val: number): boolean => isNumber(val)
+  })
 
   // const inputValue: ComputedRef<string> = computed<string>(() => {
   //   // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed

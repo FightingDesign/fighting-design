@@ -9,7 +9,7 @@
     FIconEyeOffOutlineVue,
     FIconEyeOutlineVue
   } from '../../_svg'
-  import { runCallback } from '../../_utils'
+  import { isString, runCallback, isNumber } from '../../_utils'
   import { useUpdateInput, useFilterProps } from '../../_hooks'
   import type { Ref } from 'vue'
   import type { InputType } from './interface'
@@ -21,9 +21,10 @@
   import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
 
   const prop: InputPropsType = defineProps(Props)
-  const emit = defineEmits<{
-    (event: 'update:modelValue', val: string | number): void
-  }>()
+  const emit = defineEmits({
+    'update:modelValue': (val: string | number): boolean =>
+      isString(val) || isNumber(val)
+  })
 
   // type 类型
   const inputType: Ref<InputType> = ref<InputType>(prop.type)

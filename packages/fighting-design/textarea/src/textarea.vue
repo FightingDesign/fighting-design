@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FTextarea">
   import { Props } from './props'
   import { useUpdateInput, useFilterProps } from '../../_hooks'
-  import { isString } from '../../_utils'
+  import { isString, isNumber } from '../../_utils'
   import { FIconCrossVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
   import type { TextareaPropsType } from './interface'
@@ -10,7 +10,8 @@
 
   const prop: TextareaPropsType = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: string): boolean => isString(val)
+    'update:modelValue': (val: string | number): boolean =>
+      isString(val) || isNumber(val)
   })
 
   /**
