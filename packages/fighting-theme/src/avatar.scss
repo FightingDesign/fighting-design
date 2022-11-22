@@ -54,6 +54,6 @@
 
   .f-avatar__error-text {
     font-size: var(--f-avatar-font-size, 13px);
-    color: var(--f-avatar-font-color, --f-design-color-text-1);
+    color: var(--f-avatar-font-color, var(--f-design-color-text-1));
   }
 }

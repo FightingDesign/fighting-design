@@ -15,8 +15,8 @@
   line-height: var(--f-text-line-height);
   letter-spacing: var(--f-text-letter-spacing);
   text-decoration: var(--f-text-text-decoration);
-  color: var(--f-text-color, --f-design-color-text-1);
-  font-size: var(--f-text-font-size, --f-design-font-size-middle);
+  color: var(--f-text-color, var(--f-design-color-text-1));
+  font-size: var(--f-text-font-size, var(--f-design-font-size-middle));
 
   // 不同类型
   @for $list from 1 to (length($ComponentsType) + 1) {

@@ -158,33 +158,33 @@
   // 边框
   &.f-calendar__border {
     border-top: 1px solid
-      var(--f-calendar-border-color, --f-design-color-border-1);
+      var(--f-calendar-border-color, var(--f-design-color-border-1));
     border-left: 1px solid
-      var(--f-calendar-border-color, --f-design-color-border-1);
+      var(--f-calendar-border-color, var(--f-design-color-border-1));
 
     .f-calendar__header {
       border-right: 1px solid
-        var(--f-calendar-border-color, --f-design-color-border-1);
+        var(--f-calendar-border-color, var(--f-design-color-border-1));
     }
 
     .f-calendar__week {
       border-bottom: 1px solid
-        var(--f-calendar-border-color, --f-design-color-border-1);
+        var(--f-calendar-border-color, var(--f-design-color-border-1));
       border-top: 1px solid
-        var(--f-calendar-border-color, --f-design-color-border-1);
+        var(--f-calendar-border-color, var(--f-design-color-border-1));
 
       .f-calendar__week-li {
         border-right: 1px solid
-          var(--f-calendar-border-color, --f-design-color-border-1);
+          var(--f-calendar-border-color, var(--f-design-color-border-1));
       }
     }
 
     .f-calendar__day {
       .f-calendar__day-li {
         border-right: 1px solid
-          var(--f-calendar-border-color, --f-design-color-border-1);
+          var(--f-calendar-border-color, var(--f-design-color-border-1));
         border-bottom: 1px solid
-          var(--f-calendar-border-color, --f-design-color-border-1);
+          var(--f-calendar-border-color, var(--f-design-color-border-1));
       }
     }
   }

@@ -19,7 +19,7 @@
   border-radius: var(--f-design-border-radius-1);
   background: var(--f-design-color-default-1);
   box-shadow: var(--f-button-box-shadow);
-  font-size: var(--f-button-font-size, --f-design-font-size-middle);
+  font-size: var(--f-button-font-size, var(--f-design-font-size-middle));
 
   // 不同背景和字体颜色
   @for $list from 1 to (length($ComponentsType) + 1) {
@@ -173,7 +173,7 @@
   // 自定义颜色
   &.f-button__color {
     background: var(--f-button-default-color);
-    color: var(--f-button-font-color, --f-design-color-text-2);
+    color: var(--f-button-font-color, var(--f-design-color-text-2));
 
     &:hover {
       background: var(--f-button-hover-color);
