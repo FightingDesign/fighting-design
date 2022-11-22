@@ -164,14 +164,14 @@
           class="f-image-preview__next"
           circle
           :before-icon="FIconChevronRightVue"
-          @click="switchImage('next')"
+          :on-click="switchImage('next')"
         />
 
         <f-button
           class="f-image-preview__prev"
           circle
           :before-icon="FIconChevronLeftVue"
-          @click="switchImage('prev')"
+          :on-click="switchImage('prev')"
         />
       </template>
 
@@ -180,7 +180,7 @@
         class="f-image-preview__close"
         circle
         :before-icon="FIconCrossVue"
-        @click="handleClose"
+        :on-click="handleClose"
       />
 
       <!-- 操作栏 -->

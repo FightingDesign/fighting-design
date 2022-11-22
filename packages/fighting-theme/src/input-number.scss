@@ -6,16 +6,21 @@
   width: 100%;
   user-select: none;
 
+  // 减少的按钮
   .f-input-number__minus {
+    width: 50px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
   }
 
+  // 增加的按钮
   .f-input-number__plus {
+    width: 50px;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
   }
 
+  // 容器
   &__wrapper {
     display: inline-flex;
     flex: 1;

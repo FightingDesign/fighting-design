@@ -91,7 +91,7 @@
       ripples.clickRipples()
     }
 
-    runCallback(prop.click, evt)
+    runCallback(prop.onClick, evt)
   }
 
   /**

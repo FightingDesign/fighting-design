@@ -7,18 +7,22 @@
   const input = (e: Event): void => console.log(e, 'input')
   const blur = (e: Event): void => console.log(e, 'blur')
   const focus = (e: Event): void => console.log(e, 'focus')
+
+  const abc = ref('')
 </script>
 
 <template>
-  <f-input-number
-    v-model="num"
-    clear
-    model="button"
-    :on-change="change"
+  <h1>{{ num }}</h1>
+  <input v-model="num" type="number" :max="130" :min="120" />
+
+  <f-input-number v-model="num" clear model="button" :max="130" :min="120" />
+  <f-input-number v-model="num" clear model="switch" :max="130" :min="120" />
+  <!-- 
+     :on-change="change"
     :on-input="input"
     :on-blur="blur"
     :on-focus="focus"
-  />
+   -->
   <f-back-top>返回顶部</f-back-top>
 
   <!-- <input
