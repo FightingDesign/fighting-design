@@ -1,19 +1,22 @@
 <script lang="ts" setup name="FToolbar">
   import { Props } from './props'
   import { computed, useSlots } from 'vue'
-  import { runCallback, getChildren } from '../../_utils'
+  import { runCallback } from '../../_utils'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type {
     ClassListInterface,
     HandleMouseEventInterface
   } from '../../_interface'
-  import type { ToolbarPropsType, ToolbarClickEmitInterface } from './interface'
+  import type {
+    ToolbarPropsType,
+    ToolbarClickParamsInterface
+  } from './interface'
 
   const prop: ToolbarPropsType = defineProps(Props)
   const slot = useSlots()
 
   /**
-   * 类名列表
+   * @zh 类名列表
    */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
@@ -31,7 +34,7 @@
   )
 
   /**
-   * 样式列表
+   * @zh 样式列表
    */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { textColor, background, width, height } = prop
@@ -45,26 +48,23 @@
   })
 
   /**
-   * 点击触发
-   *
+   * @zh 点击触发
    * @param evt 事件对象
    */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     if (!slot.default) return
 
     // 获取内部的元素节点列表
-    const path: HTMLElement[] = evt.composedPath() as HTMLElement[]
-
-    console.log(getChildren(slot.default(), 'FToolbarItem'))
+    const children: HTMLElement[] = evt.composedPath() as HTMLElement[]
 
     // 过滤出自己的亲孩子组件
-    const node: HTMLElement | undefined = path.find(
+    const node: HTMLElement | undefined = children.find(
       (item: HTMLElement): boolean => item.className === 'f-toolbar-item'
     )
 
-    const key: string | undefined = node ? node.dataset.key : ''
+    const index: string | undefined = node ? node.dataset.index : ''
 
-    runCallback(prop.click, { evt, key } as ToolbarClickEmitInterface)
+    runCallback(prop.onClick, { evt, index } as ToolbarClickParamsInterface)
   }
 </script>
 

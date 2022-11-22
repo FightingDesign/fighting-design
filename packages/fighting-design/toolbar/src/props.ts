@@ -3,14 +3,14 @@ import type { ToolbarType, ToolbarClickInterface } from './interface'
 
 export const Props = {
   /**
-   * 显示为圆角
+   * @zh 显示为圆角
    */
   round: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
-   * 尺寸
+   * @zh 尺寸
    */
   size: {
     type: String as PropType<ToolbarType>,
@@ -20,44 +20,44 @@ export const Props = {
     }
   },
   /**
-   * 背景颜色
+   * @zh 背景颜色
    */
   background: {
     type: String,
     default: (): null => null
   },
   /**
-   * 字体颜色
+   * @zh 字体颜色
    */
   textColor: {
     type: String,
     default: (): null => null
   },
   /**
-   * 是否固定定位
+   * @zh 是否固定定位
    */
   fixed: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
-   * 自定义宽度
+   * @zh 自定义宽度
    */
   width: {
     type: String,
     default: (): null => null
   },
   /**
-   * 自定义高度
+   * @zh 自定义高度
    */
   height: {
     type: String,
     default: (): null => null
   },
   /**
-   * 点击之后触发的回调
+   * @zh 点击之后触发的回调
    */
-  click: {
+  onClick: {
     type: Function as PropType<ToolbarClickInterface>,
     default: (): null => null
   }

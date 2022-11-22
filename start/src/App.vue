@@ -1,5 +1,11 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import {
+    FIconApps,
+    FIconBlock,
+    FIconCameraVideoSlash,
+    FIconClock
+  } from '@fighting-design/fighting-icon'
 
   // const value = ref(17)
 
@@ -14,9 +20,18 @@
   const input = (e: Event): void => console.log(e, 'input')
   const blur = (e: Event): void => console.log(e, 'blur')
   const focus = (e: Event): void => console.log(e, 'focus')
+
+  const click = (e) => console.log(e)
 </script>
 
 <template>
+  <f-toolbar :on-click="click">
+    <f-toolbar-item :index="1" :icon="FIconApps" />
+    <f-toolbar-item :index="2" :icon="FIconBlock" />
+    <f-toolbar-item :index="3" :icon="FIconCameraVideoSlash" />
+    <f-toolbar-item :index="4" :icon="FIconClock" />
+  </f-toolbar>
+
   <f-alert close type="default">默认</f-alert>
   <f-alert close type="primary">普通</f-alert>
   <f-alert close type="warning">警告</f-alert>

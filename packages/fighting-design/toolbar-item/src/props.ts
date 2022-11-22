@@ -3,37 +3,37 @@ import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
   /**
-   * 自定义文字颜色
+   * @zh 自定义文字颜色
    */
   color: {
     type: String,
     default: (): null => null
   },
   /**
-   * 自定义 icon
+   * @zh 自定义 icon
    */
   icon: {
     type: Object as PropType<VNode | Component>,
     default: (): null => null
   },
   /**
-   * 自定义 icon 大小
+   * @zh 自定义 icon 大小
    */
   iconSize: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '16px'
+    default: (): number => 16
   },
   /**
-   * 唯一值
+   * @zh 唯一值
    */
-  dataKey: {
+  index: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /**
-   * 点击之后触发的回调
+   * @zh 点击之后触发的回调
    */
-  click: {
+  onClick: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

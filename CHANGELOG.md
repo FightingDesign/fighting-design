@@ -39,6 +39,10 @@
 - `f-breadcrumb` 组件 `item-color` 参数改为 `color`
 - `f-skeleton` 组件 `rounded` 参数改为 `round`
 - `f-back-top` 组件 `bottom` `right` `background` `color` 参数默认值更新
+- `toolbar-item` 组件 `click` 参数改为 `on-click`
+- `toolbar-item` 组件 `data-key` 参数改为 `index`
+- `toolbar-item` 组件 `icon-size` 参数改为默认值 16
+- `toolbar` 组件 `click` 参数改为 `on-click`
 
 ## 0.9.0-alpha.3 (2022-11-18)
 
