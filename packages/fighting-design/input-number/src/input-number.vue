@@ -36,6 +36,14 @@
 
   const inputValue = ref<number>(getInputValue.value)
 
+  watch(
+    (): number => inputValue.value,
+    (newVal: number): void => {
+      emit('update:modelValue', newVal)
+      runCallback(prop.onInput, newVal)
+    }
+  )
+
   /**
    * 最小值禁用
    */
@@ -66,6 +74,7 @@
     if (disabled || readonly || minDisabled.value) return
 
     inputValue.value += step
+    runCallback(prop.onChange, inputValue.value)
   }
 
   /**
@@ -78,15 +87,13 @@
     if (disabled || readonly || maxDisabled.value) return
 
     inputValue.value += step
+    runCallback(prop.onChange, inputValue.value)
   }
 
-  watch(
-    (): number => inputValue.value,
-    (newVal: number): void => {
-      emit('update:modelValue', newVal)
-      runCallback(prop.onInput, newVal)
-    }
-  )
+  const handleBlur = (evt: FocusEvent): void => {
+    console.log('123')
+    runCallback(prop.onBlur, evt)
+  }
 </script>
 
 <template>
@@ -112,7 +119,7 @@
         :name="name"
         :clear="clear"
         :placeholder="placeholder"
-        :on-blur="onBlur"
+        :on-blur="handleBlur"
         :on-focus="onFocus"
         :on-input="onInput"
         :on-change="onChange"

@@ -2,7 +2,8 @@ import type {
   OrdinaryFunctionInterface,
   HandleEventInterface
 } from '../../_interface'
-import type { TextareaChangeInterface } from '../../textarea/src/interface'
+import type { TextareaChangeInterface } from '../../textarea'
+import type { InputType } from '../../input'
 
 export type {
   OrdinaryFunctionInterface,
@@ -19,6 +20,7 @@ export interface UseUpdateInputPropsInterface {
   onInput: TextareaChangeInterface | null
   onChange: TextareaChangeInterface | null
   disabled: boolean
+  type?: InputType
 }
 
 /**

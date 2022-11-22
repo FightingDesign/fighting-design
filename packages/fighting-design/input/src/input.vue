@@ -39,7 +39,8 @@
     useFilterProps<InputPropsType, UseUpdateInputPropsInterface>(prop, [
       'onChange',
       'onInput',
-      'disabled'
+      'disabled',
+      'type'
     ]),
     emit
   )

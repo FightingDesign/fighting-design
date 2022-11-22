@@ -16,7 +16,7 @@
   const slot = useSlots()
 
   /**
-   * @zh 类名列表
+   * 类名列表
    */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
@@ -34,7 +34,7 @@
   )
 
   /**
-   * @zh 样式列表
+   * 样式列表
    */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { textColor, background, width, height } = prop
@@ -48,7 +48,8 @@
   })
 
   /**
-   * @zh 点击触发
+   * 点击触发
+   *
    * @param evt 事件对象
    */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {

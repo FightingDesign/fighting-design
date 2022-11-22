@@ -14,7 +14,8 @@
   const prop: CloseBtnPropsType = defineProps(Props)
 
   /**
-   * @zh 点击触发
+   * 点击触发
+   *
    * @param evt 事件对象
    */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {

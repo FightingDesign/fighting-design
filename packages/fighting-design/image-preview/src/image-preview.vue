@@ -50,7 +50,7 @@
   )
 
   /**
-   * @zh 关闭图片预览
+   * 关闭图片预览
    */
   const handleClose: OrdinaryFunctionInterface = (): void => {
     emit('update:visible', false)
@@ -58,7 +58,7 @@
   }
 
   /**
-   * @zh 监视绑定值，如果为假，则关闭
+   * 监视绑定值，如果为假，则关闭
    */
   watch(
     (): boolean => isVisible.value,
@@ -70,7 +70,7 @@
   )
 
   /**
-   * @zh 监视绑定的数据同步 isVisible
+   * 监视绑定的数据同步 isVisible
    */
   watch(
     (): boolean => prop.visible,
@@ -80,7 +80,7 @@
   )
 
   /**
-   * @zh 开始图片加载
+   * 开始图片加载
    */
   const imagPreload: OrdinaryFunctionInterface = (): void => {
     const imgList: string[] = prop.imgList as string[]
@@ -92,7 +92,7 @@
   }
 
   /**
-   * @zh 左右切换按钮
+   * 左右切换按钮
    * @param type 区分点击的是上一张还是下一张
    */
   const switchImage: ImagePreviewSwitchImageInterface = (
@@ -123,7 +123,7 @@
   }
 
   /**
-   * @zh 点击操作栏触发
+   * 点击操作栏触发
    * @param target f-toolbar 组件返回值
    */
   const optionClick: ImagePreviewOptionClickInterface = (

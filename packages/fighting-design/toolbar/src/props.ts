@@ -3,59 +3,62 @@ import type { ToolbarType, ToolbarClickInterface } from './interface'
 
 export const Props = {
   /**
-   * @zh 显示为圆角
+   * 显示为圆角
    */
   round: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
-   * @zh 尺寸
+   * 尺寸
+   * 
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: String as PropType<ToolbarType>,
-    default: (): ToolbarType => 'large',
+    default: (): ToolbarType => 'middle',
     validator: (val: ToolbarType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
   /**
-   * @zh 背景颜色
+   * 背景颜色
    */
   background: {
     type: String,
     default: (): null => null
   },
   /**
-   * @zh 字体颜色
+   * 字体颜色
    */
   textColor: {
     type: String,
     default: (): null => null
   },
   /**
-   * @zh 是否固定定位
+   * 是否固定定位
    */
   fixed: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
-   * @zh 自定义宽度
+   * 自定义宽度
    */
   width: {
     type: String,
     default: (): null => null
   },
   /**
-   * @zh 自定义高度
+   * 自定义高度
    */
   height: {
     type: String,
     default: (): null => null
   },
   /**
-   * @zh 点击之后触发的回调
+   * 点击之后触发的回调
    */
   onClick: {
     type: Function as PropType<ToolbarClickInterface>,
