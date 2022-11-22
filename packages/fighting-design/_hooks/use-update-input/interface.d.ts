@@ -54,5 +54,5 @@ export interface UseUpdateInputReturnInterface {
  * @param val 回调参数
  */
 export interface UseUpdateInputEmitInterface {
-  (event: 'update:modelValue', val: string): void
+  (event: 'update:modelValue', val: string | number): void
 }

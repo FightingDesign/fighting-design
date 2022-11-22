@@ -15,7 +15,7 @@ export const Props = {
    * 绑定值
    */
   modelValue: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /**

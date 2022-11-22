@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FInputNumber">
   import { Props } from './props'
-  import { computed } from 'vue'
+  import { computed, ref, watch } from 'vue'
   import {
     FIconChevronLeftVue,
     FIconChevronRightVue,
@@ -9,6 +9,7 @@
   } from '../../_svg'
   import { FInput } from '../../input'
   import { FButton } from '../../button'
+  import { isNumber, runCallback } from '../../_utils'
   import type { ComputedRef } from 'vue'
   import type { OrdinaryFunctionInterface } from '../../_interface'
   import type { InputNumberPropsType } from './interface'
@@ -18,42 +19,78 @@
     (e: 'update:modelValue', val: number): void
   }>()
 
-  const displayValue: ComputedRef<string> = computed<string>(() =>
-    Number(prop.modelValue)?.toFixed(prop.precision)
-  )
+  // const inputValue: ComputedRef<string> = computed<string>(() => {
+  //   // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+  //   return Number(prop.modelValue)?.toFixed(prop.precision)
+  // })
+
+  const getInputValue = computed((): number => {
+    const { modelValue, precision } = prop
+
+    if (!isNumber(modelValue)) {
+      return 0
+    }
+
+    return Number(modelValue.toFixed(isNumber(precision) ? precision : 0))
+  })
+
+  const inputValue = ref<number>(getInputValue.value)
 
   /**
    * 最小值禁用
    */
-  const minDisabled: ComputedRef<boolean> = computed<boolean>(
-    () => +prop.modelValue - +prop.step <= prop.min
-  )
+  const minDisabled: ComputedRef<boolean> = computed((): boolean => {
+    const { modelValue, step, min } = prop
+    // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
+    return Math.abs(modelValue) - Math.abs(step) < min
+  })
 
   /**
    * 最大值禁用
    */
-  const maxDisabled: ComputedRef<boolean> = computed<boolean>(
-    () => +prop.modelValue + +prop.step >= prop.max
-  )
+  const maxDisabled: ComputedRef<boolean> = computed((): boolean => {
+    const { modelValue, step, max } = prop
+
+    if (!max && !isNumber(max)) {
+      return false
+    }
+    return Math.abs(modelValue) - Math.abs(step) > max
+  })
 
   /**
    * 点击减号
    */
   const handleMinus: OrdinaryFunctionInterface = (): void => {
-    if (prop.disabled || prop.readonly || minDisabled.value) return
-    emit('update:modelValue', +prop.modelValue - +prop.step)
+    const { disabled, readonly, step } = prop
+
+    if (disabled || readonly || minDisabled.value) return
+
+    inputValue.value += step
   }
 
   /**
    * 点击加号
    */
   const handlePlus: OrdinaryFunctionInterface = (): void => {
-    if (prop.disabled || prop.readonly || maxDisabled.value) return
-    emit('update:modelValue', +prop.modelValue + +prop.step)
+    const { disabled, readonly, step } = prop
+
+    // 禁用、只读、超出最大值
+    if (disabled || readonly || maxDisabled.value) return
+
+    inputValue.value += step
   }
+
+  watch(
+    (): number => inputValue.value,
+    (newVal: number): void => {
+      emit('update:modelValue', newVal)
+      runCallback(prop.onInput, newVal)
+    }
+  )
 </script>
 
 <template>
+  {{ inputValue }}
   <div class="f-input-number">
     <f-button
       v-if="model === 'button'"
@@ -66,7 +103,7 @@
 
     <div class="f-input-number__wrapper">
       <f-input
-        v-model="displayValue"
+        v-model="inputValue"
         type="number"
         :max="max"
         :min="min"
