@@ -3,10 +3,11 @@
 **/*.svg
 **/*.ai
 **/*.sh
-script/new-component/template/*
-/packages/fighting-theme/dist/*
 /docs/docs/.vitepress/dist/*
 dist
+**/dist/**
+**/node_modules/**
+dist-icon
 node_modules
 pnpm-lock.yaml
-/script/move-file.js
+/packages/add-component
