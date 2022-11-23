@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FInputNumber">
   import { Props } from './props'
-  import { computed, reactive } from 'vue'
+  import { computed } from 'vue'
   import {
     FIconChevronLeftVue,
     FIconChevronRightVue,
@@ -18,9 +18,19 @@
     'update:modelValue': (val: number): boolean => isNumber(val)
   })
 
-  const inputValueData = reactive({
-    value: prop.modelValue
+  const inputValueData = computed({
+    get: () => prop.modelValue,
+    set: (val) => {
+      emit('update:modelValue', val)
+    }
   })
+  // reactive({
+  //   value: prop.modelValue
+  // })
+
+  // watch(() => prop.modelValue, (val) => {
+  //   inputValueData.value = val
+  // })
 
   /**
    * 获取绑定的值，第一步拦截
@@ -97,14 +107,14 @@
        */
       minus: (): void => {
         inputValueData.value -= step
-        emit('update:modelValue', inputValueData.value)
+        // emit('update:modelValue', inputValueData.value)
       },
       /**
        * 增加
        */
       plus: (): void => {
         inputValueData.value += step
-        emit('update:modelValue', inputValueData.value)
+        // emit('update:modelValue', inputValueData.value)
       }
     }
 
@@ -127,7 +137,7 @@
 
     <div class="f-input-number__wrapper">
       <f-input
-        v-model="inputValueData.value"
+        v-model="inputValueData"
         type="number"
         :max="max"
         :min="min"
