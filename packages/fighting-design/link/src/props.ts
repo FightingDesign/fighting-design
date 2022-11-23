@@ -5,6 +5,9 @@ import type { HandleMouseEventInterface } from '../../_interface'
 export const Props = {
   /**
    * link 的类型
+   * 
+   * @values default primary success danger warning
+   * @defaultValue primary
    */
   type: {
     type: String as PropType<LinkType>,

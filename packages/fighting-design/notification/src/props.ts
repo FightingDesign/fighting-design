@@ -23,6 +23,9 @@ export const Props = {
   },
   /**
    * 消息类型
+   * 
+   * @values default primary success danger warning
+   * @defaultValue default
    */
   type: {
     type: String as PropType<NotificationType>,

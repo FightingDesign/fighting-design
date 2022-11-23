@@ -19,6 +19,9 @@ export const Props = {
   },
   /**
    * 涟漪类型
+   * 
+   * @values default primary success danger warning
+   * @defaultValue default
    */
   type: {
     type: String as PropType<RippleType>,

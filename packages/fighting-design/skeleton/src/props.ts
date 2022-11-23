@@ -31,7 +31,10 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 设置尺寸，提供三个属性值，默认 default
+   * 尺寸
+   * 
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: String as PropType<SkeletonSizeType>,

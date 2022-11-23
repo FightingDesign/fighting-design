@@ -4,6 +4,9 @@ import type { ButtonSizeType } from '../../button'
 export const Props = {
   /**
    * 按钮尺寸
+   * 
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: String as PropType<ButtonSizeType>,

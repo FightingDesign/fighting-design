@@ -45,6 +45,9 @@ export const Props = {
   },
   /**
    * 按钮尺寸
+   * 
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: String as PropType<ButtonSizeType>,
@@ -104,6 +107,9 @@ export const Props = {
   },
   /**
    * 按钮的类型（非自定义按钮颜色时有效）
+   * 
+   * @values default primary success danger warning
+   * @defaultValue default
    */
   type: {
     type: String as PropType<ButtonType>,

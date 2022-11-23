@@ -4,6 +4,9 @@ import type { TextType, TextDecorationType } from './interface'
 export const Props = {
   /**
    * 类型
+   * 
+   * @values default primary success danger warning
+   * @defaultValue default
    */
   type: {
     type: String as PropType<TextType>,
@@ -92,7 +95,7 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 是否省略文本，需配合 `width` 宽度使用
+   * 是否省略文本，需配合 width 宽度使用
    */
   ellipsis: {
     type: Boolean,

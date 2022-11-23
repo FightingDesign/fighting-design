@@ -31,7 +31,10 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 样式主题
+   * 类型
+   * 
+   * @values primary success danger warning
+   * @defaultValue danger
    */
   type: {
     type: String as PropType<BadgeType>,
