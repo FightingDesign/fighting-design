@@ -1,9 +1,8 @@
 /**
  * 保留小数点后 no 位方法类型接口
  *
- * num 传入的一个带有小数点的数字
- *
- * no 需要保留的位数
+ * @param num 传入的一个带有小数点的数字
+ * @param no 需要保留的位数
  */
 export interface UtilsKeepDecimalInterface {
   (num: number, no: number): number
@@ -14,10 +13,8 @@ export interface UtilsKeepDecimalInterface {
  *
  * 来处理对于短时间内连续触发的事件加以限制
  *
- * callback 回调函数
- *
- * delay 延时的时间
- *
+ * @param callback 回调函数
+ * @param delay 延时的时间
  */
 export interface UtilsDebounceInterface {
   (callback: Function, delay: number): Function
@@ -27,6 +24,8 @@ export interface UtilsDebounceInterface {
  * 检测一个数据是否为 Number 类型方法类型接口
  *
  * 传入一个未知的类型，返回布尔值
+ * 
+ * @param target 未知参数
  */
 export interface UtilsIsNumberInterface {
   (target: unknown): target is number
@@ -36,6 +35,8 @@ export interface UtilsIsNumberInterface {
  * 检测一个数据是否为 Boolean 类型方法类型接口
  *
  * 传入一个未知的类型，返回布尔值
+ * 
+ * @param target 未知参数
  */
 export interface UtilsIsBooleanInterface {
   (target: unknown): target is boolean
@@ -45,6 +46,8 @@ export interface UtilsIsBooleanInterface {
  * 检测一个数据是否为 String 类型方法类型接口
  *
  * 传入一个未知的类型，返回布尔值
+ * 
+ * @param target 未知参数
  */
 export interface UtilsIsStringInterface {
   (target: unknown): target is string
@@ -54,6 +57,8 @@ export interface UtilsIsStringInterface {
  * 检测一个数据是否为 Object 类型方法类型接口
  *
  * 传入一个未知的类型，返回布尔值
+ * 
+ * @param target 未知参数
  */
 export interface UtilsIsObjectInterface {
   (target: unknown): target is Object
@@ -63,6 +68,8 @@ export interface UtilsIsObjectInterface {
  * 检测一个数据是否为 Array 类型方法类型接口
  *
  * 传入一个未知的类型，返回布尔值
+ * 
+ * @param target 未知参数
  */
 export interface UtilsIsArrayInterface {
   (target: unknown): target is []
@@ -72,6 +79,8 @@ export interface UtilsIsArrayInterface {
  * 给数字小于 10 的数字前面加 0 方法类型接口
  *
  * 多数用于对时间的处理
+ * 
+ * @param num 修改的数字
  */
 export interface UtilsAddZeroInterface {
   (num: number): string
@@ -89,11 +98,19 @@ export interface UtilsAddZeroInterface {
  * 返回已经追加单位的字符串数值
  *
  * 有些情况下也有可能传入的是 undefined，所以也要加入该类型
+ * 
+ * @param size 尺寸
+ * @param target 单位，默认 px
  */
 export interface UtilsSizeChangeInterface {
   (size: string | number | undefined, target?: string): string
 }
 
+/**
+ * 将字符串尺寸转换为数字尺寸类型接口
+ * 
+ * @param size 尺寸
+ */
 export interface UtilsSizeToNumInterface {
   (size: string | number): number
 }

@@ -37,11 +37,9 @@ export interface LoadCallbackInterface {
 /**
  * 加载图片方法接口
  *
- * node 所需要设置的 img 节点
- *
- * prop props 参数
- *
- * callback 回调函数
+ * @param node 所需要设置的 img 节点
+ * @param prop props 参数
+ * @param callback 回调函数
  */
 export interface LoadImageInterface {
   (
@@ -67,9 +65,8 @@ export interface LoadCreateImgInterface {
 /**
  * 加载图片方法类型接口
  *
- * evt 事件对象
- *
- * src 图片地址
+ * @param evt 事件对象
+ * @param src 图片地址
  */
 export interface LoadOnloadInterface {
   (evt: Event, src: string): void

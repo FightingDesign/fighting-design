@@ -101,6 +101,9 @@
     recovery()
 
     const optionMap: ImagePreviewSwitchImageOptionMapInterface = {
+      /**
+       * 下一张切换
+       */
       next: (): void => {
         if (previewShowIndex.value < prop.imgList.length - 1) {
           previewShowIndex.value++
@@ -108,6 +111,9 @@
         }
         previewShowIndex.value = 0
       },
+      /**
+       * 上一张切换
+       */
       prev: (): void => {
         if (previewShowIndex.value > 0) {
           previewShowIndex.value--
@@ -124,6 +130,7 @@
 
   /**
    * 点击操作栏触发
+   *
    * @param target f-toolbar 组件返回值
    */
   const optionClick: ImagePreviewOptionClickInterface = (
@@ -139,8 +146,8 @@
       5: (): void => rotateCounterClock()
     } as const
 
-    if (optionMap[target.index]) {
-      optionMap[target.index]()
+    if (optionMap[target.index as unknown as 1 | 2 | 3 | 4 | 5]) {
+      optionMap[target.index as unknown as 1 | 2 | 3 | 4 | 5]()
     }
   }
 </script>
@@ -164,14 +171,14 @@
           class="f-image-preview__next"
           circle
           :before-icon="FIconChevronRightVue"
-          :on-click="switchImage('next')"
+          @click="switchImage('next')"
         />
 
         <f-button
           class="f-image-preview__prev"
           circle
           :before-icon="FIconChevronLeftVue"
-          :on-click="switchImage('prev')"
+          @click="switchImage('prev')"
         />
       </template>
 

@@ -2,6 +2,7 @@ import type { ButtonType } from '../../button/src/interface'
 
 /**
  * Ripples 类所需要的 props 参数
+ *
  * @param duration 动画时长
  * @param component 组件类型 目前仅有 button 和 ripple 组件两种类型
  * @param className 涟漪节点类名
