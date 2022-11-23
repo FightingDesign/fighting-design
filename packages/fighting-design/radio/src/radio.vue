@@ -4,10 +4,7 @@
   import { computed, inject } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
   import type { ComputedRef, WritableComputedRef } from 'vue'
-  import type {
-    RadioGroundInterface,
-    RadioLabelType
-  } from '../../radio-group/src/interface'
+  import type { RadioGroundInterface, RadioLabelType } from '../../radio-group'
   import type { ClassListInterface } from '../../_interface'
   import type { RadioPropsType } from './props'
 
@@ -41,7 +38,7 @@
       }
       if (prop.disabled) return
       emit('update:modelValue', val)
-      runCallback(prop.change, val)
+      runCallback(prop.onChange, val)
     }
   })
 
@@ -54,7 +51,8 @@
         {
           'f-radio__checked': modelValue.value === prop.label,
           'f-radio__margin': !INJECT_DEPEND,
-          'f-radio__disabled': disabled || (INJECT_DEPEND && INJECT_DEPEND.disabled)
+          'f-radio__disabled':
+            disabled || (INJECT_DEPEND && INJECT_DEPEND.disabled)
         }
       ] as const
     }

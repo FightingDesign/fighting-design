@@ -249,7 +249,7 @@
 | `offset`     | 偏移距离                                     | number                     | ——                                                      | 20        |
 | `close-btn`  | 自定义关闭按钮                               | string / VNode             | ——                                                      | ——        |
 | `z-index`    | 层级                                         | boolean                    | ——                                                      | 1000      |
-| `close-end`  | 关闭之后回调                                 | Function                   | ——                                                      | ——        |
+| `on-close`   | 关闭之后回调                                 | Function                   | ——                                                      | ——        |
 
 ## Events
 

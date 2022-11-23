@@ -246,15 +246,15 @@
 | `background` | 自定义背景色                                 | string                     | ——                                                                 | ——      |
 | `close-btn`  | 关闭按钮                                     | string / VNode             | ——                                                                 | ——      |
 | `z-index`    | 层级                                         | boolean                    | ——                                                                 | 1000    |
-| `close-end`  | 关闭回调                                     | Function                   | ——                                                                 | ——      |
+| `on-close`   | 关闭之后的回调                               | Function                   | ——                                                                 | ——      |
 
 ## Events
 
-`FMessage`调用之后返回`Message`实例，如果需要手动关闭实例，可以调用它的 `close` 方法。
+`FMessage` 调用之后返回 `Message` 实例，如果需要手动关闭实例，可以调用它的 `close` 方法。
 
-| 事件名称 | 说明               | 类型         |
-| -------- | ------------------ | ------------ |
-| `close`  | 关闭当前的 Message | `() => void` |
+| 事件名称 | 说明               |
+| -------- | ------------------ |
+| `close`  | 关闭当前的 Message |
 
 ## Interface
 

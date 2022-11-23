@@ -99,7 +99,7 @@ export const Props = {
   /**
    * 点击执行的回调
    */
-  click: {
+  onClick: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

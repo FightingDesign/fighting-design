@@ -24,7 +24,7 @@
    */
   const changeEvent: RadioChangeInterface = (value: RadioLabelType): void => {
     emit('update:modelValue', value)
-    runCallback(prop.change, value)
+    runCallback(prop.onChange, value)
   }
 
   // 需要注入的依赖项
@@ -33,6 +33,7 @@
     changeEvent
   } as const)
 
+  // 注入依赖项
   provide<RadioGroundPropsType>(RADIO_GROUP_PROPS_kEY, RadioGround)
 
   /**

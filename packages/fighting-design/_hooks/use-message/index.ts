@@ -2,6 +2,7 @@ import messageVue from '../../message/src/message.vue'
 import notificationVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
 import { useMassageManage } from '../../_hooks'
+import { runCallback } from '../../_utils'
 import type { ComponentInternalInstance, VNode } from 'vue'
 import type {
   DefaultOptionsInterface,
@@ -56,7 +57,7 @@ export const useMessage: UseMessageInterface = (
      * 关闭动画结束时，移除dom
      */
     props.onDestroy = (): void => {
-      props.closeEnd && props.closeEnd()
+      runCallback(props.onClose)
       render(null, container)
     }
 

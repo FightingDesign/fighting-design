@@ -54,10 +54,16 @@
 - `f-checkbox` 组件 `change` 参数改为 `on-change`
 - `f-checkbox-group` 组件 `change` 参数改为 `on-change`
 - `f-close-btn` 组件 `click` 参数改为 `on-click`
-- `f-dropdown-item` 组件 `click` 参数改为 `on-click`
 - `f-dialog` 组件 `open` `open-end` `close` `close-end` 改为 `on-open` `on-open-end` `on-close` `on-close-end`
 - `f-drawer` 组件 `open` `open-end` `close` `close-end` 改为 `on-open` `on-open-end` `on-close` `on-close-end`
 - `f-popup` 组件 `open` `open-end` `close` `close-end` 改为 `on-open` `on-open-end` `on-close` `on-close-end`
+- `f-dropdown-item` 组件 `click` 参数改为 `on-click`
+- `f-link` 组件 `click` 参数改为 `on-click`
+- `f-message` 组件 `close-end` 参数改为 `on-close`
+- `f-notification` 组件 `close-end` 参数改为 `on-close`
+- `f-page-header` 组件 `back` 参数改为 `on-back`
+- `f-radio` 组件 `change` 参数改为 `on-change`
+- `f-radio-group` 组件 `change` 参数改为 `on-change`
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

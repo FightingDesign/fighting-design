@@ -61,7 +61,7 @@ export const Props = {
   /**
    * 绑定值变化时触发
    */
-  change: {
+  onChange: {
     type: Function as PropType<RadioChangeInterface>,
     default: (): null => null
   }

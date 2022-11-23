@@ -94,6 +94,9 @@ export const Props = {
   },
   /**
    * 弹出位置
+   * 
+   * @values top-left top-right bottom-left bottom-right
+   * @defaultValue top-right
    */
   placement: {
     type: String as PropType<NotificationPlacementType>,
@@ -121,7 +124,7 @@ export const Props = {
   /**
    * 关闭之后回调
    */
-  closeEnd: {
+  onClose: {
     type: Function,
     default: (): null => null
   }

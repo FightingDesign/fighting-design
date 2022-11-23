@@ -2,7 +2,7 @@ import type { PropType, ExtractPropTypes } from 'vue'
 import type {
   RadioLabelType,
   RadioChangeInterface
-} from '../../radio-group/src/interface'
+} from '../../radio-group'
 
 export const Props = {
   /**
@@ -36,7 +36,7 @@ export const Props = {
   /**
    * 绑定值变化时触发
    */
-  change: {
+  onChange: {
     type: Function as PropType<RadioChangeInterface>,
     default: (): null => null
   }

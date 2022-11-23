@@ -22,7 +22,7 @@
       evt.preventDefault()
       return
     }
-    runCallback(prop.click, evt)
+    runCallback(prop.onClick, evt)
   }
 
   /**

@@ -61,7 +61,7 @@ export const Props = {
   /**
    * 点击左侧区域触发
    */
-  back: {
+  onBack: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

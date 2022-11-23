@@ -83,6 +83,9 @@ export const Props = {
   },
   /**
    * 位置
+   * 
+   * @values top top-left top-right bottom bottom-left bottom-right
+   * @defaultValue top
    */
   placement: {
     type: String as PropType<MessagePlacementType>,
@@ -117,7 +120,7 @@ export const Props = {
   /**
    * 关闭回调
    */
-  closeEnd: {
+  onClose: {
     type: Function,
     default: (): null => null
   }
