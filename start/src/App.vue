@@ -10,16 +10,19 @@
 
   // const abc = ref('')
   // const value = ref(1)
-  // const value1 = ref(1)
+  const value1 = ref('')
   // const value2 = ref('')
 </script>
 
 <template>
   <h1>{{ num }}</h1>
 
+  <f-date-picker v-model:date="value1" />
+  <f-date-picker v-model:date="value1" />
+
   <!-- <f-date-picker v-model:data="value2" /><f-date-picker v-model:data="value2" /> -->
 
-  <f-select v-model="value" placeholder="请选择……">
+  <!-- <f-select v-model="value" placeholder="请选择……">
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
@@ -31,7 +34,7 @@
     <f-option :value="2">苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
     <f-option :value="4">樱桃</f-option>
-  </f-select>
+  </f-select> -->
 
   <input v-model="num" type="number" :max="130" :min="120" />
 

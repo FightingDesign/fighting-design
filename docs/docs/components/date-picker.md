@@ -11,17 +11,17 @@
 
 ## 基本使用
 
-使用 `v-model:data` 绑定一个值
+使用 `v-model:date` 绑定一个值
 
 ::: demo
 
 <template #source>
-<f-date-picker v-model:data="value1" />
+<f-date-picker v-model:date="value1" />
 </template>
 
 ```html
 <template>
-  <f-date-picker v-model:data="value1" />
+  <f-date-picker v-model:date="value1" />
 </template>
 
 <script lang="ts" setup>
