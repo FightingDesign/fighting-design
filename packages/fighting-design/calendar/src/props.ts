@@ -65,14 +65,14 @@ export const Props = {
   /**
    * 月份改变时触发的回调
    */
-  changeDate: {
+  onChangeDate: {
     type: Function as PropType<CalendarCallbackInterface>,
     default: (): null => null
   },
   /**
    * 日期改变时触发的回调
    */
-  changeSwitch: {
+  onChangeMonth: {
     type: Function as PropType<CalendarCallbackInterface>,
     default: (): null => null
   }

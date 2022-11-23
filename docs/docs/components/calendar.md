@@ -143,8 +143,8 @@
 | `day-cell-height`  | 日期单元格高度                           | string / number | ——     | 85px     |
 | `week-cell-height` | 星期单元格高度                           | string / number | ——     | 50px     |
 | `memorandum`       | 备忘事件                                 | object          | ——     | ——       |
-| `change-switch`    | 月份改变时触发的回调                     | Function        | ——     | ——       |
-| `change-date`      | 日期改变时触发的回调                     | Function        | ——     | ——       |
+| `on-change-month`  | 月份改变时触发的回调                     | Function        | ——     | ——       |
+| `on-change-date`   | 日期改变时触发的回调                     | Function        | ——     | ——       |
 
 ## Slots
 

@@ -45,8 +45,10 @@
 - `f-toolbar` 组件 `click` 参数改为 `on-click`
 - `f-image-preview` 组件 `close` 回调改为 `on-close`
 - `f-alert` 组件 `close-end` 回调改为 `on-close`
+- `f-button` 组件 `click` 回调改为 `on-click`
 - `f-avatar` 组件 `load` `error` 回调改为 `on-load` `on-error`
 - `f-image` 组件 `load` `error` 回调改为 `on-load` `on-error`
+- `f-calendar` 组件 `change-switch` `change-date` 回调改为 `on-change-month` `on-change-date`
 
 ## 0.9.0-alpha.3 (2022-11-18)
 
