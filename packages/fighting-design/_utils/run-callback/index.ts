@@ -5,7 +5,6 @@ import type { runCallbackInterface } from './interface'
  * 
  * @param callback 回调函数
  * @param params 回调参数
- * @return { void } 没有返回值
  */
 export const runCallback: runCallbackInterface = <T extends Function, F>(
   callback: T | null,

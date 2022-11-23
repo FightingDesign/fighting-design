@@ -11,25 +11,20 @@ export type {
 /**
  * Load 加载类所需要的 props 参数
  *
- * src 图片路径
- *
- * errSrc 加载失败时要显示的地址
- *
- * rootMargin 触发懒加载的距离
- *
- * lazy 是否懒加载图片
- *
- * load 图片加载成功触发的回调
- *
- * error 图片加载失败触发的回调
+ * @param src 图片路径
+ * @param errSrc 加载失败时要显示的地址
+ * @param rootMargin 触发懒加载的距离
+ * @param lazy 是否懒加载图片
+ * @param onLoad 图片加载成功触发的回调
+ * @param onError 图片加载失败触发的回调
  */
 export interface LoadImagePropsInterface {
   src: string
   errSrc: string
   rootMargin: string
   lazy: boolean
-  load: Function
-  error: Function
+  onLoad: HandleEventInterface
+  onError: HandleEventInterface
 }
 
 /**

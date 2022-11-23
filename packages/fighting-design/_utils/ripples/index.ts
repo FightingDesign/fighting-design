@@ -20,7 +20,6 @@ export class Ripples implements RipplesInterface {
   }
   /**
    * 点击生成涟漪效果
-   * @return { void }
    */
   clickRipples: OrdinaryFunctionInterface = (): void => {
     /**
@@ -109,8 +108,7 @@ export class Ripples implements RipplesInterface {
   }
   /**
    * 删除涟漪节点
-   * @param node dom
-   * @return { void }
+   * @param node dom 元素
    */
   removeElement = (node: HTMLElement): void => {
     setTimeout((): void => {

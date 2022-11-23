@@ -124,9 +124,9 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 关闭之后执行的回调函数
+   * 点击关闭之后执行的回调
    */
-  closeEnd: {
+  onClose: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

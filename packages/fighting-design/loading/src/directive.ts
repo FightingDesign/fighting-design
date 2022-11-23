@@ -44,7 +44,6 @@ const optionsOrganizer = (
  * 渲染元素节点
  * @param el 元素节点
  * @param binding 一个对象，包含一些配置参数
- * @return { void }
  */
 const renderLoadingDom = (
   el: LoadingElInterface,

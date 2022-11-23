@@ -36,7 +36,7 @@
     const needProps: LoadImagePropsInterface = useFilterProps<
       ImagePropsType,
       LoadImagePropsInterface
-    >(prop, ['src', 'errSrc', 'rootMargin', 'lazy', 'load', 'error'])
+    >(prop, ['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError'])
 
     loadImage(node, needProps, callback)
   }

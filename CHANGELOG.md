@@ -39,11 +39,14 @@
 - `f-breadcrumb` 组件 `item-color` 参数改为 `color`
 - `f-skeleton` 组件 `rounded` 参数改为 `round`
 - `f-back-top` 组件 `bottom` `right` `background` `color` 参数默认值更新
-- `toolbar-item` 组件 `click` 参数改为 `on-click`
-- `toolbar-item` 组件 `data-key` 参数改为 `index`
-- `toolbar-item` 组件 `icon-size` 参数改为默认值 16
-- `toolbar` 组件 `click` 参数改为 `on-click`
-- `image-preview` 组件 `close` 回调改为 `on-close`
+- `f-toolbar-item` 组件 `click` 参数改为 `on-click`
+- `f-toolbar-item` 组件 `data-key` 参数改为 `index`
+- `f-toolbar-item` 组件 `icon-size` 参数改为默认值 16
+- `f-toolbar` 组件 `click` 参数改为 `on-click`
+- `f-image-preview` 组件 `close` 回调改为 `on-close`
+- `f-alert` 组件 `close-end` 回调改为 `on-close`
+- `f-avatar` 组件 `load` `error` 回调改为 `on-load` `on-error`
+- `f-image` 组件 `load` `error` 回调改为 `on-load` `on-error`
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

@@ -120,14 +120,14 @@ export const Props = {
   /**
    * 图片加载成功触发的回调
    */
-  load: {
+  onLoad: {
     type: Function as PropType<HandleEventInterface>,
     default: (): null => null
   },
   /**
    * 图片加载失败触发的回调
    */
-  error: {
+  onError: {
     type: Function as PropType<HandleEventInterface>,
     default: (): null => null
   }

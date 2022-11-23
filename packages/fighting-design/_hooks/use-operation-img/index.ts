@@ -50,7 +50,6 @@ export const useOperationImg: UseOperationImgInterface =
 
     /**
      * 还原图片
-     * @return { void }
      */
     const recovery: OrdinaryFunctionInterface = (): void => {
       scale.value = 1
@@ -59,7 +58,6 @@ export const useOperationImg: UseOperationImgInterface =
 
     /**
      * 顺时针旋转
-     * @return { void }
      */
     const rotateClockwise: OrdinaryFunctionInterface = (): void => {
       rotate.value += 90
@@ -67,7 +65,6 @@ export const useOperationImg: UseOperationImgInterface =
 
     /**
      * 逆时针旋转
-     * @return { void }
      */
     const rotateCounterClock: OrdinaryFunctionInterface = (): void => {
       rotate.value -= 90

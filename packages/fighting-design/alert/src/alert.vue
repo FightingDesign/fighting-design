@@ -73,7 +73,7 @@
    */
   const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     isShow.value = false
-    runCallback(prop.closeEnd, evt)
+    runCallback(prop.onClose, evt)
   }
 </script>
 
