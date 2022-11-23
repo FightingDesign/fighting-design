@@ -20,6 +20,10 @@
   <f-date-picker v-model:date="value1" />
   <f-date-picker v-model:date="value1" />
 
+  <f-time-picker v-model:time="value1" />
+  <f-time-picker v-model:time="value1" />
+  <f-time-picker v-model:time="value1" />
+
   <!-- <f-date-picker v-model:data="value2" /><f-date-picker v-model:data="value2" /> -->
 
   <!-- <f-select v-model="value" placeholder="请选择……">
