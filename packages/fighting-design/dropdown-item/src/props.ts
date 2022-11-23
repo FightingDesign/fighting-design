@@ -12,7 +12,7 @@ export const Props = {
   /**
    * 点击之后的回调函数
    */
-  click: {
+  onClick: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

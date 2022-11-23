@@ -17,9 +17,10 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 触发方式
+   * 触发方式：移入、点击
    *
-   * 移入、点击
+   * @values hover click
+   * @defaultValue hover
    */
   trigger: {
     type: String as PropType<DropdownTriggerType>,
