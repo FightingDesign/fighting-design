@@ -91,8 +91,10 @@ class Load implements LoadInterface {
 
 /**
  * 图片懒加载
+ *
  * 使用 IntersectionObserver 监视图片
- * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
+ *
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */
 class Lazy extends Load implements LoadLazyInterface {
   constructor (

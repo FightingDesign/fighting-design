@@ -3,15 +3,15 @@
 
   const num = ref(123)
 
-  const change = (e: Event): void => console.log(e, 'change')
-  const input = (e: Event): void => console.log(e, 'input')
-  const blur = (e: Event): void => console.log(e, 'blur')
-  const focus = (e: Event): void => console.log(e, 'focus')
+  // const change = (e: Event): void => console.log(e, 'change')
+  // const input = (e: Event): void => console.log(e, 'input')
+  // const blur = (e: Event): void => console.log(e, 'blur')
+  // const focus = (e: Event): void => console.log(e, 'focus')
 
-  const abc = ref('')
-  const value = ref(1)
-  const value1 = ref(1)
-  const value2 = ref('')
+  // const abc = ref('')
+  // const value = ref(1)
+  // const value1 = ref(1)
+  // const value2 = ref('')
 </script>
 
 <template>

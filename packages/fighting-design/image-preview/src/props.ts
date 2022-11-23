@@ -43,7 +43,7 @@ export const Props = {
   /**
    * 图片预览展示的 z-index
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
   zIndex: {
     type: Number,

@@ -20,7 +20,7 @@ export const Props = {
   /**
    * 原生 name 属性
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
+   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
   name: {
     type: String,
@@ -29,7 +29,7 @@ export const Props = {
   /**
    * 占位符
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
+   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
    */
   placeholder: {
     type: String,
@@ -45,7 +45,7 @@ export const Props = {
   /**
    * 是否禁用
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
+   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
   disabled: {
     type: Boolean,

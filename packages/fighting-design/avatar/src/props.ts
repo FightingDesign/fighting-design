@@ -27,7 +27,7 @@ export const Props = {
   /**
    * 原生 alt 属性
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
+   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
    */
   alt: {
     type: String,
@@ -52,7 +52,7 @@ export const Props = {
    *
    * 原生样式属性
    *
-   * https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    */
   fit: {
     type: String as PropType<AvatarFitType>,

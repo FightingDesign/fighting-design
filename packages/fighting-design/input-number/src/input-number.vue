@@ -10,7 +10,7 @@
   import { FInput } from '../../input'
   import { FButton } from '../../button'
   import { isNumber, runCallback } from '../../_utils'
-  import type { ComputedRef } from 'vue'
+  import type { ComputedRef, WritableComputedRef } from 'vue'
   import type { InputNumberPropsType } from './interface'
 
   const prop: InputNumberPropsType = defineProps(Props)
@@ -18,52 +18,33 @@
     'update:modelValue': (val: number): boolean => isNumber(val)
   })
 
-  const inputValueData = computed({
-    get: () => prop.modelValue,
-    set: (val) => {
+  /**
+   * 当前绑定的值
+   */
+  const inputValue: WritableComputedRef<number> = computed({
+    /**
+     * 获取值的时候返回
+     */
+    get: (): number => {
+      const { modelValue, precision } = prop
+
+      // 如果传入的是非数字的参数，则默认返回 0
+      if (!isNumber(modelValue)) {
+        return 0
+      }
+
+      // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+      return Number(modelValue.toFixed(isNumber(precision) ? precision : 0))
+    },
+    /**
+     * 当设置新的值的时候，同步数据
+     *
+     * @param val 新值
+     */
+    set: (val: number) => {
       emit('update:modelValue', val)
     }
   })
-  // reactive({
-  //   value: prop.modelValue
-  // })
-
-  // watch(() => prop.modelValue, (val) => {
-  //   inputValueData.value = val
-  // })
-
-  /**
-   * 获取绑定的值，第一步拦截
-   *
-   * 检测数据类型
-   */
-  // const getInputValue = computed((): number => {
-  //   // const { modelValue, precision } = prop
-
-  //   // if (!isNumber(inputValueData.value)) {
-  //   //   return 0
-  //   // }
-
-  //   // return Number(
-  //   //   inputValueData.value.toFixed(
-  //   //     isNumber(prop.precision) ? prop.precision : 0
-  //   //   )
-  //   // )
-
-  //   return inputValueData.value
-  // })
-
-  /**
-   * 监视如果绑定的值发生变化则同步数据
-   */
-  // watch(
-  //   (): number => inputValueData.value,
-  //   (newVal: number): void => {
-  //     emit('update:modelValue', newVal)
-  //     runCallback(prop.onInput, newVal)
-  //   },
-  //   { deep: true }
-  // )
 
   /**
    * 最小值禁用
@@ -76,7 +57,7 @@
     }
 
     // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
-    return inputValueData.value - Math.abs(step) < min
+    return inputValue.value - Math.abs(step) < min
   })
 
   /**
@@ -89,7 +70,7 @@
       return false
     }
 
-    return inputValueData.value + Math.abs(step) > max
+    return inputValue.value + Math.abs(step) > max
   })
 
   /**
@@ -106,21 +87,19 @@
        * 减少
        */
       minus: (): void => {
-        inputValueData.value -= step
-        // emit('update:modelValue', inputValueData.value)
+        inputValue.value -= step
       },
       /**
        * 增加
        */
       plus: (): void => {
-        inputValueData.value += step
-        // emit('update:modelValue', inputValueData.value)
+        inputValue.value += step
       }
     }
 
     map[target]()
 
-    runCallback(prop.onChange, inputValueData.value)
+    runCallback(prop.onChange, inputValue.value)
   }
 </script>
 
@@ -137,7 +116,7 @@
 
     <div class="f-input-number__wrapper">
       <f-input
-        v-model="inputValueData"
+        v-model="inputValue"
         type="number"
         :max="max"
         :min="min"

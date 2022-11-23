@@ -13,6 +13,8 @@ import type {
 
 /**
  * 保留小数点后 no 位
+ *
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
  * @param num 带有小数的数字
  * @param no 保留位数
  * @returns { Number } 转换后的数字
@@ -26,7 +28,9 @@ export const keepDecimal: UtilsKeepDecimalInterface = (
 
 /**
  * 防抖
+ *
  * 来处理对于短时间内连续触发的事件加以限制
+ *
  * @param callback 回调函数
  * @param delay 延时的时间
  * @returns { Function }
@@ -47,7 +51,8 @@ export const debounce: UtilsDebounceInterface = (
 }
 
 /**
- * 检测一个数据是否为 Number 类型
+ * 检测一个数据是否为 number 类型
+ *
  * @param target 要检测的数据
  * @returns { boolean }
  */
@@ -62,6 +67,7 @@ export const isNumber: UtilsIsNumberInterface = (
 
 /**
  * 检测一个数据是否为 boolean 类型
+ *
  * @param target 要检测的数据
  * @returns { boolean }
  */
@@ -75,7 +81,8 @@ export const isBoolean: UtilsIsBooleanInterface = (
 }
 
 /**
- * 判断一个值是否为字符串
+ * 判断一个值是否为 string 类型
+ *
  * @param target 要检测的值
  * @returns { boolean }
  */
@@ -89,7 +96,8 @@ export const isString: UtilsIsStringInterface = (
 }
 
 /**
- * 判断一个值是否为对象
+ * 判断一个值是否为 object 类型
+ *
  * @param target 要检测的值
  * @returns { boolean }
  */
@@ -103,7 +111,8 @@ export const isObject: UtilsIsObjectInterface = (
 }
 
 /**
- * 判断一个值是否为数组
+ * 判断一个值是否为 array 类型
+ *
  * @param target 要检测的值
  * @returns { boolean }
  */
@@ -118,7 +127,8 @@ export const isArray: UtilsIsArrayInterface = (
 
 /**
  * 给数字小于 10 的数字前面加 0
- * @param num 日期
+ *
+ * @param num 需检测的参数
  * @returns { string }
  */
 export const addZero: UtilsAddZeroInterface = (num: number): string => {
@@ -151,6 +161,7 @@ export const sizeChange: UtilsSizeChangeInterface = (
  *
  * 例如: 12px => 12
  *
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat
  * @param size 尺寸
  * @returns { number } 数字尺寸
  */
