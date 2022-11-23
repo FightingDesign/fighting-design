@@ -36,10 +36,10 @@
 <template>
   <div class="vp-demo">
     <!-- 展示的内容 -->
-    <!-- <div v-if="$slots.source" class="vp-demo__source">
+    <div v-if="$slots.source" class="vp-demo__source">
       <slot name="source" />
-    </div> -->
-    <div class="vp-demo__source" v-html="text"></div>
+    </div>
+    <!-- <div class="vp-demo__source" v-html="text"></div> -->
 
     <!-- 折叠的内容 -->
     <div ref="content" class="vp-demo__box">
