@@ -11,3 +11,5 @@ dist-icon
 node_modules
 pnpm-lock.yaml
 /packages/add-component
+**/add-component/**
+stats.html
