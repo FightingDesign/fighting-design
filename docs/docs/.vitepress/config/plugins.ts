@@ -2,6 +2,7 @@
 // import TableContainer from './table'
 // import MarkdownIt from 'markdown-it'
 // import type { Token } from 'markdown-it'
+// import { highlight } from './highlight'
 
 // // https://markdown-it.docschina.org/#%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B
 // // https://juejin.cn/post/6844903688536850440
@@ -35,7 +36,17 @@
 
 //         // ${encodeURIComponent(markdown.render(description))}
 
-//         return `<vp-demo text="${md.utils.escapeHtml(content)}">`
+//         // source="${encodeURIComponent(
+//         // highlight(source, 'vue')
+//         // )}"
+
+//         // 原代码，可复制
+//         const source = md.utils.escapeHtml(content)
+
+//         // return `<vp-demo source="${encodeURIComponent(highlight(source))}">`
+//         // return `<vp-demo source="${encodeURIComponent(source)}">`
+//         return `<vp-demo source="${source}">`
+//         // return `<vp-demo source="${encodeURIComponent(md.utils.escapeHtml(content))}">`
 //       }
 //       return '</vp-demo>'
 //     }
@@ -73,7 +84,7 @@ export const mdPlugin = (md: MarkdownIt) => {
 
       if (tokens[idx].nesting === 1) {
         return `
-          <vp-demo>
+          <vp-demo :open="false">
 
           ${encodeURIComponent(markdown.render(description))}
           `
