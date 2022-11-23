@@ -51,6 +51,8 @@
 - `f-image` 组件 `load` `error` 回调改为 `on-load` `on-error`
 - `f-calendar` 组件 `change-switch` `change-date` 回调改为 `on-change-month` `on-change-date`
 - `f-card` 组件 `padding` 参数改为默认值为 20
+- `f-checkbox` 组件 `change` 参数改为 `on-change`
+- `f-checkbox-group` 组件 `change` 参数改为 `on-change`
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

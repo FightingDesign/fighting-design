@@ -41,7 +41,7 @@
         return
       }
       if (prop.disabled) return
-      runCallback(prop.change, val)
+      runCallback(prop.onChange, val)
       emit('update:modelValue', val)
     }
   })
