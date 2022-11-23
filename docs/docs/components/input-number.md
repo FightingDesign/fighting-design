@@ -78,6 +78,10 @@ import type {} from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/49176117?v=4" />
 </a>
 
+<a href="https://github.com/xluoyu" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
+</a>
+
 <script setup lang="ts">
   import { ref } from 'vue'
 
