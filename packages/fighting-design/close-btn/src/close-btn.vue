@@ -20,7 +20,7 @@
    */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    runCallback(prop.click, evt)
+    runCallback(prop.onClick, evt)
   }
 
   /**

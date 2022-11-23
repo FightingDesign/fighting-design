@@ -25,10 +25,10 @@
   <f-dialog
     v-model:visible="visible3"
     title="Title"
-    :open="open"
-    :open-end="openEnd"
-    :close="close"
-    :close-end="closeEnd"
+    :on-open="open"
+    :on-open-end="openEnd"
+    :on-close="close"
+    :on-close-end="closeEnd"
   >
     <h3>沁园春·雪</h3>
 

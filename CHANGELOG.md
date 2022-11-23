@@ -53,6 +53,10 @@
 - `f-card` 组件 `padding` 参数改为默认值为 20
 - `f-checkbox` 组件 `change` 参数改为 `on-change`
 - `f-checkbox-group` 组件 `change` 参数改为 `on-change`
+- `f-close-btn` 组件 `click` 参数改为 `on-click`
+- `f-dialog` 组件 `open` `open-end` `close` `close-end` 改为 `on-open` `on-open-end` `on-close` `on-close-end`
+- `f-drawer` 组件 `open` `open-end` `close` `close-end` 改为 `on-open` `on-open-end` `on-close` `on-close-end`
+- `f-popup` 组件 `open` `open-end` `close` `close-end` 改为 `on-open` `on-open-end` `on-close` `on-close-end`
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

@@ -47,10 +47,10 @@
     :mask-close="maskClose"
     :z-index="zIndex"
     :mask-blur="maskBlur"
-    :open="open"
-    :open-end="openEnd"
-    :close="close"
-    :close-end="closeEnd"
+    :on-open="onOpen"
+    :on-open-end="onOpenEnd"
+    :on-close="onClose"
+    :on-close-end="onCloseEnd"
   >
     <div
       role="dialog"
