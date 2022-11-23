@@ -4,6 +4,75 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.9.0-alpha.4 (2022-11-23)
+
+**New Features**
+
+- Add `f-date-picker` component
+- Add `f-time-picker` component
+- Add `f-input-number` component
+- Add `f-input` component `type` attribute `number` type
+- Add `f-input` component `after-icon` configuration item
+- Add `f-input` component `on-input` configuration item
+- Add `f-input` component `after` slot
+- Add `f-textarea` component `on-input` configuration item
+- Add `f-input` component to view password switching animation effect
+- Add `f-breadcrumb item` component `color` `icon-color` `separator` configuration item
+- Add `f-tag` component to close animation
+- Add `f-card` component padding to implement the number type parameter
+
+**Fix Bugs**
+
+- Fix the problem of `f-input` component `on-change` callback error
+- Fix the callback error of `f-textarea` component `on-change`
+- Fix the problem of using `f-list item` independently
+
+**Other Updates**
+
+- Optimize the password viewing method of the `f-input` component
+- Optimize `f-dropdown` component style details
+- Optimize `f-alert` component style details
+- Optimize `f-back top` component style details
+- Refactoring `f-calendar` component header style
+- Reconstruct the internal details of the `f-calendar` component
+- Reconstruct the internal details of the `f-tag` component
+- Revoke the `f-list` component `list-style` configuration item
+- Reconstruct `f-skeleton` component `size` configuration item
+- Revoke the `f-skeleton` component `circled` configuration item
+- Cancel the `f-close btn` component `no-over` configuration item
+- Change the `f-breadcrumb` component `separator-color` parameter to `icon-color`
+- Change the `f-breadcrumb` component `item color` parameter to `color`
+- Change the `f-skeleton` component `rounded` parameter to `round`
+- Update the default values of the `f-back-top` component `bottom` `right` `background` `color` parameters
+- Change the `f-toolbar-item` component `click` parameter to `on click`
+- Change the `f-toolbar-item` component `data-key` parameter to `index`
+- Change the `f-toolbar-item` component `icon-size` parameter to the default value of 16
+- Change the `f-toolbar` component `click` parameter to `on-click`
+- Change the `f-image-preview` component `close` callback to `on-close`
+- Change the `f-alert` component `close-end` callback to `on-close`
+- Change `f-button` component `click` callback to `on-click` callback`
+- Change `f-avatar` component `load` `error` callback to `on-load` `on-error`
+- Change `f-image` component `load` `error` callback to `on-load` `on-error`
+- `f-calendar` component `change-switch` `change-date` callback is changed to `on-change-month` `on-change-date`
+- Change the `f-card` component `padding` parameter to the default value of 20
+- Change the `f-checkbox` component `change` parameter to `on-change`
+- Change the `f-checkbox-group` component `change` parameter to `on-change`
+- Change the `f-close btn` component `click` parameter to `on click`
+- Change `f-dialog` component `open` `open-end` `close` `close-end` to `on-open` `on-open-end` `on-close` `on-close-end`
+- Change `f-drawer` component `open` `open-end` `close` `close-end` to `on-open` `on-open-end` `on-close` `on-close-end`
+- Change `f-popup` component `open` `open-end` `close-end` `close-end` to `on-open` `on-open-end` `on-close` `on-close-end`
+- Change the `f-dropdown-item` component `click` parameter to `on-click`
+- Change the `f-link` component `click` parameter to `on-click`
+- Change the `f-message` component `close-end` parameter to `on-close`
+- Change the `f-notification` component `close-end` parameter to `on-close`
+- Change the `f-page header` component `back` parameter to `on-back`
+- Change the `f-radio` component `change` parameter to `on-change`
+- Change the `f-radio-group` component `change` parameter to `on-change`
+- Change the `f-svg-icon` component `click` parameter to `on-click`
+- Change the `f-switch` component `change` parameter to `on-change`
+- Change the `f-tag` component `close-end` parameter to `on-close`
+- Change the `f-up-load` component `change` `load` parameter to `on-change` `on-load`
+
 ## 0.9.0-alpha.3 (2022-11-18)
 
 - Fix the `f-checkbox-group` type error
@@ -135,7 +204,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - The `f-loading` component cancels the `close` emit callback, and adds the `close-end` props option
 - The `f-svg-icon` component cancels the `click` exit callback, and adds the `click` props option
 - The `f-radio` component cancels the `change` exit callback, and adds the `change` props option
-- `f-radio group` component cancels `change` exit callback, and adds `change` props option
+- `f-radio-group` component cancels `change` exit callback, and adds `change` props option
 - The style of the `f-radio` component has changed in the border state
 - `f-close-btn` Add `no-cover` configuration item
 
@@ -280,7 +349,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Optimize the internal implementation of `f-link` components
 - Optimize the internal implementation of `f-text` components
 - The `f-text` component `size` `spacing` `line-height` `text-indent` `padding` `width` attribute supports the `number` type parameter
-- Change the attribute of `f-text` component `text-indent` to `indent``
+- Change the attribute of `f-text` component `text-indent` to `indent`
 - `f-text` Internal Export New Type `TextDecorationType`
 
 ## 0.7.0-alpha.2 (2022-09-29)
