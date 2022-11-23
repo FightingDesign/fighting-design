@@ -1,9 +1,4 @@
-import type {
-  ExtractPropTypes,
-  VNode,
-  Component,
-  PropType
-} from 'vue'
+import type { ExtractPropTypes, VNode, Component, PropType } from 'vue'
 
 export const Props = {
   /**

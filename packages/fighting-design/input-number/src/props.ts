@@ -4,9 +4,7 @@ import type {
   InputNumberModelType,
   InputNumberChangeInterface
 } from './interface'
-import type {
-  HandleFocusEventInterface
-} from '../../_interface'
+import type { HandleFocusEventInterface } from '../../_interface'
 
 export const Props = {
   /**
@@ -47,7 +45,7 @@ export const Props = {
   },
   /**
    * 尺寸
-   * 
+   *
    * @values large middle small mini
    * @defaultValue middle
    */

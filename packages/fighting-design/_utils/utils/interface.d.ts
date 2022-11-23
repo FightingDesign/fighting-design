@@ -24,7 +24,7 @@ export interface UtilsDebounceInterface {
  * 检测一个数据是否为 Number 类型方法类型接口
  *
  * 传入一个未知的类型，返回布尔值
- * 
+ *
  * @param target 未知参数
  */
 export interface UtilsIsNumberInterface {
@@ -35,7 +35,7 @@ export interface UtilsIsNumberInterface {
  * 检测一个数据是否为 Boolean 类型方法类型接口
  *
  * 传入一个未知的类型，返回布尔值
- * 
+ *
  * @param target 未知参数
  */
 export interface UtilsIsBooleanInterface {
@@ -46,7 +46,7 @@ export interface UtilsIsBooleanInterface {
  * 检测一个数据是否为 String 类型方法类型接口
  *
  * 传入一个未知的类型，返回布尔值
- * 
+ *
  * @param target 未知参数
  */
 export interface UtilsIsStringInterface {
@@ -57,7 +57,7 @@ export interface UtilsIsStringInterface {
  * 检测一个数据是否为 Object 类型方法类型接口
  *
  * 传入一个未知的类型，返回布尔值
- * 
+ *
  * @param target 未知参数
  */
 export interface UtilsIsObjectInterface {
@@ -68,7 +68,7 @@ export interface UtilsIsObjectInterface {
  * 检测一个数据是否为 Array 类型方法类型接口
  *
  * 传入一个未知的类型，返回布尔值
- * 
+ *
  * @param target 未知参数
  */
 export interface UtilsIsArrayInterface {
@@ -79,7 +79,7 @@ export interface UtilsIsArrayInterface {
  * 给数字小于 10 的数字前面加 0 方法类型接口
  *
  * 多数用于对时间的处理
- * 
+ *
  * @param num 修改的数字
  */
 export interface UtilsAddZeroInterface {
@@ -98,7 +98,7 @@ export interface UtilsAddZeroInterface {
  * 返回已经追加单位的字符串数值
  *
  * 有些情况下也有可能传入的是 undefined，所以也要加入该类型
- * 
+ *
  * @param size 尺寸
  * @param target 单位，默认 px
  */
@@ -108,7 +108,7 @@ export interface UtilsSizeChangeInterface {
 
 /**
  * 将字符串尺寸转换为数字尺寸类型接口
- * 
+ *
  * @param size 尺寸
  */
 export interface UtilsSizeToNumInterface {

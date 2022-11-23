@@ -5,7 +5,7 @@ import type { HandleMouseEventInterface } from '../../_interface'
 export const Props = {
   /**
    * 标签类型
-   * 
+   *
    * @values default primary success danger warning
    * @defaultValue default
    */
@@ -62,7 +62,7 @@ export const Props = {
   },
   /**
    * 尺寸
-   * 
+   *
    * @values large middle small mini
    * @defaultValue middle
    */

@@ -51,7 +51,7 @@ export const Props = {
    * 如何适应容器
    *
    * 原生样式属性
-   * 
+   *
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    * @values fill contain cover none scale-down
    */

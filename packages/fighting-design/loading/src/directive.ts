@@ -98,7 +98,7 @@ export const vLoading: Directive = {
     el.originalPosition = originalPosition
     if (binding.value) {
       // 这个好像没执行 x
-      // 绑定值为true是执行 
+      // 绑定值为true是执行
       renderLoadingDom(el, binding)
     }
   },

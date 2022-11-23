@@ -4,7 +4,7 @@ import type { DividerPositionType, DividerType } from './interface'
 export const Props = {
   /**
    * 文字显示位置
-   * 
+   *
    * @values left center right
    * @defaultValue center
    */
@@ -52,7 +52,7 @@ export const Props = {
   },
   /**
    * 分隔符类型
-   * 
+   *
    * @values dashed dotted double solid
    * @defaultValue solid
    */

@@ -23,7 +23,7 @@ export const Props = {
   },
   /**
    * 消息类型
-   * 
+   *
    * @values default primary success danger warning
    * @defaultValue default
    */
@@ -94,7 +94,7 @@ export const Props = {
   },
   /**
    * 弹出位置
-   * 
+   *
    * @values top-left top-right bottom-left bottom-right
    * @defaultValue top-right
    */

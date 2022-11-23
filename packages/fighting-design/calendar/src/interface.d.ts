@@ -8,7 +8,7 @@ export type CalendarTargetType = 'last' | 'now' | 'next'
  * 当前日期高亮显示
  *
  * 如果是当然日期，返回特殊类名高亮显示
- * 
+ *
  * @param _month 当前月份
  * @param _date 当前日期
  */
@@ -39,7 +39,7 @@ export interface CalendarHandleClickInterface {
  * 日历组件对于日期切换，和月份切换的回调函数接口
  *
  * 可在参数中解构出年、月、日
- * 
+ *
  * @param year 年份
  * @param month 月份
  * @param date 日期
@@ -50,7 +50,7 @@ export interface CalendarCallbackInterface {
 
 /**
  * 备忘录对象类型接口
- * 
+ *
  * @param type 标签类型
  * @param content 标签内容
  */

@@ -32,7 +32,7 @@ export const Props = {
   },
   /**
    * 类型
-   * 
+   *
    * @values primary success danger warning
    * @defaultValue danger
    */

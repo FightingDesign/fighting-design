@@ -51,7 +51,7 @@ export interface UseUpdateInputReturnInterface {
 
 /**
  * 回调函数类型
- * 
+ *
  * @param event 回调事件名
  * @param val 回调参数
  */

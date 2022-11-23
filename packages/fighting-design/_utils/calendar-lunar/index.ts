@@ -15,7 +15,6 @@ import {
 import type { GetLunarDetailReturnInterface, LunarInterface } from './interface'
 
 export class Lunar implements LunarInterface {
-
   /**
    * 返回农历 year 年一整年的总天数
    *

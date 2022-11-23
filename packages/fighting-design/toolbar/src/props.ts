@@ -11,7 +11,7 @@ export const Props = {
   },
   /**
    * 尺寸
-   * 
+   *
    * @values large middle small mini
    * @defaultValue middle
    */

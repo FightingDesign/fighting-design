@@ -25,7 +25,7 @@ export const Props = {
   },
   /**
    * 阴影样式
-   * 
+   *
    * @values never hover always
    * @defaultValue never
    */

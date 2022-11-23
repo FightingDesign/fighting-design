@@ -6,7 +6,7 @@ export type { ImagePreviewPropsType } from './props'
  * 左右切换按钮切换图片
  *
  * 根据传入的参数，执行映射对象中指定键值的方法
- * 
+ *
  * @param type 指定切换方式
  */
 export interface ImagePreviewSwitchImageInterface {
@@ -24,7 +24,7 @@ export interface ImagePreviewOptionClickInterface {
 
 /**
  * 左右切换按钮切换的映射方法对象类型接口
- * 
+ *
  * @param next 下一张切换
  * @param prev 上一张切换
  */

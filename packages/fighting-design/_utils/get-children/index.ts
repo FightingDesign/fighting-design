@@ -4,7 +4,7 @@ import type { GetChildrenInterface } from './interface'
 
 /**
  * 寻找所需的子元素列表
- * 
+ *
  * @param children 孩子节点
  * @param componentName 子元素的名字
  * @returns { VNode[] } 所需要的所有孩子节点列表
@@ -33,11 +33,7 @@ export const getChildren: GetChildrenInterface = (
        * 如果是则继续递归遍历
        *
        */
-      if (
-        name !== componentName &&
-        child.children &&
-        isArray(child.children)
-      ) {
+      if (name !== componentName && child.children && isArray(child.children)) {
         const childChildren: VNode[] = getChildren(
           child.children,
           componentName

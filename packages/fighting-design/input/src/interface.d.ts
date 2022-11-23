@@ -6,7 +6,7 @@ export type InputSizeType = 'large' | 'middle' | 'small' | 'mini'
 
 /**
  * 当 input 改变时触发的回调函数类型接口
- * 
+ *
  * @param var 当前的值
  */
 export interface InputChangeInterface {
