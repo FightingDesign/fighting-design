@@ -11,9 +11,11 @@ export default {
     return h(Theme.Layout, null, {
       /**
        * 导航栏插入搜索的输入框插槽
+       *
        * 更多插槽参考
        *
        * https://github.com/vuejs/vitepress/blob/main/docs/guide/theme-introduction.md
+       * https://vitepress.vuejs.org/guide/theme-introduction#using-a-custom-theme
        */
       'nav-bar-content-before': () => h(vpSearch)
     })

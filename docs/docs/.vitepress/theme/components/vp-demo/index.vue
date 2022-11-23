@@ -3,6 +3,13 @@
   import type { Ref } from 'vue'
   import type { OrdinaryFunctionInterface } from '../_interface'
 
+  const prop = defineProps({
+    text: String,
+    open: Boolean
+  })
+
+  console.log(prop.text)
+
   // 是否展示内容
   const isOpen: Ref<boolean> = ref<boolean>(false)
   const content: Ref<HTMLDivElement> = ref(null as unknown as HTMLDivElement)
@@ -29,9 +36,10 @@
 <template>
   <div class="vp-demo">
     <!-- 展示的内容 -->
-    <div v-if="$slots.source" class="vp-demo__source">
+    <!-- <div v-if="$slots.source" class="vp-demo__source">
       <slot name="source" />
-    </div>
+    </div> -->
+    <div class="vp-demo__source" v-html="text"></div>
 
     <!-- 折叠的内容 -->
     <div ref="content" class="vp-demo__box">
