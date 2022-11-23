@@ -21,7 +21,7 @@
 
 ```html
 <template>
-  <f-button :click="startLoading">切换加载状态</f-button>
+  <f-button :on-click="startLoading">切换加载状态</f-button>
   <f-table v-loading="loading" :data="data" :columns="columns" />
 </template>
 
