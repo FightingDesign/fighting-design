@@ -12,7 +12,7 @@
 ::: demo
 
 <template #source>
-<f-page-header title="标题" :back="goBack" />
+<f-page-header title="标题" :on-back="goBack" />
 </template>
 
 ```html

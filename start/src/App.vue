@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { FMessage } from '@/index'
   import { ref } from 'vue'
 
   const num = ref(123)
@@ -12,9 +13,14 @@
   // const value = ref(1)
   const value1 = ref('')
   // const value2 = ref('')
+
+  const onBack = () => {
+    FMessage.primary('Go Back')
+  }
 </script>
 
 <template>
+  <f-page-header title="标题" :on-back="onBack" />
   <h1>{{ num }}</h1>
 
   <f-date-picker v-model:date="value1" />
