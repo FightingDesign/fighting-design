@@ -19,6 +19,9 @@ export const Props = {
   },
   /**
    * 动画类型
+   * 
+   * @values sound swap default
+   * @defaultValue default
    */
   type: {
     type: String as PropType<SwapType>,

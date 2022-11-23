@@ -225,8 +225,7 @@
 import type {
   RippleInstance,
   RipplePropsType,
-  RippleType,
-  RippleOpacityType
+  RippleType
 } from 'fighting-design'
 ```
 

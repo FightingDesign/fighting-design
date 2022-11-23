@@ -21,7 +21,7 @@
   const handleClick: OrdinaryFunctionInterface = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', !prop.modelValue)
-    runCallback(prop.change, !prop.modelValue)
+    runCallback(prop.onChange, !prop.modelValue)
   }
 
   /**

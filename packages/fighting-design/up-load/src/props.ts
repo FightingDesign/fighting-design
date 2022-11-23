@@ -74,14 +74,14 @@ export const Props = {
   /**
    * 上传成功后执行的回调
    */
-  load: {
+  onLoad: {
     type: Function,
     default: (): null => null
   },
   /**
    * 绑定的文件列表发生改变时触发的回调
    */
-  change: {
+  onChange: {
     type: Function,
     default: (): null => null
   }

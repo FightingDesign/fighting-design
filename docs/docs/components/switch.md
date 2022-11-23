@@ -200,7 +200,7 @@
 | `open-text`            | 自定义右侧的文字描述       | string                     | ——                                     | ——     |
 | `close-text`           | 自定义左侧的文字描述       | string                     | ——                                     | ——     |
 | `square`               | 是否为方形开关             | boolean                    | ——                                     | false  |
-| `change`               | 绑定值发生改变时触发的回调 | Function                   | ——                                     | ——     |
+| `on-change`            | 绑定值发生改变时触发的回调 | Function                   | ——                                     | ——     |
 | `icon-size`            | 自定义 icon 大小           | string / number            | ——                                     | ——     |
 
 ## Interface

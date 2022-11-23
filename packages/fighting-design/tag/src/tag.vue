@@ -42,7 +42,7 @@
    */
   const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     isShow.value = false
-    runCallback(prop.closeEnd, evt)
+    runCallback(prop.onClose, evt)
   }
 </script>
 
@@ -59,12 +59,7 @@
         <component :is="afterIcon" />
       </f-svg-icon>
 
-      <f-close-btn
-        v-if="close"
-        no-hover
-        :size="14"
-        @click.stop="handleClose"
-      />
+      <f-close-btn v-if="close" no-hover :size="14" @click.stop="handleClose" />
     </div>
   </transition>
 </template>

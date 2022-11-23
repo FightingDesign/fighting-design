@@ -75,7 +75,7 @@ export const Props = {
   /**
    * 绑定值发生改变时触发的回调
    */
-  change: {
+  onChange: {
     type: Function as PropType<SwitchChangeInterface>,
     default: (): null => null
   },

@@ -64,6 +64,10 @@
 - `f-page-header` 组件 `back` 参数改为 `on-back`
 - `f-radio` 组件 `change` 参数改为 `on-change`
 - `f-radio-group` 组件 `change` 参数改为 `on-change`
+- `f-svg-icon` 组件 `click` 参数改为 `on-click`
+- `f-switch` 组件 `change` 参数改为 `on-change`
+- `f-tag` 组件 `close-end` 参数改为 `on-close`
+- `f-up-load` 组件 `change` `load` 参数改为 `on-change` `on-load`
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

@@ -97,7 +97,7 @@ export const Props = {
   /**
    * 点击关闭按钮触发
    */
-  closeEnd: {
+  onClose: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

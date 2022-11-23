@@ -45,8 +45,7 @@
   const updateFiles: UpLoadUpdateFilesInterface = (files: File[]): void => {
     fileList.value = files
     emit('update:files', files)
-    prop.load && prop.load()
-    runCallback(prop.load)
+    runCallback(prop.onLoad)
   }
 
   /**
@@ -119,17 +118,17 @@
   /**
    * 如果文件发生改变时触发
    */
-  const onChange: OrdinaryFunctionInterface = (): void => {
-    if (!prop.change) return
+  const loadChange: OrdinaryFunctionInterface = (): void => {
+    if (!prop.onChange) return
     watch(
       (): File[] => prop.files,
       (): void => {
-        prop.change && prop.change()
+        prop.onChange()
       },
       { deep: true }
     )
   }
-  onChange()
+  loadChange()
 </script>
 
 <template>
