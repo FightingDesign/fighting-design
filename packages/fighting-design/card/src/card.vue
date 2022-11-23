@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FCard">
   import { Props } from './props'
   import { computed } from 'vue'
+  import { sizeChange } from '../../_utils'
   import type { ComputedRef } from 'vue'
   import type { ClassListInterface } from '../../_interface'
   import type { CardPropsType } from './props'
@@ -31,7 +32,7 @@
       <slot name="header">{{ title }}</slot>
     </div>
 
-    <div class="f-card__body" :style="{ padding }">
+    <div class="f-card__body" :style="{ padding: sizeChange(padding) }">
       <slot />
     </div>
   </div>

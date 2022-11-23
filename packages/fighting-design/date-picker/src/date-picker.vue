@@ -59,7 +59,7 @@
             v-model:date="date"
             :day-cell-height="40"
             :week-cell-height="40"
-            :change-date="changeDate"
+            :on-change-date="changeDate"
           />
         </div>
       </template>

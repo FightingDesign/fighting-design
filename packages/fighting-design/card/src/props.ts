@@ -20,11 +20,14 @@ export const Props = {
    * 卡片内边距
    */
   padding: {
-    type: String,
-    default: (): string => '20px'
+    type: [String, Number] as PropType<string | number>,
+    default: (): number => 20
   },
   /**
    * 阴影样式
+   * 
+   * @values never hover always
+   * @defaultValue never
    */
   shadow: {
     type: String as PropType<CardShadowType>,

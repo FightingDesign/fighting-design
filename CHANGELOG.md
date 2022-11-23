@@ -15,6 +15,7 @@
 - 新增 `f-input` 组件加入查看密码切换动画效果
 - 新增 `f-breadcrumb-item` 组件 `color` `icon-color` `separator` 配置项
 - 新增 `f-tag` 组件关闭动画
+- 新增 `f-card` 组件 padding 实现 number 类型参数
 
 **修复 Bug**
 
@@ -49,6 +50,7 @@
 - `f-avatar` 组件 `load` `error` 回调改为 `on-load` `on-error`
 - `f-image` 组件 `load` `error` 回调改为 `on-load` `on-error`
 - `f-calendar` 组件 `change-switch` `change-date` 回调改为 `on-change-month` `on-change-date`
+- `f-card` 组件 `padding` 参数改为默认值为 20
 
 ## 0.9.0-alpha.3 (2022-11-18)
 
