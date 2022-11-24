@@ -24,6 +24,9 @@ export interface UseLoadImageReturnInterface {
 
 /**
  * 加载图片 hook 类型接口
+ * 
+ * @param prop 指定组件的 prop 参数
+ * @return { UseLoadImageReturnInterface }
  */
 export interface UseLoadImageInterface {
   <T extends { lazy: boolean }>(prop: T): UseLoadImageReturnInterface

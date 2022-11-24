@@ -161,9 +161,9 @@
       />
       <div class="f-calendar__option">
         <span class="f-calendar__now-time">{{ nowTime }}</span>
-        <span class="f-calendar__now-date" @click.stop="optionClick('now')"
-          >今天</span
-        >
+        <span class="f-calendar__now-date" @click.stop="optionClick('now')">
+          今天
+        </span>
       </div>
       <f-svg-icon
         :icon="FIconChevronRightVue"

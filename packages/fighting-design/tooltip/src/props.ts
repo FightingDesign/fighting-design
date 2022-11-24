@@ -11,6 +11,9 @@ export const Props = {
   },
   /**
    * 弹出方向
+   * 
+   * @values top bottom right left
+   * @defaultValue bottom
    */
   position: {
     type: String as PropType<TooltipPositionType>,
@@ -28,9 +31,12 @@ export const Props = {
   },
   /**
    * 展示状态
+   * 
+   * @values hover active always
+   * @defaultValue hover
    */
   state: {
-    type: String,
+    type: String as PropType<TooltipStateType>,
     default: (): TooltipStateType => 'hover',
     validator: (val: TooltipStateType): boolean => {
       return (['hover', 'active', 'always'] as const).includes(val)

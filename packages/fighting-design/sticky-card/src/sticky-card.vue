@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FStickyCard">
   import { Props } from './props'
   import { ref, computed, unref } from 'vue'
-  import { sizeChange } from '../../_utils'
+  import { sizeChange, runCallback } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type { OrdinaryFunctionInterface } from '../../_interface'
   import type { StickyCardPropsType } from './props'
@@ -24,11 +24,11 @@
       content.value.style.transition = '0.33s'
       content.value.style.height = height + 'px'
       isOpen.value = true
-      prop.openEnd && prop.openEnd(isOpen.value)
+      runCallback(prop.onOpen, isOpen.value)
     } else {
       content.value.style.height = '0'
       isOpen.value = false
-      prop.closeEnd && prop.closeEnd(isOpen.value)
+      runCallback(prop.onClose, isOpen.value)
     }
   }
 

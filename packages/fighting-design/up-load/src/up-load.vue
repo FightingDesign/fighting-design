@@ -89,7 +89,7 @@
    * @param index 需要删除的文件索引
    */
   const removeFile: UpLoadRemoveFileInterface = (index: number): void => {
-    ;(fileList.value as File[]).splice(index, 1)
+    (fileList.value as File[]).splice(index, 1)
   }
 
   /**

@@ -37,7 +37,7 @@ export const Props = {
    */
   state: {
     type: String as PropType<LinkHoverType>,
-    default: (): LinkHoverType => '',
+    default: (): null => null,
     validator: (val: LinkHoverType): boolean => {
       return (['line', 'bag', ''] as const).includes(val)
     }
@@ -56,7 +56,7 @@ export const Props = {
    */
   target: {
     type: String as PropType<LinkTargetType>,
-    default: (): LinkTargetType => '',
+    default: (): null => null,
     validator: (val: LinkTargetType): boolean => {
       return (['_self', '_blank', '_parent', '_top', ''] as const).includes(val)
     }

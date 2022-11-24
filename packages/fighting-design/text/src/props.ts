@@ -47,6 +47,8 @@ export const Props = {
   },
   /**
    * 文字间距
+   * 
+   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/letter-spacing
    */
   spacing: {
     type: [String, Number] as PropType<string | number>,
@@ -61,6 +63,8 @@ export const Props = {
   },
   /**
    * 首字符缩进量
+   * 
+   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-indent
    */
   indent: {
     type: [String, Number] as PropType<string | number>,
@@ -75,10 +79,16 @@ export const Props = {
   },
   /**
    * 文字的修饰
+   * 
+   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration
+   * @values overline line-through underline
    */
   decoration: {
     type: String as PropType<TextDecorationType>,
-    default: (): null => null
+    default: (): null => null,
+    validator: (val: TextDecorationType): boolean => {
+      return (['overline', 'line-through', 'underline'] as const).includes(val)
+    }
   },
   /**
    * 内边距

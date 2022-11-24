@@ -57,7 +57,7 @@ export const Props = {
    */
   fit: {
     type: String as PropType<AvatarFitType>,
-    default: (): AvatarFitType => '',
+    default: (): null => null,
     validator: (val: AvatarFitType): boolean => {
       return (
         ['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const

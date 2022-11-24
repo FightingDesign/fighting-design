@@ -63,7 +63,10 @@ export const Props = {
     validator: (val: number): boolean => val >= 0 && val <= 1
   },
   /**
-   * 弹出方向
+   * 弹出位置
+   * 
+   * @values left right top bottom center
+   * @defaultValue center
    */
   direction: {
     type: String as PropType<PopupDirectionType>,

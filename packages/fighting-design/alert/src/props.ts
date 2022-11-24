@@ -107,7 +107,7 @@ export const Props = {
    */
   overflow: {
     type: String as PropType<AlertOverflowType>,
-    default: (): AlertOverflowType => '',
+    default: (): null => null,
     validator: (val: AlertOverflowType) => {
       return (['hidden', ''] as const).includes(val)
     }

@@ -16,6 +16,8 @@
 
   /**
    * 滚动状态监视
+   *
+   * @param node 元素节点
    */
   const handleScroll: BackTopHandleScrollInterface = (
     node: HTMLElement | null

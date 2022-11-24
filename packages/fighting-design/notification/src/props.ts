@@ -2,6 +2,9 @@ import type { VNode, PropType, ExtractPropTypes } from 'vue'
 import type { NotificationType, NotificationPlacementType } from './interface'
 
 export const Props = {
+  /**
+   * id 唯一值
+   */
   id: {
     type: String,
     default: (): null => null

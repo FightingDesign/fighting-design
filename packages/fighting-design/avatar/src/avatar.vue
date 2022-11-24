@@ -61,7 +61,7 @@
     const { background, size, fontColor, fontSize } = prop
 
     return {
-      '--f-avatar-size': isNumber(size) ? size + 'px' : '',
+      '--f-avatar-size': isNumber(size) ? size + 'px' : null,
       '--f-avatar-background-color': background,
       '--f-avatar-font-color': fontColor,
       '--f-avatar-font-size': sizeChange(fontSize)

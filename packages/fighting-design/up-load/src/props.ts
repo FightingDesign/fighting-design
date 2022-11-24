@@ -6,7 +6,7 @@ export const Props = {
    */
   files: {
     type: Array as PropType<File[]>,
-    default: (): [] => []
+    default: (): File[] => []
   },
   /**
    * 接受的文件类型

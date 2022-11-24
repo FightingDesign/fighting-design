@@ -47,14 +47,14 @@ export const Props = {
   /**
    * 打开时的回调
    */
-  openEnd: {
+  onOpen: {
     type: Function as PropType<StickyCardEmitInterface>,
     default: (): null => null
   },
   /**
    * 关闭时的回调
    */
-  closeEnd: {
+  onClose: {
     type: Function as PropType<StickyCardEmitInterface>,
     default: (): null => null
   }

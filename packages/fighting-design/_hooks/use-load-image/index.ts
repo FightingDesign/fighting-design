@@ -39,18 +39,26 @@ export const useLoadImage: UseLoadImageInterface = <T extends { lazy: boolean }>
    * @param el img dom 元素
    */
   const loadAction: LoadActionInterface = (el: Ref<HTMLImageElement>): void => {
-    const node: HTMLImageElement = el.value as HTMLImageElement
+
+    /**
+     * 图片加载需要的回调函数
+     *
+     * @param params 回调返回值
+     */
     const callback: LoadCallbackInterface = (params: boolean): void => {
       isSuccess.value = params
       isShowNode.value = params
     }
 
+    /**
+     * 过滤需要的 Prop
+     */
     const needProps: LoadImagePropsInterface = useFilterProps<
       T,
       LoadImagePropsInterface
     >(prop, ['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError'])
 
-    loadImage(node, needProps, callback)
+    loadImage(el.value, needProps, callback)
   }
 
   return {

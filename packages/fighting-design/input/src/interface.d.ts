@@ -1,7 +1,13 @@
 export type { InputPropsType } from './props'
 
+/**
+ * 不同类型
+ */
 export type InputType = 'text' | 'password' | 'number'
 
+/**
+ * 不同尺寸类型
+ */
 export type InputSizeType = 'large' | 'middle' | 'small' | 'mini'
 
 /**

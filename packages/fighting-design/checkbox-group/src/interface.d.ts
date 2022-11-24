@@ -13,6 +13,9 @@ export type CheckboxGroupLabelType =
   | number[]
   | boolean[]
 
+/**
+ * 不同尺寸类型
+ */
 export type CheckboxGroupSizeType = 'large' | 'middle' | 'small' | 'mini'
 
 /**

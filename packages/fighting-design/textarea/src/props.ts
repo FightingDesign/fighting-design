@@ -106,6 +106,8 @@ export const Props = {
    * 拉伸方式
    *
    * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/resize
+   * @values none both horizontal vertical
+   * @defaultValue none
    */
   resize: {
     type: String as PropType<TextareaResizeType>,
