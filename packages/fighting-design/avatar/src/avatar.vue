@@ -1,40 +1,21 @@
 <script lang="ts" setup name="FAvatar">
   import { Props } from './props'
   import { computed, ref, onMounted, useSlots } from 'vue'
-  import { loadImage, isNumber, isString, sizeChange } from '../../_utils'
+  import { isNumber, isString, sizeChange } from '../../_utils'
   import { FSvgIcon } from '../../svg-icon'
-  import { useFilterProps } from '../../_hooks'
+  import { useLoadImage } from '../../_hooks'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { AvatarPropsType } from './props'
-  import type {
-    OrdinaryFunctionInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type {
-    LoadImagePropsInterface,
-    LoadCallbackInterface
-  } from '../../_utils/load-image/interface'
+  import type { ClassListInterface } from '../../_interface'
 
   const prop: AvatarPropsType = defineProps(Props)
   const slot = useSlots()
 
-  /**
-   * 判断是否加载成功
-   * 如果失败则会展示失败的状态
-   */
-  const isSuccess: Ref<boolean> = ref<boolean>(true)
-  /**
-   * 是否展示 dom 元素
-   * 在加载还未完成之前，因为 src 是空，所以会展示一个 撕裂的图片
-   * 所以在加载期间先隐藏，加载完成之后再显示
-   *
-   * 这里涉及到懒加载，那么如果在懒加载状态下将图片隐藏掉，是不会触发懒加载的
-   * 所以这里通过懒加载来判断，如果懒加载为 true 则不隐藏
-   * 为 false 的时候代表不是懒加载，所以可以先隐藏
-   */
-  const isShowNode: Ref<boolean> = ref<boolean>(prop.lazy)
+  const { isSuccess, isShowNode, loadAction } =
+    useLoadImage<AvatarPropsType>(prop)
+
   // 图片 dom 节点
-  const FAvatarImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
+  const avatarEl: Ref<HTMLImageElement> = ref<HTMLImageElement>(
     null as unknown as HTMLImageElement
   )
 
@@ -87,25 +68,9 @@
     } as CSSProperties
   })
 
-  /**
-   * 开始加载图片
-   */
-  const loadAction: OrdinaryFunctionInterface = (): void => {
-    const node: HTMLImageElement = FAvatarImg.value as HTMLImageElement
-    const callback: LoadCallbackInterface = (params: boolean): void => {
-      isSuccess.value = params
-      isShowNode.value = params
-    }
-    const needProps: LoadImagePropsInterface = useFilterProps<
-      AvatarPropsType,
-      LoadImagePropsInterface
-    >(prop, ['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError'])
-    loadImage(node, needProps, callback)
-  }
-
   onMounted((): void => {
     if (!slot.icon && !prop.icon && !prop.text) {
-      loadAction()
+      loadAction(avatarEl)
     }
   })
 </script>
@@ -128,7 +93,7 @@
     <img
       v-else
       v-show="isShowNode"
-      ref="FAvatarImg"
+      ref="avatarEl"
       src=""
       :class="nodeClassList"
       :alt="alt"

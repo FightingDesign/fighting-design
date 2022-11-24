@@ -1,48 +1,23 @@
 <script lang="ts" setup name="FImage">
   import { Props } from './props'
   import { onMounted, ref, computed } from 'vue'
-  import { loadImage, sizeChange } from '../../_utils'
-  import { useFilterProps } from '../../_hooks'
+  import { sizeChange } from '../../_utils'
+  import { useLoadImage } from '../../_hooks'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { ImagePropsType } from './props'
-  import type {
-    OrdinaryFunctionInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type {
-    LoadImagePropsInterface,
-    LoadCallbackInterface
-  } from '../../_utils/load-image/interface'
+  import type { ClassListInterface } from '../../_interface'
 
   const prop: ImagePropsType = defineProps(Props)
 
-  // 是否加载成功
-  const isSuccess: Ref<boolean> = ref<boolean>(true)
-  const FImageImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
+  const { isSuccess, isShowNode, loadAction } =
+    useLoadImage<ImagePropsType>(prop)
+
+  const imageEl: Ref<HTMLImageElement> = ref<HTMLImageElement>(
     null as unknown as HTMLImageElement
   )
-  const isShowNode: Ref<boolean> = ref<boolean>(prop.lazy)
-
-  /**
-   * 开始加载图片
-   */
-  const loadAction: OrdinaryFunctionInterface = (): void => {
-    const node: HTMLImageElement = FImageImg.value as HTMLImageElement
-    const callback: LoadCallbackInterface = (params: boolean): void => {
-      isSuccess.value = params
-      isShowNode.value = params
-    }
-
-    const needProps: LoadImagePropsInterface = useFilterProps<
-      ImagePropsType,
-      LoadImagePropsInterface
-    >(prop, ['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError'])
-
-    loadImage(node, needProps, callback)
-  }
 
   onMounted((): void => {
-    loadAction()
+    loadAction(imageEl)
   })
 
   /**
@@ -86,7 +61,7 @@
     <!-- 真正展示的图片 -->
     <img
       v-show="isShowNode"
-      ref="FImageImg"
+      ref="imageEl"
       src=""
       :class="classList"
       :style="styleList"

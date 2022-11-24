@@ -20,6 +20,9 @@
 </script>
 
 <template>
+  <f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
+  <f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
+
   <f-page-header title="标题" :on-back="onBack" />
   <h1>{{ num }}</h1>
 
