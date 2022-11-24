@@ -79,18 +79,16 @@ export const mdPlugin = (md: MarkdownIt) => {
     },
 
     render(tokens: Token[], idx: number) {
-      const m: RegExpMatchArray = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
-      const description: string = m && m.length > 1 ? m[1] : ''
-
       if (tokens[idx].nesting === 1) {
-        return `
-          <vp-demo :open="false">
 
-          ${encodeURIComponent(markdown.render(description))}
-          `
-      } else {
-        return '</vp-demo>'
+        const m: RegExpMatchArray = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
+        const description: string = m && m.length > 1 ? m[1] : ''
+        const content: string = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : ''
+        const source: string = md.utils.escapeHtml(content)
+
+        return `<vp-demo source="${source}">${encodeURIComponent(markdown.render(description))}`
       }
+      return '</vp-demo>'
     }
   })
 }

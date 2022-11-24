@@ -112,9 +112,9 @@
   }
 
   // 解决在 810px ~ 710px 区间样式显示不正确的问题
-  @media screen and (max-width: 840px) and (min-width: 710px) {
+  @media screen and (max-width: 840px) and (min-width: 760px) {
     .vp-search {
-      width: 170px;
+      width: 140px;
       transition: width 0.4s;
     }
   }
