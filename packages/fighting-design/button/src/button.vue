@@ -14,11 +14,15 @@
 
   const prop: ButtonPropsType = defineProps(Props)
 
-  // dom 元素
+  /**
+   * dom 元素
+   */
   const FButton: Ref<HTMLButtonElement> = ref<HTMLButtonElement>(
     null as unknown as HTMLButtonElement
   )
-  // 父组件注入的依赖项
+  /**
+   * 获取父组件注入的依赖项
+   */
   const INJECT_DEPEND: ButtonSizeType | undefined = inject<
     ButtonSizeType | undefined
   >(BUTTON_GROUP_PROPS_KEY, undefined)

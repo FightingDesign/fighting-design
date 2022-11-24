@@ -26,7 +26,9 @@
     runCallback(prop.onChange, val)
   }
 
-  // 需要注入的依赖项
+  /**
+   * 获取需要注入的依赖项
+   */
   const checkboxGroupProps: CheckboxGroupInjectPropsType = reactive({
     ...toRefs(prop),
     changeEvent

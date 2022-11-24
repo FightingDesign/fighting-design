@@ -8,7 +8,9 @@
 
   const prop: DropdownPropsType = defineProps(Props)
 
-  // 是否展示主内容
+  /**
+   * 是否展示主内容
+   */
   const showContent: Ref<boolean> = ref<boolean>(false)
 
   /**

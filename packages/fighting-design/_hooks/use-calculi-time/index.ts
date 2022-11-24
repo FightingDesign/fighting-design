@@ -19,12 +19,17 @@ export const useCalculiTime: UseCalculiTimeInterface = (
   year: Ref<number>,
   month: Ref<number>
 ): UseCalculiTimeReturnInterface => {
-  // 获取当前月份的 1号是周几
+
+  /**
+   * 获取当前月份的 1号是周几
+   */
   const firstDayWeek: Ref<number> = ref(
     new Date(`${year.value}/${month.value + 1}/1`).getDay()
   )
 
-  // 初始化农历类
+  /**
+   * 初始化农历类
+   */
   const lunar: Lunar = new Lunar()
 
   /**
@@ -51,6 +56,8 @@ export const useCalculiTime: UseCalculiTimeInterface = (
       for (let i = 0; i < firstDayWeek.value; i++) {
         const dayList: GetLunarDetailReturnInterface | -1 =
           lunar.getLunarDetail(year.value, month.value, lastDays)
+
+        console.log(dayList)
 
         if (dayList !== -1) {
           showLastListResult.push(dayList)
@@ -118,6 +125,8 @@ export const useCalculiTime: UseCalculiTimeInterface = (
         const dayList: GetLunarDetailReturnInterface | -1 =
           lunar.getLunarDetail(year.value, month.value + 1, i + 1)
 
+        console.log(dayList)
+
         if (dayList !== -1) {
           showNextListResult.push(dayList)
         } else {
@@ -133,7 +142,6 @@ export const useCalculiTime: UseCalculiTimeInterface = (
 
   /**
    * 点击上个月切换按钮
-   * @returns { void }
    */
   const changeLastMonth: OrdinaryFunctionInterface = (): void => {
     if (month.value > 0) {
@@ -146,7 +154,6 @@ export const useCalculiTime: UseCalculiTimeInterface = (
 
   /**
    * 点击下个月切换按钮
-   * @returns { void }
    */
   const changeNextMonth: OrdinaryFunctionInterface = (): void => {
     if (month.value < 11) {

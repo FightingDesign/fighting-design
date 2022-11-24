@@ -14,7 +14,9 @@
       isString(val) || isNumber(val) || isBoolean(val)
   })
 
-  // 父组件注入的依赖项
+  /**
+   * 获取父组件注入的依赖项
+   */
   const INJECT_DEPEND: RadioGroundInterface | undefined = inject<
     RadioGroundInterface | undefined
   >(RADIO_GROUP_PROPS_kEY, undefined)
@@ -25,13 +27,13 @@
      * 如果父组件有依赖注入则使用
      * 否则使用之身 props 参数
      */
-    get() {
+    get () {
       return (INJECT_DEPEND && INJECT_DEPEND.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set(val) {
+    set (val) {
       if (INJECT_DEPEND && !INJECT_DEPEND.disabled) {
         INJECT_DEPEND.changeEvent(val)
         return

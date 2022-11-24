@@ -26,9 +26,13 @@
       isString(val) || isNumber(val)
   })
 
-  // type 类型
+  /**
+   * type 类型
+   */
   const inputType: Ref<InputType> = ref<InputType>(prop.type)
-  // 是否展示密码
+  /**
+   * 是否展示密码
+   */
   const showPass: Ref<boolean> = ref<boolean>(false)
   /**
    * 使用 useUpdateInput hook 实现同步数据

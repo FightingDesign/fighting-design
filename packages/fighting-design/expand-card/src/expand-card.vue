@@ -13,7 +13,9 @@
 
   const prop: ExpandCardPropsType = defineProps(Props)
 
-  // 当前显示的位置
+  /**
+   * 当前显示的位置
+   */
   const currExpandIndex: Ref<number> = ref<number>(prop.expandIndex)
 
   /**

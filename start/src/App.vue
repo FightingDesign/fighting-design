@@ -7,9 +7,11 @@
   // const focus = (e: Event): void => console.log(e, 'focus')
 
   const value1 = ref('')
+  const date = new Date()
 </script>
 
 <template>
+  <f-calendar v-model:date="date" lunar />
   <f-date-picker v-model:date="value1" clear format="YYYY年MM月DD日" />
   <f-date-picker v-model:date="value1" />
 </template>

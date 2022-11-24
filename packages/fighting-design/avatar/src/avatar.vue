@@ -14,7 +14,9 @@
   const { isSuccess, isShowNode, loadAction } =
     useLoadImage<AvatarPropsType>(prop)
 
-  // 图片 dom 节点
+  /**
+   * 图片 dom 节点
+   */
   const avatarEl: Ref<HTMLImageElement> = ref<HTMLImageElement>(
     null as unknown as HTMLImageElement
   )

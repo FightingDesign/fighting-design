@@ -27,7 +27,9 @@
     runCallback(prop.onChange, value)
   }
 
-  // 需要注入的依赖项
+  /**
+   * 需要注入的依赖项
+   */
   const RadioGround: RadioGroundPropsType = reactive({
     ...toRefs(prop),
     changeEvent

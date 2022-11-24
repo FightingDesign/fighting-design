@@ -9,7 +9,9 @@
 
   console.log(prop.source)
 
-  // 是否展示内容
+  /**
+   * 是否展示内容
+   */
   const isOpen: Ref<boolean> = ref<boolean>(false)
   const content: Ref<HTMLDivElement> = ref(null as unknown as HTMLDivElement)
 

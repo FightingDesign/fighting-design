@@ -11,7 +11,9 @@
 
   const prop: BackTopPropsType = defineProps(Props)
 
-  // 展示状态
+  /**
+   * 展示状态
+   */
   const visible: Ref<boolean> = ref<boolean>(false)
 
   /**

@@ -68,8 +68,8 @@ const renderLoadingDom = (
 
 /**
  * 移除 loading 节点
+ *
  * @param el 元素节点
- * @returns { void }
  */
 const removeLoadingDom = (el: LoadingElInterface): void => {
   if (!el.loadingInstance) return

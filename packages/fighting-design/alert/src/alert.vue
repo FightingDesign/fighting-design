@@ -13,7 +13,9 @@
 
   const prop: AlertPropsType = defineProps(Props)
 
-  // 展示状态
+  /**
+   * 展示状态
+   */
   const isShow: Ref<boolean> = ref<boolean>(true)
 
   /**

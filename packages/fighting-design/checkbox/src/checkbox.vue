@@ -17,7 +17,9 @@
       typeof val !== 'object'
   })
 
-  // 父组件注入的依赖项
+  /**
+   * 获取父组件注入的依赖项
+   */
   const INJECT_DEPEND: CheckboxGroupInjectPropsType | undefined = inject<
     CheckboxGroupInjectPropsType | undefined
   >(CHECKBOX_GROUP_PROPS_KEY, undefined)
@@ -46,7 +48,9 @@
     }
   })
 
-  // 是否被选中
+  /**
+   * 是否被选中
+   */
   const isChecked: ComputedRef<boolean> = computed((): boolean => {
     const val: CheckboxGroupLabelType = modelValue.value
 

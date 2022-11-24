@@ -1,6 +1,5 @@
 import {
   LUNAR_INFO,
-  // SOLAR_MONTH,
   DAY_GAN,
   DAY_ZHI,
   ANIMALS,
@@ -14,7 +13,15 @@ import {
 } from '../calendar-data'
 import type { GetLunarDetailReturnInterface, LunarInterface } from './interface'
 
+/**
+ * 计算当前日期相关
+ * 
+ * 主要用作 calendar 组件
+ * 
+ * 仅支持 1900-2100
+ */
 export class Lunar implements LunarInterface {
+
   /**
    * 返回农历 year 年一整年的总天数
    *
@@ -213,9 +220,7 @@ export class Lunar implements LunarInterface {
       objDate = new Date(y, parseInt(m.toString()) - 1, d)
     }
 
-    let i,
-      leap = 0,
-      temp = 0
+    let i, leap = 0, temp = 0
 
     // 修正ymd参数
     y = objDate.getFullYear()
@@ -236,21 +241,8 @@ export class Lunar implements LunarInterface {
       i--
     }
 
-    // 是否今天
-    const isTodayObj: Date = new Date()
-    let isToday = false
-
-    if (
-      isTodayObj.getFullYear() === y &&
-      isTodayObj.getMonth() + 1 === m &&
-      isTodayObj.getDate() === d
-    ) {
-      isToday = true
-    }
-
     // 星期几
     let nWeek: number = objDate.getDay()
-    const cWeek: string = CONVERT_DIGIT_CHINES[nWeek]
 
     // 数字表示周几顺应天朝周一开始的惯例
     if (nWeek === 0) {
@@ -307,15 +299,12 @@ export class Lunar implements LunarInterface {
     }
 
     // 传入的日期的节气与否
-    let isTerm = false
     let Term = null
 
     if (firstNode === d) {
-      isTerm = true
       Term = SOLAR_TERM[m * 2 - 2]
     }
     if (secondNode === d) {
-      isTerm = true
       Term = SOLAR_TERM[m * 2 - 1]
     }
     // 日柱 当月一日与 1900/1/1 相差天数
@@ -331,43 +320,43 @@ export class Lunar implements LunarInterface {
     const festivalDate: string = m + '-' + d
     let lunarFestivalDate: string = month + '-' + day
 
-    // bugfix https://github.com/jjonline/calendar.js/issues/29
-    // 农历节日修正：农历12月小月则29号除夕，大月则30号除夕
-    // 此处取巧修正：当前为农历12月29号时增加一次判断并且把lunarFestivalDate设置为12-30以正确取得除夕
-    // 天朝农历节日遇闰月过前不过后的原则，此处取农历12月天数不考虑闰月
-    // 农历润12月在本工具支持的200年区间内仅1574年出现
+    /**
+     * @see https://github.com/jjonline/calendar.js/issues/29
+     * 
+     * 农历节日修正：农历 12 月小月则 29 号除夕，大月则 30 号除夕
+     * 此处取巧修正：当前为农历 12 月 29 号时增加一次判断并且把 lunarFestivalDate 设置为 12-30 以正确取得除夕
+     * 天朝农历节日遇闰月过前不过后的原则，此处取农历 12 月天数不考虑闰月
+     * 农历润 12 月在本工具支持的 200 年区间内仅 1574 年出现
+     */
     if (month === 12 && day === 29 && this.monthDays(year, month) === 29) {
       lunarFestivalDate = '12-30'
     }
 
     return {
-      date: solarDate, // 阳历
-      lunarDate, // 农历
+      date: solarDate,
+      lunarDate,
       festival: SOLAR_CALENDAR_FESTIVE[festivalDate]
         ? SOLAR_CALENDAR_FESTIVE[festivalDate].title
-        : '', // 阳历节日
+        : '',
       lunarFestival: LUNAR_FESTIVE[lunarFestivalDate]
         ? LUNAR_FESTIVE[lunarFestivalDate].title
-        : '', // 农历节日
-      lYear: year, // 农历年份
-      lMonth: month, // 农历月份
-      lDay: day, // // 农历日
-      animal: this.getAnimal(year), // 生肖
+        : '',
+      lYear: year,
+      lMonth: month,
+      lDay: day,
+      animal: this.getAnimal(year),
       IMonthCn: (isLeap ? '\u95f0' : '') + this.toChinaMonth(month),
       IDayCn: this.toChinaDay(day),
       cYear: y,
       cMonth: m,
       cDay: d,
-      gzYear: gzY, // 纪年
-      gzMonth: gzM, // 纪月
-      gzDay: gzD, // 纪日
-      isToday,
+      gzYear: gzY,
+      gzMonth: gzM,
+      gzDay: gzD,
       isLeap,
       nWeek,
-      ncWeek: '\u661f\u671f' + cWeek,
-      isTerm,
       Term,
-      constellation // 星座
+      constellation
     } as GetLunarDetailReturnInterface
   }
 }

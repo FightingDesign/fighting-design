@@ -10,7 +10,9 @@
 
   const prop: BreadcrumbItemPropsType = defineProps(Props)
 
-  // 注入依赖项
+  /**
+   * 获取注入依赖项
+   */
   const INJECT_DEPEND: BreadcrumbPropsType | undefined = inject<
     BreadcrumbPropsType | undefined
   >(BREADCRUMB_PROPS_KEY, undefined)

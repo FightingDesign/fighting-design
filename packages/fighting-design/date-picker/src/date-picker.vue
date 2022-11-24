@@ -13,7 +13,9 @@
     'update:date': (val: string): string => val
   })
 
-  // 传递给日历组件的当前时间
+  /**
+   * 传递给日历组件的当前时间
+   */
   const date: Date = new Date()
 
   /**
