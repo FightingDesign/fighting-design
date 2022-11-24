@@ -4,9 +4,9 @@
 
 文档马上更新……
 
-:::demo
+:::demo 这是一个描述
 
-```html
+```vue
 <f-alert type="default">默认提示信息</f-alert>
 <f-alert type="primary">主要提示信息</f-alert>
 <f-alert type="success">成功提示信息</f-alert>

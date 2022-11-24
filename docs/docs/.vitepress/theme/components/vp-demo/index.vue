@@ -3,14 +3,15 @@
   import type { Ref } from 'vue'
   import type { OrdinaryFunctionInterface } from '../_interface'
 
-  // const prop = defineProps({
-  //   source: {
-  //     type: String,
-  //     required: true
-  //   }
-  // })
+  const prop = defineProps({
+    source: {
+      type: String,
+      required: true
+    },
+    description: String
+  })
 
-  // console.log(prop.source)
+  console.log(prop.source)
 
   // 是否展示内容
   const isOpen: Ref<boolean> = ref<boolean>(false)
@@ -37,26 +38,26 @@
   // const decoded = computed(() => {
   //   return decodeURIComponent(prop.source)
   // })
-
-  // console.log(decoded.value)
 </script>
 
 <template>
   <div class="vp-demo">
     <!-- 展示的内容 -->
-    <div v-if="$slots.source" class="vp-demo__source">
-      <slot name="source" />
-    </div>
-    <!-- <div class="vp-demo__source language-vue" v-html="decoded"></div> -->
-    <!-- <div class="vp-demo__source" v-html="decoded"></div> -->
     <div class="vp-demo__source">
+      <p>{{ description }}</p>
+
+      <!-- <div v-html="source"></div> -->
       <slot />
     </div>
-    <!-- <div class="vp-demo__source" v-html="decoded"></div> -->
 
     <!-- 折叠的内容 -->
     <div ref="content" class="vp-demo__box">
-      <slot />
+      <hr />
+      <div v-if="$slots.description" ref="description" class="description">
+        <slot name="description" />
+      </div>
+      <!-- <slot /> -->
+      <slot name="highlight" />
     </div>
 
     <!-- 点击展开 / 折叠的区域 -->

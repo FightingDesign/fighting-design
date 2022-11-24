@@ -4,6 +4,8 @@ import './style/vitepress.scss'
 import FightingDesign from '../../../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 import { vpSearch, vpDemo } from './components'
+import { useComponents } from './useComponents'
+import './index.css'
 
 export default {
   ...Theme,
@@ -22,6 +24,7 @@ export default {
   },
   enhanceApp({ app }) {
     app.use(FightingDesign)
-    app.component('vp-demo', vpDemo)
+    useComponents(app)
+    // app.component('vp-demo', vpDemo)
   }
 }
