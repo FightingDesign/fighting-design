@@ -7,6 +7,20 @@ export const Props = {
   time: {
     type: String,
     default: (): null => null
+  },
+  /**
+   * 是否只读
+   */
+  readonly: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  /**
+   * 是否可清除
+   */
+  clear: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 

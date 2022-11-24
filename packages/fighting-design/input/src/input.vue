@@ -125,7 +125,7 @@
         @focus="onFocus"
       />
 
-      <!-- 清楚 icon -->
+      <!-- 清除 icon -->
       <f-svg-icon
         v-if="clear"
         class="f-input__clear-btn"

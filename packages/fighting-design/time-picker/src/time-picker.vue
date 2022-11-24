@@ -71,12 +71,12 @@
 
 <template>
   <div class="f-time-picker">
-    <f-dropdown>
+    <f-dropdown :disabled="readonly">
       <f-input
         v-model="pickerTime"
-        type="text"
-        readonly
-        clear
+        type="date"
+        :readonly="readonly"
+        :clear="clear"
         :after-icon="FIconClockTime"
       />
 

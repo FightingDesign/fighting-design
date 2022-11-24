@@ -44,14 +44,31 @@
     month,
     date
   }): void => {
+    // 如果存在格式化配置项
+    if (prop.format) {
+      const checkDate = { YYYY: year, MM: month, DD: date }
+
+      let formatDate: string = prop.format
+
+      for (const key in checkDate) {
+        formatDate = formatDate.replace(key, checkDate[key])
+      }
+      pickerDate.value = formatDate
+      return
+    }
     pickerDate.value = `${year}/${month}/${date}`
   }
 </script>
 
 <template>
   <div class="f-date-picker">
-    <f-dropdown>
-      <f-input v-model="pickerDate" type="text" readonly />
+    <f-dropdown :disabled="readonly">
+      <f-input
+        v-model="pickerDate"
+        :clear="clear"
+        :size="size"
+        :readonly="readonly"
+      />
 
       <template #content>
         <div class="f-date-picker__content">
