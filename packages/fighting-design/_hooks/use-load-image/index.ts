@@ -12,10 +12,11 @@ import type {
   LoadActionInterface
 } from './interface'
 
-export const useLoadImage: UseLoadImageInterface = <T extends { lazy: boolean }>(
+export const useLoadImage: UseLoadImageInterface = <
+  T extends { lazy: boolean }
+>(
   prop: T
 ): UseLoadImageReturnInterface => {
-
   /**
    * 判断是否加载成功
    * 如果失败则会展示失败的状态
@@ -35,11 +36,10 @@ export const useLoadImage: UseLoadImageInterface = <T extends { lazy: boolean }>
 
   /**
    * 开始触发加载
-   * 
+   *
    * @param el img dom 元素
    */
   const loadAction: LoadActionInterface = (el: Ref<HTMLImageElement>): void => {
-
     /**
      * 图片加载需要的回调函数
      *

@@ -66,11 +66,11 @@
 
 ## Dropdown Attributes
 
-| 参数      | 说明                   | 类型            | 可选值          | 默认值 |
-| --------- | ---------------------- | --------------- | --------------- | ------ |
-| `spacing` | 触发器和内容直接的间距 | string / number | ——              | ——     |
-| `trigger` | 触发方式               | string          | `click` `hover` | hover  |
-| `disabled` | 是否禁用 | boolean | —— | false |
+| 参数       | 说明                   | 类型            | 可选值          | 默认值 |
+| ---------- | ---------------------- | --------------- | --------------- | ------ |
+| `spacing`  | 触发器和内容直接的间距 | string / number | ——              | ——     |
+| `trigger`  | 触发方式               | string          | `click` `hover` | hover  |
+| `disabled` | 是否禁用               | boolean         | ——              | false  |
 
 ## DropdownItem Attributes
 

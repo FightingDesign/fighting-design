@@ -15,13 +15,12 @@ import type { GetLunarDetailReturnInterface, LunarInterface } from './interface'
 
 /**
  * 计算当前日期相关
- * 
+ *
  * 主要用作 calendar 组件
- * 
+ *
  * 仅支持 1900-2100
  */
 export class Lunar implements LunarInterface {
-
   /**
    * 返回农历 year 年一整年的总天数
    *
@@ -220,7 +219,9 @@ export class Lunar implements LunarInterface {
       objDate = new Date(y, parseInt(m.toString()) - 1, d)
     }
 
-    let i, leap = 0, temp = 0
+    let i,
+      leap = 0,
+      temp = 0
 
     // 修正ymd参数
     y = objDate.getFullYear()
@@ -322,7 +323,7 @@ export class Lunar implements LunarInterface {
 
     /**
      * @see github https://github.com/jjonline/calendar.js/issues/29
-     * 
+     *
      * 农历节日修正：农历 12 月小月则 29 号除夕，大月则 30 号除夕
      * 此处取巧修正：当前为农历 12 月 29 号时增加一次判断并且把 lunarFestivalDate 设置为 12-30 以正确取得除夕
      * 天朝农历节日遇闰月过前不过后的原则，此处取农历 12 月天数不考虑闰月

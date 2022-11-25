@@ -17,7 +17,6 @@ import type {
  */
 export const useOperationImg: UseOperationImgInterface =
   (): UseOperationImgReturnInterface => {
-
     /**
      * 放大倍数
      */

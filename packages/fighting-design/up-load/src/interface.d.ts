@@ -13,7 +13,7 @@ export interface UpLoadUpdateFilesInterface {
  * 过滤文件
  *
  * 传入 FileList 对象，通过过滤，返回 File 类型的数组
- * 
+ *
  * @param files 需要过滤的文件列表
  */
 export interface UpLoadFilterFilesInterface {
@@ -24,7 +24,7 @@ export interface UpLoadFilterFilesInterface {
  * 删除文件
  *
  * 通过传入索引值删除指定的文件
- * 
+ *
  * @param index 需要删除的索引
  */
 export interface UpLoadRemoveFileInterface {

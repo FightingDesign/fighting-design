@@ -88,7 +88,7 @@ export const useMassageManage: UseMassageManageInterface =
       placement: MessagePlacementType
     ): MessageInstance => {
       if (instances[placement]) {
-        (instances[placement] as MessageInstance[]).push(instance)
+        ;(instances[placement] as MessageInstance[]).push(instance)
       } else {
         instances[placement] = [instance]
       }

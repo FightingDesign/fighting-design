@@ -6,7 +6,7 @@ import type { ChangeColorInterface } from './interface'
 export class ChangeColor implements ChangeColorInterface {
   color: string
 
-  constructor (color: string) {
+  constructor(color: string) {
     this.color = color
   }
   /**

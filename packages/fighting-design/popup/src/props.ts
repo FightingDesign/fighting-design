@@ -64,7 +64,7 @@ export const Props = {
   },
   /**
    * 弹出位置
-   * 
+   *
    * @values left right top bottom center
    * @defaultValue center
    */

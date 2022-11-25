@@ -11,7 +11,7 @@ const markdown: MarkdownIt = MarkdownIt({
 
 /**
  * 自定义 md 插件
- * 
+ *
  * @param md markdown 实例
  */
 export const mdPlugin = (md: MarkdownIt) => {

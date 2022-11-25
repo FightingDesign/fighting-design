@@ -14,7 +14,6 @@ import type { VNode } from 'vue'
  */
 export const useLoadingBar: UseLoadingBarInterface =
   (): UseLoadingBarReturnInterface => {
-
     /**
      * 开始加载
      */

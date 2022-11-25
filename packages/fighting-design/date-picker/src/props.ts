@@ -24,11 +24,11 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-  * 尺寸
-  *
-  * @values large middle small mini
-  * @defaultValue middle
-  */
+   * 尺寸
+   *
+   * @values large middle small mini
+   * @defaultValue middle
+   */
   size: {
     type: String as PropType<DatePickerSizeType>,
     default: (): DatePickerSizeType => 'middle' as const,

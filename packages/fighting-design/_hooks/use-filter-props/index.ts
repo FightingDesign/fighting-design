@@ -13,7 +13,6 @@ import type { NeedPropsType } from './interface'
  * @returns 需要的 props
  */
 export const useFilterProps = <T, F>(props: T, arr: string[]): F => {
-
   /**
    * 最终需要的 props
    */

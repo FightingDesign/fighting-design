@@ -11,7 +11,7 @@ export const Props = {
   },
   /**
    * 弹出方向
-   * 
+   *
    * @values top bottom right left
    * @defaultValue bottom
    */
@@ -31,7 +31,7 @@ export const Props = {
   },
   /**
    * 展示状态
-   * 
+   *
    * @values hover active always
    * @defaultValue hover
    */

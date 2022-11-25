@@ -30,8 +30,8 @@ export const Props = {
     }
   },
   /**
- * 是否带有箭头
- */
+   * 是否带有箭头
+   */
   arrow: {
     type: Boolean,
     default: (): boolean => false

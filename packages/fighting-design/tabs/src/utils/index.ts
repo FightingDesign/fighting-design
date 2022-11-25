@@ -40,7 +40,7 @@ export const flattedChildren = (
  * @param root
  * @param component
  */
-export function getChildrenComponent (
+export function getChildrenComponent(
   root: ComponentInternalInstance,
   component: string
 ): VNode[] {

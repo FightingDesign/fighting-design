@@ -2,6 +2,7 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `f-trigger` 组件
 - `f-sticky-card` 组件 `open-end` `close-end` 回调参数改为 `on-open` `on-close`
 
 ## 0.9.0-alpha.4 (2022-11-23)

@@ -73,7 +73,7 @@ export const DAY_ZHI = [
 
 /**
  * 天干地支 - 生肖速查表
- * 
+ *
  * ['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪']
  */
 export const ANIMALS = [
@@ -134,7 +134,7 @@ export const LUNAR_FESTIVE: HolidayListType = {
 
 /**
  * 二十四节气
- * 
+ *
  * ['小寒','大寒','立春','雨水','惊蛰','春分','清明','谷雨','立夏','小满','芒种','夏至','小暑','大暑','立秋','处暑','白露','秋分','寒露','霜降','立冬','小雪','大雪','冬至']
  */
 export const SOLAR_TERM = [
@@ -166,7 +166,7 @@ export const SOLAR_TERM = [
 
 /**
  * 数字转中文速查表
- * 
+ *
  * ['日','一','二','三','四','五','六','七','八','九','十']
  */
 export const CONVERT_DIGIT_CHINES = [
@@ -185,7 +185,7 @@ export const CONVERT_DIGIT_CHINES = [
 
 /**
  * 日期转农历称呼速查表
- * 
+ *
  * ['初','十','廿','卅']
  */
 export const DATE_CHANG_LUNAR_CALENDAR = [
@@ -197,7 +197,7 @@ export const DATE_CHANG_LUNAR_CALENDAR = [
 
 /**
  * 月份转农历称呼速查表
- * 
+ *
  * ['正','一','二','三','四','五','六','七','八','九','十','冬','腊']
  */
 export const CHANG_MONTH_LUNAR_CALENDAR = [

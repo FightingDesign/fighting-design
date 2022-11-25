@@ -91,7 +91,7 @@ export const vLoading: Directive = {
    * @param el 指令绑定到的元素。这可以用于直接操作 DOM
    * @param binding 一个对象，包含一些配置参数
    */
-  mounted (el: LoadingElInterface, binding: DirectiveBinding): void {
+  mounted(el: LoadingElInterface, binding: DirectiveBinding): void {
     /**
      * 获取到当前元素的定位样式
      */
@@ -111,7 +111,7 @@ export const vLoading: Directive = {
    * @param el 指令绑定到的元素。这可以用于直接操作 DOM
    * @param binding 一个对象，包含一些配置参数
    */
-  updated (el: LoadingElInterface, binding: DirectiveBinding): void {
+  updated(el: LoadingElInterface, binding: DirectiveBinding): void {
     if (binding.value !== binding.oldValue) {
       if (!binding.value) {
         removeLoadingDom(el)
