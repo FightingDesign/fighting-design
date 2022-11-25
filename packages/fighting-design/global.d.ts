@@ -68,6 +68,7 @@ declare module '@vue/runtime-core' {
     FTimePicker: typeof components.FTimePicker
     FInputNumber: typeof components.FInputNumber
     FCloseBtn: typeof components.FCloseBtn
+    FTrigger: typeof components.FTrigger
   }
 
   interface ComponentCustomProperties {

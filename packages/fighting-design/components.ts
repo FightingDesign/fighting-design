@@ -191,3 +191,6 @@ export * from './date-picker'
 
 export { FTimePicker } from './time-picker'
 export * from './time-picker'
+
+export { FTrigger } from './trigger'
+export * from './trigger'
