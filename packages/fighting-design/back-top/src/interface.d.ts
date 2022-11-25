@@ -1,5 +1,8 @@
 export type { BackTopPropsType } from './props'
 
+/**
+ * 滚动模式
+ */
 export type BackTopBehaviorType = 'smooth' | 'auto'
 
 /**

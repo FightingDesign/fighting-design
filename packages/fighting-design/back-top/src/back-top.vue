@@ -43,6 +43,7 @@
       const listerNode: HTMLElement = document.querySelector(
         listenEl
       ) as HTMLElement
+
       ;(listerNode as HTMLElement).scrollTo({
         top,
         behavior

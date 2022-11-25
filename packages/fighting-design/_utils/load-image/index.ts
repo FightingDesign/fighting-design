@@ -105,7 +105,8 @@ class Lazy extends Load implements LoadLazyInterface {
     super(img, props, callback)
   }
   /**
-   * 懒加载函数
+   * 初始化懒加载构造器
+   *
    * @returns { IntersectionObserver }
    */
   observer: LoadLazyObserverInterface = (): IntersectionObserver => {
