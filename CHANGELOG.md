@@ -2,7 +2,14 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.9.0-alpha.5 (2022-11-25)
+
+**新功能**
+
 - 新增 `f-trigger` 组件
+
+**其它更新**
+
 - 优化 `f-space` 组件样式细节
 - `f-sticky-card` 组件 `open-end` `close-end` 回调参数改为 `on-open` `on-close`
 

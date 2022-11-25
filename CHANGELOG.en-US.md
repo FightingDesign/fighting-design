@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.9.0-alpha.5 (2022-11-25)
+
+**New Features**
+
+- Add `f-trigger` component
+
+**Other Updates**
+
+- Optimize `f-space` component style details
+- Change the `f-stick-card` component `open-end` `close-end` callback parameter to `on-open` `on-close`
+
 ## 0.9.0-alpha.4 (2022-11-23)
 
 **New Features**
