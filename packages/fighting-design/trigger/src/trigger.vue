@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FTrigger">
   import { Props } from './props'
   import { ref, computed, onMounted } from 'vue'
-  import { sizeChange } from '../../_utils'
+  import { sizeChange, runCallback } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type { TriggerPropsType } from './interface'
   import type { OrdinaryFunctionInterface } from '../../_interface'
@@ -24,6 +24,9 @@
     if (prop.trigger === 'click') {
       showContent.value = !showContent.value
     }
+
+    runCallback(prop.onOpen, showContent.value)
+    runCallback(prop.onChange, showContent.value)
   }
 
   /**
@@ -31,6 +34,8 @@
    */
   const handelClose: OrdinaryFunctionInterface = (): void => {
     showContent.value = false
+    runCallback(prop.onClose, showContent.value)
+    runCallback(prop.onChange, showContent.value)
   }
 
   /**

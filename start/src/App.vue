@@ -6,6 +6,10 @@
   // const blur = (e: Event): void => console.log(e, 'blur')
   // const focus = (e: Event): void => console.log(e, 'focus')
 
+  const change = (e) => console.log(e, 'change')
+  const open = (e) => console.log(e, 'open')
+  const close = (e) => console.log(e, 'close')
+
   // const value1 = ref('')
   // const date = new Date()
 </script>
@@ -15,7 +19,14 @@
   <f-date-picker v-model:date="value1" clear format="YYYY年MM月DD日" />
   <f-date-picker v-model:date="value1" /> -->
 
-  <f-trigger trigger="click" arrow :leave-duration="1">
+  <f-trigger
+    trigger="click"
+    arrow
+    append-to-body
+    :on-change="change"
+    :on-close="close"
+    :on-open="open"
+  >
     <f-link type="primary">哈哈哈</f-link>
 
     <template #content>

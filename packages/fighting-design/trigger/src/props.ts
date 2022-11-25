@@ -1,10 +1,10 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { TriggerTriggerType } from './interface'
+import type { TriggerTriggerType, TriggerEmitsInterface } from './interface'
 
 export const Props = {
   /**
-  * 触发器和内容直接的间距
-  */
+   * 触发器和内容直接的间距
+   */
   spacing: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
@@ -44,10 +44,31 @@ export const Props = {
     default: (): null => null
   },
   /**
-  * 关闭动画持续时间
-  */
+   * 关闭动画持续时间
+   */
   leaveDuration: {
     type: Number,
+    default: (): null => null
+  },
+  /**
+   * 弹窗状态改变时触发的回调
+   */
+  onChange: {
+    type: Function as PropType<TriggerEmitsInterface>,
+    default: (): null => null
+  },
+  /**
+   * 弹窗状态打开时触发的回调
+   */
+  onOpen: {
+    type: Function as PropType<TriggerEmitsInterface>,
+    default: (): null => null
+  },
+  /**
+   * 弹窗状态关闭时触发的回调
+   */
+  onClose: {
+    type: Function as PropType<TriggerEmitsInterface>,
     default: (): null => null
   }
 } as const
