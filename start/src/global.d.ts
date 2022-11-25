@@ -69,6 +69,8 @@ declare module 'vue' {
     FInputNumber: typeof components.FInputNumber
     FCloseBtn: typeof components.FCloseBtn
     FTrigger: typeof components.FTrigger
+    FMenu: typeof components.FMenu
+    FMenuItem: typeof components.FMenuItem
   }
 
   interface ComponentCustomProperties {
@@ -78,4 +80,4 @@ declare module 'vue' {
   }
 }
 
-export {}
+export { }
