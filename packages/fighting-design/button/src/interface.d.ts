@@ -12,7 +12,7 @@ export type ButtonSizeType = 'large' | 'middle' | 'small' | 'mini'
  * 
  * 原生属性
  * 
- * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
+ * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
  */
 export type ButtonTargetType = '_blank' | '_self' | '_parent' | '_top'
 
@@ -29,6 +29,6 @@ export type ButtonType =
 /**
  * 原生 type 属性
  * 
- * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
+ * @see type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
  */
 export type ButtonNativeType = NonNullable<ButtonHTMLAttributes['type']>

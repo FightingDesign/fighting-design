@@ -321,7 +321,7 @@ export class Lunar implements LunarInterface {
     let lunarFestivalDate: string = month + '-' + day
 
     /**
-     * @see https://github.com/jjonline/calendar.js/issues/29
+     * @see github https://github.com/jjonline/calendar.js/issues/29
      * 
      * 农历节日修正：农历 12 月小月则 29 号除夕，大月则 30 号除夕
      * 此处取巧修正：当前为农历 12 月 29 号时增加一次判断并且把 lunarFestivalDate 设置为 12-30 以正确取得除夕

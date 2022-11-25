@@ -82,7 +82,7 @@ const removeLoadingDom = (el: LoadingElInterface): void => {
 /**
  * 自定义 loading 指令
  *
- * @see https://cn.vuejs.org/guide/reusability/custom-directives.html#directive-hooks
+ * @see 自定义指令 https://cn.vuejs.org/guide/reusability/custom-directives.html#directive-hooks
  */
 export const vLoading: Directive = {
   /**
@@ -92,7 +92,9 @@ export const vLoading: Directive = {
    * @param binding 一个对象，包含一些配置参数
    */
   mounted (el: LoadingElInterface, binding: DirectiveBinding): void {
-    // 获取到当前元素的定位样式
+    /**
+     * 获取到当前元素的定位样式
+     */
     const originalPosition: string =
       getComputedStyle(el)['position'] || 'static'
     el.originalPosition = originalPosition
@@ -105,6 +107,7 @@ export const vLoading: Directive = {
   /**
    * 在绑定元素的父组件
    * 及他自己的所有子节点都更新后调用
+   *
    * @param el 指令绑定到的元素。这可以用于直接操作 DOM
    * @param binding 一个对象，包含一些配置参数
    */

@@ -48,7 +48,7 @@ export const Props = {
   /**
    * 文字间距
    * 
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/letter-spacing
+   * @see letter-spacing https://developer.mozilla.org/zh-CN/docs/Web/CSS/letter-spacing
    */
   spacing: {
     type: [String, Number] as PropType<string | number>,
@@ -64,7 +64,7 @@ export const Props = {
   /**
    * 首字符缩进量
    * 
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-indent
+   * @see text-indent https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-indent
    */
   indent: {
     type: [String, Number] as PropType<string | number>,
@@ -80,7 +80,7 @@ export const Props = {
   /**
    * 文字的修饰
    * 
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration
+   * @see text-decoration https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration
    * @values overline line-through underline
    */
   decoration: {

@@ -41,7 +41,7 @@ export const getChildren: GetChildrenInterface = (
         /**
          * 将得到的返回值和 components 合并
          *
-         * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+         * @see concat https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
          */
         components = components.concat(childChildren)
       }

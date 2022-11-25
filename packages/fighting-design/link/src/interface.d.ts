@@ -10,7 +10,7 @@ export type LinkType = 'default' | 'primary' | 'success' | 'danger' | 'warning'
  * 
  * 原生属性
  * 
- * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
+ * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
  */
 export type LinkTargetType = '_self' | '_blank' | '_parent' | '_top' | ''
 

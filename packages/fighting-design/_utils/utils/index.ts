@@ -14,7 +14,7 @@ import type {
 /**
  * 保留小数点后 no 位
  *
- * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+ * @see toFixed https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
  * @param num 带有小数的数字
  * @param no 保留位数
  * @returns { Number } 转换后的数字
@@ -161,7 +161,7 @@ export const sizeChange: UtilsSizeChangeInterface = (
  *
  * 例如: 12px => 12
  *
- * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat
+ * @see parseFloat https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat
  * @param size 尺寸
  * @returns { number } 数字尺寸
  */

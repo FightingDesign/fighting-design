@@ -79,7 +79,7 @@ export const Props = {
   /**
    * 层级 原生属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+   * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
   zIndex: {
     type: Number,

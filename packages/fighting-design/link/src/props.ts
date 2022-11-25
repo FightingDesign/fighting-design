@@ -52,7 +52,7 @@ export const Props = {
   /**
    * 原生 target 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href
+   * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: {
     type: String as PropType<LinkTargetType>,

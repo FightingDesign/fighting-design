@@ -75,7 +75,7 @@ export const Props = {
    *
    * 原生属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
+   * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: {
     type: String as PropType<ButtonTargetType>,
@@ -130,7 +130,7 @@ export const Props = {
   /**
    * 原生 name 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-name
+   * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-name
    */
   name: {
     type: String,
@@ -153,7 +153,7 @@ export const Props = {
   /**
    * 原生 type 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
+   * @see type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
    */
   nativeType: {
     type: String as PropType<ButtonNativeType>,

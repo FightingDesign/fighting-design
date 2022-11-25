@@ -77,7 +77,7 @@ export interface LoadOnloadInterface {
  *
  * 无参数，返回 IntersectionObserver
  *
- * @see https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/IntersectionObserver
+ * @see IntersectionObserver https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/IntersectionObserver
  */
 export interface LoadLazyObserverInterface {
   (): IntersectionObserver

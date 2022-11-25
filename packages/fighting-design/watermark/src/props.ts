@@ -54,7 +54,7 @@ export const Props = {
   /**
    * 原生 z-index 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+   * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
   zIndex: {
     type: Number,

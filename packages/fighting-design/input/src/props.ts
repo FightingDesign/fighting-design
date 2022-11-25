@@ -46,7 +46,7 @@ export const Props = {
   /**
    * 是否禁用
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
+   * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
   disabled: {
     type: Boolean,
@@ -55,7 +55,7 @@ export const Props = {
   /**
    * 最大（数字或日期时间）值
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-max
+   * @see max https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-max
    */
   max: {
     type: Number,
@@ -64,7 +64,7 @@ export const Props = {
   /**
    * 最小（数字或日期时间）值
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-min
+   * @see min https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-min
    */
   min: {
     type: Number,
@@ -73,7 +73,7 @@ export const Props = {
   /**
    * 最大输入长度
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-minlength
+   * @see minlength https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-minlength
    */
   maxLength: {
     type: Number,
@@ -83,7 +83,7 @@ export const Props = {
   /**
    * 是否自动获取焦点
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-autofocus
+   * @see autofocus https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-autofocus
    */
   autofocus: {
     type: Boolean,
@@ -92,7 +92,7 @@ export const Props = {
   /**
    * 原生 name 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
+   * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
   name: {
     type: String,
@@ -101,7 +101,7 @@ export const Props = {
   /**
    * 占位符
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
+   * @see placeholder https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
    */
   placeholder: {
     type: String,
@@ -124,7 +124,7 @@ export const Props = {
   /**
    * 是否只读
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-readonly
+   * @see readonly https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-readonly
    */
   readonly: {
     type: Boolean,
