@@ -1,9 +1,9 @@
 <script lang="ts" setup name="FTrigger">
-  import { Props } from './props'
-  import { ref, computed, onMounted } from 'vue'
+  import { Props, TRIGGER_CLOSE_KEY } from './props'
+  import { ref, computed, onMounted, provide, reactive } from 'vue'
   import { sizeChange, runCallback } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type { TriggerPropsType } from './interface'
+  import type { TriggerPropsType, TriggerProvideInterface } from './interface'
   import type { OrdinaryFunctionInterface } from '../../_interface'
 
   const prop: TriggerPropsType = defineProps(Props)
@@ -17,15 +17,7 @@
    * 打开
    */
   const handelOpen: OrdinaryFunctionInterface = (): void => {
-    if (prop.trigger === 'hover') {
-      showContent.value = true
-    }
-
-    if (prop.trigger === 'click') {
-      showContent.value = true
-      // showContent.value = !showContent.value
-    }
-
+    showContent.value = true
     runCallback(prop.onOpen, showContent.value)
     runCallback(prop.onChange, showContent.value)
   }
@@ -96,6 +88,20 @@
       false
     )
   })
+
+  /**
+   * 注入关闭方法依赖项
+   *
+   * 目前仅为了在 dropdown-item 组件中实现点击关闭
+   */
+  provide<TriggerProvideInterface>(
+    TRIGGER_CLOSE_KEY,
+    reactive({
+      handelClose: (): void => {
+        showContent.value = false
+      }
+    } as TriggerProvideInterface)
+  )
 </script>
 
 <template>

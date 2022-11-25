@@ -1,3 +1,5 @@
+import type { OrdinaryFunctionInterface } from '../../_interface'
+
 export type { TriggerPropsType } from './trigger'
 
 /**
@@ -12,4 +14,13 @@ export type TriggerTriggerType = 'hover' | 'click'
  */
 export interface TriggerEmitsInterface {
   (target: boolean): void
+}
+
+/**
+ * 注入的依赖项对象类型接口
+ * 
+ * @param handelClose 关闭方法
+ */
+export interface TriggerProvideInterface {
+  handelClose: OrdinaryFunctionInterface
 }

@@ -73,7 +73,7 @@ export const Props = {
   /**
    * 最大输入长度
    *
-   * @see minlength https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-minlength
+   * @see maxLength https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-maxlength
    */
   maxLength: {
     type: Number,

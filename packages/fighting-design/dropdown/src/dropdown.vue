@@ -1,16 +1,23 @@
 <script lang="ts" setup name="FDropdown">
   import { Props } from './props'
   import { FTrigger } from '../../trigger'
-  import type { DropdownPropsType } from './interface'
 
-  const prop: DropdownPropsType = defineProps(Props)
-
-  console.log(prop)
+  defineProps(Props)
 </script>
 
 <template>
   <div class="f-dropdown">
-    <f-trigger :trigger="trigger" :disabled="disabled" :spacing="spacing">
+    <f-trigger
+      :trigger="trigger"
+      :disabled="disabled"
+      :spacing="spacing"
+      :arrow="arrow"
+      :enter-duration="enterDuration"
+      :leave-duration="leaveDuration"
+      :on-change="onChange"
+      :on-open="onOpen"
+      :on-close="onClose"
+    >
       <slot />
 
       <template #content>
