@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FDropdown">
   import { Props } from './props'
-  import { ref, computed } from 'vue'
+  import { ref, computed, onMounted } from 'vue'
   import { sizeChange } from '../../_utils'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type { DropdownPropsType } from './interface'
@@ -14,28 +14,42 @@
   const showContent: Ref<boolean> = ref<boolean>(false)
 
   /**
-   * 计算当前的所触发的事件对象
+   * 打开
    */
-  const eventTrigger: ComputedRef<'click' | 'mouseover'> = computed(
-    (): 'click' | 'mouseover' => {
-      return prop.trigger === 'click' ? 'click' : 'mouseover'
+  const handelOpen: OrdinaryFunctionInterface = (): void => {
+    if (prop.trigger === 'hover') {
+      showContent.value = true
+    }
+
+    if (prop.trigger === 'click') {
+      showContent.value = !showContent.value
+    }
+  }
+
+  /**
+   * 关闭
+   */
+  const handelClose: OrdinaryFunctionInterface = (): void => {
+    showContent.value = false
+  }
+
+  /**
+   * 打开事件
+   */
+  const openEvent: ComputedRef<'mouseover' | 'click'> = computed(
+    (): 'mouseover' | 'click' => {
+      return prop.trigger === 'hover' ? 'mouseover' : 'click'
     }
   )
 
   /**
-   * 展示内容
+   * 关闭事件
    */
-  const contentShow: OrdinaryFunctionInterface = (): void => {
-    if (prop.disabled) return
-    showContent.value = true
-  }
-
-  /**
-   * 隐藏内容
-   */
-  const contentHidden: OrdinaryFunctionInterface = (): void => {
-    showContent.value = false
-  }
+  const closeEvent: ComputedRef<'mouseleave' | ''> = computed(
+    (): 'mouseleave' | '' => {
+      return prop.trigger === 'hover' ? 'mouseleave' : ''
+    }
+  )
 
   /**
    * 样式列表
@@ -47,14 +61,25 @@
       '--f-dropdown-spacing-size': sizeChange(spacing)
     } as CSSProperties
   })
+
+  onMounted((): void => {
+    /**
+     * 给 document 注册点击事件，如果点击的是其它地方则隐藏
+     */
+    document.addEventListener('click', (): void => {
+      if (prop.trigger === 'click' && showContent.value) {
+        handelClose()
+      }
+    })
+  })
 </script>
 
 <template>
   <div
     class="f-dropdown"
     :style="classList"
-    @[eventTrigger]="contentShow"
-    @mouseleave="contentHidden"
+    @[openEvent].stop="handelOpen"
+    @[closeEvent].stop="handelClose"
   >
     <!-- 触发器 -->
     <div class="f-dropdown__trigger">
@@ -63,11 +88,7 @@
 
     <!-- 展示的内容 -->
     <transition name="f-dropdown">
-      <div
-        v-show="showContent"
-        class="f-dropdown__content"
-        @click.stop="contentHidden"
-      >
+      <div v-show="showContent" class="f-dropdown__content">
         <slot name="content" />
       </div>
     </transition>

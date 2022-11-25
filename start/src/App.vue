@@ -11,7 +11,29 @@
 </script>
 
 <template>
-  <f-calendar v-model:date="date" lunar />
+  <!-- <f-calendar v-model:date="date" lunar />
   <f-date-picker v-model:date="value1" clear format="YYYY年MM月DD日" />
-  <f-date-picker v-model:date="value1" />
+  <f-date-picker v-model:date="value1" /> -->
+
+  <f-dropdown trigger="click">
+    <f-button type="primary">click下拉菜单</f-button>
+
+    <template #content>
+      <f-dropdown-item>猕猴桃</f-dropdown-item>
+      <f-dropdown-item>哈密瓜</f-dropdown-item>
+      <f-dropdown-item>火龙果</f-dropdown-item>
+      <f-dropdown-item>柠檬</f-dropdown-item>
+    </template>
+  </f-dropdown>
+
+  <f-dropdown trigger="hover">
+    <f-button type="primary">hover下拉菜单</f-button>
+
+    <template #content>
+      <f-dropdown-item>猕猴桃</f-dropdown-item>
+      <f-dropdown-item>哈密瓜</f-dropdown-item>
+      <f-dropdown-item>火龙果</f-dropdown-item>
+      <f-dropdown-item>柠檬</f-dropdown-item>
+    </template>
+  </f-dropdown>
 </template>

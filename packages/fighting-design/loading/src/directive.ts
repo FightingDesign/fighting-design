@@ -82,7 +82,7 @@ const removeLoadingDom = (el: LoadingElInterface): void => {
 /**
  * 自定义 loading 指令
  *
- * https://cn.vuejs.org/guide/reusability/custom-directives.html#directive-hooks
+ * @see https://cn.vuejs.org/guide/reusability/custom-directives.html#directive-hooks
  */
 export const vLoading: Directive = {
   /**
