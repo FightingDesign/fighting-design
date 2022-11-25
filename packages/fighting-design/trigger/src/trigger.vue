@@ -11,7 +11,7 @@
   /**
    * 是否展示主内容
    */
-  const showContent: Ref<boolean> = ref<boolean>(true)
+  const showContent: Ref<boolean> = ref<boolean>(false)
 
   /**
    * 打开

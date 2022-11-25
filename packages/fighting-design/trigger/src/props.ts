@@ -3,7 +3,7 @@ import type { TriggerTriggerType, TriggerEmitsInterface } from './interface'
 
 export const Props = {
   /**
-   * 触发器和内容直接的间距
+   * 触发器和内容之间的间距
    */
   spacing: {
     type: [String, Number] as PropType<string | number>,
