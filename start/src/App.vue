@@ -15,8 +15,14 @@
   <f-date-picker v-model:date="value1" clear format="YYYY年MM月DD日" />
   <f-date-picker v-model:date="value1" /> -->
 
-  <f-trigger></f-trigger>
+  <f-trigger trigger="click" arrow :leave-duration="1">
+    <f-link type="primary">哈哈哈</f-link>
 
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+    </template>
+  </f-trigger>
+  <!-- 
   <f-dropdown trigger="click">
     <f-link type="primary">click下拉菜单ck下拉菜单ck下拉菜单ck下拉菜单</f-link>
 
@@ -37,5 +43,5 @@
       <f-dropdown-item>火龙果</f-dropdown-item>
       <f-dropdown-item>柠檬</f-dropdown-item>
     </template>
-  </f-dropdown>
+  </f-dropdown> -->
 </template>
