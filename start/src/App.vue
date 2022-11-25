@@ -16,7 +16,7 @@
   <f-date-picker v-model:date="value1" /> -->
 
   <f-dropdown trigger="click">
-    <f-button type="primary">click下拉菜单</f-button>
+    <f-link type="primary">click下拉菜单ck下拉菜单ck下拉菜单ck下拉菜单</f-link>
 
     <template #content>
       <f-dropdown-item>猕猴桃</f-dropdown-item>

@@ -11,7 +11,7 @@
   /**
    * 是否展示主内容
    */
-  const showContent: Ref<boolean> = ref<boolean>(false)
+  const showContent: Ref<boolean> = ref<boolean>(true)
 
   /**
    * 打开
@@ -88,8 +88,10 @@
 
     <!-- 展示的内容 -->
     <transition name="f-dropdown">
-      <div v-show="showContent" class="f-dropdown__content">
-        <slot name="content" />
+      <div v-show="showContent" class="f-dropdown__content-box">
+        <div class="f-dropdown__content">
+          <slot name="content" />
+        </div>
       </div>
     </transition>
   </div>

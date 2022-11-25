@@ -3,20 +3,30 @@
 .f-dropdown {
   display: inline-block;
   position: relative;
+  border: 1px solid red;
 
   // 触发器
   &__trigger {
     width: 100%;
-    padding-bottom: var(--f-dropdown-spacing-size, 8px);
+    // padding-bottom: var(--f-dropdown-spacing-size, 8px);
   }
 
-  // 主要内容
-  &__content {
-    box-shadow: 0 1px 6px #00000033;
+  // 主要内容盒子
+  &__content-box {
     position: absolute;
     width: max-content;
+    margin: 0 auto;
+    padding-top: var(--f-dropdown-spacing-size, 8px);
+    right: 0;
+    left: 0;
     z-index: 2000;
-    background: var(--f-design-color-text-2);
+
+    // 主要内容
+    .f-dropdown__content {
+      border: 1px solid transparent;
+      background: var(--f-design-color-text-2);
+      box-shadow: 0 1px 6px #00000033;
+    }
   }
 
   // 出入动画
