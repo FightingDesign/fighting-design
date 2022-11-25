@@ -66,11 +66,17 @@
 
 ## Dropdown Attributes
 
-| 参数       | 说明                   | 类型            | 可选值          | 默认值 |
-| ---------- | ---------------------- | --------------- | --------------- | ------ |
-| `spacing`  | 触发器和内容直接的间距 | string / number | ——              | ——     |
-| `trigger`  | 触发方式               | string          | `click` `hover` | hover  |
-| `disabled` | 是否禁用               | boolean         | ——              | false  |
+| 参数             | 说明                     | 类型            | 可选值          | 默认值 |
+| ---------------- | ------------------------ | --------------- | --------------- | ------ |
+| `spacing`        | 触发器和内容直接的间距   | string / number | ——              | ——     |
+| `trigger`        | 触发方式                 | string          | `click` `hover` | hover  |
+| `disabled`       | 是否禁用                 | boolean         | ——              | false  |
+| `arrow`          | 是否带有箭头             | boolean         | ——              | false  |
+| `enter-duration` | 弹出动画持续时间         | number          | ——              | ——     |
+| `leave-duration` | 关闭动画持续时间         | number          | ——              | ——     |
+| `on-change`      | 弹窗状态改变时触发的回调 | Function        | ——              | ——     |
+| `on-open`        | 弹窗状态打开时触发的回调 | Function        | ——              | ——     |
+| `on-close`       | 弹窗状态关闭时触发的回调 | Function        | ——              | ——     |
 
 ## DropdownItem Attributes
 
