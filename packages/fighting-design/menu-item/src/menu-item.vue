@@ -6,5 +6,7 @@
 </script>
 
 <template>
-  <div class="f-menu-item">FMenuItem</div>
+  <div class="f-menu-item">
+    <slot />
+  </div>
 </template>
