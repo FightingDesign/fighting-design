@@ -22,7 +22,8 @@
     }
 
     if (prop.trigger === 'click') {
-      showContent.value = !showContent.value
+      showContent.value = true
+      // showContent.value = !showContent.value
     }
 
     runCallback(prop.onOpen, showContent.value)
@@ -73,23 +74,34 @@
     /**
      * 给 document 注册点击事件，如果点击的是其它地方则隐藏
      */
-    document.addEventListener('click', (): void => {
-      if (prop.trigger === 'click' && showContent.value) {
+    document.addEventListener(
+      'click',
+      (evt: MouseEvent): void => {
+        /**
+         * 获取点击的孩子节点是否存在 f-trigger 类名的标签
+         *
+         * @see composedPath https://developer.mozilla.org/zh-CN/docs/Web/API/Event/composedPath
+         * @see some https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+         */
+        const isHaveTrigger: boolean = (
+          evt.composedPath() as HTMLElement[]
+        ).some((item: HTMLElement): boolean => item.className === 'f-trigger')
+
+        // 如果有，则说明点击是孩子节点，则不需要关闭
+        if (isHaveTrigger) return
+
+        // 否则关闭触发器
         handelClose()
-      }
-    })
+      },
+      false
+    )
   })
 </script>
 
 <template>
-  <div
-    class="f-trigger"
-    :style="styleList"
-    @[openEvent].stop="handelOpen"
-    @[closeEvent].stop="handelClose"
-  >
+  <div class="f-trigger" :style="styleList" @[closeEvent].stop="handelClose">
     <!-- 触发器 -->
-    <div class="f-trigger__trigger">
+    <div class="f-trigger__trigger" @[openEvent].stop="handelOpen">
       <slot />
     </div>
 
