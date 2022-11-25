@@ -16,16 +16,20 @@
 ::: demo
 
 <template #source>
+<f-space vertical>
 <f-input-number v-model="value1" />
 <f-input-number v-model="value1" model="switch" />
 <f-input-number v-model="value1" model="button" />
+</f-space>
 </template>
 
 ```html
 <template>
-  <f-input-number v-model="value1" />
-  <f-input-number v-model="value1" model="switch" />
-  <f-input-number v-model="value1" model="button" />
+  <f-space vertical>
+    <f-input-number v-model="value1" />
+    <f-input-number v-model="value1" model="switch" />
+    <f-input-number v-model="value1" model="button" />
+  </f-space>
 </template>
 
 <script lang="ts" setup>
@@ -65,7 +69,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type {} from 'fighting-design'
+import type {
+  InputNumberInstance,
+  InputNumberPropsType,
+  InputNumberSizeType,
+  InputNumberModelType,
+  InputNumberChangeInterface
+} from 'fighting-design'
 ```
 
 ## Contributors

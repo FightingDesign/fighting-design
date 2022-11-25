@@ -12,6 +12,8 @@ export type InputNumberModelType = 'default' | 'button' | 'switch'
 
 /**
  * 当 input 改变时触发的回调函数类型接口
+ *
+ * @param val 最新值
  */
 export interface InputNumberChangeInterface {
   (val: string): void
