@@ -7,8 +7,6 @@
     source: String
   })
 
-  console.log(prop.source)
-
   /**
    * 是否展示内容
    */

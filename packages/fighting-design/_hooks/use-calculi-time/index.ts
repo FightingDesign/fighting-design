@@ -56,8 +56,6 @@ export const useCalculiTime: UseCalculiTimeInterface = (
         const dayList: GetLunarDetailReturnInterface | -1 =
           lunar.getLunarDetail(year.value, month.value, lastDays)
 
-        console.log(dayList)
-
         if (dayList !== -1) {
           showLastListResult.push(dayList)
         } else {
@@ -123,8 +121,6 @@ export const useCalculiTime: UseCalculiTimeInterface = (
       for (let i = 0; i < monthDays; i++) {
         const dayList: GetLunarDetailReturnInterface | -1 =
           lunar.getLunarDetail(year.value, month.value + 1, i + 1)
-
-        console.log(dayList)
 
         if (dayList !== -1) {
           showNextListResult.push(dayList)

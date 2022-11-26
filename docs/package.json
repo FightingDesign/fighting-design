@@ -7,8 +7,6 @@
     "serve": "vitepress serve docs"
   },
   "dependencies": {
-    "escape-html": "^1.0.3",
-    "prismjs": "^1.29.0",
     "vitepress": "1.0.0-alpha.29"
   },
   "devDependencies": {
