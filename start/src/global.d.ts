@@ -71,6 +71,7 @@ declare module 'vue' {
     FTrigger: typeof components.FTrigger
     FMenu: typeof components.FMenu
     FMenuItem: typeof components.FMenuItem
+    FSlider: typeof components.FSlider
   }
 
   interface ComponentCustomProperties {
