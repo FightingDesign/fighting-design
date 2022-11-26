@@ -82,7 +82,8 @@ export const sidebar = {
         { text: 'Page Header 页头', link: '/components/page-header' },
         { text: 'Close Btn 关闭按钮', link: '/components/close-btn' },
         { text: 'Dropdown 下拉菜单', link: '/components/dropdown' },
-        { text: 'Trigger 触发器', link: '/components/trigger' }
+        { text: 'Trigger 触发器', link: '/components/trigger' },
+        { text: 'Menu 导航菜单', link: '/components/menu' }
       ]
     },
     {
