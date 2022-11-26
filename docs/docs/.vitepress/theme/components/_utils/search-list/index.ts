@@ -192,5 +192,15 @@ export const searchList: readonly SearchListInterface[] = [
     title: 'Input Number 数字输入框',
     rule: 'input-numberInputNumber数字输入框',
     url: 'components/input-number'
+  },
+  {
+    title: 'Trigger 触发器',
+    rule: 'triggerTrigger触发器',
+    url: 'components/trigger'
+  },
+  {
+    title: 'Menu 导航菜单',
+    rule: 'menuMenu导航菜单',
+    url: 'components/menu'
   }
 ] as const
