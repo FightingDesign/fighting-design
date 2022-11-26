@@ -36,9 +36,9 @@
 
 :::
 
-## 是否启用最大页数选择器(该选择功能正在维护)
+## 页数选择器
 
-`page-sizes`属性用来表示你想要开启最大页数选择器、传入值是一个数字类型的数组
+`page-sizes` 属性用来表示你想要开启最大页数选择器、传入值是一个数字类型的数组
 
 ::: demo
 <template #source>
@@ -51,7 +51,7 @@
     v-model:current="current"
     :total="total"
     :page-size="pagesize"
-    :page-sizes="pagesizes"
+    :page-sizes="pageSizes"
   />
 </template>
 
@@ -63,7 +63,7 @@
 
   const pagesize = ref(10)
 
-  const pagesizes = ref([10, 20, 30, 40, 50])
+  const pageSizes = ref([10, 20, 30, 40, 50])
 </script>
 ```
 
@@ -71,7 +71,9 @@
 
 ## 带背景色或圆角
 
-`background`属性控制分页是否带背景色、`round`属性控制分页是否带圆角
+`background` 属性控制分页是否带背景色
+
+`round` 属性控制分页是否带圆角
 
 ::: demo
 <template #source>
@@ -95,7 +97,7 @@
 
 :::
 
-## 自定义前后一步 Icon
+## 自定 Icon
 
 ::: demo
 <template #source>

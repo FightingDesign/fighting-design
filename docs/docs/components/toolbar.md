@@ -1,6 +1,6 @@
 # Toolbar 工具栏
 
-`Toolbar` 工具栏组件
+工具栏就用它
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/toolbar)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/toolbar.md)
@@ -109,28 +109,28 @@
 
 ## 点击事件
 
-`f-toolbar` 采用[事件委托](https://zh.javascript.info/event-delegation)，可以给 `f-toolbar` 添加事件，并给每个 `f-toolbar-item` 添加唯一的 `data-key`，那么在 `click` 的回调中就可以解构出 `key` 用于区分
+`f-toolbar` 采用[事件委托](https://zh.javascript.info/event-delegation)，可以给 `f-toolbar` 添加事件，并给每个 `f-toolbar-item` 添加唯一的 `index`，那么在 `click` 的回调中就可以解构出 `key` 用于区分
 
 也可以给每个 `f-toolbar-item` 单独添加点击事件
 
 ::: demo
 
 <template #source>
-<f-toolbar @click="handleClick">
-<f-toolbar-item data-key="1" :icon="FIconApps" />
-<f-toolbar-item data-key="2" :icon="FIconBlock" />
-<f-toolbar-item data-key="3" :icon="FIconCameraVideoSlash" />
-<f-toolbar-item data-key="4" :icon="FIconClock" />
+<f-toolbar :on-click="handleClick">
+<f-toolbar-item index="1" :icon="FIconApps" />
+<f-toolbar-item index="2" :icon="FIconBlock" />
+<f-toolbar-item index="3" :icon="FIconCameraVideoSlash" />
+<f-toolbar-item index="4" :icon="FIconClock" />
 </f-toolbar>
 </template>
 
 ```html
 <template>
-  <f-toolbar @click="handleClick">
-    <f-toolbar-item data-key="1" :icon="FIconApps" />
-    <f-toolbar-item data-key="2" :icon="FIconBlock" />
-    <f-toolbar-item data-key="3" :icon="FIconCameraVideoSlash" />
-    <f-toolbar-item data-key="4" :icon="FIconClock" />
+  <f-toolbar :on-click="handleClick">
+    <f-toolbar-item index="1" :icon="FIconApps" />
+    <f-toolbar-item index="2" :icon="FIconBlock" />
+    <f-toolbar-item index="3" :icon="FIconCameraVideoSlash" />
+    <f-toolbar-item index="4" :icon="FIconClock" />
   </f-toolbar>
 </template>
 
@@ -141,9 +141,11 @@
     FIconCameraVideoSlash,
     FIconClock
   } from '@fighting-design/fighting-icon'
+  import { FMessage } from 'fighting-design'
+  import type { ToolbarClickInterface } from 'fighting-design'
 
-  const handleClick = ({ key, evt }) => {
-    console.log(key, evt)
+  const handleClick: ToolbarClickInterface = ({ index, evt }) => {
+    FMessage.primary(`index：${index} evt：${evt}`)
   }
 </script>
 ```
@@ -161,7 +163,7 @@
 | `fixed`      | 是否固定定位       | boolean  | ——                              | false  |
 | `width`      | 自定义宽度         | string   | ——                              | ——     |
 | `height`     | 自定义高度         | string   | ——                              | ——     |
-| `click`      | 点击之后触发的回调 | Function | ——                              | ——     |
+| `on-click`   | 点击之后触发的回调 | Function | ——                              | ——     |
 
 ## Toolbar Slots
 
@@ -173,11 +175,11 @@
 
 | 参数        | 说明               | 类型                       | 可选值 | 默认值 |
 | ----------- | ------------------ | -------------------------- | ------ | ------ |
-| `data-key`  | 唯一值             | string / number            | ——     | ——     |
+| `index`     | 唯一值             | string / number            | ——     | ——     |
 | `color`     | 自定义文字颜色     | string                     | ——     | ——     |
 | `icon`      | 自定义 icon        | object (VNode / Component) | ——     | ——     |
-| `icon-size` | 自定义 icon 大小   | string / number            | ——     | 16px   |
-| `click`     | 点击之后触发的回调 | Function                   | ——     | ——     |
+| `icon-size` | 自定义 icon 大小   | string / number            | ——     | 16     |
+| `on-click`  | 点击之后触发的回调 | Function                   | ——     | ——     |
 
 ## Toolbar-Item Slots
 
@@ -212,9 +214,10 @@ import type {
 
 <script setup lang="ts">
   import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+  import { FMessage } from '../../../packages/fighting-design/index'
 
-  const handleClick = ({ key, evt }) => {
-    console.log(key, evt)
+  const handleClick = ({ index, evt }) => {
+    FMessage.primary(`index：${index} evt：${evt}`)
   }
 </script>
 

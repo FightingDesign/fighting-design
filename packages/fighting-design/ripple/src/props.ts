@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { RippleType, RippleOpacityType } from './interface'
+import type { RippleType } from './interface'
 
 export const Props = {
   /**
@@ -19,6 +19,9 @@ export const Props = {
   },
   /**
    * 涟漪类型
+   *
+   * @values default primary success danger warning
+   * @defaultValue default
    */
   type: {
     type: String as PropType<RippleType>,
@@ -40,25 +43,15 @@ export const Props = {
    * 涟漪动画开始的透明度
    */
   startOpacity: {
-    type: Number as PropType<RippleOpacityType>,
-    default: (): RippleOpacityType => 0.5,
-    validator: (val: RippleOpacityType): boolean => {
-      return (
-        [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as const
-      ).includes(val)
-    }
+    type: Number,
+    default: (): number => 0.5
   },
   /**
    * 涟漪动画结束的透明度
    */
   endOpacity: {
-    type: Number as PropType<RippleOpacityType>,
-    default: (): RippleOpacityType => 0,
-    validator: (val: RippleOpacityType): boolean => {
-      return (
-        [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as const
-      ).includes(val)
-    }
+    type: Number,
+    default: (): number => 0
   },
   /**
    * 是否禁止选中

@@ -4,6 +4,9 @@ import type { TextType, TextDecorationType } from './interface'
 export const Props = {
   /**
    * 类型
+   *
+   * @values default primary success danger warning
+   * @defaultValue default
    */
   type: {
     type: String as PropType<TextType>,
@@ -44,6 +47,8 @@ export const Props = {
   },
   /**
    * 文字间距
+   *
+   * @see letter-spacing https://developer.mozilla.org/zh-CN/docs/Web/CSS/letter-spacing
    */
   spacing: {
     type: [String, Number] as PropType<string | number>,
@@ -58,6 +63,8 @@ export const Props = {
   },
   /**
    * 首字符缩进量
+   *
+   * @see text-indent https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-indent
    */
   indent: {
     type: [String, Number] as PropType<string | number>,
@@ -72,10 +79,16 @@ export const Props = {
   },
   /**
    * 文字的修饰
+   *
+   * @see text-decoration https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration
+   * @values overline line-through underline
    */
   decoration: {
     type: String as PropType<TextDecorationType>,
-    default: (): null => null
+    default: (): null => null,
+    validator: (val: TextDecorationType): boolean => {
+      return (['overline', 'line-through', 'underline'] as const).includes(val)
+    }
   },
   /**
    * 内边距
@@ -92,7 +105,7 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 是否省略文本，需配合 `width` 宽度使用
+   * 是否省略文本，需配合 width 宽度使用
    */
   ellipsis: {
     type: Boolean,

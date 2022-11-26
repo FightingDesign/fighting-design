@@ -40,16 +40,9 @@ export const Props = {
   /**
    * 点击之后执行的回调
    */
-  click: {
+  onClick: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
-  },
-  /**
-   * hover 状态是否取消背景色
-   */
-  noHover: {
-    type: Boolean,
-    default: (): boolean => false
   }
 } as const
 

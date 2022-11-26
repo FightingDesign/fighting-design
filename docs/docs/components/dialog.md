@@ -107,10 +107,10 @@
   <f-dialog
     title="Title"
     v-model:visible="visible3"
-    :open="open"
-    :open-end="openEnd"
-    :close="close"
-    :close-end="closeEnd"
+    :on-open="open"
+    :on-open-end="openEnd"
+    :on-close="close"
+    :on-close-end="closeEnd"
   >
     <h3>沁园春·雪</h3>
 
@@ -159,10 +159,10 @@
 | `close-icon`      | 自定义关闭按钮 icon                                                                 | object (VNode / Component) | ——     | ——     |
 | `show-close-icon` | 是否展示关闭图标                                                                    | boolean                    | ——     | true   |
 | `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                     | ——     | 1999   |
-| `open`            | 打开动画开始的回调                                                                  | Function                   | ——     | ——     |
-| `open-end`        | 打开动画结束的回调                                                                  | Function                   | ——     | ——     |
-| `close`           | 关闭动画开始的回调                                                                  | Function                   | ——     | ——     |
-| `close-end`       | 关闭动画结束的回调                                                                  | Function                   | ——     | ——     |
+| `on-open`         | 打开动画开始的回调                                                                  | Function                   | ——     | ——     |
+| `on-open-end`     | 打开动画结束的回调                                                                  | Function                   | ——     | ——     |
+| `on-close`        | 关闭动画开始的回调                                                                  | Function                   | ——     | ——     |
+| `on-close-end`    | 关闭动画结束的回调                                                                  | Function                   | ——     | ——     |
 
 ## Slots
 

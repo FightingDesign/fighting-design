@@ -2,6 +2,9 @@ import type { VNode, PropType, ExtractPropTypes } from 'vue'
 import type { NotificationType, NotificationPlacementType } from './interface'
 
 export const Props = {
+  /**
+   * id 唯一值
+   */
   id: {
     type: String,
     default: (): null => null
@@ -23,6 +26,9 @@ export const Props = {
   },
   /**
    * 消息类型
+   *
+   * @values default primary success danger warning
+   * @defaultValue default
    */
   type: {
     type: String as PropType<NotificationType>,
@@ -91,6 +97,9 @@ export const Props = {
   },
   /**
    * 弹出位置
+   *
+   * @values top-left top-right bottom-left bottom-right
+   * @defaultValue top-right
    */
   placement: {
     type: String as PropType<NotificationPlacementType>,
@@ -118,7 +127,7 @@ export const Props = {
   /**
    * 关闭之后回调
    */
-  closeEnd: {
+  onClose: {
     type: Function,
     default: (): null => null
   }

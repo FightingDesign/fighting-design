@@ -11,6 +11,8 @@ export const Props = {
   },
   /**
    * 滚动模式
+   * 
+   * @see scrollTo https://developer.mozilla.org/zh-CN/docs/Web/API/Window/scrollTo
    */
   behavior: {
     type: String as PropType<BackTopBehaviorType>,
@@ -32,19 +34,19 @@ export const Props = {
    */
   right: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '40px'
+    default: (): number => 40
   },
   /**
    * 距离底部的距离
    */
   bottom: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '40px'
+    default: (): number => 40
   },
   /**
    * 原生 z-index 属性
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+   * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
   zIndex: {
     type: Number,
@@ -71,14 +73,14 @@ export const Props = {
    */
   background: {
     type: String,
-    default: (): string => '#fff'
+    default: (): null => null
   },
   /**
    * 文字颜色
    */
   color: {
     type: String,
-    default: (): string => '#333'
+    default: (): null => null
   }
 } as const
 

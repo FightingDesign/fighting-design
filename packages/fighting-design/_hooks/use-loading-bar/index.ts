@@ -9,13 +9,13 @@ import type { VNode } from 'vue'
 
 /**
  * loading-bar 加载条组件方法
+ *
  * @returns { UseLoadingBarReturnInterface }
  */
 export const useLoadingBar: UseLoadingBarInterface =
   (): UseLoadingBarReturnInterface => {
     /**
      * 开始加载
-     * @returns { void }
      */
     const start: OrdinaryFunctionInterface = (): void => {
       const node: VNode = h(LoadingBarVue)
@@ -24,7 +24,6 @@ export const useLoadingBar: UseLoadingBarInterface =
 
     /**
      * 结束加载
-     * @return { void }
      */
     const finish: OrdinaryFunctionInterface = (): void => {
       const node: VNode = h(LoadingBarVue, { type: 'finish' })
@@ -33,7 +32,6 @@ export const useLoadingBar: UseLoadingBarInterface =
 
     /**
      * 加载失败
-     * @return { void }
      */
     const error: OrdinaryFunctionInterface = (): void => {
       const node: VNode = h(LoadingBarVue, { type: 'error' })

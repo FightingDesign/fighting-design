@@ -240,26 +240,26 @@
 
 ## CheckboxGroup Attributes
 
-| 参数                   | 说明             | 类型            | 可选值                          | 默认值 |
-| ---------------------- | ---------------- | --------------- | ------------------------------- | ------ |
-| `modelValue / v-model` | 绑定值           | array           | ——                              | ——     |
-| `disabled`             | 是否禁用         | boolean         | ——                              | false  |
-| `border`               | 是否显示边框     | boolean         | ——                              | false  |
-| `size`                 | 尺寸             | string          | `large` `middle` `small` `mini` | middle |
-| `vertical`             | 是否纵向排列     | boolean         | ——                              | false  |
-| `column-gap`           | 横向排列的间距   | string / number | ——                              | ——     |
-| `row-gap`              | 纵向排列的间距   | string / number | ——                              | ——     |
-| `change`               | 绑定值变化时触发 | Function        | ——                              | ——     |
+| 参数                   | 说明                   | 类型            | 可选值                          | 默认值 |
+| ---------------------- | ---------------------- | --------------- | ------------------------------- | ------ |
+| `modelValue / v-model` | 绑定值                 | array           | ——                              | ——     |
+| `disabled`             | 是否禁用               | boolean         | ——                              | false  |
+| `border`               | 是否显示边框           | boolean         | ——                              | false  |
+| `size`                 | 尺寸                   | string          | `large` `middle` `small` `mini` | middle |
+| `vertical`             | 是否纵向排列           | boolean         | ——                              | false  |
+| `column-gap`           | 横向排列的间距         | string / number | ——                              | ——     |
+| `row-gap`              | 纵向排列的间距         | string / number | ——                              | ——     |
+| `on-change`            | 绑定值变化时触发的回调 | Function        | ——                              | ——     |
 
 ## Checkbox Attributes
 
-| 参数                   | 说明               | 类型                      | 可选值 | 默认值 |
-| ---------------------- | ------------------ | ------------------------- | ------ | ------ |
-| `modelValue / v-model` | 绑定值             | boolean                   | ——     | ——     |
-| `disabled`             | 是否禁用           | boolean                   | ——     | false  |
-| `label`                | 单选框对应的值     | string / number / boolean | ——     | ——     |
-| `change`               | 绑定值变化时触发   | Function                  | ——     | ——     |
-| `indeterminate`        | 是否为半选状态样式 | boolean                   | ——     | false  |
+| 参数                   | 说明                   | 类型                      | 可选值 | 默认值 |
+| ---------------------- | ---------------------- | ------------------------- | ------ | ------ |
+| `modelValue / v-model` | 绑定值                 | boolean                   | ——     | ——     |
+| `disabled`             | 是否禁用               | boolean                   | ——     | false  |
+| `label`                | 单选框对应的值         | string / number / boolean | ——     | ——     |
+| `indeterminate`        | 是否为半选状态样式     | boolean                   | ——     | false  |
+| `on-change`            | 绑定值变化时触发的回调 | Function                  | ——     | ——     |
 
 ## Interface
 

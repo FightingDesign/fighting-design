@@ -21,19 +21,19 @@ export const Props = {
    */
   iconSize: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '16px'
+    default: (): number => 16
   },
   /**
    * 唯一值
    */
-  dataKey: {
+  index: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /**
    * 点击之后触发的回调
    */
-  click: {
+  onClick: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

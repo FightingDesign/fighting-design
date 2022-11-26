@@ -1,0 +1,36 @@
+@use './root';
+
+.f-menu {
+  height: 60px;
+  border: 1px solid #ccc;
+  background: var(--f-design-color-text-2);
+  display: flex;
+  padding: 0 17px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+
+  // logo
+  &__logo {
+    height: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // 主要内容
+  &__content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0 20px;
+  }
+
+  // 选项内容
+  &__option {
+    height: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

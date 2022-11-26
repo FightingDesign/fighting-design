@@ -9,7 +9,7 @@
     FIconEyeOffOutlineVue,
     FIconEyeOutlineVue
   } from '../../_svg'
-  import { isString, runCallback } from '../../_utils'
+  import { isString, runCallback, isNumber } from '../../_utils'
   import { useUpdateInput, useFilterProps } from '../../_hooks'
   import type { Ref } from 'vue'
   import type { InputType } from './interface'
@@ -22,12 +22,17 @@
 
   const prop: InputPropsType = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: string): boolean => isString(val)
+    'update:modelValue': (val: string | number): boolean =>
+      isString(val) || isNumber(val)
   })
 
-  // type 类型
+  /**
+   * type 类型
+   */
   const inputType: Ref<InputType> = ref<InputType>(prop.type)
-  // 是否展示密码
+  /**
+   * 是否展示密码
+   */
   const showPass: Ref<boolean> = ref<boolean>(false)
   /**
    * 使用 useUpdateInput hook 实现同步数据
@@ -38,7 +43,8 @@
     useFilterProps<InputPropsType, UseUpdateInputPropsInterface>(prop, [
       'onChange',
       'onInput',
-      'disabled'
+      'disabled',
+      'type'
     ]),
     emit
   )
@@ -123,7 +129,7 @@
         @focus="onFocus"
       />
 
-      <!-- 清楚 icon -->
+      <!-- 清除 icon -->
       <f-svg-icon
         v-if="clear"
         class="f-input__clear-btn"

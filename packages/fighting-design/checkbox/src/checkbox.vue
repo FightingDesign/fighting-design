@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FCheckbox">
   import { Props } from './props'
-  import { computed, inject, getCurrentInstance, ref } from 'vue'
+  import { computed, inject } from 'vue'
   import { isArray, runCallback } from '../../_utils'
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import type { ClassListInterface } from '../../_interface'
@@ -8,12 +8,7 @@
     CheckboxGroupLabelType,
     CheckboxGroupInjectPropsType
   } from '../../checkbox-group'
-  import type {
-    ComputedRef,
-    Ref,
-    ComponentInternalInstance,
-    WritableComputedRef
-  } from 'vue'
+  import type { ComputedRef, WritableComputedRef } from 'vue'
   import type { CheckboxPropsType, CheckboxLabelType } from './interface'
 
   const prop: CheckboxPropsType = defineProps(Props)
@@ -22,25 +17,12 @@
       typeof val !== 'object'
   })
 
-  const groupProps: Ref<CheckboxGroupInjectPropsType | null> = ref(null)
-
-  // 获取父组件注入的依赖项
-  const getGroupInject = (): void => {
-    const { parent } = getCurrentInstance() as ComponentInternalInstance
-    const parentName: string | undefined = (parent as ComponentInternalInstance)
-      .type.name
-
-    /**
-     * 检测父组件是不是 FCheckboxGroup
-     * 只有 FCheckboxGroup 才是可注入依赖的父组件
-     */
-    if (parentName && parentName === 'FCheckboxGroup') {
-      groupProps.value = inject<CheckboxGroupInjectPropsType>(
-        CHECKBOX_GROUP_PROPS_KEY
-      ) as CheckboxGroupInjectPropsType
-    }
-  }
-  getGroupInject()
+  /**
+   * 获取父组件注入的依赖项
+   */
+  const INJECT_DEPEND: CheckboxGroupInjectPropsType | undefined = inject<
+    CheckboxGroupInjectPropsType | undefined
+  >(CHECKBOX_GROUP_PROPS_KEY, undefined)
 
   /**
    * 绑定值
@@ -49,26 +31,26 @@
     /**
      * 获取值
      */
-    get () {
-      return (
-        (groupProps.value && groupProps.value.modelValue) || prop.modelValue
-      )
+    get() {
+      return (INJECT_DEPEND && INJECT_DEPEND.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set (val) {
-      if (groupProps.value && !groupProps.value.disabled) {
-        groupProps.value.changeEvent(val)
+    set(val) {
+      if (INJECT_DEPEND && !INJECT_DEPEND.disabled) {
+        INJECT_DEPEND.changeEvent(val)
         return
       }
       if (prop.disabled) return
-      runCallback(prop.change, val)
+      runCallback(prop.onChange, val)
       emit('update:modelValue', val)
     }
   })
 
-  // 是否被选中
+  /**
+   * 是否被选中
+   */
   const isChecked: ComputedRef<boolean> = computed((): boolean => {
     const val: CheckboxGroupLabelType = modelValue.value
 
@@ -90,9 +72,9 @@
         {
           'f-checkbox__selected': isChecked.value,
           'f-checkbox__indeterminate': prop.indeterminate,
-          'f-checkbox__bordered': groupProps.value && groupProps.value.border,
+          'f-checkbox__bordered': INJECT_DEPEND && INJECT_DEPEND.border,
           'f-checkbox__disabled':
-            prop.disabled || (groupProps.value && groupProps.value.disabled)
+            prop.disabled || (INJECT_DEPEND && INJECT_DEPEND.disabled)
         }
       ] as const
     }
@@ -113,9 +95,12 @@
       class="f-checkbox__input"
       hidden
       :value="label"
-      :disabled="disabled || (!!groupProps && groupProps.disabled)"
+      :disabled="disabled || (!!INJECT_DEPEND && INJECT_DEPEND.disabled)"
     />
-    <span v-if="!(groupProps && groupProps.border)" class="f-checkbox__box" />
+    <span
+      v-if="!(INJECT_DEPEND && INJECT_DEPEND.border)"
+      class="f-checkbox__box"
+    />
     <span class="f-checkbox__text">
       <slot />
       <template v-if="!$slots.default && showLabel">{{ label }}</template>

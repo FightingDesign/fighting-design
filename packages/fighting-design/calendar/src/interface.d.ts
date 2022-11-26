@@ -8,6 +8,9 @@ export type CalendarTargetType = 'last' | 'now' | 'next'
  * 当前日期高亮显示
  *
  * 如果是当然日期，返回特殊类名高亮显示
+ *
+ * @param _month 当前月份
+ * @param _date 当前日期
  */
 export interface CalendarMowDataClassListInterface {
   (_month: number, _date: number): string
@@ -25,10 +28,8 @@ export interface CalendarOptionClickInterface {
 /**
  * 点击对每一天
  *
- * _month 月份
- *
- * _date 日期
- *
+ * @param _month 当前月份
+ * @param _date 当前日期
  */
 export interface CalendarHandleClickInterface {
   (_month: number, _date: number): void
@@ -37,7 +38,11 @@ export interface CalendarHandleClickInterface {
 /**
  * 日历组件对于日期切换，和月份切换的回调函数接口
  *
- * 可在参数中结构出年、月、日
+ * 可在参数中解构出年、月、日
+ *
+ * @param year 年份
+ * @param month 月份
+ * @param date 日期
  */
 export interface CalendarCallbackInterface {
   ({ year: number, month: number, date: number }): void
@@ -45,6 +50,9 @@ export interface CalendarCallbackInterface {
 
 /**
  * 备忘录对象类型接口
+ *
+ * @param type 标签类型
+ * @param content 标签内容
  */
 export interface CalendarMemorandumContentInterface {
   type?: 'default' | 'primary' | 'success' | 'danger' | 'warning'
@@ -66,7 +74,7 @@ export type CalendarMemorandumType = Record<
 /**
  * 检测当前日期是否存在备忘录接口
  *
- * date 传入日期字符串
+ * @param date 传入日期字符串
  */
 export interface CalendarIsMemorandumInterface {
   (date: string): boolean
@@ -75,12 +83,9 @@ export interface CalendarIsMemorandumInterface {
 /**
  * 日期切换类型接口
  *
- * last 切换到上个月
- *
- * next 切换到下个月
- *
- * now 切换到当前时间
- *
+ * @param last 切换到上个月
+ * @param next 切换到下个月
+ * @param now 切换到当前时间
  */
 export interface CalendarOptionInterface {
   last: OrdinaryFunctionInterface

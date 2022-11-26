@@ -45,6 +45,9 @@ export const Props = {
   },
   /**
    * 按钮尺寸
+   *
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: String as PropType<ButtonSizeType>,
@@ -72,7 +75,7 @@ export const Props = {
    *
    * 原生属性
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
+   * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: {
     type: String as PropType<ButtonTargetType>,
@@ -104,6 +107,9 @@ export const Props = {
   },
   /**
    * 按钮的类型（非自定义按钮颜色时有效）
+   *
+   * @values default primary success danger warning
+   * @defaultValue default
    */
   type: {
     type: String as PropType<ButtonType>,
@@ -124,7 +130,7 @@ export const Props = {
   /**
    * 原生 name 属性
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-name
+   * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-name
    */
   name: {
     type: String,
@@ -147,7 +153,7 @@ export const Props = {
   /**
    * 原生 type 属性
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
+   * @see type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
    */
   nativeType: {
     type: String as PropType<ButtonNativeType>,
@@ -201,7 +207,7 @@ export const Props = {
   /**
    * 点击之后的回调函数
    */
-  click: {
+  onClick: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

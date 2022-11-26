@@ -7,18 +7,28 @@
   import type { ListItemPropsType } from './props'
 
   const prop: ListItemPropsType = defineProps(Props)
-  const injectListProps: ListPropsType = inject(LIST_PROPS_KEY) as ListPropsType
+
+  // 获取到注入的依赖项
+  const INJECT_DEPEND: ListPropsType | undefined = inject<
+    ListPropsType | undefined
+  >(LIST_PROPS_KEY, undefined)
 
   /**
    * 样式列表
    */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { textColor, borderColor } = injectListProps
     const { background, color } = prop
+
+    // 如果没有注入依赖，则直接返回自己的参数
+    if (!INJECT_DEPEND) {
+      return { background, color } as const
+    }
+
+    const { textColor, borderColor } = INJECT_DEPEND
 
     return {
       background,
-      color: color || textColor,
+      color: textColor,
       borderColor
     } as const
   })

@@ -5,6 +5,9 @@ import type { HandleMouseEventInterface } from '../../_interface'
 export const Props = {
   /**
    * 标签类型
+   *
+   * @values default primary success danger warning
+   * @defaultValue default
    */
   type: {
     type: String as PropType<TagType>,
@@ -58,7 +61,10 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 标签大小
+   * 尺寸
+   *
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: String as PropType<TagSizeType>,
@@ -91,7 +97,7 @@ export const Props = {
   /**
    * 点击关闭按钮触发
    */
-  closeEnd: {
+  onClose: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

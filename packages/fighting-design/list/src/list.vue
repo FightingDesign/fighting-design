@@ -33,12 +33,11 @@
    * 样式列表
    */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { maxHeight, borderColor, listStyle } = prop
+    const { maxHeight, borderColor } = prop
 
     return {
       borderColor,
-      maxHeight: sizeChange(maxHeight),
-      listStyle
+      maxHeight: sizeChange(maxHeight)
     } as const
   })
 </script>
@@ -48,7 +47,9 @@
     <header v-if="$slots.header" class="f-list__header">
       <slot name="header" />
     </header>
+
     <slot />
+
     <footer v-if="$slots.footer" class="f-list__footer">
       <slot name="footer" />
     </footer>

@@ -63,5 +63,8 @@
 @use './src/input-number.scss';
 @use './src/pagination';
 @use './src/tabs';
-@use './src/date-picker.scss';
-@use './src/time-picker.scss';
+@use './src/date-picker';
+@use './src/time-picker';
+@use './src/trigger';
+@use './src/menu';
+@use './src/menu-item';

@@ -17,14 +17,17 @@ import type {
  */
 export const useOperationImg: UseOperationImgInterface =
   (): UseOperationImgReturnInterface => {
-    // 放大倍数
+    /**
+     * 放大倍数
+     */
     const scale: Ref<number> = ref<number>(1)
-    // 旋转度数
+    /**
+     * 旋转度数
+     */
     const rotate: Ref<number> = ref<number>(0)
 
     /**
      * 图片缩小
-     * @returns { void }
      */
     const smaller: OrdinaryFunctionInterface = (): void => {
       keepDecimal(scale.value, 1) >= 0.2 && (scale.value -= 0.2)
@@ -32,7 +35,6 @@ export const useOperationImg: UseOperationImgInterface =
 
     /**
      * 图片放大
-     * @returns { void }
      */
     const bigger: OrdinaryFunctionInterface = (): void => {
       scale.value <= 10 && (scale.value += 0.2)
@@ -41,7 +43,6 @@ export const useOperationImg: UseOperationImgInterface =
     /**
      * 滚轮缩放
      * @param evt 鼠标滚轮事件对象
-     * @returns { void }
      */
     const scrollZoom: HandleWheelEventInterface = (evt: WheelEvent): void => {
       evt.preventDefault()
@@ -50,7 +51,6 @@ export const useOperationImg: UseOperationImgInterface =
 
     /**
      * 还原图片
-     * @return { void }
      */
     const recovery: OrdinaryFunctionInterface = (): void => {
       scale.value = 1
@@ -59,7 +59,6 @@ export const useOperationImg: UseOperationImgInterface =
 
     /**
      * 顺时针旋转
-     * @return { void }
      */
     const rotateClockwise: OrdinaryFunctionInterface = (): void => {
       rotate.value += 90
@@ -67,7 +66,6 @@ export const useOperationImg: UseOperationImgInterface =
 
     /**
      * 逆时针旋转
-     * @return { void }
      */
     const rotateCounterClock: OrdinaryFunctionInterface = (): void => {
       rotate.value -= 90

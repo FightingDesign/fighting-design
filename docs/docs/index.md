@@ -3,8 +3,8 @@ layout: home
 title: Fighting Design
 ---
 
-<Home />
+<vp-home />
 
 <script setup lang="ts">
-import Home from '@theme/Home.vue'
+  import { VpHome } from '@theme/components'
 </script>

@@ -2,7 +2,8 @@ import type {
   OrdinaryFunctionInterface,
   HandleEventInterface
 } from '../../_interface'
-import type { TextareaChangeInterface } from '../../textarea/src/interface'
+import type { TextareaChangeInterface } from '../../textarea'
+import type { InputType } from '../../input'
 
 export type {
   OrdinaryFunctionInterface,
@@ -19,6 +20,7 @@ export interface UseUpdateInputPropsInterface {
   onInput: TextareaChangeInterface | null
   onChange: TextareaChangeInterface | null
   disabled: boolean
+  type?: InputType
 }
 
 /**
@@ -49,10 +51,10 @@ export interface UseUpdateInputReturnInterface {
 
 /**
  * 回调函数类型
- * 
+ *
  * @param event 回调事件名
  * @param val 回调参数
  */
 export interface UseUpdateInputEmitInterface {
-  (event: 'update:modelValue', val: string): void
+  (event: 'update:modelValue', val: string | number): void
 }

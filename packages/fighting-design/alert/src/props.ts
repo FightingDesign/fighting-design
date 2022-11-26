@@ -5,6 +5,9 @@ import type { HandleMouseEventInterface } from '../../_interface'
 export const Props = {
   /**
    * 类型
+   *
+   * @values primary success danger warning default
+   * @defaultValue default
    */
   type: {
     type: String as PropType<AlertType>,
@@ -104,7 +107,7 @@ export const Props = {
    */
   overflow: {
     type: String as PropType<AlertOverflowType>,
-    default: (): AlertOverflowType => '',
+    default: (): null => null,
     validator: (val: AlertOverflowType) => {
       return (['hidden', ''] as const).includes(val)
     }
@@ -124,9 +127,9 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 关闭之后执行的回调函数
+   * 点击关闭之后执行的回调
    */
-  closeEnd: {
+  onClose: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

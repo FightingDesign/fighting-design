@@ -11,7 +11,8 @@ export class ChangeColor implements ChangeColorInterface {
   }
   /**
    * 将 hex 色号转换为 rgb
-   * @returns { String[] | void }
+   *
+   * @returns { Array<string> }
    */
   hexToRgb = (): string[] | void => {
     const r = /^\#?[0-9A-Fa-f]{6}$/
@@ -27,8 +28,9 @@ export class ChangeColor implements ChangeColorInterface {
   }
   /**
    * 将 rgb 色号转换为 hex
+   *
    * @param rgb rgb 色号
-   * @returns { String }
+   * @returns { Array<string> }
    */
   rgbToHex = (...rgb: string[]): string => {
     const hex: string[] = [...rgb]
@@ -41,6 +43,7 @@ export class ChangeColor implements ChangeColorInterface {
   }
   /**
    * 加深颜色
+   *
    * @param level 加深程度
    * @returns { String }
    */
@@ -53,6 +56,7 @@ export class ChangeColor implements ChangeColorInterface {
   }
   /**
    * 减淡颜色
+   *
    * @param level 减淡程度
    * @returns { String }
    */

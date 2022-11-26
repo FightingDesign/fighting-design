@@ -1,6 +1,5 @@
 import {
   LUNAR_INFO,
-  // SOLAR_MONTH,
   DAY_GAN,
   DAY_ZHI,
   ANIMALS,
@@ -14,10 +13,19 @@ import {
 } from '../calendar-data'
 import type { GetLunarDetailReturnInterface, LunarInterface } from './interface'
 
+/**
+ * 计算当前日期相关
+ *
+ * 主要用作 calendar 组件
+ *
+ * 仅支持 1900-2100
+ */
 export class Lunar implements LunarInterface {
   /**
    * 返回农历 year 年一整年的总天数
+   *
    * @param year 年份
+   * @returns { Number } 总天数
    */
   getLunarYearDays = (year: number): number => {
     let i: number
@@ -30,8 +38,9 @@ export class Lunar implements LunarInterface {
 
   /**
    * 返回农历 year 年闰月是哪个月；若 year 年没有闰月 则返回 0
+   *
    * @param year 年份
-   * @returns
+   * @returns { Number }
    */
   leapMonth = (year: number): number => {
     return LUNAR_INFO[year - 1900] & 0xf
@@ -39,8 +48,9 @@ export class Lunar implements LunarInterface {
 
   /**
    * 返回农历 year 年闰月的天数 若该年没有闰月则返回 0
+   *
    * @param year 年份
-   * @returns
+   * @returns { Number }
    */
   leapDays = (year: number): number => {
     if (this.leapMonth(year)) {
@@ -51,8 +61,10 @@ export class Lunar implements LunarInterface {
 
   /**
    * 返回农历 year 年 month 月（非闰月）的总天数，计算 month 为闰月时的天数请使用 leapDays 方法
+   *
    * @param year 农历年份
    * @param month 农历月份
+   * @returns { Number }
    */
   monthDays = (year: number, month: number): number => {
     if (month > 12 || month < 1) {
@@ -64,8 +76,9 @@ export class Lunar implements LunarInterface {
 
   /**
    * 农历年份转换为干支纪年
+   *
    * @param lYear 农历年份
-   * @return
+   * @return { String }
    */
   toGanZhiYear = (lYear: number): string => {
     let ganKey: number = (lYear - 3) % 10
@@ -77,8 +90,10 @@ export class Lunar implements LunarInterface {
 
   /**
    * 公历月、日判断所属星座
+   *
    * @param cMonth 公历月
    * @param cDay 公历日
+   * @return { String }
    */
   toConstellation = (cMonth: number, cDay: number): string => {
     const s =
@@ -89,8 +104,9 @@ export class Lunar implements LunarInterface {
 
   /**
    * 传入 offset 偏移量返回干支
+   *
    * @param offset 相对甲子的偏移量
-   * @returns
+   * @return { String }
    */
   toGanZhi = (offset: number): string => {
     return DAY_GAN[offset % 10] + DAY_ZHI[offset % 12]
@@ -98,9 +114,10 @@ export class Lunar implements LunarInterface {
 
   /**
    * 传入公历(!) year 年获得该年第 n 个节气的公历日期
+   *
    * @param year 公历年 (1900-2100)
    * @param n  n二十四节气中的第几个节气 (1~24)；从 n=1 (小寒) 算起
-   * @returns day Number
+   * @return { Number }
    */
   getTerm = (year: number, n: number): number => {
     if (year < 1900 || year > 2100 || n < 1 || n > 24) {
@@ -118,8 +135,9 @@ export class Lunar implements LunarInterface {
 
   /**
    * 传入农历数字月份返回汉语通俗表示法
+   *
    * @param month 农历月份
-   * @returns
+   * @return { String | Number }
    */
   toChinaMonth = (month: number): string | -1 => {
     // 若参数错误 返回-1
@@ -133,8 +151,9 @@ export class Lunar implements LunarInterface {
 
   /**
    * 传入农历日期数字返回汉字表示法
+   *
    * @param day 农历日期
-   * @returns
+   * @return { String }
    */
   toChinaDay = (day: number): string => {
     let s: string
@@ -156,9 +175,10 @@ export class Lunar implements LunarInterface {
   }
 
   /**
-   * 年份转生肖[!仅能大致转换] => 精确划分生肖分界线是“立春”
+   * 年份转生肖[!仅能大致转换] => 精确划分生肖分界线是 “立春”
+   *
    * @param year 年份
-   * @returns
+   * @return { String }
    */
   getAnimal = (year: number): string => {
     return ANIMALS[(year - 4) % 12]
@@ -166,10 +186,10 @@ export class Lunar implements LunarInterface {
 
   /**
    * 传入阳历年月日获得详细的信息
+   *
    * @param yPara 阳历年份
    * @param mPara 阳历月份
    * @param dPara 阳历日期
-   * @returns
    */
   getLunarDetail = (
     yPara: number,
@@ -222,21 +242,8 @@ export class Lunar implements LunarInterface {
       i--
     }
 
-    // 是否今天
-    const isTodayObj: Date = new Date()
-    let isToday = false
-
-    if (
-      isTodayObj.getFullYear() === y &&
-      isTodayObj.getMonth() + 1 === m &&
-      isTodayObj.getDate() === d
-    ) {
-      isToday = true
-    }
-
     // 星期几
     let nWeek: number = objDate.getDay()
-    const cWeek: string = CONVERT_DIGIT_CHINES[nWeek]
 
     // 数字表示周几顺应天朝周一开始的惯例
     if (nWeek === 0) {
@@ -293,15 +300,12 @@ export class Lunar implements LunarInterface {
     }
 
     // 传入的日期的节气与否
-    let isTerm = false
     let Term = null
 
     if (firstNode === d) {
-      isTerm = true
       Term = SOLAR_TERM[m * 2 - 2]
     }
     if (secondNode === d) {
-      isTerm = true
       Term = SOLAR_TERM[m * 2 - 1]
     }
     // 日柱 当月一日与 1900/1/1 相差天数
@@ -317,43 +321,43 @@ export class Lunar implements LunarInterface {
     const festivalDate: string = m + '-' + d
     let lunarFestivalDate: string = month + '-' + day
 
-    // bugfix https://github.com/jjonline/calendar.js/issues/29
-    // 农历节日修正：农历12月小月则29号除夕，大月则30号除夕
-    // 此处取巧修正：当前为农历12月29号时增加一次判断并且把lunarFestivalDate设置为12-30以正确取得除夕
-    // 天朝农历节日遇闰月过前不过后的原则，此处取农历12月天数不考虑闰月
-    // 农历润12月在本工具支持的200年区间内仅1574年出现
+    /**
+     * @see github https://github.com/jjonline/calendar.js/issues/29
+     *
+     * 农历节日修正：农历 12 月小月则 29 号除夕，大月则 30 号除夕
+     * 此处取巧修正：当前为农历 12 月 29 号时增加一次判断并且把 lunarFestivalDate 设置为 12-30 以正确取得除夕
+     * 天朝农历节日遇闰月过前不过后的原则，此处取农历 12 月天数不考虑闰月
+     * 农历润 12 月在本工具支持的 200 年区间内仅 1574 年出现
+     */
     if (month === 12 && day === 29 && this.monthDays(year, month) === 29) {
       lunarFestivalDate = '12-30'
     }
 
     return {
-      date: solarDate, // 阳历
-      lunarDate, // 农历
+      date: solarDate,
+      lunarDate,
       festival: SOLAR_CALENDAR_FESTIVE[festivalDate]
         ? SOLAR_CALENDAR_FESTIVE[festivalDate].title
-        : '', // 阳历节日
+        : '',
       lunarFestival: LUNAR_FESTIVE[lunarFestivalDate]
         ? LUNAR_FESTIVE[lunarFestivalDate].title
-        : '', // 农历节日
-      lYear: year, // 农历年份
-      lMonth: month, // 农历月份
-      lDay: day, // // 农历日
-      animal: this.getAnimal(year), // 生肖
+        : '',
+      lYear: year,
+      lMonth: month,
+      lDay: day,
+      animal: this.getAnimal(year),
       IMonthCn: (isLeap ? '\u95f0' : '') + this.toChinaMonth(month),
       IDayCn: this.toChinaDay(day),
       cYear: y,
       cMonth: m,
       cDay: d,
-      gzYear: gzY, // 纪年
-      gzMonth: gzM, // 纪月
-      gzDay: gzD, // 纪日
-      isToday,
+      gzYear: gzY,
+      gzMonth: gzM,
+      gzDay: gzD,
       isLeap,
       nWeek,
-      ncWeek: '\u661f\u671f' + cWeek,
-      isTerm,
       Term,
-      constellation // 星座
+      constellation
     } as GetLunarDetailReturnInterface
   }
 }

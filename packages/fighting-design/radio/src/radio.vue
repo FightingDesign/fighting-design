@@ -4,10 +4,7 @@
   import { computed, inject } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
   import type { ComputedRef, WritableComputedRef } from 'vue'
-  import type {
-    RadioGroundInterface,
-    RadioLabelType
-  } from '../../radio-group/src/interface'
+  import type { RadioGroundInterface, RadioLabelType } from '../../radio-group'
   import type { ClassListInterface } from '../../_interface'
   import type { RadioPropsType } from './props'
 
@@ -17,8 +14,10 @@
       isString(val) || isNumber(val) || isBoolean(val)
   })
 
-  // 父组件注入的依赖项
-  const groupProps: RadioGroundInterface | undefined = inject<
+  /**
+   * 获取父组件注入的依赖项
+   */
+  const INJECT_DEPEND: RadioGroundInterface | undefined = inject<
     RadioGroundInterface | undefined
   >(RADIO_GROUP_PROPS_kEY, undefined)
 
@@ -28,20 +27,20 @@
      * 如果父组件有依赖注入则使用
      * 否则使用之身 props 参数
      */
-    get () {
-      return (groupProps && groupProps.modelValue) || prop.modelValue
+    get() {
+      return (INJECT_DEPEND && INJECT_DEPEND.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set (val) {
-      if (groupProps && !groupProps.disabled) {
-        groupProps.changeEvent(val)
+    set(val) {
+      if (INJECT_DEPEND && !INJECT_DEPEND.disabled) {
+        INJECT_DEPEND.changeEvent(val)
         return
       }
       if (prop.disabled) return
       emit('update:modelValue', val)
-      runCallback(prop.change, val)
+      runCallback(prop.onChange, val)
     }
   })
 
@@ -53,8 +52,9 @@
         'f-radio',
         {
           'f-radio__checked': modelValue.value === prop.label,
-          'f-radio__margin': !groupProps,
-          'f-radio__disabled': disabled || (groupProps && groupProps.disabled)
+          'f-radio__margin': !INJECT_DEPEND,
+          'f-radio__disabled':
+            disabled || (INJECT_DEPEND && INJECT_DEPEND.disabled)
         }
       ] as const
     }
@@ -78,7 +78,7 @@
       :disabled="disabled"
       :name="name"
     />
-    <span v-if="!groupProps?.border" class="f-radio__circle" />
+    <span v-if="!INJECT_DEPEND?.border" class="f-radio__circle" />
     <span class="f-radio__text">
       <slot>{{ label }}</slot>
     </span>

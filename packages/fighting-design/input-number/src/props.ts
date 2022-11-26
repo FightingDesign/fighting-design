@@ -1,19 +1,26 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { InputNumberSizeType, InputNumberModelType, InputNumberChangeInterface } from './interface'
 import type {
-  HandleFocusEventInterface
-} from '../../_interface'
+  InputNumberSizeType,
+  InputNumberModelType,
+  InputNumberChangeInterface
+} from './interface'
+import type { HandleFocusEventInterface } from '../../_interface'
 
 export const Props = {
   /**
    * 绑定值
+   *
+   * @defaultValue 1
    */
   modelValue: {
     type: Number,
     default: (): number => 1
   },
   /**
-   * 类型
+   * 模式
+   *
+   * @values default button switch
+   * @defaultValue default
    */
   model: {
     type: String as PropType<InputNumberModelType>,
@@ -38,6 +45,9 @@ export const Props = {
   },
   /**
    * 尺寸
+   *
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: String as PropType<InputNumberSizeType>,
@@ -83,7 +93,7 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 原生name属性
+   * 原生 name 属性
    */
   name: {
     type: String,
@@ -111,8 +121,8 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-  * 绑定值发生改变时触发的回调
-  */
+   * 绑定值发生改变时触发的回调
+   */
   onChange: {
     type: Function as PropType<InputNumberChangeInterface>,
     default: (): null => null

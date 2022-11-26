@@ -13,7 +13,9 @@
 
   const prop: ExpandCardPropsType = defineProps(Props)
 
-  // 当前显示的位置
+  /**
+   * 当前显示的位置
+   */
   const currExpandIndex: Ref<number> = ref<number>(prop.expandIndex)
 
   /**
@@ -27,6 +29,7 @@
 
   /**
    * 展开的类名
+   *
    * @param index 索引
    */
   const activeClass: ExpandCardActiveClassInterface = (

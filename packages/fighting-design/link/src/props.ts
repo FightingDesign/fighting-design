@@ -5,6 +5,9 @@ import type { HandleMouseEventInterface } from '../../_interface'
 export const Props = {
   /**
    * link 的类型
+   *
+   * @values default primary success danger warning
+   * @defaultValue primary
    */
   type: {
     type: String as PropType<LinkType>,
@@ -34,7 +37,7 @@ export const Props = {
    */
   state: {
     type: String as PropType<LinkHoverType>,
-    default: (): LinkHoverType => '',
+    default: (): null => null,
     validator: (val: LinkHoverType): boolean => {
       return (['line', 'bag', ''] as const).includes(val)
     }
@@ -49,11 +52,11 @@ export const Props = {
   /**
    * 原生 target 属性
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href
+   * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: {
     type: String as PropType<LinkTargetType>,
-    default: (): LinkTargetType => '',
+    default: (): null => null,
     validator: (val: LinkTargetType): boolean => {
       return (['_self', '_blank', '_parent', '_top', ''] as const).includes(val)
     }
@@ -96,7 +99,7 @@ export const Props = {
   /**
    * 点击执行的回调
    */
-  click: {
+  onClick: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

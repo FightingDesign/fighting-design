@@ -12,18 +12,18 @@
 ::: demo
 
 <template #source>
-<f-page-header title="标题" :back="goBack" />
+<f-page-header title="标题" :on-back="goBack" />
 </template>
 
 ```html
 <template>
-  <f-page-header title="标题" :back="goBack" />
+  <f-page-header title="标题" :on-back="onBack" />
 </template>
 
 <script lang="ts" setup>
   import { FMessage } from 'fighting-design'
 
-  const goBack = () => {
+  const onBack = () => {
     FMessage.primary('Go Back')
   }
 </script>
@@ -83,7 +83,7 @@
 | `title-center` | 标题是否居中     | boolean                    | ——     | false  |
 | `title-color`  | 标题颜色         | string                     | ——     | false  |
 | `subtitle`     | 副标题文本       | string                     | ——     | ——     |
-| `back`         | 点击左侧区域触发 | Function                   | ——     | ——     |
+| `on-back`      | 点击左侧区域触发 | Function                   | ——     | ——     |
 
 ## Slots
 

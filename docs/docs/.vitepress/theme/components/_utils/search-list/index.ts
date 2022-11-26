@@ -1,11 +1,13 @@
+import type { SearchListInterface } from './interface'
+
 /**
  * 搜索列表
  *
- * title：展示的标题
- * rule：匹配规则
- * url：跳转的地址
+ * @param title 展示的标题
+ * @param rule 匹配规则
+ * @param url 跳转的地址
  */
-export const searchList = [
+export const searchList: readonly SearchListInterface[] = [
   { title: '安装', rule: '安装', url: 'docs/install' },
   {
     title: '快速上手',
@@ -175,5 +177,20 @@ export const searchList = [
     title: 'Pagination 分页器',
     rule: 'paginationPagination分页器',
     url: 'components/pagination'
+  },
+  {
+    title: 'Time Picker 时间选择器',
+    rule: 'time-pickerTimePicker时间选择器',
+    url: 'components/time-picker'
+  },
+  {
+    title: 'Date Picker 日期选择器',
+    rule: 'date-pickerDatePicker日期选择器',
+    url: 'components/date-picker'
+  },
+  {
+    title: 'Input Number 数字输入框',
+    rule: 'input-numberInputNumber数字输入框',
+    url: 'components/input-number'
   }
 ] as const

@@ -12,6 +12,9 @@ export const Props = {
   },
   /**
    * 尺寸
+   *
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: String as PropType<SwitchSizeType>,
@@ -72,7 +75,7 @@ export const Props = {
   /**
    * 绑定值发生改变时触发的回调
    */
-  change: {
+  onChange: {
     type: Function as PropType<SwitchChangeInterface>,
     default: (): null => null
   },

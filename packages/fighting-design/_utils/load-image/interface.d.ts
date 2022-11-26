@@ -11,25 +11,20 @@ export type {
 /**
  * Load 加载类所需要的 props 参数
  *
- * src 图片路径
- *
- * errSrc 加载失败时要显示的地址
- *
- * rootMargin 触发懒加载的距离
- *
- * lazy 是否懒加载图片
- *
- * load 图片加载成功触发的回调
- *
- * error 图片加载失败触发的回调
+ * @param src 图片路径
+ * @param errSrc 加载失败时要显示的地址
+ * @param rootMargin 触发懒加载的距离
+ * @param lazy 是否懒加载图片
+ * @param onLoad 图片加载成功触发的回调
+ * @param onError 图片加载失败触发的回调
  */
 export interface LoadImagePropsInterface {
   src: string
   errSrc: string
   rootMargin: string
   lazy: boolean
-  load: Function
-  error: Function
+  onLoad: HandleEventInterface
+  onError: HandleEventInterface
 }
 
 /**
@@ -42,11 +37,9 @@ export interface LoadCallbackInterface {
 /**
  * 加载图片方法接口
  *
- * node 所需要设置的 img 节点
- *
- * prop props 参数
- *
- * callback 回调函数
+ * @param node 所需要设置的 img 节点
+ * @param prop props 参数
+ * @param callback 回调函数
  */
 export interface LoadImageInterface {
   (
@@ -72,9 +65,8 @@ export interface LoadCreateImgInterface {
 /**
  * 加载图片方法类型接口
  *
- * evt 事件对象
- *
- * src 图片地址
+ * @param evt 事件对象
+ * @param src 图片地址
  */
 export interface LoadOnloadInterface {
   (evt: Event, src: string): void
@@ -85,7 +77,7 @@ export interface LoadOnloadInterface {
  *
  * 无参数，返回 IntersectionObserver
  *
- * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/IntersectionObserver
+ * @see IntersectionObserver https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/IntersectionObserver
  */
 export interface LoadLazyObserverInterface {
   (): IntersectionObserver
@@ -93,6 +85,13 @@ export interface LoadLazyObserverInterface {
 
 /**
  * Load 加载类接口
+ * 
+ * @param node img 元素节点
+ * @param props 需要的 props 参数
+ * @param callback 回调函数
+ * @param loadCreateImg 开始加载图片
+ * @param onerror 用于处理加载失败
+ * @param onload 用于处理加载成功
  */
 export interface LoadInterface {
   node: HTMLImageElement
@@ -104,7 +103,10 @@ export interface LoadInterface {
 }
 
 /**
- * 懒加载类接口
+ * 懒加载类接口类型接口
+ * 
+ * @param observer 初始化懒加载构造器
+ * @param lazyCreateImg 执行懒加载
  */
 export interface LoadLazyInterface {
   observer: LoadLazyObserverInterface

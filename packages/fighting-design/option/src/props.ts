@@ -18,7 +18,7 @@ export const Props = {
   /**
    * 是否禁用
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
+   * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
   disabled: {
     type: Boolean,

@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FCheckboxGroup">
   import { Props, CHECKBOX_GROUP_PROPS_KEY } from './props'
   import { provide, reactive, toRefs, computed } from 'vue'
-  import { sizeChange, isArray } from '../../_utils'
+  import { sizeChange, isArray, runCallback } from '../../_utils'
   import type {
     CheckboxGroupPropsType,
     CheckboxGroupLabelType,
@@ -23,10 +23,12 @@
     val: CheckboxGroupLabelType
   ): void => {
     emit('update:modelValue', val)
-    prop.change && prop.change(val)
+    runCallback(prop.onChange, val)
   }
 
-  // 需要注入的依赖项
+  /**
+   * 获取需要注入的依赖项
+   */
   const checkboxGroupProps: CheckboxGroupInjectPropsType = reactive({
     ...toRefs(prop),
     changeEvent

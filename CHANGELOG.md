@@ -2,19 +2,85 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- `f-input` 组件 `type` 属性新增 `number` 类型
-- `f-input` 组件新增 `after-icon` 配置项
-- `f-input` 组件优化查看密码方式
-- `f-input` 组件新增 `on-input` 配置项
-- `f-textarea` 组件新增 `on-input` 配置项
-- 修复 `f-input` 组件 `on-change` 回调错误的问题
-- 修复 `f-textarea` 组件 `on-change` 回调错误的问题
-- `f-input` 组件加入查看密码切换动画效果
-- 重构 `f-calendar` 组件头部样式
-- 优化 `f-dropdown` 组件样式细节
-- 重构 `f-calendar` 组件内部细节
+## 0.9.0-alpha.5 (2022-11-25)
+
+**新功能**
+
+- 新增 `f-trigger` 组件
+
+**其它更新**
+
+- 优化 `f-space` 组件样式细节
+- `f-sticky-card` 组件 `open-end` `close-end` 回调参数改为 `on-open` `on-close`
+
+## 0.9.0-alpha.4 (2022-11-23)
+
+**新功能**
+
 - 新增 `f-date-picker` 组件
 - 新增 `f-time-picker` 组件
+- 新增 `f-input-number` 组件
+- 新增 `f-input` 组件 `type` 属性 `number` 类型
+- 新增 `f-input` 组件 `after-icon` 配置项
+- 新增 `f-input` 组件 `on-input` 配置项
+- 新增 `f-input` 组件 `after` 插槽
+- 新增 `f-textarea` 组件 `on-input` 配置项
+- 新增 `f-input` 组件加入查看密码切换动画效果
+- 新增 `f-breadcrumb-item` 组件 `color` `icon-color` `separator` 配置项
+- 新增 `f-tag` 组件关闭动画
+- 新增 `f-card` 组件 padding 实现 number 类型参数
+
+**修复 Bug**
+
+- 修复 `f-input` 组件 `on-change` 回调错误的问题
+- 修复 `f-textarea` 组件 `on-change` 回调错误的问题
+- 修复 `f-list-item` 单独使用报错的问题
+
+**其它更新**
+
+- 优化 `f-input` 组件查看密码方式
+- 优化 `f-dropdown` 组件样式细节
+- 优化 `f-alert` 组件样式细节
+- 优化 `f-back-top` 组件样式细节
+- 重构 `f-calendar` 组件头部样式
+- 重构 `f-calendar` 组件内部细节
+- 重构 `f-tag` 组件内部细节
+- 废除 `f-list` 组件 `list-style` 配置项
+- 重构 `f-skeleton` 组件 `size` 配置项
+- 废除 `f-skeleton` 组件 `circled` 配置项
+- 废除 `f-close-btn` 组件 `no-hover` 配置项
+- `f-breadcrumb` 组件 `separator-color` 参数改为 `icon-color`
+- `f-breadcrumb` 组件 `item-color` 参数改为 `color`
+- `f-skeleton` 组件 `rounded` 参数改为 `round`
+- `f-back-top` 组件 `bottom` `right` `background` `color` 参数默认值更新
+- `f-toolbar-item` 组件 `click` 参数改为 `on-click`
+- `f-toolbar-item` 组件 `data-key` 参数改为 `index`
+- `f-toolbar-item` 组件 `icon-size` 参数改为默认值 16
+- `f-toolbar` 组件 `click` 参数改为 `on-click`
+- `f-image-preview` 组件 `close` 回调改为 `on-close`
+- `f-alert` 组件 `close-end` 回调改为 `on-close`
+- `f-button` 组件 `click` 回调改为 `on-click`
+- `f-avatar` 组件 `load` `error` 回调改为 `on-load` `on-error`
+- `f-image` 组件 `load` `error` 回调改为 `on-load` `on-error`
+- `f-calendar` 组件 `change-switch` `change-date` 回调改为 `on-change-month` `on-change-date`
+- `f-card` 组件 `padding` 参数改为默认值为 20
+- `f-checkbox` 组件 `change` 参数改为 `on-change`
+- `f-checkbox-group` 组件 `change` 参数改为 `on-change`
+- `f-close-btn` 组件 `click` 参数改为 `on-click`
+- `f-dialog` 组件 `open` `open-end` `close` `close-end` 改为 `on-open` `on-open-end` `on-close` `on-close-end`
+- `f-drawer` 组件 `open` `open-end` `close` `close-end` 改为 `on-open` `on-open-end` `on-close` `on-close-end`
+- `f-popup` 组件 `open` `open-end` `close` `close-end` 改为 `on-open` `on-open-end` `on-close` `on-close-end`
+- `f-dropdown-item` 组件 `click` 参数改为 `on-click`
+- `f-link` 组件 `click` 参数改为 `on-click`
+- `f-message` 组件 `close-end` 参数改为 `on-close`
+- `f-notification` 组件 `close-end` 参数改为 `on-close`
+- `f-page-header` 组件 `back` 参数改为 `on-back`
+- `f-radio` 组件 `change` 参数改为 `on-change`
+- `f-radio-group` 组件 `change` 参数改为 `on-change`
+- `f-svg-icon` 组件 `click` 参数改为 `on-click`
+- `f-switch` 组件 `change` 参数改为 `on-change`
+- `f-tag` 组件 `close-end` 参数改为 `on-close`
+- `f-up-load` 组件 `change` `load` 参数改为 `on-change` `on-load`
 
 ## 0.9.0-alpha.3 (2022-11-18)
 

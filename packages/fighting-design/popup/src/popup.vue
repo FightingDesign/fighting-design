@@ -28,7 +28,7 @@
    * @param evt 事件对象
    */
   const handleOpen: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    runCallback(prop.open, evt)
+    runCallback(prop.onOpen, evt)
   }
 
   /**
@@ -37,7 +37,7 @@
    * @param evt 事件对象
    */
   const handleOpenEnd: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    runCallback(prop.openEnd, evt)
+    runCallback(prop.onOpenEnd, evt)
   }
 
   /**
@@ -46,7 +46,7 @@
    * @param evt 事件对象
    */
   const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    runCallback(prop.close, evt)
+    runCallback(prop.onClose, evt)
   }
 
   /**
@@ -55,7 +55,7 @@
    * @param evt 事件对象
    */
   const handleCloseEnd: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    runCallback(prop.closeEnd, evt)
+    runCallback(prop.onCloseEnd, evt)
   }
 
   /**

@@ -3,7 +3,8 @@
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
   import { FIconCrossVue } from '../../_svg'
-  import type { ComputedRef } from 'vue'
+  import { runCallback } from '../../_utils'
+  import type { ComputedRef, CSSProperties } from 'vue'
   import type {
     HandleMouseEventInterface,
     ClassListInterface
@@ -14,10 +15,12 @@
 
   /**
    * 点击触发
+   *
+   * @param evt 事件对象
    */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    prop.click && prop.click(evt)
+    runCallback(prop.onClick, evt)
   }
 
   /**
@@ -25,23 +28,32 @@
    */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
+      const { disabled, round } = prop
+
       return [
+        'f-close-btn',
         {
-          'f-close-btn': !prop.disabled,
-          'f-close-btn__round': prop.round,
-          'f-close-btn__disabled': prop.disabled,
-          'f-close-btn__no-hover': prop.noHover
+          'f-close-btn__round': round,
+          'f-close-btn__disabled': disabled
         } as const
       ] as const
     }
   )
+
+  /**
+   * 样式列表
+   */
+  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+    return {
+      '--f-close-btn-color': prop.color
+    } as CSSProperties
+  })
 </script>
 
 <template>
-  <div role="button" :class="classList" @click="handleClick">
-    <f-svg-icon :size="size" :color="color">
-      <component :is="icon" v-if="icon" />
-      <slot v-else>
+  <div role="button" :class="classList" :style="styleList" @click="handleClick">
+    <f-svg-icon :size="size" :icon="icon">
+      <slot>
         <f-icon-cross-vue />
       </slot>
     </f-svg-icon>

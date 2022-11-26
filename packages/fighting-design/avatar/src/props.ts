@@ -27,7 +27,7 @@ export const Props = {
   /**
    * 原生 alt 属性
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
+   * @see alt https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
    */
   alt: {
     type: String,
@@ -52,11 +52,12 @@ export const Props = {
    *
    * 原生样式属性
    *
-   * https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
+   * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
+   * @values fill contain cover none scale-down
    */
   fit: {
     type: String as PropType<AvatarFitType>,
-    default: (): AvatarFitType => '',
+    default: (): null => null,
     validator: (val: AvatarFitType): boolean => {
       return (
         ['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const
@@ -120,14 +121,14 @@ export const Props = {
   /**
    * 图片加载成功触发的回调
    */
-  load: {
+  onLoad: {
     type: Function as PropType<HandleEventInterface>,
     default: (): null => null
   },
   /**
    * 图片加载失败触发的回调
    */
-  error: {
+  onError: {
     type: Function as PropType<HandleEventInterface>,
     default: (): null => null
   }

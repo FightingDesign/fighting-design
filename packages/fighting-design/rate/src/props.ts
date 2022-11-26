@@ -84,7 +84,7 @@ export const Props = {
   /**
    * 当分数发生改变时触发
    */
-  change: {
+  onChange: {
     type: Function as PropType<RateChangeInterface>,
     default: (): null => null
   }

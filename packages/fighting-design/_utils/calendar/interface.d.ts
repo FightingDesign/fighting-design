@@ -3,7 +3,7 @@
  *
  * @param year 年份
  * @param month 月份
- * @returns { number } 当前月份的天数
+ * @returns { Number } 当前月份的天数
  */
 export interface GetDayMonthInterface {
   (year: number, month: number): number

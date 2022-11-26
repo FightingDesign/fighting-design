@@ -6,13 +6,17 @@ import type {
 
 /**
  * 将 canvas 转换成 base64 图片格式
+ *
  * @param props 需要传递到 参数
  * @returns { String } base64 格式的图片
  */
 export const createWatermark: CreateBase64Interface = (
   props: CreateWatermarkPropsInterface
 ): string => {
-  const canvas: HTMLCanvasElement = document.createElement('canvas')
+  /**
+   * 创建一个 canvas
+   */
+  const canvas: HTMLCanvasElement = document.createElement('canvas') as HTMLCanvasElement
   const ratio: number = window.devicePixelRatio || 1
 
   canvas.width = props.width * ratio

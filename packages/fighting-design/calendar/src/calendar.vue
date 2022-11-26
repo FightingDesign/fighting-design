@@ -19,8 +19,17 @@
 
   const prop: CalendarPropsType = defineProps(Props)
 
+  /**
+   * 当前年份
+   */
   const year: Ref<number> = ref<number>(prop.date.getFullYear())
+  /**
+   * 当前月份
+   */
   const month: Ref<number> = ref<number>(prop.date.getMonth())
+  /**
+   * 当前日期
+   */
   const date: Ref<number> = ref<number>(prop.date.getDate())
 
   const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(
@@ -30,6 +39,9 @@
 
   /**
    * 当前日期高亮显示
+   *
+   * @param _month 月份
+   * @param _date 日期
    */
   const mowDataClassList: CalendarMowDataClassListInterface = (
     _month: number,
@@ -46,6 +58,8 @@
 
   /**
    * 点击操作栏
+   *
+   * @param target 不同类型用于切换当前时间、下个月、上个月
    */
   const optionClick: CalendarOptionClickInterface = (
     target: CalendarTargetType
@@ -74,6 +88,9 @@
 
   /**
    * 点击对每一天
+   *
+   * @param _month 当前月份
+   * @param _date 当前日期
    */
   const handleClick: CalendarHandleClickInterface = (
     _month: number,
@@ -88,7 +105,7 @@
       changeNextMonth()
     }
 
-    runCallback(prop.changeDate, {
+    runCallback(prop.onChangeDate, {
       year: year.value,
       month: _month || month.value,
       date: _date
@@ -108,7 +125,11 @@
     } as CSSProperties
   })
 
-  // 检测当前日期是否存在备忘录
+  /**
+   * 检测当前日期是否存在备忘录
+   *
+   * @param date 当前日期
+   */
   const isMemorandum: CalendarIsMemorandumInterface = (
     date: string
   ): boolean => {
@@ -124,7 +145,7 @@
   watch(
     (): number => month.value,
     (newValue: number): void => {
-      runCallback(prop.changeSwitch, {
+      runCallback(prop.onChangeMonth, {
         year: year.value,
         month: newValue + 1,
         date: date.value
@@ -146,7 +167,9 @@
       />
       <div class="f-calendar__option">
         <span class="f-calendar__now-time">{{ nowTime }}</span>
-        <span class="f-calendar__now-date" @click.stop="optionClick('now')">今天</span>
+        <span class="f-calendar__now-date" @click.stop="optionClick('now')">
+          今天
+        </span>
       </div>
       <f-svg-icon
         :icon="FIconChevronRightVue"

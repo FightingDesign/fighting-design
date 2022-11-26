@@ -177,8 +177,8 @@
 | `font-color`  | 字体的颜色                                                                                               | string                     | ——                                           | #333     |
 | `text`        | 文字头像                                                                                                 | string                     | ——                                           | ——       |
 | `root-margin` | 触发懒加载的距离                                                                                         | string / number            | ——                                           | 100px    |
-| `load`        | 图片加载成功触发的回调                                                                                   | Function                   | ——                                           | ——       |
-| `error`       | 图片加载失败触发的回调                                                                                   | Function                   | ——                                           | ——       |
+| `on-load`     | 图片加载成功触发的回调                                                                                   | Function                   | ——                                           | ——       |
+| `on-error`    | 图片加载失败触发的回调                                                                                   | Function                   | ——                                           | ——       |
 
 ## Slots
 

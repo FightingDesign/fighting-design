@@ -1,12 +1,15 @@
 export type { ToolbarPropsType } from './props'
 
+/**
+ * 不同尺寸
+ */
 export type ToolbarType = 'large' | 'middle' | 'small' | 'mini'
 
-export interface ToolbarClickEmitInterface {
-  evt: Event
-  key: '1' | '2' | '3' | '4' | '5'
+export interface ToolbarClickParamsInterface {
+  evt: MouseEvent
+  index: string | undefined
 }
 
 export interface ToolbarClickInterface {
-  (target: ToolbarClickEmitInterface): void
+  (target: ToolbarClickParamsInterface): void
 }

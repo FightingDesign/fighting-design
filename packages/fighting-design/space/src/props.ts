@@ -18,6 +18,9 @@ export const Props = {
   },
   /**
    * 间距尺寸
+   *
+   * @values large middle small mini
+   * @defaultValue middle
    */
   spacing: {
     type: String as PropType<SpaceSizeType>,

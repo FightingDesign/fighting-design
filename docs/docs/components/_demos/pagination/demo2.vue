@@ -6,7 +6,7 @@
 
   const pagesize = ref(10)
 
-  const pagesizes = ref([10, 20, 30, 40, 50])
+  const pageSizes = ref([10, 20, 30, 40, 50])
 </script>
 
 <template>
@@ -14,6 +14,6 @@
     v-model:current="current"
     :total="total"
     :page-size="pagesize"
-    :page-sizes="pagesizes"
+    :page-sizes="pageSizes"
   />
 </template>

@@ -12,22 +12,28 @@
    */
   const classList: ComputedRef<ClassListInterface> = computed(
     (): ClassListInterface => {
-      const { rounded, animated, circled, size } = prop
+      const { round, animated, size } = prop
 
       return [
         'f-skeleton',
         {
-          'f-skeleton__rounded': rounded,
+          'f-skeleton__round': round,
           'f-skeleton__animated': animated,
-          'f-skeleton__circled': circled,
           [`f-skeleton__${size}`]: size
         }
       ] as const
     }
   )
 
+  /**
+   * 如果 loading 为 true，展示骨架屏
+   *
+   * 否则展示插槽内容
+   */
   const isRender: ComputedRef<boolean> = computed((): boolean => {
     const slots = useSlots()
+
+    // 判断是否有插槽
     if (slots.default) {
       return prop.loading === true
     }
@@ -37,7 +43,8 @@
 
 <template>
   <template v-if="isRender">
-    <div v-for="(n, i) in rows" :key="i" :class="classList" v-bind="$attrs" />
+    <div v-for="n in rows" :key="n" :class="classList" />
   </template>
+
   <slot v-else />
 </template>

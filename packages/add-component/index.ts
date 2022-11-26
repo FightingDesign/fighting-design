@@ -34,10 +34,10 @@ const detectPublic = async (): Promise<void> => {
     await generate()
     logInfo(
       '本次创建/修改的文件有：' +
-        '\n' +
-        '\n' +
-        `${updatedFiles.join('\n')}` +
-        '\n'
+      '\n' +
+      '\n' +
+      `${updatedFiles.join('\n')}` +
+      '\n'
     )
   } catch (error: unknown) {
     logError(`不好意思，组件[${compName}]创建失败了` + '\n' + `error: ${error}`)
@@ -56,10 +56,10 @@ function fetchCompName (): string {
   if (input === undefined) {
     logError(
       '\n' +
-        '命令使用方法为: pnpm new <component-name>' +
-        '\n' +
-        '例如: pnpm new user-avatar' +
-        '\n'
+      '命令使用方法为: pnpm new <component-name>' +
+      '\n' +
+      '例如: pnpm new user-avatar' +
+      '\n'
     )
     process.exit(0)
   }
@@ -148,7 +148,7 @@ async function updateStyleEntry (): Promise<void> {
   )
   let content: string = (await fsExtra.readFile(entryFilePath)).toString()
 
-  content = content.slice(0, -1) + `@use './src/${compName}.scss';` + '\n'
+  content = content.slice(0, -1) + '\n' + `@use './src/${compName}';` + '\n'
 
   await fsExtra.writeFile(entryFilePath, content)
 }

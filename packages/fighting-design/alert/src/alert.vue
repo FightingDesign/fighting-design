@@ -13,7 +13,9 @@
 
   const prop: AlertPropsType = defineProps(Props)
 
-  // 展示状态
+  /**
+   * 展示状态
+   */
   const isShow: Ref<boolean> = ref<boolean>(true)
 
   /**
@@ -73,7 +75,7 @@
    */
   const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     isShow.value = false
-    runCallback(prop.closeEnd, evt)
+    runCallback(prop.onClose, evt)
   }
 </script>
 

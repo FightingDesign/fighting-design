@@ -1,7 +1,7 @@
 /**
  * 底部页脚链接
  */
-export const bottomList = [
+export const footerList = [
   {
     title: '社区',
     item: [

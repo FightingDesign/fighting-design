@@ -5,8 +5,17 @@ export type { CheckboxGroupPropsType } from './props'
  *
  * 绑定值可能是 string、number、boolean
  */
-export type CheckboxGroupLabelType = string | number | boolean | string[] | number[] | boolean[]
+export type CheckboxGroupLabelType =
+  | string
+  | number
+  | boolean
+  | string[]
+  | number[]
+  | boolean[]
 
+/**
+ * 不同尺寸类型
+ */
 export type CheckboxGroupSizeType = 'large' | 'middle' | 'small' | 'mini'
 
 /**

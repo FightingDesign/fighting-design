@@ -1,11 +1,11 @@
 <script lang="ts" setup name="FTimePicker">
   import { Props } from './props'
-  import { ref, watch, reactive } from 'vue'
+  import { reactive, computed, watch } from 'vue'
   import { FInput } from '../../input'
   import { FDropdown } from '../../dropdown'
   import { addZero, isString } from '../../_utils'
   import { FIconClockTime } from '../../_svg'
-  import type { Ref } from 'vue'
+  import type { WritableComputedRef } from 'vue'
   import type {
     TimePickerPropsType,
     TimePickerTimeListInterface,
@@ -19,8 +19,6 @@
 
   // 获取当前的时间
   const nowDate: Date = new Date()
-  // 选择的日期
-  const pickerTime: Ref<string> = ref<string>(prop.time)
   // 当前日期对象
   const timeList: TimePickerTimeListInterface =
     reactive<TimePickerTimeListInterface>({
@@ -29,14 +27,22 @@
     })
 
   /**
-   * 监视绑定值，发生变化之后同步数据
+   * 获取选择的时间 & 设置时间
    */
-  watch(
-    (): string => pickerTime.value,
-    (newVal: string): void => {
-      emit('update:time', newVal)
+  const pickerTime: WritableComputedRef<string> = computed({
+    /**
+     * 获取值返回 time
+     */
+    get: (): string => prop.time,
+    /**
+     * 设置值
+     *
+     * @param val 最新的值
+     */
+    set: (val: string): void => {
+      emit('update:time', val)
     }
-  )
+  })
 
   /**
    * 监视 timeList 对象发生变化同步最新选取的时间
@@ -65,12 +71,12 @@
 
 <template>
   <div class="f-time-picker">
-    <f-dropdown>
+    <f-dropdown :disabled="readonly">
       <f-input
         v-model="pickerTime"
-        type="text"
-        readonly
-        clear
+        type="date"
+        :readonly="readonly"
+        :clear="clear"
         :after-icon="FIconClockTime"
       />
 

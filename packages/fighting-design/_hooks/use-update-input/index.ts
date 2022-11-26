@@ -10,6 +10,7 @@ import type {
 
 /**
  * 文本框输入的方法
+ *
  * 可处理文本框输入和清空
  *
  * @param prop 组件的 props 参数
@@ -20,14 +21,19 @@ export const useUpdateInput: UseUpdateInputInterface = (
   prop: UseUpdateInputPropsInterface,
   emit: UseUpdateInputEmitInterface
 ): UseUpdateInputReturnInterface => {
-
   /**
    * 处理文本框输入 input 事件
    *
    * @param evt 事件对象
    */
   const onInput: HandleEventInterface = (evt: Event): void => {
-    emit('update:modelValue', (evt.target as HTMLInputElement).value)
+    emit(
+      'update:modelValue',
+      prop.type === 'number'
+        ? Number((evt.target as HTMLInputElement).value)
+        : (evt.target as HTMLInputElement).value
+    )
+
     runCallback(prop.onInput, (evt.target as HTMLInputElement).value)
   }
 
@@ -45,7 +51,7 @@ export const useUpdateInput: UseUpdateInputInterface = (
    */
   const onClear: OrdinaryFunctionInterface = (): void => {
     if (prop.disabled) return
-    emit('update:modelValue', '')
+    emit('update:modelValue', prop.type === 'number' ? 0 : '')
   }
 
   return {

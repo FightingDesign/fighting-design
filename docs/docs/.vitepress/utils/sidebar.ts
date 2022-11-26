@@ -68,7 +68,10 @@ export const sidebar = {
         { text: 'Table 表格', link: '/components/table' },
         { text: 'Select 选择器', link: '/components/select' },
         { text: 'Textarea 文本域', link: '/components/textarea' },
-        { text: 'Pagination 分页器', link: '/components/pagination' }
+        { text: 'Pagination 分页器', link: '/components/pagination' },
+        { text: 'Time Picker 时间选择器', link: '/components/time-picker' },
+        { text: 'Date Picker 日期选择器', link: '/components/date-picker' },
+        { text: 'Input Number 数字输入框', link: '/components/input-number' }
       ]
     },
     {
@@ -78,7 +81,8 @@ export const sidebar = {
         { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' },
         { text: 'Page Header 页头', link: '/components/page-header' },
         { text: 'Close Btn 关闭按钮', link: '/components/close-btn' },
-        { text: 'Dropdown 下拉菜单', link: '/components/dropdown' }
+        { text: 'Dropdown 下拉菜单', link: '/components/dropdown' },
+        { text: 'Trigger 触发器', link: '/components/trigger' }
       ]
     },
     {

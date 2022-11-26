@@ -63,7 +63,10 @@ export const Props = {
     validator: (val: number): boolean => val >= 0 && val <= 1
   },
   /**
-   * 弹出方向
+   * 弹出位置
+   *
+   * @values left right top bottom center
+   * @defaultValue center
    */
   direction: {
     type: String as PropType<PopupDirectionType>,
@@ -91,28 +94,28 @@ export const Props = {
   /**
    * 打开动画开始的回调
    */
-  open: {
+  onOpen: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   },
   /**
    * 关闭动画开始的回调
    */
-  close: {
+  onClose: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   },
   /**
    * 打开动画结束的回调
    */
-  openEnd: {
+  onOpenEnd: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   },
   /**
    * 关闭动画结束的回调
    */
-  closeEnd: {
+  onCloseEnd: {
     type: Function as PropType<HandleMouseEventInterface>,
     default: (): null => null
   }

@@ -1,16 +1,20 @@
-import type { RipplesInterface, RipplesOptionInterface } from './interface'
+import type {
+  RipplesInterface,
+  RipplesOptionInterface,
+  RipplesMouseEventInterface
+} from './interface'
 import type { OrdinaryFunctionInterface } from '../../_interface'
 
 /**
  * 按钮点击涟漪效果
  */
 export class Ripples implements RipplesInterface {
-  evt: MouseEvent
+  evt: RipplesMouseEventInterface
   node: HTMLElement
   option: RipplesOptionInterface
 
   constructor (
-    evt: MouseEvent,
+    evt: RipplesMouseEventInterface,
     node: HTMLElement,
     option: RipplesOptionInterface
   ) {
@@ -20,31 +24,19 @@ export class Ripples implements RipplesInterface {
   }
   /**
    * 点击生成涟漪效果
-   * @return { void }
    */
   clickRipples: OrdinaryFunctionInterface = (): void => {
     /**
-     * layerX 和 layerY 属性暂时使用，未来可能会涉及到兼容性的问题
-     * 可以直接获取点击元素的坐标
-     * const x: number = this.evt.layerX
-     * const y: number = this.evt.layerY
-     *
-     * https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/layerX
-     *
-     * 出于对浏览器的兼容和稳定，暂时先使用下面 API
+     * clientX clientY 可获取到点击相对于页面的坐标
+     * 
+     * 其它写法
+     * const x: number = this.evt.clientX - (this.evt.target as HTMLElement).offsetLeft
+     * const y: number = this.evt.clientY - (this.evt.target as HTMLElement).offsetTop
+     * 
+     * @see clientX https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
+     * @see clientY https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientY
      */
-
-    /**
-     * clientX clientY 获取到点击相对于页面的坐标
-     * https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
-     */
-    // const x: number =
-    //   this.evt.clientX - (this.evt.target as HTMLElement).offsetLeft
-    // const y: number =
-    //   this.evt.clientY - (this.evt.target as HTMLElement).offsetTop
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { layerX, layerY }: { layerX: number; layerY: number } = this.evt as any
+    const { layerX, layerY } = this.evt
 
     const ripples: HTMLSpanElement = this.renderElement(layerX, layerY)
 
@@ -87,11 +79,15 @@ export class Ripples implements RipplesInterface {
   }
   /**
    * 渲染节点
+   *
    * @param x 坐标 x
    * @param y 坐标 y
    * @return { HTMLSpanElement }
    */
   renderElement = (x: number, y: number): HTMLSpanElement => {
+    /**
+     * 新建个 span 元素
+     */
     const ripples: HTMLSpanElement = document.createElement(
       'span'
     ) as HTMLSpanElement
@@ -109,8 +105,8 @@ export class Ripples implements RipplesInterface {
   }
   /**
    * 删除涟漪节点
-   * @param node dom
-   * @return { void }
+   *
+   * @param node dom 元素
    */
   removeElement = (node: HTMLElement): void => {
     setTimeout((): void => {

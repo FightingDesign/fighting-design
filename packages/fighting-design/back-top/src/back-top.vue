@@ -11,11 +11,15 @@
 
   const prop: BackTopPropsType = defineProps(Props)
 
-  // 展示状态
+  /**
+   * 展示状态
+   */
   const visible: Ref<boolean> = ref<boolean>(false)
 
   /**
    * 滚动状态监视
+   *
+   * @param node 元素节点
    */
   const handleScroll: BackTopHandleScrollInterface = (
     node: HTMLElement | null
@@ -39,6 +43,7 @@
       const listerNode: HTMLElement = document.querySelector(
         listenEl
       ) as HTMLElement
+
       ;(listerNode as HTMLElement).scrollTo({
         top,
         behavior

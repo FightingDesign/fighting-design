@@ -21,7 +21,7 @@
 
 ```html
 <template>
-  <f-button :click="startLoading">切换加载状态</f-button>
+  <f-button :on-click="startLoading">切换加载状态</f-button>
   <f-table v-loading="loading" :data="data" :columns="columns" />
 </template>
 
@@ -77,17 +77,23 @@
 :::
 
 ## 自定义文字
+
 可以通过`自定义属性`来设置加载文字
 
 ::: demo
 
 <template #source>
-  <f-table v-loading="true" f-loading-text="加载中..." :data="data2" :columns="columns2" />
+<f-table v-loading="true" f-loading-text="加载中..." :data="data2" :columns="columns2" />
 </template>
 
 ```html
 <template>
-  <f-table v-loading="true" f-loading-text="加载中..." :data="data" :columns="columns" />
+  <f-table
+    v-loading="true"
+    f-loading-text="加载中..."
+    :data="data"
+    :columns="columns"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -134,12 +140,15 @@
 :::
 
 ## 其他属性
+
 同样，通过`自定义属性`还可设置`文字及加载图标颜色` `遮罩背景颜色`。
+
 <!-- `自定义图标`待支持... -->
+
 ::: demo
 
 <template #source>
-  <f-table
+<f-table
     v-loading="true"
     f-loading-text="请稍候..."
     f-loading-fontColor="#fff"
@@ -159,17 +168,18 @@
   :columns="columns"
 />
 ```
+
 :::
 
-
 ## 全屏显示
-通过`指令修饰符` `fullscreen`可设置loading为全屏状态
+
+通过`指令修饰符` `fullscreen`可设置 loading 为全屏状态
 
 ::: demo
 
 <template #source>
-  <f-button @click="onShowLoading">show loading</f-button>
-  <f-table
+<f-button @click="onShowLoading">show loading</f-button>
+<f-table
     v-loading.fullscreen="fullLoading"
     f-loading-text="请稍候..."
     :data="data2"
@@ -198,8 +208,8 @@
   />
 </template>
 ```
-:::
 
+:::
 
 ## Attributes
 

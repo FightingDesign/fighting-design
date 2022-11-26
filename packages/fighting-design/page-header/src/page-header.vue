@@ -10,9 +10,11 @@
 
   /**
    * 点击之后执行
+   *
+   * @param evt 事件对象
    */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    runCallback(prop.back, evt)
+    runCallback(prop.onBack, evt)
   }
 </script>
 

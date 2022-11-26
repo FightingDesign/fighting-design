@@ -5,7 +5,7 @@ export const Props = {
   /**
    * 是否带圆角的
    */
-  rounded: {
+  round: {
     type: Boolean,
     default: (): boolean => false
   },
@@ -13,13 +13,6 @@ export const Props = {
    * 是否展示波浪动画
    */
   animated: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  /**
-   * 圆形占位图
-   */
-  circled: {
     type: Boolean,
     default: (): boolean => false
   },
@@ -38,13 +31,16 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 设置尺寸，提供三个属性值，默认 default
+   * 尺寸
+   *
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: String as PropType<SkeletonSizeType>,
-    default: (): SkeletonSizeType => 'default',
+    default: (): SkeletonSizeType => 'middle',
     validator: (val: SkeletonSizeType): boolean => {
-      return (['default', 'small', 'large'] as const).includes(val)
+      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   }
 } as const

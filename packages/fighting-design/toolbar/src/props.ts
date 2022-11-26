@@ -11,10 +11,13 @@ export const Props = {
   },
   /**
    * 尺寸
+   *
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: String as PropType<ToolbarType>,
-    default: (): ToolbarType => 'large',
+    default: (): ToolbarType => 'middle',
     validator: (val: ToolbarType): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
@@ -57,7 +60,7 @@ export const Props = {
   /**
    * 点击之后触发的回调
    */
-  click: {
+  onClick: {
     type: Function as PropType<ToolbarClickInterface>,
     default: (): null => null
   }

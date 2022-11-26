@@ -1,9 +1,13 @@
 import type { HolidayListType } from './interface'
 
-// 星期
+/**
+ * 星期
+ */
 export const WEEK_DATA = ['日', '一', '二', '三', '四', '五', '六'] as const
 
-// 农历 1900-2100 的润大小信息表
+/**
+ * 农历 1900-2100 的润大小信息表
+ */
 export const LUNAR_INFO = [
   0x04bd8, 0x04ae0, 0x0a570, 0x054d5, 0x0d260, 0x0d950, 0x16554, 0x056a0,
   0x09ad0, 0x055d2, 0x04ae0, 0x0a5b6, 0x0a4d0, 0x0d250, 0x1d255, 0x0b540,
@@ -23,20 +27,19 @@ export const LUNAR_INFO = [
   0x07954, 0x06aa0, 0x0ad50, 0x05b52, 0x04b60, 0x0a6e6, 0x0a4e0, 0x0d260,
   0x0ea65, 0x0d530, 0x05aa0, 0x076a3, 0x096d0, 0x04afb, 0x04ad0, 0x0a4d0,
   0x1d0b6, 0x0d250, 0x0d520, 0x0dd45, 0x0b5a0, 0x056d0, 0x055b2, 0x049b0,
-  0x0a577, 0x0a4b0, 0x0aa50, 0x1b255, 0x06d20, 0x0ada0,
-  /** Add By JJonline@JJonline.Cn**/ 0x14b63, 0x09370, 0x049f8, 0x04970,
-  0x064b0, 0x168a6, 0x0ea50, 0x06b20, 0x1a6c4, 0x0aae0, 0x092e0, 0x0d2e3,
-  0x0c960, 0x0d557, 0x0d4a0, 0x0da50, 0x05d55, 0x056a0, 0x0a6d0, 0x055d4,
-  0x052d0, 0x0a9b8, 0x0a950, 0x0b4a0, 0x0b6a6, 0x0ad50, 0x055a0, 0x0aba4,
-  0x0a5b0, 0x052b0, 0x0b273, 0x06930, 0x07337, 0x06aa0, 0x0ad50, 0x14b55,
-  0x04b60, 0x0a570, 0x054e4, 0x0d160, 0x0e968, 0x0d520, 0x0daa0, 0x16aa6,
-  0x056d0, 0x04ae0, 0x0a9d4, 0x0a2d0, 0x0d150, 0x0f252, 0x0d520
+  0x0a577, 0x0a4b0, 0x0aa50, 0x1b255, 0x06d20, 0x0ada0, 0x14b63, 0x09370,
+  0x049f8, 0x04970, 0x064b0, 0x168a6, 0x0ea50, 0x06b20, 0x1a6c4, 0x0aae0,
+  0x092e0, 0x0d2e3, 0x0c960, 0x0d557, 0x0d4a0, 0x0da50, 0x05d55, 0x056a0,
+  0x0a6d0, 0x055d4, 0x052d0, 0x0a9b8, 0x0a950, 0x0b4a0, 0x0b6a6, 0x0ad50,
+  0x055a0, 0x0aba4, 0x0a5b0, 0x052b0, 0x0b273, 0x06930, 0x07337, 0x06aa0,
+  0x0ad50, 0x14b55, 0x04b60, 0x0a570, 0x054e4, 0x0d160, 0x0e968, 0x0d520,
+  0x0daa0, 0x16aa6, 0x056d0, 0x04ae0, 0x0a9d4, 0x0a2d0, 0x0d150, 0x0f252,
+  0x0d520
 ] as const
 
-// 公历每个月份的天数普通表
-// export const SOLAR_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] as const
-
-// 天干地支 - 天干速查表
+/**
+ * 天干地支 - 天干速查表
+ */
 export const DAY_GAN = [
   '\u7532',
   '\u4e59',
@@ -50,7 +53,9 @@ export const DAY_GAN = [
   '\u7678'
 ] as const
 
-// 天干地支 - 地支速查表
+/**
+ * 天干地支 - 地支速查表
+ */
 export const DAY_ZHI = [
   '\u5b50',
   '\u4e11',
@@ -66,8 +71,11 @@ export const DAY_ZHI = [
   '\u4ea5'
 ] as const
 
-// 天干地支 - 生肖速查表
-// ['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪']
+/**
+ * 天干地支 - 生肖速查表
+ *
+ * ['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪']
+ */
 export const ANIMALS = [
   '\u9f20',
   '\u725b',
@@ -83,7 +91,9 @@ export const ANIMALS = [
   '\u732a'
 ] as const
 
-// 阳历节日
+/**
+ * 阳历节日
+ */
 export const SOLAR_CALENDAR_FESTIVE: HolidayListType = {
   '1-1': { title: '元旦节' },
   '2-14': { title: '情人节' },
@@ -102,7 +112,9 @@ export const SOLAR_CALENDAR_FESTIVE: HolidayListType = {
   '12-24': { title: '平安夜' }
 } as const
 
-// 农历节日
+/**
+ * 农历节日
+ */
 export const LUNAR_FESTIVE: HolidayListType = {
   '12-30': { title: '除夕' },
   '1-1': { title: '春节' },
@@ -120,8 +132,11 @@ export const LUNAR_FESTIVE: HolidayListType = {
   '12-24': { title: '南方小年' }
 } as const
 
-// 二十四节气
-// ['小寒','大寒','立春','雨水','惊蛰','春分','清明','谷雨','立夏','小满','芒种','夏至','小暑','大暑','立秋','处暑','白露','秋分','寒露','霜降','立冬','小雪','大雪','冬至']
+/**
+ * 二十四节气
+ *
+ * ['小寒','大寒','立春','雨水','惊蛰','春分','清明','谷雨','立夏','小满','芒种','夏至','小暑','大暑','立秋','处暑','白露','秋分','寒露','霜降','立冬','小雪','大雪','冬至']
+ */
 export const SOLAR_TERM = [
   '\u5c0f\u5bd2',
   '\u5927\u5bd2',
@@ -149,8 +164,11 @@ export const SOLAR_TERM = [
   '\u51ac\u81f3'
 ] as const
 
-// 数字转中文速查表
-// ['日','一','二','三','四','五','六','七','八','九','十']
+/**
+ * 数字转中文速查表
+ *
+ * ['日','一','二','三','四','五','六','七','八','九','十']
+ */
 export const CONVERT_DIGIT_CHINES = [
   '\u65e5',
   '\u4e00',
@@ -165,8 +183,11 @@ export const CONVERT_DIGIT_CHINES = [
   '\u5341'
 ] as const
 
-// 日期转农历称呼速查表
-// ['初','十','廿','卅']
+/**
+ * 日期转农历称呼速查表
+ *
+ * ['初','十','廿','卅']
+ */
 export const DATE_CHANG_LUNAR_CALENDAR = [
   '\u521d',
   '\u5341',
@@ -174,8 +195,11 @@ export const DATE_CHANG_LUNAR_CALENDAR = [
   '\u5345'
 ] as const
 
-// 月份转农历称呼速查表
-// ['正','一','二','三','四','五','六','七','八','九','十','冬','腊']
+/**
+ * 月份转农历称呼速查表
+ *
+ * ['正','一','二','三','四','五','六','七','八','九','十','冬','腊']
+ */
 export const CHANG_MONTH_LUNAR_CALENDAR = [
   '\u6b63',
   '\u4e8c',
@@ -191,7 +215,9 @@ export const CHANG_MONTH_LUNAR_CALENDAR = [
   '\u814a'
 ] as const
 
-// 1900-2100 各年的 24 节气日期速查表
+/**
+ * 1900-2100 各年的 24 节气日期速查表
+ */
 export const SOLAR_TERM_LIST = [
   '9778397bd097c36b0b6fc9274c91aa',
   '97b6b97bd19801ec9210c965cc920e',

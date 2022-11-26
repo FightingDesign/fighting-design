@@ -48,7 +48,7 @@
     if (prop.readonly) return
     starValue.value = index
     emit('update:modelValue', index)
-    runCallback(prop.change, index)
+    runCallback(prop.onChange, index)
   }
 
   /**

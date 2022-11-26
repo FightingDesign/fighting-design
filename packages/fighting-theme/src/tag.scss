@@ -11,6 +11,7 @@
   align-items: center;
   transition: 0.5;
   cursor: default;
+  border-radius: var(--f-design-border-radius-1);
   height: var(--f-design-height-middle);
 
   // 不同的类型
@@ -21,13 +22,31 @@
     &.f-tag__#{map-get($item, name)} {
       background: map-get($item, default);
       color: map-get($item, defaultTextColor);
-      border: 1px solid map-get($item, simpleTextColor);
+
+      // 线性的
+      &.f-tag__line {
+        border: 1px solid map-get($item, simpleTextColor);
+
+        .f-close-btn {
+          color: map-get($item, simpleTextColor);
+        }
+      }
+
+      // 关闭按钮
+      .f-close-btn {
+        color: map-get($item, defaultTextColor);
+      }
     }
 
     // 简约模式
     &.f-tag__simple.f-tag__#{map-get($item, name)} {
       background: map-get($item, simple);
       color: map-get($item, simpleTextColor);
+
+      // 关闭按钮
+      .f-close-btn {
+        color: map-get($item, simpleTextColor);
+      }
     }
 
     // 线性的
@@ -61,5 +80,17 @@
   .f-close-btn {
     margin-left: 8px;
     text-align: right;
+  }
+
+  // 关闭动画
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.2s ease-out;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: scale(0.5);
+    opacity: 0;
   }
 }

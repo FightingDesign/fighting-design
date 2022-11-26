@@ -9,64 +9,97 @@
   } from '../../_svg'
   import { FInput } from '../../input'
   import { FButton } from '../../button'
-  import { runCallback } from '../../_utils'
-  import type { ComputedRef } from 'vue'
-  import type {
-    OrdinaryFunctionInterface,
-    HandleFocusEventInterface
-  } from '../../_interface'
+  import { isNumber, runCallback } from '../../_utils'
+  import type { ComputedRef, WritableComputedRef } from 'vue'
   import type { InputNumberPropsType } from './interface'
 
   const prop: InputNumberPropsType = defineProps(Props)
-  const emit = defineEmits<{
-    (e: 'update:modelValue', val: number): void
-  }>()
-
-  const displayValue: ComputedRef<string> = computed<string>(() =>
-    Number(prop.modelValue)?.toFixed(prop.precision)
-  )
+  const emit = defineEmits({
+    'update:modelValue': (val: number): boolean => isNumber(val)
+  })
 
   /**
-   * 点击减号
+   * 当前绑定的值
    */
-  const handleMinus: OrdinaryFunctionInterface = (): void => {
-    if (prop.disabled || prop.readonly) return
-    emit('update:modelValue', +prop.modelValue - +prop.step)
-  }
+  const inputValue: WritableComputedRef<number> = computed({
+    /**
+     * 获取值的时候返回
+     */
+    get: (): number => {
+      const { modelValue, precision } = prop
+
+      // 如果传入的是非数字的参数，则默认返回 0
+      if (!isNumber(modelValue)) {
+        return 0
+      }
+
+      // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+      return Number(modelValue.toFixed(isNumber(precision) ? precision : 0))
+    },
+    /**
+     * 当设置新的值的时候，同步数据
+     *
+     * @param val 新值
+     */
+    set: (val: number) => {
+      emit('update:modelValue', val)
+    }
+  })
 
   /**
-   * 点击加号
+   * 最小值禁用
    */
-  const handlePlus: OrdinaryFunctionInterface = (): void => {
-    if (prop.disabled || prop.readonly) return
-    emit('update:modelValue', +prop.modelValue + +prop.step)
-  }
+  const minDisabled: ComputedRef<boolean> = computed((): boolean => {
+    const { step, min } = prop
+
+    if (!min && !isNumber(min)) {
+      return false
+    }
+
+    // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
+    return inputValue.value - Math.abs(step) < min
+  })
 
   /**
-   * input 事件监听
-   *
-   * @param evt 事件对象
+   * 最大值禁用
    */
-  const handleInput: HandleFocusEventInterface = (evt: Event): void => {
-    runCallback(prop.onInput, evt)
-  }
+  const maxDisabled: ComputedRef<boolean> = computed((): boolean => {
+    const { step, max } = prop
+
+    if (!max && !isNumber(max)) {
+      return false
+    }
+
+    return inputValue.value + Math.abs(step) > max
+  })
 
   /**
-   * 失去焦点
-   *
-   * @param evt 事件对象
+   * 改变值
    */
-  const handleBlur: HandleFocusEventInterface = (evt: Event): void => {
-    runCallback(prop.onBlur, evt)
-  }
+  const handleChangeVal = (target: 'minus' | 'plus'): void => {
+    const { disabled, readonly, step } = prop
 
-  /**
-   * 获取焦点
-   *
-   * @param evt 事件对象
-   */
-  const handleFocus: HandleFocusEventInterface = (evt: FocusEvent): void => {
-    runCallback(prop.onFocus, evt)
+    // 禁用或只读
+    if (disabled || readonly) return
+
+    const map = {
+      /**
+       * 减少
+       */
+      minus: (): void => {
+        inputValue.value -= step
+      },
+      /**
+       * 增加
+       */
+      plus: (): void => {
+        inputValue.value += step
+      }
+    }
+
+    map[target]()
+
+    runCallback(prop.onChange, inputValue.value)
   }
 </script>
 
@@ -76,14 +109,14 @@
       v-if="model === 'button'"
       class="f-input-number__minus"
       type="primary"
-      :disabled="disabled"
-      :click="handleMinus"
+      :disabled="disabled || minDisabled"
       :before-icon="FIconChevronLeftVue"
+      @click="handleChangeVal('minus')"
     />
 
     <div class="f-input-number__wrapper">
       <f-input
-        v-model="displayValue"
+        v-model="inputValue"
         type="number"
         :max="max"
         :min="min"
@@ -93,21 +126,22 @@
         :name="name"
         :clear="clear"
         :placeholder="placeholder"
-        :on-blur="handleBlur"
-        :on-focus="handleFocus"
-        :on-input="handleInput"
+        :on-blur="onBlur"
+        :on-focus="onFocus"
+        :on-input="onInput"
+        :on-change="onChange"
       >
         <template #after>
           <div v-if="model === 'switch'" class="f-input-number__switch">
             <f-button
-              :disabled="disabled"
+              :disabled="disabled || maxDisabled"
               :before-icon="FIconChevronUp"
-              :click="handlePlus"
+              @click="handleChangeVal('plus')"
             />
             <f-button
-              :disabled="disabled"
+              :disabled="disabled || minDisabled"
               :before-icon="FIconChevronDown"
-              :click="handleMinus"
+              @click="handleChangeVal('minus')"
             />
           </div>
         </template>
@@ -118,9 +152,9 @@
       v-if="model === 'button'"
       class="f-input-number__plus"
       type="primary"
-      :disabled="disabled"
+      :disabled="disabled || maxDisabled"
       :before-icon="FIconChevronRightVue"
-      :click="handlePlus"
+      @click="handleChangeVal('plus')"
     />
   </div>
 </template>

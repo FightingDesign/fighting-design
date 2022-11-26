@@ -22,9 +22,9 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 分隔符颜色
+   * icon 颜色
    */
-  separatorColor: {
+  iconColor: {
     type: String,
     default: (): null => null
   },

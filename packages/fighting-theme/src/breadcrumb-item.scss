@@ -1,16 +1,20 @@
 @use './root';
 
 .f-breadcrumb-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   cursor: pointer;
 
-  .f-svg-icon {
-    margin: 0 6px;
+  // 文字内容
+  .f-breadcrumb-item__text {
+    font-size: 15px;
+    color: var(--f-breadcrumb-item-text-color, var(--f-design-color-text-1));
   }
 
-  .f-breadcrumb-item__inner {
-    color: var(--f-design-color-text-1);
+  // icon
+  .f-svg-icon {
+    margin: 0 6px;
+    color: var(--f-breadcrumb-item-icon-color, var(--f-design-color-border-4));
   }
 
   // 最后一个分隔符隐藏

@@ -40,6 +40,9 @@ export const Props = {
   },
   /**
    * 尺寸
+   *
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: String as PropType<CheckboxGroupSizeType>,
@@ -65,7 +68,7 @@ export const Props = {
   /**
    * 绑定值变化时触发
    */
-  change: {
+  onChange: {
     type: Function as PropType<CheckboxGroupChangeInterface>,
     default: (): null => null
   }

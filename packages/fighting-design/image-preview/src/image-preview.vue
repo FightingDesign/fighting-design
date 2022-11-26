@@ -5,7 +5,7 @@
   import { FToolbar } from '../../toolbar'
   import { FToolbarItem } from '../../toolbar-item'
   import { FPopup } from '../../popup'
-  import { isString, isBoolean } from '../../_utils'
+  import { isBoolean, runCallback } from '../../_utils'
   import {
     FIconChevronLeftVue,
     FIconChevronRightVue,
@@ -26,7 +26,7 @@
     ImagePreviewSwitchImageOptionMapInterface
   } from './interface'
   import type { OrdinaryFunctionInterface } from '../../_interface'
-  import type { ToolbarClickEmitInterface } from '../../toolbar/src/interface'
+  import type { ToolbarClickParamsInterface } from '../../toolbar'
 
   const prop: ImagePreviewPropsType = defineProps(Props)
   const emit = defineEmits({
@@ -49,13 +49,17 @@
     prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex
   )
 
-  // 关闭图片预览
+  /**
+   * 关闭图片预览
+   */
   const handleClose: OrdinaryFunctionInterface = (): void => {
     emit('update:visible', false)
-    prop.close && prop.close()
+    runCallback(prop.onClose)
   }
 
-  // 监视绑定值，如果为假，则关闭
+  /**
+   * 监视绑定值，如果为假，则关闭
+   */
   watch(
     (): boolean => isVisible.value,
     (newVal: boolean): void => {
@@ -65,6 +69,9 @@
     }
   )
 
+  /**
+   * 监视绑定的数据同步 isVisible
+   */
   watch(
     (): boolean => prop.visible,
     (newVal: boolean): void => {
@@ -72,7 +79,9 @@
     }
   )
 
-  // 图片加载
+  /**
+   * 开始图片加载
+   */
   const imagPreload: OrdinaryFunctionInterface = (): void => {
     const imgList: string[] = prop.imgList as string[]
 
@@ -82,13 +91,19 @@
     })
   }
 
-  // 左右切换按钮
+  /**
+   * 左右切换按钮
+   * @param type 区分点击的是上一张还是下一张
+   */
   const switchImage: ImagePreviewSwitchImageInterface = (
     type: 'next' | 'prev'
   ): void => {
     recovery()
 
     const optionMap: ImagePreviewSwitchImageOptionMapInterface = {
+      /**
+       * 下一张切换
+       */
       next: (): void => {
         if (previewShowIndex.value < prop.imgList.length - 1) {
           previewShowIndex.value++
@@ -96,6 +111,9 @@
         }
         previewShowIndex.value = 0
       },
+      /**
+       * 上一张切换
+       */
       prev: (): void => {
         if (previewShowIndex.value > 0) {
           previewShowIndex.value--
@@ -110,10 +128,16 @@
     }
   }
 
-  // 点击操作栏
+  /**
+   * 点击操作栏触发
+   *
+   * @param target f-toolbar 组件返回值
+   */
   const optionClick: ImagePreviewOptionClickInterface = (
-    target: ToolbarClickEmitInterface
+    target: ToolbarClickParamsInterface
   ): void => {
+    if (!target.index) return
+
     const optionMap: ImagePreviewOptionClickOptionMapInterface = {
       1: (): void => smaller(),
       2: (): void => bigger(),
@@ -122,8 +146,8 @@
       5: (): void => rotateCounterClock()
     } as const
 
-    if (isString(target.key) && optionMap[target.key]) {
-      optionMap[target.key]()
+    if (optionMap[target.index as unknown as 1 | 2 | 3 | 4 | 5]) {
+      optionMap[target.index as unknown as 1 | 2 | 3 | 4 | 5]()
     }
   }
 </script>
@@ -163,7 +187,7 @@
         class="f-image-preview__close"
         circle
         :before-icon="FIconCrossVue"
-        @click="handleClose"
+        :on-click="handleClose"
       />
 
       <!-- 操作栏 -->
@@ -171,13 +195,13 @@
         v-if="isOption"
         class="f-image-preview__option"
         round
-        :click="optionClick"
+        :on-click="optionClick"
       >
-        <f-toolbar-item :icon="FIconZoomOutVue" :data-key="1" />
-        <f-toolbar-item :icon="FIconZoomInVue" :data-key="2" />
-        <f-toolbar-item :icon="FIconLayoutRowsVue" :data-key="3" />
-        <f-toolbar-item :icon="FIconRotateClockwiseVue" :data-key="4" />
-        <f-toolbar-item :icon="FIconRotateAntiClockwiseVue" :data-key="5" />
+        <f-toolbar-item :icon="FIconZoomOutVue" :index="1" />
+        <f-toolbar-item :icon="FIconZoomInVue" :index="2" />
+        <f-toolbar-item :icon="FIconLayoutRowsVue" :index="3" />
+        <f-toolbar-item :icon="FIconRotateClockwiseVue" :index="4" />
+        <f-toolbar-item :icon="FIconRotateAntiClockwiseVue" :index="5" />
       </f-toolbar>
     </f-popup>
   </div>

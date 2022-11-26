@@ -43,7 +43,7 @@ export const Props = {
   /**
    * 图片预览展示的 z-index
    *
-   * https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+   * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
   zIndex: {
     type: Number,
@@ -69,7 +69,7 @@ export const Props = {
   /**
    * 关闭之后的回调
    */
-  close: {
+  onClose: {
     type: Function as PropType<OrdinaryFunctionInterface>,
     default: (): null => null
   }

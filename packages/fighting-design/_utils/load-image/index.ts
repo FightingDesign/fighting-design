@@ -1,4 +1,4 @@
-import { isString } from '../utils'
+import { isString, runCallback } from '../index'
 import type {
   LoadLazyInterface,
   LoadInterface,
@@ -36,9 +36,10 @@ class Load implements LoadInterface {
   }
   /**
    * 第一步会进入到这里
+   *
    * 首先加载当前的 src 地址图片
+   *
    * @param errSrc src 失败后的加载路径
-   * @return { void }
    */
   loadCreateImg: LoadCreateImgInterface = (errSrc?: string): void => {
     const newImg: HTMLImageElement = new Image()
@@ -61,8 +62,8 @@ class Load implements LoadInterface {
   }
   /**
    * 加载失败
+   *
    * @param evt 事件对象
-   * @return { void }
    */
   onerror: HandleEventInterface = (evt: Event): void => {
     // 如果存在 errSrc 则继续尝试加载
@@ -73,26 +74,27 @@ class Load implements LoadInterface {
     }
 
     // 否则返回失败回调
-    this.props.error && this.props.error(evt)
-    this.callback && this.callback(false)
+    runCallback(this.props.onError, evt)
+    runCallback(this.callback, false)
   }
   /**
    * 图片加载
    * @param evt 事件对象
    * @param src 需要加载的 src
-   * @return { void }
    */
   onload: LoadOnloadInterface = (evt: Event, src: string): void => {
     this.node.src = src
-    this.props.load && this.props.load(evt)
-    this.callback && this.callback(true)
+    runCallback(this.props.onLoad, evt)
+    runCallback(this.callback, true)
   }
 }
 
 /**
  * 图片懒加载
+ *
  * 使用 IntersectionObserver 监视图片
- * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
+ *
+ * @see IntersectionObserver https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/observe
  */
 class Lazy extends Load implements LoadLazyInterface {
   constructor (
@@ -103,7 +105,8 @@ class Lazy extends Load implements LoadLazyInterface {
     super(img, props, callback)
   }
   /**
-   * 懒加载函数
+   * 初始化懒加载构造器
+   *
    * @returns { IntersectionObserver }
    */
   observer: LoadLazyObserverInterface = (): IntersectionObserver => {
@@ -124,7 +127,6 @@ class Lazy extends Load implements LoadLazyInterface {
   }
   /**
    * 执行懒加载
-   * @return { void }
    */
   lazyCreateImg: OrdinaryFunctionInterface = (): void => {
     this.observer().observe(this.node)
@@ -136,7 +138,6 @@ class Lazy extends Load implements LoadLazyInterface {
  * @param node img 元素
  * @param prop Props
  * @param callback 回调函数
- * @return { void }
  */
 export const loadImage: LoadImageInterface = (
   node: HTMLImageElement,
