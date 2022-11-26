@@ -59,7 +59,8 @@
 @use './src/textarea';
 @use './src/select';
 @use './src/option';
-@use './src/input-number';
+@use './src/slider.scss';
+@use './src/input-number.scss';
 @use './src/pagination';
 @use './src/tabs';
 @use './src/date-picker';

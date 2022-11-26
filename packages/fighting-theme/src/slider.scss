@@ -1,0 +1,42 @@
+.f-slider {
+  background-color: var(--f-slider-bg-color);
+
+  position: relative;
+  width: 100%;
+  height: 10px;
+  border-radius: 30px;
+  .f-slider__icon {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    // left: -15px;
+  }
+  .f-slider__left__icon {
+    user-select: none;
+    border-radius: 30px;
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    margin: auto 0;
+    width: 30px;
+    height: 30px;
+    border: 10px solid #2D5AF1;
+  }
+  .f-slider__selected {
+    height: 100%;
+    background-color: red;
+  }
+  .f-slider__right__icon {
+    user-select: none;
+    border-radius: 30px;
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    margin: auto 0;
+    width: 30px;
+    height: 30px;
+    border: 10px solid red;
+  }
+
+}

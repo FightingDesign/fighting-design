@@ -1,31 +1,19 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { FSlider } from '@/index'
+  import { ref } from 'vue';
+
+  const value = ref([0, 20])
+
+  const disabled = ref(false)
+</script>
 
 <template>
-  <f-menu>
-    <template #logo>
-      <f-avatar
-        round
-        src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
-        size="mini"
-      />
-    </template>
+  <div style="padding: 0 100px">
+    <f-slider v-model="value" :step="1" :min="0" :max="20"></f-slider>
+    <br />
+    <br />
+    <br />
+    <button @click="disabled=!disabled">禁用</button>
+  </div>
 
-    <f-menu-item>首页</f-menu-item>
-    <f-menu-item>选项</f-menu-item>
-    <f-menu-item>设置</f-menu-item>
-    <f-menu-item>操作</f-menu-item>
-
-    <template #option>
-      <f-dropdown>
-        <f-button>设置</f-button>
-
-        <template #content>
-          <f-dropdown-item>猕猴桃</f-dropdown-item>
-          <f-dropdown-item>哈密瓜</f-dropdown-item>
-          <f-dropdown-item>火龙果</f-dropdown-item>
-          <f-dropdown-item>柠檬</f-dropdown-item>
-        </template>
-      </f-dropdown>
-    </template>
-  </f-menu>
 </template>
