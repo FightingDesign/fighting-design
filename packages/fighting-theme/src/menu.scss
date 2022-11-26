@@ -1,36 +1,74 @@
 @use './root';
 
 .f-menu {
-  height: 60px;
+  display: flex;
   border: 1px solid #ccc;
   background: var(--f-design-color-text-2);
-  display: flex;
-  padding: 0 17px;
-  box-sizing: border-box;
-  justify-content: space-between;
-  align-items: center;
 
-  // logo
-  &__logo {
-    height: 100%;
-    display: inline-flex;
-    justify-content: center;
+  // 水平排列
+  &.f-menu__horizontal {
+    height: 60px;
+    padding: 0 17px;
+    box-sizing: border-box;
+    justify-content: space-between;
     align-items: center;
+
+    // logo
+    .f-menu__logo {
+      height: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    // 主要内容
+    .f-menu__content {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin: 0 20px;
+    }
+
+    // 选项内容
+    .f-menu__option {
+      height: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
-  // 主要内容
-  &__content {
-    display: flex;
-    align-items: center;
+  // 垂直排列
+  &.f-menu__vertical {
+    width: 200px;
     height: 100%;
-    margin: 0 20px;
-  }
+    flex-direction: column;
+    padding: 17px 0;
+    box-sizing: border-box;
 
-  // 选项内容
-  &__option {
-    height: 100%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    // logo
+    .f-menu__logo {
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    // 主要内容
+    .f-menu__content {
+      display: flex;
+      margin: 15px 0;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    // 选项内容
+    .f-menu__option {
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
