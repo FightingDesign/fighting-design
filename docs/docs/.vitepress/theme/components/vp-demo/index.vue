@@ -1,22 +1,20 @@
 <script lang="ts" setup name="VpDemo">
   import { ref } from 'vue'
   import type { Ref } from 'vue'
-  import type { OrdinaryFunctionInterface } from '../_interface'
-
-  const prop = defineProps({
-    source: String
-  })
 
   /**
    * 是否展示内容
    */
   const isOpen: Ref<boolean> = ref<boolean>(false)
+  /**
+   * 折叠的 dom 节点
+   */
   const content: Ref<HTMLDivElement> = ref(null as unknown as HTMLDivElement)
 
   /**
    * 点击执行
    */
-  const handleClick: OrdinaryFunctionInterface = (): void => {
+  const handleClick = (): void => {
     if (!isOpen.value) {
       content.value.style.height = 'auto'
       const height: number = content.value.offsetHeight
