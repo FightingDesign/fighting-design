@@ -37,11 +37,11 @@ function getTransformXY (dom: HTMLElement): { x: number, y: number } {
 // ================
 class Drag {
   target: HTMLElement;
-  callback: (e: TouchEvent & MouseEvent, npos: { x: number, y: number }) => void;
+  callback: (e: TouchEvent & MouseEvent, npos: {x: number, y: number}, more: {end: boolean}) => void;
   oldPosition = { x: 0, y: 0 };
   oldEposition = { x: 0, y: 0 };
-
-  constructor (target: HTMLElement, callback: (e: TouchEvent & MouseEvent, npos: { x: number, y: number }) => void, options: { stop: boolean, prevent: boolean }) {
+  
+  constructor (target: HTMLElement, callback: (e: TouchEvent & MouseEvent, npos: {x: number, y: number}, more: {end: boolean}) => void, options: {stop: boolean, prevent: boolean}) {
     this.target = target
     this.callback = callback
 
@@ -57,11 +57,18 @@ class Drag {
       }
       if (options && options.stop) e.stopPropagation()
       if (options && options.prevent) e.preventDefault()
-      if (typeof callback === 'function') callback(e, npos)
+      if (typeof callback === 'function') callback(e, npos, {end: false})
     }
     const end = (e: TouchEvent & MouseEvent): void => {
+      const {x, y} = getEventXY(e)
+      const {oldEposition, oldPosition} = this
+      const npos = {
+        x: oldPosition.x + x - oldEposition.x,
+        y: oldPosition.y + y - oldEposition.y
+      }
       if (options && options.stop) e.stopPropagation()
       if (options && options.prevent) e.preventDefault()
+      if (typeof callback === 'function') callback(e, npos, {end: true})
       document.removeEventListener(touchmove, move)
       document.removeEventListener(touchend, end)
       document.removeEventListener('selectstart', stopselect)
