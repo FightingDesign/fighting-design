@@ -5,6 +5,10 @@
   width: 100%;
   height: 10px;
   border-radius: 30px;
+  &.f-slider__disabled {
+    opacity: 0.5;
+  }
+  cursor: var(--f-slideer-disabled, '');
   .f-slider__icon {
     user-select: none;
     box-sizing: border-box;
@@ -17,7 +21,8 @@
     border: 10px solid #2D5AF1;
     border-radius: 50%;
     background-color: #fff;
-    cursor: grab;
+    cursor: var(--f-slideer-disabled, grab) ;
+    
     position: absolute;
     top: 0;
     bottom: 0;
@@ -37,6 +42,7 @@
     height: 100%;
     background-color: red;
     // transition: all .3s;
+    border-radius: 30px;
   }
 
 }
