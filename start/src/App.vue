@@ -1,5 +1,11 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import {
+    FIconApps,
+    FIconBlock,
+    FIconCameraVideoSlash,
+    FIconClock
+  } from '@fighting-design/fighting-icon'
 
   const value2 = ref(true)
 
@@ -22,10 +28,10 @@
       />
     </template>
 
-    <f-menu-item>首页</f-menu-item>
-    <f-menu-item>选项</f-menu-item>
-    <f-menu-item>设置</f-menu-item>
-    <f-menu-item>操作</f-menu-item>
+    <f-menu-item :icon="FIconApps">首页</f-menu-item>
+    <f-menu-item :icon="FIconBlock">选项</f-menu-item>
+    <f-menu-item :icon="FIconCameraVideoSlash">设置</f-menu-item>
+    <f-menu-item :icon="FIconClock">操作</f-menu-item>
 
     <template #option>
       <f-dropdown>

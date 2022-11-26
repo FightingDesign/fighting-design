@@ -1,11 +1,29 @@
 @use './root';
 
 .f-menu-item {
-  display: inline-flex;
+  display: flex;
   padding: 10px 20px;
   box-sizing: border-box;
-  height: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  height: 50px;
+  transition: background 0.3s;
+
+  // icon
+  .f-svg-icon {
+    margin-right: 5px;
+    font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
+    color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+  }
+
+  // 文字内容
+  .f-menu-item__text {
+    font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
+    color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+  }
+
+  &:hover {
+    background: var(--f-design-color-primary-4);
+  }
 }

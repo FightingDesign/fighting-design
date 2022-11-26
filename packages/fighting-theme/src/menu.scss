@@ -4,6 +4,7 @@
   display: flex;
   border: 1px solid #ccc;
   background: var(--f-design-color-text-2);
+  width: 100%;
 
   // 水平排列
   &.f-menu__horizontal {
@@ -40,23 +41,19 @@
 
   // 垂直排列
   &.f-menu__vertical {
-    width: 200px;
-    height: 100%;
     flex-direction: column;
     padding: 17px 0;
     box-sizing: border-box;
 
     // logo
     .f-menu__logo {
-      width: 100%;
-      display: inline-flex;
-      justify-content: center;
+      display: flex;
+      justify-content: flex-start;
       align-items: center;
     }
 
     // 主要内容
     .f-menu__content {
-      display: flex;
       margin: 15px 0;
       flex-direction: column;
       align-items: center;
@@ -65,9 +62,8 @@
 
     // 选项内容
     .f-menu__option {
-      width: 100%;
-      display: inline-flex;
-      justify-content: center;
+      display: flex;
+      justify-content: flex-start;
       align-items: center;
     }
   }
