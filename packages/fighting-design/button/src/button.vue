@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FButton">
   import { Props } from './props'
   import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
-  import { computed, ref, inject } from 'vue'
+  import { computed, ref, inject, toRefs, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
   import { Ripples, ChangeColor, sizeChange, runCallback } from '../../_utils'
@@ -11,6 +11,10 @@
     ClassListInterface
   } from '../../_interface'
   import type { ButtonPropsType, ButtonSizeType } from './interface'
+  import type {
+    RipplesMouseEventInterface,
+    RipplesOptionInterface
+  } from '../../_utils/ripples/interface'
 
   const prop: ButtonPropsType = defineProps(Props)
 
@@ -66,30 +70,42 @@
 
   /**
    * 按钮点击
+   *
+   * @param evt 事件对象
    */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    const { disabled, loading, ripples } = prop
+    const { disabled, loading, ripples } = toRefs(prop)
 
-    if (disabled || loading) {
+    // 禁用或 loading 则返回
+    if (disabled.value || loading.value) {
       evt.preventDefault()
       return
     }
 
-    if (ripples) {
-      const { ripplesColor, simple, text, type } = prop
+    // 如果有涟漪效果
+    if (ripples.value) {
+      const { ripplesColor, simple, text, type } = toRefs(prop)
 
+      /**
+       * 涟漪类需要的选项列表
+       */
+      const options: RipplesOptionInterface = reactive({
+        duration: 700,
+        component: 'f-button',
+        className: 'f-button__ripples',
+        ripplesColor: ripplesColor.value,
+        simple: simple.value,
+        text: text.value,
+        type: type.value
+      } as const)
+
+      /**
+       * 初始化涟漪类
+       */
       const ripples: Ripples = new Ripples(
-        evt,
+        evt as unknown as RipplesMouseEventInterface,
         FButton.value as HTMLButtonElement,
-        {
-          duration: 700,
-          component: 'f-button',
-          className: 'f-button__ripples',
-          ripplesColor,
-          simple,
-          text,
-          type
-        } as const
+        options
       )
       ripples.clickRipples()
     }
@@ -116,6 +132,7 @@
         '--f-button-active-color': dark
       } as CSSProperties
     }
+
     return {
       '--f-button-font-size': sizeChange(fontSize),
       '--f-button-font-color': fontColor,
