@@ -9,7 +9,7 @@
 
 <template>
   <div style="padding: 0 100px">
-    <f-slider v-model="value" :step="1" :min="0" :max="20"></f-slider>
+    <f-slider v-model="value" :step="5" :min="0" :max="20"></f-slider>
     <br />
     <br />
     <br />

@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FSlider">
   import { Props } from './props'
-  import { computed,onMounted, ref, nextTick } from 'vue'
+  import { computed, ref } from 'vue'
   import dragDirective from './drag'
   import { FSvgIcon } from '../../svg-icon'
   import type { SliderPropsType } from './interface'
@@ -46,15 +46,28 @@
     return styles
   })
 
-  // 
-  const leftTx = ref(0)
-  const rightTx = ref(0)
+  const leftTx = computed({
+    get () {
+      const {min, max, modelValue} = prop
+      updateSiderWidth()
+      return width.value * modelValue[0] / (max - min)
+    },
+    set (newValue) {
+      // modelValue[0]
+      notify({newLeftTx: newValue})
+    }
+  })
 
-  onMounted(() => {
-    const {min, max, modelValue} = prop
-    updateSiderWidth()
-    leftTx.value = width.value * modelValue[0] / (max - min)
-    rightTx.value = width.value * modelValue[1] / (max -min)
+  const rightTx = computed({
+    get () {
+      const {min, max, modelValue} = prop
+      updateSiderWidth()
+      return width.value * modelValue[1] / (max -min)
+    },
+    set (newValue) {
+      // modelValue[0]
+      notify({newRightTx: newValue})
+    }
   })
 
   const updateSiderWidth = (): void=>{
@@ -65,30 +78,69 @@
   }
 
   // 正在拽动左边的按钮
-  const onLeftDrag = (e: EventTarget, {x}: {x: number, y: number}): void => {
+  const onLeftDrag = (e: EventTarget, {x}: {x: number, y: number}, {end}): void => {
+    document.documentElement.style.cursor = 'grabbing'
     if(x < 0) x = 0
     if(x > rightTx.value - stepWidth.value ) x = rightTx.value - stepWidth.value
-    
+    if(end) {
+      endNotify(x)
+      document.documentElement.style.cursor = ''
+      return
+    }
     leftTx.value  = x
-    notify()
   }
 
   // 正在拽动右边的按钮
-  const onRightDrag = (e: EventTarget, {x}: {x: number, y: number}): void => {
+  const onRightDrag = (e: EventTarget, {x}: {x: number, y: number}, {end}): void => {
+    document.documentElement.style.cursor = 'grabbing'
     if(x < leftTx.value + stepWidth.value) x = leftTx.value + stepWidth.value
     if(x > width.value ) x = width.value
-
+    if(end) {
+      endNotify(undefined,x)
+      document.documentElement.style.cursor = ''
+      return
+    }
     rightTx.value  = x
-    notify()
   }
 
-  const notify = (): void => {
-    const {min, max} = prop
-
-    const leftValue = Math.round((max - min) * leftTx.value / width.value)
-    const rightValue = Math.round((max - min) * rightTx.value / width.value)
+  const notify = (params: {newLeftTx?: number, newRightTx?: number}): void => {
     
+    animationTxt.value = ''
+    const left = params.newLeftTx ?? leftTx.value
+    const right = params.newRightTx ?? rightTx.value
+    const {min, max} = prop
+    // const leftValue = Math.round((max - min) * left / width.value)
+    // const rightValue = Math.round((max - min) * right / width.value)
+    const leftValue = (max - min) * left / width.value
+    const rightValue = (max - min) * right / width.value
     emit('update:modelValue', [leftValue, rightValue])
+  }
+
+  const animationTxt = ref<'transition: all .3s' | ''>('')
+  const endNotify = (newLeftTx?: number, newRightTx?: number): void => {
+    animationTxt.value = 'transition: all .3s'
+    // debugger
+    const left = newLeftTx ?? leftTx.value
+    const right = newRightTx ?? rightTx.value
+    const {min, max, step} = prop
+    if(newLeftTx) {
+      let leftValue = (max - min) * left / width.value
+      // 余数
+      let value = leftValue % step
+      leftValue = (value > (step / 2)) ? (leftValue - value + step) : (leftValue - value)
+      const rightValue = (max - min) * right / width.value
+      leftValue = leftValue > rightValue ? leftValue - step : leftValue
+      emit('update:modelValue', [leftValue, rightValue])
+    } else {
+      let rightValue = (max - min) * right / width.value
+      // 余数
+      let value = rightValue % step
+      rightValue = (value > (step / 2)) ? (rightValue - value + step) : (rightValue - value)
+      const leftValue = (max - min) * left / width.value
+      rightValue = rightValue > max ? rightValue - step : rightValue
+      rightValue = rightValue < leftValue ? (rightValue - value + step) : rightValue
+      emit('update:modelValue', [leftValue, rightValue])
+    }
   }
 
   const selectedStyle = computed(() => {
@@ -97,6 +149,7 @@
       transform: translateX(${leftTx.value}px);
       width: ${rightTx.value - leftTx.value}px;
       background-color: ${color};
+      ${animationTxt.value}
     `
   })
 
@@ -111,7 +164,7 @@
     <div 
       v-drag="onLeftDrag"
       class="f-slider__left__icon f-slider__icon"
-      :style="`transform: translateX(${leftTx}px)`"
+      :style="`transform: translateX(${leftTx}px);${animationTxt}`"
     >
       <f-svg-icon v-if="icon" size="20px" :icon="icon" />
     </div>
@@ -122,7 +175,7 @@
     <div 
       v-drag="onRightDrag"
       class="f-slider__right__icon f-slider__icon"
-      :style="`transform: translateX(${rightTx}px)`"
+      :style="`transform: translateX(${rightTx}px);${animationTxt}`"
     >
       <f-svg-icon v-if="icon" size="20px" :icon="icon" />
     </div>
