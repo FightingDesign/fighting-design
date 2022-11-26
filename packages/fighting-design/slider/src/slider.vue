@@ -4,8 +4,8 @@
   import dragDirective from './drag'
   import { FSvgIcon } from '../../svg-icon'
   import type { SliderPropsType } from './interface'
-  import type { ComputedRef, CSSProperties, Ref } from 'vue';
-  import type { ClassListInterface } from '../../_interface';
+  import type { ComputedRef, CSSProperties, Ref } from 'vue'
+  import type { ClassListInterface } from '../../_interface'
 
   const prop: SliderPropsType = defineProps(Props)
 
@@ -23,7 +23,7 @@
 
   // 步长宽度
   const stepWidth = computed(() => {
-    const {min, max, step} = prop
+    const { min, max, step } = prop
     return width.value / ((max - min) / step)
   })
 
@@ -82,11 +82,10 @@
     }
   })
 
-  const updateSiderWidth = (): void=>{
-      const rect = FSlider?.value?.getBoundingClientRect()
-      if(!rect)return
-      if(width.value != rect.width)
-          width.value = rect.width
+  const updateSiderWidth = (): void => {
+    const rect = FSlider?.value?.getBoundingClientRect()
+    if (!rect) return
+    if (width.value != rect.width) width.value = rect.width
   }
 
   // 正在拽动左边的按钮
@@ -174,7 +173,7 @@
   }
 
   const selectedStyle = computed(() => {
-    const {color} = prop
+    const { color } = prop
     return `
       transform: translateX(${leftTx.value ?? 0}px);
       width: ${rightTx.value - leftTx.value ?? 0}px;
@@ -186,7 +185,6 @@
   // nextTick(() => updateSiderWidth())
 
   const emit = defineEmits(['update:modelValue'])
-
 </script>
 
 <template>
@@ -199,11 +197,8 @@
     >
       <f-svg-icon v-if="icon" size="20px" :icon="icon" />
     </div>
-    <div 
-      class="f-slider__selected"
-      :style="selectedStyle"
-    ></div>
-    <div 
+    <div class="f-slider__selected" :style="selectedStyle"></div>
+    <div
       v-drag="onRightDrag"
       class="f-slider__right__icon f-slider__icon"
       :style="`transform: translateX(${rightTx}px);${animationTxt}`"

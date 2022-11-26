@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-  import { FSlider } from '@/index'
-  import { ref } from 'vue';
+  import {ref} from 'vue'
 
   const value1 = ref(1)
   
@@ -19,5 +18,4 @@
     <br />
     <button @click="disabled=!disabled">禁用</button>
   </div>
-
 </template>
