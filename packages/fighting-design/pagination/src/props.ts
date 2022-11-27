@@ -38,6 +38,21 @@ export const Props = {
     default: (): null => null
   },
   /**
+   * 当页码超过多少时开始展开省略符号,默认为7
+   */
+  pagerCount: {
+    type: Number,
+    // validator: (value: unknown) => {
+    //   return (
+    //     typeof value === 'number' &&
+    //     Math.trunc(value) &&
+    //     value > 4 &&
+    //     value % 2 == 1
+    //   )
+    // },
+    default: (): number => 7
+  },
+  /**
    * 是否带有背景色
    */
   background: {
