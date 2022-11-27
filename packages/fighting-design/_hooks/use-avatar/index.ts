@@ -6,7 +6,6 @@ import type { ClassListInterface } from '../../_interface'
 import type { UseAvatarReturnInterface } from './interface'
 
 export const useAvatar = (prop: AvatarPropsType): UseAvatarReturnInterface => {
-
   const { filter } = useProps(prop)
   const { styles, classes } = useList('avatar')
 

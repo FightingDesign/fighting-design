@@ -68,10 +68,9 @@ class Load implements LoadInterface {
    * @param evt 事件对象
    */
   onerror: HandleEventInterface = (evt: Event): void => {
-
     /**
      * 如果存在 errSrc 并且没有加载过则继续尝试加载
-     * 
+     *
      * this.loadErrSrc 用于避免无限死循环
      */
     if (this.props.errSrc && !this.loadErrSrc) {

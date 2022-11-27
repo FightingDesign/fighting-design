@@ -12,6 +12,9 @@
   const { isSuccess, isShowNode, loadAction } =
     useLoadImage<ImagePropsType>(prop)
 
+  /**
+   * dom 节点元素
+   */
   const imageEl: Ref<HTMLImageElement> = ref<HTMLImageElement>(
     null as unknown as HTMLImageElement
   )

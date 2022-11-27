@@ -70,7 +70,7 @@ export const Props = {
    * 可传入字符串使用内置大小
    *
    * 也可以传入数字，数字将自动转换为 px 单位
-   * 
+   *
    * @values large middle small mini
    * @defaultValue middle
    */

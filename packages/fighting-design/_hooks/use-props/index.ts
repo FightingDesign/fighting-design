@@ -1,21 +1,29 @@
 import { reactive, toRef } from 'vue'
 import { isString, isObject } from '../../_utils'
-import type { FilterParamsInterface, FilterParamsListInterface, FilterInterface, UsePropsReturnInterface, UsePropsInterface } from './interface'
+import type {
+  FilterParamsInterface,
+  FilterParamsListInterface,
+  FilterInterface,
+  UsePropsReturnInterface,
+  UsePropsInterface
+} from './interface'
 
 /**
  * 对于 props 的一些操作
- * 
- * @param prop 
- * @returns 
+ *
+ * @param prop 需要操作的 prop 对象
+ * @returns
  */
 export const useProps: UsePropsInterface = (prop): UsePropsReturnInterface => {
   /**
    * 过滤 prop
-   * 
+   *
    * @param list 需要的参数列表
-   * @returns 
+   * @returns { Object } 过滤后的 prop 响应式对象
    */
-  const filter: FilterInterface = (list: FilterParamsInterface): Record<string, unknown> => {
+  const filter: FilterInterface = (
+    list: FilterParamsInterface
+  ): Record<string, unknown> => {
     /**
      * 过滤的 prop 结果
      */
@@ -24,30 +32,27 @@ export const useProps: UsePropsInterface = (prop): UsePropsReturnInterface => {
     list.forEach((item: string | FilterParamsListInterface): void => {
       /**
        * 判断如果是字符串参数
-       * 
-       * 并且 prop 对象上存在该值
-       * 
-       * 则添加响应式数据
+       *
+       * @see toRef https://cn.vuejs.org/api/reactivity-utilities.html#toref
        */
-      // if (isString(item) && prop[item]) {
       if (isString(item)) {
         result[item] = toRef(prop, item)
-        console.log(item)
-
-      }
-      /**
-       * 如果是 object 类型
-       * 
-       * 则代表有一定的判断条件才需要过滤
-       */
-      else if (isObject(item)) {
+      } else if (isObject(item)) {
+        /**
+         * 如果是 object 类型
+         *
+         * 则代表有一定的判断条件才需要过滤
+         */
         /**
          * callback 参数返回一个 boolean
-         * 
+         *
          * 如果为真才过滤该属性
          */
         if ((item as FilterParamsListInterface).callback()) {
-          result[(item as FilterParamsListInterface).key] = toRef(prop, (item as FilterParamsListInterface).key)
+          result[(item as FilterParamsListInterface).key] = toRef(
+            prop,
+            (item as FilterParamsListInterface).key
+          )
         }
       }
     })

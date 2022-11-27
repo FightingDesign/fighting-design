@@ -52,7 +52,18 @@ export const useLoadImage: UseLoadImageInterface = <
 
     const { filter } = useProps(prop)
 
-    loadImage(el.value, filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError']) as unknown as LoadImagePropsInterface, callback)
+    loadImage(
+      el.value,
+      filter([
+        'src',
+        'errSrc',
+        'rootMargin',
+        'lazy',
+        'onLoad',
+        'onError'
+      ]) as unknown as LoadImagePropsInterface,
+      callback
+    )
   }
 
   return {
