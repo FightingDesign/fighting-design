@@ -1,7 +1,13 @@
 <script lang="ts" setup name="FPagination">
   import { Props } from './props'
-  import { computed, ref } from 'vue'
-  import { FIconChevronLeftVue, FIconChevronRightVue } from '../../_svg'
+  import { computed, ref, watchEffect } from 'vue'
+  import {
+    FIconChevronLeftVue,
+    FIconChevronRightVue,
+    FIconMenuMeatball,
+    FIconMediaRewind,
+    FIconMediaFastForward
+  } from '../../_svg'
   import { FInput } from '../../input'
   import { FSelect } from '../../select'
   import { FOption } from '../../option'
@@ -19,7 +25,26 @@
 
   // 当前快速跳转的页码
   const jumpCurrent: Ref<string> = ref<string>('1')
+
   const pagesLen: Ref<number> = ref<number>(10)
+
+  // 上一页更多图标的visible
+  const showPrevMore: Ref<boolean> = ref<boolean>(false)
+
+  // 下一页更多图标的visible
+  const showNextMore: Ref<boolean> = ref<boolean>(false)
+
+  // 上一页箭头图标hover
+  const prevHover: Ref<boolean> = ref<boolean>(false)
+
+  // 上一页箭头图标focus
+  const prevFocus: Ref<boolean> = ref<boolean>(false)
+
+  // 下一页箭头图标hover
+  const nextHover: Ref<boolean> = ref<boolean>(false)
+
+  // 下一页箭头图标focus
+  const nextFocus: Ref<boolean> = ref<boolean>(false)
 
   /**
    * 计算出最大页码数
@@ -82,11 +107,87 @@
   )
 
   /**
+   * 计算出第一页的样式
+   */
+  const firstPage: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { background, round, disabled, current } = prop
+
+      return [
+        'f-pagination__pages-li',
+        {
+          'f-pagination__pages-li-choose': current === 1,
+          'f-pagination__pages-li-background-choose':
+            current === 1 && (background || round),
+          'f-pagination__background': background,
+          'f-pagination__circle': round,
+          'f-pagination__disabled f-pagination__pages-li-disabled': disabled
+        }
+      ] as const
+    }
+  )
+
+  /**
+   * 计算出最后一页的样式
+   */
+  const lastPage: ComputedRef<ClassListInterface> = computed(
+    (): ClassListInterface => {
+      const { background, round, disabled, current } = prop
+
+      return [
+        'f-pagination__pages-li',
+        {
+          'f-pagination__pages-li-choose': current === maxCount.value,
+          'f-pagination__pages-li-background-choose':
+            current === 1 && (background || round),
+          'f-pagination__background': background,
+          'f-pagination__circle': round,
+          'f-pagination__disabled f-pagination__pages-li-disabled': disabled
+        }
+      ] as const
+    }
+  )
+
+  /**
    * 计算出需要循环遍历的 pages
    */
-  const pages: ComputedRef<number[]> = computed((): number[] =>
-    [...Array(maxCount.value).keys()].map((item: number) => item + 1)
-  )
+  const pages: ComputedRef<number[]> = computed((): number[] => {
+    const pagerCount = Number(prop.pagerCount)
+    const currentPage = Number(prop.current)
+    const halfPagerCount = (pagerCount - 1) / 2
+    let showPrevMore = false
+    let showNextMore = false
+    if (maxCount.value > pagerCount) {
+      if (prop.current > pagerCount - halfPagerCount) {
+        showPrevMore = true
+      }
+      if (prop.current < maxCount.value - halfPagerCount) {
+        showNextMore = true
+      }
+    }
+
+    const arr: number[] = []
+    if (!showPrevMore && showNextMore) {
+      for (let startPage = 2; startPage < pagerCount; startPage++) {
+        arr.push(startPage)
+      }
+    } else if (showPrevMore && !showNextMore) {
+      let startPage = maxCount.value - (pagerCount - 2)
+      for (let i = startPage; i < maxCount.value; i++) {
+        arr.push(i)
+      }
+    } else if (showPrevMore && showNextMore) {
+      let offset = Math.floor(pagerCount / 2) - 1
+      for (let i = currentPage - offset; i <= currentPage + offset; i++) {
+        arr.push(i)
+      }
+    } else {
+      for (let i = 2; i < pagerCount; i++) {
+        arr.push(i)
+      }
+    }
+    return arr
+  })
 
   /**
    * 点击上一页触发的回调
@@ -130,6 +231,74 @@
 
     emit('update:current', Number(jumpCurrent.value))
   }
+
+  watchEffect(() => {
+    const pagerCount = Number(prop.pagerCount)
+    let halfPagerCount = (pagerCount - 1) / 2
+    showPrevMore.value = false
+    showNextMore.value = false
+    if (maxCount.value > pagerCount) {
+      if (prop.current > pagerCount - halfPagerCount) {
+        showPrevMore.value = true
+      }
+      if (prop.current < maxCount.value - halfPagerCount) {
+        showNextMore.value = true
+      }
+    }
+  })
+
+  // 点击ul内部元素事件,此处采用事件委托
+  const pageClick = (e: Event): void => {
+    const target = e.target as HTMLElement
+    if (target.tagName.toLowerCase() === 'ul' || prop.disabled) {
+      return
+    }
+    let newPage = Number(target.textContent)
+    let pagerCount = prop.pagerCount
+    let current = prop.current
+    let countPager = pagerCount - 2
+
+    if (target.className.includes('f-pagination__prev-more')) {
+      newPage = current - countPager
+    }
+    if (target.className.includes('f-pagination__next-more')) {
+      newPage = current + countPager
+    }
+
+    if (!Number.isNaN(newPage)) {
+      if (newPage < 1) {
+        newPage = 1
+      }
+      if (newPage > maxCount.value) {
+        newPage = maxCount.value
+      }
+    }
+
+    if (newPage !== current) {
+      emit('update:current', newPage)
+      prop.change && prop.change(newPage, prop.pageSize)
+    }
+  }
+
+  // 显示箭头的move事件
+  const handleMoveEnter = (forward = false): void => {
+    if (prop.disabled) return
+    if (forward) {
+      prevHover.value = true
+    } else {
+      nextHover.value = true
+    }
+  }
+
+  // 显示箭头的hover事件
+  const handleFocus = (forward = false): void => {
+    if (prop.disabled) return
+    if (forward) {
+      prevFocus.value = true
+    } else {
+      nextFocus.value = true
+    }
+  }
 </script>
 
 <template>
@@ -154,8 +323,25 @@
     </button>
 
     <!-- 分页主内容 -->
-    <div v-if="prop.total > 0" :class="listClassList">
-      <div
+    <ul v-if="prop.total > 0" :class="listClassList" @click="pageClick">
+      <li v-if="prop.total > 0" :class="firstPage">1</li>
+      <li
+        v-if="showPrevMore"
+        :class="['f-pagination__prev-more', 'f-pagination__pages-li']"
+        @mouseenter="handleMoveEnter(true)"
+        @mouseleave="prevHover = false"
+        @focus="handleFocus(true)"
+        @blur="prevFocus = false"
+      >
+        <f-svg-icon
+          v-if="(prevHover || prevFocus) && !disabled"
+          :size="15"
+          :icon="FIconMediaRewind"
+        >
+        </f-svg-icon>
+        <f-svg-icon v-else :size="15" :icon="FIconMenuMeatball" />
+      </li>
+      <li
         v-for="item in pages"
         :key="item"
         :class="[
@@ -171,9 +357,28 @@
         ]"
         @click="change(item)"
       >
-        <span>{{ item }}</span>
-      </div>
-    </div>
+        {{ item }}
+      </li>
+      <li
+        v-if="showNextMore"
+        :class="['f-pagination__next-more', 'f-pagination__pages-li']"
+        @mouseenter="handleMoveEnter()"
+        @mouseleave="nextHover = false"
+        @focus="handleFocus()"
+        @blur="nextFocus = false"
+      >
+        <f-svg-icon
+          v-if="(nextHover || nextFocus) && !disabled"
+          :size="15"
+          :icon="FIconMediaFastForward"
+        >
+        </f-svg-icon>
+        <f-svg-icon v-else :size="15" :icon="FIconMenuMeatball" />
+      </li>
+      <li v-if="prop.total > 1" :class="lastPage">
+        {{ maxCount }}
+      </li>
+    </ul>
 
     <!-- 右侧侧切换按钮 -->
     <button :class="nextClassList" @click="toNext">

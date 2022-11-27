@@ -19,14 +19,22 @@
     background: var(--f-design-color-text-2);
   }
 
+  &__prev-more > *,
+  &__next-more > * {
+    pointer-events: none;
+  }
+
   &__pages {
     display: flex;
+    list-style-type: none;
+    padding-left: 0;
 
     .f-pagination__pages-li {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
       width: 34px;
       height: 34px;
-      line-height: 34px;
-      text-align: center;
       font-size: 16px;
       cursor: pointer;
       color: var(--f-design-color-text-1);
