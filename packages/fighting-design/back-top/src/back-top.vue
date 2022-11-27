@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FBackTop">
   import { Props } from './props'
-  import { onMounted, ref, computed } from 'vue'
-  import { debounce, sizeChange } from '../../_utils'
+  import { onMounted, ref } from 'vue'
+  import { debounce } from '../../_utils'
+  import { useList, useProps } from '../../_hooks'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
     BackTopHandleScrollInterface,
@@ -10,6 +11,9 @@
   import type { OrdinaryFunctionInterface } from '../../_interface'
 
   const prop: BackTopPropsType = defineProps(Props)
+
+  const { filter } = useProps(prop)
+  const { styles } = useList('back-top')
 
   /**
    * 展示状态
@@ -73,17 +77,9 @@
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { right, bottom, zIndex, background, color } = prop
-
-    return {
-      '--f-back-top-right': sizeChange(right),
-      '--f-back-top-bottom': sizeChange(bottom),
-      '--f-back-top-z-index': zIndex,
-      '--f-back-top-background': background,
-      '--f-back-top-color': color
-    } as CSSProperties
-  })
+  const styleList: ComputedRef<CSSProperties> = styles(
+    filter(['right', 'bottom', 'zIndex', 'background', 'color'])
+  )
 </script>
 
 <template>
