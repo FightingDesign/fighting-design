@@ -4,7 +4,7 @@
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
   import { runCallback } from '../../_utils'
-  import { useList, useFilterProps } from '../../_hooks'
+  import { useList, useProps } from '../../_hooks'
   import type { Ref } from 'vue'
   import type { HandleMouseEventInterface } from '../../_interface'
   import type { AlertPropsType } from './props'
@@ -16,20 +16,14 @@
    */
   const isShow: Ref<boolean> = ref<boolean>(true)
 
+  const { filter } = useProps(prop)
   const { styles, classes } = useList('alert')
 
   /**
    * 类名列表
    */
   const classList = classes(
-    useFilterProps(prop, [
-      'type',
-      'bold',
-      'simple',
-      'center',
-      'round',
-      'fixed'
-    ]),
+    filter(['type', 'bold', 'simple', 'center', 'round', 'fixed']),
     true
   )
 
@@ -37,13 +31,7 @@
    * 样式列表
    */
   const styleList = styles(
-    useFilterProps(prop, [
-      'fontSize',
-      'color',
-      'background',
-      'titleSize',
-      'titleColor'
-    ])
+    filter(['fontSize', 'color', 'background', 'titleSize', 'titleColor'])
   )
 
   /**
