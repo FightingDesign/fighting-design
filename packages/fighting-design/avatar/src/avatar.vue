@@ -1,9 +1,9 @@
 <script lang="ts" setup name="FAvatar">
   import { Props } from './props'
-  import { computed, ref, onMounted, useSlots } from 'vue'
-  import { isNumber, isString, sizeChange } from '../../_utils'
+  import { ref, onMounted, useSlots } from 'vue'
+  import { isNumber, isString } from '../../_utils'
   import { FSvgIcon } from '../../svg-icon'
-  import { useLoadImage } from '../../_hooks'
+  import { useLoadImage, useList, useProps } from '../../_hooks'
   import type { ComputedRef, Ref, CSSProperties } from 'vue'
   import type { AvatarPropsType } from './props'
   import type { ClassListInterface } from '../../_interface'
@@ -11,6 +11,8 @@
   const prop: AvatarPropsType = defineProps(Props)
   const slot = useSlots()
 
+  const { filter } = useProps(prop)
+  const { styles, classes } = useList('avatar')
   const { isSuccess, isShowNode, loadAction } =
     useLoadImage<AvatarPropsType>(prop)
 
@@ -24,51 +26,53 @@
   /**
    * img 元素的类名列表
    */
-  const nodeClassList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { round, size, fit } = prop
-
-      return [
-        'f-avatar__img',
-        {
-          'f-avatar__round': round,
-          [`f-avatar__${size}`]: isString(size),
-          [`f-avatar__${fit}`]: fit
-        }
-      ] as const
-    }
+  const nodeClassList: ComputedRef<ClassListInterface> = classes(
+    filter([
+      'round',
+      'fit',
+      {
+        key: 'size',
+        callback: (): boolean => isString(prop.size)
+      }
+    ]),
+    'f-avatar__img'
   )
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { size, round } = prop
-
-      return [
-        'f-avatar',
-        {
-          'f-avatar__round': round,
-          [`f-avatar__${size}`]: isString(size)
-        }
-      ]
-    }
+  const classList: ComputedRef<ClassListInterface> = classes(
+    filter([
+      'round',
+      {
+        key: 'size',
+        callback: (): boolean => isString(prop.size)
+      }
+    ]),
+    'f-avatar'
   )
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { background, size, fontColor, fontSize } = prop
-
-    return {
-      '--f-avatar-size': isNumber(size) ? size + 'px' : null,
-      '--f-avatar-background-color': background,
-      '--f-avatar-font-color': fontColor,
-      '--f-avatar-font-size': sizeChange(fontSize)
-    } as CSSProperties
-  })
+  const styleList: ComputedRef<CSSProperties> = styles(
+    filter([
+      'background',
+      'fontColor',
+      'fontSize',
+      /**
+       * size 配置项需要进行检查是否需要过滤
+       *
+       * 只有是数字的时候才需要过滤，是数字代表是自定义的尺寸
+       *
+       * 字符串代表内部尺寸，用于类名拼接
+       */
+      {
+        key: 'size',
+        callback: (): boolean => isNumber(prop.size)
+      }
+    ])
+  )
 
   onMounted((): void => {
     if (!slot.icon && !prop.icon && !prop.text) {

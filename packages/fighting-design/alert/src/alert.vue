@@ -5,8 +5,11 @@
   import { FSvgIcon } from '../../svg-icon'
   import { runCallback } from '../../_utils'
   import { useList, useProps } from '../../_hooks'
-  import type { Ref } from 'vue'
-  import type { HandleMouseEventInterface } from '../../_interface'
+  import type { Ref, ComputedRef, CSSProperties } from 'vue'
+  import type {
+    HandleMouseEventInterface,
+    ClassListInterface
+  } from '../../_interface'
   import type { AlertPropsType } from './props'
 
   const prop: AlertPropsType = defineProps(Props)
@@ -22,15 +25,15 @@
   /**
    * 类名列表
    */
-  const classList = classes(
+  const classList: ComputedRef<ClassListInterface> = classes(
     filter(['type', 'bold', 'simple', 'center', 'round', 'fixed']),
-    true
+    'f-alert'
   )
 
   /**
    * 样式列表
    */
-  const styleList = styles(
+  const styleList: ComputedRef<CSSProperties> = styles(
     filter(['fontSize', 'color', 'background', 'titleSize', 'titleColor'])
   )
 

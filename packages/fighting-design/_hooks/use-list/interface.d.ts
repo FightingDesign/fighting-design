@@ -6,9 +6,10 @@ import type { ClassListInterface } from '../../_interface'
  *
  * @param classes 类名列表
  * @param styles 样式列表
+ * @param className 其它需要直接加入的类名
  */
 export interface UseListReturnInterface {
-  classes<T>(prop: T, myName?: boolean): ComputedRef<ClassListInterface>
+  classes<T>(prop: T, className?: string): ComputedRef<ClassListInterface>
   styles<T>(prop: T): ComputedRef<CSSProperties>
 }
 

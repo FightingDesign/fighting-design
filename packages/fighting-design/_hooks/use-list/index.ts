@@ -20,7 +20,7 @@ export const useList: UseListInterface = (
    */
   const classes = <T>(
     prop: T,
-    myName?: boolean
+    className?: string
   ): ComputedRef<ClassListInterface> => {
     return computed((): ClassListInterface => {
       /**
@@ -28,9 +28,9 @@ export const useList: UseListInterface = (
        */
       const classList: Ref<string[]> = ref<string[]>([])
 
-      // 是否添加自己的专属类名
-      if (myName) {
-        classList.value.push(`f-${name}`)
+      // 是否存在其它需要直接加入的类名
+      if (className) {
+        classList.value.push(className)
       }
 
       for (const key in prop) {

@@ -17,6 +17,9 @@
 </script>
 
 <template>
+  <f-avatar :size="85" text="哈哈" :background="value2 ? 'red' : 'blue'" />
+  <f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
+
   <!-- <f-alert type="default"> 默认提示信息 </f-alert> -->
   <f-alert bold simple center round :type="value2 ? 'primary' : 'default'">
     主要提示信息
@@ -29,11 +32,11 @@
 
   <f-menu :mode="value2 ? 'vertical' : 'horizontal'">
     <template #logo>
-      <f-avatar
+      <!-- <f-avatar
         round
         src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
         size="mini"
-      />
+      /> -->
     </template>
 
     <f-menu-item :icon="FIconApps">首页</f-menu-item>
