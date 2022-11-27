@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { useFilterProps } from '../use-filter-props'
+import { useProps } from '../index'
 import { loadImage } from '../../_utils'
 import type { Ref } from 'vue'
 import type {
@@ -50,15 +50,9 @@ export const useLoadImage: UseLoadImageInterface = <
       isShowNode.value = params
     }
 
-    /**
-     * 过滤需要的 Prop
-     */
-    const needProps: LoadImagePropsInterface = useFilterProps<
-      T,
-      LoadImagePropsInterface
-    >(prop, ['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError'])
+    const { filter } = useProps(prop)
 
-    loadImage(el.value, needProps, callback)
+    loadImage(el.value, filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError']) as unknown as LoadImagePropsInterface, callback)
   }
 
   return {

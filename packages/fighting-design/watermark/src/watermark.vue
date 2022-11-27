@@ -2,12 +2,14 @@
   import { Props } from './props'
   import { createWatermark } from '../../_utils'
   import { ref, onMounted, computed } from 'vue'
-  import { useFilterProps } from '../../_hooks'
+  import { useProps } from '../../_hooks'
   import type { Ref, CSSProperties, ComputedRef } from 'vue'
   import type { WatermarkPropsType } from './props'
   import type { CreateWatermarkPropsInterface } from '../../_utils/create-watermark/interface'
 
   const prop: WatermarkPropsType = defineProps(Props)
+
+  const { filter } = useProps(prop)
 
   // 水印样式列表
   const watermarkStyleList: Ref<CSSProperties> = ref<CSSProperties>(
@@ -19,12 +21,18 @@
    */
   const baseWatermark: ComputedRef<CSSProperties> = computed(
     (): CSSProperties => {
-      const needProps: CreateWatermarkPropsInterface = useFilterProps<
-        WatermarkPropsType,
-        CreateWatermarkPropsInterface
-      >(prop, ['content', 'width', 'height', 'fontSize', 'fontColor'])
-
-      const watermark: string = createWatermark(needProps)
+      /**
+       * base 64 图片格式
+       */
+      const watermark: string = createWatermark(
+        filter([
+          'content',
+          'width',
+          'height',
+          'fontSize',
+          'fontColor'
+        ]) as unknown as CreateWatermarkPropsInterface
+      )
 
       return {
         backgroundImage: `url(${watermark})`

@@ -29,8 +29,11 @@ export const useProps: UsePropsInterface = (prop): UsePropsReturnInterface => {
        * 
        * 则添加响应式数据
        */
-      if (isString(item) && prop[item]) {
+      // if (isString(item) && prop[item]) {
+      if (isString(item)) {
         result[item] = toRef(prop, item)
+        console.log(item)
+
       }
       /**
        * 如果是 object 类型

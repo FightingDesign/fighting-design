@@ -10,7 +10,7 @@
     FIconEyeOutlineVue
   } from '../../_svg'
   import { isString, runCallback, isNumber } from '../../_utils'
-  import { useUpdateInput, useFilterProps } from '../../_hooks'
+  import { useUpdateInput, useProps } from '../../_hooks'
   import type { Ref } from 'vue'
   import type { InputType } from './interface'
   import type { InputPropsType } from './props'
@@ -26,6 +26,8 @@
       isString(val) || isNumber(val)
   })
 
+  const { filter } = useProps(prop)
+
   /**
    * type 类型
    */
@@ -36,16 +38,14 @@
   const showPass: Ref<boolean> = ref<boolean>(false)
   /**
    * 使用 useUpdateInput hook 实现同步数据
-   *
-   * useFilterProps 过滤出需要的参数
    */
   const { onInput, onClear, onChange } = useUpdateInput(
-    useFilterProps<InputPropsType, UseUpdateInputPropsInterface>(prop, [
+    filter([
       'onChange',
       'onInput',
       'disabled',
       'type'
-    ]),
+    ]) as unknown as UseUpdateInputPropsInterface,
     emit
   )
 

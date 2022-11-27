@@ -19,6 +19,7 @@ class Load implements LoadInterface {
   node: HTMLImageElement
   props: LoadImagePropsInterface
   callback: LoadCallbackInterface | null
+  loadErrSrc: boolean
 
   /**
    * @param node 图片 dom 节点
@@ -33,6 +34,7 @@ class Load implements LoadInterface {
     this.node = node
     this.props = props
     this.callback = callback
+    this.loadErrSrc = false
   }
   /**
    * 第一步会进入到这里
@@ -66,10 +68,15 @@ class Load implements LoadInterface {
    * @param evt 事件对象
    */
   onerror: HandleEventInterface = (evt: Event): void => {
-    // 如果存在 errSrc 则继续尝试加载
-    if (this.props.errSrc) {
+
+    /**
+     * 如果存在 errSrc 并且没有加载过则继续尝试加载
+     * 
+     * this.loadErrSrc 用于避免无限死循环
+     */
+    if (this.props.errSrc && !this.loadErrSrc) {
       this.loadCreateImg(this.props.errSrc)
-      this.props.errSrc = ''
+      this.loadErrSrc = true
       return
     }
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FTextarea">
   import { Props } from './props'
-  import { useUpdateInput, useFilterProps } from '../../_hooks'
+  import { useUpdateInput, useProps } from '../../_hooks'
   import { isString, isNumber } from '../../_utils'
   import { FIconCrossVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
@@ -14,17 +14,17 @@
       isString(val) || isNumber(val)
   })
 
+  const { filter } = useProps(prop)
+
   /**
    * 使用 useUpdateInput hook 实现同步数据
-   *
-   * useFilterProps 过滤出需要的参数
    */
   const { onInput, onClear, onChange } = useUpdateInput(
-    useFilterProps<TextareaPropsType, UseUpdateInputPropsInterface>(prop, [
+    filter([
       'onChange',
       'onInput',
       'disabled'
-    ]),
+    ]) as unknown as UseUpdateInputPropsInterface,
     emit
   )
 
