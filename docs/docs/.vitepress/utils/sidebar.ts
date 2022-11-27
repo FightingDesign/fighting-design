@@ -71,7 +71,8 @@ export const sidebar = {
         { text: 'Pagination 分页器', link: '/components/pagination' },
         { text: 'Time Picker 时间选择器', link: '/components/time-picker' },
         { text: 'Date Picker 日期选择器', link: '/components/date-picker' },
-        { text: 'Input Number 数字输入框', link: '/components/input-number' }
+        { text: 'Input Number 数字输入框', link: '/components/input-number' },
+        { text: 'Slider 滑动输入条', link: '/components/slider' }
       ]
     },
     {

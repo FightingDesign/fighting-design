@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FSlider">
   import { Props } from './props'
-  import { computed, ref } from 'vue'
+  import { computed, ref, nextTick } from 'vue'
   import dragDirective from './drag'
   import { FSvgIcon } from '../../svg-icon'
   import type { SliderPropsType } from './interface'
@@ -61,13 +61,11 @@
     get() {
       const { min, max, modelValue } = prop
       updateSiderWidth()
-
       return Array.isArray(modelValue)
-        ? (width.value * modelValue[0]) / (max - min)
+        ? (width.value * (modelValue[0] - min)) / (max - min)
         : 0
     },
     set(newValue) {
-      // modelValue[0]
       notify({ newLeftTx: newValue })
     }
   })
@@ -76,12 +74,11 @@
     get() {
       const { min, max, modelValue } = prop
       updateSiderWidth()
-      return isRange.value
-        ? (width.value * modelValue[1]) / (max - min)
-        : (width.value * modelValue) / (max - min)
+      return Array.isArray(modelValue)
+        ? (width.value * (modelValue[1] - min)) / (max - min)
+        : (width.value * (modelValue - min)) / (max - min)
     },
     set(newValue) {
-      // modelValue[0]
       notify({ newRightTx: newValue })
     }
   })
@@ -139,7 +136,7 @@
       const right = params.newRightTx as number
       const { min, max } = prop
       const rightValue = ((max - min) * right) / width.value
-      emit('update:modelValue', rightValue)
+      emit('update:modelValue', rightValue + min)
       return
     }
     const left = params.newLeftTx ?? leftTx.value
@@ -161,11 +158,15 @@
     if (!isRange.value) {
       let rightValue = ((max - min) * right) / width.value
       // 余数
-      let value = rightValue % step
+      let value = rightValue % ((max - min)/step)
+      // 
+      
       rightValue =
-        value > step / 2 ? rightValue - value + step : rightValue - value
+        value > (((max - min)/step) / 2) ? rightValue - value + step : rightValue - value
       rightValue = rightValue > max ? rightValue - step : rightValue
-      emit('update:modelValue', rightValue)
+
+      console.log(value, rightValue, 'valuevalue');
+      emit('update:modelValue', rightValue + min)
 
       return
     }
@@ -187,7 +188,7 @@
       const leftValue = ((max - min) * left) / width.value
       rightValue = rightValue > max ? rightValue - step : rightValue
       rightValue =
-        rightValue < leftValue ? rightValue - value + step : rightValue
+        (rightValue < leftValue) ? rightValue - value + step : rightValue
       emit('update:modelValue', [leftValue, rightValue])
     }
   }
@@ -202,7 +203,7 @@
     `
   })
 
-  // nextTick(() => updateSiderWidth())
+  nextTick(() => updateSiderWidth())
 
   const emit = defineEmits(['update:modelValue'])
 </script>
