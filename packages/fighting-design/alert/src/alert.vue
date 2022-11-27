@@ -11,13 +11,13 @@
 
   const prop: AlertPropsType = defineProps(Props)
 
+  const { filter } = useProps(prop)
+  const { styles, classes } = useList('alert')
+
   /**
    * 展示状态
    */
   const isShow: Ref<boolean> = ref<boolean>(true)
-
-  const { filter } = useProps(prop)
-  const { styles, classes } = useList('alert')
 
   /**
    * 类名列表
