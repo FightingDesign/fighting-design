@@ -16,7 +16,9 @@ export const createWatermark: CreateBase64Interface = (
   /**
    * 创建一个 canvas
    */
-  const canvas: HTMLCanvasElement = document.createElement('canvas') as HTMLCanvasElement
+  const canvas: HTMLCanvasElement = document.createElement(
+    'canvas'
+  ) as HTMLCanvasElement
   const ratio: number = window.devicePixelRatio || 1
 
   canvas.width = props.width * ratio

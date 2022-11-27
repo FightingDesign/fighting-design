@@ -1,14 +1,12 @@
 <script lang="ts" setup name="FAlert">
   import { Props } from './props'
-  import { computed, ref } from 'vue'
+  import { ref } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
-  import { sizeChange, runCallback } from '../../_utils'
-  import type { ComputedRef, CSSProperties, Ref } from 'vue'
-  import type {
-    HandleMouseEventInterface,
-    ClassListInterface
-  } from '../../_interface'
+  import { runCallback } from '../../_utils'
+  import { useList, useFilterProps } from '../../_hooks'
+  import type { Ref } from 'vue'
+  import type { HandleMouseEventInterface } from '../../_interface'
   import type { AlertPropsType } from './props'
 
   const prop: AlertPropsType = defineProps(Props)
@@ -18,60 +16,40 @@
    */
   const isShow: Ref<boolean> = ref<boolean>(true)
 
+  const { styles, classes } = useList('alert')
+
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { type, bold, simple, center, round, fixed } = prop
-
-      return [
-        'f-alert',
-        {
-          [`f-alert__${type}`]: type,
-          'f-alert__bold': bold,
-          'f-alert__simple': simple,
-          'f-alert__center': center,
-          'f-alert__round': round,
-          'f-alert__fixed': fixed
-        }
-      ] as const
-    }
-  )
-
-  /**
-   * content 类名列表
-   */
-  const contentClassList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { overflow } = prop
-
-      return [
-        'f-alert__content',
-        {
-          [`f-alert__content-${overflow}`]: overflow
-        }
-      ] as const
-    }
+  const classList = classes(
+    useFilterProps(prop, [
+      'type',
+      'bold',
+      'simple',
+      'center',
+      'round',
+      'fixed'
+    ]),
+    true
   )
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { fontSize, color, background, titleSize, titleColor } = prop
-
-    return {
-      '--f-alert-color': color,
-      '--f-alert-title-color': titleColor,
-      '--f-alert-background': background,
-      '--f-alert-font-size': sizeChange(fontSize),
-      '--f-alert-title-size': sizeChange(titleSize)
-    } as CSSProperties
-  })
+  const styleList = styles(
+    useFilterProps(prop, [
+      'fontSize',
+      'color',
+      'background',
+      'titleSize',
+      'titleColor'
+    ])
+  )
 
   /**
    * 点击关闭按钮
+   *
+   * @param evt 事件对象
    */
   const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
     isShow.value = false
@@ -82,20 +60,32 @@
 <template>
   <transition name="f-alert">
     <div v-if="isShow" role="alert" :class="classList" :style="styleList">
+      <!-- 前缀 icon -->
       <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon">
         <slot name="beforeIcon" />
       </f-svg-icon>
 
-      <div :class="contentClassList">
+      <!-- 主要内容 -->
+      <div
+        :class="[
+          'f-alert__content',
+          {
+            [`f-alert__content-${overflow}`]: overflow
+          }
+        ]"
+      >
+        <!-- 标题 -->
         <div v-if="title" class="f-alert__title">
           <slot name="title">{{ title }}</slot>
         </div>
 
+        <!-- 内容 -->
         <div v-if="$slots.default" class="f-alert__sub-title">
           <slot />
         </div>
       </div>
 
+      <!-- 关闭按钮 -->
       <f-close-btn
         v-if="close"
         no-hover

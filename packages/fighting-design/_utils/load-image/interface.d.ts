@@ -85,7 +85,7 @@ export interface LoadLazyObserverInterface {
 
 /**
  * Load 加载类接口
- * 
+ *
  * @param node img 元素节点
  * @param props 需要的 props 参数
  * @param callback 回调函数
@@ -104,7 +104,7 @@ export interface LoadInterface {
 
 /**
  * 懒加载类接口类型接口
- * 
+ *
  * @param observer 初始化懒加载构造器
  * @param lazyCreateImg 执行懒加载
  */

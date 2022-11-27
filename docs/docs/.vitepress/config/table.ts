@@ -2,7 +2,7 @@ import type MarkdownIt from 'markdown-it'
 
 /**
  * 给 table 嵌套一层容器方便处理样式
- * 
+ *
  * @param md markdown 实例
  */
 export const tablePlugin = (md: MarkdownIt): void => {

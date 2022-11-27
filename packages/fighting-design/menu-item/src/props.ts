@@ -10,7 +10,7 @@ export const Props = {
   },
   /**
    * 文字大小
-   * 
+   *
    * 可控制 svg 和文字
    */
   fontSize: {
@@ -19,7 +19,7 @@ export const Props = {
   },
   /**
    * 文字颜色
-   * 
+   *
    * 可控制 svg 和文字
    */
   color: {

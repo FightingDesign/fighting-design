@@ -4,7 +4,7 @@ import type { MenuModelType } from './interface'
 export const Props = {
   /**
    * 导航栏模式
-   * 
+   *
    * @values horizontal vertical
    * @defaultValue horizontal
    */

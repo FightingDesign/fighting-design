@@ -172,3 +172,15 @@ export const sizeToNum: UtilsSizeToNumInterface = (
   if (typeof size === 'number') return size
   return Number.parseFloat(size) || 0
 }
+
+/**
+ * 驼峰命名转换为短横线命名
+ *
+ * @param str 需要转换的字符串
+ * @returns { String } 短横线命名
+ */
+export const convertFormat = (str: string): string => {
+  return str.replace(/([A-Z])/g, (match, p1: string): string => {
+    return '-' + p1.toLowerCase()
+  })
+}

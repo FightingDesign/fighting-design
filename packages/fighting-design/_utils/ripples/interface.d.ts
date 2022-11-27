@@ -23,7 +23,7 @@ export interface RipplesOptionInterface {
 
 /**
  * Ripples 类的类型接口
- * 
+ *
  * @param evt 事件对象
  * @param node 需要添加涟漪的节点
  * @param option 其它 props 配置项参数对象
@@ -44,7 +44,7 @@ export interface RipplesInterface {
 
 /**
  * 给 MouseEvent 对象添加新属性类型接口
- * 
+ *
  * @param layerX 点击元素的 x 轴坐标
  * @param layerY 点击元素的 y 轴坐标
  */

@@ -28,11 +28,11 @@ export class Ripples implements RipplesInterface {
   clickRipples: OrdinaryFunctionInterface = (): void => {
     /**
      * clientX clientY 可获取到点击相对于页面的坐标
-     * 
+     *
      * 其它写法
      * const x: number = this.evt.clientX - (this.evt.target as HTMLElement).offsetLeft
      * const y: number = this.evt.clientY - (this.evt.target as HTMLElement).offsetTop
-     * 
+     *
      * @see clientX https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
      * @see clientY https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientY
      */

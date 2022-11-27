@@ -17,6 +17,12 @@
 </script>
 
 <template>
+  <f-alert type="default"> 默认提示信息 </f-alert>
+  <f-alert bold simple center round type="primary">主要提示信息</f-alert>
+  <f-alert type="success">成功提示信息</f-alert>
+  <f-alert type="danger">危险提示信息</f-alert>
+  <f-alert type="warning">警告提示信息</f-alert>
+
   <f-switch v-model="value2" />
 
   <f-menu :mode="value2 ? 'vertical' : 'horizontal'">
