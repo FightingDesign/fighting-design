@@ -26,9 +26,9 @@
 
 <template>
   <div :class="classList">
-    <!-- logo 位置 -->
-    <div class="f-menu__logo">
-      <slot name="logo" />
+    <!-- 前缀位置 -->
+    <div v-if="$slots.before" class="f-menu__before">
+      <slot name="before" />
     </div>
 
     <!-- 主要内容 -->
@@ -36,9 +36,9 @@
       <slot />
     </div>
 
-    <!-- 右侧选项 -->
-    <div class="f-menu__option">
-      <slot name="option" />
+    <!-- 后缀选项 -->
+    <div v-if="$slots.after" class="f-menu__after">
+      <slot name="after" />
     </div>
   </div>
 </template>

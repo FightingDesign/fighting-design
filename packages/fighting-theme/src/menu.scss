@@ -9,13 +9,12 @@
   // 水平排列
   &.f-menu__horizontal {
     height: 60px;
-    padding: 0 17px;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
 
-    // logo
-    .f-menu__logo {
+    // 前缀插槽
+    .f-menu__before {
       height: 100%;
       display: inline-flex;
       justify-content: center;
@@ -30,8 +29,8 @@
       margin: 0 20px;
     }
 
-    // 选项内容
-    .f-menu__option {
+    // 后缀插槽
+    .f-menu__after {
       height: 100%;
       display: inline-flex;
       justify-content: center;
@@ -42,11 +41,10 @@
   // 垂直排列
   &.f-menu__vertical {
     flex-direction: column;
-    padding: 17px 0;
     box-sizing: border-box;
 
-    // logo
-    .f-menu__logo {
+    // 前缀插槽
+    .f-menu__before {
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -54,14 +52,13 @@
 
     // 主要内容
     .f-menu__content {
-      margin: 15px 0;
       flex-direction: column;
       align-items: center;
       width: 100%;
     }
 
-    // 选项内容
-    .f-menu__option {
+    // 后缀插槽
+    .f-menu__after {
       display: flex;
       justify-content: flex-start;
       align-items: center;

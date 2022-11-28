@@ -8,32 +8,26 @@
   } from '@fighting-design/fighting-icon'
 
   const value = ref(true)
-
-  const value1 = ref(1)
-
-  const value2 = ref([0, 20])
-
-  const disabled = ref(false)
 </script>
 
 <template>
   <f-switch v-model="value" />
 
-  <f-menu :mode="value2 ? 'vertical' : 'horizontal'">
-    <template #logo>
+  <f-menu :mode="value ? 'vertical' : 'horizontal'">
+    <!-- <template #before>
       <f-avatar
         round
         src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
         size="mini"
       />
-    </template>
+    </template> -->
 
     <f-menu-item :icon="FIconApps">首页</f-menu-item>
     <f-menu-item :icon="FIconBlock">选项</f-menu-item>
     <f-menu-item :icon="FIconCameraVideoSlash">设置</f-menu-item>
     <f-menu-item :icon="FIconClock">操作</f-menu-item>
 
-    <template #option>
+    <!-- <template #after>
       <f-dropdown>
         <f-button>设置</f-button>
 
@@ -44,9 +38,9 @@
           <f-dropdown-item>柠檬</f-dropdown-item>
         </template>
       </f-dropdown>
-    </template>
+    </template> -->
   </f-menu>
-
+  <!-- 
   <div style="padding: 0 100px">
     <f-slider
       v-model="value1"
@@ -67,5 +61,5 @@
     <br />
     <br />
     <button @click="disabled = !disabled">禁用</button>
-  </div>
+  </div> -->
 </template>
