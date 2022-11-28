@@ -25,6 +25,13 @@ export const Props = {
   color: {
     type: String,
     default: (): null => null
+  },
+  /**
+   * 跳转的路径
+   */
+  to: {
+    type: String,
+    default: (): null => null
   }
 } as const
 

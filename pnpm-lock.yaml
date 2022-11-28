@@ -118,6 +118,9 @@ importers:
   start:
     specifiers:
       vconsole: ^3.14.6
+      vue-router: ^4.1.6
+    dependencies:
+      vue-router: 4.1.6
     devDependencies:
       vconsole: 3.14.7
 
@@ -4641,6 +4644,14 @@ packages:
       semver: 7.3.8
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /vue-router/4.1.6:
+    resolution: {integrity: sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': 6.4.5
     dev: false
 
   /vue-tsc/0.40.13_typescript@4.8.4:
