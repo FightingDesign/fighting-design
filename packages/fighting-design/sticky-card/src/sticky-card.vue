@@ -8,8 +8,13 @@
 
   const prop: StickyCardPropsType = defineProps(Props)
 
-  // 是否展示
+  /**
+   * 是否打开
+   */
   const isOpen: Ref<boolean> = ref<boolean>(prop.open)
+  /**
+   * 主要的折叠内容
+   */
   const content: Ref<HTMLDivElement> = ref(null as unknown as HTMLDivElement)
 
   /**

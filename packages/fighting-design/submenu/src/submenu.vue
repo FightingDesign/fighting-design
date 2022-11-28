@@ -15,12 +15,27 @@
    * 初始是否展开
    */
   const isOpened: Ref<boolean> = ref<boolean>(prop.opened)
+  /**
+   * 主要的折叠内容
+   */
+  const content: Ref<HTMLDivElement> = ref(null as unknown as HTMLDivElement)
 
   /**
    * 点击展开或折叠菜单
    */
   const handelClick = (): void => {
-    isOpened.value = !isOpened.value
+    if (!isOpened.value) {
+      content.value.style.height = 'auto'
+      const height: number = content.value.offsetHeight
+      content.value.style.height = '0'
+      content.value.offsetHeight
+      content.value.style.transition = '0.33s'
+      content.value.style.height = height + 'px'
+      isOpened.value = true
+    } else {
+      content.value.style.height = '0'
+      isOpened.value = false
+    }
   }
 
   /**
@@ -61,11 +76,9 @@
       </li>
 
       <!-- 主要的折叠菜单内容 -->
-      <transition name="f-submenu-content">
-        <ul v-show="isOpened" class="f-submenu__content">
-          <slot />
-        </ul>
-      </transition>
+      <ul ref="content" class="f-submenu__content">
+        <slot />
+      </ul>
     </ul>
   </li>
 </template>
