@@ -7,54 +7,25 @@
     FIconClock
   } from '@fighting-design/fighting-icon'
 
-  const value2 = ref(true)
+  const value = ref(true)
 
-  // const value1 = ref(1)
+  const value1 = ref(1)
 
-  // const value2 = ref([0, 20])
+  const value2 = ref([0, 20])
 
-  // const disabled = ref(false)
+  const disabled = ref(false)
 </script>
 
 <template>
-  <f-text font-size="12px" type="primary">主要文字</f-text>
-  <f-text font-size="16px" type="success">成功文字</f-text>
-  <f-text font-size="20px" type="danger">危险文字</f-text>
-  <f-text font-size="24px" type="warning">警告文字</f-text>
-
-  <f-link href="" type="primary">主要链接</f-link>
-  <f-link href="" type="success">成功链接</f-link>
-  <f-link href="" type="danger">危险链接</f-link>
-  <f-link href="" type="warning">警告链接</f-link>
-
-  <f-link href="" state="line" type="primary">带有下划线</f-link>
-  <f-link href="" state="bag" type="danger">hover 一下试试</f-link>
-
-  <f-alert type="primary">主要按钮</f-alert>
-  <!-- <f-footer :height="160" style="background: red" padding="20px">2121</f-footer> -->
-
-  <f-image width="200px" src="https://abc.com/1.png" />
-
-  <!-- <f-avatar :size="85" text="哈哈" :background="value2 ? 'red' : 'blue'" />
-  <f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" /> -->
-
-  <!-- <f-alert type="default"> 默认提示信息 </f-alert> -->
-  <!-- <f-alert bold simple center round :type="value2 ? 'primary' : 'default'">
-    主要提示信息
-  </f-alert> -->
-  <!-- <f-alert type="success">成功提示信息</f-alert> -->
-  <!-- <f-alert type="danger">危险提示信息</f-alert> -->
-  <!-- <f-alert type="warning">警告提示信息</f-alert> -->
-
-  <f-switch v-model="value2" />
+  <f-switch v-model="value" />
 
   <f-menu :mode="value2 ? 'vertical' : 'horizontal'">
     <template #logo>
-      <!-- <f-avatar
+      <f-avatar
         round
         src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
         size="mini"
-      /> -->
+      />
     </template>
 
     <f-menu-item :icon="FIconApps">首页</f-menu-item>
@@ -76,13 +47,25 @@
     </template>
   </f-menu>
 
-  <!-- <div style="padding: 0 100px">
-    <f-slider v-model="value1" :step="5" :min="0" :max="20" :disabled="disabled"></f-slider>
+  <div style="padding: 0 100px">
+    <f-slider
+      v-model="value1"
+      :step="5"
+      :min="0"
+      :max="20"
+      :disabled="disabled"
+    ></f-slider>
     <br />
     <br />
-    <f-slider v-model="value2" :step="5" :min="0" :max="20" :disabled="disabled"></f-slider>
+    <f-slider
+      v-model="value2"
+      :step="5"
+      :min="0"
+      :max="20"
+      :disabled="disabled"
+    ></f-slider>
     <br />
     <br />
-    <button @click="disabled=!disabled">禁用</button>
-  </div> -->
+    <button @click="disabled = !disabled">禁用</button>
+  </div>
 </template>

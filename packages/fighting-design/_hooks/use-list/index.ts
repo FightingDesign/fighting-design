@@ -3,7 +3,12 @@ import { convertFormat, isNumber, sizeChange, isBoolean } from '../../_utils'
 import { useProps } from '../use-props'
 import type { CSSProperties, ComputedRef, Ref } from 'vue'
 import type { ClassListInterface } from '../../_interface'
-import type { UseListReturnInterface, UseListInterface, ClassesInterface, StylesInterface } from './interface'
+import type {
+  UseListReturnInterface,
+  UseListInterface,
+  ClassesInterface,
+  StylesInterface
+} from './interface'
 import type { FilterParamsInterface } from '../use-props/interface'
 
 /**
@@ -64,7 +69,7 @@ export const useList: UseListInterface = <T>(
            * 否则使用值拼接
            */
           classList.value.push(
-            `f-${name}__${isBoolean(propList[key]) ? key : propList[key]}`
+            `f-${name}__${isBoolean(propList[key]) ? convertFormat(key) : propList[key]}`
           )
         }
       }
@@ -77,7 +82,9 @@ export const useList: UseListInterface = <T>(
    *
    * @param list 样式所需要的 prop 参数
    */
-  const styles: StylesInterface = (list: FilterParamsInterface): ComputedRef<CSSProperties> => {
+  const styles: StylesInterface = (
+    list: FilterParamsInterface
+  ): ComputedRef<CSSProperties> => {
     return computed((): CSSProperties => {
       /**
        * 样式列表

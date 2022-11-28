@@ -6,7 +6,7 @@
 
   const prop: HeaderPropsType = defineProps(Props)
 
-  const { styles } = useList(prop, 'footer')
+  const { styles } = useList(prop, 'header')
 
   /**
    * 样式列表

@@ -600,7 +600,7 @@
               type: 'primary',
               round: true,
               size: 'mini',
-              click: () => {
+              onClick: () => {
                 FMessage.primary('查看详情')
               }
             },
@@ -614,7 +614,7 @@
               type: 'danger',
               round: true,
               size: 'mini',
-              click: () => {
+              onClick: () => {
                 FMessage.danger('删除数据')
               }
             },
@@ -807,7 +807,7 @@ import type {
               type: 'primary',
               round: true,
               size: 'mini',
-              click: () => {
+              onClick: () => {
                 FMessage.primary('查看详情')
               }
             },
@@ -821,7 +821,7 @@ import type {
               type: 'danger',
               round: true,
               size: 'mini',
-              click: () => {
+              onClick: () => {
                 FMessage.danger('删除数据')
               }
             },

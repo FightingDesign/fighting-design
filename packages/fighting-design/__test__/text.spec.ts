@@ -50,7 +50,7 @@ describe('FText', () => {
     const wrapper = mount(FText, {
       props: { spacing: '100px' }
     })
-    expect(wrapper.attributes('style')).toContain('letter-spacing')
+    expect(wrapper.attributes('style')).toContain('f-text-spacing: 100px')
   })
 
   test('lineHeight', () => {
