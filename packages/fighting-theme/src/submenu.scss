@@ -9,6 +9,17 @@
   margin: 0;
   padding: 0;
   user-select: none;
+  // height: 100%;
+  // display: flex;
+  // width: 100%;
+
+  // 水平的
+  &.f-submenu__horizontal {
+  }
+
+  // 垂直的
+  &.f-submenu__horizontal {
+  }
 
   // icon
   .f-svg-icon {
@@ -35,7 +46,6 @@
       padding: 7px 16px;
       box-sizing: border-box;
       justify-content: space-between;
-      align-items: center;
       align-items: center;
       cursor: pointer;
       height: 50px;

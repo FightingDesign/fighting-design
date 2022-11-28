@@ -139,7 +139,7 @@
         {
           'f-pagination__pages-li-choose': current === maxCount.value,
           'f-pagination__pages-li-background-choose':
-            current === 1 && (background || round),
+            current === maxCount.value && (background || round),
           'f-pagination__background': background,
           'f-pagination__circle': round,
           'f-pagination__disabled f-pagination__pages-li-disabled': disabled

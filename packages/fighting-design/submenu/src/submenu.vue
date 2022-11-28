@@ -49,7 +49,9 @@
 </script>
 
 <template>
-  <li class="f-submenu">
+  <li
+    :class="['f-submenu', { [`f-submenu__${INJECT_DEPEND}`]: INJECT_DEPEND }]"
+  >
     <!-- 垂直或水平模式 -->
     <f-dropdown v-if="INJECT_DEPEND !== 'inline'" :spacing="24" trigger="click">
       <slot name="title" />
