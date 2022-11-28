@@ -42,8 +42,7 @@ export const useProps: UsePropsInterface = (prop): UsePropsReturnInterface => {
          * 如果是 object 类型
          *
          * 则代表有一定的判断条件才需要过滤
-         */
-        /**
+         *
          * callback 参数返回一个 boolean
          *
          * 如果为真才过滤该属性

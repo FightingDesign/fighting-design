@@ -24,6 +24,10 @@ export const useList: UseListInterface = <T>(
 
   /**
    * 过滤 props
+   * 
+   * 虽然说 classes 和 styles 都接受一个数组参数可以直接遍历
+   * 
+   * 但是有些参数需要传入特殊的回调进行判断，只能是先过滤后再遍历
    */
   const { filter } = useProps(prop)
 
