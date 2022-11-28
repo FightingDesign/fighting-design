@@ -177,9 +177,6 @@ export * from './select'
 export { FOption } from './option'
 export * from './option'
 
-export { FSlider } from './slider'
-export * from './slider'
-
 export { FInputNumber } from './input-number'
 export * from './input-number'
 
@@ -203,3 +200,6 @@ export * from './menu'
 
 export { FMenuItem } from './menu-item'
 export * from './menu-item'
+
+// export { FSlider } from './slider'
+// export * from './slider'
