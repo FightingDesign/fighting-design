@@ -16,9 +16,10 @@ export interface UseListReturnInterface {
 /**
  * useList 类型接口
  *
+ * @param prop prop 列表
  * @param name 组件名
  * @returns { UseListReturnInterface }
  */
 export interface UseListInterface {
-  (name: string): UseListReturnInterface
+  <T>(prop: T, name: string): UseListReturnInterface
 }

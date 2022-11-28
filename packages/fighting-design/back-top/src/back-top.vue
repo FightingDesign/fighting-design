@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { onMounted, ref } from 'vue'
   import { debounce } from '../../_utils'
-  import { useList, useProps } from '../../_hooks'
+  import { useList } from '../../_hooks'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
     BackTopHandleScrollInterface,
@@ -12,8 +12,7 @@
 
   const prop: BackTopPropsType = defineProps(Props)
 
-  const { filter } = useProps(prop)
-  const { styles } = useList('back-top')
+  const { styles } = useList(prop, 'back-top')
 
   /**
    * 展示状态
@@ -77,9 +76,13 @@
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = styles(
-    filter(['right', 'bottom', 'zIndex', 'background', 'color'])
-  )
+  const styleList: ComputedRef<CSSProperties> = styles([
+    'right',
+    'bottom',
+    'zIndex',
+    'background',
+    'color'
+  ])
 </script>
 
 <template>

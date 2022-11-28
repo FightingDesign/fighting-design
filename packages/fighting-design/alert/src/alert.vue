@@ -4,7 +4,7 @@
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
   import { runCallback } from '../../_utils'
-  import { useList, useProps } from '../../_hooks'
+  import { useList } from '../../_hooks'
   import type { Ref, ComputedRef, CSSProperties } from 'vue'
   import type {
     HandleMouseEventInterface,
@@ -14,8 +14,7 @@
 
   const prop: AlertPropsType = defineProps(Props)
 
-  const { filter } = useProps(prop)
-  const { styles, classes } = useList('alert')
+  const { styles, classes } = useList(prop, 'alert')
 
   /**
    * 展示状态
@@ -26,16 +25,20 @@
    * 类名列表
    */
   const classList: ComputedRef<ClassListInterface> = classes(
-    filter(['type', 'bold', 'simple', 'center', 'round', 'fixed']),
+    ['type', 'bold', 'simple', 'center', 'round', 'fixed'],
     'f-alert'
   )
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = styles(
-    filter(['fontSize', 'color', 'background', 'titleSize', 'titleColor'])
-  )
+  const styleList: ComputedRef<CSSProperties> = styles([
+    'fontSize',
+    'color',
+    'background',
+    'titleSize',
+    'titleColor'
+  ])
 
   /**
    * 点击关闭按钮
