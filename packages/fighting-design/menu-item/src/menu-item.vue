@@ -22,11 +22,11 @@
 </script>
 
 <template>
-  <div class="f-menu-item" :style="styleList">
+  <li class="f-menu-item" :style="styleList">
     <f-svg-icon v-if="icon" :icon="icon" />
 
     <span class="f-menu-item__text">
       <slot />
     </span>
-  </div>
+  </li>
 </template>

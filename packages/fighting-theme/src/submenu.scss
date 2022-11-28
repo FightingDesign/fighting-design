@@ -1,0 +1,73 @@
+@use './root';
+
+.f-submenu {
+  box-sizing: border-box;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+
+  // icon
+  .f-svg-icon {
+    margin-right: 5px;
+    font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
+    color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+  }
+
+  // 文字内容
+  .f-menu-item__text {
+    font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
+    color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+  }
+
+  // 内联模式
+  .f-submenu__inline {
+    background: #fff;
+    padding: 0;
+    border: 1px solid #eee;
+
+    // 标题，点击区域
+    .f-submenu__title {
+      display: flex;
+      padding: 7px 16px;
+      box-sizing: border-box;
+      justify-content: space-between;
+      align-items: center;
+      align-items: center;
+      cursor: pointer;
+      height: 50px;
+      transition: background 0.3s;
+
+      // 右侧选择的箭头 icon
+      .f-submenu__arrow-icon {
+        transition: 0.3s;
+      }
+
+      // 右侧选择的箭头 icon 动画效果
+      .f-submenu__arrow-icon-animation {
+        transition: 0.3s;
+        transform: rotate(-180deg);
+      }
+    }
+
+    // 主要内容
+    .f-submenu__content {
+      padding: 0;
+      margin: 0;
+    }
+
+    // 折叠动画
+    .f-submenu-content-enter-active,
+    .f-submenu-content-leave-active {
+      transition: opacity 0.5s ease;
+    }
+
+    .f-submenu-content-enter-from,
+    .f-submenu-content-leave-to {
+      opacity: 0;
+    }
+  }
+}

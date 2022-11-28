@@ -1,3 +1,3 @@
 export type { MenuPropsType } from './menu'
 
-export type MenuModelType = 'horizontal' | 'vertical'
+export type MenuModeType = 'horizontal' | 'vertical' | 'inline'

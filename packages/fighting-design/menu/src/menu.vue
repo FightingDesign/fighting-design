@@ -1,11 +1,13 @@
 <script lang="ts" setup name="FMenu">
-  import { Props } from './props'
-  import { computed } from 'vue'
+  import { Props, MENU_MODE_KEY } from './props'
+  import { computed, provide } from 'vue'
   import type { ComputedRef } from 'vue'
-  import type { MenuPropsType } from './interface'
+  import type { MenuPropsType, MenuModeType } from './interface'
   import type { ClassListInterface } from '../../_interface'
 
   const prop: MenuPropsType = defineProps(Props)
+
+  provide<MenuModeType>(MENU_MODE_KEY, prop.mode)
 
   /**
    * 类名列表
@@ -25,20 +27,20 @@
 </script>
 
 <template>
-  <div :class="classList">
+  <ul :class="classList">
     <!-- 前缀位置 -->
-    <div v-if="$slots.before" class="f-menu__before">
+    <li v-if="$slots.before" class="f-menu__before">
       <slot name="before" />
-    </div>
+    </li>
 
     <!-- 主要内容 -->
-    <div class="f-menu__content">
+    <ul class="f-menu__content">
       <slot />
-    </div>
+    </ul>
 
     <!-- 后缀选项 -->
-    <div v-if="$slots.after" class="f-menu__after">
+    <li v-if="$slots.after" class="f-menu__after">
       <slot name="after" />
-    </div>
-  </div>
+    </li>
+  </ul>
 </template>

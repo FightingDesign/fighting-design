@@ -203,3 +203,9 @@ export * from './menu-item'
 
 // export { FSlider } from './slider'
 // export * from './slider'
+
+export { FSubmenu } from './submenu'
+export * from './submenu'
+
+export { FMenuItemGroup } from './menu-item-group'
+export * from './menu-item-group'

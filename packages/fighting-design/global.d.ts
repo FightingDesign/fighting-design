@@ -71,6 +71,8 @@ declare module '@vue/runtime-core' {
     FTrigger: typeof components.FTrigger
     FMenu: typeof components.FMenu
     FMenuItem: typeof components.FMenuItem
+    FMenuItemGroup: typeof components.FMenuItemGroup
+    FSubmenu: typeof components.FSubmenu
     FSlider: typeof components.FSlider
   }
 
@@ -81,4 +83,4 @@ declare module '@vue/runtime-core' {
   }
 }
 
-export {}
+export { }
