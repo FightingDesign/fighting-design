@@ -17,6 +17,8 @@
 </script>
 
 <template>
+  <f-footer :height="160" style="background: red" padding="20px">2121</f-footer>
+
   <f-image width="200px" src="https://abc.com/1.png" />
 
   <!-- <f-avatar :size="85" text="哈哈" :background="value2 ? 'red' : 'blue'" />

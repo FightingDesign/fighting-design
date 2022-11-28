@@ -1,23 +1,20 @@
 <script lang="ts" setup name="FFooter">
   import { Props } from './props'
-  import { computed } from 'vue'
-  import { sizeChange } from '../../_utils'
+  import { useList, useProps } from '../../_hooks'
   import type { CSSProperties, ComputedRef } from 'vue'
   import type { FooterPropsType } from './props'
 
   const prop: FooterPropsType = defineProps(Props)
 
+  const { filter } = useProps(prop)
+  const { styles } = useList('footer')
+
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { height, padding } = prop
-
-    return {
-      '--f-footer-height': sizeChange(height),
-      '--f-footer-padding': sizeChange(padding)
-    } as CSSProperties
-  })
+  const styleList: ComputedRef<CSSProperties> = styles(
+    filter(['height', 'padding'])
+  )
 </script>
 
 <template>
