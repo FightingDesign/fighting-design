@@ -3,7 +3,7 @@ import { convertFormat, isNumber, sizeChange, isBoolean } from '../../_utils'
 import { useProps } from '../use-props'
 import type { CSSProperties, ComputedRef, Ref } from 'vue'
 import type { ClassListInterface } from '../../_interface'
-import type { UseListReturnInterface, UseListInterface } from './interface'
+import type { UseListReturnInterface, UseListInterface, ClassesInterface, StylesInterface } from './interface'
 import type { FilterParamsInterface } from '../use-props/interface'
 
 /**
@@ -15,7 +15,7 @@ import type { FilterParamsInterface } from '../use-props/interface'
  *
  * @param prop prop 列表
  * @param name 组件名
- * @returns { UseListReturnInterface }
+ * @returns { UseListReturnInterface } 类名列表和样式列表方法，可解构出 classes styles
  */
 export const useList: UseListInterface = <T>(
   prop: T,
@@ -31,8 +31,9 @@ export const useList: UseListInterface = <T>(
    * 类名列表
    *
    * @param list 类名所需要的 prop 参数
+   * @param className 其它所需要的类名
    */
-  const classes = (
+  const classes: ClassesInterface = (
     list: FilterParamsInterface,
     className?: string
   ): ComputedRef<ClassListInterface> => {
@@ -72,7 +73,7 @@ export const useList: UseListInterface = <T>(
    *
    * @param list 样式所需要的 prop 参数
    */
-  const styles = (list: FilterParamsInterface): ComputedRef<CSSProperties> => {
+  const styles: StylesInterface = (list: FilterParamsInterface): ComputedRef<CSSProperties> => {
     return computed((): CSSProperties => {
       /**
        * 样式列表

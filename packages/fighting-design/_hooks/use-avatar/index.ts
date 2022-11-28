@@ -1,26 +1,31 @@
-import { useList, useProps } from '../../_hooks'
+import { useList } from '../../_hooks'
 import { isNumber, isString } from '../../_utils'
 import type { AvatarPropsType } from '../../avatar'
 import type { ComputedRef, CSSProperties } from 'vue'
 import type { ClassListInterface } from '../../_interface'
 import type { UseAvatarReturnInterface } from './interface'
 
+/**
+ * useAvatar 内部样式
+ * 
+ * @param prop props 列表
+ * @returns { UseAvatarReturnInterface }
+ */
 export const useAvatar = (prop: AvatarPropsType): UseAvatarReturnInterface => {
-  const { filter } = useProps(prop)
-  const { styles, classes } = useList('avatar')
+  const { styles, classes } = useList(prop, 'avatar')
 
   /**
    * img 元素的类名列表
    */
   const nodeClassList: ComputedRef<ClassListInterface> = classes(
-    filter([
+    [
       'round',
       'fit',
       {
         key: 'size',
         callback: (): boolean => isString(prop.size)
       }
-    ]),
+    ],
     'f-avatar__img'
   )
 
@@ -28,13 +33,13 @@ export const useAvatar = (prop: AvatarPropsType): UseAvatarReturnInterface => {
    * 类名列表
    */
   const classList: ComputedRef<ClassListInterface> = classes(
-    filter([
+    [
       'round',
       {
         key: 'size',
         callback: (): boolean => isString(prop.size)
       }
-    ]),
+    ],
     'f-avatar'
   )
 
@@ -42,7 +47,7 @@ export const useAvatar = (prop: AvatarPropsType): UseAvatarReturnInterface => {
    * 样式列表
    */
   const styleList: ComputedRef<CSSProperties> = styles(
-    filter([
+    [
       'background',
       'fontColor',
       'fontSize',
@@ -57,7 +62,7 @@ export const useAvatar = (prop: AvatarPropsType): UseAvatarReturnInterface => {
         key: 'size',
         callback: (): boolean => isNumber(prop.size)
       }
-    ])
+    ]
   )
 
   return {
