@@ -17,7 +17,11 @@
 </script>
 
 <template>
-  <f-link href="" prohibit no-copy color="red" size="22px" type="default">默认链接</f-link>
+  <f-text font-size="12px" type="primary">主要文字</f-text>
+  <f-text font-size="16px" type="success">成功文字</f-text>
+  <f-text font-size="20px" type="danger">危险文字</f-text>
+  <f-text font-size="24px" type="warning">警告文字</f-text>
+
   <f-link href="" type="primary">主要链接</f-link>
   <f-link href="" type="success">成功链接</f-link>
   <f-link href="" type="danger">危险链接</f-link>
