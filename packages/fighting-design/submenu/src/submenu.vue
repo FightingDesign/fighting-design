@@ -2,6 +2,7 @@
   import { Props } from './props'
   import { MENU_MODE_KEY } from '../../menu/src/props'
   import { FDropdown } from '../../dropdown'
+  import { FText } from '../../text'
   import { FSvgIcon } from '../../svg-icon'
   import { inject, ref } from 'vue'
   import { FIconChevronUp } from '../../_svg'
@@ -62,10 +63,12 @@
     <ul v-else class="f-submenu__inline">
       <!-- 标题内容，用于点击触发 -->
       <li class="f-submenu__title" @click="handelClick">
-        <div class="f-submenu__title-text">
+        <!-- 标题内容 -->
+        <f-text class="f-submenu__title-text" :bold="isOpened">
           <slot name="title" />
-        </div>
+        </f-text>
 
+        <!-- 箭头图标 -->
         <f-svg-icon
           :class="[
             'f-submenu__arrow-icon',

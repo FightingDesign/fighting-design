@@ -39,7 +39,7 @@
       align-items: center;
       cursor: pointer;
       height: 50px;
-      transition: background 0.3s;
+      transition: 0.3s;
 
       // 右侧选择的箭头 icon
       .f-submenu__arrow-icon {
@@ -50,6 +50,12 @@
       .f-submenu__arrow-icon-animation {
         transition: 0.3s;
         transform: rotate(-180deg);
+      }
+
+      &:hover {
+        .f-text {
+          color: var(--f-design-color-primary-1);
+        }
       }
     }
 
