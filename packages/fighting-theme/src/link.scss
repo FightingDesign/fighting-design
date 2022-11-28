@@ -9,7 +9,7 @@
   text-decoration: none;
   transition: 0.3s;
   line-height: 1;
-  font-size: var(--f-link-font-size, var(--f-design-font-size-middle));
+  font-size: var(--f-link-size, var(--f-design-font-size-middle));
   color: var(--f-link-color, var(--f-design-color-primary-1));
 
   .f-svg-icon {

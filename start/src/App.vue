@@ -17,7 +17,17 @@
 </script>
 
 <template>
-  <f-footer :height="160" style="background: red" padding="20px">2121</f-footer>
+  <f-link href="" prohibit no-copy color="red" size="22px" type="default">默认链接</f-link>
+  <f-link href="" type="primary">主要链接</f-link>
+  <f-link href="" type="success">成功链接</f-link>
+  <f-link href="" type="danger">危险链接</f-link>
+  <f-link href="" type="warning">警告链接</f-link>
+
+  <f-link href="" state="line" type="primary">带有下划线</f-link>
+  <f-link href="" state="bag" type="danger">hover 一下试试</f-link>
+
+  <f-alert type="primary">主要按钮</f-alert>
+  <!-- <f-footer :height="160" style="background: red" padding="20px">2121</f-footer> -->
 
   <f-image width="200px" src="https://abc.com/1.png" />
 

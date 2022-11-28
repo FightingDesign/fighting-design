@@ -1,8 +1,8 @@
 <script lang="ts" setup name="FLink">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { computed } from 'vue'
-  import { sizeChange, runCallback } from '../../_utils'
+  import { runCallback } from '../../_utils'
+  import { useList } from '../../_hooks'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type {
     HandleMouseEventInterface,
@@ -11,6 +11,8 @@
   import type { LinkPropsType } from './props'
 
   const prop: LinkPropsType = defineProps(Props)
+
+  const { classes, styles } = useList(prop, 'link')
 
   /**
    * 点击触发
@@ -28,33 +30,15 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { type, state, prohibit, noCopy } = prop
-
-      return [
-        'f-link',
-        {
-          [`f-link__${state}`]: state,
-          [`f-link__${type}`]: type,
-          'f-link__prohibit': prohibit,
-          'f-link__no-copy': noCopy
-        }
-      ] as const
-    }
+  const classList: ComputedRef<ClassListInterface> = classes(
+    ['type', 'state', 'prohibit', 'noCopy'],
+    'f-link'
   )
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { size, color } = prop
-
-    return {
-      color,
-      fontSize: sizeChange(size)
-    } as const
-  })
+  const styleList: ComputedRef<CSSProperties> = styles(['size', 'color'])
 </script>
 
 <template>

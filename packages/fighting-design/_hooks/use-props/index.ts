@@ -12,7 +12,7 @@ import type {
  * 对于 props 的一些操作
  *
  * @param prop 需要操作的 prop 对象
- * @returns
+ * @returns { UsePropsReturnInterface }
  */
 export const useProps: UsePropsInterface = (prop): UsePropsReturnInterface => {
   /**
