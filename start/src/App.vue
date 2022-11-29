@@ -7,9 +7,27 @@
     FIconClock
   } from '@fighting-design/fighting-icon'
 
+  const open2 = ref(false)
 </script>
 
 <template>
+  <f-sticky-card :open="open2">
+    <template #source>
+      <h1>1212121</h1>
+      <h1>1212121</h1>
+      <h1>1212121</h1>
+    </template>
+
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+    <h1>Hello World！</h1>
+  </f-sticky-card>
+
   <f-menu mode="inline">
     <f-submenu>
       <template #title>这是标题</template>
@@ -91,7 +109,7 @@
       </f-dropdown>
     </template>
   </f-menu> -->
-  
+
   <!-- 
   <div style="padding: 0 100px">
     <f-slider
