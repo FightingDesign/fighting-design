@@ -73,6 +73,7 @@ declare module 'vue' {
     FMenuItem: typeof components.FMenuItem
     FMenuItemGroup: typeof components.FMenuItemGroup
     FSubmenu: typeof components.FSubmenu
+    FCollapseAnimation: typeof components.FCollapseAnimation
     FSlider: typeof components.FSlider
   }
 

@@ -8,6 +8,7 @@
 - 新增 `f-menu-item` 组件
 - 新增 `f-menu-item-group` 组件
 - 新增 `f-submenu` 组件
+- 新增 `f-collapse-animation` 组件
 - 新增 `f-button-group` 组件 `direction` 配置项
 
 **修复**
