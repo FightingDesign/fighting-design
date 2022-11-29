@@ -202,5 +202,10 @@ export const searchList: readonly SearchListInterface[] = [
     title: 'Menu 导航菜单',
     rule: 'menuMenu导航菜单',
     url: 'components/menu'
+  },
+  {
+    title: 'CollapseAnimation 折叠动画',
+    rule: 'collapse-animationCollapseAnimation折叠动画',
+    url: 'components/collapse-animation'
   }
 ] as const
