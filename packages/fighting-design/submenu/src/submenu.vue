@@ -3,8 +3,9 @@
   import { MENU_MODE_KEY } from '../../menu/src/props'
   import { FDropdown } from '../../dropdown'
   import { FText } from '../../text'
+  import { FCollapseAnimation } from '../../collapse-animation'
   import { FSvgIcon } from '../../svg-icon'
-  import { inject, ref, onMounted } from 'vue'
+  import { inject, ref } from 'vue'
   import { FIconChevronUp } from '../../_svg'
   import type { Ref } from 'vue'
   import type { MenuModeType } from '../../menu'
@@ -24,45 +25,13 @@
    * 初始是否展开
    */
   const isOpened: Ref<boolean> = ref<boolean>(prop.opened)
-  /**
-   * 主要的折叠内容
-   */
-  const content: Ref<HTMLDivElement> = ref(null as unknown as HTMLDivElement)
-  /**
-   * 需要展开的尺寸
-   */
-  const defaultSize: Ref<number> = ref<number>(null as unknown as number)
 
   /**
    * 点击展开或折叠菜单
    */
   const handelClick = (): void => {
-    if (!isOpened.value) {
-      content.value.style.height = defaultSize.value + 'px'
-    } else {
-      content.value.style.height = '0'
-    }
     isOpened.value = !isOpened.value
   }
-
-  /**
-   * 获取折叠部分的尺寸
-   */
-  const getDefaultSize = (): void => {
-    // 如果 dom 元素存在，并且是内联模式
-    if (content.value && INJECT_DEPEND === 'inline') {
-      content.value.style.height = 'auto'
-      /**
-       * @see offsetHeight https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight
-       */
-      defaultSize.value = content.value.offsetHeight
-      content.value.style.height = '0'
-    }
-  }
-
-  onMounted((): void => {
-    getDefaultSize()
-  })
 </script>
 
 <template>
@@ -104,8 +73,10 @@
       </li>
 
       <!-- 主要的折叠菜单内容 -->
-      <ul ref="content" class="f-submenu__content">
-        <slot />
+      <ul class="f-submenu__content">
+        <f-collapse-animation :opened="isOpened">
+          <slot />
+        </f-collapse-animation>
       </ul>
     </ul>
   </li>
