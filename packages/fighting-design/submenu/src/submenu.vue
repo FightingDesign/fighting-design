@@ -4,13 +4,21 @@
   import { FDropdown } from '../../dropdown'
   import { FText } from '../../text'
   import { FSvgIcon } from '../../svg-icon'
-  import { inject, ref } from 'vue'
+  import { inject, ref, onMounted } from 'vue'
   import { FIconChevronUp } from '../../_svg'
   import type { Ref } from 'vue'
   import type { MenuModeType } from '../../menu'
   import type { SubmenuPropsType } from './interface'
 
   const prop: SubmenuPropsType = defineProps(Props)
+
+  /**
+   * 注入父组件的模式依赖项
+   */
+  const INJECT_DEPEND: MenuModeType = inject<MenuModeType | undefined>(
+    MENU_MODE_KEY,
+    undefined
+  ) as MenuModeType
 
   /**
    * 初始是否展开
@@ -20,32 +28,41 @@
    * 主要的折叠内容
    */
   const content: Ref<HTMLDivElement> = ref(null as unknown as HTMLDivElement)
+  /**
+   * 需要展开的尺寸
+   */
+  const defaultSize: Ref<number> = ref<number>(null as unknown as number)
 
   /**
    * 点击展开或折叠菜单
    */
   const handelClick = (): void => {
     if (!isOpened.value) {
-      content.value.style.height = 'auto'
-      const height: number = content.value.offsetHeight
-      content.value.style.height = '0'
-      content.value.offsetHeight
-      content.value.style.transition = '0.33s'
-      content.value.style.height = height + 'px'
-      isOpened.value = true
+      content.value.style.height = defaultSize.value + 'px'
     } else {
       content.value.style.height = '0'
-      isOpened.value = false
     }
+    isOpened.value = !isOpened.value
   }
 
   /**
-   * 注入父组件的模式依赖项
+   * 获取折叠部分的尺寸
    */
-  const INJECT_DEPEND: MenuModeType = inject<MenuModeType | undefined>(
-    MENU_MODE_KEY,
-    undefined
-  ) as MenuModeType
+  const getDefaultSize = (): void => {
+    // 如果 dom 元素存在，并且是内联模式
+    if (content.value && INJECT_DEPEND === 'inline') {
+      content.value.style.height = 'auto'
+      /**
+       * @see offsetHeight https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight
+       */
+      defaultSize.value = content.value.offsetHeight
+      content.value.style.height = '0'
+    }
+  }
+
+  onMounted((): void => {
+    getDefaultSize()
+  })
 </script>
 
 <template>
