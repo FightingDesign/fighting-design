@@ -209,3 +209,6 @@ export * from './submenu'
 
 export { FMenuItemGroup } from './menu-item-group'
 export * from './menu-item-group'
+
+export { FCollapseAnimation } from './collapse-animation'
+export * from './collapse-animation'
