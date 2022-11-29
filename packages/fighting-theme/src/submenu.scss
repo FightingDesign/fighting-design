@@ -9,16 +9,47 @@
   margin: 0;
   padding: 0;
   user-select: none;
-  // height: 100%;
-  // display: flex;
-  // width: 100%;
 
   // 水平的
   &.f-submenu__horizontal {
+    display: flex;
+    padding: 7px 16px;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    height: 50px;
+    transition: background 0.3s;
+
+    &:hover {
+      background: var(--f-design-color-primary-4);
+    }
   }
 
   // 垂直的
-  &.f-submenu__horizontal {
+  &.f-submenu__vertical {
+    .f-dropdown {
+      height: 50px;
+      transition: background 0.3s;
+
+      .f-trigger {
+        width: 100%;
+        height: 100%;
+
+        .f-trigger__trigger {
+          height: 100%;
+          padding: 7px 16px;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
+      }
+
+      &:hover {
+        background: var(--f-design-color-primary-4);
+      }
+    }
   }
 
   // icon

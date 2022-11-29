@@ -54,7 +54,9 @@
   >
     <!-- 垂直或水平模式 -->
     <f-dropdown v-if="INJECT_DEPEND !== 'inline'" :spacing="24" trigger="click">
-      <slot name="title" />
+      <div class="f-submenu__title">
+        <slot name="title" />
+      </div>
 
       <template #content>
         <slot />
