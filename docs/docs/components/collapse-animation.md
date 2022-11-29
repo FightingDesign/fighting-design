@@ -1,4 +1,4 @@
-# CollapseAnimation 折叠动画
+# Collapse Animation 折叠动画
 
 更丝滑的下拉过度
 
