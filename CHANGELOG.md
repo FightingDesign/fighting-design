@@ -8,11 +8,16 @@
 - 新增 `f-menu-item` 组件
 - 新增 `f-menu-item-group` 组件
 - 新增 `f-submenu` 组件
+- 新增 `f-button-group` 组件 `direction` 配置项
 
 **修复**
 
 - 修复 `f-pagination` 组件细节问题
 - 修复 `f-button` 组件样式细节
+
+**其它改动**
+
+- 废除 `f-button-group` 组件 `vertical` 配置项
 
 ## 0.9.0-alpha.5 (2022-11-25)
 

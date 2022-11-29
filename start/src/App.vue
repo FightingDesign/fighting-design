@@ -28,24 +28,6 @@
     </f-button-group>
   </f-space>
 
-  <f-button disabled round type="default">默认按钮</f-button>
-  <f-button disabled round type="primary">主要按钮</f-button>
-  <f-button round disabled color="#000000" type="success">成功按钮</f-button>
-  <f-button round type="danger">危险按钮</f-button>
-  <f-button round type="warning">警告按钮</f-button>
-
-  <f-button text disabled type="default">默认按钮</f-button>
-  <f-button text type="primary">主要按钮</f-button>
-  <f-button text type="success">成功按钮</f-button>
-  <f-button text type="danger">危险按钮</f-button>
-  <f-button text type="warning">警告按钮</f-button>
-
-  <f-button disabled round simple type="default">默认按钮</f-button>
-  <f-button round simple type="primary">主要按钮</f-button>
-  <f-button round simple type="success">成功按钮</f-button>
-  <f-button round simple type="danger">危险按钮</f-button>
-  <f-button round simple type="warning">警告按钮</f-button>
-
   <!-- <f-pagination v-model:current="current" :total="total" />
   <f-pagination v-model:current="current" background :total="total" /> -->
 
