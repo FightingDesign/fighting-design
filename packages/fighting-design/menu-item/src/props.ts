@@ -32,6 +32,13 @@ export const Props = {
   to: {
     type: String,
     default: (): null => null
+  },
+  /**
+   * 唯一标识
+   */
+  name: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): null => null
   }
 } as const
 

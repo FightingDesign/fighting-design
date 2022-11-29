@@ -23,6 +23,13 @@
     color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
   }
 
+  // 选中的
+  &.f-menu-item__active {
+    .f-menu-item__text {
+      color: var(--f-design-color-primary-1);
+    }
+  }
+
   &:hover {
     background: var(--f-design-color-primary-4);
   }

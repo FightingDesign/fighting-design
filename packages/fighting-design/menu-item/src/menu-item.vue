@@ -1,18 +1,29 @@
 <script lang="ts" setup name="FMenuItem">
   import { Props } from './props'
+  import { MENU_PROVIDE_KEY } from '../../menu/src/props'
   import { FSvgIcon } from '../../svg-icon'
   import { useList } from '../../_hooks'
-  import { getCurrentInstance } from 'vue'
+  import { getCurrentInstance, computed, inject } from 'vue'
   import type {
     ComputedRef,
     CSSProperties,
     ComponentInternalInstance
   } from 'vue'
   import type { MenuItemPropsType } from './interface'
+  import type { MenuProvideType } from '../../menu'
 
   const prop: MenuItemPropsType = defineProps(Props)
 
   const { styles } = useList('menu-item', prop)
+
+  /**
+   * 注入父组件的模式依赖项
+   */
+  const INJECT_DEPEND: MenuProvideType = inject<MenuProvideType | undefined>(
+    MENU_PROVIDE_KEY,
+    undefined
+  ) as MenuProvideType
+
   /**
    * 获取当前组件实例
    *
@@ -45,10 +56,21 @@
       }
     }
   }
+
+  /**
+   * 当前是否呗选中
+   */
+  const isActive: ComputedRef<boolean> = computed((): boolean => {
+    return prop.name === INJECT_DEPEND.activeName
+  })
 </script>
 
 <template>
-  <li class="f-menu-item" :style="styleList" @click="handelClick">
+  <li
+    :class="['f-menu-item', { 'f-menu-item__active': isActive }]"
+    :style="styleList"
+    @click="handelClick"
+  >
     <f-svg-icon v-if="icon" :icon="icon" />
 
     <span class="f-menu-item__text">

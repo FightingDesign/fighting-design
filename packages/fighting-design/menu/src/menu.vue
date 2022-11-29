@@ -1,13 +1,20 @@
 <script lang="ts" setup name="FMenu">
-  import { Props, MENU_MODE_KEY } from './props'
-  import { computed, provide } from 'vue'
+  import { Props, MENU_PROVIDE_KEY } from './props'
+  import { computed, provide, reactive, toRef } from 'vue'
   import type { ComputedRef } from 'vue'
-  import type { MenuPropsType, MenuModeType } from './interface'
+  import type { MenuPropsType, MenuProvideType } from './interface'
   import type { ClassListInterface } from '../../_interface'
 
   const prop: MenuPropsType = defineProps(Props)
 
-  provide<MenuModeType>(MENU_MODE_KEY, prop.mode)
+  // 提供出去依赖项
+  provide<MenuProvideType>(
+    MENU_PROVIDE_KEY,
+    reactive({
+      mode: toRef(prop, 'mode'),
+      activeName: toRef(prop, 'activeName')
+    })
+  )
 
   /**
    * 类名列表

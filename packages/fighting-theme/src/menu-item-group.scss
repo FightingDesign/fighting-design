@@ -17,5 +17,9 @@
   .f-menu-item-group__list {
     list-style: none;
     padding: 0;
+
+    .f-menu-item {
+      padding: 7px 30px;
+    }
   }
 }

@@ -1,14 +1,14 @@
 <script lang="ts" setup name="FSubmenu">
   import { Props } from './props'
-  import { MENU_MODE_KEY } from '../../menu/src/props'
+  import { MENU_PROVIDE_KEY } from '../../menu/src/props'
   import { FDropdown } from '../../dropdown'
   import { FText } from '../../text'
   import { FCollapseAnimation } from '../../collapse-animation'
   import { FSvgIcon } from '../../svg-icon'
   import { inject, ref } from 'vue'
-  import { FIconChevronUp } from '../../_svg'
+  import { FIconChevronDown } from '../../_svg'
   import type { Ref } from 'vue'
-  import type { MenuModeType } from '../../menu'
+  import type { MenuProvideType } from '../../menu'
   import type { SubmenuPropsType } from './interface'
 
   const prop: SubmenuPropsType = defineProps(Props)
@@ -16,10 +16,10 @@
   /**
    * 注入父组件的模式依赖项
    */
-  const INJECT_DEPEND: MenuModeType = inject<MenuModeType | undefined>(
-    MENU_MODE_KEY,
+  const INJECT_DEPEND: MenuProvideType = inject<MenuProvideType | undefined>(
+    MENU_PROVIDE_KEY,
     undefined
-  ) as MenuModeType
+  ) as MenuProvideType
 
   /**
    * 初始是否展开
@@ -36,16 +36,23 @@
 
 <template>
   <li
-    :class="['f-submenu', { [`f-submenu__${INJECT_DEPEND}`]: INJECT_DEPEND }]"
+    :class="[
+      'f-submenu',
+      { [`f-submenu__${INJECT_DEPEND.mode}`]: INJECT_DEPEND.mode }
+    ]"
   >
     <!-- 垂直或水平模式 -->
-    <f-dropdown v-if="INJECT_DEPEND !== 'inline'" :spacing="24" trigger="click">
+    <f-dropdown
+      v-if="INJECT_DEPEND.mode !== 'inline'"
+      :spacing="24"
+      trigger="click"
+    >
       <div class="f-submenu__title">
         <f-text>
-          <slot name="title" />
+          <slot v-if="$slots.title" name="title" />
         </f-text>
 
-        <f-svg-icon :icon="FIconChevronUp" />
+        <f-svg-icon :icon="FIconChevronDown" />
       </div>
 
       <template #content>
@@ -68,7 +75,7 @@
             'f-submenu__arrow-icon',
             { 'f-submenu__arrow-icon-animation': isOpened }
           ]"
-          :icon="FIconChevronUp"
+          :icon="FIconChevronDown"
         />
       </li>
 

@@ -16,9 +16,16 @@ export const Props = {
     validator: (val: MenuModeType): boolean => {
       return (['horizontal', 'vertical', 'inline'] as const).includes(val)
     }
+  },
+  /**
+   * 默认激活的 name
+   */
+  activeName: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): null => null
   }
 } as const
 
 export type MenuPropsType = ExtractPropTypes<typeof Props>
 
-export const MENU_MODE_KEY: InjectionKey<MenuModeType> = Symbol('menu-mode-key')
+export const MENU_PROVIDE_KEY: InjectionKey<MenuModeType> = Symbol('menu-provide-key')
