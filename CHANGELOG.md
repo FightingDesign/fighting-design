@@ -19,6 +19,7 @@
 **其它改动**
 
 - 废除 `f-button-group` 组件 `vertical` 配置项
+- 优化 `f-sticky-card` 组件
 
 ## 0.9.0-alpha.5 (2022-11-25)
 
