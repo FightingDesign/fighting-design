@@ -8,12 +8,27 @@
   } from '@fighting-design/fighting-icon'
 
   const value = ref(true)
-
-  const current = ref(1)
-  const total = ref(100)
 </script>
 
 <template>
+  <f-switch v-model="value" />
+  <br />
+  <f-collapse-animation :opened="value">
+    <h1>11111111</h1>
+    <h1>11111111</h1>
+    <h1>11111111</h1>
+    <h1>11111111</h1>
+    <h1>11111111</h1>
+  </f-collapse-animation>
+
+  <!-- <f-collapse-animation v-model:opened="value">
+    <h1>222</h1>
+    <h1>222</h1>
+    <h1>222</h1>
+    <h1>222</h1>
+    <h1>222</h1>
+  </f-collapse-animation> -->
+
   <!-- <f-pagination v-model:current="current" :total="total" />
   <f-pagination v-model:current="current" background :total="total" /> -->
 
@@ -54,6 +69,7 @@
     </template>
   </f-menu>
 
+  <!-- collapse-animation -->
   <f-menu mode="vertical">
     <!-- <template #before>
       <f-avatar
