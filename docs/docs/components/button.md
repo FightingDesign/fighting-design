@@ -245,33 +245,33 @@
 ::: demo
 
 <template #source>
-<f-button-group>
-<f-button round type="primary">左边的</f-button>
-<f-button round type="primary">中间的</f-button>
-<f-button round type="primary">右边的</f-button>
+<f-button-group direction="horizontal">
+<f-button type="primary">左边的</f-button>
+<f-button type="primary">中间的</f-button>
+<f-button type="primary">右边的</f-button>
 </f-button-group>
 
 <br />
 <br />
 
-<f-button-group vertical>
-  <f-button type="primary">上边的</f-button>
-  <f-button type="primary">中间的</f-button>
-  <f-button round type="primary">下边的</f-button>
+<f-button-group direction="vertical">
+<f-button type="primary">上边的</f-button>
+<f-button type="primary">中间的</f-button>
+<f-button type="primary">下边的</f-button>
 </f-button-group>
 </template>
 
 ```html
-<f-button-group>
-  <f-button round type="primary">左边的</f-button>
-  <f-button round type="primary">中间的</f-button>
-  <f-button round type="primary">右边的</f-button>
+<f-button-group direction="horizontal">
+  <f-button type="primary">左边的</f-button>
+  <f-button type="primary">中间的</f-button>
+  <f-button type="primary">右边的</f-button>
 </f-button-group>
 
-<f-button-group vertical>
+<f-button-group direction="vertical">
   <f-button type="primary">上边的</f-button>
   <f-button type="primary">中间的</f-button>
-  <f-button round type="primary">下边的</f-button>
+  <f-button type="primary">下边的</f-button>
 </f-button-group>
 ```
 
@@ -329,10 +329,10 @@
 
 ## ButtonGroup Attributes
 
-| 参数       | 说明         | 类型                                         | 可选值                          | 默认值 |
-| ---------- | ------------ | -------------------------------------------- | ------------------------------- | ------ |
-| `size`     | 按钮尺寸     | <a href="#buttonsizetype">ButtonSizeType</a> | `large` `middle` `small` `mini` | middle |
-| `vertical` | 是否纵向排列 | boolean                                      | ——                              | false  |
+| 参数        | 说明     | 类型                                         | 可选值                          | 默认值     |
+| ----------- | -------- | -------------------------------------------- | ------------------------------- | ---------- |
+| `size`      | 按钮尺寸 | <a href="#buttonsizetype">ButtonSizeType</a> | `large` `middle` `small` `mini` | middle     |
+| `direction` | 排列方式 | string                                       | `horizontal` `vertical`         | horizontal |
 
 ## Button Slots
 

@@ -14,6 +14,20 @@
 </script>
 
 <template>
+  <f-space vertical>
+    <f-button-group direction="horizontal">
+      <f-button type="primary">左边的</f-button>
+      <f-button type="primary">中间的</f-button>
+      <f-button type="primary">右边的</f-button>
+    </f-button-group>
+
+    <f-button-group direction="vertical">
+      <f-button type="primary">上边的</f-button>
+      <f-button type="primary">中间的</f-button>
+      <f-button type="primary">下边的</f-button>
+    </f-button-group>
+  </f-space>
+
   <f-button disabled round type="default">默认按钮</f-button>
   <f-button disabled round type="primary">主要按钮</f-button>
   <f-button round disabled color="#000000" type="success">成功按钮</f-button>
