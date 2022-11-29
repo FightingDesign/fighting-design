@@ -8,10 +8,10 @@
   align-items: center;
   justify-content: center;
   border: none;
-  outline: none;
   user-select: none;
   text-decoration: none;
   transition: 0.3s;
+  outline: 0;
   cursor: pointer;
   white-space: nowrap;
   vertical-align: middle;
@@ -27,61 +27,43 @@
 
     // 不同类型
     &.f-button__#{map-get($item, name)} {
-      $defaultTextColor: map-get($item, defaultTextColor);
-      $simpleTextColor: map-get($item, simpleTextColor);
-
       background: map-get($item, default);
-      color: var(--f-button-font-color, $defaultTextColor);
+      color: var(--f-button-font-color, map-get($item, defaultTextColor));
 
-      &:hover {
+      // https://developer.mozilla.org/zh-CN/docs/Web/CSS/:not
+      &:not([disabled]):hover {
         background: map-get($item, defaultHover);
       }
 
-      &:active {
+      &:not([disabled]):active {
         background: map-get($item, defaultActive);
-      }
-
-      // 普通按钮禁用效果
-      &.f-button__disabled:hover {
-        background: map-get($item, default);
       }
 
       // 简约按钮
       &.f-button__simple {
         background: map-get($item, simple);
-        color: var(--f-button-font-color, $simpleTextColor);
+        color: var(--f-button-font-color, map-get($item, simpleTextColor));
 
-        &:hover {
+        &:not([disabled]):hover {
           background: map-get($item, simpleHover);
         }
 
-        &:active {
+        &:not([disabled]):active {
           background: map-get($item, simpleActive);
-        }
-
-        // 简约按钮禁用效果
-        &.f-button__disabled:hover {
-          background: map-get($item, simple);
         }
       }
 
       // 文字按钮
       &.f-button__text {
         background: none;
-        color: var(--f-button-font-color, $simpleTextColor);
+        color: var(--f-button-font-color, map-get($item, simpleTextColor));
 
-        &:hover {
+        &:not([disabled]):hover {
           background: var(--f-design-color-default-1);
         }
 
-        &:active {
+        &:not([disabled]):active {
           background: var(--f-design-color-default-3);
-        }
-
-        // 文字按钮禁用状态
-        &.f-button__disabled:hover {
-          background: var(--f-design-color-text-2);
-          outline: 1px solid map-get($item, simpleTextColor);
         }
       }
     }
@@ -156,6 +138,7 @@
     background: var(--f-design-color-text-2);
   }
 
+  // 涟漪动画效果
   @keyframes f-button-ripples {
     from {
       width: 2px;
@@ -175,16 +158,12 @@
     background: var(--f-button-default-color);
     color: var(--f-button-font-color, var(--f-design-color-text-2));
 
-    &:hover {
+    &:not([disabled]):hover {
       background: var(--f-button-hover-color);
     }
 
-    &:active {
+    &:not([disabled]):active {
       background: var(--f-button-active-color);
-    }
-
-    &.f-button__disabled:hover {
-      background: var(--f-button-default-color);
     }
   }
 }

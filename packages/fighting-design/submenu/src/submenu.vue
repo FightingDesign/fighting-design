@@ -55,7 +55,11 @@
     <!-- 垂直或水平模式 -->
     <f-dropdown v-if="INJECT_DEPEND !== 'inline'" :spacing="24" trigger="click">
       <div class="f-submenu__title">
-        <slot name="title" />
+        <f-text>
+          <slot name="title" />
+        </f-text>
+
+        <f-svg-icon :icon="FIconChevronUp" />
       </div>
 
       <template #content>

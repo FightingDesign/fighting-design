@@ -21,6 +21,16 @@
     height: 50px;
     transition: background 0.3s;
 
+    .f-submenu__title {
+      display: inline-flex;
+      align-items: center;
+
+      .f-svg-icon {
+        transform: rotate(-180deg);
+        margin-left: 5px;
+      }
+    }
+
     &:hover {
       background: var(--f-design-color-primary-4);
     }
@@ -28,6 +38,18 @@
 
   // 垂直的
   &.f-submenu__vertical {
+    .f-submenu__title {
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+
+      .f-svg-icon {
+        transform: rotate(90deg);
+        margin-left: 5px;
+      }
+    }
+
     .f-dropdown {
       height: 50px;
       transition: background 0.3s;
