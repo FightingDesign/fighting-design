@@ -4,6 +4,27 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.9.0-alpha.6 (2022-11-29)
+
+**New Features**
+
+- Add `f-menu` component
+- Add `f-menu-item` component
+- Add `f-menu-item-group` component
+- Add `f-submenu` component
+- Add `f-collapse-animation` component
+- Add `f-button-group` component `direction` configuration item
+
+**Repair**
+
+- Fix `f-pagination` component details
+- Fix `f-button` component style details
+
+**Other changes**
+
+- Revoke the `f-button group` component `vertical` configuration item
+- Optimize `f-stick-card` components
+
 ## 0.9.0-alpha.5 (2022-11-25)
 
 **New Features**

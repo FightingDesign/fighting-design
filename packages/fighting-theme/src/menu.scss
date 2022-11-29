@@ -2,7 +2,6 @@
 
 .f-menu {
   display: flex;
-  border: 1px solid #ccc;
   background: var(--f-design-color-text-2);
   width: 100%;
   margin: 0;
@@ -14,6 +13,8 @@
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
+    padding: 0 15px;
+    border-bottom: 1px solid var(--f-design-color-primary-4);
 
     // 前缀插槽
     .f-menu__before {
@@ -52,6 +53,8 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      padding: 10px 15px;
+      box-sizing: border-box;
     }
 
     // 主要内容
@@ -68,6 +71,8 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      padding: 10px 15px;
+      box-sizing: border-box;
     }
   }
 }

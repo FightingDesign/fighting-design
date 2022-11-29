@@ -1,8 +1,7 @@
 <script lang="ts" setup name="FMenuItemGroup">
   import { Props } from './props'
-  import type { MenuItemGroupPropsType } from './interface'
 
-  const prop: MenuItemGroupPropsType = defineProps(Props)
+  defineProps(Props)
 </script>
 
 <template>

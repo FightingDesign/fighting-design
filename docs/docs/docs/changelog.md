@@ -2,6 +2,27 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.9.0-alpha.6 (2022-11-29)
+
+**新功能**
+
+- 新增 `f-menu` 组件
+- 新增 `f-menu-item` 组件
+- 新增 `f-menu-item-group` 组件
+- 新增 `f-submenu` 组件
+- 新增 `f-collapse-animation` 组件
+- 新增 `f-button-group` 组件 `direction` 配置项
+
+**修复**
+
+- 修复 `f-pagination` 组件细节问题
+- 修复 `f-button` 组件样式细节
+
+**其它改动**
+
+- 废除 `f-button-group` 组件 `vertical` 配置项
+- 优化 `f-sticky-card` 组件
+
 ## 0.9.0-alpha.5 (2022-11-25)
 
 **新功能**
