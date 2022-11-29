@@ -15,16 +15,16 @@ describe('FButtonGroup', () => {
     expect(wrapper.classes()).toContain('f-button-group__large')
   })
 
-  test('vertical', () => {
+  test('direction', () => {
     const wrapper = mount(FButtonGroup, {
-      props: { vertical: true }
+      props: { direction: 'vertical' }
     })
     expect(wrapper.classes()).toContain('f-button-group__vertical')
   })
 
-  test('vertical', () => {
+  test('direction', () => {
     const wrapper = mount(FButtonGroup, {
-      props: { vertical: false }
+      props: { direction: 'horizontal' }
     })
     expect(wrapper.classes()).toContain('f-button-group__horizontal')
   })
