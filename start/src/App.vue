@@ -6,23 +6,9 @@
     FIconCameraVideoSlash,
     FIconClock
   } from '@fighting-design/fighting-icon'
-
-  const isOpen = ref(false)
 </script>
 
 <template>
-  <f-switch v-model="isOpen" size="middle" />
-
-  <f-collapse-animation :opened="isOpen">
-    <h1>Hello</h1>
-    <h1>你看到我了吗？</h1>
-
-    <f-button type="primary">主要按钮</f-button>
-    <f-button type="success">成功按钮</f-button>
-    <f-button type="danger">危险按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
-  </f-collapse-animation>
-
   <f-menu mode="inline">
     <f-submenu>
       <template #title>这是标题</template>

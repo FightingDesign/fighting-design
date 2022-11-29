@@ -55,6 +55,8 @@
   watch(
     (): boolean => isOpened.value,
     (newVal: boolean): void => {
+      if (prop.disabled) return
+
       if (newVal) {
         collapseEl.value.style.height = defaultSize.value + 'px'
       } else {

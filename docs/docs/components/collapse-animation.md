@@ -49,6 +49,40 @@
 
 :::
 
+## 禁用状态
+
+`disabled` 属性可禁用
+
+::: demo
+
+<template #source>
+<f-switch v-model="isOpen2" size="middle" />
+
+<f-collapse-animation :opened="isOpen2" disabled>
+<h1>Hello</h1>
+<h1>禁止使用！！</h1>
+</f-collapse-animation>
+</template>
+
+```html
+<template>
+  <f-switch v-model="isOpen2" size="middle" />
+
+  <f-collapse-animation :opened="isOpen2" disabled>
+    <h1>Hello</h1>
+    <h1>禁止使用！！</h1>
+  </f-collapse-animation>
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const isOpen2 = ref(true)
+</script>
+```
+
+:::
+
 ## Attributes
 
 | 参数       | 说明     | 类型    | 可选值 | 默认值 |
@@ -83,4 +117,5 @@ import type {
   import { ref } from 'vue'
 
   const isOpen = ref(false)
+  const isOpen2 = ref(true)
 </script>
