@@ -42,6 +42,8 @@
    * 点击触发
    */
   const handelClick = (): void => {
+    if (prop.disabled) return
+
     /**
      * 获取到路由实例
      */
@@ -69,7 +71,10 @@
 
 <template>
   <li
-    :class="['f-menu-item', { 'f-menu-item__active': isActive }]"
+    :class="[
+      'f-menu-item',
+      { 'f-menu-item__active': isActive, 'f-menu-item__disabled': disabled }
+    ]"
     :style="styleList"
     @click="handelClick"
   >

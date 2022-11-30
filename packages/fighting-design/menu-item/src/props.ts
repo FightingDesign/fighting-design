@@ -39,6 +39,13 @@ export const Props = {
   name: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
+  },
+  /**
+   * 是否禁用
+   */
+  disabled: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 

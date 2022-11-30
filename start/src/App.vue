@@ -62,7 +62,9 @@
         <f-svg-icon :icon="FIconCameraVideoSlash" />
         应用管理
       </template>
-      <f-menu-item disabled name="3-1" :icon="FIconClock">管理平台</f-menu-item>
+      <f-menu-item disabled to="/home" name="3-1" :icon="FIconClock">
+        管理平台
+      </f-menu-item>
       <f-menu-item name="3-2" :icon="FIconClock">上链应用</f-menu-item>
     </f-submenu>
   </f-menu>
