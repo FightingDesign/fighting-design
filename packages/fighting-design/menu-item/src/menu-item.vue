@@ -10,7 +10,7 @@
     ComponentInternalInstance
   } from 'vue'
   import type { MenuItemPropsType } from './interface'
-  import type { MenuProvideType } from '../../menu'
+  import type { MenuProvideInterface } from '../../menu'
 
   const prop: MenuItemPropsType = defineProps(Props)
 
@@ -19,10 +19,9 @@
   /**
    * 注入父组件的模式依赖项
    */
-  const INJECT_DEPEND: MenuProvideType = inject<MenuProvideType | undefined>(
-    MENU_PROVIDE_KEY,
-    undefined
-  ) as MenuProvideType
+  const INJECT_DEPEND: MenuProvideInterface = inject<
+    MenuProvideInterface | undefined
+  >(MENU_PROVIDE_KEY, undefined) as MenuProvideInterface
 
   /**
    * 获取当前组件实例
@@ -48,6 +47,8 @@
      */
     const router = instance.appContext.config.globalProperties.$router
 
+    INJECT_DEPEND.changeActiveName(prop.name)
+
     if (router && prop.to) {
       try {
         router.push(prop.to)
@@ -61,7 +62,7 @@
    * 当前是否呗选中
    */
   const isActive: ComputedRef<boolean> = computed((): boolean => {
-    return prop.name === INJECT_DEPEND.activeName
+    return prop.name === INJECT_DEPEND.defaultActive
   })
 </script>
 

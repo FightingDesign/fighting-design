@@ -8,7 +8,7 @@
   import { inject, ref } from 'vue'
   import { FIconChevronDown } from '../../_svg'
   import type { Ref } from 'vue'
-  import type { MenuProvideType } from '../../menu'
+  import type { MenuProvideInterface } from '../../menu'
   import type { SubmenuPropsType } from './interface'
 
   const prop: SubmenuPropsType = defineProps(Props)
@@ -16,10 +16,9 @@
   /**
    * 注入父组件的模式依赖项
    */
-  const INJECT_DEPEND: MenuProvideType = inject<MenuProvideType | undefined>(
-    MENU_PROVIDE_KEY,
-    undefined
-  ) as MenuProvideType
+  const INJECT_DEPEND: MenuProvideInterface = inject<
+    MenuProvideInterface | undefined
+  >(MENU_PROVIDE_KEY, undefined) as MenuProvideInterface
 
   /**
    * 初始是否展开

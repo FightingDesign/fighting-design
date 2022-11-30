@@ -1,36 +1,50 @@
 <script lang="ts" setup name="FMenu">
   import { Props, MENU_PROVIDE_KEY } from './props'
-  import { computed, provide, reactive, toRef } from 'vue'
-  import type { ComputedRef } from 'vue'
-  import type { MenuPropsType, MenuProvideType } from './interface'
+  import { provide, reactive, toRef, computed, ref } from 'vue'
+  import { useList } from '../../_hooks'
+  import type { ComputedRef, Ref } from 'vue'
+  import type { MenuPropsType, MenuProvideInterface } from './interface'
   import type { ClassListInterface } from '../../_interface'
 
   const prop: MenuPropsType = defineProps(Props)
 
+  const { classes } = useList(prop, 'menu')
+
+  /**
+   * 当前选中的 name
+   */
+  const active: Ref<string | number> = ref<string | number>(prop.activeName)
+
+  /**
+   * 默认选中的 name
+   */
+  const defaultActive: ComputedRef<string | number> = computed(
+    (): string | number => active.value
+  )
+
+  /**
+   * 修改选中的 name
+   *
+   * @param name 最新的 name
+   */
+  const changeActiveName = (name: string | number): void => {
+    active.value = name
+  }
+
   // 提供出去依赖项
-  provide<MenuProvideType>(
+  provide<MenuProvideInterface>(
     MENU_PROVIDE_KEY,
     reactive({
       mode: toRef(prop, 'mode'),
-      activeName: toRef(prop, 'activeName')
+      defaultActive,
+      changeActiveName
     })
   )
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { mode } = prop
-
-      return [
-        'f-menu',
-        {
-          [`f-menu__${mode}`]: mode
-        }
-      ] as const
-    }
-  )
+  const classList: ComputedRef<ClassListInterface> = classes(['mode'], 'f-menu')
 </script>
 
 <template>

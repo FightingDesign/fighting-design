@@ -26,7 +26,7 @@
   // 选中的
   &.f-menu-item__active {
     .f-menu-item__text {
-      color: var(--f-design-color-primary-1);
+      color: var(--f-design-color-primary-1) !important;
     }
   }
 

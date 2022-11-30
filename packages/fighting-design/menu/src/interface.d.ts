@@ -2,7 +2,12 @@ export type { MenuPropsType } from './menu'
 
 export type MenuModeType = 'horizontal' | 'vertical' | 'inline'
 
-export interface MenuProvideType {
+export interface MenuChangeActiveNameInterface {
+  (name: string | number): void
+}
+
+export interface MenuProvideInterface {
   mode: MenuModeType
-  activeName: string | number
+  defaultActive: string | number
+  changeActiveName: MenuChangeActiveNameInterface
 }
