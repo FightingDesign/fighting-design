@@ -38,12 +38,12 @@
   <li
     :class="[
       'f-submenu',
-      { [`f-submenu__${INJECT_DEPEND.mode}`]: INJECT_DEPEND.mode }
+      { [`f-submenu__${INJECT_DEPEND?.mode}`]: INJECT_DEPEND?.mode }
     ]"
   >
     <!-- 垂直或水平模式 -->
     <f-dropdown
-      v-if="INJECT_DEPEND.mode !== 'inline'"
+      v-if="INJECT_DEPEND?.mode !== 'inline'"
       :spacing="24"
       trigger="click"
     >
