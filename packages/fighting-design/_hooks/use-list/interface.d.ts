@@ -27,12 +27,15 @@ export interface UseListInterface {
 
 /**
  * 类名列表方法类型接口
- * 
- * @param list 类名所需要的 prop 参数 
+ *
+ * @param list 类名所需要的 prop 参数
  * @param className 其它所需要的类名
  */
 export interface ClassesInterface {
-  (list: FilterParamsInterface, className?: string): ComputedRef<ClassListInterface>
+  (
+    list: FilterParamsInterface,
+    className?: string
+  ): ComputedRef<ClassListInterface>
 }
 
 /**

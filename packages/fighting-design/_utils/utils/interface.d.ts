@@ -65,6 +65,17 @@ export interface UtilsIsObjectInterface {
 }
 
 /**
+ * 检测一个数据是否为 function 类型方法类型接口
+ *
+ * 传入一个未知的类型，返回布尔值
+ *
+ * @param target 未知参数
+ */
+export interface UtilsIsFunctionInterface {
+  (target: unknown): target is Function
+}
+
+/**
  * 检测一个数据是否为 Array 类型方法类型接口
  *
  * 传入一个未知的类型，返回布尔值

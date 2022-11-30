@@ -18,7 +18,7 @@ export const Props = {
   },
   /**
    * 排列方向
-   * 
+   *
    * @values horizontal vertical
    * @defaultValue horizontal
    */

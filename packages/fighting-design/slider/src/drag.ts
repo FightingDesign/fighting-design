@@ -1,6 +1,6 @@
 import { isFunction } from 'packages/fighting-design/_utils'
 
-function supportTouch(): boolean {
+function supportTouch (): boolean {
   return !!(
     'ontouchstart' in window ||
     (window.navigator &&
@@ -10,7 +10,7 @@ function supportTouch(): boolean {
   )
 }
 
-function getTouchEvents(): Record<string, keyof GlobalEventHandlersEventMap> {
+function getTouchEvents (): Record<string, keyof GlobalEventHandlersEventMap> {
   const touch = supportTouch()
   return {
     touchstart: touch ? 'touchstart' : 'mousedown',
@@ -21,7 +21,7 @@ function getTouchEvents(): Record<string, keyof GlobalEventHandlersEventMap> {
 // ================
 const { touchstart, touchmove, touchend } = getTouchEvents()
 
-function getEventXY(e: TouchEvent & MouseEvent): { x: number; y: number } {
+function getEventXY (e: TouchEvent & MouseEvent): { x: number; y: number } {
   const xy =
     touchstart === 'touchstart'
       ? {
@@ -36,7 +36,7 @@ function getEventXY(e: TouchEvent & MouseEvent): { x: number; y: number } {
   return xy
 }
 
-function getTransformXY(dom: HTMLElement): { x: number; y: number } {
+function getTransformXY (dom: HTMLElement): { x: number; y: number } {
   let ntf = [0, 0]
   const tf = dom.style.transform.match(/([+-\d.]+(?=px))/g)
   if (tf) ntf = [Number(tf[0]) || 0, Number(tf[1]) || 0]
@@ -54,7 +54,7 @@ class Drag {
   oldPosition = { x: 0, y: 0 }
   oldEposition = { x: 0, y: 0 }
 
-  constructor(
+  constructor (
     target: HTMLElement,
     callback: (
       e: TouchEvent & MouseEvent,
@@ -110,7 +110,7 @@ class Drag {
 }
 
 export default {
-  beforeMount(
+  beforeMount (
     el: HTMLElement,
     binding: {
       value: (

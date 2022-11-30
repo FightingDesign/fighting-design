@@ -1,7 +1,7 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { AvatarFitType, AvatarSizeType } from './interface'
 import type { HandleEventInterface } from '../../_interface'
-import { isString, isNumber } from 'packages/fighting-design/_utils'
+import { isString, isNumber } from '../../_utils'
 
 export const Props = {
   /**

@@ -5,7 +5,7 @@ import type {
   ComponentInternalInstance,
   Component
 } from 'vue'
-import { isArray, isObject } from 'packages/fighting-design/_utils'
+import { isArray, isObject } from '../../../_utils'
 
 /**
  * 将所有子的组件扁平化
@@ -36,7 +36,7 @@ export const flattedChildren = (
  * @param root
  * @param component
  */
-export function getChildrenComponent(
+export function getChildrenComponent (
   root: ComponentInternalInstance,
   component: string
 ): VNode[] {

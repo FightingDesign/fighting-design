@@ -114,7 +114,10 @@ export const sidebar = {
         { text: 'Watermark 水印', link: '/components/watermark' },
         { text: 'Ripple 涟漪', link: '/components/ripple' },
         { text: 'Calendar 日历', link: '/components/calendar' },
-        { text: 'CollapseAnimation 折叠动画', link: '/components/collapse-animation' }
+        {
+          text: 'CollapseAnimation 折叠动画',
+          link: '/components/collapse-animation'
+        }
       ]
     }
   ]

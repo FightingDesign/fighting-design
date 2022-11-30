@@ -13,9 +13,9 @@ import type { FilterParamsInterface } from '../use-props/interface'
 
 /**
  * 自动计算组件所需要的类名列表和样式列表
- * 
+ *
  * 类名和样式首先通过传入属性列表数组，使用过滤 hook 进行过滤
- * 
+ *
  * 过滤后的 prop 对象再进行样式或者类名处理
  *
  * @param prop prop 列表
@@ -26,12 +26,11 @@ export const useList: UseListInterface = <T>(
   prop: T,
   name: string
 ): UseListReturnInterface => {
-
   /**
    * 过滤 props
-   * 
+   *
    * 虽然说 classes 和 styles 都接受一个数组参数可以直接遍历
-   * 
+   *
    * 但是有些参数需要传入特殊的回调进行判断，只能是先过滤后再遍历
    */
   const { filter } = useProps(prop)
@@ -69,7 +68,9 @@ export const useList: UseListInterface = <T>(
            * 否则使用值拼接
            */
           classList.value.push(
-            `f-${name}__${isBoolean(propList[key]) ? convertFormat(key) : propList[key]}`
+            `f-${name}__${
+              isBoolean(propList[key]) ? convertFormat(key) : propList[key]
+            }`
           )
         }
       }
@@ -99,16 +100,18 @@ export const useList: UseListInterface = <T>(
         if (propList[key]) {
           /**
            * @description 为什么要进行 isNumber 判断？
-           * 
+           *
            * 因为很多属性是同时支持 number 和 staring 类型的参数
-           * 
+           *
            * 所以这里要进行判断，如果是数字类型，则需要使用 sizeChange 方法进行转换标注单位
-           * 
+           *
            * @description convertFormat 方法描述
-           * 
+           *
            * 因为 prop 参数的键都是驼峰命名法，所以这里要转换为短横线连接命名
            */
-          styleList[`--f-${name}-${convertFormat(key)}`] = isNumber(propList[key])
+          styleList[`--f-${name}-${convertFormat(key)}`] = isNumber(
+            propList[key]
+          )
             ? sizeChange(propList[key] as number)
             : propList[key]
         }

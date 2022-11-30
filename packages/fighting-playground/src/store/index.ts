@@ -22,7 +22,7 @@ export class ReplStore implements Store {
   initialOutputMode: OutputModes = 'preview'
   private readonly defaultVueRuntimeURL: string
 
-  constructor({
+  constructor ({
     serializedState = '',
     defaultVueRuntimeURL = `https://unpkg.com/@vue/runtime-dom@${version}/dist/runtime-dom.esm-browser.js`,
     showOutput = false,
