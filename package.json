@@ -27,8 +27,8 @@
     "test": "vitest",
     "prettier": "prettier --write .",
     "commit": "cz",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint . --cache",
+    "lint:fix": "pnpm run lint --fix"
   },
   "dependencies": {
     "vue": "3.2.26"
