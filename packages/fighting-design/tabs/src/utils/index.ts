@@ -5,11 +5,7 @@ import type {
   ComponentInternalInstance,
   Component
 } from 'vue'
-
-const isArray = Array.isArray
-
-const isObject = (obj: unknown): boolean =>
-  typeof obj === 'object' && obj !== null
+import { isArray, isObject } from 'packages/fighting-design/_utils'
 
 /**
  * 将所有子的组件扁平化
@@ -18,7 +14,7 @@ const isObject = (obj: unknown): boolean =>
 export const flattedChildren = (
   children: VNode | VNodeNormalizedChildren
 ): VNode[] => {
-  const vNodes = Array.isArray(children) ? children : [children]
+  const vNodes = isArray(children) ? children : [children]
   const result: VNode[] = []
 
   vNodes.forEach((child) => {
@@ -40,7 +36,7 @@ export const flattedChildren = (
  * @param root
  * @param component
  */
-export function getChildrenComponent (
+export function getChildrenComponent(
   root: ComponentInternalInstance,
   component: string
 ): VNode[] {

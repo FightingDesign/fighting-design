@@ -2,7 +2,7 @@ import messageVue from '../../message/src/message.vue'
 import notificationVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
 import { useMassageManage } from '../../_hooks'
-import { runCallback } from '../../_utils'
+import { runCallback, isString } from '../../_utils'
 import type { ComponentInternalInstance, VNode } from 'vue'
 import type {
   DefaultOptionsInterface,
@@ -41,7 +41,7 @@ export const useMessage: UseMessageInterface = (
     const container: HTMLDivElement = document.createElement('div')
     const id = `message-${seed}`
 
-    if (typeof options === 'string') {
+    if (isString(options)) {
       options = {
         message: options
       } as MessageOptions
@@ -74,7 +74,7 @@ export const useMessage: UseMessageInterface = (
         id,
         vm,
         close: (): void => {
-          (
+          ;(
             (vm as ComponentInternalInstance).exposed as MessageInstance
           ).close()
         },

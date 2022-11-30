@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FTabsNav">
   import { Props } from './props'
-  import { isString, sizeToNum } from '../../../../_utils'
+  import { isString, sizeToNum, isBoolean } from '../../../../_utils'
   import {
     computed,
     getCurrentInstance,
@@ -37,7 +37,7 @@
     if (prop.beforeEnter) {
       res = await prop.beforeEnter(name)
     }
-    if (typeof res === 'boolean' && !res) return
+    if (isBoolean(res) && !res) return
 
     emit('set-current-name', name)
   }
