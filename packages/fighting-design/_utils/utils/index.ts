@@ -8,8 +8,10 @@ import type {
   UtilsIsStringInterface,
   UtilsSizeToNumInterface,
   UtilsIsObjectInterface,
-  UtilsIsArrayInterface
+  UtilsIsFunctionInterface
 } from './interface'
+
+const _toString = Object.prototype.toString
 
 /**
  * 保留小数点后 no 位
@@ -59,10 +61,7 @@ export const debounce: UtilsDebounceInterface = (
 export const isNumber: UtilsIsNumberInterface = (
   target: unknown
 ): target is number => {
-  return (
-    typeof target === 'number' &&
-    Object.prototype.toString.call(target) === '[object Number]'
-  )
+  return typeof target === 'number'
 }
 
 /**
@@ -74,10 +73,7 @@ export const isNumber: UtilsIsNumberInterface = (
 export const isBoolean: UtilsIsBooleanInterface = (
   target: unknown
 ): target is boolean => {
-  return (
-    typeof target === 'boolean' &&
-    Object.prototype.toString.call(target) === '[object Boolean]'
-  )
+  return typeof target === 'boolean'
 }
 
 /**
@@ -89,10 +85,7 @@ export const isBoolean: UtilsIsBooleanInterface = (
 export const isString: UtilsIsStringInterface = (
   target: unknown
 ): target is string => {
-  return (
-    typeof target === 'string' &&
-    Object.prototype.toString.call(target) === '[object String]'
-  )
+  return typeof target === 'string'
 }
 
 /**
@@ -104,10 +97,19 @@ export const isString: UtilsIsStringInterface = (
 export const isObject: UtilsIsObjectInterface = (
   target: unknown
 ): target is Object => {
-  return (
-    typeof target === 'object' &&
-    Object.prototype.toString.call(target) === '[object Object]'
-  )
+  return _toString.call(target) === '[object Object]'
+}
+
+/**
+ * 判断一个值是否为 function 类型
+ *
+ * @param target 要检测的值
+ * @returns { boolean }
+ */
+export const isFunction: UtilsIsFunctionInterface = (
+  target: unknown
+): target is Function => {
+  return typeof target === 'function'
 }
 
 /**
@@ -116,14 +118,7 @@ export const isObject: UtilsIsObjectInterface = (
  * @param target 要检测的值
  * @returns { boolean }
  */
-export const isArray: UtilsIsArrayInterface = (
-  target: unknown
-): target is [] => {
-  return (
-    typeof target === 'object' &&
-    Object.prototype.toString.call(target) === '[object Array]'
-  )
-}
+export const isArray = Array.isArray
 
 /**
  * 给数字小于 10 的数字前面加 0
@@ -153,7 +148,7 @@ export const sizeChange: UtilsSizeChangeInterface = (
   target = 'px'
 ): string => {
   if (!size) return ''
-  return typeof size === 'string' ? size : size + target
+  return isString(size) ? size : size + target
 }
 
 /**
@@ -169,7 +164,7 @@ export const sizeToNum: UtilsSizeToNumInterface = (
   size: string | number
 ): number => {
   if (!size) return 0
-  if (typeof size === 'number') return size
+  if (isNumber(size)) return size
   return Number.parseFloat(size) || 0
 }
 

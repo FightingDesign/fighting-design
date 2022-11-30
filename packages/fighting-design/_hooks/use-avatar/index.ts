@@ -7,7 +7,7 @@ import type { UseAvatarReturnInterface } from './interface'
 
 /**
  * useAvatar 内部样式
- * 
+ *
  * @param prop props 列表
  * @returns { UseAvatarReturnInterface }
  */
@@ -46,24 +46,22 @@ export const useAvatar = (prop: AvatarPropsType): UseAvatarReturnInterface => {
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = styles(
-    [
-      'background',
-      'fontColor',
-      'fontSize',
-      /**
-       * size 配置项需要进行检查是否需要过滤
-       *
-       * 只有是数字的时候才需要过滤，是数字代表是自定义的尺寸
-       *
-       * 字符串代表内部尺寸，用于类名拼接
-       */
-      {
-        key: 'size',
-        callback: (): boolean => isNumber(prop.size)
-      }
-    ]
-  )
+  const styleList: ComputedRef<CSSProperties> = styles([
+    'background',
+    'fontColor',
+    'fontSize',
+    /**
+     * size 配置项需要进行检查是否需要过滤
+     *
+     * 只有是数字的时候才需要过滤，是数字代表是自定义的尺寸
+     *
+     * 字符串代表内部尺寸，用于类名拼接
+     */
+    {
+      key: 'size',
+      callback: (): boolean => isNumber(prop.size)
+    }
+  ])
 
   return {
     nodeClassList,

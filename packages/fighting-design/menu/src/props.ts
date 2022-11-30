@@ -4,7 +4,7 @@ import type { MenuModeType } from './interface'
 export const Props = {
   /**
    * 导航栏模式
-   * 
+   *
    * 水平的 垂直的 内联的
    *
    * @values horizontal vertical inline
@@ -28,4 +28,5 @@ export const Props = {
 
 export type MenuPropsType = ExtractPropTypes<typeof Props>
 
-export const MENU_PROVIDE_KEY: InjectionKey<MenuModeType> = Symbol('menu-provide-key')
+export const MENU_PROVIDE_KEY: InjectionKey<MenuModeType> =
+  Symbol('menu-provide-key')

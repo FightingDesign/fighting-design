@@ -1,3 +1,4 @@
+import { isString } from './../../../fighting-design/_utils'
 import * as defaultCompiler from 'vue/compiler-sfc'
 import { reactive, watchEffect, version } from 'vue'
 import { compileFile, File } from '@vue/repl'
@@ -95,10 +96,9 @@ export class ReplStore implements Store {
   }
 
   addFile = (fileOrFilename: string | File): void => {
-    const file =
-      typeof fileOrFilename === 'string'
-        ? new File(fileOrFilename)
-        : fileOrFilename
+    const file = isString(fileOrFilename)
+      ? new File(fileOrFilename)
+      : fileOrFilename
     this.state.files[file.filename] = file
     if (!file.hidden) this.setActive(file.filename)
   }

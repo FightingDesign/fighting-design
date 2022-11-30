@@ -1,4 +1,4 @@
-import { runCallback } from '../../_utils'
+import { runCallback, isNumber } from '../../_utils'
 import type {
   UseUpdateInputInterface,
   UseUpdateInputEmitInterface,
@@ -29,7 +29,7 @@ export const useUpdateInput: UseUpdateInputInterface = (
   const onInput: HandleEventInterface = (evt: Event): void => {
     emit(
       'update:modelValue',
-      prop.type === 'number'
+      isNumber(prop.type)
         ? Number((evt.target as HTMLInputElement).value)
         : (evt.target as HTMLInputElement).value
     )
@@ -51,7 +51,7 @@ export const useUpdateInput: UseUpdateInputInterface = (
    */
   const onClear: OrdinaryFunctionInterface = (): void => {
     if (prop.disabled) return
-    emit('update:modelValue', prop.type === 'number' ? 0 : '')
+    emit('update:modelValue', isNumber(prop.type) ? 0 : '')
   }
 
   return {

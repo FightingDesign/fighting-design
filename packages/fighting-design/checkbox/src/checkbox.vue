@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FCheckbox">
   import { Props } from './props'
   import { computed, inject } from 'vue'
-  import { isArray, runCallback } from '../../_utils'
+  import { isArray, isBoolean, runCallback } from '../../_utils'
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import type { ClassListInterface } from '../../_interface'
   import type {
@@ -56,7 +56,7 @@
 
     if (isArray(val)) {
       return val.includes(prop.label as never)
-    } else if (typeof val === 'boolean') {
+    } else if (isBoolean(val)) {
       return val
     }
     return (val === prop.label) as boolean
