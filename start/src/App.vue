@@ -9,17 +9,6 @@
 </script>
 
 <template>
-  <f-link href="" type="default">默认链接</f-link>
-  <f-link href="" type="primary">主要链接</f-link>
-  <f-link href="" type="success">成功链接</f-link>
-  <f-link href="" type="danger">危险链接</f-link>
-  <f-link href="" type="warning">警告链接</f-link>
-
-  <br />
-  <f-link disabled href="" type="primary">不许点我</f-link>
-  <f-link disabled href="" state="line" type="success">不许点我</f-link>
-  <f-link disabled href="" state="bag" type="warning">不许点我</f-link>
-
   <!-- <f-menu>
     <template #before>
       <f-avatar
@@ -68,12 +57,12 @@
 
     <f-menu-item name="2" :icon="FIconClock">操作系统</f-menu-item>
 
-    <f-submenu name="3" disabled>
+    <f-submenu name="3">
       <template #title>
         <f-svg-icon :icon="FIconCameraVideoSlash" />
         应用管理
       </template>
-      <f-menu-item name="3-1" :icon="FIconClock">管理平台</f-menu-item>
+      <f-menu-item disabled name="3-1" :icon="FIconClock">管理平台</f-menu-item>
       <f-menu-item name="3-2" :icon="FIconClock">上链应用</f-menu-item>
     </f-submenu>
   </f-menu>

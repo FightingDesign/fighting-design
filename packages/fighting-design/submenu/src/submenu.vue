@@ -38,7 +38,10 @@
   <li
     :class="[
       'f-submenu',
-      { [`f-submenu__${INJECT_DEPEND?.mode}`]: INJECT_DEPEND?.mode }
+      {
+        [`f-submenu__${INJECT_DEPEND.mode}`]: INJECT_DEPEND.mode,
+        'f-submenu__disabled': disabled
+      }
     ]"
   >
     <!-- 垂直或水平模式 -->

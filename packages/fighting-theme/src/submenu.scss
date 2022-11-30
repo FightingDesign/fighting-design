@@ -140,4 +140,20 @@
       }
     }
   }
+
+  // 禁用的
+  &.f-submenu__disabled {
+    .f-submenu__inline {
+      .f-submenu__title {
+        cursor: not-allowed;
+        opacity: 0.5;
+
+        &:hover {
+          .f-submenu__title-text {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
 }
