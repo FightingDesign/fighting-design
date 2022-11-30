@@ -62,7 +62,8 @@
    * 当前是否呗选中
    */
   const isActive: ComputedRef<boolean> = computed((): boolean => {
-    return prop.name === INJECT_DEPEND?.defaultActive
+    if (!INJECT_DEPEND) return false
+    return prop.name === INJECT_DEPEND.defaultActive
   })
 </script>
 
