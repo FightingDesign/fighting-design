@@ -29,6 +29,7 @@
    * 点击展开或折叠菜单
    */
   const handelClick = (): void => {
+    if (prop.disabled) return
     isOpened.value = !isOpened.value
   }
 </script>

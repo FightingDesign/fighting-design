@@ -47,7 +47,7 @@
      */
     const router = instance.appContext.config.globalProperties.$router
 
-    INJECT_DEPEND.changeActiveName(prop.name)
+    INJECT_DEPEND.setActiveName(prop.name)
 
     if (router && prop.to) {
       try {

@@ -57,7 +57,7 @@
 
     <f-menu-item name="2" :icon="FIconClock">操作系统</f-menu-item>
 
-    <f-submenu name="3">
+    <f-submenu name="3" disabled>
       <template #title>
         <f-svg-icon :icon="FIconCameraVideoSlash" />
         应用管理
@@ -68,15 +68,4 @@
   </f-menu>
 </template>
 
-<style lang="scss">
-  .box {
-    width: 200px;
-    border: 1px solid red;
-    padding: 20px;
-    box-sizing: border-box;
-
-    &:hover {
-      background: skyblue;
-    }
-  }
-</style>
+<style lang="scss"></style>

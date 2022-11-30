@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   /**
@@ -14,13 +14,6 @@ export const Props = {
   opened: {
     type: Boolean,
     default: (): boolean => false
-  },
-  /**
-   * 唯一标识
-   */
-  name: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
   }
 } as const
 

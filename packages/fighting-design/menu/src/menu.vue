@@ -3,7 +3,11 @@
   import { provide, reactive, toRef, computed, ref } from 'vue'
   import { useList } from '../../_hooks'
   import type { ComputedRef, Ref } from 'vue'
-  import type { MenuPropsType, MenuProvideInterface } from './interface'
+  import type {
+    MenuPropsType,
+    MenuProvideInterface,
+    MenuSetActiveNameInterface
+  } from './interface'
   import type { ClassListInterface } from '../../_interface'
 
   const prop: MenuPropsType = defineProps(Props)
@@ -27,7 +31,9 @@
    *
    * @param name 最新的 name
    */
-  const changeActiveName = (name: string | number): void => {
+  const setActiveName: MenuSetActiveNameInterface = (
+    name: string | number
+  ): void => {
     active.value = name
   }
 
@@ -37,8 +43,8 @@
     reactive({
       mode: toRef(prop, 'mode'),
       defaultActive,
-      changeActiveName
-    })
+      setActiveName
+    } as unknown as MenuProvideInterface)
   )
 
   /**
