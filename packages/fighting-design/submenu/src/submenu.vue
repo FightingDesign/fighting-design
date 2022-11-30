@@ -5,7 +5,7 @@
   import { FText } from '../../text'
   import { FCollapseAnimation } from '../../collapse-animation'
   import { FSvgIcon } from '../../svg-icon'
-  import { inject, ref } from 'vue'
+  import { inject, ref, watchEffect } from 'vue'
   import { FIconChevronDown } from '../../_svg'
   import type { Ref } from 'vue'
   import type { MenuProvideInterface } from '../../menu'
@@ -24,6 +24,15 @@
    * 初始是否展开
    */
   const isOpened: Ref<boolean> = ref<boolean>(prop.opened)
+
+  console.log(INJECT_DEPEND.accordion)
+
+  watchEffect(() => {
+    console.log('123')
+    if (INJECT_DEPEND.accordion) {
+      // isOpened.value = false
+    }
+  })
 
   /**
    * 点击展开或折叠菜单

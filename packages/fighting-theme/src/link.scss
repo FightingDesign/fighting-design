@@ -33,12 +33,12 @@
     text-decoration: underline;
   }
 
-  &:not([disabled]).f-link__bag:hover {
+  &:not([class~='f-link__disabled']).f-link__bag:hover {
     background: var(--f-design-color-border-1);
     border-radius: var(--f-design-border-radius-1);
   }
 
-  &:hover {
+  &:not([class~='f-link__disabled']):hover {
     opacity: 0.8;
   }
 
@@ -51,12 +51,5 @@
   &.f-link__disabled {
     opacity: 0.5;
     cursor: not-allowed;
-
-    &.f-link__bag {
-      &:hover {
-        opacity: 0.5;
-        background: none;
-      }
-    }
   }
 }

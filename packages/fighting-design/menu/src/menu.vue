@@ -42,6 +42,7 @@
     MENU_PROVIDE_KEY,
     reactive({
       mode: toRef(prop, 'mode'),
+      accordion: toRef(prop, 'accordion'),
       defaultActive,
       setActiveName
     } as unknown as MenuProvideInterface)

@@ -9,6 +9,10 @@
 </script>
 
 <template>
+  <f-link href="" type="primary">不许点我</f-link>
+  <f-link disabled href="" state="line" type="success">不许点我</f-link>
+  <f-link disabled href="" state="bag" type="warning">不许点我</f-link>
+
   <!-- <f-menu>
     <template #before>
       <f-avatar
@@ -39,7 +43,7 @@
 
   <!-- <br /> -->
 
-  <f-menu mode="inline" active-name="2">
+  <f-menu mode="inline" active-name="2" accordion>
     <f-submenu name="1">
       <template #title>这是标题</template>
 

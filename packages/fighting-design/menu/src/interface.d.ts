@@ -18,11 +18,13 @@ export interface MenuSetActiveNameInterface {
  * 注入的依赖项类型接口
  *
  * @param mode 导航栏模式
+ * @param accordion 是否为手风琴效果
  * @param defaultActive 默认选中的 name
  * @param setActiveName 修改选中 name
  */
 export interface MenuProvideInterface {
   mode: MenuModeType
+  accordion: boolean
   defaultActive: string | number
   setActiveName: MenuSetActiveNameInterface
 }
