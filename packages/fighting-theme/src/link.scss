@@ -7,6 +7,8 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  vertical-align: middle;
+  outline: none;
   transition: 0.3s;
   line-height: 1;
   font-size: var(--f-link-size, var(--f-design-font-size-middle));
@@ -14,10 +16,6 @@
 
   .f-svg-icon {
     font-size: var(--f-link-font-size, var(--f-design-font-size-middle));
-  }
-
-  &:hover {
-    opacity: 0.8;
   }
 
   // 不同类型
@@ -35,9 +33,13 @@
     text-decoration: underline;
   }
 
-  &.f-link__bag:hover {
+  &:not([disabled]).f-link__bag:hover {
     background: var(--f-design-color-border-1);
     border-radius: var(--f-design-border-radius-1);
+  }
+
+  &:hover {
+    opacity: 0.8;
   }
 
   // 禁止 copy
@@ -46,7 +48,7 @@
   }
 
   // 禁用
-  &.f-link__prohibit {
+  &.f-link__disabled {
     opacity: 0.5;
     cursor: not-allowed;
 

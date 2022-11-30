@@ -20,7 +20,7 @@
    * @param evt 事件对象
    */
   const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    if (prop.prohibit || prop.noLink) {
+    if (prop.disabled || prop.noLink) {
       evt.preventDefault()
       return
     }
@@ -31,7 +31,7 @@
    * 类名列表
    */
   const classList: ComputedRef<ClassListInterface> = classes(
-    ['type', 'state', 'prohibit', 'noCopy'],
+    ['type', 'state', 'disabled', 'noCopy'],
     'f-link'
   )
 
@@ -47,6 +47,7 @@
     :class="classList"
     :style="styleList"
     :href="href"
+    :disabled="disabled"
     :target="target"
     @click="handleClick"
   >

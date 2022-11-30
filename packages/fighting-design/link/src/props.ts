@@ -20,6 +20,8 @@ export const Props = {
   },
   /**
    * 链接的地址
+   * 
+   * @see href https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a?qs=%3Ca%3E#attr-href
    */
   href: {
     type: String,
@@ -45,7 +47,7 @@ export const Props = {
   /**
    * 是否禁用
    */
-  prohibit: {
+  disabled: {
     type: Boolean,
     default: (): boolean => false
   },

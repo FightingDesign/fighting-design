@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-link` 组件 `prohibit` 配置项改为 `disabled`
+
 ## 0.9.0-alpha.6 (2022-11-29)
 
 **新功能**
