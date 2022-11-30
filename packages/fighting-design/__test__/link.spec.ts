@@ -49,11 +49,11 @@ describe('FLink', () => {
     })
   })
 
-  test('prohibit', () => {
+  test('disabled', () => {
     const wrapper = mount(FLink, {
-      props: { prohibit: true }
+      props: { disabled: true }
     })
-    expect(wrapper.classes()).toContain('f-link__prohibit')
+    expect(wrapper.classes()).toContain('f-link__disabled')
   })
 
   test('target', () => {
