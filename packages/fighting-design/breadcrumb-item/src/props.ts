@@ -1,4 +1,5 @@
 import type { ExtractPropTypes, VNode, Component, PropType } from 'vue'
+import type { BreadcrumbItemToInterface } from './interface'
 
 export const Props = {
   /**
@@ -20,6 +21,13 @@ export const Props = {
    */
   separator: {
     type: Object as PropType<VNode | Component>,
+    default: (): null => null
+  },
+  /**
+   * 跳转的路径参数
+   */
+  to: {
+    type: [String, Object] as PropType<string | BreadcrumbItemToInterface>,
     default: (): null => null
   }
 }

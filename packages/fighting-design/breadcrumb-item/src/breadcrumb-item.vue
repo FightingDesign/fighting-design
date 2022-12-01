@@ -1,10 +1,16 @@
 <script lang="ts" setup name="FBreadcrumbItem">
   import { Props } from './props'
-  import { inject, computed } from 'vue'
+  import { inject, computed, getCurrentInstance } from 'vue'
   import { BREADCRUMB_PROPS_KEY } from '../../breadcrumb/src/props'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronRightVue } from '../../_svg'
-  import type { VNode, Component, ComputedRef, CSSProperties } from 'vue'
+  import type {
+    VNode,
+    Component,
+    ComputedRef,
+    CSSProperties,
+    ComponentInternalInstance
+  } from 'vue'
   import type { BreadcrumbPropsType } from '../../breadcrumb'
   import type { BreadcrumbItemPropsType } from './interface'
 
@@ -16,6 +22,12 @@
   const INJECT_DEPEND: BreadcrumbPropsType | undefined = inject<
     BreadcrumbPropsType | undefined
   >(BREADCRUMB_PROPS_KEY, undefined)
+
+  /**
+   * 获取当前组件实例
+   */
+  const instance: ComponentInternalInstance =
+    getCurrentInstance() as ComponentInternalInstance
 
   /**
    * 计算当前需要展示的 svg
@@ -40,10 +52,28 @@
         (INJECT_DEPEND && INJECT_DEPEND.iconColor) || prop.iconColor
     } as CSSProperties
   })
+
+  /**
+   * 点击触发
+   */
+  const handelClick = (): void => {
+    /**
+     * 获取到路由实例
+     */
+    const router = instance.appContext.config.globalProperties.$router
+
+    if (router && prop.to) {
+      try {
+        router.push(prop.to)
+      } catch (err: unknown) {
+        console.warn(err)
+      }
+    }
+  }
 </script>
 
 <template>
-  <div class="f-breadcrumb-item" :style="styleList">
+  <div class="f-breadcrumb-item" :style="styleList" @click="handelClick">
     <span class="f-breadcrumb-item__text">
       <slot />
     </span>

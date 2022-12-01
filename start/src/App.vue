@@ -13,6 +13,14 @@
 </script>
 
 <template>
+  <f-breadcrumb>
+    <f-breadcrumb-item :to="{ name: 'home', query: { id: 123 } }">
+      首页
+    </f-breadcrumb-item>
+    <f-breadcrumb-item :to="{ name: 'abc' }">文章</f-breadcrumb-item>
+    <f-breadcrumb-item :to="{ name: 'app' }">列表</f-breadcrumb-item>
+  </f-breadcrumb>
+
   <f-radio-group v-model="radio6" disabled>
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2">备选项2</f-radio>
@@ -48,6 +56,8 @@
     :icon="FIconCameraVideoSlash"
     size="large"
     active-color="red"
+    close-text="关闭"
+    active-text="开启"
   />
   <f-switch v-model="value3" size="middle" />
   <f-switch v-model="value3" size="small" />
