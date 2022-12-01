@@ -3,6 +3,7 @@
   import { computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { runCallback } from '../../_utils'
+  import { useList } from '../../_hooks'
   import type {
     OrdinaryFunctionInterface,
     ClassListInterface
@@ -15,6 +16,13 @@
     'update:modelValue': (target: boolean): string => String(target)
   })
 
+  const { styles } = useList(prop, 'switch')
+
+  const styleList: ComputedRef<CSSProperties> = styles([
+    'closeColor',
+    'activeColor'
+  ])
+
   /**
    * 点击切换
    */
@@ -23,27 +31,6 @@
     emit('update:modelValue', !prop.modelValue)
     runCallback(prop.onChange, !prop.modelValue)
   }
-
-  /**
-   * 小球样式
-   */
-  const rollStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { modelValue, closeColor, openColor, size } = prop
-
-      const SIZE_LIST = {
-        large: '30px',
-        middle: '25px',
-        small: '20px',
-        mini: '15px'
-      } as const
-
-      return {
-        right: modelValue ? '0px' : SIZE_LIST[size],
-        borderColor: modelValue ? openColor : closeColor
-      } as const
-    }
-  )
 
   /**
    * 类名列表
@@ -56,8 +43,8 @@
         'f-switch__input',
         {
           [`f-switch__${size}`]: size,
-          'f-switch__close': !modelValue,
-          'f-switch__square': square
+          'f-switch__square': square,
+          'f-switch__active': modelValue
         }
       ] as const
     }
@@ -65,7 +52,12 @@
 </script>
 
 <template>
-  <div role="switch" :class="['f-switch', { 'f-switch__disabled': disabled }]">
+  <div
+    role="switch"
+    :class="['f-switch', { 'f-switch__disabled': disabled }]"
+    :style="styleList"
+  >
+    <!-- 左侧文字描述 -->
     <span
       v-if="closeText"
       :class="[
@@ -76,16 +68,16 @@
       {{ closeText }}
     </span>
 
-    <div
-      :class="classList"
-      :style="{ background: modelValue ? openColor : closeColor }"
-      @click="handleClick"
-    >
-      <span class="f-switch__roll" :style="rollStyleList">
+    <!-- 主要内容 -->
+    <div :class="classList" @click="handleClick">
+      <span
+        :class="['f-switch__roll', { 'f-switch__roll-active': modelValue }]"
+      >
         <f-svg-icon v-if="icon" :icon="icon" :size="iconSize" />
       </span>
     </div>
 
+    <!-- 右侧文字描述 -->
     <span
       v-if="openText"
       :class="['f-switch__left-text', { 'f-switch__text-active': modelValue }]"

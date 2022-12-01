@@ -6,14 +6,22 @@
     FIconCameraVideoSlash,
     FIconClock
   } from '@fighting-design/fighting-icon'
-  
+
+  const value3 = ref(true)
   const value4 = ref(true)
   const value5 = ref(false)
 </script>
 
 <template>
-  <f-switch v-model="value4" disabled />
-  <f-switch v-model="value5" disabled />
+  <f-switch
+    v-model="value3"
+    :icon="FIconCameraVideoSlash"
+    size="large"
+    active-color="red"
+  />
+  <f-switch v-model="value3" size="middle" />
+  <f-switch v-model="value3" size="small" />
+  <f-switch v-model="value3" size="mini" />
 
   <!-- <f-menu>
     <template #before>

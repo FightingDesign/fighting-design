@@ -47,7 +47,7 @@ export const Props = {
   /**
    * 打开时的颜色
    */
-  openColor: {
+  activeColor: {
     type: String,
     default: (): null => null
   },
