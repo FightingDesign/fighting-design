@@ -2,6 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**优化**
+
+- 优化 `f-switch` 细节样式和性能
+- 优化 `f-button` 样式处理逻辑
+
+**改动**
+
 - `f-link` 组件 `prohibit` 配置项改为 `disabled`
 - `f-switch` 组件 `open-color` 改为 `active-color`
 
