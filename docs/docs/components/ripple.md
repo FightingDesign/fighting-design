@@ -235,6 +235,10 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
+<script lang="ts" setup>
+  const typeList = ['default', 'primary', 'success', 'danger', 'warning']
+</script>
+
 <style scoped>
   .list {
     height: 60px;
@@ -243,7 +247,3 @@ import type {
     align-items: center;
   }
 </style>
-
-<script lang="ts" setup>
-  const typeList = ['default', 'primary', 'success', 'danger', 'warning']
-</script>

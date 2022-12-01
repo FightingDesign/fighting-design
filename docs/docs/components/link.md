@@ -173,7 +173,7 @@ import type {
 </a>
 
 <style scoped>
-.f-link {
-  margin: 5px;
-}
+  .f-link {
+    margin: 5px;
+  }
 </style>
