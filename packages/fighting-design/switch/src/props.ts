@@ -54,7 +54,7 @@ export const Props = {
   /**
    * 自定义打开时的文案
    */
-  openText: {
+  activeText: {
     type: String,
     default: (): null => null
   },

@@ -18,6 +18,7 @@
 
 - `f-link` 组件 `prohibit` 配置项改为 `disabled`
 - `f-switch` 组件 `open-color` 改为 `active-color`
+- `f-switch` 组件 `open-text` 改为 `active-text`
 
 ## 0.9.0-alpha.6 (2022-11-29)
 

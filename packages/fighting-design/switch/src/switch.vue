@@ -18,6 +18,9 @@
 
   const { styles } = useList(prop, 'switch')
 
+  /**
+   * 样式列表
+   */
   const styleList: ComputedRef<CSSProperties> = styles([
     'closeColor',
     'activeColor'
@@ -79,10 +82,10 @@
 
     <!-- 右侧文字描述 -->
     <span
-      v-if="openText"
+      v-if="activeText"
       :class="['f-switch__left-text', { 'f-switch__text-active': modelValue }]"
     >
-      {{ openText }}
+      {{ activeText }}
     </span>
   </div>
 </template>
