@@ -164,6 +164,7 @@
 | ------------ | ------------------ | -------------------------- | ------ | ------ |
 | `separator`  | 自定义分隔符       | object (VNode / Component) | ——     | ——     |
 | `color`      | 自定义导航文字颜色 | string                     | ——     | ——     |
+| `to`         | 跳转的路径         | string / object            | ——     | ——     |
 | `icon-color` | 自定义 icon 颜色   | string                     | ——     | ——     |
 
 ## Breadcrumb-item Slots
