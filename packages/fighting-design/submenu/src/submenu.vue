@@ -5,7 +5,7 @@
   import { FText } from '../../text'
   import { FCollapseAnimation } from '../../collapse-animation'
   import { FSvgIcon } from '../../svg-icon'
-  import { inject, ref, watchEffect } from 'vue'
+  import { inject, ref, watchEffect, watch } from 'vue'
   import { FIconChevronDown } from '../../_svg'
   import type { Ref } from 'vue'
   import type { MenuProvideInterface } from '../../menu'
@@ -25,21 +25,50 @@
    */
   const isOpened: Ref<boolean> = ref<boolean>(prop.opened)
 
-  console.log(INJECT_DEPEND.accordion)
+  // console.log(INJECT_DEPEND.setSubmenuClick)
 
   watchEffect(() => {
-    console.log('123')
-    if (INJECT_DEPEND.accordion) {
-      // isOpened.value = false
-    }
+    // console.log('123')
+    // if (INJECT_DEPEND.accordion) {
+    // isOpened.value = false
+    // }
   })
+
+  watch(
+    () => INJECT_DEPEND.isSubmenuClick,
+    (newVal) => {
+      console.log(newVal)
+      if (newVal) {
+        isOpened.value = false
+        console.log('先全部关闭')
+      }
+    }
+  )
 
   /**
    * 点击展开或折叠菜单
    */
   const handelClick = (): void => {
     if (prop.disabled) return
-    isOpened.value = !isOpened.value
+
+    // 关闭
+    if (isOpened.value) {
+      setTimeout(() => {
+        isOpened.value = false
+        console.log('------')
+        INJECT_DEPEND.setSubmenuClickClose()
+      }, 300)
+    } else {
+      setTimeout(() => {
+        console.log('------')
+        isOpened.value = true
+        INJECT_DEPEND.setSubmenuClickOpen()
+      }, 300)
+    }
+    // setTimeout(() => {
+    //   isOpened.value = true
+    //   // isOpened.value = !isOpened.value
+    // })
   }
 </script>
 

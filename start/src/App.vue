@@ -9,10 +9,6 @@
 </script>
 
 <template>
-  <f-link href="" type="primary">不许点我</f-link>
-  <f-link disabled href="" state="line" type="success">不许点我</f-link>
-  <f-link disabled href="" state="bag" type="warning">不许点我</f-link>
-
   <!-- <f-menu>
     <template #before>
       <f-avatar
