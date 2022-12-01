@@ -2,10 +2,15 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**新增**
+
+- 完善更多 `f-menu` 组件功能
+
 **优化**
 
 - 优化 `f-switch` 细节样式和性能
 - 优化 `f-button` 样式处理逻辑
+- 优化 `f-dropdown-item` 样式细节
 
 **改动**
 

@@ -13,6 +13,17 @@
 </script>
 
 <template>
+  <f-dropdown style="margin-left: 80px">
+    <f-button>禁用指定的</f-button>
+
+    <template #content>
+      <f-dropdown-item>猕猴桃</f-dropdown-item>
+      <f-dropdown-item disabled>哈密瓜</f-dropdown-item>
+      <f-dropdown-item>火龙果</f-dropdown-item>
+      <f-dropdown-item>柠檬</f-dropdown-item>
+    </template>
+  </f-dropdown>
+
   <f-switch
     v-model="value3"
     :icon="FIconCameraVideoSlash"
