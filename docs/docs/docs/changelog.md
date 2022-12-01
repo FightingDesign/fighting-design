@@ -2,6 +2,27 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.9.0-alpha.7 (2022-12-01)
+
+**新增**
+
+- 新增 `f-breadcrumb-item` 组件 `to` 配置项
+- 完善更多 `f-menu` 组件功能
+
+**优化**
+
+- 优化 `f-switch` 细节样式和性能
+- 优化 `f-button` 样式处理逻辑
+- 优化 `f-dropdown-item` 样式细节
+- 优化 `f-option` 样式细节
+- 优化 `f-select` 样式细节
+
+**改动**
+
+- `f-link` 组件 `prohibit` 配置项改为 `disabled`
+- `f-switch` 组件 `open-color` 改为 `active-color`
+- `f-switch` 组件 `open-text` 改为 `active-text`
+
 ## 0.9.0-alpha.6 (2022-11-29)
 
 **新功能**
