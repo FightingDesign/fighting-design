@@ -12,10 +12,9 @@
   /**
    * 获取到 trigger 注入的依赖项
    */
-  const INJECT_DEPEND: TriggerProvideInterface =
-    inject<TriggerProvideInterface>(
-      TRIGGER_CLOSE_KEY
-    ) as TriggerProvideInterface
+  const INJECT_DEPEND: TriggerProvideInterface = inject<
+    TriggerProvideInterface | undefined
+  >(TRIGGER_CLOSE_KEY, undefined) as TriggerProvideInterface
 
   /**
    * 点击时触发

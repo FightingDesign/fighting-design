@@ -9,10 +9,22 @@
 
   const value3 = ref(true)
   const value4 = ref('')
-  const value5 = ref(false)
+  const radio6 = ref('1')
 </script>
 
 <template>
+  <f-radio-group v-model="radio6" disabled>
+    <f-radio label="1">备选项1</f-radio>
+    <f-radio label="2">备选项2</f-radio>
+    <f-radio label="3">备选项3</f-radio>
+  </f-radio-group>
+
+  <f-radio-group v-model="radio6">
+    <f-radio label="1">备选项1</f-radio>
+    <f-radio label="2" disabled>备选项2</f-radio>
+    <f-radio label="3">备选项3</f-radio>
+  </f-radio-group>
+
   <f-select v-model="value4" placeholder="请选择……" style="margin-left: 30px">
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2" disabled>苹果</f-option>
