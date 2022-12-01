@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FMenu">
   import { Props, MENU_PROVIDE_KEY } from './props'
-  import { provide, reactive, toRef, computed, ref, watch } from 'vue'
+  import { provide, reactive, toRef, computed, ref } from 'vue'
   import { useList } from '../../_hooks'
   import type { ComputedRef, Ref } from 'vue'
   import type {
@@ -37,28 +37,6 @@
     active.value = name
   }
 
-  /**
-   * 是否有子元素 submenu 点击
-   */
-  const isSubmenuClick: Ref<boolean> = ref(false)
-
-  const setSubmenuClickOpen = (): void => {
-    isSubmenuClick.value = true
-  }
-
-  const setSubmenuClickClose = (): void => {
-    isSubmenuClick.value = false
-  }
-
-  watch(
-    () => isSubmenuClick.value,
-    (newVal) => {
-      if (newVal) {
-        console.log('改变')
-      }
-    }
-  )
-
   // 提供出去依赖项
   provide<MenuProvideInterface>(
     MENU_PROVIDE_KEY,
@@ -66,10 +44,7 @@
       mode: toRef(prop, 'mode'),
       accordion: toRef(prop, 'accordion'),
       defaultActive,
-      isSubmenuClick,
-      setActiveName,
-      setSubmenuClickOpen,
-      setSubmenuClickClose
+      setActiveName
     } as unknown as MenuProvideInterface)
   )
 

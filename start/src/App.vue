@@ -1,14 +1,20 @@
 <script lang="ts" setup>
-  // import { ref } from 'vue'
+  import { ref } from 'vue'
   import {
     FIconApps,
     FIconBlock,
     FIconCameraVideoSlash,
     FIconClock
   } from '@fighting-design/fighting-icon'
+  
+  const value4 = ref(true)
+  const value5 = ref(false)
 </script>
 
 <template>
+  <f-switch v-model="value4" disabled />
+  <f-switch v-model="value5" disabled />
+
   <!-- <f-menu>
     <template #before>
       <f-avatar
