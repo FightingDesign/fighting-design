@@ -8,11 +8,18 @@
   } from '@fighting-design/fighting-icon'
 
   const value3 = ref(true)
-  const value4 = ref(true)
+  const value4 = ref('')
   const value5 = ref(false)
 </script>
 
 <template>
+  <f-select v-model="value4" placeholder="请选择……" style="margin-left: 30px">
+    <f-option :value="1">香蕉</f-option>
+    <f-option :value="2" disabled>苹果</f-option>
+    <f-option :value="3">哈密瓜</f-option>
+    <f-option :value="4">樱桃</f-option>
+  </f-select>
+
   <f-dropdown style="margin-left: 80px">
     <f-button>禁用指定的</f-button>
 

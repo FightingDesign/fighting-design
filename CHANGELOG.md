@@ -11,6 +11,8 @@
 - 优化 `f-switch` 细节样式和性能
 - 优化 `f-button` 样式处理逻辑
 - 优化 `f-dropdown-item` 样式细节
+- 优化 `f-option` 样式细节
+- 优化 `f-select` 样式细节
 
 **改动**
 
