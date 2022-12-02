@@ -44,10 +44,13 @@
    */
   const svgIconComponent: ComputedRef<VNode | Component> = computed(
     (): VNode | Component => {
+      if (prop.separator) return prop.separator
+
       if (INJECT_DEPEND && INJECT_DEPEND.separator) {
         return INJECT_DEPEND.separator
       }
-      return prop.separator || FIconChevronRightVue
+
+      return FIconChevronRightVue
     }
   )
 
