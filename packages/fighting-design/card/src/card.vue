@@ -2,28 +2,24 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
-  import type { ComputedRef } from 'vue'
   import type { ClassListInterface } from '../../_interface'
-  import type { CardPropsType } from './props'
 
-  const prop: CardPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { round, shadow } = prop
+  const classList = computed((): ClassListInterface => {
+    const { round, shadow } = prop
 
-      return [
-        'f-card',
-        {
-          'f-card__round': round,
-          [`f-card__shadow-${shadow}`]: shadow
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-card',
+      {
+        'f-card__round': round,
+        [`f-card__shadow-${shadow}`]: shadow
+      }
+    ] as const
+  })
 </script>
 
 <template>

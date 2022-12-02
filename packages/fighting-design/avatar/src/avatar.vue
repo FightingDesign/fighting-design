@@ -3,10 +3,8 @@
   import { ref, onMounted, useSlots } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { useLoadImage, useAvatar } from '../../_hooks'
-  import type { AvatarPropsType } from './props'
-  import type { Ref } from 'vue'
 
-  const prop: AvatarPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const slot = useSlots()
 
   const { nodeClassList, classList, styleList } = useAvatar(prop)
@@ -15,9 +13,7 @@
   /**
    * 图片 dom 节点
    */
-  const avatarEl: Ref<HTMLImageElement> = ref<HTMLImageElement>(
-    null as unknown as HTMLImageElement
-  )
+  const avatarEl = ref<HTMLImageElement>(null as unknown as HTMLImageElement)
 
   /**
    * 开始触发加载

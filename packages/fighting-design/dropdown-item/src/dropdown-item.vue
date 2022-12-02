@@ -3,25 +3,24 @@
   import { runCallback } from '../../_utils'
   import { inject } from 'vue'
   import { TRIGGER_CLOSE_KEY } from '../../trigger/src/props'
-  import type { DropdownItemPropsType } from './interface'
-  import type { HandleMouseEventInterface } from '../../_interface'
   import type { TriggerProvideInterface } from '../../trigger'
 
-  const prop: DropdownItemPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 获取到 trigger 注入的依赖项
    */
-  const INJECT_DEPEND: TriggerProvideInterface = inject<
-    TriggerProvideInterface | undefined
-  >(TRIGGER_CLOSE_KEY, undefined) as TriggerProvideInterface
+  const INJECT_DEPEND = inject<TriggerProvideInterface | undefined>(
+    TRIGGER_CLOSE_KEY,
+    undefined
+  ) as TriggerProvideInterface
 
   /**
    * 点击时触发
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
     runCallback(INJECT_DEPEND.handelClose)
     runCallback(prop.onClick, evt)

@@ -6,31 +6,23 @@
   import { FIconChevronLeftVue, FIconChevronRightVue } from '../../_svg'
   import { addZero, sizeChange, WEEK_DATA, runCallback } from '../../_utils'
   import { useCalculiTime } from '../../_hooks'
-  import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type {
-    CalendarMowDataClassListInterface,
-    CalendarOptionClickInterface,
-    CalendarHandleClickInterface,
-    CalendarTargetType,
-    CalendarPropsType,
-    CalendarIsMemorandumInterface,
-    CalendarOptionInterface
-  } from './interface'
+  import type { CSSProperties } from 'vue'
+  import type { CalendarTargetType, CalendarPropsType } from './interface'
 
   const prop: CalendarPropsType = defineProps(Props)
 
   /**
    * 当前年份
    */
-  const year: Ref<number> = ref<number>(prop.date.getFullYear())
+  const year = ref<number>(prop.date.getFullYear())
   /**
    * 当前月份
    */
-  const month: Ref<number> = ref<number>(prop.date.getMonth())
+  const month = ref<number>(prop.date.getMonth())
   /**
    * 当前日期
    */
-  const date: Ref<number> = ref<number>(prop.date.getDate())
+  const date = ref<number>(prop.date.getDate())
 
   const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(
     year,
@@ -43,10 +35,7 @@
    * @param _month 月份
    * @param _date 日期
    */
-  const mowDataClassList: CalendarMowDataClassListInterface = (
-    _month: number,
-    _date: number
-  ): string => {
+  const mowDataClassList = (_month: number, _date: number): string => {
     if (_date === date.value && _month === month.value + 1) {
       return 'f-calendar__day-today'
     }
@@ -61,10 +50,8 @@
    *
    * @param target 不同类型用于切换当前时间、下个月、上个月
    */
-  const optionClick: CalendarOptionClickInterface = (
-    target: CalendarTargetType
-  ): void => {
-    const option: CalendarOptionInterface = {
+  const optionClick = (target: CalendarTargetType): void => {
+    const option = {
       last: (): void => changeLastMonth(),
       next: (): void => changeNextMonth(),
       now: (): void => {
@@ -80,7 +67,7 @@
   /**
    * 当前时间
    */
-  const nowTime: ComputedRef<string> = computed((): string => {
+  const nowTime = computed((): string => {
     return `${year.value} / ${addZero(month.value + 1)} / ${addZero(
       date.value
     )}`
@@ -92,10 +79,7 @@
    * @param _month 当前月份
    * @param _date 当前日期
    */
-  const handleClick: CalendarHandleClickInterface = (
-    _month: number,
-    _date: number
-  ): void => {
+  const handleClick = (_month: number, _date: number): void => {
     date.value = _date
 
     // 如果点击上个月的选项，则调整上个月
@@ -115,7 +99,7 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const classList = computed((): CSSProperties => {
     const { borderColor, dayCellHeight, weekCellHeight } = prop
 
     return {
@@ -130,9 +114,7 @@
    *
    * @param date 当前日期
    */
-  const isMemorandum: CalendarIsMemorandumInterface = (
-    date: string
-  ): boolean => {
+  const isMemorandum = (date: string): boolean => {
     if (!prop.memorandum) {
       return false
     }

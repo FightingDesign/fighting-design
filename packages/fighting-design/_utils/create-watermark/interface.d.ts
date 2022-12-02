@@ -14,13 +14,3 @@ export interface CreateWatermarkPropsInterface {
   width: number
   height: number
 }
-
-/**
- * createWatermark 方法类型接口
- *
- * @param props 所需要的 props 参数对象
- * @returns { String } base64 格式的图片
- */
-export interface CreateBase64Interface {
-  (props: CreateWatermarkPropsInterface): string
-}

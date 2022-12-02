@@ -7,23 +7,22 @@
   import { FSvgIcon } from '../../svg-icon'
   import { inject, ref } from 'vue'
   import { FIconChevronDown } from '../../_svg'
-  import type { Ref } from 'vue'
   import type { MenuProvideInterface } from '../../menu'
-  import type { SubmenuPropsType } from './interface'
 
-  const prop: SubmenuPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 注入父组件的模式依赖项
    */
-  const INJECT_DEPEND: MenuProvideInterface = inject<
-    MenuProvideInterface | undefined
-  >(MENU_PROVIDE_KEY, undefined) as MenuProvideInterface
+  const INJECT_DEPEND = inject<MenuProvideInterface | undefined>(
+    MENU_PROVIDE_KEY,
+    undefined
+  ) as MenuProvideInterface
 
   /**
    * 初始是否展开
    */
-  const isOpened: Ref<boolean> = ref<boolean>(prop.opened)
+  const isOpened = ref<boolean>(prop.opened)
 
   /**
    * 点击展开或折叠菜单

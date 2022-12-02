@@ -4,21 +4,17 @@
   import { computed } from 'vue'
   import { FIconCrossVue } from '../../_svg'
   import { runCallback } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type {
-    HandleMouseEventInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { CloseBtnPropsType } from './props'
+  import type { CSSProperties } from 'vue'
+  import type { ClassListInterface } from '../../_interface'
 
-  const prop: CloseBtnPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 点击触发
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
     runCallback(prop.onClick, evt)
   }
@@ -26,24 +22,22 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { disabled, round } = prop
+  const classList = computed((): ClassListInterface => {
+    const { disabled, round } = prop
 
-      return [
-        'f-close-btn',
-        {
-          'f-close-btn__round': round,
-          'f-close-btn__disabled': disabled
-        } as const
-      ] as const
-    }
-  )
+    return [
+      'f-close-btn',
+      {
+        'f-close-btn__round': round,
+        'f-close-btn__disabled': disabled
+      } as const
+    ] as const
+  })
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     return {
       '--f-close-btn-color': prop.color
     } as CSSProperties

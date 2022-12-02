@@ -4,14 +4,9 @@
   import { FSvgIcon } from '../../svg-icon'
   import { runCallback } from '../../_utils'
   import { useList } from '../../_hooks'
-  import type {
-    OrdinaryFunctionInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { SwitchPropsType } from './props'
+  import type { ClassListInterface } from '../../_interface'
 
-  const prop: SwitchPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:modelValue': (target: boolean): string => String(target)
   })
@@ -21,15 +16,12 @@
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = styles([
-    'closeColor',
-    'activeColor'
-  ])
+  const styleList = styles(['closeColor', 'activeColor'])
 
   /**
    * 点击切换
    */
-  const handleClick: OrdinaryFunctionInterface = (): void => {
+  const handleClick = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', !prop.modelValue)
     runCallback(prop.onChange, !prop.modelValue)
@@ -38,20 +30,18 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { size, modelValue, square } = prop
+  const classList = computed((): ClassListInterface => {
+    const { size, modelValue, square } = prop
 
-      return [
-        'f-switch__input',
-        {
-          [`f-switch__${size}`]: size,
-          'f-switch__square': square,
-          'f-switch__active': modelValue
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-switch__input',
+      {
+        [`f-switch__${size}`]: size,
+        'f-switch__square': square,
+        'f-switch__active': modelValue
+      }
+    ] as const
+  })
 </script>
 
 <template>

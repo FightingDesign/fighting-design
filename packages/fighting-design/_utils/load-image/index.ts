@@ -2,14 +2,8 @@ import { isString, runCallback } from '../index'
 import type {
   LoadLazyInterface,
   LoadInterface,
-  LoadImageInterface,
   LoadImagePropsInterface,
-  LoadCallbackInterface,
-  LoadCreateImgInterface,
-  LoadOnloadInterface,
-  LoadLazyObserverInterface,
-  HandleEventInterface,
-  OrdinaryFunctionInterface
+  LoadCallbackInterface
 } from './interface'
 
 /**
@@ -43,7 +37,7 @@ class Load implements LoadInterface {
    *
    * @param errSrc src 失败后的加载路径
    */
-  loadCreateImg: LoadCreateImgInterface = (errSrc?: string): void => {
+  loadCreateImg = (errSrc?: string): void => {
     const newImg: HTMLImageElement = new Image()
 
     if (errSrc) {
@@ -67,7 +61,7 @@ class Load implements LoadInterface {
    *
    * @param evt 事件对象
    */
-  onerror: HandleEventInterface = (evt: Event): void => {
+  onerror = (evt: Event): void => {
     /**
      * 如果存在 errSrc 并且没有加载过则继续尝试加载
      *
@@ -88,7 +82,7 @@ class Load implements LoadInterface {
    * @param evt 事件对象
    * @param src 需要加载的 src
    */
-  onload: LoadOnloadInterface = (evt: Event, src: string): void => {
+  onload = (evt: Event, src: string): void => {
     this.node.src = src
     runCallback(this.props.onLoad, evt)
     runCallback(this.callback, true)
@@ -112,10 +106,8 @@ class Lazy extends Load implements LoadLazyInterface {
   }
   /**
    * 初始化懒加载构造器
-   *
-   * @returns { IntersectionObserver }
    */
-  observer: LoadLazyObserverInterface = (): IntersectionObserver => {
+  observer = (): IntersectionObserver => {
     const observer: IntersectionObserver = new IntersectionObserver(
       (arr: IntersectionObserverEntry[]): void => {
         if (arr[0].isIntersecting) {
@@ -134,7 +126,7 @@ class Lazy extends Load implements LoadLazyInterface {
   /**
    * 执行懒加载
    */
-  lazyCreateImg: OrdinaryFunctionInterface = (): void => {
+  lazyCreateImg = (): void => {
     this.observer().observe(this.node)
   }
 }
@@ -145,7 +137,7 @@ class Lazy extends Load implements LoadLazyInterface {
  * @param prop Props
  * @param callback 回调函数
  */
-export const loadImage: LoadImageInterface = (
+export const loadImage = (
   node: HTMLImageElement,
   prop: LoadImagePropsInterface,
   callback: LoadCallbackInterface | null

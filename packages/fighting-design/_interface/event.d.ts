@@ -11,16 +11,6 @@ export interface HandleMouseEventInterface {
 }
 
 /**
- * Event 普通事件接口
- *
- * @see Event https://developer.mozilla.org/zh-CN/docs/Web/API/Event
- * @param evt 事件参数
- */
-export interface HandleEventInterface {
-  (evt: Event): void
-}
-
-/**
  * DragEvent 拖放事件接口
  *
  * 主要用在拖动文件上传

@@ -24,20 +24,6 @@ export interface UseUpdateInputPropsInterface {
 }
 
 /**
- * useUpdateInput 类型接口
- *
- * @param prop 件的 props 参数
- * @param emit 回调参数
- * @return { UseUpdateInputReturnInterface }
- */
-export interface UseUpdateInputInterface {
-  (
-    prop: UseUpdateInputPropsInterface,
-    emit: UseUpdateInputEmitInterface
-  ): UseUpdateInputReturnInterface
-}
-
-/**
  * useUpdateInput hook 返回值类型接口
  *
  * @param onInput 处理文本框输入

@@ -3,11 +3,10 @@
   import { computed, ref } from 'vue'
   import dragDirective from './drag'
   import { FSvgIcon } from '../../svg-icon'
-  import type { SliderPropsType } from './interface'
-  import type { ComputedRef, CSSProperties, Ref } from 'vue'
+  import type { CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
 
-  const prop: SliderPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   // 是否范围取值
   const isRange = computed((): boolean => {
@@ -15,10 +14,10 @@
     return Array.isArray(modelValue)
   })
 
-  // dom 元素
-  const FSlider: Ref<HTMLDivElement> = ref<HTMLDivElement>(
-    null as unknown as HTMLDivElement
-  )
+  /**
+   * dom 元素
+   */
+  const FSlider = ref<HTMLDivElement>(null as unknown as HTMLDivElement)
   const width = ref(0)
 
   // 步长宽度
@@ -32,21 +31,19 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { disabled } = prop
-      return [
-        'f-slider',
-        {
-          'f-slider__disabled': disabled
-        }
-      ] as const
-    }
-  )
+  const classList = computed((): ClassListInterface => {
+    const { disabled } = prop
+    return [
+      'f-slider',
+      {
+        'f-slider__disabled': disabled
+      }
+    ] as const
+  })
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { bgColor, disabled } = prop
 
     const styles = {
@@ -58,7 +55,7 @@
   })
 
   const leftTx = computed({
-    get() {
+    get () {
       const { min, max, modelValue } = prop
       updateSiderWidth()
 
@@ -66,21 +63,21 @@
         ? (width.value * modelValue[0]) / (max - min)
         : 0
     },
-    set(newValue) {
+    set (newValue) {
       // modelValue[0]
       notify({ newLeftTx: newValue })
     }
   })
 
   const rightTx = computed({
-    get() {
+    get () {
       const { min, max, modelValue } = prop
       updateSiderWidth()
       return isRange.value
         ? (width.value * modelValue[1]) / (max - min)
         : (width.value * modelValue) / (max - min)
     },
-    set(newValue) {
+    set (newValue) {
       // modelValue[0]
       notify({ newRightTx: newValue })
     }

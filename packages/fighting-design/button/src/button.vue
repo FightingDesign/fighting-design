@@ -5,75 +5,65 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
   import { Ripples, ChangeColor, sizeChange, runCallback } from '../../_utils'
-  import type { ComputedRef, Ref, CSSProperties } from 'vue'
-  import type {
-    HandleMouseEventInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { ButtonPropsType, ButtonSizeType } from './interface'
+  import type { CSSProperties } from 'vue'
+  import type { ClassListInterface } from '../../_interface'
   import type {
     RipplesMouseEventInterface,
     RipplesOptionInterface
   } from '../../_utils/ripples/interface'
 
-  const prop: ButtonPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * dom 元素
    */
-  const FButton: Ref<HTMLButtonElement> = ref<HTMLButtonElement>(
-    null as unknown as HTMLButtonElement
-  )
+  const FButton = ref<HTMLButtonElement>(null as unknown as HTMLButtonElement)
   /**
    * 获取父组件注入的依赖项
    */
-  const INJECT_DEPEND: ButtonSizeType | undefined = inject<
-    ButtonSizeType | undefined
-  >(BUTTON_GROUP_PROPS_KEY, undefined)
+  const INJECT_DEPEND = inject(BUTTON_GROUP_PROPS_KEY, undefined)
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const {
-        type,
-        round,
-        simple,
-        block,
-        disabled,
-        loading,
-        bold,
-        size,
-        text,
-        circle,
-        color
-      } = prop
+  const classList = computed((): ClassListInterface => {
+    const {
+      type,
+      round,
+      simple,
+      block,
+      disabled,
+      loading,
+      bold,
+      size,
+      text,
+      circle,
+      color
+    } = prop
 
-      return [
-        'f-button',
-        {
-          [`f-button__${INJECT_DEPEND || size}`]: INJECT_DEPEND || size,
-          [`f-button__${type}`]: type && !color,
-          'f-button__disabled': disabled || loading,
-          'f-button__simple': simple && !color,
-          'f-button__circle': circle,
-          'f-button__round': round,
-          'f-button__block': block,
-          'f-button__bold': bold,
-          'f-button__color': color,
-          'f-button__text': text && !color
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-button',
+      {
+        [`f-button__${INJECT_DEPEND || size}`]: INJECT_DEPEND || size,
+        [`f-button__${type}`]: type && !color,
+        'f-button__disabled': disabled || loading,
+        'f-button__simple': simple && !color,
+        'f-button__circle': circle,
+        'f-button__round': round,
+        'f-button__block': block,
+        'f-button__bold': bold,
+        'f-button__color': color,
+        'f-button__text': text && !color
+      }
+    ] as const
+  })
 
   /**
    * 按钮点击
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClick = (evt: MouseEvent): void => {
     const { disabled, loading, ripples } = toRefs(prop)
 
     // 禁用或 loading 则返回
@@ -116,7 +106,7 @@
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { fontSize, fontColor, shadow, color } = prop
 
     if (color) {

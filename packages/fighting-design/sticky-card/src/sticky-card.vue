@@ -3,21 +3,19 @@
   import { ref, computed, unref } from 'vue'
   import { sizeChange, runCallback } from '../../_utils'
   import { FCollapseAnimation } from '../../collapse-animation'
-  import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
-  import type { StickyCardPropsType } from './props'
+  import type { CSSProperties } from 'vue'
 
-  const prop: StickyCardPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 是否打开
    */
-  const isOpened: Ref<boolean> = ref<boolean>(prop.open)
+  const isOpened = ref<boolean>(prop.open)
 
   /**
    * 点击触发
    */
-  const handleClick: OrdinaryFunctionInterface = (): void => {
+  const handleClick = (): void => {
     isOpened.value = !isOpened.value
     runCallback(isOpened.value ? prop.onClose : prop.onOpen, isOpened.value)
   }
@@ -25,7 +23,7 @@
   /**
    * 展示的文字内容
    */
-  const optionText: ComputedRef<string> = computed((): string => {
+  const optionText = computed((): string => {
     const { openText, closeText } = prop
 
     return `${unref(isOpened) ? openText : closeText}`
@@ -34,7 +32,7 @@
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { background, openHeight, borderColor } = prop
 
     return {

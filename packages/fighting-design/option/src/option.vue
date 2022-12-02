@@ -5,7 +5,6 @@
   import { SELECT_PROPS_TOKEN } from '../../select/src/props'
   import type { SelectProvideInterface } from '../../select'
   import type { OptionPropsType } from './interface'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
   import type { TriggerProvideInterface } from '../../trigger'
 
   const prop: OptionPropsType = defineProps(Props)
@@ -14,23 +13,25 @@
   /**
    * 获取父组件注入的依赖项
    */
-  const INJECT_DEPEND: SelectProvideInterface | undefined = inject<
-    SelectProvideInterface | undefined
-  >(SELECT_PROPS_TOKEN, undefined)
+  const INJECT_DEPEND = inject<SelectProvideInterface | undefined>(
+    SELECT_PROPS_TOKEN,
+    undefined
+  )
 
   /**
    * 获取到 trigger 注入的依赖项
    */
-  const INJECT_DEPEND_TRIGGER: TriggerProvideInterface = inject<
-    TriggerProvideInterface | undefined
-  >(TRIGGER_CLOSE_KEY, undefined) as TriggerProvideInterface
+  const INJECT_DEPEND_TRIGGER = inject<TriggerProvideInterface | undefined>(
+    TRIGGER_CLOSE_KEY,
+    undefined
+  ) as TriggerProvideInterface
 
   /**
    * 点击传入指定的 value
    *
    * 让父组件同步 input
    */
-  const handleClick: OrdinaryFunctionInterface = (): void => {
+  const handleClick = (): void => {
     /**
      * 如果没有获取到注入的依赖项或者禁用状态
      * 则返回

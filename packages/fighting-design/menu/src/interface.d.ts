@@ -6,15 +6,6 @@ export type { MenuPropsType } from './menu'
 export type MenuModeType = 'horizontal' | 'vertical' | 'inline'
 
 /**
- * 修改选中 name 回调类型接口
- *
- * @param name 需要设置的 name
- */
-export interface MenuSetActiveNameInterface {
-  (name: string | number): void
-}
-
-/**
  * 注入的依赖项类型接口
  *
  * @param mode 导航栏模式

@@ -4,14 +4,10 @@
   import { isArray, isBoolean, runCallback } from '../../_utils'
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import type { ClassListInterface } from '../../_interface'
-  import type {
-    CheckboxGroupLabelType,
-    CheckboxGroupInjectPropsType
-  } from '../../checkbox-group'
-  import type { ComputedRef, WritableComputedRef } from 'vue'
-  import type { CheckboxPropsType, CheckboxLabelType } from './interface'
+  import type { CheckboxGroupLabelType } from '../../checkbox-group'
+  import type { CheckboxLabelType } from './interface'
 
-  const prop: CheckboxPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:modelValue': (val: CheckboxLabelType): CheckboxLabelType | [] =>
       typeof val !== 'object'
@@ -20,24 +16,22 @@
   /**
    * 获取父组件注入的依赖项
    */
-  const INJECT_DEPEND: CheckboxGroupInjectPropsType | undefined = inject<
-    CheckboxGroupInjectPropsType | undefined
-  >(CHECKBOX_GROUP_PROPS_KEY, undefined)
+  const INJECT_DEPEND = inject(CHECKBOX_GROUP_PROPS_KEY, undefined)
 
   /**
    * 绑定值
    */
-  const modelValue: WritableComputedRef<CheckboxGroupLabelType> = computed({
+  const modelValue = computed({
     /**
      * 获取值
      */
-    get() {
+    get () {
       return (INJECT_DEPEND && INJECT_DEPEND.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set(val) {
+    set (val) {
       if (INJECT_DEPEND && !INJECT_DEPEND.disabled) {
         INJECT_DEPEND.changeEvent(val)
         return
@@ -51,7 +45,7 @@
   /**
    * 是否被选中
    */
-  const isChecked: ComputedRef<boolean> = computed((): boolean => {
+  const isChecked = computed((): boolean => {
     const val: CheckboxGroupLabelType = modelValue.value
 
     if (isArray(val)) {
@@ -65,20 +59,18 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      return [
-        'f-checkbox',
-        {
-          'f-checkbox__selected': isChecked.value,
-          'f-checkbox__indeterminate': prop.indeterminate,
-          'f-checkbox__bordered': INJECT_DEPEND && INJECT_DEPEND.border,
-          'f-checkbox__disabled':
-            prop.disabled || (INJECT_DEPEND && INJECT_DEPEND.disabled)
-        }
-      ] as const
-    }
-  )
+  const classList = computed((): ClassListInterface => {
+    return [
+      'f-checkbox',
+      {
+        'f-checkbox__selected': isChecked.value,
+        'f-checkbox__indeterminate': prop.indeterminate,
+        'f-checkbox__bordered': INJECT_DEPEND && INJECT_DEPEND.border,
+        'f-checkbox__disabled':
+          prop.disabled || (INJECT_DEPEND && INJECT_DEPEND.disabled)
+      }
+    ] as const
+  })
 </script>
 
 <template>

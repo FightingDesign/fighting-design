@@ -3,27 +3,23 @@ import { isString, isObject } from '../../_utils'
 import type {
   FilterParamsInterface,
   FilterParamsListInterface,
-  FilterInterface,
-  UsePropsReturnInterface,
-  UsePropsInterface
+  UsePropsReturnInterface
 } from './interface'
 
 /**
  * 对于 props 的一些操作
  *
  * @param prop 需要操作的 prop 对象
- * @returns { UsePropsReturnInterface }
+ * @returns
  */
-export const useProps: UsePropsInterface = (prop): UsePropsReturnInterface => {
+export const useProps = (prop): UsePropsReturnInterface => {
   /**
    * 过滤 prop
    *
    * @param list 需要的参数列表
    * @returns { Object } 过滤后的 prop 响应式对象
    */
-  const filter: FilterInterface = (
-    list: FilterParamsInterface
-  ): Record<string, unknown> => {
+  const filter = (list: FilterParamsInterface): Record<string, unknown> => {
     /**
      * 过滤的 prop 结果
      */
@@ -61,5 +57,5 @@ export const useProps: UsePropsInterface = (prop): UsePropsReturnInterface => {
 
   return {
     filter
-  } as UsePropsReturnInterface
+  }
 }

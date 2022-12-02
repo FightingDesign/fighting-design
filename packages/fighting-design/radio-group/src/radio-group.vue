@@ -3,15 +3,11 @@
   import { provide, reactive, toRefs, computed } from 'vue'
   import { isString, isBoolean, isNumber, runCallback } from '../../_utils'
   import { sizeChange } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
+  import type { CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
-  import type {
-    RadioChangeInterface,
-    RadioLabelType,
-    RadioGroundPropsType
-  } from './interface'
+  import type { RadioLabelType, RadioGroundPropsType } from './interface'
 
-  const prop: RadioGroundPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:modelValue': (val: RadioLabelType): boolean =>
       isString(val) || isNumber(val) || isBoolean(val)
@@ -22,7 +18,7 @@
    *
    * @param value 最新值
    */
-  const changeEvent: RadioChangeInterface = (value: RadioLabelType): void => {
+  const changeEvent = (value: RadioLabelType): void => {
     emit('update:modelValue', value)
     runCallback(prop.onChange, value)
   }
@@ -30,7 +26,7 @@
   /**
    * 需要注入的依赖项
    */
-  const RadioGround: RadioGroundPropsType = reactive({
+  const RadioGround = reactive({
     ...toRefs(prop),
     changeEvent
   } as const)
@@ -41,25 +37,23 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { vertical, border, size } = prop
+  const classList = computed((): ClassListInterface => {
+    const { vertical, border, size } = prop
 
-      return [
-        'f-radio-group',
-        {
-          'f-radio-group__vertical': vertical,
-          'f-radio-group__border': border,
-          [`f-radio-group__${size}`]: size && border
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-radio-group',
+      {
+        'f-radio-group__vertical': vertical,
+        'f-radio-group__border': border,
+        [`f-radio-group__${size}`]: size && border
+      }
+    ] as const
+  })
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { columnGap, rowGap } = prop
 
     return {

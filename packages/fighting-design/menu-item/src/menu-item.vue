@@ -4,11 +4,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { useList } from '../../_hooks'
   import { getCurrentInstance, computed, inject } from 'vue'
-  import type {
-    ComputedRef,
-    CSSProperties,
-    ComponentInternalInstance
-  } from 'vue'
+  import type { ComponentInternalInstance } from 'vue'
   import type { MenuItemPropsType } from './interface'
   import type { MenuProvideInterface } from '../../menu'
 
@@ -19,9 +15,10 @@
   /**
    * 注入父组件的模式依赖项
    */
-  const INJECT_DEPEND: MenuProvideInterface = inject<
-    MenuProvideInterface | undefined
-  >(MENU_PROVIDE_KEY, undefined) as MenuProvideInterface
+  const INJECT_DEPEND = inject<MenuProvideInterface | undefined>(
+    MENU_PROVIDE_KEY,
+    undefined
+  ) as MenuProvideInterface
 
   /**
    * 获取当前组件实例
@@ -31,12 +28,11 @@
    * @see stackOverflow https://stackoverflow.com/questions/72209080/vue-3-is-getcurrentinstance-deprecated
    * @see getCurrentInstance https://blog.tianyuhao.cn/docs/vue/vue3-router.html#%E6%B2%A1%E6%9C%89%E5%AE%89%E8%A3%85%E8%B7%AF%E7%94%B1
    */
-  const instance: ComponentInternalInstance =
-    getCurrentInstance() as ComponentInternalInstance
+  const instance = getCurrentInstance() as ComponentInternalInstance
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = styles(['fontSize', 'color'])
+  const styleList = styles(['fontSize', 'color'])
 
   /**
    * 点击触发
@@ -63,7 +59,7 @@
   /**
    * 当前是否呗选中
    */
-  const isActive: ComputedRef<boolean> = computed((): boolean => {
+  const isActive = computed((): boolean => {
     if (!INJECT_DEPEND) return false
     return prop.name === INJECT_DEPEND.defaultActive
   })

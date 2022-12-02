@@ -5,24 +5,18 @@
   import { FSvgIcon } from '../../svg-icon'
   import { useList } from '../../_hooks'
   import { FIconChevronRightVue } from '../../_svg'
-  import type {
-    VNode,
-    Component,
-    ComputedRef,
-    CSSProperties,
-    ComponentInternalInstance
-  } from 'vue'
+  import type { VNode, Component, ComponentInternalInstance } from 'vue'
   import type { BreadcrumbPropsType } from '../../breadcrumb'
-  import type { BreadcrumbItemPropsType } from './interface'
 
-  const prop: BreadcrumbItemPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 获取注入依赖项
    */
-  const INJECT_DEPEND: BreadcrumbPropsType | undefined = inject<
-    BreadcrumbPropsType | undefined
-  >(BREADCRUMB_PROPS_KEY, undefined)
+  const INJECT_DEPEND = inject<BreadcrumbPropsType | undefined>(
+    BREADCRUMB_PROPS_KEY,
+    undefined
+  )
 
   const { styles } = useList(
     reactive({
@@ -36,32 +30,25 @@
   /**
    * 获取当前组件实例
    */
-  const instance: ComponentInternalInstance =
-    getCurrentInstance() as ComponentInternalInstance
+  const instance = getCurrentInstance() as ComponentInternalInstance
 
   /**
    * 计算当前需要展示的 svg
    */
-  const svgIconComponent: ComputedRef<VNode | Component> = computed(
-    (): VNode | Component => {
-      if (prop.separator) return prop.separator
+  const svgIconComponent = computed((): VNode | Component => {
+    if (prop.separator) return prop.separator
 
-      if (INJECT_DEPEND && INJECT_DEPEND.separator) {
-        return INJECT_DEPEND.separator
-      }
-
-      return FIconChevronRightVue
+    if (INJECT_DEPEND && INJECT_DEPEND.separator) {
+      return INJECT_DEPEND.separator
     }
-  )
+
+    return FIconChevronRightVue
+  })
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = styles([
-    'fontColor',
-    'iconColor',
-    'fontSize'
-  ])
+  const styleList = styles(['fontColor', 'iconColor', 'fontSize'])
 
   /**
    * 点击触发

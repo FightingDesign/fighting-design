@@ -2,38 +2,28 @@
   import { Props, MENU_PROVIDE_KEY } from './props'
   import { provide, reactive, toRef, computed, ref } from 'vue'
   import { useList } from '../../_hooks'
-  import type { ComputedRef, Ref } from 'vue'
-  import type {
-    MenuPropsType,
-    MenuProvideInterface,
-    MenuSetActiveNameInterface
-  } from './interface'
-  import type { ClassListInterface } from '../../_interface'
+  import type { MenuProvideInterface } from './interface'
 
-  const prop: MenuPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const { classes } = useList(prop, 'menu')
 
   /**
    * 当前选中的 name
    */
-  const active: Ref<string | number> = ref<string | number>(prop.activeName)
+  const active = ref<string | number>(prop.activeName)
 
   /**
    * 默认选中的 name
    */
-  const defaultActive: ComputedRef<string | number> = computed(
-    (): string | number => active.value
-  )
+  const defaultActive = computed((): string | number => active.value)
 
   /**
    * 修改选中的 name
    *
    * @param name 最新的 name
    */
-  const setActiveName: MenuSetActiveNameInterface = (
-    name: string | number
-  ): void => {
+  const setActiveName = (name: string | number): void => {
     active.value = name
   }
 
@@ -51,7 +41,7 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = classes(['mode'], 'f-menu')
+  const classList = classes(['mode'], 'f-menu')
 </script>
 
 <template>

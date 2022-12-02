@@ -3,17 +3,15 @@
   import { sizeChange, runCallback } from '../../_utils'
   import { FIconArrowLeftVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
-  import type { HandleMouseEventInterface } from '../../_interface'
-  import type { PageHeaderPropsType } from './props'
 
-  const prop: PageHeaderPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 点击之后执行
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClick = (evt: MouseEvent): void => {
     runCallback(prop.onBack, evt)
   }
 </script>

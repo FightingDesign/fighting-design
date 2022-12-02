@@ -8,7 +8,7 @@ import type {
 
 export const Props = {
   /**
-   * nav所在位置
+   * nav 所在位置
    */
   position: {
     type: String as PropType<TabsPosition>,

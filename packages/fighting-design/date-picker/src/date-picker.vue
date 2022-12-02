@@ -4,11 +4,8 @@
   import { FInput } from '../../input'
   import { FDropdown } from '../../dropdown'
   import { FCalendar } from '../../calendar'
-  import type { WritableComputedRef } from 'vue'
-  import type { CalendarCallbackInterface } from '../../calendar'
-  import type { DatePickerPropsType } from './interface'
 
-  const prop: DatePickerPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:date': (val: string): string => val
   })
@@ -16,12 +13,12 @@
   /**
    * 传递给日历组件的当前时间
    */
-  const date: Date = new Date()
+  const date = new Date()
 
   /**
    * 获取选择的日期 & 设置日期
    */
-  const pickerDate: WritableComputedRef<string> = computed({
+  const pickerDate = computed({
     /**
      * 获取值返回 date
      */
@@ -41,11 +38,7 @@
    *
    * 通过点击日历上的时间进行选取
    */
-  const changeDate: CalendarCallbackInterface = ({
-    year,
-    month,
-    date
-  }): void => {
+  const changeDate = ({ year, month, date }): void => {
     // 如果存在格式化配置项
     if (prop.format) {
       const checkDate = { YYYY: year, MM: month, DD: date }

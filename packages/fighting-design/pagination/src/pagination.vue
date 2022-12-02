@@ -12,11 +12,9 @@
   import { FSelect } from '../../select'
   import { FOption } from '../../option'
   import { FSvgIcon } from '../../svg-icon'
-  import type { ComputedRef, Ref } from 'vue'
-  import type { PaginationPropsType } from './props'
   import type { ClassListInterface } from '../../_interface'
 
-  const prop: PaginationPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:current': (current: number): boolean => typeof current === 'number',
     'update:pageSize': (pageSize: number): boolean =>
@@ -24,32 +22,32 @@
   })
 
   // 当前快速跳转的页码
-  const jumpCurrent: Ref<string> = ref<string>('1')
+  const jumpCurrent = ref<string>('1')
 
-  const pagesLen: Ref<number> = ref<number>(10)
+  const pagesLen = ref<number>(10)
 
   // 上一页更多图标的visible
-  const showPrevMore: Ref<boolean> = ref<boolean>(false)
+  const showPrevMore = ref<boolean>(false)
 
   // 下一页更多图标的visible
-  const showNextMore: Ref<boolean> = ref<boolean>(false)
+  const showNextMore = ref<boolean>(false)
 
   // 上一页箭头图标hover
-  const prevHover: Ref<boolean> = ref<boolean>(false)
+  const prevHover = ref<boolean>(false)
 
   // 上一页箭头图标focus
-  const prevFocus: Ref<boolean> = ref<boolean>(false)
+  const prevFocus = ref<boolean>(false)
 
   // 下一页箭头图标hover
-  const nextHover: Ref<boolean> = ref<boolean>(false)
+  const nextHover = ref<boolean>(false)
 
   // 下一页箭头图标focus
-  const nextFocus: Ref<boolean> = ref<boolean>(false)
+  const nextFocus = ref<boolean>(false)
 
   /**
    * 计算出最大页码数
    */
-  const maxCount: ComputedRef<number> = computed((): number => {
+  const maxCount = computed((): number => {
     const page1: number = Math.floor(prop.total / prop.pageSize)
     const model: number = prop.total % prop.pageSize
 
@@ -59,99 +57,89 @@
   /**
    * 计算出上一页按钮的样式
    */
-  const prevClassList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { background, round, disabled } = prop
+  const prevClassList = computed((): ClassListInterface => {
+    const { background, round, disabled } = prop
 
-      return [
-        'f-pagination__prev',
-        {
-          'f-pagination__btn-background': background,
-          'f-pagination__btn-circle': round,
-          'f-pagination__disabled': disabled
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-pagination__prev',
+      {
+        'f-pagination__btn-background': background,
+        'f-pagination__btn-circle': round,
+        'f-pagination__disabled': disabled
+      }
+    ] as const
+  })
 
   /**
    * ul的计算样式
    */
-  const listClassList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { background, round } = prop
+  const listClassList = computed((): ClassListInterface => {
+    const { background, round } = prop
 
-      return [
-        'f-pagination__pages',
-        { 'f-pagination__state': background || round }
-      ] as const
-    }
-  )
+    return [
+      'f-pagination__pages',
+      { 'f-pagination__state': background || round }
+    ] as const
+  })
 
   /**
    * 下一页按钮的计算样式
    */
-  const nextClassList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { background, round, disabled } = prop
+  const nextClassList = computed((): ClassListInterface => {
+    const { background, round, disabled } = prop
 
-      return [
-        'f-pagination__next',
-        {
-          'f-pagination__btn-background': background,
-          'f-pagination__btn-circle': round,
-          'f-pagination__disabled': disabled
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-pagination__next',
+      {
+        'f-pagination__btn-background': background,
+        'f-pagination__btn-circle': round,
+        'f-pagination__disabled': disabled
+      }
+    ] as const
+  })
 
   /**
    * 计算出第一页的样式
    */
-  const firstPage: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { background, round, disabled, current } = prop
+  const firstPage = computed((): ClassListInterface => {
+    const { background, round, disabled, current } = prop
 
-      return [
-        'f-pagination__pages-li',
-        {
-          'f-pagination__pages-li-choose': current === 1,
-          'f-pagination__pages-li-background-choose':
-            current === 1 && (background || round),
-          'f-pagination__background': background,
-          'f-pagination__circle': round,
-          'f-pagination__disabled f-pagination__pages-li-disabled': disabled
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-pagination__pages-li',
+      {
+        'f-pagination__pages-li-choose': current === 1,
+        'f-pagination__pages-li-background-choose':
+          current === 1 && (background || round),
+        'f-pagination__background': background,
+        'f-pagination__circle': round,
+        'f-pagination__disabled f-pagination__pages-li-disabled': disabled
+      }
+    ] as const
+  })
 
   /**
    * 计算出最后一页的样式
    */
-  const lastPage: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { background, round, disabled, current } = prop
+  const lastPage = computed((): ClassListInterface => {
+    const { background, round, disabled, current } = prop
 
-      return [
-        'f-pagination__pages-li',
-        {
-          'f-pagination__pages-li-choose': current === maxCount.value,
-          'f-pagination__pages-li-background-choose':
-            current === maxCount.value && (background || round),
-          'f-pagination__background': background,
-          'f-pagination__circle': round,
-          'f-pagination__disabled f-pagination__pages-li-disabled': disabled
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-pagination__pages-li',
+      {
+        'f-pagination__pages-li-choose': current === maxCount.value,
+        'f-pagination__pages-li-background-choose':
+          current === maxCount.value && (background || round),
+        'f-pagination__background': background,
+        'f-pagination__circle': round,
+        'f-pagination__disabled f-pagination__pages-li-disabled': disabled
+      }
+    ] as const
+  })
 
   /**
    * 计算出需要循环遍历的 pages
    */
-  const pages: ComputedRef<number[]> = computed((): number[] => {
+  const pages = computed((): number[] => {
     const pagerCount = Number(prop.pagerCount)
     const currentPage = Number(prop.current)
     const halfPagerCount = (pagerCount - 1) / 2

@@ -2,33 +2,30 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import { isNumber } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
+  import type { CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
-  import type { BadgePropsType } from './props'
 
-  const prop: BadgePropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 类名集合
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { type, dot } = prop
+  const classList = computed((): ClassListInterface => {
+    const { type, dot } = prop
 
-      return [
-        'f-badge__content',
-        {
-          [`f-badge__${type}`]: type,
-          'f-badge__dot': dot
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-badge__content',
+      {
+        [`f-badge__${type}`]: type,
+        'f-badge__dot': dot
+      }
+    ] as const
+  })
 
   /**
    * 展示的内容
    */
-  const content: ComputedRef<string> = computed((): string => {
+  const content = computed((): string => {
     const { dot, max, value } = prop
 
     if (dot) return ''
@@ -43,7 +40,7 @@
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { color, textColor } = prop
 
     return {

@@ -5,24 +5,20 @@
   import { FCloseBtn } from '../../close-btn'
   import { runCallback } from '../../_utils'
   import { useList } from '../../_hooks'
-  import type { ComputedRef, Ref } from 'vue'
-  import type { TagPropsType } from './interface'
-  import type { ClassListInterface } from '../../_interface'
-  import type { HandleMouseEventInterface } from '../../_interface'
 
-  const prop: TagPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const { classes } = useList(prop, 'tag')
 
   /**
    * 是否展示
    */
-  const isShow: Ref<boolean> = ref<boolean>(true)
+  const isShow = ref<boolean>(true)
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = classes(
+  const classList = classes(
     ['simple', 'type', 'size', 'block', 'round', 'line'],
     'f-tag'
   )
@@ -32,7 +28,7 @@
    *
    * @param evt 事件对象
    */
-  const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClose = (evt: MouseEvent): void => {
     isShow.value = false
     runCallback(prop.onClose, evt)
   }

@@ -3,14 +3,8 @@
   import { FSvgIcon } from '../../svg-icon'
   import { runCallback } from '../../_utils'
   import { useList } from '../../_hooks'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type {
-    HandleMouseEventInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { LinkPropsType } from './props'
 
-  const prop: LinkPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const { classes, styles } = useList(prop, 'link')
 
@@ -19,7 +13,7 @@
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled || prop.noLink) {
       evt.preventDefault()
       return
@@ -30,15 +24,12 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = classes(
-    ['type', 'state', 'disabled', 'noCopy'],
-    'f-link'
-  )
+  const classList = classes(['type', 'state', 'disabled', 'noCopy'], 'f-link')
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = styles(['size', 'color'])
+  const styleList = styles(['size', 'color'])
 </script>
 
 <template>

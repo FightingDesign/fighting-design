@@ -1,8 +1,6 @@
 import { useList } from '../../_hooks'
 import { isNumber, isString } from '../../_utils'
 import type { AvatarPropsType } from '../../avatar'
-import type { ComputedRef, CSSProperties } from 'vue'
-import type { ClassListInterface } from '../../_interface'
 import type { UseAvatarReturnInterface } from './interface'
 
 /**
@@ -17,7 +15,7 @@ export const useAvatar = (prop: AvatarPropsType): UseAvatarReturnInterface => {
   /**
    * img 元素的类名列表
    */
-  const nodeClassList: ComputedRef<ClassListInterface> = classes(
+  const nodeClassList = classes(
     [
       'round',
       'fit',
@@ -32,7 +30,7 @@ export const useAvatar = (prop: AvatarPropsType): UseAvatarReturnInterface => {
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = classes(
+  const classList = classes(
     [
       'round',
       {
@@ -46,7 +44,7 @@ export const useAvatar = (prop: AvatarPropsType): UseAvatarReturnInterface => {
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = styles([
+  const styleList = styles([
     'background',
     'fontColor',
     'fontSize',

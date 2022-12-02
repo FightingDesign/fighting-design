@@ -25,7 +25,6 @@
     ImagePreviewPropsType,
     ImagePreviewSwitchImageOptionMapInterface
   } from './interface'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
   import type { ToolbarClickParamsInterface } from '../../toolbar'
 
   const prop: ImagePreviewPropsType = defineProps(Props)
@@ -52,7 +51,7 @@
   /**
    * 关闭图片预览
    */
-  const handleClose: OrdinaryFunctionInterface = (): void => {
+  const handleClose = (): void => {
     emit('update:visible', false)
     runCallback(prop.onClose)
   }
@@ -82,7 +81,7 @@
   /**
    * 开始图片加载
    */
-  const imagPreload: OrdinaryFunctionInterface = (): void => {
+  const imagPreload = (): void => {
     const imgList: string[] = prop.imgList as string[]
 
     imgList.forEach((item: string): void => {

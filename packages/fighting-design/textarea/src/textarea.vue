@@ -4,11 +4,9 @@
   import { isString, isNumber } from '../../_utils'
   import { FIconCrossVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
-  import type { TextareaPropsType } from './interface'
-  import type { HandleEventInterface } from '../../_interface'
   import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
 
-  const prop: TextareaPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:modelValue': (val: string | number): boolean =>
       isString(val) || isNumber(val)
@@ -33,7 +31,7 @@
    *
    * @param evt 事件对象
    */
-  const handleInput: HandleEventInterface = (evt: Event): void => {
+  const handleInput = (evt: Event): void => {
     onInput(evt)
   }
 
@@ -42,7 +40,7 @@
    *
    * @param evt 事件对象
    */
-  const handleChange: HandleEventInterface = (evt: Event): void => {
+  const handleChange = (evt: Event): void => {
     onChange(evt)
   }
 </script>

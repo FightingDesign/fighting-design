@@ -4,10 +4,9 @@
   import { useList } from '../../_hooks'
   import type { ComputedRef } from 'vue'
   import type { ClassListInterface } from '../../_interface'
-  import type { ButtonGroupPropsType } from './interface'
   import type { ButtonSizeType } from '../../button'
 
-  const prop: ButtonGroupPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const { classes } = useList(prop, 'button-group')
 
@@ -21,19 +20,6 @@
     ['direction', 'size'],
     'f-button-group'
   )
-  //   = computed(
-  //   (): ClassListInterface => {
-  //     const { vertical, size } = prop
-
-  //     return [
-  //       'f-button-group',
-  //       `f-button-group__${vertical ? 'vertical' : 'horizontal'}`,
-  //       {
-  //         [`f-button-group__${size}`]: size
-  //       }
-  //     ] as const
-  //   }
-  // )
 </script>
 
 <template>

@@ -3,9 +3,8 @@ import { getDayMonth, Lunar } from '../../_utils'
 import type { Ref, ComputedRef } from 'vue'
 import type {
   UseCalculiTimeReturnInterface,
-  UseCalculiTimeInterface,
-  GetLunarDetailReturnInterface,
-  OrdinaryFunctionInterface
+  GetLunarDetailReturnInterface
+
 } from './interface'
 
 /**
@@ -13,12 +12,9 @@ import type {
  *
  * @param year 年分响应式数据
  * @param month 月份响应式数据
- * @returns { UseCalculiTimeInterface } 当前月份展示的天数、上个月切换、下个月切换
+ * @returns 当前月份展示的天数、上个月切换、下个月切换
  */
-export const useCalculiTime: UseCalculiTimeInterface = (
-  year: Ref<number>,
-  month: Ref<number>
-): UseCalculiTimeReturnInterface => {
+export const useCalculiTime = (year: Ref<number>, month: Ref<number>): UseCalculiTimeReturnInterface => {
   /**
    * 获取当前月份的 1号是周几
    */
@@ -138,7 +134,7 @@ export const useCalculiTime: UseCalculiTimeInterface = (
   /**
    * 点击上个月切换按钮
    */
-  const changeLastMonth: OrdinaryFunctionInterface = (): void => {
+  const changeLastMonth = (): void => {
     if (month.value > 0) {
       month.value--
       return
@@ -150,7 +146,7 @@ export const useCalculiTime: UseCalculiTimeInterface = (
   /**
    * 点击下个月切换按钮
    */
-  const changeNextMonth: OrdinaryFunctionInterface = (): void => {
+  const changeNextMonth = (): void => {
     if (month.value < 11) {
       month.value++
       return

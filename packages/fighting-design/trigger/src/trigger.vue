@@ -2,21 +2,20 @@
   import { Props, TRIGGER_CLOSE_KEY } from './props'
   import { ref, computed, onMounted, provide, reactive } from 'vue'
   import { sizeChange, runCallback } from '../../_utils'
-  import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type { TriggerPropsType, TriggerProvideInterface } from './interface'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
+  import type { ComputedRef, CSSProperties } from 'vue'
+  import type { TriggerProvideInterface } from './interface'
 
-  const prop: TriggerPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 是否展示主内容
    */
-  const showContent: Ref<boolean> = ref<boolean>(false)
+  const showContent = ref<boolean>(false)
 
   /**
    * 打开
    */
-  const handelOpen: OrdinaryFunctionInterface = (): void => {
+  const handelOpen = (): void => {
     showContent.value = true
     runCallback(prop.onOpen, showContent.value)
     runCallback(prop.onChange, showContent.value)
@@ -25,7 +24,7 @@
   /**
    * 关闭
    */
-  const handelClose: OrdinaryFunctionInterface = (): void => {
+  const handelClose = (): void => {
     showContent.value = false
     runCallback(prop.onClose, showContent.value)
     runCallback(prop.onChange, showContent.value)

@@ -11,11 +11,10 @@
   } from 'vue'
   import { FIconCrossVue, FIconPlusVue } from '../../../../_svg'
   import { FSvgIcon } from '../../../../svg-icon'
-  import type { TabsNavPropsType } from './interface'
   import type { TabsPaneName } from '../../interface'
   import type { ComponentInternalInstance, CSSProperties } from 'vue'
 
-  const prop: TabsNavPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits<{
     (e: 'set-current-name', name: TabsPaneName): void
     (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void
@@ -192,7 +191,7 @@
    * 实现横向滚动效果
    */
   const handleWheel = (e: WheelEvent): void => {
-    ;(e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
+    (e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
     deriveScrollShadow(e.currentTarget as HTMLElement)
   }
 

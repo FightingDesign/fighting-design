@@ -3,21 +3,16 @@
   import { onMounted, ref } from 'vue'
   import { debounce } from '../../_utils'
   import { useList } from '../../_hooks'
-  import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type {
-    BackTopHandleScrollInterface,
-    BackTopPropsType
-  } from './interface'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
+  import type { BackTopHandleScrollInterface } from './interface'
 
-  const prop: BackTopPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const { styles } = useList(prop, 'back-top')
 
   /**
    * 展示状态
    */
-  const visible: Ref<boolean> = ref<boolean>(false)
+  const visible = ref<boolean>(false)
 
   /**
    * 滚动状态监视
@@ -39,7 +34,7 @@
   /**
    * 点击的时候触发
    */
-  const handleClick: OrdinaryFunctionInterface = (): void => {
+  const handleClick = (): void => {
     const { top, behavior, listenEl } = prop
 
     if (listenEl) {
@@ -76,13 +71,7 @@
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = styles([
-    'right',
-    'bottom',
-    'zIndex',
-    'background',
-    'color'
-  ])
+  const styleList = styles(['right', 'bottom', 'zIndex', 'background', 'color'])
 </script>
 
 <template>

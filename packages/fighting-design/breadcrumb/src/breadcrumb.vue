@@ -1,11 +1,10 @@
 <script lang="ts" setup name="FBreadcrumb">
   import { Props, BREADCRUMB_PROPS_KEY } from './props'
   import { provide } from 'vue'
-  import type { BreadcrumbPropsType } from './props'
 
-  const prop: BreadcrumbPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
-  provide<BreadcrumbPropsType>(BREADCRUMB_PROPS_KEY, prop)
+  provide(BREADCRUMB_PROPS_KEY, prop)
 </script>
 
 <template>
