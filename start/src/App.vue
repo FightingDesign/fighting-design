@@ -8,61 +8,22 @@
   } from '@fighting-design/fighting-icon'
 
   const value3 = ref(true)
-  const value4 = ref('')
-  const radio6 = ref('1')
 </script>
 
 <template>
-  <f-breadcrumb>
-    <f-breadcrumb-item :to="{ name: 'home', query: { id: 123 } }">
+  <f-breadcrumb
+    font-size="20px"
+    font-color="red"
+    :icon-color="value3 ? 'blue' : 'black'"
+  >
+    <f-breadcrumb-item font-color="black" :to="{ name: 'home', query: { id: 123 } }">
       首页
     </f-breadcrumb-item>
     <f-breadcrumb-item :to="{ name: 'abc' }">文章</f-breadcrumb-item>
     <f-breadcrumb-item :to="{ name: 'app' }">列表</f-breadcrumb-item>
   </f-breadcrumb>
 
-  <f-radio-group v-model="radio6" disabled>
-    <f-radio label="1">备选项1</f-radio>
-    <f-radio label="2">备选项2</f-radio>
-    <f-radio label="3">备选项3</f-radio>
-  </f-radio-group>
-
-  <f-radio-group v-model="radio6">
-    <f-radio label="1">备选项1</f-radio>
-    <f-radio label="2" disabled>备选项2</f-radio>
-    <f-radio label="3">备选项3</f-radio>
-  </f-radio-group>
-
-  <f-select v-model="value4" placeholder="请选择……" style="margin-left: 30px">
-    <f-option :value="1">香蕉</f-option>
-    <f-option :value="2" disabled>苹果</f-option>
-    <f-option :value="3">哈密瓜</f-option>
-    <f-option :value="4">樱桃</f-option>
-  </f-select>
-
-  <f-dropdown style="margin-left: 80px">
-    <f-button>禁用指定的</f-button>
-
-    <template #content>
-      <f-dropdown-item>猕猴桃</f-dropdown-item>
-      <f-dropdown-item disabled>哈密瓜</f-dropdown-item>
-      <f-dropdown-item>火龙果</f-dropdown-item>
-      <f-dropdown-item>柠檬</f-dropdown-item>
-    </template>
-  </f-dropdown>
-
-  <f-switch
-    v-model="value3"
-    :icon="FIconCameraVideoSlash"
-    size="large"
-    active-color="red"
-    close-text="关闭"
-    active-text="开启"
-  />
-  <f-switch v-model="value3" size="middle" />
-  <f-switch v-model="value3" size="small" />
-  <f-switch v-model="value3" size="mini" />
-
+  <f-switch v-model="value3" :icon="FIconCameraVideoSlash" />
   <!-- <f-menu>
     <template #before>
       <f-avatar

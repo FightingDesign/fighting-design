@@ -5,7 +5,7 @@ export const Props = {
   /**
    * 自定义文字颜色
    */
-  color: {
+  fontColor: {
     type: String,
     default: (): null => null
   },

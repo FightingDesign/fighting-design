@@ -148,9 +148,9 @@
 | 属性         | 说明               | 类型                       | 可选值 | 默认值 |
 | ------------ | ------------------ | -------------------------- | ------ | ------ |
 | `separator`  | 自定义分隔符       | object (VNode / Component) | ——     | ——     |
-| `color`      | 自定义导航文字颜色 | string                     | ——     | ——     |
-| `icon-color` | 自定义 icon 颜色   | string                     | ——     | ——     |
+| `font-color` | 自定义导航文字颜色 | string                     | ——     | ——     |
 | `font-size`  | 自定义文字大小     | string / number            | ——     | ——     |
+| `icon-color` | 自定义 icon 颜色   | string                     | ——     | ——     |
 
 ## Breadcrumb Slots
 
@@ -162,9 +162,9 @@
 
 | 属性         | 说明               | 类型                       | 可选值 | 默认值 |
 | ------------ | ------------------ | -------------------------- | ------ | ------ |
-| `separator`  | 自定义分隔符       | object (VNode / Component) | ——     | ——     |
-| `color`      | 自定义导航文字颜色 | string                     | ——     | ——     |
 | `to`         | 跳转的路径         | string / object            | ——     | ——     |
+| `separator`  | 自定义分隔符       | object (VNode / Component) | ——     | ——     |
+| `font-color` | 自定义导航文字颜色 | string                     | ——     | ——     |
 | `icon-color` | 自定义 icon 颜色   | string                     | ——     | ——     |
 
 ## Breadcrumb-item Slots

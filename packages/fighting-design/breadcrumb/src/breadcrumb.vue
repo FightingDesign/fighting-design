@@ -1,7 +1,6 @@
 <script lang="ts" setup name="FBreadcrumb">
   import { Props, BREADCRUMB_PROPS_KEY } from './props'
   import { provide } from 'vue'
-  import { sizeChange } from '../../_utils'
   import type { BreadcrumbPropsType } from './props'
 
   const prop: BreadcrumbPropsType = defineProps(Props)
@@ -10,11 +9,7 @@
 </script>
 
 <template>
-  <div
-    v-if="$slots.default"
-    class="f-breadcrumb"
-    :style="{ fontSize: sizeChange(fontSize) }"
-  >
+  <div v-if="$slots.default" class="f-breadcrumb">
     <slot />
   </div>
 </template>

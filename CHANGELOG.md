@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-breadcrumb` 和 `f-breadcrumb-item` 组件参数进行了部分改动
+
 ## 0.9.0-alpha.7 (2022-12-01)
 
 **新增**

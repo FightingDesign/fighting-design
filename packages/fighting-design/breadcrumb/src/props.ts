@@ -17,7 +17,7 @@ export const Props = {
   /**
    * 导航文字颜色
    */
-  itemColor: {
+  fontColor: {
     type: String,
     default: (): null => null
   },
