@@ -10,6 +10,10 @@ export interface HandleMouseEventInterface {
   (evt: MouseEvent): void
 }
 
+export interface HandleEventInterface {
+  (evt: Event): void
+}
+
 /**
  * DragEvent 拖放事件接口
  *
