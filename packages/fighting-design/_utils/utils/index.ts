@@ -1,17 +1,11 @@
+import { isString, isNumber } from '../index'
 import type {
   UtilsKeepDecimalInterface,
   UtilsDebounceInterface,
-  UtilsIsNumberInterface,
   UtilsAddZeroInterface,
   UtilsSizeChangeInterface,
-  UtilsIsBooleanInterface,
-  UtilsIsStringInterface,
-  UtilsSizeToNumInterface,
-  UtilsIsObjectInterface,
-  UtilsIsFunctionInterface
+  UtilsSizeToNumInterface
 } from './interface'
-
-const _toString = Object.prototype.toString
 
 /**
  * 保留小数点后 no 位
@@ -51,74 +45,6 @@ export const debounce: UtilsDebounceInterface = (
     }, delay)
   }
 }
-
-/**
- * 检测一个数据是否为 number 类型
- *
- * @param target 要检测的数据
- * @returns { boolean }
- */
-export const isNumber: UtilsIsNumberInterface = (
-  target: unknown
-): target is number => {
-  return typeof target === 'number'
-}
-
-/**
- * 检测一个数据是否为 boolean 类型
- *
- * @param target 要检测的数据
- * @returns { boolean }
- */
-export const isBoolean: UtilsIsBooleanInterface = (
-  target: unknown
-): target is boolean => {
-  return typeof target === 'boolean'
-}
-
-/**
- * 判断一个值是否为 string 类型
- *
- * @param target 要检测的值
- * @returns { boolean }
- */
-export const isString: UtilsIsStringInterface = (
-  target: unknown
-): target is string => {
-  return typeof target === 'string'
-}
-
-/**
- * 判断一个值是否为 object 类型
- *
- * @param target 要检测的值
- * @returns { boolean }
- */
-export const isObject: UtilsIsObjectInterface = (
-  target: unknown
-): target is Object => {
-  return _toString.call(target) === '[object Object]'
-}
-
-/**
- * 判断一个值是否为 function 类型
- *
- * @param target 要检测的值
- * @returns { boolean }
- */
-export const isFunction: UtilsIsFunctionInterface = (
-  target: unknown
-): target is Function => {
-  return typeof target === 'function'
-}
-
-/**
- * 判断一个值是否为 array 类型
- *
- * @param target 要检测的值
- * @returns { boolean }
- */
-export const isArray = Array.isArray
 
 /**
  * 给数字小于 10 的数字前面加 0
