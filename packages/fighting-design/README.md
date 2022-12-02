@@ -20,7 +20,7 @@
 └── index.ts
 ```
 
-`Fighting Design` 内置了新增组件的快捷命令，可以快速帮助你创建组件所需要的文件，参考 [add-component](https://github.com/FightingDesign/fighting-design/blob/master/packages/add-component/README.md)，命令：
+`Fighting Design` 内置了新增组件的快捷命令，可以快速帮助你创建组件所需要的文件，参考 [fighting-add-component](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-add-component/README.md)，命令：
 
 ```
 pnpm new <component-name>

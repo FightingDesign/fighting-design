@@ -70,7 +70,7 @@ importers:
       markdown-it: 13.0.1
       markdown-it-container: 3.0.0
 
-  packages/add-component:
+  packages/fighting-add-component:
     specifiers:
       '@juln/change-case': ^0.0.4
       '@types/fs-extra': ^9.0.13

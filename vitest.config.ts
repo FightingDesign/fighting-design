@@ -8,7 +8,7 @@ export default (): UserConfigExport => {
     plugins: [vue()],
     test: {
       environment: 'happy-dom',
-      exclude: ['**/add-component/**'],
+      exclude: ['**/fighting-add-component/**'],
       include: ['**/__test__/*.{test,spec}.{ts,tsx}']
     }
   } as UserConfigExport

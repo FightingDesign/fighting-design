@@ -23,7 +23,7 @@
     "build:play": "pnpm run -C packages/fighting-playground build",
     "build:resolver": "pnpm run -C packages/fighting-resolver build",
     "serve:docs": "pnpm run -C docs serve",
-    "new": "pnpm run -C packages/add-component new",
+    "new": "pnpm run -C packages/fighting-add-component new",
     "test": "vitest",
     "prettier": "prettier --write .",
     "commit": "cz",

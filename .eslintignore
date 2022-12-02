@@ -6,5 +6,5 @@ node_modules/*
 **/node_modules/**
 logo/*
 start/dist/*
-packages/add-component/template/*
+packages/fighting-add-component/template/*
 script/*
