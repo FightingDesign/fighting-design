@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "The vite plug-in used internally by fighting-design to set the component name.",
   "main": "index.ts",
-  "model": "index.ts",
+  "module": "index.ts",
   "keywords": [
     "vite",
     "fighting-design",

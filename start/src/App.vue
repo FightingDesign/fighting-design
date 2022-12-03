@@ -8,15 +8,23 @@
   } from '@fighting-design/fighting-icon'
 
   const value3 = ref(true)
+
+  const current = ref(1)
+  const total = ref(100)
 </script>
 
 <template>
+  <f-pagination v-model:current="current" :total="total" />
+
   <f-breadcrumb
     font-size="20px"
     font-color="red"
     :icon-color="value3 ? 'blue' : 'black'"
   >
-    <f-breadcrumb-item font-color="black" :to="{ name: 'home', query: { id: 123 } }">
+    <f-breadcrumb-item
+      font-color="black"
+      :to="{ name: 'home', query: { id: 123 } }"
+    >
       首页
     </f-breadcrumb-item>
     <f-breadcrumb-item :to="{ name: 'abc' }">文章</f-breadcrumb-item>
