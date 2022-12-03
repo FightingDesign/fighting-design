@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import FMessageVue, { FMessage } from '../index'
+import FMessageVue,{ FMessage } from '../../index'
 import type { Ref } from 'vue'
 
 // type MessageInstance = ComponentPublicInstance<{

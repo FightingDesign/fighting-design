@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FButton } from '../index'
-import { ChangeColor } from '../_utils'
+import { ChangeColor } from '../../_utils'
 
 describe('FButton', () => {
   test('class', () => {

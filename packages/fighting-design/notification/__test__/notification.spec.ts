@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import FNotificationVue from '../notification/src/notification.vue'
-import { FNotification } from '../index'
+import FNotificationVue from '../src/notification.vue'
+import { FNotification } from '../../index'
 import type { ComponentPublicInstance, Ref } from 'vue'
 
 type MessageInstance = ComponentPublicInstance<{
@@ -44,9 +44,7 @@ describe('FNotification', () => {
     })
 
     expect(wrapper.find('.f-notification__close').exists()).toBe(true)
-
     expect(wrapper.find('.f-notification').isVisible()).toBe(true)
-
     await wrapper.find('.f-notification__close').trigger('click')
     expect((wrapper.vm as unknown as MessageInstance).visible).toBe(false)
   })
