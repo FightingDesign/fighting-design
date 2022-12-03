@@ -10,6 +10,7 @@
   } from '../../_svg'
   import { FInput } from '../../input'
   import { FSelect } from '../../select'
+  import { FButton } from '../../button'
   import { FOption } from '../../option'
   import { FSvgIcon } from '../../svg-icon'
   import type { ClassListInterface } from '../../_interface'
@@ -21,24 +22,31 @@
       typeof pageSize === 'number'
   })
 
-  // 当前快速跳转的页码
+  /**
+   * 当前快速跳转的页码
+   */
   const jumpCurrent = ref<string>('1')
 
   const pagesLen = ref<number>(10)
-
-  // 上一页更多图标的visible
+  /**
+   * 上一页更多图标的 visible
+   */
   const showPrevMore = ref<boolean>(false)
-
-  // 下一页更多图标的visible
+  /**
+   * 下一页更多图标的 visible
+   */
   const showNextMore = ref<boolean>(false)
-
-  // 上一页箭头图标hover
+  /**
+   * 上一页箭头图标 hover
+   */
   const prevHover = ref<boolean>(false)
-
-  // 上一页箭头图标focus
+  /**
+   * 上一页箭头图标 focus
+   */
   const prevFocus = ref<boolean>(false)
-
-  // 下一页箭头图标hover
+  /**
+   * 下一页箭头图标 hover
+   */
   const nextHover = ref<boolean>(false)
 
   // 下一页箭头图标focus
@@ -55,45 +63,16 @@
   })
 
   /**
-   * 计算出上一页按钮的样式
-   */
-  const prevClassList = computed((): ClassListInterface => {
-    const { background, round, disabled } = prop
-
-    return [
-      'f-pagination__prev',
-      {
-        'f-pagination__btn-background': background,
-        'f-pagination__btn-circle': round,
-        'f-pagination__disabled': disabled
-      }
-    ] as const
-  })
-
-  /**
    * ul的计算样式
    */
   const listClassList = computed((): ClassListInterface => {
-    const { background, round } = prop
-
-    return [
-      'f-pagination__pages',
-      { 'f-pagination__state': background || round }
-    ] as const
-  })
-
-  /**
-   * 下一页按钮的计算样式
-   */
-  const nextClassList = computed((): ClassListInterface => {
     const { background, round, disabled } = prop
 
     return [
-      'f-pagination__next',
+      'f-pagination__pages',
       {
-        'f-pagination__btn-background': background,
-        'f-pagination__btn-circle': round,
-        'f-pagination__disabled': disabled
+        'f-pagination__state': background || round,
+        'f-pagination__pages-disabled': disabled
       }
     ] as const
   })
@@ -102,7 +81,7 @@
    * 计算出第一页的样式
    */
   const firstPage = computed((): ClassListInterface => {
-    const { background, round, disabled, current } = prop
+    const { background, round, current } = prop
 
     return [
       'f-pagination__pages-li',
@@ -111,8 +90,7 @@
         'f-pagination__pages-li-background-choose':
           current === 1 && (background || round),
         'f-pagination__background': background,
-        'f-pagination__circle': round,
-        'f-pagination__disabled f-pagination__pages-li-disabled': disabled
+        'f-pagination__circle': round
       }
     ] as const
   })
@@ -121,7 +99,7 @@
    * 计算出最后一页的样式
    */
   const lastPage = computed((): ClassListInterface => {
-    const { background, round, disabled, current } = prop
+    const { background, round, current } = prop
 
     return [
       'f-pagination__pages-li',
@@ -130,8 +108,7 @@
         'f-pagination__pages-li-background-choose':
           current === maxCount.value && (background || round),
         'f-pagination__background': background,
-        'f-pagination__circle': round,
-        'f-pagination__disabled f-pagination__pages-li-disabled': disabled
+        'f-pagination__circle': round
       }
     ] as const
   })
@@ -145,6 +122,7 @@
     const halfPagerCount = (pagerCount - 1) / 2
     let showPrevMore = false
     let showNextMore = false
+
     if (maxCount.value > pagerCount) {
       if (prop.current > pagerCount - halfPagerCount) {
         showPrevMore = true
@@ -223,6 +201,7 @@
   watchEffect(() => {
     const pagerCount = Number(prop.pagerCount)
     let halfPagerCount = (pagerCount - 1) / 2
+
     showPrevMore.value = false
     showNextMore.value = false
     if (maxCount.value > pagerCount) {
@@ -235,9 +214,13 @@
     }
   })
 
-  // 点击ul内部元素事件,此处采用事件委托
-  const pageClick = (e: Event): void => {
-    const target = e.target as HTMLElement
+  /**
+   * 点击 ul 内部元素事件
+   *
+   * 此处采用事件委托
+   */
+  const pageClick = (evt: Event): void => {
+    const target = evt.target as HTMLElement
     if (target.tagName.toLowerCase() === 'ul' || prop.disabled) {
       return
     }
@@ -268,7 +251,7 @@
     }
   }
 
-  // 显示箭头的move事件
+  // 显示箭头的 move事件
   const handleMoveEnter = (forward = false): void => {
     if (prop.disabled) return
     if (forward) {
@@ -278,7 +261,7 @@
     }
   }
 
-  // 显示箭头的hover事件
+  // 显示箭头的 hover 事件
   const handleFocus = (forward = false): void => {
     if (prop.disabled) return
     if (forward) {
@@ -306,13 +289,21 @@
       />
     </f-select>
 
-    <button :class="prevClassList" @click="toPrev">
-      <f-svg-icon :size="15" :icon="prevIcon || FIconChevronLeftVue" />
-    </button>
+    <!-- 上一页按钮 -->
+    <f-button
+      circle
+      :disabled="disabled"
+      :size="background ? 'middle' : 'small'"
+      :style="{ borderRadius: '2px' }"
+      :before-icon="prevIcon || FIconChevronLeftVue"
+      :on-click="toPrev"
+    />
 
     <!-- 分页主内容 -->
     <ul v-if="prop.total > 0" :class="listClassList" @click="pageClick">
       <li v-if="prop.total > 0" :class="firstPage">1</li>
+
+      <!-- 省略号 -->
       <li
         v-if="showPrevMore"
         :class="['f-pagination__prev-more', 'f-pagination__pages-li']"
@@ -325,10 +316,10 @@
           v-if="(prevHover || prevFocus) && !disabled"
           :size="15"
           :icon="FIconMediaRewind"
-        >
-        </f-svg-icon>
+        />
         <f-svg-icon v-else :size="15" :icon="FIconMenuMeatball" />
       </li>
+
       <li
         v-for="item in pages"
         :key="item"
@@ -339,8 +330,7 @@
             'f-pagination__pages-li-background-choose':
               current === item && (background || round),
             'f-pagination__background': background,
-            'f-pagination__circle': round,
-            'f-pagination__disabled f-pagination__pages-li-disabled': disabled
+            'f-pagination__circle': round
           }
         ]"
         @click="change(item)"
@@ -359,8 +349,7 @@
           v-if="(nextHover || nextFocus) && !disabled"
           :size="15"
           :icon="FIconMediaFastForward"
-        >
-        </f-svg-icon>
+        />
         <f-svg-icon v-else :size="15" :icon="FIconMenuMeatball" />
       </li>
       <li v-if="prop.total > 1" :class="lastPage">
@@ -368,10 +357,15 @@
       </li>
     </ul>
 
-    <!-- 右侧侧切换按钮 -->
-    <button :class="nextClassList" @click="toNext">
-      <f-svg-icon :size="15" :icon="nextIcon || FIconChevronRightVue" />
-    </button>
+    <!-- 下一页按钮 -->
+    <f-button
+      circle
+      :disabled="disabled"
+      :size="background ? 'middle' : 'small'"
+      :style="{ borderRadius: '2px' }"
+      :before-icon="nextIcon || FIconChevronRightVue"
+      :on-click="toNext"
+    />
 
     <!-- 快速跳转搜索框 -->
     <f-input

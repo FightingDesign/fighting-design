@@ -4,30 +4,42 @@
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
+  user-select: none;
+
+  .f-button {
+    border-radius: 2px;
+  }
 
   // 左右切换的按钮
-  &__prev,
-  &__next {
-    width: 34px;
-    height: 34px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    background: var(--f-design-color-text-2);
-  }
+  // &__prev,
+  // &__next {
+  //   width: 34px;
+  //   height: 34px;
+  //   display: inline-flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   border: none;
+  //   padding: 0;
+  //   cursor: pointer;
+  //   background: var(--f-design-color-text-2);
+  // }
 
-  &__prev-more > *,
-  &__next-more > * {
-    pointer-events: none;
-  }
+  // &__prev-more > *,
+  // &__next-more > * {
+  //   pointer-events: none;
+  // }
 
+  // 分页主体
   &__pages {
     display: flex;
     list-style-type: none;
     padding-left: 0;
+
+    // 禁用状态
+    &.f-pagination__pages-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 
     .f-pagination__pages-li {
       display: inline-flex;
@@ -46,10 +58,6 @@
       &-background-choose {
         background: var(--f-design-color-primary-1);
         color: var(--f-design-color-text-2);
-      }
-
-      &-disabled {
-        cursor: not-allowed;
       }
     }
   }
@@ -84,10 +92,5 @@
   &__jump {
     width: 145px;
     margin-left: 10px;
-  }
-
-  &__disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
   }
 }

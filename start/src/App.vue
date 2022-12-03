@@ -14,6 +14,7 @@
 </script>
 
 <template>
+  <f-pagination v-model:current="current" background disabled :total="total" />
   <f-pagination v-model:current="current" :total="total" />
 
   <f-breadcrumb
