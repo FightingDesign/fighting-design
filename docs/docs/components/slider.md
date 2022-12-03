@@ -71,7 +71,7 @@ Slider组件可以让用户通过自定义最大值、最小值、步长，来�
 </script>
 
 <template>
-  <f-slider v-model="value3"></f-slider>
+  <f-slider v-model="value3" :step="10"></f-slider>
 </template>
 ```
 
