@@ -21,7 +21,6 @@
     border: 10px solid #2d5af1;
     border-radius: 50%;
     background-color: #fff;
-    cursor: var(--f-slideer-disabled, grab);
 
     position: absolute;
     top: 0;
@@ -39,7 +38,7 @@
   }
   .f-slider__selected {
     height: 100%;
-    background-color: red;
+    background-color: #2d5af1;
     // transition: all .3s;
     border-radius: 30px;
   }
