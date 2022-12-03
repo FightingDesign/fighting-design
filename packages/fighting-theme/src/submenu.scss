@@ -1,0 +1,159 @@
+@use './root';
+
+.f-submenu {
+  box-sizing: border-box;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+
+  // 水平的
+  &.f-submenu__horizontal {
+    display: flex;
+    padding: 7px 16px;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    height: 50px;
+    transition: background 0.3s;
+
+    .f-submenu__title {
+      display: inline-flex;
+      align-items: center;
+
+      .f-svg-icon {
+        transform: rotate(-180deg);
+        margin-left: 5px;
+      }
+    }
+
+    &:hover {
+      background: var(--f-design-color-primary-4);
+    }
+  }
+
+  // 垂直的
+  &.f-submenu__vertical {
+    .f-submenu__title {
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+
+      .f-svg-icon {
+        transform: rotate(90deg);
+        margin-left: 5px;
+      }
+    }
+
+    .f-dropdown {
+      height: 50px;
+      transition: background 0.3s;
+
+      .f-trigger {
+        width: 100%;
+        height: 100%;
+
+        .f-trigger__trigger {
+          height: 100%;
+          padding: 7px 16px;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
+      }
+
+      &:hover {
+        background: var(--f-design-color-primary-4);
+      }
+    }
+  }
+
+  // 内联的
+  &.f-submenu__inline {
+    // icon
+    .f-svg-icon {
+      margin-right: 5px;
+      font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
+      color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+    }
+
+    // 文字内容
+    .f-menu-item__text {
+      font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
+      color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+    }
+
+    // 内联模式
+    .f-submenu__inline {
+      background: #fff;
+      padding: 0;
+      border: 1px solid #eee;
+
+      // 标题，点击区域
+      .f-submenu__title {
+        display: flex;
+        padding: 7px 16px;
+        box-sizing: border-box;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        height: 50px;
+        transition: 0.3s;
+
+        .f-text {
+          display: flex;
+          align-items: center;
+        }
+
+        // 右侧选择的箭头 icon
+        .f-submenu__arrow-icon {
+          transition: 0.3s;
+        }
+
+        // 右侧选择的箭头 icon 动画效果
+        .f-submenu__arrow-icon-animation {
+          transition: 0.3s;
+          transform: rotate(-180deg);
+        }
+
+        &:hover {
+          .f-text {
+            color: var(--f-design-color-primary-1);
+          }
+        }
+      }
+
+      // 主要内容
+      .f-submenu__content {
+        padding: 0;
+        margin: 0;
+
+        .f-menu-item {
+          padding: 7px 30px;
+        }
+      }
+    }
+  }
+
+  // 禁用的
+  &.f-submenu__disabled {
+    .f-submenu__inline {
+      .f-submenu__title {
+        cursor: not-allowed;
+        opacity: 0.5;
+
+        &:hover {
+          .f-submenu__title-text {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+}

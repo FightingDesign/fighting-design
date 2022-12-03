@@ -5,15 +5,14 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FImage } from '../../image'
   import { sizeChange } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { EmptyPropsType } from './props'
+  import type { CSSProperties } from 'vue'
 
-  const prop: EmptyPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { contentColor, contentSize } = prop
 
     return {

@@ -11,21 +11,20 @@ Slider组件可以让用户通过自定义最大值、最小值、步长，来�
 ::: demo
 
 <template #source>
-{{value1}}
-<f-slider v-model="value1" />
+<f-space>
+<f-slider v-model="value1"></f-slider>
+</f-space>
 </template>
 
 ```html
-<template #source>
-  {{value1}}
-  <f-slider v-model="value1" />
-</template>
-
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
-
   const value1 = ref(50)
 </script>
+
+<template>
+  <f-slider v-model="value1"></f-slider>
+</template>
 ```
 
 :::
@@ -37,61 +36,79 @@ Slider组件可以让用户通过自定义最大值、最小值、步长，来�
 ::: demo
 
 <template #source>
-{{value2}}
-<f-slider v-model="value2" :min="10" :max="20" />
+<f-space>
+<f-slider v-model="value2" :min="40" :max="60"></f-slider>
+</f-space>
 </template>
 
 ```html
-<template>
-  {{value2}}
-  <f-slider v-model="value2" :min="10" :max="20" />
-</template>
-
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
-
-  const value2 = ref(15)
+  const value2 = ref(50)
 </script>
+
+<template>
+  <f-slider v-model="value2" :min="40" :max="60"></f-slider>
+</template>
 ```
 
 :::
-
 
 ## 带步数
 
 ::: demo
 
 <template #source>
-{{value1}}
-<f-slider v-model="value3" :step="5" :min="0" :max="100" />
+<f-space>
+<f-slider v-model="value3" :step="10"></f-slider>
+</f-space>
 </template>
 
 ```html
-<template #source>
-  {{value3}}
-  <f-slider v-model="value3" :step="5" :min="0" :max="100"/>
-</template>
-
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
-
-  const value3 = ref(20)
+  const value3 = ref(50)
 </script>
+
+<template>
+  <f-slider v-model="value3"></f-slider>
+</template>
 ```
 
 :::
 
-## 范围取值
+<!-- ## 范围取值 -->
 
-## 颜色/禁用
+## 禁用
+
+::: demo
+
+<template #source>
+<f-space>
+<f-slider v-model="value4" disabled></f-slider>
+</f-space>
+</template>
+
+```html
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  const value4 = ref(40)
+</script>
+
+<template>
+  <f-slider v-model="value4" disabled></f-slider>
+</template>
+```
+
+:::
+
 
 
 <script setup lang="ts">
   import { ref } from 'vue'
 
   const value1 = ref(50)
-
-  const value2 = ref(15)
-
-  const value3 = ref(20)
+  const value2 = ref(50)
+  const value3 = ref(50)
+  const value4 = ref(50)
 </script>

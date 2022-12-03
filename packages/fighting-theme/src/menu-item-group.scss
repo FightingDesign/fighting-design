@@ -1,0 +1,25 @@
+@use './root';
+
+.f-menu-item-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  // 标题
+  .f-menu-item-group__title {
+    list-style: none;
+    color: rgb(177, 177, 177);
+    font-size: 13px;
+    padding: 3px 16px;
+  }
+
+  // 内容
+  .f-menu-item-group__list {
+    list-style: none;
+    padding: 0;
+
+    .f-menu-item {
+      padding: 7px 30px;
+    }
+  }
+}

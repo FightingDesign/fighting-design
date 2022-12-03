@@ -11,7 +11,7 @@
   color: var(--f-design-color-text-1);
   background: var(--f-design-color-text-2);
 
-  &:hover {
+  &:not([class~='f-option__disabled']):hover {
     background: var(--f-design-color-border-1);
   }
 
@@ -19,9 +19,5 @@
   &__disabled {
     cursor: not-allowed;
     color: #afafaf;
-
-    &:hover {
-      background: none;
-    }
   }
 }

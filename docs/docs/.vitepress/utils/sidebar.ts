@@ -114,7 +114,11 @@ export const sidebar = {
         { text: 'Divider 分隔线', link: '/components/divider' },
         { text: 'Watermark 水印', link: '/components/watermark' },
         { text: 'Ripple 涟漪', link: '/components/ripple' },
-        { text: 'Calendar 日历', link: '/components/calendar' }
+        { text: 'Calendar 日历', link: '/components/calendar' },
+        {
+          text: 'CollapseAnimation 折叠动画',
+          link: '/components/collapse-animation'
+        }
       ]
     }
   ]

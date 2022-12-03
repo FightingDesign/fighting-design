@@ -192,7 +192,7 @@ import type {
 </script>
 
 <style scoped>
-.f-swap {
-  margin: 5px;
-}
+  .f-swap {
+    margin: 5px;
+  }
 </style>

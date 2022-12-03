@@ -23,7 +23,3 @@ export interface UseMassageManageReturnInterface {
     placement: MessagePlacementType
   ): MessageInstance
 }
-
-export interface UseMassageManageInterface {
-  (): UseMassageManageReturnInterface
-}

@@ -4,6 +4,48 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.9.0-alpha.7 (2022-12-01)
+
+**New**
+
+- Add `f-breadcrumb-item` component `to` configuration item
+- Improve more `f-menu` component functions
+
+**Optimization**
+
+- Optimize `f-switch` detail style and performance
+- Optimize the `f-button` style processing logic
+- Optimize `f-dropdown-item` style details
+- Optimize `f-option` style details
+- Optimize `f-select` style details
+
+**Changes**
+
+- Change the `f-link` component `prohibit` configuration item to `disabled`
+- Change `f-switch` component `open-color` to `active-color`
+- Change `f-switch` component `open-text` to `active-text`
+
+## 0.9.0-alpha.6 (2022-11-29)
+
+**New Features**
+
+- Add `f-menu` component
+- Add `f-menu-item` component
+- Add `f-menu-item-group` component
+- Add `f-submenu` component
+- Add `f-collapse-animation` component
+- Add `f-button-group` component `direction` configuration item
+
+**Repair**
+
+- Fix `f-pagination` component details
+- Fix `f-button` component style details
+
+**Other changes**
+
+- Revoke the `f-button group` component `vertical` configuration item
+- Optimize `f-stick-card` components
+
 ## 0.9.0-alpha.5 (2022-11-25)
 
 **New Features**

@@ -2,49 +2,37 @@
   import { Props } from './props'
   import { ref, computed, unref } from 'vue'
   import { sizeChange, runCallback } from '../../_utils'
-  import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
-  import type { StickyCardPropsType } from './props'
+  import { FCollapseAnimation } from '../../collapse-animation'
+  import type { CSSProperties } from 'vue'
 
-  const prop: StickyCardPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
-  // 是否展示
-  const isOpen: Ref<boolean> = ref<boolean>(prop.open)
-  const content: Ref<HTMLDivElement> = ref(null as unknown as HTMLDivElement)
+  /**
+   * 是否打开
+   */
+  const isOpened = ref<boolean>(prop.open)
 
   /**
    * 点击触发
    */
-  const handleClick: OrdinaryFunctionInterface = (): void => {
-    if (!isOpen.value) {
-      content.value.style.height = 'auto'
-      const height: number = content.value.offsetHeight
-      content.value.style.height = '0'
-      content.value.offsetHeight
-      content.value.style.transition = '0.33s'
-      content.value.style.height = height + 'px'
-      isOpen.value = true
-      runCallback(prop.onOpen, isOpen.value)
-    } else {
-      content.value.style.height = '0'
-      isOpen.value = false
-      runCallback(prop.onClose, isOpen.value)
-    }
+  const handleClick = (): void => {
+    isOpened.value = !isOpened.value
+    runCallback(isOpened.value ? prop.onClose : prop.onOpen, isOpened.value)
   }
 
   /**
    * 展示的文字内容
    */
-  const optionText: ComputedRef<string> = computed((): string => {
+  const optionText = computed((): string => {
     const { openText, closeText } = prop
 
-    return `${unref(isOpen) ? openText : closeText}`
+    return `${unref(isOpened) ? openText : closeText}`
   })
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { background, openHeight, borderColor } = prop
 
     return {
@@ -63,15 +51,17 @@
     </div>
 
     <!-- 折叠的内容 -->
-    <div ref="content" class="f-sticky-card__box">
-      <slot />
+    <div class="f-sticky-card__box">
+      <f-collapse-animation :opened="isOpened">
+        <slot />
+      </f-collapse-animation>
     </div>
 
     <!-- 点击展开 / 折叠的区域 -->
     <div
       :class="[
         'f-sticky-card__option',
-        { 'f-sticky-card__option-open': isOpen }
+        { 'f-sticky-card__option-open': isOpened }
       ]"
       @click="handleClick"
     >

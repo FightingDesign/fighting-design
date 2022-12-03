@@ -1,6 +1,5 @@
 import { isObject, isArray } from '../../_utils'
 import type { Component, VNode } from 'vue'
-import type { GetChildrenInterface } from './interface'
 
 /**
  * 寻找所需的子元素列表
@@ -9,10 +8,7 @@ import type { GetChildrenInterface } from './interface'
  * @param componentName 子元素的名字
  * @returns { VNode[] } 所需要的所有孩子节点列表
  */
-export const getChildren: GetChildrenInterface = (
-  children: VNode[],
-  componentName: string
-): VNode[] => {
+export const getChildren = (children: VNode[], componentName: string): VNode[] => {
   let components: VNode[] = []
 
   // 传入的子节点必须是一个有效数组
@@ -35,7 +31,7 @@ export const getChildren: GetChildrenInterface = (
        */
       if (name !== componentName && child.children && isArray(child.children)) {
         const childChildren: VNode[] = getChildren(
-          child.children,
+          child.children as VNode[],
           componentName
         )
         /**

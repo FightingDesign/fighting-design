@@ -2,41 +2,33 @@
   import { Props } from './props'
   import { computed, useSlots } from 'vue'
   import { runCallback } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type {
-    ClassListInterface,
-    HandleMouseEventInterface
-  } from '../../_interface'
-  import type {
-    ToolbarPropsType,
-    ToolbarClickParamsInterface
-  } from './interface'
+  import type { CSSProperties } from 'vue'
+  import type { ClassListInterface } from '../../_interface'
+  import type { ToolbarClickParamsInterface } from './interface'
 
-  const prop: ToolbarPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const slot = useSlots()
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { size, round, fixed } = prop
+  const classList = computed((): ClassListInterface => {
+    const { size, round, fixed } = prop
 
-      return [
-        'f-toolbar',
-        {
-          [`f-toolbar__${size}`]: size,
-          'f-toolbar__round': round,
-          'f-toolbar__fixed': fixed
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-toolbar',
+      {
+        [`f-toolbar__${size}`]: size,
+        'f-toolbar__round': round,
+        'f-toolbar__fixed': fixed
+      }
+    ] as const
+  })
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { textColor, background, width, height } = prop
 
     return {
@@ -52,7 +44,7 @@
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClick = (evt: MouseEvent): void => {
     if (!slot.default) return
 
     /**

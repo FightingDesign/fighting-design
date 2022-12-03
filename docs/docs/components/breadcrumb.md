@@ -1,6 +1,6 @@
 # Breadcrumb 面包屑
 
-`Breadcrumb` 用于管理页面的导航链接
+这个面包屑不能吃
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/breadcrumb)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/breadcrumb.md)
@@ -31,14 +31,14 @@
 
 ## 自定义样式
 
-`color` 可以配置导航文字颜色
+`font-color` 可以配置面包屑文字颜色
 
 `icon-color` 可以自定义 icon 颜色
 
 ::: demo
 
 <template #source>
-<f-breadcrumb icon-color="#333" color="blue">
+<f-breadcrumb icon-color="#333" font-color="blue">
 <f-breadcrumb-item>首页</f-breadcrumb-item>
 <f-breadcrumb-item>文章</f-breadcrumb-item>
 <f-breadcrumb-item>列表</f-breadcrumb-item>
@@ -46,7 +46,7 @@
 </template>
 
 ```html
-<f-breadcrumb icon-color="#333" color="blue">
+<f-breadcrumb icon-color="#333" font-color="blue">
   <f-breadcrumb-item>首页</f-breadcrumb-item>
   <f-breadcrumb-item>文章</f-breadcrumb-item>
   <f-breadcrumb-item>列表</f-breadcrumb-item>
@@ -148,9 +148,9 @@
 | 属性         | 说明               | 类型                       | 可选值 | 默认值 |
 | ------------ | ------------------ | -------------------------- | ------ | ------ |
 | `separator`  | 自定义分隔符       | object (VNode / Component) | ——     | ——     |
-| `color`      | 自定义导航文字颜色 | string                     | ——     | ——     |
-| `icon-color` | 自定义 icon 颜色   | string                     | ——     | ——     |
+| `font-color` | 自定义导航文字颜色 | string                     | ——     | ——     |
 | `font-size`  | 自定义文字大小     | string / number            | ——     | ——     |
+| `icon-color` | 自定义 icon 颜色   | string                     | ——     | ——     |
 
 ## Breadcrumb Slots
 
@@ -162,8 +162,9 @@
 
 | 属性         | 说明               | 类型                       | 可选值 | 默认值 |
 | ------------ | ------------------ | -------------------------- | ------ | ------ |
+| `to`         | 跳转的路径         | string / object            | ——     | ——     |
 | `separator`  | 自定义分隔符       | object (VNode / Component) | ——     | ——     |
-| `color`      | 自定义导航文字颜色 | string                     | ——     | ——     |
+| `font-color` | 自定义导航文字颜色 | string                     | ——     | ——     |
 | `icon-color` | 自定义 icon 颜色   | string                     | ——     | ——     |
 
 ## Breadcrumb-item Slots

@@ -4,21 +4,18 @@
   import { watch, ref } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
-  import type { Ref } from 'vue'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
-  import type { DrawerPropsType } from './props'
 
-  const prop: DrawerPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
 
-  const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
+  const isVisible = ref<boolean>(prop.visible)
 
   /**
    * 关闭 drawer
    */
-  const closeDrawer: OrdinaryFunctionInterface = (): void => {
+  const closeDrawer = (): void => {
     emit('update:visible', false)
   }
 

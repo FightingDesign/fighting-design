@@ -15,15 +15,6 @@ export type ExpandCardImageListType =
   | string[]
 
 /**
- * 切换卡片
- *
- * index 根据索引来切换指定的卡片
- */
-export interface ExpandCardSwitchExpandCardInterface {
-  (index: number): void
-}
-
-/**
  * 展开的类名
  *
  * index 根据索引来返回不同的类名

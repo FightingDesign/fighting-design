@@ -2,37 +2,34 @@
   import { Props, LIST_PROPS_KEY } from './props'
   import { provide, computed } from 'vue'
   import { sizeChange } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
+  import type { CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
-  import type { ListPropsType } from './props'
 
-  const prop: ListPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
-  provide<ListPropsType>(LIST_PROPS_KEY, prop)
+  provide(LIST_PROPS_KEY, prop)
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { maxHeight, zebra, center, size } = prop
+  const classList = computed((): ClassListInterface => {
+    const { maxHeight, zebra, center, size } = prop
 
-      return [
-        'f-list',
-        {
-          [`f-list__${size}`]: size,
-          'f-list__scroll': maxHeight,
-          'f-list__zebra': zebra,
-          'f-list__center': center
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-list',
+      {
+        [`f-list__${size}`]: size,
+        'f-list__scroll': maxHeight,
+        'f-list__zebra': zebra,
+        'f-list__center': center
+      }
+    ] as const
+  })
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { maxHeight, borderColor } = prop
 
     return {

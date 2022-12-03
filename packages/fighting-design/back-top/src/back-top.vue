@@ -1,20 +1,18 @@
 <script lang="ts" setup name="FBackTop">
   import { Props } from './props'
-  import { onMounted, ref, computed } from 'vue'
-  import { debounce, sizeChange } from '../../_utils'
-  import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type {
-    BackTopHandleScrollInterface,
-    BackTopPropsType
-  } from './interface'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
+  import { onMounted, ref } from 'vue'
+  import { debounce } from '../../_utils'
+  import { useList } from '../../_hooks'
+  import type { BackTopHandleScrollInterface } from './interface'
 
-  const prop: BackTopPropsType = defineProps(Props)
+  const prop = defineProps(Props)
+
+  const { styles } = useList(prop, 'back-top')
 
   /**
    * 展示状态
    */
-  const visible: Ref<boolean> = ref<boolean>(false)
+  const visible = ref<boolean>(false)
 
   /**
    * 滚动状态监视
@@ -36,7 +34,7 @@
   /**
    * 点击的时候触发
    */
-  const handleClick: OrdinaryFunctionInterface = (): void => {
+  const handleClick = (): void => {
     const { top, behavior, listenEl } = prop
 
     if (listenEl) {
@@ -73,17 +71,7 @@
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { right, bottom, zIndex, background, color } = prop
-
-    return {
-      '--f-back-top-right': sizeChange(right),
-      '--f-back-top-bottom': sizeChange(bottom),
-      '--f-back-top-z-index': zIndex,
-      '--f-back-top-background': background,
-      '--f-back-top-color': color
-    } as CSSProperties
-  })
+  const styleList = styles(['right', 'bottom', 'zIndex', 'background', 'color'])
 </script>
 
 <template>

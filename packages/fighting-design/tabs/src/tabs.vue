@@ -13,15 +13,10 @@
   import { TabsNav } from './components'
   import { debugWarn, __DEV__ } from '../../_utils'
   import { getChildrenComponent } from './utils'
-  import type {
-    TabsPropsType,
-    TabsNavInstance,
-    TabsProvide,
-    TabsPaneName
-  } from './interface'
+  import type { TabsNavInstance, TabsProvide, TabsPaneName } from './interface'
   import type { ComponentInternalInstance } from 'vue'
 
-  const prop: TabsPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emits = defineEmits<{
     (e: 'update:modelValue', name: TabsPaneName): void
     (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void
@@ -68,7 +63,7 @@
   /**
    * nav列表
    */
-  const navs = computed<TabsNavInstance[]>(() => {
+  const navs = computed((): TabsNavInstance[] => {
     return panes.value.map((e, i) => {
       return {
         name: (e.props.name || (e.props.name = i)) as TabsPaneName, // name如果没填，用下标代替

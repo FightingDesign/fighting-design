@@ -2,28 +2,21 @@
   import { Props } from './props'
   import { computed, ref } from 'vue'
   import { sizeChange, isString } from '../../_utils'
-  import type { Ref, ComputedRef, CSSProperties } from 'vue'
+  import type { CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
-  import type {
-    ExpandCardSwitchExpandCardInterface,
-    ExpandCardImageListItemInterface,
-    ExpandCardPropsType,
-    ExpandCardActiveClassInterface
-  } from './interface'
+  import type { ExpandCardImageListItemInterface } from './interface'
 
-  const prop: ExpandCardPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 当前显示的位置
    */
-  const currExpandIndex: Ref<number> = ref<number>(prop.expandIndex)
+  const currExpandIndex = ref<number>(prop.expandIndex)
 
   /**
    * 切换卡片
    */
-  const switchExpandCard: ExpandCardSwitchExpandCardInterface = (
-    index: number
-  ): void => {
+  const switchExpandCard = (index: number): void => {
     currExpandIndex.value = index
   }
 
@@ -32,9 +25,7 @@
    *
    * @param index 索引
    */
-  const activeClass: ExpandCardActiveClassInterface = (
-    index: number
-  ): string | void => {
+  const activeClass = (index: number): string | void => {
     if (index !== currExpandIndex.value) return
     return 'f-expand-card__active'
   }
@@ -42,37 +33,34 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { round } = prop
+  const classList = computed((): ClassListInterface => {
+    const { round } = prop
 
-      return ['f-expand-card__item', { 'f-expand-card__round': round }] as const
-    }
-  )
+    return ['f-expand-card__item', { 'f-expand-card__round': round }] as const
+  })
 
   /**
    * 将传入的 imageList 改变成指定的类型进行渲染
    */
-  const imageListArr: ComputedRef<ExpandCardImageListItemInterface[]> =
-    computed((): ExpandCardImageListItemInterface[] => {
-      const { imageList } = prop
+  const imageListArr = computed((): ExpandCardImageListItemInterface[] => {
+    const { imageList } = prop
 
-      return imageList.map(
-        (
-          item: string | ExpandCardImageListItemInterface
-        ): ExpandCardImageListItemInterface => {
-          if (isString(item)) {
-            return { url: item } as ExpandCardImageListItemInterface
-          }
-          return item as ExpandCardImageListItemInterface
+    return imageList.map(
+      (
+        item: string | ExpandCardImageListItemInterface
+      ): ExpandCardImageListItemInterface => {
+        if (isString(item)) {
+          return { url: item } as ExpandCardImageListItemInterface
         }
-      )
-    })
+        return item as ExpandCardImageListItemInterface
+      }
+    )
+  })
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { width, height } = prop
 
     return {

@@ -1,44 +1,64 @@
 <script lang="ts" setup name="FMenu">
-  import { Props } from './props'
-  import { computed } from 'vue'
-  import type { ComputedRef } from 'vue'
-  import type { MenuPropsType } from './interface'
-  import type { ClassListInterface } from '../../_interface'
+  import { Props, MENU_PROVIDE_KEY } from './props'
+  import { provide, reactive, toRef, computed, ref } from 'vue'
+  import { useList } from '../../_hooks'
+  import type { MenuProvideInterface } from './interface'
 
-  const prop: MenuPropsType = defineProps(Props)
+  const prop = defineProps(Props)
+
+  const { classes } = useList(prop, 'menu')
+
+  /**
+   * 当前选中的 name
+   */
+  const active = ref<string | number>(prop.activeName)
+
+  /**
+   * 默认选中的 name
+   */
+  const defaultActive = computed((): string | number => active.value)
+
+  /**
+   * 修改选中的 name
+   *
+   * @param name 最新的 name
+   */
+  const setActiveName = (name: string | number): void => {
+    active.value = name
+  }
+
+  // 提供出去依赖项
+  provide<MenuProvideInterface>(
+    MENU_PROVIDE_KEY,
+    reactive({
+      mode: toRef(prop, 'mode'),
+      accordion: toRef(prop, 'accordion'),
+      defaultActive,
+      setActiveName
+    } as unknown as MenuProvideInterface)
+  )
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { mode } = prop
-
-      return [
-        'f-menu',
-        {
-          [`f-menu__${mode}`]: mode
-        }
-      ] as const
-    }
-  )
+  const classList = classes(['mode'], 'f-menu')
 </script>
 
 <template>
-  <div :class="classList">
-    <!-- logo 位置 -->
-    <div class="f-menu__logo">
-      <slot name="logo" />
-    </div>
+  <ul :class="classList">
+    <!-- 前缀位置 -->
+    <li v-if="$slots.before" class="f-menu__before">
+      <slot name="before" />
+    </li>
 
     <!-- 主要内容 -->
-    <div class="f-menu__content">
+    <ul class="f-menu__content">
       <slot />
-    </div>
+    </ul>
 
-    <!-- 右侧选项 -->
-    <div class="f-menu__option">
-      <slot name="option" />
-    </div>
-  </div>
+    <!-- 后缀选项 -->
+    <li v-if="$slots.after" class="f-menu__after">
+      <slot name="after" />
+    </li>
+  </ul>
 </template>

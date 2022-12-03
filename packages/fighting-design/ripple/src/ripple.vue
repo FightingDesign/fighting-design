@@ -2,24 +2,20 @@
   import { Props } from './props'
   import { Ripples } from '../../_utils'
   import { computed, ref, toRefs } from 'vue'
-  import type {
-    ClassListInterface,
-    HandleMouseEventInterface
-  } from '../../_interface'
-  import type { Ref, CSSProperties, ComputedRef } from 'vue'
-  import type { RipplePropsType } from './props'
+  import type { ClassListInterface } from '../../_interface'
+  import type { CSSProperties } from 'vue'
 
-  const prop: RipplePropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
-  // dom 节点
-  const FRipple: Ref<HTMLElement> = ref<HTMLElement>(
-    null as unknown as HTMLElement
-  )
+  /**
+   * dom 节点
+   */
+  const FRipple = ref<HTMLElement>(null as unknown as HTMLElement)
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { startOpacity, endOpacity } = prop
 
     return {
@@ -31,20 +27,18 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { noSelect } = prop
+  const classList = computed((): ClassListInterface => {
+    const { noSelect } = prop
 
-      return ['f-ripple', { 'f-ripple__select': noSelect }] as const
-    }
-  )
+    return ['f-ripple', { 'f-ripple__select': noSelect }] as const
+  })
 
   /**
    * 点击之后执行
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClick = (evt: MouseEvent): void => {
     const { type, ripplesColor, duration, disabled } = toRefs(prop)
 
     if (disabled.value) return

@@ -3,18 +3,17 @@
   import { computed, ref, h } from 'vue'
   import { sizeChange } from '../../_utils'
   import { TableColgroupVue } from './components'
-  import type { ComputedRef, CSSProperties, Ref, VNode } from 'vue'
-  import type { TablePropsType } from './interface'
+  import type { CSSProperties, VNode } from 'vue'
 
-  const prop: TablePropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   // 多选项
-  const optionalList: Ref<string[]> = ref<string[]>([])
+  const optionalList = ref<string[]>([])
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { zebraColor, height, bgColor, headBgColor } = prop
 
     return {

@@ -93,20 +93,20 @@
 
 ## 禁用状态
 
-`prohibit` 可以让按钮处于禁用状态
+`disabled` 可以让按钮处于禁用状态
 
 ::: demo
 
 <template #source>
-<f-link prohibit href="" type="primary">不许点我</f-link>
-<f-link prohibit href="" state="line" type="success">不许点我</f-link>
-<f-link prohibit href="" state="bag" type="warning">不许点我</f-link>
+<f-link disabled href="" type="primary">不许点我</f-link>
+<f-link disabled href="" state="line" type="success">不许点我</f-link>
+<f-link disabled href="" state="bag" type="warning">不许点我</f-link>
 </template>
 
 ```html
-<f-link prohibit href="" type="primary">不许点我</f-link>
-<f-link prohibit href="" state="line" type="success">不许点我</f-link>
-<f-link prohibit href="" state="bag" type="warning">不许点我</f-link>
+<f-link disabled href="" type="primary">不许点我</f-link>
+<f-link disabled href="" state="line" type="success">不许点我</f-link>
+<f-link disabled href="" state="bag" type="warning">不许点我</f-link>
 ```
 
 :::
@@ -118,11 +118,11 @@
 ::: demo
 
 <template #source>
-<f-link href="" noLink>拿我当按钮使用</f-link>
+<f-link href="" no-link>拿我当按钮使用</f-link>
 </template>
 
 ```html
-<f-link href="" noLink>拿我当按钮使用</f-link>
+<f-link href="" no-link>拿我当按钮使用</f-link>
 ```
 
 :::
@@ -135,7 +135,7 @@
 | `href`        | 链接的地址                                                                                | string                     | ——                                                     | ——      |
 | `size`        | link 的文字大小                                                                           | string / number            | ——                                                     | ——      |
 | `state`       | link 状态的样式状态                                                                       | string                     | `line` `bag`                                           | ——      |
-| `prohibit`    | 是否禁用                                                                                  | boolean                    | ——                                                     | false   |
+| `disabled`    | 是否禁用                                                                                  | boolean                    | ——                                                     | false   |
 | `target`      | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | string                     | `_self` `_blank` `_parent` `_top`                      | ——      |
 | `color`       | 自定义 link 颜色                                                                          | string                     | ——                                                     | ——      |
 | `no-copy`     | 是否禁止 copy                                                                             | boolean                    | ——                                                     | false   |
@@ -173,7 +173,7 @@ import type {
 </a>
 
 <style scoped>
-.f-link {
-  margin: 5px;
-}
+  .f-link {
+    margin: 5px;
+  }
 </style>

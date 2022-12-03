@@ -1,6 +1,7 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { AvatarFitType, AvatarSizeType } from './interface'
 import type { HandleEventInterface } from '../../_interface'
+import { isString, isNumber } from '../../_utils'
 
 export const Props = {
   /**
@@ -70,14 +71,17 @@ export const Props = {
    * 可传入字符串使用内置大小
    *
    * 也可以传入数字，数字将自动转换为 px 单位
+   *
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
     type: [String, Number] as PropType<AvatarSizeType | number>,
     default: (): AvatarSizeType => 'middle',
     validator: (val: AvatarSizeType | number): boolean => {
-      if (typeof val === 'string') {
+      if (isString(val)) {
         return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-      } else if (typeof val === 'number') {
+      } else if (isNumber(val)) {
         return val >= 1
       }
       return false

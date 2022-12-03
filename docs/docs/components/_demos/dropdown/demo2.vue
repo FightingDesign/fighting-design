@@ -10,7 +10,7 @@
     </template>
   </f-dropdown>
 
-  <f-dropdown style="margin-left: 80px">
+  <f-dropdown style="margin-left: 20px">
     <f-button>禁用指定的</f-button>
 
     <template #content>

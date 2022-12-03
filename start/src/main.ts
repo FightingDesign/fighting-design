@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
+// 配置路由
+import router from './router'
+
 // 移动端测试
 // import VConsole from 'vconsole'
 // new VConsole()
@@ -13,4 +16,7 @@ import '@fighting-design/fighting-theme'
 // import FightingDesign from '../../dist'
 // import '../dist/dist/index.css'
 
-createApp(App).use(FightingDesign).mount('#start')
+createApp(App)
+  .use(FightingDesign)
+  .use(router)
+  .mount('#start')

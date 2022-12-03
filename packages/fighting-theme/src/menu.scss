@@ -2,20 +2,22 @@
 
 .f-menu {
   display: flex;
-  border: 1px solid #ccc;
   background: var(--f-design-color-text-2);
   width: 100%;
+  margin: 0;
+  padding: 0;
 
   // 水平排列
   &.f-menu__horizontal {
     height: 60px;
-    padding: 0 17px;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
+    padding: 0 15px;
+    border-bottom: 1px solid var(--f-design-color-primary-4);
 
-    // logo
-    .f-menu__logo {
+    // 前缀插槽
+    .f-menu__before {
       height: 100%;
       display: inline-flex;
       justify-content: center;
@@ -27,11 +29,12 @@
       display: flex;
       align-items: center;
       height: 100%;
+      padding: 0;
       margin: 0 20px;
     }
 
-    // 选项内容
-    .f-menu__option {
+    // 后缀插槽
+    .f-menu__after {
       height: 100%;
       display: inline-flex;
       justify-content: center;
@@ -40,31 +43,36 @@
   }
 
   // 垂直排列
-  &.f-menu__vertical {
+  &.f-menu__vertical,
+  &.f-menu__inline {
     flex-direction: column;
-    padding: 17px 0;
     box-sizing: border-box;
 
-    // logo
-    .f-menu__logo {
+    // 前缀插槽
+    .f-menu__before {
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      padding: 10px 15px;
+      box-sizing: border-box;
     }
 
     // 主要内容
     .f-menu__content {
-      margin: 15px 0;
       flex-direction: column;
       align-items: center;
       width: 100%;
+      padding: 0;
+      margin: 0;
     }
 
-    // 选项内容
-    .f-menu__option {
+    // 后缀插槽
+    .f-menu__after {
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      padding: 10px 15px;
+      box-sizing: border-box;
     }
   }
 }

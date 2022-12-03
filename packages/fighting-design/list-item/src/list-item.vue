@@ -2,21 +2,21 @@
   import { Props } from './props'
   import { computed, inject } from 'vue'
   import { LIST_PROPS_KEY } from '../../list/src/props'
-  import type { ComputedRef, CSSProperties } from 'vue'
+  import type { CSSProperties } from 'vue'
   import type { ListPropsType } from '../../list/src/props'
-  import type { ListItemPropsType } from './props'
 
-  const prop: ListItemPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   // 获取到注入的依赖项
-  const INJECT_DEPEND: ListPropsType | undefined = inject<
-    ListPropsType | undefined
-  >(LIST_PROPS_KEY, undefined)
+  const INJECT_DEPEND = inject<ListPropsType | undefined>(
+    LIST_PROPS_KEY,
+    undefined
+  )
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { background, color } = prop
 
     // 如果没有注入依赖，则直接返回自己的参数

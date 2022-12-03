@@ -25,6 +25,27 @@ export const Props = {
   color: {
     type: String,
     default: (): null => null
+  },
+  /**
+   * 跳转的路径
+   */
+  to: {
+    type: String,
+    default: (): null => null
+  },
+  /**
+   * 唯一标识
+   */
+  name: {
+    type: [String, Number] as PropType<string | number>,
+    default: (): null => null
+  },
+  /**
+   * 是否禁用
+   */
+  disabled: {
+    type: Boolean,
+    default: (): boolean => false
   }
 } as const
 

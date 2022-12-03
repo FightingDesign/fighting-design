@@ -10,42 +10,36 @@
     FIconEyeOutlineVue
   } from '../../_svg'
   import { isString, runCallback, isNumber } from '../../_utils'
-  import { useUpdateInput, useFilterProps } from '../../_hooks'
-  import type { Ref } from 'vue'
+  import { useUpdateInput, useProps } from '../../_hooks'
   import type { InputType } from './interface'
-  import type { InputPropsType } from './props'
-  import type {
-    HandleEventInterface,
-    OrdinaryFunctionInterface
-  } from '../../_interface'
   import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
 
-  const prop: InputPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:modelValue': (val: string | number): boolean =>
       isString(val) || isNumber(val)
   })
 
+  const { filter } = useProps(prop)
+
   /**
    * type 类型
    */
-  const inputType: Ref<InputType> = ref<InputType>(prop.type)
+  const inputType = ref<InputType>(prop.type)
   /**
    * 是否展示密码
    */
-  const showPass: Ref<boolean> = ref<boolean>(false)
+  const showPass = ref<boolean>(false)
   /**
    * 使用 useUpdateInput hook 实现同步数据
-   *
-   * useFilterProps 过滤出需要的参数
    */
   const { onInput, onClear, onChange } = useUpdateInput(
-    useFilterProps<InputPropsType, UseUpdateInputPropsInterface>(prop, [
+    filter([
       'onChange',
       'onInput',
       'disabled',
       'type'
-    ]),
+    ]) as unknown as UseUpdateInputPropsInterface,
     emit
   )
 
@@ -54,7 +48,7 @@
    *
    * @param evt 事件对象
    */
-  const handleInput: HandleEventInterface = (evt: Event): void => {
+  const handleInput = (evt: Event): void => {
     onInput(evt)
   }
 
@@ -63,7 +57,7 @@
    *
    * @param evt 事件对象
    */
-  const handleChange: HandleEventInterface = (evt: Event): void => {
+  const handleChange = (evt: Event): void => {
     onChange(evt)
   }
 
@@ -72,7 +66,7 @@
    *
    * @param evt 事件对象
    */
-  const handleSearch: HandleEventInterface = (evt: Event): void => {
+  const handleSearch = (evt: Event): void => {
     runCallback(prop.onSearch, { evt, value: prop.modelValue })
   }
 
@@ -81,7 +75,7 @@
    *
    * @param evt 事件对象
    */
-  const handleEnter: HandleEventInterface = (evt: Event): void => {
+  const handleEnter = (evt: Event): void => {
     const { search, enterSearch, onEnter } = toRefs(prop)
 
     if (search.value && enterSearch.value) {
@@ -94,7 +88,7 @@
   /**
    * 查看密码
    */
-  const handleShowPassword: OrdinaryFunctionInterface = (): void => {
+  const handleShowPassword = (): void => {
     if (showPass.value) {
       inputType.value = 'text'
       showPass.value = true

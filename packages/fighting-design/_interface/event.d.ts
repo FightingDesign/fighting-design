@@ -10,12 +10,6 @@ export interface HandleMouseEventInterface {
   (evt: MouseEvent): void
 }
 
-/**
- * Event 普通事件接口
- *
- * @see Event https://developer.mozilla.org/zh-CN/docs/Web/API/Event
- * @param evt 事件参数
- */
 export interface HandleEventInterface {
   (evt: Event): void
 }

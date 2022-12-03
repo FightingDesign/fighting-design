@@ -4,42 +4,42 @@
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
   import { runCallback } from '../../_utils'
-  import { useList, useProps } from '../../_hooks'
-  import type { Ref } from 'vue'
-  import type { HandleMouseEventInterface } from '../../_interface'
-  import type { AlertPropsType } from './props'
+  import { useList } from '../../_hooks'
 
-  const prop: AlertPropsType = defineProps(Props)
+  const prop = defineProps(Props)
+
+  const { styles, classes } = useList(prop, 'alert')
 
   /**
    * 展示状态
    */
-  const isShow: Ref<boolean> = ref<boolean>(true)
-
-  const { filter } = useProps(prop)
-  const { styles, classes } = useList('alert')
+  const isShow = ref<boolean>(true)
 
   /**
    * 类名列表
    */
   const classList = classes(
-    filter(['type', 'bold', 'simple', 'center', 'round', 'fixed']),
-    true
+    ['type', 'bold', 'simple', 'center', 'round', 'fixed'],
+    'f-alert'
   )
 
   /**
    * 样式列表
    */
-  const styleList = styles(
-    filter(['fontSize', 'color', 'background', 'titleSize', 'titleColor'])
-  )
+  const styleList = styles([
+    'fontSize',
+    'color',
+    'background',
+    'titleSize',
+    'titleColor'
+  ])
 
   /**
    * 点击关闭按钮
    *
    * @param evt 事件对象
    */
-  const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClose = (evt: MouseEvent): void => {
     isShow.value = false
     runCallback(prop.onClose, evt)
   }

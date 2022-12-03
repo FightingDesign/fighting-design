@@ -2,14 +2,14 @@
   import { Props } from './props'
   import { TabsProvideKey } from '../../tabs/src/props'
   import { computed, inject, onBeforeUnmount } from 'vue'
-  import type { TabsPanePropsType } from './interface'
   import type { TabsProvide } from '../../tabs/src/interface'
 
-  const prop: TabsPanePropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
-  const INJECT_DEPEND: TabsProvide | undefined = inject<
-    TabsProvide | undefined
-  >(TabsProvideKey, undefined)
+  const INJECT_DEPEND = inject<TabsProvide | undefined>(
+    TabsProvideKey,
+    undefined
+  )
 
   /**
    * 该组件是否加载

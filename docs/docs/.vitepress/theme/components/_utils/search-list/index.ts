@@ -1,5 +1,3 @@
-import type { SearchListInterface } from './interface'
-
 /**
  * 搜索列表
  *
@@ -7,7 +5,7 @@ import type { SearchListInterface } from './interface'
  * @param rule 匹配规则
  * @param url 跳转的地址
  */
-export const searchList: readonly SearchListInterface[] = [
+export const searchList = [
   { title: '安装', rule: '安装', url: 'docs/install' },
   {
     title: '快速上手',
@@ -202,5 +200,10 @@ export const searchList: readonly SearchListInterface[] = [
     title: 'Menu 导航菜单',
     rule: 'menuMenu导航菜单',
     url: 'components/menu'
+  },
+  {
+    title: 'CollapseAnimation 折叠动画',
+    rule: 'collapse-animationCollapseAnimation折叠动画',
+    url: 'components/collapse-animation'
   }
 ] as const

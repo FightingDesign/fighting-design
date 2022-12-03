@@ -14,12 +14,3 @@ export interface UseLoadingBarReturnInterface {
   finish: OrdinaryFunctionInterface
   error: OrdinaryFunctionInterface
 }
-
-/**
- * loading-bar 加载条组件方法类型
- *
- * 返回 UseLoadingBarReturnInterface 类型对象
- */
-export interface UseLoadingBarInterface {
-  (): UseLoadingBarReturnInterface
-}

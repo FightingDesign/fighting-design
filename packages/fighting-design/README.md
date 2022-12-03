@@ -20,7 +20,7 @@
 └── index.ts
 ```
 
-`Fighting Design` 内置了新增组件的快捷命令，可以快速帮助你创建组件所需要的文件，参考 [add-component](https://github.com/FightingDesign/fighting-design/blob/master/packages/add-component/README.md)，命令：
+`Fighting Design` 内置了新增组件的快捷命令，可以快速帮助你创建组件所需要的文件，参考 [fighting-add-component](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-add-component/README.md)，命令：
 
 ```
 pnpm new <component-name>
@@ -98,52 +98,8 @@ f_button-name
 
 **Ts 类型规范**
 
-- 能定义类型的地方就要定义类型
-- 类型或接口必须以大写字母开始，`type` 或者 `interface` 结尾
-- 就算是类型自动推倒出来了，也要写入类型
-- `type` 或者 `interface` 等禁止在组件中直接定义，定义类型请在 `interface.d.ts` 中定义
-- 禁止出现 `any`。如有特殊情况可发起 [讨论](https://github.com/FightingDesign/fighting-design/discussions) 或者群里提问
-- 定义函数类型通常命名规范为 `组件名 + 函数名 + Interface`
-
-下面举例常用的定义类型规范：
-
-- 定义 `ref`
-
-```ts
-import { ref } from 'vue'
-import type { Ref } from 'vue'
-
-const test: Ref<string> = ref<string>('hello')
-```
-
-- 定义 `computed`
-
-```ts
-import { computed } from 'vue'
-import type { ComputedRef } from 'vue'
-
-const com: ComputedRef<string> = computed<string>((): string => {
-  return 'hello'
-})
-```
-
-- 定义函数
-
-```ts
-// interface.d.ts 中定义类型
-export interface FunInterface {
-  (a: number, b: number): number
-}
-```
-
-```ts
-// 引入使用类型
-import type { funInterface } from './interface'
-
-const fun: funInterface = (a: number, b: number): number => {
-  return a + b
-}
-```
+- 函数必须有返回值类型
+- 每个参数必须标注类型
 
 ## 🌵 props.ts
 
@@ -186,10 +142,6 @@ export default Rate
 - [全局注册组件](https://staging-cn.vuejs.org/guide/components/registration.html#global-registration)
 
 ## 🍀 公共模块
-
-### [\_\_test\_\_](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/__test__)
-
-所有组件的单元测试目录
 
 ### [\_svg](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_svg)
 

@@ -116,17 +116,17 @@
 
 ## 自定义颜色
 
-`close-color` 和 `open-color` 可以自定义开关的颜色
+`close-color` 和 `active-color` 可以自定义开关的颜色
 
 ::: demo
 
 <template #source>
-<f-switch v-model="value7" close-color="red" open-color="skyblue" />
+<f-switch v-model="value7" close-color="red" active-color="skyblue" />
 </template>
 
 ```html
 <template>
-  <f-switch v-model="value7" close-color="red" open-color="skyblue" />
+  <f-switch v-model="value7" close-color="red" active-color="skyblue" />
 </template>
 
 <script lang="ts" setup>
@@ -140,17 +140,17 @@
 
 ## 描述文字
 
-`close-text` 和 `open-text` 可以自定义开关左右的描述文字
+`close-text` 和 `active-text` 可以自定义开关左右的描述文字
 
 ::: demo
 
 <template #source>
-<f-switch v-model="value8" close-text="关闭" open-text="开启" />
+<f-switch v-model="value8" close-text="关闭" active-text="开启" />
 </template>
 
 ```html
 <template>
-  <f-switch v-model="value8" close-text="关闭" open-text="开启" />
+  <f-switch v-model="value8" close-text="关闭" active-text="开启" />
 </template>
 
 <script lang="ts" setup>
@@ -196,8 +196,8 @@
 | `disabled`             | 是否禁用                   | boolean                    | ——                                     | false  |
 | `icon`                 | 自定义 icon                | object (VNode / Component) | ——                                     | ——     |
 | `close-color`          | 自定义关闭状态背景色       | string                     | ——                                     | ——     |
-| `open-color`           | 自定义开启状态背景色       | string                     | ——                                     | ——     |
-| `open-text`            | 自定义右侧的文字描述       | string                     | ——                                     | ——     |
+| `active-color`         | 自定义开启状态背景色       | string                     | ——                                     | ——     |
+| `active-text`          | 自定义右侧的文字描述       | string                     | ——                                     | ——     |
 | `close-text`           | 自定义左侧的文字描述       | string                     | ——                                     | ——     |
 | `square`               | 是否为方形开关             | boolean                    | ——                                     | false  |
 | `on-change`            | 绑定值发生改变时触发的回调 | Function                   | ——                                     | ——     |
@@ -241,7 +241,7 @@ import type {
 </script>
 
 <style scoped>
-.f-switch {
-  margin: 5px;
-}
+  .f-switch {
+    margin: 5px;
+  }
 </style>

@@ -4,21 +4,18 @@
   import { FPopup } from '../../popup'
   import { ref, watch } from 'vue'
   import { sizeChange, isBoolean } from '../../_utils'
-  import type { Ref } from 'vue'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
-  import type { DialogPropsType } from './props'
 
-  const prop: DialogPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
 
-  const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
+  const isVisible = ref<boolean>(prop.visible)
 
   /**
    * 关闭时
    */
-  const closeDialog: OrdinaryFunctionInterface = (): void => {
+  const closeDialog = (): void => {
     emit('update:visible', false)
   }
 

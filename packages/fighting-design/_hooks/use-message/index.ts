@@ -2,35 +2,30 @@ import messageVue from '../../message/src/message.vue'
 import notificationVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
 import { useMassageManage } from '../../_hooks'
-import { runCallback } from '../../_utils'
+import { runCallback, isString } from '../../_utils'
 import type { ComponentInternalInstance, VNode } from 'vue'
 import type {
-  DefaultOptionsInterface,
-  ComponentVueInterface,
   MessageInstance,
   MessageFn,
   MessageOptions,
   MessageFnWithType,
   MessagePlacementType,
-  UseMessageInterface,
   UseMessageReturnInterface
 } from './interface'
 
 export const massageManage = useMassageManage()
 
-export const useMessage: UseMessageInterface = (
-  target: 'message' | 'notification'
-): UseMessageReturnInterface => {
+export const useMessage = (target: 'message' | 'notification'): UseMessageReturnInterface => {
   let seed = 1
 
   // 位置信息
-  const defaultOptions: DefaultOptionsInterface = {
+  const defaultOptions = {
     message: { placement: 'top' },
     notification: { placement: 'top-right' }
   } as const
 
   // 组件实例
-  const componentVue: ComponentVueInterface = {
+  const componentVue = {
     message: messageVue,
     notification: notificationVue
   }
@@ -41,7 +36,7 @@ export const useMessage: UseMessageInterface = (
     const container: HTMLDivElement = document.createElement('div')
     const id = `message-${seed}`
 
-    if (typeof options === 'string') {
+    if (isString(options)) {
       options = {
         message: options
       } as MessageOptions
@@ -65,8 +60,7 @@ export const useMessage: UseMessageInterface = (
 
     render(VNode, container)
     document.body.appendChild(container.firstElementChild as HTMLElement)
-    const vm: ComponentInternalInstance =
-      VNode.component as ComponentInternalInstance
+    const vm: ComponentInternalInstance = VNode.component as ComponentInternalInstance
 
     seed++
     const instance: MessageInstance = massageManage.createInstance(

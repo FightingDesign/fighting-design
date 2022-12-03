@@ -1,15 +1,14 @@
 <script lang="ts" setup name="VpDemo">
   import { ref } from 'vue'
-  import type { Ref } from 'vue'
 
   /**
    * 是否展示内容
    */
-  const isOpen: Ref<boolean> = ref<boolean>(false)
+  const isOpen = ref<boolean>(false)
   /**
    * 折叠的 dom 节点
    */
-  const content: Ref<HTMLDivElement> = ref(null as unknown as HTMLDivElement)
+  const content = ref(null as unknown as HTMLDivElement)
 
   /**
    * 点击执行

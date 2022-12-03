@@ -168,5 +168,9 @@ export const contributors = [
   {
     avatar: 'https://avatars.githubusercontent.com/u/49176117?v=4',
     homePage: 'https://github.com/unnm'
+  },
+  {
+    avatar: 'https://avatars.githubusercontent.com/u/57086651?v=4',
+    homePage: 'https://github.com/Simon-He95'
   }
 ] as const

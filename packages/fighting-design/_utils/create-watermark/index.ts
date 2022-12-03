@@ -1,8 +1,5 @@
 import { sizeChange } from '../utils'
-import type {
-  CreateBase64Interface,
-  CreateWatermarkPropsInterface
-} from './interface'
+import type { CreateWatermarkPropsInterface } from './interface'
 
 /**
  * 将 canvas 转换成 base64 图片格式
@@ -10,9 +7,7 @@ import type {
  * @param props 需要传递到 参数
  * @returns { String } base64 格式的图片
  */
-export const createWatermark: CreateBase64Interface = (
-  props: CreateWatermarkPropsInterface
-): string => {
+export const createWatermark = (props: CreateWatermarkPropsInterface): string => {
   /**
    * 创建一个 canvas
    */

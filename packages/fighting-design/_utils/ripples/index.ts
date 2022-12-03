@@ -3,7 +3,6 @@ import type {
   RipplesOptionInterface,
   RipplesMouseEventInterface
 } from './interface'
-import type { OrdinaryFunctionInterface } from '../../_interface'
 
 /**
  * 按钮点击涟漪效果
@@ -25,7 +24,7 @@ export class Ripples implements RipplesInterface {
   /**
    * 点击生成涟漪效果
    */
-  clickRipples: OrdinaryFunctionInterface = (): void => {
+  clickRipples = (): void => {
     /**
      * clientX clientY 可获取到点击相对于页面的坐标
      *

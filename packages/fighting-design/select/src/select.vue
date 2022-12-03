@@ -4,15 +4,9 @@
   import { provide, reactive, computed, useSlots } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { sizeChange, getChildren } from '../../_utils'
-  import type {
-    CSSProperties,
-    ComputedRef,
-    VNode,
-    WritableComputedRef
-  } from 'vue'
+  import type { CSSProperties, VNode } from 'vue'
   import type {
     SelectPropsType,
-    SelectSetValueInterface,
     SelectProvideInterface,
     SelectModelValueType,
     SelectChildrenInterface
@@ -30,7 +24,7 @@
    *
    * 通过插槽插入的内容，过滤出有效的子元素返回
    */
-  const options: ComputedRef<VNode[]> = computed((): VNode[] => {
+  const options = computed((): VNode[] => {
     // 如果没有插槽内容，返回空数组
     if (!slot.default) return []
 
@@ -40,11 +34,11 @@
   /**
    * 输入框绑定的值
    */
-  const inputValue: WritableComputedRef<string> = computed({
+  const inputValue = computed({
     /**
      * 通过获取到的子元素，计算当前绑定值对应的 label 展示文本框的内容
      */
-    get() {
+    get () {
       // 如果插槽没内容，则返回空字符串
       if (!options.value.length) return ''
 
@@ -95,7 +89,7 @@
       // 优先级：插槽 > label > value
       return slot || label || (value && value.toString()) || ''
     },
-    set(val: string) {
+    set (val: string) {
       return val
     }
   })
@@ -106,10 +100,7 @@
    * @param newValue 新的 value 值
    * @param newLabel 新增 label 值
    */
-  const setValue: SelectSetValueInterface = (
-    newValue: string,
-    newLabel: SelectModelValueType
-  ): void => {
+  const setValue = (newValue: string, newLabel: SelectModelValueType): void => {
     inputValue.value = newValue
     emit('update:modelValue', newLabel)
   }
@@ -122,7 +113,7 @@
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { width } = prop
 
     return {

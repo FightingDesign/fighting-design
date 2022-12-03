@@ -2,7 +2,7 @@
 
 .f-menu-item {
   display: flex;
-  padding: 10px 20px;
+  padding: 7px 16px;
   box-sizing: border-box;
   justify-content: flex-start;
   align-items: center;
@@ -14,7 +14,7 @@
   .f-svg-icon {
     margin-right: 5px;
     font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
-    color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+    color: var(--f-menu-item-color, var(--f-design-color-text-1));
   }
 
   // 文字内容
@@ -23,7 +23,27 @@
     color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
   }
 
+  // 选中的
+  &.f-menu-item__active {
+    .f-menu-item__text {
+      color: var(--f-design-color-primary-1) !important;
+    }
+  }
+
   &:hover {
     background: var(--f-design-color-primary-4);
+  }
+
+  &.f-menu-item__disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    .f-menu-item__text {
+      color: #333;
+    }
+
+    &:hover {
+      background: none;
+    }
   }
 }

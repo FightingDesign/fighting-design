@@ -4,6 +4,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
+  import { massageManage } from '../../_hooks'
   import {
     FIconSmileLineVue,
     FIconLightbulbVue,
@@ -11,15 +12,10 @@
     FIconCircleCrossVue,
     FIconWarningVue
   } from '../../_svg'
-  import type { VNode, CSSProperties, ComputedRef, Ref } from 'vue'
-  import type {
-    OrdinaryFunctionInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { NotificationPropsType } from './props'
-  import { massageManage } from '../../_hooks'
+  import type { VNode, CSSProperties, ComputedRef } from 'vue'
+  import type { ClassListInterface } from '../../_interface'
 
-  const prop: NotificationPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     destroy: (): boolean => true
   })
@@ -47,28 +43,20 @@
   )
 
   const notificationRef = ref<HTMLDivElement>()
-  const notificationHeight: Ref<number> = ref<number>(0)
-  const visible: Ref<boolean> = ref<boolean>(false)
+  const notificationHeight = ref<number>(0)
+  const visible = ref<boolean>(false)
 
-  const isTop: ComputedRef<boolean> = computed((): boolean =>
-    prop.placement.includes('top')
-  )
+  const isTop = computed((): boolean => prop.placement.includes('top'))
 
-  const isRight: ComputedRef<boolean> = computed((): boolean =>
-    prop.placement.includes('right')
-  )
+  const isRight = computed((): boolean => prop.placement.includes('right'))
 
-  const siblingOffset: ComputedRef<number> = computed((): number =>
+  const siblingOffset = computed((): number =>
     massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value)
   )
 
-  const offset: ComputedRef<number> = computed(
-    (): number => prop.offset + siblingOffset.value
-  )
+  const offset = computed((): number => prop.offset + siblingOffset.value)
 
-  const bottom: ComputedRef<number> = computed(
-    (): number => notificationHeight.value + offset.value
-  )
+  const bottom = computed((): number => notificationHeight.value + offset.value)
 
   onMounted((): void => {
     nextTick((): void => {
@@ -78,23 +66,21 @@
     })
   })
 
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { type, round, close, placement } = prop
+  const classList = computed((): ClassListInterface => {
+    const { type, round, close, placement } = prop
 
-      return [
-        'f-notification',
-        {
-          [`f-notification__${type}`]: type,
-          [`f-notification__${placement}`]: placement,
-          'f-notification__round': round,
-          'f-notification__hasClose': close
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-notification',
+      {
+        [`f-notification__${type}`]: type,
+        [`f-notification__${placement}`]: placement,
+        'f-notification__round': round,
+        'f-notification__hasClose': close
+      }
+    ] as const
+  })
 
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { color, background, zIndex } = prop
 
     const styles: CSSProperties = {
@@ -114,20 +100,20 @@
 
   const timer = ref<NodeJS.Timeout>()
 
-  const clearTimer: OrdinaryFunctionInterface = (): void => {
+  const clearTimer = (): void => {
     if (!timer.value) return
     clearTimeout(timer.value)
   }
 
-  const closeMessage: OrdinaryFunctionInterface = (): void => {
+  const closeMessage = (): void => {
     clearTimer()
     visible.value = false
   }
-  const closeMessageEnd: OrdinaryFunctionInterface = (): void => {
+  const closeMessageEnd = (): void => {
     massageManage.removeInstance(prop.placement, prop.id)
   }
 
-  const startTime: OrdinaryFunctionInterface = (): void => {
+  const startTime = (): void => {
     if (!prop.duration) return
     timer.value = setTimeout((): void => {
       closeMessage()

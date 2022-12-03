@@ -4,11 +4,15 @@
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+  justify-content: center;
 
   // 文字内容
   .f-breadcrumb-item__text {
-    font-size: 15px;
-    color: var(--f-breadcrumb-item-text-color, var(--f-design-color-text-1));
+    font-size: var(
+      --f-breadcrumb-item-font-size,
+      var(--f-design-font-size-middle)
+    );
+    color: var(--f-breadcrumb-item-font-color, var(--f-design-color-text-1));
   }
 
   // icon

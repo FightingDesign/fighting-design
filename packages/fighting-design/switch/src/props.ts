@@ -47,14 +47,14 @@ export const Props = {
   /**
    * 打开时的颜色
    */
-  openColor: {
+  activeColor: {
     type: String,
     default: (): null => null
   },
   /**
    * 自定义打开时的文案
    */
-  openText: {
+  activeText: {
     type: String,
     default: (): null => null
   },

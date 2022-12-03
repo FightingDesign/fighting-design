@@ -2,25 +2,23 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import { sizeChange, runCallback } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { HandleMouseEventInterface } from '../../_interface'
-  import type { SvgIconPropsType } from './props'
+  import type { CSSProperties } from 'vue'
 
-  const prop: SvgIconPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 点击触发
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClick = (evt: MouseEvent): void => {
     runCallback(prop.onClick, evt)
   }
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { size, color } = prop
 
     return {

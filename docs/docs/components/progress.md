@@ -249,7 +249,7 @@ import type {
 </script>
 
 <style scoped>
-.f-progress {
-  margin-bottom: 10px;
-}
+  .f-progress {
+    margin-bottom: 10px;
+  }
 </style>

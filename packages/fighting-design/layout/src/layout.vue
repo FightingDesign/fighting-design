@@ -2,15 +2,14 @@
   import { Props } from './props'
   import { useSlots, computed } from 'vue'
   import type { VNode, Component } from 'vue'
-  import type { LayoutPropsType } from './props'
 
-  const prop: LayoutPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const slot = useSlots()
 
   /**
    * 判断排列方式
    */
-  const isVertical: Component<boolean> = computed((): boolean => {
+  const isVertical = computed((): boolean => {
     if (prop.direction === 'vertical') {
       return true
     } else if (prop.direction === 'horizontal') {

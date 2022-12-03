@@ -1,9 +1,8 @@
 <script lang="ts" setup name="FTableColgroup">
   import { Props } from './props'
   import { sizeChange } from '../../../../_utils'
-  import type { TablePropsType } from './interface'
 
-  const prop: TablePropsType = defineProps(Props)
+  const prop = defineProps(Props)
 </script>
 
 <template>

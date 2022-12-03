@@ -32,12 +32,3 @@ export interface UseOperationImgReturnInterface {
   rotateClockwise: OrdinaryFunctionInterface
   rotateCounterClock: OrdinaryFunctionInterface
 }
-
-/**
- * useOperationImg 方法类型接口
- *
- * 无参数，返回 UseOperationImgReturnInterface 类型
- */
-export interface UseOperationImgInterface {
-  (): UseOperationImgReturnInterface
-}

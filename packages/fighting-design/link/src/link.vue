@@ -1,24 +1,20 @@
 <script lang="ts" setup name="FLink">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { computed } from 'vue'
-  import { sizeChange, runCallback } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type {
-    HandleMouseEventInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { LinkPropsType } from './props'
+  import { runCallback } from '../../_utils'
+  import { useList } from '../../_hooks'
 
-  const prop: LinkPropsType = defineProps(Props)
+  const prop = defineProps(Props)
+
+  const { classes, styles } = useList(prop, 'link')
 
   /**
    * 点击触发
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    if (prop.prohibit || prop.noLink) {
+  const handleClick = (evt: MouseEvent): void => {
+    if (prop.disabled || prop.noLink) {
       evt.preventDefault()
       return
     }
@@ -28,33 +24,12 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { type, state, prohibit, noCopy } = prop
-
-      return [
-        'f-link',
-        {
-          [`f-link__${state}`]: state,
-          [`f-link__${type}`]: type,
-          'f-link__prohibit': prohibit,
-          'f-link__no-copy': noCopy
-        }
-      ] as const
-    }
-  )
+  const classList = classes(['type', 'state', 'disabled', 'noCopy'], 'f-link')
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { size, color } = prop
-
-    return {
-      color,
-      fontSize: sizeChange(size)
-    } as const
-  })
+  const styleList = styles(['size', 'color'])
 </script>
 
 <template>
@@ -63,6 +38,7 @@
     :class="classList"
     :style="styleList"
     :href="href"
+    :disabled="disabled"
     :target="target"
     @click="handleClick"
   >

@@ -4,7 +4,6 @@ import type {
 } from '../../_interface'
 
 export type {
-  HandleEventInterface,
   OrdinaryFunctionInterface
 } from '../../_interface'
 
@@ -35,60 +34,12 @@ export interface LoadCallbackInterface {
 }
 
 /**
- * 加载图片方法接口
- *
- * @param node 所需要设置的 img 节点
- * @param prop props 参数
- * @param callback 回调函数
- */
-export interface LoadImageInterface {
-  (
-    node: HTMLImageElement,
-    prop: LoadImagePropsInterface,
-    callback: CallbackInterface | null
-  ): void
-}
-
-/**
- * 开始加载图片类型接口
- *
- * 用于 Load 的 loadCreateImg 类方法
- *
- * 可接收一个可选的 errSrc 参数
- *
- * 如果有 errSrc 则加载备用地址，否则加载 src
- */
-export interface LoadCreateImgInterface {
-  (errSrc?: string): void
-}
-
-/**
- * 加载图片方法类型接口
- *
- * @param evt 事件对象
- * @param src 图片地址
- */
-export interface LoadOnloadInterface {
-  (evt: Event, src: string): void
-}
-
-/**
- * 懒加载函数类型接口
- *
- * 无参数，返回 IntersectionObserver
- *
- * @see IntersectionObserver https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/IntersectionObserver
- */
-export interface LoadLazyObserverInterface {
-  (): IntersectionObserver
-}
-
-/**
  * Load 加载类接口
  *
  * @param node img 元素节点
  * @param props 需要的 props 参数
  * @param callback 回调函数
+ * @param loadErrSrc 是否已经加载过失败的地址
  * @param loadCreateImg 开始加载图片
  * @param onerror 用于处理加载失败
  * @param onload 用于处理加载成功
@@ -97,6 +48,7 @@ export interface LoadInterface {
   node: HTMLImageElement
   props: LoadImagePropsInterface
   callback: CallbackInterface | null
+  loadErrSrc: boolean
   loadCreateImg: LoadCreateImgInterface
   onerror: HandleEventInterface
   onload: LoadOnloadInterface
