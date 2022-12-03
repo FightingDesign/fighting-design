@@ -6,6 +6,11 @@
   vertical-align: middle;
   user-select: none;
 
+  &__prev-more > *,
+  &__next-more > * {
+    pointer-events: none;
+  }
+
   // 分页主体
   &__pages {
     display: flex;

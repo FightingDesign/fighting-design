@@ -221,6 +221,7 @@
    */
   const pageClick = (evt: Event): void => {
     const target = evt.target as HTMLElement
+
     if (target.tagName.toLowerCase() === 'ul' || prop.disabled) {
       return
     }
