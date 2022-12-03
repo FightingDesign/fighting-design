@@ -6,29 +6,6 @@
   vertical-align: middle;
   user-select: none;
 
-  .f-button {
-    border-radius: 2px;
-  }
-
-  // 左右切换的按钮
-  // &__prev,
-  // &__next {
-  //   width: 34px;
-  //   height: 34px;
-  //   display: inline-flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   border: none;
-  //   padding: 0;
-  //   cursor: pointer;
-  //   background: var(--f-design-color-text-2);
-  // }
-
-  // &__prev-more > *,
-  // &__next-more > * {
-  //   pointer-events: none;
-  // }
-
   // 分页主体
   &__pages {
     display: flex;
