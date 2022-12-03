@@ -115,6 +115,9 @@ importers:
   packages/fighting-resolver:
     specifiers: {}
 
+  packages/fighting-setup-name:
+    specifiers: {}
+
   packages/fighting-theme:
     specifiers: {}
 
