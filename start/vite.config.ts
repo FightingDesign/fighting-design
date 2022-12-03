@@ -1,12 +1,15 @@
 import vue from '@vitejs/plugin-vue'
-import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import { resolve } from 'path'
+import FightingSetupNamePlugin from '../packages/fighting-setup-name'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {
     base: './',
-    plugins: [vue(), vueSetupExtend()],
+    plugins: [
+      vue(),
+      FightingSetupNamePlugin()
+    ],
     server: {
       port: 1216
     },

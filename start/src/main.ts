@@ -16,4 +16,7 @@ import '@fighting-design/fighting-theme'
 // import FightingDesign from '../../dist'
 // import '../dist/dist/index.css'
 
-createApp(App).use(FightingDesign).use(router).mount('#start')
+createApp(App)
+  .use(FightingDesign)
+  .use(router)
+  .mount('#start')

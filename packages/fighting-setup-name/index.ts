@@ -1,1 +1,3 @@
-export const fightingSetupName = () => { }
+import { FightingSetupNamePlugin } from './src/unplugin'
+
+export default FightingSetupNamePlugin.vite

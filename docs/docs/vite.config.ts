@@ -1,11 +1,11 @@
 import { resolve } from 'path'
-import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
+import FightingSetupNamePlugin from '../../packages/fighting-setup-name'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {
     plugins: [
-      vueSetupExtend() // 设置组件名插件
+      FightingSetupNamePlugin() // 设置组件名插件
     ],
     optimizeDeps: {
       exclude: ['vitepress']

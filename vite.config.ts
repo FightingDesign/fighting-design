@@ -1,6 +1,6 @@
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
-import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite' // https://github.com/chenxch/unplugin-vue-setup-extend-plus
+import FightingSetupNamePlugin from './packages/fighting-setup-name'
 import { resolve } from 'path'
 import { copyFileSync } from 'fs'
 import { name, version } from './packages/fighting-design/package.json'
@@ -24,7 +24,7 @@ export default (): UserConfigExport => {
           move()
         }
       }),
-      vueSetupExtend(),
+      FightingSetupNamePlugin(),
       visualizer()
     ],
     build: {
