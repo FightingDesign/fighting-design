@@ -1,4 +1,4 @@
-# @fighting-design/vite-plugin-vue-fighting-setup-name <a href="https://www.npmjs.com/package/@fighting-design/fighting-icon"><img src="https://badgen.net/npm/v/@fighting-design/vite-plugin-vue-fighting-setup-name" /></a>
+# @fighting-design/vite-plugin-vue-fighting-setup-name <a href="https://www.npmjs.com/package/@fighting-design/vite-plugin-vue-fighting-setup-name"><img src="https://badgen.net/npm/v/@fighting-design/vite-plugin-vue-fighting-setup-name" /></a>
 
 中文 | [英文]()
 
