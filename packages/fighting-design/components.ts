@@ -201,8 +201,8 @@ export * from './menu'
 export { FMenuItem } from './menu-item'
 export * from './menu-item'
 
-// export { FSlider } from './slider'
-// export * from './slider'
+export { FSlider } from './slider'
+export * from './slider'
 
 export { FSubmenu } from './submenu'
 export * from './submenu'

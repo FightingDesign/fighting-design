@@ -12,7 +12,7 @@ export const Props = {
    * 步长（注意和步数区别开来）
    */
   step: {
-    type: [Number, String] as PropType<number | string>,
+    type: Number,
     default: (): number => 1
   },
   /**

@@ -1,4 +1,4 @@
-import { isFunction } from 'packages/fighting-design/_utils'
+// import { isFunction } from 'packages/fighting-design/_utils'
 
 function supportTouch (): boolean {
   return !!(
@@ -73,23 +73,23 @@ class Drag {
       const { x, y } = getEventXY(e)
       const { oldEposition, oldPosition } = this
       const npos = {
-        x: oldPosition.x + x - oldEposition.x,
-        y: oldPosition.y + y - oldEposition.y
+        x: oldPosition.x + (x - oldEposition.x),
+        y: oldPosition.y + (y - oldEposition.y)
       }
       if (options && options.stop) e.stopPropagation()
       if (options && options.prevent) e.preventDefault()
-      if (isFunction(callback)) callback(e, npos, { end: false })
+      if ((callback)) callback(e, npos, { end: false })
     }
     const end = (e: TouchEvent & MouseEvent): void => {
       const { x, y } = getEventXY(e)
       const { oldEposition, oldPosition } = this
       const npos = {
-        x: oldPosition.x + x - oldEposition.x,
-        y: oldPosition.y + y - oldEposition.y
+        x: oldPosition.x + (x - oldEposition.x),
+        y: oldPosition.y + (y - oldEposition.y)
       }
       if (options && options.stop) e.stopPropagation()
       if (options && options.prevent) e.preventDefault()
-      if (isFunction(callback)) callback(e, npos, { end: true })
+      if ((callback)) callback(e, npos, { end: true })
       document.removeEventListener(touchmove, move)
       document.removeEventListener(touchend, end)
       document.removeEventListener('selectstart', stopselect)
