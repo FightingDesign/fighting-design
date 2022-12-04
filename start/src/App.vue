@@ -6,6 +6,11 @@
     FIconCameraVideoSlash,
     FIconClock
   } from '@fighting-design/fighting-icon'
+  import { FMessage } from '@/index'
+
+  const handleClick = ({ index, evt }) => {
+    FMessage.primary(`index：${index} evt：${evt}`)
+  }
 
   const value3 = ref(true)
 
@@ -33,6 +38,13 @@
   </f-breadcrumb>
 
   <f-switch v-model="value3" :icon="FIconCameraVideoSlash" />
+
+  <f-toolbar :on-click="handleClick">
+    <f-toolbar-item index="1" :icon="FIconApps" />
+    <f-toolbar-item index="2" :icon="FIconBlock" />
+    <f-toolbar-item index="3" :icon="FIconCameraVideoSlash" />
+    <f-toolbar-item index="4" :icon="FIconClock" />
+  </f-toolbar>
   <!-- <f-menu>
     <template #before>
       <f-avatar

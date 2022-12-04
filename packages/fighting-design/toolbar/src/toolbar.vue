@@ -47,21 +47,13 @@
   const handleClick = (evt: MouseEvent): void => {
     if (!slot.default) return
 
-    /**
-     * 获取内部的元素节点列表
-     */
-    const children: HTMLElement[] = evt.composedPath() as HTMLElement[]
+    const target: HTMLElement = evt.target as HTMLElement
 
-    /**
-     * 过滤出自己的亲孩子组件
-     */
-    const node: HTMLElement | undefined = children.find(
-      (item: HTMLElement): boolean => item.className === 'f-toolbar-item'
-    )
+    if (target.className === 'f-toolbar-item') {
+      const index: string | undefined = target.dataset.index
 
-    const index: string | undefined = node ? node.dataset.index : ''
-
-    runCallback(prop.onClick, { evt, index } as ToolbarClickParamsInterface)
+      runCallback(prop.onClick, { evt, index } as ToolbarClickParamsInterface)
+    }
   }
 </script>
 
