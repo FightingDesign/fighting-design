@@ -8,7 +8,10 @@
   align-items: center;
   box-sizing: border-box;
   justify-content: center;
-  background: var(--f-design-color-default-1);
+  height: var(--f-toolbar-height);
+  width: var(--f-toolbar-width);
+  color: var(--f-toolbar-text-color);
+  background: var(--f-toolbar-background, var(--f-design-color-default-1));
 
   // 不同尺寸
   @for $list from 1 to (length($ComponentsSize) + 1) {

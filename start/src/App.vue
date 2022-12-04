@@ -19,6 +19,7 @@
 </script>
 
 <template>
+  <h1>123122</h1>
   <f-pagination v-model:current="current" background disabled :total="total" />
   <f-pagination v-model:current="current" :total="total" />
 
@@ -39,7 +40,15 @@
 
   <f-switch v-model="value3" :icon="FIconCameraVideoSlash" />
 
-  <f-toolbar :on-click="handleClick">
+  <f-toolbar
+    :on-click="handleClick"
+    fixed
+    round
+    text-color="red"
+    background="black"
+    width="200px"
+    height="50px"
+  >
     <f-toolbar-item index="1" :icon="FIconApps" />
     <f-toolbar-item index="2" :icon="FIconBlock" />
     <f-toolbar-item index="3" :icon="FIconCameraVideoSlash" />
