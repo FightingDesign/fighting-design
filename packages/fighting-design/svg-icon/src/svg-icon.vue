@@ -1,10 +1,11 @@
 <script lang="ts" setup name="FSvgIcon">
   import { Props } from './props'
-  import { computed } from 'vue'
-  import { sizeChange, runCallback } from '../../_utils'
-  import type { CSSProperties } from 'vue'
+  import { runCallback } from '../../_utils'
+  import { useList } from '../../_hooks'
 
   const prop = defineProps(Props)
+
+  const { styles } = useList(prop, 'svg-icon')
 
   /**
    * 点击触发
@@ -18,14 +19,7 @@
   /**
    * 样式列表
    */
-  const styleList = computed((): CSSProperties => {
-    const { size, color } = prop
-
-    return {
-      fontSize: sizeChange(size),
-      color
-    } as const
-  })
+  const styleList = styles(['size', 'color'])
 </script>
 
 <template>

@@ -20,6 +20,9 @@
 
 <template>
   <h1>123122</h1>
+
+  <f-svg-icon :icon="FIconCameraVideoSlash" color="red" size="30px" />
+
   <f-pagination v-model:current="current" background disabled :total="total" />
   <f-pagination v-model:current="current" :total="total" />
 
