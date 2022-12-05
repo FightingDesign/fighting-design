@@ -1,9 +1,9 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type {
-  ButtonSizeType,
-  ButtonTargetType,
+  ButtonSize,
+  ButtonTarget,
   ButtonType,
-  ButtonNativeType
+  ButtonNative
 } from './interface'
 import type { HandleMouseEventInterface } from '../../_interface'
 
@@ -50,9 +50,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<ButtonSizeType>,
-    default: (): ButtonSizeType => 'middle',
-    validator: (val: ButtonSizeType): boolean => {
+    type: String as PropType<ButtonSize>,
+    default: (): ButtonSize => 'middle',
+    validator: (val: ButtonSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -78,9 +78,9 @@ export const Props = {
    * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: {
-    type: String as PropType<ButtonTargetType>,
-    default: (): ButtonTargetType => '_self',
-    validator: (val: ButtonTargetType): boolean => {
+    type: String as PropType<ButtonTarget>,
+    default: (): ButtonTarget => '_self',
+    validator: (val: ButtonTarget): boolean => {
       return (['_blank', '_self', '_parent', '_top'] as const).includes(val)
     }
   },
@@ -156,9 +156,9 @@ export const Props = {
    * @see type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
    */
   nativeType: {
-    type: String as PropType<ButtonNativeType>,
-    default: (): ButtonNativeType => 'button',
-    validator: (val: ButtonNativeType): boolean => {
+    type: String as PropType<ButtonNative>,
+    default: (): ButtonNative => 'button',
+    validator: (val: ButtonNative): boolean => {
       return (['button', 'submit', 'reset'] as const).includes(val)
     }
   },
@@ -213,4 +213,4 @@ export const Props = {
   }
 } as const
 
-export type ButtonPropsType = ExtractPropTypes<typeof Props>
+export type ButtonProps = ExtractPropTypes<typeof Props>

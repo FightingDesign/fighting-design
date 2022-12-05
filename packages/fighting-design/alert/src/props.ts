@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { AlertType, AlertOverflowType } from './interface'
+import type { AlertType, AlertOverflow } from './interface'
 import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
@@ -106,9 +106,9 @@ export const Props = {
    * 超出展示方式
    */
   overflow: {
-    type: String as PropType<AlertOverflowType>,
+    type: String as PropType<AlertOverflow>,
     default: (): null => null,
-    validator: (val: AlertOverflowType) => {
+    validator: (val: AlertOverflow) => {
       return (['hidden', ''] as const).includes(val)
     }
   },
@@ -135,4 +135,4 @@ export const Props = {
   }
 } as const
 
-export type AlertPropsType = ExtractPropTypes<typeof Props>
+export type AlertProps = ExtractPropTypes<typeof Props>

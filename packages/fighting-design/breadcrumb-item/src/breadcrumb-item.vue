@@ -6,14 +6,14 @@
   import { useList } from '../../_hooks'
   import { FIconChevronRightVue } from '../../_svg'
   import type { VNode, Component, ComponentInternalInstance } from 'vue'
-  import type { BreadcrumbPropsType } from '../../breadcrumb'
+  import type { BreadcrumbProps } from '../../breadcrumb'
 
   const prop = defineProps(Props)
 
   /**
    * 获取注入依赖项
    */
-  const INJECT_DEPEND = inject<BreadcrumbPropsType | undefined>(
+  const INJECT_DEPEND = inject<BreadcrumbProps | undefined>(
     BREADCRUMB_PROPS_KEY,
     undefined
   )

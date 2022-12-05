@@ -61,4 +61,4 @@ export const Props = {
   }
 } as const
 
-export type BadgePropsType = ExtractPropTypes<typeof Props>
+export type BadgeProps = ExtractPropTypes<typeof Props>

@@ -17,4 +17,4 @@ export const Props = {
   }
 } as const
 
-export type AsidePropsType = ExtractPropTypes<typeof Props>
+export type AsideProps = ExtractPropTypes<typeof Props>

@@ -1,4 +1,4 @@
-export type { BreadcrumbItemPropsType } from './props'
+export type { BreadcrumbItemProps } from './props'
 
 /**
  * 跳转路径类型接口

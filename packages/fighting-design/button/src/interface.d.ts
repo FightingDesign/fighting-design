@@ -1,11 +1,11 @@
 import type { ButtonHTMLAttributes } from 'vue'
 
-export type { ButtonPropsType } from './props'
+export type { ButtonProps } from './props'
 
 /**
  * 不同尺寸类型
  */
-export type ButtonSizeType = 'large' | 'middle' | 'small' | 'mini'
+export type ButtonSize = 'large' | 'middle' | 'small' | 'mini'
 
 /**
  * 该属性指定在何处显示链接的资源
@@ -14,7 +14,7 @@ export type ButtonSizeType = 'large' | 'middle' | 'small' | 'mini'
  *
  * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
  */
-export type ButtonTargetType = '_blank' | '_self' | '_parent' | '_top'
+export type ButtonTarget = '_blank' | '_self' | '_parent' | '_top'
 
 /**
  * 不同类型
@@ -31,4 +31,4 @@ export type ButtonType =
  *
  * @see type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
  */
-export type ButtonNativeType = NonNullable<ButtonHTMLAttributes['type']>
+export type ButtonNative = NonNullable<ButtonHTMLAttributes['type']>

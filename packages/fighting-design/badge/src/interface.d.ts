@@ -1,4 +1,4 @@
-export type { BadgePropsType } from './props'
+export type { BadgeProps } from './props'
 
 /**
  * 不同类型

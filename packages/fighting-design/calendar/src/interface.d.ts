@@ -1,6 +1,6 @@
-export type { CalendarPropsType } from './props'
+export type { CalendarProps } from './props'
 
-export type CalendarTargetType = 'last' | 'now' | 'next'
+export type CalendarTarget = 'last' | 'now' | 'next'
 
 /**
  * 日历组件对于日期切换，和月份切换的回调函数接口

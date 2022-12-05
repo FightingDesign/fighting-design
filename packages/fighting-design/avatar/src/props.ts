@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { AvatarFitType, AvatarSizeType } from './interface'
+import type { AvatarFit, AvatarSize } from './interface'
 import type { HandleEventInterface } from '../../_interface'
 import { isString, isNumber } from '../../_utils'
 
@@ -57,9 +57,9 @@ export const Props = {
    * @values fill contain cover none scale-down
    */
   fit: {
-    type: String as PropType<AvatarFitType>,
+    type: String as PropType<AvatarFit>,
     default: (): null => null,
-    validator: (val: AvatarFitType): boolean => {
+    validator: (val: AvatarFit): boolean => {
       return (
         ['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const
       ).includes(val)
@@ -76,9 +76,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: [String, Number] as PropType<AvatarSizeType | number>,
-    default: (): AvatarSizeType => 'middle',
-    validator: (val: AvatarSizeType | number): boolean => {
+    type: [String, Number] as PropType<AvatarSize | number>,
+    default: (): AvatarSize => 'middle',
+    validator: (val: AvatarSize | number): boolean => {
       if (isString(val)) {
         return (['large', 'middle', 'small', 'mini'] as const).includes(val)
       } else if (isNumber(val)) {
@@ -138,4 +138,4 @@ export const Props = {
   }
 } as const
 
-export type AvatarPropsType = ExtractPropTypes<typeof Props>
+export type AvatarProps = ExtractPropTypes<typeof Props>

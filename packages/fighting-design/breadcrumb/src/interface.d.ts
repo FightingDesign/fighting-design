@@ -1,1 +1,1 @@
-export type { BreadcrumbPropsType } from './props'
+export type { BreadcrumbProps } from './props'

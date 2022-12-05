@@ -5,11 +5,11 @@
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import type { ClassListInterface } from '../../_interface'
   import type { CheckboxGroupLabelType } from '../../checkbox-group'
-  import type { CheckboxLabelType } from './interface'
+  import type { CheckboxProps } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: CheckboxLabelType): CheckboxLabelType | [] =>
+    'update:modelValue': (val: CheckboxProps): CheckboxProps | [] =>
       typeof val !== 'object'
   })
 

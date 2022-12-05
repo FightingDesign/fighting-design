@@ -78,4 +78,4 @@ export const Props = {
   }
 } as const
 
-export type CalendarPropsType = ExtractPropTypes<typeof Props>
+export type CalendarProps = ExtractPropTypes<typeof Props>

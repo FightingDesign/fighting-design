@@ -32,4 +32,4 @@ export const Props = {
   }
 }
 
-export type BreadcrumbItemPropsType = ExtractPropTypes<typeof Props>
+export type BreadcrumbItemProps = ExtractPropTypes<typeof Props>
