@@ -43,11 +43,8 @@ export const useProps = (prop): UsePropsReturnInterface => {
          *
          * 如果为真才过滤该属性
          */
-        if ((item as FilterParamsListInterface).callback()) {
-          result[(item as FilterParamsListInterface).key] = toRef(
-            prop,
-            (item as FilterParamsListInterface).key
-          )
+        if (item.callback && item.callback()) {
+          result[item.key] = toRef(prop, item.key)
         }
       }
     })

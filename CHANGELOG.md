@@ -9,6 +9,8 @@
 - 优化 `f-button` 组件实现
 - 优化 `f-ripple` 组件实现
 - 废除 `f-ripple` 组件 `no-select` 配置项
+- `f-card` 组件 `padding` 配置项默认值修改
+- `f-card` 组件 `shadow` 配置项可选参数修改
 
 ## 0.9.0-alpha.7 (2022-12-01)
 

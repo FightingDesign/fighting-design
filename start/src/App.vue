@@ -23,7 +23,11 @@
 <template>
   <h1>123122</h1>
 
-  <f-ripple
+  <f-card shadow="never">从不显示</f-card>
+  <f-card shadow="hover">Hover 显示</f-card>
+  <f-card shadow="always">总是显示</f-card>
+
+  <!-- <f-ripple
     v-for="(item, i) in typeList"
     :key="i"
     :type="item"
@@ -81,7 +85,7 @@
     <f-toolbar-item index="2" :icon="FIconBlock" />
     <f-toolbar-item index="3" :icon="FIconCameraVideoSlash" />
     <f-toolbar-item index="4" :icon="FIconClock" />
-  </f-toolbar>
+  </f-toolbar> -->
   <!-- <f-menu>
     <template #before>
       <f-avatar
@@ -112,7 +116,7 @@
 
   <!-- <br /> -->
 
-  <f-menu mode="inline" active-name="2" accordion>
+  <!-- <f-menu mode="inline" active-name="2" accordion>
     <f-submenu name="1">
       <template #title>这是标题</template>
 
@@ -140,7 +144,7 @@
       </f-menu-item>
       <f-menu-item name="3-2" :icon="FIconClock">上链应用</f-menu-item>
     </f-submenu>
-  </f-menu>
+  </f-menu> -->
 </template>
 
 <style scoped>

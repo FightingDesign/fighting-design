@@ -1,34 +1,31 @@
 <script lang="ts" setup name="FCard">
   import { Props } from './props'
-  import { computed } from 'vue'
-  import { sizeChange } from '../../_utils'
-  import type { ClassListInterface } from '../../_interface'
+  import { useList } from '../../_hooks'
 
   const prop = defineProps(Props)
+
+  const { classes, styles } = useList(prop, 'card')
 
   /**
    * 类名列表
    */
-  const classList = computed((): ClassListInterface => {
-    const { round, shadow } = prop
+  const classList = classes(['round', 'shadow'], 'f-card')
 
-    return [
-      'f-card',
-      {
-        'f-card__round': round,
-        [`f-card__shadow-${shadow}`]: shadow
-      }
-    ] as const
-  })
+  /**
+   * 样式列表
+   */
+  const styleList = styles(['padding'])
 </script>
 
 <template>
   <div :class="classList">
+    <!-- 头部 -->
     <div v-if="$slots.header || title" class="f-card__header">
       <slot name="header">{{ title }}</slot>
     </div>
 
-    <div class="f-card__body" :style="{ padding: sizeChange(padding) }">
+    <!-- 主内容 -->
+    <div class="f-card__body" :style="styleList">
       <slot />
     </div>
   </div>
