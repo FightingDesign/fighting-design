@@ -4,7 +4,8 @@
   import { computed, ref, inject, toRefs, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import { Ripples, ChangeColor, sizeChange, runCallback } from '../../_utils'
+  import { useCalculiColor } from '../../_hooks'
+  import { Ripples, sizeChange, runCallback } from '../../_utils'
   import type { CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
   import type {
@@ -110,23 +111,22 @@
     const { fontSize, fontColor, shadow, color } = prop
 
     if (color) {
-      const changeColor: ChangeColor = new ChangeColor(color)
-      const light: string = changeColor.getLightColor(0.4)
-      const dark: string = changeColor.getDarkColor(0.2)
+      const { getLightColor, getDarkColor } = useCalculiColor(color)
+
       return {
-        '--f-button-font-size': sizeChange(fontSize),
         '--f-button-font-color': fontColor,
         '--f-button-box-shadow': shadow,
         '--f-button-default-color': color,
-        '--f-button-hover-color': light,
-        '--f-button-active-color': dark
+        '--f-button-font-size': sizeChange(fontSize),
+        '--f-button-hover-color': getLightColor(0.4),
+        '--f-button-active-color': getDarkColor(0.2)
       } as CSSProperties
     }
 
     return {
-      '--f-button-font-size': sizeChange(fontSize),
+      '--f-button-box-shadow': shadow,
       '--f-button-font-color': fontColor,
-      '--f-button-box-shadow': shadow
+      '--f-button-font-size': sizeChange(fontSize)
     } as CSSProperties
   })
 </script>

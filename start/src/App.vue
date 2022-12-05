@@ -21,6 +21,9 @@
 <template>
   <h1>123122</h1>
 
+  <f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
+  <f-button font-color="#fff" color="#22c1c3">loading</f-button>
+
   <f-svg-icon :icon="FIconCameraVideoSlash" color="red" size="30px" />
 
   <f-pagination v-model:current="current" background disabled :total="total" />
