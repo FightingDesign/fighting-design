@@ -1,19 +1,17 @@
 <script lang="ts" setup name="FWatermark">
   import { Props } from './props'
-  import { createWatermark } from '../../_utils'
   import { ref, onMounted, computed } from 'vue'
-  import { useProps } from '../../_hooks'
+  import { useProps, useCanvas } from '../../_hooks'
   import type { CSSProperties } from 'vue'
-  import type { CreateWatermarkPropsInterface } from '../../_utils/create-watermark/interface'
 
   const prop = defineProps(Props)
 
   const { filter } = useProps(prop)
 
-  // 水印样式列表
-  const watermarkStyleList = ref<CSSProperties>(
-    null as unknown as CSSProperties
-  )
+  /**
+   * 水印样式列表
+   */
+  const style = ref<CSSProperties>(null as unknown as CSSProperties)
 
   /**
    * 文字水印
@@ -22,14 +20,8 @@
     /**
      * base 64 图片格式
      */
-    const watermark: string = createWatermark(
-      filter([
-        'content',
-        'width',
-        'height',
-        'fontSize',
-        'fontColor'
-      ]) as unknown as CreateWatermarkPropsInterface
+    const watermark: string = useCanvas().createWatermark(
+      filter(['content', 'width', 'height', 'fontSize', 'fontColor'])
     )
 
     return {
@@ -50,16 +42,14 @@
   })
 
   onMounted((): void => {
-    watermarkStyleList.value = prop.image
-      ? imageWatermark.value
-      : baseWatermark.value
+    style.value = prop.image ? imageWatermark.value : baseWatermark.value
   })
 </script>
 
 <template>
   <div
     :class="['f-watermark', { 'f-watermark__block': block }]"
-    :style="[watermarkStyleList, { zIndex }]"
+    :style="[style, { zIndex }]"
   >
     <slot />
   </div>

@@ -1,7 +1,6 @@
 export * from './install'
 export * from './load-image'
 export * from './utils'
-export * from './create-watermark'
 export * from './tree'
 export * from './calendar'
 export * from './calendar-lunar'
