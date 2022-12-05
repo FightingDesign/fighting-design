@@ -37,17 +37,16 @@
 <template>
   <transition name="f-tag">
     <div v-if="isShow" :class="classList" :style="{ background, color }">
-      <f-svg-icon v-if="beforeIcon">
-        <component :is="beforeIcon" />
-      </f-svg-icon>
+      <!-- 之前的 icon -->
+      <f-svg-icon v-if="beforeIcon" :icon="beforeIcon" />
 
       <slot />
 
-      <f-svg-icon v-if="afterIcon">
-        <component :is="afterIcon" />
-      </f-svg-icon>
+      <!-- 之后的 icon -->
+      <f-svg-icon v-if="afterIcon" :icon="afterIcon" />
 
-      <f-close-btn v-if="close" no-hover :size="14" @click.stop="handleClose" />
+      <!-- 关闭按钮 -->
+      <f-close-btn v-if="close" :size="14" @click.stop="handleClose" />
     </div>
   </transition>
 </template>

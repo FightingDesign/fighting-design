@@ -5,6 +5,9 @@
 - `f-breadcrumb` 和 `f-breadcrumb-item` 组件参数进行了部分改动
 - 优化 `f-toolbar` 组件点击相关逻辑
 - 优化 `f-pagination` 组件样式实现
+- 优化 `f-tag` 组件内部逻辑
+- 优化 `f-button` 组件实现
+- 优化 `f-ripple` 组件实现
 
 ## 0.9.0-alpha.7 (2022-12-01)
 
