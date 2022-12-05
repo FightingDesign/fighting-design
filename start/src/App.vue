@@ -23,7 +23,13 @@
 <template>
   <h1>123122</h1>
 
-  <f-ripple v-for="(item, i) in typeList" :key="i" :type="item">
+  <f-ripple
+    v-for="(item, i) in typeList"
+    :key="i"
+    :type="item"
+    :start-opacity="1"
+    :end-opacity="1"
+  >
     <div class="list">
       <f-text :type="item">{{ item }} 涟漪</f-text>
     </div>

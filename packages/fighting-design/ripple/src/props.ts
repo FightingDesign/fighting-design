@@ -52,13 +52,6 @@ export const Props = {
   endOpacity: {
     type: Number,
     default: (): number => 0
-  },
-  /**
-   * 是否禁止选中
-   */
-  noSelect: {
-    type: Boolean,
-    default: (): boolean => true
   }
 } as const
 

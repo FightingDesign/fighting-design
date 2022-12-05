@@ -7,7 +7,7 @@
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (target: boolean): string => String(target)
+    'update:modelValue': (target: boolean): boolean => target
   })
 
   /**

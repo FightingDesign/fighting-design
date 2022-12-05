@@ -1,12 +1,12 @@
 <script lang="ts" setup name="Ripple">
   import { Props } from './props'
-  import { useRipples } from '../../_hooks'
-  import { computed, ref, toRefs, reactive } from 'vue'
+  import { useRipples, useList } from '../../_hooks'
+  import { ref, toRefs, reactive } from 'vue'
   import type { RipplesOptions } from '../../_hooks'
-  import type { ClassListInterface } from '../../_interface'
-  import type { CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
+
+  const { styles } = useList(prop, 'ripple')
 
   /**
    * dom 节点
@@ -16,23 +16,7 @@
   /**
    * 样式列表
    */
-  const styleList = computed((): CSSProperties => {
-    const { startOpacity, endOpacity } = prop
-
-    return {
-      '--f-ripple-start-opacity': startOpacity,
-      '--f-ripple-end-opacity': endOpacity
-    } as CSSProperties
-  })
-
-  /**
-   * 类名列表
-   */
-  const classList = computed((): ClassListInterface => {
-    const { noSelect } = prop
-
-    return ['f-ripple', { 'f-ripple__select': noSelect }] as const
-  })
+  const styleList = styles(['startOpacity', 'endOpacity'])
 
   /**
    * 点击之后执行
@@ -59,7 +43,7 @@
 </script>
 
 <template>
-  <div ref="FRipple" :class="classList" :style="styleList" @click="handleClick">
+  <div ref="FRipple" class="f-ripple" :style="styleList" @click="handleClick">
     <slot />
   </div>
 </template>
