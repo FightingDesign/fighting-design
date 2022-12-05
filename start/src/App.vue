@@ -16,10 +16,26 @@
 
   const current = ref(1)
   const total = ref(100)
+
+  const typeList = ref(['default', 'primary', 'success', 'danger', 'warning'])
 </script>
 
 <template>
   <h1>123122</h1>
+
+  <f-ripple v-for="(item, i) in typeList" :key="i" :type="item">
+    <div class="list">
+      <f-text :type="item">{{ item }} 涟漪</f-text>
+    </div>
+  </f-ripple>
+
+  <f-button type="primary">主要按钮</f-button>
+  <f-button type="success" ripples>涟漪效果</f-button>
+  <f-button type="warning" ripples>点我试试</f-button>
+  <f-button type="danger" ripples simple>看看我</f-button>
+  <f-button type="success" text ripples ripples-color="green">
+    自定义涟漪颜色
+  </f-button>
 
   <f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
   <f-button font-color="#fff" color="#22c1c3">loading</f-button>
@@ -121,4 +137,11 @@
   </f-menu>
 </template>
 
-<style lang="scss"></style>
+<style scoped>
+  .list {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

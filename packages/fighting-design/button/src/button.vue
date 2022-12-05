@@ -4,14 +4,11 @@
   import { computed, ref, inject, toRefs, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import { useCalculiColor } from '../../_hooks'
-  import { Ripples, sizeChange, runCallback } from '../../_utils'
+  import { useCalculiColor, useRipples } from '../../_hooks'
+  import { sizeChange, runCallback } from '../../_utils'
+  import type { RipplesOptions } from '../../_hooks'
   import type { CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
-  import type {
-    RipplesMouseEventInterface,
-    RipplesOptionInterface
-  } from '../../_utils/ripples/interface'
 
   const prop = defineProps(Props)
 
@@ -80,7 +77,7 @@
       /**
        * 涟漪类需要的选项列表
        */
-      const options: RipplesOptionInterface = reactive({
+      const options: RipplesOptions = reactive({
         duration: 700,
         component: 'f-button',
         className: 'f-button__ripples',
@@ -90,15 +87,9 @@
         type: type.value
       } as const)
 
-      /**
-       * 初始化涟漪类
-       */
-      const ripples: Ripples = new Ripples(
-        evt as unknown as RipplesMouseEventInterface,
-        FButton.value as HTMLButtonElement,
-        options
-      )
-      ripples.clickRipples()
+      const { runRipples } = useRipples(evt, FButton.value, options)
+
+      runRipples()
     }
 
     runCallback(prop.onClick, evt)

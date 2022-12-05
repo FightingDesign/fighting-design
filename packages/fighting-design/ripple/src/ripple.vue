@@ -1,7 +1,8 @@
 <script lang="ts" setup name="Ripple">
   import { Props } from './props'
-  import { Ripples } from '../../_utils'
-  import { computed, ref, toRefs } from 'vue'
+  import { useRipples } from '../../_hooks'
+  import { computed, ref, toRefs, reactive } from 'vue'
+  import type { RipplesOptions } from '../../_hooks'
   import type { ClassListInterface } from '../../_interface'
   import type { CSSProperties } from 'vue'
 
@@ -39,23 +40,21 @@
    * @param evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
-    const { type, ripplesColor, duration, disabled } = toRefs(prop)
+    if (prop.disabled) return
 
-    if (disabled.value) return
+    const { type, ripplesColor, duration } = toRefs(prop)
 
-    const ripples: Ripples = new Ripples(
-      evt as MouseEvent,
-      FRipple.value as HTMLElement,
-      {
-        duration: duration.value,
-        component: 'f-ripple',
-        className: 'f-ripple__animation',
-        type: type.value,
-        ripplesColor: ripplesColor.value
-      } as const
-    )
+    const options: RipplesOptions = reactive({
+      duration: duration.value,
+      component: 'f-ripple',
+      className: 'f-ripple__animation',
+      type: type.value,
+      ripplesColor: ripplesColor.value
+    })
 
-    ripples.clickRipples()
+    const { runRipples } = useRipples(evt, FRipple.value, options)
+
+    runRipples()
   }
 </script>
 

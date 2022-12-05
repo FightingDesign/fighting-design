@@ -25,6 +25,9 @@ export class Ripples implements RipplesInterface {
    * 点击生成涟漪效果
    */
   clickRipples = (): void => {
+
+    console.log('123')
+
     /**
      * clientX clientY 可获取到点击相对于页面的坐标
      *
