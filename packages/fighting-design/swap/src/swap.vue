@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FSwap">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { runCallback } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import { computed } from 'vue'
   import type { ClassListInterface } from '../../_interface'
 
@@ -15,7 +15,7 @@
    */
   const changeSwap = (): void => {
     emit('update:modelValue', !prop.modelValue)
-    runCallback(prop.onChange, !prop.modelValue)
+    useRun(prop.onChange, !prop.modelValue)
   }
 
   /**

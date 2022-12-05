@@ -44,8 +44,6 @@ export const useList = <T>(prop: T, name: string): UseListReturnInterface => {
        */
       const propList: Record<string, unknown> = filter(list)
 
-      console.log(propList)
-
       // 是否存在其它需要直接加入的类名
       if (className) {
         classList.value.push(className)

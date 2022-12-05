@@ -4,12 +4,12 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FText } from '../../text'
   import { FIconChevronLeftVue, FIconChevronRightVue } from '../../_svg'
-  import { addZero, sizeChange, WEEK_DATA, runCallback } from '../../_utils'
-  import { useCalculiTime } from '../../_hooks'
+  import { addZero, sizeChange, WEEK_DATA } from '../../_utils'
+  import { useCalculiTime, useRun } from '../../_hooks'
   import type { CSSProperties } from 'vue'
-  import type { CalendarTargetType, CalendarPropsType } from './interface'
+  import type { CalendarTarget } from './interface'
 
-  const prop: CalendarPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 当前年份
@@ -50,7 +50,7 @@
    *
    * @param target 不同类型用于切换当前时间、下个月、上个月
    */
-  const optionClick = (target: CalendarTargetType): void => {
+  const optionClick = (target: CalendarTarget): void => {
     const option = {
       last: (): void => changeLastMonth(),
       next: (): void => changeNextMonth(),
@@ -89,7 +89,7 @@
       changeNextMonth()
     }
 
-    runCallback(prop.onChangeDate, {
+    useRun(prop.onChangeDate, {
       year: year.value,
       month: _month || month.value,
       date: _date
@@ -127,7 +127,7 @@
   watch(
     (): number => month.value,
     (newValue: number): void => {
-      runCallback(prop.onChangeMonth, {
+      useRun(prop.onChangeMonth, {
         year: year.value,
         month: newValue + 1,
         date: date.value

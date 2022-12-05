@@ -3,7 +3,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { computed } from 'vue'
   import { FIconCrossVue } from '../../_svg'
-  import { runCallback } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import type { CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
 
@@ -16,7 +16,7 @@
    */
   const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    runCallback(prop.onClick, evt)
+    useRun(prop.onClick, evt)
   }
 
   /**

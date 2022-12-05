@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FPopup">
   import { Props } from './props'
   import { computed } from 'vue'
-  import { sizeChange, isBoolean, runCallback } from '../../_utils'
+  import { sizeChange, isBoolean } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import type { CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
@@ -23,7 +24,7 @@
    * @param evt 事件对象
    */
   const handleOpen = (evt: MouseEvent): void => {
-    runCallback(prop.onOpen, evt)
+    useRun(prop.onOpen, evt)
   }
 
   /**
@@ -32,7 +33,7 @@
    * @param evt 事件对象
    */
   const handleOpenEnd = (evt: MouseEvent): void => {
-    runCallback(prop.onOpenEnd, evt)
+    useRun(prop.onOpenEnd, evt)
   }
 
   /**
@@ -41,7 +42,7 @@
    * @param evt 事件对象
    */
   const handleClose = (evt: MouseEvent): void => {
-    runCallback(prop.onClose, evt)
+    useRun(prop.onClose, evt)
   }
 
   /**
@@ -50,7 +51,7 @@
    * @param evt 事件对象
    */
   const handleCloseEnd = (evt: MouseEvent): void => {
-    runCallback(prop.onCloseEnd, evt)
+    useRun(prop.onCloseEnd, evt)
   }
 
   /**

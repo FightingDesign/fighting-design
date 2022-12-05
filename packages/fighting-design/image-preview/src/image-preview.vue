@@ -5,7 +5,7 @@
   import { FToolbar } from '../../toolbar'
   import { FToolbarItem } from '../../toolbar-item'
   import { FPopup } from '../../popup'
-  import { isBoolean, runCallback } from '../../_utils'
+  import { isBoolean } from '../../_utils'
   import {
     FIconChevronLeftVue,
     FIconChevronRightVue,
@@ -16,7 +16,7 @@
     FIconZoomInVue,
     FIconZoomOutVue
   } from '../../_svg'
-  import { useOperationImg } from '../../_hooks'
+  import { useOperationImg, useRun } from '../../_hooks'
   import type { Ref } from 'vue'
   import type {
     ImagePreviewSwitchImageInterface,
@@ -53,7 +53,7 @@
    */
   const handleClose = (): void => {
     emit('update:visible', false)
-    runCallback(prop.onClose)
+    useRun(prop.onClose)
   }
 
   /**

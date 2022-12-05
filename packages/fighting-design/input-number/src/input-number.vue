@@ -9,7 +9,8 @@
   } from '../../_svg'
   import { FInput } from '../../input'
   import { FButton } from '../../button'
-  import { isNumber, runCallback } from '../../_utils'
+  import { isNumber } from '../../_utils'
+  import { useRun } from '../../_hooks'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -97,7 +98,7 @@
 
     map[target]()
 
-    runCallback(prop.onChange, inputValue.value)
+    useRun(prop.onChange, inputValue.value)
   }
 </script>
 

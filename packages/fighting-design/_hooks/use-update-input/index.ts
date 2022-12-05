@@ -1,4 +1,5 @@
-import { runCallback, isNumber } from '../../_utils'
+import { isNumber } from '../../_utils'
+import { useRun } from '../../_hooks'
 import type {
   UseUpdateInputEmitInterface,
   UseUpdateInputPropsInterface,
@@ -31,7 +32,7 @@ export const useUpdateInput = (
         : (evt.target as HTMLInputElement).value
     )
 
-    runCallback(prop.onInput, (evt.target as HTMLInputElement).value)
+    useRun(prop.onInput, (evt.target as HTMLInputElement).value)
   }
 
   /**
@@ -40,7 +41,7 @@ export const useUpdateInput = (
    * @param evt 事件对象
    */
   const onChange = (evt: Event): void => {
-    runCallback(prop.onChange, (evt.target as HTMLInputElement).value)
+    useRun(prop.onChange, (evt.target as HTMLInputElement).value)
   }
 
   /**

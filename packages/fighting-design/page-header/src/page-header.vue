@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FPageHeader">
   import { Props } from './props'
-  import { sizeChange, runCallback } from '../../_utils'
+  import { sizeChange } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import { FIconArrowLeftVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
 
@@ -12,7 +13,7 @@
    * @param evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
-    runCallback(prop.onBack, evt)
+    useRun(prop.onBack, evt)
   }
 </script>
 

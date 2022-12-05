@@ -4,7 +4,7 @@
  * @param callback 回调函数
  * @param params 回调参数
  */
-export const runCallback = <T extends Function, F>(
+export const useRun = <T extends Function, F>(
   callback: T | null,
   params?: F | null
 ): void => {

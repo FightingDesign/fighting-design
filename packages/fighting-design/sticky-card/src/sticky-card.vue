@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FStickyCard">
   import { Props } from './props'
   import { ref, computed, unref } from 'vue'
-  import { sizeChange, runCallback } from '../../_utils'
+  import { sizeChange } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import { FCollapseAnimation } from '../../collapse-animation'
   import type { CSSProperties } from 'vue'
 
@@ -17,7 +18,7 @@
    */
   const handleClick = (): void => {
     isOpened.value = !isOpened.value
-    runCallback(isOpened.value ? prop.onClose : prop.onOpen, isOpened.value)
+    useRun(isOpened.value ? prop.onClose : prop.onOpen, isOpened.value)
   }
 
   /**

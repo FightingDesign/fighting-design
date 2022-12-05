@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FCheckboxGroup">
   import { Props, CHECKBOX_GROUP_PROPS_KEY } from './props'
   import { provide, reactive, toRefs, computed } from 'vue'
-  import { sizeChange, isArray, runCallback } from '../../_utils'
+  import { sizeChange, isArray } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import type { CheckboxGroupLabelType } from './interface'
   import type { CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
@@ -16,7 +17,7 @@
    */
   const changeEvent = (val: CheckboxGroupLabelType): void => {
     emit('update:modelValue', val)
-    runCallback(prop.onChange, val)
+    useRun(prop.onChange, val)
   }
 
   /**

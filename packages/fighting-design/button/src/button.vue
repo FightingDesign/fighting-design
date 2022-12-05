@@ -4,8 +4,8 @@
   import { computed, ref, inject, toRefs, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import { useCalculiColor, useRipples } from '../../_hooks'
-  import { sizeChange, runCallback } from '../../_utils'
+  import { useCalculiColor, useRipples , useRun } from '../../_hooks'
+  import { sizeChange } from '../../_utils'
   import type { RipplesOptions } from '../../_hooks'
   import type { CSSProperties } from 'vue'
   import type { ClassListInterface } from '../../_interface'
@@ -92,7 +92,7 @@
       runRipples()
     }
 
-    runCallback(prop.onClick, evt)
+    useRun(prop.onClick, evt)
   }
 
   /**

@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FTrigger">
   import { Props, TRIGGER_CLOSE_KEY } from './props'
   import { ref, computed, onMounted, provide, reactive } from 'vue'
-  import { sizeChange, runCallback } from '../../_utils'
+  import { sizeChange } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import type { ComputedRef, CSSProperties } from 'vue'
   import type { TriggerProvideInterface } from './interface'
 
@@ -17,8 +18,8 @@
    */
   const handelOpen = (): void => {
     showContent.value = true
-    runCallback(prop.onOpen, showContent.value)
-    runCallback(prop.onChange, showContent.value)
+    useRun(prop.onOpen, showContent.value)
+    useRun(prop.onChange, showContent.value)
   }
 
   /**
@@ -26,8 +27,8 @@
    */
   const handelClose = (): void => {
     showContent.value = false
-    runCallback(prop.onClose, showContent.value)
-    runCallback(prop.onChange, showContent.value)
+    useRun(prop.onClose, showContent.value)
+    useRun(prop.onChange, showContent.value)
   }
 
   /**

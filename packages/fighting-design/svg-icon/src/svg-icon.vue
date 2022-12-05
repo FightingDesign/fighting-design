@@ -1,7 +1,6 @@
 <script lang="ts" setup name="FSvgIcon">
   import { Props } from './props'
-  import { runCallback } from '../../_utils'
-  import { useList } from '../../_hooks'
+  import { useList, useRun } from '../../_hooks'
 
   const prop = defineProps(Props)
 
@@ -13,7 +12,7 @@
    * @param evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
-    runCallback(prop.onClick, evt)
+    useRun(prop.onClick, evt)
   }
 
   /**

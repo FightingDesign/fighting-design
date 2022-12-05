@@ -1,4 +1,5 @@
-import { isString, runCallback } from '../index'
+import { isString } from '../index'
+import { useRun } from '../../_hooks'
 import type {
   LoadLazyInterface,
   LoadInterface,
@@ -74,8 +75,8 @@ class Load implements LoadInterface {
     }
 
     // 否则返回失败回调
-    runCallback(this.props.onError, evt)
-    runCallback(this.callback, false)
+    useRun(this.props.onError, evt)
+    useRun(this.callback, false)
   }
   /**
    * 图片加载
@@ -84,8 +85,8 @@ class Load implements LoadInterface {
    */
   onload = (evt: Event, src: string): void => {
     this.node.src = src
-    runCallback(this.props.onLoad, evt)
-    runCallback(this.callback, true)
+    useRun(this.props.onLoad, evt)
+    useRun(this.callback, true)
   }
 }
 

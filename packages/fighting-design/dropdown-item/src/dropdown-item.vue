@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FDropdownItem">
   import { Props } from './props'
-  import { runCallback } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import { inject } from 'vue'
   import { TRIGGER_CLOSE_KEY } from '../../trigger/src/props'
   import type { TriggerProvideInterface } from '../../trigger'
@@ -22,8 +22,8 @@
    */
   const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    runCallback(INJECT_DEPEND.handelClose)
-    runCallback(prop.onClick, evt)
+    useRun(INJECT_DEPEND.handelClose)
+    useRun(prop.onClick, evt)
   }
 </script>
 

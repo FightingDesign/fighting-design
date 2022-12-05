@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FToolbarItem">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { runCallback } from '../../_utils'
+  import { useRun } from '../../_hooks'
 
   const prop = defineProps(Props)
 
@@ -11,7 +11,7 @@
    * @param evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
-    runCallback(prop.onClick, evt)
+    useRun(prop.onClick, evt)
   }
 </script>
 

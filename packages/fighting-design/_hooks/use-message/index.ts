@@ -1,8 +1,8 @@
 import messageVue from '../../message/src/message.vue'
 import notificationVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
-import { useMassageManage } from '../../_hooks'
-import { runCallback, isString } from '../../_utils'
+import { useMassageManage, useRun } from '../../_hooks'
+import { isString } from '../../_utils'
 import type { ComponentInternalInstance, VNode } from 'vue'
 import type {
   MessageInstance,
@@ -52,7 +52,7 @@ export const useMessage = (target: 'message' | 'notification'): UseMessageReturn
      * 关闭动画结束时，移除dom
      */
     props.onDestroy = (): void => {
-      runCallback(props.onClose)
+      useRun(props.onClose)
       render(null, container)
     }
 

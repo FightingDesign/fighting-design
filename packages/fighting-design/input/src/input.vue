@@ -9,8 +9,8 @@
     FIconEyeOffOutlineVue,
     FIconEyeOutlineVue
   } from '../../_svg'
-  import { isString, runCallback, isNumber } from '../../_utils'
-  import { useUpdateInput, useProps } from '../../_hooks'
+  import { isString, isNumber } from '../../_utils'
+  import { useUpdateInput, useProps, useRun } from '../../_hooks'
   import type { InputType } from './interface'
   import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
 
@@ -67,7 +67,7 @@
    * @param evt 事件对象
    */
   const handleSearch = (evt: Event): void => {
-    runCallback(prop.onSearch, { evt, value: prop.modelValue })
+    useRun(prop.onSearch, { evt, value: prop.modelValue })
   }
 
   /**
@@ -82,7 +82,7 @@
       handleSearch(evt)
     }
 
-    runCallback(onEnter.value, evt)
+    useRun(onEnter.value, evt)
   }
 
   /**

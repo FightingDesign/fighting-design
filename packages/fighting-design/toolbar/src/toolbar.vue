@@ -1,8 +1,7 @@
 <script lang="ts" setup name="FToolbar">
   import { Props } from './props'
   import { useSlots } from 'vue'
-  import { runCallback } from '../../_utils'
-  import { useList } from '../../_hooks'
+  import { useList, useRun } from '../../_hooks'
   import type { ToolbarClickParamsInterface } from './interface'
 
   const prop = defineProps(Props)
@@ -33,7 +32,7 @@
     if (target.className === 'f-toolbar-item') {
       const index: string | undefined = target.dataset.index
 
-      runCallback(prop.onClick, { evt, index } as ToolbarClickParamsInterface)
+      useRun(prop.onClick, { evt, index } as ToolbarClickParamsInterface)
     }
   }
 </script>

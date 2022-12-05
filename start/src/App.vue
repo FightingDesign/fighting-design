@@ -23,9 +23,15 @@
 <template>
   <h1>123122</h1>
 
+  <f-alert type="default">默认提示信息</f-alert>
+  <f-alert type="primary">主要提示信息</f-alert>
+  <f-alert type="success">成功提示信息</f-alert>
+  <f-alert type="danger">危险提示信息</f-alert>
+  <f-alert type="warning">警告提示信息</f-alert>
+<!-- 
   <f-card shadow="never">从不显示</f-card>
   <f-card shadow="hover">Hover 显示</f-card>
-  <f-card shadow="always">总是显示</f-card>
+  <f-card shadow="always">总是显示</f-card> -->
 
   <!-- <f-ripple
     v-for="(item, i) in typeList"

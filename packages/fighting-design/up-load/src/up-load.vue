@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FUpLoad">
   import { Props } from './props'
   import { FButton } from '../../button'
-  import { runCallback } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import { ref, watch } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
@@ -31,7 +31,7 @@
   const updateFiles = (files: File[]): void => {
     fileList.value = files
     emit('update:files', files)
-    runCallback(prop.onLoad)
+    useRun(prop.onLoad)
   }
 
   /**

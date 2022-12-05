@@ -3,8 +3,7 @@
   import { ref } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
-  import { runCallback } from '../../_utils'
-  import { useList } from '../../_hooks'
+  import { useList, useRun } from '../../_hooks'
 
   const prop = defineProps(Props)
 
@@ -41,7 +40,7 @@
    */
   const handleClose = (evt: MouseEvent): void => {
     isShow.value = false
-    runCallback(prop.onClose, evt)
+    useRun(prop.onClose, evt)
   }
 </script>
 

@@ -2,8 +2,7 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
-  import { runCallback } from '../../_utils'
-  import { useList } from '../../_hooks'
+  import { useList, useRun } from '../../_hooks'
   import type { ClassListInterface } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -24,7 +23,7 @@
   const handleClick = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', !prop.modelValue)
-    runCallback(prop.onChange, !prop.modelValue)
+    useRun(prop.onChange, !prop.modelValue)
   }
 
   /**

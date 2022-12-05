@@ -1,8 +1,7 @@
 <script lang="ts" setup name="FLink">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { runCallback } from '../../_utils'
-  import { useList } from '../../_hooks'
+  import { useList, useRun } from '../../_hooks'
 
   const prop = defineProps(Props)
 
@@ -18,7 +17,7 @@
       evt.preventDefault()
       return
     }
-    runCallback(prop.onClick, evt)
+    useRun(prop.onClick, evt)
   }
 
   /**
