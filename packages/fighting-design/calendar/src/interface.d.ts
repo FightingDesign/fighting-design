@@ -2,6 +2,12 @@ export type { CalendarProps } from './props'
 
 export type CalendarTarget = 'last' | 'now' | 'next'
 
+export interface CalendarCallbackParams {
+  year: number
+  month: number
+  date: number
+}
+
 /**
  * 日历组件对于日期切换，和月份切换的回调函数接口
  *
@@ -11,8 +17,8 @@ export type CalendarTarget = 'last' | 'now' | 'next'
  * @param month 月份
  * @param date 日期
  */
-export interface CalendarCallbackInterface {
-  ({ year: number, month: number, date: number }): void
+export interface CalendarCallback {
+  (params: CalendarCallbackParams): void
 }
 
 /**

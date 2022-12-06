@@ -8,7 +8,7 @@
   const prop = defineProps(Props)
 
   // 多选项
-  const optionalList = ref<string[]>([])
+  const optionalList = ref(false)
 
   /**
    * 样式列表

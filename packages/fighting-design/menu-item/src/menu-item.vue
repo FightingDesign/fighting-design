@@ -10,7 +10,7 @@
 
   const prop: MenuItemPropsType = defineProps(Props)
 
-  const { styles } = useList('menu-item', prop)
+  const { styles } = useList(prop, 'menu-item')
 
   /**
    * 注入父组件的模式依赖项

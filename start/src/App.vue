@@ -3,11 +3,11 @@
 
   const option2 = ref(['汉堡'])
 
-  const value = ref<boolean>('123')
+  // const value = ref<boolean>('123')
 </script>
 
 <template>
-  <input v-model="value" type="checkbox" />
+  <!-- <input v-model="value" type="checkbox" /> -->
 
   <!-- <input v-model="abc" type="text" /> -->
   <!-- <f-checkbox v-model="option1" label="酸辣土豆丝" />

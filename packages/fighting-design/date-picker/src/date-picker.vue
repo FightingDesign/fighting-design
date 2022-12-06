@@ -4,6 +4,7 @@
   import { FInput } from '../../input'
   import { FDropdown } from '../../dropdown'
   import { FCalendar } from '../../calendar'
+  import type { CalendarCallbackParams } from '../../calendar'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -38,15 +39,19 @@
    *
    * 通过点击日历上的时间进行选取
    */
-  const changeDate = ({ year, month, date }): void => {
+  const changeDate = ({ year, month, date }: CalendarCallbackParams): void => {
     // 如果存在格式化配置项
     if (prop.format) {
-      const checkDate = { YYYY: year, MM: month, DD: date }
+      const checkDate = {
+        YYYY: year,
+        MM: month,
+        DD: date
+      }
 
       let formatDate: string = prop.format
 
       for (const key in checkDate) {
-        formatDate = formatDate.replace(key, checkDate[key])
+        formatDate = formatDate.replace(key, checkDate[key as string])
       }
       pickerDate.value = formatDate
       return

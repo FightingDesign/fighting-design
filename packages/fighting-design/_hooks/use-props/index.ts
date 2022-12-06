@@ -32,7 +32,7 @@ export const useProps = <T extends object>(prop: T): UsePropsReturnInterface => 
        * @see toRef https://cn.vuejs.org/api/reactivity-utilities.html#toref
        */
       if (isString(item)) {
-        result[item] = toRef(prop, item)
+        result[item] = toRef(prop, item as never)
       } else if (isObject(item)) {
         /**
          * 如果是 object 类型
@@ -44,7 +44,7 @@ export const useProps = <T extends object>(prop: T): UsePropsReturnInterface => 
          * 如果为真才过滤该属性
          */
         if (item.callback && item.callback()) {
-          result[item.key] = toRef(prop, item.key)
+          result[item.key] = toRef(prop, item.key as never)
         }
       }
     })

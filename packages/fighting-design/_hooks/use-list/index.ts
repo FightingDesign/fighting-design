@@ -17,7 +17,7 @@ import type { FilterParamsInterface } from '../use-props/interface'
  * @param name 组件名
  * @returns { UseListReturnInterface } 类名列表和样式列表方法，可解构出 classes styles
  */
-export const useList = <T>(prop: T, name: string): UseListReturnInterface => {
+export const useList = <T extends object>(prop: T, name: string): UseListReturnInterface => {
   /**
    * 过滤 props
    *

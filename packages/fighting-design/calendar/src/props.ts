@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes } from 'vue'
 import type {
-  CalendarCallbackInterface,
+  CalendarCallback,
   CalendarMemorandumType
 } from './interface'
 
@@ -66,14 +66,14 @@ export const Props = {
    * 月份改变时触发的回调
    */
   onChangeDate: {
-    type: Function as PropType<CalendarCallbackInterface>,
+    type: Function as PropType<CalendarCallback>,
     default: (): null => null
   },
   /**
    * 日期改变时触发的回调
    */
   onChangeMonth: {
-    type: Function as PropType<CalendarCallbackInterface>,
+    type: Function as PropType<CalendarCallback>,
     default: (): null => null
   }
 } as const
