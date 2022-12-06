@@ -1,12 +1,11 @@
 <script lang="ts" setup name="FPagination">
   import { Props } from './props'
   import { computed, ref, watchEffect } from 'vue'
+  import { isNumber } from '../../_utils'
   import {
     FIconChevronLeftVue,
     FIconChevronRightVue,
-    FIconMenuMeatball,
-    FIconMediaRewind,
-    FIconMediaFastForward
+    FIconMenuMeatball
   } from '../../_svg'
   import { FInput } from '../../input'
   import { FSelect } from '../../select'
@@ -17,16 +16,17 @@
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:current': (current: number): boolean => typeof current === 'number',
-    'update:pageSize': (pageSize: number): boolean =>
-      typeof pageSize === 'number'
+    'update:current': (current: number): boolean => isNumber(current),
+    'update:pageSize': (pageSize: number): boolean => isNumber(pageSize)
   })
 
   /**
    * 当前快速跳转的页码
    */
   const jumpCurrent = ref<string>('1')
-
+  /**
+   * 下拉菜单绑定的默认值，每页条数
+   */
   const pagesLen = ref<number>(10)
   /**
    * 上一页更多图标的 visible
@@ -36,22 +36,6 @@
    * 下一页更多图标的 visible
    */
   const showNextMore = ref<boolean>(false)
-  /**
-   * 上一页箭头图标 hover
-   */
-  const prevHover = ref<boolean>(false)
-  /**
-   * 上一页箭头图标 focus
-   */
-  const prevFocus = ref<boolean>(false)
-  /**
-   * 下一页箭头图标 hover
-   */
-  const nextHover = ref<boolean>(false)
-  /**
-   * 下一页箭头图标 focus
-   */
-  const nextFocus = ref<boolean>(false)
 
   /**
    * 计算出最大页码数
@@ -149,24 +133,39 @@
   })
 
   /**
-   * 点击上一页触发的回调
+   * 翻页方法 可控制上一页或者下一页切换
+   *
+   * @param target 切换的方向
    */
-  const toPrev = (): void => {
+  const handelTurnPages = (target: 'Next' | 'Prev'): void => {
     if (prop.disabled) return
-    const newCurrent = prop.current === 1 ? 1 : prop.current - 1
-    emit('update:current', newCurrent)
-    prop.onPrev && prop.onPrev(newCurrent, prop.pageSize)
-  }
 
-  /**
-   * 点击下一页触发的回调
-   */
-  const toNext = (): void => {
-    if (prop.disabled) return
-    const newCurrent =
-      prop.current === maxCount.value ? maxCount.value : prop.current + 1
-    emit('update:current', newCurrent)
-    prop.onNext && prop.onNext(newCurrent, prop.pageSize)
+    /**
+     * 最新的页码数
+     */
+    let newCurrent
+
+    const map = {
+      /**
+       * 下一页切换
+       */
+      Next: (): void => {
+        newCurrent =
+          prop.current === maxCount.value ? maxCount.value : prop.current + 1
+      },
+      /**
+       * 上一页切换
+       */
+      Prev: (): void => {
+        newCurrent = prop.current === 1 ? 1 : prop.current - 1
+      }
+    } as const
+
+    if (map[target]) {
+      map[target]()
+      emit('update:current', newCurrent)
+      prop['on' + target] && prop['on' + target](newCurrent, prop.pageSize)
+    }
   }
 
   /**
@@ -261,30 +260,6 @@
       prop.onChange && prop.onChange(newPage, prop.pageSize)
     }
   }
-
-  /**
-   * 显示箭头的 move 事件
-   */
-  const handleMoveEnter = (forward = false): void => {
-    if (prop.disabled) return
-    if (forward) {
-      prevHover.value = true
-    } else {
-      nextHover.value = true
-    }
-  }
-
-  /**
-   * 显示箭头的 hover 事件
-   */
-  const handleFocus = (forward = false): void => {
-    if (prop.disabled) return
-    if (forward) {
-      prevFocus.value = true
-    } else {
-      nextFocus.value = true
-    }
-  }
 </script>
 
 <template>
@@ -311,11 +286,11 @@
       :size="background ? 'middle' : 'small'"
       :style="{ borderRadius: '2px' }"
       :before-icon="prevIcon || FIconChevronLeftVue"
-      :on-click="toPrev"
+      @click="handelTurnPages('Prev')"
     />
 
     <!-- 分页主内容 -->
-    <ul v-if="prop.total > 0" :class="listClassList" @click="handelPageClick">
+    <ul v-if="total > 0" :class="listClassList" @click="handelPageClick">
       <!-- 第一页 -->
       <li :class="firstPage">1</li>
 
@@ -323,17 +298,8 @@
       <li
         v-if="showPrevMore"
         :class="['f-pagination__prev-more', 'f-pagination__pages-item']"
-        @mouseenter="handleMoveEnter(true)"
-        @mouseleave="prevHover = false"
-        @focus="handleFocus(true)"
-        @blur="prevFocus = false"
       >
-        <f-svg-icon
-          v-if="(prevHover || prevFocus) && !disabled"
-          :size="15"
-          :icon="FIconMediaRewind"
-        />
-        <f-svg-icon v-else :size="15" :icon="FIconMenuMeatball" />
+        <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
       </li>
 
       <!-- 中间的页码 -->
@@ -355,32 +321,24 @@
       <li
         v-if="showNextMore"
         :class="['f-pagination__next-more', 'f-pagination__pages-item']"
-        @mouseenter="handleMoveEnter()"
-        @mouseleave="nextHover = false"
-        @focus="handleFocus()"
-        @blur="nextFocus = false"
       >
-        <f-svg-icon
-          v-if="(nextHover || nextFocus) && !disabled"
-          :size="15"
-          :icon="FIconMediaFastForward"
-        />
-        <f-svg-icon v-else :size="15" :icon="FIconMenuMeatball" />
+        <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
       </li>
 
       <!-- 最后一页 -->
-      <li v-if="prop.total > 1" :class="lastPage">
+      <li v-if="total > 1" :class="lastPage">
         {{ maxCount }}
       </li>
     </ul>
 
     <!-- 下一页按钮 -->
     <f-button
+      circle
       :disabled="disabled"
       :size="background ? 'middle' : 'small'"
       :style="{ borderRadius: '2px' }"
       :before-icon="nextIcon || FIconChevronRightVue"
-      :on-click="toNext"
+      @click="handelTurnPages('Next')"
     />
 
     <!-- 快速跳转搜索框 -->

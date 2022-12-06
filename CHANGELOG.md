@@ -11,6 +11,9 @@
 - 废除 `f-ripple` 组件 `no-select` 配置项
 - `f-card` 组件 `padding` 配置项默认值修改
 - `f-card` 组件 `shadow` 配置项可选参数修改
+- `f-pagination` 组件 `prev-click` 配置项改为 `on-prev`
+- `f-pagination` 组件 `next-click` 配置项改为 `on-next`
+- `f-pagination` 组件 `change` 配置项改为 `on-change`
 
 ## 0.9.0-alpha.7 (2022-12-01)
 
