@@ -1,16 +1,21 @@
 <script lang="ts" setup name="FSlider">
   import { Props } from './props'
   import { computed, onMounted, ref } from 'vue'
+  import { isNumber } from '../../_utils'
+  import { FTooltip } from '../../tooltip'
   import dragDirective from './drag'
   import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
-  // import { FSvgIcon } from '../../svg-icon'
 
   const prop = defineProps(Props)
+  const emit = defineEmits({
+    'update:modelValue': (val: number): boolean => isNumber(val)
+  })
 
-  // 自定义指令
+  /**
+   * 自定义指令
+   */
   const vDrag = dragDirective
-
   /**
    * dom 元素
    */
@@ -20,9 +25,6 @@
     return parseInt(FSlider.value.offsetWidth + '')
   })
 
-  // watch(() => prop.modelValue, (newValue) => {
-
-  // })
   onMounted(() => {
     const { min, max, modelValue } = prop
     if (
@@ -46,11 +48,10 @@
    * 类名列表
    */
   const classList = computed((): ClassList => {
-    const { disabled } = prop
     return [
       'f-slider',
       {
-        'f-slider__disabled': disabled
+        'f-slider__disabled': prop.disabled
       }
     ] as const
   })
@@ -59,16 +60,15 @@
    * style样式列表
    */
   const styleList = computed((): CSSProperties => {
-    const { bgColor } = prop
-    const styles = {
-      '--f-slider-bg-color': bgColor
+    return {
+      '--f-slider-bg-color': prop.bgColor
     } as CSSProperties
-    return styles
   })
 
-  function setPosition(position: 'left' | 'right', dot: number) {
+  const setPosition = (position: 'left' | 'right', dot: number): void => {
     const { min, max, step } = prop
     if (position === 'left') {
+      console.log('position')
     } else {
       if (dot < 0) {
         dot = 0
@@ -89,28 +89,24 @@
   // #region 右dot
   const rightTx = ref(0)
 
-  function onRightDrag(e, npos, { end }) {
+  const onRightDrag = (e, opt): void => {
     if (prop.disabled) return
-    const { x, y } = npos
+    const { x } = opt
     const percentDot = (x * 100) / sliderWidth.value
     setPosition('right', percentDot)
   }
-
-  // #endregion
-
-  const emit = defineEmits(['update:modelValue'])
 </script>
 
 <template>
   <div ref="FSlider" class="f-slider" :class="classList" :style="styleList">
-    <div class="f-slider__selected" :style="`width: ${rightTx}px`"></div>
+    <div class="f-slider__selected" :style="`width: ${rightTx}px`" />
     <div
       v-drag="onRightDrag"
       class="f-slider__right__icon f-slider__icon"
       :style="`transform:translateX(${rightTx}px)`"
     >
       <f-tooltip :content="modelValue" position="top" state="always">
-        <div style="height: 25px"></div>
+        <div style="height: 25px" />
       </f-tooltip>
     </div>
   </div>

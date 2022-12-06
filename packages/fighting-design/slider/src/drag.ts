@@ -1,6 +1,4 @@
-// import { isFunction } from 'packages/fighting-design/_utils'
-
-function supportTouch (): boolean {
+const supportTouch = (): boolean => {
   return !!(
     'ontouchstart' in window ||
     (window.navigator &&
@@ -10,7 +8,7 @@ function supportTouch (): boolean {
   )
 }
 
-function getTouchEvents (): Record<string, keyof GlobalEventHandlersEventMap> {
+const getTouchEvents = (): Record<string, keyof GlobalEventHandlersEventMap> => {
   const touch = supportTouch()
   return {
     touchstart: touch ? 'touchstart' : 'mousedown',
@@ -18,37 +16,37 @@ function getTouchEvents (): Record<string, keyof GlobalEventHandlersEventMap> {
     touchend: touch ? 'touchend' : 'mouseup'
   }
 }
-// ================
+
 const { touchstart, touchmove, touchend } = getTouchEvents()
 
-function getEventXY (e: TouchEvent & MouseEvent): { x: number; y: number } {
+const getEventXY = (e: TouchEvent & MouseEvent): { x: number; y: number } => {
   const xy =
     touchstart === 'touchstart'
       ? {
-          x: e.changedTouches[0].clientX,
-          y: e.changedTouches[0].clientY
-        }
+        x: e.changedTouches[0].clientX,
+        y: e.changedTouches[0].clientY
+      }
       : {
-          x: e.clientX,
-          y: e.clientY
-        }
+        x: e.clientX,
+        y: e.clientY
+      }
 
   return xy
 }
 
-function getTransformXY (dom: HTMLElement): { x: number; y: number } {
+const getTransformXY = (dom: HTMLElement): { x: number; y: number } => {
   let ntf = [0, 0]
   const tf = dom.style.transform.match(/([+-\d.]+(?=px))/g)
   if (tf) ntf = [Number(tf[0]) || 0, Number(tf[1]) || 0]
   const [x, y] = ntf
   return { x, y }
 }
-// ================
+
 class Drag {
   target: HTMLElement
   callback: (
     e: TouchEvent & MouseEvent,
-    npos: { x: number; y: number },
+    opt: { x: number; y: number },
     more: { end: boolean }
   ) => void
   oldPosition = { x: 0, y: 0 }
@@ -58,7 +56,7 @@ class Drag {
     target: HTMLElement,
     callback: (
       e: TouchEvent & MouseEvent,
-      npos: { x: number; y: number },
+      opt: { x: number; y: number },
       more: { end: boolean }
     ) => void,
     options: { stop: boolean; prevent: boolean }
@@ -72,24 +70,24 @@ class Drag {
     const move = (e: TouchEvent & MouseEvent): void => {
       const { x, y } = getEventXY(e)
       const { oldEposition, oldPosition } = this
-      const npos = {
+      const opt = {
         x: oldPosition.x + (x - oldEposition.x),
         y: oldPosition.y + (y - oldEposition.y)
       }
       if (options && options.stop) e.stopPropagation()
       if (options && options.prevent) e.preventDefault()
-      if (callback) callback(e, npos, { end: false })
+      if (callback) callback(e, opt, { end: false })
     }
     const end = (e: TouchEvent & MouseEvent): void => {
       const { x, y } = getEventXY(e)
       const { oldEposition, oldPosition } = this
-      const npos = {
+      const opt = {
         x: oldPosition.x + (x - oldEposition.x),
         y: oldPosition.y + (y - oldEposition.y)
       }
       if (options && options.stop) e.stopPropagation()
       if (options && options.prevent) e.preventDefault()
-      if (callback) callback(e, npos, { end: true })
+      if (callback) callback(e, opt, { end: true })
       document.removeEventListener(touchmove, move)
       document.removeEventListener(touchend, end)
       document.removeEventListener('selectstart', stopselect)
@@ -115,7 +113,7 @@ export default {
     binding: {
       value: (
         e: TouchEvent & MouseEvent,
-        npos: { x: number; y: number }
+        opt: { x: number; y: number }
       ) => void
       modifiers: { stop: boolean; prevent: boolean }
     }

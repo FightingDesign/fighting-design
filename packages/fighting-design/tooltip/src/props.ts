@@ -6,7 +6,7 @@ export const Props = {
    * 提示内容
    */
   content: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /**

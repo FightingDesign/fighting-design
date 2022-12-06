@@ -14,6 +14,7 @@
 - `f-pagination` 组件 `prev-click` 配置项改为 `on-prev`
 - `f-pagination` 组件 `next-click` 配置项改为 `on-next`
 - `f-pagination` 组件 `change` 配置项改为 `on-change`
+- `f-tooltip` 组件 `content` 配置项支持 `number` 类型
 
 ## 0.9.0-alpha.7 (2022-12-01)
 
