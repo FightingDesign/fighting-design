@@ -30,7 +30,7 @@ class Drag {
     this.target = target
     this.callback = callback
 
-    const stopselect = (evt: MouseEvent): void => {
+    const stopSelect = (evt: MouseEvent): void => {
       evt.preventDefault()
     }
 
@@ -58,7 +58,7 @@ class Drag {
       if (callback) callback(evt, opt, { end: true })
       document.removeEventListener('mousemove', move)
       document.removeEventListener('mouseup', end)
-      document.removeEventListener('selectstart', stopselect)
+      document.removeEventListener('selectstart', stopSelect)
     }
 
     const start = (evt: MouseEvent): void => {
@@ -68,7 +68,7 @@ class Drag {
       if (options && options.prevent) evt.preventDefault()
       document.addEventListener('mousemove', move, { passive: false })
       document.addEventListener('mouseup', end, { passive: false })
-      document.addEventListener('selectstart', stopselect)
+      document.addEventListener('selectstart', stopSelect)
     }
 
     this.target.addEventListener('mousedown', start, { passive: false })
