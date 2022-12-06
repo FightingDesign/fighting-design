@@ -14,7 +14,7 @@
   /**
    * 传递给日历组件的当前时间
    */
-  const date = new Date()
+  const date = new Date
 
   /**
    * 获取选择的日期 & 设置日期
@@ -51,7 +51,10 @@
       let formatDate: string = prop.format
 
       for (const key in checkDate) {
-        formatDate = formatDate.replace(key, checkDate[key as string])
+        /**
+         * @see replace https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+         */
+        formatDate = formatDate.replace(key, checkDate[key])
       }
       pickerDate.value = formatDate
       return

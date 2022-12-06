@@ -6,11 +6,11 @@
   import { isArray, isBoolean } from '../../_utils'
   import type { CheckboxGroupInject } from '../../checkbox-group'
   import type { ClassList } from '../../_interface'
-  import type { CheckboxModelValue } from './interface'
+  import type { CheckboxBooleanish } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: CheckboxModelValue): CheckboxModelValue =>
+    'update:modelValue': (val: CheckboxBooleanish): CheckboxBooleanish =>
       typeof val !== 'object'
   })
 
@@ -30,17 +30,14 @@
      * 获取值
      */
     get () {
-      if (INJECT_DEPEND) {
-        return INJECT_DEPEND.modelValue
-      }
-      return prop.modelValue
+      return (INJECT_DEPEND && INJECT_DEPEND.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
     set (val) {
       if (!INJECT_DEPEND) {
-        emit('update:modelValue', val as CheckboxModelValue)
+        emit('update:modelValue', val as CheckboxBooleanish)
         useRun(prop.onChange, val)
         return
       }
