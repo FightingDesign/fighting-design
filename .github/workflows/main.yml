@@ -20,7 +20,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 7.17.1
 
       # 安装 node
       - name: Setup node
