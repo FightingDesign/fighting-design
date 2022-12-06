@@ -40,9 +40,8 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
     const idx: number = getInstanceIndex(placement, id)
     if (idx === -1) return 0
     const beforeInstance: MessageInstance =
-      (instances[placement] as MessageInstance[])[
-      isNext ? idx + 1 : idx - 1
-      ] || null
+      (instances[placement] as MessageInstance[])[isNext ? idx + 1 : idx - 1] ||
+      null
     if (!beforeInstance) return 0
 
     /**
@@ -72,7 +71,7 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
     id: string
   ): void => {
     const idx: number = getInstanceIndex(placement, id)
-      ; (instances[placement] as MessageInstance[]).splice(idx, 1)
+    ;(instances[placement] as MessageInstance[]).splice(idx, 1)
   }
 
   /**

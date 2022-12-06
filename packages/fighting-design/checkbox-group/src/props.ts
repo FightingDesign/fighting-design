@@ -1,8 +1,5 @@
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
-import type {
-  CheckboxGroupSize,
-  CheckboxGroupChange
-} from './interface'
+import type { CheckboxGroupSize, CheckboxGroupChange } from './interface'
 
 export const Props = {
   /**

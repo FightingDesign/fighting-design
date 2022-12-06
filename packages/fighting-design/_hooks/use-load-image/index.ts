@@ -2,12 +2,8 @@ import { ref } from 'vue'
 import { useProps } from '../index'
 import { loadImage } from '../../_utils'
 import type { Ref } from 'vue'
-import type {
-  LoadImagePropsInterface
-} from '../../_utils/load-image/interface'
-import type {
-  UseLoadImageReturnInterface
-} from './interface'
+import type { LoadImagePropsInterface } from '../../_utils/load-image/interface'
+import type { UseLoadImageReturnInterface } from './interface'
 
 export const useLoadImage = <T extends { lazy: boolean }>(
   prop: T

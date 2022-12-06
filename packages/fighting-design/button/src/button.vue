@@ -4,7 +4,7 @@
   import { computed, ref, inject, toRefs, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import { useCalculiColor, useRipples , useRun } from '../../_hooks'
+  import { useCalculiColor, useRipples, useRun } from '../../_hooks'
   import { sizeChange } from '../../_utils'
   import type { RipplesOptions } from '../../_hooks'
   import type { CSSProperties } from 'vue'

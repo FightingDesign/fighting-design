@@ -13,14 +13,14 @@ export interface CheckboxGroupChange {
 }
 
 export interface CheckboxGroupInject {
-  modelValue: string[],
-  disabled: boolean,
-  vertical: boolean,
-  label: string,
-  border: boolean,
-  size: CheckboxGroupSize,
-  columnGap: string | number,
-  rowGap: string | number,
-  onChange: CheckboxGroupChange,
+  modelValue: string[]
+  disabled: boolean
+  vertical: boolean
+  label: string
+  border: boolean
+  size: CheckboxGroupSize
+  columnGap: string | number
+  rowGap: string | number
+  onChange: CheckboxGroupChange
   setChange(val: CheckboxGroupLabel): void
 }

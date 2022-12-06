@@ -4,7 +4,6 @@ import type { Ref, ComputedRef } from 'vue'
 import type {
   UseCalculiTimeReturnInterface,
   GetLunarDetailReturnInterface
-
 } from './interface'
 
 /**
@@ -14,7 +13,10 @@ import type {
  * @param month 月份响应式数据
  * @returns 当前月份展示的天数、上个月切换、下个月切换
  */
-export const useCalculiTime = (year: Ref<number>, month: Ref<number>): UseCalculiTimeReturnInterface => {
+export const useCalculiTime = (
+  year: Ref<number>,
+  month: Ref<number>
+): UseCalculiTimeReturnInterface => {
   /**
    * 获取当前月份的 1号是周几
    */

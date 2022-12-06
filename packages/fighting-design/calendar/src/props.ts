@@ -1,8 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type {
-  CalendarCallback,
-  CalendarMemorandumType
-} from './interface'
+import type { CalendarCallback, CalendarMemorandumType } from './interface'
 
 export const Props = {
   /**

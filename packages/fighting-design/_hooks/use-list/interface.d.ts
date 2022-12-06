@@ -9,6 +9,9 @@ import type { ClassList } from '../../_interface'
  * @param className 其它需要直接加入的类名
  */
 export interface UseListReturnInterface {
-  classes(list: FilterParamsInterface, className?: string): ComputedRef<ClassList>
+  classes(
+    list: FilterParamsInterface,
+    className?: string
+  ): ComputedRef<ClassList>
   styles(list: FilterParamsInterface): ComputedRef<CSSProperties>
 }

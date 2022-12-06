@@ -15,7 +15,7 @@ export default (): UserConfigExport => {
       fs: {
         /**
          * 可以为项目根目录的上一级提供服务
-         * 
+         *
          * @see allow https://cn.vitejs.dev/config/server-options.html#server-fs-allow
          */
         allow: [resolve(__dirname, '..', '..')]

@@ -1,11 +1,12 @@
 # Slider 滑动输入条
 
-Slider组件可以让用户通过自定义最大值、最小值、步长，来直观的设置某个数字或数字范围。
+Slider 组件可以让用户通过自定义最大值、最小值、步长，来直观的设置某个数字或数字范围。
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/slider)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/slider.md)
 
 ## 基本使用
+
 使用 `v-model` 绑定一个数字。
 
 ::: demo
@@ -101,8 +102,6 @@ Slider组件可以让用户通过自定义最大值、最小值、步长，来�
 ```
 
 :::
-
-
 
 <script setup lang="ts">
   import { ref } from 'vue'

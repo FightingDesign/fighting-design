@@ -2,7 +2,7 @@ const { toString } = Object.prototype
 
 /**
  * 检测一个值是否为指定的类型
- * 
+ *
  * @param value 要检测的值
  * @param type 预期类型
  * @returns { Boolean } 这个值是否为传入的类型
@@ -13,7 +13,7 @@ export const is = (value: unknown, type: string): boolean => {
 
 /**
  * 检测一个数据是否为 string 类型
- * 
+ *
  * @param value 要检测的值
  * @returns { boolean }
  */

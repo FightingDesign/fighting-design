@@ -6,10 +6,7 @@ import type { UserConfigExport } from 'vite'
 export default (): UserConfigExport => {
   return {
     base: './',
-    plugins: [
-      vue(),
-      FightingSetupNamePlugin()
-    ],
+    plugins: [vue(), FightingSetupNamePlugin()],
     server: {
       port: 1216
     },

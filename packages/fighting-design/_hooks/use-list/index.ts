@@ -17,7 +17,10 @@ import type { FilterParamsInterface } from '../use-props/interface'
  * @param name 组件名
  * @returns { UseListReturnInterface } 类名列表和样式列表方法，可解构出 classes styles
  */
-export const useList = <T extends object>(prop: T, name: string): UseListReturnInterface => {
+export const useList = <T extends object>(
+  prop: T,
+  name: string
+): UseListReturnInterface => {
   /**
    * 过滤 props
    *
@@ -33,7 +36,10 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturnI
    * @param list 类名所需要的 prop 参数
    * @param className 其它所需要的类名
    */
-  const classes = (list: FilterParamsInterface, className?: string): ComputedRef<ClassList> => {
+  const classes = (
+    list: FilterParamsInterface,
+    className?: string
+  ): ComputedRef<ClassList> => {
     return computed((): ClassList => {
       /**
        * 类名列表
@@ -57,7 +63,8 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturnI
            * 否则使用值拼接
            */
           classList.value.push(
-            `f-${name}__${isBoolean(propList[key]) ? convertFormat(key) : propList[key]
+            `f-${name}__${
+              isBoolean(propList[key]) ? convertFormat(key) : propList[key]
             }`
           )
         }

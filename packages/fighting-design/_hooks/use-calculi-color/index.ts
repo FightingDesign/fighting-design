@@ -5,9 +5,9 @@ export interface UseCalculiColorReturn {
 
 /**
  * 根据传入的 hex 计算出加深或减淡的颜色
- * 
+ *
  * @param color 需要计算的颜色
- * @returns 
+ * @returns
  */
 export const useCalculiColor = (color: string): UseCalculiColorReturn => {
   /**

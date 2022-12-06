@@ -78,7 +78,7 @@ class Drag {
       }
       if (options && options.stop) e.stopPropagation()
       if (options && options.prevent) e.preventDefault()
-      if ((callback)) callback(e, npos, { end: false })
+      if (callback) callback(e, npos, { end: false })
     }
     const end = (e: TouchEvent & MouseEvent): void => {
       const { x, y } = getEventXY(e)
@@ -89,7 +89,7 @@ class Drag {
       }
       if (options && options.stop) e.stopPropagation()
       if (options && options.prevent) e.preventDefault()
-      if ((callback)) callback(e, npos, { end: true })
+      if (callback) callback(e, npos, { end: true })
       document.removeEventListener(touchmove, move)
       document.removeEventListener(touchend, end)
       document.removeEventListener('selectstart', stopselect)

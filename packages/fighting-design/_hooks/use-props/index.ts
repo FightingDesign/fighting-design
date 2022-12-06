@@ -12,7 +12,9 @@ import type {
  * @param prop 需要操作的 prop 对象
  * @returns
  */
-export const useProps = <T extends object>(prop: T): UsePropsReturnInterface => {
+export const useProps = <T extends object>(
+  prop: T
+): UsePropsReturnInterface => {
   /**
    * 过滤 prop
    *

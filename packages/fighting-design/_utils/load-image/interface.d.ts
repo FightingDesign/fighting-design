@@ -3,9 +3,7 @@ import type {
   OrdinaryFunctionInterface
 } from '../../_interface'
 
-export type {
-  OrdinaryFunctionInterface
-} from '../../_interface'
+export type { OrdinaryFunctionInterface } from '../../_interface'
 
 /**
  * Load 加载类所需要的 props 参数

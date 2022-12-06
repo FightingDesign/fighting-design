@@ -8,7 +8,10 @@ import type { Component, VNode } from 'vue'
  * @param componentName 子元素的名字
  * @returns { VNode[] } 所需要的所有孩子节点列表
  */
-export const getChildren = (children: VNode[], componentName: string): VNode[] => {
+export const getChildren = (
+  children: VNode[],
+  componentName: string
+): VNode[] => {
   let components: VNode[] = []
 
   // 传入的子节点必须是一个有效数组

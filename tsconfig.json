@@ -10,18 +10,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "@types"
-    ]
+    "typeRoots": ["node_modules/@types", "@types"]
   },
-  "include": [
-    "packages/**/*.ts",
-    "packages/**/*.d.ts"
-  ]
+  "include": ["packages/**/*.ts", "packages/**/*.d.ts"]
 }

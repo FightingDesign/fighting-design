@@ -1,8 +1,5 @@
 import type { ComponentInternalInstance } from 'vue'
-import type {
-  MessageType,
-  MessagePropsType
-} from '../../message/src/interface'
+import type { MessageType, MessagePropsType } from '../../message/src/interface'
 export * from '../../message/src/interface'
 
 type InstanceOptions<T> = Partial<Mutable<T>> & {

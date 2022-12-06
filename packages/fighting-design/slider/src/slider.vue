@@ -66,7 +66,7 @@
     return styles
   })
 
-  function setPosition (position: 'left' | 'right', dot: number) {
+  function setPosition(position: 'left' | 'right', dot: number) {
     const { min, max, step } = prop
     if (position === 'left') {
     } else {
@@ -89,7 +89,7 @@
   // #region 右dot
   const rightTx = ref(0)
 
-  function onRightDrag (e, npos, { end }) {
+  function onRightDrag(e, npos, { end }) {
     if (prop.disabled) return
     const { x, y } = npos
     const percentDot = (x * 100) / sliderWidth.value

@@ -30,16 +30,19 @@ export interface UseRipplesReturn {
   runRipples(): void
 }
 
-export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesOptions): UseRipplesReturn => {
-
+export const useRipples = (
+  evt: MouseEvent,
+  node: HTMLElement,
+  options: RipplesOptions
+): UseRipplesReturn => {
   /**
-  * 计算涟漪颜色
-  *
-  * 如果设置了 ripplesColor 则直接返回
-  * 在 simple 和 text 模式下，根据 type 返回颜色
-  * 否则返回默认白色
-  * @return { String }
-  */
+   * 计算涟漪颜色
+   *
+   * 如果设置了 ripplesColor 则直接返回
+   * 在 simple 和 text 模式下，根据 type 返回颜色
+   * 否则返回默认白色
+   * @return { String }
+   */
   const computedRipplesColor = (): string => {
     if (options.ripplesColor) {
       return options.ripplesColor
@@ -106,10 +109,9 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
   }
 
   /**
-    * 点击生成涟漪效果
-    */
+   * 点击生成涟漪效果
+   */
   const runRipples = (): void => {
-
     /**
      * clientX clientY 可获取到点击相对于页面的坐标
      *

@@ -15,7 +15,9 @@ import type {
 
 export const massageManage = useMassageManage()
 
-export const useMessage = (target: 'message' | 'notification'): UseMessageReturnInterface => {
+export const useMessage = (
+  target: 'message' | 'notification'
+): UseMessageReturnInterface => {
   let seed = 1
 
   // 位置信息
@@ -60,7 +62,8 @@ export const useMessage = (target: 'message' | 'notification'): UseMessageReturn
 
     render(VNode, container)
     document.body.appendChild(container.firstElementChild as HTMLElement)
-    const vm: ComponentInternalInstance = VNode.component as ComponentInternalInstance
+    const vm: ComponentInternalInstance =
+      VNode.component as ComponentInternalInstance
 
     seed++
     const instance: MessageInstance = massageManage.createInstance(

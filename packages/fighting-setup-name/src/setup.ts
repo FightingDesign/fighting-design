@@ -15,7 +15,7 @@ export interface SetupNameReturn {
 
 /**
  * 设置组件名
- * 
+ *
  * @param code 文件代码段
  * @param id 文件路径
  * @returns { SetupNameReturn }

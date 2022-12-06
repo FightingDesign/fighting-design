@@ -33,5 +33,6 @@ export const Props = {
 
 export type ButtonGroupProps = ExtractPropTypes<typeof Props>
 
-export const BUTTON_GROUP_PROPS_KEY: InjectionKey<ButtonGroupProps> =
-  Symbol('button-group-props-key')
+export const BUTTON_GROUP_PROPS_KEY: InjectionKey<ButtonGroupProps> = Symbol(
+  'button-group-props-key'
+)

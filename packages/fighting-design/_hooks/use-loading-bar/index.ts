@@ -1,14 +1,12 @@
 import { render, h } from 'vue'
 import LoadingBarVue from '../../loading-bar/src/loading-bar.vue'
-import type {
-  UseLoadingBarReturnInterface
-} from './interface'
+import type { UseLoadingBarReturnInterface } from './interface'
 import type { VNode } from 'vue'
 
 /**
  * loading-bar 加载条组件方法
  *
- * @returns 
+ * @returns
  */
 export const useLoadingBar = (): UseLoadingBarReturnInterface => {
   /**

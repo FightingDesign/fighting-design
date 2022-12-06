@@ -29,13 +29,13 @@
     /**
      * 获取值
      */
-    get () {
+    get() {
       return (INJECT_DEPEND && INJECT_DEPEND.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set (val) {
+    set(val) {
       if (!INJECT_DEPEND) {
         emit('update:modelValue', val as CheckboxBooleanish)
         useRun(prop.onChange, val)

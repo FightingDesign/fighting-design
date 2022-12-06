@@ -8,7 +8,9 @@ import type {
  * @param data
  * @returns
  */
-export const treeToFlat = (data: TreeDataInterface[]): TreeAddLevelReturnInterface[] => {
+export const treeToFlat = (
+  data: TreeDataInterface[]
+): TreeAddLevelReturnInterface[] => {
   const result: TreeAddLevelReturnInterface[] = []
 
   data.forEach((item: TreeDataInterface): void => {
