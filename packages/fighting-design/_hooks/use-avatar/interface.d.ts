@@ -1,5 +1,5 @@
 import type { ComputedRef, CSSProperties } from 'vue'
-import type { ClassListInterface } from '../../_interface'
+import type { ClassList } from '../../_interface'
 
 /**
  * useAvatar 内部样式 hook 方法返回值类型接口
@@ -9,7 +9,7 @@ import type { ClassListInterface } from '../../_interface'
  * @param styleList 样式列表
  */
 export interface UseAvatarReturnInterface {
-  nodeClassList: ComputedRef<ClassListInterface>
-  classList: ComputedRef<ClassListInterface>
+  nodeClassList: ComputedRef<ClassList>
+  classList: ComputedRef<ClassList>
   styleList: ComputedRef<CSSProperties>
 }

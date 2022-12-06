@@ -13,7 +13,7 @@
     FIconWarningVue
   } from '../../_svg'
   import type { VNode, CSSProperties, ComputedRef } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -66,7 +66,7 @@
     })
   })
 
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { type, round, close, placement } = prop
 
     return [

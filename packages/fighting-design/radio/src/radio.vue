@@ -5,7 +5,7 @@
   import { computed, inject } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
   import type { RadioGroundInterface, RadioLabelType } from '../../radio-group'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -44,7 +44,7 @@
     }
   })
 
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { disabled } = prop
 
     return [

@@ -76,8 +76,8 @@
    */
   watch(
     () => prop.modelValue,
-    (val) => {
-      currentName.value = val
+    (val): void => {
+      currentName.value = val as TabsPaneName
 
       if (
         __DEV__ &&

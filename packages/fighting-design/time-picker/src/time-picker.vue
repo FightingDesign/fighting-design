@@ -65,7 +65,7 @@
     <f-dropdown :disabled="readonly">
       <f-input
         v-model="pickerTime"
-        type="date"
+        type="text"
         :readonly="readonly"
         :clear="clear"
         :after-icon="FIconClockTime"

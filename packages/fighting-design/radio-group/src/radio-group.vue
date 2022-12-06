@@ -5,7 +5,7 @@
   import { useRun } from '../../_hooks'
   import { sizeChange } from '../../_utils'
   import type { CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
   import type { RadioLabelType, RadioGroundPropsType } from './interface'
 
   const prop = defineProps(Props)
@@ -38,7 +38,7 @@
   /**
    * 类名列表
    */
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { vertical, border, size } = prop
 
     return [

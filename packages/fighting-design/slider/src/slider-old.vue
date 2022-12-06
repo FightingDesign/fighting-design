@@ -1,10 +1,10 @@
 <script lang="ts" setup name="FSlider">
   import { Props } from './props'
-  import { computed, ref, nextTick } from 'vue'
+  import { computed, ref } from 'vue'
   import dragDirective from './drag'
   import { FSvgIcon } from '../../svg-icon'
   import type { CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
 
@@ -31,7 +31,7 @@
   /**
    * 类名列表
    */
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { disabled } = prop
     return [
       'f-slider',
@@ -155,14 +155,16 @@
     if (!isRange.value) {
       let rightValue = ((max - min) * right) / width.value
       // 余数
-      let value = rightValue % ((max - min)/step)
-      // 
-      
+      let value = rightValue % ((max - min) / step)
+      //
+
       rightValue =
-        value > (((max - min)/step) / 2) ? rightValue - value + step : rightValue - value
+        value > (max - min) / step / 2
+          ? rightValue - value + step
+          : rightValue - value
       rightValue = rightValue > max ? rightValue - step : rightValue
 
-      console.log(value, rightValue, 'valuevalue');
+      console.log(value, rightValue, 'valuevalue')
       emit('update:modelValue', rightValue + min)
 
       return
@@ -185,7 +187,7 @@
       const leftValue = ((max - min) * left) / width.value
       rightValue = rightValue > max ? rightValue - step : rightValue
       rightValue =
-        (rightValue < leftValue) ? rightValue - value + step : rightValue
+        rightValue < leftValue ? rightValue - value + step : rightValue
       emit('update:modelValue', [leftValue, rightValue])
     }
   }

@@ -1,6 +1,9 @@
 export type { CheckboxProps } from './props'
 
-export type CheckboxLabel = string | number | boolean
+/**
+ * label 类型
+ */
+export type CheckboxModelValue = string | number | boolean
 
 /**
  * 绑定值发生改变时触发的回调接口

@@ -21,6 +21,11 @@ export interface RipplesOptions {
   text?: boolean
 }
 
+interface RipplesEvt extends Event {
+  layerX: number
+  layerY: number
+}
+
 export interface UseRipplesReturn {
   runRipples(): void
 }
@@ -115,7 +120,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
      * @see clientX https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
      * @see clientY https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientY
      */
-    const { layerX, layerY } = evt
+    const { layerX, layerY } = evt as unknown as RipplesEvt
 
     const ripples: HTMLSpanElement = renderElement(layerX, layerY)
 

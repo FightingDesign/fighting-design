@@ -3,7 +3,7 @@
   import { computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
   import type { CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
@@ -23,7 +23,7 @@
   /**
    * 类名列表
    */
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { fullscreen = false } = prop
 
     return [

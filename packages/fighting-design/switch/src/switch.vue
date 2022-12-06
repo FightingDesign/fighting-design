@@ -3,7 +3,7 @@
   import { computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { useList, useRun } from '../../_hooks'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -29,7 +29,7 @@
   /**
    * 类名列表
    */
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { size, modelValue, square } = prop
 
     return [

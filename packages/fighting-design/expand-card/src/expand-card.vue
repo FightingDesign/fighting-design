@@ -3,7 +3,7 @@
   import { computed, ref } from 'vue'
   import { sizeChange, isString } from '../../_utils'
   import type { CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
   import type { ExpandCardImageListItemInterface } from './interface'
 
   const prop = defineProps(Props)
@@ -33,7 +33,7 @@
   /**
    * 类名列表
    */
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { round } = prop
 
     return ['f-expand-card__item', { 'f-expand-card__round': round }] as const

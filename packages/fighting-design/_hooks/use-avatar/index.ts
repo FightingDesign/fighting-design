@@ -1,6 +1,6 @@
 import { useList } from '../../_hooks'
 import { isNumber, isString } from '../../_utils'
-import type { AvatarPropsType } from '../../avatar'
+import type { AvatarProps } from '../../avatar'
 import type { UseAvatarReturnInterface } from './interface'
 
 /**
@@ -9,7 +9,7 @@ import type { UseAvatarReturnInterface } from './interface'
  * @param prop props 列表
  * @returns { UseAvatarReturnInterface }
  */
-export const useAvatar = (prop: AvatarPropsType): UseAvatarReturnInterface => {
+export const useAvatar = (prop: AvatarProps): UseAvatarReturnInterface => {
   const { styles, classes } = useList(prop, 'avatar')
 
   /**

@@ -3,19 +3,18 @@
   import { provide, reactive, toRefs, computed } from 'vue'
   import { sizeChange, isArray } from '../../_utils'
   import { useRun } from '../../_hooks'
-  import type { CheckboxGroupLabelType } from './interface'
   import type { CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: CheckboxGroupLabelType): boolean => isArray(val)
+    'update:modelValue': (val: string[]): boolean => isArray(val)
   })
 
   /**
    * 绑定值发生改变时候触
    */
-  const changeEvent = (val: CheckboxGroupLabelType): void => {
+  const setChange = (val: string[]): void => {
     emit('update:modelValue', val)
     useRun(prop.onChange, val)
   }
@@ -23,12 +22,13 @@
   /**
    * 获取需要注入的依赖项
    */
-  const checkboxGroupProps = reactive({
-    ...toRefs(prop),
-    changeEvent
-  } as const)
-
-  provide(CHECKBOX_GROUP_PROPS_KEY, checkboxGroupProps)
+  provide(
+    CHECKBOX_GROUP_PROPS_KEY,
+    reactive({
+      ...toRefs(prop),
+      setChange
+    })
+  )
 
   /**
    * 样式列表
@@ -45,7 +45,7 @@
   /**
    * 类名列表
    */
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { border, vertical, size } = prop
 
     return [
@@ -60,7 +60,12 @@
 </script>
 
 <template>
-  <div role="group" :class="classList" :style="styleList">
+  <div
+    role="group"
+    aria-label="checkbox-group"
+    :class="classList"
+    :style="styleList"
+  >
     <slot />
   </div>
 </template>

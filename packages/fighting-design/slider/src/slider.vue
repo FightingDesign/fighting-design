@@ -4,7 +4,7 @@
   import Ftooltip from '../../tooltip'
   import dragDirective from './drag'
   import type { CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
   // import { FSvgIcon } from '../../svg-icon'
 
   const prop = defineProps(Props)
@@ -42,7 +42,7 @@
   /**
    * 类名列表
    */
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { disabled } = prop
     return [
       'f-slider',
@@ -63,7 +63,7 @@
     return styles
   })
 
-  function setPosition(position: 'left'|'right', dot: number) {
+  function setPosition (position: 'left'|'right', dot: number) {
     const {min, max, step} = prop
     if(position === 'left') {
 
@@ -87,13 +87,12 @@
   // #region 右dot
   const rightTx = ref(0)
 
-  function onRightDrag(e, npos, {end}) {
+  function onRightDrag (e, npos, {end}) {
     if(prop.disabled) return
     const {x, y} = npos
     const percentDot = x * 100 / sliderWidth.value
     setPosition('right', percentDot)
   }
-
 
   // #endregion
 
@@ -112,6 +111,5 @@
         <div style="height: 25px;"></div>
       </f-tooltip>
     </div>
-
   </div>
 </template>

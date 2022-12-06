@@ -2,7 +2,7 @@ import { computed, ref, reactive } from 'vue'
 import { convertFormat, isNumber, sizeChange, isBoolean } from '../../_utils'
 import { useProps } from '../use-props'
 import type { CSSProperties, ComputedRef, Ref } from 'vue'
-import type { ClassListInterface } from '../../_interface'
+import type { ClassList } from '../../_interface'
 import type { UseListReturnInterface } from './interface'
 import type { FilterParamsInterface } from '../use-props/interface'
 
@@ -33,8 +33,8 @@ export const useList = <T>(prop: T, name: string): UseListReturnInterface => {
    * @param list 类名所需要的 prop 参数
    * @param className 其它所需要的类名
    */
-  const classes = (list: FilterParamsInterface, className?: string): ComputedRef<ClassListInterface> => {
-    return computed((): ClassListInterface => {
+  const classes = (list: FilterParamsInterface, className?: string): ComputedRef<ClassList> => {
+    return computed((): ClassList => {
       /**
        * 类名列表
        */
@@ -62,7 +62,7 @@ export const useList = <T>(prop: T, name: string): UseListReturnInterface => {
           )
         }
       }
-      return classList.value as unknown as ClassListInterface
+      return classList.value as unknown as ClassList
     })
   }
 

@@ -3,14 +3,14 @@
   import { computed } from 'vue'
   import { isNumber } from '../../_utils'
   import type { CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
 
   /**
    * 类名集合
    */
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { type, dot } = prop
 
     return [

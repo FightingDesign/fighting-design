@@ -1,26 +1,26 @@
-export type { CheckboxGroupPropsType } from './props'
-
-/**
- * 绑定值类型
- *
- * 绑定值可能是 string、number、boolean
- */
-export type CheckboxGroupLabelType =
-  | string
-  | number
-  | boolean
-  | string[]
-  | number[]
-  | boolean[]
+export type { CheckboxGroupProps } from './props'
 
 /**
  * 不同尺寸类型
  */
-export type CheckboxGroupSizeType = 'large' | 'middle' | 'small' | 'mini'
+export type CheckboxGroupSize = 'large' | 'middle' | 'small' | 'mini'
 
 /**
  * 绑定值发生改变时触发的回调接口
  */
-export interface CheckboxGroupChangeInterface {
-  (val: CheckboxGroupLabelType): boolean
+export interface CheckboxGroupChange {
+  (val: string[]): boolean
+}
+
+export interface CheckboxGroupInject {
+  modelValue: string[],
+  disabled: boolean,
+  vertical: boolean,
+  label: string,
+  border: boolean,
+  size: CheckboxGroupSize,
+  columnGap: string | number,
+  rowGap: string | number,
+  onChange: CheckboxGroupChange,
+  setChange(val: CheckboxGroupLabel): void
 }

@@ -13,7 +13,7 @@
   import { FButton } from '../../button'
   import { FOption } from '../../option'
   import { FSvgIcon } from '../../svg-icon'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -65,7 +65,7 @@
   /**
    * ul的计算样式
    */
-  const listClassList = computed((): ClassListInterface => {
+  const listClassList = computed((): ClassList => {
     const { background, round, disabled } = prop
 
     return [
@@ -80,7 +80,7 @@
   /**
    * 计算出第一页的样式
    */
-  const firstPage = computed((): ClassListInterface => {
+  const firstPage = computed((): ClassList => {
     const { background, round, current } = prop
 
     return [
@@ -98,7 +98,7 @@
   /**
    * 计算出最后一页的样式
    */
-  const lastPage = computed((): ClassListInterface => {
+  const lastPage = computed((): ClassList => {
     const { background, round, current } = prop
 
     return [

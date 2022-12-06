@@ -6,7 +6,7 @@
   import { isString } from '../../_utils'
   import { massageManage } from '../../_hooks'
   import type { CSSProperties, ComputedRef, Ref } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -37,7 +37,7 @@
     })
   })
 
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { type, round, placement } = prop
 
     return [

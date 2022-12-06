@@ -4,7 +4,7 @@
   import { sizeChange } from '../../_utils'
   import { useLoadImage } from '../../_hooks'
   import type { CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
 
@@ -22,7 +22,7 @@
   /**
    * 类名列表
    */
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { fit, noSelect } = prop
 
     return [

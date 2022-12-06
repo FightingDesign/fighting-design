@@ -1,8 +1,7 @@
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type {
-  CheckboxGroupLabelType,
-  CheckboxGroupSizeType,
-  CheckboxGroupChangeInterface
+  CheckboxGroupSize,
+  CheckboxGroupChange
 } from './interface'
 
 export const Props = {
@@ -10,8 +9,8 @@ export const Props = {
    * 绑定值
    */
   modelValue: {
-    type: [String, Number, Array] as PropType<CheckboxGroupLabelType>,
-    default: (): [] => []
+    type: Array as PropType<string[]>,
+    default: (): string[] => []
   },
   /**
    * 是否禁用
@@ -45,9 +44,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<CheckboxGroupSizeType>,
-    default: (): CheckboxGroupSizeType => 'middle',
-    validator: (val: CheckboxGroupSizeType): boolean => {
+    type: String as PropType<CheckboxGroupSize>,
+    default: (): CheckboxGroupSize => 'middle',
+    validator: (val: CheckboxGroupSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -69,12 +68,12 @@ export const Props = {
    * 绑定值变化时触发
    */
   onChange: {
-    type: Function as PropType<CheckboxGroupChangeInterface>,
+    type: Function as PropType<CheckboxGroupChange>,
     default: (): null => null
   }
 } as const
 
-export type CheckboxGroupPropsType = ExtractPropTypes<typeof Props>
+export type CheckboxGroupProps = ExtractPropTypes<typeof Props>
 
-export const CHECKBOX_GROUP_PROPS_KEY: InjectionKey<CheckboxGroupPropsType> =
+export const CHECKBOX_GROUP_PROPS_KEY: InjectionKey<CheckboxGroupProps> =
   Symbol('f-checkbox-group-props-key')

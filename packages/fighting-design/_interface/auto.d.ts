@@ -23,4 +23,4 @@ export interface AppInstallInterface {
  *
  * 多数情况下在 computed 中计算返回
  */
-export type ClassListInterface = readonly (string | Record<string, unknown>)[]
+export type ClassList = readonly (string | Record<string, unknown>)[]

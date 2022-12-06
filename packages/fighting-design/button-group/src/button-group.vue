@@ -3,7 +3,7 @@
   import { provide } from 'vue'
   import { useList } from '../../_hooks'
   import type { ComputedRef } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
   import type { ButtonSize } from '../../button'
 
   const prop = defineProps(Props)
@@ -16,7 +16,7 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = classes(
+  const classList: ComputedRef<ClassList> = classes(
     ['direction', 'size'],
     'f-button-group'
   )

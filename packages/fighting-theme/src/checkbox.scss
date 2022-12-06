@@ -31,7 +31,7 @@
   }
 
   // 正常状态选中状态
-  &.f-checkbox__selected {
+  &.f-checkbox__active {
     .f-checkbox__text {
       color: var(--f-design-color-primary-1);
     }

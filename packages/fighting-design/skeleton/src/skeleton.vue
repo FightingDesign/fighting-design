@@ -1,14 +1,14 @@
 <script lang="ts" setup name="FSkeleton">
   import { Props } from './props'
   import { computed, useSlots } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
 
   /**
    * 类名列表
    */
-  const classList = computed((): ClassListInterface => {
+  const classList = computed((): ClassList => {
     const { round, animated, size } = prop
 
     return [
