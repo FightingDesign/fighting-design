@@ -6,6 +6,7 @@ export const Props = {
    */
   modelValue: {
     type: [Number, Array] as PropType<number | number[]>,
+    required: true,
     default: (): number => 0
   },
   /**

@@ -205,5 +205,10 @@ export const searchList = [
     title: 'CollapseAnimation 折叠动画',
     rule: 'collapse-animationCollapseAnimation折叠动画',
     url: 'components/collapse-animation'
+  },
+  {
+    title: 'Slider 滑动输入条',
+    rule: 'sliderSlider滑动输入条',
+    url: 'components/slider'
   }
 ] as const
