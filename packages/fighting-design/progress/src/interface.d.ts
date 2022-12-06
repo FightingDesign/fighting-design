@@ -1,4 +1,4 @@
-export type { ProgressPropsType } from './props'
+export type { ProgressProps } from './props'
 
 /**
  * 不同类型

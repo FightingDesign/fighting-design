@@ -1,5 +1,5 @@
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
-import type { MessageType, MessagePlacementType } from './interface'
+import type { MessageType, MessagePlacement } from './interface'
 
 export const Props = {
   /**
@@ -88,9 +88,9 @@ export const Props = {
    * @defaultValue top
    */
   placement: {
-    type: String as PropType<MessagePlacementType>,
-    default: (): MessagePlacementType => 'top',
-    validator: (val: MessagePlacementType): boolean => {
+    type: String as PropType<MessagePlacement>,
+    default: (): MessagePlacement => 'top',
+    validator: (val: MessagePlacement): boolean => {
       return (
         [
           'top',
@@ -126,4 +126,4 @@ export const Props = {
   }
 } as const
 
-export type MessagePropsType = ExtractPropTypes<typeof Props>
+export type MessageProps = ExtractPropTypes<typeof Props>

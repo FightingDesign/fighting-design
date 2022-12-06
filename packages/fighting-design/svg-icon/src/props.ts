@@ -32,4 +32,4 @@ export const Props = {
   }
 } as const
 
-export type SvgIconPropsType = ExtractPropTypes<typeof Props>
+export type SvgIconProps = ExtractPropTypes<typeof Props>

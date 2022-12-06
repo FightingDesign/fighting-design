@@ -1,31 +1,31 @@
 import { createApp } from 'vue'
 import Loading from './loading.vue'
 import type { Directive, ComponentPublicInstance, DirectiveBinding } from 'vue'
-import type { LoadingElInterface, LoadingPropsType } from './interface'
+import type { LoadingElInterface, LoadingProps } from './interface'
 
 const optionsOrganizer = (
   el: LoadingElInterface,
   binding: DirectiveBinding
-): LoadingPropsType => {
+): LoadingProps => {
   /**
    * 获取 props 中的值
    * @param propKey props 的键
-   * @returns { LoadingPropsType[K] }
+   * @returns { LoadingProps[K] }
    */
-  const getBindingProp = <K extends keyof LoadingPropsType>(
+  const getBindingProp = <K extends keyof LoadingProps>(
     propKey: K
-  ): LoadingPropsType[K] => {
+  ): LoadingProps[K] => {
     return binding.value[propKey]
   }
 
   /**
    * 获取 props
    * @param propKey props 的键
-   * @returns { LoadingPropsType[K] | string } props 或 attribute
+   * @returns { LoadingProps[K] | string } props 或 attribute
    */
-  const getProp = <K extends keyof LoadingPropsType>(
+  const getProp = <K extends keyof LoadingProps>(
     propKey: K
-  ): LoadingPropsType[K] | string => {
+  ): LoadingProps[K] | string => {
     return (
       getBindingProp(propKey) || el.getAttribute(`f-loading-${propKey}`) || ''
     )
@@ -37,7 +37,7 @@ const optionsOrganizer = (
     fontColor: getProp('fontColor'),
     fullscreen: binding.modifiers.fullscreen,
     background: getProp('background')
-  } as LoadingPropsType
+  } as LoadingProps
 }
 
 /**

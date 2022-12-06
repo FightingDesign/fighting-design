@@ -1,7 +1,7 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
 import type {
   InputType,
-  InputSizeType,
+  InputSize,
   InputChangeInterface,
   InputSearchInterface
 } from './interface'
@@ -37,9 +37,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<InputSizeType>,
-    default: (): InputSizeType => 'middle',
-    validator: (val: InputSizeType): boolean => {
+    type: String as PropType<InputSize>,
+    default: (): InputSize => 'middle',
+    validator: (val: InputSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -202,4 +202,4 @@ export const Props = {
   }
 } as const
 
-export type InputPropsType = ExtractPropTypes<typeof Props>
+export type InputProps = ExtractPropTypes<typeof Props>

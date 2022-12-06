@@ -1,4 +1,4 @@
-export type { TextPropsType } from './props'
+export type { TextProps } from './props'
 
 /**
  * 不同类型
@@ -10,4 +10,4 @@ export type TextType = 'default' | 'primary' | 'success' | 'danger' | 'warning'
  *
  * @see text-decoration https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration
  */
-export type TextDecorationType = 'overline' | 'line-through' | 'underline'
+export type TextDecoration = 'overline' | 'line-through' | 'underline'

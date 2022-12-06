@@ -18,4 +18,4 @@ export const Props = {
   }
 } as const
 
-export type DropdownItemPropsType = ExtractPropTypes<typeof Props>
+export type DropdownItemProps = ExtractPropTypes<typeof Props>

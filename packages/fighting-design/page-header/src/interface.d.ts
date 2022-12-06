@@ -1,1 +1,1 @@
-export type { PageHeaderPropsType } from './props'
+export type { PageHeaderProps } from './props'

@@ -1,4 +1,4 @@
-export type { MessagePropsType } from './props'
+export type { MessageProps } from './props'
 
 export type { MessageInstance } from '../../_interface'
 
@@ -15,7 +15,7 @@ export type MessageType =
 /**
  * 不同弹出位置类型
  */
-export type MessagePlacementType =
+export type MessagePlacement =
   | 'top'
   | 'top-left'
   | 'top-right'

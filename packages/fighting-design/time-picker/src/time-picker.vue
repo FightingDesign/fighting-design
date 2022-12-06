@@ -12,9 +12,13 @@
     'update:time': (val: string): boolean => isString(val)
   })
 
-  // 获取当前的时间
+  /**
+   * 获取当前的时间
+   */
   const nowDate: Date = new Date()
-  // 当前日期对象
+  /**
+   * 当前日期对象
+   */
   const timeList = reactive({
     hover: addZero(nowDate.getHours()),
     minute: addZero(nowDate.getMinutes())

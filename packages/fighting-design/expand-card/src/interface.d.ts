@@ -1,4 +1,4 @@
-export type { ExpandCardPropsType } from './props'
+export type { ExpandCardProps } from './props'
 
 /**
  * 需要展示的 imageList 类型接口

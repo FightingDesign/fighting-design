@@ -53,7 +53,7 @@ export const Props = {
   }
 } as const
 
-export type SelectPropsType = ExtractPropTypes<typeof Props>
+export type SelectProps = ExtractPropTypes<typeof Props>
 
 export const SELECT_PROPS_TOKEN: InjectionKey<SelectProvideInterface> =
   Symbol('f-select-props-key')

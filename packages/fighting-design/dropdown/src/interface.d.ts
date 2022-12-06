@@ -1,9 +1,9 @@
-export type { DropdownPropsType } from './dropdown'
+export type { DropdownProps } from './dropdown'
 
 /**
  * 触发方式类型
  */
-export type DropdownTriggerType = 'hover' | 'click'
+export type DropdownTrigger = 'hover' | 'click'
 
 /**
  * 回调函数类型接口

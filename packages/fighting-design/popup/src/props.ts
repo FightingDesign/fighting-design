@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { PopupDirectionType } from './interface'
+import type { PopupDirection } from './interface'
 import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
@@ -69,9 +69,9 @@ export const Props = {
    * @defaultValue center
    */
   direction: {
-    type: String as PropType<PopupDirectionType>,
-    default: (): PopupDirectionType => 'center',
-    validator: (val: PopupDirectionType): boolean => {
+    type: String as PropType<PopupDirection>,
+    default: (): PopupDirection => 'center',
+    validator: (val: PopupDirection): boolean => {
       return (['left', 'right', 'top', 'bottom', 'center'] as const).includes(
         val
       )
@@ -121,4 +121,4 @@ export const Props = {
   }
 } as const
 
-export type PopupPropsType = ExtractPropTypes<typeof Props>
+export type PopupProps = ExtractPropTypes<typeof Props>

@@ -96,4 +96,4 @@ export const Props = {
   }
 } as const
 
-export type ProgressPropsType = ExtractPropTypes<typeof Props>
+export type ProgressProps = ExtractPropTypes<typeof Props>

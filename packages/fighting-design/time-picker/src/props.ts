@@ -24,4 +24,4 @@ export const Props = {
   }
 } as const
 
-export type TimePickerPropsType = ExtractPropTypes<typeof Props>
+export type TimePickerProps = ExtractPropTypes<typeof Props>

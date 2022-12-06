@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { ImageFitType } from './interface'
+import type { ImageFit } from './interface'
 import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
@@ -67,9 +67,9 @@ export const Props = {
    * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    */
   fit: {
-    type: String as PropType<ImageFitType>,
+    type: String as PropType<ImageFit>,
     default: (): null => null,
-    validator: (val: ImageFitType): boolean => {
+    validator: (val: ImageFit): boolean => {
       return (
         ['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const
       ).includes(val)
@@ -128,4 +128,4 @@ export const Props = {
   }
 } as const
 
-export type ImagePropsType = ExtractPropTypes<typeof Props>
+export type ImageProps = ExtractPropTypes<typeof Props>

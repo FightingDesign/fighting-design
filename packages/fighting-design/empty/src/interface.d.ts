@@ -1,1 +1,1 @@
-export type { EmptyPropsType } from './props'
+export type { EmptyProps } from './props'

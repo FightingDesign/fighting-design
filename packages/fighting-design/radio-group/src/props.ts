@@ -67,8 +67,8 @@ export const Props = {
   }
 } as const
 
-export type RadioGroundPropsType = ExtractPropTypes<typeof Props>
+export type RadioGroundProps = ExtractPropTypes<typeof Props>
 
-export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundPropsType> = Symbol(
+export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundProps> = Symbol(
   'radio-group-props-key'
-) as InjectionKey<RadioGroundPropsType>
+) as InjectionKey<RadioGroundProps>

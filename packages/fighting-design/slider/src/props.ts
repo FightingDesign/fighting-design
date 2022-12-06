@@ -73,4 +73,4 @@ export const Props = {
   }
 } as const
 
-export type SliderPropsType = ExtractPropTypes<typeof Props>
+export type SliderProps = ExtractPropTypes<typeof Props>

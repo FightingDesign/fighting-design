@@ -1,1 +1,1 @@
-export type { MenuItemGroupPropsType } from './menu-item-group'
+export type { MenuItemGroupProps } from './menu-item-group'

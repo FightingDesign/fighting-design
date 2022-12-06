@@ -1,6 +1,6 @@
-export type { SpacePropsType } from './props'
+export type { SpaceProps } from './props'
 
 /**
  * 不同尺寸类型
  */
-export type SpaceSizeType = 'large' | 'middle' | 'small' | 'mini'
+export type SpaceSize = 'large' | 'middle' | 'small' | 'mini'

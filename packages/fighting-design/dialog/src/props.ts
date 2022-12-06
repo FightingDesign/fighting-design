@@ -113,4 +113,4 @@ export const Props = {
   }
 } as const
 
-export type DialogPropsType = ExtractPropTypes<typeof Props>
+export type DialogProps = ExtractPropTypes<typeof Props>

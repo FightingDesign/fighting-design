@@ -77,7 +77,7 @@ export const Props = {
   }
 } as const
 
-export type TriggerPropsType = ExtractPropTypes<typeof Props>
+export type TriggerProps = ExtractPropTypes<typeof Props>
 
 export const TRIGGER_CLOSE_KEY: InjectionKey<TriggerProvideInterface> =
   Symbol('trigger-close-key')

@@ -67,4 +67,4 @@ export const Props = {
   }
 } as const
 
-export type PageHeaderPropsType = ExtractPropTypes<typeof Props>
+export type PageHeaderProps = ExtractPropTypes<typeof Props>

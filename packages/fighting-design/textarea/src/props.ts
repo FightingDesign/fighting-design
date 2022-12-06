@@ -125,4 +125,4 @@ export const Props = {
   }
 } as const
 
-export type TextareaPropsType = ExtractPropTypes<typeof Props>
+export type TextareaProps = ExtractPropTypes<typeof Props>

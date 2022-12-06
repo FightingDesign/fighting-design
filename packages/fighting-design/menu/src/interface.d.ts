@@ -1,4 +1,4 @@
-export type { MenuPropsType } from './menu'
+export type { MenuProps } from './menu'
 
 /**
  * 不同导航栏模式

@@ -62,4 +62,4 @@ export const Props = {
   }
 } as const
 
-export type WatermarkPropsType = ExtractPropTypes<typeof Props>
+export type WatermarkProps = ExtractPropTypes<typeof Props>

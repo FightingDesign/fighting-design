@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { TextType, TextDecorationType } from './interface'
+import type { TextType, TextDecoration } from './interface'
 
 export const Props = {
   /**
@@ -84,9 +84,9 @@ export const Props = {
    * @values overline line-through underline
    */
   decoration: {
-    type: String as PropType<TextDecorationType>,
+    type: String as PropType<TextDecoration>,
     default: (): null => null,
-    validator: (val: TextDecorationType): boolean => {
+    validator: (val: TextDecoration): boolean => {
       return (['overline', 'line-through', 'underline'] as const).includes(val)
     }
   },
@@ -120,4 +120,4 @@ export const Props = {
   }
 } as const
 
-export type TextPropsType = ExtractPropTypes<typeof Props>
+export type TextProps = ExtractPropTypes<typeof Props>

@@ -10,4 +10,4 @@ export const Props = {
   }
 } as const
 
-export type MainPropsType = ExtractPropTypes<typeof Props>
+export type MainProps = ExtractPropTypes<typeof Props>

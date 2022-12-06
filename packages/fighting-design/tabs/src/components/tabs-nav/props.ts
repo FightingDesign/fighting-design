@@ -37,4 +37,4 @@ export const Props = {
   }
 }
 
-export type TabsNavPropsType = ExtractPropTypes<typeof Props>
+export type TabsNavProps = ExtractPropTypes<typeof Props>

@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { LinkType, LinkTargetType, LinkHoverType } from './interface'
+import type { LinkType, LinkTarget, LinkHover } from './interface'
 import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
@@ -38,9 +38,9 @@ export const Props = {
    * link 状态的样式状态
    */
   state: {
-    type: String as PropType<LinkHoverType>,
+    type: String as PropType<LinkHover>,
     default: (): null => null,
-    validator: (val: LinkHoverType): boolean => {
+    validator: (val: LinkHover): boolean => {
       return (['line', 'bag', ''] as const).includes(val)
     }
   },
@@ -57,9 +57,9 @@ export const Props = {
    * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: {
-    type: String as PropType<LinkTargetType>,
+    type: String as PropType<LinkTarget>,
     default: (): null => null,
-    validator: (val: LinkTargetType): boolean => {
+    validator: (val: LinkTarget): boolean => {
       return (['_self', '_blank', '_parent', '_top', ''] as const).includes(val)
     }
   },
@@ -107,4 +107,4 @@ export const Props = {
   }
 } as const
 
-export type LinkPropsType = ExtractPropTypes<typeof Props>
+export type LinkProps = ExtractPropTypes<typeof Props>

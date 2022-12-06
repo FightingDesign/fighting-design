@@ -1,6 +1,6 @@
 import type { OrdinaryFunctionInterface } from '../../_interface'
 
-export type { TriggerPropsType } from './trigger'
+export type { TriggerProps } from './trigger'
 
 /**
  * 触发方式类型

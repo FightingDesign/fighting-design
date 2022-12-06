@@ -3,4 +3,4 @@ export type { ButtonGroupProps } from './props'
 /**
  * 排列方式
  */
-export type ButtonGroupDirectionType = 'horizontal' | 'vertical'
+export type ButtonGroupDirection = 'horizontal' | 'vertical'

@@ -1,4 +1,4 @@
-export type { StickyCardPropsType } from './props'
+export type { StickyCardProps } from './props'
 
 /**
  * 回调函数类型接口

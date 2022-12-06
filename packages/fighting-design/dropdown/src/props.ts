@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { DropdownTriggerType, DropdownEmitsInterface } from './interface'
+import type { DropdownTrigger, DropdownEmitsInterface } from './interface'
 
 export const Props = {
   /**
@@ -23,9 +23,9 @@ export const Props = {
    * @defaultValue hover
    */
   trigger: {
-    type: String as PropType<DropdownTriggerType>,
-    default: (): DropdownTriggerType => 'hover',
-    validator: (val: DropdownTriggerType): boolean => {
+    type: String as PropType<DropdownTrigger>,
+    default: (): DropdownTrigger => 'hover',
+    validator: (val: DropdownTrigger): boolean => {
       return (['hover', 'click'] as const).includes(val)
     }
   },
@@ -73,4 +73,4 @@ export const Props = {
   }
 } as const
 
-export type DropdownPropsType = ExtractPropTypes<typeof Props>
+export type DropdownProps = ExtractPropTypes<typeof Props>

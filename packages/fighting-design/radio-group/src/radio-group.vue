@@ -6,7 +6,7 @@
   import { sizeChange } from '../../_utils'
   import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
-  import type { RadioLabelType, RadioGroundPropsType } from './interface'
+  import type { RadioLabelType, RadioGroundProps } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -33,7 +33,7 @@
   } as const)
 
   // 注入依赖项
-  provide<RadioGroundPropsType>(RADIO_GROUP_PROPS_kEY, RadioGround)
+  provide<RadioGroundProps>(RADIO_GROUP_PROPS_kEY, RadioGround)
 
   /**
    * 类名列表

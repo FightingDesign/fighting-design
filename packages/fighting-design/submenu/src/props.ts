@@ -17,4 +17,4 @@ export const Props = {
   }
 } as const
 
-export type SubmenuPropsType = ExtractPropTypes<typeof Props>
+export type SubmenuProps = ExtractPropTypes<typeof Props>

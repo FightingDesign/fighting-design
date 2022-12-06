@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { DividerPositionType, DividerType } from './interface'
+import type { DividerPosition, DividerType } from './interface'
 
 export const Props = {
   /**
@@ -9,9 +9,9 @@ export const Props = {
    * @defaultValue center
    */
   position: {
-    type: String as PropType<DividerPositionType>,
-    default: (): DividerPositionType => 'center',
-    validator: (value: DividerPositionType): boolean => {
+    type: String as PropType<DividerPosition>,
+    default: (): DividerPosition => 'center',
+    validator: (value: DividerPosition): boolean => {
       return (['left', 'center', 'right'] as const).includes(value)
     }
   },
@@ -65,4 +65,4 @@ export const Props = {
   }
 } as const
 
-export type DividerPropsType = ExtractPropTypes<typeof Props>
+export type DividerProps = ExtractPropTypes<typeof Props>

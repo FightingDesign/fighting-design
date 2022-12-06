@@ -53,4 +53,4 @@ export const Props = {
   }
 } as const
 
-export type SwapPropsType = ExtractPropTypes<typeof Props>
+export type SwapProps = ExtractPropTypes<typeof Props>

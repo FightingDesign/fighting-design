@@ -1,5 +1,5 @@
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
-import type { NotificationType, NotificationPlacementType } from './interface'
+import type { NotificationType, NotificationPlacement } from './interface'
 
 export const Props = {
   /**
@@ -102,9 +102,9 @@ export const Props = {
    * @defaultValue top-right
    */
   placement: {
-    type: String as PropType<NotificationPlacementType>,
-    default: (): NotificationPlacementType => 'top-right',
-    validator: (val: NotificationPlacementType): boolean => {
+    type: String as PropType<NotificationPlacement>,
+    default: (): NotificationPlacement => 'top-right',
+    validator: (val: NotificationPlacement): boolean => {
       return (
         ['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const
       ).includes(val)
@@ -133,4 +133,4 @@ export const Props = {
   }
 } as const
 
-export type NotificationPropsType = ExtractPropTypes<typeof Props>
+export type NotificationProps = ExtractPropTypes<typeof Props>

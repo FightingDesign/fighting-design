@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { ButtonSize } from '../../button'
-import type { ButtonGroupDirectionType } from './interface'
+import type { ButtonGroupDirection } from './interface'
 
 export const Props = {
   /**
@@ -23,9 +23,9 @@ export const Props = {
    * @defaultValue horizontal
    */
   direction: {
-    type: String as PropType<ButtonGroupDirectionType>,
-    default: (): ButtonGroupDirectionType => 'horizontal',
-    validator: (val: ButtonGroupDirectionType): boolean => {
+    type: String as PropType<ButtonGroupDirection>,
+    default: (): ButtonGroupDirection => 'horizontal',
+    validator: (val: ButtonGroupDirection): boolean => {
       return (['horizontal', 'vertical'] as const).includes(val)
     }
   }

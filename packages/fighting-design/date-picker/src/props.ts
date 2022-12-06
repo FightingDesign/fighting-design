@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { DatePickerSizeType } from './interface'
+import type { DatePickerSize } from './interface'
 
 export const Props = {
   /**
@@ -30,9 +30,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<DatePickerSizeType>,
-    default: (): DatePickerSizeType => 'middle' as const,
-    validator: (val: DatePickerSizeType): boolean => {
+    type: String as PropType<DatePickerSize>,
+    default: (): DatePickerSize => 'middle' as const,
+    validator: (val: DatePickerSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -45,4 +45,4 @@ export const Props = {
   }
 } as const
 
-export type DatePickerPropsType = ExtractPropTypes<typeof Props>
+export type DatePickerProps = ExtractPropTypes<typeof Props>

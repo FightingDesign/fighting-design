@@ -1,1 +1,1 @@
-export type { SubmenuPropsType } from './submenu'
+export type { SubmenuProps } from './submenu'

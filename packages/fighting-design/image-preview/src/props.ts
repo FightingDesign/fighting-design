@@ -75,4 +75,4 @@ export const Props = {
   }
 } as const
 
-export type ImagePreviewPropsType = ExtractPropTypes<typeof Props>
+export type ImagePreviewProps = ExtractPropTypes<typeof Props>

@@ -52,4 +52,4 @@ export const Props = {
   }
 } as const
 
-export type EmptyPropsType = ExtractPropTypes<typeof Props>
+export type EmptyProps = ExtractPropTypes<typeof Props>

@@ -46,4 +46,4 @@ export const Props = {
   }
 } as const
 
-export type CloseBtnPropsType = ExtractPropTypes<typeof Props>
+export type CloseBtnProps = ExtractPropTypes<typeof Props>

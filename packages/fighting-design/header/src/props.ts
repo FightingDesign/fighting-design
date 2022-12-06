@@ -17,4 +17,4 @@ export const Props = {
   }
 } as const
 
-export type HeaderPropsType = ExtractPropTypes<typeof Props>
+export type HeaderProps = ExtractPropTypes<typeof Props>

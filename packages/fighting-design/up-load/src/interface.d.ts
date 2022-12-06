@@ -1,4 +1,4 @@
-export type { UpLoadPropsType } from './up-load'
+export type { UpLoadProps } from './up-load'
 
 /**
  * 删除文件

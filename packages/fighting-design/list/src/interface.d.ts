@@ -1,6 +1,6 @@
-export type { ListPropsType } from './props'
+export type { ListProps } from './props'
 
 /**
  * 不同尺寸类型
  */
-export type ListSizeType = 'large' | 'middle' | 'small'
+export type ListSize = 'large' | 'middle' | 'small'

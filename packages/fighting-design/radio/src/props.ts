@@ -39,4 +39,4 @@ export const Props = {
   }
 } as const
 
-export type RadioPropsType = ExtractPropTypes<typeof Props>
+export type RadioProps = ExtractPropTypes<typeof Props>

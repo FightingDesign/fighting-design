@@ -17,4 +17,4 @@ export const Props = {
   }
 } as const
 
-export type ListItemPropsType = ExtractPropTypes<typeof Props>
+export type ListItemProps = ExtractPropTypes<typeof Props>

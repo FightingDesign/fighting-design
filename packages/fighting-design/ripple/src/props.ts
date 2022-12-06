@@ -55,4 +55,4 @@ export const Props = {
   }
 } as const
 
-export type RipplePropsType = ExtractPropTypes<typeof Props>
+export type RippleProps = ExtractPropTypes<typeof Props>

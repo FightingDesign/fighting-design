@@ -1,7 +1,7 @@
 import type { ExtractPropTypes, PropType } from 'vue'
 import type {
-  TableAlignType,
-  TableDateType,
+  TableAlign,
+  TableDate,
   TableColumnsInterface
 } from './interface'
 
@@ -10,7 +10,7 @@ export const Props = {
    * 数据列表
    */
   data: {
-    type: Array as PropType<TableDateType>,
+    type: Array as PropType<TableDate>,
     default: (): null => null
   },
   /**
@@ -24,9 +24,9 @@ export const Props = {
    * 内容对齐方式
    */
   align: {
-    type: String as PropType<TableAlignType>,
-    default: (): TableAlignType => 'left',
-    validator: (val: TableAlignType): boolean => {
+    type: String as PropType<TableAlign>,
+    default: (): TableAlign => 'left',
+    validator: (val: TableAlign): boolean => {
       return (['left', 'center', 'right'] as const).includes(val)
     }
   },
@@ -95,4 +95,4 @@ export const Props = {
   }
 } as const
 
-export type TablePropsType = ExtractPropTypes<typeof Props>
+export type TableProps = ExtractPropTypes<typeof Props>

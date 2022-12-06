@@ -1,4 +1,4 @@
-export type { LinkPropsType } from './props'
+export type { LinkProps } from './props'
 
 /**
  * 不同类型
@@ -12,9 +12,9 @@ export type LinkType = 'default' | 'primary' | 'success' | 'danger' | 'warning'
  *
  * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
  */
-export type LinkTargetType = '_self' | '_blank' | '_parent' | '_top' | ''
+export type LinkTarget = '_self' | '_blank' | '_parent' | '_top' | ''
 
 /**
  * 不同 hover 状态
  */
-export type LinkHoverType = 'line' | 'bag' | ''
+export type LinkHover = 'line' | 'bag' | ''

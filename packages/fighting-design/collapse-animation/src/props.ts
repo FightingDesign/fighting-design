@@ -17,4 +17,4 @@ export const Props = {
   }
 } as const
 
-export type CollapseAnimationPropsType = ExtractPropTypes<typeof Props>
+export type CollapseAnimationProps = ExtractPropTypes<typeof Props>

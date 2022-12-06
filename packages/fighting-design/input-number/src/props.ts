@@ -1,7 +1,7 @@
 import type { ExtractPropTypes, PropType } from 'vue'
 import type {
-  InputNumberSizeType,
-  InputNumberModelType,
+  InputNumberSize,
+  InputNumberModel,
   InputNumberChangeInterface
 } from './interface'
 import type { HandleFocusEventInterface } from '../../_interface'
@@ -23,9 +23,9 @@ export const Props = {
    * @defaultValue default
    */
   model: {
-    type: String as PropType<InputNumberModelType>,
-    default: (): InputNumberModelType => 'default',
-    validator: (val: InputNumberModelType): boolean => {
+    type: String as PropType<InputNumberModel>,
+    default: (): InputNumberModel => 'default',
+    validator: (val: InputNumberModel): boolean => {
       return (['default', 'button', 'switch'] as const).includes(val)
     }
   },
@@ -50,9 +50,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<InputNumberSizeType>,
-    default: (): InputNumberSizeType => 'middle',
-    validator: (val: InputNumberSizeType): boolean => {
+    type: String as PropType<InputNumberSize>,
+    default: (): InputNumberSize => 'middle',
+    validator: (val: InputNumberSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -150,4 +150,4 @@ export const Props = {
   }
 } as const
 
-export type InputNumberPropsType = ExtractPropTypes<typeof Props>
+export type InputNumberProps = ExtractPropTypes<typeof Props>

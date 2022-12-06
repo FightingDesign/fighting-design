@@ -66,4 +66,4 @@ export const Props = {
   }
 } as const
 
-export type ToolbarPropsType = ExtractPropTypes<typeof Props>
+export type ToolbarProps = ExtractPropTypes<typeof Props>

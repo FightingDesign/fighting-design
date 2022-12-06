@@ -10,4 +10,4 @@ export const Props = {
   }
 } as const
 
-export type MenuItemGroupPropsType = ExtractPropTypes<typeof Props>
+export type MenuItemGroupProps = ExtractPropTypes<typeof Props>

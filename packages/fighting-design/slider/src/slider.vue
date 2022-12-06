@@ -1,17 +1,16 @@
 <script lang="ts" setup name="FSlider">
   import { Props } from './props'
-  import { computed, onMounted, ref, watch } from 'vue'
-  import Ftooltip from '../../tooltip'
+  import { computed, onMounted, ref } from 'vue'
   import dragDirective from './drag'
   import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
   // import { FSvgIcon } from '../../svg-icon'
 
   const prop = defineProps(Props)
-  
+
   // 自定义指令
   const vDrag = dragDirective
-  
+
   /**
    * dom 元素
    */
@@ -25,8 +24,12 @@
 
   // })
   onMounted(() => {
-    const {min, max, modelValue} = prop
-    if (typeof modelValue !== 'number' || isNaN(modelValue) || modelValue < min) {
+    const { min, max, modelValue } = prop
+    if (
+      typeof modelValue !== 'number' ||
+      isNaN(modelValue) ||
+      modelValue < min
+    ) {
       emit('update:modelValue', min)
       return
     }
@@ -36,7 +39,7 @@
       return
     }
 
-    setPosition('right', (modelValue - min) * 100 / (max - min))
+    setPosition('right', ((modelValue - min) * 100) / (max - min))
   })
 
   /**
@@ -63,10 +66,9 @@
     return styles
   })
 
-  function setPosition (position: 'left'|'right', dot: number) {
-    const {min, max, step} = prop
-    if(position === 'left') {
-
+  function setPosition (position: 'left' | 'right', dot: number) {
+    const { min, max, step } = prop
+    if (position === 'left') {
     } else {
       if (dot < 0) {
         dot = 0
@@ -75,22 +77,22 @@
       }
       const lengthPerStep = 100 / ((max - min) / step)
       const steps = Math.round(dot / lengthPerStep)
-      let value = (steps * lengthPerStep * (max - min) * 0.01) + min
+      let value = steps * lengthPerStep * (max - min) * 0.01 + min
 
       value = parseFloat(value.toFixed(0))
 
       emit('update:modelValue', value)
-      rightTx.value = sliderWidth.value * (value - min) / (max - min)
+      rightTx.value = (sliderWidth.value * (value - min)) / (max - min)
     }
   }
 
   // #region 右dot
   const rightTx = ref(0)
 
-  function onRightDrag (e, npos, {end}) {
-    if(prop.disabled) return
-    const {x, y} = npos
-    const percentDot = x * 100 / sliderWidth.value
+  function onRightDrag (e, npos, { end }) {
+    if (prop.disabled) return
+    const { x, y } = npos
+    const percentDot = (x * 100) / sliderWidth.value
     setPosition('right', percentDot)
   }
 
@@ -108,7 +110,7 @@
       :style="`transform:translateX(${rightTx}px)`"
     >
       <f-tooltip :content="modelValue" position="top" state="always">
-        <div style="height: 25px;"></div>
+        <div style="height: 25px"></div>
       </f-tooltip>
     </div>
   </div>

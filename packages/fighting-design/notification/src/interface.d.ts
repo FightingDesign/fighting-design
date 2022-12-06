@@ -1,4 +1,4 @@
-export type { NotificationPropsType } from './props'
+export type { NotificationProps } from './props'
 
 /**
  * 不同类型
@@ -13,7 +13,7 @@ export type NotificationType =
 /**
  * 不同弹出位置类型
  */
-export type NotificationPlacementType =
+export type NotificationPlacement =
   | 'top-left'
   | 'top-right'
   | 'bottom-left'

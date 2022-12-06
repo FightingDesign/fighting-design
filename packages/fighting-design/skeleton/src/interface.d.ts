@@ -1,6 +1,6 @@
-export type { SkeletonPropsType } from './props'
+export type { SkeletonProps } from './props'
 
 /**
  * 不同尺寸类型
  */
-export type SkeletonSizeType = 'large' | 'middle' | 'small' | 'mini'
+export type SkeletonSize = 'large' | 'middle' | 'small' | 'mini'

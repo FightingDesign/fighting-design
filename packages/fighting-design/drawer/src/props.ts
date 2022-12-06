@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { DrawerDirectionType } from './interface'
+import type { DrawerDirection } from './interface'
 import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
@@ -21,9 +21,9 @@ export const Props = {
    * 弹出方向
    */
   direction: {
-    type: String as PropType<DrawerDirectionType>,
-    default: (): DrawerDirectionType => 'right',
-    validator: (val: DrawerDirectionType): boolean => {
+    type: String as PropType<DrawerDirection>,
+    default: (): DrawerDirection => 'right',
+    validator: (val: DrawerDirection): boolean => {
       return (['left', 'top', 'right', 'bottom'] as const).includes(val)
     }
   },
@@ -116,4 +116,4 @@ export const Props = {
   }
 } as const
 
-export type DrawerPropsType = ExtractPropTypes<typeof Props>
+export type DrawerProps = ExtractPropTypes<typeof Props>

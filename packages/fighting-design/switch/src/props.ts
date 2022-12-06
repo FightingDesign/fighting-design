@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { SwitchSizeType, SwitchChangeInterface } from './interface'
+import type { SwitchSize, SwitchChangeInterface } from './interface'
 
 export const Props = {
   /**
@@ -17,9 +17,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<SwitchSizeType>,
-    default: (): SwitchSizeType => 'middle',
-    validator: (val: SwitchSizeType): boolean => {
+    type: String as PropType<SwitchSize>,
+    default: (): SwitchSize => 'middle',
+    validator: (val: SwitchSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -88,4 +88,4 @@ export const Props = {
   }
 } as const
 
-export type SwitchPropsType = ExtractPropTypes<typeof Props>
+export type SwitchProps = ExtractPropTypes<typeof Props>

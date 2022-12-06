@@ -26,4 +26,4 @@ export const Props = {
   }
 } as const
 
-export type OptionPropsType = ExtractPropTypes<typeof Props>
+export type OptionProps = ExtractPropTypes<typeof Props>

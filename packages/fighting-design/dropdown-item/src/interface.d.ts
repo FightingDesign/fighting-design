@@ -1,1 +1,1 @@
-export type { DropdownItemPropsType } from './dropdown-item'
+export type { DropdownItemProps } from './dropdown-item'

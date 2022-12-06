@@ -10,6 +10,9 @@
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
 
+  /**
+   * 是否展示
+   */
   const isVisible = ref<boolean>(prop.visible)
 
   /**

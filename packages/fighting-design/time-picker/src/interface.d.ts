@@ -1,4 +1,4 @@
-export type { TimePickerPropsType } from './time-picker'
+export type { TimePickerProps } from './time-picker'
 
 /**
  * 当前的时间对象

@@ -1,1 +1,1 @@
-export type { LoadingBarPropsType } from './props'
+export type { LoadingBarProps } from './props'

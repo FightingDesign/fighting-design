@@ -46,4 +46,4 @@ export const Props = {
   }
 } as const
 
-export type ExpandCardPropsType = ExtractPropTypes<typeof Props>
+export type ExpandCardProps = ExtractPropTypes<typeof Props>

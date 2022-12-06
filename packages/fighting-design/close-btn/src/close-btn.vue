@@ -30,7 +30,7 @@
       {
         'f-close-btn__round': round,
         'f-close-btn__disabled': disabled
-      } as const
+      }
     ] as const
   })
 

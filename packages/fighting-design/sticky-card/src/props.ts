@@ -60,4 +60,4 @@ export const Props = {
   }
 } as const
 
-export type StickyCardPropsType = ExtractPropTypes<typeof Props>
+export type StickyCardProps = ExtractPropTypes<typeof Props>

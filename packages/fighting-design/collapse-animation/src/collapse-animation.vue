@@ -8,7 +8,6 @@
    * 初始是否展开
    */
   const isOpened = computed((): boolean => !!prop.opened)
-
   /**
    * dom 元素
    */

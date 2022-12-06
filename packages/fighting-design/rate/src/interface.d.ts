@@ -1,4 +1,4 @@
-export type { RatePropsType } from './props'
+export type { RateProps } from './props'
 
 export interface RateChangeInterface {
   (val: number): number

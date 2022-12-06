@@ -1,1 +1,1 @@
-export type { TablePropsType } from './props'
+export type { TableColgroupProps } from './props'

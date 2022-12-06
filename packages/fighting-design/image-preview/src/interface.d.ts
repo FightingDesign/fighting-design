@@ -1,6 +1,6 @@
 import type { ToolbarClickEmitInterface } from '../../toolbar/src/interface'
 
-export type { ImagePreviewPropsType } from './props'
+export type { ImagePreviewProps } from './props'
 
 /**
  * 左右切换按钮切换图片

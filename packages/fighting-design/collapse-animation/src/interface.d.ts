@@ -1,1 +1,1 @@
-export type { CollapseAnimationPropsType } from './collapse-animation'
+export type { CollapseAnimationProps } from './collapse-animation'

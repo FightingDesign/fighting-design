@@ -1,6 +1,6 @@
 import type { VNode } from 'vue'
 
-export type { SelectPropsType } from './select'
+export type { SelectProps } from './select'
 
 export type SelectModelValueType = string | number | boolean
 

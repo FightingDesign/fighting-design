@@ -11,4 +11,4 @@ export const Props = {
   }
 }
 
-export type TablePropsType = ExtractPropTypes<typeof Props>
+export type TableColgroupProps = ExtractPropTypes<typeof Props>

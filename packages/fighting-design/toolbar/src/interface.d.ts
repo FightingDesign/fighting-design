@@ -1,4 +1,4 @@
-export type { ToolbarPropsType } from './props'
+export type { ToolbarProps } from './props'
 
 /**
  * 不同尺寸

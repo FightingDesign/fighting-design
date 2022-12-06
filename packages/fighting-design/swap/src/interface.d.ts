@@ -1,4 +1,4 @@
-export type { SwapPropsType } from './props'
+export type { SwapProps } from './props'
 
 /**
  * 不同切换类型

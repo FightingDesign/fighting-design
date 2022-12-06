@@ -7,7 +7,9 @@
 
   const prop = defineProps(Props)
 
-  // 多选项
+  /**
+   * 多选项
+   */
   const optionalList = ref(false)
 
   /**

@@ -12,7 +12,7 @@ export const Props = {
    */
   position: {
     type: String as PropType<TabsPosition>,
-    default: 'top'
+    default: () => 'top'
   },
   /**
    * 活跃的name
@@ -23,34 +23,35 @@ export const Props = {
    */
   type: {
     type: String as PropType<TabsType>,
-    default: 'line'
+    default: () => 'line'
   },
   /**
    * 对齐方式
    */
   justifyContent: {
     type: String as PropType<TabsJustifyContent>,
-    default: 'flex-start'
+    default: () => 'flex-start'
   },
   /**
    * 编辑状态
    */
   editStatus: {
     type: Boolean,
-    default: false
+    default: (): boolean => false
   },
   /**
    * 切换前的回调
    */
   beforeEnter: {
-    type: Function as PropType<(name: TabsPaneName) => boolean | void>
+    type: Function as PropType<(name: TabsPaneName) => boolean | void>,
+    default: (): null => null
   },
   /**
    * 触发事件
    */
   trigger: {
     type: String as PropType<'click' | 'hover'>,
-    default: 'click'
+    default: () => 'click'
   }
 } as const
 

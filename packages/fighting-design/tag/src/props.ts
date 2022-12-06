@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode } from 'vue'
-import type { TagSizeType, TagType } from './interface'
+import type { TagSize, TagType } from './interface'
 import type { HandleMouseEventInterface } from '../../_interface'
 
 export const Props = {
@@ -67,9 +67,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<TagSizeType>,
-    default: (): TagSizeType => 'middle',
-    validator: (val: TagSizeType): boolean => {
+    type: String as PropType<TagSize>,
+    default: (): TagSize => 'middle',
+    validator: (val: TagSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -103,4 +103,4 @@ export const Props = {
   }
 } as const
 
-export type TagPropsType = ExtractPropTypes<typeof Props>
+export type TagProps = ExtractPropTypes<typeof Props>

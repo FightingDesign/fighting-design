@@ -1,4 +1,4 @@
-export type { InputPropsType } from './props'
+export type { InputProps } from './props'
 
 /**
  * 不同类型
@@ -8,7 +8,7 @@ export type InputType = 'text' | 'password' | 'number'
 /**
  * 不同尺寸类型
  */
-export type InputSizeType = 'large' | 'middle' | 'small' | 'mini'
+export type InputSize = 'large' | 'middle' | 'small' | 'mini'
 
 /**
  * 当 input 改变时触发的回调函数类型接口

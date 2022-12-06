@@ -22,12 +22,11 @@
     ImagePreviewSwitchImageInterface,
     ImagePreviewOptionClickInterface,
     ImagePreviewOptionClickOptionMapInterface,
-    ImagePreviewPropsType,
     ImagePreviewSwitchImageOptionMapInterface
   } from './interface'
   import type { ToolbarClickParamsInterface } from '../../toolbar'
 
-  const prop: ImagePreviewPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
