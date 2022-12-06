@@ -35,7 +35,7 @@ describe('FCard', () => {
       const wrapper = mount(FCard, {
         props: { shadow: item }
       })
-      expect(wrapper.classes()).toContain(`f-card__shadow-${item}`)
+      expect(wrapper.classes()).toContain(`f-card__${item}`)
     })
   })
 

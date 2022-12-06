@@ -8,13 +8,6 @@ describe('Ripple', () => {
     expect(wrapper.classes()).toContain('f-ripple')
   })
 
-  test('no-select', () => {
-    const wrapper = mount(FRipple, {
-      props: { noSelect: true }
-    })
-    expect(wrapper.classes()).toContain('f-ripple__select')
-  })
-
   test('start-opacity', () => {
     const wrapper = mount(FRipple, {
       props: { startOpacity: 0.3, endOpacity: 0 }
