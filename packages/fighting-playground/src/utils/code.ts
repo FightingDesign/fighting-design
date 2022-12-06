@@ -1,17 +1,28 @@
-// 请求 CDN 的基础路径
+/**
+ * 请求 CDN 的基础路径
+ */
 export const publicPath = 'https://cdn.jsdelivr.net/npm/fighting-design/'
 
-// 默认入口文件名
+/**
+ * 默认入口文件名
+ */
 export const defaultMainFile = 'App.vue'
 
-// Fighting-Design 配置文件名
+/**
+ * Fighting-Design 配置文件名
+ */
 export const fightingPlugin = 'fighting.ts'
 
-// 引入 es 模块代码
+/**
+ * 引入 es 模块代码
+ */
 export const fightingImports = {
   'fighting-design': `${publicPath}es/index.js`
 }
 
+/**
+ * 插件代码段
+ */
 export const fightingPluginCode = `
 import FightingDesign from 'fighting-design'
 import { getCurrentInstance } from 'vue'
@@ -36,6 +47,9 @@ function appendStyle () {
 }
 `
 
+/**
+ * 默认展示代码段
+ */
 export const defaultCode = `
 <script setup lang='ts'>
   import { ref } from 'vue'
