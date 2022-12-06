@@ -48,8 +48,9 @@
    * 下一页箭头图标 hover
    */
   const nextHover = ref<boolean>(false)
-
-  // 下一页箭头图标focus
+  /**
+   * 下一页箭头图标 focus
+   */
   const nextFocus = ref<boolean>(false)
 
   /**
@@ -58,12 +59,11 @@
   const maxCount = computed((): number => {
     const page1: number = Math.floor(prop.total / prop.pageSize)
     const model: number = prop.total % prop.pageSize
-
     return model === 0 ? page1 : page1 + 1
   })
 
   /**
-   * ul的计算样式
+   * 主要分页 ul 样式列表
    */
   const listClassList = computed((): ClassList => {
     const { background, round, disabled } = prop
@@ -71,8 +71,9 @@
     return [
       'f-pagination__pages',
       {
-        'f-pagination__state': background || round,
-        'f-pagination__pages-disabled': disabled
+        'f-pagination__pages-round': round,
+        'f-pagination__pages-disabled': disabled,
+        'f-pagination__pages-background': background
       }
     ] as const
   })
@@ -81,16 +82,12 @@
    * 计算出第一页的样式
    */
   const firstPage = computed((): ClassList => {
-    const { background, round, current } = prop
+    const { current } = prop
 
     return [
-      'f-pagination__pages-li',
+      'f-pagination__pages-item',
       {
-        'f-pagination__pages-li-choose': current === 1,
-        'f-pagination__pages-li-background-choose':
-          current === 1 && (background || round),
-        'f-pagination__background': background,
-        'f-pagination__circle': round
+        'f-pagination__pages-item-active': current === 1
       }
     ] as const
   })
@@ -99,16 +96,12 @@
    * 计算出最后一页的样式
    */
   const lastPage = computed((): ClassList => {
-    const { background, round, current } = prop
+    const { current } = prop
 
     return [
-      'f-pagination__pages-li',
+      'f-pagination__pages-item',
       {
-        'f-pagination__pages-li-choose': current === maxCount.value,
-        'f-pagination__pages-li-background-choose':
-          current === maxCount.value && (background || round),
-        'f-pagination__background': background,
-        'f-pagination__circle': round
+        'f-pagination__pages-item-active': current === maxCount.value
       }
     ] as const
   })
@@ -162,7 +155,7 @@
     if (prop.disabled) return
     const newCurrent = prop.current === 1 ? 1 : prop.current - 1
     emit('update:current', newCurrent)
-    prop.prevClick && prop.prevClick(newCurrent, prop.pageSize)
+    prop.onPrev && prop.onPrev(newCurrent, prop.pageSize)
   }
 
   /**
@@ -170,19 +163,19 @@
    */
   const toNext = (): void => {
     if (prop.disabled) return
-    const newCurrent: number =
+    const newCurrent =
       prop.current === maxCount.value ? maxCount.value : prop.current + 1
     emit('update:current', newCurrent)
-    prop.nextClick && prop.nextClick(newCurrent, prop.pageSize)
+    prop.onNext && prop.onNext(newCurrent, prop.pageSize)
   }
 
   /**
    * 点击指定页面的回调
    */
-  const change = (newCurrent: number): void => {
+  const handelChange = (newCurrent: number): void => {
     if (prop.disabled) return
     emit('update:current', newCurrent)
-    prop.change && prop.change(newCurrent, prop.pageSize)
+    prop.onChange && prop.onChange(newCurrent, prop.pageSize)
   }
 
   /**
@@ -218,15 +211,32 @@
    * 点击 ul 内部元素事件
    *
    * 此处采用事件委托
+   *
+   * @param evt 事件对象
    */
-  const pageClick = (evt: Event): void => {
+  const handelPageClick = (evt: Event): void => {
     const target = evt.target as HTMLElement
 
+    /**
+     * 如果点击的是 ul 或者禁用状态 则返回
+     *
+     * @see toLowerCase https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
+     */
     if (target.tagName.toLowerCase() === 'ul' || prop.disabled) {
       return
     }
+
+    /**
+     * 最新的页数
+     */
     let newPage = Number(target.textContent)
+    /**
+     * 第几页开始折叠
+     */
     let pagerCount = prop.pagerCount
+    /**
+     * 当前选中页码
+     */
     let current = prop.current
     let countPager = pagerCount - 2
 
@@ -248,11 +258,13 @@
 
     if (newPage !== current) {
       emit('update:current', newPage)
-      prop.change && prop.change(newPage, prop.pageSize)
+      prop.onChange && prop.onChange(newPage, prop.pageSize)
     }
   }
 
-  // 显示箭头的 move事件
+  /**
+   * 显示箭头的 move 事件
+   */
   const handleMoveEnter = (forward = false): void => {
     if (prop.disabled) return
     if (forward) {
@@ -262,7 +274,9 @@
     }
   }
 
-  // 显示箭头的 hover 事件
+  /**
+   * 显示箭头的 hover 事件
+   */
   const handleFocus = (forward = false): void => {
     if (prop.disabled) return
     if (forward) {
@@ -301,13 +315,14 @@
     />
 
     <!-- 分页主内容 -->
-    <ul v-if="prop.total > 0" :class="listClassList" @click="pageClick">
-      <li v-if="prop.total > 0" :class="firstPage">1</li>
+    <ul v-if="prop.total > 0" :class="listClassList" @click="handelPageClick">
+      <!-- 第一页 -->
+      <li :class="firstPage">1</li>
 
       <!-- 省略号 -->
       <li
         v-if="showPrevMore"
-        :class="['f-pagination__prev-more', 'f-pagination__pages-li']"
+        :class="['f-pagination__prev-more', 'f-pagination__pages-item']"
         @mouseenter="handleMoveEnter(true)"
         @mouseleave="prevHover = false"
         @focus="handleFocus(true)"
@@ -321,26 +336,25 @@
         <f-svg-icon v-else :size="15" :icon="FIconMenuMeatball" />
       </li>
 
+      <!-- 中间的页码 -->
       <li
         v-for="item in pages"
         :key="item"
         :class="[
-          'f-pagination__pages-li',
+          'f-pagination__pages-item',
           {
-            'f-pagination__pages-li-choose': current === item,
-            'f-pagination__pages-li-background-choose':
-              current === item && (background || round),
-            'f-pagination__background': background,
-            'f-pagination__circle': round
+            'f-pagination__pages-item-active': current === item
           }
         ]"
-        @click="change(item)"
+        @click="handelChange(item)"
       >
         {{ item }}
       </li>
+
+      <!-- 省略号 -->
       <li
         v-if="showNextMore"
-        :class="['f-pagination__next-more', 'f-pagination__pages-li']"
+        :class="['f-pagination__next-more', 'f-pagination__pages-item']"
         @mouseenter="handleMoveEnter()"
         @mouseleave="nextHover = false"
         @focus="handleFocus()"
@@ -353,6 +367,8 @@
         />
         <f-svg-icon v-else :size="15" :icon="FIconMenuMeatball" />
       </li>
+
+      <!-- 最后一页 -->
       <li v-if="prop.total > 1" :class="lastPage">
         {{ maxCount }}
       </li>
@@ -360,7 +376,6 @@
 
     <!-- 下一页按钮 -->
     <f-button
-      circle
       :disabled="disabled"
       :size="background ? 'middle' : 'small'"
       :style="{ borderRadius: '2px' }"

@@ -38,18 +38,10 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 当页码超过多少时开始展开省略符号,默认为7
+   * 当页码超过多少时开始展开省略符号,默认为 7
    */
   pagerCount: {
     type: Number,
-    // validator: (value: unknown) => {
-    //   return (
-    //     typeof value === 'number' &&
-    //     Math.trunc(value) &&
-    //     value > 4 &&
-    //     value % 2 == 1
-    //   )
-    // },
     default: (): number => 7
   },
   /**
@@ -88,13 +80,6 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 改变页码回调函数
-   */
-  change: {
-    type: Function as PropType<HandleCurrentChange>,
-    default: (): null => null
-  },
-  /**
    * 是否展示快速跳转搜索框
    */
   jumpSearch: {
@@ -104,14 +89,14 @@ export const Props = {
   /**
    * 点击上一页触发的回调
    */
-  prevClick: {
+  onPrev: {
     type: Function as PropType<HandlePrevClick>,
     default: (): null => null
   },
   /**
    * 点击下一页触发的回调
    */
-  nextClick: {
+  onNext: {
     type: Function as PropType<HandleNextClick>,
     default: (): null => null
   },
@@ -121,7 +106,14 @@ export const Props = {
   pageSizeChange: {
     type: Function as PropType<HandlePageChange>,
     default: (): null => null
+  },
+  /**
+   * 改变页码回调函数
+   */
+  onChange: {
+    type: Function as PropType<HandleCurrentChange>,
+    default: (): null => null
   }
 } as const
 
-export type PaginationPropsType = ExtractPropTypes<typeof Props>
+export type PaginationProps = ExtractPropTypes<typeof Props>
