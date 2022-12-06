@@ -2,6 +2,32 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.9.0-alpha.8 (2022-12-06)
+
+**新功能**
+
+- 新增 `f-slider` 组件
+
+**优化项**
+
+- 优化 `f-toolbar` 组件点击相关逻辑
+- 优化 `f-pagination` 组件样式实现
+- 优化 `f-tag` 组件内部逻辑
+- 优化 `f-button` 组件实现
+- 优化 `f-ripple` 组件实现
+- 废除 `f-ripple` 组件 `no-select` 配置项
+
+**其它改动**
+
+- `f-card` 组件 `padding` 配置项默认值修改
+- `f-card` 组件 `shadow` 配置项可选参数修改
+- `f-pagination` 组件 `prev-click` 配置项改为 `on-prev`
+- `f-pagination` 组件 `next-click` 配置项改为 `on-next`
+- `f-pagination` 组件 `change` 配置项改为 `on-change`
+- `f-tooltip` 组件 `content` 配置项支持 `number` 类型
+- `f-breadcrumb` 和 `f-breadcrumb-item` 组件参数进行了部分改动
+- 全局导出类型较大幅度改动，详情参考文档组件导出类型
+
 ## 0.9.0-alpha.7 (2022-12-01)
 
 **新增**
