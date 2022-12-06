@@ -5,10 +5,9 @@
   import { useList } from '../../_hooks'
   import { getCurrentInstance, computed, inject } from 'vue'
   import type { ComponentInternalInstance } from 'vue'
-  import type { MenuItemPropsType } from './interface'
   import type { MenuProvideInterface } from '../../menu'
 
-  const prop: MenuItemPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   const { styles } = useList(prop, 'menu-item')
 

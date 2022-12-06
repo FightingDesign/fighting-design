@@ -4,10 +4,9 @@
   import { inject, toRefs, useSlots } from 'vue'
   import { SELECT_PROPS_TOKEN } from '../../select/src/props'
   import type { SelectProvideInterface } from '../../select'
-  import type { OptionPropsType } from './interface'
   import type { TriggerProvideInterface } from '../../trigger'
 
-  const prop: OptionPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const slot = useSlots()
 
   /**

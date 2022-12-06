@@ -3,15 +3,12 @@
   import { computed, inject } from 'vue'
   import { LIST_PROPS_KEY } from '../../list/src/props'
   import type { CSSProperties } from 'vue'
-  import type { ListPropsType } from '../../list/src/props'
+  import type { ListProps } from '../../list/src/props'
 
   const prop = defineProps(Props)
 
   // 获取到注入的依赖项
-  const INJECT_DEPEND = inject<ListPropsType | undefined>(
-    LIST_PROPS_KEY,
-    undefined
-  )
+  const INJECT_DEPEND = inject<ListProps | undefined>(LIST_PROPS_KEY, undefined)
 
   /**
    * 样式列表

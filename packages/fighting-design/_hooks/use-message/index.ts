@@ -9,7 +9,7 @@ import type {
   MessageFn,
   MessageOptions,
   MessageFnWithType,
-  MessagePlacementType,
+  MessagePlacement,
   UseMessageReturnInterface
 } from './interface'
 
@@ -78,7 +78,7 @@ export const useMessage = (
         bottom: 0,
         visible: 0
       },
-      props.placement as MessagePlacementType
+      props.placement as MessagePlacement
     )
 
     return instance

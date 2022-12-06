@@ -6,14 +6,13 @@
   import { sizeChange, getChildren } from '../../_utils'
   import type { CSSProperties, VNode } from 'vue'
   import type {
-    SelectPropsType,
     SelectProvideInterface,
     SelectModelValueType,
     SelectChildrenInterface
   } from './interface'
-  import type { OptionPropsType } from '../../option'
+  import type { OptionProps } from '../../option'
 
-  const prop: SelectPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const slot = useSlots()
   const emit = defineEmits({
     'update:modelValue': (val: SelectModelValueType): boolean => !!val
@@ -38,7 +37,7 @@
     /**
      * 通过获取到的子元素，计算当前绑定值对应的 label 展示文本框的内容
      */
-    get() {
+    get () {
       // 如果插槽没内容，则返回空字符串
       if (!options.value.length) return ''
 
@@ -49,7 +48,7 @@
        */
       const currentOption: VNode[] = options.value.filter(
         (node: VNode): boolean => {
-          const optionProp: OptionPropsType = node.props as OptionPropsType
+          const optionProp: OptionProps = node.props as OptionProps
 
           // 判断是否有传递 props
           if (optionProp) {
@@ -78,7 +77,7 @@
       if (!currentOption.length) return ''
 
       // 获取到当前满足要求的子元素
-      const children: OptionPropsType = currentOption[0] as OptionPropsType
+      const children: OptionProps = currentOption[0] as OptionProps
       // 获取到当前子元素的插槽内容
       const slot: string | undefined =
         children.children && children.children.default()[0].children
@@ -89,7 +88,7 @@
       // 优先级：插槽 > label > value
       return slot || label || (value && value.toString()) || ''
     },
-    set(val: string) {
+    set (val: string) {
       return val
     }
   })
