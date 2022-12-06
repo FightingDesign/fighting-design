@@ -5,6 +5,7 @@
   import { FDropdown } from '../../dropdown'
   import { FCalendar } from '../../calendar'
   import type { CalendarCallbackParams } from '../../calendar'
+  import type { DatePickerCheckDate } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -14,7 +15,7 @@
   /**
    * 传递给日历组件的当前时间
    */
-  const date = new Date
+  const date = new Date()
 
   /**
    * 获取选择的日期 & 设置日期
@@ -42,7 +43,7 @@
   const changeDate = ({ year, month, date }: CalendarCallbackParams): void => {
     // 如果存在格式化配置项
     if (prop.format) {
-      const checkDate = {
+      const checkDate: DatePickerCheckDate = {
         YYYY: year,
         MM: month,
         DD: date
@@ -54,7 +55,10 @@
         /**
          * @see replace https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace
          */
-        formatDate = formatDate.replace(key, checkDate[key])
+        formatDate = formatDate.replace(
+          key,
+          checkDate[key as keyof typeof checkDate].toString()
+        )
       }
       pickerDate.value = formatDate
       return
