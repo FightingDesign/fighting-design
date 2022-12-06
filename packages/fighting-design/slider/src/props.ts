@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
   /**
@@ -44,31 +44,10 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 自定义颜色（选中的颜色）
-   */
-  color: {
-    type: String,
-    default: (): string => '#2D5AF1'
-  },
-  /**
    * 自定义滑块背景色
    */
   bgColor: {
     type: String,
-    default: (): string => '#eeeeee'
-  },
-  /**
-   * 是否可垂直
-   */
-  vertical: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  /**
-   * 自定义小球上的 icon
-   */
-  icon: {
-    type: Object as PropType<VNode | Component>,
     default: (): null => null
   }
 } as const

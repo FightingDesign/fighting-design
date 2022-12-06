@@ -18,8 +18,12 @@
 <template>
   <br />
   <br />
+  <h1>{{ value1 }}</h1>
+  <f-slider v-model="value1" :min="40" :max="60"></f-slider>
   <br />
-  <f-slider v-model="value1"></f-slider>
+  <br />
+
+  <!-- <f-slider v-model="value1" :step="10"></f-slider> -->
 
   <!-- <f-pagination v-model:current="current" round :total="total" />
   <f-pagination

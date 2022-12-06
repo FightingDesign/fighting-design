@@ -18,57 +18,64 @@ const getTransformXY = (dom: HTMLElement): { x: number; y: number } => {
 
 class Drag {
   target: HTMLElement
-  callback: (e: MouseEvent, opt: { x: number; y: number }, more: { end: boolean }) => void
+  callback: (options: { x: number; y: number }) => void
   oldPosition = { x: 0, y: 0 }
-  oldEposition = { x: 0, y: 0 }
+  oldEPosition = { x: 0, y: 0 }
 
   constructor (
     target: HTMLElement,
-    callback: (e: MouseEvent, opt: { x: number; y: number }, more: { end: boolean }) => void,
-    options: { stop: boolean; prevent: boolean }
+    callback: (options: { x: number; y: number }) => void
   ) {
     this.target = target
     this.callback = callback
 
-    const stopSelect = (evt: MouseEvent): void => {
-      evt.preventDefault()
-    }
-
+    /**
+     * 移动触发的回调
+     * 
+     * @param evt 事件对象
+     */
     const move = (evt: MouseEvent): void => {
       const { x, y } = getEventXY(evt)
-      const { oldEposition, oldPosition } = this
-      const opt = {
-        x: oldPosition.x + (x - oldEposition.x),
-        y: oldPosition.y + (y - oldEposition.y)
+      const { oldEPosition, oldPosition } = this
+
+      const options = {
+        x: oldPosition.x + (x - oldEPosition.x),
+        y: oldPosition.y + (y - oldEPosition.y)
       }
-      if (options && options.stop) evt.stopPropagation()
-      if (options && options.prevent) evt.preventDefault()
-      if (callback) callback(evt, opt, { end: false })
+
+      callback && callback(options)
     }
 
+    /**
+     * 移动结束的回调
+     * 
+     * @param evt 事件对象
+     */
     const end = (evt: MouseEvent): void => {
       const { x, y } = getEventXY(evt)
-      const { oldEposition, oldPosition } = this
-      const opt = {
-        x: oldPosition.x + (x - oldEposition.x),
-        y: oldPosition.y + (y - oldEposition.y)
+      const { oldEPosition, oldPosition } = this
+
+      const options = {
+        x: oldPosition.x + (x - oldEPosition.x),
+        y: oldPosition.y + (y - oldEPosition.y)
       }
-      if (options && options.stop) evt.stopPropagation()
-      if (options && options.prevent) evt.preventDefault()
-      if (callback) callback(evt, opt, { end: true })
+
       document.removeEventListener('mousemove', move)
       document.removeEventListener('mouseup', end)
-      document.removeEventListener('selectstart', stopSelect)
+      callback && callback(options)
     }
 
+    /**
+     * 开始移动触发的回调
+     * 
+     * @param evt 事件对象
+     */
     const start = (evt: MouseEvent): void => {
       this.oldPosition = getTransformXY(target)
-      this.oldEposition = getEventXY(evt)
-      if (options && options.stop) evt.stopPropagation()
-      if (options && options.prevent) evt.preventDefault()
+      this.oldEPosition = getEventXY(evt)
+
       document.addEventListener('mousemove', move, { passive: false })
       document.addEventListener('mouseup', end, { passive: false })
-      document.addEventListener('selectstart', stopSelect)
     }
 
     this.target.addEventListener('mousedown', start, { passive: false })
@@ -79,10 +86,9 @@ export default {
   beforeMount (
     el: HTMLElement,
     binding: {
-      value: (e: MouseEvent, opt: { x: number; y: number }) => void
-      modifiers: { stop: boolean; prevent: boolean }
+      value: (options: { x: number; y: number }) => void
     }
   ): void {
-    new Drag(el, binding.value, binding.modifiers)
+    new Drag(el, binding.value)
   }
 }

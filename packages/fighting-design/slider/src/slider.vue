@@ -2,15 +2,16 @@
   import { Props } from './props'
   import { computed, onMounted, ref } from 'vue'
   import { isNumber } from '../../_utils'
+  import { useList } from '../../_hooks'
   import { FTooltip } from '../../tooltip'
   import dragDirective from './drag'
-  import type { CSSProperties } from 'vue'
-  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
     'update:modelValue': (val: number): boolean => isNumber(val)
   })
+
+  const { styles, classes } = useList(prop, 'slider')
 
   /**
    * 自定义指令
@@ -20,8 +21,12 @@
    * dom 元素
    */
   const FSlider = ref<HTMLDivElement>(null as unknown as HTMLDivElement)
+  /**
+   * 便宜距离
+   */
+  const rightTx = ref<number>(0)
 
-  const sliderWidth = computed(() => {
+  const sliderWidth = computed((): number => {
     return parseInt(FSlider.value.offsetWidth + '')
   })
 
@@ -41,59 +46,42 @@
       return
     }
 
-    setPosition('right', ((modelValue - min) * 100) / (max - min))
+    setPosition(((modelValue - min) * 100) / (max - min))
   })
 
   /**
    * 类名列表
    */
-  const classList = computed((): ClassList => {
-    return [
-      'f-slider',
-      {
-        'f-slider__disabled': prop.disabled
-      }
-    ] as const
-  })
+  const classList = classes(['disabled'], 'f-slider')
 
   /**
    * style样式列表
    */
-  const styleList = computed((): CSSProperties => {
-    return {
-      '--f-slider-bg-color': prop.bgColor
-    } as CSSProperties
-  })
+  const styleList = styles(['bgColor'])
 
-  const setPosition = (position: 'left' | 'right', dot: number): void => {
+  const setPosition = (dot: number): void => {
     const { min, max, step } = prop
-    if (position === 'left') {
-      console.log('position')
-    } else {
-      if (dot < 0) {
-        dot = 0
-      } else if (dot > 100) {
-        dot = 100
-      }
-      const lengthPerStep = 100 / ((max - min) / step)
-      const steps = Math.round(dot / lengthPerStep)
-      let value = steps * lengthPerStep * (max - min) * 0.01 + min
 
-      value = parseFloat(value.toFixed(0))
-
-      emit('update:modelValue', value)
-      rightTx.value = (sliderWidth.value * (value - min)) / (max - min)
+    if (dot < 0) {
+      dot = 0
+    } else if (dot > 100) {
+      dot = 100
     }
+    const lengthPerStep = 100 / ((max - min) / step)
+    const steps = Math.round(dot / lengthPerStep)
+    let value = steps * lengthPerStep * (max - min) * 0.01 + min
+
+    value = parseFloat(value.toFixed(0))
+
+    emit('update:modelValue', value)
+    rightTx.value = (sliderWidth.value * (value - min)) / (max - min)
   }
 
-  // #region 右dot
-  const rightTx = ref(0)
-
-  const onRightDrag = (e, opt): void => {
+  const onRightDrag = (options): void => {
     if (prop.disabled) return
-    const { x } = opt
+    const { x } = options
     const percentDot = (x * 100) / sliderWidth.value
-    setPosition('right', percentDot)
+    setPosition(percentDot)
   }
 </script>
 
@@ -103,7 +91,7 @@
     <div
       v-drag="onRightDrag"
       class="f-slider__right__icon f-slider__icon"
-      :style="`transform:translateX(${rightTx}px)`"
+      :style="`transform: translateX(${rightTx}px)`"
     >
       <f-tooltip :content="modelValue" position="top" state="always">
         <div style="height: 25px" />
