@@ -14,7 +14,7 @@
   /**
    * 注入父组件的模式依赖项
    */
-  const INJECT_DEPEND = inject<MenuProvideInterface | undefined>(
+  const parentInject = inject<MenuProvideInterface | undefined>(
     MENU_PROVIDE_KEY,
     undefined
   ) as MenuProvideInterface
@@ -38,18 +38,14 @@
     :class="[
       'f-submenu',
       {
-        [`f-submenu__${INJECT_DEPEND && INJECT_DEPEND.mode}`]:
-          INJECT_DEPEND && INJECT_DEPEND.mode,
+        [`f-submenu__${parentInject && parentInject.mode}`]:
+          parentInject && parentInject.mode,
         'f-submenu__disabled': disabled
       }
     ]"
   >
     <!-- 垂直或水平模式 -->
-    <f-dropdown
-      v-if="INJECT_DEPEND?.mode !== 'inline'"
-      :spacing="24"
-      trigger="click"
-    >
+    <f-dropdown v-if="parentInject?.mode !== 'inline'" trigger="click">
       <div class="f-submenu__title">
         <f-text>
           <slot v-if="$slots.title" name="title" />

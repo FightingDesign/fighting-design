@@ -14,7 +14,7 @@
   /**
    * 注入父组件的模式依赖项
    */
-  const INJECT_DEPEND = inject<MenuProvideInterface | undefined>(
+  const parentInject = inject<MenuProvideInterface | undefined>(
     MENU_PROVIDE_KEY,
     undefined
   ) as MenuProvideInterface
@@ -44,7 +44,7 @@
      */
     const router = instance.appContext.config.globalProperties.$router
 
-    INJECT_DEPEND.setActiveName(prop.name)
+    parentInject.setActiveName(prop.name)
 
     if (router && prop.to) {
       try {
@@ -59,8 +59,8 @@
    * 当前是否呗选中
    */
   const isActive = computed((): boolean => {
-    if (!INJECT_DEPEND) return false
-    return prop.name === INJECT_DEPEND.defaultActive
+    if (!parentInject || !parentInject.defaultActive) return false
+    return prop.name === parentInject.defaultActive
   })
 </script>
 

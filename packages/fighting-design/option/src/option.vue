@@ -12,15 +12,14 @@
   /**
    * 获取父组件注入的依赖项
    */
-  const INJECT_DEPEND = inject<SelectProvideInterface | undefined>(
+  const parentInject = inject<SelectProvideInterface | undefined>(
     SELECT_PROPS_TOKEN,
     undefined
   )
-
   /**
    * 获取到 trigger 注入的依赖项
    */
-  const INJECT_DEPEND_TRIGGER = inject<TriggerProvideInterface | undefined>(
+  const triggerInject = inject<TriggerProvideInterface | undefined>(
     TRIGGER_CLOSE_KEY,
     undefined
   ) as TriggerProvideInterface
@@ -35,7 +34,7 @@
      * 如果没有获取到注入的依赖项或者禁用状态
      * 则返回
      */
-    if (!INJECT_DEPEND || prop.disabled) return
+    if (!parentInject || prop.disabled) return
 
     const { value, label } = toRefs(prop)
     const slotLabel: string | undefined =
@@ -45,13 +44,13 @@
      * label 返回优先级：插槽 > label > value
      * value 返回优先级：value > label > 插槽
      */
-    INJECT_DEPEND.setValue(
+    parentInject.setValue(
       slotLabel || label.value || value.value,
       value.value || label.value || slotLabel
     )
 
     // 点击之后关闭
-    INJECT_DEPEND_TRIGGER.handelClose()
+    triggerInject.handelClose()
   }
 </script>
 

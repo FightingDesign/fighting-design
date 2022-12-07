@@ -13,16 +13,16 @@
   /**
    * 获取注入依赖项
    */
-  const INJECT_DEPEND = inject<BreadcrumbProps | undefined>(
+  const parentInject = inject<BreadcrumbProps | undefined>(
     BREADCRUMB_PROPS_KEY,
     undefined
   )
 
   const { styles } = useList(
     reactive({
-      iconColor: prop.iconColor || (INJECT_DEPEND && INJECT_DEPEND.iconColor),
-      fontColor: prop.fontColor || (INJECT_DEPEND && INJECT_DEPEND.fontColor),
-      fontSize: INJECT_DEPEND && INJECT_DEPEND.fontSize
+      iconColor: prop.iconColor || (parentInject && parentInject.iconColor),
+      fontColor: prop.fontColor || (parentInject && parentInject.fontColor),
+      fontSize: parentInject && parentInject.fontSize
     }),
     'breadcrumb-item'
   )
@@ -38,8 +38,8 @@
   const svgIconComponent = computed((): VNode | Component => {
     if (prop.separator) return prop.separator
 
-    if (INJECT_DEPEND && INJECT_DEPEND.separator) {
-      return INJECT_DEPEND.separator
+    if (parentInject && parentInject.separator) {
+      return parentInject.separator
     }
 
     return FIconChevronRightVue

@@ -19,7 +19,7 @@
   /**
    * 获取父组件注入的依赖项
    */
-  const INJECT_DEPEND = inject(BUTTON_GROUP_PROPS_KEY, undefined)
+  const parentInject = inject(BUTTON_GROUP_PROPS_KEY, undefined)
 
   /**
    * 类名列表
@@ -42,7 +42,7 @@
     return [
       'f-button',
       {
-        [`f-button__${INJECT_DEPEND || size}`]: INJECT_DEPEND || size,
+        [`f-button__${parentInject || size}`]: parentInject || size,
         [`f-button__${type}`]: type && !color,
         'f-button__disabled': disabled || loading,
         'f-button__simple': simple && !color,

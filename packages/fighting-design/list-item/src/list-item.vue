@@ -7,8 +7,10 @@
 
   const prop = defineProps(Props)
 
-  // 获取到注入的依赖项
-  const INJECT_DEPEND = inject<ListProps | undefined>(LIST_PROPS_KEY, undefined)
+  /**
+   * 获取父组件注入的依赖项
+   */
+  const parentInject = inject<ListProps | undefined>(LIST_PROPS_KEY, undefined)
 
   /**
    * 样式列表
@@ -17,11 +19,11 @@
     const { background, color } = prop
 
     // 如果没有注入依赖，则直接返回自己的参数
-    if (!INJECT_DEPEND) {
+    if (!parentInject) {
       return { background, color } as const
     }
 
-    const { textColor, borderColor } = INJECT_DEPEND
+    const { textColor, borderColor } = parentInject
 
     return {
       background,

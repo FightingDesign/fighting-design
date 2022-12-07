@@ -10,7 +10,7 @@
   /**
    * 获取到 trigger 注入的依赖项
    */
-  const INJECT_DEPEND = inject<TriggerProvideInterface | undefined>(
+  const parentInject = inject<TriggerProvideInterface | undefined>(
     TRIGGER_CLOSE_KEY,
     undefined
   ) as TriggerProvideInterface
@@ -22,7 +22,7 @@
    */
   const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    useRun(INJECT_DEPEND.handelClose)
+    useRun(parentInject.handelClose)
     useRun(prop.onClick, evt)
   }
 </script>

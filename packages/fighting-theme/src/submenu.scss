@@ -39,19 +39,38 @@
   // 垂直的
   &.f-submenu__vertical {
     .f-submenu__title {
-      display: inline-flex;
-      align-items: center;
       width: 100%;
+      display: flex;
+      padding: 7px 16px;
+      box-sizing: border-box;
       justify-content: space-between;
-
+      align-items: center;
+      cursor: pointer;
+      height: 50px;
+      transition: 0.3s;
+      // icon
       .f-svg-icon {
-        transform: rotate(90deg);
-        margin-left: 5px;
+        margin-right: 5px;
+        font-size: var(
+          --f-menu-item-font-size,
+          var(--f-design-font-size-middle)
+        );
+        color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+      }
+
+      // 文字内容
+      .f-menu-item__text {
+        font-size: var(
+          --f-menu-item-font-size,
+          var(--f-design-font-size-middle)
+        );
+        color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
       }
     }
 
     .f-dropdown {
       height: 50px;
+      width: 100%;
       transition: background 0.3s;
 
       .f-trigger {
@@ -60,7 +79,6 @@
 
         .f-trigger__trigger {
           height: 100%;
-          padding: 7px 16px;
           box-sizing: border-box;
           display: flex;
           justify-content: flex-start;
@@ -76,17 +94,25 @@
 
   // 内联的
   &.f-submenu__inline {
-    // icon
-    .f-svg-icon {
-      margin-right: 5px;
-      font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
-      color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
-    }
+    .f-submenu__title {
+      // icon
+      .f-svg-icon {
+        margin-right: 5px;
+        font-size: var(
+          --f-menu-item-font-size,
+          var(--f-design-font-size-middle)
+        );
+        color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+      }
 
-    // 文字内容
-    .f-menu-item__text {
-      font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
-      color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+      // 文字内容
+      .f-menu-item__text {
+        font-size: var(
+          --f-menu-item-font-size,
+          var(--f-design-font-size-middle)
+        );
+        color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+      }
     }
 
     // 内联模式

@@ -17,7 +17,7 @@
   /**
    * 获取父组件注入的依赖项
    */
-  const INJECT_DEPEND = inject<CheckboxGroupInject | undefined>(
+  const parentInject = inject<CheckboxGroupInject | undefined>(
     CHECKBOX_GROUP_PROPS_KEY,
     undefined
   )
@@ -29,19 +29,19 @@
     /**
      * 获取值
      */
-    get() {
-      return (INJECT_DEPEND && INJECT_DEPEND.modelValue) || prop.modelValue
+    get () {
+      return (parentInject && parentInject.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set(val) {
-      if (!INJECT_DEPEND) {
+    set (val) {
+      if (!parentInject) {
         emit('update:modelValue', val as CheckboxBooleanish)
         useRun(prop.onChange, val)
         return
       }
-      INJECT_DEPEND.setChange(val)
+      parentInject.setChange(val)
     }
   })
 
@@ -69,9 +69,9 @@
       {
         'f-checkbox__active': isActive.value,
         'f-checkbox__indeterminate': prop.indeterminate,
-        'f-checkbox__bordered': INJECT_DEPEND && INJECT_DEPEND.border,
+        'f-checkbox__bordered': parentInject && parentInject.border,
         'f-checkbox__disabled':
-          prop.disabled || (INJECT_DEPEND && INJECT_DEPEND.disabled)
+          prop.disabled || (parentInject && parentInject.disabled)
       }
     ] as const
   })
@@ -91,10 +91,10 @@
       class="f-checkbox__input"
       hidden
       :value="label"
-      :disabled="disabled || (INJECT_DEPEND && INJECT_DEPEND.disabled)"
+      :disabled="disabled || (parentInject && parentInject.disabled)"
     />
     <span
-      v-if="!(INJECT_DEPEND && INJECT_DEPEND.border)"
+      v-if="!(parentInject && parentInject.border)"
       class="f-checkbox__box"
     />
     <span class="f-checkbox__text">

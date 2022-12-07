@@ -7,7 +7,7 @@
   margin: 0;
   padding: 0;
 
-  // 水平排列
+  // 水平的
   &.f-menu__horizontal {
     height: 60px;
     box-sizing: border-box;
@@ -42,8 +42,23 @@
     }
   }
 
-  // 垂直排列
-  &.f-menu__vertical,
+  // 垂直的
+  &.f-menu__vertical {
+    flex-direction: column;
+    box-sizing: border-box;
+    // background: skyblue;
+
+    // 主要内容
+    .f-menu__content {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // 内联的
   &.f-menu__inline {
     flex-direction: column;
     box-sizing: border-box;
