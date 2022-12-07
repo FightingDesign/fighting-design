@@ -5,11 +5,11 @@
 </script>
 
 <template>
-  <ul class="f-menu-item-group">
-    <li class="f-menu-item-group__title">{{ title }}</li>
+  <div class="f-menu-item-group">
+    <div class="f-menu-item-group__title">{{ title }}</div>
 
-    <ul class="f-menu-item-group__list">
+    <div class="f-menu-item-group__list">
       <slot />
-    </ul>
-  </ul>
+    </div>
+  </div>
 </template>

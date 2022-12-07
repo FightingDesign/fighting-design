@@ -290,20 +290,20 @@
     />
 
     <!-- 分页主内容 -->
-    <ul v-if="total > 0" :class="listClassList" @click="handelPageClick">
+    <div v-if="total > 0" :class="listClassList" @click="handelPageClick">
       <!-- 第一页 -->
-      <li :class="firstPage">1</li>
+      <div :class="firstPage">1</div>
 
       <!-- 省略号 -->
-      <li
+      <div
         v-if="showPrevMore"
         :class="['f-pagination__prev-more', 'f-pagination__pages-item']"
       >
         <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
-      </li>
+      </div>
 
       <!-- 中间的页码 -->
-      <li
+      <div
         v-for="item in pages"
         :key="item"
         :class="[
@@ -315,21 +315,21 @@
         @click="handelChange(item)"
       >
         {{ item }}
-      </li>
+      </div>
 
       <!-- 省略号 -->
-      <li
+      <div
         v-if="showNextMore"
         :class="['f-pagination__next-more', 'f-pagination__pages-item']"
       >
         <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
-      </li>
+      </div>
 
       <!-- 最后一页 -->
-      <li v-if="total > 1" :class="lastPage">
+      <div v-if="total > 1" :class="lastPage">
         {{ maxCount }}
-      </li>
-    </ul>
+      </div>
+    </div>
 
     <!-- 下一页按钮 -->
     <f-button

@@ -45,20 +45,20 @@
 </script>
 
 <template>
-  <ul :class="classList">
+  <div role="menu" :class="classList">
     <!-- 前缀位置 -->
-    <li v-if="$slots.before" class="f-menu__before">
+    <div v-if="$slots.before" class="f-menu__before">
       <slot name="before" />
-    </li>
+    </div>
 
     <!-- 主要内容 -->
-    <ul class="f-menu__content">
+    <div class="f-menu__content">
       <slot />
-    </ul>
+    </div>
 
     <!-- 后缀选项 -->
-    <li v-if="$slots.after" class="f-menu__after">
+    <div v-if="$slots.after" class="f-menu__after">
       <slot name="after" />
-    </li>
-  </ul>
+    </div>
+  </div>
 </template>

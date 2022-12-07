@@ -65,7 +65,8 @@
 </script>
 
 <template>
-  <li
+  <div
+    role="menuitem"
     :class="[
       'f-menu-item',
       { 'f-menu-item__active': isActive, 'f-menu-item__disabled': disabled }
@@ -78,5 +79,5 @@
     <span class="f-menu-item__text">
       <slot />
     </span>
-  </li>
+  </div>
 </template>

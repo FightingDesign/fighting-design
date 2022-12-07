@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 优化部分组件 `role` 属性
+
 ## 0.9.0-alpha.8 (2022-12-06)
 
 **新功能**

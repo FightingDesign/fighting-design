@@ -23,6 +23,7 @@
 
 <template>
   <i
+    role="img"
     class="f-svg-icon"
     text-indent="middle"
     :style="styleList"

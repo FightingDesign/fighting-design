@@ -34,7 +34,8 @@
 </script>
 
 <template>
-  <li
+  <div
+    role="menuitem"
     :class="[
       'f-submenu',
       {
@@ -64,9 +65,9 @@
     </f-dropdown>
 
     <!-- 内联模式 -->
-    <ul v-else class="f-submenu__inline">
+    <div v-else role="none" class="f-submenu__inline">
       <!-- 标题内容，用于点击触发 -->
-      <li class="f-submenu__title" @click="handelClick">
+      <div role="none" class="f-submenu__title" @click="handelClick">
         <!-- 标题内容 -->
         <f-text class="f-submenu__title-text" :bold="isOpened">
           <slot name="title" />
@@ -80,14 +81,14 @@
           ]"
           :icon="FIconChevronDown"
         />
-      </li>
+      </div>
 
       <!-- 主要的折叠菜单内容 -->
-      <ul class="f-submenu__content">
+      <div role="none" class="f-submenu__content">
         <f-collapse-animation :opened="isOpened">
           <slot />
         </f-collapse-animation>
-      </ul>
-    </ul>
-  </li>
+      </div>
+    </div>
+  </div>
 </template>
