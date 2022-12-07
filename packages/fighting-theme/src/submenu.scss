@@ -4,9 +4,6 @@
   box-sizing: border-box;
   cursor: pointer;
   transition: background 0.3s;
-  list-style: none;
-  margin: 0;
-  padding: 0;
   user-select: none;
 
   // 水平的
@@ -17,7 +14,7 @@
     align-items: center;
     cursor: pointer;
     height: 50px;
-    transition: background 0.3s;
+    transition: background var(--f-design-transition-time);
 
     .f-dropdown {
       width: 100%;
@@ -68,7 +65,7 @@
       align-items: center;
       cursor: pointer;
       height: 50px;
-      transition: 0.3s;
+      transition: background var(--f-design-transition-time);
 
       // icon
       .f-svg-icon {
@@ -178,10 +175,6 @@
 
       // 主要内容
       .f-submenu__content {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-
         .f-menu-item {
           padding: 7px 30px;
         }

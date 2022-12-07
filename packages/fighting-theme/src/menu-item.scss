@@ -8,17 +8,17 @@
   align-items: center;
   cursor: pointer;
   height: 50px;
-  transition: background 0.3s;
+  transition: background var(--f-design-transition-time);
 
   // icon
   .f-svg-icon {
     margin-right: 5px;
-    font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
-    color: var(--f-menu-item-color, var(--f-design-color-text-1));
   }
 
   // 文字内容
+  .f-svg-icon,
   .f-menu-item__text {
+    transition: color var(--f-design-transition-time);
     font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
     color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
   }
@@ -31,10 +31,12 @@
     }
   }
 
+  // 鼠标移入
   &:hover {
     background: var(--f-design-color-primary-4);
   }
 
+  // 禁用状态
   &.f-menu-item__disabled {
     opacity: 0.5;
     cursor: not-allowed;
