@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.9.0 (2022-12-07)
+
+- Complete `f-menu` components
+- Optimize the `role` attribute of some components
+- Optimize `f-svg-icon` component style details
+
 ## 0.9.0-alpha. 8 (2022-12-06)
 
 **New Features**
