@@ -13,12 +13,11 @@
   <h3>水平的</h3>
   <f-menu active-name="1">
     <template #before>
-      <h1>123</h1>
-      <!-- <f-avatar
+      <f-avatar
         round
         src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
         size="mini"
-      /> -->
+      />
     </template>
 
     <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>

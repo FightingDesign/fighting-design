@@ -23,13 +23,6 @@ export const Props = {
   activeName: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
-  },
-  /**
-   * 是否启用手风琴效果
-   */
-  accordion: {
-    type: Boolean,
-    default: (): boolean => false
   }
 } as const
 

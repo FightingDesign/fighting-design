@@ -14,15 +14,21 @@
 ::: demo
 
 <template #source>
-<f-menu>
+<f-menu active-name="1">
 <template #before>
 <f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
 </template>
 
-<f-menu-item :icon="FIconApps">首页</f-menu-item>
-<f-menu-item :icon="FIconBlock">选项</f-menu-item>
-<f-menu-item :icon="FIconCameraVideoSlash">设置</f-menu-item>
-<f-menu-item :icon="FIconClock">操作</f-menu-item>
+<f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
+<f-menu-item name="2" :icon="FIconApps">设置</f-menu-item>
+<f-menu-item name="3" :icon="FIconApps">首页</f-menu-item>
+
+<f-submenu>
+<template #title> 选项列表 </template>
+<f-menu-item name="4-1" :icon="FIconBlock">选项</f-menu-item>
+<f-menu-item name="4-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+<f-menu-item name="4-3" :icon="FIconClock">操作</f-menu-item>
+</f-submenu>
 
 <template #after>
 <f-dropdown>
@@ -41,7 +47,7 @@
 
 ```html
 <template>
-  <f-menu>
+  <f-menu active-name="1">
     <template #before>
       <f-avatar
         round
@@ -50,10 +56,176 @@
       />
     </template>
 
-    <f-menu-item :icon="FIconApps">首页</f-menu-item>
-    <f-menu-item :icon="FIconBlock">选项</f-menu-item>
-    <f-menu-item :icon="FIconCameraVideoSlash">设置</f-menu-item>
-    <f-menu-item :icon="FIconClock">操作</f-menu-item>
+    <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
+    <f-menu-item name="2" :icon="FIconApps">设置</f-menu-item>
+    <f-menu-item name="3" :icon="FIconApps">首页</f-menu-item>
+
+    <f-submenu>
+      <template #title> 选项列表 </template>
+      <f-menu-item name="4-1" :icon="FIconBlock">选项</f-menu-item>
+      <f-menu-item name="4-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+      <f-menu-item name="4-3" :icon="FIconClock">操作</f-menu-item>
+    </f-submenu>
+
+    <template #after>
+      <f-dropdown>
+        <f-button>设置</f-button>
+
+        <template #content>
+          <f-dropdown-item>猕猴桃</f-dropdown-item>
+          <f-dropdown-item>哈密瓜</f-dropdown-item>
+          <f-dropdown-item>火龙果</f-dropdown-item>
+          <f-dropdown-item>柠檬</f-dropdown-item>
+        </template>
+      </f-dropdown>
+    </template>
+  </f-menu>
+</template>
+
+<script lang="ts" setup>
+  import {
+    FIconApps,
+    FIconBlock,
+    FIconCameraVideoSlash,
+    FIconClock
+  } from '@fighting-design/fighting-icon'
+</script>
+```
+
+:::
+
+## 不同模式
+
+`mode` 属性可配置不同模式
+
+:::demo
+
+<template #source>
+
+<h3>垂直的</h3>
+<f-menu mode="vertical" active-name="1">
+<template #before>
+<f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
+</template>
+
+<f-menu-item disabled name="1" :icon="FIconApps">首页</f-menu-item>
+<f-menu-item name="2" :icon="FIconApps">设置</f-menu-item>
+<f-menu-item name="3" :icon="FIconApps">首页</f-menu-item>
+
+<f-submenu>
+<template #title> 选项列表 </template>
+<f-menu-item name="4-1" :icon="FIconBlock">选项</f-menu-item>
+<f-menu-item name="4-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+<f-menu-item name="4-3" :icon="FIconClock">操作</f-menu-item>
+</f-submenu>
+
+<template #after>
+<f-dropdown>
+<f-button>设置</f-button>
+
+<template #content>
+<f-dropdown-item>猕猴桃</f-dropdown-item>
+<f-dropdown-item>哈密瓜</f-dropdown-item>
+<f-dropdown-item>火龙果</f-dropdown-item>
+<f-dropdown-item>柠檬</f-dropdown-item>
+</template>
+</f-dropdown>
+</template>
+</f-menu>
+
+<h3>内联的</h3>
+
+<f-menu mode="inline" active-name="2-1">
+<template #before>
+<f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
+</template>
+
+<f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
+<f-submenu>
+<template #title> 选项列表 </template>
+<f-menu-item name="2-1" :icon="FIconBlock">选项</f-menu-item>
+<f-menu-item name="2-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+<f-menu-item name="2-3" :icon="FIconClock">操作</f-menu-item>
+</f-submenu>
+
+<f-menu-item-group title="选项列表">
+<f-menu-item name="2-1" :icon="FIconBlock">选项</f-menu-item>
+<f-menu-item name="2-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+<f-menu-item name="2-3" :icon="FIconClock">操作</f-menu-item>
+</f-menu-item-group>
+
+<template #after>
+<f-dropdown>
+<f-button>设置</f-button>
+
+<template #content>
+<f-dropdown-item>猕猴桃</f-dropdown-item>
+<f-dropdown-item>哈密瓜</f-dropdown-item>
+<f-dropdown-item>火龙果</f-dropdown-item>
+<f-dropdown-item>柠檬</f-dropdown-item>
+</template>
+</f-dropdown>
+</template>
+</f-menu>
+</template>
+
+```html
+<template>
+  <h3>垂直的</h3>
+  <f-menu mode="vertical" active-name="1">
+    <template #before>
+      <h1>123</h1>
+    </template>
+
+    <f-menu-item disabled name="1" :icon="FIconApps">首页</f-menu-item>
+    <f-menu-item name="2" :icon="FIconApps">设置</f-menu-item>
+    <f-menu-item name="3" :icon="FIconApps">首页</f-menu-item>
+
+    <f-submenu>
+      <template #title> 选项列表 </template>
+      <f-menu-item name="4-1" :icon="FIconBlock">选项</f-menu-item>
+      <f-menu-item name="4-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+      <f-menu-item name="4-3" :icon="FIconClock">操作</f-menu-item>
+    </f-submenu>
+
+    <template #after>
+      <f-dropdown>
+        <f-button>设置</f-button>
+
+        <template #content>
+          <f-dropdown-item>猕猴桃</f-dropdown-item>
+          <f-dropdown-item>哈密瓜</f-dropdown-item>
+          <f-dropdown-item>火龙果</f-dropdown-item>
+          <f-dropdown-item>柠檬</f-dropdown-item>
+        </template>
+      </f-dropdown>
+    </template>
+  </f-menu>
+
+  <br />
+  <br />
+  <br />
+
+  <h3>内联的</h3>
+
+  <f-menu mode="inline" active-name="2-1">
+    <template #before>
+      <h1>123</h1>
+    </template>
+
+    <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
+    <f-submenu>
+      <template #title> 选项列表 </template>
+      <f-menu-item name="2-1" :icon="FIconBlock">选项</f-menu-item>
+      <f-menu-item name="2-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+      <f-menu-item name="2-3" :icon="FIconClock">操作</f-menu-item>
+    </f-submenu>
+
+    <f-menu-item-group title="选项列表">
+      <f-menu-item name="2-1" :icon="FIconBlock">选项</f-menu-item>
+      <f-menu-item name="2-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+      <f-menu-item name="2-3" :icon="FIconClock">操作</f-menu-item>
+    </f-menu-item-group>
 
     <template #after>
       <f-dropdown>
@@ -84,27 +256,61 @@
 
 ## Menu Attributes
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 |
-| ---- | ---- | ---- | ------ | ------ |
-| ``   |      |      |        |        |
+| 参数          | 说明            | 类型            | 可选值                           | 默认值     |
+| ------------- | --------------- | --------------- | -------------------------------- | ---------- |
+| `mode`        | 不同模式        | string          | `horizontal` `vertical` `inline` | horizontal |
+| `active-name` | 默认激活的 name | string / number | ——                               | ——         |
+
+## Menu Item Attributes
+
+| 参数        | 说明        | 类型                       | 可选值 | 默认值 |
+| ----------- | ----------- | -------------------------- | ------ | ------ |
+| `icon`      | 自定义 icon | object (VNode / Component) | ——     | ——     |
+| `font-size` | 文字大小    | string / number            | ——     | ——     |
+| `color`     | 文字颜色    | string                     | ——     | ——     |
+| `to`        | 跳转的路径  | string                     | ——     | ——     |
+| `name`      | 唯一标识    | string / number            | ——     | ——     |
+| `disabled`  | 是否禁用    | boolean                    | ——     | false  |
+
+## Menu Item Group Attributes
+
+| 参数    | 说明 | 类型   | 可选值 | 默认值 |
+| ------- | ---- | ------ | ------ | ------ |
+| `title` | 标题 | string | ——     | ——     |
+
+## Submenu Attributes
+
+| 参数       | 说明     | 类型    | 可选值 | 默认值 |
+| ---------- | -------- | ------- | ------ | ------ |
+| `disabled` | 是否禁用 | boolean | ——     | false  |
+| `opened`   | 是否展开 | boolean | ——     | false  |
 
 ## Menu Slots
 
-| 名称 | 说明 |
-| ---- | ---- |
-| ``   |      |
+| 名称      | 说明             |
+| --------- | ---------------- |
+| `default` | 默认插入的内容   |
+| `before`  | 主内容之前的内容 |
+| `after`   | 主内容之后的内容 |
 
-## Menu-Item Attributes
+## Menu Item Slots
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 |
-| ---- | ---- | ---- | ------ | ------ |
-| ``   |      |      |        |        |
+| 名称      | 说明           |
+| --------- | -------------- |
+| `default` | 默认插入的内容 |
 
-## Menu-Item Slots
+## Menu Item Group Slots
 
-| 名称 | 说明 |
-| ---- | ---- |
-| ``   |      |
+| 名称      | 说明           |
+| --------- | -------------- |
+| `default` | 默认插入的内容 |
+
+## Submenu Slots
+
+| 名称      | 说明           |
+| --------- | -------------- |
+| `default` | 默认插入的内容 |
+| `title`   | 标题内容       |
 
 ## Interface
 
