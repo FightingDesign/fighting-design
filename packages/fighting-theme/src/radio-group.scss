@@ -4,8 +4,8 @@
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
-  transition: 0.3s;
   column-gap: 22px;
+  transition: var(--f-design-transition-time);
 
   // 纵向排列
   &.f-radio-group__vertical {

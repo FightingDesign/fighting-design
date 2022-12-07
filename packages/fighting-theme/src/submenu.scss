@@ -3,8 +3,8 @@
 .f-submenu {
   box-sizing: border-box;
   cursor: pointer;
-  transition: background 0.3s;
   user-select: none;
+  transition: background var(--f-design-transition-time);
 
   // 水平的
   &.f-submenu__horizontal {
@@ -90,7 +90,7 @@
 
     .f-dropdown {
       width: 100%;
-      transition: background 0.3s;
+      transition: background var(--f-design-transition-time);
 
       .f-trigger {
         width: 100%;
@@ -148,7 +148,7 @@
         align-items: center;
         cursor: pointer;
         height: 50px;
-        transition: 0.3s;
+        transition: var(--f-design-transition-time);
 
         .f-text {
           display: flex;
@@ -157,12 +157,12 @@
 
         // 右侧选择的箭头 icon
         .f-submenu__arrow-icon {
-          transition: 0.3s;
+          transition: var(--f-design-transition-time);
         }
 
         // 右侧选择的箭头 icon 动画效果
         .f-submenu__arrow-icon-animation {
-          transition: 0.3s;
+          transition: var(--f-design-transition-time);
           transform: rotate(-180deg);
         }
 

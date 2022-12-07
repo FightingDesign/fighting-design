@@ -2,8 +2,8 @@
 
 .f-menu {
   display: flex;
-  background: var(--f-design-color-text-2);
   width: 100%;
+  background: var(--f-design-color-text-2);
 
   // 水平的
   &.f-menu__horizontal {

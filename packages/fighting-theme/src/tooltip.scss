@@ -11,7 +11,7 @@
     opacity: 0;
     z-index: 600;
     transform: translate3d(0, 0, 0);
-    transition: all 0.3s ease 0.05s;
+    transition: all var(--f-design-transition-time) ease 0.05s;
   }
 
   &.f-tooltip__hover:hover::before,

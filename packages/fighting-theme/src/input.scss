@@ -18,9 +18,9 @@
     align-items: center;
     padding: 3px 7px;
     box-sizing: border-box;
-    transition: 0.3s;
     height: 100%;
     border: 1px solid transparent;
+    transition: var(--f-design-transition-time);
     background: var(--f-design-color-border-1);
 
     .f-input__icon {

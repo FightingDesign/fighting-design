@@ -3,12 +3,12 @@
 
 .f-text {
   margin: 0;
-  transition: 0.3s;
   cursor: default;
   display: inline-block;
   word-break: break-all;
   box-sizing: border-box;
   font-weight: 500;
+  transition: var(--f-design-transition-time);
   width: var(--f-text-width);
   padding: var(--f-text-padding, 0);
   background: var(--f-text-background);

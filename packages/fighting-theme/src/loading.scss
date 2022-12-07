@@ -11,8 +11,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s;
   background: rgb(35, 39, 46, 0.5);
+  transition: background var(--f-design-transition-time);
   color: var(--f-design-color-primary-1);
 
   &.f-loading__fullscreen {

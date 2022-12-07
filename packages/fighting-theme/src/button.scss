@@ -10,12 +10,12 @@
   border: none;
   user-select: none;
   text-decoration: none;
-  transition: 0.3s;
   outline: 0;
   cursor: pointer;
   white-space: nowrap;
   vertical-align: middle;
   overflow: hidden;
+  transition: var(--f-design-transition-time);
   border-radius: var(--f-design-border-radius-1);
   background: var(--f-design-color-default-1);
   box-shadow: var(--f-button-box-shadow);

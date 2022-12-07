@@ -10,21 +10,21 @@
 
   &.f-swap__sound-on {
     transform: rotate(80deg);
-    transition-duration: 0.3s;
+    transition-duration: var(--f-design-transition-time);
   }
 
   &.f-swap__sound-off {
     transform: rotate(0deg);
-    transition-duration: 0.3s;
+    transition-duration: var(--f-design-transition-time);
   }
 
   &.f-swap__swap-on {
-    transition-duration: 0.3s;
+    transition-duration: var(--f-design-transition-time);
     transform: rotateY(180deg);
   }
 
   &.f-swap__swap-off {
-    transition-duration: 0.3s;
+    transition-duration: var(--f-design-transition-time);
     transform: rotateY(0deg);
   }
 }

@@ -1,11 +1,11 @@
 @use './root';
 
 .f-checkbox-group {
-  transition: 0.3s;
   column-gap: 22px;
   align-items: center;
   display: inline-flex;
   justify-content: center;
+  transition: var(--f-design-transition-time);
 
   // 纵向排列
   &.f-checkbox-group__vertical {

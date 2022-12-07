@@ -6,8 +6,8 @@
   font-size: 15px;
   cursor: pointer;
   margin: 4px;
-  transition: background 0.3s;
   user-select: none;
+  transition: background var(--f-design-transition-time);
   color: var(--f-design-color-text-1);
   background: var(--f-design-color-text-2);
 

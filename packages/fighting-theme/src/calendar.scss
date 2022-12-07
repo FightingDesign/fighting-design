@@ -80,12 +80,12 @@
       padding: 10px;
       display: flex;
       overflow: hidden;
-      transition: 0.3s;
       position: relative;
       align-items: center;
       flex-direction: column;
       box-sizing: border-box;
       border-top: 3px solid transparent;
+      transition: var(--f-design-transition-time);
       height: var(--f-calendar-day-height, 90px);
 
       &:hover {
@@ -108,7 +108,7 @@
 
       // 今天
       &.f-calendar__day-today {
-        transition: 0.3s;
+        transition: var(--f-design-transition-time);
         color: var(--f-design-color-primary-1);
         background: var(--f-design-color-primary-4);
         border-top: 3px solid var(--f-design-color-primary-1);

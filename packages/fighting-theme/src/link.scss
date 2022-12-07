@@ -9,8 +9,8 @@
   text-decoration: none;
   vertical-align: middle;
   outline: none;
-  transition: 0.3s;
   line-height: 1;
+  transition: var(--f-design-transition-time);
   font-size: var(--f-link-size, var(--f-design-font-size-middle));
   color: var(--f-link-color, var(--f-design-color-primary-1));
 
