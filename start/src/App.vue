@@ -13,11 +13,12 @@
   <h3>水平的</h3>
   <f-menu active-name="1">
     <template #before>
-      <f-avatar
+      <h1>123</h1>
+      <!-- <f-avatar
         round
         src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
         size="mini"
-      />
+      /> -->
     </template>
 
     <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
@@ -52,14 +53,10 @@
   <h3>垂直的</h3>
   <f-menu mode="vertical" active-name="1">
     <template #before>
-      <f-avatar
-        round
-        src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
-        size="mini"
-      />
+      <h1>123</h1>
     </template>
 
-    <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
+    <f-menu-item disabled name="1" :icon="FIconApps">首页</f-menu-item>
     <f-menu-item name="2" :icon="FIconApps">设置</f-menu-item>
     <f-menu-item name="3" :icon="FIconApps">首页</f-menu-item>
 
@@ -92,11 +89,7 @@
 
   <f-menu mode="inline" active-name="2-1">
     <template #before>
-      <f-avatar
-        round
-        src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
-        size="mini"
-      />
+      <h1>123</h1>
     </template>
 
     <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
@@ -106,6 +99,18 @@
       <f-menu-item name="2-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
       <f-menu-item name="2-3" :icon="FIconClock">操作</f-menu-item>
     </f-submenu>
+
+    <f-menu-item-group title="下拉列表">
+      <f-menu-item name="2-1" :icon="FIconBlock">选项</f-menu-item>
+      <f-menu-item name="2-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+      <f-menu-item name="2-3" :icon="FIconClock">操作</f-menu-item>
+
+      <f-menu-item-group title="下拉列表">
+        <f-menu-item name="2-1" :icon="FIconBlock">选项</f-menu-item>
+        <f-menu-item name="2-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+        <f-menu-item name="2-3" :icon="FIconClock">操作</f-menu-item>
+      </f-menu-item-group>
+    </f-menu-item-group>
 
     <template #after>
       <f-dropdown>
@@ -123,6 +128,9 @@
 </template>
 
 <style>
+  body {
+    /* background: red; */
+  }
   * {
     margin: 0;
     padding: 0;

@@ -2,7 +2,6 @@
   import { Props } from './props'
   import { MENU_PROVIDE_KEY } from '../../menu/src/props'
   import { FDropdown } from '../../dropdown'
-  import { FText } from '../../text'
   import { FCollapseAnimation } from '../../collapse-animation'
   import { FSvgIcon } from '../../svg-icon'
   import { inject, ref } from 'vue'
@@ -52,9 +51,9 @@
       :spacing="5"
     >
       <div class="f-submenu__title">
-        <f-text>
+        <div class="f-submenu__title-text">
           <slot v-if="$slots.title" name="title" />
-        </f-text>
+        </div>
 
         <f-svg-icon :icon="FIconChevronDown" />
       </div>
@@ -69,9 +68,9 @@
       <!-- 标题内容，用于点击触发 -->
       <div role="none" class="f-submenu__title" @click="handelClick">
         <!-- 标题内容 -->
-        <f-text class="f-submenu__title-text" :bold="isOpened">
+        <div role="none" class="f-submenu__title-text">
           <slot name="title" />
-        </f-text>
+        </div>
 
         <!-- 箭头图标 -->
         <f-svg-icon

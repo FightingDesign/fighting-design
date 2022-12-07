@@ -3,16 +3,13 @@
 .f-menu-item-group {
   // 标题
   .f-menu-item-group__title {
-    list-style: none;
-    color: rgb(177, 177, 177);
-    font-size: 13px;
     padding: 3px 16px;
+    color: var(--f-design-color-text-3);
+    font-size: var(--f-design-font-size-mini);
   }
 
   // 内容
   .f-menu-item-group__list {
-    .f-menu-item {
-      padding: 7px 30px;
-    }
+    padding-left: 24px;
   }
 }

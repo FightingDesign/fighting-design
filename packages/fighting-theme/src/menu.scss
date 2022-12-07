@@ -4,15 +4,15 @@
   display: flex;
   width: 100%;
   background: var(--f-design-color-text-2);
+  box-sizing: border-box;
 
   // 水平的
   &.f-menu__horizontal {
-    box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
     padding: 2px 15px;
-    border-bottom: 1px solid var(--f-design-color-primary-4);
     flex-wrap: wrap;
+    border-bottom: 1px solid var(--f-design-color-primary-4);
 
     // 前缀插槽 & 后缀插槽
     .f-menu__before,
@@ -28,39 +28,19 @@
     .f-menu__content {
       display: flex;
       align-items: center;
-      height: 100%;
       flex-wrap: wrap;
     }
   }
 
-  // 垂直的
-  &.f-menu__vertical {
+  // 垂直的 & 内联的
+  &.f-menu__vertical,
+  &.f-menu__inline {
     flex-direction: column;
-    box-sizing: border-box;
 
     // 前缀插槽 & 后缀插槽
     .f-menu__before,
     .f-menu__after {
-      padding: 7px 16px;
-    }
-
-    // 主要内容
-    .f-menu__content {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-  }
-
-  // 内联的
-  &.f-menu__inline {
-    flex-direction: column;
-    box-sizing: border-box;
-
-    // 前缀插槽
-    .f-menu__before {
       display: flex;
-      justify-content: flex-start;
       align-items: center;
       padding: 10px 15px;
       box-sizing: border-box;
@@ -71,15 +51,6 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-    }
-
-    // 后缀插槽
-    .f-menu__after {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 10px 15px;
-      box-sizing: border-box;
     }
   }
 }

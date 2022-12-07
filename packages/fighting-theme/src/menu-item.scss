@@ -4,23 +4,23 @@
   display: flex;
   padding: 7px 16px;
   box-sizing: border-box;
-  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
   height: 50px;
-  transition: background var(--f-design-transition-time);
+  transition: background var(--f-design-transition-time),
+    color var(--f-design-transition-time);
 
   // icon
   .f-svg-icon {
     margin-right: 5px;
   }
 
-  // 文字内容
+  // 文字和 icon 样式
   .f-svg-icon,
   .f-menu-item__text {
     transition: color var(--f-design-transition-time);
-    font-size: var(--f-menu-item-font-size, var(--f-design-font-size-middle));
-    color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+    font-size: var(--f-design-font-size-middle);
+    color: var(--f-design-color-text-1);
   }
 
   // 选中的
@@ -32,21 +32,18 @@
   }
 
   // 鼠标移入
-  &:hover {
-    background: var(--f-design-color-primary-4);
+  &:not([class~='f-menu-item__disabled']):hover {
+    background: var(--f-design-color-border-3);
+
+    .f-svg-icon,
+    .f-menu-item__text {
+      color: var(--f-design-color-primary-1);
+    }
   }
 
   // 禁用状态
   &.f-menu-item__disabled {
     opacity: 0.5;
     cursor: not-allowed;
-
-    .f-menu-item__text {
-      color: #333;
-    }
-
-    &:hover {
-      background: none;
-    }
   }
 }

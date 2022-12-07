@@ -4,7 +4,8 @@
   box-sizing: border-box;
   cursor: pointer;
   user-select: none;
-  transition: background var(--f-design-transition-time);
+  transition: background var(--f-design-transition-time),
+    color var(--f-design-transition-time);
 
   // 水平的
   &.f-submenu__horizontal {
@@ -21,28 +22,26 @@
       height: 100%;
 
       .f-trigger {
-        height: 100%;
+        height: inherit;
 
         .f-trigger__trigger {
-          height: 100%;
+          height: inherit;
 
           .f-submenu__title {
+            height: inherit;
             display: inline-flex;
             align-items: center;
-            height: 100%;
             padding: 7px 16px;
             box-sizing: border-box;
 
             .f-svg-icon {
               margin-left: 5px;
-              font-size: var(
-                --f-menu-item-font-size,
-                var(--f-design-font-size-middle)
-              );
-              color: var(
-                --f-menu-item-font-color,
-                var(--f-design-color-text-1)
-              );
+            }
+
+            .f-svg-icon,
+            .f-submenu__title-text {
+              font-size: var(--f-design-font-size-middle);
+              color: var(--f-design-color-text-1);
             }
           }
         }
@@ -50,14 +49,78 @@
     }
 
     &:hover {
-      background: var(--f-design-color-primary-4);
+      background: var(--f-design-color-border-3);
+
+      .f-dropdown {
+        .f-trigger__trigger {
+          .f-submenu__title {
+            > .f-svg-icon,
+            .f-submenu__title-text {
+              color: var(--f-design-color-primary-1);
+            }
+          }
+        }
+      }
     }
   }
 
   // 垂直的
   &.f-submenu__vertical {
-    .f-submenu__title {
+    .f-dropdown {
       width: 100%;
+      height: 100%;
+      transition: background var(--f-design-transition-time);
+
+      .f-trigger {
+        width: inherit;
+
+        .f-trigger__trigger {
+          .f-submenu__title {
+            width: 100%;
+            display: flex;
+            padding: 7px 16px;
+            box-sizing: border-box;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            height: 50px;
+            transition: background var(--f-design-transition-time);
+
+            .f-svg-icon {
+              margin-left: 5px;
+              transform: rotate(-90deg);
+            }
+
+            .f-svg-icon,
+            .f-submenu__title-text {
+              font-size: var(--f-design-font-size-middle);
+              color: var(--f-design-color-text-1);
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background: var(--f-design-color-border-3);
+
+      .f-dropdown {
+        .f-trigger__trigger {
+          .f-submenu__title {
+            > .f-svg-icon,
+            .f-submenu__title-text {
+              color: var(--f-design-color-primary-1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 内联的
+  &.f-submenu__inline {
+    // 标题点击区域
+    .f-submenu__title {
       display: flex;
       padding: 7px 16px;
       box-sizing: border-box;
@@ -65,120 +128,43 @@
       align-items: center;
       cursor: pointer;
       height: 50px;
-      transition: background var(--f-design-transition-time);
+      transition: var(--f-design-transition-time);
 
-      // icon
       .f-svg-icon {
-        margin-right: 5px;
-        transform: rotate(-90deg);
-        font-size: var(
-          --f-menu-item-font-size,
-          var(--f-design-font-size-middle)
-        );
-        color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+        margin-left: 5px;
+        transform: rotate(0);
       }
 
-      // 文字内容
-      .f-menu-item__text {
-        font-size: var(
-          --f-menu-item-font-size,
-          var(--f-design-font-size-middle)
-        );
-        color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+      .f-submenu__arrow-icon-animation {
+        transition: var(--f-design-transition-time);
+        transform: rotate(-180deg);
       }
-    }
 
-    .f-dropdown {
-      width: 100%;
-      transition: background var(--f-design-transition-time);
-
-      .f-trigger {
-        width: 100%;
-        height: 100%;
-
-        .f-trigger__trigger {
-          height: 100%;
-          box-sizing: border-box;
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-        }
+      .f-svg-icon,
+      .f-submenu__title-text {
+        font-size: var(--f-design-font-size-middle);
+        color: var(--f-design-color-text-1);
       }
 
       &:hover {
-        background: var(--f-design-color-primary-4);
-      }
-    }
-  }
+        background: var(--f-design-color-border-3);
 
-  // 内联的
-  &.f-submenu__inline {
-    .f-submenu__title {
-      // icon
-      .f-svg-icon {
-        margin-right: 5px;
-        font-size: var(
-          --f-menu-item-font-size,
-          var(--f-design-font-size-middle)
-        );
-        color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
-      }
-
-      // 文字内容
-      .f-menu-item__text {
-        font-size: var(
-          --f-menu-item-font-size,
-          var(--f-design-font-size-middle)
-        );
-        color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
-      }
-    }
-
-    // 内联模式
-    .f-submenu__inline {
-      background: #fff;
-      padding: 0;
-
-      // 标题，点击区域
-      .f-submenu__title {
-        display: flex;
-        padding: 7px 16px;
-        box-sizing: border-box;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        height: 50px;
-        transition: var(--f-design-transition-time);
-
-        .f-text {
-          display: flex;
-          align-items: center;
-        }
-
-        // 右侧选择的箭头 icon
-        .f-submenu__arrow-icon {
-          transition: var(--f-design-transition-time);
-        }
-
-        // 右侧选择的箭头 icon 动画效果
-        .f-submenu__arrow-icon-animation {
-          transition: var(--f-design-transition-time);
-          transform: rotate(-180deg);
-        }
-
-        &:hover {
-          .f-text {
-            color: var(--f-design-color-primary-1);
+        .f-dropdown {
+          .f-trigger__trigger {
+            .f-submenu__title {
+              > .f-svg-icon,
+              .f-submenu__title-text {
+                color: var(--f-design-color-primary-1);
+              }
+            }
           }
         }
       }
+    }
 
-      // 主要内容
-      .f-submenu__content {
-        .f-menu-item {
-          padding: 7px 30px;
-        }
-      }
+    // 主要内容
+    .f-submenu__content {
+      padding-left: 24px;
     }
   }
 
