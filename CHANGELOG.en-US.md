@@ -4,6 +4,32 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.9.0-alpha. 8 (2022-12-06)
+
+**New Features**
+
+- Add `f-slider` component
+
+**Optimization item**
+
+- Optimize the logic related to clicking `f-toolbar` components
+- Optimize the implementation of `f-pagination` component style
+- Optimize the internal logic of the `f-tag` component
+- Optimize the implementation of `f-button` components
+- Optimize the implementation of `f-ripple` components
+- Cancel the `f-ripple` component `no-select` configuration item
+
+**Other changes**
+
+- Modify the default value of the `f-card` component `padding` configuration item
+- Modify optional parameters of `f-card` component `shadow` configuration item
+- Change the `f-pagination` component `prev-click` configuration item to `on-prev`
+- Change the `f-pagination` component `next-click` configuration item to `on-text`
+- Change the `f-pagination` component`change` configuration item to `on-change`
+- `f-tooltip` component `content` configuration item supports `number` type
+- Some changes have been made to the `f-breadcrumb` and `f-breadcrumb-item` component parameters
+- The global export type has been greatly changed. For details, refer to the document Component Export Type
+
 ## 0.9.0-alpha.7 (2022-12-01)
 
 **New**
