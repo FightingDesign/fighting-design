@@ -77,7 +77,7 @@
     rightTx.value = (sliderWidth.value * (value - min)) / (max - min)
   }
 
-  const onRightDrag = (options): void => {
+  const onRightDrag = (options: { x: number }): void => {
     if (prop.disabled) return
     const { x } = options
     const percentDot = (x * 100) / sliderWidth.value

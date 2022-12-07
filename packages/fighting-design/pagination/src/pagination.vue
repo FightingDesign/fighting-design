@@ -163,8 +163,12 @@
 
     if (map[target]) {
       map[target]()
-      emit('update:current', newCurrent)
-      prop['on' + target] && prop['on' + target](newCurrent, prop.pageSize)
+      emit('update:current', newCurrent as unknown as number)
+      prop[('on' + target) as keyof typeof map] &&
+        prop[('on' + target) as keyof typeof map](
+          newCurrent as unknown as number,
+          prop.pageSize
+        )
     }
   }
 

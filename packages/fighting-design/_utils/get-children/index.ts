@@ -17,7 +17,9 @@ export const getChildren = (
   // 传入的子节点必须是一个有效数组
   if (isArray(children) && children.length) {
     children.forEach((child: VNode): void => {
-      // 获取到每个组件的 name
+      /**
+       * 获取到每个组件的 name
+       */
       const name: string | undefined | boolean =
         isObject(child.type) && (child.type as Component).name
 

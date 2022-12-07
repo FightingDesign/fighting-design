@@ -1,5 +1,9 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-<template></template>
+  const value1 = ref(50)
+</script>
 
-<style lang="scss" scoped></style>
+<template>
+  <f-slider v-model="value1" />
+</template>
