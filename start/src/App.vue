@@ -11,7 +11,7 @@
   <!-- <f-menu mode="inline"> -->
   <!-- <f-menu mode="vertical"> -->
   <h3>水平的</h3>
-  <f-menu>
+  <f-menu active-name="1">
     <template #before>
       <f-avatar
         round
@@ -20,15 +20,15 @@
       />
     </template>
 
-    <f-menu-item :icon="FIconApps">首页</f-menu-item>
-    <f-menu-item :icon="FIconApps">设置</f-menu-item>
-    <f-menu-item :icon="FIconApps">首页</f-menu-item>
+    <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
+    <f-menu-item name="2" :icon="FIconApps">设置</f-menu-item>
+    <f-menu-item name="3" :icon="FIconApps">首页</f-menu-item>
 
     <f-submenu>
       <template #title> 选项列表 </template>
-      <f-menu-item :icon="FIconBlock">选项</f-menu-item>
-      <f-menu-item :icon="FIconCameraVideoSlash">设置</f-menu-item>
-      <f-menu-item :icon="FIconClock">操作</f-menu-item>
+      <f-menu-item name="4-1" :icon="FIconBlock">选项</f-menu-item>
+      <f-menu-item name="4-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+      <f-menu-item name="4-3" :icon="FIconClock">操作</f-menu-item>
     </f-submenu>
 
     <template #after>
