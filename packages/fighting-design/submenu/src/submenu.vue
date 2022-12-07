@@ -47,8 +47,8 @@
     <!-- 垂直或水平模式 -->
     <f-dropdown
       v-if="parentInject && parentInject.mode !== 'inline'"
-      :spacing="parentInject && parentInject.mode === 'horizontal' ? 20 : null"
       trigger="click"
+      :spacing="5"
     >
       <div class="f-submenu__title">
         <f-text>

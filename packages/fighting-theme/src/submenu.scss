@@ -2,7 +2,6 @@
 
 .f-submenu {
   box-sizing: border-box;
-  align-items: center;
   cursor: pointer;
   transition: background 0.3s;
   list-style: none;
@@ -13,7 +12,6 @@
   // 水平的
   &.f-submenu__horizontal {
     display: flex;
-    padding: 7px 16px;
     box-sizing: border-box;
     justify-content: flex-start;
     align-items: center;
@@ -21,17 +19,36 @@
     height: 50px;
     transition: background 0.3s;
 
-    .f-submenu__title {
-      display: inline-flex;
-      align-items: center;
+    .f-dropdown {
+      width: 100%;
+      height: 100%;
 
-      .f-svg-icon {
-        margin-left: 5px;
-        font-size: var(
-          --f-menu-item-font-size,
-          var(--f-design-font-size-middle)
-        );
-        color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
+      .f-trigger {
+        height: 100%;
+
+        .f-trigger__trigger {
+          height: 100%;
+
+          .f-submenu__title {
+            display: inline-flex;
+            align-items: center;
+            height: 100%;
+            padding: 7px 16px;
+            box-sizing: border-box;
+
+            .f-svg-icon {
+              margin-left: 5px;
+              font-size: var(
+                --f-menu-item-font-size,
+                var(--f-design-font-size-middle)
+              );
+              color: var(
+                --f-menu-item-font-color,
+                var(--f-design-color-text-1)
+              );
+            }
+          }
+        }
       }
     }
 
@@ -75,7 +92,6 @@
     }
 
     .f-dropdown {
-      height: 50px;
       width: 100%;
       transition: background 0.3s;
 
