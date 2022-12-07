@@ -45,7 +45,11 @@
     ]"
   >
     <!-- 垂直或水平模式 -->
-    <f-dropdown v-if="parentInject?.mode !== 'inline'" trigger="click">
+    <f-dropdown
+      v-if="parentInject && parentInject.mode !== 'inline'"
+      :spacing="parentInject && parentInject.mode === 'horizontal' ? 20 : null"
+      trigger="click"
+    >
       <div class="f-submenu__title">
         <f-text>
           <slot v-if="$slots.title" name="title" />

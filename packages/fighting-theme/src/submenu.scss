@@ -26,8 +26,12 @@
       align-items: center;
 
       .f-svg-icon {
-        transform: rotate(-180deg);
         margin-left: 5px;
+        font-size: var(
+          --f-menu-item-font-size,
+          var(--f-design-font-size-middle)
+        );
+        color: var(--f-menu-item-font-color, var(--f-design-color-text-1));
       }
     }
 
@@ -121,7 +125,6 @@
     .f-submenu__inline {
       background: #fff;
       padding: 0;
-      border: 1px solid #eee;
 
       // 标题，点击区域
       .f-submenu__title {
@@ -161,6 +164,7 @@
       .f-submenu__content {
         padding: 0;
         margin: 0;
+        list-style: none;
 
         .f-menu-item {
           padding: 7px 30px;

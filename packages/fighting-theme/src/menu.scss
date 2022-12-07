@@ -6,19 +6,22 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  list-style: none;
 
   // 水平的
   &.f-menu__horizontal {
-    height: 60px;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
-    padding: 0 15px;
+    padding: 2px 15px;
     border-bottom: 1px solid var(--f-design-color-primary-4);
+    flex-wrap: wrap;
 
-    // 前缀插槽
-    .f-menu__before {
-      height: 100%;
+    // 前缀插槽 & 后缀插槽
+    .f-menu__before,
+    .f-menu__after {
+      padding: 7px 0;
+      box-sizing: border-box;
       display: inline-flex;
       justify-content: center;
       align-items: center;
@@ -30,15 +33,8 @@
       align-items: center;
       height: 100%;
       padding: 0;
-      margin: 0 20px;
-    }
-
-    // 后缀插槽
-    .f-menu__after {
-      height: 100%;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
+      list-style: none;
+      flex-wrap: wrap;
     }
   }
 
@@ -46,7 +42,12 @@
   &.f-menu__vertical {
     flex-direction: column;
     box-sizing: border-box;
-    // background: skyblue;
+
+    // 前缀插槽 & 后缀插槽
+    .f-menu__before,
+    .f-menu__after {
+      padding: 7px 16px;
+    }
 
     // 主要内容
     .f-menu__content {
@@ -55,6 +56,7 @@
       width: 100%;
       padding: 0;
       margin: 0;
+      list-style: none;
     }
   }
 
@@ -79,6 +81,7 @@
       width: 100%;
       padding: 0;
       margin: 0;
+      list-style: none;
     }
 
     // 后缀插槽
