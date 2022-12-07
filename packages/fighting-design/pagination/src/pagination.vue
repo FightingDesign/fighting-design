@@ -137,7 +137,7 @@
    *
    * @param target 切换的方向
    */
-  const handelTurnPages = (target: 'Next' | 'Prev'): void => {
+  const handelTurnPages = (target: 'next' | 'prev'): void => {
     if (prop.disabled) return
 
     /**
@@ -149,27 +149,23 @@
       /**
        * 下一页切换
        */
-      Next: (): void => {
-        newCurrent =
+      next: (): void => {
+        const newCurrent =
           prop.current === maxCount.value ? maxCount.value : prop.current + 1
+        prop.onNext && prop.onNext(newCurrent, prop.pageSize)
+        emit('update:current', newCurrent)
       },
       /**
        * 上一页切换
        */
-      Prev: (): void => {
+      prev: (): void => {
         newCurrent = prop.current === 1 ? 1 : prop.current - 1
+        prop.onPrev && prop.onPrev(newCurrent, prop.pageSize)
+        emit('update:current', newCurrent)
       }
     } as const
 
-    if (map[target]) {
-      map[target]()
-      emit('update:current', newCurrent as unknown as number)
-      prop[('on' + target) as keyof typeof map] &&
-        prop[('on' + target) as keyof typeof map](
-          newCurrent as unknown as number,
-          prop.pageSize
-        )
-    }
+    map[target] && map[target]()
   }
 
   /**
@@ -290,7 +286,7 @@
       :size="background ? 'middle' : 'small'"
       :style="{ borderRadius: '2px' }"
       :before-icon="prevIcon || FIconChevronLeftVue"
-      @click="handelTurnPages('Prev')"
+      @click="handelTurnPages('prev')"
     />
 
     <!-- 分页主内容 -->
@@ -342,7 +338,7 @@
       :size="background ? 'middle' : 'small'"
       :style="{ borderRadius: '2px' }"
       :before-icon="nextIcon || FIconChevronRightVue"
-      @click="handelTurnPages('Next')"
+      @click="handelTurnPages('next')"
     />
 
     <!-- 快速跳转搜索框 -->
