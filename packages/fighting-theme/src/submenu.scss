@@ -48,9 +48,11 @@
       cursor: pointer;
       height: 50px;
       transition: 0.3s;
+
       // icon
       .f-svg-icon {
         margin-right: 5px;
+        transform: rotate(-90deg);
         font-size: var(
           --f-menu-item-font-size,
           var(--f-design-font-size-middle)

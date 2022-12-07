@@ -19,6 +19,10 @@
     </template>
 
     <f-menu-item :icon="FIconApps">首页</f-menu-item>
+    <f-menu-item :icon="FIconApps">设置</f-menu-item>
+    <f-menu-item :icon="FIconApps">首页</f-menu-item>
+    <f-menu-item :icon="FIconApps">操作</f-menu-item>
+    <f-menu-item :icon="FIconApps">首页</f-menu-item>
     <f-submenu>
       <template #title> 选项列表 </template>
       <f-menu-item :icon="FIconBlock">选项</f-menu-item>
