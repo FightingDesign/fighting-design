@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { SwapType, SwapOnChangeInterface } from './interface'
+import type { SwapType, SwapOnChange } from './interface'
 
 export const Props = {
   /**
@@ -48,7 +48,7 @@ export const Props = {
    * 当绑定值发生改变时触发的回调
    */
   onChange: {
-    type: Function as PropType<SwapOnChangeInterface>,
+    type: Function as PropType<SwapOnChange>,
     default: (): null => null
   }
 } as const

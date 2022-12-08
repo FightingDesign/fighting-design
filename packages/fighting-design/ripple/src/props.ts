@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { RippleType } from './interface'
+import type { FightingType } from '../../_interface'
 
 export const Props = {
   /**
@@ -24,9 +24,9 @@ export const Props = {
    * @defaultValue default
    */
   type: {
-    type: String as PropType<RippleType>,
-    default: (): RippleType => 'default',
-    validator: (val: RippleType): boolean => {
+    type: String as PropType<FightingType>,
+    default: (): FightingType => 'default',
+    validator: (val: FightingType): boolean => {
       return (
         ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)

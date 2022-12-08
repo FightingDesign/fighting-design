@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { TableAlign, TableDate, TableColumnsInterface } from './interface'
+import type { TableAlign, TableDate, TableColumns } from './interface'
 
 export const Props = {
   /**
@@ -13,7 +13,7 @@ export const Props = {
    * 标题数据
    */
   columns: {
-    type: Array as PropType<TableColumnsInterface[]>,
+    type: Array as PropType<TableColumns[]>,
     default: (): null => null
   },
   /**

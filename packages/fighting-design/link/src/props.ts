@@ -60,7 +60,7 @@ export const Props = {
     type: String as PropType<LinkTarget>,
     default: (): null => null,
     validator: (val: LinkTarget): boolean => {
-      return (['_self', '_blank', '_parent', '_top', ''] as const).includes(val)
+      return (['_self', '_blank', '_parent', '_top'] as const).includes(val)
     }
   },
   /**

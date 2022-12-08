@@ -8,7 +8,7 @@
   import { sizeChange } from '../../_utils'
   import type { RipplesOptions } from '../../_hooks'
   import type { CSSProperties } from 'vue'
-  import type { ClassList } from '../../_interface'
+  import type { ClassList, FightingSize } from '../../_interface'
 
   const prop = defineProps(Props)
 
@@ -19,7 +19,10 @@
   /**
    * 获取父组件注入的依赖项
    */
-  const parentInject = inject(BUTTON_GROUP_PROPS_KEY, undefined)
+  const parentInject = inject<FightingSize | undefined>(
+    BUTTON_GROUP_PROPS_KEY,
+    undefined
+  )
 
   /**
    * 类名列表
@@ -150,7 +153,6 @@
   <template v-else>
     <button
       ref="FButton"
-      role="button"
       tabindex="0"
       :class="classList"
       :disabled="disabled || loading"

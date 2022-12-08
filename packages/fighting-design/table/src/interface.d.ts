@@ -13,7 +13,7 @@ export type TableDate = Record<string, unknown>[]
 /**
  * 表格表头每一项配置类型
  */
-export interface TableColumnsInterface {
+export interface TableColumns {
   title: string
   key: string
   render?: Function

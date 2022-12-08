@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { ToolbarClickInterface } from './interface'
+import type { ToolbarClick } from './interface'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
@@ -62,7 +62,7 @@ export const Props = {
    * 点击之后触发的回调
    */
   onClick: {
-    type: Function as PropType<ToolbarClickInterface>,
+    type: Function as PropType<ToolbarClick>,
     default: (): null => null
   }
 } as const

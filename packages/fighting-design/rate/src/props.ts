@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { RateChangeInterface } from './interface'
+import type { RateChange } from './interface'
 
 export const Props = {
   /**
@@ -85,7 +85,7 @@ export const Props = {
    * 当分数发生改变时触发
    */
   onChange: {
-    type: Function as PropType<RateChangeInterface>,
+    type: Function as PropType<RateChange>,
     default: (): null => null
   }
 } as const

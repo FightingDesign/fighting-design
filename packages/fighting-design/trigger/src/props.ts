@@ -1,8 +1,8 @@
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type {
-  TriggerTriggerType,
-  TriggerEmitsInterface,
-  TriggerProvideInterface
+  TriggerTrigger,
+  TriggerEmits,
+  TriggerProvide
 } from './interface'
 
 export const Props = {
@@ -27,9 +27,9 @@ export const Props = {
    * @defaultValue hover
    */
   trigger: {
-    type: String as PropType<TriggerTriggerType>,
-    default: (): TriggerTriggerType => 'hover',
-    validator: (val: TriggerTriggerType): boolean => {
+    type: String as PropType<TriggerTrigger>,
+    default: (): TriggerTrigger => 'hover',
+    validator: (val: TriggerTrigger): boolean => {
       return (['hover', 'click'] as const).includes(val)
     }
   },
@@ -58,26 +58,26 @@ export const Props = {
    * 弹窗状态改变时触发的回调
    */
   onChange: {
-    type: Function as PropType<TriggerEmitsInterface>,
+    type: Function as PropType<TriggerEmits>,
     default: (): null => null
   },
   /**
    * 弹窗状态打开时触发的回调
    */
   onOpen: {
-    type: Function as PropType<TriggerEmitsInterface>,
+    type: Function as PropType<TriggerEmits>,
     default: (): null => null
   },
   /**
    * 弹窗状态关闭时触发的回调
    */
   onClose: {
-    type: Function as PropType<TriggerEmitsInterface>,
+    type: Function as PropType<TriggerEmits>,
     default: (): null => null
   }
 } as const
 
 export type TriggerProps = ExtractPropTypes<typeof Props>
 
-export const TRIGGER_CLOSE_KEY: InjectionKey<TriggerProvideInterface> =
+export const TRIGGER_CLOSE_KEY: InjectionKey<TriggerProvide> =
   Symbol('trigger-close-key')

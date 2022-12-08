@@ -10,6 +10,6 @@ export type SwapType = 'sound' | 'swap' | 'default'
  *
  * @param target 绑定的值
  */
-export interface SwapOnChangeInterface {
+export interface SwapOnChange {
   (target: boolean): void
 }

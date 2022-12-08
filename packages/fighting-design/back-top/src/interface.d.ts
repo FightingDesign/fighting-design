@@ -12,6 +12,6 @@ export type BackTopBehavior = 'smooth' | 'auto'
  *
  * @param node 元素节点
  */
-export interface BackTopHandleScrollInterface {
+export interface BackTopHandleScroll {
   (node: HTMLElement | null)
 }

@@ -1,5 +1,5 @@
 export type { RateProps } from './props'
 
-export interface RateChangeInterface {
+export interface RateChange {
   (val: number): number
 }

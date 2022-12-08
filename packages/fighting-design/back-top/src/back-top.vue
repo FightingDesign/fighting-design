@@ -3,7 +3,7 @@
   import { onMounted, ref } from 'vue'
   import { debounce } from '../../_utils'
   import { useList } from '../../_hooks'
-  import type { BackTopHandleScrollInterface } from './interface'
+  import type { BackTopHandleScroll } from './interface'
 
   const prop = defineProps(Props)
 
@@ -19,7 +19,7 @@
    *
    * @param node 元素节点
    */
-  const handleScroll: BackTopHandleScrollInterface = (
+  const handleScroll: BackTopHandleScroll = (
     node: HTMLElement | null
   ): Function => {
     return debounce((): void => {
@@ -60,10 +60,8 @@
       const listerNode: HTMLElement = document.querySelector(
         prop.listenEl
       ) as HTMLElement
-      ;(listerNode as HTMLElement).addEventListener(
-        'scroll',
-        handleScroll(listerNode)
-      )
+
+      listerNode.addEventListener('scroll', handleScroll(listerNode))
     }
     document.addEventListener('scroll', handleScroll(null))
   })

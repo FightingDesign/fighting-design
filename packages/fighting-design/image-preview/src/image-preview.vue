@@ -24,7 +24,7 @@
     ImagePreviewOptionClickOptionMapInterface,
     ImagePreviewSwitchImageOptionMapInterface
   } from './interface'
-  import type { ToolbarClickParamsInterface } from '../../toolbar'
+  import type { ToolbarClickParams } from '../../toolbar'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -132,7 +132,7 @@
    * @param target f-toolbar 组件返回值
    */
   const optionClick: ImagePreviewOptionClickInterface = (
-    target: ToolbarClickParamsInterface
+    target: ToolbarClickParams
   ): void => {
     if (!target.index) return
 

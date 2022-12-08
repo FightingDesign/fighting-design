@@ -3,15 +3,14 @@
   import { provide } from 'vue'
   import { useList } from '../../_hooks'
   import type { ComputedRef } from 'vue'
-  import type { ClassList } from '../../_interface'
-  import type { ButtonSize } from '../../button'
+  import type { ClassList, FightingSize } from '../../_interface'
 
   const prop = defineProps(Props)
 
   const { classes } = useList(prop, 'button-group')
 
   // 注入依赖
-  provide<ButtonSize>(BUTTON_GROUP_PROPS_KEY, prop.size)
+  provide<FightingSize>(BUTTON_GROUP_PROPS_KEY, prop.size)
 
   /**
    * 类名列表

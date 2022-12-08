@@ -3,14 +3,14 @@ export type { TriggerProps } from './trigger'
 /**
  * 触发方式类型
  */
-export type TriggerTriggerType = 'hover' | 'click'
+export type TriggerTrigger = 'hover' | 'click'
 
 /**
  * 回调函数类型接口
  *
  * @param target 当前展示状态
  */
-export interface TriggerEmitsInterface {
+export interface TriggerEmits {
   (target: boolean): void
 }
 
@@ -19,6 +19,6 @@ export interface TriggerEmitsInterface {
  *
  * @param handelClose 关闭方法
  */
-export interface TriggerProvideInterface {
+export interface TriggerProvide {
   handelClose(): void
 }

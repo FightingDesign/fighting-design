@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { SwitchChangeInterface } from './interface'
+import type { SwitchChange } from './interface'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
@@ -77,7 +77,7 @@ export const Props = {
    * 绑定值发生改变时触发的回调
    */
   onChange: {
-    type: Function as PropType<SwitchChangeInterface>,
+    type: Function as PropType<SwitchChange>,
     default: (): null => null
   },
   /**

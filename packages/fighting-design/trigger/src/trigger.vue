@@ -4,7 +4,7 @@
   import { sizeChange } from '../../_utils'
   import { useRun } from '../../_hooks'
   import type { ComputedRef, CSSProperties } from 'vue'
-  import type { TriggerProvideInterface } from './interface'
+  import type { TriggerProvide } from './interface'
 
   const prop = defineProps(Props)
 
@@ -94,13 +94,13 @@
    *
    * 目前仅为了在 dropdown-item 组件中实现点击关闭
    */
-  provide<TriggerProvideInterface>(
+  provide<TriggerProvide>(
     TRIGGER_CLOSE_KEY,
     reactive({
       handelClose: (): void => {
         showContent.value = false
       }
-    } as TriggerProvideInterface)
+    } as TriggerProvide)
   )
 </script>
 

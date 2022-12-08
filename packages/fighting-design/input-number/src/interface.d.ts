@@ -10,6 +10,6 @@ export type InputNumberModel = 'default' | 'button' | 'switch'
  *
  * @param val 最新值
  */
-export interface InputNumberChangeInterface {
+export interface InputNumberChange {
   (val: string): void
 }

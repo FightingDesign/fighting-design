@@ -7,7 +7,7 @@ export type { LinkProps } from './props'
  *
  * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
  */
-export type LinkTarget = '_self' | '_blank' | '_parent' | '_top' | ''
+export type LinkTarget = '_self' | '_blank' | '_parent' | '_top'
 
 /**
  * 不同 hover 状态

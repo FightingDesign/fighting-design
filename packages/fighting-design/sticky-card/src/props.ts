@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { StickyCardEmitInterface } from './interface'
+import type { StickyCardEmit } from './interface'
 
 export const Props = {
   /**
@@ -48,14 +48,14 @@ export const Props = {
    * 打开时的回调
    */
   onOpen: {
-    type: Function as PropType<StickyCardEmitInterface>,
+    type: Function as PropType<StickyCardEmit>,
     default: (): null => null
   },
   /**
    * 关闭时的回调
    */
   onClose: {
-    type: Function as PropType<StickyCardEmitInterface>,
+    type: Function as PropType<StickyCardEmit>,
     default: (): null => null
   }
 } as const

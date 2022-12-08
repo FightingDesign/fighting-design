@@ -1,10 +1,10 @@
 export type { ToolbarProps } from './props'
 
-export interface ToolbarClickParamsInterface {
+export interface ToolbarClickParams {
   evt: MouseEvent
   index: string | undefined
 }
 
-export interface ToolbarClickInterface {
-  (target: ToolbarClickParamsInterface): void
+export interface ToolbarClick {
+  (target: ToolbarClickParams): void
 }

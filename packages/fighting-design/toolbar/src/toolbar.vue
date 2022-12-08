@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { useSlots } from 'vue'
   import { useList, useRun } from '../../_hooks'
-  import type { ToolbarClickParamsInterface } from './interface'
+  import type { ToolbarClickParams } from './interface'
 
   const prop = defineProps(Props)
   const slot = useSlots()
@@ -32,7 +32,7 @@
     if (target.className === 'f-toolbar-item') {
       const index: string | undefined = target.dataset.index
 
-      useRun(prop.onClick, { evt, index } as ToolbarClickParamsInterface)
+      useRun(prop.onClick, { evt, index } as ToolbarClickParams)
     }
   }
 </script>

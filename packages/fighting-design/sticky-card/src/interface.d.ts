@@ -5,6 +5,6 @@ export type { StickyCardProps } from './props'
  *
  * @param target 绑定的值
  */
-export interface StickyCardEmitInterface {
+export interface StickyCardEmit {
   (target: boolean): void
 }
