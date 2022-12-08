@@ -1,11 +1,9 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type {
-  ButtonSize,
   ButtonTarget,
-  ButtonType,
   ButtonNative
 } from './interface'
-import type { HandleEvent } from '../../_interface'
+import type { HandleEvent, FightingSize, FightingType } from '../../_interface'
 
 export const Props = {
   /**
@@ -50,9 +48,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<ButtonSize>,
-    default: (): ButtonSize => 'middle',
-    validator: (val: ButtonSize): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -112,9 +110,9 @@ export const Props = {
    * @defaultValue default
    */
   type: {
-    type: String as PropType<ButtonType>,
-    default: (): ButtonType => 'default',
-    validator: (val: ButtonType): boolean => {
+    type: String as PropType<FightingType>,
+    default: (): FightingType => 'default',
+    validator: (val: FightingType): boolean => {
       return (
         ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)

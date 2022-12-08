@@ -1,11 +1,6 @@
 export type { InputNumberProps } from './props'
 
 /**
- * 不同尺寸类型
- */
-export type InputNumberSize = 'large' | 'middle' | 'small' | 'mini'
-
-/**
  * 不同模式类型
  */
 export type InputNumberModel = 'default' | 'button' | 'switch'

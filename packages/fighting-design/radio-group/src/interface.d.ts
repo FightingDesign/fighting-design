@@ -6,11 +6,6 @@ export interface RadioChangeInterface {
   (value: RadioLabelType): void
 }
 
-/**
- * 不同尺寸类型
- */
-export type RadioGroupSizeType = 'large' | 'middle' | 'small' | 'mini'
-
 export interface RadioGroundInterface {
   readonly disabled: boolean
   readonly modelValue: RadioLabelType

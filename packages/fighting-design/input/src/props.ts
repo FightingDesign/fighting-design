@@ -1,11 +1,10 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
 import type {
   InputType,
-  InputSize,
   InputChangeInterface,
   InputSearchInterface
 } from './interface'
-import type { HandleEvent } from '../../_interface'
+import type { HandleEvent, FightingSize } from '../../_interface'
 
 export const Props = {
   /**
@@ -34,9 +33,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<InputSize>,
-    default: (): InputSize => 'middle',
-    validator: (val: InputSize): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },

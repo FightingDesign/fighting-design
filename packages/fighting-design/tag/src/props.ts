@@ -1,6 +1,5 @@
 import type { PropType, ExtractPropTypes, VNode } from 'vue'
-import type { TagSize } from './interface'
-import type { HandleEvent, FightingType } from '../../_interface'
+import type { HandleEvent, FightingType, FightingSize } from '../../_interface'
 
 export const Props = {
   /**
@@ -67,9 +66,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<TagSize>,
-    default: (): TagSize => 'middle',
-    validator: (val: TagSize): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },

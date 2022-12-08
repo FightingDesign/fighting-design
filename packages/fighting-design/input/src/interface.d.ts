@@ -6,11 +6,6 @@ export type { InputProps } from './props'
 export type InputType = 'text' | 'password' | 'number'
 
 /**
- * 不同尺寸类型
- */
-export type InputSize = 'large' | 'middle' | 'small' | 'mini'
-
-/**
  * 当 input 改变时触发的回调函数类型接口
  *
  * @param var 当前的值

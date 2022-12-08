@@ -1,9 +1,6 @@
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type {
-  RadioLabelType,
-  RadioGroupSizeType,
-  RadioChangeInterface
-} from './interface'
+import type { RadioLabelType, RadioChangeInterface } from './interface'
+import type { FightingSize } from '../../_interface'
 
 export const Props = {
   /**
@@ -52,9 +49,9 @@ export const Props = {
    * 尺寸
    */
   size: {
-    type: String as PropType<RadioGroupSizeType>,
-    default: (): RadioGroupSizeType => 'middle',
-    validator: (val: RadioGroupSizeType): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },

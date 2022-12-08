@@ -366,22 +366,10 @@ import type {
 } from 'fighting-design'
 ```
 
-### ButtonSizeType
-
-```ts
-type ButtonSizeType = 'large' | 'middle' | 'small' | 'mini'
-```
-
 ### ButtonTargetType
 
 ```ts
 type ButtonTargetType = '_blank' | '_self' | '_parent' | '_top'
-```
-
-### ButtonType
-
-```ts
-type ButtonType = 'default' | 'primary' | 'success' | 'danger' | 'warning'
 ```
 
 ### ButtonNativeType

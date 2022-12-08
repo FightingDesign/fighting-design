@@ -1,7 +1,7 @@
 import { isString, isNumber } from '../../_utils'
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { AvatarFit, AvatarSize } from './interface'
-import type { HandleEvent } from '../../_interface'
+import type { AvatarFit } from './interface'
+import type { HandleEvent, FightingSize } from '../../_interface'
 
 export const Props = {
   /**
@@ -76,9 +76,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: [String, Number] as PropType<AvatarSize | number>,
-    default: (): AvatarSize => 'middle',
-    validator: (val: AvatarSize | number): boolean => {
+    type: [String, Number] as PropType<FightingSize | number>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize | number): boolean => {
       if (isString(val)) {
         return (['large', 'middle', 'small', 'mini'] as const).includes(val)
       } else if (isNumber(val)) {

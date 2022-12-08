@@ -18,3 +18,8 @@ export interface HandleEvent {
  * 不同类型
  */
 export type FightingType = 'primary' | 'success' | 'danger' | 'warning' | 'default'
+
+/**
+ * 不同尺寸类型
+ */
+export type FightingSize = 'large' | 'middle' | 'small' | 'mini'

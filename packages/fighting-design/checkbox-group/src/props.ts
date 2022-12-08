@@ -1,5 +1,6 @@
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
-import type { CheckboxGroupSize, CheckboxGroupChange } from './interface'
+import type { CheckboxGroupChange } from './interface'
+import type { FightingSize } from '../../_interface'
 
 export const Props = {
   /**
@@ -41,9 +42,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<CheckboxGroupSize>,
-    default: (): CheckboxGroupSize => 'middle',
-    validator: (val: CheckboxGroupSize): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
