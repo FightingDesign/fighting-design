@@ -3,8 +3,19 @@ import { convertFormat, isNumber, sizeChange, isBoolean } from '../../_utils'
 import { useProps } from '../use-props'
 import type { CSSProperties, ComputedRef, Ref } from 'vue'
 import type { ClassList } from '../../_interface'
-import type { UseListReturnInterface } from './interface'
-import type { FilterParamsInterface } from '../use-props/interface'
+import type { FilterParams } from '../use-props/interface'
+
+/**
+ * useList 返回值类型接口
+ *
+ * @param classes 类名列表
+ * @param styles 样式列表
+ * @param className 其它需要直接加入的类名
+ */
+export interface UseListReturn {
+  classes(list: FilterParams, className?: string): ComputedRef<ClassList>
+  styles(list: FilterParams): ComputedRef<CSSProperties>
+}
 
 /**
  * 自动计算组件所需要的类名列表和样式列表
@@ -15,12 +26,12 @@ import type { FilterParamsInterface } from '../use-props/interface'
  *
  * @param prop prop 列表
  * @param name 组件名
- * @returns { UseListReturnInterface } 类名列表和样式列表方法，可解构出 classes styles
+ * @returns 类名列表和样式列表方法，可解构出 classes styles
  */
 export const useList = <T extends object>(
   prop: T,
   name: string
-): UseListReturnInterface => {
+): UseListReturn => {
   /**
    * 过滤 props
    *
@@ -37,7 +48,7 @@ export const useList = <T extends object>(
    * @param className 其它所需要的类名
    */
   const classes = (
-    list: FilterParamsInterface,
+    list: FilterParams,
     className?: string
   ): ComputedRef<ClassList> => {
     return computed((): ClassList => {
@@ -63,8 +74,7 @@ export const useList = <T extends object>(
            * 否则使用值拼接
            */
           classList.value.push(
-            `f-${name}__${
-              isBoolean(propList[key]) ? convertFormat(key) : propList[key]
+            `f-${name}__${isBoolean(propList[key]) ? convertFormat(key) : propList[key]
             }`
           )
         }
@@ -78,7 +88,7 @@ export const useList = <T extends object>(
    *
    * @param list 样式所需要的 prop 参数
    */
-  const styles = (list: FilterParamsInterface): ComputedRef<CSSProperties> => {
+  const styles = (list: FilterParams): ComputedRef<CSSProperties> => {
     return computed((): CSSProperties => {
       /**
        * 样式列表

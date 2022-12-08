@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { LinkType, LinkTarget, LinkHover } from './interface'
-import type { HandleMouseEvent } from '../../_interface'
+import type { LinkTarget, LinkHover } from './interface'
+import type { HandleEvent, FightingType } from '../../_interface'
 
 export const Props = {
   /**
@@ -10,9 +10,9 @@ export const Props = {
    * @defaultValue primary
    */
   type: {
-    type: String as PropType<LinkType>,
-    default: (): LinkType => 'primary',
-    validator: (val: LinkType): boolean => {
+    type: String as PropType<FightingType>,
+    default: (): FightingType => 'primary',
+    validator: (val: FightingType): boolean => {
       return (
         ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
@@ -102,7 +102,7 @@ export const Props = {
    * 点击执行的回调
    */
   onClick: {
-    type: Function as PropType<HandleMouseEvent>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const

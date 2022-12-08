@@ -1,17 +1,20 @@
-import type { App } from 'vue'
-
-/**
- * 注册组件函数接口
- *
- * @param app 应用实例
- */
-export interface AppInstallInterface {
-  (app: App): App
-}
-
 /**
  * class 类名集合类型
  *
  * 多数情况下在 computed 中计算返回
  */
 export type ClassList = readonly (string | Record<string, unknown>)[]
+
+/**
+ * 事件参数类型接口
+ * 
+ * @see Event https://developer.mozilla.org/zh-CN/docs/Web/API/Event
+ */
+export interface HandleEvent {
+  <T extends Event>(evt: T): void
+}
+
+/**
+ * 不同类型
+ */
+export type FightingType = 'primary' | 'success' | 'danger' | 'warning' | 'default'

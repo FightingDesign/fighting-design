@@ -1,8 +1,8 @@
 import { reactive, toRef } from 'vue'
 import { isString, isObject } from '../../_utils'
 import type {
-  FilterParamsInterface,
-  FilterParamsListInterface,
+  FilterParams,
+  FilterParamsList,
   UsePropsReturnInterface
 } from './interface'
 
@@ -21,13 +21,13 @@ export const useProps = <T extends object>(
    * @param list 需要的参数列表
    * @returns { Object } 过滤后的 prop 响应式对象
    */
-  const filter = (list: FilterParamsInterface): Record<string, unknown> => {
+  const filter = (list: FilterParams): Record<string, unknown> => {
     /**
      * 过滤的 prop 结果
      */
     const result: Record<string, unknown> = reactive({})
 
-    list.forEach((item: string | FilterParamsListInterface): void => {
+    list.forEach((item: string | FilterParamsList): void => {
       /**
        * 判断如果是字符串参数
        *

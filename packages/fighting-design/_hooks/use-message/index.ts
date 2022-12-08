@@ -62,8 +62,7 @@ export const useMessage = (
 
     render(VNode, container)
     document.body.appendChild(container.firstElementChild as HTMLElement)
-    const vm: ComponentInternalInstance =
-      VNode.component as ComponentInternalInstance
+    const vm = VNode.component as ComponentInternalInstance
 
     seed++
     const instance: MessageInstance = massageManage.createInstance(

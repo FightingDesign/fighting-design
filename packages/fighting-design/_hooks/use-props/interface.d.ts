@@ -1,9 +1,9 @@
-export interface FilterParamsListInterface {
+export interface FilterParamsList {
   key: string
   callback: Function
 }
 
-export type FilterParamsInterface = (string | FilterParamsListInterface)[]
+export type FilterParams = (string | FilterParamsList)[]
 
 export interface UsePropsReturnInterface {
   filter: FilterInterface

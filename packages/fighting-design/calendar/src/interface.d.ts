@@ -1,3 +1,5 @@
+import type { FightingType } from '../../_interface'
+
 export type { CalendarProps } from './props'
 
 export type CalendarTarget = 'last' | 'now' | 'next'
@@ -28,7 +30,7 @@ export interface CalendarCallback {
  * @param content 标签内容
  */
 export interface CalendarMemorandumContentInterface {
-  type?: 'default' | 'primary' | 'success' | 'danger' | 'warning'
+  type?: FightingType
   content: string
 }
 

@@ -1,11 +1,6 @@
 export type { LinkProps } from './props'
 
 /**
- * 不同类型
- */
-export type LinkType = 'default' | 'primary' | 'success' | 'danger' | 'warning'
-
-/**
  * 该属性指定在何处显示链接的资源
  *
  * 原生属性

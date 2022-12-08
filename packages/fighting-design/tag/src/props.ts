@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes, VNode } from 'vue'
-import type { TagSize, TagType } from './interface'
-import type { HandleMouseEvent } from '../../_interface'
+import type { TagSize } from './interface'
+import type { HandleEvent, FightingType } from '../../_interface'
 
 export const Props = {
   /**
@@ -10,9 +10,9 @@ export const Props = {
    * @defaultValue default
    */
   type: {
-    type: String as PropType<TagType>,
-    default: (): TagType => 'default',
-    validator: (val: TagType): boolean => {
+    type: String as PropType<FightingType>,
+    default: (): FightingType => 'default',
+    validator: (val: FightingType): boolean => {
       return (
         ['default', 'primary', 'success', 'danger', 'warning'] as const
       ).includes(val)
@@ -98,7 +98,7 @@ export const Props = {
    * 点击关闭按钮触发
    */
   onClose: {
-    type: Function as PropType<HandleMouseEvent>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const

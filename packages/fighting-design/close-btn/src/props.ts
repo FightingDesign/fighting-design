@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { HandleMouseEvent } from '../../_interface'
+import type { HandleEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -41,7 +41,7 @@ export const Props = {
    * 点击之后执行的回调
    */
   onClick: {
-    type: Function as PropType<HandleMouseEvent>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const

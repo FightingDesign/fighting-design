@@ -5,10 +5,7 @@ import type {
   InputChangeInterface,
   InputSearchInterface
 } from './interface'
-import type {
-  HandleFocusEvent,
-  HandleEvent
-} from '../../_interface'
+import type { HandleEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -169,21 +166,21 @@ export const Props = {
    * 失去焦点时触发的回调
    */
   onBlur: {
-    type: Function as PropType<HandleFocusEvent>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 获得焦点时触发的回调
    */
   onFocus: {
-    type: Function as PropType<HandleFocusEvent>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * input 事件触发的回调
    */
   onInput: {
-    type: Function as PropType<HandleFocusEvent>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
