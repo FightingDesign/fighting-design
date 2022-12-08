@@ -2,13 +2,18 @@
   import { Props } from './props'
   import { ref, onMounted, useSlots } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
-  import { useLoadImage, useAvatar } from '../../_hooks'
+  import { useAvatar, useLoadImg, useProps } from '../../_hooks'
 
   const prop = defineProps(Props)
   const slot = useSlots()
 
+  const { filter } = useProps(prop)
+
   const { nodeClassList, classList, styleList } = useAvatar(prop)
-  const { isSuccess, isShowNode, loadAction } = useLoadImage(prop)
+
+  const { loadImg, isSuccess } = useLoadImg(
+    filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError'])
+  )
 
   /**
    * 图片 dom 节点
@@ -20,7 +25,7 @@
    */
   onMounted((): void => {
     if (!slot.icon && !prop.icon && !prop.text) {
-      loadAction(avatarEl)
+      loadImg(avatarEl.value)
     }
   })
 </script>
@@ -43,14 +48,7 @@
     </span>
 
     <!-- 图片头像 -->
-    <img
-      v-else
-      v-show="isShowNode"
-      ref="avatarEl"
-      src=""
-      :class="nodeClassList"
-      :alt="alt"
-    />
+    <img v-else ref="avatarEl" src="" :class="nodeClassList" :alt="alt" />
   </div>
 
   <!-- 加载失败的 -->

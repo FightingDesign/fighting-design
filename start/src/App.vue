@@ -5,19 +5,37 @@
     FIconCameraVideoSlash,
     FIconClock
   } from '@fighting-design/fighting-icon'
+
+  const load = (e) => console.log(e)
+  const error = (e) => console.log(e)
 </script>
 
 <template>
+  <div
+    :style="{
+      height: '2000px'
+    }"
+  >
+    1
+  </div>
+  <f-avatar
+    src="https://tianyuhao.cn/2images/auto/my.jpg"
+    err-src="https://tianyuhao.cn/images/auto/my.jpg"
+    :on-load="load"
+    :on-error="error"
+  />
+  <!-- <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" /> -->
+
   <!-- <f-menu mode="inline"> -->
   <!-- <f-menu mode="vertical"> -->
   <h3>水平的</h3>
   <f-menu active-name="1">
     <template #before>
-      <f-avatar
+      <!-- <f-avatar
         round
         src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
         size="mini"
-      />
+      /> -->
     </template>
 
     <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
