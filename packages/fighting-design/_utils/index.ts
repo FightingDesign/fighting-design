@@ -1,5 +1,4 @@
 export * from './install'
-export * from './load-image'
 export * from './utils'
 export * from './tree'
 export * from './calendar'
