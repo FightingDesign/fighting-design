@@ -1,6 +1,6 @@
 # Tooltip 消息提示
 
-`Tooltip` 消息信息提示组件
+藏入你的提示内容
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tooltip)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tooltip.md)

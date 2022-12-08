@@ -407,11 +407,11 @@ type ButtonNativeType = NonNullable<ButtonHTMLAttributes['type']>
 </a>
 
 <style scoped>
-.f-button {
-  margin: 5px;
-}
-.f-button-group-vertical .f-button,
-.f-button-group .f-button {
-  margin: 0;
-}
+  .f-button {
+    margin: 5px;
+  }
+  .f-button-group-vertical .f-button,
+  .f-button-group .f-button {
+    margin: 0;
+  }
 </style>

@@ -277,7 +277,7 @@ import type {
 </a>
 
 <style scoped>
- .f-header,
+  .f-header,
   .f-footer {
     background: #6b8bf5;
     color: #fff;

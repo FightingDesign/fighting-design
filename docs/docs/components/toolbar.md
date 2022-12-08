@@ -222,7 +222,7 @@ import type {
 </script>
 
 <style scoped>
-.f-toolbar {
-  margin: 10px 0;
-}
+  .f-toolbar {
+    margin: 10px 0;
+  }
 </style>

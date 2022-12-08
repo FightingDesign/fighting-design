@@ -212,8 +212,8 @@ import type {
 </script>
 
 <style scoped>
-.f-avatar,
-.f-avatar-error {
-  margin: 5px;
-}
+  .f-avatar,
+  .f-avatar-error {
+    margin: 5px;
+  }
 </style>

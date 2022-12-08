@@ -1,3 +1,9 @@
+/**
+ * useCalculiColor 返回值类型接口
+ * 
+ * @param getDarkColor 加深方法
+ * @param getLightColor 减淡方法
+ */
 export interface UseCalculiColorReturn {
   getDarkColor(level: number): string
   getLightColor(level: number): string
@@ -7,13 +13,12 @@ export interface UseCalculiColorReturn {
  * 根据传入的 hex 计算出加深或减淡的颜色
  *
  * @param color 需要计算的颜色
- * @returns
  */
 export const useCalculiColor = (color: string): UseCalculiColorReturn => {
   /**
    * 将 hex 色号转换为 rgb
    *
-   * @returns { Array<string> }
+   * @returns { Array }
    */
   const hexToRgb = (): string[] | void => {
     const r = /^\#?[0-9A-Fa-f]{6}$/
@@ -32,7 +37,7 @@ export const useCalculiColor = (color: string): UseCalculiColorReturn => {
    * 将 rgb 色号转换为 hex
    *
    * @param rgb rgb 色号
-   * @returns { Array<string> }
+   * @returns { Array }
    */
   const rgbToHex = (...rgb: string[]): string => {
     const hex: string[] = [...rgb]

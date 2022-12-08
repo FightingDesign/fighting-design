@@ -260,7 +260,7 @@ import type {
 </a>
 
 <style scoped>
-.f-alert {
-  margin: 5px;
-}
+  .f-alert {
+    margin: 5px;
+  }
 </style>

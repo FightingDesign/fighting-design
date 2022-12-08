@@ -286,7 +286,7 @@ import type {
 </a>
 
 <style scoped>
-.f-text {
-  margin: 5px;
-}
+  .f-text {
+    margin: 5px;
+  }
 </style>

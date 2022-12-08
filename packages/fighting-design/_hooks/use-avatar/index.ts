@@ -1,15 +1,28 @@
 import { useList } from '../../_hooks'
 import { isNumber, isString } from '../../_utils'
 import type { AvatarProps } from '../../avatar'
-import type { UseAvatarReturnInterface } from './interface'
+import type { ClassList } from '../../_interface'
+import type { ComputedRef, CSSProperties } from 'vue'
+
+/**
+ * useAvatar 内部样式 hook 方法返回值类型接口
+ *
+ * @param nodeClassList img 元素的类名列表
+ * @param classList 类名列表
+ * @param styleList 样式列表
+ */
+export interface UseAvatarReturn {
+  nodeClassList: ComputedRef<ClassList>
+  classList: ComputedRef<ClassList>
+  styleList: ComputedRef<CSSProperties>
+}
 
 /**
  * useAvatar 内部样式
  *
  * @param prop props 列表
- * @returns { UseAvatarReturnInterface }
  */
-export const useAvatar = (prop: AvatarProps): UseAvatarReturnInterface => {
+export const useAvatar = (prop: AvatarProps): UseAvatarReturn => {
   const { styles, classes } = useList(prop, 'avatar')
 
   /**

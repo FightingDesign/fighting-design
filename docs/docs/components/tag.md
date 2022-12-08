@@ -1,6 +1,6 @@
 # Tag 标签
 
-`Tag` 用于标签展示
+一个标签
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tag)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tag.md)
@@ -212,7 +212,7 @@ import type {
 </a>
 
 <style scoped>
-.f-tag {
-  margin: 5px;
-}
+  .f-tag {
+    margin: 5px;
+  }
 </style>

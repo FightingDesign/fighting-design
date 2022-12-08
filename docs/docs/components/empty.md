@@ -153,7 +153,7 @@ import type { EmptyInstance, EmptyPropsType } from 'fighting-design'
 </a>
 
 <style scoped>
-.f-empty {
-  margin: 5px;
-}
+  .f-empty {
+    margin: 5px;
+  }
 </style>

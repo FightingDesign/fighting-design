@@ -162,7 +162,7 @@ import type { BadgeInstance, BadgePropsType, BadgeType } from 'fighting-design'
 </a>
 
 <style scoped>
-.f-badge {
-  margin: 10px;
-}
+  .f-badge {
+    margin: 10px;
+  }
 </style>
