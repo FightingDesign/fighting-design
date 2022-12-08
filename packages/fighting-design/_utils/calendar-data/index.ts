@@ -1,5 +1,3 @@
-import type { HolidayListType } from './interface'
-
 /**
  * 星期
  */
@@ -94,7 +92,7 @@ export const ANIMALS = [
 /**
  * 阳历节日
  */
-export const SOLAR_CALENDAR_FESTIVE: HolidayListType = {
+export const SOLAR_CALENDAR_FESTIVE: Record<string, { title: string }> = {
   '1-1': { title: '元旦节' },
   '2-14': { title: '情人节' },
   '5-1': { title: '劳动节' },
@@ -115,7 +113,7 @@ export const SOLAR_CALENDAR_FESTIVE: HolidayListType = {
 /**
  * 农历节日
  */
-export const LUNAR_FESTIVE: HolidayListType = {
+export const LUNAR_FESTIVE: Record<string, { title: string }> = {
   '12-30': { title: '除夕' },
   '1-1': { title: '春节' },
   '1-15': { title: '元宵节' },

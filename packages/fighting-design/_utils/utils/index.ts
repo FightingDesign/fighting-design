@@ -70,6 +70,7 @@ export const sizeChange = (
  * 例如: 12px => 12
  *
  * @see parseFloat https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat
+ * 
  * @param size 尺寸
  * @returns { number } 数字尺寸
  */

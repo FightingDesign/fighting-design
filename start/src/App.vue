@@ -6,8 +6,16 @@
     FIconClock
   } from '@fighting-design/fighting-icon'
 
+  const sizeToNum = (size: string | number): number => {
+    if (!size) return 0
+    if (typeof size === 'number') return size
+    return Number.parseFloat(size) || 0
+  }
+
   const load = (e) => console.log(e)
   const error = (e) => console.log(e)
+
+  console.log(sizeToNum(-1))
 </script>
 
 <template>
@@ -18,7 +26,12 @@
   >
     1
   </div>
-  <f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
+  <f-image
+    lazy
+    width="200px"
+    src="https://tianyuhao.cn/images/auto/1.jpg"
+    :root-margin="-300"
+  />
 
   <f-avatar
     src="https://tianyuhao.cn/2images/auto/my.jpg"
@@ -66,6 +79,13 @@
   </f-menu>
 
   <br />
+  <div
+    :style="{
+      height: '2000px'
+    }"
+  >
+    1
+  </div>
   <br />
   <br />
 
