@@ -2,13 +2,17 @@
   import { Props } from './props'
   import { onMounted, ref, computed } from 'vue'
   import { sizeChange } from '../../_utils'
-  import { useLoadImage } from '../../_hooks'
+  import { useLoadImg, useProps } from '../../_hooks'
   import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
 
-  const { isSuccess, isShowNode, loadAction } = useLoadImage(prop)
+  const { filter } = useProps(prop)
+
+  const { loadImg, isSuccess } = useLoadImg(
+    filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError'])
+  )
 
   /**
    * dom 节点元素
@@ -16,7 +20,7 @@
   const imageEl = ref<HTMLImageElement>(null as unknown as HTMLImageElement)
 
   onMounted((): void => {
-    loadAction(imageEl)
+    loadImg(imageEl.value)
   })
 
   /**
@@ -57,7 +61,6 @@
   >
     <!-- 真正展示的图片 -->
     <img
-      v-show="isShowNode"
       ref="imageEl"
       src=""
       :class="classList"

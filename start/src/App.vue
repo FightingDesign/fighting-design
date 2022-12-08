@@ -18,6 +18,8 @@
   >
     1
   </div>
+  <f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
+
   <f-avatar
     src="https://tianyuhao.cn/2images/auto/my.jpg"
     err-src="https://tianyuhao.cn/images/auto/my.jpg"
