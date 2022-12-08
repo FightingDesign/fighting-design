@@ -38,8 +38,8 @@ jobs:
         run: pnpm test
 
       # 打包组件
-      - name: Build components
-        run: pnpm build
+      # - name: Build components
+      #   run: pnpm build
 
       # 打打包文档
       - name: Build docs
