@@ -1,7 +1,7 @@
+import { isString, isNumber } from '../../_utils'
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { AvatarFit, AvatarSize } from './interface'
-import type { HandleEventInterface } from '../../_interface'
-import { isString, isNumber } from '../../_utils'
+import type { HandleEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -126,14 +126,14 @@ export const Props = {
    * 图片加载成功触发的回调
    */
   onLoad: {
-    type: Function as PropType<HandleEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 图片加载失败触发的回调
    */
   onError: {
-    type: Function as PropType<HandleEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const

@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ImageFit } from './interface'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { HandleMouseEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -116,14 +116,14 @@ export const Props = {
    * 图片加载成功触发的回调
    */
   onLoad: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleMouseEvent>,
     default: (): null => null
   },
   /**
    * 图片加载失败触发的回调
    */
   onError: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleMouseEvent>,
     default: (): null => null
   }
 } as const

@@ -1,10 +1,7 @@
 import { ref } from 'vue'
 import { keepDecimal } from '../../_utils'
 import type { Ref } from 'vue'
-import type {
-  HandleWheelEventInterface,
-  UseOperationImgReturnInterface
-} from './interface'
+import type { UseOperationImgReturnInterface } from './interface'
 
 /**
  * 用于 image-preview 组件的图片操作 hook
@@ -41,7 +38,7 @@ export const useOperationImg = (): UseOperationImgReturnInterface => {
    * 滚轮缩放
    * @param evt 鼠标滚轮事件对象
    */
-  const scrollZoom: HandleWheelEventInterface = (evt: WheelEvent): void => {
+  const scrollZoom = (evt: WheelEvent): void => {
     evt.preventDefault()
     evt.deltaY > 1 ? smaller() : bigger()
   }

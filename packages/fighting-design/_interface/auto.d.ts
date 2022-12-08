@@ -1,15 +1,6 @@
 import type { App } from 'vue'
 
 /**
- * 普通函数接口
- *
- * 无参数，无返回值
- */
-export interface OrdinaryFunctionInterface {
-  (): void
-}
-
-/**
  * 注册组件函数接口
  *
  * @param app 应用实例

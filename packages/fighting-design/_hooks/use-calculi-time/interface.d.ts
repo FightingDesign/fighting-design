@@ -1,5 +1,4 @@
 import type { ComputedRef } from 'vue'
-export type { OrdinaryFunctionInterface } from '../../_interface'
 export type { GetLunarDetailReturnInterface } from '../../_utils/calendar-lunar/interface'
 
 /**

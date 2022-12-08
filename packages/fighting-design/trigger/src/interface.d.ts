@@ -1,5 +1,3 @@
-import type { OrdinaryFunctionInterface } from '../../_interface'
-
 export type { TriggerProps } from './trigger'
 
 /**
@@ -22,5 +20,5 @@ export interface TriggerEmitsInterface {
  * @param handelClose 关闭方法
  */
 export interface TriggerProvideInterface {
-  handelClose: OrdinaryFunctionInterface
+  handelClose(): void
 }

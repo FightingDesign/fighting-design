@@ -4,7 +4,7 @@ import type {
   InputNumberModel,
   InputNumberChangeInterface
 } from './interface'
-import type { HandleFocusEventInterface } from '../../_interface'
+import type { HandleFocusEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -131,21 +131,21 @@ export const Props = {
    * 失去焦点时触发的回调
    */
   onBlur: {
-    type: Function as PropType<HandleFocusEventInterface>,
+    type: Function as PropType<HandleFocusEvent>,
     default: (): null => null
   },
   /**
    * 获得焦点时触发的回调
    */
   onFocus: {
-    type: Function as PropType<HandleFocusEventInterface>,
+    type: Function as PropType<HandleFocusEvent>,
     default: (): null => null
   },
   /**
    * input 事件触发的回调
    */
   onInput: {
-    type: Function as PropType<HandleFocusEventInterface>,
+    type: Function as PropType<HandleFocusEvent>,
     default: (): null => null
   }
 } as const

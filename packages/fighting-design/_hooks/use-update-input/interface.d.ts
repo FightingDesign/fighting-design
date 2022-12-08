@@ -1,14 +1,8 @@
-import type {
-  OrdinaryFunctionInterface,
-  HandleEventInterface
-} from '../../_interface'
+import type { HandleEvent } from '../../_interface'
 import type { TextareaChangeInterface } from '../../textarea'
 import type { InputType } from '../../input'
 
-export type {
-  OrdinaryFunctionInterface,
-  HandleEventInterface
-} from '../../_interface'
+export type { HandleEvent } from '../../_interface'
 
 /**
  * 传入的 props 类型接口
@@ -30,9 +24,9 @@ export interface UseUpdateInputPropsInterface {
  * @param onClear 清空文本框
  */
 export interface UseUpdateInputReturnInterface {
-  onInput: HandleEventInterface
-  onChange: HandleEventInterface
-  onClear: OrdinaryFunctionInterface
+  onInput: HandleEvent
+  onChange: HandleEvent
+  onClear(): void
 }
 
 /**

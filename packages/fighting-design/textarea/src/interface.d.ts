@@ -5,11 +5,11 @@ export type { TextareaProps } from './textarea'
  *
  * @param val 最新值
  */
-export interface TextareaChangeInterface {
+export interface TextareaChange {
   (val: string): void
 }
 
 /**
  * 拉伸方式类型
  */
-export type TextareaResizeType = 'none' | 'both' | 'horizontal' | 'vertical'
+export type TextareaResize = 'none' | 'both' | 'horizontal' | 'vertical'

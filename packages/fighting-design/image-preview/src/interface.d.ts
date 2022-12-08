@@ -43,3 +43,7 @@ export interface ImagePreviewOptionClickOptionMapInterface {
   4(): void
   5(): void
 }
+
+export interface ImagePreviewOnClose {
+  (): void
+}

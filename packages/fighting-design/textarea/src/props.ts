@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { TextareaChangeInterface, TextareaResizeType } from './interface'
-import type { HandleFocusEventInterface } from '../../_interface'
+import type { TextareaChange, TextareaResize } from './interface'
+import type { HandleFocusEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -78,28 +78,28 @@ export const Props = {
    * input 事件触发的回调
    */
   onInput: {
-    type: Function as PropType<HandleFocusEventInterface>,
+    type: Function as PropType<HandleFocusEvent>,
     default: (): null => null
   },
   /**
    * 绑定值发生变化时触发的回调
    */
   onChange: {
-    type: Function as PropType<TextareaChangeInterface>,
+    type: Function as PropType<TextareaChange>,
     default: (): null => null
   },
   /**
    * 失去焦点时触发的回调
    */
   onBlur: {
-    type: Function as PropType<HandleFocusEventInterface>,
+    type: Function as PropType<HandleFocusEvent>,
     default: (): null => null
   },
   /**
    * 获取焦点时触发的回调
    */
   onFocus: {
-    type: Function as PropType<HandleFocusEventInterface>,
+    type: Function as PropType<HandleFocusEvent>,
     default: (): null => null
   },
   /**
@@ -110,9 +110,9 @@ export const Props = {
    * @defaultValue none
    */
   resize: {
-    type: String as PropType<TextareaResizeType>,
-    default: (): TextareaResizeType => 'none',
-    validator: (val: TextareaResizeType): boolean => {
+    type: String as PropType<TextareaResize>,
+    default: (): TextareaResize => 'none',
+    validator: (val: TextareaResize): boolean => {
       return (['none', 'both', 'horizontal', 'vertical'] as const).includes(val)
     }
   },

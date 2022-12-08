@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { OrdinaryFunctionInterface } from '../../_interface'
+import type { ImagePreviewOnClose } from './interface'
 
 export const Props = {
   /**
@@ -70,7 +70,7 @@ export const Props = {
    * 关闭之后的回调
    */
   onClose: {
-    type: Function as PropType<OrdinaryFunctionInterface>,
+    type: Function as PropType<ImagePreviewOnClose>,
     default: (): null => null
   }
 } as const

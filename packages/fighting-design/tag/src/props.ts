@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes, VNode } from 'vue'
 import type { TagSize, TagType } from './interface'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { HandleMouseEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -98,7 +98,7 @@ export const Props = {
    * 点击关闭按钮触发
    */
   onClose: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleMouseEvent>,
     default: (): null => null
   }
 } as const

@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type { DrawerDirection } from './interface'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { HandleMouseEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -90,28 +90,28 @@ export const Props = {
    * 打开动画开始的回调
    */
   onOpen: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleMouseEvent>,
     default: (): null => null
   },
   /**
    * 打开动画结束的回调
    */
   onOpenEnd: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleMouseEvent>,
     default: (): null => null
   },
   /**
    * 关闭动画开始的回调
    */
   onClose: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleMouseEvent>,
     default: (): null => null
   },
   /**
    * 关闭动画结束的回调
    */
   onCloseEnd: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleMouseEvent>,
     default: (): null => null
   }
 } as const
