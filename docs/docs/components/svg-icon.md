@@ -78,7 +78,7 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 | 参数       | 说明               | 类型                       | 可选值 | 默认值 |
 | ---------- | ------------------ | -------------------------- | ------ | ------ |
 | `color`    | icon 颜色          | string                     | ——     | ——     |
-| `size`     | icon 大小          | string / number            | ——     | 21px   |
+| `size`     | icon 大小          | string / number            | ——     | ——     |
 | `icon`     | icon 内容          | object (VNode / Component) | ——     | ——     |
 | `on-click` | 点击之后触发的回调 | Function                   | ——     | ——     |
 

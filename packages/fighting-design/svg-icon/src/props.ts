@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { HandleEvent, FightingIcon } from '../../_interface'
+import type { FightingIcon, HandelClick } from '../../_interface'
 
 export const Props = {
   /**
@@ -27,7 +27,7 @@ export const Props = {
    * 点击之后触发的回调
    */
   onClick: {
-    type: Function as PropType<HandleEvent>,
+    type: Function as PropType<HandelClick>,
     default: (): null => null
   }
 } as const
