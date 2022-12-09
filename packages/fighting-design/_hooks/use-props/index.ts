@@ -1,16 +1,8 @@
 import { reactive, toRef } from 'vue'
 import { isString, isObject } from '../../_utils'
+import type { FilterParams, FilterParamsList, UsePropsReturn } from './interface'
 
-export interface FilterParamsList {
-  key: string
-  callback: Function
-}
-
-export type FilterParams = (string | FilterParamsList)[]
-
-export interface UsePropsReturn {
-  filter(list: FilterParams): Record<string, unknown>
-}
+export * from './interface.d'
 
 /**
  * 对于 props 的一些操作

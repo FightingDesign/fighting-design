@@ -13,6 +13,8 @@ import type {
   UseMessageReturnInterface
 } from './interface'
 
+export * from './interface.d'
+
 export const massageManage = useMassageManage()
 
 export const useMessage = (

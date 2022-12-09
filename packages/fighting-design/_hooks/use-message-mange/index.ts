@@ -6,6 +6,8 @@ import type {
   MessagePlacementType
 } from './interface'
 
+export * from './interface.d'
+
 /**
  * 创建弹出的消息体实例
  * @returns
@@ -71,7 +73,7 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
     id: string
   ): void => {
     const idx: number = getInstanceIndex(placement, id)
-    ;(instances[placement] as MessageInstance[]).splice(idx, 1)
+      ; (instances[placement] as MessageInstance[]).splice(idx, 1)
   }
 
   /**
