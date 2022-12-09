@@ -84,6 +84,54 @@
 
 :::
 
+## 圆形按钮
+
+`circle` 属性可以将按钮变成圆形按钮
+
+::: demo
+
+<template #source>
+<f-button circle type="primary">圆</f-button>
+<f-button circle type="success">形</f-button>
+<f-button circle type="danger">按</f-button>
+<f-button circle type="warning">钮</f-button>
+</template>
+
+```html
+<f-button circle type="primary">圆</f-button>
+<f-button circle type="success">形</f-button>
+<f-button circle type="danger">按</f-button>
+<f-button circle type="warning">钮</f-button>
+```
+
+:::
+
+## 带有 Icon
+
+`before-icon` 或者 `after-icon` 可配置内容前后的 icon，当然你也可以直接通过插槽插入
+
+::: demo
+
+<template #source>
+<f-button circle :before-icon="FIconApps" type="primary" />
+<f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock">前后都有</f-button>
+</template>
+
+```html
+<template>
+  <f-button circle :before-icon="FIconApps" type="primary" />
+  <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock">
+    前后都有
+  </f-button>
+</template>
+
+<script setup lang="ts">
+  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
+</script>
+```
+
+:::
+
 ## 禁用状态
 
 `disabled` 属性可以将按钮变成禁用状态
@@ -193,19 +241,19 @@
 ::: demo
 
 <template #source>
-<f-button shadow="0 2px 7px 0 #f0f0f0" type="default">默认按钮</f-button>
-<f-button shadow="0 2px 7px 0 #2d5af1" type="primary">主要按钮</f-button>
-<f-button shadow="0 2px 7px 0 #52b35e" type="success">成功按钮</f-button>
-<f-button shadow="0 2px 7px 0 #ff0200" type="danger">危险按钮</f-button>
-<f-button shadow="0 2px 7px 0 #fcc202" type="warning">警告按钮</f-button>
+<f-button shadow="0 1px 10px 0 #f0f0f0" type="default">默认按钮</f-button>
+<f-button shadow="0 1px 10px 0 #2d5af1" type="primary">主要按钮</f-button>
+<f-button shadow="0 1px 10px 0 #52b35e" type="success">成功按钮</f-button>
+<f-button shadow="0 1px 10px 0 #ff0200" type="danger">危险按钮</f-button>
+<f-button shadow="0 1px 10px 0 #fcc202" type="warning">警告按钮</f-button>
 </template>
 
 ```html
-<f-button shadow="0 2px 7px 0 #f0f0f0" type="default">默认按钮</f-button>
-<f-button shadow="0 2px 7px 0 #2d5af1" type="primary">主要按钮</f-button>
-<f-button shadow="0 2px 7px 0 #52b35e" type="success">成功按钮</f-button>
-<f-button shadow="0 2px 7px 0 #ff0200" type="danger">危险按钮</f-button>
-<f-button shadow="0 2px 7px 0 #fcc202" type="warning">警告按钮</f-button>
+<f-button shadow="0 1px 10px 0 #f0f0f0" type="default">默认按钮</f-button>
+<f-button shadow="0 1px 10px 0 #2d5af1" type="primary">主要按钮</f-button>
+<f-button shadow="0 1px 10px 0 #52b35e" type="success">成功按钮</f-button>
+<f-button shadow="0 1px 10px 0 #ff0200" type="danger">危险按钮</f-button>
+<f-button shadow="0 1px 10px 0 #fcc202" type="warning">警告按钮</f-button>
 ```
 
 :::
@@ -217,7 +265,7 @@
 ::: demo
 
 <template #source>
-<f-button type="primary">主要按钮</f-button>
+<f-button type="primary">没有涟漪</f-button>
 <f-button type="success" ripples>涟漪效果</f-button>
 <f-button type="warning" ripples>点我试试</f-button>
 <f-button type="danger" ripples simple>看看我</f-button>
@@ -225,7 +273,7 @@
 </template>
 
 ```html
-<f-button type="primary">主要按钮</f-button>
+<f-button type="primary">没有涟漪</f-button>
 <f-button type="success" ripples>涟漪效果</f-button>
 <f-button type="warning" ripples>点我试试</f-button>
 <f-button type="danger" ripples simple>看看我</f-button>
@@ -238,7 +286,7 @@
 
 ## 按钮组
 
-使用 `<f-button-group>` 标签包裹按钮组件可以实现按钮组效果
+使用 `f-button-group` 组件包裹按钮组件可以实现按钮组效果
 
 `vertical` 属性可以配置纵向排列的按钮组
 
@@ -405,6 +453,10 @@ type ButtonClick = (evt: MouseEvent) => void
 <a href="https://github.com/long-life233" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/77321887?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
+</script>
 
 <style scoped>
   .f-button {

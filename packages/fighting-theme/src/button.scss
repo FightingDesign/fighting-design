@@ -166,4 +166,13 @@
       background: var(--f-button-active-color);
     }
   }
+
+  // icon
+  .f-button_before-icon {
+    margin-right: 5px;
+  }
+
+  .f-button_after-icon {
+    margin-left: 5px;
+  }
 }

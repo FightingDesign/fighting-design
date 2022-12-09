@@ -161,14 +161,22 @@
     >
       <f-svg-icon
         v-if="loading || beforeIcon"
-        :class="{ 'f-button__loading-animation': loading }"
+        :class="[
+          'f-button_before-icon',
+          { 'f-button__loading-animation': loading }
+        ]"
         :icon="loading ? loadingIcon || FIconLoadingAVue : beforeIcon"
         :size="16"
       />
 
       <slot />
 
-      <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="16" />
+      <f-svg-icon
+        v-if="afterIcon"
+        class="f-button_after-icon"
+        :icon="afterIcon"
+        :size="16"
+      />
     </button>
   </template>
 </template>
