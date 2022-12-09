@@ -219,8 +219,8 @@
 | `title-color` | 主标题字体颜色         | string                                                             | ——                                               | ——      |
 | `fixed`       | 是否固定定位           | boolean                                                            | ——                                               | false   |
 | `overflow`    | 文字超出的展示状态     | string                                                             | `hidden`                                         | ——      |
-| `before-icon` | 自定义前缀 icon        | object (VNode / Component)                                         | ——                                               | ——      |
-| `close-icon`  | 自定义关闭 icon        | object (VNode / Component)                                         | ——                                               | ——      |
+| `before-icon` | 自定义前缀 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
+| `close-icon`  | 自定义关闭 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
 | `on-close`    | 点击关闭之后执行的回调 | Function                                                           | ——                                               | ——      |
 
 ## Slots

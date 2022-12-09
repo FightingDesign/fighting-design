@@ -109,20 +109,20 @@
 
 ## Attributes
 
-| 参数             | 说明                       | 类型                       | 可选值 | 默认值                                   |
-| ---------------- | -------------------------- | -------------------------- | ------ | ---------------------------------------- |
-| `v-model`        | 绑定值                     | number                     | ——     | ——                                       |
-| `max`            | 最大分值，展示的星星数量   | number                     | ——     | 5                                        |
-| `effect-color`   | 选中颜色                   | string                     | ——     | #fcc202                                  |
-| `invalid-color ` | 未选中的颜色               | string                     | ——     | #eef                                     |
-| `readonly`       | 是否只读                   | boolean                    | ——     | false                                    |
-| `icon`           | 自定义 icon                | object (VNode / Component) | ——     | ——                                       |
-| `size`           | 图标尺寸                   | string / number            |        | 25px                                     |
-| `text-show`      | 是否展示辅助文字           | boolean                    | ——     | false                                    |
-| `text-color`     | 辅助文字颜色               | string                     | ——     | ——                                       |
-| `text-arr`       | 辅助文字数组               | []                         | ——     | ['极差', '失望', '一般', '不错', '很棒'] |
-| `text-size`      | 辅助文字尺寸               | string / number            | ——     | ——                                       |
-| `on-change`      | 当分数发生改变时触发的回调 | Function                   | ——     | ——                                       |
+| 参数             | 说明                       | 类型                                                               | 可选值 | 默认值                                   |
+| ---------------- | -------------------------- | ------------------------------------------------------------------ | ------ | ---------------------------------------- |
+| `v-model`        | 绑定值                     | number                                                             | ——     | ——                                       |
+| `max`            | 最大分值，展示的星星数量   | number                                                             | ——     | 5                                        |
+| `effect-color`   | 选中颜色                   | string                                                             | ——     | #fcc202                                  |
+| `invalid-color ` | 未选中的颜色               | string                                                             | ——     | #eef                                     |
+| `readonly`       | 是否只读                   | boolean                                                            | ——     | false                                    |
+| `icon`           | 自定义 icon                | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——                                       |
+| `size`           | 图标尺寸                   | string / number                                                    |        | 25px                                     |
+| `text-show`      | 是否展示辅助文字           | boolean                                                            | ——     | false                                    |
+| `text-color`     | 辅助文字颜色               | string                                                             | ——     | ——                                       |
+| `text-arr`       | 辅助文字数组               | []                                                                 | ——     | ['极差', '失望', '一般', '不错', '很棒'] |
+| `text-size`      | 辅助文字尺寸               | string / number                                                    | ——     | ——                                       |
+| `on-change`      | 当分数发生改变时触发的回调 | Function                                                           | ——     | ——                                       |
 
 ## Interface
 

@@ -221,7 +221,7 @@
 | `readonly`      | 是否只读                   | boolean                                                            | ——                              | false   |
 | `show-password` | 是否展示显示密码图标       | boolean                                                            | ——                              | false   |
 | `enter-search`  | 是否按下回车触发搜索       | boolean                                                            | ——                              | false   |
-| `icon`          | 自定义前缀 icon            | object (VNode / Component)                                         | ——                              | ——      |
+| `icon`          | 自定义前缀 icon            | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——      |
 | `on-search`     | 点击搜索触发的回调         | Function                                                           | ——                              | ——      |
 | `on-change`     | 绑定值发生变化时触发的回调 | Function                                                           | ——                              | ——      |
 | `on-blur`       | 失去焦点触发的回调         | Function                                                           | ——                              | ——      |

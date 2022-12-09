@@ -239,7 +239,7 @@
 | `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                                                             | ——                                                                 | 3000    |
 | `round`      | 是否为圆角类型                               | boolean                                                            | ——                                                                 | false   |
 | `close`      | 是否可关闭                                   | boolean                                                            | ——                                                                 | false   |
-| `icon`       | 消息 icon                                    | object (VNode / Component)                                         | ——                                                                 | ——      |
+| `icon`       | 消息 icon                                    | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                                                 | ——      |
 | `color`      | 字体颜色                                     | string                                                             | ——                                                                 | ——      |
 | `placement`  | 位置                                         | string                                                             | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
 | `offset`     | 偏移距离                                     | number                                                             | ——                                                                 | 20      |

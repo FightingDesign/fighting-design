@@ -181,22 +181,22 @@
 
 ## Attributes
 
-| 参数                | 说明                         | 类型                       | 可选值 | 默认值 |
-| ------------------- | ---------------------------- | -------------------------- | ------ | ------ |
-| `v-model:current`   | 当前选中页码                 | number                     | ——     | 1      |
-| `total`             | 总页数                       | number                     | ——     | 0      |
-| `v-model:page-size` | 每页条数                     | number                     | ——     | 10     |
-| `page-sizes`        | 每页多少条                   | []                         | ——     | ——     |
-| `background`        | 是否带有背景色               | boolean                    | ——     | false  |
-| `round`             | 是否带有圆角                 | boolean                    | ——     | false  |
-| `prev-icon`         | 自定义的上一页图标           | object (VNode / Component) | ——     | ——     |
-| `next-icon`         | 自定义的下一页图标           | object (VNode / Component) | ——     | ——     |
-| `disabled`          | 是否禁用                     | boolean                    | ——     | false  |
-| `change`            | 改变页码回调函数             | Function                   | ——     | ——     |
-| `jump-search`       | 是否展示快速跳转搜索框       | boolean                    | ——     | false  |
-| `prev-click`        | 点击上一页触发的回调         | Function                   | ——     | ——     |
-| `next-click`        | 点击下一页触发的回调         | Function                   | ——     | ——     |
-| `page-size-change`  | 每页条数发生变化时触发的回调 | Function                   | ——     | ——     |
+| 参数                | 说明                         | 类型                                                               | 可选值 | 默认值 |
+| ------------------- | ---------------------------- | ------------------------------------------------------------------ | ------ | ------ |
+| `v-model:current`   | 当前选中页码                 | number                                                             | ——     | 1      |
+| `total`             | 总页数                       | number                                                             | ——     | 0      |
+| `v-model:page-size` | 每页条数                     | number                                                             | ——     | 10     |
+| `page-sizes`        | 每页多少条                   | []                                                                 | ——     | ——     |
+| `background`        | 是否带有背景色               | boolean                                                            | ——     | false  |
+| `round`             | 是否带有圆角                 | boolean                                                            | ——     | false  |
+| `prev-icon`         | 自定义的上一页图标           | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `next-icon`         | 自定义的下一页图标           | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `disabled`          | 是否禁用                     | boolean                                                            | ——     | false  |
+| `change`            | 改变页码回调函数             | Function                                                           | ——     | ——     |
+| `jump-search`       | 是否展示快速跳转搜索框       | boolean                                                            | ——     | false  |
+| `prev-click`        | 点击上一页触发的回调         | Function                                                           | ——     | ——     |
+| `next-click`        | 点击下一页触发的回调         | Function                                                           | ——     | ——     |
+| `page-size-change`  | 每页条数发生变化时触发的回调 | Function                                                           | ——     | ——     |
 
 ## Interface
 

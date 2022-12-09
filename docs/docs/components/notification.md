@@ -242,7 +242,7 @@
 | `round`      | 是否为圆角类型                               | boolean                                                            | ——                                                  | false     |
 | `close`      | 是否可关闭                                   | boolean                                                            | ——                                                  | false     |
 | `show-icon`  | 是否显示按钮                                 | boolean                                                            | ——                                                  | true      |
-| `icon`       | 自定义前缀 icon                              | object (VNode / Component)                                         | ——                                                  | ——        |
+| `icon`       | 自定义前缀 icon                              | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                                  | ——        |
 | `color`      | 自定义字体颜色                               | string                                                             | ——                                                  | ——        |
 | `background` | 自定义背景色                                 | string                                                             | ——                                                  | ——        |
 | `placement`  | 弹出位置                                     | string                                                             | `top-left` `top-right` `bottom-left` `bottom-right` | top-right |

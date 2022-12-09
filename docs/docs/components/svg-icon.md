@@ -75,18 +75,26 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 
 ## Attributes
 
-| 参数       | 说明               | 类型                       | 可选值 | 默认值 |
-| ---------- | ------------------ | -------------------------- | ------ | ------ |
-| `color`    | icon 颜色          | string                     | ——     | ——     |
-| `size`     | icon 大小          | string / number            | ——     | ——     |
-| `icon`     | icon 内容          | object (VNode / Component) | ——     | ——     |
-| `on-click` | 点击之后触发的回调 | Function                   | ——     | ——     |
+| 参数       | 说明               | 类型                                                               | 可选值 | 默认值 |
+| ---------- | ------------------ | ------------------------------------------------------------------ | ------ | ------ |
+| `color`    | icon 颜色          | string                                                             | ——     | ——     |
+| `size`     | icon 大小          | string / number                                                    | ——     | ——     |
+| `icon`     | icon 内容          | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `on-click` | 点击之后触发的回调 | Function                                                           | ——     | ——     |
 
 ## Slots
 
 | 名称      | 说明        |
 | --------- | ----------- |
 | `default` | icon 的内容 |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { SvgIconInstance, SvgIconProps } from 'fighting-design'
+```
 
 ## Contributors
 

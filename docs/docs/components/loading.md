@@ -213,14 +213,14 @@
 
 ## Attributes
 
-| 参数         | 说明               | 类型                       | 可选值 | 默认值 |
-| ------------ | ------------------ | -------------------------- | ------ | ------ |
-| `v-loading`  | 是否开始 loading   | boolean                    | ——     | false  |
-| `text`       | 加载中文案         | string                     | ——     | ——     |
-| `font-color` | 加载中文案颜色     | string                     | ——     | ——     |
-| `fullscreen` | 是否全屏显示       | boolean                    | ——     | false  |
-| `background` | 自定义遮罩层背景色 | string                     | ——     | ——     |
-| `icon`       | 自定义 icon        | object (VNode / Component) | ——     | ——     |
+| 参数         | 说明               | 类型                                                               | 可选值 | 默认值 |
+| ------------ | ------------------ | ------------------------------------------------------------------ | ------ | ------ |
+| `v-loading`  | 是否开始 loading   | boolean                                                            | ——     | false  |
+| `text`       | 加载中文案         | string                                                             | ——     | ——     |
+| `font-color` | 加载中文案颜色     | string                                                             | ——     | ——     |
+| `fullscreen` | 是否全屏显示       | boolean                                                            | ——     | false  |
+| `background` | 自定义遮罩层背景色 | string                                                             | ——     | ——     |
+| `icon`       | 自定义 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
 
 ## Slots
 

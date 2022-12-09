@@ -194,7 +194,7 @@
 | `modelValue / v-model` | 绑定值                     | string                                                             | ——                              | false  |
 | `size`                 | 组件尺寸                   | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
 | `disabled`             | 是否禁用                   | boolean                                                            | ——                              | false  |
-| `icon`                 | 自定义 icon                | object (VNode / Component)                                         | ——                              | ——     |
+| `icon`                 | 自定义 icon                | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——     |
 | `close-color`          | 自定义关闭状态背景色       | string                                                             | ——                              | ——     |
 | `active-color`         | 自定义开启状态背景色       | string                                                             | ——                              | ——     |
 | `active-text`          | 自定义右侧的文字描述       | string                                                             | ——                              | ——     |

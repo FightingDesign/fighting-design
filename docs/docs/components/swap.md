@@ -133,14 +133,14 @@
 
 ## Attributes
 
-| 参数        | 说明                         | 类型                       | 可选值                   | 默认值  |
-| ----------- | ---------------------------- | -------------------------- | ------------------------ | ------- |
-| `v-model`   | 绑定值                       | boolean                    | ——                       | false   |
-| `size`      | 组件尺寸                     | string / number            | ——                       | 40      |
-| `type`      | 动画类型                     | string                     | `sound` `swap` `default` | default |
-| `icon-on`   | 打开展示的图标               | object (VNode / Component) | ——                       | null    |
-| `icon-off`  | 关闭展示的图标               | object (VNode / Component) | ——                       | null    |
-| `on-change` | 当绑定值发生改变时触发的回调 | Function                   | ——                       | null    |
+| 参数        | 说明                         | 类型                                                               | 可选值                   | 默认值  |
+| ----------- | ---------------------------- | ------------------------------------------------------------------ | ------------------------ | ------- |
+| `v-model`   | 绑定值                       | boolean                                                            | ——                       | false   |
+| `size`      | 组件尺寸                     | string / number                                                    | ——                       | 40      |
+| `type`      | 动画类型                     | string                                                             | `sound` `swap` `default` | default |
+| `icon-on`   | 打开展示的图标               | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                       | ——      |
+| `icon-off`  | 关闭展示的图标               | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                       | ——      |
+| `on-change` | 当绑定值发生改变时触发的回调 | Function                                                           | ——                       | ——      |
 
 ## Interface
 

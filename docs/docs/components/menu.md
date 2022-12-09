@@ -263,14 +263,14 @@
 
 ## MenuItem Attributes
 
-| 参数        | 说明        | 类型                       | 可选值 | 默认值 |
-| ----------- | ----------- | -------------------------- | ------ | ------ |
-| `icon`      | 自定义 icon | object (VNode / Component) | ——     | ——     |
-| `font-size` | 文字大小    | string / number            | ——     | ——     |
-| `color`     | 文字颜色    | string                     | ——     | ——     |
-| `to`        | 跳转的路径  | string                     | ——     | ——     |
-| `name`      | 唯一标识    | string / number            | ——     | ——     |
-| `disabled`  | 是否禁用    | boolean                    | ——     | false  |
+| 参数        | 说明        | 类型                                                               | 可选值 | 默认值 |
+| ----------- | ----------- | ------------------------------------------------------------------ | ------ | ------ |
+| `icon`      | 自定义 icon | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `font-size` | 文字大小    | string / number                                                    | ——     | ——     |
+| `color`     | 文字颜色    | string                                                             | ——     | ——     |
+| `to`        | 跳转的路径  | string                                                             | ——     | ——     |
+| `name`      | 唯一标识    | string / number                                                    | ——     | ——     |
+| `disabled`  | 是否禁用    | boolean                                                            | ——     | false  |
 
 ## MenuItemGroup Attributes
 

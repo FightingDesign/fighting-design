@@ -175,12 +175,12 @@
 | `round`       | 圆角                   | boolean                                                            | ——                                               | false   |
 | `background`  | 自定义背景色           | string                                                             | ——                                               | ——      |
 | `color`       | 自定义文字颜色         | string                                                             | ——                                               | ——      |
-| `before-icon` | 左侧 icon              | object (VNode / Component)                                         | ——                                               | null    |
-| `after-icon`  | 右侧 icon              | object (VNode / Component)                                         | ——                                               | null    |
+| `before-icon` | 左侧 icon              | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
+| `after-icon`  | 右侧 icon              | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
 | `size`        | 标签大小               | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                  | small   |
 | `simple`      | 是否为简约模式         | boolean                                                            | ——                                               | false   |
 | `block`       | 是否为块级元素         | boolean                                                            | ——                                               | false   |
-| `on-close`    | 点击关闭按钮触发的回调 | Function                                                           | ——                                               | null    |
+| `on-close`    | 点击关闭按钮触发的回调 | Function                                                           | ——                                               | ——      |
 
 ## Slots
 

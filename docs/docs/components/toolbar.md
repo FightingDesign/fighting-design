@@ -173,13 +173,13 @@
 
 ## Toolbar-Item Attributes
 
-| 参数        | 说明               | 类型                       | 可选值 | 默认值 |
-| ----------- | ------------------ | -------------------------- | ------ | ------ |
-| `index`     | 唯一值             | string / number            | ——     | ——     |
-| `color`     | 自定义文字颜色     | string                     | ——     | ——     |
-| `icon`      | 自定义 icon        | object (VNode / Component) | ——     | ——     |
-| `icon-size` | 自定义 icon 大小   | string / number            | ——     | 16     |
-| `on-click`  | 点击之后触发的回调 | Function                   | ——     | ——     |
+| 参数        | 说明               | 类型                                                               | 可选值 | 默认值 |
+| ----------- | ------------------ | ------------------------------------------------------------------ | ------ | ------ |
+| `index`     | 唯一值             | string / number                                                    | ——     | ——     |
+| `color`     | 自定义文字颜色     | string                                                             | ——     | ——     |
+| `icon`      | 自定义 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `icon-size` | 自定义 icon 大小   | string / number                                                    | ——     | 16     |
+| `on-click`  | 点击之后触发的回调 | Function                                                           | ——     | ——     |
 
 ## Toolbar-Item Slots
 
