@@ -2,7 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复**
+
 - 修复 `f-list` 和 `f-list-item` 组件 bug
+- 修复 `f-trigger` 组件禁用效果失效问题
+
+**新增**
+
 - 新增 `f-list` 组件 `zebra-color` 配置项
 - 新增 `f-list` 组件 `size` 配置项新增 `mini` 可选项
 

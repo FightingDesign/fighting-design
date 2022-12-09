@@ -17,6 +17,7 @@
    * 打开
    */
   const handelOpen = (): void => {
+    if (prop.disabled) return
     showContent.value = true
     useRun(prop.onOpen, showContent.value)
     useRun(prop.onChange, showContent.value)
