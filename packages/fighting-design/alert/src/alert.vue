@@ -78,7 +78,7 @@
         no-hover
         color="#fff"
         :icon="closeIcon"
-        @click.stop="handleClose"
+        :on-click="handleClose"
       >
         <slot name="closeIcon" />
       </f-close-btn>

@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
-import type { ButtonSize } from '../../button'
+import type { FightingSize } from '../../_interface'
 import type { ButtonGroupDirection } from './interface'
 
 export const Props = {
@@ -10,9 +10,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<ButtonSize>,
-    default: (): ButtonSize => 'middle',
-    validator: (val: ButtonSize): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },

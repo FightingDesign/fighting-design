@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { AlertType, AlertOverflow } from './interface'
-import type { HandleEvent } from '../../_interface'
+import type { AlertOverflow } from './interface'
+import type { HandleEvent, FightingType } from '../../_interface'
 
 export const Props = {
   /**
@@ -10,9 +10,9 @@ export const Props = {
    * @defaultValue default
    */
   type: {
-    type: String as PropType<AlertType>,
-    default: (): AlertType => 'default',
-    validator: (val: AlertType): boolean => {
+    type: String as PropType<FightingType>,
+    default: (): FightingType => 'default',
+    validator: (val: FightingType): boolean => {
       return (
         ['primary', 'success', 'danger', 'warning', 'default'] as const
       ).includes(val)

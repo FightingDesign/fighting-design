@@ -1,4 +1,4 @@
-import type { ButtonType } from '../../button'
+import type { FightingType } from '../../_interface'
 
 /**
  * useRipples 类所需要的 props 参数类型接口
@@ -16,7 +16,7 @@ export interface RipplesOptions {
   component: 'f-ripple' | 'f-button'
   className: string
   ripplesColor: string
-  type: ButtonType
+  type: FightingType
   simple?: boolean
   text?: boolean
 }

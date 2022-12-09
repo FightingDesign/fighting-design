@@ -45,7 +45,7 @@
       <f-svg-icon v-if="afterIcon" :icon="afterIcon" />
 
       <!-- 关闭按钮 -->
-      <f-close-btn v-if="close" :size="14" @click.stop="handleClose" />
+      <f-close-btn v-if="close" :size="14" :on-click="handleClose" />
     </div>
   </transition>
 </template>

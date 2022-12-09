@@ -5,96 +5,9 @@
     FIconCameraVideoSlash,
     FIconClock
   } from '@fighting-design/fighting-icon'
-
-  const sizeToNum = (size: string | number): number => {
-    if (!size) return 0
-    if (typeof size === 'number') return size
-    return Number.parseFloat(size) || 0
-  }
-
-  const load = e => console.log(e)
-  const error = e => console.log(e)
-
-  console.log(sizeToNum(-1))
 </script>
 
 <template>
-  <f-dropdown disabled>
-    <f-button>全部禁用</f-button>
-
-    <template #content>
-      <f-dropdown-item>猕猴桃</f-dropdown-item>
-      <f-dropdown-item>哈密瓜</f-dropdown-item>
-      <f-dropdown-item>火龙果</f-dropdown-item>
-      <f-dropdown-item>柠檬</f-dropdown-item>
-    </template>
-  </f-dropdown>
-
-  <f-list
-    size="large"
-    center
-    border-color="orange"
-    zebra
-    zebra-color="red"
-    text-color="#fff"
-  >
-    <template #header>
-      <h1>头部信息</h1>
-      <h1>头部信息</h1>
-    </template>
-    <f-list-item>这是大号尺寸列表这表</f-list-item>
-    <f-list-item>这是大号尺寸列表这表</f-list-item>
-    <f-list-item>这是大号尺寸列表这表</f-list-item>
-    <f-list-item>这是大号尺寸列表这表</f-list-item>
-    <f-list-item>这是大号尺寸列表这表</f-list-item>
-    <f-list-item>这是大号尺寸列表这表</f-list-item>
-    <f-list-item>这是大号尺寸列表</f-list-item>
-
-    <template #footer>
-      <h1>头部信息</h1>
-      <h1>头部信息</h1>
-    </template>
-  </f-list>
-
-  <f-list size="middle">
-    <f-list-item>这是中号尺寸列表</f-list-item>
-    <f-list-item>这是中号尺寸列表</f-list-item>
-  </f-list>
-
-  <f-list size="small">
-    <f-list-item>这是小号尺寸列表</f-list-item>
-    <f-list-item>这是小号尺寸列表</f-list-item>
-  </f-list>
-
-  <f-list size="mini">
-    <f-list-item>这是超级小号尺寸列表</f-list-item>
-    <f-list-item>这是超级小号尺寸列表</f-list-item>
-  </f-list>
-
-  <div
-    :style="{
-      height: '2000px'
-    }"
-  >
-    1
-  </div>
-  <f-image
-    lazy
-    width="200px"
-    src="https://tianyuhao.cn/images/auto/1.jpg"
-    :root-margin="-300"
-  />
-
-  <f-avatar
-    src="https://tianyuhao.cn/2images/auto/my.jpg"
-    err-src="https://tianyuhao.cn/images/auto/my.jpg"
-    :on-load="load"
-    :on-error="error"
-  />
-  <!-- <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" /> -->
-
-  <!-- <f-menu mode="inline"> -->
-  <!-- <f-menu mode="vertical"> -->
   <h3>水平的</h3>
   <f-menu active-name="1">
     <template #before>
@@ -219,18 +132,11 @@
 </template>
 
 <style>
-  body {
-    /* background: red; */
-  }
   * {
     margin: 0;
     padding: 0;
   }
   h3 {
     border-bottom: 1px solid skyblue;
-  }
-
-  .f-list {
-    margin-bottom: 20px !important;
   }
 </style>
