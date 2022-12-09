@@ -7,7 +7,6 @@ describe('FButton', () => {
   test('class', () => {
     const wrapper = mount(FButton)
     expect(wrapper.classes()).toContain('f-button')
-    expect(wrapper.attributes('role')).toContain('button')
     expect(wrapper.attributes('name')).toContain('f-button')
     expect(wrapper.attributes('tabindex')).toContain('0')
   })
