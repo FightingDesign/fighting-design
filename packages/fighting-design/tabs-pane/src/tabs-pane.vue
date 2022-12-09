@@ -6,10 +6,7 @@
 
   const prop = defineProps(Props)
 
-  const parentInject = inject<TabsProvide | undefined>(
-    TabsProvideKey,
-    undefined
-  )
+  const parentInject = inject<TabsProvide | null>(TabsProvideKey, null)
 
   /**
    * 该组件是否加载

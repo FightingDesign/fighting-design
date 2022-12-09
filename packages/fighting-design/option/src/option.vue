@@ -4,7 +4,7 @@
   import { inject, toRefs, useSlots } from 'vue'
   import { SELECT_PROPS_TOKEN } from '../../select/src/props'
   import type { SelectProvideInterface } from '../../select'
-  import type { TriggerProvideInterface } from '../../trigger'
+  import type { TriggerProvide } from '../../trigger'
 
   const prop = defineProps(Props)
   const slot = useSlots()
@@ -12,17 +12,17 @@
   /**
    * 获取父组件注入的依赖项
    */
-  const parentInject = inject<SelectProvideInterface | undefined>(
+  const parentInject = inject<SelectProvideInterface | null>(
     SELECT_PROPS_TOKEN,
-    undefined
+    null
   )
   /**
    * 获取到 trigger 注入的依赖项
    */
-  const triggerInject = inject<TriggerProvideInterface | undefined>(
+  const triggerInject = inject<TriggerProvide | null>(
     TRIGGER_CLOSE_KEY,
-    undefined
-  ) as TriggerProvideInterface
+    null
+  ) as TriggerProvide
 
   /**
    * 点击传入指定的 value

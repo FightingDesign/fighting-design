@@ -13,9 +13,8 @@ export type MenuModeType = 'horizontal' | 'vertical' | 'inline'
  * @param defaultActive 默认选中的 name
  * @param setActiveName 修改选中 name
  */
-export interface MenuProvideInterface {
+export interface MenuProvide {
   mode: MenuModeType
-  accordion: boolean
   defaultActive: string | number
-  setActiveName: MenuSetActiveNameInterface
+  setActiveName(name: string | number): void
 }

@@ -5,7 +5,7 @@
   import { useList } from '../../_hooks'
   import { getCurrentInstance, computed, inject } from 'vue'
   import type { ComponentInternalInstance } from 'vue'
-  import type { MenuProvideInterface } from '../../menu'
+  import type { MenuProvide } from '../../menu'
 
   const prop = defineProps(Props)
 
@@ -14,10 +14,10 @@
   /**
    * 注入父组件的模式依赖项
    */
-  const parentInject = inject<MenuProvideInterface | undefined>(
+  const parentInject = inject<MenuProvide | null>(
     MENU_PROVIDE_KEY,
-    undefined
-  ) as MenuProvideInterface
+    null
+  ) as MenuProvide
 
   /**
    * 获取当前组件实例

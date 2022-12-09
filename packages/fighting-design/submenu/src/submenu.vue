@@ -6,17 +6,17 @@
   import { FSvgIcon } from '../../svg-icon'
   import { inject, ref } from 'vue'
   import { FIconChevronDown } from '../../_svg'
-  import type { MenuProvideInterface } from '../../menu'
+  import type { MenuProvide } from '../../menu'
 
   const prop = defineProps(Props)
 
   /**
    * 注入父组件的模式依赖项
    */
-  const parentInject = inject<MenuProvideInterface | undefined>(
+  const parentInject = inject<MenuProvide | null>(
     MENU_PROVIDE_KEY,
-    undefined
-  ) as MenuProvideInterface
+    null
+  ) as MenuProvide
 
   /**
    * 初始是否展开

@@ -16,9 +16,9 @@
   /**
    * 获取父组件注入的依赖项
    */
-  const parentInject = inject<RadioGroundInterface | undefined>(
+  const parentInject = inject<RadioGroundInterface | null>(
     RADIO_GROUP_PROPS_kEY,
-    undefined
+    null
   )
 
   const modelValue = computed({
@@ -52,8 +52,7 @@
       {
         'f-radio__checked': modelValue.value === prop.label,
         'f-radio__margin': !parentInject,
-        'f-radio__disabled':
-          disabled || (parentInject && parentInject.disabled)
+        'f-radio__disabled': disabled || (parentInject && parentInject.disabled)
       }
     ] as const
   })

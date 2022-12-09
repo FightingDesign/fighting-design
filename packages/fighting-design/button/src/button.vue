@@ -19,10 +19,7 @@
   /**
    * 获取父组件注入的依赖项
    */
-  const parentInject = inject<FightingSize | undefined>(
-    BUTTON_GROUP_PROPS_KEY,
-    undefined
-  )
+  const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)
 
   /**
    * 类名列表

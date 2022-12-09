@@ -3,17 +3,17 @@
   import { useRun } from '../../_hooks'
   import { inject } from 'vue'
   import { TRIGGER_CLOSE_KEY } from '../../trigger/src/props'
-  import type { TriggerProvideInterface } from '../../trigger'
+  import type { TriggerProvide } from '../../trigger'
 
   const prop = defineProps(Props)
 
   /**
    * 获取到 trigger 注入的依赖项
    */
-  const parentInject = inject<TriggerProvideInterface | undefined>(
+  const parentInject = inject<TriggerProvide | null>(
     TRIGGER_CLOSE_KEY,
-    undefined
-  ) as TriggerProvideInterface
+    null
+  ) as TriggerProvide
 
   /**
    * 点击时触发

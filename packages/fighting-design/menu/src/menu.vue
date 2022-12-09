@@ -2,7 +2,7 @@
   import { Props, MENU_PROVIDE_KEY } from './props'
   import { provide, reactive, toRef, computed, ref } from 'vue'
   import { useList } from '../../_hooks'
-  import type { MenuProvideInterface } from './interface'
+  import type { MenuProvide } from './interface'
 
   const prop = defineProps(Props)
 
@@ -28,14 +28,13 @@
   }
 
   // 提供出去依赖项
-  provide<MenuProvideInterface>(
+  provide<MenuProvide>(
     MENU_PROVIDE_KEY,
     reactive({
       mode: toRef(prop, 'mode'),
-      accordion: toRef(prop, 'accordion'),
       defaultActive,
       setActiveName
-    } as unknown as MenuProvideInterface)
+    } as unknown as MenuProvide)
   )
 
   /**

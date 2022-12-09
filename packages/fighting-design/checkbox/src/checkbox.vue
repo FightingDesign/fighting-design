@@ -17,9 +17,9 @@
   /**
    * 获取父组件注入的依赖项
    */
-  const parentInject = inject<CheckboxGroupInject | undefined>(
+  const parentInject = inject<CheckboxGroupInject | null>(
     CHECKBOX_GROUP_PROPS_KEY,
-    undefined
+    null
   )
 
   /**
@@ -91,7 +91,7 @@
       class="f-checkbox__input"
       hidden
       :value="label"
-      :disabled="disabled || (parentInject && parentInject.disabled)"
+      :disabled="disabled || (!!parentInject && parentInject.disabled)"
     />
     <span
       v-if="!(parentInject && parentInject.border)"
