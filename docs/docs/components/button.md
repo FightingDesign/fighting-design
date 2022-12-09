@@ -304,12 +304,12 @@
 | `bold`          | 按钮文字是否加粗                                                                                                                                                                                              | boolean                                                            | ——                                               | false    |
 | `circle`        | 是否为圆形按钮                                                                                                                                                                                                | boolean                                                            | ——                                               | false    |
 | `round`         | 是否为圆角按钮                                                                                                                                                                                                | boolean                                                            | ——                                               | false    |
-| `font-size`     | 文字字体大小                                                                                                                                                                                                  | string / number                                                    | ——                                               | 14px     |
+| `font-size`     | 文字字体大小                                                                                                                                                                                                  | string / number                                                    | ——                                               | ——       |
 | `font-color`    | 文字字体颜色                                                                                                                                                                                                  | string                                                             | ——                                               | ——       |
 | `size`          | 按钮尺寸                                                                                                                                                                                                      | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                  | middle   |
 | `block`         | 是否为块级元素                                                                                                                                                                                                | boolean                                                            | ——                                               | false    |
-| `href`          | 链接按钮的地址                                                                                                                                                                                                | <a href="#buttontargettype">ButtonTargetType</a>                   | ——                                               | ——       |
-| `target`        | 原生 target 属性，在 link 类型存在时生效                                                                                                                                                                      | string                                                             | `_blank` `_self` `_parent` `_top`                | \_self   |
+| `href`          | 链接按钮的地址                                                                                                                                                                                                | string                                                             | ——                                               | ——       |
+| `target`        | 原生 target 属性，在 link 类型存在时生效                                                                                                                                                                      | <a href="#buttontarget">ButtonTarget</a>                           | `_blank` `_self` `_parent` `_top`                | \_self   |
 | `loading`       | 是否展示 loading 状态                                                                                                                                                                                         | boolean                                                            | ——                                               | false    |
 | `disabled`      | 是否禁用按钮                                                                                                                                                                                                  | boolean                                                            | ——                                               | false    |
 | `before-icon`   | 之前的 icon                                                                                                                                                                                                   | object (VNode / Component)                                         | ——                                               | ——       |
@@ -322,17 +322,17 @@
 | `text`          | 是否为文字按钮 （非自定义按钮颜色时有效）                                                                                                                                                                     | boolean                                                            | ——                                               | false    |
 | `simple`        | 是否为简约按钮 （非自定义按钮颜色时有效）                                                                                                                                                                     | boolean                                                            | ——                                               | false    |
 | `ripples`       | 是否启用点击涟漪效果                                                                                                                                                                                          | boolean                                                            | ——                                               | false    |
-| `ripples-color` | 涟漪背景色                                                                                                                                                                                                    | string                                                             | ——                                               | #fff     |
-| `native-type`   | 按钮的原生类型                                                                                                                                                                                                | <a href="#buttonnativetype">ButtonNativeType</a>                   | `button` `submit` `reset`                        | button   |
+| `ripples-color` | 涟漪背景色                                                                                                                                                                                                    | string                                                             | ——                                               | ——       |
+| `native-type`   | 按钮的原生类型                                                                                                                                                                                                | <a href="#buttonnative">ButtonNative</a>                           | `button` `submit` `reset`                        | button   |
 | `color`         | 自定义按钮的背景颜色，仅支持 [hex](https://baike.baidu.com/item/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E9%A2%9C%E8%89%B2%E7%A0%81/10894232?fr=aladdin) 格式的色号。如果未指定`font-color`，则字体颜色默认为白色 | string                                                             | ——                                               | ——       |
-| `on-click`      | 点击执行的回调                                                                                                                                                                                                | Function                                                           | ——                                               | ——       |
+| `on-click`      | 点击执行的回调                                                                                                                                                                                                | <a href="#buttonclick">ButtonClick</a>                             | ——                                               | ——       |
 
 ## ButtonGroup Attributes
 
 | 参数        | 说明     | 类型                                                               | 可选值                          | 默认值     |
 | ----------- | -------- | ------------------------------------------------------------------ | ------------------------------- | ---------- |
 | `size`      | 按钮尺寸 | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle     |
-| `direction` | 排列方式 | string                                                             | `horizontal` `vertical`         | horizontal |
+| `direction` | 排列方式 | <a href="#buttongroupdirection">ButtonGroupDirection</a>           | `horizontal` `vertical`         | horizontal |
 
 ## Button Slots
 
@@ -356,28 +356,40 @@
 ```ts
 import type {
   ButtonInstance,
-  ButtonPropsType,
-  ButtonSizeType,
-  ButtonTargetType,
-  ButtonType,
-  ButtonNativeType,
+  ButtonProps,
+  ButtonTarget,
+  ButtonNative,
+  ButtonClick,
   ButtonGroupInstance,
-  ButtonGroupPropsType
+  ButtonGroupProps,
+  ButtonGroupDirection
 } from 'fighting-design'
 ```
 
-### ButtonTargetType
+### ButtonTarget
 
 ```ts
-type ButtonTargetType = '_blank' | '_self' | '_parent' | '_top'
+type ButtonTarget = '_blank' | '_self' | '_parent' | '_top'
 ```
 
-### ButtonNativeType
+### ButtonNative
 
 ```ts
 import type { ButtonHTMLAttributes } from 'vue'
 
-type ButtonNativeType = NonNullable<ButtonHTMLAttributes['type']>
+type ButtonNative = NonNullable<ButtonHTMLAttributes['type']>
+```
+
+### ButtonGroupDirection
+
+```ts
+type ButtonGroupDirection = 'horizontal' | 'vertical'
+```
+
+### ButtonClick
+
+```ts
+type ButtonClick = (evt: MouseEvent) => void
 ```
 
 ## Contributors

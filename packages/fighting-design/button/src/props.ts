@@ -1,9 +1,10 @@
 import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
 import type {
   ButtonTarget,
-  ButtonNative
+  ButtonNative,
+  ButtonClick
 } from './interface'
-import type { HandleEvent, FightingSize, FightingType } from '../../_interface'
+import type { FightingSize, FightingType } from '../../_interface'
 
 export const Props = {
   /**
@@ -32,7 +33,7 @@ export const Props = {
    */
   fontSize: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '14px'
+    default: (): null => null
   },
   /**
    * 字体颜色
@@ -206,7 +207,7 @@ export const Props = {
    * 点击之后的回调函数
    */
   onClick: {
-    type: Function as PropType<HandleEvent>,
+    type: Function as PropType<ButtonClick>,
     default: (): null => null
   }
 } as const

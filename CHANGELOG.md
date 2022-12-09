@@ -12,6 +12,10 @@
 - 新增 `f-list` 组件 `zebra-color` 配置项
 - 新增 `f-list` 组件 `size` 配置项新增 `mini` 可选项
 
+**其它更新**
+
+- `f-button` 组件 `font-size` 默认值改为 null
+
 ## 0.9.0 (2022-12-07)
 
 - 完善 `f-menu` 组件
