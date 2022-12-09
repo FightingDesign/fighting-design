@@ -1,13 +1,12 @@
 <script lang="ts" setup name="FCloseBtn">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { computed } from 'vue'
   import { FIconCrossVue } from '../../_svg'
-  import { useRun } from '../../_hooks'
-  import type { CSSProperties } from 'vue'
-  import type { ClassList } from '../../_interface'
+  import { useRun, useList } from '../../_hooks'
 
   const prop = defineProps(Props)
+
+  const { styles, classes } = useList(prop, 'close-btn')
 
   /**
    * 点击触发
@@ -22,26 +21,12 @@
   /**
    * 类名列表
    */
-  const classList = computed((): ClassList => {
-    const { disabled, round } = prop
-
-    return [
-      'f-close-btn',
-      {
-        'f-close-btn__round': round,
-        'f-close-btn__disabled': disabled
-      }
-    ] as const
-  })
+  const classList = classes(['round', 'disabled'], 'f-close-btn')
 
   /**
    * 样式列表
    */
-  const styleList = computed((): CSSProperties => {
-    return {
-      '--f-close-btn-color': prop.color
-    } as CSSProperties
-  })
+  const styleList = styles(['color'])
 </script>
 
 <template>

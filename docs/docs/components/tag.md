@@ -193,12 +193,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  TagInstance,
-  TagPropsType,
-  TagSizeType,
-  TagType
-} from 'fighting-design'
+import type { TagInstance, TagProps } from 'fighting-design'
 ```
 
 ## Contributors

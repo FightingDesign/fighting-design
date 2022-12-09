@@ -79,37 +79,24 @@
 
 ## Attributes
 
-| 参数              | 说明                                                                               | 类型     | 可选值 | 默认值 |
-| ----------------- | ---------------------------------------------------------------------------------- | -------- | ------ | ------ |
-| `v-model:visible` | 是否展示预览框                                                                     | boolean  | ——     | false  |
-| `img-list`        | 图片集合                                                                           | string[] | ——     | []     |
-| `modal-close`     | 是否点击遮罩层关闭预览窗                                                           | boolean  | ——     | true   |
-| `is-close-btn`    | 是否展示关闭按钮                                                                   | boolean  | ——     | true   |
-| `show-index`      | 图片预览展示的首张图的索引，从 0 开始                                              | number   | ——     | 0      |
-| `z-index`         | 图片预览展示的 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) | number   | ——     | 999    |
-| `is-option`       | 是否展示图片预览下面的操作栏                                                       | boolean  | ——     | true   |
-| `round`           | 预览图的圆角，传入一个单位                                                         | string   | ——     | ——     |
-| `on-close`        | 关闭之后触发的回调                                                                 | Function | ——     | ——     |
-
-## Events
-
-| 事件名称 | 说明           |
-| -------- | -------------- |
-| `close`  | 关闭之后的回调 |
+| 参数              | 说明                                                                               | 类型                                                             | 可选值 | 默认值 |
+| ----------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------ | ------ |
+| `v-model:visible` | 是否展示预览框                                                                     | boolean                                                          | ——     | false  |
+| `img-list`        | 图片集合                                                                           | array                                                            | ——     | []     |
+| `modal-close`     | 是否点击遮罩层关闭预览窗                                                           | boolean                                                          | ——     | true   |
+| `is-close-btn`    | 是否展示关闭按钮                                                                   | boolean                                                          | ——     | true   |
+| `show-index`      | 图片预览展示的首张图的索引，从 0 开始                                              | number                                                           | ——     | 0      |
+| `z-index`         | 图片预览展示的 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) | number                                                           | ——     | ——     |
+| `is-option`       | 是否展示图片预览下面的操作栏                                                       | boolean                                                          | ——     | true   |
+| `round`           | 预览图的圆角，传入一个单位                                                         | string                                                           | ——     | ——     |
+| `on-close`        | 关闭之后触发的回调                                                                 | <a href="/components/interface.html#HandleMouse">HandleMouse</a> | ——     | ——     |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type {
-  ImagePreviewInstance,
-  ImagePreviewPropsType,
-  ImagePreviewSwitchImageInterface,
-  ImagePreviewOptionClickInterface,
-  ImagePreviewSwitchImageOptionMapInterface,
-  ImagePreviewOptionClickOptionMapInterface
-} from 'fighting-design'
+import type { ImagePreviewInstance, ImagePreviewProps } from 'fighting-design'
 ```
 
 ## Contributors

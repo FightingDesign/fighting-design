@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { LinkTarget, LinkHover } from './interface'
+import type { LinkTarget, LinkState } from './interface'
 import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -38,10 +38,10 @@ export const Props = {
    * link 状态的样式状态
    */
   state: {
-    type: String as PropType<LinkHover>,
+    type: String as PropType<LinkState>,
     default: (): null => null,
-    validator: (val: LinkHover): boolean => {
-      return (['line', 'bag', ''] as const).includes(val)
+    validator: (val: LinkState): boolean => {
+      return (['line', 'bag'] as const).includes(val)
     }
   },
   /**

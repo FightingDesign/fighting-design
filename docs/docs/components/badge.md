@@ -1,6 +1,6 @@
 # Badge 角标
 
-`Badge` 用于展示角标提示信息
+用于展示角标提示信息
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/badge)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/badge.md)
@@ -133,22 +133,28 @@
 
 ## Attributes
 
-| 参数         | 说明                                          | 类型            | 可选值                                 | 默认值 |
-| ------------ | --------------------------------------------- | --------------- | -------------------------------------- | ------ |
-| `value`      | 显示值                                        | string / number | ——                                     | ——     |
-| `max`        | `value` 为数字时的最大值，超出显示为 `value+` | number          | ——                                     | 99     |
-| `dot`        | 展示为一个点                                  | boolean         | ——                                     | false  |
-| `show`       | 是否显示                                      | boolean         | ——                                     | true   |
-| `type`       | 样式主题                                      | string          | `primary` `success` `danger` `warning` | danger |
-| `color`      | 自定义颜色                                    | string          | ——                                     | ——     |
-| `text-color` | 自定义文字颜色                                | string          | ——                                     | ——     |
+| 参数         | 说明                                          | 类型                               | 可选值                                 | 默认值 |
+| ------------ | --------------------------------------------- | ---------------------------------- | -------------------------------------- | ------ |
+| `value`      | 显示值                                        | string / number                    | ——                                     | ——     |
+| `max`        | `value` 为数字时的最大值，超出显示为 `value+` | number                             | ——                                     | 99     |
+| `dot`        | 展示为一个点                                  | boolean                            | ——                                     | false  |
+| `show`       | 是否显示                                      | boolean                            | ——                                     | true   |
+| `type`       | 样式主题                                      | <a href="#badgetype">BadgeType</a> | `primary` `success` `danger` `warning` | danger |
+| `color`      | 自定义颜色                                    | string                             | ——                                     | ——     |
+| `text-color` | 自定义文字颜色                                | string                             | ——                                     | ——     |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type { BadgeInstance, BadgePropsType, BadgeType } from 'fighting-design'
+import type { BadgeInstance, BadgeProps, BadgeType } from 'fighting-design'
+```
+
+### BadgeType
+
+```ts
+type BadgeType = 'primary' | 'success' | 'danger' | 'warning'
 ```
 
 ## Contributors

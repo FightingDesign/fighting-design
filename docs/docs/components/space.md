@@ -1,6 +1,6 @@
 # Space 间距
 
-设置组件之间的间距。
+设置组件之间的间距
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/space)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/space.md)
@@ -125,20 +125,20 @@
 
 ## Attributes
 
-| 参数         | 说明           | 类型    | 可选值                          | 默认值 |
-| ------------ | -------------- | ------- | ------------------------------- | ------ |
-| `spacing`    | 间距尺寸       | string  | `large` `middle` `small` `mini` | middle |
-| `vertical`   | 是否竖直排列   | boolean | ——                              | false  |
-| `wrap`       | 是否换行       | boolean | ——                              | true   |
-| `row-gap`    | 自定义纵向间距 | string  | ——                              | ——     |
-| `column-gap` | 自定义横向间距 | string  | ——                              | ——     |
+| 参数         | 说明           | 类型                                                               | 可选值                          | 默认值 |
+| ------------ | -------------- | ------------------------------------------------------------------ | ------------------------------- | ------ |
+| `spacing`    | 间距尺寸       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
+| `vertical`   | 是否竖直排列   | boolean                                                            | ——                              | false  |
+| `wrap`       | 是否换行       | boolean                                                            | ——                              | true   |
+| `row-gap`    | 自定义纵向间距 | string                                                             | ——                              | ——     |
+| `column-gap` | 自定义横向间距 | string                                                             | ——                              | ——     |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type { FSpaceInstance, spaceSizeType } from 'fighting-design'
+import type { SpaceInstance, SpaceProps } from 'fighting-design'
 ```
 
 ## Contributors

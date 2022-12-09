@@ -5,13 +5,21 @@
   import { useLoadImg, useProps } from '../../_hooks'
   import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
+  import type { UseLoadImgProp } from '../../_hooks'
 
   const prop = defineProps(Props)
 
   const { filter } = useProps(prop)
 
   const { loadImg, isSuccess } = useLoadImg(
-    filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError'])
+    filter([
+      'src',
+      'errSrc',
+      'rootMargin',
+      'lazy',
+      'onLoad',
+      'onError'
+    ]) as unknown as UseLoadImgProp
   )
 
   /**

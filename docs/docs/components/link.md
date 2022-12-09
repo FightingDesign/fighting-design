@@ -131,18 +131,18 @@
 
 | 参数          | 说明                                                                                      | 类型                                                               | 可选值                                           | 默认值  |
 | ------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------- |
-| `type`        | link 的类型                                                                               | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | primary |
+| `type`        | 不同类型                                                                                  | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | primary |
 | `href`        | 链接的地址                                                                                | string                                                             | ——                                               | ——      |
-| `size`        | link 的文字大小                                                                           | string / number                                                    | ——                                               | ——      |
-| `state`       | link 状态的样式状态                                                                       | string                                                             | `line` `bag`                                     | ——      |
+| `size`        | 文字大小                                                                                  | string / number                                                    | ——                                               | ——      |
+| `state`       | 鼠标移入的样式状态                                                                        | <a href="#linkstate">LinkState</a>                                 | `line` `bag`                                     | ——      |
 | `disabled`    | 是否禁用                                                                                  | boolean                                                            | ——                                               | false   |
-| `target`      | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | string                                                             | `_self` `_blank` `_parent` `_top`                | ——      |
+| `target`      | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | <a href="#linktarget">LinkTarget</a>                               | `_self` `_blank` `_parent` `_top`                | ——      |
 | `color`       | 自定义 link 颜色                                                                          | string                                                             | ——                                               | ——      |
 | `no-copy`     | 是否禁止 copy                                                                             | boolean                                                            | ——                                               | false   |
 | `no-link`     | 是否禁止链接跳转及重新加载（取消默认事件）                                                | boolean                                                            | ——                                               | false   |
 | `after-icon`  | 之前的 icon                                                                               | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
 | `before-icon` | 之后的 icon                                                                               | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
-| `on-click`    | 点击执行的回调                                                                            | Function                                                           | ——                                               | ——      |
+| `on-click`    | 点击执行的回调                                                                            | <a href="/components/interface.html#HandleMouse">HandleMouse</a>   | ——                                               | ——      |
 
 ## Slots
 
@@ -159,11 +159,22 @@
 ```ts
 import type {
   LinkInstance,
-  LinkPropsType,
-  LinkType,
-  LinkTargetType,
-  LinkHoverType
+  LinkProps,
+  LinkTarget,
+  LinkState
 } from 'fighting-design'
+```
+
+### LinkTarget
+
+```ts
+type LinkTarget = '_self' | '_blank' | '_parent' | '_top'
+```
+
+### LinkState
+
+```ts
+type LinkState = 'line' | 'bag'
 ```
 
 ## Contributors

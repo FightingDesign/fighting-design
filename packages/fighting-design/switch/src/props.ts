@@ -1,6 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { SwitchChange } from './interface'
-import type { FightingSize, FightingIcon } from '../../_interface'
+import type { FightingSize, FightingIcon, HandleChange } from '../../_interface'
 
 export const Props = {
   /**
@@ -74,17 +73,17 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 绑定值发生改变时触发的回调
-   */
-  onChange: {
-    type: Function as PropType<SwitchChange>,
-    default: (): null => null
-  },
-  /**
    * 自定义 icon size
    */
   iconSize: {
     type: [String, Number] as PropType<string | number>,
+    default: (): null => null
+  },
+  /**
+   * 绑定值发生改变时触发的回调
+   */
+  onChange: {
+    type: Function as PropType<HandleChange>,
     default: (): null => null
   }
 } as const

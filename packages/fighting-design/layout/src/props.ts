@@ -4,12 +4,14 @@ import type { LayoutDirection } from './interface'
 export const Props = {
   /**
    * 排列方向
+   * 
+   * @values horizontal vertical
    */
   direction: {
     type: String as PropType<LayoutDirection>,
-    default: (): LayoutDirection => '',
+    default: (): null => null,
     validator: (val: LayoutDirection): boolean => {
-      return (['horizontal', 'vertical', ''] as const).includes(val)
+      return (['horizontal', 'vertical'] as const).includes(val)
     }
   }
 } as const

@@ -6,7 +6,7 @@ export const Props = {
    */
   width: {
     type: [String, Number] as PropType<string | number>,
-    default: (): number => 200
+    default: (): null => null
   },
   /**
    * 自定义内边距

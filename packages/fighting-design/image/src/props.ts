@@ -96,7 +96,7 @@ export const Props = {
    */
   round: {
     type: [String, Number] as PropType<string | number>,
-    default: (): number => 0
+    default: (): null => null
   },
   /**
    * 加载失败时要显示的地址

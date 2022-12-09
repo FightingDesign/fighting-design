@@ -75,12 +75,12 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 
 ## Attributes
 
-| 参数       | 说明               | 类型                                                               | 可选值 | 默认值 |
-| ---------- | ------------------ | ------------------------------------------------------------------ | ------ | ------ |
-| `color`    | icon 颜色          | string                                                             | ——     | ——     |
-| `size`     | icon 大小          | string / number                                                    | ——     | ——     |
-| `icon`     | icon 内容          | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
-| `on-click` | 点击之后触发的回调 | Function                                                           | ——     | ——     |
+| 参数       | 说明           | 类型                                                               | 可选值 | 默认值 |
+| ---------- | -------------- | ------------------------------------------------------------------ | ------ | ------ |
+| `color`    | icon 颜色      | string                                                             | ——     | ——     |
+| `size`     | icon 大小      | string / number                                                    | ——     | ——     |
+| `icon`     | icon 内容      | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `on-click` | 点击触发的回调 | <a href="/components/interface.html#HandleMouse">HandleMouse</a>   | ——     | ——     |
 
 ## Slots
 

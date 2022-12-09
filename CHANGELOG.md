@@ -14,8 +14,11 @@
 
 **其它更新**
 
-- `f-button` 组件 `font-size` 默认值改为 null
 - `f-button` 组件样式细节优化
+- `f-button` 组件 `font-size` 默认值改为 null
+- `f-aside` 组件 `width` 默认值改为 null
+- `f-image` 组件 `round` 默认值改为 null
+- `f-image-preview` 组件 `z-index` 默认值改为 null
 
 ## 0.9.0 (2022-12-07)
 

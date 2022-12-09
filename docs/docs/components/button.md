@@ -373,7 +373,7 @@
 | `ripples-color` | 涟漪背景色                                                                                                                                                                                                    | string                                                             | ——                                               | ——       |
 | `native-type`   | 按钮的原生类型                                                                                                                                                                                                | <a href="#buttonnative">ButtonNative</a>                           | `button` `submit` `reset`                        | button   |
 | `color`         | 自定义按钮的背景颜色，仅支持 [hex](https://baike.baidu.com/item/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E9%A2%9C%E8%89%B2%E7%A0%81/10894232?fr=aladdin) 格式的色号。如果未指定`font-color`，则字体颜色默认为白色 | string                                                             | ——                                               | ——       |
-| `on-click`      | 点击执行的回调                                                                                                                                                                                                | <a href="#buttonclick">ButtonClick</a>                             | ——                                               | ——       |
+| `on-click`      | 点击执行的回调                                                                                                                                                                                                | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——                                               | ——       |
 
 ## ButtonGroup Attributes
 
@@ -407,7 +407,6 @@ import type {
   ButtonProps,
   ButtonTarget,
   ButtonNative,
-  ButtonClick,
   ButtonGroupInstance,
   ButtonGroupProps,
   ButtonGroupDirection

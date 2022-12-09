@@ -98,7 +98,7 @@
       background: #fff;
       padding: 10px;
       box-sizing: border-box;
-      z-index: 9999;
+      z-index: 300;
       color: #333;
 
       // 展开使用粘性定位

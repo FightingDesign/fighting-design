@@ -8,15 +8,6 @@ import type { VNode, Component } from 'vue'
 export type ClassList = readonly (string | Record<string, unknown>)[]
 
 /**
- * 事件参数类型接口
- * 
- * @see Event https://developer.mozilla.org/zh-CN/docs/Web/API/Event
- */
-export interface HandleEvent {
-  <T extends Event>(evt: T): void
-}
-
-/**
  * 不同类型
  */
 export type FightingType = 'primary' | 'success' | 'danger' | 'warning' | 'default'

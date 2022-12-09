@@ -18,12 +18,6 @@
   } from '../../_svg'
   import { useOperationImg, useRun } from '../../_hooks'
   import type { Ref } from 'vue'
-  import type {
-    ImagePreviewSwitchImageInterface,
-    ImagePreviewOptionClickInterface,
-    ImagePreviewOptionClickOptionMapInterface,
-    ImagePreviewSwitchImageOptionMapInterface
-  } from './interface'
   import type { ToolbarClickParams } from '../../toolbar'
 
   const prop = defineProps(Props)
@@ -50,9 +44,9 @@
   /**
    * 关闭图片预览
    */
-  const handleClose = (): void => {
+  const handleClose = (evt?: MouseEvent): void => {
     emit('update:visible', false)
-    useRun(prop.onClose)
+    useRun(prop.onClose, evt)
   }
 
   /**
@@ -93,12 +87,10 @@
    * 左右切换按钮
    * @param type 区分点击的是上一张还是下一张
    */
-  const switchImage: ImagePreviewSwitchImageInterface = (
-    type: 'next' | 'prev'
-  ): void => {
+  const switchImage = (type: 'next' | 'prev'): void => {
     recovery()
 
-    const optionMap: ImagePreviewSwitchImageOptionMapInterface = {
+    const optionMap = {
       /**
        * 下一张切换
        */
@@ -131,12 +123,10 @@
    *
    * @param target f-toolbar 组件返回值
    */
-  const optionClick: ImagePreviewOptionClickInterface = (
-    target: ToolbarClickParams
-  ): void => {
+  const optionClick = (target: ToolbarClickParams): void => {
     if (!target.index) return
 
-    const optionMap: ImagePreviewOptionClickOptionMapInterface = {
+    const optionMap = {
       1: (): void => smaller(),
       2: (): void => bigger(),
       3: (): void => recovery(),
@@ -152,7 +142,7 @@
 
 <template>
   <div class="f-image-preview" @mousewheel="scrollZoom">
-    <f-popup v-model:visible="isVisible" :open="imagPreload">
+    <f-popup v-model:visible="isVisible" :z-index="zIndex" :open="imagPreload">
       <img
         class="f-image-preview__exhibition"
         draggable="false"

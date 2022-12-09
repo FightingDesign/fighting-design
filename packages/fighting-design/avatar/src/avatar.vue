@@ -3,6 +3,7 @@
   import { ref, onMounted, useSlots } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { useAvatar, useLoadImg, useProps } from '../../_hooks'
+  import type { UseLoadImgProp } from '../../_hooks'
 
   const prop = defineProps(Props)
   const slot = useSlots()
@@ -12,7 +13,14 @@
   const { nodeClassList, classList, styleList } = useAvatar(prop)
 
   const { loadImg, isSuccess } = useLoadImg(
-    filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError'])
+    filter([
+      'src',
+      'errSrc',
+      'rootMargin',
+      'lazy',
+      'onLoad',
+      'onError'
+    ]) as unknown as UseLoadImgProp
   )
 
   /**

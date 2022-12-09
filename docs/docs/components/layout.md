@@ -1,6 +1,6 @@
 # Layout 布局
 
-`Layout` 用于处理常见的一些网页布局，实现快速搭建
+处理常见的一些网页布局，实现快速搭建
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/layout)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/layout.md)
@@ -215,15 +215,15 @@
 
 ## layout Attributes
 
-| 参数        | 说明     | 类型   | 可选值                  | 默认值 |
-| ----------- | -------- | ------ | ----------------------- | ------ |
-| `direction` | 排列方向 | string | `horizontal` `vertical` | ——     |
+| 参数        | 说明     | 类型                                           | 可选值                  | 默认值 |
+| ----------- | -------- | ---------------------------------------------- | ----------------------- | ------ |
+| `direction` | 排列方向 | <a href="#layoutdirection">LayoutDirection</a> | `horizontal` `vertical` | ——     |
 
 ## Header Attributes
 
 | 参数      | 说明   | 类型            | 可选值 | 默认值 |
 | --------- | ------ | --------------- | ------ | ------ |
-| `height`  | 高度   | string / number | ——     | 60     |
+| `height`  | 高度   | string / number | ——     | ——     |
 | `padding` | 内边距 | string / number | ——     | ——     |
 
 ## Main Attributes
@@ -236,14 +236,14 @@
 
 | 参数      | 说明   | 类型            | 可选值 | 默认值 |
 | --------- | ------ | --------------- | ------ | ------ |
-| `width`   | 宽度   | string / number | ——     | 200    |
+| `width`   | 宽度   | string / number | ——     | ——     |
 | `padding` | 内边距 | string / number | ——     | ——     |
 
 ## Footer Attributes
 
 | 参数      | 说明   | 类型            | 可选值 | 默认值 |
 | --------- | ------ | --------------- | ------ | ------ |
-| `height`  | 高度   | string / number | ——     | 60     |
+| `height`  | 高度   | string / number | ——     | ——     |
 | `padding` | 内边距 | string / number | ——     | ——     |
 
 ## Interface
@@ -252,18 +252,24 @@
 
 ```ts
 import type {
-  AsidePropsType,
+  AsideProps,
   AsideInstance,
   FooterInstance,
-  FooterPropsType,
+  FooterProps,
   HeaderInstance,
-  HeaderPropsType,
+  HeaderProps,
   LayoutInstance,
-  LayoutPropsType,
-  LayoutDirectionType,
+  LayoutProps,
+  LayoutDirection,
   MainInstance,
-  MainPropsType
+  MainProps
 } from 'fighting-design'
+```
+
+### LayoutDirection
+
+```ts
+type LayoutDirection = 'horizontal' | 'vertical'
 ```
 
 ## Contributors
