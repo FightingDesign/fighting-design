@@ -1,42 +1,23 @@
 <script lang="ts" setup name="FList">
   import { Props, LIST_PROPS_KEY } from './props'
-  import { provide, computed } from 'vue'
-  import { sizeChange } from '../../_utils'
-  import type { CSSProperties } from 'vue'
-  import type { ClassList } from '../../_interface'
+  import { provide } from 'vue'
+  import { useList } from '../../_hooks'
 
   const prop = defineProps(Props)
 
   provide(LIST_PROPS_KEY, prop)
 
-  /**
-   * 类名列表
-   */
-  const classList = computed((): ClassList => {
-    const { maxHeight, zebra, center, size } = prop
-
-    return [
-      'f-list',
-      {
-        [`f-list__${size}`]: size,
-        'f-list__scroll': maxHeight,
-        'f-list__zebra': zebra,
-        'f-list__center': center
-      }
-    ] as const
-  })
+  const { classes, styles } = useList(prop, 'list')
 
   /**
    * 样式列表
    */
-  const styleList = computed((): CSSProperties => {
-    const { maxHeight, borderColor } = prop
+  const styleList = styles(['borderColor', 'maxHeight', 'zebraColor'])
 
-    return {
-      borderColor,
-      maxHeight: sizeChange(maxHeight)
-    } as const
-  })
+  /**
+   * 类名列表
+   */
+  const classList = classes(['zebra', 'center', 'size'], 'f-list')
 </script>
 
 <template>

@@ -12,13 +12,54 @@
     return Number.parseFloat(size) || 0
   }
 
-  const load = (e) => console.log(e)
-  const error = (e) => console.log(e)
+  const load = e => console.log(e)
+  const error = e => console.log(e)
 
   console.log(sizeToNum(-1))
 </script>
 
 <template>
+  <f-list
+    size="large"
+    center
+    border-color="orange"
+    zebra
+    zebra-color="red"
+    text-color="#fff"
+  >
+    <template #header>
+      <h1>头部信息</h1>
+      <h1>头部信息</h1>
+    </template>
+    <f-list-item>这是大号尺寸列表这表</f-list-item>
+    <f-list-item>这是大号尺寸列表这表</f-list-item>
+    <f-list-item>这是大号尺寸列表这表</f-list-item>
+    <f-list-item>这是大号尺寸列表这表</f-list-item>
+    <f-list-item>这是大号尺寸列表这表</f-list-item>
+    <f-list-item>这是大号尺寸列表这表</f-list-item>
+    <f-list-item>这是大号尺寸列表</f-list-item>
+
+    <template #footer>
+      <h1>头部信息</h1>
+      <h1>头部信息</h1>
+    </template>
+  </f-list>
+
+  <f-list size="middle">
+    <f-list-item>这是中号尺寸列表</f-list-item>
+    <f-list-item>这是中号尺寸列表</f-list-item>
+  </f-list>
+
+  <f-list size="small">
+    <f-list-item>这是小号尺寸列表</f-list-item>
+    <f-list-item>这是小号尺寸列表</f-list-item>
+  </f-list>
+
+  <f-list size="mini">
+    <f-list-item>这是超级小号尺寸列表</f-list-item>
+    <f-list-item>这是超级小号尺寸列表</f-list-item>
+  </f-list>
+
   <div
     :style="{
       height: '2000px'
@@ -176,5 +217,9 @@
   }
   h3 {
     border-bottom: 1px solid skyblue;
+  }
+
+  .f-list {
+    margin-bottom: 20px !important;
   }
 </style>

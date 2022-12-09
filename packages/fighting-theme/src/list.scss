@@ -5,15 +5,15 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  border: 1px solid #e3e3e3;
   overflow-y: auto;
+  height: var(--f-list-max-height);
+  border: 1px solid var(--f-list-border-color, #e3e3e3);
 
   &__header {
-    border-bottom: 1px solid #e3e3e3;
-    padding: 20px;
-    box-sizing: border-box;
+    border-bottom: 1px solid var(--f-list-border-color, #e3e3e3);
   }
 
+  &__header,
   &__footer {
     padding: 20px;
     box-sizing: border-box;
@@ -21,14 +21,14 @@
 
   // 斑马纹
   &.f-list__zebra {
-    .f-list__item:nth-of-type(2n) {
-      background: #ecf0fe;
+    .f-list-item:nth-of-type(2n) {
+      background: var(--f-list-zebra-color, #ecf0fe);
     }
   }
 
   // 居中显示
   &.f-list__center {
-    .f-list__item {
+    .f-list-item {
       justify-content: center;
     }
   }
@@ -38,10 +38,21 @@
     $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
 
     &.f-list__#{map-get($item, name)} {
-      .f-list__item {
+      .f-list-item {
         min-height: map-get($item, height);
         font-size: map-get($item, fontSize);
       }
     }
+  }
+
+  // 滚动条
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  // 滚动滑块
+  &::-webkit-scrollbar-thumb {
+    background: #dddddd;
+    border-radius: 6px;
   }
 }

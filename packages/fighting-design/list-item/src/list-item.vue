@@ -1,8 +1,8 @@
 <script lang="ts" setup name="FListItem">
   import { Props } from './props'
-  import { computed, inject } from 'vue'
+  import { inject, reactive } from 'vue'
   import { LIST_PROPS_KEY } from '../../list/src/props'
-  import type { CSSProperties } from 'vue'
+  import { useList } from '../../_hooks'
   import type { ListProps } from '../../list/src/props'
 
   const prop = defineProps(Props)
@@ -10,33 +10,25 @@
   /**
    * 获取父组件注入的依赖项
    */
-  const parentInject = inject<ListProps | undefined>(LIST_PROPS_KEY, undefined)
+  const parentInject = inject<ListProps | null>(LIST_PROPS_KEY, null)
+
+  const { styles } = useList(
+    reactive({
+      borderColor: parentInject && parentInject.borderColor,
+      textColor: prop.color || (parentInject && parentInject.textColor),
+      background: prop.background
+    }),
+    'list-item'
+  )
 
   /**
    * 样式列表
    */
-  const styleList = computed((): CSSProperties => {
-    const { background, color } = prop
-
-    // 如果没有注入依赖，则直接返回自己的参数
-    if (!parentInject) {
-      return { background, color } as const
-    }
-
-    const { textColor, borderColor } = parentInject
-
-    return {
-      background,
-      color: textColor,
-      borderColor
-    } as const
-  })
+  const styleList = styles(['textColor', 'borderColor', 'background'])
 </script>
 
 <template>
-  <div role="listitem" class="f-list-item" :style="styleList">
-    <li class="f-list-item__li">
-      <slot />
-    </li>
-  </div>
+  <li role="listitem" class="f-list-item" :style="styleList">
+    <slot />
+  </li>
 </template>
