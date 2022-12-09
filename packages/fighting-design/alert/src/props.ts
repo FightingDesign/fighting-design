@@ -1,6 +1,6 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { AlertOverflow } from './interface'
-import type { HandleEvent, FightingType } from '../../_interface'
+import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -116,14 +116,14 @@ export const Props = {
    * 自定义关闭 icon
    */
   closeIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 自定义之前的 icon
    */
   beforeIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**

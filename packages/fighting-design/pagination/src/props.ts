@@ -1,10 +1,11 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 import type {
   HandleCurrentChange,
   HandlePrevClick,
   HandleNextClick,
   HandlePageChange
 } from './interface'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -62,14 +63,14 @@ export const Props = {
    * 自定义的上一页图标
    */
   prevIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 自定义的下一页图标
    */
   nextIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**

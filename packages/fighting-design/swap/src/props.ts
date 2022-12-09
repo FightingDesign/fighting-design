@@ -1,5 +1,6 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { SwapType, SwapOnChange } from './interface'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -34,14 +35,14 @@ export const Props = {
    * 打开展示的图标
    */
   iconOn: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 关闭展示的图标
    */
   iconOff: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**

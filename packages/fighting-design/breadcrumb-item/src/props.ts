@@ -1,5 +1,6 @@
-import type { ExtractPropTypes, VNode, Component, PropType } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 import type { BreadcrumbItemToInterface } from './interface'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -20,7 +21,7 @@ export const Props = {
    * 自定义分隔符
    */
   separator: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**

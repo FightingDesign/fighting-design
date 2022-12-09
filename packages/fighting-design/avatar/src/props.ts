@@ -1,7 +1,7 @@
 import { isString, isNumber } from '../../_utils'
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { AvatarFit } from './interface'
-import type { HandleEvent, FightingSize } from '../../_interface'
+import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -22,7 +22,7 @@ export const Props = {
    * 图标头像
    */
   icon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**

@@ -1,11 +1,12 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
    * icon 内容
    */
   icon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**

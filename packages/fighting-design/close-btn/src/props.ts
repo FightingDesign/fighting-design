@@ -1,5 +1,5 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { HandleEvent } from '../../_interface'
+import type { ExtractPropTypes, PropType } from 'vue'
+import type { HandleEvent, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -34,7 +34,7 @@ export const Props = {
    * 自定义 icon
    */
   icon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**

@@ -1,5 +1,6 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { RateChange } from './interface'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -43,7 +44,7 @@ export const Props = {
    * 自定义 icon
    */
   icon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**

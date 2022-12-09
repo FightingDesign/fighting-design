@@ -1,17 +1,12 @@
-import type {
-  ExtractPropTypes,
-  InjectionKey,
-  PropType,
-  VNode,
-  Component
-} from 'vue'
+import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
    * 自定义分隔符
    */
   separator: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**

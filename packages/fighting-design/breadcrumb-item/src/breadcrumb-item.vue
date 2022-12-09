@@ -5,7 +5,8 @@
   import { FSvgIcon } from '../../svg-icon'
   import { useList } from '../../_hooks'
   import { FIconChevronRightVue } from '../../_svg'
-  import type { VNode, Component, ComponentInternalInstance } from 'vue'
+  import type { FightingIcon } from '../../_interface'
+  import type { ComponentInternalInstance } from 'vue'
   import type { BreadcrumbProps } from '../../breadcrumb'
 
   const prop = defineProps(Props)
@@ -35,7 +36,7 @@
   /**
    * 计算当前需要展示的 svg
    */
-  const svgIconComponent = computed((): VNode | Component => {
+  const svgIconComponent = computed((): FightingIcon => {
     if (prop.separator) return prop.separator
 
     if (parentInject && parentInject.separator) {

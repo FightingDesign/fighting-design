@@ -1,6 +1,6 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type { LinkTarget, LinkHover } from './interface'
-import type { HandleEvent, FightingType } from '../../_interface'
+import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -88,14 +88,14 @@ export const Props = {
    * 之前的 icon
    */
   beforeIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 之后的 icon
    */
   afterIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
