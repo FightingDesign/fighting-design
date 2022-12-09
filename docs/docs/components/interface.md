@@ -19,3 +19,11 @@ type FightingType = 'primary' | 'success' | 'danger' | 'warning' | 'default'
 ```ts
 type FightingSize = 'large' | 'middle' | 'small' | 'mini'
 ```
+
+## FightingIcon
+
+```ts
+import type { VNode, Component } from 'vue'
+
+type FightingIcon = VNode | Component
+```

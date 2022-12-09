@@ -1,10 +1,10 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
+import type { PropType, ExtractPropTypes } from 'vue'
 import type {
   ButtonTarget,
   ButtonNative,
   ButtonClick
 } from './interface'
-import type { FightingSize, FightingType } from '../../_interface'
+import type { FightingSize, FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -101,7 +101,7 @@ export const Props = {
    * 自定义 loading icon
    */
   loadingIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
@@ -172,14 +172,14 @@ export const Props = {
    * 自定义之前的 icon
    */
   beforeIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 自定义之后的 icon
    */
   afterIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
