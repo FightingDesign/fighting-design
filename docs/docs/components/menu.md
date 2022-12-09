@@ -261,7 +261,7 @@
 | `mode`        | 不同模式        | string          | `horizontal` `vertical` `inline` | horizontal |
 | `active-name` | 默认激活的 name | string / number | ——                               | ——         |
 
-## Menu Item Attributes
+## MenuItem Attributes
 
 | 参数        | 说明        | 类型                       | 可选值 | 默认值 |
 | ----------- | ----------- | -------------------------- | ------ | ------ |
@@ -272,7 +272,7 @@
 | `name`      | 唯一标识    | string / number            | ——     | ——     |
 | `disabled`  | 是否禁用    | boolean                    | ——     | false  |
 
-## Menu Item Group Attributes
+## MenuItemGroup Attributes
 
 | 参数    | 说明 | 类型   | 可选值 | 默认值 |
 | ------- | ---- | ------ | ------ | ------ |
@@ -293,13 +293,13 @@
 | `before`  | 主内容之前的内容 |
 | `after`   | 主内容之后的内容 |
 
-## Menu Item Slots
+## MenuItem Slots
 
 | 名称      | 说明           |
 | --------- | -------------- |
 | `default` | 默认插入的内容 |
 
-## Menu Item Group Slots
+## MenuItem Group Slots
 
 | 名称      | 说明           |
 | --------- | -------------- |
