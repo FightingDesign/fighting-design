@@ -154,16 +154,16 @@
 
 ## Toolbar Attributes
 
-| 参数         | 说明               | 类型     | 可选值                          | 默认值 |
-| ------------ | ------------------ | -------- | ------------------------------- | ------ |
-| `size`       | 尺寸               | string   | `large` `middle` `small` `mini` | large  |
-| `round`      | 显示为圆角         | boolean  | ——                              | false  |
-| `background` | 背景颜色           | string   | ——                              | ——     |
-| `text-color` | 字体颜色           | string   | ——                              | ——     |
-| `fixed`      | 是否固定定位       | boolean  | ——                              | false  |
-| `width`      | 自定义宽度         | string   | ——                              | ——     |
-| `height`     | 自定义高度         | string   | ——                              | ——     |
-| `on-click`   | 点击之后触发的回调 | Function | ——                              | ——     |
+| 参数         | 说明               | 类型                                                               | 可选值                          | 默认值 |
+| ------------ | ------------------ | ------------------------------------------------------------------ | ------------------------------- | ------ |
+| `size`       | 尺寸               | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | large  |
+| `round`      | 显示为圆角         | boolean                                                            | ——                              | false  |
+| `background` | 背景颜色           | string                                                             | ——                              | ——     |
+| `text-color` | 字体颜色           | string                                                             | ——                              | ——     |
+| `fixed`      | 是否固定定位       | boolean                                                            | ——                              | false  |
+| `width`      | 自定义宽度         | string                                                             | ——                              | ——     |
+| `height`     | 自定义高度         | string                                                             | ——                              | ——     |
+| `on-click`   | 点击之后触发的回调 | Function                                                           | ——                              | ——     |
 
 ## Toolbar Slots
 

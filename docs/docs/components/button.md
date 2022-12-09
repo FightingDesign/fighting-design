@@ -306,7 +306,7 @@
 | `round`         | 是否为圆角按钮                                                                                                                                                                                                | boolean                                                            | ——                                               | false    |
 | `font-size`     | 文字字体大小                                                                                                                                                                                                  | string / number                                                    | ——                                               | 14px     |
 | `font-color`    | 文字字体颜色                                                                                                                                                                                                  | string                                                             | ——                                               | ——       |
-| `size`          | 按钮尺寸                                                                                                                                                                                                      | <a href="#buttonsizetype">ButtonSizeType</a>                       | `large` `middle` `small` `mini`                  | middle   |
+| `size`          | 按钮尺寸                                                                                                                                                                                                      | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                  | middle   |
 | `block`         | 是否为块级元素                                                                                                                                                                                                | boolean                                                            | ——                                               | false    |
 | `href`          | 链接按钮的地址                                                                                                                                                                                                | <a href="#buttontargettype">ButtonTargetType</a>                   | ——                                               | ——       |
 | `target`        | 原生 target 属性，在 link 类型存在时生效                                                                                                                                                                      | string                                                             | `_blank` `_self` `_parent` `_top`                | \_self   |
@@ -329,10 +329,10 @@
 
 ## ButtonGroup Attributes
 
-| 参数        | 说明     | 类型                                         | 可选值                          | 默认值     |
-| ----------- | -------- | -------------------------------------------- | ------------------------------- | ---------- |
-| `size`      | 按钮尺寸 | <a href="#buttonsizetype">ButtonSizeType</a> | `large` `middle` `small` `mini` | middle     |
-| `direction` | 排列方式 | string                                       | `horizontal` `vertical`         | horizontal |
+| 参数        | 说明     | 类型                                                               | 可选值                          | 默认值     |
+| ----------- | -------- | ------------------------------------------------------------------ | ------------------------------- | ---------- |
+| `size`      | 按钮尺寸 | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle     |
+| `direction` | 排列方式 | string                                                             | `horizontal` `vertical`         | horizontal |
 
 ## Button Slots
 

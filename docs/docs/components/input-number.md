@@ -43,26 +43,26 @@
 
 ## Attributes
 
-| 参数          | 说明                       | 类型     | 可选值                          | 默认值         |
-| ------------- | -------------------------- | -------- | ------------------------------- | -------------- |
-| `v-model`     | 绑定值                     | number   | ——                              | 1              |
-| `model`       | 不同模式                   | string   | `default` `button` `switch`     | default        |
-| `precision`   | 数值精度                   | number   | ——                              | 0              |
-| `step`        | 步长                       | number   | ——                              | 1              |
-| `size`        | 尺寸                       | number   | `large` `middle` `small` `mini` | middle         |
-| `disabled`    | 是否禁用                   | boolean  | ——                              | false          |
-| `max`         | 最大值                     | number   | ——                              | ——             |
-| `min`         | 最小值                     | number   | ——                              | ——             |
-| `max-length`  | 最大输入长度               | number   | ——                              | ——             |
-| `autofocus`   | 是否自动聚焦               | boolean  | ——                              | false          |
-| `name`        | 原生 name 属性             | string   | ——                              | f-input-number |
-| `placeholder` | 占位符                     | string   | ——                              | ——             |
-| `clear`       | 是否可清空                 | boolean  | ——                              | false          |
-| `readonly`    | 是否只读                   | boolean  | ——                              | false          |
-| `on-change`   | 绑定值发生变化时触发的回调 | Function | ——                              | ——             |
-| `on-blur`     | 失去焦点触发的回调         | Function | ——                              | ——             |
-| `on-focus`    | 获取焦点触发的回调         | Function | ——                              | ——             |
-| `on-input`    | 原生 input 事件回调        | Function | ——                              | ——             |
+| 参数          | 说明                       | 类型                                                               | 可选值                          | 默认值         |
+| ------------- | -------------------------- | ------------------------------------------------------------------ | ------------------------------- | -------------- |
+| `v-model`     | 绑定值                     | number                                                             | ——                              | 1              |
+| `model`       | 不同模式                   | string                                                             | `default` `button` `switch`     | default        |
+| `precision`   | 数值精度                   | number                                                             | ——                              | 0              |
+| `step`        | 步长                       | number                                                             | ——                              | 1              |
+| `size`        | 尺寸                       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle         |
+| `disabled`    | 是否禁用                   | boolean                                                            | ——                              | false          |
+| `max`         | 最大值                     | number                                                             | ——                              | ——             |
+| `min`         | 最小值                     | number                                                             | ——                              | ——             |
+| `max-length`  | 最大输入长度               | number                                                             | ——                              | ——             |
+| `autofocus`   | 是否自动聚焦               | boolean                                                            | ——                              | false          |
+| `name`        | 原生 name 属性             | string                                                             | ——                              | f-input-number |
+| `placeholder` | 占位符                     | string                                                             | ——                              | ——             |
+| `clear`       | 是否可清空                 | boolean                                                            | ——                              | false          |
+| `readonly`    | 是否只读                   | boolean                                                            | ——                              | false          |
+| `on-change`   | 绑定值发生变化时触发的回调 | Function                                                           | ——                              | ——             |
+| `on-blur`     | 失去焦点触发的回调         | Function                                                           | ——                              | ——             |
+| `on-focus`    | 获取焦点触发的回调         | Function                                                           | ——                              | ——             |
+| `on-input`    | 原生 input 事件回调        | Function                                                           | ——                              | ——             |
 
 ## Interface
 

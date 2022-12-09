@@ -240,16 +240,16 @@
 
 ## CheckboxGroup Attributes
 
-| 参数                   | 说明                   | 类型            | 可选值                          | 默认值 |
-| ---------------------- | ---------------------- | --------------- | ------------------------------- | ------ |
-| `modelValue / v-model` | 绑定值                 | array           | ——                              | ——     |
-| `disabled`             | 是否禁用               | boolean         | ——                              | false  |
-| `border`               | 是否显示边框           | boolean         | ——                              | false  |
-| `size`                 | 尺寸                   | string          | `large` `middle` `small` `mini` | middle |
-| `vertical`             | 是否纵向排列           | boolean         | ——                              | false  |
-| `column-gap`           | 横向排列的间距         | string / number | ——                              | ——     |
-| `row-gap`              | 纵向排列的间距         | string / number | ——                              | ——     |
-| `on-change`            | 绑定值变化时触发的回调 | Function        | ——                              | ——     |
+| 参数                   | 说明                   | 类型                                                               | 可选值                          | 默认值 |
+| ---------------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------- | ------ |
+| `modelValue / v-model` | 绑定值                 | array                                                              | ——                              | ——     |
+| `disabled`             | 是否禁用               | boolean                                                            | ——                              | false  |
+| `border`               | 是否显示边框           | boolean                                                            | ——                              | false  |
+| `size`                 | 尺寸                   | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
+| `vertical`             | 是否纵向排列           | boolean                                                            | ——                              | false  |
+| `column-gap`           | 横向排列的间距         | string / number                                                    | ——                              | ——     |
+| `row-gap`              | 纵向排列的间距         | string / number                                                    | ——                              | ——     |
+| `on-change`            | 绑定值变化时触发的回调 | Function                                                           | ——                              | ——     |
 
 ## Checkbox Attributes
 
