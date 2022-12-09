@@ -1,10 +1,10 @@
 import { computed, watch, ref } from 'vue'
 import { getDayMonth, Lunar } from '../../_utils'
 import type { Ref, ComputedRef } from 'vue'
-import type {
-  UseCalculiTimeReturnInterface,
-  GetLunarDetailReturnInterface
-} from './interface'
+import type { GetLunarDetailReturn } from '../../_utils'
+import type { UseCalculiTimeReturn } from './interface'
+
+export * from './interface.d'
 
 /**
  * 日历组件 hook
@@ -16,7 +16,7 @@ import type {
 export const useCalculiTime = (
   year: Ref<number>,
   month: Ref<number>
-): UseCalculiTimeReturnInterface => {
+): UseCalculiTimeReturn => {
   /**
    * 获取当前月份的 1号是周几
    */
@@ -43,15 +43,15 @@ export const useCalculiTime = (
   /**
    * 上个月需要展示的天数
    */
-  const lastMonthDay: ComputedRef<GetLunarDetailReturnInterface[]> = computed(
-    (): GetLunarDetailReturnInterface[] => {
+  const lastMonthDay: ComputedRef<GetLunarDetailReturn[]> = computed(
+    (): GetLunarDetailReturn[] => {
       // 上个月的天数
       let lastDays: number = getDayMonth(year.value, month.value - 1)
       // 需要展示的上个月信息
-      const showLastListResult: GetLunarDetailReturnInterface[] = []
+      const showLastListResult: GetLunarDetailReturn[] = []
 
       for (let i = 0; i < firstDayWeek.value; i++) {
-        const dayList: GetLunarDetailReturnInterface | -1 =
+        const dayList: GetLunarDetailReturn | -1 =
           lunar.getLunarDetail(year.value, month.value, lastDays)
 
         if (dayList !== -1) {
@@ -60,7 +60,7 @@ export const useCalculiTime = (
           showLastListResult.push({
             cDay: lastDays,
             cMonth: month.value
-          } as unknown as GetLunarDetailReturnInterface)
+          } as unknown as GetLunarDetailReturn)
         }
 
         lastDays--
@@ -74,8 +74,8 @@ export const useCalculiTime = (
   /**
    * 下个月需要展示的天数
    */
-  const nextMonthDay: ComputedRef<GetLunarDetailReturnInterface[]> = computed(
-    (): GetLunarDetailReturnInterface[] => {
+  const nextMonthDay: ComputedRef<GetLunarDetailReturn[]> = computed(
+    (): GetLunarDetailReturn[] => {
       // 获取当前月份的时间
       const thisMonthDay: number =
         getDayMonth(year.value, month.value) + firstDayWeek.value
@@ -87,10 +87,10 @@ export const useCalculiTime = (
         return []
       }
 
-      const showNextListResult: GetLunarDetailReturnInterface[] = []
+      const showNextListResult: GetLunarDetailReturn[] = []
 
       for (let i = 0; i < nextShowDay; i++) {
-        const dayList: GetLunarDetailReturnInterface | -1 =
+        const dayList: GetLunarDetailReturn | -1 =
           lunar.getLunarDetail(year.value, month.value + 2, i + 1)
 
         if (dayList !== -1) {
@@ -99,7 +99,7 @@ export const useCalculiTime = (
           showNextListResult.push({
             cDay: i + 1,
             cMonth: month.value + 2
-          } as unknown as GetLunarDetailReturnInterface)
+          } as unknown as GetLunarDetailReturn)
         }
       }
 
@@ -110,14 +110,14 @@ export const useCalculiTime = (
   /**
    * 当月需要展示的天数
    */
-  const currentMonthDay: ComputedRef<GetLunarDetailReturnInterface[]> =
-    computed((): GetLunarDetailReturnInterface[] => {
+  const currentMonthDay: ComputedRef<GetLunarDetailReturn[]> =
+    computed((): GetLunarDetailReturn[] => {
       // 当月的时间
       const monthDays: number = getDayMonth(year.value, month.value)
-      const showNextListResult: GetLunarDetailReturnInterface[] = []
+      const showNextListResult: GetLunarDetailReturn[] = []
 
       for (let i = 0; i < monthDays; i++) {
-        const dayList: GetLunarDetailReturnInterface | -1 =
+        const dayList: GetLunarDetailReturn | -1 =
           lunar.getLunarDetail(year.value, month.value + 1, i + 1)
 
         if (dayList !== -1) {
@@ -126,7 +126,7 @@ export const useCalculiTime = (
           showNextListResult.push({
             cDay: i + 1,
             cMonth: month.value + 1
-          } as unknown as GetLunarDetailReturnInterface)
+          } as unknown as GetLunarDetailReturn)
         }
       }
 
@@ -161,8 +161,8 @@ export const useCalculiTime = (
    * 当前月份展示的时间
    * 包括上个月需要展示的日期和下个月需要展示的日期
    */
-  const AllMonthDays: ComputedRef<GetLunarDetailReturnInterface[]> = computed(
-    (): GetLunarDetailReturnInterface[] => {
+  const AllMonthDays: ComputedRef<GetLunarDetailReturn[]> = computed(
+    (): GetLunarDetailReturn[] => {
       return [
         ...lastMonthDay.value,
         ...currentMonthDay.value,
@@ -175,5 +175,5 @@ export const useCalculiTime = (
     AllMonthDays,
     changeLastMonth,
     changeNextMonth
-  } as UseCalculiTimeReturnInterface
+  }
 }

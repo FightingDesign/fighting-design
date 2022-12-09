@@ -8,7 +8,7 @@ import type { ClassList } from '../../_interface'
  * @param classList 类名列表
  * @param styleList 样式列表
  */
-export interface UseAvatarReturnInterface {
+export interface UseAvatarReturn {
   nodeClassList: ComputedRef<ClassList>
   classList: ComputedRef<ClassList>
   styleList: ComputedRef<CSSProperties>

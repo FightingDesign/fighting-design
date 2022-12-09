@@ -1,10 +1,16 @@
 import { reactive, toRef } from 'vue'
 import { isString, isObject } from '../../_utils'
-import type {
-  FilterParams,
-  FilterParamsList,
-  UsePropsReturnInterface
-} from './interface'
+
+export interface FilterParamsList {
+  key: string
+  callback: Function
+}
+
+export type FilterParams = (string | FilterParamsList)[]
+
+export interface UsePropsReturn {
+  filter(list: FilterParams): Record<string, unknown>
+}
 
 /**
  * 对于 props 的一些操作
@@ -14,7 +20,7 @@ import type {
  */
 export const useProps = <T extends object>(
   prop: T
-): UsePropsReturnInterface => {
+): UsePropsReturn => {
   /**
    * 过滤 prop
    *

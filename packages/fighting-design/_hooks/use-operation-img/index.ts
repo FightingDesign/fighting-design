@@ -31,8 +31,6 @@ export interface UseOperationImgReturn {
  * 用于 image-preview 组件的图片操作 hook
  *
  * 主要用作图片的放大、缩小、滚轮缩放
- *
- * @returns
  */
 export const useOperationImg = (): UseOperationImgReturn => {
   /**

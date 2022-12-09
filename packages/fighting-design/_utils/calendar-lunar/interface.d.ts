@@ -22,7 +22,7 @@
  * @param lunarFestival 农历节日
  * @param nWeek 小写星期
  */
-export interface GetLunarDetailReturnInterface {
+export interface GetLunarDetailReturn {
   animal: string
   IDayCn: string
   IMonthCn: string

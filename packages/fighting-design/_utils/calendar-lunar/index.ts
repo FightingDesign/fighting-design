@@ -11,7 +11,9 @@ import {
   CHANG_MONTH_LUNAR_CALENDAR,
   SOLAR_TERM_LIST
 } from '../calendar-data'
-import type { GetLunarDetailReturnInterface, LunarInterface } from './interface'
+import type { GetLunarDetailReturn, LunarInterface } from './interface'
+
+export * from './interface.d'
 
 /**
  * 计算当前日期相关
@@ -195,7 +197,7 @@ export class Lunar implements LunarInterface {
     yPara: number,
     mPara: number,
     dPara: number
-  ): -1 | GetLunarDetailReturnInterface => {
+  ): -1 | GetLunarDetailReturn => {
     let y: number = parseInt(yPara.toString())
     let m: number = parseInt(mPara.toString())
     let d: number = parseInt(dPara.toString())
@@ -358,6 +360,6 @@ export class Lunar implements LunarInterface {
       nWeek,
       Term,
       constellation
-    } as GetLunarDetailReturnInterface
+    } as GetLunarDetailReturn
   }
 }

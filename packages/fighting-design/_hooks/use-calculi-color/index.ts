@@ -1,13 +1,6 @@
-/**
- * useCalculiColor 返回值类型接口
- * 
- * @param getDarkColor 加深方法
- * @param getLightColor 减淡方法
- */
-export interface UseCalculiColorReturn {
-  getDarkColor(level: number): string
-  getLightColor(level: number): string
-}
+import type { UseCalculiColorReturn } from './interface'
+
+export * from './interface.d'
 
 /**
  * 根据传入的 hex 计算出加深或减淡的颜色
