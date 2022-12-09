@@ -201,14 +201,14 @@
 
 ## Attributes
 
-| 参数            | 说明                 | 类型    | 可选值                                                  | 默认值  |
-| --------------- | -------------------- | ------- | ------------------------------------------------------- | ------- |
-| `type`          | 涟漪类型             | boolean | `default` `primary` `success` <br /> `danger` `warning` | default |
-| `ripples-color` | 自定义涟漪颜色       | string  | ——                                                      | ——      |
-| `duration`      | 移除涟漪节点的时间   | number  | ——                                                      | 400     |
-| `disabled`      | 是否禁用             | boolean | ——                                                      | false   |
-| `start-opacity` | 涟漪动画开始的透明度 | number  | ——                                                      | 0.5     |
-| `end-opacity`   | 涟漪动画结束的透明度 | number  | ——                                                      | 0       |
+| 参数            | 说明                 | 类型                                                               | 可选值                                           | 默认值  |
+| --------------- | -------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------- |
+| `type`          | 涟漪类型             | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | default |
+| `ripples-color` | 自定义涟漪颜色       | string                                                             | ——                                               | ——      |
+| `duration`      | 移除涟漪节点的时间   | number                                                             | ——                                               | 400     |
+| `disabled`      | 是否禁用             | boolean                                                            | ——                                               | false   |
+| `start-opacity` | 涟漪动画开始的透明度 | number                                                             | ——                                               | 0.5     |
+| `end-opacity`   | 涟漪动画结束的透明度 | number                                                             | ——                                               | 0       |
 
 ## Slots
 

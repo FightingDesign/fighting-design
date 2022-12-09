@@ -216,7 +216,7 @@
 <script setup lang="ts">
   import { FMessage } from 'fighting-design'
 
-  const openMessagePlacement = (placement) => {
+  const openMessagePlacement = placement => {
     FMessage({
       message: '这是一条自定义位置的消息',
       type: 'primary',
@@ -232,21 +232,21 @@
 
 ## Attributes
 
-| 参数         | 说明                                         | 类型                       | 可选值                                                             | 默认值  |
-| ------------ | -------------------------------------------- | -------------------------- | ------------------------------------------------------------------ | ------- |
-| `message`    | 消息文本                                     | string / VNode             | ——                                                                 | false   |
-| `type`       | 消息类型                                     | string                     | `default` `primary` `success` <br /> `danger` `warning`            | default |
-| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                     | ——                                                                 | 3000    |
-| `round`      | 是否为圆角类型                               | boolean                    | ——                                                                 | false   |
-| `close`      | 是否可关闭                                   | boolean                    | ——                                                                 | false   |
-| `icon`       | 消息 icon                                    | object (VNode / Component) | ——                                                                 | ——      |
-| `color`      | 字体颜色                                     | string                     | ——                                                                 | ——      |
-| `placement`  | 位置                                         | string                     | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
-| `offset`     | 偏移距离                                     | number                     | ——                                                                 | 20      |
-| `background` | 自定义背景色                                 | string                     | ——                                                                 | ——      |
-| `close-btn`  | 关闭按钮                                     | string / VNode             | ——                                                                 | ——      |
-| `z-index`    | 层级                                         | boolean                    | ——                                                                 | 1000    |
-| `on-close`   | 关闭之后的回调                               | Function                   | ——                                                                 | ——      |
+| 参数         | 说明                                         | 类型                                                               | 可选值                                                             | 默认值  |
+| ------------ | -------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------- |
+| `message`    | 消息文本                                     | string / VNode                                                     | ——                                                                 | false   |
+| `type`       | 消息类型                                     | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning`                   | default |
+| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                                                             | ——                                                                 | 3000    |
+| `round`      | 是否为圆角类型                               | boolean                                                            | ——                                                                 | false   |
+| `close`      | 是否可关闭                                   | boolean                                                            | ——                                                                 | false   |
+| `icon`       | 消息 icon                                    | object (VNode / Component)                                         | ——                                                                 | ——      |
+| `color`      | 字体颜色                                     | string                                                             | ——                                                                 | ——      |
+| `placement`  | 位置                                         | string                                                             | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
+| `offset`     | 偏移距离                                     | number                                                             | ——                                                                 | 20      |
+| `background` | 自定义背景色                                 | string                                                             | ——                                                                 | ——      |
+| `close-btn`  | 关闭按钮                                     | string / VNode                                                     | ——                                                                 | ——      |
+| `z-index`    | 层级                                         | boolean                                                            | ——                                                                 | 1000    |
+| `on-close`   | 关闭之后的回调                               | Function                                                           | ——                                                                 | ——      |
 
 ## Events
 

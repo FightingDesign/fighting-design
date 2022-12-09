@@ -216,7 +216,7 @@
 <script setup lang="ts">
   import { FNotification } from 'fighting-design'
 
-  const openNotificationPlacement = (placement) => {
+  const openNotificationPlacement = placement => {
     FNotification({
       title: '一条通知',
       message: '这是一条自定义位置的消息',
@@ -233,23 +233,23 @@
 
 ## Attributes
 
-| 参数         | 说明                                         | 类型                       | 可选值                                                  | 默认值    |
-| ------------ | -------------------------------------------- | -------------------------- | ------------------------------------------------------- | --------- |
-| `title`      | 通知标题                                     | string / VNode             | ——                                                      | ——        |
-| `message`    | 通知文本                                     | string / VNode             | ——                                                      | ——        |
-| `type`       | 消息类型                                     | string                     | `default` `primary` `success` <br /> `danger` `warning` | default   |
-| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                     | ——                                                      | 3000      |
-| `round`      | 是否为圆角类型                               | boolean                    | ——                                                      | false     |
-| `close`      | 是否可关闭                                   | boolean                    | ——                                                      | false     |
-| `show-icon`  | 是否显示按钮                                 | boolean                    | ——                                                      | true      |
-| `icon`       | 自定义前缀 icon                              | object (VNode / Component) | ——                                                      | ——        |
-| `color`      | 自定义字体颜色                               | string                     | ——                                                      | ——        |
-| `background` | 自定义背景色                                 | string                     | ——                                                      | ——        |
-| `placement`  | 弹出位置                                     | string                     | `top-left` `top-right` `bottom-left` `bottom-right`     | top-right |
-| `offset`     | 偏移距离                                     | number                     | ——                                                      | 20        |
-| `close-btn`  | 自定义关闭按钮                               | string / VNode             | ——                                                      | ——        |
-| `z-index`    | 层级                                         | boolean                    | ——                                                      | 1000      |
-| `on-close`   | 关闭之后回调                                 | Function                   | ——                                                      | ——        |
+| 参数         | 说明                                         | 类型                                                               | 可选值                                              | 默认值    |
+| ------------ | -------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------- | --------- |
+| `title`      | 通知标题                                     | string / VNode                                                     | ——                                                  | ——        |
+| `message`    | 通知文本                                     | string / VNode                                                     | ——                                                  | ——        |
+| `type`       | 消息类型                                     | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning`    | default   |
+| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                                                             | ——                                                  | 3000      |
+| `round`      | 是否为圆角类型                               | boolean                                                            | ——                                                  | false     |
+| `close`      | 是否可关闭                                   | boolean                                                            | ——                                                  | false     |
+| `show-icon`  | 是否显示按钮                                 | boolean                                                            | ——                                                  | true      |
+| `icon`       | 自定义前缀 icon                              | object (VNode / Component)                                         | ——                                                  | ——        |
+| `color`      | 自定义字体颜色                               | string                                                             | ——                                                  | ——        |
+| `background` | 自定义背景色                                 | string                                                             | ——                                                  | ——        |
+| `placement`  | 弹出位置                                     | string                                                             | `top-left` `top-right` `bottom-left` `bottom-right` | top-right |
+| `offset`     | 偏移距离                                     | number                                                             | ——                                                  | 20        |
+| `close-btn`  | 自定义关闭按钮                               | string / VNode                                                     | ——                                                  | ——        |
+| `z-index`    | 层级                                         | boolean                                                            | ——                                                  | 1000      |
+| `on-close`   | 关闭之后回调                                 | Function                                                           | ——                                                  | ——        |
 
 ## Events
 

@@ -9,9 +9,9 @@ import type {
   MessageFn,
   MessageOptions,
   MessageFnWithType,
-  MessagePlacement,
   UseMessageReturnInterface
 } from './interface'
+import type { MessagePlacement } from '../../message'
 
 export * from './interface.d'
 

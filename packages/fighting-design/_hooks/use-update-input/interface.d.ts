@@ -1,3 +1,5 @@
+import type { InputType } from '../../input'
+
 /**
  * 传入的 props 类型接口
  *

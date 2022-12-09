@@ -40,7 +40,8 @@ export const sidebar = {
         { text: 'Text 文本', link: '/components/text' },
         { text: 'Layout 布局', link: '/components/layout' },
         { text: 'Space 间距', link: '/components/space' },
-        { text: 'Color 色彩', link: '/components/color' }
+        { text: 'Color 色彩', link: '/components/color' },
+        { text: 'Interface 接口类型', link: '/components/interface' }
       ]
     },
     {
