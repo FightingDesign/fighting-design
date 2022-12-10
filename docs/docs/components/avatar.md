@@ -169,7 +169,7 @@
 | `alt`         | 原生 [alt](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt) 属性                  | string                                                                      | ——                                           | 加载失败 |
 | `round`       | 是否为圆角                                                                                               | boolean                                                                     | ——                                           | false    |
 | `lazy`        | 是否懒加载头像                                                                                           | boolean                                                                     | ——                                           | false    |
-| `fit`         | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性 | string                                                                      | `fill` `contain` `cover` `none` `scale-down` | ——       |
+| `fit`         | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性 | <a href="#avatarfit">AvatarFit</a>                                          | `fill` `contain` `cover` `none` `scale-down` | ——       |
 | `size`        | 图片大小                                                                                                 | <a href="/components/interface.html#fightingsize">FightingSize</a> / number | `large` `middle` `small` `mini`              | middle   |
 | `background`  | 背景色                                                                                                   | string                                                                      | ——                                           | ——       |
 | `icon`        | 图标头像                                                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a>          | ——                                           | ——       |
@@ -192,12 +192,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  AvatarInstance,
-  AvatarPropsType,
-  AvatarFitType,
-  AvatarSizeType
-} from 'fighting-design'
+import type { AvatarInstance, AvatarProps, AvatarFit } from 'fighting-design'
+```
+
+### AvatarFit
+
+```ts
+type AvatarFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 ```
 
 ## Contributors

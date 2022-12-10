@@ -189,20 +189,20 @@
 
 ## Attributes
 
-| 参数          | 说明                         | 类型            | 可选值                                 | 默认值  |
-| ------------- | ---------------------------- | --------------- | -------------------------------------- | ------- |
-| `percentage`  | 百分比                       | number          | `0 ~ 100`                              | 0       |
-| `type`        | 进度条类型                   | string          | `primary` `success` `warning` `danger` | primary |
-| `width`       | 自定义宽度                   | string / number | ——                                     | ——      |
-| `height`      | 自定义高度                   | string / number | ——                                     | 6px     |
-| `square`      | 方形                         | boolean         | ——                                     | false   |
-| `linear`      | 线性                         | boolean         | ——                                     | false   |
-| `show-text`   | 是否显示百分比文字内容       | boolean         | ——                                     | true    |
-| `text-inside` | 百分比文字是否在进度条内显示 | boolean         | ——                                     | false   |
-| `text-color`  | 百分比文字的颜色             | string          | ——                                     | ——      |
-| `color`       | 进度条颜色                   | string          | ——                                     | ——      |
-| `background`  | 进度条背景色                 | string          | ——                                     | ——      |
-| `stripe`      | 是否开启条纹效果             | boolean         | ——                                     | false   |
+| 参数          | 说明                         | 类型                                     | 可选值                                 | 默认值  |
+| ------------- | ---------------------------- | ---------------------------------------- | -------------------------------------- | ------- |
+| `percentage`  | 百分比                       | number                                   | `0 ~ 100`                              | 0       |
+| `type`        | 进度条类型                   | <a href="#progresstype">ProgressType</a> | `primary` `success` `warning` `danger` | primary |
+| `width`       | 自定义宽度                   | string / number                          | ——                                     | ——      |
+| `height`      | 自定义高度                   | string / number                          | ——                                     | 6px     |
+| `square`      | 方形                         | boolean                                  | ——                                     | false   |
+| `linear`      | 线性                         | boolean                                  | ——                                     | false   |
+| `show-text`   | 是否显示百分比文字内容       | boolean                                  | ——                                     | true    |
+| `text-inside` | 百分比文字是否在进度条内显示 | boolean                                  | ——                                     | false   |
+| `text-color`  | 百分比文字的颜色             | string                                   | ——                                     | ——      |
+| `color`       | 进度条颜色                   | string                                   | ——                                     | ——      |
+| `background`  | 进度条背景色                 | string                                   | ——                                     | ——      |
+| `stripe`      | 是否开启条纹效果             | boolean                                  | ——                                     | false   |
 
 ## Interface
 
@@ -211,9 +211,15 @@
 ```ts
 import type {
   ProgressInstance,
-  ProgressPropsType,
+  ProgressProps,
   ProgressType
 } from 'fighting-design'
+```
+
+### ProgressType
+
+```ts
+type ProgressType = 'primary' | 'success' | 'danger' | 'warning'
 ```
 
 ## Contributors

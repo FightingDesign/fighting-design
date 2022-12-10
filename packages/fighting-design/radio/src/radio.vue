@@ -4,19 +4,19 @@
   import { useRun } from '../../_hooks'
   import { computed, inject } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
-  import type { RadioGroundInterface, RadioLabelType } from '../../radio-group'
+  import type { RadioGroundInject, RadioModelValue } from '../../radio-group'
   import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: RadioLabelType): boolean =>
+    'update:modelValue': (val: RadioModelValue): boolean =>
       isString(val) || isNumber(val) || isBoolean(val)
   })
 
   /**
    * 获取父组件注入的依赖项
    */
-  const parentInject = inject<RadioGroundInterface | null>(
+  const parentInject = inject<RadioGroundInject | null>(
     RADIO_GROUP_PROPS_kEY,
     null
   )

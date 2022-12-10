@@ -6,11 +6,11 @@
   import { sizeChange } from '../../_utils'
   import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
-  import type { RadioLabelType, RadioGroundProps } from './interface'
+  import type { RadioModelValue, RadioGroundInject } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: RadioLabelType): boolean =>
+    'update:modelValue': (val: RadioModelValue): boolean =>
       isString(val) || isNumber(val) || isBoolean(val)
   })
 
@@ -19,7 +19,7 @@
    *
    * @param value 最新值
    */
-  const changeEvent = (value: RadioLabelType): void => {
+  const changeEvent = (value: RadioModelValue): void => {
     emit('update:modelValue', value)
     useRun(prop.onChange, value)
   }
@@ -30,10 +30,10 @@
   const RadioGround = reactive({
     ...toRefs(prop),
     changeEvent
-  } as const)
+  } as unknown as RadioGroundInject)
 
   // 注入依赖项
-  provide<RadioGroundProps>(RADIO_GROUP_PROPS_kEY, RadioGround)
+  provide<RadioGroundInject>(RADIO_GROUP_PROPS_kEY, RadioGround)
 
   /**
    * 类名列表

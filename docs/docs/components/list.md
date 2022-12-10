@@ -100,25 +100,21 @@
 <f-list size="large">
 <f-list-item>这是大号尺寸列表</f-list-item>
 <f-list-item>这是大号尺寸列表</f-list-item>
-<f-list-item>这是大号尺寸列表</f-list-item>
-<f-list-item>这是大号尺寸列表</f-list-item>
-<f-list-item>这是大号尺寸列表</f-list-item>
 </f-list>
 
 <f-list size="middle">
-  <f-list-item>这是中号尺寸列表</f-list-item>
-  <f-list-item>这是中号尺寸列表</f-list-item>
-  <f-list-item>这是中号尺寸列表</f-list-item>
-  <f-list-item>这是中号尺寸列表</f-list-item>
-  <f-list-item>这是中号尺寸列表</f-list-item>
+<f-list-item>这是中号尺寸列表</f-list-item>
+<f-list-item>这是中号尺寸列表</f-list-item>
 </f-list>
 
 <f-list size="small">
-  <f-list-item>这是小号尺寸列表</f-list-item>
-  <f-list-item>这是小号尺寸列表</f-list-item>
-  <f-list-item>这是小号尺寸列表</f-list-item>
-  <f-list-item>这是小号尺寸列表</f-list-item>
-  <f-list-item>这是小号尺寸列表</f-list-item>
+<f-list-item>这是小号尺寸列表</f-list-item>
+<f-list-item>这是小号尺寸列表</f-list-item>
+</f-list>
+
+<f-list size="mini">
+<f-list-item>这是迷你尺寸列表</f-list-item>
+<f-list-item>这是迷你尺寸列表</f-list-item>
 </f-list>
 </template>
 
@@ -126,15 +122,9 @@
 <f-list size="large">
   <f-list-item>这是大号尺寸列表</f-list-item>
   <f-list-item>这是大号尺寸列表</f-list-item>
-  <f-list-item>这是大号尺寸列表</f-list-item>
-  <f-list-item>这是大号尺寸列表</f-list-item>
-  <f-list-item>这是大号尺寸列表</f-list-item>
 </f-list>
 
 <f-list size="middle">
-  <f-list-item>这是中号尺寸列表</f-list-item>
-  <f-list-item>这是中号尺寸列表</f-list-item>
-  <f-list-item>这是中号尺寸列表</f-list-item>
   <f-list-item>这是中号尺寸列表</f-list-item>
   <f-list-item>这是中号尺寸列表</f-list-item>
 </f-list>
@@ -142,9 +132,11 @@
 <f-list size="small">
   <f-list-item>这是小号尺寸列表</f-list-item>
   <f-list-item>这是小号尺寸列表</f-list-item>
-  <f-list-item>这是小号尺寸列表</f-list-item>
-  <f-list-item>这是小号尺寸列表</f-list-item>
-  <f-list-item>这是小号尺寸列表</f-list-item>
+</f-list>
+
+<f-list size="mini">
+  <f-list-item>这是迷你尺寸列表</f-list-item>
+  <f-list-item>这是迷你尺寸列表</f-list-item>
 </f-list>
 ```
 
@@ -190,10 +182,9 @@
 ```ts
 import type {
   ListInstance,
-  ListPropsType,
-  ListSizeType,
+  ListProps,
   ListItemInstance,
-  ListItemPropsType
+  ListItemProps
 } from 'fighting-design'
 ```
 
