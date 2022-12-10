@@ -13,6 +13,8 @@
 
   /**
    * 绑定值发生改变时候触
+   *
+   * @param val 最新值
    */
   const setChange = (val: string[]): void => {
     emit('update:modelValue', val)

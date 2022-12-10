@@ -4,7 +4,7 @@
   import { sizeChange, isString } from '../../_utils'
   import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
-  import type { ExpandCardImageListItemInterface } from './interface'
+  import type { ExpandCardImageListItem } from './interface'
 
   const prop = defineProps(Props)
 
@@ -15,6 +15,8 @@
 
   /**
    * 切换卡片
+   *
+   * @param index 索引
    */
   const switchExpandCard = (index: number): void => {
     currExpandIndex.value = index
@@ -42,17 +44,15 @@
   /**
    * 将传入的 imageList 改变成指定的类型进行渲染
    */
-  const imageListArr = computed((): ExpandCardImageListItemInterface[] => {
+  const imageListArr = computed((): ExpandCardImageListItem[] => {
     const { imageList } = prop
 
     return imageList.map(
-      (
-        item: string | ExpandCardImageListItemInterface
-      ): ExpandCardImageListItemInterface => {
+      (item: string | ExpandCardImageListItem): ExpandCardImageListItem => {
         if (isString(item)) {
-          return { url: item } as ExpandCardImageListItemInterface
+          return { url: item }
         }
-        return item as ExpandCardImageListItemInterface
+        return item
       }
     )
   })

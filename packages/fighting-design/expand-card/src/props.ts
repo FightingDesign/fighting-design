@@ -1,12 +1,12 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { ExpandCardImageListType } from './interface'
+import type { ExpandCardImageList } from './interface'
 
 export const Props = {
   /**
    * 需要展示的图片列表
    */
   imageList: {
-    type: Array as PropType<ExpandCardImageListType>,
+    type: Array as PropType<ExpandCardImageList>,
     default: (): string[] => []
   },
   /**
