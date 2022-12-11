@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.10.0 (2022-12-11)
+
 **修复**
 
 - 修复 `f-list` 和 `f-list-item` 组件 bug

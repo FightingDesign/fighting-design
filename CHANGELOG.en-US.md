@@ -4,6 +4,34 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.10.0 (2022-12-11)
+
+**Repair**
+
+- Fix the `f-list` and `f-list-item` component bugs
+- Fix the failure of disabling the `f-trigger` component
+
+**New**
+
+- Add `f-fighting-global` component
+- Add `f-list` component `zebra-color` configuration item
+- Add `f-list` component `size` configuration item Add `mini` option
+
+**Other Updates**
+
+- `f-button` Component style detail optimization
+- The default value of `f-button` component `font-size` is changed to null
+- The default value of `f-aside` component `width` is changed to null
+- The default value of `f-image` component `round` is changed to null
+- The default value of `f-image-preview` component `z-index` is changed to null
+- The default value of `f-expand-card` component `color` is changed to null
+- The default value of `f-stick-card` component `border-color` is changed to null
+- `f-stick-card` component removal `open-height` configuration item
+- The default value of the `f-rate` component `size` configuration item is changed to 25
+- The default value of `f-button` component `type` is changed to null
+- The default value of `f-button` component `size` is changed to null
+- The default value of `f-button-group` component `size` is changed to null
+
 ## 0.9.0 (2022-12-07)
 
 - Complete `f-menu` components

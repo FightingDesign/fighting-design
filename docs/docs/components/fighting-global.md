@@ -54,6 +54,13 @@
 | 参数   | 说明         | 类型                                                               | 可选值                                                  | 默认值 |
 | ------ | ------------ | ------------------------------------------------------------------ | ------------------------------------------------------- | ------ |
 | `type` | 子组件的类型 | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` <br /> `success` `danger` `warning` | ——     |
+| `size` | 子组件的尺寸 | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                         | ——     |
+
+## Slots
+
+| 名称      | 说明     |
+| --------- | -------- |
+| `default` | 默认内容 |
 
 ## Interface
 

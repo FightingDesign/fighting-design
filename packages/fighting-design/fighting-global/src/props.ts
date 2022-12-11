@@ -6,7 +6,7 @@ export const Props = {
    * 尺寸
    *
    * @values large middle small mini
-   * @defaultValue middle
+   * @defaultValue null
    */
   size: {
     type: String as PropType<FightingSize>,
@@ -19,7 +19,7 @@ export const Props = {
    * 按钮的类型（非自定义按钮颜色时有效）
    *
    * @values default primary success danger warning
-   * @defaultValue default
+   * @defaultValue null
    */
   type: {
     type: String as PropType<FightingType>,
