@@ -66,12 +66,7 @@
         </header>
 
         <!-- 身体 -->
-        <main
-          :class="[
-            'f-table__body',
-            { 'f-table__body-margin': height && showHead }
-          ]"
-        >
+        <main :class="['f-table__body', { 'f-table__body-margin': height && showHead }]">
           <table class="f-table__table">
             <table-colgroup-vue :columns="columns" />
 
@@ -91,11 +86,7 @@
               <tr v-for="(item, m) in data" :key="m">
                 <!-- 多选框 -->
                 <td v-if="optional">
-                  <f-checkbox
-                    v-model="optionalList"
-                    :show-label="false"
-                    :label="(m + 1).toString()"
-                  />
+                  <f-checkbox v-model="optionalList" :show-label="false" :label="(m + 1).toString()" />
                 </td>
 
                 <!-- 序号列表 -->

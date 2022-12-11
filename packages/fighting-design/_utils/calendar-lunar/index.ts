@@ -193,11 +193,7 @@ export class Lunar implements LunarInterface {
    * @param mPara 阳历月份
    * @param dPara 阳历日期
    */
-  getLunarDetail = (
-    yPara: number,
-    mPara: number,
-    dPara: number
-  ): -1 | GetLunarDetailReturn => {
+  getLunarDetail = (yPara: number, mPara: number, dPara: number): -1 | GetLunarDetailReturn => {
     let y: number = parseInt(yPara.toString())
     let m: number = parseInt(mPara.toString())
     let d: number = parseInt(dPara.toString())
@@ -230,10 +226,7 @@ export class Lunar implements LunarInterface {
     m = objDate.getMonth() + 1
     d = objDate.getDate()
 
-    let offset: number =
-      (Date.UTC(objDate.getFullYear(), objDate.getMonth(), objDate.getDate()) -
-        Date.UTC(1900, 0, 31)) /
-      86400000
+    let offset: number = (Date.UTC(objDate.getFullYear(), objDate.getMonth(), objDate.getDate()) - Date.UTC(1900, 0, 31)) / 86400000
 
     for (i = 1900; i < 2101 && offset > 0; i++) {
       temp = this.getLunarYearDays(i)
@@ -311,8 +304,7 @@ export class Lunar implements LunarInterface {
       Term = SOLAR_TERM[m * 2 - 1]
     }
     // 日柱 当月一日与 1900/1/1 相差天数
-    const dayCyclical: number =
-      Date.UTC(y, sm, 1, 0, 0, 0, 0) / 86400000 + 25567 + 10
+    const dayCyclical: number = Date.UTC(y, sm, 1, 0, 0, 0, 0) / 86400000 + 25567 + 10
     const gzD: string = this.toGanZhi(dayCyclical + d - 1)
     // 该日期所属的星座
     const constellation: string = this.toConstellation(m, d)
@@ -338,12 +330,8 @@ export class Lunar implements LunarInterface {
     return {
       date: solarDate,
       lunarDate,
-      festival: SOLAR_CALENDAR_FESTIVE[festivalDate]
-        ? SOLAR_CALENDAR_FESTIVE[festivalDate].title
-        : '',
-      lunarFestival: LUNAR_FESTIVE[lunarFestivalDate]
-        ? LUNAR_FESTIVE[lunarFestivalDate].title
-        : '',
+      festival: SOLAR_CALENDAR_FESTIVE[festivalDate] ? SOLAR_CALENDAR_FESTIVE[festivalDate].title : '',
+      lunarFestival: LUNAR_FESTIVE[lunarFestivalDate] ? LUNAR_FESTIVE[lunarFestivalDate].title : '',
       lYear: year,
       lMonth: month,
       lDay: day,

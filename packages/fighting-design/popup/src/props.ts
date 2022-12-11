@@ -72,9 +72,7 @@ export const Props = {
     type: String as PropType<PopupDirection>,
     default: (): PopupDirection => 'center',
     validator: (val: PopupDirection): boolean => {
-      return (['left', 'right', 'top', 'bottom', 'center'] as const).includes(
-        val
-      )
+      return (['left', 'right', 'top', 'bottom', 'center'] as const).includes(val)
     }
   },
   /**

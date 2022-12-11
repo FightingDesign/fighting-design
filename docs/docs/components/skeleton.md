@@ -115,9 +115,7 @@
     </f-list>
   </f-skeleton>
 
-  <f-button :loading="loading" simple type="primary" @click="startLoad">
-    {{ loading ? '加载中...' : `开始加载` }}
-  </f-button>
+  <f-button :loading="loading" simple type="primary" @click="startLoad"> {{ loading ? '加载中...' : `开始加载` }} </f-button>
 </template>
 
 <script lang="ts" setup>
@@ -157,11 +155,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  SkeletonInstance,
-  SkeletonPropsType,
-  SkeletonSizeType
-} from 'fighting-design'
+import type { SkeletonInstance, SkeletonPropsType, SkeletonSizeType } from 'fighting-design'
 ```
 
 ## Contributors

@@ -1,10 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type {
-  TabsPaneName,
-  TabsPosition,
-  TabsType,
-  TabsJustifyContent
-} from './interface'
+import type { TabsPaneName, TabsPosition, TabsType, TabsJustifyContent } from './interface'
 
 export const Props = {
   /**

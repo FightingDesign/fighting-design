@@ -14,9 +14,7 @@ export const useCanvas = (): UseCanvasReturn => {
     /**
      * 创建一个 canvas
      */
-    const canvas: HTMLCanvasElement = document.createElement(
-      'canvas'
-    ) as HTMLCanvasElement
+    const canvas: HTMLCanvasElement = document.createElement('canvas') as HTMLCanvasElement
     const ratio: number = window.devicePixelRatio || 1
 
     canvas.width = props.width * ratio
@@ -24,9 +22,7 @@ export const useCanvas = (): UseCanvasReturn => {
     canvas.style.width = props.width + 'px'
     canvas.style.height = props.height + 'px'
 
-    const context: CanvasRenderingContext2D = canvas.getContext(
-      '2d'
-    ) as CanvasRenderingContext2D
+    const context: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D
     if (context) {
       context.rotate((-8 * Math.PI) / 100)
       context.font = `${sizeChange(props.fontSize)} serif`

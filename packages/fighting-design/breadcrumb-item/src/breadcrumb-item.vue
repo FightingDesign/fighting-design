@@ -14,10 +14,7 @@
   /**
    * 获取注入依赖项
    */
-  const parentInject = inject<BreadcrumbProps | null>(
-    BREADCRUMB_PROPS_KEY,
-    null
-  )
+  const parentInject = inject<BreadcrumbProps | null>(BREADCRUMB_PROPS_KEY, null)
 
   const { styles } = useList(
     reactive({

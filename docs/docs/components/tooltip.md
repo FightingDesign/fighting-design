@@ -147,12 +147,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  TooltipInstance,
-  TooltipPropsType,
-  TooltipPositionType,
-  TooltipStateType
-} from 'fighting-design'
+import type { TooltipInstance, TooltipPropsType, TooltipPositionType, TooltipStateType } from 'fighting-design'
 ```
 
 ## Contributors

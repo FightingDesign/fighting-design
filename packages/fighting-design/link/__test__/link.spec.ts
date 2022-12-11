@@ -10,7 +10,7 @@ describe('FLink', () => {
 
   test('type', () => {
     const type = ['default', 'primary', 'success', 'danger', 'warning'] as const
-    type.forEach((item) => {
+    type.forEach(item => {
       const wrapper = mount(FLink, {
         props: { type: item }
       })
@@ -41,7 +41,7 @@ describe('FLink', () => {
 
   test('state', () => {
     const state = ['line', 'bag'] as const
-    state.forEach((item) => {
+    state.forEach(item => {
       const wrapper = mount(FLink, {
         props: { state: item }
       })

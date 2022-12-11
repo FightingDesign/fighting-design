@@ -1,9 +1,5 @@
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type {
-  TriggerTrigger,
-  TriggerEmits,
-  TriggerProvide
-} from './interface'
+import type { TriggerTrigger, TriggerEmits, TriggerProvide } from './interface'
 
 export const Props = {
   /**
@@ -79,5 +75,4 @@ export const Props = {
 
 export type TriggerProps = ExtractPropTypes<typeof Props>
 
-export const TRIGGER_CLOSE_KEY: InjectionKey<TriggerProvide> =
-  Symbol('trigger-close-key')
+export const TRIGGER_CLOSE_KEY: InjectionKey<TriggerProvide> = Symbol('trigger-close-key')

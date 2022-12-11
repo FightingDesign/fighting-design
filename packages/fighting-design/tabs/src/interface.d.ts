@@ -14,13 +14,7 @@ export type TabsPosition = 'left' | 'right' | 'top' | 'bottom'
  */
 export type TabsType = 'line' | 'card' | 'segment'
 
-export type TabsJustifyContent =
-  | 'flex-start'
-  | 'center'
-  | 'flex-end'
-  | 'space-between'
-  | 'space-around'
-  | 'space-evenly'
+export type TabsJustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly'
 
 export type TabsPaneName = string | number
 

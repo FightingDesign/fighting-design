@@ -13,9 +13,7 @@ export const Props = {
     type: String as PropType<FightingType>,
     default: (): FightingType => 'default',
     validator: (val: FightingType): boolean => {
-      return (
-        ['default', 'primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
+      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
   /**

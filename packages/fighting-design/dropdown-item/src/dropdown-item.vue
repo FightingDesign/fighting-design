@@ -10,10 +10,7 @@
   /**
    * 获取到 trigger 注入的依赖项
    */
-  const parentInject = inject<TriggerProvide | null>(
-    TRIGGER_CLOSE_KEY,
-    null
-  ) as TriggerProvide
+  const parentInject = inject<TriggerProvide | null>(TRIGGER_CLOSE_KEY, null) as TriggerProvide
 
   /**
    * 点击时触发

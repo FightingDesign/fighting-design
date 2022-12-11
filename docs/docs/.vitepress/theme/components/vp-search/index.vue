@@ -14,29 +14,23 @@
   /**
    * 搜索结果列表
    */
-  const resultList = ref<SearchListInterface[]>(
-    null as unknown as SearchListInterface[]
-  )
+  const resultList = ref<SearchListInterface[]>(null as unknown as SearchListInterface[])
 
   /**
    * 按下回车触发搜索
    */
   const onSearch = (): void => {
     // 过滤搜索结果
-    resultList.value = searchList.filter(
-      (item: SearchListInterface): boolean => {
-        return item.rule.includes(value.value)
-      }
-    )
+    resultList.value = searchList.filter((item: SearchListInterface): boolean => {
+      return item.rule.includes(value.value)
+    })
 
     // 检测有结果
     if (resultList.value && resultList.value.length) {
       isShow.value = true
 
       setTimeout((): void => {
-        const link: HTMLLinkElement[] = document.querySelectorAll(
-          '.vp-search__link'
-        ) as unknown as HTMLLinkElement[]
+        const link: HTMLLinkElement[] = document.querySelectorAll('.vp-search__link') as unknown as HTMLLinkElement[]
 
         if (link.length === 1) {
           link[0].click()
@@ -56,25 +50,11 @@
 
 <template>
   <div class="vp-search">
-    <f-input
-      v-model="value"
-      type="text"
-      placeholder="搜索组件"
-      :on-enter="onSearch"
-    />
+    <f-input v-model="value" type="text" placeholder="搜索组件" :on-enter="onSearch" />
 
     <!-- 搜索结果 -->
-    <div
-      v-if="isShow && resultList && resultList.length"
-      class="vp-search__result"
-      @click.stop="hiddenResult"
-    >
-      <a
-        v-for="(item, index) in resultList"
-        class="vp-search__link"
-        :key="index"
-        :href="`/${item.url}.html`"
-      >
+    <div v-if="isShow && resultList && resultList.length" class="vp-search__result" @click.stop="hiddenResult">
+      <a v-for="(item, index) in resultList" class="vp-search__link" :key="index" :href="`/${item.url}.html`">
         {{ item.title }}
       </a>
     </div>

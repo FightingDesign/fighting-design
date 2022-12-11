@@ -56,10 +56,7 @@ export const addZero = (num: number): string => {
  * @param target 单位
  * @returns { string } 已经追加单位的字符串数值
  */
-export const sizeChange = (
-  size: string | number | undefined,
-  target = 'px'
-): string => {
+export const sizeChange = (size: string | number | undefined, target = 'px'): string => {
   if (!size) return ''
   return isString(size) ? size : size + target
 }
@@ -70,7 +67,7 @@ export const sizeChange = (
  * 例如: 12px => 12
  *
  * @see parseFloat https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat
- * 
+ *
  * @param size 尺寸
  * @returns { number } 数字尺寸
  */

@@ -50,8 +50,7 @@
   }
 
   &-leave-active {
-    transition: all var(--f-trigger-leave-duration, 0.1s)
-      cubic-bezier(1, 0.5, 0.8, 1);
+    transition: all var(--f-trigger-leave-duration, 0.1s) cubic-bezier(1, 0.5, 0.8, 1);
   }
 
   &-enter-from,

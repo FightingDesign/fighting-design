@@ -16,12 +16,7 @@
 </script>
 
 <template>
-  <span
-    class="f-toolbar-item"
-    :data-index="index"
-    :style="{ color }"
-    @click="handleClick"
-  >
+  <span class="f-toolbar-item" :data-index="index" :style="{ color }" @click="handleClick">
     <f-svg-icon v-if="icon" :size="iconSize" :icon="icon" />
     <slot />
   </span>

@@ -5,13 +5,7 @@
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
   import { massageManage } from '../../_hooks'
-  import {
-    FIconSmileLineVue,
-    FIconLightbulbVue,
-    FIconThumbUpVue,
-    FIconCircleCrossVue,
-    FIconWarningVue
-  } from '../../_svg'
+  import { FIconSmileLineVue, FIconLightbulbVue, FIconThumbUpVue, FIconCircleCrossVue, FIconWarningVue } from '../../_svg'
   import type { VNode, CSSProperties, ComputedRef } from 'vue'
   import type { ClassList } from '../../_interface'
 
@@ -31,16 +25,14 @@
   /**
    * 默认icon
    */
-  const _icon: ComputedRef<String | null | VNode> = computed(
-    (): String | null | VNode => {
-      if (prop.icon) {
-        return prop.icon
-      } else if (prop.type) {
-        return notificationDefaultIcon[prop.type]
-      }
-      return null
+  const _icon: ComputedRef<String | null | VNode> = computed((): String | null | VNode => {
+    if (prop.icon) {
+      return prop.icon
+    } else if (prop.type) {
+      return notificationDefaultIcon[prop.type]
     }
-  )
+    return null
+  })
 
   const notificationRef = ref<HTMLDivElement>()
   const notificationHeight = ref<number>(0)
@@ -50,9 +42,7 @@
 
   const isRight = computed((): boolean => prop.placement.includes('right'))
 
-  const siblingOffset = computed((): number =>
-    massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value)
-  )
+  const siblingOffset = computed((): number => massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value))
 
   const offset = computed((): number => prop.offset + siblingOffset.value)
 
@@ -60,9 +50,7 @@
 
   onMounted((): void => {
     nextTick((): void => {
-      notificationHeight.value = (
-        notificationRef.value as HTMLDivElement
-      ).getBoundingClientRect().height
+      notificationHeight.value = (notificationRef.value as HTMLDivElement).getBoundingClientRect().height
     })
   })
 
@@ -139,14 +127,7 @@
     @before-leave="closeMessageEnd"
     @after-leave="emit('destroy')"
   >
-    <div
-      v-show="visible"
-      ref="notificationRef"
-      :class="classList"
-      :style="styleList"
-      @mouseleave="startTime"
-      @mouseenter="clearTimer"
-    >
+    <div v-show="visible" ref="notificationRef" :class="classList" :style="styleList" @mouseleave="startTime" @mouseenter="clearTimer">
       <!-- icon -->
       <div v-if="showIcon && _icon" class="f-notification__icon">
         <f-svg-icon :icon="_icon" :size="28">
@@ -172,11 +153,7 @@
       </div>
 
       <!-- 关闭按钮 -->
-      <div
-        v-if="prop.close"
-        class="f-notification__close"
-        @click="closeMessage"
-      >
+      <div v-if="prop.close" class="f-notification__close" @click="closeMessage">
         <template v-if="isString(closeBtn)">{{ closeBtn }}</template>
         <f-close-btn v-else :size="16" />
       </div>

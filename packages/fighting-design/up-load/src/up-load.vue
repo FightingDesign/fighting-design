@@ -75,7 +75,7 @@
    * @param index 需要删除的文件索引
    */
   const removeFile = (index: number): void => {
-    (fileList.value as File[]).splice(index, 1)
+    ;(fileList.value as File[]).splice(index, 1)
   }
 
   /**
@@ -119,13 +119,7 @@
 
 <template>
   <div class="f-up-load">
-    <div
-      v-if="drag"
-      class="f-up-load__drag"
-      @click="handleClick"
-      @drop.prevent="onDrop"
-      @dragover.prevent="onDragover"
-    >
+    <div v-if="drag" class="f-up-load__drag" @click="handleClick" @drop.prevent="onDrop" @dragover.prevent="onDragover">
       <slot>
         <f-svg-icon :icon="FIconPlusVue" />
       </slot>
@@ -150,15 +144,8 @@
   </div>
 
   <!-- 文件列表 -->
-  <ul
-    v-if="showList && fileList && fileList.length"
-    class="f-up-load__file-list"
-  >
-    <li
-      v-for="(file, index) in fileList"
-      :key="index"
-      class="f-up-load__file-list-item"
-    >
+  <ul v-if="showList && fileList && fileList.length" class="f-up-load__file-list">
+    <li v-for="(file, index) in fileList" :key="index" class="f-up-load__file-list-item">
       <span class="f-up-load__file-name">
         <f-svg-icon :icon="FIconNotesVue" />
         {{ file.name }}

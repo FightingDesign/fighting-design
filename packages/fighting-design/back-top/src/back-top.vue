@@ -19,13 +19,9 @@
    *
    * @param node 元素节点
    */
-  const handleScroll: BackTopHandleScroll = (
-    node: HTMLElement | null
-  ): Function => {
+  const handleScroll: BackTopHandleScroll = (node: HTMLElement | null): Function => {
     return debounce((): void => {
-      const scrollTop: number = (
-        (node as HTMLElement) || document.documentElement
-      ).scrollTop
+      const scrollTop: number = ((node as HTMLElement) || document.documentElement).scrollTop
 
       visible.value = scrollTop > prop.visibleHeight
     }, 200)
@@ -38,9 +34,7 @@
     const { top, behavior, listenEl } = prop
 
     if (listenEl) {
-      const listerNode: HTMLElement = document.querySelector(
-        listenEl
-      ) as HTMLElement
+      const listerNode: HTMLElement = document.querySelector(listenEl) as HTMLElement
 
       ;(listerNode as HTMLElement).scrollTo({
         top,
@@ -57,9 +51,7 @@
 
   onMounted((): void => {
     if (prop.listenEl) {
-      const listerNode: HTMLElement = document.querySelector(
-        prop.listenEl
-      ) as HTMLElement
+      const listerNode: HTMLElement = document.querySelector(prop.listenEl) as HTMLElement
 
       listerNode.addEventListener('scroll', handleScroll(listerNode))
     }
@@ -74,12 +66,7 @@
 
 <template>
   <transition name="f-back-top">
-    <div
-      v-show="visible"
-      :class="['f-back-top', { 'f-back-top__round': round }]"
-      :style="styleList"
-      @click.stop="handleClick"
-    >
+    <div v-show="visible" :class="['f-back-top', { 'f-back-top__round': round }]" :style="styleList" @click.stop="handleClick">
       <slot />
     </div>
   </transition>

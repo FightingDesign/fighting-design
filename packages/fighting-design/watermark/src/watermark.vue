@@ -20,9 +20,7 @@
     /**
      * base 64 图片格式
      */
-    const watermark: string = useCanvas().createWatermark(
-      filter(['content', 'width', 'height', 'fontSize', 'fontColor'])
-    )
+    const watermark: string = useCanvas().createWatermark(filter(['content', 'width', 'height', 'fontSize', 'fontColor']))
 
     return {
       backgroundImage: `url(${watermark})`
@@ -47,10 +45,7 @@
 </script>
 
 <template>
-  <div
-    :class="['f-watermark', { 'f-watermark__block': block }]"
-    :style="[style, { zIndex }]"
-  >
+  <div :class="['f-watermark', { 'f-watermark__block': block }]" :style="[style, { zIndex }]">
     <slot />
   </div>
 </template>

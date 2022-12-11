@@ -101,10 +101,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  CollapseAnimationInstance,
-  CollapseAnimationPropsType
-} from 'fighting-design'
+import type { CollapseAnimationInstance, CollapseAnimationPropsType } from 'fighting-design'
 ```
 
 ## Contributors

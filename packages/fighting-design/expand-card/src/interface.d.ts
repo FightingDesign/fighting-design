@@ -14,4 +14,4 @@ export interface ExpandCardImageListItem {
 /**
  * 掺入的图片列表类型接口
  */
-export type ExpandCardImageList = | ExpandCardImageListItem[] | string[]
+export type ExpandCardImageList = ExpandCardImageListItem[] | string[]

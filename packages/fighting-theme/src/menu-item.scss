@@ -7,8 +7,7 @@
   align-items: center;
   cursor: pointer;
   height: 50px;
-  transition: background var(--f-design-transition-time),
-    color var(--f-design-transition-time);
+  transition: background var(--f-design-transition-time), color var(--f-design-transition-time);
 
   // icon
   .f-svg-icon {

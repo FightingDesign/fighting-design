@@ -73,20 +73,11 @@
 ```html
 <template>
   <div>
-    <f-checkbox
-      v-model="checkAll"
-      label="全都要"
-      :indeterminate="indeterminate"
-      :change="onCheckboxChange"
-    />
+    <f-checkbox v-model="checkAll" label="全都要" :indeterminate="indeterminate" :change="onCheckboxChange" />
   </div>
 
   <f-checkbox-group v-model="checkedOptions" :change="onGroupChange">
-    <f-checkbox
-      v-for="(item, index) in optionList"
-      :key="index"
-      :label="item"
-    />
+    <f-checkbox v-for="(item, index) in optionList" :key="index" :label="item" />
   </f-checkbox-group>
 </template>
 

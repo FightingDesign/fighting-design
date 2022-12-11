@@ -38,9 +38,7 @@
        *
        * 否则需要设置为有单位的数值，防止初次点击丢失过度动画
        */
-      collapseEl.value.style.height = isOpened.value
-        ? defaultSize.value + 'px'
-        : '0'
+      collapseEl.value.style.height = isOpened.value ? defaultSize.value + 'px' : '0'
     }
   }
 

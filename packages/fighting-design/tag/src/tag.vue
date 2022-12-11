@@ -17,10 +17,7 @@
   /**
    * 类名列表
    */
-  const classList = classes(
-    ['simple', 'type', 'size', 'block', 'round', 'line'],
-    'f-tag'
-  )
+  const classList = classes(['simple', 'type', 'size', 'block', 'round', 'line'], 'f-tag')
 
   /**
    * 点击关闭按钮

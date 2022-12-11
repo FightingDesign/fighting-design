@@ -1,16 +1,11 @@
-import type {
-  TreeAddLevelReturnInterface,
-  TreeDataInterface
-} from './interface'
+import type { TreeAddLevelReturnInterface, TreeDataInterface } from './interface'
 
 /**
  * 扁平化树形结构
  * @param data
  * @returns
  */
-export const treeToFlat = (
-  data: TreeDataInterface[]
-): TreeAddLevelReturnInterface[] => {
+export const treeToFlat = (data: TreeDataInterface[]): TreeAddLevelReturnInterface[] => {
   const result: TreeAddLevelReturnInterface[] = []
 
   data.forEach((item: TreeDataInterface): void => {
@@ -36,17 +31,12 @@ export const treeToFlat = (
  * @param tree
  * @returns
  */
-export const treeAddLevel = (
-  tree: TreeDataInterface[]
-): TreeDataInterface[] => {
+export const treeAddLevel = (tree: TreeDataInterface[]): TreeDataInterface[] => {
   if (!Array.isArray(tree)) {
     return []
   }
 
-  const recursive = (
-    array: TreeDataInterface[],
-    level = 0
-  ): TreeDataInterface[] => {
+  const recursive = (array: TreeDataInterface[], level = 0): TreeDataInterface[] => {
     level++
 
     return array.map((item: TreeDataInterface, index): TreeDataInterface => {

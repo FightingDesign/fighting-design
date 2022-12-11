@@ -60,9 +60,7 @@ export const Props = {
     type: String as PropType<AvatarFit>,
     default: (): null => null,
     validator: (val: AvatarFit): boolean => {
-      return (
-        ['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const
-      ).includes(val)
+      return (['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const).includes(val)
     }
   },
   /**

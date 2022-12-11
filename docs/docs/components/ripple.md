@@ -34,13 +34,7 @@
   import type { Ref } from 'vue'
   import type { PopupDirectionType, RippleType } from 'fighting-design'
 
-  const typeList: Ref<RippleType[]> = ref<RippleType[]>([
-    'default',
-    'primary',
-    'success',
-    'danger',
-    'warning'
-  ])
+  const typeList: Ref<RippleType[]> = ref<RippleType[]>(['default', 'primary', 'success', 'danger', 'warning'])
 </script>
 
 <style scoped>
@@ -221,11 +215,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  RippleInstance,
-  RipplePropsType,
-  RippleType
-} from 'fighting-design'
+import type { RippleInstance, RipplePropsType, RippleType } from 'fighting-design'
 ```
 
 ## Contributors

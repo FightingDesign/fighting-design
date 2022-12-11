@@ -157,12 +157,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  TextareaInstance,
-  TextareaPropsType,
-  TextareaChangeInterface,
-  TextareaResizeType
-} from 'fighting-design'
+import type { TextareaInstance, TextareaPropsType, TextareaChangeInterface, TextareaResizeType } from 'fighting-design'
 ```
 
 ## Contributors

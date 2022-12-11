@@ -1,9 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type {
-  CheckboxChangeInterface,
-  CheckboxBooleanish,
-  CheckboxLabel
-} from './interface'
+import type { CheckboxChangeInterface, CheckboxBooleanish, CheckboxLabel } from './interface'
 
 export const Props = {
   /**

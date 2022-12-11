@@ -31,12 +31,7 @@
 </template>
 
 <script lang="ts" setup>
-  import {
-    FIconApps,
-    FIconBlock,
-    FIconCameraVideoSlash,
-    FIconClock
-  } from '@fighting-design/fighting-icon'
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
 </script>
 ```
 
@@ -135,12 +130,7 @@
 </template>
 
 <script lang="ts" setup>
-  import {
-    FIconApps,
-    FIconBlock,
-    FIconCameraVideoSlash,
-    FIconClock
-  } from '@fighting-design/fighting-icon'
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
   import { FMessage } from 'fighting-design'
   import type { ToolbarClickInterface } from 'fighting-design'
 

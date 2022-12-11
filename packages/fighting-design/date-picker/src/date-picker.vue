@@ -55,10 +55,7 @@
         /**
          * @see replace https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace
          */
-        formatDate = formatDate.replace(
-          key,
-          checkDate[key as keyof typeof checkDate].toString()
-        )
+        formatDate = formatDate.replace(key, checkDate[key as keyof typeof checkDate].toString())
       }
       pickerDate.value = formatDate
       return
@@ -70,21 +67,11 @@
 <template>
   <div class="f-date-picker">
     <f-dropdown :disabled="readonly">
-      <f-input
-        v-model="pickerDate"
-        :clear="clear"
-        :size="size"
-        :readonly="readonly"
-      />
+      <f-input v-model="pickerDate" :clear="clear" :size="size" :readonly="readonly" />
 
       <template #content>
         <div class="f-date-picker__content">
-          <f-calendar
-            v-model:date="date"
-            :day-cell-height="40"
-            :week-cell-height="40"
-            :on-change-date="changeDate"
-          />
+          <f-calendar v-model:date="date" :day-cell-height="40" :week-cell-height="40" :on-change-date="changeDate" />
         </div>
       </template>
     </f-dropdown>

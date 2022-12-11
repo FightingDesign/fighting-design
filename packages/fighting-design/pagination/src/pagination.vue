@@ -2,11 +2,7 @@
   import { Props } from './props'
   import { computed, ref, watchEffect } from 'vue'
   import { isNumber } from '../../_utils'
-  import {
-    FIconChevronLeftVue,
-    FIconChevronRightVue,
-    FIconMenuMeatball
-  } from '../../_svg'
+  import { FIconChevronLeftVue, FIconChevronRightVue, FIconMenuMeatball } from '../../_svg'
   import { FInput } from '../../input'
   import { FSelect } from '../../select'
   import { FButton } from '../../button'
@@ -150,8 +146,7 @@
        * 下一页切换
        */
       next: (): void => {
-        const newCurrent =
-          prop.current === maxCount.value ? maxCount.value : prop.current + 1
+        const newCurrent = prop.current === maxCount.value ? maxCount.value : prop.current + 1
         prop.onNext && prop.onNext(newCurrent, prop.pageSize)
         emit('update:current', newCurrent)
       },
@@ -265,18 +260,8 @@
 <template>
   <div class="f-pagination">
     <!-- 下拉菜单选择每页大小 -->
-    <f-select
-      v-if="pageSizes && pageSizes.length"
-      v-model="pagesLen"
-      :width="60"
-      :disabled="disabled"
-    >
-      <f-option
-        v-for="item in pageSizes"
-        :key="item"
-        :value="item"
-        :label="item + '/页'"
-      />
+    <f-select v-if="pageSizes && pageSizes.length" v-model="pagesLen" :width="60" :disabled="disabled">
+      <f-option v-for="item in pageSizes" :key="item" :value="item" :label="item + '/页'" />
     </f-select>
 
     <!-- 上一页按钮 -->
@@ -295,10 +280,7 @@
       <div :class="firstPage">1</div>
 
       <!-- 省略号 -->
-      <div
-        v-if="showPrevMore"
-        :class="['f-pagination__prev-more', 'f-pagination__pages-item']"
-      >
+      <div v-if="showPrevMore" :class="['f-pagination__prev-more', 'f-pagination__pages-item']">
         <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
       </div>
 
@@ -318,10 +300,7 @@
       </div>
 
       <!-- 省略号 -->
-      <div
-        v-if="showNextMore"
-        :class="['f-pagination__next-more', 'f-pagination__pages-item']"
-      >
+      <div v-if="showNextMore" :class="['f-pagination__next-more', 'f-pagination__pages-item']">
         <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
       </div>
 

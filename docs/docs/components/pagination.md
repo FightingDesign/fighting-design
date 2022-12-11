@@ -47,12 +47,7 @@
 
 ```html
 <template>
-  <f-pagination
-    v-model:current="current"
-    :total="total"
-    :page-size="pagesize"
-    :page-sizes="pageSizes"
-  />
+  <f-pagination v-model:current="current" :total="total" :page-size="pagesize" :page-sizes="pageSizes" />
 </template>
 
 <script lang="ts" setup>
@@ -106,12 +101,7 @@
 
 ```html
 <template>
-  <f-pagination
-    v-model:current="current"
-    :total="100"
-    :prev-icon="FIconCloud"
-    :next-icon="FIconBlock"
-  />
+  <f-pagination v-model:current="current" :total="100" :prev-icon="FIconCloud" :next-icon="FIconBlock" />
 </template>
 
 <script lang="ts" setup>
@@ -161,11 +151,7 @@
 
 ```html
 <template>
-  <f-pagination
-    v-model:current="current"
-    :total="100"
-    :jump-search="jumpSearch"
-  />
+  <f-pagination v-model:current="current" :total="100" :jump-search="jumpSearch" />
 </template>
 
 <script lang="ts" setup>

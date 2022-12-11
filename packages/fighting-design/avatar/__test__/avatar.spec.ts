@@ -33,25 +33,21 @@ describe('FAvatar', () => {
 
   test('fit', () => {
     const fit = ['fill', 'contain', 'cover', 'none', 'scale-down'] as const
-    fit.forEach((item) => {
+    fit.forEach(item => {
       const wrapper = mount(FAvatar, {
         props: { fit: item }
       })
-      expect(wrapper.find('.f-avatar__img').classes()).toContain(
-        `f-avatar__${item}`
-      )
+      expect(wrapper.find('.f-avatar__img').classes()).toContain(`f-avatar__${item}`)
     })
   })
 
   test('size', () => {
     const fit = ['large', 'middle', 'small', 'mini'] as const
-    fit.forEach((item) => {
+    fit.forEach(item => {
       const wrapper = mount(FAvatar, {
         props: { size: item }
       })
-      expect(wrapper.find('.f-avatar__img').classes()).toContain(
-        `f-avatar__${item}`
-      )
+      expect(wrapper.find('.f-avatar__img').classes()).toContain(`f-avatar__${item}`)
     })
   })
 

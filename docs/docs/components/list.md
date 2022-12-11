@@ -180,12 +180,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  ListInstance,
-  ListProps,
-  ListItemInstance,
-  ListItemProps
-} from 'fighting-design'
+import type { ListInstance, ListProps, ListItemInstance, ListItemProps } from 'fighting-design'
 ```
 
 ## Contributors

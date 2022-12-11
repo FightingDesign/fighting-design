@@ -55,14 +55,7 @@
 
   const openMessageVNode = () => {
     FMessage({
-      message: h('div', [
-        h('p', [
-          h('span', '这是一条'),
-          h('b', ' 非常重要 '),
-          h('span', '的消息提示')
-        ]),
-        h('p', '这里是一些不重要的内容')
-      ]),
+      message: h('div', [h('p', [h('span', '这是一条'), h('b', ' 非常重要 '), h('span', '的消息提示')]), h('p', '这里是一些不重要的内容')]),
       type: 'primary'
     })
   }
@@ -192,24 +185,12 @@
 ```html
 <template>
   <f-space>
-    <f-button type="primary" @click="openMessagePlacement('top')">
-      顶部
-    </f-button>
-    <f-button type="primary" @click="openMessagePlacement('top-left')">
-      左上
-    </f-button>
-    <f-button type="primary" @click="openMessagePlacement('top-right')">
-      右上
-    </f-button>
-    <f-button type="success" @click="openMessagePlacement('bottom')">
-      底部
-    </f-button>
-    <f-button type="success" @click="openMessagePlacement('bottom-left')">
-      左下
-    </f-button>
-    <f-button type="success" @click="openMessagePlacement('bottom-right')">
-      右下
-    </f-button>
+    <f-button type="primary" @click="openMessagePlacement('top')"> 顶部 </f-button>
+    <f-button type="primary" @click="openMessagePlacement('top-left')"> 左上 </f-button>
+    <f-button type="primary" @click="openMessagePlacement('top-right')"> 右上 </f-button>
+    <f-button type="success" @click="openMessagePlacement('bottom')"> 底部 </f-button>
+    <f-button type="success" @click="openMessagePlacement('bottom-left')"> 左下 </f-button>
+    <f-button type="success" @click="openMessagePlacement('bottom-right')"> 右下 </f-button>
   </f-space>
 </template>
 
@@ -261,12 +242,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  MessageInstance,
-  MessagePropsType,
-  MessageType,
-  MessagePlacementType
-} from 'fighting-design'
+import type { MessageInstance, MessagePropsType, MessageType, MessagePlacementType } from 'fighting-design'
 ```
 
 ## Contributors

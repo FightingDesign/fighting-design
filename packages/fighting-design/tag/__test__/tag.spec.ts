@@ -10,7 +10,7 @@ describe('FTag', () => {
 
   test('type', () => {
     const type = ['default', 'primary', 'success', 'danger', 'warning'] as const
-    type.forEach((item) => {
+    type.forEach(item => {
       const wrapper = mount(FTag, {
         props: { type: item }
       })
@@ -48,7 +48,7 @@ describe('FTag', () => {
 
   test('size', () => {
     const size = ['large', 'middle', 'small', 'mini'] as const
-    size.forEach((item) => {
+    size.forEach(item => {
       const wrapper = mount(FTag, {
         props: { size: item }
       })

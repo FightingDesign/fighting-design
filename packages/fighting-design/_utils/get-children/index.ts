@@ -8,10 +8,7 @@ import type { Component, VNode } from 'vue'
  * @param componentName 子元素的名字
  * @returns { VNode[] } 所需要的所有孩子节点列表
  */
-export const getChildren = (
-  children: VNode[],
-  componentName: string
-): VNode[] => {
+export const getChildren = (children: VNode[], componentName: string): VNode[] => {
   let components: VNode[] = []
 
   // 传入的子节点必须是一个有效数组
@@ -20,8 +17,7 @@ export const getChildren = (
       /**
        * 获取到每个组件的 name
        */
-      const name: string | undefined | boolean =
-        isObject(child.type) && (child.type as Component).name
+      const name: string | undefined | boolean = isObject(child.type) && (child.type as Component).name
 
       // 如果是 FOption 则的亲孩子节点
       if (name === componentName) {
@@ -35,10 +31,7 @@ export const getChildren = (
        *
        */
       if (name !== componentName && child.children && isArray(child.children)) {
-        const childChildren: VNode[] = getChildren(
-          child.children as VNode[],
-          componentName
-        )
+        const childChildren: VNode[] = getChildren(child.children as VNode[], componentName)
         /**
          * 将得到的返回值和 components 合并
          *

@@ -17,21 +17,12 @@
   /**
    * 类名列表
    */
-  const classList = classes(
-    ['type', 'bold', 'simple', 'center', 'round', 'fixed'],
-    'f-alert'
-  )
+  const classList = classes(['type', 'bold', 'simple', 'center', 'round', 'fixed'], 'f-alert')
 
   /**
    * 样式列表
    */
-  const styleList = styles([
-    'fontSize',
-    'color',
-    'background',
-    'titleSize',
-    'titleColor'
-  ])
+  const styleList = styles(['fontSize', 'color', 'background', 'titleSize', 'titleColor'])
 
   /**
    * 点击关闭按钮
@@ -73,13 +64,7 @@
       </div>
 
       <!-- 关闭按钮 -->
-      <f-close-btn
-        v-if="close"
-        no-hover
-        color="#fff"
-        :icon="closeIcon"
-        :on-click="handleClose"
-      >
+      <f-close-btn v-if="close" no-hover color="#fff" :icon="closeIcon" :on-click="handleClose">
         <slot name="closeIcon" />
       </f-close-btn>
     </div>

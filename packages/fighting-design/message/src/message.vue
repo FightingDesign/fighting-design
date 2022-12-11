@@ -17,13 +17,9 @@
   const messageHeight: Ref<number> = ref<number>(0)
   const visible: Ref<boolean> = ref<boolean>(false)
 
-  const isTop: ComputedRef<boolean> = computed((): boolean =>
-    prop.placement.includes('top')
-  )
+  const isTop: ComputedRef<boolean> = computed((): boolean => prop.placement.includes('top'))
 
-  const siblingOffset = computed((): number =>
-    massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value)
-  )
+  const siblingOffset = computed((): number => massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value))
 
   const offset = computed((): number => prop.offset + siblingOffset.value)
 
@@ -31,9 +27,7 @@
 
   onMounted((): void => {
     nextTick((): void => {
-      messageHeight.value = (
-        messageRef.value as HTMLDivElement
-      ).getBoundingClientRect().height
+      messageHeight.value = (messageRef.value as HTMLDivElement).getBoundingClientRect().height
     })
   })
 
@@ -109,14 +103,7 @@
     @before-leave="closeMessageEnd"
     @after-leave="emit('destroy')"
   >
-    <div
-      v-show="visible"
-      ref="messageRef"
-      :class="classList"
-      :style="styleList"
-      @mouseleave="startTime"
-      @mouseenter="clearTimer"
-    >
+    <div v-show="visible" ref="messageRef" :class="classList" :style="styleList" @mouseleave="startTime" @mouseenter="clearTimer">
       <!-- icon -->
       <f-svg-icon v-if="isVNode(icon)" :size="24" class="f-message__icon">
         <component :is="icon" />

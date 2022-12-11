@@ -4,8 +4,7 @@
   box-sizing: border-box;
   cursor: pointer;
   user-select: none;
-  transition: background var(--f-design-transition-time),
-    color var(--f-design-transition-time);
+  transition: background var(--f-design-transition-time), color var(--f-design-transition-time);
 
   // 水平的
   &.f-submenu__horizontal {

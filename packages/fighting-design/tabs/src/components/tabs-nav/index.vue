@@ -1,14 +1,7 @@
 <script lang="ts" setup name="FTabsNav">
   import { Props } from './props'
   import { isString, sizeToNum, isBoolean } from '../../../../_utils'
-  import {
-    computed,
-    getCurrentInstance,
-    nextTick,
-    ref,
-    useSlots,
-    watch
-  } from 'vue'
+  import { computed, getCurrentInstance, nextTick, ref, useSlots, watch } from 'vue'
   import { FIconCrossVue, FIconPlusVue } from '../../../../_svg'
   import { FSvgIcon } from '../../../../svg-icon'
   import type { TabsPaneName } from '../../interface'
@@ -23,7 +16,7 @@
   const currentIndex = computed(() =>
     prop.navs
       ? Math.max(
-          prop.navs.findIndex((e) => e.name === prop.currentName),
+          prop.navs.findIndex(e => e.name === prop.currentName),
           0
         )
       : 0
@@ -41,11 +34,7 @@
     emit('set-current-name', name)
   }
 
-  const editItem = (
-    action: 'remove' | 'add',
-    name?: TabsPaneName,
-    i?: number
-  ): void => {
+  const editItem = (action: 'remove' | 'add', name?: TabsPaneName, i?: number): void => {
     emit('edit', action, name, i)
   }
   /**
@@ -90,29 +79,17 @@
     if (!instance || !instance.subTree.el) return
     const wrapperEl = instance.subTree.el as HTMLObjectElement
     // 获取除active元素外最高的子元素
-    const children = instance.subTree.el.querySelectorAll(
-      '.f-tabs-nav--item:not(.f-tabs-nav--item__active)'
-    ) as HTMLObjectElement[]
+    const children = instance.subTree.el.querySelectorAll('.f-tabs-nav--item:not(.f-tabs-nav--item__active)') as HTMLObjectElement[]
     const maxChildren = Array.from(children).reduce((pre, cur) => {
-      pre =
-        (cur[positionVar.b] as Number) > (pre[positionVar.b] as Number)
-          ? cur
-          : pre
+      pre = (cur[positionVar.b] as Number) > (pre[positionVar.b] as Number) ? cur : pre
       return pre
     }, children[0])
     // 最高的子元素的padding
-    const padding = sizeToNum(
-      window.getComputedStyle(maxChildren)[positionVar.c] as string
-    )
+    const padding = sizeToNum(window.getComputedStyle(maxChildren)[positionVar.c] as string)
     // css变量
-    const cardActiveDiffHeight = window
-      .getComputedStyle(wrapperEl)
-      .getPropertyValue('--cardActiveDiffHeight')
+    const cardActiveDiffHeight = window.getComputedStyle(wrapperEl).getPropertyValue('--cardActiveDiffHeight')
     // 最高的子元素avtive状态下的高度
-    const maxChildrenNum =
-      sizeToNum(maxChildren[positionVar.b]) -
-      padding +
-      sizeToNum(cardActiveDiffHeight)
+    const maxChildrenNum = sizeToNum(maxChildren[positionVar.b]) - padding + sizeToNum(cardActiveDiffHeight)
 
     /**
      * 比较标签显示高度(wrapperEl)、最高元素预估高度，取得最大值
@@ -135,33 +112,19 @@
     if (!instance || !instance.subTree.el) return
     const { position } = prop
     const activeStyle: CSSProperties = {}
-    const children = instance.subTree.el.querySelectorAll(
-      '.f-tabs-nav--item'
-    ) as HTMLElement[]
+    const children = instance.subTree.el.querySelectorAll('.f-tabs-nav--item') as HTMLElement[]
 
     if (!children.length) return
     const nextItem = children[currentIndex.value]
 
     const nextItemStyle = window.getComputedStyle(nextItem)
     if (position === 'top' || position === 'bottom') {
-      activeStyle.width =
-        nextItem.clientWidth -
-        sizeToNum(nextItemStyle.paddingLeft) -
-        sizeToNum(nextItemStyle.paddingRight) +
-        'px'
-      activeStyle.left = `${
-        nextItem.offsetLeft + sizeToNum(nextItemStyle.paddingLeft)
-      }px`
+      activeStyle.width = nextItem.clientWidth - sizeToNum(nextItemStyle.paddingLeft) - sizeToNum(nextItemStyle.paddingRight) + 'px'
+      activeStyle.left = `${nextItem.offsetLeft + sizeToNum(nextItemStyle.paddingLeft)}px`
       activeStyle.bottom = '0px'
     } else {
-      activeStyle.height =
-        nextItem.clientHeight -
-        sizeToNum(nextItemStyle.paddingTop) -
-        sizeToNum(nextItemStyle.paddingBottom) +
-        'px'
-      activeStyle.top = `${
-        nextItem.offsetTop + sizeToNum(nextItemStyle.paddingTop)
-      }px`
+      activeStyle.height = nextItem.clientHeight - sizeToNum(nextItemStyle.paddingTop) - sizeToNum(nextItemStyle.paddingBottom) + 'px'
+      activeStyle.top = `${nextItem.offsetTop + sizeToNum(nextItemStyle.paddingTop)}px`
       if (position === 'left') {
         activeStyle.right = '0px'
       } else {
@@ -204,11 +167,7 @@
     }
   })
   watch(
-    [
-      (): unknown => prop.position,
-      (): unknown => prop.type,
-      (): unknown => prop.justifyContent
-    ],
+    [(): unknown => prop.position, (): unknown => prop.type, (): unknown => prop.justifyContent],
     () => {
       wrapperStyle.value = {}
       if (prop.type === 'card') {
@@ -236,10 +195,7 @@
 
   const classList = computed(() => {
     const { type, position } = prop
-    return [
-      `f-tabs-nav__type_${type}`,
-      `f-tabs-nav__type_${type}_${position}`
-    ] as const
+    return [`f-tabs-nav__type_${type}`, `f-tabs-nav__type_${type}_${position}`] as const
   })
 
   const scrollClassList = computed(() => {
@@ -289,18 +245,10 @@
               @click.stop="editItem('remove', item.name, i)"
             ></f-svg-icon>
           </div>
-          <div
-            v-if="type === 'card' && editStatus"
-            class="f-tabs-nav--item"
-            @click="editItem('add')"
-          >
+          <div v-if="type === 'card' && editStatus" class="f-tabs-nav--item" @click="editItem('add')">
             <f-svg-icon :icon="FIconPlusVue" color="#666"></f-svg-icon>
           </div>
-          <div
-            v-if="prop.type === 'line'"
-            class="f-tabs-nav--line__active"
-            :style="activeLineStyle"
-          ></div>
+          <div v-if="prop.type === 'line'" class="f-tabs-nav--line__active" :style="activeLineStyle"></div>
         </div>
       </div>
     </div>

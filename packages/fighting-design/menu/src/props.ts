@@ -28,5 +28,4 @@ export const Props = {
 
 export type MenuProps = ExtractPropTypes<typeof Props>
 
-export const MENU_PROVIDE_KEY: InjectionKey<MenuModeType> =
-  Symbol('menu-provide-key')
+export const MENU_PROVIDE_KEY: InjectionKey<MenuModeType> = Symbol('menu-provide-key')

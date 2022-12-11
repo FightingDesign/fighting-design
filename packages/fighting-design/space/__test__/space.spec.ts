@@ -28,7 +28,7 @@ describe('FSpace', () => {
 
   test('spacing', () => {
     const type = ['large', 'middle', 'small', 'mini'] as const
-    type.forEach((item) => {
+    type.forEach(item => {
       const wrapper = mount(FSpace, {
         props: { spacing: item },
         slots: { default: '123' }

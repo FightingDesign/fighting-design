@@ -5,11 +5,7 @@
   import { FDropdown } from '../../dropdown'
   import { sizeChange, getChildren } from '../../_utils'
   import type { CSSProperties, VNode } from 'vue'
-  import type {
-    SelectProvideInterface,
-    SelectModelValueType,
-    SelectChildrenInterface
-  } from './interface'
+  import type { SelectProvideInterface, SelectModelValueType, SelectChildrenInterface } from './interface'
   import type { OptionProps } from '../../option'
 
   const prop = defineProps(Props)
@@ -37,7 +33,7 @@
     /**
      * 通过获取到的子元素，计算当前绑定值对应的 label 展示文本框的内容
      */
-    get () {
+    get() {
       // 如果插槽没内容，则返回空字符串
       if (!options.value.length) return ''
 
@@ -46,28 +42,21 @@
        *
        * 过滤出和绑定值相同的那一项
        */
-      const currentOption: VNode[] = options.value.filter(
-        (node: VNode): boolean => {
-          const optionProp: OptionProps = node.props as OptionProps
+      const currentOption: VNode[] = options.value.filter((node: VNode): boolean => {
+        const optionProp: OptionProps = node.props as OptionProps
 
-          // 判断是否有传递 props
-          if (optionProp) {
-            return optionProp.value
-              ? optionProp.value === prop.modelValue
-              : optionProp.label === prop.modelValue
-          }
-
-          /**
-           * 如果没有传递 props 则根据插槽来判断
-           *
-           * 放心，这里一定会有插槽，子组件已经做了判断
-           */
-          return (
-            (node as SelectChildrenInterface).children.default()[0].children ===
-            prop.modelValue
-          )
+        // 判断是否有传递 props
+        if (optionProp) {
+          return optionProp.value ? optionProp.value === prop.modelValue : optionProp.label === prop.modelValue
         }
-      )
+
+        /**
+         * 如果没有传递 props 则根据插槽来判断
+         *
+         * 放心，这里一定会有插槽，子组件已经做了判断
+         */
+        return (node as SelectChildrenInterface).children.default()[0].children === prop.modelValue
+      })
 
       /**
        * 如果没有通过插槽找出和绑定值相同的
@@ -79,8 +68,7 @@
       // 获取到当前满足要求的子元素
       const children: OptionProps = currentOption[0] as OptionProps
       // 获取到当前子元素的插槽内容
-      const slot: string | undefined =
-        children.children && children.children.default()[0].children
+      const slot: string | undefined = children.children && children.children.default()[0].children
       // 获取到当前子元素的 label 参数
       const label: string | undefined = children.props && children.props.label
       // 获取到当前子元素的 value 参数
@@ -88,7 +76,7 @@
       // 优先级：插槽 > label > value
       return slot || label || (value && value.toString()) || ''
     },
-    set (val: string) {
+    set(val: string) {
       return val
     }
   })
@@ -124,14 +112,7 @@
 <template>
   <div class="f-select" :style="styleList">
     <f-dropdown trigger="click" :disabled="disabled">
-      <f-input
-        v-model="inputValue"
-        readonly
-        :name="name"
-        :disabled="disabled"
-        :placeholder="placeholder"
-        :clear="clear"
-      />
+      <f-input v-model="inputValue" readonly :name="name" :disabled="disabled" :placeholder="placeholder" :clear="clear" />
 
       <template #content>
         <slot />

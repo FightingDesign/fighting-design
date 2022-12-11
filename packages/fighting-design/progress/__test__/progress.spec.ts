@@ -12,20 +12,16 @@ describe('FProgress', () => {
     const wrapper = mount(FProgress, {
       props: { percentage: 50 }
     })
-    expect(wrapper.find('.f-progress__fill').attributes('style')).toContain(
-      '50%'
-    )
+    expect(wrapper.find('.f-progress__fill').attributes('style')).toContain('50%')
   })
 
   test('type', () => {
     const types = ['primary', 'success', 'danger', 'warning'] as const
-    types.forEach((item) => {
+    types.forEach(item => {
       const wrapper = mount(FProgress, {
         props: { type: item }
       })
-      expect(wrapper.find('.f-progress__fill').classes()).toContain(
-        `f-progress__fill-${item}`
-      )
+      expect(wrapper.find('.f-progress__fill').classes()).toContain(`f-progress__fill-${item}`)
     })
   })
 
@@ -51,9 +47,7 @@ describe('FProgress', () => {
         color: 'red'
       }
     })
-    expect(wrapper.find('.f-progress__fill').attributes('style')).toContain(
-      'red'
-    )
+    expect(wrapper.find('.f-progress__fill').attributes('style')).toContain('red')
   })
 
   test('background', () => {
@@ -63,9 +57,7 @@ describe('FProgress', () => {
         background: '#f4d1d1'
       }
     })
-    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain(
-      '#f4d1d1'
-    )
+    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain('#f4d1d1')
   })
 
   test('width and height', () => {
@@ -77,17 +69,13 @@ describe('FProgress', () => {
       }
     })
     expect(wrapper.attributes('style')).toContain('400px')
-    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain(
-      '26px'
-    )
+    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain('26px')
   })
 
   test('stripe', () => {
     const wrapper = mount(FProgress, {
       props: { stripe: true, percentage: 40 }
     })
-    expect(wrapper.find('.f-progress__fill').classes()).toContain(
-      'f-progress__stripe'
-    )
+    expect(wrapper.find('.f-progress__fill').classes()).toContain('f-progress__stripe')
   })
 })

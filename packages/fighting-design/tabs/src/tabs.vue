@@ -1,15 +1,6 @@
 <script lang="ts" setup name="FTabs">
   import { Props, TabsProvideKey } from './props'
-  import {
-    onMounted,
-    ref,
-    provide,
-    computed,
-    getCurrentInstance,
-    watch,
-    nextTick,
-    useSlots
-  } from 'vue'
+  import { onMounted, ref, provide, computed, getCurrentInstance, watch, nextTick, useSlots } from 'vue'
   import { TabsNav } from './components'
   import { debugWarn, __DEV__ } from '../../_utils'
   import { getChildrenComponent } from './utils'
@@ -37,11 +28,7 @@
   /**
    * 触发用户的emit
    */
-  const edit = (
-    action: 'remove' | 'add',
-    name?: TabsPaneName,
-    i?: number
-  ): void => {
+  const edit = (action: 'remove' | 'add', name?: TabsPaneName, i?: number): void => {
     emits('edit', action, name, i)
   }
   /**
@@ -55,9 +42,7 @@
   const updatePaneList = (): void => {
     nextTick(() => {
       if (!instance) return
-      panes.value = getChildrenComponent(instance, 'FTabsPane').map(
-        (e) => e.component as ComponentInternalInstance
-      )
+      panes.value = getChildrenComponent(instance, 'FTabsPane').map(e => e.component as ComponentInternalInstance)
     })
   }
   /**
@@ -79,11 +64,7 @@
     (val): void => {
       currentName.value = val as TabsPaneName
 
-      if (
-        __DEV__ &&
-        navs.value.length &&
-        navs.value.every((e) => e.name !== val)
-      ) {
+      if (__DEV__ && navs.value.length && navs.value.every(e => e.name !== val)) {
         debugWarn('FTabs', `未找到名为 ${val} 的标签`)
       }
     },

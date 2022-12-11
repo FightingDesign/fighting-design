@@ -592,7 +592,7 @@
     },
     {
       title: '操作',
-      render: (h) => {
+      render: h => {
         return h('div', { class: 'box' }, [
           h(
             FButton,
@@ -666,14 +666,7 @@
 
 ```html
 <template>
-  <f-table
-    :data="data"
-    :columns="columns"
-    zebra
-    zebra-color="skyblue"
-    head-bg-color="orange"
-    bg-color="#eef"
-  />
+  <f-table :data="data" :columns="columns" zebra zebra-color="skyblue" head-bg-color="orange" bg-color="#eef" />
 </template>
 
 <script lang="ts" setup>
@@ -749,13 +742,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  TablePropsType,
-  TableInstance,
-  TableAlignType,
-  TableDateType,
-  TableColumnsInterface
-} from 'fighting-design'
+import type { TablePropsType, TableInstance, TableAlignType, TableDateType, TableColumnsInterface } from 'fighting-design'
 ```
 
 ## Contributors

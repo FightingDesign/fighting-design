@@ -25,21 +25,10 @@
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
 
-  const {
-    scale,
-    rotate,
-    smaller,
-    bigger,
-    scrollZoom,
-    recovery,
-    rotateClockwise,
-    rotateCounterClock
-  } = useOperationImg()
+  const { scale, rotate, smaller, bigger, scrollZoom, recovery, rotateClockwise, rotateCounterClock } = useOperationImg()
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
-  const previewShowIndex: Ref<number> = ref<number>(
-    prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex
-  )
+  const previewShowIndex: Ref<number> = ref<number>(prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex)
 
   /**
    * 关闭图片预览
@@ -155,36 +144,16 @@
 
       <!-- 左右切换按钮 -->
       <template v-if="imgList.length > 1">
-        <f-button
-          class="f-image-preview__next"
-          circle
-          :before-icon="FIconChevronRightVue"
-          @click="switchImage('next')"
-        />
+        <f-button class="f-image-preview__next" circle :before-icon="FIconChevronRightVue" @click="switchImage('next')" />
 
-        <f-button
-          class="f-image-preview__prev"
-          circle
-          :before-icon="FIconChevronLeftVue"
-          @click="switchImage('prev')"
-        />
+        <f-button class="f-image-preview__prev" circle :before-icon="FIconChevronLeftVue" @click="switchImage('prev')" />
       </template>
 
       <!-- 关闭按钮 -->
-      <f-button
-        class="f-image-preview__close"
-        circle
-        :before-icon="FIconCrossVue"
-        :on-click="handleClose"
-      />
+      <f-button class="f-image-preview__close" circle :before-icon="FIconCrossVue" :on-click="handleClose" />
 
       <!-- 操作栏 -->
-      <f-toolbar
-        v-if="isOption"
-        class="f-image-preview__option"
-        round
-        :on-click="optionClick"
-      >
+      <f-toolbar v-if="isOption" class="f-image-preview__option" round :on-click="optionClick">
         <f-toolbar-item :icon="FIconZoomOutVue" :index="1" />
         <f-toolbar-item :icon="FIconZoomInVue" :index="2" />
         <f-toolbar-item :icon="FIconLayoutRowsVue" :index="3" />

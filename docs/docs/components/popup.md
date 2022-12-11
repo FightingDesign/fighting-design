@@ -91,11 +91,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  PopupInstance,
-  PopupPropsType,
-  PopupDirectionType
-} from 'fighting-design'
+import type { PopupInstance, PopupPropsType, PopupDirectionType } from 'fighting-design'
 ```
 
 ## Contributors

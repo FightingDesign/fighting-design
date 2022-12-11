@@ -4,11 +4,7 @@
   import { FButton } from '../../button'
   import { FSwap } from '../../swap'
   import { ref, toRefs } from 'vue'
-  import {
-    FIconCrossVue,
-    FIconEyeOffOutlineVue,
-    FIconEyeOutlineVue
-  } from '../../_svg'
+  import { FIconCrossVue, FIconEyeOffOutlineVue, FIconEyeOutlineVue } from '../../_svg'
   import { isString, isNumber } from '../../_utils'
   import { useUpdateInput, useProps, useRun } from '../../_hooks'
   import type { InputType } from './interface'
@@ -16,8 +12,7 @@
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: string | number): boolean =>
-      isString(val) || isNumber(val)
+    'update:modelValue': (val: string | number): boolean => isString(val) || isNumber(val)
   })
 
   const { filter } = useProps(prop)
@@ -34,12 +29,7 @@
    * 使用 useUpdateInput hook 实现同步数据
    */
   const { onInput, onClear, onChange } = useUpdateInput(
-    filter([
-      'onChange',
-      'onInput',
-      'disabled',
-      'type'
-    ]) as unknown as UseUpdateInputProps,
+    filter(['onChange', 'onInput', 'disabled', 'type']) as unknown as UseUpdateInputProps,
     emit
   )
 
@@ -124,13 +114,7 @@
       />
 
       <!-- 清除 icon -->
-      <f-svg-icon
-        v-if="clear"
-        class="f-input__clear-btn"
-        :icon="FIconCrossVue"
-        :size="14"
-        @click="onClear"
-      />
+      <f-svg-icon v-if="clear" class="f-input__clear-btn" :icon="FIconCrossVue" :size="14" @click="onClear" />
 
       <!-- 左侧 icon -->
       <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="14" />

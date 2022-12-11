@@ -11,26 +11,15 @@
     return treeToFlat(treeAddLevel(prop.data))
   })
 
-  const handleClick = (
-    item: TreeAddLevelReturnInterface,
-    index: number
-  ): void => {
+  const handleClick = (item: TreeAddLevelReturnInterface, index: number): void => {
     console.log(item, index)
   }
 </script>
 
 <template>
   <div class="f-tree">
-    <div
-      v-for="(item, index) in treeData"
-      :key="index"
-      class="f-tree__data"
-      @click="handleClick(item, index)"
-    >
-      <div
-        class="f-tree__label"
-        :style="{ paddingLeft: 25 * (item.level - 1) + 'px' }"
-      >
+    <div v-for="(item, index) in treeData" :key="index" class="f-tree__data" @click="handleClick(item, index)">
+      <div class="f-tree__label" :style="{ paddingLeft: 25 * (item.level - 1) + 'px' }">
         {{ item.label }}
       </div>
     </div>

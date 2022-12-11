@@ -70,9 +70,7 @@ export const Props = {
     type: String as PropType<ImageFit>,
     default: (): null => null,
     validator: (val: ImageFit): boolean => {
-      return (
-        ['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const
-      ).includes(val)
+      return (['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const).includes(val)
     }
   },
   /**

@@ -8,10 +8,7 @@
 
   // 文字内容
   .f-breadcrumb-item__text {
-    font-size: var(
-      --f-breadcrumb-item-font-size,
-      var(--f-design-font-size-middle)
-    );
+    font-size: var(--f-breadcrumb-item-font-size, var(--f-design-font-size-middle));
     color: var(--f-breadcrumb-item-font-color, var(--f-design-color-text-1));
   }
 

@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-  import {
-    FIconApps,
-    FIconBluetooth,
-    FIconBook
-  } from '@fighting-design/fighting-icon'
+  import { FIconApps, FIconBluetooth, FIconBook } from '@fighting-design/fighting-icon'
 </script>
 
 <template>

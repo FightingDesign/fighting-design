@@ -2,11 +2,7 @@ import type { RipplesOptions, UseRipplesReturn, RipplesEvt } from './interface'
 
 export * from './interface.d'
 
-export const useRipples = (
-  evt: MouseEvent,
-  node: HTMLElement,
-  options: RipplesOptions
-): UseRipplesReturn => {
+export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesOptions): UseRipplesReturn => {
   /**
    * 计算涟漪颜色
    *
@@ -64,9 +60,7 @@ export const useRipples = (
     /**
      * 新建个 span 元素
      */
-    const ripples: HTMLSpanElement = document.createElement(
-      'span'
-    ) as HTMLSpanElement
+    const ripples: HTMLSpanElement = document.createElement('span') as HTMLSpanElement
 
     ripples.className = options.className
     ripples.style.background = computedRipplesColor()

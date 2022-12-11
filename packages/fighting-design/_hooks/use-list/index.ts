@@ -19,10 +19,7 @@ export * from './interface.d'
  * @param name 组件名
  * @returns 类名列表和样式列表方法，可解构出 classes styles
  */
-export const useList = <T extends object>(
-  prop: T,
-  name: string
-): UseListReturn => {
+export const useList = <T extends object>(prop: T, name: string): UseListReturn => {
   /**
    * 过滤 props
    *
@@ -38,10 +35,7 @@ export const useList = <T extends object>(
    * @param list 类名所需要的 prop 参数
    * @param className 其它所需要的类名
    */
-  const classes = (
-    list: FilterParams,
-    className?: string
-  ): ComputedRef<ClassList> => {
+  const classes = (list: FilterParams, className?: string): ComputedRef<ClassList> => {
     return computed((): ClassList => {
       /**
        * 类名列表
@@ -64,10 +58,7 @@ export const useList = <T extends object>(
            *
            * 否则使用值拼接
            */
-          classList.value.push(
-            `f-${name}__${isBoolean(propList[key]) ? convertFormat(key) : propList[key]
-            }`
-          )
+          classList.value.push(`f-${name}__${isBoolean(propList[key]) ? convertFormat(key) : propList[key]}`)
         }
       }
       return classList.value as unknown as ClassList
@@ -103,11 +94,7 @@ export const useList = <T extends object>(
            *
            * 因为 prop 参数的键都是驼峰命名法，所以这里要转换为短横线连接命名
            */
-          styleList[`--f-${name}-${convertFormat(key)}`] = isNumber(
-            propList[key]
-          )
-            ? sizeChange(propList[key] as number)
-            : propList[key]
+          styleList[`--f-${name}-${convertFormat(key)}`] = isNumber(propList[key]) ? sizeChange(propList[key] as number) : propList[key]
         }
       }
 

@@ -108,12 +108,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  ExpandCardInstance,
-  ExpandCardProps,
-  ExpandCardImageListItem,
-  ExpandCardImageList
-} from 'fighting-design'
+import type { ExpandCardInstance, ExpandCardProps, ExpandCardImageListItem, ExpandCardImageList } from 'fighting-design'
 ```
 
 ### ExpandCardImageListItem

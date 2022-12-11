@@ -35,20 +35,16 @@
   /**
    * 打开事件
    */
-  const openEvent: ComputedRef<'mouseover' | 'click'> = computed(
-    (): 'mouseover' | 'click' => {
-      return prop.trigger === 'hover' ? 'mouseover' : 'click'
-    }
-  )
+  const openEvent: ComputedRef<'mouseover' | 'click'> = computed((): 'mouseover' | 'click' => {
+    return prop.trigger === 'hover' ? 'mouseover' : 'click'
+  })
 
   /**
    * 关闭事件
    */
-  const closeEvent: ComputedRef<'mouseleave' | ''> = computed(
-    (): 'mouseleave' | '' => {
-      return prop.trigger === 'hover' ? 'mouseleave' : ''
-    }
-  )
+  const closeEvent: ComputedRef<'mouseleave' | ''> = computed((): 'mouseleave' | '' => {
+    return prop.trigger === 'hover' ? 'mouseleave' : ''
+  })
 
   /**
    * 样式列表
@@ -76,9 +72,9 @@
          * @see composedPath https://developer.mozilla.org/zh-CN/docs/Web/API/Event/composedPath
          * @see some https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some
          */
-        const isHaveTrigger: boolean = (
-          evt.composedPath() as HTMLElement[]
-        ).some((item: HTMLElement): boolean => item.className === 'f-trigger')
+        const isHaveTrigger: boolean = (evt.composedPath() as HTMLElement[]).some(
+          (item: HTMLElement): boolean => item.className === 'f-trigger'
+        )
 
         // 如果有，则说明点击是孩子节点，则不需要关闭
         if (isHaveTrigger) return
@@ -114,10 +110,7 @@
 
     <!-- 展示的内容 -->
     <transition name="f-trigger">
-      <div
-        v-show="showContent"
-        :class="['f-trigger__content-box', { 'f-trigger__arrow': arrow }]"
-      >
+      <div v-show="showContent" :class="['f-trigger__content-box', { 'f-trigger__arrow': arrow }]">
         <div :class="['f-trigger__content']">
           <slot name="content" />
         </div>

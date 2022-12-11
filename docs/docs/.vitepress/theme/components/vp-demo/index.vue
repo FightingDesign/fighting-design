@@ -42,10 +42,7 @@
     </div>
 
     <!-- 点击展开 / 折叠的区域 -->
-    <div
-      :class="['vp-demo__option', { 'vp-demo__option-open': isOpen }]"
-      @click="handleClick"
-    >
+    <div :class="['vp-demo__option', { 'vp-demo__option-open': isOpen }]" @click="handleClick">
       <span class="vp-demo__option-text">
         {{ isOpen ? '折叠代码' : '展开代码' }}
       </span>

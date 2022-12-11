@@ -67,10 +67,7 @@
 </template>
 
 ```html
-<f-empty
-  image-src="https://tianyuhao.cn/images/auto/1.jpg"
-  image-size="200px"
-/>
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
 ```
 
 :::

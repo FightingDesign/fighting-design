@@ -21,7 +21,7 @@ export interface UseLoadImgProp {
 
 /**
  * useLoadImg 返回值类型接口
- * 
+ *
  * @param isSuccess 是否加载成功
  * @param loadImg 开始加载
  */

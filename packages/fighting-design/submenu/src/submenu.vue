@@ -13,10 +13,7 @@
   /**
    * 注入父组件的模式依赖项
    */
-  const parentInject = inject<MenuProvide | null>(
-    MENU_PROVIDE_KEY,
-    null
-  ) as MenuProvide
+  const parentInject = inject<MenuProvide | null>(MENU_PROVIDE_KEY, null) as MenuProvide
 
   /**
    * 初始是否展开
@@ -38,18 +35,13 @@
     :class="[
       'f-submenu',
       {
-        [`f-submenu__${parentInject && parentInject.mode}`]:
-          parentInject && parentInject.mode,
+        [`f-submenu__${parentInject && parentInject.mode}`]: parentInject && parentInject.mode,
         'f-submenu__disabled': disabled
       }
     ]"
   >
     <!-- 垂直或水平模式 -->
-    <f-dropdown
-      v-if="parentInject && parentInject.mode !== 'inline'"
-      trigger="click"
-      :spacing="5"
-    >
+    <f-dropdown v-if="parentInject && parentInject.mode !== 'inline'" trigger="click" :spacing="5">
       <div class="f-submenu__title">
         <div class="f-submenu__title-text">
           <slot v-if="$slots.title" name="title" />
@@ -73,13 +65,7 @@
         </div>
 
         <!-- 箭头图标 -->
-        <f-svg-icon
-          :class="[
-            'f-submenu__arrow-icon',
-            { 'f-submenu__arrow-icon-animation': isOpened }
-          ]"
-          :icon="FIconChevronDown"
-        />
+        <f-svg-icon :class="['f-submenu__arrow-icon', { 'f-submenu__arrow-icon-animation': isOpened }]" :icon="FIconChevronDown" />
       </div>
 
       <!-- 主要的折叠菜单内容 -->

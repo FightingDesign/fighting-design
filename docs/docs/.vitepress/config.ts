@@ -24,6 +24,6 @@ export default defineConfig({
   },
   markdown: {
     // 自定义 markdown 语法
-    config: (md) => mdPlugin(md)
+    config: md => mdPlugin(md)
   }
 })

@@ -8,8 +8,7 @@
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: string | number): boolean =>
-      isString(val) || isNumber(val)
+    'update:modelValue': (val: string | number): boolean => isString(val) || isNumber(val)
   })
 
   const { filter } = useProps(prop)
@@ -18,11 +17,7 @@
    * 使用 useUpdateInput hook 实现同步数据
    */
   const { onInput, onClear, onChange } = useUpdateInput(
-    filter([
-      'onChange',
-      'onInput',
-      'disabled'
-    ]) as unknown as UseUpdateInputPropsInterface,
+    filter(['onChange', 'onInput', 'disabled']) as unknown as UseUpdateInputPropsInterface,
     emit
   )
 
@@ -63,12 +58,6 @@
     />
 
     <!-- 清空按钮 -->
-    <f-svg-icon
-      v-if="clear"
-      class="f-textarea__clear-btn"
-      :icon="FIconCrossVue"
-      :size="14"
-      @click="onClear"
-    />
+    <f-svg-icon v-if="clear" class="f-textarea__clear-btn" :icon="FIconCrossVue" :size="14" @click="onClear" />
   </div>
 </template>

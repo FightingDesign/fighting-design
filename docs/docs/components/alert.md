@@ -195,8 +195,7 @@
 </template>
 
 ```html
-<f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert>
-<f-alert type="success" title="标题">心情很不错</f-alert>
+<f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert> <f-alert type="success" title="标题">心情很不错</f-alert>
 ```
 
 :::

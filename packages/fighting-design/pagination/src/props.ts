@@ -1,10 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type {
-  HandleCurrentChange,
-  HandlePrevClick,
-  HandleNextClick,
-  HandlePageChange
-} from './interface'
+import type { HandleCurrentChange, HandlePrevClick, HandleNextClick, HandlePageChange } from './interface'
 import type { FightingIcon } from '../../_interface'
 
 export const Props = {

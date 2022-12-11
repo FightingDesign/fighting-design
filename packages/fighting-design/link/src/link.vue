@@ -32,30 +32,14 @@
 </script>
 
 <template>
-  <a
-    role="link"
-    :class="classList"
-    :style="styleList"
-    :href="href"
-    :disabled="disabled"
-    :target="target"
-    @click="handleClick"
-  >
-    <f-svg-icon
-      v-if="$slots.beforeIcon || beforeIcon"
-      :icon="beforeIcon"
-      :size="size || 16"
-    >
+  <a role="link" :class="classList" :style="styleList" :href="href" :disabled="disabled" :target="target" @click="handleClick">
+    <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon" :size="size || 16">
       <slot name="beforeIcon" />
     </f-svg-icon>
 
     <slot />
 
-    <f-svg-icon
-      v-if="$slots.afterIcon || afterIcon"
-      :icon="afterIcon"
-      :size="size"
-    >
+    <f-svg-icon v-if="$slots.afterIcon || afterIcon" :icon="afterIcon" :size="size">
       <slot name="afterIcon" />
     </f-svg-icon>
   </a>

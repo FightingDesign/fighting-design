@@ -10,17 +10,13 @@
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: CheckboxBooleanish): CheckboxBooleanish =>
-      typeof val !== 'object'
+    'update:modelValue': (val: CheckboxBooleanish): CheckboxBooleanish => typeof val !== 'object'
   })
 
   /**
    * 获取父组件注入的依赖项
    */
-  const parentInject = inject<CheckboxGroupInject | null>(
-    CHECKBOX_GROUP_PROPS_KEY,
-    null
-  )
+  const parentInject = inject<CheckboxGroupInject | null>(CHECKBOX_GROUP_PROPS_KEY, null)
 
   /**
    * 绑定值
@@ -29,13 +25,13 @@
     /**
      * 获取值
      */
-    get () {
+    get() {
       return (parentInject && parentInject.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set (val) {
+    set(val) {
       if (!parentInject) {
         emit('update:modelValue', val as CheckboxBooleanish)
         useRun(prop.onChange, val)
@@ -70,21 +66,14 @@
         'f-checkbox__active': isActive.value,
         'f-checkbox__indeterminate': prop.indeterminate,
         'f-checkbox__bordered': parentInject && parentInject.border,
-        'f-checkbox__disabled':
-          prop.disabled || (parentInject && parentInject.disabled)
+        'f-checkbox__disabled': prop.disabled || (parentInject && parentInject.disabled)
       }
     ] as const
   })
 </script>
 
 <template>
-  <label
-    role="checkbox"
-    aria-checked="false"
-    tabindex="0"
-    aria-labelledby="chk1-label"
-    :class="classList"
-  >
+  <label role="checkbox" aria-checked="false" tabindex="0" aria-labelledby="chk1-label" :class="classList">
     <input
       v-model="model"
       type="checkbox"
@@ -93,10 +82,7 @@
       :value="label"
       :disabled="disabled || (!!parentInject && parentInject.disabled)"
     />
-    <span
-      v-if="!(parentInject && parentInject.border)"
-      class="f-checkbox__box"
-    />
+    <span v-if="!(parentInject && parentInject.border)" class="f-checkbox__box" />
     <span class="f-checkbox__text">
       <slot />
       <template v-if="!$slots.default && showLabel">{{ label }}</template>

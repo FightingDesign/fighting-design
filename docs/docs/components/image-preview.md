@@ -54,11 +54,7 @@
 ```html
 <template>
   <f-button type="primary" @click="show2 = true">打开</f-button>
-  <f-image-preview
-    v-model:visible="show2"
-    :is-option="false"
-    :img-list="listImg"
-  />
+  <f-image-preview v-model:visible="show2" :is-option="false" :img-list="listImg" />
 </template>
 
 <script lang="ts" setup>

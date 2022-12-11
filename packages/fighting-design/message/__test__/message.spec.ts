@@ -8,7 +8,7 @@ import type { Ref } from 'vue'
 // }>
 
 const sleep = (time: number): Promise<unknown> => {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     setTimeout(resolve, time)
   })
 }
@@ -55,13 +55,9 @@ describe('FMessage', () => {
     expect(messageReturn.vm.exposed).toHaveProperty('visible')
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    expect(
-      (messageReturn.vm.exposed as Record<string, Ref>).visible.value
-    ).toBe(true)
+    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(true)
     await sleep(3000)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    expect(
-      (messageReturn.vm.exposed as Record<string, Ref>).visible.value
-    ).toBe(false)
+    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(false)
   })
 })

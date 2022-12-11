@@ -9,7 +9,7 @@ type MessageInstance = ComponentPublicInstance<{
 }>
 
 const sleep = (time: number): Promise<unknown> => {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     setTimeout(resolve, time)
   })
 }
@@ -23,9 +23,7 @@ describe('FNotification', () => {
       }
     })
     expect(wrapper.find('.f-notification').exists()).toBe(true)
-    expect(wrapper.find('.f-notification__text').text()).toBe(
-      'notification-test'
-    )
+    expect(wrapper.find('.f-notification__text').text()).toBe('notification-test')
     expect(wrapper.find('.f-notification__success').exists()).toBe(true)
     await wrapper.setProps({ type: 'primary' })
     expect(wrapper.find('.f-notification__primary').exists()).toBe(true)
@@ -58,12 +56,8 @@ describe('FNotification', () => {
     expect(messageReturn).toHaveProperty('vm')
     expect(messageReturn.vm.exposed).toHaveProperty('visible')
 
-    expect(
-      (messageReturn.vm.exposed as Record<string, Ref>).visible.value
-    ).toBe(true)
+    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(true)
     await sleep(3000)
-    expect(
-      (messageReturn.vm.exposed as Record<string, Ref>).visible.value
-    ).toBe(false)
+    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(false)
   })
 })

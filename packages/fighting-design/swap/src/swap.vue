@@ -24,10 +24,7 @@
   const classList = computed((): ClassList => {
     const { modelValue, type } = prop
 
-    return [
-      'f-swap',
-      modelValue ? `f-swap__${type}-on` : `f-swap__${type}-off`
-    ] as const
+    return ['f-swap', modelValue ? `f-swap__${type}-on` : `f-swap__${type}-off`] as const
   })
 </script>
 

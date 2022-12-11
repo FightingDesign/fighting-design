@@ -55,7 +55,7 @@ describe('FButton', () => {
 
   test('size', () => {
     const size = ['large', 'middle', 'small', 'mini'] as const
-    size.forEach((item) => {
+    size.forEach(item => {
       const wrapper = mount(FButton, {
         props: { size: item }
       })
@@ -79,7 +79,7 @@ describe('FButton', () => {
 
   test('target', () => {
     const target = ['_blank', '_self', '_parent', '_top'] as const
-    target.forEach((item) => {
+    target.forEach(item => {
       const wrapper = mount(FButton, {
         props: { href: 'https://tianyuhao.cn', target: item }
       })
@@ -142,7 +142,7 @@ describe('FButton', () => {
 
   test('type', () => {
     const type = ['default', 'primary', 'success', 'danger', 'warning'] as const
-    type.forEach((item) => {
+    type.forEach(item => {
       const wrapper = mount(FButton, {
         props: { type: item }
       })
@@ -168,9 +168,7 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { shadow: '7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4' }
     })
-    expect(wrapper.attributes('style')).toContain(
-      '--f-button-box-shadow: 7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4'
-    )
+    expect(wrapper.attributes('style')).toContain('--f-button-box-shadow: 7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4')
   })
 
   test('text', () => {
@@ -189,7 +187,7 @@ describe('FButton', () => {
 
   test('native-type', () => {
     const nativeType = ['button', 'submit', 'reset'] as const
-    nativeType.forEach((item) => {
+    nativeType.forEach(item => {
       const wrapper = mount(FButton, {
         props: { nativeType: item }
       })
@@ -206,15 +204,9 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { color }
     })
-    expect(wrapper.attributes('style')).toContain(
-      `--f-button-default-color: ${color}`
-    )
-    expect(wrapper.attributes('style')).toContain(
-      `--f-button-hover-color: ${light}`
-    )
-    expect(wrapper.attributes('style')).toContain(
-      `--f-button-active-color: ${dark}`
-    )
+    expect(wrapper.attributes('style')).toContain(`--f-button-default-color: ${color}`)
+    expect(wrapper.attributes('style')).toContain(`--f-button-hover-color: ${light}`)
+    expect(wrapper.attributes('style')).toContain(`--f-button-active-color: ${dark}`)
   })
 
   test('default slot', () => {

@@ -30,28 +30,14 @@
     </div>
 
     <!-- 右侧部分 -->
-    <div
-      :class="[
-        'f-page-header__main',
-        { 'f-page-header__main-center': titleCenter }
-      ]"
-    >
+    <div :class="['f-page-header__main', { 'f-page-header__main-center': titleCenter }]">
       <!-- 标题 -->
-      <div
-        :style="{ color: titleColor }"
-        :class="[
-          'f-page-header__main-title',
-          { 'f-page-header__main-title-bold': titleBold }
-        ]"
-      >
+      <div :style="{ color: titleColor }" :class="['f-page-header__main-title', { 'f-page-header__main-title-bold': titleBold }]">
         <slot name="title">{{ title }}</slot>
       </div>
 
       <!-- 副标题 -->
-      <div
-        v-if="subtitle || $slots.subtitle"
-        class="f-page-header__main-subtitle"
-      >
+      <div v-if="subtitle || $slots.subtitle" class="f-page-header__main-subtitle">
         <slot name="subtitle">{{ subtitle }}</slot>
       </div>
     </div>

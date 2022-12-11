@@ -61,7 +61,7 @@ describe('FImage', () => {
 
   test('fit', () => {
     const fit = ['fill', 'contain', 'cover', 'none', 'scale-down'] as const
-    fit.forEach((item) => {
+    fit.forEach(item => {
       const wrapper = mount(FImage, {
         props: { fit: item }
       })
@@ -80,9 +80,7 @@ describe('FImage', () => {
     const wrapper = mount(FImage, {
       props: { referrerPolicy: 'no-referrer' }
     })
-    expect(wrapper.find('img').attributes('referrer-policy')).toContain(
-      'no-referrer'
-    )
+    expect(wrapper.find('img').attributes('referrer-policy')).toContain('no-referrer')
   })
 
   test('round', () => {

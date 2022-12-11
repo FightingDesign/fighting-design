@@ -9,12 +9,7 @@
 
 <template>
   <div class="icon-box">
-    <div
-      v-for="(key, i) of Svg"
-      :key="i"
-      class="icon-list"
-      @click="handleClick(i)"
-    >
+    <div v-for="(key, i) of Svg" :key="i" class="icon-list" @click="handleClick(i)">
       <f-svg-icon :size="30">
         <component :is="key" />
       </f-svg-icon>

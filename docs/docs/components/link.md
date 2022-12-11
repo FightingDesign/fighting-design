@@ -65,8 +65,7 @@
 </template>
 
 ```html
-<f-link href="" state="line" type="primary">带有下划线</f-link>
-<f-link href="" state="bag" type="danger">hover 一下试试</f-link>
+<f-link href="" state="line" type="primary">带有下划线</f-link> <f-link href="" state="bag" type="danger">hover 一下试试</f-link>
 ```
 
 :::
@@ -157,12 +156,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  LinkInstance,
-  LinkProps,
-  LinkTarget,
-  LinkState
-} from 'fighting-design'
+import type { LinkInstance, LinkProps, LinkTarget, LinkState } from 'fighting-design'
 ```
 
 ### LinkTarget

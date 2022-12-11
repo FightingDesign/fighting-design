@@ -218,10 +218,10 @@
 <script lang="ts" setup>
   import { FMessage } from 'fighting-design'
 
-  const beforeEnter = (name) => {
+  const beforeEnter = name => {
     switch (name) {
       case 'hobby':
-        return new Promise<boolean>((resolve) => {
+        return new Promise<boolean>(resolve => {
           FMessage.warning('稍等一下~')
           setTimeout(() => {
             resolve(true)
@@ -298,9 +298,7 @@
 ```html
 <template>
   <f-tabs editStatus type="card" @edit="edit">
-    <f-tabs-pane :label="item.label" :name="item.name" v-for="item in list">
-      {{ item.content }}
-    </f-tabs-pane>
+    <f-tabs-pane :label="item.label" :name="item.name" v-for="item in list"> {{ item.content }} </f-tabs-pane>
   </f-tabs>
 </template>
 

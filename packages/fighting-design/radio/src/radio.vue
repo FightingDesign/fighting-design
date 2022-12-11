@@ -9,17 +9,13 @@
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: RadioModelValue): boolean =>
-      isString(val) || isNumber(val) || isBoolean(val)
+    'update:modelValue': (val: RadioModelValue): boolean => isString(val) || isNumber(val) || isBoolean(val)
   })
 
   /**
    * 获取父组件注入的依赖项
    */
-  const parentInject = inject<RadioGroundInject | null>(
-    RADIO_GROUP_PROPS_kEY,
-    null
-  )
+  const parentInject = inject<RadioGroundInject | null>(RADIO_GROUP_PROPS_kEY, null)
 
   const modelValue = computed({
     /**
@@ -27,13 +23,13 @@
      * 如果父组件有依赖注入则使用
      * 否则使用之身 props 参数
      */
-    get () {
+    get() {
       return (parentInject && parentInject.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set (val) {
+    set(val) {
       if (parentInject && !parentInject.disabled) {
         parentInject.changeEvent(val)
         return
@@ -60,14 +56,7 @@
 
 <template>
   <label role="radio" aria-checked="false" tabindex="0" :class="classList">
-    <input
-      v-model="modelValue"
-      hidden
-      type="radio"
-      :value="label"
-      :disabled="disabled"
-      :name="name"
-    />
+    <input v-model="modelValue" hidden type="radio" :value="label" :disabled="disabled" :name="name" />
     <span v-if="!parentInject?.border" class="f-radio__circle" />
     <span class="f-radio__text">
       <slot>{{ label }}</slot>

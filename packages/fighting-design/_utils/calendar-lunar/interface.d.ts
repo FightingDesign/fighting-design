@@ -74,9 +74,5 @@ export interface LunarInterface {
   toChinaMonth(month: number): string | -1
   toChinaDay(day: number): string
   getAnimal(year: number): string
-  getLunarDetail(
-    yPara: number,
-    mPara: number,
-    dPara: number
-  ): -1 | GetLunarDetailReturnInterface
+  getLunarDetail(yPara: number, mPara: number, dPara: number): -1 | GetLunarDetailReturnInterface
 }

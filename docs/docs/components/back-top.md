@@ -29,8 +29,7 @@
 ::: demo
 
 ```html
-<f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top>
-<f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
+<f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top> <f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
 ```
 
 :::
@@ -140,12 +139,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  BackTopInstance,
-  BackTopProps,
-  BackTopBehavior,
-  BackTopHandleScrollInterface
-} from 'fighting-design'
+import type { BackTopInstance, BackTopProps, BackTopBehavior, BackTopHandleScrollInterface } from 'fighting-design'
 ```
 
 ## Contributors

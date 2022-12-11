@@ -20,12 +20,7 @@ export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEm
    * @param evt 事件对象
    */
   const onInput = (evt: Event): void => {
-    emit(
-      'update:modelValue',
-      isNumber(prop.type)
-        ? Number((evt.target as HTMLInputElement).value)
-        : (evt.target as HTMLInputElement).value
-    )
+    emit('update:modelValue', isNumber(prop.type) ? Number((evt.target as HTMLInputElement).value) : (evt.target as HTMLInputElement).value)
 
     useRun(prop.onInput, (evt.target as HTMLInputElement).value)
   }

@@ -29,7 +29,7 @@ describe('FSkeleton', () => {
 
   test('size', () => {
     const size = ['large', 'middle', 'small', 'mini'] as const
-    size.forEach((item) => {
+    size.forEach(item => {
       const wrapper = mount(FSkeleton, {
         props: { loading: true, size: item },
         slots: { default: '123' }

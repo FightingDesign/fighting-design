@@ -10,13 +10,11 @@ describe('FSwitch', () => {
 
   test('small', () => {
     const size = ['large', 'middle', 'small'] as const
-    size.forEach((item) => {
+    size.forEach(item => {
       const wrapper = mount(FSwitch, {
         props: { size: item }
       })
-      expect(wrapper.find('.f-switch__input').classes()).toContain(
-        `f-switch__${item}`
-      )
+      expect(wrapper.find('.f-switch__input').classes()).toContain(`f-switch__${item}`)
     })
   })
 

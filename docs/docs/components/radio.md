@@ -266,14 +266,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  RadioInstance,
-  RadioProps,
-  RadioGroupInstance,
-  RadioGroundProps,
-  RadioModelValue,
-  RadioChange
-} from 'fighting-design'
+import type { RadioInstance, RadioProps, RadioGroupInstance, RadioGroundProps, RadioModelValue, RadioChange } from 'fighting-design'
 ```
 
 ### RadioModelValue

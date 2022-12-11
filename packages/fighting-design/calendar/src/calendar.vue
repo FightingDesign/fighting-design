@@ -24,10 +24,7 @@
    */
   const date = ref<number>(prop.date.getDate())
 
-  const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(
-    year,
-    month
-  )
+  const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(year, month)
 
   /**
    * 当前日期高亮显示
@@ -68,9 +65,7 @@
    * 当前时间
    */
   const nowTime = computed((): string => {
-    return `${year.value} / ${addZero(month.value + 1)} / ${addZero(
-      date.value
-    )}`
+    return `${year.value} / ${addZero(month.value + 1)} / ${addZero(date.value)}`
   })
 
   /**
@@ -137,35 +132,20 @@
 </script>
 
 <template>
-  <div
-    :class="['f-calendar', { 'f-calendar__border': border }]"
-    :style="classList"
-  >
+  <div :class="['f-calendar', { 'f-calendar__border': border }]" :style="classList">
     <!-- 头部操作栏 -->
     <header v-if="showHeader" class="f-calendar__header">
-      <f-svg-icon
-        :icon="FIconChevronLeftVue"
-        @click.stop="optionClick('last')"
-      />
+      <f-svg-icon :icon="FIconChevronLeftVue" @click.stop="optionClick('last')" />
       <div class="f-calendar__option">
         <span class="f-calendar__now-time">{{ nowTime }}</span>
-        <span class="f-calendar__now-date" @click.stop="optionClick('now')">
-          今天
-        </span>
+        <span class="f-calendar__now-date" @click.stop="optionClick('now')"> 今天 </span>
       </div>
-      <f-svg-icon
-        :icon="FIconChevronRightVue"
-        @click.stop="optionClick('next')"
-      />
+      <f-svg-icon :icon="FIconChevronRightVue" @click.stop="optionClick('next')" />
     </header>
 
     <!-- 周几 -->
     <ul class="f-calendar__week">
-      <li
-        v-for="(week, index) in WEEK_DATA"
-        :key="index"
-        class="f-calendar__week-li"
-      >
+      <li v-for="(week, index) in WEEK_DATA" :key="index" class="f-calendar__week-li">
         {{ week }}
       </li>
     </ul>
@@ -175,10 +155,7 @@
       <li
         v-for="(days, index) in AllMonthDays"
         :key="index"
-        :class="[
-          'f-calendar__day-li',
-          mowDataClassList(days.cMonth, days.cDay)
-        ]"
+        :class="['f-calendar__day-li', mowDataClassList(days.cMonth, days.cDay)]"
         @click.stop="handleClick(days.cMonth, days.cDay)"
       >
         <span class="f-calendar__solar">{{ days.cDay }}</span>

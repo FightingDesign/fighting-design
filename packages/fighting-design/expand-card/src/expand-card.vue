@@ -51,14 +51,12 @@
       return []
     }
 
-    return imageList.map(
-      (item: string | ExpandCardImageListItem): ExpandCardImageListItem => {
-        if (isString(item)) {
-          return { url: item }
-        }
-        return item
+    return imageList.map((item: string | ExpandCardImageListItem): ExpandCardImageListItem => {
+      if (isString(item)) {
+        return { url: item }
       }
-    )
+      return item
+    })
   })
 
   /**

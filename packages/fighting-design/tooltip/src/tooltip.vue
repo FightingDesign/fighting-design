@@ -39,12 +39,7 @@
 </script>
 
 <template>
-  <div
-    v-if="$slots.default"
-    :f-content="content"
-    :class="classList"
-    :style="styleList"
-  >
+  <div v-if="$slots.default" :f-content="content" :class="classList" :style="styleList">
     <slot />
   </div>
 </template>

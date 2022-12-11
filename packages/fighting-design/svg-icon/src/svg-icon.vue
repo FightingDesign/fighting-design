@@ -22,13 +22,7 @@
 </script>
 
 <template>
-  <i
-    role="img"
-    class="f-svg-icon"
-    text-indent="middle"
-    :style="styleList"
-    @click="handleClick"
-  >
+  <i role="img" class="f-svg-icon" text-indent="middle" :style="styleList" @click="handleClick">
     <component :is="icon" v-if="icon" />
     <slot v-else />
   </i>

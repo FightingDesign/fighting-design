@@ -66,9 +66,7 @@ export const useCalculiColor = (color: string): UseCalculiColorReturn => {
   const getLightColor = (level: number): string => {
     const rgb: string[] = hexToRgb() as string[]
     for (let i = 0; i < rgb.length; i++) {
-      rgb[i] = Math.floor(
-        (255 - Number(rgb[i])) * level + Number(rgb[i])
-      ).toString(16)
+      rgb[i] = Math.floor((255 - Number(rgb[i])) * level + Number(rgb[i])).toString(16)
     }
     return rgbToHex(...rgb)
   }

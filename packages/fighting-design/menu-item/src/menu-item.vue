@@ -14,10 +14,7 @@
   /**
    * 注入父组件的模式依赖项
    */
-  const parentInject = inject<MenuProvide | null>(
-    MENU_PROVIDE_KEY,
-    null
-  ) as MenuProvide
+  const parentInject = inject<MenuProvide | null>(MENU_PROVIDE_KEY, null) as MenuProvide
 
   /**
    * 获取当前组件实例
@@ -67,10 +64,7 @@
 <template>
   <div
     role="menuitem"
-    :class="[
-      'f-menu-item',
-      { 'f-menu-item__active': isActive, 'f-menu-item__disabled': disabled }
-    ]"
+    :class="['f-menu-item', { 'f-menu-item__active': isActive, 'f-menu-item__disabled': disabled }]"
     :style="styleList"
     @click="handelClick"
   >

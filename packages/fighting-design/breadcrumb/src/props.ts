@@ -34,6 +34,4 @@ export const Props = {
 
 export type BreadcrumbProps = ExtractPropTypes<typeof Props>
 
-export const BREADCRUMB_PROPS_KEY: InjectionKey<BreadcrumbProps> = Symbol(
-  'breadcrumb-props-key'
-)
+export const BREADCRUMB_PROPS_KEY: InjectionKey<BreadcrumbProps> = Symbol('breadcrumb-props-key')

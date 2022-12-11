@@ -10,9 +10,7 @@ export * from './interface.d'
  * @param prop 需要操作的 prop 对象
  * @returns
  */
-export const useProps = <T extends object>(
-  prop: T
-): UsePropsReturn => {
+export const useProps = <T extends object>(prop: T): UsePropsReturn => {
   /**
    * 过滤 prop
    *

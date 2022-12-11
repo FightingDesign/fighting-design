@@ -10,7 +10,7 @@ describe('FText', () => {
 
   test('type', () => {
     const type = ['default', 'primary', 'success', 'danger', 'warning'] as const
-    type.forEach((item) => {
+    type.forEach(item => {
       const wrapper = mount(FText, {
         props: { type: item }
       })

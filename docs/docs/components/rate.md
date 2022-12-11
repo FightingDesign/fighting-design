@@ -66,11 +66,7 @@
 
 ```html
 <template>
-  <f-rate
-    v-model="value3"
-    text-show
-    :text-arr="['1星', '2星', '3星', '4星', '5星']"
-  />
+  <f-rate v-model="value3" text-show :text-arr="['1星', '2星', '3星', '4星', '5星']" />
 </template>
 
 <script lang="ts" setup>

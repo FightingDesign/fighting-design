@@ -57,11 +57,7 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 </template>
 
 <script lang="ts" setup>
-  import {
-    FIconApps,
-    FIconBluetooth,
-    FIconBook
-  } from '@fighting-design/fighting-icon'
+  import { FIconApps, FIconBluetooth, FIconBook } from '@fighting-design/fighting-icon'
 </script>
 ```
 

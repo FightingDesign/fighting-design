@@ -3,8 +3,7 @@
 
 .f-notification {
   position: fixed;
-  transition: opacity var(--f-design-transition-time),
-    top var(--f-design-transition-time);
+  transition: opacity var(--f-design-transition-time), top var(--f-design-transition-time);
   padding: 13px 15px;
   font-size: 14px;
   overflow: hidden;

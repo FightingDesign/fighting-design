@@ -41,7 +41,4 @@ export interface CalendarMemorandumContentInterface {
  *
  * 例：'2022-9-21': [{ type: 'danger', content: '今天要考试' }]
  */
-export type CalendarMemorandumType = Record<
-  string,
-  CalendarMemorandumContentInterface[]
->
+export type CalendarMemorandumType = Record<string, CalendarMemorandumContentInterface[]>

@@ -240,13 +240,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  InputInstance,
-  InputProps,
-  InputType,
-  InputChange,
-  InputSearch
-} from 'fighting-design'
+import type { InputInstance, InputProps, InputType, InputChange, InputSearch } from 'fighting-design'
 ```
 
 ### InputType

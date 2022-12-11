@@ -19,16 +19,13 @@ class Drag {
   oldPosition = { x: 0 }
   oldEPosition = { x: 0 }
 
-  constructor (
-    target: HTMLElement,
-    callback: (options: { x: number }) => void
-  ) {
+  constructor (target: HTMLElement, callback: (options: { x: number }) => void) {
     this.target = target
     this.callback = callback
 
     /**
      * 移动触发的回调
-     * 
+     *
      * @param evt 事件对象
      */
     const move = (evt: MouseEvent): void => {
@@ -44,7 +41,7 @@ class Drag {
 
     /**
      * 移动结束的回调
-     * 
+     *
      * @param evt 事件对象
      */
     const end = (evt: MouseEvent): void => {
@@ -62,7 +59,7 @@ class Drag {
 
     /**
      * 开始移动触发的回调
-     * 
+     *
      * @param evt 事件对象
      */
     const start = (evt: MouseEvent): void => {

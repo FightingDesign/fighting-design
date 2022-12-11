@@ -63,8 +63,7 @@
 </template>
 
 ```html
-<f-text color="#58c8de">hello</f-text>
-<f-text color="#e372ff">自定义颜色的字体</f-text>
+<f-text color="#58c8de">hello</f-text> <f-text color="#e372ff">自定义颜色的字体</f-text>
 ```
 
 :::
@@ -207,12 +206,8 @@
 
 ```html
 <f-text background="#ECECEC" padding="10px">上下左右相同的简写</f-text>
-<f-text type="primary" background="#ECECEC" padding="10px 30px">
-  上下、左右分别相同
-</f-text>
-<f-text type="success" background="#ECECEC" padding="10px 20px 30px 40px">
-  分别定义上下左右
-</f-text>
+<f-text type="primary" background="#ECECEC" padding="10px 30px"> 上下、左右分别相同 </f-text>
+<f-text type="success" background="#ECECEC" padding="10px 20px 30px 40px"> 分别定义上下左右 </f-text>
 ```
 
 :::

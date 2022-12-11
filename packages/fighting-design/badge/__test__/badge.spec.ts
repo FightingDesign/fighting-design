@@ -7,10 +7,7 @@ describe('FBadge', () => {
     const wrapper = mount(FBadge)
     expect(wrapper.classes()).toContain('f-badge')
     expect(wrapper.find('sup')).toBeDefined()
-    expect(wrapper.find('sup').classes()).toEqual([
-      'f-badge__content',
-      'f-badge__danger'
-    ])
+    expect(wrapper.find('sup').classes()).toEqual(['f-badge__content', 'f-badge__danger'])
   })
 
   test('type', () => {

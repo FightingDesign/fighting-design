@@ -1,10 +1,5 @@
 import { reactive } from 'vue'
-import type {
-  MessageInstancesType,
-  UseMassageManageReturnInterface,
-  MessageInstance,
-  MessagePlacementType
-} from './interface'
+import type { MessageInstancesType, UseMassageManageReturnInterface, MessageInstance, MessagePlacementType } from './interface'
 
 export * from './interface.d'
 
@@ -22,28 +17,17 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
    * @param id id
    * @returns
    */
-  const getInstanceIndex = (
-    placement: MessagePlacementType,
-    id: string
-  ): number => {
+  const getInstanceIndex = (placement: MessagePlacementType, id: string): number => {
     if (!instances[placement]) return -1
-    return (instances[placement] as MessageInstance[]).findIndex(
-      (item: MessageInstance) => {
-        return item.id === id
-      }
-    )
+    return (instances[placement] as MessageInstance[]).findIndex((item: MessageInstance) => {
+      return item.id === id
+    })
   }
 
-  const getSiblingOffset = (
-    placement: MessagePlacementType,
-    id: string,
-    isNext: boolean
-  ): number => {
+  const getSiblingOffset = (placement: MessagePlacementType, id: string, isNext: boolean): number => {
     const idx: number = getInstanceIndex(placement, id)
     if (idx === -1) return 0
-    const beforeInstance: MessageInstance =
-      (instances[placement] as MessageInstance[])[isNext ? idx + 1 : idx - 1] ||
-      null
+    const beforeInstance: MessageInstance = (instances[placement] as MessageInstance[])[isNext ? idx + 1 : idx - 1] || null
     if (!beforeInstance) return 0
 
     /**
@@ -57,10 +41,7 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
      * exposeProxy: null
      * exposed: 响应式
      */
-    return (
-      beforeInstance.vm.exposeProxy ||
-      (beforeInstance.vm.exposed as MessageInstance)
-    ).bottom
+    return (beforeInstance.vm.exposeProxy || (beforeInstance.vm.exposed as MessageInstance)).bottom
   }
 
   /**
@@ -68,12 +49,9 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
    * @param placement
    * @param id
    */
-  const removeInstance = (
-    placement: MessagePlacementType,
-    id: string
-  ): void => {
+  const removeInstance = (placement: MessagePlacementType, id: string): void => {
     const idx: number = getInstanceIndex(placement, id)
-      ; (instances[placement] as MessageInstance[]).splice(idx, 1)
+    ;(instances[placement] as MessageInstance[]).splice(idx, 1)
   }
 
   /**
@@ -82,10 +60,7 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
    * @param placement
    * @returns
    */
-  const createInstance = (
-    instance: MessageInstance,
-    placement: MessagePlacementType
-  ): MessageInstance => {
+  const createInstance = (instance: MessageInstance, placement: MessagePlacementType): MessageInstance => {
     if (instances[placement]) {
       (instances[placement] as MessageInstance[]).push(instance)
     } else {

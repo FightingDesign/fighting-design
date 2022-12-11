@@ -9,7 +9,7 @@ export type RadioModelValue = string | number | boolean
 
 /**
  * 改变时触发的回调类型接口
- * 
+ *
  * @param value 改变的值
  */
 export type RadioChange = (value: RadioModelValue) => void

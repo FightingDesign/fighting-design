@@ -67,8 +67,7 @@
 
       // 选中状态的小球
       .f-switch__roll {
-        border: 2px solid
-          var(--f-switch-active-color, var(--f-design-color-primary-1));
+        border: 2px solid var(--f-switch-active-color, var(--f-design-color-primary-1));
 
         .f-svg-icon {
           color: var(--f-switch-active-color, var(--f-design-color-primary-1));

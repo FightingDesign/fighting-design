@@ -50,24 +50,15 @@
   }
 
   &.f-tooltip__right::before {
-    border-right-color: var(
-      --f-tooltip-background,
-      var(--f-design-color-text-1)
-    );
+    border-right-color: var(--f-tooltip-background, var(--f-design-color-text-1));
   }
 
   &.f-tooltip__bottom::before {
-    border-bottom-color: var(
-      --f-tooltip-background,
-      var(--f-design-color-text-1)
-    );
+    border-bottom-color: var(--f-tooltip-background, var(--f-design-color-text-1));
   }
 
   &.f-tooltip__left::before {
-    border-left-color: var(
-      --f-tooltip-background,
-      var(--f-design-color-text-1)
-    );
+    border-left-color: var(--f-tooltip-background, var(--f-design-color-text-1));
   }
 
   &.f-tooltip__top.f-tooltip__bright::before {

@@ -62,11 +62,7 @@
       <header class="f-drawer__header">
         <slot name="header">
           <span class="f-drawer__header-title">{{ title }}</span>
-          <f-close-btn
-            v-if="showCloseIcon"
-            :icon="closeIcon"
-            @click="closeDrawer"
-          >
+          <f-close-btn v-if="showCloseIcon" :icon="closeIcon" @click="closeDrawer">
             <slot name="closeIcon" />
           </f-close-btn>
         </slot>

@@ -103,14 +103,7 @@
 
 ```html
 <f-progress :percentage="10" width="360px" :height="27" show-text />
-<f-progress
-  type="success"
-  :percentage="40"
-  width="100%"
-  :height="20"
-  show-text
-  text-inside
-/>
+<f-progress type="success" :percentage="40" width="100%" :height="20" show-text text-inside />
 ```
 
 :::
@@ -129,8 +122,7 @@
 </template>
 
 ```html
-<f-progress type="danger" :percentage="70" color="#ff386a" />
-<f-progress type="success" :percentage="40" background="#C3FFBD" />
+<f-progress type="danger" :percentage="70" color="#ff386a" /> <f-progress type="success" :percentage="40" background="#C3FFBD" />
 ```
 
 :::
@@ -209,11 +201,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  ProgressInstance,
-  ProgressProps,
-  ProgressType
-} from 'fighting-design'
+import type { ProgressInstance, ProgressProps, ProgressType } from 'fighting-design'
 ```
 
 ### ProgressType

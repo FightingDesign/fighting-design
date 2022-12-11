@@ -4,7 +4,7 @@ import type { LayoutDirection } from './interface'
 export const Props = {
   /**
    * 排列方向
-   * 
+   *
    * @values horizontal vertical
    */
   direction: {

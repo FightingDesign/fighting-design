@@ -9,25 +9,12 @@
   /**
    * 类名列表
    */
-  const classList = classes(
-    ['type', 'block', 'bold', 'ellipsis', 'center'],
-    'f-text'
-  )
+  const classList = classes(['type', 'block', 'bold', 'ellipsis', 'center'], 'f-text')
 
   /**
    * 样式列表
    */
-  const styleList = styles([
-    'color',
-    'background',
-    'decoration',
-    'width',
-    'size',
-    'padding',
-    'spacing',
-    'lineHeight',
-    'indent'
-  ])
+  const styleList = styles(['color', 'background', 'decoration', 'width', 'size', 'padding', 'spacing', 'lineHeight', 'indent'])
 </script>
 
 <template>

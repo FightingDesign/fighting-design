@@ -1,8 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type {
-  InputNumberModel,
-  InputNumberChange
-} from './interface'
+import type { InputNumberModel, InputNumberChange } from './interface'
 import type { HandleEvent, FightingSize } from '../../_interface'
 
 export const Props = {
