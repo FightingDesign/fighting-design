@@ -1,7 +1,6 @@
 <script lang="ts" setup name="FStickyCard">
   import { Props } from './props'
   import { ref, computed, unref } from 'vue'
-  import { sizeChange } from '../../_utils'
   import { useRun } from '../../_hooks'
   import { FCollapseAnimation } from '../../collapse-animation'
   import type { CSSProperties } from 'vue'
@@ -34,12 +33,11 @@
    * 样式列表
    */
   const styleList = computed((): CSSProperties => {
-    const { background, openHeight, borderColor } = prop
+    const { background, borderColor } = prop
 
     return {
-      '--sticky-card-content-background': background,
-      '--sticky-card-border-color': borderColor,
-      '--sticky-card-max-height': sizeChange(openHeight)
+      '--f-sticky-card-content-background': background,
+      '--f-sticky-card-border-color': borderColor
     } as CSSProperties
   })
 </script>

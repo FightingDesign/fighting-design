@@ -106,36 +106,29 @@
 
 ## Attributes
 
-| 参数           | 说明               | 类型            | 可选值 | 默认值  |
-| -------------- | ------------------ | --------------- | ------ | ------- |
-| `open`         | 是否展开           | boolean         | ——     | false   |
-| `background`   | 内容背景色         | string          | ——     | #fff    |
-| `open-text`    | 操作栏展开时的文字 | string          | ——     | 关闭    |
-| `close-text`   | 操作栏关闭时的文字 | string          | ——     | 开启    |
-| `open-height`  | 展开的高度         | string / number | ——     | 800px   |
-| `border-color` | 自定义边框颜色     | string          | ——     | #e5e5e5 |
-| `on-open`      | 打开时的回调       | Function        | ——     | ——      |
-| `on-close`     | 关闭时的回调       | Function        | ——     | ——      |
+| 参数           | 说明               | 类型                                                               | 可选值 | 默认值 |
+| -------------- | ------------------ | ------------------------------------------------------------------ | ------ | ------ |
+| `open`         | 是否展开           | boolean                                                            | ——     | false  |
+| `background`   | 内容背景色         | string                                                             | ——     | ——     |
+| `open-text`    | 操作栏展开时的文字 | string                                                             | ——     | 关闭   |
+| `close-text`   | 操作栏关闭时的文字 | string                                                             | ——     | 开启   |
+| `border-color` | 自定义边框颜色     | string                                                             | ——     | ——     |
+| `on-open`      | 打开时的回调       | <a href="/components/interface.html#handlechange">HandleChange</a> | ——     | ——     |
+| `on-close`     | 关闭时的回调       | <a href="/components/interface.html#handlechange">HandleChange</a> | ——     | ——     |
 
 ## Slots
 
-| 名称          | 说明                 |
-| ------------- | -------------------- |
-| `default`     | 默认折叠内容         |
-| `source`      | 来源内容             |
-| `optionLeft`  | 操作栏自定义左侧内容 |
-| `optionRight` | 操作栏自定义右侧内容 |
+| 名称      | 说明         |
+| --------- | ------------ |
+| `default` | 默认折叠内容 |
+| `source`  | 来源内容     |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type {
-  StickyCardInstance,
-  StickyCardPropsType,
-  StickyCardEmitInterface
-} from 'fighting-design'
+import type { StickyCardInstance, StickyCardProps } from 'fighting-design'
 ```
 
 ## Contributors

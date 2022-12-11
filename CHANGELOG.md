@@ -20,6 +20,8 @@
 - `f-image` 组件 `round` 默认值改为 null
 - `f-image-preview` 组件 `z-index` 默认值改为 null
 - `f-expand-card` 组件 `color` 默认值改为 null
+- `f-sticky-card` 组件 `border-color` 默认值改为 null
+- `f-sticky-card` 组件移除 `open-height` 配置项
 
 ## 0.9.0 (2022-12-07)
 

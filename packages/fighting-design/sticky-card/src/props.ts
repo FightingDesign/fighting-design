@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { StickyCardEmit } from './interface'
+import type { HandleChange } from '../../_interface'
 
 export const Props = {
   /**
@@ -31,31 +31,24 @@ export const Props = {
     default: (): string => '开启'
   },
   /**
-   * 展开的高度
-   */
-  openHeight: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '800px'
-  },
-  /**
    * 自定义边框颜色
    */
   borderColor: {
     type: String,
-    default: (): string => '#e5e5e5'
+    default: (): null => null
   },
   /**
    * 打开时的回调
    */
   onOpen: {
-    type: Function as PropType<StickyCardEmit>,
+    type: Function as PropType<HandleChange>,
     default: (): null => null
   },
   /**
    * 关闭时的回调
    */
   onClose: {
-    type: Function as PropType<StickyCardEmit>,
+    type: Function as PropType<HandleChange>,
     default: (): null => null
   }
 } as const
