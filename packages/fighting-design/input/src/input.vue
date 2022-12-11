@@ -12,7 +12,7 @@
   import { isString, isNumber } from '../../_utils'
   import { useUpdateInput, useProps, useRun } from '../../_hooks'
   import type { InputType } from './interface'
-  import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
+  import type { UseUpdateInputProps } from '../../_hooks'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -39,7 +39,7 @@
       'onInput',
       'disabled',
       'type'
-    ]) as unknown as UseUpdateInputPropsInterface,
+    ]) as unknown as UseUpdateInputProps,
     emit
   )
 

@@ -207,7 +207,7 @@
 | 参数            | 说明                       | 类型                                                               | 可选值                          | 默认值  |
 | --------------- | -------------------------- | ------------------------------------------------------------------ | ------------------------------- | ------- |
 | `v-model`       | 绑定值                     | string                                                             | ——                              | ——      |
-| `type`          | 类型                       | string                                                             | `text` `password` `number`      | text    |
+| `type`          | 类型                       | <a href="#inputtype">InputType</a>                                 | `text` `password` `number`      | text    |
 | `size`          | 尺寸                       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle  |
 | `disabled`      | 是否禁用                   | boolean                                                            | ——                              | false   |
 | `max`           | 最大值                     | number                                                             | ——                              | ——      |
@@ -222,12 +222,12 @@
 | `show-password` | 是否展示显示密码图标       | boolean                                                            | ——                              | false   |
 | `enter-search`  | 是否按下回车触发搜索       | boolean                                                            | ——                              | false   |
 | `icon`          | 自定义前缀 icon            | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——      |
-| `on-search`     | 点击搜索触发的回调         | Function                                                           | ——                              | ——      |
-| `on-change`     | 绑定值发生变化时触发的回调 | Function                                                           | ——                              | ——      |
-| `on-blur`       | 失去焦点触发的回调         | Function                                                           | ——                              | ——      |
-| `on-focus`      | 获取焦点触发的回调         | Function                                                           | ——                              | ——      |
-| `on-enter`      | 按下回车触发的回调         | Function                                                           | ——                              | ——      |
-| `on-input`      | 原生 input 事件回调        | Function                                                           | ——                              | ——      |
+| `on-search`     | 点击搜索触发的回调         | <a href="#inputsearch">InputSearch</a>                             | ——                              | ——      |
+| `on-change`     | 绑定值发生变化时触发的回调 | <a href="#inputchange">InputChange</a>                             | ——                              | ——      |
+| `on-blur`       | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| `on-focus`      | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| `on-enter`      | 按下回车触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| `on-input`      | 原生 input 事件回调        | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
 
 ## Slots
 
@@ -242,12 +242,29 @@
 ```ts
 import type {
   InputInstance,
-  InputPropsType,
+  InputProps,
   InputType,
-  InputSizeType,
-  InputChangeInterface,
-  InputSearchInterface
+  InputChange,
+  InputSearch
 } from 'fighting-design'
+```
+
+### InputType
+
+```ts
+type InputType = 'text' | 'password' | 'number'
+```
+
+### InputChange
+
+```ts
+type InputChange = (value: string) => void
+```
+
+### InputSearch
+
+```ts
+type InputSearch = ({ evt: Event, value: string }) => void
 ```
 
 ## Contributors

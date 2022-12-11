@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { InputType, InputChangeInterface, InputSearchInterface } from './interface'
+import type { InputType, InputChange, InputSearch } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -144,17 +144,24 @@ export const Props = {
     default: (): null => null
   },
   /**
+   * 后缀 icon
+   */
+  afterIcon: {
+    type: Object as PropType<FightingIcon>,
+    default: (): null => null
+  },
+  /**
    * 点击搜索之后触发的回调
    */
   onSearch: {
-    type: Function as PropType<InputSearchInterface>,
+    type: Function as PropType<InputSearch>,
     default: (): null => null
   },
   /**
    * 绑定值发生改变时触发的回调
    */
   onChange: {
-    type: Function as PropType<InputChangeInterface>,
+    type: Function as PropType<InputChange>,
     default: (): null => null
   },
   /**
@@ -183,13 +190,6 @@ export const Props = {
    */
   onEnter: {
     type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
-  /**
-   * 后缀 icon
-   */
-  afterIcon: {
-    type: Object as PropType<FightingIcon>,
     default: (): null => null
   }
 } as const
