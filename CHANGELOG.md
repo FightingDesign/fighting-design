@@ -9,6 +9,7 @@
 
 **新增**
 
+- 新增 `f-fighting-global` 组件
 - 新增 `f-list` 组件 `zebra-color` 配置项
 - 新增 `f-list` 组件 `size` 配置项新增 `mini` 可选项
 
