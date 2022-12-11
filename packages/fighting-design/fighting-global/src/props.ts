@@ -1,4 +1,4 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { FightingSize, FightingType } from '../../_interface'
 
 export const Props = {
@@ -10,7 +10,7 @@ export const Props = {
    */
   size: {
     type: String as PropType<FightingSize>,
-    default: (): FightingSize => 'middle',
+    default: (): null => null,
     validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
@@ -23,7 +23,7 @@ export const Props = {
    */
   type: {
     type: String as PropType<FightingType>,
-    default: (): FightingType => 'default',
+    default: (): null => null,
     validator: (val: FightingType): boolean => {
       return (
         ['default', 'primary', 'success', 'danger', 'warning'] as const
@@ -33,3 +33,5 @@ export const Props = {
 } as const
 
 export type FightingGlobalProps = ExtractPropTypes<typeof Props>
+
+export const FIGHTING_GLOBAL_PROPS_KEY: InjectionKey<FightingGlobalProps> = Symbol('fighting-global-props-key')

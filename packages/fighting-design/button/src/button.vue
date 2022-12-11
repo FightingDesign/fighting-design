@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FButton">
   import { Props } from './props'
   import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
+  import { FIGHTING_GLOBAL_PROPS_KEY } from '../../fighting-global/src/props'
   import { computed, ref, inject, toRefs, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
@@ -8,7 +9,8 @@
   import { sizeChange } from '../../_utils'
   import type { RipplesOptions } from '../../_hooks'
   import type { CSSProperties } from 'vue'
-  import type { ClassList, FightingSize } from '../../_interface'
+  import type { FightingGlobalProps } from '../../fighting-global'
+  import type { ClassList, FightingSize, FightingType } from '../../_interface'
 
   const prop = defineProps(Props)
 
@@ -20,30 +22,31 @@
    * 获取父组件注入的依赖项
    */
   const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)
+  /**
+   * 获取全局配置组件注入的依赖项
+   */
+  const fightingGlobalInject = inject<FightingGlobalProps | null>(FIGHTING_GLOBAL_PROPS_KEY, null)
+
+  /**
+   * 计算按钮组件所需要的 type
+   */
+  const buttonType = computed((): FightingType => {
+    const { type } = prop
+
+    return type || (fightingGlobalInject && fightingGlobalInject.type) || 'default'
+  })
 
   /**
    * 类名列表
    */
   const classList = computed((): ClassList => {
-    const {
-      type,
-      round,
-      simple,
-      block,
-      disabled,
-      loading,
-      bold,
-      size,
-      text,
-      circle,
-      color
-    } = prop
+    const { type, round, simple, block, disabled, loading, bold, size, text, circle, color } = prop
 
     return [
       'f-button',
       {
         [`f-button__${parentInject || size}`]: parentInject || size,
-        [`f-button__${type}`]: type && !color,
+        [`f-button__${buttonType.value}`]: type || (fightingGlobalInject && fightingGlobalInject.type && !color),
         'f-button__disabled': disabled || loading,
         'f-button__simple': simple && !color,
         'f-button__circle': circle,
@@ -124,16 +127,7 @@
 
 <template>
   <template v-if="href">
-    <a
-      ref="FButton"
-      role="button"
-      tabindex="0"
-      :class="classList"
-      :href="href"
-      :target="target"
-      :style="styleList"
-      @click="handleClick"
-    >
+    <a ref="FButton" role="button" tabindex="0" :class="classList" :href="href" :target="target" :style="styleList" @click="handleClick">
       <f-svg-icon
         v-if="loading || beforeIcon"
         :class="{ 'f-button__loading-animation': loading }"
@@ -161,22 +155,14 @@
     >
       <f-svg-icon
         v-if="loading || beforeIcon"
-        :class="[
-          'f-button_before-icon',
-          { 'f-button__loading-animation': loading }
-        ]"
+        :class="['f-button_before-icon', { 'f-button__loading-animation': loading }]"
         :icon="loading ? loadingIcon || FIconLoadingAVue : beforeIcon"
         :size="16"
       />
 
       <slot />
 
-      <f-svg-icon
-        v-if="afterIcon"
-        class="f-button_after-icon"
-        :icon="afterIcon"
-        :size="16"
-      />
+      <f-svg-icon v-if="afterIcon" class="f-button_after-icon" :icon="afterIcon" :size="16" />
     </button>
   </template>
 </template>

@@ -108,7 +108,7 @@ export const Props = {
    */
   type: {
     type: String as PropType<FightingType>,
-    default: (): FightingType => 'default',
+    default: (): null => null,
     validator: (val: FightingType): boolean => {
       return (
         ['default', 'primary', 'success', 'danger', 'warning'] as const

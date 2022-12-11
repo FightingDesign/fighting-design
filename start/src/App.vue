@@ -1,19 +1,14 @@
 <script lang="ts" setup>
-  import {
-    FIconApps,
-    FIconBlock,
-    FIconCameraVideoSlash,
-    FIconClock
-  } from '@fighting-design/fighting-icon'
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
 </script>
 
 <template>
-  <f-fighting-global>
-    <f-button type="default">默认按钮</f-button>
-    <f-button type="primary">主要按钮</f-button>
-    <f-button type="success">成功按钮</f-button>
-    <f-button type="danger">危险按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
+  <f-fighting-global type="primary">
+    <f-button>默认按钮</f-button>
+    <f-button>主要按钮</f-button>
+    <f-button>成功按钮</f-button>
+    <f-button>危险按钮</f-button>
+    <f-button>警告按钮</f-button>
 
     <f-button simple type="default">默认按钮</f-button>
     <f-button simple type="primary">主要按钮</f-button>
