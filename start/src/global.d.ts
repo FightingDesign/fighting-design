@@ -75,6 +75,7 @@ declare module 'vue' {
     FSubmenu: typeof components.FSubmenu
     FCollapseAnimation: typeof components.FCollapseAnimation
     FSlider: typeof components.FSlider
+    FFightingGlobal: typeof components.FFightingGlobal
   }
 
   interface ComponentCustomProperties {
@@ -84,4 +85,4 @@ declare module 'vue' {
   }
 }
 
-export {}
+export { }

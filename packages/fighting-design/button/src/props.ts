@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ButtonTarget, ButtonNative } from './interface'
-import type { FightingSize, FightingType, FightingIcon, HandelClick } from '../../_interface'
+import type { FightingSize, FightingType, FightingIcon, HandleMouse } from '../../_interface'
 
 export const Props = {
   /**
@@ -203,7 +203,7 @@ export const Props = {
    * 点击之后的回调函数
    */
   onClick: {
-    type: Function as PropType<HandelClick>,
+    type: Function as PropType<HandleMouse>,
     default: (): null => null
   }
 } as const

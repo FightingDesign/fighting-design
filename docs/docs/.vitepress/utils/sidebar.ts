@@ -45,6 +45,13 @@ export const sidebar = {
       ]
     },
     {
+      text: '配置组件',
+      link: '/components/',
+      items: [
+        { text: 'Fighting Global 全局配置', link: '/components/fighting-global' }
+      ]
+    },
+    {
       text: '数据输入',
       link: '/components/',
       items: [

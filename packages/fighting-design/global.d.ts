@@ -75,6 +75,7 @@ declare module '@vue/runtime-core' {
     FSubmenu: typeof components.FSubmenu
     FCollapseAnimation: typeof components.FCollapseAnimation
     FSlider: typeof components.FSlider
+    FFightingGlobal: typeof components.FFightingGlobal
   }
 
   interface ComponentCustomProperties {

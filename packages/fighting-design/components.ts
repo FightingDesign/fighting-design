@@ -212,3 +212,6 @@ export * from './collapse-animation'
 
 export { FSlider } from './slider'
 export * from './slider'
+
+export { FFightingGlobal } from './fighting-global'
+export * from './fighting-global'
