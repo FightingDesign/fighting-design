@@ -1,6 +1,6 @@
 # Alert 警告
 
-`Alert` 用于页面中展示重要的提示信息
+用于页面中展示重要的提示信息
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/alert)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/alert.md)
@@ -237,12 +237,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  AlertPropsType,
-  AlertInstance,
-  AlertType,
-  AlertOverflowType
-} from 'fighting-design'
+import type { AlertInstance, AlertProps, AlertOverflow } from 'fighting-design'
 ```
 
 ## Contributors

@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FExpandCard">
   import { Props } from './props'
   import { computed, ref } from 'vue'
-  import { sizeChange, isString } from '../../_utils'
+  import { sizeChange, isString, isArray } from '../../_utils'
   import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
   import type { ExpandCardImageListItem } from './interface'
@@ -47,6 +47,10 @@
   const imageListArr = computed((): ExpandCardImageListItem[] => {
     const { imageList } = prop
 
+    if (!imageList && !isArray(imageList)) {
+      return []
+    }
+
     return imageList.map(
       (item: string | ExpandCardImageListItem): ExpandCardImageListItem => {
         if (isString(item)) {
@@ -71,7 +75,7 @@
 </script>
 
 <template>
-  <div class="f-expand-card" :style="styleList">
+  <div v-if="imageListArr.length" class="f-expand-card" :style="styleList">
     <div
       v-for="(item, index) in imageListArr"
       :key="index"

@@ -180,7 +180,7 @@
 ```ts
 import type {
   BreadcrumbInstance,
-  BreadcrumbPropsType,
+  BreadcrumbProps,
   BreadcrumbItemInstance,
   BreadcrumbItemPropsType
 } from 'fighting-design'

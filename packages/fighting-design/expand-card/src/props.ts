@@ -28,7 +28,7 @@ export const Props = {
    */
   color: {
     type: String,
-    default: (): string => '#fff'
+    default: (): null => null
   },
   /**
    * 自定义宽度
