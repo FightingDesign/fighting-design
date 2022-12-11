@@ -4,7 +4,9 @@ import { FFightingGlobal } from '../index'
 
 describe('FightingGlobal', () => {
   test('class', () => {
-    const wrapper = mount(FFightingGlobal)
-    expect(wrapper.classes()).toContain('f-fighting-global')
+    const wrapper = mount(FFightingGlobal, {
+      slots: { default: 'hello' }
+    })
+    expect(wrapper.text()).toContain('hello')
   })
 })
