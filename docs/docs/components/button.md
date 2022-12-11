@@ -120,9 +120,7 @@
 ```html
 <template>
   <f-button circle :before-icon="FIconApps" type="primary" />
-  <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock">
-    前后都有
-  </f-button>
+  <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock"> 前后都有 </f-button>
 </template>
 
 <script setup lang="ts">
@@ -277,9 +275,7 @@
 <f-button type="success" ripples>涟漪效果</f-button>
 <f-button type="warning" ripples>点我试试</f-button>
 <f-button type="danger" ripples simple>看看我</f-button>
-<f-button type="success" text ripples ripples-color="green">
-  自定义涟漪颜色
-</f-button>
+<f-button type="success" text ripples ripples-color="green"> 自定义涟漪颜色 </f-button>
 ```
 
 :::
@@ -363,7 +359,7 @@
 | `before-icon`   | 之前的 icon                                                                                                                                                                                                   | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——       |
 | `after-icon`    | 之后的 icon                                                                                                                                                                                                   | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——       |
 | `loading-icon`  | loading 状态下的 icon                                                                                                                                                                                         | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——       |
-| `type`          | 按钮的类型 （不同类型对应不同的背景和字体颜色，非自定义按钮颜色时有效）                                                                                                                                       | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | default  |
+| `type`          | 按钮的类型 （不同类型对应不同的背景和字体颜色，非自定义按钮颜色时有效）                                                                                                                                       | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | ——       |
 | `autofocus`     | 是否自动获取焦点                                                                                                                                                                                              | boolean                                                            | ——                                               | false    |
 | `name`          | 按钮的名字                                                                                                                                                                                                    | string                                                             | ——                                               | f-button |
 | `shadow`        | 按钮的阴影                                                                                                                                                                                                    | string                                                             | ——                                               | ——       |
