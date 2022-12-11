@@ -28,25 +28,30 @@
   const fightingGlobalInject = inject<FightingGlobalProps | null>(FIGHTING_GLOBAL_PROPS_KEY, null)
 
   /**
-   * 计算按钮组件所需要的 type
+   * 计算按钮组件的 type
    */
   const buttonType = computed((): FightingType => {
-    const { type } = prop
+    return prop.type || (fightingGlobalInject && fightingGlobalInject.type) || 'default'
+  })
 
-    return type || (fightingGlobalInject && fightingGlobalInject.type) || 'default'
+  /**
+   * 计算按钮组件的 size
+   */
+  const buttonSize = computed((): FightingSize => {
+    return prop.size || parentInject || (fightingGlobalInject && fightingGlobalInject.size) || 'middle'
   })
 
   /**
    * 类名列表
    */
   const classList = computed((): ClassList => {
-    const { type, round, simple, block, disabled, loading, bold, size, text, circle, color } = prop
+    const { round, simple, block, disabled, loading, bold, text, circle, color } = prop
 
     return [
       'f-button',
+      `f-button__${buttonSize.value}`,
       {
-        [`f-button__${parentInject || size}`]: parentInject || size,
-        [`f-button__${buttonType.value}`]: type || (fightingGlobalInject && fightingGlobalInject.type && !color),
+        [`f-button__${buttonType.value}`]: !color,
         'f-button__disabled': disabled || loading,
         'f-button__simple': simple && !color,
         'f-button__circle': circle,

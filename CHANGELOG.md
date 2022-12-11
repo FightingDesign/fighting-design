@@ -25,6 +25,8 @@
 - `f-sticky-card` 组件移除 `open-height` 配置项
 - `f-rate` 组件 `size` 配置项默认值改为 25
 - `f-button` 组件 `type` 默认值改为 null
+- `f-button` 组件 `size` 默认值改为 null
+- `f-button-group` 组件 `size` 默认值改为 null
 
 ## 0.9.0 (2022-12-07)
 

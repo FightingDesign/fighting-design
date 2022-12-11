@@ -3,12 +3,18 @@
 </script>
 
 <template>
-  <f-fighting-global type="primary">
+  <f-fighting-global type="primary" size="mini">
     <f-button>默认按钮</f-button>
     <f-button>主要按钮</f-button>
     <f-button>成功按钮</f-button>
     <f-button>危险按钮</f-button>
     <f-button>警告按钮</f-button>
+
+    <f-button-group direction="horizontal" size="middle">
+      <f-button type="primary">左边的</f-button>
+      <f-button type="primary">中间的</f-button>
+      <f-button type="primary">右边的</f-button>
+    </f-button-group>
 
     <f-button simple type="default">默认按钮</f-button>
     <f-button simple type="primary">主要按钮</f-button>

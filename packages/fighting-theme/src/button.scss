@@ -76,6 +76,7 @@
     &.f-button__#{map-get($item, name)} {
       height: map-get($item, height);
       padding: 0 map-get($item, padding);
+      font-size: map-get($item, fontSize);
 
       // 圆形按钮
       &.f-button__circle {
