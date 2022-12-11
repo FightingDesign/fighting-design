@@ -117,19 +117,25 @@
 | `invalid-color ` | 未选中的颜色               | string                                                             | ——     | #eef                                     |
 | `readonly`       | 是否只读                   | boolean                                                            | ——     | false                                    |
 | `icon`           | 自定义 icon                | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——                                       |
-| `size`           | 图标尺寸                   | string / number                                                    |        | 25px                                     |
+| `size`           | 图标尺寸                   | string / number                                                    |        | 25                                       |
 | `text-show`      | 是否展示辅助文字           | boolean                                                            | ——     | false                                    |
 | `text-color`     | 辅助文字颜色               | string                                                             | ——     | ——                                       |
-| `text-arr`       | 辅助文字数组               | []                                                                 | ——     | ['极差', '失望', '一般', '不错', '很棒'] |
+| `text-arr`       | 辅助文字数组               | array                                                              | ——     | ['极差', '失望', '一般', '不错', '很棒'] |
 | `text-size`      | 辅助文字尺寸               | string / number                                                    | ——     | ——                                       |
-| `on-change`      | 当分数发生改变时触发的回调 | Function                                                           | ——     | ——                                       |
+| `on-change`      | 当分数发生改变时触发的回调 | <a href="#ratechange">RateChange</a>                               | ——     | ——                                       |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type { RatePropsType, RateInstance } from 'fighting-design'
+import type { RateInstance, RateProps, RateChange } from 'fighting-design'
+```
+
+### RateChange
+
+```ts
+type RateChange = (value: number) => number
 ```
 
 ## Contributors

@@ -52,7 +52,7 @@ export const Props = {
    */
   size: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '25px'
+    default: (): number => 25
   },
   /**
    * 是否展示辅助文字
