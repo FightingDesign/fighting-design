@@ -9,6 +9,10 @@
     <f-alert title="Hello~">今天代码写的很愉快！</f-alert>
     <!-- <f-alert type="success" title="标题">心情很不错</f-alert> -->
 
+    <f-text type="default">普通文字</f-text>
+    <f-text>普通文字</f-text>
+    <f-text>普通文字</f-text>
+
     <f-button>默认按钮</f-button>
     <f-button>主要按钮</f-button>
     <f-button>成功按钮</f-button>

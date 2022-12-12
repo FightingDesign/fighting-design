@@ -1,12 +1,22 @@
 <script lang="ts" setup name="Ripple">
   import { Props } from './props'
-  import { useRipples, useList } from '../../_hooks'
+  import { useRipples, useList, useGlobal } from '../../_hooks'
   import { ref, toRefs, reactive } from 'vue'
   import type { RipplesOptions } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  const { styles } = useList(prop, 'ripple')
+  const { getType } = useGlobal(prop)
+
+  /**
+   * 替换 type 后得到的 props
+   */
+  const params = reactive({
+    ...prop,
+    type: getType().value
+  })
+
+  const { styles } = useList(params, 'ripple')
 
   /**
    * dom 节点

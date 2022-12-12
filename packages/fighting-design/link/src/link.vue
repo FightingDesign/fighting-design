@@ -1,11 +1,23 @@
 <script lang="ts" setup name="FLink">
   import { Props } from './props'
+  import { reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
-  import { useList, useRun } from '../../_hooks'
+  import { useList, useRun, useGlobal } from '../../_hooks'
+  import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  const { classes, styles } = useList(prop, 'link')
+  const { getType } = useGlobal(prop as unknown as UseGlobalProp)
+
+  /**
+   * 替换 type 后得到的 props
+   */
+  const params = reactive({
+    ...prop,
+    type: getType('primary').value
+  })
+
+  const { classes, styles } = useList(params, 'link')
 
   /**
    * 点击触发

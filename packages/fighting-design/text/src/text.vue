@@ -1,10 +1,22 @@
 <script lang="ts" setup name="FText">
   import { Props } from './props'
-  import { useList } from '../../_hooks'
+  import { reactive } from 'vue'
+  import { useList, useGlobal } from '../../_hooks'
+  import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  const { classes, styles } = useList(prop, 'text')
+  const { getType } = useGlobal(prop as unknown as UseGlobalProp)
+
+  /**
+   * 替换 type 后得到的 props
+   */
+  const params = reactive({
+    ...prop,
+    type: getType().value
+  })
+
+  const { classes, styles } = useList(params, 'text')
 
   /**
    * 类名列表
