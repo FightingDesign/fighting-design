@@ -10,3 +10,5 @@ export const LANG = {
     }
   }
 } as const
+
+export type ILangKey = typeof LANG[keyof typeof LANG]
