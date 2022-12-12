@@ -6,7 +6,7 @@ export type { BreadcrumbItemProps } from './props'
  * @param name 路由名称
  * @param query 路由参数
  */
-export interface BreadcrumbItemToInterface {
+export interface BreadcrumbItemTo {
   name: string
   query?: Object
 }

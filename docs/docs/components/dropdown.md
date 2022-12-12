@@ -97,7 +97,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DropdownInstance, DropdownPropsType, DropdownItemInstance, DropdownItemPropsType } from 'fighting-design'
+import type { DropdownInstance, DropdownProps, DropdownTrigger, DropdownItemInstance, DropdownItemProps } from 'fighting-design'
+```
+
+### DropdownTrigger
+
+```ts
+type DropdownTrigger = 'hover' | 'click'
 ```
 
 ## Contributors

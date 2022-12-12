@@ -162,7 +162,7 @@
 
 | 属性         | 说明               | 类型                                                               | 可选值 | 默认值 |
 | ------------ | ------------------ | ------------------------------------------------------------------ | ------ | ------ |
-| `to`         | 跳转的路径         | string / object                                                    | ——     | ——     |
+| `to`         | 跳转的路径         | string / <a href="#breadcrumbitemto">BreadcrumbItemTo</a>          | ——     | ——     |
 | `separator`  | 自定义分隔符       | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
 | `font-color` | 自定义导航文字颜色 | string                                                             | ——     | ——     |
 | `icon-color` | 自定义 icon 颜色   | string                                                             | ——     | ——     |
@@ -178,7 +178,16 @@
 组件导出以下类型定义：
 
 ```ts
-import type { BreadcrumbInstance, BreadcrumbProps, BreadcrumbItemInstance, BreadcrumbItemPropsType } from 'fighting-design'
+import type { BreadcrumbInstance, BreadcrumbProps, BreadcrumbItemInstance, BreadcrumbItemProps, BreadcrumbItemTo } from 'fighting-design'
+```
+
+### BreadcrumbItemTo
+
+```ts
+interface BreadcrumbItemTo {
+  name: string
+  query?: Object
+}
 ```
 
 ## Contributors

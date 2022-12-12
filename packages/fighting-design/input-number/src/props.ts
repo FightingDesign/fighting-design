@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { InputNumberModel, InputNumberChange } from './interface'
-import type { HandleEvent, FightingSize } from '../../_interface'
+import type { InputNumberModel } from './interface'
+import type { HandleEvent, FightingSize, InputChange } from '../../_interface'
 
 export const Props = {
   /**
@@ -120,7 +120,7 @@ export const Props = {
    * 绑定值发生改变时触发的回调
    */
   onChange: {
-    type: Function as PropType<InputNumberChange>,
+    type: Function as PropType<InputChange>,
     default: (): null => null
   },
   /**

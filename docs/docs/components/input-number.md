@@ -59,23 +59,23 @@
 | `placeholder` | 占位符                     | string                                                             | ——                              | ——             |
 | `clear`       | 是否可清空                 | boolean                                                            | ——                              | false          |
 | `readonly`    | 是否只读                   | boolean                                                            | ——                              | false          |
-| `on-change`   | 绑定值发生变化时触发的回调 | Function                                                           | ——                              | ——             |
-| `on-blur`     | 失去焦点触发的回调         | Function                                                           | ——                              | ——             |
-| `on-focus`    | 获取焦点触发的回调         | Function                                                           | ——                              | ——             |
-| `on-input`    | 原生 input 事件回调        | Function                                                           | ——                              | ——             |
+| `on-blur`     | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——             |
+| `on-focus`    | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——             |
+| `on-input`    | 原生 input 事件回调        | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——             |
+| `on-change`   | 绑定值发生变化时触发的回调 | <a href="/components/interface.html#inputchange">InputChange</a>   | ——                              | ——             |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type {
-  InputNumberInstance,
-  InputNumberPropsType,
-  InputNumberSizeType,
-  InputNumberModelType,
-  InputNumberChangeInterface
-} from 'fighting-design'
+import type { InputNumberInstance, InputNumberProps, InputNumberModel } from 'fighting-design'
+```
+
+### InputNumberModel
+
+```ts
+type InputNumberModel = 'default' | 'button' | 'switch'
 ```
 
 ## Contributors

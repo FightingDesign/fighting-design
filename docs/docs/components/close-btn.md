@@ -79,7 +79,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { CloseBtnInstance, CloseBtnPropsType } from 'fighting-design'
+import type { CloseBtnInstance, CloseBtnProps } from 'fighting-design'
 ```
 
 ## Contributors

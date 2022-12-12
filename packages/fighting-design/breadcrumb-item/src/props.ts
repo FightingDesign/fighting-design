@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { BreadcrumbItemToInterface } from './interface'
+import type { BreadcrumbItemTo } from './interface'
 import type { FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -28,7 +28,7 @@ export const Props = {
    * 跳转的路径参数
    */
   to: {
-    type: [String, Object] as PropType<string | BreadcrumbItemToInterface>,
+    type: [String, Object] as PropType<string | BreadcrumbItemTo>,
     default: (): null => null
   }
 }
