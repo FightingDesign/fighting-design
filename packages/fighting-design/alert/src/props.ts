@@ -7,11 +7,11 @@ export const Props = {
    * 类型
    *
    * @values primary success danger warning default
-   * @defaultValue default
+   * @defaultValue null
    */
   type: {
     type: String as PropType<FightingType>,
-    default: (): FightingType => 'default',
+    default: (): null => null,
     validator: (val: FightingType): boolean => {
       return (['primary', 'success', 'danger', 'warning', 'default'] as const).includes(val)
     }

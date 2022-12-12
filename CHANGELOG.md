@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-alert` 组件 `type` 默认值改为 null
+
 ## 0.10.0 (2022-12-11)
 
 **修复**

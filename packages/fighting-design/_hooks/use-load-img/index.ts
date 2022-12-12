@@ -20,7 +20,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
   /**
    * 加载的元素
    */
-  const el: HTMLImageElement = new Image()
+  // const el: HTMLImageElement = new Image()
   /**
    * 是否加载过 errSrc
    *
@@ -33,19 +33,20 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
    *
    * @param element 需要移除事件的节点
    */
-  const removeNode = (element: HTMLImageElement): void => {
-    (element as unknown as null) = null
-  }
+  // const removeNode = (element: HTMLImageElement): void => {
+  //   (element as unknown as null) = null
+  // }
 
   /**
    * 加载成功
    *
    * @param evt 事件对象
    */
-  const success = (node: HTMLImageElement, evt: Event): void => {
-    node.src = el.src
+  const success = (node: HTMLImageElement, evt: Event, src: string): void => {
+    // node.src = el.src
+    node.src = src
     isSuccess.value = true
-    removeNode(el)
+    // removeNode(el)
     useRun(prop.onLoad, evt)
   }
 
@@ -56,7 +57,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
    */
   const failure = (evt: Event): void => {
     isSuccess.value = false
-    removeNode(el)
+    // removeNode(el)
     useRun(prop.onError, evt)
   }
 
@@ -66,6 +67,9 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
    * @param errSrc
    */
   const load = (node: HTMLImageElement, errSrc?: string): void => {
+
+    const el: HTMLImageElement = new Image()
+
     new Promise((resolve, reject): void => {
       el.src = errSrc || prop.src
 
@@ -73,13 +77,13 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
         resolve(evt)
       })
 
-      el.addEventListener('error', (evt): void => {
+      el.addEventListener('error', (evt: Event): void => {
         reject(evt)
       })
     })
       // 加载成功
       .then(evt => {
-        evt && success(node, evt as Event)
+        evt && success(node, evt as Event, el.src)
       })
       // 加载失败
       .catch(evt => {

@@ -1,27 +1,26 @@
-<script lang="ts" setup name="VpSearch">
+<script setup name="VpSearch">
   import { ref } from 'vue'
   import { searchList } from '../_utils'
-  import type { SearchListInterface } from '../_utils/search-list/interface'
 
   /**
    * 输入框输入的内容
    */
-  const value = ref<string>('')
+  const value = ref('')
   /**
    * 是否展示下拉菜单
    */
-  const isShow = ref<boolean>(false)
+  const isShow = ref(false)
   /**
    * 搜索结果列表
    */
-  const resultList = ref<SearchListInterface[]>(null as unknown as SearchListInterface[])
+  const resultList = ref(null)
 
   /**
    * 按下回车触发搜索
    */
-  const onSearch = (): void => {
+  const onSearch = () => {
     // 过滤搜索结果
-    resultList.value = searchList.filter((item: SearchListInterface): boolean => {
+    resultList.value = searchList.filter(item => {
       return item.rule.includes(value.value)
     })
 
@@ -29,8 +28,8 @@
     if (resultList.value && resultList.value.length) {
       isShow.value = true
 
-      setTimeout((): void => {
-        const link: HTMLLinkElement[] = document.querySelectorAll('.vp-search__link') as unknown as HTMLLinkElement[]
+      setTimeout(() => {
+        const link = document.querySelectorAll('.vp-search__link')
 
         if (link.length === 1) {
           link[0].click()
@@ -42,7 +41,7 @@
   /**
    * 关闭搜索结果菜单
    */
-  const hiddenResult = (): void => {
+  const hiddenResult = () => {
     isShow.value = false
     value.value = ''
   }

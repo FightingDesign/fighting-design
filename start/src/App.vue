@@ -3,6 +3,8 @@
 </script>
 
 <template>
+  <f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
+
   <f-fighting-global type="primary" size="mini">
     <f-button>默认按钮</f-button>
     <f-button>主要按钮</f-button>
