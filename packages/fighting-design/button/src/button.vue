@@ -1,7 +1,6 @@
 <script lang="ts" setup name="FButton">
   import { Props } from './props'
   import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
-  import { FIGHTING_GLOBAL_PROPS_KEY } from '../../fighting-global/src/props'
   import { computed, ref, inject, toRefs, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
@@ -9,7 +8,6 @@
   import { sizeChange } from '../../_utils'
   import type { RipplesOptions } from '../../_hooks'
   import type { CSSProperties } from 'vue'
-  import type { FightingGlobalProps } from '../../fighting-global'
   import type { ClassList, FightingSize } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -22,19 +20,8 @@
    * 获取父组件注入的依赖项
    */
   const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)
-  /**
-   * 获取全局配置组件注入的依赖项
-   */
-  const fightingGlobalInject = inject<FightingGlobalProps | null>(FIGHTING_GLOBAL_PROPS_KEY, null)
 
-  const { getType } = useGlobal(prop, fightingGlobalInject)
-
-  /**
-   * 计算按钮组件的 size
-   */
-  const buttonSize = computed((): FightingSize => {
-    return prop.size || parentInject || (fightingGlobalInject && fightingGlobalInject.size) || 'middle'
-  })
+  const { getType, getSize } = useGlobal(prop)
 
   /**
    * 类名列表
@@ -44,7 +31,7 @@
 
     return [
       'f-button',
-      `f-button__${buttonSize.value}`,
+      `f-button__${getSize('middle', parentInject).value}`,
       {
         [`f-button__${getType('default').value}`]: !color,
         'f-button__disabled': disabled || loading,

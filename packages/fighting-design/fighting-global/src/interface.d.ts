@@ -1,1 +1,1 @@
-export type { FightingGlobalProps } from './fighting-global'
+export type { FightingGlobalProps } from './props'

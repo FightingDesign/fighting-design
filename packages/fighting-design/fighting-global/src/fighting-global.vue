@@ -3,10 +3,10 @@
   import { provide } from 'vue'
   import type { FightingGlobalProps } from './interface'
 
-  const prop: FightingGlobalProps = defineProps(Props)
+  const prop = defineProps(Props)
 
   // 注入依赖项
-  provide(FIGHTING_GLOBAL_PROPS_KEY, prop)
+  provide<FightingGlobalProps>(FIGHTING_GLOBAL_PROPS_KEY, prop)
 </script>
 
 <template>
