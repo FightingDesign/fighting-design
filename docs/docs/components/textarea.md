@@ -136,28 +136,34 @@
 
 ## Attributes
 
-| 参数          | 说明                       | 类型            | 可选值                                       | 默认值  |
-| ------------- | -------------------------- | --------------- | -------------------------------------------- | ------- |
-| `v-model`     | 绑定值                     | string          | ——                                           | ——      |
-| `rows`        | 元素的输入文本的行数       | string / number | ——                                           | 3       |
-| `disabled`    | 是否禁用                   | boolean         | ——                                           | false   |
-| `max-length`  | 最大输入长度上限           | number          | ——                                           | null    |
-| `autofocus`   | 是否自动获取焦点           | boolean         | ——                                           | false   |
-| `name`        | 原生 name 属性             | string          | ——                                           | f-input |
-| `placeholder` | 占位符                     | string          | ——                                           | ——      |
-| `readonly`    | 是否只读                   | boolean         | ——                                           | false   |
-| `on-change`   | 绑定值发生变化时触发的回调 | Function        | ——                                           | null    |
-| `on-blur`     | 失去焦点触发的回调         | Function        | ——                                           | null    |
-| `on-focus`    | 获取焦点触发的回调         | Function        | ——                                           | null    |
-| `resize`      | 拉伸方式                   | boolean         | `none` `both` <br /> `horizontal` `vertical` | none    |
-| `clear`       | 是否可清空                 | boolean         | ——                                           | false   |
+| 参数          | 说明                       | 类型                                                             | 可选值                                       | 默认值  |
+| ------------- | -------------------------- | ---------------------------------------------------------------- | -------------------------------------------- | ------- |
+| `v-model`     | 绑定值                     | string                                                           | ——                                           | ——      |
+| `rows`        | 元素的输入文本的行数       | string / number                                                  | ——                                           | 3       |
+| `disabled`    | 是否禁用                   | boolean                                                          | ——                                           | false   |
+| `max-length`  | 最大输入长度上限           | number                                                           | ——                                           | ——      |
+| `autofocus`   | 是否自动获取焦点           | boolean                                                          | ——                                           | false   |
+| `name`        | 原生 name 属性             | string                                                           | ——                                           | f-input |
+| `placeholder` | 占位符                     | string                                                           | ——                                           | ——      |
+| `readonly`    | 是否只读                   | boolean                                                          | ——                                           | false   |
+| `clear`       | 是否可清空                 | boolean                                                          | ——                                           | false   |
+| `resize`      | 拉伸方式                   | <a href="#textarearesize">TextareaResize</a>                     | `none` `both` <br /> `horizontal` `vertical` | none    |
+| `on-blur`     | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                           | ——      |
+| `on-focus`    | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                           | ——      |
+| `on-change`   | 绑定值发生变化时触发的回调 | <a href="/components/interface.html#inputchange">InputChange</a> | ——                                           | ——      |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type { TextareaInstance, TextareaPropsType, TextareaChangeInterface, TextareaResizeType } from 'fighting-design'
+import type { TextareaInstance, TextareaProps, TextareaResize } from 'fighting-design'
+```
+
+### TextareaResize
+
+```ts
+type TextareaResize = 'none' | 'both' | 'horizontal' | 'vertical'
 ```
 
 ## Contributors

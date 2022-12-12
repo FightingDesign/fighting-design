@@ -20,3 +20,10 @@ export type HandleEvent = (evt: Event) => void
  * @param target 改变后的值
  */
 export type HandleChange = (target: boolean) => void
+
+/**
+ * 输入相关改变类型接口
+ * 
+ * @param value 输入的值
+ */
+export type InputChange = (value: string) => void

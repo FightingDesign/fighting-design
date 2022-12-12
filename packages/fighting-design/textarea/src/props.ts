@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { TextareaChange, TextareaResize } from './interface'
-import type { HandleEvent } from '../../_interface'
+import type { TextareaResize } from './interface'
+import type { InputChange, HandleEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -82,27 +82,6 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 绑定值发生变化时触发的回调
-   */
-  onChange: {
-    type: Function as PropType<TextareaChange>,
-    default: (): null => null
-  },
-  /**
-   * 失去焦点时触发的回调
-   */
-  onBlur: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
-  /**
-   * 获取焦点时触发的回调
-   */
-  onFocus: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
-  /**
    * 拉伸方式
    *
    * @see resize https://developer.mozilla.org/zh-CN/docs/Web/CSS/resize
@@ -122,6 +101,27 @@ export const Props = {
   clear: {
     type: Boolean,
     default: (): boolean => false
+  },
+  /**
+   * 绑定值发生变化时触发的回调
+   */
+  onChange: {
+    type: Function as PropType<InputChange>,
+    default: (): null => null
+  },
+  /**
+   * 失去焦点时触发的回调
+   */
+  onBlur: {
+    type: Function as PropType<HandleEvent>,
+    default: (): null => null
+  },
+  /**
+   * 获取焦点时触发的回调
+   */
+  onFocus: {
+    type: Function as PropType<HandleEvent>,
+    default: (): null => null
   }
 } as const
 
