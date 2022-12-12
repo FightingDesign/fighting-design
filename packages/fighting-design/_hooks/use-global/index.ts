@@ -53,12 +53,12 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
    * @param componentName 组件名
    * @returns 当前组件下的文案
    */
-  const getLang = (componentName: LangContentKey): ComputedRef<LangKey[LangContentKey]> => {
-    return computed((): LangKey[LangContentKey] => {
+  const getLang = <T extends LangContentKey>(componentName: T): ComputedRef<LangKey[T]> => {
+    return computed((): LangKey[T] => {
       const lang: FightingLang = (global && global.lang) || 'zh-CN'
       const langList = LANG[lang]
 
-      return langList[componentName as keyof typeof langList]
+      return langList[componentName]
     })
   }
 
