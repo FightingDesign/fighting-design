@@ -17,8 +17,10 @@ export interface UseGlobalProp {
  * 
  * @param getType 获取组件的类型
  * @param getSize 获取组件的尺寸
+ * @param getLang 获取组件的语言
  */
 export interface UseGlobalReturn {
   getType(def?: FightingType): ComputedRef<FightingType>
   getSize(def?: FightingSize, parentSize?: FightingSize | null): ComputedRef<FightingSize>
+  getLang(componentName: string): ComputedRef<object>
 }

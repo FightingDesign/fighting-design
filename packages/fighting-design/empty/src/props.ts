@@ -6,7 +6,7 @@ export const Props = {
    */
   content: {
     type: String,
-    default: (): string => '暂无数据'
+    default: (): null => null
   },
   /**
    * 内容文字大小

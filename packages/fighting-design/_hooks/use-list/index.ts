@@ -107,5 +107,3 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
     styles
   }
 }
-
-export type UseResizeObserverReturn = ReturnType<typeof useList>

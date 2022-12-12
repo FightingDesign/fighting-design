@@ -1,12 +1,13 @@
 <script lang="ts" setup>
   import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-
 </script>
 
 <template>
   <!-- <f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" /> -->
 
-  <f-fighting-global type="primary" size="mini">
+  <f-fighting-global type="primary" size="mini" lang="en-US">
+    <f-empty background="red" :content-size="20" content="没有" content-color="#fff" />
+
     <f-alert title="Hello~">今天代码写的很愉快！</f-alert>
     <!-- <f-alert type="success" title="标题">心情很不错</f-alert> -->
 
