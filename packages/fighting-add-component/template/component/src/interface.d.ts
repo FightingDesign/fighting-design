@@ -1,1 +1,1 @@
-export type { <%= displayName %>PropsType } from './<%= name %>'
+export type { <%= displayName %>Props } from './props'

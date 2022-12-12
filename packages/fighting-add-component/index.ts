@@ -83,7 +83,7 @@ async function generate (): Promise<[void, void, void, void, void]> {
     'packages/fighting-design/index.ts',
     `packages/fighting-theme/src/${compName}.scss`,
     'packages/fighting-theme/index.scss',
-    `packages/fighting-design/__test__/${compName}.spec.ts`
+    `packages/fighting-design/${compName}/__test__/${compName}.spec.ts`
   )
   const catchError = async (
     callback: Function,
@@ -157,7 +157,7 @@ async function updateStyleEntry (): Promise<void> {
 async function incrementTest (): Promise<void> {
   const outputDir: string = path.resolve(
     __dirname,
-    '../fighting-design/__test__'
+    `../fighting-design/${compName}/__test__`
   )
   const tplDir: string = path.resolve(__dirname, './template/test')
   await superEjsGerenateDir(outputDir, tplDir)

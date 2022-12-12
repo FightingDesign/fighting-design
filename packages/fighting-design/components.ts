@@ -215,3 +215,6 @@ export * from './slider'
 
 export { FFightingGlobal } from './fighting-global'
 export * from './fighting-global'
+
+export { FForm } from './form'
+export * from './form'

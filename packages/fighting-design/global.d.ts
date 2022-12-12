@@ -76,6 +76,7 @@ declare module '@vue/runtime-core' {
     FCollapseAnimation: typeof components.FCollapseAnimation
     FSlider: typeof components.FSlider
     FFightingGlobal: typeof components.FFightingGlobal
+    FForm: typeof components.FForm
   }
 
   interface ComponentCustomProperties {

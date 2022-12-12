@@ -1,8 +1,7 @@
 <script lang="ts" setup name="F<%= displayName %>">
   import { Props } from './props'
-  import type { <%= displayName %>PropsType } from './interface'
 
-  const prop: <%= displayName %>PropsType = defineProps(Props)
+  const prop = defineProps(Props)
 </script>
 
 <template>
