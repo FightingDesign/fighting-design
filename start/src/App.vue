@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+
 </script>
 
 <template>

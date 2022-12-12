@@ -1,5 +1,6 @@
 import { reactive, toRef } from 'vue'
 import { isString, isObject } from '../../_utils'
+import type { Ref } from 'vue'
 import type { FilterParams, FilterParamsList, UsePropsReturn } from './interface'
 
 export * from './interface.d'
@@ -8,7 +9,6 @@ export * from './interface.d'
  * 对于 props 的一些操作
  *
  * @param prop 需要操作的 prop 对象
- * @returns
  */
 export const useProps = <T extends object>(prop: T): UsePropsReturn => {
   /**
@@ -50,7 +50,20 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
     return result
   }
 
+  /**
+   * prop 拦截器，可拦截指定的属性，传入 rule 回调进行验证
+   * 
+   * @param param 参数
+   * @param rule 验证回调
+   * @param def 默认值
+   * @returns 响应式数据或 null
+   */
+  const interceptors = (param: string, rule: () => boolean, def: null | string = null): Ref<string> | null | string => {
+    return rule() ? toRef(prop, param as never) : def
+  }
+
   return {
-    filter
+    filter,
+    interceptors
   }
 }
