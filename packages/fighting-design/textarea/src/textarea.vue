@@ -4,7 +4,7 @@
   import { isString, isNumber } from '../../_utils'
   import { FIconCrossVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
-  import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
+  import type { UseUpdateInputProps } from '../../_hooks'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -16,10 +16,7 @@
   /**
    * 使用 useUpdateInput hook 实现同步数据
    */
-  const { onInput, onClear, onChange } = useUpdateInput(
-    filter(['onChange', 'onInput', 'disabled']) as unknown as UseUpdateInputPropsInterface,
-    emit
-  )
+  const { onInput, onClear, onChange } = useUpdateInput(filter(['onChange', 'onInput', 'disabled']) as unknown as UseUpdateInputProps, emit)
 
   /**
    * 输入框输入

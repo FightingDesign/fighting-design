@@ -3,6 +3,7 @@
   import { ref, onMounted, computed } from 'vue'
   import { useProps, useCanvas } from '../../_hooks'
   import type { CSSProperties } from 'vue'
+  import type { CreateWatermarkProps } from '../../_hooks'
 
   const prop = defineProps(Props)
 
@@ -20,7 +21,9 @@
     /**
      * base 64 图片格式
      */
-    const watermark: string = useCanvas().createWatermark(filter(['content', 'width', 'height', 'fontSize', 'fontColor']))
+    const watermark: string = useCanvas().createWatermark(
+      filter(['content', 'width', 'height', 'fontSize', 'fontColor']) as unknown as CreateWatermarkProps
+    )
 
     return {
       backgroundImage: `url(${watermark})`
