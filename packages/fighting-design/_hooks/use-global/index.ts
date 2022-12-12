@@ -1,5 +1,6 @@
 import { computed, inject } from 'vue'
 import { FIGHTING_GLOBAL_PROPS_KEY } from '../../fighting-global/src/props'
+import type { ILangContentKey, ILangKey} from '../../_lang';
 import { LANG } from '../../_lang'
 import type { ComputedRef } from 'vue'
 import type { FightingType, FightingSize, FightingLang } from '../../_interface'
@@ -52,8 +53,8 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
    * @param componentName 组件名
    * @returns 当前组件下的文案
    */
-  const getLang = (componentName: string): ComputedRef<object> => {
-    return computed((): object => {
+  const getLang = (componentName: ILangContentKey): ComputedRef<ILangKey[ILangContentKey]> => {
+    return computed<ILangKey[ILangContentKey]>(() => {
       const lang: FightingLang = (global && global.lang) || 'zh-CH'
       const langList = LANG[lang]
 
