@@ -1,11 +1,14 @@
 <script lang="ts" setup name="FStickyCard">
   import { Props } from './props'
   import { ref, computed, unref } from 'vue'
-  import { useRun } from '../../_hooks'
+  import { useRun, useGlobal } from '../../_hooks'
   import { FCollapseAnimation } from '../../collapse-animation'
   import type { CSSProperties } from 'vue'
+  import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
+
+  const { getLang } = useGlobal(prop as unknown as UseGlobalProp)
 
   /**
    * 是否打开
@@ -26,7 +29,9 @@
   const optionText = computed((): string => {
     const { openText, closeText } = prop
 
-    return `${unref(isOpened) ? openText : closeText}`
+    const lang = getLang('stickyCard').value
+
+    return unref(isOpened) ? openText || lang.openText : closeText || lang.closeText
   })
 
   /**

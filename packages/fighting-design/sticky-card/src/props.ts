@@ -21,14 +21,14 @@ export const Props = {
    */
   openText: {
     type: String,
-    default: (): string => '关闭'
+    default: (): null => null
   },
   /**
    * 操作栏关闭时的文字
    */
   closeText: {
     type: String,
-    default: (): string => '开启'
+    default: (): null => null
   },
   /**
    * 自定义边框颜色

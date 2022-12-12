@@ -1,6 +1,6 @@
 import type { FightingType, FightingSize } from '../../_interface'
 import type { ComputedRef } from 'vue'
-import type { ILangContentKey } from '../../_lang'
+import type { LangContentKey, LangKey } from '../../_lang'
 
 /**
  * useGlobal 所需要的 prop 参数类型接口
@@ -23,5 +23,5 @@ export interface UseGlobalProp {
 export interface UseGlobalReturn {
   getType(def?: FightingType): ComputedRef<FightingType>
   getSize(def?: FightingSize, parentSize?: FightingSize | null): ComputedRef<FightingSize>
-  getLang(componentName: ILangContentKey): ComputedRef<ILangKey[ILangContentKey]>
+  getLang(componentName: LangContentKey): ComputedRef<LangKey[LangContentKey]>
 }

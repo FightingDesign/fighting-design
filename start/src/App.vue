@@ -1,11 +1,20 @@
 <script lang="ts" setup>
   import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+  import { ref } from 'vue'
+  const open1 = ref(false)
+  const el = new Image()
+  console.dir(el.loading)
 </script>
 
 <template>
   <!-- <f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" /> -->
 
   <f-fighting-global type="primary" size="mini" lang="en-US">
+    <f-sticky-card :open="open1" open-text="打开了">
+      <h1>Hello World！</h1>
+      <h1>Hello World！</h1>
+    </f-sticky-card>
+
     <f-empty background="red" :content-size="20" content="没有" content-color="#fff" />
 
     <f-alert title="Hello~">今天代码写的很愉快！</f-alert>
