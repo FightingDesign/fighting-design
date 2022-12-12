@@ -55,6 +55,7 @@
 | ------ | ------------ | ------------------------------------------------------------------ | ------------------------------------------------------- | ------ |
 | `type` | 子组件的类型 | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` <br /> `success` `danger` `warning` | ——     |
 | `size` | 子组件的尺寸 | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                         | ——     |
+| `lang` | 子组件的语言 | <a href="/components/interface.html#fightinglang">FightingLang</a> | `en-US` `zh-CH`                                         | zh-CH  |
 
 ## Slots
 

@@ -14,4 +14,9 @@ export type HandleMouse = (evt: MouseEvent) => void
  */
 export type HandleEvent = (evt: Event) => void
 
+/**
+ * change 事件类型接口
+ * 
+ * @param target 改变后的值
+ */
 export type HandleChange = (target: boolean) => void

@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
-import type { FightingSize, FightingType } from '../../_interface'
+import type { FightingSize, FightingType, FightingLang } from '../../_interface'
 
 export const Props = {
   /**
@@ -26,6 +26,19 @@ export const Props = {
     default: (): null => null,
     validator: (val: FightingType): boolean => {
       return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+    }
+  },
+  /**
+   * 不同语言
+   * 
+   * @values en-US zh-CH
+   * @defaultValue zh-CH
+   */
+  lang: {
+    type: String as PropType<FightingLang>,
+    default: (): FightingLang => 'zh-CH',
+    validator: (val: FightingLang): boolean => {
+      return (['en-US', 'zh-CH'] as const).includes(val)
     }
   }
 } as const

@@ -51,3 +51,9 @@ type HandleEvent = (evt: vent) => void
 ```ts
 type HandleChange = (target: boolean) => void
 ```
+
+## FightingLang
+
+```ts
+type FightingLang = 'en-US' | 'zh-CH'
+```

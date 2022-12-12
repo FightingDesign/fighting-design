@@ -2,8 +2,6 @@ import type { VNode, Component } from 'vue'
 
 /**
  * class 类名集合类型
- *
- * 多数情况下在 computed 中计算返回
  */
 export type ClassList = readonly (string | Record<string, unknown>)[]
 

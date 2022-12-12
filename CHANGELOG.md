@@ -2,6 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**新功能**
+
+- `f-fighting-global` 组件新增 `lang` 配置项
+
+**其它更新**
+
 - `f-alert` 组件 `type` 默认值改为 null
 - `f-link` 组件 `type` 默认值改为 null
 - `f-ripple` 组件 `type` 默认值改为 null
