@@ -3,7 +3,7 @@
  * 
  * 部分组件需要展示一些默认的文案内容，根据全局组件的 lang 属性来配置不同的语音
  * 
- * 仅支持 en-US 和 zh-CH 两种语音模式
+ * 仅支持 en-US 和 zh-CN 两种语音模式
  */
 export const LANG = {
   'en-US': {
@@ -27,7 +27,7 @@ export const LANG = {
       closeText: 'open'
     }
   },
-  'zh-CH': {
+  'zh-CN': {
     /**
      * 空状态
      */

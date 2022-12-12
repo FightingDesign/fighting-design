@@ -31,14 +31,14 @@ export const Props = {
   /**
    * 不同语言
    * 
-   * @values en-US zh-CH
-   * @defaultValue zh-CH
+   * @values en-US zh-CN
+   * @defaultValue zh-CN
    */
   lang: {
     type: String as PropType<FightingLang>,
-    default: (): FightingLang => 'zh-CH',
+    default: (): FightingLang => 'zh-CN',
     validator: (val: FightingLang): boolean => {
-      return (['en-US', 'zh-CH'] as const).includes(val)
+      return (['en-US', 'zh-CN'] as const).includes(val)
     }
   }
 } as const

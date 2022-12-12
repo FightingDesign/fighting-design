@@ -12,27 +12,39 @@
    * prop 拦截器拦截 type 属性
    */
   const interceptorsType = computed(() => {
-    return interceptors('type', (): boolean => {
-      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(prop.type)
-    })
+    return interceptors(
+      'type',
+      (): boolean => {
+        return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(prop.type)
+      },
+      'default'
+    )
   })
 
   /**
    * prop 拦截器拦截 size 属性
    */
   const interceptorsSize = computed(() => {
-    return interceptors('size', (): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(prop.size)
-    })
+    return interceptors(
+      'size',
+      (): boolean => {
+        return (['large', 'middle', 'small', 'mini'] as const).includes(prop.size)
+      },
+      'middle'
+    )
   })
 
   /**
    * prop 拦截器拦截 lang 属性
    */
   const interceptorsLang = computed(() => {
-    return interceptors('lang', (): boolean => {
-      return (['en-US', 'zh-CH'] as const).includes(prop.lang)
-    })
+    return interceptors(
+      'lang',
+      (): boolean => {
+        return (['en-US', 'zh-CN'] as const).includes(prop.lang)
+      },
+      'zh-CN'
+    )
   })
 
   // 注入依赖项

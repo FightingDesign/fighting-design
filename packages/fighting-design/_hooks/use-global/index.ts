@@ -55,7 +55,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
    */
   const getLang = (componentName: LangContentKey): ComputedRef<LangKey[LangContentKey]> => {
     return computed((): LangKey[LangContentKey] => {
-      const lang: FightingLang = (global && global.lang) || 'zh-CH'
+      const lang: FightingLang = (global && global.lang) || 'zh-CN'
       const langList = LANG[lang]
 
       return langList[componentName as keyof typeof langList]
