@@ -5,7 +5,7 @@
   import { FDropdown } from '../../dropdown'
   import { addZero, isString } from '../../_utils'
   import { FIconClockTime } from '../../_svg'
-  import type { TimePickerTimeListInterface } from './interface'
+  import type { TimePickerTimeList } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -22,7 +22,7 @@
   const timeList = reactive({
     hover: addZero(nowDate.getHours()),
     minute: addZero(nowDate.getMinutes())
-  } as TimePickerTimeListInterface)
+  } as TimePickerTimeList)
 
   /**
    * 获取选择的时间 & 设置时间
@@ -46,7 +46,7 @@
    * 监视 timeList 对象发生变化同步最新选取的时间
    */
   watch(
-    (): TimePickerTimeListInterface => timeList,
+    (): TimePickerTimeList => timeList,
     (): void => {
       pickerTime.value = `${timeList.hover}:${timeList.minute}`
     },

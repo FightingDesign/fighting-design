@@ -6,7 +6,7 @@ export type { TimePickerProps } from './time-picker'
  * @param hover 当前小时
  * @param minute 当前分钟
  */
-export interface TimePickerTimeListInterface {
+export interface TimePickerTimeList {
   hover: string
   minute: string
 }
