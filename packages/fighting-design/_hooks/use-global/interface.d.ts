@@ -19,6 +19,6 @@ export interface UseGlobalProp {
  * @param getSize 获取组件的尺寸
  */
 export interface UseGlobalReturn {
-  getType(def: FightingType): ComputedRef<FightingType>
-  getSize(def: FightingSize, parentSize?: FightingSize | null): ComputedRef<FightingSize>
+  getType(def?: FightingType): ComputedRef<FightingType>
+  getSize(def?: FightingSize, parentSize?: FightingSize | null): ComputedRef<FightingSize>
 }

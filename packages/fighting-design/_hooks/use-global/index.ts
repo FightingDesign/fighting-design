@@ -26,7 +26,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
    * @param def 默认参数
    * @returns 类型
    */
-  const getType = (def: FightingType): ComputedRef<FightingType> => {
+  const getType = (def: FightingType = 'default'): ComputedRef<FightingType> => {
     return computed((): FightingType => {
       return prop.type || (global && global.type) || def
     })
@@ -39,7 +39,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
    * @param parentSize 父组件可能需要注入的依赖项
    * @returns 尺寸
    */
-  const getSize = (def: FightingSize, parentSize?: FightingSize | null): ComputedRef<FightingSize> => {
+  const getSize = (def: FightingSize = 'middle', parentSize?: FightingSize | null): ComputedRef<FightingSize> => {
     return computed((): FightingSize => {
       return prop.size || parentSize || (global && global.size) || def
     })

@@ -3,9 +3,12 @@
 </script>
 
 <template>
-  <f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
+  <!-- <f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" /> -->
 
   <f-fighting-global type="primary" size="mini">
+    <f-alert title="Hello~">今天代码写的很愉快！</f-alert>
+    <!-- <f-alert type="success" title="标题">心情很不错</f-alert> -->
+
     <f-button>默认按钮</f-button>
     <f-button>主要按钮</f-button>
     <f-button>成功按钮</f-button>

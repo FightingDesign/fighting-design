@@ -1,13 +1,23 @@
 <script lang="ts" setup name="FAlert">
   import { Props } from './props'
-  import { ref } from 'vue'
+  import { ref, reactive } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
-  import { useList, useRun } from '../../_hooks'
+  import { useList, useRun, useGlobal } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  const { styles, classes } = useList(prop, 'alert')
+  const { getType } = useGlobal(prop)
+
+  /**
+   * 替换 type 后得到的 props
+   */
+  const params = reactive({
+    ...prop,
+    type: getType().value
+  })
+
+  const { styles, classes } = useList(params, 'alert')
 
   /**
    * 展示状态
