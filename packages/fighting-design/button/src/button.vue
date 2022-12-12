@@ -5,12 +5,12 @@
   import { computed, ref, inject, toRefs, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import { useCalculiColor, useRipples, useRun } from '../../_hooks'
+  import { useCalculiColor, useRipples, useRun, useGlobal } from '../../_hooks'
   import { sizeChange } from '../../_utils'
   import type { RipplesOptions } from '../../_hooks'
   import type { CSSProperties } from 'vue'
   import type { FightingGlobalProps } from '../../fighting-global'
-  import type { ClassList, FightingSize, FightingType } from '../../_interface'
+  import type { ClassList, FightingSize } from '../../_interface'
 
   const prop = defineProps(Props)
 
@@ -27,12 +27,7 @@
    */
   const fightingGlobalInject = inject<FightingGlobalProps | null>(FIGHTING_GLOBAL_PROPS_KEY, null)
 
-  /**
-   * 计算按钮组件的 type
-   */
-  const buttonType = computed((): FightingType => {
-    return prop.type || (fightingGlobalInject && fightingGlobalInject.type) || 'default'
-  })
+  const { getType } = useGlobal(prop, fightingGlobalInject)
 
   /**
    * 计算按钮组件的 size
@@ -51,7 +46,7 @@
       'f-button',
       `f-button__${buttonSize.value}`,
       {
-        [`f-button__${buttonType.value}`]: !color,
+        [`f-button__${getType('default').value}`]: !color,
         'f-button__disabled': disabled || loading,
         'f-button__simple': simple && !color,
         'f-button__circle': circle,
