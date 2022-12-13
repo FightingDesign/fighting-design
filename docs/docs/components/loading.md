@@ -223,7 +223,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { LoadingInstance, LoadingPropsType, LoadingElInterface } from 'fighting-design'
+import type { LoadingInstance, LoadingProps } from 'fighting-design'
 ```
 
 ## Contributors

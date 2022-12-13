@@ -217,10 +217,10 @@
 | `color`       | 副标题字体颜色         | string                                                             | ——                                               | ——     |
 | `title-color` | 主标题字体颜色         | string                                                             | ——                                               | ——     |
 | `fixed`       | 是否固定定位           | boolean                                                            | ——                                               | false  |
-| `overflow`    | 文字超出的展示状态     | string                                                             | `hidden`                                         | ——     |
+| `overflow`    | 文字超出的展示状态     | <a href="#alertoverflow">AlertOverflow</a>                         | `hidden`                                         | ——     |
 | `before-icon` | 自定义前缀 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
 | `close-icon`  | 自定义关闭 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
-| `on-close`    | 点击关闭之后执行的回调 | Function                                                           | ——                                               | ——     |
+| `on-close`    | 点击关闭之后执行的回调 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——                                               | ——     |
 
 ## Slots
 
@@ -237,6 +237,12 @@
 
 ```ts
 import type { AlertInstance, AlertProps, AlertOverflow } from 'fighting-design'
+```
+
+### AlertOverflow
+
+```ts
+type AlertOverflow = 'hidden'
 ```
 
 ## Contributors

@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { AlertOverflow } from './interface'
-import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
+import type { HandleMouse, FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -128,7 +128,7 @@ export const Props = {
    * 点击关闭之后执行的回调
    */
   onClose: {
-    type: Function as PropType<HandleEvent>,
+    type: Function as PropType<HandleMouse>,
     default: (): null => null
   }
 } as const
