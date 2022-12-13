@@ -11,7 +11,7 @@
 
   const { filter } = useProps(prop)
 
-  const { loadImg, isSuccess } = useLoadImg(
+  const { loadImg, isSuccess, isShowNode } = useLoadImg(
     filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError']) as unknown as UseLoadImgProp
   )
 
@@ -60,7 +60,7 @@
       ref="imageEl"
       src=""
       :class="classList"
-      :style="styleList"
+      :style="(styleList, isShowNode ? '' : 'visibility: hidden')"
       :draggable="draggable"
       :referrer-policy="referrerPolicy"
       :alt="alt"

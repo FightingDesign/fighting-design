@@ -23,9 +23,11 @@ export interface UseLoadImgProp {
  * useLoadImg 返回值类型接口
  *
  * @param isSuccess 是否加载成功
+ * @param isShowNode 是否加展示 img 元素
  * @param loadImg 开始加载
  */
 export interface UseLoadImgReturn {
   isSuccess: Ref<boolean>
+  isShowNode: Ref<boolean>
   loadImg(node: HTMLImageElement): void
 }

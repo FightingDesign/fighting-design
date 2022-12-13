@@ -12,7 +12,7 @@
 
   const { nodeClassList, classList, styleList } = useAvatar(prop)
 
-  const { loadImg, isSuccess } = useLoadImg(
+  const { loadImg, isSuccess, isShowNode } = useLoadImg(
     filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError']) as unknown as UseLoadImgProp
   )
 
@@ -44,7 +44,14 @@
     </span>
 
     <!-- 图片头像 -->
-    <img v-else ref="avatarEl" src="" :class="nodeClassList" :alt="alt" />
+    <img
+      v-else
+      ref="avatarEl"
+      src=""
+      :class="nodeClassList"
+      :style="isShowNode ? '' : 'visibility: hidden'"
+      :alt="alt"
+    />
   </div>
 
   <!-- 加载失败的 -->

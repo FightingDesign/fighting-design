@@ -17,6 +17,8 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
    * 是否加载成功
    */
   const isSuccess = ref<boolean>(true)
+
+  const isShowNode = ref<boolean>(false)
   /**
    * 是否加载过 errSrc
    *
@@ -32,6 +34,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
   const success = (node: HTMLImageElement, evt: Event, src: string): void => {
     node.src = src
     isSuccess.value = true
+    isShowNode.value = true
     useRun(prop.onLoad, evt)
   }
 
@@ -194,6 +197,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
 
   return {
     isSuccess,
+    isShowNode,
     loadImg
   }
 }
