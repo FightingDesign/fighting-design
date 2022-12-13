@@ -3,7 +3,7 @@ export type { MenuProps } from './menu'
 /**
  * 不同导航栏模式
  */
-export type MenuModeType = 'horizontal' | 'vertical' | 'inline'
+export type MenuMode = 'horizontal' | 'vertical' | 'inline'
 
 /**
  * 注入的依赖项类型接口
@@ -14,7 +14,7 @@ export type MenuModeType = 'horizontal' | 'vertical' | 'inline'
  * @param setActiveName 修改选中 name
  */
 export interface MenuProvide {
-  mode: MenuModeType
+  mode: MenuMode
   defaultActive: string | number
   setActiveName(name: string | number): void
 }

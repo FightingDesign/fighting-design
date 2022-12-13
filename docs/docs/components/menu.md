@@ -242,10 +242,10 @@
 
 ## Menu Attributes
 
-| 参数          | 说明            | 类型            | 可选值                           | 默认值     |
-| ------------- | --------------- | --------------- | -------------------------------- | ---------- |
-| `mode`        | 不同模式        | string          | `horizontal` `vertical` `inline` | horizontal |
-| `active-name` | 默认激活的 name | string / number | ——                               | ——         |
+| 参数          | 说明            | 类型                             | 可选值                           | 默认值     |
+| ------------- | --------------- | -------------------------------- | -------------------------------- | ---------- |
+| `mode`        | 不同模式        | <a href="#menumode">MenuMode</a> | `horizontal` `vertical` `inline` | horizontal |
+| `active-name` | 默认激活的 name | string / number                  | ——                               | ——         |
 
 ## MenuItem Attributes
 
@@ -303,7 +303,23 @@
 组件导出以下类型定义：
 
 ```ts
-import type {} from 'fighting-design'
+import type {
+  MenuInstance,
+  MenuProps,
+  MenuMode,
+  MenuItemInstance,
+  MenuItemProps,
+  FMenuItemGroup,
+  MenuItemGroupProps,
+  SubmenuInstance,
+  SubmenuProps
+} from 'fighting-design'
+```
+
+### MenuMode
+
+```ts
+type MenuMode = 'horizontal' | 'vertical' | 'inline'
 ```
 
 ## Contributors

@@ -1,5 +1,6 @@
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type { TriggerTrigger, TriggerEmits, TriggerProvide } from './interface'
+import type { TriggerTrigger, TriggerProvide } from './interface'
+import type { HandleChange } from '../../_interface'
 
 export const Props = {
   /**
@@ -54,21 +55,21 @@ export const Props = {
    * 弹窗状态改变时触发的回调
    */
   onChange: {
-    type: Function as PropType<TriggerEmits>,
+    type: Function as PropType<HandleChange>,
     default: (): null => null
   },
   /**
    * 弹窗状态打开时触发的回调
    */
   onOpen: {
-    type: Function as PropType<TriggerEmits>,
+    type: Function as PropType<HandleChange>,
     default: (): null => null
   },
   /**
    * 弹窗状态关闭时触发的回调
    */
   onClose: {
-    type: Function as PropType<TriggerEmits>,
+    type: Function as PropType<HandleChange>,
     default: (): null => null
   }
 } as const

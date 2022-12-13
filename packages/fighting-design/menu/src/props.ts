@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
-import type { MenuModeType } from './interface'
+import type { MenuMode } from './interface'
 
 export const Props = {
   /**
@@ -11,9 +11,9 @@ export const Props = {
    * @defaultValue horizontal
    */
   mode: {
-    type: String as PropType<MenuModeType>,
-    default: (): MenuModeType => 'horizontal',
-    validator: (val: MenuModeType): boolean => {
+    type: String as PropType<MenuMode>,
+    default: (): MenuMode => 'horizontal',
+    validator: (val: MenuMode): boolean => {
       return (['horizontal', 'vertical', 'inline'] as const).includes(val)
     }
   },
@@ -28,4 +28,4 @@ export const Props = {
 
 export type MenuProps = ExtractPropTypes<typeof Props>
 
-export const MENU_PROVIDE_KEY: InjectionKey<MenuModeType> = Symbol('menu-provide-key')
+export const MENU_PROVIDE_KEY: InjectionKey<MenuMode> = Symbol('menu-provide-key')

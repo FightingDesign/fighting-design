@@ -66,24 +66,24 @@
 
 ## Dropdown Attributes
 
-| 参数             | 说明                     | 类型            | 可选值          | 默认值 |
-| ---------------- | ------------------------ | --------------- | --------------- | ------ |
-| `spacing`        | 触发器和内容直接的间距   | string / number | ——              | ——     |
-| `trigger`        | 触发方式                 | string          | `click` `hover` | hover  |
-| `disabled`       | 是否禁用                 | boolean         | ——              | false  |
-| `arrow`          | 是否带有箭头             | boolean         | ——              | false  |
-| `enter-duration` | 弹出动画持续时间         | number          | ——              | ——     |
-| `leave-duration` | 关闭动画持续时间         | number          | ——              | ——     |
-| `on-change`      | 弹窗状态改变时触发的回调 | Function        | ——              | ——     |
-| `on-open`        | 弹窗状态打开时触发的回调 | Function        | ——              | ——     |
-| `on-close`       | 弹窗状态关闭时触发的回调 | Function        | ——              | ——     |
+| 参数             | 说明                     | 类型                                                                 | 可选值          | 默认值 |
+| ---------------- | ------------------------ | -------------------------------------------------------------------- | --------------- | ------ |
+| `spacing`        | 触发器和内容直接的间距   | string / number                                                      | ——              | ——     |
+| `trigger`        | 触发方式                 | <a href="/components/trigger.html#triggertrigger">TriggerTrigger</a> | `click` `hover` | hover  |
+| `disabled`       | 是否禁用                 | boolean                                                              | ——              | false  |
+| `arrow`          | 是否带有箭头             | boolean                                                              | ——              | false  |
+| `enter-duration` | 弹出动画持续时间         | number                                                               | ——              | ——     |
+| `leave-duration` | 关闭动画持续时间         | number                                                               | ——              | ——     |
+| `on-change`      | 弹窗状态改变时触发的回调 | <a href="/components/interface.html#handlechange">HandleChange</a>   | ——              | ——     |
+| `on-open`        | 弹窗状态打开时触发的回调 | <a href="/components/interface.html#handlechange">HandleChange</a>   | ——              | ——     |
+| `on-close`       | 弹窗状态关闭时触发的回调 | <a href="/components/interface.html#handlechange">HandleChange</a>   | ——              | ——     |
 
 ## DropdownItem Attributes
 
-| 参数       | 说明               | 类型     | 可选值 | 默认值 |
-| ---------- | ------------------ | -------- | ------ | ------ |
-| `disabled` | 是否禁用           | boolean  | ——     | false  |
-| `on-click` | 点击之后的回调函数 | Function | ——     | ——     |
+| 参数       | 说明               | 类型                                                             | 可选值 | 默认值 |
+| ---------- | ------------------ | ---------------------------------------------------------------- | ------ | ------ |
+| `disabled` | 是否禁用           | boolean                                                          | ——     | false  |
+| `on-click` | 点击之后的回调函数 | <a href="/components/interface.html#handlemouse">HandleMouse</a> | ——     | ——     |
 
 ## Slots
 
@@ -97,13 +97,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DropdownInstance, DropdownProps, DropdownTrigger, DropdownItemInstance, DropdownItemProps } from 'fighting-design'
-```
-
-### DropdownTrigger
-
-```ts
-type DropdownTrigger = 'hover' | 'click'
+import type { DropdownInstance, DropdownProps, DropdownItemInstance, DropdownItemProps } from 'fighting-design'
 ```
 
 ## Contributors
