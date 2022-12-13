@@ -213,5 +213,15 @@ export const searchList = [
     title: 'Slider 滑动输入条',
     rule: 'sliderSlider滑动输入条',
     url: 'components/slider'
+  },
+  {
+    title: 'Fighting Global 全局配置',
+    rule: 'fighting-globalFightingGlobal全局配置',
+    url: 'components/fighting-global'
+  },
+  {
+    title: 'Interface 接口类型',
+    rule: 'interfaceInterface 接口类型',
+    url: 'components/interface'
   }
 ] as const
