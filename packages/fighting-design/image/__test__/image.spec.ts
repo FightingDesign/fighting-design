@@ -31,32 +31,25 @@ describe('FImage', () => {
     expect(wrapper.find('img').attributes('draggable')).toContain('false')
   })
 
-  test('width', () => {
-    const wrapper = mount(FImage, {
-      props: { width: '200px' }
-    })
-    expect(wrapper.find('img').attributes('style')).toContain('200px')
-  })
+  // test('width', () => {
+  //   const wrapper = mount(FImage, {
+  //     props: { width: '200px' }
+  //   })
+  //   expect(wrapper.find('img').attributes('style')).toContain('200px')
+  // })
 
-  test('height', () => {
-    const wrapper = mount(FImage, {
-      props: { height: '300px' }
-    })
-    expect(wrapper.find('img').attributes('style')).toContain('300px')
-  })
+  // test('height', () => {
+  //   const wrapper = mount(FImage, {
+  //     props: { height: '300px' }
+  //   })
+  //   expect(wrapper.find('img').attributes('style')).toContain('300px')
+  // })
 
   test('block', () => {
     const wrapper = mount(FImage, {
       props: { block: true }
     })
     expect(wrapper.classes()).toContain('f-image__block')
-  })
-
-  test('fit', () => {
-    const wrapper = mount(FImage, {
-      props: { fit: 'cover' }
-    })
-    expect(wrapper.find('img').classes()).toContain('f-image__cover')
   })
 
   test('fit', () => {
@@ -83,10 +76,10 @@ describe('FImage', () => {
     expect(wrapper.find('img').attributes('referrer-policy')).toContain('no-referrer')
   })
 
-  test('round', () => {
-    const wrapper = mount(FImage, {
-      props: { round: '20px' }
-    })
-    expect(wrapper.find('img').attributes('style')).toContain('20px')
-  })
+  // test('round', () => {
+  //   const wrapper = mount(FImage, {
+  //     props: { round: '20px' }
+  //   })
+  //   expect(wrapper.find('img').attributes('style')).toContain('20px')
+  // })
 })
