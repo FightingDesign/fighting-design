@@ -50,6 +50,6 @@ export const Props = {
   }
 } as const
 
-export type TabsPropsType = ExtractPropTypes<typeof Props>
+export type TabsProps = ExtractPropTypes<typeof Props>
 
 export const TabsProvideKey = Symbol('f-tabs')

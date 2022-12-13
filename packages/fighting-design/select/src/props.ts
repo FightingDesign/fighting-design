@@ -1,12 +1,12 @@
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
-import type { SelectProvideInterface, SelectModelValueType } from './interface'
+import type { SelectProvide, SelectModelValue } from './interface'
 
 export const Props = {
   /**
    * 绑定值
    */
   modelValue: {
-    type: [String, Number, Boolean] as PropType<SelectModelValueType>,
+    type: [String, Number, Boolean] as PropType<SelectModelValue>,
     default: (): null => null,
     required: true
   },
@@ -55,4 +55,4 @@ export const Props = {
 
 export type SelectProps = ExtractPropTypes<typeof Props>
 
-export const SELECT_PROPS_TOKEN: InjectionKey<SelectProvideInterface> = Symbol('f-select-props-key')
+export const SELECT_PROPS_TOKEN: InjectionKey<SelectProvide> = Symbol('f-select-props-key')

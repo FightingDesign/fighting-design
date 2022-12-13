@@ -112,10 +112,10 @@ f_button-name
 - `default` 和 `validator` 使用箭头函数定义，必须明确返回值和参数值的类型
 - `Props` 对象结尾必须加入 [as const](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-inference)
 - 数组结尾加入 `as const`
-- 需要导出 `Props` 的类型，使用 `ExtractPropTypes`，导出类型命名规范为：`组件名（首字母大写）+ PropsType`，例如：
+- 需要导出 `Props` 的类型，使用 `ExtractPropTypes`，导出类型命名规范为：`组件名（首字母大写）+ Props`，例如：
 
 ```ts
-export type ButtonPropsType = ExtractPropTypes<typeof Props>
+export type ButtonProps = ExtractPropTypes<typeof Props>
 ```
 
 ## 🏷️ index.ts

@@ -5,13 +5,13 @@
   import { FDropdown } from '../../dropdown'
   import { sizeChange, getChildren } from '../../_utils'
   import type { CSSProperties, VNode } from 'vue'
-  import type { SelectProvideInterface, SelectModelValueType, SelectChildrenInterface } from './interface'
+  import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
   import type { OptionProps } from '../../option'
 
   const prop = defineProps(Props)
   const slot = useSlots()
   const emit = defineEmits({
-    'update:modelValue': (val: SelectModelValueType): boolean => !!val
+    'update:modelValue': (val: SelectModelValue): boolean => !!val
   })
 
   /**
@@ -33,7 +33,7 @@
     /**
      * 通过获取到的子元素，计算当前绑定值对应的 label 展示文本框的内容
      */
-    get() {
+    get () {
       // 如果插槽没内容，则返回空字符串
       if (!options.value.length) return ''
 
@@ -55,7 +55,7 @@
          *
          * 放心，这里一定会有插槽，子组件已经做了判断
          */
-        return (node as SelectChildrenInterface).children.default()[0].children === prop.modelValue
+        return (node as SelectChildren).children.default()[0].children === prop.modelValue
       })
 
       /**
@@ -76,7 +76,7 @@
       // 优先级：插槽 > label > value
       return slot || label || (value && value.toString()) || ''
     },
-    set(val: string) {
+    set (val: string) {
       return val
     }
   })
@@ -87,7 +87,7 @@
    * @param newValue 新的 value 值
    * @param newLabel 新增 label 值
    */
-  const setValue = (newValue: string, newLabel: SelectModelValueType): void => {
+  const setValue = (newValue: string, newLabel: SelectModelValue): void => {
     inputValue.value = newValue
     emit('update:modelValue', newLabel)
   }
@@ -95,7 +95,7 @@
   /**
    * 向自组件注入依赖项
    */
-  provide<SelectProvideInterface>(SELECT_PROPS_TOKEN, reactive({ setValue }))
+  provide<SelectProvide>(SELECT_PROPS_TOKEN, reactive({ setValue }))
 
   /**
    * 样式列表
@@ -112,7 +112,14 @@
 <template>
   <div class="f-select" :style="styleList">
     <f-dropdown trigger="click" :disabled="disabled">
-      <f-input v-model="inputValue" readonly :name="name" :disabled="disabled" :placeholder="placeholder" :clear="clear" />
+      <f-input
+        v-model="inputValue"
+        readonly
+        :name="name"
+        :disabled="disabled"
+        :placeholder="placeholder"
+        :clear="clear"
+      />
 
       <template #content>
         <slot />

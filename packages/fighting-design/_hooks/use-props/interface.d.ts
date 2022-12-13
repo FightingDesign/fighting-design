@@ -6,7 +6,7 @@
  */
 export interface FilterParamsList {
   key: string
-  callback: Function
+  callback(): boolean
 }
 
 /**

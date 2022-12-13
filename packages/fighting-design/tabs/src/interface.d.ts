@@ -1,4 +1,4 @@
-export type { TabsPropsType } from './tabs'
+export type { TabsProps } from './tabs'
 
 /**
  * 选项卡标签位置

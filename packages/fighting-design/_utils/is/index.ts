@@ -15,7 +15,7 @@ export const is = (value: unknown, type: string): boolean => {
  * 检测一个数据是否为 string 类型
  *
  * @param value 要检测的值
- * @returns { boolean }
+ * @returns { Boolean }
  */
 export const isString = (value: unknown): value is string => {
   return is(value, 'String')
@@ -25,7 +25,7 @@ export const isString = (value: unknown): value is string => {
  * 检测一个数据是否为 number 类型
  *
  * @param value 要检测的数据
- * @returns { boolean }
+ * @returns { Boolean }
  */
 export const isNumber = (value: unknown): value is number => {
   return is(value, 'Number')
@@ -35,7 +35,7 @@ export const isNumber = (value: unknown): value is number => {
  * 检测一个数据是否为 boolean 类型
  *
  * @param value 要检测的数据
- * @returns { boolean }
+ * @returns { Boolean }
  */
 export const isBoolean = (value: unknown): value is boolean => {
   return is(value, 'Boolean')
@@ -45,7 +45,7 @@ export const isBoolean = (value: unknown): value is boolean => {
  * 判断一个值是否为 object 类型
  *
  * @param value 要检测的值
- * @returns { boolean }
+ * @returns { Boolean }
  */
 export const isObject = (value: unknown): value is Object => {
   return is(value, 'Object')
@@ -55,7 +55,7 @@ export const isObject = (value: unknown): value is Object => {
  * 判断一个值是否为 function 类型
  *
  * @param value 要检测的值
- * @returns { boolean }
+ * @returns { Boolean }
  */
 export const isFunction = (value: unknown): value is Function => {
   return is(value, 'Function')
@@ -65,6 +65,6 @@ export const isFunction = (value: unknown): value is Function => {
  * 判断一个值是否为 array 类型
  *
  * @param value 要检测的值
- * @returns { boolean }
+ * @returns { Boolean }
  */
 export const isArray = Array.isArray

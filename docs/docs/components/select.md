@@ -103,14 +103,14 @@
 
 ## Select Attributes
 
-| 参数                   | 说明           | 类型            | 可选值 | 默认值 |
-| ---------------------- | -------------- | --------------- | ------ | ------ |
-| `v-model / modelValue` | 绑定值         | string          | ——     | ——     |
-| `width`                | 自定义宽度     | string / number | ——     | ——     |
-| `name`                 | 原生 name 属性 | string          | ——     | ——     |
-| `placeholder`          | 占位符         | string          | ——     | ——     |
-| `clear`                | 是否可清除     | boolean         | ——     | false  |
-| `disabled`             | 是否禁用       | boolean         | ——     | false  |
+| 参数                   | 说明           | 类型                                             | 可选值 | 默认值 |
+| ---------------------- | -------------- | ------------------------------------------------ | ------ | ------ |
+| `v-model / modelValue` | 绑定值         | <a href="#selectmodelvalue">SelectModelValue</a> | ——     | ——     |
+| `width`                | 自定义宽度     | string / number                                  | ——     | ——     |
+| `name`                 | 原生 name 属性 | string                                           | ——     | ——     |
+| `placeholder`          | 占位符         | string                                           | ——     | ——     |
+| `clear`                | 是否可清除     | boolean                                          | ——     | false  |
+| `disabled`             | 是否禁用       | boolean                                          | ——     | false  |
 
 ## Select Slots
 
@@ -137,16 +137,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  SelectInstance,
-  SelectPropsType,
-  SelectModelValueType,
-  SelectSetValueInterface,
-  SelectProvideInterface,
-  SelectChildrenInterface,
-  OptionInstance,
-  OptionPropsType
-} from 'fighting-design'
+import type { SelectInstance, SelectProps, SelectModelValue, OptionInstance, OptionProps } from 'fighting-design'
+```
+
+### SelectModelValue
+
+```ts
+type SelectModelValue = string | number | boolean
 ```
 
 ## Contributors
