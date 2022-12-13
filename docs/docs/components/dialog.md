@@ -145,10 +145,10 @@
 | `close-icon`      | 自定义关闭按钮 icon                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
 | `show-close-icon` | 是否展示关闭图标                                                                    | boolean                                                            | ——     | true   |
 | `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                             | ——     | 1999   |
-| `on-open`         | 打开动画开始的回调                                                                  | Function                                                           | ——     | ——     |
-| `on-open-end`     | 打开动画结束的回调                                                                  | Function                                                           | ——     | ——     |
-| `on-close`        | 关闭动画开始的回调                                                                  | Function                                                           | ——     | ——     |
-| `on-close-end`    | 关闭动画结束的回调                                                                  | Function                                                           | ——     | ——     |
+| `on-open`         | 打开动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
+| `on-open-end`     | 打开动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
+| `on-close`        | 关闭动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
+| `on-close-end`    | 关闭动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
 
 ## Slots
 
@@ -164,7 +164,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DialogInstance, DialogPropsType } from 'fighting-design'
+import type { DialogInstance, DialogProps } from 'fighting-design'
 ```
 
 ## Contributors

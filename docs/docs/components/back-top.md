@@ -115,18 +115,18 @@
 
 ## Attractive
 
-| 参数             | 说明                                                                     | 类型    | 可选值          | 默认值 |
-| ---------------- | ------------------------------------------------------------------------ | ------- | --------------- | ------ |
-| `round`          | 是否为圆角                                                               | boolean | ——              | false  |
-| `behavior`       | 滚动模式                                                                 | string  | `smooth` `auto` | smooth |
-| `visible-height` | 滚动超出多少距离展示                                                     | number  | ——              | 200    |
-| `right`          | 距离右侧的距离                                                           | string  | ——              | 40     |
-| `bottom`         | 距离底部的距离                                                           | string  | ——              | 40     |
-| `z-index`        | 原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) | number  | ——              | 200    |
-| `top`            | 点击返回距离顶部的距离                                                   | number  | ——              | 0      |
-| `listen-el`      | 监视指定元素，需要传入指定的 class 或 id，如：.box #app                  | string  | ——              | ——     |
-| `background`     | 背景色                                                                   | string  | ——              | ——     |
-| `color`          | 文字颜色                                                                 | string  | ——              | ——     |
+| 参数             | 说明                                                                     | 类型                                           | 可选值          | 默认值 |
+| ---------------- | ------------------------------------------------------------------------ | ---------------------------------------------- | --------------- | ------ |
+| `round`          | 是否为圆角                                                               | boolean                                        | ——              | false  |
+| `behavior`       | 滚动模式                                                                 | <a href="#backtopbehavior">BackTopBehavior</a> | `smooth` `auto` | smooth |
+| `visible-height` | 滚动超出多少距离展示                                                     | number                                         | ——              | 200    |
+| `right`          | 距离右侧的距离                                                           | string                                         | ——              | 40     |
+| `bottom`         | 距离底部的距离                                                           | string                                         | ——              | 40     |
+| `z-index`        | 原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) | number                                         | ——              | 200    |
+| `top`            | 点击返回距离顶部的距离                                                   | number                                         | ——              | 0      |
+| `listen-el`      | 监视指定元素，需要传入指定的 class 或 id，如：.box #app                  | string                                         | ——              | ——     |
+| `background`     | 背景色                                                                   | string                                         | ——              | ——     |
+| `color`          | 文字颜色                                                                 | string                                         | ——              | ——     |
 
 ## Slots
 
@@ -139,7 +139,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { BackTopInstance, BackTopProps, BackTopBehavior, BackTopHandleScrollInterface } from 'fighting-design'
+import type { BackTopInstance, BackTopProps, BackTopBehavior } from 'fighting-design'
+```
+
+### BackTopBehavior
+
+```ts
+type BackTopBehavior = 'smooth' | 'auto'
 ```
 
 ## Contributors

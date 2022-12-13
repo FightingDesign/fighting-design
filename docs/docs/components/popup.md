@@ -62,23 +62,23 @@
 
 ## Attributes
 
-| 参数              | 说明                 | 类型            | 可选值                                        | 默认值           |
-| ----------------- | -------------------- | --------------- | --------------------------------------------- | ---------------- |
-| `v-model:visible` | 绑定值，控制是否展示 | boolean         | ——                                            | false            |
-| `append-to-body`  | 是否追加到 `body`    | boolean         | ——                                            | false            |
-| `show-mask`       | 是否展示遮罩层       | boolean         | ——                                            | true             |
-| `mask-close`      | 是否点击遮罩层关闭   | boolean         | ——                                            | true             |
-| `mask-blur`       | 是否模糊遮罩层       | boolean         | ——                                            | false            |
-| `z-index`         | 层级                 | number          | ——                                            | 1999             |
-| `mask-background` | 自定义遮罩层背景色   | string          | ——                                            | rgba(35, 39, 46) |
-| `mask-opacity`    | 遮罩层透明度         | number          | ——                                            | 0.5              |
-| `direction`       | 弹出方向             | string          | `left` `right` <br /> `top` `bottom` `center` | center           |
-| `popupSize`       | 弹出窗口尺寸         | string / number | ——                                            | ——               |
-| `padding`         | 自定义内边距         | string / number | ——                                            | ——               |
-| `on-open`         | 打开动画开始的回调   | Function        | ——                                            | ——               |
-| `on-open-end`     | 打开动画结束的回调   | Function        | ——                                            | ——               |
-| `on-close`        | 关闭动画开始的回调   | Function        | ——                                            | ——               |
-| `on-close-end`    | 关闭动画结束的回调   | Function        | ——                                            | ——               |
+| 参数              | 说明                 | 类型                                                             | 可选值                                        | 默认值           |
+| ----------------- | -------------------- | ---------------------------------------------------------------- | --------------------------------------------- | ---------------- |
+| `v-model:visible` | 绑定值，控制是否展示 | boolean                                                          | ——                                            | false            |
+| `append-to-body`  | 是否追加到 `body`    | boolean                                                          | ——                                            | false            |
+| `show-mask`       | 是否展示遮罩层       | boolean                                                          | ——                                            | true             |
+| `mask-close`      | 是否点击遮罩层关闭   | boolean                                                          | ——                                            | true             |
+| `mask-blur`       | 是否模糊遮罩层       | boolean                                                          | ——                                            | false            |
+| `z-index`         | 层级                 | number                                                           | ——                                            | 1999             |
+| `mask-background` | 自定义遮罩层背景色   | string                                                           | ——                                            | rgba(35, 39, 46) |
+| `mask-opacity`    | 遮罩层透明度         | number                                                           | ——                                            | 0.5              |
+| `direction`       | 弹出方向             | <a href="#popupdirection">PopupDirection</a>                     | `left` `right` <br /> `top` `bottom` `center` | center           |
+| `popupSize`       | 弹出窗口尺寸         | string / number                                                  | ——                                            | ——               |
+| `padding`         | 自定义内边距         | string / number                                                  | ——                                            | ——               |
+| `on-open`         | 打开动画开始的回调   | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                            | ——               |
+| `on-open-end`     | 打开动画结束的回调   | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                            | ——               |
+| `on-close`        | 关闭动画开始的回调   | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                            | ——               |
+| `on-close-end`    | 关闭动画结束的回调   | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                            | ——               |
 
 ## Slots
 
@@ -91,7 +91,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { PopupInstance, PopupPropsType, PopupDirectionType } from 'fighting-design'
+import type { PopupInstance, PopupProps, PopupDirection } from 'fighting-design'
+```
+
+### PopupDirection
+
+```ts
+type PopupDirection = 'left' | 'right' | 'top' | 'bottom' | 'center'
 ```
 
 ## Contributors

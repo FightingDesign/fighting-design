@@ -124,17 +124,17 @@
 
 ## Attributes
 
-| 参数         | 说明             | 类型           | 可选值                        | 默认值 |
-| ------------ | ---------------- | -------------- | ----------------------------- | ------ |
-| `content`    | 提示内容         | string / umber | ——                            | ——     |
-| `position`   | 弹出方向         | string         | `top` `bottom` `right` `left` | bottom |
-| `disabled`   | 是否禁用         | boolean        | ——                            | false  |
-| `state`      | 展示状态         | string         | `hover` `active` `always`     | hover  |
-| `no-arrow`   | 是否显示箭头     | boolean        | ——                            | false  |
-| `bold`       | 是否加粗文字     | boolean        | ——                            | false  |
-| `bright`     | 是否使用浅色主题 | boolean        | ——                            | false  |
-| `background` | 自定义背景色     | string         | ——                            | ——     |
-| `font-color` | 自定义文字颜色   | string         | ——                            | ——     |
+| 参数         | 说明             | 类型                                           | 可选值                        | 默认值 |
+| ------------ | ---------------- | ---------------------------------------------- | ----------------------------- | ------ |
+| `content`    | 提示内容         | string / umber                                 | ——                            | ——     |
+| `position`   | 弹出方向         | <a href="#tooltipposition">TooltipPosition</a> | `top` `bottom` `right` `left` | bottom |
+| `disabled`   | 是否禁用         | boolean                                        | ——                            | false  |
+| `state`      | 展示状态         | <a href="#tooltipstate">TooltipState</a>       | `hover` `active` `always`     | hover  |
+| `no-arrow`   | 是否显示箭头     | boolean                                        | ——                            | false  |
+| `bold`       | 是否加粗文字     | boolean                                        | ——                            | false  |
+| `bright`     | 是否使用浅色主题 | boolean                                        | ——                            | false  |
+| `background` | 自定义背景色     | string                                         | ——                            | ——     |
+| `font-color` | 自定义文字颜色   | string                                         | ——                            | ——     |
 
 ## Slots
 
@@ -147,7 +147,19 @@
 组件导出以下类型定义：
 
 ```ts
-import type { TooltipInstance, TooltipPropsType, TooltipPositionType, TooltipStateType } from 'fighting-design'
+import type { TooltipInstance, TooltipProps, TooltipPosition, TooltipState } from 'fighting-design'
+```
+
+### TooltipPosition
+
+```ts
+type TooltipPosition = 'top' | 'bottom' | 'right' | 'left'
+```
+
+### TooltipState
+
+```ts
+type TooltipState = 'hover' | 'active' | 'always'
 ```
 
 ## Contributors

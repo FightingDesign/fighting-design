@@ -61,6 +61,14 @@ import { useLoadingBar } from 'fighting-design'
 | `finish` | 加载完成触发 |
 | `error`  | 加载失败触发 |
 
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { LoadingBarProps } from 'fighting-design'
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
