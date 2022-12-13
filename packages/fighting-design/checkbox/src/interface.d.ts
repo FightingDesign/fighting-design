@@ -1,10 +1,13 @@
 export type { CheckboxProps } from './props'
 
 /**
+ * 绑定值类型
+ */
+export type CheckboxModelValue = boolean | 'true' | 'false'
+
+/**
  * label 类型
  */
-export type CheckboxBooleanish = boolean | 'true' | 'false'
-
 export type CheckboxLabel = string | number | boolean
 
 /**
@@ -12,6 +15,4 @@ export type CheckboxLabel = string | number | boolean
  *
  * @param val 最新值
  */
-export interface CheckboxChangeInterface {
-  (val: CheckboxLabelType): CheckboxLabelType | []
-}
+export type CheckboxChange = (val: CheckboxLabelType) => void

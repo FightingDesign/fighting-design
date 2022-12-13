@@ -6,11 +6,11 @@
   import { isArray, isBoolean } from '../../_utils'
   import type { CheckboxGroupInject } from '../../checkbox-group'
   import type { ClassList } from '../../_interface'
-  import type { CheckboxBooleanish } from './interface'
+  import type { CheckboxModelValue } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: CheckboxBooleanish): CheckboxBooleanish => typeof val !== 'object'
+    'update:modelValue': (val: CheckboxModelValue): CheckboxModelValue => typeof val !== 'object'
   })
 
   /**
@@ -33,7 +33,7 @@
      */
     set(val) {
       if (!parentInject) {
-        emit('update:modelValue', val as CheckboxBooleanish)
+        emit('update:modelValue', val as CheckboxModelValue)
         useRun(prop.onChange, val)
         return
       }
