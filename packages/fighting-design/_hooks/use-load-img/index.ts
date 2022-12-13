@@ -17,7 +17,13 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
    * 是否加载成功
    */
   const isSuccess = ref<boolean>(true)
-
+  /**
+   * 是否展示节点元素
+   * 
+   * 因为在加载过程中 img 会展示一个撕裂的标志
+   * 
+   * 所以使用变量控制显示和隐藏
+   */
   const isShowNode = ref<boolean>(false)
   /**
    * 是否加载过 errSrc
