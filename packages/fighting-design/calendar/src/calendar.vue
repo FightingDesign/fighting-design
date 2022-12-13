@@ -7,7 +7,6 @@
   import { addZero, sizeChange, WEEK_DATA } from '../../_utils'
   import { useCalculiTime, useRun } from '../../_hooks'
   import type { CSSProperties } from 'vue'
-  import type { CalendarTarget } from './interface'
 
   const prop = defineProps(Props)
 
@@ -47,7 +46,7 @@
    *
    * @param target 不同类型用于切换当前时间、下个月、上个月
    */
-  const optionClick = (target: CalendarTarget): void => {
+  const optionClick = (target: 'last' | 'now' | 'next'): void => {
     const option = {
       last: (): void => changeLastMonth(),
       next: (): void => changeNextMonth(),
@@ -58,7 +57,7 @@
       }
     } as const
 
-    option[target]()
+    option[target] && option[target]()
   }
 
   /**

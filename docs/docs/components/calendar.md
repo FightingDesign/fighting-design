@@ -133,18 +133,18 @@
 
 ## Attributes
 
-| 参数               | 说明                                     | 类型            | 可选值 | 默认值   |
-| ------------------ | ---------------------------------------- | --------------- | ------ | -------- |
-| `v-model:date`     | 绑定日期                                 | date            | ——     | new Date |
-| `lunar`            | 是否显示农历或节日，仅支持 `1900 ~ 2100` | boolean         | ——     | false    |
-| `show-header`      | 是否显示头部                             | boolean         | ——     | true     |
-| `border`           | 是否显示边框                             | boolean         | ——     | false    |
-| `border-color`     | 自定义边框颜色                           | string          | ——     | #eee     |
-| `day-cell-height`  | 日期单元格高度                           | string / number | ——     | 85px     |
-| `week-cell-height` | 星期单元格高度                           | string / number | ——     | 50px     |
-| `memorandum`       | 备忘事件                                 | object          | ——     | ——       |
-| `on-change-month`  | 月份改变时触发的回调                     | Function        | ——     | ——       |
-| `on-change-date`   | 日期改变时触发的回调                     | Function        | ——     | ——       |
+| 参数               | 说明                                     | 类型                                                 | 可选值 | 默认值   |
+| ------------------ | ---------------------------------------- | ---------------------------------------------------- | ------ | -------- |
+| `v-model:date`     | 绑定日期                                 | date                                                 | ——     | new Date |
+| `lunar`            | 是否显示农历或节日，仅支持 `1900 ~ 2100` | boolean                                              | ——     | false    |
+| `show-header`      | 是否显示头部                             | boolean                                              | ——     | true     |
+| `border`           | 是否显示边框                             | boolean                                              | ——     | false    |
+| `border-color`     | 自定义边框颜色                           | string                                               | ——     | #eee     |
+| `day-cell-height`  | 日期单元格高度                           | string / number                                      | ——     | 85px     |
+| `week-cell-height` | 星期单元格高度                           | string / number                                      | ——     | 50px     |
+| `memorandum`       | 备忘事件                                 | <a href="#calendarmemorandum">CalendarMemorandum</a> | ——     | ——       |
+| `on-change-month`  | 月份改变时触发的回调                     | <a href="#calendarchange">CalendarChange</a>         | ——     | ——       |
+| `on-change-date`   | 日期改变时触发的回调                     | <a href="#calendarchange">CalendarChange</a>         | ——     | ——       |
 
 ## Slots
 
@@ -161,16 +161,41 @@
 ```ts
 import type {
   CalendarInstance,
-  CalendarPropsType,
-  CalendarMowDataClassListInterface,
-  CalendarOptionClickInterface,
-  CalendarHandleClickInterface,
-  CalendarCallbackInterface,
-  CalendarMemorandumContentInterface,
-  CalendarMemorandumType,
-  CalendarIsMemorandumInterface,
-  CalendarOptionInterface
+  CalendarProps,
+  CalendarChangeParams,
+  CalendarChange,
+  CalendarMemorandum
 } from 'fighting-design'
+```
+
+### CalendarChangeParams
+
+```ts
+interface CalendarChangeParams {
+  year: number
+  month: number
+  date: number
+}
+```
+
+### CalendarChange
+
+```ts
+type CalendarChange = (params: CalendarChangeParams) => void
+```
+
+### CalendarMemorandum
+
+```ts
+import type { FightingType } from 'fighting-design'
+
+type CalendarMemorandum = Record<
+  string,
+  {
+    type?: FightingType
+    content: string
+  }[]
+>
 ```
 
 ## Contributors
