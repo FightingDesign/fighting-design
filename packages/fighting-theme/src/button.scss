@@ -71,7 +71,7 @@
 
   // 不同尺寸
   @for $list from 1 to (length($ComponentsSize) + 1) {
-    $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
+    $item: nth($ComponentsSize, $list); // 获取数组中第 i 项的值
 
     &.f-button__#{map-get($item, name)} {
       height: map-get($item, height);

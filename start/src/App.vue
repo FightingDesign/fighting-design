@@ -1,11 +1,8 @@
 <template>
-  <div>
-    <f-checkbox v-model="checkAll" label="全都要" :indeterminate="indeterminate" :change="onCheckboxChange" />
-  </div>
-
-  <f-checkbox-group v-model="checkedOptions" :change="onGroupChange">
-    <f-checkbox v-for="(item, index) in optionList" :key="index" :label="item" />
-  </f-checkbox-group>
+  <f-tag type="primary" size="large">大标签</f-tag>
+  <f-tag type="primary" size="middle">中等标签</f-tag>
+  <f-tag type="primary" size="small">小标签</f-tag>
+  <f-tag type="primary" size="mini">超小标签</f-tag>
 </template>
 
 <script lang="ts" setup>

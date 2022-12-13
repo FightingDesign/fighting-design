@@ -52,7 +52,7 @@ export const searchList = [
   { title: 'Radio 单选框', rule: 'radioRadio单选框', url: 'components/radio' },
   {
     title: 'Checkbox 复选框',
-    rule: 'checkboxCheckbox复选框',
+    rule: 'checkboxCheckbox复选框多选框',
     url: 'components/checkbox'
   },
   {
