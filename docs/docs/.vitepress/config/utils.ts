@@ -1,12 +1,12 @@
-import type { SFCTemplateCompileOptions } from '@vue/compiler-sfc'
 import { compileTemplate, compileScript, parse } from '@vue/compiler-sfc'
-import type { DemoBlockPluginOptions } from '../types'
 import {
   ScriptOrStyleReplacePattern,
   ScriptSetupPattern,
   StylePattern,
   TemplateReplacePattern
 } from './patterns'
+import type { SFCTemplateCompileOptions } from '@vue/compiler-sfc'
+import type { DemoBlockPluginOptions } from '../types'
 
 export function stripScript(content: string, id: any) {
   const result = content.match(ScriptSetupPattern)
@@ -57,7 +57,6 @@ export function genInlineComponentText(
     id: `inline-component-${id}`,
     source: `${source}`,
     filename: `inline-component-${id}.vue`,
-    // compiler: TemplateCompiler,
     compilerOptions: {
       mode: 'function'
     }
@@ -73,8 +72,8 @@ export function genInlineComponentText(
   if (compiled.errors && compiled.errors.length) {
     console.error(
       `\n  Error compiling template:\n${pad(compiled.source)}\n` +
-        compiled.errors.map(e => `  - ${e}`).join('\n') +
-        '\n'
+      compiled.errors.map(e => `  - ${e}`).join('\n') +
+      '\n'
     )
   }
   let demoComponentContent = `

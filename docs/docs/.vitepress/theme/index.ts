@@ -5,8 +5,8 @@ import FightingDesign from '../../../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 import './index.css'
 import vpSearch from './components/vp-search.vue'
-import Demo from '../src/client/components/Demo.vue'
-import DemoBlock from '../src/client/components/DemoBlock.vue'
+import Demo from './components/Demo.vue'
+import DemoBlock from './components/DemoBlock.vue'
 // import vpDemo from './components/vp-demo.vue'
 
 export default {
