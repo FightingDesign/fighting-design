@@ -4,7 +4,7 @@
   import { FInput } from '../../input'
   import { FDropdown } from '../../dropdown'
   import { FCalendar } from '../../calendar'
-  import type { CalendarCallbackParams } from '../../calendar'
+  import type { CalendarChangeParams } from '../../calendar'
   import type { DatePickerCheckDate } from './interface'
 
   const prop = defineProps(Props)
@@ -40,7 +40,7 @@
    *
    * 通过点击日历上的时间进行选取
    */
-  const changeDate = ({ year, month, date }: CalendarCallbackParams): void => {
+  const changeDate = ({ year, month, date }: CalendarChangeParams): void => {
     // 如果存在格式化配置项
     if (prop.format) {
       const checkDate: DatePickerCheckDate = {

@@ -32,7 +32,7 @@ export const useMessage = (target: 'message' | 'notification'): UseMessageReturn
     notification: notificationVue
   }
 
-  const instance: MessageFn & Partial<MessageFnWithType> = (options): MessageInstance => {
+  const instance: MessageFn & Partial<MessageFnWithType> = (options: MessageOptions): MessageInstance => {
     const container: HTMLDivElement = document.createElement('div')
     const id = `message-${seed}`
 

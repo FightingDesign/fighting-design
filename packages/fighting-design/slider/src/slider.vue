@@ -89,7 +89,7 @@
       class="f-slider__right__icon f-slider__icon"
       :style="`transform: translateX(${rightTx}px)`"
     >
-      <f-tooltip :content="modelValue" position="top" state="always">
+      <f-tooltip :content="modelValue.toString()" position="top" state="always">
         <div style="height: 25px" />
       </f-tooltip>
     </div>
