@@ -25,7 +25,8 @@
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
 
-  const { scale, rotate, smaller, bigger, scrollZoom, recovery, rotateClockwise, rotateCounterClock } = useOperationImg()
+  const { scale, rotate, smaller, bigger, scrollZoom, recovery, rotateClockwise, rotateCounterClock } =
+    useOperationImg()
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
   const previewShowIndex: Ref<number> = ref<number>(prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex)
@@ -144,9 +145,19 @@
 
       <!-- 左右切换按钮 -->
       <template v-if="imgList.length > 1">
-        <f-button class="f-image-preview__next" circle :before-icon="FIconChevronRightVue" @click="switchImage('next')" />
+        <f-button
+          class="f-image-preview__next"
+          circle
+          :before-icon="FIconChevronRightVue"
+          @click="switchImage('next')"
+        />
 
-        <f-button class="f-image-preview__prev" circle :before-icon="FIconChevronLeftVue" @click="switchImage('prev')" />
+        <f-button
+          class="f-image-preview__prev"
+          circle
+          :before-icon="FIconChevronLeftVue"
+          @click="switchImage('prev')"
+        />
       </template>
 
       <!-- 关闭按钮 -->

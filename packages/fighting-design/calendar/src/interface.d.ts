@@ -4,7 +4,7 @@ export type { CalendarProps } from './props'
 
 /**
  * 回调参数类型接口
- * 
+ *
  * @param year 年份
  * @param month 月份
  * @param date 日期
@@ -29,7 +29,10 @@ export type CalendarChange = (params: CalendarChangeParams) => void
  *
  * 例：'2022-9-21': [{ type: 'danger', content: '今天要考试' }]
  */
-export type CalendarMemorandum = Record<string, {
-  type?: FightingType
-  content: string
-}[]>
+export type CalendarMemorandum = Record<
+  string,
+  {
+    type?: FightingType
+    content: string
+  }[]
+>

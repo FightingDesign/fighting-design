@@ -52,7 +52,7 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
 
   /**
    * prop 拦截器，可拦截指定的属性，传入 rule 回调进行验证
-   * 
+   *
    * @param param 参数
    * @param rule 验证回调
    * @param def 默认值

@@ -23,7 +23,9 @@
         <f-link href="https://cn.vuejs.org/" type="primary" target="_blank"> Vue.js </f-link>
       </li>
       <li class="option-item">
-        <f-link href="https://github.com/FightingDesign/fighting-design-playground" type="primary" target="_blank"> Github </f-link>
+        <f-link href="https://github.com/FightingDesign/fighting-design-playground" type="primary" target="_blank">
+          Github
+        </f-link>
       </li>
     </ul>
   </header>

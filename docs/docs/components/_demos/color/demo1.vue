@@ -28,7 +28,13 @@
 <template>
   <div class="f-color-box">
     <div v-for="(item, index) in colorList" :key="index" class="f-color-list">
-      <div v-for="(color, i) in item" :key="i" class="f-color-item" :style="{ background: color }" @click="handleClick(color)">
+      <div
+        v-for="(color, i) in item"
+        :key="i"
+        class="f-color-item"
+        :style="{ background: color }"
+        @click="handleClick(color)"
+      >
         <f-text>{{ color }}</f-text>
       </div>
     </div>

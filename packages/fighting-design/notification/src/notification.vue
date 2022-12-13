@@ -5,7 +5,13 @@
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
   import { massageManage } from '../../_hooks'
-  import { FIconSmileLineVue, FIconLightbulbVue, FIconThumbUpVue, FIconCircleCrossVue, FIconWarningVue } from '../../_svg'
+  import {
+    FIconSmileLineVue,
+    FIconLightbulbVue,
+    FIconThumbUpVue,
+    FIconCircleCrossVue,
+    FIconWarningVue
+  } from '../../_svg'
   import type { VNode, CSSProperties, ComputedRef } from 'vue'
   import type { ClassList } from '../../_interface'
 
@@ -127,7 +133,14 @@
     @before-leave="closeMessageEnd"
     @after-leave="emit('destroy')"
   >
-    <div v-show="visible" ref="notificationRef" :class="classList" :style="styleList" @mouseleave="startTime" @mouseenter="clearTimer">
+    <div
+      v-show="visible"
+      ref="notificationRef"
+      :class="classList"
+      :style="styleList"
+      @mouseleave="startTime"
+      @mouseenter="clearTimer"
+    >
       <!-- icon -->
       <div v-if="showIcon && _icon" class="f-notification__icon">
         <f-svg-icon :icon="_icon" :size="28">

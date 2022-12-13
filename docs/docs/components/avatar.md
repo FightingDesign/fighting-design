@@ -19,7 +19,8 @@
 </template>
 
 ```html
-<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" /> <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
 ```
 
 :::
@@ -111,7 +112,11 @@
 </template>
 
 ```html
-<f-avatar width="200px" lazy src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a72738a7113.png" />
+<f-avatar
+  width="200px"
+  lazy
+  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a72738a7113.png"
+/>
 ```
 
 :::

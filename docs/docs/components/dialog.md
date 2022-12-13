@@ -97,7 +97,14 @@
 <template>
   <f-button type="primary" @click="visible3 = true">打开</f-button>
 
-  <f-dialog title="Title" v-model:visible="visible3" :on-open="open" :on-open-end="openEnd" :on-close="close" :on-close-end="closeEnd">
+  <f-dialog
+    title="Title"
+    v-model:visible="visible3"
+    :on-open="open"
+    :on-open-end="openEnd"
+    :on-close="close"
+    :on-close-end="closeEnd"
+  >
     <h3>沁园春·雪</h3>
 
     <p>北国风光，千里冰封，万里雪飘。</p>

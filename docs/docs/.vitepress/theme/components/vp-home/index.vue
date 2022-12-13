@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
   import { footerList, contributors } from '../_utils'
 </script>
 
@@ -36,7 +36,10 @@
 
           <!-- start 标签 -->
           <f-link href="https://github.com/FightingDesign/fighting-design" target="_blank">
-            <f-image src="https://img.shields.io/github/stars/FightingDesign/fighting-design?style=social" alt="Fighting Design" />
+            <f-image
+              src="https://img.shields.io/github/stars/FightingDesign/fighting-design?style=social"
+              alt="Fighting Design"
+            />
           </f-link>
         </h1>
 

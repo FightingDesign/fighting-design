@@ -26,7 +26,17 @@
   /**
    * 样式列表
    */
-  const styleList = styles(['color', 'background', 'decoration', 'width', 'size', 'padding', 'spacing', 'lineHeight', 'indent'])
+  const styleList = styles([
+    'color',
+    'background',
+    'decoration',
+    'width',
+    'size',
+    'padding',
+    'spacing',
+    'lineHeight',
+    'indent'
+  ])
 </script>
 
 <template>

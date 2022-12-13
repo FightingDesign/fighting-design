@@ -30,7 +30,7 @@ export const Props = {
   },
   /**
    * 不同语言
-   * 
+   *
    * @values en-US zh-CN
    * @defaultValue zh-CN
    */

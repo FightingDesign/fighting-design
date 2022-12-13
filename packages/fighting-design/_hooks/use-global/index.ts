@@ -11,12 +11,11 @@ export * from './interface.d'
 
 /**
  * 获取组件所需要的配置项，有组件内部的 prop、全局配置和默认值三个参数
- * 
+ *
  * @param prop 组件的 prop
  * @returns 根据优先级返回需要的参数
  */
 export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => {
-
   /**
    * 获取全局配置组件注入的依赖项
    */
@@ -24,7 +23,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
 
   /**
    * 获取组件的类型
-   * 
+   *
    * @param def 默认参数
    * @returns 类型
    */
@@ -36,7 +35,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
 
   /**
    * 获取组件的尺寸
-   * 
+   *
    * @param def 默认参数
    * @param parentSize 父组件可能需要注入的依赖项
    * @returns 尺寸
@@ -49,7 +48,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
 
   /**
    * 获取组件的文案
-   * 
+   *
    * @param componentName 组件名
    * @returns 当前组件下的文案
    */

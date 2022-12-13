@@ -56,7 +56,10 @@
   const openNotificationVNode = () => {
     FNotification({
       title: h('span', [h('span', '这是'), h('b', '自定义标题')]),
-      message: h('div', [h('p', [h('span', '这是一条'), h('b', ' 非常重要 '), h('span', '的通知')]), h('p', '这里是一些不重要的内容')]),
+      message: h('div', [
+        h('p', [h('span', '这是一条'), h('b', ' 非常重要 '), h('span', '的通知')]),
+        h('p', '这里是一些不重要的内容')
+      ]),
       type: 'primary'
     })
   }

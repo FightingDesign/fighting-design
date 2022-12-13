@@ -4,7 +4,13 @@ import { render, createVNode } from 'vue'
 import { useMassageManage, useRun } from '../../_hooks'
 import { isString } from '../../_utils'
 import type { ComponentInternalInstance, VNode } from 'vue'
-import type { MessageInstance, MessageFn, MessageOptions, MessageFnWithType, UseMessageReturnInterface } from './interface'
+import type {
+  MessageInstance,
+  MessageFn,
+  MessageOptions,
+  MessageFnWithType,
+  UseMessageReturnInterface
+} from './interface'
 import type { MessagePlacement } from '../../message'
 
 export * from './interface.d'

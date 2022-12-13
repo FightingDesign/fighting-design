@@ -114,7 +114,16 @@
 
 <template>
   <template v-if="href">
-    <a ref="FButton" role="button" tabindex="0" :class="classList" :href="href" :target="target" :style="styleList" @click="handleClick">
+    <a
+      ref="FButton"
+      role="button"
+      tabindex="0"
+      :class="classList"
+      :href="href"
+      :target="target"
+      :style="styleList"
+      @click="handleClick"
+    >
       <f-svg-icon
         v-if="loading || beforeIcon"
         :class="{ 'f-button__loading-animation': loading }"

@@ -29,7 +29,8 @@
 ::: demo
 
 ```html
-<f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top> <f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
+<f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top>
+<f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
 ```
 
 :::

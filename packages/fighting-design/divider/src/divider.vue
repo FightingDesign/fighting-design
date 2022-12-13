@@ -29,7 +29,11 @@
 </script>
 
 <template>
-  <div role="separator" :class="['f-divider', { 'f-divider__vertical': vertical, [`f-divider__${type}`]: type }]" :style="styleList">
+  <div
+    role="separator"
+    :class="['f-divider', { 'f-divider__vertical': vertical, [`f-divider__${type}`]: type }]"
+    :style="styleList"
+  >
     <span
       v-if="renderSlot"
       :class="['f-divider__text', `f-divider__text-${position}`]"

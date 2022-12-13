@@ -32,7 +32,10 @@
     <!-- 右侧部分 -->
     <div :class="['f-page-header__main', { 'f-page-header__main-center': titleCenter }]">
       <!-- 标题 -->
-      <div :style="{ color: titleColor }" :class="['f-page-header__main-title', { 'f-page-header__main-title-bold': titleBold }]">
+      <div
+        :style="{ color: titleColor }"
+        :class="['f-page-header__main-title', { 'f-page-header__main-title-bold': titleBold }]"
+      >
         <slot name="title">{{ title }}</slot>
       </div>
 

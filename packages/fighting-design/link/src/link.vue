@@ -44,7 +44,15 @@
 </script>
 
 <template>
-  <a role="link" :class="classList" :style="styleList" :href="href" :disabled="disabled" :target="target" @click="handleClick">
+  <a
+    role="link"
+    :class="classList"
+    :style="styleList"
+    :href="href"
+    :disabled="disabled"
+    :target="target"
+    @click="handleClick"
+  >
     <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon" :size="size || 16">
       <slot name="beforeIcon" />
     </f-svg-icon>

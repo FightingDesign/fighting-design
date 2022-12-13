@@ -73,14 +73,24 @@
         <div class="f-time-picker__content">
           <!-- 小时容器 -->
           <div class="f-time-picker__hour">
-            <div v-for="hour in 24" :key="hour" class="f-time-picker__hour-item" @click.stop="handleClick(hour, 'hover')">
+            <div
+              v-for="hour in 24"
+              :key="hour"
+              class="f-time-picker__hour-item"
+              @click.stop="handleClick(hour, 'hover')"
+            >
               {{ addZero(hour - 1) }}
             </div>
           </div>
 
           <!-- 时间容器 -->
           <div class="f-time-picker__minute">
-            <div v-for="minute in 60" :key="minute" class="f-time-picker__minute-item" @click.stop="handleClick(minute, 'minute')">
+            <div
+              v-for="minute in 60"
+              :key="minute"
+              class="f-time-picker__minute-item"
+              @click.stop="handleClick(minute, 'minute')"
+            >
               {{ addZero(minute) }}
             </div>
           </div>

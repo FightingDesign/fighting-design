@@ -65,7 +65,10 @@
         </div>
 
         <!-- 箭头图标 -->
-        <f-svg-icon :class="['f-submenu__arrow-icon', { 'f-submenu__arrow-icon-animation': isOpened }]" :icon="FIconChevronDown" />
+        <f-svg-icon
+          :class="['f-submenu__arrow-icon', { 'f-submenu__arrow-icon-animation': isOpened }]"
+          :icon="FIconChevronDown"
+        />
       </div>
 
       <!-- 主要的折叠菜单内容 -->

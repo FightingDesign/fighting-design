@@ -226,7 +226,8 @@ export class Lunar implements LunarInterface {
     m = objDate.getMonth() + 1
     d = objDate.getDate()
 
-    let offset: number = (Date.UTC(objDate.getFullYear(), objDate.getMonth(), objDate.getDate()) - Date.UTC(1900, 0, 31)) / 86400000
+    let offset: number =
+      (Date.UTC(objDate.getFullYear(), objDate.getMonth(), objDate.getDate()) - Date.UTC(1900, 0, 31)) / 86400000
 
     for (i = 1900; i < 2101 && offset > 0; i++) {
       temp = this.getLunarYearDays(i)

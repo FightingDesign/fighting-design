@@ -1,5 +1,10 @@
 import { reactive } from 'vue'
-import type { MessageInstancesType, UseMassageManageReturnInterface, MessageInstance, MessagePlacementType } from './interface'
+import type {
+  MessageInstancesType,
+  UseMassageManageReturnInterface,
+  MessageInstance,
+  MessagePlacementType
+} from './interface'
 
 export * from './interface.d'
 
@@ -27,7 +32,8 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
   const getSiblingOffset = (placement: MessagePlacementType, id: string, isNext: boolean): number => {
     const idx: number = getInstanceIndex(placement, id)
     if (idx === -1) return 0
-    const beforeInstance: MessageInstance = (instances[placement] as MessageInstance[])[isNext ? idx + 1 : idx - 1] || null
+    const beforeInstance: MessageInstance =
+      (instances[placement] as MessageInstance[])[isNext ? idx + 1 : idx - 1] || null
     if (!beforeInstance) return 0
 
     /**

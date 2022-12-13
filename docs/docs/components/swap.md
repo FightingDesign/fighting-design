@@ -83,7 +83,14 @@
 </template>
 
 <script lang="ts" setup>
-  import { FIconSun, FIconMoon, FIconFaceSmile, FIconFaceFrown, FIconEye, FIconEyeSlash } from '@fighting-design/fighting-icon'
+  import {
+    FIconSun,
+    FIconMoon,
+    FIconFaceSmile,
+    FIconFaceFrown,
+    FIconEye,
+    FIconEyeSlash
+  } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
   const value5 = ref(true)

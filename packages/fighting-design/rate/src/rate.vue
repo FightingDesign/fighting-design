@@ -73,7 +73,11 @@
         @mouseover="onMouseover(index + 1)"
         @click="handleClick(index + 1)"
       >
-        <f-svg-icon :size="size" :icon="icon || FIconStarBVue" :color="starValue > index ? effectColor : invalidColor" />
+        <f-svg-icon
+          :size="size"
+          :icon="icon || FIconStarBVue"
+          :color="starValue > index ? effectColor : invalidColor"
+        />
       </div>
     </div>
 

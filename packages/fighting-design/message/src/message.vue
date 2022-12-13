@@ -103,7 +103,14 @@
     @before-leave="closeMessageEnd"
     @after-leave="emit('destroy')"
   >
-    <div v-show="visible" ref="messageRef" :class="classList" :style="styleList" @mouseleave="startTime" @mouseenter="clearTimer">
+    <div
+      v-show="visible"
+      ref="messageRef"
+      :class="classList"
+      :style="styleList"
+      @mouseleave="startTime"
+      @mouseenter="clearTimer"
+    >
       <!-- icon -->
       <f-svg-icon v-if="isVNode(icon)" :size="24" class="f-message__icon">
         <component :is="icon" />

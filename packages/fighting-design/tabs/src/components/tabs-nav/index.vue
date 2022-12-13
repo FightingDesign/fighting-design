@@ -79,7 +79,9 @@
     if (!instance || !instance.subTree.el) return
     const wrapperEl = instance.subTree.el as HTMLObjectElement
     // 获取除active元素外最高的子元素
-    const children = instance.subTree.el.querySelectorAll('.f-tabs-nav--item:not(.f-tabs-nav--item__active)') as HTMLObjectElement[]
+    const children = instance.subTree.el.querySelectorAll(
+      '.f-tabs-nav--item:not(.f-tabs-nav--item__active)'
+    ) as HTMLObjectElement[]
     const maxChildren = Array.from(children).reduce((pre, cur) => {
       pre = (cur[positionVar.b] as Number) > (pre[positionVar.b] as Number) ? cur : pre
       return pre
@@ -119,11 +121,13 @@
 
     const nextItemStyle = window.getComputedStyle(nextItem)
     if (position === 'top' || position === 'bottom') {
-      activeStyle.width = nextItem.clientWidth - sizeToNum(nextItemStyle.paddingLeft) - sizeToNum(nextItemStyle.paddingRight) + 'px'
+      activeStyle.width =
+        nextItem.clientWidth - sizeToNum(nextItemStyle.paddingLeft) - sizeToNum(nextItemStyle.paddingRight) + 'px'
       activeStyle.left = `${nextItem.offsetLeft + sizeToNum(nextItemStyle.paddingLeft)}px`
       activeStyle.bottom = '0px'
     } else {
-      activeStyle.height = nextItem.clientHeight - sizeToNum(nextItemStyle.paddingTop) - sizeToNum(nextItemStyle.paddingBottom) + 'px'
+      activeStyle.height =
+        nextItem.clientHeight - sizeToNum(nextItemStyle.paddingTop) - sizeToNum(nextItemStyle.paddingBottom) + 'px'
       activeStyle.top = `${nextItem.offsetTop + sizeToNum(nextItemStyle.paddingTop)}px`
       if (position === 'left') {
         activeStyle.right = '0px'

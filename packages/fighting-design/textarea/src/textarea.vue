@@ -16,7 +16,10 @@
   /**
    * 使用 useUpdateInput hook 实现同步数据
    */
-  const { onInput, onClear, onChange } = useUpdateInput(filter(['onChange', 'onInput', 'disabled']) as unknown as UseUpdateInputProps, emit)
+  const { onInput, onClear, onChange } = useUpdateInput(
+    filter(['onChange', 'onInput', 'disabled']) as unknown as UseUpdateInputProps,
+    emit
+  )
 
   /**
    * 输入框输入

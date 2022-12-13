@@ -65,7 +65,8 @@
 </template>
 
 ```html
-<f-link href="" state="line" type="primary">带有下划线</f-link> <f-link href="" state="bag" type="danger">hover 一下试试</f-link>
+<f-link href="" state="line" type="primary">带有下划线</f-link>
+<f-link href="" state="bag" type="danger">hover 一下试试</f-link>
 ```
 
 :::

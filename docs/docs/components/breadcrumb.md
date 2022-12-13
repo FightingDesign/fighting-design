@@ -178,7 +178,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { BreadcrumbInstance, BreadcrumbProps, BreadcrumbItemInstance, BreadcrumbItemProps, BreadcrumbItemTo } from 'fighting-design'
+import type {
+  BreadcrumbInstance,
+  BreadcrumbProps,
+  BreadcrumbItemInstance,
+  BreadcrumbItemProps,
+  BreadcrumbItemTo
+} from 'fighting-design'
 ```
 
 ### BreadcrumbItemTo

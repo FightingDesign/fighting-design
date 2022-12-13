@@ -84,7 +84,11 @@
 <template>
   <div ref="FSlider" class="f-slider" :class="classList" :style="styleList">
     <div class="f-slider__selected" :style="`width: ${rightTx}px`" />
-    <div v-drag="onRightDrag" class="f-slider__right__icon f-slider__icon" :style="`transform: translateX(${rightTx}px)`">
+    <div
+      v-drag="onRightDrag"
+      class="f-slider__right__icon f-slider__icon"
+      :style="`transform: translateX(${rightTx}px)`"
+    >
       <f-tooltip :content="modelValue" position="top" state="always">
         <div style="height: 25px" />
       </f-tooltip>

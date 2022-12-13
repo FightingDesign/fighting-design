@@ -127,8 +127,16 @@
       >
         <template #after>
           <div v-if="model === 'switch'" class="f-input-number__switch">
-            <f-button :disabled="disabled || maxDisabled" :before-icon="FIconChevronUp" @click="handleChangeVal('plus')" />
-            <f-button :disabled="disabled || minDisabled" :before-icon="FIconChevronDown" @click="handleChangeVal('minus')" />
+            <f-button
+              :disabled="disabled || maxDisabled"
+              :before-icon="FIconChevronUp"
+              @click="handleChangeVal('plus')"
+            />
+            <f-button
+              :disabled="disabled || minDisabled"
+              :before-icon="FIconChevronDown"
+              @click="handleChangeVal('minus')"
+            />
           </div>
         </template>
       </f-input>

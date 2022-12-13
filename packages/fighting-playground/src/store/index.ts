@@ -4,7 +4,14 @@ import { reactive, watchEffect, version } from 'vue'
 import { compileFile, File } from '@vue/repl'
 import { utoa, atou } from '../utils/index'
 import { FMessage } from '../../../fighting-design/message'
-import { defaultMainFile, fightingPlugin, fightingPluginCode, defaultCode, fightingImports, publicPath } from '../utils/code'
+import {
+  defaultMainFile,
+  fightingPlugin,
+  fightingPluginCode,
+  defaultCode,
+  fightingImports,
+  publicPath
+} from '../utils/code'
 import type { Store, SFCOptions, StoreState, OutputModes } from '@vue/repl'
 
 export class ReplStore implements Store {
