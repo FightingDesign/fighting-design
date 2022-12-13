@@ -1,0 +1,1 @@
+export { fightingPlugin } from './plugin'

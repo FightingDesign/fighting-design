@@ -1,10 +1,4 @@
 :root {
-  /*--vp-c-brand: #646cff;*/
-  /*--vp-c-brand-light: #747bff;*/
-  /*--vp-c-brand-lighter: #9499ff;*/
-  /*--vp-c-brand-lightest: #bcc0ff;*/
-  /*--vp-c-brand-dark: #535bf2;*/
-  /*--vp-c-brand-darker: #454ce1;*/
   --demoblock-border: var(--vp-c-divider-light);
   --demoblock-control: #d3dce6;
   --demoblock-control-bg: var(--vp-c-bg);

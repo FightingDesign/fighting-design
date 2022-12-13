@@ -1,39 +1,32 @@
-import { createSfcRegexp, TAG_NAME_TEMPLATE } from '@mdit-vue/plugin-sfc'
+// 参考 https://github.com/element-plus/element-plus/blob/dev/website/md-loader/index.js
+// 参考 https://github.com/calebman/vuepress-plugin-demo-container/blob/master/src/index.js
+import mdContainer from 'markdown-it-container'
 import renderDemoBlock from './render'
-import TableContainer from './table'
+import { tablePlugin } from './table'
+import { createSfcRegexp, TAG_NAME_TEMPLATE } from '@mdit-vue/plugin-sfc'
 import type MarkdownIt from 'markdown-it'
 import type Token from 'markdown-it/lib/token'
 import type Renderer from 'markdown-it/lib/renderer'
-import mdContainer from 'markdown-it-container'
-import type { DemoblockPluginOptions } from '../types'
+import type { DemoBlockPluginOptions } from '../types/index'
 
-export const blockPlugin = (md: MarkdownIt, options: DemoblockPluginOptions) => {
+export const blockPlugin = (md: MarkdownIt, options: DemoBlockPluginOptions) => {
   md.use(mdContainer, 'demo', {
     validate(params: string) {
       return params.trim().match(/^demo\s*(.*)$/)
     },
     render(tokens: Token[], idx: number) {
-      // const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
-      const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
       if (tokens[idx].nesting === 1) {
-        // 获取描述信息
-        const description = m && m.length > 1 ? m[1] : ''
-
-        // const description = m && m.length > 1 ? m[1] : ''
         const content = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : ''
-        // return `<demo customClass="${options.customClass}" sourceCode="${md.utils.escapeHtml(
-        //   content
-        // )}">${content ? `<!--vue-demo:${content}:vue-demo-->` : ''}`
-        // return `<vp-demo source="${encodeURIComponent(source)}" description="${description}">`
-        return `<vp-demo source="${md.utils.escapeHtml(content)}" description="${description}">`
+        return `<demo sourceCode="${md.utils.escapeHtml(
+          content
+        )}">${content ? `<!--vue-demo:${content}:vue-demo-->` : ''}`
       }
-      return '</vp-demo>'
-      // return '</demo>'
+      return '</demo>'
     }
   })
 }
 
-export const codePlugin = (md: MarkdownIt, options: DemoblockPluginOptions) => {
+export const codePlugin = (md: MarkdownIt, options: DemoBlockPluginOptions) => {
   const lang = options?.lang || 'vue'
   const defaultRender = md.renderer.rules.fence
   md.renderer.rules.fence = (
@@ -59,7 +52,7 @@ export const codePlugin = (md: MarkdownIt, options: DemoblockPluginOptions) => {
           : ''
         }
         <template #highlight>
-          <div v-pre class="language-${lang} abc">
+          <div v-pre class="language-${lang}">
             ${md.options.highlight?.(token.content, lang, '') || ''}
           </div>
         </template>`
@@ -68,10 +61,13 @@ export const codePlugin = (md: MarkdownIt, options: DemoblockPluginOptions) => {
   }
 }
 
-
 const sfcRegexp = createSfcRegexp({ customBlocks: [TAG_NAME_TEMPLATE] })
-
-export const renderPlugin = (md: MarkdownIt, options: DemoblockPluginOptions) => {
+/**
+ * 提供插件
+ * @param md 
+ * @param options 
+ */
+export const renderPlugin = (md: MarkdownIt, options: DemoBlockPluginOptions) => {
   const render = md.render.bind(md)
   md.render = (src, env) => {
     let rendered = render(src, env)
@@ -96,16 +92,9 @@ export const renderPlugin = (md: MarkdownIt, options: DemoblockPluginOptions) =>
   }
 }
 
-// export const demoblock = (md: MarkdownIt, options: DemoblockPluginOptions = {}) => {
-//   md.use(blockPlugin, options)
-//   md.use(codePlugin, options)
-//   md.use(renderPlugin, options)
-// }
-
-
-export const demoblock = (md: MarkdownIt) => {
-  md.use(TableContainer)
+export const fightingPlugin = (md: MarkdownIt) => {
   md.use(blockPlugin)
   md.use(codePlugin)
+  md.use(tablePlugin)
   md.use(renderPlugin)
 }

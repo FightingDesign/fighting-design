@@ -1,6 +1,6 @@
 import type { SFCTemplateCompileOptions } from '@vue/compiler-sfc'
-import { compileTemplate, TemplateCompiler, compileScript, parse } from '@vue/compiler-sfc'
-import type { DemoblockPluginOptions } from '../types'
+import { compileTemplate, compileScript, parse } from '@vue/compiler-sfc'
+import type { DemoBlockPluginOptions } from '../types'
 import {
   ScriptOrStyleReplacePattern,
   ScriptSetupPattern,
@@ -47,7 +47,7 @@ export function genInlineComponentText(
   id: any,
   template: string,
   script: string,
-  options: DemoblockPluginOptions
+  options: DemoBlockPluginOptions
 ) {
   let source = template
   if (TemplateReplacePattern.test(source)) {

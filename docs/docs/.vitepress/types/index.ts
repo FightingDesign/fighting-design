@@ -15,7 +15,7 @@ export interface ScriptReplace {
   replaceValue: string | ReplaceValue
 }
 
-export interface DemoblockPluginOptions {
+export interface DemoBlockPluginOptions {
   locales?: Locales
   customClass?: string
   theme?: string
