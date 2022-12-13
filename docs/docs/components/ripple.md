@@ -215,7 +215,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { RippleInstance, RipplePropsType, RippleType } from 'fighting-design'
+import type { RippleInstance, RippleProps } from 'fighting-design'
 ```
 
 ## Contributors

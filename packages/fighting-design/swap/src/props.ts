@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { SwapType, SwapOnChange } from './interface'
-import type { FightingIcon } from '../../_interface'
+import type { SwapType } from './interface'
+import type { FightingIcon, HandleChange } from '../../_interface'
 
 export const Props = {
   /**
@@ -49,7 +49,7 @@ export const Props = {
    * 当绑定值发生改变时触发的回调
    */
   onChange: {
-    type: Function as PropType<SwapOnChange>,
+    type: Function as PropType<HandleChange>,
     default: (): null => null
   }
 } as const

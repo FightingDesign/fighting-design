@@ -5,6 +5,7 @@
 **新功能**
 
 - `f-fighting-global` 组件新增 `lang` 配置项
+- `f-toolbar` 组件 `width` 和 `height` 配置项支持 `number` 类型
 
 **其它更新**
 

@@ -48,14 +48,14 @@ export const Props = {
    * 自定义宽度
    */
   width: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /**
    * 自定义高度
    */
   height: {
-    type: String,
+    type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /**

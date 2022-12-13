@@ -151,9 +151,9 @@
 | `background` | 背景颜色           | string                                                             | ——                              | ——     |
 | `text-color` | 字体颜色           | string                                                             | ——                              | ——     |
 | `fixed`      | 是否固定定位       | boolean                                                            | ——                              | false  |
-| `width`      | 自定义宽度         | string                                                             | ——                              | ——     |
-| `height`     | 自定义高度         | string                                                             | ——                              | ——     |
-| `on-click`   | 点击之后触发的回调 | Function                                                           | ——                              | ——     |
+| `width`      | 自定义宽度         | string / number                                                    | ——                              | ——     |
+| `height`     | 自定义高度         | string / number                                                    | ——                              | ——     |
+| `on-click`   | 点击之后触发的回调 | <a href="#toolbarclick">ToolbarClick</a>                           | ——                              | ——     |
 
 ## Toolbar Slots
 
@@ -169,7 +169,7 @@
 | `color`     | 自定义文字颜色     | string                                                             | ——     | ——     |
 | `icon`      | 自定义 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
 | `icon-size` | 自定义 icon 大小   | string / number                                                    | ——     | 16     |
-| `on-click`  | 点击之后触发的回调 | Function                                                           | ——     | ——     |
+| `on-click`  | 点击之后触发的回调 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——     | ——     |
 
 ## Toolbar-Item Slots
 
@@ -184,12 +184,27 @@
 ```ts
 import type {
   ToolbarInstance,
-  ToolbarPropsType,
-  ToolbarType,
-  ToolbarClickEmitInterface,
+  ToolbarProps,
+  ToolbarClickParams,
+  ToolbarClick
   ToolbarItemInstance,
-  ToolbarItemPropsType
+  ToolbarItemProps,
 } from 'fighting-design'
+```
+
+### ToolbarClickParams
+
+```ts
+interface ToolbarClickParams {
+  evt: MouseEvent
+  index: string | undefined
+}
+```
+
+### ToolbarClick
+
+```ts
+type ToolbarClick = (params: ToolbarClickParams) => void
 ```
 
 ## Contributors
