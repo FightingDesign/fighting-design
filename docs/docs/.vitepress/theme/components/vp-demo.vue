@@ -1,34 +1,3 @@
-<script setup name="VpDemo">
-  import { ref } from 'vue'
-
-  /**
-   * 是否展示内容
-   */
-  const isOpen = ref(false)
-  /**
-   * 折叠的 dom 节点
-   */
-  const content = ref(null)
-
-  /**
-   * 点击执行
-   */
-  const handleClick = () => {
-    if (!isOpen.value) {
-      content.value.style.height = 'auto'
-      const height = content.value.offsetHeight
-      content.value.style.height = '0'
-      content.value.offsetHeight
-      content.value.style.transition = '0.33s'
-      content.value.style.height = height + 'px'
-      isOpen.value = true
-    } else {
-      content.value.style.height = '0'
-      isOpen.value = false
-    }
-  }
-</script>
-
 <template>
   <div class="vp-demo">
     <!-- 展示的内容 -->
@@ -49,6 +18,37 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts" name="VpDemo">
+  import { ref } from 'vue'
+
+  /**
+   * 是否展示内容
+   */
+  const isOpen = ref(false)
+  /**
+   * 折叠的 dom 节点
+   */
+  const content = ref(null as unknown as HTMLElement)
+
+  /**
+   * 点击执行
+   */
+  const handleClick = () => {
+    if (!isOpen.value) {
+      content.value.style.height = 'auto'
+      const height = content.value.offsetHeight
+      content.value.style.height = '0'
+      content.value.offsetHeight
+      content.value.style.transition = '0.33s'
+      content.value.style.height = height + 'px'
+      isOpen.value = true
+    } else {
+      content.value.style.height = '0'
+      isOpen.value = false
+    }
+  }
+</script>
 
 <style lang="scss" scoped>
   .vp-demo {

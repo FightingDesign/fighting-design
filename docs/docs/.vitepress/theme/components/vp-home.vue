@@ -1,7 +1,3 @@
-<script setup>
-  import { footerList, contributors } from '../_utils'
-</script>
-
 <template>
   <div class="vp-home">
     <!-- 横幅 -->
@@ -90,6 +86,10 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+  import { footerList, contributors } from './src'
+</script>
 
 <style lang="scss" scoped>
   .vp-home {

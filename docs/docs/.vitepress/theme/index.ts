@@ -3,7 +3,8 @@ import Theme from 'vitepress/theme'
 import './style/vitepress.scss'
 import FightingDesign from '../../../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
-import { vpSearch, vpDemo } from './components'
+import vpSearch from './components/vp-search.vue'
+import vpDemo from './components/vp-demo.vue'
 
 export default {
   ...Theme,
