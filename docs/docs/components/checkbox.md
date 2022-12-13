@@ -23,7 +23,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const option1 = ref(false)
+  const option1 = ref(true)
 </script>
 ```
 
@@ -329,8 +329,8 @@ type CheckboxGroupChange = (val: string[]) => void
     indeterminate.value = halfStatus
   }
 
-  const option1 = ref(false)
-  const option2 = ref([])
+  const option1 = ref(true)
+  const option2 = ref(['汉堡'])
   const option3 = ref([])
   const option4 = ref([])
 </script>
