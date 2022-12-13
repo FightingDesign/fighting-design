@@ -36,7 +36,29 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-space spacing="mini">
+
+<div class="avatar-block">
+<code>fill</code>
+<f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="avatar-block">
+<code>contain</code>
+<f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="avatar-block">
+<code>cover</code>
+<f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="avatar-block">
+<code>none</code>
+<f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="avatar-block">
+<code>scale-down</code>
+<f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+</f-space>
 </template>
 
 ```html
@@ -203,7 +225,6 @@ type AvatarFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/avatar/demo1.vue'
   import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
 </script>
 
@@ -211,5 +232,11 @@ type AvatarFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
   .f-avatar,
   .f-avatar-error {
     margin: 5px;
+  }
+
+  .avatar-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 </style>

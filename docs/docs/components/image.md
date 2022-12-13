@@ -50,7 +50,29 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-space spacing="large">
+
+<div class="image-block">
+<code>fill</code>
+<f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="image-block">
+<code>contain</code>
+<f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="image-block">
+<code>cover</code>
+<f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="image-block">
+<code>none</code>
+<f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="image-block">
+<code>scale-down</code>
+<f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+</f-space>
 </template>
 
 ```html
@@ -174,3 +196,15 @@ type ImageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
   import demo1Vue from './_demos/image/demo1.vue'
   const url = new URL('./_image/1.jpg', import.meta.url).href
 </script>
+
+<style scoped>
+  .image-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  code {
+    margin-bottom: 6px;
+  }
+</style>

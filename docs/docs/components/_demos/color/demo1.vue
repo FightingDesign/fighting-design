@@ -1,3 +1,19 @@
+<template>
+  <div class="f-color-box">
+    <div v-for="(item, index) in colorList" :key="index" class="f-color-list">
+      <div
+        v-for="(color, i) in item"
+        :key="i"
+        class="f-color-item"
+        :style="{ background: color }"
+        @click="handleClick(color)"
+      >
+        <f-text>{{ color }}</f-text>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script lang="ts" setup>
   import { computed } from 'vue'
   import { useCalculiColor } from '../../../../../packages/fighting-design/_hooks'
@@ -24,22 +40,6 @@
     onCopy(color)
   }
 </script>
-
-<template>
-  <div class="f-color-box">
-    <div v-for="(item, index) in colorList" :key="index" class="f-color-list">
-      <div
-        v-for="(color, i) in item"
-        :key="i"
-        class="f-color-item"
-        :style="{ background: color }"
-        @click="handleClick(color)"
-      >
-        <f-text>{{ color }}</f-text>
-      </div>
-    </div>
-  </div>
-</template>
 
 <style lang="scss" scoped>
   .f-color-box {
