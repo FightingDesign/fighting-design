@@ -20,7 +20,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 6
+          version: 7.17.1
 
       # 安装 node
       - name: Setup node
@@ -38,8 +38,8 @@ jobs:
         run: pnpm test
 
       # 打包组件
-      - name: Build components
-        run: pnpm build
+      # - name: Build components
+      #   run: pnpm build
 
       # 打打包文档
       - name: Build docs

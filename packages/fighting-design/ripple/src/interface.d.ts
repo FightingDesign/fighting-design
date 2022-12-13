@@ -1,8 +1,1 @@
-export type { RipplePropsType } from './props'
-
-export type RippleType =
-  | 'default'
-  | 'primary'
-  | 'success'
-  | 'danger'
-  | 'warning'
+export type { RippleProps } from './props'

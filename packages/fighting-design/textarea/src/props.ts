@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { TextareaChangeInterface, TextareaResizeType } from './interface'
-import type { HandleFocusEventInterface } from '../../_interface'
+import type { TextareaResize } from './interface'
+import type { InputChange, HandleEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -13,7 +13,7 @@ export const Props = {
   /**
    * 元素的输入文本的行数
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-rows
+   * @see rows https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-rows
    */
   rows: {
     type: [String, Number] as PropType<string | number>,
@@ -22,7 +22,7 @@ export const Props = {
   /**
    * 是否禁用
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-disabled
+   * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-disabled
    */
   disabled: {
     type: Boolean,
@@ -31,7 +31,7 @@ export const Props = {
   /**
    * 最大输入长度
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-maxlength
+   * @see maxLength https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-maxlength
    */
   maxLength: {
     type: Number,
@@ -41,7 +41,7 @@ export const Props = {
   /**
    * 是否自动获取焦点
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-autofocus
+   * @see autofocus https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-autofocus
    */
   autofocus: {
     type: Boolean,
@@ -50,7 +50,7 @@ export const Props = {
   /**
    * 原生 name 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-name
+   * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-name
    */
   name: {
     type: String,
@@ -59,7 +59,7 @@ export const Props = {
   /**
    * 占位符
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-placeholder
+   * @see placeholder https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-placeholder
    */
   placeholder: {
     type: String,
@@ -68,7 +68,7 @@ export const Props = {
   /**
    * 是否只读
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-readonly
+   * @see readonly https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-readonly
    */
   readonly: {
     type: Boolean,
@@ -78,41 +78,20 @@ export const Props = {
    * input 事件触发的回调
    */
   onInput: {
-    type: Function as PropType<HandleFocusEventInterface>,
-    default: (): null => null
-  },
-  /**
-   * 绑定值发生变化时触发的回调
-   */
-  onChange: {
-    type: Function as PropType<TextareaChangeInterface>,
-    default: (): null => null
-  },
-  /**
-   * 失去焦点时触发的回调
-   */
-  onBlur: {
-    type: Function as PropType<HandleFocusEventInterface>,
-    default: (): null => null
-  },
-  /**
-   * 获取焦点时触发的回调
-   */
-  onFocus: {
-    type: Function as PropType<HandleFocusEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 拉伸方式
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/resize
+   * @see resize https://developer.mozilla.org/zh-CN/docs/Web/CSS/resize
    * @values none both horizontal vertical
    * @defaultValue none
    */
   resize: {
-    type: String as PropType<TextareaResizeType>,
-    default: (): TextareaResizeType => 'none',
-    validator: (val: TextareaResizeType): boolean => {
+    type: String as PropType<TextareaResize>,
+    default: (): TextareaResize => 'none',
+    validator: (val: TextareaResize): boolean => {
       return (['none', 'both', 'horizontal', 'vertical'] as const).includes(val)
     }
   },
@@ -122,7 +101,28 @@ export const Props = {
   clear: {
     type: Boolean,
     default: (): boolean => false
+  },
+  /**
+   * 绑定值发生变化时触发的回调
+   */
+  onChange: {
+    type: Function as PropType<InputChange>,
+    default: (): null => null
+  },
+  /**
+   * 失去焦点时触发的回调
+   */
+  onBlur: {
+    type: Function as PropType<HandleEvent>,
+    default: (): null => null
+  },
+  /**
+   * 获取焦点时触发的回调
+   */
+  onFocus: {
+    type: Function as PropType<HandleEvent>,
+    default: (): null => null
   }
 } as const
 
-export type TextareaPropsType = ExtractPropTypes<typeof Props>
+export type TextareaProps = ExtractPropTypes<typeof Props>

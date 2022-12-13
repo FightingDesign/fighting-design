@@ -84,6 +84,52 @@
 
 :::
 
+## 圆形按钮
+
+`circle` 属性可以将按钮变成圆形按钮
+
+::: demo
+
+<template #source>
+<f-button circle type="primary">圆</f-button>
+<f-button circle type="success">形</f-button>
+<f-button circle type="danger">按</f-button>
+<f-button circle type="warning">钮</f-button>
+</template>
+
+```html
+<f-button circle type="primary">圆</f-button>
+<f-button circle type="success">形</f-button>
+<f-button circle type="danger">按</f-button>
+<f-button circle type="warning">钮</f-button>
+```
+
+:::
+
+## 带有 Icon
+
+`before-icon` 或者 `after-icon` 可配置内容前后的 icon，当然你也可以直接通过插槽插入
+
+::: demo
+
+<template #source>
+<f-button circle :before-icon="FIconApps" type="primary" />
+<f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock">前后都有</f-button>
+</template>
+
+```html
+<template>
+  <f-button circle :before-icon="FIconApps" type="primary" />
+  <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock"> 前后都有 </f-button>
+</template>
+
+<script setup lang="ts">
+  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
+</script>
+```
+
+:::
+
 ## 禁用状态
 
 `disabled` 属性可以将按钮变成禁用状态
@@ -193,19 +239,19 @@
 ::: demo
 
 <template #source>
-<f-button shadow="0 2px 7px 0 #f0f0f0" type="default">默认按钮</f-button>
-<f-button shadow="0 2px 7px 0 #2d5af1" type="primary">主要按钮</f-button>
-<f-button shadow="0 2px 7px 0 #52b35e" type="success">成功按钮</f-button>
-<f-button shadow="0 2px 7px 0 #ff0200" type="danger">危险按钮</f-button>
-<f-button shadow="0 2px 7px 0 #fcc202" type="warning">警告按钮</f-button>
+<f-button shadow="0 1px 10px 0 #f0f0f0" type="default">默认按钮</f-button>
+<f-button shadow="0 1px 10px 0 #2d5af1" type="primary">主要按钮</f-button>
+<f-button shadow="0 1px 10px 0 #52b35e" type="success">成功按钮</f-button>
+<f-button shadow="0 1px 10px 0 #ff0200" type="danger">危险按钮</f-button>
+<f-button shadow="0 1px 10px 0 #fcc202" type="warning">警告按钮</f-button>
 </template>
 
 ```html
-<f-button shadow="0 2px 7px 0 #f0f0f0" type="default">默认按钮</f-button>
-<f-button shadow="0 2px 7px 0 #2d5af1" type="primary">主要按钮</f-button>
-<f-button shadow="0 2px 7px 0 #52b35e" type="success">成功按钮</f-button>
-<f-button shadow="0 2px 7px 0 #ff0200" type="danger">危险按钮</f-button>
-<f-button shadow="0 2px 7px 0 #fcc202" type="warning">警告按钮</f-button>
+<f-button shadow="0 1px 10px 0 #f0f0f0" type="default">默认按钮</f-button>
+<f-button shadow="0 1px 10px 0 #2d5af1" type="primary">主要按钮</f-button>
+<f-button shadow="0 1px 10px 0 #52b35e" type="success">成功按钮</f-button>
+<f-button shadow="0 1px 10px 0 #ff0200" type="danger">危险按钮</f-button>
+<f-button shadow="0 1px 10px 0 #fcc202" type="warning">警告按钮</f-button>
 ```
 
 :::
@@ -217,7 +263,7 @@
 ::: demo
 
 <template #source>
-<f-button type="primary">主要按钮</f-button>
+<f-button type="primary">没有涟漪</f-button>
 <f-button type="success" ripples>涟漪效果</f-button>
 <f-button type="warning" ripples>点我试试</f-button>
 <f-button type="danger" ripples simple>看看我</f-button>
@@ -225,53 +271,51 @@
 </template>
 
 ```html
-<f-button type="primary">主要按钮</f-button>
+<f-button type="primary">没有涟漪</f-button>
 <f-button type="success" ripples>涟漪效果</f-button>
 <f-button type="warning" ripples>点我试试</f-button>
 <f-button type="danger" ripples simple>看看我</f-button>
-<f-button type="success" text ripples ripples-color="green">
-  自定义涟漪颜色
-</f-button>
+<f-button type="success" text ripples ripples-color="green"> 自定义涟漪颜色 </f-button>
 ```
 
 :::
 
 ## 按钮组
 
-使用 `<f-button-group>` 标签包裹按钮组件可以实现按钮组效果
+使用 `f-button-group` 组件包裹按钮组件可以实现按钮组效果
 
 `vertical` 属性可以配置纵向排列的按钮组
 
 ::: demo
 
 <template #source>
-<f-button-group>
-<f-button round type="primary">左边的</f-button>
-<f-button round type="primary">中间的</f-button>
-<f-button round type="primary">右边的</f-button>
+<f-button-group direction="horizontal">
+<f-button type="primary">左边的</f-button>
+<f-button type="primary">中间的</f-button>
+<f-button type="primary">右边的</f-button>
 </f-button-group>
 
 <br />
 <br />
 
-<f-button-group vertical>
-  <f-button type="primary">上边的</f-button>
-  <f-button type="primary">中间的</f-button>
-  <f-button round type="primary">下边的</f-button>
+<f-button-group direction="vertical">
+<f-button type="primary">上边的</f-button>
+<f-button type="primary">中间的</f-button>
+<f-button type="primary">下边的</f-button>
 </f-button-group>
 </template>
 
 ```html
-<f-button-group>
-  <f-button round type="primary">左边的</f-button>
-  <f-button round type="primary">中间的</f-button>
-  <f-button round type="primary">右边的</f-button>
+<f-button-group direction="horizontal">
+  <f-button type="primary">左边的</f-button>
+  <f-button type="primary">中间的</f-button>
+  <f-button type="primary">右边的</f-button>
 </f-button-group>
 
-<f-button-group vertical>
+<f-button-group direction="vertical">
   <f-button type="primary">上边的</f-button>
   <f-button type="primary">中间的</f-button>
-  <f-button round type="primary">下边的</f-button>
+  <f-button type="primary">下边的</f-button>
 </f-button-group>
 ```
 
@@ -299,40 +343,40 @@
 
 ## Button Attributes
 
-| 参数            | 说明                                                                                                                                                                                                          | 类型                       | 可选值                                                  | 默认值   |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------- | -------- |
-| `bold`          | 按钮文字是否加粗                                                                                                                                                                                              | boolean                    | ——                                                      | false    |
-| `circle`        | 是否为圆形按钮                                                                                                                                                                                                | boolean                    | ——                                                      | false    |
-| `round`         | 是否为圆角按钮                                                                                                                                                                                                | boolean                    | ——                                                      | false    |
-| `font-size`     | 文字字体大小                                                                                                                                                                                                  | string / number            | ——                                                      | 14px     |
-| `font-color`    | 文字字体颜色                                                                                                                                                                                                  | string                     | ——                                                      | ——       |
-| `size`          | 按钮尺寸，设置按钮的高度和水平 padding                                                                                                                                                                        | string                     | `large` `middle` `small` `mini`                         | middle   |
-| `block`         | 是否为块级元素                                                                                                                                                                                                | boolean                    | ——                                                      | false    |
-| `href`          | 链接按钮的地址                                                                                                                                                                                                | string                     | ——                                                      | ——       |
-| `target`        | 原生 target 属性，在 link 类型存在时生效                                                                                                                                                                      | string                     | `_blank` `_self` `_parent` `_top`                       | \_self   |
-| `loading`       | 是否展示 loading 状态                                                                                                                                                                                         | boolean                    | ——                                                      | false    |
-| `disabled`      | 是否禁用按钮                                                                                                                                                                                                  | boolean                    | ——                                                      | false    |
-| `before-icon`   | 之前的 icon                                                                                                                                                                                                   | object (VNode / Component) | ——                                                      | ——       |
-| `after-icon`    | 之后的 icon                                                                                                                                                                                                   | object (VNode / Component) | ——                                                      | ——       |
-| `loading-icon`  | loading 状态下的 icon                                                                                                                                                                                         | object (VNode / Component) | ——                                                      | ——       |
-| `type`          | 按钮的类型 （不同类型对应不同的背景和字体颜色，非自定义按钮颜色时有效）                                                                                                                                       | string                     | `default` `primary` `success` <br /> `danger` `warning` | default  |
-| `autofocus`     | 是否自动获取焦点                                                                                                                                                                                              | boolean                    | ——                                                      | false    |
-| `name`          | 按钮的名字                                                                                                                                                                                                    | string                     | ——                                                      | f-button |
-| `shadow`        | 按钮的阴影                                                                                                                                                                                                    | string                     | ——                                                      | ——       |
-| `text`          | 是否为文字按钮 （非自定义按钮颜色时有效）                                                                                                                                                                     | boolean                    | ——                                                      | false    |
-| `simple`        | 是否为简约按钮 （非自定义按钮颜色时有效）                                                                                                                                                                     | boolean                    | ——                                                      | false    |
-| `ripples`       | 是否启用点击涟漪效果                                                                                                                                                                                          | boolean                    | ——                                                      | false    |
-| `ripples-color` | 涟漪背景色                                                                                                                                                                                                    | string                     | ——                                                      | #fff     |
-| `native-type`   | 按钮的原生类型                                                                                                                                                                                                | string                     | `button` `submit` `reset`                               | button   |
-| `color`         | 自定义按钮的背景颜色，仅支持 [hex](https://baike.baidu.com/item/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E9%A2%9C%E8%89%B2%E7%A0%81/10894232?fr=aladdin) 格式的色号。如果未指定`font-color`，则字体颜色默认为白色 | string                     | ——                                                      | ——       |
-| `click`         | 点击执行的回调                                                                                                                                                                                                | Function                   | ——                                                      | ——       |
+| 参数            | 说明                                                                                                                                                                                                          | 类型                                                               | 可选值                                           | 默认值   |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | -------- |
+| `type`          | 按钮的类型 （不同类型对应不同的背景和字体颜色，非自定义按钮颜色时有效）                                                                                                                                       | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | default  |
+| `size`          | 按钮尺寸                                                                                                                                                                                                      | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                  | middle   |
+| `bold`          | 按钮文字是否加粗                                                                                                                                                                                              | boolean                                                            | ——                                               | false    |
+| `circle`        | 是否为圆形按钮                                                                                                                                                                                                | boolean                                                            | ——                                               | false    |
+| `round`         | 是否为圆角按钮                                                                                                                                                                                                | boolean                                                            | ——                                               | false    |
+| `font-size`     | 文字字体大小                                                                                                                                                                                                  | string / number                                                    | ——                                               | 15px     |
+| `font-color`    | 文字字体颜色                                                                                                                                                                                                  | string                                                             | ——                                               | ——       |
+| `block`         | 是否为块级元素                                                                                                                                                                                                | boolean                                                            | ——                                               | false    |
+| `href`          | 链接按钮的地址                                                                                                                                                                                                | string                                                             | ——                                               | ——       |
+| `target`        | 原生 target 属性，在 link 类型存在时生效                                                                                                                                                                      | <a href="#buttontarget">ButtonTarget</a>                           | `_blank` `_self` `_parent` `_top`                | \_self   |
+| `loading`       | 是否展示 loading 状态                                                                                                                                                                                         | boolean                                                            | ——                                               | false    |
+| `disabled`      | 是否禁用按钮                                                                                                                                                                                                  | boolean                                                            | ——                                               | false    |
+| `before-icon`   | 之前的 icon                                                                                                                                                                                                   | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——       |
+| `after-icon`    | 之后的 icon                                                                                                                                                                                                   | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——       |
+| `loading-icon`  | loading 状态下的 icon                                                                                                                                                                                         | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——       |
+| `autofocus`     | 是否自动获取焦点                                                                                                                                                                                              | boolean                                                            | ——                                               | false    |
+| `name`          | 按钮的名字                                                                                                                                                                                                    | string                                                             | ——                                               | f-button |
+| `shadow`        | 按钮的阴影                                                                                                                                                                                                    | string                                                             | ——                                               | ——       |
+| `text`          | 是否为文字按钮 （非自定义按钮颜色时有效）                                                                                                                                                                     | boolean                                                            | ——                                               | false    |
+| `simple`        | 是否为简约按钮 （非自定义按钮颜色时有效）                                                                                                                                                                     | boolean                                                            | ——                                               | false    |
+| `ripples`       | 是否启用点击涟漪效果                                                                                                                                                                                          | boolean                                                            | ——                                               | false    |
+| `ripples-color` | 涟漪背景色                                                                                                                                                                                                    | string                                                             | ——                                               | ——       |
+| `native-type`   | 按钮的原生类型                                                                                                                                                                                                | <a href="#buttonnative">ButtonNative</a>                           | `button` `submit` `reset`                        | button   |
+| `color`         | 自定义按钮的背景颜色，仅支持 [hex](https://baike.baidu.com/item/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E9%A2%9C%E8%89%B2%E7%A0%81/10894232?fr=aladdin) 格式的色号。如果未指定`font-color`，则字体颜色默认为白色 | string                                                             | ——                                               | ——       |
+| `on-click`      | 点击执行的回调                                                                                                                                                                                                | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——                                               | ——       |
 
 ## ButtonGroup Attributes
 
-| 参数       | 说明         | 类型    | 可选值                          | 默认值 |
-| ---------- | ------------ | ------- | ------------------------------- | ------ |
-| `size`     | 按钮尺寸     | string  | `large` `middle` `small` `mini` | middle |
-| `vertical` | 是否纵向排列 | boolean | ——                              | false  |
+| 参数        | 说明     | 类型                                                               | 可选值                          | 默认值     |
+| ----------- | -------- | ------------------------------------------------------------------ | ------------------------------- | ---------- |
+| `size`      | 按钮尺寸 | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle     |
+| `direction` | 排列方式 | <a href="#buttongroupdirection">ButtonGroupDirection</a>           | `horizontal` `vertical`         | horizontal |
 
 ## Button Slots
 
@@ -356,15 +400,39 @@
 ```ts
 import type {
   ButtonInstance,
-  ButtonPropsType,
-  ButtonSizeType,
-  ButtonTargetType,
-  ButtonType,
-  ButtonNativeType,
+  ButtonProps,
+  ButtonTarget,
+  ButtonNative,
   ButtonGroupInstance,
-  ButtonGroupPropsType,
-  ButtonGroupSizeType
+  ButtonGroupProps,
+  ButtonGroupDirection
 } from 'fighting-design'
+```
+
+### ButtonTarget
+
+```ts
+type ButtonTarget = '_blank' | '_self' | '_parent' | '_top'
+```
+
+### ButtonNative
+
+```ts
+import type { ButtonHTMLAttributes } from 'vue'
+
+type ButtonNative = NonNullable<ButtonHTMLAttributes['type']>
+```
+
+### ButtonGroupDirection
+
+```ts
+type ButtonGroupDirection = 'horizontal' | 'vertical'
+```
+
+### ButtonClick
+
+```ts
+type ButtonClick = (evt: MouseEvent) => void
 ```
 
 ## Contributors
@@ -381,12 +449,16 @@ import type {
   <f-avatar round src="https://avatars.githubusercontent.com/u/77321887?v=4" />
 </a>
 
+<script setup lang="ts">
+  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
+</script>
+
 <style scoped>
-.f-button {
-  margin: 5px;
-}
-.f-button-group-vertical .f-button,
-.f-button-group .f-button {
-  margin: 0;
-}
+  .f-button {
+    margin: 5px;
+  }
+  .f-button-group-vertical .f-button,
+  .f-button-group .f-button {
+    margin: 0;
+  }
 </style>

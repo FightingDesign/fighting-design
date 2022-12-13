@@ -2,6 +2,127 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.11.1 (2022-12-13)
+
+- 修复 `f-tag` 组件 `size` 失效问题 [issues#309](https://github.com/FightingDesign/fighting-design/issues/309)
+- 修复一些细节类型问题
+- 优化 `f-image` 和 `f-avatar` 组件加载过程中的样式处理优化
+
+## 0.11.0 (2022-12-13)
+
+**新功能**
+
+- `f-fighting-global` 组件新增 `lang` 配置项
+- `f-toolbar` 组件 `width` 和 `height` 配置项支持 `number` 类型
+
+**其它更新**
+
+- 修复了全局组件的类型
+
+## 0.10.0 (2022-12-11)
+
+**修复**
+
+- 修复 `f-list` 和 `f-list-item` 组件 bug
+- 修复 `f-trigger` 组件禁用效果失效问题
+
+**新增**
+
+- 新增 `f-fighting-global` 组件
+- 新增 `f-list` 组件 `zebra-color` 配置项
+- 新增 `f-list` 组件 `size` 配置项新增 `mini` 可选项
+
+**其它更新**
+
+- `f-button` 组件样式细节优化
+- `f-sticky-card` 组件移除 `open-height` 配置项
+- `f-rate` 组件 `size` 配置项默认值改为 25
+
+## 0.9.0 (2022-12-07)
+
+- 完善 `f-menu` 组件
+- 优化部分组件 `role` 属性
+- 优化 `f-svg-icon` 组件样式细节
+
+## 0.9.0-alpha.8 (2022-12-06)
+
+**新功能**
+
+- 新增 `f-slider` 组件
+
+**优化项**
+
+- 优化 `f-toolbar` 组件点击相关逻辑
+- 优化 `f-pagination` 组件样式实现
+- 优化 `f-tag` 组件内部逻辑
+- 优化 `f-button` 组件实现
+- 优化 `f-ripple` 组件实现
+- 废除 `f-ripple` 组件 `no-select` 配置项
+
+**其它改动**
+
+- `f-card` 组件 `padding` 配置项默认值修改
+- `f-card` 组件 `shadow` 配置项可选参数修改
+- `f-pagination` 组件 `prev-click` 配置项改为 `on-prev`
+- `f-pagination` 组件 `next-click` 配置项改为 `on-next`
+- `f-pagination` 组件 `change` 配置项改为 `on-change`
+- `f-tooltip` 组件 `content` 配置项支持 `number` 类型
+- `f-breadcrumb` 和 `f-breadcrumb-item` 组件参数进行了部分改动
+- 全局导出类型较大幅度改动，详情参考文档组件导出类型
+
+## 0.9.0-alpha.7 (2022-12-01)
+
+**新增**
+
+- 新增 `f-breadcrumb-item` 组件 `to` 配置项
+- 完善更多 `f-menu` 组件功能
+
+**优化**
+
+- 优化 `f-switch` 细节样式和性能
+- 优化 `f-button` 样式处理逻辑
+- 优化 `f-dropdown-item` 样式细节
+- 优化 `f-option` 样式细节
+- 优化 `f-select` 样式细节
+
+**改动**
+
+- `f-link` 组件 `prohibit` 配置项改为 `disabled`
+- `f-switch` 组件 `open-color` 改为 `active-color`
+- `f-switch` 组件 `open-text` 改为 `active-text`
+
+## 0.9.0-alpha.6 (2022-11-29)
+
+**新功能**
+
+- 新增 `f-menu` 组件
+- 新增 `f-menu-item` 组件
+- 新增 `f-menu-item-group` 组件
+- 新增 `f-submenu` 组件
+- 新增 `f-collapse-animation` 组件
+- 新增 `f-button-group` 组件 `direction` 配置项
+
+**修复**
+
+- 修复 `f-pagination` 组件细节问题
+- 修复 `f-button` 组件样式细节
+
+**其它改动**
+
+- 废除 `f-button-group` 组件 `vertical` 配置项
+- 优化 `f-sticky-card` 组件
+
+## 0.9.0-alpha.5 (2022-11-25)
+
+**新功能**
+
+- 新增 `f-trigger` 组件
+
+**其它更新**
+
+- 优化 `f-space` 组件样式细节
+- `f-sticky-card` 组件 `open-end` `close-end` 回调参数改为 `on-open` `on-close`
+
 ## 0.9.0-alpha.4 (2022-11-23)
 
 **新功能**
@@ -683,53 +804,53 @@
 
 **feat**
 
-- `progress` 组件新增 `textInside` 配置项
-- 新增 `novel-coronavirus` 组件
+- `f-progress` 组件新增 `textInside` 配置项
+- 新增 `f-novel-coronavirus` 组件
 - 新增 `cjs` 和 `umd` 打包模式
 
 ## 0.3.2-bate.5 (2022-07-17)
 
 **feat**
 
-- `Tooltip` 组件移除部分配置项
-- 重做 `tooltip` 组件
+- `f-tooltip` 组件移除部分配置项
+- 重做 `f-tooltip` 组件
 
 **fix**
 
-- 修复 `Tag` 组件不展示的问题
-- 修复 `Alert` 组件的展示状态和关闭回调
+- 修复 `f-tag` 组件不展示的问题
+- 修复 `f-alert` 组件的展示状态和关闭回调
 
 ## 0.3.1-bate.4 (2022-07-15)
 
-- `Link` 组件新增 `default` 配置 `type`
-- `button` 组件 `ripples` 默认值改为 `false`
+- `f-link` 组件新增 `default` 配置 `type`
+- `f-button` 组件 `ripples` 默认值改为 `false`
 
 ## 0.3.0-bate.3 (2022-07-13)
 
 **feat**
 
-- 新增 `progress` 组件配置项
-- 新增 `alert` 组件
+- 新增 `f-progress` 组件配置项
+- 新增 `f-alert` 组件
 
 **fix**
 
-- 修复 `progress` 组件百分百展示状态
-- 修复 `text` 组件样式细节
-- 修复 `button` 组件样式细节
-- 修改 `button` 组件文字按钮的样式
-- 移除 `tag` 组件 `info` 属性，改为 `default`
+- 修复 `f-progress` 组件百分百展示状态
+- 修复 `f-text` 组件样式细节
+- 修复 `f-button` 组件样式细节
+- 修改 `f-button` 组件文字按钮的样式
+- 移除 `f-tag` 组件 `info` 属性，改为 `default`
 
 ## 0.2.0-bate.2 (2022-07-08)
 
 **feat**
 
-- 新增 `drawer` 组件
-- 新增 `page-header` 组件
+- 新增 `f-drawer` 组件
+- 新增 `f-page-header` 组件
 
 **fix**
 
-- 修复 `tag` 基础样式
-- 修复 `switch` 基础样式
+- 修复 `f-tag` 基础样式
+- 修复 `f-switch` 基础样式
 
 ## 0.1.0-bate.1 (2022-07-05)
 
@@ -743,7 +864,7 @@
 
 **fix**
 
-- 修复 `BackTop` 组件的监听目标报错问题
+- 修复 `f-back-top` 组件的监听目标报错问题
 
 ## 0.0.12-alpha.12 (2022-06-29)
 
@@ -766,88 +887,88 @@
 
 **feat**
 
-- 新增 `FText` 组件
-- 新增 `FAvatar` 组件
-- 新增 `FLoading` 组件
+- 新增 `f-text` 组件
+- 新增 `f-avatar` 组件
+- 新增 `f-loading` 组件
 
 **fix**
 
-- `FButton` 组件 `blob` 配置项改为 `bold`，用于文字加粗
+- `f-button` 组件 `blob` 配置项改为 `bold`，用于文字加粗
 
 ## 0.0.9-alpha.9 (2022-06-14)
 
 **feat**
 
-- `FLayout` 新增 `direction` 配置项
+- `f-layout` 新增 `direction` 配置项
 
 **fix**
 
-- `FContainer` 组件改名为 `FLayout`
+- `f-container` 组件改名为 `f-layout`
 
 ## 0.0.8-alpha.8 (2022-06-12)
 
 **feat**
 
-- 新增 `FTag` 组件
-- 新增 `FDivider` 组件
-- 新增 `Badge` 组件
-- 新增 `FContainer` 组件
-- 新增 `FSwitch` 组件
-- 新增 `FButton` 组件 `color` 配置项
+- 新增 `f-tag` 组件
+- 新增 `f-divider` 组件
+- 新增 `f-badge` 组件
+- 新增 `f-container` 组件
+- 新增 `f-switch` 组件
+- 新增 `f-button` 组件 `color` 配置项
 
 **fix**
 
-- `FButton` 组件 `link` 属性改为 `href`
-- 重构 `FButton` 组件
-- 废除 `FButton` 的 `info` 类型
-- 废除 `FButton` 的 `border` 属性
-- 废除 `FButton` 的 `long` 属性
-- 废除 `FLink` 的 `info` 类型
-- 废除 `FIcon` 的 `opacity` 属性
+- `f-button` 组件 `f-link` 属性改为 `href`
+- 重构 `f-button` 组件
+- 废除 `f-button` 的 `info` 类型
+- 废除 `f-button` 的 `border` 属性
+- 废除 `f-button` 的 `long` 属性
+- 废除 `f-ink` 的 `info` 类型
+- 废除 `f-con` 的 `opacity` 属性
 
 ## 0.0.7-alpha.7 (2022-06-04)
 
 **feat**
 
 - 新增 `FCard` 组件
-- 新增 `FButton` 组件点击的涟漪效果
+- 新增 `f-button` 组件点击的涟漪效果
 
 **fix**
 
-- 修复 `FButton` 组件的圆角度数
-- 修复 `FButtonGroup` 类型
+- 修复 `f-button` 组件的圆角度数
+- 修复 `f-button-group` 类型
 
 ## 0.0.6-alpha.6 (2022-05-31)
 
 **fix**
 
-- 修复 `FImage` 组件旋转方向一致的问题
-- 修复 `FIcon` 组件预览窗操作点击失效问题，处理点击焦点位置
-- 修复 `FIcon`、`FButton` 组件的类型问题
-- `FImage` 组件的 `select` 属性改为 `no-select` 用于禁止选择
+- 修复 `f-mage` 组件旋转方向一致的问题
+- 修复 `f-con` 组件预览窗操作点击失效问题，处理点击焦点位置
+- 修复 `f-con`、`f-button` 组件的类型问题
+- `f-mage` 组件的 `select` 属性改为 `no-select` 用于禁止选择
 
 **feat**
 
-- 新增 `FImage` 组件预览窗图片预加载功能
-- 新增 `FImage` 组件预览窗渐入动画效果
-- 新增 `FImage` 组件预览窗点击遮罩层隐藏功能，可通过 `modal-close` 配置项来配置
-- 新增 `FImage` 组件预览窗图标样式优化了一些细节
-- 新增 `FImage` 组件预览图左右按钮切换加入图片长度识别，是否展示效果
-- 新增 `FImage` 组件 `show-close-btn` 配置项可配置是否展示预览窗的关闭按钮
-- 新增 `FImage` 组件可通过鼠标滚轮放大缩小图片功能
-- 新增 `FImage` 组件 `preview-round` 配置项，可配置预览图的圆角
+- 新增 `f-mage` 组件预览窗图片预加载功能
+- 新增 `f-mage` 组件预览窗渐入动画效果
+- 新增 `f-mage` 组件预览窗点击遮罩层隐藏功能，可通过 `modal-close` 配置项来配置
+- 新增 `f-mage` 组件预览窗图标样式优化了一些细节
+- 新增 `f-mage` 组件预览图左右按钮切换加入图片长度识别，是否展示效果
+- 新增 `f-mage` 组件 `show-close-btn` 配置项可配置是否展示预览窗的关闭按钮
+- 新增 `f-mage` 组件可通过鼠标滚轮放大缩小图片功能
+- 新增 `f-mage` 组件 `preview-round` 配置项，可配置预览图的圆角
 
 ## 0.0.5-alpha.5 (2022-05-27)
 
-- 新增 `FImage` 组件
+- 新增 `f-mage` 组件
 - 增加新的 `icon`
 
 ## 0.0.4-alpha.4 (2022-05-23)
 
-- 新增 `FLink` 组件
-- 取消 `FButton` 固定高度
-- 废除 `FButton` 组件的 `icon` 和 `iconPosition` 属性
-- 新增 `FButton` 组件的 `leftIcon` 和 `rightIcon` 属性
+- 新增 `f-ink` 组件
+- 取消 `f-button` 固定高度
+- 废除 `f-button` 组件的 `icon` 和 `icon-position` 属性
+- 新增 `f-button` 组件的 `left-icon` 和 `right-icon` 属性
 
 ## 0.0.3-alpha.3 (2022-05-18)
 
@@ -863,4 +984,4 @@
 
 ## 0.0.1-alpha.1 (2022-05-17)
 
-- 新增 `FButton`、`FButtonGroup`、`FIcon` 组件
+- 新增 `f-button`、`f-button-group`、`f-con` 组件

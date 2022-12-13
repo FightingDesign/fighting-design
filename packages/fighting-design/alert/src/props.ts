@@ -1,21 +1,19 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { AlertType, AlertOverflowType } from './interface'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { AlertOverflow } from './interface'
+import type { HandleMouse, FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
    * 类型
    *
    * @values primary success danger warning default
-   * @defaultValue default
+   * @defaultValue null
    */
   type: {
-    type: String as PropType<AlertType>,
-    default: (): AlertType => 'default',
-    validator: (val: AlertType): boolean => {
-      return (
-        ['primary', 'success', 'danger', 'warning', 'default'] as const
-      ).includes(val)
+    type: String as PropType<FightingType>,
+    default: (): null => null,
+    validator: (val: FightingType): boolean => {
+      return (['primary', 'success', 'danger', 'warning', 'default'] as const).includes(val)
     }
   },
   /**
@@ -106,33 +104,33 @@ export const Props = {
    * 超出展示方式
    */
   overflow: {
-    type: String as PropType<AlertOverflowType>,
+    type: String as PropType<AlertOverflow>,
     default: (): null => null,
-    validator: (val: AlertOverflowType) => {
-      return (['hidden', ''] as const).includes(val)
+    validator: (val: AlertOverflow) => {
+      return (['hidden'] as const).includes(val)
     }
   },
   /**
    * 自定义关闭 icon
    */
   closeIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 自定义之前的 icon
    */
   beforeIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 点击关闭之后执行的回调
    */
   onClose: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleMouse>,
     default: (): null => null
   }
 } as const
 
-export type AlertPropsType = ExtractPropTypes<typeof Props>
+export type AlertProps = ExtractPropTypes<typeof Props>

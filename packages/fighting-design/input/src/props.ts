@@ -1,14 +1,6 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type {
-  InputType,
-  InputSizeType,
-  InputChangeInterface,
-  InputSearchInterface
-} from './interface'
-import type {
-  HandleFocusEventInterface,
-  HandleEventInterface
-} from '../../_interface'
+import type { ExtractPropTypes, PropType } from 'vue'
+import type { InputType, InputChange, InputSearch } from './interface'
+import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -37,16 +29,16 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<InputSizeType>,
-    default: (): InputSizeType => 'middle',
-    validator: (val: InputSizeType): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
   /**
    * 是否禁用
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
+   * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
   disabled: {
     type: Boolean,
@@ -55,7 +47,7 @@ export const Props = {
   /**
    * 最大（数字或日期时间）值
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-max
+   * @see max https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-max
    */
   max: {
     type: Number,
@@ -64,7 +56,7 @@ export const Props = {
   /**
    * 最小（数字或日期时间）值
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-min
+   * @see min https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-min
    */
   min: {
     type: Number,
@@ -73,7 +65,7 @@ export const Props = {
   /**
    * 最大输入长度
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-minlength
+   * @see maxLength https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-maxlength
    */
   maxLength: {
     type: Number,
@@ -83,7 +75,7 @@ export const Props = {
   /**
    * 是否自动获取焦点
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-autofocus
+   * @see autofocus https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-autofocus
    */
   autofocus: {
     type: Boolean,
@@ -92,7 +84,7 @@ export const Props = {
   /**
    * 原生 name 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
+   * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
   name: {
     type: String,
@@ -101,7 +93,7 @@ export const Props = {
   /**
    * 占位符
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
+   * @see placeholder https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
    */
   placeholder: {
     type: String,
@@ -124,7 +116,7 @@ export const Props = {
   /**
    * 是否只读
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-readonly
+   * @see readonly https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-readonly
    */
   readonly: {
     type: Boolean,
@@ -148,58 +140,58 @@ export const Props = {
    * 自定义 icon
    */
   icon: {
-    type: Object as PropType<VNode | Component>,
-    default: (): null => null
-  },
-  /**
-   * 点击搜索之后触发的回调
-   */
-  onSearch: {
-    type: Function as PropType<InputSearchInterface>,
-    default: (): null => null
-  },
-  /**
-   * 绑定值发生改变时触发的回调
-   */
-  onChange: {
-    type: Function as PropType<InputChangeInterface>,
-    default: (): null => null
-  },
-  /**
-   * 失去焦点时触发的回调
-   */
-  onBlur: {
-    type: Function as PropType<HandleFocusEventInterface>,
-    default: (): null => null
-  },
-  /**
-   * 获得焦点时触发的回调
-   */
-  onFocus: {
-    type: Function as PropType<HandleFocusEventInterface>,
-    default: (): null => null
-  },
-  /**
-   * input 事件触发的回调
-   */
-  onInput: {
-    type: Function as PropType<HandleFocusEventInterface>,
-    default: (): null => null
-  },
-  /**
-   * 按下回车触发的
-   */
-  onEnter: {
-    type: Function as PropType<HandleEventInterface>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 后缀 icon
    */
   afterIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
+    default: (): null => null
+  },
+  /**
+   * 点击搜索之后触发的回调
+   */
+  onSearch: {
+    type: Function as PropType<InputSearch>,
+    default: (): null => null
+  },
+  /**
+   * 绑定值发生改变时触发的回调
+   */
+  onChange: {
+    type: Function as PropType<InputChange>,
+    default: (): null => null
+  },
+  /**
+   * 失去焦点时触发的回调
+   */
+  onBlur: {
+    type: Function as PropType<HandleEvent>,
+    default: (): null => null
+  },
+  /**
+   * 获得焦点时触发的回调
+   */
+  onFocus: {
+    type: Function as PropType<HandleEvent>,
+    default: (): null => null
+  },
+  /**
+   * input 事件触发的回调
+   */
+  onInput: {
+    type: Function as PropType<HandleEvent>,
+    default: (): null => null
+  },
+  /**
+   * 按下回车触发的
+   */
+  onEnter: {
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const
 
-export type InputPropsType = ExtractPropTypes<typeof Props>
+export type InputProps = ExtractPropTypes<typeof Props>

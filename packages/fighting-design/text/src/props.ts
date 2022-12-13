@@ -1,5 +1,6 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { TextType, TextDecorationType } from './interface'
+import type { TextDecoration } from './interface'
+import type { FightingType } from '../../_interface'
 
 export const Props = {
   /**
@@ -9,12 +10,10 @@ export const Props = {
    * @defaultValue default
    */
   type: {
-    type: String as PropType<TextType>,
-    default: (): TextType => 'default',
-    validator: (val: TextType): boolean => {
-      return (
-        ['default', 'primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
+    type: String as PropType<FightingType>,
+    default: (): null => null,
+    validator: (val: FightingType): boolean => {
+      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
   /**
@@ -47,8 +46,8 @@ export const Props = {
   },
   /**
    * 文字间距
-   * 
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/letter-spacing
+   *
+   * @see letter-spacing https://developer.mozilla.org/zh-CN/docs/Web/CSS/letter-spacing
    */
   spacing: {
     type: [String, Number] as PropType<string | number>,
@@ -63,8 +62,8 @@ export const Props = {
   },
   /**
    * 首字符缩进量
-   * 
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-indent
+   *
+   * @see text-indent https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-indent
    */
   indent: {
     type: [String, Number] as PropType<string | number>,
@@ -79,14 +78,14 @@ export const Props = {
   },
   /**
    * 文字的修饰
-   * 
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration
+   *
+   * @see text-decoration https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration
    * @values overline line-through underline
    */
   decoration: {
-    type: String as PropType<TextDecorationType>,
+    type: String as PropType<TextDecoration>,
     default: (): null => null,
-    validator: (val: TextDecorationType): boolean => {
+    validator: (val: TextDecoration): boolean => {
       return (['overline', 'line-through', 'underline'] as const).includes(val)
     }
   },
@@ -120,4 +119,4 @@ export const Props = {
   }
 } as const
 
-export type TextPropsType = ExtractPropTypes<typeof Props>
+export type TextProps = ExtractPropTypes<typeof Props>

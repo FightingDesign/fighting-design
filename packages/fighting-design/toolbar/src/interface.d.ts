@@ -1,15 +1,19 @@
-export type { ToolbarPropsType } from './props'
+export type { ToolbarProps } from './props'
 
 /**
- * 不同尺寸
+ * 点击的参数类型接口
+ *
+ * @param evt 事件对象
+ * @param index 当前的索引
  */
-export type ToolbarType = 'large' | 'middle' | 'small' | 'mini'
-
-export interface ToolbarClickParamsInterface {
+export interface ToolbarClickParams {
   evt: MouseEvent
   index: string | undefined
 }
 
-export interface ToolbarClickInterface {
-  (target: ToolbarClickParamsInterface): void
-}
+/**
+ * 点击触发的回调
+ *
+ * @param params 返回的参数
+ */
+export type ToolbarClick = (params: ToolbarClickParams) => void

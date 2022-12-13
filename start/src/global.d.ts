@@ -68,6 +68,15 @@ declare module 'vue' {
     FTimePicker: typeof components.FTimePicker
     FInputNumber: typeof components.FInputNumber
     FCloseBtn: typeof components.FCloseBtn
+    FTrigger: typeof components.FTrigger
+    FMenu: typeof components.FMenu
+    FMenuItem: typeof components.FMenuItem
+    FMenuItemGroup: typeof components.FMenuItemGroup
+    FSubmenu: typeof components.FSubmenu
+    FCollapseAnimation: typeof components.FCollapseAnimation
+    FSlider: typeof components.FSlider
+    FFightingGlobal: typeof components.FFightingGlobal
+    FForm: typeof components.FForm
   }
 
   interface ComponentCustomProperties {

@@ -7,17 +7,15 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: 0.3s;
+  vertical-align: middle;
+  outline: none;
   line-height: 1;
-  font-size: var(--f-link-font-size, var(--f-design-font-size-middle));
+  transition: var(--f-design-transition-time);
+  font-size: var(--f-link-size, var(--f-design-font-size-middle));
   color: var(--f-link-color, var(--f-design-color-primary-1));
 
   .f-svg-icon {
     font-size: var(--f-link-font-size, var(--f-design-font-size-middle));
-  }
-
-  &:hover {
-    opacity: 0.8;
   }
 
   // 不同类型
@@ -35,9 +33,13 @@
     text-decoration: underline;
   }
 
-  &.f-link__bag:hover {
+  &:not([class~='f-link__disabled']).f-link__bag:hover {
     background: var(--f-design-color-border-1);
     border-radius: var(--f-design-border-radius-1);
+  }
+
+  &:not([class~='f-link__disabled']):hover {
+    opacity: 0.8;
   }
 
   // 禁止 copy
@@ -46,15 +48,8 @@
   }
 
   // 禁用
-  &.f-link__prohibit {
+  &.f-link__disabled {
     opacity: 0.5;
     cursor: not-allowed;
-
-    &.f-link__bag {
-      &:hover {
-        opacity: 0.5;
-        background: none;
-      }
-    }
   }
 }

@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
-import type { ListSizeType } from './interface'
+import type { FightingSize } from '../../_interface'
 
 export const Props = {
   /**
@@ -32,12 +32,15 @@ export const Props = {
   },
   /**
    * 尺寸
+   *
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
-    type: String as PropType<ListSizeType>,
-    default: (): ListSizeType => 'middle',
-    validator: (val: ListSizeType): boolean => {
-      return (['large', 'middle', 'small'] as const).includes(val)
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
+      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
   /**
@@ -46,10 +49,16 @@ export const Props = {
   maxHeight: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
+  },
+  /**
+   * 自定义斑马纹颜色
+   */
+  zebraColor: {
+    type: String,
+    default: (): null => null
   }
 } as const
 
-export type ListPropsType = ExtractPropTypes<typeof Props>
+export type ListProps = ExtractPropTypes<typeof Props>
 
-export const LIST_PROPS_KEY: InjectionKey<ListPropsType> =
-  Symbol('list-props-key')
+export const LIST_PROPS_KEY: InjectionKey<ListProps> = Symbol('list-props-key')

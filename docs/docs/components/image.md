@@ -50,40 +50,37 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-space spacing="large">
+
+<div class="image-block">
+<code>fill</code>
+<f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="image-block">
+<code>contain</code>
+<f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="image-block">
+<code>cover</code>
+<f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="image-block">
+<code>none</code>
+<f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="image-block">
+<code>scale-down</code>
+<f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+</f-space>
 </template>
 
 ```html
-<f-image
-  width="110px"
-  height="110px"
-  fit="fill"
-  src="https://tianyuhao.cn/images/auto/4.jpg"
-/>
-<f-image
-  width="110px"
-  height="110px"
-  fit="contain"
-  src="https://tianyuhao.cn/images/auto/4.jpg"
-/>
-<f-image
-  width="110px"
-  height="110px"
-  fit="cover"
-  src="https://tianyuhao.cn/images/auto/4.jpg"
-/>
-<f-image
-  width="110px"
-  height="110px"
-  fit="none"
-  src="https://tianyuhao.cn/images/auto/4.jpg"
-/>
-<f-image
-  width="110px"
-  height="110px"
-  fit="scale-down"
-  src="https://tianyuhao.cn/images/auto/4.jpg"
-/>
+<f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
 ```
 
 :::
@@ -99,11 +96,7 @@
 </template>
 
 ```html
-<f-image
-  round="30px"
-  height="190px"
-  src="https://tianyuhao.cn/images/auto/4.jpg"
-/>
+<f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
 ```
 
 :::
@@ -146,42 +139,32 @@
 </template>
 
 ```html
-<f-image
-  width="200px"
-  src="https://abc.com/1.png"
-  err-src="https://tianyuhao.cn/images/auto/1.jpg"
-/>
-<f-image
-  width="200px"
-  src="https://abc.com/1.png"
-  err-src="https://abc.com/1.png"
-  alt="error"
-/>
+<f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
+<f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
 ```
 
 :::
 
 ## Attributes
 
-| 参数              | 说明                                                                                                         | 类型            | 可选值                                             | 默认值 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------ | --------------- | -------------------------------------------------- | ------ |
-| `src`             | 图片路径                                                                                                     | string          | ——                                                 | ——     |
-| `alt`             | 原生 [alt](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt) 属性                      | string          | ——                                                 | ——     |
-| `draggable`       | 是否可以拖动                                                                                                 | boolean         | ——                                                 | true   |
-| `lazy`            | 是否懒加载图片                                                                                               | boolean         | ——                                                 | false  |
-| `root-margin`     | 触发懒加载的距离                                                                                             | string / number | ——                                                 | 100px  |
-| `width`           | 图片的宽度                                                                                                   | string / number | ——                                                 | ——     |
-| `height`          | 图片的高度                                                                                                   | string / number | ——                                                 | ——     |
-| `block`           | 是否为块级元素                                                                                               | boolean         | ——                                                 | false  |
-| `fit`             | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性     | string          | `fill` `contain` `cover` `none`<br /> `scale-down` | ——     |
-| `no-select`       | 是否禁止选择                                                                                                 | boolean         | ——                                                 | false  |
-| `referrer-policy` | 原生 [referrerPolicy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#syntax) 属性 | string          | ——                                                 | ——     |
-| `round`           | 配置圆角，传入一个数值                                                                                       | string / number | ——                                                 | 0      |
-| `err-src`         | 加载失败时要显示的地址                                                                                       | string          | ——                                                 | ——     |
-| `show-close-btn`  | 是否展示预览窗口的关闭按钮                                                                                   | boolean         | ——                                                 | true   |
-| `title`           | img 的 title                                                                                                 | string          | ——                                                 | ——     |
-| `on-load`         | 图片加载成功触发的回调                                                                                       | Function        | ——                                                 | ——     |
-| `on-error`        | 图片加载失败触发的回调                                                                                       | Function        | ——                                                 | ——     |
+| 参数              | 说明                                                                                                         | 类型                                                             | 可选值                                             | 默认值 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- | -------------------------------------------------- | ------ |
+| `src`             | 图片路径                                                                                                     | string                                                           | ——                                                 | ——     |
+| `err-src`         | src 加载失败时加载的地址                                                                                     | string                                                           | ——                                                 | ——     |
+| `alt`             | 原生 [alt](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt) 属性                      | string                                                           | ——                                                 | ——     |
+| `draggable`       | 是否可以拖动                                                                                                 | boolean                                                          | ——                                                 | true   |
+| `lazy`            | 是否懒加载图片                                                                                               | boolean                                                          | ——                                                 | false  |
+| `root-margin`     | 触发懒加载的距离                                                                                             | string / number                                                  | ——                                                 | 100px  |
+| `width`           | 图片的宽度                                                                                                   | string / number                                                  | ——                                                 | ——     |
+| `height`          | 图片的高度                                                                                                   | string / number                                                  | ——                                                 | ——     |
+| `block`           | 是否为块级元素                                                                                               | boolean                                                          | ——                                                 | false  |
+| `fit`             | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性     | <a href="#imagefit">ImageFit</a>                                 | `fill` `contain` `cover` `none`<br /> `scale-down` | ——     |
+| `no-select`       | 是否禁止选择                                                                                                 | boolean                                                          | ——                                                 | false  |
+| `referrer-policy` | 原生 [referrerPolicy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#syntax) 属性 | string                                                           | ——                                                 | ——     |
+| `round`           | 配置圆角，传入一个数值                                                                                       | string / number                                                  | ——                                                 | ——     |
+| `title`           | img 的 title                                                                                                 | string                                                           | ——                                                 | ——     |
+| `on-load`         | 图片加载成功触发的回调                                                                                       | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                                 | ——     |
+| `on-error`        | 图片加载失败触发的回调                                                                                       | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                                 | ——     |
 
 ## Slots
 
@@ -194,11 +177,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  ImageInstance,
-  ImagePropsType,
-  ImageFitType
-} from 'fighting-design'
+import type { ImageInstance, ImageProps, ImageFit } from 'fighting-design'
+```
+
+### ImageFit
+
+```ts
+type ImageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 ```
 
 ## Contributors
@@ -211,3 +196,15 @@ import type {
   import demo1Vue from './_demos/image/demo1.vue'
   const url = new URL('./_image/1.jpg', import.meta.url).href
 </script>
+
+<style scoped>
+  .image-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  code {
+    margin-bottom: 6px;
+  }
+</style>

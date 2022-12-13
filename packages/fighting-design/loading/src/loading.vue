@@ -3,16 +3,15 @@
   import { computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import type { ClassListInterface } from '../../_interface'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { LoadingPropsType } from './props'
+  import type { ClassList } from '../../_interface'
+  import type { CSSProperties } from 'vue'
 
-  const prop: LoadingPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { background, fontColor } = prop
 
     return {
@@ -24,18 +23,16 @@
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { fullscreen = false } = prop
+  const classList = computed((): ClassList => {
+    const { fullscreen = false } = prop
 
-      return [
-        'f-loading',
-        {
-          'f-loading__fullscreen': fullscreen
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-loading',
+      {
+        'f-loading__fullscreen': fullscreen
+      }
+    ] as const
+  })
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 # Card 卡片
 
-`Card` 是一个卡片，用于展示内容
+放入你想展示的内容
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/card)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/card.md)
@@ -44,13 +44,13 @@
 ::: demo
 
 <template #source>
-<f-card shadow="never">从不显示</f-card>
+<f-card>从不显示</f-card>
 <f-card shadow="hover">Hover 显示</f-card>
 <f-card shadow="always">总是显示</f-card>
 </template>
 
 ```html
-<f-card shadow="never">从不显示</f-card>
+<f-card>从不显示</f-card>
 <f-card shadow="hover">Hover 显示</f-card>
 <f-card shadow="always">总是显示</f-card>
 ```
@@ -59,12 +59,12 @@
 
 ## Attributes
 
-| 参数      | 说明           | 类型    | 可选值                   | 默认值 |
-| --------- | -------------- | ------- | ------------------------ | ------ |
-| `title`   | 卡片标题       | string  | ——                       | ——     |
-| `round`   | 是否为圆角卡片 | boolean | ——                       | false  |
-| `padding` | 卡片内边距     | string  | ——                       | 20px   |
-| `shadow`  | 阴影样式       | string  | `never` `hover` `always` | always |
+| 参数      | 说明           | 类型                                 | 可选值           | 默认值 |
+| --------- | -------------- | ------------------------------------ | ---------------- | ------ |
+| `title`   | 卡片标题       | string                               | ——               | ——     |
+| `round`   | 是否为圆角卡片 | boolean                              | ——               | false  |
+| `padding` | 卡片内边距     | string                               | ——               | ——     |
+| `shadow`  | 阴影样式       | <a href="#cardshadow">CardShadow</a> | `hover` `always` | ——     |
 
 ## Slots
 
@@ -78,11 +78,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  CardInstance,
-  CardPropsType,
-  CardShadowType
-} from 'fighting-design'
+import type { CardInstance, CardProps, CardShadow } from 'fighting-design'
+```
+
+### CardShadow
+
+```ts
+type CardShadow = 'hover' | 'always'
 ```
 
 ## Contributors

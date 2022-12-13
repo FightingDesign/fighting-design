@@ -4,12 +4,12 @@
   import { watchEffect } from 'vue'
   import '@vue/repl/style.css'
   import HeaderVue from './components/Header.vue'
+  import type { ReplStore } from '@vue/repl'
 
-  const store = new MyReplStore({
+  const store: ReplStore = new MyReplStore({
     serializedState: location.hash.slice(1),
-    defaultVueRuntimeURL:
-      'https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.js'
-  })
+    defaultVueRuntimeURL: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.js'
+  }) as unknown as ReplStore
 
   // 将状态持久化到 URL 哈希
   watchEffect(() => history.replaceState({}, '', store.serialize()))

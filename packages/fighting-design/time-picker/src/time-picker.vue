@@ -5,31 +5,29 @@
   import { FDropdown } from '../../dropdown'
   import { addZero, isString } from '../../_utils'
   import { FIconClockTime } from '../../_svg'
-  import type { WritableComputedRef } from 'vue'
-  import type {
-    TimePickerPropsType,
-    TimePickerTimeListInterface,
-    TimePickerHandleClickInterface
-  } from './interface'
+  import type { TimePickerTimeList } from './interface'
 
-  const prop: TimePickerPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:time': (val: string): boolean => isString(val)
   })
 
-  // 获取当前的时间
+  /**
+   * 获取当前的时间
+   */
   const nowDate: Date = new Date()
-  // 当前日期对象
-  const timeList: TimePickerTimeListInterface =
-    reactive<TimePickerTimeListInterface>({
-      hover: addZero(nowDate.getHours()),
-      minute: addZero(nowDate.getMinutes())
-    })
+  /**
+   * 当前日期对象
+   */
+  const timeList = reactive({
+    hover: addZero(nowDate.getHours()),
+    minute: addZero(nowDate.getMinutes())
+  } as TimePickerTimeList)
 
   /**
    * 获取选择的时间 & 设置时间
    */
-  const pickerTime: WritableComputedRef<string> = computed({
+  const pickerTime = computed({
     /**
      * 获取值返回 time
      */
@@ -48,7 +46,7 @@
    * 监视 timeList 对象发生变化同步最新选取的时间
    */
   watch(
-    (): TimePickerTimeListInterface => timeList,
+    (): TimePickerTimeList => timeList,
     (): void => {
       pickerTime.value = `${timeList.hover}:${timeList.minute}`
     },
@@ -61,24 +59,15 @@
    * @param date 当前的时间数字
    * @param params 小时还是分钟
    */
-  const handleClick: TimePickerHandleClickInterface = (
-    date: number,
-    params: 'hover' | 'minute'
-  ): void => {
+  const handleClick = (date: number, params: 'hover' | 'minute'): void => {
     timeList[params] = addZero(date)
   }
 </script>
 
 <template>
   <div class="f-time-picker">
-    <f-dropdown>
-      <f-input
-        v-model="pickerTime"
-        type="text"
-        readonly
-        clear
-        :after-icon="FIconClockTime"
-      />
+    <f-dropdown :disabled="readonly">
+      <f-input v-model="pickerTime" type="text" :readonly="readonly" :clear="clear" :after-icon="FIconClockTime" />
 
       <template #content>
         <div class="f-time-picker__content">

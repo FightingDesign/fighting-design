@@ -62,13 +62,7 @@
 
 ```html
 <template>
-  <f-watermark
-    content="机密文件"
-    :height="100"
-    :width="130"
-    font-color="red"
-    font-size="16px"
-  >
+  <f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px">
     <f-card title="绝对机密">
       <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
       <f-text block>这是一个重要的文件</f-text>
@@ -110,9 +104,7 @@
 
 ```html
 <template>
-  <f-watermark
-    image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
-  >
+  <f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
     <f-card title="绝对机密">
       <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
       <f-text block>这是一个重要的文件</f-text>
@@ -159,7 +151,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { WatermarkInstance, WatermarkPropsType } from 'fighting-design'
+import type { WatermarkInstance, WatermarkProps } from 'fighting-design'
 ```
 
 ## Contributors

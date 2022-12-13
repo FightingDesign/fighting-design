@@ -44,6 +44,16 @@ export const sidebar = {
       ]
     },
     {
+      text: '类型接口',
+      link: '/components/',
+      items: [{ text: 'Interface 接口类型', link: '/components/interface' }]
+    },
+    {
+      text: '配置组件',
+      link: '/components/',
+      items: [{ text: 'Fighting Global 全局配置', link: '/components/fighting-global' }]
+    },
+    {
       text: '数据输入',
       link: '/components/',
       items: [
@@ -71,7 +81,8 @@ export const sidebar = {
         { text: 'Pagination 分页器', link: '/components/pagination' },
         { text: 'Time Picker 时间选择器', link: '/components/time-picker' },
         { text: 'Date Picker 日期选择器', link: '/components/date-picker' },
-        { text: 'Input Number 数字输入框', link: '/components/input-number' }
+        { text: 'Input Number 数字输入框', link: '/components/input-number' },
+        { text: 'Slider 滑动输入条', link: '/components/slider' }
       ]
     },
     {
@@ -81,7 +92,9 @@ export const sidebar = {
         { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' },
         { text: 'Page Header 页头', link: '/components/page-header' },
         { text: 'Close Btn 关闭按钮', link: '/components/close-btn' },
-        { text: 'Dropdown 下拉菜单', link: '/components/dropdown' }
+        { text: 'Dropdown 下拉菜单', link: '/components/dropdown' },
+        { text: 'Trigger 触发器', link: '/components/trigger' },
+        { text: 'Menu 导航菜单', link: '/components/menu' }
       ]
     },
     {
@@ -111,7 +124,11 @@ export const sidebar = {
         { text: 'Divider 分隔线', link: '/components/divider' },
         { text: 'Watermark 水印', link: '/components/watermark' },
         { text: 'Ripple 涟漪', link: '/components/ripple' },
-        { text: 'Calendar 日历', link: '/components/calendar' }
+        { text: 'Calendar 日历', link: '/components/calendar' },
+        {
+          text: 'CollapseAnimation 折叠动画',
+          link: '/components/collapse-animation'
+        }
       ]
     }
   ]

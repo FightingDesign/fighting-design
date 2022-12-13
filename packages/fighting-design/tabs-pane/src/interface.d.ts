@@ -1,1 +1,1 @@
-export type { TabsPanePropsType } from './tabs-pane'
+export type { TabsPaneProps } from './tabs-pane'

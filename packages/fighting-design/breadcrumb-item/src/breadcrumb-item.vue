@@ -1,47 +1,74 @@
 <script lang="ts" setup name="FBreadcrumbItem">
   import { Props } from './props'
-  import { inject, computed } from 'vue'
+  import { inject, computed, getCurrentInstance, reactive } from 'vue'
   import { BREADCRUMB_PROPS_KEY } from '../../breadcrumb/src/props'
   import { FSvgIcon } from '../../svg-icon'
+  import { useList } from '../../_hooks'
   import { FIconChevronRightVue } from '../../_svg'
-  import type { VNode, Component, ComputedRef, CSSProperties } from 'vue'
-  import type { BreadcrumbPropsType } from '../../breadcrumb'
-  import type { BreadcrumbItemPropsType } from './interface'
+  import type { FightingIcon } from '../../_interface'
+  import type { ComponentInternalInstance } from 'vue'
+  import type { BreadcrumbProps } from '../../breadcrumb'
 
-  const prop: BreadcrumbItemPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
-  // 注入依赖项
-  const INJECT_DEPEND: BreadcrumbPropsType | undefined = inject<
-    BreadcrumbPropsType | undefined
-  >(BREADCRUMB_PROPS_KEY, undefined)
+  /**
+   * 获取注入依赖项
+   */
+  const parentInject = inject<BreadcrumbProps | null>(BREADCRUMB_PROPS_KEY, null)
+
+  const { styles } = useList(
+    reactive({
+      iconColor: prop.iconColor || (parentInject && parentInject.iconColor),
+      fontColor: prop.fontColor || (parentInject && parentInject.fontColor),
+      fontSize: parentInject && parentInject.fontSize
+    }),
+    'breadcrumb-item'
+  )
+
+  /**
+   * 获取当前组件实例
+   */
+  const instance = getCurrentInstance() as ComponentInternalInstance
 
   /**
    * 计算当前需要展示的 svg
    */
-  const svgIconComponent: ComputedRef<VNode | Component> = computed(
-    (): VNode | Component => {
-      if (INJECT_DEPEND && INJECT_DEPEND.separator) {
-        return INJECT_DEPEND.separator
-      }
-      return prop.separator || FIconChevronRightVue
+  const svgIconComponent = computed((): FightingIcon => {
+    if (prop.separator) return prop.separator
+
+    if (parentInject && parentInject.separator) {
+      return parentInject.separator
     }
-  )
+
+    return FIconChevronRightVue
+  })
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    return {
-      '--f-breadcrumb-item-text-color':
-        (INJECT_DEPEND && INJECT_DEPEND.itemColor) || prop.color,
-      '--f-breadcrumb-item-icon-color':
-        (INJECT_DEPEND && INJECT_DEPEND.iconColor) || prop.iconColor
-    } as CSSProperties
-  })
+  const styleList = styles(['fontColor', 'iconColor', 'fontSize'])
+
+  /**
+   * 点击触发
+   */
+  const handelClick = (): void => {
+    /**
+     * 获取到路由实例
+     */
+    const router = instance.appContext.config.globalProperties.$router
+
+    if (router && prop.to) {
+      try {
+        router.push(prop.to)
+      } catch (err: unknown) {
+        console.warn(err)
+      }
+    }
+  }
 </script>
 
 <template>
-  <div class="f-breadcrumb-item" :style="styleList">
+  <div class="f-breadcrumb-item" :style="styleList" @click="handelClick">
     <span class="f-breadcrumb-item__text">
       <slot />
     </span>

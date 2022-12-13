@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { SpaceSizeType } from './interface'
+import type { FightingSize } from '../../_interface'
 
 export const Props = {
   /**
@@ -23,9 +23,9 @@ export const Props = {
    * @defaultValue middle
    */
   spacing: {
-    type: String as PropType<SpaceSizeType>,
-    default: (): SpaceSizeType => 'middle',
-    validator: (val: SpaceSizeType): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -45,4 +45,4 @@ export const Props = {
   }
 } as const
 
-export type SpacePropsType = ExtractPropTypes<typeof Props>
+export type SpaceProps = ExtractPropTypes<typeof Props>

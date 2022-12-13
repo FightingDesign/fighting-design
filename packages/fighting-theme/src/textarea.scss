@@ -5,7 +5,7 @@
   overflow: hidden;
   position: relative;
   display: inline-block;
-  transition: background 0.3s;
+  transition: background var(--f-design-transition-time);
   background: var(--f-design-color-border-1);
 
   &__textarea {

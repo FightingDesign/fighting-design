@@ -120,7 +120,7 @@
 
     &::after,
     &::before {
-      transition: box-shadow 0.3s;
+      transition: box-shadow var(--f-design-transition-time);
       pointer-events: none;
       content: '';
       position: absolute;
@@ -170,7 +170,7 @@
 
     .f-tabs-nav--line__active {
       background: var(--f-design-color-primary-1);
-      transition: all 0.3s;
+      transition: all var(--f-design-transition-time);
       position: absolute;
     }
 
@@ -256,7 +256,7 @@
       }
 
       &.f-tabs-nav--item__active {
-        transition: all 0.3s;
+        transition: all var(--f-design-transition-time);
         background: var(--cardActiveBg);
 
         &::before {
@@ -283,7 +283,7 @@
 
       .f-tabs-nav--item__card_close {
         font-size: 0px;
-        transition: font-size 0.3s;
+        transition: font-size var(--f-design-transition-time);
       }
 
       &:hover,

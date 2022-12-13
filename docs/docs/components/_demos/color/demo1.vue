@@ -1,33 +1,3 @@
-<script lang="ts" setup>
-  import { computed } from 'vue'
-  import { ChangeColor } from '../../../../../packages/fighting-design/_utils'
-  import { onCopy } from '../_utils/copy'
-  import type { ComputedRef } from 'vue'
-
-  const colorList: ComputedRef<string[][]> = computed((): string[][] => {
-    const COLOR_LIST = ['#2d5af1', '#52b35e', '#ff0200', '#fcc202'] as const
-
-    const allColorList: string[][] = COLOR_LIST.map(
-      (item: string): string[] => {
-        const series: string[] = []
-        const changeColor: ChangeColor = new ChangeColor(item)
-        for (let i = 0; i < 8; i++) {
-          const background: string = changeColor.getLightColor(
-            i === 0 ? 0 : i / 10 + 0.2
-          )
-          series.push(background)
-        }
-        return series
-      }
-    )
-    return allColorList
-  })
-
-  const handleClick = (color: string): void => {
-    onCopy(color)
-  }
-</script>
-
 <template>
   <div class="f-color-box">
     <div v-for="(item, index) in colorList" :key="index" class="f-color-list">
@@ -43,6 +13,33 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+  import { computed } from 'vue'
+  import { useCalculiColor } from '../../../../../packages/fighting-design/_hooks'
+  import { onCopy } from '../_utils/copy'
+  import type { ComputedRef } from 'vue'
+
+  const colorList: ComputedRef<string[][]> = computed((): string[][] => {
+    const COLOR_LIST = ['#2d5af1', '#52b35e', '#ff0200', '#fcc202'] as const
+
+    const allColorList: string[][] = COLOR_LIST.map((item: string): string[] => {
+      const series: string[] = []
+      const { getLightColor } = useCalculiColor(item)
+
+      for (let i = 0; i < 8; i++) {
+        const background: string = getLightColor(i === 0 ? 0 : i / 10 + 0.2)
+        series.push(background)
+      }
+      return series
+    })
+    return allColorList
+  })
+
+  const handleClick = (color: string): void => {
+    onCopy(color)
+  }
+</script>
 
 <style lang="scss" scoped>
   .f-color-box {

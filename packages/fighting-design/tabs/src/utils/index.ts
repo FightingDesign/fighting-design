@@ -1,27 +1,16 @@
 import { isVNode } from 'vue'
-import type {
-  VNode,
-  VNodeNormalizedChildren,
-  ComponentInternalInstance,
-  Component
-} from 'vue'
-
-const isArray = Array.isArray
-
-const isObject = (obj: unknown): boolean =>
-  typeof obj === 'object' && obj !== null
+import type { VNode, VNodeNormalizedChildren, ComponentInternalInstance, Component } from 'vue'
+import { isArray, isObject } from '../../../_utils'
 
 /**
  * 将所有子的组件扁平化
  * @param children
  */
-export const flattedChildren = (
-  children: VNode | VNodeNormalizedChildren
-): VNode[] => {
-  const vNodes = Array.isArray(children) ? children : [children]
+export const flattedChildren = (children: VNode | VNodeNormalizedChildren): VNode[] => {
+  const vNodes = isArray(children) ? children : [children]
   const result: VNode[] = []
 
-  vNodes.forEach((child) => {
+  vNodes.forEach(child => {
     if (isArray(child)) {
       result.push(...flattedChildren(child))
     } else if (isVNode(child) && isArray(child.children)) {
@@ -40,13 +29,8 @@ export const flattedChildren = (
  * @param root
  * @param component
  */
-export function getChildrenComponent (
-  root: ComponentInternalInstance,
-  component: string
-): VNode[] {
+export function getChildrenComponent (root: ComponentInternalInstance, component: string): VNode[] {
   if (!root.subTree) return []
   const flaChildren = flattedChildren(root.subTree.children)
-  return flaChildren.filter(
-    (e) => isObject(e.type) && (e.type as Component).name === component
-  )
+  return flaChildren.filter(e => isObject(e.type) && (e.type as Component).name === component)
 }

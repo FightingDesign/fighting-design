@@ -1,47 +1,42 @@
 import messageVue from '../../message/src/message.vue'
 import notificationVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
-import { useMassageManage } from '../../_hooks'
-import { runCallback } from '../../_utils'
+import { useMassageManage, useRun } from '../../_hooks'
+import { isString } from '../../_utils'
 import type { ComponentInternalInstance, VNode } from 'vue'
 import type {
-  DefaultOptionsInterface,
-  ComponentVueInterface,
   MessageInstance,
   MessageFn,
   MessageOptions,
   MessageFnWithType,
-  MessagePlacementType,
-  UseMessageInterface,
   UseMessageReturnInterface
 } from './interface'
+import type { MessagePlacement } from '../../message'
+
+export * from './interface.d'
 
 export const massageManage = useMassageManage()
 
-export const useMessage: UseMessageInterface = (
-  target: 'message' | 'notification'
-): UseMessageReturnInterface => {
+export const useMessage = (target: 'message' | 'notification'): UseMessageReturnInterface => {
   let seed = 1
 
   // 位置信息
-  const defaultOptions: DefaultOptionsInterface = {
+  const defaultOptions = {
     message: { placement: 'top' },
     notification: { placement: 'top-right' }
   } as const
 
   // 组件实例
-  const componentVue: ComponentVueInterface = {
+  const componentVue = {
     message: messageVue,
     notification: notificationVue
   }
 
-  const instance: MessageFn & Partial<MessageFnWithType> = (
-    options
-  ): MessageInstance => {
+  const instance: MessageFn & Partial<MessageFnWithType> = (options: MessageOptions): MessageInstance => {
     const container: HTMLDivElement = document.createElement('div')
     const id = `message-${seed}`
 
-    if (typeof options === 'string') {
+    if (isString(options)) {
       options = {
         message: options
       } as MessageOptions
@@ -57,7 +52,7 @@ export const useMessage: UseMessageInterface = (
      * 关闭动画结束时，移除dom
      */
     props.onDestroy = (): void => {
-      runCallback(props.onClose)
+      useRun(props.onClose)
       render(null, container)
     }
 
@@ -65,8 +60,7 @@ export const useMessage: UseMessageInterface = (
 
     render(VNode, container)
     document.body.appendChild(container.firstElementChild as HTMLElement)
-    const vm: ComponentInternalInstance =
-      VNode.component as ComponentInternalInstance
+    const vm = VNode.component as ComponentInternalInstance
 
     seed++
     const instance: MessageInstance = massageManage.createInstance(
@@ -74,26 +68,18 @@ export const useMessage: UseMessageInterface = (
         id,
         vm,
         close: (): void => {
-          (
-            (vm as ComponentInternalInstance).exposed as MessageInstance
-          ).close()
+          ((vm as ComponentInternalInstance).exposed as MessageInstance).close()
         },
         bottom: 0,
         visible: 0
       },
-      props.placement as MessagePlacementType
+      props.placement as MessagePlacement
     )
 
     return instance
   }
 
-  const messageTypes = [
-    'default',
-    'primary',
-    'success',
-    'danger',
-    'warning'
-  ] as const
+  const messageTypes = ['default', 'primary', 'success', 'danger', 'warning'] as const
 
   messageTypes.forEach((type): void => {
     instance[type] = (text: string): MessageInstance => {

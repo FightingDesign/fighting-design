@@ -1,12 +1,12 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { ExtractPropTypes, PropType } from 'vue'
+import type { FightingIcon, HandleMouse } from '../../_interface'
 
 export const Props = {
   /**
    * icon 内容
    */
   icon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
@@ -27,9 +27,9 @@ export const Props = {
    * 点击之后触发的回调
    */
   onClick: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleMouse>,
     default: (): null => null
   }
 } as const
 
-export type SvgIconPropsType = ExtractPropTypes<typeof Props>
+export type SvgIconProps = ExtractPropTypes<typeof Props>

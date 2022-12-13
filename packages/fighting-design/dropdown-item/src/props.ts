@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { HandleMouse } from '../../_interface'
 
 export const Props = {
   /**
@@ -13,9 +13,9 @@ export const Props = {
    * 点击之后的回调函数
    */
   onClick: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleMouse>,
     default: (): null => null
   }
 } as const
 
-export type DropdownItemPropsType = ExtractPropTypes<typeof Props>
+export type DropdownItemProps = ExtractPropTypes<typeof Props>

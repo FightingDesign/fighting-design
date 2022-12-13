@@ -1,5 +1,6 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { RateChangeInterface } from './interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { RateChange } from './interface'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -43,7 +44,7 @@ export const Props = {
    * 自定义 icon
    */
   icon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
@@ -51,7 +52,7 @@ export const Props = {
    */
   size: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '25px'
+    default: (): number => 25
   },
   /**
    * 是否展示辅助文字
@@ -85,9 +86,9 @@ export const Props = {
    * 当分数发生改变时触发
    */
   onChange: {
-    type: Function as PropType<RateChangeInterface>,
+    type: Function as PropType<RateChange>,
     default: (): null => null
   }
 } as const
 
-export type RatePropsType = ExtractPropTypes<typeof Props>
+export type RateProps = ExtractPropTypes<typeof Props>

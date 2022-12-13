@@ -4,44 +4,32 @@
   import { FButton } from '../../button'
   import { FSwap } from '../../swap'
   import { ref, toRefs } from 'vue'
-  import {
-    FIconCrossVue,
-    FIconEyeOffOutlineVue,
-    FIconEyeOutlineVue
-  } from '../../_svg'
-  import { isString, runCallback, isNumber } from '../../_utils'
-  import { useUpdateInput, useFilterProps } from '../../_hooks'
-  import type { Ref } from 'vue'
+  import { FIconCrossVue, FIconEyeOffOutlineVue, FIconEyeOutlineVue } from '../../_svg'
+  import { isString, isNumber } from '../../_utils'
+  import { useUpdateInput, useProps, useRun } from '../../_hooks'
   import type { InputType } from './interface'
-  import type { InputPropsType } from './props'
-  import type {
-    HandleEventInterface,
-    OrdinaryFunctionInterface
-  } from '../../_interface'
-  import type { UseUpdateInputPropsInterface } from '../../_hooks/use-update-input/interface'
+  import type { UseUpdateInputProps } from '../../_hooks'
 
-  const prop: InputPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: string | number): boolean =>
-      isString(val) || isNumber(val)
+    'update:modelValue': (val: string | number): boolean => isString(val) || isNumber(val)
   })
 
-  // type 类型
-  const inputType: Ref<InputType> = ref<InputType>(prop.type)
-  // 是否展示密码
-  const showPass: Ref<boolean> = ref<boolean>(false)
+  const { filter } = useProps(prop)
+
+  /**
+   * type 类型
+   */
+  const inputType = ref<InputType>(prop.type)
+  /**
+   * 是否展示密码
+   */
+  const showPass = ref<boolean>(false)
   /**
    * 使用 useUpdateInput hook 实现同步数据
-   *
-   * useFilterProps 过滤出需要的参数
    */
   const { onInput, onClear, onChange } = useUpdateInput(
-    useFilterProps<InputPropsType, UseUpdateInputPropsInterface>(prop, [
-      'onChange',
-      'onInput',
-      'disabled',
-      'type'
-    ]),
+    filter(['onChange', 'onInput', 'disabled', 'type']) as unknown as UseUpdateInputProps,
     emit
   )
 
@@ -50,7 +38,7 @@
    *
    * @param evt 事件对象
    */
-  const handleInput: HandleEventInterface = (evt: Event): void => {
+  const handleInput = (evt: Event): void => {
     onInput(evt)
   }
 
@@ -59,7 +47,7 @@
    *
    * @param evt 事件对象
    */
-  const handleChange: HandleEventInterface = (evt: Event): void => {
+  const handleChange = (evt: Event): void => {
     onChange(evt)
   }
 
@@ -68,8 +56,8 @@
    *
    * @param evt 事件对象
    */
-  const handleSearch: HandleEventInterface = (evt: Event): void => {
-    runCallback(prop.onSearch, { evt, value: prop.modelValue })
+  const handleSearch = (evt: Event): void => {
+    useRun(prop.onSearch, { evt, value: prop.modelValue })
   }
 
   /**
@@ -77,20 +65,20 @@
    *
    * @param evt 事件对象
    */
-  const handleEnter: HandleEventInterface = (evt: Event): void => {
+  const handleEnter = (evt: Event): void => {
     const { search, enterSearch, onEnter } = toRefs(prop)
 
     if (search.value && enterSearch.value) {
       handleSearch(evt)
     }
 
-    runCallback(onEnter.value, evt)
+    useRun(onEnter.value, evt)
   }
 
   /**
    * 查看密码
    */
-  const handleShowPassword: OrdinaryFunctionInterface = (): void => {
+  const handleShowPassword = (): void => {
     if (showPass.value) {
       inputType.value = 'text'
       showPass.value = true
@@ -125,14 +113,8 @@
         @focus="onFocus"
       />
 
-      <!-- 清楚 icon -->
-      <f-svg-icon
-        v-if="clear"
-        class="f-input__clear-btn"
-        :icon="FIconCrossVue"
-        :size="14"
-        @click="onClear"
-      />
+      <!-- 清除 icon -->
+      <f-svg-icon v-if="clear" class="f-input__clear-btn" :icon="FIconCrossVue" :size="14" @click="onClear" />
 
       <!-- 左侧 icon -->
       <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="14" />

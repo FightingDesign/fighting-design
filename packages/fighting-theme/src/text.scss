@@ -3,20 +3,21 @@
 
 .f-text {
   margin: 0;
-  transition: 0.3s;
   cursor: default;
   display: inline-block;
   word-break: break-all;
   box-sizing: border-box;
+  font-weight: 500;
+  transition: var(--f-design-transition-time);
   width: var(--f-text-width);
   padding: var(--f-text-padding, 0);
   background: var(--f-text-background);
-  text-indent: var(--f-text-text-indent);
+  text-indent: var(--f-text-indent);
   line-height: var(--f-text-line-height);
-  letter-spacing: var(--f-text-letter-spacing);
-  text-decoration: var(--f-text-text-decoration);
+  letter-spacing: var(--f-text-spacing);
+  text-decoration: var(--f-text-decoration);
   color: var(--f-text-color, var(--f-design-color-text-1));
-  font-size: var(--f-text-font-size, var(--f-design-font-size-middle));
+  font-size: var(--f-text-size, var(--f-design-font-size-middle));
 
   // 不同类型
   @for $list from 1 to (length($ComponentsType) + 1) {

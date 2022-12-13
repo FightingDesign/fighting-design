@@ -1,15 +1,11 @@
 <script lang="ts" setup name="FPopup">
   import { Props } from './props'
   import { computed } from 'vue'
-  import { sizeChange, isBoolean, runCallback } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type {
-    OrdinaryFunctionInterface,
-    HandleMouseEventInterface
-  } from '../../_interface'
-  import type { PopupPropsType } from './interface'
+  import { sizeChange, isBoolean } from '../../_utils'
+  import { useRun } from '../../_hooks'
+  import type { CSSProperties } from 'vue'
 
-  const prop: PopupPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
@@ -17,7 +13,7 @@
   /**
    * 点击遮罩层关闭
    */
-  const closePopup: OrdinaryFunctionInterface = (): void => {
+  const closePopup = (): void => {
     if (!prop.maskClose) return
     emit('update:visible', false)
   }
@@ -27,8 +23,8 @@
    *
    * @param evt 事件对象
    */
-  const handleOpen: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    runCallback(prop.onOpen, evt)
+  const handleOpen = (evt: MouseEvent): void => {
+    useRun(prop.onOpen, evt)
   }
 
   /**
@@ -36,8 +32,8 @@
    *
    * @param evt 事件对象
    */
-  const handleOpenEnd: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    runCallback(prop.onOpenEnd, evt)
+  const handleOpenEnd = (evt: MouseEvent): void => {
+    useRun(prop.onOpenEnd, evt)
   }
 
   /**
@@ -45,8 +41,8 @@
    *
    * @param evt 事件对象
    */
-  const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    runCallback(prop.onClose, evt)
+  const handleClose = (evt: MouseEvent): void => {
+    useRun(prop.onClose, evt)
   }
 
   /**
@@ -54,14 +50,14 @@
    *
    * @param evt 事件对象
    */
-  const handleCloseEnd: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    runCallback(prop.onCloseEnd, evt)
+  const handleCloseEnd = (evt: MouseEvent): void => {
+    useRun(prop.onCloseEnd, evt)
   }
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { direction, popupSize, padding } = prop
 
     if (direction === 'top' || direction === 'bottom') {

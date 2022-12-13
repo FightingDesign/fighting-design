@@ -40,9 +40,7 @@ export const Props = {
     type: String as PropType<BadgeType>,
     default: (): BadgeType => 'danger',
     validator: (val: BadgeType): boolean => {
-      return (['primary', 'success', 'danger', 'warning'] as const).includes(
-        val
-      )
+      return (['primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
   /**
@@ -61,4 +59,4 @@ export const Props = {
   }
 } as const
 
-export type BadgePropsType = ExtractPropTypes<typeof Props>
+export type BadgeProps = ExtractPropTypes<typeof Props>

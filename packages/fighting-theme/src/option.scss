@@ -6,12 +6,12 @@
   font-size: 15px;
   cursor: pointer;
   margin: 4px;
-  transition: background 0.3s;
   user-select: none;
+  transition: background var(--f-design-transition-time);
   color: var(--f-design-color-text-1);
   background: var(--f-design-color-text-2);
 
-  &:hover {
+  &:not([class~='f-option__disabled']):hover {
     background: var(--f-design-color-border-1);
   }
 
@@ -19,9 +19,5 @@
   &__disabled {
     cursor: not-allowed;
     color: #afafaf;
-
-    &:hover {
-      background: none;
-    }
   }
 }

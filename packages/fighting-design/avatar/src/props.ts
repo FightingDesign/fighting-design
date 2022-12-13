@@ -1,6 +1,7 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { AvatarFitType, AvatarSizeType } from './interface'
-import type { HandleEventInterface } from '../../_interface'
+import { isString, isNumber } from '../../_utils'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { AvatarFit } from './interface'
+import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -21,13 +22,13 @@ export const Props = {
    * 图标头像
    */
   icon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 原生 alt 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
+   * @see alt https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
    */
   alt: {
     type: String,
@@ -52,16 +53,14 @@ export const Props = {
    *
    * 原生样式属性
    *
-   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
+   * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    * @values fill contain cover none scale-down
    */
   fit: {
-    type: String as PropType<AvatarFitType>,
+    type: String as PropType<AvatarFit>,
     default: (): null => null,
-    validator: (val: AvatarFitType): boolean => {
-      return (
-        ['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const
-      ).includes(val)
+    validator: (val: AvatarFit): boolean => {
+      return (['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const).includes(val)
     }
   },
   /**
@@ -70,14 +69,17 @@ export const Props = {
    * 可传入字符串使用内置大小
    *
    * 也可以传入数字，数字将自动转换为 px 单位
+   *
+   * @values large middle small mini
+   * @defaultValue middle
    */
   size: {
-    type: [String, Number] as PropType<AvatarSizeType | number>,
-    default: (): AvatarSizeType => 'middle',
-    validator: (val: AvatarSizeType | number): boolean => {
-      if (typeof val === 'string') {
+    type: [String, Number] as PropType<FightingSize | number>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize | number): boolean => {
+      if (isString(val)) {
         return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-      } else if (typeof val === 'number') {
+      } else if (isNumber(val)) {
         return val >= 1
       }
       return false
@@ -122,16 +124,16 @@ export const Props = {
    * 图片加载成功触发的回调
    */
   onLoad: {
-    type: Function as PropType<HandleEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 图片加载失败触发的回调
    */
   onError: {
-    type: Function as PropType<HandleEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const
 
-export type AvatarPropsType = ExtractPropTypes<typeof Props>
+export type AvatarProps = ExtractPropTypes<typeof Props>

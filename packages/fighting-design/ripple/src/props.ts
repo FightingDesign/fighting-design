@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { RippleType } from './interface'
+import type { FightingType } from '../../_interface'
 
 export const Props = {
   /**
@@ -24,12 +24,10 @@ export const Props = {
    * @defaultValue default
    */
   type: {
-    type: String as PropType<RippleType>,
-    default: (): RippleType => 'default',
-    validator: (val: RippleType): boolean => {
-      return (
-        ['default', 'primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
+    type: String as PropType<FightingType>,
+    default: (): null => null,
+    validator: (val: FightingType): boolean => {
+      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
   /**
@@ -52,14 +50,7 @@ export const Props = {
   endOpacity: {
     type: Number,
     default: (): number => 0
-  },
-  /**
-   * 是否禁止选中
-   */
-  noSelect: {
-    type: Boolean,
-    default: (): boolean => true
   }
 } as const
 
-export type RipplePropsType = ExtractPropTypes<typeof Props>
+export type RippleProps = ExtractPropTypes<typeof Props>

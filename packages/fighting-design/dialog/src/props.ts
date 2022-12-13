@@ -1,5 +1,5 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { ExtractPropTypes, PropType } from 'vue'
+import type { HandleEvent, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -70,13 +70,13 @@ export const Props = {
    * 自定义关闭按钮 icon
    */
   closeIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 层级 原生属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+   * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
   zIndex: {
     type: Number,
@@ -87,30 +87,30 @@ export const Props = {
    * 打开动画开始的回调
    */
   onOpen: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 打开动画结束的回调
    */
   onOpenEnd: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 关闭动画开始的回调
    */
   onClose: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 关闭动画结束的回调
    */
   onCloseEnd: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const
 
-export type DialogPropsType = ExtractPropTypes<typeof Props>
+export type DialogProps = ExtractPropTypes<typeof Props>

@@ -67,10 +67,7 @@
 </template>
 
 ```html
-<f-empty
-  image-src="https://tianyuhao.cn/images/auto/1.jpg"
-  image-size="200px"
-/>
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
 ```
 
 :::
@@ -135,7 +132,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { EmptyInstance, EmptyPropsType } from 'fighting-design'
+import type { EmptyInstance, EmptyProps } from 'fighting-design'
 ```
 
 ## Contributors
@@ -153,7 +150,7 @@ import type { EmptyInstance, EmptyPropsType } from 'fighting-design'
 </a>
 
 <style scoped>
-.f-empty {
-  margin: 5px;
-}
+  .f-empty {
+    margin: 5px;
+  }
 </style>

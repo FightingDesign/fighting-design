@@ -10,4 +10,4 @@ export const Props = {
   }
 } as const
 
-export type LoadingBarPropsType = ExtractPropTypes<typeof Props>
+export type LoadingBarProps = ExtractPropTypes<typeof Props>

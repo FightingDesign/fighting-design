@@ -1,5 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { DropdownTriggerType } from './interface'
+import type { TriggerTrigger } from '../../trigger'
+import type { HandleChange } from '../../_interface'
 
 export const Props = {
   /**
@@ -23,12 +24,54 @@ export const Props = {
    * @defaultValue hover
    */
   trigger: {
-    type: String as PropType<DropdownTriggerType>,
-    default: (): DropdownTriggerType => 'hover',
-    validator: (val: DropdownTriggerType): boolean => {
+    type: String as PropType<TriggerTrigger>,
+    default: (): TriggerTrigger => 'hover',
+    validator: (val: TriggerTrigger): boolean => {
       return (['hover', 'click'] as const).includes(val)
     }
+  },
+  /**
+   * 是否带有箭头
+   */
+  arrow: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  /**
+   * 弹出动画持续时间
+   */
+  enterDuration: {
+    type: Number,
+    default: (): null => null
+  },
+  /**
+   * 关闭动画持续时间
+   */
+  leaveDuration: {
+    type: Number,
+    default: (): null => null
+  },
+  /**
+   * 弹窗状态改变时触发的回调
+   */
+  onChange: {
+    type: Function as PropType<HandleChange>,
+    default: (): null => null
+  },
+  /**
+   * 弹窗状态打开时触发的回调
+   */
+  onOpen: {
+    type: Function as PropType<HandleChange>,
+    default: (): null => null
+  },
+  /**
+   * 弹窗状态关闭时触发的回调
+   */
+  onClose: {
+    type: Function as PropType<HandleChange>,
+    default: (): null => null
   }
 } as const
 
-export type DropdownPropsType = ExtractPropTypes<typeof Props>
+export type DropdownProps = ExtractPropTypes<typeof Props>

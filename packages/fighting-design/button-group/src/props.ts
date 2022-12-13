@@ -1,30 +1,36 @@
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
-import type { ButtonSizeType } from '../../button'
+import type { FightingSize } from '../../_interface'
+import type { ButtonGroupDirection } from './interface'
 
 export const Props = {
   /**
    * 按钮尺寸
    *
    * @values large middle small mini
-   * @defaultValue middle
+   * @defaultValue null
    */
   size: {
-    type: String as PropType<ButtonSizeType>,
-    default: (): ButtonSizeType => 'middle',
-    validator: (val: ButtonSizeType): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): null => null,
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
   /**
-   * 是否纵向排列
+   * 排列方向
+   *
+   * @values horizontal vertical
+   * @defaultValue horizontal
    */
-  vertical: {
-    type: Boolean,
-    default: (): boolean => false
+  direction: {
+    type: String as PropType<ButtonGroupDirection>,
+    default: (): ButtonGroupDirection => 'horizontal',
+    validator: (val: ButtonGroupDirection): boolean => {
+      return (['horizontal', 'vertical'] as const).includes(val)
+    }
   }
 } as const
 
-export type ButtonGroupPropsType = ExtractPropTypes<typeof Props>
+export type ButtonGroupProps = ExtractPropTypes<typeof Props>
 
-export const BUTTON_GROUP_PROPS_KEY: InjectionKey<ButtonGroupPropsType> =
-  Symbol('button-group-props-key')
+export const BUTTON_GROUP_PROPS_KEY: InjectionKey<ButtonGroupProps> = Symbol('button-group-props-key')

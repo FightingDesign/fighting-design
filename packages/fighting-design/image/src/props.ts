@@ -1,6 +1,6 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { ImageFitType } from './interface'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { ImageFit } from './interface'
+import type { HandleEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -13,7 +13,7 @@ export const Props = {
   /**
    * 原生 alt 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
+   * @see alt https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
    */
   alt: {
     type: String,
@@ -64,15 +64,13 @@ export const Props = {
   /**
    * 如何适应容器，原生 object-fit 属性
    *
-   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
+   * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    */
   fit: {
-    type: String as PropType<ImageFitType>,
+    type: String as PropType<ImageFit>,
     default: (): null => null,
-    validator: (val: ImageFitType): boolean => {
-      return (
-        ['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const
-      ).includes(val)
+    validator: (val: ImageFit): boolean => {
+      return (['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const).includes(val)
     }
   },
   /**
@@ -85,7 +83,7 @@ export const Props = {
   /**
    * 原生 referrerPolicy 属性
    *
-   * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#syntax
+   * @see Referrer-Policy https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#syntax
    */
   referrerPolicy: {
     type: String,
@@ -96,7 +94,7 @@ export const Props = {
    */
   round: {
     type: [String, Number] as PropType<string | number>,
-    default: (): number => 0
+    default: (): null => null
   },
   /**
    * 加载失败时要显示的地址
@@ -116,16 +114,16 @@ export const Props = {
    * 图片加载成功触发的回调
    */
   onLoad: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 图片加载失败触发的回调
    */
   onError: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const
 
-export type ImagePropsType = ExtractPropTypes<typeof Props>
+export type ImageProps = ExtractPropTypes<typeof Props>

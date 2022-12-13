@@ -1,15 +1,6 @@
-export type { TextareaPropsType } from './textarea'
-
-/**
- * 当 textarea 改变时触发的回调函数类型接口
- * 
- * @param val 最新值
- */
-export interface TextareaChangeInterface {
-  (val: string): void
-}
+export type { TextareaProps } from './textarea'
 
 /**
  * 拉伸方式类型
  */
-export type TextareaResizeType = 'none' | 'both' | 'horizontal' | 'vertical'
+export type TextareaResize = 'none' | 'both' | 'horizontal' | 'vertical'

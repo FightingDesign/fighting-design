@@ -49,8 +49,7 @@ export const head: HeadConfig[] = [
     'meta',
     {
       property: 'og:title',
-      content:
-        'Fighting Design 可在 vue3 应用程序中快速构建交互界面，看起来还不错。'
+      content: 'Fighting Design 可在 vue3 应用程序中快速构建交互界面，看起来还不错。'
     }
   ],
   /**

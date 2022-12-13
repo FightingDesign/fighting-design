@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { SkeletonSizeType } from './interface'
+import type { FightingSize } from '../../_interface'
 
 export const Props = {
   /**
@@ -37,12 +37,12 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<SkeletonSizeType>,
-    default: (): SkeletonSizeType => 'middle',
-    validator: (val: SkeletonSizeType): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   }
 } as const
 
-export type SkeletonPropsType = ExtractPropTypes<typeof Props>
+export type SkeletonProps = ExtractPropTypes<typeof Props>

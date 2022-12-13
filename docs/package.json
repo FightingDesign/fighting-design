@@ -7,12 +7,16 @@
     "serve": "vitepress serve docs"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@mdit-vue/plugin-sfc": "^0.11.1",
     "@vue/compiler-sfc": "^3.2.45",
     "escape-html": "^1.0.3",
     "prismjs": "^1.29.0",
     "@vueuse/core": "^9.1.1",
     "vitepress": "1.0.0-alpha.29"
+=======
+    "vitepress": "1.0.0-alpha.31"
+>>>>>>> master
   },
   "devDependencies": {
     "markdown-it": "^13.0.1",

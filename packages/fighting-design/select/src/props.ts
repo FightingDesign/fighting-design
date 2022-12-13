@@ -1,12 +1,12 @@
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
-import type { SelectProvideInterface, SelectModelValueType } from './interface'
+import type { SelectProvide, SelectModelValue } from './interface'
 
 export const Props = {
   /**
    * 绑定值
    */
   modelValue: {
-    type: [String, Number, Boolean] as PropType<SelectModelValueType>,
+    type: [String, Number, Boolean] as PropType<SelectModelValue>,
     default: (): null => null,
     required: true
   },
@@ -20,7 +20,7 @@ export const Props = {
   /**
    * 原生 name 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
+   * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
   name: {
     type: String,
@@ -29,7 +29,7 @@ export const Props = {
   /**
    * 占位符
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
+   * @see placeholder https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
    */
   placeholder: {
     type: String,
@@ -45,7 +45,7 @@ export const Props = {
   /**
    * 是否禁用
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
+   * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
   disabled: {
     type: Boolean,
@@ -53,7 +53,6 @@ export const Props = {
   }
 } as const
 
-export type SelectPropsType = ExtractPropTypes<typeof Props>
+export type SelectProps = ExtractPropTypes<typeof Props>
 
-export const SELECT_PROPS_TOKEN: InjectionKey<SelectProvideInterface> =
-  Symbol('f-select-props-key')
+export const SELECT_PROPS_TOKEN: InjectionKey<SelectProvide> = Symbol('f-select-props-key')

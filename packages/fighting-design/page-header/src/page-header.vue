@@ -1,20 +1,19 @@
 <script lang="ts" setup name="FPageHeader">
   import { Props } from './props'
-  import { sizeChange, runCallback } from '../../_utils'
+  import { sizeChange } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import { FIconArrowLeftVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
-  import type { HandleMouseEventInterface } from '../../_interface'
-  import type { PageHeaderPropsType } from './props'
 
-  const prop: PageHeaderPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 点击之后执行
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    runCallback(prop.onBack, evt)
+  const handleClick = (evt: MouseEvent): void => {
+    useRun(prop.onBack, evt)
   }
 </script>
 
@@ -31,28 +30,17 @@
     </div>
 
     <!-- 右侧部分 -->
-    <div
-      :class="[
-        'f-page-header__main',
-        { 'f-page-header__main-center': titleCenter }
-      ]"
-    >
+    <div :class="['f-page-header__main', { 'f-page-header__main-center': titleCenter }]">
       <!-- 标题 -->
       <div
         :style="{ color: titleColor }"
-        :class="[
-          'f-page-header__main-title',
-          { 'f-page-header__main-title-bold': titleBold }
-        ]"
+        :class="['f-page-header__main-title', { 'f-page-header__main-title-bold': titleBold }]"
       >
         <slot name="title">{{ title }}</slot>
       </div>
 
       <!-- 副标题 -->
-      <div
-        v-if="subtitle || $slots.subtitle"
-        class="f-page-header__main-subtitle"
-      >
+      <div v-if="subtitle || $slots.subtitle" class="f-page-header__main-subtitle">
         <slot name="subtitle">{{ subtitle }}</slot>
       </div>
     </div>

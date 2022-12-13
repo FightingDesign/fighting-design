@@ -1,12 +1,12 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { ExtractPropTypes, PropType } from 'vue'
+import type { HandleEvent, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
    * 返回图标
    */
   icon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
@@ -62,9 +62,9 @@ export const Props = {
    * 点击左侧区域触发
    */
   onBack: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const
 
-export type PageHeaderPropsType = ExtractPropTypes<typeof Props>
+export type PageHeaderProps = ExtractPropTypes<typeof Props>

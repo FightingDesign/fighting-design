@@ -1,1 +1,1 @@
-export type { WatermarkPropsType } from './props'
+export type { WatermarkProps } from './props'

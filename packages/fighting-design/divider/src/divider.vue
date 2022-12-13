@@ -1,22 +1,21 @@
 <script lang="ts" setup name="FDivider">
   import { Props } from './props'
   import { useSlots, computed } from 'vue'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { DividerPropsType } from './props'
+  import type { CSSProperties } from 'vue'
 
-  const prop: DividerPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
   /**
    * 是否有插槽
    */
-  const renderSlot: ComputedRef<boolean> = computed((): boolean => {
+  const renderSlot = computed((): boolean => {
     return !prop.vertical && Boolean(useSlots().default)
   })
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { color, margin } = prop
 
     if (margin) {
@@ -32,10 +31,7 @@
 <template>
   <div
     role="separator"
-    :class="[
-      'f-divider',
-      { 'f-divider__vertical': vertical, [`f-divider__${type}`]: type }
-    ]"
+    :class="['f-divider', { 'f-divider__vertical': vertical, [`f-divider__${type}`]: type }]"
     :style="styleList"
   >
     <span

@@ -3,9 +3,14 @@ import Theme from 'vitepress/theme'
 import './style/vitepress.scss'
 import FightingDesign from '../../../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
+<<<<<<< HEAD
 import { vpSearch, vpDemo } from './components'
 import { useComponents } from './useComponents'
 import './index.css'
+=======
+import vpSearch from './components/vp-search.vue'
+import vpDemo from './components/vp-demo.vue'
+>>>>>>> master
 
 export default {
   ...Theme,
@@ -16,8 +21,7 @@ export default {
        *
        * 更多插槽参考
        *
-       * https://github.com/vuejs/vitepress/blob/main/docs/guide/theme-introduction.md
-       * https://vitepress.vuejs.org/guide/theme-introduction#using-a-custom-theme
+       * @see layout-slots https://vitepress.vuejs.org/guide/theme-introduction#layout-slots
        */
       'nav-bar-content-before': () => h(vpSearch)
     })

@@ -24,6 +24,10 @@ export default defineConfig({
   },
   markdown: {
     // 自定义 markdown 语法
+<<<<<<< HEAD
     config: (md) => demoBlockPlugin(md)
+=======
+    config: md => mdPlugin(md)
+>>>>>>> master
   }
 })

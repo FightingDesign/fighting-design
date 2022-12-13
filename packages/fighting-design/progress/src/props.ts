@@ -19,9 +19,7 @@ export const Props = {
     type: String as PropType<ProgressType>,
     default: (): ProgressType => 'primary',
     validator: (val: ProgressType): boolean => {
-      return (['primary', 'success', 'danger', 'warning'] as const).includes(
-        val
-      )
+      return (['primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
   /**
@@ -96,4 +94,4 @@ export const Props = {
   }
 } as const
 
-export type ProgressPropsType = ExtractPropTypes<typeof Props>
+export type ProgressProps = ExtractPropTypes<typeof Props>

@@ -4,82 +4,67 @@
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
+  user-select: none;
 
-  // 左右切换的按钮
-  &__prev,
-  &__next {
-    width: 34px;
-    height: 34px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    background: var(--f-design-color-text-2);
+  &__prev-more > *,
+  &__next-more > * {
+    pointer-events: none;
   }
 
+  // 分页主体
   &__pages {
     display: flex;
+    list-style-type: none;
+    padding-left: 0;
 
-    .f-pagination__pages-li {
+    // 默认的每一项
+    .f-pagination__pages-item {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
       width: 34px;
       height: 34px;
-      line-height: 34px;
-      text-align: center;
       font-size: 16px;
       cursor: pointer;
       color: var(--f-design-color-text-1);
 
-      &-choose {
+      // 选中状态
+      &-active {
         color: var(--f-design-color-primary-1);
       }
+    }
 
-      &-background-choose {
-        background: var(--f-design-color-primary-1);
-        color: var(--f-design-color-text-2);
-      }
-
-      &-disabled {
-        cursor: not-allowed;
+    // 圆角的
+    &.f-pagination__pages-round {
+      .f-pagination__pages-item {
+        border-radius: 50%;
       }
     }
-  }
 
-  /**
-  * 这个样式是针对于当前分页处于圆形或带背景时触发
-  */
-  &__state {
-    margin: 0 5px;
-  }
+    // 带有背景色的
+    &.f-pagination__pages-background {
+      // 带有背景色的每一项元素
+      .f-pagination__pages-item {
+        margin: 0 5px;
+        background: #f8f8f8;
 
-  &__background,
-  &__btn-background,
-  &__circle,
-  &__btn-circle {
-    background: #f8f8f8;
-  }
+        // 选中状态
+        &-active {
+          color: #fff;
+          background: var(--f-design-color-primary-1);
+        }
+      }
+    }
 
-  &__background {
-    margin: 0 5px;
-  }
-
-  &__btn-circle {
-    border-radius: 17px;
-  }
-
-  &__circle {
-    border-radius: 17px;
-    margin: 0 5px;
+    // 禁用状态
+    &.f-pagination__pages-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 
   &__jump {
     width: 145px;
     margin-left: 10px;
-  }
-
-  &__disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
   }
 }

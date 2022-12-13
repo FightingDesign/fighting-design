@@ -1,3 +1,4 @@
+import { isString } from './../../../fighting-design/_utils'
 import * as defaultCompiler from 'vue/compiler-sfc'
 import { reactive, watchEffect, version } from 'vue'
 import { compileFile, File } from '@vue/repl'
@@ -65,11 +66,7 @@ export class ReplStore implements Store {
     this.initImportMap()
 
     // 注入 Fighting Design
-    this.state.files[fightingPlugin] = new File(
-      fightingPlugin,
-      fightingPluginCode,
-      !import.meta.env.DEV
-    )
+    this.state.files[fightingPlugin] = new File(fightingPlugin, fightingPluginCode, !import.meta.env.DEV)
 
     watchEffect(() => compileFile(this, this.state.activeFile))
 
@@ -95,10 +92,7 @@ export class ReplStore implements Store {
   }
 
   addFile = (fileOrFilename: string | File): void => {
-    const file =
-      typeof fileOrFilename === 'string'
-        ? new File(fileOrFilename)
-        : fileOrFilename
+    const file = isString(fileOrFilename) ? new File(fileOrFilename) : fileOrFilename
     this.state.files[file.filename] = file
     if (!file.hidden) this.setActive(file.filename)
   }
@@ -134,10 +128,7 @@ export class ReplStore implements Store {
     return exported
   }
 
-  setFiles = async (
-    newFiles: Record<string, string>,
-    mainFile = defaultMainFile
-  ): Promise<void> => {
+  setFiles = async (newFiles: Record<string, string>, mainFile = defaultMainFile): Promise<void> => {
     const files: Record<string, File> = {}
     if (mainFile === defaultMainFile && !newFiles[mainFile]) {
       files[mainFile] = new File(mainFile, defaultCode)
@@ -187,9 +178,7 @@ export class ReplStore implements Store {
     try {
       return JSON.parse(this.state.files['import-map.json'].code)
     } catch (e) {
-      this.state.errors = [
-        `Syntax error in import-map.json: ${(e as Error).message}`
-      ]
+      this.state.errors = [`Syntax error in import-map.json: ${(e as Error).message}`]
       return {}
     }
   }

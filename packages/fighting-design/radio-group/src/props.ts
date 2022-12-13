@@ -1,11 +1,15 @@
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type {
-  RadioLabelType,
-  RadioGroupSizeType,
-  RadioChangeInterface
-} from './interface'
+import type { RadioModelValue, RadioChange } from './interface'
+import type { FightingSize } from '../../_interface'
 
 export const Props = {
+  /**
+   * 绑定值
+   */
+  modelValue: {
+    type: [String, Number, Boolean] as PropType<RadioModelValue>,
+    default: (): null => null
+  },
   /**
    * 是否禁用
    */
@@ -13,13 +17,7 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 绑定值
-   */
-  modelValue: {
-    type: [String, Number, Boolean] as PropType<RadioLabelType>,
-    default: (): null => null
-  },
+
   /**
    * 是否纵向排列
    */
@@ -52,9 +50,9 @@ export const Props = {
    * 尺寸
    */
   size: {
-    type: String as PropType<RadioGroupSizeType>,
-    default: (): RadioGroupSizeType => 'middle',
-    validator: (val: RadioGroupSizeType): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -62,13 +60,11 @@ export const Props = {
    * 绑定值变化时触发
    */
   onChange: {
-    type: Function as PropType<RadioChangeInterface>,
+    type: Function as PropType<RadioChange>,
     default: (): null => null
   }
 } as const
 
-export type RadioGroundPropsType = ExtractPropTypes<typeof Props>
+export type RadioGroundProps = ExtractPropTypes<typeof Props>
 
-export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundPropsType> = Symbol(
-  'radio-group-props-key'
-) as InjectionKey<RadioGroundPropsType>
+export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundProps> = Symbol('radio-group-props-key')

@@ -1,39 +1,25 @@
 <script lang="ts" setup name="FUpLoad">
   import { Props } from './props'
   import { FButton } from '../../button'
-  import { runCallback } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import { ref, watch } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { FIconNotesVue, FIconPlusVue } from '../../_svg'
-  import type { Ref } from 'vue'
-  import type {
-    OrdinaryFunctionInterface,
-    HandleEventInterface,
-    HandleDragEventInterface
-  } from '../../_interface'
-  import type {
-    UpLoadPropsType,
-    UpLoadUpdateFilesInterface,
-    UpLoadFilterFilesInterface,
-    UpLoadRemoveFileInterface
-  } from './interface'
 
-  const prop: UpLoadPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:files': (files: File[]): File[] => files
   })
 
-  const dragIng: Ref<boolean> = ref(false)
-  const fileList: Ref<File[] | null> = ref<File[]>(null as unknown as File[])
-  const FUpLoadInput: Ref<HTMLInputElement> = ref(
-    null as unknown as HTMLInputElement
-  )
+  const dragIng = ref(false)
+  const fileList = ref<File[]>(null as unknown as File[])
+  const FUpLoadInput = ref(null as unknown as HTMLInputElement)
 
   /**
    * 点击上传
    */
-  const handleClick: OrdinaryFunctionInterface = (): void => {
+  const handleClick = (): void => {
     FUpLoadInput.value.click()
   }
 
@@ -42,10 +28,10 @@
    *
    * @param files 文件列表
    */
-  const updateFiles: UpLoadUpdateFilesInterface = (files: File[]): void => {
+  const updateFiles = (files: File[]): void => {
     fileList.value = files
     emit('update:files', files)
-    runCallback(prop.onLoad)
+    useRun(prop.onLoad)
   }
 
   /**
@@ -54,7 +40,7 @@
    * @param files 文件列表
    * @return { File[] } 过滤后的文件列表
    */
-  const filterFiles: UpLoadFilterFilesInterface = (files: File[]): File[] => {
+  const filterFiles = (files: File[]): File[] => {
     const { maxSize, maxLength } = prop
     let list: File[] = [...files]
 
@@ -76,7 +62,7 @@
    *
    * @param evt 事件对象
    */
-  const handleChange: HandleEventInterface = (evt: Event): void => {
+  const handleChange = (evt: Event): void => {
     const files: FileList | null = (evt.target as HTMLInputElement).files
     if (files) {
       updateFiles(filterFiles(files as unknown as File[]))
@@ -88,8 +74,8 @@
    *
    * @param index 需要删除的文件索引
    */
-  const removeFile: UpLoadRemoveFileInterface = (index: number): void => {
-    (fileList.value as File[]).splice(index, 1)
+  const removeFile = (index: number): void => {
+    ;(fileList.value as File[]).splice(index, 1)
   }
 
   /**
@@ -97,7 +83,7 @@
    *
    * @param evt 事件对象
    */
-  const onDragover: HandleDragEventInterface = (evt: DragEvent): void => {
+  const onDragover = (evt: DragEvent): void => {
     evt.preventDefault()
     dragIng.value = true
   }
@@ -107,7 +93,7 @@
    *
    * @param evt 事件对象
    */
-  const onDrop: HandleDragEventInterface = (evt: DragEvent): void => {
+  const onDrop = (evt: DragEvent): void => {
     dragIng.value = false
     const files: FileList = (evt.dataTransfer as DataTransfer).files
     if (files) {
@@ -118,7 +104,7 @@
   /**
    * 如果文件发生改变时触发
    */
-  const loadChange: OrdinaryFunctionInterface = (): void => {
+  const loadChange = (): void => {
     if (!prop.onChange) return
     watch(
       (): File[] => prop.files,
@@ -133,13 +119,7 @@
 
 <template>
   <div class="f-up-load">
-    <div
-      v-if="drag"
-      class="f-up-load__drag"
-      @click="handleClick"
-      @drop.prevent="onDrop"
-      @dragover.prevent="onDragover"
-    >
+    <div v-if="drag" class="f-up-load__drag" @click="handleClick" @drop.prevent="onDrop" @dragover.prevent="onDragover">
       <slot>
         <f-svg-icon :icon="FIconPlusVue" />
       </slot>
@@ -164,15 +144,8 @@
   </div>
 
   <!-- 文件列表 -->
-  <ul
-    v-if="showList && fileList && fileList.length"
-    class="f-up-load__file-list"
-  >
-    <li
-      v-for="(file, index) in fileList"
-      :key="index"
-      class="f-up-load__file-list-item"
-    >
+  <ul v-if="showList && fileList && fileList.length" class="f-up-load__file-list">
+    <li v-for="(file, index) in fileList" :key="index" class="f-up-load__file-list-item">
       <span class="f-up-load__file-name">
         <f-svg-icon :icon="FIconNotesVue" />
         {{ file.name }}

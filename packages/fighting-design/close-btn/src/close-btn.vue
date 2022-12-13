@@ -1,53 +1,32 @@
 <script lang="ts" setup name="FCloseBtn">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { computed } from 'vue'
   import { FIconCrossVue } from '../../_svg'
-  import { runCallback } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type {
-    HandleMouseEventInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { CloseBtnPropsType } from './props'
+  import { useRun, useList } from '../../_hooks'
 
-  const prop: CloseBtnPropsType = defineProps(Props)
+  const prop = defineProps(Props)
+
+  const { styles, classes } = useList(prop, 'close-btn')
 
   /**
    * 点击触发
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    runCallback(prop.onClick, evt)
+    useRun(prop.onClick, evt)
   }
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { disabled, round } = prop
-
-      return [
-        'f-close-btn',
-        {
-          'f-close-btn__round': round,
-          'f-close-btn__disabled': disabled
-        } as const
-      ] as const
-    }
-  )
+  const classList = classes(['round', 'disabled'], 'f-close-btn')
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    return {
-      '--f-close-btn-color': prop.color
-    } as CSSProperties
-  })
+  const styleList = styles(['color'])
 </script>
 
 <template>

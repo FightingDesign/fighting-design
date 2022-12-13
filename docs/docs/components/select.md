@@ -12,12 +12,17 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-select v-model="value1" placeholder="请选择……">
+<f-option :value="1">香蕉</f-option>
+<f-option :value="2">苹果</f-option>
+<f-option :value="3">哈密瓜</f-option>
+<f-option :value="4">樱桃</f-option>
+</f-select>
 </template>
 
 ```html
 <template>
-  <f-select v-model="value" placeholder="请选择……">
+  <f-select v-model="value1" placeholder="请选择……">
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
@@ -28,7 +33,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const value1 = ref('')
 </script>
 ```
 
@@ -43,12 +48,17 @@
 ::: demo
 
 <template #source>
-<demo2-vue />
+<f-select v-model="value2" placeholder="请选择……">
+<f-option label="香蕉" :value="1"></f-option>
+<f-option :value="2">苹果</f-option>
+<f-option :value="3"></f-option>
+<f-option label="樱桃">樱桃</f-option>
+</f-select>
 </template>
 
 ```html
 <template>
-  <f-select v-model="value" placeholder="请选择……">
+  <f-select v-model="value2" placeholder="请选择……">
     <f-option label="香蕉" :value="1"></f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3"></f-option>
@@ -59,7 +69,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const value2 = ref('')
 </script>
 ```
 
@@ -72,19 +82,31 @@
 ::: demo
 
 <template #source>
-<demo3-vue />
+<f-select v-model="value3" placeholder="请选择……" disabled>
+<f-option :value="1">香蕉</f-option>
+<f-option :value="2">苹果</f-option>
+<f-option :value="3">哈密瓜</f-option>
+<f-option :value="4">樱桃</f-option>
+</f-select>
+
+<f-select v-model="value3" placeholder="请选择……" style="margin-left: 30px">
+<f-option :value="1">香蕉</f-option>
+<f-option :value="2" disabled>苹果</f-option>
+<f-option :value="3">哈密瓜</f-option>
+<f-option :value="4">樱桃</f-option>
+</f-select>
 </template>
 
 ```html
 <template>
-  <f-select v-model="value" placeholder="请选择……" disabled>
+  <f-select v-model="value3" placeholder="请选择……" disabled>
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
     <f-option :value="4">樱桃</f-option>
   </f-select>
 
-  <f-select v-model="value" placeholder="请选择……" style="margin-left: 30px">
+  <f-select v-model="value3" placeholder="请选择……" style="margin-left: 30px">
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2" disabled>苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
@@ -95,7 +117,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const value3 = ref('')
 </script>
 ```
 
@@ -103,14 +125,14 @@
 
 ## Select Attributes
 
-| 参数                   | 说明           | 类型            | 可选值 | 默认值 |
-| ---------------------- | -------------- | --------------- | ------ | ------ |
-| `v-model / modelValue` | 绑定值         | string          | ——     | ——     |
-| `width`                | 自定义宽度     | string / number | ——     | ——     |
-| `name`                 | 原生 name 属性 | string          | ——     | ——     |
-| `placeholder`          | 占位符         | string          | ——     | ——     |
-| `clear`                | 是否可清除     | boolean         | ——     | false  |
-| `disabled`             | 是否禁用       | boolean         | ——     | false  |
+| 参数                   | 说明           | 类型                                             | 可选值 | 默认值 |
+| ---------------------- | -------------- | ------------------------------------------------ | ------ | ------ |
+| `v-model / modelValue` | 绑定值         | <a href="#selectmodelvalue">SelectModelValue</a> | ——     | ——     |
+| `width`                | 自定义宽度     | string / number                                  | ——     | ——     |
+| `name`                 | 原生 name 属性 | string                                           | ——     | ——     |
+| `placeholder`          | 占位符         | string                                           | ——     | ——     |
+| `clear`                | 是否可清除     | boolean                                          | ——     | false  |
+| `disabled`             | 是否禁用       | boolean                                          | ——     | false  |
 
 ## Select Slots
 
@@ -137,16 +159,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  SelectInstance,
-  SelectPropsType,
-  SelectModelValueType,
-  SelectSetValueInterface,
-  SelectProvideInterface,
-  SelectChildrenInterface,
-  OptionInstance,
-  OptionPropsType
-} from 'fighting-design'
+import type { SelectInstance, SelectProps, SelectModelValue, OptionInstance, OptionProps } from 'fighting-design'
+```
+
+### SelectModelValue
+
+```ts
+type SelectModelValue = string | number | boolean
 ```
 
 ## Contributors
@@ -157,7 +176,8 @@ import type {
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import demo1Vue from './_demos/select/demo1.vue'
-  import demo2Vue from './_demos/select/demo2.vue'
-  import demo3Vue from './_demos/select/demo3.vue'
+
+  const value1 = ref('')
+  const value2 = ref('')
+  const value3 = ref('')
 </script>

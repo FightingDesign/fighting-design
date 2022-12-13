@@ -1,3 +1,14 @@
+<template>
+  <div class="icon-box">
+    <div v-for="(key, i) of Svg" :key="i" class="icon-list" @click="handleClick(i)">
+      <f-svg-icon :size="30">
+        <component :is="key" />
+      </f-svg-icon>
+      <span class="icon-name">{{ i }}</span>
+    </div>
+  </div>
+</template>
+
 <script lang="ts" setup>
   import Svg from '@fighting-design/fighting-icon'
   import { onCopy } from '../_utils/copy'
@@ -6,22 +17,6 @@
     onCopy(icon)
   }
 </script>
-
-<template>
-  <div class="icon-box">
-    <div
-      v-for="(key, i) of Svg"
-      :key="i"
-      class="icon-list"
-      @click="handleClick(i)"
-    >
-      <f-svg-icon :size="30">
-        <component :is="key" />
-      </f-svg-icon>
-      <span class="icon-name">{{ i }}</span>
-    </div>
-  </div>
-</template>
 
 <style lang="scss" scoped>
   .icon-box {

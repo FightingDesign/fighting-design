@@ -57,11 +57,11 @@
   }
 
   // 不同的尺寸
-  @for $list from 1 to (length($ComponentsType) + 1) {
-    $item: nth($ComponentsType, $list);
+  @for $list from 1 to (length($ComponentsSize) + 1) {
+    $item: nth($ComponentsSize, $list);
 
     &.f-tag__#{map-get($item, name)} {
-      height: map-get($item, size);
+      height: map-get($item, height);
       font-size: map-get($item, fontSize);
     }
   }

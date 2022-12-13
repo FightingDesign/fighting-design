@@ -1,42 +1,26 @@
-export type { CheckboxGroupPropsType } from './props'
+import type { FightingSize } from '../../_interface'
 
-/**
- * 绑定值类型
- *
- * 绑定值可能是 string、number、boolean
- */
-export type CheckboxGroupLabelType =
-  | string
-  | number
-  | boolean
-  | string[]
-  | number[]
-  | boolean[]
-
-/**
- * 不同尺寸类型
- */
-export type CheckboxGroupSizeType = 'large' | 'middle' | 'small' | 'mini'
-
-/**
- * 绑定值发生改变时候触发的函数接口
- */
-export interface CheckboxGroupChangeEventInterface {
-  (val: CheckboxGroupLabelType): void
-}
+export type { CheckboxGroupProps } from './props'
 
 /**
  * 绑定值发生改变时触发的回调接口
+ * 
+ * @param val 最新值
  */
-export interface CheckboxGroupChangeInterface {
-  (val: CheckboxGroupLabelType): boolean
-}
+export type CheckboxGroupChange = (val: string[]) => void
 
 /**
- * 父组件 checkbox-group 注入给自组件的依赖类型
- *
- * 除了 props 还有 changeEvent 用检测来绑定值发生改变时候触的函数
+ * 注入的依赖项类型接口
  */
-export type CheckboxGroupInjectPropsType = CheckboxGroupPropsType & {
-  changeEvent: CheckboxGroupChangeEventInterface
+export interface CheckboxGroupInject {
+  modelValue: string[]
+  disabled: boolean
+  vertical: boolean
+  label: string
+  border: boolean
+  size: FightingSize
+  columnGap: string | number
+  rowGap: string | number
+  onChange: CheckboxGroupChange
+  setChange(val: CheckboxGroupLabel): void
 }

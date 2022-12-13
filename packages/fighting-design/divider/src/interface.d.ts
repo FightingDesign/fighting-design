@@ -1,5 +1,11 @@
-export type { DividerPropsType } from './props'
+export type { DividerProps } from './props'
 
-export type DividerPositionType = 'left' | 'center' | 'right'
+/**
+ * 不同位置
+ */
+export type DividerPosition = 'left' | 'center' | 'right'
 
+/**
+ * 不同类型
+ */
 export type DividerType = 'dashed' | 'dotted' | 'double' | 'solid'

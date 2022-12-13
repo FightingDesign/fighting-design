@@ -5,7 +5,7 @@
   import { FToolbar } from '../../toolbar'
   import { FToolbarItem } from '../../toolbar-item'
   import { FPopup } from '../../popup'
-  import { isBoolean, runCallback } from '../../_utils'
+  import { isBoolean } from '../../_utils'
   import {
     FIconChevronLeftVue,
     FIconChevronRightVue,
@@ -16,45 +16,27 @@
     FIconZoomInVue,
     FIconZoomOutVue
   } from '../../_svg'
-  import { useOperationImg } from '../../_hooks'
+  import { useOperationImg, useRun } from '../../_hooks'
   import type { Ref } from 'vue'
-  import type {
-    ImagePreviewSwitchImageInterface,
-    ImagePreviewOptionClickInterface,
-    ImagePreviewOptionClickOptionMapInterface,
-    ImagePreviewPropsType,
-    ImagePreviewSwitchImageOptionMapInterface
-  } from './interface'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
-  import type { ToolbarClickParamsInterface } from '../../toolbar'
+  import type { ToolbarClickParams } from '../../toolbar'
 
-  const prop: ImagePreviewPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
 
-  const {
-    scale,
-    rotate,
-    smaller,
-    bigger,
-    scrollZoom,
-    recovery,
-    rotateClockwise,
-    rotateCounterClock
-  } = useOperationImg()
+  const { scale, rotate, smaller, bigger, scrollZoom, recovery, rotateClockwise, rotateCounterClock } =
+    useOperationImg()
 
   const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
-  const previewShowIndex: Ref<number> = ref<number>(
-    prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex
-  )
+  const previewShowIndex: Ref<number> = ref<number>(prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex)
 
   /**
    * 关闭图片预览
    */
-  const handleClose: OrdinaryFunctionInterface = (): void => {
+  const handleClose = (evt?: MouseEvent): void => {
     emit('update:visible', false)
-    runCallback(prop.onClose)
+    useRun(prop.onClose, evt)
   }
 
   /**
@@ -82,7 +64,7 @@
   /**
    * 开始图片加载
    */
-  const imagPreload: OrdinaryFunctionInterface = (): void => {
+  const imagPreload = (): void => {
     const imgList: string[] = prop.imgList as string[]
 
     imgList.forEach((item: string): void => {
@@ -95,12 +77,10 @@
    * 左右切换按钮
    * @param type 区分点击的是上一张还是下一张
    */
-  const switchImage: ImagePreviewSwitchImageInterface = (
-    type: 'next' | 'prev'
-  ): void => {
+  const switchImage = (type: 'next' | 'prev'): void => {
     recovery()
 
-    const optionMap: ImagePreviewSwitchImageOptionMapInterface = {
+    const optionMap = {
       /**
        * 下一张切换
        */
@@ -133,12 +113,10 @@
    *
    * @param target f-toolbar 组件返回值
    */
-  const optionClick: ImagePreviewOptionClickInterface = (
-    target: ToolbarClickParamsInterface
-  ): void => {
+  const optionClick = (target: ToolbarClickParams): void => {
     if (!target.index) return
 
-    const optionMap: ImagePreviewOptionClickOptionMapInterface = {
+    const optionMap = {
       1: (): void => smaller(),
       2: (): void => bigger(),
       3: (): void => recovery(),
@@ -154,7 +132,7 @@
 
 <template>
   <div class="f-image-preview" @mousewheel="scrollZoom">
-    <f-popup v-model:visible="isVisible" :open="imagPreload">
+    <f-popup v-model:visible="isVisible" :z-index="zIndex" :open="imagPreload">
       <img
         class="f-image-preview__exhibition"
         draggable="false"
@@ -183,20 +161,10 @@
       </template>
 
       <!-- 关闭按钮 -->
-      <f-button
-        class="f-image-preview__close"
-        circle
-        :before-icon="FIconCrossVue"
-        :on-click="handleClose"
-      />
+      <f-button class="f-image-preview__close" circle :before-icon="FIconCrossVue" :on-click="handleClose" />
 
       <!-- 操作栏 -->
-      <f-toolbar
-        v-if="isOption"
-        class="f-image-preview__option"
-        round
-        :on-click="optionClick"
-      >
+      <f-toolbar v-if="isOption" class="f-image-preview__option" round :on-click="optionClick">
         <f-toolbar-item :icon="FIconZoomOutVue" :index="1" />
         <f-toolbar-item :icon="FIconZoomInVue" :index="2" />
         <f-toolbar-item :icon="FIconLayoutRowsVue" :index="3" />

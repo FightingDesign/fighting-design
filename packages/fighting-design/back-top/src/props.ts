@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { BackTopBehaviorType } from './interface'
+import type { BackTopBehavior } from './interface'
 
 export const Props = {
   /**
@@ -11,11 +11,13 @@ export const Props = {
   },
   /**
    * 滚动模式
+   *
+   * @see scrollTo https://developer.mozilla.org/zh-CN/docs/Web/API/Window/scrollTo
    */
   behavior: {
-    type: String as PropType<BackTopBehaviorType>,
-    default: (): BackTopBehaviorType => 'smooth',
-    validator: (val: BackTopBehaviorType): boolean => {
+    type: String as PropType<BackTopBehavior>,
+    default: (): BackTopBehavior => 'smooth',
+    validator: (val: BackTopBehavior): boolean => {
       return (['smooth', 'auto'] as const).includes(val)
     }
   },
@@ -44,7 +46,7 @@ export const Props = {
   /**
    * 原生 z-index 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+   * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
   zIndex: {
     type: Number,
@@ -82,4 +84,4 @@ export const Props = {
   }
 } as const
 
-export type BackTopPropsType = ExtractPropTypes<typeof Props>
+export type BackTopProps = ExtractPropTypes<typeof Props>

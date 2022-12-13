@@ -1,5 +1,3 @@
-export type { OrdinaryFunctionInterface } from '../../_interface'
-
 /**
  * loading-bar 加载条组件 hook 方法返回值类型接口
  *
@@ -9,17 +7,8 @@ export type { OrdinaryFunctionInterface } from '../../_interface'
  * @param finish 结束加载
  * @param error 加载失败
  */
-export interface UseLoadingBarReturnInterface {
-  start: OrdinaryFunctionInterface
-  finish: OrdinaryFunctionInterface
-  error: OrdinaryFunctionInterface
-}
-
-/**
- * loading-bar 加载条组件方法类型
- *
- * 返回 UseLoadingBarReturnInterface 类型对象
- */
-export interface UseLoadingBarInterface {
-  (): UseLoadingBarReturnInterface
+export interface UseLoadingBarReturn {
+  start(): void
+  finish(): void
+  error(): void
 }

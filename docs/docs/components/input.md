@@ -36,7 +36,10 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-input v-model="value2" type="text" size="large" />
+<f-input v-model="value2" type="text" size="middle" />
+<f-input v-model="value2" type="text" size="small" />
+<f-input v-model="value2" type="text" size="mini" />
 </template>
 
 ```html
@@ -87,7 +90,8 @@
 ::: demo
 
 <template #source>
-<demo2-vue />
+<f-input v-model="value4" type="text" />
+<f-input v-model="value4" type="password" />
 </template>
 
 ```html
@@ -184,7 +188,8 @@
 ::: demo
 
 <template #source>
-<demo3-vue />
+<f-input v-model="value8" type="text" readonly />
+<f-input v-model="value8" type="text" disabled />
 </template>
 
 ```html
@@ -204,30 +209,30 @@
 
 ## Attributes
 
-| 参数            | 说明                       | 类型                       | 可选值                          | 默认值  |
-| --------------- | -------------------------- | -------------------------- | ------------------------------- | ------- |
-| `v-model`       | 绑定值                     | string                     | ——                              | ——      |
-| `type`          | 类型                       | string                     | `text` `password` `number`      | text    |
-| `size`          | 尺寸                       | string                     | `large` `middle` `small` `mini` | middle  |
-| `disabled`      | 是否禁用                   | boolean                    | ——                              | false   |
-| `max`           | 最大值                     | number                     | ——                              | ——      |
-| `min`           | 最小值                     | number                     | ——                              | ——      |
-| `max-length`    | 最大输入长度上限           | number                     | ——                              | ——      |
-| `autofocus`     | 是否自动获取焦点           | boolean                    | ——                              | false   |
-| `name`          | 原生 name 属性             | string                     | ——                              | f-input |
-| `placeholder`   | 占位符                     | string                     | ——                              | ——      |
-| `clear`         | 是否可清空                 | boolean                    | ——                              | false   |
-| `search`        | 是否为搜索框               | boolean                    | ——                              | false   |
-| `readonly`      | 是否只读                   | boolean                    | ——                              | false   |
-| `show-password` | 是否展示显示密码图标       | boolean                    | ——                              | false   |
-| `enter-search`  | 是否按下回车触发搜索       | boolean                    | ——                              | false   |
-| `icon`          | 自定义前缀 icon            | object (VNode / Component) | ——                              | ——      |
-| `on-search`     | 点击搜索触发的回调         | Function                   | ——                              | ——      |
-| `on-change`     | 绑定值发生变化时触发的回调 | Function                   | ——                              | ——      |
-| `on-blur`       | 失去焦点触发的回调         | Function                   | ——                              | ——      |
-| `on-focus`      | 获取焦点触发的回调         | Function                   | ——                              | ——      |
-| `on-enter`      | 按下回车触发的回调         | Function                   | ——                              | ——      |
-| `on-input`      | 原生 input 事件回调        | Function                   | ——                              | ——      |
+| 参数            | 说明                       | 类型                                                               | 可选值                          | 默认值  |
+| --------------- | -------------------------- | ------------------------------------------------------------------ | ------------------------------- | ------- |
+| `v-model`       | 绑定值                     | string                                                             | ——                              | ——      |
+| `type`          | 类型                       | <a href="#inputtype">InputType</a>                                 | `text` `password` `number`      | text    |
+| `size`          | 尺寸                       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle  |
+| `disabled`      | 是否禁用                   | boolean                                                            | ——                              | false   |
+| `max`           | 最大值                     | number                                                             | ——                              | ——      |
+| `min`           | 最小值                     | number                                                             | ——                              | ——      |
+| `max-length`    | 最大输入长度上限           | number                                                             | ——                              | ——      |
+| `autofocus`     | 是否自动获取焦点           | boolean                                                            | ——                              | false   |
+| `name`          | 原生 name 属性             | string                                                             | ——                              | f-input |
+| `placeholder`   | 占位符                     | string                                                             | ——                              | ——      |
+| `clear`         | 是否可清空                 | boolean                                                            | ——                              | false   |
+| `search`        | 是否为搜索框               | boolean                                                            | ——                              | false   |
+| `readonly`      | 是否只读                   | boolean                                                            | ——                              | false   |
+| `show-password` | 是否展示显示密码图标       | boolean                                                            | ——                              | false   |
+| `enter-search`  | 是否按下回车触发搜索       | boolean                                                            | ——                              | false   |
+| `icon`          | 自定义前缀 icon            | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——      |
+| `on-search`     | 点击搜索触发的回调         | <a href="#inputsearch">InputSearch</a>                             | ——                              | ——      |
+| `on-change`     | 绑定值发生变化时触发的回调 | <a href="#inputchange">InputChange</a>                             | ——                              | ——      |
+| `on-blur`       | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| `on-focus`      | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| `on-enter`      | 按下回车触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| `on-input`      | 原生 input 事件回调        | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
 
 ## Slots
 
@@ -240,14 +245,25 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  InputInstance,
-  InputPropsType,
-  InputType,
-  InputSizeType,
-  InputChangeInterface,
-  InputSearchInterface
-} from 'fighting-design'
+import type { InputInstance, InputProps, InputType, InputChange, InputSearch } from 'fighting-design'
+```
+
+### InputType
+
+```ts
+type InputType = 'text' | 'password' | 'number'
+```
+
+### InputChange
+
+```ts
+type InputChange = (value: string) => void
+```
+
+### InputSearch
+
+```ts
+type InputSearch = ({ evt: Event, value: string }) => void
 ```
 
 ## Contributors
@@ -258,14 +274,20 @@ import type {
 
 <script setup lang="ts">
   import { ref } from 'vue'
-  import demo1Vue from './_demos/input/demo1.vue'
-  import demo2Vue from './_demos/input/demo2.vue'
-  import demo3Vue from './_demos/input/demo3.vue'
   import { FIconCloud } from '@fighting-design/fighting-icon'
 
   const value1 = ref('')
+  const value2 = ref('不同尺寸的')
   const value3 = ref('')
+  const value4 = ref('不同类型的')
   const value5 = ref('123456')
   const value6 = ref('')
   const value7 = ref('可清空的')
+  const value8 = ref('点我试试吧')
 </script>
+
+<style scoped>
+  .f-input {
+    margin-top: 10px;
+  }
+</style>

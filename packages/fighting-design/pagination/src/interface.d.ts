@@ -1,4 +1,4 @@
-export type { PaginationPropsType } from './pagination'
+export type { PaginationProps } from './pagination'
 
 /**
  * 修改页码 current 回调事件类型接口
@@ -17,7 +17,6 @@ export interface HandlePageChange {
 /**
  * 点击上一页触发的回调事件类型接口
  */
-
 export interface HandlePrevClick {
   (current: number, pageSize): void
 }
@@ -25,7 +24,6 @@ export interface HandlePrevClick {
 /**
  * 点击下一页触发的回调事件类型接口
  */
-
 export interface HandleNextClick {
   (current: number, pageSize): void
 }

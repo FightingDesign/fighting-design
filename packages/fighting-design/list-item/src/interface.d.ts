@@ -1,1 +1,1 @@
-export type { ListItemPropsType } from './props'
+export type { ListItemProps } from './props'

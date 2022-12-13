@@ -1,0 +1,15 @@
+@use './root';
+
+.f-menu-item-group {
+  // 标题
+  .f-menu-item-group__title {
+    padding: 3px 16px;
+    color: var(--f-design-color-text-3);
+    font-size: var(--f-design-font-size-mini);
+  }
+
+  // 内容
+  .f-menu-item-group__list {
+    padding-left: 24px;
+  }
+}

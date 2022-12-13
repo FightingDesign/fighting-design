@@ -63,8 +63,7 @@
 </template>
 
 ```html
-<f-text color="#58c8de">hello</f-text>
-<f-text color="#e372ff">自定义颜色的字体</f-text>
+<f-text color="#58c8de">hello</f-text> <f-text color="#e372ff">自定义颜色的字体</f-text>
 ```
 
 :::
@@ -207,12 +206,8 @@
 
 ```html
 <f-text background="#ECECEC" padding="10px">上下左右相同的简写</f-text>
-<f-text type="primary" background="#ECECEC" padding="10px 30px">
-  上下、左右分别相同
-</f-text>
-<f-text type="success" background="#ECECEC" padding="10px 20px 30px 40px">
-  分别定义上下左右
-</f-text>
+<f-text type="primary" background="#ECECEC" padding="10px 30px"> 上下、左右分别相同 </f-text>
+<f-text type="success" background="#ECECEC" padding="10px 20px 30px 40px"> 分别定义上下左右 </f-text>
 ```
 
 :::
@@ -235,22 +230,22 @@
 
 ## Attributes
 
-| 参数          | 说明                                  | 类型            | 可选值                                           | 默认值  |
-| ------------- | ------------------------------------- | --------------- | ------------------------------------------------ | ------- |
-| `type`        | 类型                                  | string          | `default` `primary` `success` `danger` `warning` | default |
-| `size`        | 文字大小                              | string / number | ——                                               | 15px    |
-| `color`       | 文字颜色                              | string          | ——                                               | ——      |
-| `background`  | 背景颜色                              | string          | ——                                               | ——      |
-| `block`       | 是否独占一行                          | boolean         | ——                                               | false   |
-| `spacing`     | 文字间距                              | string / number | ——                                               | ——      |
-| `line-height` | 行高                                  | string / number | ——                                               | 1       |
-| `indent`      | 首字符缩进量                          | string / number | ——                                               | ——      |
-| `bold`        | 文字是否以粗体显示                    | boolean         | ——                                               | false   |
-| `decoration`  | 文字的修饰                            | string          | `overline` `line-through` `underline`            | ——      |
-| `padding`     | 内边距                                | string / number | ——                                               | 0       |
-| `width`       | 宽度                                  | string / number | ——                                               | ——      |
-| `ellipsis`    | 是否省略文本，需配合 `width` 宽度使用 | boolean         | ——                                               | ——      |
-| `center`      | 是否居中                              | boolean         | ——                                               | false   |
+| 参数          | 说明                                  | 类型                                                               | 可选值                                           | 默认值  |
+| ------------- | ------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------- |
+| `type`        | 类型                                  | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | default |
+| `size`        | 文字大小                              | string / number                                                    | ——                                               | ——      |
+| `color`       | 文字颜色                              | string                                                             | ——                                               | ——      |
+| `background`  | 背景颜色                              | string                                                             | ——                                               | ——      |
+| `block`       | 是否独占一行                          | boolean                                                            | ——                                               | false   |
+| `spacing`     | 文字间距                              | string / number                                                    | ——                                               | ——      |
+| `line-height` | 行高                                  | string / number                                                    | ——                                               | ——      |
+| `indent`      | 首字符缩进量                          | string / number                                                    | ——                                               | ——      |
+| `bold`        | 文字是否以粗体显示                    | boolean                                                            | ——                                               | false   |
+| `decoration`  | 文字的修饰                            | <a href="#textdecoration">TextDecoration</a>                       | `overline` `line-through` `underline`            | ——      |
+| `padding`     | 内边距                                | string / number                                                    | ——                                               | ——      |
+| `width`       | 宽度                                  | string / number                                                    | ——                                               | ——      |
+| `ellipsis`    | 是否省略文本，需配合 `width` 宽度使用 | boolean                                                            | ——                                               | ——      |
+| `center`      | 是否居中                              | boolean                                                            | ——                                               | false   |
 
 ## Slots
 
@@ -263,12 +258,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  TextInstance,
-  TextPropsType,
-  TextType,
-  TextDecorationType
-} from 'fighting-design'
+import type { TextInstance, TextProps, TextDecoration } from 'fighting-design'
+```
+
+### TextDecoration
+
+```ts
+type TextDecoration = 'overline' | 'line-through' | 'underline'
 ```
 
 ## Contributors
@@ -286,7 +282,7 @@ import type {
 </a>
 
 <style scoped>
-.f-text {
-  margin: 5px;
-}
+  .f-text {
+    margin: 5px;
+  }
 </style>

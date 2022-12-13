@@ -1,1 +1,1 @@
-export type { TabsNavPropsType } from './props'
+export type { TabsNavProps } from './props'

@@ -3,30 +3,23 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FIconStarBVue } from '../../_svg'
   import { FText } from '../../text'
-  import { runCallback } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import { ref, watch, unref, computed } from 'vue'
-  import type { Ref, ComputedRef } from 'vue'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
-  import type {
-    RateMouseoverInterface,
-    RateHandleClickInterface,
-    RatePropsType
-  } from './interface'
 
-  const prop: RatePropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:modelValue': (val: number): number => val
   })
 
   // 当前绑定的值
-  const starValue: Ref<number> = ref<number>(prop.modelValue)
+  const starValue = ref<number>(prop.modelValue)
 
   /**
    * 反复移动时触发
    *
    * @param index 索引值
    */
-  const onMouseover: RateMouseoverInterface = (index: number): void => {
+  const onMouseover = (index: number): void => {
     if (prop.readonly) return
     starValue.value = index
   }
@@ -34,7 +27,7 @@
   /**
    * 移出触发
    */
-  const onMouseout: OrdinaryFunctionInterface = (): void => {
+  const onMouseout = (): void => {
     if (prop.readonly) return
     starValue.value = prop.modelValue
   }
@@ -44,11 +37,11 @@
    *
    * @param index 索引值
    */
-  const handleClick: RateHandleClickInterface = (index: number): void => {
+  const handleClick = (index: number): void => {
     if (prop.readonly) return
     starValue.value = index
     emit('update:modelValue', index)
-    runCallback(prop.onChange, index)
+    useRun(prop.onChange, index)
   }
 
   /**
@@ -64,7 +57,7 @@
   /**
    * 辅助文字内容
    */
-  const textContent: ComputedRef<string> = computed((): string => {
+  const textContent = computed((): string => {
     return prop.textArr[unref(starValue) - 1]
   })
 </script>

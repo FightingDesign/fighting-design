@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { CardShadowType } from './interface'
+import type { CardShadow } from './interface'
 
 export const Props = {
   /**
@@ -21,21 +21,20 @@ export const Props = {
    */
   padding: {
     type: [String, Number] as PropType<string | number>,
-    default: (): number => 20
+    default: (): null => null
   },
   /**
    * 阴影样式
    *
-   * @values never hover always
-   * @defaultValue never
+   * @values hover always
    */
   shadow: {
-    type: String as PropType<CardShadowType>,
-    default: (): CardShadowType => 'never',
-    validator: (val: CardShadowType): boolean => {
-      return (['never', 'hover', 'always'] as const).includes(val)
+    type: String as PropType<CardShadow>,
+    default: (): null => null,
+    validator: (val: CardShadow): boolean => {
+      return (['hover', 'always'] as const).includes(val)
     }
   }
 } as const
 
-export type CardPropsType = ExtractPropTypes<typeof Props>
+export type CardProps = ExtractPropTypes<typeof Props>

@@ -73,17 +73,17 @@
 
 ## Attributes
 
-| 属性           | 说明             | 类型                       | 可选值 | 默认值 |
-| -------------- | ---------------- | -------------------------- | ------ | ------ |
-| `icon`         | 返回图标         | object (VNode / Component) | ——     | ——     |
-| `icon-size`    | 返回图标大小     | string / number            | ——     | 16px   |
-| `back-text`    | 返回文本         | string                     | ——     | 返回   |
-| `title`        | 标题文本         | string                     | ——     | 标题   |
-| `title-bold`   | 标题是否粗体     | boolean                    | ——     | false  |
-| `title-center` | 标题是否居中     | boolean                    | ——     | false  |
-| `title-color`  | 标题颜色         | string                     | ——     | false  |
-| `subtitle`     | 副标题文本       | string                     | ——     | ——     |
-| `on-back`      | 点击左侧区域触发 | Function                   | ——     | ——     |
+| 属性           | 说明             | 类型                                                               | 可选值 | 默认值 |
+| -------------- | ---------------- | ------------------------------------------------------------------ | ------ | ------ |
+| `icon`         | 返回图标         | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `icon-size`    | 返回图标大小     | string / number                                                    | ——     | 16px   |
+| `back-text`    | 返回文本         | string                                                             | ——     | 返回   |
+| `title`        | 标题文本         | string                                                             | ——     | 标题   |
+| `title-bold`   | 标题是否粗体     | boolean                                                            | ——     | false  |
+| `title-center` | 标题是否居中     | boolean                                                            | ——     | false  |
+| `title-color`  | 标题颜色         | string                                                             | ——     | false  |
+| `subtitle`     | 副标题文本       | string                                                             | ——     | ——     |
+| `on-back`      | 点击左侧区域触发 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——     | ——     |
 
 ## Slots
 
@@ -98,7 +98,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { PageHeaderInstance, PageHeaderPropsType } from 'fighting-design'
+import type { PageHeaderInstance, PageHeaderProps } from 'fighting-design'
 ```
 
 ## Contributors

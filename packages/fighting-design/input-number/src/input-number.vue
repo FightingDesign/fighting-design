@@ -1,19 +1,13 @@
 <script lang="ts" setup name="FInputNumber">
   import { Props } from './props'
   import { computed } from 'vue'
-  import {
-    FIconChevronLeftVue,
-    FIconChevronRightVue,
-    FIconChevronUp,
-    FIconChevronDown
-  } from '../../_svg'
+  import { FIconChevronLeftVue, FIconChevronRightVue, FIconChevronUp, FIconChevronDown } from '../../_svg'
   import { FInput } from '../../input'
   import { FButton } from '../../button'
-  import { isNumber, runCallback } from '../../_utils'
-  import type { ComputedRef, WritableComputedRef } from 'vue'
-  import type { InputNumberPropsType } from './interface'
+  import { isNumber } from '../../_utils'
+  import { useRun } from '../../_hooks'
 
-  const prop: InputNumberPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     'update:modelValue': (val: number): boolean => isNumber(val)
   })
@@ -21,7 +15,7 @@
   /**
    * 当前绑定的值
    */
-  const inputValue: WritableComputedRef<number> = computed({
+  const inputValue = computed({
     /**
      * 获取值的时候返回
      */
@@ -49,7 +43,7 @@
   /**
    * 最小值禁用
    */
-  const minDisabled: ComputedRef<boolean> = computed((): boolean => {
+  const minDisabled = computed((): boolean => {
     const { step, min } = prop
 
     if (!min && !isNumber(min)) {
@@ -63,7 +57,7 @@
   /**
    * 最大值禁用
    */
-  const maxDisabled: ComputedRef<boolean> = computed((): boolean => {
+  const maxDisabled = computed((): boolean => {
     const { step, max } = prop
 
     if (!max && !isNumber(max)) {
@@ -99,7 +93,7 @@
 
     map[target]()
 
-    runCallback(prop.onChange, inputValue.value)
+    useRun(prop.onChange, inputValue.value)
   }
 </script>
 

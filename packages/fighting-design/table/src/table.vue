@@ -3,18 +3,19 @@
   import { computed, ref, h } from 'vue'
   import { sizeChange } from '../../_utils'
   import { TableColgroupVue } from './components'
-  import type { ComputedRef, CSSProperties, Ref, VNode } from 'vue'
-  import type { TablePropsType } from './interface'
+  import type { CSSProperties, VNode } from 'vue'
 
-  const prop: TablePropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
-  // 多选项
-  const optionalList: Ref<string[]> = ref<string[]>([])
+  /**
+   * 多选项
+   */
+  const optionalList = ref(false)
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { zebraColor, height, bgColor, headBgColor } = prop
 
     return {
@@ -65,12 +66,7 @@
         </header>
 
         <!-- 身体 -->
-        <main
-          :class="[
-            'f-table__body',
-            { 'f-table__body-margin': height && showHead }
-          ]"
-        >
+        <main :class="['f-table__body', { 'f-table__body-margin': height && showHead }]">
           <table class="f-table__table">
             <table-colgroup-vue :columns="columns" />
 
@@ -90,11 +86,7 @@
               <tr v-for="(item, m) in data" :key="m">
                 <!-- 多选框 -->
                 <td v-if="optional">
-                  <f-checkbox
-                    v-model="optionalList"
-                    :show-label="false"
-                    :label="(m + 1).toString()"
-                  />
+                  <f-checkbox v-model="optionalList" :show-label="false" :label="(m + 1).toString()" />
                 </td>
 
                 <!-- 序号列表 -->

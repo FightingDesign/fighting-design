@@ -1,6 +1,6 @@
-export type { PopupPropsType } from './props'
+export type { PopupProps } from './props'
 
 /**
  * 不同弹出位置类型
  */
-export type PopupDirectionType = 'left' | 'right' | 'top' | 'bottom' | 'center'
+export type PopupDirection = 'left' | 'right' | 'top' | 'bottom' | 'center'

@@ -8,7 +8,7 @@
   justify-content: center;
   width: var(--f-avatar-size, 60px);
   height: var(--f-avatar-size, 60px);
-  background: var(--f-avatar-background-color, none);
+  background: var(--f-avatar-background, none);
 
   &__img {
     width: var(--f-avatar-size, 60px);

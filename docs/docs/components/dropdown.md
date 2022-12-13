@@ -12,7 +12,16 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-dropdown>
+<f-button type="primary">下拉菜单</f-button>
+
+<template #content>
+<f-dropdown-item>猕猴桃</f-dropdown-item>
+<f-dropdown-item>哈密瓜</f-dropdown-item>
+<f-dropdown-item>火龙果</f-dropdown-item>
+<f-dropdown-item>柠檬</f-dropdown-item>
+</template>
+</f-dropdown>
 </template>
 
 ```html
@@ -35,7 +44,27 @@
 ::: demo
 
 <template #source>
-<demo2-vue />
+<f-dropdown disabled>
+<f-button>全部禁用</f-button>
+
+<template #content>
+<f-dropdown-item>猕猴桃</f-dropdown-item>
+<f-dropdown-item>哈密瓜</f-dropdown-item>
+<f-dropdown-item>火龙果</f-dropdown-item>
+<f-dropdown-item>柠檬</f-dropdown-item>
+</template>
+</f-dropdown>
+
+<f-dropdown style="margin-left: 20px">
+<f-button>禁用指定的</f-button>
+
+<template #content>
+<f-dropdown-item>猕猴桃</f-dropdown-item>
+<f-dropdown-item disabled>哈密瓜</f-dropdown-item>
+<f-dropdown-item>火龙果</f-dropdown-item>
+<f-dropdown-item>柠檬</f-dropdown-item>
+</template>
+</f-dropdown>
 </template>
 
 ```html
@@ -50,7 +79,7 @@
   </template>
 </f-dropdown>
 
-<f-dropdown style="margin-left: 80px">
+<f-dropdown style="margin-left: 20px">
   <f-button>禁用指定的</f-button>
 
   <template #content>
@@ -66,17 +95,24 @@
 
 ## Dropdown Attributes
 
-| 参数       | 说明                   | 类型            | 可选值 | 默认值 |
-| ---------- | ---------------------- | --------------- | ------ | ------ |
-| `spacing`  | 触发器和内容直接的间距 | string / number | ——     | ——     |
-| `disabled` | 是否禁用               | boolean         | ——     | false  |
+| 参数             | 说明                     | 类型                                                                 | 可选值          | 默认值 |
+| ---------------- | ------------------------ | -------------------------------------------------------------------- | --------------- | ------ |
+| `spacing`        | 触发器和内容直接的间距   | string / number                                                      | ——              | ——     |
+| `trigger`        | 触发方式                 | <a href="/components/trigger.html#triggertrigger">TriggerTrigger</a> | `click` `hover` | hover  |
+| `disabled`       | 是否禁用                 | boolean                                                              | ——              | false  |
+| `arrow`          | 是否带有箭头             | boolean                                                              | ——              | false  |
+| `enter-duration` | 弹出动画持续时间         | number                                                               | ——              | ——     |
+| `leave-duration` | 关闭动画持续时间         | number                                                               | ——              | ——     |
+| `on-change`      | 弹窗状态改变时触发的回调 | <a href="/components/interface.html#handlechange">HandleChange</a>   | ——              | ——     |
+| `on-open`        | 弹窗状态打开时触发的回调 | <a href="/components/interface.html#handlechange">HandleChange</a>   | ——              | ——     |
+| `on-close`       | 弹窗状态关闭时触发的回调 | <a href="/components/interface.html#handlechange">HandleChange</a>   | ——              | ——     |
 
 ## DropdownItem Attributes
 
-| 参数       | 说明               | 类型     | 可选值 | 默认值 |
-| ---------- | ------------------ | -------- | ------ | ------ |
-| `disabled` | 是否禁用           | boolean  | ——     | false  |
-| `on-click` | 点击之后的回调函数 | Function | ——     | ——     |
+| 参数       | 说明               | 类型                                                             | 可选值 | 默认值 |
+| ---------- | ------------------ | ---------------------------------------------------------------- | ------ | ------ |
+| `disabled` | 是否禁用           | boolean                                                          | ——     | false  |
+| `on-click` | 点击之后的回调函数 | <a href="/components/interface.html#handlemouse">HandleMouse</a> | ——     | ——     |
 
 ## Slots
 
@@ -90,12 +126,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  DropdownInstance,
-  DropdownPropsType,
-  DropdownItemInstance,
-  DropdownItemPropsType
-} from 'fighting-design'
+import type { DropdownInstance, DropdownProps, DropdownItemInstance, DropdownItemProps } from 'fighting-design'
 ```
 
 ## Contributors
@@ -103,8 +134,3 @@ import type {
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  import demo1Vue from './_demos/dropdown/demo1.vue'
-  import demo2Vue from './_demos/dropdown/demo2.vue'
-</script>

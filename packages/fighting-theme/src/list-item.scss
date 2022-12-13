@@ -1,16 +1,17 @@
 @use './root';
+@import '../config/const-size';
 
 .f-list-item {
-  border-bottom: 1px solid #e3e3e3;
   font-size: 14px;
-  padding: 7px;
+  padding: 7px 16px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   list-style: none;
-  color: var(--f-design-color-text-1);
-  background: var(--f-design-color-text-2);
+  border-bottom: 1px solid var(--f-list-item-border-color, #e3e3e3);
+  color: var(--f-list-item-text-color, var(--f-design-color-text-1));
+  background: var(--f-list-item-background, var(--f-design-color-text-2));
 
   &:last-child {
     border-bottom: none;

@@ -1,10 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type {
-  InputNumberSizeType,
-  InputNumberModelType,
-  InputNumberChangeInterface
-} from './interface'
-import type { HandleFocusEventInterface } from '../../_interface'
+import type { InputNumberModel } from './interface'
+import type { HandleEvent, FightingSize, InputChange } from '../../_interface'
 
 export const Props = {
   /**
@@ -23,9 +19,9 @@ export const Props = {
    * @defaultValue default
    */
   model: {
-    type: String as PropType<InputNumberModelType>,
-    default: (): InputNumberModelType => 'default',
-    validator: (val: InputNumberModelType): boolean => {
+    type: String as PropType<InputNumberModel>,
+    default: (): InputNumberModel => 'default',
+    validator: (val: InputNumberModel): boolean => {
       return (['default', 'button', 'switch'] as const).includes(val)
     }
   },
@@ -50,9 +46,9 @@ export const Props = {
    * @defaultValue middle
    */
   size: {
-    type: String as PropType<InputNumberSizeType>,
-    default: (): InputNumberSizeType => 'middle',
-    validator: (val: InputNumberSizeType): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): FightingSize => 'middle',
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -124,30 +120,30 @@ export const Props = {
    * 绑定值发生改变时触发的回调
    */
   onChange: {
-    type: Function as PropType<InputNumberChangeInterface>,
+    type: Function as PropType<InputChange>,
     default: (): null => null
   },
   /**
    * 失去焦点时触发的回调
    */
   onBlur: {
-    type: Function as PropType<HandleFocusEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 获得焦点时触发的回调
    */
   onFocus: {
-    type: Function as PropType<HandleFocusEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * input 事件触发的回调
    */
   onInput: {
-    type: Function as PropType<HandleFocusEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const
 
-export type InputNumberPropsType = ExtractPropTypes<typeof Props>
+export type InputNumberProps = ExtractPropTypes<typeof Props>

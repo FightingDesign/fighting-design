@@ -1,0 +1,45 @@
+@use './root';
+
+.f-slider {
+  position: relative;
+  background: var(--f-slider-bg-color, var(--f-design-color-border-1));
+  height: 10px;
+  width: 100%;
+  border-radius: 30px;
+
+  .f-slider__icon {
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    left: -15px;
+    width: 30px;
+    height: 30px;
+    border: 10px solid var(--f-design-color-primary-1);
+    border-radius: 50%;
+    background: var(--f-design-color-text-2);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    z-index: 10;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  .f-slider__selected {
+    height: 100%;
+    border-radius: 30px;
+    background: var(--f-design-color-primary-1);
+  }
+
+  // 禁用状态
+  &.f-slider__disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

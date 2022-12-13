@@ -1,6 +1,6 @@
 # Progress 进度条
 
-`Progress` 是一个进度条，用于展示进度
+据说进度条都是假的
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/progress)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/progress.md)
@@ -103,14 +103,7 @@
 
 ```html
 <f-progress :percentage="10" width="360px" :height="27" show-text />
-<f-progress
-  type="success"
-  :percentage="40"
-  width="100%"
-  :height="20"
-  show-text
-  text-inside
-/>
+<f-progress type="success" :percentage="40" width="100%" :height="20" show-text text-inside />
 ```
 
 :::
@@ -189,31 +182,33 @@
 
 ## Attributes
 
-| 参数          | 说明                         | 类型            | 可选值                                 | 默认值  |
-| ------------- | ---------------------------- | --------------- | -------------------------------------- | ------- |
-| `percentage`  | 百分比                       | number          | `0 ~ 100`                              | 0       |
-| `type`        | 进度条类型                   | string          | `primary` `success` `warning` `danger` | primary |
-| `width`       | 自定义宽度                   | string / number | ——                                     | ——      |
-| `height`      | 自定义高度                   | string / number | ——                                     | 6px     |
-| `square`      | 方形                         | boolean         | ——                                     | false   |
-| `linear`      | 线性                         | boolean         | ——                                     | false   |
-| `show-text`   | 是否显示百分比文字内容       | boolean         | ——                                     | true    |
-| `text-inside` | 百分比文字是否在进度条内显示 | boolean         | ——                                     | false   |
-| `text-color`  | 百分比文字的颜色             | string          | ——                                     | ——      |
-| `color`       | 进度条颜色                   | string          | ——                                     | ——      |
-| `background`  | 进度条背景色                 | string          | ——                                     | ——      |
-| `stripe`      | 是否开启条纹效果             | boolean         | ——                                     | false   |
+| 参数          | 说明                         | 类型                                     | 可选值                                 | 默认值  |
+| ------------- | ---------------------------- | ---------------------------------------- | -------------------------------------- | ------- |
+| `percentage`  | 百分比                       | number                                   | `0 ~ 100`                              | 0       |
+| `type`        | 进度条类型                   | <a href="#progresstype">ProgressType</a> | `primary` `success` `warning` `danger` | primary |
+| `width`       | 自定义宽度                   | string / number                          | ——                                     | ——      |
+| `height`      | 自定义高度                   | string / number                          | ——                                     | 6px     |
+| `square`      | 方形                         | boolean                                  | ——                                     | false   |
+| `linear`      | 线性                         | boolean                                  | ——                                     | false   |
+| `show-text`   | 是否显示百分比文字内容       | boolean                                  | ——                                     | true    |
+| `text-inside` | 百分比文字是否在进度条内显示 | boolean                                  | ——                                     | false   |
+| `text-color`  | 百分比文字的颜色             | string                                   | ——                                     | ——      |
+| `color`       | 进度条颜色                   | string                                   | ——                                     | ——      |
+| `background`  | 进度条背景色                 | string                                   | ——                                     | ——      |
+| `stripe`      | 是否开启条纹效果             | boolean                                  | ——                                     | false   |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type {
-  ProgressInstance,
-  ProgressPropsType,
-  ProgressType
-} from 'fighting-design'
+import type { ProgressInstance, ProgressProps, ProgressType } from 'fighting-design'
+```
+
+### ProgressType
+
+```ts
+type ProgressType = 'primary' | 'success' | 'danger' | 'warning'
 ```
 
 ## Contributors
@@ -249,7 +244,7 @@ import type {
 </script>
 
 <style scoped>
-.f-progress {
-  margin-bottom: 10px;
-}
+  .f-progress {
+    margin-bottom: 10px;
+  }
 </style>

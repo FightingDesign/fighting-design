@@ -1,6 +1,6 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { LinkType, LinkTargetType, LinkHoverType } from './interface'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { LinkTarget, LinkState } from './interface'
+import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -10,16 +10,16 @@ export const Props = {
    * @defaultValue primary
    */
   type: {
-    type: String as PropType<LinkType>,
-    default: (): LinkType => 'primary',
-    validator: (val: LinkType): boolean => {
-      return (
-        ['default', 'primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
+    type: String as PropType<FightingType>,
+    default: (): null => null,
+    validator: (val: FightingType): boolean => {
+      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
   /**
    * 链接的地址
+   *
+   * @see href https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a?qs=%3Ca%3E#attr-href
    */
   href: {
     type: String,
@@ -36,29 +36,29 @@ export const Props = {
    * link 状态的样式状态
    */
   state: {
-    type: String as PropType<LinkHoverType>,
+    type: String as PropType<LinkState>,
     default: (): null => null,
-    validator: (val: LinkHoverType): boolean => {
-      return (['line', 'bag', ''] as const).includes(val)
+    validator: (val: LinkState): boolean => {
+      return (['line', 'bag'] as const).includes(val)
     }
   },
   /**
    * 是否禁用
    */
-  prohibit: {
+  disabled: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
    * 原生 target 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href
+   * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: {
-    type: String as PropType<LinkTargetType>,
+    type: String as PropType<LinkTarget>,
     default: (): null => null,
-    validator: (val: LinkTargetType): boolean => {
-      return (['_self', '_blank', '_parent', '_top', ''] as const).includes(val)
+    validator: (val: LinkTarget): boolean => {
+      return (['_self', '_blank', '_parent', '_top'] as const).includes(val)
     }
   },
   /**
@@ -86,23 +86,23 @@ export const Props = {
    * 之前的 icon
    */
   beforeIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 之后的 icon
    */
   afterIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 点击执行的回调
    */
   onClick: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const
 
-export type LinkPropsType = ExtractPropTypes<typeof Props>
+export type LinkProps = ExtractPropTypes<typeof Props>

@@ -1,5 +1,6 @@
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
-import type { MessageType, MessagePlacementType } from './interface'
+import type { MessagePlacement } from './interface'
+import type { FightingType } from '../../_interface'
 
 export const Props = {
   /**
@@ -24,12 +25,10 @@ export const Props = {
    * @defaultValue default
    */
   type: {
-    type: String as PropType<MessageType>,
-    default: (): MessageType => 'default',
-    validator: (val: MessageType): boolean => {
-      return (
-        ['default', 'primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
+    type: String as PropType<FightingType>,
+    default: (): FightingType => 'default',
+    validator: (val: FightingType): boolean => {
+      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
   /**
@@ -88,19 +87,10 @@ export const Props = {
    * @defaultValue top
    */
   placement: {
-    type: String as PropType<MessagePlacementType>,
-    default: (): MessagePlacementType => 'top',
-    validator: (val: MessagePlacementType): boolean => {
-      return (
-        [
-          'top',
-          'top-left',
-          'top-right',
-          'bottom',
-          'bottom-left',
-          'bottom-right'
-        ] as const
-      ).includes(val)
+    type: String as PropType<MessagePlacement>,
+    default: (): MessagePlacement => 'top',
+    validator: (val: MessagePlacement): boolean => {
+      return (['top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right'] as const).includes(val)
     }
   },
   /**
@@ -114,7 +104,7 @@ export const Props = {
    * 关闭按钮
    */
   closeBtn: {
-    type: [String, Object] as PropType<VNode | string>,
+    type: [String, Object] as PropType<string | VNode>,
     default: (): null => null
   },
   /**
@@ -126,4 +116,4 @@ export const Props = {
   }
 } as const
 
-export type MessagePropsType = ExtractPropTypes<typeof Props>
+export type MessageProps = ExtractPropTypes<typeof Props>

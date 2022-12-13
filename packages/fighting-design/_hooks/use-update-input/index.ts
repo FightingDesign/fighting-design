@@ -1,12 +1,8 @@
-import { runCallback } from '../../_utils'
-import type {
-  UseUpdateInputInterface,
-  UseUpdateInputEmitInterface,
-  UseUpdateInputPropsInterface,
-  UseUpdateInputReturnInterface,
-  HandleEventInterface,
-  OrdinaryFunctionInterface
-} from './interface'
+import { isNumber } from '../../_utils'
+import { useRun } from '../../_hooks'
+import type { UseUpdateInputProps, UseUpdateInputReturn, UseUpdateInputEmit } from './interface'
+
+export * from './interface.d'
 
 /**
  * 文本框输入的方法
@@ -15,26 +11,21 @@ import type {
  *
  * @param prop 组件的 props 参数
  * @param emit 回调参数
- * @returns { UseUpdateInputInterface }
+ * @returns
  */
-export const useUpdateInput: UseUpdateInputInterface = (
-  prop: UseUpdateInputPropsInterface,
-  emit: UseUpdateInputEmitInterface
-): UseUpdateInputReturnInterface => {
+export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEmit): UseUpdateInputReturn => {
   /**
    * 处理文本框输入 input 事件
    *
    * @param evt 事件对象
    */
-  const onInput: HandleEventInterface = (evt: Event): void => {
+  const onInput = (evt: Event): void => {
     emit(
       'update:modelValue',
-      prop.type === 'number'
-        ? Number((evt.target as HTMLInputElement).value)
-        : (evt.target as HTMLInputElement).value
+      isNumber(prop.type) ? Number((evt.target as HTMLInputElement).value) : (evt.target as HTMLInputElement).value
     )
 
-    runCallback(prop.onInput, (evt.target as HTMLInputElement).value)
+    useRun(prop.onInput, (evt.target as HTMLInputElement).value)
   }
 
   /**
@@ -42,21 +33,21 @@ export const useUpdateInput: UseUpdateInputInterface = (
    *
    * @param evt 事件对象
    */
-  const onChange: HandleEventInterface = (evt: Event): void => {
-    runCallback(prop.onChange, (evt.target as HTMLInputElement).value)
+  const onChange = (evt: Event): void => {
+    useRun(prop.onChange, (evt.target as HTMLInputElement).value)
   }
 
   /**
    * 清空文本框
    */
-  const onClear: OrdinaryFunctionInterface = (): void => {
+  const onClear = (): void => {
     if (prop.disabled) return
-    emit('update:modelValue', prop.type === 'number' ? 0 : '')
+    emit('update:modelValue', isNumber(prop.type) ? 0 : '')
   }
 
   return {
     onInput,
     onChange,
     onClear
-  } as UseUpdateInputReturnInterface
+  }
 }

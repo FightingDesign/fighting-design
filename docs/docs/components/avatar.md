@@ -36,7 +36,29 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-space spacing="mini">
+
+<div class="avatar-block">
+<code>fill</code>
+<f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="avatar-block">
+<code>contain</code>
+<f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="avatar-block">
+<code>cover</code>
+<f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="avatar-block">
+<code>none</code>
+<f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+<div class="avatar-block">
+<code>scale-down</code>
+<f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+</div>
+</f-space>
 </template>
 
 ```html
@@ -91,12 +113,7 @@
 ```html
 <template>
   <f-avatar :icon="FIconFaceSmile" :font-size="30" background="skyblue" />
-  <f-avatar
-    background="orange"
-    font-color="#fff"
-    :icon="FIconBug"
-    :font-size="30"
-  />
+  <f-avatar background="orange" font-color="#fff" :icon="FIconBug" :font-size="30" />
 </template>
 
 <script lang="ts" setup>
@@ -162,23 +179,23 @@
 
 ## Attributes
 
-| 参数          | 说明                                                                                                     | 类型                       | 可选值                                       | 默认值   |
-| ------------- | -------------------------------------------------------------------------------------------------------- | -------------------------- | -------------------------------------------- | -------- |
-| `src`         | 图片路径                                                                                                 | string                     | ——                                           | ——       |
-| `err-src`     | 加载失败时要显示的地址                                                                                   | string                     | ——                                           | ——       |
-| `alt`         | 原生 [alt](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt) 属性                  | string                     | ——                                           | 加载失败 |
-| `round`       | 是否为圆角                                                                                               | boolean                    | ——                                           | false    |
-| `lazy`        | 是否懒加载头像                                                                                           | boolean                    | ——                                           | false    |
-| `fit`         | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性 | string                     | `fill` `contain` `cover` `none` `scale-down` | ——       |
-| `size`        | 图片大小                                                                                                 | string / number            | `large` `middle` `small` `mini`              | middle   |
-| `background`  | 背景色                                                                                                   | string                     | ——                                           | ——       |
-| `icon`        | 图标头像                                                                                                 | object (VNode / Component) | ——                                           | ——       |
-| `font-size`   | 字体大小                                                                                                 | string                     | ——                                           | 15px     |
-| `font-color`  | 字体的颜色                                                                                               | string                     | ——                                           | #333     |
-| `text`        | 文字头像                                                                                                 | string                     | ——                                           | ——       |
-| `root-margin` | 触发懒加载的距离                                                                                         | string / number            | ——                                           | 100px    |
-| `on-load`     | 图片加载成功触发的回调                                                                                   | Function                   | ——                                           | ——       |
-| `on-error`    | 图片加载失败触发的回调                                                                                   | Function                   | ——                                           | ——       |
+| 参数          | 说明                                                                                                     | 类型                                                                        | 可选值                                       | 默认值   |
+| ------------- | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------- | -------- |
+| `src`         | 图片路径                                                                                                 | string                                                                      | ——                                           | ——       |
+| `err-src`     | 加载失败时要显示的地址                                                                                   | string                                                                      | ——                                           | ——       |
+| `alt`         | 原生 [alt](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt) 属性                  | string                                                                      | ——                                           | 加载失败 |
+| `round`       | 是否为圆角                                                                                               | boolean                                                                     | ——                                           | false    |
+| `lazy`        | 是否懒加载头像                                                                                           | boolean                                                                     | ——                                           | false    |
+| `fit`         | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性 | <a href="#avatarfit">AvatarFit</a>                                          | `fill` `contain` `cover` `none` `scale-down` | ——       |
+| `size`        | 图片大小                                                                                                 | <a href="/components/interface.html#fightingsize">FightingSize</a> / number | `large` `middle` `small` `mini`              | middle   |
+| `background`  | 背景色                                                                                                   | string                                                                      | ——                                           | ——       |
+| `icon`        | 图标头像                                                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a>          | ——                                           | ——       |
+| `font-size`   | 字体大小                                                                                                 | string                                                                      | ——                                           | 15px     |
+| `font-color`  | 字体的颜色                                                                                               | string                                                                      | ——                                           | #333     |
+| `text`        | 文字头像                                                                                                 | string                                                                      | ——                                           | ——       |
+| `root-margin` | 触发懒加载的距离                                                                                         | string / number                                                             | ——                                           | 100px    |
+| `on-load`     | 图片加载成功触发的回调                                                                                   | <a href="/components/interface.html#handleevent">HandleEvent</a>            | ——                                           | ——       |
+| `on-error`    | 图片加载失败触发的回调                                                                                   | <a href="/components/interface.html#handleevent">HandleEvent</a>            | ——                                           | ——       |
 
 ## Slots
 
@@ -192,12 +209,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  AvatarInstance,
-  AvatarPropsType,
-  AvatarFitType,
-  AvatarSizeType
-} from 'fighting-design'
+import type { AvatarInstance, AvatarProps, AvatarFit } from 'fighting-design'
+```
+
+### AvatarFit
+
+```ts
+type AvatarFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 ```
 
 ## Contributors
@@ -207,13 +225,18 @@ import type {
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/avatar/demo1.vue'
   import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
 </script>
 
 <style scoped>
-.f-avatar,
-.f-avatar-error {
-  margin: 5px;
-}
+  .f-avatar,
+  .f-avatar-error {
+    margin: 5px;
+  }
+
+  .avatar-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 </style>

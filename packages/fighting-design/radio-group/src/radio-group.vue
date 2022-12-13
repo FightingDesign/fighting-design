@@ -1,20 +1,16 @@
 <script lang="ts" setup name="FRadioGroup">
   import { Props, RADIO_GROUP_PROPS_kEY } from './props'
   import { provide, reactive, toRefs, computed } from 'vue'
-  import { isString, isBoolean, isNumber, runCallback } from '../../_utils'
+  import { isString, isBoolean, isNumber } from '../../_utils'
+  import { useRun } from '../../_hooks'
   import { sizeChange } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
-  import type {
-    RadioChangeInterface,
-    RadioLabelType,
-    RadioGroundPropsType
-  } from './interface'
+  import type { CSSProperties } from 'vue'
+  import type { ClassList } from '../../_interface'
+  import type { RadioModelValue, RadioGroundInject } from './interface'
 
-  const prop: RadioGroundPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: RadioLabelType): boolean =>
-      isString(val) || isNumber(val) || isBoolean(val)
+    'update:modelValue': (val: RadioModelValue): boolean => isString(val) || isNumber(val) || isBoolean(val)
   })
 
   /**
@@ -22,42 +18,42 @@
    *
    * @param value 最新值
    */
-  const changeEvent: RadioChangeInterface = (value: RadioLabelType): void => {
+  const changeEvent = (value: RadioModelValue): void => {
     emit('update:modelValue', value)
-    runCallback(prop.onChange, value)
+    useRun(prop.onChange, value)
   }
 
-  // 需要注入的依赖项
-  const RadioGround: RadioGroundPropsType = reactive({
+  /**
+   * 需要注入的依赖项
+   */
+  const RadioGround = reactive({
     ...toRefs(prop),
     changeEvent
-  } as const)
+  } as unknown as RadioGroundInject)
 
   // 注入依赖项
-  provide<RadioGroundPropsType>(RADIO_GROUP_PROPS_kEY, RadioGround)
+  provide<RadioGroundInject>(RADIO_GROUP_PROPS_kEY, RadioGround)
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { vertical, border, size } = prop
+  const classList = computed((): ClassList => {
+    const { vertical, border, size } = prop
 
-      return [
-        'f-radio-group',
-        {
-          'f-radio-group__vertical': vertical,
-          'f-radio-group__border': border,
-          [`f-radio-group__${size}`]: size && border
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-radio-group',
+      {
+        'f-radio-group__vertical': vertical,
+        'f-radio-group__border': border,
+        [`f-radio-group__${size}`]: size && border
+      }
+    ] as const
+  })
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { columnGap, rowGap } = prop
 
     return {

@@ -4,10 +4,7 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
-
-  &.f-ripple__select {
-    user-select: none;
-  }
+  user-select: none;
 
   // 涟漪效果
   .f-ripple__animation {

@@ -1,42 +1,28 @@
 <script lang="ts" setup name="FSvgIcon">
   import { Props } from './props'
-  import { computed } from 'vue'
-  import { sizeChange, runCallback } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { HandleMouseEventInterface } from '../../_interface'
-  import type { SvgIconPropsType } from './props'
+  import { useList, useRun } from '../../_hooks'
 
-  const prop: SvgIconPropsType = defineProps(Props)
+  const prop = defineProps(Props)
+
+  const { styles } = useList(prop, 'svg-icon')
 
   /**
    * 点击触发
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    runCallback(prop.onClick, evt)
+  const handleClick = (evt: MouseEvent): void => {
+    useRun(prop.onClick, evt)
   }
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { size, color } = prop
-
-    return {
-      fontSize: sizeChange(size),
-      color
-    } as const
-  })
+  const styleList = styles(['size', 'color'])
 </script>
 
 <template>
-  <i
-    class="f-svg-icon"
-    text-indent="middle"
-    :style="styleList"
-    @click="handleClick"
-  >
+  <i role="img" class="f-svg-icon" text-indent="middle" :style="styleList" @click="handleClick">
     <component :is="icon" v-if="icon" />
     <slot v-else />
   </i>

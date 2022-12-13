@@ -1,12 +1,4 @@
 import type { Ref } from 'vue'
-import type {
-  OrdinaryFunctionInterface,
-  HandleWheelEventInterface
-} from '../../_interface'
-export type {
-  OrdinaryFunctionInterface,
-  HandleWheelEventInterface
-} from '../../_interface'
 
 /**
  * useOperationImg 返回值类型接口
@@ -22,22 +14,13 @@ export type {
  * @param rotateClockwise 顺时针旋转
  * @param rotateCounterClock 逆时针旋转
  */
-export interface UseOperationImgReturnInterface {
+export interface UseOperationImgReturn {
   scale: Ref<number>
   rotate: Ref<number>
-  smaller: OrdinaryFunctionInterface
-  bigger: OrdinaryFunctionInterface
-  scrollZoom: HandleWheelEventInterface
-  recovery: OrdinaryFunctionInterface
-  rotateClockwise: OrdinaryFunctionInterface
-  rotateCounterClock: OrdinaryFunctionInterface
-}
-
-/**
- * useOperationImg 方法类型接口
- *
- * 无参数，返回 UseOperationImgReturnInterface 类型
- */
-export interface UseOperationImgInterface {
-  (): UseOperationImgReturnInterface
+  smaller(): void
+  bigger(): void
+  scrollZoom(evt: WheelEvent): void
+  recovery(): void
+  rotateClockwise(): void
+  rotateCounterClock(): void
 }

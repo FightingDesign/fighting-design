@@ -11,4 +11,4 @@ export const Props = {
   }
 } as const
 
-export type TreePropsType = ExtractPropTypes<typeof Props>
+export type TreeProps = ExtractPropTypes<typeof Props>

@@ -18,6 +18,7 @@
     background: var(--f-design-color-primary-1);
     width: 40px;
     height: 20px;
+    background: var(--f-switch-close-color, #bbbbbb);
 
     // 不同尺寸
     @for $list from 1 to (length($ComponentsSize) + 1) {
@@ -38,35 +39,38 @@
           width: $rollSize;
           height: $rollSize;
           border-radius: 50%;
-          position: absolute;
-          right: 0;
-          top: 0;
-          bottom: 0;
+          transform: translateX(0);
           z-index: 10;
           transition: 0.2s;
           box-sizing: content-box;
           box-shadow: 0 2px 3px #00000021, 0 0 4px #0000000d;
-          border: 2px solid var(--f-design-color-primary-1);
+          border: 2px solid var(--f-switch-close-color, #bbbbbb);
           background: var(--f-design-color-text-2);
+
+          // 小球的位置
+          &.f-switch__roll-active {
+            transform: translateX($inputSize);
+          }
 
           .f-svg-icon {
             transition: color 0.2s;
             font-size: calc(map-get($item, fontSize) - 1px);
-            color: var(--f-design-color-primary-1);
+            color: var(--f-switch-close-color, #bbbbbb);
           }
         }
       }
     }
 
-    // 关闭状态
-    &.f-switch__close {
-      background: #bbbbbb;
+    // 选中状态
+    &.f-switch__active {
+      background: var(--f-switch-active-color, var(--f-design-color-primary-1));
 
+      // 选中状态的小球
       .f-switch__roll {
-        border: 2px solid #bbbbbb;
+        border: 2px solid var(--f-switch-active-color, var(--f-design-color-primary-1));
 
         .f-svg-icon {
-          color: #bbbbbb;
+          color: var(--f-switch-active-color, var(--f-design-color-primary-1));
         }
       }
     }
@@ -96,6 +100,7 @@
     color: var(--f-design-color-text-1);
   }
 
+  // 文字选中状态
   &__text-active {
     color: var(--f-design-color-primary-1);
   }

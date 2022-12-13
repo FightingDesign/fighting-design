@@ -31,12 +31,7 @@
 </template>
 
 <script lang="ts" setup>
-  import {
-    FIconApps,
-    FIconBlock,
-    FIconCameraVideoSlash,
-    FIconClock
-  } from '@fighting-design/fighting-icon'
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
 </script>
 ```
 
@@ -135,12 +130,7 @@
 </template>
 
 <script lang="ts" setup>
-  import {
-    FIconApps,
-    FIconBlock,
-    FIconCameraVideoSlash,
-    FIconClock
-  } from '@fighting-design/fighting-icon'
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
   import { FMessage } from 'fighting-design'
   import type { ToolbarClickInterface } from 'fighting-design'
 
@@ -154,16 +144,16 @@
 
 ## Toolbar Attributes
 
-| 参数         | 说明               | 类型     | 可选值                          | 默认值 |
-| ------------ | ------------------ | -------- | ------------------------------- | ------ |
-| `size`       | 尺寸               | string   | `large` `middle` `small` `mini` | large  |
-| `round`      | 显示为圆角         | boolean  | ——                              | false  |
-| `background` | 背景颜色           | string   | ——                              | ——     |
-| `text-color` | 字体颜色           | string   | ——                              | ——     |
-| `fixed`      | 是否固定定位       | boolean  | ——                              | false  |
-| `width`      | 自定义宽度         | string   | ——                              | ——     |
-| `height`     | 自定义高度         | string   | ——                              | ——     |
-| `on-click`   | 点击之后触发的回调 | Function | ——                              | ——     |
+| 参数         | 说明               | 类型                                                               | 可选值                          | 默认值 |
+| ------------ | ------------------ | ------------------------------------------------------------------ | ------------------------------- | ------ |
+| `size`       | 尺寸               | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | large  |
+| `round`      | 显示为圆角         | boolean                                                            | ——                              | false  |
+| `background` | 背景颜色           | string                                                             | ——                              | ——     |
+| `text-color` | 字体颜色           | string                                                             | ——                              | ——     |
+| `fixed`      | 是否固定定位       | boolean                                                            | ——                              | false  |
+| `width`      | 自定义宽度         | string / number                                                    | ——                              | ——     |
+| `height`     | 自定义高度         | string / number                                                    | ——                              | ——     |
+| `on-click`   | 点击之后触发的回调 | <a href="#toolbarclick">ToolbarClick</a>                           | ——                              | ——     |
 
 ## Toolbar Slots
 
@@ -173,13 +163,13 @@
 
 ## Toolbar-Item Attributes
 
-| 参数        | 说明               | 类型                       | 可选值 | 默认值 |
-| ----------- | ------------------ | -------------------------- | ------ | ------ |
-| `index`     | 唯一值             | string / number            | ——     | ——     |
-| `color`     | 自定义文字颜色     | string                     | ——     | ——     |
-| `icon`      | 自定义 icon        | object (VNode / Component) | ——     | ——     |
-| `icon-size` | 自定义 icon 大小   | string / number            | ——     | 16     |
-| `on-click`  | 点击之后触发的回调 | Function                   | ——     | ——     |
+| 参数        | 说明               | 类型                                                               | 可选值 | 默认值 |
+| ----------- | ------------------ | ------------------------------------------------------------------ | ------ | ------ |
+| `index`     | 唯一值             | string / number                                                    | ——     | ——     |
+| `color`     | 自定义文字颜色     | string                                                             | ——     | ——     |
+| `icon`      | 自定义 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `icon-size` | 自定义 icon 大小   | string / number                                                    | ——     | 16     |
+| `on-click`  | 点击之后触发的回调 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——     | ——     |
 
 ## Toolbar-Item Slots
 
@@ -194,12 +184,27 @@
 ```ts
 import type {
   ToolbarInstance,
-  ToolbarPropsType,
-  ToolbarType,
-  ToolbarClickEmitInterface,
+  ToolbarProps,
+  ToolbarClickParams,
+  ToolbarClick
   ToolbarItemInstance,
-  ToolbarItemPropsType
+  ToolbarItemProps,
 } from 'fighting-design'
+```
+
+### ToolbarClickParams
+
+```ts
+interface ToolbarClickParams {
+  evt: MouseEvent
+  index: string | undefined
+}
+```
+
+### ToolbarClick
+
+```ts
+type ToolbarClick = (params: ToolbarClickParams) => void
 ```
 
 ## Contributors
@@ -222,7 +227,7 @@ import type {
 </script>
 
 <style scoped>
-.f-toolbar {
-  margin: 10px 0;
-}
+  .f-toolbar {
+    margin: 10px 0;
+  }
 </style>

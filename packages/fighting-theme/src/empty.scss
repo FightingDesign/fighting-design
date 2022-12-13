@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  background: var(--f-empty-background);
 
   &__wrapper {
     display: flex;
@@ -19,7 +20,8 @@
   &__content {
     margin: 8px 0px;
     font-weight: 500;
-    color: #7f7f7f;
+    color: var(--f-empty-content-color, #7f7f7f);
+    font-size: var(--f-empty-content-size, var(--f-design-font-size-middle));
   }
 
   &__footer {

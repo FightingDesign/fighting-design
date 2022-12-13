@@ -1,10 +1,6 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type {
-  HandleCurrentChange,
-  HandlePrevClick,
-  HandleNextClick,
-  HandlePageChange
-} from './interface'
+import type { ExtractPropTypes, PropType } from 'vue'
+import type { HandleCurrentChange, HandlePrevClick, HandleNextClick, HandlePageChange } from './interface'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -38,6 +34,13 @@ export const Props = {
     default: (): null => null
   },
   /**
+   * 当页码超过多少时开始展开省略符号,默认为 7
+   */
+  pagerCount: {
+    type: Number,
+    default: (): number => 7
+  },
+  /**
    * 是否带有背景色
    */
   background: {
@@ -55,14 +58,14 @@ export const Props = {
    * 自定义的上一页图标
    */
   prevIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 自定义的下一页图标
    */
   nextIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
@@ -71,13 +74,6 @@ export const Props = {
   disabled: {
     type: Boolean,
     default: (): boolean => false
-  },
-  /**
-   * 改变页码回调函数
-   */
-  change: {
-    type: Function as PropType<HandleCurrentChange>,
-    default: (): null => null
   },
   /**
    * 是否展示快速跳转搜索框
@@ -89,14 +85,14 @@ export const Props = {
   /**
    * 点击上一页触发的回调
    */
-  prevClick: {
+  onPrev: {
     type: Function as PropType<HandlePrevClick>,
     default: (): null => null
   },
   /**
    * 点击下一页触发的回调
    */
-  nextClick: {
+  onNext: {
     type: Function as PropType<HandleNextClick>,
     default: (): null => null
   },
@@ -106,7 +102,14 @@ export const Props = {
   pageSizeChange: {
     type: Function as PropType<HandlePageChange>,
     default: (): null => null
+  },
+  /**
+   * 改变页码回调函数
+   */
+  onChange: {
+    type: Function as PropType<HandleCurrentChange>,
+    default: (): null => null
   }
 } as const
 
-export type PaginationPropsType = ExtractPropTypes<typeof Props>
+export type PaginationProps = ExtractPropTypes<typeof Props>

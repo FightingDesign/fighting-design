@@ -6,7 +6,7 @@ export const Props = {
    */
   height: {
     type: [String, Number] as PropType<string | number>,
-    default: (): number => 60
+    default: (): null => null
   },
   /**
    * 自定义内边距
@@ -17,4 +17,4 @@ export const Props = {
   }
 } as const
 
-export type FooterPropsType = ExtractPropTypes<typeof Props>
+export type FooterProps = ExtractPropTypes<typeof Props>

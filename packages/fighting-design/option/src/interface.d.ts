@@ -1,1 +1,1 @@
-export type { OptionPropsType } from './option'
+export type { OptionProps } from './option'

@@ -7,8 +7,8 @@
   cursor: pointer;
   padding: 2px;
   box-sizing: border-box;
-  transition: 0.3s;
   user-select: none;
+  transition: var(--f-design-transition-time);
   color: var(--f-close-btn-color, var(--f-design-color-primary-1));
 
   // 圆角的

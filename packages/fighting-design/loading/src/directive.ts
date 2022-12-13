@@ -1,34 +1,25 @@
 import { createApp } from 'vue'
 import Loading from './loading.vue'
 import type { Directive, ComponentPublicInstance, DirectiveBinding } from 'vue'
-import type { LoadingElInterface, LoadingPropsType } from './interface'
+import type { LoadingElInterface, LoadingProps } from './interface'
 
-const optionsOrganizer = (
-  el: LoadingElInterface,
-  binding: DirectiveBinding
-): LoadingPropsType => {
+const optionsOrganizer = (el: LoadingElInterface, binding: DirectiveBinding): LoadingProps => {
   /**
    * 获取 props 中的值
    * @param propKey props 的键
-   * @returns { LoadingPropsType[K] }
+   * @returns { LoadingProps[K] }
    */
-  const getBindingProp = <K extends keyof LoadingPropsType>(
-    propKey: K
-  ): LoadingPropsType[K] => {
+  const getBindingProp = <K extends keyof LoadingProps>(propKey: K): LoadingProps[K] => {
     return binding.value[propKey]
   }
 
   /**
    * 获取 props
    * @param propKey props 的键
-   * @returns { LoadingPropsType[K] | string } props 或 attribute
+   * @returns { LoadingProps[K] | string } props 或 attribute
    */
-  const getProp = <K extends keyof LoadingPropsType>(
-    propKey: K
-  ): LoadingPropsType[K] | string => {
-    return (
-      getBindingProp(propKey) || el.getAttribute(`f-loading-${propKey}`) || ''
-    )
+  const getProp = <K extends keyof LoadingProps>(propKey: K): LoadingProps[K] | string => {
+    return getBindingProp(propKey) || el.getAttribute(`f-loading-${propKey}`) || ''
   }
 
   return {
@@ -37,7 +28,7 @@ const optionsOrganizer = (
     fontColor: getProp('fontColor'),
     fullscreen: binding.modifiers.fullscreen,
     background: getProp('background')
-  } as LoadingPropsType
+  } as LoadingProps
 }
 
 /**
@@ -45,10 +36,7 @@ const optionsOrganizer = (
  * @param el 元素节点
  * @param binding 一个对象，包含一些配置参数
  */
-const renderLoadingDom = (
-  el: LoadingElInterface,
-  binding: DirectiveBinding
-): void => {
+const renderLoadingDom = (el: LoadingElInterface, binding: DirectiveBinding): void => {
   /**
    * 判断是否有绝对定位或者固定定位
    * 首先要给容器设置相对定位
@@ -58,9 +46,7 @@ const renderLoadingDom = (
   }
   const options = optionsOrganizer(el, binding)
   const loadingInstance = createApp(Loading, options)
-  const _vm = loadingInstance.mount(
-    document.createElement('div')
-  ) as ComponentPublicInstance
+  const _vm = loadingInstance.mount(document.createElement('div')) as ComponentPublicInstance
   el.vm = _vm
   el.loadingInstance = loadingInstance
   el.appendChild(_vm.$el)
@@ -68,8 +54,8 @@ const renderLoadingDom = (
 
 /**
  * 移除 loading 节点
+ *
  * @param el 元素节点
- * @returns { void }
  */
 const removeLoadingDom = (el: LoadingElInterface): void => {
   if (!el.loadingInstance) return
@@ -82,7 +68,7 @@ const removeLoadingDom = (el: LoadingElInterface): void => {
 /**
  * 自定义 loading 指令
  *
- * https://cn.vuejs.org/guide/reusability/custom-directives.html#directive-hooks
+ * @see 自定义指令 https://cn.vuejs.org/guide/reusability/custom-directives.html#directive-hooks
  */
 export const vLoading: Directive = {
   /**
@@ -92,9 +78,10 @@ export const vLoading: Directive = {
    * @param binding 一个对象，包含一些配置参数
    */
   mounted (el: LoadingElInterface, binding: DirectiveBinding): void {
-    // 获取到当前元素的定位样式
-    const originalPosition: string =
-      getComputedStyle(el)['position'] || 'static'
+    /**
+     * 获取到当前元素的定位样式
+     */
+    const originalPosition: string = getComputedStyle(el)['position'] || 'static'
     el.originalPosition = originalPosition
     if (binding.value) {
       // 这个好像没执行 x
@@ -105,6 +92,7 @@ export const vLoading: Directive = {
   /**
    * 在绑定元素的父组件
    * 及他自己的所有子节点都更新后调用
+   *
    * @param el 指令绑定到的元素。这可以用于直接操作 DOM
    * @param binding 一个对象，包含一些配置参数
    */

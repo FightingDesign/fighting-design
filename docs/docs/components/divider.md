@@ -65,12 +65,8 @@
 
 ```html
 <f-divider margin="40px">默认颜色</f-divider>
-<f-divider color="green" margin="40px" fontColor="green" background="#eee">
-  我是绿色
-</f-divider>
-<f-divider color="blue" margin="40px" fontColor="#fff" background="blue">
-  我是蓝色
-</f-divider>
+<f-divider color="green" margin="40px" fontColor="green" background="#eee"> 我是绿色 </f-divider>
+<f-divider color="blue" margin="40px" fontColor="#fff" background="blue"> 我是蓝色 </f-divider>
 ```
 
 :::
@@ -134,27 +130,34 @@
 
 ## Attributes
 
-| 参数         | 说明         | 类型    | 可选值                             | 默认值 |
-| ------------ | ------------ | ------- | ---------------------------------- | ------ |
-| `position`   | 文字显示位置 | string  | `left` `center` `right`            | center |
-| `vertical`   | 是否为竖线   | boolean | ——                                 | false  |
-| `color`      | 线条颜色     | string  | ——                                 | ——     |
-| `font-color` | 文字颜色     | string  | ——                                 | ——     |
-| `background` | 背景颜色     | boolean | ——                                 | ——     |
-| `margin`     | 上下边距     | string  | ——                                 | ——     |
-| `type`       | 分隔符类型   | string  | `dashed` `dotted` `double` `solid` | solid  |
+| 参数         | 说明         | 类型                                           | 可选值                             | 默认值 |
+| ------------ | ------------ | ---------------------------------------------- | ---------------------------------- | ------ |
+| `position`   | 文字显示位置 | <a href="#dividertype">DividerType</a>         | `left` `center` `right`            | center |
+| `vertical`   | 是否为竖线   | boolean                                        | ——                                 | false  |
+| `color`      | 线条颜色     | string                                         | ——                                 | ——     |
+| `font-color` | 文字颜色     | string                                         | ——                                 | ——     |
+| `background` | 背景颜色     | boolean                                        | ——                                 | ——     |
+| `margin`     | 上下边距     | string                                         | ——                                 | ——     |
+| `type`       | 分隔符类型   | <a href="#dividerposition">DividerPosition</a> | `dashed` `dotted` `double` `solid` | solid  |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type {
-  DividerInstance,
-  DividerPropsType,
-  DividerPositionType,
-  DividerType
-} from 'fighting-design'
+import type { DividerInstance, DividerProps, DividerPosition, DividerType } from 'fighting-design'
+```
+
+### DividerType
+
+```ts
+type DividerType = 'dashed' | 'dotted' | 'double' | 'solid'
+```
+
+### DividerPosition
+
+```ts
+type DividerPosition = 'left' | 'center' | 'right'
 ```
 
 ## Contributors

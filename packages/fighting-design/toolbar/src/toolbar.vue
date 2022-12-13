@@ -1,71 +1,39 @@
 <script lang="ts" setup name="FToolbar">
   import { Props } from './props'
-  import { computed, useSlots } from 'vue'
-  import { runCallback } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type {
-    ClassListInterface,
-    HandleMouseEventInterface
-  } from '../../_interface'
-  import type {
-    ToolbarPropsType,
-    ToolbarClickParamsInterface
-  } from './interface'
+  import { useSlots } from 'vue'
+  import { useList, useRun } from '../../_hooks'
+  import type { ToolbarClickParams } from './interface'
 
-  const prop: ToolbarPropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const slot = useSlots()
+
+  const { classes, styles } = useList(prop, 'toolbar')
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { size, round, fixed } = prop
-
-      return [
-        'f-toolbar',
-        {
-          [`f-toolbar__${size}`]: size,
-          'f-toolbar__round': round,
-          'f-toolbar__fixed': fixed
-        }
-      ] as const
-    }
-  )
+  const classList = classes(['size', 'round', 'fixed'], 'f-toolbar')
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { textColor, background, width, height } = prop
-
-    return {
-      color: textColor,
-      background,
-      width,
-      height
-    } as const
-  })
+  const styleList = styles(['textColor', 'background', 'width', 'height'])
 
   /**
    * 点击触发
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const handleClick = (evt: MouseEvent): void => {
     if (!slot.default) return
 
-    // 获取内部的元素节点列表
-    const children: HTMLElement[] = evt.composedPath() as HTMLElement[]
+    const target: HTMLElement = evt.target as HTMLElement
 
-    // 过滤出自己的亲孩子组件
-    const node: HTMLElement | undefined = children.find(
-      (item: HTMLElement): boolean => item.className === 'f-toolbar-item'
-    )
+    if (target.className === 'f-toolbar-item') {
+      const index: string | undefined = target.dataset.index
 
-    const index: string | undefined = node ? node.dataset.index : ''
-
-    runCallback(prop.onClick, { evt, index } as ToolbarClickParamsInterface)
+      useRun(prop.onClick, { evt, index } as ToolbarClickParams)
+    }
   }
 </script>
 

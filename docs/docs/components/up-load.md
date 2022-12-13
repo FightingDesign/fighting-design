@@ -129,13 +129,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  UpLoadInstance,
-  UpLoadPropsType,
-  UpLoadUpdateFilesInterface,
-  UpLoadFilterFilesInterface,
-  UpLoadRemoveFileInterface
-} from 'fighting-design'
+import type { UpLoadInstance, UpLoadProps } from 'fighting-design'
 ```
 
 ## Contributors

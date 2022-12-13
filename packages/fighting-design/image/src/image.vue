@@ -2,45 +2,47 @@
   import { Props } from './props'
   import { onMounted, ref, computed } from 'vue'
   import { sizeChange } from '../../_utils'
-  import { useLoadImage } from '../../_hooks'
-  import type { Ref, CSSProperties, ComputedRef } from 'vue'
-  import type { ImagePropsType } from './props'
-  import type { ClassListInterface } from '../../_interface'
+  import { useLoadImg, useProps } from '../../_hooks'
+  import type { CSSProperties } from 'vue'
+  import type { ClassList } from '../../_interface'
+  import type { UseLoadImgProp } from '../../_hooks'
 
-  const prop: ImagePropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
-  const { isSuccess, isShowNode, loadAction } =
-    useLoadImage<ImagePropsType>(prop)
+  const { filter } = useProps(prop)
 
-  const imageEl: Ref<HTMLImageElement> = ref<HTMLImageElement>(
-    null as unknown as HTMLImageElement
+  const { loadImg, isSuccess, isShowNode } = useLoadImg(
+    filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError']) as unknown as UseLoadImgProp
   )
 
+  /**
+   * dom 节点元素
+   */
+  const imageEl = ref<HTMLImageElement>(null as unknown as HTMLImageElement)
+
   onMounted((): void => {
-    loadAction(imageEl)
+    loadImg(imageEl.value)
   })
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { fit, noSelect } = prop
+  const classList = computed((): ClassList => {
+    const { fit, noSelect } = prop
 
-      return [
-        'f-image__img',
-        {
-          [`f-image__${fit}`]: fit,
-          'f-image__select': noSelect
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-image__img',
+      {
+        [`f-image__${fit}`]: fit,
+        'f-image__select': noSelect
+      }
+    ] as const
+  })
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { width, height, round } = prop
 
     return {
@@ -52,19 +54,13 @@
 </script>
 
 <template>
-  <div
-    v-if="isSuccess"
-    role="img"
-    :class="['f-image', { 'f-image__block': block }]"
-    :style="styleList"
-  >
+  <div v-if="isSuccess" role="img" :class="['f-image', { 'f-image__block': block }]" :style="styleList">
     <!-- 真正展示的图片 -->
     <img
-      v-show="isShowNode"
       ref="imageEl"
       src=""
       :class="classList"
-      :style="styleList"
+      :style="(styleList, isShowNode ? '' : 'visibility: hidden')"
       :draggable="draggable"
       :referrer-policy="referrerPolicy"
       :alt="alt"

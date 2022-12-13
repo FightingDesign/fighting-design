@@ -1,29 +1,30 @@
 @use './root';
 
 .f-card {
-  transition: 0.3s;
+  display: block;
   border: #e5e5e5 solid 1px;
+  transition: var(--f-design-transition-time);
   background: var(--f-design-color-text-2);
-  display: inline-block;
 
   &__header {
     padding: 16px 20px;
     border-bottom: 1px solid var(--f-design-color-border-1);
   }
 
-  &.f-card__shadow-never {
-    box-shadow: none;
-  }
-
-  &.f-card__shadow-always {
+  &.f-card__always {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
 
-  &.f-card__shadow-hover:hover {
+  &.f-card__hover:hover {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
 
   &.f-card__round {
     border-radius: 10px;
+  }
+
+  // 身体
+  .f-card__body {
+    padding: var(--f-card-padding, 20px);
   }
 }

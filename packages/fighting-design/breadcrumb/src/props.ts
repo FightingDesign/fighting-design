@@ -1,23 +1,18 @@
-import type {
-  ExtractPropTypes,
-  InjectionKey,
-  PropType,
-  VNode,
-  Component
-} from 'vue'
+import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
    * 自定义分隔符
    */
   separator: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 导航文字颜色
    */
-  itemColor: {
+  fontColor: {
     type: String,
     default: (): null => null
   },
@@ -37,8 +32,6 @@ export const Props = {
   }
 } as const
 
-export type BreadcrumbPropsType = ExtractPropTypes<typeof Props>
+export type BreadcrumbProps = ExtractPropTypes<typeof Props>
 
-export const BREADCRUMB_PROPS_KEY: InjectionKey<BreadcrumbPropsType> = Symbol(
-  'breadcrumb-props-key'
-)
+export const BREADCRUMB_PROPS_KEY: InjectionKey<BreadcrumbProps> = Symbol('breadcrumb-props-key')

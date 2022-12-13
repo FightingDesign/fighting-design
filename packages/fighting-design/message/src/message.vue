@@ -4,15 +4,11 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
-  import type { CSSProperties, ComputedRef, Ref } from 'vue'
-  import type {
-    OrdinaryFunctionInterface,
-    ClassListInterface
-  } from '../../_interface'
   import { massageManage } from '../../_hooks'
-  import type { MessagePropsType } from './props'
+  import type { CSSProperties, ComputedRef, Ref } from 'vue'
+  import type { ClassList } from '../../_interface'
 
-  const prop: MessagePropsType = defineProps(Props)
+  const prop = defineProps(Props)
   const emit = defineEmits({
     destroy: (): boolean => true
   })
@@ -21,46 +17,34 @@
   const messageHeight: Ref<number> = ref<number>(0)
   const visible: Ref<boolean> = ref<boolean>(false)
 
-  const isTop: ComputedRef<boolean> = computed((): boolean =>
-    prop.placement.includes('top')
-  )
+  const isTop: ComputedRef<boolean> = computed((): boolean => prop.placement.includes('top'))
 
-  const siblingOffset: ComputedRef<number> = computed((): number =>
-    massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value)
-  )
+  const siblingOffset = computed((): number => massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value))
 
-  const offset: ComputedRef<number> = computed(
-    (): number => prop.offset + siblingOffset.value
-  )
+  const offset = computed((): number => prop.offset + siblingOffset.value)
 
-  const bottom: ComputedRef<number> = computed(
-    (): number => messageHeight.value + offset.value
-  )
+  const bottom = computed((): number => messageHeight.value + offset.value)
 
   onMounted((): void => {
     nextTick((): void => {
-      messageHeight.value = (
-        messageRef.value as HTMLDivElement
-      ).getBoundingClientRect().height
+      messageHeight.value = (messageRef.value as HTMLDivElement).getBoundingClientRect().height
     })
   })
 
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { type, round, placement } = prop
+  const classList = computed((): ClassList => {
+    const { type, round, placement } = prop
 
-      return [
-        'f-message',
-        {
-          [`f-message__${type}`]: type,
-          [`f-message__${placement}`]: placement,
-          'f-message__round': round
-        }
-      ] as const
-    }
-  )
+    return [
+      'f-message',
+      {
+        [`f-message__${type}`]: type,
+        [`f-message__${placement}`]: placement,
+        'f-message__round': round
+      }
+    ] as const
+  })
 
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { color, background, zIndex } = prop
 
     const styles: CSSProperties = {
@@ -80,20 +64,20 @@
 
   const timer = ref<NodeJS.Timeout>()
 
-  const clearTimer: OrdinaryFunctionInterface = (): void => {
+  const clearTimer = (): void => {
     if (!timer.value) return
     clearTimeout(timer.value)
   }
 
-  const closeMessage: OrdinaryFunctionInterface = (): void => {
+  const closeMessage = (): void => {
     clearTimer()
     visible.value = false
   }
-  const closeMessageEnd: OrdinaryFunctionInterface = (): void => {
+  const closeMessageEnd = (): void => {
     massageManage.removeInstance(prop.placement, prop.id)
   }
 
-  const startTime: OrdinaryFunctionInterface = (): void => {
+  const startTime = (): void => {
     if (!prop.duration) return
     timer.value = setTimeout((): void => {
       closeMessage()

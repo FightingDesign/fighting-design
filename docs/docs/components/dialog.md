@@ -12,7 +12,28 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-button type="primary" @click="visible1 = true">打开</f-button>
+
+<f-dialog v-model:visible="visible1" title="标题文字">
+<h3>沁园春·雪</h3>
+
+<p>北国风光，千里冰封，万里雪飘。</p>
+<p>望长城内外，惟余莽莽；大河上下，顿失滔滔。</p>
+<p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+<p>须晴日，看红装素裹，分外妖娆。</p>
+
+<br />
+
+<p>江山如此多娇，引无数英雄竞折腰。</p>
+<p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
+<p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
+<p>俱往矣，数风流人物，还看今朝。</p>
+
+<template #footer>
+<f-button type="default">默认按钮</f-button>
+<f-button type="primary">主要按钮</f-button>
+</template>
+</f-dialog>
 </template>
 
 ```html
@@ -57,7 +78,13 @@
 ::: demo
 
 <template #source>
-<demo2-vue />
+<f-button type="primary" @click="visible2 = true">打开</f-button>
+
+<f-dialog v-model:visible="visible2" width="500px" title="Title">
+<f-button @click="innerVisible = true">打开里层</f-button>
+
+<f-dialog v-model:visible="innerVisible" width="300px" title="Title" append-to-body> inner dialog </f-dialog>
+</f-dialog>
 </template>
 
 ```html
@@ -67,14 +94,7 @@
   <f-dialog width="500px" title="Title" v-model:visible="visible2">
     <f-button @click="innerVisible = true">打开里层</f-button>
 
-    <f-dialog
-      width="300px"
-      title="Title"
-      v-model:visible="innerVisible"
-      append-to-body
-    >
-      inner dialog
-    </f-dialog>
+    <f-dialog width="300px" title="Title" v-model:visible="innerVisible" append-to-body> inner dialog </f-dialog>
   </f-dialog>
 </template>
 
@@ -97,7 +117,23 @@
 ::: demo
 
 <template #source>
-<demo3-vue />
+<f-button type="primary" @click="visible3 = true">打开</f-button>
+
+<f-dialog v-model:visible="visible3" title="Title" :on-open="open" :on-open-end="openEnd" :on-close="close" :on-close-end="closeEnd">
+<h3>沁园春·雪</h3>
+
+<p>北国风光，千里冰封，万里雪飘。</p>
+<p>望长城内外，惟余莽莽；大河上下，顿失滔滔。</p>
+<p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+<p>须晴日，看红装素裹，分外妖娆。</p>
+
+<br />
+
+<p>江山如此多娇，引无数英雄竞折腰。</p>
+<p>惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
+<p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
+<p>俱往矣，数风流人物，还看今朝。</p>
+</f-dialog>
 </template>
 
 ```html
@@ -146,23 +182,23 @@
 
 ## Attributes
 
-| 参数              | 说明                                                                                | 类型                       | 可选值 | 默认值 |
-| ----------------- | ----------------------------------------------------------------------------------- | -------------------------- | ------ | ------ |
-| `v-model:visible` | 绑定值，控制是否展示                                                                | boolean                    | ——     | false  |
-| `title`           | 标题文字内容                                                                        | string                     | ——     | ——     |
-| `append-to-body`  | 是否追加到 `body`                                                                   | boolean                    | ——     | false  |
-| `width`           | 自定义宽度                                                                          | string / number            | ——     | ——     |
-| `fullscreen`      | 是否全屏展示                                                                        | boolean                    | ——     | false  |
-| `show-mask`       | 是否展示遮罩层                                                                      | boolean                    | ——     | true   |
-| `mask-close`      | 是否点击遮罩层关闭                                                                  | boolean                    | ——     | true   |
-| `modal-blur`      | 是否模糊遮罩层                                                                      | boolean                    | ——     | false  |
-| `close-icon`      | 自定义关闭按钮 icon                                                                 | object (VNode / Component) | ——     | ——     |
-| `show-close-icon` | 是否展示关闭图标                                                                    | boolean                    | ——     | true   |
-| `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                     | ——     | 1999   |
-| `on-open`         | 打开动画开始的回调                                                                  | Function                   | ——     | ——     |
-| `on-open-end`     | 打开动画结束的回调                                                                  | Function                   | ——     | ——     |
-| `on-close`        | 关闭动画开始的回调                                                                  | Function                   | ——     | ——     |
-| `on-close-end`    | 关闭动画结束的回调                                                                  | Function                   | ——     | ——     |
+| 参数              | 说明                                                                                | 类型                                                               | 可选值 | 默认值 |
+| ----------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------ | ------ |
+| `v-model:visible` | 绑定值，控制是否展示                                                                | boolean                                                            | ——     | false  |
+| `title`           | 标题文字内容                                                                        | string                                                             | ——     | ——     |
+| `append-to-body`  | 是否追加到 `body`                                                                   | boolean                                                            | ——     | false  |
+| `width`           | 自定义宽度                                                                          | string / number                                                    | ——     | ——     |
+| `fullscreen`      | 是否全屏展示                                                                        | boolean                                                            | ——     | false  |
+| `show-mask`       | 是否展示遮罩层                                                                      | boolean                                                            | ——     | true   |
+| `mask-close`      | 是否点击遮罩层关闭                                                                  | boolean                                                            | ——     | true   |
+| `modal-blur`      | 是否模糊遮罩层                                                                      | boolean                                                            | ——     | false  |
+| `close-icon`      | 自定义关闭按钮 icon                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `show-close-icon` | 是否展示关闭图标                                                                    | boolean                                                            | ——     | true   |
+| `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                             | ——     | 1999   |
+| `on-open`         | 打开动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
+| `on-open-end`     | 打开动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
+| `on-close`        | 关闭动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
+| `on-close-end`    | 关闭动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
 
 ## Slots
 
@@ -178,7 +214,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DialogInstance, DialogPropsType } from 'fighting-design'
+import type { DialogInstance, DialogProps } from 'fighting-design'
 ```
 
 ## Contributors
@@ -196,7 +232,25 @@ import type { DialogInstance, DialogPropsType } from 'fighting-design'
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/dialog/demo1.vue'
-  import demo2Vue from './_demos/dialog/demo2.vue'
-  import demo3Vue from './_demos/dialog/demo3.vue'
+  import { ref } from 'vue'
+  import { FMessage } from '../../../packages/fighting-design/message'
+
+  const visible1 = ref(false)
+  const visible2 = ref(false)
+  const visible3 = ref(false)
+  const innerVisible = ref(false)
+
+  const open = (): void => {
+    FMessage('打开动画开始')
+  }
+  const openEnd = (): void => {
+    FMessage('打开动画结束')
+  }
+
+  const close = (): void => {
+    FMessage('关闭动画开始')
+  }
+  const closeEnd = (): void => {
+    FMessage('关闭动画结束')
+  }
 </script>

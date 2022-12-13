@@ -2,9 +2,9 @@
 
 .f-sticky-card {
   cursor: pointer;
-  transition: 0.3s;
   border-radius: 3px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--f-sticky-card-border-color, #e5e5e5);
+  transition: var(--f-design-transition-time);
 
   // 展示的内容
   &__source {
@@ -14,8 +14,6 @@
 
   // 折叠的内容
   &__box {
-    height: 0;
-    overflow: hidden;
     padding: 0 20px;
     box-sizing: border-box;
     border-top: 1px solid var(--f-design-color-border-1);
@@ -34,7 +32,7 @@
 
   // 点击的操作栏
   &__option {
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid var(--f-sticky-card-border-color, #e5e5e5);
     height: 45px;
     cursor: pointer;
     display: flex;

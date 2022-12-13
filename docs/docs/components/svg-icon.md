@@ -40,7 +40,15 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-svg-icon>
+<f-icon-apps />
+</f-svg-icon>
+
+<f-svg-icon color="red">
+<f-icon-bluetooth />
+</f-svg-icon>
+
+<f-svg-icon size="34px" :icon="FIconBook" />
 </template>
 
 ```html
@@ -57,11 +65,7 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 </template>
 
 <script lang="ts" setup>
-  import {
-    FIconApps,
-    FIconBluetooth,
-    FIconBook
-  } from '@fighting-design/fighting-icon'
+  import { FIconApps, FIconBluetooth, FIconBook } from '@fighting-design/fighting-icon'
 </script>
 ```
 
@@ -75,18 +79,26 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 
 ## Attributes
 
-| 参数       | 说明               | 类型                       | 可选值 | 默认值 |
-| ---------- | ------------------ | -------------------------- | ------ | ------ |
-| `color`    | icon 颜色          | string                     | ——     | ——     |
-| `size`     | icon 大小          | string / number            | ——     | 21px   |
-| `icon`     | icon 内容          | object (VNode / Component) | ——     | ——     |
-| `on-click` | 点击之后触发的回调 | Function                   | ——     | ——     |
+| 参数       | 说明           | 类型                                                               | 可选值 | 默认值 |
+| ---------- | -------------- | ------------------------------------------------------------------ | ------ | ------ |
+| `color`    | icon 颜色      | string                                                             | ——     | ——     |
+| `size`     | icon 大小      | string / number                                                    | ——     | ——     |
+| `icon`     | icon 内容      | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `on-click` | 点击触发的回调 | <a href="/components/interface.html#HandleMouse">HandleMouse</a>   | ——     | ——     |
 
 ## Slots
 
 | 名称      | 说明        |
 | --------- | ----------- |
 | `default` | icon 的内容 |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { SvgIconInstance, SvgIconProps } from 'fighting-design'
+```
 
 ## Contributors
 
@@ -95,7 +107,7 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/svg-icon/demo1.vue'
+  import { FIconApps, FIconBluetooth, FIconBook } from '@fighting-design/fighting-icon'
   import demo2Vue from './_demos/svg-icon/demo2.vue'
   import Svg from '@fighting-design/fighting-icon'
 

@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { OrdinaryFunctionInterface } from '../../_interface'
+import type { HandleMouse } from '../../_interface'
 
 export const Props = {
   /**
@@ -43,14 +43,11 @@ export const Props = {
   /**
    * 图片预览展示的 z-index
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+   * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
   zIndex: {
     type: Number,
-    default: (): number => 999,
-    validator: (val: number): boolean => {
-      return val >= 0
-    }
+    default: (): null => null
   },
   /**
    * 是否展示图片预览下面的操作栏
@@ -70,9 +67,9 @@ export const Props = {
    * 关闭之后的回调
    */
   onClose: {
-    type: Function as PropType<OrdinaryFunctionInterface>,
+    type: Function as PropType<HandleMouse>,
     default: (): null => null
   }
 } as const
 
-export type ImagePreviewPropsType = ExtractPropTypes<typeof Props>
+export type ImagePreviewProps = ExtractPropTypes<typeof Props>

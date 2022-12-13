@@ -93,20 +93,20 @@
 
 ## 禁用状态
 
-`prohibit` 可以让按钮处于禁用状态
+`disabled` 可以让按钮处于禁用状态
 
 ::: demo
 
 <template #source>
-<f-link prohibit href="" type="primary">不许点我</f-link>
-<f-link prohibit href="" state="line" type="success">不许点我</f-link>
-<f-link prohibit href="" state="bag" type="warning">不许点我</f-link>
+<f-link disabled href="" type="primary">不许点我</f-link>
+<f-link disabled href="" state="line" type="success">不许点我</f-link>
+<f-link disabled href="" state="bag" type="warning">不许点我</f-link>
 </template>
 
 ```html
-<f-link prohibit href="" type="primary">不许点我</f-link>
-<f-link prohibit href="" state="line" type="success">不许点我</f-link>
-<f-link prohibit href="" state="bag" type="warning">不许点我</f-link>
+<f-link disabled href="" type="primary">不许点我</f-link>
+<f-link disabled href="" state="line" type="success">不许点我</f-link>
+<f-link disabled href="" state="bag" type="warning">不许点我</f-link>
 ```
 
 :::
@@ -118,31 +118,31 @@
 ::: demo
 
 <template #source>
-<f-link href="" noLink>拿我当按钮使用</f-link>
+<f-link href="" no-link>拿我当按钮使用</f-link>
 </template>
 
 ```html
-<f-link href="" noLink>拿我当按钮使用</f-link>
+<f-link href="" no-link>拿我当按钮使用</f-link>
 ```
 
 :::
 
 ## Attributes
 
-| 参数          | 说明                                                                                      | 类型                       | 可选值                                                 | 默认值  |
-| ------------- | ----------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------ | ------- |
-| `type`        | link 的类型                                                                               | string                     | `default` `primary` `success`<br /> `danger` `warning` | primary |
-| `href`        | 链接的地址                                                                                | string                     | ——                                                     | ——      |
-| `size`        | link 的文字大小                                                                           | string / number            | ——                                                     | ——      |
-| `state`       | link 状态的样式状态                                                                       | string                     | `line` `bag`                                           | ——      |
-| `prohibit`    | 是否禁用                                                                                  | boolean                    | ——                                                     | false   |
-| `target`      | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | string                     | `_self` `_blank` `_parent` `_top`                      | ——      |
-| `color`       | 自定义 link 颜色                                                                          | string                     | ——                                                     | ——      |
-| `no-copy`     | 是否禁止 copy                                                                             | boolean                    | ——                                                     | false   |
-| `no-link`     | 是否禁止链接跳转及重新加载（取消默认事件）                                                | boolean                    | ——                                                     | false   |
-| `after-icon`  | 之前的 icon                                                                               | object (VNode / Component) | ——                                                     | ——      |
-| `before-icon` | 之后的 icon                                                                               | object (VNode / Component) | ——                                                     | ——      |
-| `on-click`    | 点击执行的回调                                                                            | Function                   | ——                                                     | ——      |
+| 参数          | 说明                                                                                      | 类型                                                               | 可选值                                           | 默认值 |
+| ------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------ |
+| `type`        | 不同类型                                                                                  | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | ——     |
+| `href`        | 链接的地址                                                                                | string                                                             | ——                                               | ——     |
+| `size`        | 文字大小                                                                                  | string / number                                                    | ——                                               | ——     |
+| `state`       | 鼠标移入的样式状态                                                                        | <a href="#linkstate">LinkState</a>                                 | `line` `bag`                                     | ——     |
+| `disabled`    | 是否禁用                                                                                  | boolean                                                            | ——                                               | false  |
+| `target`      | 原生 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href) 属性 | <a href="#linktarget">LinkTarget</a>                               | `_self` `_blank` `_parent` `_top`                | ——     |
+| `color`       | 自定义 link 颜色                                                                          | string                                                             | ——                                               | ——     |
+| `no-copy`     | 是否禁止 copy                                                                             | boolean                                                            | ——                                               | false  |
+| `no-link`     | 是否禁止链接跳转及重新加载（取消默认事件）                                                | boolean                                                            | ——                                               | false  |
+| `after-icon`  | 之前的 icon                                                                               | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
+| `before-icon` | 之后的 icon                                                                               | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
+| `on-click`    | 点击执行的回调                                                                            | <a href="/components/interface.html#HandleMouse">HandleMouse</a>   | ——                                               | ——     |
 
 ## Slots
 
@@ -157,13 +157,19 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  LinkInstance,
-  LinkPropsType,
-  LinkType,
-  LinkTargetType,
-  LinkHoverType
-} from 'fighting-design'
+import type { LinkInstance, LinkProps, LinkTarget, LinkState } from 'fighting-design'
+```
+
+### LinkTarget
+
+```ts
+type LinkTarget = '_self' | '_blank' | '_parent' | '_top'
+```
+
+### LinkState
+
+```ts
+type LinkState = 'line' | 'bag'
 ```
 
 ## Contributors
@@ -173,7 +179,7 @@ import type {
 </a>
 
 <style scoped>
-.f-link {
-  margin: 5px;
-}
+  .f-link {
+    margin: 5px;
+  }
 </style>

@@ -1,11 +1,11 @@
-export type { TooltipPropsType } from './props'
+export type { TooltipProps } from './props'
 
 /**
  * 不同展示方位类型
  */
-export type TooltipPositionType = 'top' | 'bottom' | 'right' | 'left'
+export type TooltipPosition = 'top' | 'bottom' | 'right' | 'left'
 
 /**
  * 不同触发形式类型
  */
-export type TooltipStateType = 'hover' | 'active' | 'always'
+export type TooltipState = 'hover' | 'active' | 'always'

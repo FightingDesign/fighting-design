@@ -138,13 +138,13 @@
 
 ## Attributes
 
-| 参数       | 说明                                     | 类型    | 可选值                          | 默认值 |
-| ---------- | ---------------------------------------- | ------- | ------------------------------- | ------ |
-| `round`    | 是否带圆角的                             | boolean | ——                              | false  |
-| `animated` | 是否展示波浪动画                         | boolean | ——                              | false  |
-| `rows`     | 渲染多行占位图                           | number  | ——                              | 1      |
-| `loading`  | 为 true 时，显示占位图。false 展示子组件 | boolean | ——                              | false  |
-| `size`     | 自定义尺寸                               | string  | `large` `middle` `small` `mini` | middle |
+| 参数       | 说明                                     | 类型                                                               | 可选值                          | 默认值 |
+| ---------- | ---------------------------------------- | ------------------------------------------------------------------ | ------------------------------- | ------ |
+| `round`    | 是否带圆角的                             | boolean                                                            | ——                              | false  |
+| `animated` | 是否展示波浪动画                         | boolean                                                            | ——                              | false  |
+| `rows`     | 渲染多行占位图                           | number                                                             | ——                              | 1      |
+| `loading`  | 为 true 时，显示占位图。false 展示子组件 | boolean                                                            | ——                              | false  |
+| `size`     | 自定义尺寸                               | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
 
 ## Slots
 
@@ -157,11 +157,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  SkeletonInstance,
-  SkeletonPropsType,
-  SkeletonSizeType
-} from 'fighting-design'
+import type { SkeletonInstance, SkeletonProps } from 'fighting-design'
 ```
 
 ## Contributors

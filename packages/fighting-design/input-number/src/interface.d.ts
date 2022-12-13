@@ -1,18 +1,6 @@
-export type { InputNumberPropsType } from './props'
-
-/**
- * 不同尺寸类型
- */
-export type InputNumberSizeType = 'large' | 'middle' | 'small' | 'mini'
+export type { InputNumberProps } from './props'
 
 /**
  * 不同模式类型
  */
-export type InputNumberModelType = 'default' | 'button' | 'switch'
-
-/**
- * 当 input 改变时触发的回调函数类型接口
- */
-export interface InputNumberChangeInterface {
-  (val: string): void
-}
+export type InputNumberModel = 'default' | 'button' | 'switch'

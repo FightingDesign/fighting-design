@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { PopupDirectionType } from './interface'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { PopupDirection } from './interface'
+import type { HandleEvent } from '../../_interface'
 
 export const Props = {
   /**
@@ -64,17 +64,15 @@ export const Props = {
   },
   /**
    * 弹出位置
-   * 
+   *
    * @values left right top bottom center
    * @defaultValue center
    */
   direction: {
-    type: String as PropType<PopupDirectionType>,
-    default: (): PopupDirectionType => 'center',
-    validator: (val: PopupDirectionType): boolean => {
-      return (['left', 'right', 'top', 'bottom', 'center'] as const).includes(
-        val
-      )
+    type: String as PropType<PopupDirection>,
+    default: (): PopupDirection => 'center',
+    validator: (val: PopupDirection): boolean => {
+      return (['left', 'right', 'top', 'bottom', 'center'] as const).includes(val)
     }
   },
   /**
@@ -95,30 +93,30 @@ export const Props = {
    * 打开动画开始的回调
    */
   onOpen: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 关闭动画开始的回调
    */
   onClose: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 打开动画结束的回调
    */
   onOpenEnd: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
   /**
    * 关闭动画结束的回调
    */
   onCloseEnd: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleEvent>,
     default: (): null => null
   }
 } as const
 
-export type PopupPropsType = ExtractPropTypes<typeof Props>
+export type PopupProps = ExtractPropTypes<typeof Props>

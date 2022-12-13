@@ -2,44 +2,34 @@
   import { Props } from './props'
   import { sizeChange } from '../../_utils'
   import { computed, ref, onMounted } from 'vue'
-  import type { CSSProperties, ComputedRef, Ref } from 'vue'
-  import type {
-    ProgressTIsShowPercentageInterface,
-    ProgressPropsType
-  } from './interface'
+  import type { CSSProperties } from 'vue'
 
-  const prop: ProgressPropsType = defineProps(Props)
+  const prop = defineProps(Props)
 
-  const isShow: Ref<boolean> = ref<boolean>(false)
-  const fillRef: Ref<HTMLDivElement> = ref<HTMLDivElement>(
-    null as unknown as HTMLDivElement
-  )
+  const isShow = ref<boolean>(false)
+  const fillRef = ref<HTMLDivElement>(null as unknown as HTMLDivElement)
 
-  const progressStyle: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { background, height, square } = prop
+  const progressStyle = computed((): CSSProperties => {
+    const { background, height, square } = prop
 
-      return {
-        height: sizeChange(height),
-        background,
-        borderRadius: square ? '0px' : '100px'
-      } as const
-    }
-  )
+    return {
+      height: sizeChange(height),
+      background,
+      borderRadius: square ? '0px' : '100px'
+    } as const
+  })
 
-  const progressFillStyle: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { percentage, color, square } = prop
+  const progressFillStyle = computed((): CSSProperties => {
+    const { percentage, color, square } = prop
 
-      return {
-        width: `${percentage}%`,
-        background: color,
-        borderRadius: square ? '0px' : '100px'
-      } as const
-    }
-  )
+    return {
+      width: `${percentage}%`,
+      background: color,
+      borderRadius: square ? '0px' : '100px'
+    } as const
+  })
 
-  const isShowPercentage: ProgressTIsShowPercentageInterface = (): boolean => {
+  const isShowPercentage = (): boolean => {
     return (isShow.value = fillRef.value.clientHeight >= 18 && prop.textInside)
   }
 
@@ -69,17 +59,11 @@
         ]"
         :style="progressFillStyle"
       >
-        <span
-          v-if="isShow && showText"
-          class="f-progress__percentage"
-          :style="{ color: textColor }"
-        >
+        <span v-if="isShow && showText" class="f-progress__percentage" :style="{ color: textColor }">
           {{ percentage }}%
         </span>
       </div>
     </div>
-    <div v-if="!isShow && showText" class="f-progress__text">
-      {{ percentage }}%
-    </div>
+    <div v-if="!isShow && showText" class="f-progress__text">{{ percentage }}%</div>
   </div>
 </template>

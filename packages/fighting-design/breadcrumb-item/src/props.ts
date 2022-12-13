@@ -1,10 +1,12 @@
-import type { ExtractPropTypes, VNode, Component, PropType } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
+import type { BreadcrumbItemTo } from './interface'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
    * 自定义文字颜色
    */
-  color: {
+  fontColor: {
     type: String,
     default: (): null => null
   },
@@ -19,9 +21,16 @@ export const Props = {
    * 自定义分隔符
    */
   separator: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
+    default: (): null => null
+  },
+  /**
+   * 跳转的路径参数
+   */
+  to: {
+    type: [String, Object] as PropType<string | BreadcrumbItemTo>,
     default: (): null => null
   }
 }
 
-export type BreadcrumbItemPropsType = ExtractPropTypes<typeof Props>
+export type BreadcrumbItemProps = ExtractPropTypes<typeof Props>

@@ -1,11 +1,6 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type {
-  ButtonSizeType,
-  ButtonTargetType,
-  ButtonType,
-  ButtonNativeType
-} from './interface'
-import type { HandleMouseEventInterface } from '../../_interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { ButtonTarget, ButtonNative } from './interface'
+import type { FightingSize, FightingType, FightingIcon, HandleMouse } from '../../_interface'
 
 export const Props = {
   /**
@@ -34,7 +29,7 @@ export const Props = {
    */
   fontSize: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '14px'
+    default: (): null => null
   },
   /**
    * 字体颜色
@@ -47,12 +42,12 @@ export const Props = {
    * 按钮尺寸
    *
    * @values large middle small mini
-   * @defaultValue middle
+   * @defaultValue null
    */
   size: {
-    type: String as PropType<ButtonSizeType>,
-    default: (): ButtonSizeType => 'middle',
-    validator: (val: ButtonSizeType): boolean => {
+    type: String as PropType<FightingSize>,
+    default: (): null => null,
+    validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
@@ -75,12 +70,12 @@ export const Props = {
    *
    * 原生属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
+   * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: {
-    type: String as PropType<ButtonTargetType>,
-    default: (): ButtonTargetType => '_self',
-    validator: (val: ButtonTargetType): boolean => {
+    type: String as PropType<ButtonTarget>,
+    default: (): ButtonTarget => '_self',
+    validator: (val: ButtonTarget): boolean => {
       return (['_blank', '_self', '_parent', '_top'] as const).includes(val)
     }
   },
@@ -102,22 +97,20 @@ export const Props = {
    * 自定义 loading icon
    */
   loadingIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 按钮的类型（非自定义按钮颜色时有效）
    *
    * @values default primary success danger warning
-   * @defaultValue default
+   * @defaultValue null
    */
   type: {
-    type: String as PropType<ButtonType>,
-    default: (): ButtonType => 'default',
-    validator: (val: ButtonType): boolean => {
-      return (
-        ['default', 'primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
+    type: String as PropType<FightingType>,
+    default: (): null => null,
+    validator: (val: FightingType): boolean => {
+      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
   /**
@@ -130,7 +123,7 @@ export const Props = {
   /**
    * 原生 name 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-name
+   * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-name
    */
   name: {
     type: String,
@@ -153,12 +146,12 @@ export const Props = {
   /**
    * 原生 type 属性
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
+   * @see type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
    */
   nativeType: {
-    type: String as PropType<ButtonNativeType>,
-    default: (): ButtonNativeType => 'button',
-    validator: (val: ButtonNativeType): boolean => {
+    type: String as PropType<ButtonNative>,
+    default: (): ButtonNative => 'button',
+    validator: (val: ButtonNative): boolean => {
       return (['button', 'submit', 'reset'] as const).includes(val)
     }
   },
@@ -173,14 +166,14 @@ export const Props = {
    * 自定义之前的 icon
    */
   beforeIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 自定义之后的 icon
    */
   afterIcon: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
@@ -208,9 +201,9 @@ export const Props = {
    * 点击之后的回调函数
    */
   onClick: {
-    type: Function as PropType<HandleMouseEventInterface>,
+    type: Function as PropType<HandleMouse>,
     default: (): null => null
   }
 } as const
 
-export type ButtonPropsType = ExtractPropTypes<typeof Props>
+export type ButtonProps = ExtractPropTypes<typeof Props>

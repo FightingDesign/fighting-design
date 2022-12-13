@@ -1,5 +1,6 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { SwapType, SwapOnChangeInterface } from './interface'
+import type { PropType, ExtractPropTypes } from 'vue'
+import type { SwapType } from './interface'
+import type { FightingIcon, HandleChange } from '../../_interface'
 
 export const Props = {
   /**
@@ -34,23 +35,23 @@ export const Props = {
    * 打开展示的图标
    */
   iconOn: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 关闭展示的图标
    */
   iconOff: {
-    type: Object as PropType<VNode | Component>,
+    type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
    * 当绑定值发生改变时触发的回调
    */
   onChange: {
-    type: Function as PropType<SwapOnChangeInterface>,
+    type: Function as PropType<HandleChange>,
     default: (): null => null
   }
 } as const
 
-export type SwapPropsType = ExtractPropTypes<typeof Props>
+export type SwapProps = ExtractPropTypes<typeof Props>

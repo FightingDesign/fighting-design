@@ -1,26 +1,32 @@
-export type { RadioGroundPropsType } from './props'
+import type { FightingSize } from '../../_interface'
 
-export type RadioLabelType = string | number | boolean
-
-export interface RadioChangeInterface {
-  (value: RadioLabelType): void
-}
+export type { RadioGroundProps } from './props'
 
 /**
- * 不同尺寸类型
+ * 绑定值类型接口
  */
-export type RadioGroupSizeType = 'large' | 'middle' | 'small' | 'mini'
+export type RadioModelValue = string | number | boolean
 
-export interface RadioGroundInterface {
-  readonly disabled: boolean
-  readonly modelValue: RadioLabelType
-  readonly label: string
-  readonly vertical: boolean
-  readonly size: RadioGroupSizeType
-  readonly columnGap: string | number
-  readonly rowGap: string | number
-  readonly border: boolean
-  readonly circle: boolean
-  readonly change: RadioChangeInterface
-  readonly changeEvent: ChangeEventInterface
+/**
+ * 改变时触发的回调类型接口
+ *
+ * @param value 改变的值
+ */
+export type RadioChange = (value: RadioModelValue) => void
+
+/**
+ * 注入的依赖项类型接口
+ */
+export interface RadioGroundInject {
+  disabled: boolean
+  modelValue: RadioModelValue
+  label: string
+  vertical: boolean
+  size: FightingSize
+  columnGap: string | number
+  rowGap: string | number
+  border: boolean
+  circle: boolean
+  change: RadioChange
+  changeEvent(value: RadioModelValue): void
 }

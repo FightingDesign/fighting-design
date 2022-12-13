@@ -1,6 +1,6 @@
 # Tag 标签
 
-`Tag` 用于标签展示
+一个标签
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tag)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tag.md)
@@ -89,8 +89,7 @@
 </template>
 
 ```html
-<f-tag background="skyblue">天蓝色</f-tag>
-<f-tag background="blue" color="#fff">深蓝色</f-tag>
+<f-tag background="skyblue">天蓝色</f-tag> <f-tag background="blue" color="#fff">深蓝色</f-tag>
 ```
 
 :::
@@ -167,20 +166,20 @@
 
 ## Attributes
 
-| 参数          | 说明                   | 类型                       | 可选值                                           | 默认值  |
-| ------------- | ---------------------- | -------------------------- | ------------------------------------------------ | ------- |
-| `type`        | 标签类型               | string                     | `default` `success` `danger` `warning` `primary` | default |
-| `close`       | 是否可关闭             | boolean                    | ——                                               | false   |
-| `line`        | 线性的                 | boolean                    | ——                                               | false   |
-| `round`       | 圆角                   | boolean                    | ——                                               | false   |
-| `background`  | 自定义背景色           | string                     | ——                                               | ——      |
-| `color`       | 自定义文字颜色         | string                     | ——                                               | ——      |
-| `before-icon` | 左侧 icon              | object (VNode / Component) | ——                                               | null    |
-| `after-icon`  | 右侧 icon              | object (VNode / Component) | ——                                               | null    |
-| `size`        | 标签大小               | string                     | `large` `middle` `small` `mini`                  | small   |
-| `simple`      | 是否为简约模式         | boolean                    | ——                                               | false   |
-| `block`       | 是否为块级元素         | boolean                    | ——                                               | false   |
-| `on-close`    | 点击关闭按钮触发的回调 | Function                   | ——                                               | null    |
+| 参数          | 说明                   | 类型                                                               | 可选值                                           | 默认值 |
+| ------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------ |
+| `type`        | 标签类型               | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `success` `danger` `warning` `primary` | ——     |
+| `close`       | 是否可关闭             | boolean                                                            | ——                                               | false  |
+| `line`        | 线性的                 | boolean                                                            | ——                                               | false  |
+| `round`       | 圆角                   | boolean                                                            | ——                                               | false  |
+| `background`  | 自定义背景色           | string                                                             | ——                                               | ——     |
+| `color`       | 自定义文字颜色         | string                                                             | ——                                               | ——     |
+| `before-icon` | 左侧 icon              | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
+| `after-icon`  | 右侧 icon              | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
+| `size`        | 标签大小               | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                  | small  |
+| `simple`      | 是否为简约模式         | boolean                                                            | ——                                               | false  |
+| `block`       | 是否为块级元素         | boolean                                                            | ——                                               | false  |
+| `on-close`    | 点击关闭按钮触发的回调 | Function                                                           | ——                                               | ——     |
 
 ## Slots
 
@@ -193,12 +192,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  TagInstance,
-  TagPropsType,
-  TagSizeType,
-  TagType
-} from 'fighting-design'
+import type { TagInstance, TagProps } from 'fighting-design'
 ```
 
 ## Contributors
@@ -212,7 +206,7 @@ import type {
 </a>
 
 <style scoped>
-.f-tag {
-  margin: 5px;
-}
+  .f-tag {
+    margin: 5px;
+  }
 </style>

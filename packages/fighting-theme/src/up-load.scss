@@ -30,9 +30,9 @@
     height: 24px;
     display: flex;
     cursor: pointer;
-    transition: 0.3s;
     align-items: center;
     justify-content: space-between;
+    transition: var(--f-design-transition-time);
 
     &:hover {
       background: var(--f-design-color-border-1);

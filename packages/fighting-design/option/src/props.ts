@@ -18,7 +18,7 @@ export const Props = {
   /**
    * 是否禁用
    *
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
+   * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
   disabled: {
     type: Boolean,
@@ -26,4 +26,4 @@ export const Props = {
   }
 } as const
 
-export type OptionPropsType = ExtractPropTypes<typeof Props>
+export type OptionProps = ExtractPropTypes<typeof Props>

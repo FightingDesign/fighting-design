@@ -34,13 +34,7 @@
   import type { Ref } from 'vue'
   import type { PopupDirectionType, RippleType } from 'fighting-design'
 
-  const typeList: Ref<RippleType[]> = ref<RippleType[]>([
-    'default',
-    'primary',
-    'success',
-    'danger',
-    'warning'
-  ])
+  const typeList: Ref<RippleType[]> = ref<RippleType[]>(['default', 'primary', 'success', 'danger', 'warning'])
 </script>
 
 <style scoped>
@@ -201,15 +195,14 @@
 
 ## Attributes
 
-| 参数            | 说明                 | 类型    | 可选值                                                  | 默认值  |
-| --------------- | -------------------- | ------- | ------------------------------------------------------- | ------- |
-| `type`          | 涟漪类型             | boolean | `default` `primary` `success` <br /> `danger` `warning` | default |
-| `ripples-color` | 自定义涟漪颜色       | string  | ——                                                      | ——      |
-| `duration`      | 移除涟漪节点的时间   | number  | ——                                                      | 400     |
-| `disabled`      | 是否禁用             | boolean | ——                                                      | false   |
-| `start-opacity` | 涟漪动画开始的透明度 | number  | ——                                                      | 0.5     |
-| `end-opacity`   | 涟漪动画结束的透明度 | number  | ——                                                      | 0       |
-| `no-select`     | 是否禁止选中         | boolean | ——                                                      | true    |
+| 参数            | 说明                 | 类型                                                               | 可选值                                           | 默认值 |
+| --------------- | -------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------ |
+| `type`          | 涟漪类型             | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | ——     |
+| `ripples-color` | 自定义涟漪颜色       | string                                                             | ——                                               | ——     |
+| `duration`      | 移除涟漪节点的时间   | number                                                             | ——                                               | 400    |
+| `disabled`      | 是否禁用             | boolean                                                            | ——                                               | false  |
+| `start-opacity` | 涟漪动画开始的透明度 | number                                                             | ——                                               | 0.5    |
+| `end-opacity`   | 涟漪动画结束的透明度 | number                                                             | ——                                               | 0      |
 
 ## Slots
 
@@ -222,11 +215,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  RippleInstance,
-  RipplePropsType,
-  RippleType
-} from 'fighting-design'
+import type { RippleInstance, RippleProps } from 'fighting-design'
 ```
 
 ## Contributors
@@ -234,6 +223,10 @@ import type {
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script lang="ts" setup>
+  const typeList = ['default', 'primary', 'success', 'danger', 'warning']
+</script>
 
 <style scoped>
   .list {
@@ -243,7 +236,3 @@ import type {
     align-items: center;
   }
 </style>
-
-<script lang="ts" setup>
-  const typeList = ['default', 'primary', 'success', 'danger', 'warning']
-</script>

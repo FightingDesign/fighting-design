@@ -4,6 +4,125 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.11.1 (2022-12-13)
+
+- Fix the failure of `f-tag` component `size` [issues#309](https://github.com/FightingDesign/fighting-design/issues/309)
+- Fix some detail type problems
+- Optimize the style processing optimization during the loading of `f-image` and `f-avatar` components
+
+**New Features**
+
+- `f-fighting-global` component adds `lang` configuration item
+- The `f-toolbar` component `width` and `height` configuration items support the `number` type
+
+**Other Updates**
+
+- Fixed the type of global component
+
+## 0.10.0 (2022-12-11)
+
+**Repair**
+
+- Fix the `f-list` and `f-list-item` component bugs
+- Fix the failure of disabling the `f-trigger` component
+
+**New**
+
+- Add `f-fighting-global` component
+- Add `f-list` component `zebra-color` configuration item
+- Add `f-list` component `size` configuration item Add `mini` option
+
+**Other Updates**
+
+- `f-button` Component style detail optimization
+- `f-stick-card` component removal `open-height` configuration item
+- The default value of the `f-rate` component `size` configuration item is changed to 25
+
+## 0.9.0 (2022-12-07)
+
+- Complete `f-menu` components
+- Optimize the `role` attribute of some components
+- Optimize `f-svg-icon` component style details
+
+## 0.9.0-alpha. 8 (2022-12-06)
+
+**New Features**
+
+- Add `f-slider` component
+
+**Optimization item**
+
+- Optimize the logic related to clicking `f-toolbar` components
+- Optimize the implementation of `f-pagination` component style
+- Optimize the internal logic of the `f-tag` component
+- Optimize the implementation of `f-button` components
+- Optimize the implementation of `f-ripple` components
+- Cancel the `f-ripple` component `no-select` configuration item
+
+**Other changes**
+
+- Modify the default value of the `f-card` component `padding` configuration item
+- Modify optional parameters of `f-card` component `shadow` configuration item
+- Change the `f-pagination` component `prev-click` configuration item to `on-prev`
+- Change the `f-pagination` component `next-click` configuration item to `on-text`
+- Change the `f-pagination` component`change` configuration item to `on-change`
+- `f-tooltip` component `content` configuration item supports `number` type
+- Some changes have been made to the `f-breadcrumb` and `f-breadcrumb-item` component parameters
+- The global export type has been greatly changed. For details, refer to the document Component Export Type
+
+## 0.9.0-alpha.7 (2022-12-01)
+
+**New**
+
+- Add `f-breadcrumb-item` component `to` configuration item
+- Improve more `f-menu` component functions
+
+**Optimization**
+
+- Optimize `f-switch` detail style and performance
+- Optimize the `f-button` style processing logic
+- Optimize `f-dropdown-item` style details
+- Optimize `f-option` style details
+- Optimize `f-select` style details
+
+**Changes**
+
+- Change the `f-link` component `prohibit` configuration item to `disabled`
+- Change `f-switch` component `open-color` to `active-color`
+- Change `f-switch` component `open-text` to `active-text`
+
+## 0.9.0-alpha.6 (2022-11-29)
+
+**New Features**
+
+- Add `f-menu` component
+- Add `f-menu-item` component
+- Add `f-menu-item-group` component
+- Add `f-submenu` component
+- Add `f-collapse-animation` component
+- Add `f-button-group` component `direction` configuration item
+
+**Repair**
+
+- Fix `f-pagination` component details
+- Fix `f-button` component style details
+
+**Other changes**
+
+- Revoke the `f-button group` component `vertical` configuration item
+- Optimize `f-stick-card` components
+
+## 0.9.0-alpha.5 (2022-11-25)
+
+**New Features**
+
+- Add `f-trigger` component
+
+**Other Updates**
+
+- Optimize `f-space` component style details
+- Change the `f-stick-card` component `open-end` `close-end` callback parameter to `on-open` `on-close`
+
 ## 0.9.0-alpha.4 (2022-11-23)
 
 **New Features**

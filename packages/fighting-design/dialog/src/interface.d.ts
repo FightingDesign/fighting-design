@@ -1,1 +1,1 @@
-export type { DialogPropsType } from './props'
+export type { DialogProps } from './props'

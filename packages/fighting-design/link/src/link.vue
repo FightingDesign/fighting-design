@@ -1,60 +1,46 @@
 <script lang="ts" setup name="FLink">
   import { Props } from './props'
+  import { reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
-  import { computed } from 'vue'
-  import { sizeChange, runCallback } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type {
-    HandleMouseEventInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { LinkPropsType } from './props'
+  import { useList, useRun, useGlobal } from '../../_hooks'
+  import type { UseGlobalProp } from '../../_hooks'
 
-  const prop: LinkPropsType = defineProps(Props)
+  const prop = defineProps(Props)
+
+  const { getType } = useGlobal(prop as unknown as UseGlobalProp)
+
+  /**
+   * 替换 type 后得到的 props
+   */
+  const params = reactive({
+    ...prop,
+    type: getType('primary').value
+  })
+
+  const { classes, styles } = useList(params, 'link')
 
   /**
    * 点击触发
    *
    * @param evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    if (prop.prohibit || prop.noLink) {
+  const handleClick = (evt: MouseEvent): void => {
+    if (prop.disabled || prop.noLink) {
       evt.preventDefault()
       return
     }
-    runCallback(prop.onClick, evt)
+    useRun(prop.onClick, evt)
   }
 
   /**
    * 类名列表
    */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { type, state, prohibit, noCopy } = prop
-
-      return [
-        'f-link',
-        {
-          [`f-link__${state}`]: state,
-          [`f-link__${type}`]: type,
-          'f-link__prohibit': prohibit,
-          'f-link__no-copy': noCopy
-        }
-      ] as const
-    }
-  )
+  const classList = classes(['type', 'state', 'disabled', 'noCopy'], 'f-link')
 
   /**
    * 样式列表
    */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { size, color } = prop
-
-    return {
-      color,
-      fontSize: sizeChange(size)
-    } as const
-  })
+  const styleList = styles(['size', 'color'])
 </script>
 
 <template>
@@ -63,24 +49,17 @@
     :class="classList"
     :style="styleList"
     :href="href"
+    :disabled="disabled"
     :target="target"
     @click="handleClick"
   >
-    <f-svg-icon
-      v-if="$slots.beforeIcon || beforeIcon"
-      :icon="beforeIcon"
-      :size="size || 16"
-    >
+    <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon" :size="size || 16">
       <slot name="beforeIcon" />
     </f-svg-icon>
 
     <slot />
 
-    <f-svg-icon
-      v-if="$slots.afterIcon || afterIcon"
-      :icon="afterIcon"
-      :size="size"
-    >
+    <f-svg-icon v-if="$slots.afterIcon || afterIcon" :icon="afterIcon" :size="size">
       <slot name="afterIcon" />
     </f-svg-icon>
   </a>

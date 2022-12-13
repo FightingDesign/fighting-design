@@ -1,3 +1,6 @@
-export type { DrawerPropsType } from './props'
+export type { DrawerProps } from './props'
 
-export type DrawerDirectionType = 'left' | 'top' | 'right' | 'bottom'
+/**
+ * 不同的弹出位置
+ */
+export type DrawerDirection = 'left' | 'top' | 'right' | 'bottom'

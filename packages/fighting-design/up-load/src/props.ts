@@ -87,4 +87,4 @@ export const Props = {
   }
 } as const
 
-export type UpLoadPropsType = ExtractPropTypes<typeof Props>
+export type UpLoadProps = ExtractPropTypes<typeof Props>

@@ -4,7 +4,7 @@
     "dev": "vite",
     "build": "rimraf dist && vue-tsc --noEmit && vite build"
   },
-  "devDependencies": {
-    "vconsole": "^3.14.6"
+  "dependencies": {
+    "vue-router": "^4.1.6"
   }
 }
