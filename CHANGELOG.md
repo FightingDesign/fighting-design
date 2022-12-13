@@ -2,6 +2,7 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 修复一些细节类型问题
 - 优化 `f-image` 和 `f-avatar` 组件加载过程中的样式处理优化
 
 ## 0.11.0 (2022-12-13)
