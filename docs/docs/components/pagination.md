@@ -18,19 +18,19 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-pagination v-model:current="current1" :total="total1" />
 </template>
 
 ```html
 <template>
-  <f-pagination v-model:current="current" :total="total" />
+  <f-pagination v-model:current="current1" :total="total1" />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const current = ref(1)
-  const total = ref(100)
+  const current1 = ref(1)
+  const total1 = ref(100)
 </script>
 ```
 
@@ -42,23 +42,21 @@
 
 ::: demo
 <template #source>
-<demo2-vue/>
+<f-pagination v-model:current="current2" :total="total2" :page-size="pagesize2" :page-sizes="pageSizes2" />
 </template>
 
 ```html
 <template>
-  <f-pagination v-model:current="current" :total="total" :page-size="pagesize" :page-sizes="pageSizes" />
+  <f-pagination v-model:current="current2" :total="total2" :page-size="pagesize2" :page-sizes="pageSizes2" />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const current = ref(1)
-  const total = ref(100)
-
-  const pagesize = ref(10)
-
-  const pageSizes = ref([10, 20, 30, 40, 50])
+  const current2 = ref(1)
+  const total2 = ref(100)
+  const pagesize2 = ref(10)
+  const pageSizes2 = ref([10, 20, 30, 40, 50])
 </script>
 ```
 
@@ -72,21 +70,21 @@
 
 ::: demo
 <template #source>
-<demo3-vue />
+<f-pagination v-model:current="current3" :total="total3" background />
+<f-pagination v-model:current="current3" :total="total3" round />
 </template>
 
 ```html
 <template>
-  <f-pagination v-model:current="current" :total="total" background />
-
-  <f-pagination v-model:current="current" :total="total" round />
+  <f-pagination v-model:current="current3" :total="total3" background />
+  <f-pagination v-model:current="current3" :total="total3" round />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const current = ref(1)
-  const total = ref(100)
+  const current3 = ref(1)
+  const total3 = ref(100)
 </script>
 ```
 
@@ -96,20 +94,19 @@
 
 ::: demo
 <template #source>
-<f-pagination v-model:current="current" :total="100" :prev-Icon="FIconCloud" :next-Icon="FIconBlock" />
+<f-pagination v-model:current="current4" :total="100" :prev-Icon="FIconCloud" :next-Icon="FIconBlock" />
 </template>
 
 ```html
 <template>
-  <f-pagination v-model:current="current" :total="100" :prev-icon="FIconCloud" :next-icon="FIconBlock" />
+  <f-pagination v-model:current="current4" :total="100" :prev-icon="FIconCloud" :next-icon="FIconBlock" />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
   import { FIconCloud, FIconBlock } from '@fighting-design/fighting-icon'
 
-  const current = ref(1)
-  const total = ref(100)
+  const current4 = ref(1)
 </script>
 ```
 
@@ -121,20 +118,18 @@
 
 ::: demo
 <template #source>
-<f-pagination v-model:current="current" :total="100" disabled />
+<f-pagination v-model:current="current5" :total="100" disabled />
 </template>
 
 ```html
 <template>
-  <f-pagination v-model:current="current" :total="100" :disabled="disabled" />
+  <f-pagination v-model:current="current5" :total="100" disabled />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const current = ref(1)
-  const total = ref(100)
-  const disabled = ref(true)
+  const current5 = ref(1)
 </script>
 ```
 
@@ -146,20 +141,18 @@
 
 ::: demo
 <template #source>
-<f-pagination v-model:current="current" :total="100" jumpSearch />
+<f-pagination v-model:current="current6" :total="100" jump-search />
 </template>
 
 ```html
 <template>
-  <f-pagination v-model:current="current" :total="100" :jump-search="jumpSearch" />
+  <f-pagination v-model:current="current6" :total="100" jump-search />
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const current = ref(1)
-  const total = ref(100)
-  const jumpSearch = ref(true)
+  const current6 = ref(1)
 </script>
 ```
 
@@ -203,8 +196,24 @@ import type { PaginationInstance, PaginationProps } from 'fighting-design'
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/pagination/demo1.vue'
-  import demo2Vue from './_demos/pagination/demo2.vue'
-  import demo3Vue from './_demos/pagination/demo3.vue'
   import { FIconCloud, FIconBlock } from '@fighting-design/fighting-icon'
+  import { ref } from 'vue'
+
+  const current1 = ref(1)
+  const total1 = ref(100)
+
+  const current2 = ref(1)
+  const total2 = ref(100)
+  const pagesize2 = ref(10)
+  const pageSizes2 = ref([10, 20, 30, 40, 50])
+
+  const current3 = ref(1)
+  const total3 = ref(100)
+
+  const current4 = ref(1)
+  const total4 = ref(100)
+
+  const current5 = ref(1)
+
+  const current6 = ref(1)
 </script>

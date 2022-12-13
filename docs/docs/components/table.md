@@ -80,7 +80,38 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>年龄</th>
+<th>介绍</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>卡莉斯塔</td>
+<td>22</td>
+<td>她的被动可以在发动攻击后进行小距离的跳跃</td>
+</tr>
+<tr>
+<td>艾希</td>
+<td>22</td>
+<td>拥有强大减速和控制能力的远程射手</td>
+</tr>
+<tr>
+<td>李青</td>
+<td>34</td>
+<td>非常优秀的打野英雄</td>
+</tr>
+<tr>
+<td>贾克斯</td>
+<td>109</td>
+<td>取得优势的武器可以输出成吨的伤害</td>
+</tr>
+</tbody>
+</f-table>
 </template>
 
 ```html
@@ -759,7 +790,6 @@ import type {
 
 <script setup lang="ts">
   import { ref } from 'vue'
-  import demo1Vue from './_demos/table/demo1.vue'
   import { FButton, FMessage } from '../../../packages/fighting-design/index'
 
   const columns = ref([

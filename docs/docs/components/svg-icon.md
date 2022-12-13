@@ -40,7 +40,15 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-svg-icon>
+<f-icon-apps />
+</f-svg-icon>
+
+<f-svg-icon color="red">
+<f-icon-bluetooth />
+</f-svg-icon>
+
+<f-svg-icon size="34px" :icon="FIconBook" />
 </template>
 
 ```html
@@ -99,7 +107,7 @@ import type { SvgIconInstance, SvgIconProps } from 'fighting-design'
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/svg-icon/demo1.vue'
+  import { FIconApps, FIconBluetooth, FIconBook } from '@fighting-design/fighting-icon'
   import demo2Vue from './_demos/svg-icon/demo2.vue'
   import Svg from '@fighting-design/fighting-icon'
 

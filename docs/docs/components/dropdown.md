@@ -12,7 +12,16 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-dropdown>
+<f-button type="primary">下拉菜单</f-button>
+
+<template #content>
+<f-dropdown-item>猕猴桃</f-dropdown-item>
+<f-dropdown-item>哈密瓜</f-dropdown-item>
+<f-dropdown-item>火龙果</f-dropdown-item>
+<f-dropdown-item>柠檬</f-dropdown-item>
+</template>
+</f-dropdown>
 </template>
 
 ```html
@@ -35,7 +44,27 @@
 ::: demo
 
 <template #source>
-<demo2-vue />
+<f-dropdown disabled>
+<f-button>全部禁用</f-button>
+
+<template #content>
+<f-dropdown-item>猕猴桃</f-dropdown-item>
+<f-dropdown-item>哈密瓜</f-dropdown-item>
+<f-dropdown-item>火龙果</f-dropdown-item>
+<f-dropdown-item>柠檬</f-dropdown-item>
+</template>
+</f-dropdown>
+
+<f-dropdown style="margin-left: 20px">
+<f-button>禁用指定的</f-button>
+
+<template #content>
+<f-dropdown-item>猕猴桃</f-dropdown-item>
+<f-dropdown-item disabled>哈密瓜</f-dropdown-item>
+<f-dropdown-item>火龙果</f-dropdown-item>
+<f-dropdown-item>柠檬</f-dropdown-item>
+</template>
+</f-dropdown>
 </template>
 
 ```html
@@ -105,8 +134,3 @@ import type { DropdownInstance, DropdownProps, DropdownItemInstance, DropdownIte
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  import demo1Vue from './_demos/dropdown/demo1.vue'
-  import demo2Vue from './_demos/dropdown/demo2.vue'
-</script>

@@ -36,7 +36,10 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-input v-model="value2" type="text" size="large" />
+<f-input v-model="value2" type="text" size="middle" />
+<f-input v-model="value2" type="text" size="small" />
+<f-input v-model="value2" type="text" size="mini" />
 </template>
 
 ```html
@@ -87,7 +90,8 @@
 ::: demo
 
 <template #source>
-<demo2-vue />
+<f-input v-model="value4" type="text" />
+<f-input v-model="value4" type="password" />
 </template>
 
 ```html
@@ -184,7 +188,8 @@
 ::: demo
 
 <template #source>
-<demo3-vue />
+<f-input v-model="value8" type="text" readonly />
+<f-input v-model="value8" type="text" disabled />
 </template>
 
 ```html
@@ -269,14 +274,20 @@ type InputSearch = ({ evt: Event, value: string }) => void
 
 <script setup lang="ts">
   import { ref } from 'vue'
-  import demo1Vue from './_demos/input/demo1.vue'
-  import demo2Vue from './_demos/input/demo2.vue'
-  import demo3Vue from './_demos/input/demo3.vue'
   import { FIconCloud } from '@fighting-design/fighting-icon'
 
   const value1 = ref('')
+  const value2 = ref('不同尺寸的')
   const value3 = ref('')
+  const value4 = ref('不同类型的')
   const value5 = ref('123456')
   const value6 = ref('')
   const value7 = ref('可清空的')
+  const value8 = ref('点我试试吧')
 </script>
+
+<style scoped>
+  .f-input {
+    margin-top: 10px;
+  }
+</style>

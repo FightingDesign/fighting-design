@@ -12,12 +12,17 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-select v-model="value1" placeholder="请选择……">
+<f-option :value="1">香蕉</f-option>
+<f-option :value="2">苹果</f-option>
+<f-option :value="3">哈密瓜</f-option>
+<f-option :value="4">樱桃</f-option>
+</f-select>
 </template>
 
 ```html
 <template>
-  <f-select v-model="value" placeholder="请选择……">
+  <f-select v-model="value1" placeholder="请选择……">
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
@@ -28,7 +33,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const value1 = ref('')
 </script>
 ```
 
@@ -43,12 +48,17 @@
 ::: demo
 
 <template #source>
-<demo2-vue />
+<f-select v-model="value2" placeholder="请选择……">
+<f-option label="香蕉" :value="1"></f-option>
+<f-option :value="2">苹果</f-option>
+<f-option :value="3"></f-option>
+<f-option label="樱桃">樱桃</f-option>
+</f-select>
 </template>
 
 ```html
 <template>
-  <f-select v-model="value" placeholder="请选择……">
+  <f-select v-model="value2" placeholder="请选择……">
     <f-option label="香蕉" :value="1"></f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3"></f-option>
@@ -59,7 +69,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const value2 = ref('')
 </script>
 ```
 
@@ -72,19 +82,31 @@
 ::: demo
 
 <template #source>
-<demo3-vue />
+<f-select v-model="value3" placeholder="请选择……" disabled>
+<f-option :value="1">香蕉</f-option>
+<f-option :value="2">苹果</f-option>
+<f-option :value="3">哈密瓜</f-option>
+<f-option :value="4">樱桃</f-option>
+</f-select>
+
+<f-select v-model="value3" placeholder="请选择……" style="margin-left: 30px">
+<f-option :value="1">香蕉</f-option>
+<f-option :value="2" disabled>苹果</f-option>
+<f-option :value="3">哈密瓜</f-option>
+<f-option :value="4">樱桃</f-option>
+</f-select>
 </template>
 
 ```html
 <template>
-  <f-select v-model="value" placeholder="请选择……" disabled>
+  <f-select v-model="value3" placeholder="请选择……" disabled>
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
     <f-option :value="4">樱桃</f-option>
   </f-select>
 
-  <f-select v-model="value" placeholder="请选择……" style="margin-left: 30px">
+  <f-select v-model="value3" placeholder="请选择……" style="margin-left: 30px">
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2" disabled>苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
@@ -95,7 +117,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const value3 = ref('')
 </script>
 ```
 
@@ -154,7 +176,8 @@ type SelectModelValue = string | number | boolean
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import demo1Vue from './_demos/select/demo1.vue'
-  import demo2Vue from './_demos/select/demo2.vue'
-  import demo3Vue from './_demos/select/demo3.vue'
+
+  const value1 = ref('')
+  const value2 = ref('')
+  const value3 = ref('')
 </script>
