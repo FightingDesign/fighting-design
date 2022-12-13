@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.11.1 (2022-12-13)
+
+- Fix the failure of `f-tag` component `size` [issues#309](https://github.com/FightingDesign/fighting-design/issues/309)
+- Fix some detail type problems
+- Optimize the style processing optimization during the loading of `f-image` and `f-avatar` components
+
 **New Features**
 
 - `f-fighting-global` component adds `lang` configuration item

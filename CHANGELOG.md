@@ -2,7 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- 修复 `f-tag` 组件 `size` 失效问题
+## 0.11.1 (2022-12-13)
+
+- 修复 `f-tag` 组件 `size` 失效问题 [issues#309](https://github.com/FightingDesign/fighting-design/issues/309)
 - 修复一些细节类型问题
 - 优化 `f-image` 和 `f-avatar` 组件加载过程中的样式处理优化
 
