@@ -2,6 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.11.0 (2022-12-13)
+
+**新功能**
+
+- `f-fighting-global` 组件新增 `lang` 配置项
+- `f-toolbar` 组件 `width` 和 `height` 配置项支持 `number` 类型
+
+**其它更新**
+
+- 修复了全局组件的类型
+
 ## 0.10.0 (2022-12-11)
 
 **修复**
@@ -18,17 +29,8 @@
 **其它更新**
 
 - `f-button` 组件样式细节优化
-- `f-button` 组件 `font-size` 默认值改为 null
-- `f-aside` 组件 `width` 默认值改为 null
-- `f-image` 组件 `round` 默认值改为 null
-- `f-image-preview` 组件 `z-index` 默认值改为 null
-- `f-expand-card` 组件 `color` 默认值改为 null
-- `f-sticky-card` 组件 `border-color` 默认值改为 null
 - `f-sticky-card` 组件移除 `open-height` 配置项
 - `f-rate` 组件 `size` 配置项默认值改为 25
-- `f-button` 组件 `type` 默认值改为 null
-- `f-button` 组件 `size` 默认值改为 null
-- `f-button-group` 组件 `size` 默认值改为 null
 
 ## 0.9.0 (2022-12-07)
 

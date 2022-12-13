@@ -4,6 +4,15 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+**New Features**
+
+- `f-fighting-global` component adds `lang` configuration item
+- The `f-toolbar` component `width` and `height` configuration items support the `number` type
+
+**Other Updates**
+
+- Fixed the type of global component
+
 ## 0.10.0 (2022-12-11)
 
 **Repair**
@@ -20,17 +29,8 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 **Other Updates**
 
 - `f-button` Component style detail optimization
-- The default value of `f-button` component `font-size` is changed to null
-- The default value of `f-aside` component `width` is changed to null
-- The default value of `f-image` component `round` is changed to null
-- The default value of `f-image-preview` component `z-index` is changed to null
-- The default value of `f-expand-card` component `color` is changed to null
-- The default value of `f-stick-card` component `border-color` is changed to null
 - `f-stick-card` component removal `open-height` configuration item
 - The default value of the `f-rate` component `size` configuration item is changed to 25
-- The default value of `f-button` component `type` is changed to null
-- The default value of `f-button` component `size` is changed to null
-- The default value of `f-button-group` component `size` is changed to null
 
 ## 0.9.0 (2022-12-07)
 
