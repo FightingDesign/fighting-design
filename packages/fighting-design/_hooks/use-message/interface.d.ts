@@ -1,5 +1,6 @@
 import type { ComponentInternalInstance } from 'vue'
-import type { MessageType, MessageProps } from '../../message'
+import type { MessageProps } from '../../message'
+import type { FightingType } from '../../_interface'
 
 type InstanceOptions<T> = Partial<Mutable<T>> & {
   onDestroy?: () => void
@@ -10,7 +11,7 @@ export interface MessageFn {
 }
 
 export type MessageFnWithType = {
-  [key in MessageType]: (text: string) => MessageInstance
+  [key in FightingType]: (text: string) => MessageInstance
 }
 
 export type MessageOptions = InstanceOptions<MessageProps>

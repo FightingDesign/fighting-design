@@ -40,5 +40,5 @@ export interface RipplesEvt extends Event {
  * @param runRipples 生成涟漪方法
  */
 export interface UseRipplesReturn {
-  runRipples(): void
+  runRipples: () => void
 }

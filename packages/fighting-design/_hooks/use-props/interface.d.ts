@@ -6,7 +6,7 @@
  */
 export interface FilterParamsList {
   key: string
-  callback(): boolean
+  callback: () => boolean
 }
 
 /**
@@ -21,6 +21,6 @@ export type FilterParams = (string | FilterParamsList)[]
  * @param interceptors 拦截 prop
  */
 export interface UsePropsReturn {
-  filter(list: FilterParams): Record<string, unknown>
-  interceptors(param: string, role: () => boolean, def?: null | string): Ref<string> | null | string
+  filter: (list: FilterParams) => Record<string, unknown>
+  interceptors: (param: string, role: () => boolean, def?: null | string) => Ref<string> | null | string
 }

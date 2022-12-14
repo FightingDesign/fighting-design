@@ -28,5 +28,5 @@ export interface RadioGroundInject {
   border: boolean
   circle: boolean
   change: RadioChange
-  changeEvent(value: RadioModelValue): void
+  changeEvent: (value: RadioModelValue) => void
 }

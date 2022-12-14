@@ -16,5 +16,5 @@ export type MenuMode = 'horizontal' | 'vertical' | 'inline'
 export interface MenuProvide {
   mode: MenuMode
   defaultActive: string | number
-  setActiveName(name: string | number): void
+  setActiveName: (name: string | number) => void
 }

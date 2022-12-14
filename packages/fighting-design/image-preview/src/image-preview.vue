@@ -17,7 +17,6 @@
     FIconZoomOutVue
   } from '../../_svg'
   import { useOperationImg, useRun } from '../../_hooks'
-  import type { Ref } from 'vue'
   import type { ToolbarClickParams } from '../../toolbar'
 
   const prop = defineProps(Props)
@@ -28,8 +27,8 @@
   const { scale, rotate, smaller, bigger, scrollZoom, recovery, rotateClockwise, rotateCounterClock } =
     useOperationImg()
 
-  const isVisible: Ref<boolean> = ref<boolean>(prop.visible)
-  const previewShowIndex: Ref<number> = ref<number>(prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex)
+  const isVisible = ref<boolean>(prop.visible)
+  const previewShowIndex = ref<number>(prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex)
 
   /**
    * 关闭图片预览

@@ -6,6 +6,6 @@
  * @param className 其它需要直接加入的类名
  */
 export interface UseListReturn {
-  classes(list: FilterParams, className?: string): ComputedRef<ClassList>
-  styles(list: FilterParams): ComputedRef<CSSProperties>
+  classes: (list: FilterParams, className?: string) => ComputedRef<ClassList>
+  styles: (list: FilterParams) => ComputedRef<CSSProperties>
 }

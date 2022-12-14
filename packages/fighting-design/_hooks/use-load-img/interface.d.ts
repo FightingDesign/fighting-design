@@ -15,8 +15,8 @@ export interface UseLoadImgProp {
   errSrc: string
   rootMargin: string | number
   lazy: boolean
-  onLoad(evt: Event): void
-  onError(evt: Event): void
+  onLoad: (evt: Event) => void
+  onError: (evt: Event) => void
 }
 
 /**
@@ -29,5 +29,5 @@ export interface UseLoadImgProp {
 export interface UseLoadImgReturn {
   isSuccess: Ref<boolean>
   isShowNode: Ref<boolean>
-  loadImg(node: HTMLImageElement): void
+  loadImg: (node: HTMLImageElement) => void
 }

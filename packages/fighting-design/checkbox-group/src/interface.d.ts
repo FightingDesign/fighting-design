@@ -22,5 +22,5 @@ export interface CheckboxGroupInject {
   columnGap: string | number
   rowGap: string | number
   onChange: CheckboxGroupChange
-  setChange(val: CheckboxGroupLabel): void
+  setChange: (val: CheckboxGroupLabel) => void
 }
