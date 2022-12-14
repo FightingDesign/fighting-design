@@ -10,7 +10,7 @@
       <slot />
     </div>
 
-    <!-- 展示的内容 -->
+    <!-- 代码片段 -->
     <div ref="meta" class="meta">
       <!-- 描述插槽 -->
       <div v-if="$slots.description" ref="description" class="description">

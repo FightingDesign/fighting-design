@@ -26,7 +26,7 @@ export const pluginRender = (md: MarkdownIt) => {
       if (styleSfcBlock) {
         env.sfcBlocks.styles.push(styleSfcBlock)
       }
-      rendered = template!
+      rendered = template as string
     }
     return rendered
   }
