@@ -23,11 +23,20 @@ export interface RipplesOptions {
   text?: boolean
 }
 
+/**
+ * ripples 方法事件类型接口
+ * 
+ * @param layerX x 轴坐标
+ * @param layerY y 轴坐标
+ */
 export interface RipplesEvt extends Event {
   layerX: number
   layerY: number
 }
 
+/**
+ * ripples 返回值类型接口
+ */
 export interface UseRipplesReturn {
   runRipples(): void
 }

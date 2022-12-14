@@ -10,6 +10,13 @@ export * from './interface.d'
  */
 let firstClick = true
 
+/**
+ * 点击的涟漪效果
+ *  
+ * @param evt 事件对象
+ * @param node 元素节点
+ * @param options 配置对象
+ */
 export const useRipples = (evt: MouseEvent, node: HTMLButtonElement, options: RipplesOptions): UseRipplesReturn => {
 
   if (options.component === 'f-button' && firstClick) {
