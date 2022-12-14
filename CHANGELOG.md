@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `f-button` 组件 `spread` 配置项
+
 ## 0.11.1 (2022-12-13)
 
 - 修复 `f-tag` 组件 `size` 失效问题 [issues#309](https://github.com/FightingDesign/fighting-design/issues/309)

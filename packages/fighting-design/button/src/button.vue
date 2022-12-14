@@ -27,16 +27,17 @@
    * 类名列表
    */
   const classList = computed((): ClassList => {
-    const { round, simple, block, disabled, loading, bold, text, circle, color } = prop
+    const { round, simple, block, disabled, loading, bold, text, circle, color, spread } = prop
 
     return [
       'f-button',
       `f-button__${getSize('middle', parentInject).value}`,
       {
-        [`f-button__${getType('default').value}`]: !color,
+        [`f-button__${getType().value}`]: !color,
         'f-button__disabled': disabled || loading,
         'f-button__simple': simple && !color,
         'f-button__circle': circle,
+        'f-button__spread': spread,
         'f-button__round': round,
         'f-button__block': block,
         'f-button__bold': bold,
@@ -62,7 +63,7 @@
 
     // 如果有涟漪效果
     if (ripples.value) {
-      const { ripplesColor, simple, text, type } = toRefs(prop)
+      const { ripplesColor, simple, text } = toRefs(prop)
 
       /**
        * 涟漪类需要的选项列表
@@ -74,7 +75,7 @@
         ripplesColor: ripplesColor.value,
         simple: simple.value,
         text: text.value,
-        type: type.value
+        type: getType().value
       } as const)
 
       const { runRipples } = useRipples(evt, FButton.value, options)

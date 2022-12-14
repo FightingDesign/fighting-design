@@ -1,17 +1,53 @@
+import { computed } from 'vue'
 import type { RipplesOptions, UseRipplesReturn, RipplesEvt } from './interface'
 
 export * from './interface.d'
 
-export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesOptions): UseRipplesReturn => {
+/**
+ * 是否为第一次点击
+ * 
+ * 控制只创建一次容器盒子
+ */
+let firstClick = true
+
+/**
+ * 点击的涟漪效果
+ *  
+ * @param evt 事件对象
+ * @param node 元素节点
+ * @param options 配置对象
+ */
+export const useRipples = (evt: MouseEvent, node: HTMLButtonElement, options: RipplesOptions): UseRipplesReturn => {
+
+  /**
+   * 防止涟漪效果溢出
+   * 
+   * 给按钮组件单独添加一个容器
+   * 
+   * 因为按钮组件还有 spread 的扩散效果
+   * 
+   * 所以不能直接在元素上设置 overflow: hidden
+   * 
+   * 才使用这个方法来限制
+   */
+  if (options.component === 'f-button' && firstClick) {
+    const box: HTMLDivElement = document.createElement('div')
+    box.className = 'f-button__ripples-box'
+    node.appendChild(box)
+    firstClick = false
+  }
+
   /**
    * 计算涟漪颜色
    *
    * 如果设置了 ripplesColor 则直接返回
+   * 
    * 在 simple 和 text 模式下，根据 type 返回颜色
+   * 
    * 否则返回默认白色
-   * @return { String }
    */
-  const computedRipplesColor = (): string => {
+  const ripplesColor = computed((): string => {
+
     if (options.ripplesColor) {
       return options.ripplesColor
     }
@@ -26,6 +62,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
 
     /**
      * 如果是按钮组件
+     *
      * 如果 simple, text 存在其中一个，那么就返回指定的色号，否则返回空字符串
      */
     if (options.component === 'f-button') {
@@ -36,7 +73,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
 
     // 如果不是按钮组件，则可以直接返回指定色号
     return COLOR_LIST[options.type]
-  }
+  })
 
   /**
    * 删除涟漪节点
@@ -63,7 +100,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
     const ripples: HTMLSpanElement = document.createElement('span') as HTMLSpanElement
 
     ripples.className = options.className
-    ripples.style.background = computedRipplesColor()
+    ripples.style.background = ripplesColor.value
     ripples.style.left = `${x}px`
 
     // 只有在按钮组件的时候，才作用 y 轴的坐标
@@ -92,7 +129,10 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
 
     const ripples: HTMLSpanElement = renderElement(layerX, layerY)
 
-    node.appendChild(ripples)
+    options.component === 'f-button'
+      ? (node.querySelector('.f-button__ripples-box') as HTMLDivElement).appendChild(ripples)
+      : node.appendChild(ripples)
+
     removeElement(ripples)
   }
 

@@ -14,7 +14,6 @@
   cursor: pointer;
   white-space: nowrap;
   vertical-align: middle;
-  overflow: hidden;
   transition: var(--f-design-transition-time);
   border-radius: var(--f-design-border-radius-1);
   background: var(--f-design-color-default-1);
@@ -65,6 +64,27 @@
         &:not([disabled]):active {
           background: var(--f-design-color-default-3);
         }
+      }
+
+      // 扩散效果
+      &.f-button__spread::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        border-radius: inherit;
+        transition: 0.3s;
+        box-shadow: 0 0 0 4px map-get($item, default);
+      }
+
+      &:not([disabled]):active::after {
+        box-shadow: none;
+        opacity: 1;
+        transition: 0s;
       }
     }
   }
@@ -126,17 +146,27 @@
     }
   }
 
-  // 涟漪效果
-  &__ripples {
-    width: 2px;
-    height: 2px;
+  // 涟漪容器
+  &__ripples-box {
     position: absolute;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    border-radius: 50%;
-    animation: f-button-ripples 0.7s linear;
-    opacity: 0.5;
-    background: var(--f-design-color-text-2);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    // 涟漪效果
+    .f-button__ripples {
+      width: 2px;
+      height: 2px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border-radius: 50%;
+      animation: f-button-ripples 0.7s linear;
+      opacity: 0.5;
+      background: var(--f-design-color-text-2);
+    }
   }
 
   // 涟漪动画效果
