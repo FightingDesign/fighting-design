@@ -218,21 +218,17 @@
 
 `spread` 可以配置是否展示点击扩散效果
 
-::: demo
+::: demo 扩散效果
 
-<template #source>
-<f-button spread type="primary">主要按钮</f-button>
-<f-button spread type="success">成功按钮</f-button>
-<f-button spread type="danger">危险按钮</f-button>
-<f-button spread type="warning">警告按钮</f-button>
+```vue
+<template>
+  <f-space>
+    <f-button spread type="primary">主要按钮</f-button>
+    <f-button spread type="success">成功按钮</f-button>
+    <f-button spread type="danger">危险按钮</f-button>
+    <f-button spread type="warning">警告按钮</f-button>
+  </f-space>
 </template>
-
-```html
-<f-button spread type="default">默认按钮</f-button>
-<f-button spread type="primary">主要按钮</f-button>
-<f-button spread type="success">成功按钮</f-button>
-<f-button spread type="danger">危险按钮</f-button>
-<f-button spread type="warning">警告按钮</f-button>
 ```
 
 :::
