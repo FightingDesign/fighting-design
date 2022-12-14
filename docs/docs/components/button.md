@@ -11,37 +11,22 @@
 
 `simple` 属性可以配置简约的按钮，样式依然由 `type` 控制
 
-::: demo
+::: demo 基本使用
 
-<template #source>
-<f-button type="default">默认按钮</f-button>
-<f-button type="primary">主要按钮</f-button>
-<f-button type="success">成功按钮</f-button>
-<f-button type="danger">危险按钮</f-button>
-<f-button type="warning">警告按钮</f-button>
+```vue
+<template>
+  <f-button type="default">默认按钮</f-button>
+  <f-button type="primary">主要按钮</f-button>
+  <f-button type="success">成功按钮</f-button>
+  <f-button type="danger">危险按钮</f-button>
+  <f-button type="warning">警告按钮</f-button>
 
-<br />
-
-<f-button simple type="default">默认按钮</f-button>
-<f-button simple type="primary">主要按钮</f-button>
-<f-button simple type="success">成功按钮</f-button>
-<f-button simple type="danger">危险按钮</f-button>
-<f-button simple type="warning">警告按钮</f-button>
-
+  <f-button simple type="default">默认按钮</f-button>
+  <f-button simple type="primary">主要按钮</f-button>
+  <f-button simple type="success">成功按钮</f-button>
+  <f-button simple type="danger">危险按钮</f-button>
+  <f-button simple type="warning">警告按钮</f-button>
 </template>
-
-```html
-<f-button type="default">默认按钮</f-button>
-<f-button type="primary">主要按钮</f-button>
-<f-button type="success">成功按钮</f-button>
-<f-button type="danger">危险按钮</f-button>
-<f-button type="warning">警告按钮</f-button>
-
-<f-button simple type="default">默认按钮</f-button>
-<f-button simple type="primary">主要按钮</f-button>
-<f-button simple type="success">成功按钮</f-button>
-<f-button simple type="danger">危险按钮</f-button>
-<f-button simple type="warning">警告按钮</f-button>
 ```
 
 :::
@@ -50,36 +35,22 @@
 
 `round` 属性可以将按钮变成圆角风格的按钮
 
-::: demo
+::: demo 圆角按钮
 
-<template #source>
-<f-button round type="default">默认按钮</f-button>
-<f-button round type="primary">主要按钮</f-button>
-<f-button round type="success">成功按钮</f-button>
-<f-button round type="danger">危险按钮</f-button>
-<f-button round type="warning">警告按钮</f-button>
+```vue
+<template>
+  <f-button round type="default">默认按钮</f-button>
+  <f-button round type="primary">主要按钮</f-button>
+  <f-button round type="success">成功按钮</f-button>
+  <f-button round type="danger">危险按钮</f-button>
+  <f-button round type="warning">警告按钮</f-button>
 
-<br />
-
-<f-button round simple type="default">默认按钮</f-button>
-<f-button round simple type="primary">主要按钮</f-button>
-<f-button round simple type="success">成功按钮</f-button>
-<f-button round simple type="danger">危险按钮</f-button>
-<f-button round simple type="warning">警告按钮</f-button>
+  <f-button round simple type="default">默认按钮</f-button>
+  <f-button round simple type="primary">主要按钮</f-button>
+  <f-button round simple type="success">成功按钮</f-button>
+  <f-button round simple type="danger">危险按钮</f-button>
+  <f-button round simple type="warning">警告按钮</f-button>
 </template>
-
-```html
-<f-button round type="default">默认按钮</f-button>
-<f-button round type="primary">主要按钮</f-button>
-<f-button round type="success">成功按钮</f-button>
-<f-button round type="danger">危险按钮</f-button>
-<f-button round type="warning">警告按钮</f-button>
-
-<f-button round simple type="default">默认按钮</f-button>
-<f-button round simple type="primary">主要按钮</f-button>
-<f-button round simple type="success">成功按钮</f-button>
-<f-button round simple type="danger">危险按钮</f-button>
-<f-button round simple type="warning">警告按钮</f-button>
 ```
 
 :::
@@ -88,20 +59,15 @@
 
 `circle` 属性可以将按钮变成圆形按钮
 
-::: demo
+::: demo 圆形按钮
 
-<template #source>
-<f-button circle type="primary">圆</f-button>
-<f-button circle type="success">形</f-button>
-<f-button circle type="danger">按</f-button>
-<f-button circle type="warning">钮</f-button>
+```vue
+<template>
+  <f-button circle type="primary">圆</f-button>
+  <f-button circle type="success">形</f-button>
+  <f-button circle type="danger">按</f-button>
+  <f-button circle type="warning">钮</f-button>
 </template>
-
-```html
-<f-button circle type="primary">圆</f-button>
-<f-button circle type="success">形</f-button>
-<f-button circle type="danger">按</f-button>
-<f-button circle type="warning">钮</f-button>
 ```
 
 :::
@@ -110,25 +76,20 @@
 
 `before-icon` 或者 `after-icon` 可配置内容前后的 icon，当然你也可以直接通过插槽插入
 
-::: demo
+::: demo 带有 Icon
 
-<template #source>
-<f-button circle :before-icon="FIconApps" type="primary" />
-<f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock">前后都有</f-button>
-</template>
-
-```html
+```vue
 <template>
   <f-button circle :before-icon="FIconApps" type="primary" />
   <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock"> 前后都有 </f-button>
 </template>
-
-<script setup lang="ts">
-  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
-</script>
 ```
 
 :::
+
+<!-- <script lang="ts" setup>
+  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
+</script> -->
 
 ## 禁用状态
 
@@ -136,36 +97,22 @@
 
 `loading` 属性可以将按钮变成 `loading` 状态
 
-::: demo
+::: demo 禁用状态
 
-<template #source>
-<f-button disabled type="default">默认按钮</f-button>
-<f-button disabled type="primary">主要按钮</f-button>
-<f-button disabled type="success">成功按钮</f-button>
-<f-button disabled type="danger">危险按钮</f-button>
-<f-button disabled type="warning">警告按钮</f-button>
+```vue
+<template>
+  <f-button disabled type="default">默认按钮</f-button>
+  <f-button disabled type="primary">主要按钮</f-button>
+  <f-button disabled type="success">成功按钮</f-button>
+  <f-button disabled type="danger">危险按钮</f-button>
+  <f-button disabled type="warning">警告按钮</f-button>
 
-<br />
-
-<f-button loading type="default">默认按钮</f-button>
-<f-button loading type="primary">主要按钮</f-button>
-<f-button loading type="success">成功按钮</f-button>
-<f-button loading type="danger">危险按钮</f-button>
-<f-button loading type="warning">警告按钮</f-button>
+  <f-button loading type="default">默认按钮</f-button>
+  <f-button loading type="primary">主要按钮</f-button>
+  <f-button loading type="success">成功按钮</f-button>
+  <f-button loading type="danger">危险按钮</f-button>
+  <f-button loading type="warning">警告按钮</f-button>
 </template>
-
-```html
-<f-button disabled type="default">默认按钮</f-button>
-<f-button disabled type="primary">主要按钮</f-button>
-<f-button disabled type="success">成功按钮</f-button>
-<f-button disabled type="danger">危险按钮</f-button>
-<f-button disabled type="warning">警告按钮</f-button>
-
-<f-button loading type="default">默认按钮</f-button>
-<f-button loading type="primary">主要按钮</f-button>
-<f-button loading type="success">成功按钮</f-button>
-<f-button loading type="danger">危险按钮</f-button>
-<f-button loading type="warning">警告按钮</f-button>
 ```
 
 :::
@@ -174,20 +121,15 @@
 
 `size` 属性可以配置不同尺寸的按钮
 
-::: demo
+::: demo 不同尺寸
 
-<template #source>
-<f-button size="large" type="primary">大型按钮</f-button>
-<f-button size="middle" type="success">中型按钮</f-button>
-<f-button size="small" type="danger">小型按钮</f-button>
-<f-button size="mini" type="warning">迷你按钮</f-button>
+```vue
+<template>
+  <f-button size="large" type="primary">大型按钮</f-button>
+  <f-button size="middle" type="success">中型按钮</f-button>
+  <f-button size="small" type="danger">小型按钮</f-button>
+  <f-button size="mini" type="warning">迷你按钮</f-button>
 </template>
-
-```html
-<f-button size="large" type="primary">大型按钮</f-button>
-<f-button size="middle" type="success">中型按钮</f-button>
-<f-button size="small" type="danger">小型按钮</f-button>
-<f-button size="mini" type="warning">迷你按钮</f-button>
 ```
 
 :::
@@ -196,36 +138,22 @@
 
 `text` 属性可以将按钮设置成文字按钮
 
-::: demo
+::: demo 文字按钮
 
-<template #source>
-<f-button text type="default">默认按钮</f-button>
-<f-button text type="primary">主要按钮</f-button>
-<f-button text type="success">成功按钮</f-button>
-<f-button text type="danger">危险按钮</f-button>
-<f-button text type="warning">警告按钮</f-button>
+```vue
+<template>
+  <f-button text type="default">默认按钮</f-button>
+  <f-button text type="primary">主要按钮</f-button>
+  <f-button text type="success">成功按钮</f-button>
+  <f-button text type="danger">危险按钮</f-button>
+  <f-button text type="warning">警告按钮</f-button>
 
-<br />
-
-<f-button text round type="default">默认按钮</f-button>
-<f-button text round type="primary">主要按钮</f-button>
-<f-button text round type="success">成功按钮</f-button>
-<f-button text round type="danger">危险按钮</f-button>
-<f-button text round type="warning">警告按钮</f-button>
+  <f-button text round type="default">默认按钮</f-button>
+  <f-button text round type="primary">主要按钮</f-button>
+  <f-button text round type="success">成功按钮</f-button>
+  <f-button text round type="danger">危险按钮</f-button>
+  <f-button text round type="warning">警告按钮</f-button>
 </template>
-
-```html
-<f-button text type="default">默认按钮</f-button>
-<f-button text type="primary">主要按钮</f-button>
-<f-button text type="success">成功按钮</f-button>
-<f-button text type="danger">危险按钮</f-button>
-<f-button text type="warning">警告按钮</f-button>
-
-<f-button text round type="default">默认按钮</f-button>
-<f-button text round type="primary">主要按钮</f-button>
-<f-button text round type="success">成功按钮</f-button>
-<f-button text round type="danger">危险按钮</f-button>
-<f-button text round type="warning">警告按钮</f-button>
 ```
 
 :::
@@ -236,22 +164,16 @@
 
 或者也可以通过 [Neumorphism](https://neumorphism.io) 自己手动调节阴影样式
 
-::: demo
+::: demo 带有阴影
 
-<template #source>
-<f-button shadow="0 1px 10px 0 #f0f0f0" type="default">默认按钮</f-button>
-<f-button shadow="0 1px 10px 0 #2d5af1" type="primary">主要按钮</f-button>
-<f-button shadow="0 1px 10px 0 #52b35e" type="success">成功按钮</f-button>
-<f-button shadow="0 1px 10px 0 #ff0200" type="danger">危险按钮</f-button>
-<f-button shadow="0 1px 10px 0 #fcc202" type="warning">警告按钮</f-button>
+```vue
+<template>
+  <f-button shadow="0 1px 10px 0 #f0f0f0" type="default">默认按钮</f-button>
+  <f-button shadow="0 1px 10px 0 #2d5af1" type="primary">主要按钮</f-button>
+  <f-button shadow="0 1px 10px 0 #52b35e" type="success">成功按钮</f-button>
+  <f-button shadow="0 1px 10px 0 #ff0200" type="danger">危险按钮</f-button>
+  <f-button shadow="0 1px 10px 0 #fcc202" type="warning">警告按钮</f-button>
 </template>
-
-```html
-<f-button shadow="0 1px 10px 0 #f0f0f0" type="default">默认按钮</f-button>
-<f-button shadow="0 1px 10px 0 #2d5af1" type="primary">主要按钮</f-button>
-<f-button shadow="0 1px 10px 0 #52b35e" type="success">成功按钮</f-button>
-<f-button shadow="0 1px 10px 0 #ff0200" type="danger">危险按钮</f-button>
-<f-button shadow="0 1px 10px 0 #fcc202" type="warning">警告按钮</f-button>
 ```
 
 :::
@@ -260,22 +182,16 @@
 
 `ripples` 可以配置是否展示点击涟漪效果，也可以通过 `ripples-color` 自定义涟漪背景色
 
-::: demo
+::: demo 涟漪效果
 
-<template #source>
-<f-button type="primary">没有涟漪</f-button>
-<f-button type="success" ripples>涟漪效果</f-button>
-<f-button type="warning" ripples>点我试试</f-button>
-<f-button type="danger" ripples simple>看看我</f-button>
-<f-button type="success" text ripples ripples-color="green">自定义涟漪颜色</f-button>
+```vue
+<template>
+  <f-button type="primary">没有涟漪</f-button>
+  <f-button type="success" ripples>涟漪效果</f-button>
+  <f-button type="warning" ripples>点我试试</f-button>
+  <f-button type="danger" ripples simple>看看我</f-button>
+  <f-button type="success" text ripples ripples-color="green"> 自定义涟漪颜色 </f-button>
 </template>
-
-```html
-<f-button type="primary">没有涟漪</f-button>
-<f-button type="success" ripples>涟漪效果</f-button>
-<f-button type="warning" ripples>点我试试</f-button>
-<f-button type="danger" ripples simple>看看我</f-button>
-<f-button type="success" text ripples ripples-color="green"> 自定义涟漪颜色 </f-button>
 ```
 
 :::
@@ -286,37 +202,22 @@
 
 `vertical` 属性可以配置纵向排列的按钮组
 
-::: demo
+::: demo 按钮组
 
-<template #source>
-<f-button-group direction="horizontal">
-<f-button type="primary">左边的</f-button>
-<f-button type="primary">中间的</f-button>
-<f-button type="primary">右边的</f-button>
-</f-button-group>
+```vue
+<template>
+  <f-button-group direction="horizontal">
+    <f-button type="primary">左边的</f-button>
+    <f-button type="primary">中间的</f-button>
+    <f-button type="primary">右边的</f-button>
+  </f-button-group>
 
-<br />
-<br />
-
-<f-button-group direction="vertical">
-<f-button type="primary">上边的</f-button>
-<f-button type="primary">中间的</f-button>
-<f-button type="primary">下边的</f-button>
-</f-button-group>
+  <f-button-group direction="vertical">
+    <f-button type="primary">上边的</f-button>
+    <f-button type="primary">中间的</f-button>
+    <f-button type="primary">下边的</f-button>
+  </f-button-group>
 </template>
-
-```html
-<f-button-group direction="horizontal">
-  <f-button type="primary">左边的</f-button>
-  <f-button type="primary">中间的</f-button>
-  <f-button type="primary">右边的</f-button>
-</f-button-group>
-
-<f-button-group direction="vertical">
-  <f-button type="primary">上边的</f-button>
-  <f-button type="primary">中间的</f-button>
-  <f-button type="primary">下边的</f-button>
-</f-button-group>
 ```
 
 :::
@@ -327,16 +228,13 @@
 
 使用自定义颜色之后 `Fighting Design` 会自动推断 `hover` 和 `active` 的效果，那么需要使用 `font-color` 来自定义文字的颜色
 
-::: demo
+::: demo 自定义颜色
 
-<template #source>
-<f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
-<f-button font-color="#fff" color="#22c1c3" loading>loading</f-button>
+```vue
+<template>
+  <f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
+  <f-button font-color="#fff" color="#22c1c3" loading>loading</f-button>
 </template>
-
-```html
-<f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
-<f-button font-color="#fff" color="#22c1c3" loading>loading</f-button>
 ```
 
 :::
@@ -450,10 +348,10 @@ type ButtonClick = (evt: MouseEvent) => void
 </a>
 
 <script setup lang="ts">
-  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
+  // import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
 </script>
 
-<style scoped>
+<style>
   .f-button {
     margin: 5px;
   }
