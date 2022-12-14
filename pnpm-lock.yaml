@@ -63,7 +63,6 @@ importers:
     specifiers:
       '@mdit-vue/plugin-sfc': ^0.11.1
       '@vue/compiler-sfc': ^3.2.45
-      '@vueuse/core': ^9.1.1
       escape-html: ^1.0.3
       markdown-it: ^13.0.1
       markdown-it-container: ^3.0.0
@@ -72,7 +71,6 @@ importers:
     dependencies:
       '@mdit-vue/plugin-sfc': 0.11.1
       '@vue/compiler-sfc': 3.2.45
-      '@vueuse/core': 9.6.0_vue@3.2.45
       escape-html: 1.0.3
       prismjs: 1.29.0
       vitepress: 1.0.0-alpha.31_tbpndr44ulefs3hehwpi2mkf2y
