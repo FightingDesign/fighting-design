@@ -6,9 +6,8 @@ import {
   TemplateReplacePattern
 } from './patterns'
 import type { SFCTemplateCompileOptions } from '@vue/compiler-sfc'
-import type { DemoBlockPluginOptions } from '../types'
 
-export function stripScript(content: string, id: any) {
+export const stripScript = (content: string, id: string): string => {
   const result = content.match(ScriptSetupPattern)
   const source = result && result[0] ? result[0].trim() : ''
   if (source) {
@@ -22,13 +21,13 @@ export function stripScript(content: string, id: any) {
   return source
 }
 
-export function stripStyle(content: string) {
+export const stripStyle = (content: string): string => {
   const result = content.match(StylePattern)
   return result && result[2] ? result[2].trim() : ''
 }
 
 // 编写例子时不一定有 template。所以采取的方案是剔除其他的内容
-export function stripTemplate(content: string) {
+export const stripTemplate = (content: string): string => {
   content = content.trim()
   if (!content) {
     return content
@@ -36,19 +35,18 @@ export function stripTemplate(content: string) {
   return content.replace(ScriptOrStyleReplacePattern, '').trim()
 }
 
-export function pad(source: string) {
+export const pad = (source: string): string => {
   return source
     .split(/\r?\n/)
     .map(line => `  ${line}`)
     .join('\n')
 }
 
-export function genInlineComponentText(
-  id: any,
+export const genInlineComponentText = (
+  id: number,
   template: string,
-  script: string,
-  options: DemoBlockPluginOptions
-) {
+  script: string
+): string => {
   let source = template
   if (TemplateReplacePattern.test(source)) {
     source = source.replace(TemplateReplacePattern, '$1')
@@ -83,7 +81,7 @@ export function genInlineComponentText(
   script = script.trim()
   if (script) {
     script = script
-      .replace(/export\s+default/, 'const democomponentExport =')
+      .replace(/export\s+default/, 'const demoComponentExport =')
       .replace(/import ({.*}) from 'vue'/g, (s, s1) => `const ${s1} = Vue`)
       .replace(
         /const ({ defineComponent as _defineComponent }) = Vue/g,
@@ -91,20 +89,20 @@ export function genInlineComponentText(
       )
 
     // 因为 vue 函数组件需要把 import 转换为 require，这里可附加一些其他的转换。
-    if (options?.scriptReplaces) {
-      for (const s of options.scriptReplaces) {
-        script = script.replace(s.searchValue, s.replaceValue as any)
-      }
-    }
+    // if (options?.scriptReplaces) {
+    //   for (const s of options.scriptReplaces) {
+    //     script = script.replace(s.searchValue, s.replaceValue as any)
+    //   }
+    // }
   } else {
-    script = 'const democomponentExport = {}'
+    script = 'const demoComponentExport = {}'
   }
   demoComponentContent = `(function() {
     ${demoComponentContent}
     ${script}
     return {
       render,
-      ...democomponentExport
+      ...demoComponentExport
     }
   })()`
   return demoComponentContent

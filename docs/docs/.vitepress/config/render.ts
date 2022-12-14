@@ -1,10 +1,8 @@
 import { stripScript, stripStyle, stripTemplate, genInlineComponentText } from './utils'
-import os from 'os'
-import type { DemoBlockPluginOptions } from '../types'
 
 let seed = 0
 
-const render = (content: string, options: DemoBlockPluginOptions) => {
+const render = (content: string) => {
   if (!content) {
     return
   }
@@ -27,7 +25,7 @@ const render = (content: string, options: DemoBlockPluginOptions) => {
     const script = stripScript(commentContent, `render-demo-${id}-script`)
     const style = stripStyle(commentContent)
     seed = seed + 1
-    const demoComponentContent = genInlineComponentText(seed, html, script, options) // 示例组件代码内容
+    const demoComponentContent = genInlineComponentText(seed, html, script) // 示例组件代码内容
     const demoComponentName = `render-demo-${id}` // 示例代码组件名称
     templateArr.push(`<${demoComponentName} />` as never)
     styleArr.push(style as never)
@@ -44,7 +42,6 @@ const render = (content: string, options: DemoBlockPluginOptions) => {
   if (componentsString) {
     pageScript = `<script lang="ts">
       import * as Vue from 'vue'
-      ${options?.scriptImports?.join(os.EOL)}
       const { defineComponent } = Vue
       export default defineComponent({
         name: 'component-doc',

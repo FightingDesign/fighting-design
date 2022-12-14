@@ -1,10 +1,9 @@
 import type MarkdownIt from 'markdown-it'
-import type { DemoBlockPluginOptions } from '../types/index'
 import type Token from 'markdown-it/lib/token'
 import type Renderer from 'markdown-it/lib/renderer'
 
-export const pluginCode = (md: MarkdownIt, options: DemoBlockPluginOptions) => {
-  const lang = options?.lang || 'vue'
+export const pluginCode = (md: MarkdownIt): void => {
+  const lang = 'vue'
   const defaultRender = md.renderer.rules.fence
   md.renderer.rules.fence = (
     tokens: Token[],
@@ -12,7 +11,7 @@ export const pluginCode = (md: MarkdownIt, options: DemoBlockPluginOptions) => {
     options: MarkdownIt.Options,
     env: any,
     self: Renderer
-  ) => {
+  ): string => {
     const token = tokens[idx]
     // 判断该 fence 是否在 :::demo 内
     const prevToken = tokens[idx - 1]
