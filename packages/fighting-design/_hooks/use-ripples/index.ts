@@ -1,17 +1,20 @@
+import { computed } from 'vue'
 import type { RipplesOptions, UseRipplesReturn, RipplesEvt } from './interface'
 
 export * from './interface.d'
 
-export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesOptions): UseRipplesReturn => {
+export const useRipples = (evt: MouseEvent, node: HTMLButtonElement, options: RipplesOptions): UseRipplesReturn => {
   /**
    * 计算涟漪颜色
    *
    * 如果设置了 ripplesColor 则直接返回
+   * 
    * 在 simple 和 text 模式下，根据 type 返回颜色
+   * 
    * 否则返回默认白色
-   * @return { String }
    */
-  const computedRipplesColor = (): string => {
+  const ripplesColor = computed((): string => {
+
     if (options.ripplesColor) {
       return options.ripplesColor
     }
@@ -26,6 +29,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
 
     /**
      * 如果是按钮组件
+     *
      * 如果 simple, text 存在其中一个，那么就返回指定的色号，否则返回空字符串
      */
     if (options.component === 'f-button') {
@@ -36,7 +40,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
 
     // 如果不是按钮组件，则可以直接返回指定色号
     return COLOR_LIST[options.type]
-  }
+  })
 
   /**
    * 删除涟漪节点
@@ -63,7 +67,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
     const ripples: HTMLSpanElement = document.createElement('span') as HTMLSpanElement
 
     ripples.className = options.className
-    ripples.style.background = computedRipplesColor()
+    ripples.style.background = ripplesColor.value
     ripples.style.left = `${x}px`
 
     // 只有在按钮组件的时候，才作用 y 轴的坐标

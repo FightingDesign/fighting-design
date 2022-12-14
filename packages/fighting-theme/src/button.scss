@@ -14,7 +14,6 @@
   cursor: pointer;
   white-space: nowrap;
   vertical-align: middle;
-  overflow: hidden;
   transition: var(--f-design-transition-time);
   border-radius: var(--f-design-border-radius-1);
   background: var(--f-design-color-default-1);
@@ -65,6 +64,27 @@
         &:not([disabled]):active {
           background: var(--f-design-color-default-3);
         }
+      }
+
+      // 扩散效果
+      &.f-button__spread::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        border-radius: inherit;
+        transition: 0.3s;
+        box-shadow: 0 0 0 4px map-get($item, default);
+      }
+
+      &:not([disabled]):active::after {
+        box-shadow: none;
+        opacity: 1;
+        transition: 0s;
       }
     }
   }

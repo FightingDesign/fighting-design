@@ -1,28 +1,15 @@
+<script lang="ts" setup></script>
+
 <template>
-  <f-tag type="primary" size="large">大标签</f-tag>
-  <f-tag type="primary" size="middle">中等标签</f-tag>
-  <f-tag type="primary" size="small">小标签</f-tag>
-  <f-tag type="primary" size="mini">超小标签</f-tag>
+  <!-- <f-button type="success" ripples>涟漪效果</f-button> -->
+  <!-- <f-button type="success">涟漪效果</f-button> -->
+  <f-space spacing="large">
+    <f-button spread type="default">默认按钮</f-button>
+    <f-button spread type="primary">主要按钮</f-button>
+    <f-button spread type="success">成功按钮</f-button>
+    <f-button spread type="danger">危险按钮</f-button>
+    <f-button spread type="warning">警告按钮</f-button>
+  </f-space>
 </template>
 
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const checkAll = ref(false)
-  const indeterminate = ref(false)
-  const checkedOptions = ref<string[]>([])
-  const optionList = ref(['红buff', '蓝buff', '大龙', '小龙'])
-
-  const onCheckboxChange = (e: boolean): void => {
-    checkedOptions.value = e ? optionList.value : []
-    indeterminate.value = false
-  }
-
-  const onGroupChange = (val: string[]): void => {
-    const halfStatus = !!(val.length && val.length < optionList.value.length)
-    if (val.length === optionList.value.length) {
-      checkAll.value = true
-    }
-    indeterminate.value = halfStatus
-  }
-</script>
+<style lang="scss" scoped></style>

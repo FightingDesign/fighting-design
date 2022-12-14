@@ -25,6 +25,13 @@ export const Props = {
     default: (): boolean => false
   },
   /**
+   * 是否带有扩散效果
+   */
+  spread: {
+    type: Boolean,
+    default: (): boolean => false
+  },
+  /**
    * 文字大小
    */
   fontSize: {
