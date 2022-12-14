@@ -13,8 +13,10 @@
 
 ::: demo
 
-```html
-<f-back-top>返回顶部</f-back-top>
+```vue
+<template>
+  <f-back-top>返回顶部</f-back-top>
+</template>
 ```
 
 :::
@@ -28,9 +30,11 @@
 
 ::: demo
 
-```html
-<f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top>
-<f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
+```vue
+<template>
+  <f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top>
+  <f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
+</template>
 ```
 
 :::
@@ -45,10 +49,12 @@
 
 ::: demo
 
-```html
-<f-back-top bottom="190px" round>
-  <f-svg-icon :icon="FIconSnowflake" />
-</f-back-top>
+```vue
+<template>
+  <f-back-top bottom="190px" round>
+    <f-svg-icon :icon="FIconSnowflake" />
+  </f-back-top>
+</template>
 
 <script lang="ts" setup>
   import { FIconSnowflake, FIconUpload } from '@fighting-design/fighting-icon'
@@ -67,10 +73,12 @@
 
 ::: demo
 
-```html
-<f-back-top bottom="190px" right="100px" round color="red">
-  <f-svg-icon :icon="FIconUpload" />
-</f-back-top>
+```vue
+<template>
+  <f-back-top bottom="190px" right="100px" round color="red">
+    <f-svg-icon :icon="FIconUpload" />
+  </f-back-top>
+</template>
 
 <script lang="ts" setup>
   import { FIconUpload } from '@fighting-design/fighting-icon'
@@ -87,14 +95,7 @@
 
 ::: demo
 
-<template #source>
-
-<div class="f-box">
-<p v-for="i in 20">这是一段文字{{ i + 1 }}</p>
-</div>
-</template>
-
-```html
+```vue
 <template>
   <div class="f-box">
     <p v-for="i in 20">这是一段文字{{ i + 1 }}</p>
@@ -158,10 +159,6 @@ type BackTopBehavior = 'smooth' | 'auto'
 <a href="https://github.com/XiaoLi-sach" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/55753927?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { FIconSnowflake, FIconUpload } from '@fighting-design/fighting-icon'
-</script>
 
 <style scoped>
   .f-box {

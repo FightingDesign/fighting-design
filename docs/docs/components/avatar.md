@@ -13,14 +13,13 @@
 
 ::: demo
 
-<template #source>
-<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+```vue
+<template>
+  <f-space>
+    <f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
+    <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+  </f-space>
 </template>
-
-```html
-<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
 ```
 
 :::
@@ -35,38 +34,16 @@
 
 ::: demo
 
-<template #source>
-<f-space spacing="mini">
-
-<div class="avatar-block">
-<code>fill</code>
-<f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
-</div>
-<div class="avatar-block">
-<code>contain</code>
-<f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
-</div>
-<div class="avatar-block">
-<code>cover</code>
-<f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
-</div>
-<div class="avatar-block">
-<code>none</code>
-<f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
-</div>
-<div class="avatar-block">
-<code>scale-down</code>
-<f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
-</div>
-</f-space>
+```vue
+<template>
+  <f-space>
+    <f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+    <f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+    <f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+    <f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+    <f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  </f-space>
 </template>
-
-```html
-<f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
 ```
 
 :::
@@ -77,20 +54,16 @@
 
 ::: demo
 
-<template #source>
-<f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
+```vue
+<template>
+  <f-space>
+    <f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
+    <f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
+    <f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
+    <f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
+    <f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
+  </f-space>
 </template>
-
-```html
-<f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
 ```
 
 :::
@@ -105,15 +78,12 @@
 
 ::: demo
 
-<template #source>
-<f-avatar :icon="FIconFaceSmile" background="skyblue" :font-size="30" />
-<f-avatar :icon="FIconBug" background="orange" font-color="#fff" :font-size="30" />
-</template>
-
-```html
+```vue
 <template>
-  <f-avatar :icon="FIconFaceSmile" :font-size="30" background="skyblue" />
-  <f-avatar background="orange" font-color="#fff" :icon="FIconBug" :font-size="30" />
+  <f-space>
+    <f-avatar :icon="FIconFaceSmile" :font-size="30" background="skyblue" />
+    <f-avatar background="orange" font-color="#fff" :icon="FIconBug" :font-size="30" />
+  </f-space>
 </template>
 
 <script lang="ts" setup>
@@ -129,16 +99,10 @@
 
 ::: demo
 
-<template #source>
-<f-avatar width="200px" lazy src="https://tianyuhao.cn/images/auto/5.jpg" />
+```vue
+<template>
+  <f-avatar width="200px" lazy src="https://tianyuhao.cn/images/auto/5.jpg" />
 </template>
-
-```html
-<f-avatar
-  width="200px"
-  lazy
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a72738a7113.png"
-/>
 ```
 
 :::
@@ -151,28 +115,20 @@
 
 ::: demo
 
-<template #source>
-<f-space>
-<f-avatar src="https://123.cn/images/auto/my.jpg" />
-<f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
-<f-avatar src="https://123.cn/images/auto/my.jpg">
-<template v-slot:error>
-<f-text type="danger" bold>失败了</f-text>
+```vue
+<template>
+  <f-space>
+    <f-avatar src="https://123.cn/images/auto/my.jpg" />
+
+    <f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
+
+    <f-avatar src="https://123.cn/images/auto/my.jpg">
+      <template v-slot:error>
+        <f-text type="danger" bold>失败了</f-text>
+      </template>
+    </f-avatar>
+  </f-space>
 </template>
-</f-avatar>
-</f-space>
-</template>
-
-```html
-<f-avatar src="https://123.cn/images/auto/my.jpg" />
-
-<f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
-
-<f-avatar src="https://123.cn/images/auto/my.jpg">
-  <template v-slot:error>
-    <f-text type="danger" bold>失败了</f-text>
-  </template>
-</f-avatar>
 ```
 
 :::
@@ -223,20 +179,3 @@ type AvatarFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
-</script>
-
-<style scoped>
-  .f-avatar,
-  .f-avatar-error {
-    margin: 5px;
-  }
-
-  .avatar-block {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-</style>
