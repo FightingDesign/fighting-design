@@ -19,6 +19,17 @@ let firstClick = true
  */
 export const useRipples = (evt: MouseEvent, node: HTMLButtonElement, options: RipplesOptions): UseRipplesReturn => {
 
+  /**
+   * 防止涟漪效果溢出
+   * 
+   * 给按钮组件单独添加一个容器
+   * 
+   * 因为按钮组件还有 spread 的扩散效果
+   * 
+   * 所以不能直接在元素上设置 overflow: hidden
+   * 
+   * 才使用这个方法来限制
+   */
   if (options.component === 'f-button' && firstClick) {
     const box: HTMLDivElement = document.createElement('div')
     box.className = 'f-button__ripples-box'
