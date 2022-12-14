@@ -1,23 +1,20 @@
 import { compileTemplate, compileScript, parse } from '@vue/compiler-sfc'
-import {
-  ScriptOrStyleReplacePattern,
-  ScriptSetupPattern,
-  StylePattern,
-  TemplateReplacePattern
-} from './patterns'
+import { ScriptOrStyleReplacePattern, ScriptSetupPattern, StylePattern, TemplateReplacePattern } from './patterns'
 import type { SFCTemplateCompileOptions } from '@vue/compiler-sfc'
 
 export const stripScript = (content: string, id: string): string => {
-  const result = content.match(ScriptSetupPattern)
-  const source = result && result[0] ? result[0].trim() : ''
+  const result: RegExpMatchArray | null = content.match(ScriptSetupPattern)
+  const source: string = result && result[0] ? result[0].trim() : ''
   if (source) {
     const { descriptor } = parse(source)
     const { content: scriptContent } = compileScript(descriptor, {
       refSugar: true,
       id
     })
+
     return scriptContent
   }
+
   return source
 }
 
@@ -26,20 +23,16 @@ export const stripStyle = (content: string): string => {
   return result && result[2] ? result[2].trim() : ''
 }
 
-// 编写例子时不一定有 template。所以采取的方案是剔除其他的内容
+/**
+ * 编写例子时不一定有 template，所以采取的方案是剔除其他的内容
+ * 
+ * @see trim https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+ * @param content 模板内容字符串
+ * @returns 
+ */
 export const stripTemplate = (content: string): string => {
   content = content.trim()
-  if (!content) {
-    return content
-  }
-  return content.replace(ScriptOrStyleReplacePattern, '').trim()
-}
-
-export const pad = (source: string): string => {
-  return source
-    .split(/\r?\n/)
-    .map(line => `  ${line}`)
-    .join('\n')
+  return content ? content.replace(ScriptOrStyleReplacePattern, '').trim() : content
 }
 
 export const genInlineComponentText = (
@@ -60,25 +53,13 @@ export const genInlineComponentText = (
     }
   }
   const compiled = compileTemplate(finalOptions as SFCTemplateCompileOptions)
-  // tips
-  if (compiled.tips && compiled.tips.length) {
-    compiled.tips.forEach(tip => {
-      console.warn(tip)
-    })
-  }
-  // errors
-  if (compiled.errors && compiled.errors.length) {
-    console.error(
-      `\n  Error compiling template:\n${pad(compiled.source)}\n` +
-      compiled.errors.map(e => `  - ${e}`).join('\n') +
-      '\n'
-    )
-  }
+
   let demoComponentContent = `
     ${compiled.code.replace('return function render', 'function render')}
   `
   // todo: 这里采用了硬编码有待改进
   script = script.trim()
+
   if (script) {
     script = script
       .replace(/export\s+default/, 'const demoComponentExport =')
@@ -87,13 +68,23 @@ export const genInlineComponentText = (
         /const ({ defineComponent as _defineComponent }) = Vue/g,
         'const { defineComponent: _defineComponent } = Vue'
       )
+    // .replace(
+    //   /import ({.*}) from '@fighting-design\/fighting-icon'/g,
+    //   (s, s1) => `const ${s1} = @fighting-design/fighting-icon`
+    // )
 
-    // 因为 vue 函数组件需要把 import 转换为 require，这里可附加一些其他的转换。
-    // if (options?.scriptReplaces) {
-    //   for (const s of options.scriptReplaces) {
-    //     script = script.replace(s.searchValue, s.replaceValue as any)
-    //   }
-    // }
+    const scriptReplaces = [{
+      searchValue: /import ({.*}) from '@fighting-design\/fighting-icon'/g,
+      replaceValue: (s, s1) => `const ${s1} = FightingIcon`
+    }]
+
+    if (scriptReplaces && scriptReplaces.length) {
+      for (const s of scriptReplaces) {
+        script = script.replace(s.searchValue, s.replaceValue as any)
+      }
+    }
+
+    //  { searchValue: /import ({.*}) from 'element-plus'/g,
   } else {
     script = 'const demoComponentExport = {}'
   }
@@ -105,5 +96,6 @@ export const genInlineComponentText = (
       ...demoComponentExport
     }
   })()`
+
   return demoComponentContent
 }

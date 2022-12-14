@@ -15,17 +15,19 @@
 
 ```vue
 <template>
-  <f-button type="default">默认按钮</f-button>
-  <f-button type="primary">主要按钮</f-button>
-  <f-button type="success">成功按钮</f-button>
-  <f-button type="danger">危险按钮</f-button>
-  <f-button type="warning">警告按钮</f-button>
+  <f-space>
+    <f-button type="default">默认按钮</f-button>
+    <f-button type="primary">主要按钮</f-button>
+    <f-button type="success">成功按钮</f-button>
+    <f-button type="danger">危险按钮</f-button>
+    <f-button type="warning">警告按钮</f-button>
 
-  <f-button simple type="default">默认按钮</f-button>
-  <f-button simple type="primary">主要按钮</f-button>
-  <f-button simple type="success">成功按钮</f-button>
-  <f-button simple type="danger">危险按钮</f-button>
-  <f-button simple type="warning">警告按钮</f-button>
+    <f-button simple type="default">默认按钮</f-button>
+    <f-button simple type="primary">主要按钮</f-button>
+    <f-button simple type="success">成功按钮</f-button>
+    <f-button simple type="danger">危险按钮</f-button>
+    <f-button simple type="warning">警告按钮</f-button>
+  </f-space>
 </template>
 ```
 
@@ -39,17 +41,19 @@
 
 ```vue
 <template>
-  <f-button round type="default">默认按钮</f-button>
-  <f-button round type="primary">主要按钮</f-button>
-  <f-button round type="success">成功按钮</f-button>
-  <f-button round type="danger">危险按钮</f-button>
-  <f-button round type="warning">警告按钮</f-button>
+  <f-space>
+    <f-button round type="default">默认按钮</f-button>
+    <f-button round type="primary">主要按钮</f-button>
+    <f-button round type="success">成功按钮</f-button>
+    <f-button round type="danger">危险按钮</f-button>
+    <f-button round type="warning">警告按钮</f-button>
 
-  <f-button round simple type="default">默认按钮</f-button>
-  <f-button round simple type="primary">主要按钮</f-button>
-  <f-button round simple type="success">成功按钮</f-button>
-  <f-button round simple type="danger">危险按钮</f-button>
-  <f-button round simple type="warning">警告按钮</f-button>
+    <f-button round simple type="default">默认按钮</f-button>
+    <f-button round simple type="primary">主要按钮</f-button>
+    <f-button round simple type="success">成功按钮</f-button>
+    <f-button round simple type="danger">危险按钮</f-button>
+    <f-button round simple type="warning">警告按钮</f-button>
+  </f-space>
 </template>
 ```
 
@@ -63,10 +67,12 @@
 
 ```vue
 <template>
-  <f-button circle type="primary">圆</f-button>
-  <f-button circle type="success">形</f-button>
-  <f-button circle type="danger">按</f-button>
-  <f-button circle type="warning">钮</f-button>
+  <f-space>
+    <f-button circle type="primary">圆</f-button>
+    <f-button circle type="success">形</f-button>
+    <f-button circle type="danger">按</f-button>
+    <f-button circle type="warning">钮</f-button>
+  </f-space>
 </template>
 ```
 
@@ -80,16 +86,18 @@
 
 ```vue
 <template>
-  <f-button circle :before-icon="FIconApps" type="primary" />
-  <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock"> 前后都有 </f-button>
+  <f-space>
+    <f-button circle :before-icon="FIconApps" type="primary" />
+    <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock"> 前后都有 </f-button>
+  </f-space>
 </template>
+
+<script lang="ts" setup>
+  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
-
-<!-- <script lang="ts" setup>
-  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
-</script> -->
 
 ## 禁用状态
 
@@ -101,17 +109,19 @@
 
 ```vue
 <template>
-  <f-button disabled type="default">默认按钮</f-button>
-  <f-button disabled type="primary">主要按钮</f-button>
-  <f-button disabled type="success">成功按钮</f-button>
-  <f-button disabled type="danger">危险按钮</f-button>
-  <f-button disabled type="warning">警告按钮</f-button>
+  <f-space>
+    <f-button disabled type="default">默认按钮</f-button>
+    <f-button disabled type="primary">主要按钮</f-button>
+    <f-button disabled type="success">成功按钮</f-button>
+    <f-button disabled type="danger">危险按钮</f-button>
+    <f-button disabled type="warning">警告按钮</f-button>
 
-  <f-button loading type="default">默认按钮</f-button>
-  <f-button loading type="primary">主要按钮</f-button>
-  <f-button loading type="success">成功按钮</f-button>
-  <f-button loading type="danger">危险按钮</f-button>
-  <f-button loading type="warning">警告按钮</f-button>
+    <f-button loading type="default">默认按钮</f-button>
+    <f-button loading type="primary">主要按钮</f-button>
+    <f-button loading type="success">成功按钮</f-button>
+    <f-button loading type="danger">危险按钮</f-button>
+    <f-button loading type="warning">警告按钮</f-button>
+  </f-space>
 </template>
 ```
 
@@ -125,10 +135,12 @@
 
 ```vue
 <template>
-  <f-button size="large" type="primary">大型按钮</f-button>
-  <f-button size="middle" type="success">中型按钮</f-button>
-  <f-button size="small" type="danger">小型按钮</f-button>
-  <f-button size="mini" type="warning">迷你按钮</f-button>
+  <f-space>
+    <f-button size="large" type="primary">大型按钮</f-button>
+    <f-button size="middle" type="success">中型按钮</f-button>
+    <f-button size="small" type="danger">小型按钮</f-button>
+    <f-button size="mini" type="warning">迷你按钮</f-button>
+  </f-space>
 </template>
 ```
 
@@ -142,17 +154,19 @@
 
 ```vue
 <template>
-  <f-button text type="default">默认按钮</f-button>
-  <f-button text type="primary">主要按钮</f-button>
-  <f-button text type="success">成功按钮</f-button>
-  <f-button text type="danger">危险按钮</f-button>
-  <f-button text type="warning">警告按钮</f-button>
+  <f-space>
+    <f-button text type="default">默认按钮</f-button>
+    <f-button text type="primary">主要按钮</f-button>
+    <f-button text type="success">成功按钮</f-button>
+    <f-button text type="danger">危险按钮</f-button>
+    <f-button text type="warning">警告按钮</f-button>
 
-  <f-button text round type="default">默认按钮</f-button>
-  <f-button text round type="primary">主要按钮</f-button>
-  <f-button text round type="success">成功按钮</f-button>
-  <f-button text round type="danger">危险按钮</f-button>
-  <f-button text round type="warning">警告按钮</f-button>
+    <f-button text round type="default">默认按钮</f-button>
+    <f-button text round type="primary">主要按钮</f-button>
+    <f-button text round type="success">成功按钮</f-button>
+    <f-button text round type="danger">危险按钮</f-button>
+    <f-button text round type="warning">警告按钮</f-button>
+  </f-space>
 </template>
 ```
 
@@ -168,11 +182,13 @@
 
 ```vue
 <template>
-  <f-button shadow="0 1px 10px 0 #f0f0f0" type="default">默认按钮</f-button>
-  <f-button shadow="0 1px 10px 0 #2d5af1" type="primary">主要按钮</f-button>
-  <f-button shadow="0 1px 10px 0 #52b35e" type="success">成功按钮</f-button>
-  <f-button shadow="0 1px 10px 0 #ff0200" type="danger">危险按钮</f-button>
-  <f-button shadow="0 1px 10px 0 #fcc202" type="warning">警告按钮</f-button>
+  <f-space>
+    <f-button shadow="0 1px 10px 0 #f0f0f0" type="default">默认按钮</f-button>
+    <f-button shadow="0 1px 10px 0 #2d5af1" type="primary">主要按钮</f-button>
+    <f-button shadow="0 1px 10px 0 #52b35e" type="success">成功按钮</f-button>
+    <f-button shadow="0 1px 10px 0 #ff0200" type="danger">危险按钮</f-button>
+    <f-button shadow="0 1px 10px 0 #fcc202" type="warning">警告按钮</f-button>
+  </f-space>
 </template>
 ```
 
@@ -186,11 +202,13 @@
 
 ```vue
 <template>
-  <f-button type="primary">没有涟漪</f-button>
-  <f-button type="success" ripples>涟漪效果</f-button>
-  <f-button type="warning" ripples>点我试试</f-button>
-  <f-button type="danger" ripples simple>看看我</f-button>
-  <f-button type="success" text ripples ripples-color="green"> 自定义涟漪颜色 </f-button>
+  <f-space>
+    <f-button type="primary">没有涟漪</f-button>
+    <f-button type="success" ripples>涟漪效果</f-button>
+    <f-button type="warning" ripples>点我试试</f-button>
+    <f-button type="danger" ripples simple>看看我</f-button>
+    <f-button type="success" text ripples ripples-color="green"> 自定义涟漪颜色 </f-button>
+  </f-space>
 </template>
 ```
 
@@ -206,17 +224,19 @@
 
 ```vue
 <template>
-  <f-button-group direction="horizontal">
-    <f-button type="primary">左边的</f-button>
-    <f-button type="primary">中间的</f-button>
-    <f-button type="primary">右边的</f-button>
-  </f-button-group>
+  <f-space>
+    <f-button-group direction="horizontal">
+      <f-button type="primary">左边的</f-button>
+      <f-button type="primary">中间的</f-button>
+      <f-button type="primary">右边的</f-button>
+    </f-button-group>
 
-  <f-button-group direction="vertical">
-    <f-button type="primary">上边的</f-button>
-    <f-button type="primary">中间的</f-button>
-    <f-button type="primary">下边的</f-button>
-  </f-button-group>
+    <f-button-group direction="vertical">
+      <f-button type="primary">上边的</f-button>
+      <f-button type="primary">中间的</f-button>
+      <f-button type="primary">下边的</f-button>
+    </f-button-group>
+  </f-space>
 </template>
 ```
 
@@ -232,8 +252,10 @@
 
 ```vue
 <template>
-  <f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
-  <f-button font-color="#fff" color="#22c1c3" loading>loading</f-button>
+  <f-space>
+    <f-button font-color="#fff" color="#ff0de5" round>自定义颜色</f-button>
+    <f-button font-color="#fff" color="#22c1c3" loading>loading</f-button>
+  </f-space>
 </template>
 ```
 
@@ -346,17 +368,3 @@ type ButtonClick = (evt: MouseEvent) => void
 <a href="https://github.com/long-life233" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/77321887?v=4" />
 </a>
-
-<script setup lang="ts">
-  // import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
-</script>
-
-<style>
-  .f-button {
-    margin: 5px;
-  }
-  .f-button-group-vertical .f-button,
-  .f-button-group .f-button {
-    margin: 0;
-  }
-</style>
