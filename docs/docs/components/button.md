@@ -280,6 +280,29 @@
 
 :::
 
+## 扩散效果
+
+`spread` 可以配置是否展示点击扩散效果
+
+::: demo
+
+<template #source>
+<f-button spread type="primary">主要按钮</f-button>
+<f-button spread type="success">成功按钮</f-button>
+<f-button spread type="danger">危险按钮</f-button>
+<f-button spread type="warning">警告按钮</f-button>
+</template>
+
+```html
+<f-button spread type="default">默认按钮</f-button>
+<f-button spread type="primary">主要按钮</f-button>
+<f-button spread type="success">成功按钮</f-button>
+<f-button spread type="danger">危险按钮</f-button>
+<f-button spread type="warning">警告按钮</f-button>
+```
+
+:::
+
 ## 按钮组
 
 使用 `f-button-group` 组件包裹按钮组件可以实现按钮组效果
@@ -349,6 +372,7 @@
 | `size`          | 按钮尺寸                                                                                                                                                                                                      | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                  | middle   |
 | `bold`          | 按钮文字是否加粗                                                                                                                                                                                              | boolean                                                            | ——                                               | false    |
 | `circle`        | 是否为圆形按钮                                                                                                                                                                                                | boolean                                                            | ——                                               | false    |
+| `spread`        | 是否启用点击扩散效果                                                                                                                                                                                          | boolean                                                            | ——                                               | false    |
 | `round`         | 是否为圆角按钮                                                                                                                                                                                                | boolean                                                            | ——                                               | false    |
 | `font-size`     | 文字字体大小                                                                                                                                                                                                  | string / number                                                    | ——                                               | 15px     |
 | `font-color`    | 文字字体颜色                                                                                                                                                                                                  | string                                                             | ——                                               | ——       |

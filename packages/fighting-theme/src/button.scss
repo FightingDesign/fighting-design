@@ -146,17 +146,27 @@
     }
   }
 
-  // 涟漪效果
-  &__ripples {
-    width: 2px;
-    height: 2px;
+  // 涟漪容器
+  &__ripples-box {
     position: absolute;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    border-radius: 50%;
-    animation: f-button-ripples 0.7s linear;
-    opacity: 0.5;
-    background: var(--f-design-color-text-2);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    // 涟漪效果
+    .f-button__ripples {
+      width: 2px;
+      height: 2px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border-radius: 50%;
+      animation: f-button-ripples 0.7s linear;
+      opacity: 0.5;
+      background: var(--f-design-color-text-2);
+    }
   }
 
   // 涟漪动画效果

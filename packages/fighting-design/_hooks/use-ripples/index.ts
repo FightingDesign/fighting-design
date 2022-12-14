@@ -3,7 +3,22 @@ import type { RipplesOptions, UseRipplesReturn, RipplesEvt } from './interface'
 
 export * from './interface.d'
 
+/**
+ * 是否为第一次点击
+ * 
+ * 控制只创建一次容器盒子
+ */
+let firstClick = true
+
 export const useRipples = (evt: MouseEvent, node: HTMLButtonElement, options: RipplesOptions): UseRipplesReturn => {
+
+  if (options.component === 'f-button' && firstClick) {
+    const box: HTMLDivElement = document.createElement('div')
+    box.className = 'f-button__ripples-box'
+    node.appendChild(box)
+    firstClick = false
+  }
+
   /**
    * 计算涟漪颜色
    *
@@ -96,7 +111,10 @@ export const useRipples = (evt: MouseEvent, node: HTMLButtonElement, options: Ri
 
     const ripples: HTMLSpanElement = renderElement(layerX, layerY)
 
-    node.appendChild(ripples)
+    options.component === 'f-button'
+      ? (node.querySelector('.f-button__ripples-box') as HTMLDivElement).appendChild(ripples)
+      : node.appendChild(ripples)
+
     removeElement(ripples)
   }
 
