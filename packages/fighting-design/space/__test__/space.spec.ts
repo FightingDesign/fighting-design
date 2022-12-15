@@ -18,12 +18,12 @@ describe('FSpace', () => {
     expect(wrapper.classes()).toContain('f-space__vertical')
   })
 
-  test('wrap', () => {
+  test('nowrap', () => {
     const wrapper = mount(FSpace, {
-      props: { wrap: true },
+      props: { nowrap: true },
       slots: { default: '123' }
     })
-    expect(wrapper.classes()).toContain('f-space__wrap')
+    expect(wrapper.classes()).toContain('f-space__nowrap')
   })
 
   test('spacing', () => {
