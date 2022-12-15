@@ -3,6 +3,7 @@
 .f-space {
   display: inline-flex;
   flex-wrap: wrap;
+  align-items: center;
   column-gap: var(--f-space-column-gap, 10px);
   row-gap: var(--f-space-row-gap, 10px);
 
