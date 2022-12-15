@@ -14,11 +14,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-button type="primary" @click="show1 = true">打开</f-button>
-  <f-image-preview v-model:visible="show1" :img-list="listImg" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -31,6 +26,11 @@
     'https://tianyuhao.cn/images/auto/4.jpg'
   ]
 </script>
+
+<template>
+  <f-button type="primary" @click="show1 = true">打开</f-button>
+  <f-image-preview v-model:visible="show1" :img-list="listImg" />
+</template>
 ```
 
 :::
@@ -42,11 +42,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-button type="primary" @click="show2 = true">打开</f-button>
-  <f-image-preview v-model:visible="show2" :is-option="false" :img-list="listImg" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -59,6 +54,11 @@
     'https://tianyuhao.cn/images/auto/4.jpg'
   ]
 </script>
+
+<template>
+  <f-button type="primary" @click="show2 = true">打开</f-button>
+  <f-image-preview v-model:visible="show2" :is-option="false" :img-list="listImg" />
+</template>
 ```
 
 :::

@@ -12,15 +12,15 @@
 ::: demo
 
 ```vue
-<template>
-  <f-input v-model="value1" type="text" placeholder="请输入...." />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value1 = ref('')
+  const value = ref('')
 </script>
+
+<template>
+  <f-input v-model="value" type="text" placeholder="请输入...." />
+</template>
 ```
 
 :::
@@ -32,18 +32,20 @@
 ::: demo
 
 ```vue
-<template>
-  <f-input v-model="value2" type="text" size="large" />
-  <f-input v-model="value2" type="text" size="middle" />
-  <f-input v-model="value2" type="text" size="small" />
-  <f-input v-model="value2" type="text" size="mini" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value2 = ref('不同尺寸的')
+  const value = ref('不同尺寸的')
 </script>
+
+<template>
+  <f-space vertical>
+    <f-input v-model="value" type="text" size="large" />
+    <f-input v-model="value" type="text" size="middle" />
+    <f-input v-model="value" type="text" size="small" />
+    <f-input v-model="value" type="text" size="mini" />
+  </f-space>
+</template>
 ```
 
 :::
@@ -55,15 +57,15 @@
 ::: demo
 
 ```vue
-<template>
-  <f-input v-model="value3" type="text" search placeholder="请输入...." />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value3 = ref('')
+  const value = ref('')
 </script>
+
+<template>
+  <f-input v-model="value" type="text" search placeholder="请输入...." />
+</template>
 ```
 
 :::
@@ -75,15 +77,15 @@
 ::: demo
 
 ```vue
-<template>
-  <f-input v-model="value4" type="text" placeholder="请输入...." />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value4 = ref('')
+  const value = ref('')
 </script>
+
+<template>
+  <f-input v-model="value" type="text" placeholder="请输入...." />
+</template>
 ```
 
 :::
@@ -95,15 +97,15 @@
 ::: demo
 
 ```vue
-<template>
-  <f-input v-model="value5" type="password" show-password />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value5 = ref('123456')
+  const value = ref('123456')
 </script>
+
+<template>
+  <f-input v-model="value" type="password" show-password />
+</template>
 ```
 
 :::
@@ -115,16 +117,16 @@
 ::: demo
 
 ```vue
-<template>
-  <f-input v-model="value6" type="text" :icon="FIconCloud" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
   import { FIconCloud } from '@fighting-design/fighting-icon'
 
-  const value6 = ref('')
+  const value = ref('')
 </script>
+
+<template>
+  <f-input v-model="value" type="text" :icon="FIconCloud" />
+</template>
 ```
 
 :::
@@ -136,15 +138,15 @@
 ::: demo
 
 ```vue
-<template>
-  <f-input v-model="value7" type="text" clear />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value7 = ref('可清空的')
+  const value = ref('可清空的')
 </script>
+
+<template>
+  <f-input v-model="value" type="text" clear />
+</template>
 ```
 
 :::
@@ -156,16 +158,18 @@
 ::: demo
 
 ```vue
-<template>
-  <f-input v-model="value8" type="text" readonly />
-  <f-input v-model="value8" type="text" disabled />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value8 = ref('点我试试吧')
+  const value = ref('点我试试吧')
 </script>
+
+<template>
+  <f-space vertical>
+    <f-input v-model="value" type="text" readonly />
+    <f-input v-model="value" type="text" disabled />
+  </f-space>
+</template>
 ```
 
 :::
