@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.11.2 (2022-12-15)
+
 **新增**
 
 - 新增 `f-button` 组件 `spread` 配置项

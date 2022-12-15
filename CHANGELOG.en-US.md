@@ -4,6 +4,25 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.11.2 (2022-12-15)
+
+**New**
+
+- Add `f-button` component `spread` configuration item
+
+**Repair**
+
+- Fix the warning error of  `f-image-preview`
+- Fix `f-button` component style details
+- Fix `f-tag` component style details
+- Fix `f-space` component style details
+
+**Other changes**
+
+- `f-space` component cancels `wrap` configuration item
+- `f-space` component adds `nowrap` configuration item
+- `f-space` component `row-gap` `column-gap` configuration item supports `number` type
+
 ## 0.11.1 (2022-12-13)
 
 - Fix the failure of `f-tag` component `size` [issues#309](https://github.com/FightingDesign/fighting-design/issues/309)
