@@ -12,7 +12,7 @@ export default (): UserConfigExport => {
     },
     resolve: {
       alias: {
-        '@': resolve(__dirname, '../packages/fighting-design') // 使用 @ 访问 src 目录
+        'fighting-design': resolve(__dirname, '../packages/fighting-design/index.ts')
       }
     }
   }

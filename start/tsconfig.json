@@ -10,14 +10,27 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "paths": {
-      "@/*": ["../packages/fighting-design/*"]
+      "fighting-design": [
+        "../packages/fighting-design/index.ts"
+      ]
     },
     "skipLibCheck": true,
-    "types": ["node"]
+    "types": [
+      "node"
+    ]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/global.d.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/global.d.ts"
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"
