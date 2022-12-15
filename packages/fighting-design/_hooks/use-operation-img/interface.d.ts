@@ -17,10 +17,10 @@ import type { Ref } from 'vue'
 export interface UseOperationImgReturn {
   scale: Ref<number>
   rotate: Ref<number>
-  smaller(): void
-  bigger(): void
+  smaller: () => void
+  bigger: () => void
   scrollZoom(evt: WheelEvent): void
-  recovery(): void
-  rotateClockwise(): void
-  rotateCounterClock(): void
+  recovery: () => void
+  rotateClockwise: () => void
+  rotateCounterClock: () => void
 }

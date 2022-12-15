@@ -11,30 +11,21 @@
 
 ::: demo
 
-<template #source>
-<f-select v-model="value1" placeholder="请选择……">
-<f-option :value="1">香蕉</f-option>
-<f-option :value="2">苹果</f-option>
-<f-option :value="3">哈密瓜</f-option>
-<f-option :value="4">樱桃</f-option>
-</f-select>
-</template>
+```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-```html
+  const value = ref('')
+</script>
+
 <template>
-  <f-select v-model="value1" placeholder="请选择……">
+  <f-select v-model="value" placeholder="请选择……">
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
     <f-option :value="4">樱桃</f-option>
   </f-select>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const value1 = ref('')
-</script>
 ```
 
 :::
@@ -47,30 +38,21 @@
 
 ::: demo
 
-<template #source>
-<f-select v-model="value2" placeholder="请选择……">
-<f-option label="香蕉" :value="1"></f-option>
-<f-option :value="2">苹果</f-option>
-<f-option :value="3"></f-option>
-<f-option label="樱桃">樱桃</f-option>
-</f-select>
-</template>
+```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-```html
+  const value = ref('')
+</script>
+
 <template>
-  <f-select v-model="value2" placeholder="请选择……">
+  <f-select v-model="value" placeholder="请选择……">
     <f-option label="香蕉" :value="1"></f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3"></f-option>
     <f-option label="樱桃">樱桃</f-option>
   </f-select>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const value2 = ref('')
-</script>
 ```
 
 :::
@@ -81,44 +63,28 @@
 
 ::: demo
 
-<template #source>
-<f-select v-model="value3" placeholder="请选择……" disabled>
-<f-option :value="1">香蕉</f-option>
-<f-option :value="2">苹果</f-option>
-<f-option :value="3">哈密瓜</f-option>
-<f-option :value="4">樱桃</f-option>
-</f-select>
+```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-<f-select v-model="value3" placeholder="请选择……" style="margin-left: 30px">
-<f-option :value="1">香蕉</f-option>
-<f-option :value="2" disabled>苹果</f-option>
-<f-option :value="3">哈密瓜</f-option>
-<f-option :value="4">樱桃</f-option>
-</f-select>
-</template>
+  const value = ref('')
+</script>
 
-```html
 <template>
-  <f-select v-model="value3" placeholder="请选择……" disabled>
+  <f-select v-model="value" placeholder="请选择……" disabled>
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2">苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
     <f-option :value="4">樱桃</f-option>
   </f-select>
 
-  <f-select v-model="value3" placeholder="请选择……" style="margin-left: 30px">
+  <f-select v-model="value" placeholder="请选择……" style="margin-left: 30px">
     <f-option :value="1">香蕉</f-option>
     <f-option :value="2" disabled>苹果</f-option>
     <f-option :value="3">哈密瓜</f-option>
     <f-option :value="4">樱桃</f-option>
   </f-select>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const value3 = ref('')
-</script>
 ```
 
 :::
@@ -173,11 +139,3 @@ type SelectModelValue = string | number | boolean
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const value1 = ref('')
-  const value2 = ref('')
-  const value3 = ref('')
-</script>

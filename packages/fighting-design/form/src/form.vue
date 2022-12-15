@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FForm">
   import { Props } from './props'
 
-  const prop = defineProps(Props)
+  defineProps(Props)
 </script>
 
 <template>

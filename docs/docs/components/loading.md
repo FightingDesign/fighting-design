@@ -15,17 +15,7 @@
 
 ::: demo
 
-<template #source>
-<f-switch v-model="loading">切换加载状态</f-switch>
-<f-table v-loading="loading" :data="data" :columns="columns" />
-</template>
-
-```html
-<template>
-  <f-switch v-model="loading">切换加载状态</f-switch>
-  <f-table v-loading="loading" :data="data" :columns="columns" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -69,6 +59,11 @@
     }
   ])
 </script>
+
+<template>
+  <f-switch v-model="loading">切换加载状态</f-switch>
+  <f-table v-loading="loading" :data="data" :columns="columns" />
+</template>
 ```
 
 :::
@@ -79,16 +74,14 @@
 
 ::: demo
 
-<template #source>
-<f-table v-loading="true" f-loading-text="加载中..." :data="data2" :columns="columns2" />
-</template>
-
-```html
+```vue
 <template>
   <f-table v-loading="true" f-loading-text="加载中..." :data="data" :columns="columns" />
 </template>
 
 <script lang="ts" setup>
+  import { ref } from 'vue'
+
   const columns = ref([
     {
       title: '姓名',
@@ -135,30 +128,61 @@
 
 同样，通过`自定义属性`还可设置`文字及加载图标颜色` `遮罩背景颜色`。
 
-<!-- `自定义图标`待支持... -->
-
 ::: demo
 
-<template #source>
-<f-table
+```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const columns = ref([
+    {
+      title: '姓名',
+      key: 'name'
+    },
+    {
+      title: '年龄',
+      key: 'age'
+    },
+    {
+      title: '介绍',
+      key: 'introduce'
+    }
+  ])
+
+  const data = ref([
+    {
+      name: '卡莉斯塔',
+      age: '22',
+      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
+    },
+    {
+      name: '艾希',
+      age: '16',
+      introduce: '拥有强大减速和控制能力的远程射手'
+    },
+    {
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
+    },
+    {
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
+    }
+  ])
+</script>
+
+<template>
+  <f-table
     v-loading="true"
     f-loading-text="请稍候..."
     f-loading-fontColor="#fff"
     f-loading-background="#0789c766"
-    :data="data2"
-    :columns="columns2"
+    :data="data"
+    :columns="columns"
   />
 </template>
-
-```html
-<f-table
-  v-loading="true"
-  f-loading-text="请稍候..."
-  f-loading-fontColor="#fff"
-  f-loading-background="#0789c766"
-  :data="data"
-  :columns="columns"
-/>
 ```
 
 :::
@@ -169,27 +193,58 @@
 
 ::: demo
 
-<template #source>
-<f-button @click="onShowLoading">show loading</f-button>
-<f-table
-    v-loading.fullscreen="fullLoading"
-    f-loading-text="请稍候..."
-    :data="data2"
-    :columns="columns2"
-  />
-</template>
-
-```html
-<script setup>
+```vue
+<script lang="ts" setup>
   import { ref } from 'vue'
+
   const fullLoading = ref(false)
+
   const onShowLoading = () => {
     fullLoading.value = true
     setTimeout(() => {
       fullLoading.value = false
     }, 2000)
   }
+
+  const columns = ref([
+    {
+      title: '姓名',
+      key: 'name'
+    },
+    {
+      title: '年龄',
+      key: 'age'
+    },
+    {
+      title: '介绍',
+      key: 'introduce'
+    }
+  ])
+
+  const data = ref([
+    {
+      name: '卡莉斯塔',
+      age: '22',
+      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
+    },
+    {
+      name: '艾希',
+      age: '16',
+      introduce: '拥有强大减速和控制能力的远程射手'
+    },
+    {
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
+    },
+    {
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
+    }
+  ])
 </script>
+
 <template>
   <f-button @click="onShowLoading">show loading</f-button>
   <f-table v-loading.fullscreen="fullLoading" f-loading-text="请稍候..." :data="data" :columns="columns" />
@@ -240,92 +295,3 @@ import type { LoadingInstance, LoadingProps } from 'fighting-design'
 <a href="https://github.com/LAINE001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/40457081?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const loading = ref(false)
-
-  const columns = ref([
-    {
-      title: '姓名',
-      key: 'name'
-    },
-    {
-      title: '年龄',
-      key: 'age'
-    },
-    {
-      title: '介绍',
-      key: 'introduce'
-    }
-  ])
-
-  const data = ref([
-    {
-      name: '卡莉斯塔',
-      age: '22',
-      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
-    },
-    {
-      name: '艾希',
-      age: '16',
-      introduce: '拥有强大减速和控制能力的远程射手'
-    },
-    {
-      name: '李青',
-      age: '34',
-      introduce: '非常优秀的打野英雄'
-    },
-    {
-      name: '贾克斯',
-      age: '109',
-      introduce: '取得优势的武器可以输出成吨的伤害'
-    }
-  ])
-
-  const fullLoading = ref(false)
-  const onShowLoading = () => {
-    fullLoading.value = true
-    setTimeout(() => {
-      fullLoading.value = false
-    }, 2000)
-  }
-  const columns2 = ref([
-    {
-      title: '姓名',
-      key: 'name'
-    },
-    {
-      title: '年龄',
-      key: 'age'
-    },
-    {
-      title: '介绍',
-      key: 'introduce'
-    }
-  ])
-
-  const data2 = ref([
-    {
-      name: '卡莉斯塔',
-      age: '22',
-      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
-    },
-    {
-      name: '艾希',
-      age: '16',
-      introduce: '拥有强大减速和控制能力的远程射手'
-    },
-    {
-      name: '李青',
-      age: '34',
-      introduce: '非常优秀的打野英雄'
-    },
-    {
-      name: '贾克斯',
-      age: '109',
-      introduce: '取得优势的武器可以输出成吨的伤害'
-    }
-  ])
-</script>

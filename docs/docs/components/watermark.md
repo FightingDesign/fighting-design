@@ -11,23 +11,9 @@
 
 ::: demo
 
-<template #source>
-<f-watermark content="机密文件" :height="100" :width="130">
-<f-card title="绝对机密">
-<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-text block>这是一个重要的文件</f-text>
-</f-card>
-</f-watermark>
-</template>
-
-```html
+```vue
 <template>
-  <f-watermark content="机密文件" :height="100" :width="130">
-    <f-card title="绝对机密">
-      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
-      <f-text block>这是一个重要的文件</f-text>
-    </f-card>
-  </f-watermark>
+  <f-watermark content="机密文件" :height="100" :width="130" />
 </template>
 
 <style scoped>
@@ -36,9 +22,6 @@
     justify-content: center;
     align-items: center;
     height: 500px;
-  }
-  .f-card {
-    width: 240px;
   }
 </style>
 ```
@@ -51,23 +34,9 @@
 
 ::: demo
 
-<template #source>
-<f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px">
-<f-card title="绝对机密">
-<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-text block>这是一个重要的文件</f-text>
-</f-card>
-</f-watermark>
-</template>
-
-```html
+```vue
 <template>
-  <f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px">
-    <f-card title="绝对机密">
-      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
-      <f-text block>这是一个重要的文件</f-text>
-    </f-card>
-  </f-watermark>
+  <f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px" />
 </template>
 
 <style scoped>
@@ -76,9 +45,6 @@
     justify-content: center;
     align-items: center;
     height: 500px;
-  }
-  .f-card {
-    width: 240px;
   }
 </style>
 ```
@@ -93,23 +59,9 @@
 
 ::: demo
 
-<template #source>
-<f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
-<f-card title="绝对机密">
-<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-text block>这是一个重要的文件</f-text>
-</f-card>
-</f-watermark>
-</template>
-
-```html
+```vue
 <template>
-  <f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
-    <f-card title="绝对机密">
-      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
-      <f-text block>这是一个重要的文件</f-text>
-    </f-card>
-  </f-watermark>
+  <f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" />
 </template>
 
 <style scoped>
@@ -118,9 +70,6 @@
     justify-content: center;
     align-items: center;
     height: 500px;
-  }
-  .f-card {
-    width: 240px;
   }
 </style>
 ```
@@ -160,14 +109,11 @@ import type { WatermarkInstance, WatermarkProps } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<style scoped>
+<style>
   .f-watermark {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 500px;
-  }
-  .f-card {
-    width: 240px;
   }
 </style>

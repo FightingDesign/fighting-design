@@ -15,14 +15,6 @@
 
 ::: demo
 
-<template #source>
-<f-space vertical>
-<f-input-number v-model="value1" />
-<f-input-number v-model="value1" model="switch" />
-<f-input-number v-model="value1" model="button" />
-</f-space>
-</template>
-
 ```html
 <template>
   <f-space vertical>
@@ -91,9 +83,3 @@ type InputNumberModel = 'default' | 'button' | 'switch'
 <a href="https://github.com/xluoyu" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const value1 = ref(3)
-</script>

@@ -11,20 +11,16 @@
 
 ::: demo
 
-<template #source>
-<f-rate v-model="value1" />
-</template>
-
-```html
-<template>
-  <f-rate v-model="value1" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value1 = ref(1)
+  const value = ref(1)
 </script>
+
+<template>
+  <f-rate v-model="value" />
+</template>
 ```
 
 :::
@@ -35,21 +31,16 @@
 
 ::: demo
 
-<template #source>
-
-<f-rate v-model="value2" effect-color="red" invalid-color="#eee" />
-</template>
-
-```html
-<template>
-  <f-rate v-model="value2" effect-color="red" invalid-color="#eee" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value2 = ref(2)
+  const value = ref(2)
 </script>
+
+<template>
+  <f-rate v-model="value" effect-color="red" invalid-color="#eee" />
+</template>
 ```
 
 :::
@@ -60,20 +51,16 @@
 
 ::: demo
 
-<template #source>
-<f-rate v-model="value3" text-show :text-arr="['1星', '2星', '3星', '4星', '5星']" />
-</template>
-
-```html
-<template>
-  <f-rate v-model="value3" text-show :text-arr="['1星', '2星', '3星', '4星', '5星']" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value3 = ref(4)
+  const value = ref(4)
 </script>
+
+<template>
+  <f-rate v-model="value" text-show :text-arr="['1星', '2星', '3星', '4星', '5星']" />
+</template>
 ```
 
 :::
@@ -84,21 +71,17 @@
 
 ::: demo
 
-<template #source>
-<f-rate v-model="value4" :icon="FIconKey" />
-</template>
-
-```html
-<template>
-  <f-rate v-model="value4" :icon="FIconKey" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { FIconKey } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
-  const value4 = ref(4)
+  const value = ref(4)
 </script>
+
+<template>
+  <f-rate v-model="value" :icon="FIconKey" />
+</template>
 ```
 
 :::
@@ -143,13 +126,3 @@ type RateChange = (value: number) => number
 <a href="https://github.com/caicailv" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/46363316?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { FIconKey } from '@fighting-design/fighting-icon'
-  import { ref } from 'vue'
-
-  const value1 = ref(2)
-  const value2 = ref(3)
-  const value3 = ref(4)
-  const value4 = ref(4)
-</script>

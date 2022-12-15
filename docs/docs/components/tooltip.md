@@ -11,43 +11,26 @@
 
 ::: demo
 
-<template #source>
+```vue
+<template>
+  <f-space spacing="large">
+    <f-tooltip content="上边的提示信息" position="top">
+      <f-tag type="primary">上边的</f-tag>
+    </f-tooltip>
 
-<div class="tooltip-box">
-  <f-tooltip content="上边的提示信息" position="top">
-    <f-tag type="primary">上边的</f-tag>
-  </f-tooltip>
+    <f-tooltip content="下边的提示信息" position="bottom">
+      <f-tag type="success">下边的</f-tag>
+    </f-tooltip>
 
-  <f-tooltip content="下边的提示信息" position="bottom">
-    <f-tag type="success">下边的</f-tag>
-  </f-tooltip>
+    <f-tooltip content="左边的提示信息" position="left">
+      <f-tag type="danger">左边的</f-tag>
+    </f-tooltip>
 
-  <f-tooltip content="左边的提示信息" position="left">
-    <f-tag type="danger">左边的</f-tag>
-  </f-tooltip>
-
-  <f-tooltip content="右边的提示信息" position="right">
-    <f-tag type="warning">右边的</f-tag>
-  </f-tooltip>
-</div>
+    <f-tooltip content="右边的提示信息" position="right">
+      <f-tag type="warning">右边的</f-tag>
+    </f-tooltip>
+  </f-space>
 </template>
-
-```html
-<f-tooltip content="上边的提示信息" position="top">
-  <f-tag type="primary">信息</f-tag>
-</f-tooltip>
-
-<f-tooltip content="下边的提示信息" position="bottom">
-  <f-tag type="success">信息</f-tag>
-</f-tooltip>
-
-<f-tooltip content="左边的提示信息" position="left">
-  <f-tag type="danger">信息</f-tag>
-</f-tooltip>
-
-<f-tooltip content="右边的提示信息" position="right">
-  <f-tag type="warning">信息</f-tag>
-</f-tooltip>
 ```
 
 :::
@@ -58,35 +41,22 @@
 
 ::: demo
 
-<template #source>
+```vue
+<template>
+  <f-space spacing="large">
+    <f-tooltip content="Hover 展示" position="top" state="hover">
+      <f-tag type="primary">Hover 展示</f-tag>
+    </f-tooltip>
 
-<div class="tooltip-box">
-  <f-tooltip content="Hover 展示" position="top" state="hover">
-    <f-tag type="primary">Hover 展示</f-tag>
-  </f-tooltip>
+    <f-tooltip content="Active 展示" position="top" state="active">
+      <f-tag type="success">Active 展示</f-tag>
+    </f-tooltip>
 
-  <f-tooltip content="Active 展示" position="top" state="active">
-    <f-tag type="success">Active 展示</f-tag>
-  </f-tooltip>
-
-  <f-tooltip content="Always 展示" position="top" state="always">
-    <f-tag type="warning">Always 展示</f-tag>
-  </f-tooltip>
-</div>
+    <f-tooltip content="Always 展示" position="top" state="always">
+      <f-tag type="warning">Always 展示</f-tag>
+    </f-tooltip>
+  </f-space>
 </template>
-
-```html
-<f-tooltip content="Hover 展示" position="top" state="hover">
-  <f-tag type="primary">Hover 展示</f-tag>
-</f-tooltip>
-
-<f-tooltip content="Active 展示" position="top" state="active">
-  <f-tag type="success">Active 展示</f-tag>
-</f-tooltip>
-
-<f-tooltip content="Always 展示" position="top" state="always">
-  <f-tag type="warning">Always 展示</f-tag>
-</f-tooltip>
 ```
 
 :::
@@ -97,27 +67,18 @@
 
 ::: demo
 
-<template #source>
+```vue
+<template>
+  <f-space spacing="large">
+    <f-tooltip content="有箭头的" position="top">
+      <f-tag type="primary">有箭头的</f-tag>
+    </f-tooltip>
 
-<div class="tooltip-box">
-  <f-tooltip content="有箭头的" position="top">
-    <f-tag type="primary">有箭头的</f-tag>
-  </f-tooltip>
-
-  <f-tooltip content="没有箭头" position="top" no-arrow>
-    <f-tag type="success">没有箭头</f-tag>
-  </f-tooltip>
-</div>
+    <f-tooltip content="没有箭头" position="top" no-arrow>
+      <f-tag type="success">没有箭头</f-tag>
+    </f-tooltip>
+  </f-space>
 </template>
-
-```html
-<f-tooltip content="Hover 展示" position="top">
-  <f-tag type="primary">有箭头的</f-tag>
-</f-tooltip>
-
-<f-tooltip no-arrow content="Hover 展示" position="top">
-  <f-tag type="success">没有箭头</f-tag>
-</f-tooltip>
 ```
 
 :::
@@ -167,11 +128,3 @@ type TooltipState = 'hover' | 'active' | 'always'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<style scoped>
-  .tooltip-box {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-  }
-</style>

@@ -11,12 +11,10 @@
 
 ::: demo
 
-<template #source>
-<f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
+```vue
+<template>
+  <f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
 </template>
-
-```html
-<f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
 ```
 
 :::
@@ -27,11 +25,7 @@
 
 ::: demo
 
-<template #source>
-<f-image :src="url" />
-</template>
-
-```html
+```vue
 <script lang="ts" setup>
   const url = new URL('./image/1.jpg', import.meta.url).href
 </script>
@@ -49,38 +43,14 @@
 
 ::: demo
 
-<template #source>
-<f-space spacing="large">
-
-<div class="image-block">
-<code>fill</code>
-<f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
-</div>
-<div class="image-block">
-<code>contain</code>
-<f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
-</div>
-<div class="image-block">
-<code>cover</code>
-<f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
-</div>
-<div class="image-block">
-<code>none</code>
-<f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
-</div>
-<div class="image-block">
-<code>scale-down</code>
-<f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
-</div>
-</f-space>
+```vue
+<template>
+  <f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
 </template>
-
-```html
-<f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
 ```
 
 :::
@@ -91,12 +61,10 @@
 
 ::: demo
 
-<template #source>
-<f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
+```vue
+<template>
+  <f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
 </template>
-
-```html
-<f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
 ```
 
 :::
@@ -107,13 +75,10 @@
 
 ::: demo
 
-<template #source>
-
-<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
+```vue
+<template>
+  <f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
 </template>
-
-```html
-<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
 ```
 
 :::
@@ -130,17 +95,13 @@
 
 ::: demo
 
-<template #source>
-<f-space spacing="large">
-<f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
-<f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
-</f-space>
-
+```vue
+<template>
+  <f-space spacing="large">
+    <f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
+    <f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
+  </f-space>
 </template>
-
-```html
-<f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
-<f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
 ```
 
 :::
@@ -191,20 +152,3 @@ type ImageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  import demo1Vue from './_demos/image/demo1.vue'
-  const url = new URL('./_image/1.jpg', import.meta.url).href
-</script>
-
-<style scoped>
-  .image-block {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  code {
-    margin-bottom: 6px;
-  }
-</style>

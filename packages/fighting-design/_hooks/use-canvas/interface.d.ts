@@ -16,5 +16,5 @@ export interface CreateWatermarkProps {
 }
 
 export interface UseCanvasReturn {
-  createWatermark(props: CreateWatermarkProps): string
+  createWatermark: (props: CreateWatermarkProps) => string
 }

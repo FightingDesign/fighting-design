@@ -11,11 +11,7 @@
 
 ::: demo
 
-<template #source>
-<f-calendar v-model:date="date" />
-</template>
-
-```html
+```vue
 <template>
   <f-calendar v-model:date="date" />
 </template>
@@ -33,11 +29,7 @@
 
 ::: demo
 
-<template #source>
-<f-calendar v-model:date="date" lunar />
-</template>
-
-```html
+```vue
 <template>
   <f-calendar v-model:date="date" lunar />
 </template>
@@ -55,11 +47,7 @@
 
 ::: demo
 
-<template #source>
-<f-calendar v-model:date="date" border />
-</template>
-
-```html
+```vue
 <template>
   <f-calendar v-model:date="date" border />
 </template>
@@ -77,11 +65,7 @@
 
 ::: demo
 
-<template #source>
-<f-calendar v-model:date="date" :show-header="false"/>
-</template>
-
-```html
+```vue
 <template>
   <f-calendar v-model:date="date" :show-header="false" />
 </template>
@@ -101,11 +85,7 @@
 
 ::: demo
 
-<template #source>
-<f-calendar v-model:date="date" border :memorandum="memorandumList" />
-</template>
-
-```html
+```vue
 <template>
   <f-calendar v-model:date="date" border :memorandum="memorandumList" />
 </template>
@@ -203,21 +183,3 @@ type CalendarMemorandum = Record<
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  const date = new Date()
-
-  const memorandumList = {
-    '2022-9-21': [
-      { type: 'danger', content: '今天要考试' },
-      { type: 'success', content: '今天要去露营' },
-      { type: 'danger', content: '晚上有饭局' },
-      { type: 'danger', content: '今天早点睡' }
-    ],
-    '2022-9-27': [
-      { type: 'default', content: '今天要考试' },
-      { type: 'danger', content: '今天要考试' },
-      { type: 'danger', content: '今天要考试' }
-    ]
-  }
-</script>

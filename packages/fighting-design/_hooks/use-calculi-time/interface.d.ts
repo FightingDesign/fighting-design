@@ -10,6 +10,6 @@ import type { GetLunarDetailReturn } from '../../_utils'
  */
 export interface UseCalculiTimeReturn {
   AllMonthDays: ComputedRef<GetLunarDetailReturn[]>
-  changeLastMonth(): void
-  changeNextMonth(): void
+  changeLastMonth: () => void
+  changeNextMonth: () => void
 }

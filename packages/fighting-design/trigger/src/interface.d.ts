@@ -11,5 +11,5 @@ export type TriggerTrigger = 'hover' | 'click'
  * @param handelClose 关闭方法
  */
 export interface TriggerProvide {
-  handelClose(): void
+  handelClose: () => void
 }

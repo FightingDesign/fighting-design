@@ -8,7 +8,7 @@
  * @param error 加载失败
  */
 export interface UseLoadingBarReturn {
-  start(): void
-  finish(): void
-  error(): void
+  start: () => void
+  finish: () => void
+  error: () => void
 }

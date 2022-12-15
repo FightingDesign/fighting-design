@@ -15,11 +15,7 @@
 
 ::: demo
 
-<template #source>
-<f-date-picker v-model:date="value1" />
-</template>
-
-```html
+```vue
 <template>
   <f-date-picker v-model:date="value1" />
 </template>
@@ -52,9 +48,3 @@ import type { DatePickerInstance, DatePickerProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const value1 = ref('')
-</script>

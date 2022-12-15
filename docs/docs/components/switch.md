@@ -11,24 +11,18 @@
 
 ::: demo
 
-<template #source>
-<f-switch v-model="value1" />
-<br />
-<f-switch v-model="value2" />
-</template>
-
-```html
-<template>
-  <f-switch v-model="value1" />
-  <f-switch v-model="value2" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const value1 = ref(true)
   const value2 = ref(false)
 </script>
+
+<template>
+  <f-switch v-model="value1" />
+  <f-switch v-model="value2" />
+</template>
 ```
 
 :::
@@ -39,26 +33,19 @@
 
 ::: demo
 
-<template #source>
-<f-switch v-model="value3" size="large" />
-<f-switch v-model="value3" size="middle" />
-<f-switch v-model="value3" size="small" />
-<f-switch v-model="value3" size="mini" />
-</template>
-
-```html
-<template>
-  <f-switch v-model="value3" size="large" />
-  <f-switch v-model="value3" size="middle" />
-  <f-switch v-model="value3" size="small" />
-  <f-switch v-model="value3" size="mini" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value3 = ref(true)
+  const value = ref(true)
 </script>
+
+<template>
+  <f-switch v-model="value" size="large" />
+  <f-switch v-model="value" size="middle" />
+  <f-switch v-model="value" size="small" />
+  <f-switch v-model="value" size="mini" />
+</template>
 ```
 
 :::
@@ -69,23 +56,18 @@
 
 ::: demo
 
-<template #source>
-<f-switch v-model="value4" disabled />
-<f-switch v-model="value5" disabled />
-</template>
-
-```html
-<template>
-  <f-switch v-model="value4" disabled />
-  <f-switch v-model="value5" disabled />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value4 = ref(true)
-  const value5 = ref(false)
+  const value1 = ref(true)
+  const value2 = ref(false)
 </script>
+
+<template>
+  <f-switch v-model="value1" disabled />
+  <f-switch v-model="value2" disabled />
+</template>
 ```
 
 :::
@@ -96,20 +78,16 @@
 
 ::: demo
 
-<template #source>
-<f-switch v-model="value6" square />
-</template>
-
-```html
-<template>
-  <f-switch v-model="value6" square />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value6 = ref(true)
+  const value = ref(true)
 </script>
+
+<template>
+  <f-switch v-model="value" square />
+</template>
 ```
 
 :::
@@ -120,20 +98,16 @@
 
 ::: demo
 
-<template #source>
-<f-switch v-model="value7" close-color="red" active-color="skyblue" />
-</template>
-
-```html
-<template>
-  <f-switch v-model="value7" close-color="red" active-color="skyblue" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value7 = ref(true)
+  const value = ref(true)
 </script>
+
+<template>
+  <f-switch v-model="value" close-color="red" active-color="skyblue" />
+</template>
 ```
 
 :::
@@ -144,20 +118,16 @@
 
 ::: demo
 
-<template #source>
-<f-switch v-model="value8" close-text="关闭" active-text="开启" />
-</template>
-
-```html
-<template>
-  <f-switch v-model="value8" close-text="关闭" active-text="开启" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value8 = ref(true)
+  const value = ref(true)
 </script>
+
+<template>
+  <f-switch v-model="value" close-text="关闭" active-text="开启" />
+</template>
 ```
 
 :::
@@ -168,21 +138,17 @@
 
 ::: demo
 
-<template #source>
-<f-switch v-model="value9" :icon="FIconSnowflake" />
-</template>
-
-```html
-<template>
-  <f-switch v-model="value9" :icon="FIconSnowflake" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { FIconSnowflake } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
-  const value9 = ref(true)
+  const value = ref(true)
 </script>
+
+<template>
+  <f-switch v-model="value" :icon="FIconSnowflake" />
+</template>
 ```
 
 :::
@@ -220,24 +186,3 @@ import type { SwitchInstance, SwitchProps } from 'fighting-design'
 <a href="https://github.com/pengyinghao" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/34115313?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { FIconSnowflake } from '@fighting-design/fighting-icon'
-
-  const value1 = ref(true)
-  const value2 = ref(false)
-  const value3 = ref(true)
-  const value4 = ref(true)
-  const value5 = ref(false)
-  const value6 = ref(true)
-  const value7 = ref(true)
-  const value8 = ref(true)
-  const value9 = ref(true)
-</script>
-
-<style scoped>
-  .f-switch {
-    margin: 5px;
-  }
-</style>

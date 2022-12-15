@@ -11,20 +11,16 @@
 
 ::: demo
 
-<template #source>
-<f-tag type="default">默认</f-tag>
-<f-tag type="primary">普通</f-tag>
-<f-tag type="warning">警告</f-tag>
-<f-tag type="success">成功</f-tag>
-<f-tag type="danger">失败</f-tag>
+```vue
+<template>
+  <f-space>
+    <f-tag type="default">默认</f-tag>
+    <f-tag type="primary">普通</f-tag>
+    <f-tag type="warning">警告</f-tag>
+    <f-tag type="success">成功</f-tag>
+    <f-tag type="danger">失败</f-tag>
+  </f-space>
 </template>
-
-```html
-<f-tag type="default">默认</f-tag>
-<f-tag type="primary">普通</f-tag>
-<f-tag type="warning">警告</f-tag>
-<f-tag type="success">成功</f-tag>
-<f-tag type="danger">失败</f-tag>
 ```
 
 :::
@@ -35,20 +31,16 @@
 
 ::: demo
 
-<template #source>
-<f-tag simple type="default">默认</f-tag>
-<f-tag simple type="primary">普通</f-tag>
-<f-tag simple type="warning">警告</f-tag>
-<f-tag simple type="success">成功</f-tag>
-<f-tag simple type="danger">失败</f-tag>
+```vue
+<template>
+  <f-space>
+    <f-tag simple type="default">默认</f-tag>
+    <f-tag simple type="primary">普通</f-tag>
+    <f-tag simple type="warning">警告</f-tag>
+    <f-tag simple type="success">成功</f-tag>
+    <f-tag simple type="danger">失败</f-tag>
+  </f-space>
 </template>
-
-```html
-<f-tag simple type="default">默认</f-tag>
-<f-tag simple type="primary">普通</f-tag>
-<f-tag simple type="warning">警告</f-tag>
-<f-tag simple type="success">成功</f-tag>
-<f-tag simple type="danger">失败</f-tag>
 ```
 
 :::
@@ -59,20 +51,16 @@
 
 ::: demo
 
-<template #source>
-<f-tag line type="default">默认</f-tag>
-<f-tag line type="primary">普通</f-tag>
-<f-tag line type="warning">警告</f-tag>
-<f-tag line type="success">成功</f-tag>
-<f-tag line type="danger">失败</f-tag>
+```vue
+<template>
+  <f-space>
+    <f-tag line type="default">默认</f-tag>
+    <f-tag line type="primary">普通</f-tag>
+    <f-tag line type="warning">警告</f-tag>
+    <f-tag line type="success">成功</f-tag>
+    <f-tag line type="danger">失败</f-tag>
+  </f-space>
 </template>
-
-```html
-<f-tag line type="default">默认</f-tag>
-<f-tag line type="primary">普通</f-tag>
-<f-tag line type="warning">警告</f-tag>
-<f-tag line type="success">成功</f-tag>
-<f-tag line type="danger">失败</f-tag>
 ```
 
 :::
@@ -83,13 +71,13 @@
 
 ::: demo
 
-<template #source>
-<f-tag background="skyblue">天蓝色</f-tag>
-<f-tag background="blue" color="#fff">深蓝色</f-tag>
+```vue
+<template>
+  <f-space>
+    <f-tag background="skyblue">天蓝色</f-tag>
+    <f-tag background="blue" color="#fff">深蓝色</f-tag>
+  </f-space>
 </template>
-
-```html
-<f-tag background="skyblue">天蓝色</f-tag> <f-tag background="blue" color="#fff">深蓝色</f-tag>
 ```
 
 :::
@@ -100,18 +88,15 @@
 
 ::: demo
 
-<template #source>
-<f-tag type="primary" size="large">大标签</f-tag>
-<f-tag type="primary" size="middle">中等标签</f-tag>
-<f-tag type="primary" size="small">小标签</f-tag>
-<f-tag type="primary" size="mini">超小标签</f-tag>
+```vue
+<template>
+  <f-space>
+    <f-tag type="primary" size="large">大标签</f-tag>
+    <f-tag type="primary" size="middle">中等标签</f-tag>
+    <f-tag type="primary" size="small">小标签</f-tag>
+    <f-tag type="primary" size="mini">超小标签</f-tag>
+  </f-space>
 </template>
-
-```html
-<f-tag type="primary" size="large">大标签</f-tag>
-<f-tag type="primary" size="middle">中等标签</f-tag>
-<f-tag type="primary" size="small">小标签</f-tag>
-<f-tag type="primary" size="mini">超小标签</f-tag>
 ```
 
 :::
@@ -122,20 +107,16 @@
 
 ::: demo
 
-<template #source>
-<f-tag block type="default">默认</f-tag>
-<f-tag block type="primary">普通</f-tag>
-<f-tag block type="warning">警告</f-tag>
-<f-tag block type="success">成功</f-tag>
-<f-tag block type="danger">失败</f-tag>
+```vue
+<template>
+  <f-space>
+    <f-tag block type="default">默认</f-tag>
+    <f-tag block type="primary">普通</f-tag>
+    <f-tag block type="warning">警告</f-tag>
+    <f-tag block type="success">成功</f-tag>
+    <f-tag block type="danger">失败</f-tag>
+  </f-space>
 </template>
-
-```html
-<f-tag block type="default">默认</f-tag>
-<f-tag block type="primary">普通</f-tag>
-<f-tag block type="warning">警告</f-tag>
-<f-tag block type="success">成功</f-tag>
-<f-tag block type="danger">失败</f-tag>
 ```
 
 :::
@@ -146,20 +127,16 @@
 
 ::: demo
 
-<template #source>
-<f-tag close type="default">默认</f-tag>
-<f-tag close type="primary">普通</f-tag>
-<f-tag close type="warning">警告</f-tag>
-<f-tag close type="success">成功</f-tag>
-<f-tag close type="danger">失败</f-tag>
+```vue
+<template>
+  <f-space>
+    <f-tag close type="default">默认</f-tag>
+    <f-tag close type="primary">普通</f-tag>
+    <f-tag close type="warning">警告</f-tag>
+    <f-tag close type="success">成功</f-tag>
+    <f-tag close type="danger">失败</f-tag>
+  </f-space>
 </template>
-
-```html
-<f-tag close type="default">默认</f-tag>
-<f-tag close type="primary">普通</f-tag>
-<f-tag close type="warning">警告</f-tag>
-<f-tag close type="success">成功</f-tag>
-<f-tag close type="danger">失败</f-tag>
 ```
 
 :::
@@ -204,9 +181,3 @@ import type { TagInstance, TagProps } from 'fighting-design'
 <a href="https://github.com/konvyi" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/44802220?v=4" />
 </a>
-
-<style scoped>
-  .f-tag {
-    margin: 5px;
-  }
-</style>

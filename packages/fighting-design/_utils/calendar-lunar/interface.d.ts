@@ -63,16 +63,16 @@ export interface GetLunarDetailReturn {
  * @param getLunarDetail 传入阳历年月日获得详细的信息
  */
 export interface LunarInterface {
-  getLunarYearDays(year: number): number
-  leapMonth(year: number): number
-  leapDays(year: number): number
-  monthDays(year: number, month: number): number
-  toGanZhiYear(lYear: number): string
-  toConstellation(cMonth: number, cDay: number): string
-  toGanZhi(offset: number): string
-  getTerm(year: number, n: number): number
-  toChinaMonth(month: number): string | -1
-  toChinaDay(day: number): string
-  getAnimal(year: number): string
-  getLunarDetail(yPara: number, mPara: number, dPara: number): -1 | GetLunarDetailReturnInterface
+  getLunarYearDays: (year: number) => number
+  leapMonth: (year: number) => number
+  leapDays: (year: number) => number
+  monthDays: (year: number, month: number) => number
+  toGanZhiYear: (lYear: number) => string
+  toConstellation: (cMonth: number, cDay: number) => string
+  toGanZhi: (offset: number) => string
+  getTerm: (year: number, n: number) => number
+  toChinaMonth: (month: number) => string | -1
+  toChinaDay: (day: number) => string
+  getAnimal: (year: number) => string
+  getLunarDetail: (yPara: number, mPara: number, dPara: number) => -1 | GetLunarDetailReturnInterface
 }

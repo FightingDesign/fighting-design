@@ -9,7 +9,8 @@ import App from './App.vue'
 // new VConsole()
 
 // 开发阶段引入
-import FightingDesign from '@/index'
+// import FightingDesign from '@/index'
+import FightingDesign from 'fighting-design'
 import '@fighting-design/fighting-theme'
 
 // 打包阶段引入

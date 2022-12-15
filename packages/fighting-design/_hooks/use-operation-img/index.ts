@@ -1,6 +1,5 @@
 import { ref } from 'vue'
 import { keepDecimal } from '../../_utils'
-import type { Ref } from 'vue'
 import type { UseOperationImgReturn } from './interface'
 
 export * from './interface.d'
@@ -14,11 +13,11 @@ export const useOperationImg = (): UseOperationImgReturn => {
   /**
    * 放大倍数
    */
-  const scale: Ref<number> = ref<number>(1)
+  const scale = ref<number>(1)
   /**
    * 旋转度数
    */
-  const rotate: Ref<number> = ref<number>(0)
+  const rotate = ref<number>(0)
 
   /**
    * 图片缩小
@@ -74,5 +73,5 @@ export const useOperationImg = (): UseOperationImgReturn => {
     recovery,
     rotateClockwise,
     rotateCounterClock
-  } as UseOperationImgReturn
+  }
 }

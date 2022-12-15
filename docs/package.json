@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "@fighting-design/docs",
   "private": true,
   "scripts": {
     "dev": "vitepress dev docs",
@@ -7,6 +7,10 @@
     "serve": "vitepress serve docs"
   },
   "dependencies": {
+    "@mdit-vue/plugin-sfc": "^0.11.1",
+    "@vue/compiler-sfc": "^3.2.45",
+    "escape-html": "^1.0.3",
+    "prismjs": "^1.29.0",
     "vitepress": "1.0.0-alpha.31"
   },
   "devDependencies": {

@@ -11,20 +11,16 @@
 
 ::: demo
 
-<template #source>
-<f-alert type="default">默认提示信息</f-alert>
-<f-alert type="primary">主要提示信息</f-alert>
-<f-alert type="success">成功提示信息</f-alert>
-<f-alert type="danger">危险提示信息</f-alert>
-<f-alert type="warning">警告提示信息</f-alert>
+```vue
+<template>
+  <f-space vertical>
+    <f-alert type="default">默认提示信息</f-alert>
+    <f-alert type="primary">主要提示信息</f-alert>
+    <f-alert type="success">成功提示信息</f-alert>
+    <f-alert type="danger">危险提示信息</f-alert>
+    <f-alert type="warning">警告提示信息</f-alert>
+  </f-space>
 </template>
-
-```html
-<f-alert type="default">默认提示信息</f-alert>
-<f-alert type="primary">主要提示信息</f-alert>
-<f-alert type="success">成功提示信息</f-alert>
-<f-alert type="danger">危险提示信息</f-alert>
-<f-alert type="warning">警告提示信息</f-alert>
 ```
 
 :::
@@ -37,20 +33,16 @@
 
 ::: demo
 
-<template #source>
-<f-alert font-size="12px" type="default">默认提示信息</f-alert>
-<f-alert font-size="14px" type="primary">主要提示信息</f-alert>
-<f-alert font-size="16px" type="success">成功提示信息</f-alert>
-<f-alert font-size="20px" type="danger">危险提示信息</f-alert>
-<f-alert font-size="24px" type="warning">警告提示信息</f-alert>
+```vue
+<template>
+  <f-space vertical>
+    <f-alert font-size="12px" type="default">默认提示信息</f-alert>
+    <f-alert font-size="14px" type="primary">主要提示信息</f-alert>
+    <f-alert font-size="16px" type="success">成功提示信息</f-alert>
+    <f-alert font-size="20px" type="danger">危险提示信息</f-alert>
+    <f-alert font-size="24px" type="warning">警告提示信息</f-alert>
+  </f-space>
 </template>
-
-```html
-<f-alert font-size="12px" type="default">默认提示信息</f-alert>
-<f-alert font-size="14px" type="primary">主要提示信息</f-alert>
-<f-alert font-size="16px" type="success">成功提示信息</f-alert>
-<f-alert font-size="20px" type="danger">危险提示信息</f-alert>
-<f-alert font-size="24px" type="warning">警告提示信息</f-alert>
 ```
 
 :::
@@ -61,18 +53,15 @@
 
 ::: demo
 
-<template #source>
-<f-alert type="default">未加粗的默认提示信息</f-alert>
-<f-alert type="primary" bold>加粗的主要提示信息</f-alert>
-<f-alert type="success" bold>加粗的成功提示信息</f-alert>
-<f-alert type="danger" bold>加粗的危险提示信息</f-alert>
+```vue
+<template>
+  <f-space vertical>
+    <f-alert type="default">未加粗的默认提示信息</f-alert>
+    <f-alert type="primary" bold>加粗的主要提示信息</f-alert>
+    <f-alert type="success" bold>加粗的成功提示信息</f-alert>
+    <f-alert type="danger" bold>加粗的危险提示信息</f-alert>
+  </f-space>
 </template>
-
-```html
-<f-alert type="default">未加粗的默认提示信息</f-alert>
-<f-alert type="primary" bold>加粗的主要提示信息</f-alert>
-<f-alert type="success" bold>加粗的成功提示信息</f-alert>
-<f-alert type="danger" bold>加粗的危险提示信息</f-alert>
 ```
 
 :::
@@ -83,18 +72,15 @@
 
 ::: demo
 
-<template #source>
-<f-alert type="default">未居中的默认提示信息</f-alert>
-<f-alert type="primary" center>居中的主要提示信息</f-alert>
-<f-alert type="success" center>居中的成功提示信息</f-alert>
-<f-alert type="danger" center>居中的危险提示信息</f-alert>
+```vue
+<template>
+  <f-space vertical>
+    <f-alert type="default">未居中的默认提示信息</f-alert>
+    <f-alert type="primary" center>居中的主要提示信息</f-alert>
+    <f-alert type="success" center>居中的成功提示信息</f-alert>
+    <f-alert type="danger" center>居中的危险提示信息</f-alert>
+  </f-space>
 </template>
-
-```html
-<f-alert type="default">未居中的默认提示信息</f-alert>
-<f-alert type="primary" center>居中的主要提示信息</f-alert>
-<f-alert type="success" center>居中的成功提示信息</f-alert>
-<f-alert type="danger" center>居中的危险提示信息</f-alert>
 ```
 
 :::
@@ -105,16 +91,14 @@
 
 ::: demo
 
-<template #source>
-<f-alert type="primary" close>主要提示信息</f-alert>
-<f-alert type="success" close>成功提示信息</f-alert>
-<f-alert type="danger" close>危险提示信息</f-alert>
+```vue
+<template>
+  <f-space vertical>
+    <f-alert type="primary" close>主要提示信息</f-alert>
+    <f-alert type="success" close>成功提示信息</f-alert>
+    <f-alert type="danger" close>危险提示信息</f-alert>
+  </f-space>
 </template>
-
-```html
-<f-alert type="primary" close>主要提示信息</f-alert>
-<f-alert type="success" close>成功提示信息</f-alert>
-<f-alert type="danger" close>危险提示信息</f-alert>
 ```
 
 :::
@@ -125,20 +109,16 @@
 
 ::: demo
 
-<template #source>
-<f-alert simple type="default">默认提示信息</f-alert>
-<f-alert simple type="primary">主要提示信息</f-alert>
-<f-alert simple type="success">成功提示信息</f-alert>
-<f-alert simple type="danger">危险提示信息</f-alert>
-<f-alert simple type="warning">警告提示信息</f-alert>
+```vue
+<template>
+  <f-space vertical>
+    <f-alert simple type="default">默认提示信息</f-alert>
+    <f-alert simple type="primary">主要提示信息</f-alert>
+    <f-alert simple type="success">成功提示信息</f-alert>
+    <f-alert simple type="danger">危险提示信息</f-alert>
+    <f-alert simple type="warning">警告提示信息</f-alert>
+  </f-space>
 </template>
-
-```html
-<f-alert simple type="default">默认提示信息</f-alert>
-<f-alert simple type="primary">主要提示信息</f-alert>
-<f-alert simple type="success">成功提示信息</f-alert>
-<f-alert simple type="danger">危险提示信息</f-alert>
-<f-alert simple type="warning">警告提示信息</f-alert>
 ```
 
 :::
@@ -149,16 +129,14 @@
 
 ::: demo
 
-<template #source>
-<f-alert type="primary" round>主要提示信息</f-alert>
-<f-alert type="success" round>成功提示信息</f-alert>
-<f-alert type="danger" round>危险提示信息</f-alert>
+```vue
+<template>
+  <f-space vertical>
+    <f-alert type="primary" round>主要提示信息</f-alert>
+    <f-alert type="success" round>成功提示信息</f-alert>
+    <f-alert type="danger" round>危险提示信息</f-alert>
+  </f-space>
 </template>
-
-```html
-<f-alert type="primary" round>主要提示信息</f-alert>
-<f-alert type="success" round>成功提示信息</f-alert>
-<f-alert type="danger" round>危险提示信息</f-alert>
 ```
 
 :::
@@ -169,16 +147,14 @@
 
 ::: demo
 
-<template #source>
-<f-alert type="primary" background="#58c8de">主要提示信息</f-alert>
-<f-alert type="success" background="#e372ff">成功提示信息</f-alert>
-<f-alert type="danger" background="#e49b33">危险提示信息</f-alert>
+```vue
+<template>
+  <f-space vertical>
+    <f-alert type="primary" background="#58c8de">主要提示信息</f-alert>
+    <f-alert type="success" background="#e372ff">成功提示信息</f-alert>
+    <f-alert type="danger" background="#e49b33">危险提示信息</f-alert>
+  </f-space>
 </template>
-
-```html
-<f-alert type="primary" background="#58c8de">主要提示信息</f-alert>
-<f-alert type="success" background="#e372ff">成功提示信息</f-alert>
-<f-alert type="danger" background="#e49b33">危险提示信息</f-alert>
 ```
 
 :::
@@ -189,14 +165,13 @@
 
 ::: demo
 
-<template #source>
-<f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert>
-<f-alert type="success" title="标题">心情很不错</f-alert>
+```vue
+<template>
+  <f-space vertical>
+    <f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert>
+    <f-alert type="success" title="标题">心情很不错</f-alert>
+  </f-space>
 </template>
-
-```html
-<f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert>
-<f-alert type="success" title="标题">心情很不错</f-alert>
 ```
 
 :::

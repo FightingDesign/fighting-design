@@ -5,6 +5,17 @@
       <slot name="source" />
     </div>
 
+<<<<<<< HEAD:docs/docs/.vitepress/theme/components/vp-demo/index.vue
+  const prop = defineProps({
+    source: {
+      type: String,
+      required: true
+    },
+    description: String
+  })
+
+  console.log(prop.source)
+=======
     <!-- 折叠的内容 -->
     <div ref="content" class="vp-demo__box">
       <slot />
@@ -18,6 +29,7 @@
     </div>
   </div>
 </template>
+>>>>>>> master:docs/docs/.vitepress/theme/components/vp-demo.vue
 
 <script setup lang="ts" name="VpDemo">
   import { ref } from 'vue'
@@ -48,8 +60,49 @@
       isOpen.value = false
     }
   }
+<<<<<<< HEAD:docs/docs/.vitepress/theme/components/vp-demo/index.vue
+
+  // const decoded = computed(() => {
+  //   return decodeURIComponent(prop.source)
+  // })
 </script>
 
+<template>
+  <div class="vp-demo">
+    <!-- 展示的内容 -->
+    <div class="vp-demo__source">
+      <p>{{ description }}</p>
+
+      <!-- <div v-html="source"></div> -->
+      <slot />
+    </div>
+
+    <!-- 折叠的内容 -->
+    <div ref="content" class="vp-demo__box">
+      <hr />
+      <div v-if="$slots.description" ref="description" class="description">
+        <slot name="description" />
+      </div>
+      <!-- <slot /> -->
+      <slot name="highlight" />
+    </div>
+
+    <!-- 点击展开 / 折叠的区域 -->
+    <div
+      :class="['vp-demo__option', { 'vp-demo__option-open': isOpen }]"
+      @click="handleClick"
+    >
+      <span class="vp-demo__option-text">
+        {{ isOpen ? '折叠代码' : '展开代码' }}
+      </span>
+    </div>
+  </div>
+</template>
+
+=======
+</script>
+
+>>>>>>> master:docs/docs/.vitepress/theme/components/vp-demo.vue
 <style lang="scss" scoped>
   .vp-demo {
     border: 1px solid #e5e5e5;

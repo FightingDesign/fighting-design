@@ -11,34 +11,23 @@
 
 ::: demo
 
-<template #source>
-<f-ripple v-for="(item, i) in typeList" :key="i" :type="item">
+```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-  <div class="list">
-    <f-text :type="item">{{ item }} 涟漪</f-text>
-  </div>
-</f-ripple>
-</template>
+  const typeList = ref(['default', 'primary', 'success', 'danger', 'warning'])
+</script>
 
-```html
 <template>
   <f-ripple v-for="(item, i) in typeList" :key="i" :type="item">
-    <div class="list">
+    <div class="f-ripple--list">
       <f-text :type="item">{{ item }} 涟漪</f-text>
     </div>
   </f-ripple>
 </template>
 
-<script lang="ts" setup>
-  import { ref } from 'vue'
-  import type { Ref } from 'vue'
-  import type { PopupDirectionType, RippleType } from 'fighting-design'
-
-  const typeList: Ref<RippleType[]> = ref<RippleType[]>(['default', 'primary', 'success', 'danger', 'warning'])
-</script>
-
 <style scoped>
-  .list {
+  .f-ripple--list {
     height: 60px;
     display: flex;
     justify-content: center;
@@ -55,50 +44,29 @@
 
 ::: demo
 
-<template #source>
-<f-ripple ripples-color="orange">
-
-  <div class="list">
-    <f-text color="orange">自定义涟漪颜色</f-text>
-  </div>
-</f-ripple>
-
-<f-ripple ripples-color="blue">
-  <div class="list">
-    <f-text color="blue">自定义涟漪颜色</f-text>
-  </div>
-</f-ripple>
-
-<f-ripple ripples-color="purple">
-  <div class="list">
-    <f-text color="purple">自定义涟漪颜色</f-text>
-  </div>
-</f-ripple>
-</template>
-
-```html
+```vue
 <template>
   <f-ripple ripples-color="orange">
-    <div class="list">
+    <div class="f-ripple--list">
       <f-text color="orange">自定义涟漪颜色</f-text>
     </div>
   </f-ripple>
 
   <f-ripple ripples-color="blue">
-    <div class="list">
+    <div class="f-ripple--list">
       <f-text color="blue">自定义涟漪颜色</f-text>
     </div>
   </f-ripple>
 
   <f-ripple ripples-color="purple">
-    <div class="list">
+    <div class="f-ripple--list">
       <f-text color="purple">自定义涟漪颜色</f-text>
     </div>
   </f-ripple>
 </template>
 
 <style scoped>
-  .list {
+  .f-ripple--list {
     height: 60px;
     display: flex;
     justify-content: center;
@@ -115,38 +83,23 @@
 
 ::: demo
 
-<template #source>
-<f-ripple type="primary" disabled>
-
-  <div class="list">
-    <f-text type="primary">禁止使用</f-text>
-  </div>
-</f-ripple>
-
-<f-ripple type="primary">
-  <div class="list">
-    <f-text type="primary">可以使用</f-text>
-  </div>
-</f-ripple>
-</template>
-
-```html
+```vue
 <template>
   <f-ripple type="primary" disabled>
-    <div class="list">
+    <div class="f-ripple--list">
       <f-text type="primary">禁止使用</f-text>
     </div>
   </f-ripple>
 
   <f-ripple type="primary">
-    <div class="list">
+    <div class="f-ripple--list">
       <f-text type="primary">可以使用</f-text>
     </div>
   </f-ripple>
 </template>
 
 <style scoped>
-  .list {
+  .f-ripple--list {
     height: 60px;
     display: flex;
     justify-content: center;
@@ -163,26 +116,17 @@
 
 ::: demo
 
-<template #source>
-<f-ripple type="primary" :start-opacity="0.7" :end-opacity="0.3">
-
-  <div class="list">
-    <f-text type="primary">自定义涟漪透明度</f-text>
-  </div>
-</f-ripple>
-</template>
-
-```html
+```vue
 <template>
   <f-ripple type="primary" :start-opacity="0.7" :end-opacity="0.3">
-    <div class="list">
+    <div class="f-ripple--list">
       <f-text type="primary">自定义涟漪透明度</f-text>
     </div>
   </f-ripple>
 </template>
 
 <style scoped>
-  .list {
+  .f-ripple--list {
     height: 60px;
     display: flex;
     justify-content: center;
@@ -224,12 +168,8 @@ import type { RippleInstance, RippleProps } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<script lang="ts" setup>
-  const typeList = ['default', 'primary', 'success', 'danger', 'warning']
-</script>
-
-<style scoped>
-  .list {
+<style>
+  .f-ripple--list {
     height: 60px;
     display: flex;
     justify-content: center;

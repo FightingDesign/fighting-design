@@ -23,13 +23,13 @@
      * 如果父组件有依赖注入则使用
      * 否则使用之身 props 参数
      */
-    get() {
+    get () {
       return (parentInject && parentInject.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set(val) {
+    set (val) {
       if (parentInject && !parentInject.disabled) {
         parentInject.changeEvent(val)
         return

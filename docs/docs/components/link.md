@@ -11,20 +11,16 @@
 
 ::: demo
 
-<template #source>
-<f-link href="" type="default">默认链接</f-link>
-<f-link href="" type="primary">主要链接</f-link>
-<f-link href="" type="success">成功链接</f-link>
-<f-link href="" type="danger">危险链接</f-link>
-<f-link href="" type="warning">警告链接</f-link>
+```vue
+<template>
+  <f-space>
+    <f-link href="" type="default">默认链接</f-link>
+    <f-link href="" type="primary">主要链接</f-link>
+    <f-link href="" type="success">成功链接</f-link>
+    <f-link href="" type="danger">危险链接</f-link>
+    <f-link href="" type="warning">警告链接</f-link>
+  </f-space>
 </template>
-
-```html
-<f-link href="" type="default">默认链接</f-link>
-<f-link href="" type="primary">主要链接</f-link>
-<f-link href="" type="success">成功链接</f-link>
-<f-link href="" type="danger">危险链接</f-link>
-<f-link href="" type="warning">警告链接</f-link>
 ```
 
 :::
@@ -35,20 +31,16 @@
 
 ::: demo
 
-<template #source>
-<f-link href="" size="12px" type="default">默认链接</f-link>
-<f-link href="" size="12px" type="primary">主要链接</f-link>
-<f-link href="" size="16px" type="success">成功链接</f-link>
-<f-link href="" :size="20" type="danger">危险链接</f-link>
-<f-link href="" :size="24" type="warning">警告链接</f-link>
+```vue
+<template>
+  <f-space>
+    <f-link href="" size="12px" type="primary">主要链接</f-link>
+    <f-link href="" size="16px" type="success">成功链接</f-link>
+    <f-link href="" :size="20" type="danger">危险链接</f-link>
+    <f-link href="" :size="24" type="warning">警告链接</f-link>
+    <f-link href="" size="12px" type="default">默认链接</f-link>
+  </f-space>
 </template>
-
-```html
-<f-link href="" size="12px" type="default">默认链接</f-link>
-<f-link href="" size="12px" type="primary">主要链接</f-link>
-<f-link href="" size="16px" type="success">成功链接</f-link>
-<f-link href="" :size="20" type="danger">危险链接</f-link>
-<f-link href="" :size="24" type="warning">警告链接</f-link>
 ```
 
 :::
@@ -59,14 +51,13 @@
 
 ::: demo
 
-<template #source>
-<f-link href="" state="line" type="primary">带有下划线</f-link>
-<f-link href="" state="bag" type="danger">hover 一下试试</f-link>
+```vue
+<template>
+  <f-space>
+    <f-link href="" state="line" type="primary">带有下划线</f-link>
+    <f-link href="" state="bag" type="danger">hover 一下试试</f-link>
+  </f-space>
 </template>
-
-```html
-<f-link href="" state="line" type="primary">带有下划线</f-link>
-<f-link href="" state="bag" type="danger">hover 一下试试</f-link>
 ```
 
 :::
@@ -77,16 +68,14 @@
 
 ::: demo
 
-<template #source>
-<f-link href="" color="#58c8de">看我颜色好看吗</f-link>
-<f-link href="" color="#e372ff">链接</f-link>
-<f-link href="" color="#e49b33">还有我</f-link>
+```vue
+<template>
+  <f-space>
+    <f-link href="" color="#58c8de">看我颜色好看吗</f-link>
+    <f-link href="" color="#e372ff">链接</f-link>
+    <f-link href="" color="#e49b33">还有我</f-link>
+  </f-space>
 </template>
-
-```html
-<f-link href="" color="#58c8de">看我颜色好看吗</f-link>
-<f-link href="" color="#e372ff">链接</f-link>
-<f-link href="" color="#e49b33">还有我</f-link>
 ```
 
 :::
@@ -97,16 +86,14 @@
 
 ::: demo
 
-<template #source>
-<f-link disabled href="" type="primary">不许点我</f-link>
-<f-link disabled href="" state="line" type="success">不许点我</f-link>
-<f-link disabled href="" state="bag" type="warning">不许点我</f-link>
+```vue
+<template>
+  <f-space>
+    <f-link disabled href="" type="primary">不许点我</f-link>
+    <f-link disabled href="" state="line" type="success">不许点我</f-link>
+    <f-link disabled href="" state="bag" type="warning">不许点我</f-link>
+  </f-space>
 </template>
-
-```html
-<f-link disabled href="" type="primary">不许点我</f-link>
-<f-link disabled href="" state="line" type="success">不许点我</f-link>
-<f-link disabled href="" state="bag" type="warning">不许点我</f-link>
 ```
 
 :::
@@ -117,12 +104,10 @@
 
 ::: demo
 
-<template #source>
-<f-link href="" no-link>拿我当按钮使用</f-link>
+```vue
+<template>
+  <f-link href="" no-link>拿我当按钮使用</f-link>
 </template>
-
-```html
-<f-link href="" no-link>拿我当按钮使用</f-link>
 ```
 
 :::
@@ -177,9 +162,3 @@ type LinkState = 'line' | 'bag'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<style scoped>
-  .f-link {
-    margin: 5px;
-  }
-</style>

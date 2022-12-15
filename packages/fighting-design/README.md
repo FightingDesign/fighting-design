@@ -60,7 +60,7 @@ pnpm new <component-name>
 
 **script 规范**
 
-- `script` 上的 `name` 属性是组件的名字，使用的 [unplugin-vue-setup-extend-plus](https://github.com/chenxch/unplugin-vue-setup-extend-plus) 插件。组件名必须以 `F` 开头，后面跟组件名，组件名首字母大写，例如：`FButton`
+- `script` 上的 `name` 属性是组件的名字，使用的 [fighting-setup-name](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-setup-name) 插件。组件名必须以 `F` 开头，后面跟组件名，组件名首字母大写，例如：`FButton`
 - 引入的类型，必须使用 `type` 标记，比如：`import type { xxx } from 'xxx'`
 - 在所有 `import` 之后要带有一个空行，之后是 `prop` 和 `emit`
 - `prop` 和 `emit` 之后，也要带一个空行，再继续编写其它代码

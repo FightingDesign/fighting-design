@@ -11,24 +11,16 @@
 
 ::: demo
 
-<template #source>
-<f-list>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-</f-list>
+```vue
+<template>
+  <f-list>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+  </f-list>
 </template>
-
-```html
-<f-list>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-</f-list>
 ```
 
 :::
@@ -39,24 +31,16 @@
 
 ::: demo
 
-<template #source>
-<f-list zebra>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-</f-list>
+```vue
+<template>
+  <f-list zebra>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+  </f-list>
 </template>
-
-```html
-<f-list zebra>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-</f-list>
 ```
 
 :::
@@ -67,25 +51,16 @@
 
 ::: demo
 
-<template #source>
-<f-list center>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-</f-list>
-
+```vue
+<template>
+  <f-list center>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+    <f-list-item>这是一段文字</f-list-item>
+  </f-list>
 </template>
-
-```html
-<f-list center>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-  <f-list-item>这是一段文字</f-list-item>
-</f-list>
 ```
 
 :::
@@ -96,48 +71,28 @@
 
 ::: demo
 
-<template #source>
-<f-list size="large">
-<f-list-item>这是大号尺寸列表</f-list-item>
-<f-list-item>这是大号尺寸列表</f-list-item>
-</f-list>
+```vue
+<template>
+  <f-list size="large">
+    <f-list-item>这是大号尺寸列表</f-list-item>
+    <f-list-item>这是大号尺寸列表</f-list-item>
+  </f-list>
 
-<f-list size="middle">
-<f-list-item>这是中号尺寸列表</f-list-item>
-<f-list-item>这是中号尺寸列表</f-list-item>
-</f-list>
+  <f-list size="middle">
+    <f-list-item>这是中号尺寸列表</f-list-item>
+    <f-list-item>这是中号尺寸列表</f-list-item>
+  </f-list>
 
-<f-list size="small">
-<f-list-item>这是小号尺寸列表</f-list-item>
-<f-list-item>这是小号尺寸列表</f-list-item>
-</f-list>
+  <f-list size="small">
+    <f-list-item>这是小号尺寸列表</f-list-item>
+    <f-list-item>这是小号尺寸列表</f-list-item>
+  </f-list>
 
-<f-list size="mini">
-<f-list-item>这是迷你尺寸列表</f-list-item>
-<f-list-item>这是迷你尺寸列表</f-list-item>
-</f-list>
+  <f-list size="mini">
+    <f-list-item>这是迷你尺寸列表</f-list-item>
+    <f-list-item>这是迷你尺寸列表</f-list-item>
+  </f-list>
 </template>
-
-```html
-<f-list size="large">
-  <f-list-item>这是大号尺寸列表</f-list-item>
-  <f-list-item>这是大号尺寸列表</f-list-item>
-</f-list>
-
-<f-list size="middle">
-  <f-list-item>这是中号尺寸列表</f-list-item>
-  <f-list-item>这是中号尺寸列表</f-list-item>
-</f-list>
-
-<f-list size="small">
-  <f-list-item>这是小号尺寸列表</f-list-item>
-  <f-list-item>这是小号尺寸列表</f-list-item>
-</f-list>
-
-<f-list size="mini">
-  <f-list-item>这是迷你尺寸列表</f-list-item>
-  <f-list-item>这是迷你尺寸列表</f-list-item>
-</f-list>
 ```
 
 :::

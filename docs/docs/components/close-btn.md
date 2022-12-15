@@ -11,21 +11,13 @@
 
 ::: demo
 
-<template #source>
-<f-close-btn>
-<f-icon-cross />
-</f-close-btn>
-</template>
-
-```html
+```vue
 <script lang="ts" setup>
   import { FIconCross } from '@fighting-design/fighting-icon'
 </script>
 
 <template>
-  <f-close-btn>
-    <f-icon-cross />
-  </f-close-btn>
+  <f-close-btn :icon="FIconCross" />
 </template>
 ```
 
@@ -37,21 +29,13 @@
 
 ::: demo
 
-<template #source>
-<f-close-btn disabled>
-<f-icon-cross />
-</f-close-btn>
-</template>
-
-```html
+```vue
 <script lang="ts" setup>
   import { FIconCross } from '@fighting-design/fighting-icon'
 </script>
 
 <template>
-  <f-close-btn disabled>
-    <f-icon-cross />
-  </f-close-btn>
+  <f-close-btn :icon="FIconCross" disabled />
 </template>
 ```
 
@@ -87,7 +71,3 @@ import type { CloseBtnInstance, CloseBtnProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { FIconCross } from '../../../packages/fighting-icon/index.ts'
-</script>

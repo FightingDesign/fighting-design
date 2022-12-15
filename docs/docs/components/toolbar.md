@@ -11,16 +11,11 @@
 
 ::: demo
 
-<template #source>
-<f-toolbar>
-<f-toolbar-item :icon="FIconApps" />
-<f-toolbar-item :icon="FIconBlock" />
-<f-toolbar-item :icon="FIconCameraVideoSlash" />
-<f-toolbar-item :icon="FIconClock" />
-</f-toolbar>
-</template>
+```vue
+<script lang="ts" setup>
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+</script>
 
-```html
 <template>
   <f-toolbar>
     <f-toolbar-item :icon="FIconApps" />
@@ -29,10 +24,6 @@
     <f-toolbar-item :icon="FIconClock" />
   </f-toolbar>
 </template>
-
-<script lang="ts" setup>
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-</script>
 ```
 
 :::
@@ -43,18 +34,15 @@
 
 ::: demo
 
-<template #source>
-<f-toolbar size="large">大型工具栏</f-toolbar>
-<f-toolbar size="middle">中型工具栏</f-toolbar>
-<f-toolbar size="small">小型工具栏</f-toolbar>
-<f-toolbar size="mini">迷你工具栏</f-toolbar>
+```vue
+<template>
+  <f-space vertical>
+    <f-toolbar size="large">大型工具栏</f-toolbar>
+    <f-toolbar size="middle">中型工具栏</f-toolbar>
+    <f-toolbar size="small">小型工具栏</f-toolbar>
+    <f-toolbar size="mini">迷你工具栏</f-toolbar>
+  </f-space>
 </template>
-
-```html
-<f-toolbar size="large">大型工具栏</f-toolbar>
-<f-toolbar size="middle">中型工具栏</f-toolbar>
-<f-toolbar size="small">小型工具栏</f-toolbar>
-<f-toolbar size="mini">迷你工具栏</f-toolbar>
 ```
 
 :::
@@ -65,12 +53,10 @@
 
 ::: demo
 
-<template #source>
-<f-toolbar round>圆角</f-toolbar>
+```vue
+<template>
+  <f-toolbar round>圆角</f-toolbar>
 </template>
-
-```html
-<f-toolbar round>圆角</f-toolbar>
 ```
 
 :::
@@ -83,21 +69,14 @@
 
 ::: demo
 
-<template #source>
-<f-toolbar background="#42B883" text-color="#fff">
-<f-toolbar-item>操作</f-toolbar-item>
-<f-toolbar-item>更多</f-toolbar-item>
-<f-toolbar-item>返回</f-toolbar-item>
-</f-toolbar>
-
+```vue
+<template>
+  <f-toolbar background="#42B883" text-color="#fff">
+    <f-toolbar-item>操作</f-toolbar-item>
+    <f-toolbar-item>更多</f-toolbar-item>
+    <f-toolbar-item>返回</f-toolbar-item>
+  </f-toolbar>
 </template>
-
-```html
-<f-toolbar background="#42B883" text-color="#fff">
-  <f-toolbar-item>操作</f-toolbar-item>
-  <f-toolbar-item>更多</f-toolbar-item>
-  <f-toolbar-item>返回</f-toolbar-item>
-</f-toolbar>
 ```
 
 :::
@@ -110,16 +89,7 @@
 
 ::: demo
 
-<template #source>
-<f-toolbar :on-click="handleClick">
-<f-toolbar-item index="1" :icon="FIconApps" />
-<f-toolbar-item index="2" :icon="FIconBlock" />
-<f-toolbar-item index="3" :icon="FIconCameraVideoSlash" />
-<f-toolbar-item index="4" :icon="FIconClock" />
-</f-toolbar>
-</template>
-
-```html
+```vue
 <template>
   <f-toolbar :on-click="handleClick">
     <f-toolbar-item index="1" :icon="FIconApps" />
@@ -131,11 +101,9 @@
 
 <script lang="ts" setup>
   import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-  import { FMessage } from 'fighting-design'
-  import type { ToolbarClickInterface } from 'fighting-design'
 
   const handleClick: ToolbarClickInterface = ({ index, evt }) => {
-    FMessage.primary(`index：${index} evt：${evt}`)
+    console.log(`index：${index} evt：${evt}`)
   }
 </script>
 ```
@@ -216,18 +184,3 @@ type ToolbarClick = (params: ToolbarClickParams) => void
 <a href="https://github.com/ECO-M" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/23503047?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-  import { FMessage } from '../../../packages/fighting-design/index'
-
-  const handleClick = ({ index, evt }) => {
-    FMessage.primary(`index：${index} evt：${evt}`)
-  }
-</script>
-
-<style scoped>
-  .f-toolbar {
-    margin: 10px 0;
-  }
-</style>

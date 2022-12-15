@@ -3,7 +3,7 @@ import { sidebar } from './utils/sidebar'
 import { description } from './utils/description'
 import { head } from './utils/head'
 import { defineConfig } from 'vitepress'
-import { mdPlugin } from './config/plugins'
+import { fightingPlugin } from './config/index'
 
 export default defineConfig({
   title: 'Fighting Design',
@@ -24,6 +24,7 @@ export default defineConfig({
   },
   markdown: {
     // 自定义 markdown 语法
-    config: md => mdPlugin(md)
+    config: (md) => fightingPlugin(md)
+    // config: md => mdPlugin(md)
   }
 })

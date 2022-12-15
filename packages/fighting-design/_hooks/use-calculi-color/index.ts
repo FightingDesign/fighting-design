@@ -15,14 +15,18 @@ export const useCalculiColor = (color: string): UseCalculiColorReturn => {
    */
   const hexToRgb = (): string[] | void => {
     const r = /^\#?[0-9A-Fa-f]{6}$/
+
     if (!r.test(color)) {
       return console.warn('输入错误的 hex 值色号')
     }
+
     const colorHxs: string = color.replace('#', '')
     const hxs: string[] = colorHxs.match(/../g) as string[]
+
     for (let i = 0; i < hxs.length; i++) {
       hxs[i] = parseInt(hxs[i], 16).toString()
     }
+
     return hxs
   }
 
@@ -40,6 +44,7 @@ export const useCalculiColor = (color: string): UseCalculiColorReturn => {
         hex[i] = '0' + hex[i]
       }
     }
+
     return '#' + hex.join('')
   }
 
@@ -51,9 +56,11 @@ export const useCalculiColor = (color: string): UseCalculiColorReturn => {
    */
   const getDarkColor = (level: number): string => {
     const rgb: string[] = hexToRgb() as string[]
+
     for (let i = 0; i < rgb.length; i++) {
       rgb[i] = Math.floor(Number(rgb[i]) * (1 - level)).toString(16)
     }
+
     return rgbToHex(...rgb)
   }
 
@@ -65,9 +72,11 @@ export const useCalculiColor = (color: string): UseCalculiColorReturn => {
    */
   const getLightColor = (level: number): string => {
     const rgb: string[] = hexToRgb() as string[]
+
     for (let i = 0; i < rgb.length; i++) {
       rgb[i] = Math.floor((255 - Number(rgb[i])) * level + Number(rgb[i])).toString(16)
     }
+
     return rgbToHex(...rgb)
   }
 

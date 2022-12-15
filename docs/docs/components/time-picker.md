@@ -15,20 +15,16 @@
 
 ::: demo
 
-<template #source>
-<f-time-picker v-model:time="value1" />
-</template>
-
-```html
-<template>
-  <f-time-picker v-model:time="value1" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value1 = ref('')
+  const value = ref('')
 </script>
+
+<template>
+  <f-time-picker v-model:time="value" />
+</template>
 ```
 
 :::
@@ -52,9 +48,3 @@ import type { TimePickerInstance, TimePickerProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const value1 = ref('')
-</script>

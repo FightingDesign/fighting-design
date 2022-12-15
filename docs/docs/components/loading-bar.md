@@ -17,21 +17,7 @@ import { useLoadingBar } from 'fighting-design'
 
 ::: demo
 
-<template #source>
-<f-space>
-<f-button type="primary" @click="start">开始</f-button>
-<f-button type="success" @click="finish">结束</f-button>
-<f-button type="danger" @click="error">报错</f-button>
-</f-space>
-</template>
-
-```html
-<template>
-  <f-button type="primary" @click="start">开始</f-button>
-  <f-button type="success" @click="finish">结束</f-button>
-  <f-button type="danger" @click="error">报错</f-button>
-</template>
-
+```vue
 <script lang="ts" setup>
   import { useLoadingBar } from 'fighting-design'
 
@@ -49,6 +35,14 @@ import { useLoadingBar } from 'fighting-design'
     bar.error()
   }
 </script>
+
+<template>
+  <f-space>
+    <f-button type="primary" @click="start">开始</f-button>
+    <f-button type="success" @click="finish">结束</f-button>
+    <f-button type="danger" @click="error">报错</f-button>
+  </f-space>
+</template>
 ```
 
 :::
@@ -74,20 +68,3 @@ import type { LoadingBarProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { useLoadingBar } from '../../../packages/fighting-design/index'
-
-  const bar = useLoadingBar()
-  const start = () => {
-    bar.start()
-  }
-
-  const finish = () => {
-    bar.finish()
-  }
-
-  const error = () => {
-    bar.error()
-  }
-</script>

@@ -21,7 +21,7 @@ export interface UseGlobalProp {
  * @param getLang 获取组件的语言
  */
 export interface UseGlobalReturn {
-  getType(def?: FightingType): ComputedRef<FightingType>
-  getSize(def?: FightingSize, parentSize?: FightingSize | null): ComputedRef<FightingSize>
-  getLang<T extends LangContentKey>(componentName: T): ComputedRef<LangKey[T]>
+  getType: (def?: FightingType) => ComputedRef<FightingType>
+  getSize: (def?: FightingSize, parentSize?: FightingSize | null) => ComputedRef<FightingSize>
+  getLang: <T extends LangContentKey>(componentName: T) => ComputedRef<LangKey[T]>
 }
