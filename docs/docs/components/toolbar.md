@@ -36,10 +36,12 @@
 
 ```vue
 <template>
-  <f-toolbar size="large">大型工具栏</f-toolbar>
-  <f-toolbar size="middle">中型工具栏</f-toolbar>
-  <f-toolbar size="small">小型工具栏</f-toolbar>
-  <f-toolbar size="mini">迷你工具栏</f-toolbar>
+  <f-space vertical>
+    <f-toolbar size="large">大型工具栏</f-toolbar>
+    <f-toolbar size="middle">中型工具栏</f-toolbar>
+    <f-toolbar size="small">小型工具栏</f-toolbar>
+    <f-toolbar size="mini">迷你工具栏</f-toolbar>
+  </f-space>
 </template>
 ```
 
@@ -99,11 +101,9 @@
 
 <script lang="ts" setup>
   import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-  import { FMessage } from 'fighting-design'
-  import type { ToolbarClickInterface } from 'fighting-design'
 
   const handleClick: ToolbarClickInterface = ({ index, evt }) => {
-    FMessage.primary(`index：${index} evt：${evt}`)
+    console.log(`index：${index} evt：${evt}`)
   }
 </script>
 ```

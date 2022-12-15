@@ -9,7 +9,7 @@ interface RenderComponentReturn {
 
 const scriptImports = [
   "import * as FightingIcon from '@fighting-design/fighting-icon'",
-  "import * as FightingDesign from 'fighting-design'"
+  "import * as FightingDesign from '../../../packages/fighting-design/index.ts'"
 ]
 
 let seed = 0
@@ -61,6 +61,8 @@ export const renderComponent = (content: string): RenderComponentReturn | null =
     pageScript = `<script lang="ts">
       import * as Vue from 'vue'
       ${scriptImports?.join(os.EOL)}
+
+      console.log(FightingDesign)
       const { defineComponent } = Vue
       export default defineComponent({
         name: 'component-doc',

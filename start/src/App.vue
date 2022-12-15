@@ -12,6 +12,6 @@
 </script>
 
 <template>
-  <f-button type="primary" @click="show1 = true">打开</f-button>
-  <f-image-preview v-model:visible="show1" :img-list="listImg" />
+  <f-skeleton animated />
+  <f-skeleton round animated />
 </template>

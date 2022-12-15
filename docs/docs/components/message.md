@@ -1,6 +1,6 @@
 # Message 消息提示
 
-`Message` 用于主动操作后的反馈提示
+用于主动操作后的反馈提示
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/message)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/message.md)
@@ -9,13 +9,9 @@
 
 ::: demo
 
-<template #source>
-<f-button type="primary" @click="openMessage">show</f-button>
-</template>
-
-```html
+```vue
 <template>
-  <f-button type="primary" @click="openMessage">show</f-button>
+  <f-button type="primary" @click="openMessage">打开</f-button>
 </template>
 
 <script lang="ts" setup>
@@ -40,13 +36,9 @@
 
 ::: demo
 
-<template #source>
-<f-button type="primary" @click="openMessageVNode">show</f-button>
-</template>
-
-```html
+```vue
 <template>
-  <f-button type="primary" @click="openMessageVNode">show</f-button>
+  <f-button type="primary" @click="openMessageVNode">打开</f-button>
 </template>
 
 <script lang="ts" setup>
@@ -71,17 +63,7 @@
 
 ::: demo
 
-<template #source>
-<f-space>
-<f-button @click="openMessage">default</f-button>
-<f-button type="primary" @click="openMessagePrimary">primary</f-button>
-<f-button type="success" @click="openMessageSuccess">success</f-button>
-<f-button type="warning" @click="openMessageWarning">warning</f-button>
-<f-button type="danger" @click="openMessageDanger">danger</f-button>
-</f-space>
-</template>
-
-```html
+```vue
 <template>
   <f-space>
     <f-button @click="openMessage">default</f-button>
@@ -121,27 +103,20 @@
 
 ## 可关闭
 
-可以添加关闭按钮。
+`close` 属性可配置带有关闭按钮
 
-默认的 `Message` 是不可以被人工关闭的。 如果你需要手动关闭功能，你可以把 `close` 设置为 `true`。
+`duration` 属性可配置自动关闭时长，如果设置为 0 则不会自动关闭
 
-此外，`Message` 拥有可控的 duration， 默认的关闭时间为 `3000 毫秒`，当把这个属性的值设置为 0 便表示该消息不会被自动关闭。
-
-可以传递`closeBtn`属性来自定义关闭按钮，支持字符串与`VNode`。
+可以传递`close-btn`属性来自定义关闭按钮，支持字符串与 `VNode`
 
 ::: demo
 
-<template #source>
-<f-space>
-<f-button type="primary" @click="openMessageClose1">5 秒后关闭</f-button>
-<f-button type="primary" @click="openMessageClose2">不自动关闭</f-button>
-</f-space>
-</template>
-
-```html
+```vue
 <template>
-  <f-button type="primary" @click="openMessageClose1">show</f-button>
-  <f-button type="primary" @click="openMessageClose2">show</f-button>
+  <f-space>
+    <f-button type="primary" @click="openMessageClose1">show</f-button>
+    <f-button type="primary" @click="openMessageClose2">show</f-button>
+  </f-space>
 </template>
 
 <script setup lang="ts">
@@ -174,18 +149,7 @@
 
 ::: demo
 
-<template #source>
-<f-space>
-<f-button type="primary" @click="openMessagePlacement('top')">顶部</f-button>
-<f-button type="primary" @click="openMessagePlacement('top-left')">左上</f-button>
-<f-button type="primary" @click="openMessagePlacement('top-right')">右上</f-button>
-<f-button type="success" @click="openMessagePlacement('bottom')">底部</f-button>
-<f-button type="success" @click="openMessagePlacement('bottom-left')">左下</f-button>
-<f-button type="success" @click="openMessagePlacement('bottom-right')">右下</f-button>
-</f-space>
-</template>
-
-```html
+```vue
 <template>
   <f-space>
     <f-button type="primary" @click="openMessagePlacement('top')"> 顶部 </f-button>
@@ -263,70 +227,3 @@ type MessagePlacement = 'top' | 'top-left' | 'top-right' | 'bottom' | 'bottom-le
 <a href="https://github.com/xluoyu" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { h } from 'vue'
-  import { FMessage } from '../../../packages/fighting-design/index'
-
-  const openMessage = () => {
-    FMessage('这是一条消息提示')
-  }
-
-  const openMessagePrimary = () => {
-    FMessage.primary('这是一条重要消息提示')
-  }
-
-  const openMessageSuccess = () => {
-    FMessage.success('这是一条成功消息提示')
-  }
-
-  const openMessageWarning = () => {
-    FMessage.warning('这是一条警告消息提示')
-  }
-
-  const openMessageDanger = () => {
-    FMessage.danger('这是一条失败消息提示')
-  }
-
-  const openMessageClose1 = () => {
-    FMessage({
-      message: '这是一条5秒后消失的消息',
-      type: 'primary',
-      close: true,
-      duration: 5000
-    })
-  }
-
-  const openMessageClose2 = () => {
-    FMessage({
-      message: '这是一条不会自动消失的消息',
-      type: 'primary',
-      close: true,
-      closeBtn: '关闭',
-      duration: 0
-    })
-  }
-
-  const openMessagePlacement = (placement) => {
-    FMessage({
-      message: '这是一条自定义位置的消息',
-      type: 'primary',
-      close: true,
-      placement: placement
-    })
-  }
-
-  const openMessageVNode = () => {
-    FMessage({
-      message: h('div', [
-        h('p', [
-          h('span', '这是一条'),
-          h('b', ' 非常重要 '),
-          h('span', '的消息提示')
-        ]),
-        h('p', '这里是一些不重要的内容')
-      ]),
-      type: 'primary',
-    })
-  }
-</script>

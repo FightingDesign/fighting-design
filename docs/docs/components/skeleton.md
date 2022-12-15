@@ -18,6 +18,8 @@
 </template>
 ```
 
+:::
+
 ## 多行骨架屏
 
 `rows` 可以配置多行效果
@@ -41,7 +43,7 @@
 ```vue
 <template>
   <f-skeleton animated />
-  <f-skeleton rounded animated />
+  <f-skeleton round animated />
 </template>
 ```
 

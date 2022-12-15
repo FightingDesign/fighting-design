@@ -13,7 +13,7 @@
 
 ```vue
 <template>
-  <div class="f-tooltip--box">
+  <f-space spacing="large">
     <f-tooltip content="上边的提示信息" position="top">
       <f-tag type="primary">上边的</f-tag>
     </f-tooltip>
@@ -29,7 +29,7 @@
     <f-tooltip content="右边的提示信息" position="right">
       <f-tag type="warning">右边的</f-tag>
     </f-tooltip>
-  </div>
+  </f-space>
 </template>
 ```
 
@@ -43,7 +43,7 @@
 
 ```vue
 <template>
-  <div class="f-tooltip--box">
+  <f-space spacing="large">
     <f-tooltip content="Hover 展示" position="top" state="hover">
       <f-tag type="primary">Hover 展示</f-tag>
     </f-tooltip>
@@ -55,7 +55,7 @@
     <f-tooltip content="Always 展示" position="top" state="always">
       <f-tag type="warning">Always 展示</f-tag>
     </f-tooltip>
-  </div>
+  </f-space>
 </template>
 ```
 
@@ -69,7 +69,7 @@
 
 ```vue
 <template>
-  <div class="f-tooltip--box">
+  <f-space spacing="large">
     <f-tooltip content="有箭头的" position="top">
       <f-tag type="primary">有箭头的</f-tag>
     </f-tooltip>
@@ -77,7 +77,7 @@
     <f-tooltip content="没有箭头" position="top" no-arrow>
       <f-tag type="success">没有箭头</f-tag>
     </f-tooltip>
-  </div>
+  </f-space>
 </template>
 ```
 
@@ -128,11 +128,3 @@ type TooltipState = 'hover' | 'active' | 'always'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<style>
-  .f-tooltip--box {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-  }
-</style>

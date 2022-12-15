@@ -21,6 +21,11 @@ export default (): UserConfigExport => {
         allow: [resolve(__dirname, '..', '..')]
       }
     },
+    resolve: {
+      alias: {
+        'fighting-design': resolve(__dirname, '../../packages/fighting-design/index.ts')
+      }
+    },
     css: {
       postcss: {
         plugins: [

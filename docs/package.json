@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "@fighting-design/docs",
   "private": true,
   "scripts": {
     "dev": "vitepress dev docs",
@@ -14,7 +14,6 @@
     "vitepress": "1.0.0-alpha.31"
   },
   "devDependencies": {
-    "fighting-design": "workspace:^0.11.1",
     "markdown-it": "^13.0.1",
     "markdown-it-container": "^3.0.0"
   }
