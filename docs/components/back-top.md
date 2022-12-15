@@ -41,15 +41,15 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { FIconSnowflake } from '@fighting-design/fighting-icon'
+</script>
+
 <template>
   <f-back-top bottom="190px" round>
     <f-svg-icon :icon="FIconSnowflake" />
   </f-back-top>
 </template>
-
-<script lang="ts" setup>
-  import { FIconSnowflake } from '@fighting-design/fighting-icon'
-</script>
 ```
 
 :::
@@ -61,15 +61,15 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { FIconUpload } from '@fighting-design/fighting-icon'
+</script>
+
 <template>
   <f-back-top bottom="190px" right="100px" round color="red">
     <f-svg-icon :icon="FIconUpload" />
   </f-back-top>
 </template>
-
-<script lang="ts" setup>
-  import { FIconUpload } from '@fighting-design/fighting-icon'
-</script>
 ```
 
 :::

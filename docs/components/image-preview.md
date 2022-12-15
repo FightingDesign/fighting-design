@@ -17,7 +17,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const show1 = ref(false)
+  const show = ref(false)
 
   const listImg = [
     'https://tianyuhao.cn/images/auto/1.jpg',
@@ -28,8 +28,8 @@
 </script>
 
 <template>
-  <f-button type="primary" @click="show1 = true">打开</f-button>
-  <f-image-preview v-model:visible="show1" :img-list="listImg" />
+  <f-button type="primary" @click="show = true">打开</f-button>
+  <f-image-preview v-model:visible="show" :img-list="listImg" />
 </template>
 ```
 
@@ -45,7 +45,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const show2 = ref(false)
+  const show = ref(false)
 
   const listImg = [
     'https://tianyuhao.cn/images/auto/1.jpg',
@@ -56,8 +56,8 @@
 </script>
 
 <template>
-  <f-button type="primary" @click="show2 = true">打开</f-button>
-  <f-image-preview v-model:visible="show2" :is-option="false" :img-list="listImg" />
+  <f-button type="primary" @click="show = true">打开</f-button>
+  <f-image-preview v-model:visible="show" :is-option="false" :img-list="listImg" />
 </template>
 ```
 

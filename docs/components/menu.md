@@ -14,6 +14,10 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+</script>
+
 <template>
   <f-menu active-name="1">
     <template #before>
@@ -45,10 +49,6 @@
     </template>
   </f-menu>
 </template>
-
-<script lang="ts" setup>
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-</script>
 ```
 
 :::
@@ -60,6 +60,10 @@
 :::demo
 
 ```vue
+<script lang="ts" setup>
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+</script>
+
 <template>
   <h3>垂直的</h3>
   <f-menu mode="vertical" active-name="1">
@@ -131,10 +135,6 @@
     </template>
   </f-menu>
 </template>
-
-<script lang="ts" setup>
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-</script>
 ```
 
 :::

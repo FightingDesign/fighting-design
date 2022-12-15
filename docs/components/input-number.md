@@ -15,20 +15,20 @@
 
 ::: demo
 
-```html
-<template>
-  <f-space vertical>
-    <f-input-number v-model="value1" />
-    <f-input-number v-model="value1" model="switch" />
-    <f-input-number v-model="value1" model="button" />
-  </f-space>
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value1 = ref(3)
+  const value = ref(3)
 </script>
+
+<template>
+  <f-space vertical>
+    <f-input-number v-model="value" />
+    <f-input-number v-model="value" model="switch" />
+    <f-input-number v-model="value" model="button" />
+  </f-space>
+</template>
 ```
 
 :::

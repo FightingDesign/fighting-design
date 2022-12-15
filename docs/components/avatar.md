@@ -79,16 +79,16 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
+</script>
+
 <template>
   <f-space>
     <f-avatar :icon="FIconFaceSmile" :font-size="30" background="skyblue" />
     <f-avatar background="orange" font-color="#fff" :icon="FIconBug" :font-size="30" />
   </f-space>
 </template>
-
-<script lang="ts" setup>
-  import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
-</script>
 ```
 
 :::

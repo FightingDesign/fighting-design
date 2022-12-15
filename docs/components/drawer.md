@@ -12,6 +12,18 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const visible = ref(false)
+  const direction = ref('right')
+
+  const onShow = dir => {
+    direction.value = dir
+    visible.value = true
+  }
+</script>
+
 <template>
   <f-space>
     <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
@@ -20,7 +32,7 @@
     <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
   </f-space>
 
-  <f-drawer v-model:visible="visible1" title="Title" :direction="direction">
+  <f-drawer v-model:visible="visible" title="Title" :direction="direction">
     <h3>沁园春·雪</h3>
 
     <p>北国风光，千里冰封，万里雪飘。</p>
@@ -36,18 +48,6 @@
     <p>俱往矣，数风流人物，还看今朝。</p>
   </f-drawer>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const visible1 = ref(false)
-  const direction = ref('right')
-
-  const onShow = dir => {
-    direction.value = dir
-    visible1.value = true
-  }
-</script>
 ```
 
 :::
@@ -59,21 +59,21 @@
 ::: demo
 
 ```vue
-<template>
-  <f-button type="primary" @click="visible4 = true">打开</f-button>
-
-  <f-drawer title="Title" size="50%" append-to-body v-model:visible="visible4">
-    <f-button type="primary" @click="visible5 = true">打开内层 drawer</f-button>
-    <f-drawer title="Title" v-model:visible="visible5"> 内层 drawer </f-drawer>
-  </f-drawer>
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const visible4 = ref(false)
-  const visible5 = ref(false)
+  const visible = ref(false)
+  const visibleInner = ref(false)
 </script>
+
+<template>
+  <f-button type="primary" @click="visible = true">打开</f-button>
+
+  <f-drawer title="Title" size="50%" append-to-body v-model:visible="visible">
+    <f-button type="primary" @click="visibleInner = true">打开内层 drawer</f-button>
+    <f-drawer title="Title" v-model:visible="visibleInner"> 内层 drawer </f-drawer>
+  </f-drawer>
+</template>
 ```
 
 :::

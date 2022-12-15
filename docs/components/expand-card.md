@@ -12,10 +12,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-expand-card :image-list="imageList" />
-</template>
-
 <script lang="ts" setup>
   const imageList = [
     'https://tianyuhao.cn/images/fighting-design/1.jpg',
@@ -23,6 +19,10 @@
     'https://tianyuhao.cn/images/fighting-design/3.jpg'
   ]
 </script>
+
+<template>
+  <f-expand-card :image-list="imageList" />
+</template>
 ```
 
 :::
@@ -34,12 +34,8 @@
 ::: demo
 
 ```vue
-<template>
-  <f-expand-card :image-list="imageList2" />
-</template>
-
 <script lang="ts" setup>
-  const imageList2 = [
+  const imageList = [
     {
       url: 'https://tianyuhao.cn/images/fighting-design/1.jpg',
       text: '第一张图片'
@@ -54,6 +50,10 @@
     }
   ]
 </script>
+
+<template>
+  <f-expand-card :image-list="imageList" />
+</template>
 ```
 
 :::
@@ -65,10 +65,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-expand-card round :image-list="imageList" />
-</template>
-
 <script lang="ts" setup>
   const imageList = [
     'https://tianyuhao.cn/images/fighting-design/1.jpg',
@@ -76,6 +72,10 @@
     'https://tianyuhao.cn/images/fighting-design/3.jpg'
   ]
 </script>
+
+<template>
+  <f-expand-card round :image-list="imageList" />
+</template>
 ```
 
 :::

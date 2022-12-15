@@ -42,20 +42,20 @@
 ::: demo
 
 ```vue
-<template>
-  <f-switch v-model="isOpen2" size="middle" />
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-  <f-collapse-animation :opened="isOpen2" disabled>
+  const isOpen = ref(true)
+</script>
+
+<template>
+  <f-switch v-model="isOpen" size="middle" />
+
+  <f-collapse-animation :opened="isOpen" disabled>
     <h1>Hello</h1>
     <h1>禁止使用！！</h1>
   </f-collapse-animation>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const isOpen2 = ref(true)
-</script>
 ```
 
 :::

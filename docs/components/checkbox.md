@@ -12,15 +12,15 @@
 ::: demo
 
 ```vue
-<template>
-  <f-checkbox v-model="option1" label="酸辣土豆丝" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const option1 = ref(true)
+  const option = ref(true)
 </script>
+
+<template>
+  <f-checkbox v-model="option" label="酸辣土豆丝" />
+</template>
 ```
 
 :::
@@ -32,40 +32,34 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const option = ref(['汉堡'])
+</script>
+
 <template>
-  <f-checkbox-group v-model="option2">
+  <f-checkbox-group v-model="option">
     <f-checkbox label="鸡肉卷" />
     <f-checkbox label="鸡排" />
     <f-checkbox label="汉堡" />
   </f-checkbox-group>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const option2 = ref(['汉堡'])
-</script>
 ```
 
 :::
 
 ## 全选及半选
 
+::: warning
+功能暂不稳定，谨慎使用！
+:::
+
 给复选框添加 `indeterminate` 属性使其显示半选时的状态，且此属性仅控制样式
 
 ::: demo
 
 ```vue
-<template>
-  <div>
-    <f-checkbox v-model="checkAll" label="全都要" :indeterminate="indeterminate" :change="onCheckboxChange" />
-  </div>
-
-  <f-checkbox-group v-model="checkedOptions" :change="onGroupChange">
-    <f-checkbox v-for="(item, index) in optionList" :key="index" :label="item" />
-  </f-checkbox-group>
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -87,6 +81,16 @@
     indeterminate.value = halfStatus
   }
 </script>
+
+<template>
+  <div>
+    <f-checkbox v-model="checkAll" label="全都要" :indeterminate="indeterminate" :change="onCheckboxChange" />
+  </div>
+
+  <f-checkbox-group v-model="checkedOptions" :change="onGroupChange">
+    <f-checkbox v-for="(item, index) in optionList" :key="index" :label="item" />
+  </f-checkbox-group>
+</template>
 ```
 
 :::
@@ -98,29 +102,29 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const option = ref([])
+</script>
+
 <template>
   <f-space vertical>
     <f-checkbox label="选项一" disabled />
 
-    <f-checkbox-group v-model="option3" disabled>
+    <f-checkbox-group v-model="option" disabled>
       <f-checkbox label="选项一" />
       <f-checkbox label="选项二" />
       <f-checkbox label="选项三" />
     </f-checkbox-group>
 
-    <f-checkbox-group v-model="option3">
+    <f-checkbox-group v-model="option">
       <f-checkbox label="选项一" />
       <f-checkbox label="选项二" disabled />
       <f-checkbox label="选项三" />
     </f-checkbox-group>
   </f-space>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const option3 = ref([])
-</script>
 ```
 
 :::
@@ -132,33 +136,33 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const option = ref([])
+</script>
+
 <template>
   <f-space vertical>
-    <f-checkbox-group v-model="option4" border size="large">
+    <f-checkbox-group v-model="option" border size="large">
       <f-checkbox label="选项一" />
       <f-checkbox label="选项二" />
       <f-checkbox label="选项三" />
     </f-checkbox-group>
 
-    <f-checkbox-group v-model="option4" border>
+    <f-checkbox-group v-model="option" border>
       <f-checkbox label="选项一" />
       <f-checkbox label="选项二" />
       <f-checkbox label="选项三" />
     </f-checkbox-group>
 
-    <f-checkbox-group v-model="option4" border size="small">
+    <f-checkbox-group v-model="option" border size="small">
       <f-checkbox label="选项一" />
       <f-checkbox label="选项二" />
       <f-checkbox label="选项三" />
     </f-checkbox-group>
   </f-space>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const option4 = ref([])
-</script>
 ```
 
 :::

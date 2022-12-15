@@ -12,13 +12,13 @@
 ::: demo
 
 ```vue
-<template>
-  <f-calendar v-model:date="date" />
-</template>
-
 <script lang="ts" setup>
   const date = new Date()
 </script>
+
+<template>
+  <f-calendar v-model:date="date" />
+</template>
 ```
 
 :::
@@ -30,13 +30,13 @@
 ::: demo
 
 ```vue
-<template>
-  <f-calendar v-model:date="date" lunar />
-</template>
-
 <script lang="ts" setup>
   const date = new Date()
 </script>
+
+<template>
+  <f-calendar v-model:date="date" lunar />
+</template>
 ```
 
 :::
@@ -48,13 +48,13 @@
 ::: demo
 
 ```vue
-<template>
-  <f-calendar v-model:date="date" border />
-</template>
-
 <script lang="ts" setup>
   const date = new Date()
 </script>
+
+<template>
+  <f-calendar v-model:date="date" border />
+</template>
 ```
 
 :::
@@ -66,13 +66,13 @@
 ::: demo
 
 ```vue
-<template>
-  <f-calendar v-model:date="date" :show-header="false" />
-</template>
-
 <script lang="ts" setup>
   const date = new Date()
 </script>
+
+<template>
+  <f-calendar v-model:date="date" :show-header="false" />
+</template>
 ```
 
 :::
@@ -86,10 +86,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-calendar v-model:date="date" border :memorandum="memorandumList" />
-</template>
-
 <script lang="ts" setup>
   const date = new Date()
 
@@ -107,6 +103,10 @@
     ]
   }
 </script>
+
+<template>
+  <f-calendar v-model:date="date" border :memorandum="memorandumList" />
+</template>
 ```
 
 :::

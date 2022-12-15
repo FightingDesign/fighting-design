@@ -90,6 +90,15 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+  import { FMessage } from 'fighting-design'
+
+  const handleClick: ToolbarClickInterface = ({ index, evt }) => {
+    FMessage(`index：${index} evt：${evt}`)
+  }
+</script>
+
 <template>
   <f-toolbar :on-click="handleClick">
     <f-toolbar-item index="1" :icon="FIconApps" />
@@ -98,14 +107,6 @@
     <f-toolbar-item index="4" :icon="FIconClock" />
   </f-toolbar>
 </template>
-
-<script lang="ts" setup>
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-
-  const handleClick: ToolbarClickInterface = ({ index, evt }) => {
-    console.log(`index：${index} evt：${evt}`)
-  }
-</script>
 ```
 
 :::

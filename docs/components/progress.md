@@ -16,23 +16,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-space vertical>
-    <f-progress type="primary" :percentage="num" />
-    <f-progress type="success" :percentage="num" />
-    <f-progress type="danger" :percentage="num" />
-    <f-progress type="warning" :percentage="num" />
-
-    <f-progress type="primary" :percentage="num" square />
-    <f-progress type="success" :percentage="num" linear />
-  </f-space>
-
-  <f-button-group>
-    <f-button simple round type="primary" @click="sun">减少</f-button>
-    <f-button simple round type="primary" @click="add">增加</f-button>
-  </f-button-group>
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -50,6 +33,23 @@
     }
   }
 </script>
+
+<template>
+  <f-space vertical>
+    <f-progress type="primary" :percentage="num" />
+    <f-progress type="success" :percentage="num" />
+    <f-progress type="danger" :percentage="num" />
+    <f-progress type="warning" :percentage="num" />
+
+    <f-progress type="primary" :percentage="num" square />
+    <f-progress type="success" :percentage="num" linear />
+  </f-space>
+
+  <f-button-group>
+    <f-button simple round type="primary" @click="sun">减少</f-button>
+    <f-button simple round type="primary" @click="add">增加</f-button>
+  </f-button-group>
+</template>
 ```
 
 :::
@@ -116,20 +116,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-space vertical>
-    <f-progress :height="25" stripe type="primary" :percentage="num" />
-    <f-progress :height="25" stripe type="success" :percentage="num" />
-    <f-progress :height="25" stripe type="danger" :percentage="num" />
-    <f-progress :height="25" stripe type="warning" :percentage="num" />
-  </f-space>
-
-  <f-button-group>
-    <f-button simple round type="primary" @click="sun">减少</f-button>
-    <f-button simple round type="primary" @click="add">增加</f-button>
-  </f-button-group>
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -147,6 +133,20 @@
     }
   }
 </script>
+
+<template>
+  <f-space vertical>
+    <f-progress :height="25" stripe type="primary" :percentage="num" />
+    <f-progress :height="25" stripe type="success" :percentage="num" />
+    <f-progress :height="25" stripe type="danger" :percentage="num" />
+    <f-progress :height="25" stripe type="warning" :percentage="num" />
+  </f-space>
+
+  <f-button-group>
+    <f-button simple round type="primary" @click="sun">减少</f-button>
+    <f-button simple round type="primary" @click="add">增加</f-button>
+  </f-button-group>
+</template>
 ```
 
 :::

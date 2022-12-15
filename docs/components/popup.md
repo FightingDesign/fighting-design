@@ -14,6 +14,18 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const visible2 = ref(false)
+  const direction = ref('center')
+
+  const onShow = dir => {
+    direction.value = dir
+    visible2.value = true
+  }
+</script>
+
 <template>
   <f-space>
     <f-button type="primary" @click="onShow('center')">居中弹出</f-button>
@@ -39,18 +51,6 @@
     <p>俱往矣，数风流人物，还看今朝。</p>
   </f-popup>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const visible2 = ref(false)
-  const direction = ref('center')
-
-  const onShow = dir => {
-    direction.value = dir
-    visible2.value = true
-  }
-</script>
 ```
 
 :::

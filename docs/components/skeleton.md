@@ -76,19 +76,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-skeleton animated :rows="2" :loading="loading">
-    <f-list>
-      <f-list-item>这是一段文字</f-list-item>
-      <f-list-item>这是一段文字</f-list-item>
-    </f-list>
-  </f-skeleton>
-
-  <f-button :loading="loading" simple type="primary" @click="startLoad">
-    {{ loading ? '加载中...' : `开始加载` }}
-  </f-button>
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -101,6 +88,19 @@
     }, 3000)
   }
 </script>
+
+<template>
+  <f-skeleton animated :rows="2" :loading="loading">
+    <f-list>
+      <f-list-item>这是一段文字</f-list-item>
+      <f-list-item>这是一段文字</f-list-item>
+    </f-list>
+  </f-skeleton>
+
+  <f-button :loading="loading" simple type="primary" @click="startLoad">
+    {{ loading ? '加载中...' : `开始加载` }}
+  </f-button>
+</template>
 ```
 
 :::

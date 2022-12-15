@@ -12,10 +12,16 @@
 ::: demo
 
 ```vue
-<template>
-  <f-button type="primary" @click="visible1 = true">打开</f-button>
+<script setup lang="ts">
+  import { ref } from 'vue'
 
-  <f-dialog v-model:visible="visible1" title="标题文字">
+  const visible = ref(false)
+</script>
+
+<template>
+  <f-button type="primary" @click="visible = true">打开</f-button>
+
+  <f-dialog v-model:visible="visible" title="标题文字">
     <h3>沁园春·雪</h3>
 
     <p>北国风光，千里冰封，万里雪飘。</p>
@@ -36,12 +42,6 @@
     </template>
   </f-dialog>
 </template>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const visible1 = ref(false)
-</script>
 ```
 
 :::
@@ -53,22 +53,22 @@
 ::: demo
 
 ```vue
-<template>
-  <f-button type="primary" @click="visible2 = true">打开</f-button>
+<script setup lang="ts">
+  import { ref } from 'vue'
 
-  <f-dialog width="500px" title="Title" v-model:visible="visible2">
+  const visible = ref(false)
+  const innerVisible = ref(false)
+</script>
+
+<template>
+  <f-button type="primary" @click="visible = true">打开</f-button>
+
+  <f-dialog width="500px" title="Title" v-model:visible="visible">
     <f-button @click="innerVisible = true">打开里层</f-button>
 
     <f-dialog width="300px" title="Title" v-model:visible="innerVisible" append-to-body> inner dialog </f-dialog>
   </f-dialog>
 </template>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const visible2 = ref(false)
-  const innerVisible = ref(false)
-</script>
 ```
 
 :::
@@ -82,12 +82,25 @@
 ::: demo
 
 ```vue
+<script setup lang="ts">
+  import { ref } from 'vue'
+  import { FMessage } from 'fighting-design'
+
+  const visible = ref(false)
+
+  const open = () => FMessage('打开动画开始')
+  const openEnd = () => FMessage('打开动画结束')
+
+  const close = () => FMessage('关闭动画开始')
+  const closeEnd = () => FMessage('关闭动画结束')
+</script>
+
 <template>
-  <f-button type="primary" @click="visible3 = true">打开</f-button>
+  <f-button type="primary" @click="visible = true">打开</f-button>
 
   <f-dialog
     title="Title"
-    v-model:visible="visible3"
+    v-model:visible="visible"
     :on-open="open"
     :on-open-end="openEnd"
     :on-close="close"
@@ -108,18 +121,6 @@
     <p>俱往矣，数风流人物，还看今朝。</p>
   </f-dialog>
 </template>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const visible3 = ref(false)
-
-  const open = () => console.log('打开动画开始')
-  const openEnd = () => console.log('打开动画结束')
-
-  const close = () => console.log('关闭动画开始')
-  const closeEnd = () => console.log('关闭动画结束')
-</script>
 ```
 
 :::

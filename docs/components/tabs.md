@@ -122,18 +122,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-tabs :beforeEnter="beforeEnter">
-    <f-tabs-pane label="个人信息" name="name">
-      <p>小芳，女</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="爱好(等一秒)" name="hobby">
-      <p>疯狂星期四，V 我 50~</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="年龄" name="age"> </f-tabs-pane>
-  </f-tabs>
-</template>
-
 <script lang="ts" setup>
   import { FMessage } from 'fighting-design'
 
@@ -154,6 +142,18 @@
     }
   }
 </script>
+
+<template>
+  <f-tabs :beforeEnter="beforeEnter">
+    <f-tabs-pane label="个人信息" name="name">
+      <p>小芳，女</p>
+    </f-tabs-pane>
+    <f-tabs-pane label="爱好(等一秒)" name="hobby">
+      <p>疯狂星期四，V 我 50~</p>
+    </f-tabs-pane>
+    <f-tabs-pane label="年龄" name="age"> </f-tabs-pane>
+  </f-tabs>
+</template>
 ```
 
 :::
@@ -192,12 +192,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-tabs editStatus type="card" @edit="edit">
-    <f-tabs-pane :label="item.label" :name="item.name" v-for="item in list"> {{ item.content }} </f-tabs-pane>
-  </f-tabs>
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -223,6 +217,12 @@
     }
   }
 </script>
+
+<template>
+  <f-tabs editStatus type="card" @edit="edit">
+    <f-tabs-pane :label="item.label" :name="item.name" v-for="item in list"> {{ item.content }} </f-tabs-pane>
+  </f-tabs>
+</template>
 ```
 
 :::

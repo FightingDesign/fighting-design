@@ -60,6 +60,12 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const radio = ref('1')
+</script>
+
 <template>
   <f-space vertical>
     <f-radio-group v-model="radio" border size="large">
@@ -87,12 +93,6 @@
     </f-radio-group>
   </f-space>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const radio = ref('1')
-</script>
 ```
 
 :::

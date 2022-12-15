@@ -11,7 +11,7 @@
 
 ```vue
 <template>
-  <f-button type="primary" @click="openNotification">show</f-button>
+  <f-button type="primary" @click="openNotification">打开</f-button>
 </template>
 
 <script lang="ts" setup>
@@ -38,14 +38,14 @@
 
 ```vue
 <template>
-  <f-button type="primary" @click="openNotificationVNode">show</f-button>
+  <f-button type="primary" @click="openNotification">打开</f-button>
 </template>
 
 <script lang="ts" setup>
   import { h } from 'vue'
   import { FNotification } from 'fighting-design'
 
-  const openNotificationVNode = () => {
+  const openNotification = () => {
     FNotification({
       title: h('span', [h('span', '这是'), h('b', '自定义标题')]),
       message: h('div', [
@@ -67,37 +67,37 @@
 ```vue
 <template>
   <f-space>
-    <f-button @click="openNotification">default</f-button>
-    <f-button type="primary" @click="openNotificationPrimary">primary</f-button>
-    <f-button type="success" @click="openNotificationSuccess">success</f-button>
-    <f-button type="warning" @click="openNotificationWarning">warning</f-button>
-    <f-button type="danger" @click="openNotificationDanger">danger</f-button>
+    <f-button type="default" @click="openDefault">默认的</f-button>
+    <f-button type="primary" @click="openPrimary">主要的</f-button>
+    <f-button type="success" @click="openSuccess">成功的</f-button>
+    <f-button type="warning" @click="openWarning">危险的</f-button>
+    <f-button type="danger" @click="openDanger">警告的</f-button>
   </f-space>
 </template>
 
 <script setup lang="ts">
   import { FNotification } from 'fighting-design'
 
-  const openNotification = () => {
+  const openDefault = () => {
     FNotification({
       title: '这是一条通知',
       message: '这是通知内容'
     })
   }
 
-  const openNotificationPrimary = () => {
+  const openPrimary = () => {
     FNotification.primary('这是一条重要通知')
   }
 
-  const openNotificationSuccess = () => {
+  const openSuccess = () => {
     FNotification.success('这是一条成功通知')
   }
 
-  const openNotificationWarning = () => {
+  const openWarning = () => {
     FNotification.warning('这是一条警告通知')
   }
 
-  const openNotificationDanger = () => {
+  const openDanger = () => {
     FNotification.danger('这是一条失败通知')
   }
 </script>
@@ -118,8 +118,8 @@
 ```vue
 <template>
   <f-space>
-    <f-button type="primary" @click="openNotificationClose1">show</f-button>
-    <f-button type="primary" @click="openNotificationClose2">show</f-button>
+    <f-button type="primary" @click="openClose1">show</f-button>
+    <f-button type="primary" @click="openClose2">show</f-button>
   </f-space>
 </template>
 
@@ -127,7 +127,7 @@
   import { h } from 'vue'
   import { FNotification } from 'fighting-design'
 
-  const openNotificationClose1 = () => {
+  const openClose1 = () => {
     FNotification({
       title: '一条通知',
       message: '这是一条5秒后消失的消息',
@@ -137,7 +137,7 @@
     })
   }
 
-  const openNotificationClose2 = () => {
+  const openClose2 = () => {
     FNotification({
       title: '一条通知',
       message: '这是一条不会自动消失的消息',
@@ -159,17 +159,17 @@
 ```vue
 <template>
   <f-space>
-    <f-button type="primary" @click="openNotificationPlacement('top-left')"> 左上 </f-button>
-    <f-button type="primary" @click="openNotificationPlacement('top-right')"> 右上 </f-button>
-    <f-button type="success" @click="openNotificationPlacement('bottom-left')"> 左下 </f-button>
-    <f-button type="success" @click="openNotificationPlacement('bottom-right')"> 右下 </f-button>
+    <f-button type="primary" @click="openPlacement('top-left')"> 左上 </f-button>
+    <f-button type="primary" @click="openPlacement('top-right')"> 右上 </f-button>
+    <f-button type="success" @click="openPlacement('bottom-left')"> 左下 </f-button>
+    <f-button type="success" @click="openPlacement('bottom-right')"> 右下 </f-button>
   </f-space>
 </template>
 
 <script setup lang="ts">
   import { FNotification } from 'fighting-design'
 
-  const openNotificationPlacement = placement => {
+  const openPlacement = placement => {
     FNotification({
       title: '一条通知',
       message: '这是一条自定义位置的消息',

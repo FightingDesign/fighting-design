@@ -18,16 +18,16 @@
 ::: demo
 
 ```vue
-<template>
-  <f-pagination v-model:current="current" :total="total" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const current = ref(1)
   const total = ref(100)
 </script>
+
+<template>
+  <f-pagination v-model:current="current" :total="total" />
+</template>
 ```
 
 :::
@@ -39,10 +39,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-pagination v-model:current="current" :total="total" :page-size="pagesize" :page-sizes="pageSizes" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -51,6 +47,10 @@
   const pagesize = ref(10)
   const pageSizes = ref([10, 20, 30, 40, 50])
 </script>
+
+<template>
+  <f-pagination v-model:current="current" :total="total" :page-size="pagesize" :page-sizes="pageSizes" />
+</template>
 ```
 
 :::
@@ -64,17 +64,17 @@
 ::: demo
 
 ```vue
-<template>
-  <f-pagination v-model:current="current" :total="total" background />
-  <f-pagination v-model:current="current" :total="total" round />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const current = ref(1)
   const total = ref(100)
 </script>
+
+<template>
+  <f-pagination v-model:current="current" :total="total" background />
+  <f-pagination v-model:current="current" :total="total" round />
+</template>
 ```
 
 :::
@@ -84,16 +84,16 @@
 ::: demo
 
 ```vue
-<template>
-  <f-pagination v-model:current="current" :total="100" :prev-icon="FIconCloud" :next-icon="FIconBlock" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
   import { FIconCloud, FIconBlock } from '@fighting-design/fighting-icon'
 
   const current = ref(1)
 </script>
+
+<template>
+  <f-pagination v-model:current="current" :total="100" :prev-icon="FIconCloud" :next-icon="FIconBlock" />
+</template>
 ```
 
 :::
@@ -105,15 +105,15 @@
 ::: demo
 
 ```vue
-<template>
-  <f-pagination v-model:current="current" :total="100" disabled />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const current = ref(1)
 </script>
+
+<template>
+  <f-pagination v-model:current="current" :total="100" disabled />
+</template>
 ```
 
 :::
@@ -125,15 +125,15 @@
 ::: demo
 
 ```vue
-<template>
-  <f-pagination v-model:current="current" :total="100" jump-search />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const current = ref(1)
 </script>
+
+<template>
+  <f-pagination v-model:current="current" :total="100" jump-search />
+</template>
 ```
 
 :::

@@ -50,6 +50,10 @@
 ::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { FIconTag } from '@fighting-design/fighting-icon'
+</script>
+
 <template>
   <f-breadcrumb :separator="FIconTag">
     <f-breadcrumb-item>首页</f-breadcrumb-item>
@@ -57,10 +61,6 @@
     <f-breadcrumb-item>列表</f-breadcrumb-item>
   </f-breadcrumb>
 </template>
-
-<script lang="ts" setup>
-  import { FIconTag } from '@fighting-design/fighting-icon'
-</script>
 ```
 
 :::
