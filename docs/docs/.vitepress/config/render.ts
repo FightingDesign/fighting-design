@@ -61,8 +61,6 @@ export const renderComponent = (content: string): RenderComponentReturn | null =
     pageScript = `<script lang="ts">
       import * as Vue from 'vue'
       ${scriptImports?.join(os.EOL)}
-
-      console.log(FightingDesign)
       const { defineComponent } = Vue
       export default defineComponent({
         name: 'component-doc',

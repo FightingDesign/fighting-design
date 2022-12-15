@@ -76,7 +76,6 @@ export const genInlineComponentText = (
       },
       {
         searchValue: /import ({.*}) from 'fighting-design'/g,
-        // searchValue: /import ({.*}) from '..\/..\/..\/..\/packages\/fighting-design\/index.ts'/g,
         replaceValue: (s, s1) => `const ${s1} = FightingDesign`
       }
     ]
