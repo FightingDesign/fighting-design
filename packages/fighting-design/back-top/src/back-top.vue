@@ -1,9 +1,9 @@
 <script lang="ts" setup name="FBackTop">
   import { Props } from './props'
-  import { onMounted, ref } from 'vue'
+  import { onMounted, ref, toRefs } from 'vue'
   import { debounce } from '../../_utils'
   import { useList } from '../../_hooks'
-  import type { BackTopHandleScroll } from './interface'
+  import type { DebounceReturn } from '../../_utils'
 
   const prop = defineProps(Props)
 
@@ -19,9 +19,12 @@
    *
    * @param node 元素节点
    */
-  const handleScroll: BackTopHandleScroll = (node: HTMLElement | null): Function => {
+  const handleScroll = (node?: HTMLElement): DebounceReturn => {
     return debounce((): void => {
-      const scrollTop: number = ((node as HTMLElement) || document.documentElement).scrollTop
+      /**
+       * 当前滚动的距离
+       */
+      const scrollTop: number = (node || document.documentElement).scrollTop
 
       visible.value = scrollTop > prop.visibleHeight
     }, 200)
@@ -31,31 +34,30 @@
    * 点击的时候触发
    */
   const handleClick = (): void => {
-    const { top, behavior, listenEl } = prop
+    const { top, behavior, listenEl } = toRefs(prop)
 
-    if (listenEl) {
-      const listerNode: HTMLElement = document.querySelector(listenEl) as HTMLElement
+    // 如果存在监听的目录
+    if (listenEl.value) {
+      const listerNode = document.querySelector(listenEl.value) as HTMLElement
 
-      ;(listerNode as HTMLElement).scrollTo({
-        top,
-        behavior
-      })
+      listerNode.scrollTo({ top: top.value, behavior: behavior.value })
       return
     }
 
-    window.scrollTo({
-      top,
-      behavior
-    } as const)
+    window.scrollTo({ top: top.value, behavior: behavior.value })
   }
 
   onMounted((): void => {
     if (prop.listenEl) {
-      const listerNode: HTMLElement = document.querySelector(prop.listenEl) as HTMLElement
+      /**
+       * 获取到监视的节点
+       */
+      const listerNode = document.querySelector(prop.listenEl) as HTMLElement
 
-      listerNode.addEventListener('scroll', handleScroll(listerNode))
+      listerNode && listerNode.addEventListener('scroll', handleScroll(listerNode))
+    } else {
+      document.addEventListener('scroll', handleScroll())
     }
-    document.addEventListener('scroll', handleScroll(null))
   })
 
   /**

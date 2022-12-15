@@ -12,6 +12,8 @@ export const keepDecimal = (num: number, no = 2): number => {
   return Number(num.toFixed(no))
 }
 
+export type DebounceReturn = () => void
+
 /**
  * 防抖
  *
@@ -21,7 +23,7 @@ export const keepDecimal = (num: number, no = 2): number => {
  * @param delay 延时的时间
  * @returns { Function }
  */
-export const debounce = (callback: Function, delay = 200): Function => {
+export const debounce = (callback: () => void, delay = 200): DebounceReturn => {
   let timer: NodeJS.Timeout
   return (): void => {
     if (timer) {
