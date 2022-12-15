@@ -27,9 +27,9 @@ export const pluginDemo = (md: MarkdownIt): void => {
          */
         const source: string = md.utils.escapeHtml(content)
 
-        return `<demo sourceCode="${source}">${content ? `<!--vue-demo:${content}:vue-demo-->` : ''}`
+        return `<vp-demo sourceCode="${source}">${content ? `<!--vue-demo:${content}:vue-demo-->` : ''}`
       }
-      return '</demo>'
+      return '</vp-demo>'
     }
   })
 }

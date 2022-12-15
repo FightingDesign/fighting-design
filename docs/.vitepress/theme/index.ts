@@ -3,11 +3,8 @@ import Theme from 'vitepress/theme'
 import './style/vitepress.scss'
 import FightingDesign from '../../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
-import './index.css'
 import vpSearch from './components/vp-search.vue'
-import Demo from './components/Demo.vue'
-import DemoBlock from './components/DemoBlock.vue'
-// import vpDemo from './components/vp-demo.vue'
+import vpDemo from './components/vp-demo.vue'
 
 export default {
   ...Theme,
@@ -25,8 +22,6 @@ export default {
   },
   enhanceApp({ app }) {
     app.use(FightingDesign)
-    app.component('Demo', Demo)
-    app.component('DemoBlock', DemoBlock)
-    // app.component('vp-demo', vpDemo)
+    app.component('vp-demo', vpDemo)
   }
 }
