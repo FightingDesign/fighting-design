@@ -17,7 +17,7 @@ let firstClick = true
  * @param node 元素节点
  * @param options 配置对象
  */
-export const useRipples = (evt: MouseEvent, node: HTMLButtonElement, options: RipplesOptions): UseRipplesReturn => {
+export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesOptions): UseRipplesReturn => {
 
   /**
    * 防止涟漪效果溢出
