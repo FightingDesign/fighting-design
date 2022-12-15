@@ -131,7 +131,7 @@
 
 <template>
   <div class="f-image-preview" @mousewheel="scrollZoom">
-    <f-popup v-model:visible="isVisible" :z-index="zIndex" :open="imagPreload">
+    <f-popup v-model:visible="isVisible" :z-index="zIndex" :on-open="imagPreload">
       <img
         class="f-image-preview__exhibition"
         draggable="false"
