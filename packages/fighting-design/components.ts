@@ -218,3 +218,6 @@ export * from './fighting-global'
 
 export { FForm } from './form'
 export * from './form'
+
+export { FFormItem } from './form-item'
+export * from './form-item'

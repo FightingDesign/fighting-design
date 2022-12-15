@@ -77,6 +77,7 @@ declare module 'vue' {
     FSlider: typeof components.FSlider
     FFightingGlobal: typeof components.FFightingGlobal
     FForm: typeof components.FForm
+    FFormItem: typeof components.FFormItem
   }
 
   interface ComponentCustomProperties {
@@ -86,4 +87,4 @@ declare module 'vue' {
   }
 }
 
-export {}
+export { }

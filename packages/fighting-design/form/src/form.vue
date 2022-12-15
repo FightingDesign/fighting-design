@@ -5,5 +5,7 @@
 </script>
 
 <template>
-  <div class="f-form">FForm</div>
+  <form class="f-form">
+    <slot />
+  </form>
 </template>

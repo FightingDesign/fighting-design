@@ -1,0 +1,20 @@
+.f-form-item {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+
+  // label
+  &__label {
+    width: 90px;
+    text-align: right;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  // 主内容
+  &__content {
+    flex: 1;
+    display: flex;
+  }
+}

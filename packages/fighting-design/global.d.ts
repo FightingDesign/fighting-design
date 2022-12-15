@@ -77,6 +77,7 @@ declare module '@vue/runtime-core' {
     FSlider: typeof components.FSlider
     FFightingGlobal: typeof components.FFightingGlobal
     FForm: typeof components.FForm
+    FFormItem: typeof components.FFormItem
   }
 
   interface ComponentCustomProperties {
