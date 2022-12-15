@@ -1,7 +1,7 @@
 import { h } from 'vue'
 import Theme from 'vitepress/theme'
 import './style/vitepress.scss'
-import FightingDesign from '../../../../packages/fighting-design/index'
+import FightingDesign from '../../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 import './index.css'
 import vpSearch from './components/vp-search.vue'

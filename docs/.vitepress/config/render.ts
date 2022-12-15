@@ -9,7 +9,7 @@ interface RenderComponentReturn {
 
 const scriptImports = [
   "import * as FightingIcon from '@fighting-design/fighting-icon'",
-  "import * as FightingDesign from '../../../packages/fighting-design/index.ts'"
+  "import * as FightingDesign from '../../packages/fighting-design/index.ts'"
 ]
 
 let seed = 0

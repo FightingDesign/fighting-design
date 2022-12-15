@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import FightingSetupNamePlugin from '../../packages/fighting-setup-name'
+import FightingSetupNamePlugin from '../packages/fighting-setup-name'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
@@ -23,7 +23,7 @@ export default (): UserConfigExport => {
     },
     resolve: {
       alias: {
-        'fighting-design': resolve(__dirname, '../../packages/fighting-design/index.ts')
+        'fighting-design': resolve(__dirname, '../packages/fighting-design/index.ts')
       }
     },
     css: {

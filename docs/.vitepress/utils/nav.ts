@@ -1,7 +1,9 @@
-import { version } from '../../../../packages/fighting-design/package.json'
+import { version } from '../../../packages/fighting-design/package.json'
 
 /**
  * 顶部导航栏菜单
+ * 
+ * @see Nav https://vitepress.vuejs.org/guide/theme-nav#nav
  */
 export const nav = [
   {
