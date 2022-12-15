@@ -1,10 +1,10 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
+</script>
 
 <template>
-  <f-trigger trigger="click" :enter-duration="0.4" :leave-duration="0.4">
-    <f-text type="primary">click 触发</f-text>
-    <template #content> <f-empty content="在这里，后续提供更多服务" /> </template>
-  </f-trigger>
+  <f-space>
+    <f-button circle :before-icon="FIconApps" type="primary" />
+    <!-- <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock"> 前后都有 </f-button> -->
+  </f-space>
 </template>
-
-<style lang="scss" scoped></style>

@@ -198,12 +198,14 @@
     }
   }
 
-  // icon
-  .f-button_before-icon {
-    margin-right: 5px;
-  }
+  // icon 在不是圆形的时候带有边距
+  &:not([class~='f-button__circle']) {
+    .f-button_before-icon {
+      margin-right: 5px;
+    }
 
-  .f-button_after-icon {
-    margin-left: 5px;
+    .f-button_after-icon {
+      margin-left: 5px;
+    }
   }
 }
