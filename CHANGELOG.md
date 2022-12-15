@@ -9,6 +9,15 @@
 **修复**
 
 - 修复 `f-image-preview` 的警告错误
+- 修复 `f-button` 组件样式细节
+- 修复 `f-tag` 组件样式细节
+- 修复 `f-space` 组件样式细节
+
+**其它改动**
+
+- `f-space` 组件废除 `wrap` 配置项
+- `f-space` 组件新增 `nowrap` 配置项
+- `f-space` 组件 `row-gap` `column-gap` 配置项支持 `number` 类型
 
 ## 0.11.1 (2022-12-13)
 

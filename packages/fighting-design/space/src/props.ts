@@ -10,11 +10,11 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 是否换行
+   * 是否禁止换行
    */
-  wrap: {
+  nowrap: {
     type: Boolean,
-    default: (): boolean => true
+    default: (): boolean => false
   },
   /**
    * 间距尺寸
@@ -24,7 +24,7 @@ export const Props = {
    */
   spacing: {
     type: String as PropType<FightingSize>,
-    default: (): FightingSize => 'middle',
+    default: (): null => null,
     validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }

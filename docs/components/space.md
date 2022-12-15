@@ -85,11 +85,11 @@
 
 | 参数         | 说明           | 类型                                                               | 可选值                          | 默认值 |
 | ------------ | -------------- | ------------------------------------------------------------------ | ------------------------------- | ------ |
-| `spacing`    | 间距尺寸       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
+| `spacing`    | 间距尺寸       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | ——     |
 | `vertical`   | 是否竖直排列   | boolean                                                            | ——                              | false  |
-| `wrap`       | 是否换行       | boolean                                                            | ——                              | true   |
-| `row-gap`    | 自定义纵向间距 | string                                                             | ——                              | ——     |
-| `column-gap` | 自定义横向间距 | string                                                             | ——                              | ——     |
+| `nowrap`     | 是否禁止换行   | boolean                                                            | ——                              | false  |
+| `row-gap`    | 自定义纵向间距 | string / number                                                    | ——                              | ——     |
+| `column-gap` | 自定义横向间距 | string / number                                                    | ——                              | ——     |
 
 ## Interface
 
