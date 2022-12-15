@@ -13,39 +13,7 @@
 
 ::: demo
 
-<template #source>
-<f-menu active-name="1">
-<template #before>
-<f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
-</template>
-
-<f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
-<f-menu-item name="2" :icon="FIconApps">设置</f-menu-item>
-<f-menu-item name="3" :icon="FIconApps">首页</f-menu-item>
-
-<f-submenu>
-<template #title> 选项列表 </template>
-<f-menu-item name="4-1" :icon="FIconBlock">选项</f-menu-item>
-<f-menu-item name="4-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
-<f-menu-item name="4-3" :icon="FIconClock">操作</f-menu-item>
-</f-submenu>
-
-<template #after>
-<f-dropdown>
-<f-button>设置</f-button>
-
-<template #content>
-<f-dropdown-item>猕猴桃</f-dropdown-item>
-<f-dropdown-item>哈密瓜</f-dropdown-item>
-<f-dropdown-item>火龙果</f-dropdown-item>
-<f-dropdown-item>柠檬</f-dropdown-item>
-</template>
-</f-dropdown>
-</template>
-</f-menu>
-</template>
-
-```html
+```vue
 <template>
   <f-menu active-name="1">
     <template #before>
@@ -91,81 +59,12 @@
 
 :::demo
 
-<template #source>
-
-<h3>垂直的</h3>
-<f-menu mode="vertical" active-name="1">
-<template #before>
-<f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
-</template>
-
-<f-menu-item disabled name="1" :icon="FIconApps">首页</f-menu-item>
-<f-menu-item name="2" :icon="FIconApps">设置</f-menu-item>
-<f-menu-item name="3" :icon="FIconApps">首页</f-menu-item>
-
-<f-submenu>
-<template #title> 选项列表 </template>
-<f-menu-item name="4-1" :icon="FIconBlock">选项</f-menu-item>
-<f-menu-item name="4-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
-<f-menu-item name="4-3" :icon="FIconClock">操作</f-menu-item>
-</f-submenu>
-
-<template #after>
-<f-dropdown>
-<f-button>设置</f-button>
-
-<template #content>
-<f-dropdown-item>猕猴桃</f-dropdown-item>
-<f-dropdown-item>哈密瓜</f-dropdown-item>
-<f-dropdown-item>火龙果</f-dropdown-item>
-<f-dropdown-item>柠檬</f-dropdown-item>
-</template>
-</f-dropdown>
-</template>
-</f-menu>
-
-<h3>内联的</h3>
-
-<f-menu mode="inline" active-name="2-1">
-<template #before>
-<f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
-</template>
-
-<f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
-<f-submenu>
-<template #title> 选项列表 </template>
-<f-menu-item name="2-1" :icon="FIconBlock">选项</f-menu-item>
-<f-menu-item name="2-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
-<f-menu-item name="2-3" :icon="FIconClock">操作</f-menu-item>
-</f-submenu>
-
-<f-menu-item-group title="选项列表">
-<f-menu-item name="2-1" :icon="FIconBlock">选项</f-menu-item>
-<f-menu-item name="2-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
-<f-menu-item name="2-3" :icon="FIconClock">操作</f-menu-item>
-</f-menu-item-group>
-
-<template #after>
-<f-dropdown>
-<f-button>设置</f-button>
-
-<template #content>
-<f-dropdown-item>猕猴桃</f-dropdown-item>
-<f-dropdown-item>哈密瓜</f-dropdown-item>
-<f-dropdown-item>火龙果</f-dropdown-item>
-<f-dropdown-item>柠檬</f-dropdown-item>
-</template>
-</f-dropdown>
-</template>
-</f-menu>
-</template>
-
-```html
+```vue
 <template>
   <h3>垂直的</h3>
   <f-menu mode="vertical" active-name="1">
     <template #before>
-      <h1>123</h1>
+      <f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
     </template>
 
     <f-menu-item disabled name="1" :icon="FIconApps">首页</f-menu-item>
@@ -201,7 +100,7 @@
 
   <f-menu mode="inline" active-name="2-1">
     <template #before>
-      <h1>123</h1>
+      <f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
     </template>
 
     <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>

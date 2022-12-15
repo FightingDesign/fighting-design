@@ -15,17 +15,11 @@
 
 ::: demo
 
-<template #source>
-<f-tree :data="data" />
-</template>
-
-```html
-<template>
-  <f-tree :data="data" />
-</template>
-
+```vue
 <script lang="ts" setup>
-  const data = [
+  import { ref } from 'vue'
+
+  const data = ref([
     {
       label: 'Node 1',
       children: [
@@ -38,8 +32,12 @@
       ]
     },
     { label: 'Node 2' }
-  ]
+  ])
 </script>
+
+<template>
+  <f-tree :data="data" />
+</template>
 ```
 
 :::
@@ -63,24 +61,3 @@ import type { FTreeInstance, treeDataInterface } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  const data = [
-    {
-      label: 'Node 1',
-      children: [
-        {
-          label: 'Node 1-1',
-          children: [
-            { label: 'Node 1-1-1' },
-            { label: 'Node 1-1-2' },
-            { label: 'Node 1-1-3' }
-          ]
-        },
-        { label: 'Node 1-2' },
-        { label: 'Node 1-3' }
-      ]
-    },
-    { label: 'Node 2' }
-  ]
-</script>

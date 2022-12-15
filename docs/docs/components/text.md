@@ -11,20 +11,14 @@
 
 ::: demo
 
-<template #source>
-<f-text>普通文字</f-text>
-<f-text type="primary">主要文字</f-text>
-<f-text type="success">成功文字</f-text>
-<f-text type="danger">危险文字</f-text>
-<f-text type="warning">警告文字</f-text>
+```vue
+<template>
+  <f-text>普通文字</f-text>
+  <f-text type="primary">主要文字</f-text>
+  <f-text type="success">成功文字</f-text>
+  <f-text type="danger">危险文字</f-text>
+  <f-text type="warning">警告文字</f-text>
 </template>
-
-```html
-<f-text>普通文字</f-text>
-<f-text type="primary">主要文字</f-text>
-<f-text type="success">成功文字</f-text>
-<f-text type="danger">危险文字</f-text>
-<f-text type="warning">警告文字</f-text>
 ```
 
 :::
@@ -35,18 +29,13 @@
 
 ::: demo
 
-<template #source>
-<f-text size="12px" type="primary">主要文字</f-text>
-<f-text size="16px" type="success">成功文字</f-text>
-<f-text size="20px" type="danger">危险文字</f-text>
-<f-text size="24px" type="warning">警告文字</f-text>
+```vue
+<template>
+  <f-text size="12px" type="primary">主要文字</f-text>
+  <f-text size="16px" type="success">成功文字</f-text>
+  <f-text size="20px" type="danger">危险文字</f-text>
+  <f-text size="24px" type="warning">警告文字</f-text>
 </template>
-
-```html
-<f-text size="12px" type="primary">主要文字</f-text>
-<f-text size="16px" type="success">成功文字</f-text>
-<f-text size="20px" type="danger">危险文字</f-text>
-<f-text size="24px" type="warning">警告文字</f-text>
 ```
 
 :::
@@ -57,13 +46,11 @@
 
 ::: demo
 
-<template #source>
-<f-text color="#58c8de">hello</f-text>
-<f-text color="#e372ff">自定义颜色的字体</f-text>
+```vue
+<template>
+  <f-text color="#58c8de">hello</f-text>
+  <f-text color="#e372ff">自定义颜色的字体</f-text>
 </template>
-
-```html
-<f-text color="#58c8de">hello</f-text> <f-text color="#e372ff">自定义颜色的字体</f-text>
 ```
 
 :::
@@ -74,16 +61,12 @@
 
 ::: demo
 
-<template #source>
-<f-text background="#58c8de">背景颜色</f-text>
-<f-text background="#e372ff">背景颜色</f-text>
-<f-text background="#e49b33">背景颜色</f-text>
+```vue
+<template>
+  <f-text background="#58c8de">背景颜色</f-text>
+  <f-text background="#e372ff">背景颜色</f-text>
+  <f-text background="#e49b33">背景颜色</f-text>
 </template>
-
-```html
-<f-text background="#58c8de">背景颜色</f-text>
-<f-text background="#e372ff">背景颜色</f-text>
-<f-text background="#e49b33">背景颜色</f-text>
 ```
 
 :::
@@ -94,16 +77,12 @@
 
 ::: demo
 
-<template #source>
-<f-text type="primary" block>文字</f-text>
-<f-text type="success" block>文字</f-text>
-<f-text type="danger" block>文字</f-text>
+```vue
+<template>
+  <f-text type="primary" block>文字</f-text>
+  <f-text type="success" block>文字</f-text>
+  <f-text type="danger" block>文字</f-text>
 </template>
-
-```html
-<f-text type="primary" block>文字</f-text>
-<f-text type="success" block>文字</f-text>
-<f-text type="danger" block>文字</f-text>
 ```
 
 :::
@@ -114,16 +93,12 @@
 
 ::: demo
 
-<template #source>
-<f-text type="primary" spacing="10px" block>小间距</f-text>
-<f-text type="success" spacing="20px" block>中等间距</f-text>
-<f-text type="danger" spacing="30px" block>大间距</f-text>
+```vue
+<template>
+  <f-text type="primary" spacing="10px" block>小间距</f-text>
+  <f-text type="success" spacing="20px" block>中等间距</f-text>
+  <f-text type="danger" spacing="30px" block>大间距</f-text>
 </template>
-
-```html
-<f-text type="primary" spacing="10px" block>小间距</f-text>
-<f-text type="success" spacing="20px" block>中等间距</f-text>
-<f-text type="danger" spacing="30px" block>大间距</f-text>
 ```
 
 :::
@@ -134,16 +109,12 @@
 
 ::: demo
 
-<template #source>
-<f-text type="primary" indent="30px" block>文字</f-text>
-<f-text type="success" indent="50px" block>文字</f-text>
-<f-text type="danger" indent="70px" block>文字</f-text>
+```vue
+<template>
+  <f-text type="primary" indent="30px" block>文字</f-text>
+  <f-text type="success" indent="50px" block>文字</f-text>
+  <f-text type="danger" indent="70px" block>文字</f-text>
 </template>
-
-```html
-<f-text type="primary" indent="30px" block>文字</f-text>
-<f-text type="success" indent="50px" block>文字</f-text>
-<f-text type="danger" indent="70px" block>文字</f-text>
 ```
 
 :::
@@ -154,18 +125,13 @@
 
 ::: demo
 
-<template #source>
-<f-text>未加粗文字</f-text>
-<f-text type="primary" bold>加粗的主要文字</f-text>
-<f-text type="success" bold>加粗的成功文字</f-text>
-<f-text type="danger" bold>加粗的危险文字</f-text>
+```vue
+<template>
+  <f-text>未加粗文字</f-text>
+  <f-text type="primary" bold>加粗的主要文字</f-text>
+  <f-text type="success" bold>加粗的成功文字</f-text>
+  <f-text type="danger" bold>加粗的危险文字</f-text>
 </template>
-
-```html
-<f-text>未加粗文字</f-text>
-<f-text type="primary" bold>加粗的主要文字</f-text>
-<f-text type="success" bold>加粗的成功文字</f-text>
-<f-text type="danger" bold>加粗的危险文字</f-text>
 ```
 
 :::
@@ -176,18 +142,13 @@
 
 ::: demo
 
-<template #source>
-<f-text>标准文字</f-text>
-<f-text type="primary" decoration="overline">上划线</f-text>
-<f-text type="success" decoration="line-through">中划线</f-text>
-<f-text type="danger" decoration="underline">下划线</f-text>
+```vue
+<template>
+  <f-text>标准文字</f-text>
+  <f-text type="primary" decoration="overline">上划线</f-text>
+  <f-text type="success" decoration="line-through">中划线</f-text>
+  <f-text type="danger" decoration="underline">下划线</f-text>
 </template>
-
-```html
-<f-text>标准文字</f-text>
-<f-text type="primary" decoration="overline">上划线</f-text>
-<f-text type="success" decoration="line-through">中划线</f-text>
-<f-text type="danger" decoration="underline">下划线</f-text>
 ```
 
 :::
@@ -198,16 +159,12 @@
 
 ::: demo
 
-<template #source>
-<f-text background="#ECECEC" padding="10px">上下左右相同的简写</f-text>
-<f-text type="primary" background="#ECECEC" padding="10px 30px">上下、左右分别相同</f-text>
-<f-text type="success" background="#ECECEC" padding="10px 20px 30px 40px">分别定义上下左右</f-text>
+```vue
+<template>
+  <f-text background="#ECECEC" padding="10px">上下左右相同的简写</f-text>
+  <f-text type="primary" background="#ECECEC" padding="10px 30px">上下、左右分别相同</f-text>
+  <f-text type="success" background="#ECECEC" padding="10px 20px 30px 40px">分别定义上下左右</f-text>
 </template>
-
-```html
-<f-text background="#ECECEC" padding="10px">上下左右相同的简写</f-text>
-<f-text type="primary" background="#ECECEC" padding="10px 30px"> 上下、左右分别相同 </f-text>
-<f-text type="success" background="#ECECEC" padding="10px 20px 30px 40px"> 分别定义上下左右 </f-text>
 ```
 
 :::
@@ -218,12 +175,9 @@
 
 ::: demo
 
-<template #source>
+<template>
 <f-text ellipsis width="90px">省略文字省略文字省略文字省略文字</f-text>
 </template>
-
-```html
-<f-text ellipsis width="90px">省略文字省略文字省略文字省略文字</f-text>
 ```
 
 :::
@@ -280,9 +234,3 @@ type TextDecoration = 'overline' | 'line-through' | 'underline'
 <a href="https://github.com/Alphatrionty" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/57850101?v=4" />
 </a>
-
-<style scoped>
-  .f-text {
-    margin: 5px;
-  }
-</style>

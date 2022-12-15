@@ -11,20 +11,16 @@
 
 ::: demo
 
-<template #source>
-<f-up-load v-model:files="files1" />
-</template>
-
-```html
-<template>
-  <f-up-load v-model:files="files1" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const files1 = ref([])
+  const files = ref([])
 </script>
+
+<template>
+  <f-up-load v-model:files="files" />
+</template>
 ```
 
 :::
@@ -35,20 +31,16 @@
 
 ::: demo
 
-<template #source>
-<f-up-load v-model:files="files2" multiple />
-</template>
-
-```html
-<template>
-  <f-up-load v-model:files="files2" multiple />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const files2 = ref([])
+  const files = ref([])
 </script>
+
+<template>
+  <f-up-load v-model:files="files" multiple />
+</template>
 ```
 
 :::
@@ -59,20 +51,16 @@
 
 ::: demo
 
-<template #source>
-<f-up-load v-model:files="files3" multiple :max-length="4" />
-</template>
-
-```html
-<template>
-  <f-up-load v-model:files="files3" multiple :max-length="4" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const files3 = ref([])
+  const files = ref([])
 </script>
+
+<template>
+  <f-up-load v-model:files="files" multiple :max-length="4" />
+</template>
 ```
 
 :::
@@ -83,20 +71,16 @@
 
 ::: demo
 
-<template #source>
-<f-up-load v-model:files="files4" multiple drag />
-</template>
-
-```html
-<template>
-  <f-up-load v-model:files="files4" multiple drag />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const files4 = ref([])
+  const files = ref([])
 </script>
+
+<template>
+  <f-up-load v-model:files="files" multiple drag />
+</template>
 ```
 
 :::
@@ -137,12 +121,3 @@ import type { UpLoadInstance, UpLoadProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const files1 = ref([])
-  const files2 = ref([])
-  const files3 = ref([])
-  const files4 = ref([])
-</script>

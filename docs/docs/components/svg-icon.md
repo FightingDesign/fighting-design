@@ -37,9 +37,6 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 
 它同时支持 `icon` 属性传递和插槽
 
-::: demo
-
-<template #source>
 <f-svg-icon>
 <f-icon-apps />
 </f-svg-icon>
@@ -49,9 +46,8 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 </f-svg-icon>
 
 <f-svg-icon size="34px" :icon="FIconBook" />
-</template>
 
-```html
+```vue
 <template>
   <f-svg-icon>
     <f-icon-apps />
@@ -68,8 +64,6 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
   import { FIconApps, FIconBluetooth, FIconBook } from '@fighting-design/fighting-icon'
 </script>
 ```
-
-:::
 
 ## 集合
 

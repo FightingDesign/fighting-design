@@ -7,19 +7,15 @@
 
 ## 基本使用
 
-最简单的占位使用。
+最简单的占位使用
 
 ::: demo
 
-<template #source>
-<f-skeleton />
-<f-skeleton />
+```vue
+<template>
+  <f-skeleton />
+  <f-skeleton />
 </template>
-
-```html
-<f-skeleton />
-
-<f-skeleton />
 ```
 
 ## 多行骨架屏
@@ -28,12 +24,10 @@
 
 ::: demo
 
-<template #source>
-<f-skeleton :rows="3" />
+```vue
+<template>
+  <f-skeleton :rows="3" />
 </template>
-
-```html
-<f-skeleton :rows="3" />
 ```
 
 :::
@@ -44,15 +38,11 @@
 
 ::: demo
 
-<template #source>
-<f-skeleton animated />
-<f-skeleton rounded animated />
+```vue
+<template>
+  <f-skeleton animated />
+  <f-skeleton rounded animated />
 </template>
-
-```html
-<f-skeleton animated />
-
-<f-skeleton rounded animated />
 ```
 
 :::
@@ -63,28 +53,18 @@
 
 ::: demo
 
-<template #source>
-<f-skeleton animated size="large" />
-<f-skeleton animated size="middle" />
-<f-skeleton animated size="small" />
-<f-skeleton animated size="mini" />
+```vue
+<template>
+  <f-skeleton animated size="large" />
+  <f-skeleton animated size="middle" />
+  <f-skeleton animated size="small" />
+  <f-skeleton animated size="mini" />
 
-<f-skeleton animated round size="large" />
-<f-skeleton animated round size="middle" />
-<f-skeleton animated round size="small" />
-<f-skeleton animated round size="mini" />
+  <f-skeleton animated round size="large" />
+  <f-skeleton animated round size="middle" />
+  <f-skeleton animated round size="small" />
+  <f-skeleton animated round size="mini" />
 </template>
-
-```html
-<f-skeleton animated size="large" />
-<f-skeleton animated size="middle" />
-<f-skeleton animated size="small" />
-<f-skeleton animated size="mini" />
-
-<f-skeleton animated round size="large" />
-<f-skeleton animated round size="middle" />
-<f-skeleton animated round size="small" />
-<f-skeleton animated round size="mini" />
 ```
 
 :::
@@ -93,20 +73,7 @@
 
 ::: demo
 
-<template #source>
-<f-skeleton animated :rows="2" :loading="loading">
-<f-list>
-<f-list-item>这是一段文字</f-list-item>
-<f-list-item>这是一段文字</f-list-item>
-</f-list>
-</f-skeleton>
-
-<f-button :loading="loading" simple type="primary" @click="startLoad">
-{{ loading ? '加载中...' : `开始加载` }}
-</f-button>
-</template>
-
-```html
+```vue
 <template>
   <f-skeleton animated :rows="2" :loading="loading">
     <f-list>
@@ -169,16 +136,3 @@ import type { SkeletonInstance, SkeletonProps } from 'fighting-design'
 <a href="https://github.com/jxzho" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/37285048?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const loading = ref(false)
-
-  const startLoad = () => {
-    loading.value = true
-    setInterval(() => {
-      loading.value = false
-    }, 3000)
-  }
-</script>

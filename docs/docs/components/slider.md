@@ -11,21 +11,15 @@
 
 ::: demo
 
-<template #source>
-<f-space>
-<f-slider v-model="value1" />
-</f-space>
-</template>
-
-```html
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value1 = ref(50)
+  const value = ref(50)
 </script>
 
 <template>
-  <f-slider v-model="value1" />
+  <f-slider v-model="value" />
 </template>
 ```
 
@@ -37,21 +31,15 @@
 
 ::: demo
 
-<template #source>
-<f-space>
-<f-slider v-model="value2" :min="40" :max="60" />
-</f-space>
-</template>
-
-```html
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value2 = ref(50)
+  const value = ref(50)
 </script>
 
 <template>
-  <f-slider v-model="value2" :min="40" :max="60" />
+  <f-slider v-model="value" :min="40" :max="60" />
 </template>
 ```
 
@@ -63,21 +51,15 @@
 
 ::: demo
 
-<template #source>
-<f-space>
-<f-slider v-model="value3" :step="10" />
-</f-space>
-</template>
-
-```html
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value3 = ref(20)
+  const value = ref(20)
 </script>
 
 <template>
-  <f-slider v-model="value3" :step="10" />
+  <f-slider v-model="value" :step="10" />
 </template>
 ```
 
@@ -89,21 +71,15 @@
 
 ::: demo
 
-<template #source>
-<f-space>
-<f-slider v-model="value4" disabled />
-</f-space>
-</template>
-
-```html
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value4 = ref(70)
+  const value = ref(70)
 </script>
 
 <template>
-  <f-slider v-model="value4" disabled />
+  <f-slider v-model="value" disabled />
 </template>
 ```
 
@@ -138,12 +114,3 @@ import type { SliderInstance, SliderProps } from 'fighting-design'
 <a href="https://github.com/long-life233" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/77321887?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const value1 = ref(50)
-  const value2 = ref(50)
-  const value3 = ref(20)
-  const value4 = ref(70)
-</script>

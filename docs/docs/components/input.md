@@ -11,11 +11,7 @@
 
 ::: demo
 
-<template #source>
-<f-input v-model="value1" type="text" placeholder="请输入...." />
-</template>
-
-```html
+```vue
 <template>
   <f-input v-model="value1" type="text" placeholder="请输入...." />
 </template>
@@ -35,14 +31,7 @@
 
 ::: demo
 
-<template #source>
-<f-input v-model="value2" type="text" size="large" />
-<f-input v-model="value2" type="text" size="middle" />
-<f-input v-model="value2" type="text" size="small" />
-<f-input v-model="value2" type="text" size="mini" />
-</template>
-
-```html
+```vue
 <template>
   <f-input v-model="value2" type="text" size="large" />
   <f-input v-model="value2" type="text" size="middle" />
@@ -65,11 +54,7 @@
 
 ::: demo
 
-<template #source>
-<f-input v-model="value3" type="text" search placeholder="请输入...." />
-</template>
-
-```html
+```vue
 <template>
   <f-input v-model="value3" type="text" search placeholder="请输入...." />
 </template>
@@ -89,12 +74,7 @@
 
 ::: demo
 
-<template #source>
-<f-input v-model="value4" type="text" />
-<f-input v-model="value4" type="password" />
-</template>
-
-```html
+```vue
 <template>
   <f-input v-model="value4" type="text" placeholder="请输入...." />
 </template>
@@ -114,11 +94,7 @@
 
 ::: demo
 
-<template #source>
-<f-input v-model="value5" type="password" show-password />
-</template>
-
-```html
+```vue
 <template>
   <f-input v-model="value5" type="password" show-password />
 </template>
@@ -138,11 +114,7 @@
 
 ::: demo
 
-<template #source>
-<f-input v-model="value6" type="text" :icon="FIconCloud" />
-</template>
-
-```html
+```vue
 <template>
   <f-input v-model="value6" type="text" :icon="FIconCloud" />
 </template>
@@ -163,11 +135,7 @@
 
 ::: demo
 
-<template #source>
-<f-input v-model="value7" type="text" clear />
-</template>
-
-```html
+```vue
 <template>
   <f-input v-model="value7" type="text" clear />
 </template>
@@ -187,12 +155,7 @@
 
 ::: demo
 
-<template #source>
-<f-input v-model="value8" type="text" readonly />
-<f-input v-model="value8" type="text" disabled />
-</template>
-
-```html
+```vue
 <template>
   <f-input v-model="value8" type="text" readonly />
   <f-input v-model="value8" type="text" disabled />
@@ -271,23 +234,3 @@ type InputSearch = ({ evt: Event, value: string }) => void
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { FIconCloud } from '@fighting-design/fighting-icon'
-
-  const value1 = ref('')
-  const value2 = ref('不同尺寸的')
-  const value3 = ref('')
-  const value4 = ref('不同类型的')
-  const value5 = ref('123456')
-  const value6 = ref('')
-  const value7 = ref('可清空的')
-  const value8 = ref('点我试试吧')
-</script>
-
-<style scoped>
-  .f-input {
-    margin-top: 10px;
-  }
-</style>

@@ -13,17 +13,7 @@
 
 ::: demo
 
-<template #source>
-<f-swap v-model="value1" :icon-on="FIconSun" :icon-off="FIconMoon" />
-<f-swap v-model="value2" :icon-on="FIconSun" :icon-off="FIconMoon" />
-</template>
-
-```html
-<template>
-  <f-swap v-model="value1" :icon-on="FIconSun" :icon-off="FIconMoon" />
-  <f-swap v-model="value2" :icon-on="FIconSun" :icon-off="FIconMoon" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { FIconSun, FIconMoon } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
@@ -31,6 +21,11 @@
   const value1 = ref(true)
   const value2 = ref(false)
 </script>
+
+<template>
+  <f-swap v-model="value1" :icon-on="FIconSun" :icon-off="FIconMoon" />
+  <f-swap v-model="value2" :icon-on="FIconSun" :icon-off="FIconMoon" />
+</template>
 ```
 
 :::
@@ -41,24 +36,19 @@
 
 ::: demo
 
-<template #source>
-<f-swap v-model="value3" :size="50" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
-<f-swap v-model="value4" size="30px" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
-</template>
-
-```html
-<template>
-  <f-swap v-model="value5" :size="50" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
-  <f-swap v-model="value6" size="30px" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
-</template>
-
+```vue
 <script lang="ts" setup>
   import { FIconFaceFrown, FIconFaceSmile, FIconEye, FIconEyeSlash } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
-  const value3 = ref(true)
-  const value4 = ref(true)
+  const value1 = ref(true)
+  const value2 = ref(true)
 </script>
+
+<template>
+  <f-swap v-model="value1" :size="50" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
+  <f-swap v-model="value2" size="30px" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
+</template>
 ```
 
 :::
@@ -69,34 +59,21 @@
 
 ::: demo
 
-<template #source>
-<f-swap v-model="value5" type="default" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
-<f-swap v-model="value6" type="sound" :icon-on="FIconSun" :icon-off="FIconMoon" />
-<f-swap v-model="value7" type="swap" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
-</template>
-
-```html
-<template>
-  <f-swap v-model="value5" type="default" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
-  <f-swap v-model="value6" type="sound" :icon-on="FIconSun" :icon-off="FIconMoon" />
-  <f-swap v-model="value7" type="swap" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
-</template>
-
+```vue
 <script lang="ts" setup>
-  import {
-    FIconSun,
-    FIconMoon,
-    FIconFaceSmile,
-    FIconFaceFrown,
-    FIconEye,
-    FIconEyeSlash
-  } from '@fighting-design/fighting-icon'
+  import { FIconSun, FIconMoon } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
-  const value5 = ref(true)
-  const value6 = ref(true)
-  const value7 = ref(true)
+  const value1 = ref(true)
+  const value2 = ref(true)
+  const value3 = ref(true)
 </script>
+
+<template>
+  <f-swap v-model="value1" type="default" :icon-on="FIconSun" :icon-off="FIconMoon" />
+  <f-swap v-model="value2" type="sound" :icon-on="FIconSun" :icon-off="FIconMoon" />
+  <f-swap v-model="value3" type="swap" :icon-on="FIconSun" :icon-off="FIconMoon" />
+</template>
 ```
 
 :::
@@ -139,31 +116,3 @@ type SwapType = 'sound' | 'swap' | 'default'
 <a href="https://github.com/Alphatrionty" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/57850101?v=4" />
 </a>
-
-<script lang="ts" setup>
-  import { 
-   FIconSoundUp,
-   FIconSoundMute,
-   FIconSun,
-   FIconMoon,
-   FIconFaceSmile,
-   FIconFaceFrown,
-   FIconEye,
-   FIconEyeSlash
-   } from '@fighting-design/fighting-icon'
-  import { ref } from 'vue'
-
-  const value1 = ref(true)
-  const value2 = ref(false)
-  const value3 = ref(true)
-  const value4 = ref(true)
-  const value5 = ref(true)
-  const value6 = ref(true)
-  const value7 = ref(true)
-</script>
-
-<style scoped>
-  .f-swap {
-    margin: 5px;
-  }
-</style>

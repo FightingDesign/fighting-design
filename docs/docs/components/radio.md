@@ -11,28 +11,20 @@
 
 ::: demo
 
-<template #source>
-<f-radio-group v-model="radio1">
-<f-radio label="1">备选项 1</f-radio>
-<f-radio label="2">备选项 2</f-radio>
-<f-radio label="3">备选项 3</f-radio>
-</f-radio-group>
-</template>
+```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-```html
+  const radio = ref('1')
+</script>
+
 <template>
-  <f-radio-group v-model="radio1">
+  <f-radio-group v-model="radio">
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2">备选项2</f-radio>
     <f-radio label="3">备选项3</f-radio>
   </f-radio-group>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const radio1 = ref('1')
-</script>
 ```
 
 :::
@@ -43,28 +35,20 @@
 
 ::: demo
 
-<template #source>
-<f-radio-group v-model="radio2" border>
-<f-radio label="1">备选项 1</f-radio>
-<f-radio label="2">备选项 2</f-radio>
-<f-radio label="3">备选项 3</f-radio>
-</f-radio-group>
-</template>
+```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-```html
+  const radio = ref('1')
+</script>
+
 <template>
-  <f-radio-group v-model="radio2" border>
+  <f-radio-group v-model="radio" border>
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2">备选项2</f-radio>
     <f-radio label="3">备选项3</f-radio>
   </f-radio-group>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const radio2 = ref('1')
-</script>
 ```
 
 :::
@@ -75,73 +59,39 @@
 
 ::: demo
 
-<template #source>
-<f-radio-group v-model="radio4" border size="large">
-<f-radio label="1">备选项 1</f-radio>
-<f-radio label="2">备选项 2</f-radio>
-<f-radio label="3">备选项 3</f-radio>
-</f-radio-group>
-
-<br />
-<br />
-
-<f-radio-group v-model="radio4" border size="middle">
-  <f-radio label="1">备选项1</f-radio>
-  <f-radio label="2">备选项2</f-radio>
-  <f-radio label="3">备选项3</f-radio>
-</f-radio-group>
-
-<br />
-<br />
-
-<f-radio-group v-model="radio4" border size="small">
-  <f-radio label="1">备选项1</f-radio>
-  <f-radio label="2">备选项2</f-radio>
-  <f-radio label="3">备选项3</f-radio>
-</f-radio-group>
-
-<br />
-<br />
-
-<f-radio-group v-model="radio4" border size="mini">
-  <f-radio label="1">备选项1</f-radio>
-  <f-radio label="2">备选项2</f-radio>
-  <f-radio label="3">备选项3</f-radio>
-</f-radio-group>
-
-</template>
-
-```html
+```vue
 <template>
-  <f-radio-group v-model="radio4" border size="large">
-    <f-radio label="1">备选项1</f-radio>
-    <f-radio label="2">备选项2</f-radio>
-    <f-radio label="3">备选项3</f-radio>
-  </f-radio-group>
+  <f-space vertical>
+    <f-radio-group v-model="radio" border size="large">
+      <f-radio label="1">备选项1</f-radio>
+      <f-radio label="2">备选项2</f-radio>
+      <f-radio label="3">备选项3</f-radio>
+    </f-radio-group>
 
-  <f-radio-group v-model="radio4" border size="middle">
-    <f-radio label="1">备选项1</f-radio>
-    <f-radio label="2">备选项2</f-radio>
-    <f-radio label="3">备选项3</f-radio>
-  </f-radio-group>
+    <f-radio-group v-model="radio" border size="middle">
+      <f-radio label="1">备选项1</f-radio>
+      <f-radio label="2">备选项2</f-radio>
+      <f-radio label="3">备选项3</f-radio>
+    </f-radio-group>
 
-  <f-radio-group v-model="radio4" border size="small">
-    <f-radio label="1">备选项1</f-radio>
-    <f-radio label="2">备选项2</f-radio>
-    <f-radio label="3">备选项3</f-radio>
-  </f-radio-group>
+    <f-radio-group v-model="radio" border size="small">
+      <f-radio label="1">备选项1</f-radio>
+      <f-radio label="2">备选项2</f-radio>
+      <f-radio label="3">备选项3</f-radio>
+    </f-radio-group>
 
-  <f-radio-group v-model="radio4" border size="mini">
-    <f-radio label="1">备选项1</f-radio>
-    <f-radio label="2">备选项2</f-radio>
-    <f-radio label="3">备选项3</f-radio>
-  </f-radio-group>
+    <f-radio-group v-model="radio" border size="mini">
+      <f-radio label="1">备选项1</f-radio>
+      <f-radio label="2">备选项2</f-radio>
+      <f-radio label="3">备选项3</f-radio>
+    </f-radio-group>
+  </f-space>
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const radio4 = ref('1')
+  const radio = ref('1')
 </script>
 ```
 
@@ -153,28 +103,20 @@
 
 ::: demo
 
-<template #source>
-<f-radio-group v-model="radio5" vertical>
-<f-radio label="1">备选项 1</f-radio>
-<f-radio label="2">备选项 2</f-radio>
-<f-radio label="3">备选项 3</f-radio>
-</f-radio-group>
-</template>
+```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-```html
+  const radio = ref('1')
+</script>
+
 <template>
-  <f-radio-group v-model="radio5" vertical>
+  <f-radio-group v-model="radio" vertical>
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2">备选项2</f-radio>
     <f-radio label="3">备选项3</f-radio>
   </f-radio-group>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const radio5 = ref('1')
-</script>
 ```
 
 :::
@@ -185,43 +127,28 @@
 
 ::: demo
 
-<template #source>
-<f-radio-group v-model="radio6" disabled>
-<f-radio label="1">备选项 1</f-radio>
-<f-radio label="2">备选项 2</f-radio>
-<f-radio label="3">备选项 3</f-radio>
-</f-radio-group>
-
-<br />
-<br />
-
-<f-radio-group v-model="radio6">
-  <f-radio label="1">备选项1</f-radio>
-  <f-radio label="2" disabled>备选项2</f-radio>
-  <f-radio label="3">备选项3</f-radio>
-</f-radio-group>
-</template>
-
-```html
-<template>
-  <f-radio-group v-model="radio6" disabled>
-    <f-radio label="1">备选项1</f-radio>
-    <f-radio label="2">备选项2</f-radio>
-    <f-radio label="3">备选项3</f-radio>
-  </f-radio-group>
-
-  <f-radio-group v-model="radio6">
-    <f-radio label="1">备选项1</f-radio>
-    <f-radio label="2" disabled>备选项2</f-radio>
-    <f-radio label="3">备选项3</f-radio>
-  </f-radio-group>
-</template>
-
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const radio6 = ref('1')
+  const radio = ref('1')
 </script>
+
+<template>
+  <f-space vertical>
+    <f-radio-group v-model="radio" disabled>
+      <f-radio label="1">备选项1</f-radio>
+      <f-radio label="2">备选项2</f-radio>
+      <f-radio label="3">备选项3</f-radio>
+    </f-radio-group>
+
+    <f-radio-group v-model="radio">
+      <f-radio label="1">备选项1</f-radio>
+      <f-radio label="2" disabled>备选项2</f-radio>
+      <f-radio label="3">备选项3</f-radio>
+    </f-radio-group>
+  </f-space>
+</template>
 ```
 
 :::
@@ -297,13 +224,3 @@ type RadioChange = (value: RadioModelValue) => void
 <a href="https://github.com/tangtts" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/50451042?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const radio1 = ref('1')
-  const radio2 = ref('1')
-  const radio4 = ref('1')
-  const radio5 = ref('1')
-  const radio6 = ref('1')
-</script>

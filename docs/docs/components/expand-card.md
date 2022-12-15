@@ -11,11 +11,7 @@
 
 ::: demo
 
-<template #source>
-<f-expand-card  :image-list="imageList" />
-</template>
-
-```html
+```vue
 <template>
   <f-expand-card :image-list="imageList" />
 </template>
@@ -37,11 +33,7 @@
 
 ::: demo
 
-<template #source>
-<f-expand-card  :image-list="imageList2" />
-</template>
-
-```html
+```vue
 <template>
   <f-expand-card :image-list="imageList2" />
 </template>
@@ -72,11 +64,7 @@
 
 ::: demo
 
-<template #source>
-<f-expand-card round :image-list="imageList" />
-</template>
-
-```html
+```vue
 <template>
   <f-expand-card round :image-list="imageList" />
 </template>
@@ -135,26 +123,3 @@ type ExpandCardImageList = ExpandCardImageListItem[] | string[]
 <a href="https://github.com/876843240" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/14799063?v=4" />
 </a>
-
-<script setup lang="ts">
-  const imageList = [
-    'https://tianyuhao.cn/images/fighting-design/1.jpg',
-    'https://tianyuhao.cn/images/fighting-design/2.jpg',
-    'https://tianyuhao.cn/images/fighting-design/3.jpg'
-  ]
-
-  const imageList2 = [
-    {
-      url: 'https://tianyuhao.cn/images/fighting-design/1.jpg',
-      text: '第一张图片'
-    },
-    {
-      url: 'https://tianyuhao.cn/images/fighting-design/2.jpg',
-      text: '第二张图片'
-    },
-    {
-      url: 'https://tianyuhao.cn/images/fighting-design/3.jpg',
-      text: '第三张图片'
-    }
-  ]
-</script>

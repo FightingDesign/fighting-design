@@ -11,40 +11,24 @@
 
 ::: demo
 
-<template #source>
-<f-trigger trigger="hover">
-<f-button type="primary">hover 触发</f-button>
+```vue
+<template>
+  <f-trigger trigger="hover">
+    <f-button type="primary">hover 触发</f-button>
 
-<template #content>
-<f-empty content="在这里，后续提供更多服务" />
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+    </template>
+  </f-trigger>
+
+  <f-trigger trigger="click" style="margin-left: 120px">
+    <f-button type="primary">click 触发</f-button>
+
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+    </template>
+  </f-trigger>
 </template>
-</f-trigger>
-
-<f-trigger trigger="click" style="margin-left: 120px">
-<f-button type="primary">click 触发</f-button>
-
-<template #content>
-<f-empty content="在这里，后续提供更多服务" />
-</template>
-</f-trigger>
-</template>
-
-```html
-<f-trigger trigger="hover">
-  <f-button type="primary">hover 触发</f-button>
-
-  <template #content>
-    <f-empty content="在这里，后续提供更多服务" />
-  </template>
-</f-trigger>
-
-<f-trigger trigger="click" style="margin-left: 120px">
-  <f-button type="primary">click 触发</f-button>
-
-  <template #content>
-    <f-empty content="在这里，后续提供更多服务" />
-  </template>
-</f-trigger>
 ```
 
 :::
@@ -55,52 +39,30 @@
 
 ::: demo
 
-<template #source>
-<f-trigger trigger="click">
-<f-text type="primary">click 触发</f-text>
+```vue
+<template>
+  <f-trigger trigger="click">
+    <f-text type="primary">click 触发</f-text>
 
-<template #content>
-<f-empty content="在这里，后续提供更多服务" />
-<f-trigger trigger="click">
-<f-text type="primary">click 触发</f-text>
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+      <f-trigger trigger="click">
+        <f-text type="primary">click 触发</f-text>
 
-<template #content>
-<f-empty content="在这里，后续提供更多服务" />
-<f-trigger trigger="click">
-<f-text type="primary">click 触发</f-text>
+        <template #content>
+          <f-empty content="在这里，后续提供更多服务" />
+          <f-trigger trigger="click">
+            <f-text type="primary">click 触发</f-text>
 
-<template #content>
-<f-empty content="在这里，后续提供更多服务" />
+            <template #content>
+              <f-empty content="在这里，后续提供更多服务" />
+            </template>
+          </f-trigger>
+        </template>
+      </f-trigger>
+    </template>
+  </f-trigger>
 </template>
-</f-trigger>
-</template>
-</f-trigger>
-</template>
-</f-trigger>
-</template>
-
-```html
-<f-trigger trigger="click">
-  <f-text type="primary">click 触发</f-text>
-
-  <template #content>
-    <f-empty content="在这里，后续提供更多服务" />
-    <f-trigger trigger="click">
-      <f-text type="primary">click 触发</f-text>
-
-      <template #content>
-        <f-empty content="在这里，后续提供更多服务" />
-        <f-trigger trigger="click">
-          <f-text type="primary">click 触发</f-text>
-
-          <template #content>
-            <f-empty content="在这里，后续提供更多服务" />
-          </template>
-        </f-trigger>
-      </template>
-    </f-trigger>
-  </template>
-</f-trigger>
 ```
 
 :::
@@ -111,24 +73,16 @@
 
 ::: demo
 
-<template #source>
-<f-trigger trigger="click" :enter-duration="0.4" :leave-duration="0.4">
-<f-text type="primary">click 触发</f-text>
+```vue
+<template>
+  <f-trigger trigger="click" :enter-duration="0.4" :leave-duration="0.4">
+    <f-text type="primary">click 触发</f-text>
 
-<template #content>
-<f-empty content="在这里，后续提供更多服务" />
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+    </template>
+  </f-trigger>
 </template>
-</f-trigger>
-</template>
-
-```html
-<f-trigger trigger="click" :enter-duration="0.4" :leave-duration="0.4">
-  <f-text type="primary">click 触发</f-text>
-
-  <template #content>
-    <f-empty content="在这里，后续提供更多服务" />
-  </template>
-</f-trigger>
 ```
 
 :::

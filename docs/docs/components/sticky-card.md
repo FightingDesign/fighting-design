@@ -11,29 +11,15 @@
 
 ::: demo
 
-<template #source>
-<f-sticky-card :open="open1">
-
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-</f-sticky-card>
-</template>
-
-```html
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const open1 = ref(false)
+  const open = ref(false)
 </script>
 
 <template>
-  <f-sticky-card :open="open1">
+  <f-sticky-card :open="open">
     <h1>Hello World！</h1>
     <h1>Hello World！</h1>
     <h1>Hello World！</h1>
@@ -54,30 +40,15 @@
 
 ::: demo
 
-<template #source>
-<f-sticky-card :open="open2">
+```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-<template #source>
+  const open = ref(false)
+</script>
 
-<h1>你好世界！</h1>
-<h1>你好世界！</h1>
-<h1>你好世界！</h1>
-</template>
-
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-  <h1>Hello World！</h1>
-</f-sticky-card>
-</template>
-
-```html
 <template>
-  <f-sticky-card :open="open2">
+  <f-sticky-card :open="open">
     <template #source>
       <h1>你好世界！</h1>
       <h1>你好世界！</h1>
@@ -94,12 +65,6 @@
     <h1>Hello World！</h1>
   </f-sticky-card>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const open2 = ref(false)
-</script>
 ```
 
 :::
@@ -136,10 +101,3 @@ import type { StickyCardInstance, StickyCardProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script setup lang="ts">
-  import { ref } from 'vue'
-
-  const open1 = ref(false)
-  const open2 = ref(false)
-</script>
