@@ -11,12 +11,10 @@
 
 ::: demo
 
-<template #source>
-<f-divider margin="20px">我是分隔线</f-divider>
+```vue
+<template>
+  <f-divider margin="20px">我是分隔线</f-divider>
 </template>
-
-```html
-<f-divider>我是分隔线</f-divider>
 ```
 
 :::
@@ -27,21 +25,16 @@
 
 ::: demo
 
-<template #source>
-
-<p/>
-<f-divider position='left'>我是左边的文字</f-divider>
-<p/>
-<f-divider position='center'>我是居中的文字</f-divider>
-<p/>
-<f-divider position='right'>我是右边的文字</f-divider>
-<p/>
+```vue
+<template>
+  <p />
+  <f-divider position="left">我是左边的文字</f-divider>
+  <p />
+  <f-divider position="center">我是居中的文字</f-divider>
+  <p />
+  <f-divider position="right">我是右边的文字</f-divider>
+  <p />
 </template>
-
-```html
-<f-divider position="left">我是左边的文字</f-divider>
-<f-divider position="center">我是居中的文字</f-divider>
-<f-divider position="right">我是右边的文字</f-divider>
 ```
 
 :::
@@ -56,17 +49,12 @@
 
 ::: demo
 
-<template #source>
-<f-divider margin="40px">默认颜色</f-divider>
-<f-divider color='green' margin="40px" fontColor="green" background="#eee">我是绿色</f-divider>
-<f-divider color='blue' margin="40px" fontColor="#fff" background="blue">我是蓝色</f-divider>
-
+```vue
+<template>
+  <f-divider margin="40px">默认颜色</f-divider>
+  <f-divider color="green" margin="40px" fontColor="green" background="#eee">我是绿色</f-divider>
+  <f-divider color="blue" margin="40px" fontColor="#fff" background="blue">我是蓝色</f-divider>
 </template>
-
-```html
-<f-divider margin="40px">默认颜色</f-divider>
-<f-divider color="green" margin="40px" fontColor="green" background="#eee"> 我是绿色 </f-divider>
-<f-divider color="blue" margin="40px" fontColor="#fff" background="blue"> 我是蓝色 </f-divider>
 ```
 
 :::
@@ -77,15 +65,12 @@
 
 ::: demo
 
-<template #source>
-
-<div>假装是内容</div>
-<f-divider margin="60px" fontColor="blue">距离上下60px</f-divider>
-<div>假装是内容</div>
+```vue
+<template>
+  <div>假装是内容</div>
+  <f-divider margin="60px" fontColor="blue">距离上下60px</f-divider>
+  <div>假装是内容</div>
 </template>
-
-```html
-<f-divider margin="60px" fontColor="blue">距离上下60px</f-divider>
 ```
 
 :::
@@ -98,12 +83,10 @@
 
 ::: demo
 
-<template #source>
-<f-divider vertical>竖着显示</f-divider>
+```vue
+<template>
+  <f-divider vertical>竖着显示</f-divider>
 </template>
-
-```html
-<f-divider vertical>竖着显示</f-divider>
 ```
 
 :::
@@ -114,16 +97,12 @@
 
 ::: demo
 
-<template #source>
-<f-divider type="dashed">我是虚线</f-divider>
-<f-divider type="dotted">我是圆点</f-divider>
-<f-divider type="double">我是双实线</f-divider>
+```vue
+<template>
+  <f-divider type="dashed">我是虚线</f-divider>
+  <f-divider type="dotted">我是圆点</f-divider>
+  <f-divider type="double">我是双实线</f-divider>
 </template>
-
-```html
-<f-divider type="dashed">我是虚线</f-divider>
-<f-divider type="dotted">我是圆点</f-divider>
-<f-divider type="double">我是双实线</f-divider>
 ```
 
 :::

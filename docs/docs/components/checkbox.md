@@ -11,11 +11,7 @@
 
 ::: demo
 
-<template #source>
-<f-checkbox v-model="option1" label="酸辣土豆丝" />
-</template>
-
-```html
+```vue
 <template>
   <f-checkbox v-model="option1" label="酸辣土豆丝" />
 </template>
@@ -35,15 +31,7 @@
 
 ::: demo
 
-<template #source>
-<f-checkbox-group v-model="option2">
-<f-checkbox label="鸡肉卷" />
-<f-checkbox label="鸡排" />
-<f-checkbox label="汉堡" />
-</f-checkbox-group>
-</template>
-
-```html
+```vue
 <template>
   <f-checkbox-group v-model="option2">
     <f-checkbox label="鸡肉卷" />
@@ -66,18 +54,8 @@
 给复选框添加 `indeterminate` 属性使其显示半选时的状态，且此属性仅控制样式
 
 ::: demo
-<template #source>
 
-<div>
-<f-checkbox v-model="checkAll" label="全都要" :indeterminate="indeterminate" :change="onCheckboxChange" />
-</div>
-
-<f-checkbox-group v-model="checkedOptions" :change="onGroupChange">
-<f-checkbox v-for="(item, index) in optionList" :key="index" :label="item" />
-</f-checkbox-group>
-</template>
-
-```html
+```vue
 <template>
   <div>
     <f-checkbox v-model="checkAll" label="全都要" :indeterminate="indeterminate" :change="onCheckboxChange" />
@@ -119,41 +97,23 @@
 
 ::: demo
 
-<template #source>
-<f-checkbox label="选项一" disabled />
-
-<br />
-
-<f-checkbox-group v-model="option3" disabled>
-<f-checkbox label="选项一"/>
-<f-checkbox label="选项二"/>
-<f-checkbox label="选项三"/>
-</f-checkbox-group>
-
-<br />
-
-<f-checkbox-group v-model="option3">
-  <f-checkbox label="选项一"/>
-  <f-checkbox label="选项二" disabled/>
-  <f-checkbox label="选项三"/>
-</f-checkbox-group>
-</template>
-
-```html
+```vue
 <template>
-  <f-checkbox label="选项一" disabled />
+  <f-space vertical>
+    <f-checkbox label="选项一" disabled />
 
-  <f-checkbox-group v-model="option3" disabled>
-    <f-checkbox label="选项一" />
-    <f-checkbox label="选项二" />
-    <f-checkbox label="选项三" />
-  </f-checkbox-group>
+    <f-checkbox-group v-model="option3" disabled>
+      <f-checkbox label="选项一" />
+      <f-checkbox label="选项二" />
+      <f-checkbox label="选项三" />
+    </f-checkbox-group>
 
-  <f-checkbox-group v-model="option3">
-    <f-checkbox label="选项一" />
-    <f-checkbox label="选项二" disabled />
-    <f-checkbox label="选项三" />
-  </f-checkbox-group>
+    <f-checkbox-group v-model="option3">
+      <f-checkbox label="选项一" />
+      <f-checkbox label="选项二" disabled />
+      <f-checkbox label="选项三" />
+    </f-checkbox-group>
+  </f-space>
 </template>
 
 <script lang="ts" setup>
@@ -171,60 +131,27 @@
 
 ::: demo
 
-<template #source>
-<f-checkbox-group v-model="option4" border size="large">
-<f-checkbox label="选项一" />
-<f-checkbox label="选项二" />
-<f-checkbox label="选项三" />
-</f-checkbox-group>
-
-<br />
-<br />
-
-<f-checkbox-group v-model="option4" border>
-  <f-checkbox label="选项一" />
-  <f-checkbox label="选项二" />
-  <f-checkbox label="选项三" />
-</f-checkbox-group>
-
-<br />
-<br />
-
-<f-checkbox-group v-model="option4" border size="small">
-  <f-checkbox label="选项一" />
-  <f-checkbox label="选项二" />
-  <f-checkbox label="选项三" />
-</f-checkbox-group>
-
-<br />
-<br />
-
-<f-checkbox-group v-model="option4" border size="mini">
-  <f-checkbox label="选项一" />
-  <f-checkbox label="选项二" />
-  <f-checkbox label="选项三" />
-</f-checkbox-group>
-</template>
-
-```html
+```vue
 <template>
-  <f-checkbox-group v-model="option4" border size="large">
-    <f-checkbox label="选项一" />
-    <f-checkbox label="选项二" />
-    <f-checkbox label="选项三" />
-  </f-checkbox-group>
+  <f-space vertical>
+    <f-checkbox-group v-model="option4" border size="large">
+      <f-checkbox label="选项一" />
+      <f-checkbox label="选项二" />
+      <f-checkbox label="选项三" />
+    </f-checkbox-group>
 
-  <f-checkbox-group v-model="option4" border>
-    <f-checkbox label="选项一" />
-    <f-checkbox label="选项二" />
-    <f-checkbox label="选项三" />
-  </f-checkbox-group>
+    <f-checkbox-group v-model="option4" border>
+      <f-checkbox label="选项一" />
+      <f-checkbox label="选项二" />
+      <f-checkbox label="选项三" />
+    </f-checkbox-group>
 
-  <f-checkbox-group v-model="option4" border size="small">
-    <f-checkbox label="选项一" />
-    <f-checkbox label="选项二" />
-    <f-checkbox label="选项三" />
-  </f-checkbox-group>
+    <f-checkbox-group v-model="option4" border size="small">
+      <f-checkbox label="选项一" />
+      <f-checkbox label="选项二" />
+      <f-checkbox label="选项三" />
+    </f-checkbox-group>
+  </f-space>
 </template>
 
 <script lang="ts" setup>
@@ -309,28 +236,3 @@ type CheckboxGroupChange = (val: string[]) => void
 <a href="https://github.com/laine001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/40457081?v=4" />
 </a>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const checkAll = ref(false)
-  const indeterminate = ref(false)
-  const checkedOptions = ref<string[]>([])
-  const optionList = ref(['红buff', '蓝buff', '大龙', '小龙'])
-
-  const onCheckboxChange = (e: boolean): void => {
-    checkedOptions.value = e ? optionList.value : []
-    indeterminate.value = false
-  }
-
-  const onGroupChange = (val: string[]): void => {
-    const halfStatus = !!(val.length && val.length < optionList.value.length)
-    checkAll.value = val.length === optionList.value.length
-    indeterminate.value = halfStatus
-  }
-
-  const option1 = ref(true)
-  const option2 = ref(['汉堡'])
-  const option3 = ref([])
-  const option4 = ref([])
-</script>

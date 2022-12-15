@@ -11,21 +11,7 @@
 
 ::: demo
 
-<template #source>
-<f-switch v-model="isOpen" size="middle" />
-
-<f-collapse-animation :opened="isOpen">
-<h1>Hello</h1>
-<h1>你看到我了吗？</h1>
-
-<f-button type="primary">主要按钮</f-button>
-<f-button type="success">成功按钮</f-button>
-<f-button type="danger">危险按钮</f-button>
-<f-button type="warning">警告按钮</f-button>
-</f-collapse-animation>
-</template>
-
-```html
+```vue
 <template>
   <f-switch v-model="isOpen" size="middle" />
 
@@ -55,16 +41,7 @@
 
 ::: demo
 
-<template #source>
-<f-switch v-model="isOpen2" size="middle" />
-
-<f-collapse-animation :opened="isOpen2" disabled>
-<h1>Hello</h1>
-<h1>禁止使用！！</h1>
-</f-collapse-animation>
-</template>
-
-```html
+```vue
 <template>
   <f-switch v-model="isOpen2" size="middle" />
 
@@ -109,10 +86,3 @@ import type { CollapseAnimationInstance, CollapseAnimationProps } from 'fighting
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const isOpen = ref(false)
-  const isOpen2 = ref(true)
-</script>

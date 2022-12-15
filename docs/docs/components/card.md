@@ -11,12 +11,10 @@
 
 ::: demo
 
-<template #source>
-<f-card title="卡片标题">Card 卡片</f-card>
+```vue
+<template>
+  <f-card title="卡片标题">Card 卡片</f-card>
 </template>
-
-```html
-<f-card title="卡片标题">Card 卡片</f-card>
 ```
 
 :::
@@ -27,12 +25,10 @@
 
 ::: demo
 
-<template #source>
-<f-card round title="圆角的">Card 卡片</f-card>
+```vue
+<template>
+  <f-card round title="圆角的">Card 卡片</f-card>
 </template>
-
-```html
-<f-card round title="圆角的">Card 卡片</f-card>
 ```
 
 :::
@@ -43,16 +39,12 @@
 
 ::: demo
 
-<template #source>
-<f-card>从不显示</f-card>
-<f-card shadow="hover">Hover 显示</f-card>
-<f-card shadow="always">总是显示</f-card>
+```vue
+<template>
+  <f-card>从不显示</f-card>
+  <f-card shadow="hover">Hover 显示</f-card>
+  <f-card shadow="always">总是显示</f-card>
 </template>
-
-```html
-<f-card>从不显示</f-card>
-<f-card shadow="hover">Hover 显示</f-card>
-<f-card shadow="always">总是显示</f-card>
 ```
 
 :::

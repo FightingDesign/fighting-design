@@ -7,9 +7,7 @@
 
 ## 基本使用
 
-`BackTop` 的基本使用
-
-<f-back-top>返回顶部</f-back-top>
+的基本使用
 
 ::: demo
 
@@ -24,9 +22,6 @@
 ## 不同滚动模式
 
 `behavior` 属性可以配置不同的滚动模式
-
-<f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top>
-<f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
 
 ::: demo
 
@@ -43,10 +38,6 @@
 
 `round` 属性可以配置圆形的样式
 
-<f-back-top bottom="190px" round>
-  <f-svg-icon :icon="FIconSnowflake" />
-</f-back-top>
-
 ::: demo
 
 ```vue
@@ -57,7 +48,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { FIconSnowflake, FIconUpload } from '@fighting-design/fighting-icon'
+  import { FIconSnowflake } from '@fighting-design/fighting-icon'
 </script>
 ```
 
@@ -66,10 +57,6 @@
 ## 自定义样式
 
 你也可以自定义 `back-top` 的样式和位置
-
-<f-back-top bottom="190px" right="100px" round color="red">
-  <f-svg-icon :icon="FIconUpload" />
-</f-back-top>
 
 ::: demo
 
@@ -103,7 +90,7 @@
   <f-back-top listen-el=".f-box" right="200px">监听目标</f-back-top>
 </template>
 
-<style scoped>
+<style>
   .f-box {
     width: 100%;
     height: 100px;
@@ -160,8 +147,8 @@ type BackTopBehavior = 'smooth' | 'auto'
   <f-avatar round src="https://avatars.githubusercontent.com/u/55753927?v=4" />
 </a>
 
-<style scoped>
-  .f-box {
+<style>
+  .f-back-top__demo-box {
     width: 100%;
     height: 100px;
     border: 4px solid skyblue;
