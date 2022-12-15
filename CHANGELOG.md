@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复**
+
+- 修复 `f-space` 组件样式细节
+
 ## 0.11.2 (2022-12-15)
 
 **新增**
