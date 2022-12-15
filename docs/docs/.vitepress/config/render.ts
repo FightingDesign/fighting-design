@@ -7,7 +7,10 @@ interface RenderComponentReturn {
   style: string
 }
 
-const scriptImports = ["import * as FightingIcon from '@fighting-design/fighting-icon'"]
+const scriptImports = [
+  "import * as FightingIcon from '@fighting-design/fighting-icon'",
+  "import * as FightingDesign from 'fighting-design'"
+]
 
 let seed = 0
 

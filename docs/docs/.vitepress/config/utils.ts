@@ -68,23 +68,23 @@ export const genInlineComponentText = (
         /const ({ defineComponent as _defineComponent }) = Vue/g,
         'const { defineComponent: _defineComponent } = Vue'
       )
-    // .replace(
-    //   /import ({.*}) from '@fighting-design\/fighting-icon'/g,
-    //   (s, s1) => `const ${s1} = @fighting-design/fighting-icon`
-    // )
 
-    const scriptReplaces = [{
-      searchValue: /import ({.*}) from '@fighting-design\/fighting-icon'/g,
-      replaceValue: (s, s1) => `const ${s1} = FightingIcon`
-    }]
+    const scriptReplaces = [
+      {
+        searchValue: /import ({.*}) from '@fighting-design\/fighting-icon'/g,
+        replaceValue: (s, s1) => `const ${s1} = FightingIcon`
+      },
+      {
+        searchValue: /import ({.*}) from 'fighting-design'/g,
+        replaceValue: (s, s1) => `const ${s1} = FightingDesign`
+      }
+    ]
 
     if (scriptReplaces && scriptReplaces.length) {
       for (const s of scriptReplaces) {
         script = script.replace(s.searchValue, s.replaceValue as any)
       }
     }
-
-    //  { searchValue: /import ({.*}) from 'element-plus'/g,
   } else {
     script = 'const demoComponentExport = {}'
   }

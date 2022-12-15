@@ -18,10 +18,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-table :data="data" :columns="columns" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -63,6 +59,10 @@
     }
   ])
 </script>
+
+<template>
+  <f-table :data="data" :columns="columns" />
+</template>
 ```
 
 :::
@@ -121,14 +121,10 @@
 ::: demo
 
 ```vue
-<template>
-  <f-table :data="data" :columns="columns3" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const columns3 = ref([
+  const columns = ref([
     {
       title: '姓名',
       key: 'name',
@@ -168,6 +164,10 @@
     }
   ])
 </script>
+
+<template>
+  <f-table :data="data" :columns="columns" />
+</template>
 ```
 
 :::
@@ -179,10 +179,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-table :data="data" :columns="columns" border />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -224,6 +220,10 @@
     }
   ])
 </script>
+
+<template>
+  <f-table :data="data" :columns="columns" border />
+</template>
 ```
 
 :::
@@ -235,10 +235,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-table :data="data" :columns="columns" zebra />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -280,6 +276,10 @@
     }
   ])
 </script>
+
+<template>
+  <f-table :data="data" :columns="columns" zebra />
+</template>
 ```
 
 :::
@@ -291,10 +291,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-table :data="data" :columns="columns" num />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -336,6 +332,10 @@
     }
   ])
 </script>
+
+<template>
+  <f-table :data="data" :columns="columns" num />
+</template>
 ```
 
 :::
@@ -347,10 +347,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-table :data="data" :columns="columns" optional />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -392,6 +388,10 @@
     }
   ])
 </script>
+
+<template>
+  <f-table :data="data" :columns="columns" optional />
+</template>
 ```
 
 :::
@@ -403,10 +403,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-table :data="data2" :columns="columns" :height="300" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -424,6 +420,7 @@
       key: 'introduce'
     }
   ])
+
   const data = ref([
     {
       name: '卡莉斯塔',
@@ -462,6 +459,10 @@
     }
   ])
 </script>
+
+<template>
+  <f-table :data="data" :columns="columns" :height="300" />
+</template>
 ```
 
 :::
@@ -473,10 +474,6 @@
 ::: demo
 
 ```vue
-<template>
-  <f-table :data="data" :columns="columns" align="center" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -518,6 +515,66 @@
     }
   ])
 </script>
+
+<template>
+  <f-table :data="data" :columns="columns" align="center" />
+</template>
+```
+
+:::
+
+## 自定义样式
+
+可以通过属性来自定义一些样式细节
+
+::: demo
+
+```vue
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const columns = ref([
+    {
+      title: '姓名',
+      key: 'name'
+    },
+    {
+      title: '年龄',
+      key: 'age'
+    },
+    {
+      title: '介绍',
+      key: 'introduce'
+    }
+  ])
+
+  const data = ref([
+    {
+      name: '卡莉斯塔',
+      age: '22',
+      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
+    },
+    {
+      name: '艾希',
+      age: '16',
+      introduce: '拥有强大减速和控制能力的远程射手'
+    },
+    {
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
+    },
+    {
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
+    }
+  ])
+</script>
+
+<template>
+  <f-table :data="data" :columns="columns" zebra zebra-color="skyblue" head-bg-color="orange" bg-color="#eef" />
+</template>
 ```
 
 :::
@@ -526,18 +583,11 @@
 
 `columns` 属性可携带一个 `render` 函数，以自定义该列的渲染模板，使用 vue 内置的 [h 函数](https://cn.vuejs.org/api/render-function.html#h) 渲染
 
-::: demo
-
 ```vue
-<template>
-  <f-table :data="data" :columns="columns2" />
-</template>
-
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import { FButton, FMessage } from 'fighting-design'
 
-  const columns2 = ref([
+  const columns = ref([
     {
       title: '姓名',
       key: 'name'
@@ -610,65 +660,11 @@
     }
   ])
 </script>
-```
 
-:::
-
-## 自定义样式
-
-可以通过属性来自定义一些样式细节
-
-::: demo
-
-```vue
 <template>
-  <f-table :data="data" :columns="columns" zebra zebra-color="skyblue" head-bg-color="orange" bg-color="#eef" />
+  <f-table :data="data" :columns="columns" />
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const columns = ref([
-    {
-      title: '姓名',
-      key: 'name'
-    },
-    {
-      title: '年龄',
-      key: 'age'
-    },
-    {
-      title: '介绍',
-      key: 'introduce'
-    }
-  ])
-
-  const data = ref([
-    {
-      name: '卡莉斯塔',
-      age: '22',
-      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
-    },
-    {
-      name: '艾希',
-      age: '16',
-      introduce: '拥有强大减速和控制能力的远程射手'
-    },
-    {
-      name: '李青',
-      age: '34',
-      introduce: '非常优秀的打野英雄'
-    },
-    {
-      name: '贾克斯',
-      age: '109',
-      introduce: '取得优势的武器可以输出成吨的伤害'
-    }
-  ])
-</script>
 ```
-
-:::
 
 ## Attributes
 

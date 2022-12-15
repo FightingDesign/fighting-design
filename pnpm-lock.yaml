@@ -64,6 +64,7 @@ importers:
       '@mdit-vue/plugin-sfc': ^0.11.1
       '@vue/compiler-sfc': ^3.2.45
       escape-html: ^1.0.3
+      fighting-design: workspace:^0.11.1
       markdown-it: ^13.0.1
       markdown-it-container: ^3.0.0
       prismjs: ^1.29.0
@@ -75,6 +76,7 @@ importers:
       prismjs: 1.29.0
       vitepress: 1.0.0-alpha.31_tbpndr44ulefs3hehwpi2mkf2y
     devDependencies:
+      fighting-design: link:../packages/fighting-design
       markdown-it: 13.0.1
       markdown-it-container: 3.0.0
 
