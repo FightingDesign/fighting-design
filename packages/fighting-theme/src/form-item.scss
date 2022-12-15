@@ -5,7 +5,7 @@
 
   // label
   &__label {
-    width: 90px;
+    width: var(--f-form-item-label-width, 90px);
     text-align: right;
     padding: 0 10px;
     box-sizing: border-box;

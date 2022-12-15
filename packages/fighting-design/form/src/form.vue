@@ -1,7 +1,10 @@
 <script lang="ts" setup name="FForm">
-  import { Props } from './props'
+  import { Props, FORM_PROVIDE_KEY } from './props'
+  import { provide } from 'vue'
 
-  defineProps(Props)
+  const prop = defineProps(Props)
+
+  provide(FORM_PROVIDE_KEY, prop)
 </script>
 
 <template>
