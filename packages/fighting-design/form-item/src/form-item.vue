@@ -25,7 +25,7 @@
    */
   const errMessage = computed((): string => {
     if (isArray(prop.rules)) {
-      return prop.rules[0].msg ? prop.rules[0].msg : ''
+      return prop.rules[0].message ? prop.rules[0].message : ''
     }
     return ''
   })
