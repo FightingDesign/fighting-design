@@ -4,7 +4,7 @@
   import { useRun } from '../../_hooks'
   import { getChildren } from '../../_utils'
   import type { VNode } from 'vue'
-  import type { FormProps, FormParam } from './interface'
+  import type { FormInject, FormParam } from './interface'
 
   const prop = defineProps(Props)
   const slot = useSlots()
@@ -69,6 +69,7 @@
    * @param evt 事件对象
    */
   const handelSubmit = (evt: SubmitEvent): void => {
+    // 组织表单默认行为
     evt.preventDefault()
 
     /**
@@ -79,7 +80,7 @@
     useRun(prop.onSubmit, { ok, evt } as FormParam)
   }
 
-  provide<FormProps>(
+  provide<FormInject>(
     FORM_PROVIDE_KEY,
     reactive({
       ...toRefs(prop),

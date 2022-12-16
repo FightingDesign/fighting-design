@@ -1,27 +1,38 @@
 <script lang="ts" setup name="FFormItem">
   import { Props } from './props'
   import { inject, computed } from 'vue'
+  import { isArray } from '../../_utils'
   import { FORM_PROVIDE_KEY } from '../../form/src/props'
   import type { CSSProperties } from 'vue'
-  import type { FormProps } from '../../form'
+  import type { FormInject } from '../../form'
 
   const prop = defineProps(Props)
+
   /**
    * 获取父组件注入的依赖项
    */
-  const parentInject = inject<FormProps | null>(FORM_PROVIDE_KEY, null) as FormProps
+  const parentInject = inject<FormInject | null>(FORM_PROVIDE_KEY, null) as FormInject
 
-  const showErrorMessage = computed(() => {
+  /**
+   * 判断当前表单是否不通过
+   */
+  const showErrorMessage = computed((): boolean => {
     return parentInject.childrenErr[prop.name]
   })
 
   /**
    * 错误提示消息
    */
-  const errMessage = computed((): string | null => {
-    return prop.rules && prop.rules[0].msg
+  const errMessage = computed((): string => {
+    if (isArray(prop.rules)) {
+      return prop.rules[0].msg ? prop.rules[0].msg : ''
+    }
+    return ''
   })
 
+  /**
+   * 样式列表
+   */
   const styleList = computed((): CSSProperties => {
     return {
       '--f-form-item-label-width': parentInject && parentInject.labelWidth

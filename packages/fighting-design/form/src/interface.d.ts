@@ -17,3 +17,10 @@ export interface FormParam {
  * @param params 参数对象
  */
 export type FormSubmit = (params: FormParam) => void
+
+export interface FormInject {
+  labelWidth: string | number
+  model: Object
+  onSubmit: FormSubmit
+  childrenErr: Record<string, boolean>
+}
