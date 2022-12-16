@@ -6,23 +6,29 @@
   import type { FormProps } from '../../form'
 
   const prop = defineProps(Props)
-
+  /**
+   * 获取父组件注入的依赖项
+   */
   const parentInject = inject<FormProps | null>(FORM_PROVIDE_KEY, null) as FormProps
 
-  if (prop.name) {
-    console.log(parentInject.rules[prop.name])
+  console.log(parentInject.model)
+
+  /**
+   * 验证每一项
+   */
+  const itemValidate = (): void => {
+    console.log('验证每一项')
   }
+
+  defineExpose({
+    itemValidate
+  })
 
   /**
    * 错误提示消息
    */
   const errMessage = computed((): string | null => {
-    if (prop.name && parentInject && parentInject.rules) {
-      if (parentInject.rules[prop.name]) {
-        return parentInject.rules[prop.name][0].msg
-      }
-    }
-    return null
+    return prop.rules && prop.rules[0].msg
   })
 
   const styleList = computed((): CSSProperties => {
@@ -36,6 +42,7 @@
   <div class="f-form-item" :style="styleList">
     <label class="f-form-item__label">{{ label }}</label>
 
+    <!-- 主要内容 -->
     <div class="f-form-item__content">
       <slot />
 

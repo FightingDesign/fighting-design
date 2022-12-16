@@ -14,6 +14,13 @@ export const Props = {
   name: {
     type: String,
     default: (): null => null
+  },
+  /**
+   * 规则
+   */
+  rules: {
+    type: Array,
+    default: (): null => null
   }
 } as const
 

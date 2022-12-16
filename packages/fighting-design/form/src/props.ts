@@ -16,10 +16,10 @@ export const Props = {
     default: (): null => null
   },
   /**
-   * 规则
+   * 提交表单
    */
-  rules: {
-    type: Object,
+  onSubmit: {
+    type: Function,
     default: (): null => null
   }
 } as const

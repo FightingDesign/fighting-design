@@ -8,29 +8,24 @@
     password: ''
   })
 
-  const rules = reactive({
-    username: [{ required: true, msg: '请输入用户名', trigger: 'blur' }],
-    password: [{ required: true, msg: '请输入密码', trigger: 'blur' }]
-  })
-
-  const onSubmit = (): void => {
-    // console.log(formRef.value.run)
-    formRef.value.run('ok')
+  const handelSubmit = (evt: SubmitEvent): void => {
+    // console.log(evt)
+    console.log('提交表单', evt)
   }
 </script>
 
 <template>
-  <f-form ref="formRef" label-width="60px" :rules="rules">
-    <f-form-item label="账号" name="username">
+  <f-form ref="formRef" :model="ruleForm" label-width="60px" :on-submit="handelSubmit">
+    <f-form-item label="账号" :rules="[{ required: true, msg: '请输入用户名', trigger: 'blur' }]">
       <f-input v-model="ruleForm.username" type="text" placeholder="请输入账号" />
     </f-form-item>
 
-    <f-form-item label="密码" name="password">
+    <f-form-item label="密码" :rules="[{ required: true, msg: '请输入密码', trigger: 'blur' }]">
       <f-input v-model="ruleForm.password" type="password" placeholder="请输入密码" />
     </f-form-item>
 
     <f-form-item>
-      <f-button type="primary" native-typ="submit" block :on-click="onSubmit">提交表单</f-button>
+      <f-button type="primary" native-type="submit" block>提交表单</f-button>
     </f-form-item>
   </f-form>
 </template>
