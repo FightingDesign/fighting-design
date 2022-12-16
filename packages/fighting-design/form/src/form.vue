@@ -4,7 +4,7 @@
   import { useRun } from '../../_hooks'
   import { getChildren } from '../../_utils'
   import type { VNode } from 'vue'
-  import type { FormProps } from './interface'
+  import type { FormProps, FormParam } from './interface'
 
   const prop = defineProps(Props)
   const slot = useSlots()
@@ -76,7 +76,7 @@
      */
     const ok: boolean = validate()
 
-    useRun(prop.onSubmit, { ok, evt })
+    useRun(prop.onSubmit, { ok, evt } as FormParam)
   }
 
   provide<FormProps>(

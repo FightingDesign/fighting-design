@@ -4,7 +4,9 @@ import { FForm } from '../index'
 
 describe('Form', () => {
   test('class', () => {
-    const wrapper = mount(FForm)
+    const wrapper = mount(FForm, {
+      slots: { default: '123' }
+    })
     expect(wrapper.classes()).toContain('f-form')
   })
 })

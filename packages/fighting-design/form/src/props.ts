@@ -1,4 +1,5 @@
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
+import type { FormSubmit } from './interface'
 
 export const Props = {
   /**
@@ -19,7 +20,7 @@ export const Props = {
    * 提交表单
    */
   onSubmit: {
-    type: Function,
+    type: Function as PropType<FormSubmit>,
     default: (): null => null
   }
 } as const

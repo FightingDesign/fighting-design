@@ -1,12 +1,13 @@
 <script lang="ts" setup>
   import { reactive } from 'vue'
+  import type { FormParam } from 'fighting-design'
 
   const ruleForm = reactive({
-    username: '',
+    account: '',
     password: ''
   })
 
-  const handelSubmit = ({ ok, evt }): void => {
+  const handelSubmit = ({ ok, evt }: FormParam): void => {
     if (!ok) return
     console.log(ok, evt)
   }
@@ -14,8 +15,8 @@
 
 <template>
   <f-form :model="ruleForm" label-width="60px" :on-submit="handelSubmit">
-    <f-form-item label="账号" name="username" :rules="[{ required: true, msg: '请输入用户名' }]">
-      <f-input v-model="ruleForm.username" type="text" placeholder="请输入账号" />
+    <f-form-item label="账号" name="account" :rules="[{ required: true, msg: '请输入用户名' }]">
+      <f-input v-model="ruleForm.account" type="text" placeholder="请输入账号" />
     </f-form-item>
 
     <f-form-item label="密码" name="password" :rules="[{ required: true, msg: '请输入密码' }]">
@@ -27,9 +28,3 @@
     </f-form-item>
   </f-form>
 </template>
-
-<style lang="scss" scoped>
-  .f-input {
-    margin-bottom: 5px;
-  }
-</style>

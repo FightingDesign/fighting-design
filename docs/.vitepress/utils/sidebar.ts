@@ -57,7 +57,7 @@ export const sidebar = {
       text: '数据输入',
       link: '/components/',
       items: [
-        { text: 'Form 表单', link: '/components/form' },
+        // { text: 'Form 表单', link: '/components/form' },
         { text: 'Badge 角标', link: '/components/badge' },
         { text: 'Image 图片', link: '/components/image' },
         { text: 'Image Preview 图片预览', link: '/components/image-preview' },

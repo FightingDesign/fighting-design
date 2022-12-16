@@ -37,7 +37,7 @@ export default (): UserConfigExport => {
         }
       }
     }
-  } as UserConfigExport
+  }
 }
 
 const move = (): void => {

@@ -36,14 +36,14 @@ export default (): UserConfigExport => {
       outDir: resolve(__dirname, './dist'), // 指定输出路径
       // 库模式 https://cn.vitejs.dev/guide/build.html#library-mode
       lib: {
-        entry: resolve(__dirname, 'packages/fighting-design/index.ts'), // 打包入口
-        name: 'FightingDesign' // 包名
+        entry: resolve(__dirname, 'packages/fighting-design/index.ts') // 打包入口
       },
       // rollup 配置项 https://rollupjs.org/guide/en/#big-list-of-options
       rollupOptions: {
         external: ['vue'], // 确保外部化处理那些你不想打包进库的依赖 https://rollupjs.org/guide/en/#external
         output: [
           {
+            name: 'FightingDesign', // 包名
             format: 'umd',
             exports: 'named',
             sourcemap: false,
@@ -51,10 +51,10 @@ export default (): UserConfigExport => {
             entryFileNames: 'index.umd.js',
             chunkFileNames: '[name].js',
             assetFileNames: '[name].[ext]',
-            namespaceToStringTag: true,
             manualChunks: undefined,
             inlineDynamicImports: false,
-            globals: { vue: 'Vue' } // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
+            globals: { vue: 'Vue' }, // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
+            namespaceToStringTag: true
           },
           {
             format: 'es', // 打包模式 https://rollupjs.org/guide/en/#outputformat
@@ -64,10 +64,10 @@ export default (): UserConfigExport => {
             entryFileNames: 'index.js', // 输出后的文件名 https://rollupjs.org/guide/en/#outputentryfilenames
             chunkFileNames: '[name].js', // 输出的 chunk文件名 https://rollupjs.org/guide/en/#outputchunkfilenames
             assetFileNames: '[name].[ext]', // 输出资产文件名 https://rollupjs.org/guide/en/#outputassetfilenames
-            namespaceToStringTag: true, // https://rollupjs.org/guide/en/#outputnamespacetostringtag
             inlineDynamicImports: false, // https://rollupjs.org/guide/en/#outputinlinedynamicimports
             manualChunks: undefined,
-            preserveModules: true // https://rollupjs.org/guide/en/#outputpreservemodules
+            preserveModules: true, // https://rollupjs.org/guide/en/#outputpreservemodules
+            namespaceToStringTag: true // https://rollupjs.org/guide/en/#outputnamespacetostringtag
           },
           {
             format: 'cjs',
@@ -77,15 +77,15 @@ export default (): UserConfigExport => {
             entryFileNames: 'index.js',
             chunkFileNames: '[name].js',
             assetFileNames: '[name].[ext]',
-            namespaceToStringTag: true,
             inlineDynamicImports: false,
             manualChunks: undefined,
-            preserveModules: true
+            preserveModules: true,
+            namespaceToStringTag: true
           }
         ]
       }
     }
-  } as UserConfigExport
+  }
 }
 
 const move = (): void => {

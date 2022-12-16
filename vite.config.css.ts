@@ -19,5 +19,5 @@ export default (): UserConfigExport => {
         }
       }
     }
-  } as UserConfigExport
+  }
 }
