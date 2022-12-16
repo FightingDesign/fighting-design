@@ -223,5 +223,10 @@ export const searchList = [
     title: 'Interface 接口类型',
     rule: 'interfaceInterface 接口类型',
     url: 'components/interface'
+  },
+  {
+    title: 'Form 表单',
+    rule: 'formForm 表单',
+    url: 'components/form'
   }
 ] as const

@@ -35,15 +35,13 @@
 </script>
 
 <template>
-  <f-space vertical>
-    <f-progress type="primary" :percentage="num" />
-    <f-progress type="success" :percentage="num" />
-    <f-progress type="danger" :percentage="num" />
-    <f-progress type="warning" :percentage="num" />
+  <f-progress type="primary" :percentage="num" />
+  <f-progress type="success" :percentage="num" />
+  <f-progress type="danger" :percentage="num" />
+  <f-progress type="warning" :percentage="num" />
 
-    <f-progress type="primary" :percentage="num" square />
-    <f-progress type="success" :percentage="num" linear />
-  </f-space>
+  <f-progress type="primary" :percentage="num" square />
+  <f-progress type="success" :percentage="num" linear />
 
   <f-button-group>
     <f-button simple round type="primary" @click="sun">减少</f-button>
@@ -62,12 +60,10 @@
 
 ```vue
 <template>
-  <f-space vertical>
-    <f-progress :percentage="10" show-text />
-    <f-progress type="success" :percentage="40" :show-text="false" />
-    <f-progress type="danger" :percentage="70" linear height="18px" text-inside />
-    <f-progress type="warning" :percentage="90" linear show-text />
-  </f-space>
+  <f-progress :percentage="10" show-text />
+  <f-progress type="success" :percentage="40" :show-text="false" />
+  <f-progress type="danger" :percentage="70" linear height="18px" text-inside />
+  <f-progress type="warning" :percentage="90" linear show-text />
 </template>
 ```
 
@@ -81,10 +77,8 @@
 
 ```vue
 <template>
-  <f-space vertical>
-    <f-progress type="success" :percentage="40" width="100%" height="20px" show-text text-inside />
-    <f-progress :percentage="10" width="360px" height="27px" show-text />
-  </f-space>
+  <f-progress type="success" :percentage="40" width="100%" height="20px" show-text text-inside />
+  <f-progress :percentage="10" width="360px" height="27px" show-text />
 </template>
 ```
 
@@ -100,10 +94,8 @@
 
 ```vue
 <template>
-  <f-space vertical>
-    <f-progress type="danger" :percentage="70" color="#ff386a" />
-    <f-progress type="success" :percentage="40" background="#C3FFBD" />
-  </f-space>
+  <f-progress type="danger" :percentage="70" color="#ff386a" />
+  <f-progress type="success" :percentage="40" background="#C3FFBD" />
 </template>
 ```
 
@@ -135,12 +127,10 @@
 </script>
 
 <template>
-  <f-space vertical>
-    <f-progress :height="25" stripe type="primary" :percentage="num" />
-    <f-progress :height="25" stripe type="success" :percentage="num" />
-    <f-progress :height="25" stripe type="danger" :percentage="num" />
-    <f-progress :height="25" stripe type="warning" :percentage="num" />
-  </f-space>
+  <f-progress :height="25" stripe type="primary" :percentage="num" />
+  <f-progress :height="25" stripe type="success" :percentage="num" />
+  <f-progress :height="25" stripe type="danger" :percentage="num" />
+  <f-progress :height="25" stripe type="warning" :percentage="num" />
 
   <f-button-group>
     <f-button simple round type="primary" @click="sun">减少</f-button>
