@@ -17,3 +17,14 @@
     border-bottom: none;
   }
 }
+
+.f-form-item__err-transition-leave-active,
+.f-form-item__err-transition-enter-active {
+  transition: all 0.13s ease-out;
+}
+
+.f-form-item__err-transition-enter-from,
+.f-form-item__err-transition-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
+}

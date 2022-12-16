@@ -60,7 +60,9 @@
 
       <!-- 错误信息 -->
       <template v-if="errMessage">
-        <div v-if="showErr" class="f-form-item__error">{{ errMessage }}</div>
+        <transition name="f-form-item__err-transition">
+          <div v-if="showErr" class="f-form-item__error">{{ errMessage }}</div>
+        </transition>
       </template>
     </div>
   </div>
