@@ -9,6 +9,9 @@
   const prop = defineProps(Props)
   const slot = useSlots()
 
+  /**
+   * 错误处理对象
+   */
   const childrenErr: Record<string, boolean> = reactive({})
 
   /**
