@@ -8,9 +8,10 @@
     password: ''
   })
 
-  const handelSubmit = (evt: SubmitEvent): void => {
+  const handelSubmit = ({ ok, evt }): void => {
     // console.log(evt)
-    console.log('提交表单', evt)
+    if (!ok) return
+    console.log(ok, evt)
   }
 </script>
 

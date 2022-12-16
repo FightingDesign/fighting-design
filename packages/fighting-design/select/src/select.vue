@@ -33,7 +33,7 @@
     /**
      * 通过获取到的子元素，计算当前绑定值对应的 label 展示文本框的内容
      */
-    get() {
+    get () {
       // 如果插槽没内容，则返回空字符串
       if (!options.value.length) return ''
 
@@ -65,18 +65,28 @@
        */
       if (!currentOption.length) return ''
 
-      // 获取到当前满足要求的子元素
+      /**
+       * 获取到当前满足要求的子元素
+       */
       const children: OptionProps = currentOption[0] as OptionProps
-      // 获取到当前子元素的插槽内容
+      /**
+       * 获取到当前子元素的插槽内容
+       */
       const slot: string | undefined = children.children && children.children.default()[0].children
-      // 获取到当前子元素的 label 参数
+      /**
+       * 获取到当前子元素的 label 参数
+       */
       const label: string | undefined = children.props && children.props.label
-      // 获取到当前子元素的 value 参数
+      /**
+       * 获取到当前子元素的 value 参数
+       */
       const value: string | undefined = children.props && children.props.value
-      // 优先级：插槽 > label > value
+      /**
+       * 优先级：插槽 > label > value
+       */
       return slot || label || (value && value.toString()) || ''
     },
-    set(val: string) {
+    set (val: string) {
       return val
     }
   })

@@ -158,7 +158,7 @@
    * 实现横向滚动效果
    */
   const handleWheel = (e: WheelEvent): void => {
-    ;(e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
+    (e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
     deriveScrollShadow(e.currentTarget as HTMLElement)
   }
 
