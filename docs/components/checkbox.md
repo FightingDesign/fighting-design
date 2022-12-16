@@ -109,21 +109,23 @@
 </script>
 
 <template>
-  <f-space vertical>
-    <f-checkbox label="选项一" disabled />
+  <f-checkbox label="选项一" disabled />
 
-    <f-checkbox-group v-model="option" disabled>
-      <f-checkbox label="选项一" />
-      <f-checkbox label="选项二" />
-      <f-checkbox label="选项三" />
-    </f-checkbox-group>
+  <br />
 
-    <f-checkbox-group v-model="option">
-      <f-checkbox label="选项一" />
-      <f-checkbox label="选项二" disabled />
-      <f-checkbox label="选项三" />
-    </f-checkbox-group>
-  </f-space>
+  <f-checkbox-group v-model="option" disabled>
+    <f-checkbox label="选项一" />
+    <f-checkbox label="选项二" />
+    <f-checkbox label="选项三" />
+  </f-checkbox-group>
+
+  <br />
+
+  <f-checkbox-group v-model="option">
+    <f-checkbox label="选项一" />
+    <f-checkbox label="选项二" disabled />
+    <f-checkbox label="选项三" />
+  </f-checkbox-group>
 </template>
 ```
 
@@ -143,25 +145,29 @@
 </script>
 
 <template>
-  <f-space vertical>
-    <f-checkbox-group v-model="option" border size="large">
-      <f-checkbox label="选项一" />
-      <f-checkbox label="选项二" />
-      <f-checkbox label="选项三" />
-    </f-checkbox-group>
+  <f-checkbox-group v-model="option" border size="large">
+    <f-checkbox label="选项一" />
+    <f-checkbox label="选项二" />
+    <f-checkbox label="选项三" />
+  </f-checkbox-group>
 
-    <f-checkbox-group v-model="option" border>
-      <f-checkbox label="选项一" />
-      <f-checkbox label="选项二" />
-      <f-checkbox label="选项三" />
-    </f-checkbox-group>
+  <br />
+  <br />
 
-    <f-checkbox-group v-model="option" border size="small">
-      <f-checkbox label="选项一" />
-      <f-checkbox label="选项二" />
-      <f-checkbox label="选项三" />
-    </f-checkbox-group>
-  </f-space>
+  <f-checkbox-group v-model="option" border>
+    <f-checkbox label="选项一" />
+    <f-checkbox label="选项二" />
+    <f-checkbox label="选项三" />
+  </f-checkbox-group>
+
+  <br />
+  <br />
+
+  <f-checkbox-group v-model="option" border size="small">
+    <f-checkbox label="选项一" />
+    <f-checkbox label="选项二" />
+    <f-checkbox label="选项三" />
+  </f-checkbox-group>
 </template>
 ```
 

@@ -28,4 +28,8 @@
   </f-form>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .f-input {
+    margin-bottom: 5px;
+  }
+</style>

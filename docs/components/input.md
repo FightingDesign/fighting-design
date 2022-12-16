@@ -39,12 +39,10 @@
 </script>
 
 <template>
-  <f-space vertical>
-    <f-input v-model="value" type="text" size="large" />
-    <f-input v-model="value" type="text" size="middle" />
-    <f-input v-model="value" type="text" size="small" />
-    <f-input v-model="value" type="text" size="mini" />
-  </f-space>
+  <f-input v-model="value" type="text" size="large" />
+  <f-input v-model="value" type="text" size="middle" />
+  <f-input v-model="value" type="text" size="small" />
+  <f-input v-model="value" type="text" size="mini" />
 </template>
 ```
 
