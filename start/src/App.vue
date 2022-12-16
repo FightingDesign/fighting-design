@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-  import { ref, reactive } from 'vue'
-
-  const formRef = ref(null as unknown as HTMLFormElement)
+  import { reactive } from 'vue'
 
   const ruleForm = reactive({
     username: '',
@@ -9,14 +7,13 @@
   })
 
   const handelSubmit = ({ ok, evt }): void => {
-    // console.log(evt)
     if (!ok) return
     console.log(ok, evt)
   }
 </script>
 
 <template>
-  <f-form ref="formRef" :model="ruleForm" label-width="60px" :on-submit="handelSubmit">
+  <f-form :model="ruleForm" label-width="60px" :on-submit="handelSubmit">
     <f-form-item label="账号" name="username" :rules="[{ required: true, msg: '请输入用户名' }]">
       <f-input v-model="ruleForm.username" type="text" placeholder="请输入账号" />
     </f-form-item>

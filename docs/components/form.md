@@ -14,20 +14,6 @@
 ::: demo
 
 ```vue
-<script lang="ts" setup>
-  import { reactive } from 'vue'
-
-  const ruleForm = reactive({
-    username: '',
-    password: ''
-  })
-
-  const handelSubmit = ({ ok, evt }): void => {
-    if (!ok) return
-    console.log(ok, evt)
-  }
-</script>
-
 <template>
   <f-form :model="ruleForm" label-width="60px" :on-submit="handelSubmit">
     <f-form-item label="账号" name="username" :rules="[{ required: true, msg: '请输入用户名' }]">
@@ -43,6 +29,20 @@
     </f-form-item>
   </f-form>
 </template>
+
+<script lang="ts" setup>
+  import { reactive } from 'vue'
+
+  const ruleForm = reactive({
+    username: '',
+    password: ''
+  })
+
+  const handelSubmit = ({ ok, evt }): void => {
+    if (!ok) return
+    console.log(ok, evt)
+  }
+</script>
 ```
 
 :::
