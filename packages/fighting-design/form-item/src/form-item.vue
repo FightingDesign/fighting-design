@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FFormItem">
   import { Props } from './props'
-  import { inject, computed } from 'vue'
+  import { inject, computed, ref } from 'vue'
   import { FORM_PROVIDE_KEY } from '../../form/src/props'
   import type { CSSProperties } from 'vue'
   import type { FormProps } from '../../form'
@@ -10,8 +10,12 @@
    * 获取父组件注入的依赖项
    */
   const parentInject = inject<FormProps | null>(FORM_PROVIDE_KEY, null) as FormProps
+  /**
+   * 是否展示错误信息
+   */
+  const showErr = ref<boolean>(true)
 
-  console.log(parentInject.model)
+  // console.log(parentInject.handelSubmit())
 
   /**
    * 验证每一项
@@ -19,10 +23,6 @@
   const itemValidate = (): void => {
     console.log('验证每一项')
   }
-
-  defineExpose({
-    itemValidate
-  })
 
   /**
    * 错误提示消息
@@ -48,7 +48,7 @@
 
       <!-- 错误信息 -->
       <template v-if="errMessage">
-        <div class="f-form-item__error">{{ errMessage }}</div>
+        <div v-if="showErr" class="f-form-item__error">{{ errMessage }}</div>
       </template>
     </div>
   </div>
