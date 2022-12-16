@@ -13,15 +13,26 @@
   /**
    * 是否展示错误信息
    */
-  const showErr = ref<boolean>(true)
+  const showErr = ref<boolean>(false)
 
   // console.log(parentInject.handelSubmit())
 
   /**
    * 验证每一项
    */
-  const itemValidate = (): void => {
-    console.log('验证每一项')
+  const validate = (): void => {
+    if (!prop.rules) return
+
+    const value = parentInject.model[prop.name]
+
+    console.log(prop.rules[0].required, value)
+
+    // 如果是必填项 并且没有填内容
+    if (prop.rules[0].required && !value) {
+      showErr.value = true
+    } else {
+      showErr.value = false
+    }
   }
 
   /**
@@ -39,6 +50,7 @@
 </script>
 
 <template>
+  <button @click="validate">校验</button>
   <div class="f-form-item" :style="styleList">
     <label class="f-form-item__label">{{ label }}</label>
 

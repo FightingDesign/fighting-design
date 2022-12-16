@@ -16,11 +16,11 @@
 
 <template>
   <f-form ref="formRef" :model="ruleForm" label-width="60px" :on-submit="handelSubmit">
-    <f-form-item label="账号" :rules="[{ required: true, msg: '请输入用户名', trigger: 'blur' }]">
+    <f-form-item label="账号" name="username" :rules="[{ required: true, msg: '请输入用户名' }]">
       <f-input v-model="ruleForm.username" type="text" placeholder="请输入账号" />
     </f-form-item>
 
-    <f-form-item label="密码" :rules="[{ required: true, msg: '请输入密码', trigger: 'blur' }]">
+    <f-form-item label="密码" name="password" :rules="[{ required: true, msg: '请输入密码' }]">
       <f-input v-model="ruleForm.password" type="password" placeholder="请输入密码" />
     </f-form-item>
 

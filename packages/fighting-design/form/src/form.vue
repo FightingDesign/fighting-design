@@ -6,6 +6,12 @@
 
   const prop = defineProps(Props)
 
+  /**
+   * 提交表单
+   *
+   * @see SubmitEvent https://developer.mozilla.org/zh-CN/docs/Web/API/SubmitEvent/submitter
+   * @param evt 事件对象
+   */
   const handelSubmit = (evt: SubmitEvent): void => {
     evt.preventDefault()
     useRun(prop.onSubmit, evt)
