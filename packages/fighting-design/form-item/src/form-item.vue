@@ -3,16 +3,31 @@
   import { inject, computed } from 'vue'
   import { FORM_PROVIDE_KEY } from '../../form/src/props'
   import type { CSSProperties } from 'vue'
+  import type { FormProps } from '../../form'
 
-  defineProps(Props)
+  const prop = defineProps(Props)
 
-  const parentInject = inject(FORM_PROVIDE_KEY, null)
+  const parentInject = inject<FormProps | null>(FORM_PROVIDE_KEY, null) as FormProps
 
-  console.log(parentInject)
+  if (prop.name) {
+    console.log(parentInject.rules[prop.name])
+  }
+
+  /**
+   * 错误提示消息
+   */
+  const errMessage = computed((): string | null => {
+    if (prop.name && parentInject && parentInject.rules) {
+      if (parentInject.rules[prop.name]) {
+        return parentInject.rules[prop.name][0].msg
+      }
+    }
+    return null
+  })
 
   const styleList = computed((): CSSProperties => {
     return {
-      '--f-form-item-label-width': parentInject?.labelWidth
+      '--f-form-item-label-width': parentInject && parentInject.labelWidth
     } as CSSProperties
   })
 </script>
@@ -24,7 +39,10 @@
     <div class="f-form-item__content">
       <slot />
 
-      <div class="f-form-item__error"></div>
+      <!-- 错误信息 -->
+      <template v-if="errMessage">
+        <div class="f-form-item__error">{{ errMessage }}</div>
+      </template>
     </div>
   </div>
 </template>

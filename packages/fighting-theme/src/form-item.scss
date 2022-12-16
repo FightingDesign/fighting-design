@@ -1,5 +1,6 @@
 .f-form-item {
-  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 20px;
   display: flex;
   align-items: center;
 
@@ -16,5 +17,14 @@
   &__content {
     flex: 1;
     display: flex;
+    flex-direction: column;
+
+    // 错误信息
+    .f-form-item__error {
+      font-size: 12px;
+      position: absolute;
+      bottom: 3px;
+      color: var(--f-design-color-danger-1);
+    }
   }
 }

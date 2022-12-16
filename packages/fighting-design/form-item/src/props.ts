@@ -7,6 +7,13 @@ export const Props = {
   label: {
     type: String,
     default: (): null => null
+  },
+  /**
+   * 对应的验证规则名称
+   */
+  name: {
+    type: String,
+    default: (): null => null
   }
 } as const
 
