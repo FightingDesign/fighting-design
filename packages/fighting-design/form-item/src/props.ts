@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { FormItemRule } from './interface'
+import type { FormItemRules } from './interface'
 
 export const Props = {
   /**
@@ -20,7 +20,7 @@ export const Props = {
    * 规则
    */
   rules: {
-    type: Array as PropType<FormItemRule>,
+    type: Array as PropType<FormItemRules>,
     default: (): null => null
   }
 } as const

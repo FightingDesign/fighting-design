@@ -20,4 +20,4 @@ export interface FormItemRulesItem {
 /**
  * 规则对象类型
  */
-export type FormItemRule = FormItemRulesItem[]
+export type FormItemRules = FormItemRulesItem[]

@@ -22,5 +22,5 @@ export interface FormInject {
   labelWidth: string | number
   model: Object
   onSubmit: FormSubmit
-  childrenErr: Record<string, boolean>
+  childrenCheckResult: Record<string, boolean | string>
 }

@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FFormItem">
   import { Props } from './props'
   import { inject, computed } from 'vue'
-  import { isArray } from '../../_utils'
+  import { isString } from '../../_utils'
   import { FORM_PROVIDE_KEY } from '../../form/src/props'
   import type { CSSProperties } from 'vue'
   import type { FormInject } from '../../form'
@@ -15,19 +15,23 @@
 
   /**
    * 判断当前表单是否不通过
+   *
+   * 如果注入的对象值都是字符串则代表是错误信息
    */
   const showErrorMessage = computed((): boolean => {
-    return parentInject.childrenErr[prop.name]
+    return isString(parentInject.childrenCheckResult[prop.name])
   })
 
   /**
    * 错误提示消息
    */
   const errMessage = computed((): string => {
-    if (isArray(prop.rules)) {
-      return prop.rules[0].message || ''
-    }
-    return ''
+    /**
+     * 获取都指定项的结构键值
+     */
+    const resMsg: string | boolean = parentInject.childrenCheckResult[prop.name]
+
+    return isString(resMsg) ? resMsg : ''
   })
 
   /**
