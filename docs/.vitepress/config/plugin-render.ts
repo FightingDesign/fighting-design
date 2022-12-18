@@ -1,7 +1,6 @@
-import { createSfcRegexp, TAG_NAME_TEMPLATE } from '@mdit-vue/plugin-sfc'
+import { createSfcRegexp, TAG_NAME_TEMPLATE } from '@mdit-vue/plugin-sfc' // https://github.com/mdit-vue/mdit-vue
 import { renderComponent } from './render'
 import type MarkdownIt from 'markdown-it'
-
 
 /**
  * 将字符串内容渲染成为组件
@@ -14,15 +13,15 @@ export const pluginRender = (md: MarkdownIt): void => {
 
   /**
    * 
-   * @param src 文档内容
+   * @param content 文档内容
    * @param env 
    * @returns 
    */
-  md.render = (src: string, env): string => {
+  md.render = (content: string, env): string => {
     /**
      * 获取到整个 markdown 的内容
      */
-    let rendered: string = render(src, env)
+    let rendered: string = render(content, env)
     /**
      * 开始标签
      */

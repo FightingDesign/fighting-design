@@ -25,6 +25,5 @@ export default defineConfig({
   markdown: {
     // 自定义 markdown 语法
     config: (md) => fightingPlugin(md)
-    // config: md => mdPlugin(md)
   }
 })
