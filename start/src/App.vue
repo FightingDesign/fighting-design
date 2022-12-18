@@ -7,7 +7,7 @@
     password: ''
   })
 
-  const handelSubmit = ({ ok, evt }: FormParam): void => {
+  const handelSubmit = ({ ok }: FormParam): void => {
     if (!ok) return
     console.log(ok)
   }

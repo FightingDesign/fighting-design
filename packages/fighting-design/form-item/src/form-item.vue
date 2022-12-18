@@ -14,24 +14,19 @@
   const parentInject = inject<FormInject | null>(FORM_PROVIDE_KEY, null) as FormInject
 
   /**
+   * 错误提示消息
+   *
    * 判断当前表单是否不通过
    *
    * 如果注入的对象值都是字符串则代表是错误信息
    */
-  const showErrorMessage = computed((): boolean => {
-    return isString(parentInject.childrenCheckResult[prop.name])
-  })
-
-  /**
-   * 错误提示消息
-   */
-  const errMessage = computed((): string => {
+  const errMessage = computed((): string | boolean => {
     /**
      * 获取都指定项的结构键值
      */
     const resMsg: string | boolean = parentInject.childrenCheckResult[prop.name]
 
-    return isString(resMsg) ? resMsg : ''
+    return isString(resMsg) ? resMsg : false
   })
 
   /**
@@ -53,11 +48,9 @@
       <slot />
 
       <!-- 错误信息 -->
-      <template v-if="errMessage">
-        <transition name="f-form-item__err-transition">
-          <div v-if="showErrorMessage" class="f-form-item__error">{{ errMessage }}</div>
-        </transition>
-      </template>
+      <transition name="f-form-item__err-transition">
+        <div v-if="errMessage" class="f-form-item__error">{{ errMessage }}</div>
+      </transition>
     </div>
   </div>
 </template>
