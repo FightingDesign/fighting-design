@@ -15,7 +15,6 @@ export interface FormItemRulesItem {
   required?: boolean
   min?: number
   max?: number
-  trigger?: 'change' | 'blur'
   regExp?: RegExp
 }
 

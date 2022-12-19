@@ -2,10 +2,10 @@
   import { Props, FORM_PROVIDE_KEY } from './props'
   import { provide, reactive, toRefs, useSlots, computed } from 'vue'
   import { useRun } from '../../_hooks'
-  import { getChildren, isString } from '../../_utils'
+  import { getChildren, isArray, isString, isObject } from '../../_utils'
   import type { VNode } from 'vue'
   import type { FormInject, FormParam } from './interface'
-  import type { FormItemRules } from '../../form-item'
+  import type { FormItemRules, FormItemRulesItem } from '../../form-item'
 
   const prop = defineProps(Props)
   const slot = useSlots()
@@ -40,8 +40,6 @@
     return children
   })
 
-  console.log(/1245/.test('123'))
-
   /**
    * 校验规则返回结果信息
    *
@@ -50,25 +48,41 @@
    * @param value 当前需要检测的值
    * @param rules 规则
    */
-  const checkRuleMassage = (value: string, rules: FormItemRules): string | boolean => {
+  const checkRuleMassage = (value: string, rules: FormItemRules | FormItemRulesItem): string | boolean => {
     /**
-     * 获取到当前输入字符串的长度
-     */
-    const length: number = value.length + 1
-
-    /**
-     * 遍历规则列表，检测，每一项是否符合规则
      *
-     * 如果未符合规则，有 message 则返回，否则返回 false
+     * 测试每一项规则
+     *
+     * @param ruleItem 每一项规则
      */
-    for (const rule of rules) {
-      if (
-        (rule.required && !value) ||
-        (rule.max && length > rule.max) ||
-        (rule.min && length < rule.min) ||
-        (rule.regExp && !rule.regExp.test(value))
-      ) {
-        return rule.message || false
+    const test = (ruleItem: FormItemRulesItem): boolean => {
+      /**
+       * 获取到当前输入字符串的长度
+       */
+      const length: number = value.length + 1
+
+      return !(
+        (ruleItem.required && !value) ||
+        (ruleItem.max && length > ruleItem.max) ||
+        (ruleItem.min && length < ruleItem.min) ||
+        (ruleItem.regExp && !ruleItem.regExp.test(value))
+      )
+    }
+
+    if (isArray(rules)) {
+      /**
+       * 遍历规则列表，检测，每一项是否符合规则
+       *
+       * 如果未符合规则，有 message 则返回，否则返回 false
+       */
+      for (const rule of rules) {
+        if (!test(rule)) {
+          return rule.message || false
+        }
+      }
+    } else if (isObject(rules)) {
+      if (!test(rules)) {
+        return rules.message || false
       }
     }
 
@@ -92,8 +106,6 @@
         childrenCheckResult[item.props.name] = msg
       }
     })
-
-    console.log(childrenCheckResult)
 
     /**
      * 获取到对象的 value 值，如果判断全部为真才返回真，否则返回假
@@ -120,7 +132,7 @@
      */
     const ok: boolean = validate()
 
-    useRun(prop.onSubmit, { ok, evt } as FormParam)
+    useRun(prop.onSubmit, { ok, res: childrenCheckResult, evt } as FormParam)
   }
 
   provide<FormInject>(

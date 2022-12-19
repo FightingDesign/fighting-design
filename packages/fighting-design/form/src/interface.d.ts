@@ -4,10 +4,12 @@ export type { FormProps } from './props'
  * submit 回调参数类型接口
  * 
  * @param ok 是否验证成功
+ * @param res 校验结果
  * @param evt 事件对象
  */
 export interface FormParam {
   ok: boolean
+  res: Record<string, boolean | string>
   evt: SubmitEvent
 }
 
