@@ -44,6 +44,7 @@
       <f-button type="primary" native-type="submit" block>提交表单</f-button>
     </f-form-item>
   </f-form>
+  {{ ruleForm }}
 </template>
 ```
 
@@ -106,6 +107,8 @@
       <f-button type="primary" native-type="submit" block>提交表单</f-button>
     </f-form-item>
   </f-form>
+
+  {{ ruleForm }}
 </template>
 ```
 
