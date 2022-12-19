@@ -22,7 +22,8 @@
       name="account"
       :rules="[
         { required: true, message: '请输入用户名' },
-        { min: 4, max: 12, message: '长度不正确' }
+        { min: 4, max: 12, message: '长度不正确' },
+        { regExp: /123456/, message: '规则不正确' }
       ]"
     >
       <f-input v-model="ruleForm.account" type="text" placeholder="请输入账号" />

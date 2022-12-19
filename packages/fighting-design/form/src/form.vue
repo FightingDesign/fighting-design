@@ -40,6 +40,8 @@
     return children
   })
 
+  console.log(/1245/.test('123'))
+
   /**
    * 校验规则返回结果信息
    *
@@ -60,7 +62,12 @@
      * 如果未符合规则，有 message 则返回，否则返回 false
      */
     for (const rule of rules) {
-      if ((rule.required && !value) || (rule.max && length > rule.max) || (rule.min && length < rule.min)) {
+      if (
+        (rule.required && !value) ||
+        (rule.max && length > rule.max) ||
+        (rule.min && length < rule.min) ||
+        (rule.regExp && !rule.regExp.test(value))
+      ) {
         return rule.message || false
       }
     }
@@ -85,6 +92,8 @@
         childrenCheckResult[item.props.name] = msg
       }
     })
+
+    console.log(childrenCheckResult)
 
     /**
      * 获取到对象的 value 值，如果判断全部为真才返回真，否则返回假

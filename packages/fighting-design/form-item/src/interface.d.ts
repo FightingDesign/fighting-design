@@ -8,6 +8,7 @@ export type { FormItemProps } from './props'
  * @param min 最小输入长度
  * @param max 最大输入长度
  * @param trigger 触发方式
+ * @param regExp 正则校验
  */
 export interface FormItemRulesItem {
   message?: string
@@ -15,6 +16,7 @@ export interface FormItemRulesItem {
   min?: number
   max?: number
   trigger?: 'change' | 'blur'
+  regExp?: RegExp
 }
 
 /**
