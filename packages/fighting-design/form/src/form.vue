@@ -108,13 +108,22 @@
     })
 
     /**
-     * 获取到对象的 value 值，如果判断全部为真才返回真，否则返回假
-     *
-     * @see every https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+     * 获取当前规则对象的 value 值
      */
-    return Object.values(childrenCheckResult).every((item: boolean | string): boolean => {
-      return !!item && !isString(item)
-    })
+    const childrenCheckResultKey: (string | boolean)[] = Object.values(childrenCheckResult)
+
+    if (childrenCheckResultKey.length) {
+      /**
+       * 获取到对象的 value 值，如果判断全部为真才返回真，否则返回假
+       *
+       * @see every https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+       */
+      return childrenCheckResultKey.every((item: boolean | string): boolean => {
+        return !!item && !isString(item)
+      })
+    }
+
+    return true
   }
 
   /**
@@ -130,7 +139,7 @@
     /**
      * 获取到是否校验通过
      */
-    const ok: boolean = validate()
+    const ok: boolean = prop.model ? validate() : true
 
     useRun(prop.onSubmit, { ok, res: childrenCheckResult, evt } as FormParam)
   }
