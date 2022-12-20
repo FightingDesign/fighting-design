@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-  import { reactive } from 'vue'
+  import { ref } from 'vue'
   import { FMessage } from 'fighting-design'
   import type { FormParam } from 'fighting-design'
 
-  const ruleForm = reactive({
+  const ruleForm = ref({
     account: '',
     password: ''
   })

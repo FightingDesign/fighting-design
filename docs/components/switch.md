@@ -13,18 +13,16 @@
 
 ```vue
 <script lang="ts" setup>
-  import { reactive } from 'vue'
+  import { ref } from 'vue'
 
-  const value = reactive({
-    value1: true,
-    value2: false
-  })
+  const value1 = ref(true)
+  const value2 = ref(false)
 </script>
 
 <template>
   <f-space>
-    <f-switch v-model="value.value1" />
-    <f-switch v-model="value.value2" />
+    <f-switch v-model="value1" />
+    <f-switch v-model="value2" />
   </f-space>
 </template>
 ```
