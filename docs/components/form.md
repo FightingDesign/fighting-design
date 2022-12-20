@@ -34,7 +34,7 @@
   {{ ruleForm }}
   <f-form label-width="60px" :on-submit="handelSubmit">
     <f-form-item label="账号">
-      <f-input v-model="ruleForm.account" type="text" placeholder="请输入账号" />
+      <input v-model="ruleForm.account" type="text" placeholder="请输入账号" />
     </f-form-item>
 
     <f-form-item label="密码">
@@ -91,7 +91,7 @@
         { regExp: /123456/, message: '必须包含 123456' }
       ]"
     >
-      <f-input v-model="ruleForm.account" type="text" placeholder="请输入账号" />
+      <input v-model="ruleForm.account" type="text" placeholder="请输入账号" />
     </f-form-item>
 
     <f-form-item
