@@ -44,6 +44,12 @@
   <f-input v-model="value" type="text" size="small" />
   <f-input v-model="value" type="text" size="mini" />
 </template>
+
+<style scoped>
+  .f-input {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -163,11 +169,15 @@
 </script>
 
 <template>
-  <f-space vertical>
-    <f-input v-model="value" type="text" readonly />
-    <f-input v-model="value" type="text" disabled />
-  </f-space>
+  <f-input v-model="value" type="text" readonly />
+  <f-input v-model="value" type="text" disabled />
 </template>
+
+<style scoped>
+  .f-input {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::

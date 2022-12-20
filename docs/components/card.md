@@ -45,6 +45,12 @@
   <f-card shadow="hover">Hover 显示</f-card>
   <f-card shadow="always">总是显示</f-card>
 </template>
+
+<style scoped>
+  .f-card {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::

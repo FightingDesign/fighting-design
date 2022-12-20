@@ -3,7 +3,7 @@
 用于页面中展示重要的提示信息
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/alert)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/alert.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/alert.md)
 
 ## 基本使用
 
@@ -19,6 +19,12 @@
   <f-alert type="danger">危险提示信息</f-alert>
   <f-alert type="warning">警告提示信息</f-alert>
 </template>
+
+<style scoped>
+  .f-alert {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -39,6 +45,12 @@
   <f-alert font-size="20px" type="danger">危险提示信息</f-alert>
   <f-alert font-size="24px" type="warning">警告提示信息</f-alert>
 </template>
+
+<style scoped>
+  .f-alert {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -56,6 +68,12 @@
   <f-alert type="success" bold>加粗的成功提示信息</f-alert>
   <f-alert type="danger" bold>加粗的危险提示信息</f-alert>
 </template>
+
+<style scoped>
+  .f-alert {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -73,6 +91,12 @@
   <f-alert type="success" center>居中的成功提示信息</f-alert>
   <f-alert type="danger" center>居中的危险提示信息</f-alert>
 </template>
+
+<style scoped>
+  .f-alert {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -89,6 +113,12 @@
   <f-alert type="success" close>成功提示信息</f-alert>
   <f-alert type="danger" close>危险提示信息</f-alert>
 </template>
+
+<style scoped>
+  .f-alert {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -107,6 +137,12 @@
   <f-alert simple type="danger">危险提示信息</f-alert>
   <f-alert simple type="warning">警告提示信息</f-alert>
 </template>
+
+<style scoped>
+  .f-alert {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -123,6 +159,12 @@
   <f-alert type="success" round>成功提示信息</f-alert>
   <f-alert type="danger" round>危险提示信息</f-alert>
 </template>
+
+<style scoped>
+  .f-alert {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -139,6 +181,12 @@
   <f-alert type="success" background="#e372ff">成功提示信息</f-alert>
   <f-alert type="danger" background="#e49b33">危险提示信息</f-alert>
 </template>
+
+<style scoped>
+  .f-alert {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -154,6 +202,12 @@
   <f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert>
   <f-alert type="success" title="标题">心情很不错</f-alert>
 </template>
+
+<style scoped>
+  .f-alert {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -217,8 +271,3 @@ type AlertOverflow = 'hidden'
   <f-avatar round src="https://avatars.githubusercontent.com/u/66313154?v=4" />
 </a>
 
-<style scoped>
-  .f-alert {
-    margin: 5px;
-  }
-</style>

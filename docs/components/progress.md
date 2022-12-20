@@ -48,6 +48,12 @@
     <f-button simple round type="primary" @click="add">增加</f-button>
   </f-button-group>
 </template>
+
+<style scoped>
+  .f-progress {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -65,6 +71,12 @@
   <f-progress type="danger" :percentage="70" linear height="18px" text-inside />
   <f-progress type="warning" :percentage="90" linear show-text />
 </template>
+
+<style scoped>
+  .f-progress {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -80,6 +92,12 @@
   <f-progress type="success" :percentage="40" width="100%" height="20px" show-text text-inside />
   <f-progress :percentage="10" width="360px" height="27px" show-text />
 </template>
+
+<style scoped>
+  .f-progress {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -97,6 +115,12 @@
   <f-progress type="danger" :percentage="70" color="#ff386a" />
   <f-progress type="success" :percentage="40" background="#C3FFBD" />
 </template>
+
+<style scoped>
+  .f-progress {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
@@ -137,6 +161,12 @@
     <f-button simple round type="primary" @click="add">增加</f-button>
   </f-button-group>
 </template>
+
+<style scoped>
+  .f-progress {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::

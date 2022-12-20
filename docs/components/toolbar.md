@@ -36,13 +36,17 @@
 
 ```vue
 <template>
-  <f-space vertical>
-    <f-toolbar size="large">大型工具栏</f-toolbar>
-    <f-toolbar size="middle">中型工具栏</f-toolbar>
-    <f-toolbar size="small">小型工具栏</f-toolbar>
-    <f-toolbar size="mini">迷你工具栏</f-toolbar>
-  </f-space>
+  <f-toolbar size="large">大型工具栏</f-toolbar>
+  <f-toolbar size="middle">中型工具栏</f-toolbar>
+  <f-toolbar size="small">小型工具栏</f-toolbar>
+  <f-toolbar size="mini">迷你工具栏</f-toolbar>
 </template>
+
+<style scoped>
+  .f-toolbar {
+    margin-bottom: 8px;
+  }
+</style>
 ```
 
 :::
