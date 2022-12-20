@@ -16,7 +16,6 @@
   import { reactive } from 'vue'
 
   const value = reactive({
-    value0: true,
     value1: true,
     value2: false
   })

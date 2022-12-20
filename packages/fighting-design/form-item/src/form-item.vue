@@ -24,7 +24,7 @@
     /**
      * 获取都指定项的结构键值
      */
-    const resMsg: string | boolean = parentInject.childrenCheckResult[prop.name]
+    const resMsg: string | boolean = parentInject && parentInject.childrenCheckResult[prop.name]
 
     return isString(resMsg) ? resMsg : false
   })
