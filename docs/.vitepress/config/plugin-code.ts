@@ -14,12 +14,7 @@ export const pluginCode = (md: MarkdownIt): void => {
   /**
    * 默认渲染方法
    */
-  const defaultRender: (
-    tokens: Token[],
-    idx: number,
-    options: MarkdownIt.Options,
-    env: any
-  ) => string = md.renderer.rules.fence
+  const defaultRender = md.renderer.rules.fence
 
   md.renderer.rules.fence = (
     tokens: Token[],
@@ -40,25 +35,28 @@ export const pluginCode = (md: MarkdownIt): void => {
      */
     const isInDemoContainer: boolean = prevToken && prevToken.nesting === 1 && prevToken.info.trim().match(/^demo\s*(.*)$/)
 
+
     /**
      * 如果是自定义代码段落，则继续获取里面的内容返回知道插槽内容
      * 
      * 否则返回默认的内容
      */
     if (token.info.trim() === lang && isInDemoContainer) {
-      const m: string = prevToken.info.trim().match(/^demo\s*(.*)$/)
+      // const m: string = prevToken.info.trim().match(/^demo\s*(.*)$/)
       /**
        * 获取到描述信息内容
        */
-      const description: string = m && m.length > 1 ? m[1] : ''
+      // const description: string = m && m.length > 1 ? m[1] : ''
 
-      return `
-        ${description
+      /**
+       * ${description
           ? `<template #description>
           <div>${md.renderInline(description)}</div>
         </template>`
           : ''}
-        <template #highlight>
+       */
+
+      return `<template #highlight>
           <div v-pre class="language-${lang}">
             ${md.options.highlight(token.content, lang, '') || ''}
           </div>
