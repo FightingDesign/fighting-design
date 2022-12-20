@@ -14,22 +14,17 @@ export const pluginRender = (md: MarkdownIt): void => {
   /**
    * 
    * @param content 文档内容
-   * @param env 
-   * @returns 
+   * @param env 环境对象
    */
   md.render = (content: string, env): string => {
     /**
      * 获取到整个 markdown 的内容
      */
     let rendered: string = render(content, env)
-    /**
-     * 开始标签
-     */
-    const startTag = '<!--vue-demo:' as const
-    /**
-     * 结束标签
-     */
-    const endTag = ':vue-demo-->' as const
+
+    // 开始和结束标签
+    const startTag = '<!--vue-demo:'
+    const endTag = ':vue-demo-->'
 
     /**
      * 判断文档中是否有开始标签和结束标签
@@ -41,11 +36,17 @@ export const pluginRender = (md: MarkdownIt): void => {
       const scriptSfc = script?.match(sfcRegexp)?.groups
       const styleSfc = style?.match(sfcRegexp)?.groups
 
-      env.sfcBlocks.template = templateSfc || null
-      env.sfcBlocks.script = scriptSfc || null
+      console.log('templateSfc', templateSfc)
+      console.log('scriptSfc', scriptSfc)
+      console.log('styleSfc', styleSfc)
+
+      env.sfcBlocks.template = templateSfc
+      env.sfcBlocks.script = scriptSfc
 
       scriptSfc && env.sfcBlocks.scripts.push(scriptSfc)
       styleSfc && env.sfcBlocks.styles.push(styleSfc)
+
+      console.log(env.sfcBlocks)
 
       rendered = template as string
     }

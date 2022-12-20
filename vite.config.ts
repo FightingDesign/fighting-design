@@ -36,6 +36,7 @@ export default (): UserConfigExport => {
       outDir: resolve(__dirname, './dist'), // 指定输出路径
       // 库模式 https://cn.vitejs.dev/guide/build.html#library-mode
       lib: {
+        name: 'FightingDesign',
         entry: resolve(__dirname, 'packages/fighting-design/index.ts') // 打包入口
       },
       // rollup 配置项 https://rollupjs.org/guide/en/#big-list-of-options

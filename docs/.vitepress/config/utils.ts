@@ -3,10 +3,22 @@ import { ScriptOrStyleReplacePattern, ScriptSetupPattern, StylePattern, Template
 import type { SFCTemplateCompileOptions } from '@vue/compiler-sfc'
 
 export const stripScript = (content: string, id: string): string => {
+  /**
+   * 匹配到 js 部分代码段
+   * 
+   * match() 方法检索返回一个字符串匹配正则表达式的结果
+   * @see match  https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match
+   */
   const result: RegExpMatchArray | null = content.match(ScriptSetupPattern)
+
+  /**
+   * 获取到  js 内容
+   */
   const source: string = result && result[0] ? result[0].trim() : ''
+
   if (source) {
     const { descriptor } = parse(source)
+
     const { content: scriptContent } = compileScript(descriptor, {
       refSugar: true,
       id
@@ -32,6 +44,9 @@ export const stripStyle = (content: string): string => {
  */
 export const stripTemplate = (content: string): string => {
   content = content.trim()
+  /**
+   * @see replace https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+   */
   return content ? content.replace(ScriptOrStyleReplacePattern, '').trim() : content
 }
 

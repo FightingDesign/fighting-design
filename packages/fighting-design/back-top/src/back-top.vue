@@ -63,7 +63,7 @@
   /**
    * 样式列表
    */
-  const styleList = styles(['right', 'bottom', 'zIndex', 'background', 'color'])
+  const styleList = styles(['right', 'bottom', 'background', 'color'])
 </script>
 
 <template>
@@ -71,7 +71,7 @@
     <div
       v-show="visible"
       :class="['f-back-top', { 'f-back-top__round': round }]"
-      :style="styleList"
+      :style="{ ...styleList, zIndex }"
       @click.stop="handleClick"
     >
       <slot />
