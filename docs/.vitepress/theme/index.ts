@@ -6,11 +6,11 @@ import '@fighting-design/fighting-theme'
 import vpSearch from './components/vp-search.vue'
 import vpDemo from './components/vp-demo.vue'
 
-import 'vitepress-theme-demoblock/dist/theme/styles/index.css'
+// import 'vitepress-theme-demoblock/dist/theme/styles/index.css'
 // Don't remove this file, because it registers the demo components.
 // import TableDemo from '../components/table/demo.vue'
-import Demo from 'vitepress-theme-demoblock/dist/client/components/Demo.vue'
-import DemoBlock from 'vitepress-theme-demoblock/dist/client/components/DemoBlock.vue'
+// import Demo from 'vitepress-theme-demoblock/dist/client/components/Demo.vue'
+// import DemoBlock from 'vitepress-theme-demoblock/dist/client/components/DemoBlock.vue'
 
 export default {
   ...Theme,
@@ -30,7 +30,7 @@ export default {
     app.use(FightingDesign)
     app.component('vp-demo', vpDemo)
     // app.component('TableDemo', TableDemo)
-    app.component('Demo', Demo)
-    app.component('DemoBlock', DemoBlock)
+    // app.component('Demo', Demo)
+    // app.component('DemoBlock', DemoBlock)
   }
 }

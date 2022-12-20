@@ -2,12 +2,13 @@
   import { reactive } from 'vue'
 
   const value = reactive({
-    value1: true,
-    value2: false
+    value1: '123',
+    value2: '456'
   })
 </script>
 
 <template>
-  <f-switch v-model="value.value1" />
-  <f-switch v-model="value.value2" />
+  <h1>{{ value }}</h1>
+  <input v-model="value.value1" type="text" />
+  <input v-model="value.value2" type="text" />
 </template>
