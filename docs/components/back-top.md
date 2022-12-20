@@ -90,7 +90,7 @@
   <f-back-top listen-el=".f-box" right="200px">监听目标</f-back-top>
 </template>
 
-<style>
+<style scoped>
   .f-box {
     width: 100%;
     height: 100px;
@@ -146,12 +146,3 @@ type BackTopBehavior = 'smooth' | 'auto'
 <a href="https://github.com/XiaoLi-sach" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/55753927?v=4" />
 </a>
-
-<style>
-  .f-back-top__demo-box {
-    width: 100%;
-    height: 100px;
-    border: 4px solid skyblue;
-    overflow: auto;
-  }
-</style>
