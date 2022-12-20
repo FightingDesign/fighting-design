@@ -3,7 +3,7 @@
 据说水印容易让人讨厌？
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/watermark)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/watermark.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/watermark.md)
 
 ## 基本使用
 
@@ -11,9 +11,23 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-watermark content="机密文件" :height="100" :width="130">
+<f-card title="绝对机密">
+<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-text block>这是一个重要的文件</f-text>
+</f-card>
+</f-watermark>
+</template>
+
+```html
 <template>
-  <f-watermark content="机密文件" :height="100" :width="130" />
+  <f-watermark content="机密文件" :height="100" :width="130">
+    <f-card title="绝对机密">
+      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+      <f-text block>这是一个重要的文件</f-text>
+    </f-card>
+  </f-watermark>
 </template>
 
 <style scoped>
@@ -22,6 +36,9 @@
     justify-content: center;
     align-items: center;
     height: 500px;
+  }
+  .f-card {
+    width: 240px;
   }
 </style>
 ```
@@ -34,9 +51,23 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px">
+<f-card title="绝对机密">
+<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-text block>这是一个重要的文件</f-text>
+</f-card>
+</f-watermark>
+</template>
+
+```html
 <template>
-  <f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px" />
+  <f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px">
+    <f-card title="绝对机密">
+      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+      <f-text block>这是一个重要的文件</f-text>
+    </f-card>
+  </f-watermark>
 </template>
 
 <style scoped>
@@ -45,6 +76,9 @@
     justify-content: center;
     align-items: center;
     height: 500px;
+  }
+  .f-card {
+    width: 240px;
   }
 </style>
 ```
@@ -59,9 +93,23 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
+<f-card title="绝对机密">
+<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-text block>这是一个重要的文件</f-text>
+</f-card>
+</f-watermark>
+</template>
+
+```html
 <template>
-  <f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" />
+  <f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
+    <f-card title="绝对机密">
+      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+      <f-text block>这是一个重要的文件</f-text>
+    </f-card>
+  </f-watermark>
 </template>
 
 <style scoped>
@@ -70,6 +118,9 @@
     justify-content: center;
     align-items: center;
     height: 500px;
+  }
+  .f-card {
+    width: 240px;
   }
 </style>
 ```
@@ -100,7 +151,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { WatermarkInstance, WatermarkProps } from 'fighting-design'
+import type { WatermarkInstance, WatermarkPropsType } from 'fighting-design'
 ```
 
 ## Contributors
@@ -109,11 +160,14 @@ import type { WatermarkInstance, WatermarkProps } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<style>
+<style scoped>
   .f-watermark {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 500px;
+  }
+  .f-card {
+    width: 240px;
   }
 </style>

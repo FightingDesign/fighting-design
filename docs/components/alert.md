@@ -3,7 +3,7 @@
 用于页面中展示重要的提示信息
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/alert)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/alert.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/alert.md)
 
 ## 基本使用
 
@@ -11,20 +11,20 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-alert type="default">默认提示信息</f-alert>
-  <f-alert type="primary">主要提示信息</f-alert>
-  <f-alert type="success">成功提示信息</f-alert>
-  <f-alert type="danger">危险提示信息</f-alert>
-  <f-alert type="warning">警告提示信息</f-alert>
+<template #source>
+<f-alert type="default">默认提示信息</f-alert>
+<f-alert type="primary">主要提示信息</f-alert>
+<f-alert type="success">成功提示信息</f-alert>
+<f-alert type="danger">危险提示信息</f-alert>
+<f-alert type="warning">警告提示信息</f-alert>
 </template>
 
-<style scoped>
-  .f-alert {
-    margin-bottom: 8px;
-  }
-</style>
+```html
+<f-alert type="default">默认提示信息</f-alert>
+<f-alert type="primary">主要提示信息</f-alert>
+<f-alert type="success">成功提示信息</f-alert>
+<f-alert type="danger">危险提示信息</f-alert>
+<f-alert type="warning">警告提示信息</f-alert>
 ```
 
 :::
@@ -37,20 +37,20 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-alert font-size="12px" type="default">默认提示信息</f-alert>
-  <f-alert font-size="14px" type="primary">主要提示信息</f-alert>
-  <f-alert font-size="16px" type="success">成功提示信息</f-alert>
-  <f-alert font-size="20px" type="danger">危险提示信息</f-alert>
-  <f-alert font-size="24px" type="warning">警告提示信息</f-alert>
+<template #source>
+<f-alert font-size="12px" type="default">默认提示信息</f-alert>
+<f-alert font-size="14px" type="primary">主要提示信息</f-alert>
+<f-alert font-size="16px" type="success">成功提示信息</f-alert>
+<f-alert font-size="20px" type="danger">危险提示信息</f-alert>
+<f-alert font-size="24px" type="warning">警告提示信息</f-alert>
 </template>
 
-<style scoped>
-  .f-alert {
-    margin-bottom: 8px;
-  }
-</style>
+```html
+<f-alert font-size="12px" type="default">默认提示信息</f-alert>
+<f-alert font-size="14px" type="primary">主要提示信息</f-alert>
+<f-alert font-size="16px" type="success">成功提示信息</f-alert>
+<f-alert font-size="20px" type="danger">危险提示信息</f-alert>
+<f-alert font-size="24px" type="warning">警告提示信息</f-alert>
 ```
 
 :::
@@ -61,19 +61,18 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-alert type="default">未加粗的默认提示信息</f-alert>
-  <f-alert type="primary" bold>加粗的主要提示信息</f-alert>
-  <f-alert type="success" bold>加粗的成功提示信息</f-alert>
-  <f-alert type="danger" bold>加粗的危险提示信息</f-alert>
+<template #source>
+<f-alert type="default">未加粗的默认提示信息</f-alert>
+<f-alert type="primary" bold>加粗的主要提示信息</f-alert>
+<f-alert type="success" bold>加粗的成功提示信息</f-alert>
+<f-alert type="danger" bold>加粗的危险提示信息</f-alert>
 </template>
 
-<style scoped>
-  .f-alert {
-    margin-bottom: 8px;
-  }
-</style>
+```html
+<f-alert type="default">未加粗的默认提示信息</f-alert>
+<f-alert type="primary" bold>加粗的主要提示信息</f-alert>
+<f-alert type="success" bold>加粗的成功提示信息</f-alert>
+<f-alert type="danger" bold>加粗的危险提示信息</f-alert>
 ```
 
 :::
@@ -84,19 +83,18 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-alert type="default">未居中的默认提示信息</f-alert>
-  <f-alert type="primary" center>居中的主要提示信息</f-alert>
-  <f-alert type="success" center>居中的成功提示信息</f-alert>
-  <f-alert type="danger" center>居中的危险提示信息</f-alert>
+<template #source>
+<f-alert type="default">未居中的默认提示信息</f-alert>
+<f-alert type="primary" center>居中的主要提示信息</f-alert>
+<f-alert type="success" center>居中的成功提示信息</f-alert>
+<f-alert type="danger" center>居中的危险提示信息</f-alert>
 </template>
 
-<style scoped>
-  .f-alert {
-    margin-bottom: 8px;
-  }
-</style>
+```html
+<f-alert type="default">未居中的默认提示信息</f-alert>
+<f-alert type="primary" center>居中的主要提示信息</f-alert>
+<f-alert type="success" center>居中的成功提示信息</f-alert>
+<f-alert type="danger" center>居中的危险提示信息</f-alert>
 ```
 
 :::
@@ -107,18 +105,16 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-alert type="primary" close>主要提示信息</f-alert>
-  <f-alert type="success" close>成功提示信息</f-alert>
-  <f-alert type="danger" close>危险提示信息</f-alert>
+<template #source>
+<f-alert type="primary" close>主要提示信息</f-alert>
+<f-alert type="success" close>成功提示信息</f-alert>
+<f-alert type="danger" close>危险提示信息</f-alert>
 </template>
 
-<style scoped>
-  .f-alert {
-    margin-bottom: 8px;
-  }
-</style>
+```html
+<f-alert type="primary" close>主要提示信息</f-alert>
+<f-alert type="success" close>成功提示信息</f-alert>
+<f-alert type="danger" close>危险提示信息</f-alert>
 ```
 
 :::
@@ -129,20 +125,20 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-alert simple type="default">默认提示信息</f-alert>
-  <f-alert simple type="primary">主要提示信息</f-alert>
-  <f-alert simple type="success">成功提示信息</f-alert>
-  <f-alert simple type="danger">危险提示信息</f-alert>
-  <f-alert simple type="warning">警告提示信息</f-alert>
+<template #source>
+<f-alert simple type="default">默认提示信息</f-alert>
+<f-alert simple type="primary">主要提示信息</f-alert>
+<f-alert simple type="success">成功提示信息</f-alert>
+<f-alert simple type="danger">危险提示信息</f-alert>
+<f-alert simple type="warning">警告提示信息</f-alert>
 </template>
 
-<style scoped>
-  .f-alert {
-    margin-bottom: 8px;
-  }
-</style>
+```html
+<f-alert simple type="default">默认提示信息</f-alert>
+<f-alert simple type="primary">主要提示信息</f-alert>
+<f-alert simple type="success">成功提示信息</f-alert>
+<f-alert simple type="danger">危险提示信息</f-alert>
+<f-alert simple type="warning">警告提示信息</f-alert>
 ```
 
 :::
@@ -153,18 +149,16 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-alert type="primary" round>主要提示信息</f-alert>
-  <f-alert type="success" round>成功提示信息</f-alert>
-  <f-alert type="danger" round>危险提示信息</f-alert>
+<template #source>
+<f-alert type="primary" round>主要提示信息</f-alert>
+<f-alert type="success" round>成功提示信息</f-alert>
+<f-alert type="danger" round>危险提示信息</f-alert>
 </template>
 
-<style scoped>
-  .f-alert {
-    margin-bottom: 8px;
-  }
-</style>
+```html
+<f-alert type="primary" round>主要提示信息</f-alert>
+<f-alert type="success" round>成功提示信息</f-alert>
+<f-alert type="danger" round>危险提示信息</f-alert>
 ```
 
 :::
@@ -175,18 +169,16 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-alert type="primary" background="#58c8de">主要提示信息</f-alert>
-  <f-alert type="success" background="#e372ff">成功提示信息</f-alert>
-  <f-alert type="danger" background="#e49b33">危险提示信息</f-alert>
+<template #source>
+<f-alert type="primary" background="#58c8de">主要提示信息</f-alert>
+<f-alert type="success" background="#e372ff">成功提示信息</f-alert>
+<f-alert type="danger" background="#e49b33">危险提示信息</f-alert>
 </template>
 
-<style scoped>
-  .f-alert {
-    margin-bottom: 8px;
-  }
-</style>
+```html
+<f-alert type="primary" background="#58c8de">主要提示信息</f-alert>
+<f-alert type="success" background="#e372ff">成功提示信息</f-alert>
+<f-alert type="danger" background="#e49b33">危险提示信息</f-alert>
 ```
 
 :::
@@ -197,42 +189,38 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert>
-  <f-alert type="success" title="标题">心情很不错</f-alert>
+<template #source>
+<f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert>
+<f-alert type="success" title="标题">心情很不错</f-alert>
 </template>
 
-<style scoped>
-  .f-alert {
-    margin-bottom: 8px;
-  }
-</style>
+```html
+<f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert> <f-alert type="success" title="标题">心情很不错</f-alert>
 ```
 
 :::
 
 ## Attributes
 
-| 参数          | 说明                   | 类型                                                               | 可选值                                           | 默认值  |
-| ------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------- |
-| `type`        | 类型                   | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | default |
-| `font-size`   | 副标题文字大小         | string / number                                                    | ——                                               | 15px    |
-| `title-size`  | 主标题文字大小         | string / number                                                    | ——                                               | 17px    |
-| `bold`        | 文字是否以粗体显示     | boolean                                                            | ——                                               | false   |
-| `center`      | 是否居中               | boolean                                                            | ——                                               | false   |
-| `close`       | 可关闭                 | boolean                                                            | ——                                               | ——      |
-| `simple`      | 简约模式               | boolean                                                            | ——                                               | ——      |
-| `title`       | 标题                   | string                                                             | ——                                               | ——      |
-| `round`       | 显示为圆角             | boolean                                                            | ——                                               | ——      |
-| `background`  | 背景颜色               | string                                                             | ——                                               | ——      |
-| `color`       | 副标题字体颜色         | string                                                             | ——                                               | ——      |
-| `title-color` | 主标题字体颜色         | string                                                             | ——                                               | ——      |
-| `fixed`       | 是否固定定位           | boolean                                                            | ——                                               | false   |
-| `overflow`    | 文字超出的展示状态     | <a href="#alertoverflow">AlertOverflow</a>                         | `hidden`                                         | ——      |
-| `before-icon` | 自定义前缀 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
-| `close-icon`  | 自定义关闭 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
-| `on-close`    | 点击关闭之后执行的回调 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——                                               | ——      |
+| 参数          | 说明                   | 类型                                                               | 可选值                                           | 默认值 |
+| ------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------ |
+| `type`        | 类型                   | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | ——     |
+| `font-size`   | 副标题文字大小         | string / number                                                    | ——                                               | 15px   |
+| `title-size`  | 主标题文字大小         | string / number                                                    | ——                                               | 17px   |
+| `bold`        | 文字是否以粗体显示     | boolean                                                            | ——                                               | false  |
+| `center`      | 是否居中               | boolean                                                            | ——                                               | false  |
+| `close`       | 可关闭                 | boolean                                                            | ——                                               | ——     |
+| `simple`      | 简约模式               | boolean                                                            | ——                                               | ——     |
+| `title`       | 标题                   | string                                                             | ——                                               | ——     |
+| `round`       | 显示为圆角             | boolean                                                            | ——                                               | ——     |
+| `background`  | 背景颜色               | string                                                             | ——                                               | ——     |
+| `color`       | 副标题字体颜色         | string                                                             | ——                                               | ——     |
+| `title-color` | 主标题字体颜色         | string                                                             | ——                                               | ——     |
+| `fixed`       | 是否固定定位           | boolean                                                            | ——                                               | false  |
+| `overflow`    | 文字超出的展示状态     | string                                                             | `hidden`                                         | ——     |
+| `before-icon` | 自定义前缀 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
+| `close-icon`  | 自定义关闭 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
+| `on-close`    | 点击关闭之后执行的回调 | Function                                                           | ——                                               | ——     |
 
 ## Slots
 
@@ -251,12 +239,6 @@
 import type { AlertInstance, AlertProps, AlertOverflow } from 'fighting-design'
 ```
 
-### AlertOverflow
-
-```ts
-type AlertOverflow = 'hidden'
-```
-
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
@@ -271,3 +253,8 @@ type AlertOverflow = 'hidden'
   <f-avatar round src="https://avatars.githubusercontent.com/u/66313154?v=4" />
 </a>
 
+<style scoped>
+  .f-alert {
+    margin: 5px;
+  }
+</style>

@@ -3,7 +3,7 @@
 多功能导航菜单栏
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/menu)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/menu.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/menu.md)
 
 :::danger
 组件仍在测试阶段，高频更新中，部分参数暂不稳定！
@@ -13,11 +13,39 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-</script>
+<template #source>
+<f-menu active-name="1">
+<template #before>
+<f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
+</template>
 
+<f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
+<f-menu-item name="2" :icon="FIconApps">设置</f-menu-item>
+<f-menu-item name="3" :icon="FIconApps">首页</f-menu-item>
+
+<f-submenu>
+<template #title> 选项列表 </template>
+<f-menu-item name="4-1" :icon="FIconBlock">选项</f-menu-item>
+<f-menu-item name="4-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+<f-menu-item name="4-3" :icon="FIconClock">操作</f-menu-item>
+</f-submenu>
+
+<template #after>
+<f-dropdown>
+<f-button>设置</f-button>
+
+<template #content>
+<f-dropdown-item>猕猴桃</f-dropdown-item>
+<f-dropdown-item>哈密瓜</f-dropdown-item>
+<f-dropdown-item>火龙果</f-dropdown-item>
+<f-dropdown-item>柠檬</f-dropdown-item>
+</template>
+</f-dropdown>
+</template>
+</f-menu>
+</template>
+
+```html
 <template>
   <f-menu active-name="1">
     <template #before>
@@ -49,6 +77,10 @@
     </template>
   </f-menu>
 </template>
+
+<script lang="ts" setup>
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
@@ -59,16 +91,81 @@
 
 :::demo
 
-```vue
-<script lang="ts" setup>
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-</script>
+<template #source>
 
+<h3>垂直的</h3>
+<f-menu mode="vertical" active-name="1">
+<template #before>
+<f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
+</template>
+
+<f-menu-item disabled name="1" :icon="FIconApps">首页</f-menu-item>
+<f-menu-item name="2" :icon="FIconApps">设置</f-menu-item>
+<f-menu-item name="3" :icon="FIconApps">首页</f-menu-item>
+
+<f-submenu>
+<template #title> 选项列表 </template>
+<f-menu-item name="4-1" :icon="FIconBlock">选项</f-menu-item>
+<f-menu-item name="4-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+<f-menu-item name="4-3" :icon="FIconClock">操作</f-menu-item>
+</f-submenu>
+
+<template #after>
+<f-dropdown>
+<f-button>设置</f-button>
+
+<template #content>
+<f-dropdown-item>猕猴桃</f-dropdown-item>
+<f-dropdown-item>哈密瓜</f-dropdown-item>
+<f-dropdown-item>火龙果</f-dropdown-item>
+<f-dropdown-item>柠檬</f-dropdown-item>
+</template>
+</f-dropdown>
+</template>
+</f-menu>
+
+<h3>内联的</h3>
+
+<f-menu mode="inline" active-name="2-1">
+<template #before>
+<f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
+</template>
+
+<f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
+<f-submenu>
+<template #title> 选项列表 </template>
+<f-menu-item name="2-1" :icon="FIconBlock">选项</f-menu-item>
+<f-menu-item name="2-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+<f-menu-item name="2-3" :icon="FIconClock">操作</f-menu-item>
+</f-submenu>
+
+<f-menu-item-group title="选项列表">
+<f-menu-item name="2-1" :icon="FIconBlock">选项</f-menu-item>
+<f-menu-item name="2-2" :icon="FIconCameraVideoSlash">设置</f-menu-item>
+<f-menu-item name="2-3" :icon="FIconClock">操作</f-menu-item>
+</f-menu-item-group>
+
+<template #after>
+<f-dropdown>
+<f-button>设置</f-button>
+
+<template #content>
+<f-dropdown-item>猕猴桃</f-dropdown-item>
+<f-dropdown-item>哈密瓜</f-dropdown-item>
+<f-dropdown-item>火龙果</f-dropdown-item>
+<f-dropdown-item>柠檬</f-dropdown-item>
+</template>
+</f-dropdown>
+</template>
+</f-menu>
+</template>
+
+```html
 <template>
   <h3>垂直的</h3>
   <f-menu mode="vertical" active-name="1">
     <template #before>
-      <f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
+      <h1>123</h1>
     </template>
 
     <f-menu-item disabled name="1" :icon="FIconApps">首页</f-menu-item>
@@ -104,7 +201,7 @@
 
   <f-menu mode="inline" active-name="2-1">
     <template #before>
-      <f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
+      <h1>123</h1>
     </template>
 
     <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
@@ -135,16 +232,20 @@
     </template>
   </f-menu>
 </template>
+
+<script lang="ts" setup>
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
 
 ## Menu Attributes
 
-| 参数          | 说明            | 类型                             | 可选值                           | 默认值     |
-| ------------- | --------------- | -------------------------------- | -------------------------------- | ---------- |
-| `mode`        | 不同模式        | <a href="#menumode">MenuMode</a> | `horizontal` `vertical` `inline` | horizontal |
-| `active-name` | 默认激活的 name | string / number                  | ——                               | ——         |
+| 参数          | 说明            | 类型            | 可选值                           | 默认值     |
+| ------------- | --------------- | --------------- | -------------------------------- | ---------- |
+| `mode`        | 不同模式        | string          | `horizontal` `vertical` `inline` | horizontal |
+| `active-name` | 默认激活的 name | string / number | ——                               | ——         |
 
 ## MenuItem Attributes
 
@@ -202,23 +303,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  MenuInstance,
-  MenuProps,
-  MenuMode,
-  MenuItemInstance,
-  MenuItemProps,
-  FMenuItemGroup,
-  MenuItemGroupProps,
-  SubmenuInstance,
-  SubmenuProps
-} from 'fighting-design'
-```
-
-### MenuMode
-
-```ts
-type MenuMode = 'horizontal' | 'vertical' | 'inline'
+import type {} from 'fighting-design'
 ```
 
 ## Contributors

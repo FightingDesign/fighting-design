@@ -3,7 +3,7 @@
 处理常见的一些网页布局，实现快速搭建
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/layout)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/layout.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/layout.md)
 
 ## 基本使用
 
@@ -19,7 +19,104 @@
 
 ::: demo
 
-```vue
+<template #source>
+
+<f-layout>
+  <f-header>Header</f-header>
+  <f-main>Main</f-main>
+</f-layout>
+
+<br />
+<br />
+
+<f-layout>
+  <f-header>Header</f-header>
+  <f-main>Main</f-main>
+  <f-footer>Footer</f-footer>
+</f-layout>
+
+<br />
+<br />
+
+<f-layout>
+  <f-aside>Aside</f-aside>
+  <f-main>Main</f-main>
+</f-layout>
+
+<br />
+<br />
+
+<f-layout>
+  <f-header>Header</f-header>
+  <f-layout>
+  <f-aside>Aside</f-aside>
+  <f-main>Main</f-main>
+</f-layout>
+</f-layout>
+
+<br />
+<br />
+
+<f-layout>
+<f-header>Header</f-header>
+<f-layout>
+<f-aside width="70px">Aside1</f-aside>
+<f-aside>Aside2</f-aside>
+<f-main>Main</f-main>
+</f-layout>
+</f-layout>
+
+<br />
+<br />
+
+<f-layout>
+  <f-header>Header</f-header>
+  <f-layout>
+  <f-main>Main</f-main>
+  <f-aside>Aside</f-aside>
+</f-layout>
+</f-layout>
+
+<br />
+<br />
+
+<f-layout>
+<f-header>Header</f-header>
+<f-layout>
+<f-aside>Aside</f-aside>
+<f-layout>
+<f-main>Main</f-main>
+<f-footer>Footer</f-footer>
+</f-layout>
+</f-layout>
+</f-layout>
+
+<br />
+<br />
+
+<f-layout>
+<f-aside>Aside</f-aside>
+<f-layout>
+<f-header>Header</f-header>
+<f-main>Main</f-main>
+</f-layout>
+</f-layout>
+
+<br />
+<br />
+
+<f-layout>
+<f-aside>Aside</f-aside>
+<f-layout>
+<f-header>Header</f-header>
+<f-main>Main</f-main>
+<f-footer>Footer</f-footer>
+</f-layout>
+</f-layout>
+
+</template>
+
+```html
 <template>
   <f-layout>
     <f-header>Header</f-header>
@@ -185,7 +282,7 @@ type LayoutDirection = 'horizontal' | 'vertical'
   <f-avatar round src="https://avatars.githubusercontent.com/u/55753927?v=4" />
 </a>
 
-<style>
+<style scoped>
   .f-header,
   .f-footer {
     background: #6b8bf5;

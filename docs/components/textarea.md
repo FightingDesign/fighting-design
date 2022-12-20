@@ -3,7 +3,7 @@
 可多行输入的文本域
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/textarea)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/textarea.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/textarea.md)
 
 ## 基本使用
 
@@ -11,16 +11,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-textarea v-model="value1" placeholder="请输入...." />
+</template>
+
+```html
+<template>
+  <f-textarea v-model="value1" placeholder="请输入...." />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const value1 = ref('')
 </script>
-
-<template>
-  <f-textarea v-model="value" placeholder="请输入...." />
-</template>
 ```
 
 :::
@@ -31,16 +35,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-textarea v-model="value2" clear />
+</template>
+
+```html
+<template>
+  <f-textarea v-model="value2" clear />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('可清空的')
+  const value2 = ref('可清空的')
 </script>
-
-<template>
-  <f-textarea v-model="value" clear />
-</template>
 ```
 
 :::
@@ -51,16 +59,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-textarea v-model="value3" placeholder="请输入...." disabled />
+</template>
+
+```html
+<template>
+  <f-textarea v-model="value3" placeholder="请输入...." disabled />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('禁用的')
+  const value3 = ref('禁用的')
 </script>
-
-<template>
-  <f-textarea v-model="value" placeholder="请输入...." disabled />
-</template>
 ```
 
 :::
@@ -71,16 +83,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-textarea v-model="value4" placeholder="请输入...." readonly />
+</template>
+
+```html
+<template>
+  <f-textarea v-model="value4" placeholder="请输入...." readonly />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('只读状态')
+  const value4 = ref('只读状态')
 </script>
-
-<template>
-  <f-textarea v-model="value" placeholder="请输入...." readonly />
-</template>
 ```
 
 :::
@@ -91,22 +107,29 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-textarea v-model="value5" placeholder="禁止拉伸" resize="none" />
+<f-textarea v-model="value6" placeholder="随意拉伸" resize="both" />
+<f-textarea v-model="value7" placeholder="水平拉伸" resize="horizontal" />
+<f-textarea v-model="value8" placeholder="垂直拉伸" resize="vertical" />
+</template>
+
+```html
+<template>
+  <f-textarea v-model="value5" placeholder="禁止拉伸" resize="none" />
+  <f-textarea v-model="value6" placeholder="随意拉伸" resize="both" />
+  <f-textarea v-model="value7" placeholder="水平拉伸" resize="horizontal" />
+  <f-textarea v-model="value8" placeholder="垂直拉伸" resize="vertical" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value1 = ref('none 禁止拉伸')
-  const value2 = ref('both 随意拉伸')
-  const value3 = ref('horizontal 水平拉伸')
-  const value4 = ref('vertical 垂直拉伸')
+  const value5 = ref('none 禁止拉伸')
+  const value6 = ref('both 随意拉伸')
+  const value7 = ref('horizontal 水平拉伸')
+  const value8 = ref('vertical 垂直拉伸')
 </script>
-
-<template>
-  <f-textarea v-model="value1" placeholder="禁止拉伸" resize="none" />
-  <f-textarea v-model="value2" placeholder="随意拉伸" resize="both" />
-  <f-textarea v-model="value3" placeholder="水平拉伸" resize="horizontal" />
-  <f-textarea v-model="value4" placeholder="垂直拉伸" resize="vertical" />
-</template>
 ```
 
 :::
@@ -148,3 +171,16 @@ type TextareaResize = 'none' | 'both' | 'horizontal' | 'vertical'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const value1 = ref('')
+  const value2 = ref('可清空的')
+  const value3 = ref('禁用的')
+  const value4 = ref('只读状态')
+  const value5 = ref('none 禁止拉伸')
+  const value6 = ref('both 随意拉伸')
+  const value7 = ref('horizontal 水平拉伸')
+  const value8 = ref('vertical 垂直拉伸')
+</script>

@@ -1,42 +1,5 @@
-<template>
-  <div class="vp-demo">
-    <!-- 展示的内容 -->
-    <div class="vp-demo__source">
-      <slot />
-    </div>
-
-    <!-- 折叠的内容 -->
-    <div ref="content" class="vp-demo__box">
-      <slot name="highlight" />
-    </div>
-
-    <!-- 点击展开 / 折叠的区域 -->
-    <div :class="['vp-demo__option', { 'vp-demo__option-open': isOpen }]" @click="handleClick">
-      <span class="vp-demo__option-text">
-        {{ isOpen ? '折叠代码' : '展开代码' }}
-      </span>
-
-      <span :class="['vp-demo__option-copy', { 'vp-demo-option-copy-show': isOpen }]" @click.stop="handleCopy">
-        复制代码
-      </span>
-    </div>
-  </div>
-</template>
-
-<script setup lang="ts" name="VpDemo">
+<script setup name="VpDemo">
   import { ref } from 'vue'
-  import { FMessage } from '../../../../packages/fighting-design/message'
-  import { onCopy } from '../../../components/_demos/_utils/copy'
-
-  const prop = defineProps({
-    /**
-     * 文本内容
-     */
-    sourceCode: {
-      type: String,
-      default: null
-    }
-  })
 
   /**
    * 是否展示内容
@@ -45,10 +8,10 @@
   /**
    * 折叠的 dom 节点
    */
-  const content = ref(null as unknown as HTMLElement)
+  const content = ref(null)
 
   /**
-   * 点击操作栏执行
+   * 点击执行
    */
   const handleClick = () => {
     if (!isOpen.value) {
@@ -64,18 +27,28 @@
       isOpen.value = false
     }
   }
-
-  /**
-   * 点击复制代码段
-   */
-  const handleCopy = async (): Promise<void> => {
-    try {
-      onCopy(prop.sourceCode)
-    } catch (err) {
-      FMessage.danger(err)
-    }
-  }
 </script>
+
+<template>
+  <div class="vp-demo">
+    <!-- 展示的内容 -->
+    <div v-if="$slots.source" class="vp-demo__source">
+      <slot name="source" />
+    </div>
+
+    <!-- 折叠的内容 -->
+    <div ref="content" class="vp-demo__box">
+      <slot />
+    </div>
+
+    <!-- 点击展开 / 折叠的区域 -->
+    <div :class="['vp-demo__option', { 'vp-demo__option-open': isOpen }]" @click="handleClick">
+      <span class="vp-demo__option-text">
+        {{ isOpen ? '折叠代码' : '展开代码' }}
+      </span>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
   .vp-demo {
@@ -97,11 +70,6 @@
       padding: 0 20px;
       box-sizing: border-box;
 
-      .language-vue {
-        border-radius: 0;
-        margin: 0;
-      }
-
       // 滚动条
       &::-webkit-scrollbar {
         width: 7px;
@@ -116,7 +84,6 @@
 
     // 点击的操作栏
     &__option {
-      position: relative;
       border-top: 1px solid #e5e5e5;
       height: 45px;
       cursor: pointer;
@@ -142,25 +109,6 @@
         transition: 0.4s;
         text-align: center;
         display: block;
-      }
-
-      // 复制文字
-      .vp-demo__option-copy {
-        color: #2d5af1;
-        user-select: none;
-        position: absolute;
-        right: 40px;
-        opacity: 0;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 90px;
-
-        &.vp-demo-option-copy-show {
-          transition: 0.3s;
-          opacity: 1;
-        }
       }
 
       &:hover {

@@ -3,7 +3,7 @@
 使用 svg 的图标库
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/svg-icon)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/svg-icon.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/svg-icon.md)
 
 ## 使用之前
 
@@ -37,21 +37,31 @@ Fighting Design 使用 [icones](https://icones.js.org) 作为图标库，如下�
 
 它同时支持 `icon` 属性传递和插槽
 
-<f-svg-icon :icon="FIconApps" />
-<f-svg-icon color="red" :icon="FIconBluetooth" />
-<f-svg-icon size="34px" :icon="FIconBook" />
+::: demo
 
-```vue
+<template #source>
+<demo1-vue />
+</template>
+
+```html
+<template>
+  <f-svg-icon>
+    <f-icon-apps />
+  </f-svg-icon>
+
+  <f-svg-icon color="red">
+    <f-icon-bluetooth />
+  </f-svg-icon>
+
+  <f-svg-icon size="34px" :icon="FIconBook" />
+</template>
+
 <script lang="ts" setup>
   import { FIconApps, FIconBluetooth, FIconBook } from '@fighting-design/fighting-icon'
 </script>
-
-<template>
-  <f-svg-icon :icon="FIconApps" />
-  <f-svg-icon color="red" :icon="FIconBluetooth" />
-  <f-svg-icon size="34px" :icon="FIconBook" />
-</template>
 ```
+
+:::
 
 ## 集合
 
@@ -89,8 +99,8 @@ import type { SvgIconInstance, SvgIconProps } from 'fighting-design'
 </a>
 
 <script setup lang="ts">
+  import demo1Vue from './_demos/svg-icon/demo1.vue'
   import demo2Vue from './_demos/svg-icon/demo2.vue'
-  import { FIconApps, FIconBluetooth, FIconBook } from '@fighting-design/fighting-icon'
   import Svg from '@fighting-design/fighting-icon'
 
   const num = Object.keys(Svg).length

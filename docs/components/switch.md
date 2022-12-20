@@ -3,7 +3,7 @@
 这不是 switch 游戏机，而是个开关
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/switch)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/switch.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/switch.md)
 
 ## 基本使用
 
@@ -11,20 +11,24 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-switch v-model="value1" />
+<br />
+<f-switch v-model="value2" />
+</template>
+
+```html
+<template>
+  <f-switch v-model="value1" />
+  <f-switch v-model="value2" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const value1 = ref(true)
   const value2 = ref(false)
 </script>
-
-<template>
-  <f-space>
-    <f-switch v-model="value1" />
-    <f-switch v-model="value2" />
-  </f-space>
-</template>
 ```
 
 :::
@@ -35,21 +39,26 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-switch v-model="value3" size="large" />
+<f-switch v-model="value3" size="middle" />
+<f-switch v-model="value3" size="small" />
+<f-switch v-model="value3" size="mini" />
+</template>
+
+```html
+<template>
+  <f-switch v-model="value3" size="large" />
+  <f-switch v-model="value3" size="middle" />
+  <f-switch v-model="value3" size="small" />
+  <f-switch v-model="value3" size="mini" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(true)
+  const value3 = ref(true)
 </script>
-
-<template>
-  <f-space>
-    <f-switch v-model="value" size="large" />
-    <f-switch v-model="value" size="middle" />
-    <f-switch v-model="value" size="small" />
-    <f-switch v-model="value" size="mini" />
-  </f-space>
-</template>
 ```
 
 :::
@@ -60,20 +69,23 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-switch v-model="value4" disabled />
+<f-switch v-model="value5" disabled />
+</template>
+
+```html
+<template>
+  <f-switch v-model="value4" disabled />
+  <f-switch v-model="value5" disabled />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value1 = ref(true)
-  const value2 = ref(false)
+  const value4 = ref(true)
+  const value5 = ref(false)
 </script>
-
-<template>
-  <f-space>
-    <f-switch v-model="value1" disabled />
-    <f-switch v-model="value2" disabled />
-  </f-space>
-</template>
 ```
 
 :::
@@ -84,16 +96,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-switch v-model="value6" square />
+</template>
+
+```html
+<template>
+  <f-switch v-model="value6" square />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(true)
+  const value6 = ref(true)
 </script>
-
-<template>
-  <f-switch v-model="value" square />
-</template>
 ```
 
 :::
@@ -104,16 +120,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-switch v-model="value7" close-color="red" active-color="skyblue" />
+</template>
+
+```html
+<template>
+  <f-switch v-model="value7" close-color="red" active-color="skyblue" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(true)
+  const value7 = ref(true)
 </script>
-
-<template>
-  <f-switch v-model="value" close-color="red" active-color="skyblue" />
-</template>
 ```
 
 :::
@@ -124,16 +144,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-switch v-model="value8" close-text="关闭" active-text="开启" />
+</template>
+
+```html
+<template>
+  <f-switch v-model="value8" close-text="关闭" active-text="开启" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(true)
+  const value8 = ref(true)
 </script>
-
-<template>
-  <f-switch v-model="value" close-text="关闭" active-text="开启" />
-</template>
 ```
 
 :::
@@ -144,17 +168,21 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-switch v-model="value9" :icon="FIconSnowflake" />
+</template>
+
+```html
+<template>
+  <f-switch v-model="value9" :icon="FIconSnowflake" />
+</template>
+
 <script lang="ts" setup>
   import { FIconSnowflake } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
-  const value = ref(true)
+  const value9 = ref(true)
 </script>
-
-<template>
-  <f-switch v-model="value" :icon="FIconSnowflake" />
-</template>
 ```
 
 :::
@@ -192,3 +220,24 @@ import type { SwitchInstance, SwitchProps } from 'fighting-design'
 <a href="https://github.com/pengyinghao" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/34115313?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+  import { FIconSnowflake } from '@fighting-design/fighting-icon'
+
+  const value1 = ref(true)
+  const value2 = ref(false)
+  const value3 = ref(true)
+  const value4 = ref(true)
+  const value5 = ref(false)
+  const value6 = ref(true)
+  const value7 = ref(true)
+  const value8 = ref(true)
+  const value9 = ref(true)
+</script>
+
+<style scoped>
+  .f-switch {
+    margin: 5px;
+  }
+</style>

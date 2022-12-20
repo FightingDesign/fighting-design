@@ -3,7 +3,7 @@
 藏入你的提示内容
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tooltip)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/tooltip.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tooltip.md)
 
 ## 基本使用
 
@@ -11,26 +11,43 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space spacing="large">
-    <f-tooltip content="上边的提示信息" position="top">
-      <f-tag type="primary">上边的</f-tag>
-    </f-tooltip>
+<template #source>
 
-    <f-tooltip content="下边的提示信息" position="bottom">
-      <f-tag type="success">下边的</f-tag>
-    </f-tooltip>
+<div class="tooltip-box">
+  <f-tooltip content="上边的提示信息" position="top">
+    <f-tag type="primary">上边的</f-tag>
+  </f-tooltip>
 
-    <f-tooltip content="左边的提示信息" position="left">
-      <f-tag type="danger">左边的</f-tag>
-    </f-tooltip>
+  <f-tooltip content="下边的提示信息" position="bottom">
+    <f-tag type="success">下边的</f-tag>
+  </f-tooltip>
 
-    <f-tooltip content="右边的提示信息" position="right">
-      <f-tag type="warning">右边的</f-tag>
-    </f-tooltip>
-  </f-space>
+  <f-tooltip content="左边的提示信息" position="left">
+    <f-tag type="danger">左边的</f-tag>
+  </f-tooltip>
+
+  <f-tooltip content="右边的提示信息" position="right">
+    <f-tag type="warning">右边的</f-tag>
+  </f-tooltip>
+</div>
 </template>
+
+```html
+<f-tooltip content="上边的提示信息" position="top">
+  <f-tag type="primary">信息</f-tag>
+</f-tooltip>
+
+<f-tooltip content="下边的提示信息" position="bottom">
+  <f-tag type="success">信息</f-tag>
+</f-tooltip>
+
+<f-tooltip content="左边的提示信息" position="left">
+  <f-tag type="danger">信息</f-tag>
+</f-tooltip>
+
+<f-tooltip content="右边的提示信息" position="right">
+  <f-tag type="warning">信息</f-tag>
+</f-tooltip>
 ```
 
 :::
@@ -41,22 +58,35 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space spacing="large">
-    <f-tooltip content="Hover 展示" position="top" state="hover">
-      <f-tag type="primary">Hover 展示</f-tag>
-    </f-tooltip>
+<template #source>
 
-    <f-tooltip content="Active 展示" position="top" state="active">
-      <f-tag type="success">Active 展示</f-tag>
-    </f-tooltip>
+<div class="tooltip-box">
+  <f-tooltip content="Hover 展示" position="top" state="hover">
+    <f-tag type="primary">Hover 展示</f-tag>
+  </f-tooltip>
 
-    <f-tooltip content="Always 展示" position="top" state="always">
-      <f-tag type="warning">Always 展示</f-tag>
-    </f-tooltip>
-  </f-space>
+  <f-tooltip content="Active 展示" position="top" state="active">
+    <f-tag type="success">Active 展示</f-tag>
+  </f-tooltip>
+
+  <f-tooltip content="Always 展示" position="top" state="always">
+    <f-tag type="warning">Always 展示</f-tag>
+  </f-tooltip>
+</div>
 </template>
+
+```html
+<f-tooltip content="Hover 展示" position="top" state="hover">
+  <f-tag type="primary">Hover 展示</f-tag>
+</f-tooltip>
+
+<f-tooltip content="Active 展示" position="top" state="active">
+  <f-tag type="success">Active 展示</f-tag>
+</f-tooltip>
+
+<f-tooltip content="Always 展示" position="top" state="always">
+  <f-tag type="warning">Always 展示</f-tag>
+</f-tooltip>
 ```
 
 :::
@@ -67,35 +97,44 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space spacing="large">
-    <f-tooltip content="有箭头的" position="top">
-      <f-tag type="primary">有箭头的</f-tag>
-    </f-tooltip>
+<template #source>
 
-    <f-tooltip content="没有箭头" position="top" no-arrow>
-      <f-tag type="success">没有箭头</f-tag>
-    </f-tooltip>
-  </f-space>
+<div class="tooltip-box">
+  <f-tooltip content="有箭头的" position="top">
+    <f-tag type="primary">有箭头的</f-tag>
+  </f-tooltip>
+
+  <f-tooltip content="没有箭头" position="top" no-arrow>
+    <f-tag type="success">没有箭头</f-tag>
+  </f-tooltip>
+</div>
 </template>
+
+```html
+<f-tooltip content="Hover 展示" position="top">
+  <f-tag type="primary">有箭头的</f-tag>
+</f-tooltip>
+
+<f-tooltip no-arrow content="Hover 展示" position="top">
+  <f-tag type="success">没有箭头</f-tag>
+</f-tooltip>
 ```
 
 :::
 
 ## Attributes
 
-| 参数         | 说明             | 类型                                           | 可选值                        | 默认值 |
-| ------------ | ---------------- | ---------------------------------------------- | ----------------------------- | ------ |
-| `content`    | 提示内容         | string / umber                                 | ——                            | ——     |
-| `position`   | 弹出方向         | <a href="#tooltipposition">TooltipPosition</a> | `top` `bottom` `right` `left` | bottom |
-| `disabled`   | 是否禁用         | boolean                                        | ——                            | false  |
-| `state`      | 展示状态         | <a href="#tooltipstate">TooltipState</a>       | `hover` `active` `always`     | hover  |
-| `no-arrow`   | 是否显示箭头     | boolean                                        | ——                            | false  |
-| `bold`       | 是否加粗文字     | boolean                                        | ——                            | false  |
-| `bright`     | 是否使用浅色主题 | boolean                                        | ——                            | false  |
-| `background` | 自定义背景色     | string                                         | ——                            | ——     |
-| `font-color` | 自定义文字颜色   | string                                         | ——                            | ——     |
+| 参数         | 说明             | 类型           | 可选值                        | 默认值 |
+| ------------ | ---------------- | -------------- | ----------------------------- | ------ |
+| `content`    | 提示内容         | string / umber | ——                            | ——     |
+| `position`   | 弹出方向         | string         | `top` `bottom` `right` `left` | bottom |
+| `disabled`   | 是否禁用         | boolean        | ——                            | false  |
+| `state`      | 展示状态         | string         | `hover` `active` `always`     | hover  |
+| `no-arrow`   | 是否显示箭头     | boolean        | ——                            | false  |
+| `bold`       | 是否加粗文字     | boolean        | ——                            | false  |
+| `bright`     | 是否使用浅色主题 | boolean        | ——                            | false  |
+| `background` | 自定义背景色     | string         | ——                            | ——     |
+| `font-color` | 自定义文字颜色   | string         | ——                            | ——     |
 
 ## Slots
 
@@ -108,19 +147,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { TooltipInstance, TooltipProps, TooltipPosition, TooltipState } from 'fighting-design'
-```
-
-### TooltipPosition
-
-```ts
-type TooltipPosition = 'top' | 'bottom' | 'right' | 'left'
-```
-
-### TooltipState
-
-```ts
-type TooltipState = 'hover' | 'active' | 'always'
+import type { TooltipInstance, TooltipPropsType, TooltipPositionType, TooltipStateType } from 'fighting-design'
 ```
 
 ## Contributors
@@ -128,3 +155,11 @@ type TooltipState = 'hover' | 'active' | 'always'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<style scoped>
+  .tooltip-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+</style>

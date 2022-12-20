@@ -3,7 +3,7 @@
 工具栏就用它
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/toolbar)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/toolbar.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/toolbar.md)
 
 ## 基本使用
 
@@ -11,11 +11,16 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-</script>
+<template #source>
+<f-toolbar>
+<f-toolbar-item :icon="FIconApps" />
+<f-toolbar-item :icon="FIconBlock" />
+<f-toolbar-item :icon="FIconCameraVideoSlash" />
+<f-toolbar-item :icon="FIconClock" />
+</f-toolbar>
+</template>
 
+```html
 <template>
   <f-toolbar>
     <f-toolbar-item :icon="FIconApps" />
@@ -24,6 +29,10 @@
     <f-toolbar-item :icon="FIconClock" />
   </f-toolbar>
 </template>
+
+<script lang="ts" setup>
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
@@ -34,19 +43,18 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-toolbar size="large">大型工具栏</f-toolbar>
-  <f-toolbar size="middle">中型工具栏</f-toolbar>
-  <f-toolbar size="small">小型工具栏</f-toolbar>
-  <f-toolbar size="mini">迷你工具栏</f-toolbar>
+<template #source>
+<f-toolbar size="large">大型工具栏</f-toolbar>
+<f-toolbar size="middle">中型工具栏</f-toolbar>
+<f-toolbar size="small">小型工具栏</f-toolbar>
+<f-toolbar size="mini">迷你工具栏</f-toolbar>
 </template>
 
-<style scoped>
-  .f-toolbar {
-    margin-bottom: 8px;
-  }
-</style>
+```html
+<f-toolbar size="large">大型工具栏</f-toolbar>
+<f-toolbar size="middle">中型工具栏</f-toolbar>
+<f-toolbar size="small">小型工具栏</f-toolbar>
+<f-toolbar size="mini">迷你工具栏</f-toolbar>
 ```
 
 :::
@@ -57,10 +65,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-toolbar round>圆角</f-toolbar>
+<template #source>
+<f-toolbar round>圆角</f-toolbar>
 </template>
+
+```html
+<f-toolbar round>圆角</f-toolbar>
 ```
 
 :::
@@ -73,14 +83,21 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-toolbar background="#42B883" text-color="#fff">
-    <f-toolbar-item>操作</f-toolbar-item>
-    <f-toolbar-item>更多</f-toolbar-item>
-    <f-toolbar-item>返回</f-toolbar-item>
-  </f-toolbar>
+<template #source>
+<f-toolbar background="#42B883" text-color="#fff">
+<f-toolbar-item>操作</f-toolbar-item>
+<f-toolbar-item>更多</f-toolbar-item>
+<f-toolbar-item>返回</f-toolbar-item>
+</f-toolbar>
+
 </template>
+
+```html
+<f-toolbar background="#42B883" text-color="#fff">
+  <f-toolbar-item>操作</f-toolbar-item>
+  <f-toolbar-item>更多</f-toolbar-item>
+  <f-toolbar-item>返回</f-toolbar-item>
+</f-toolbar>
 ```
 
 :::
@@ -93,16 +110,16 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-  import { FMessage } from 'fighting-design'
+<template #source>
+<f-toolbar :on-click="handleClick">
+<f-toolbar-item index="1" :icon="FIconApps" />
+<f-toolbar-item index="2" :icon="FIconBlock" />
+<f-toolbar-item index="3" :icon="FIconCameraVideoSlash" />
+<f-toolbar-item index="4" :icon="FIconClock" />
+</f-toolbar>
+</template>
 
-  const handleClick: ToolbarClickInterface = ({ index, evt }) => {
-    FMessage(`index：${index} evt：${evt}`)
-  }
-</script>
-
+```html
 <template>
   <f-toolbar :on-click="handleClick">
     <f-toolbar-item index="1" :icon="FIconApps" />
@@ -111,6 +128,16 @@
     <f-toolbar-item index="4" :icon="FIconClock" />
   </f-toolbar>
 </template>
+
+<script lang="ts" setup>
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+  import { FMessage } from 'fighting-design'
+  import type { ToolbarClickInterface } from 'fighting-design'
+
+  const handleClick: ToolbarClickInterface = ({ index, evt }) => {
+    FMessage.primary(`index：${index} evt：${evt}`)
+  }
+</script>
 ```
 
 :::
@@ -124,9 +151,9 @@
 | `background` | 背景颜色           | string                                                             | ——                              | ——     |
 | `text-color` | 字体颜色           | string                                                             | ——                              | ——     |
 | `fixed`      | 是否固定定位       | boolean                                                            | ——                              | false  |
-| `width`      | 自定义宽度         | string / number                                                    | ——                              | ——     |
-| `height`     | 自定义高度         | string / number                                                    | ——                              | ——     |
-| `on-click`   | 点击之后触发的回调 | <a href="#toolbarclick">ToolbarClick</a>                           | ——                              | ——     |
+| `width`      | 自定义宽度         | string                                                             | ——                              | ——     |
+| `height`     | 自定义高度         | string                                                             | ——                              | ——     |
+| `on-click`   | 点击之后触发的回调 | Function                                                           | ——                              | ——     |
 
 ## Toolbar Slots
 
@@ -142,7 +169,7 @@
 | `color`     | 自定义文字颜色     | string                                                             | ——     | ——     |
 | `icon`      | 自定义 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
 | `icon-size` | 自定义 icon 大小   | string / number                                                    | ——     | 16     |
-| `on-click`  | 点击之后触发的回调 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——     | ——     |
+| `on-click`  | 点击之后触发的回调 | Function                                                           | ——     | ——     |
 
 ## Toolbar-Item Slots
 
@@ -157,27 +184,12 @@
 ```ts
 import type {
   ToolbarInstance,
-  ToolbarProps,
-  ToolbarClickParams,
-  ToolbarClick
+  ToolbarPropsType,
+  ToolbarType,
+  ToolbarClickEmitInterface,
   ToolbarItemInstance,
-  ToolbarItemProps,
+  ToolbarItemPropsType
 } from 'fighting-design'
-```
-
-### ToolbarClickParams
-
-```ts
-interface ToolbarClickParams {
-  evt: MouseEvent
-  index: string | undefined
-}
-```
-
-### ToolbarClick
-
-```ts
-type ToolbarClick = (params: ToolbarClickParams) => void
 ```
 
 ## Contributors
@@ -189,3 +201,18 @@ type ToolbarClick = (params: ToolbarClickParams) => void
 <a href="https://github.com/ECO-M" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/23503047?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+  import { FMessage } from 'fighting-design'
+
+  const handleClick = ({ index, evt }) => {
+    FMessage.primary(`index：${index} evt：${evt}`)
+  }
+</script>
+
+<style scoped>
+  .f-toolbar {
+    margin: 10px 0;
+  }
+</style>

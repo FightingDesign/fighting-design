@@ -5,6 +5,7 @@ import { head } from './utils/head'
 import { defineConfig } from 'vitepress'
 import { fightingPlugin } from './config/index'
 // import { demoBlockPlugin } from 'vitepress-theme-demoblock'
+import { mdPlugin } from './config/plugins'
 
 export default defineConfig({
   title: 'Fighting Design',
@@ -27,7 +28,7 @@ export default defineConfig({
     // 自定义 markdown 语法
     // => fightingPlugin(md)
     config: (md) => {
-      fightingPlugin(md)
+      mdPlugin(md)
       // md.use(demoBlockPlugin, {
       //   customClass: 'demoblock-custom',
       //   cssPreprocessor: 'scss',

@@ -3,7 +3,7 @@
 在展示空状态时的占位提示
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/empty)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/empty.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/empty.md)
 
 ## 基本使用
 
@@ -11,10 +11,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-empty content="在这里，后续提供更多服务" />
+<template #source>
+<f-empty content="在这里，后续提供更多服务" />
 </template>
+
+```html
+<f-empty content="在这里，后续提供更多服务" />
 ```
 
 :::
@@ -25,10 +27,13 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-empty :content-size="25" :icon-size="50" />
+<template #source>
+<f-empty :content-size="25" :icon-size="50" />
+
 </template>
+
+```html
+<f-empty :content-size="25" :icon-size="50" />
 ```
 
 :::
@@ -39,10 +44,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-empty content-color="orange" />
+<template #source>
+<f-empty content-color="orange" />
 </template>
+
+```html
+<f-empty content-color="orange" />
 ```
 
 :::
@@ -55,10 +62,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
+<template #source>
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
 </template>
+
+```html
+<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
 ```
 
 :::
@@ -69,10 +78,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-empty background="#489EE2" image-size="300px" />
+<template #source>
+<f-empty background="#489EE2" image-size="300px"/>
 </template>
+
+```html
+<f-empty background="#489EE2" image-size="300px" />
 ```
 
 :::
@@ -83,12 +94,16 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-empty>
-    <template #footer>我的数据哪去了？</template>
-  </f-empty>
+<template #source>
+<f-empty>
+<template #footer>我的数据哪去了？</template>
+</f-empty>
 </template>
+
+```html
+<f-empty>
+  <template #footer>我的数据哪去了？</template>
+</f-empty>
 ```
 
 :::
@@ -134,3 +149,8 @@ import type { EmptyInstance, EmptyProps } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/57850101?v=4" />
 </a>
 
+<style scoped>
+  .f-empty {
+    margin: 5px;
+  }
+</style>

@@ -3,7 +3,7 @@
 用于展示概览和引导页级操作
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/page-header)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/page-header.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/page-header.md)
 
 ## 基本使用
 
@@ -11,7 +11,15 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-page-header title="标题" :on-back="goBack" />
+</template>
+
+```html
+<template>
+  <f-page-header title="标题" :on-back="onBack" />
+</template>
+
 <script lang="ts" setup>
   import { FMessage } from 'fighting-design'
 
@@ -19,10 +27,6 @@
     FMessage.primary('Go Back')
   }
 </script>
-
-<template>
-  <f-page-header title="标题" :on-back="onBack" />
-</template>
 ```
 
 :::
@@ -33,14 +37,18 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { FIconReply } from '@fighting-design/fighting-icon'
-</script>
+<template #source>
+<f-page-header :icon="FIconReply" back-text="返回上一页" title="标题" />
+</template>
 
+```html
 <template>
   <f-page-header :icon="FIconReply" back-text="返回上一页" title="标题" />
 </template>
+
+<script lang="ts" setup>
+  import { FIconReply } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
@@ -51,7 +59,11 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-page-header title="标题" subtitle="副标题" />
+</template>
+
+```html
 <template>
   <f-page-header title="标题" subtitle="副标题" />
 </template>
@@ -71,7 +83,7 @@
 | `title-center` | 标题是否居中     | boolean                                                            | ——     | false  |
 | `title-color`  | 标题颜色         | string                                                             | ——     | false  |
 | `subtitle`     | 副标题文本       | string                                                             | ——     | ——     |
-| `on-back`      | 点击左侧区域触发 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——     | ——     |
+| `on-back`      | 点击左侧区域触发 | Function                                                           | ——     | ——     |
 
 ## Slots
 
@@ -98,3 +110,12 @@ import type { PageHeaderInstance, PageHeaderProps } from 'fighting-design'
 <a href="https://github.com/yzj940619" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/42865478?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { FIconReply } from '@fighting-design/fighting-icon'
+  import { FMessage } from 'fighting-design'
+
+  const goBack = () => {
+    FMessage.primary('Go Back')
+  }
+</script>

@@ -3,7 +3,7 @@
 输入框
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/input)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/input.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/input.md)
 
 ## 基本使用
 
@@ -11,16 +11,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-input v-model="value1" type="text" placeholder="请输入...." />
+</template>
+
+```html
+<template>
+  <f-input v-model="value1" type="text" placeholder="请输入...." />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const value1 = ref('')
 </script>
-
-<template>
-  <f-input v-model="value" type="text" placeholder="请输入...." />
-</template>
 ```
 
 :::
@@ -31,25 +35,23 @@
 
 ::: demo
 
-```vue
+<template #source>
+<demo1-vue />
+</template>
+
+```html
+<template>
+  <f-input v-model="value2" type="text" size="large" />
+  <f-input v-model="value2" type="text" size="middle" />
+  <f-input v-model="value2" type="text" size="small" />
+  <f-input v-model="value2" type="text" size="mini" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('不同尺寸的')
+  const value2 = ref('不同尺寸的')
 </script>
-
-<template>
-  <f-input v-model="value" type="text" size="large" />
-  <f-input v-model="value" type="text" size="middle" />
-  <f-input v-model="value" type="text" size="small" />
-  <f-input v-model="value" type="text" size="mini" />
-</template>
-
-<style scoped>
-  .f-input {
-    margin-bottom: 8px;
-  }
-</style>
 ```
 
 :::
@@ -60,16 +62,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-input v-model="value3" type="text" search placeholder="请输入...." />
+</template>
+
+```html
+<template>
+  <f-input v-model="value3" type="text" search placeholder="请输入...." />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const value3 = ref('')
 </script>
-
-<template>
-  <f-input v-model="value" type="text" search placeholder="请输入...." />
-</template>
 ```
 
 :::
@@ -80,16 +86,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<demo2-vue />
+</template>
+
+```html
+<template>
+  <f-input v-model="value4" type="text" placeholder="请输入...." />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const value4 = ref('')
 </script>
-
-<template>
-  <f-input v-model="value" type="text" placeholder="请输入...." />
-</template>
 ```
 
 :::
@@ -100,16 +110,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-input v-model="value5" type="password" show-password />
+</template>
+
+```html
+<template>
+  <f-input v-model="value5" type="password" show-password />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('123456')
+  const value5 = ref('123456')
 </script>
-
-<template>
-  <f-input v-model="value" type="password" show-password />
-</template>
 ```
 
 :::
@@ -120,17 +134,21 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-input v-model="value6" type="text" :icon="FIconCloud" />
+</template>
+
+```html
+<template>
+  <f-input v-model="value6" type="text" :icon="FIconCloud" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
   import { FIconCloud } from '@fighting-design/fighting-icon'
 
-  const value = ref('')
+  const value6 = ref('')
 </script>
-
-<template>
-  <f-input v-model="value" type="text" :icon="FIconCloud" />
-</template>
 ```
 
 :::
@@ -141,16 +159,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-input v-model="value7" type="text" clear />
+</template>
+
+```html
+<template>
+  <f-input v-model="value7" type="text" clear />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('可清空的')
+  const value7 = ref('可清空的')
 </script>
-
-<template>
-  <f-input v-model="value" type="text" clear />
-</template>
 ```
 
 :::
@@ -161,23 +183,21 @@
 
 ::: demo
 
-```vue
+<template #source>
+<demo3-vue />
+</template>
+
+```html
+<template>
+  <f-input v-model="value8" type="text" readonly />
+  <f-input v-model="value8" type="text" disabled />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('点我试试吧')
+  const value8 = ref('点我试试吧')
 </script>
-
-<template>
-  <f-input v-model="value" type="text" readonly />
-  <f-input v-model="value" type="text" disabled />
-</template>
-
-<style scoped>
-  .f-input {
-    margin-bottom: 8px;
-  }
-</style>
 ```
 
 :::
@@ -203,7 +223,7 @@
 | `enter-search`  | 是否按下回车触发搜索       | boolean                                                            | ——                              | false   |
 | `icon`          | 自定义前缀 icon            | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——      |
 | `on-search`     | 点击搜索触发的回调         | <a href="#inputsearch">InputSearch</a>                             | ——                              | ——      |
-| `on-change`     | 绑定值发生变化时触发的回调 | <a href="#inputvalchange">InputValChange</a>                       | ——                              | ——      |
+| `on-change`     | 绑定值发生变化时触发的回调 | <a href="#inputchange">InputChange</a>                             | ——                              | ——      |
 | `on-blur`       | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
 | `on-focus`      | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
 | `on-enter`      | 按下回车触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
@@ -220,14 +240,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  InputInstance,
-  InputProps,
-  InputType,
-  InputValChange,
-  InputSearchParams,
-  InputSearch
-} from 'fighting-design'
+import type { InputInstance, InputProps, InputType, InputChange, InputSearch } from 'fighting-design'
 ```
 
 ### InputType
@@ -236,25 +249,16 @@ import type {
 type InputType = 'text' | 'password' | 'number'
 ```
 
-### InputValChange
+### InputChange
 
 ```ts
-type InputValChange = (value: string) => void
-```
-
-### InputSearchParams
-
-```ts
-interface InputSearchParams {
-  evt: Event
-  value: string
-}
+type InputChange = (value: string) => void
 ```
 
 ### InputSearch
 
 ```ts
-type InputSearch = ({ evt: Event, value: string }: InputSearchParams) => void
+type InputSearch = ({ evt: Event, value: string }) => void
 ```
 
 ## Contributors
@@ -262,3 +266,17 @@ type InputSearch = ({ evt: Event, value: string }: InputSearchParams) => void
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+  import demo1Vue from './_demos/input/demo1.vue'
+  import demo2Vue from './_demos/input/demo2.vue'
+  import demo3Vue from './_demos/input/demo3.vue'
+  import { FIconCloud } from '@fighting-design/fighting-icon'
+
+  const value1 = ref('')
+  const value3 = ref('')
+  const value5 = ref('123456')
+  const value6 = ref('')
+  const value7 = ref('可清空的')
+</script>

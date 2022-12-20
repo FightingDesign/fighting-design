@@ -3,7 +3,7 @@
 粘性卡片有没有听过？
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/sticky-card)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/sticky-card.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/sticky-card.md)
 
 ## 基本使用
 
@@ -11,15 +11,29 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-sticky-card :open="open1">
+
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+</f-sticky-card>
+</template>
+
+```html
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const open = ref(false)
+  const open1 = ref(false)
 </script>
 
 <template>
-  <f-sticky-card :open="open">
+  <f-sticky-card :open="open1">
     <h1>Hello World！</h1>
     <h1>Hello World！</h1>
     <h1>Hello World！</h1>
@@ -40,15 +54,30 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<template #source>
+<f-sticky-card :open="open2">
 
-  const open = ref(false)
-</script>
+<template #source>
 
+<h1>你好世界！</h1>
+<h1>你好世界！</h1>
+<h1>你好世界！</h1>
+</template>
+
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+  <h1>Hello World！</h1>
+</f-sticky-card>
+</template>
+
+```html
 <template>
-  <f-sticky-card :open="open">
+  <f-sticky-card :open="open2">
     <template #source>
       <h1>你好世界！</h1>
       <h1>你好世界！</h1>
@@ -65,6 +94,12 @@
     <h1>Hello World！</h1>
   </f-sticky-card>
 </template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const open2 = ref(false)
+</script>
 ```
 
 :::
@@ -101,3 +136,10 @@ import type { StickyCardInstance, StickyCardProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const open1 = ref(false)
+  const open2 = ref(false)
+</script>

@@ -3,7 +3,7 @@
 树形结构
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tree)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/tree.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tree.md)
 
 :::warning
 开发中，暂未实现
@@ -15,11 +15,17 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<template #source>
+<f-tree :data="data" />
+</template>
 
-  const data = ref([
+```html
+<template>
+  <f-tree :data="data" />
+</template>
+
+<script lang="ts" setup>
+  const data = [
     {
       label: 'Node 1',
       children: [
@@ -32,12 +38,8 @@
       ]
     },
     { label: 'Node 2' }
-  ])
+  ]
 </script>
-
-<template>
-  <f-tree :data="data" />
-</template>
 ```
 
 :::
@@ -61,3 +63,24 @@ import type { FTreeInstance, treeDataInterface } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup lang="ts">
+  const data = [
+    {
+      label: 'Node 1',
+      children: [
+        {
+          label: 'Node 1-1',
+          children: [
+            { label: 'Node 1-1-1' },
+            { label: 'Node 1-1-2' },
+            { label: 'Node 1-1-3' }
+          ]
+        },
+        { label: 'Node 1-2' },
+        { label: 'Node 1-3' }
+      ]
+    },
+    { label: 'Node 2' }
+  ]
+</script>

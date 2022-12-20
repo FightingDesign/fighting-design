@@ -3,7 +3,7 @@
 放入你想展示的内容
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/card)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/card.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/card.md)
 
 ## 基本使用
 
@@ -11,10 +11,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-card title="卡片标题">Card 卡片</f-card>
+<template #source>
+<f-card title="卡片标题">Card 卡片</f-card>
 </template>
+
+```html
+<f-card title="卡片标题">Card 卡片</f-card>
 ```
 
 :::
@@ -25,10 +27,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-card round title="圆角的">Card 卡片</f-card>
+<template #source>
+<f-card round title="圆角的">Card 卡片</f-card>
 </template>
+
+```html
+<f-card round title="圆角的">Card 卡片</f-card>
 ```
 
 :::
@@ -39,18 +43,16 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-card>从不显示</f-card>
-  <f-card shadow="hover">Hover 显示</f-card>
-  <f-card shadow="always">总是显示</f-card>
+<template #source>
+<f-card>从不显示</f-card>
+<f-card shadow="hover">Hover 显示</f-card>
+<f-card shadow="always">总是显示</f-card>
 </template>
 
-<style scoped>
-  .f-card {
-    margin-bottom: 8px;
-  }
-</style>
+```html
+<f-card>从不显示</f-card>
+<f-card shadow="hover">Hover 显示</f-card>
+<f-card shadow="always">总是显示</f-card>
 ```
 
 :::

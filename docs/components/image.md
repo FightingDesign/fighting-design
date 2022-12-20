@@ -3,7 +3,7 @@
 预览图片
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/image)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/image.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/image.md)
 
 ## 基本使用
 
@@ -11,10 +11,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
+<template #source>
+<f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
 </template>
+
+```html
+<f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
 ```
 
 :::
@@ -23,7 +25,13 @@
 
 如需要使用本地图片，需要使用 [new URL(url, import.meta.url)](https://cn.vitejs.dev/guide/assets.html#new-url-url-import-meta-url) 手动导入图片资源使用：
 
-```vue
+::: demo
+
+<template #source>
+<f-image :src="url" />
+</template>
+
+```html
 <script lang="ts" setup>
   const url = new URL('./image/1.jpg', import.meta.url).href
 </script>
@@ -33,20 +41,24 @@
 </template>
 ```
 
+:::
+
 ## 适应容器方式
 
 `fit` 属性可以配置不同的适应容器的方式，详见原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性
 
 ::: demo
 
-```vue
-<template>
-  <f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
-  <f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
-  <f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
-  <f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
-  <f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<template #source>
+<demo1-vue />
 </template>
+
+```html
+<f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
 ```
 
 :::
@@ -57,10 +69,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<template #source>
+<f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
 </template>
+
+```html
+<f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
 ```
 
 :::
@@ -71,15 +85,19 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
+<template #source>
+<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
 </template>
+
+```html
+<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
 ```
 
 :::
 
 ## 加载失败
+
+`Fighting Design` 对于图片加载失败做了很多的处理，下面分别介绍一下
 
 `err-src` 可以在 `src` 加载失败的时候，备用进行加载
 
@@ -89,13 +107,17 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space spacing="large">
-    <f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
-    <f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
-  </f-space>
+<template #source>
+<f-space spacing="large">
+<f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
+<f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
+</f-space>
+
 </template>
+
+```html
+<f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
+<f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
 ```
 
 :::
@@ -146,3 +168,8 @@ type ImageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup lang="ts">
+  import demo1Vue from './_demos/image/demo1.vue'
+  const url = new URL('./_image/1.jpg', import.meta.url).href
+</script>

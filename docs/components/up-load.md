@@ -3,7 +3,7 @@
 千万不要上传 2G 以上的文件
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/up-load)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/up-load.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/up-load.md)
 
 ## 基本使用
 
@@ -11,16 +11,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-up-load v-model:files="files1" />
+</template>
+
+```html
+<template>
+  <f-up-load v-model:files="files1" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const files = ref([])
+  const files1 = ref([])
 </script>
-
-<template>
-  <f-up-load v-model:files="files" />
-</template>
 ```
 
 :::
@@ -31,16 +35,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-up-load v-model:files="files2" multiple />
+</template>
+
+```html
+<template>
+  <f-up-load v-model:files="files2" multiple />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const files = ref([])
+  const files2 = ref([])
 </script>
-
-<template>
-  <f-up-load v-model:files="files" multiple />
-</template>
 ```
 
 :::
@@ -51,16 +59,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-up-load v-model:files="files3" multiple :max-length="4" />
+</template>
+
+```html
+<template>
+  <f-up-load v-model:files="files3" multiple :max-length="4" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const files = ref([])
+  const files3 = ref([])
 </script>
-
-<template>
-  <f-up-load v-model:files="files" multiple :max-length="4" />
-</template>
 ```
 
 :::
@@ -71,16 +83,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-up-load v-model:files="files4" multiple drag />
+</template>
+
+```html
+<template>
+  <f-up-load v-model:files="files4" multiple drag />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const files = ref([])
+  const files4 = ref([])
 </script>
-
-<template>
-  <f-up-load v-model:files="files" multiple drag />
-</template>
 ```
 
 :::
@@ -121,3 +137,12 @@ import type { UpLoadInstance, UpLoadProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const files1 = ref([])
+  const files2 = ref([])
+  const files3 = ref([])
+  const files4 = ref([])
+</script>

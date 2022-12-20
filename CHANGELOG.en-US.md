@@ -4,6 +4,23 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.12.0 (2022-12-20)
+
+**New Features**
+
+- Add `f-form` component
+- Add `f-form-item` component
+
+**Repair**
+
+- Fix `f-space` component style details
+- Fix the failure of `f-back-top` component `z-index`
+
+**Other Updates**
+
+- Cancel the `loading-bar` component
+- Optimize `f-input` component types
+
 ## 0.11.2 (2022-12-15)
 
 **New**

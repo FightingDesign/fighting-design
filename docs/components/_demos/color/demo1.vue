@@ -2,8 +2,9 @@
   import { computed } from 'vue'
   import { useCalculiColor } from '../../../../packages/fighting-design/_hooks'
   import { onCopy } from '../_utils/copy'
+  import type { ComputedRef } from 'vue'
 
-  const colorList = computed((): string[][] => {
+  const colorList: ComputedRef<string[][]> = computed((): string[][] => {
     const COLOR_LIST = ['#2d5af1', '#52b35e', '#ff0200', '#fcc202'] as const
 
     const allColorList: string[][] = COLOR_LIST.map((item: string): string[] => {
@@ -14,10 +15,8 @@
         const background: string = getLightColor(i === 0 ? 0 : i / 10 + 0.2)
         series.push(background)
       }
-
       return series
     })
-
     return allColorList
   })
 
@@ -29,13 +28,7 @@
 <template>
   <div class="f-color-box">
     <div v-for="(item, index) in colorList" :key="index" class="f-color-list">
-      <div
-        v-for="(color, i) in item"
-        :key="i"
-        class="f-color-item"
-        :style="{ background: color }"
-        @click="handleClick(color)"
-      >
+      <div v-for="(color, i) in item" :key="i" class="f-color-item" :style="{ background: color }" @click="handleClick(color)">
         <f-text>{{ color }}</f-text>
       </div>
     </div>

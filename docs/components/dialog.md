@@ -3,7 +3,7 @@
 `Dialog` 组件在保留当前页面状态的情况下，弹出对话框，告知用户相关信息，并进行一些操作。
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/dialog)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/dialog.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/dialog.md)
 
 ## 基本使用
 
@@ -11,17 +11,15 @@
 
 ::: demo
 
-```vue
-<script setup lang="ts">
-  import { ref } from 'vue'
+<template #source>
+<demo1-vue />
+</template>
 
-  const visible = ref(false)
-</script>
-
+```html
 <template>
-  <f-button type="primary" @click="visible = true">打开</f-button>
+  <f-button type="primary" @click="visible1 = true">打开</f-button>
 
-  <f-dialog v-model:visible="visible" title="标题文字">
+  <f-dialog v-model:visible="visible1" title="标题文字">
     <h3>沁园春·雪</h3>
 
     <p>北国风光，千里冰封，万里雪飘。</p>
@@ -42,6 +40,12 @@
     </template>
   </f-dialog>
 </template>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const visible1 = ref(false)
+</script>
 ```
 
 :::
@@ -52,23 +56,27 @@
 
 ::: demo
 
-```vue
-<script setup lang="ts">
-  import { ref } from 'vue'
+<template #source>
+<demo2-vue />
+</template>
 
-  const visible = ref(false)
-  const innerVisible = ref(false)
-</script>
-
+```html
 <template>
-  <f-button type="primary" @click="visible = true">打开</f-button>
+  <f-button type="primary" @click="visible2 = true">打开</f-button>
 
-  <f-dialog width="500px" title="Title" v-model:visible="visible">
+  <f-dialog width="500px" title="Title" v-model:visible="visible2">
     <f-button @click="innerVisible = true">打开里层</f-button>
 
     <f-dialog width="300px" title="Title" v-model:visible="innerVisible" append-to-body> inner dialog </f-dialog>
   </f-dialog>
 </template>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const visible2 = ref(false)
+  const innerVisible = ref(false)
+</script>
 ```
 
 :::
@@ -81,31 +89,15 @@
 
 ::: demo
 
-```vue
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { FMessage } from 'fighting-design'
+<template #source>
+<demo3-vue />
+</template>
 
-  const visible = ref(false)
-
-  const open = () => FMessage('打开动画开始')
-  const openEnd = () => FMessage('打开动画结束')
-
-  const close = () => FMessage('关闭动画开始')
-  const closeEnd = () => FMessage('关闭动画结束')
-</script>
-
+```html
 <template>
-  <f-button type="primary" @click="visible = true">打开</f-button>
+  <f-button type="primary" @click="visible3 = true">打开</f-button>
 
-  <f-dialog
-    title="Title"
-    v-model:visible="visible"
-    :on-open="open"
-    :on-open-end="openEnd"
-    :on-close="close"
-    :on-close-end="closeEnd"
-  >
+  <f-dialog title="Title" v-model:visible="visible3" :on-open="open" :on-open-end="openEnd" :on-close="close" :on-close-end="closeEnd">
     <h3>沁园春·雪</h3>
 
     <p>北国风光，千里冰封，万里雪飘。</p>
@@ -121,6 +113,19 @@
     <p>俱往矣，数风流人物，还看今朝。</p>
   </f-dialog>
 </template>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+  import { FMessage } from 'fighting-design'
+
+  const visible3 = ref(false)
+
+  const open = () => FMessage('打开动画开始')
+  const openEnd = () => FMessage('打开动画结束')
+
+  const close = () => FMessage('关闭动画开始')
+  const closeEnd = () => FMessage('关闭动画结束')
+</script>
 ```
 
 :::
@@ -140,10 +145,10 @@
 | `close-icon`      | 自定义关闭按钮 icon                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
 | `show-close-icon` | 是否展示关闭图标                                                                    | boolean                                                            | ——     | true   |
 | `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                             | ——     | 1999   |
-| `on-open`         | 打开动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
-| `on-open-end`     | 打开动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
-| `on-close`        | 关闭动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
-| `on-close-end`    | 关闭动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
+| `on-open`         | 打开动画开始的回调                                                                  | Function                                                           | ——     | ——     |
+| `on-open-end`     | 打开动画结束的回调                                                                  | Function                                                           | ——     | ——     |
+| `on-close`        | 关闭动画开始的回调                                                                  | Function                                                           | ——     | ——     |
+| `on-close-end`    | 关闭动画结束的回调                                                                  | Function                                                           | ——     | ——     |
 
 ## Slots
 
@@ -159,7 +164,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DialogInstance, DialogProps } from 'fighting-design'
+import type { DialogInstance, DialogPropsType } from 'fighting-design'
 ```
 
 ## Contributors
@@ -175,3 +180,9 @@ import type { DialogInstance, DialogProps } from 'fighting-design'
 <a href="https://github.com/wmasfoe" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/40457081?v=4" />
 </a>
+
+<script setup lang="ts">
+  import demo1Vue from './_demos/dialog/demo1.vue'
+  import demo2Vue from './_demos/dialog/demo2.vue'
+  import demo3Vue from './_demos/dialog/demo3.vue'
+</script>

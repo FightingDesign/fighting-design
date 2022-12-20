@@ -3,7 +3,7 @@
 用于用户的头像展示
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/avatar)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/avatar.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/avatar.md)
 
 ## 基本使用
 
@@ -13,13 +13,13 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space>
-    <f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
-    <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
-  </f-space>
+<template #source>
+<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
 </template>
+
+```html
+<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" /> <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
 ```
 
 :::
@@ -34,16 +34,16 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space>
-    <f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
-    <f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
-    <f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
-    <f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
-    <f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
-  </f-space>
+<template #source>
+<demo1-vue />
 </template>
+
+```html
+<f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
 ```
 
 :::
@@ -54,16 +54,20 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space>
-    <f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
-    <f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
-    <f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
-    <f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
-    <f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
-  </f-space>
+<template #source>
+<f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
 </template>
+
+```html
+<f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
 ```
 
 :::
@@ -78,17 +82,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-avatar :icon="FIconFaceSmile" background="skyblue" :font-size="30" />
+<f-avatar :icon="FIconBug" background="orange" font-color="#fff" :font-size="30" />
+</template>
+
+```html
+<template>
+  <f-avatar :icon="FIconFaceSmile" :font-size="30" background="skyblue" />
+  <f-avatar background="orange" font-color="#fff" :icon="FIconBug" :font-size="30" />
+</template>
+
 <script lang="ts" setup>
   import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
 </script>
-
-<template>
-  <f-space>
-    <f-avatar :icon="FIconFaceSmile" :font-size="30" background="skyblue" />
-    <f-avatar background="orange" font-color="#fff" :icon="FIconBug" :font-size="30" />
-  </f-space>
-</template>
 ```
 
 :::
@@ -99,10 +106,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-avatar width="200px" lazy src="https://tianyuhao.cn/images/auto/5.jpg" />
+<template #source>
+<f-avatar width="200px" lazy src="https://tianyuhao.cn/images/auto/5.jpg" />
 </template>
+
+```html
+<f-avatar width="200px" lazy src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a72738a7113.png" />
 ```
 
 :::
@@ -115,20 +124,28 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space>
-    <f-avatar src="https://123.cn/images/auto/my.jpg" />
-
-    <f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
-
-    <f-avatar src="https://123.cn/images/auto/my.jpg">
-      <template v-slot:error>
-        <f-text type="danger" bold>失败了</f-text>
-      </template>
-    </f-avatar>
-  </f-space>
+<template #source>
+<f-space>
+<f-avatar src="https://123.cn/images/auto/my.jpg" />
+<f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
+<f-avatar src="https://123.cn/images/auto/my.jpg">
+<template v-slot:error>
+<f-text type="danger" bold>失败了</f-text>
 </template>
+</f-avatar>
+</f-space>
+</template>
+
+```html
+<f-avatar src="https://123.cn/images/auto/my.jpg" />
+
+<f-avatar src="https://123.cn/images/auto/my.jpg" alt="Err" />
+
+<f-avatar src="https://123.cn/images/auto/my.jpg">
+  <template v-slot:error>
+    <f-text type="danger" bold>失败了</f-text>
+  </template>
+</f-avatar>
 ```
 
 :::
@@ -150,8 +167,8 @@
 | `font-color`  | 字体的颜色                                                                                               | string                                                                      | ——                                           | #333     |
 | `text`        | 文字头像                                                                                                 | string                                                                      | ——                                           | ——       |
 | `root-margin` | 触发懒加载的距离                                                                                         | string / number                                                             | ——                                           | 100px    |
-| `on-load`     | 图片加载成功触发的回调                                                                                   | <a href="/components/interface.html#handleevent">HandleEvent</a>            | ——                                           | ——       |
-| `on-error`    | 图片加载失败触发的回调                                                                                   | <a href="/components/interface.html#handleevent">HandleEvent</a>            | ——                                           | ——       |
+| `on-load`     | 图片加载成功触发的回调                                                                                   | Function                                                                    | ——                                           | ——       |
+| `on-error`    | 图片加载失败触发的回调                                                                                   | Function                                                                    | ——                                           | ——       |
 
 ## Slots
 
@@ -179,3 +196,15 @@ type AvatarFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup lang="ts">
+  import demo1Vue from './_demos/avatar/demo1.vue'
+  import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
+</script>
+
+<style scoped>
+  .f-avatar,
+  .f-avatar-error {
+    margin: 5px;
+  }
+</style>

@@ -3,22 +3,24 @@
 在数据完整加载之前显示的占位骨架
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/skeleton)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/skeleton.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/skeleton.md)
 
 ## 基本使用
 
-最简单的占位使用
+最简单的占位使用。
 
 ::: demo
 
-```vue
-<template>
-  <f-skeleton />
-  <f-skeleton />
+<template #source>
+<f-skeleton />
+<f-skeleton />
 </template>
-```
 
-:::
+```html
+<f-skeleton />
+
+<f-skeleton />
+```
 
 ## 多行骨架屏
 
@@ -26,10 +28,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-skeleton :rows="3" />
+<template #source>
+<f-skeleton :rows="3" />
 </template>
+
+```html
+<f-skeleton :rows="3" />
 ```
 
 :::
@@ -40,11 +44,15 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-skeleton animated />
-  <f-skeleton round animated />
+<template #source>
+<f-skeleton animated />
+<f-skeleton rounded animated />
 </template>
+
+```html
+<f-skeleton animated />
+
+<f-skeleton rounded animated />
 ```
 
 :::
@@ -55,18 +63,28 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-skeleton animated size="large" />
-  <f-skeleton animated size="middle" />
-  <f-skeleton animated size="small" />
-  <f-skeleton animated size="mini" />
+<template #source>
+<f-skeleton animated size="large" />
+<f-skeleton animated size="middle" />
+<f-skeleton animated size="small" />
+<f-skeleton animated size="mini" />
 
-  <f-skeleton animated round size="large" />
-  <f-skeleton animated round size="middle" />
-  <f-skeleton animated round size="small" />
-  <f-skeleton animated round size="mini" />
+<f-skeleton animated round size="large" />
+<f-skeleton animated round size="middle" />
+<f-skeleton animated round size="small" />
+<f-skeleton animated round size="mini" />
 </template>
+
+```html
+<f-skeleton animated size="large" />
+<f-skeleton animated size="middle" />
+<f-skeleton animated size="small" />
+<f-skeleton animated size="mini" />
+
+<f-skeleton animated round size="large" />
+<f-skeleton animated round size="middle" />
+<f-skeleton animated round size="small" />
+<f-skeleton animated round size="mini" />
 ```
 
 :::
@@ -75,7 +93,31 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-skeleton animated :rows="2" :loading="loading">
+<f-list>
+<f-list-item>这是一段文字</f-list-item>
+<f-list-item>这是一段文字</f-list-item>
+</f-list>
+</f-skeleton>
+
+<f-button :loading="loading" simple type="primary" @click="startLoad">
+{{ loading ? '加载中...' : `开始加载` }}
+</f-button>
+</template>
+
+```html
+<template>
+  <f-skeleton animated :rows="2" :loading="loading">
+    <f-list>
+      <f-list-item>这是一段文字</f-list-item>
+      <f-list-item>这是一段文字</f-list-item>
+    </f-list>
+  </f-skeleton>
+
+  <f-button :loading="loading" simple type="primary" @click="startLoad"> {{ loading ? '加载中...' : `开始加载` }} </f-button>
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -88,19 +130,6 @@
     }, 3000)
   }
 </script>
-
-<template>
-  <f-skeleton animated :rows="2" :loading="loading">
-    <f-list>
-      <f-list-item>这是一段文字</f-list-item>
-      <f-list-item>这是一段文字</f-list-item>
-    </f-list>
-  </f-skeleton>
-
-  <f-button :loading="loading" simple type="primary" @click="startLoad">
-    {{ loading ? '加载中...' : `开始加载` }}
-  </f-button>
-</template>
 ```
 
 :::
@@ -126,7 +155,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { SkeletonInstance, SkeletonProps } from 'fighting-design'
+import type { SkeletonInstance, SkeletonPropsType, SkeletonSizeType } from 'fighting-design'
 ```
 
 ## Contributors
@@ -138,3 +167,16 @@ import type { SkeletonInstance, SkeletonProps } from 'fighting-design'
 <a href="https://github.com/jxzho" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/37285048?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const loading = ref(false)
+
+  const startLoad = () => {
+    loading.value = true
+    setInterval(() => {
+      loading.value = false
+    }, 3000)
+  }
+</script>

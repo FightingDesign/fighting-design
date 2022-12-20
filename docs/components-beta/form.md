@@ -13,22 +13,24 @@
 
 在 `f-form` 组件中添加 `native-type` 为 `submit` 的按钮，将会触发表单的 `on-submit` 回调触发提交表单
 
-{{ruleForm}}
-<f-form label-width="60px" :on-submit="handelSubmit">
-<f-form-item label="账号">
-<f-input v-model="ruleForm.account" type="text" placeholder="请输入账号" />
-</f-form-item>
-
-<f-form-item label="密码">
-<f-input v-model="ruleForm.password" type="password" placeholder="请输入密码" />
-</f-form-item>
-
-<f-form-item>
-<f-button type="primary" native-type="submit" block>提交表单</f-button>
-</f-form-item>
-</f-form>
+::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { reactive } from 'vue'
+  import { FMessage } from 'fighting-design'
+
+  const ruleForm = reactive({
+    account: '',
+    password: ''
+  })
+
+  const handelSubmit = (): void => {
+    // FMessage.success('开始提交表单')
+    console.log(FMessage)
+  }
+</script>
+
 <template>
   {{ ruleForm }}
   <f-form label-width="60px" :on-submit="handelSubmit">
@@ -45,21 +47,9 @@
     </f-form-item>
   </f-form>
 </template>
-
-<script lang="ts" setup>
-  import { reactive } from 'vue'
-  import { FMessage } from 'fighting-design'
-
-  const ruleForm = reactive({
-    account: '',
-    password: ''
-  })
-
-  const handelSubmit = (): void => {
-    FMessage.success('开始提交表单')
-  }
-</script>
 ```
+
+:::
 
 ## 表单验证
 
@@ -71,31 +61,48 @@
 
 在 `on-submit` 回调中，可结构出三个参数，分别是：当前表单是否通过验证、当前验证结果对象、事件对象
 
-{{ruleForm2}}
-<f-form :model="ruleForm2" label-width="60px" :on-submit="handelSubmit2">
-<f-form-item label="账号" name="account" :rules="[ { required: true, message: '请输入用户名' }, { min: 4, max: 12, message: '请输入 4~12 用户名' }, { regExp: /123456/, message: '必须包含 123456' } ]" >
-<f-input v-model="ruleForm2.account" type="text" placeholder="请输入账号" />
-</f-form-item>
-
-<f-form-item label="密码" name="password" :rules="[ { required: true, message: '请输入密码' }, { min: 6, message: '至少输入六位数密码' } ]">
-<f-input v-model="ruleForm2.password" type="password" placeholder="请输入密码" />
-</f-form-item>
-
-<f-form-item>
-<f-button type="primary" native-type="submit" block>提交表单</f-button>
-</f-form-item>
-</f-form>
+::: demo
 
 ```vue
+<script lang="ts" setup>
+  import { reactive } from 'vue'
+  import { FMessage } from 'fighting-design'
+
+  const ruleForm = reactive({
+    account: '',
+    password: ''
+  })
+
+  const handelSubmit = ({ ok, res, evt }): void => {
+    if (!ok) return
+    FMessage.success(`ok: ${ok} res: ${res} evt: ${evt} 开始提交表单`)
+  }
+</script>
+
 <template>
-  {{ ruleForm2 }}
-  <f-form label-width="60px" :on-submit="handelSubmit2">
-    <f-form-item label="账号">
-      <f-input v-model="ruleForm2.account" type="text" placeholder="请输入账号" />
+  {{ ruleForm }}
+  <f-form :model="ruleForm" label-width="60px" :on-submit="handelSubmit">
+    <f-form-item
+      label="账号"
+      name="account"
+      :rules="[
+        { required: true, message: '请输入用户名' },
+        { min: 4, max: 12, message: '请输入 4~12 用户名' },
+        { regExp: /123456/, message: '必须包含 123456' }
+      ]"
+    >
+      <f-input v-model="ruleForm.account" type="text" placeholder="请输入账号" />
     </f-form-item>
 
-    <f-form-item label="密码">
-      <f-input v-model="ruleForm2.password" type="password" placeholder="请输入密码" />
+    <f-form-item
+      label="密码"
+      name="password"
+      :rules="[
+        { required: true, message: '请输入密码' },
+        { min: 6, message: '至少输入六位数密码' }
+      ]"
+    >
+      <f-input v-model="ruleForm.password" type="password" placeholder="请输入密码" />
     </f-form-item>
 
     <f-form-item>
@@ -103,23 +110,9 @@
     </f-form-item>
   </f-form>
 </template>
-
-<script lang="ts" setup>
-  import { reactive } from 'vue'
-  import { FMessage } from 'fighting-design'
-  import type { FormParam } from 'fighting-design'
-
-  const ruleForm2 = reactive({
-    account: '',
-    password: ''
-  })
-
-  const handelSubmit2 = ({ ok, res, evt }: FormParam): void => {
-    if (!ok) return
-    FMessage.success(`ok: ${ok} res: ${res} evt: ${evt} 开始提交表单`)
-  }
-</script>
 ```
+
+:::
 
 ## Form Attributes
 
@@ -205,27 +198,3 @@ type FormItemRules = FormItemRulesItem[]
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
-
-<script lang="ts" setup>
-  import { reactive } from 'vue'
-  import { FMessage } from 'fighting-design'
-
-  const ruleForm = reactive({
-    account: '',
-    password: ''
-  })
-
-  const handelSubmit = (): void => {
-    FMessage.success('开始提交表单')
-  }
-
-  const ruleForm2 = reactive({
-    account: '',
-    password: ''
-  })
-
-  const handelSubmit2 = ({ ok, res, evt }): void => {
-    if (!ok) return
-    FMessage.success(`ok: ${ok} res: ${res} evt: ${evt} 开始提交表单`)
-  }
-</script>

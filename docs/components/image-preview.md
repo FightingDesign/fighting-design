@@ -3,7 +3,7 @@
 点击开启大图预览
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/image-preview)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/image-preview.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/image-preview.md)
 
 ## 基本使用
 
@@ -13,11 +13,21 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-button type="primary" @click="show1 = true">打开</f-button>
+<f-image-preview v-model:visible="show1" :img-list="listImg" />
+</template>
+
+```html
+<template>
+  <f-button type="primary" @click="show1 = true">打开</f-button>
+  <f-image-preview v-model:visible="show1" :img-list="listImg" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const show = ref(false)
+  const show1 = ref(false)
 
   const listImg = [
     'https://tianyuhao.cn/images/auto/1.jpg',
@@ -26,11 +36,6 @@
     'https://tianyuhao.cn/images/auto/4.jpg'
   ]
 </script>
-
-<template>
-  <f-button type="primary" @click="show = true">打开</f-button>
-  <f-image-preview v-model:visible="show" :img-list="listImg" />
-</template>
 ```
 
 :::
@@ -41,11 +46,21 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-button type="primary" @click="show2 = true">打开</f-button>
+<f-image-preview v-model:visible="show2" :is-option="false" :img-list="listImg" />
+</template>
+
+```html
+<template>
+  <f-button type="primary" @click="show2 = true">打开</f-button>
+  <f-image-preview v-model:visible="show2" :is-option="false" :img-list="listImg" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const show = ref(false)
+  const show2 = ref(false)
 
   const listImg = [
     'https://tianyuhao.cn/images/auto/1.jpg',
@@ -54,11 +69,6 @@
     'https://tianyuhao.cn/images/auto/4.jpg'
   ]
 </script>
-
-<template>
-  <f-button type="primary" @click="show = true">打开</f-button>
-  <f-image-preview v-model:visible="show" :is-option="false" :img-list="listImg" />
-</template>
 ```
 
 :::
@@ -90,3 +100,16 @@ import type { ImagePreviewInstance, ImagePreviewProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const show1 = ref(false)
+  const show2 = ref(false)
+  const listImg = [
+    'https://tianyuhao.cn/images/auto/1.jpg',
+    'https://tianyuhao.cn/images/auto/2.jpg',
+    'https://tianyuhao.cn/images/auto/3.jpg',
+    'https://tianyuhao.cn/images/auto/4.jpg'
+  ]
+</script>

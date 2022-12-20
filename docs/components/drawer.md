@@ -3,7 +3,7 @@
 在浏览器中使用抽屉
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/drawer)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/drawer.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/drawer.md)
 
 ## 基本使用
 
@@ -11,19 +11,11 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<template #source>
+<demo1-vue />
+</template>
 
-  const visible = ref(false)
-  const direction = ref('right')
-
-  const onShow = dir => {
-    direction.value = dir
-    visible.value = true
-  }
-</script>
-
+```html
 <template>
   <f-space>
     <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
@@ -32,7 +24,7 @@
     <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
   </f-space>
 
-  <f-drawer v-model:visible="visible" title="Title" :direction="direction">
+  <f-drawer v-model:visible="visible1" title="Title" :direction="direction">
     <h3>沁园春·雪</h3>
 
     <p>北国风光，千里冰封，万里雪飘。</p>
@@ -48,6 +40,18 @@
     <p>俱往矣，数风流人物，还看今朝。</p>
   </f-drawer>
 </template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const visible1 = ref(false)
+  const direction = ref('right')
+
+  const onShow = dir => {
+    direction.value = dir
+    visible1.value = true
+  }
+</script>
 ```
 
 :::
@@ -58,22 +62,26 @@
 
 ::: demo
 
-```vue
+<template #source>
+<demo2-vue />
+</template>
+
+```html
+<template>
+  <f-button type="primary" @click="visible4 = true">打开</f-button>
+
+  <f-drawer title="Title" size="50%" append-to-body v-model:visible="visible4">
+    <f-button type="primary" @click="visible5 = true">打开内层 drawer</f-button>
+    <f-drawer title="Title" v-model:visible="visible5"> 内层 drawer </f-drawer>
+  </f-drawer>
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const visible = ref(false)
-  const visibleInner = ref(false)
+  const visible4 = ref(false)
+  const visible5 = ref(false)
 </script>
-
-<template>
-  <f-button type="primary" @click="visible = true">打开</f-button>
-
-  <f-drawer title="Title" size="50%" append-to-body v-model:visible="visible">
-    <f-button type="primary" @click="visibleInner = true">打开内层 drawer</f-button>
-    <f-drawer title="Title" v-model:visible="visibleInner"> 内层 drawer </f-drawer>
-  </f-drawer>
-</template>
 ```
 
 :::
@@ -84,7 +92,7 @@
 | ----------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------- | ------ |
 | `v-model:visible` | 绑定值，控制是否展示                                                                | boolean                                                            | ——                            | false  |
 | `append-to-body`  | 是否追加到 body                                                                     | boolean                                                            | ——                            | false  |
-| `direction`       | 弹出方向                                                                            | <a href="#drawerdirection">DrawerDirection</a>                     | `top` `left` `bottom` `right` | right  |
+| `direction`       | 弹出方向                                                                            | boolean                                                            | `top` `left` `bottom` `right` | right  |
 | `size`            | 大小尺寸                                                                            | string / number                                                    | ——                            | 30%    |
 | `title`           | 标题文字内容                                                                        | string                                                             | ——                            | ——     |
 | `show-mask`       | 是否展示遮罩层                                                                      | boolean                                                            | ——                            | true   |
@@ -93,10 +101,10 @@
 | `close-icon`      | 自定义关闭按钮 icon                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                            | ——     |
 | `show-close-icon` | 是否展示关闭按钮                                                                    | boolean                                                            | ——                            | true   |
 | `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                             | ——                            | 1999   |
-| `on-open`         | 打开动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                            | ——     |
-| `on-open-end`     | 打开动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                            | ——     |
-| `on-close`        | 关闭动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                            | ——     |
-| `on-close-end`    | 关闭动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                            | ——     |
+| `on-open`         | 打开动画开始的回调                                                                  | Function                                                           | ——                            | ——     |
+| `on-open-end`     | 打开动画结束的回调                                                                  | Function                                                           | ——                            | ——     |
+| `on-close`        | 关闭动画开始的回调                                                                  | Function                                                           | ——                            | ——     |
+| `on-close-end`    | 关闭动画结束的回调                                                                  | Function                                                           | ——                            | ——     |
 
 ## Slots
 
@@ -112,13 +120,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DrawerInstance, DrawerProps, DrawerDirection } from 'fighting-design'
-```
-
-### DrawerDirection
-
-```ts
-type DrawerDirection = 'left' | 'top' | 'right' | 'bottom'
+import type { DrawerInstance, DrawerPropsType, DrawerDirectionType } from 'fighting-design'
 ```
 
 ## Contributors
@@ -130,3 +132,8 @@ type DrawerDirection = 'left' | 'top' | 'right' | 'bottom'
 <a href="https://github.com/wang-zhixin" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/50623519?v=4" />
 </a>
+
+<script setup lang="ts">
+  import demo1Vue from './_demos/drawer/demo1.vue'
+  import demo2Vue from './_demos/drawer/demo2.vue'
+</script>

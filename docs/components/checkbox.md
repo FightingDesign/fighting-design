@@ -3,7 +3,7 @@
 你可以有多个选择
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/checkbox)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/checkbox.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/checkbox.md)
 
 ## 基础使用
 
@@ -11,16 +11,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-checkbox v-model="option1" label="酸辣土豆丝" />
+</template>
+
+```html
+<template>
+  <f-checkbox v-model="option1" label="酸辣土豆丝" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const option = ref(true)
+  const option1 = ref(false)
 </script>
-
-<template>
-  <f-checkbox v-model="option" label="酸辣土豆丝" />
-</template>
 ```
 
 :::
@@ -31,35 +35,52 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<template #source>
+<f-checkbox-group v-model="option2">
+<f-checkbox label="鸡肉卷" />
+<f-checkbox label="鸡排" />
+<f-checkbox label="汉堡" />
+</f-checkbox-group>
+</template>
 
-  const option = ref(['汉堡'])
-</script>
-
+```html
 <template>
-  <f-checkbox-group v-model="option">
+  <f-checkbox-group v-model="option2">
     <f-checkbox label="鸡肉卷" />
     <f-checkbox label="鸡排" />
     <f-checkbox label="汉堡" />
   </f-checkbox-group>
 </template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const option2 = ref(['汉堡'])
+</script>
 ```
 
 :::
 
 ## 全选及半选
 
-::: warning
-功能暂不稳定，谨慎使用！
-:::
-
 给复选框添加 `indeterminate` 属性使其显示半选时的状态，且此属性仅控制样式
 
 ::: demo
+<template #source>
+<demo1-vue />
+</template>
 
-```vue
+```html
+<template>
+  <div>
+    <f-checkbox v-model="checkAll" label="全都要" :indeterminate="indeterminate" :change="onCheckboxChange" />
+  </div>
+
+  <f-checkbox-group v-model="checkedOptions" :change="onGroupChange">
+    <f-checkbox v-for="(item, index) in optionList" :key="index" :label="item" />
+  </f-checkbox-group>
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -81,16 +102,6 @@
     indeterminate.value = halfStatus
   }
 </script>
-
-<template>
-  <div>
-    <f-checkbox v-model="checkAll" label="全都要" :indeterminate="indeterminate" :change="onCheckboxChange" />
-  </div>
-
-  <f-checkbox-group v-model="checkedOptions" :change="onGroupChange">
-    <f-checkbox v-for="(item, index) in optionList" :key="index" :label="item" />
-  </f-checkbox-group>
-</template>
 ```
 
 :::
@@ -101,32 +112,48 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<template #source>
+<f-checkbox label="选项一" disabled />
 
-  const option = ref([])
-</script>
+<br />
 
+<f-checkbox-group v-model="option3" disabled>
+<f-checkbox label="选项一"/>
+<f-checkbox label="选项二"/>
+<f-checkbox label="选项三"/>
+</f-checkbox-group>
+
+<br />
+
+<f-checkbox-group v-model="option3">
+  <f-checkbox label="选项一"/>
+  <f-checkbox label="选项二" disabled/>
+  <f-checkbox label="选项三"/>
+</f-checkbox-group>
+</template>
+
+```html
 <template>
   <f-checkbox label="选项一" disabled />
 
-  <br />
-
-  <f-checkbox-group v-model="option" disabled>
+  <f-checkbox-group v-model="option3" disabled>
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />
   </f-checkbox-group>
 
-  <br />
-
-  <f-checkbox-group v-model="option">
+  <f-checkbox-group v-model="option3">
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" disabled />
     <f-checkbox label="选项三" />
   </f-checkbox-group>
 </template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const option3 = ref([])
+</script>
 ```
 
 :::
@@ -137,64 +164,93 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<template #source>
+<f-checkbox-group v-model="option4" border size="large">
+<f-checkbox label="选项一" />
+<f-checkbox label="选项二" />
+<f-checkbox label="选项三" />
+</f-checkbox-group>
 
-  const option = ref([])
-</script>
+<br />
+<br />
 
+<f-checkbox-group v-model="option4" border>
+  <f-checkbox label="选项一" />
+  <f-checkbox label="选项二" />
+  <f-checkbox label="选项三" />
+</f-checkbox-group>
+
+<br />
+<br />
+
+<f-checkbox-group v-model="option4" border size="small">
+  <f-checkbox label="选项一" />
+  <f-checkbox label="选项二" />
+  <f-checkbox label="选项三" />
+</f-checkbox-group>
+
+<br />
+<br />
+
+<f-checkbox-group v-model="option4" border size="mini">
+  <f-checkbox label="选项一" />
+  <f-checkbox label="选项二" />
+  <f-checkbox label="选项三" />
+</f-checkbox-group>
+</template>
+
+```html
 <template>
-  <f-checkbox-group v-model="option" border size="large">
+  <f-checkbox-group v-model="option4" border size="large">
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />
   </f-checkbox-group>
 
-  <br />
-  <br />
-
-  <f-checkbox-group v-model="option" border>
+  <f-checkbox-group v-model="option4" border>
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />
   </f-checkbox-group>
 
-  <br />
-  <br />
-
-  <f-checkbox-group v-model="option" border size="small">
+  <f-checkbox-group v-model="option4" border size="small">
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />
   </f-checkbox-group>
 </template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const option4 = ref([])
+</script>
 ```
 
 :::
-
-## Checkbox Attributes
-
-| 参数                   | 说明                   | 类型                                                 | 可选值 | 默认值 |
-| ---------------------- | ---------------------- | ---------------------------------------------------- | ------ | ------ |
-| `modelValue / v-model` | 绑定值                 | <a href="#checkboxmodelvalue">CheckboxModelValue</a> | ——     | ——     |
-| `disabled`             | 是否禁用               | boolean                                              | ——     | false  |
-| `label`                | 单选框对应的值         | <a href="#checkboxlabel">CheckboxLabel</a>           | ——     | ——     |
-| `indeterminate`        | 是否为半选状态样式     | boolean                                              | ——     | false  |
-| `on-change`            | 绑定值变化时触发的回调 | <a href="#checkboxchange">CheckboxChange</a>         | ——     | ——     |
 
 ## CheckboxGroup Attributes
 
 | 参数                   | 说明                   | 类型                                                               | 可选值                          | 默认值 |
 | ---------------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------- | ------ |
-| `modelValue / v-model` | 绑定值                 | string[]                                                           | ——                              | ——     |
+| `modelValue / v-model` | 绑定值                 | array                                                              | ——                              | ——     |
 | `disabled`             | 是否禁用               | boolean                                                            | ——                              | false  |
 | `border`               | 是否显示边框           | boolean                                                            | ——                              | false  |
 | `size`                 | 尺寸                   | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
 | `vertical`             | 是否纵向排列           | boolean                                                            | ——                              | false  |
 | `column-gap`           | 横向排列的间距         | string / number                                                    | ——                              | ——     |
 | `row-gap`              | 纵向排列的间距         | string / number                                                    | ——                              | ——     |
-| `on-change`            | 绑定值变化时触发的回调 | <a href="#checkboxgroupchange">CheckboxGroupChange</a>             | ——                              | ——     |
+| `on-change`            | 绑定值变化时触发的回调 | Function                                                           | ——                              | ——     |
+
+## Checkbox Attributes
+
+| 参数                   | 说明                   | 类型                      | 可选值 | 默认值 |
+| ---------------------- | ---------------------- | ------------------------- | ------ | ------ |
+| `modelValue / v-model` | 绑定值                 | boolean                   | ——     | ——     |
+| `disabled`             | 是否禁用               | boolean                   | ——     | false  |
+| `label`                | 单选框对应的值         | string / number / boolean | ——     | ——     |
+| `indeterminate`        | 是否为半选状态样式     | boolean                   | ——     | false  |
+| `on-change`            | 绑定值变化时触发的回调 | Function                  | ——     | ——     |
 
 ## Interface
 
@@ -203,38 +259,16 @@
 ```ts
 import type {
   CheckboxInstance,
-  CheckboxProps,
-  CheckboxModelValue,
-  CheckboxLabel,
-  CheckboxChange,
+  CheckboxPropsType,
+  CheckboxLabelType,
   CheckboxGroupInstance,
-  CheckboxGroupProps,
-  CheckboxGroupChange
+  CheckboxGroupPropsType,
+  CheckboxGroupLabelType,
+  CheckboxGroupSizeType,
+  CheckboxGroupChangeEventInterface,
+  CheckboxGroupChangeInterface,
+  CheckboxGroupInjectPropsType
 } from 'fighting-design'
-```
-
-### CheckboxModelValue
-
-```ts
-type CheckboxModelValue = boolean | 'true' | 'false'
-```
-
-### CheckboxLabel
-
-```ts
-type CheckboxLabel = string | number | boolean
-```
-
-### CheckboxChange
-
-```ts
-type CheckboxChange = (val: CheckboxLabelType) => void
-```
-
-### CheckboxGroupChange
-
-```ts
-type CheckboxGroupChange = (val: string[]) => void
 ```
 
 ## Contributors
@@ -246,3 +280,13 @@ type CheckboxGroupChange = (val: string[]) => void
 <a href="https://github.com/laine001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/40457081?v=4" />
 </a>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  import demo1Vue from './_demos/checkbox/demo1.vue'
+
+  const option1 = ref(false)
+  const option2 = ref([])
+  const option3 = ref([])
+  const option4 = ref([])
+</script>

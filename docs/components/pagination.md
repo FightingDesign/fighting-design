@@ -3,7 +3,7 @@
 用它处理过多的数据吧
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/pagination)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/pagination.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/pagination.md)
 
 :::danger
 组件仍在测试阶段，高频更新中，部分参数暂不稳定！
@@ -17,17 +17,21 @@
 
 ::: demo
 
-```vue
+<template #source>
+<demo1-vue />
+</template>
+
+```html
+<template>
+  <f-pagination v-model:current="current" :total="total" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const current = ref(1)
   const total = ref(100)
 </script>
-
-<template>
-  <f-pagination v-model:current="current" :total="total" />
-</template>
 ```
 
 :::
@@ -37,20 +41,25 @@
 `page-sizes` 属性用来表示你想要开启最大页数选择器、传入值是一个数字类型的数组
 
 ::: demo
+<template #source>
+<demo2-vue/>
+</template>
 
-```vue
+```html
+<template>
+  <f-pagination v-model:current="current" :total="total" :page-size="pagesize" :page-sizes="pageSizes" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const current = ref(1)
   const total = ref(100)
+
   const pagesize = ref(10)
+
   const pageSizes = ref([10, 20, 30, 40, 50])
 </script>
-
-<template>
-  <f-pagination v-model:current="current" :total="total" :page-size="pagesize" :page-sizes="pageSizes" />
-</template>
 ```
 
 :::
@@ -62,19 +71,23 @@
 `round` 属性控制分页是否带圆角
 
 ::: demo
+<template #source>
+<demo3-vue />
+</template>
 
-```vue
+```html
+<template>
+  <f-pagination v-model:current="current" :total="total" background />
+
+  <f-pagination v-model:current="current" :total="total" round />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const current = ref(1)
   const total = ref(100)
 </script>
-
-<template>
-  <f-pagination v-model:current="current" :total="total" background />
-  <f-pagination v-model:current="current" :total="total" round />
-</template>
 ```
 
 :::
@@ -82,18 +95,22 @@
 ## 自定 Icon
 
 ::: demo
+<template #source>
+<f-pagination v-model:current="current" :total="100" :prev-Icon="FIconCloud" :next-Icon="FIconBlock" />
+</template>
 
-```vue
+```html
+<template>
+  <f-pagination v-model:current="current" :total="100" :prev-icon="FIconCloud" :next-icon="FIconBlock" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
   import { FIconCloud, FIconBlock } from '@fighting-design/fighting-icon'
 
   const current = ref(1)
+  const total = ref(100)
 </script>
-
-<template>
-  <f-pagination v-model:current="current" :total="100" :prev-icon="FIconCloud" :next-icon="FIconBlock" />
-</template>
 ```
 
 :::
@@ -103,17 +120,21 @@
 `disabled` 属性表示是否禁用分页功能
 
 ::: demo
+<template #source>
+<f-pagination v-model:current="current" :total="100" disabled />
+</template>
 
-```vue
+```html
+<template>
+  <f-pagination v-model:current="current" :total="100" disabled />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const current = ref(1)
+  const disabled = ref(true)
 </script>
-
-<template>
-  <f-pagination v-model:current="current" :total="100" disabled />
-</template>
 ```
 
 :::
@@ -123,17 +144,20 @@
 `jump-search` 属性表示是否禁用分页功能
 
 ::: demo
+<template #source>
+<f-pagination v-model:current="current" :total="100" jump-search />
+</template>
 
-```vue
+```html
+<template>
+  <f-pagination v-model:current="current" :total="100" jump-search />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const current = ref(1)
 </script>
-
-<template>
-  <f-pagination v-model:current="current" :total="100" jump-search />
-</template>
 ```
 
 :::
@@ -162,7 +186,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { PaginationInstance, PaginationProps } from 'fighting-design'
+import type { PaginationInstance, PaginationPropsType } from 'fighting-design'
 ```
 
 ## Contributors
@@ -174,3 +198,14 @@ import type { PaginationInstance, PaginationProps } from 'fighting-design'
 <a href="https://github.com/OnlyShadows" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/54928569?v=4" />
 </a>
+
+<script setup lang="ts">
+  import demo1Vue from './_demos/pagination/demo1.vue'
+  import demo2Vue from './_demos/pagination/demo2.vue'
+  import demo3Vue from './_demos/pagination/demo3.vue'
+  import { FIconCloud, FIconBlock } from '@fighting-design/fighting-icon'
+  import { ref } from 'vue'
+
+  const current = ref(1)
+  const total = ref(100)
+</script>

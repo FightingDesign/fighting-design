@@ -3,7 +3,7 @@
 针对于图片展示的一个扩展折叠动效组件
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/expand-card)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/expand-card.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/expand-card.md)
 
 ## 基本使用
 
@@ -11,7 +11,15 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-expand-card  :image-list="imageList" />
+</template>
+
+```html
+<template>
+  <f-expand-card :image-list="imageList" />
+</template>
+
 <script lang="ts" setup>
   const imageList = [
     'https://tianyuhao.cn/images/fighting-design/1.jpg',
@@ -19,10 +27,6 @@
     'https://tianyuhao.cn/images/fighting-design/3.jpg'
   ]
 </script>
-
-<template>
-  <f-expand-card :image-list="imageList" />
-</template>
 ```
 
 :::
@@ -33,9 +37,17 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-expand-card  :image-list="imageList2" />
+</template>
+
+```html
+<template>
+  <f-expand-card :image-list="imageList2" />
+</template>
+
 <script lang="ts" setup>
-  const imageList = [
+  const imageList2 = [
     {
       url: 'https://tianyuhao.cn/images/fighting-design/1.jpg',
       text: '第一张图片'
@@ -50,10 +62,6 @@
     }
   ]
 </script>
-
-<template>
-  <f-expand-card :image-list="imageList" />
-</template>
 ```
 
 :::
@@ -64,7 +72,15 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-expand-card round :image-list="imageList" />
+</template>
+
+```html
+<template>
+  <f-expand-card round :image-list="imageList" />
+</template>
+
 <script lang="ts" setup>
   const imageList = [
     'https://tianyuhao.cn/images/fighting-design/1.jpg',
@@ -72,10 +88,6 @@
     'https://tianyuhao.cn/images/fighting-design/3.jpg'
   ]
 </script>
-
-<template>
-  <f-expand-card round :image-list="imageList" />
-</template>
 ```
 
 :::
@@ -123,3 +135,26 @@ type ExpandCardImageList = ExpandCardImageListItem[] | string[]
 <a href="https://github.com/876843240" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/14799063?v=4" />
 </a>
+
+<script setup lang="ts">
+  const imageList = [
+    'https://tianyuhao.cn/images/fighting-design/1.jpg',
+    'https://tianyuhao.cn/images/fighting-design/2.jpg',
+    'https://tianyuhao.cn/images/fighting-design/3.jpg'
+  ]
+
+  const imageList2 = [
+    {
+      url: 'https://tianyuhao.cn/images/fighting-design/1.jpg',
+      text: '第一张图片'
+    },
+    {
+      url: 'https://tianyuhao.cn/images/fighting-design/2.jpg',
+      text: '第二张图片'
+    },
+    {
+      url: 'https://tianyuhao.cn/images/fighting-design/3.jpg',
+      text: '第三张图片'
+    }
+  ]
+</script>

@@ -3,7 +3,7 @@
 想不到关闭按钮也可以如此精致吧？
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/close-btn)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/close-btn.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/close-btn.md)
 
 ## 基本使用
 
@@ -11,13 +11,21 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-close-btn>
+<f-icon-cross />
+</f-close-btn>
+</template>
+
+```html
 <script lang="ts" setup>
   import { FIconCross } from '@fighting-design/fighting-icon'
 </script>
 
 <template>
-  <f-close-btn :icon="FIconCross" />
+  <f-close-btn>
+    <f-icon-cross />
+  </f-close-btn>
 </template>
 ```
 
@@ -29,13 +37,21 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-close-btn disabled>
+<f-icon-cross />
+</f-close-btn>
+</template>
+
+```html
 <script lang="ts" setup>
   import { FIconCross } from '@fighting-design/fighting-icon'
 </script>
 
 <template>
-  <f-close-btn :icon="FIconCross" disabled />
+  <f-close-btn disabled>
+    <f-icon-cross />
+  </f-close-btn>
 </template>
 ```
 
@@ -50,7 +66,7 @@
 | `disabled` | 是否禁用           | boolean                                                            | ——     | false  |
 | `color`    | 自定义颜色         | string                                                             | ——     | ——     |
 | `icon`     | 自定义 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
-| `on-click` | 点击之后执行的回调 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——     | ——     |
+| `on-click` | 点击之后执行的回调 | Function                                                           | ——     | ——     |
 
 ## Slots
 
@@ -71,3 +87,7 @@ import type { CloseBtnInstance, CloseBtnProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { FIconCross } from '@fighting-design/fighting-icon'
+</script>

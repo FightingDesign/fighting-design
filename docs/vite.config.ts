@@ -23,7 +23,8 @@ export default (): UserConfigExport => {
     },
     resolve: {
       alias: {
-        'fighting-design': resolve(__dirname, '../packages/fighting-design/index.ts')
+        'fighting-design': resolve(__dirname, '../packages/fighting-design/index.ts'),
+        '@fighting-design/fighting-icon': resolve(__dirname, '../packages/fighting-icon/index.ts')
       }
     },
     css: {

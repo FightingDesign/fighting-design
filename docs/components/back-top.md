@@ -3,18 +3,18 @@
 可返回网页的顶部
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/back-top)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/back-top.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/back-top.md)
 
 ## 基本使用
 
-的基本使用
+`BackTop` 的基本使用
+
+<f-back-top>返回顶部</f-back-top>
 
 ::: demo
 
-```vue
-<template>
-  <f-back-top>返回顶部</f-back-top>
-</template>
+```html
+<f-back-top>返回顶部</f-back-top>
 ```
 
 :::
@@ -23,13 +23,13 @@
 
 `behavior` 属性可以配置不同的滚动模式
 
+<f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top>
+<f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
+
 ::: demo
 
-```vue
-<template>
-  <f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top>
-  <f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
-</template>
+```html
+<f-back-top bottom="90px" behavior="auto">auto 模式</f-back-top> <f-back-top bottom="140px" behavior="smooth">smooth 模式</f-back-top>
 ```
 
 :::
@@ -38,18 +38,20 @@
 
 `round` 属性可以配置圆形的样式
 
+<f-back-top bottom="190px" round>
+  <f-svg-icon :icon="FIconSnowflake" />
+</f-back-top>
+
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { FIconSnowflake } from '@fighting-design/fighting-icon'
-</script>
+```html
+<f-back-top bottom="190px" round>
+  <f-svg-icon :icon="FIconSnowflake" />
+</f-back-top>
 
-<template>
-  <f-back-top bottom="190px" round>
-    <f-svg-icon :icon="FIconSnowflake" />
-  </f-back-top>
-</template>
+<script lang="ts" setup>
+  import { FIconSnowflake, FIconUpload } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
@@ -58,18 +60,20 @@
 
 你也可以自定义 `back-top` 的样式和位置
 
+<f-back-top bottom="190px" right="100px" round color="red">
+  <f-svg-icon :icon="FIconUpload" />
+</f-back-top>
+
 ::: demo
 
-```vue
+```html
+<f-back-top bottom="190px" right="100px" round color="red">
+  <f-svg-icon :icon="FIconUpload" />
+</f-back-top>
+
 <script lang="ts" setup>
   import { FIconUpload } from '@fighting-design/fighting-icon'
 </script>
-
-<template>
-  <f-back-top bottom="190px" right="100px" round color="red">
-    <f-svg-icon :icon="FIconUpload" />
-  </f-back-top>
-</template>
 ```
 
 :::
@@ -82,7 +86,14 @@
 
 ::: demo
 
-```vue
+<template #source>
+
+<div class="f-box">
+<p v-for="i in 20">这是一段文字{{ i + 1 }}</p>
+</div>
+</template>
+
+```html
 <template>
   <div class="f-box">
     <p v-for="i in 20">这是一段文字{{ i + 1 }}</p>
@@ -104,18 +115,18 @@
 
 ## Attractive
 
-| 参数             | 说明                                                                     | 类型                                           | 可选值          | 默认值 |
-| ---------------- | ------------------------------------------------------------------------ | ---------------------------------------------- | --------------- | ------ |
-| `round`          | 是否为圆角                                                               | boolean                                        | ——              | false  |
-| `behavior`       | 滚动模式                                                                 | <a href="#backtopbehavior">BackTopBehavior</a> | `smooth` `auto` | smooth |
-| `visible-height` | 滚动超出多少距离展示                                                     | number                                         | ——              | 200    |
-| `right`          | 距离右侧的距离                                                           | string                                         | ——              | 40     |
-| `bottom`         | 距离底部的距离                                                           | string                                         | ——              | 40     |
-| `z-index`        | 原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) | number                                         | ——              | 200    |
-| `top`            | 点击返回距离顶部的距离                                                   | number                                         | ——              | 0      |
-| `listen-el`      | 监视指定元素，需要传入指定的 class 或 id，如：.box #app                  | string                                         | ——              | ——     |
-| `background`     | 背景色                                                                   | string                                         | ——              | ——     |
-| `color`          | 文字颜色                                                                 | string                                         | ——              | ——     |
+| 参数             | 说明                                                                     | 类型    | 可选值          | 默认值 |
+| ---------------- | ------------------------------------------------------------------------ | ------- | --------------- | ------ |
+| `round`          | 是否为圆角                                                               | boolean | ——              | false  |
+| `behavior`       | 滚动模式                                                                 | string  | `smooth` `auto` | smooth |
+| `visible-height` | 滚动超出多少距离展示                                                     | number  | ——              | 200    |
+| `right`          | 距离右侧的距离                                                           | string  | ——              | 40     |
+| `bottom`         | 距离底部的距离                                                           | string  | ——              | 40     |
+| `z-index`        | 原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) | number  | ——              | 200    |
+| `top`            | 点击返回距离顶部的距离                                                   | number  | ——              | 0      |
+| `listen-el`      | 监视指定元素，需要传入指定的 class 或 id，如：.box #app                  | string  | ——              | ——     |
+| `background`     | 背景色                                                                   | string  | ——              | ——     |
+| `color`          | 文字颜色                                                                 | string  | ——              | ——     |
 
 ## Slots
 
@@ -128,13 +139,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { BackTopInstance, BackTopProps, BackTopBehavior } from 'fighting-design'
-```
-
-### BackTopBehavior
-
-```ts
-type BackTopBehavior = 'smooth' | 'auto'
+import type { BackTopInstance, BackTopProps, BackTopBehavior, BackTopHandleScrollInterface } from 'fighting-design'
 ```
 
 ## Contributors
@@ -146,3 +151,16 @@ type BackTopBehavior = 'smooth' | 'auto'
 <a href="https://github.com/XiaoLi-sach" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/55753927?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { FIconSnowflake, FIconUpload } from '@fighting-design/fighting-icon'
+</script>
+
+<style scoped>
+  .f-box {
+    width: 100%;
+    height: 100px;
+    border: 4px solid skyblue;
+    overflow: auto;
+  }
+</style>

@@ -3,7 +3,7 @@
 更丝滑的下拉过度
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/collapse-animation)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/collapse-animation.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/collapse-animation.md)
 
 ## 基本使用
 
@@ -11,7 +11,21 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-switch v-model="isOpen" size="middle" />
+
+<f-collapse-animation :opened="isOpen">
+<h1>Hello</h1>
+<h1>你看到我了吗？</h1>
+
+<f-button type="primary">主要按钮</f-button>
+<f-button type="success">成功按钮</f-button>
+<f-button type="danger">危险按钮</f-button>
+<f-button type="warning">警告按钮</f-button>
+</f-collapse-animation>
+</template>
+
+```html
 <template>
   <f-switch v-model="isOpen" size="middle" />
 
@@ -41,21 +55,30 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<template #source>
+<f-switch v-model="isOpen2" size="middle" />
 
-  const isOpen = ref(true)
-</script>
+<f-collapse-animation :opened="isOpen2" disabled>
+<h1>Hello</h1>
+<h1>禁止使用！！</h1>
+</f-collapse-animation>
+</template>
 
+```html
 <template>
-  <f-switch v-model="isOpen" size="middle" />
+  <f-switch v-model="isOpen2" size="middle" />
 
-  <f-collapse-animation :opened="isOpen" disabled>
+  <f-collapse-animation :opened="isOpen2" disabled>
     <h1>Hello</h1>
     <h1>禁止使用！！</h1>
   </f-collapse-animation>
 </template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const isOpen2 = ref(true)
+</script>
 ```
 
 :::
@@ -78,7 +101,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { CollapseAnimationInstance, CollapseAnimationProps } from 'fighting-design'
+import type { CollapseAnimationInstance, CollapseAnimationPropsType } from 'fighting-design'
 ```
 
 ## Contributors
@@ -86,3 +109,10 @@ import type { CollapseAnimationInstance, CollapseAnimationProps } from 'fighting
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const isOpen = ref(false)
+  const isOpen2 = ref(true)
+</script>

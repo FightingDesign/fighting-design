@@ -3,7 +3,7 @@
 选取你想要的时间
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/time-picker)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/time-picker.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/time-picker.md)
 
 :::danger
 组件仍在测试阶段，高频更新中，部分参数暂不稳定！
@@ -15,16 +15,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-time-picker v-model:time="value1" />
+</template>
+
+```html
+<template>
+  <f-time-picker v-model:time="value1" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref('')
+  const value1 = ref('')
 </script>
-
-<template>
-  <f-time-picker v-model:time="value" />
-</template>
 ```
 
 :::
@@ -48,3 +52,9 @@ import type { TimePickerInstance, TimePickerProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const value1 = ref('')
+</script>

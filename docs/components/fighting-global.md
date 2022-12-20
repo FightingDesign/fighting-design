@@ -3,7 +3,7 @@
 可控制全局组件
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/fighting-global)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/fighting-global.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/fighting-global.md)
 
 ## 基本使用
 
@@ -11,24 +11,40 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-fighting-global type="primary">
-    <f-space>
-      <f-button>默认按钮</f-button>
-      <f-button>主要按钮</f-button>
-      <f-button>成功按钮</f-button>
-      <f-button>危险按钮</f-button>
-      <f-button>警告按钮</f-button>
+<template #source>
+<f-fighting-global type="primary">
+<f-space>
+<f-button>默认按钮</f-button>
+<f-button>主要按钮</f-button>
+<f-button>成功按钮</f-button>
+<f-button>危险按钮</f-button>
+<f-button>警告按钮</f-button>
 
-      <f-button simple type="default">默认按钮</f-button>
-      <f-button simple type="primary">主要按钮</f-button>
-      <f-button simple type="success">成功按钮</f-button>
-      <f-button simple type="danger">危险按钮</f-button>
-      <f-button simple type="warning">警告按钮</f-button>
-    </f-space>
-  </f-fighting-global>
+<f-button simple type="default">默认按钮</f-button>
+<f-button simple type="primary">主要按钮</f-button>
+<f-button simple type="success">成功按钮</f-button>
+<f-button simple type="danger">危险按钮</f-button>
+<f-button simple type="warning">警告按钮</f-button>
+</f-space>
+</f-fighting-global>
 </template>
+
+```html
+<f-fighting-global type="primary">
+  <f-space>
+    <f-button>默认按钮</f-button>
+    <f-button>主要按钮</f-button>
+    <f-button>成功按钮</f-button>
+    <f-button>危险按钮</f-button>
+    <f-button>警告按钮</f-button>
+
+    <f-button simple type="default">默认按钮</f-button>
+    <f-button simple type="primary">主要按钮</f-button>
+    <f-button simple type="success">成功按钮</f-button>
+    <f-button simple type="danger">危险按钮</f-button>
+    <f-button simple type="warning">警告按钮</f-button>
+  </f-space>
+</f-fighting-global>
 ```
 
 :::

@@ -3,7 +3,7 @@
 一个标签
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tag)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/tag.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tag.md)
 
 ## 基本使用
 
@@ -11,16 +11,20 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space>
-    <f-tag type="default">默认</f-tag>
-    <f-tag type="primary">普通</f-tag>
-    <f-tag type="warning">警告</f-tag>
-    <f-tag type="success">成功</f-tag>
-    <f-tag type="danger">失败</f-tag>
-  </f-space>
+<template #source>
+<f-tag type="default">默认</f-tag>
+<f-tag type="primary">普通</f-tag>
+<f-tag type="warning">警告</f-tag>
+<f-tag type="success">成功</f-tag>
+<f-tag type="danger">失败</f-tag>
 </template>
+
+```html
+<f-tag type="default">默认</f-tag>
+<f-tag type="primary">普通</f-tag>
+<f-tag type="warning">警告</f-tag>
+<f-tag type="success">成功</f-tag>
+<f-tag type="danger">失败</f-tag>
 ```
 
 :::
@@ -31,16 +35,20 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space>
-    <f-tag simple type="default">默认</f-tag>
-    <f-tag simple type="primary">普通</f-tag>
-    <f-tag simple type="warning">警告</f-tag>
-    <f-tag simple type="success">成功</f-tag>
-    <f-tag simple type="danger">失败</f-tag>
-  </f-space>
+<template #source>
+<f-tag simple type="default">默认</f-tag>
+<f-tag simple type="primary">普通</f-tag>
+<f-tag simple type="warning">警告</f-tag>
+<f-tag simple type="success">成功</f-tag>
+<f-tag simple type="danger">失败</f-tag>
 </template>
+
+```html
+<f-tag simple type="default">默认</f-tag>
+<f-tag simple type="primary">普通</f-tag>
+<f-tag simple type="warning">警告</f-tag>
+<f-tag simple type="success">成功</f-tag>
+<f-tag simple type="danger">失败</f-tag>
 ```
 
 :::
@@ -51,16 +59,20 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space>
-    <f-tag line type="default">默认</f-tag>
-    <f-tag line type="primary">普通</f-tag>
-    <f-tag line type="warning">警告</f-tag>
-    <f-tag line type="success">成功</f-tag>
-    <f-tag line type="danger">失败</f-tag>
-  </f-space>
+<template #source>
+<f-tag line type="default">默认</f-tag>
+<f-tag line type="primary">普通</f-tag>
+<f-tag line type="warning">警告</f-tag>
+<f-tag line type="success">成功</f-tag>
+<f-tag line type="danger">失败</f-tag>
 </template>
+
+```html
+<f-tag line type="default">默认</f-tag>
+<f-tag line type="primary">普通</f-tag>
+<f-tag line type="warning">警告</f-tag>
+<f-tag line type="success">成功</f-tag>
+<f-tag line type="danger">失败</f-tag>
 ```
 
 :::
@@ -71,13 +83,13 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space>
-    <f-tag background="skyblue">天蓝色</f-tag>
-    <f-tag background="blue" color="#fff">深蓝色</f-tag>
-  </f-space>
+<template #source>
+<f-tag background="skyblue">天蓝色</f-tag>
+<f-tag background="blue" color="#fff">深蓝色</f-tag>
 </template>
+
+```html
+<f-tag background="skyblue">天蓝色</f-tag> <f-tag background="blue" color="#fff">深蓝色</f-tag>
 ```
 
 :::
@@ -88,15 +100,18 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space>
-    <f-tag type="primary" size="large">大标签</f-tag>
-    <f-tag type="primary" size="middle">中等标签</f-tag>
-    <f-tag type="primary" size="small">小标签</f-tag>
-    <f-tag type="primary" size="mini">超小标签</f-tag>
-  </f-space>
+<template #source>
+<f-tag type="primary" size="large">大标签</f-tag>
+<f-tag type="primary" size="middle">中等标签</f-tag>
+<f-tag type="primary" size="small">小标签</f-tag>
+<f-tag type="primary" size="mini">超小标签</f-tag>
 </template>
+
+```html
+<f-tag type="primary" size="large">大标签</f-tag>
+<f-tag type="primary" size="middle">中等标签</f-tag>
+<f-tag type="primary" size="small">小标签</f-tag>
+<f-tag type="primary" size="mini">超小标签</f-tag>
 ```
 
 :::
@@ -107,16 +122,20 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space>
-    <f-tag block type="default">默认</f-tag>
-    <f-tag block type="primary">普通</f-tag>
-    <f-tag block type="warning">警告</f-tag>
-    <f-tag block type="success">成功</f-tag>
-    <f-tag block type="danger">失败</f-tag>
-  </f-space>
+<template #source>
+<f-tag block type="default">默认</f-tag>
+<f-tag block type="primary">普通</f-tag>
+<f-tag block type="warning">警告</f-tag>
+<f-tag block type="success">成功</f-tag>
+<f-tag block type="danger">失败</f-tag>
 </template>
+
+```html
+<f-tag block type="default">默认</f-tag>
+<f-tag block type="primary">普通</f-tag>
+<f-tag block type="warning">警告</f-tag>
+<f-tag block type="success">成功</f-tag>
+<f-tag block type="danger">失败</f-tag>
 ```
 
 :::
@@ -127,36 +146,40 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-space>
-    <f-tag close type="default">默认</f-tag>
-    <f-tag close type="primary">普通</f-tag>
-    <f-tag close type="warning">警告</f-tag>
-    <f-tag close type="success">成功</f-tag>
-    <f-tag close type="danger">失败</f-tag>
-  </f-space>
+<template #source>
+<f-tag close type="default">默认</f-tag>
+<f-tag close type="primary">普通</f-tag>
+<f-tag close type="warning">警告</f-tag>
+<f-tag close type="success">成功</f-tag>
+<f-tag close type="danger">失败</f-tag>
 </template>
+
+```html
+<f-tag close type="default">默认</f-tag>
+<f-tag close type="primary">普通</f-tag>
+<f-tag close type="warning">警告</f-tag>
+<f-tag close type="success">成功</f-tag>
+<f-tag close type="danger">失败</f-tag>
 ```
 
 :::
 
 ## Attributes
 
-| 参数          | 说明                   | 类型                                                               | 可选值                                           | 默认值  |
-| ------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------- |
-| `type`        | 标签类型               | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `success` `danger` `warning` `primary` | default |
-| `close`       | 是否可关闭             | boolean                                                            | ——                                               | false   |
-| `line`        | 线性的                 | boolean                                                            | ——                                               | false   |
-| `round`       | 圆角                   | boolean                                                            | ——                                               | false   |
-| `background`  | 自定义背景色           | string                                                             | ——                                               | ——      |
-| `color`       | 自定义文字颜色         | string                                                             | ——                                               | ——      |
-| `before-icon` | 左侧 icon              | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
-| `after-icon`  | 右侧 icon              | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
-| `size`        | 标签大小               | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                  | small   |
-| `simple`      | 是否为简约模式         | boolean                                                            | ——                                               | false   |
-| `block`       | 是否为块级元素         | boolean                                                            | ——                                               | false   |
-| `on-close`    | 点击关闭按钮触发的回调 | Function                                                           | ——                                               | ——      |
+| 参数          | 说明                   | 类型                                                               | 可选值                                           | 默认值 |
+| ------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------ |
+| `type`        | 标签类型               | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `success` `danger` `warning` `primary` | ——     |
+| `close`       | 是否可关闭             | boolean                                                            | ——                                               | false  |
+| `line`        | 线性的                 | boolean                                                            | ——                                               | false  |
+| `round`       | 圆角                   | boolean                                                            | ——                                               | false  |
+| `background`  | 自定义背景色           | string                                                             | ——                                               | ——     |
+| `color`       | 自定义文字颜色         | string                                                             | ——                                               | ——     |
+| `before-icon` | 左侧 icon              | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
+| `after-icon`  | 右侧 icon              | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
+| `size`        | 标签大小               | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                  | small  |
+| `simple`      | 是否为简约模式         | boolean                                                            | ——                                               | false  |
+| `block`       | 是否为块级元素         | boolean                                                            | ——                                               | false  |
+| `on-close`    | 点击关闭按钮触发的回调 | Function                                                           | ——                                               | ——     |
 
 ## Slots
 
@@ -181,3 +204,9 @@ import type { TagInstance, TagProps } from 'fighting-design'
 <a href="https://github.com/konvyi" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/44802220?v=4" />
 </a>
+
+<style scoped>
+  .f-tag {
+    margin: 5px;
+  }
+</style>

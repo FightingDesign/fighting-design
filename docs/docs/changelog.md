@@ -2,6 +2,23 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.12.0 (2022-12-20)
+
+**新功能**
+
+- 新增 `f-form` 组件
+- 新增 `f-form-item` 组件
+
+**修复**
+
+- 修复 `f-space` 组件样式细节
+- 修复 `f-back-top` 组件 `z-index` 失效问题
+
+**其它更新**
+
+- 废除 `loading-bar` 组件
+- 优化 `f-input` 组件类型
+
 ## 0.11.2 (2022-12-15)
 
 **新增**

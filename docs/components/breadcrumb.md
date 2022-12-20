@@ -3,22 +3,28 @@
 这个面包屑不能吃
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/breadcrumb)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/breadcrumb.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/breadcrumb.md)
 
 ## 基本使用
 
-基本使用
+`f-breadcrumb` 的基本使用
 
 ::: demo
 
-```vue
-<template>
-  <f-breadcrumb>
-    <f-breadcrumb-item>首页</f-breadcrumb-item>
-    <f-breadcrumb-item>文章</f-breadcrumb-item>
-    <f-breadcrumb-item>列表</f-breadcrumb-item>
-  </f-breadcrumb>
+<template #source>
+<f-breadcrumb>
+<f-breadcrumb-item>首页</f-breadcrumb-item>
+<f-breadcrumb-item>文章</f-breadcrumb-item>
+<f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
 </template>
+
+```html
+<f-breadcrumb>
+  <f-breadcrumb-item>首页</f-breadcrumb-item>
+  <f-breadcrumb-item>文章</f-breadcrumb-item>
+  <f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
 ```
 
 :::
@@ -31,14 +37,20 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-breadcrumb icon-color="#333" font-color="blue">
-    <f-breadcrumb-item>首页</f-breadcrumb-item>
-    <f-breadcrumb-item>文章</f-breadcrumb-item>
-    <f-breadcrumb-item>列表</f-breadcrumb-item>
-  </f-breadcrumb>
+<template #source>
+<f-breadcrumb icon-color="#333" font-color="blue">
+<f-breadcrumb-item>首页</f-breadcrumb-item>
+<f-breadcrumb-item>文章</f-breadcrumb-item>
+<f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
 </template>
+
+```html
+<f-breadcrumb icon-color="#333" font-color="blue">
+  <f-breadcrumb-item>首页</f-breadcrumb-item>
+  <f-breadcrumb-item>文章</f-breadcrumb-item>
+  <f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
 ```
 
 :::
@@ -49,11 +61,15 @@
 
 ::: demo
 
-```vue
-<script lang="ts" setup>
-  import { FIconTag } from '@fighting-design/fighting-icon'
-</script>
+<template #source>
+<f-breadcrumb :separator="FIconTag">
+<f-breadcrumb-item>首页</f-breadcrumb-item>
+<f-breadcrumb-item>文章</f-breadcrumb-item>
+<f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
+</template>
 
+```html
 <template>
   <f-breadcrumb :separator="FIconTag">
     <f-breadcrumb-item>首页</f-breadcrumb-item>
@@ -61,6 +77,44 @@
     <f-breadcrumb-item>列表</f-breadcrumb-item>
   </f-breadcrumb>
 </template>
+
+<script lang="ts" setup>
+  import { FIconTag } from '@fighting-design/fighting-icon'
+</script>
+```
+
+:::
+
+## 自定义 icon
+
+`f-breadcrumb-item` 组件内可以插入 `icon`
+
+::: demo
+
+<template #source>
+<f-breadcrumb>
+<f-breadcrumb-item>
+<f-icon-skull />
+</f-breadcrumb-item>
+<f-breadcrumb-item>文章</f-breadcrumb-item>
+<f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
+</template>
+
+```html
+<template>
+  <f-breadcrumb>
+    <f-breadcrumb-item>
+      <f-icon-skull />
+    </f-breadcrumb-item>
+    <f-breadcrumb-item>文章</f-breadcrumb-item>
+    <f-breadcrumb-item>列表</f-breadcrumb-item>
+  </f-breadcrumb>
+</template>
+
+<script lang="ts" setup>
+  import { FIconSkull } from '@fighting-design/fighting-icon'
+</script>
 ```
 
 :::
@@ -71,14 +125,20 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-breadcrumb font-size="18px">
-    <f-breadcrumb-item>首页</f-breadcrumb-item>
-    <f-breadcrumb-item>文章</f-breadcrumb-item>
-    <f-breadcrumb-item>列表</f-breadcrumb-item>
-  </f-breadcrumb>
+<template #source>
+<f-breadcrumb font-size="18px">
+<f-breadcrumb-item>首页</f-breadcrumb-item>
+<f-breadcrumb-item>文章</f-breadcrumb-item>
+<f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
 </template>
+
+```html
+<f-breadcrumb font-size="18px">
+  <f-breadcrumb-item>首页</f-breadcrumb-item>
+  <f-breadcrumb-item>文章</f-breadcrumb-item>
+  <f-breadcrumb-item>列表</f-breadcrumb-item>
+</f-breadcrumb>
 ```
 
 :::
@@ -118,13 +178,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  BreadcrumbInstance,
-  BreadcrumbProps,
-  BreadcrumbItemInstance,
-  BreadcrumbItemProps,
-  BreadcrumbItemTo
-} from 'fighting-design'
+import type { BreadcrumbInstance, BreadcrumbProps, BreadcrumbItemInstance, BreadcrumbItemProps, BreadcrumbItemTo } from 'fighting-design'
 ```
 
 ### BreadcrumbItemTo
@@ -145,3 +199,7 @@ interface BreadcrumbItemTo {
 <a href="https://github.com/onechuan" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/98402209?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { FIconTag, FIconSkull } from '@fighting-design/fighting-icon'
+</script>

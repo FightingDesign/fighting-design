@@ -3,7 +3,7 @@
 用于评分或打星
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/rate)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/rate.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/rate.md)
 
 ## 基本使用
 
@@ -11,16 +11,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-rate v-model="value1" />
+</template>
+
+```html
+<template>
+  <f-rate v-model="value1" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(1)
+  const value1 = ref(1)
 </script>
-
-<template>
-  <f-rate v-model="value" />
-</template>
 ```
 
 :::
@@ -31,16 +35,21 @@
 
 ::: demo
 
-```vue
+<template #source>
+
+<f-rate v-model="value2" effect-color="red" invalid-color="#eee" />
+</template>
+
+```html
+<template>
+  <f-rate v-model="value2" effect-color="red" invalid-color="#eee" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(2)
+  const value2 = ref(2)
 </script>
-
-<template>
-  <f-rate v-model="value" effect-color="red" invalid-color="#eee" />
-</template>
 ```
 
 :::
@@ -51,16 +60,20 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-rate v-model="value3" text-show :text-arr="['1星', '2星', '3星', '4星', '5星']" />
+</template>
+
+```html
+<template>
+  <f-rate v-model="value3" text-show :text-arr="['1星', '2星', '3星', '4星', '5星']" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(4)
+  const value3 = ref(4)
 </script>
-
-<template>
-  <f-rate v-model="value" text-show :text-arr="['1星', '2星', '3星', '4星', '5星']" />
-</template>
 ```
 
 :::
@@ -71,17 +84,21 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-rate v-model="value4" :icon="FIconKey" />
+</template>
+
+```html
+<template>
+  <f-rate v-model="value4" :icon="FIconKey" />
+</template>
+
 <script lang="ts" setup>
   import { FIconKey } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
-  const value = ref(4)
+  const value4 = ref(4)
 </script>
-
-<template>
-  <f-rate v-model="value" :icon="FIconKey" />
-</template>
 ```
 
 :::
@@ -126,3 +143,13 @@ type RateChange = (value: number) => number
 <a href="https://github.com/caicailv" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/46363316?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { FIconKey } from '@fighting-design/fighting-icon'
+  import { ref } from 'vue'
+
+  const value1 = ref(2)
+  const value2 = ref(3)
+  const value3 = ref(4)
+  const value4 = ref(4)
+</script>

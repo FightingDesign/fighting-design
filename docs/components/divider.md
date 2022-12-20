@@ -3,7 +3,7 @@
 `Divider` 用户段落的分隔符
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/divider)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/divider.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/divider.md)
 
 ## 基本使用
 
@@ -11,10 +11,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-divider margin="20px">我是分隔线</f-divider>
+<template #source>
+<f-divider margin="20px">我是分隔线</f-divider>
 </template>
+
+```html
+<f-divider>我是分隔线</f-divider>
 ```
 
 :::
@@ -25,16 +27,21 @@
 
 ::: demo
 
-```vue
-<template>
-  <p />
-  <f-divider position="left">我是左边的文字</f-divider>
-  <p />
-  <f-divider position="center">我是居中的文字</f-divider>
-  <p />
-  <f-divider position="right">我是右边的文字</f-divider>
-  <p />
+<template #source>
+
+<p/>
+<f-divider position='left'>我是左边的文字</f-divider>
+<p/>
+<f-divider position='center'>我是居中的文字</f-divider>
+<p/>
+<f-divider position='right'>我是右边的文字</f-divider>
+<p/>
 </template>
+
+```html
+<f-divider position="left">我是左边的文字</f-divider>
+<f-divider position="center">我是居中的文字</f-divider>
+<f-divider position="right">我是右边的文字</f-divider>
 ```
 
 :::
@@ -49,12 +56,17 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-divider margin="40px">默认颜色</f-divider>
-  <f-divider color="green" margin="40px" fontColor="green" background="#eee">我是绿色</f-divider>
-  <f-divider color="blue" margin="40px" fontColor="#fff" background="blue">我是蓝色</f-divider>
+<template #source>
+<f-divider margin="40px">默认颜色</f-divider>
+<f-divider color='green' margin="40px" fontColor="green" background="#eee">我是绿色</f-divider>
+<f-divider color='blue' margin="40px" fontColor="#fff" background="blue">我是蓝色</f-divider>
+
 </template>
+
+```html
+<f-divider margin="40px">默认颜色</f-divider>
+<f-divider color="green" margin="40px" fontColor="green" background="#eee"> 我是绿色 </f-divider>
+<f-divider color="blue" margin="40px" fontColor="#fff" background="blue"> 我是蓝色 </f-divider>
 ```
 
 :::
@@ -65,12 +77,15 @@
 
 ::: demo
 
-```vue
-<template>
-  <div>假装是内容</div>
-  <f-divider margin="60px" fontColor="blue">距离上下60px</f-divider>
-  <div>假装是内容</div>
+<template #source>
+
+<div>假装是内容</div>
+<f-divider margin="60px" fontColor="blue">距离上下60px</f-divider>
+<div>假装是内容</div>
 </template>
+
+```html
+<f-divider margin="60px" fontColor="blue">距离上下60px</f-divider>
 ```
 
 :::
@@ -83,10 +98,12 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-divider vertical>竖着显示</f-divider>
+<template #source>
+<f-divider vertical>竖着显示</f-divider>
 </template>
+
+```html
+<f-divider vertical>竖着显示</f-divider>
 ```
 
 :::
@@ -97,46 +114,38 @@
 
 ::: demo
 
-```vue
-<template>
-  <f-divider type="dashed">我是虚线</f-divider>
-  <f-divider type="dotted">我是圆点</f-divider>
-  <f-divider type="double">我是双实线</f-divider>
+<template #source>
+<f-divider type="dashed">我是虚线</f-divider>
+<f-divider type="dotted">我是圆点</f-divider>
+<f-divider type="double">我是双实线</f-divider>
 </template>
+
+```html
+<f-divider type="dashed">我是虚线</f-divider>
+<f-divider type="dotted">我是圆点</f-divider>
+<f-divider type="double">我是双实线</f-divider>
 ```
 
 :::
 
 ## Attributes
 
-| 参数         | 说明         | 类型                                           | 可选值                             | 默认值 |
-| ------------ | ------------ | ---------------------------------------------- | ---------------------------------- | ------ |
-| `position`   | 文字显示位置 | <a href="#dividertype">DividerType</a>         | `left` `center` `right`            | center |
-| `vertical`   | 是否为竖线   | boolean                                        | ——                                 | false  |
-| `color`      | 线条颜色     | string                                         | ——                                 | ——     |
-| `font-color` | 文字颜色     | string                                         | ——                                 | ——     |
-| `background` | 背景颜色     | boolean                                        | ——                                 | ——     |
-| `margin`     | 上下边距     | string                                         | ——                                 | ——     |
-| `type`       | 分隔符类型   | <a href="#dividerposition">DividerPosition</a> | `dashed` `dotted` `double` `solid` | solid  |
+| 参数         | 说明         | 类型    | 可选值                             | 默认值 |
+| ------------ | ------------ | ------- | ---------------------------------- | ------ |
+| `position`   | 文字显示位置 | string  | `left` `center` `right`            | center |
+| `vertical`   | 是否为竖线   | boolean | ——                                 | false  |
+| `color`      | 线条颜色     | string  | ——                                 | ——     |
+| `font-color` | 文字颜色     | string  | ——                                 | ——     |
+| `background` | 背景颜色     | boolean | ——                                 | ——     |
+| `margin`     | 上下边距     | string  | ——                                 | ——     |
+| `type`       | 分隔符类型   | string  | `dashed` `dotted` `double` `solid` | solid  |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type { DividerInstance, DividerProps, DividerPosition, DividerType } from 'fighting-design'
-```
-
-### DividerType
-
-```ts
-type DividerType = 'dashed' | 'dotted' | 'double' | 'solid'
-```
-
-### DividerPosition
-
-```ts
-type DividerPosition = 'left' | 'center' | 'right'
+import type { DividerInstance, DividerPropsType, DividerPositionType, DividerType } from 'fighting-design'
 ```
 
 ## Contributors

@@ -3,7 +3,7 @@
 这个文本框只能输入数字哦
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/input-number)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/input-number.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/input-number.md)
 
 :::danger
 组件仍在测试阶段，高频更新中，部分参数暂不稳定！
@@ -15,20 +15,28 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-space vertical>
+<f-input-number v-model="value1" />
+<f-input-number v-model="value1" model="switch" />
+<f-input-number v-model="value1" model="button" />
+</f-space>
+</template>
+
+```html
+<template>
+  <f-space vertical>
+    <f-input-number v-model="value1" />
+    <f-input-number v-model="value1" model="switch" />
+    <f-input-number v-model="value1" model="button" />
+  </f-space>
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(3)
+  const value1 = ref(3)
 </script>
-
-<template>
-  <f-space vertical>
-    <f-input-number v-model="value" />
-    <f-input-number v-model="value" model="switch" />
-    <f-input-number v-model="value" model="button" />
-  </f-space>
-</template>
 ```
 
 :::
@@ -83,3 +91,9 @@ type InputNumberModel = 'default' | 'button' | 'switch'
 <a href="https://github.com/xluoyu" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const value1 = ref(3)
+</script>

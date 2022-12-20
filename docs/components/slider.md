@@ -3,11 +3,7 @@
 用滑动的方式改变数值
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/slider)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/slider.md)
-
-:::danger
-组件仍在测试阶段，暂不稳定！
-:::
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/slider.md)
 
 ## 基本使用
 
@@ -15,15 +11,19 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-slider v-model="value1" />
+</template>
+
+```html
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(50)
+  const value1 = ref(50)
 </script>
 
 <template>
-  <f-slider v-model="value" />
+  <f-slider v-model="value1" />
 </template>
 ```
 
@@ -35,15 +35,19 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-slider v-model="value2" :min="40" :max="60" />
+</template>
+
+```html
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(50)
+  const value2 = ref(50)
 </script>
 
 <template>
-  <f-slider v-model="value" :min="40" :max="60" />
+  <f-slider v-model="value2" :min="40" :max="60" />
 </template>
 ```
 
@@ -55,15 +59,19 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-slider v-model="value3" :step="10" />
+</template>
+
+```html
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(20)
+  const value3 = ref(20)
 </script>
 
 <template>
-  <f-slider v-model="value" :step="10" />
+  <f-slider v-model="value3" :step="10" />
 </template>
 ```
 
@@ -75,15 +83,19 @@
 
 ::: demo
 
-```vue
+<template #source>
+<f-slider v-model="value4" disabled />
+</template>
+
+```html
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value = ref(70)
+  const value4 = ref(70)
 </script>
 
 <template>
-  <f-slider v-model="value" disabled />
+  <f-slider v-model="value4" disabled />
 </template>
 ```
 
@@ -118,3 +130,12 @@ import type { SliderInstance, SliderProps } from 'fighting-design'
 <a href="https://github.com/long-life233" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/77321887?v=4" />
 </a>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const value1 = ref(50)
+  const value2 = ref(50)
+  const value3 = ref(20)
+  const value4 = ref(70)
+</script>
