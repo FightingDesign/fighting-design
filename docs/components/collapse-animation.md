@@ -3,7 +3,7 @@
 更丝滑的下拉过度
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/collapse-animation)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/collapse-animation.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/collapse-animation.md)
 
 ## 基本使用
 

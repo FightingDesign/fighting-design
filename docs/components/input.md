@@ -3,7 +3,7 @@
 输入框
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/input)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/input.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/input.md)
 
 ## 基本使用
 

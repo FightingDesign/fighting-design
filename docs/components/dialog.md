@@ -3,7 +3,7 @@
 `Dialog` 组件在保留当前页面状态的情况下，弹出对话框，告知用户相关信息，并进行一些操作。
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/dialog)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/dialog.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/dialog.md)
 
 ## 基本使用
 

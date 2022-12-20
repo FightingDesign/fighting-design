@@ -3,7 +3,7 @@
 每天都有好心情
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/calendar)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/calendar.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/calendar.md)
 
 ## 基本使用
 

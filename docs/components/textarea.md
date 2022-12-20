@@ -3,7 +3,7 @@
 可多行输入的文本域
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/textarea)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/textarea.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/textarea.md)
 
 ## 基本使用
 

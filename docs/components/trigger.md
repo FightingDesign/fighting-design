@@ -3,7 +3,7 @@
 需要触发才能实现的下拉菜单
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/trigger)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/trigger.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/trigger.md)
 
 ## 基本使用
 

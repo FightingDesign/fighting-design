@@ -3,7 +3,7 @@
 每天写不完的业务代码，提交不尽的表单
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/form)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/form.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/form.md)
 
 :::danger
 组件仍在开发阶段，谨慎使用！

@@ -3,7 +3,7 @@
 处理常见的一些网页布局，实现快速搭建
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/layout)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/layout.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/layout.md)
 
 ## 基本使用
 

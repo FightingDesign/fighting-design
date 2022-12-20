@@ -3,7 +3,7 @@
 精致的切换组件
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/swap)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/swap.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/swap.md)
 
 ## 基本使用
 

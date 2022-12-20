@@ -2,7 +2,7 @@
 
 好看的颜色可以让人神情愉悦
 
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/color.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/color.md)
 
 ## 内部颜色
 

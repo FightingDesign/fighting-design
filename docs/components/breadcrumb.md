@@ -3,7 +3,7 @@
 这个面包屑不能吃
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/breadcrumb)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/breadcrumb.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/breadcrumb.md)
 
 ## 基本使用
 

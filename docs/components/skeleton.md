@@ -3,7 +3,7 @@
 在数据完整加载之前显示的占位骨架
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/skeleton)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/skeleton.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/skeleton.md)
 
 ## 基本使用
 

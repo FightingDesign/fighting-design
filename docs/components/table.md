@@ -3,7 +3,7 @@
 将数据格式化
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/table)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/table.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/table.md)
 
 :::danger
 组件仍在测试阶段，高频更新中，部分参数暂不稳定！

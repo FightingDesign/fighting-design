@@ -3,7 +3,7 @@
 点击开启大图预览
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/image-preview)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/image-preview.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/image-preview.md)
 
 ## 基本使用
 

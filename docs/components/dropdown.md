@@ -3,7 +3,7 @@
 你永远不知道下拉菜单里有什么
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/dropdown)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/dropdown.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/dropdown.md)
 
 ## 基本使用
 

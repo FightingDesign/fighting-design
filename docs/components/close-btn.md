@@ -3,7 +3,7 @@
 想不到关闭按钮也可以如此精致吧？
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/close-btn)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/close-btn.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/close-btn.md)
 
 ## 基本使用
 
