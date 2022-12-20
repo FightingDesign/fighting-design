@@ -13,6 +13,7 @@
 
 在 `f-form` 组件中添加 `native-type` 为 `submit` 的按钮，将会触发表单的 `on-submit` 回调触发提交表单
 
+{{ruleForm}}
 <f-form label-width="60px" :on-submit="handelSubmit">
 <f-form-item label="账号">
 <f-input v-model="ruleForm.account" type="text" placeholder="请输入账号" />
@@ -27,7 +28,7 @@
 </f-form-item>
 </f-form>
 
-<!-- ## 表单验证
+## 表单验证
 
 进行表单验证时，需要传递给 `f-form` 组件 `model` 属性来绑定当前表单对象
 
@@ -37,19 +38,20 @@
 
 在 `on-submit` 回调中，可结构出三个参数，分别是：当前表单是否通过验证、当前验证结果对象、事件对象
 
+{{ruleForm2}}
 <f-form :model="ruleForm2" label-width="60px" :on-submit="handelSubmit2">
 <f-form-item label="账号" name="account" :rules="[ { required: true, message: '请输入用户名' }, { min: 4, max: 12, message: '请输入 4~12 用户名' }, { regExp: /123456/, message: '必须包含 123456' } ]" >
-<f-input v-model="ruleForm.account" type="text" placeholder="请输入账号" />
+<f-input v-model="ruleForm2.account" type="text" placeholder="请输入账号" />
 </f-form-item>
 
-<f-form-item label="密码" name="password" :rules="[ { required: true, message: '请输入密码' }, { min: 6, message: '至少输入六位数密码' } ]"
-<f-input v-model="ruleForm.password" type="password" placeholder="请输入密码" />
+<f-form-item label="密码" name="password" :rules="[ { required: true, message: '请输入密码' }, { min: 6, message: '至少输入六位数密码' } ]">
+<f-input v-model="ruleForm2.password" type="password" placeholder="请输入密码" />
 </f-form-item>
 
 <f-form-item>
 <f-button type="primary" native-type="submit" block>提交表单</f-button>
 </f-form-item>
-</f-form> -->
+</f-form>
 
 ## Form Attributes
 
