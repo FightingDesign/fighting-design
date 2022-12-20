@@ -1,14 +1,5 @@
-<script lang="ts" setup>
-  import { reactive } from 'vue'
+<script lang="ts" setup></script>
 
-  const value = reactive({
-    value1: '123',
-    value2: '456'
-  })
-</script>
+<template></template>
 
-<template>
-  <h1>{{ value }}</h1>
-  <input v-model="value.value1" type="text" />
-  <input v-model="value.value2" type="text" />
-</template>
+<style lang="scss" scoped></style>

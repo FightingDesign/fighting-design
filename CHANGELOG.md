@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**新功能**
+
+- 新增 `f-form` 组件
+- 新增 `f-form-item` 组件
+
 **修复**
 
 - 修复 `f-space` 组件样式细节
