@@ -32,15 +32,9 @@
 
 <template>
   {{ ruleForm }}
-  <f-form label-width="60px" :on-submit="handelSubmit">
-    <f-form-item label="密码">
-      <f-input v-model="ruleForm.password" type="password" placeholder="请输入密码" />
-    </f-form-item>
 
-    <f-form-item>
-      <f-button type="primary" native-type="submit" block>提交表单</f-button>
-    </f-form-item>
-  </f-form>
+  <f-input v-model="ruleForm.account" type="text" placeholder="请输入账号" />
+  <f-input v-model="ruleForm.password" type="password" placeholder="请输入密码" />
 </template>
 ```
 
@@ -77,22 +71,6 @@
 
 <template>
   {{ ruleForm }}
-  <f-form :model="ruleForm" label-width="60px" :on-submit="handelSubmit">
-    <f-form-item
-      label="密码"
-      name="password"
-      :rules="[
-        { required: true, message: '请输入密码' },
-        { min: 6, message: '至少输入六位数密码' }
-      ]"
-    >
-      <f-input v-model="ruleForm.password" type="password" placeholder="请输入密码" />
-    </f-form-item>
-
-    <f-form-item>
-      <f-button type="primary" native-type="submit" block>提交表单</f-button>
-    </f-form-item>
-  </f-form>
 </template>
 ```
 
