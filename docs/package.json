@@ -9,7 +9,7 @@
   "dependencies": {
     "@mdit-vue/plugin-sfc": "^0.11.1",
     "@vue/compiler-sfc": "^3.2.45",
-    "vitepress": "1.0.0-alpha.31"
+    "vitepress": "1.0.0-alpha.32"
   },
   "devDependencies": {
     "markdown-it": "^13.0.1",
