@@ -36,17 +36,11 @@ export const pluginRender = (md: MarkdownIt): void => {
       const scriptSfc = script?.match(sfcRegexp)?.groups
       const styleSfc = style?.match(sfcRegexp)?.groups
 
-      console.log('templateSfc', templateSfc)
-      console.log('scriptSfc', scriptSfc)
-      console.log('styleSfc', styleSfc)
-
       env.sfcBlocks.template = templateSfc
       env.sfcBlocks.script = scriptSfc
 
       scriptSfc && env.sfcBlocks.scripts.push(scriptSfc)
       styleSfc && env.sfcBlocks.styles.push(styleSfc)
-
-      console.log(env.sfcBlocks)
 
       rendered = template as string
     }

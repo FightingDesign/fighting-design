@@ -22,8 +22,10 @@
 </script>
 
 <template>
-  <f-switch v-model="value.value1" />
-  <f-switch v-model="value.value2" />
+  <f-space>
+    <f-switch v-model="value.value1" />
+    <f-switch v-model="value.value2" />
+  </f-space>
 </template>
 ```
 
@@ -43,10 +45,12 @@
 </script>
 
 <template>
-  <f-switch v-model="value" size="large" />
-  <f-switch v-model="value" size="middle" />
-  <f-switch v-model="value" size="small" />
-  <f-switch v-model="value" size="mini" />
+  <f-space>
+    <f-switch v-model="value" size="large" />
+    <f-switch v-model="value" size="middle" />
+    <f-switch v-model="value" size="small" />
+    <f-switch v-model="value" size="mini" />
+  </f-space>
 </template>
 ```
 
@@ -67,8 +71,10 @@
 </script>
 
 <template>
-  <f-switch v-model="value1" disabled />
-  <f-switch v-model="value2" disabled />
+  <f-space>
+    <f-switch v-model="value1" disabled />
+    <f-switch v-model="value2" disabled />
+  </f-space>
 </template>
 ```
 

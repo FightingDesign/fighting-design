@@ -66,13 +66,14 @@
 <script lang="ts" setup>
   import { reactive } from 'vue'
   import { FMessage } from 'fighting-design'
+  import type { FormParam } from 'fighting-design'
 
   const ruleForm = reactive({
     account: '',
     password: ''
   })
 
-  const handelSubmit = ({ ok, res, evt }): void => {
+  const handelSubmit = ({ ok, res, evt }: FormParam): void => {
     if (!ok) return
     FMessage.success(`ok: ${ok} res: ${res} evt: ${evt} 开始提交表单`)
   }

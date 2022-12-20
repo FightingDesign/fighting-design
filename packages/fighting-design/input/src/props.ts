@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { InputType, InputChange, InputSearch } from './interface'
+import type { InputType, InputValChange, InputSearch } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -161,7 +161,7 @@ export const Props = {
    * 绑定值发生改变时触发的回调
    */
   onChange: {
-    type: Function as PropType<InputChange>,
+    type: Function as PropType<InputValChange>,
     default: (): null => null
   },
   /**

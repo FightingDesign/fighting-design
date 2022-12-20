@@ -203,7 +203,7 @@
 | `enter-search`  | 是否按下回车触发搜索       | boolean                                                            | ——                              | false   |
 | `icon`          | 自定义前缀 icon            | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——      |
 | `on-search`     | 点击搜索触发的回调         | <a href="#inputsearch">InputSearch</a>                             | ——                              | ——      |
-| `on-change`     | 绑定值发生变化时触发的回调 | <a href="#inputchange">InputChange</a>                             | ——                              | ——      |
+| `on-change`     | 绑定值发生变化时触发的回调 | <a href="#inputvalchange">InputValChange</a>                       | ——                              | ——      |
 | `on-blur`       | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
 | `on-focus`      | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
 | `on-enter`      | 按下回车触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
@@ -220,7 +220,14 @@
 组件导出以下类型定义：
 
 ```ts
-import type { InputInstance, InputProps, InputType, InputChange, InputSearch } from 'fighting-design'
+import type {
+  InputInstance,
+  InputProps,
+  InputType,
+  InputValChange,
+  InputSearchParams,
+  InputSearch
+} from 'fighting-design'
 ```
 
 ### InputType
@@ -229,16 +236,25 @@ import type { InputInstance, InputProps, InputType, InputChange, InputSearch } f
 type InputType = 'text' | 'password' | 'number'
 ```
 
-### InputChange
+### InputValChange
 
 ```ts
-type InputChange = (value: string) => void
+type InputValChange = (value: string) => void
+```
+
+### InputSearchParams
+
+```ts
+interface InputSearchParams {
+  evt: Event
+  value: string
+}
 ```
 
 ### InputSearch
 
 ```ts
-type InputSearch = ({ evt: Event, value: string }) => void
+type InputSearch = ({ evt: Event, value: string }: InputSearchParams) => void
 ```
 
 ## Contributors

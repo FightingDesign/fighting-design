@@ -10,7 +10,7 @@ export const pluginCode = (md: MarkdownIt): void => {
   /**
    * 代码片段的语音
    */
-  const lang = 'vue' as const
+  const lang = 'vue'
   /**
    * 默认渲染方法
    */

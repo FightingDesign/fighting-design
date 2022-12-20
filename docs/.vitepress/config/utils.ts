@@ -92,6 +92,10 @@ export const genInlineComponentText = (
       {
         searchValue: /import ({.*}) from 'fighting-design'/g,
         replaceValue: (s, s1) => `const ${s1} = FightingDesign`
+      },
+      {
+        searchValue: /import type ({.*}) from 'fighting-design'/g,
+        replaceValue: (s, s1) => `const ${s1} = FightingDesign`
       }
     ]
 
