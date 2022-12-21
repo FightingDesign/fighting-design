@@ -1,21 +1,43 @@
 @use './root';
 
 .f-tree {
+  .f-tree {
+    margin-left: 20px;
+  }
+
   &__data {
-    border: 1px solid #333;
-    // height: 30px;
-    // display: flex;
-    // cursor: pointer;
-    // padding: 5px 15px;
-    // align-items: center;
-    // box-sizing: border-box;
+    .f-tree__label {
+      height: 30px;
+      display: flex;
+      cursor: pointer;
+      padding: 5px 15px;
+      align-items: center;
+      box-sizing: border-box;
 
-    // &:hover {
-    //   background: var(--f-design-color-border-1);
-    // }
+      // icon
+      .f-svg-icon {
+        margin-right: 5px;
+      }
 
-    // .f-tree__label {
-    //   color: var(--f-design-color-text-1);
-    // }
+      // 文字内容
+      .f-tree-Label-text {
+        user-select: none;
+      }
+
+      &:hover {
+        background: var(--f-design-color-border-1);
+      }
+    }
+  }
+
+  // 动画效果
+  &-animation-enter-active,
+  &-animation-leave-active {
+    transition: all 0.3s ease;
+  }
+  &-animation-enter-from,
+  &-animation-leave-to {
+    opacity: 0;
+    transform: translateY(-10px);
   }
 }
