@@ -2,16 +2,16 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import { treeToFlat, treeAddLevel } from '../../_utils'
-  import type { TreeAddLevelReturnInterface } from '../../_utils/tree/interface'
+  import type { TreeAddLevelReturn } from '../../_utils/tree/interface'
 
   const prop = defineProps(Props)
 
   // 扁平的树
-  const treeData = computed((): TreeAddLevelReturnInterface[] => {
+  const treeData = computed((): TreeAddLevelReturn[] => {
     return treeToFlat(treeAddLevel(prop.data))
   })
 
-  const handleClick = (item: TreeAddLevelReturnInterface, index: number): void => {
+  const handleClick = (item: TreeAddLevelReturn, index: number): void => {
     console.log(item, index)
   }
 </script>
