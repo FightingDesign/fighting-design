@@ -1,7 +1,6 @@
 <script lang="ts" setup name="FTree">
   import { Props } from './props'
   import { computed } from 'vue'
-  import { FTree } from '../../tree'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconPlusVue, FIconMinus } from '../../_svg'
   import { treeAddLevel } from '../../_utils'

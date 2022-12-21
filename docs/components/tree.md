@@ -5,8 +5,8 @@
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tree)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tree.md)
 
-:::warning
-开发中，暂未实现
+:::danger
+组件仍在测试阶段，高频更新中，谨慎使用！
 :::
 
 ## 基本使用
@@ -19,7 +19,7 @@
 <f-tree :data="data" />
 </template>
 
-```html
+```vue
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -35,7 +35,14 @@
         { label: 'Node 1-3' }
       ]
     },
-    { label: 'Node 2' }
+    {
+      label: 'Node 2',
+      children: [
+        { label: 'Node 2-1' },
+        { label: 'Node 2-2' },
+        { label: 'Node 2-3', children: [{ label: 'Node 2-3-1' }] }
+      ]
+    }
   ])
 </script>
 
@@ -67,22 +74,27 @@ import type { FTreeInstance, treeDataInterface } from 'fighting-design'
 </a>
 
 <script setup lang="ts">
-  const data = [
+  import { ref } from 'vue'
+
+  const data = ref([
     {
       label: 'Node 1',
       children: [
         {
           label: 'Node 1-1',
-          children: [
-            { label: 'Node 1-1-1' },
-            { label: 'Node 1-1-2' },
-            { label: 'Node 1-1-3' }
-          ]
+          children: [{ label: 'Node 1-1-1' }, { label: 'Node 1-1-2' }, { label: 'Node 1-1-3' }]
         },
         { label: 'Node 1-2' },
         { label: 'Node 1-3' }
       ]
     },
-    { label: 'Node 2' }
-  ]
+    {
+      label: 'Node 2',
+      children: [
+        { label: 'Node 2-1' },
+        { label: 'Node 2-2' },
+        { label: 'Node 2-3', children: [{ label: 'Node 2-3-1' }] }
+      ]
+    }
+  ])
 </script>
