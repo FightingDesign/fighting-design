@@ -20,12 +20,10 @@
 </template>
 
 ```html
-<template>
-  <f-tree :data="data" />
-</template>
-
 <script lang="ts" setup>
-  const data = [
+  import { ref } from 'vue'
+
+  const data = ref([
     {
       label: 'Node 1',
       children: [
@@ -38,8 +36,12 @@
       ]
     },
     { label: 'Node 2' }
-  ]
+  ])
 </script>
+
+<template>
+  <f-tree :data="data" />
+</template>
 ```
 
 :::
