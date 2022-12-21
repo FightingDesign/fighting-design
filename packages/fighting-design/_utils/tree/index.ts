@@ -1,3 +1,5 @@
+
+import { isArray } from '../is'
 import type { TreeAddLevelReturn, TreeData } from './interface'
 
 /**
@@ -32,17 +34,15 @@ export const treeToFlat = (data: TreeData[]): TreeAddLevelReturn[] => {
  * @returns
  */
 export const treeAddLevel = (tree: TreeData[]): TreeData[] => {
-  if (!Array.isArray(tree)) {
-    return []
-  }
+  if (!isArray(tree)) return []
 
   const recursive = (array: TreeData[], level = 0): TreeData[] => {
     level++
 
-    return array.map((item: TreeData, index): TreeData => {
+    return array.map((item: TreeData, index: number): TreeData => {
       item.level = level
       item.index = index
-      item.show = false
+      item.show = true
 
       const child: TreeData[] = item.children as TreeData[]
 

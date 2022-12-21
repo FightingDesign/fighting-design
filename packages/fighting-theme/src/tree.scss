@@ -2,19 +2,20 @@
 
 .f-tree {
   &__data {
-    height: 30px;
-    display: flex;
-    cursor: pointer;
-    padding: 5px 15px;
-    align-items: center;
-    box-sizing: border-box;
+    border: 1px solid #333;
+    // height: 30px;
+    // display: flex;
+    // cursor: pointer;
+    // padding: 5px 15px;
+    // align-items: center;
+    // box-sizing: border-box;
 
-    &:hover {
-      background: var(--f-design-color-border-1);
-    }
+    // &:hover {
+    //   background: var(--f-design-color-border-1);
+    // }
 
-    .f-tree__label {
-      color: var(--f-design-color-text-1);
-    }
+    // .f-tree__label {
+    //   color: var(--f-design-color-text-1);
+    // }
   }
 }
