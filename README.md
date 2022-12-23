@@ -1,3 +1,5 @@
+# 🐑了，最近两天先不写代码了
+
 <p align="center">
   <img height="160px" src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
   <h2 align="center" style="font-weight: 600">Fighting Design</h2>
