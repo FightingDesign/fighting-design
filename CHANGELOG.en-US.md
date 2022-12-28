@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.13.0 (2022-12-28)
+
+**New Features**
+
+- Add `f-box` component
+- Complete `f-tree` components
+
+**Repair**
+
+- Fix the error reported by `f-button` component ripple effect
+
 ## 0.12.0 (2022-12-20)
 
 **New Features**
@@ -29,7 +40,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 **Repair**
 
-- Fix the warning error of  `f-image-preview`
+- Fix the warning error of `f-image-preview`
 - Fix `f-button` component style details
 - Fix `f-tag` component style details
 - Fix `f-space` component style details

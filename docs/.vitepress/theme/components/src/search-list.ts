@@ -228,5 +228,10 @@ export const searchList = [
     title: 'Form 表单',
     rule: 'formForm 表单',
     url: 'components/form'
+  },
+  {
+    title: 'Box 盒子',
+    rule: 'boxBox 盒子',
+    url: 'components/box'
   }
 ] as const

@@ -2,9 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.13.0 (2022-12-28)
+
 **新功能**
 
 - 新增 `f-box` 组件
+- 完善 `f-tree` 组件
 
 **修复**
 
