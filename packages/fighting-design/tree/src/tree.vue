@@ -3,30 +3,31 @@
   import { computed } from 'vue'
   // import { FSvgIcon } from '../../svg-icon'
   // import { FIconPlusVue, FIconMinus } from '../../_svg'
-  import { treeAddLevel, treeToFlat, addParentId, addId } from '../../_utils'
+  import { treeAddLevel, treeToFlat, addParentId, addId, isArray } from '../../_utils'
   import type { TreeData, TreeDataItem } from './interface'
 
   const prop = defineProps(Props)
 
-  const treeIdData = computed((): TreeData => addParentId(addId(prop.data)))
+  const treeIdData = computed((): TreeData => treeAddLevel(addParentId(addId(prop.data))))
 
   /**
    * 树形数据
    */
   const treeData = computed((): TreeData => {
-    return treeToFlat(treeAddLevel(treeIdData.value))
+    return treeToFlat(treeIdData.value)
   })
 
   console.log(treeData.value)
 
   const hidden = tree => {
-    tree.forEach(item2 => {
-      item2.show = !item2.show
+    isArray(tree) &&
+      tree.forEach(item2 => {
+        item2.show = !item2.show
 
-      if (item2.children && item2.children.length) {
-        hidden(item2.children)
-      }
-    })
+        if (item2.children && item2.children.length) {
+          hidden(item2.children)
+        }
+      })
   }
 
   const getItem = (data: TreeData, id): TreeDataItem => {
