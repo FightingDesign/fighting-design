@@ -10,3 +10,10 @@ export interface TreeAddLevelReturn {
   level: number
   show: boolean
 }
+
+export interface TreeDataItem {
+  label: string
+  level?: number
+  show?: boolean
+  children?: TreeDataItem[]
+}
