@@ -78,6 +78,7 @@ declare module 'vue' {
     FFightingGlobal: typeof components.FFightingGlobal
     FForm: typeof components.FForm
     FFormItem: typeof components.FFormItem
+    FBox: typeof components.FBox
   }
 
   interface ComponentCustomProperties {

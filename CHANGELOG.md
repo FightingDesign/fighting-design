@@ -2,6 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**新功能**
+
+- 新增 `f-box` 组件
+
+**修复**
+
 - 修复 `f-button` 组件涟漪效果报错问题
 
 ## 0.12.0 (2022-12-20)

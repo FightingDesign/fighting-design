@@ -219,3 +219,6 @@ export * from './form'
 
 export { FFormItem } from './form-item'
 export * from './form-item'
+
+export { FBox } from './box'
+export * from './box'

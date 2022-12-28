@@ -70,5 +70,12 @@
 </script>
 
 <template>
+  <f-box id="123" class="123" width="200px" :height="400" background="red" display="flex1">
+    <h1>1212121</h1>
+    <h1>1212121</h1>
+    <h1>1212121</h1>
+    <h1>1212121</h1>
+  </f-box>
+
   <f-tree :data="data" />
 </template>

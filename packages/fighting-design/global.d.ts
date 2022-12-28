@@ -78,6 +78,7 @@ declare module '@vue/runtime-core' {
     FFightingGlobal: typeof components.FFightingGlobal
     FForm: typeof components.FForm
     FFormItem: typeof components.FFormItem
+    FBox: typeof components.FBox
   }
 
   interface ComponentCustomProperties {
@@ -87,4 +88,4 @@ declare module '@vue/runtime-core' {
   }
 }
 
-export {}
+export { }
