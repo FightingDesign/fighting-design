@@ -18,15 +18,27 @@
   const hidden = (tree: TreeData): void => {
     isArray(tree) &&
       tree.forEach(item => {
-        item.show = !item.show
+        item.show = false
+        item.open = false
+
+        item.children && hidden(item.children)
       })
   }
 
-  const getItem = (data: TreeData, id): void => {
+  const getItem = (data: TreeData, id: number): void => {
     data.forEach(item => {
       if (item.id === id) {
+        if (item.open) {
+          item.children && hidden(item.children)
+        } else {
+          // 子节点为关闭状态
+          item.children &&
+            item.children.forEach(child => {
+              child.show = !child.show
+            })
+        }
+
         item.open = !item.open
-        item.children && hidden(item.children)
       } else if (item.children && item.children.length) {
         getItem(item.children, id)
       }
@@ -39,7 +51,7 @@
    * @param item 每一项
    */
   const handleClick = (item: TreeDataItem): void => {
-    getItem(treeIdData.value, item.id)
+    getItem(treeIdData.value, item.id as number)
   }
 </script>
 
