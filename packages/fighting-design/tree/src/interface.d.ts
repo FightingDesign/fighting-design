@@ -10,8 +10,9 @@ export type { TreeProps } from './props'
  */
 export interface TreeDataItem {
   label: string
-  level?: number
+  level: number
   show?: boolean
+  id?: number
   children?: TreeDataItem[]
 }
 

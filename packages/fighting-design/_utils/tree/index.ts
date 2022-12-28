@@ -13,10 +13,6 @@ export const treeToFlat = (data: TreeData): TreeAddLevelReturn[] => {
 
   data.forEach((item: TreeDataItem): void => {
     const obj: TreeAddLevelReturn = {
-      // label: item.label,
-      // level: item.level,
-      // index: item.level,
-      // show: item.show
       ...item
     } as TreeAddLevelReturn
 
@@ -36,17 +32,38 @@ export const treeToFlat = (data: TreeData): TreeAddLevelReturn[] => {
  * @param tree 树形数据
  * @returns
  */
-export const treeAddLevel = (tree: TreeData): TreeData => {
+// export const treeAddLevel = (tree: TreeData): TreeData => {
+//   if (!isArray(tree)) return []
+
+//   const recursive = (array: TreeData, level = 0): TreeData => {
+//     level++
+
+//     return array.map((item: TreeDataItem): TreeDataItem => {
+//       item.level = level
+//       item.show = item.level === 1 ? true : false
+
+//       const child: TreeData = item.children as TreeData
+
+//       if (child && child.length) {
+//         recursive(child, level)
+//       }
+
+//       return item
+//     })
+//   }
+
+//   return recursive(tree)
+// }
+
+export const Add = (tree: TreeData): TreeData => {
   if (!isArray(tree)) return []
 
   const recursive = (array: TreeData, level = 0): TreeData => {
     level++
 
-    console.log(12121212)
-
-    return array.map((item: TreeDataItem, index): TreeDataItem => {
+    return array.map((item: TreeDataItem): TreeDataItem => {
       item.level = level
-      // item.show = true
+      item.show = item.level === 1 ? true : false
 
       const child: TreeData = item.children as TreeData
 
@@ -58,36 +75,49 @@ export const treeAddLevel = (tree: TreeData): TreeData => {
     })
   }
 
-  return recursive(tree)
+  const addId = (arr: TreeData, parentId = ''): TreeData => {
+    arr.forEach((item, i) => {
+      if (item.children && item.children.length) {
+        item.id = Number(`${parentId}${i + 1}`)
+        addId(item.children, `${parentId}${i + 1}`)
+      } else {
+        item.id = Number(`${parentId}${i + 1}`)
+      }
+    })
+
+    return arr
+  }
+
+  return addId(recursive(tree))
 }
 
-export const addId = (arr, parentId = '') => {
-  arr.forEach((item, i) => {
-    if (item.children && item.children.length) {
-      item.id = Number(`${parentId}${i + 1}`)
-      addId(item.children, Number(`${parentId}${i + 1}`))
-    } else {
-      item.id = Number(`${parentId}${i + 1}`)
-    }
-  })
+// export const addId = (arr, parentId = '') => {
+//   arr.forEach((item, i) => {
+//     if (item.children && item.children.length) {
+//       item.id = Number(`${parentId}${i + 1}`)
+//       addId(item.children, Number(`${parentId}${i + 1}`))
+//     } else {
+//       item.id = Number(`${parentId}${i + 1}`)
+//     }
+//   })
 
-  return arr
-}
+//   return arr
+// }
 
-export const addParentId = arr => {
-  arr.forEach(item => {
-    const p = item.id
+// export const addParentId = arr => {
+//   arr.forEach(item => {
+//     const p = item.id
 
-    if (item.children && item.children.length) {
-      item.children.forEach(z => {
-        z.parentId = p
+//     if (item.children && item.children.length) {
+//       item.children.forEach(z => {
+//         z.parentId = p
 
-        if (z.children && z.children.length) {
-          addParentId(item.children)
-        }
-      })
-    }
-  })
+//         if (z.children && z.children.length) {
+//           addParentId(item.children)
+//         }
+//       })
+//     }
+//   })
 
-  return arr
-}
+//   return arr
+// }
