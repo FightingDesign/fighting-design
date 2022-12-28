@@ -10,8 +10,6 @@
    * 样式列表
    */
   const styleList = styles(['padding', 'width', 'height', 'background', 'display'])
-
-  console.log(styleList.value)
 </script>
 
 <template>
