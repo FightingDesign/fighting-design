@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 修复 `f-button` 组件涟漪效果报错问题
+
 ## 0.12.0 (2022-12-20)
 
 **新功能**
