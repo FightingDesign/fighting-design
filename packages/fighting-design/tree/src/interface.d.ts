@@ -11,6 +11,8 @@ export type { TreeProps } from './props'
 export interface TreeDataItem {
   label: string
   level: number
+  open?: boolean
+  isChild?: boolean
   show?: boolean
   id?: number
   children?: TreeDataItem[]

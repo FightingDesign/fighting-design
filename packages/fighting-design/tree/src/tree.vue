@@ -1,8 +1,8 @@
 <script lang="ts" setup name="FTree">
   import { Props } from './props'
   import { computed } from 'vue'
-  // import { FSvgIcon } from '../../svg-icon'
-  // import { FIconPlusVue, FIconMinus } from '../../_svg'
+  import { FSvgIcon } from '../../svg-icon'
+  import { FIconChevronRightVue } from '../../_svg'
   import { treeToFlat, isArray, Add } from '../../_utils'
   import type { TreeData, TreeDataItem } from './interface'
 
@@ -13,24 +13,19 @@
   /**
    * 树形数据
    */
-  const treeData = computed((): TreeData => {
-    return treeToFlat(treeIdData.value)
-  })
+  const treeData = computed((): TreeData => treeToFlat(treeIdData.value))
 
   const hidden = (tree: TreeData): void => {
     isArray(tree) &&
       tree.forEach(item => {
         item.show = !item.show
-
-        if (item.children && item.children.length) {
-          hidden(item.children)
-        }
       })
   }
 
   const getItem = (data: TreeData, id): void => {
     data.forEach(item => {
       if (item.id === id) {
+        item.open = !item.open
         item.children && hidden(item.children)
       } else if (item.children && item.children.length) {
         getItem(item.children, id)
@@ -54,9 +49,16 @@
       <div
         v-show="item.show"
         class="f-tree__label"
-        :style="{ paddingLeft: 25 * (item.level - 1) + 'px' }"
+        :style="{ paddingLeft: 30 * (item.level - 1) + 5 + 'px' }"
         @click="handleClick(item)"
       >
+        <f-svg-icon
+          v-if="item.isChild"
+          :class="{ 'f-tree__icon-animation': item.open }"
+          :size="17"
+          :icon="FIconChevronRightVue"
+        />
+
         {{ item.label }}
       </div>
     </div>

@@ -12,11 +12,7 @@ export const treeToFlat = (data: TreeData): TreeAddLevelReturn[] => {
   const result: TreeAddLevelReturn[] = []
 
   data.forEach((item: TreeDataItem): void => {
-    const obj: TreeAddLevelReturn = {
-      ...item
-    } as TreeAddLevelReturn
-
-    result.push(obj)
+    result.push(item as TreeAddLevelReturn)
 
     if (item.children) {
       result.push(...treeToFlat(item.children))
@@ -64,6 +60,8 @@ export const Add = (tree: TreeData): TreeData => {
     return array.map((item: TreeDataItem): TreeDataItem => {
       item.level = level
       item.show = item.level === 1 ? true : false
+      item.open = false
+      item.isChild = !!item.children
 
       const child: TreeData = item.children as TreeData
 

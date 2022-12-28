@@ -18,6 +18,11 @@
       // icon
       .f-svg-icon {
         margin-right: 5px;
+        transition: 0.3s;
+
+        &.f-tree__icon-animation {
+          transform: rotate(90deg);
+        }
       }
 
       // 文字内容
