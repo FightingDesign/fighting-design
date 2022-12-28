@@ -4,13 +4,6 @@ import type { RipplesOptions, UseRipplesReturn, RipplesEvt } from './interface'
 export * from './interface.d'
 
 /**
- * 是否为第一次点击
- * 
- * 控制只创建一次容器盒子
- */
-let firstClick = true
-
-/**
  * 点击的涟漪效果
  *  
  * @param evt 事件对象
@@ -18,24 +11,6 @@ let firstClick = true
  * @param options 配置对象
  */
 export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesOptions): UseRipplesReturn => {
-
-  /**
-   * 防止涟漪效果溢出
-   * 
-   * 给按钮组件单独添加一个容器
-   * 
-   * 因为按钮组件还有 spread 的扩散效果
-   * 
-   * 所以不能直接在元素上设置 overflow: hidden
-   * 
-   * 才使用这个方法来限制
-   */
-  if (options.component === 'f-button' && firstClick) {
-    const box: HTMLDivElement = document.createElement('div')
-    box.className = 'f-button__ripples-box'
-    node.appendChild(box)
-    firstClick = false
-  }
 
   /**
    * 计算涟漪颜色
@@ -80,7 +55,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
    *
    * @param node dom 元素
    */
-  const removeElement = (node: HTMLElement): void => {
+  const removeElement = (node: HTMLDivElement): void => {
     setTimeout((): void => {
       node.remove()
     }, options.duration || 400)
@@ -91,24 +66,30 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
    *
    * @param x 坐标 x
    * @param y 坐标 y
-   * @return { HTMLSpanElement }
+   * @return { HTMLDivElement }
    */
-  const renderElement = (x: number, y: number): HTMLSpanElement => {
+  const renderElement = (x: number, y: number): HTMLDivElement => {
+
+    const box: HTMLDivElement = document.createElement('div')
+    box.className = 'f-button__ripples-box'
+    // node.appendChild(box)
+
     /**
      * 新建个 span 元素
      */
-    const ripples: HTMLSpanElement = document.createElement('span') as HTMLSpanElement
-
+    const ripples: HTMLSpanElement = document.createElement('span')
     ripples.className = options.className
     ripples.style.background = ripplesColor.value
     ripples.style.left = `${x}px`
+
+    box.appendChild(ripples)
 
     // 只有在按钮组件的时候，才作用 y 轴的坐标
     if (options.component === 'f-button') {
       ripples.style.top = `${y}px`
     }
 
-    return ripples
+    return box
   }
 
   /**
@@ -127,12 +108,9 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
      */
     const { layerX, layerY } = evt as unknown as RipplesEvt
 
-    const ripples: HTMLSpanElement = renderElement(layerX, layerY)
+    const ripples: HTMLDivElement = renderElement(layerX, layerY)
 
-    options.component === 'f-button'
-      ? (node.querySelector('.f-button__ripples-box') as HTMLDivElement).appendChild(ripples)
-      : node.appendChild(ripples)
-
+    node.appendChild(ripples)
     removeElement(ripples)
   }
 
