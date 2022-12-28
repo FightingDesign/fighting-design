@@ -1,25 +1,6 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  // const addId = (arr, parentId = '') => {
-  //   arr.forEach((item, i) => {
-  //     if (item.children && item.children.length) {
-  //       item.id = Number(`${parentId}${i + 1}`)
-  //       find(item.children, Number(`${parentId}${i + 1}`))
-  //     } else {
-  //       item.id = Number(`${parentId}${i + 1}`)
-  //     }
-  //   })
-
-  //   return arr
-  // }
-
-  //   // const authDataCopy = deepClone(authData)
-  //   const authDataCopy = JSON.parse(JSON.stringify(authData))
-  //   find(authDataCopy)
-  //   return authDataCopy
-  // }
-
   const data = ref([
     {
       label: 'Node 1',
@@ -44,38 +25,8 @@
       label: 'Node 3'
     }
   ])
-
-  // const tree = find(data.value)
-
-  // console.log(tree)
-  // console.log(addParentId(tree))
-
-  // function addParentId (arr) {
-  //   arr.forEach(item => {
-  //     let p = item.id
-
-  //     if (item.children && item.children.length) {
-  //       item.children.forEach(z => {
-  //         z.parentId = p
-
-  //         if (z.children && z.children.length) {
-  //           addParentId(item.children)
-  //         }
-  //       })
-  //     }
-  //   })
-
-  //   console.log(arr)
-  // }
 </script>
 
 <template>
-  <f-box id="123" class="123" width="200px" :height="400" background="red" display="flex1">
-    <h1>1212121</h1>
-    <h1>1212121</h1>
-    <h1>1212121</h1>
-    <h1>1212121</h1>
-  </f-box>
-
   <f-tree :data="data" />
 </template>

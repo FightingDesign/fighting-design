@@ -29,38 +29,14 @@
       }
     }
   }
-
-  // 动画效果
-  &-animation-enter-active,
-  &-animation-leave-active {
-    transition: all 0.3s ease;
-  }
-  &-animation-enter-from,
-  &-animation-leave-to {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
 }
-
-
-
-// @use './root';
-
-// .f-tree {
-//   &__data {
-//     height: 30px;
-//     display: flex;
-//     cursor: pointer;
-//     padding: 5px 15px;
-//     align-items: center;
-//     box-sizing: border-box;
-
-//     &:hover {
-//       background: var(--f-design-color-border-1);
-//     }
-
-//     .f-tree__label {
-//       color: var(--f-design-color-text-1);
-//     }
-//   }
-// }
+// 动画效果
+.f-tree-animation-enter-active,
+.f-tree-animation-leave-active {
+  transition: all 0.3s ease;
+}
+.f-tree-animation-enter-from,
+.f-tree-animation-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}

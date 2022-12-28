@@ -42,9 +42,11 @@ export const treeAddLevel = (tree: TreeData): TreeData => {
   const recursive = (array: TreeData, level = 0): TreeData => {
     level++
 
+    console.log(12121212)
+
     return array.map((item: TreeDataItem, index): TreeDataItem => {
       item.level = level
-      item.show = true
+      // item.show = true
 
       const child: TreeData = item.children as TreeData
 
@@ -57,4 +59,35 @@ export const treeAddLevel = (tree: TreeData): TreeData => {
   }
 
   return recursive(tree)
+}
+
+export const addId = (arr, parentId = '') => {
+  arr.forEach((item, i) => {
+    if (item.children && item.children.length) {
+      item.id = Number(`${parentId}${i + 1}`)
+      addId(item.children, Number(`${parentId}${i + 1}`))
+    } else {
+      item.id = Number(`${parentId}${i + 1}`)
+    }
+  })
+
+  return arr
+}
+
+export const addParentId = arr => {
+  arr.forEach(item => {
+    const p = item.id
+
+    if (item.children && item.children.length) {
+      item.children.forEach(z => {
+        z.parentId = p
+
+        if (z.children && z.children.length) {
+          addParentId(item.children)
+        }
+      })
+    }
+  })
+
+  return arr
 }
