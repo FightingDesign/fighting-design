@@ -42,6 +42,9 @@
         { label: 'Node 2-2' },
         { label: 'Node 2-3', children: [{ label: 'Node 2-3-1' }] }
       ]
+    },
+    {
+      label: 'Node 3'
     }
   ])
 </script>
@@ -64,7 +67,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { FTreeInstance, treeDataInterface } from 'fighting-design'
+import type { TreeInstance, TreeProps, TreeDataItem, TreeData } from 'fighting-design'
 ```
 
 ## Contributors
@@ -95,6 +98,9 @@ import type { FTreeInstance, treeDataInterface } from 'fighting-design'
         { label: 'Node 2-2' },
         { label: 'Node 2-3', children: [{ label: 'Node 2-3-1' }] }
       ]
+    },
+    {
+      label: 'Node 3'
     }
   ])
 </script>

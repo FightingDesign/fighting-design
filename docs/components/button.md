@@ -280,6 +280,30 @@
 
 :::
 
+## 扩散效果
+
+`spread` 可以配置是否展示点击扩散效果
+
+::: demo
+
+<template #source>
+<f-button spread type="default">默认按钮</f-button>
+<f-button spread type="primary">主要按钮</f-button>
+<f-button spread type="success">成功按钮</f-button>
+<f-button spread type="danger">危险按钮</f-button>
+<f-button spread type="warning">警告按钮</f-button>
+</template>
+
+```html
+<f-button spread type="default">默认按钮</f-button>
+<f-button spread type="primary">主要按钮</f-button>
+<f-button spread type="success">成功按钮</f-button>
+<f-button spread type="danger">危险按钮</f-button>
+<f-button spread type="warning">警告按钮</f-button>
+```
+
+:::
+
 ## 按钮组
 
 使用 `f-button-group` 组件包裹按钮组件可以实现按钮组效果
@@ -361,7 +385,7 @@
 | `loading-icon`  | loading 状态下的 icon                                                                                                                                                                                         | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——       |
 | `type`          | 按钮的类型 （不同类型对应不同的背景和字体颜色，非自定义按钮颜色时有效）                                                                                                                                       | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | ——       |
 | `autofocus`     | 是否自动获取焦点                                                                                                                                                                                              | boolean                                                            | ——                                               | false    |
-| `spread`        | 是否带有点击发散效果                                                                                                                                                                                          | boolean                                                            | ——                                               | false    |
+| `spread`        | 是否带有点击扩散效果                                                                                                                                                                                          | boolean                                                            | ——                                               | false    |
 | `name`          | 按钮的名字                                                                                                                                                                                                    | string                                                             | ——                                               | f-button |
 | `shadow`        | 按钮的阴影                                                                                                                                                                                                    | string                                                             | ——                                               | ——       |
 | `text`          | 是否为文字按钮 （非自定义按钮颜色时有效）                                                                                                                                                                     | boolean                                                            | ——                                               | false    |
