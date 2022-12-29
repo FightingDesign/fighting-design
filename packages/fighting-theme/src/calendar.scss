@@ -167,6 +167,7 @@
     .f-calendar__week {
       border-bottom: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
       border-top: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
+      margin: 0;
 
       .f-calendar__week-li {
         border-right: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
@@ -174,6 +175,7 @@
     }
 
     .f-calendar__day {
+      margin: 0;
       .f-calendar__day-li {
         border-right: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
         border-bottom: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
