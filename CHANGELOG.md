@@ -2,8 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- 添加 `f-svg-icon` 类型
-- 添加 `f-rate` 类型
+**修复**
+
+- 修复 `f-svg-icon` 类型
+- 修复 `f-rate` 类型
+- 修复 `f-calendar` 组件样式问题 [#315](https://github.com/FightingDesign/fighting-design/pull/315)
 
 ## 0.13.0 (2022-12-28)
 
