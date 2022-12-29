@@ -4,6 +4,14 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.13.1 (2022-12-29)
+
+**修复**
+
+- Fix `f-svg-icon` type
+- Repair `f-rate` type
+- Fix the `f-calendar` component style problem [#315](https://github.com/FightingDesign/fighting-design/pull/315)
+
 ## 0.13.0 (2022-12-28)
 
 **New Features**

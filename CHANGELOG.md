@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.13.1 (2022-12-29)
+
 **修复**
 
 - 修复 `f-svg-icon` 类型
