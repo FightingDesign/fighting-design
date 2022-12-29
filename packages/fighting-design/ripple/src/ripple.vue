@@ -26,7 +26,7 @@
   /**
    * 样式列表
    */
-  const styleList = styles(['startOpacity', 'endOpacity'])
+  const styleList = styles(['startOpacity', 'endOpacity'], false)
 
   /**
    * 点击之后执行

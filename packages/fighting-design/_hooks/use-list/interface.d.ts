@@ -7,5 +7,5 @@
  */
 export interface UseListReturn {
   classes: (list: FilterParams, className?: string) => ComputedRef<ClassList>
-  styles: (list: FilterParams) => ComputedRef<CSSProperties>
+  styles: (list: FilterParams, pixel?: boolean) => ComputedRef<CSSProperties>
 }

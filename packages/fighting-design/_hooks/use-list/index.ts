@@ -47,9 +47,7 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
       const propList: Record<string, unknown> = filter(list)
 
       // 是否存在其它需要直接加入的类名
-      if (className) {
-        classList.value.push(className)
-      }
+      className && classList.value.push(className)
 
       for (const key in propList) {
         if (propList[key]) {
@@ -69,8 +67,9 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
    * 样式列表
    *
    * @param list 样式所需要的 prop 参数
+   * @param pixel 是否带有单位
    */
-  const styles = (list: FilterParams): ComputedRef<CSSProperties> => {
+  const styles = (list: FilterParams, pixel = true): ComputedRef<CSSProperties> => {
     return computed((): CSSProperties => {
       /**
        * 样式列表
@@ -94,8 +93,8 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
            *
            * 因为 prop 参数的键都是驼峰命名法，所以这里要转换为短横线连接命名
            */
-          styleList[`--f-${name}-${convertFormat(key)}`] = isNumber(propList[key])
-            ? sizeChange(propList[key] as number)
+          styleList[`--f-${name}-${convertFormat(key)}`] = pixel
+            ? isNumber(propList[key]) ? sizeChange(propList[key] as number) : propList[key]
             : propList[key]
         }
       }

@@ -55,7 +55,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
    *
    * @param node dom 元素
    */
-  const removeElement = (node: HTMLDivElement): void => {
+  const removeElement = (node: HTMLElement): void => {
     setTimeout((): void => {
       node.remove()
     }, options.duration || 400)
@@ -66,13 +66,9 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
    *
    * @param x 坐标 x
    * @param y 坐标 y
-   * @return { HTMLDivElement }
+   * @return { HTMLElement }
    */
-  const renderElement = (x: number, y: number): HTMLDivElement => {
-
-    const box: HTMLDivElement = document.createElement('div')
-    box.className = 'f-button__ripples-box'
-    // node.appendChild(box)
+  const renderElement = (x: number, y: number): HTMLElement => {
 
     /**
      * 新建个 span 元素
@@ -82,14 +78,20 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
     ripples.style.background = ripplesColor.value
     ripples.style.left = `${x}px`
 
-    box.appendChild(ripples)
-
-    // 只有在按钮组件的时候，才作用 y 轴的坐标
+    // 如果是按钮，则需要添加容器
     if (options.component === 'f-button') {
+
+      const box: HTMLDivElement = document.createElement('div')
+      box.className = 'f-button__ripples-box'
+
+      box.appendChild(ripples)
+
       ripples.style.top = `${y}px`
+
+      return box
     }
 
-    return box
+    return ripples
   }
 
   /**
@@ -108,7 +110,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
      */
     const { layerX, layerY } = evt as unknown as RipplesEvt
 
-    const ripples: HTMLDivElement = renderElement(layerX, layerY)
+    const ripples: HTMLElement = renderElement(layerX, layerY)
 
     node.appendChild(ripples)
     removeElement(ripples)

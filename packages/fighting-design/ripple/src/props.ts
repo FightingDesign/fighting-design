@@ -42,14 +42,14 @@ export const Props = {
    */
   startOpacity: {
     type: Number,
-    default: (): number => 0.5
+    default: (): null => null
   },
   /**
    * 涟漪动画结束的透明度
    */
   endOpacity: {
     type: Number,
-    default: (): number => 0
+    default: (): null => null
   }
 } as const
 
