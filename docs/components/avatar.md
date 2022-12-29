@@ -19,7 +19,8 @@
 </template>
 
 ```html
-<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" /> <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
 ```
 
 :::
@@ -111,7 +112,11 @@
 </template>
 
 ```html
-<f-avatar width="200px" lazy src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a72738a7113.png" />
+<f-avatar
+  width="200px"
+  lazy
+  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a72738a7113.png"
+/>
 ```
 
 :::
@@ -167,8 +172,8 @@
 | `font-color`  | 字体的颜色                                                                                               | string                                                                      | ——                                           | #333     |
 | `text`        | 文字头像                                                                                                 | string                                                                      | ——                                           | ——       |
 | `root-margin` | 触发懒加载的距离                                                                                         | string / number                                                             | ——                                           | 100px    |
-| `on-load`     | 图片加载成功触发的回调                                                                                   | Function                                                                    | ——                                           | ——       |
-| `on-error`    | 图片加载失败触发的回调                                                                                   | Function                                                                    | ——                                           | ——       |
+| `on-load`     | 图片加载成功触发的回调                                                                                   | <a href="/components/interface.html#handleevent">HandleEvent</a>            | ——                                           | ——       |
+| `on-error`    | 图片加载失败触发的回调                                                                                   | <a href="/components/interface.html#handleevent">HandleEvent</a>            | ——                                           | ——       |
 
 ## Slots
 

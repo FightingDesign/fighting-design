@@ -97,7 +97,14 @@
 <template>
   <f-button type="primary" @click="visible3 = true">打开</f-button>
 
-  <f-dialog title="Title" v-model:visible="visible3" :on-open="open" :on-open-end="openEnd" :on-close="close" :on-close-end="closeEnd">
+  <f-dialog
+    title="Title"
+    v-model:visible="visible3"
+    :on-open="open"
+    :on-open-end="openEnd"
+    :on-close="close"
+    :on-close-end="closeEnd"
+  >
     <h3>沁园春·雪</h3>
 
     <p>北国风光，千里冰封，万里雪飘。</p>
@@ -136,7 +143,7 @@
 | ----------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------ | ------ |
 | `v-model:visible` | 绑定值，控制是否展示                                                                | boolean                                                            | ——     | false  |
 | `title`           | 标题文字内容                                                                        | string                                                             | ——     | ——     |
-| `append-to-body`  | 是否追加到 `body`                                                                   | boolean                                                            | ——     | false  |
+| `append-to-body`  | 是否追加到 body                                                                     | boolean                                                            | ——     | false  |
 | `width`           | 自定义宽度                                                                          | string / number                                                    | ——     | ——     |
 | `fullscreen`      | 是否全屏展示                                                                        | boolean                                                            | ——     | false  |
 | `show-mask`       | 是否展示遮罩层                                                                      | boolean                                                            | ——     | true   |
@@ -145,10 +152,10 @@
 | `close-icon`      | 自定义关闭按钮 icon                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
 | `show-close-icon` | 是否展示关闭图标                                                                    | boolean                                                            | ——     | true   |
 | `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                             | ——     | 1999   |
-| `on-open`         | 打开动画开始的回调                                                                  | Function                                                           | ——     | ——     |
-| `on-open-end`     | 打开动画结束的回调                                                                  | Function                                                           | ——     | ——     |
-| `on-close`        | 关闭动画开始的回调                                                                  | Function                                                           | ——     | ——     |
-| `on-close-end`    | 关闭动画结束的回调                                                                  | Function                                                           | ——     | ——     |
+| `on-open`         | 打开动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
+| `on-open-end`     | 打开动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
+| `on-close`        | 关闭动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
+| `on-close-end`    | 关闭动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——     | ——     |
 
 ## Slots
 
@@ -164,7 +171,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DialogInstance, DialogPropsType } from 'fighting-design'
+import type { DialogInstance, DialogProps } from 'fighting-design'
 ```
 
 ## Contributors

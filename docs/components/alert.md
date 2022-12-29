@@ -195,32 +195,33 @@
 </template>
 
 ```html
-<f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert> <f-alert type="success" title="标题">心情很不错</f-alert>
+<f-alert type="primary" title="Hello~">今天代码写的很愉快！</f-alert>
+<f-alert type="success" title="标题">心情很不错</f-alert>
 ```
 
 :::
 
 ## Attributes
 
-| 参数          | 说明                   | 类型                                                               | 可选值                                           | 默认值 |
-| ------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------ |
-| `type`        | 类型                   | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | ——     |
-| `font-size`   | 副标题文字大小         | string / number                                                    | ——                                               | 15px   |
-| `title-size`  | 主标题文字大小         | string / number                                                    | ——                                               | 17px   |
-| `bold`        | 文字是否以粗体显示     | boolean                                                            | ——                                               | false  |
-| `center`      | 是否居中               | boolean                                                            | ——                                               | false  |
-| `close`       | 可关闭                 | boolean                                                            | ——                                               | ——     |
-| `simple`      | 简约模式               | boolean                                                            | ——                                               | ——     |
-| `title`       | 标题                   | string                                                             | ——                                               | ——     |
-| `round`       | 显示为圆角             | boolean                                                            | ——                                               | ——     |
-| `background`  | 背景颜色               | string                                                             | ——                                               | ——     |
-| `color`       | 副标题字体颜色         | string                                                             | ——                                               | ——     |
-| `title-color` | 主标题字体颜色         | string                                                             | ——                                               | ——     |
-| `fixed`       | 是否固定定位           | boolean                                                            | ——                                               | false  |
-| `overflow`    | 文字超出的展示状态     | string                                                             | `hidden`                                         | ——     |
-| `before-icon` | 自定义前缀 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
-| `close-icon`  | 自定义关闭 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——     |
-| `on-close`    | 点击关闭之后执行的回调 | Function                                                           | ——                                               | ——     |
+| 参数          | 说明                   | 类型                                                               | 可选值                                           | 默认值  |
+| ------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------- |
+| `type`        | 类型                   | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | default |
+| `font-size`   | 副标题文字大小         | string / number                                                    | ——                                               | 15px    |
+| `title-size`  | 主标题文字大小         | string / number                                                    | ——                                               | 17px    |
+| `bold`        | 文字是否以粗体显示     | boolean                                                            | ——                                               | false   |
+| `center`      | 是否居中               | boolean                                                            | ——                                               | false   |
+| `close`       | 可关闭                 | boolean                                                            | ——                                               | ——      |
+| `simple`      | 简约模式               | boolean                                                            | ——                                               | ——      |
+| `title`       | 标题                   | string                                                             | ——                                               | ——      |
+| `round`       | 显示为圆角             | boolean                                                            | ——                                               | ——      |
+| `background`  | 背景颜色               | string                                                             | ——                                               | ——      |
+| `color`       | 副标题字体颜色         | string                                                             | ——                                               | ——      |
+| `title-color` | 主标题字体颜色         | string                                                             | ——                                               | ——      |
+| `fixed`       | 是否固定定位           | boolean                                                            | ——                                               | false   |
+| `overflow`    | 文字超出的展示状态     | <a href="#alertoverflow">AlertOverflow</a>                         | `hidden`                                         | ——      |
+| `before-icon` | 自定义前缀 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
+| `close-icon`  | 自定义关闭 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
+| `on-close`    | 点击关闭之后执行的回调 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——                                               | ——      |
 
 ## Slots
 
@@ -237,6 +238,12 @@
 
 ```ts
 import type { AlertInstance, AlertProps, AlertOverflow } from 'fighting-design'
+```
+
+### AlertOverflow
+
+```ts
+type AlertOverflow = 'hidden'
 ```
 
 ## Contributors

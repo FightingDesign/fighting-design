@@ -135,17 +135,17 @@
 
 ## Attributes
 
-| 参数             | 说明                     | 类型            | 可选值          | 默认值 |
-| ---------------- | ------------------------ | --------------- | --------------- | ------ |
-| `spacing`        | 触发器和内容之间的间距   | string / number | ——              | ——     |
-| `disabled`       | 是否禁用                 | boolean         | ——              | false  |
-| `trigger`        | 触发方式                 | string          | `hover` `click` | hover  |
-| `arrow`          | 是否带有箭头             | boolean         | ——              | false  |
-| `enter-duration` | 弹出动画持续时间         | number          | ——              | ——     |
-| `leave-duration` | 关闭动画持续时间         | number          | ——              | ——     |
-| `on-change`      | 弹窗状态改变时触发的回调 | Function        | ——              | ——     |
-| `on-open`        | 弹窗状态打开时触发的回调 | Function        | ——              | ——     |
-| `on-close`       | 弹窗状态关闭时触发的回调 | Function        | ——              | ——     |
+| 参数             | 说明                     | 类型                                                               | 可选值          | 默认值 |
+| ---------------- | ------------------------ | ------------------------------------------------------------------ | --------------- | ------ |
+| `spacing`        | 触发器和内容之间的间距   | string / number                                                    | ——              | ——     |
+| `disabled`       | 是否禁用                 | boolean                                                            | ——              | false  |
+| `trigger`        | 触发方式                 | <a href="#triggertrigger">TriggerTrigger</a>                       | `hover` `click` | hover  |
+| `arrow`          | 是否带有箭头             | boolean                                                            | ——              | false  |
+| `enter-duration` | 弹出动画持续时间         | number                                                             | ——              | ——     |
+| `leave-duration` | 关闭动画持续时间         | number                                                             | ——              | ——     |
+| `on-change`      | 弹窗状态改变时触发的回调 | <a href="/components/interface.html#handlechange">HandleChange</a> | ——              | ——     |
+| `on-open`        | 弹窗状态打开时触发的回调 | <a href="/components/interface.html#handlechange">HandleChange</a> | ——              | ——     |
+| `on-close`       | 弹窗状态关闭时触发的回调 | <a href="/components/interface.html#handlechange">HandleChange</a> | ——              | ——     |
 
 ## Slots
 
@@ -159,7 +159,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { TriggerInstance, TriggerPropsType, TriggerTriggerType, TriggerEmitsInterface } from 'fighting-design'
+import type { TriggerInstance, TriggerProps, TriggerTrigger } from 'fighting-design'
+```
+
+### TriggerTrigger
+
+```ts
+type TriggerTrigger = 'hover' | 'click'
 ```
 
 ## Contributors

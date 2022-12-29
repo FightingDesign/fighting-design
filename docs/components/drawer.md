@@ -92,7 +92,7 @@
 | ----------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------- | ------ |
 | `v-model:visible` | 绑定值，控制是否展示                                                                | boolean                                                            | ——                            | false  |
 | `append-to-body`  | 是否追加到 body                                                                     | boolean                                                            | ——                            | false  |
-| `direction`       | 弹出方向                                                                            | boolean                                                            | `top` `left` `bottom` `right` | right  |
+| `direction`       | 弹出方向                                                                            | <a href="#drawerdirection">DrawerDirection</a>                     | `top` `left` `bottom` `right` | right  |
 | `size`            | 大小尺寸                                                                            | string / number                                                    | ——                            | 30%    |
 | `title`           | 标题文字内容                                                                        | string                                                             | ——                            | ——     |
 | `show-mask`       | 是否展示遮罩层                                                                      | boolean                                                            | ——                            | true   |
@@ -101,10 +101,10 @@
 | `close-icon`      | 自定义关闭按钮 icon                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                            | ——     |
 | `show-close-icon` | 是否展示关闭按钮                                                                    | boolean                                                            | ——                            | true   |
 | `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                             | ——                            | 1999   |
-| `on-open`         | 打开动画开始的回调                                                                  | Function                                                           | ——                            | ——     |
-| `on-open-end`     | 打开动画结束的回调                                                                  | Function                                                           | ——                            | ——     |
-| `on-close`        | 关闭动画开始的回调                                                                  | Function                                                           | ——                            | ——     |
-| `on-close-end`    | 关闭动画结束的回调                                                                  | Function                                                           | ——                            | ——     |
+| `on-open`         | 打开动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                            | ——     |
+| `on-open-end`     | 打开动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                            | ——     |
+| `on-close`        | 关闭动画开始的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                            | ——     |
+| `on-close-end`    | 关闭动画结束的回调                                                                  | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                            | ——     |
 
 ## Slots
 
@@ -120,7 +120,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DrawerInstance, DrawerPropsType, DrawerDirectionType } from 'fighting-design'
+import type { DrawerInstance, DrawerProps, DrawerDirection } from 'fighting-design'
+```
+
+### DrawerDirection
+
+```ts
+type DrawerDirection = 'left' | 'top' | 'right' | 'bottom'
 ```
 
 ## Contributors

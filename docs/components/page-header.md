@@ -83,7 +83,7 @@
 | `title-center` | 标题是否居中     | boolean                                                            | ——     | false  |
 | `title-color`  | 标题颜色         | string                                                             | ——     | false  |
 | `subtitle`     | 副标题文本       | string                                                             | ——     | ——     |
-| `on-back`      | 点击左侧区域触发 | Function                                                           | ——     | ——     |
+| `on-back`      | 点击左侧区域触发 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——     | ——     |
 
 ## Slots
 

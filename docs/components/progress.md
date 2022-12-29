@@ -122,7 +122,8 @@
 </template>
 
 ```html
-<f-progress type="danger" :percentage="70" color="#ff386a" /> <f-progress type="success" :percentage="40" background="#C3FFBD" />
+<f-progress type="danger" :percentage="70" color="#ff386a" />
+<f-progress type="success" :percentage="40" background="#C3FFBD" />
 ```
 
 :::

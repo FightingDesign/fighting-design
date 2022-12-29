@@ -233,7 +233,7 @@
 | `icon`       | 自定义前缀 icon                              | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                                  | ——        |
 | `color`      | 自定义字体颜色                               | string                                                             | ——                                                  | ——        |
 | `background` | 自定义背景色                                 | string                                                             | ——                                                  | ——        |
-| `placement`  | 弹出位置                                     | string                                                             | `top-left` `top-right` `bottom-left` `bottom-right` | top-right |
+| `placement`  | 弹出位置                                     | <a href="#notificationplacement">NotificationPlacement</a>         | `top-left` `top-right` `bottom-left` `bottom-right` | top-right |
 | `offset`     | 偏移距离                                     | number                                                             | ——                                                  | 20        |
 | `close-btn`  | 自定义关闭按钮                               | string / VNode                                                     | ——                                                  | ——        |
 | `z-index`    | 层级                                         | boolean                                                            | ——                                                  | 1000      |
@@ -252,12 +252,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  NotificationInstance,
-  NotificationPropsType,
-  NotificationType,
-  NotificationPlacementType
-} from 'fighting-design'
+import type { NotificationInstance, NotificationProps, NotificationPlacement } from 'fighting-design'
+```
+
+### NotificationPlacement
+
+```ts
+type NotificationPlacement = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
 ```
 
 ## Contributors

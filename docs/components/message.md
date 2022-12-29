@@ -216,21 +216,21 @@
 
 ## Attributes
 
-| 参数         | 说明                                         | 类型                                                               | 可选值                                                             | 默认值  |
-| ------------ | -------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------- |
-| `message`    | 消息文本                                     | string / VNode                                                     | ——                                                                 | false   |
-| `type`       | 消息类型                                     | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning`                   | default |
-| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                                                             | ——                                                                 | 3000    |
-| `round`      | 是否为圆角类型                               | boolean                                                            | ——                                                                 | false   |
-| `close`      | 是否可关闭                                   | boolean                                                            | ——                                                                 | false   |
-| `icon`       | 消息 icon                                    | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                                                 | ——      |
-| `color`      | 字体颜色                                     | string                                                             | ——                                                                 | ——      |
-| `placement`  | 位置                                         | string                                                             | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
-| `offset`     | 偏移距离                                     | number                                                             | ——                                                                 | 20      |
-| `background` | 自定义背景色                                 | string                                                             | ——                                                                 | ——      |
-| `close-btn`  | 关闭按钮                                     | string / VNode                                                     | ——                                                                 | ——      |
-| `z-index`    | 层级                                         | boolean                                                            | ——                                                                 | 1000    |
-| `on-close`   | 关闭之后的回调                               | Function                                                           | ——                                                                 | ——      |
+| 参数         | 说明                                         | 类型                                                                        | 可选值                                                             | 默认值  |
+| ------------ | -------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
+| `message`    | 消息文本                                     | string / VNode                                                              | ——                                                                 | false   |
+| `type`       | 消息类型                                     | <a href="/components/interface.html#fightingtype">FightingType</a>          | `default` `primary` `success` `danger` `warning`                   | default |
+| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                                                                      | ——                                                                 | 3000    |
+| `round`      | 是否为圆角类型                               | boolean                                                                     | ——                                                                 | false   |
+| `close`      | 是否可关闭                                   | boolean                                                                     | ——                                                                 | false   |
+| `icon`       | 消息 icon                                    | <a href="/components/interface.html#fightingicon">FightingIcon</a>          | ——                                                                 | ——      |
+| `color`      | 字体颜色                                     | string                                                                      | ——                                                                 | ——      |
+| `placement`  | 位置                                         | <a href="#messageplacement">MessagePlacement</a>                            | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
+| `offset`     | 偏移距离                                     | number                                                                      | ——                                                                 | 20      |
+| `background` | 自定义背景色                                 | string                                                                      | ——                                                                 | ——      |
+| `close-btn`  | 关闭按钮                                     | string / <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                                                 | ——      |
+| `z-index`    | 层级                                         | boolean                                                                     | ——                                                                 | 1000    |
+| `on-close`   | 关闭之后的回调                               | Function                                                                    | ——                                                                 | ——      |
 
 ## Events
 
@@ -245,7 +245,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { MessageInstance, MessagePropsType, MessageType, MessagePlacementType } from 'fighting-design'
+import type { MessageInstance, MessageProps, MessagePlacement } from 'fighting-design'
+```
+
+### MessagePlacement
+
+```ts
+type MessagePlacement = 'top' | 'top-left' | 'top-right' | 'bottom' | 'bottom-left' | 'bottom-right'
 ```
 
 ## Contributors

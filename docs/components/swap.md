@@ -83,7 +83,14 @@
 </template>
 
 <script lang="ts" setup>
-  import { FIconSun, FIconMoon, FIconFaceSmile, FIconFaceFrown, FIconEye, FIconEyeSlash } from '@fighting-design/fighting-icon'
+  import {
+    FIconSun,
+    FIconMoon,
+    FIconFaceSmile,
+    FIconFaceFrown,
+    FIconEye,
+    FIconEyeSlash
+  } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
   const value5 = ref(true)
@@ -100,17 +107,23 @@
 | ----------- | ---------------------------- | ------------------------------------------------------------------ | ------------------------ | ------- |
 | `v-model`   | 绑定值                       | boolean                                                            | ——                       | false   |
 | `size`      | 组件尺寸                     | string / number                                                    | ——                       | 40      |
-| `type`      | 动画类型                     | string                                                             | `sound` `swap` `default` | default |
+| `type`      | 动画类型                     | <a href="#swaptype">SwapType</a>                                   | `sound` `swap` `default` | default |
 | `icon-on`   | 打开展示的图标               | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                       | ——      |
 | `icon-off`  | 关闭展示的图标               | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                       | ——      |
-| `on-change` | 当绑定值发生改变时触发的回调 | Function                                                           | ——                       | ——      |
+| `on-change` | 当绑定值发生改变时触发的回调 | <a href="/components/interface.html#handlechange">HandleChange</a> | ——                       | ——      |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type { SwapInstance, SwapPropsType, SwapType, SwapOnChangeInterface } from 'fighting-design'
+import type { SwapInstance, SwapProps, SwapType } from 'fighting-design'
+```
+
+### SwapType
+
+```ts
+type SwapType = 'sound' | 'swap' | 'default'
 ```
 
 ## Contributors
