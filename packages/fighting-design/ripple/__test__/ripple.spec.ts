@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FRipple } from '../index'
 
-describe('Ripple', () => {
+describe('FRipple', () => {
   test('class', () => {
     const wrapper = mount(FRipple)
     expect(wrapper.classes()).toContain('f-ripple')
@@ -17,8 +17,8 @@ describe('Ripple', () => {
 
   test('end-opacity', () => {
     const wrapper = mount(FRipple, {
-      props: { endOpacity: 0 }
+      props: { endOpacity: 0.3 }
     })
-    expect(wrapper.attributes('style')).toContain(0)
+    expect(wrapper.attributes('style')).toContain(0.3)
   })
 })
