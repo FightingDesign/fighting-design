@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.13.2 (2022-12-29)
+
+- Fix the failure of `f-ripple` components
+
 ## 0.13.1 (2022-12-29)
 
 **修复**

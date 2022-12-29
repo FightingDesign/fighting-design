@@ -27,7 +27,27 @@
 
 ## 使用本地图片
 
-参考 [Image 使用本地图片](https://fighting.tianyuhao.cn/components/image.html#使用本地图片)
+## 使用本地图片
+
+如需要使用本地图片，需要使用 [new URL(url, import.meta.url)](https://cn.vitejs.dev/guide/assets.html#new-url-url-import-meta-url) 手动导入图片资源使用：
+
+::: demo
+
+<template #source>
+<f-avatar :src="url" />
+</template>
+
+```html
+<template>
+  <f-avatar :src="url" />
+</template>
+
+<script lang="ts" setup>
+  const url = new URL('./image/1.jpg', import.meta.url).href
+</script>
+```
+
+:::
 
 ## 适应容器的方式
 
@@ -205,6 +225,7 @@ type AvatarFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 <script setup lang="ts">
   import demo1Vue from './_demos/avatar/demo1.vue'
   import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
+  const url = new URL('./_image/1.jpg', import.meta.url).href
 </script>
 
 <style scoped>

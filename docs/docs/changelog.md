@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.13.2 (2022-12-29)
+
+- 修复 `f-ripple` 组件失效问题
+
 ## 0.13.1 (2022-12-29)
 
 **修复**

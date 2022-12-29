@@ -16,20 +16,16 @@
 ::: demo
 
 <template #source>
-<f-space vertical>
 <f-input-number v-model="value1" />
 <f-input-number v-model="value1" model="switch" />
 <f-input-number v-model="value1" model="button" />
-</f-space>
 </template>
 
 ```html
 <template>
-  <f-space vertical>
-    <f-input-number v-model="value1" />
-    <f-input-number v-model="value1" model="switch" />
-    <f-input-number v-model="value1" model="button" />
-  </f-space>
+  <f-input-number v-model="value1" />
+  <f-input-number v-model="value1" model="switch" />
+  <f-input-number v-model="value1" model="button" />
 </template>
 
 <script lang="ts" setup>
@@ -46,7 +42,7 @@
 | 参数          | 说明                       | 类型                                                               | 可选值                          | 默认值         |
 | ------------- | -------------------------- | ------------------------------------------------------------------ | ------------------------------- | -------------- |
 | `v-model`     | 绑定值                     | number                                                             | ——                              | 1              |
-| `model`       | 不同模式                   | string                                                             | `default` `button` `switch`     | default        |
+| `model`       | 不同模式                   | <a href="#inputnumbermodel">InputNumberModel</a>                   | `default` `button` `switch`     | default        |
 | `precision`   | 数值精度                   | number                                                             | ——                              | 0              |
 | `step`        | 步长                       | number                                                             | ——                              | 1              |
 | `size`        | 尺寸                       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle         |
@@ -97,3 +93,9 @@ type InputNumberModel = 'default' | 'button' | 'switch'
 
   const value1 = ref(3)
 </script>
+
+<style scoped>
+  .f-input-number {
+    margin-top: 10px;
+  }
+</style>

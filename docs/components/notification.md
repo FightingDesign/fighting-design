@@ -203,8 +203,9 @@
 
 <script setup lang="ts">
   import { FNotification } from 'fighting-design'
+  import type { NotificationPlacement } from 'fighting-design'
 
-  const openNotificationPlacement = placement => {
+  const openNotificationPlacement = (placement: NotificationPlacement) => {
     FNotification({
       title: '一条通知',
       message: '这是一条自定义位置的消息',

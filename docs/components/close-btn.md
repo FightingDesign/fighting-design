@@ -12,21 +12,17 @@
 ::: demo
 
 <template #source>
-<f-close-btn>
-<f-icon-cross />
-</f-close-btn>
+<f-close-btn :icon="FIconCross" />
 </template>
 
 ```html
+<template>
+  <f-close-btn :icon="FIconCross" />
+</template>
+
 <script lang="ts" setup>
   import { FIconCross } from '@fighting-design/fighting-icon'
 </script>
-
-<template>
-  <f-close-btn>
-    <f-icon-cross />
-  </f-close-btn>
-</template>
 ```
 
 :::
@@ -38,9 +34,7 @@
 ::: demo
 
 <template #source>
-<f-close-btn disabled>
-<f-icon-cross />
-</f-close-btn>
+<f-close-btn disabled :icon="FIconCross" />
 </template>
 
 ```html
@@ -49,9 +43,7 @@
 </script>
 
 <template>
-  <f-close-btn disabled>
-    <f-icon-cross />
-  </f-close-btn>
+  <f-close-btn disabled :icon="FIconCross" />
 </template>
 ```
 

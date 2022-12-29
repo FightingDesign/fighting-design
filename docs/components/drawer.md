@@ -43,11 +43,12 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import type { DrawerDirection } from 'fighting-design'
 
   const visible1 = ref(false)
-  const direction = ref('right')
+  const direction = ref<DrawerDirection>('right')
 
-  const onShow = dir => {
+  const onShow = (dir: DrawerDirection) => {
     direction.value = dir
     visible1.value = true
   }

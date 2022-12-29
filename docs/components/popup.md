@@ -46,12 +46,12 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import type { PopupDirectionType } from 'fighting-design'
+  import type { PopupDirection } from 'fighting-design'
 
   const visible2 = ref(false)
-  const direction = ref('center')
+  const direction = ref<PopupDirection>('center')
 
-  const onShow = (dir: PopupDirectionType) => {
+  const onShow = (dir: PopupDirection) => {
     direction.value = dir
     visible2.value = true
   }
