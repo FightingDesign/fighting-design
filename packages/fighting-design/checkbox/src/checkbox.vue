@@ -25,13 +25,13 @@
     /**
      * 获取值
      */
-    get () {
+    get() {
       return (parentInject && parentInject.modelValue) || prop.modelValue
     },
     /**
      * 设置值
      */
-    set (val) {
+    set(val) {
       if (!parentInject) {
         emit('update:modelValue', val as CheckboxModelValue)
         useRun(prop.onChange, val)

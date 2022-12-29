@@ -2,7 +2,7 @@ export type { FormItemProps } from './props'
 
 /**
  * 规则对象类型接口
- * 
+ *
  * @param message 错误消息
  * @param required 是否必须
  * @param min 最小输入长度

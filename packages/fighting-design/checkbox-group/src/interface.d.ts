@@ -4,7 +4,7 @@ export type { CheckboxGroupProps } from './props'
 
 /**
  * 绑定值发生改变时触发的回调接口
- * 
+ *
  * @param val 最新值
  */
 export type CheckboxGroupChange = (val: string[]) => void

@@ -1,5 +1,4 @@
-
-export type SearchList = { title: string, rule: string, url: string }[]
+export type SearchList = { title: string; rule: string; url: string }[]
 
 /**
  * 搜索列表

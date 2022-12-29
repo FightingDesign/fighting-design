@@ -4,7 +4,7 @@ import type MarkdownIt from 'markdown-it'
 
 /**
  * 将字符串内容渲染成为组件
- * 
+ *
  * @param md markdown 实例
  */
 export const pluginRender = (md: MarkdownIt): void => {
@@ -12,7 +12,7 @@ export const pluginRender = (md: MarkdownIt): void => {
   const render = md.render.bind(md)
 
   /**
-   * 
+   *
    * @param content 文档内容
    * @param env 环境对象
    */

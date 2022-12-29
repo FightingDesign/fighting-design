@@ -3,7 +3,7 @@ import type Token from 'markdown-it/lib/token'
 
 /**
  * 渲染代码片段和描述内容
- * 
+ *
  * @param md markdown 实例
  */
 export const pluginCode = (md: MarkdownIt): void => {
@@ -16,12 +16,7 @@ export const pluginCode = (md: MarkdownIt): void => {
    */
   const defaultRender = md.renderer.rules.fence
 
-  md.renderer.rules.fence = (
-    tokens: Token[],
-    idx: number,
-    options: MarkdownIt.Options,
-    env: any,
-  ): string => {
+  md.renderer.rules.fence = (tokens: Token[], idx: number, options: MarkdownIt.Options, env: any): string => {
     /**
      * 获取到每一项
      */
@@ -33,12 +28,12 @@ export const pluginCode = (md: MarkdownIt): void => {
     /**
      * 检测当前是否为 demo 自定义代码段
      */
-    const isInDemoContainer: boolean = prevToken && prevToken.nesting === 1 && prevToken.info.trim().match(/^demo\s*(.*)$/)
-
+    const isInDemoContainer: boolean =
+      prevToken && prevToken.nesting === 1 && prevToken.info.trim().match(/^demo\s*(.*)$/)
 
     /**
      * 如果是自定义代码段落，则继续获取里面的内容返回知道插槽内容
-     * 
+     *
      * 否则返回默认的内容
      */
     if (token.info.trim() === lang && isInDemoContainer) {

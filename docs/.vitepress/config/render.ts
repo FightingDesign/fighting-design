@@ -16,9 +16,9 @@ let seed = 0
 
 /**
  * 将字符串解析为组件
- * 
+ *
  * @param content 代码内容部分
- * @returns 
+ * @returns
  */
 export const renderComponent = (content: string): RenderComponentReturn | null => {
   if (!content) return null
@@ -77,7 +77,6 @@ export const renderComponent = (content: string): RenderComponentReturn | null =
   let pageScript = ''
 
   if (componentsString) {
-
     pageScript = `<script lang="ts">
       import * as Vue from 'vue'
       ${scriptImports?.join(os.EOL)}

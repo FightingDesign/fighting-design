@@ -5,24 +5,22 @@ export * from './interface.d'
 
 /**
  * 点击的涟漪效果
- *  
+ *
  * @param evt 事件对象
  * @param node 元素节点
  * @param options 配置对象
  */
 export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesOptions): UseRipplesReturn => {
-
   /**
    * 计算涟漪颜色
    *
    * 如果设置了 ripplesColor 则直接返回
-   * 
+   *
    * 在 simple 和 text 模式下，根据 type 返回颜色
-   * 
+   *
    * 否则返回默认白色
    */
   const ripplesColor = computed((): string => {
-
     if (options.ripplesColor) {
       return options.ripplesColor
     }
@@ -69,7 +67,6 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
    * @return { HTMLElement }
    */
   const renderElement = (x: number, y: number): HTMLElement => {
-
     /**
      * 新建个 span 元素
      */
@@ -80,7 +77,6 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
 
     // 如果是按钮，则需要添加容器
     if (options.component === 'f-button') {
-
       const box: HTMLDivElement = document.createElement('div')
       box.className = 'f-button__ripples-box'
 

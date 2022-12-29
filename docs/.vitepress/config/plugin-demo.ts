@@ -4,9 +4,9 @@ import type Token from 'markdown-it/lib/token'
 
 /**
  * 自定义 markdown 语法
- * 
+ *
  * ::: demo 代码片段展示
- * 
+ *
  * @param md markdown 实例
  */
 export const pluginDemo = (md: MarkdownIt): void => {

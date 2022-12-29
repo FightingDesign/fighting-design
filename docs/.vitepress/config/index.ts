@@ -6,7 +6,7 @@ import type MarkdownIt from 'markdown-it'
 
 /**
  * 导出自定义插件方法
- * 
+ *
  * @param md markdown 实例
  */
 export const fightingPlugin = (md: MarkdownIt): void => {

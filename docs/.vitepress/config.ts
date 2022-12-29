@@ -27,7 +27,7 @@ export default defineConfig({
   markdown: {
     // 自定义 markdown 语法
     // => fightingPlugin(md)
-    config: (md) => {
+    config: md => {
       mdPlugin(md)
       // md.use(demoBlockPlugin, {
       //   customClass: 'demoblock-custom',
@@ -61,6 +61,5 @@ export default defineConfig({
       //   ]
       // })
     }
-
   }
 })
