@@ -79,6 +79,8 @@ declare module 'vue' {
     FForm: typeof components.FForm
     FFormItem: typeof components.FFormItem
     FBox: typeof components.FBox
+    FSvgIcon: typeof components.FSvgIcon
+    FRate: typeof components.FRate
   }
 
   interface ComponentCustomProperties {

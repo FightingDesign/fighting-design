@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 添加 `f-svg-icon` 类型
+- 添加 `f-rate` 类型
+
 ## 0.13.0 (2022-12-28)
 
 **新功能**
