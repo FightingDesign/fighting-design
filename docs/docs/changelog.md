@@ -2,6 +2,23 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.14.0 (2022-12-30)
+
+**新增**
+
+- 新增 `f-alert` 组件 `alert-list` 配置项
+
+**优化**
+
+- 废除 `f-alert` 组件 `overflow` 配置项
+- 优化 `f-popup` 组件弹出状态针对滚动条的处理
+- 优化 `f-dialog` `f-drawer` 组件样式细节
+
+**修复**
+
+- 修复 `f-checkbox` 组件 `border` 状态样式问题
+- 修复 `f-input-number` 警告错误
+
 ## 0.13.2 (2022-12-29)
 
 - 修复 `f-ripple` 组件失效问题

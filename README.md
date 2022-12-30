@@ -20,6 +20,7 @@
 
 ## ✨ Features
 
+- 🪐 60+ common components
 - 💪 Developed with the latest features of Vue.js
 - 🐆 Fully based on Vite, fast enough
 - 🤟 Ultimate development experience

@@ -4,6 +4,23 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.14.0 (2022-12-30)
+
+**New**
+
+- Add `f-alert` component `alert-list` configuration item
+
+**Optimization**
+
+- Revoke the `f-alert` component `overflow` configuration item
+- Optimize the handling of the pop-up status of the `f-popup` component for the scroll bar
+- Optimize `f-dialog` `f-drawer` component style details
+
+**Repair**
+
+- Fix the problem of `f-checkbox` component `border` status style
+- Fix `f-input-number` warning error
+
 ## 0.13.2 (2022-12-29)
 
 - Fix the failure of `f-ripple` components
