@@ -43,7 +43,7 @@
     .f-alert__sub-title {
       display: block;
       margin-left: 10px;
-      line-height: 30px;
+      line-height: 24px;
       font-size: var(--f-alert-font-size, 15px);
     }
 
@@ -80,6 +80,12 @@
   &.f-alert__fixed {
     width: 100%;
     position: fixed;
+  }
+
+  // 关闭按钮
+  .f-close-btn {
+    position: absolute;
+    right: 10px;
   }
 
   // 关闭动画

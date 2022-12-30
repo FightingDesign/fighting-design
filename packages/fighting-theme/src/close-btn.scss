@@ -16,34 +16,19 @@
     border-radius: var(--f-design-border-radius-2);
   }
 
-  &:hover {
-    opacity: 0.6;
-    background: var(--f-design-color-border-1);
-    color: var(--f-close-btn-color, var(--f-design-color-primary-1));
+  &:not([class~='f-close-btn__disabled']):hover {
+    opacity: 0.8;
+    color: var(--f-design-color-danger-1);
+    background: var(--f-design-color-border-3);
   }
 
-  &:active {
+  &:not([class~='f-close-btn__disabled']):active {
     opacity: 1;
-    color: var(--f-close-btn-color, var(--f-design-color-primary-1));
   }
 
   // 禁用状态
   &__disabled {
     cursor: not-allowed;
-    color: var(--f-close-btn-color, var(--f-design-color-primary-1));
     opacity: 0.4;
-
-    &:hover,
-    &:active {
-      color: var(--f-close-btn-color, var(--f-design-color-primary-1));
-      opacity: 0.4;
-      background: none;
-    }
   }
 }
-
-// 禁用状态
-// .f-close-btn__disabled {
-//   cursor: not-allowed;
-//   color: var(--f-design-color-primary-6);
-// }

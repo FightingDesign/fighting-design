@@ -84,7 +84,14 @@
       </div>
 
       <!-- 关闭按钮 -->
-      <f-close-btn v-if="close" no-hover color="#fff" :icon="closeIcon" :on-click="handleClose">
+      <f-close-btn
+        v-if="close"
+        round
+        :color="type === 'default' ? '#333' : '#fff'"
+        :size="16"
+        :icon="closeIcon"
+        :on-click="handleClose"
+      >
         <slot name="closeIcon" />
       </f-close-btn>
     </div>
