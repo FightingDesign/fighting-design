@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <f-close-btn disabled />
+  <f-close-btn hover-color="orange" />
 
   <!-- <f-alert close type="default">默认提示信息</f-alert>
   <f-alert close type="primary">主要提示信息</f-alert>

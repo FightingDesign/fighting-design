@@ -31,6 +31,13 @@ export const Props = {
     default: (): null => null
   },
   /**
+   * 鼠标移入的颜色
+   */
+  hoverColor: {
+    type: String,
+    default: (): null => null
+  },
+  /**
    * 自定义 icon
    */
   icon: {

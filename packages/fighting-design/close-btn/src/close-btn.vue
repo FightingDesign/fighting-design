@@ -26,7 +26,7 @@
   /**
    * 样式列表
    */
-  const styleList = styles(['color'])
+  const styleList = styles(['color', 'hoverColor'])
 </script>
 
 <template>
