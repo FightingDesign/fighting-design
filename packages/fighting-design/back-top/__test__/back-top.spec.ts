@@ -5,48 +5,48 @@ import { FBackTop } from '../index'
 describe('FBackTop', () => {
   test('class', () => {
     const wrapper = mount(FBackTop)
-    expect(wrapper.find('div').classes()).toContain('f-back-top')
+    expect(wrapper.find('.f-back-top').classes()).toContain('f-back-top')
   })
 
   test('round', () => {
     const wrapper = mount(FBackTop, {
       props: { round: true }
     })
-    expect(wrapper.find('div').classes()).toContain('f-back-top__round')
+    expect(wrapper.find('.f-back-top').classes()).toContain('f-back-top__round')
   })
 
   test('right', () => {
     const wrapper = mount(FBackTop, {
       props: { right: '100px' }
     })
-    expect(wrapper.find('div').attributes('style')).toContain('100px')
+    expect(wrapper.find('.f-back-top').attributes('style')).toContain('100px')
   })
 
   test('bottom', () => {
     const wrapper = mount(FBackTop, {
       props: { bottom: '100px' }
     })
-    expect(wrapper.find('div').attributes('style')).toContain('100px')
+    expect(wrapper.find('.f-back-top').attributes('style')).toContain('100px')
   })
 
   test('z-index', () => {
     const wrapper = mount(FBackTop, {
       props: { zIndex: 300 }
     })
-    expect(wrapper.find('div').attributes('style')).toContain(300)
+    expect(wrapper.find('.f-back-top').attributes('style')).toContain(300)
   })
 
   test('background', () => {
     const wrapper = mount(FBackTop, {
       props: { background: 'red' }
     })
-    expect(wrapper.find('div').attributes('style')).toContain('red')
+    expect(wrapper.find('.f-back-top').attributes('style')).toContain('--f-back-top-background: red')
   })
 
   test('color', () => {
     const wrapper = mount(FBackTop, {
       props: { color: 'orange' }
     })
-    expect(wrapper.find('div').attributes('style')).toContain('orange')
+    expect(wrapper.find('.f-back-top').attributes('style')).toContain('--f-back-top-color: orange')
   })
 })
