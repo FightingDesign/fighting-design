@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.14.0 (2022-12-30)
+
 - 废除 `f-alert` 组件 `overflow` 配置项
 - 新增 `f-alert` 组件 `alert-list` 配置项
 
