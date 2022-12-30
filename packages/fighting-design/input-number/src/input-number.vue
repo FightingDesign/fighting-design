@@ -36,7 +36,7 @@
      * @param val 新值
      */
     set: (val: number) => {
-      emit('update:modelValue', val)
+      emit('update:modelValue', Number(val))
     }
   })
 
