@@ -6,6 +6,8 @@
 
 - 废除 `f-alert` 组件 `overflow` 配置项
 - 新增 `f-alert` 组件 `alert-list` 配置项
+- 优化 `f-popup` 组件弹出状态针对滚动条的处理
+- 优化 `f-dialog` `f-drawer` 组件样式细节
 
 **修复**
 
