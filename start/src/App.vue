@@ -1,9 +1,21 @@
 <script lang="ts" setup>
-  const alertList = ['把大象放进冰箱需要几步？', '第一步：打开冰箱门', '第二步：把大象装进去', '第三步：关好冰箱门']
+  import { ref } from 'vue'
+
+  const option4 = ref([])
+
+  const radio4 = ref('1')
 </script>
 
 <template>
-  <f-alert :alert-list="alertList" title="你知道吗？" type="primary" :duration="4000" />
-</template>
+  <f-radio-group v-model="radio4" border>
+    <f-radio label="1">备选项1</f-radio>
+    <f-radio label="2">备选项2</f-radio>
+    <f-radio label="3">备选项3</f-radio>
+  </f-radio-group>
 
-<style lang="scss" scoped></style>
+  <f-checkbox-group v-model="option4" border>
+    <f-checkbox label="选项一" />
+    <f-checkbox label="选项二" />
+    <f-checkbox label="选项三" />
+  </f-checkbox-group>
+</template>

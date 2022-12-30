@@ -47,7 +47,7 @@
       }
 
       // 边框状态选中
-      &.f-checkbox__selected {
+      &.f-checkbox__active {
         background: var(--f-design-color-primary-1);
 
         .f-checkbox__text {
