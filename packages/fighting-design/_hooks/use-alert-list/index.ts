@@ -2,6 +2,12 @@ import type { UseAlertListReturn } from './interface'
 
 export * from './interface.d'
 
+/**
+ * 处理 alert 组件滚动列表方法
+ * 
+ * @param node 滚动节点
+ * @returns 
+ */
 export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
 
   /**
