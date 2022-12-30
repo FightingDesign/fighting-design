@@ -1,11 +1,5 @@
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<script lang="ts" setup></script>
 
-  const value1 = ref(3)
-</script>
+<template></template>
 
-<template>
-  <f-input-number v-model="value1" />
-  <f-input-number v-model="value1" model="switch" />
-  <f-input-number v-model="value1" model="button" />
-</template>
+<style lang="scss" scoped></style>

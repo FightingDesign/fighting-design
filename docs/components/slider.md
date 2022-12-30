@@ -16,15 +16,15 @@
 </template>
 
 ```html
+<template>
+  <f-slider v-model="value1" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const value1 = ref(50)
 </script>
-
-<template>
-  <f-slider v-model="value1" />
-</template>
 ```
 
 :::
@@ -40,15 +40,15 @@
 </template>
 
 ```html
+<template>
+  <f-slider v-model="value2" :min="40" :max="60" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const value2 = ref(50)
 </script>
-
-<template>
-  <f-slider v-model="value2" :min="40" :max="60" />
-</template>
 ```
 
 :::
@@ -64,15 +64,15 @@
 </template>
 
 ```html
+<template>
+  <f-slider v-model="value3" :step="10" />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const value3 = ref(20)
 </script>
-
-<template>
-  <f-slider v-model="value3" :step="10" />
-</template>
 ```
 
 :::
@@ -88,15 +88,15 @@
 </template>
 
 ```html
+<template>
+  <f-slider v-model="value4" disabled />
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const value4 = ref(70)
 </script>
-
-<template>
-  <f-slider v-model="value4" disabled />
-</template>
 ```
 
 :::
