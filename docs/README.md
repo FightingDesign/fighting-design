@@ -2,7 +2,7 @@
 
 ## ✨ 介绍
 
-`Docs` 是 `Fighting Design` 官方文档目录，使用 [VitePress](https://github.com/vuejs/vitepress) 进行开发。
+Docs 是 fighting design 官方文档目录，使用 [VitePress](https://github.com/vuejs/vitepress) 进行开发。
 
 `vitePress` 是一个 `Vite` 和 `Vue` 支持的静态站点生成器，使用 [MarkDown](https://zh.wikipedia.org/zh-tw/Markdown) 进行编写。如果你还不了解 `MarkDown`，可以通过[这里](http://younghz.github.io/Markdown/)进行学习。
 
@@ -15,7 +15,7 @@
 
 ## 🚧 编写规范
 
-首先需要在 [docs/docs/components](https://github.com/FightingDesign/fighting-design/tree/master/docs/docs/components) 目录下，新建一个以组件小写名，去掉首字母 `F` 的 `*.md` 文件。如：`button`，而不是 `FButton`。
+首先需要在 [docs/components](https://github.com/FightingDesign/fighting-design/tree/master/docs/components) 目录下，新建一个以组件小写名，去掉首字母 `F` 的 `*.md` 文件。如：`button`，而不是 `FButton`。
 
 - `*.md` 内，只允许出现一个一级标题 `#`，后面全部使用二级标题 `##`，禁止出现二级标题以下的标题
 - 一级标题为`组件的名称 + 中文描述`，中间要带有空格。如：`Button 按钮`、`Icon 图标`。这里的组件名要以大写开头
@@ -91,7 +91,7 @@ css code...
 
 ## ✏️ 引入
 
-在你新建的组件文档文件之后，你需要在 [sidebar](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/.vitepress/utils/sidebar.ts) 中引入你的文档，才可以正常显示
+在你新建的组件文档文件之后，你需要在 [sidebar](https://github.com/FightingDesign/fighting-design/blob/master/docs/.vitepress/utils/sidebar.ts) 中引入你的文档，才可以正常显示
 
 ## 💡 测试
 
