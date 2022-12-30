@@ -2,7 +2,7 @@
   import { Props, TabsProvideKey } from './props'
   import { onMounted, ref, provide, computed, getCurrentInstance, watch, nextTick, useSlots } from 'vue'
   import { TabsNav } from './components'
-  import { debugWarn, __DEV__ } from '../../_utils'
+  import { debugWarn } from '../../_utils'
   import { getChildrenComponent } from './utils'
   import type { TabsNavInstance, TabsProvide, TabsPaneName } from './interface'
   import type { ComponentInternalInstance } from 'vue'
@@ -64,7 +64,7 @@
     (val): void => {
       currentName.value = val as TabsPaneName
 
-      if (__DEV__ && navs.value.length && navs.value.every(e => e.name !== val)) {
+      if (navs.value.length && navs.value.every(e => e.name !== val)) {
         debugWarn('FTabs', `未找到名为 ${val} 的标签`)
       }
     },
