@@ -21,14 +21,14 @@ export const Props = {
    */
   fontSize: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '15px'
+    default: (): null => null
   },
   /**
    * title 大小
    */
   titleSize: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '17px'
+    default: (): null => null
   },
   /**
    * 是否加粗
