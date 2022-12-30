@@ -7,7 +7,6 @@
   position: relative;
   align-items: center;
   box-sizing: border-box;
-  justify-content: space-between;
   border-radius: var(--f-design-border-radius-1);
 
   @for $list from 1 to (length($ComponentsType) + 1) {
@@ -28,14 +27,14 @@
 
   // 主要内容
   &__content {
-    flex: 1;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
 
     // 主标题
     .f-alert__title {
       font-weight: bold;
+      margin-left: 10px;
       font-size: var(--f-alert-title-size, 17px);
       color: var(--f-alert-title-color);
     }
@@ -43,12 +42,22 @@
     // 副标题
     .f-alert__sub-title {
       display: block;
+      margin-left: 10px;
+      line-height: 30px;
       font-size: var(--f-alert-font-size, 15px);
     }
 
-    &.f-alert__content-hidden {
-      overflow: hidden;
-      white-space: nowrap;
+    // 滚动列表
+    .f-alert__list {
+      margin-left: 10px;
+      height: 40px;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      font-size: var(--f-alert-font-size, 15px);
+
+      .f-alert__list-item {
+        line-height: 40px;
+      }
     }
   }
 

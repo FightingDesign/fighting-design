@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 废除 `f-alert` 组件 `overflow` 配置项
+- 新增 `f-alert` 组件 `alert-list` 配置项
+
 ## 0.13.2 (2022-12-29)
 
 - 修复 `f-ripple` 组件失效问题

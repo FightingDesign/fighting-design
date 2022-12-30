@@ -1,5 +1,4 @@
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { AlertOverflow } from './interface'
 import type { HandleMouse, FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -101,16 +100,6 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 超出展示方式
-   */
-  overflow: {
-    type: String as PropType<AlertOverflow>,
-    default: (): null => null,
-    validator: (val: AlertOverflow) => {
-      return (['hidden'] as const).includes(val)
-    }
-  },
-  /**
    * 自定义关闭 icon
    */
   closeIcon: {
@@ -122,6 +111,13 @@ export const Props = {
    */
   beforeIcon: {
     type: Object as PropType<FightingIcon>,
+    default: (): null => null
+  },
+  /**
+   * 滚动列表
+   */
+  alertList: {
+    type: Array as PropType<string[]>,
     default: (): null => null
   },
   /**
