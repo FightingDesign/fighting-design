@@ -301,6 +301,10 @@ import type { AlertInstance, AlertProps } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/66313154?v=4" />
 </a>
 
+<a href="https://github.com/long-life233" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/77321887?v=4" />
+</a>
+
 <script lang="ts" setup>
   import demo3Vue from './_demos/svg-icon/demo3.vue'
 
