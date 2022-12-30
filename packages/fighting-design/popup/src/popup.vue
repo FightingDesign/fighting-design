@@ -24,6 +24,7 @@
    * @param evt 事件对象
    */
   const handleOpen = (evt: MouseEvent): void => {
+    document.body.style.overflow = 'hidden'
     useRun(prop.onOpen, evt)
   }
 
@@ -42,6 +43,7 @@
    * @param evt 事件对象
    */
   const handleClose = (evt: MouseEvent): void => {
+    document.body.style.overflow = ''
     useRun(prop.onClose, evt)
   }
 
