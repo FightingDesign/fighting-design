@@ -1,25 +1,9 @@
 <script lang="ts" setup>
-  import { FIconApps } from '@fighting-design/fighting-icon'
-
-  const alertList = [
-    '床前明月光床前明月光床前明月光',
-    '疑是地上霜疑是地上霜疑是地上霜',
-    '举头望明月举头望明月举头望明月举头望明月',
-    '低头思故乡低头思故乡低头思故乡'
-  ]
+  const alertList = ['把大象放进冰箱需要几步？', '第一步：打开冰箱门', '第二步：把大象装进去', '第三步：关好冰箱门']
 </script>
 
 <template>
-  <f-close-btn hover-color="orange" />
-
-  <!-- <f-alert close type="default">默认提示信息</f-alert>
-  <f-alert close type="primary">主要提示信息</f-alert>
-  <f-alert close type="success">成功提示信息</f-alert>
-  <f-alert close type="danger">危险提示信息</f-alert>
-  <f-alert close type="warning">警告提示信息</f-alert>
-
-  <f-alert :before-icon="FIconApps" :alert-list="alertList" title="这是一个提示" type="primary">主要提示信息</f-alert>
-  <f-alert :before-icon="FIconApps" title="这是一个提示">主要提示信息</f-alert> -->
+  <f-alert :alert-list="alertList" title="你知道吗？" type="primary" :duration="4000" />
 </template>
 
 <style lang="scss" scoped></style>

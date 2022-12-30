@@ -121,6 +121,13 @@ export const Props = {
     default: (): null => null
   },
   /**
+   * 滚动列表动画间隔
+   */
+  duration: {
+    type: Number,
+    default: (): null => null
+  },
+  /**
    * 点击关闭之后执行的回调
    */
   onClose: {

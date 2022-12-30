@@ -50,13 +50,13 @@
     // 滚动列表
     .f-alert__list {
       margin-left: 10px;
-      height: 40px;
+      height: 24px;
       overflow-y: hidden;
       overflow-x: hidden;
       font-size: var(--f-alert-font-size, 15px);
 
       .f-alert__list-item {
-        line-height: 40px;
+        line-height: 24px;
       }
     }
   }

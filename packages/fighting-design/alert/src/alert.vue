@@ -52,7 +52,7 @@
   onMounted((): void => {
     if (prop.alertList && prop.alertList.length) {
       const { startMove } = useAlertList(alertListDom.value)
-      startMove()
+      startMove(prop.duration || 2000)
     }
   })
 </script>

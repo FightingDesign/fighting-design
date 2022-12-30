@@ -30,7 +30,7 @@ export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
   /**
    * 滚动距离
    */
-  const top = 40
+  const top = 24
   /**
    * 滚动到第几个
    */
