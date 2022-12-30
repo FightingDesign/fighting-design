@@ -221,6 +221,32 @@
 
 :::
 
+## 自定义前缀 icon
+
+::: demo
+<template #source>
+<demo3-vue />
+</template>
+
+```html
+<script lang="ts" setup>
+  import {  FIconFaceSmile } from '@fighting-design/fighting-icon'
+</script>
+
+<template>
+  <f-alert type="default" :before-icon="FIconFaceSmile">默认提示信息</f-alert>
+  <div style="height: 5px"></div>
+  <f-alert type="primary" :before-icon="FIconFaceSmile">主要提示信息</f-alert>
+  <div style="height: 5px"></div>
+  <f-alert type="success" :before-icon="FIconFaceSmile">成功提示信息</f-alert>
+  <div style="height: 5px"></div>
+  <f-alert type="danger" center :before-icon="FIconFaceSmile">危险提示信息</f-alert>
+  <div style="height: 5px"></div>
+  <f-alert type="warning" center title="标题" :before-icon="FIconFaceSmile" close>警告提示信息</f-alert>
+</template>
+```
+:::
+
 ## Attributes
 
 | 参数          | 说明                   | 类型                                                               | 可选值                                           | 默认值  |
@@ -276,6 +302,8 @@ import type { AlertInstance, AlertProps } from 'fighting-design'
 </a>
 
 <script lang="ts" setup>
+  import demo3Vue from './_demos/svg-icon/demo3.vue'
+
   const alertList = ['把大象放进冰箱需要几步？', '第一步：打开冰箱门', '第二步：把大象装进去', '第三步：关好冰箱门']
 </script>
 
