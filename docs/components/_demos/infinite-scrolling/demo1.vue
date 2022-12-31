@@ -1,6 +1,8 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
+
   const length = ref(20)
+
   const scrollView = (): void => {
     length.value += 10
   }
@@ -12,11 +14,12 @@
   </f-infinite-scrolling>
 </template>
 
-<style>
+<style scoped>
   .item {
     width: 100%;
     height: 40px;
-    background: var(--vp-c-brand);
+    background: #96acf8;
+    color: #fff;
     margin: 5px 0;
     text-align: center;
     line-height: 40px;

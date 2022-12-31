@@ -1,9 +1,9 @@
-# infinite-scrolling 无限滚动
+# Infinite Scrolling 无限滚动
 
-一个标签
+永远不会到底吗？
 
-- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tag)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tag.md)
+- [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/infinite-scrolling)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/infinite-scrolling.md)
 
 ## 基本使用
 
@@ -15,34 +15,48 @@
 <demo1-vue />
 </template>
 
-<script setup lang="ts">
-  import demo1Vue from './_demos/infinite-scrolling/demo1.vue'
-</script>
-
 ```html
-<div>
-  <f-infinite-scrolling @scroll-view="scrollView">
-    <div class="item" v-for="item in length" style="">{{ item }}</div>
+<template>
+  <f-infinite-scrolling :is-loading="false" @scroll-view="scrollView">
+    <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
   </f-infinite-scrolling>
-</div>
+</template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+
   const length = ref(20)
   const loading = ref(false)
-  const scrollView = (num: Number): void => {
+
+  const scrollView = (num: number): void => {
     length.value += 10
   }
 </script>
+
+<style scoped>
+  .item {
+    width: 100%;
+    height: 40px;
+    background: #96acf8;
+    color: #fff;
+    margin: 5px 0;
+    text-align: center;
+    line-height: 40px;
+  }
+</style>
 ```
 
 :::
 
 ## Attributes
 
-| 参数              | 说明             | 类型           | 可选值 | 默认值                 |
-| ----------------- | ---------------- | -------------- | ------ | ---------------------- |
-| `is-loading`      | 开启加载         | boolean        | ——     | false                  |
-| `styles`          | 滚动组件样式     | object         | ——     | {}                     |
-| `scroll-distance` | 触发距离         | number         | ——     | 0                      |
-| `@scroll-view`    | 滚动到底触发函数 | (number) => {} | ——     | scrollTop+clientHeight |
+| 参数              | 说明             | 类型           | 可选值 | 默认值 |
+| ----------------- | ---------------- | -------------- | ------ | ------ |
+| `scroll-distance` | 触发距离         | number         | ——     | 0      |
+| `is-loading`      | 开启加载         | boolean        | ——     | false  |
+| `styles`          | 滚动组件样式     | object         | ——     | ——     |
+| `@scroll-view`    | 滚动到底触发函数 | (number) => {} | ——     | ——     |
+
+<script setup lang="ts">
+  import demo1Vue from './_demos/infinite-scrolling/demo1.vue'
+</script>

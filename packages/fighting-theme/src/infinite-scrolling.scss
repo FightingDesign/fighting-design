@@ -3,12 +3,13 @@
   height: 300px;
   overflow: hidden;
   overflow-y: scroll;
-}
-.f-infinite-scrolling-loading {
-  height: 40px;
-  display: flex;
-  margin-bottom: 10px;
-  justify-content: center;
-  align-items: center;
-  color: black;
+
+  &__loading {
+    height: 40px;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
 }

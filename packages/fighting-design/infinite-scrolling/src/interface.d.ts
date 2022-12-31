@@ -1,1 +1,1 @@
-export type { typeProps } from './props'
+export type { InfiniteScrollingProps } from './props'
