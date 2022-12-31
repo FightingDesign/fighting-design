@@ -140,6 +140,11 @@ export const searchList = [
     rule: 'popupPopup弹出窗口',
     url: 'components/popup'
   },
+  {
+    title: 'infinite-scrolling 无限滚动',
+    rule: 'infinite-scrolling 无限滚动',
+    url: 'components/infinite-scrolling'
+  },
   { title: 'Swap 切换', rule: 'swapSwap 切换', url: 'components/swap' },
   {
     title: 'Toolbar 工具栏',

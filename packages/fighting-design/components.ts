@@ -222,3 +222,6 @@ export * from './form-item'
 
 export { FBox } from './box'
 export * from './box'
+
+export { FInfiniteScrolling } from './infinite-scrolling'
+export * from './infinite-scrolling'
