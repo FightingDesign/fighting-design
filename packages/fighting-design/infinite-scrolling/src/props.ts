@@ -18,7 +18,7 @@ export const Props = {
   /**
    * 是否 loading
    */
-  isLoading: {
+  loading: {
     type: Boolean,
     default: (): boolean => false
   },

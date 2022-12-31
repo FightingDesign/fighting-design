@@ -17,7 +17,7 @@
 
 ```html
 <template>
-  <f-infinite-scrolling :isLoading="false" :scrollEnd="scrollEnd" :scrollWhen="scrollWhen">
+  <f-infinite-scrolling :scroll-end="scrollEnd">
     <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
   </f-infinite-scrolling>
 </template>
@@ -26,13 +26,9 @@
   import { ref } from 'vue'
 
   const length = ref(20)
-  const loading = ref(false)
 
-  const scrollEnd = (num: number): void => {
+  const scrollEnd = (): void => {
     length.value += 10
-  }
-  const scrollWhen = (num: number) => {
-    console.log(num)
   }
 </script>
 
@@ -51,9 +47,9 @@
 
 :::
 
-## isLoading 加载使用
+## 加载状态
 
-`isLoading` 显示加载效果...
+`loading` 显示加载效果...
 
 ::: demo
 
@@ -62,25 +58,27 @@
 </template>
 
 ```html
+<template>
+  <f-infinite-scrolling :loading="loading" :scroll-end="scrollEnd">
+    <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
+  </f-infinite-scrolling>
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
   const length = ref(10)
   const loading = ref(false)
+
   const scrollEnd = (): void => {
     loading.value = true
+
     setTimeout(() => {
       length.value += 10
       loading.value = false
     }, 2000)
   }
 </script>
-
-<template>
-  <f-infinite-scrolling :is-loading="loading" :scroll-end="scrollEnd">
-    <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
-  </f-infinite-scrolling>
-</template>
 
 <style scoped>
   .item {
@@ -99,15 +97,27 @@
 
 ## Attributes
 
-| 参数            | 说明             | 类型                                | 可选值 | 默认值 |
-| --------------- | ---------------- | ----------------------------------- | ------ | ------ |
-| `scrollDitance` | 触发距离         | number                              | ——     | 0      |
-| `isLoading`     | 开启加载         | boolean                             | ——     | false  |
-| `styles`        | 滚动组件样式     | object                              | ——     | ——     |
-| `scrollEnd`     | 滚动到底触发函数 | (number:scTop+clitHei+scrDis) => {} | ——     | ——     |
-| `scrollWhen`    | 滚动时触发函数   | (number:滚动的距离 ) => {}          | ——     | ——     |
+| 参数              | 说明             | 类型                                | 可选值 | 默认值 |
+| ----------------- | ---------------- | ----------------------------------- | ------ | ------ |
+| `scroll-distance` | 触发距离         | number                              | ——     | 0      |
+| `loading`         | 开启加载         | boolean                             | ——     | false  |
+| `styles`          | 滚动组件样式     | object                              | ——     | ——     |
+| `scroll-end`      | 滚动到底触发函数 | (number:scTop+clitHei+scrDis) => {} | ——     | ——     |
+| `scroll-when`     | 滚动时触发函数   | (number:滚动的距离 ) => {}          | ——     | ——     |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { InfiniteScrollingInstance, InfiniteScrollingProps } from 'fighting-design'
+```
 
 ## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
 
 <a href="https://github.com/HoldingTheGhostAtTheGrave" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/76578532?v=4" />
@@ -116,5 +126,4 @@
 <script setup lang="ts">
   import demo1Vue from './_demos/infinite-scrolling/demo1.vue'
   import demo2Vue from './_demos/infinite-scrolling/demo2.vue'
-
 </script>

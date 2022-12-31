@@ -4,7 +4,9 @@
   import { useRun } from '../../_hooks'
 
   const props = defineProps(Props)
-  const panding = ref(false)
+
+  const target = ref(false)
+
   /**
    * 元素节点
    */
@@ -13,21 +15,21 @@
    * 滚动触发
    */
   const scroll = (): void => {
-    if (props.isLoading) return
+    if (props.loading) return
     const view: HTMLDivElement = scrollView.value
     const viewScrollingDistance: number = Math.ceil(view.scrollTop + view.clientHeight + props.scrollDistance)
     /**
      * 滚动时回调
      */
     useRun(props.scrollWhen, view.scrollTop)
-    if (viewScrollingDistance >= view.scrollHeight && !panding.value) {
+    if (viewScrollingDistance >= view.scrollHeight && !target.value) {
       /**
        * 批处理 触底时回调
        */
-      panding.value = true
-      useRun((viewScrollingDistance: number) => {
+      target.value = true
+      useRun((viewScrollingDistance: number): void => {
         props.scrollEnd(viewScrollingDistance)
-        panding.value = false
+        target.value = false
       }, viewScrollingDistance)
     }
   }
@@ -35,6 +37,6 @@
 <template>
   <div ref="scrollView" class="f-infinite-scrolling" :style="props.styles" @scroll="scroll">
     <slot />
-    <div v-if="isLoading" class="f-infinite-scrolling__loading">加载中...</div>
+    <div v-if="loading" class="f-infinite-scrolling__loading">加载中...</div>
   </div>
 </template>
