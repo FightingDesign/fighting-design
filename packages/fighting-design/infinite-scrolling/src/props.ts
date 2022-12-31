@@ -21,6 +21,20 @@ export const Props = {
   isLoading: {
     type: Boolean,
     default: (): boolean => false
+  },
+  /**
+   * 滚动触底时 触发的回调
+   */
+  scrollEnd: {
+    type: Function,
+    default: (): null => null
+  },
+  /**
+   * 滚动时 触发的回调
+   */
+  scrollWhen: {
+    type: Function,
+    default: (): null => null
   }
 }
 
