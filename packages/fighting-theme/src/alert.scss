@@ -3,7 +3,7 @@
 
 .f-alert {
   display: flex;
-  padding: 10px 30px;
+  padding: 10px;
   position: relative;
   align-items: center;
   box-sizing: border-box;
@@ -68,8 +68,10 @@
   }
 
   // 居中
-  &.f-alert__center &__content {
-    justify-content: center;
+  &.f-alert__center {
+    .f-alert__content {
+      justify-content: center;
+    }
   }
 
   // 圆角
@@ -81,12 +83,6 @@
   &.f-alert__fixed {
     width: 100%;
     position: fixed;
-  }
-
-  // 前缀 icon
-  & > .f-svg-icon {
-    position: absolute;
-    left: 10px;
   }
 
   // 关闭按钮
