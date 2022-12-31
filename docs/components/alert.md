@@ -225,7 +225,7 @@
 
 ::: demo
 <template #source>
-<demo3-vue />
+<demo1-vue />
 </template>
 
 ```html
@@ -306,7 +306,7 @@ import type { AlertInstance, AlertProps } from 'fighting-design'
 </a>
 
 <script lang="ts" setup>
-  import demo3Vue from './_demos/svg-icon/demo3.vue'
+  import demo1Vue from './_demos/alert/demo1.vue'
 
   const alertList = ['把大象放进冰箱需要几步？', '第一步：打开冰箱门', '第二步：把大象装进去', '第三步：关好冰箱门']
 </script>
