@@ -81,6 +81,7 @@ declare module '@vue/runtime-core' {
     FBox: typeof components.FBox
     FSvgIcon: typeof components.FSvgIcon
     FRate: typeof components.FRate
+    FInfiniteScrolling: typeof components.FInfiniteScrolling
   }
 
   interface ComponentCustomProperties {
@@ -89,5 +90,3 @@ declare module '@vue/runtime-core' {
     useLoadingBar: typeof components.useLoadingBar
   }
 }
-
-export {}

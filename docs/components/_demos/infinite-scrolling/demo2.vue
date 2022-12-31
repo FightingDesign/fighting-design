@@ -1,17 +1,19 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const length = ref(20)
-
+  const length = ref(10)
+  const loading = ref(false)
   const scrollEnd = (): void => {
-    console.log(1)
-
-    length.value += 10
+    loading.value = true
+    setTimeout(() => {
+      length.value += 10
+      loading.value = false
+    }, 2000)
   }
 </script>
 
 <template>
-  <f-infinite-scrolling :is-loading="false" :scroll-end="scrollEnd">
+  <f-infinite-scrolling :is-loading="loading" :scroll-end="scrollEnd">
     <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
   </f-infinite-scrolling>
 </template>

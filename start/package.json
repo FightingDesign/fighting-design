@@ -1,7 +1,7 @@
 {
   "name": "start",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0",
     "build": "rimraf dist && vue-tsc --noEmit && vite build"
   },
   "dependencies": {
