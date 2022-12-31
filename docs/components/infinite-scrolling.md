@@ -105,7 +105,7 @@
 | `isLoading`     | 开启加载         | boolean                             | ——     | false  |
 | `styles`        | 滚动组件样式     | object                              | ——     | ——     |
 | `scrollEnd`     | 滚动到底触发函数 | (number:scTop+clitHei+scrDis) => {} | ——     | ——     |
-| `scrollWhen`    | 滚动时触发函数   | (number:滚动的距离) => {}           | ——     | ——     |
+| `scrollWhen`    | 滚动时触发函数   | (number:滚动的距离 ) => {}          | ——     | ——     |
 
 ## Contributors
 
