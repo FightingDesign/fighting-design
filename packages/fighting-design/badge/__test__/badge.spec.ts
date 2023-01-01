@@ -11,10 +11,13 @@ describe('FBadge', () => {
   })
 
   test('type', () => {
-    const wrapper = mount(FBadge, {
-      props: { type: 'success' }
+    const type = ['primary', 'success', 'danger', 'warning'] as const
+    type.forEach(item => {
+      const wrapper = mount(FBadge, {
+        props: { type: item }
+      })
+      expect(wrapper.find('.f-badge__content').classes()).toContain(`f-badge__${item}`)
     })
-    expect(wrapper.find('sup').classes()).toContain('f-badge__success')
   })
 
   test('value is string', () => {
