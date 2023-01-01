@@ -8,6 +8,12 @@ describe('FBreadcrumb', () => {
       slots: { default: 'hello' }
     })
     expect(wrapper.classes()).toContain('f-breadcrumb')
+  })
+
+  test('class', () => {
+    const wrapper = mount(FBreadcrumb, {
+      slots: { default: 'hello' }
+    })
     expect(wrapper.text()).toContain('hello')
   })
 })
