@@ -239,7 +239,7 @@ export const searchList = [
     url: 'components/infinite-scrolling'
   },
   {
-    title: 'numberAnimate 数字动画',
+    title: 'NumberAnimate 数字动画',
     rule: 'number-animateNumberAnimate 数字动画',
     url: 'components/number-animate'
   }
