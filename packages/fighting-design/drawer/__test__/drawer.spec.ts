@@ -7,4 +7,13 @@ describe('FDrawer', () => {
     const wrapper = mount(FDrawer)
     expect(wrapper.find('div').classes()).toContain('f-popup')
   })
+
+  test('title', () => {
+    const wrapper = mount(FDrawer, {
+      props: {
+        title: '标题'
+      }
+    })
+    expect(wrapper.find('.f-drawer__header-title').text()).toContain('标题')
+  })
 })
