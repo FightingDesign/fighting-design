@@ -2,7 +2,7 @@
   import { FNotification } from 'fighting-design'
   import { reactive } from 'vue'
   const styles = reactive({ color: 'var(--vp-c-brand)' })
-  const animationEnd = (time: number): void => {
+  const onAnimationEnd = (time: number): void => {
     console.log(time)
     FNotification({
       title: '这是一条关于f-number-animate 组件的通知 ',
@@ -23,7 +23,7 @@
         :number="20000"
         :approximate-time="4000"
         locale-string
-        :animation-end="animationEnd"
+        :on-animation-end="onAnimationEnd"
         :styles="styles"
       />
     </div>

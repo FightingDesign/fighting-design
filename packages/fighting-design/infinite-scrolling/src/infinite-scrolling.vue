@@ -21,14 +21,14 @@
     /**
      * 滚动时回调
      */
-    useRun(props.scrollWhen, view.scrollTop)
+    useRun(props.onScrollWhen, view.scrollTop)
     if (viewScrollingDistance >= view.scrollHeight && !target.value) {
       /**
        * 批处理 触底时回调
        */
       target.value = true
       useRun((viewScrollingDistance: number): void => {
-        props.scrollEnd(viewScrollingDistance)
+        props.onScrollEnd(viewScrollingDistance)
         target.value = false
       }, viewScrollingDistance)
     }

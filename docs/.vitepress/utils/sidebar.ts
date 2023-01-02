@@ -126,8 +126,8 @@ export const sidebar = {
         { text: 'Watermark 水印', link: '/components/watermark' },
         { text: 'Ripple 涟漪', link: '/components/ripple' },
         { text: 'Calendar 日历', link: '/components/calendar' },
-        { text: 'infinite-scrolling 无限滚动', link: '/components/infinite-scrolling' },
-        { text: 'number-animate 数字动画', link: '/components/number-animate' },
+        { text: 'Infinite-scrolling 无限滚动', link: '/components/infinite-scrolling' },
+        { text: 'Number-animate 数字动画', link: '/components/number-animate' },
         {
           text: 'CollapseAnimation 折叠动画',
           link: '/components/collapse-animation'

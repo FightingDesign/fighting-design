@@ -4,7 +4,7 @@
   const length = ref(10)
   const loading = ref(false)
 
-  const scrollEnd = (): void => {
+  const onScrollEnd = (): void => {
     loading.value = true
 
     setTimeout(() => {
@@ -15,7 +15,7 @@
 </script>
 
 <template>
-  <f-infinite-scrolling :loading="loading" :scroll-end="scrollEnd">
+  <f-infinite-scrolling :loading="loading" :on-scroll-end="onScrollEnd">
     <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
   </f-infinite-scrolling>
 </template>

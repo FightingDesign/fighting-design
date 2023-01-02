@@ -27,7 +27,7 @@ export const Props = {
   /**
    * 动画结束触发函数
    */
-  animationEnd: {
+  onAnimationEnd: {
     type: Function,
     default: (): null => null
   },

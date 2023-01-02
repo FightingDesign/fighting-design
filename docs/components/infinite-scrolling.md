@@ -17,7 +17,7 @@
 
 ```html
 <template>
-  <f-infinite-scrolling :scroll-end="scrollEnd">
+  <f-infinite-scrolling :onScrollEnd="onScrollEnd">
     <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
   </f-infinite-scrolling>
 </template>
@@ -27,7 +27,7 @@
 
   const length = ref(20)
 
-  const scrollEnd = (): void => {
+  const onScrollEnd = (): void => {
     length.value += 10
   }
 </script>
@@ -59,7 +59,7 @@
 
 ```html
 <template>
-  <f-infinite-scrolling :loading="loading" :scroll-end="scrollEnd">
+  <f-infinite-scrolling :loading="loading" :onScrollEnd="onScrollEnd">
     <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
   </f-infinite-scrolling>
 </template>
@@ -70,7 +70,7 @@
   const length = ref(10)
   const loading = ref(false)
 
-  const scrollEnd = (): void => {
+  const onScrollEnd = (): void => {
     loading.value = true
 
     setTimeout(() => {
@@ -102,8 +102,8 @@
 | `scroll-distance` | 触发距离         | number                              | ——     | 0      |
 | `loading`         | 开启加载         | boolean                             | ——     | false  |
 | `styles`          | 滚动组件样式     | object                              | ——     | ——     |
-| `scroll-end`      | 滚动到底触发函数 | (number:scTop+clitHei+scrDis) => {} | ——     | ——     |
-| `scroll-when`     | 滚动时触发函数   | (number:滚动的距离 ) => {}          | ——     | ——     |
+| `onScrollEnd`     | 滚动到底触发函数 | (number:scTop+clitHei+scrDis) => {} | ——     | ——     |
+| `onScrollWhen`    | 滚动时触发函数   | (number:滚动的距离 ) => {}          | ——     | ——     |
 
 ## Interface
 

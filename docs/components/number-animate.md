@@ -20,7 +20,7 @@
   import { FNotification } from 'fighting-design'
   import { reactive } from 'vue'
   const styles = reactive({ color: 'var(--vp-c-brand)' })
-  const animationEnd = (time: number): void => {
+  const onAnimationEnd = (time: number): void => {
     FNotification({
       title: '这是一条关于f-number-animate 组件的通知 ',
       message: '执行时间 :' + time
@@ -40,7 +40,7 @@
         :number="20000"
         :approximate-time="4000"
         locale-string
-        :animation-end="animationEnd"
+        :onAnimationEnd="onAnimationEnd"
         :styles="styles"
       />
     </div>
@@ -67,7 +67,7 @@
 | `approximateTime` | 动画结束的大概时间 | number               | ——     | 2000   |
 | `styles`          | 滚动组件样式       | object               | ——     | ——     |
 | `localeString`    | 格式化数字         | Boolean              | ——     | false  |
-| `animationEnd`    | 动画结束触发函数   | (number:用时 ) => {} | ——     | ——     |
+| `onAnimationEnd`  | 动画结束触发函数   | (number:用时 ) => {} | ——     | ——     |
 
 ## Interface
 
