@@ -10,6 +10,7 @@ export const Props = {
   },
   /**
    * 执行动画结束的大概时间
+   *
    * 准确时间由浏览器的下一侦渲染决定
    */
   approximateTime: {
