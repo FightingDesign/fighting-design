@@ -225,3 +225,6 @@ export * from './box'
 
 export { FInfiniteScrolling } from './infinite-scrolling'
 export * from './infinite-scrolling'
+
+export { FNumberAnimate } from './number-animate'
+export * from './number-animate'
