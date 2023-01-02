@@ -4,17 +4,16 @@ export * from './interface.d'
 
 /**
  * 处理 alert 组件滚动列表方法
- * 
+ *
  * @param node 滚动节点
- * @returns 
+ * @returns
  */
 export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
-
   /**
    * 克隆第一项元素，添加到末尾
-   * 
+   *
    * 为滚动做准备
-   * 
+   *
    * @see children https://developer.mozilla.org/zh-CN/docs/Web/API/Element/children
    * @see cloneNode https://developer.mozilla.org/zh-CN/docs/Web/API/Node/cloneNode
    * @see appendChild https://developer.mozilla.org/zh-CN/docs/Web/API/Node/appendChild
@@ -67,7 +66,7 @@ export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
 
   /**
    * 开始触发滚动
-   * 
+   *
    * @param duration 滚动间隔时间
    */
   const startMove = (duration = 2000): void => {

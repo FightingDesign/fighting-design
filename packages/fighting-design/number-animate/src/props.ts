@@ -32,8 +32,8 @@ export const Props = {
     default: (): null => null
   },
   /**
-  * 动画结束触发函数
-  */
+   * 动画结束触发函数
+   */
   onAnimationEnd: {
     type: Function,
     default: (): null => null

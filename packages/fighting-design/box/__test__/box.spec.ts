@@ -106,5 +106,4 @@ describe('Box', () => {
     })
     expect(wrapper.text()).toContain('hello')
   })
-
 })
