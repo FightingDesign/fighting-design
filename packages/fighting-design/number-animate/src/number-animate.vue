@@ -3,10 +3,10 @@
   import { onMounted, ref } from 'vue'
   import { useRun } from '../../_hooks'
 
-  const props = defineProps(Props)
+  const prop = defineProps(Props)
 
-  let number = ref(0)
-  let startTime = ref(0)
+  const number = ref<number>(0)
+  const startTime = ref<number>(0)
 
   /*
    * 动画函数
@@ -22,11 +22,11 @@
     /*
      * 计算出 执行到达时间 相差值
      */
-    number.value += (props.number / props.approximateTime) * 20
+    number.value += (prop.number / prop.approximateTime) * 20
 
-    if (number.value >= props.number) {
-      number.value = props.number
-      useRun(props.onAnimationEnd, elapsed)
+    if (number.value >= prop.number) {
+      number.value = prop.number
+      useRun(prop.onAnimationEnd, elapsed)
       return
     }
     /*
@@ -35,7 +35,7 @@
     window.requestAnimationFrame(animate)
   }
 
-  onMounted(() => {
+  onMounted((): void => {
     window.requestAnimationFrame(animate)
   })
 </script>

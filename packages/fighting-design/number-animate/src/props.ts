@@ -6,7 +6,7 @@ export const Props = {
    */
   number: {
     type: Number,
-    default: 0
+    default: (): number => 0
   },
   /**
    * 执行动画结束的大概时间
@@ -15,28 +15,28 @@ export const Props = {
    */
   approximateTime: {
     type: Number,
-    default: 2000
+    default: (): number => 2000
   },
   /**
    * 对数字决定金额格式化
    */
   localeString: {
     type: Boolean,
-    default: false
-  },
-  /**
-   * 动画结束触发函数
-   */
-  onAnimationEnd: {
-    type: Function,
-    default: (): null => null
+    default: (): boolean => false
   },
   /**
    * 样式列表
    */
   styles: {
     type: Object,
-    default: (): object => ({})
+    default: (): null => null
+  },
+  /**
+  * 动画结束触发函数
+  */
+  onAnimationEnd: {
+    type: Function,
+    default: (): null => null
   }
 }
 
