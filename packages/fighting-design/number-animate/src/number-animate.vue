@@ -4,8 +4,10 @@
   import { useRun } from '../../_hooks'
 
   const props = defineProps(Props)
+
   let number = ref(0)
   let startTime = ref(0)
+
   /*
    * 动画函数
    */
@@ -21,6 +23,7 @@
      * 计算出 执行到达时间 相差值
      */
     number.value += (props.number / props.approximateTime) * 20
+
     if (number.value >= props.number) {
       number.value = props.number
       useRun(props.animationEnd, elapsed)
@@ -31,15 +34,16 @@
      */
     window.requestAnimationFrame(animate)
   }
+
   onMounted(() => {
     window.requestAnimationFrame(animate)
   })
 </script>
 
 <template>
-  <div class="f-number-animate" :style="props.styles">
+  <div class="f-number-animate" :style="styles">
     <span>
-      {{ props.localeString ? number.toLocaleString() : number }}
+      {{ localeString ? number.toLocaleString() : number }}
     </span>
   </div>
 </template>
