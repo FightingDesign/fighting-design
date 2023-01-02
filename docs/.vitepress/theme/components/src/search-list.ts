@@ -234,12 +234,12 @@ export const searchList = [
     url: 'components/box'
   },
   {
-    title: 'Infinite Scrolling 无限滚动',
+    title: 'InfiniteScrolling 无限滚动',
     rule: 'infinite-scrollingInfinite Scrolling 无限滚动',
     url: 'components/infinite-scrolling'
   },
   {
-    title: 'number-animate 数字动画',
+    title: 'NumberAnimate 数字动画',
     rule: 'number-animateNumberAnimate 数字动画',
     url: 'components/number-animate'
   }

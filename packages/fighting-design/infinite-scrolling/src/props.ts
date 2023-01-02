@@ -25,14 +25,14 @@ export const Props = {
   /**
    * 滚动触底时 触发的回调
    */
-  scrollEnd: {
+  onScrollEnd: {
     type: Function,
     default: (): null => null
   },
   /**
    * 滚动时 触发的回调
    */
-  scrollWhen: {
+  onScrollWhen: {
     type: Function,
     default: (): null => null
   }

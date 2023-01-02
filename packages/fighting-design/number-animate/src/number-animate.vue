@@ -26,7 +26,7 @@
 
     if (number.value >= props.number) {
       number.value = props.number
-      useRun(props.animationEnd, elapsed)
+      useRun(props.onAnimationEnd, elapsed)
       return
     }
     /*

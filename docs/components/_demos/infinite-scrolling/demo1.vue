@@ -3,13 +3,13 @@
 
   const length = ref(20)
 
-  const scrollEnd = (): void => {
+  const onScrollEnd = (): void => {
     length.value += 10
   }
 </script>
 
 <template>
-  <f-infinite-scrolling :scroll-end="scrollEnd">
+  <f-infinite-scrolling :on-scroll-end="onScrollEnd">
     <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
   </f-infinite-scrolling>
 </template>
