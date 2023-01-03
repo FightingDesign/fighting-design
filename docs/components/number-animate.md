@@ -61,20 +61,26 @@
 
 ## Attributes
 
-| 参数              | 说明               | 类型                 | 可选值 | 默认值 |
-| ----------------- | ------------------ | -------------------- | ------ | ------ |
-| `number`          | 目标数字           | number               | ——     | 0      |
-| `approximateTime` | 动画结束的大概时间 | number               | ——     | 2000   |
-| `styles`          | 滚动组件样式       | object               | ——     | ——     |
-| `localeString`    | 格式化数字         | Boolean              | ——     | false  |
-| `onAnimationEnd`  | 动画结束触发函数   | (number:用时 ) => {} | ——     | ——     |
+| 参数               | 说明               | 类型                                                                       | 可选值 | 默认值 |
+| ------------------ | ------------------ | -------------------------------------------------------------------------- | ------ | ------ |
+| `number`           | 目标数字           | number                                                                     | ——     | 0      |
+| `approximate-time` | 动画结束的大概时间 | number                                                                     | ——     | 2000   |
+| `locale-string`    | 格式化数字         | boolean                                                                    | ——     | false  |
+| `styles`           | 滚动组件样式       | [CSSProperties](https://cn.vuejs.org/api/utility-types.html#cssproperties) | ——     | ——     |
+| `on-animation-end` | 动画结束触发函数   | <a href="#animationend">AnimationEnd</a>                                   | ——     | ——     |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type { NumberAnimateInstance, NumberAnimateProps } from 'fighting-design'
+import type { NumberAnimateInstance, NumberAnimateProps, AnimationEnd } from 'fighting-design'
+```
+
+### AnimationEnd
+
+```ts
+type AnimationEnd = (elapsed: number) => void
 ```
 
 ## Contributors
