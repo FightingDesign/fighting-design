@@ -17,9 +17,7 @@ export const is = (value: unknown, type: string): boolean => {
  * @param value 要检测的值
  * @returns { Boolean }
  */
-export const isString = (value: unknown): value is string => {
-  return is(value, 'String')
-}
+export const isString = (value: unknown): value is string => typeof value === 'string'
 
 /**
  * 检测一个数据是否为 number 类型
@@ -27,9 +25,7 @@ export const isString = (value: unknown): value is string => {
  * @param value 要检测的数据
  * @returns { Boolean }
  */
-export const isNumber = (value: unknown): value is number => {
-  return is(value, 'Number')
-}
+export const isNumber = (value: unknown): value is number => typeof value === 'number'
 
 /**
  * 检测一个数据是否为 boolean 类型
