@@ -8,4 +8,4 @@ export type <%= displayName %>Instance = InstanceType<typeof <%= displayName %>>
 
 export * from './src/interface.d'
 
-export default <%= displayName %>
+export default F<%= displayName %>
