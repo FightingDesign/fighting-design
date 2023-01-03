@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.15.0 (2023-01-03)
+
+**Repair**
+
+- Fix the failure of `f-alert` component `center`
+
+**New**
+
+- Add `f-infinite-crawling` component
+- Add `f-number-animate` component
+
 ## 0.14.0 (2022-12-30)
 
 **New**

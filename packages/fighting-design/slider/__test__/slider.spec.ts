@@ -12,7 +12,7 @@ describe('FSlider', () => {
 
   test('disabled', () => {
     const wrapper = mount(FSlider, {
-      props: { 
+      props: {
         modelValue: 0,
         disabled: true
       }
@@ -22,7 +22,7 @@ describe('FSlider', () => {
 
   test('bgColor', () => {
     const wrapper = mount(FSlider, {
-      props: { 
+      props: {
         modelValue: 0,
         bgColor: '#bfa'
       }

@@ -2,6 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.15.0 (2023-01-03)
+
+**修复**
+
+- 修复 `f-alert` 组件 `center` 失效问题
+
+**新增**
+
+- 新增 `f-infinite-scrolling` 组件
+- 新增 `f-number-animate` 组件
+
 ## 0.14.0 (2022-12-30)
 
 **新增**
