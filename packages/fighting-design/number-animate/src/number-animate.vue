@@ -2,11 +2,18 @@
   import { Props } from './props'
   import { onMounted, ref, computed } from 'vue'
   import { useRun } from '../../_hooks'
+  import { isNumber } from '../../_utils'
 
   const prop = defineProps(Props)
 
-  const number = ref<number>(0)
-  const startTime = ref<number>(0)
+  /**
+   * 开始值
+   */
+  const fromNum = ref<number>(prop.from)
+  /**
+   * 是否重新执行动画
+   */
+  const again = ref<boolean>(false)
 
   /**
    * 动画方法
@@ -14,19 +21,30 @@
    * @param timestamp 动画时间
    */
   const animate = (timestamp: number): void => {
-    if (startTime.value === undefined) {
-      startTime.value = timestamp
+    // 判断是否需要重新执行
+    if (again.value) {
+      // 如果需要重新执行，则需要将开始值重新赋值
+      fromNum.value = prop.from
+      again.value = false
     }
-    /**
-     * 动画执行的总时间
-     */
-    const elapsed: number = timestamp - startTime.value
-    // 计算出 执行到达时间 相差值
-    number.value += (prop.number / prop.approximateTime) * 20
 
-    if (number.value >= prop.number) {
-      number.value = prop.number
-      useRun(prop.onAnimationEnd, elapsed)
+    /**
+     * 目标值
+     */
+    const toNum = Number(prop.to)
+
+    // 检测两个值是否为数字
+    if (!isNumber(Number(fromNum)) || !isNumber(toNum)) {
+      // 后面增加报错内容
+      return
+    }
+
+    // 计算出 执行到达时间 相差值
+    fromNum.value += (toNum / prop.approximateTime) * 20
+
+    if (fromNum.value >= toNum) {
+      fromNum.value = toNum
+      useRun(prop.onAnimationEnd, timestamp)
       return
     }
 
@@ -44,12 +62,26 @@
    * @see toLocaleString https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString
    */
   const content = computed((): number | string => {
-    return prop.localeString ? number.value.toLocaleString() : number.value
+    return prop.localeString ? fromNum.value.toLocaleString() : fromNum.value
   })
 
+  /**
+   * 开始执行动画
+   *
+   * @param target 是否重新执行，后续调用都默认判断为需要重新执行动画
+   */
+  const run = (target = true): void => {
+    again.value = target
+    window && window.requestAnimationFrame(animate)
+  }
+
+  // 初始化执行
   onMounted((): void => {
-    window.requestAnimationFrame(animate)
+    // 第一次执行不需要重新执行，所以传入 false
+    run(false)
   })
+
+  defineExpose({ run })
 </script>
 
 <template>
