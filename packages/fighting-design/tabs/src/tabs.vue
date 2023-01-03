@@ -4,10 +4,12 @@
   import { TabsNav } from './components'
   import { debugWarn } from '../../_utils'
   import { getChildrenComponent } from './utils'
-  import type { TabsNavInstance, TabsProvide, TabsPaneName } from './interface'
-  import type { ComponentInternalInstance } from 'vue'
+  import type { ClassList } from '../../_interface'
+  import type { TabsNavInstance, TabsProvide, TabsPaneName, TabsPosition } from './interface'
+  import type { ComponentInternalInstance, VNode } from 'vue'
 
   const prop = defineProps(Props)
+  const slots = useSlots()
   const emit = defineEmits<{
     (e: 'update:modelValue', name: TabsPaneName): void
     (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void
@@ -31,20 +33,23 @@
     currentName.value = name
     emit('update:modelValue', name)
   }
+
   /**
-   * 触发用户的emit
+   * 触发用户的 emit
    */
-  const edit = (action: 'remove' | 'add', name?: TabsPaneName, i?: number): void => {
-    emit('edit', action, name, i)
+  const edit = (action: 'remove' | 'add', name?: TabsPaneName, index?: number): void => {
+    emit('edit', action, name, index)
   }
 
   /**
-   * 更新 pane 列表
+   * 更新子组件列表
    */
   const updatePaneList = (): void => {
-    nextTick(() => {
+    nextTick((): void => {
       if (!instance) return
-      panes.value = getChildrenComponent(instance, 'FTabsPane').map(e => e.component as ComponentInternalInstance)
+      panes.value = getChildrenComponent(instance, 'FTabsPane').map(
+        (e: VNode) => e.component as ComponentInternalInstance
+      )
     })
   }
   /**
@@ -52,9 +57,11 @@
    */
   const navs = computed((): TabsNavInstance[] => {
     return panes.value.map((e, i) => {
+      console.log(e.props.label)
       return {
         name: (e.props.name || (e.props.name = i)) as TabsPaneName, // name如果没填，用下标代替
-        label: e.slots['label'] || e.props.label
+        // label: e.slots['label'] || e.props.label
+        label: e.props.label
       }
     })
   })
@@ -64,7 +71,7 @@
    */
   watch(
     () => prop.modelValue,
-    (val): void => {
+    (val: TabsPaneName): void => {
       currentName.value = val as TabsPaneName
 
       if (navs.value.length && navs.value.every(e => e.name !== val)) {
@@ -76,31 +83,31 @@
     }
   )
 
-  onMounted(async () => {
+  onMounted(async (): Promise<void> => {
     await nextTick()
     currentName.value = prop.modelValue || (navs.value[0] && navs.value[0].name) // 如果没有传 value，默认选中第一个
   })
 
-  const _position = computed(() => {
+  /**
+   * 选项卡标签位置
+   */
+  const _position = computed((): TabsPosition => {
     const { position, type } = prop
-
     let _position = position
+
     if (type === 'segment' && (position === 'right' || position === 'left')) {
       _position = 'top'
       debugWarn('FTabs', 'segment 风格只支持 top、bottom 两种方向')
     }
+
     return _position
   })
 
-  const styleList = computed(() => {
-    return [`f-tabs__position_${_position.value}`]
-  })
-
   /**
-   * 通过refs 抛出当前选中的值
+   * 类名列表
    */
-  defineExpose({
-    currentName
+  const classList = computed((): ClassList => {
+    return ['f-tabs', `f-tabs__position_${_position.value}`] as const
   })
 
   /**
@@ -111,11 +118,14 @@
     updatePaneList
   })
 
-  const slots = useSlots()
+  /**
+   * 通过 refs 抛出当前选中的值
+   */
+  defineExpose({ currentName })
 </script>
 
 <template>
-  <div class="f-tabs" :class="styleList">
+  <div :class="classList">
     <tabs-nav
       v-if="navs.length"
       :navs="navs"

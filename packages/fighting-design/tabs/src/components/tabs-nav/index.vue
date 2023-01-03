@@ -29,19 +29,27 @@
    */
   const instance: ComponentInternalInstance | null = getCurrentInstance()
 
+  /**
+   * 点击上方 nav 执行
+   *
+   * @param name 点击的 name
+   */
   const clickNavItem = async (name: TabsPaneName): Promise<void> => {
     let res: boolean | void = true
+
     if (prop.onBeforeEnter) {
       res = await prop.onBeforeEnter(name)
     }
+
     if (isBoolean(res) && !res) return
 
     emit('set-current-name', name)
   }
 
-  const editItem = (action: 'remove' | 'add', name?: TabsPaneName, i?: number): void => {
-    emit('edit', action, name, i)
+  const editItem = (action: 'remove' | 'add', name?: TabsPaneName, index?: number): void => {
+    emit('edit', action, name, index)
   }
+
   /**
    * 仅针对card模式下的，items的样式
    *
