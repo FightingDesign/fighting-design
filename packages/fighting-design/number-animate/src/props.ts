@@ -3,11 +3,18 @@ import type { AnimationEnd } from './interface'
 
 export const Props = {
   /**
-   * 动画数字
+   * 开始的动画数字
    */
-  number: {
+  from: {
     type: Number,
     default: (): number => 0
+  },
+  /**
+   * 结束的动画数字
+   */
+  to: {
+    type: Number,
+    default: (): null => null
   },
   /**
    * 执行动画结束的大概时间
@@ -31,6 +38,13 @@ export const Props = {
   styles: {
     type: Object as PropType<CSSProperties>,
     default: (): null => null
+  },
+  /**
+   * 是否初始化自动播放
+   */
+  automatic: {
+    type: Boolean,
+    default: (): boolean => true
   },
   /**
    * 动画结束触发函数
