@@ -3,8 +3,6 @@ import { sidebar } from './utils/sidebar'
 import { description } from './utils/description'
 import { head } from './utils/head'
 import { defineConfig } from 'vitepress'
-import { fightingPlugin } from './config/index'
-// import { demoBlockPlugin } from 'vitepress-theme-demoblock'
 import { mdPlugin } from './config/plugins'
 
 export default defineConfig({
@@ -12,6 +10,7 @@ export default defineConfig({
   head,
   description,
   lastUpdated: true,
+  cacheDir: '../../node_modules', // https://vitepress.vuejs.org/config/app-configs#cachedir
   themeConfig: {
     lastUpdatedText: '最后更新时间',
     nav,
@@ -26,40 +25,6 @@ export default defineConfig({
   },
   markdown: {
     // 自定义 markdown 语法
-    // => fightingPlugin(md)
-    config: md => {
-      mdPlugin(md)
-      // md.use(demoBlockPlugin, {
-      //   customClass: 'demoblock-custom',
-      //   cssPreprocessor: 'scss',
-      //   // customStyleTagName: 'style lang="less"',
-      //   scriptImports: [
-      //     "import * as FightingDesign from '../../packages/fighting-design/index.ts'",
-      //     "import * as FightingIcon from '@fighting-design/fighting-icon'"
-      //   ],
-      //   // [
-      //   //   "import * as FightingIcon from '@fighting-design/fighting-icon'",
-      //   //   "import * as FightingDesign from '../../packages/fighting-design/index.ts'"
-      //   // ],
-      //   scriptReplaces: [
-      //     {
-      //       searchValue: /const ({ defineComponent as _defineComponent }) = Vue/g,
-      //       replaceValue: 'const { defineComponent: _defineComponent } = Vue'
-      //     },
-      //     // {
-      //     //   searchValue: /import ({.*}) from 'fighting-design'/g,
-      //     //   replaceValue: (s, s1) => `const ${s1} = FightingDesign`
-      //     // }
-      //     {
-      //       searchValue: /import ({.*}) from '@fighting-design\/fighting-icon'/g,
-      //       replaceValue: (s, s1) => `const ${s1} = FightingIcon`
-      //     },
-      //     {
-      //       searchValue: /import ({.*}) from 'fighting-design'/g,
-      //       replaceValue: (s, s1) => `const ${s1} = FightingDesign`
-      //     }
-      //   ]
-      // })
-    }
+    config: md => mdPlugin(md)
   }
 })
