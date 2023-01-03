@@ -4,7 +4,7 @@ export const Props = {
   /**
    * 触发距离
    */
-  scrollDistance: {
+  distance: {
     type: Number,
     default: (): number => 0
   },
@@ -23,14 +23,14 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-   * 滚动触底时 触发的回调
+   * 滚动触底时触发的回调
    */
   onScrollEnd: {
     type: Function,
     default: (): null => null
   },
   /**
-   * 滚动时 触发的回调
+   * 滚动时触发的回调
    */
   onScrollWhen: {
     type: Function,
