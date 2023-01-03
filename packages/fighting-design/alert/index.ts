@@ -8,4 +8,4 @@ export type AlertInstance = InstanceType<typeof Alert>
 
 export * from './src/interface.d'
 
-export default FAlert
+export default Alert
