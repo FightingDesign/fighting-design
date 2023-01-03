@@ -7,54 +7,48 @@
 
 ## 基本使用
 
-`animationEnd` 动画结束触发执行函数
+`from` 和 `to` 参数配置开始的数字和目标数字
 
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-number-animate :from="0" :to="15000" />
 </template>
 
 ```html
-<script setup lang="ts">
-  import { FNotification } from 'fighting-design'
-  import { reactive } from 'vue'
-  const styles = reactive({ color: 'var(--vp-c-brand)' })
-  const onAnimationEnd = (time: number): void => {
-    FNotification({
-      title: '这是一条关于f-number-animate 组件的通知 ',
-      message: '执行时间 :' + time
-    })
-  }
-</script>
-<template>
-  <div class="f-number-animate-test">
-    <div>基本使用 <f-number-animate :number="10000" :styles="styles" /></div>
-    <div>
-      locale-string 使用
-      <f-number-animate :number="15000" :approximate-time="3000" locale-string :styles="styles" />
-    </div>
-    <div>
-      animationEnd 使用
-      <f-number-animate
-        :number="20000"
-        :approximate-time="4000"
-        locale-string
-        :onAnimationEnd="onAnimationEnd"
-        :styles="styles"
-      />
-    </div>
-  </div>
+<f-number-animate :from="0" :to="15000" />
+```
+
+:::
+
+## 格式化
+
+`locale-string` 属性可格式化数字
+
+::: demo
+
+<template #source>
+<f-number-animate locale-string :from="100" :to="9999" />
 </template>
-<style scoped lang="scss">
-  .f-number-animate-test {
-    display: flex;
-    div {
-      text-align: center;
-      flex: 1;
-    }
-  }
-</style>
+
+```html
+<f-number-animate locale-string :from="100" :to="9999" />
+```
+
+:::
+
+## 动画时长
+
+`approximate-time` 属性可配置动画时长
+
+::: demo
+
+<template #source>
+<f-number-animate :approximate-time="3000" :from="100" :to="9999" />
+</template>
+
+```html
+<f-number-animate :approximate-time="3000" :from="100" :to="9999" />
 ```
 
 :::
@@ -63,11 +57,18 @@
 
 | 参数               | 说明               | 类型                                                                       | 可选值 | 默认值 |
 | ------------------ | ------------------ | -------------------------------------------------------------------------- | ------ | ------ |
-| `number`           | 目标数字           | number                                                                     | ——     | 0      |
+| `from`             | 开始数字           | number                                                                     | ——     | 0      |
+| `to`               | 目标数字           | number                                                                     | ——     | ——     |
 | `approximate-time` | 动画结束的大概时间 | number                                                                     | ——     | 2000   |
 | `locale-string`    | 格式化数字         | boolean                                                                    | ——     | false  |
 | `styles`           | 滚动组件样式       | [CSSProperties](https://cn.vuejs.org/api/utility-types.html#cssproperties) | ——     | ——     |
 | `on-animation-end` | 动画结束触发函数   | <a href="#animationend">AnimationEnd</a>                                   | ——     | ——     |
+
+## Methods
+
+| 参数  | 说明         |
+| ----- | ------------ |
+| `run` | 重新播放动画 |
 
 ## Interface
 

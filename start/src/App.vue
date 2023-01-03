@@ -21,7 +21,7 @@
 
 <template>
   <f-button type="default" :on-click="change">重新播放</f-button>
-  <f-number-animate ref="animate" :to="15000" />
+  <f-number-animate ref="animate" :from="0" :to="15000" />
 </template>
 
 <style scoped>
