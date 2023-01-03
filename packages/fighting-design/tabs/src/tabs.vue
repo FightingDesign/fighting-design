@@ -75,7 +75,7 @@
 
   onMounted(async () => {
     await nextTick()
-    currentName.value = prop.modelValue || navs.value[0].name // 如果没有传value，默认选中第一个
+    currentName.value = prop.modelValue || (navs.value[0] && navs.value[0].name) // 如果没有传 value，默认选中第一个
   })
 
   const _position = computed(() => {
@@ -127,14 +127,14 @@
       @edit="edit"
     >
       <template v-if="slots.prefix" #prefix>
-        <slot name="prefix"></slot>
+        <slot name="prefix" />
       </template>
       <template v-if="slots.suffix" #suffix>
-        <slot name="suffix"></slot>
+        <slot name="suffix" />
       </template>
     </tabs-nav>
     <div class="f-tabs-content">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
