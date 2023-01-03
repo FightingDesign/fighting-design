@@ -1,4 +1,5 @@
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType, CSSProperties } from 'vue'
+import type { AnimationEnd } from './interface'
 
 export const Props = {
   /**
@@ -28,14 +29,14 @@ export const Props = {
    * 样式列表
    */
   styles: {
-    type: Object,
+    type: Object as PropType<CSSProperties>,
     default: (): null => null
   },
   /**
    * 动画结束触发函数
    */
   onAnimationEnd: {
-    type: Function,
+    type: Function as PropType<AnimationEnd>,
     default: (): null => null
   }
 }
