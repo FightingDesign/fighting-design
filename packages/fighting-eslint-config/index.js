@@ -262,7 +262,8 @@ module.exports = {
     // !禁止使用后缀运算符的非空断言 https://typescript-eslint.io/rules/no-non-null-assertion/
     '@typescript-eslint/no-non-null-assertion': 'error',
     // 强制一致地使用类型导入 https://typescript-eslint.io/rules/consistent-type-imports
-    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+    // '@typescript-eslint/consistent-type-imports': 'off',
+    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', disallowTypeAnnotations: true }],
     // 禁止未使用的变量 https://typescript-eslint.io/rules/no-unused-vars
     '@typescript-eslint/no-unused-vars': 'error',
     // 不可以有 any https://typescript-eslint.io/rules/no-explicit-any/

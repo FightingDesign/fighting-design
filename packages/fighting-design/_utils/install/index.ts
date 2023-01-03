@@ -1,11 +1,12 @@
-import type { App, Directive } from 'vue'
-import type { InstallType } from './interface'
+import type { App, Directive, Plugin } from 'vue'
+
+export type InstallType<T> = T & Plugin
 
 /**
  * 注册组件
  *
  * @param main 组件实例
- * @return { InstallType<T> } 组件实例
+ * @return 组件实例
  */
 export const install = <T>(main: T): InstallType<T> => {
   (main as InstallType<T>).install = (app: App): void => {

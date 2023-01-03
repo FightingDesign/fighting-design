@@ -1,27 +1,11 @@
-<script lang="ts" setup>
-  import { ref } from 'vue'
-  import type { NumberAnimateInstance } from 'fighting-design'
-
-  const animate = ref(null as unknown as NumberAnimateInstance)
-
-  const change = (): void => {
-    animate.value.run()
-  }
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <f-button type="default" :on-click="change">重新播放</f-button>
-  <f-number-animate ref="animate" :automatic="false" :from="0" :to="15000" />
+  <f-alert type="default">默认提示信息</f-alert>
+  <f-alert type="primary">主要提示信息</f-alert>
+  <f-alert type="success">成功提示信息</f-alert>
+  <f-alert type="danger">危险提示信息</f-alert>
+  <f-alert type="warning">警告提示信息</f-alert>
 </template>
 
-<style scoped>
-  .item {
-    width: 100%;
-    height: 40px;
-    background: #96acf8;
-    color: #fff;
-    margin: 5px 0;
-    text-align: center;
-    line-height: 40px;
-  }
-</style>
+<style lang="scss" scoped></style>
