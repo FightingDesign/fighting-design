@@ -70,7 +70,7 @@
    *
    * @param target 是否重新执行，后续调用都默认判断为需要重新执行动画
    */
-  const run = (target = true): void => {
+  const start = (target = true): void => {
     again.value = target
     window && window.requestAnimationFrame(animate)
   }
@@ -78,9 +78,21 @@
   // 初始化执行
   onMounted((): void => {
     // 第一次执行不需要重新执行，所以传入 false
-    run(false)
+    start(false)
   })
 
+  /**
+   * 暴露给外部调用的方法
+   *
+   * 用于重新执行数字动画
+   *
+   * 避免外部传入意外不合法的参数，所以没有暴露给外部 start 方法
+   */
+  const run = (): void => {
+    start()
+  }
+
+  // 暴露给外部重新执行动画的方法
   defineExpose({ run })
 </script>
 
