@@ -2,6 +2,7 @@
   --vp-c-green: #5d80f4;
   --vp-c-brand-dark: #5d80f4;
   --vp-c-bg-alt: #fff; // 侧边栏
+  --vp-layout-max-width: 1600px;
 }
 
 .dark {
@@ -13,28 +14,6 @@
 }
 
 .vp-doc {
-  // 代码片段下拉菜单
-  details {
-    padding: 10px !important;
-    margin: 10px 0 !important;
-
-    summary {
-      text-align: center;
-      cursor: pointer;
-      user-select: none;
-      margin: 0 !important;
-
-      &:hover {
-        transition: 0.5s;
-        color: #2d5af1;
-      }
-    }
-
-    &::before {
-      content: '' !important;
-    }
-  }
-
   .f-dropdown {
     ul {
       list-style: none;
@@ -91,7 +70,7 @@
 
     td,
     th {
-      text-align: center;
+      text-align: left;
       font-size: 15px;
       border-bottom: 1px solid #eee;
     }
@@ -99,6 +78,23 @@
 
   p.f-text {
     line-height: 1;
+  }
+}
+
+.VPSidebar {
+  z-index: 200 !important;
+}
+
+// 主要内容
+.VPDoc {
+  @media (min-width: 1280px) {
+    .container > .content {
+      min-width: 875px;
+
+      .content-container {
+        max-width: 100%;
+      }
+    }
   }
 }
 

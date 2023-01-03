@@ -13,10 +13,7 @@
 </script>
 
 <template>
-  <f-number-animate :number="15000" :approximate-time="3000" :on-animation-end="onAnimationEnd" />
-  <f-infinite-scrolling :on-scroll-end="onScrollEnd" :on-scroll-when="onAnimationEnd">
-    <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
-  </f-infinite-scrolling>
+  <f-number-animate :number="15000" />
 </template>
 
 <style scoped>
