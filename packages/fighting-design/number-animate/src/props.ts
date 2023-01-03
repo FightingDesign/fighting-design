@@ -40,6 +40,13 @@ export const Props = {
     default: (): null => null
   },
   /**
+   * 是否初始化自动播放
+   */
+  automatic: {
+    type: Boolean,
+    default: (): boolean => true
+  },
+  /**
    * 动画结束触发函数
    */
   onAnimationEnd: {

@@ -2,16 +2,6 @@
   import { ref } from 'vue'
   import type { NumberAnimateInstance } from 'fighting-design'
 
-  const length = ref(20)
-
-  const onScrollEnd = (): void => {
-    length.value += 10
-  }
-
-  const onAnimationEnd = e => {
-    console.log(e)
-  }
-
   const animate = ref(null as unknown as NumberAnimateInstance)
 
   const change = (): void => {
@@ -21,7 +11,7 @@
 
 <template>
   <f-button type="default" :on-click="change">重新播放</f-button>
-  <f-number-animate ref="animate" :from="0" :to="15000" />
+  <f-number-animate ref="animate" :automatic="false" :from="0" :to="15000" />
 </template>
 
 <style scoped>

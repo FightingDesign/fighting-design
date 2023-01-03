@@ -44,25 +44,57 @@
 ::: demo
 
 <template #source>
-<f-number-animate :approximate-time="3000" :from="100" :to="9999" />
+<f-number-animate :approximate-time="3000" :from="100" :to="2000" />
 </template>
 
 ```html
-<f-number-animate :approximate-time="3000" :from="100" :to="9999" />
+<f-number-animate :approximate-time="3000" :from="100" :to="2000" />
+```
+
+:::
+
+## 重新播放
+
+组件内部暴露 `run` 方法可重新调用播放动画
+
+::: demo
+
+<template #source>
+<f-button type="default" :on-click="change">重新播放</f-button>
+<f-number-animate ref="animate" :from="0" :to="15000" />
+</template>
+
+```html
+<template>
+  <f-button type="default" :on-click="change">重新播放</f-button>
+  <f-number-animate ref="animate" :from="0" :to="15000" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  import type { NumberAnimateInstance } from 'fighting-design'
+
+  const animate = ref(null as unknown as NumberAnimateInstance)
+
+  const change = (): void => {
+    animate.value.run()
+  }
+</script>
 ```
 
 :::
 
 ## Attributes
 
-| 参数               | 说明               | 类型                                                                       | 可选值 | 默认值 |
-| ------------------ | ------------------ | -------------------------------------------------------------------------- | ------ | ------ |
-| `from`             | 开始数字           | number                                                                     | ——     | 0      |
-| `to`               | 目标数字           | number                                                                     | ——     | ——     |
-| `approximate-time` | 动画结束的大概时间 | number                                                                     | ——     | 2000   |
-| `locale-string`    | 格式化数字         | boolean                                                                    | ——     | false  |
-| `styles`           | 滚动组件样式       | [CSSProperties](https://cn.vuejs.org/api/utility-types.html#cssproperties) | ——     | ——     |
-| `on-animation-end` | 动画结束触发函数   | <a href="#animationend">AnimationEnd</a>                                   | ——     | ——     |
+| 参数               | 说明                   | 类型                                                                       | 可选值 | 默认值 |
+| ------------------ | ---------------------- | -------------------------------------------------------------------------- | ------ | ------ |
+| `from`             | 开始数字               | number                                                                     | ——     | 0      |
+| `to`               | 目标数字               | number                                                                     | ——     | ——     |
+| `approximate-time` | 动画结束的大概时间     | number                                                                     | ——     | 2000   |
+| `locale-string`    | 格式化数字             | boolean                                                                    | ——     | false  |
+| `styles`           | 滚动组件样式           | [CSSProperties](https://cn.vuejs.org/api/utility-types.html#cssproperties) | ——     | ——     |
+| `automatic`        | 是否初始化自动播放动画 | boolean                                                                    | ——     | true   |
+| `on-animation-end` | 动画结束触发函数       | <a href="#animationend">AnimationEnd</a>                                   | ——     | ——     |
 
 ## Methods
 
@@ -95,5 +127,12 @@ type AnimationEnd = (elapsed: number) => void
 </a>
 
 <script setup lang="ts">
+  import { ref } from 'vue'
   import demo1Vue from './_demos/number-animate/demo1.vue'
+
+  const animate = ref(null as unknown as NumberAnimateInstance)
+
+  const change = (): void => {
+    animate.value.run()
+  }
 </script>

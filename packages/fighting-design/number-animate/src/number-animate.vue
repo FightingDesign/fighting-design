@@ -78,7 +78,7 @@
   // 初始化执行
   onMounted((): void => {
     // 第一次执行不需要重新执行，所以传入 false
-    start(false)
+    prop.automatic && start(false)
   })
 
   /**
