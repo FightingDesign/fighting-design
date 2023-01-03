@@ -8,36 +8,38 @@
   import type { ComponentInternalInstance } from 'vue'
 
   const prop = defineProps(Props)
-  const emits = defineEmits<{
+  const emit = defineEmits<{
     (e: 'update:modelValue', name: TabsPaneName): void
     (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void
   }>()
 
-  const instance: ComponentInternalInstance | null = getCurrentInstance()
-
   /**
-   * 当前选中的pane
+   * 获取当前组件实例
+   */
+  const instance: ComponentInternalInstance | null = getCurrentInstance()
+  /**
+   * panes 集合
+   */
+  const panes = ref<ComponentInternalInstance[]>([])
+  /**
+   * 当前选中的 pane
    */
   const currentName = ref<TabsPaneName>(0)
 
   const setCurrentName = (name: TabsPaneName): void => {
-    // 如果用户没有设置v-model, 这里可以直接在内部修改
+    // 如果用户没有设置 v-model, 这里可以直接在内部修改
     currentName.value = name
-    emits('update:modelValue', name)
+    emit('update:modelValue', name)
   }
   /**
    * 触发用户的emit
    */
   const edit = (action: 'remove' | 'add', name?: TabsPaneName, i?: number): void => {
-    emits('edit', action, name, i)
+    emit('edit', action, name, i)
   }
+
   /**
-   * panes集合
-   */
-  const panes = ref<ComponentInternalInstance[]>([])
-  /**
-   * 更新pane列表
-   * @param pane
+   * 更新 pane 列表
    */
   const updatePaneList = (): void => {
     nextTick(() => {
@@ -46,7 +48,7 @@
     })
   }
   /**
-   * nav列表
+   * nav 列表
    */
   const navs = computed((): TabsNavInstance[] => {
     return panes.value.map((e, i) => {
@@ -56,8 +58,9 @@
       }
     })
   })
+
   /**
-   * 将prop.modelValue同步到currentName中
+   * prop.modelValue 同步到 currentName 中
    */
   watch(
     () => prop.modelValue,
@@ -133,7 +136,9 @@
         <slot name="suffix" />
       </template>
     </tabs-nav>
-    <div class="f-tabs-content">
+
+    <!-- 主要展示的内容 -->
+    <div class="f-tabs__content">
       <slot />
     </div>
   </div>
