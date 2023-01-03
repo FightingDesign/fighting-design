@@ -1,4 +1,5 @@
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType, CSSProperties } from 'vue'
+import type { ScrollCallback } from './interface'
 
 export const Props = {
   /**
@@ -12,7 +13,7 @@ export const Props = {
    * 样式列表
    */
   styles: {
-    type: Object,
+    type: Object as PropType<CSSProperties>,
     default: (): null => null
   },
   /**
@@ -26,14 +27,14 @@ export const Props = {
    * 滚动触底时触发的回调
    */
   onScrollEnd: {
-    type: Function,
+    type: Function as PropType<ScrollCallback>,
     default: (): null => null
   },
   /**
    * 滚动时触发的回调
    */
   onScrollWhen: {
-    type: Function,
+    type: Function as PropType<ScrollCallback>,
     default: (): null => null
   }
 }
