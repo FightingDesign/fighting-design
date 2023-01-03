@@ -1,5 +1,12 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { TabsTrigger, TabsPaneName, TabsPosition, TabsType, TabsJustifyContent } from './interface'
+import type {
+  TabsTrigger,
+  TabsPaneName,
+  TabsPosition,
+  TabsType,
+  TabsJustifyContent,
+  BeforeEnter
+} from './interface'
 
 export const Props = {
   /**
@@ -71,8 +78,8 @@ export const Props = {
   /**
    * 切换前的回调
    */
-  beforeEnter: {
-    type: Function as PropType<(name: TabsPaneName) => boolean | void>,
+  onBeforeEnter: {
+    type: Function as PropType<BeforeEnter>,
     default: (): null => null
   }
 } as const

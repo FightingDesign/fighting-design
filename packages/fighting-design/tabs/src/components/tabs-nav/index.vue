@@ -4,7 +4,7 @@
   import { computed, getCurrentInstance, nextTick, ref, useSlots, watch } from 'vue'
   import { FIconCrossVue, FIconPlusVue } from '../../../../_svg'
   import { FSvgIcon } from '../../../../svg-icon'
-  import type { TabsPaneName } from '../../interface'
+  import type { TabsPaneName, TabsNavInstance } from '../../interface'
   import type { ComponentInternalInstance, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
@@ -13,21 +13,26 @@
     (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void
   }>()
 
-  const currentIndex = computed(() =>
+  console.log(prop.navs)
+
+  const currentIndex = computed((): number =>
     prop.navs
       ? Math.max(
-          prop.navs.findIndex(e => e.name === prop.currentName),
+          prop.navs.findIndex((e: TabsNavInstance) => e.name === prop.currentName),
           0
         )
       : 0
   )
 
+  /**
+   * 获取当前组件实例
+   */
   const instance: ComponentInternalInstance | null = getCurrentInstance()
 
   const clickNavItem = async (name: TabsPaneName): Promise<void> => {
     let res: boolean | void = true
-    if (prop.beforeEnter) {
-      res = await prop.beforeEnter(name)
+    if (prop.onBeforeEnter) {
+      res = await prop.onBeforeEnter(name)
     }
     if (isBoolean(res) && !res) return
 
@@ -90,7 +95,7 @@
     const padding = sizeToNum(window.getComputedStyle(maxChildren)[positionVar.c] as string)
     // css变量
     const cardActiveDiffHeight = window.getComputedStyle(wrapperEl).getPropertyValue('--cardActiveDiffHeight')
-    // 最高的子元素avtive状态下的高度
+    // 最高的子元素 active 状态下的高度
     const maxChildrenNum = sizeToNum(maxChildren[positionVar.b]) - padding + sizeToNum(cardActiveDiffHeight)
 
     /**
@@ -157,9 +162,9 @@
    *
    * 实现横向滚动效果
    */
-  const handleWheel = (e: WheelEvent): void => {
-    ;(e.currentTarget as HTMLElement).scrollLeft += e.deltaY + e.deltaX
-    deriveScrollShadow(e.currentTarget as HTMLElement)
+  const handleWheel = (evt: WheelEvent): void => {
+    (evt.currentTarget as HTMLElement).scrollLeft += evt.deltaY + evt.deltaX
+    deriveScrollShadow(evt.currentTarget as HTMLElement)
   }
 
   /**
@@ -170,6 +175,7 @@
       updateActiveLineStyle()
     }
   })
+
   watch(
     [(): unknown => prop.position, (): unknown => prop.type, (): unknown => prop.justifyContent],
     () => {

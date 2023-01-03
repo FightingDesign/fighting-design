@@ -35,6 +35,13 @@ export type TabsJustifyContent =
  */
 export type TabsPaneName = string | number
 
+/**
+ * 切换前的回调类型
+ * 
+ * @param name 标签的 name
+ */
+export type BeforeEnter = (name: TabsPaneName) => boolean | void
+
 export interface TabsNavInstance {
   name: TabsPaneName
   label: unknown

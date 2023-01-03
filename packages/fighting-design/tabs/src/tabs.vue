@@ -124,7 +124,7 @@
       :position="_position"
       :edit-status="editStatus"
       :justify-content="justifyContent"
-      :before-enter="beforeEnter"
+      :on-before-enter="onBeforeEnter"
       :trigger="trigger"
       @set-current-name="setCurrentName"
       @edit="edit"
