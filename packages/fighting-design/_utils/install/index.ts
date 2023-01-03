@@ -1,6 +1,8 @@
-import type { App, Directive, Plugin } from 'vue'
+import type { App, Directive, Component } from 'vue'
 
-export type InstallType<T> = T & Plugin
+export type Install<T> = T & {
+  install(app: App): void
+}
 
 /**
  * 注册组件
@@ -8,12 +10,13 @@ export type InstallType<T> = T & Plugin
  * @param main 组件实例
  * @return 组件实例
  */
-export const install = <T>(main: T): InstallType<T> => {
-  (main as InstallType<T>).install = (app: App): void => {
-    const { name } = main as unknown as { name: string }
-    app.component(name, main as InstallType<T>)
+export const install = <T extends Component>(main: T): Install<T> => {
+  (main as Record<string, unknown>).install = (app: App): void => {
+    const { name } = main
+    name && app.component(name, main)
   }
-  return main as InstallType<T>
+
+  return main as Install<T>
 }
 
 /**
@@ -21,13 +24,13 @@ export const install = <T>(main: T): InstallType<T> => {
  *
  * @param main 组件实例
  * @param name 组件名
- * @return { InstallType<T> } 组件实例
+ * @return 组件实例
  */
-export const installFn = <T>(main: T, name: string): InstallType<T> => {
-  (main as InstallType<T>).install = (app: App): void => {
-    app.config.globalProperties[name] = main as InstallType<T>
+export const installFn = <T>(main: T, name: string): Install<T> => {
+  (main as Install<T>).install = (app: App): void => {
+    app.config.globalProperties[name] = main as Install<T>
   }
-  return main as InstallType<T>
+  return main as Install<T>
 }
 
 /**
@@ -35,11 +38,11 @@ export const installFn = <T>(main: T, name: string): InstallType<T> => {
  *
  * @param main 组件实例
  * @param name 组件名
- * @returns { T } 组件实例
+ * @returns 组件实例
  */
-export const installDirective = <T extends Directive>(main: T, name: string): InstallType<T> => {
-  (main as InstallType<T>).install = (app: App): void => {
-    app.directive(name, main as InstallType<T>)
+export const installDirective = <T extends Directive>(main: T, name: string): Install<T> => {
+  (main as Install<T>).install = (app: App): void => {
+    app.directive(name, main as Install<T>)
   }
-  return main as InstallType<T>
+  return main as Install<T>
 }
