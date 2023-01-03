@@ -7,7 +7,7 @@
 
 ## 基本使用
 
-`scrollEnd` 滚动到底触发执行函数
+`on-scroll-end` 滚动到底触发执行函数
 
 ::: demo
 
@@ -17,7 +17,7 @@
 
 ```html
 <template>
-  <f-infinite-scrolling :onScrollEnd="onScrollEnd">
+  <f-infinite-scrolling :on-scroll-end="onScrollEnd">
     <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
   </f-infinite-scrolling>
 </template>
@@ -59,7 +59,7 @@
 
 ```html
 <template>
-  <f-infinite-scrolling :loading="loading" :onScrollEnd="onScrollEnd">
+  <f-infinite-scrolling :loading="loading" :on-scroll-end="onScrollEnd">
     <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
   </f-infinite-scrolling>
 </template>
@@ -97,20 +97,26 @@
 
 ## Attributes
 
-| 参数              | 说明             | 类型                                | 可选值 | 默认值 |
-| ----------------- | ---------------- | ----------------------------------- | ------ | ------ |
-| `scroll-distance` | 触发距离         | number                              | ——     | 0      |
-| `loading`         | 开启加载         | boolean                             | ——     | false  |
-| `styles`          | 滚动组件样式     | object                              | ——     | ——     |
-| `onScrollEnd`     | 滚动到底触发函数 | (number:scTop+clitHei+scrDis) => {} | ——     | ——     |
-| `onScrollWhen`    | 滚动时触发函数   | (number:滚动的距离 ) => {}          | ——     | ——     |
+| 参数             | 说明               | 类型                                                                       | 可选值 | 默认值 |
+| ---------------- | ------------------ | -------------------------------------------------------------------------- | ------ | ------ |
+| `distance`       | 触发距离           | number                                                                     | ——     | 0      |
+| `loading`        | 开启加载           | boolean                                                                    | ——     | false  |
+| `styles`         | 滚动组件样式       | [CSSProperties](https://cn.vuejs.org/api/utility-types.html#cssproperties) | ——     | ——     |
+| `on-scroll-end`  | 滚动到底触发的回调 | <a href="#scrollcallback">ScrollCallback</a>                               | ——     | ——     |
+| `on-scroll-when` | 滚动时触发的回调   | <a href="#scrollcallback">ScrollCallback</a>                               | ——     | ——     |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type { InfiniteScrollingInstance, InfiniteScrollingProps } from 'fighting-design'
+import type { InfiniteScrollingInstance, InfiniteScrollingProps, ScrollCallback } from 'fighting-design'
+```
+
+### ScrollCallback
+
+```ts
+type ScrollCallback = (distance: number) => void
 ```
 
 ## Contributors
