@@ -8,4 +8,4 @@ export type CloseBtnInstance = InstanceType<typeof CloseBtn>
 
 export * from './src/interface.d'
 
-export default CloseBtn
+export default FCloseBtn

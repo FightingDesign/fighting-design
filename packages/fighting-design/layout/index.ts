@@ -8,4 +8,4 @@ export type LayoutInstance = InstanceType<typeof Layout>
 
 export * from './src/interface.d'
 
-export default Layout
+export default FLayout

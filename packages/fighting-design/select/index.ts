@@ -8,4 +8,4 @@ export type SelectInstance = InstanceType<typeof Select>
 
 export * from './src/interface.d'
 
-export default Select
+export default FSelect

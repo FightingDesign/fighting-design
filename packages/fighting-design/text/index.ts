@@ -8,4 +8,4 @@ export type TextInstance = InstanceType<typeof Text>
 
 export * from './src/interface.d'
 
-export default Text
+export default FText

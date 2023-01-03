@@ -8,4 +8,4 @@ export type EmptyInstance = InstanceType<typeof Empty>
 
 export * from './src/interface.d'
 
-export default Empty
+export default FEmpty

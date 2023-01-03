@@ -8,4 +8,4 @@ export type LinkInstance = InstanceType<typeof Link>
 
 export * from './src/interface.d'
 
-export default Link
+export default FLink

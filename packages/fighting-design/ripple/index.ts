@@ -8,4 +8,4 @@ export type RippleInstance = InstanceType<typeof Ripple>
 
 export * from './src/interface.d'
 
-export default Ripple
+export default FRipple

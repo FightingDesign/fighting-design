@@ -8,4 +8,4 @@ export type ButtonGroupInstance = InstanceType<typeof ButtonGroup>
 
 export * from './src/interface.d'
 
-export default ButtonGroup
+export default FButtonGroup

@@ -8,4 +8,4 @@ export type SpaceInstance = InstanceType<typeof Space>
 
 export * from './src/interface.d'
 
-export default Space
+export default FSpace

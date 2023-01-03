@@ -8,4 +8,4 @@ export type PageHeaderInstance = InstanceType<typeof PageHeader>
 
 export * from './src/interface.d'
 
-export default PageHeader
+export default FPageHeader

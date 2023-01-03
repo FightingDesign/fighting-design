@@ -8,4 +8,4 @@ export type TagInstance = InstanceType<typeof Tag>
 
 export * from './src/interface.d'
 
-export default Tag
+export default FTag

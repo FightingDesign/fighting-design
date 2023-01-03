@@ -8,4 +8,4 @@ export type CardInstance = InstanceType<typeof Card>
 
 export * from './src/interface.d'
 
-export default Card
+export default FCard

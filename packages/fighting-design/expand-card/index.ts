@@ -8,4 +8,4 @@ export type ExpandCardInstance = InstanceType<typeof ExpandCard>
 
 export * from './src/interface.d'
 
-export default ExpandCard
+export default FExpandCard

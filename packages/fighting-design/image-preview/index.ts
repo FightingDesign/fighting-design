@@ -8,4 +8,4 @@ export type ImagePreviewInstance = InstanceType<typeof ImagePreview>
 
 export * from './src/interface.d'
 
-export default ImagePreview
+export default FImagePreview

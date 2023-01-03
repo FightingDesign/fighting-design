@@ -8,4 +8,4 @@ export type TextareaInstance = InstanceType<typeof Textarea>
 
 export * from './src/interface.d'
 
-export default Textarea
+export default FTextarea

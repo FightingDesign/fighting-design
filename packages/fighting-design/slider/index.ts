@@ -8,4 +8,4 @@ export type SliderInstance = InstanceType<typeof Slider>
 
 export * from './src/interface.d'
 
-export default Slider
+export default FSlider

@@ -8,4 +8,4 @@ export type TreeInstance = InstanceType<typeof Tree>
 
 export * from './src/interface.d'
 
-export default Tree
+export default FTree

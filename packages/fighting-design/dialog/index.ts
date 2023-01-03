@@ -8,4 +8,4 @@ export type DialogInstance = InstanceType<typeof Dialog>
 
 export * from './src/interface.d'
 
-export default Dialog
+export default FDialog

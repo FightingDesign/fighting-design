@@ -8,4 +8,4 @@ export type ListItemInstance = InstanceType<typeof ListItem>
 
 export * from './src/interface.d'
 
-export default ListItem
+export default FListItem

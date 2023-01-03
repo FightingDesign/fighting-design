@@ -8,4 +8,4 @@ export type TabsInstance = InstanceType<typeof Tabs>
 
 export * from './src/interface.d'
 
-export default Tabs
+export default FTabs

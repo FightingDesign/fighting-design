@@ -8,4 +8,4 @@ export type DropdownInstance = InstanceType<typeof Dropdown>
 
 export * from './src/interface.d'
 
-export default Dropdown
+export default FDropdown

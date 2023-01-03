@@ -8,4 +8,4 @@ export type FormInstance = InstanceType<typeof Form>
 
 export * from './src/interface.d'
 
-export default Form
+export default FForm

@@ -8,4 +8,4 @@ export type ProgressInstance = InstanceType<typeof Progress>
 
 export * from './src/interface.d'
 
-export default Progress
+export default FProgress

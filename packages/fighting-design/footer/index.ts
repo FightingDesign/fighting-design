@@ -8,4 +8,4 @@ export type FooterInstance = InstanceType<typeof Footer>
 
 export * from './src/interface.d'
 
-export default Footer
+export default FFooter

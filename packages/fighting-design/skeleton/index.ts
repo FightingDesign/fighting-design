@@ -8,4 +8,4 @@ export type SkeletonInstance = InstanceType<typeof Skeleton>
 
 export * from './src/interface.d'
 
-export default Skeleton
+export default FSkeleton

@@ -8,4 +8,4 @@ export type BadgeInstance = InstanceType<typeof Badge>
 
 export * from './src/interface.d'
 
-export default Badge
+export default FBadge

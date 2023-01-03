@@ -8,4 +8,4 @@ export type ToolbarItemInstance = InstanceType<typeof ToolbarItem>
 
 export * from './src/interface.d'
 
-export default ToolbarItem
+export default FToolbarItem

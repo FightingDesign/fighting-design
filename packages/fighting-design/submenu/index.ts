@@ -8,4 +8,4 @@ export type SubmenuInstance = InstanceType<typeof Submenu>
 
 export * from './src/interface.d'
 
-export default Submenu
+export default FSubmenu

@@ -8,4 +8,4 @@ export type PopupInstance = InstanceType<typeof Popup>
 
 export * from './src/interface.d'
 
-export default Popup
+export default FPopup

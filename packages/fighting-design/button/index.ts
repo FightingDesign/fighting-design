@@ -8,4 +8,4 @@ export type ButtonInstance = InstanceType<typeof Button>
 
 export * from './src/interface.d'
 
-export default Button
+export default FButton

@@ -8,4 +8,4 @@ export type TabsPaneInstance = InstanceType<typeof TabsPane>
 
 export * from './src/interface.d'
 
-export default TabsPane
+export default FTabsPane

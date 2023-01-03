@@ -8,4 +8,4 @@ export type SwitchInstance = InstanceType<typeof Switch>
 
 export * from './src/interface.d'
 
-export default Switch
+export default FSwitch

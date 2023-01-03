@@ -8,4 +8,4 @@ export type DividerInstance = InstanceType<typeof Divider>
 
 export * from './src/interface.d'
 
-export default Divider
+export default FDivider

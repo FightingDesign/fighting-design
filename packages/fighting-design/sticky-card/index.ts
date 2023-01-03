@@ -8,4 +8,4 @@ export type StickyCardInstance = InstanceType<typeof StickyCard>
 
 export * from './src/interface.d'
 
-export default StickyCard
+export default FStickyCard

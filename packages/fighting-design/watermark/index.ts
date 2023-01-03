@@ -8,4 +8,4 @@ export type WatermarkInstance = InstanceType<typeof Watermark>
 
 export * from './src/interface.d'
 
-export default Watermark
+export default FWatermark

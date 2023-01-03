@@ -8,4 +8,4 @@ export type TriggerInstance = InstanceType<typeof Trigger>
 
 export * from './src/interface.d'
 
-export default Trigger
+export default FTrigger

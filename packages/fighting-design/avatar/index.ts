@@ -8,4 +8,4 @@ export type AvatarInstance = InstanceType<typeof Avatar>
 
 export * from './src/interface.d'
 
-export default Avatar
+export default FAvatar

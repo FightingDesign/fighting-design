@@ -8,4 +8,4 @@ export type FormItemInstance = InstanceType<typeof FormItem>
 
 export * from './src/interface.d'
 
-export default FormItem
+export default FFormItem

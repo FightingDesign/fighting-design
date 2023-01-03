@@ -8,4 +8,4 @@ export type UpLoadInstance = InstanceType<typeof UpLoad>
 
 export * from './src/interface.d'
 
-export default UpLoad
+export default FUpLoad

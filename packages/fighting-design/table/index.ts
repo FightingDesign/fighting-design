@@ -8,4 +8,4 @@ export type TableInstance = InstanceType<typeof Table>
 
 export * from './src/interface.d'
 
-export default Table
+export default FTable

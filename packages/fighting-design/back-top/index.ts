@@ -8,4 +8,4 @@ export type BackTopInstance = InstanceType<typeof BackTop>
 
 export * from './src/interface.d'
 
-export default BackTop
+export default FBackTop

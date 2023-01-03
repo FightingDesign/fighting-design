@@ -8,4 +8,4 @@ export type DatePickerInstance = InstanceType<typeof DatePicker>
 
 export * from './src/interface.d'
 
-export default DatePicker
+export default FDatePicker

@@ -8,4 +8,4 @@ export type RadioInstance = InstanceType<typeof Radio>
 
 export * from './src/interface.d'
 
-export default Radio
+export default FRadio

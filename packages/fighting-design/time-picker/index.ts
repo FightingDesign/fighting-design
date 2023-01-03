@@ -8,4 +8,4 @@ export type TimePickerInstance = InstanceType<typeof TimePicker>
 
 export * from './src/interface.d'
 
-export default TimePicker
+export default FTimePicker

@@ -8,4 +8,4 @@ export type BoxInstance = InstanceType<typeof Box>
 
 export * from './src/interface.d'
 
-export default Box
+export default FBox

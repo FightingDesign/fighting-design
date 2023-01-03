@@ -8,4 +8,4 @@ export type TooltipInstance = InstanceType<typeof Tooltip>
 
 export * from './src/interface.d'
 
-export default Tooltip
+export default FTooltip

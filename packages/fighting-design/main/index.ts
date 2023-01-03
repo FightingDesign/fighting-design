@@ -8,4 +8,4 @@ export type MainInstance = InstanceType<typeof Main>
 
 export * from './src/interface.d'
 
-export default Main
+export default FMain

@@ -8,4 +8,4 @@ export type PaginationInstance = InstanceType<typeof Pagination>
 
 export * from './src/interface.d'
 
-export default Pagination
+export default FPagination

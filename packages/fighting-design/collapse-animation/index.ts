@@ -8,4 +8,4 @@ export type CollapseAnimationInstance = InstanceType<typeof CollapseAnimation>
 
 export * from './src/interface.d'
 
-export default CollapseAnimation
+export default FCollapseAnimation

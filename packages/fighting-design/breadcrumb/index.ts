@@ -8,4 +8,4 @@ export type BreadcrumbInstance = InstanceType<typeof Breadcrumb>
 
 export * from './src/interface.d'
 
-export default Breadcrumb
+export default FBreadcrumb

@@ -8,4 +8,4 @@ export type ImageInstance = InstanceType<typeof Image>
 
 export * from './src/interface.d'
 
-export default Image
+export default FImage

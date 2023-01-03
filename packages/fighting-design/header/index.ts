@@ -8,4 +8,4 @@ export type HeaderInstance = InstanceType<typeof Header>
 
 export * from './src/interface.d'
 
-export default Header
+export default FHeader

@@ -8,4 +8,4 @@ export type CalendarInstance = InstanceType<typeof Calendar>
 
 export * from './src/interface.d'
 
-export default Calendar
+export default FCalendar

@@ -8,4 +8,4 @@ export type MenuItemGroupInstance = InstanceType<typeof MenuItemGroup>
 
 export * from './src/interface.d'
 
-export default MenuItemGroup
+export default FMenuItemGroup

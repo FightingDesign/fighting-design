@@ -8,4 +8,4 @@ export type OptionInstance = InstanceType<typeof Option>
 
 export * from './src/interface.d'
 
-export default Option
+export default FOption

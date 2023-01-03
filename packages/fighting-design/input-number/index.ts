@@ -8,4 +8,4 @@ export type InputNumberInstance = InstanceType<typeof InputNumber>
 
 export * from './src/interface.d'
 
-export default InputNumber
+export default FInputNumber

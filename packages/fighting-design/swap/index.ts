@@ -8,4 +8,4 @@ export type SwapInstance = InstanceType<typeof Swap>
 
 export * from './src/interface.d'
 
-export default Swap
+export default FSwap

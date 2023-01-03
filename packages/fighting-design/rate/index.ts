@@ -8,4 +8,4 @@ export type RateInstance = InstanceType<typeof Rate>
 
 export * from './src/interface.d'
 
-export default Rate
+export default FRate

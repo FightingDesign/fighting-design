@@ -8,4 +8,4 @@ export type RadioGroupInstance = InstanceType<typeof RadioGroup>
 
 export * from './src/interface.d'
 
-export default RadioGroup
+export default FRadioGroup

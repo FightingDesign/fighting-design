@@ -8,4 +8,4 @@ export type CheckboxGroupInstance = InstanceType<typeof CheckboxGroup>
 
 export * from './src/interface.d'
 
-export default CheckboxGroup
+export default FCheckboxGroup

@@ -8,4 +8,4 @@ export type FightingGlobalInstance = InstanceType<typeof FightingGlobal>
 
 export * from './src/interface.d'
 
-export default FightingGlobal
+export default FFightingGlobal

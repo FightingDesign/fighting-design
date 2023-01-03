@@ -8,4 +8,4 @@ export type DrawerInstance = InstanceType<typeof Drawer>
 
 export * from './src/interface.d'
 
-export default Drawer
+export default FDrawer
