@@ -4,7 +4,6 @@ export type { CalendarProps } from './props'
 
 /**
  * 回调参数类型接口
- *
  * @param year 年份
  * @param month 月份
  * @param date 日期

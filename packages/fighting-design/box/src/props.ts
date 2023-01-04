@@ -3,7 +3,6 @@ import type { ExtractPropTypes, PropType } from 'vue'
 export const Props = {
   /**
    * 原生属性
-   *
    * @see role https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
    */
   role: {
@@ -12,7 +11,6 @@ export const Props = {
   },
   /**
    * 原生属性
-   *
    * @see padding https://developer.mozilla.org/en-US/docs/Web/CSS/padding
    */
   padding: {
@@ -21,7 +19,6 @@ export const Props = {
   },
   /**
    * 原生属性
-   *
    * @see width https://developer.mozilla.org/en-US/docs/Web/CSS/width
    */
   width: {
@@ -30,7 +27,6 @@ export const Props = {
   },
   /**
    * 原生属性
-   *
    * @see height https://developer.mozilla.org/en-US/docs/Web/CSS/height
    */
   height: {
@@ -39,7 +35,6 @@ export const Props = {
   },
   /**
    * 原生属性
-   *
    * @see background https://developer.mozilla.org/en-US/docs/Web/CSS/background
    */
   background: {
@@ -48,7 +43,6 @@ export const Props = {
   },
   /**
    * 原生属性
-   *
    * @see display https://developer.mozilla.org/en-US/docs/Web/CSS/display
    */
   display: {

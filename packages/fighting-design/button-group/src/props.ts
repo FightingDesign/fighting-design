@@ -5,7 +5,6 @@ import type { ButtonGroupDirection } from './interface'
 export const Props = {
   /**
    * 按钮尺寸
-   *
    * @values large middle small mini
    * @defaultValue null
    */
@@ -18,7 +17,6 @@ export const Props = {
   },
   /**
    * 排列方向
-   *
    * @values horizontal vertical
    * @defaultValue horizontal
    */

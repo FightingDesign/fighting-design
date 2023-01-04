@@ -11,9 +11,7 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 获取注入依赖项
-   */
+  /** 获取注入依赖项 */
   const parentInject = inject<BreadcrumbProps | null>(BREADCRUMB_PROPS_KEY, null)
 
   const { styles } = useList(
@@ -25,14 +23,10 @@
     'breadcrumb-item'
   )
 
-  /**
-   * 获取当前组件实例
-   */
+  /** 获取当前组件实例 */
   const instance = getCurrentInstance() as ComponentInternalInstance
 
-  /**
-   * 计算当前需要展示的 svg
-   */
+  /** 计算当前需要展示的 svg */
   const svgIconComponent = computed((): FightingIcon => {
     if (prop.separator) return prop.separator
 
@@ -43,18 +37,12 @@
     return FIconChevronRightVue
   })
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['fontColor', 'iconColor', 'fontSize'])
 
-  /**
-   * 点击触发
-   */
+  /** 点击触发 */
   const handelClick = (): void => {
-    /**
-     * 获取到路由实例
-     */
+    /** 获取到路由实例 */
     const router = instance.appContext.config.globalProperties.$router
 
     if (router && prop.to) {

@@ -12,20 +12,14 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * dom 元素
-   */
+  /** dom 元素 */
   const FButton = ref<HTMLButtonElement>(null as unknown as HTMLButtonElement)
-  /**
-   * 获取父组件注入的依赖项
-   */
+  /** 获取父组件注入的依赖项 */
   const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)
 
   const { getType, getSize } = useGlobal(prop)
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = computed((): ClassList => {
     const { round, simple, block, disabled, loading, bold, text, circle, color, spread } = prop
 
@@ -49,25 +43,22 @@
 
   /**
    * 按钮点击
-   *
    * @param evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
     const { disabled, loading, ripples } = toRefs(prop)
 
-    // 禁用或 loading 则返回
+    /** 禁用或 loading 则返回 */
     if (disabled.value || loading.value) {
       evt.preventDefault()
       return
     }
 
-    // 如果有涟漪效果
+    /** 如果有涟漪效果 */
     if (ripples.value) {
       const { ripplesColor, simple, text } = toRefs(prop)
 
-      /**
-       * 涟漪类需要的选项列表
-       */
+      /** 涟漪类需要的选项列表 */
       const options: RipplesOptions = reactive({
         duration: 700,
         component: 'f-button',
@@ -86,9 +77,7 @@
     useRun(prop.onClick, evt)
   }
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = computed((): CSSProperties => {
     const { fontSize, fontColor, shadow, color } = prop
 

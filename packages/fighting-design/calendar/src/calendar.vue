@@ -10,24 +10,17 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 当前年份
-   */
+  /** 当前年份 */
   const year = ref<number>(prop.date.getFullYear())
-  /**
-   * 当前月份
-   */
+  /** 当前月份 */
   const month = ref<number>(prop.date.getMonth())
-  /**
-   * 当前日期
-   */
+  /** 当前日期 */
   const date = ref<number>(prop.date.getDate())
 
   const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(year, month)
 
   /**
    * 当前日期高亮显示
-   *
    * @param _month 月份
    * @param _date 日期
    */
@@ -43,7 +36,6 @@
 
   /**
    * 点击操作栏
-   *
    * @param target 不同类型用于切换当前时间、下个月、上个月
    */
   const optionClick = (target: 'last' | 'now' | 'next'): void => {
@@ -60,23 +52,20 @@
     option[target] && option[target]()
   }
 
-  /**
-   * 当前时间
-   */
+  /** 当前时间 */
   const nowTime = computed((): string => {
     return `${year.value} / ${addZero(month.value + 1)} / ${addZero(date.value)}`
   })
 
   /**
    * 点击对每一天
-   *
    * @param _month 当前月份
    * @param _date 当前日期
    */
   const handleClick = (_month: number, _date: number): void => {
     date.value = _date
 
-    // 如果点击上个月的选项，则调整上个月
+    /** 如果点击上个月的选项，则调整上个月 */
     if (_month < month.value + 1) {
       changeLastMonth()
     } else if (_month > month.value + 1) {
@@ -90,9 +79,7 @@
     })
   }
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = computed((): CSSProperties => {
     const { borderColor, dayCellHeight, weekCellHeight } = prop
 
@@ -105,7 +92,6 @@
 
   /**
    * 检测当前日期是否存在备忘录
-   *
    * @param date 当前日期
    */
   const isMemorandum = (date: string): boolean => {
@@ -115,9 +101,7 @@
     return Object.keys(prop.memorandum).includes(date)
   }
 
-  /**
-   * 当月份发生改变时候触发的回调
-   */
+  /** 当月份发生改变时候触发的回调 */
   watch(
     (): number => month.value,
     (newValue: number): void => {

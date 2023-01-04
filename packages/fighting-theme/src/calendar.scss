@@ -2,9 +2,6 @@
 
 .f-calendar {
   cursor: default;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
 
   // 头部
   &__header {
@@ -86,7 +83,7 @@
       box-sizing: border-box;
       border-top: 3px solid transparent;
       transition: var(--f-design-transition-time);
-      height: var(--f-calendar-day-height, 90px);
+      height: var(--f-calendar-day-height, 85px);
 
       &:hover {
         background: #f7f7f7;

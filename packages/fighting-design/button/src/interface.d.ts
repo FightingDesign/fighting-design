@@ -13,7 +13,6 @@ export type ButtonTarget = '_blank' | '_self' | '_parent' | '_top'
 
 /**
  * 原生 type 属性
- *
  * @see type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
  */
 export type ButtonNative = NonNullable<ButtonHTMLAttributes['type']>
