@@ -9,35 +9,41 @@
   import type { ComponentInternalInstance, VNode } from 'vue'
 
   const prop = defineProps(Props)
-  const emit = defineEmits<{
-    (e: 'update:modelValue', name: TabsPaneName): void
-    (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void
-  }>()
 
   /**
    * 获取当前组件实例
    */
   const instance: ComponentInternalInstance | null = getCurrentInstance()
   /**
-   * panes 集合
+   * 子组件集合
    */
   const panes = ref<ComponentInternalInstance[]>([])
   /**
-   * 当前选中的 pane
+   * 当前选中的子组件
    */
   const currentName = ref<TabsPaneName>(0)
 
+  /**
+   * 设置子组件绑定的 name
+   *
+   * @param name 子组件的 name
+   */
   const setCurrentName = (name: TabsPaneName): void => {
+    console.log(name)
     // 如果用户没有设置 v-model, 这里可以直接在内部修改
     currentName.value = name
-    emit('update:modelValue', name)
+    // emit('update:modelValue', name)
   }
 
   /**
-   * 触发用户的 emit
+   * 编辑状态
+   *
+   * @param action 添加还是删除
+   * @param name 当前子组件的 name
+   * @param index 索引值
    */
   const edit = (action: 'remove' | 'add', name?: TabsPaneName, index?: number): void => {
-    emit('edit', action, name, index)
+    prop.onEdit && prop.onEdit(action, name, index)
   }
 
   /**

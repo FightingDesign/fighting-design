@@ -81,6 +81,13 @@ export const Props = {
   onBeforeEnter: {
     type: Function as PropType<BeforeEnter>,
     default: (): null => null
+  },
+  /**
+   * 可编辑模式的回调
+   */
+  onEdit: {
+    type: Function,
+    default: (): null => null
   }
 } as const
 

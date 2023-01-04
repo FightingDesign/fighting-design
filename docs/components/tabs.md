@@ -285,7 +285,7 @@
 
 仅在 `card` 风格下支持 `edit` 模式
 
-需添加 `editStatus `属性，并配置 `edit` 回调事件
+需添加 `edit-status `属性，并配置 `edit` 回调事件
 
 ::: demo
 
@@ -297,8 +297,10 @@
 
 ```html
 <template>
-  <f-tabs editStatus type="card" @edit="edit">
-    <f-tabs-pane :label="item.label" :name="item.name" v-for="item in list"> {{ item.content }} </f-tabs-pane>
+  <f-tabs edit-status type="card" @edit="edit">
+    <f-tabs-pane v-for="(item, index) in list" :key="index" :label="item.label" :name="item.name">
+      {{ item.content }}
+    </f-tabs-pane>
   </f-tabs>
 </template>
 
@@ -306,23 +308,26 @@
   import { ref } from 'vue'
 
   let tabIndex = 2
+
   const list = ref([
     { label: '第一个', content: '哈哈哈哈', name: '1' },
     { label: '第二个', content: '哈哈哈哈a', name: '2' }
   ])
 
-  function edit(action: 'remove' | 'add', name: string, i: number) {
+  const edit = (action: 'remove' | 'add', name: string, index: number): void => {
     switch (action) {
       case 'add':
-        const newTabName = `${++tabIndex}`
-        list.value.push({
-          label: '新的' + newTabName,
-          content: '新的标签页' + newTabName,
-          name: newTabName
-        })
+        {
+          const newTabName = `${++tabIndex}`
+          list.value.push({
+            label: '新的' + newTabName,
+            content: '新的标签页' + newTabName,
+            name: newTabName
+          })
+        }
         break
       case 'remove':
-        list.value.splice(i, 1)
+        list.value.splice(index, 1)
         break
     }
   }
