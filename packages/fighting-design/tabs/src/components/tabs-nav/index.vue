@@ -1,10 +1,11 @@
 <script lang="ts" setup name="FTabsNav">
   import { Props } from './props'
   import { isString, sizeToNum, isBoolean } from '../../../../_utils'
-  import { computed, getCurrentInstance, nextTick, ref, useSlots, watch } from 'vue'
+  import { computed, getCurrentInstance, nextTick, ref, watch } from 'vue'
   import { FIconCrossVue, FIconPlusVue } from '../../../../_svg'
   import { FSvgIcon } from '../../../../svg-icon'
-  import type { TabsPaneName, TabsNavInstance } from '../../interface'
+  import type { ClassList } from '../../../../_interface'
+  import type { TabsPaneName, TabsNavInstance, TabsPosition, TabsJustifyContent, TabsType } from '../../interface'
   import type { ComponentInternalInstance, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
@@ -13,7 +14,10 @@
     (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void
   }>()
 
-  console.log(prop.navs)
+  /**
+   * 获取当前组件实例
+   */
+  const instance: ComponentInternalInstance | null = getCurrentInstance()
 
   const currentIndex = computed((): number =>
     prop.navs
@@ -23,11 +27,6 @@
         )
       : 0
   )
-
-  /**
-   * 获取当前组件实例
-   */
-  const instance: ComponentInternalInstance | null = getCurrentInstance()
 
   /**
    * 点击上方 nav 执行
@@ -58,6 +57,7 @@
    * 防止在切换标签时出现跳动的情况
    */
   const wrapperStyle = ref<CSSProperties>({})
+
   const updateWrapperStyle = async (): Promise<void> => {
     await nextTick()
     if (!prop.navs) return
@@ -90,21 +90,24 @@
     }
     // 当前nav的高度
     if (!instance || !instance.subTree.el) return
-    const wrapperEl = instance.subTree.el as HTMLObjectElement
+    const wrapperEl: HTMLObjectElement = instance.subTree.el as HTMLObjectElement
     // 获取除active元素外最高的子元素
-    const children = instance.subTree.el.querySelectorAll(
+    const children: HTMLObjectElement[] = instance.subTree.el.querySelectorAll(
       '.f-tabs-nav--item:not(.f-tabs-nav--item__active)'
     ) as HTMLObjectElement[]
-    const maxChildren = Array.from(children).reduce((pre, cur) => {
-      pre = (cur[positionVar.b] as Number) > (pre[positionVar.b] as Number) ? cur : pre
-      return pre
-    }, children[0])
+    const maxChildren: HTMLObjectElement = Array.from(children).reduce(
+      (pre: HTMLObjectElement, cur: HTMLObjectElement): HTMLObjectElement => {
+        pre = (cur[positionVar.b] as number) > (pre[positionVar.b] as number) ? cur : pre
+        return pre
+      },
+      children[0]
+    )
     // 最高的子元素的padding
-    const padding = sizeToNum(window.getComputedStyle(maxChildren)[positionVar.c] as string)
+    const padding: number = sizeToNum(window.getComputedStyle(maxChildren)[positionVar.c] as string)
     // css变量
-    const cardActiveDiffHeight = window.getComputedStyle(wrapperEl).getPropertyValue('--cardActiveDiffHeight')
+    const cardActiveDiffHeight: string = window.getComputedStyle(wrapperEl).getPropertyValue('--cardActiveDiffHeight')
     // 最高的子元素 active 状态下的高度
-    const maxChildrenNum = sizeToNum(maxChildren[positionVar.b]) - padding + sizeToNum(cardActiveDiffHeight)
+    const maxChildrenNum: number = sizeToNum(maxChildren[positionVar.b]) - padding + sizeToNum(cardActiveDiffHeight)
 
     /**
      * 比较标签显示高度(wrapperEl)、最高元素预估高度，取得最大值
@@ -125,14 +128,16 @@
   const updateActiveLineStyle = async (): Promise<void> => {
     await nextTick()
     if (!instance || !instance.subTree.el) return
+
     const { position } = prop
     const activeStyle: CSSProperties = {}
-    const children = instance.subTree.el.querySelectorAll('.f-tabs-nav--item') as HTMLElement[]
+    const children: HTMLElement[] = instance.subTree.el.querySelectorAll('.f-tabs-nav--item') as HTMLElement[]
 
     if (!children.length) return
-    const nextItem = children[currentIndex.value]
 
-    const nextItemStyle = window.getComputedStyle(nextItem)
+    const nextItem: HTMLElement = children[currentIndex.value]
+    const nextItemStyle: CSSStyleDeclaration = window.getComputedStyle(nextItem)
+
     if (position === 'top' || position === 'bottom') {
       activeStyle.width =
         nextItem.clientWidth - sizeToNum(nextItemStyle.paddingLeft) - sizeToNum(nextItemStyle.paddingRight) + 'px'
@@ -148,18 +153,20 @@
         activeStyle.left = '0px'
       }
     }
+
     activeLineStyle.value = activeStyle
   }
 
   /**
    * 左右侧的滚动阴影
    */
-  const leftReachedRef = ref(false)
-  const rightReachedRef = ref(false)
+  const leftReachedRef = ref<boolean>(false)
+  const rightReachedRef = ref<boolean>(false)
 
   const deriveScrollShadow = (el: HTMLElement | null): void => {
     if (!el) return
     const { scrollLeft, scrollWidth, offsetWidth } = el
+
     leftReachedRef.value = scrollLeft > 0
     rightReachedRef.value = scrollLeft + offsetWidth < scrollWidth - 1 // -1 是因为计算有误差
   }
@@ -178,15 +185,15 @@
   /**
    * 风格样式调整
    */
-  watch([currentIndex], () => {
+  watch([currentIndex], (): void => {
     if (prop.type === 'line') {
       updateActiveLineStyle()
     }
   })
 
   watch(
-    [(): unknown => prop.position, (): unknown => prop.type, (): unknown => prop.justifyContent],
-    () => {
+    [(): TabsPosition => prop.position, (): TabsType => prop.type, (): TabsJustifyContent => prop.justifyContent],
+    (): void => {
       wrapperStyle.value = {}
       if (prop.type === 'card') {
         updateWrapperStyle()
@@ -211,67 +218,74 @@
     }
   )
 
-  const classList = computed(() => {
+  const classList = computed((): ClassList => {
     const { type, position } = prop
     return [`f-tabs-nav__type_${type}`, `f-tabs-nav__type_${type}_${position}`] as const
   })
 
-  const scrollClassList = computed(() => {
-    return {
-      'f-tabs-nav__scroll_before': leftReachedRef.value,
-      'f-tabs-nav__scroll_after': rightReachedRef.value
-    } as const
+  const scrollClassList = computed((): ClassList => {
+    return [
+      'f-tabs-nav__main',
+      {
+        'f-tabs-nav__scroll_before': leftReachedRef.value,
+        'f-tabs-nav__scroll_after': rightReachedRef.value
+      }
+    ] as const
   })
 
   /**
    * 事件处理
    */
-  const trigger = computed(() => {
+  const trigger = computed((): 'click' | 'mouseenter' => {
     return prop.trigger === 'hover' ? 'mouseenter' : 'click'
   })
-
-  const slots = useSlots()
 </script>
 
 <template>
   <div class="f-tabs-nav" :class="classList">
-    <div v-if="slots.prefix" class="f-tabs-nav__prefix">
-      <slot name="prefix"></slot>
+    <div v-if="$slots.prefix" class="f-tabs-nav__prefix">
+      <slot name="prefix" />
     </div>
-    <div class="f-tabs-nav__main" :class="scrollClassList">
+
+    <div :class="scrollClassList">
       <div class="f-tabs-nav__scroll" @wheel.passive="handleWheel">
         <div class="f-tabs-nav__wrapper" :style="wrapperStyle">
           <div
-            v-for="(item, i) in prop.navs"
+            v-for="(item, i) in navs"
             :key="item.name"
-            class="f-tabs-nav--item"
             :class="[
+              'f-tabs-nav--item',
               {
-                'f-tabs-nav--item__active': item.name === prop.currentName
+                'f-tabs-nav--item__active': item.name === currentName
               }
             ]"
             @[trigger]="clickNavItem(item.name)"
           >
             <span v-if="isString(item.label)">{{ item.label }}</span>
+
             <div v-else>
-              <component :is="item.label"></component>
+              <component :is="item.label" />
             </div>
+
             <f-svg-icon
               v-if="type === 'card' && editStatus"
               class="f-tabs-nav--item__card_close"
               :icon="FIconCrossVue"
               @click.stop="editItem('remove', item.name, i)"
-            ></f-svg-icon>
+            />
           </div>
+
           <div v-if="type === 'card' && editStatus" class="f-tabs-nav--item" @click="editItem('add')">
-            <f-svg-icon :icon="FIconPlusVue" color="#666"></f-svg-icon>
+            <f-svg-icon :icon="FIconPlusVue" color="#666" />
           </div>
-          <div v-if="prop.type === 'line'" class="f-tabs-nav--line__active" :style="activeLineStyle"></div>
+
+          <div v-if="prop.type === 'line'" class="f-tabs-nav--line__active" :style="activeLineStyle" />
         </div>
       </div>
     </div>
-    <div v-if="slots.suffix" class="f-tabs-nav__suffix">
-      <slot name="suffix"></slot>
+
+    <div v-if="$slots.suffix" class="f-tabs-nav__suffix">
+      <slot name="suffix" />
     </div>
   </div>
 </template>
