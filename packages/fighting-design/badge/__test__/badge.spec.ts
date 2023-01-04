@@ -7,7 +7,7 @@ describe('FBadge', () => {
     const wrapper = mount(FBadge)
     expect(wrapper.classes()).toContain('f-badge')
     expect(wrapper.find('sup')).toBeDefined()
-    expect(wrapper.find('sup').classes()).toEqual(['f-badge__content', 'f-badge__danger'])
+    expect(wrapper.find('sup').classes()).toEqual(['f-badge__content'])
   })
 
   test('type', () => {
@@ -16,18 +16,18 @@ describe('FBadge', () => {
       const wrapper = mount(FBadge, {
         props: { type: item }
       })
-      expect(wrapper.find('.f-badge__content').classes()).toContain(`f-badge__${item}`)
+      expect(wrapper.classes()).toContain(`f-badge__${item}`)
     })
   })
 
-  test('value is string', () => {
+  test('value', () => {
     const wrapper = mount(FBadge, {
       props: { value: 'hot' }
     })
     expect(wrapper.find('sup').text()).toBe('hot')
   })
 
-  test('value is number', () => {
+  test('value', () => {
     const wrapper = mount(FBadge, {
       props: { value: 20 }
     })
@@ -45,14 +45,14 @@ describe('FBadge', () => {
     const wrapper = mount(FBadge, {
       props: { dot: true }
     })
-    expect(wrapper.find('sup').classes()).toContain('f-badge__dot')
+    expect(wrapper.classes()).toContain('f-badge__dot')
   })
 
   test('dot with type', () => {
     const wrapper = mount(FBadge, {
       props: { dot: true, type: 'success' }
     })
-    expect(wrapper.find('sup').classes()).toContain('f-badge__dot')
-    expect(wrapper.find('sup').classes()).toContain('f-badge__success')
+    expect(wrapper.classes()).toContain('f-badge__dot')
+    expect(wrapper.classes()).toContain('f-badge__success')
   })
 })
