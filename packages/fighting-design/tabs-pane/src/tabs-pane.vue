@@ -1,17 +1,20 @@
 <script lang="ts" setup name="FTabsPane">
   import { Props } from './props'
-  import { TabsProvideKey } from '../../tabs/src/props'
+  import { TABS_PROPS_KEY } from '../../tabs/src/props'
   import { computed, inject, onBeforeUnmount } from 'vue'
   import type { TabsProvide } from '../../tabs/src/interface'
 
   const prop = defineProps(Props)
 
-  const parentInject = inject<TabsProvide | null>(TabsProvideKey, null)
+  /**
+   * 获取父组件注入的依赖项
+   */
+  const parentInject = inject<TabsProvide | null>(TABS_PROPS_KEY, null)
 
   /**
    * 该组件是否加载
    */
-  const isLoad = computed(() => {
+  const isLoad = computed((): boolean => {
     if (!parentInject) return false
     if (parentInject.currentName.value === prop.name) {
       return true
@@ -23,14 +26,14 @@
   /**
    * 该组件是否显示
    */
-  const isShow = computed(() => parentInject && parentInject.currentName.value === prop.name)
+  const isShow = computed((): boolean | null => parentInject && parentInject.currentName.value === prop.name)
 
   /**
-   * 在组件插入及卸载时都要更新父级的pane列表
+   * 在组件插入及卸载时都要更新父级的 pane 列表
    */
   parentInject && parentInject.updatePaneList()
 
-  onBeforeUnmount(() => {
+  onBeforeUnmount((): void => {
     parentInject && parentInject.updatePaneList()
   })
 </script>

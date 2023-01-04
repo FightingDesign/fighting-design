@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FTabs">
-  import { Props, TabsProvideKey } from './props'
-  import { onMounted, ref, provide, computed, getCurrentInstance, watch, nextTick, useSlots } from 'vue'
+  import { Props, TABS_PROPS_KEY } from './props'
+  import { onMounted, ref, provide, computed, getCurrentInstance, watch, nextTick } from 'vue'
   import { TabsNav } from './components'
   import { debugWarn } from '../../_utils'
   import { getChildrenComponent } from './utils'
@@ -9,7 +9,7 @@
   import type { ComponentInternalInstance, VNode } from 'vue'
 
   const prop = defineProps(Props)
-  const slots = useSlots()
+  // const slot = useSlots()
   const emit = defineEmits<{
     (e: 'update:modelValue', name: TabsPaneName): void
     (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void
@@ -52,17 +52,16 @@
       )
     })
   }
+
   /**
    * nav 列表
    */
   const navs = computed((): TabsNavInstance[] => {
-    return panes.value.map((e, i) => {
-      console.log(e.props.label)
+    return panes.value.map((item: ComponentInternalInstance, index: number): TabsNavInstance => {
       return {
-        name: (e.props.name || (e.props.name = i)) as TabsPaneName, // name如果没填，用下标代替
-        // label: e.slots['label'] || e.props.label
-        label: e.props.label
-      }
+        name: (item.props.name || (item.props.name = index)) as TabsPaneName, // name如果没填，用下标代替
+        label: item.slots['label'] || item.props.label
+      } as const
     })
   })
 
@@ -70,7 +69,7 @@
    * prop.modelValue 同步到 currentName 中
    */
   watch(
-    () => prop.modelValue,
+    (): TabsPaneName => prop.modelValue,
     (val: TabsPaneName): void => {
       currentName.value = val as TabsPaneName
 
@@ -113,7 +112,7 @@
   /**
    * 将信息传递给子组件
    */
-  provide<TabsProvide>(TabsProvideKey, {
+  provide<TabsProvide>(TABS_PROPS_KEY, {
     currentName,
     updatePaneList
   })
@@ -139,10 +138,11 @@
       @set-current-name="setCurrentName"
       @edit="edit"
     >
-      <template v-if="slots.prefix" #prefix>
+      <template v-if="$slots.prefix" #prefix>
         <slot name="prefix" />
       </template>
-      <template v-if="slots.suffix" #suffix>
+
+      <template v-if="$slots.suffix" #suffix>
         <slot name="suffix" />
       </template>
     </tabs-nav>

@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType } from 'vue'
+import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type {
   TabsTrigger,
   TabsPaneName,
@@ -86,4 +86,4 @@ export const Props = {
 
 export type TabsProps = ExtractPropTypes<typeof Props>
 
-export const TabsProvideKey = Symbol('f-tabs')
+export const TABS_PROPS_KEY: InjectionKey<TabsProps> = Symbol('tabs-props-key')
