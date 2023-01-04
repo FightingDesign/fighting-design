@@ -14,7 +14,7 @@ import {
 } from '../utils/code'
 import type { Store, SFCOptions, StoreState, OutputModes } from '@vue/repl'
 
-export class ReplStore implements Store {
+export class ReplStore {
   state: StoreState
   compiler = defaultCompiler
   options?: SFCOptions
@@ -66,13 +66,13 @@ export class ReplStore implements Store {
     this.initImportMap()
 
     // 注入 Fighting Design
-    this.state.files[fightingPlugin] = new File(fightingPlugin, fightingPluginCode, !import.meta.env.DEV)
+    this.state.files[fightingPlugin] = new File(fightingPlugin, fightingPluginCode)
 
-    watchEffect(() => compileFile(this, this.state.activeFile))
+    watchEffect(() => compileFile(this as unknown as Store, this.state.activeFile))
 
     for (const file in this.state.files) {
       if (file !== defaultMainFile) {
-        compileFile(this, this.state.files[file])
+        compileFile(this as unknown as Store, this.state.files[file])
       }
     }
   }
@@ -83,10 +83,10 @@ export class ReplStore implements Store {
 
   // don't start compiling until the options are set
   init = (): void => {
-    watchEffect(() => compileFile(this, this.state.activeFile))
+    watchEffect(() => compileFile(this as unknown as Store, this.state.activeFile))
     for (const file in this.state.files) {
       if (file !== defaultMainFile) {
-        compileFile(this, this.state.files[file])
+        compileFile(this as unknown as Store, this.state.files[file])
       }
     }
   }
@@ -137,7 +137,7 @@ export class ReplStore implements Store {
       files[filename] = new File(filename, file)
     }
     for (const file of Object.values(files)) {
-      await compileFile(this, file)
+      await compileFile(this as unknown as Store, file)
     }
     this.state.mainFile = mainFile
     this.state.files = files

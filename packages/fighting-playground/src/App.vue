@@ -6,9 +6,9 @@
   import HeaderVue from './components/Header.vue'
   import type { ReplStore } from '@vue/repl'
 
-  const store: ReplStore = new MyReplStore({
+  const store = new MyReplStore({
     serializedState: location.hash.slice(1),
-    defaultVueRuntimeURL: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.js'
+    defaultVueRuntimeURL: 'https://unpkg.com/@vue/runtime-dom@3.2.29/dist/runtime-dom.esm-browser.js'
   }) as unknown as ReplStore
 
   // 将状态持久化到 URL 哈希
