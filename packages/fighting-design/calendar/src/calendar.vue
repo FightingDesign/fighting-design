@@ -127,18 +127,18 @@
     </header>
 
     <!-- 周几 -->
-    <ul class="f-calendar__week">
-      <li v-for="(week, index) in WEEK_DATA" :key="index" class="f-calendar__week-li">
+    <div class="f-calendar__week">
+      <div v-for="(week, index) in WEEK_DATA" :key="index" class="f-calendar__week-item">
         {{ week }}
-      </li>
-    </ul>
+      </div>
+    </div>
 
     <!-- 每一天 -->
-    <ul class="f-calendar__day">
-      <li
+    <div class="f-calendar__day">
+      <div
         v-for="(days, index) in AllMonthDays"
         :key="index"
-        :class="['f-calendar__day-li', mowDataClassList(days.cMonth, days.cDay)]"
+        :class="['f-calendar__day-item', mowDataClassList(days.cMonth, days.cDay)]"
         @click.stop="handleClick(days.cMonth, days.cDay)"
       >
         <span class="f-calendar__solar">{{ days.cDay }}</span>
@@ -159,7 +159,7 @@
             {{ item.content }}
           </f-text>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>

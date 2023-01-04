@@ -2,6 +2,7 @@
 
 .f-calendar {
   cursor: default;
+  user-select: none;
 
   // 头部
   &__header {
@@ -40,21 +41,17 @@
         color: var(--f-design-color-primary-1);
         cursor: pointer;
         font-weight: 600;
-        user-select: none;
       }
     }
   }
 
   // 星期
   &__week {
-    margin: 0;
-    padding: 0;
     width: 100%;
     display: grid;
-    list-style: none;
     grid-template-columns: repeat(7, minmax(0, 1fr));
 
-    .f-calendar__week-li {
+    .f-calendar__week-item {
       padding: 10px;
       display: flex;
       align-items: center;
@@ -66,14 +63,11 @@
 
   // 天
   &__day {
-    margin: 0;
-    padding: 0;
     display: grid;
     cursor: pointer;
-    list-style: none;
     grid-template-columns: repeat(7, minmax(0, 1fr));
 
-    .f-calendar__day-li {
+    .f-calendar__day-item {
       padding: 10px;
       display: flex;
       overflow: hidden;
@@ -166,7 +160,7 @@
       border-top: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
       margin: 0;
 
-      .f-calendar__week-li {
+      .f-calendar__week-item {
         border-right: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
       }
     }
@@ -174,7 +168,7 @@
     .f-calendar__day {
       margin: 0;
 
-      .f-calendar__day-li {
+      .f-calendar__day-item {
         border-right: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
         border-bottom: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
       }
