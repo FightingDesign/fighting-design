@@ -2,6 +2,14 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复**
+
+- 修复 `f-input` 在黑暗模式下不显示 `placeholder` 的问题 [issues#330](https://github.com/FightingDesign/fighting-design/issues/330)
+
+**新增**
+
+- 新增 `f-input` 组件 `placeholder-color` 配置项
+
 ## 0.15.0 (2023-01-03)
 
 **修复**

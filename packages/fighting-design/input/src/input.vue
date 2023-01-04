@@ -6,7 +6,7 @@
   import { ref, toRefs } from 'vue'
   import { FIconCrossVue, FIconEyeOffOutlineVue, FIconEyeOutlineVue } from '../../_svg'
   import { isString, isNumber } from '../../_utils'
-  import { useUpdateInput, useProps, useRun } from '../../_hooks'
+  import { useUpdateInput, useProps, useRun, useList } from '../../_hooks'
   import type { InputType } from './interface'
   import type { UseUpdateInputProps } from '../../_hooks'
 
@@ -17,6 +17,8 @@
 
   const { filter } = useProps(prop)
 
+  const { styles } = useList(prop, 'input')
+
   /**
    * type 类型
    */
@@ -25,6 +27,7 @@
    * 是否展示密码
    */
   const showPass = ref<boolean>(false)
+
   /**
    * 使用 useUpdateInput hook 实现同步数据
    */
@@ -87,10 +90,15 @@
     inputType.value = 'password'
     showPass.value = false
   }
+
+  /**
+   * 样式列表
+   */
+  const styleList = styles(['placeholderColor'])
 </script>
 
 <template>
-  <div :class="['f-input', { [`f-input__${size}`]: size }]">
+  <div :class="['f-input', { [`f-input__${size}`]: size }]" :style="styleList">
     <div :class="['f-input__wrapper', { 'f-input__disabled': disabled }]">
       <f-svg-icon v-if="icon" class="f-input__icon" :icon="icon" :size="13" />
 

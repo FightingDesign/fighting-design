@@ -48,6 +48,26 @@
       &[type='number'] {
         -moz-appearance: textfield;
       }
+
+      &::webkit-input-placeholder {
+        color: var(--f-input-placeholder-color, var(--f-design-color-text-3));
+      }
+
+      &::-webkit-input-placeholder {
+        color: var(--f-input-placeholder-color, var(--f-design-color-text-3));
+      }
+
+      &:-moz-placeholder {
+        color: var(--f-input-placeholder-color, var(--f-design-color-text-3));
+      }
+
+      &::-moz-placeholder {
+        color: var(--f-input-placeholder-color, var(--f-design-color-text-3));
+      }
+
+      &:-ms-input-placeholder {
+        color: var(--f-input-placeholder-color, var(--f-design-color-text-3));
+      }
     }
 
     // 清楚按钮

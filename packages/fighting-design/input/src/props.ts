@@ -100,6 +100,13 @@ export const Props = {
     default: (): null => null
   },
   /**
+   * 占位符颜色
+   */
+  placeholderColor: {
+    type: String,
+    default: (): null => null
+  },
+  /**
    * 是否可清除
    */
   clear: {

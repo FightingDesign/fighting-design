@@ -30,6 +30,7 @@
 </script>
 
 <template>
+  <f-input type="text" placeholder="请输入...." placeholder-color="red" />
   <f-tabs>
     <div>
       <div>
@@ -46,12 +47,6 @@
       </f-tabs-pane>
     </div>
   </f-tabs>
-
-  <!-- <f-tabs edit-status type="card" :on-edit="edit">
-    <f-tabs-pane v-for="(item, index) in list" :key="index" :label="item.label" :name="item.name">
-      {{ item.content }}
-    </f-tabs-pane>
-  </f-tabs> -->
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>
