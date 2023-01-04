@@ -96,8 +96,8 @@
     transform: translateY(100%);
   }
 
-  .f-message__bottom.f-message-fade-bottom-enter-from,
-  .f-message__bottom.f-message-fade-bottom-leave-to {
+  &__bottom.f-message-fade-bottom-enter-from,
+  &__bottom.f-message-fade-bottom-leave-to {
     opacity: 0;
     transform: translate(-50%, 100%);
   }
