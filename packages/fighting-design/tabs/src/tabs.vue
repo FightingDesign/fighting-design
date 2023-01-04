@@ -32,6 +32,11 @@
   const classList = computed((): ClassList => {
     return ['f-tabs', `f-tabs__position_${_position.value}`] as const
   })
+
+  /**
+   * 通过 refs 抛出当前选中的值
+   */
+  defineExpose({ currentName })
 </script>
 
 <template>
