@@ -30,6 +30,9 @@
 </script>
 
 <template>
+  <f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
+  <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+
   <f-input type="text" placeholder="请输入...." placeholder-color="red" />
   <f-tabs>
     <div>

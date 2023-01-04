@@ -4,46 +4,35 @@ import type { AvatarFit } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
-  /**
-   * 图片路径
-   */
+  /** 图片路径 */
   src: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 加载失败时要显示的地址
-   */
+  /** 加载失败时要显示的地址 */
   errSrc: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 图标头像
-   */
+  /** 图标头像 */
   icon: {
     type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /**
-   * 原生 alt 属性
-   *
+   *原生 alt 属性
    * @see alt https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
    */
   alt: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 是否为圆角
-   */
+  /** 是否为圆角 */
   round: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 是否懒加载头像
-   */
+  /** 是否懒加载头像 */
   lazy: {
     type: Boolean,
     default: (): boolean => false
@@ -85,51 +74,37 @@ export const Props = {
       return false
     }
   },
-  /**
-   * 背景色
-   */
+  /** 自定义背景色 */
   background: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 字体大小
-   */
+  /** 字体大小 */
   fontSize: {
     type: [String, Number] as PropType<string | number>,
-    default: (): string => '15px'
+    default: (): null => null
   },
-  /**
-   * 字体的颜色
-   */
+  /** 字体的颜色 */
   fontColor: {
     type: String,
-    default: (): string => '#333'
+    default: (): null => null
   },
-  /**
-   * 文字头像
-   */
+  /** 文字头像 */
   text: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 触发懒加载的距离
-   */
+  /** 触发懒加载的距离 */
   rootMargin: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => '100px'
   },
-  /**
-   * 图片加载成功触发的回调
-   */
+  /** 图片加载成功触发的回调 */
   onLoad: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
-  /**
-   * 图片加载失败触发的回调
-   */
+  /** 图片加载失败触发的回调 */
   onError: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null

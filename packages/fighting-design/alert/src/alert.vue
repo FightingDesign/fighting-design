@@ -9,9 +9,7 @@
 
   const { getType } = useGlobal(prop)
 
-  /**
-   * 替换 type 后得到的 props
-   */
+  /** 替换 type 后得到的 props */
   const params = reactive({
     ...prop,
     type: getType().value
@@ -19,29 +17,20 @@
 
   const { styles, classes } = useList(params, 'alert')
 
-  /**
-   * 展示状态
-   */
+  /** 展示状态 */
   const isShow = ref<boolean>(true)
 
-  /**
-   * alertList 节点列表容器 dom
-   */
+  /** alertList 节点列表容器 dom */
   const alertListDom = ref<HTMLElement>(null as unknown as HTMLElement)
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = classes(['type', 'bold', 'simple', 'center', 'round', 'fixed'], 'f-alert')
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['fontSize', 'color', 'background', 'titleSize', 'titleColor'])
 
   /**
    * 点击关闭按钮
-   *
    * @param evt 事件对象
    */
   const handleClose = (evt: MouseEvent): void => {

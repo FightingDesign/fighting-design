@@ -16,14 +16,10 @@
     filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError']) as unknown as UseLoadImgProp
   )
 
-  /**
-   * 图片 dom 节点
-   */
+  /** 图片 dom 节点 */
   const avatarEl = ref<HTMLImageElement>(null as unknown as HTMLImageElement)
 
-  /**
-   * 开始触发加载
-   */
+  /** 开始触发加载 */
   onMounted((): void => {
     if (!slot.icon && !prop.icon && !prop.text) {
       loadImg(avatarEl.value)
@@ -34,7 +30,7 @@
 <template>
   <div v-if="isSuccess" role="img" :class="classList" :style="styleList">
     <!-- 图标头像 -->
-    <f-svg-icon v-if="$slots.icon || icon" :size="fontSize" :color="fontColor" :icon="icon">
+    <f-svg-icon v-if="$slots.icon || icon" :size="fontSize || 15" :color="fontColor" :icon="icon">
       <slot name="icon" />
     </f-svg-icon>
 
