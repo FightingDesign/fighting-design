@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { TABS_PROPS_KEY } from '../../tabs/src/props'
   import { computed, inject, onBeforeUnmount } from 'vue'
-  import type { TabsProvide } from '../../tabs/src/interface'
+  import type { TabsProvide } from '../../_hooks'
 
   const prop = defineProps(Props)
 

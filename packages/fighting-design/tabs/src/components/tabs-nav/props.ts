@@ -43,6 +43,9 @@ export const Props = {
       return (['left', 'right', 'top', 'bottom'] as const).includes(val)
     }
   },
+  /**
+   * 标签的 name
+   */
   currentName: {
     type: [String, Number] as PropType<TabsPaneName>,
     default: (): null => null
@@ -52,6 +55,7 @@ export const Props = {
    * 
    * @values flex-start center flex-end space-between space-around space-evenly
    * @defaultValue flex-start
+   * @see justify-content https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content
    */
   justifyContent: {
     type: String as PropType<TabsJustifyContent>,

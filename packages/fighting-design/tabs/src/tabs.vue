@@ -2,7 +2,6 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import { TabsNav } from './components'
-  import { debugWarn } from '../../_utils'
   import { useTabs } from '../../_hooks'
   import type { ClassList } from '../../_interface'
   import type { TabsPosition } from './interface'
@@ -14,23 +13,22 @@
   /**
    * 选项卡标签位置
    */
-  const _position = computed((): TabsPosition => {
+  const tabsPosition = computed((): TabsPosition => {
     const { position, type } = prop
-    let _position = position
 
     if (type === 'segment' && (position === 'right' || position === 'left')) {
-      _position = 'top'
-      debugWarn('FTabs', 'segment 风格只支持 top、bottom 两种方向')
+      // debugWarn('FTabs', 'segment 风格只支持 top、bottom 两种方向')
+      return 'top'
     }
 
-    return _position
+    return position
   })
 
   /**
    * 类名列表
    */
   const classList = computed((): ClassList => {
-    return ['f-tabs', `f-tabs__position_${_position.value}`] as const
+    return ['f-tabs', `f-tabs__position_${tabsPosition.value}`] as const
   })
 
   /**
@@ -46,7 +44,7 @@
       :navs="navs"
       :type="type"
       :current-name="currentName"
-      :position="_position"
+      :position="tabsPosition"
       :edit-status="editStatus"
       :justify-content="justifyContent"
       :on-before-enter="onBeforeEnter"
