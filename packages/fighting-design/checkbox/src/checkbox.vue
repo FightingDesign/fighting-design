@@ -19,11 +19,14 @@
   /** 绑定值 */
   const model = computed({
     /** 获取值 */
-    get () {
+    get: (): CheckboxModelValue | string[] => {
       return (parentInject && parentInject.modelValue) || prop.modelValue
     },
-    /** 设置值 */
-    set (val) {
+    /**
+     * 设置值
+     * @param val 最新的值
+     */
+    set: (val: CheckboxModelValue | string[]): void => {
       if (!parentInject) {
         emit('update:modelValue', val as CheckboxModelValue)
         useRun(prop.onChange, val)

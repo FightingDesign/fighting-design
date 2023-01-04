@@ -2,46 +2,37 @@ import type { ExtractPropTypes, PropType } from 'vue'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
-  /**
-   * 绑定值
-   */
+  /** 绑定值 */
   date: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 是否只读
-   */
+  /** 是否只读 */
   readonly: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 是否可清除
-   */
+  /** 是否可清除 */
   clear: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
    * 尺寸
-   *
    * @values large middle small mini
    * @defaultValue middle
    */
   size: {
     type: String as PropType<FightingSize>,
-    default: (): FightingSize => 'middle' as const,
+    default: (): FightingSize => 'middle',
     validator: (val: FightingSize): boolean => {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
-  /**
-   * 时间格式
-   */
+  /** 时间格式 */
   format: {
     type: String,
-    default: (): string => 'YYYY/MM/DD' as const
+    default: (): string => 'YYYY/MM/DD'
   }
 } as const
 

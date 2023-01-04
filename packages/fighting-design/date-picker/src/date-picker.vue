@@ -5,29 +5,21 @@
   import { FDropdown } from '../../dropdown'
   import { FCalendar } from '../../calendar'
   import type { CalendarChangeParams } from '../../calendar'
-  import type { DatePickerCheckDate } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
     'update:date': (val: string): string => val
   })
 
-  /**
-   * 传递给日历组件的当前时间
-   */
+  /** 传递给日历组件的当前时间 */
   const date = new Date()
 
-  /**
-   * 获取选择的日期 & 设置日期
-   */
+  /** 获取选择的日期 & 设置日期 */
   const pickerDate = computed({
-    /**
-     * 获取值返回 date
-     */
+    /** 获取值返回 date */
     get: (): string => prop.date,
     /**
      * 设置值
-     *
      * @param val 最新的值
      */
     set: (val: string): void => {
@@ -41,9 +33,9 @@
    * 通过点击日历上的时间进行选取
    */
   const changeDate = ({ year, month, date }: CalendarChangeParams): void => {
-    // 如果存在格式化配置项
+    /** 如果存在格式化配置项 */
     if (prop.format) {
-      const checkDate: DatePickerCheckDate = {
+      const checkDate = {
         YYYY: year,
         MM: month,
         DD: date
@@ -60,6 +52,7 @@
       pickerDate.value = formatDate
       return
     }
+
     pickerDate.value = `${year}/${month}/${date}`
   }
 </script>
