@@ -11,12 +11,10 @@ export * from './interface.d'
  *
  * @param prop 组件的 props 参数
  * @param emit 回调参数
- * @returns
  */
 export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEmit): UseUpdateInputReturn => {
   /**
    * 处理文本框输入 input 事件
-   *
    * @param evt 事件对象
    */
   const onInput = (evt: Event): void => {
@@ -30,16 +28,13 @@ export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEm
 
   /**
    * 处理文本框输入 change 事件
-   *
    * @param evt 事件对象
    */
   const onChange = (evt: Event): void => {
     useRun(prop.onChange, (evt.target as HTMLInputElement).value)
   }
 
-  /**
-   * 清空文本框
-   */
+  /** 清空文本框 */
   const onClear = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', isNumber(prop.type) ? 0 : '')

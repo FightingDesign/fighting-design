@@ -8,19 +8,15 @@ import type {
 
 export * from './interface.d'
 
-/**
- * 创建弹出的消息体实例
- * @returns
- */
+/** 创建弹出的消息体实例 */
 export const useMassageManage = (): UseMassageManageReturnInterface => {
-  // 组件实例对象
+  /** 组件实例对象 */
   const instances: MessageInstancesType = reactive({})
 
   /**
    * 通过方位与 id，获取目标实例
    * @param placement 方位
    * @param id id
-   * @returns
    */
   const getInstanceIndex = (placement: MessagePlacementType, id: string): number => {
     if (!instances[placement]) return -1
@@ -57,7 +53,7 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
    */
   const removeInstance = (placement: MessagePlacementType, id: string): void => {
     const idx: number = getInstanceIndex(placement, id)
-    ;(instances[placement] as MessageInstance[]).splice(idx, 1)
+      ; (instances[placement] as MessageInstance[]).splice(idx, 1)
   }
 
   /**

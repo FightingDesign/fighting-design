@@ -37,16 +37,12 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
    */
   const classes = (list: FilterParams, className?: string): ComputedRef<ClassList> => {
     return computed((): ClassList => {
-      /**
-       * 类名列表
-       */
+      /** 类名列表 */
       const classList: Ref<string[]> = ref<string[]>([])
-      /**
-       * 过滤得到 prop 集合
-       */
+      /** 过滤得到 prop 集合 */
       const propList: Record<string, unknown> = filter(list)
 
-      // 是否存在其它需要直接加入的类名
+      /** 是否存在其它需要直接加入的类名 */
       className && classList.value.push(className)
 
       for (const key in propList) {
@@ -71,13 +67,9 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
    */
   const styles = (list: FilterParams, pixel = true): ComputedRef<CSSProperties> => {
     return computed((): CSSProperties => {
-      /**
-       * 样式列表
-       */
+      /** 样式列表 */
       const styleList: Record<string, unknown> = reactive({})
-      /**
-       * 过滤得到 prop 集合
-       */
+      /** 过滤得到 prop 集合 */
       const propList: Record<string, unknown> = filter(list)
 
       for (const key in propList) {

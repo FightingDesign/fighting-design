@@ -9,9 +9,7 @@ export interface FilterParamsList {
   callback: () => boolean
 }
 
-/**
- * 过滤方法参数类型接口
- */
+/** 过滤方法参数类型接口 */
 export type FilterParams = (string | FilterParamsList)[]
 
 /**

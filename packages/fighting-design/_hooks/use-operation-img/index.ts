@@ -10,25 +10,17 @@ export * from './interface.d'
  * 主要用作图片的放大、缩小、滚轮缩放
  */
 export const useOperationImg = (): UseOperationImgReturn => {
-  /**
-   * 放大倍数
-   */
+  /** 放大倍数 */
   const scale = ref<number>(1)
-  /**
-   * 旋转度数
-   */
+  /** 旋转度数 */
   const rotate = ref<number>(0)
 
-  /**
-   * 图片缩小
-   */
+  /** 图片缩小 */
   const smaller = (): void => {
     keepDecimal(scale.value, 1) >= 0.2 && (scale.value -= 0.2)
   }
 
-  /**
-   * 图片放大
-   */
+  /** 图片放大 */
   const bigger = (): void => {
     scale.value <= 10 && (scale.value += 0.2)
   }
@@ -42,24 +34,18 @@ export const useOperationImg = (): UseOperationImgReturn => {
     evt.deltaY > 1 ? smaller() : bigger()
   }
 
-  /**
-   * 还原图片
-   */
+  /** 还原图片 */
   const recovery = (): void => {
     scale.value = 1
     rotate.value = 0
   }
 
-  /**
-   * 顺时针旋转
-   */
+  /** 顺时针旋转 */
   const rotateClockwise = (): void => {
     rotate.value += 90
   }
 
-  /**
-   * 逆时针旋转
-   */
+  /** 逆时针旋转 */
   const rotateCounterClock = (): void => {
     rotate.value -= 90
   }

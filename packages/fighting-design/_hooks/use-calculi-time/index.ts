@@ -14,20 +14,13 @@ export * from './interface.d'
  * @returns 当前月份展示的天数、上个月切换、下个月切换
  */
 export const useCalculiTime = (year: Ref<number>, month: Ref<number>): UseCalculiTimeReturn => {
-  /**
-   * 获取当前月份的 1号是周几
-   */
+  /** 获取当前月份的 1号是周几 */
   const firstDayWeek = ref(new Date(`${year.value}/${month.value + 1}/1`).getDay())
 
-  /**
-   * 初始化农历类
-   */
+  /** 初始化农历类 */
   const lunar: Lunar = new Lunar()
 
-  /**
-   * 监视月份
-   * 如果月份改变，则重新渲染当然月份的
-   */
+  /** 监视月份 如果月份改变，则重新渲染当然月份的 */
   watch(
     (): number => month.value,
     (newVal: number): void => {
@@ -35,13 +28,11 @@ export const useCalculiTime = (year: Ref<number>, month: Ref<number>): UseCalcul
     }
   )
 
-  /**
-   * 上个月需要展示的天数
-   */
+  /** 上个月需要展示的天数 */
   const lastMonthDay = computed((): GetLunarDetailReturn[] => {
-    // 上个月的天数
+    /** 上个月的天数 */
     let lastDays: number = getDayMonth(year.value, month.value - 1)
-    // 需要展示的上个月信息
+    /** 需要展示的上个月信息 */
     const showLastListResult: GetLunarDetailReturn[] = []
 
     for (let i = 0; i < firstDayWeek.value; i++) {
@@ -59,22 +50,18 @@ export const useCalculiTime = (year: Ref<number>, month: Ref<number>): UseCalcul
       lastDays--
     }
 
-    // 倒序数组
+    /** 倒序数组 */
     return showLastListResult.reverse()
   })
 
-  /**
-   * 下个月需要展示的天数
-   */
+  /** 下个月需要展示的天数 */
   const nextMonthDay = computed((): GetLunarDetailReturn[] => {
-    // 获取当前月份的时间
+    /** 获取当前月份的时间 */
     const thisMonthDay: number = getDayMonth(year.value, month.value) + firstDayWeek.value
-    // 下个月需要展示的天数
+    /** 下个月需要展示的天数 */
     const nextShowDay: number = thisMonthDay % 7 === 0 ? 0 : 7 - (thisMonthDay % 7)
 
-    if (!nextShowDay) {
-      return []
-    }
+    if (!nextShowDay) return []
 
     const showNextListResult: GetLunarDetailReturn[] = []
 
@@ -94,11 +81,9 @@ export const useCalculiTime = (year: Ref<number>, month: Ref<number>): UseCalcul
     return showNextListResult
   })
 
-  /**
-   * 当月需要展示的天数
-   */
+  /** 当月需要展示的天数 */
   const currentMonthDay = computed((): GetLunarDetailReturn[] => {
-    // 当月的时间
+    /** 当月的时间 */
     const monthDays: number = getDayMonth(year.value, month.value)
     const showNextListResult: GetLunarDetailReturn[] = []
 
@@ -118,9 +103,7 @@ export const useCalculiTime = (year: Ref<number>, month: Ref<number>): UseCalcul
     return showNextListResult
   })
 
-  /**
-   * 点击上个月切换按钮
-   */
+  /** 点击上个月切换按钮 */
   const changeLastMonth = (): void => {
     if (month.value > 0) {
       month.value--
@@ -130,9 +113,7 @@ export const useCalculiTime = (year: Ref<number>, month: Ref<number>): UseCalcul
     month.value = 11
   }
 
-  /**
-   * 点击下个月切换按钮
-   */
+  /** 点击下个月切换按钮 */
   const changeNextMonth = (): void => {
     if (month.value < 11) {
       month.value++
@@ -144,6 +125,7 @@ export const useCalculiTime = (year: Ref<number>, month: Ref<number>): UseCalcul
 
   /**
    * 当前月份展示的时间
+   *
    * 包括上个月需要展示的日期和下个月需要展示的日期
    */
   const AllMonthDays = computed((): GetLunarDetailReturn[] => {

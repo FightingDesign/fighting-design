@@ -7,24 +7,17 @@ export * from './interface.d'
 
 /**
  * 针对 tree 组件的树形结构的处理
- *
  * @param data 树形结构
- * @returns
  */
 export const useTreeData = (data: TreeData): UseTreeDataReturn => {
-  /**
-   * 处理后的树形结构
-   */
+  /** 处理后的树形结构 */
   const treeData = computed((): TreeData => Add(data))
 
-  /**
-   * 扁平是树形结构
-   */
+  /** 扁平是树形结构 */
   const flatTreeData = computed((): TreeData => treeToFlat(treeData.value))
 
   /**
    * 隐藏节点方法
-   *
    * @param tree 树形结构
    */
   const hidden = (tree: TreeData): void => {
@@ -39,7 +32,6 @@ export const useTreeData = (data: TreeData): UseTreeDataReturn => {
 
   /**
    * 获取到指定的元素进行操作
-   *
    * @param data 树形结构
    * @param id id
    */

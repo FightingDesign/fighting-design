@@ -3,6 +3,7 @@ import type { UseCanvasReturn, CreateWatermarkProps } from './interface'
 
 export * from './interface.d'
 
+/** 针对画板的方法封装 */
 export const useCanvas = (): UseCanvasReturn => {
   /**
    * 将 canvas 转换成 base64 图片格式
@@ -11,9 +12,7 @@ export const useCanvas = (): UseCanvasReturn => {
    * @returns { String } base64 格式的图片
    */
   const createWatermark = (props: CreateWatermarkProps): string => {
-    /**
-     * 创建一个 canvas
-     */
+    /** 创建一个 canvas */
     const canvas: HTMLCanvasElement = document.createElement('canvas') as HTMLCanvasElement
     const ratio: number = window.devicePixelRatio || 1
 

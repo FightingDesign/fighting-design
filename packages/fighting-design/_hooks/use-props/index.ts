@@ -18,15 +18,12 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
    * @returns { Object } 过滤后的 prop 响应式对象
    */
   const filter = (list: FilterParams): Record<string, unknown> => {
-    /**
-     * 过滤的 prop 结果
-     */
+    /** 过滤的 prop 结果 */
     const result: Record<string, unknown> = reactive({})
 
     list.forEach((item: string | FilterParamsList): void => {
       /**
        * 判断如果是字符串参数
-       *
        * @see toRef https://cn.vuejs.org/api/reactivity-utilities.html#toref
        */
       if (isString(item)) {

@@ -13,9 +13,7 @@ export * from './interface.d'
  * @param prop prop 参数对象
  */
 export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
-  /**
-   * 是否加载成功
-   */
+  /** 是否加载成功 */
   const isSuccess = ref<boolean>(true)
   /**
    * 是否展示节点元素
@@ -34,7 +32,6 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
 
   /**
    * 加载成功
-   *
    * @param evt 事件对象
    */
   const success = (node: HTMLImageElement, evt: Event, src: string): void => {
@@ -46,7 +43,6 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
 
   /**
    * 加载失败
-   *
    * @param evt 事件对象
    */
   const failure = (evt: Event): void => {
@@ -56,7 +52,6 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
 
   /**
    * 正常加载图片
-   *
    * @param errSrc
    */
   const load = (node: HTMLImageElement, errSrc?: string): void => {
@@ -73,26 +68,25 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
         reject(evt)
       })
     })
-      // 加载成功
+      /** 加载成功 */
       .then(evt => {
         evt && success(node, evt as Event, el.src)
       })
-      // 加载失败
+      /** 加载失败 */
       .catch(evt => {
-        // 如果没有加载过 errSrc，并且 errSrc 存在，则继续加载
+        /** 如果没有加载过 errSrc，并且 errSrc 存在，则继续加载 */
         if (!isLoadErrSrc && prop.errSrc) {
           load(node, prop.errSrc)
           isLoadErrSrc = true
           return
         }
-        // 否则调用失败方法
+        /** 否则调用失败方法 */
         failure(evt)
       })
   }
 
   /**
    * 懒加载
-   *
    * @param node 元素节点
    */
   const lazy = (node: HTMLImageElement): IntersectionObserver => {
@@ -104,7 +98,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
      */
     const observer = new IntersectionObserver(
       (arr: IntersectionObserverEntry[]): void => {
-        // 如果到达区域范围开始加载
+        /** 如果到达区域范围开始加载 */
         if (arr[0].isIntersecting) {
           load(node)
           observer.unobserve(node)
@@ -124,20 +118,16 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
    * @param node 元素节点
    */
   const lazyLow = (node: HTMLImageElement): void => {
-    /**
-     * 监听浏览器滚动事件
-     */
+    /** 监听浏览器滚动事件 */
     const listerScroll = (): void => {
       /**
        * 获取客户端浏览器视窗口的高度
-       *
        * @see innerHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Window/innerHeight
        * @see clientHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight
        */
       const clientHeight: number = window.innerHeight || document.documentElement.clientHeight
       /**
        * 获取当前垂直滚动的像素数
-       *
        * @see scrollTop https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop
        */
       const scrollTop: number = document.documentElement.scrollTop || document.body.scrollTop
@@ -176,13 +166,12 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
       }
     }
 
-    // 开始监听滚动事件
+    /** 开始监听滚动事件 */
     window.addEventListener('scroll', listerScroll)
   }
 
   /**
    * 开始加载
-   *
    * @param node 元素节点
    */
   const loadImg = (node: HTMLImageElement): void => {

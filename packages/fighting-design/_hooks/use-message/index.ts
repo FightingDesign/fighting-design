@@ -20,13 +20,13 @@ export const massageManage = useMassageManage()
 export const useMessage = (target: 'message' | 'notification'): UseMessageReturnInterface => {
   let seed = 1
 
-  // 位置信息
+  /** 位置信息 */
   const defaultOptions = {
     message: { placement: 'top' },
     notification: { placement: 'top-right' }
   } as const
 
-  // 组件实例
+  /** 组件实例 */
   const componentVue = {
     message: messageVue,
     notification: notificationVue
@@ -48,9 +48,7 @@ export const useMessage = (target: 'message' | 'notification'): UseMessageReturn
       ...options
     } as const
 
-    /**
-     * 关闭动画结束时，移除dom
-     */
+    /** 关闭动画结束时，移除 dom */
     props.onDestroy = (): void => {
       useRun(props.onClose)
       render(null, container)

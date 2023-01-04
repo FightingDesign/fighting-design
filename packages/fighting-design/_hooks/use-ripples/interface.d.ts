@@ -25,7 +25,6 @@ export interface RipplesOptions {
 
 /**
  * ripples 方法事件类型接口
- *
  * @param layerX x 轴坐标
  * @param layerY y 轴坐标
  */
@@ -36,7 +35,6 @@ export interface RipplesEvt extends Event {
 
 /**
  * ripples 返回值类型接口
- *
  * @param runRipples 生成涟漪方法
  */
 export interface UseRipplesReturn {

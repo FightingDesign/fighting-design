@@ -16,9 +16,7 @@ export * from './interface.d'
  * @returns 根据优先级返回需要的参数
  */
 export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => {
-  /**
-   * 获取全局配置组件注入的依赖项
-   */
+  /** 获取全局配置组件注入的依赖项 */
   const global = inject<FightingGlobalProps | null>(FIGHTING_GLOBAL_PROPS_KEY, null)
 
   /**

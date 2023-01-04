@@ -13,9 +13,7 @@ export * from './interface.d'
 export const useAvatar = (prop: AvatarProps): UseAvatarReturn => {
   const { styles, classes } = useList(prop, 'avatar')
 
-  /**
-   * img 元素的类名列表
-   */
+  /** img 元素的类名列表 */
   const nodeClassList = classes(
     [
       'round',
@@ -28,9 +26,7 @@ export const useAvatar = (prop: AvatarProps): UseAvatarReturn => {
     'f-avatar__img'
   )
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = classes(
     [
       'round',
@@ -42,9 +38,7 @@ export const useAvatar = (prop: AvatarProps): UseAvatarReturn => {
     'f-avatar'
   )
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles([
     'background',
     'fontColor',
