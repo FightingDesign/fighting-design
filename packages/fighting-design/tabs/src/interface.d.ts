@@ -1,5 +1,3 @@
-import type { Ref } from 'vue'
-
 export type { TabsProps } from './tabs'
 
 /**
@@ -53,15 +51,4 @@ export type BeforeEnter = (name: TabsPaneName) => boolean | void
 export interface TabsNavInstance {
   name: TabsPaneName
   label: unknown
-}
-
-/**
- * 注入的依赖项类型接口
- * 
- * @param currentName 当前选中的 pane
- * @param updatePaneList 更新子组件列表
- */
-export interface TabsProvide {
-  currentName: Ref<TabsPaneName>
-  updatePaneList: () => void
 }
