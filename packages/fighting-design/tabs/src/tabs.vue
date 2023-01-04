@@ -3,13 +3,12 @@
   import { onMounted, ref, provide, computed, getCurrentInstance, watch, nextTick } from 'vue'
   import { TabsNav } from './components'
   import { debugWarn } from '../../_utils'
-  import { getChildrenComponent } from './utils'
+  import { getChildrenComponent } from '../../_utils/tabs'
   import type { ClassList } from '../../_interface'
   import type { TabsNavInstance, TabsProvide, TabsPaneName, TabsPosition } from './interface'
   import type { ComponentInternalInstance, VNode } from 'vue'
 
   const prop = defineProps(Props)
-  // const slot = useSlots()
   const emit = defineEmits<{
     (e: 'update:modelValue', name: TabsPaneName): void
     (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void

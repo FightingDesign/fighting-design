@@ -1,6 +1,6 @@
 import { isVNode } from 'vue'
 import type { VNode, VNodeNormalizedChildren, ComponentInternalInstance, Component } from 'vue'
-import { isArray, isObject } from '../../../_utils'
+import { isArray, isObject } from '..'
 
 /**
  * 将所有子的组件扁平化
@@ -29,7 +29,7 @@ export const flattedChildren = (children: VNode | VNodeNormalizedChildren): VNod
  * @param root
  * @param component
  */
-export function getChildrenComponent (root: ComponentInternalInstance, component: string): VNode[] {
+export const getChildrenComponent = (root: ComponentInternalInstance, component: string): VNode[] => {
   if (!root.subTree) return []
   const flaChildren = flattedChildren(root.subTree.children)
   return flaChildren.filter(e => isObject(e.type) && (e.type as Component).name === component)
