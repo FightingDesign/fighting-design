@@ -7,37 +7,31 @@
 
   const prop = defineProps(Props)
 
-  const { styles } = useList(prop, 'back-top')
+  const { styles, classes } = useList(prop, 'back-top')
 
-  /**
-   * 展示状态
-   */
+  /** 展示状态 */
   const visible = ref<boolean>(false)
 
   /**
    * 滚动状态监视
-   *
    * @param node 元素节点
    */
   const handleScroll = (node?: HTMLElement): DebounceReturn => {
     return debounce((): void => {
-      /**
-       * 当前滚动的距离
-       */
+      /** 当前滚动的距离 */
       const scrollTop: number = (node || document.documentElement).scrollTop
 
       visible.value = scrollTop > prop.visibleHeight
     }, 200)
   }
 
-  /**
-   * 点击的时候触发
-   */
+  /** 点击的时候触发 */
   const handleClick = (): void => {
     const { top, behavior, listenEl } = toRefs(prop)
 
-    // 如果存在监听的目录
+    /** 如果存在监听的目录 */
     if (listenEl.value) {
+      /** 监听的元素节点 */
       const listerNode = document.querySelector(listenEl.value) as HTMLElement
 
       listerNode.scrollTo({ top: top.value, behavior: behavior.value })
@@ -49,9 +43,7 @@
 
   onMounted((): void => {
     if (prop.listenEl) {
-      /**
-       * 获取到监视的节点
-       */
+      /** 获取到监视的节点 */
       const listerNode = document.querySelector(prop.listenEl) as HTMLElement
 
       listerNode && listerNode.addEventListener('scroll', handleScroll(listerNode))
@@ -60,20 +52,16 @@
     }
   })
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['right', 'bottom', 'background', 'color'])
+
+  /** 类名列表 */
+  const classList = classes(['round'], 'f-back-top')
 </script>
 
 <template>
   <transition name="f-back-top">
-    <div
-      v-show="visible"
-      :class="['f-back-top', { 'f-back-top__round': round }]"
-      :style="{ ...styleList, zIndex }"
-      @click.stop="handleClick"
-    >
+    <div v-show="visible" :class="classList" :style="{ ...styleList, zIndex }" @click.stop="handleClick">
       <slot />
     </div>
   </transition>

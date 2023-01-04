@@ -2,29 +2,19 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import { isNumber } from '../../_utils'
-  import type { CSSProperties } from 'vue'
-  import type { ClassList } from '../../_interface'
+  import { useList } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  /**
-   * 类名集合
-   */
-  const classList = computed((): ClassList => {
-    const { type, dot } = prop
+  const { classes, styles } = useList(prop, 'badge')
 
-    return [
-      'f-badge__content',
-      {
-        [`f-badge__${type}`]: type,
-        'f-badge__dot': dot
-      }
-    ] as const
-  })
+  /** 类名列表 */
+  const classList = classes(['type', 'dot'], 'f-badge')
 
-  /**
-   * 展示的内容
-   */
+  /** 样式列表 */
+  const styleList = styles(['color', 'textColor'])
+
+  /** 展示的内容 */
   const content = computed((): string => {
     const { dot, max, value } = prop
 
@@ -36,24 +26,12 @@
 
     return `${value}`
   })
-
-  /**
-   * 样式列表
-   */
-  const styleList = computed((): CSSProperties => {
-    const { color, textColor } = prop
-
-    return {
-      '--f-badge-background': color,
-      '--f-badge-text-color': textColor
-    } as CSSProperties
-  })
 </script>
 
 <template>
-  <div class="f-badge" :style="styleList">
+  <div :class="classList" :style="styleList">
     <slot />
-    <sup v-show="!show && (content || dot)" :class="classList">
+    <sup v-show="!show && (content || dot)" class="f-badge__content">
       {{ content }}
     </sup>
   </div>

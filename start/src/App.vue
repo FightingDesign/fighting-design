@@ -30,6 +30,23 @@
 </script>
 
 <template>
+  <f-badge value="11" dot color="black">
+    <f-button>default</f-button>
+  </f-badge>
+
+  <br />
+  <br />
+
+  <f-badge value="12" type="primary">
+    <f-button>primary</f-button>
+  </f-badge>
+  <f-badge value="13" type="success">
+    <f-button>success</f-button>
+  </f-badge>
+  <f-badge value="14" type="warning">
+    <f-button>warning</f-button>
+  </f-badge>
+
   <f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
   <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
 

@@ -8,7 +8,21 @@
   transition: 0.4s;
   cursor: default;
 
-  .f-badge__content {
+  // 不同类型
+  @for $list from 1 to (length($ComponentsType) + 1) {
+    $item: nth($ComponentsType, $list); // 获取数组中第i项的值
+
+    // 不同类型
+    &.f-badge__#{map-get($item, name)} {
+      .f-badge__content {
+        background: var(--f-badge-color, map-get($item, default));
+        color: var(--f-badge-text-color, map-get($item, defaultTextColor));
+      }
+    }
+  }
+
+  // 主要内容
+  &__content {
     position: absolute;
     border-radius: 10px;
     font-size: 12px;
@@ -20,19 +34,11 @@
     top: 0;
     right: 0;
     transform: translateY(-50%) translateX(50%);
+  }
 
-    // 不同类型
-    @for $list from 1 to (length($ComponentsType) + 1) {
-      $item: nth($ComponentsType, $list); // 获取数组中第i项的值
-
-      // 不同类型
-      &.f-badge__#{map-get($item, name)} {
-        background: var(--f-badge-background, map-get($item, default));
-        color: var(--f-badge-text-color, map-get($item, defaultTextColor));
-      }
-    }
-
-    &.f-badge__dot {
+  // 小红点
+  &.f-badge__dot {
+    .f-badge__content {
       border-radius: 50%;
       width: 8px;
       height: 8px;
