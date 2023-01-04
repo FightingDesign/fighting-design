@@ -29,7 +29,6 @@
    * @param name 子组件的 name
    */
   const setCurrentName = (name: TabsPaneName): void => {
-    console.log(name)
     // 如果用户没有设置 v-model, 这里可以直接在内部修改
     currentName.value = name
     // emit('update:modelValue', name)
@@ -62,12 +61,16 @@
    * nav 列表
    */
   const navs = computed((): TabsNavInstance[] => {
-    return panes.value.map((item: ComponentInternalInstance, index: number): TabsNavInstance => {
-      return {
-        name: (item.props.name || (item.props.name = index)) as TabsPaneName, // name如果没填，用下标代替
-        label: item.slots['label'] || item.props.label
-      } as const
-    })
+    return (
+      panes.value &&
+      panes.value.map((item: ComponentInternalInstance, index: number): TabsNavInstance => {
+        return {
+          // name 如果没有传递 则用索引代替
+          name: (item.props.name || (item.props.name = index)) as TabsPaneName,
+          label: item.slots['label'] || item.props.label
+        } as const
+      })
+    )
   })
 
   /**
@@ -87,9 +90,11 @@
     }
   )
 
+  // 初始化设置绑定的标签页 name
   onMounted(async (): Promise<void> => {
     await nextTick()
-    currentName.value = prop.modelValue || (navs.value[0] && navs.value[0].name) // 如果没有传 value，默认选中第一个
+    // 如果没有传 value 默认选中第一个
+    setCurrentName(prop.modelValue || (navs.value[0] && navs.value[0].name))
   })
 
   /**

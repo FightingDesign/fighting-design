@@ -44,6 +44,12 @@ export type TabsPaneName = string | number
  */
 export type BeforeEnter = (name: TabsPaneName) => boolean | void
 
+/**
+ * nav 列表集合
+ * 
+ * @param name 标签的 name
+ * @param label 标签的 label
+ */
 export interface TabsNavInstance {
   name: TabsPaneName
   label: unknown
