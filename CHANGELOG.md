@@ -14,6 +14,9 @@
 
 - `f-avatar` 组件 `font-size` 默认值改为 null
 - `f-avatar` 组件 `font-color` 默认值改为 null
+- `f-calendar` 组件 `border-color` 默认值改为 null
+- `f-calendar` 组件 `day-cell-height` 默认值改为 null
+- `f-calendar` 组件 `week-cell-height` 默认值改为 null
 
 ## 0.15.0 (2023-01-03)
 
