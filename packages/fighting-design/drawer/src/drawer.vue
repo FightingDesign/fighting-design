@@ -1,7 +1,8 @@
 <script lang="ts" setup name="FDrawer">
   import { Props } from './props'
+  import { toRef } from 'vue'
   import { isBoolean } from '../../_utils'
-  import { watch, ref } from 'vue'
+  import { useVisible } from '../../_hooks'
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
 
@@ -10,36 +11,7 @@
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
 
-  const isVisible = ref<boolean>(prop.visible)
-
-  /**
-   * 关闭 drawer
-   */
-  const closeDrawer = (): void => {
-    emit('update:visible', false)
-  }
-
-  /**
-   * 监视 isVisible，如果变为假，则关闭
-   */
-  watch(
-    (): boolean => isVisible.value,
-    (newVal: boolean): void => {
-      if (!newVal) {
-        closeDrawer()
-      }
-    }
-  )
-
-  /**
-   * 监视 prop.visible，同步数据给 isVisible
-   */
-  watch(
-    (): boolean => prop.visible,
-    (newVal: boolean): void => {
-      isVisible.value = newVal
-    }
-  )
+  const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit)
 </script>
 
 <template>
@@ -62,7 +34,7 @@
       <header class="f-drawer__header">
         <slot name="header">
           <span class="f-drawer__header-title">{{ title }}</span>
-          <f-close-btn v-if="showCloseIcon" :icon="closeIcon" @click="closeDrawer">
+          <f-close-btn v-if="showCloseIcon" :icon="closeIcon" :on-click="closeVisible">
             <slot name="closeIcon" />
           </f-close-btn>
         </slot>

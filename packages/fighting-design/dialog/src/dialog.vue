@@ -2,7 +2,8 @@
   import { Props } from './props'
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
-  import { ref, watch } from 'vue'
+  import { toRef } from 'vue'
+  import { useVisible } from '../../_hooks'
   import { sizeChange, isBoolean } from '../../_utils'
 
   const prop = defineProps(Props)
@@ -10,31 +11,7 @@
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
 
-  /** 是否展示 */
-  const isVisible = ref<boolean>(prop.visible)
-
-  /** 关闭时触发 */
-  const closeDialog = (): void => {
-    emit('update:visible', false)
-  }
-
-  /** 监视绑定值的变化，如果为假则关闭 */
-  watch(
-    (): boolean => isVisible.value,
-    (newVal: boolean): void => {
-      if (!newVal) {
-        closeDialog()
-      }
-    }
-  )
-
-  /** 监视数据更新绑定值 */
-  watch(
-    (): boolean => prop.visible,
-    (newVal: boolean): void => {
-      isVisible.value = newVal
-    }
-  )
+  const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit)
 </script>
 
 <template>
@@ -61,7 +38,7 @@
       <header class="f-dialog__header">
         <slot name="header">
           <span class="f-dialog__header-title">{{ title }}</span>
-          <f-close-btn v-if="showCloseIcon" :icon="closeIcon" @click="closeDialog">
+          <f-close-btn v-if="showCloseIcon" :icon="closeIcon" :on-click="closeVisible">
             <slot name="closeIcon" />
           </f-close-btn>
         </slot>
