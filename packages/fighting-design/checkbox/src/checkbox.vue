@@ -13,25 +13,17 @@
     'update:modelValue': (val: CheckboxModelValue): CheckboxModelValue => typeof val !== 'object'
   })
 
-  /**
-   * 获取父组件注入的依赖项
-   */
+  /** 获取父组件注入的依赖项 */
   const parentInject = inject<CheckboxGroupInject | null>(CHECKBOX_GROUP_PROPS_KEY, null)
 
-  /**
-   * 绑定值
-   */
+  /** 绑定值 */
   const model = computed({
-    /**
-     * 获取值
-     */
-    get() {
+    /** 获取值 */
+    get () {
       return (parentInject && parentInject.modelValue) || prop.modelValue
     },
-    /**
-     * 设置值
-     */
-    set(val) {
+    /** 设置值 */
+    set (val) {
       if (!parentInject) {
         emit('update:modelValue', val as CheckboxModelValue)
         useRun(prop.onChange, val)
@@ -41,11 +33,10 @@
     }
   })
 
-  /**
-   * 是否被选中
-   */
+  /** 是否被选中 */
   const isActive = computed((): boolean => {
-    const value = model.value
+    /** 绑定值 */
+    const value: CheckboxModelValue | string[] = model.value
 
     if (isArray(value)) {
       return value.includes(prop.label as never)
@@ -56,9 +47,7 @@
     return value === prop.label
   })
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = computed((): ClassList => {
     return [
       'f-checkbox',

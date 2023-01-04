@@ -6,14 +6,10 @@
 
   const { classes, styles } = useList(prop, 'card')
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = classes(['round', 'shadow'], 'f-card')
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['padding'])
 </script>
 

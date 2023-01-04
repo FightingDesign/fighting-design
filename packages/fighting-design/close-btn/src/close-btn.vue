@@ -10,7 +10,6 @@
 
   /**
    * 点击触发
-   *
    * @param evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
@@ -18,14 +17,10 @@
     useRun(prop.onClick, evt)
   }
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = classes(['round', 'disabled'], 'f-close-btn')
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['color', 'hoverColor'])
 </script>
 

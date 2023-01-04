@@ -13,7 +13,6 @@
 
   /**
    * 绑定值发生改变时候触
-   *
    * @param val 最新值
    */
   const setChange = (val: string[]): void => {
@@ -21,9 +20,7 @@
     useRun(prop.onChange, val)
   }
 
-  /**
-   * 获取需要注入的依赖项
-   */
+  /** 获取需要注入的依赖项 */
   provide(
     CHECKBOX_GROUP_PROPS_KEY,
     reactive({
@@ -32,9 +29,7 @@
     })
   )
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = computed((): CSSProperties => {
     const { columnGap, rowGap } = prop
 
@@ -44,9 +39,7 @@
     } as const
   })
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = computed((): ClassList => {
     const { border, vertical, size } = prop
 
