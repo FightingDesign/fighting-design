@@ -264,6 +264,10 @@ type MessagePlacement = 'top' | 'top-left' | 'top-right' | 'bottom' | 'bottom-le
   <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
 </a>
 
+<a href="https://github.com/long-life233" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/77321887?v=4" />
+</a>
+
 <script setup lang="ts">
   import { h } from 'vue'
   import { FMessage } from 'fighting-design'
