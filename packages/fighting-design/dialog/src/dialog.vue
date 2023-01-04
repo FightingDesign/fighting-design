@@ -10,18 +10,15 @@
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
 
-  /**
-   * 是否展示
-   */
+  /** 是否展示 */
   const isVisible = ref<boolean>(prop.visible)
 
-  /**
-   * 关闭时
-   */
+  /** 关闭时触发 */
   const closeDialog = (): void => {
     emit('update:visible', false)
   }
 
+  /** 监视绑定值的变化，如果为假则关闭 */
   watch(
     (): boolean => isVisible.value,
     (newVal: boolean): void => {
@@ -31,6 +28,7 @@
     }
   )
 
+  /** 监视数据更新绑定值 */
   watch(
     (): boolean => prop.visible,
     (newVal: boolean): void => {

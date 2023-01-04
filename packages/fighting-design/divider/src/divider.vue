@@ -5,16 +5,12 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 是否有插槽
-   */
+  /** 是否有插槽 */
   const renderSlot = computed((): boolean => {
     return !prop.vertical && Boolean(useSlots().default)
   })
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = computed((): CSSProperties => {
     const { color, margin } = prop
 
@@ -24,6 +20,7 @@
         borderColor: color
       } as const
     }
+
     return { borderColor: color } as const
   })
 </script>

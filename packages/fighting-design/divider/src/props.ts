@@ -4,7 +4,6 @@ import type { DividerPosition, DividerType } from './interface'
 export const Props = {
   /**
    * 文字显示位置
-   *
    * @values left center right
    * @defaultValue center
    */
@@ -15,44 +14,33 @@ export const Props = {
       return (['left', 'center', 'right'] as const).includes(value)
     }
   },
-  /**
-   * 是否为竖线
-   */
+  /** 是否为竖线 */
   vertical: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 线条颜色
-   */
+  /** 线条颜色 */
   color: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 文字颜色
-   */
+  /** 文字颜色 */
   fontColor: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 上下边距
-   */
+  /** 上下边距 */
   margin: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 背景颜色
-   */
+  /** 自定义背景颜色 */
   background: {
     type: String,
     default: (): null => null
   },
   /**
    * 分隔符类型
-   *
    * @values dashed dotted double solid
    * @defaultValue solid
    */
