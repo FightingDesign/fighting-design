@@ -10,7 +10,7 @@ import type { LangContentKey, LangKey } from '../../_lang'
  */
 export interface UseGlobalProp {
   type?: FightingType
-  size?: FightingSize
+  size?: FightingSize | string | number
 }
 
 /**

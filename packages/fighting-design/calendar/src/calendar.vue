@@ -7,7 +7,6 @@
   import { addZero, sizeChange } from '../../_utils'
   import { useCalculiTime, useRun, useGlobal } from '../../_hooks'
   import type { CSSProperties } from 'vue'
-  import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
 
@@ -20,7 +19,7 @@
 
   const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(year, month)
 
-  const { getLang } = useGlobal(prop as unknown as UseGlobalProp)
+  const { getLang } = useGlobal()
 
   /** 星期列表 */
   const weekList = computed(() => getLang('calendar').value.weekList)

@@ -3,11 +3,10 @@
   import { ref, computed, unref } from 'vue'
   import { useRun, useGlobal, useList } from '../../_hooks'
   import { FCollapseAnimation } from '../../collapse-animation'
-  import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  const { getLang } = useGlobal(prop as unknown as UseGlobalProp)
+  const { getLang } = useGlobal()
 
   const { styles } = useList(prop, 'sticky-card')
 

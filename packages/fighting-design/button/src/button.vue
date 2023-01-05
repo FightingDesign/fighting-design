@@ -12,7 +12,7 @@
 
   const prop = defineProps(Props)
 
-  /** dom 元素 */
+  /** 元素节点 */
   const FButton = ref<HTMLButtonElement>(null as unknown as HTMLButtonElement)
   /** 获取父组件注入的依赖项 */
   const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)

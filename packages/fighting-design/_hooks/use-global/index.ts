@@ -15,7 +15,7 @@ export * from './interface.d'
  * @param prop 组件的 prop
  * @returns 根据优先级返回需要的参数
  */
-export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => {
+export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn => {
   /** 获取全局配置组件注入的依赖项 */
   const global = inject<FightingGlobalProps | null>(FIGHTING_GLOBAL_PROPS_KEY, null)
 
@@ -27,7 +27,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
    */
   const getType = (def: FightingType = 'default'): ComputedRef<FightingType> => {
     return computed((): FightingType => {
-      return prop.type || (global && global.type) || def
+      return (prop && prop.type) || (global && global.type) || def
     })
   }
 
@@ -40,7 +40,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
    */
   const getSize = (def: FightingSize = 'middle', parentSize?: FightingSize | null): ComputedRef<FightingSize> => {
     return computed((): FightingSize => {
-      return prop.size || parentSize || (global && global.size) || def
+      return (prop && prop.size as FightingSize) || parentSize || (global && global.size) || def
     })
   }
 

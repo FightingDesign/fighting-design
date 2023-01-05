@@ -2,11 +2,10 @@
   import { Props } from './props'
   import { reactive } from 'vue'
   import { useList, useGlobal } from '../../_hooks'
-  import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  const { getType } = useGlobal(prop as unknown as UseGlobalProp)
+  const { getType } = useGlobal(prop)
 
   /** 替换 type 后得到的 props */
   const params = reactive({

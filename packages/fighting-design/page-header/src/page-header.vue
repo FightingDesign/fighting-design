@@ -5,11 +5,10 @@
   import { useRun, useGlobal } from '../../_hooks'
   import { FIconArrowLeftVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
-  import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  const { getLang } = useGlobal(prop as unknown as UseGlobalProp)
+  const { getLang } = useGlobal()
 
   /** 返回文案 */
   const backContent = computed(() => getLang('pageHeader').value.backText)

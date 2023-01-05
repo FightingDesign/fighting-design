@@ -5,13 +5,12 @@
   import { useList, useGlobal } from '../../_hooks'
   import { FSvgIcon } from '../../svg-icon'
   import { FImage } from '../../image'
-  import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
 
   const { styles } = useList(prop, 'empty')
 
-  const { getLang } = useGlobal(prop as unknown as UseGlobalProp)
+  const { getLang } = useGlobal()
 
   /** 主要的描述文字内容 */
   const contentText = computed((): string => {
