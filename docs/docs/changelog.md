@@ -2,6 +2,30 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.16.0 (2023-01-05)
+
+**修复**
+
+- 修复 `f-input` 在黑暗模式下不显示 `placeholder` 的问题 [issues#330](https://github.com/FightingDesign/fighting-design/issues/330)
+- 修复 `f-ripple` 组件在全局配置下 `type` 失效问题
+- 修复全局配置组件响应式丢失问题
+
+**新增**
+
+- 新增 `f-input` 组件 `placeholder-color` 配置项
+- 新增 `f-calendar` 组件国际化配置
+- 新增 `f-page-header` 组件国际化配置
+
+**其它改动**
+
+- `f-avatar` 组件 `font-size` 默认值改为 null
+- `f-avatar` 组件 `font-color` 默认值改为 null
+- `f-calendar` 组件 `border-color` 默认值改为 null
+- `f-calendar` 组件 `day-cell-height` 默认值改为 null
+- `f-calendar` 组件 `week-cell-height` 默认值改为 null
+- `f-page-header` 组件 `back-text` 默认值改为 null
+- 废除 `f-sticky-card` 组件 `background` 配置项
+
 ## 0.15.0 (2023-01-03)
 
 **修复**

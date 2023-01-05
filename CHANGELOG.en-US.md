@@ -4,20 +4,44 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.16.0 (2023-01-05)
+
+**Repair**
+
+- Fix the problem that `f-input` does not display `placeholder` in dark mode [issues#330](https://github.com/FightingDesign/fighting-design/issues/330)
+- Fix the `type` failure of the `f-ripple` component in the global configuration
+- Fix reactive loss of global configuration components
+
+**Add**
+
+- Add `f-input` component `placeholder-color` configuration item
+- New `f-calendar` component internationalization configuration
+- Add `f-page-header` component internationalization configuration
+
+**Other changes**
+
+- The default value of `f-avatar` component `font-size` is changed to null
+- The default value of `f-avatar` component `font-color` is changed to null
+- The default value of `f-calendar` component `border-color` is changed to null
+- The default value of `f-calendar` component `day-cell-height` is changed to null
+- The default value of `f-calendar` component `week-cell-height` is changed to null
+- The default value of `f-page-header` component `back-text` is changed to null
+- Revoke the `f-stick-card` component `background` configuration item
+
 ## 0.15.0 (2023-01-03)
 
 **Repair**
 
 - Fix the failure of `f-alert` component `center`
 
-**New**
+**Add**
 
 - Add `f-infinite-crawling` component
 - Add `f-number-animate` component
 
 ## 0.14.0 (2022-12-30)
 
-**New**
+**Add**
 
 - Add `f-alert` component `alert-list` configuration item
 
@@ -74,7 +98,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.11.2 (2022-12-15)
 
-**New**
+**Add**
 
 - Add `f-button` component `spread` configuration item
 
@@ -113,7 +137,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Fix the `f-list` and `f-list-item` component bugs
 - Fix the failure of disabling the `f-trigger` component
 
-**New**
+**Add**
 
 - Add `f-fighting-global` component
 - Add `f-list` component `zebra-color` configuration item
@@ -159,7 +183,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.9.0-alpha.7 (2022-12-01)
 
-**New**
+**Add**
 
 - Add `f-breadcrumb-item` component `to` configuration item
 - Improve more `f-menu` component functions
@@ -332,7 +356,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.8.1-alpha.3 (2022-11-11)
 
-**Fest**
+**Add**
 
 - Add `f-dropdown` component
 - Add `f-dropdown-item` component
@@ -494,7 +518,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.7.0-alpha.7 (2022-10-17)
 
-**fest**
+**Add**
 
 - Add `f-svg-icon` components
 - Add `f-close-btn` components
@@ -518,7 +542,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.7.0-alpha.5 (2022-10-13)
 
-**New**
+**Add**
 
 - Add `f-mask` component
 
@@ -569,7 +593,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Fix the default value of the `f-button` component `font-color`
 - Fix the default value of `f-button` component `font-size`
 
-**fest**
+**Add**
 
 - `f-back-top` component `right` `bottom` configuration item supports `number` type
 - `f-image` component `round` configuration item supports `number` type
@@ -598,7 +622,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.6.5-alpha.5 (2022-09-25)
 
-**fest**
+**Add**
 
 - Add `sticky-card` component
 - The `f-list` component adds `header` and `footer` slots
@@ -616,7 +640,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.6.5-alpha.3 (2022-09-22)
 
-**fest**
+**Add**
 
 - `f-header` component adds a `padding` type
 - The `height` attribute of the `f-header` component supports the `number` type
@@ -666,7 +690,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Fix `f-button` component `text` configuration item style details
 - Fix some problems with the `width` attribute of the `f-image` component
 
-**fest**
+**Add**
 
 - The `size` attribute of the `f-icon` component supports the `number` type
 - The `font size` attribute of the `f-button` component supports the `number` type
@@ -691,7 +715,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.6.4-alpha.6 (2022-09-11)
 
-**fest**
+**Add**
 
 - Add `f-ripple` ripple component
 - Add `f-radio` `f-radio-group` component
@@ -758,7 +782,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.6.2-alpha.5 (2022-08-30)
 
-**fest**
+**Add**
 
 - Add `f-loading-bar` component
 - Add `notification` component
@@ -770,7 +794,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.6.2-alpha.4 (2022-08-29)
 
-**fest**
+**Add**
 
 -New ` title` configuration item for `f-image` component
 
@@ -859,7 +883,7 @@ The directory structure has also been optimized to a great extent. Previously, t
 
 ## 0.4.2-bate.9 (2022-07-04)
 
-**fest**
+**Add**
 
 - `alert` component added `fixed` and `fixed style` configuration items
 - Add `f-list` component
@@ -875,7 +899,7 @@ The directory structure has also been optimized to a great extent. Previously, t
 
 ## 0.4.2-bate.8 (2022-07-23)
 
-**fest**
+**Add**
 
 - The `tag` component adds a `text` configuration item to implement text labels
 - The `tag` component has changed some style details and added borders
