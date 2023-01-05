@@ -1,37 +1,16 @@
 <script lang="ts" setup name="FTooltip">
   import { Props } from './props'
-  import { computed } from 'vue'
-  import type { CSSProperties } from 'vue'
-  import type { ClassList } from '../../_interface'
+  import { useList } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  /** 类名列表 */
-  const classList = computed((): ClassList => {
-    const { position, state, disabled, bold, noArrow, bright } = prop
+  const { classes, styles } = useList(prop, 'tooltip')
 
-    return [
-      'f-tooltip',
-      {
-        [`f-tooltip__${position}`]: position,
-        [`f-tooltip__${state}`]: state,
-        'f-tooltip__disabled ': disabled,
-        'f-tooltip__bold': bold,
-        'f-tooltip__no-arrow': noArrow,
-        'f-tooltip__bright': bright
-      }
-    ] as const
-  })
+  /** 类名列表 */
+  const classList = classes(['position', 'state', 'disabled', 'bold', 'noArrow', 'bright'], 'f-tooltip')
 
   /** 样式列表 */
-  const styleList = computed((): CSSProperties => {
-    const { background, fontColor } = prop
-
-    return {
-      '--f-tooltip-background': background,
-      '--f-tooltip-font-color': fontColor
-    } as CSSProperties
-  })
+  const styleList = styles(['background', 'fontColor'])
 </script>
 
 <template>
