@@ -11,7 +11,7 @@
     'update:modelValue': (val: number): number => val
   })
 
-  // 当前绑定的值
+  /** 当前绑定的值 */
   const starValue = ref<number>(prop.modelValue)
 
   /**
@@ -24,9 +24,7 @@
     starValue.value = index
   }
 
-  /**
-   * 移出触发
-   */
+  /** 移出触发 */
   const onMouseout = (): void => {
     if (prop.readonly) return
     starValue.value = prop.modelValue
@@ -44,9 +42,7 @@
     useRun(prop.onChange, index)
   }
 
-  /**
-   * 监视如何绑定值发生变化的时候同步数据
-   */
+  /** 监视如何绑定值发生变化的时候同步数据 */
   watch(
     (): number => prop.modelValue,
     (): void => {
@@ -54,9 +50,7 @@
     }
   )
 
-  /**
-   * 辅助文字内容
-   */
+  /** 辅助文字内容 */
   const textContent = computed((): string => {
     return prop.textArr[unref(starValue) - 1]
   })

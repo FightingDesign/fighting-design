@@ -3,52 +3,42 @@ import type { RadioModelValue, RadioChange } from './interface'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
-  /**
-   * 绑定值
-   */
+  /** 绑定值 */
   modelValue: {
     type: [String, Number, Boolean] as PropType<RadioModelValue>,
     default: (): null => null
   },
-  /**
-   * 是否禁用
-   */
+  /** 是否禁用 */
   disabled: {
     type: Boolean,
     default: (): boolean => false
   },
-
-  /**
-   * 是否纵向排列
-   */
+  /** 是否纵向排列 */
   vertical: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 横向排列的间距
-   */
+  /** 横向排列的间距 */
   columnGap: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
-  /**
-   * 纵向排列的间距
-   */
+  /** 纵向排列的间距 */
   rowGap: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
-  /**
-   * 是否显示边框
-   */
+  /** 是否显示边框 */
   border: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
-   * 尺寸
-   */
+    * 尺寸
+    *
+    * @values large middle small mini
+    * @defaultValue middle
+    */
   size: {
     type: String as PropType<FightingSize>,
     default: (): FightingSize => 'middle',

@@ -2,16 +2,12 @@ import type { PropType, ExtractPropTypes } from 'vue'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
-  /**
-   * 是否竖直排列
-   */
+  /** 是否竖直排列 */
   vertical: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 是否禁止换行
-   */
+  /** 是否禁止换行 */
   nowrap: {
     type: Boolean,
     default: (): boolean => false
@@ -29,16 +25,12 @@ export const Props = {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
-  /**
-   * 自定义纵向间距
-   */
+  /** 自定义纵向间距 */
   rowGap: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 自定义横向间距
-   */
+  /** 自定义横向间距 */
   columnGap: {
     type: String,
     default: (): null => null

@@ -35,6 +35,7 @@ export const Props = {
   },
   /**
    * 按钮尺寸
+   *
    * @values large middle small mini
    * @defaultValue null
    */
@@ -88,6 +89,7 @@ export const Props = {
   },
   /**
    * 按钮的类型（非自定义按钮颜色时有效）
+   *
    * @values default primary success danger warning
    * @defaultValue null
    */

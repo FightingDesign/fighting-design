@@ -2,17 +2,13 @@ import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { SelectProvide, SelectModelValue } from './interface'
 
 export const Props = {
-  /**
-   * 绑定值
-   */
+  /** 绑定值 */
   modelValue: {
     type: [String, Number, Boolean] as PropType<SelectModelValue>,
     default: (): null => null,
     required: true
   },
-  /**
-   * 自定义宽度
-   */
+  /** 自定义宽度 */
   width: {
     type: [Number, String] as PropType<number | string>,
     default: (): null => null
@@ -35,9 +31,7 @@ export const Props = {
     type: String,
     default: (): null => null
   },
-  /**
-   * 是否可清除
-   */
+  /** 是否可清除 */
   clear: {
     type: Boolean,
     default: (): boolean => false

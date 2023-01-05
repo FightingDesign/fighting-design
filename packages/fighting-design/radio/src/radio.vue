@@ -12,24 +12,26 @@
     'update:modelValue': (val: RadioModelValue): boolean => isString(val) || isNumber(val) || isBoolean(val)
   })
 
-  /**
-   * 获取父组件注入的依赖项
-   */
+  /** 获取父组件注入的依赖项 */
   const parentInject = inject<RadioGroundInject | null>(RADIO_GROUP_PROPS_kEY, null)
 
   const modelValue = computed({
     /**
      * 获取值
+     *
      * 如果父组件有依赖注入则使用
+     *
      * 否则使用之身 props 参数
      */
-    get() {
+    get: (): RadioModelValue => {
       return (parentInject && parentInject.modelValue) || prop.modelValue
     },
     /**
      * 设置值
+     *
+     * @param val 最新值
      */
-    set(val) {
+    set: (val: RadioModelValue): void => {
       if (parentInject && !parentInject.disabled) {
         parentInject.changeEvent(val)
         return
@@ -40,15 +42,14 @@
     }
   })
 
+  /** 类名列表 */
   const classList = computed((): ClassList => {
-    const { disabled } = prop
-
     return [
       'f-radio',
       {
         'f-radio__checked': modelValue.value === prop.label,
         'f-radio__margin': !parentInject,
-        'f-radio__disabled': disabled || (parentInject && parentInject.disabled)
+        'f-radio__disabled': prop.disabled || (parentInject && parentInject.disabled)
       }
     ] as const
   })

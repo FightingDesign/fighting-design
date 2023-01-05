@@ -1,10 +1,11 @@
 <script lang="ts" setup name="FSelect">
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
+  import { useList } from '../../_hooks'
   import { provide, reactive, computed, useSlots } from 'vue'
   import { FDropdown } from '../../dropdown'
-  import { sizeChange, getChildren } from '../../_utils'
-  import type { CSSProperties, VNode } from 'vue'
+  import { getChildren } from '../../_utils'
+  import type { VNode } from 'vue'
   import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
   import type { OptionProps } from '../../option'
 
@@ -14,27 +15,25 @@
     'update:modelValue': (val: SelectModelValue): boolean => !!val
   })
 
+  const { styles } = useList(prop, 'select')
+
   /**
    * 获取子元素 option
    *
    * 通过插槽插入的内容，过滤出有效的子元素返回
    */
   const options = computed((): VNode[] => {
-    // 如果没有插槽内容，返回空数组
+    /** 如果没有插槽内容，返回空数组 */
     if (!slot.default) return []
 
     return getChildren(slot.default(), 'FOption')
   })
 
-  /**
-   * 输入框绑定的值
-   */
+  /** 输入框绑定的值 */
   const inputValue = computed({
-    /**
-     * 通过获取到的子元素，计算当前绑定值对应的 label 展示文本框的内容
-     */
-    get() {
-      // 如果插槽没内容，则返回空字符串
+    /** 通过获取到的子元素，计算当前绑定值对应的 label 展示文本框的内容 */
+    get: (): string => {
+      /** 如果插槽没内容，则返回空字符串 */
       if (!options.value.length) return ''
 
       /**
@@ -45,7 +44,7 @@
       const currentOption: VNode[] = options.value.filter((node: VNode): boolean => {
         const optionProp: OptionProps = node.props as OptionProps
 
-        // 判断是否有传递 props
+        /** 判断是否有传递 props */
         if (optionProp) {
           return optionProp.value ? optionProp.value === prop.modelValue : optionProp.label === prop.modelValue
         }
@@ -65,28 +64,23 @@
        */
       if (!currentOption.length) return ''
 
-      /**
-       * 获取到当前满足要求的子元素
-       */
+      /** 获取到当前满足要求的子元素 */
       const children: OptionProps = currentOption[0] as OptionProps
-      /**
-       * 获取到当前子元素的插槽内容
-       */
+      /** 获取到当前子元素的插槽内容 */
       const slot: string | undefined = children.children && children.children.default()[0].children
-      /**
-       * 获取到当前子元素的 label 参数
-       */
+      /** 获取到当前子元素的 label 参数 */
       const label: string | undefined = children.props && children.props.label
-      /**
-       * 获取到当前子元素的 value 参数
-       */
+      /** 获取到当前子元素的 value 参数 */
       const value: string | undefined = children.props && children.props.value
-      /**
-       * 优先级：插槽 > label > value
-       */
+      /** 返回优先级：插槽 > label > value */
       return slot || label || (value && value.toString()) || ''
     },
-    set(val: string) {
+    /**
+     * 设置值
+     *
+     * @param val 最新值
+     */
+    set: (val: string): string => {
       return val
     }
   })
@@ -102,21 +96,11 @@
     emit('update:modelValue', newLabel)
   }
 
-  /**
-   * 向自组件注入依赖项
-   */
+  /** 向自组件注入依赖项 */
   provide<SelectProvide>(SELECT_PROPS_TOKEN, reactive({ setValue }))
 
-  /**
-   * 样式列表
-   */
-  const styleList = computed((): CSSProperties => {
-    const { width } = prop
-
-    return {
-      '--f-select-width': sizeChange(width)
-    } as CSSProperties
-  })
+  /** 样式列表 */
+  const styleList = styles(['width'])
 </script>
 
 <template>

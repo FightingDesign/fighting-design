@@ -16,35 +16,23 @@
     'update:pageSize': (pageSize: number): boolean => isNumber(pageSize)
   })
 
-  /**
-   * 当前快速跳转的页码
-   */
+  /** 当前快速跳转的页码 */
   const jumpCurrent = ref<string>('1')
-  /**
-   * 下拉菜单绑定的默认值，每页条数
-   */
+  /** 下拉菜单绑定的默认值，每页条数 */
   const pagesLen = ref<number>(10)
-  /**
-   * 上一页更多图标的 visible
-   */
+  /** 上一页更多图标的 visible */
   const showPrevMore = ref<boolean>(false)
-  /**
-   * 下一页更多图标的 visible
-   */
+  /** 下一页更多图标的 visible */
   const showNextMore = ref<boolean>(false)
 
-  /**
-   * 计算出最大页码数
-   */
+  /** 计算出最大页码数 */
   const maxCount = computed((): number => {
     const page1: number = Math.floor(prop.total / prop.pageSize)
     const model: number = prop.total % prop.pageSize
     return model === 0 ? page1 : page1 + 1
   })
 
-  /**
-   * 主要分页 ul 样式列表
-   */
+  /** 主要分页列表样式列表 */
   const listClassList = computed((): ClassList => {
     const { background, round, disabled } = prop
 
@@ -58,9 +46,7 @@
     ] as const
   })
 
-  /**
-   * 计算出第一页的样式
-   */
+  /** 第一页的样式 */
   const firstPage = computed((): ClassList => {
     const { current } = prop
 
@@ -72,9 +58,7 @@
     ] as const
   })
 
-  /**
-   * 计算出最后一页的样式
-   */
+  /** 最后一页的样式 */
   const lastPage = computed((): ClassList => {
     const { current } = prop
 
@@ -86,9 +70,7 @@
     ] as const
   })
 
-  /**
-   * 计算出需要循环遍历的 pages
-   */
+  /** 需要循环遍历的 pages */
   const pages = computed((): number[] => {
     const pagerCount = Number(prop.pagerCount)
     const currentPage = Number(prop.current)
@@ -136,23 +118,17 @@
   const handelTurnPages = (target: 'next' | 'prev'): void => {
     if (prop.disabled) return
 
-    /**
-     * 最新的页码数
-     */
+    /** 最新的页码数 */
     let newCurrent
 
     const map = {
-      /**
-       * 下一页切换
-       */
+      /** 下一页切换 */
       next: (): void => {
         const newCurrent = prop.current === maxCount.value ? maxCount.value : prop.current + 1
         prop.onNext && prop.onNext(newCurrent, prop.pageSize)
         emit('update:current', newCurrent)
       },
-      /**
-       * 上一页切换
-       */
+      /**上一页切换 */
       prev: (): void => {
         newCurrent = prop.current === 1 ? 1 : prop.current - 1
         prop.onPrev && prop.onPrev(newCurrent, prop.pageSize)
@@ -165,6 +141,8 @@
 
   /**
    * 点击指定页面的回调
+   *
+   * @param newCurrent 最新页码数
    */
   const handelChange = (newCurrent: number): void => {
     if (prop.disabled) return
@@ -172,9 +150,7 @@
     prop.onChange && prop.onChange(newCurrent, prop.pageSize)
   }
 
-  /**
-   * 快速跳转框确定值的行为目前设定为:失焦或 enter 确定
-   */
+  /** 快速跳转框确定值的行为目前设定为：失焦或 enter 确定 */
   const jumpHandleValue = (): void => {
     if (prop.disabled) return
 
@@ -185,12 +161,13 @@
     emit('update:current', Number(jumpCurrent.value))
   }
 
-  watchEffect(() => {
+  watchEffect((): void => {
     const pagerCount = Number(prop.pagerCount)
     let halfPagerCount = (pagerCount - 1) / 2
 
     showPrevMore.value = false
     showNextMore.value = false
+
     if (maxCount.value > pagerCount) {
       if (prop.current > pagerCount - halfPagerCount) {
         showPrevMore.value = true
@@ -220,17 +197,11 @@
       return
     }
 
-    /**
-     * 最新的页数
-     */
+    /** 最新的页数 */
     let newPage = Number(target.textContent)
-    /**
-     * 第几页开始折叠
-     */
+    /** 第几页开始折叠 */
     let pagerCount = prop.pagerCount
-    /**
-     * 当前选中页码
-     */
+    /** 当前选中页码 */
     let current = prop.current
     let countPager = pagerCount - 2
 

@@ -6,9 +6,12 @@
 
   const prop = defineProps(Props)
 
-  const isShow = ref<boolean>(false)
+  /** 是否展示百分比 */
+  const isPercentage = ref<boolean>(false)
+  /** 元素节点 */
   const fillRef = ref<HTMLDivElement>(null as unknown as HTMLDivElement)
 
+  /** 进度条样式列表 */
   const progressStyle = computed((): CSSProperties => {
     const { background, height, square } = prop
 
@@ -19,6 +22,7 @@
     } as const
   })
 
+  /** 百分比样式列表 */
   const progressFillStyle = computed((): CSSProperties => {
     const { percentage, color, square } = prop
 
@@ -29,8 +33,9 @@
     } as const
   })
 
+  /** 是否展示百分比 */
   const isShowPercentage = (): boolean => {
-    return (isShow.value = fillRef.value.clientHeight >= 18 && prop.textInside)
+    return (isPercentage.value = fillRef.value.clientHeight >= 18 && prop.textInside)
   }
 
   onMounted((): void => {
@@ -59,11 +64,11 @@
         ]"
         :style="progressFillStyle"
       >
-        <span v-if="isShow && showText" class="f-progress__percentage" :style="{ color: textColor }">
+        <span v-if="isPercentage && showText" class="f-progress__percentage" :style="{ color: textColor }">
           {{ percentage }}%
         </span>
       </div>
     </div>
-    <div v-if="!isShow && showText" class="f-progress__text">{{ percentage }}%</div>
+    <div v-if="!isPercentage && showText" class="f-progress__text">{{ percentage }}%</div>
   </div>
 </template>

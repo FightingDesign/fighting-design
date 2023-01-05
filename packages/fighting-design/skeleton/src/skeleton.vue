@@ -1,25 +1,14 @@
 <script lang="ts" setup name="FSkeleton">
   import { Props } from './props'
   import { computed, useSlots } from 'vue'
-  import type { ClassList } from '../../_interface'
+  import { useList } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  /**
-   * 类名列表
-   */
-  const classList = computed((): ClassList => {
-    const { round, animated, size } = prop
+  const { classes } = useList(prop, 'skeleton')
 
-    return [
-      'f-skeleton',
-      {
-        'f-skeleton__round': round,
-        'f-skeleton__animated': animated,
-        [`f-skeleton__${size}`]: size
-      }
-    ] as const
-  })
+  /** 类名列表 */
+  const classList = classes(['round', 'animated', 'size'], 'f-skeleton')
 
   /**
    * 如果 loading 为 true，展示骨架屏
@@ -29,7 +18,7 @@
   const isRender = computed((): boolean => {
     const slots = useSlots()
 
-    // 判断是否有插槽
+    /** 判断是否有插槽 */
     if (slots.default) {
       return prop.loading === true
     }

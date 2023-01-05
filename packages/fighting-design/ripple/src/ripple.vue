@@ -8,9 +8,7 @@
 
   const { getType } = useGlobal(prop)
 
-  /**
-   * 替换 type 后得到的 props
-   */
+  /** 替换 type 后得到的 props */
   const params = reactive({
     ...prop,
     type: getType().value
@@ -18,14 +16,10 @@
 
   const { styles } = useList(params, 'ripple')
 
-  /**
-   * dom 节点
-   */
+  /** dom 节点 */
   const FRipple = ref<HTMLElement>(null as unknown as HTMLElement)
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['startOpacity', 'endOpacity'], false)
 
   /**
@@ -38,6 +32,7 @@
 
     const { type, ripplesColor, duration } = toRefs(prop)
 
+    /** 配置对象 */
     const options: RipplesOptions = reactive({
       duration: duration.value,
       component: 'f-ripple',

@@ -9,13 +9,9 @@
   const prop = defineProps(Props)
   const slot = useSlots()
 
-  /**
-   * 获取父组件注入的依赖项
-   */
+  /** 获取父组件注入的依赖项 */
   const parentInject = inject<SelectProvide | null>(SELECT_PROPS_TOKEN, null)
-  /**
-   * 获取到 trigger 注入的依赖项
-   */
+  /** 获取到 trigger 注入的依赖项 */
   const triggerInject = inject<TriggerProvide | null>(TRIGGER_CLOSE_KEY, null) as TriggerProvide
 
   /**
@@ -24,10 +20,7 @@
    * 让父组件同步 input
    */
   const handleClick = (): void => {
-    /**
-     * 如果没有获取到注入的依赖项或者禁用状态
-     * 则返回
-     */
+    /**如果没有获取到注入的依赖项或者禁用状态 则返回 */
     if (!parentInject || prop.disabled) return
 
     const { value, label } = toRefs(prop)
@@ -35,6 +28,7 @@
 
     /**
      * label 返回优先级：插槽 > label > value
+     *
      * value 返回优先级：value > label > 插槽
      */
     parentInject.setValue(
@@ -42,7 +36,7 @@
       (value.value || label.value || slotLabel) as SelectModelValue
     )
 
-    // 点击之后关闭
+    /** 点击之后关闭 */
     triggerInject.handelClose()
   }
 </script>

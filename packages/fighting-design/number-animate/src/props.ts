@@ -2,16 +2,12 @@ import type { ExtractPropTypes, PropType, CSSProperties } from 'vue'
 import type { AnimationEnd } from './interface'
 
 export const Props = {
-  /**
-   * 开始的动画数字
-   */
+  /** 开始的动画数字 */
   from: {
     type: Number,
     default: (): number => 0
   },
-  /**
-   * 结束的动画数字
-   */
+  /** 结束的动画数字 */
   to: {
     type: Number,
     default: (): null => null
@@ -25,30 +21,22 @@ export const Props = {
     type: Number,
     default: (): number => 2000
   },
-  /**
-   * 对数字决定金额格式化
-   */
+  /** 对数字决定金额格式化 */
   localeString: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   styles: {
     type: Object as PropType<CSSProperties>,
     default: (): null => null
   },
-  /**
-   * 是否初始化自动播放
-   */
+  /** 是否初始化自动播放 */
   automatic: {
     type: Boolean,
     default: (): boolean => true
   },
-  /**
-   * 动画结束触发函数
-   */
+  /** 动画结束触发函数 */
   onAnimationEnd: {
     type: Function as PropType<AnimationEnd>,
     default: (): null => null

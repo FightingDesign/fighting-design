@@ -10,9 +10,7 @@
     'update:visible': (visible: boolean): boolean => isBoolean(visible)
   })
 
-  /**
-   * 点击遮罩层关闭
-   */
+  /** 点击遮罩层关闭 */
   const closePopup = (): void => {
     if (!prop.maskClose) return
     emit('update:visible', false)
@@ -56,9 +54,7 @@
     useRun(prop.onCloseEnd, evt)
   }
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = computed((): CSSProperties => {
     const { direction, popupSize, padding } = prop
 

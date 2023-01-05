@@ -13,25 +13,21 @@
 
   const { styles, classes } = useList(prop, 'slider')
 
-  /**
-   * 自定义指令
-   */
+  /** 自定义指令 */
   const vDrag = dragDirective
-  /**
-   * dom 元素
-   */
+  /** dom 元素 */
   const FSlider = ref<HTMLDivElement>(null as unknown as HTMLDivElement)
-  /**
-   * 便宜距离
-   */
+  /** 便宜距离 */
   const rightTx = ref<number>(0)
 
+  /** 宽度 */
   const sliderWidth = computed((): number => {
     return parseInt(FSlider.value.offsetWidth + '')
   })
 
-  onMounted(() => {
+  onMounted((): void => {
     const { min, max, modelValue } = prop
+
     if (typeof modelValue !== 'number' || isNaN(modelValue) || modelValue < min) {
       emit('update:modelValue', min)
       return
@@ -45,14 +41,10 @@
     setPosition(((modelValue - min) * 100) / (max - min))
   })
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = classes(['disabled'], 'f-slider')
 
-  /**
-   * style样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['bgColor'])
 
   const setPosition = (dot: number): void => {
@@ -63,6 +55,7 @@
     } else if (dot > 100) {
       dot = 100
     }
+
     const lengthPerStep = 100 / ((max - min) / step)
     const steps = Math.round(dot / lengthPerStep)
     let value = steps * lengthPerStep * (max - min) * 0.01 + min

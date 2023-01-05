@@ -28,9 +28,7 @@
     warning: FIconWarningVue
   } as const
 
-  /**
-   * 默认icon
-   */
+  /** 默认 icon */
   const _icon: ComputedRef<String | null | VNode> = computed((): String | null | VNode => {
     if (prop.icon) {
       return prop.icon

@@ -2,9 +2,7 @@ import type { FightingSize } from '../../_interface'
 
 export type { RadioGroundProps } from './props'
 
-/**
- * 绑定值类型接口
- */
+/** 绑定值类型接口 */
 export type RadioModelValue = string | number | boolean
 
 /**

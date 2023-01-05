@@ -6,14 +6,10 @@
 
   const { classes, styles } = useList(prop, 'space')
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const classList = classes(['spacing', 'nowrap', 'vertical'], 'f-space')
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const styleList = styles(['rowGap', 'columnGap'])
 </script>
 

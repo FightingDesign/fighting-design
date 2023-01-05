@@ -6,13 +6,9 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 开始值
-   */
+  /** 开始值 */
   const fromNum = ref<number>(prop.from)
-  /**
-   * 是否重新执行动画
-   */
+  /**是否重新执行动画 */
   const again = ref<boolean>(false)
 
   /**
@@ -21,25 +17,23 @@
    * @param timestamp 动画时间
    */
   const animate = (timestamp: number): void => {
-    // 判断是否需要重新执行
+    /**判断是否需要重新执行 */
     if (again.value) {
-      // 如果需要重新执行，则需要将开始值重新赋值
+      /** 如果需要重新执行，则需要将开始值重新赋值 */
       fromNum.value = prop.from
       again.value = false
     }
 
-    /**
-     * 目标值
-     */
+    /** 目标值 */
     const toNum = Number(prop.to)
 
-    // 检测两个值是否为数字
+    /** 检测两个值是否为数字 */
     if (!isNumber(Number(fromNum)) || !isNumber(toNum)) {
-      // 后面增加报错内容
+      /** 后面增加报错内容 */
       return
     }
 
-    // 计算出 执行到达时间 相差值
+    /** 计算出 执行到达时间 相差值 */
     fromNum.value += (toNum / prop.approximateTime) * 20
 
     if (fromNum.value >= toNum) {
@@ -75,9 +69,9 @@
     window && window.requestAnimationFrame(animate)
   }
 
-  // 初始化执行
+  /** 初始化执行 */
   onMounted((): void => {
-    // 第一次执行不需要重新执行，所以传入 false
+    /** 第一次执行不需要重新执行，所以传入 false */
     prop.automatic && start(false)
   })
 
@@ -92,7 +86,7 @@
     start()
   }
 
-  // 暴露给外部重新执行动画的方法
+  /** 暴露给外部重新执行动画的方法 */
   defineExpose({ run })
 </script>
 
