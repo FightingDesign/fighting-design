@@ -16,7 +16,7 @@
 
   const { styles } = useList(params, 'ripple')
 
-  /** dom 节点 */
+  /** 元素节点 */
   const FRipple = ref<HTMLElement>(null as unknown as HTMLElement)
 
   /** 样式列表 */
@@ -30,14 +30,14 @@
   const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
 
-    const { type, ripplesColor, duration } = toRefs(prop)
+    const { ripplesColor, duration } = toRefs(prop)
 
     /** 配置对象 */
     const options: RipplesOptions = reactive({
       duration: duration.value,
       component: 'f-ripple',
       className: 'f-ripple__animation',
-      type: type.value,
+      type: getType().value,
       ripplesColor: ripplesColor.value
     })
 

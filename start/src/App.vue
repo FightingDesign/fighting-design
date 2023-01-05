@@ -7,7 +7,19 @@
 <template>
   <f-empty />
   <f-page-header />
-  <f-fighting-global type="primary" lang="en-US">
+  <f-fighting-global type="success" lang="en-US">
+    <f-ripple v-for="(item, i) in 5" :key="i">
+      <div class="list">
+        <f-text>{{ item }} 涟漪</f-text>
+      </div>
+    </f-ripple>
+
+    <f-link href="">默认链接</f-link>
+    <f-link href="">主要链接</f-link>
+    <f-link href="" type="success">成功链接</f-link>
+    <f-link href="" type="danger">危险链接</f-link>
+    <f-link href="" type="warning">警告链接</f-link>
+
     <f-page-header />
     <f-empty />
 
@@ -28,3 +40,12 @@
     </f-space>
   </f-fighting-global>
 </template>
+
+<style scoped>
+  .list {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
