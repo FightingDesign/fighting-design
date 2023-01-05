@@ -11,15 +11,13 @@ import type { Component, VNode } from 'vue'
 export const getChildren = (children: VNode[], componentName: string): VNode[] => {
   let components: VNode[] = []
 
-  // 传入的子节点必须是一个有效数组
+  /** 传入的子节点必须是一个有效数组 */
   if (isArray(children) && children.length) {
     children.forEach((child: VNode): void => {
-      /**
-       * 获取到每个组件的 name
-       */
+      /** 获取到每个组件的 name */
       const name: string | undefined | boolean = isObject(child.type) && (child.type as Component).name
 
-      // 如果是 FOption 则的亲孩子节点
+      /** 判断是否为亲孩子节点 */
       if (name === componentName) {
         components.push(child)
       }

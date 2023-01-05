@@ -1,11 +1,7 @@
-/**
- * 星期
- */
+/** 星期 */
 export const WEEK_DATA = ['日', '一', '二', '三', '四', '五', '六'] as const
 
-/**
- * 农历 1900-2100 的润大小信息表
- */
+/**农历 1900-2100 的润大小信息表 */
 export const LUNAR_INFO = [
   0x04bd8, 0x04ae0, 0x0a570, 0x054d5, 0x0d260, 0x0d950, 0x16554, 0x056a0, 0x09ad0, 0x055d2, 0x04ae0, 0x0a5b6, 0x0a4d0,
   0x0d250, 0x1d255, 0x0b540, 0x0d6a0, 0x0ada2, 0x095b0, 0x14977, 0x04970, 0x0a4b0, 0x0b4b5, 0x06a50, 0x06d40, 0x1ab54,
@@ -25,9 +21,7 @@ export const LUNAR_INFO = [
   0x04ae0, 0x0a9d4, 0x0a2d0, 0x0d150, 0x0f252, 0x0d520
 ] as const
 
-/**
- * 天干地支 - 天干速查表
- */
+/** 天干地支 - 天干速查表 */
 export const DAY_GAN = [
   '\u7532',
   '\u4e59',
@@ -41,9 +35,7 @@ export const DAY_GAN = [
   '\u7678'
 ] as const
 
-/**
- * 天干地支 - 地支速查表
- */
+/** 天干地支 - 地支速查表 */
 export const DAY_ZHI = [
   '\u5b50',
   '\u4e11',
@@ -79,9 +71,7 @@ export const ANIMALS = [
   '\u732a'
 ] as const
 
-/**
- * 阳历节日
- */
+/** 阳历节日 */
 export const SOLAR_CALENDAR_FESTIVE: Record<string, { title: string }> = {
   '1-1': { title: '元旦节' },
   '2-14': { title: '情人节' },
@@ -100,9 +90,7 @@ export const SOLAR_CALENDAR_FESTIVE: Record<string, { title: string }> = {
   '12-24': { title: '平安夜' }
 } as const
 
-/**
- * 农历节日
- */
+/** 农历节日 */
 export const LUNAR_FESTIVE: Record<string, { title: string }> = {
   '12-30': { title: '除夕' },
   '1-1': { title: '春节' },
@@ -198,9 +186,7 @@ export const CHANG_MONTH_LUNAR_CALENDAR = [
   '\u814a'
 ] as const
 
-/**
- * 1900-2100 各年的 24 节气日期速查表
- */
+/** 1900-2100 各年的 24 节气日期速查表 */
 export const SOLAR_TERM_LIST = [
   '9778397bd097c36b0b6fc9274c91aa',
   '97b6b97bd19801ec9210c965cc920e',

@@ -7,42 +7,30 @@
  */
 export const LANG = {
   'en-US': {
-    /**
-     * 空状态
-     */
+    /** 空状态 */
     empty: {
       content: 'No data'
     },
-    /**
-     * 日历
-     */
+    /** 日历 */
     calendar: {
       weekList: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
     },
-    /**
-     * 粘性卡片
-     */
+    /** 粘性卡片 */
     stickyCard: {
       openText: 'close',
       closeText: 'open'
     }
   },
   'zh-CN': {
-    /**
-     * 空状态
-     */
+    /** 空状态 */
     empty: {
       content: '暂无数据'
     },
-    /**
-     * 日历
-     */
+    /** 日历 */
     calendar: {
       weekList: ['日', '一', '二', '三', '四', '五', '六']
     },
-    /**
-     * 粘性卡片
-     */
+    /** 粘性卡片 */
     stickyCard: {
       openText: '关闭',
       closeText: '开启'

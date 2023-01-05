@@ -4,6 +4,7 @@ import { isArray, isObject } from '..'
 
 /**
  * 将所有子的组件扁平化
+ *
  * @param children
  */
 export const flattedChildren = (children: VNode | VNodeNormalizedChildren): VNode[] => {

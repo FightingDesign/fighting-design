@@ -6,7 +6,6 @@ import type { TreeData, TreeDataItem } from '../../tree'
  * 扁平化树形结构
  *
  * @param data 树形数据
- * @returns
  */
 export const treeToFlat = (data: TreeData): TreeAddLevelReturn[] => {
   const result: TreeAddLevelReturn[] = []

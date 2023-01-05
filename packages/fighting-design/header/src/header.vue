@@ -6,9 +6,7 @@
 
   const { styles } = useList(prop, 'header')
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['height', 'padding'])
 </script>
 

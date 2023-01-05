@@ -12,9 +12,7 @@ export const keepDecimal = (num: number, no = 2): number => {
   return Number(num.toFixed(no))
 }
 
-/**
- * debounce 返回值类型
- */
+/** debounce 返回值类型 */
 export type DebounceReturn = () => void
 
 /**
