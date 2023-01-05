@@ -6,6 +6,7 @@
 
 - 修复 `f-input` 在黑暗模式下不显示 `placeholder` 的问题 [issues#330](https://github.com/FightingDesign/fighting-design/issues/330)
 - 修复 `f-ripple` 组件在全局配置下 `type` 失效问题
+- 修复全局配置组件响应式丢失问题
 
 **新增**
 
