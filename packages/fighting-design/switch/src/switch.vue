@@ -12,23 +12,17 @@
 
   const { styles } = useList(prop, 'switch')
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['closeColor', 'activeColor'])
 
-  /**
-   * 点击切换
-   */
+  /** 点击切换 */
   const handleClick = (): void => {
     if (prop.disabled) return
     emit('update:modelValue', !prop.modelValue)
     useRun(prop.onChange, !prop.modelValue)
   }
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = computed((): ClassList => {
     const { size, modelValue, square } = prop
 

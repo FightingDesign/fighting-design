@@ -3,17 +3,13 @@ import type { SwapType } from './interface'
 import type { FightingIcon, HandleChange } from '../../_interface'
 
 export const Props = {
-  /**
-   * 绑定值
-   */
+  /** 绑定值 */
   modelValue: {
     type: Boolean,
     default: (): boolean => false,
     require: true
   },
-  /**
-   * 组件尺寸
-   */
+  /** 组件尺寸 */
   size: {
     type: [String, Number] as PropType<string | number>,
     default: (): number => 40
@@ -31,23 +27,17 @@ export const Props = {
       return (['sound', 'swap', 'default'] as const).includes(val)
     }
   },
-  /**
-   * 打开展示的图标
-   */
+  /** 打开展示的图标 */
   iconOn: {
     type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
-  /**
-   * 关闭展示的图标
-   */
+  /** 关闭展示的图标 */
   iconOff: {
     type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
-  /**
-   * 当绑定值发生改变时触发的回调
-   */
+  /** 当绑定值发生改变时触发的回调 */
   onChange: {
     type: Function as PropType<HandleChange>,
     default: (): null => null

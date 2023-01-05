@@ -15,9 +15,7 @@
     useRun(prop.onClick, evt)
   }
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['size', 'color'])
 </script>
 

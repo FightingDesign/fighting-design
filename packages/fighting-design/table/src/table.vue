@@ -7,14 +7,10 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 多选项
-   */
+  /** 多选项 */
   const optionalList = ref(false)
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = computed((): CSSProperties => {
     const { zebraColor, height, bgColor, headBgColor } = prop
 

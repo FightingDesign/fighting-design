@@ -10,19 +10,13 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 注入父组件的模式依赖项
-   */
+  /** 注入父组件的模式依赖项 */
   const parentInject = inject<MenuProvide | null>(MENU_PROVIDE_KEY, null) as MenuProvide
 
-  /**
-   * 初始是否展开
-   */
+  /** 初始是否展开 */
   const isOpened = ref<boolean>(prop.opened)
 
-  /**
-   * 点击展开或折叠菜单
-   */
+  /** 点击展开或折叠菜单 */
   const handelClick = (): void => {
     if (prop.disabled) return
     isOpened.value = !isOpened.value

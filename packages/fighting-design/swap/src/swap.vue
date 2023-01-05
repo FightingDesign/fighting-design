@@ -10,17 +10,13 @@
     'update:modelValue': (target: boolean): boolean => target
   })
 
-  /**
-   * 切换时执行
-   */
+  /** 切换时执行 */
   const changeSwap = (): void => {
     emit('update:modelValue', !prop.modelValue)
     useRun(prop.onChange, !prop.modelValue)
   }
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = computed((): ClassList => {
     const { modelValue, type } = prop
 

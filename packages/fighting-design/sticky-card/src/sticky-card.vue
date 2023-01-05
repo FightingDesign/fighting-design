@@ -1,31 +1,26 @@
 <script lang="ts" setup name="FStickyCard">
   import { Props } from './props'
   import { ref, computed, unref } from 'vue'
-  import { useRun, useGlobal } from '../../_hooks'
+  import { useRun, useGlobal, useList } from '../../_hooks'
   import { FCollapseAnimation } from '../../collapse-animation'
-  import type { CSSProperties } from 'vue'
   import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
 
   const { getLang } = useGlobal(prop as unknown as UseGlobalProp)
 
-  /**
-   * 是否打开
-   */
+  const { styles } = useList(prop, 'sticky-card')
+
+  /** 是否打开 */
   const isOpened = ref<boolean>(prop.open)
 
-  /**
-   * 点击触发
-   */
+  /** 点击触发 */
   const handleClick = (): void => {
     isOpened.value = !isOpened.value
     useRun(isOpened.value ? prop.onClose : prop.onOpen, isOpened.value)
   }
 
-  /**
-   * 展示的文字内容
-   */
+  /** 展示的文字内容 */
   const optionText = computed((): string => {
     const { openText, closeText } = prop
 
@@ -34,17 +29,8 @@
     return unref(isOpened) ? openText || lang.openText : closeText || lang.closeText
   })
 
-  /**
-   * 样式列表
-   */
-  const styleList = computed((): CSSProperties => {
-    const { background, borderColor } = prop
-
-    return {
-      '--f-sticky-card-content-background': background,
-      '--f-sticky-card-border-color': borderColor
-    } as CSSProperties
-  })
+  /** 样式列表 */
+  const styleList = styles(['borderColor'])
 </script>
 
 <template>
