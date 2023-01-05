@@ -12,22 +12,20 @@
     'update:modelValue': (val: number): boolean => isNumber(val)
   })
 
-  /**
-   * 当前绑定的值
-   */
+  /** 当前绑定的值 */
   const inputValue = computed({
-    /**
-     * 获取值的时候返回
-     */
+    /** 获取值的时候返回 */
     get: (): number => {
       const { modelValue, precision } = prop
 
-      // 如果传入的是非数字的参数，则默认返回 0
+      /** 如果传入的是非数字的参数，则默认返回 0 */
       if (!isNumber(modelValue)) {
         return 0
       }
 
-      // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+      /**
+       * @see Number.prototype.toFixed() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+       */
       return Number(modelValue.toFixed(isNumber(precision) ? precision : 0))
     },
     /**
@@ -40,9 +38,7 @@
     }
   })
 
-  /**
-   * 最小值禁用
-   */
+  /** 最小值禁用 */
   const minDisabled = computed((): boolean => {
     const { step, min } = prop
 
@@ -50,13 +46,13 @@
       return false
     }
 
-    // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
+    /**
+     * @see Math.abs() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
+     */
     return inputValue.value - Math.abs(step) < min
   })
 
-  /**
-   * 最大值禁用
-   */
+  /** 最大值禁用 */
   const maxDisabled = computed((): boolean => {
     const { step, max } = prop
 
@@ -69,29 +65,27 @@
 
   /**
    * 改变值
+   *
+   * @param target 增加或减少
    */
   const handleChangeVal = (target: 'minus' | 'plus'): void => {
     const { disabled, readonly, step } = prop
 
-    // 禁用或只读
+    /** 禁用或只读 */
     if (disabled || readonly) return
 
     const map = {
-      /**
-       * 减少
-       */
+      /** 减少 */
       minus: (): void => {
         inputValue.value -= step
       },
-      /**
-       * 增加
-       */
+      /** 增加 */
       plus: (): void => {
         inputValue.value += step
       }
     }
 
-    map[target]()
+    map[target] && map[target]()
 
     useRun(prop.onChange, inputValue.value)
   }

@@ -1,4 +1,5 @@
 import { watch, ref } from 'vue'
+import { useRun } from '..'
 import type { Ref } from 'vue'
 import type { UseVisibleReturn, UseVisibleEmit } from './interface'
 
@@ -10,14 +11,19 @@ export * from './interface.d'
  * @param visible 显示状态
  * @param emit 回调
  */
-export const useVisible = (visible: Ref<boolean>, emit: UseVisibleEmit): UseVisibleReturn => {
+export const useVisible = (visible: Ref<boolean>, emit: UseVisibleEmit, callback?: Function): UseVisibleReturn => {
 
   /** 是否展示 */
   const isVisible = ref<boolean>(visible.value)
 
-  /** 关闭 */
-  const closeVisible = (): void => {
+  /** 
+   * 关闭
+   * 
+   * @param evt 事件对象
+   */
+  const closeVisible = (evt?: MouseEvent): void => {
     emit('update:visible', false)
+    useRun(callback, evt)
   }
 
   /** 监视绑定值的变化，如果为假则关闭 */

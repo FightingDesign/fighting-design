@@ -4,18 +4,34 @@
   const date = new Date()
 
   const value2 = ref(true)
+
+  const open1 = ref(false)
+
+  const show1 = ref(false)
+
+  const listImg = [
+    'https://tianyuhao.cn/images/auto/1.jpg',
+    'https://tianyuhao.cn/images/auto/2.jpg',
+    'https://tianyuhao.cn/images/auto/3.jpg',
+    'https://tianyuhao.cn/images/auto/4.jpg'
+  ]
+
+  const onClose = e => console.log(e)
 </script>
 
 <template>
   <h1>{{ value2 ? 'success' : 'warning' }}</h1>
+  <f-button type="primary" @click="show1 = true">打开</f-button>
+  <f-image-preview v-model:visible="show1" :img-list="listImg" :on-close="onClose" />
+
   <f-switch v-model="value2" />
   <f-empty />
   <f-page-header />
-  <f-fighting-global :type="value2 ? 'success' : 'warning'" :lang="value2 ? 'zh-CH' : 'en-US'">
-    <f-tag>默认</f-tag>
-    <f-tag>普通</f-tag>
-    <f-tag>警告</f-tag>
-    <f-tag>成功</f-tag>
+  <f-fighting-global :type="value2 ? 'success' : 'warning'" :lang="value2 ? 'zh-CN' : 'en-US'">
+    <f-sticky-card :open="open1">
+      <h1>Hello World！</h1>
+      <h1>Hello World！</h1>
+    </f-sticky-card>
     <f-tag type="danger">失败</f-tag>
 
     <f-ripple v-for="(item, i) in 5" :key="i">

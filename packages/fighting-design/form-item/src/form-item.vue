@@ -8,9 +8,7 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 获取父组件注入的依赖项
-   */
+  /** 获取父组件注入的依赖项 */
   const parentInject = inject<FormInject | null>(FORM_PROVIDE_KEY, null) as FormInject
 
   /**
@@ -21,17 +19,13 @@
    * 如果注入的对象值都是字符串则代表是错误信息
    */
   const errMessage = computed((): string | boolean => {
-    /**
-     * 获取都指定项的结构键值
-     */
+    /** 获取都指定项的结构键值 */
     const resMsg: string | boolean = parentInject && parentInject.childrenCheckResult[prop.name]
 
     return isString(resMsg) ? resMsg : false
   })
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = computed((): CSSProperties => {
     return {
       '--f-form-item-label-width': parentInject && parentInject.labelWidth

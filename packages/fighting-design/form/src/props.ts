@@ -2,23 +2,17 @@ import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type { FormSubmit } from './interface'
 
 export const Props = {
-  /**
-   * 每个 label 的宽度
-   */
+  /** 每个 label 的宽度 */
   labelWidth: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
-  /**
-   * 表单数据对象
-   */
+  /** 表单数据对象 */
   model: {
     type: Object,
     default: (): null => null
   },
-  /**
-   * 提交表单
-   */
+  /**  提交表单触发的回调 */
   onSubmit: {
     type: Function as PropType<FormSubmit>,
     default: (): null => null

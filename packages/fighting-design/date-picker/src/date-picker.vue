@@ -20,6 +20,7 @@
     get: (): string => prop.date,
     /**
      * 设置值
+     *
      * @param val 最新的值
      */
     set: (val: string): void => {

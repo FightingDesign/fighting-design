@@ -3,9 +3,7 @@ import type { ImageFit } from './interface'
 import type { HandleEvent } from '../../_interface'
 
 export const Props = {
-  /**
-   * 图片路径
-   */
+  /** 图片路径 */
   src: {
     type: String,
     default: (): null => null
@@ -19,44 +17,32 @@ export const Props = {
     type: String,
     default: (): null => null
   },
-  /**
-   * 是否可以拖动
-   */
+  /** 是否可以拖动 */
   draggable: {
     type: Boolean,
     default: (): boolean => true
   },
-  /**
-   * 是否懒加载图片
-   */
+  /** 是否懒加载图片 */
   lazy: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 触发懒加载的距离
-   */
+  /** 触发懒加载的距离 */
   rootMargin: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => '100px'
   },
-  /**
-   * 图片的宽度
-   */
+  /** 图片的宽度 */
   width: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
-  /**
-   * 图片的高度
-   */
+  /** 图片的高度 */
   height: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
-  /**
-   * 是否为块级元素
-   */
+  /** 是否为块级元素 */
   block: {
     type: Boolean,
     default: (): boolean => false
@@ -73,9 +59,7 @@ export const Props = {
       return (['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const).includes(val)
     }
   },
-  /**
-   * 是否禁止选择
-   */
+  /** 是否禁止选择 */
   noSelect: {
     type: Boolean,
     default: (): boolean => false
@@ -89,37 +73,27 @@ export const Props = {
     type: String,
     default: (): null => null
   },
-  /**
-   * 配置圆角，传入一个数值
-   */
+  /** 配置圆角，传入一个数值 */
   round: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
-  /**
-   * 加载失败时要显示的地址
-   */
+  /** 加载失败时要显示的地址 */
   errSrc: {
     type: String,
     default: (): null => null
   },
-  /**
-   * img 的 title
-   */
+  /** img 的 title */
   title: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 图片加载成功触发的回调
-   */
+  /** 图片加载成功触发的回调 */
   onLoad: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
-  /**
-   * 图片加载失败触发的回调
-   */
+  /** 图片加载失败触发的回调 */
   onError: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null

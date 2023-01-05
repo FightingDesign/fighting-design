@@ -1,11 +1,11 @@
 <script lang="ts" setup name="FImagePreview">
   import { Props } from './props'
-  import { ref, watch } from 'vue'
+  import { ref, toRef } from 'vue'
   import { FButton } from '../../button'
   import { FToolbar } from '../../toolbar'
   import { FToolbarItem } from '../../toolbar-item'
   import { FPopup } from '../../popup'
-  import { isBoolean } from '../../_utils'
+  import { isBoolean, isArray } from '../../_utils'
   import {
     FIconChevronLeftVue,
     FIconChevronRightVue,
@@ -16,7 +16,7 @@
     FIconZoomInVue,
     FIconZoomOutVue
   } from '../../_svg'
-  import { useOperationImg, useRun } from '../../_hooks'
+  import { useOperationImg, useVisible } from '../../_hooks'
   import type { ToolbarClickParams } from '../../toolbar'
 
   const prop = defineProps(Props)
@@ -27,62 +27,31 @@
   const { scale, rotate, smaller, bigger, scrollZoom, recovery, rotateClockwise, rotateCounterClock } =
     useOperationImg()
 
-  const isVisible = ref<boolean>(prop.visible)
+  const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit, prop.onClose)
+
+  /** 初始展示的图片索引 */
   const previewShowIndex = ref<number>(prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex)
 
-  /**
-   * 关闭图片预览
-   */
-  const handleClose = (evt?: MouseEvent): void => {
-    emit('update:visible', false)
-    useRun(prop.onClose, evt)
-  }
-
-  /**
-   * 监视绑定值，如果为假，则关闭
-   */
-  watch(
-    (): boolean => isVisible.value,
-    (newVal: boolean): void => {
-      if (!newVal) {
-        handleClose()
-      }
-    }
-  )
-
-  /**
-   * 监视绑定的数据同步 isVisible
-   */
-  watch(
-    (): boolean => prop.visible,
-    (newVal: boolean): void => {
-      isVisible.value = newVal
-    }
-  )
-
-  /**
-   * 开始图片加载
-   */
+  /** 开始图片加载 */
   const imagPreload = (): void => {
-    const imgList: string[] = prop.imgList as string[]
-
-    imgList.forEach((item: string): void => {
-      const img: HTMLImageElement = new Image() as HTMLImageElement
-      img.src = item
-    })
+    isArray(prop.imgList) &&
+      prop.imgList.forEach((item: string): void => {
+        /** 图片元素 */
+        const img: HTMLImageElement = new Image()
+        img.src = item
+      })
   }
 
   /**
    * 左右切换按钮
+   *
    * @param type 区分点击的是上一张还是下一张
    */
   const switchImage = (type: 'next' | 'prev'): void => {
     recovery()
 
     const optionMap = {
-      /**
-       * 下一张切换
-       */
+      /** 下一张切换 */
       next: (): void => {
         if (previewShowIndex.value < prop.imgList.length - 1) {
           previewShowIndex.value++
@@ -90,9 +59,7 @@
         }
         previewShowIndex.value = 0
       },
-      /**
-       * 上一张切换
-       */
+      /** 上一张切换 */
       prev: (): void => {
         if (previewShowIndex.value > 0) {
           previewShowIndex.value--
@@ -102,9 +69,7 @@
       }
     } as const
 
-    if (optionMap[type]) {
-      optionMap[type]()
-    }
+    optionMap[type] && optionMap[type]()
   }
 
   /**
@@ -115,7 +80,15 @@
   const optionClick = (target: ToolbarClickParams): void => {
     if (!target.index) return
 
-    const optionMap = {
+    interface OptionMap {
+      1: () => void
+      2: () => void
+      3: () => void
+      4: () => void
+      5: () => void
+    }
+
+    const optionMap: OptionMap = {
       1: (): void => smaller(),
       2: (): void => bigger(),
       3: (): void => recovery(),
@@ -123,9 +96,9 @@
       5: (): void => rotateCounterClock()
     } as const
 
-    if (optionMap[target.index as unknown as 1 | 2 | 3 | 4 | 5]) {
-      optionMap[target.index as unknown as 1 | 2 | 3 | 4 | 5]()
-    }
+    const index = target.index as unknown as keyof OptionMap
+
+    optionMap[index] && optionMap[index]()
   }
 </script>
 
@@ -160,7 +133,7 @@
       </template>
 
       <!-- 关闭按钮 -->
-      <f-button class="f-image-preview__close" circle :before-icon="FIconCrossVue" :on-click="handleClose" />
+      <f-button class="f-image-preview__close" circle :before-icon="FIconCrossVue" :on-click="closeVisible" />
 
       <!-- 操作栏 -->
       <f-toolbar v-if="isOption" class="f-image-preview__option" round :on-click="optionClick">

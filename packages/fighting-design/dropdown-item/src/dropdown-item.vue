@@ -7,9 +7,7 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 获取到 trigger 注入的依赖项
-   */
+  /** 获取到 trigger 注入的依赖项 */
   const parentInject = inject<TriggerProvide | null>(TRIGGER_CLOSE_KEY, null) as TriggerProvide
 
   /**

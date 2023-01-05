@@ -15,18 +15,14 @@
     filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError']) as unknown as UseLoadImgProp
   )
 
-  /**
-   * dom 节点元素
-   */
+  /** 元素节点 */
   const imageEl = ref<HTMLImageElement>(null as unknown as HTMLImageElement)
 
   onMounted((): void => {
     loadImg(imageEl.value)
   })
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = computed((): ClassList => {
     const { fit, noSelect } = prop
 
@@ -39,9 +35,7 @@
     ] as const
   })
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = computed((): CSSProperties => {
     const { width, height, round } = prop
 

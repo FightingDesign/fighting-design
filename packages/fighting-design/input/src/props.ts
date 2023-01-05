@@ -3,9 +3,7 @@ import type { InputType, InputValChange, InputSearch } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
-  /**
-   * 绑定值
-   */
+  /** 绑定值 */
   modelValue: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
@@ -14,6 +12,9 @@ export const Props = {
    * 类型
    *
    * 文字输入框或者密码输入框
+   * 
+   * @values text password number
+   * @defaultValue text
    */
   type: {
     type: String as PropType<InputType>,
@@ -99,23 +100,17 @@ export const Props = {
     type: String,
     default: (): null => null
   },
-  /**
-   * 占位符颜色
-   */
+  /** 占位符颜色 */
   placeholderColor: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 是否可清除
-   */
+  /** 是否可清除 */
   clear: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 是否可搜索
-   */
+  /** 是否可搜索 */
   search: {
     type: Boolean,
     default: (): boolean => false
@@ -129,72 +124,52 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 是否显示查看密码的按钮
-   */
+  /** 是否显示查看密码的按钮 */
   showPassword: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 是否按下回车进行搜索
-   */
+  /** 是否按下回车进行搜索 */
   enterSearch: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 自定义 icon
-   */
+  /** 自定义 icon */
   icon: {
     type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
-  /**
-   * 后缀 icon
-   */
+  /** 后缀 icon */
   afterIcon: {
     type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
-  /**
-   * 点击搜索之后触发的回调
-   */
+  /** 点击搜索之后触发的回调 */
   onSearch: {
     type: Function as PropType<InputSearch>,
     default: (): null => null
   },
-  /**
-   * 绑定值发生改变时触发的回调
-   */
+  /** 绑定值发生改变时触发的回调 */
   onChange: {
     type: Function as PropType<InputValChange>,
     default: (): null => null
   },
-  /**
-   * 失去焦点时触发的回调
-   */
+  /** 失去焦点时触发的回调 */
   onBlur: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
-  /**
-   * 获得焦点时触发的回调
-   */
+  /** 获得焦点时触发的回调 */
   onFocus: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
-  /**
-   * input 事件触发的回调
-   */
+  /** input 事件触发的回调 */
   onInput: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
-  /**
-   * 按下回车触发的
-   */
+  /** 按下回车触发的 */
   onEnter: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null

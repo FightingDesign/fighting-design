@@ -1,8 +1,6 @@
 export type { InputProps } from './props'
 
-/**
- * 不同类型
- */
+/** 不同类型 */
 export type InputType = 'text' | 'password' | 'number'
 
 /**
@@ -21,7 +19,5 @@ export interface InputSearchParams {
   value: string
 }
 
-/**
- * 当点击 input 搜索按钮时触发的回调函数类型接口
- */
+/** 当点击 input 搜索按钮时触发的回调函数类型接口 */
 export type InputSearch = ({ evt: Event, value: string }: InputSearchParams) => void

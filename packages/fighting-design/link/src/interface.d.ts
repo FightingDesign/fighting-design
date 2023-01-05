@@ -9,7 +9,5 @@ export type { LinkProps } from './props'
  */
 export type LinkTarget = '_self' | '_blank' | '_parent' | '_top'
 
-/**
- * 不同 hover 状态
- */
+/** 不同 hover 状态 */
 export type LinkState = 'line' | 'bag'

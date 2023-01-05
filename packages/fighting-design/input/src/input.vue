@@ -19,18 +19,12 @@
 
   const { styles } = useList(prop, 'input')
 
-  /**
-   * type 类型
-   */
+  /** type 类型 */
   const inputType = ref<InputType>(prop.type)
-  /**
-   * 是否展示密码
-   */
+
+  /** 是否展示密码 */
   const showPass = ref<boolean>(false)
 
-  /**
-   * 使用 useUpdateInput hook 实现同步数据
-   */
   const { onInput, onClear, onChange } = useUpdateInput(
     filter(['onChange', 'onInput', 'disabled', 'type']) as unknown as UseUpdateInputProps,
     emit
@@ -78,9 +72,7 @@
     useRun(onEnter.value, evt)
   }
 
-  /**
-   * 查看密码
-   */
+  /** 查看密码 */
   const handleShowPassword = (): void => {
     if (showPass.value) {
       inputType.value = 'text'
@@ -91,9 +83,7 @@
     showPass.value = false
   }
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['placeholderColor'])
 </script>
 

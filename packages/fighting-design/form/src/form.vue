@@ -10,29 +10,21 @@
   const prop = defineProps(Props)
   const slot = useSlots()
 
-  /**
-   * 子节点校验结果
-   */
+  /** 子节点校验结果 */
   const childrenCheckResult: Record<string, boolean | string> = reactive({})
 
-  /**
-   * 获取到所有子节点 vNode
-   */
+  /** 获取到所有子节点 vNode */
   const getChildrenList = computed((): VNode[] => {
-    // 如果没有插槽内容，返回空数组
+    /** 如果没有插槽内容，返回空数组 */
     if (!slot.default) return []
 
-    /**
-     * 获取到所有子节点元素
-     */
+    /** 获取到所有子节点元素 */
     const children = getChildren(slot.default(), 'FFormItem')
 
-    /**
-     * 遍历添每个节点判断是否验证通过
-     */
+    /** 遍历添每个节点判断是否验证通过 */
     children.forEach((item: VNode): void => {
       if (item.props && item.props.name) {
-        // 初始状态下默认设置全部没有通过校验
+        /** 初始状态下默认设置全部没有通过校验 */
         childrenCheckResult[item.props.name] = false
       }
     })
@@ -56,9 +48,7 @@
      * @param ruleItem 每一项规则
      */
     const test = (ruleItem: FormItemRulesItem): boolean => {
-      /**
-       * 获取到当前输入字符串的长度
-       */
+      /** 获取到当前输入字符串的长度 */
       const length: number = value.length + 1
 
       return !(
@@ -96,20 +86,16 @@
    */
   const validate = (): boolean => {
     getChildrenList.value.forEach((item: VNode): void => {
-      // 判断的每个自组件必须有 rules 和 name 参数
+      /** 判断的每个自组件必须有 rules 和 name 参数 */
       if (item.props && item.props.rules && item.props.name) {
-        /**
-         * 获取到规则校验的信息
-         */
+        /** 获取到规则校验的信息 */
         const msg: string | boolean = checkRuleMassage(prop.model[item.props.name], item.props.rules)
 
         childrenCheckResult[item.props.name] = msg
       }
     })
 
-    /**
-     * 获取当前规则对象的 value 值
-     */
+    /** 获取当前规则对象的 value 值 */
     const childrenCheckResultKey: (string | boolean)[] = Object.values(childrenCheckResult)
 
     if (childrenCheckResultKey.length) {
@@ -133,17 +119,20 @@
    * @param evt 事件对象
    */
   const handelSubmit = (evt: SubmitEvent): void => {
-    // 组织表单默认行为
+    /**
+     * 组织表单默认行为
+     *
+     * @see event.preventDefault https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault
+     */
     evt.preventDefault()
 
-    /**
-     * 获取到是否校验通过
-     */
+    /** 获取到是否校验通过 */
     const ok: boolean = prop.model ? validate() : true
 
     useRun(prop.onSubmit, { ok, res: childrenCheckResult, evt } as FormParam)
   }
 
+  /** 注入依赖项 */
   provide<FormInject>(
     FORM_PROVIDE_KEY,
     reactive({

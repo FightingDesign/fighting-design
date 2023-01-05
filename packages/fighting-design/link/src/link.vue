@@ -8,9 +8,7 @@
 
   const { getType } = useGlobal(prop)
 
-  /**
-   * 替换 type 后得到的 props
-   */
+  /** 替换 type 后得到的 props */
   const params = reactive({
     ...prop,
     type: getType('primary')
@@ -31,14 +29,10 @@
     useRun(prop.onClick, evt)
   }
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = classes(['type', 'state', 'disabled', 'noCopy'], 'f-link')
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['size', 'color'])
 </script>
 

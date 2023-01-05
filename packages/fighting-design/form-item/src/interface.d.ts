@@ -18,7 +18,5 @@ export interface FormItemRulesItem {
   regExp?: RegExp
 }
 
-/**
- * 规则对象类型
- */
+/** 规则对象类型 */
 export type FormItemRules = FormItemRulesItem[]

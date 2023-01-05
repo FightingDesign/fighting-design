@@ -25,15 +25,15 @@ export const Props = {
     type: String,
     default: (): null => null
   },
-  /**
-   * link 的文字大小
-   */
+  /** 的文字大小 */
   size: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /**
-   * link 状态的样式状态
+   * 状态的样式状态
+   * 
+   * @values line bag
    */
   state: {
     type: String as PropType<LinkState>,
@@ -42,9 +42,7 @@ export const Props = {
       return (['line', 'bag'] as const).includes(val)
     }
   },
-  /**
-   * 是否禁用
-   */
+  /** 是否禁用 */
   disabled: {
     type: Boolean,
     default: (): boolean => false
@@ -52,6 +50,8 @@ export const Props = {
   /**
    * 原生 target 属性
    *
+   * @values _blank _self _parent _top
+   * @defaultValue _self
    * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: {
@@ -61,44 +61,32 @@ export const Props = {
       return (['_self', '_blank', '_parent', '_top'] as const).includes(val)
     }
   },
-  /**
-   * 自定义 link 颜色
-   */
+  /** 自定义颜色 */
   color: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 是否禁止 copy
-   */
+  /** 是否禁止 copy */
   noCopy: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 是否禁止链接跳转及重新加载（取消默认事件）
-   */
+  /** 是否禁止链接跳转及重新加载（取消默认事件） */
   noLink: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 之前的 icon
-   */
+  /** 之前的 icon */
   beforeIcon: {
     type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
-  /**
-   * 之后的 icon
-   */
+  /** 之后的 icon */
   afterIcon: {
     type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
-  /**
-   * 点击执行的回调
-   */
+  /** 点击执行的回调 */
   onClick: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null
