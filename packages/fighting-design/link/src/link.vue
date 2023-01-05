@@ -13,7 +13,7 @@
    */
   const params = reactive({
     ...prop,
-    type: getType('primary').value
+    type: getType('primary')
   })
 
   const { classes, styles } = useList(params, 'link')

@@ -1,13 +1,23 @@
 <script lang="ts" setup>
-  // import { ref } from 'vue'
+  import { ref } from 'vue'
 
   const date = new Date()
+
+  const value2 = ref(true)
 </script>
 
 <template>
+  <h1>{{ value2 ? 'success' : 'warning' }}</h1>
+  <f-switch v-model="value2" />
   <f-empty />
   <f-page-header />
-  <f-fighting-global type="success" lang="en-US">
+  <f-fighting-global :type="value2 ? 'success' : 'warning'" :lang="value2 ? 'zh-CH' : 'en-US'">
+    <f-tag>默认</f-tag>
+    <f-tag>普通</f-tag>
+    <f-tag>警告</f-tag>
+    <f-tag>成功</f-tag>
+    <f-tag type="danger">失败</f-tag>
+
     <f-ripple v-for="(item, i) in 5" :key="i">
       <div class="list">
         <f-text>{{ item }} 涟漪</f-text>
