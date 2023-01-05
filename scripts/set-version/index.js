@@ -8,11 +8,11 @@ const version = process.env.npm_config_setv
 const url = path.join(__dirname, '../../packages/fighting-design/package.json')
 
 /** 读取到文件内容 */
-const package = fs.readFileSync(url, 'utf-8')
+const file = fs.readFileSync(url, 'utf-8')
 
 try {
   /** 获取到读取的文件内容 */
-  const json = JSON.parse(package)
+  const json = JSON.parse(file)
 
   /** 重新赋值版本号 */
   json.version = version
