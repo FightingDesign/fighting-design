@@ -6,8 +6,8 @@ import type { LoadingElInterface, LoadingProps } from './interface'
 const optionsOrganizer = (el: LoadingElInterface, binding: DirectiveBinding): LoadingProps => {
   /**
    * 获取 props 中的值
+   * 
    * @param propKey props 的键
-   * @returns { LoadingProps[K] }
    */
   const getBindingProp = <K extends keyof LoadingProps>(propKey: K): LoadingProps[K] => {
     return binding.value[propKey]
@@ -15,8 +15,9 @@ const optionsOrganizer = (el: LoadingElInterface, binding: DirectiveBinding): Lo
 
   /**
    * 获取 props
+   * 
    * @param propKey props 的键
-   * @returns { LoadingProps[K] | string } props 或 attribute
+   * @returns props 或 attribute
    */
   const getProp = <K extends keyof LoadingProps>(propKey: K): LoadingProps[K] | string => {
     return getBindingProp(propKey) || el.getAttribute(`f-loading-${propKey}`) || ''
@@ -33,12 +34,14 @@ const optionsOrganizer = (el: LoadingElInterface, binding: DirectiveBinding): Lo
 
 /**
  * 渲染元素节点
+ * 
  * @param el 元素节点
  * @param binding 一个对象，包含一些配置参数
  */
 const renderLoadingDom = (el: LoadingElInterface, binding: DirectiveBinding): void => {
   /**
    * 判断是否有绝对定位或者固定定位
+   * 
    * 首先要给容器设置相对定位
    */
   if (el.originalPosition !== 'absolute' && el.originalPosition !== 'fixed') {
@@ -47,6 +50,7 @@ const renderLoadingDom = (el: LoadingElInterface, binding: DirectiveBinding): vo
   const options = optionsOrganizer(el, binding)
   const loadingInstance = createApp(Loading, options)
   const _vm = loadingInstance.mount(document.createElement('div')) as ComponentPublicInstance
+
   el.vm = _vm
   el.loadingInstance = loadingInstance
   el.appendChild(_vm.$el)
@@ -73,30 +77,29 @@ const removeLoadingDom = (el: LoadingElInterface): void => {
 export const vLoading: Directive = {
   /**
    * 在绑定元素的父组件
+   * 
    * 及他自己的所有子节点都挂载完成后调用
+   * 
    * @param el 指令绑定到的元素。这可以用于直接操作 DOM
    * @param binding 一个对象，包含一些配置参数
    */
-  mounted (el: LoadingElInterface, binding: DirectiveBinding): void {
-    /**
-     * 获取到当前元素的定位样式
-     */
+  mounted: (el: LoadingElInterface, binding: DirectiveBinding): void => {
+    /** 获取到当前元素的定位样式 */
     const originalPosition: string = getComputedStyle(el)['position'] || 'static'
+
     el.originalPosition = originalPosition
-    if (binding.value) {
-      // 这个好像没执行 x
-      // 绑定值为true是执行
-      renderLoadingDom(el, binding)
-    }
+    binding.value && renderLoadingDom(el, binding)
+
   },
   /**
    * 在绑定元素的父组件
+   * 
    * 及他自己的所有子节点都更新后调用
    *
    * @param el 指令绑定到的元素。这可以用于直接操作 DOM
    * @param binding 一个对象，包含一些配置参数
    */
-  updated (el: LoadingElInterface, binding: DirectiveBinding): void {
+  updated: (el: LoadingElInterface, binding: DirectiveBinding): void => {
     if (binding.value !== binding.oldValue) {
       if (!binding.value) {
         removeLoadingDom(el)

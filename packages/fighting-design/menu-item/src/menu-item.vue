@@ -11,9 +11,7 @@
 
   const { styles } = useList(prop, 'menu-item')
 
-  /**
-   * 注入父组件的模式依赖项
-   */
+  /** 注入父组件的模式依赖项 */
   const parentInject = inject<MenuProvide | null>(MENU_PROVIDE_KEY, null) as MenuProvide
 
   /**
@@ -25,20 +23,15 @@
    * @see getCurrentInstance https://blog.tianyuhao.cn/docs/vue/vue3-router.html#%E6%B2%A1%E6%9C%89%E5%AE%89%E8%A3%85%E8%B7%AF%E7%94%B1
    */
   const instance = getCurrentInstance() as ComponentInternalInstance
-  /**
-   * 样式列表
-   */
+
+  /** 样式列表 */
   const styleList = styles(['fontSize', 'color'])
 
-  /**
-   * 点击触发
-   */
+  /** 点击触发 */
   const handelClick = (): void => {
     if (prop.disabled) return
 
-    /**
-     * 获取到路由实例
-     */
+    /** 获取到路由实例 */
     const router = instance.appContext.config.globalProperties.$router
 
     parentInject.setActiveName(prop.name)
@@ -52,9 +45,7 @@
     }
   }
 
-  /**
-   * 当前是否呗选中
-   */
+  /** 当前是否呗选中 */
   const isActive = computed((): boolean => {
     if (!parentInject || !parentInject.defaultActive) return false
     return prop.name === parentInject.defaultActive

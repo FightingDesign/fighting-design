@@ -2,9 +2,7 @@ import type { ExtractPropTypes, PropType } from 'vue'
 import type { FightingIcon } from '../../_interface'
 
 export const Props = {
-  /**
-   * icon 内容
-   */
+  /** icon 内容 */
   icon: {
     type: Object as PropType<FightingIcon>,
     default: (): null => null
@@ -27,23 +25,17 @@ export const Props = {
     type: String,
     default: (): null => null
   },
-  /**
-   * 跳转的路径
-   */
+  /** 跳转的路径 */
   to: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 唯一标识
-   */
+  /** 唯一标识 */
   name: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
-  /**
-   * 是否禁用
-   */
+  /** 是否禁用 */
   disabled: {
     type: Boolean,
     default: (): boolean => false

@@ -17,9 +17,7 @@ export const Props = {
       return (['horizontal', 'vertical', 'inline'] as const).includes(val)
     }
   },
-  /**
-   * 默认激活的 name
-   */
+  /** 默认激活的 name */
   activeName: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null

@@ -9,14 +9,10 @@
 
   const { classes, styles } = useList(prop, 'list')
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['borderColor', 'maxHeight', 'zebraColor'])
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = classes(['zebra', 'center', 'size'], 'f-list')
 </script>
 

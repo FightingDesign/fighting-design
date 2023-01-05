@@ -8,9 +8,7 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = computed((): CSSProperties => {
     const { background, fontColor } = prop
 
@@ -20,9 +18,7 @@
     } as const
   })
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = computed((): ClassList => {
     const { fullscreen = false } = prop
 
