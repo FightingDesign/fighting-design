@@ -2,20 +2,11 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FImage } from '../index'
 
-// const src = 'https://tianyuhao.cn/images/auto/1.jpg' as const
-
 describe('FImage', () => {
   test('class', () => {
     const wrapper = mount(FImage)
     expect(wrapper.classes()).toContain('f-image')
   })
-
-  // test('src', async () => {
-  //   const wrapper = mount(FImage, {
-  //     props: { src }
-  //   })
-  //   expect(wrapper.find('.f-image__img').attributes('src')).toContain(src)
-  // })
 
   test('alt', () => {
     const wrapper = mount(FImage, {
@@ -30,20 +21,6 @@ describe('FImage', () => {
     })
     expect(wrapper.find('img').attributes('draggable')).toContain('false')
   })
-
-  // test('width', () => {
-  //   const wrapper = mount(FImage, {
-  //     props: { width: '200px' }
-  //   })
-  //   expect(wrapper.find('img').attributes('style')).toContain('200px')
-  // })
-
-  // test('height', () => {
-  //   const wrapper = mount(FImage, {
-  //     props: { height: '300px' }
-  //   })
-  //   expect(wrapper.find('img').attributes('style')).toContain('300px')
-  // })
 
   test('block', () => {
     const wrapper = mount(FImage, {
@@ -75,11 +52,4 @@ describe('FImage', () => {
     })
     expect(wrapper.find('img').attributes('referrer-policy')).toContain('no-referrer')
   })
-
-  // test('round', () => {
-  //   const wrapper = mount(FImage, {
-  //     props: { round: '20px' }
-  //   })
-  //   expect(wrapper.find('img').attributes('style')).toContain('20px')
-  // })
 })

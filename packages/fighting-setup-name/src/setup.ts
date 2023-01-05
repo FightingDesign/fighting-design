@@ -5,9 +5,7 @@ import { compileScript, parse } from '@vue/compiler-sfc'
 import type { SourceMap } from 'magic-string'
 import type { SFCScriptBlock } from '@vue/compiler-sfc'
 
-/**
- * setupName 方法返回值类型接口
- */
+/** setupName 方法返回值类型接口 */
 export interface SetupNameReturn {
   map: SourceMap
   code: string
@@ -18,7 +16,6 @@ export interface SetupNameReturn {
  *
  * @param code 文件代码段
  * @param id 文件路径
- * @returns { SetupNameReturn }
  */
 export const setupName = (code: string, id: string): SetupNameReturn | null => {
   let s: MagicString | undefined

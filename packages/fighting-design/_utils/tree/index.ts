@@ -21,35 +21,6 @@ export const treeToFlat = (data: TreeData): TreeAddLevelReturn[] => {
   return result
 }
 
-/**
- * 给 tree 添加 level 层级标注
- *
- * @param tree 树形数据
- * @returns
- */
-// export const treeAddLevel = (tree: TreeData): TreeData => {
-//   if (!isArray(tree)) return []
-
-//   const recursive = (array: TreeData, level = 0): TreeData => {
-//     level++
-
-//     return array.map((item: TreeDataItem): TreeDataItem => {
-//       item.level = level
-//       item.show = item.level === 1 ? true : false
-
-//       const child: TreeData = item.children as TreeData
-
-//       if (child && child.length) {
-//         recursive(child, level)
-//       }
-
-//       return item
-//     })
-//   }
-
-//   return recursive(tree)
-// }
-
 export const Add = (tree: TreeData): TreeData => {
   if (!isArray(tree)) return []
 
@@ -87,34 +58,3 @@ export const Add = (tree: TreeData): TreeData => {
 
   return addId(recursive(tree))
 }
-
-// export const addId = (arr, parentId = '') => {
-//   arr.forEach((item, i) => {
-//     if (item.children && item.children.length) {
-//       item.id = Number(`${parentId}${i + 1}`)
-//       addId(item.children, Number(`${parentId}${i + 1}`))
-//     } else {
-//       item.id = Number(`${parentId}${i + 1}`)
-//     }
-//   })
-
-//   return arr
-// }
-
-// export const addParentId = arr => {
-//   arr.forEach(item => {
-//     const p = item.id
-
-//     if (item.children && item.children.length) {
-//       item.children.forEach(z => {
-//         z.parentId = p
-
-//         if (z.children && z.children.length) {
-//           addParentId(item.children)
-//         }
-//       })
-//     }
-//   })
-
-//   return arr
-// }

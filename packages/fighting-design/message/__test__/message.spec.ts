@@ -60,10 +60,8 @@ describe('FMessage', () => {
     expect(messageReturn).toHaveProperty('bottom')
     expect(messageReturn.vm.exposed).toHaveProperty('visible')
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(true)
     await sleep(3000)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(false)
   })
 })

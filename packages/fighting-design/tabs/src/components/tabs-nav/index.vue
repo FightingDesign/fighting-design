@@ -88,10 +88,10 @@
         positionVar.c = 'paddingLeft'
         break
     }
-    // 当前nav的高度
+    /** 当前 nav 的高度 */
     if (!instance || !instance.subTree.el) return
     const wrapperEl: HTMLObjectElement = instance.subTree.el as HTMLObjectElement
-    // 获取除active元素外最高的子元素
+    /** 获取除 active 元素外最高的子元素 */
     const children: HTMLObjectElement[] = instance.subTree.el.querySelectorAll(
       '.f-tabs-nav--item:not(.f-tabs-nav--item__active)'
     ) as HTMLObjectElement[]
@@ -102,27 +102,26 @@
       },
       children[0]
     )
-    // 最高的子元素的padding
+    /** 最高的子元素的 padding */
     const padding: number = sizeToNum(window.getComputedStyle(maxChildren)[positionVar.c] as string)
-    // css变量
+    /** css 变量 */
     const cardActiveDiffHeight: string = window.getComputedStyle(wrapperEl).getPropertyValue('--cardActiveDiffHeight')
-    // 最高的子元素 active 状态下的高度
+    /** 最高的子元素 active 状态下的高度 */
     const maxChildrenNum: number = sizeToNum(maxChildren[positionVar.b]) - padding + sizeToNum(cardActiveDiffHeight)
 
     /**
-     * 比较标签显示高度(wrapperEl)、最高元素预估高度，取得最大值
+     * 比较标签显示高度 (wrapperEl)、最高元素预估高度，取得最大值
      *
-     * 估值高度取得是除active外的元素
-     * 如果当前active的元素本身是最大的话，会体现在wrapperEl.offset上
+     * 估值高度取得是除 active 外的元素
+     *
+     * 如果当前 active 的元素本身是最大的话，会体现在 wrapperEl.offset 上
      */
     wrapperStyle.value = {
       [positionVar.a]: Math.max(wrapperEl[positionVar.b], maxChildrenNum) + 'px'
     }
   }
 
-  /**
-   * 仅针对line模式下的，活动线条的样式
-   */
+  /**仅针对 line 模式下的，活动线条的样式 */
   const activeLineStyle = ref<CSSProperties>({})
 
   const updateActiveLineStyle = async (): Promise<void> => {
@@ -157,9 +156,7 @@
     activeLineStyle.value = activeStyle
   }
 
-  /**
-   * 左右侧的滚动阴影
-   */
+  /** 左右侧的滚动阴影 */
   const leftReachedRef = ref<boolean>(false)
   const rightReachedRef = ref<boolean>(false)
 
@@ -172,19 +169,18 @@
   }
 
   /**
-   * wheel => 滚轮事件
-   * https://www.runoob.com/jsref/event-onwheel.html
+   * 滚轮事件
    *
    * 实现横向滚动效果
+   *
+   * @see WheelEvent https://developer.mozilla.org/zh-CN/docs/Web/API/WheelEvent
    */
   const handleWheel = (evt: WheelEvent): void => {
     (evt.currentTarget as HTMLElement).scrollLeft += evt.deltaY + evt.deltaX
     deriveScrollShadow(evt.currentTarget as HTMLElement)
   }
 
-  /**
-   * 风格样式调整
-   */
+  /** 风格样式调整 */
   watch([currentIndex], (): void => {
     if (prop.type === 'line') {
       updateActiveLineStyle()
@@ -233,9 +229,7 @@
     ] as const
   })
 
-  /**
-   * 事件处理
-   */
+  /** 事件处理 */
   const trigger = computed((): 'click' | 'mouseenter' => {
     return prop.trigger === 'hover' ? 'mouseenter' : 'click'
   })

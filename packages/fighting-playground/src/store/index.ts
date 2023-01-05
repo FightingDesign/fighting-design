@@ -65,7 +65,7 @@ export class ReplStore {
 
     this.initImportMap()
 
-    // 注入 Fighting Design
+    /** 注入 Fighting Design */
     this.state.files[fightingPlugin] = new File(fightingPlugin, fightingPluginCode)
 
     watchEffect(() => compileFile(this as unknown as Store, this.state.activeFile))
@@ -98,16 +98,16 @@ export class ReplStore {
   }
   /**
    * 删除文件
+   * 
    * @param filename 文件名
-   * @returns
    */
   deleteFile = (filename: string): void => {
-    // 如果删除的 Fighting Design 的配置文件
+    /** 如果删除的 Fighting Design 的配置文件 */
     if (filename === fightingPlugin) {
       FMessage.danger('Fighting Design 依赖于这个文件，请勿删除！')
       return
     }
-    // 提示框
+    /** 提示框 */
     if (confirm(`你确定删除 ${filename} 吗？`)) {
       if (this.state.activeFile.filename === filename) {
         this.state.activeFile = this.state.files[this.state.mainFile]

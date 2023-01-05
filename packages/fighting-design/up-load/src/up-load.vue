@@ -16,9 +16,7 @@
   const fileList = ref<File[]>(null as unknown as File[])
   const FUpLoadInput = ref(null as unknown as HTMLInputElement)
 
-  /**
-   * 点击上传
-   */
+  /** 点击上传 */
   const handleClick = (): void => {
     FUpLoadInput.value.click()
   }
@@ -44,12 +42,12 @@
     const { maxSize, maxLength } = prop
     let list: File[] = [...files]
 
-    // 拦截过大的文件
+    /** 拦截过大的文件 */
     if (maxSize) {
       list = list.filter((file: File): boolean => file.size < maxSize)
     }
 
-    // 截取最大上传的数量
+    /** 截取最大上传的数量 */
     if (maxLength) {
       list = list.splice(0, maxLength)
     }
@@ -75,7 +73,7 @@
    * @param index 需要删除的文件索引
    */
   const removeFile = (index: number): void => {
-    ;(fileList.value as File[]).splice(index, 1)
+    (fileList.value as File[]).splice(index, 1)
   }
 
   /**
@@ -101,9 +99,7 @@
     }
   }
 
-  /**
-   * 如果文件发生改变时触发
-   */
+  /** 如果文件发生改变时触发 */
   const loadChange = (): void => {
     if (!prop.onChange) return
     watch(

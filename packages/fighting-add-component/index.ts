@@ -24,7 +24,7 @@ const mainFilePath: string = path.join(
 )
 
 const detectPublic = async (): Promise<void> => {
-  // 如果已经存在
+  /** 如果已经存在 */
   if (fsExtra.existsSync(outputDir)) {
     logError(`组件 ${compName}` + '\n' + `已存在${mainFilePath}`)
     return
@@ -49,7 +49,7 @@ const detectPublic = async (): Promise<void> => {
 
 detectPublic()
 
-// 检测组件名是否规范
+/** 检测组件名是否规范 */
 function fetchCompName (): string {
   const input: string = process.argv[2]
 
@@ -107,11 +107,11 @@ async function generate (): Promise<[void, void, void, void, void]> {
 async function generateComponentDir (): Promise<void> {
   const tplDir: string = path.resolve(__dirname, './template/component')
 
-  // 编译文件内容
+  /** 编译文件内容 */
   await superEjsGerenateDir(outputDir, tplDir)
 }
 
-// 修改组件入口文件
+/** 修改组件入口文件 */
 async function updateComponentEntry (): Promise<void> {
   const entryFilePath: string = path.resolve(
     __dirname,
@@ -131,16 +131,16 @@ async function updateComponentEntry (): Promise<void> {
   await fsExtra.writeFile(entryFilePath, content)
 }
 
-// 创建样式文件
+/** 创建样式文件 */
 async function incrementStyle (): Promise<void> {
   const outputDir: string = path.resolve(__dirname, '../fighting-theme/src')
   const tplDir: string = path.resolve(__dirname, './template/style')
 
-  // 编译文件内容
+  /** 编译文件内容 */
   await superEjsGerenateDir(outputDir, tplDir)
 }
 
-// 添加样式入口
+/** 添加样式入口 */
 async function updateStyleEntry (): Promise<void> {
   const entryFilePath: string = path.resolve(
     __dirname,
@@ -153,7 +153,7 @@ async function updateStyleEntry (): Promise<void> {
   await fsExtra.writeFile(entryFilePath, content)
 }
 
-// 添加测试文件
+/** 添加测试文件 */
 async function incrementTest (): Promise<void> {
   const outputDir: string = path.resolve(
     __dirname,

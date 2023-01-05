@@ -2,20 +2,11 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FAvatar } from '../index'
 
-// const src = 'https://tianyuhao.cn/images/auto/1.jpg' as const
-
 describe('FAvatar', () => {
   test('class', () => {
     const wrapper = mount(FAvatar)
     expect(wrapper.classes()).toContain('f-avatar')
   })
-
-  // test('src', () => {
-  //   const wrapper = mount(FAvatar, {
-  //     props: { src }
-  //   })
-  //   expect(wrapper.find('.f-avatar__img').attributes('src')).toContain(src)
-  // })
 
   test('alt', () => {
     const wrapper = mount(FAvatar, {
@@ -57,27 +48,4 @@ describe('FAvatar', () => {
     })
     expect(wrapper.attributes('style')).toContain('red')
   })
-
-  // test('icon', () => {
-  //   const wrapper = mount(FAvatar, {
-  //     props: { icon: 'f-icon-default-template' }
-  //   })
-  //   expect(wrapper.find('.f-icon').classes()).toContain(
-  //     'f-icon-default-template'
-  //   )
-  // })
-
-  // test('icon-size', () => {
-  //   const wrapper = mount(FAvatar, {
-  //     props: { icon: 'f-icon-default-template', fontSize: '12px' }
-  //   })
-  //   expect(wrapper.find('.f-icon').attributes('style')).toContain('12px')
-  // })
-
-  // test('icon-color', () => {
-  //   const wrapper = mount(FAvatar, {
-  //     props: { icon: 'f-icon-default-template', fontColor: 'red' }
-  //   })
-  //   expect(wrapper.find('.f-icon').attributes('style')).toContain('red')
-  // })
 })

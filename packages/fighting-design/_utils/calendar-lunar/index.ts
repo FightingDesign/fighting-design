@@ -70,7 +70,7 @@ export class Lunar implements LunarInterface {
    */
   monthDays = (year: number, month: number): number => {
     if (month > 12 || month < 1) {
-      // 月份参数从 1 至 12，参数错误返回 -1
+      /** 月份参数从 1 至 12，参数错误返回 -1 */
       return -1
     }
     return LUNAR_INFO[year - 1900] & (0x10000 >> month) ? 30 : 29
@@ -85,8 +85,8 @@ export class Lunar implements LunarInterface {
   toGanZhiYear = (lYear: number): string => {
     let ganKey: number = (lYear - 3) % 10
     let zhiKey: number = (lYear - 3) % 12
-    if (ganKey === 0) ganKey = 10 // 如果余数为 0 则为最后一个天干
-    if (zhiKey === 0) zhiKey = 12 // 如果余数为 0 则为最后一个地支
+    if (ganKey === 0) ganKey = 10 /** 如果余数为 0 则为最后一个天干 */
+    if (zhiKey === 0) zhiKey = 12 /** 如果余数为 0 则为最后一个地支 */
     return DAY_GAN[ganKey - 1] + DAY_ZHI[zhiKey - 1]
   }
 
@@ -142,12 +142,12 @@ export class Lunar implements LunarInterface {
    * @return { String | Number }
    */
   toChinaMonth = (month: number): string | -1 => {
-    // 若参数错误 返回-1
+    /** 若参数错误 返回 -1 */
     if (month > 12 || month < 1) {
       return -1
     }
     let s: string = CHANG_MONTH_LUNAR_CALENDAR[month - 1]
-    s += '\u6708' // 加上月字
+    s += '\u6708' /** 加上月字 */
     return s
   }
 
@@ -198,17 +198,17 @@ export class Lunar implements LunarInterface {
     let m: number = parseInt(mPara.toString())
     let d: number = parseInt(dPara.toString())
 
-    // 年份限定、上限
+    /** 年份限定、上限 */
     if (y < 1900 || y > 2100) {
       return -1
     }
 
-    // 公历传参最下限
+    /** 公历传参最下限 */
     if (y === 1900 && m === 1 && d < 31) {
       return -1
     }
 
-    // 未传参  获得当天
+    /** 未传参 获得当天 */
     let objDate: Date
 
     if (!y) {
@@ -221,7 +221,7 @@ export class Lunar implements LunarInterface {
       leap = 0,
       temp = 0
 
-    // 修正ymd参数
+    /** 修正 ymd 参数 */
     y = objDate.getFullYear()
     m = objDate.getMonth() + 1
     d = objDate.getDate()

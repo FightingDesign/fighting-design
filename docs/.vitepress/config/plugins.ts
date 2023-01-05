@@ -3,8 +3,11 @@ import MarkdownIt from 'markdown-it'
 import { tablePlugin } from './table'
 import type { Token } from 'markdown-it'
 
-// https://markdown-it.docschina.org/#%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B
-// https://juejin.cn/post/6844903688536850440
+/**
+ * https://markdown-it.docschina.org/#%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B
+ *
+ * https://juejin.cn/post/6844903688536850440
+ */
 const markdown: MarkdownIt = MarkdownIt({
   breaks: true
 })
@@ -15,10 +18,10 @@ const markdown: MarkdownIt = MarkdownIt({
  * @param md markdown 实例
  */
 export const mdPlugin = (md: MarkdownIt) => {
-  // 使用表格插件
+  /** 使用表格插件 */
   md.use(tablePlugin)
 
-  // 自定义 md 语法
+  /** 自定义 md 语法 */
   md.use(MarkdownItContainer, 'demo', {
     validate(params: string): boolean {
       return !!params.trim().match(/^demo\s*(.*)$/)

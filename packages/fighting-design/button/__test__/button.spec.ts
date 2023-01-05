@@ -93,17 +93,7 @@ describe('FButton', () => {
     })
     expect(wrapper.classes()).toContain('f-button__disabled')
     expect(wrapper.attributes('disabled')).toContain(true)
-    // expect(wrapper.find('i').classes()).toContain('f-icon')
-    // expect(wrapper.find('i').classes()).toContain('f-icon-loading')
-    // expect(wrapper.find('i').classes()).toContain('f-loading-animation')
   })
-
-  // test('loading-icon', () => {
-  //   const wrapper = mount(FButton, {
-  //     props: { loading: true, loadingIcon: 'f-icon-suoxiao' }
-  //   })
-  //   expect(wrapper.find('i').classes()).toContain('f-icon-suoxiao')
-  // })
 
   test('disabled', () => {
     const wrapper = mount(FButton, {
@@ -112,33 +102,6 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button__disabled')
     expect(wrapper.attributes('disabled')).toContain(true)
   })
-
-  // test('before-icon', () => {
-  //   const wrapper = mount(FButton, {
-  //     props: { beforeIcon: 'f-icon-Customermanagement' }
-  //   })
-  //   expect(wrapper.find('.f-icon').classes()).toContain(
-  //     'f-icon-Customermanagement'
-  //   )
-  // })
-
-  // test('before-icon', () => {
-  //   const wrapper = mount(FButton, {
-  //     props: { beforeIcon: 'f-icon-Customermanagement', loading: true }
-  //   })
-  //   expect(wrapper.find('.f-icon').classes()).toContain(
-  //     'f-icon-loading'
-  //   )
-  // })
-
-  // test('after-icon', () => {
-  //   const wrapper = mount(FButton, {
-  //     props: { afterIcon: 'f-icon-Customermanagement' }
-  //   })
-  //   expect(wrapper.find('.f-icon').classes()).toContain(
-  //     'f-icon-Customermanagement'
-  //   )
-  // })
 
   test('type', () => {
     const type = ['default', 'primary', 'success', 'danger', 'warning'] as const

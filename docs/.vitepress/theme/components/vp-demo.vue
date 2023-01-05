@@ -1,18 +1,12 @@
 <script setup name="VpDemo">
   import { ref } from 'vue'
 
-  /**
-   * 是否展示内容
-   */
+  /** 是否展示内容 */
   const isOpen = ref(false)
-  /**
-   * 折叠的 dom 节点
-   */
+  /** 折叠的 dom 节点 */
   const content = ref(null)
 
-  /**
-   * 点击执行
-   */
+  /** 点击执行 */
   const handleClick = () => {
     if (!isOpen.value) {
       content.value.style.height = 'auto'

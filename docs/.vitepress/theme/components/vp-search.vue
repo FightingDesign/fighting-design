@@ -16,33 +16,27 @@
   import { searchList } from './src'
   import type { SearchList } from './src/search-list'
 
-  /**
-   * 输入框输入的内容
-   */
+  /** 输入框输入的内容 */
   const value = ref('')
-  /**
-   * 是否展示下拉菜单
-   */
+
+  /** 是否展示下拉菜单 */
   const isShow = ref(false)
-  /**
-   * 搜索结果列表
-   */
+
+  /** 搜索结果列表 */
   const resultList = ref(null as unknown as SearchList)
 
-  /**
-   * 按下回车触发搜索
-   */
-  const onSearch = () => {
-    // 过滤搜索结果
+  /** 按下回车触发搜索 */
+  const onSearch = (): void => {
+    /** 过滤搜索结果 */
     resultList.value = searchList.filter(item => {
       return item.rule.includes(value.value)
     })
 
-    // 检测有结果
+    /** 检测有结果 */
     if (resultList.value && resultList.value.length) {
       isShow.value = true
 
-      setTimeout(() => {
+      setTimeout((): void => {
         const link = document.querySelectorAll('.vp-search__link')
 
         if (link.length === 1) {
@@ -52,10 +46,8 @@
     }
   }
 
-  /**
-   * 关闭搜索结果菜单
-   */
-  const hiddenResult = () => {
+  /** 关闭搜索结果菜单 */
+  const hiddenResult = (): void => {
     isShow.value = false
     value.value = ''
   }

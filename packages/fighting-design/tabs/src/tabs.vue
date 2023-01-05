@@ -10,9 +10,7 @@
 
   const { navs, currentName, edit, setCurrentName } = useTabs(prop)
 
-  /**
-   * 选项卡标签位置
-   */
+  /** 选项卡标签位置 */
   const tabsPosition = computed((): TabsPosition => {
     const { position, type } = prop
 
@@ -24,16 +22,12 @@
     return position
   })
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = computed((): ClassList => {
     return ['f-tabs', `f-tabs__position_${tabsPosition.value}`] as const
   })
 
-  /**
-   * 通过 refs 抛出当前选中的值
-   */
+  /** 通过 refs 抛出当前选中的值 */
   defineExpose({ currentName })
 </script>
 
