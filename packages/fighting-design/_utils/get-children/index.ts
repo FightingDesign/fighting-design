@@ -6,7 +6,7 @@ import type { Component, VNode } from 'vue'
  *
  * @param children 孩子节点
  * @param componentName 子元素的名字
- * @returns { VNode[] } 所需要的所有孩子节点列表
+ * @returns 所需要的所有孩子节点列表
  */
 export const getChildren = (children: VNode[], componentName: string): VNode[] => {
   let components: VNode[] = []
@@ -26,7 +26,6 @@ export const getChildren = (children: VNode[], componentName: string): VNode[] =
        * 否则不是亲孩子就继续判断，孩子的孩子是不是一个有效数组
        *
        * 如果是则继续递归遍历
-       *
        */
       if (name !== componentName && child.children && isArray(child.children)) {
         const childChildren: VNode[] = getChildren(child.children as VNode[], componentName)

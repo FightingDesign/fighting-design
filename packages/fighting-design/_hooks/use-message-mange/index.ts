@@ -53,7 +53,7 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
    */
   const removeInstance = (placement: MessagePlacementType, id: string): void => {
     const idx: number = getInstanceIndex(placement, id)
-      ; (instances[placement] as MessageInstance[]).splice(idx, 1)
+    ;(instances[placement] as MessageInstance[]).splice(idx, 1)
   }
 
   /**

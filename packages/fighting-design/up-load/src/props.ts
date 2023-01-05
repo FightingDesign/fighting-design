@@ -13,7 +13,7 @@ export const Props = {
   },
   /**
    * 原生 name 属性
-   * 
+   *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
   name: {

@@ -17,7 +17,7 @@ export interface CreateWatermarkProps {
 
 /**
  * useCanvas 返回值类型接口
- * 
+ *
  * @param createWatermark 将 canvas 转换成 base64 图片格式
  */
 export interface UseCanvasReturn {

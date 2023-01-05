@@ -9,7 +9,7 @@ export const Props = {
   },
   /**
    * 滚动模式
-   * 
+   *
    * @values smooth auto
    * @defaultValue smooth
    * @see scrollTo https://developer.mozilla.org/zh-CN/docs/Web/API/Window/scrollTo

@@ -19,6 +19,7 @@ export const Props = {
   },
   /**
    * 阴影样式
+   *
    * @values hover always
    */
   shadow: {

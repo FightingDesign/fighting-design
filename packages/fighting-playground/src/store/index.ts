@@ -98,7 +98,7 @@ export class ReplStore {
   }
   /**
    * 删除文件
-   * 
+   *
    * @param filename 文件名
    */
   deleteFile = (filename: string): void => {

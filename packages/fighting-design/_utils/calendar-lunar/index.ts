@@ -238,35 +238,35 @@ export class Lunar implements LunarInterface {
       i--
     }
 
-    // 星期几
+    /** 星期几 */
     let nWeek: number = objDate.getDay()
 
-    // 数字表示周几顺应天朝周一开始的惯例
+    /** 数字表示周几顺应天朝周一开始的惯例 */
     if (nWeek === 0) {
       nWeek = 7
     }
-    // 农历年
+    /** 农历年 */
     const year: number = i
-    leap = this.leapMonth(i) // 闰哪个月
+    leap = this.leapMonth(i) /** 闰哪个月 */
     let isLeap = false
 
-    // 效验闰月
+    /** 效验闰月 */
     for (i = 1; i < 13 && offset > 0; i++) {
-      // 闰月
+      /** 闰月 */
       if (leap > 0 && i === leap + 1 && isLeap === false) {
         --i
         isLeap = true
-        temp = this.leapDays(year) // 计算农历闰月天数
+        temp = this.leapDays(year) /** 计算农历闰月天数 */
       } else {
-        temp = this.monthDays(year, i) // 计算农历普通月天数
+        temp = this.monthDays(year, i) /** 计算农历普通月天数 */
       }
-      // 解除闰月
+      /** 解除闰月 */
       if (isLeap === true && i === leap + 1) {
         isLeap = false
       }
       offset -= temp
     }
-    // 闰月导致数组下标重叠取反
+    /** 闰月导致数组下标重叠取反 */
     if (offset === 0 && leap > 0 && i === leap + 1) {
       if (isLeap) {
         isLeap = false
@@ -280,22 +280,25 @@ export class Lunar implements LunarInterface {
       --i
     }
 
-    const month: number = i // 农历月
-    const day: number = offset + 1 // 农历日
-    const sm: number = m - 1 // 天干地支处理
+    /** 农历月 */
+    const month: number = i
+    /** 农历日 */
+    const day: number = offset + 1
+    /** 天干地支处理 */
+    const sm: number = m - 1
     const gzY: string = this.toGanZhiYear(year)
 
-    // 当月的两个节气
-    const firstNode: number = this.getTerm(y, m * 2 - 1) // 返回当月「节」为几日开始
-    const secondNode: number = this.getTerm(y, m * 2) // 返回当月「节」为几日开始
+    /** 当月的两个节气 */
+    const firstNode: number = this.getTerm(y, m * 2 - 1) /** 返回当月「节」为几日开始 */
+    const secondNode: number = this.getTerm(y, m * 2) /** 返回当月「节」为几日开始 */
 
-    // 依据 12 节气修正干支月
+    /** 依据 12 节气修正干支月 */
     let gzM: string = this.toGanZhi((y - 1900) * 12 + m + 11)
     if (d >= firstNode) {
       gzM = this.toGanZhi((y - 1900) * 12 + m + 12)
     }
 
-    // 传入的日期的节气与否
+    /** 传入的日期的节气与否 */
     let Term = null
 
     if (firstNode === d) {
@@ -304,10 +307,11 @@ export class Lunar implements LunarInterface {
     if (secondNode === d) {
       Term = SOLAR_TERM[m * 2 - 1]
     }
-    // 日柱 当月一日与 1900/1/1 相差天数
+
+    /** 日柱 当月一日与 1900/1/1 相差天数 */
     const dayCyclical: number = Date.UTC(y, sm, 1, 0, 0, 0, 0) / 86400000 + 25567 + 10
     const gzD: string = this.toGanZhi(dayCyclical + d - 1)
-    // 该日期所属的星座
+    /** 该日期所属的星座 */
     const constellation: string = this.toConstellation(m, d)
 
     const solarDate = y + '-' + m + '-' + d
@@ -320,8 +324,11 @@ export class Lunar implements LunarInterface {
      * @see github https://github.com/jjonline/calendar.js/issues/29
      *
      * 农历节日修正：农历 12 月小月则 29 号除夕，大月则 30 号除夕
+     *
      * 此处取巧修正：当前为农历 12 月 29 号时增加一次判断并且把 lunarFestivalDate 设置为 12-30 以正确取得除夕
+     *
      * 天朝农历节日遇闰月过前不过后的原则，此处取农历 12 月天数不考虑闰月
+     *
      * 农历润 12 月在本工具支持的 200 年区间内仅 1574 年出现
      */
     if (month === 12 && day === 29 && this.monthDays(year, month) === 29) {

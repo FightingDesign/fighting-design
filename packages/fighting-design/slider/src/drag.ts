@@ -75,12 +75,12 @@ class Drag {
 }
 
 export default {
-  beforeMount (
+  beforeMount: (
     el: HTMLElement,
     binding: {
       value: (options: { x: number }) => void
     }
-  ): void {
+  ): void => {
     new Drag(el, binding.value)
   }
 }

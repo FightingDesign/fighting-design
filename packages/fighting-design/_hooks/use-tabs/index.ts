@@ -1,12 +1,4 @@
-import {
-  getCurrentInstance,
-  ref,
-  nextTick,
-  onMounted,
-  watch,
-  computed,
-  provide
-} from 'vue'
+import { getCurrentInstance, ref, nextTick, onMounted, watch, computed, provide } from 'vue'
 import { getChildrenComponent } from '../../_utils'
 import { TABS_PROPS_KEY } from '../../tabs/src/props'
 import type { ComponentInternalInstance, VNode } from 'vue'
@@ -20,7 +12,6 @@ export * from './interface.d'
  * @param prop props 参数
  */
 export const useTabs = (prop: TabsProps): UseTabsReturn => {
-
   /** 获取当前组件实例 */
   const instance: ComponentInternalInstance | null = getCurrentInstance()
   /** 子组件集合 */

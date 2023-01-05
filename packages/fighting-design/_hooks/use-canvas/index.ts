@@ -22,6 +22,7 @@ export const useCanvas = (): UseCanvasReturn => {
     canvas.style.height = props.height + 'px'
 
     const context: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D
+
     if (context) {
       context.rotate((-8 * Math.PI) / 100)
       context.font = `${sizeChange(props.fontSize)} serif`

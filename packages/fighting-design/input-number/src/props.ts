@@ -27,7 +27,7 @@ export const Props = {
   },
   /**
    * 数值精度
-   * 
+   *
    * @defaultValue 0
    */
   precision: {
@@ -36,7 +36,7 @@ export const Props = {
   },
   /**
    * 步长
-   * 
+   *
    * @defaultValue 1
    */
   step: {
@@ -84,7 +84,7 @@ export const Props = {
   },
   /**
    * 原生 name 属性
-   * 
+   *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
   name: {
@@ -93,7 +93,7 @@ export const Props = {
   },
   /**
    * 占位符
-   * 
+   *
    * @see placeholder https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
    */
   placeholder: {

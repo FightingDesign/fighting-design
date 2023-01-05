@@ -7,7 +7,7 @@ export * from './interface.d'
 
 /**
  * 针对 tree 组件的树形结构的处理
- * 
+ *
  * @param data 树形结构
  */
 export const useTreeData = (data: TreeData): UseTreeDataReturn => {
@@ -19,7 +19,7 @@ export const useTreeData = (data: TreeData): UseTreeDataReturn => {
 
   /**
    * 隐藏节点方法
-   * 
+   *
    * @param tree 树形结构
    */
   const hidden = (tree: TreeData): void => {
@@ -34,7 +34,7 @@ export const useTreeData = (data: TreeData): UseTreeDataReturn => {
 
   /**
    * 获取到指定的元素进行操作
-   * 
+   *
    * @param data 树形结构
    * @param id id
    */

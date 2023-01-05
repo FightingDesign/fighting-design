@@ -25,10 +25,10 @@ export type DebounceReturn = () => void
  */
 export const debounce = (callback: () => void, delay = 200): DebounceReturn => {
   let timer: NodeJS.Timeout
+
   return (): void => {
-    if (timer) {
-      clearTimeout(timer)
-    }
+    timer && clearTimeout(timer)
+
     timer = setTimeout((): void => {
       callback()
     }, delay)

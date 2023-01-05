@@ -176,7 +176,7 @@
    * @see WheelEvent https://developer.mozilla.org/zh-CN/docs/Web/API/WheelEvent
    */
   const handleWheel = (evt: WheelEvent): void => {
-    (evt.currentTarget as HTMLElement).scrollLeft += evt.deltaY + evt.deltaX
+    ;(evt.currentTarget as HTMLElement).scrollLeft += evt.deltaY + evt.deltaX
     deriveScrollShadow(evt.currentTarget as HTMLElement)
   }
 

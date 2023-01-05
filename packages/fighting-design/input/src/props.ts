@@ -12,7 +12,7 @@ export const Props = {
    * 类型
    *
    * 文字输入框或者密码输入框
-   * 
+   *
    * @values text password number
    * @defaultValue text
    */

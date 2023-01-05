@@ -1,6 +1,6 @@
 /**
  * useVisible 返回值类型接口
- * 
+ *
  * @param isVisible 展示状态
  * @param closeVisible 关闭方法
  */

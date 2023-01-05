@@ -31,6 +31,7 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
 
   /**
    * 类名列表
+   *
    * @param list 类名所需要的 prop 参数
    * @param className 其它所需要的类名
    */

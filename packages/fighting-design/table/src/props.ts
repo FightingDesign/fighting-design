@@ -14,7 +14,7 @@ export const Props = {
   },
   /**
    * 内容对齐方式
-   * 
+   *
    * @values left center right
    * @defaultValue left
    */

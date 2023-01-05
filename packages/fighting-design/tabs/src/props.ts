@@ -1,17 +1,10 @@
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type {
-  TabsTrigger,
-  TabsPaneName,
-  TabsPosition,
-  TabsType,
-  TabsJustifyContent,
-  BeforeEnter
-} from './interface'
+import type { TabsTrigger, TabsPaneName, TabsPosition, TabsType, TabsJustifyContent, BeforeEnter } from './interface'
 
 export const Props = {
   /**
    * 头部位置
-   * 
+   *
    * @values left right top bottom
    * @defaultValue top
    */
@@ -31,7 +24,7 @@ export const Props = {
   },
   /**
    * 样式风格
-   * 
+   *
    * @values line card segment
    * @defaultValue line
    */
@@ -44,7 +37,7 @@ export const Props = {
   },
   /**
    * 对齐方式
-   * 
+   *
    * @values flex-start center flex-end space-between space-around space-evenly
    * @defaultValue flex-start
    * @see justify-content https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content
@@ -53,7 +46,9 @@ export const Props = {
     type: String as PropType<TabsJustifyContent>,
     default: (): TabsJustifyContent => 'flex-start',
     validator: (val: TabsJustifyContent): boolean => {
-      return (['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'] as const).includes(val)
+      return (['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'] as const).includes(
+        val
+      )
     }
   },
   /**
@@ -65,7 +60,7 @@ export const Props = {
   },
   /**
    * 触发方式
-   * 
+   *
    * @values click hover
    * @defaultValue click
    */

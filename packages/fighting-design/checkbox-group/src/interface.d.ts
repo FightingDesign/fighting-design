@@ -10,7 +10,7 @@ export type CheckboxGroupChange = (val: string[]) => void
 
 /**
  * 注入的依赖项类型接口
- * 
+ *
  * @param modelValue 绑定值
  * @param disabled 是否禁用
  * @param vertical 是否纵向排列

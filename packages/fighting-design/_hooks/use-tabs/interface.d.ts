@@ -3,7 +3,7 @@ import type { TabsPaneName, TabsNavInstance } from '../../tabs'
 
 /**
  * useTabs 返回值类型接口
- * 
+ *
  * @param navs nav 列表
  * @param currentName 当前选中的子组件
  * @param edit 编辑状态
@@ -18,7 +18,7 @@ export interface UseTabsReturn {
 
 /**
  * 注入的依赖项类型接口
- * 
+ *
  * @param currentName 当前选中的 pane
  * @param updatePaneList 更新子组件列表
  */

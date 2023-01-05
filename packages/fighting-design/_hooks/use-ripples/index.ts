@@ -62,13 +62,11 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
    * 渲染节点
    * @param x 坐标 x
    * @param y 坐标 y
-   * @return { HTMLElement }
    */
   const renderElement = (x: number, y: number): HTMLElement => {
-    /**
-     * 新建个 span 元素
-     */
+    /** 新建个 span 元素 */
     const ripples: HTMLSpanElement = document.createElement('span')
+
     ripples.className = options.className
     ripples.style.background = ripplesColor.value
     ripples.style.left = `${x}px`

@@ -107,6 +107,7 @@ export const Props = {
   },
   /**
    * 原生 name 属性
+   *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-name
    */
   name: {
@@ -125,6 +126,7 @@ export const Props = {
   },
   /**
    * 原生 type 属性
+   *
    * @values button submit reset
    * @defaultValue button
    * @see type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type

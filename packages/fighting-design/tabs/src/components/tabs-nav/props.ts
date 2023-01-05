@@ -18,11 +18,11 @@ export const Props = {
     default: (): null => null
   },
   /**
-  * 样式风格
-  * 
-  * @values line card segment
-  * @defaultValue line
-  */
+   * 样式风格
+   *
+   * @values line card segment
+   * @defaultValue line
+   */
   type: {
     type: String as PropType<TabsType>,
     default: (): TabsType => 'line',
@@ -32,7 +32,7 @@ export const Props = {
   },
   /**
    * 头部位置
-   * 
+   *
    * @values left right top bottom
    * @defaultValue top
    */
@@ -52,7 +52,7 @@ export const Props = {
   },
   /**
    * 对齐方式
-   * 
+   *
    * @values flex-start center flex-end space-between space-around space-evenly
    * @defaultValue flex-start
    * @see justify-content https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content
@@ -61,7 +61,9 @@ export const Props = {
     type: String as PropType<TabsJustifyContent>,
     default: (): TabsJustifyContent => 'flex-start',
     validator: (val: TabsJustifyContent): boolean => {
-      return (['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'] as const).includes(val)
+      return (['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'] as const).includes(
+        val
+      )
     }
   },
   /**
@@ -72,11 +74,11 @@ export const Props = {
     default: (): boolean => false
   },
   /**
-  * 触发方式
-  * 
-  * @values click hover
-  * @defaultValue click
-  */
+   * 触发方式
+   *
+   * @values click hover
+   * @defaultValue click
+   */
   trigger: {
     type: String as PropType<TabsTrigger>,
     default: (): TabsTrigger => 'click',

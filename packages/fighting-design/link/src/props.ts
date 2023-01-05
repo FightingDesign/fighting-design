@@ -32,7 +32,7 @@ export const Props = {
   },
   /**
    * 状态的样式状态
-   * 
+   *
    * @values line bag
    */
   state: {

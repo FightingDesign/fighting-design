@@ -40,7 +40,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
    */
   const getSize = (def: FightingSize = 'middle', parentSize?: FightingSize | null): ComputedRef<FightingSize> => {
     return computed((): FightingSize => {
-      return (prop && prop.size as FightingSize) || parentSize || (global && global.size) || def
+      return (prop && (prop.size as FightingSize)) || parentSize || (global && global.size) || def
     })
   }
 
