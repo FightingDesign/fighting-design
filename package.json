@@ -29,7 +29,8 @@
     "prettier": "prettier --write .",
     "commit": "cz",
     "lint": "eslint . --cache",
-    "lint:fix": "pnpm run lint --fix"
+    "lint:fix": "pnpm run lint --fix",
+    "changelog": "node scripts/set-changelog"
   },
   "dependencies": {
     "vue": "3.2.26"
