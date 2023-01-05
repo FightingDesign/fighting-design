@@ -8,14 +8,10 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 是否展示主内容
-   */
+  /** 是否展示主内容 */
   const showContent = ref<boolean>(false)
 
-  /**
-   * 打开
-   */
+  /** 打开 */
   const handelOpen = (): void => {
     if (prop.disabled) return
     showContent.value = true
@@ -23,32 +19,24 @@
     useRun(prop.onChange, showContent.value)
   }
 
-  /**
-   * 关闭
-   */
+  /** 关闭 */
   const handelClose = (): void => {
     showContent.value = false
     useRun(prop.onClose, showContent.value)
     useRun(prop.onChange, showContent.value)
   }
 
-  /**
-   * 打开事件
-   */
+  /** 打开事件 */
   const openEvent: ComputedRef<'mouseover' | 'click'> = computed((): 'mouseover' | 'click' => {
     return prop.trigger === 'hover' ? 'mouseover' : 'click'
   })
 
-  /**
-   * 关闭事件
-   */
+  /** 关闭事件 */
   const closeEvent: ComputedRef<'mouseleave' | ''> = computed((): 'mouseleave' | '' => {
     return prop.trigger === 'hover' ? 'mouseleave' : ''
   })
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
     const { spacing, enterDuration, leaveDuration } = prop
 
@@ -60,9 +48,7 @@
   })
 
   onMounted((): void => {
-    /**
-     * 给 document 注册点击事件，如果点击的是其它地方则隐藏
-     */
+    /** 给 document 注册点击事件，如果点击的是其它地方则隐藏 */
     document.addEventListener(
       'click',
       (evt: MouseEvent): void => {
@@ -76,10 +62,10 @@
           (item: HTMLElement): boolean => item.className === 'f-trigger'
         )
 
-        // 如果有，则说明点击是孩子节点，则不需要关闭
+        /** 如果有，则说明点击是孩子节点，则不需要关闭 */
         if (isHaveTrigger) return
 
-        // 否则关闭触发器
+        /** 否则关闭触发器 */
         handelClose()
       },
       false

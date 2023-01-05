@@ -1,8 +1,6 @@
 export type { TriggerProps } from './trigger'
 
-/**
- * 触发方式类型
- */
+/** 触发方式类型 */
 export type TriggerTrigger = 'hover' | 'click'
 
 /**

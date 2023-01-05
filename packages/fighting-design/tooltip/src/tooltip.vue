@@ -6,9 +6,7 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = computed((): ClassList => {
     const { position, state, disabled, bold, noArrow, bright } = prop
 
@@ -25,9 +23,7 @@
     ] as const
   })
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = computed((): CSSProperties => {
     const { background, fontColor } = prop
 

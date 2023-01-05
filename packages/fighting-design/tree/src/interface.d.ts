@@ -18,7 +18,5 @@ export interface TreeDataItem {
   children?: TreeDataItem[]
 }
 
-/**
- * 树形结构数组类型
- */
+/** 树形结构数组类型 */
 export type TreeData = TreeDataItem[]

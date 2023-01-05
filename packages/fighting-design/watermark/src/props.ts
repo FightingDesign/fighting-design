@@ -2,51 +2,37 @@ import type { ExtractPropTypes } from 'vue'
 import type { PropType } from 'vue'
 
 export const Props = {
-  /**
-   * 水印内容
-   */
+  /** 水印内容 */
   content: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 水印的宽度
-   */
+  /** 水印的宽度 */
   width: {
     type: Number,
     default: (): number => 280
   },
-  /**
-   * 水印的高度
-   */
+  /** 水印的高度 */
   height: {
     type: Number,
     default: (): number => 200
   },
-  /**
-   * 文字大小
-   */
+  /** 文字大小 */
   fontSize: {
     type: [String, Number] as PropType<string | number>,
     default: (): string => '30px'
   },
-  /**
-   * 文字颜色
-   */
+  /** 文字颜色 */
   fontColor: {
     type: String,
     default: (): string => '#333'
   },
-  /**
-   * 自定义图片水印
-   */
+  /** 自定义图片水印 */
   image: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 是否为块级元素
-   */
+  /** 是否为块级元素 */
   block: {
     type: Boolean,
     default: (): boolean => false

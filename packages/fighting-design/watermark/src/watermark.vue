@@ -9,18 +9,12 @@
 
   const { filter } = useProps(prop)
 
-  /**
-   * 水印样式列表
-   */
+  /** 水印样式列表 */
   const style = ref<CSSProperties>(null as unknown as CSSProperties)
 
-  /**
-   * 文字水印
-   */
+  /** 文字水印 */
   const baseWatermark = computed((): CSSProperties => {
-    /**
-     * base 64 图片格式
-     */
+    /** base 64 图片格式 */
     const watermark: string = useCanvas().createWatermark(
       filter(['content', 'width', 'height', 'fontSize', 'fontColor']) as unknown as CreateWatermarkProps
     )
@@ -30,9 +24,7 @@
     } as CSSProperties
   })
 
-  /**
-   * 图片水印
-   */
+  /** 图片水印 */
   const imageWatermark = computed((): CSSProperties => {
     const { image, width, height } = prop
 
@@ -42,6 +34,7 @@
     } as CSSProperties
   })
 
+  /** 初始化的时候设置水印样式 */
   onMounted((): void => {
     style.value = prop.image ? imageWatermark.value : baseWatermark.value
   })
