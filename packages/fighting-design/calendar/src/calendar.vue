@@ -4,9 +4,10 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FText } from '../../text'
   import { FIconChevronLeftVue, FIconChevronRightVue } from '../../_svg'
-  import { addZero, sizeChange, WEEK_DATA } from '../../_utils'
-  import { useCalculiTime, useRun } from '../../_hooks'
+  import { addZero, sizeChange } from '../../_utils'
+  import { useCalculiTime, useRun, useGlobal } from '../../_hooks'
   import type { CSSProperties } from 'vue'
+  import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
 
@@ -19,8 +20,14 @@
 
   const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(year, month)
 
+  const { getLang } = useGlobal(prop as unknown as UseGlobalProp)
+
+  /** 星期列表 */
+  const weekList = computed(() => getLang('calendar').value.weekList)
+
   /**
    * 当前日期高亮显示
+   *
    * @param _month 月份
    * @param _date 日期
    */
@@ -36,6 +43,7 @@
 
   /**
    * 点击操作栏
+   *
    * @param target 不同类型用于切换当前时间、下个月、上个月
    */
   const optionClick = (target: 'last' | 'now' | 'next'): void => {
@@ -59,6 +67,7 @@
 
   /**
    * 点击对每一天
+   *
    * @param _month 当前月份
    * @param _date 当前日期
    */
@@ -92,6 +101,7 @@
 
   /**
    * 检测当前日期是否存在备忘录
+   *
    * @param date 当前日期
    */
   const isMemorandum = (date: string): boolean => {
@@ -128,7 +138,7 @@
 
     <!-- 周几 -->
     <div class="f-calendar__week">
-      <div v-for="(week, index) in WEEK_DATA" :key="index" class="f-calendar__week-item">
+      <div v-for="(week, index) in weekList" :key="index" class="f-calendar__week-item">
         {{ week }}
       </div>
     </div>
