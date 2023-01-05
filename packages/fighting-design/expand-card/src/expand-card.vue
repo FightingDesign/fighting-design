@@ -1,16 +1,15 @@
 <script lang="ts" setup name="FExpandCard">
   import { Props } from './props'
   import { computed, ref } from 'vue'
-  import { sizeChange, isString, isArray } from '../../_utils'
-  import type { CSSProperties } from 'vue'
-  import type { ClassList } from '../../_interface'
+  import { isString, isArray } from '../../_utils'
+  import { useList } from '../../_hooks'
   import type { ExpandCardImageListItem } from './interface'
 
   const prop = defineProps(Props)
 
-  /**
-   * 当前显示的位置
-   */
+  const { classes, styles } = useList(prop, 'expand-card')
+
+  /** 当前显示的位置 */
   const currExpandIndex = ref<number>(prop.expandIndex)
 
   /**
@@ -32,24 +31,11 @@
     return 'f-expand-card__active'
   }
 
-  /**
-   * 类名列表
-   */
-  const classList = computed((): ClassList => {
-    const { round } = prop
-
-    return ['f-expand-card__item', { 'f-expand-card__round': round }] as const
-  })
-
-  /**
-   * 将传入的 imageList 改变成指定的类型进行渲染
-   */
+  /** 将传入的 imageList 改变成指定的类型进行渲染 */
   const imageListArr = computed((): ExpandCardImageListItem[] => {
     const { imageList } = prop
 
-    if (!imageList && !isArray(imageList)) {
-      return []
-    }
+    if (!imageList && !isArray(imageList)) return []
 
     return imageList.map((item: string | ExpandCardImageListItem): ExpandCardImageListItem => {
       if (isString(item)) {
@@ -59,17 +45,11 @@
     })
   })
 
-  /**
-   * 样式列表
-   */
-  const styleList = computed((): CSSProperties => {
-    const { width, height } = prop
+  /** 类名列表 */
+  const classList = classes(['round'], 'f-expand-card__item')
 
-    return {
-      width: sizeChange(width),
-      height: sizeChange(height)
-    } as const
-  })
+  /** 样式列表 */
+  const styleList = styles(['width', 'height'])
 </script>
 
 <template>

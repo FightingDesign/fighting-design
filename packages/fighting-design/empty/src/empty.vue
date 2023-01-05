@@ -13,16 +13,12 @@
 
   const { getLang } = useGlobal(prop as unknown as UseGlobalProp)
 
-  /**
-   * 主要的描述文字内容
-   */
+  /** 主要的描述文字内容 */
   const contentText = computed((): string => {
     return prop.content || getLang('empty').value.content
   })
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['contentColor', 'contentSize', 'background'])
 </script>
 

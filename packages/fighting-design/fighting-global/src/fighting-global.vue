@@ -2,16 +2,15 @@
   import { Props, FIGHTING_GLOBAL_PROPS_KEY } from './props'
   import { provide, reactive, computed } from 'vue'
   import { useProps } from '../../_hooks'
+  import type { FightingType, FightingLang, FightingSize } from '../../_interface'
   import type { FightingGlobalProps } from './interface'
 
   const prop = defineProps(Props)
 
   const { interceptors } = useProps(prop)
 
-  /**
-   * prop 拦截器拦截 type 属性
-   */
-  const interceptorsType = computed(() => {
+  /** prop 拦截器拦截 type 属性 */
+  const interceptorsType = computed((): FightingType => {
     return interceptors(
       'type',
       (): boolean => {
@@ -21,10 +20,8 @@
     )
   })
 
-  /**
-   * prop 拦截器拦截 size 属性
-   */
-  const interceptorsSize = computed(() => {
+  /** prop 拦截器拦截 size 属性 */
+  const interceptorsSize = computed((): FightingSize => {
     return interceptors(
       'size',
       (): boolean => {
@@ -34,10 +31,8 @@
     )
   })
 
-  /**
-   * prop 拦截器拦截 lang 属性
-   */
-  const interceptorsLang = computed(() => {
+  /** prop 拦截器拦截 lang 属性 */
+  const interceptorsLang = computed((): FightingLang => {
     return interceptors(
       'lang',
       (): boolean => {
@@ -47,7 +42,7 @@
     )
   })
 
-  // 注入依赖项
+  /** 注入依赖项 */
   provide<FightingGlobalProps>(
     FIGHTING_GLOBAL_PROPS_KEY,
     reactive({
