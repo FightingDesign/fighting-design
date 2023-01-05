@@ -18,6 +18,7 @@
 - `f-calendar` 组件 `border-color` 默认值改为 null
 - `f-calendar` 组件 `day-cell-height` 默认值改为 null
 - `f-calendar` 组件 `week-cell-height` 默认值改为 null
+- `f-page-header` 组件 `back-text` 默认值改为 null
 - 废除 `f-sticky-card` 组件 `background` 配置项
 
 ## 0.15.0 (2023-01-03)

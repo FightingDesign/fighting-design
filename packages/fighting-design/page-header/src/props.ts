@@ -15,7 +15,7 @@ export const Props = {
   /** 返回文本 */
   backText: {
     type: String,
-    default: (): string => '返回'
+    default: (): null => null
   },
   /** 标题文本 */
   title: {

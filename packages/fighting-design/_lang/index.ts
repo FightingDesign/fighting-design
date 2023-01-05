@@ -19,6 +19,10 @@ export const LANG = {
     stickyCard: {
       openText: 'close',
       closeText: 'open'
+    },
+    /** 页头 */
+    pageHeader: {
+      backText: 'back'
     }
   },
   'zh-CN': {
@@ -34,6 +38,10 @@ export const LANG = {
     stickyCard: {
       openText: '关闭',
       closeText: '开启'
+    },
+    /** 页头 */
+    pageHeader: {
+      backText: '返回'
     }
   }
 } as const

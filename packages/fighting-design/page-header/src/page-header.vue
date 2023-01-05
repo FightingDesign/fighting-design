@@ -1,11 +1,18 @@
 <script lang="ts" setup name="FPageHeader">
   import { Props } from './props'
+  import { computed } from 'vue'
   import { sizeChange } from '../../_utils'
-  import { useRun } from '../../_hooks'
+  import { useRun, useGlobal } from '../../_hooks'
   import { FIconArrowLeftVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
+  import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
+
+  const { getLang } = useGlobal(prop as unknown as UseGlobalProp)
+
+  /** 返回文案 */
+  const backContent = computed(() => getLang('pageHeader').value.backText)
 
   /**
    * 点击之后执行
@@ -26,7 +33,7 @@
           <component :is="icon || FIconArrowLeftVue" />
         </slot>
       </f-svg-icon>
-      <div class="f-page-header__text">{{ backText }}</div>
+      <div class="f-page-header__text">{{ backContent }}</div>
     </div>
 
     <!-- 右侧部分 -->

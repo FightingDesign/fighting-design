@@ -77,8 +77,8 @@
 | -------------- | ---------------- | ------------------------------------------------------------------ | ------ | ------ |
 | `icon`         | 返回图标         | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
 | `icon-size`    | 返回图标大小     | string / number                                                    | ——     | 16px   |
-| `back-text`    | 返回文本         | string                                                             | ——     | 返回   |
-| `title`        | 标题文本         | string                                                             | ——     | 标题   |
+| `back-text`    | 返回文本         | string                                                             | ——     | ——     |
+| `title`        | 标题文本         | string                                                             | ——     | ——     |
 | `title-bold`   | 标题是否粗体     | boolean                                                            | ——     | false  |
 | `title-center` | 标题是否居中     | boolean                                                            | ——     | false  |
 | `title-color`  | 标题颜色         | string                                                             | ——     | false  |

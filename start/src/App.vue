@@ -6,8 +6,9 @@
 
 <template>
   <f-empty />
-
+  <f-page-header />
   <f-fighting-global type="primary" lang="en-US">
+    <f-page-header />
     <f-empty />
 
     <f-calendar v-model:date="date" />
