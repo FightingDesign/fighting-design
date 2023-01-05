@@ -15,44 +15,32 @@ export const Props = {
       return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
-  /**
-   * 是否可关闭
-   */
+  /** 是否可关闭 */
   close: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 圆角
-   */
+  /** 是否为圆角 */
   round: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 自定义背景色
-   */
+  /** 自定义背景色 */
   background: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 自定义文字颜色
-   */
+  /** 自定义文字颜色 */
   color: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 左侧 icon
-   */
+  /** 左侧 icon */
   beforeIcon: {
     type: Object as PropType<VNode>,
     default: (): null => null
   },
-  /**
-   * 右侧 icon
-   */
+  /** 右侧 icon */
   afterIcon: {
     type: Object as PropType<VNode>,
     default: (): null => null
@@ -70,30 +58,22 @@ export const Props = {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
-  /**
-   * 是否为简约模式
-   */
+  /** 是否为简约模式 */
   simple: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 是否为块级元素
-   */
+  /** 是否为块级元素 */
   block: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 线性的
-   */
+  /** 线性的 */
   line: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 点击关闭按钮触发
-   */
+  /** 点击关闭按钮触发 */
   onClose: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null

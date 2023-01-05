@@ -3,9 +3,7 @@ import type { TextareaResize } from './interface'
 import type { InputChange, HandleEvent } from '../../_interface'
 
 export const Props = {
-  /**
-   * 绑定值
-   */
+  /** 绑定值 */
   modelValue: {
     type: String,
     default: (): null => null
@@ -74,9 +72,7 @@ export const Props = {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * input 事件触发的回调
-   */
+  /** input 事件触发的回调 */
   onInput: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null
@@ -95,30 +91,22 @@ export const Props = {
       return (['none', 'both', 'horizontal', 'vertical'] as const).includes(val)
     }
   },
-  /**
-   * 是否可清空
-   */
+  /** 是否可清空 */
   clear: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 绑定值发生变化时触发的回调
-   */
+  /** 绑定值发生变化时触发的回调 */
   onChange: {
     type: Function as PropType<InputChange>,
     default: (): null => null
   },
-  /**
-   * 失去焦点时触发的回调
-   */
+  /** 失去焦点时触发的回调 */
   onBlur: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null
   },
-  /**
-   * 获取焦点时触发的回调
-   */
+  /** 获取焦点时触发的回调 */
   onFocus: {
     type: Function as PropType<HandleEvent>,
     default: (): null => null

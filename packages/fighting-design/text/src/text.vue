@@ -8,9 +8,7 @@
 
   const { getType } = useGlobal(prop as unknown as UseGlobalProp)
 
-  /**
-   * 替换 type 后得到的 props
-   */
+  /** 替换 type 后得到的 props */
   const params = reactive({
     ...prop,
     type: getType().value
@@ -18,14 +16,10 @@
 
   const { classes, styles } = useList(params, 'text')
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = classes(['type', 'block', 'bold', 'ellipsis', 'center'], 'f-text')
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles([
     'color',
     'background',

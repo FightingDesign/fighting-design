@@ -16,22 +16,28 @@ export const Props = {
       return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
     }
   },
-  /**
+  /** 
    * 文字大小
+   * 
+   * @see font-size https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size
    */
   size: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
-  /**
+  /** 
    * 文字颜色
+   * 
+   * @see color https://developer.mozilla.org/zh-CN/docs/Web/CSS/color
    */
   color: {
     type: String,
     default: (): null => null
   },
-  /**
+  /** 
    * 背景颜色
+   * 
+   * @see background https://developer.mozilla.org/zh-CN/docs/Web/CSS/background
    */
   background: {
     type: String,
@@ -39,6 +45,8 @@ export const Props = {
   },
   /**
    * 是否独占一行
+   * 
+   * @see display https://developer.mozilla.org/zh-CN/docs/Web/CSS/display
    */
   block: {
     type: Boolean,
@@ -55,6 +63,8 @@ export const Props = {
   },
   /**
    * 行高
+   * 
+   * @see line-height https://developer.mozilla.org/zh-CN/docs/Web/CSS/line-height
    */
   lineHeight: {
     type: [String, Number] as PropType<string | number>,
@@ -71,6 +81,8 @@ export const Props = {
   },
   /**
    * 文字是否以粗体显示
+   * 
+   * @see font-weight https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-weight
    */
   bold: {
     type: Boolean,
@@ -91,6 +103,8 @@ export const Props = {
   },
   /**
    * 内边距
+   * 
+   * @see padding https://developer.mozilla.org/zh-CN/docs/Web/CSS/padding
    */
   padding: {
     type: [String, Number] as PropType<string | number>,
@@ -98,20 +112,22 @@ export const Props = {
   },
   /**
    * 宽度
+   * 
+   * @see width https://developer.mozilla.org/zh-CN/docs/Web/CSS/width
    */
   width: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
-  /**
-   * 是否省略文本，需配合 width 宽度使用
-   */
+  /** 是否省略文本，需配合 width 宽度使用 */
   ellipsis: {
     type: Boolean,
     default: (): boolean => false
   },
   /**
    * 是否居中
+   * 
+   * @see text-align https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-align
    */
   center: {
     type: Boolean,

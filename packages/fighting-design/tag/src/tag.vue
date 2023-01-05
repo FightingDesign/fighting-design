@@ -9,9 +9,7 @@
 
   const { getType } = useGlobal(prop)
 
-  /**
-   * 替换 type 后得到的 props
-   */
+  /** 替换 type 后得到的 props */
   const params = reactive({
     ...prop,
     type: getType().value
@@ -19,14 +17,10 @@
 
   const { classes } = useList(params, 'tag')
 
-  /**
-   * 是否展示
-   */
+  /** 是否展示 */
   const isShow = ref<boolean>(true)
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = classes(['simple', 'type', 'size', 'block', 'round', 'line'], 'f-tag')
 
   /**

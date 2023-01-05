@@ -3,9 +3,7 @@ import type { ToolbarClick } from './interface'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
-  /**
-   * 显示为圆角
-   */
+  /** 显示为圆角 */
   round: {
     type: Boolean,
     default: (): boolean => false
@@ -23,44 +21,32 @@ export const Props = {
       return (['large', 'middle', 'small', 'mini'] as const).includes(val)
     }
   },
-  /**
-   * 背景颜色
-   */
+  /** 自定义背景颜色 */
   background: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 字体颜色
-   */
+  /** 字体颜色 */
   textColor: {
     type: String,
     default: (): null => null
   },
-  /**
-   * 是否固定定位
-   */
+  /** 是否固定定位 */
   fixed: {
     type: Boolean,
     default: (): boolean => false
   },
-  /**
-   * 自定义宽度
-   */
+  /** 自定义宽度 */
   width: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
-  /**
-   * 自定义高度
-   */
+  /** 自定义高度 */
   height: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
-  /**
-   * 点击之后触发的回调
-   */
+  /** 点击之后触发的回调 */
   onClick: {
     type: Function as PropType<ToolbarClick>,
     default: (): null => null

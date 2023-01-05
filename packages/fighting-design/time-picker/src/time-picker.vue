@@ -12,25 +12,18 @@
     'update:time': (val: string): boolean => isString(val)
   })
 
-  /**
-   * 获取当前的时间
-   */
+  /** 获取当前的时间 */
   const nowDate: Date = new Date()
-  /**
-   * 当前日期对象
-   */
+
+  /** 当前日期对象 */
   const timeList = reactive({
     hover: addZero(nowDate.getHours()),
     minute: addZero(nowDate.getMinutes())
   } as TimePickerTimeList)
 
-  /**
-   * 获取选择的时间 & 设置时间
-   */
+  /** 获取选择的时间 & 设置时间 */
   const pickerTime = computed({
-    /**
-     * 获取值返回 time
-     */
+    /** 获取值返回 time */
     get: (): string => prop.time,
     /**
      * 设置值
@@ -42,9 +35,7 @@
     }
   })
 
-  /**
-   * 监视 timeList 对象发生变化同步最新选取的时间
-   */
+  /** 监视 timeList 对象发生变化同步最新选取的时间 */
   watch(
     (): TimePickerTimeList => timeList,
     (): void => {

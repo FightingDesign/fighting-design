@@ -9,14 +9,10 @@
 
   const { classes, styles } = useList(prop, 'toolbar')
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = classes(['size', 'round', 'fixed'], 'f-toolbar')
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['textColor', 'background', 'width', 'height'])
 
   /**
@@ -27,9 +23,11 @@
   const handleClick = (evt: MouseEvent): void => {
     if (!slot.default) return
 
+    /** 获取到元素节点 */
     const target: HTMLElement = evt.target as HTMLElement
 
     if (target.className === 'f-toolbar-item') {
+      /** 当前元素的唯一值 */
       const index: string | undefined = target.dataset.index
 
       useRun(prop.onClick, { evt, index } as ToolbarClickParams)
