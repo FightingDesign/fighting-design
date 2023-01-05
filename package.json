@@ -33,6 +33,8 @@
     "changelog": "node scripts/set-changelog"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss-preset-env": "^7.8.3",
     "vue": "3.2.26"
   },
   "devDependencies": {
