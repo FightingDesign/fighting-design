@@ -9,6 +9,7 @@
 **新增**
 
 - 新增 `f-input` 组件 `placeholder-color` 配置项
+- 新增 `f-calendar` 组件国际化配置
 
 **其它改动**
 
