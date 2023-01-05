@@ -55,7 +55,7 @@ type HandleChange = (target: boolean) => void
 ## FightingLang
 
 ```ts
-type FightingLang = 'en-US' | 'zh-CH'
+type FightingLang = 'en-US' | 'zh-CN'
 ```
 
 ## InputChange
