@@ -8,14 +8,10 @@
 
   const { classes } = useList(prop, 'menu')
 
-  /**
-   * 当前选中的 name
-   */
+  /** 当前选中的 name */
   const active = ref<string | number>(prop.activeName)
 
-  /**
-   * 默认选中的 name
-   */
+  /** 默认选中的 name */
   const defaultActive = computed((): string | number => active.value)
 
   /**
@@ -27,7 +23,7 @@
     active.value = name
   }
 
-  // 提供出去依赖项
+  /** 提供出去依赖项 */
   provide<MenuProvide>(
     MENU_PROVIDE_KEY,
     reactive({
@@ -37,9 +33,7 @@
     } as unknown as MenuProvide)
   )
 
-  /**
-   * 类名列表
-   */
+  /** 类名列表 */
   const classList = classes(['mode'], 'f-menu')
 </script>
 

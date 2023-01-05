@@ -7,9 +7,7 @@
 
   const prop = defineProps(Props)
 
-  /**
-   * 获取父组件注入的依赖项
-   */
+  /** 获取父组件注入的依赖项 */
   const parentInject = inject<ListProps | null>(LIST_PROPS_KEY, null)
 
   const { styles } = useList(
@@ -21,9 +19,7 @@
     'list-item'
   )
 
-  /**
-   * 样式列表
-   */
+  /** 样式列表 */
   const styleList = styles(['textColor', 'borderColor', 'background'])
 </script>
 

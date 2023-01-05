@@ -1,8 +1,6 @@
 export type { MenuProps } from './menu'
 
-/**
- * 不同导航栏模式
- */
+/** 不同导航栏模式 */
 export type MenuMode = 'horizontal' | 'vertical' | 'inline'
 
 /**
