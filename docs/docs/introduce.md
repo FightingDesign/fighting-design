@@ -2,12 +2,15 @@
 
 🌈 Fighting Design 可在 vue3 应用程序中快速构建交互界面，看起来还不错。
 
-中文 | <a href="https://github.com/FightingDesign/fighting-design/blob/master/README.en-US.md">English</a>
+中文 | <a href="https://github.com/FightingDesign/fighting-design/blob/master/README.md">English</a>
 
 ## ✨ 特性
 
+- 🪐 60+ 常用组件
 - 💪 使用 Vue.js 最新特性开发
 - 🐆 全面基于 Vite，速度够快
+- 🤟 极致的开发体验
+- 🥇 超详细的 JSDoc 注释
 - 🦩 零第三方依赖
 - ✂️ 完善的代码提示
 - 🪐 不同打包模式，兼容不同项目
