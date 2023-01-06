@@ -2,5 +2,5 @@
 
 . "$(dirname "$0")/_/husky.sh"
 
-npm exec lint-staged
-npm exec pretty-quick --staged
+pnpm exec lint-staged
+pnpm exec pretty-quick --staged
