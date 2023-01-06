@@ -51,9 +51,7 @@ export const Props = {
       )
     }
   },
-  /**
-   * 编辑状态
-   */
+  /** 编辑状态 */
   editStatus: {
     type: Boolean,
     default: (): boolean => false
@@ -71,16 +69,12 @@ export const Props = {
       return (['click', 'hover'] as const).includes(val)
     }
   },
-  /**
-   * 切换前的回调
-   */
+  /** 切换前的回调 */
   onBeforeEnter: {
     type: Function as PropType<BeforeEnter>,
     default: (): null => null
   },
-  /**
-   * 可编辑模式的回调
-   */
+  /** 可编辑模式的回调 */
   onEdit: {
     type: Function,
     default: (): null => null

@@ -10,9 +10,7 @@ import type {
 } from '../../interface'
 
 export const Props = {
-  /**
-   * 标题配置
-   */
+  /** 标题配置 */
   navs: {
     type: Array as PropType<TabsNavInstance[]>,
     default: (): null => null
@@ -43,9 +41,7 @@ export const Props = {
       return (['left', 'right', 'top', 'bottom'] as const).includes(val)
     }
   },
-  /**
-   * 标签的 name
-   */
+  /** 标签的 name */
   currentName: {
     type: [String, Number] as PropType<TabsPaneName>,
     default: (): null => null
@@ -66,9 +62,7 @@ export const Props = {
       )
     }
   },
-  /**
-   * 编辑状态
-   */
+  /** 编辑状态 */
   editStatus: {
     type: Boolean,
     default: (): boolean => false
@@ -86,9 +80,7 @@ export const Props = {
       return (['click', 'hover'] as const).includes(val)
     }
   },
-  /**
-   * 切换前的回调
-   */
+  /** 切换前的回调 */
   onBeforeEnter: {
     type: Function as PropType<BeforeEnter>,
     default: (): null => null

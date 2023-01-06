@@ -1,13 +1,9 @@
 export type { TabsProps } from './tabs'
 
-/**
- * 触发方式
- */
+/** 触发方式 */
 export type TabsTrigger = 'hover' | 'click'
 
-/**
- * 选项卡标签位置
- */
+/** 选项卡标签位置 */
 export type TabsPosition = 'left' | 'right' | 'top' | 'bottom'
 
 /**
@@ -19,9 +15,7 @@ export type TabsPosition = 'left' | 'right' | 'top' | 'bottom'
  */
 export type TabsType = 'line' | 'card' | 'segment'
 
-/**
- * 对齐方式
- */
+/** 对齐方式 */
 export type TabsJustifyContent =
   | 'flex-start'
   | 'center'
@@ -30,9 +24,7 @@ export type TabsJustifyContent =
   | 'space-around'
   | 'space-evenly'
 
-/**
- * 活跃的 name
- */
+/** 活跃的 name */
 export type TabsPaneName = string | number
 
 /**
