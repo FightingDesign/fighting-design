@@ -8,6 +8,7 @@ const input: string = resolve(__dirname, 'packages/fighting-theme/src')
 
 export default (): UserConfigExport => {
   return {
+    /** 针对 css 的配置项 */
     css: {
       postcss: {
         plugins: [
