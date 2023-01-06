@@ -86,8 +86,9 @@ export const useTabsNaStyle = (prop: TabsProps): UseTabsNaStyleReturn => {
     const wrapperEl: HTMLObjectElement = instance.subTree.el as HTMLObjectElement
     /** 获取除 active 元素外最高的子元素 */
     const children: HTMLObjectElement[] = instance.subTree.el.querySelectorAll(
-      '.f-tabs-nav--item:not(.f-tabs-nav--item__active)'
+      '.f-tabs-nav__item:not(.f-tabs-nav__item-active)'
     ) as HTMLObjectElement[]
+
     const maxChildren: HTMLObjectElement = Array.from(children).reduce(
       (pre: HTMLObjectElement, cur: HTMLObjectElement): HTMLObjectElement => {
         pre = (cur[positionVar.b] as number) > (pre[positionVar.b] as number) ? cur : pre
@@ -95,6 +96,7 @@ export const useTabsNaStyle = (prop: TabsProps): UseTabsNaStyleReturn => {
       },
       children[0]
     )
+
     /** 最高的子元素的 padding */
     const padding: number = sizeToNum(window.getComputedStyle(maxChildren)[positionVar.c] as string)
     /** css 变量 */
@@ -125,7 +127,7 @@ export const useTabsNaStyle = (prop: TabsProps): UseTabsNaStyleReturn => {
 
     const { position } = prop
     const activeStyle: CSSProperties = {}
-    const children: HTMLElement[] = instance.subTree.el.querySelectorAll('.f-tabs-nav--item') as HTMLElement[]
+    const children: HTMLElement[] = instance.subTree.el.querySelectorAll('.f-tabs-nav__item') as HTMLElement[]
 
     if (!children.length) return
 

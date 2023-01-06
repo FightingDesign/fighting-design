@@ -119,34 +119,34 @@
       width: 100%;
     }
 
-    &::after,
-    &::before {
-      transition: box-shadow var(--f-design-transition-time);
-      pointer-events: none;
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 20px;
-      z-index: 1;
-    }
+    // &::after,
+    // &::before {
+    //   transition: box-shadow var(--f-design-transition-time);
+    //   pointer-events: none;
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   bottom: 0;
+    //   width: 20px;
+    //   z-index: 1;
+    // }
 
-    &.f-tabs-nav__scroll_before::before {
-      left: 0;
-      box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.12);
-    }
+    // &.f-tabs-nav__scroll_before::before {
+    //   left: 0;
+    //   box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.12);
+    // }
 
-    &.f-tabs-nav__scroll_after::after {
-      right: 0;
-      box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.12);
-    }
+    // &.f-tabs-nav__scroll_after::after {
+    //   right: 0;
+    //   box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.12);
+    // }
   }
 
   .f-tabs-nav__wrapper {
     display: flex;
     position: relative;
 
-    .f-tabs-nav--item {
+    .f-tabs-nav__item {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -158,9 +158,13 @@
       &:hover {
         color: var(--f-design-color-primary-1);
       }
+
+      .f-close-btn {
+        margin-left: 8px;
+      }
     }
 
-    .f-tabs-nav--item__active {
+    .f-tabs-nav__item-active {
       color: var(--f-design-color-primary-1);
     }
   }
@@ -169,7 +173,7 @@
   &.f-tabs-nav__type_line {
     flex-shrink: 0;
 
-    .f-tabs-nav--line__active {
+    .f-tabs-nav__line-active {
       background: var(--f-design-color-primary-1);
       transition: all var(--f-design-transition-time);
       position: absolute;
@@ -181,11 +185,11 @@
       --padding: 10px 0;
       border-bottom: 1px solid #ddd;
 
-      .f-tabs-nav--line__active {
+      .f-tabs-nav__line-active {
         height: 2px;
       }
 
-      .f-tabs-nav--item {
+      .f-tabs-nav__item {
         &:not(:first-child):not(:last-child) {
           padding-left: 10px;
           padding-right: 10px;
@@ -206,11 +210,11 @@
     &.f-tabs-nav__type_line_right {
       --padding: 0 10px;
 
-      .f-tabs-nav--line__active {
+      .f-tabs-nav__line-active {
         width: 2px;
       }
 
-      .f-tabs-nav--item {
+      .f-tabs-nav__item {
         &:not(:first-child):not(:last-child) {
           padding-top: 10px;
           padding-bottom: 10px;
@@ -243,7 +247,7 @@
     --cardBgColor: #f5f7fa;
     --cardBorerColor: #ddd;
 
-    .f-tabs-nav--item {
+    .f-tabs-nav__item {
       border: 1px solid var(--cardBorerColor);
       position: relative;
       background: var(--cardBgColor);
@@ -256,7 +260,7 @@
         position: absolute;
       }
 
-      &.f-tabs-nav--item__active {
+      &.f-tabs-nav__item-active {
         transition: all var(--f-design-transition-time);
         background: var(--cardActiveBg);
 
@@ -270,7 +274,7 @@
           z-index: 1;
         }
 
-        & + .f-tabs-nav--item {
+        & + .f-tabs-nav__item {
           &::before {
             background: var(--cardActiveBg);
             z-index: 1;
@@ -282,14 +286,14 @@
         }
       }
 
-      .f-tabs-nav--item__card_close {
+      .f-tabs-nav__item__card_close {
         font-size: 0px;
         transition: font-size var(--f-design-transition-time);
       }
 
       &:hover,
-      &.f-tabs-nav--item__active {
-        .f-tabs-nav--item__card_close {
+      &.f-tabs-nav__item-active {
+        .f-tabs-nav__item__card_close {
           font-size: 20px;
         }
       }
@@ -300,7 +304,7 @@
       .f-tabs-nav__wrapper {
         align-items: flex-end;
       }
-      .f-tabs-nav--item {
+      .f-tabs-nav__item {
         border-top-left-radius: var(--radius);
         border-top-right-radius: var(--radius);
 
@@ -308,9 +312,11 @@
         &:not(:first-of-type)::after {
           bottom: -1px;
         }
-        &.f-tabs-nav--item__active {
+
+        // 选装状态下的样式
+        &.f-tabs-nav__item-active {
           border-bottom: none;
-          padding-bottom: var(--cardActiveDiffHeight);
+          // padding-bottom: var(--cardActiveDiffHeight);
 
           &::before {
             border-radius: 0 0 var(--radius) 0;
@@ -319,7 +325,7 @@
             bottom: 0px;
           }
 
-          & + .f-tabs-nav--item {
+          & + .f-tabs-nav__item {
             &::after {
               border-radius: 0 0 0 var(--radius);
               border-left: 1px solid var(--cardBorerColor);
@@ -329,13 +335,14 @@
         }
       }
     }
+
     // 下方
     &.f-tabs-nav__type_card_bottom {
       .f-tabs-nav__wrapper {
         align-items: flex-start;
       }
 
-      .f-tabs-nav--item {
+      .f-tabs-nav__item {
         border-bottom-left-radius: var(--radius);
         border-bottom-right-radius: var(--radius);
 
@@ -343,7 +350,7 @@
         &:not(:first-of-type)::after {
           top: -1px;
         }
-        &.f-tabs-nav--item__active {
+        &.f-tabs-nav__item-active {
           padding-top: var(--cardActiveDiffHeight);
           border-top: none;
 
@@ -354,7 +361,7 @@
             border-right: 1px solid var(--cardBorerColor);
           }
 
-          & + .f-tabs-nav--item {
+          & + .f-tabs-nav__item {
             &::after {
               border-radius: var(--radius) 0 0 0;
               border-left: 1px solid var(--cardBorerColor);
@@ -370,11 +377,11 @@
     &.f-tabs-nav__type_card_bottom {
       --padding: 4px 12px;
 
-      .f-tabs-nav--item + .f-tabs-nav--item {
+      .f-tabs-nav__item + .f-tabs-nav__item {
         margin-left: -1px;
       }
 
-      .f-tabs-nav--item__active {
+      .f-tabs-nav__item-active {
         &::before {
           left: calc(0px - var(--radius) - 1px);
         }
@@ -383,7 +390,7 @@
           left: calc(0px - var(--radius));
         }
 
-        & + .f-tabs-nav--item {
+        & + .f-tabs-nav__item {
           &::before,
           &::after {
             left: -1px;
@@ -397,18 +404,18 @@
     &.f-tabs-nav__type_card_right {
       --padding: 4px 8px;
 
-      .f-tabs-nav--item + .f-tabs-nav--item {
+      .f-tabs-nav__item + .f-tabs-nav__item {
         margin-top: -1px;
       }
 
-      .f-tabs-nav--item__active {
+      .f-tabs-nav__item-active {
         &::before {
           top: calc(0px - var(--radius) - 1px);
         }
         &::after {
           top: calc(0px - var(--radius));
         }
-        & + .f-tabs-nav--item {
+        & + .f-tabs-nav__item {
           &::before {
             top: -1px;
           }
@@ -421,14 +428,14 @@
 
     // 左
     &.f-tabs-nav__type_card_left {
-      .f-tabs-nav--item {
+      .f-tabs-nav__item {
         border-top-left-radius: var(--radius);
         border-bottom-left-radius: var(--radius);
         &:not(:first-of-type)::before,
         &:not(:first-of-type)::after {
           right: -1px;
         }
-        &.f-tabs-nav--item__active {
+        &.f-tabs-nav__item-active {
           border-right: none;
           padding-right: var(--cardActiveDiffHeight);
 
@@ -439,7 +446,7 @@
             right: 0px;
           }
 
-          & + .f-tabs-nav--item {
+          & + .f-tabs-nav__item {
             &::after {
               border-radius: 0 var(--radius) 0 0;
               border-top: 1px solid var(--cardBorerColor);
@@ -452,7 +459,7 @@
 
     // 右
     &.f-tabs-nav__type_card_right {
-      .f-tabs-nav--item {
+      .f-tabs-nav__item {
         border-top-right-radius: var(--radius);
         border-bottom-right-radius: var(--radius);
 
@@ -461,7 +468,7 @@
           left: -1px;
         }
 
-        &.f-tabs-nav--item__active {
+        &.f-tabs-nav__item-active {
           border-left: none;
           padding-left: var(--cardActiveDiffHeight);
 
@@ -472,7 +479,7 @@
             border-left: 1px solid var(--cardBorerColor);
           }
 
-          & + .f-tabs-nav--item {
+          & + .f-tabs-nav__item {
             &::after {
               border-radius: var(--radius) 0 0 0;
               border-top: 1px solid var(--cardBorerColor);
@@ -491,10 +498,10 @@
     background: var(--segmentBgColor);
     padding: 4px;
 
-    .f-tabs-nav--item {
+    .f-tabs-nav__item {
       flex: 1;
 
-      &.f-tabs-nav--item__active {
+      &.f-tabs-nav__item-active {
         background: var(--f-design-color-text-2);
       }
     }

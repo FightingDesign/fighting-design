@@ -191,7 +191,7 @@
 ::: demo
 
 <template #source>
-<f-tabs :beforeEnter="beforeEnter">
+<f-tabs :on-before-enter="beforeEnter">
 <f-tabs-pane label="个人信息" name="name">
 
 <p>小芳，女</p>
@@ -205,15 +205,17 @@
 </template>
 
 ```html
-<f-tabs :beforeEnter="beforeEnter">
-  <f-tabs-pane label="个人信息" name="name">
-    <p>小芳，女</p>
-  </f-tabs-pane>
-  <f-tabs-pane label="爱好(等一秒)" name="hobby">
-    <p>疯狂星期四，V我50~</p>
-  </f-tabs-pane>
-  <f-tabs-pane label="年龄" name="age"> </f-tabs-pane>
-</f-tabs>
+<template>
+  <f-tabs :on-before-enter="beforeEnter">
+    <f-tabs-pane label="个人信息" name="name">
+      <p>小芳，女</p>
+    </f-tabs-pane>
+    <f-tabs-pane label="爱好(等一秒)" name="hobby">
+      <p>疯狂星期四，V我50~</p>
+    </f-tabs-pane>
+    <f-tabs-pane label="年龄" name="age"> </f-tabs-pane>
+  </f-tabs>
+</template>
 
 <script lang="ts" setup>
   import { FMessage } from 'fighting-design'

@@ -1,5 +1,6 @@
 import { getCurrentInstance, ref, nextTick, onMounted, watch, computed, provide } from 'vue'
 import { getChildrenComponent } from '../../_utils'
+import { useRun } from '../../_hooks'
 import { TABS_PROPS_KEY } from '../../tabs/src/props'
 import type { ComponentInternalInstance, VNode } from 'vue'
 import type { UseTabsReturn, TabsProvide } from './interface'
@@ -9,6 +10,7 @@ export * from './interface.d'
 
 /**
  * tabs 标签
+ *
  * @param prop props 参数
  */
 export const useTabs = (prop: TabsProps): UseTabsReturn => {
@@ -21,6 +23,7 @@ export const useTabs = (prop: TabsProps): UseTabsReturn => {
 
   /**
    * 设置子组件绑定的 name
+   *
    * @param name 子组件的 name
    */
   const setCurrentName = (name: TabsPaneName): void => {
@@ -29,12 +32,13 @@ export const useTabs = (prop: TabsProps): UseTabsReturn => {
 
   /**
    * 编辑状态
+   *
    * @param action 添加还是删除
    * @param name 当前子组件的 name
    * @param index 索引值
    */
   const edit = (action: 'remove' | 'add', name?: TabsPaneName, index?: number): void => {
-    prop.onEdit && prop.onEdit(action, name, index)
+    useRun(prop.onEdit, action, name, index)
   }
 
   /** 更新子组件列表 */

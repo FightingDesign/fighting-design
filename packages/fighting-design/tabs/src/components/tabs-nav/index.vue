@@ -1,25 +1,22 @@
 <script lang="ts" setup name="FTabsNav">
   import { Props } from './props'
-  import { isString, isBoolean } from '../../../../_utils'
-  import { computed, ref, watch } from 'vue'
-  import { FIconCrossVue, FIconPlusVue } from '../../../../_svg'
+  import { isBoolean } from '../../../../_utils'
+  import { computed, watch } from 'vue'
+  import { FIconPlusVue } from '../../../../_svg'
   import { FSvgIcon } from '../../../../svg-icon'
-  import { useTabsNaStyle } from '../../../../_hooks'
+  import { FCloseBtn } from '../../../../close-btn'
+  import { useTabsNaStyle, useRun } from '../../../../_hooks'
   import type { ClassList } from '../../../../_interface'
   import type { TabsPaneName, TabsPosition, TabsJustifyContent, TabsType } from '../../interface'
 
   const prop = defineProps(Props)
-  const emit = defineEmits<{
-    (e: 'set-current-name', name: TabsPaneName): void
-    (e: 'edit', action: 'remove' | 'add', name?: TabsPaneName, i?: number): void
-  }>()
 
   const { setCardStyle, setActiveLineStyle, wrapperStyle, currentIndex, activeLineStyle } = useTabsNaStyle(prop)
 
   /**
-   * 点击上方 nav 执行
+   * 上方切换方法
    *
-   * @param name 点击的 name
+   * @param name name
    */
   const clickNavItem = async (name: TabsPaneName): Promise<void> => {
     let res: boolean | void = true
@@ -30,35 +27,18 @@
 
     if (isBoolean(res) && !res) return
 
-    emit('set-current-name', name)
-  }
-
-  const editItem = (action: 'remove' | 'add', name?: TabsPaneName, index?: number): void => {
-    emit('edit', action, name, index)
-  }
-
-  /** 左右侧的滚动阴影 */
-  const leftReachedRef = ref<boolean>(false)
-  const rightReachedRef = ref<boolean>(false)
-
-  const deriveScrollShadow = (el: HTMLElement | null): void => {
-    if (!el) return
-    const { scrollLeft, scrollWidth, offsetWidth } = el
-
-    leftReachedRef.value = scrollLeft > 0
-    rightReachedRef.value = scrollLeft + offsetWidth < scrollWidth - 1 // -1 是因为计算有误差
+    useRun(prop.setCurrentName, name)
   }
 
   /**
-   * 滚轮事件
+   * 添加或删除卡片
    *
-   * 实现横向滚动效果
-   *
-   * @see WheelEvent https://developer.mozilla.org/zh-CN/docs/Web/API/WheelEvent
+   * @param action 添加或删除
+   * @param name 标签 name
+   * @param index 索引
    */
-  const handleWheel = (evt: WheelEvent): void => {
-    (evt.currentTarget as HTMLElement).scrollLeft += evt.deltaY + evt.deltaX
-    deriveScrollShadow(evt.currentTarget as HTMLElement)
+  const editItem = (action: 'remove' | 'add', name?: TabsPaneName, index?: number): void => {
+    useRun(prop.setEdit, action, name, index)
   }
 
   /** 风格样式调整 */
@@ -74,11 +54,6 @@
       wrapperStyle.value = {}
       if (prop.type === 'card') {
         setCardStyle()
-        if (prop.position === 'left' || prop.position === 'right') {
-          leftReachedRef.value = false
-          rightReachedRef.value = false
-          return
-        }
       }
 
       if (prop.type === 'line') {
@@ -95,19 +70,10 @@
     }
   )
 
+  /** 样式列表 */
   const classList = computed((): ClassList => {
     const { type, position } = prop
     return [`f-tabs-nav__type_${type}`, `f-tabs-nav__type_${type}_${position}`] as const
-  })
-
-  const scrollClassList = computed((): ClassList => {
-    return [
-      'f-tabs-nav__main',
-      {
-        'f-tabs-nav__scroll_before': leftReachedRef.value,
-        'f-tabs-nav__scroll_after': rightReachedRef.value
-      }
-    ] as const
   })
 
   /** 事件处理 */
@@ -118,47 +84,43 @@
 
 <template>
   <div class="f-tabs-nav" :class="classList">
+    <!-- 前缀内容 -->
     <div v-if="$slots.prefix" class="f-tabs-nav__prefix">
       <slot name="prefix" />
     </div>
 
-    <div :class="scrollClassList">
-      <div class="f-tabs-nav__scroll" @wheel.passive="handleWheel">
-        <div class="f-tabs-nav__wrapper" :style="wrapperStyle">
-          <div
-            v-for="(item, i) in navs"
-            :key="item.name"
-            :class="[
-              'f-tabs-nav--item',
-              {
-                'f-tabs-nav--item__active': item.name === currentName
-              }
-            ]"
-            @[trigger]="clickNavItem(item.name)"
-          >
-            <span v-if="isString(item.label)">{{ item.label }}</span>
+    <!-- 主要内容 -->
+    <div class="f-tabs-nav__main">
+      <div class="f-tabs-nav__wrapper" :style="wrapperStyle">
+        <!-- 选项列表 -->
+        <div
+          v-for="(item, index) in navs"
+          :key="index"
+          :class="[
+            'f-tabs-nav__item',
+            {
+              'f-tabs-nav__item-active': item.name === currentName
+            }
+          ]"
+          @[trigger]="clickNavItem(item.name)"
+        >
+          <!-- 标签展示的内容 -->
+          <span class="f-tabs-nav__item-label">{{ item.label || `标签 ${index}` }}</span>
 
-            <div v-else>
-              <component :is="item.label" />
-            </div>
-
-            <f-svg-icon
-              v-if="type === 'card' && editStatus"
-              class="f-tabs-nav--item__card_close"
-              :icon="FIconCrossVue"
-              @click.stop="editItem('remove', item.name, i)"
-            />
-          </div>
-
-          <div v-if="type === 'card' && editStatus" class="f-tabs-nav--item" @click="editItem('add')">
-            <f-svg-icon :icon="FIconPlusVue" color="#666" />
-          </div>
-
-          <div v-if="type === 'line'" class="f-tabs-nav--line__active" :style="activeLineStyle" />
+          <!-- 关闭按钮 -->
+          <f-close-btn v-if="type === 'card' && editStatus" round @click.stop="editItem('remove', item.name, index)" />
         </div>
+
+        <!-- 卡片样式编辑状态下的添加按钮 -->
+        <div v-if="type === 'card' && editStatus" class="f-tabs-nav__item" @click="editItem('add')">
+          <f-svg-icon :icon="FIconPlusVue" color="#666" />
+        </div>
+
+        <div v-if="type === 'line'" class="f-tabs-nav__line-active" :style="activeLineStyle" />
       </div>
     </div>
 
+    <!-- 后缀内容 -->
     <div v-if="$slots.suffix" class="f-tabs-nav__suffix">
       <slot name="suffix" />
     </div>

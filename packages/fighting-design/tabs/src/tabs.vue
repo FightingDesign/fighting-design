@@ -41,10 +41,10 @@
       :position="tabsPosition"
       :edit-status="editStatus"
       :justify-content="justifyContent"
-      :on-before-enter="onBeforeEnter"
       :trigger="trigger"
-      @set-current-name="setCurrentName"
-      @edit="edit"
+      :on-before-enter="onBeforeEnter"
+      :set-current-name="setCurrentName"
+      :set-edit="edit"
     >
       <template v-if="$slots.prefix" #prefix>
         <slot name="prefix" />

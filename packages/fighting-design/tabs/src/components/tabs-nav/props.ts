@@ -84,6 +84,16 @@ export const Props = {
   onBeforeEnter: {
     type: Function as PropType<BeforeEnter>,
     default: (): null => null
+  },
+  /** 设置选中的 name */
+  setCurrentName: {
+    type: Function,
+    default: (): null => null
+  },
+  /** 设置自定义操作 */
+  setEdit: {
+    type: Function,
+    default: (): null => null
   }
 }
 
