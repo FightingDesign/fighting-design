@@ -22,7 +22,6 @@
     "build:start": "pnpm run -C start build",
     "build:play": "pnpm run -C packages/fighting-playground build",
     "build:resolver": "pnpm run -C packages/fighting-resolver build",
-    "build:ver": "node scripts/set-version",
     "serve:docs": "pnpm run -C docs serve",
     "new": "pnpm run -C packages/fighting-add-component new",
     "test": "vitest",
@@ -30,7 +29,8 @@
     "commit": "cz",
     "lint": "eslint . --cache",
     "lint:fix": "pnpm run lint --fix",
-    "changelog": "node scripts/set-changelog"
+    "changelog": "node scripts/set-changelog",
+    "set-version": "node scripts/set-version"
   },
   "dependencies": {
     "vue": "3.2.26"
