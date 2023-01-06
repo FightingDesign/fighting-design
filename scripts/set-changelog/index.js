@@ -10,9 +10,12 @@ const sayUrl = path.join(__dirname, '../../CHANGELOG.md')
 /** 读取到文件内容 */
 const file = fs.readFileSync(sayUrl, 'utf-8')
 
+/** 先清空文件 */
+fs.writeFileSync(writeUrl, '')
+
 try {
   /** 将修改的内容重新写入 */
-  fs.writeFileSync(file, writeUrl)
+  fs.writeFileSync(writeUrl, file)
 
   /** 打印成功信息 */
   console.log('更新日志写入成功 🚀🚀🚀')
