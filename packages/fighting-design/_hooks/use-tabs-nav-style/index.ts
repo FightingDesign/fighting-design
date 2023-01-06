@@ -50,14 +50,20 @@ export const useTabsNaStyle = (prop: TabsNavProps): UseTabsNaStyleReturn => {
    * 针对 type = card 的模式
    */
   const setCardStyle = async (): Promise<void> => {
+    /**
+     * 等待下一次 DOM 更新刷新
+     * 
+     * @see nextTick https://cn.vuejs.org/api/general.html#nexttick
+     */
     await nextTick()
+
+    /** 如果没有列表则返回 */
     if (!prop.navs) return
 
     const positionVar: {
       a: keyof HTMLObjectElement
       b: keyof HTMLObjectElement
-      c: keyof CSSStyleDeclaration
-    } = { a: 'height', b: 'offsetHeight', c: 'paddingBottom' }
+    } = { a: 'height', b: 'offsetHeight' }
 
     if (prop.position === 'left' || prop.position === 'right') {
       positionVar.a = 'width'
@@ -67,43 +73,20 @@ export const useTabsNaStyle = (prop: TabsNavProps): UseTabsNaStyleReturn => {
       positionVar.b = 'offsetHeight'
     }
 
-    switch (prop.position) {
-      case 'top':
-        positionVar.c = 'paddingBottom'
-        break
-      case 'bottom':
-        positionVar.c = 'paddingTop'
-        break
-      case 'left':
-        positionVar.c = 'paddingRight'
-        break
-      case 'right':
-        positionVar.c = 'paddingLeft'
-        break
-    }
     /** 当前 nav 的高度 */
     if (!instance || !instance.subTree.el) return
 
+    /** 获取到容器元素 */
     const wrapperEl: HTMLObjectElement = instance.subTree.el as HTMLObjectElement
+
     /** 获取除 active 元素外最高的子元素 */
-    const children: HTMLObjectElement[] = instance.subTree.el.querySelectorAll(
-      '.f-tabs-nav__item:not(.f-tabs-nav__item-active)'
-    ) as HTMLObjectElement[]
+    const children: HTMLObjectElement[] = instance.subTree.el.querySelectorAll('.f-tabs-nav__item')
 
-    const maxChildren: HTMLObjectElement = Array.from(children).reduce(
-      (pre: HTMLObjectElement, cur: HTMLObjectElement): HTMLObjectElement => {
-        pre = (cur[positionVar.b] as number) > (pre[positionVar.b] as number) ? cur : pre
-        return pre
-      },
-      children[0]
-    )
-
-    /** 最高的子元素的 padding */
-    const padding: number = sizeToNum(window.getComputedStyle(maxChildren)[positionVar.c] as string)
     /** css 变量 */
-    const cardActiveDiffHeight: string = window.getComputedStyle(wrapperEl).getPropertyValue('--cardActiveDiffHeight')
+    const cardActiveDiffHeight: string = window && window.getComputedStyle(wrapperEl).getPropertyValue('--cardActiveDiffHeight')
+
     /** 最高的子元素 active 状态下的高度 */
-    const maxChildrenNum: number = sizeToNum(maxChildren[positionVar.b]) - padding + sizeToNum(cardActiveDiffHeight)
+    const maxChildrenNum: number = sizeToNum(children[0][positionVar.b]) + sizeToNum(cardActiveDiffHeight)
 
     /**
      * 比较标签显示高度 (wrapperEl)、最高元素预估高度，取得最大值
@@ -111,6 +94,8 @@ export const useTabsNaStyle = (prop: TabsNavProps): UseTabsNaStyleReturn => {
      * 估值高度取得是除 active 外的元素
      *
      * 如果当前 active 的元素本身是最大的话，会体现在 wrapperEl.offset 上
+     * 
+     * @see Math.max() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/max
      */
     wrapperStyle.value = {
       [positionVar.a]: Math.max(wrapperEl[positionVar.b], maxChildrenNum) + 'px'
