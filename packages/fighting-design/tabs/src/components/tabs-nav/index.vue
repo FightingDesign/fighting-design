@@ -48,6 +48,7 @@
     }
   })
 
+  /** 监视位置、类型、对齐方式发生变化时触发 */
   watch(
     [(): TabsPosition => prop.position, (): TabsType => prop.type, (): TabsJustifyContent => prop.justifyContent],
     (): void => {
@@ -65,9 +66,7 @@
         }
       }
     },
-    {
-      immediate: true
-    }
+    { immediate: true }
   )
 
   /** 样式列表 */
@@ -116,6 +115,7 @@
           <f-svg-icon :icon="FIconPlusVue" color="#666" />
         </div>
 
+        <!-- 线性类型滑动的标签 -->
         <div v-if="type === 'line'" class="f-tabs-nav__line-active" :style="activeLineStyle" />
       </div>
     </div>

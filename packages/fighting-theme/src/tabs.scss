@@ -104,7 +104,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--padding);
+    // padding: var(--padding);
+    padding: 10px;
   }
 
   .f-tabs-nav__wrapper {
@@ -153,7 +154,8 @@
       cursor: pointer;
       text-align: center;
       word-break: keep-all;
-      padding: var(--padding);
+      // padding: var(--padding);
+      padding: 10px;
 
       &:hover {
         color: var(--f-design-color-primary-1);
@@ -189,20 +191,20 @@
         height: 2px;
       }
 
-      .f-tabs-nav__item {
-        &:not(:first-child):not(:last-child) {
-          padding-left: 10px;
-          padding-right: 10px;
-        }
+      // .f-tabs-nav__item {
+      //   &:not(:first-child):not(:last-child) {
+      //     padding-left: 10px;
+      //     padding-right: 10px;
+      //   }
 
-        &:first-child {
-          padding-right: 10px;
-        }
+      //   &:first-child {
+      //     padding-right: 10px;
+      //   }
 
-        &:last-child {
-          padding-left: 10px;
-        }
-      }
+      //   &:last-child {
+      //     padding-left: 10px;
+      //   }
+      // }
     }
 
     // 左右方向

@@ -1,6 +1,7 @@
 import { nextTick, getCurrentInstance, ref, computed } from 'vue'
 import { sizeToNum } from '../../_utils'
-import type { TabsNavInstance, TabsProps } from '../../tabs'
+import type { TabsNavProps } from '../../tabs/src/components'
+import type { TabsNavInstance } from '../../tabs'
 import type { ComponentInternalInstance, CSSProperties } from 'vue'
 import type { UseTabsNaStyleReturn } from './interface'
 
@@ -11,7 +12,7 @@ export * from './interface.d'
  * 
  * @param prop props 参数
  */
-export const useTabsNaStyle = (prop: TabsProps): UseTabsNaStyleReturn => {
+export const useTabsNaStyle = (prop: TabsNavProps): UseTabsNaStyleReturn => {
 
   /** 获取当前组件实例 */
   const instance: ComponentInternalInstance | null = getCurrentInstance()
@@ -25,7 +26,7 @@ export const useTabsNaStyle = (prop: TabsProps): UseTabsNaStyleReturn => {
    */
   const wrapperStyle = ref<CSSProperties>({})
 
-  /**仅针对 line 模式下的，活动线条的样式 */
+  /** 仅针对 line 模式下的，活动线条的样式 */
   const activeLineStyle = ref<CSSProperties>({})
 
   /**
@@ -120,37 +121,58 @@ export const useTabsNaStyle = (prop: TabsProps): UseTabsNaStyleReturn => {
    * 设置样式
    *
    * 针对 type = line 的模式
+   * 
+   * 设置选中高亮的滑块样式
    */
   const setActiveLineStyle = async (): Promise<void> => {
+    /**
+     * 等待下一次 DOM 更新刷新
+     * 
+     * @see nextTick https://cn.vuejs.org/api/general.html#nexttick
+     */
     await nextTick()
+
+    /** 如果没有获取到实例或者没有元素节点则直接返回 */
     if (!instance || !instance.subTree.el) return
 
     const { position } = prop
-    const activeStyle: CSSProperties = {}
+    /** 选中的样式 */
+    const activeStyleList: CSSProperties = {}
+    /** 获取到内部所有的节点 */
     const children: HTMLElement[] = instance.subTree.el.querySelectorAll('.f-tabs-nav__item') as HTMLElement[]
 
-    if (!children.length) return
+    /** 如果没有子元素则返回 */
+    if (!children || !children.length) return
 
-    const nextItem: HTMLElement = children[currentIndex.value]
-    const nextItemStyle: CSSStyleDeclaration = window.getComputedStyle(nextItem)
+    /** 获取到选中的元素 */
+    const activeEl: HTMLElement = children[currentIndex.value]
 
+    /**
+     * 获取到当前元素的样式
+     * 
+     * @see Window.getComputedStyle() https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle
+     */
+    const activeStyle: CSSStyleDeclaration = window && window.getComputedStyle(activeEl)
+
+    /** 向下位置的样式 */
     if (position === 'top' || position === 'bottom') {
-      activeStyle.width =
-        nextItem.clientWidth - sizeToNum(nextItemStyle.paddingLeft) - sizeToNum(nextItemStyle.paddingRight) + 'px'
-      activeStyle.left = `${nextItem.offsetLeft + sizeToNum(nextItemStyle.paddingLeft)}px`
-      activeStyle.bottom = '0px'
-    } else {
-      activeStyle.height =
-        nextItem.clientHeight - sizeToNum(nextItemStyle.paddingTop) - sizeToNum(nextItemStyle.paddingBottom) + 'px'
-      activeStyle.top = `${nextItem.offsetTop + sizeToNum(nextItemStyle.paddingTop)}px`
+      activeStyleList.width = activeEl.clientWidth - sizeToNum(activeStyle.padding) + 'px'
+      activeStyleList.bottom = 0
+      activeStyleList.transform = `translateX(${activeEl.offsetLeft}px)`
+    }
+    /** 左右位置的样式 */
+    else if (position === 'left' || position === 'right') {
+      activeStyleList.height = activeEl.clientHeight - sizeToNum(activeStyle.padding) + 'px'
+      activeStyleList.transform = `translateY(${activeEl.offsetTop}px)`
+
       if (position === 'left') {
-        activeStyle.right = '0px'
+        activeStyleList.right = 0
       } else {
-        activeStyle.left = '0px'
+        activeStyleList.left = 0
       }
     }
 
-    activeLineStyle.value = activeStyle
+    activeLineStyle.value = activeStyleList
   }
 
   return {

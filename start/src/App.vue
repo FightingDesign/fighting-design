@@ -28,7 +28,7 @@
 </script>
 
 <template>
-  <f-tabs :on-edit="edit" edit-status type="card">
+  <f-tabs :on-edit="edit" edit-status type="line" position="left">
     <!-- <template #prefix>
       <f-button type="primary">主要按钮</f-button>
     </template>
