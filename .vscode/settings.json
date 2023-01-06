@@ -214,6 +214,5 @@
   ],
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "commentTranslate.hover.enabled": false
+  }
 }
