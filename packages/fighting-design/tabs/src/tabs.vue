@@ -42,7 +42,7 @@
       :edit-status="editStatus"
       :justify-content="justifyContent"
       :trigger="trigger"
-      :on-before-enter="onBeforeEnter"
+      :on-switch="onSwitch"
       :set-current-name="setCurrentName"
       :set-edit="edit"
     >

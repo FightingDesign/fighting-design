@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { FMessage } from 'fighting-design'
 
-  const beforeEnter = name => {
+  const onSwitch = name => {
     switch (name) {
       case 'hobby':
         return new Promise<boolean>(resolve => {
@@ -20,7 +20,7 @@
 </script>
 
 <template>
-  <f-tabs :on-before-enter="beforeEnter">
+  <f-tabs :on-switch="onSwitch">
     <f-tabs-pane label="个人信息" name="name">
       <p>小芳，女</p>
     </f-tabs-pane>

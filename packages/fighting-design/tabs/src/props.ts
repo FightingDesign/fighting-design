@@ -1,7 +1,14 @@
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type { TabsTrigger, TabsPaneName, TabsPosition, TabsType, TabsJustifyContent, BeforeEnter } from './interface'
+import type { TabsTrigger, TabsModelValue, TabsPosition, TabsType, TabsJustifyContent, TabsSwitch } from './interface'
 
 export const Props = {
+  /**
+  * 活跃的 name
+  */
+  modelValue: {
+    type: [String, Number] as PropType<TabsModelValue>,
+    default: (): null => null
+  },
   /**
    * 头部位置
    *
@@ -14,13 +21,6 @@ export const Props = {
     validator: (val: TabsPosition): boolean => {
       return (['left', 'right', 'top', 'bottom'] as const).includes(val)
     }
-  },
-  /**
-   * 活跃的 name
-   */
-  modelValue: {
-    type: [String, Number] as PropType<TabsPaneName>,
-    default: (): null => null
   },
   /**
    * 样式风格
@@ -69,8 +69,8 @@ export const Props = {
     }
   },
   /** 切换前的回调 */
-  onBeforeEnter: {
-    type: Function as PropType<BeforeEnter>,
+  onSwitch: {
+    type: Function as PropType<TabsSwitch>,
     default: (): null => null
   },
   /** 可编辑模式的回调 */

@@ -25,14 +25,14 @@ export type TabsJustifyContent =
   | 'space-evenly'
 
 /** 活跃的 name */
-export type TabsPaneName = string | number
+export type TabsModelValue = string | number
 
 /**
  * 切换前的回调类型
  *
  * @param name 标签的 name
  */
-export type BeforeEnter = (name: TabsPaneName) => boolean | void
+export type TabsSwitch = (name: TabsModelValue) => boolean | void
 
 /**
  * nav 列表集合
@@ -41,6 +41,6 @@ export type BeforeEnter = (name: TabsPaneName) => boolean | void
  * @param label 标签的 label
  */
 export interface TabsNavInstance {
-  name: TabsPaneName
+  name: TabsModelValue
   label: unknown
 }

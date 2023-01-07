@@ -191,7 +191,7 @@
 ::: demo
 
 <template #source>
-<f-tabs :on-before-enter="beforeEnter">
+<f-tabs :on-switch="onSwitch">
 <f-tabs-pane label="个人信息" name="name">
 
 <p>小芳，女</p>
@@ -206,7 +206,7 @@
 
 ```html
 <template>
-  <f-tabs :on-before-enter="beforeEnter">
+  <f-tabs :on-switch="onSwitch">
     <f-tabs-pane label="个人信息" name="name">
       <p>小芳，女</p>
     </f-tabs-pane>
@@ -220,7 +220,7 @@
 <script lang="ts" setup>
   import { FMessage } from 'fighting-design'
 
-  const beforeEnter = name => {
+  const onSwitch = name => {
     switch (name) {
       case 'hobby':
         return new Promise<boolean>(resolve => {
@@ -403,15 +403,15 @@
 
 ## Tabs Attributes
 
-| 参数             | 说明                                 | 类型                                | 可选值                        | 默认值              |
-| ---------------- | ------------------------------------ | ----------------------------------- | ----------------------------- | ------------------- |
-| `v-model`        | 绑定值，选中选项卡的 name            | string / number                     | ——                            | 第一个选项卡的 name |
-| `type`           | 风格类型                             | string                              | `line` `card` `segment`       | `line`              |
-| `position`       | 头部位置                             | string                              | `left` `right` `top` `bottom` | `top`               |
-| `justifyContent` | 对齐方式(仅针对上下方向的`line`有效) | string                              | `justify-content` 的`css`属性 | `flex-start`        |
-| `beforeEnter`    | 切换前的回调                         | (name: String \| Number) => Boolean | ——                            | ——                  |
-| `editStatus`     | 编辑模式                             | Boolean                             | ——                            | `false`             |
-| `trigger`        | 触发方式                             | String                              | `click` `hover`               | `click`             |
+| 参数                  | 说明                                   | 类型                                                 | 可选值                        | 默认值 |
+| --------------------- | -------------------------------------- | ---------------------------------------------------- | ----------------------------- | ------ |
+| `v-model:model-value` | 绑定值，选中选项卡的 name              | <a href="#tabsmodelvalue">TabsModelValue</a>         | ——                            | ——     |
+| `type`                | 风格类型                               | <a href="#tabstype">TabsType</a>                     | `line` `card` `segment`       | line   |
+| `position`            | 头部位置                               | <a href="#tabsposition">TabsPosition</a>             | `left` `right` `top` `bottom` | top    |
+| `justify-content`     | 对齐方式（仅针对上下方向的 line 有效） | <a href="#tabsjustifycontent">TabsJustifyContent</a> | `justify-content` 的`css`属性 | ——     |
+| `edit-status`         | 编辑模式                               | boolean                                              | ——                            | false  |
+| `trigger`             | 触发方式                               | <a href="#tabstrigger">TabsTrigger</a>               | `click` `hover`               | click  |
+| `on-switch`           | 切换前的回调                           | <a href="#tabsswitch">TabsSwitch</a>                 | ——                            | ——     |
 
 ## Tabs Slots
 
@@ -423,11 +423,11 @@
 
 ## TabsPane Attributes
 
-| 参数    | 说明                 | 类型            | 可选值 | 默认值  |
-| ------- | -------------------- | --------------- | ------ | ------- |
-| `name`  | 标签的标识符         | string / number | ——     | ——      |
-| `label` | 标签项的标题         | string          | ——     | ——      |
-| `lazy`  | 标签内容是否延迟渲染 | boolean         | ——     | `false` |
+| 参数    | 说明                 | 类型            | 可选值 | 默认值 |
+| ------- | -------------------- | --------------- | ------ | ------ |
+| `name`  | 标签的标识符         | string / number | ——     | ——     |
+| `label` | 标签项的标题         | string          | ——     | ——     |
+| `lazy`  | 标签内容是否延迟渲染 | boolean         | ——     | false  |
 
 ## TabsPane Slots
 
@@ -435,6 +435,50 @@
 | --------- | ---------------- |
 | `default` | 标签项的内容     |
 | `label`   | 标签项的标题内容 |
+
+## Interface
+
+组件导出以下类型定义：
+
+```ts
+import type { TabsType, TabsSwitch } from 'fighting-design'
+```
+
+### TabsModelValue
+
+```ts
+type TabsModelValue = string | number
+```
+
+### TextDecoration
+
+```ts
+type TabsSwitch = (name: TabsModelValue) => boolean | void
+```
+
+### TabsType
+
+```ts
+type TabsType = 'line' | 'card' | 'segment'
+```
+
+### TabsPosition
+
+```ts
+type TabsPosition = 'left' | 'right' | 'top' | 'bottom'
+```
+
+### Tabsjustifycontent
+
+```ts
+type TabsJustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly'
+```
+
+### TabsTrigger
+
+```ts
+type TabsTrigger = 'hover' | 'click'
+```
 
 ## Contributors
 
@@ -454,7 +498,7 @@
   const position = ref('top')
   const justifyContent = ref('flex-start')
 
-  const beforeEnter = (name) => {
+  const onSwitch = (name) => {
     switch(name) {
       case 'hobby':
         return new Promise<boolean>((resolve) => {

@@ -20,9 +20,10 @@
   const clickSwitchNavItem = async (name: TabsPaneName): Promise<void> => {
     let res: boolean | void = true
 
-    if (prop.onBeforeEnter) {
-      res = await prop.onBeforeEnter(name)
+    if (prop.onSwitch) {
+      res = await prop.onSwitch(name)
     }
+
     if (isBoolean(res) && !res) return
 
     useRun(prop.setCurrentName, name)

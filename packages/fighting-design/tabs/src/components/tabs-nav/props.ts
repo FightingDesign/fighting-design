@@ -6,7 +6,7 @@ import type {
   TabsType,
   TabsJustifyContent,
   TabsTrigger,
-  BeforeEnter
+  TabsSwitch
 } from '../../interface'
 
 export const Props = {
@@ -81,8 +81,8 @@ export const Props = {
     }
   },
   /** 切换前的回调 */
-  onBeforeEnter: {
-    type: Function as PropType<BeforeEnter>,
+  onSwitch: {
+    type: Function as PropType<TabsSwitch>,
     default: (): null => null
   },
   /** 设置选中的 name */
