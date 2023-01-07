@@ -1,61 +1,32 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
+  import { FMessage } from 'fighting-design'
 
-  let tabIndex = 2
-
-  const list = ref([
-    { label: '第一个', content: '哈哈哈哈', name: '1' },
-    { label: '第二个', content: '哈哈哈哈a', name: '2' }
-  ])
-
-  const edit = (action: 'remove' | 'add', name: string, index: number): void => {
-    switch (action) {
-      case 'add':
-        {
-          const newTabName = `${++tabIndex}`
-          list.value.push({
-            label: '新的' + newTabName,
-            content: '新的标签页' + newTabName,
-            name: newTabName
-          })
-        }
-        break
-      case 'remove':
-        list.value.splice(index, 1)
-        break
+  const beforeEnter = name => {
+    switch (name) {
+      case 'hobby':
+        return new Promise<boolean>(resolve => {
+          FMessage.warning('稍等一下~')
+          setTimeout(() => {
+            resolve(true)
+          }, 1000)
+        })
+      case 'age':
+        FMessage.danger('这个不能说')
+        return false
+      default:
+        return true
     }
-  }
-
-  const onBeforeEnter = e => {
-    console.log(e)
   }
 </script>
 
 <template>
-  <f-tabs :on-edit="edit" edit-status type="segment" position="bottom" :on-before-enter="onBeforeEnter">
-    <!-- <template #prefix>
-      <f-button type="primary">主要按钮</f-button>
-    </template>
-
-    <template #suffix>
-      <f-button type="primary">suffix</f-button>
-    </template> -->
-
-    <f-tabs-pane v-for="(item, index) in list" :key="index" :label="item.label" :name="item.name">
-      {{ item.content }}
+  <f-tabs :on-before-enter="beforeEnter">
+    <f-tabs-pane label="个人信息" name="name">
+      <p>小芳，女</p>
     </f-tabs-pane>
-
-    <!-- <f-tabs-pane label="如烟" name="12121">
-      <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
-      <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
+    <f-tabs-pane label="爱好(等一秒)" name="hobby">
+      <p>疯狂星期四，V我50~</p>
     </f-tabs-pane>
-    <f-tabs-pane>
-      <p>长大 难道是人必经的溃烂。</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="我心中尚未崩坏的地方">
-      <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
-    </f-tabs-pane> -->
+    <f-tabs-pane label="年龄" name="age"> </f-tabs-pane>
   </f-tabs>
 </template>
-
-<style lang="scss" scoped></style>

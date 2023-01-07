@@ -2,6 +2,7 @@
   import { Props } from './props'
   import { computed, watch } from 'vue'
   import { FIconPlusVue } from '../../../../_svg'
+  import { isBoolean } from '../../../../_utils'
   import { FSvgIcon } from '../../../../svg-icon'
   import { FCloseBtn } from '../../../../close-btn'
   import { useTabsNavStyle, useRun } from '../../../../_hooks'
@@ -17,7 +18,13 @@
    * @param name name
    */
   const clickSwitchNavItem = async (name: TabsPaneName): Promise<void> => {
-    useRun(prop.onBeforeEnter, name)
+    let res: boolean | void = true
+
+    if (prop.onBeforeEnter) {
+      res = await prop.onBeforeEnter(name)
+    }
+    if (isBoolean(res) && !res) return
+
     useRun(prop.setCurrentName, name)
   }
 
@@ -66,29 +73,31 @@
     </div>
 
     <!-- 主要内容 -->
-    <div class="f-tabs-nav__wrapper" :style="{ justifyContent: type === 'line' ? justifyContent : '' }">
-      <!-- 选项列表 -->
-      <div
-        v-for="(item, index) in navs"
-        :key="index"
-        :class="[
-          'f-tabs-nav__item',
-          {
-            'f-tabs-nav__item-active': item.name === currentName
-          }
-        ]"
-        @[trigger]="clickSwitchNavItem(item.name)"
-      >
-        <!-- 标签展示的内容 -->
-        <span class="f-tabs-nav__item-label">{{ item.label || `标签 ${index}` }}</span>
+    <div class="f-tabs-nav__wrapper">
+      <div class="f-tabs-nav__main" :style="{ justifyContent: type === 'line' ? justifyContent : '' }">
+        <!-- 选项列表 -->
+        <div
+          v-for="(item, index) in navs"
+          :key="index"
+          :class="[
+            'f-tabs-nav__item',
+            {
+              'f-tabs-nav__item-active': item.name === currentName
+            }
+          ]"
+          @[trigger]="clickSwitchNavItem(item.name)"
+        >
+          <!-- 标签展示的内容 -->
+          <span class="f-tabs-nav__item-label">{{ item.label || `标签 ${index}` }}</span>
 
-        <!-- 关闭按钮 -->
-        <f-close-btn v-if="type === 'card' && editStatus" round @click.stop="editItem('remove', item.name, index)" />
-      </div>
+          <!-- 关闭按钮 -->
+          <f-close-btn v-if="type === 'card' && editStatus" round @click.stop="editItem('remove', item.name, index)" />
+        </div>
 
-      <!-- 卡片样式编辑状态下的添加按钮 -->
-      <div v-if="type === 'card' && editStatus" class="f-tabs-nav__item" @click="editItem('add')">
-        <f-svg-icon :icon="FIconPlusVue" color="#666" />
+        <!-- 卡片样式编辑状态下的添加按钮 -->
+        <div v-if="type === 'card' && editStatus" class="f-tabs-nav__item" @click="editItem('add')">
+          <f-svg-icon :icon="FIconPlusVue" color="#666" />
+        </div>
       </div>
 
       <!-- 线性类型滑动的标签 -->

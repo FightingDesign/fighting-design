@@ -7,15 +7,11 @@
   &.f-tabs__top {
     flex-direction: column;
 
-    .f-tabs-nav {
-      // 卡片类型
-      &.f-tabs-nav__card {
-        .f-tabs-nav__wrapper {
-          .f-tabs-nav__item {
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-          }
-        }
+    // 卡片类型
+    .f-tabs-nav__card {
+      .f-tabs-nav__item {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
       }
     }
   }
@@ -24,20 +20,11 @@
   &.f-tabs__bottom {
     flex-direction: column-reverse;
 
-    .f-tabs-nav {
-      display: flex;
-      box-sizing: border-box;
-      justify-content: space-between;
-      align-items: flex-end;
-
-      // 卡片类型
-      &.f-tabs-nav__card {
-        .f-tabs-nav__wrapper {
-          .f-tabs-nav__item {
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-          }
-        }
+    // 卡片类型
+    .f-tabs-nav__card {
+      .f-tabs-nav__item {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
       }
     }
   }
@@ -53,11 +40,9 @@
 
     // 卡片类型
     .f-tabs-nav__card {
-      .f-tabs-nav__wrapper {
-        .f-tabs-nav__item {
-          border-bottom-left-radius: 8px;
-          border-top-left-radius: 8px;
-        }
+      .f-tabs-nav__item {
+        border-bottom-left-radius: 8px;
+        border-top-left-radius: 8px;
       }
     }
   }
@@ -73,11 +58,9 @@
 
     // 卡片类型
     .f-tabs-nav__card {
-      .f-tabs-nav__wrapper {
-        .f-tabs-nav__item {
-          border-bottom-right-radius: 8px;
-          border-top-right-radius: 8px;
-        }
+      .f-tabs-nav__item {
+        border-bottom-right-radius: 8px;
+        border-top-right-radius: 8px;
       }
     }
   }
@@ -97,39 +80,40 @@
 
         // 主要容器
         .f-tabs-nav__wrapper {
+          width: 100%;
           display: flex;
           position: relative;
-          overflow: hidden;
-          width: fit-content;
-          height: fit-content;
+          justify-content: flex-start;
 
-          // 每一项元素
-          .f-tabs-nav__item {
+          .f-tabs-nav__main {
+            width: 100%;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            text-align: center;
-            word-break: keep-all;
-            padding: 10px;
 
-            &:hover {
-              color: var(--f-design-color-primary-1);
-            }
+            // 每一项元素
+            .f-tabs-nav__item {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              text-align: center;
+              word-break: keep-all;
+              padding: 10px;
 
-            // 选中的元素
-            &.f-tabs-nav__item-active {
-              color: var(--f-design-color-primary-1);
-            }
+              // 选中的元素
+              &:hover,
+              &.f-tabs-nav__item-active {
+                color: var(--f-design-color-primary-1);
+              }
 
-            // 关闭按钮
-            .f-close-btn {
-              margin-left: 8px;
-            }
+              // 关闭按钮
+              .f-close-btn {
+                margin-left: 8px;
+              }
 
-            // label
-            .f-tabs-nav__item-label {
-              font-size: 15px;
+              // label
+              .f-tabs-nav__item-label {
+                font-size: 15px;
+              }
             }
           }
 
@@ -151,34 +135,37 @@
         .f-tabs-nav__wrapper {
           display: flex;
           position: relative;
-          overflow: hidden;
 
-          // 每一项
-          .f-tabs-nav__item {
-            padding: 4px 12px;
-            border: 1px solid #ddd;
-            cursor: pointer;
+          .f-tabs-nav__main {
             display: flex;
-            align-items: center;
-            user-select: none;
-            background: #f5f7fa;
 
-            // label
-            .f-tabs-nav__item-label {
-              font-size: 15px;
-            }
+            // 每一项
+            .f-tabs-nav__item {
+              padding: 4px 12px;
+              border: 1px solid #ddd;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              user-select: none;
+              background: #f5f7fa;
 
-            // 关闭按钮
-            .f-close-btn {
-              margin-left: 8px;
-            }
-
-            // 选中的
-            &.f-tabs-nav__item-active {
-              background: #fff;
-
+              // label
               .f-tabs-nav__item-label {
-                color: var(--f-design-color-primary-1);
+                font-size: 15px;
+              }
+
+              // 关闭按钮
+              .f-close-btn {
+                margin-left: 8px;
+              }
+
+              // 选中的
+              &.f-tabs-nav__item-active {
+                background: #fff;
+
+                .f-tabs-nav__item-label {
+                  color: var(--f-design-color-primary-1);
+                }
               }
             }
           }
@@ -200,25 +187,29 @@
         .f-tabs-nav__wrapper {
           display: flex;
           position: relative;
-          overflow: hidden;
-          min-width: 100%;
+          width: 100%;
 
-          // 每一项
-          .f-tabs-nav__item {
+          .f-tabs-nav__main {
             display: flex;
-            flex: 1;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            text-align: center;
-            word-break: keep-all;
-            padding: 4px 8px;
+            width: 100%;
 
-            &.f-tabs-nav__item-active {
-              background: var(--f-design-color-text-2);
+            // 每一项
+            .f-tabs-nav__item {
+              display: flex;
+              flex: 1;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              text-align: center;
+              word-break: keep-all;
+              padding: 4px 8px;
 
-              .f-tabs-nav__item-label {
-                color: var(--f-design-color-primary-1);
+              &.f-tabs-nav__item-active {
+                background: var(--f-design-color-text-2);
+
+                .f-tabs-nav__item-label {
+                  color: var(--f-design-color-primary-1);
+                }
               }
             }
           }
@@ -237,37 +228,35 @@
         .f-tabs-nav__wrapper {
           display: flex;
           position: relative;
-          overflow: hidden;
           flex-direction: column;
           align-items: flex-end;
 
-          // 每一项元素
-          .f-tabs-nav__item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            text-align: center;
-            word-break: keep-all;
-            padding: 10px;
+          .f-tabs-nav__main {
+            // 每一项元素
+            .f-tabs-nav__item {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              text-align: center;
+              word-break: keep-all;
+              padding: 10px;
 
-            &:hover {
-              color: var(--f-design-color-primary-1);
-            }
+              // 选中的元素
+              &:hover,
+              &.f-tabs-nav__item-active {
+                color: var(--f-design-color-primary-1);
+              }
 
-            // 选中的元素
-            &.f-tabs-nav__item-active {
-              color: var(--f-design-color-primary-1);
-            }
+              // 关闭按钮
+              .f-close-btn {
+                margin-left: 8px;
+              }
 
-            // 关闭按钮
-            .f-close-btn {
-              margin-left: 8px;
-            }
-
-            // label
-            .f-tabs-nav__item-label {
-              font-size: 15px;
+              // label
+              .f-tabs-nav__item-label {
+                font-size: 15px;
+              }
             }
           }
 
@@ -286,7 +275,6 @@
         // 滚动容器
         .f-tabs-nav__wrapper {
           position: relative;
-          overflow: hidden;
           display: flex;
           flex-direction: column;
           align-items: flex-end;
@@ -330,9 +318,10 @@
   }
 
   // 前缀和后缀
-  &__suffix,
-  &__prefix {
-    padding: 12px;
+  .f-tabs-nav__suffix,
+  .f-tabs-nav__prefix {
+    padding: 5px 12px;
+    display: flex;
   }
 
   // 主要展示的内容

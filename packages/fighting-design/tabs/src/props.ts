@@ -39,12 +39,11 @@ export const Props = {
    * 对齐方式
    *
    * @values flex-start center flex-end space-between space-around space-evenly
-   * @defaultValue flex-start
    * @see justify-content https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content
    */
   justifyContent: {
     type: String as PropType<TabsJustifyContent>,
-    default: (): TabsJustifyContent => 'flex-start',
+    default: (): null => null,
     validator: (val: TabsJustifyContent): boolean => {
       return (['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'] as const).includes(
         val
