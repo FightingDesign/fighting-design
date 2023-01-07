@@ -7,7 +7,7 @@ import type { Ref, CSSProperties, ComputedRef } from 'vue'
  * @param currentIndex
  * @param activeLineStyle
  */
-export interface UseTabsNaStyleReturn {
+export interface UseTabsNavStyleReturn {
   setActiveLineStyle: () => Promise<void>
   currentIndex: ComputedRef<number>
   activeLineStyle: Ref<CSSProperties>

@@ -3,7 +3,7 @@ import { sizeToNum } from '../../_utils'
 import type { TabsNavProps } from '../../tabs/src/components'
 import type { TabsNavInstance } from '../../tabs'
 import type { ComponentInternalInstance, CSSProperties } from 'vue'
-import type { UseTabsNaStyleReturn } from './interface'
+import type { UseTabsNavStyleReturn } from './interface'
 
 export * from './interface.d'
 
@@ -12,7 +12,7 @@ export * from './interface.d'
  * 
  * @param prop props 参数
  */
-export const useTabsNaStyle = (prop: TabsNavProps): UseTabsNaStyleReturn => {
+export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
 
   /** 获取当前组件实例 */
   const instance: ComponentInternalInstance | null = getCurrentInstance()

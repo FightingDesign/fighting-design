@@ -4,13 +4,12 @@
   import { FIconPlusVue } from '../../../../_svg'
   import { FSvgIcon } from '../../../../svg-icon'
   import { FCloseBtn } from '../../../../close-btn'
-  import { useTabsNaStyle, useRun } from '../../../../_hooks'
-  import type { ClassList } from '../../../../_interface'
+  import { useTabsNavStyle, useRun } from '../../../../_hooks'
   import type { TabsPaneName, TabsPosition, TabsJustifyContent, TabsType } from '../../interface'
 
   const prop = defineProps(Props)
 
-  const { setActiveLineStyle, currentIndex, activeLineStyle } = useTabsNaStyle(prop)
+  const { setActiveLineStyle, currentIndex, activeLineStyle } = useTabsNavStyle(prop)
 
   /**
    * 点击切换标签执行
@@ -53,15 +52,6 @@
     { immediate: true }
   )
 
-  /** 样式列表 */
-  const classList = computed((): ClassList => {
-    const { type } = prop
-    return [
-      `f-tabs-nav__${type}`
-      //  `f-tabs-nav__${type}-${position}`
-    ] as const
-  })
-
   /** 事件处理 */
   const trigger = computed((): 'click' | 'mouseenter' => {
     return prop.trigger === 'hover' ? 'mouseenter' : 'click'
@@ -69,7 +59,7 @@
 </script>
 
 <template>
-  <div class="f-tabs-nav" :class="classList">
+  <div :class="['f-tabs-nav', `f-tabs-nav__${type}`]">
     <!-- 前缀内容 -->
     <div v-if="$slots.prefix" class="f-tabs-nav__prefix">
       <slot name="prefix" />
