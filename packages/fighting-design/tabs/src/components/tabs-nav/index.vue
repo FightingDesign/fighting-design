@@ -1,6 +1,5 @@
 <script lang="ts" setup name="FTabsNav">
   import { Props } from './props'
-  import { isBoolean } from '../../../../_utils'
   import { computed, watch } from 'vue'
   import { FIconPlusVue } from '../../../../_svg'
   import { FSvgIcon } from '../../../../svg-icon'
@@ -11,22 +10,15 @@
 
   const prop = defineProps(Props)
 
-  const { setCardStyle, setActiveLineStyle, wrapperStyle, currentIndex, activeLineStyle } = useTabsNaStyle(prop)
+  const { setActiveLineStyle, currentIndex, activeLineStyle } = useTabsNaStyle(prop)
 
   /**
-   * 上方切换方法
+   * 点击切换标签执行
    *
    * @param name name
    */
-  const clickNavItem = async (name: TabsPaneName): Promise<void> => {
-    let res: boolean | void = true
-
-    if (prop.onBeforeEnter) {
-      res = await prop.onBeforeEnter(name)
-    }
-
-    if (isBoolean(res) && !res) return
-
+  const clickSwitchNavItem = async (name: TabsPaneName): Promise<void> => {
+    useRun(prop.onBeforeEnter, name)
     useRun(prop.setCurrentName, name)
   }
 
@@ -41,30 +33,22 @@
     useRun(prop.setEdit, action, name, index)
   }
 
-  /** 风格样式调整 */
-  watch([currentIndex], (): void => {
-    if (prop.type === 'line') {
-      setActiveLineStyle()
-    }
-  })
-
-  /** 监视位置、类型、对齐方式发生变化时触发 */
+  /**
+   * line 风格样式调整
+   *
+   * 监视选中的标签，如果发生变化，处理底部选中条的位移
+   *
+   * 监视位置、类型、对齐方式发生变化时触发
+   */
   watch(
-    [(): TabsPosition => prop.position, (): TabsType => prop.type, (): TabsJustifyContent => prop.justifyContent],
+    [
+      (): TabsPosition => prop.position,
+      (): TabsType => prop.type,
+      (): TabsJustifyContent => prop.justifyContent,
+      (): number => currentIndex.value
+    ],
     (): void => {
-      wrapperStyle.value = {}
-      if (prop.type === 'card') {
-        setCardStyle()
-      }
-
-      if (prop.type === 'line') {
-        setActiveLineStyle()
-        if (prop.position === 'top' || prop.position === 'bottom') {
-          wrapperStyle.value = {
-            justifyContent: prop.justifyContent
-          }
-        }
-      }
+      prop.type === 'line' && setActiveLineStyle()
     },
     { immediate: true }
   )
@@ -90,7 +74,7 @@
 
     <!-- 主要内容 -->
     <div class="f-tabs-nav__main">
-      <div class="f-tabs-nav__wrapper" :style="wrapperStyle">
+      <div class="f-tabs-nav__wrapper" :style="{ justifyContent: type === 'line' ? justifyContent : '' }">
         <!-- 选项列表 -->
         <div
           v-for="(item, index) in navs"
@@ -101,7 +85,7 @@
               'f-tabs-nav__item-active': item.name === currentName
             }
           ]"
-          @[trigger]="clickNavItem(item.name)"
+          @[trigger]="clickSwitchNavItem(item.name)"
         >
           <!-- 标签展示的内容 -->
           <span class="f-tabs-nav__item-label">{{ item.label || `标签 ${index}` }}</span>

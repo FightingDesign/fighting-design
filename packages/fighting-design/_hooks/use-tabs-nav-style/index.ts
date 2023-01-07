@@ -17,15 +17,6 @@ export const useTabsNaStyle = (prop: TabsNavProps): UseTabsNaStyleReturn => {
   /** 获取当前组件实例 */
   const instance: ComponentInternalInstance | null = getCurrentInstance()
 
-  /**
-   * 仅针对card模式下的，items的样式
-   *
-   * 估算最长元素active状态下的高度，设置为固定高度
-   *
-   * 防止在切换标签时出现跳动的情况
-   */
-  const wrapperStyle = ref<CSSProperties>({})
-
   /** 仅针对 line 模式下的，活动线条的样式 */
   const activeLineStyle = ref<CSSProperties>({})
 
@@ -47,64 +38,6 @@ export const useTabsNaStyle = (prop: TabsNavProps): UseTabsNaStyleReturn => {
   /**
    * 设置样式
    *
-   * 针对 type = card 的模式
-   */
-  const setCardStyle = async (): Promise<void> => {
-    /**
-     * 等待下一次 DOM 更新刷新
-     * 
-     * @see nextTick https://cn.vuejs.org/api/general.html#nexttick
-     */
-    await nextTick()
-
-    /** 如果没有列表则返回 */
-    if (!prop.navs) return
-
-    const positionVar: {
-      a: keyof HTMLObjectElement
-      b: keyof HTMLObjectElement
-    } = { a: 'height', b: 'offsetHeight' }
-
-    if (prop.position === 'left' || prop.position === 'right') {
-      positionVar.a = 'width'
-      positionVar.b = 'offsetWidth'
-    } else {
-      positionVar.a = 'height'
-      positionVar.b = 'offsetHeight'
-    }
-
-    /** 当前 nav 的高度 */
-    if (!instance || !instance.subTree.el) return
-
-    /** 获取到容器元素 */
-    const wrapperEl: HTMLObjectElement = instance.subTree.el as HTMLObjectElement
-
-    /** 获取除 active 元素外最高的子元素 */
-    const children: HTMLObjectElement[] = instance.subTree.el.querySelectorAll('.f-tabs-nav__item')
-
-    /** css 变量 */
-    const cardActiveDiffHeight: string = window && window.getComputedStyle(wrapperEl).getPropertyValue('--cardActiveDiffHeight')
-
-    /** 最高的子元素 active 状态下的高度 */
-    const maxChildrenNum: number = sizeToNum(children[0][positionVar.b]) + sizeToNum(cardActiveDiffHeight)
-
-    /**
-     * 比较标签显示高度 (wrapperEl)、最高元素预估高度，取得最大值
-     *
-     * 估值高度取得是除 active 外的元素
-     *
-     * 如果当前 active 的元素本身是最大的话，会体现在 wrapperEl.offset 上
-     * 
-     * @see Math.max() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/max
-     */
-    wrapperStyle.value = {
-      [positionVar.a]: Math.max(wrapperEl[positionVar.b], maxChildrenNum) + 'px'
-    }
-  }
-
-  /**
-   * 设置样式
-   *
    * 针对 type = line 的模式
    * 
    * 设置选中高亮的滑块样式
@@ -121,8 +54,10 @@ export const useTabsNaStyle = (prop: TabsNavProps): UseTabsNaStyleReturn => {
     if (!instance || !instance.subTree.el) return
 
     const { position } = prop
+
     /** 选中的样式 */
     const activeStyleList: CSSProperties = {}
+
     /** 获取到内部所有的节点 */
     const children: HTMLElement[] = instance.subTree.el.querySelectorAll('.f-tabs-nav__item') as HTMLElement[]
 
@@ -161,9 +96,7 @@ export const useTabsNaStyle = (prop: TabsNavProps): UseTabsNaStyleReturn => {
   }
 
   return {
-    setCardStyle,
     setActiveLineStyle,
-    wrapperStyle,
     currentIndex,
     activeLineStyle
   }
