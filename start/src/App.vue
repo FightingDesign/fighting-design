@@ -32,7 +32,7 @@
 </script>
 
 <template>
-  <f-tabs :on-edit="edit" edit-status type="line" position="top" :on-before-enter="onBeforeEnter">
+  <f-tabs :on-edit="edit" edit-status type="segment" position="bottom" :on-before-enter="onBeforeEnter">
     <!-- <template #prefix>
       <f-button type="primary">主要按钮</f-button>
     </template>

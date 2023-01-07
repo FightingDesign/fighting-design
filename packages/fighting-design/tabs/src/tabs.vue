@@ -24,7 +24,7 @@
 
   /** 类名列表 */
   const classList = computed((): ClassList => {
-    return ['f-tabs', `f-tabs__position_${tabsPosition.value}`] as const
+    return ['f-tabs', `f-tabs__${tabsPosition.value}`] as const
   })
 
   /** 通过 refs 抛出当前选中的值 */

@@ -3,509 +3,340 @@
 .f-tabs {
   display: flex;
 
-  &.f-tabs__position_top {
+  // 上方位置
+  &.f-tabs__top {
     flex-direction: column;
 
     .f-tabs-nav {
-      align-items: flex-end;
+      // 卡片类型
+      &.f-tabs-nav__card {
+        .f-tabs-nav__wrapper {
+          .f-tabs-nav__item {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+          }
+        }
+      }
     }
   }
-  &.f-tabs__position_bottom {
+
+  // 下方位置
+  &.f-tabs__bottom {
     flex-direction: column-reverse;
 
     .f-tabs-nav {
-      align-items: flex-start;
-    }
-  }
-
-  &.f-tabs__position_top,
-  &.f-tabs__position_bottom {
-    .f-tabs-nav {
+      display: flex;
+      box-sizing: border-box;
       justify-content: space-between;
-    }
-
-    .f-tabs-nav__wrapper {
-      min-width: 100%;
-    }
-
-    .f-tabs-nav__prefix {
-      padding-right: 10px;
-    }
-
-    .f-tabs-nav__suffix {
-      padding-left: 10px;
-    }
-  }
-
-  &.f-tabs__position_left,
-  &.f-tabs__position_right {
-    .f-tabs-nav,
-    .f-tabs-nav__wrapper {
-      flex-direction: column;
       align-items: flex-end;
-    }
 
-    .f-tabs-nav__prefix {
-      padding-bottom: 10px;
-    }
-
-    .f-tabs-nav__suffix {
-      padding-top: 10px;
+      // 卡片类型
+      &.f-tabs-nav__card {
+        .f-tabs-nav__wrapper {
+          .f-tabs-nav__item {
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+          }
+        }
+      }
     }
   }
 
-  &.f-tabs__position_left {
+  // 左侧位置
+  &.f-tabs__left {
     flex-direction: row;
+
+    // 线性类型
+    .f-tabs-nav__line {
+      border-right: 1px solid #ddd;
+    }
+
+    // 卡片类型
+    .f-tabs-nav__card {
+      .f-tabs-nav__wrapper {
+        .f-tabs-nav__item {
+          border-bottom-left-radius: 8px;
+          border-top-left-radius: 8px;
+        }
+      }
+    }
   }
 
-  &.f-tabs__position_right {
+  // 右侧位置
+  &.f-tabs__right {
     flex-direction: row-reverse;
 
-    .f-tabs-nav,
-    .f-tabs-nav__wrapper {
-      align-items: flex-start;
+    // 线性类型
+    .f-tabs-nav__line {
+      border-left: 1px solid #ddd;
     }
+
+    // 卡片类型
+    .f-tabs-nav__card {
+      .f-tabs-nav__wrapper {
+        .f-tabs-nav__item {
+          border-bottom-right-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+      }
+    }
+  }
+
+  // 上下位置
+  &.f-tabs__top,
+  &.f-tabs__bottom {
+    .f-tabs-nav {
+      display: flex;
+      box-sizing: border-box;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      // 线性类型
+      &.f-tabs-nav__line {
+        border-bottom: 1px solid #ddd;
+
+        // 主要容器
+        .f-tabs-nav__wrapper {
+          display: flex;
+          position: relative;
+          overflow: hidden;
+          width: fit-content;
+          height: fit-content;
+
+          // 每一项元素
+          .f-tabs-nav__item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-align: center;
+            word-break: keep-all;
+            padding: 10px;
+
+            &:hover {
+              color: var(--f-design-color-primary-1);
+            }
+
+            // 选中的元素
+            &.f-tabs-nav__item-active {
+              color: var(--f-design-color-primary-1);
+            }
+
+            // 关闭按钮
+            .f-close-btn {
+              margin-left: 8px;
+            }
+
+            // label
+            .f-tabs-nav__item-label {
+              font-size: 15px;
+            }
+          }
+
+          // 选中的标签
+          .f-tabs-nav__line-active {
+            height: 2px;
+            background: var(--f-design-color-primary-1);
+            transition: all var(--f-design-transition-time);
+            position: absolute;
+          }
+        }
+      }
+
+      // 卡片类型
+      &.f-tabs-nav__card {
+        display: flex;
+
+        // 主要容器
+        .f-tabs-nav__wrapper {
+          display: flex;
+          position: relative;
+          overflow: hidden;
+
+          // 每一项
+          .f-tabs-nav__item {
+            padding: 4px 12px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            user-select: none;
+            background: #f5f7fa;
+
+            // label
+            .f-tabs-nav__item-label {
+              font-size: 15px;
+            }
+
+            // 关闭按钮
+            .f-close-btn {
+              margin-left: 8px;
+            }
+
+            // 选中的
+            &.f-tabs-nav__item-active {
+              background: #fff;
+
+              .f-tabs-nav__item-label {
+                color: var(--f-design-color-primary-1);
+              }
+            }
+          }
+
+          .f-tabs-nav__item + .f-tabs-nav__item {
+            margin-top: -1px;
+          }
+        }
+      }
+
+      // 分段类型
+      &.f-tabs-nav__segment {
+        background: #f7f7fa;
+        padding: 4px;
+        box-sizing: border-box;
+        display: flex;
+
+        // 主要容器
+        .f-tabs-nav__wrapper {
+          display: flex;
+          position: relative;
+          overflow: hidden;
+          min-width: 100%;
+
+          // 每一项
+          .f-tabs-nav__item {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-align: center;
+            word-break: keep-all;
+            padding: 4px 8px;
+
+            &.f-tabs-nav__item-active {
+              background: var(--f-design-color-text-2);
+
+              .f-tabs-nav__item-label {
+                color: var(--f-design-color-primary-1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 左右位置
+  &.f-tabs__right,
+  &.f-tabs__left {
+    .f-tabs-nav {
+      // 线性类型
+      &.f-tabs-nav__line {
+        // 主要容器
+        .f-tabs-nav__wrapper {
+          display: flex;
+          position: relative;
+          overflow: hidden;
+          flex-direction: column;
+          align-items: flex-end;
+
+          // 每一项元素
+          .f-tabs-nav__item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-align: center;
+            word-break: keep-all;
+            padding: 10px;
+
+            &:hover {
+              color: var(--f-design-color-primary-1);
+            }
+
+            // 选中的元素
+            &.f-tabs-nav__item-active {
+              color: var(--f-design-color-primary-1);
+            }
+
+            // 关闭按钮
+            .f-close-btn {
+              margin-left: 8px;
+            }
+
+            // label
+            .f-tabs-nav__item-label {
+              font-size: 15px;
+            }
+          }
+
+          // 选中的标签
+          .f-tabs-nav__line-active {
+            width: 2px;
+            background: var(--f-design-color-primary-1);
+            transition: all var(--f-design-transition-time);
+            position: absolute;
+          }
+        }
+      }
+
+      // 卡片类型
+      &.f-tabs-nav__card {
+        // 滚动容器
+        .f-tabs-nav__wrapper {
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+
+          // 每一项
+          .f-tabs-nav__item {
+            padding: 4px 12px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            user-select: none;
+            background: #f5f7fa;
+
+            // label
+            .f-tabs-nav__item-label {
+              font-size: 15px;
+            }
+
+            // 关闭按钮
+            .f-close-btn {
+              margin-left: 8px;
+            }
+
+            // 选中的
+            &.f-tabs-nav__item-active {
+              background: #fff;
+
+              .f-tabs-nav__item-label {
+                color: var(--f-design-color-primary-1);
+              }
+            }
+          }
+
+          .f-tabs-nav__item + .f-tabs-nav__item {
+            margin-top: -1px;
+          }
+        }
+      }
+    }
+  }
+
+  // 前缀和后缀
+  &__suffix,
+  &__prefix {
+    padding: 12px;
   }
 
   // 主要展示的内容
-  .f-tabs__content {
+  &__content {
     flex: 1;
-  }
-}
-
-.f-tabs-pane {
-  padding: 4px 8px;
-}
-
-.f-tabs-nav__main {
-  flex: 1;
-  overflow: hidden;
-}
-
-.f-tabs__position_top,
-.f-tabs__position_bottom {
-  .f-tabs-nav__scroll {
-    overflow-x: auto;
-    overflow-y: hidden;
-    &::-webkit-scrollbar {
-      width: 0;
-      height: 0;
-    }
-  }
-}
-
-.f-tabs-nav {
-  --padding: 0;
-  display: flex;
-  flex-shrink: 0;
-
-  .f-tabs-nav__suffix,
-  .f-tabs-nav__prefix {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    // padding: var(--padding);
-    padding: 10px;
-  }
-
-  .f-tabs-nav__wrapper {
-    width: fit-content;
-    height: fit-content;
-  }
-
-  .f-tabs-nav__main {
-    position: relative;
-
-    .f-tabs-nav__scroll {
-      width: 100%;
-    }
-
-    // &::after,
-    // &::before {
-    //   transition: box-shadow var(--f-design-transition-time);
-    //   pointer-events: none;
-    //   content: '';
-    //   position: absolute;
-    //   top: 0;
-    //   bottom: 0;
-    //   width: 20px;
-    //   z-index: 1;
-    // }
-
-    // &.f-tabs-nav__scroll_before::before {
-    //   left: 0;
-    //   box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.12);
-    // }
-
-    // &.f-tabs-nav__scroll_after::after {
-    //   right: 0;
-    //   box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.12);
-    // }
-  }
-
-  .f-tabs-nav__wrapper {
-    display: flex;
-    position: relative;
-
-    .f-tabs-nav__item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      text-align: center;
-      word-break: keep-all;
-      // padding: var(--padding);
-      padding: 10px;
-
-      &:hover {
-        color: var(--f-design-color-primary-1);
-      }
-
-      .f-close-btn {
-        margin-left: 8px;
-      }
-    }
-
-    .f-tabs-nav__item-active {
-      color: var(--f-design-color-primary-1);
-    }
-  }
-
-  // line风格
-  &.f-tabs-nav__type_line {
-    flex-shrink: 0;
-
-    .f-tabs-nav__line-active {
-      background: var(--f-design-color-primary-1);
-      transition: all var(--f-design-transition-time);
-      position: absolute;
-    }
-
-    // 上下方向
-    &.f-tabs-nav__type_line_top,
-    &.f-tabs-nav__type_line_bottom {
-      --padding: 10px 0;
-      border-bottom: 1px solid #ddd;
-
-      .f-tabs-nav__line-active {
-        height: 2px;
-      }
-
-      // .f-tabs-nav__item {
-      //   &:not(:first-child):not(:last-child) {
-      //     padding-left: 10px;
-      //     padding-right: 10px;
-      //   }
-
-      //   &:first-child {
-      //     padding-right: 10px;
-      //   }
-
-      //   &:last-child {
-      //     padding-left: 10px;
-      //   }
-      // }
-    }
-
-    // 左右方向
-    &.f-tabs-nav__type_line_left,
-    &.f-tabs-nav__type_line_right {
-      --padding: 0 10px;
-
-      .f-tabs-nav__line-active {
-        width: 2px;
-      }
-
-      .f-tabs-nav__item {
-        &:not(:first-child):not(:last-child) {
-          padding-top: 10px;
-          padding-bottom: 10px;
-        }
-
-        &:first-child {
-          padding-bottom: 10px;
-        }
-
-        &:last-child {
-          padding-top: 10px;
-        }
-      }
-    }
-
-    &.f-tabs-nav__type_line_left {
-      border-right: 1px solid #ccc;
-    }
-
-    &.f-tabs-nav__type_line_right {
-      border-left: 1px solid #ccc;
-    }
-  }
-
-  // card 风格
-  &.f-tabs-nav__type_card {
-    --radius: 8px;
-    --cardActiveDiffHeight: 16px;
-    --cardActiveBg: #fff;
-    --cardBgColor: #f5f7fa;
-    --cardBorerColor: #ddd;
-
-    .f-tabs-nav__item {
-      border: 1px solid var(--cardBorerColor);
-      position: relative;
-      background: var(--cardBgColor);
-
-      &:not(:first-of-type)::before,
-      &:not(:first-of-type)::after {
-        content: '';
-        width: var(--radius);
-        height: var(--radius);
-        position: absolute;
-      }
-
-      &.f-tabs-nav__item-active {
-        transition: all var(--f-design-transition-time);
-        background: var(--cardActiveBg);
-
-        &::before {
-          background: var(--cardBgColor);
-          z-index: 2;
-        }
-
-        &::after {
-          background: var(--cardActiveBg);
-          z-index: 1;
-        }
-
-        & + .f-tabs-nav__item {
-          &::before {
-            background: var(--cardActiveBg);
-            z-index: 1;
-          }
-          &::after {
-            background: var(--cardBgColor);
-            z-index: 2;
-          }
-        }
-      }
-
-      .f-tabs-nav__item__card_close {
-        font-size: 0px;
-        transition: font-size var(--f-design-transition-time);
-      }
-
-      &:hover,
-      &.f-tabs-nav__item-active {
-        .f-tabs-nav__item__card_close {
-          font-size: 20px;
-        }
-      }
-    }
-
-    // 上方
-    &.f-tabs-nav__type_card_top {
-      .f-tabs-nav__wrapper {
-        align-items: flex-end;
-      }
-      .f-tabs-nav__item {
-        border-top-left-radius: var(--radius);
-        border-top-right-radius: var(--radius);
-
-        &:not(:first-of-type)::before,
-        &:not(:first-of-type)::after {
-          bottom: -1px;
-        }
-
-        // 选装状态下的样式
-        &.f-tabs-nav__item-active {
-          border-bottom: none;
-          // padding-bottom: var(--cardActiveDiffHeight);
-
-          &::before {
-            border-radius: 0 0 var(--radius) 0;
-            border-bottom: 1px solid var(--cardBorerColor);
-            border-right: 1px solid var(--cardBorerColor);
-            bottom: 0px;
-          }
-
-          & + .f-tabs-nav__item {
-            &::after {
-              border-radius: 0 0 0 var(--radius);
-              border-left: 1px solid var(--cardBorerColor);
-              border-bottom: 1px solid var(--cardBorerColor);
-            }
-          }
-        }
-      }
-    }
-
-    // 下方
-    &.f-tabs-nav__type_card_bottom {
-      .f-tabs-nav__wrapper {
-        align-items: flex-start;
-      }
-
-      .f-tabs-nav__item {
-        border-bottom-left-radius: var(--radius);
-        border-bottom-right-radius: var(--radius);
-
-        &:not(:first-of-type)::before,
-        &:not(:first-of-type)::after {
-          top: -1px;
-        }
-        &.f-tabs-nav__item-active {
-          padding-top: var(--cardActiveDiffHeight);
-          border-top: none;
-
-          &::before {
-            top: 0px;
-            border-radius: 0 var(--radius) 0 0;
-            border-top: 1px solid var(--cardBorerColor);
-            border-right: 1px solid var(--cardBorerColor);
-          }
-
-          & + .f-tabs-nav__item {
-            &::after {
-              border-radius: var(--radius) 0 0 0;
-              border-left: 1px solid var(--cardBorerColor);
-              border-top: 1px solid var(--cardBorerColor);
-            }
-          }
-        }
-      }
-    }
-
-    // 上下公用
-    &.f-tabs-nav__type_card_top,
-    &.f-tabs-nav__type_card_bottom {
-      --padding: 4px 12px;
-
-      .f-tabs-nav__item + .f-tabs-nav__item {
-        margin-left: -1px;
-      }
-
-      .f-tabs-nav__item-active {
-        &::before {
-          left: calc(0px - var(--radius) - 1px);
-        }
-
-        &::after {
-          left: calc(0px - var(--radius));
-        }
-
-        & + .f-tabs-nav__item {
-          &::before,
-          &::after {
-            left: -1px;
-          }
-        }
-      }
-    }
-
-    // 左右公用
-    &.f-tabs-nav__type_card_left,
-    &.f-tabs-nav__type_card_right {
-      --padding: 4px 8px;
-
-      .f-tabs-nav__item + .f-tabs-nav__item {
-        margin-top: -1px;
-      }
-
-      .f-tabs-nav__item-active {
-        &::before {
-          top: calc(0px - var(--radius) - 1px);
-        }
-        &::after {
-          top: calc(0px - var(--radius));
-        }
-        & + .f-tabs-nav__item {
-          &::before {
-            top: -1px;
-          }
-          &::after {
-            top: -1px;
-          }
-        }
-      }
-    }
-
-    // 左
-    &.f-tabs-nav__type_card_left {
-      .f-tabs-nav__item {
-        border-top-left-radius: var(--radius);
-        border-bottom-left-radius: var(--radius);
-        &:not(:first-of-type)::before,
-        &:not(:first-of-type)::after {
-          right: -1px;
-        }
-        &.f-tabs-nav__item-active {
-          border-right: none;
-          padding-right: var(--cardActiveDiffHeight);
-
-          &::before {
-            border-radius: 0 0 var(--radius) 0;
-            border-bottom: 1px solid var(--cardBorerColor);
-            border-right: 1px solid var(--cardBorerColor);
-            right: 0px;
-          }
-
-          & + .f-tabs-nav__item {
-            &::after {
-              border-radius: 0 var(--radius) 0 0;
-              border-top: 1px solid var(--cardBorerColor);
-              border-right: 1px solid var(--cardBorerColor);
-            }
-          }
-        }
-      }
-    }
-
-    // 右
-    &.f-tabs-nav__type_card_right {
-      .f-tabs-nav__item {
-        border-top-right-radius: var(--radius);
-        border-bottom-right-radius: var(--radius);
-
-        &:not(:first-of-type)::before,
-        &:not(:first-of-type)::after {
-          left: -1px;
-        }
-
-        &.f-tabs-nav__item-active {
-          border-left: none;
-          padding-left: var(--cardActiveDiffHeight);
-
-          &::before {
-            left: 0px;
-            border-radius: 0 0 0 var(--radius);
-            border-bottom: 1px solid var(--cardBorerColor);
-            border-left: 1px solid var(--cardBorerColor);
-          }
-
-          & + .f-tabs-nav__item {
-            &::after {
-              border-radius: var(--radius) 0 0 0;
-              border-top: 1px solid var(--cardBorerColor);
-              border-left: 1px solid var(--cardBorerColor);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // segment 风格
-  &.f-tabs-nav__type_segment {
-    --padding: 4px 8px;
-    --segmentBgColor: #f7f7fa;
-    background: var(--segmentBgColor);
-    padding: 4px;
-
-    .f-tabs-nav__item {
-      flex: 1;
-
-      &.f-tabs-nav__item-active {
-        background: var(--f-design-color-text-2);
-      }
-    }
   }
 }

@@ -55,8 +55,11 @@
 
   /** 样式列表 */
   const classList = computed((): ClassList => {
-    const { type, position } = prop
-    return [`f-tabs-nav__type_${type}`, `f-tabs-nav__type_${type}_${position}`] as const
+    const { type } = prop
+    return [
+      `f-tabs-nav__${type}`
+      //  `f-tabs-nav__${type}-${position}`
+    ] as const
   })
 
   /** 事件处理 */
@@ -73,35 +76,33 @@
     </div>
 
     <!-- 主要内容 -->
-    <div class="f-tabs-nav__main">
-      <div class="f-tabs-nav__wrapper" :style="{ justifyContent: type === 'line' ? justifyContent : '' }">
-        <!-- 选项列表 -->
-        <div
-          v-for="(item, index) in navs"
-          :key="index"
-          :class="[
-            'f-tabs-nav__item',
-            {
-              'f-tabs-nav__item-active': item.name === currentName
-            }
-          ]"
-          @[trigger]="clickSwitchNavItem(item.name)"
-        >
-          <!-- 标签展示的内容 -->
-          <span class="f-tabs-nav__item-label">{{ item.label || `标签 ${index}` }}</span>
+    <div class="f-tabs-nav__wrapper" :style="{ justifyContent: type === 'line' ? justifyContent : '' }">
+      <!-- 选项列表 -->
+      <div
+        v-for="(item, index) in navs"
+        :key="index"
+        :class="[
+          'f-tabs-nav__item',
+          {
+            'f-tabs-nav__item-active': item.name === currentName
+          }
+        ]"
+        @[trigger]="clickSwitchNavItem(item.name)"
+      >
+        <!-- 标签展示的内容 -->
+        <span class="f-tabs-nav__item-label">{{ item.label || `标签 ${index}` }}</span>
 
-          <!-- 关闭按钮 -->
-          <f-close-btn v-if="type === 'card' && editStatus" round @click.stop="editItem('remove', item.name, index)" />
-        </div>
-
-        <!-- 卡片样式编辑状态下的添加按钮 -->
-        <div v-if="type === 'card' && editStatus" class="f-tabs-nav__item" @click="editItem('add')">
-          <f-svg-icon :icon="FIconPlusVue" color="#666" />
-        </div>
-
-        <!-- 线性类型滑动的标签 -->
-        <div v-if="type === 'line'" class="f-tabs-nav__line-active" :style="activeLineStyle" />
+        <!-- 关闭按钮 -->
+        <f-close-btn v-if="type === 'card' && editStatus" round @click.stop="editItem('remove', item.name, index)" />
       </div>
+
+      <!-- 卡片样式编辑状态下的添加按钮 -->
+      <div v-if="type === 'card' && editStatus" class="f-tabs-nav__item" @click="editItem('add')">
+        <f-svg-icon :icon="FIconPlusVue" color="#666" />
+      </div>
+
+      <!-- 线性类型滑动的标签 -->
+      <div v-if="type === 'line'" class="f-tabs-nav__line-active" :style="activeLineStyle" />
     </div>
 
     <!-- 后缀内容 -->
