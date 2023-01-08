@@ -403,15 +403,15 @@
 
 ## Tabs Attributes
 
-| 参数                  | 说明                                   | 类型                                                 | 可选值                        | 默认值 |
-| --------------------- | -------------------------------------- | ---------------------------------------------------- | ----------------------------- | ------ |
-| `v-model:model-value` | 绑定值，选中选项卡的 name              | <a href="#tabsmodelvalue">TabsModelValue</a>         | ——                            | ——     |
-| `type`                | 风格类型                               | <a href="#tabstype">TabsType</a>                     | `line` `card` `segment`       | line   |
-| `position`            | 头部位置                               | <a href="#tabsposition">TabsPosition</a>             | `left` `right` `top` `bottom` | top    |
-| `justify-content`     | 对齐方式（仅针对上下方向的 line 有效） | <a href="#tabsjustifycontent">TabsJustifyContent</a> | `justify-content` 的`css`属性 | ——     |
-| `edit-status`         | 编辑模式                               | boolean                                              | ——                            | false  |
-| `trigger`             | 触发方式                               | <a href="#tabstrigger">TabsTrigger</a>               | `click` `hover`               | click  |
-| `on-switch`           | 切换前的回调                           | <a href="#tabsswitch">TabsSwitch</a>                 | ——                            | ——     |
+| 参数                  | 说明                                   | 类型                                                 | 可选值                                                                         | 默认值 |
+| --------------------- | -------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------ | ------ |
+| `v-model:model-value` | 绑定值，选中选项卡的 name              | <a href="#tabsmodelvalue">TabsModelValue</a>         | ——                                                                             | ——     |
+| `type`                | 风格类型                               | <a href="#tabstype">TabsType</a>                     | `line` `card` `segment`                                                        | line   |
+| `position`            | 头部位置                               | <a href="#tabsposition">TabsPosition</a>             | `left` `right` `top` `bottom`                                                  | top    |
+| `justify-content`     | 对齐方式（仅针对上下方向的 line 有效） | <a href="#tabsjustifycontent">TabsJustifyContent</a> | `flex-start` `center` `flex-end` `space-between` `space-around` `space-evenly` | ——     |
+| `edit-status`         | 编辑模式                               | boolean                                              | ——                                                                             | false  |
+| `trigger`             | 触发方式                               | <a href="#tabstrigger">TabsTrigger</a>               | `click` `hover`                                                                | click  |
+| `on-switch`           | 切换前的回调                           | <a href="#tabsswitch">TabsSwitch</a>                 | ——                                                                             | ——     |
 
 ## Tabs Slots
 
@@ -441,7 +441,19 @@
 组件导出以下类型定义：
 
 ```ts
-import type { TabsType, TabsSwitch } from 'fighting-design'
+import type {
+  TabsInstance,
+  TabsProps,
+  TabsTrigger,
+  TabsPosition,
+  TabsType,
+  TabsJustifyContent,
+  TabsModelValue,
+  TabsSwitch,
+  TabsNavInstance,
+  TabsPaneInstance,
+  TabsPaneProps
+} from 'fighting-design'
 ```
 
 ### TabsModelValue

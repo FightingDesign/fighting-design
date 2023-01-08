@@ -1,7 +1,7 @@
 import type { PropType, ExtractPropTypes } from 'vue'
 import type {
   TabsNavInstance,
-  TabsPaneName,
+  TabsModelValue,
   TabsPosition,
   TabsType,
   TabsJustifyContent,
@@ -43,7 +43,7 @@ export const Props = {
   },
   /** 标签的 name */
   currentName: {
-    type: [String, Number] as PropType<TabsPaneName>,
+    type: [String, Number] as PropType<TabsModelValue>,
     default: (): null => null
   },
   /**
@@ -80,11 +80,6 @@ export const Props = {
       return (['click', 'hover'] as const).includes(val)
     }
   },
-  /** 切换前的回调 */
-  onSwitch: {
-    type: Function as PropType<TabsSwitch>,
-    default: (): null => null
-  },
   /** 设置选中的 name */
   setCurrentName: {
     type: Function,
@@ -93,6 +88,11 @@ export const Props = {
   /** 设置自定义操作 */
   setEdit: {
     type: Function,
+    default: (): null => null
+  },
+  /** 切换前的回调 */
+  onSwitch: {
+    type: Function as PropType<TabsSwitch>,
     default: (): null => null
   }
 }

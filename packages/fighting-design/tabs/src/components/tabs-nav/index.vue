@@ -6,7 +6,7 @@
   import { FSvgIcon } from '../../../../svg-icon'
   import { FCloseBtn } from '../../../../close-btn'
   import { useTabsNavStyle, useRun } from '../../../../_hooks'
-  import type { TabsPaneName, TabsPosition, TabsJustifyContent, TabsType } from '../../interface'
+  import type { TabsModelValue, TabsPosition, TabsJustifyContent, TabsType } from '../../interface'
 
   const prop = defineProps(Props)
 
@@ -17,7 +17,7 @@
    *
    * @param name name
    */
-  const clickSwitchNavItem = async (name: TabsPaneName): Promise<void> => {
+  const clickSwitchNavItem = async (name: TabsModelValue): Promise<void> => {
     let res: boolean | void = true
 
     if (prop.onSwitch) {
@@ -36,7 +36,7 @@
    * @param name 标签 name
    * @param index 索引
    */
-  const editItem = (action: 'remove' | 'add', name?: TabsPaneName, index?: number): void => {
+  const editItem = (action: 'remove' | 'add', name?: TabsModelValue, index?: number): void => {
     useRun(prop.setEdit, action, name, index)
   }
 
