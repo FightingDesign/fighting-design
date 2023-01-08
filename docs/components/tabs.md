@@ -424,6 +424,7 @@
 | `edit-status`         | 编辑模式                               | boolean                                              | ——                                                                             | false  |
 | `trigger`             | 触发方式                               | <a href="#tabstrigger">TabsTrigger</a>               | `click` `hover`                                                                | click  |
 | `on-switch`           | 切换前的回调                           | <a href="#tabsswitch">TabsSwitch</a>                 | ——                                                                             | ——     |
+| `on-edit`             | 编辑模式的回调                         | <a href="#tabsedit">TabsEdit</a>                     | ——                                                                             | ——     |
 
 ## Tabs Slots
 
@@ -459,6 +460,7 @@ import type {
   TabsTrigger,
   TabsPosition,
   TabsType,
+  TabsEdit,
   TabsJustifyContent,
   TabsModelValue,
   TabsSwitch,
@@ -502,6 +504,12 @@ type TabsJustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between'
 
 ```ts
 type TabsTrigger = 'hover' | 'click'
+```
+
+### TabsEdit
+
+```ts
+type TabsEdit = (action: 'remove' | 'add', name: string, index: number) => boolean
 ```
 
 ## Contributors

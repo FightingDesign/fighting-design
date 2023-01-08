@@ -1,5 +1,13 @@
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type { TabsTrigger, TabsModelValue, TabsPosition, TabsType, TabsJustifyContent, TabsSwitch } from './interface'
+import type {
+  TabsTrigger,
+  TabsModelValue,
+  TabsPosition,
+  TabsType,
+  TabsJustifyContent,
+  TabsSwitch,
+  TabsEdit
+} from './interface'
 
 export const Props = {
   /**
@@ -75,7 +83,7 @@ export const Props = {
   },
   /** 可编辑模式的回调 */
   onEdit: {
-    type: Function,
+    type: Function as PropType<TabsEdit>,
     default: (): null => null
   }
 } as const

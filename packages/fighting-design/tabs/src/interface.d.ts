@@ -35,6 +35,15 @@ export type TabsModelValue = string | number
 export type TabsSwitch = (name: TabsModelValue) => boolean | void
 
 /**
+ * 编辑状态类型
+ * 
+ * @param action
+ * @param name
+ * @param index
+ */
+export type TabsEdit = (action: 'remove' | 'add', name: string, index: number) => boolean
+
+/**
  * nav 列表集合
  *
  * @param name 标签的 name
