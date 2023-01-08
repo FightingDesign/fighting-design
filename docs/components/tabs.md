@@ -5,10 +5,6 @@
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tabs)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tabs.md)
 
-:::danger
-组件仍在测试阶段，高频更新中，部分参数暂不稳定！
-:::
-
 ## 基本使用
 
 ::: demo
@@ -97,15 +93,17 @@
       <p>你的爱就像彩虹，我张开了手却只能抱住风</p>
     </f-tabs-pane>
   </f-tabs>
-  <p>
+
+  <div>
     风格：
     <f-radio-group v-model="type">
       <f-radio label="line">line</f-radio>
       <f-radio label="card">card</f-radio>
       <f-radio label="segment">segment</f-radio>
     </f-radio-group>
-  </p>
-  <p>
+  </div>
+
+  <div>
     方向：
     <f-radio-group v-model="position">
       <f-radio label="top">top</f-radio>
@@ -113,14 +111,15 @@
       <f-radio label="bottom">bottom</f-radio>
       <f-radio label="left" :disabled="type === 'segment'">left</f-radio>
     </f-radio-group>
-  </p>
+  </div>
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import type { TabsType, TabsPosition } from 'fighting-design'
 
-  const type = ref('line')
-  const position = ref('top')
+  const type = ref<TabsType>('line')
+  const position = ref<TabsPosition>('top')
 </script>
 ```
 
@@ -143,7 +142,7 @@
 </f-tabs-pane>
 </f-tabs>
 
-<p>
+<div>
   对齐方式：
   <f-radio-group v-model="justifyContent">
     <f-radio label="flex-start">flex-start</f-radio>
@@ -152,12 +151,12 @@
     <f-radio label="space-between">space-between</f-radio>
     <f-radio label="space-around">space-around</f-radio>
   </f-radio-group>
-</p>
+</div>
 </template>
 
 ```html
 <template>
-  <f-tabs :justifyContent="justifyContent">
+  <f-tabs :justify-content="justifyContent">
     <f-tabs-pane label="登录">
       <p>在这登录</p>
     </f-tabs-pane>
@@ -165,7 +164,8 @@
       <p>在这注册！！</p>
     </f-tabs-pane>
   </f-tabs>
-  <p>
+
+  <div>
     对齐方式：
     <f-radio-group v-model="justifyContent">
       <f-radio label="flex-start">flex-start</f-radio>
@@ -174,13 +174,14 @@
       <f-radio label="space-between">space-between</f-radio>
       <f-radio label="space-around">space-around</f-radio>
     </f-radio-group>
-  </p>
+  </div>
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import type { TabsJustifyContent } from 'fighting-design'
 
-  const justifyContent = ref('line')
+  const justifyContent = ref<TabsJustifyContent>()
 </script>
 ```
 
@@ -220,7 +221,7 @@
 <script lang="ts" setup>
   import { FMessage } from 'fighting-design'
 
-  const onSwitch = name => {
+  const onSwitch = (name: unknown): boolean | Promise<boolean> => {
     switch (name) {
       case 'hobby':
         return new Promise<boolean>(resolve => {
@@ -247,10 +248,14 @@
 
 <template #source>
 <f-tabs>
-<template #prefix>前缀</template>
-<template #suffix>后缀</template>
-<f-tabs-pane label="如烟">
+<template #prefix>
+<f-button type="primary">前缀</f-button>
+</template>
+<template #suffix>
+<f-button type="primary">后缀</f-button>
+</template>
 
+<f-tabs-pane label="如烟">
 <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
 <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
 </f-tabs-pane>
@@ -265,8 +270,12 @@
 
 ```html
 <f-tabs>
-  <template #prefix>前缀</template>
-  <template #suffix>后缀</template>
+  <template #prefix>
+    <f-button type="primary">前缀</f-button>
+  </template>
+  <template #suffix>
+    <f-button type="primary">后缀</f-button>
+  </template>
 
   <f-tabs-pane label="如烟">
     <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
@@ -283,23 +292,25 @@
 
 :::
 
-## Edit 模式
+## 编辑模式
 
-仅在 `card` 风格下支持 `edit` 模式
+仅在 `card` 风格下支持编辑模式
 
-需添加 `edit-status `属性，并配置 `edit` 回调事件
+需添加 `edit-status` 属性，并配置 `on-edit` 回调事件
 
 ::: demo
 
 <template #source>
-<f-tabs editStatus type="card" @edit="edit">
-<f-tabs-pane :label="item.label" :name="item.name" v-for="item in list">{{item.content}}</f-tabs-pane>
+<f-tabs edit-status type="card" :on-edit="onEdit">
+<f-tabs-pane v-for="(item, index) in list" :key="index" :label="item.label" :name="item.name">
+{{ item.content }}
+</f-tabs-pane>
 </f-tabs>
 </template>
 
 ```html
 <template>
-  <f-tabs edit-status type="card" @edit="edit">
+  <f-tabs edit-status type="card" :on-edit="onEdit">
     <f-tabs-pane v-for="(item, index) in list" :key="index" :label="item.label" :name="item.name">
       {{ item.content }}
     </f-tabs-pane>
@@ -312,11 +323,11 @@
   let tabIndex = 2
 
   const list = ref([
-    { label: '第一个', content: '哈哈哈哈', name: '1' },
-    { label: '第二个', content: '哈哈哈哈a', name: '2' }
+    { label: '第一个', content: '内容 1', name: '1' },
+    { label: '第二个', content: '内容 2', name: '2' }
   ])
 
-  const edit = (action: 'remove' | 'add', name: string, index: number): void => {
+  const onEdit = (action: 'remove' | 'add', name: string, index: number): void => {
     switch (action) {
       case 'add':
         {
@@ -359,13 +370,13 @@
 </f-tabs-pane>
 </f-tabs>
 
-<p>
+<div>
   触发方式：
   <f-radio-group v-model="trigger">
     <f-radio label="click">click</f-radio>
     <f-radio label="hover">hover</f-radio>
   </f-radio-group>
-</p>
+</div>
 </template>
 
 ```html
@@ -383,19 +394,20 @@
     </f-tabs-pane>
   </f-tabs>
 
-  <p>
+  <div>
     触发方式：
     <f-radio-group v-model="trigger">
       <f-radio label="click">click</f-radio>
       <f-radio label="hover">hover</f-radio>
     </f-radio-group>
-  </p>
+  </div>
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import type { TabsTrigger } from 'fighting-design'
 
-  const trigger = ref('click')
+  const trigger = ref<TabsTrigger>('click')
 </script>
 ```
 
@@ -508,7 +520,8 @@ type TabsTrigger = 'hover' | 'click'
 
   const type = ref('line')
   const position = ref('top')
-  const justifyContent = ref('flex-start')
+  const justifyContent = ref()
+  const trigger = ref('click')
 
   const onSwitch = (name) => {
     switch(name) {
@@ -527,22 +540,29 @@ type TabsTrigger = 'hover' | 'click'
     }
   }
 
-  const trigger = ref('click')
 
   let tabIndex = 2
+
   const list = ref([
-    {label: '第一个', content: '哈哈哈哈', name: '1'},
-    {label: '第二个', content: '哈哈哈哈a', name: '2'},
+    { label: '第一个', content: '内容 1', name: '1' },
+    { label: '第二个', content: '内容 2', name: '2' }
   ])
-  function edit(action:"remove" | "add", name: string, i:number) {
+
+  const onEdit = (action: 'remove' | 'add', name: string, index: number): void => {
     switch (action) {
-      case "add":
-      const newTabName = `${++tabIndex}`
-        list.value.push({label: '新的' + newTabName, content: '新的标签页' + newTabName, name: newTabName})
-        break;
-      case "remove":
-        list.value.splice(i, 1)
-        break;
+      case 'add':
+        {
+          const newTabName = `${++tabIndex}`
+          list.value.push({
+            label: '新的' + newTabName,
+            content: '新的标签页' + newTabName,
+            name: newTabName
+          })
+        }
+        break
+      case 'remove':
+        list.value.splice(index, 1)
+        break
     }
   }
 </script>
