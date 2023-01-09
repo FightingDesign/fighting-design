@@ -12,7 +12,7 @@
 </script>
 <template>
   <div class="f-number-animate-test">
-    <div>基本使用 <f-number-animate :number="10000" :styles="styles" /></div>
+    <div>基本使用 <f-number-animate :number="'10000'" :styles="styles" /></div>
     <div>
       locale-string 使用
       <f-number-animate :number="15000" :approximate-time="3000" locale-string :styles="styles" />

@@ -25,7 +25,7 @@ export const isString = (value: unknown): value is string => typeof value === 's
  * @param value 要检测的数据
  * @returns { Boolean }
  */
-export const isNumber = (value: unknown): value is number => typeof value === 'number'
+export const isNumber = (value: unknown): value is number => typeof value === 'number' && !isNaN(value)
 
 /**
  * 检测一个数据是否为 boolean 类型
