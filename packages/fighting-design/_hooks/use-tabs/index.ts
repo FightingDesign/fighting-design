@@ -3,7 +3,7 @@ import { getChildrenComponent } from '../../_utils'
 import { useRun } from '../../_hooks'
 import { TABS_PROPS_KEY } from '../../tabs/src/props'
 import type { ComponentInternalInstance, VNode } from 'vue'
-import type { UseTabsReturn, TabsProvide } from './interface'
+import type { UseTabsReturn, TabsProvide, SetCurrentNameEmit } from './interface'
 import type { TabsModelValue, TabsProps, TabsNavInstance } from '../../tabs'
 
 export * from './interface.d'
@@ -13,7 +13,7 @@ export * from './interface.d'
  *
  * @param prop props 参数
  */
-export const useTabs = (prop: TabsProps): UseTabsReturn => {
+export const useTabs = (prop: TabsProps, emit: SetCurrentNameEmit): UseTabsReturn => {
   /** 获取当前组件实例 */
   const instance: ComponentInternalInstance | null = getCurrentInstance()
   /** 子组件集合 */
@@ -28,6 +28,8 @@ export const useTabs = (prop: TabsProps): UseTabsReturn => {
    */
   const setCurrentName = (name: TabsModelValue): void => {
     currentName.value = name
+    /** 回调更新绑定值 */
+    emit('update:modelValue', name)
   }
 
   /**

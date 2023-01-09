@@ -13,7 +13,7 @@ export interface UseTabsReturn {
   navs: ComputedRef<TabsNavInstance[]>
   currentName: Ref<TabsPaneName>
   edit: (action: 'remove' | 'add', name?: TabsPaneName, index?: number) => void
-  setCurrentName: (name: TabsPaneName) => void
+  setCurrentName: (name: TabsPaneName, emit: SetCurrentNameEmit) => void
 }
 
 /**
@@ -26,3 +26,5 @@ export interface TabsProvide {
   currentName: Ref<TabsPaneName>
   updatePaneList: () => void
 }
+
+export type SetCurrentNameEmit = (event: 'update:modelValue', val: string | number) => void

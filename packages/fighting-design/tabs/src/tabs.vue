@@ -4,11 +4,14 @@
   import { TabsNav } from './components'
   import { useTabs } from '../../_hooks'
   import type { ClassList } from '../../_interface'
-  import type { TabsPosition } from './interface'
+  import type { TabsPosition, TabsModelValue } from './interface'
 
   const prop = defineProps(Props)
+  const emit = defineEmits({
+    'update:modelValue': (val: TabsModelValue): TabsModelValue => val
+  })
 
-  const { navs, currentName, edit, setCurrentName } = useTabs(prop)
+  const { navs, currentName, edit, setCurrentName } = useTabs(prop, emit)
 
   /** 选项卡标签位置 */
   const tabsPosition = computed((): TabsPosition => {
