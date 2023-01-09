@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setObjectProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setObjectProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { HandleEvent, FightingIcon } from '../../_interface'
 
@@ -6,10 +6,7 @@ export const Props = {
   /** 返回图标 */
   icon: setObjectProp<FightingIcon>(),
   /** 返回图标大小 */
-  iconSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '16px'
-  },
+  iconSize: setStringNumberProp('16px'),
   /** 返回文本 */
   backText: setStringProp(),
   /** 标题文本 */

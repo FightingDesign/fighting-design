@@ -1,4 +1,4 @@
-import { setBooleanProp, setObjectProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setObjectProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { DrawerDirection } from './interface'
 import type { HandleEvent, FightingIcon } from '../../_interface'
@@ -9,18 +9,11 @@ export const Props = {
   /** 是否追加到 body */
   appendToBody: setBooleanProp(),
   /** 弹出方向 */
-  direction: {
-    type: String as PropType<DrawerDirection>,
-    default: (): DrawerDirection => 'right',
-    validator: (val: DrawerDirection): boolean => {
-      return (['left', 'top', 'right', 'bottom'] as const).includes(val)
-    }
-  },
+  direction: setStringProp<DrawerDirection>('right', (val: DrawerDirection): boolean => {
+    return (['left', 'top', 'right', 'bottom'] as const).includes(val)
+  }),
   /** 大小尺寸 */
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '30%'
-  },
+  size: setStringNumberProp('30%'),
   /** 标题文字内容 */
   title: setStringProp(),
   /** 是否展示遮罩层 */

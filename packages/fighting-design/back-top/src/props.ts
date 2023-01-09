@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { BackTopBehavior } from './interface'
 
 export const Props = {
@@ -22,15 +22,9 @@ export const Props = {
     validator: (val: number): boolean => val >= 0
   },
   /** 距离右侧的距离 */
-  right: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): number => 40
-  },
+  right: setStringNumberProp(40),
   /** 距离底部的距离 */
-  bottom: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): number => 40
-  },
+  bottom: setStringNumberProp(40),
   /**
    * 原生 z-index 属性
    *

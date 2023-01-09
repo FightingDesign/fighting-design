@@ -1,6 +1,5 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import type { PropType } from 'vue'
 
 export const Props = {
   /** 水印内容 */
@@ -16,10 +15,7 @@ export const Props = {
     default: (): number => 200
   },
   /** 文字大小 */
-  fontSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '30px'
-  },
+  fontSize: setStringNumberProp('30px'),
   /** 文字颜色 */
   fontColor: {
     type: String,

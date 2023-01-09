@@ -17,10 +17,7 @@ export const Props = {
   /** 是否懒加载图片 */
   lazy: setBooleanProp(),
   /** 触发懒加载的距离 */
-  rootMargin: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '100px'
-  },
+  rootMargin: setStringNumberProp('100px'),
   /** 图片的宽度 */
   width: setStringNumberProp(),
   /** 图片的高度 */

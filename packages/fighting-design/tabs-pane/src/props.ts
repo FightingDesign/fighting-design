@@ -1,13 +1,10 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { TabsModelValue } from '../../tabs'
 
 export const Props = {
   /** 每个标签的 key */
-  name: {
-    type: [String, Number] as PropType<TabsModelValue>,
-    default: (): null => null
-  },
+  name: setStringNumberProp<TabsModelValue>(),
   /** label 上显示的文字 */
   label: setStringProp(),
   /** 是否懒加载 */

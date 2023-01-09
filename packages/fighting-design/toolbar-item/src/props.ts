@@ -8,10 +8,7 @@ export const Props = {
   /** 自定义 icon */
   icon: setObjectProp<FightingIcon>(),
   /** 自定义 icon 大小 */
-  iconSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): number => 16
-  },
+  iconSize: setStringNumberProp(16),
   /** 唯一值 */
   index: setStringNumberProp(),
   /** 点击之后触发的回调 */

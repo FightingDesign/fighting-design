@@ -62,10 +62,7 @@ export const Props = {
   /** 文字头像 */
   text: setStringProp(),
   /** 触发懒加载的距离 */
-  rootMargin: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '100px'
-  },
+  rootMargin: setStringNumberProp('100px'),
   /** 图片加载成功触发的回调 */
   onLoad: {
     type: Function as PropType<HandleEvent>,

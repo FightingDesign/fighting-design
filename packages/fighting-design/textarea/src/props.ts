@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { TextareaResize } from './interface'
 import type { InputChange, HandleEvent } from '../../_interface'
@@ -11,10 +11,7 @@ export const Props = {
    *
    * @see rows https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-rows
    */
-  rows: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): number => 3
-  },
+  rows: setStringNumberProp(3),
   /**
    * 是否禁用
    *

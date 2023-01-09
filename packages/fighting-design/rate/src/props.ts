@@ -31,10 +31,7 @@ export const Props = {
   /** 自定义 icon */
   icon: setObjectProp<FightingIcon>(),
   /** 图标尺寸 */
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): number => 25
-  },
+  size: setStringNumberProp(25),
   /** 是否展示辅助文字 */
   textShow: setBooleanProp(),
   /** 辅助文字颜色 */

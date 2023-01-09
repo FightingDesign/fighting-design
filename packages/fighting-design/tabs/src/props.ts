@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type {
   TabsTrigger,
@@ -12,10 +12,7 @@ import type {
 
 export const Props = {
   /** 活跃的 name */
-  modelValue: {
-    type: [String, Number] as PropType<TabsModelValue>,
-    default: (): null => null
-  },
+  modelValue: setStringNumberProp<TabsModelValue>(),
   /**
    * 头部位置
    *

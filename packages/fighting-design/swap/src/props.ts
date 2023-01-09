@@ -1,4 +1,4 @@
-import { setObjectProp } from '../../_utils'
+import { setObjectProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { SwapType } from './interface'
 import type { FightingIcon, HandleChange } from '../../_interface'
@@ -11,10 +11,7 @@ export const Props = {
     require: true
   },
   /** 组件尺寸 */
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): number => 40
-  },
+  size: setStringNumberProp(40),
   /**
    * 动画类型
    *

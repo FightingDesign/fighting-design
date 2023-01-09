@@ -43,9 +43,9 @@ export const setStringProp = <T extends string>(defaultVal?: T | null, validator
  * 
  * @param defaultVal 默认值
  */
-export const setStringNumberProp = (defaultVal = null): SetStringNumberPropReturn => ({
+export const setStringNumberProp = <T>(defaultVal?: string | number | T): SetStringNumberPropReturn => ({
   type: [String, Number] as PropType<string | number>,
-  default: defaultVal
+  default: defaultVal || null
 })
 
 export const setObjectProp = <T>(defaultVal = null): SetObjectPropReturn => ({

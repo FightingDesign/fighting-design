@@ -1,5 +1,5 @@
 import { setStringNumberProp, setStringProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   /** 展示的内容 */
@@ -15,10 +15,7 @@ export const Props = {
   /** 自定义背景色 */
   background: setStringProp(),
   /** 自定义 icon 大小 */
-  iconSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): number => 30
-  }
+  iconSize: setStringNumberProp(30)
 } as const
 
 export type EmptyProps = ExtractPropTypes<typeof Props>

@@ -39,10 +39,7 @@ export const Props = {
   /** 自定义宽度 */
   width: setStringNumberProp(),
   /** 自定义高度 */
-  height: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '6px'
-  },
+  height: setStringNumberProp('6px'),
   /** 是否开启条纹效果 */
   stripe: setBooleanProp(),
   /** 百分比文字是否在进度条内显示 */
