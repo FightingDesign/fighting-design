@@ -1,18 +1,13 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { DrawerDirection } from './interface'
 import type { HandleEvent, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**绑定值，控制是否展示 */
-  visible: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  visible: setBooleanProp(),
   /** 是否追加到 body */
-  appendToBody: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  appendToBody: setBooleanProp(),
   /** 弹出方向 */
   direction: {
     type: String as PropType<DrawerDirection>,
@@ -32,25 +27,13 @@ export const Props = {
     default: (): null => null
   },
   /** 是否展示遮罩层 */
-  showMask: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  showMask: setBooleanProp(true),
   /** 点击遮罩层是否可关闭 */
-  maskClose: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  maskClose: setBooleanProp(true),
   /** 是否模糊遮罩层 */
-  maskBlur: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  maskBlur: setBooleanProp(),
   /**是否展示关闭按钮 */
-  showCloseIcon: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  showCloseIcon: setBooleanProp(true),
   /** 自定义关闭按钮 icon */
   closeIcon: {
     type: Object as PropType<FightingIcon>,

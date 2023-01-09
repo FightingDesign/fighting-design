@@ -1,28 +1,17 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ButtonTarget, ButtonNative } from './interface'
 import type { FightingSize, FightingType, FightingIcon, HandleMouse } from '../../_interface'
 
 export const Props = {
   /** 是否加粗 */
-  bold: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  bold: setBooleanProp(),
   /** 是否为圆形 */
-  circle: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  circle: setBooleanProp(),
   /** 是否为圆角 */
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  round: setBooleanProp(),
   /** 是否带有扩散效果 */
-  spread: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  spread: setBooleanProp(),
   /** 文字大小 */
   fontSize: {
     type: [String, Number] as PropType<string | number>,
@@ -47,10 +36,7 @@ export const Props = {
     }
   },
   /** 是否为块级元素 */
-  block: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  block: setBooleanProp(),
   /** 跳转的连接地址 */
   href: {
     type: String,
@@ -73,15 +59,9 @@ export const Props = {
     }
   },
   /** 是否为 loading 状态 */
-  loading: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  loading: setBooleanProp(),
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /** 自定义 loading icon */
   loadingIcon: {
     type: Object as PropType<FightingIcon>,
@@ -101,10 +81,7 @@ export const Props = {
     }
   },
   /** 是否自动获取焦点 */
-  autofocus: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  autofocus: setBooleanProp(),
   /**
    * 原生 name 属性
    *
@@ -120,10 +97,7 @@ export const Props = {
     default: (): null => null
   },
   /** 是否为文字按钮（非自定义按钮颜色时有效） */
-  text: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  text: setBooleanProp(),
   /**
    * 原生 type 属性
    *
@@ -139,10 +113,7 @@ export const Props = {
     }
   },
   /** 是否为简约的按钮（非自定义按钮颜色时有效） */
-  simple: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  simple: setBooleanProp(),
   /** 自定义之前的 icon */
   beforeIcon: {
     type: Object as PropType<FightingIcon>,
@@ -154,10 +125,7 @@ export const Props = {
     default: (): null => null
   },
   /** 是否为涟漪效果 */
-  ripples: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  ripples: setBooleanProp(),
   /** 自定义涟漪效果颜色 */
   ripplesColor: {
     type: String,

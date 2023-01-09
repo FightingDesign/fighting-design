@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { FightingSize } from '../../_interface'
 
@@ -8,15 +9,9 @@ export const Props = {
     default: (): null => null
   },
   /** 是否只读 */
-  readonly: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  readonly: setBooleanProp(),
   /** 是否可清除 */
-  clear: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  clear: setBooleanProp(),
   /**
    * 尺寸
    *

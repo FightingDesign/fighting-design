@@ -1,12 +1,10 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { HandleMouse } from '../../_interface'
 
 export const Props = {
   /** 是否展示预览框 */
-  visible: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  visible: setBooleanProp(),
   /** 图片集合 */
   imgList: {
     type: Array as PropType<string[]>,

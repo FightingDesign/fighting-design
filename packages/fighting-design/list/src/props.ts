@@ -1,17 +1,12 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
   /** 是否显示斑马纹 */
-  zebra: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  zebra: setBooleanProp(),
   /** 是否居中 */
-  center: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  center: setBooleanProp(),
   /** 自定义文字颜色 */
   textColor: {
     type: String,

@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ImageFit } from './interface'
 import type { HandleEvent } from '../../_interface'
@@ -18,15 +19,9 @@ export const Props = {
     default: (): null => null
   },
   /** 是否可以拖动 */
-  draggable: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  draggable: setBooleanProp(true),
   /** 是否懒加载图片 */
-  lazy: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  lazy: setBooleanProp(),
   /** 触发懒加载的距离 */
   rootMargin: {
     type: [String, Number] as PropType<string | number>,
@@ -43,10 +38,7 @@ export const Props = {
     default: (): null => null
   },
   /** 是否为块级元素 */
-  block: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  block: setBooleanProp(),
   /**
    * 如何适应容器，原生 object-fit 属性
    *
@@ -60,10 +52,7 @@ export const Props = {
     }
   },
   /** 是否禁止选择 */
-  noSelect: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  noSelect: setBooleanProp(),
   /**
    * 原生 referrerPolicy 属性
    *

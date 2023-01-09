@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { InputNumberModel } from './interface'
 import type { HandleEvent, FightingSize, InputChange } from '../../_interface'
@@ -57,10 +58,7 @@ export const Props = {
     }
   },
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /** 最大值 */
   max: {
     type: Number,
@@ -78,10 +76,7 @@ export const Props = {
     validator: (val: number): boolean => val >= 0
   },
   /** 是否自动聚焦 */
-  autofocus: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  autofocus: setBooleanProp(),
   /**
    * 原生 name 属性
    *
@@ -101,15 +96,9 @@ export const Props = {
     default: (): null => null
   },
   /** 是否可清除 */
-  clear: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  clear: setBooleanProp(),
   /** 是否只读 */
-  readonly: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  readonly: setBooleanProp(),
   /** 绑定值发生改变时触发的回调 */
   onChange: {
     type: Function as PropType<InputChange>,

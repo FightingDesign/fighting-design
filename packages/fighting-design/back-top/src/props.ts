@@ -1,12 +1,10 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { BackTopBehavior } from './interface'
 
 export const Props = {
   /** 是否为圆角 */
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  round: setBooleanProp(),
   /**
    * 滚动模式
    *

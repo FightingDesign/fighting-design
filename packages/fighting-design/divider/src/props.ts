@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { DividerPosition, DividerType } from './interface'
 
@@ -15,10 +16,7 @@ export const Props = {
     }
   },
   /** 是否为竖线 */
-  vertical: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  vertical: setBooleanProp(),
   /** 线条颜色 */
   color: {
     type: String,

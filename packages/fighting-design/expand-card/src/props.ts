@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ExpandCardImageList } from './interface'
 
@@ -8,10 +9,7 @@ export const Props = {
     default: (): string[] => []
   },
   /**是否显示圆角 */
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  round: setBooleanProp(),
   /** 当前显示的索引 */
   expandIndex: {
     type: Number,

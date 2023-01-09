@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { CheckboxChange, CheckboxModelValue, CheckboxLabel } from './interface'
 
@@ -13,25 +14,16 @@ export const Props = {
     default: (): null => null
   },
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /** 是否展示边框 */
-  border: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  border: setBooleanProp(),
   /** 是否展示 label */
   showLabel: {
     type: Boolean,
     default: (): boolean => true
   },
   /** 是否为半选状态 */
-  indeterminate: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  indeterminate: setBooleanProp(),
   /** 绑定值发生改变时触发 */
   onChange: {
     type: Function as PropType<CheckboxChange>,

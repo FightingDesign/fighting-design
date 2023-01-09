@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { CalendarChange, CalendarMemorandum } from './interface'
 
@@ -9,20 +10,11 @@ export const Props = {
     required: true
   },
   /** 是否显示农历或节日，仅支持 1900 ~ 2100 */
-  lunar: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  lunar: setBooleanProp(),
   /** 是否显示头部 */
-  showHeader: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  showHeader: setBooleanProp(true),
   /** 是否显示边框 */
-  border: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  border: setBooleanProp(),
   /** 自定义边框颜色 */
   borderColor: {
     type: String,

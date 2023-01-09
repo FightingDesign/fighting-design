@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { HandleMouse, FightingIcon } from '../../_interface'
 
@@ -8,15 +9,9 @@ export const Props = {
     default: (): null => null
   },
   /** 是否为圆角的 */
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  round: setBooleanProp(),
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /** 自定义颜色 */
   color: {
     type: String,

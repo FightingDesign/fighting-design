@@ -1,4 +1,4 @@
-import { isString, isNumber } from '../../_utils'
+import { isString, isNumber, setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { AvatarFit } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
@@ -29,15 +29,9 @@ export const Props = {
     default: (): null => null
   },
   /** 是否为圆角 */
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  round: setBooleanProp(),
   /** 是否懒加载头像 */
-  lazy: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  lazy: setBooleanProp(),
   /**
    * 如何适应容器
    *

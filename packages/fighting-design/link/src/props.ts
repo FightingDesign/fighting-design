@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { LinkTarget, LinkState } from './interface'
 import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
@@ -43,10 +44,7 @@ export const Props = {
     }
   },
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /**
    * 原生 target 属性
    *
@@ -67,15 +65,9 @@ export const Props = {
     default: (): null => null
   },
   /** 是否禁止 copy */
-  noCopy: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  noCopy: setBooleanProp(),
   /** 是否禁止链接跳转及重新加载（取消默认事件） */
-  noLink: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  noLink: setBooleanProp(),
   /** 之前的 icon */
   beforeIcon: {
     type: Object as PropType<FightingIcon>,

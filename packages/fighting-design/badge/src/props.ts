@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { BadgeType } from './interface'
 
@@ -13,15 +14,9 @@ export const Props = {
     default: (): number => 99
   },
   /** 展示为一个点 */
-  dot: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  dot: setBooleanProp(),
   /** 是否显示 */
-  show: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  show: setBooleanProp(),
   /**
    * 类型
    *

@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { TriggerTrigger } from '../../trigger'
 import type { HandleChange } from '../../_interface'
@@ -9,10 +10,7 @@ export const Props = {
     default: (): null => null
   },
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /**
    * 触发方式：移入、点击
    *
@@ -27,10 +25,7 @@ export const Props = {
     }
   },
   /** 是否带有箭头 */
-  arrow: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  arrow: setBooleanProp(),
   /** 弹出动画持续时间 */
   enterDuration: {
     type: Number,

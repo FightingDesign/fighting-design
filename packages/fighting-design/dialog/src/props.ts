@@ -1,11 +1,11 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { HandleEvent, FightingIcon } from '../../_interface'
 
 export const Props = {
   /** 绑定值，控制是否展示 */
   visible: {
-    type: Boolean,
-    default: (): boolean => false,
+    ...setBooleanProp(),
     required: true
   },
   /** 标题文字内容 */
@@ -14,40 +14,22 @@ export const Props = {
     default: (): null => null
   },
   /** 是否追加到 body */
-  appendToBody: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  appendToBody: setBooleanProp(),
   /** 自定义宽度 */
   width: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /** 是否全屏展示 */
-  fullscreen: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  fullscreen: setBooleanProp(),
   /** 是否展示遮罩层 */
-  showMask: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  showMask: setBooleanProp(true),
   /** 是否点击遮罩层关闭 */
-  maskClose: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  maskClose: setBooleanProp(true),
   /** 是否模糊遮罩层 */
-  maskBlur: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  maskBlur: setBooleanProp(),
   /** 是否展示关闭图标 */
-  showCloseIcon: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  showCloseIcon: setBooleanProp(true),
   /** 自定义关闭按钮 icon */
   closeIcon: {
     type: Object as PropType<FightingIcon>,

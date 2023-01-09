@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { CheckboxGroupChange } from './interface'
 import type { FightingSize } from '../../_interface'
@@ -9,25 +10,16 @@ export const Props = {
     default: (): string[] => []
   },
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /** 是否纵向排列 */
-  vertical: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  vertical: setBooleanProp(),
   /** label */
   label: {
     type: String,
     default: (): null => null
   },
   /** 是否显示边框 */
-  border: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  border: setBooleanProp(),
   /**
    * 尺寸
    * @values large middle small mini

@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { InputType, InputValChange, InputSearch } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
@@ -41,10 +42,7 @@ export const Props = {
    *
    * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /**
    * 最大（数字或日期时间）值
    *
@@ -78,10 +76,7 @@ export const Props = {
    *
    * @see autofocus https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-autofocus
    */
-  autofocus: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  autofocus: setBooleanProp(),
   /**
    * 原生 name 属性
    *
@@ -106,34 +101,19 @@ export const Props = {
     default: (): null => null
   },
   /** 是否可清除 */
-  clear: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  clear: setBooleanProp(),
   /** 是否可搜索 */
-  search: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  search: setBooleanProp(),
   /**
    * 是否只读
    *
    * @see readonly https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-readonly
    */
-  readonly: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  readonly: setBooleanProp(),
   /** 是否显示查看密码的按钮 */
-  showPassword: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  showPassword: setBooleanProp(),
   /** 是否按下回车进行搜索 */
-  enterSearch: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  enterSearch: setBooleanProp(),
   /** 自定义 icon */
   icon: {
     type: Object as PropType<FightingIcon>,

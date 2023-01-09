@@ -1,12 +1,10 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { HandleMouse } from '../../_interface'
 
 export const Props = {
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /** 点击之后的回调函数 */
   onClick: {
     type: Function as PropType<HandleMouse>,

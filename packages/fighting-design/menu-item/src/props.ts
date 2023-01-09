@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { FightingIcon } from '../../_interface'
 
@@ -36,10 +37,7 @@ export const Props = {
     default: (): null => null
   },
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  }
+  disabled: setBooleanProp()
 } as const
 
 export type MenuItemProps = ExtractPropTypes<typeof Props>

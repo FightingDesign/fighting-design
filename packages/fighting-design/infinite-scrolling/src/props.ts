@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType, CSSProperties } from 'vue'
 import type { ScrollCallback } from './interface'
 
@@ -13,10 +14,7 @@ export const Props = {
     default: (): null => null
   },
   /** 是否 loading */
-  loading: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  loading: setBooleanProp(),
   /** 滚动触底时触发的回调 */
   onScrollEnd: {
     type: Function as PropType<ScrollCallback>,
