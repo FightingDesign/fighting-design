@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { HandleMouse, FightingType, FightingIcon } from '../../_interface'
 
@@ -26,35 +27,20 @@ export const Props = {
     default: (): null => null
   },
   /** 是否加粗 */
-  bold: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  bold: setBooleanProp(),
   /** 是否居中 */
-  center: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  center: setBooleanProp(),
   /** 是否可关闭 */
-  close: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  close: setBooleanProp(),
   /** 是否为简约的 */
-  simple: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  simple: setBooleanProp(),
   /** 自定义标题 */
   title: {
     type: String,
     default: (): null => null
   },
   /** 是否为圆角 */
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  round: setBooleanProp(),
   /** 自定义背景色 */
   background: {
     type: String,
@@ -71,10 +57,7 @@ export const Props = {
     default: (): null => null
   },
   /** 是否为固定定位 */
-  fixed: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  fixed: setBooleanProp(),
   /** 自定义关闭 icon */
   closeIcon: {
     type: Object as PropType<FightingIcon>,
