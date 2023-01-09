@@ -1,10 +1,14 @@
+import type { PropType } from 'vue'
+
+export type Validator = (val) => boolean
+
 export interface SetBooleanPropReturn {
   type: BooleanConstructor
   default: boolean
 }
 
 export interface SetStringPropReturn {
-  type: StringConstructor
+  type: StringConstructor | PropType
   default: string | null,
-  validator?: Function
+  validator?: Validator
 }

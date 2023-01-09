@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { BadgeType } from './interface'
 
@@ -23,13 +23,9 @@ export const Props = {
    * @values primary success danger warning
    * @defaultValue danger
    */
-  type: {
-    type: String as PropType<BadgeType>,
-    default: (): BadgeType => 'danger',
-    validator: (val: BadgeType): boolean => {
-      return (['primary', 'success', 'danger', 'warning'] as const).includes(val)
-    }
-  },
+  type: setStringProp<BadgeType>('danger', (val: BadgeType): boolean => {
+    return (['primary', 'success', 'danger', 'warning'] as const).includes(val)
+  }),
   /** 自定义颜色 */
   color: {
     type: String,

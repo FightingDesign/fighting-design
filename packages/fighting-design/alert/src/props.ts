@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { HandleMouse, FightingType, FightingIcon } from '../../_interface'
 
@@ -9,13 +9,9 @@ export const Props = {
    * @values primary success danger warning default
    * @defaultValue null
    */
-  type: {
-    type: String as PropType<FightingType>,
-    default: (): null => null,
-    validator: (val: FightingType): boolean => {
-      return (['primary', 'success', 'danger', 'warning', 'default'] as const).includes(val)
-    }
-  },
+  type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
+    return (['primary', 'success', 'danger', 'warning', 'default'] as const).includes(val)
+  }),
   /** 文字大小 */
   fontSize: {
     type: [String, Number] as PropType<string | number>,
@@ -35,27 +31,15 @@ export const Props = {
   /** 是否为简约的 */
   simple: setBooleanProp(),
   /** 自定义标题 */
-  title: {
-    type: String,
-    default: (): null => null
-  },
+  title: setStringProp(),
   /** 是否为圆角 */
   round: setBooleanProp(),
   /** 自定义背景色 */
-  background: {
-    type: String,
-    default: (): null => null
-  },
+  background: setStringProp(),
   /** 自定义颜色 */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /** 自定义 title 颜色 */
-  titleColor: {
-    type: String,
-    default: (): null => null
-  },
+  titleColor: setStringProp(),
   /** 是否为固定定位 */
   fixed: setBooleanProp(),
   /** 自定义关闭 icon */

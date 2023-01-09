@@ -1,19 +1,13 @@
-import { isString, isNumber, setBooleanProp } from '../../_utils'
+import { isString, isNumber, setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { AvatarFit } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
   /** 图片路径 */
-  src: {
-    type: String,
-    default: (): null => null
-  },
+  src: setStringProp(),
   /** 加载失败时要显示的地址 */
-  errSrc: {
-    type: String,
-    default: (): null => null
-  },
+  errSrc: setStringProp(),
   /** 图标头像 */
   icon: {
     type: Object as PropType<FightingIcon>,
@@ -24,10 +18,7 @@ export const Props = {
    *
    * @see alt https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
    */
-  alt: {
-    type: String,
-    default: (): null => null
-  },
+  alt: setStringProp(),
   /** 是否为圆角 */
   round: setBooleanProp(),
   /** 是否懒加载头像 */
@@ -40,13 +31,9 @@ export const Props = {
    * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    * @values fill contain cover none scale-down
    */
-  fit: {
-    type: String as PropType<AvatarFit>,
-    default: (): null => null,
-    validator: (val: AvatarFit): boolean => {
-      return (['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const).includes(val)
-    }
-  },
+  fit: setStringProp<AvatarFit>(null, (val: AvatarFit): boolean => {
+    return (['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const).includes(val)
+  }),
   /**
    * 图片大小
    *
@@ -70,25 +57,16 @@ export const Props = {
     }
   },
   /** 自定义背景色 */
-  background: {
-    type: String,
-    default: (): null => null
-  },
+  background: setStringProp(),
   /** 字体大小 */
   fontSize: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /** 字体的颜色 */
-  fontColor: {
-    type: String,
-    default: (): null => null
-  },
+  fontColor: setStringProp(),
   /** 文字头像 */
-  text: {
-    type: String,
-    default: (): null => null
-  },
+  text: setStringProp(),
   /** 触发懒加载的距离 */
   rootMargin: {
     type: [String, Number] as PropType<string | number>,

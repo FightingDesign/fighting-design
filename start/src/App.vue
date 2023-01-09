@@ -6,7 +6,7 @@
 
 <template>
   <f-switch v-model="value2" />
-  <f-alert type="success" center>成功提示信息</f-alert>
+  <f-alert :type="value2 ? 'default' : 'success'" center>成功提示信息</f-alert>
 </template>
 
 <style lang="scss" scoped></style>

@@ -1,4 +1,6 @@
+import type { PropType } from 'vue'
 import type {
+  Validator,
   SetBooleanPropReturn,
   SetStringPropReturn
 } from './interface'
@@ -19,17 +21,17 @@ export const setBooleanProp = (defaultVal = false): SetBooleanPropReturn => ({
  * @param defaultVal 默认值
  * @param validator 校验器
  */
-export const setStringProp = (defaultVal = null, validator?: Function): SetStringPropReturn => {
+export const setStringProp = <T extends string>(defaultVal?: T, validator?: Validator): SetStringPropReturn => {
   if (validator) {
     return {
-      type: String,
-      default: defaultVal,
+      type: String as unknown as PropType<T>,
+      default: defaultVal || null,
       validator
     }
   }
 
   return {
     type: String,
-    default: defaultVal
+    default: defaultVal || null
   }
 }

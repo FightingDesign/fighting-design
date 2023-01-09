@@ -1,3 +1,4 @@
+import { setStringProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { FightingIcon } from '../../_interface'
 
@@ -8,15 +9,9 @@ export const Props = {
     default: (): null => null
   },
   /** 导航文字颜色 */
-  fontColor: {
-    type: String,
-    default: (): null => null
-  },
+  fontColor: setStringProp(),
   /** icon 颜色 */
-  iconColor: {
-    type: String,
-    default: (): null => null
-  },
+  iconColor: setStringProp(),
   /** 自定义文字大小 */
   fontSize: {
     type: [String, Number] as PropType<string | number>,
