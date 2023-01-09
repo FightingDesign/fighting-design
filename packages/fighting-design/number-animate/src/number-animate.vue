@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { onMounted, ref, computed } from 'vue'
   import { useRun } from '../../_hooks'
-  import { isNumber } from '../../_utils'
+  import { isNumber, warning } from '../../_utils'
 
   const prop = defineProps(Props)
 
@@ -23,13 +23,13 @@
       fromNum.value = prop.from
       again.value = false
     }
-
     /** 目标值 */
     const toNum = Number(prop.to)
 
     /** 检测两个值是否为数字 */
-    if (!isNumber(Number(fromNum)) || !isNumber(toNum)) {
+    if (!isNumber(Number(fromNum.value)) || !isNumber(toNum)) {
       /** 后面增加报错内容 */
+      warning('f-number-animate', 'Expected value is not a number')
       return
     }
 
