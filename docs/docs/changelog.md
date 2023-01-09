@@ -2,6 +2,18 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.17.0 (2023-01-09)
+
+**优化**
+
+- 优化部分组件 css
+- 针对 `f-tabs` 组件做了较大优化
+- 优化 `f-tabs` 样式
+
+**打包**
+
+- 优化了 css 打包，加入 postcss 配置项
+
 ## 0.16.0 (2023-01-05)
 
 **修复**

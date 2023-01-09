@@ -4,6 +4,18 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.17.0 (2023-01-09)
+
+**Optimization**
+
+- Optimize some components css
+- The `f-tabs` component has been greatly optimized
+- Optimize the `f-tabs` style
+
+**Packaging**
+
+- Optimized css packaging and added postcss configuration items
+
 ## 0.16.0 (2023-01-05)
 
 **Repair**

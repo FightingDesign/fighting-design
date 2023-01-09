@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.17.0 (2023-01-09)
+
 **优化**
 
 - 优化部分组件 css
