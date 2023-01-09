@@ -6,8 +6,10 @@ import type {
   TabsType,
   TabsJustifyContent,
   TabsTrigger,
+  TabsEdit,
   TabsSwitch
 } from '../../interface'
+import type { SetActiveName } from '../../../../_hooks'
 
 export const Props = {
   /** 标题配置 */
@@ -42,7 +44,7 @@ export const Props = {
     }
   },
   /** 标签的 name */
-  currentName: {
+  activeName: {
     type: [String, Number] as PropType<TabsModelValue>,
     default: (): null => null
   },
@@ -81,13 +83,13 @@ export const Props = {
     }
   },
   /** 设置选中的 name */
-  setCurrentName: {
-    type: Function,
+  setActiveName: {
+    type: Function as PropType<SetActiveName>,
     default: (): null => null
   },
   /** 设置自定义操作 */
   setEdit: {
-    type: Function,
+    type: Function as PropType<TabsEdit>,
     default: (): null => null
   },
   /** 切换前的回调 */

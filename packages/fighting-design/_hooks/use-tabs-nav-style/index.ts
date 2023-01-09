@@ -26,10 +26,10 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
   * @see Array.prototype.findIndex() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
   * @see Math.max() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/max
   */
-  const currentIndex = computed((): number =>
+  const activeIndex = computed((): number =>
     prop.navs
       ? Math.max(
-        prop.navs.findIndex((e: TabsNavInstance): boolean => e.name === prop.currentName),
+        prop.navs.findIndex((e: TabsNavInstance): boolean => e.name === prop.activeName),
         0
       )
       : 0
@@ -65,7 +65,7 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
     if (!children || !children.length) return
 
     /** 获取到选中的元素 */
-    const activeEl: HTMLElement = children[currentIndex.value]
+    const activeEl: HTMLElement = children[activeIndex.value]
 
     /**
      * 获取到当前元素的样式
@@ -96,8 +96,8 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
   }
 
   return {
-    setActiveLineStyle,
-    currentIndex,
-    activeLineStyle
+    activeIndex,
+    activeLineStyle,
+    setActiveLineStyle
   }
 }

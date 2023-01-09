@@ -1,5 +1,5 @@
 import type { ComputedRef, Ref } from 'vue'
-import type { TabsPaneName, TabsNavInstance } from '../../tabs'
+import type { TabsModelValue, TabsNavInstance, TabsEdit } from '../../tabs'
 
 /**
  * useTabs 返回值类型接口
@@ -7,13 +7,13 @@ import type { TabsPaneName, TabsNavInstance } from '../../tabs'
  * @param navs nav 列表
  * @param currentName 当前选中的子组件
  * @param edit 编辑状态
- * @param setCurrentName 设置子组件绑定的 name
+ * @param setActiveName 设置子组件绑定的 name
  */
 export interface UseTabsReturn {
   navs: ComputedRef<TabsNavInstance[]>
-  currentName: Ref<TabsPaneName>
-  edit: (action: 'remove' | 'add', name?: TabsPaneName, index?: number) => void
-  setCurrentName: (name: TabsPaneName, emit: SetCurrentNameEmit) => void
+  activeName: Ref<TabsModelValue>
+  setEdit: TabsEdit
+  setActiveName: SetActiveName
 }
 
 /**
@@ -23,8 +23,16 @@ export interface UseTabsReturn {
  * @param updatePaneList 更新子组件列表
  */
 export interface TabsProvide {
-  currentName: Ref<TabsPaneName>
+  activeName: Ref<TabsModelValue>
   updatePaneList: () => void
 }
 
-export type SetCurrentNameEmit = (event: 'update:modelValue', val: string | number) => void
+/** setActiveName 回调类型 */
+export type SetActiveNameEmit = (event: 'update:modelValue', val: string | number) => void
+
+/**
+ * 设置绑定值回调类型
+ * 
+ * @param name 选中的 name
+ */
+export type SetActiveName = (name: TabsModelValue) => void

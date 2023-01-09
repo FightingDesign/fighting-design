@@ -12,15 +12,14 @@
   /** 该组件是否加载 */
   const isLoad = computed((): boolean => {
     if (!parentInject) return false
-    if (parentInject.currentName.value === prop.name) {
+    if (parentInject.activeName.value === prop.name) {
       return true
-    } else {
-      return !prop.lazy
     }
+    return !prop.lazy
   })
 
   /** 该组件是否显示 */
-  const isShow = computed((): boolean | null => parentInject && parentInject.currentName.value === prop.name)
+  const isShow = computed((): boolean | null => parentInject && parentInject.activeName.value === prop.name)
 
   /** 在组件插入及卸载时都要更新父级的 pane 列表 */
   parentInject && parentInject.updatePaneList()

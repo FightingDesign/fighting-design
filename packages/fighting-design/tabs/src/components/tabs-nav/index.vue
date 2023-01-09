@@ -10,7 +10,7 @@
 
   const prop = defineProps(Props)
 
-  const { setActiveLineStyle, currentIndex, activeLineStyle } = useTabsNavStyle(prop)
+  const { setActiveLineStyle, activeIndex, activeLineStyle } = useTabsNavStyle(prop)
 
   /**
    * 点击切换标签执行
@@ -26,7 +26,7 @@
 
     if (isBoolean(res) && !res) return
 
-    useRun(prop.setCurrentName, name)
+    useRun(prop.setActiveName, name)
   }
 
   /**
@@ -52,7 +52,7 @@
       (): TabsPosition => prop.position,
       (): TabsType => prop.type,
       (): TabsJustifyContent => prop.justifyContent,
-      (): number => currentIndex.value
+      (): number => activeIndex.value
     ],
     (): void => {
       prop.type === 'line' && setActiveLineStyle()
@@ -83,7 +83,7 @@
           :class="[
             'f-tabs-nav__item',
             {
-              'f-tabs-nav__item-active': item.name === currentName
+              'f-tabs-nav__item-active': item.name === activeName
             }
           ]"
           @[trigger]="clickSwitchNavItem(item.name)"

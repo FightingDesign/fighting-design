@@ -1,4 +1,7 @@
-export type { TabsProps } from './tabs'
+export type { TabsProps } from './props'
+
+/** 活跃的 name */
+export type TabsModelValue = string | number
 
 /** 触发方式 */
 export type TabsTrigger = 'hover' | 'click'
@@ -24,9 +27,6 @@ export type TabsJustifyContent =
   | 'space-around'
   | 'space-evenly'
 
-/** 活跃的 name */
-export type TabsModelValue = string | number
-
 /**
  * 切换前的回调类型
  *
@@ -37,11 +37,11 @@ export type TabsSwitch = (name: TabsModelValue) => boolean | void
 /**
  * 编辑状态类型
  * 
- * @param action
- * @param name
- * @param index
+ * @param action 删除还是添加
+ * @param name name
+ * @param index 索引
  */
-export type TabsEdit = (action: 'remove' | 'add', name: string, index: number) => boolean
+export type TabsEdit = (action: 'remove' | 'add', name?: TabsModelValue, index?: number) => void
 
 /**
  * nav 列表集合

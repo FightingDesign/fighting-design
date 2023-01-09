@@ -3,7 +3,7 @@
   import { computed } from 'vue'
   import { TabsNav } from './components'
   import { useTabs } from '../../_hooks'
-  import type { ClassList } from '../../_interface'
+  import { warning } from '../../_utils'
   import type { TabsPosition, TabsModelValue } from './interface'
 
   const prop = defineProps(Props)
@@ -11,48 +11,45 @@
     'update:modelValue': (val: TabsModelValue): TabsModelValue => val
   })
 
-  const { navs, currentName, edit, setCurrentName } = useTabs(prop, emit)
+  const { navs, activeName, setEdit, setActiveName } = useTabs(prop, emit)
 
   /** 选项卡标签位置 */
   const tabsPosition = computed((): TabsPosition => {
     const { position, type } = prop
 
     if (type === 'segment' && (position === 'right' || position === 'left')) {
-      // debugWarn('FTabs', 'segment 风格只支持 top、bottom 两种方向')
+      warning('FTabs', 'segment 风格只支持 top、bottom 两种方向')
       return 'top'
     }
 
     return position
   })
 
-  /** 类名列表 */
-  const classList = computed((): ClassList => {
-    return ['f-tabs', `f-tabs__${tabsPosition.value}`] as const
-  })
-
   /** 通过 refs 抛出当前选中的值 */
-  defineExpose({ currentName })
+  defineExpose({ activeName })
 </script>
 
 <template>
-  <div :class="classList">
+  <div :class="['f-tabs', `f-tabs__${tabsPosition}`]">
     <tabs-nav
       v-if="navs.length"
       :navs="navs"
       :type="type"
-      :current-name="currentName"
+      :active-name="activeName"
       :position="tabsPosition"
       :edit-status="editStatus"
       :justify-content="justifyContent"
       :trigger="trigger"
+      :set-edit="setEdit"
+      :set-active-name="setActiveName"
       :on-switch="onSwitch"
-      :set-current-name="setCurrentName"
-      :set-edit="edit"
     >
+      <!-- 前缀内容 -->
       <template v-if="$slots.prefix" #prefix>
         <slot name="prefix" />
       </template>
 
+      <!-- 后缀内容 -->
       <template v-if="$slots.suffix" #suffix>
         <slot name="suffix" />
       </template>
