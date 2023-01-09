@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { RadioModelValue, RadioChange } from '../../radio-group'
 
@@ -8,10 +9,7 @@ export const Props = {
     default: (): null => null
   },
   /**是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /**
    * 自定义 name
    *

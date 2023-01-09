@@ -27,15 +27,9 @@ export const Props = {
     return (['primary', 'success', 'danger', 'warning'] as const).includes(val)
   }),
   /** 自定义颜色 */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /** 自定义文字颜色 */
-  textColor: {
-    type: String,
-    default: (): null => null
-  }
+  textColor: setStringProp()
 } as const
 
 export type BadgeProps = ExtractPropTypes<typeof Props>

@@ -1,12 +1,10 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /** 是否展示 */
-  visible: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  visible: setBooleanProp(),
   /** 加载中文案 */
   text: {
     type: String

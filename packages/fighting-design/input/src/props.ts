@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { InputType, InputValChange, InputSearch } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
@@ -91,15 +91,9 @@ export const Props = {
    *
    * @see placeholder https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
    */
-  placeholder: {
-    type: String,
-    default: (): null => null
-  },
+  placeholder: setStringProp(),
   /** 占位符颜色 */
-  placeholderColor: {
-    type: String,
-    default: (): null => null
-  },
+  placeholderColor: setStringProp(),
   /** 是否可清除 */
   clear: setBooleanProp(),
   /** 是否可搜索 */

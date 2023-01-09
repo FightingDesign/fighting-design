@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { LinkTarget, LinkState } from './interface'
 import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
@@ -22,10 +22,7 @@ export const Props = {
    *
    * @see href https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a?qs=%3Ca%3E#attr-href
    */
-  href: {
-    type: String,
-    default: (): null => null
-  },
+  href: setStringProp(),
   /** 的文字大小 */
   size: {
     type: [String, Number] as PropType<string | number>,
@@ -60,10 +57,7 @@ export const Props = {
     }
   },
   /** 自定义颜色 */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /** 是否禁止 copy */
   noCopy: setBooleanProp(),
   /** 是否禁止链接跳转及重新加载（取消默认事件） */

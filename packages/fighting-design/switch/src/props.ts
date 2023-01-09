@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { FightingSize, FightingIcon, HandleChange } from '../../_interface'
 
@@ -22,40 +23,22 @@ export const Props = {
     }
   },
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /** 自定义 icon */
   icon: {
     type: Object as PropType<FightingIcon>,
     default: (): null => null
   },
   /** 关闭时的颜色 */
-  closeColor: {
-    type: String,
-    default: (): null => null
-  },
+  closeColor: setStringProp(),
   /** 打开时的颜色 */
-  activeColor: {
-    type: String,
-    default: (): null => null
-  },
+  activeColor: setStringProp(),
   /** 自定义打开时的文案 */
-  activeText: {
-    type: String,
-    default: (): null => null
-  },
+  activeText: setStringProp(),
   /** 自定义关闭时的文案 */
-  closeText: {
-    type: String,
-    default: (): null => null
-  },
+  closeText: setStringProp(),
   /** 是否为方形的 */
-  square: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  square: setBooleanProp(),
   /** 自定义 icon size */
   iconSize: {
     type: [String, Number] as PropType<string | number>,

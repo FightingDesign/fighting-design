@@ -9,10 +9,7 @@ export const Props = {
     required: true
   },
   /** 标题文字内容 */
-  title: {
-    type: String,
-    default: (): null => null
-  },
+  title: setStringProp(),
   /** 是否追加到 body */
   appendToBody: setBooleanProp(),
   /** 自定义宽度 */

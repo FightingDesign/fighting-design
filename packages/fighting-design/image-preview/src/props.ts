@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { HandleMouse } from '../../_interface'
 
@@ -11,15 +11,9 @@ export const Props = {
     default: (): string[] => []
   },
   /** 是否点击遮罩层关闭预览窗 */
-  modalClose: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  modalClose: setBooleanProp(true),
   /** 是否展示关闭按钮 */
-  isCloseBtn: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  isCloseBtn: setBooleanProp(true),
   /** 图片预览展示的首张图的索引，从 0 开始 */
   showIndex: {
     type: Number,
@@ -38,15 +32,9 @@ export const Props = {
     default: (): null => null
   },
   /** 是否展示图片预览下面的操作栏 */
-  isOption: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  isOption: setBooleanProp(true),
   /** 预览图的圆角，传入一个单位 */
-  round: {
-    type: String,
-    default: (): null => null
-  },
+  round: setStringProp(),
   /** 关闭之后的回调 */
   onClose: {
     type: Function as PropType<HandleMouse>,

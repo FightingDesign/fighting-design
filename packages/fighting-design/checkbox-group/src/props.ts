@@ -14,10 +14,7 @@ export const Props = {
   /** 是否纵向排列 */
   vertical: setBooleanProp(),
   /** label */
-  label: {
-    type: String,
-    default: (): null => null
-  },
+  label: setStringProp(),
   /** 是否显示边框 */
   border: setBooleanProp(),
   /**

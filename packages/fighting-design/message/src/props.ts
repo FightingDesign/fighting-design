@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
 import type { MessagePlacement } from './interface'
 import type { FightingType } from '../../_interface'
@@ -6,10 +7,7 @@ export const Props = {
   /**
    * 唯一值
    */
-  id: {
-    type: String,
-    default: (): null => null
-  },
+  id: setStringProp(),
   /**
    * 消息文本
    */
@@ -34,10 +32,7 @@ export const Props = {
   /**
    * 是否可关闭
    */
-  close: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  close: setBooleanProp(),
   /**
    * 显示时间，单位为毫秒。 设为 0 则不会自动关闭
    */
@@ -48,10 +43,7 @@ export const Props = {
   /**
    * 是否为圆角类型
    */
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  round: setBooleanProp(),
   /**
    * 消息 icon
    */
@@ -62,17 +54,11 @@ export const Props = {
   /**
    * 字体颜色
    */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /**
    * 自定义背景色
    */
-  background: {
-    type: String,
-    default: (): null => null
-  },
+  background: setStringProp(),
   /**
    * 偏移距离
    */

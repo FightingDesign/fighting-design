@@ -1,12 +1,10 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { FightingType } from '../../_interface'
 
 export const Props = {
   /** 自定义涟漪颜色 */
-  ripplesColor: {
-    type: String,
-    default: (): null => null
-  },
+  ripplesColor: setStringProp(),
   /** 移除涟漪节点的时间 */
   duration: {
     type: Number,
@@ -27,10 +25,7 @@ export const Props = {
     }
   },
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /** 涟漪动画开始的透明度 */
   startOpacity: {
     type: Number,

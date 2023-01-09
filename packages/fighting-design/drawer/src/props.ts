@@ -22,10 +22,7 @@ export const Props = {
     default: (): string => '30%'
   },
   /** 标题文字内容 */
-  title: {
-    type: String,
-    default: (): null => null
-  },
+  title: setStringProp(),
   /** 是否展示遮罩层 */
   showMask: setBooleanProp(true),
   /** 点击遮罩层是否可关闭 */

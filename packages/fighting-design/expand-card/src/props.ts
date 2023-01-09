@@ -16,10 +16,7 @@ export const Props = {
     default: (): number => 0
   },
   /** 左下角文字的颜色 */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /** 自定义宽度 */
   width: {
     type: [String, Number] as PropType<string | number>,

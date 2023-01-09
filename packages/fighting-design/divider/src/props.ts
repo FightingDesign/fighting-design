@@ -18,25 +18,13 @@ export const Props = {
   /** 是否为竖线 */
   vertical: setBooleanProp(),
   /** 线条颜色 */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /** 文字颜色 */
-  fontColor: {
-    type: String,
-    default: (): null => null
-  },
+  fontColor: setStringProp(),
   /** 上下边距 */
-  margin: {
-    type: String,
-    default: (): null => null
-  },
+  margin: setStringProp(),
   /** 自定义背景颜色 */
-  background: {
-    type: String,
-    default: (): null => null
-  },
+  background: setStringProp(),
   /**
    * 分隔符类型
    * @values dashed dotted double solid

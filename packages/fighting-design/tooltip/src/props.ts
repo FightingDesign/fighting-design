@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { TooltipPosition, TooltipState } from './interface'
 
@@ -21,10 +22,7 @@ export const Props = {
     }
   },
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /**
    * 展示状态
    *
@@ -39,30 +37,15 @@ export const Props = {
     }
   },
   /** 是否显示箭头 */
-  noArrow: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  noArrow: setBooleanProp(),
   /** 是否加粗文字 */
-  bold: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  bold: setBooleanProp(),
   /** 是否使用浅色主题 */
-  bright: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  bright: setBooleanProp(),
   /** 自定义背景色 */
-  background: {
-    type: String,
-    default: (): null => null
-  },
+  background: setStringProp(),
   /** 自定义文字颜色 */
-  fontColor: {
-    type: String,
-    default: (): null => null
-  }
+  fontColor: setStringProp()
 } as const
 
 export type TooltipProps = ExtractPropTypes<typeof Props>

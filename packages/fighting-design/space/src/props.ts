@@ -1,17 +1,12 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
   /** 是否竖直排列 */
-  vertical: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  vertical: setBooleanProp(),
   /** 是否禁止换行 */
-  nowrap: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  nowrap: setBooleanProp(),
   /**
    * 间距尺寸
    *
@@ -26,15 +21,9 @@ export const Props = {
     }
   },
   /** 自定义纵向间距 */
-  rowGap: {
-    type: String,
-    default: (): null => null
-  },
+  rowGap: setStringProp(),
   /** 自定义横向间距 */
-  columnGap: {
-    type: String,
-    default: (): null => null
-  }
+  columnGap: setStringProp()
 } as const
 
 export type SpaceProps = ExtractPropTypes<typeof Props>

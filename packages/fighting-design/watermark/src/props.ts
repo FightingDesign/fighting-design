@@ -1,12 +1,10 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { PropType } from 'vue'
 
 export const Props = {
   /** 水印内容 */
-  content: {
-    type: String,
-    default: (): null => null
-  },
+  content: setStringProp(),
   /** 水印的宽度 */
   width: {
     type: Number,
@@ -28,15 +26,9 @@ export const Props = {
     default: (): string => '#333'
   },
   /** 自定义图片水印 */
-  image: {
-    type: String,
-    default: (): null => null
-  },
+  image: setStringProp(),
   /** 是否为块级元素 */
-  block: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  block: setBooleanProp(),
   /**
    * 原生 z-index 属性
    *

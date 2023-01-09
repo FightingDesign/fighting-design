@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { TableAlign, TableDate, TableColumns } from './interface'
 
@@ -26,50 +27,26 @@ export const Props = {
     }
   },
   /** 是否显示边框 */
-  border: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  border: setBooleanProp(),
   /** 是否显示序号 */
-  num: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  num: setBooleanProp(),
   /** 是否显示斑马纹 */
-  zebra: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  zebra: setBooleanProp(),
   /** 自定义斑马纹颜色 */
-  zebraColor: {
-    type: String,
-    default: (): null => null
-  },
+  zebraColor: setStringProp(),
   /** 自定义表格高度 */
   height: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /** 是否支持多选 */
-  optional: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  optional: setBooleanProp(),
   /** 自定义背景颜色 */
-  bgColor: {
-    type: String,
-    default: (): null => null
-  },
+  bgColor: setStringProp(),
   /** 自定义头部背景颜色 */
-  headBgColor: {
-    type: String,
-    default: (): null => null
-  },
+  headBgColor: setStringProp(),
   /** 是否展示头部 */
-  showHead: {
-    type: Boolean,
-    default: (): boolean => true
-  }
+  showHead: setBooleanProp(true)
 } as const
 
 export type TableProps = ExtractPropTypes<typeof Props>

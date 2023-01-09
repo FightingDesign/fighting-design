@@ -1,21 +1,13 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   /** 绑定值当前的时间 */
-  time: {
-    type: String,
-    default: (): null => null
-  },
+  time: setStringProp(),
   /** 是否只读 */
-  readonly: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  readonly: setBooleanProp(),
   /** 是否可清除 */
-  clear: {
-    type: Boolean,
-    default: (): boolean => false
-  }
+  clear: setBooleanProp()
 } as const
 
 export type TimePickerProps = ExtractPropTypes<typeof Props>

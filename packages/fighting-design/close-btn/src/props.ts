@@ -13,15 +13,9 @@ export const Props = {
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 自定义颜色 */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /** 鼠标移入的颜色 */
-  hoverColor: {
-    type: String,
-    default: (): null => null
-  },
+  hoverColor: setStringProp(),
   /** 自定义 icon */
   icon: {
     type: Object as PropType<FightingIcon>,

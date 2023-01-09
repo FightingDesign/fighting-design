@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ProgressType } from './interface'
 
@@ -24,35 +25,17 @@ export const Props = {
     }
   },
   /** 是否为方形 */
-  square: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  square: setBooleanProp(),
   /** 是否为线性 */
-  linear: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  linear: setBooleanProp(),
   /** 是否显示百分比文字内容 */
-  showText: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  showText: setBooleanProp(true),
   /** 百分比文字的颜色 */
-  textColor: {
-    type: String,
-    default: (): null => null
-  },
+  textColor: setStringProp(),
   /** 进度条颜色 */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /** 进度条背景色 */
-  background: {
-    type: String,
-    default: (): null => null
-  },
+  background: setStringProp(),
   /** 自定义宽度 */
   width: {
     type: [String, Number] as PropType<string | number>,
@@ -64,15 +47,9 @@ export const Props = {
     default: (): string => '6px'
   },
   /** 是否开启条纹效果 */
-  stripe: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  stripe: setBooleanProp(),
   /** 百分比文字是否在进度条内显示 */
-  textInside: {
-    type: Boolean,
-    default: (): boolean => false
-  }
+  textInside: setBooleanProp()
 } as const
 
 export type ProgressProps = ExtractPropTypes<typeof Props>

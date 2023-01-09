@@ -4,10 +4,7 @@ import type { FightingSize } from '../../_interface'
 
 export const Props = {
   /** 绑定值 */
-  date: {
-    type: String,
-    default: (): null => null
-  },
+  date: setStringProp(),
   /** 是否只读 */
   readonly: setBooleanProp(),
   /** 是否可清除 */

@@ -5,19 +5,13 @@ import type { HandleEvent } from '../../_interface'
 
 export const Props = {
   /** 图片路径 */
-  src: {
-    type: String,
-    default: (): null => null
-  },
+  src: setStringProp(),
   /**
    * 原生 alt 属性
    *
    * @see alt https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-alt
    */
-  alt: {
-    type: String,
-    default: (): null => null
-  },
+  alt: setStringProp(),
   /** 是否可以拖动 */
   draggable: setBooleanProp(true),
   /** 是否懒加载图片 */
@@ -58,25 +52,16 @@ export const Props = {
    *
    * @see Referrer-Policy https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#syntax
    */
-  referrerPolicy: {
-    type: String,
-    default: (): null => null
-  },
+  referrerPolicy: setStringProp(),
   /** 配置圆角，传入一个数值 */
   round: {
     type: [String, Number] as PropType<string | number>,
     default: (): null => null
   },
   /** 加载失败时要显示的地址 */
-  errSrc: {
-    type: String,
-    default: (): null => null
-  },
+  errSrc: setStringProp(),
   /** img 的 title */
-  title: {
-    type: String,
-    default: (): null => null
-  },
+  title: setStringProp(),
   /** 图片加载成功触发的回调 */
   onLoad: {
     type: Function as PropType<HandleEvent>,

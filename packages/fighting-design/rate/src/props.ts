@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { RateChange } from './interface'
 import type { FightingIcon } from '../../_interface'
@@ -26,10 +27,7 @@ export const Props = {
     default: (): string => '#eef'
   },
   /** 是否只读 */
-  readonly: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  readonly: setBooleanProp(),
   /** 自定义 icon */
   icon: {
     type: Object as PropType<FightingIcon>,
@@ -41,15 +39,9 @@ export const Props = {
     default: (): number => 25
   },
   /** 是否展示辅助文字 */
-  textShow: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  textShow: setBooleanProp(),
   /** 辅助文字颜色 */
-  textColor: {
-    type: String,
-    default: (): null => null
-  },
+  textColor: setStringProp(),
   /** 辅助文字数组 */
   textArr: {
     type: Array as PropType<string[]>,

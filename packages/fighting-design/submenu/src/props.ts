@@ -1,16 +1,11 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /** 是否展开 */
-  opened: {
-    type: Boolean,
-    default: (): boolean => false
-  }
+  opened: setBooleanProp()
 } as const
 
 export type SubmenuProps = ExtractPropTypes<typeof Props>

@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type {
   TabsTrigger,
@@ -57,10 +58,7 @@ export const Props = {
     }
   },
   /** 编辑状态 */
-  editStatus: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  editStatus: setBooleanProp(),
   /**
    * 触发方式
    *

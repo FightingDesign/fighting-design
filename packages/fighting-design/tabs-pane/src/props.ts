@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { TabsModelValue } from '../../tabs'
 
@@ -8,15 +9,9 @@ export const Props = {
     default: (): null => null
   },
   /** label 上显示的文字 */
-  label: {
-    type: String,
-    default: (): null => null
-  },
+  label: setStringProp(),
   /** 是否懒加载 */
-  lazy: {
-    type: Boolean,
-    default: (): boolean => false
-  }
+  lazy: setBooleanProp()
 } as const
 
 export type TabsPaneProps = ExtractPropTypes<typeof Props>

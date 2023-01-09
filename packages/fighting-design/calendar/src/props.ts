@@ -16,10 +16,7 @@ export const Props = {
   /** 是否显示边框 */
   border: setBooleanProp(),
   /** 自定义边框颜色 */
-  borderColor: {
-    type: String,
-    default: (): null => null
-  },
+  borderColor: setStringProp(),
   /** 日期单元格高度 */
   dayCellHeight: {
     type: [String, Number] as PropType<string | number>,

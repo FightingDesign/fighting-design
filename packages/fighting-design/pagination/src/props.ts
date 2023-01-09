@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { PaginationEvent } from './interface'
 import type { FightingIcon } from '../../_interface'
@@ -31,15 +32,9 @@ export const Props = {
     default: (): number => 7
   },
   /** 是否带有背景色 */
-  background: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  background: setBooleanProp(),
   /** 是否带有圆角 */
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  round: setBooleanProp(),
   /** 自定义的上一页图标 */
   prevIcon: {
     type: Object as PropType<FightingIcon>,
@@ -51,15 +46,9 @@ export const Props = {
     default: (): null => null
   },
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /** 是否展示快速跳转搜索框 */
-  jumpSearch: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  jumpSearch: setBooleanProp(),
   /** 点击上一页触发的回调 */
   onPrev: {
     type: Function as PropType<PaginationEvent>,

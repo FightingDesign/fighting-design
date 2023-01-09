@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
@@ -23,20 +24,11 @@ export const Props = {
     default: (): number => 100
   },
   /** 是否禁用 */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /** 是否可范围性取值 */
-  range: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  range: setBooleanProp(),
   /** 自定义滑块背景色 */
-  bgColor: {
-    type: String,
-    default: (): null => null
-  }
+  bgColor: setStringProp()
 } as const
 
 export type SliderProps = ExtractPropTypes<typeof Props>

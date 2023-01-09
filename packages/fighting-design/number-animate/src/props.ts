@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType, CSSProperties } from 'vue'
 import type { AnimationEnd } from './interface'
 
@@ -22,20 +23,14 @@ export const Props = {
     default: (): number => 2000
   },
   /** 对数字决定金额格式化 */
-  localeString: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  localeString: setBooleanProp(),
   /** 样式列表 */
   styles: {
     type: Object as PropType<CSSProperties>,
     default: (): null => null
   },
   /** 是否初始化自动播放 */
-  automatic: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  automatic: setBooleanProp(true),
   /** 动画结束触发函数 */
   onAnimationEnd: {
     type: Function as PropType<AnimationEnd>,

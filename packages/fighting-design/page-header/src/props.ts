@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { HandleEvent, FightingIcon } from '../../_interface'
 
@@ -13,35 +14,17 @@ export const Props = {
     default: (): string => '16px'
   },
   /** 返回文本 */
-  backText: {
-    type: String,
-    default: (): null => null
-  },
+  backText: setStringProp(),
   /** 标题文本 */
-  title: {
-    type: String,
-    default: (): null => null
-  },
+  title: setStringProp(),
   /** 标题是否粗体 */
-  titleBold: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  titleBold: setBooleanProp(),
   /** 标题颜色 */
-  titleColor: {
-    type: String,
-    default: (): null => null
-  },
+  titleColor: setStringProp(),
   /**标题是否居中 */
-  titleCenter: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  titleCenter: setBooleanProp(),
   /** 副标题文本 */
-  subtitle: {
-    type: String,
-    default: (): null => null
-  },
+  subtitle: setStringProp(),
   /** 点击左侧区域触发 */
   onBack: {
     type: Function as PropType<HandleEvent>,

@@ -4,10 +4,7 @@ import type { CardShadow } from './interface'
 
 export const Props = {
   /** 卡片标题 */
-  title: {
-    type: String,
-    default: (): null => null
-  },
+  title: setStringProp(),
   /** 是否为圆角卡片 */
   round: setBooleanProp(),
   /** 卡片内边距 */

@@ -1,3 +1,4 @@
+import { setStringProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { FightingIcon, HandleMouse } from '../../_interface'
 
@@ -8,10 +9,7 @@ export const Props = {
     default: (): null => null
   },
   /** icon 颜色 */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /** icon 大小 */
   size: {
     type: [String, Number] as PropType<string | number>,

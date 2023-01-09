@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { PopupDirection } from './interface'
 import type { HandleEvent } from '../../_interface'
@@ -10,25 +11,13 @@ export const Props = {
     required: true
   },
   /** 是否追加到 body */
-  appendToBody: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  appendToBody: setBooleanProp(),
   /** 是否展示遮罩层 */
-  showMask: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  showMask: setBooleanProp(true),
   /** 是否点击遮罩层关闭 */
-  maskClose: {
-    type: Boolean,
-    default: (): boolean => true
-  },
+  maskClose: setBooleanProp(true),
   /** 是否模糊遮罩层 */
-  maskBlur: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  maskBlur: setBooleanProp(),
   /**
    * 层级 原生属性
    *
@@ -40,10 +29,7 @@ export const Props = {
     validator: (val: number): boolean => val >= 0
   },
   /** 自定义遮罩层背景色 */
-  maskBackground: {
-    type: String,
-    default: (): null => null
-  },
+  maskBackground: setStringProp(),
   /** 遮罩层透明度 */
   maskOpacity: {
     type: Number,

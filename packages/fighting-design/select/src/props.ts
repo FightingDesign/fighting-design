@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { SelectProvide, SelectModelValue } from './interface'
 
@@ -27,24 +28,15 @@ export const Props = {
    *
    * @see placeholder https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-placeholder
    */
-  placeholder: {
-    type: String,
-    default: (): null => null
-  },
+  placeholder: setStringProp(),
   /** 是否可清除 */
-  clear: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  clear: setBooleanProp(),
   /**
    * 是否禁用
    *
    * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  }
+  disabled: setBooleanProp()
 } as const
 
 export type SelectProps = ExtractPropTypes<typeof Props>

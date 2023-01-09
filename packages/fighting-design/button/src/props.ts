@@ -18,10 +18,7 @@ export const Props = {
     default: (): null => null
   },
   /** 字体颜色 */
-  fontColor: {
-    type: String,
-    default: (): null => null
-  },
+  fontColor: setStringProp(),
   /**
    * 按钮尺寸
    *
@@ -38,10 +35,7 @@ export const Props = {
   /** 是否为块级元素 */
   block: setBooleanProp(),
   /** 跳转的连接地址 */
-  href: {
-    type: String,
-    default: (): null => null
-  },
+  href: setStringProp(),
   /**
    * 针对 href 处理的跳转方式
    *
@@ -92,10 +86,7 @@ export const Props = {
     default: (): string => 'f-button'
   },
   /** 自定义阴影样式 */
-  shadow: {
-    type: String,
-    default: (): null => null
-  },
+  shadow: setStringProp(),
   /** 是否为文字按钮（非自定义按钮颜色时有效） */
   text: setBooleanProp(),
   /**
@@ -127,15 +118,9 @@ export const Props = {
   /** 是否为涟漪效果 */
   ripples: setBooleanProp(),
   /** 自定义涟漪效果颜色 */
-  ripplesColor: {
-    type: String,
-    default: (): null => null
-  },
+  ripplesColor: setStringProp(),
   /** 自定义按钮颜色 */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /** 点击之后的回调函数 */
   onClick: {
     type: Function as PropType<HandleMouse>,

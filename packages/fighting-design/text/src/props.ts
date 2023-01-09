@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { TextDecoration } from './interface'
 import type { FightingType } from '../../_interface'
@@ -30,28 +31,19 @@ export const Props = {
    *
    * @see color https://developer.mozilla.org/zh-CN/docs/Web/CSS/color
    */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /**
    * 背景颜色
    *
    * @see background https://developer.mozilla.org/zh-CN/docs/Web/CSS/background
    */
-  background: {
-    type: String,
-    default: (): null => null
-  },
+  background: setStringProp(),
   /**
    * 是否独占一行
    *
    * @see display https://developer.mozilla.org/zh-CN/docs/Web/CSS/display
    */
-  block: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  block: setBooleanProp(),
   /**
    * 文字间距
    *
@@ -84,10 +76,7 @@ export const Props = {
    *
    * @see font-weight https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-weight
    */
-  bold: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  bold: setBooleanProp(),
   /**
    * 文字的修饰
    *
@@ -120,19 +109,13 @@ export const Props = {
     default: (): null => null
   },
   /** 是否省略文本，需配合 width 宽度使用 */
-  ellipsis: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  ellipsis: setBooleanProp(),
   /**
    * 是否居中
    *
    * @see text-align https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-align
    */
-  center: {
-    type: Boolean,
-    default: (): boolean => false
-  }
+  center: setBooleanProp()
 } as const
 
 export type TextProps = ExtractPropTypes<typeof Props>

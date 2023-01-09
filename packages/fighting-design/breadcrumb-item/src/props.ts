@@ -4,15 +4,9 @@ import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /** 自定义文字颜色 */
-  fontColor: {
-    type: String,
-    default: (): null => null
-  },
+  fontColor: setStringProp(),
   /** 自定义分隔符颜色 */
-  iconColor: {
-    type: String,
-    default: (): null => null
-  },
+  iconColor: setStringProp(),
   /** 自定义分隔符 */
   separator: {
     type: Object as PropType<FightingIcon>,

@@ -1,13 +1,11 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { TextareaResize } from './interface'
 import type { InputChange, HandleEvent } from '../../_interface'
 
 export const Props = {
   /** 绑定值 */
-  modelValue: {
-    type: String,
-    default: (): null => null
-  },
+  modelValue: setStringProp(),
   /**
    * 元素的输入文本的行数
    *
@@ -22,10 +20,7 @@ export const Props = {
    *
    * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-disabled
    */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  disabled: setBooleanProp(),
   /**
    * 最大输入长度
    *
@@ -41,10 +36,7 @@ export const Props = {
    *
    * @see autofocus https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-autofocus
    */
-  autofocus: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  autofocus: setBooleanProp(),
   /**
    * 原生 name 属性
    *
@@ -59,19 +51,13 @@ export const Props = {
    *
    * @see placeholder https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-placeholder
    */
-  placeholder: {
-    type: String,
-    default: (): null => null
-  },
+  placeholder: setStringProp(),
   /**
    * 是否只读
    *
    * @see readonly https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-readonly
    */
-  readonly: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  readonly: setBooleanProp(),
   /** input 事件触发的回调 */
   onInput: {
     type: Function as PropType<HandleEvent>,
@@ -92,10 +78,7 @@ export const Props = {
     }
   },
   /** 是否可清空 */
-  clear: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  clear: setBooleanProp(),
   /** 绑定值发生变化时触发的回调 */
   onChange: {
     type: Function as PropType<InputChange>,

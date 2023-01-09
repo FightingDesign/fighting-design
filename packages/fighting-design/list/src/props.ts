@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { FightingSize } from '../../_interface'
 
@@ -8,15 +8,9 @@ export const Props = {
   /** 是否居中 */
   center: setBooleanProp(),
   /** 自定义文字颜色 */
-  textColor: {
-    type: String,
-    default: (): null => null
-  },
+  textColor: setStringProp(),
   /** 自定义边框颜色 */
-  borderColor: {
-    type: String,
-    default: (): null => null
-  },
+  borderColor: setStringProp(),
   /**
    * 尺寸
    *
@@ -36,10 +30,7 @@ export const Props = {
     default: (): null => null
   },
   /** 自定义斑马纹颜色 */
-  zebraColor: {
-    type: String,
-    default: (): null => null
-  }
+  zebraColor: setStringProp()
 } as const
 
 export type ListProps = ExtractPropTypes<typeof Props>

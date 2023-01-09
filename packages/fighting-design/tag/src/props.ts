@@ -1,3 +1,4 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes, VNode } from 'vue'
 import type { HandleEvent, FightingType, FightingSize } from '../../_interface'
 
@@ -16,25 +17,13 @@ export const Props = {
     }
   },
   /** 是否可关闭 */
-  close: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  close: setBooleanProp(),
   /** 是否为圆角 */
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  round: setBooleanProp(),
   /** 自定义背景色 */
-  background: {
-    type: String,
-    default: (): null => null
-  },
+  background: setStringProp(),
   /** 自定义文字颜色 */
-  color: {
-    type: String,
-    default: (): null => null
-  },
+  color: setStringProp(),
   /** 左侧 icon */
   beforeIcon: {
     type: Object as PropType<VNode>,
@@ -59,20 +48,11 @@ export const Props = {
     }
   },
   /** 是否为简约模式 */
-  simple: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  simple: setBooleanProp(),
   /** 是否为块级元素 */
-  block: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  block: setBooleanProp(),
   /** 线性的 */
-  line: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  line: setBooleanProp(),
   /** 点击关闭按钮触发 */
   onClose: {
     type: Function as PropType<HandleEvent>,

@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 
 export const Props = {
@@ -16,10 +17,7 @@ export const Props = {
    *
    * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  }
+  disabled: setBooleanProp()
 } as const
 
 export type OptionProps = ExtractPropTypes<typeof Props>

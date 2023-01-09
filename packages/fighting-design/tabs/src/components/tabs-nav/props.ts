@@ -1,3 +1,4 @@
+import { setBooleanProp } from '../../../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type {
   TabsNavInstance,
@@ -65,10 +66,7 @@ export const Props = {
     }
   },
   /** 编辑状态 */
-  editStatus: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  editStatus: setBooleanProp(),
   /**
    * 触发方式
    *

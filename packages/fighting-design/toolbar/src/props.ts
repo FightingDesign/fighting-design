@@ -1,13 +1,11 @@
+import { setBooleanProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ToolbarClick } from './interface'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
   /** 显示为圆角 */
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  round: setBooleanProp(),
   /**
    * 尺寸
    *
@@ -22,20 +20,11 @@ export const Props = {
     }
   },
   /** 自定义背景颜色 */
-  background: {
-    type: String,
-    default: (): null => null
-  },
+  background: setStringProp(),
   /** 字体颜色 */
-  textColor: {
-    type: String,
-    default: (): null => null
-  },
+  textColor: setStringProp(),
   /** 是否固定定位 */
-  fixed: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  fixed: setBooleanProp(),
   /** 自定义宽度 */
   width: {
     type: [String, Number] as PropType<string | number>,
