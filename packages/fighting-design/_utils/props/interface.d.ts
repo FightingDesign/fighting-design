@@ -22,3 +22,8 @@ export interface SetObjectPropReturn {
   type: PropType
   default: () => null
 }
+
+export interface SetFunctionPropReturn {
+  type: PropType
+  default: () => null
+}

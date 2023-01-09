@@ -4,7 +4,8 @@ import type {
   SetBooleanPropReturn,
   SetStringPropReturn,
   SetStringNumberPropReturn,
-  SetObjectPropReturn
+  SetObjectPropReturn,
+  SetFunctionPropReturn
 } from './interface'
 
 /**
@@ -50,5 +51,10 @@ export const setStringNumberProp = <T>(defaultVal?: string | number | T): SetStr
 
 export const setObjectProp = <T>(defaultVal = null): SetObjectPropReturn => ({
   type: Object as PropType<T>,
+  default: () => defaultVal
+})
+
+export const setFunctionProp = <T>(defaultVal = null): SetFunctionPropReturn => ({
+  type: Function as PropType<T>,
   default: () => defaultVal
 })

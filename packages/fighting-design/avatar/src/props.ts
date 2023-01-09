@@ -1,4 +1,4 @@
-import { isString, isNumber, setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
+import { isString, isNumber, setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { AvatarFit } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
@@ -64,15 +64,9 @@ export const Props = {
   /** 触发懒加载的距离 */
   rootMargin: setStringNumberProp('100px'),
   /** 图片加载成功触发的回调 */
-  onLoad: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onLoad: setFunctionProp<HandleEvent>(),
   /** 图片加载失败触发的回调 */
-  onError: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  }
+  onError: setFunctionProp<HandleEvent>()
 } as const
 
 export type AvatarProps = ExtractPropTypes<typeof Props>

@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp, setFunctionProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ButtonTarget, ButtonNative } from './interface'
 import type { FightingSize, FightingType, FightingIcon, HandleMouse } from '../../_interface'
@@ -110,10 +110,7 @@ export const Props = {
   /** 自定义按钮颜色 */
   color: setStringProp(),
   /** 点击之后的回调函数 */
-  onClick: {
-    type: Function as PropType<HandleMouse>,
-    default: (): null => null
-  }
+  onClick: setFunctionProp<HandleMouse>()
 } as const
 
 export type ButtonProps = ExtractPropTypes<typeof Props>
