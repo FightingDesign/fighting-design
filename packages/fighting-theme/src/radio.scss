@@ -13,6 +13,7 @@
 
   // 选中状态
   &.f-radio__checked {
+    // 文字
     .f-radio__text {
       color: var(--f-design-color-primary-1);
     }
@@ -35,7 +36,7 @@
     position: relative;
     border: 1px solid #dee5fd;
     margin-right: 7px;
-    background-color: var(--f-design-color-text-2);
+    background: var(--f-design-color-text-2);
 
     &::after {
       content: '';

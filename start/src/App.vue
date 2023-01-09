@@ -1,33 +1,5 @@
-<script lang="ts" setup>
-  import { ref } from 'vue'
-  import type { TabsTrigger } from 'fighting-design'
+<script lang="ts" setup></script>
 
-  const trigger = ref<TabsTrigger>('click')
+<template></template>
 
-  const lab = ref('')
-</script>
-
-<template>
-  <h1>{{ lab }}</h1>
-
-  <f-tabs v-model="lab" :trigger="trigger" type="segment" position="right">
-    <f-tabs-pane label="如烟" name="admin">
-      <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
-      <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="盛夏光年" name="aaaa">
-      <p>长大 难道是人必经的溃烂。</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="我心中尚未崩坏的地方" name="张三">
-      <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
-    </f-tabs-pane>
-  </f-tabs>
-
-  <div>
-    触发方式：
-    <f-radio-group v-model="trigger">
-      <f-radio label="click">click</f-radio>
-      <f-radio label="hover">hover</f-radio>
-    </f-radio-group>
-  </div>
-</template>
+<style lang="scss" scoped></style>
