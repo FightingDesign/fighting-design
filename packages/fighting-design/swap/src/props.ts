@@ -1,3 +1,4 @@
+import { setObjectProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { SwapType } from './interface'
 import type { FightingIcon, HandleChange } from '../../_interface'
@@ -28,15 +29,9 @@ export const Props = {
     }
   },
   /** 打开展示的图标 */
-  iconOn: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  iconOn: setObjectProp<FightingIcon>(),
   /** 关闭展示的图标 */
-  iconOff: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  iconOff: setObjectProp<FightingIcon>(),
   /** 当绑定值发生改变时触发的回调 */
   onChange: {
     type: Function as PropType<HandleChange>,

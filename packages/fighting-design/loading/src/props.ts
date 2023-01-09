@@ -1,5 +1,5 @@
-import { setBooleanProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setBooleanProp, setObjectProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -22,10 +22,7 @@ export const Props = {
     type: String
   },
   /** 自定义 icon */
-  icon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  }
+  icon: setObjectProp<FightingIcon>()
 } as const
 
 export type LoadingProps = ExtractPropTypes<typeof Props>

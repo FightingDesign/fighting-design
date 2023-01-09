@@ -1,13 +1,10 @@
-import { setStringProp, setStringNumberProp } from '../../_utils'
-import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
+import { setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
+import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /** 自定义分隔符 */
-  separator: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  separator: setObjectProp<FightingIcon>(),
   /** 导航文字颜色 */
   fontColor: setStringProp(),
   /** icon 颜色 */

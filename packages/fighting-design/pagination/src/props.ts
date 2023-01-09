@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setObjectProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { PaginationEvent } from './interface'
 import type { FightingIcon } from '../../_interface'
@@ -36,15 +36,9 @@ export const Props = {
   /** 是否带有圆角 */
   round: setBooleanProp(),
   /** 自定义的上一页图标 */
-  prevIcon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  prevIcon: setObjectProp<FightingIcon>(),
   /** 自定义的下一页图标 */
-  nextIcon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  nextIcon: setObjectProp<FightingIcon>(),
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 是否展示快速跳转搜索框 */

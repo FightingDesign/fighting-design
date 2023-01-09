@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setObjectProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { DrawerDirection } from './interface'
 import type { HandleEvent, FightingIcon } from '../../_interface'
@@ -32,10 +32,7 @@ export const Props = {
   /**是否展示关闭按钮 */
   showCloseIcon: setBooleanProp(true),
   /** 自定义关闭按钮 icon */
-  closeIcon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  closeIcon: setObjectProp<FightingIcon>(),
   /**
    * 层级 原生属性
    *

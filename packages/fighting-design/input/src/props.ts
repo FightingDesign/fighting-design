@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { InputType, InputValChange, InputSearch } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
@@ -106,15 +106,9 @@ export const Props = {
   /** 是否按下回车进行搜索 */
   enterSearch: setBooleanProp(),
   /** 自定义 icon */
-  icon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  icon: setObjectProp<FightingIcon>(),
   /** 后缀 icon */
-  afterIcon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  afterIcon: setObjectProp<FightingIcon>(),
   /** 点击搜索之后触发的回调 */
   onSearch: {
     type: Function as PropType<InputSearch>,

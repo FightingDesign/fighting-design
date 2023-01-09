@@ -1,4 +1,4 @@
-import { isString, isNumber, setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { isString, isNumber, setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { AvatarFit } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
@@ -9,10 +9,7 @@ export const Props = {
   /** 加载失败时要显示的地址 */
   errSrc: setStringProp(),
   /** 图标头像 */
-  icon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  icon: setObjectProp<FightingIcon>(),
   /**
    *原生 alt 属性
    *

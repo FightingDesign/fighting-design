@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { HandleMouse, FightingIcon } from '../../_interface'
 
@@ -14,10 +14,7 @@ export const Props = {
   /** 鼠标移入的颜色 */
   hoverColor: setStringProp(),
   /** 自定义 icon */
-  icon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  icon: setObjectProp<FightingIcon>(),
   /** 点击之后执行的回调 */
   onClick: {
     type: Function as PropType<HandleMouse>,

@@ -17,3 +17,8 @@ export interface SetStringNumberPropReturn {
   type: PropType<string | number>,
   default: string | number | null
 }
+
+export interface SetObjectPropReturn {
+  type: PropType
+  default: () => null
+}

@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { HandleMouse, FightingType, FightingIcon } from '../../_interface'
 
@@ -37,15 +37,9 @@ export const Props = {
   /** 是否为固定定位 */
   fixed: setBooleanProp(),
   /** 自定义关闭 icon */
-  closeIcon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  closeIcon: setObjectProp<FightingIcon>(),
   /** 自定义之前的 icon */
-  beforeIcon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  beforeIcon: setObjectProp<FightingIcon>(),
   /** 滚动列表 */
   alertList: {
     type: Array as PropType<string[]>,

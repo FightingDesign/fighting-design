@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { RateChange } from './interface'
 import type { FightingIcon } from '../../_interface'
@@ -29,10 +29,7 @@ export const Props = {
   /** 是否只读 */
   readonly: setBooleanProp(),
   /** 自定义 icon */
-  icon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  icon: setObjectProp<FightingIcon>(),
   /** 图标尺寸 */
   size: {
     type: [String, Number] as PropType<string | number>,

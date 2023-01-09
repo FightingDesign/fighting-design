@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ButtonTarget, ButtonNative } from './interface'
 import type { FightingSize, FightingType, FightingIcon, HandleMouse } from '../../_interface'
@@ -54,10 +54,7 @@ export const Props = {
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 自定义 loading icon */
-  loadingIcon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  loadingIcon: setObjectProp<FightingIcon>(),
   /**
    * 按钮的类型（非自定义按钮颜色时有效）
    *
@@ -103,15 +100,9 @@ export const Props = {
   /** 是否为简约的按钮（非自定义按钮颜色时有效） */
   simple: setBooleanProp(),
   /** 自定义之前的 icon */
-  beforeIcon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  beforeIcon: setObjectProp<FightingIcon>(),
   /** 自定义之后的 icon */
-  afterIcon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  afterIcon: setObjectProp<FightingIcon>(),
   /** 是否为涟漪效果 */
   ripples: setBooleanProp(),
   /** 自定义涟漪效果颜色 */

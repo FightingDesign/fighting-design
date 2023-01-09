@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { LinkTarget, LinkState } from './interface'
 import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
@@ -60,15 +60,9 @@ export const Props = {
   /** 是否禁止链接跳转及重新加载（取消默认事件） */
   noLink: setBooleanProp(),
   /** 之前的 icon */
-  beforeIcon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  beforeIcon: setObjectProp<FightingIcon>(),
   /** 之后的 icon */
-  afterIcon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  afterIcon: setObjectProp<FightingIcon>(),
   /** 点击执行的回调 */
   onClick: {
     type: Function as PropType<HandleEvent>,

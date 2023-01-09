@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { FightingSize, FightingIcon, HandleChange } from '../../_interface'
 
@@ -25,10 +25,7 @@ export const Props = {
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 自定义 icon */
-  icon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  icon: setObjectProp<FightingIcon>(),
   /** 关闭时的颜色 */
   closeColor: setStringProp(),
   /** 打开时的颜色 */

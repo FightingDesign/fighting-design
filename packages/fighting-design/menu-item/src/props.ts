@@ -1,13 +1,10 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /** icon 内容 */
-  icon: {
-    type: Object as PropType<FightingIcon>,
-    default: (): null => null
-  },
+  icon: setObjectProp<FightingIcon>(),
   /**
    * 文字大小
    *

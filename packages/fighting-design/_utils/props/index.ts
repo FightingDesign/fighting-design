@@ -3,7 +3,8 @@ import type {
   Validator,
   SetBooleanPropReturn,
   SetStringPropReturn,
-  SetStringNumberPropReturn
+  SetStringNumberPropReturn,
+  SetObjectPropReturn
 } from './interface'
 
 /**
@@ -45,4 +46,9 @@ export const setStringProp = <T extends string>(defaultVal?: T | null, validator
 export const setStringNumberProp = (defaultVal = null): SetStringNumberPropReturn => ({
   type: [String, Number] as PropType<string | number>,
   default: defaultVal
+})
+
+export const setObjectProp = <T>(defaultVal = null): SetObjectPropReturn => ({
+  type: Object as PropType<T>,
+  default: () => defaultVal
 })
