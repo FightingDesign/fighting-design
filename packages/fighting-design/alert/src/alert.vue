@@ -4,6 +4,7 @@
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
   import { useList, useRun, useGlobal, useAlertList } from '../../_hooks'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -12,7 +13,7 @@
   /** 替换 type 后得到的 props */
   const params = reactive({
     ...prop,
-    type: getType().value
+    type: getType()
   })
 
   const { styles, classes } = useList(params, 'alert')
@@ -21,7 +22,7 @@
   const isShow = ref<boolean>(true)
 
   /** alertList 节点列表容器 dom */
-  const alertListDom = ref<HTMLElement>(null as unknown as HTMLElement)
+  const alertListEl: Ref<HTMLElement | null> = ref(null)
 
   /** 类名列表 */
   const classList = classes(['type', 'bold', 'simple', 'center', 'round', 'fixed'], 'f-alert')
@@ -40,7 +41,7 @@
 
   onMounted((): void => {
     if (prop.alertList && prop.alertList.length) {
-      const { startMove } = useAlertList(alertListDom.value)
+      const { startMove } = useAlertList(alertListEl.value as HTMLElement)
       startMove(prop.duration || 2000)
     }
   })

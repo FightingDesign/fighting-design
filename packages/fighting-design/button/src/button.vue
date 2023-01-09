@@ -7,13 +7,14 @@
   import { useCalculiColor, useRipples, useRun, useGlobal } from '../../_hooks'
   import { sizeChange } from '../../_utils'
   import type { RipplesOptions } from '../../_hooks'
-  import type { CSSProperties } from 'vue'
+  import type { CSSProperties, Ref } from 'vue'
   import type { ClassList, FightingSize } from '../../_interface'
 
   const prop = defineProps(Props)
 
   /** 元素节点 */
-  const FButton = ref<HTMLButtonElement>(null as unknown as HTMLButtonElement)
+  const FButtonEl: Ref<HTMLButtonElement | null> = ref(null)
+
   /** 获取父组件注入的依赖项 */
   const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)
 
@@ -69,7 +70,7 @@
         type: getType().value
       } as const)
 
-      const { runRipples } = useRipples(evt, FButton.value, options)
+      const { runRipples } = useRipples(evt, FButtonEl.value as HTMLButtonElement, options)
 
       runRipples()
     }

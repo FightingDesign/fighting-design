@@ -2,14 +2,15 @@
   import { Props } from './props'
   import { sizeChange } from '../../_utils'
   import { computed, ref, onMounted } from 'vue'
-  import type { CSSProperties } from 'vue'
+  import type { CSSProperties, Ref } from 'vue'
 
   const prop = defineProps(Props)
 
   /** 是否展示百分比 */
   const isPercentage = ref<boolean>(false)
+
   /** 元素节点 */
-  const fillRef = ref<HTMLDivElement>(null as unknown as HTMLDivElement)
+  const fillEl: Ref<HTMLDivElement | null> = ref(null)
 
   /** 进度条样式列表 */
   const progressStyle = computed((): CSSProperties => {
@@ -35,7 +36,7 @@
 
   /** 是否展示百分比 */
   const isShowPercentage = (): boolean => {
-    return (isPercentage.value = fillRef.value.clientHeight >= 18 && prop.textInside)
+    return (isPercentage.value = (fillEl.value as HTMLDivElement).clientHeight >= 18 && prop.textInside)
   }
 
   onMounted((): void => {
@@ -54,7 +55,7 @@
   >
     <div class="f-progress__bar" :style="progressStyle">
       <div
-        ref="fillRef"
+        ref="fillEl"
         :class="[
           'f-progress__fill',
           {

@@ -2,6 +2,7 @@
   import { Props } from './props'
   import { ref } from 'vue'
   import { useRun } from '../../_hooks'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -9,14 +10,14 @@
   const target = ref(false)
 
   /** 元素节点 */
-  const scrollView = ref<HTMLDivElement>(null as unknown as HTMLDivElement)
+  const scrollEl: Ref<HTMLDivElement | null> = ref(null)
 
   /** 滚动触发 */
   const scroll = (): void => {
     if (prop.loading) return
 
     /** 获取到元素节点 */
-    const view: HTMLDivElement = scrollView.value
+    const view: HTMLDivElement = scrollEl.value as HTMLDivElement
     /**
      * 获取到滚动的距离
      *
@@ -40,7 +41,7 @@
   }
 </script>
 <template>
-  <div ref="scrollView" class="f-infinite-scrolling" :style="styles" @scroll="scroll">
+  <div ref="scrollEl" class="f-infinite-scrolling" :style="styles" @scroll="scroll">
     <slot />
     <div v-if="loading" class="f-infinite-scrolling__loading">加载中...</div>
   </div>

@@ -5,6 +5,7 @@
   import { useList } from '../../_hooks'
   import { FTooltip } from '../../tooltip'
   import dragDirective from './drag'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -15,14 +16,16 @@
 
   /** 自定义指令 */
   const vDrag = dragDirective
+
   /** dom 元素 */
-  const FSlider = ref<HTMLDivElement>(null as unknown as HTMLDivElement)
+  const sliderEl: Ref<HTMLDivElement | null> = ref(null)
+
   /** 便宜距离 */
   const rightTx = ref<number>(0)
 
   /** 宽度 */
   const sliderWidth = computed((): number => {
-    return parseInt(FSlider.value.offsetWidth + '')
+    return parseInt((sliderEl.value as HTMLDivElement).offsetWidth + '')
   })
 
   onMounted((): void => {
@@ -75,7 +78,7 @@
 </script>
 
 <template>
-  <div ref="FSlider" class="f-slider" :class="classList" :style="styleList">
+  <div ref="sliderEl" class="f-slider" :class="classList" :style="styleList">
     <div class="f-slider__selected" :style="`width: ${rightTx}px`" />
     <div
       v-drag="onRightDrag"
