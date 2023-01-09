@@ -30,7 +30,7 @@
     "lint": "eslint . --cache",
     "lint:fix": "pnpm run lint --fix",
     "changelog": "node scripts/set-changelog",
-    "set-version": "node scripts/set-version"
+    "set-ver": "node scripts/set-version"
   },
   "dependencies": {
     "vue": "3.2.26"
