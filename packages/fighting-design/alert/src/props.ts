@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { HandleMouse, FightingType, FightingIcon } from '../../_interface'
 
@@ -13,15 +13,9 @@ export const Props = {
     return (['primary', 'success', 'danger', 'warning', 'default'] as const).includes(val)
   }),
   /** 文字大小 */
-  fontSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  fontSize: setStringNumberProp(),
   /** title 大小 */
-  titleSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  titleSize: setStringNumberProp(),
   /** 是否加粗 */
   bold: setBooleanProp(),
   /** 是否居中 */

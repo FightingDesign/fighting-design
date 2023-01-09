@@ -12,3 +12,8 @@ export interface SetStringPropReturn {
   default: string | null,
   validator?: Validator
 }
+
+export interface SetStringNumberPropReturn {
+  type: PropType<string | number>,
+  default: string | number | null
+}
