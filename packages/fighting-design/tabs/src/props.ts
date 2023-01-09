@@ -10,9 +10,7 @@ import type {
 } from './interface'
 
 export const Props = {
-  /**
-   * 活跃的 name
-   */
+  /** 活跃的 name */
   modelValue: {
     type: [String, Number] as PropType<TabsModelValue>,
     default: (): null => null

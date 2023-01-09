@@ -7,6 +7,8 @@
 
 ## 基本使用
 
+tabs 的基本使用
+
 ::: demo
 
 <template #source>
@@ -61,15 +63,15 @@
 <p>你的爱就像彩虹，我张开了手却只能抱住风</p>
 </f-tabs-pane>
 </f-tabs>
-  <p>
+  <div>
     风格：
     <f-radio-group v-model="type">
       <f-radio label="line">line</f-radio>
       <f-radio label="card">card</f-radio>
       <f-radio label="segment">segment</f-radio>
     </f-radio-group>
-  </p>
-  <p>
+  </div>
+  <div>
     方向：
     <f-radio-group v-model="position">
       <f-radio label="top">top</f-radio>
@@ -77,7 +79,7 @@
       <f-radio label="bottom">bottom</f-radio>
       <f-radio label="left" :disabled="type === 'segment'">left</f-radio>
     </f-radio-group>
-  </p>
+  </div>
 </template>
 
 ```html
@@ -189,6 +191,8 @@
 
 ## 切换时的回调
 
+`on-switch` 回调里可在切换时候做点什么
+
 ::: demo
 
 <template #source>
@@ -200,8 +204,7 @@
 <f-tabs-pane label="爱好(等一秒)" name="hobby">
 <p>疯狂星期四，V 我 50~</p>
 </f-tabs-pane>
-<f-tabs-pane label="年龄" name="age">
-</f-tabs-pane>
+<f-tabs-pane label="年龄" name="age" />
 </f-tabs>
 </template>
 
@@ -214,7 +217,7 @@
     <f-tabs-pane label="爱好(等一秒)" name="hobby">
       <p>疯狂星期四，V我50~</p>
     </f-tabs-pane>
-    <f-tabs-pane label="年龄" name="age"> </f-tabs-pane>
+    <f-tabs-pane label="年龄" name="age" />
   </f-tabs>
 </template>
 
@@ -243,6 +246,8 @@
 :::
 
 ## 前缀和后缀
+
+`prefix` 和 `suffix` 可配置前缀和后缀的插槽
 
 ::: demo
 
@@ -351,7 +356,7 @@
 
 ## 触发方式
 
-配置 `trigger` 改变触发方式
+`trigger` 属性可配置改变触发方式
 
 ::: demo
 
@@ -436,11 +441,11 @@
 
 ## TabsPane Attributes
 
-| 参数    | 说明                 | 类型            | 可选值 | 默认值 |
-| ------- | -------------------- | --------------- | ------ | ------ |
-| `name`  | 标签的标识符         | string / number | ——     | ——     |
-| `label` | 标签项的标题         | string          | ——     | ——     |
-| `lazy`  | 标签内容是否延迟渲染 | boolean         | ——     | false  |
+| 参数    | 说明                 | 类型                                         | 可选值 | 默认值 |
+| ------- | -------------------- | -------------------------------------------- | ------ | ------ |
+| `name`  | 标签的标识符         | <a href="#tabsmodelvalue">TabsModelValue</a> | ——     | ——     |
+| `label` | 标签项的标题         | string                                       | ——     | ——     |
+| `lazy`  | 标签内容是否延迟渲染 | boolean                                      | ——     | false  |
 
 ## TabsPane Slots
 
@@ -456,13 +461,13 @@
 import type {
   TabsInstance,
   TabsProps,
+  TabsModelValue,
   TabsTrigger,
   TabsPosition,
   TabsType,
-  TabsEdit,
   TabsJustifyContent,
-  TabsModelValue,
   TabsSwitch,
+  TabsEdit,
   TabsNavInstance,
   TabsPaneInstance,
   TabsPaneProps
@@ -475,7 +480,7 @@ import type {
 type TabsModelValue = string | number
 ```
 
-### TextDecoration
+### TabsSwitch
 
 ```ts
 type TabsSwitch = (name: TabsModelValue) => boolean | void
