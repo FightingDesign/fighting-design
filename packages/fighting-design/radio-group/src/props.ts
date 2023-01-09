@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type { RadioModelValue, RadioChange } from './interface'
 import type { FightingSize } from '../../_interface'
@@ -14,15 +14,9 @@ export const Props = {
   /** 是否纵向排列 */
   vertical: setBooleanProp(),
   /** 横向排列的间距 */
-  columnGap: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  columnGap: setStringNumberProp(),
   /** 纵向排列的间距 */
-  rowGap: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  rowGap: setStringNumberProp(),
   /** 是否显示边框 */
   border: setBooleanProp(),
   /**

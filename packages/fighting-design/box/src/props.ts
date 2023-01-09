@@ -1,5 +1,5 @@
-import { setStringProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setStringProp, setStringNumberProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   /**
@@ -13,28 +13,19 @@ export const Props = {
    * 
    * @see padding https://developer.mozilla.org/en-US/docs/Web/CSS/padding
    */
-  padding: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  padding: setStringNumberProp(),
   /**
    * 原生属性
    * 
    * @see width https://developer.mozilla.org/en-US/docs/Web/CSS/width
    */
-  width: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  width: setStringNumberProp(),
   /**
    * 原生属性
    * 
    * @see height https://developer.mozilla.org/en-US/docs/Web/CSS/height
    */
-  height: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  height: setStringNumberProp(),
   /**
    * 原生属性
    * 

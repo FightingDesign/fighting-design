@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ExpandCardImageList } from './interface'
 
@@ -18,15 +18,9 @@ export const Props = {
   /** 左下角文字的颜色 */
   color: setStringProp(),
   /** 自定义宽度 */
-  width: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  width: setStringNumberProp(),
   /** 自定义高度 */
-  height: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  }
+  height: setStringNumberProp()
 } as const
 
 export type ExpandCardProps = ExtractPropTypes<typeof Props>

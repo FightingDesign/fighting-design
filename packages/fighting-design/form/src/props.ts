@@ -1,12 +1,10 @@
+import { setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type { FormSubmit } from './interface'
 
 export const Props = {
   /** 每个 label 的宽度 */
-  labelWidth: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  labelWidth: setStringNumberProp(),
   /** 表单数据对象 */
   model: {
     type: Object,

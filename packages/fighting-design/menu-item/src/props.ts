@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { FightingIcon } from '../../_interface'
 
@@ -13,10 +13,7 @@ export const Props = {
    *
    * 可控制 svg 和文字
    */
-  fontSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  fontSize: setStringNumberProp(),
   /**
    * 文字颜色
    *
@@ -26,10 +23,7 @@ export const Props = {
   /** 跳转的路径 */
   to: setStringProp(),
   /** 唯一标识 */
-  name: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  name: setStringNumberProp(),
   /** 是否禁用 */
   disabled: setBooleanProp()
 } as const

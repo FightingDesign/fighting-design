@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { TableAlign, TableDate, TableColumns } from './interface'
 
@@ -35,10 +35,7 @@ export const Props = {
   /** 自定义斑马纹颜色 */
   zebraColor: setStringProp(),
   /** 自定义表格高度 */
-  height: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  height: setStringNumberProp(),
   /** 是否支持多选 */
   optional: setBooleanProp(),
   /** 自定义背景颜色 */

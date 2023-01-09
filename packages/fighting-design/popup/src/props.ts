@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { PopupDirection } from './interface'
 import type { HandleEvent } from '../../_interface'
@@ -50,15 +50,9 @@ export const Props = {
     }
   },
   /** 弹出窗口尺寸 */
-  popupSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  popupSize: setStringNumberProp(),
   /** 自定义内边距 */
-  padding: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  padding: setStringNumberProp(),
   /** 打开动画开始的回调 */
   onOpen: {
     type: Function as PropType<HandleEvent>,

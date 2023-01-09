@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ProgressType } from './interface'
 
@@ -37,10 +37,7 @@ export const Props = {
   /** 进度条背景色 */
   background: setStringProp(),
   /** 自定义宽度 */
-  width: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  width: setStringNumberProp(),
   /** 自定义高度 */
   height: {
     type: [String, Number] as PropType<string | number>,

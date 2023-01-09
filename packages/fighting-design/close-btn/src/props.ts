@@ -1,13 +1,10 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { HandleMouse, FightingIcon } from '../../_interface'
 
 export const Props = {
   /** 自定义尺寸 */
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  size: setStringNumberProp(),
   /** 是否为圆角的 */
   round: setBooleanProp(),
   /** 是否禁用 */

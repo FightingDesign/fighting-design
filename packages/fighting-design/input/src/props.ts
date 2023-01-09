@@ -1,14 +1,11 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { InputType, InputValChange, InputSearch } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
   /** 绑定值 */
-  modelValue: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  modelValue: setStringNumberProp(),
   /**
    * 类型
    *

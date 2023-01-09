@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { TextDecoration } from './interface'
 import type { FightingType } from '../../_interface'
@@ -22,10 +22,7 @@ export const Props = {
    *
    * @see font-size https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size
    */
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  size: setStringNumberProp(),
   /**
    * 文字颜色
    *
@@ -49,28 +46,19 @@ export const Props = {
    *
    * @see letter-spacing https://developer.mozilla.org/zh-CN/docs/Web/CSS/letter-spacing
    */
-  spacing: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  spacing: setStringNumberProp(),
   /**
    * 行高
    *
    * @see line-height https://developer.mozilla.org/zh-CN/docs/Web/CSS/line-height
    */
-  lineHeight: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  lineHeight: setStringNumberProp(),
   /**
    * 首字符缩进量
    *
    * @see text-indent https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-indent
    */
-  indent: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  indent: setStringNumberProp(),
   /**
    * 文字是否以粗体显示
    *
@@ -95,19 +83,13 @@ export const Props = {
    *
    * @see padding https://developer.mozilla.org/zh-CN/docs/Web/CSS/padding
    */
-  padding: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  padding: setStringNumberProp(),
   /**
    * 宽度
    *
    * @see width https://developer.mozilla.org/zh-CN/docs/Web/CSS/width
    */
-  width: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  width: setStringNumberProp(),
   /** 是否省略文本，需配合 width 宽度使用 */
   ellipsis: setBooleanProp(),
   /**

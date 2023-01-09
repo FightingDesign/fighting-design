@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { FightingSize, FightingIcon, HandleChange } from '../../_interface'
 
@@ -40,10 +40,7 @@ export const Props = {
   /** 是否为方形的 */
   square: setBooleanProp(),
   /** 自定义 icon size */
-  iconSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  iconSize: setStringNumberProp(),
   /** 绑定值发生改变时触发的回调 */
   onChange: {
     type: Function as PropType<HandleChange>,

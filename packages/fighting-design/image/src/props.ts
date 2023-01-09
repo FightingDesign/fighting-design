@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ImageFit } from './interface'
 import type { HandleEvent } from '../../_interface'
@@ -22,15 +22,9 @@ export const Props = {
     default: (): string => '100px'
   },
   /** 图片的宽度 */
-  width: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  width: setStringNumberProp(),
   /** 图片的高度 */
-  height: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  height: setStringNumberProp(),
   /** 是否为块级元素 */
   block: setBooleanProp(),
   /**
@@ -54,10 +48,7 @@ export const Props = {
    */
   referrerPolicy: setStringProp(),
   /** 配置圆角，传入一个数值 */
-  round: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  round: setStringNumberProp(),
   /** 加载失败时要显示的地址 */
   errSrc: setStringProp(),
   /** img 的 title */

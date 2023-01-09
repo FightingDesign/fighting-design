@@ -1,3 +1,4 @@
+import { setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { MenuMode } from './interface'
 
@@ -18,10 +19,7 @@ export const Props = {
     }
   },
   /** 默认激活的 name */
-  activeName: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  }
+  activeName: setStringNumberProp()
 } as const
 
 export type MenuProps = ExtractPropTypes<typeof Props>

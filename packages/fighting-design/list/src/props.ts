@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
 import type { FightingSize } from '../../_interface'
 
@@ -25,10 +25,7 @@ export const Props = {
     }
   },
   /** 最大高度 */
-  maxHeight: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  maxHeight: setStringNumberProp(),
   /** 自定义斑马纹颜色 */
   zebraColor: setStringProp()
 } as const

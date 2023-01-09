@@ -1,13 +1,10 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { TooltipPosition, TooltipState } from './interface'
 
 export const Props = {
   /** 提示内容 */
-  content: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  content: setStringNumberProp(),
   /**
    * 弹出方向
    *

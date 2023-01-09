@@ -1,14 +1,11 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { TriggerTrigger } from '../../trigger'
 import type { HandleChange } from '../../_interface'
 
 export const Props = {
   /** 触发器和内容直接的间距 */
-  spacing: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  spacing: setStringNumberProp(),
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /**

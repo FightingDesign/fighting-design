@@ -1,4 +1,5 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setStringNumberProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   /**
@@ -6,19 +7,13 @@ export const Props = {
    *
    * @see height https://developer.mozilla.org/zh-CN/docs/Web/CSS/height
    */
-  height: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  height: setStringNumberProp(),
   /**
    * 自定义内边距
    *
    * @see padding https://developer.mozilla.org/zh-CN/docs/Web/CSS/padding
    */
-  padding: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  }
+  padding: setStringNumberProp()
 } as const
 
 export type FooterProps = ExtractPropTypes<typeof Props>

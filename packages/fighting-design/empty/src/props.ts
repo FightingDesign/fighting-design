@@ -1,22 +1,17 @@
+import { setStringNumberProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 
 export const Props = {
   /** 展示的内容 */
   content: setStringProp(),
   /** 内容文字大小 */
-  contentSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  contentSize: setStringNumberProp(),
   /** 内容文字颜色 */
   contentColor: setStringProp(),
   /** 自定义图片地址 */
   imageSrc: setStringProp(),
   /** 自定义图片尺寸 */
-  imageSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  imageSize: setStringNumberProp(),
   /** 自定义背景色 */
   background: setStringProp(),
   /** 自定义 icon 大小 */

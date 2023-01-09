@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { CardShadow } from './interface'
 
@@ -8,10 +8,7 @@ export const Props = {
   /** 是否为圆角卡片 */
   round: setBooleanProp(),
   /** 卡片内边距 */
-  padding: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  padding: setStringNumberProp(),
   /**
    * 阴影样式
    *

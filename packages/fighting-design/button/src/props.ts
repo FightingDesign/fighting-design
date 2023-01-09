@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ButtonTarget, ButtonNative } from './interface'
 import type { FightingSize, FightingType, FightingIcon, HandleMouse } from '../../_interface'
@@ -13,10 +13,7 @@ export const Props = {
   /** 是否带有扩散效果 */
   spread: setBooleanProp(),
   /** 文字大小 */
-  fontSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  fontSize: setStringNumberProp(),
   /** 字体颜色 */
   fontColor: setStringProp(),
   /**

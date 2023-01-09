@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { HandleEvent, FightingIcon } from '../../_interface'
 
@@ -13,10 +13,7 @@ export const Props = {
   /** 是否追加到 body */
   appendToBody: setBooleanProp(),
   /** 自定义宽度 */
-  width: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  width: setStringNumberProp(),
   /** 是否全屏展示 */
   fullscreen: setBooleanProp(),
   /** 是否展示遮罩层 */

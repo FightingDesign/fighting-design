@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { RateChange } from './interface'
 import type { FightingIcon } from '../../_interface'
@@ -48,10 +48,7 @@ export const Props = {
     default: (): string[] => ['极差', '失望', '一般', '不错', '很棒']
   },
   /** 辅助文字尺寸 */
-  textSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  textSize: setStringNumberProp(),
   /** 当分数发生改变时触发 */
   onChange: {
     type: Function as PropType<RateChange>,

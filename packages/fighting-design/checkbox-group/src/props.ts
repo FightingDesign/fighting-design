@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { CheckboxGroupChange } from './interface'
 import type { FightingSize } from '../../_interface'
@@ -30,15 +30,9 @@ export const Props = {
     }
   },
   /**横向排列的间距 */
-  columnGap: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  columnGap: setStringNumberProp(),
   /** 纵向排列的间距 */
-  rowGap: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  rowGap: setStringNumberProp(),
   /** 绑定值变化时触发 */
   onChange: {
     type: Function as PropType<CheckboxGroupChange>,

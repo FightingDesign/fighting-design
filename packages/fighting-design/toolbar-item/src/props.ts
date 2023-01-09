@@ -1,4 +1,4 @@
-import { setStringProp } from '../../_utils'
+import { setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { HandleMouse, FightingIcon } from '../../_interface'
 
@@ -16,10 +16,7 @@ export const Props = {
     default: (): number => 16
   },
   /** 唯一值 */
-  index: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  index: setStringNumberProp(),
   /** 点击之后触发的回调 */
   onClick: {
     type: Function as PropType<HandleMouse>,

@@ -1,4 +1,4 @@
-import { setStringProp } from '../../_utils'
+import { setStringProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { FightingIcon } from '../../_interface'
 
@@ -13,10 +13,7 @@ export const Props = {
   /** icon 颜色 */
   iconColor: setStringProp(),
   /** 自定义文字大小 */
-  fontSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  }
+  fontSize: setStringNumberProp()
 } as const
 
 export type BreadcrumbProps = ExtractPropTypes<typeof Props>

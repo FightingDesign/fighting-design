@@ -1,4 +1,5 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setStringNumberProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   /**
@@ -6,10 +7,7 @@ export const Props = {
    *
    * @see padding https://developer.mozilla.org/zh-CN/docs/Web/CSS/padding
    */
-  padding: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  }
+  padding: setStringNumberProp()
 } as const
 
 export type MainProps = ExtractPropTypes<typeof Props>

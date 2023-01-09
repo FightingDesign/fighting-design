@@ -1,4 +1,4 @@
-import { isString, isNumber, setBooleanProp, setStringProp } from '../../_utils'
+import { isString, isNumber, setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { AvatarFit } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
@@ -59,10 +59,7 @@ export const Props = {
   /** 自定义背景色 */
   background: setStringProp(),
   /** 字体大小 */
-  fontSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  fontSize: setStringNumberProp(),
   /** 字体的颜色 */
   fontColor: setStringProp(),
   /** 文字头像 */

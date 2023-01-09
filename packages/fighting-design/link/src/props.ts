@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { LinkTarget, LinkState } from './interface'
 import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
@@ -24,10 +24,7 @@ export const Props = {
    */
   href: setStringProp(),
   /** 的文字大小 */
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  size: setStringNumberProp(),
   /**
    * 状态的样式状态
    *

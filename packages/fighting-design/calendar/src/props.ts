@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { CalendarChange, CalendarMemorandum } from './interface'
 
@@ -18,15 +18,9 @@ export const Props = {
   /** 自定义边框颜色 */
   borderColor: setStringProp(),
   /** 日期单元格高度 */
-  dayCellHeight: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  dayCellHeight: setStringNumberProp(),
   /** 星期单元格高度 */
-  weekCellHeight: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  weekCellHeight: setStringNumberProp(),
   /** 备忘事件 */
   memorandum: {
     type: Object as PropType<CalendarMemorandum>,

@@ -1,4 +1,4 @@
-import { setStringProp } from '../../_utils'
+import { setStringProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { FightingIcon, HandleMouse } from '../../_interface'
 
@@ -11,10 +11,7 @@ export const Props = {
   /** icon 颜色 */
   color: setStringProp(),
   /** icon 大小 */
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  size: setStringNumberProp(),
   /** 点击之后触发的回调 */
   onClick: {
     type: Function as PropType<HandleMouse>,

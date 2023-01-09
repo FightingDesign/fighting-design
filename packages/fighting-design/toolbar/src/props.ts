@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ToolbarClick } from './interface'
 import type { FightingSize } from '../../_interface'
@@ -26,15 +26,9 @@ export const Props = {
   /** 是否固定定位 */
   fixed: setBooleanProp(),
   /** 自定义宽度 */
-  width: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  width: setStringNumberProp(),
   /** 自定义高度 */
-  height: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): null => null
-  },
+  height: setStringNumberProp(),
   /** 点击之后触发的回调 */
   onClick: {
     type: Function as PropType<ToolbarClick>,
