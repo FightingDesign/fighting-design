@@ -4,7 +4,7 @@ import { useRun } from '../../_hooks'
 import { TABS_PROPS_KEY } from '../../tabs/src/props'
 import type { ComponentInternalInstance, VNode } from 'vue'
 import type { UseTabsReturn, TabsProvide } from './interface'
-import type { TabsPaneName, TabsProps, TabsNavInstance } from '../../tabs'
+import type { TabsModelValue, TabsProps, TabsNavInstance } from '../../tabs'
 
 export * from './interface.d'
 
@@ -19,14 +19,14 @@ export const useTabs = (prop: TabsProps): UseTabsReturn => {
   /** 子组件集合 */
   const panes = ref<ComponentInternalInstance[]>([])
   /** 当前选中的子组件 */
-  const currentName = ref<TabsPaneName>(0)
+  const currentName = ref<TabsModelValue>(0)
 
   /**
    * 设置子组件绑定的 name
    *
    * @param name 子组件的 name
    */
-  const setCurrentName = (name: TabsPaneName): void => {
+  const setCurrentName = (name: TabsModelValue): void => {
     currentName.value = name
   }
 
@@ -37,7 +37,7 @@ export const useTabs = (prop: TabsProps): UseTabsReturn => {
    * @param name 当前子组件的 name
    * @param index 索引值
    */
-  const edit = (action: 'remove' | 'add', name?: TabsPaneName, index?: number): void => {
+  const edit = (action: 'remove' | 'add', name?: TabsModelValue, index?: number): void => {
     useRun(prop.onEdit, action, name, index)
   }
 
@@ -58,7 +58,7 @@ export const useTabs = (prop: TabsProps): UseTabsReturn => {
       panes.value.map((item: ComponentInternalInstance, index: number): TabsNavInstance => {
         return {
           /** name 如果没有传递 则用索引代替 */
-          name: (item.props.name || (item.props.name = index)) as TabsPaneName,
+          name: (item.props.name || (item.props.name = index)) as TabsModelValue,
           label: item.slots['label'] || item.props.label
         } as const
       })
@@ -67,9 +67,9 @@ export const useTabs = (prop: TabsProps): UseTabsReturn => {
 
   /** prop.modelValue 同步到 currentName 中 */
   watch(
-    (): TabsPaneName => prop.modelValue,
-    (val: TabsPaneName): void => {
-      currentName.value = val as TabsPaneName
+    (): TabsModelValue => prop.modelValue,
+    (val: TabsModelValue): void => {
+      currentName.value = val as TabsModelValue
 
       // if (navs.value.length && navs.value.every(e => e.name !== val)) {
       // debugWarn('FTabs', `未找到名为 ${val} 的标签`)

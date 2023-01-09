@@ -3,10 +3,12 @@
   import type { TabsTrigger } from 'fighting-design'
 
   const trigger = ref<TabsTrigger>('click')
+
+  const lab = ref('')
 </script>
 
 <template>
-  <f-tabs :trigger="trigger">
+  <f-tabs v-model="lab" :trigger="trigger">
     <f-tabs-pane label="如烟">
       <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
       <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
