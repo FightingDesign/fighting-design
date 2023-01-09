@@ -6,6 +6,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { FIconNotesVue, FIconPlusVue } from '../../_svg'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -13,12 +14,16 @@
   })
 
   const dragIng = ref(false)
+
+  /** 文件列表 */
   const fileList = ref<File[]>(null as unknown as File[])
-  const FUpLoadInput = ref(null as unknown as HTMLInputElement)
+
+  /** 文件上传输入框 */
+  const inputEl: Ref<HTMLInputElement | null> = ref(null)
 
   /** 点击上传 */
   const handleClick = (): void => {
-    FUpLoadInput.value.click()
+    (inputEl.value as HTMLInputElement).click()
   }
 
   /**
@@ -36,10 +41,12 @@
    * 过滤文件
    *
    * @param files 文件列表
-   * @return { File[] } 过滤后的文件列表
+   * @return 过滤后的文件列表
    */
   const filterFiles = (files: File[]): File[] => {
     const { maxSize, maxLength } = prop
+
+    /** 文件列表 */
     let list: File[] = [...files]
 
     /** 拦截过大的文件 */
@@ -61,7 +68,9 @@
    * @param evt 事件对象
    */
   const handleChange = (evt: Event): void => {
+    /** 获取文件列表 */
     const files: FileList | null = (evt.target as HTMLInputElement).files
+
     if (files) {
       updateFiles(filterFiles(files as unknown as File[]))
     }
@@ -73,13 +82,14 @@
    * @param index 需要删除的文件索引
    */
   const removeFile = (index: number): void => {
-    ;(fileList.value as File[]).splice(index, 1)
+    (fileList.value as File[]).splice(index, 1)
   }
 
   /**
    * 将文件拖拽进来时触发
    *
    * @param evt 事件对象
+   * @see DragEvent https://developer.mozilla.org/zh-CN/docs/Web/API/DragEvent
    */
   const onDragover = (evt: DragEvent): void => {
     evt.preventDefault()
@@ -90,9 +100,12 @@
    * 放置时触发
    *
    * @param evt 事件对象
+   * @see DragEvent https://developer.mozilla.org/zh-CN/docs/Web/API/DragEvent
    */
   const onDrop = (evt: DragEvent): void => {
     dragIng.value = false
+
+    /** 获取文件列表 */
     const files: FileList = (evt.dataTransfer as DataTransfer).files
     if (files) {
       updateFiles(filterFiles(files as unknown as File[]))
@@ -127,8 +140,9 @@
       </slot>
     </div>
 
+    <!-- 文件上传输入框 -->
     <input
-      ref="FUpLoadInput"
+      ref="inputEl"
       type="file"
       hidden
       :name="name"

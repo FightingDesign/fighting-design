@@ -3,7 +3,7 @@
   import { onMounted, ref, computed } from 'vue'
   import { sizeChange } from '../../_utils'
   import { useLoadImg, useProps } from '../../_hooks'
-  import type { CSSProperties } from 'vue'
+  import type { CSSProperties, Ref } from 'vue'
   import type { ClassList } from '../../_interface'
   import type { UseLoadImgProp } from '../../_hooks'
 
@@ -16,10 +16,10 @@
   )
 
   /** 元素节点 */
-  const imageEl = ref<HTMLImageElement>(null as unknown as HTMLImageElement)
+  const imageEl: Ref<HTMLImageElement | null> = ref(null)
 
   onMounted((): void => {
-    loadImg(imageEl.value)
+    loadImg(imageEl.value as HTMLImageElement)
   })
 
   /** 类名列表 */

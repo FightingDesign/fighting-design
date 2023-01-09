@@ -1,6 +1,7 @@
 <script lang="ts" setup name="FCollapseAnimation">
   import { Props } from './props'
   import { ref, onMounted, computed, watch } from 'vue'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -8,7 +9,7 @@
   const isOpened = computed((): boolean => !!prop.opened)
 
   /** om 元素 */
-  const collapseEl = ref<HTMLDivElement>(null as unknown as HTMLDivElement)
+  const collapseEl: Ref<HTMLDivElement | null> = ref(null)
 
   /** 需要展开的尺寸 */
   const defaultSize = ref<number>(null as unknown as number)
@@ -24,6 +25,7 @@
       collapseEl.value.style.height = 'auto'
       /**
        * 将默认尺寸设置为元素的像素高度
+       *
        * @see offsetHeight https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight
        */
       defaultSize.value = collapseEl.value.offsetHeight
@@ -43,10 +45,12 @@
     (newVal: boolean): void => {
       if (prop.disabled) return
 
-      if (newVal) {
-        collapseEl.value.style.height = defaultSize.value + 'px'
-      } else {
-        collapseEl.value.style.height = '0'
+      if (collapseEl.value) {
+        if (newVal) {
+          collapseEl.value.style.height = defaultSize.value + 'px'
+        } else {
+          collapseEl.value.style.height = '0'
+        }
       }
     }
   )

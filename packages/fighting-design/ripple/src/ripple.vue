@@ -3,6 +3,7 @@
   import { useRipples, useList, useGlobal } from '../../_hooks'
   import { ref, toRefs, reactive } from 'vue'
   import type { RipplesOptions } from '../../_hooks'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -17,7 +18,7 @@
   const { styles } = useList(params, 'ripple')
 
   /** 元素节点 */
-  const FRipple = ref<HTMLElement>(null as unknown as HTMLElement)
+  const rippleEl: Ref<HTMLElement | null> = ref(null)
 
   /** 样式列表 */
   const styleList = styles(['startOpacity', 'endOpacity'], false)
@@ -41,14 +42,14 @@
       ripplesColor: ripplesColor.value
     })
 
-    const { runRipples } = useRipples(evt, FRipple.value, options)
+    const { runRipples } = useRipples(evt, rippleEl.value as HTMLElement, options)
 
     runRipples()
   }
 </script>
 
 <template>
-  <div ref="FRipple" class="f-ripple" :style="styleList" @click="handleClick">
+  <div ref="rippleEl" class="f-ripple" :style="styleList" @click="handleClick">
     <slot />
   </div>
 </template>

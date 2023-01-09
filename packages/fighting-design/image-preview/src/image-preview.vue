@@ -18,6 +18,7 @@
   } from '../../_svg'
   import { useOperationImg, useVisible } from '../../_hooks'
   import type { ToolbarClickParams } from '../../toolbar'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -30,7 +31,7 @@
   const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit, prop.onClose)
 
   /** 初始展示的图片索引 */
-  const previewShowIndex = ref<number>(prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex)
+  const previewShowIndex: Ref<number> = ref(prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex)
 
   /** 开始图片加载 */
   const imagPreload = (): void => {

@@ -4,6 +4,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { useAvatar, useLoadImg, useProps } from '../../_hooks'
   import type { UseLoadImgProp } from '../../_hooks'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const slot = useSlots()
@@ -17,12 +18,12 @@
   )
 
   /** 图片 dom 节点 */
-  const avatarEl = ref<HTMLImageElement>(null as unknown as HTMLImageElement)
+  const avatarEl: Ref<HTMLImageElement | null> = ref(null)
 
   /** 开始触发加载 */
   onMounted((): void => {
     if (!slot.icon && !prop.icon && !prop.text) {
-      loadImg(avatarEl.value)
+      loadImg(avatarEl.value as HTMLImageElement)
     }
   })
 </script>
