@@ -1,5 +1,5 @@
-import { setBooleanProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setBooleanProp, setStringProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { DividerPosition, DividerType } from './interface'
 
 export const Props = {
@@ -8,13 +8,9 @@ export const Props = {
    * @values left center right
    * @defaultValue center
    */
-  position: {
-    type: String as PropType<DividerPosition>,
-    default: (): DividerPosition => 'center',
-    validator: (value: DividerPosition): boolean => {
-      return (['left', 'center', 'right'] as const).includes(value)
-    }
-  },
+  position: setStringProp<DividerPosition>('center', (value: DividerPosition): boolean => {
+    return (['left', 'center', 'right'] as const).includes(value)
+  }),
   /** 是否为竖线 */
   vertical: setBooleanProp(),
   /** 线条颜色 */
@@ -30,13 +26,9 @@ export const Props = {
    * @values dashed dotted double solid
    * @defaultValue solid
    */
-  type: {
-    type: String as PropType<DividerType>,
-    default: (): DividerType => 'solid',
-    validator: (value: DividerType): boolean => {
-      return (['dashed', 'dotted', 'double', 'solid'] as const).includes(value)
-    }
-  }
+  type: setStringProp<DividerType>('solid', (value: DividerType): boolean => {
+    return (['dashed', 'dotted', 'double', 'solid'] as const).includes(value)
+  })
 } as const
 
 export type DividerProps = ExtractPropTypes<typeof Props>

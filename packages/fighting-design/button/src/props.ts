@@ -22,13 +22,9 @@ export const Props = {
    * @values large middle small mini
    * @defaultValue null
    */
-  size: {
-    type: String as PropType<FightingSize>,
-    default: (): null => null,
-    validator: (val: FightingSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
+  size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
+    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+  }),
   /** 是否为块级元素 */
   block: setBooleanProp(),
   /** 跳转的连接地址 */
@@ -42,13 +38,9 @@ export const Props = {
    * @defaultValue _self
    * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
-  target: {
-    type: String as PropType<ButtonTarget>,
-    default: (): ButtonTarget => '_self',
-    validator: (val: ButtonTarget): boolean => {
-      return (['_blank', '_self', '_parent', '_top'] as const).includes(val)
-    }
-  },
+  target: setStringProp<ButtonTarget>('_self', (val: ButtonTarget): boolean => {
+    return (['_blank', '_self', '_parent', '_top'] as const).includes(val)
+  }),
   /** 是否为 loading 状态 */
   loading: setBooleanProp(),
   /** 是否禁用 */

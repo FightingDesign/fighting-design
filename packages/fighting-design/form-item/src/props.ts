@@ -1,3 +1,4 @@
+import { setStringProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { FormItemRules, FormItemRulesItem } from './interface'
 
