@@ -128,7 +128,6 @@ type AnimationEnd = (elapsed: number) => void
 
 <script setup lang="ts">
   import { ref } from 'vue'
-  import demo1Vue from './_demos/number-animate/demo1.vue'
 
   const animate = ref(null as unknown as NumberAnimateInstance)
 

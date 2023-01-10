@@ -5,8 +5,6 @@
 
   const prop = defineProps(Props)
 
-  console.log(prop)
-
   const { getType } = useGlobal(prop)
 
   /** 替换 type 后得到的 props */
