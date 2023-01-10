@@ -1,4 +1,11 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setNumberProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setObjectProp,
+  setNumberProp,
+  setFunctionProp
+} from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { InputType, InputValChange, InputSearch } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'

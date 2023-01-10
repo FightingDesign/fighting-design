@@ -32,7 +32,7 @@ export type SetActiveNameEmit = (event: 'update:modelValue', val: string | numbe
 
 /**
  * 设置绑定值回调类型
- * 
+ *
  * @param name 选中的 name
  */
 export type SetActiveName = (name: TabsModelValue) => void

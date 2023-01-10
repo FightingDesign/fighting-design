@@ -9,11 +9,10 @@ export * from './interface.d'
 
 /**
  * tabs-nav 封装方法
- * 
+ *
  * @param prop props 参数
  */
 export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
-
   /** 获取当前组件实例 */
   const instance: ComponentInternalInstance | null = getCurrentInstance()
 
@@ -21,17 +20,17 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
   const activeLineStyle = ref<CSSProperties>({})
 
   /**
-  * 获取到当前选中的子组件
-  *
-  * @see Array.prototype.findIndex() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
-  * @see Math.max() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/max
-  */
+   * 获取到当前选中的子组件
+   *
+   * @see Array.prototype.findIndex() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+   * @see Math.max() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/max
+   */
   const activeIndex = computed((): number =>
     prop.navs
       ? Math.max(
-        prop.navs.findIndex((e: TabsNavInstance): boolean => e.name === prop.activeName),
-        0
-      )
+          prop.navs.findIndex((e: TabsNavInstance): boolean => e.name === prop.activeName),
+          0
+        )
       : 0
   )
 
@@ -39,13 +38,13 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
    * 设置样式
    *
    * 针对 type = line 的模式
-   * 
+   *
    * 设置选中高亮的滑块样式
    */
   const setActiveLineStyle = async (): Promise<void> => {
     /**
      * 等待下一次 DOM 更新刷新
-     * 
+     *
      * @see nextTick https://cn.vuejs.org/api/general.html#nexttick
      */
     await nextTick()
@@ -69,7 +68,7 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
 
     /**
      * 获取到当前元素的样式
-     * 
+     *
      * @see Window.getComputedStyle() https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle
      */
     const activeStyle: CSSStyleDeclaration = window && window.getComputedStyle(activeEl)
@@ -79,9 +78,8 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
       activeStyleList.width = activeEl.clientWidth - sizeToNum(activeStyle.padding) + 'px'
       activeStyleList.bottom = 0
       activeStyleList.transform = `translateX(${activeEl.offsetLeft}px)`
-    }
+    } else if (position === 'left' || position === 'right') {
     /** 左右位置的样式 */
-    else if (position === 'left' || position === 'right') {
       activeStyleList.height = activeEl.clientHeight - sizeToNum(activeStyle.padding) + 'px'
       activeStyleList.transform = `translateY(${activeEl.offsetTop}px)`
 

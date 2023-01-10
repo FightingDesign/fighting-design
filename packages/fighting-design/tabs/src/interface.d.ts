@@ -30,7 +30,7 @@ export type TabsSwitch = (name: TabsModelValue) => boolean | void
 
 /**
  * 编辑状态类型
- * 
+ *
  * @param action 删除还是添加
  * @param name name
  * @param index 索引

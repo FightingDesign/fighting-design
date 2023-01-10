@@ -1,4 +1,12 @@
-import { isString, isNumber, setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
+import {
+  isString,
+  isNumber,
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { AvatarFit } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
