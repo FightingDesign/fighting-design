@@ -24,6 +24,7 @@ export const isString = (value: unknown): value is string => typeof value === 's
  *
  * @param value 要检测的数据
  * @returns { Boolean }
+ * @see isNaN() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isNaN
  */
 export const isNumber = (value: unknown): value is number => typeof value === 'number' && !isNaN(value)
 
@@ -33,9 +34,7 @@ export const isNumber = (value: unknown): value is number => typeof value === 'n
  * @param value 要检测的数据
  * @returns { Boolean }
  */
-export const isBoolean = (value: unknown): value is boolean => {
-  return is(value, 'Boolean')
-}
+export const isBoolean = (value: unknown): value is boolean => is(value, 'Boolean')
 
 /**
  * 判断一个值是否为 object 类型
@@ -43,9 +42,7 @@ export const isBoolean = (value: unknown): value is boolean => {
  * @param value 要检测的值
  * @returns { Boolean }
  */
-export const isObject = (value: unknown): value is Object => {
-  return is(value, 'Object')
-}
+export const isObject = (value: unknown): value is Object => is(value, 'Object')
 
 /**
  * 判断一个值是否为 function 类型
@@ -53,9 +50,7 @@ export const isObject = (value: unknown): value is Object => {
  * @param value 要检测的值
  * @returns { Boolean }
  */
-export const isFunction = (value: unknown): value is Function => {
-  return is(value, 'Function')
-}
+export const isFunction = (value: unknown): value is Function => is(value, 'Function')
 
 /**
  * 判断一个值是否为 array 类型
