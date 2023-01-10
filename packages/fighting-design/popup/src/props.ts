@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { PopupDirection } from './interface'
 import type { HandleEvent } from '../../_interface'
 
@@ -33,37 +33,21 @@ export const Props = {
    * @values left right top bottom center
    * @defaultValue center
    */
-  direction: {
-    type: String as PropType<PopupDirection>,
-    default: (): PopupDirection => 'center',
-    validator: (val: PopupDirection): boolean => {
-      return (['left', 'right', 'top', 'bottom', 'center'] as const).includes(val)
-    }
-  },
+  direction: setStringProp<PopupDirection>('center', (val: PopupDirection): boolean => {
+    return (['left', 'right', 'top', 'bottom', 'center'] as const).includes(val)
+  }),
   /** 弹出窗口尺寸 */
   popupSize: setStringNumberProp(),
   /** 自定义内边距 */
   padding: setStringNumberProp(),
   /** 打开动画开始的回调 */
-  onOpen: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onOpen: setFunctionProp<HandleEvent>(),
   /** 关闭动画开始的回调 */
-  onClose: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onClose: setFunctionProp<HandleEvent>(),
   /** 打开动画结束的回调 */
-  onOpenEnd: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onOpenEnd: setFunctionProp<HandleEvent>(),
   /** 关闭动画结束的回调 */
-  onCloseEnd: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  }
+  onCloseEnd: setFunctionProp<HandleEvent>()
 } as const
 
 export type PopupProps = ExtractPropTypes<typeof Props>

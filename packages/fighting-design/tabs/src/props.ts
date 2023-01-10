@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringNumberProp } from '../../_utils'
-import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
+import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type {
   TabsTrigger,
   TabsModelValue,
@@ -19,41 +19,29 @@ export const Props = {
    * @values left right top bottom
    * @defaultValue top
    */
-  position: {
-    type: String as PropType<TabsPosition>,
-    default: (): TabsPosition => 'top',
-    validator: (val: TabsPosition): boolean => {
-      return (['left', 'right', 'top', 'bottom'] as const).includes(val)
-    }
-  },
+  position: setStringProp<TabsPosition>('top', (val: TabsPosition): boolean => {
+    return (['left', 'right', 'top', 'bottom'] as const).includes(val)
+  }),
   /**
    * 样式风格
    *
    * @values line card segment
    * @defaultValue line
    */
-  type: {
-    type: String as PropType<TabsType>,
-    default: (): TabsType => 'line',
-    validator: (val: TabsType): boolean => {
-      return (['line', 'card', 'segment'] as const).includes(val)
-    }
-  },
+  type: setStringProp<TabsType>('line', (val: TabsType): boolean => {
+    return (['line', 'card', 'segment'] as const).includes(val)
+  }),
   /**
    * 对齐方式
    *
    * @values flex-start center flex-end space-between space-around space-evenly
    * @see justify-content https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content
    */
-  justifyContent: {
-    type: String as PropType<TabsJustifyContent>,
-    default: (): null => null,
-    validator: (val: TabsJustifyContent): boolean => {
-      return (['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'] as const).includes(
-        val
-      )
-    }
-  },
+  justifyContent: setStringProp<TabsJustifyContent>(null, (val: TabsJustifyContent): boolean => {
+    return (['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'] as const).includes(
+      val
+    )
+  }),
   /** 编辑状态 */
   editStatus: setBooleanProp(),
   /**
@@ -62,23 +50,13 @@ export const Props = {
    * @values click hover
    * @defaultValue click
    */
-  trigger: {
-    type: String as PropType<TabsTrigger>,
-    default: (): TabsTrigger => 'click',
-    validator: (val: TabsTrigger): boolean => {
-      return (['click', 'hover'] as const).includes(val)
-    }
-  },
+  trigger: setStringProp<TabsTrigger>('click', (val: TabsTrigger): boolean => {
+    return (['click', 'hover'] as const).includes(val)
+  }),
   /** 切换前的回调 */
-  onSwitch: {
-    type: Function as PropType<TabsSwitch>,
-    default: (): null => null
-  },
+  onSwitch: setFunctionProp<TabsSwitch>(),
   /** 可编辑模式的回调 */
-  onEdit: {
-    type: Function as PropType<TabsEdit>,
-    default: (): null => null
-  }
+  onEdit: setFunctionProp<TabsEdit>()
 } as const
 
 export type TabsProps = ExtractPropTypes<typeof Props>

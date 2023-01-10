@@ -19,13 +19,9 @@ export const Props = {
    * @values left center right
    * @defaultValue left
    */
-  align: {
-    type: String as PropType<TableAlign>,
-    default: (): TableAlign => 'left',
-    validator: (val: TableAlign): boolean => {
-      return (['left', 'center', 'right'] as const).includes(val)
-    }
-  },
+  align: setStringProp<TableAlign>('left', (val: TableAlign): boolean => {
+    return (['left', 'center', 'right'] as const).includes(val)
+  }),
   /** 是否显示边框 */
   border: setBooleanProp(),
   /** 是否显示序号 */

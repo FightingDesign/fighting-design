@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setFunctionProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { RadioModelValue, RadioChange } from '../../radio-group'
 
@@ -15,20 +15,14 @@ export const Props = {
    *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
-  name: {
-    type: String,
-    default: (): string => 'f-radio'
-  },
+  name: setStringProp('f-radio'),
   /** 选框对应的值 */
   label: {
     type: [String, Number, Boolean] as PropType<RadioModelValue>,
     default: (): null => null
   },
   /** 绑定值变化时触发 */
-  onChange: {
-    type: Function as PropType<RadioChange>,
-    default: (): null => null
-  }
+  onChange: setFunctionProp<RadioChange>()
 } as const
 
 export type RadioProps = ExtractPropTypes<typeof Props>

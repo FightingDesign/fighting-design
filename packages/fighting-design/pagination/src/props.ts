@@ -1,4 +1,4 @@
-import { setBooleanProp, setObjectProp, setNumberProp } from '../../_utils'
+import { setBooleanProp, setObjectProp, setNumberProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { PaginationEvent } from './interface'
 import type { FightingIcon } from '../../_interface'
@@ -36,25 +36,13 @@ export const Props = {
   /** 是否展示快速跳转搜索框 */
   jumpSearch: setBooleanProp(),
   /** 点击上一页触发的回调 */
-  onPrev: {
-    type: Function as PropType<PaginationEvent>,
-    default: (): null => null
-  },
+  onPrev: setFunctionProp<PaginationEvent>(),
   /** 点击下一页触发的回调 */
-  onNext: {
-    type: Function as PropType<PaginationEvent>,
-    default: (): null => null
-  },
+  onNext: setFunctionProp<PaginationEvent>(),
   /** 每页条数发生变化时触发的回调 */
-  pageSizeChange: {
-    type: Function as PropType<PaginationEvent>,
-    default: (): null => null
-  },
+  pageSizeChange: setFunctionProp<PaginationEvent>(),
   /** 改变页码回调函数 */
-  onChange: {
-    type: Function as PropType<PaginationEvent>,
-    default: (): null => null
-  }
+  onChange: setFunctionProp<PaginationEvent>()
 } as const
 
 export type PaginationProps = ExtractPropTypes<typeof Props>

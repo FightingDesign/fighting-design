@@ -1,6 +1,6 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
-import type { PropType, ExtractPropTypes, VNode } from 'vue'
-import type { HandleEvent, FightingType, FightingSize } from '../../_interface'
+import { setBooleanProp, setStringProp, setObjectProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
+import type { HandleEvent, FightingType, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**
@@ -21,15 +21,9 @@ export const Props = {
   /** 自定义文字颜色 */
   color: setStringProp(),
   /** 左侧 icon */
-  beforeIcon: {
-    type: Object as PropType<VNode>,
-    default: (): null => null
-  },
+  beforeIcon: setObjectProp<FightingIcon>(),
   /** 右侧 icon */
-  afterIcon: {
-    type: Object as PropType<VNode>,
-    default: (): null => null
-  },
+  afterIcon: setObjectProp<FightingIcon>(),
   /**
    * 尺寸
    *
@@ -46,10 +40,7 @@ export const Props = {
   /** 线性的 */
   line: setBooleanProp(),
   /** 点击关闭按钮触发 */
-  onClose: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  }
+  onClose: setFunctionProp<HandleEvent>()
 } as const
 
 export type TagProps = ExtractPropTypes<typeof Props>

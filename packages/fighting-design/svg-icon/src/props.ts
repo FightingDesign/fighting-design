@@ -1,5 +1,5 @@
-import { setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setStringProp, setStringNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { FightingIcon, HandleMouse } from '../../_interface'
 
 export const Props = {
@@ -10,10 +10,7 @@ export const Props = {
   /** icon 大小 */
   size: setStringNumberProp(),
   /** 点击之后触发的回调 */
-  onClick: {
-    type: Function as PropType<HandleMouse>,
-    default: (): null => null
-  }
+  onClick: setFunctionProp<HandleMouse>()
 } as const
 
 export type SvgIconProps = ExtractPropTypes<typeof Props>

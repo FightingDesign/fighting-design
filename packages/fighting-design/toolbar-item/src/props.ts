@@ -1,5 +1,5 @@
-import { setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setStringProp, setStringNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { HandleMouse, FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -12,10 +12,7 @@ export const Props = {
   /** 唯一值 */
   index: setStringNumberProp(),
   /** 点击之后触发的回调 */
-  onClick: {
-    type: Function as PropType<HandleMouse>,
-    default: (): null => null
-  }
+  onClick: setFunctionProp<HandleMouse>()
 } as const
 
 export type ToolbarItemProps = ExtractPropTypes<typeof Props>

@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringProp, setObjectProp, setStringNumberProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setBooleanProp, setStringProp, setObjectProp, setStringNumberProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { HandleEvent, FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -20,10 +20,7 @@ export const Props = {
   /** 副标题文本 */
   subtitle: setStringProp(),
   /** 点击左侧区域触发 */
-  onBack: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  }
+  onBack: setFunctionProp<HandleEvent>()
 } as const
 
 export type PageHeaderProps = ExtractPropTypes<typeof Props>

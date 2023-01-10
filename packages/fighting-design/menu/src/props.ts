@@ -1,5 +1,5 @@
-import { setStringNumberProp } from '../../_utils'
-import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
+import { setStringNumberProp, setStringProp } from '../../_utils'
+import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { MenuMode } from './interface'
 
 export const Props = {
@@ -11,13 +11,9 @@ export const Props = {
    * @values horizontal vertical inline
    * @defaultValue horizontal
    */
-  mode: {
-    type: String as PropType<MenuMode>,
-    default: (): MenuMode => 'horizontal',
-    validator: (val: MenuMode): boolean => {
-      return (['horizontal', 'vertical', 'inline'] as const).includes(val)
-    }
-  },
+  mode: setStringProp<MenuMode>('horizontal', (val: MenuMode): boolean => {
+    return (['horizontal', 'vertical', 'inline'] as const).includes(val)
+  }),
   /** 默认激活的 name */
   activeName: setStringNumberProp()
 } as const

@@ -1,5 +1,5 @@
 import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import type { TooltipPosition, TooltipState } from './interface'
 
 export const Props = {
@@ -11,13 +11,9 @@ export const Props = {
    * @values top bottom right left
    * @defaultValue bottom
    */
-  position: {
-    type: String as PropType<TooltipPosition>,
-    default: (): TooltipPosition => 'bottom',
-    validator: (val: TooltipPosition): boolean => {
-      return (['top', 'bottom', 'right', 'left'] as const).includes(val)
-    }
-  },
+  position: setStringProp<TooltipPosition>('bottom', (val: TooltipPosition): boolean => {
+    return (['top', 'bottom', 'right', 'left'] as const).includes(val)
+  }),
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /**
@@ -26,13 +22,9 @@ export const Props = {
    * @values hover active always
    * @defaultValue hover
    */
-  state: {
-    type: String as PropType<TooltipState>,
-    default: (): TooltipState => 'hover',
-    validator: (val: TooltipState): boolean => {
-      return (['hover', 'active', 'always'] as const).includes(val)
-    }
-  },
+  state: setStringProp<TooltipState>('hover', (val: TooltipState): boolean => {
+    return (['hover', 'active', 'always'] as const).includes(val)
+  }),
   /** 是否显示箭头 */
   noArrow: setBooleanProp(),
   /** 是否加粗文字 */

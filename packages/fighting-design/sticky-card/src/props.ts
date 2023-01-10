@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setBooleanProp, setStringProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { HandleChange } from '../../_interface'
 
 export const Props = {
@@ -14,15 +14,9 @@ export const Props = {
   /** 自定义边框颜色 */
   borderColor: setStringProp(),
   /** 打开时的回调 */
-  onOpen: {
-    type: Function as PropType<HandleChange>,
-    default: (): null => null
-  },
+  onOpen: setFunctionProp<HandleChange>(),
   /** 关闭时的回调 */
-  onClose: {
-    type: Function as PropType<HandleChange>,
-    default: (): null => null
-  }
+  onClose: setFunctionProp<HandleChange>()
 } as const
 
 export type StickyCardProps = ExtractPropTypes<typeof Props>

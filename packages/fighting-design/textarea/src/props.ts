@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { TextareaResize } from './interface'
 import type { InputChange, HandleEvent } from '../../_interface'
@@ -35,10 +35,7 @@ export const Props = {
    *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-name
    */
-  name: {
-    type: String,
-    default: (): string => 'f-textarea'
-  },
+  name: setStringProp('f-textarea'),
   /**
    * 占位符
    *
@@ -63,30 +60,17 @@ export const Props = {
    * @values none both horizontal vertical
    * @defaultValue none
    */
-  resize: {
-    type: String as PropType<TextareaResize>,
-    default: (): TextareaResize => 'none',
-    validator: (val: TextareaResize): boolean => {
-      return (['none', 'both', 'horizontal', 'vertical'] as const).includes(val)
-    }
-  },
+  resize: setStringProp<TextareaResize>('none', (val: TextareaResize): boolean => {
+    return (['none', 'both', 'horizontal', 'vertical'] as const).includes(val)
+  }),
   /** 是否可清空 */
   clear: setBooleanProp(),
   /** 绑定值发生变化时触发的回调 */
-  onChange: {
-    type: Function as PropType<InputChange>,
-    default: (): null => null
-  },
+  onChange: setFunctionProp<InputChange>(),
   /** 失去焦点时触发的回调 */
-  onBlur: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onBlur: setFunctionProp<HandleEvent>(),
   /** 获取焦点时触发的回调 */
-  onFocus: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  }
+  onFocus: setFunctionProp<HandleEvent>()
 } as const
 
 export type TextareaProps = ExtractPropTypes<typeof Props>

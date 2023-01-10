@@ -1,12 +1,11 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { FightingSize, FightingIcon, HandleChange } from '../../_interface'
 
 export const Props = {
   /** 绑定值 */
   modelValue: {
-    type: Boolean,
-    default: (): boolean => false,
+    ...setBooleanProp(),
     required: true
   },
   /**
@@ -35,10 +34,7 @@ export const Props = {
   /** 自定义 icon size */
   iconSize: setStringNumberProp(),
   /** 绑定值发生改变时触发的回调 */
-  onChange: {
-    type: Function as PropType<HandleChange>,
-    default: (): null => null
-  }
+  onChange: setFunctionProp<HandleChange>()
 } as const
 
 export type SwitchProps = ExtractPropTypes<typeof Props>

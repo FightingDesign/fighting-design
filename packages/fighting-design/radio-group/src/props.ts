@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type { RadioModelValue, RadioChange } from './interface'
 import type { FightingSize } from '../../_interface'
@@ -31,10 +31,7 @@ export const Props = {
   /**
    * 绑定值变化时触发
    */
-  onChange: {
-    type: Function as PropType<RadioChange>,
-    default: (): null => null
-  }
+  onChange: setFunctionProp<RadioChange>()
 } as const
 
 export type RadioGroundProps = ExtractPropTypes<typeof Props>

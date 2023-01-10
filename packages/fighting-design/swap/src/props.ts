@@ -1,13 +1,12 @@
-import { setObjectProp, setStringNumberProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setObjectProp, setStringNumberProp, setBooleanProp, setStringProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { SwapType } from './interface'
 import type { FightingIcon, HandleChange } from '../../_interface'
 
 export const Props = {
   /** 绑定值 */
   modelValue: {
-    type: Boolean,
-    default: (): boolean => false,
+    ...setBooleanProp(),
     require: true
   },
   /** 组件尺寸 */
@@ -18,22 +17,15 @@ export const Props = {
    * @values sound swap default
    * @defaultValue default
    */
-  type: {
-    type: String as PropType<SwapType>,
-    default: (): SwapType => 'default',
-    validator: (val: SwapType): boolean => {
-      return (['sound', 'swap', 'default'] as const).includes(val)
-    }
-  },
+  type: setStringProp<SwapType>('default', (val: SwapType): boolean => {
+    return (['sound', 'swap', 'default'] as const).includes(val)
+  }),
   /** 打开展示的图标 */
   iconOn: setObjectProp<FightingIcon>(),
   /** 关闭展示的图标 */
   iconOff: setObjectProp<FightingIcon>(),
   /** 当绑定值发生改变时触发的回调 */
-  onChange: {
-    type: Function as PropType<HandleChange>,
-    default: (): null => null
-  }
+  onChange: setFunctionProp<HandleChange>()
 } as const
 
 export type SwapProps = ExtractPropTypes<typeof Props>

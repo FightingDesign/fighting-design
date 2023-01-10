@@ -1,5 +1,5 @@
 import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import type { TextDecoration } from './interface'
 import type { FightingType } from '../../_interface'
 
@@ -67,13 +67,9 @@ export const Props = {
    * @see text-decoration https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration
    * @values overline line-through underline
    */
-  decoration: {
-    type: String as PropType<TextDecoration>,
-    default: (): null => null,
-    validator: (val: TextDecoration): boolean => {
-      return (['overline', 'line-through', 'underline'] as const).includes(val)
-    }
-  },
+  decoration: setStringProp<TextDecoration>(null, (val: TextDecoration): boolean => {
+    return (['overline', 'line-through', 'underline'] as const).includes(val)
+  }),
   /**
    * 内边距
    *

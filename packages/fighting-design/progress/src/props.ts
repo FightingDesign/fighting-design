@@ -1,5 +1,5 @@
 import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import type { ProgressType } from './interface'
 
 export const Props = {
@@ -11,13 +11,9 @@ export const Props = {
    * @values primary success danger warning
    * @defaultValue primary
    */
-  type: {
-    type: String as PropType<ProgressType>,
-    default: (): ProgressType => 'primary',
-    validator: (val: ProgressType): boolean => {
-      return (['primary', 'success', 'danger', 'warning'] as const).includes(val)
-    }
-  },
+  type: setStringProp<ProgressType>('primary', (val: ProgressType): boolean => {
+    return (['primary', 'success', 'danger', 'warning'] as const).includes(val)
+  }),
   /** 是否为方形 */
   square: setBooleanProp(),
   /** 是否为线性 */

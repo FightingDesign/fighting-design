@@ -1,5 +1,5 @@
-import { setBooleanProp, setNumberProp, setObjectProp } from '../../_utils'
-import type { ExtractPropTypes, PropType, CSSProperties } from 'vue'
+import { setBooleanProp, setNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes, CSSProperties } from 'vue'
 import type { AnimationEnd } from './interface'
 
 export const Props = {
@@ -20,10 +20,7 @@ export const Props = {
   /** 是否初始化自动播放 */
   automatic: setBooleanProp(true),
   /** 动画结束触发函数 */
-  onAnimationEnd: {
-    type: Function as PropType<AnimationEnd>,
-    default: (): null => null
-  }
+  onAnimationEnd: setFunctionProp<AnimationEnd>()
 }
 
 export type NumberAnimateProps = ExtractPropTypes<typeof Props>
