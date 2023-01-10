@@ -39,9 +39,12 @@
     useRun(prop.onClose, evt)
   }
 
+  /** 初始化完成判断是否符合调用滚动效果 */
   onMounted((): void => {
-    if (prop.alertList && prop.alertList.length) {
-      const { startMove } = useAlertList(alertListEl.value as HTMLElement)
+    if (prop.alertList && prop.alertList.length && alertListEl.value) {
+      const { startMove } = useAlertList(alertListEl.value)
+
+      /** 开始滚动 */
       startMove(prop.duration || 2000)
     }
   })
