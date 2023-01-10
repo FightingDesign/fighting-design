@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FLink">
   import { Props } from './props'
-  import { reactive } from 'vue'
+  import { reactive, toRefs } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { useList, useRun, useGlobal } from '../../_hooks'
 
@@ -10,7 +10,7 @@
 
   /** 替换 type 后得到的 props */
   const params = reactive({
-    ...prop,
+    ...toRefs(prop),
     type: getType('primary')
   })
 

@@ -11,7 +11,7 @@
 
   /** 替换 type 后得到的 props */
   const params = reactive({
-    ...prop,
+    ...toRefs(prop),
     type: getType().value
   })
 

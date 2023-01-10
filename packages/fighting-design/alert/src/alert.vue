@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FAlert">
   import { Props } from './props'
-  import { ref, reactive, onMounted } from 'vue'
+  import { ref, reactive, onMounted, toRefs } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
   import { useList, useRun, useGlobal, useAlertList } from '../../_hooks'
@@ -12,7 +12,7 @@
 
   /** 替换 type 后得到的 props */
   const params = reactive({
-    ...prop,
+    ...toRefs(prop),
     type: getType()
   })
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FText">
   import { Props } from './props'
-  import { reactive } from 'vue'
+  import { reactive, toRefs } from 'vue'
   import { useList, useGlobal } from '../../_hooks'
 
   const prop = defineProps(Props)
@@ -9,7 +9,7 @@
 
   /** 替换 type 后得到的 props */
   const params = reactive({
-    ...prop,
+    ...toRefs(prop),
     type: getType()
   })
 

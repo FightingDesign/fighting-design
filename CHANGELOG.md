@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 修复 `f-alert` `f-link` `f-ripple` `f-tag` `f-text` 响应式失效问题
+
 ## 0.17.0 (2023-01-09)
 
 **优化**
