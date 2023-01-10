@@ -9,10 +9,7 @@ export const Props = {
    *
    * @defaultValue 1
    */
-  modelValue: {
-    type: Number,
-    default: (): number => 1
-  },
+  modelValue: setNumberProp(1),
   /**
    * 模式
    *
@@ -31,19 +28,13 @@ export const Props = {
    *
    * @defaultValue 0
    */
-  precision: {
-    type: Number,
-    default: (): number => 0
-  },
+  precision: setNumberProp(0),
   /**
    * 步长
    *
    * @defaultValue 1
    */
-  step: {
-    type: Number,
-    default: (): number => 1
-  },
+  step: setNumberProp(1),
   /**
    * 尺寸
    *
@@ -64,11 +55,7 @@ export const Props = {
   /** 最小值 */
   min: setNumberProp(),
   /** 最大输入长度 */
-  maxLength: {
-    type: Number,
-    default: (): null => null,
-    validator: (val: number): boolean => val >= 0
-  },
+  maxLength: setNumberProp(),
   /** 是否自动聚焦 */
   autofocus: setBooleanProp(),
   /**
@@ -76,10 +63,7 @@ export const Props = {
    *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
-  name: {
-    type: String,
-    default: (): string => 'f-input-number'
-  },
+  name: setStringProp('f-input-number'),
   /**
    * 占位符
    *

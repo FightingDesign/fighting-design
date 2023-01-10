@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { FightingSize } from '../../_interface'
 
@@ -8,10 +8,7 @@ export const Props = {
   /** 是否展示波浪动画 */
   animated: setBooleanProp(),
   /** 渲染多行占位图 */
-  rows: {
-    type: Number,
-    default: (): number => 1
-  },
+  rows: setNumberProp(1),
   /** 为 true 时，显示占位图。false 展示子组件 */
   loading: setBooleanProp(),
   /**

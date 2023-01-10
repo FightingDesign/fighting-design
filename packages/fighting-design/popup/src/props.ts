@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { PopupDirection } from './interface'
 import type { HandleEvent } from '../../_interface'
@@ -6,8 +6,7 @@ import type { HandleEvent } from '../../_interface'
 export const Props = {
   /** 绑定值，控制是否展示 */
   visible: {
-    type: Boolean,
-    default: (): boolean => false,
+    ...setBooleanProp(),
     required: true
   },
   /** 是否追加到 body */
@@ -23,19 +22,11 @@ export const Props = {
    *
    * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
-  zIndex: {
-    type: Number,
-    default: (): Number => 1999,
-    validator: (val: number): boolean => val >= 0
-  },
+  zIndex: setNumberProp(1999),
   /** 自定义遮罩层背景色 */
   maskBackground: setStringProp(),
   /** 遮罩层透明度 */
-  maskOpacity: {
-    type: Number,
-    default: (): null => null,
-    validator: (val: number): boolean => val >= 0 && val <= 1
-  },
+  maskOpacity: setNumberProp(),
   /**
    * 弹出位置
    *

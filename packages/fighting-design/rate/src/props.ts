@@ -1,21 +1,13 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { RateChange } from './interface'
 import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /** 绑定值 */
-  modelValue: {
-    type: Number,
-    default: (): number => 0,
-    validator: (val: number): boolean => val >= 0
-  },
+  modelValue: setNumberProp(0),
   /** 最大分值，展示的星星数量 */
-  max: {
-    type: Number,
-    default: (): number => 5,
-    validator: (val: number): boolean => val > 0
-  },
+  max: setNumberProp(5),
   /** 选中颜色 */
   effectColor: {
     type: String,

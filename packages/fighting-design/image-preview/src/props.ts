@@ -15,13 +15,7 @@ export const Props = {
   /** 是否展示关闭按钮 */
   isCloseBtn: setBooleanProp(true),
   /** 图片预览展示的首张图的索引，从 0 开始 */
-  showIndex: {
-    type: Number,
-    default: (): number => 0,
-    validator: (val: number): boolean => {
-      return val >= 0
-    }
-  },
+  showIndex: setNumberProp(0),
   /**
    * 图片预览展示的 z-index
    *

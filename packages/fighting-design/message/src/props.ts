@@ -59,10 +59,7 @@ export const Props = {
   /**
    * 偏移距离
    */
-  offset: {
-    type: Number,
-    default: (): number => 20
-  },
+  offset: setNumberProp(20),
   /**
    * 位置
    *

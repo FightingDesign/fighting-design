@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { TextareaResize } from './interface'
 import type { InputChange, HandleEvent } from '../../_interface'
@@ -23,11 +23,7 @@ export const Props = {
    *
    * @see maxLength https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-maxlength
    */
-  maxLength: {
-    type: Number,
-    default: (): null => null,
-    validator: (val: number): boolean => val >= 0
-  },
+  maxLength: setNumberProp(),
   /**
    * 是否自动获取焦点
    *

@@ -1,13 +1,10 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType, CSSProperties } from 'vue'
 import type { ScrollCallback } from './interface'
 
 export const Props = {
   /** 触发距离 */
-  distance: {
-    type: Number,
-    default: (): number => 0
-  },
+  distance: setNumberProp(0),
   /** 样式列表 */
   styles: {
     type: Object as PropType<CSSProperties>,

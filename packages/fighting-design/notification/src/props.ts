@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setNumberProp } from '../../_utils'
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
 import type { NotificationPlacement } from './interface'
 import type { FightingType } from '../../_interface'
@@ -43,10 +43,7 @@ export const Props = {
   /**
    * 显示时间，单位为毫秒。 设为 0 则不会自动关闭
    */
-  duration: {
-    type: Number,
-    default: (): number => 3000
-  },
+  duration: setNumberProp(3000),
   /**
    * 是否为圆角类型
    */
@@ -70,13 +67,8 @@ export const Props = {
    * 自定义背景色
    */
   background: setStringProp(),
-  /**
-   * 偏移距离
-   */
-  offset: {
-    type: Number,
-    default: (): number => 20
-  },
+  /** 偏移距离 */
+  offset: setNumberProp(20),
   /**
    * 弹出位置
    *
@@ -93,10 +85,7 @@ export const Props = {
   /**
    * 层级
    */
-  zIndex: {
-    type: Number,
-    default: (): number => 1000
-  },
+  zIndex: setNumberProp(1000),
   /**
    * 自定义关闭按钮
    */

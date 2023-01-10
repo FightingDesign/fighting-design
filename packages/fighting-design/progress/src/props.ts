@@ -1,16 +1,10 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { ProgressType } from './interface'
 
 export const Props = {
   /** 百分比 */
-  percentage: {
-    type: Number,
-    default: (): number => 10,
-    validator: (val: number): boolean => {
-      return val >= 0 && val <= 100
-    }
-  },
+  percentage: setNumberProp(10),
   /**
    * 进度条类型
    *

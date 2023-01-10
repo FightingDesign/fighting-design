@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { BackTopBehavior } from './interface'
 
@@ -16,11 +16,7 @@ export const Props = {
     return (['smooth', 'auto'] as const).includes(val)
   }),
   /** 滚动超出多少距离展示 */
-  visibleHeight: {
-    type: Number,
-    default: (): number => 200,
-    validator: (val: number): boolean => val >= 0
-  },
+  visibleHeight: setNumberProp(200),
   /** 距离右侧的距离 */
   right: setStringNumberProp(40),
   /** 距离底部的距离 */
@@ -30,17 +26,9 @@ export const Props = {
    *
    * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
-  zIndex: {
-    type: Number,
-    default: (): number => 900,
-    validator: (val: number): boolean => val >= 0
-  },
+  zIndex: setNumberProp(900),
   /** 点击返回距离顶部的距离 */
-  top: {
-    type: Number,
-    default: (): number => 0,
-    validator: (val: number): boolean => val >= 0
-  },
+  top: setNumberProp(0),
   /** 监视指定元素，需要传入指定的 class 或 id，如：.box #app */
   listenEl: setStringProp(),
   /** 自定义背景色 */

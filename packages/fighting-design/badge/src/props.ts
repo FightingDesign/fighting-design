@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { BadgeType } from './interface'
 
@@ -6,10 +6,7 @@ export const Props = {
   /** 显示值 */
   value: setStringNumberProp(),
   /** value 为数字时的最大值，超出显示为 value+ */
-  max: {
-    type: Number,
-    default: (): number => 99
-  },
+  max: setNumberProp(99),
   /** 展示为一个点 */
   dot: setBooleanProp(),
   /** 是否显示 */

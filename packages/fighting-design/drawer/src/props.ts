@@ -1,4 +1,4 @@
-import { setBooleanProp, setObjectProp, setStringProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setObjectProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { DrawerDirection } from './interface'
 import type { HandleEvent, FightingIcon } from '../../_interface'
@@ -31,11 +31,7 @@ export const Props = {
    *
    * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
-  zIndex: {
-    type: Number,
-    default: (): Number => 1999,
-    validator: (val: number): boolean => val >= 0
-  },
+  zIndex: setNumberProp(1999),
   /** 打开动画开始的回调 */
   onOpen: {
     type: Function as PropType<HandleEvent>,
