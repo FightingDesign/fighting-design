@@ -27,3 +27,8 @@ export interface SetFunctionPropReturn {
   type: PropType
   default: () => null
 }
+
+export interface SetNumberPropReturn {
+  type: NumberConstructor
+  default: null | number
+}
