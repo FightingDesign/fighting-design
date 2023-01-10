@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 
 export const Props = {
@@ -24,15 +24,9 @@ export const Props = {
   /** 是否可多选 */
   multiple: setBooleanProp(),
   /** 最大上传尺寸 */
-  maxSize: {
-    type: Number,
-    default: (): null => null
-  },
+  maxSize: setNumberProp(),
   /** 最大上传数量 */
-  maxLength: {
-    type: Number,
-    default: (): null => null
-  },
+  maxLength: setNumberProp(),
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 上传成功后执行的回调 */

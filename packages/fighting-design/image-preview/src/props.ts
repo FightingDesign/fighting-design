@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setNumberProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { HandleMouse } from '../../_interface'
 
@@ -27,10 +27,7 @@ export const Props = {
    *
    * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
-  zIndex: {
-    type: Number,
-    default: (): null => null
-  },
+  zIndex: setNumberProp(),
   /** 是否展示图片预览下面的操作栏 */
   isOption: setBooleanProp(true),
   /** 预览图的圆角，传入一个单位 */

@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { InputType, InputValChange, InputSearch } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
@@ -45,29 +45,19 @@ export const Props = {
    *
    * @see max https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-max
    */
-  max: {
-    type: Number,
-    default: (): null => null
-  },
+  max: setNumberProp(),
   /**
    * 最小（数字或日期时间）值
    *
    * @see min https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-min
    */
-  min: {
-    type: Number,
-    default: (): null => null
-  },
+  min: setNumberProp(),
   /**
    * 最大输入长度
    *
    * @see maxLength https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-maxlength
    */
-  maxLength: {
-    type: Number,
-    default: (): null => null,
-    validator: (val: number): boolean => val >= 0
-  },
+  maxLength: setNumberProp(),
   /**
    * 是否自动获取焦点
    *
@@ -79,10 +69,7 @@ export const Props = {
    *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
-  name: {
-    type: String,
-    default: (): string => 'f-input'
-  },
+  name: setStringProp('f-input'),
   /**
    * 占位符
    *

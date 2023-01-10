@@ -1,34 +1,22 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setNumberProp, setObjectProp } from '../../_utils'
 import type { ExtractPropTypes, PropType, CSSProperties } from 'vue'
 import type { AnimationEnd } from './interface'
 
 export const Props = {
   /** 开始的动画数字 */
-  from: {
-    type: Number,
-    default: (): number => 0
-  },
+  from: setNumberProp(0),
   /** 结束的动画数字 */
-  to: {
-    type: Number,
-    default: (): null => null
-  },
+  to: setNumberProp(),
   /**
    * 执行动画结束的大概时间
    *
    * 准确时间由浏览器的下一侦渲染决定
    */
-  approximateTime: {
-    type: Number,
-    default: (): number => 2000
-  },
+  approximateTime: setNumberProp(2000),
   /** 对数字决定金额格式化 */
   localeString: setBooleanProp(),
   /** 样式列表 */
-  styles: {
-    type: Object as PropType<CSSProperties>,
-    default: (): null => null
-  },
+  styles: setObjectProp<CSSProperties>(),
   /** 是否初始化自动播放 */
   automatic: setBooleanProp(true),
   /** 动画结束触发函数 */

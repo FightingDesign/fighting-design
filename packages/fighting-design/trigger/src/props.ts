@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type { TriggerTrigger, TriggerProvide } from './interface'
 import type { HandleChange } from '../../_interface'
@@ -24,15 +24,9 @@ export const Props = {
   /** 是否带有箭头 */
   arrow: setBooleanProp(),
   /** 弹出动画持续时间 */
-  enterDuration: {
-    type: Number,
-    default: (): null => null
-  },
+  enterDuration: setNumberProp(),
   /** 关闭动画持续时间 */
-  leaveDuration: {
-    type: Number,
-    default: (): null => null
-  },
+  leaveDuration: setNumberProp(),
   /** 弹窗状态改变时触发的回调 */
   onChange: {
     type: Function as PropType<HandleChange>,

@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setNumberProp, setFunctionProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { HandleMouse, FightingType, FightingIcon } from '../../_interface'
 
@@ -46,15 +46,9 @@ export const Props = {
     default: (): null => null
   },
   /** 滚动列表动画间隔 */
-  duration: {
-    type: Number,
-    default: (): null => null
-  },
+  duration: setNumberProp(),
   /** 点击关闭之后执行的回调 */
-  onClose: {
-    type: Function as PropType<HandleMouse>,
-    default: (): null => null
-  }
+  onClose: setFunctionProp<HandleMouse>()
 } as const
 
 export type AlertProps = ExtractPropTypes<typeof Props>

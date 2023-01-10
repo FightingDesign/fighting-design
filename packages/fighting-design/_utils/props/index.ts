@@ -60,7 +60,7 @@ export const setFunctionProp = <T>(defaultVal = null): SetFunctionPropReturn => 
   default: () => defaultVal
 })
 
-export const setNumberProp = (defaultVal = null): SetNumberPropReturn => ({
+export const setNumberProp = (defaultVal?: null | number): SetNumberPropReturn => ({
   type: Number,
-  default: defaultVal
+  default: defaultVal || null
 })

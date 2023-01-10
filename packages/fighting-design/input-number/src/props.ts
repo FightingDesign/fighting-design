@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setNumberProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { InputNumberModel } from './interface'
 import type { HandleEvent, FightingSize, InputChange } from '../../_interface'
@@ -60,15 +60,9 @@ export const Props = {
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 最大值 */
-  max: {
-    type: Number,
-    default: (): null => null
-  },
+  max: setNumberProp(),
   /** 最小值 */
-  min: {
-    type: Number,
-    default: (): null => null
-  },
+  min: setNumberProp(),
   /** 最大输入长度 */
   maxLength: {
     type: Number,
