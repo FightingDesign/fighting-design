@@ -5,8 +5,7 @@
 </script>
 
 <template>
-  <f-switch v-model="value2" />
-  <f-alert type="default" :center="value2">成功提示信息</f-alert>
+  <f-text>主要文字</f-text>
 </template>
 
 <style lang="scss" scoped></style>
