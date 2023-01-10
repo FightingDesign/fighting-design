@@ -10,12 +10,12 @@ export default (): UserConfigExport => {
     plugins: [
       vue(),
       dts({
-        staticImport: true, // 是否将动态引入转换为静态
-        insertTypesEntry: true, // 是否生成类型声明入口
-        cleanVueFileName: true, // 是否将 '.vue.d.ts' 文件名转换为 '.d.ts'
-        copyDtsFiles: false, // 是否将源码里的 .d.ts 文件复制到 outputDir
-        include: ['./packages/fighting-icon'], // 手动设置包含路径的 glob
-        // 构建后回调钩子
+        staticImport: true, /** 是否将动态引入转换为静态 */
+        insertTypesEntry: true, /** 是否生成类型声明入口 */
+        cleanVueFileName: true, /** 是否将 '.vue.d.ts' 文件名转换为 '.d.ts' */
+        copyDtsFiles: false, /** 是否将源码里的 .d.ts 文件复制到 outputDir */
+        include: ['./packages/fighting-icon'], /** 手动设置包含路径的 glob */
+        /** 构建后回调钩子 */
         afterBuild: (): void => {
           move()
         }

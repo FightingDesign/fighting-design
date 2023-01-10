@@ -1,6 +1,6 @@
 import { resolve } from 'path'
-import postcssPresetEnv from 'postcss-preset-env' // https://www.npmjs.com/package/postcss-preset-env
-import autoprefixer from 'autoprefixer' // https://www.npmjs.com/package/autoprefixer
+import postcssPresetEnv from 'postcss-preset-env'
+import autoprefixer from 'autoprefixer'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
@@ -9,9 +9,17 @@ export default (): UserConfigExport => {
     css: {
       postcss: {
         plugins: [
-          /** 针对一些前沿的 css 进行降级 */
+          /** 
+           * 针对一些前沿的 css 进行降级
+           * 
+           * @see postcss-preset-env https://www.npmjs.com/package/postcss-preset-env
+           */
           postcssPresetEnv(),
-          /** 自动添加浏览器厂商前缀 */
+          /** 
+           * 自动添加浏览器厂商前缀
+           * 
+           * @see autoprefixer https://github.com/postcss/autoprefixer
+           */
           autoprefixer()
         ]
       }
@@ -22,7 +30,12 @@ export default (): UserConfigExport => {
       rollupOptions: {
         input: resolve(__dirname, 'packages/fighting-theme/index.scss'),
         output: {
-          assetFileNames: '[name].[ext]' // 取消文件名 hash 值 https://rollupjs.org/guide/en/#outputassetfilenames
+          /**
+           * 取消文件名 hash 值
+           * 
+           * @see output.assetFileNames https://rollupjs.org/guide/en/#outputassetfilenames
+           */
+          assetFileNames: '[name].[ext]'
         }
       }
     }
