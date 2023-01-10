@@ -4,6 +4,13 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.17.1 (2023-01-10)
+
+**Fix**
+
+- Fix `f-alert` `f-link` `f-rip` `f-tag` `f-text` reactive failure
+- Fix the problem of 'f-number-animate' returning NaN
+
 ## 0.17.0 (2023-01-09)
 
 **Optimization**
@@ -18,7 +25,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.16.0 (2023-01-05)
 
-**Repair**
+**Fix**
 
 - Fix the problem that `f-input` does not display `placeholder` in dark mode [issues#330](https://github.com/FightingDesign/fighting-design/issues/330)
 - Fix the `type` failure of the `f-ripple` component in the global configuration
@@ -42,7 +49,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.15.0 (2023-01-03)
 
-**Repair**
+**Fix**
 
 - Fix the failure of `f-alert` component `center`
 
@@ -63,7 +70,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Optimize the handling of the pop-up status of the `f-popup` component for the scroll bar
 - Optimize `f-dialog` `f-drawer` component style details
 
-**Repair**
+**Fix**
 
 - Fix the problem of `f-checkbox` component `border` status style
 - Fix `f-input-number` warning error
@@ -77,7 +84,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 **修复**
 
 - Fix `f-svg-icon` type
-- Repair `f-rate` type
+- fix `f-rate` type
 - Fix the `f-calendar` component style problem [#315](https://github.com/FightingDesign/fighting-design/pull/315)
 
 ## 0.13.0 (2022-12-28)
@@ -87,7 +94,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Add `f-box` component
 - Complete `f-tree` components
 
-**Repair**
+**Fix**
 
 - Fix the error reported by `f-button` component ripple effect
 
@@ -98,7 +105,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Add `f-form` component
 - Add `f-form-item` component
 
-**Repair**
+**Fix**
 
 - Fix `f-space` component style details
 - Fix the failure of `f-back-top` component `z-index`
@@ -114,7 +121,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 - Add `f-button` component `spread` configuration item
 
-**Repair**
+**Fix**
 
 - Fix the warning error of `f-image-preview`
 - Fix `f-button` component style details
@@ -144,7 +151,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.10.0 (2022-12-11)
 
-**Repair**
+**Fix**
 
 - Fix the `f-list` and `f-list-item` component bugs
 - Fix the failure of disabling the `f-trigger` component
@@ -225,7 +232,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Add `f-collapse-animation` component
 - Add `f-button-group` component `direction` configuration item
 
-**Repair**
+**Fix**
 
 - Fix `f-pagination` component details
 - Fix `f-button` component style details
@@ -535,7 +542,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Add `f-svg-icon` components
 - Add `f-close-btn` components
 
-**fix**
+**Fix**
 
 - Fix the parameter error of the `f-dialog` component
 - Fix `f-dialog` component style details
@@ -580,7 +587,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Add `checkbox` component
 - Add `rate` component
 - Revoke the `f-radio-group` component `circle` configuration item
-- Repair the `f-radio` component `border` status, disable style details
+- fix the `f-radio` component `border` status, disable style details
 - Optimize the semantic properties of some components
 
 ## 0.7.0-alpha.3 (2022-10-06)
@@ -600,7 +607,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.7.0-alpha.1 (2022-09-27)
 
-**fix**
+**Fix**
 
 - Fix the default value of the `f-button` component `font-color`
 - Fix the default value of `f-button` component `font-size`
@@ -640,13 +647,13 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - The `f-list` component adds `header` and `footer` slots
 - Optimize the performance of `f-button` components
 
-**fix**
+**Fix**
 
 - Fix some date display errors in the `f-calendar` component
 
 ## 0.6.5-alpha.4 (2022-09-23)
 
-**fix**
+**Fix**
 
 - Fix the problem of `f-image review` and `f-calendar` component content being imported on demand
 
@@ -662,7 +669,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - The `width` attribute of the `f-aside` component supports the `number` type
 - `f-aside` component adds a `padding` configuration item
 
-**fix**
+**Fix**
 
 - Fix the packaging type error caused by component `name`
 
@@ -683,19 +690,19 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.6.4-alpha.10 (2022-09-14)
 
-- Test Repair On Demand Import
+- Test fix On Demand Import
 
 ## 0.6.4-alpha.9 (2022-09-14)
 
-- Test Repair On Demand Import
+- Test fix On Demand Import
 
 ## 0.6.4-alpha.8 (2022-09-14)
 
-- Test Repair On Demand Import
+- Test fix On Demand Import
 
 ## 0.6.4-alpha.7 (2022-09-14)
 
-**fix**
+**Fix**
 
 - Fix the `hover` and `disabled` styles of the `f-button` component`s custom colors
 - Fix `f-page-header` component style details
@@ -723,7 +730,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Optimize `f-avatar` style details
 - The `f-image` component cancels clicking the big picture preview function, which is separated from the `f-image preview` component
 - `f-image` Component Revocation Attribute: `module-close` `show-close-btn` `preview-list` `preview-show-index` `preview-z-index` `preview-show option` `preview-round`
-- Test Repair On Demand Import
+- Test fix On Demand Import
 
 ## 0.6.4-alpha.6 (2022-09-11)
 
@@ -732,26 +739,26 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Add `f-ripple` ripple component
 - Add `f-radio` `f-radio-group` component
 
-**fix**
+**Fix**
 
 - Fix `f-button` and `f-loading` animation style problems
 - Fix the problem that the feed height of `f-list-item` is not adaptive
 
 ## 0.6.4-alpha.5 (2022-09-06)
 
-- Test and repair side effect component registration
+- Test and fix side effect component registration
 
 ## 0.6.4-alpha.4 (2022-09-06)
 
-- Test and repair side effect component registration
+- Test and fix side effect component registration
 
 ## 0.6.4-alpha.3 (2022-09-05)
 
-- Test and repair side effect component registration
+- Test and fix side effect component registration
 
 ## 0.6.4-alpha.2 (2022-09-05)
 
-- Test and repair side effect component registration
+- Test and fix side effect component registration
 
 ## 0.6.4-alpha.1 (2022-09-03)
 
@@ -774,19 +781,19 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.6.2-alpha.10 (2022-09-02)
 
-- Test and repair problems introduced by build
+- Test and fix problems introduced by build
 
 ## 0.6.2-alpha.9 (2022-09-02)
 
-- Test and repair problems introduced by build
+- Test and fix problems introduced by build
 
 ## 0.6.2-alpha.8 (2022-09-02)
 
-- Test and repair problems introduced by build
+- Test and fix problems introduced by build
 
 ## 0.6.2-alpha.7 (2022-09-02)
 
-- Test and repair problems introduced by build
+- Test and fix problems introduced by build
 
 ## 0.6.2-alpha.6 (2022-08-31)
 
@@ -799,9 +806,9 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Add `f-loading-bar` component
 - Add `notification` component
 
-**fix**
+**Fix**
 
-- Repair button component style
+- fix button component style
 - Update the default value of the `shadow` parameter of the `f-card` component. Now changed to `never`
 
 ## 0.6.2-alpha.4 (2022-08-29)
@@ -810,7 +817,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 -New ` title` configuration item for `f-image` component
 
-**fix**
+**Fix**
 
 - Fix `F-card` component style details
 - Fix some style related details of `f-skeleton`
@@ -832,7 +839,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.6.2-alpha.1 (2022-08-20)
 
-- Repair button ripple effect class
+- fix button ripple effect class
 - Fix known packaging issues
 
 ## 0.6.1 (2022-08-19)
@@ -858,7 +865,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 ## 0.6.0-bate.1 (2022-08-11)
 
 - Change the file name introduction method of the style sheet
-- Repair packaging configuration item
+- fix packaging configuration item
 
 ## 0.5.1-bate.5 (2022-08-10)
 
@@ -904,9 +911,9 @@ The directory structure has also been optimized to a great extent. Previously, t
 - `F-text` component adds `center` configuration item
 - New `f-watermark` component
 
-**fix**
+**Fix**
 
-- Repair `f-tag` component style details
+- fix `f-tag` component style details
 - Optimize `F-card` component detail style
 
 ## 0.4.2-bate.8 (2022-07-23)
@@ -930,10 +937,10 @@ The directory structure has also been optimized to a great extent. Previously, t
 - The `tooltip` component removes some configuration items
 - Redo `tooltip` component
 
-**fix**
+**Fix**
 
 - Fix the problem that the `tag` component is not displayed
-- Repair the display status and close callback of the `alert` component
+- fix the display status and close callback of the `alert` component
 
 ## 0.3.1-bate.4 (2022-07-15)
 
@@ -947,7 +954,7 @@ The directory structure has also been optimized to a great extent. Previously, t
 - Add `progress` component config
 - Add `alert` component
 
-**fix**
+**Fix**
 
 - 修复 `progress` 组件百分百展示状态
 - 修复 `text` 组件样式细节
@@ -955,7 +962,7 @@ The directory structure has also been optimized to a great extent. Previously, t
 - 修改 `button` 组件文字按钮的样式
 - 移除 `tag` 组件 `info` 属性，改为 `default`
 
-**fix**
+**Fix**
 
 - Fix the 100% display state of the `progress` component
 - Fix `text` component style details
@@ -970,7 +977,7 @@ The directory structure has also been optimized to a great extent. Previously, t
 - Add `drawer` component
 - Add `page-header` component
 
-**fix**
+**Fix**
 
 - Fix `tag` base style
 - Fix `switch` base style
@@ -985,15 +992,15 @@ The directory structure has also been optimized to a great extent. Previously, t
 - Add `captcha` component (bate)
 - Add `tooltip` component (bate)
 
-**fix**
+**Fix**
 
 - Fix the problem of listening target error of `backTop` component
 
 ## 0.0.12-alpha.12 (2022-06-29)
 
-**fix**
+**Fix**
 
-- Repair the function of the `back-top` component
+- fix the function of the `back-top` component
 
 **feat**
 
@@ -1002,7 +1009,7 @@ The directory structure has also been optimized to a great extent. Previously, t
 
 ## 0.0.11-alpha.11 (2022-06-26)
 
-**fix**
+**Fix**
 
 - Fix packaging path errors
 
@@ -1014,7 +1021,7 @@ The directory structure has also been optimized to a great extent. Previously, t
 - Add `FAvatar` component
 - Add `FLoading` component
 
-**fix**
+**Fix**
 
 - The `FButton` component `blob` configuration item is changed to `blob` for Text bold
 
@@ -1029,7 +1036,7 @@ The directory structure has also been optimized to a great extent. Previously, t
 - Add `FSwitch` component
 - New `FButton` component `color` configuration item
 
-**fix**
+**Fix**
 
 - The `FButton` component `link` attribute is changed to `href`
 - Refactoring `FButton` components
@@ -1046,14 +1053,14 @@ The directory structure has also been optimized to a great extent. Previously, t
 - Add `FCard` component
 - Add `FButton` component click ripple effect
 
-**fix**
+**Fix**
 
 - Fix the fillet degree of `FButton` component
 - Fix `FButtonGroup` type
 
 ## 0.0.6-alpha.6 (2022-05-31)
 
-**fix**
+**Fix**
 
 - Fix the problem of consistent rotation direction of `FImage` components
 - Fix the click failure problem of `FIcon` component preview window operation, and handle the click focus position

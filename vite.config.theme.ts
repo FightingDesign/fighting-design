@@ -9,15 +9,15 @@ export default (): UserConfigExport => {
     css: {
       postcss: {
         plugins: [
-          /** 
+          /**
            * 针对一些前沿的 css 进行降级
-           * 
+           *
            * @see postcss-preset-env https://www.npmjs.com/package/postcss-preset-env
            */
           postcssPresetEnv(),
-          /** 
+          /**
            * 自动添加浏览器厂商前缀
-           * 
+           *
            * @see autoprefixer https://github.com/postcss/autoprefixer
            */
           autoprefixer()
@@ -32,7 +32,7 @@ export default (): UserConfigExport => {
         output: {
           /**
            * 取消文件名 hash 值
-           * 
+           *
            * @see output.assetFileNames https://rollupjs.org/guide/en/#outputassetfilenames
            */
           assetFileNames: '[name].[ext]'

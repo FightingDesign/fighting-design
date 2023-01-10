@@ -79,7 +79,7 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
       activeStyleList.bottom = 0
       activeStyleList.transform = `translateX(${activeEl.offsetLeft}px)`
     } else if (position === 'left' || position === 'right') {
-    /** 左右位置的样式 */
+      /** 左右位置的样式 */
       activeStyleList.height = activeEl.clientHeight - sizeToNum(activeStyle.padding) + 'px'
       activeStyleList.transform = `translateY(${activeEl.offsetTop}px)`
 
