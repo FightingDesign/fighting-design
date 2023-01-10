@@ -15,13 +15,9 @@ export const Props = {
    * @values large middle small mini
    * @defaultValue middle
    */
-  size: {
-    type: String as PropType<FightingSize>,
-    default: (): FightingSize => 'middle',
-    validator: (val: FightingSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
+  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+  }),
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 自定义 icon */

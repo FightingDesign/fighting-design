@@ -1,15 +1,12 @@
-import { setBooleanProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setBooleanProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { HandleMouse } from '../../_interface'
 
 export const Props = {
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 点击之后的回调函数 */
-  onClick: {
-    type: Function as PropType<HandleMouse>,
-    default: (): null => null
-  }
+  onClick: setFunctionProp<HandleMouse>()
 } as const
 
 export type DropdownItemProps = ExtractPropTypes<typeof Props>

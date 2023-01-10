@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringNumberProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type { RadioModelValue, RadioChange } from './interface'
 import type { FightingSize } from '../../_interface'
@@ -25,13 +25,9 @@ export const Props = {
    * @values large middle small mini
    * @defaultValue middle
    */
-  size: {
-    type: String as PropType<FightingSize>,
-    default: (): FightingSize => 'middle',
-    validator: (val: FightingSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
+  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+  }),
   /**
    * 绑定值变化时触发
    */

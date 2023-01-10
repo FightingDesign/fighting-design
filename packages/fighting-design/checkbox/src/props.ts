@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../_utils'
+import { setBooleanProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes, PropType } from 'vue'
 import type { CheckboxChange, CheckboxModelValue, CheckboxLabel } from './interface'
 
@@ -22,10 +22,7 @@ export const Props = {
   /** 是否为半选状态 */
   indeterminate: setBooleanProp(),
   /** 绑定值发生改变时触发 */
-  onChange: {
-    type: Function as PropType<CheckboxChange>,
-    default: (): null => null
-  }
+  onChange: setFunctionProp<CheckboxChange>()
 } as const
 
 export type CheckboxProps = ExtractPropTypes<typeof Props>

@@ -1,5 +1,5 @@
 import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp, setFunctionProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import type { ButtonTarget, ButtonNative } from './interface'
 import type { FightingSize, FightingType, FightingIcon, HandleMouse } from '../../_interface'
 
@@ -53,13 +53,9 @@ export const Props = {
    * @values default primary success danger warning
    * @defaultValue null
    */
-  type: {
-    type: String as PropType<FightingType>,
-    default: (): null => null,
-    validator: (val: FightingType): boolean => {
-      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
-    }
-  },
+  type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
+    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+  }),
   /** 是否自动获取焦点 */
   autofocus: setBooleanProp(),
   /**
@@ -67,10 +63,7 @@ export const Props = {
    *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-name
    */
-  name: {
-    type: String,
-    default: (): string => 'f-button'
-  },
+  name: setStringProp('f-button'),
   /** 自定义阴影样式 */
   shadow: setStringProp(),
   /** 是否为文字按钮（非自定义按钮颜色时有效） */
@@ -82,13 +75,9 @@ export const Props = {
    * @defaultValue button
    * @see type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
    */
-  nativeType: {
-    type: String as PropType<ButtonNative>,
-    default: (): ButtonNative => 'button',
-    validator: (val: ButtonNative): boolean => {
-      return (['button', 'submit', 'reset'] as const).includes(val)
-    }
-  },
+  nativeType: setStringProp<ButtonNative>('button', (val: ButtonNative): boolean => {
+    return (['button', 'submit', 'reset'] as const).includes(val)
+  }),
   /** 是否为简约的按钮（非自定义按钮颜色时有效） */
   simple: setBooleanProp(),
   /** 自定义之前的 icon */

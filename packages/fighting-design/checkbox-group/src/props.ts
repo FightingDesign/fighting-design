@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { CheckboxGroupChange } from './interface'
 import type { FightingSize } from '../../_interface'
@@ -22,22 +22,15 @@ export const Props = {
    * @values large middle small mini
    * @defaultValue middle
    */
-  size: {
-    type: String as PropType<FightingSize>,
-    default: (): FightingSize => 'middle',
-    validator: (val: FightingSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
+  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+  }),
   /**横向排列的间距 */
   columnGap: setStringNumberProp(),
   /** 纵向排列的间距 */
   rowGap: setStringNumberProp(),
   /** 绑定值变化时触发 */
-  onChange: {
-    type: Function as PropType<CheckboxGroupChange>,
-    default: (): null => null
-  }
+  onChange: setFunctionProp<CheckboxGroupChange>()
 } as const
 
 export type CheckboxGroupProps = ExtractPropTypes<typeof Props>

@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp, setNumberProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp, setNumberProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { HandleEvent, FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -33,25 +33,13 @@ export const Props = {
    */
   zIndex: setNumberProp(1999),
   /** 打开动画开始的回调 */
-  onOpen: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onOpen: setFunctionProp<HandleEvent>(),
   /** 打开动画结束的回调 */
-  onOpenEnd: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onOpenEnd: setFunctionProp<HandleEvent>(),
   /** 关闭动画开始的回调 */
-  onClose: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onClose: setFunctionProp<HandleEvent>(),
   /** 关闭动画结束的回调 */
-  onCloseEnd: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  }
+  onCloseEnd: setFunctionProp<HandleEvent>()
 } as const
 
 export type DialogProps = ExtractPropTypes<typeof Props>

@@ -1,5 +1,5 @@
 import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
-import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
+import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
@@ -17,13 +17,9 @@ export const Props = {
    * @values large middle small mini
    * @defaultValue middle
    */
-  size: {
-    type: String as PropType<FightingSize>,
-    default: (): FightingSize => 'middle',
-    validator: (val: FightingSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
+  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+  }),
   /** 最大高度 */
   maxHeight: setStringNumberProp(),
   /** 自定义斑马纹颜色 */

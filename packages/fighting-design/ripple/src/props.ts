@@ -1,5 +1,5 @@
 import { setBooleanProp, setStringProp, setNumberProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import type { FightingType } from '../../_interface'
 
 export const Props = {
@@ -13,13 +13,9 @@ export const Props = {
    * @values default primary success danger warning
    * @defaultValue default
    */
-  type: {
-    type: String as PropType<FightingType>,
-    default: (): null => null,
-    validator: (val: FightingType): boolean => {
-      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
-    }
-  },
+  type: setStringProp<FightingType>('default', (val: FightingType): boolean => {
+    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+  }),
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 涟漪动画开始的透明度 */

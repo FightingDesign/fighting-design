@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setNumberProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setNumberProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { InputType, InputValChange, InputSearch } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
@@ -14,26 +14,18 @@ export const Props = {
    * @values text password number
    * @defaultValue text
    */
-  type: {
-    type: String as PropType<InputType>,
-    default: (): InputType => 'text',
-    validator: (val: InputType): boolean => {
-      return (['text', 'password', 'number'] as const).includes(val)
-    }
-  },
+  type: setStringProp<InputType>('text', (val: InputType): boolean => {
+    return (['text', 'password', 'number'] as const).includes(val)
+  }),
   /**
    * 尺寸
    *
    * @values large middle small mini
    * @defaultValue middle
    */
-  size: {
-    type: String as PropType<FightingSize>,
-    default: (): FightingSize => 'middle',
-    validator: (val: FightingSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
+  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+  }),
   /**
    * 是否禁用
    *
@@ -97,35 +89,17 @@ export const Props = {
   /** 后缀 icon */
   afterIcon: setObjectProp<FightingIcon>(),
   /** 点击搜索之后触发的回调 */
-  onSearch: {
-    type: Function as PropType<InputSearch>,
-    default: (): null => null
-  },
+  onSearch: setFunctionProp<InputSearch>(),
   /** 绑定值发生改变时触发的回调 */
-  onChange: {
-    type: Function as PropType<InputValChange>,
-    default: (): null => null
-  },
+  onChange: setFunctionProp<InputValChange>(),
   /** 失去焦点时触发的回调 */
-  onBlur: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onBlur: setFunctionProp<HandleEvent>(),
   /** 获得焦点时触发的回调 */
-  onFocus: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onFocus: setFunctionProp<HandleEvent>(),
   /** input 事件触发的回调 */
-  onInput: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onInput: setFunctionProp<HandleEvent>(),
   /** 按下回车触发的 */
-  onEnter: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  }
+  onEnter: setFunctionProp<HandleEvent>()
 } as const
 
 export type InputProps = ExtractPropTypes<typeof Props>

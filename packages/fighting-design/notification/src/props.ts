@@ -29,13 +29,9 @@ export const Props = {
    * @values default primary success danger warning
    * @defaultValue default
    */
-  type: {
-    type: String as PropType<FightingType>,
-    default: (): FightingType => 'default',
-    validator: (val: FightingType): boolean => {
-      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
-    }
-  },
+  type: setStringProp<FightingType>('default', (val: FightingType): boolean => {
+    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+  }),
   /**
    * 是否可关闭
    */

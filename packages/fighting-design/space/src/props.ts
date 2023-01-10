@@ -1,5 +1,5 @@
 import { setBooleanProp, setStringProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
@@ -11,15 +11,11 @@ export const Props = {
    * 间距尺寸
    *
    * @values large middle small mini
-   * @defaultValue middle
+   * @defaultValue null
    */
-  spacing: {
-    type: String as PropType<FightingSize>,
-    default: (): null => null,
-    validator: (val: FightingSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
+  spacing: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
+    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+  }),
   /** 自定义纵向间距 */
   rowGap: setStringProp(),
   /** 自定义横向间距 */

@@ -27,7 +27,7 @@ export const Props = {
    * @values en-US zh-CN
    * @defaultValue zh-CN
    */
-  lang: setStringProp('zh-CN', (val: FightingLang): boolean => {
+  lang: setStringProp<FightingLang>('zh-CN', (val: FightingLang): boolean => {
     return (['en-US', 'zh-CN'] as const).includes(val)
   })
 } as const

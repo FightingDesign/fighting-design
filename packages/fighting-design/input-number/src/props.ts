@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringProp, setNumberProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setBooleanProp, setStringProp, setNumberProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { InputNumberModel } from './interface'
 import type { HandleEvent, FightingSize, InputChange } from '../../_interface'
 
@@ -16,13 +16,9 @@ export const Props = {
    * @values default button switch
    * @defaultValue default
    */
-  model: {
-    type: String as PropType<InputNumberModel>,
-    default: (): InputNumberModel => 'default',
-    validator: (val: InputNumberModel): boolean => {
-      return (['default', 'button', 'switch'] as const).includes(val)
-    }
-  },
+  model: setStringProp<InputNumberModel>('default', (val: InputNumberModel): boolean => {
+    return (['default', 'button', 'switch'] as const).includes(val)
+  }),
   /**
    * 数值精度
    *
@@ -41,13 +37,9 @@ export const Props = {
    * @values large middle small mini
    * @defaultValue middle
    */
-  size: {
-    type: String as PropType<FightingSize>,
-    default: (): FightingSize => 'middle',
-    validator: (val: FightingSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
+  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+  }),
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 最大值 */
@@ -75,25 +67,13 @@ export const Props = {
   /** 是否只读 */
   readonly: setBooleanProp(),
   /** 绑定值发生改变时触发的回调 */
-  onChange: {
-    type: Function as PropType<InputChange>,
-    default: (): null => null
-  },
+  onChange: setFunctionProp<InputChange>(),
   /** 失去焦点时触发的回调 */
-  onBlur: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onBlur: setFunctionProp<HandleEvent>(),
   /** 获得焦点时触发的回调 */
-  onFocus: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onFocus: setFunctionProp<HandleEvent>(),
   /** input 事件触发的回调 */
-  onInput: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  }
+  onInput: setFunctionProp<HandleEvent>()
 } as const
 
 export type InputNumberProps = ExtractPropTypes<typeof Props>

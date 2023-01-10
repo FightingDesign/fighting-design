@@ -1,4 +1,5 @@
-import type { PropType, ExtractPropTypes, InjectionKey } from 'vue'
+import { setStringProp } from '../../_utils'
+import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { FightingSize } from '../../_interface'
 import type { ButtonGroupDirection } from './interface'
 
@@ -9,26 +10,18 @@ export const Props = {
    * @values large middle small mini
    * @defaultValue null
    */
-  size: {
-    type: String as PropType<FightingSize>,
-    default: (): null => null,
-    validator: (val: FightingSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
+  size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
+    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+  }),
   /**
    * 排列方向
    *
    * @values horizontal vertical
    * @defaultValue horizontal
    */
-  direction: {
-    type: String as PropType<ButtonGroupDirection>,
-    default: (): ButtonGroupDirection => 'horizontal',
-    validator: (val: ButtonGroupDirection): boolean => {
-      return (['horizontal', 'vertical'] as const).includes(val)
-    }
-  }
+  direction: setStringProp<ButtonGroupDirection>('horizontal', (val: ButtonGroupDirection): boolean => {
+    return (['horizontal', 'vertical'] as const).includes(val)
+  })
 } as const
 
 export type ButtonGroupProps = ExtractPropTypes<typeof Props>

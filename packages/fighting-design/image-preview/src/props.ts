@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp, setNumberProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setNumberProp, setFunctionProp } from '../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { HandleMouse } from '../../_interface'
 
@@ -27,10 +27,7 @@ export const Props = {
   /** 预览图的圆角，传入一个单位 */
   round: setStringProp(),
   /** 关闭之后的回调 */
-  onClose: {
-    type: Function as PropType<HandleMouse>,
-    default: (): null => null
-  }
+  onClose: setFunctionProp<HandleMouse>()
 } as const
 
 export type ImagePreviewProps = ExtractPropTypes<typeof Props>

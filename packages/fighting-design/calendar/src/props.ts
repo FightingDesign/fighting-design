@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { CalendarChange, CalendarMemorandum } from './interface'
 
 export const Props = {
@@ -22,20 +22,11 @@ export const Props = {
   /** 星期单元格高度 */
   weekCellHeight: setStringNumberProp(),
   /** 备忘事件 */
-  memorandum: {
-    type: Object as PropType<CalendarMemorandum>,
-    default: (): null => null
-  },
+  memorandum: setObjectProp<CalendarMemorandum>(),
   /** 月份改变时触发的回调 */
-  onChangeDate: {
-    type: Function as PropType<CalendarChange>,
-    default: (): null => null
-  },
+  onChangeDate: setFunctionProp<CalendarChange>(),
   /** 日期改变时触发的回调 */
-  onChangeMonth: {
-    type: Function as PropType<CalendarChange>,
-    default: (): null => null
-  }
+  onChangeMonth: setFunctionProp<CalendarChange>()
 } as const
 
 export type CalendarProps = ExtractPropTypes<typeof Props>

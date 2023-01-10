@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { LinkTarget, LinkState } from './interface'
 import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
 
@@ -8,15 +8,11 @@ export const Props = {
    * link 的类型
    *
    * @values default primary success danger warning
-   * @defaultValue primary
+   * @defaultValue null
    */
-  type: {
-    type: String as PropType<FightingType>,
-    default: (): null => null,
-    validator: (val: FightingType): boolean => {
-      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
-    }
-  },
+  type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
+    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+  }),
   /**
    * 链接的地址
    *
@@ -29,14 +25,11 @@ export const Props = {
    * 状态的样式状态
    *
    * @values line bag
+   * @defaultValue null
    */
-  state: {
-    type: String as PropType<LinkState>,
-    default: (): null => null,
-    validator: (val: LinkState): boolean => {
-      return (['line', 'bag'] as const).includes(val)
-    }
-  },
+  state: setStringProp<LinkState>(null, (val: LinkState): boolean => {
+    return (['line', 'bag'] as const).includes(val)
+  }),
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /**
@@ -46,13 +39,9 @@ export const Props = {
    * @defaultValue _self
    * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
-  target: {
-    type: String as PropType<LinkTarget>,
-    default: (): null => null,
-    validator: (val: LinkTarget): boolean => {
-      return (['_self', '_blank', '_parent', '_top'] as const).includes(val)
-    }
-  },
+  target: setStringProp<LinkTarget>('_self', (val: LinkTarget): boolean => {
+    return (['_self', '_blank', '_parent', '_top'] as const).includes(val)
+  }),
   /** 自定义颜色 */
   color: setStringProp(),
   /** 是否禁止 copy */
@@ -64,10 +53,7 @@ export const Props = {
   /** 之后的 icon */
   afterIcon: setObjectProp<FightingIcon>(),
   /** 点击执行的回调 */
-  onClick: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  }
+  onClick: setFunctionProp<HandleEvent>()
 } as const
 
 export type LinkProps = ExtractPropTypes<typeof Props>

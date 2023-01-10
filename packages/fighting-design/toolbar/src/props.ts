@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setBooleanProp, setStringProp, setStringNumberProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { ToolbarClick } from './interface'
 import type { FightingSize } from '../../_interface'
 
@@ -12,13 +12,9 @@ export const Props = {
    * @values large middle small mini
    * @defaultValue middle
    */
-  size: {
-    type: String as PropType<FightingSize>,
-    default: (): FightingSize => 'middle',
-    validator: (val: FightingSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
+  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+  }),
   /** 自定义背景颜色 */
   background: setStringProp(),
   /** 字体颜色 */
@@ -30,10 +26,7 @@ export const Props = {
   /** 自定义高度 */
   height: setStringNumberProp(),
   /** 点击之后触发的回调 */
-  onClick: {
-    type: Function as PropType<ToolbarClick>,
-    default: (): null => null
-  }
+  onClick: setFunctionProp<ToolbarClick>()
 } as const
 
 export type ToolbarProps = ExtractPropTypes<typeof Props>

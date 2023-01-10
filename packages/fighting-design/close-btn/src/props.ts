@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { HandleMouse, FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -16,10 +16,7 @@ export const Props = {
   /** 自定义 icon */
   icon: setObjectProp<FightingIcon>(),
   /** 点击之后执行的回调 */
-  onClick: {
-    type: Function as PropType<HandleMouse>,
-    default: (): null => null
-  }
+  onClick: setFunctionProp<HandleMouse>()
 } as const
 
 export type CloseBtnProps = ExtractPropTypes<typeof Props>

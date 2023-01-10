@@ -9,13 +9,9 @@ export const Props = {
    * @values default primary success danger warning
    * @defaultValue default
    */
-  type: {
-    type: String as PropType<FightingType>,
-    default: (): null => null,
-    validator: (val: FightingType): boolean => {
-      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
-    }
-  },
+  type: setStringProp<FightingType>('default', (val: FightingType): boolean => {
+    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+  }),
   /** 是否可关闭 */
   close: setBooleanProp(),
   /** 是否为圆角 */
@@ -40,13 +36,9 @@ export const Props = {
    * @values large middle small mini
    * @defaultValue middle
    */
-  size: {
-    type: String as PropType<FightingSize>,
-    default: (): FightingSize => 'middle',
-    validator: (val: FightingSize): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
+  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+  }),
   /** 是否为简约模式 */
   simple: setBooleanProp(),
   /** 是否为块级元素 */

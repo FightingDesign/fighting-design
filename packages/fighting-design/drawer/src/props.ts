@@ -1,5 +1,5 @@
-import { setBooleanProp, setObjectProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setBooleanProp, setObjectProp, setStringProp, setStringNumberProp, setNumberProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { DrawerDirection } from './interface'
 import type { HandleEvent, FightingIcon } from '../../_interface'
 
@@ -33,25 +33,13 @@ export const Props = {
    */
   zIndex: setNumberProp(1999),
   /** 打开动画开始的回调 */
-  onOpen: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onOpen: setFunctionProp<HandleEvent>(),
   /** 打开动画结束的回调 */
-  onOpenEnd: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onOpenEnd: setFunctionProp<HandleEvent>(),
   /** 关闭动画开始的回调 */
-  onClose: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onClose: setFunctionProp<HandleEvent>(),
   /** 关闭动画结束的回调 */
-  onCloseEnd: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  }
+  onCloseEnd: setFunctionProp<HandleEvent>()
 } as const
 
 export type DrawerProps = ExtractPropTypes<typeof Props>

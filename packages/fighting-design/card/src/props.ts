@@ -1,5 +1,5 @@
 import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import type { CardShadow } from './interface'
 
 export const Props = {
@@ -13,14 +13,11 @@ export const Props = {
    * 阴影样式
    *
    * @values hover always
+   * @defaultValue null
    */
-  shadow: {
-    type: String as PropType<CardShadow>,
-    default: (): null => null,
-    validator: (val: CardShadow): boolean => {
-      return (['hover', 'always'] as const).includes(val)
-    }
-  }
+  shadow: setStringProp<CardShadow>(null, (val: CardShadow): boolean => {
+    return (['hover', 'always'] as const).includes(val)
+  })
 } as const
 
 export type CardProps = ExtractPropTypes<typeof Props>

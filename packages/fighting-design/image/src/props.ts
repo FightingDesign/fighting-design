@@ -1,5 +1,5 @@
-import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { ImageFit } from './interface'
 import type { HandleEvent } from '../../_interface'
 
@@ -27,15 +27,13 @@ export const Props = {
   /**
    * 如何适应容器，原生 object-fit 属性
    *
+   * @values fill contain cover none scale-down
+   * @defaultValue null
    * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    */
-  fit: {
-    type: String as PropType<ImageFit>,
-    default: (): null => null,
-    validator: (val: ImageFit): boolean => {
-      return (['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const).includes(val)
-    }
-  },
+  fit: setStringProp<ImageFit>(null, (val: ImageFit): boolean => {
+    return (['fill', 'contain', 'cover', 'none', 'scale-down'] as const).includes(val)
+  }),
   /** 是否禁止选择 */
   noSelect: setBooleanProp(),
   /**
@@ -51,15 +49,9 @@ export const Props = {
   /** img 的 title */
   title: setStringProp(),
   /** 图片加载成功触发的回调 */
-  onLoad: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onLoad: setFunctionProp<HandleEvent>(),
   /** 图片加载失败触发的回调 */
-  onError: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  }
+  onError: setFunctionProp<HandleEvent>()
 } as const
 
 export type ImageProps = ExtractPropTypes<typeof Props>
