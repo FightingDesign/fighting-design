@@ -1,34 +1,19 @@
-import type { PropType } from 'vue'
-
+/**
+ * 校验器类型
+ * 
+ * @param val 校验的值
+ */
 export type Validator = (val) => boolean
 
-export interface SetBooleanPropReturn {
-  type: BooleanConstructor
-  default: boolean
-}
-
-export interface SetStringPropReturn {
-  type: StringConstructor | PropType
-  default: string | null,
+/**
+ * 返回值类型接口
+ * 
+ * @param type 参数类型
+ * @param default 默认值
+ * @param validator 校验器
+ */
+export interface BasicType<T, F> {
+  type: T
+  default: () => F
   validator?: Validator
-}
-
-export interface SetStringNumberPropReturn {
-  type: PropType<string | number>,
-  default: string | number | null | T
-}
-
-export interface SetObjectPropReturn {
-  type: PropType
-  default: () => null
-}
-
-export interface SetFunctionPropReturn {
-  type: PropType
-  default: () => null
-}
-
-export interface SetNumberPropReturn {
-  type: NumberConstructor
-  default: null | number
 }
