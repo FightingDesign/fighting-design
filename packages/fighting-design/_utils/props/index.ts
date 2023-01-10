@@ -27,7 +27,7 @@ export const setNumberProp = <T extends number>(defaultVal?: null | T): BasicTyp
  * @param defaultVal 默认值
  * @param validator 校验器
  */
-export const setStringProp = <T extends string>(defaultVal?: null | T, validator?: Validator): BasicType<PropType<T> | StringConstructor, T | null> => {
+export const setStringProp = <T extends string>(defaultVal?: null | T, validator?: Validator): BasicType<PropType<T>, T | null> => {
   if (validator) {
     return {
       type: String as unknown as PropType<T>,
@@ -37,7 +37,7 @@ export const setStringProp = <T extends string>(defaultVal?: null | T, validator
   }
 
   return {
-    type: String,
+    type: String as unknown as PropType<T>,
     default: () => defaultVal || null
   } as const
 }
@@ -47,7 +47,7 @@ export const setStringProp = <T extends string>(defaultVal?: null | T, validator
  * 
  * @param defaultVal 默认值
  */
-export const setStringNumberProp = <T>(defaultVal?: string | number | T): BasicType<PropType<string | number>, string | number | null | T> => ({
+export const setStringNumberProp = <T extends string | number>(defaultVal?: T): BasicType<PropType<string | number>, string | number | null> => ({
   type: [String, Number] as PropType<string | number>,
   default: () => defaultVal || null
 } as const)

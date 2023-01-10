@@ -1,4 +1,4 @@
-import { setStringNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
+import { setStringNumberProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { FormSubmit } from './interface'
 
@@ -6,7 +6,10 @@ export const Props = {
   /** 每个 label 的宽度 */
   labelWidth: setStringNumberProp(),
   /** 表单数据对象 */
-  model: setObjectProp(),
+  model: {
+    type: Object,
+    default: () => null
+  },
   /**  提交表单触发的回调 */
   onSubmit: setFunctionProp<FormSubmit>()
 } as const

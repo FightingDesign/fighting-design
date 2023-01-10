@@ -13,7 +13,7 @@ export type Validator = (val) => boolean
  * @param validator 校验器
  */
 export interface BasicType<T, F> {
- readonly type: T
- readonly default: () => F
- readonly validator?: Validator
+  readonly type: T
+  readonly default: () => F
+  readonly validator?: Validator
 }

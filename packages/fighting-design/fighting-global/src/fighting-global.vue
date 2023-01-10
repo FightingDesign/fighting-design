@@ -14,7 +14,7 @@
     return interceptors(
       'type',
       (): boolean => {
-        return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(prop.type)
+        return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(prop.type as FightingType)
       },
       'default'
     )
@@ -25,7 +25,7 @@
     return interceptors(
       'size',
       (): boolean => {
-        return (['large', 'middle', 'small', 'mini'] as const).includes(prop.size)
+        return (['large', 'middle', 'small', 'mini'] as const).includes(prop.size as FightingSize)
       },
       'middle'
     )
@@ -36,7 +36,7 @@
     return interceptors(
       'lang',
       (): boolean => {
-        return (['en-US', 'zh-CN'] as const).includes(prop.lang)
+        return (['en-US', 'zh-CN'] as const).includes(prop.lang as FightingLang)
       },
       'zh-CN'
     )

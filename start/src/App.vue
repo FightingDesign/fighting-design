@@ -1,11 +1,5 @@
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<script lang="ts" setup></script>
 
-  const value2 = ref(false)
-</script>
-
-<template>
-  <f-text>主要文字</f-text>
-</template>
+<template></template>
 
 <style lang="scss" scoped></style>

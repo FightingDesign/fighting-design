@@ -12,8 +12,8 @@
     FIconCircleCrossVue,
     FIconWarningVue
   } from '../../_svg'
-  import type { VNode, CSSProperties, ComputedRef } from 'vue'
-  import type { ClassList } from '../../_interface'
+  import type { CSSProperties } from 'vue'
+  import type { ClassList, FightingIcon } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -29,7 +29,7 @@
   } as const
 
   /** 默认 icon */
-  const _icon: ComputedRef<String | null | VNode> = computed((): String | null | VNode => {
+  const _icon = computed((): FightingIcon | null => {
     if (prop.icon) {
       return prop.icon
     } else if (prop.type) {
@@ -141,9 +141,7 @@
     >
       <!-- icon -->
       <div v-if="showIcon && _icon" class="f-notification__icon">
-        <f-svg-icon :icon="_icon" :size="28">
-          <component :is="_icon" v-if="isVNode(_icon)" />
-        </f-svg-icon>
+        <f-svg-icon :icon="_icon" :size="28" />
       </div>
 
       <!-- 主体内容 -->

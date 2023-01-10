@@ -9,7 +9,7 @@ import type { LangContentKey, LangKey } from '../../_lang'
  * @param size 组件的尺寸
  */
 export interface UseGlobalProp {
-  type?: FightingType
+  type?: FightingType | null
   size?: FightingSize | string | number
 }
 

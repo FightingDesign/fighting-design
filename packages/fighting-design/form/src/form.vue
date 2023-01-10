@@ -87,7 +87,7 @@
   const validate = (): boolean => {
     getChildrenList.value.forEach((item: VNode): void => {
       /** 判断的每个自组件必须有 rules 和 name 参数 */
-      if (item.props && item.props.rules && item.props.name) {
+      if (item.props && item.props.rules && item.props.name && prop.model) {
         /** 获取到规则校验的信息 */
         const msg: string | boolean = checkRuleMassage(prop.model[item.props.name], item.props.rules)
 
