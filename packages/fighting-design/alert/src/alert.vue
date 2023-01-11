@@ -3,6 +3,7 @@
   import { ref, reactive, onMounted, toRefs } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
+  import { isNumber } from '../../_utils'
   import { useList, useRun, useGlobal, useAlertList } from '../../_hooks'
   import type { Ref } from 'vue'
 
@@ -45,7 +46,7 @@
       const { startMove } = useAlertList(alertListEl.value)
 
       /** 开始滚动 */
-      startMove(prop.duration || 2000)
+      startMove(isNumber(prop.duration) ? prop.duration : 2000)
     }
   })
 </script>
@@ -71,7 +72,7 @@
         </div>
 
         <!-- 滚动列表 -->
-        <div v-if="alertList && alertList.length" ref="alertListDom" class="f-alert__list">
+        <div v-if="alertList && alertList.length" ref="alertListEl" class="f-alert__list">
           <div v-for="(item, index) in alertList" :key="index" class="f-alert__list-item">{{ item }}</div>
         </div>
       </div>
