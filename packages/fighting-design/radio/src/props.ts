@@ -15,7 +15,7 @@ export const Props = {
    *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
-  name: setStringProp('f-radio'),
+  name: setStringProp<string>('f-radio'),
   /** 选框对应的值 */
   label: {
     type: [String, Number, Boolean] as PropType<RadioModelValue>,

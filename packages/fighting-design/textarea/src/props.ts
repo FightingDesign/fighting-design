@@ -35,7 +35,7 @@ export const Props = {
    *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-name
    */
-  name: setStringProp('f-textarea'),
+  name: setStringProp<string>('f-textarea'),
   /**
    * 占位符
    *

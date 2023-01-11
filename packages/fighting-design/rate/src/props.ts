@@ -16,9 +16,9 @@ export const Props = {
   /** 最大分值，展示的星星数量 */
   max: setNumberProp(5),
   /** 选中颜色 */
-  effectColor: setStringProp('#fcc202'),
+  effectColor: setStringProp<string>('#fcc202'),
   /** 未选中的颜色 */
-  invalidColor: setStringProp('#eef'),
+  invalidColor: setStringProp<string>('#eef'),
   /** 是否只读 */
   readonly: setBooleanProp(),
   /** 自定义 icon */

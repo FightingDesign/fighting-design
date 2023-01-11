@@ -7,4 +7,11 @@ describe('f-layout', () => {
     const wrapper = mount(FLayout)
     expect(wrapper.classes()).toContain('f-layout')
   })
+
+  test('direction', () => {
+    const wrapper = mount(FLayout, {
+      props: { direction: 'vertical' }
+    })
+    expect(wrapper.classes()).toContain('f-layout__vertical')
+  })
 })

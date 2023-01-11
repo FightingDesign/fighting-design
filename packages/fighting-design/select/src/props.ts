@@ -19,7 +19,7 @@ export const Props = {
    *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
-  name: setStringProp('f-select'),
+  name: setStringProp<string>('f-select'),
   /**
    * 占位符
    *

@@ -19,7 +19,7 @@ export const Props = {
     return (['large', 'middle', 'small', 'mini'] as const).includes(val)
   }),
   /** 时间格式 */
-  format: setStringProp('YYYY/MM/DD')
+  format: setStringProp<string>('YYYY/MM/DD')
 } as const
 
 export type DatePickerProps = ExtractPropTypes<typeof Props>

@@ -63,7 +63,7 @@ export const Props = {
    *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-name
    */
-  name: setStringProp('f-button'),
+  name: setStringProp<string>('f-button'),
   /** 自定义阴影样式 */
   shadow: setStringProp(),
   /** 是否为文字按钮（非自定义按钮颜色时有效） */

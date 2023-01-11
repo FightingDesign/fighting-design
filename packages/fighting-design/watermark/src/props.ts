@@ -11,7 +11,7 @@ export const Props = {
   /** 文字大小 */
   fontSize: setStringNumberProp('30px'),
   /** 文字颜色 */
-  fontColor: setStringProp('#333'),
+  fontColor: setStringProp<string>('#333'),
   /** 自定义图片水印 */
   image: setStringProp(),
   /** 是否为块级元素 */

@@ -55,7 +55,7 @@ export const Props = {
    *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
-  name: setStringProp('f-input-number'),
+  name: setStringProp<string>('f-input-number'),
   /**
    * 占位符
    *
