@@ -1,10 +1,4 @@
-import {
-  setBooleanProp,
-  setStringNumberProp,
-  setStringProp,
-  setNumberProp,
-  setArrayProp
-} from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setNumberProp, setArrayProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { ExpandCardImageList } from './interface'
 

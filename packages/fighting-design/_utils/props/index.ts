@@ -7,10 +7,10 @@ import type { Validator, BasicType } from './interface'
  * @param defaultVal 默认值
  */
 export const setBooleanProp = (defaultVal = false): BasicType<BooleanConstructor, boolean> =>
-({
-  type: Boolean,
-  default: () => defaultVal
-} as const)
+  ({
+    type: Boolean,
+    default: () => defaultVal
+  } as const)
 
 /**
  * 设置 number 类型 props 参数
@@ -18,10 +18,10 @@ export const setBooleanProp = (defaultVal = false): BasicType<BooleanConstructor
  * @param defaultVal 默认值
  */
 export const setNumberProp = <T extends number>(defaultVal?: null | T): BasicType<NumberConstructor, number | null> =>
-({
-  type: Number,
-  default: () => defaultVal || null
-} as const)
+  ({
+    type: Number,
+    default: () => defaultVal || null
+  } as const)
 
 /**
  * 设置 string 类型的 prop 参数
@@ -55,10 +55,10 @@ export const setStringProp = <T extends string>(
 export const setStringNumberProp = <T extends string | number>(
   defaultVal?: T
 ): BasicType<PropType<string | number>, string | number | null> =>
-({
-  type: [String, Number] as PropType<string | number>,
-  default: () => defaultVal || null
-} as const)
+  ({
+    type: [String, Number] as PropType<string | number>,
+    default: () => defaultVal || null
+  } as const)
 
 /**
  * 设置 object 类型 props 参数
@@ -66,10 +66,10 @@ export const setStringNumberProp = <T extends string | number>(
  * @param defaultVal 默认值
  */
 export const setObjectProp = <T>(defaultVal = null): BasicType<PropType<T>, null> =>
-({
-  type: Object as PropType<T>,
-  default: () => defaultVal
-} as const)
+  ({
+    type: Object as PropType<T>,
+    default: () => defaultVal
+  } as const)
 
 /**
  * 设置 function 类型 props 参数
@@ -77,10 +77,10 @@ export const setObjectProp = <T>(defaultVal = null): BasicType<PropType<T>, null
  * @param defaultVal 默认值
  */
 export const setFunctionProp = <T extends Function>(defaultVal = null): BasicType<PropType<T>, null> =>
-({
-  type: Function as PropType<T>,
-  default: () => defaultVal
-} as const)
+  ({
+    type: Function as PropType<T>,
+    default: () => defaultVal
+  } as const)
 
 /**
  * 设置 array 类型 props 参数

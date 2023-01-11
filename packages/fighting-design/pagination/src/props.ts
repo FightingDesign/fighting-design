@@ -1,10 +1,4 @@
-import {
-  setBooleanProp,
-  setObjectProp,
-  setNumberProp,
-  setFunctionProp,
-  setArrayProp
-} from '../../_utils'
+import { setBooleanProp, setObjectProp, setNumberProp, setFunctionProp, setArrayProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { PaginationEvent } from './interface'
 import type { FightingIcon } from '../../_interface'

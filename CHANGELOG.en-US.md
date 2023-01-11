@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.17.2 (2023-01-11)
+
+**Fix**
+
+- Fix `f-alert` rolling failure
+
 ## 0.17.1 (2023-01-10)
 
 **Fix**

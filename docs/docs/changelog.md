@@ -2,6 +2,19 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.17.2 (2023-01-11)
+
+**修复**
+
+- 修复 `f-alert` 滚动失效问题
+
+## 0.17.1 (2023-01-10)
+
+**修复**
+
+- 修复 `f-alert` `f-link` `f-ripple` `f-tag` `f-text` 响应式失效问题
+- 修复 `f-number-animate` 返回 NaN 的问题
+
 ## 0.17.0 (2023-01-09)
 
 **优化**

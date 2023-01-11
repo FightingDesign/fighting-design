@@ -1,9 +1,4 @@
-import {
-  setBooleanProp,
-  setStringProp,
-  setStringNumberProp,
-  setArrayProp
-} from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setArrayProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { TableAlign, TableDate, TableColumns } from './interface'
 

@@ -39,7 +39,6 @@ export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
 
   /** 滚动元素 */
   const moveNext = (): void => {
-
     /** 开始的滚动高度 */
     let from: number = scrollIndex * itemHeight
 
@@ -48,9 +47,9 @@ export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
     /** 目标滚动高度 */
     const to: number = scrollIndex * itemHeight
 
-    /** 
+    /**
      * 总时间
-     * 
+     *
      * 期望在指定时间内完成动画
      */
     const totalDuration = 500
@@ -85,7 +84,7 @@ export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
 
       /**
        * 设置元素滚动
-       * 
+       *
        * @see scrollTop https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop
        */
       node.scrollTop = from

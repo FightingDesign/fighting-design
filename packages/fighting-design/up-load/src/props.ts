@@ -1,9 +1,4 @@
-import {
-  setBooleanProp,
-  setStringProp,
-  setNumberProp,
-  setArrayProp
-} from '../../_utils'
+import { setBooleanProp, setStringProp, setNumberProp, setArrayProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 
 export const Props = {

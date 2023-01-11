@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.17.2 (2023-01-11)
+
 **修复**
 
 - 修复 `f-alert` 滚动失效问题
