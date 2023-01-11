@@ -149,7 +149,6 @@
 | `zebra`        | 是否显示斑马纹   | boolean                                                            | ——                              | false  |
 | `zebra-color`  | 自定义斑马纹颜色 | string                                                             | ——                              | ——     |
 | `center`       | 是否居中         | boolean                                                            | ——                              | false  |
-| `text-color`   | 自定义文字颜色   | string                                                             | ——                              | ——     |
 | `border-color` | 自定义边框颜色   | string                                                             | ——                              | ——     |
 | `size`         | 尺寸             | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
 | `max-height`   | 最大高度         | string / number                                                    | ——                              | ——     |
