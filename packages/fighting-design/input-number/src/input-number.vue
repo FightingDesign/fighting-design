@@ -112,6 +112,7 @@
         :readonly="readonly"
         :autofocus="autofocus"
         :name="name"
+        :size="size"
         :clear="clear"
         :placeholder="placeholder"
         :on-blur="onBlur"
