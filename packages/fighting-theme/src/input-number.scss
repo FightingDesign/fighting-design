@@ -33,9 +33,29 @@
     .f-input-number__switch {
       display: flex;
       flex-direction: column;
+      height: 100%;
+
+      // 不同尺寸
+      &.f-input-number__switch-large .f-svg-icon {
+        font-size: 15px;
+      }
+
+      &.f-input-number__switch-middle .f-svg-icon {
+        font-size: 14px;
+      }
+
+      &.f-input-number__switch-small .f-svg-icon {
+        font-size: 13px;
+      }
+
+      &.f-input-number__switch-mini .f-svg-icon {
+        font-size: 12px;
+      }
 
       .f-button {
+        border-radius: 0;
         width: 20px;
+        height: 45%;
         padding: 0;
         flex: 1;
       }

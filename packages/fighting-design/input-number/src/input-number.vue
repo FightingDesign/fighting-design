@@ -31,9 +31,9 @@
     /**
      * 当设置新的值的时候，同步数据
      *
-     * @param val 新值
+     * @param val 最新值
      */
-    set: (val: number) => {
+    set: (val: number): void => {
       emit('update:modelValue', Number(val))
     }
   })
@@ -100,7 +100,7 @@
       :size="size"
       :disabled="disabled || minDisabled"
       :before-icon="FIconChevronLeftVue"
-      @click="handleChangeVal('minus')"
+      :on-click="() => handleChangeVal('minus')"
     />
 
     <div class="f-input-number__wrapper">
@@ -122,18 +122,18 @@
         :on-change="onChange"
       >
         <template #after>
-          <div v-if="model === 'switch'" class="f-input-number__switch">
+          <div v-if="model === 'switch'" :class="['f-input-number__switch', `f-input-number__switch-${size}`]">
             <f-button
               :disabled="disabled || maxDisabled"
               :size="size"
               :before-icon="FIconChevronUp"
-              @click="handleChangeVal('plus')"
+              :onclick="() => handleChangeVal('plus')"
             />
             <f-button
               :disabled="disabled || minDisabled"
               :size="size"
               :before-icon="FIconChevronDown"
-              @click="handleChangeVal('minus')"
+              :on-click="() => handleChangeVal('minus')"
             />
           </div>
         </template>
@@ -147,7 +147,7 @@
       :size="size"
       :disabled="disabled || maxDisabled"
       :before-icon="FIconChevronRightVue"
-      @click="handleChangeVal('plus')"
+      :on-click="() => handleChangeVal('plus')"
     />
   </div>
 </template>
