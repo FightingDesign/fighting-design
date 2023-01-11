@@ -5,6 +5,7 @@
   import { FText } from '../../text'
   import { useRun } from '../../_hooks'
   import { ref, watch, unref, computed } from 'vue'
+  import { isNumber } from '../../_utils'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -54,13 +55,16 @@
   const textContent = computed((): string => {
     return prop.textArr[unref(starValue) - 1]
   })
+
+  /** 返回星星的最大数量 */
+  const maxLength = computed((): number => (isNumber(prop.max) ? prop.max : 5))
 </script>
 
 <template>
   <div class="f-rate" role="slider">
     <div class="f-rate__list">
       <div
-        v-for="(star, index) in max"
+        v-for="(star, index) in maxLength"
         :key="index"
         :class="['f-rate__star', { 'f-rate__star-readonly': readonly }]"
         @mouseout="onMouseout"
