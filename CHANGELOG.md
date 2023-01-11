@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 修复 `f-button` 在 icon 状态下导致的意外边距问题
+
 ## 0.17.2 (2023-01-11)
 
 **修复**
