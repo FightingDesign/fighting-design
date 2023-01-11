@@ -7,4 +7,4 @@ node_modules/*
 logo/*
 start/dist/*
 packages/fighting-add-component/template/*
-script/*
+scripts/**
