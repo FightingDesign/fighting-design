@@ -199,7 +199,7 @@
   }
 
   // icon 在不是圆形的时候带有边距
-  &:not([class~='f-button__circle']) {
+  &:not([class~='f-button__circle f-button__icon']):not([class~='f-button__icon']) {
     .f-button_before-icon {
       margin-right: 5px;
     }

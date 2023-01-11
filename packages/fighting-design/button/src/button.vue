@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FButton">
   import { Props } from './props'
   import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
-  import { computed, ref, inject, toRefs, reactive } from 'vue'
+  import { computed, ref, inject, toRefs, reactive, useSlots } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
   import { useCalculiColor, useRipples, useRun, useGlobal } from '../../_hooks'
@@ -11,6 +11,7 @@
   import type { ClassList, FightingSize } from '../../_interface'
 
   const prop = defineProps(Props)
+  const slot = useSlots()
 
   /** 元素节点 */
   const FButtonEl: Ref<HTMLButtonElement | null> = ref(null)
@@ -37,7 +38,15 @@
         'f-button__block': block,
         'f-button__bold': bold,
         'f-button__color': color,
-        'f-button__text': text && !color
+        'f-button__text': text && !color,
+        /**
+         * 该类名针对配置了 beforeIcon 或者 afterIcon 而没有默认插槽时候的意外样式
+         *
+         * 前后属性 icon 默认配置了除圆形按钮外的左右边距
+         *
+         * 所以在 icon 按钮状态下并不需要左右边距
+         */
+        'f-button__icon': !(slot.default && !!slot.default())
       }
     ] as const
   })

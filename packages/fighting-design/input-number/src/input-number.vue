@@ -97,6 +97,7 @@
       v-if="model === 'button'"
       class="f-input-number__minus"
       type="primary"
+      :size="size"
       :disabled="disabled || minDisabled"
       :before-icon="FIconChevronLeftVue"
       @click="handleChangeVal('minus')"
@@ -124,11 +125,13 @@
           <div v-if="model === 'switch'" class="f-input-number__switch">
             <f-button
               :disabled="disabled || maxDisabled"
+              :size="size"
               :before-icon="FIconChevronUp"
               @click="handleChangeVal('plus')"
             />
             <f-button
               :disabled="disabled || minDisabled"
+              :size="size"
               :before-icon="FIconChevronDown"
               @click="handleChangeVal('minus')"
             />
@@ -141,6 +144,7 @@
       v-if="model === 'button'"
       class="f-input-number__plus"
       type="primary"
+      :size="size"
       :disabled="disabled || maxDisabled"
       :before-icon="FIconChevronRightVue"
       @click="handleChangeVal('plus')"
