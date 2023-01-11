@@ -4,9 +4,10 @@ import {
   setStringNumberProp,
   setObjectProp,
   setNumberProp,
-  setFunctionProp
+  setFunctionProp,
+  setArrayProp
 } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import type { HandleMouse, FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -48,10 +49,7 @@ export const Props = {
   /** 自定义之前的 icon */
   beforeIcon: setObjectProp<FightingIcon>(),
   /** 滚动列表 */
-  alertList: {
-    type: Array as PropType<string[]>,
-    default: (): null => null
-  },
+  alertList: setArrayProp<string[]>(),
   /** 滚动列表动画间隔 */
   duration: setNumberProp(),
   /** 点击关闭之后执行的回调 */

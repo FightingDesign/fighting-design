@@ -1,15 +1,18 @@
-import { setBooleanProp, setStringProp, setNumberProp, setFunctionProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import {
+  setBooleanProp,
+  setStringProp,
+  setNumberProp,
+  setFunctionProp,
+  setArrayProp
+} from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { HandleMouse } from '../../_interface'
 
 export const Props = {
   /** 是否展示预览框 */
   visible: setBooleanProp(),
   /** 图片集合 */
-  imgList: {
-    type: Array as PropType<string[]>,
-    default: (): string[] => []
-  },
+  imgList: setArrayProp<string[]>([]),
   /** 是否点击遮罩层关闭预览窗 */
   modalClose: setBooleanProp(true),
   /** 是否展示关闭按钮 */

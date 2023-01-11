@@ -1,4 +1,4 @@
-import { setBooleanProp } from '../../../../_utils'
+import { setBooleanProp, setArrayProp } from '../../../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type {
   TabsNavInstance,
@@ -14,10 +14,7 @@ import type { SetActiveName } from '../../../../_hooks'
 
 export const Props = {
   /** 标题配置 */
-  navs: {
-    type: Array as PropType<TabsNavInstance[]>,
-    default: (): null => null
-  },
+  navs: setArrayProp<TabsNavInstance[]>(),
   /**
    * 样式风格
    *

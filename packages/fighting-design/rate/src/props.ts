@@ -4,9 +4,10 @@ import {
   setStringNumberProp,
   setObjectProp,
   setNumberProp,
-  setFunctionProp
+  setFunctionProp,
+  setArrayProp
 } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import type { RateChange } from './interface'
 import type { FightingIcon } from '../../_interface'
 
@@ -30,10 +31,7 @@ export const Props = {
   /** 辅助文字颜色 */
   textColor: setStringProp(),
   /** 辅助文字数组 */
-  textArr: {
-    type: Array as PropType<string[]>,
-    default: (): string[] => ['极差', '失望', '一般', '不错', '很棒']
-  },
+  textArr: setArrayProp<string[]>(['极差', '失望', '一般', '不错', '很棒']),
   /** 辅助文字尺寸 */
   textSize: setStringNumberProp(),
   /** 当分数发生改变时触发 */

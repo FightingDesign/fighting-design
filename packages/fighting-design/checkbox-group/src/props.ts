@@ -1,14 +1,17 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
-import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
+import {
+  setBooleanProp,
+  setStringNumberProp,
+  setStringProp,
+  setFunctionProp,
+  setArrayProp
+} from '../../_utils'
+import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { CheckboxGroupChange } from './interface'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
   /** 绑定值 */
-  modelValue: {
-    type: Array as PropType<string[]>,
-    default: (): string[] => []
-  },
+  modelValue: setArrayProp<string[]>([]),
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 是否纵向排列 */

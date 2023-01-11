@@ -1,12 +1,14 @@
-import { setBooleanProp, setStringProp, setNumberProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import {
+  setBooleanProp,
+  setStringProp,
+  setNumberProp,
+  setArrayProp
+} from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   /** 文件列表 */
-  files: {
-    type: Array as PropType<File[]>,
-    default: (): File[] => []
-  },
+  files: setArrayProp<File[]>([]),
   /** 接受的文件类型 */
   accept: setStringProp(),
   /**

@@ -1,5 +1,11 @@
-import { setBooleanProp, setObjectProp, setNumberProp, setFunctionProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import {
+  setBooleanProp,
+  setObjectProp,
+  setNumberProp,
+  setFunctionProp,
+  setArrayProp
+} from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { PaginationEvent } from './interface'
 import type { FightingIcon } from '../../_interface'
 
@@ -17,10 +23,7 @@ export const Props = {
   /** 每页条数 */
   pageSize: setNumberProp(10),
   /** 是否启用选择器选择最大页数 */
-  pageSizes: {
-    type: Array as PropType<number[]>,
-    default: (): null => null
-  },
+  pageSizes: setArrayProp<number[]>(),
   /** 当页码超过多少时开始展开省略符号 */
   pagerCount: setNumberProp(7),
   /** 是否带有背景色 */

@@ -1,18 +1,17 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setArrayProp
+} from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { TableAlign, TableDate, TableColumns } from './interface'
 
 export const Props = {
   /** 数据列表 */
-  data: {
-    type: Array as PropType<TableDate>,
-    default: (): null => null
-  },
+  data: setArrayProp<TableDate>(),
   /** 标题数据 */
-  columns: {
-    type: Array as PropType<TableColumns[]>,
-    default: (): null => null
-  },
+  columns: setArrayProp<TableColumns[]>(),
   /**
    * 内容对齐方式
    *
