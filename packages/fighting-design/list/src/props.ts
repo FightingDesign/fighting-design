@@ -7,6 +7,8 @@ export const Props = {
   zebra: setBooleanProp(),
   /** 是否居中 */
   center: setBooleanProp(),
+  /** 自定义文字颜色 */
+  textColor: setStringProp(),
   /** 自定义边框颜色 */
   borderColor: setStringProp(),
   /**
