@@ -2,7 +2,14 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复**
+
 - 修复 `f-button` 在 icon 状态下导致的意外边距问题
+- 修复 `f-input-number` 组件 size 失效问题
+
+**新增**
+
+- 新增 `f-input-number` 组件 `button-type` 配置项
 
 ## 0.17.2 (2023-01-11)
 

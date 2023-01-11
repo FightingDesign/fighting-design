@@ -10,10 +10,10 @@
   </f-button>
   <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock"> 前后都有 </f-button>
 
-  <f-input-number v-model="value2" model="button" size="large" />
-  <f-input-number v-model="value2" model="button" size="middle" />
-  <f-input-number v-model="value2" model="button" size="small" />
-  <f-input-number v-model="value2" model="button" size="mini" />
+  <f-input-number v-model="value2" model="switch" button-type="success" size="large" />
+  <f-input-number v-model="value2" model="switch" button-type="success" size="middle" />
+  <f-input-number v-model="value2" model="switch" button-type="success" size="small" />
+  <f-input-number v-model="value2" model="switch" button-type="success" size="mini" />
 </template>
 
 <style>

@@ -1,7 +1,7 @@
 import { setBooleanProp, setStringProp, setNumberProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { InputNumberModel } from './interface'
-import type { HandleEvent, FightingSize, InputChange } from '../../_interface'
+import type { HandleEvent, FightingSize, InputChange, FightingType } from '../../_interface'
 
 export const Props = {
   /**
@@ -25,6 +25,16 @@ export const Props = {
    * @defaultValue 0
    */
   precision: setNumberProp(0),
+  /** 切换的按钮类型 */
+  /**
+   * 按钮的类型（非自定义按钮颜色时有效）
+   *
+   * @values default primary success danger warning
+   * @defaultValue null
+   */
+  buttonType: setStringProp<FightingType>(null, (val: FightingType): boolean => {
+    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+  }),
   /**
    * 步长
    *

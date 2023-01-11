@@ -96,7 +96,7 @@
     <f-button
       v-if="model === 'button'"
       class="f-input-number__minus"
-      type="primary"
+      :type="buttonType || 'primary'"
       :size="size"
       :disabled="disabled || minDisabled"
       :before-icon="FIconChevronLeftVue"
@@ -126,12 +126,14 @@
             <f-button
               :disabled="disabled || maxDisabled"
               :size="size"
+              :type="buttonType || 'default'"
               :before-icon="FIconChevronUp"
               :onclick="() => handleChangeVal('plus')"
             />
             <f-button
               :disabled="disabled || minDisabled"
               :size="size"
+              :type="buttonType || 'default'"
               :before-icon="FIconChevronDown"
               :on-click="() => handleChangeVal('minus')"
             />
@@ -143,7 +145,7 @@
     <f-button
       v-if="model === 'button'"
       class="f-input-number__plus"
-      type="primary"
+      :type="buttonType || 'primary'"
       :size="size"
       :disabled="disabled || maxDisabled"
       :before-icon="FIconChevronRightVue"
