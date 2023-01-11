@@ -1,23 +1,5 @@
-<script lang="ts" setup>
-  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
-  import { ref } from 'vue'
+<script lang="ts" setup></script>
 
-  const value2 = ref(20)
-</script>
+<template></template>
 
-<template>
-  <f-button :before-icon="FIconApps" type="primary">
-  </f-button>
-  <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock"> 前后都有 </f-button>
-
-  <f-input-number v-model="value2" model="switch" button-type="success" size="large" />
-  <f-input-number v-model="value2" model="switch" button-type="success" size="middle" />
-  <f-input-number v-model="value2" model="switch" button-type="success" size="small" />
-  <f-input-number v-model="value2" model="switch" button-type="success" size="mini" />
-</template>
-
-<style>
-  .f-input-number {
-    margin-top: 20px;
-  }
-</style>
+<style lang="scss" scoped></style>

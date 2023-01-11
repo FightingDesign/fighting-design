@@ -37,28 +37,69 @@
 
 :::
 
+## 不同尺寸
+
+`size` 属性可配置不同尺寸
+
+::: demo
+
+<template #source>
+<f-input-number v-model="value2" model="switch" size="large" />
+<f-input-number v-model="value2" model="switch" size="middle" />
+<f-input-number v-model="value2" model="switch" size="small" />
+<f-input-number v-model="value2" model="switch" size="mini" />
+
+<f-input-number v-model="value2" model="button" size="large" />
+<f-input-number v-model="value2" model="button" size="middle" />
+<f-input-number v-model="value2" model="button" size="small" />
+<f-input-number v-model="value2" model="button" size="mini" />
+</template>
+
+```html
+<template>
+  <f-input-number v-model="value2" model="switch" size="large" />
+  <f-input-number v-model="value2" model="switch" size="middle" />
+  <f-input-number v-model="value2" model="switch" size="small" />
+  <f-input-number v-model="value2" model="switch" size="mini" />
+
+  <f-input-number v-model="value2" model="button" size="large" />
+  <f-input-number v-model="value2" model="button" size="middle" />
+  <f-input-number v-model="value2" model="button" size="small" />
+  <f-input-number v-model="value2" model="button" size="mini" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value2 = ref(16)
+</script>
+```
+
+:::
+
 ## Attributes
 
-| 参数          | 说明                       | 类型                                                               | 可选值                          | 默认值         |
-| ------------- | -------------------------- | ------------------------------------------------------------------ | ------------------------------- | -------------- |
-| `v-model`     | 绑定值                     | number                                                             | ——                              | 1              |
-| `model`       | 不同模式                   | <a href="#inputnumbermodel">InputNumberModel</a>                   | `default` `button` `switch`     | default        |
-| `precision`   | 数值精度                   | number                                                             | ——                              | 0              |
-| `step`        | 步长                       | number                                                             | ——                              | 1              |
-| `size`        | 尺寸                       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle         |
-| `disabled`    | 是否禁用                   | boolean                                                            | ——                              | false          |
-| `max`         | 最大值                     | number                                                             | ——                              | ——             |
-| `min`         | 最小值                     | number                                                             | ——                              | ——             |
-| `max-length`  | 最大输入长度               | number                                                             | ——                              | ——             |
-| `autofocus`   | 是否自动聚焦               | boolean                                                            | ——                              | false          |
-| `name`        | 原生 name 属性             | string                                                             | ——                              | f-input-number |
-| `placeholder` | 占位符                     | string                                                             | ——                              | ——             |
-| `clear`       | 是否可清空                 | boolean                                                            | ——                              | false          |
-| `readonly`    | 是否只读                   | boolean                                                            | ——                              | false          |
-| `on-blur`     | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——             |
-| `on-focus`    | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——             |
-| `on-input`    | 原生 input 事件回调        | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——             |
-| `on-change`   | 绑定值发生变化时触发的回调 | <a href="/components/interface.html#inputchange">InputChange</a>   | ——                              | ——             |
+| 参数          | 说明                       | 类型                                                               | 可选值                                           | 默认值         |
+| ------------- | -------------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | -------------- |
+| `v-model`     | 绑定值                     | number                                                             | ——                                               | 1              |
+| `model`       | 不同模式                   | <a href="#inputnumbermodel">InputNumberModel</a>                   | `default` `button` `switch`                      | default        |
+| `precision`   | 数值精度                   | number                                                             | ——                                               | 0              |
+| `step`        | 步长                       | number                                                             | ——                                               | 1              |
+| `size`        | 尺寸                       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                  | middle         |
+| `button-type` | 按钮的类型                 | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | ——             |
+| `disabled`    | 是否禁用                   | boolean                                                            | ——                                               | false          |
+| `max`         | 最大值                     | number                                                             | ——                                               | ——             |
+| `min`         | 最小值                     | number                                                             | ——                                               | ——             |
+| `max-length`  | 最大输入长度               | number                                                             | ——                                               | ——             |
+| `autofocus`   | 是否自动聚焦               | boolean                                                            | ——                                               | false          |
+| `name`        | 原生 name 属性             | string                                                             | ——                                               | f-input-number |
+| `placeholder` | 占位符                     | string                                                             | ——                                               | ——             |
+| `clear`       | 是否可清空                 | boolean                                                            | ——                                               | false          |
+| `readonly`    | 是否只读                   | boolean                                                            | ——                                               | false          |
+| `on-blur`     | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                                               | ——             |
+| `on-focus`    | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                                               | ——             |
+| `on-input`    | 原生 input 事件回调        | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                                               | ——             |
+| `on-change`   | 绑定值发生变化时触发的回调 | <a href="/components/interface.html#inputchange">InputChange</a>   | ——                                               | ——             |
 
 ## Interface
 
@@ -92,6 +133,7 @@ type InputNumberModel = 'default' | 'button' | 'switch'
   import { ref } from 'vue'
 
   const value1 = ref(3)
+  const value2 = ref(16)
 </script>
 
 <style scoped>
