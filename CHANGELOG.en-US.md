@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.17.3 (2023-01-11)
+
+**Fix**
+
+- Fix unexpected margin problems caused by `f-button` in icon state
+- Fix `f-input-number` component size failure
+
+**New**
+
+- Add `f-input-number` component `button-type` configuration item
+
 ## 0.17.2 (2023-01-11)
 
 **Fix**
@@ -15,7 +26,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 **Fix**
 
 - Fix `f-alert` `f-link` `f-rip` `f-tag` `f-text` reactive failure
-- Fix the problem of 'f-number-animate' returning NaN
+- Fix the problem of `f-number-animate` returning NaN
 
 ## 0.17.0 (2023-01-09)
 
