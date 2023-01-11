@@ -68,7 +68,7 @@ export const Props = {
    *
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
-  name: setStringProp('f-input'),
+  name: setStringProp<string>('f-input'),
   /**
    * 占位符
    *
