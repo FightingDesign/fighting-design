@@ -5,7 +5,7 @@ import {
   setObjectProp,
   setFunctionProp
 } from '../../_utils'
-import { FIGHTING_SIZE } from '../../_tokens'
+import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { ButtonTarget, ButtonNative } from './interface'
 import type {
@@ -66,7 +66,7 @@ export const Props = {
    * @defaultValue null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
-    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+    return FIGHTING_TYPE.includes(val)
   }),
   /** 是否自动获取焦点 */
   autofocus: setBooleanProp(),

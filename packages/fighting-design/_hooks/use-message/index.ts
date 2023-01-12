@@ -3,6 +3,8 @@ import notificationVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
 import { useMassageManage, useRun } from '../../_hooks'
 import { isString } from '../../_utils'
+import { FIGHTING_TYPE } from '../../_tokens'
+import type { FightingType } from '../../_interface'
 import type { ComponentInternalInstance, VNode } from 'vue'
 import type {
   MessageInstance,
@@ -77,9 +79,7 @@ export const useMessage = (target: 'message' | 'notification'): UseMessageReturn
     return instance
   }
 
-  const messageTypes = ['default', 'primary', 'success', 'danger', 'warning'] as const
-
-  messageTypes.forEach((type): void => {
+  FIGHTING_TYPE.forEach((type: FightingType): void => {
     instance[type] = (text: string): MessageInstance => {
       return instance({ message: text, type })
     }

@@ -1,4 +1,10 @@
-import { setBooleanProp, setStringProp, setNumberProp, setObjectProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setNumberProp,
+  setObjectProp
+} from '../../_utils'
+import { FIGHTING_TYPE } from '../../_tokens'
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
 import type { NotificationPlacement } from './interface'
 import type { FightingType, FightingIcon } from '../../_interface'
@@ -24,7 +30,7 @@ export const Props = {
    * @defaultValue default
    */
   type: setStringProp<FightingType>('default', (val: FightingType): boolean => {
-    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+    return FIGHTING_TYPE.includes(val)
   }),
   /** 是否可关闭 */
   close: setBooleanProp(),

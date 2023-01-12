@@ -2,7 +2,7 @@
   import { Props, FIGHTING_GLOBAL_PROPS_KEY } from './props'
   import { provide, reactive, computed } from 'vue'
   import { useProps } from '../../_hooks'
-  import { FIGHTING_SIZE } from '../../_tokens'
+  import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
   import type { FightingType, FightingLang, FightingSize } from '../../_interface'
   import type { FightingGlobalProps } from './interface'
 
@@ -15,7 +15,7 @@
     return interceptors(
       'type',
       (): boolean => {
-        return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(prop.type as FightingType)
+        return FIGHTING_TYPE.includes(prop.type as FightingType)
       },
       'default'
     )

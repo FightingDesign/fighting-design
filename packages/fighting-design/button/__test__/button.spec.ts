@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FButton } from '../index'
 import { useCalculiColor } from '../../_hooks'
-import { FIGHTING_SIZE } from '../../_tokens'
+import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
 
 describe('FButton', () => {
   test('class', () => {
@@ -104,8 +104,7 @@ describe('FButton', () => {
   })
 
   test('type', () => {
-    const type = ['default', 'primary', 'success', 'danger', 'warning'] as const
-    type.forEach(item => {
+    FIGHTING_TYPE.forEach(item => {
       const wrapper = mount(FButton, {
         props: { type: item }
       })

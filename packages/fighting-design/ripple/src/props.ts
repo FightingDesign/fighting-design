@@ -1,4 +1,5 @@
 import { setBooleanProp, setStringProp, setNumberProp } from '../../_utils'
+import { FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { FightingType } from '../../_interface'
 
@@ -14,7 +15,7 @@ export const Props = {
    * @defaultValue null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
-    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+    return FIGHTING_TYPE.includes(val)
   }),
   /** 是否禁用 */
   disabled: setBooleanProp(),

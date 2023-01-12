@@ -4,7 +4,7 @@ import {
   setNumberProp,
   setFunctionProp
 } from '../../_utils'
-import { FIGHTING_SIZE } from '../../_tokens'
+import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { InputNumberModel } from './interface'
 import type {
@@ -44,7 +44,7 @@ export const Props = {
    * @defaultValue null
    */
   buttonType: setStringProp<FightingType>(null, (val: FightingType): boolean => {
-    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+    return FIGHTING_TYPE.includes(val)
   }),
   /**
    * 步长

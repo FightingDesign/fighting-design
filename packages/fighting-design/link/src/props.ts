@@ -1,4 +1,11 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
+import { FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { LinkTarget, LinkState } from './interface'
 import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
@@ -11,7 +18,7 @@ export const Props = {
    * @defaultValue null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
-    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+    return FIGHTING_TYPE.includes(val)
   }),
   /**
    * 链接的地址

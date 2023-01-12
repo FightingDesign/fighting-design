@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FLink } from '../index'
+import { FIGHTING_TYPE } from '../../_tokens'
 
 describe('FLink', () => {
   test('class', () => {
@@ -9,8 +10,7 @@ describe('FLink', () => {
   })
 
   test('type', () => {
-    const type = ['default', 'primary', 'success', 'danger', 'warning'] as const
-    type.forEach(item => {
+    FIGHTING_TYPE.forEach(item => {
       const wrapper = mount(FLink, {
         props: { type: item }
       })

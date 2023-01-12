@@ -1,4 +1,9 @@
-import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp
+} from '../../_utils'
+import { FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { TextDecoration } from './interface'
 import type { FightingType } from '../../_interface'
@@ -11,7 +16,7 @@ export const Props = {
    * @defaultValue null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
-    return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
+    return FIGHTING_TYPE.includes(val)
   }),
   /**
    * 文字大小
