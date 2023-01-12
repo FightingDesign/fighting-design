@@ -14,6 +14,8 @@
   cursor: pointer;
   white-space: nowrap;
   vertical-align: middle;
+  height: var(--f-design-height-middle);
+  padding: 0 var(--f-design-padding-middle);
   transition: var(--f-design-transition-time);
   border-radius: var(--f-design-border-radius-1);
   background: var(--f-design-color-default-1);
@@ -207,5 +209,14 @@
     .f-button_after-icon {
       margin-left: 5px;
     }
+  }
+
+  // 如果在类名都移除状态下的备用样式
+  &:not([disabled]):hover {
+    background: var(--f-design-color-default-2);
+  }
+
+  &:not([disabled]):active {
+    background: var(--f-design-color-default-3);
   }
 }

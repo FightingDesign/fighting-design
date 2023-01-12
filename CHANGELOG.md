@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**优化**
+
+- 优化 `f-tag` 样式细节问题
+- 优化 `f-button` 样式细节问题
+
 ## 0.18.0 (2023-01-12)
 
 **修复**
