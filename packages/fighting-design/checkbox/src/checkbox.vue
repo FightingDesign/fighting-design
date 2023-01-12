@@ -4,13 +4,14 @@
   import { useRun } from '../../_hooks'
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import { isArray, isBoolean } from '../../_utils'
+  import { EMIT_UPDATE } from '../../_tokens'
   import type { CheckboxGroupInject } from '../../checkbox-group'
   import type { ClassList } from '../../_interface'
   import type { CheckboxModelValue } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: CheckboxModelValue): CheckboxModelValue => typeof val !== 'object'
+    [EMIT_UPDATE]: (val: CheckboxModelValue): CheckboxModelValue => typeof val !== 'object'
   })
 
   /** 获取父组件注入的依赖项 */
@@ -28,7 +29,7 @@
      */
     set: (val: CheckboxModelValue | string[]): void => {
       if (!parentInject) {
-        emit('update:modelValue', val as CheckboxModelValue)
+        emit(EMIT_UPDATE, val as CheckboxModelValue)
         useRun(prop.onChange, val)
         return
       }

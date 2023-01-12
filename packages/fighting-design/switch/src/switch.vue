@@ -3,11 +3,12 @@
   import { computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { useList, useRun } from '../../_hooks'
+  import { EMIT_UPDATE } from '../../_tokens'
   import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (target: boolean): string => String(target)
+    [EMIT_UPDATE]: (target: boolean): string => String(target)
   })
 
   const { styles } = useList(prop, 'switch')
@@ -18,7 +19,7 @@
   /** 点击切换 */
   const handleClick = (): void => {
     if (prop.disabled) return
-    emit('update:modelValue', !prop.modelValue)
+    emit(EMIT_UPDATE, !prop.modelValue)
     useRun(prop.onChange, !prop.modelValue)
   }
 

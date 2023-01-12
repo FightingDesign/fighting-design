@@ -5,6 +5,7 @@
   import { provide, reactive, computed, useSlots } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { getChildren } from '../../_utils'
+  import { EMIT_UPDATE } from '../../_tokens'
   import type { VNode } from 'vue'
   import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
   import type { OptionProps } from '../../option'
@@ -12,7 +13,7 @@
   const prop = defineProps(Props)
   const slot = useSlots()
   const emit = defineEmits({
-    'update:modelValue': (val: SelectModelValue): boolean => !!val
+    [EMIT_UPDATE]: (val: SelectModelValue): boolean => !!val
   })
 
   const { styles } = useList(prop, 'select')
@@ -93,7 +94,7 @@
    */
   const setValue = (newValue: string, newLabel: SelectModelValue): void => {
     inputValue.value = newValue
-    emit('update:modelValue', newLabel)
+    emit(EMIT_UPDATE, newLabel)
   }
 
   /** 向自组件注入依赖项 */

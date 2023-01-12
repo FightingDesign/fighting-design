@@ -3,16 +3,17 @@
   import { FSvgIcon } from '../../svg-icon'
   import { useRun } from '../../_hooks'
   import { computed } from 'vue'
+  import { EMIT_UPDATE } from '../../_tokens'
   import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (target: boolean): boolean => target
+    [EMIT_UPDATE]: (target: boolean): boolean => target
   })
 
   /** 切换时执行 */
   const changeSwap = (): void => {
-    emit('update:modelValue', !prop.modelValue)
+    emit(EMIT_UPDATE, !prop.modelValue)
     useRun(prop.onChange, !prop.modelValue)
   }
 

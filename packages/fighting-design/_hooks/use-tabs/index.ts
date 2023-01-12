@@ -1,6 +1,15 @@
-import { getCurrentInstance, ref, nextTick, onMounted, watch, computed, provide } from 'vue'
+import {
+  getCurrentInstance,
+  ref,
+  nextTick,
+  onMounted,
+  watch,
+  computed,
+  provide
+} from 'vue'
 import { getChildrenComponent } from '../../_utils'
 import { useRun } from '../../_hooks'
+import { EMIT_UPDATE } from '../../_tokens'
 import { TABS_PROPS_KEY } from '../../tabs/src/props'
 import type { ComponentInternalInstance, VNode } from 'vue'
 import type { UseTabsReturn, TabsProvide, SetActiveNameEmit } from './interface'
@@ -29,7 +38,7 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
   const setActiveName = (name: TabsModelValue): void => {
     activeName.value = name
     /** 回调更新绑定值 */
-    emit('update:modelValue', name)
+    emit(EMIT_UPDATE, name)
   }
 
   /**

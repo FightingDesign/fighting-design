@@ -4,12 +4,13 @@
   import { useRun } from '../../_hooks'
   import { computed, inject } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
+  import { EMIT_UPDATE } from '../../_tokens'
   import type { RadioGroundInject, RadioModelValue } from '../../radio-group'
   import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: RadioModelValue): boolean => isString(val) || isNumber(val) || isBoolean(val)
+    [EMIT_UPDATE]: (val: RadioModelValue): boolean => isString(val) || isNumber(val) || isBoolean(val)
   })
 
   /** 获取父组件注入的依赖项 */
@@ -37,7 +38,7 @@
         return
       }
       if (prop.disabled) return
-      emit('update:modelValue', val)
+      emit(EMIT_UPDATE, val)
       useRun(prop.onChange, val)
     }
   })

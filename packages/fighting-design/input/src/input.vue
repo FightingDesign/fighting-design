@@ -6,13 +6,14 @@
   import { ref, toRefs } from 'vue'
   import { FIconCrossVue, FIconEyeOffOutlineVue, FIconEyeOutlineVue } from '../../_svg'
   import { isString, isNumber } from '../../_utils'
+  import { EMIT_UPDATE } from '../../_tokens'
   import { useUpdateInput, useProps, useRun, useList } from '../../_hooks'
   import type { InputType } from './interface'
   import type { UseUpdateInputProps } from '../../_hooks'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: string | number): boolean => isString(val) || isNumber(val)
+    [EMIT_UPDATE]: (val: string | number): boolean => isString(val) || isNumber(val)
   })
 
   const { filter } = useProps(prop)

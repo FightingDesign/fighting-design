@@ -5,11 +5,12 @@
   import { useList } from '../../_hooks'
   import { FTooltip } from '../../tooltip'
   import dragDirective from './drag'
+  import { EMIT_UPDATE } from '../../_tokens'
   import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: number): boolean => isNumber(val)
+    [EMIT_UPDATE]: (val: number): boolean => isNumber(val)
   })
 
   const { styles, classes } = useList(prop, 'slider')
@@ -32,12 +33,12 @@
     const { min, max, modelValue } = prop
 
     if (typeof modelValue !== 'number' || isNaN(modelValue) || modelValue < min) {
-      emit('update:modelValue', min)
+      emit(EMIT_UPDATE, min)
       return
     }
 
     if (modelValue > max) {
-      emit('update:modelValue', max)
+      emit(EMIT_UPDATE, max)
       return
     }
 
@@ -65,7 +66,7 @@
 
     value = parseFloat(value.toFixed(0))
 
-    emit('update:modelValue', value)
+    emit(EMIT_UPDATE, value)
     rightTx.value = (sliderWidth.value * (value - min)) / (max - min)
   }
 

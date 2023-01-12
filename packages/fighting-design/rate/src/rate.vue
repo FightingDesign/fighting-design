@@ -6,10 +6,11 @@
   import { useRun } from '../../_hooks'
   import { ref, watch, unref, computed } from 'vue'
   import { isNumber } from '../../_utils'
+  import { EMIT_UPDATE } from '../../_tokens'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: number): number => val
+    [EMIT_UPDATE]: (val: number): number => val
   })
 
   /** 当前绑定的值 */
@@ -39,7 +40,7 @@
   const handleClick = (index: number): void => {
     if (prop.readonly) return
     starValue.value = index
-    emit('update:modelValue', index)
+    emit(EMIT_UPDATE, index)
     useRun(prop.onChange, index)
   }
 

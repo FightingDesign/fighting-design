@@ -3,12 +3,13 @@
   import { provide, reactive, toRefs, computed } from 'vue'
   import { sizeChange, isArray } from '../../_utils'
   import { useRun } from '../../_hooks'
+  import { EMIT_UPDATE } from '../../_tokens'
   import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: string[]): boolean => isArray(val)
+    [EMIT_UPDATE]: (val: string[]): boolean => isArray(val)
   })
 
   /**
@@ -16,7 +17,7 @@
    * @param val 最新值
    */
   const setChange = (val: string[]): void => {
-    emit('update:modelValue', val)
+    emit(EMIT_UPDATE, val)
     useRun(prop.onChange, val)
   }
 

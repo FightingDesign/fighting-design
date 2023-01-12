@@ -4,11 +4,12 @@
   import { isString, isNumber } from '../../_utils'
   import { FIconCrossVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
+  import { EMIT_UPDATE } from '../../_tokens'
   import type { UseUpdateInputProps } from '../../_hooks'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: string | number): boolean => isString(val) || isNumber(val)
+    [EMIT_UPDATE]: (val: string | number): boolean => isString(val) || isNumber(val)
   })
 
   const { filter } = useProps(prop)

@@ -1,5 +1,6 @@
 import { isNumber } from '../../_utils'
 import { useRun } from '../../_hooks'
+import { EMIT_UPDATE } from '../../_tokens'
 import type { UseUpdateInputProps, UseUpdateInputReturn, UseUpdateInputEmit } from './interface'
 
 export * from './interface.d'
@@ -19,7 +20,7 @@ export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEm
    */
   const onInput = (evt: Event): void => {
     emit(
-      'update:modelValue',
+      EMIT_UPDATE,
       isNumber(prop.type) ? Number((evt.target as HTMLInputElement).value) : (evt.target as HTMLInputElement).value
     )
 
@@ -37,7 +38,7 @@ export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEm
   /** 清空文本框 */
   const onClear = (): void => {
     if (prop.disabled) return
-    emit('update:modelValue', isNumber(prop.type) ? 0 : '')
+    emit(EMIT_UPDATE, isNumber(prop.type) ? 0 : '')
   }
 
   return {

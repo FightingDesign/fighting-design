@@ -4,11 +4,12 @@
   import { TabsNav } from './components'
   import { useTabs } from '../../_hooks'
   import { warning, isNumber, isString } from '../../_utils'
+  import { EMIT_UPDATE } from '../../_tokens'
   import type { TabsPosition, TabsModelValue } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: TabsModelValue): boolean => isNumber(val) || isString(val)
+    [EMIT_UPDATE]: (val: TabsModelValue): boolean => isNumber(val) || isString(val)
   })
 
   const { navs, activeName, setEdit, setActiveName } = useTabs(prop, emit)

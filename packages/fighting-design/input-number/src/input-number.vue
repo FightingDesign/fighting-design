@@ -6,10 +6,11 @@
   import { FButton } from '../../button'
   import { isNumber } from '../../_utils'
   import { useRun } from '../../_hooks'
+  import { EMIT_UPDATE } from '../../_tokens'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: number): boolean => isNumber(val)
+    [EMIT_UPDATE]: (val: number): boolean => isNumber(val)
   })
 
   /** 当前绑定的值 */
@@ -34,7 +35,7 @@
      * @param val 最新值
      */
     set: (val: number): void => {
-      emit('update:modelValue', Number(val))
+      emit(EMIT_UPDATE, Number(val))
     }
   })
 

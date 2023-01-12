@@ -3,11 +3,12 @@
   import { provide, reactive, toRefs } from 'vue'
   import { isString, isBoolean, isNumber } from '../../_utils'
   import { useRun, useList } from '../../_hooks'
+  import { EMIT_UPDATE } from '../../_tokens'
   import type { RadioModelValue, RadioGroundInject } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:modelValue': (val: RadioModelValue): boolean => isString(val) || isNumber(val) || isBoolean(val)
+    [EMIT_UPDATE]: (val: RadioModelValue): boolean => isString(val) || isNumber(val) || isBoolean(val)
   })
 
   const { styles, classes } = useList(prop, 'radio-group')
@@ -18,7 +19,7 @@
    * @param value 最新值
    */
   const changeEvent = (value: RadioModelValue): void => {
-    emit('update:modelValue', value)
+    emit(EMIT_UPDATE, value)
     useRun(prop.onChange, value)
   }
 
