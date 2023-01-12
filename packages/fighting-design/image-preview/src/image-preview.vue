@@ -17,12 +17,13 @@
     FIconZoomOutVue
   } from '../../_svg'
   import { useOperationImg, useVisible } from '../../_hooks'
+  import { EMIT_VISIBLE } from '../../_tokens'
   import type { ToolbarClickParams } from '../../toolbar'
   import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:visible': (visible: boolean): boolean => isBoolean(visible)
+    [EMIT_VISIBLE]: (visible: boolean): boolean => isBoolean(visible)
   })
 
   const { scale, rotate, smaller, bigger, scrollZoom, recovery, rotateClockwise, rotateCounterClock } =

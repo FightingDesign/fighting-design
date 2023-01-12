@@ -3,17 +3,18 @@
   import { computed } from 'vue'
   import { sizeChange, isBoolean } from '../../_utils'
   import { useRun } from '../../_hooks'
+  import { EMIT_VISIBLE } from '../../_tokens'
   import type { CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:visible': (visible: boolean): boolean => isBoolean(visible)
+    [EMIT_VISIBLE]: (visible: boolean): boolean => isBoolean(visible)
   })
 
   /** 点击遮罩层关闭 */
   const closePopup = (): void => {
     if (!prop.maskClose) return
-    emit('update:visible', false)
+    emit(EMIT_VISIBLE, false)
   }
 
   /**

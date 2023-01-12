@@ -5,10 +5,11 @@
   import { toRef } from 'vue'
   import { useVisible } from '../../_hooks'
   import { sizeChange, isBoolean } from '../../_utils'
+  import { EMIT_VISIBLE } from '../../_tokens'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:visible': (visible: boolean): boolean => isBoolean(visible)
+    [EMIT_VISIBLE]: (visible: boolean): boolean => isBoolean(visible)
   })
 
   const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit)

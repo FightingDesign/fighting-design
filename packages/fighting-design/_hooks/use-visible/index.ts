@@ -1,5 +1,6 @@
 import { watch, ref } from 'vue'
 import { useRun } from '..'
+import { EMIT_VISIBLE } from '../../_tokens'
 import type { Ref } from 'vue'
 import type { UseVisibleReturn, UseVisibleEmit } from './interface'
 
@@ -21,7 +22,7 @@ export const useVisible = (visible: Ref<boolean>, emit: UseVisibleEmit, callback
    * @param evt 事件对象
    */
   const closeVisible = (evt?: MouseEvent): void => {
-    emit('update:visible', false)
+    emit(EMIT_VISIBLE, false)
     useRun(callback, evt)
   }
 
