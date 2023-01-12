@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FButton } from '../index'
 import { useCalculiColor } from '../../_hooks'
-import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
+import { FIGHTING_SIZE, FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
 
 describe('FButton', () => {
   test('class', () => {
@@ -78,8 +78,7 @@ describe('FButton', () => {
   })
 
   test('target', () => {
-    const target = ['_blank', '_self', '_parent', '_top'] as const
-    target.forEach(item => {
+    FIGHTING_TARGET.forEach(item => {
       const wrapper = mount(FButton, {
         props: { href: 'https://tianyuhao.cn', target: item }
       })

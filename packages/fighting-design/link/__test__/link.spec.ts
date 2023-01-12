@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FLink } from '../index'
-import { FIGHTING_TYPE } from '../../_tokens'
+import { FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
 
 describe('FLink', () => {
   test('class', () => {
@@ -57,10 +57,12 @@ describe('FLink', () => {
   })
 
   test('target', () => {
-    const wrapper = mount(FLink, {
-      props: { target: '_blank' }
+    FIGHTING_TARGET.forEach(item => {
+      const wrapper = mount(FLink, {
+        props: { target: item }
+      })
+      expect(wrapper.attributes('target')).toContain(item)
     })
-    expect(wrapper.attributes('target')).toContain('_blank')
   })
 
   test('color', () => {

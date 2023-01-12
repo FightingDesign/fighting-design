@@ -5,7 +5,7 @@ import {
   setObjectProp,
   setFunctionProp
 } from '../../_utils'
-import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
+import { FIGHTING_SIZE, FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { ButtonTarget, ButtonNative } from './interface'
 import type {
@@ -51,7 +51,7 @@ export const Props = {
    * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: setStringProp<ButtonTarget>('_self', (val: ButtonTarget): boolean => {
-    return (['_blank', '_self', '_parent', '_top'] as const).includes(val)
+    return FIGHTING_TARGET.includes(val)
   }),
   /** 是否为 loading 状态 */
   loading: setBooleanProp(),
