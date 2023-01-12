@@ -1,58 +1,24 @@
 <script lang="ts" setup name="FButton">
   import { Props } from './props'
-  import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
-  import { computed, ref, inject, toRefs, reactive, useSlots } from 'vue'
+  import { ref, toRefs, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import { useCalculiColor, useRipples, useRun, useGlobal } from '../../_hooks'
-  import { sizeChange } from '../../_utils'
+  import { useRipples, useRun, useGlobal, useButton } from '../../_hooks'
   import type { RipplesOptions } from '../../_hooks'
-  import type { CSSProperties, Ref } from 'vue'
-  import type { ClassList, FightingSize } from '../../_interface'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
-  const slot = useSlots()
+
+  const { getType } = useGlobal(prop)
+
+  const { classList, styleList } = useButton(prop)
 
   /** 元素节点 */
   const FButtonEl: Ref<HTMLButtonElement | null> = ref(null)
 
-  /** 获取父组件注入的依赖项 */
-  const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)
-
-  const { getType, getSize } = useGlobal(prop)
-
-  /** 类名列表 */
-  const classList = computed((): ClassList => {
-    const { round, simple, block, disabled, loading, bold, text, circle, color, spread } = prop
-
-    return [
-      'f-button',
-      `f-button__${getSize('middle', parentInject).value}`,
-      {
-        [`f-button__${getType().value}`]: !color,
-        'f-button__disabled': disabled || loading,
-        'f-button__simple': simple && !color,
-        'f-button__circle': circle,
-        'f-button__spread': spread,
-        'f-button__round': round,
-        'f-button__block': block,
-        'f-button__bold': bold,
-        'f-button__color': color,
-        'f-button__text': text && !color,
-        /**
-         * 该类名针对配置了 beforeIcon 或者 afterIcon 而没有默认插槽时候的意外样式
-         *
-         * 前后属性 icon 默认配置了除圆形按钮外的左右边距
-         *
-         * 所以在 icon 按钮状态下并不需要左右边距
-         */
-        'f-button__icon': !(slot.default && !!slot.default())
-      }
-    ] as const
-  })
-
   /**
    * 按钮点击
+   *
    * @param evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
@@ -76,8 +42,8 @@
         ripplesColor: ripplesColor.value,
         simple: simple.value,
         text: text.value,
-        type: getType().value
-      } as const)
+        type: getType()
+      })
 
       const { runRipples } = useRipples(evt, FButtonEl.value as HTMLButtonElement, options)
 
@@ -86,36 +52,12 @@
 
     useRun(prop.onClick, evt)
   }
-
-  /** 样式列表 */
-  const styleList = computed((): CSSProperties => {
-    const { fontSize, fontColor, shadow, color } = prop
-
-    if (color) {
-      const { getLightColor, getDarkColor } = useCalculiColor(color)
-
-      return {
-        '--f-button-font-color': fontColor,
-        '--f-button-box-shadow': shadow,
-        '--f-button-default-color': color,
-        '--f-button-font-size': sizeChange(fontSize),
-        '--f-button-hover-color': getLightColor(0.4),
-        '--f-button-active-color': getDarkColor(0.2)
-      } as CSSProperties
-    }
-
-    return {
-      '--f-button-box-shadow': shadow,
-      '--f-button-font-color': fontColor,
-      '--f-button-font-size': sizeChange(fontSize)
-    } as CSSProperties
-  })
 </script>
 
 <template>
   <template v-if="href">
     <a
-      ref="FButton"
+      ref="FButtonEl"
       role="button"
       tabindex="0"
       :class="classList"
@@ -139,7 +81,7 @@
 
   <template v-else>
     <button
-      ref="FButton"
+      ref="FButtonEl"
       tabindex="0"
       :class="classList"
       :disabled="disabled || loading"

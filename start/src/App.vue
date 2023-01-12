@@ -1,5 +1,6 @@
-<script lang="ts" setup></script>
+<script setup lang="ts"></script>
 
-<template></template>
-
-<style lang="scss" scoped></style>
+<template>
+  <f-button font-color="#fff" color="#ff0de5" round ripples>自定义颜色</f-button>
+  <f-button font-color="#fff" color="#22c1c3" loading>loading</f-button>
+</template>

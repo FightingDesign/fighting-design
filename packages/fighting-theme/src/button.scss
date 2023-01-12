@@ -19,7 +19,7 @@
   transition: var(--f-design-transition-time);
   border-radius: var(--f-design-border-radius-1);
   background: var(--f-design-color-default-1);
-  box-shadow: var(--f-button-box-shadow);
+  box-shadow: var(--f-button-shadow);
   font-size: var(--f-button-font-size, var(--f-design-font-size-middle));
 
   // 不同背景和字体颜色
@@ -98,7 +98,7 @@
     &.f-button__#{map-get($item, name)} {
       height: map-get($item, height);
       padding: 0 map-get($item, padding);
-      font-size: map-get($item, fontSize);
+      font-size: var(--f-button-font-size, map-get($item, fontSize));
 
       // 圆形按钮
       &.f-button__circle {
