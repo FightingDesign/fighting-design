@@ -3,18 +3,18 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronRightVue } from '../../_svg'
   import { useTreeData } from '../../_hooks'
-  import type { TreeDataItem } from './interface'
+  import type { FormatTreeData } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  const { getItem, treeData, flatTreeData } = useTreeData(prop.data)
+  const { getItem, treeData, flatTreeData } = useTreeData(prop.data as unknown as FormatTreeData)
 
   /**
    * 点击展开或关闭
    *
    * @param item 每一项
    */
-  const handleClick = (item: TreeDataItem): void => {
+  const handleClick = (item: FormatTreeData): void => {
     getItem(treeData.value, item.id as number)
   }
 </script>

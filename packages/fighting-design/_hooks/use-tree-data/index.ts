@@ -1,7 +1,6 @@
 import { computed } from 'vue'
-import { Add, treeToFlat, isArray } from '../../_utils'
-import type { TreeData } from '../../tree'
-import type { UseTreeDataReturn } from './interface'
+import { treeAddKey, treeToFlat, isArray } from '../../_utils'
+import type { UseTreeDataReturn, FormatTreeData, FlatTreeData } from './interface'
 
 export * from './interface.d'
 
@@ -10,21 +9,21 @@ export * from './interface.d'
  *
  * @param data 树形结构
  */
-export const useTreeData = (data: TreeData): UseTreeDataReturn => {
+export const useTreeData = (data: FormatTreeData): UseTreeDataReturn => {
   /** 处理后的树形结构 */
-  const treeData = computed((): TreeData => Add(data))
+  const treeData = computed((): FlatTreeData[] => treeAddKey(data) as FlatTreeData[])
 
   /** 扁平是树形结构 */
-  const flatTreeData = computed((): TreeData => treeToFlat(treeData.value))
+  const flatTreeData = computed((): FlatTreeData[] => treeToFlat(treeData.value) as FlatTreeData[])
 
   /**
    * 隐藏节点方法
    *
    * @param tree 树形结构
    */
-  const hidden = (tree: TreeData): void => {
+  const hidden = (tree: FormatTreeData[]): void => {
     isArray(tree) &&
-      tree.forEach(item => {
+      tree.forEach((item: FormatTreeData): void => {
         item.show = false
         item.open = false
 
@@ -38,8 +37,8 @@ export const useTreeData = (data: TreeData): UseTreeDataReturn => {
    * @param data 树形结构
    * @param id id
    */
-  const getItem = (data: TreeData, id: number): void => {
-    data.forEach(item => {
+  const getItem = (data: FormatTreeData[], id: number): void => {
+    data.forEach((item: FormatTreeData): void => {
       if (item.id === id) {
         if (item.open) {
           item.children && hidden(item.children)
