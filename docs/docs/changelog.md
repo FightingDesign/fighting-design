@@ -2,6 +2,20 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.19.0 (2023-01-12)
+
+**优化**
+
+- 优化 `f-tag` 样式细节
+- 优化 `f-button` 样式细节
+- 优化 `f-alert` 样式细节
+
+**修复**
+
+- 修复 `f-ripple` 组件响应式失效问题
+- 修复 `f-text` 组件响应式失效问题
+- 修复 `f-button` 涟漪失效问题
+
 ## 0.18.0 (2023-01-12)
 
 **修复**

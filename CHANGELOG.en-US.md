@@ -4,6 +4,20 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.19.0 (2023-01-12)
+
+**Optimization**
+
+- Optimize `f-tag` style details
+- Optimize `f-button` style details
+- Optimize `f-alert` style details
+
+**Fix**
+
+- Fix the problem of reactive failure of `f-tipple` components
+- Fix `f-text` component reactive failure
+- Fix `f-button` ripple failure
+
 ## 0.18.0 (2023-01-12)
 
 **Fix**

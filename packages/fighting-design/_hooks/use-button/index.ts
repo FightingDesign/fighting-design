@@ -34,7 +34,7 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
     ...toRefs(prop),
     ...customColor.value,
     size: getSize('middle', parentInject),
-    type: getType() && !prop.color,
+    type: !prop.color && getType(),
     disabled: prop.disabled || prop.loading,
     simple: prop.simple && !prop.color,
     text: prop.text && !prop.color,
