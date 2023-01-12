@@ -3,17 +3,21 @@
 @import '../config/const-size';
 
 .f-tag {
-  min-width: 60px;
-  padding: 0 6px;
-  font-size: 14px;
   display: inline-flex;
+  white-space: nowrap;
   justify-content: center;
+  position: relative;
+  flex-wrap: nowrap;
   align-items: center;
-  transition: 0.5;
   cursor: default;
   vertical-align: middle;
+  font-size: var(--f-design-font-size-middle);
+  padding: 0 var(--f-design-padding-middle);
+  transition: var(--f-design-transition-time);
   border-radius: var(--f-design-border-radius-1);
   height: var(--f-design-height-middle);
+  background: var(--f-design-color-default-1);
+  color: var(--f-design-color-text-1);
 
   // 不同的类型
   @for $list from 1 to (length($ComponentsType) + 1) {
@@ -64,6 +68,7 @@
     &.f-tag__#{map-get($item, name)} {
       height: map-get($item, height);
       font-size: map-get($item, fontSize);
+      padding: 0 map-get($item, padding);
     }
   }
 

@@ -7,9 +7,9 @@ export const Props = {
    * 标签类型
    *
    * @values default primary success danger warning
-   * @defaultValue default
+   * @defaultValue null
    */
-  type: setStringProp<FightingType>('default', (val: FightingType): boolean => {
+  type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
     return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
   }),
   /** 是否可关闭 */
@@ -28,9 +28,9 @@ export const Props = {
    * 尺寸
    *
    * @values large middle small mini
-   * @defaultValue middle
+   * @defaultValue null
    */
-  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+  size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
     return (['large', 'middle', 'small', 'mini'] as const).includes(val)
   }),
   /** 是否为简约模式 */

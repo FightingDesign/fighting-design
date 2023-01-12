@@ -7,11 +7,12 @@
 
   const prop = defineProps(Props)
 
-  const { getType } = useGlobal(prop)
+  const { getType, getSize } = useGlobal(prop)
 
   /** 替换 type 后得到的 props */
   const params = reactive({
     ...toRefs(prop),
+    size: getSize(),
     type: getType()
   })
 
