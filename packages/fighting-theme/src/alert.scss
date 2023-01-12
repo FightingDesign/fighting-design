@@ -8,6 +8,9 @@
   align-items: center;
   box-sizing: border-box;
   border-radius: var(--f-design-border-radius-1);
+  color: var(--f-alert-color, var(--f-design-color-text-1));
+  transition: var(--f-design-transition-time);
+  background: var(--f-alert-background, var(--f-design-color-default-1));
 
   @for $list from 1 to (length($ComponentsType) + 1) {
     $item: nth($ComponentsType, $list); // 获取数据中心第i项的值
