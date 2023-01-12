@@ -1,6 +1,17 @@
-import { setBooleanProp, setStringProp, setObjectProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
+import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
-import type { HandleEvent, FightingType, FightingSize, FightingIcon } from '../../_interface'
+import type {
+  HandleEvent,
+  FightingType,
+  FightingSize,
+  FightingIcon
+} from '../../_interface'
 
 export const Props = {
   /**
@@ -31,7 +42,7 @@ export const Props = {
    * @defaultValue null
    */
   size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
-    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+    return FIGHTING_SIZE.includes(val)
   }),
   /** 是否为简约模式 */
   simple: setBooleanProp(),

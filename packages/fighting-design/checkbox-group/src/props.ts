@@ -1,4 +1,11 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp, setArrayProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringNumberProp,
+  setStringProp,
+  setFunctionProp,
+  setArrayProp
+} from '../../_utils'
+import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { CheckboxGroupChange } from './interface'
 import type { FightingSize } from '../../_interface'
@@ -16,11 +23,12 @@ export const Props = {
   border: setBooleanProp(),
   /**
    * 尺寸
+   *
    * @values large middle small mini
    * @defaultValue middle
    */
   size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
-    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+    return FIGHTING_SIZE.includes(val)
   }),
   /**横向排列的间距 */
   columnGap: setStringNumberProp(),

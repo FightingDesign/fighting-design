@@ -7,6 +7,7 @@ import {
   setObjectProp,
   setFunctionProp
 } from '../../_utils'
+import { FIGHTING_SIZE } from '../../_tokens'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type { AvatarFit } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
@@ -54,7 +55,7 @@ export const Props = {
     default: (): FightingSize => 'middle',
     validator: (val: FightingSize | number): boolean => {
       if (isString(val)) {
-        return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+        return FIGHTING_SIZE.includes(val)
       } else if (isNumber(val)) {
         return val >= 1
       }

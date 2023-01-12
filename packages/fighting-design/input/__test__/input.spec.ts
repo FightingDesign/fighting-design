@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FInput } from '../index'
+import { FIGHTING_SIZE } from '../../_tokens'
 
 describe('Input', () => {
   test('class', () => {
@@ -19,8 +20,7 @@ describe('Input', () => {
   })
 
   test('size', () => {
-    const size = ['large', 'middle', 'small', 'mini'] as const
-    size.forEach(item => {
+    FIGHTING_SIZE.forEach(item => {
       const wrapper = mount(FInput, {
         props: { size: item }
       })

@@ -1,4 +1,5 @@
 import { setBooleanProp, setStringProp } from '../../_utils'
+import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { FightingSize } from '../../_interface'
 
@@ -16,7 +17,7 @@ export const Props = {
    * @defaultValue middle
    */
   size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
-    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+    return FIGHTING_SIZE.includes(val)
   }),
   /** 时间格式 */
   format: setStringProp<string>('YYYY/MM/DD')

@@ -6,6 +6,7 @@ import {
   setNumberProp,
   setFunctionProp
 } from '../../_utils'
+import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { InputType, InputValChange, InputSearch } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
@@ -31,7 +32,7 @@ export const Props = {
    * @defaultValue middle
    */
   size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
-    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+    return FIGHTING_SIZE.includes(val)
   }),
   /**
    * 是否禁用

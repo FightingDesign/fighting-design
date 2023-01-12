@@ -22,14 +22,4 @@ describe('InputNumber', () => {
     expect(wrapper.find('.f-input-number__plus').classes()).toContain('f-input-number__plus')
     expect(wrapper.find('.f-input-number__minus').classes()).toContain('f-input-number__minus')
   })
-
-  // test('size',()=> {
-  //   const size = ['large', 'middle', 'small', 'mini'] as const
-  //   size.forEach(item=>{
-  //     const wrapper = mount(FInputNumber,{
-  //       props: {size:item}
-  //     })
-  //     expect(wrapper)
-  //   })
-  // })
 })

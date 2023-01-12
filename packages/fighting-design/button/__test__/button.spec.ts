@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FButton } from '../index'
 import { useCalculiColor } from '../../_hooks'
+import { FIGHTING_SIZE } from '../../_tokens'
 
 describe('FButton', () => {
   test('class', () => {
@@ -54,8 +55,7 @@ describe('FButton', () => {
   })
 
   test('size', () => {
-    const size = ['large', 'middle', 'small', 'mini'] as const
-    size.forEach(item => {
+    FIGHTING_SIZE.forEach(item => {
       const wrapper = mount(FButton, {
         props: { size: item }
       })

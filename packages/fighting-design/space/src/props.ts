@@ -1,4 +1,5 @@
 import { setBooleanProp, setStringProp } from '../../_utils'
+import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { FightingSize } from '../../_interface'
 
@@ -14,7 +15,7 @@ export const Props = {
    * @defaultValue null
    */
   spacing: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
-    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+    return FIGHTING_SIZE.includes(val)
   }),
   /** 自定义纵向间距 */
   rowGap: setStringProp(),

@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FAvatar } from '../index'
+import { FIGHTING_SIZE } from '../../_tokens'
 
 describe('FAvatar', () => {
   test('class', () => {
@@ -33,8 +34,7 @@ describe('FAvatar', () => {
   })
 
   test('size', () => {
-    const fit = ['large', 'middle', 'small', 'mini'] as const
-    fit.forEach(item => {
+    FIGHTING_SIZE.forEach(item => {
       const wrapper = mount(FAvatar, {
         props: { size: item }
       })

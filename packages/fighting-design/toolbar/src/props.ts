@@ -1,5 +1,11 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setFunctionProp
+} from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
+import { FIGHTING_SIZE } from '../../_tokens'
 import type { ToolbarClick } from './interface'
 import type { FightingSize } from '../../_interface'
 
@@ -13,7 +19,7 @@ export const Props = {
    * @defaultValue middle
    */
   size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
-    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+    return FIGHTING_SIZE.includes(val)
   }),
   /** 自定义背景颜色 */
   background: setStringProp(),

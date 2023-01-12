@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FTag } from '../index'
+import { FIGHTING_SIZE } from '../../_tokens'
 
 describe('FTag', () => {
   test('class', () => {
@@ -47,8 +48,7 @@ describe('FTag', () => {
   })
 
   test('size', () => {
-    const size = ['large', 'middle', 'small', 'mini'] as const
-    size.forEach(item => {
+    FIGHTING_SIZE.forEach(item => {
       const wrapper = mount(FTag, {
         props: { size: item }
       })

@@ -1,7 +1,19 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringNumberProp,
+  setStringProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
+import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { ButtonTarget, ButtonNative } from './interface'
-import type { FightingSize, FightingType, FightingIcon, HandleMouse } from '../../_interface'
+import type {
+  FightingSize,
+  FightingType,
+  FightingIcon,
+  HandleMouse
+} from '../../_interface'
 
 export const Props = {
   /** 是否加粗 */
@@ -23,7 +35,7 @@ export const Props = {
    * @defaultValue null
    */
   size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
-    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+    return FIGHTING_SIZE.includes(val)
   }),
   /** 是否为块级元素 */
   block: setBooleanProp(),

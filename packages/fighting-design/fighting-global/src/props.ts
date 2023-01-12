@@ -1,4 +1,5 @@
 import { setStringProp } from '../../_utils'
+import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { FightingSize, FightingType, FightingLang } from '../../_interface'
 
@@ -10,7 +11,7 @@ export const Props = {
    * @defaultValue null
    */
   size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
-    return (['large', 'middle', 'small', 'mini'] as const).includes(val)
+    return FIGHTING_SIZE.includes(val)
   }),
   /**
    * 按钮的类型（非自定义按钮颜色时有效）

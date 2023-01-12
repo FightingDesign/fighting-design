@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FSpace } from '../index'
+import { FIGHTING_SIZE } from '../../_tokens'
 
 describe('FSpace', () => {
   test('class', () => {
@@ -27,8 +28,7 @@ describe('FSpace', () => {
   })
 
   test('spacing', () => {
-    const type = ['large', 'middle', 'small', 'mini'] as const
-    type.forEach(item => {
+    FIGHTING_SIZE.forEach(item => {
       const wrapper = mount(FSpace, {
         props: { spacing: item },
         slots: { default: '123' }

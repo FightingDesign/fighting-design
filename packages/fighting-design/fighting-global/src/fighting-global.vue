@@ -2,6 +2,7 @@
   import { Props, FIGHTING_GLOBAL_PROPS_KEY } from './props'
   import { provide, reactive, computed } from 'vue'
   import { useProps } from '../../_hooks'
+  import { FIGHTING_SIZE } from '../../_tokens'
   import type { FightingType, FightingLang, FightingSize } from '../../_interface'
   import type { FightingGlobalProps } from './interface'
 
@@ -25,7 +26,7 @@
     return interceptors(
       'size',
       (): boolean => {
-        return (['large', 'middle', 'small', 'mini'] as const).includes(prop.size as FightingSize)
+        return FIGHTING_SIZE.includes(prop.size as FightingSize)
       },
       'middle'
     )

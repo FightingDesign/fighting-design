@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FSkeleton } from '../index'
+import { FIGHTING_SIZE } from '../../_tokens'
 
 describe('FSkeleton', () => {
   test('class', () => {
@@ -28,8 +29,7 @@ describe('FSkeleton', () => {
   })
 
   test('size', () => {
-    const size = ['large', 'middle', 'small', 'mini'] as const
-    size.forEach(item => {
+    FIGHTING_SIZE.forEach(item => {
       const wrapper = mount(FSkeleton, {
         props: { loading: true, size: item },
         slots: { default: '123' }
