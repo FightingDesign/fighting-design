@@ -11,9 +11,9 @@ export const Props = {
    * 涟漪类型
    *
    * @values default primary success danger warning
-   * @defaultValue default
+   * @defaultValue null
    */
-  type: setStringProp<FightingType>('default', (val: FightingType): boolean => {
+  type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
     return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
   }),
   /** 是否禁用 */

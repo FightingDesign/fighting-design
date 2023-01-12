@@ -12,7 +12,7 @@
   /** 替换 type 后得到的 props */
   const params = reactive({
     ...toRefs(prop),
-    type: getType().value
+    type: getType('default')
   })
 
   const { styles } = useList(params, 'ripple')
@@ -38,7 +38,7 @@
       duration: duration.value,
       component: 'f-ripple',
       className: 'f-ripple__animation',
-      type: getType().value,
+      type: getType(),
       ripplesColor: ripplesColor.value
     })
 
