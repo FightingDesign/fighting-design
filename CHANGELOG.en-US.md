@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.18.0 (2023-01-12)
+
+**Fix**
+
+- Fix `f-tree` type problem
+
 ## 0.17.3 (2023-01-11)
 
 **Fix**

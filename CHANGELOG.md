@@ -2,6 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.18.0 (2023-01-12)
+
+**修复**
+
+- 修复 `f-tree` 类型问题
+
 ## 0.17.3 (2023-01-11)
 
 **修复**
