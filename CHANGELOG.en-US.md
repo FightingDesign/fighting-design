@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.19.1 (2023-01-13)
+
+- Optimize `f-dropdown-item` style details
+- Optimize `f-trigger` to turn off display details
+
 ## 0.19.0 (2023-01-12)
 
 **Optimization**

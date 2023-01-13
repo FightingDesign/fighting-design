@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.19.1 (2023-01-13)
+
+- 优化 `f-dropdown-item` 样式细节
+- 优化 `f-trigger` 关闭展示细节处理
+
 ## 0.19.0 (2023-01-12)
 
 **优化**

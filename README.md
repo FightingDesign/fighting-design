@@ -68,10 +68,57 @@ Put the following code into `main.ts`
 ```ts
 import { createApp } from 'vue'
 import App from './App.vue'
+
 import FightingDesign from 'fighting-design'
 import 'fighting-design/dist/index.css'
 
 createApp(App).use(FightingDesign).mount('#app')
+```
+
+## 🪂 Quick experience
+
+```html
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fighting-design/dist/index.css" />
+</head>
+
+<body>
+  <div id="app">
+    <f-space>
+      <f-button round type="default">默认按钮</f-button>
+      <f-button round type="primary">主要按钮</f-button>
+      <f-button round type="success">成功按钮</f-button>
+      <f-button round type="danger">危险按钮</f-button>
+      <f-button round type="warning">警告按钮</f-button>
+    </f-space>
+
+    <f-divider>华丽的分隔线</f-divider>
+
+    <f-button type="primary" @click="visible = true">打开 Dialog</f-button>
+    <f-dialog title="Title" v-model:visible="visible"> 欢迎使用 Fighting Design！ </f-dialog>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fighting-design/dist/index.umd.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+    const { FButton, FSpace, FDivider, FDialog } = FightingDesign
+
+    const app = createApp({
+      setup() {
+        const visible = ref(false)
+
+        return { visible }
+      }
+    })
+
+    app.use(FButton)
+    app.use(FSpace)
+    app.use(FDivider)
+    app.use(FDialog)
+    app.mount('#app')
+  </script>
+</body>
 ```
 
 ## 🐳 Related links
