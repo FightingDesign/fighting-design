@@ -68,6 +68,9 @@
 
     /** 否则关闭触发器 */
     handelClose()
+
+    /** 关闭之后移除事件监听 */
+    document.removeEventListener('click', documentListen)
   }
 
   /**
@@ -76,16 +79,7 @@
    * 给 document 添加事件监听用于关闭触发器
    */
   const onBeforeEnter = (): void => {
-    document.addEventListener('click', documentListen, false)
-  }
-
-  /**
-   * 弹窗关闭
-   *
-   * 移除 document 事件监听
-   */
-  const onBeforeLeave = (): void => {
-    document.removeEventListener('click', documentListen)
+    document.addEventListener('click', documentListen)
   }
 
   /**
@@ -108,7 +102,7 @@
     </div>
 
     <!-- 展示的内容 -->
-    <transition name="f-trigger" @before-enter="onBeforeEnter" @before-leave="onBeforeLeave">
+    <transition name="f-trigger" @before-enter="onBeforeEnter">
       <div v-show="showContent" :class="['f-trigger__content-box', { 'f-trigger__arrow': arrow }]">
         <div class="f-trigger__content">
           <slot name="content" />
