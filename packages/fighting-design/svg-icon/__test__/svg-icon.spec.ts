@@ -6,5 +6,7 @@ describe('SvgIcon', () => {
   test('class', () => {
     const wrapper = mount(FSvgIcon)
     expect(wrapper.classes()).toContain('f-svg-icon')
+    expect(wrapper.attributes('role')).toContain('img')
+    expect(wrapper.attributes('text-indent')).toContain('middle')
   })
 })

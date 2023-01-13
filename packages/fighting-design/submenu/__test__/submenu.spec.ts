@@ -6,5 +6,6 @@ describe('Submenu', () => {
   test('class', () => {
     const wrapper = mount(FSubmenu)
     expect(wrapper.classes()).toContain('f-submenu')
+    expect(wrapper.attributes('role')).toContain('menuitem')
   })
 })

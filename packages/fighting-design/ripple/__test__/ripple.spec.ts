@@ -10,15 +10,15 @@ describe('FRipple', () => {
 
   test('start-opacity', () => {
     const wrapper = mount(FRipple, {
-      props: { startOpacity: 0.3, endOpacity: 0 }
+      props: { startOpacity: 0.3 }
     })
-    expect(wrapper.attributes('style')).toContain(0.3)
+    expect(wrapper.attributes('style')).toContain('--f-ripple-start-opacity: 0.3')
   })
 
   test('end-opacity', () => {
     const wrapper = mount(FRipple, {
       props: { endOpacity: 0.3 }
     })
-    expect(wrapper.attributes('style')).toContain(0.3)
+    expect(wrapper.attributes('style')).toContain('--f-ripple-end-opacity: 0.3')
   })
 })

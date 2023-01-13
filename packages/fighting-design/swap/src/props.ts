@@ -1,4 +1,10 @@
-import { setObjectProp, setStringNumberProp, setBooleanProp, setStringProp, setFunctionProp } from '../../_utils'
+import {
+  setObjectProp,
+  setStringNumberProp,
+  setBooleanProp,
+  setStringProp,
+  setFunctionProp
+} from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { SwapType } from './interface'
 import type { FightingIcon, HandleChange } from '../../_interface'

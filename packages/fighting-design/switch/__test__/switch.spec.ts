@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FSwitch } from '../index'
+import { FIGHTING_SIZE } from '../../_tokens'
 
 describe('FSwitch', () => {
   test('class', () => {
@@ -8,9 +9,8 @@ describe('FSwitch', () => {
     expect(wrapper.classes()).toContain('f-switch')
   })
 
-  test('small', () => {
-    const size = ['large', 'middle', 'small'] as const
-    size.forEach(item => {
+  test('size', () => {
+    FIGHTING_SIZE.forEach(item => {
       const wrapper = mount(FSwitch, {
         props: { size: item }
       })
@@ -20,18 +20,14 @@ describe('FSwitch', () => {
 
   test('disabled', () => {
     const wrapper = mount(FSwitch, {
-      props: {
-        disabled: true
-      }
+      props: { disabled: true }
     })
     expect(wrapper.classes()).toContain('f-switch__disabled')
   })
 
   test('click', () => {
     const wrapper = mount(FSwitch, {
-      props: {
-        modelValue: true
-      }
+      props: { modelValue: true }
     })
     wrapper.trigger('click')
     expect(wrapper.emitted('click')).toBeTruthy()

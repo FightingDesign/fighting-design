@@ -5,8 +5,6 @@ import type { HandleChange } from '../../_interface'
 export const Props = {
   /** 是否展开 */
   open: setBooleanProp(),
-  /** 内容背景色 */
-  background: setStringProp(),
   /** 操作栏展开时的文字 */
   openText: setStringProp(),
   /**操作栏关闭时的文字 */
