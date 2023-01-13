@@ -83,6 +83,7 @@ fighting-design 内部设置了很多的命令，在 [package.json](https://gith
 | `lint:fix`    | `pnpm lint:fix`    | 全局 eSLint 检测 + 修复                                                                                                                                                                                                                                                                            |
 | `changelog`   | `pnpm changelog`   | 同步文档的更新日志                                                                                                                                                                                                                                                                                 |
 | `ver`         | `pnpm ver x.x.x`   | 设置新的版本号                                                                                                                                                                                                                                                                                     |
+| `format`      | `pnpm format`      | 全局格式化 + 修复                                                                                                                                                                                                                                                                                  |
 
 ## 🚧 开发规范
 
