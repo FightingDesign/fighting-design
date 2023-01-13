@@ -88,6 +88,5 @@ declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     FMessage: typeof components.FMessage
     FNotification: typeof components.FNotification
-    useLoadingBar: typeof components.useLoadingBar
   }
 }

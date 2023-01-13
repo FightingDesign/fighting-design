@@ -89,6 +89,5 @@ declare module 'vue' {
   interface ComponentCustomProperties {
     FMessage: typeof components.FMessage
     FNotification: typeof components.FNotification
-    useLoadingBar: typeof components.useLoadingBar
   }
 }

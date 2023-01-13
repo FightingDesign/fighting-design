@@ -48,6 +48,7 @@ export default (): UserConfigExport => {
        */
       visualizer()
     ],
+    css: {},
     /**
      * 构建配置项
      *
