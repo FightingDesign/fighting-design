@@ -47,6 +47,11 @@
     } as CSSProperties
   })
 
+  /**
+   * 文档监听
+   *
+   * @param evt 事件对象
+   */
   const documentListen = (evt: MouseEvent): void => {
     /**
      * 获取点击的孩子节点是否存在 f-trigger 类名的标签
