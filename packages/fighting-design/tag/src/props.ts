@@ -1,17 +1,7 @@
-import {
-  setBooleanProp,
-  setStringProp,
-  setObjectProp,
-  setFunctionProp
-} from '../../_utils'
+import { setBooleanProp, setStringProp, setObjectProp, setFunctionProp } from '../../_utils'
 import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
-import type {
-  HandleEvent,
-  FightingType,
-  FightingSize,
-  FightingIcon
-} from '../../_interface'
+import type { HandleEvent, FightingType, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
   /**

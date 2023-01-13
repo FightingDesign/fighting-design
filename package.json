@@ -30,7 +30,8 @@
     "lint": "eslint . --cache",
     "lint:fix": "pnpm run lint --fix",
     "changelog": "node scripts/set-changelog",
-    "ver": "node scripts/set-version"
+    "ver": "node scripts/set-version",
+    "format": "pnpm prettier && pnpm lint:fix"
   },
   "dependencies": {
     "vue": "3.2.26"
@@ -71,9 +72,8 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,vue}": [
-      "prettier --write",
-      "git add"
+    "*.{js,jsx,ts,tsx,vue,json,md,yml,yaml}": [
+      "eslint --fix"
     ]
   }
 }

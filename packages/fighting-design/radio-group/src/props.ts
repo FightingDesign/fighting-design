@@ -1,9 +1,4 @@
-import {
-  setBooleanProp,
-  setStringNumberProp,
-  setStringProp,
-  setFunctionProp
-} from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type { RadioModelValue, RadioChange } from './interface'

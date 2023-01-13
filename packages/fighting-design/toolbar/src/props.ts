@@ -1,9 +1,4 @@
-import {
-  setBooleanProp,
-  setStringProp,
-  setStringNumberProp,
-  setFunctionProp
-} from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ToolbarClick } from './interface'

@@ -1,10 +1,4 @@
-import {
-  setBooleanProp,
-  setStringNumberProp,
-  setStringProp,
-  setFunctionProp,
-  setArrayProp
-} from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp, setArrayProp } from '../../_utils'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { CheckboxGroupChange } from './interface'

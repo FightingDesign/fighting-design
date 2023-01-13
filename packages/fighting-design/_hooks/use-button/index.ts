@@ -45,7 +45,10 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
   const { classes, styles } = useList(params, 'button')
 
   /** 类名列表 */
-  const classList = classes(['type', 'icon', 'round', 'simple', 'block', 'disabled', 'bold', 'text', 'size', 'circle', 'spread', 'color'], 'f-button')
+  const classList = classes(
+    ['type', 'icon', 'round', 'simple', 'block', 'disabled', 'bold', 'text', 'size', 'circle', 'spread', 'color'],
+    'f-button'
+  )
 
   /** 样式列表 */
   const styleList = styles(

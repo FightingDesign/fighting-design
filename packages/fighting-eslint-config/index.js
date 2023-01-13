@@ -3,7 +3,8 @@ module.exports = {
   rules: {
     /**
      * vue.js 规则
-     * 参考文档：https://eslint.vuejs.org/rules/
+     *
+     * @see 参考文档 https://eslint.vuejs.org/rules/
      *
      *  0 = off, 1 = warn, 2 = error
      */
@@ -245,7 +246,8 @@ module.exports = {
     'vue/comment-directive': 'off',
     /**
      * typescript 规则配置
-     * https://typescript-eslint.io/rules/
+     *
+     * @see Overview https://typescript-eslint.io/rules/
      */
     // 规定数组类型定义方式 https://typescript-eslint.io/rules/array-type
     '@typescript-eslint/array-type': 'error',
@@ -255,14 +257,10 @@ module.exports = {
     '@typescript-eslint/comma-dangle': 'error',
     // 强制使用 interface 定义类型 https://typescript-eslint.io/rules/consistent-type-definitions
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-    // 统一导出规则 https://typescript-eslint.io/rules/consistent-type-exports
-    // '@typescript-eslint/consistent-type-exports': 'error',
     // 自定义对象类型样式 https://typescript-eslint.io/rules/consistent-indexed-object-style
     '@typescript-eslint/consistent-indexed-object-style': ['warn', 'record'],
     // !禁止使用后缀运算符的非空断言 https://typescript-eslint.io/rules/no-non-null-assertion/
     '@typescript-eslint/no-non-null-assertion': 'error',
-    // 强制一致地使用类型导入 https://typescript-eslint.io/rules/consistent-type-imports
-    // '@typescript-eslint/consistent-type-imports': 'off',
     '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', disallowTypeAnnotations: true }],
     // 禁止未使用的变量 https://typescript-eslint.io/rules/no-unused-vars
     '@typescript-eslint/no-unused-vars': 'error',
@@ -274,20 +272,20 @@ module.exports = {
     '@typescript-eslint/default-param-last': 'error',
     // 必须标记函数返回值 https://typescript-eslint.io/rules/explicit-function-return-type
     '@typescript-eslint/explicit-function-return-type': 'error',
+    // 不允许不必要的分号 https://typescript-eslint.io/rules/no-extra-semi
+    '@typescript-eslint/no-extra-semi': 'error',
     /**
      * eslint 配置项
-     * https://eslint.org/docs/latest/
+     *
+     * @see Documentation https://eslint.org/docs/latest/
      */
     // 不允许不必要的转义字符 https://eslint.org/docs/latest/rules/no-useless-escape
     'no-useless-escape': 'off',
-    //
     'comma-dangle': 'off',
     // 禁止使用 var https://eslint.org/docs/latest/rules/no-var#rule-details
     'no-var': 'error',
     // 使用单引号 https://eslint.org/docs/latest/rules/quotes#version
     quotes: ['error', 'single'],
-    // 禁止分号 https://eslint.org/docs/latest/rules/semi#rule-details
-    // semi: 'error',
     // 禁止 debugger https://eslint.org/docs/latest/rules/no-debugger#rule-details
     'no-debugger': 'error',
     // 禁止未使用的变量 https://eslint.org/docs/latest/rules/no-unused-vars#rule-details
@@ -302,9 +300,11 @@ module.exports = {
     'eol-last': 'error',
     // 禁止所有选项卡 https://eslint.org/docs/latest/rules/no-tabs#rule-details
     'no-tabs': 'error',
-    'default-param-last': 'off'
+    // 强制默认参数为最后一个 https://eslint.org/docs/latest/rules/default-param-last#rule-details
+    'default-param-last': 'off',
+    // 不允许不必要的分号 https://eslint.org/docs/latest/rules/no-extra-semi#rule-details
+    'no-extra-semi': 'off'
   },
-  // parser: '@typescript-eslint/parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   parser: 'vue-eslint-parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   plugins: ['@typescript-eslint'],
   root: true,

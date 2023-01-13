@@ -22,7 +22,7 @@ export const treeToFlat = (data: FormatTreeData[]): FormatTreeData[] => {
 
 /**
  * 给树形结构添加一些配置键
- * 
+ *
  * @param tree 树形结构
  * @returns 添加一些配置键的树形结构
  */
@@ -31,7 +31,7 @@ export const treeAddKey = (tree: FormatTreeData): FormatTreeData[] => {
 
   /**
    * 给一棵树添加各种所需的配置键
-   * 
+   *
    * @param array 树形结构数组
    * @param level 层级
    * @returns 添加了各种键的树形结构
@@ -58,7 +58,7 @@ export const treeAddKey = (tree: FormatTreeData): FormatTreeData[] => {
 
   /**
    * 给树形结构添加 id
-   * 
+   *
    * @param arr 树形数组
    * @param parentId 父级 id
    * @returns 带有 id 的树形结构

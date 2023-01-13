@@ -1,12 +1,4 @@
-import {
-  getCurrentInstance,
-  ref,
-  nextTick,
-  onMounted,
-  watch,
-  computed,
-  provide
-} from 'vue'
+import { getCurrentInstance, ref, nextTick, onMounted, watch, computed, provide } from 'vue'
 import { getChildrenComponent } from '../../_utils'
 import { useRun } from '../../_hooks'
 import { EMIT_UPDATE } from '../../_tokens'

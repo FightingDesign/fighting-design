@@ -1,8 +1,4 @@
-import {
-  setBooleanProp,
-  setStringProp,
-  setStringNumberProp
-} from '../../_utils'
+import { setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
 import { FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { TextDecoration } from './interface'
