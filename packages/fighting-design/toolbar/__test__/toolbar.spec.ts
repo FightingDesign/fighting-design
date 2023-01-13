@@ -80,5 +80,4 @@ describe('FToolbar', () => {
     })
     expect(wrapper.text()).toContain('插槽')
   })
-
 })
