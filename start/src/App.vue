@@ -1,15 +1,21 @@
-<script setup lang="ts"></script>
+<script lang="ts" setup></script>
 
 <template>
-  <f-button type="default">默认按钮</f-button>
-  <f-button type="primary">主要按钮</f-button>
-  <f-button type="success">成功按钮</f-button>
-  <f-button type="danger">危险按钮</f-button>
-  <f-button type="warning">警告按钮</f-button>
+  <!-- <f-trigger trigger="hover">
+    <f-button type="primary">hover 触发</f-button>
 
-  <f-button simple type="default">默认按钮</f-button>
-  <f-button simple type="primary">主要按钮</f-button>
-  <f-button simple type="success">成功按钮</f-button>
-  <f-button simple type="danger">危险按钮</f-button>
-  <f-button simple type="warning">警告按钮</f-button>
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+    </template>
+  </f-trigger> -->
+
+  <f-trigger trigger="hover" style="margin-left: 120px">
+    <f-button type="primary">click 触发</f-button>
+
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+    </template>
+  </f-trigger>
 </template>
+
+<style lang="scss" scoped></style>
