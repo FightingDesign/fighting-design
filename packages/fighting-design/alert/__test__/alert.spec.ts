@@ -60,11 +60,13 @@ describe('FAlert', () => {
     expect(wrapper.find('.f-alert').classes()).toContain('f-alert__center')
   })
 
-  test('close', () => {
+  test('close', async () => {
     const wrapper = mount(FAlert, {
       props: { close: true }
     })
-    expect(wrapper.find('.f-close-btn').classes()).toContain('f-close-btn')
+    expect(wrapper.find('.f-close-btn').exists()).toBe(true)
+    await wrapper.find('.f-close-btn').trigger('click')
+    expect(wrapper.find('.f-alert').exists()).not.toBeTruthy()
   })
 
   test('simple', () => {
