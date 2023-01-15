@@ -23,6 +23,7 @@ export const Props = {
   background: setStringProp(),
   /**
    * 分隔符类型
+   *
    * @values dashed dotted double solid
    * @defaultValue solid
    */
