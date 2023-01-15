@@ -6,11 +6,12 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { FIconNotesVue, FIconPlusVue } from '../../_svg'
+  import { EMIT_FILES } from '../../_tokens'
   import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:files': (files: File[]): File[] => files
+    [EMIT_FILES]: (files: File[]): File[] => files
   })
 
   const dragIng = ref(false)
@@ -23,7 +24,7 @@
 
   /** 点击上传 */
   const handleClick = (): void => {
-    ;(inputEl.value as HTMLInputElement).click()
+    (inputEl.value as HTMLInputElement).click()
   }
 
   /**
@@ -33,7 +34,7 @@
    */
   const updateFiles = (files: File[]): void => {
     fileList.value = files
-    emit('update:files', files)
+    emit(EMIT_FILES, files)
     useRun(prop.onLoad)
   }
 
@@ -82,7 +83,7 @@
    * @param index 需要删除的文件索引
    */
   const removeFile = (index: number): void => {
-    ;(fileList.value as File[]).splice(index, 1)
+    (fileList.value as File[]).splice(index, 1)
   }
 
   /**

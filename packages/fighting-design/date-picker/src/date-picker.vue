@@ -4,11 +4,12 @@
   import { FInput } from '../../input'
   import { FDropdown } from '../../dropdown'
   import { FCalendar } from '../../calendar'
+  import { EMIT_DATE } from '../../_tokens'
   import type { CalendarChangeParams } from '../../calendar'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:date': (val: string): string => val
+    [EMIT_DATE]: (val: string): string => val
   })
 
   /** 传递给日历组件的当前时间 */
@@ -24,7 +25,7 @@
      * @param val 最新的值
      */
     set: (val: string): void => {
-      emit('update:date', val)
+      emit(EMIT_DATE, val)
     }
   })
 
