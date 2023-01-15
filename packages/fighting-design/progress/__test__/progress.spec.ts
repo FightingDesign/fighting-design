@@ -54,10 +54,10 @@ describe('FProgress', () => {
     const wrapper = mount(FProgress, {
       props: {
         percentage: 50,
-        background: '#f4d1d1'
+        background: 'rgb(0, 0, 0)'
       }
     })
-    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain('#f4d1d1')
+    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain('rgb(0, 0, 0)')
   })
 
   test('width and height', () => {

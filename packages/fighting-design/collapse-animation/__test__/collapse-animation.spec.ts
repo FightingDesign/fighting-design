@@ -18,7 +18,7 @@ describe('CollapseAnimation', () => {
       }
     })
     wrapper.get('.f-collapse-animation')
-    expect(wrapper.attributes().style).toContain('height: 0;')
+    expect(wrapper.attributes().style).toContain('height: 0px;')
   })
 
   test('disabled', async () => {
@@ -32,6 +32,6 @@ describe('CollapseAnimation', () => {
       }
     })
     await wrapper.setProps({ opened: true })
-    expect(wrapper.attributes().style).toContain('height: 0;')
+    expect(wrapper.attributes().style).toContain('height: 0px;')
   })
 })

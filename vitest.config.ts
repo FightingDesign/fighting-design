@@ -18,7 +18,9 @@ export default (): UserConfigExport => {
        *
        * @see environment https://cn.vitest.dev/config/#environment
        */
-      environment: 'happy-dom',
+      globals: true,
+      environment: 'jsdom',
+      css: true,
       /**
        * 排除目录
        *
