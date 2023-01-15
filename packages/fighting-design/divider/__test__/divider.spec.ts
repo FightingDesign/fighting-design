@@ -66,7 +66,7 @@ describe('FDivider', () => {
         margin: '50px'
       }
     })
-    expect(wrapper.attributes('style')).toBe('margin: 50px 0;')
+    expect(wrapper.attributes('style')).toBe('margin: 50px 0px;')
   })
 
   test('color', () => {

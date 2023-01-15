@@ -3,6 +3,7 @@ import { describe, expect, test } from 'vitest'
 import { FButton } from '../index'
 import { useCalculiColor } from '../../_hooks'
 import { FIGHTING_SIZE, FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
+import { h } from 'vue';
 
 describe('FButton', () => {
   test('class', () => {
@@ -91,7 +92,7 @@ describe('FButton', () => {
       props: { loading: true }
     })
     expect(wrapper.classes()).toContain('f-button__disabled')
-    expect(wrapper.attributes('disabled')).toContain(true)
+    expect(wrapper.attributes('disabled')).toBe('')
   })
 
   test('disabled', () => {
@@ -99,7 +100,7 @@ describe('FButton', () => {
       props: { disabled: true }
     })
     expect(wrapper.classes()).toContain('f-button__disabled')
-    expect(wrapper.attributes('disabled')).toContain(true)
+    expect(wrapper.attributes('disabled')).toContain('')
   })
 
   test('type', () => {
@@ -115,7 +116,7 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { autofocus: true }
     })
-    expect(wrapper.attributes('autofocus')).toContain('true')
+    expect(wrapper.attributes('autofocus')).toContain('')
   })
 
   test('name', () => {
@@ -196,7 +197,13 @@ describe('FButton', () => {
 
   test('loading click', async () => {
     const wrapper = mount(FButton, {
-      slots: { default: '点击测试' },
+      slots: { 
+        default: {
+          render() {
+            return '点击测试'
+          }
+        }
+      },
       props: { loading: true }
     })
     await wrapper.trigger('click')

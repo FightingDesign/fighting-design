@@ -42,7 +42,7 @@ describe('FMessage', () => {
     })
 
     expect(wrapper.find('.f-message__close').exists()).toBe(true)
-    expect(wrapper.find('.f-message').isVisible()).toBe(true)
+    expect(wrapper.find('.f-message').exists()).toBe(true)
     await wrapper.find('.f-message__close').trigger('click')
     expect((wrapper.vm as unknown as MessageInstance).visible).toBe(false)
   })

@@ -29,6 +29,8 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
   /** 获取父组件注入的依赖项 */
   const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)
 
+  const isShowIcon = computed(() => !(slot.default && slot.default()))
+
   /** 处理结构后的 prop 集合 */
   const params = reactive({
     ...toRefs(prop),
@@ -39,7 +41,7 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
     simple: prop.simple && !prop.color,
     text: prop.text && !prop.color,
     color: !!prop.color,
-    icon: !(slot.default && slot.default())
+    icon: isShowIcon
   })
 
   const { classes, styles } = useList(params, 'button')
