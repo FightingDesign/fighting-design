@@ -13,12 +13,18 @@ export default (): UserConfigExport => {
     /** 配置插件 vue，如果不配置则识别不了 vue 文件 */
     plugins: [vue()],
     test: {
+      globals: true,
       /**
        * 配置环境
        *
        * @see environment https://cn.vitest.dev/config/#environment
+       *
+       * 这里建议使用 jsdom 因为 happy-dom 会有一些不可预期错误，详情参考：
+       *
+       * @see test-utils https://github.com/vuejs/test-utils/issues/1704
+       * @see test-utils https://github.com/vuejs/test-utils/issues/1602
+       * @see fighting-design https://github.com/FightingDesign/fighting-design/pull/346
        */
-      globals: true,
       environment: 'jsdom',
       css: true,
       /**
