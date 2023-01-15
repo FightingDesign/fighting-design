@@ -5,11 +5,12 @@
   import { FDropdown } from '../../dropdown'
   import { addZero, isString } from '../../_utils'
   import { FIconClockTime } from '../../_svg'
+  import { EMIT_TIME } from '../../_tokens'
   import type { TimePickerTimeList } from './interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    'update:time': (val: string): boolean => isString(val)
+    [EMIT_TIME]: (val: string): boolean => isString(val)
   })
 
   /** 获取当前的时间 */
@@ -31,7 +32,7 @@
      * @param val 最新的值
      */
     set: (val: string): void => {
-      emit('update:time', val)
+      emit(EMIT_TIME, val)
     }
   })
 
