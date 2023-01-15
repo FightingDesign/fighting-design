@@ -49,4 +49,12 @@ describe('FBackTop', () => {
     })
     expect(wrapper.find('.f-back-top').attributes('style')).toContain('--f-back-top-color: orange')
   })
+
+  test('click', async () => {
+    const wrapper = mount(FBackTop, {
+      slots: { default: '点击测试' }
+    })
+    await wrapper.trigger('click.stop')
+    expect(wrapper.emitted()).toBeDefined()
+  })
 })

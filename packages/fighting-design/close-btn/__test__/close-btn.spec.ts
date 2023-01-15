@@ -49,4 +49,13 @@ describe('CloseBtn', () => {
     })
     expect(wrapper.attributes('style')).toContain('--f-close-btn-hover-color: red')
   })
+
+  test('click', async () => {
+    const wrapper = mount(FCloseBtn, {
+      slots: { default: '123' },
+      props: { hoverColor: 'red' }
+    })
+    await wrapper.get('.f-close-btn').trigger('click')
+    expect(wrapper.emitted()).toHaveProperty('click')
+  })
 })
