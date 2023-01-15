@@ -123,14 +123,14 @@
           class="f-image-preview__next"
           circle
           :before-icon="FIconChevronRightVue"
-          @click="switchImage('next')"
+          :on-click="() => switchImage('next')"
         />
 
         <f-button
           class="f-image-preview__prev"
           circle
           :before-icon="FIconChevronLeftVue"
-          @click="switchImage('prev')"
+          :on-click="() => switchImage('prev')"
         />
       </template>
 
