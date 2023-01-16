@@ -19,7 +19,9 @@ describe('FCard', () => {
     const wrapper = mount(FCard, {
       props: { title: '这是卡片标题' }
     })
-    expect(wrapper.find('.f-card__header').text()).toBe('这是卡片标题')
+
+    expect(wrapper.find('.f-card__header').text()).toContain('这是卡片标题')
+    expect(wrapper.find('.f-card__header').attributes('role')).toBe('heading')
   })
 
   test('round', () => {

@@ -15,8 +15,11 @@
 
 <template>
   <div :class="classList">
-    <!-- 头部 -->
-    <div v-if="$slots.header || title" class="f-card__header">
+    <!-- 
+      头部
+      https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/heading_role
+    -->
+    <div v-if="$slots.header || title" role="heading" class="f-card__header">
       <slot name="header">{{ title }}</slot>
     </div>
 

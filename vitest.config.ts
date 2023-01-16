@@ -13,7 +13,7 @@ export default (): UserConfigExport => {
     /** 配置插件 vue，如果不配置则识别不了 vue 文件 */
     plugins: [vue()],
     test: {
-      globals: true,
+      // globals: true,
       /**
        * 配置环境
        *
