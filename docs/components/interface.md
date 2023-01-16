@@ -10,11 +10,15 @@ type ClassList = readonly (string | Record<string, unknown>)[]
 
 ## FightingType
 
+用于定于组件的类型，不同的类型将会展示不同的样式，主要用于 `f-alert` `f-button` `f-fighting-global` `f-link` `FMessage` `FNotification` `f-ripple` `f-tag` `f-text` 组件
+
 ```ts
 type FightingType = 'primary' | 'success' | 'danger' | 'warning' | 'default'
 ```
 
 ## FightingSize
+
+用于定于组件的尺寸。主要用于 `f-avatar` `f-button` `f-checkbox` `f-fighting-global` `f-input=number` `f-input` `f-list` `f-radio` `f-skeleton` `f-space` `f-switch` `f-tag` `f-toolbar` 组件
 
 ```ts
 type FightingSize = 'large' | 'middle' | 'small' | 'mini'
@@ -30,7 +34,7 @@ type FightingIcon = VNode | Component
 
 ## HandleMouse
 
-针对一些点击事件的类型接口，用于 `f-button` `f-link` `f-svg-icon`
+针对一些点击事件的类型接口，用于 `f-button` `f-link` `f-svg-icon` 组件
 
 ```ts
 type HandleMouse = (evt: MouseEvent) => void
