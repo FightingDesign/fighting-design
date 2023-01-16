@@ -2,7 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- 优化了 `f-image` 和 `f-avatar` 组件类型
+- 优化 `f-image` 和 `f-avatar` 组件类型
+- 完善更多组件的 `role`
 
 ## 0.19.1 (2023-01-13)
 
