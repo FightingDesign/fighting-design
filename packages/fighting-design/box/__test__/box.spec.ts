@@ -10,100 +10,78 @@ describe('Box', () => {
 
   test('role', () => {
     const wrapper = mount(FBox, {
-      props: {
-        role: 'list'
-      }
+      props: { role: 'list' }
     })
     expect(wrapper.attributes('role')).toContain('list')
   })
 
   test('padding', () => {
     const wrapper = mount(FBox, {
-      props: {
-        padding: 20
-      }
+      props: { padding: 20 }
     })
     expect(wrapper.attributes('style')).toContain('--f-box-padding: 20px')
   })
 
   test('padding', () => {
     const wrapper = mount(FBox, {
-      props: {
-        padding: '30px'
-      }
+      props: { padding: '30px' }
     })
     expect(wrapper.attributes('style')).toContain('--f-box-padding: 30px')
   })
 
   test('width', () => {
     const wrapper = mount(FBox, {
-      props: {
-        width: 20
-      }
+      props: { width: 20 }
     })
     expect(wrapper.attributes('style')).toContain('--f-box-width: 20px')
   })
 
   test('width', () => {
     const wrapper = mount(FBox, {
-      props: {
-        width: '30px'
-      }
+      props: { width: '30px' }
     })
     expect(wrapper.attributes('style')).toContain('--f-box-width: 30px')
   })
 
   test('height', () => {
     const wrapper = mount(FBox, {
-      props: {
-        height: 20
-      }
+      props: { height: 20 }
     })
     expect(wrapper.attributes('style')).toContain('--f-box-height: 20px')
   })
 
   test('height', () => {
     const wrapper = mount(FBox, {
-      props: {
-        height: '30px'
-      }
+      props: { height: '30px' }
     })
     expect(wrapper.attributes('style')).toContain('--f-box-height: 30px')
   })
 
   test('background', () => {
     const wrapper = mount(FBox, {
-      props: {
-        background: 'red'
-      }
+      props: { background: 'red' }
     })
     expect(wrapper.attributes('style')).toContain('--f-box-background: red')
   })
 
   test('display', () => {
     const wrapper = mount(FBox, {
-      props: {
-        display: 'block'
-      }
+      props: { display: 'block' }
     })
     expect(wrapper.attributes('style')).toContain('--f-box-display: block')
   })
 
   test('display', () => {
     const wrapper = mount(FBox, {
-      props: {
-        display: 'flex'
-      }
+      props: { display: 'flex' }
     })
     expect(wrapper.attributes('style')).toContain('--f-box-display: flex')
   })
 
   test('slot', () => {
     const wrapper = mount(FBox, {
-      slots: {
-        default: 'hello'
-      }
+      slots: { default: 'hello' }
     })
-    expect(wrapper.text()).toContain('hello')
+    expect(wrapper.text()).toBe('hello')
   })
 })

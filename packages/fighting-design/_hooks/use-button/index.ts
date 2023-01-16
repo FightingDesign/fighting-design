@@ -29,7 +29,14 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
   /** 获取父组件注入的依赖项 */
   const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)
 
-  const isShowIcon = computed(() => !(slot.default && slot.default()))
+  /** 
+   * 检测是否带有默认插槽
+   *
+   * 如果没有则返回真
+   *
+   * 用于限制前后 icon 的意外边距
+   */
+  const isShowIcon = computed((): boolean => !(slot.default && slot.default()))
 
   /** 处理结构后的 prop 集合 */
   const params = reactive({

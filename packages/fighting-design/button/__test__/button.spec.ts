@@ -3,7 +3,6 @@ import { describe, expect, test } from 'vitest'
 import { FButton } from '../index'
 import { useCalculiColor } from '../../_hooks'
 import { FIGHTING_SIZE, FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
-import { h } from 'vue';
 
 describe('FButton', () => {
   test('class', () => {
@@ -197,9 +196,9 @@ describe('FButton', () => {
 
   test('loading click', async () => {
     const wrapper = mount(FButton, {
-      slots: { 
+      slots: {
         default: {
-          render() {
+          render () {
             return '点击测试'
           }
         }

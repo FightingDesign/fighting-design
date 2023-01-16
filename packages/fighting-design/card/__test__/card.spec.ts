@@ -19,7 +19,7 @@ describe('FCard', () => {
     const wrapper = mount(FCard, {
       props: { title: '这是卡片标题' }
     })
-    expect(wrapper.find('.f-card__header').text()).toContain('这是卡片标题')
+    expect(wrapper.find('.f-card__header').text()).toBe('这是卡片标题')
   })
 
   test('round', () => {
@@ -43,6 +43,13 @@ describe('FCard', () => {
     const wrapper = mount(FCard, {
       props: { padding: '20px' }
     })
-    expect(wrapper.find('.f-card__body').attributes('style')).toContain('20px')
+    expect(wrapper.find('.f-card__body').attributes('style')).toContain('--f-card-padding: 20px')
+  })
+
+  test('padding', () => {
+    const wrapper = mount(FCard, {
+      props: { padding: 30 }
+    })
+    expect(wrapper.find('.f-card__body').attributes('style')).toContain('--f-card-padding: 30px')
   })
 })
