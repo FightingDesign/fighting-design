@@ -8,6 +8,8 @@ export const onCopy = (target: string): void => {
   document.execCommand('Copy')
   document.body.removeChild(copyInput)
 
+  // navigator.clipboard.writeText(target)
+
   FMessage({
     message: '复制成功',
     type: 'primary'
