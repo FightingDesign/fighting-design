@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FTabsPane">
   import { Props } from './props'
   import { TABS_PROPS_KEY } from '../../tabs/src/props'
-  import { computed, inject, onBeforeUnmount } from 'vue'
+  import { computed, inject, onBeforeUnmount, onMounted } from 'vue'
   import type { TabsProvide } from '../../_hooks'
 
   const prop = defineProps(Props)
@@ -22,7 +22,9 @@
   const isShow = computed((): boolean | null => parentInject && parentInject.activeName.value === prop.name)
 
   /** 在组件插入及卸载时都要更新父级的 pane 列表 */
-  parentInject && parentInject.updatePaneList()
+  onMounted(() => {
+    parentInject && parentInject.updatePaneList()
+  })
 
   onBeforeUnmount((): void => {
     parentInject && parentInject.updatePaneList()
