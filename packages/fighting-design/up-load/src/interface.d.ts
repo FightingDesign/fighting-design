@@ -5,4 +5,4 @@ export type { UpLoadProps } from './up-load'
  * 
  * @param files 文件列表
  */
-export type UpLoadLoad = (files: File[]) => void
+export type UpLoadCallback = (files: File[]) => void

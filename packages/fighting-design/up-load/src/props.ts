@@ -6,7 +6,7 @@ import {
   setFunctionProp
 } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import type { UpLoadLoad } from './interface'
+import type { UpLoadCallback } from './interface'
 
 export const Props = {
   /** 文件列表 */
@@ -34,9 +34,9 @@ export const Props = {
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 上传成功后执行的回调 */
-  onLoad: setFunctionProp<UpLoadLoad>(),
+  onLoad: setFunctionProp<UpLoadCallback>(),
   /** 绑定的文件列表发生改变时触发的回调 */
-  onChange: setFunctionProp<UpLoadLoad>()
+  onChange: setFunctionProp<UpLoadCallback>()
 } as const
 
 export type UpLoadProps = ExtractPropTypes<typeof Props>

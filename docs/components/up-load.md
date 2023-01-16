@@ -103,20 +103,20 @@
 
 ## Attributes
 
-| 参数            | 说明                               | 类型     | 可选值 | 默认值 |
-| --------------- | ---------------------------------- | -------- | ------ | ------ |
-| `v-model:files` | 文件列表                           | array    | ——     | ——     |
-| `accept`        | 接受的文件类型                     | string   | ——     | ——     |
-| `name`          | 原生 name 属性                     | string   | ——     | ——     |
-| `drag`          | 是否可拖拽上传                     | boolean  | ——     | false  |
-| `is-remove`     | 是否可删除                         | boolean  | ——     | true   |
-| `showList`      | 是否展示文件列表                   | boolean  | ——     | true   |
-| `multiple`      | 是否可多选                         | boolean  | ——     | false  |
-| `max-size`      | 最大上传尺寸                       | number   | ——     | ——     |
-| `max-length`    | 最大上传数量                       | number   | ——     | ——     |
-| `disabled`      | 是否禁用                           | boolean  | ——     | false  |
-| `on-load`       | 上传成功后执行的回调               | Function | ——     | ——     |
-| `on-change`     | 绑定的文件列表发生改变时触发的回调 | Function | ——     | ——     |
+| 参数            | 说明                               | 类型                                         | 可选值 | 默认值 |
+| --------------- | ---------------------------------- | -------------------------------------------- | ------ | ------ |
+| `v-model:files` | 文件列表                           | array                                        | ——     | ——     |
+| `accept`        | 接受的文件类型                     | string                                       | ——     | ——     |
+| `name`          | 原生 name 属性                     | string                                       | ——     | ——     |
+| `drag`          | 是否可拖拽上传                     | boolean                                      | ——     | false  |
+| `is-remove`     | 是否可删除                         | boolean                                      | ——     | true   |
+| `showList`      | 是否展示文件列表                   | boolean                                      | ——     | true   |
+| `multiple`      | 是否可多选                         | boolean                                      | ——     | false  |
+| `max-size`      | 最大上传尺寸                       | number                                       | ——     | ——     |
+| `max-length`    | 最大上传数量                       | number                                       | ——     | ——     |
+| `disabled`      | 是否禁用                           | boolean                                      | ——     | false  |
+| `on-load`       | 上传成功后执行的回调               | <a href="#uploadcallback">UpLoadCallback</a> | ——     | ——     |
+| `on-change`     | 绑定的文件列表发生改变时触发的回调 | <a href="#uploadcallback">UpLoadCallback</a> | ——     | ——     |
 
 ## Slots
 
@@ -129,7 +129,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { UpLoadInstance, UpLoadProps } from 'fighting-design'
+import type { UpLoadInstance, UpLoadProps, UpLoadCallback } from 'fighting-design'
+```
+
+###
+
+```ts
+type UpLoadCallback = (files: File[]) => void
 ```
 
 ## Contributors
