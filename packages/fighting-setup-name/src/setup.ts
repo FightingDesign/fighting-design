@@ -1,6 +1,5 @@
-// 像向导一样操纵字符串
 import { basename } from 'path'
-import MagicString from 'magic-string' // https://github.com/rich-harris/magic-string
+import MagicString from 'magic-string' // 
 import { compileScript, parse } from '@vue/compiler-sfc'
 import type { SourceMap } from 'magic-string'
 import type { SFCScriptBlock } from '@vue/compiler-sfc'
@@ -19,12 +18,21 @@ export interface SetupNameReturn {
  */
 export const setupName = (code: string, id: string): SetupNameReturn | null => {
   let s: MagicString | undefined
+
+  /**
+   * 或者文件内容字符串
+   *
+   * @see MagicString https://github.com/rich-harris/magic-string
+   * @returns 内容字符串
+   */
   const str = (): MagicString => s || (s = new MagicString(code))
   const { descriptor } = parse(code)
 
   if (!descriptor.script && descriptor.scriptSetup) {
     const result: SFCScriptBlock = compileScript(descriptor, { id })
+    /** 获取到组件的 name */
     const name = result.attrs.name
+    /** 获取到组件的 lang */
     const lang = result.attrs.lang
 
     if (name) {

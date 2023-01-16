@@ -1,7 +1,12 @@
-import { createUnplugin } from 'unplugin' // https://github.com/unjs/unplugin
+import { createUnplugin } from 'unplugin'
 import { setupName } from './setup'
 import type { Thenable, TransformResult } from 'unplugin'
 
+/**
+ * 设置插件
+ * 
+ * @see createUnplugin https://github.com/unjs/unplugin
+ */
 export const FightingSetupNamePlugin = createUnplugin(() => {
   return {
     name: 'unplugin-prefixed-name',
