@@ -9,5 +9,8 @@ export type FightingType = 'primary' | 'success' | 'danger' | 'warning' | 'defau
 /** 不同尺寸类型 */
 export type FightingSize = 'large' | 'middle' | 'small' | 'mini'
 
+/** 适应容器的方式 */
+export type FightingFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
+
 /** icon 类型 */
 export type FightingIcon = VNode | Component

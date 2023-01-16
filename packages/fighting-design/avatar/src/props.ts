@@ -7,10 +7,14 @@ import {
   setObjectProp,
   setFunctionProp
 } from '../../_utils'
-import { FIGHTING_SIZE } from '../../_tokens'
+import { FIGHTING_SIZE, FIGHTING_FIT } from '../../_tokens'
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { AvatarFit } from './interface'
-import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
+import type {
+  HandleEvent,
+  FightingSize,
+  FightingIcon,
+  FightingFit
+} from '../../_interface'
 
 export const Props = {
   /** 图片路径 */
@@ -36,9 +40,10 @@ export const Props = {
    *
    * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    * @values fill contain cover none scale-down
+   * @defaultValue null
    */
-  fit: setStringProp<AvatarFit>(null, (val: AvatarFit): boolean => {
-    return (['fill', 'contain', 'cover', 'none', 'scale-down', ''] as const).includes(val)
+  fit: setStringProp<FightingFit>(null, (val: FightingFit): boolean => {
+    return FIGHTING_FIT.includes(val)
   }),
   /**
    * 图片大小

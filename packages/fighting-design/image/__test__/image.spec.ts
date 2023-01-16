@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FImage } from '../index'
+import { FIGHTING_FIT } from '../../_tokens'
 
 describe('FImage', () => {
   test('class', () => {
@@ -30,8 +31,7 @@ describe('FImage', () => {
   })
 
   test('fit', () => {
-    const fit = ['fill', 'contain', 'cover', 'none', 'scale-down'] as const
-    fit.forEach(item => {
+    FIGHTING_FIT.forEach(item => {
       const wrapper = mount(FImage, {
         props: { fit: item }
       })

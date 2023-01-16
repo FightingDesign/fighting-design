@@ -10,3 +10,12 @@ export const FIGHTING_TYPE = ['default', 'primary', 'success', 'danger', 'warnin
  * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
  */
 export const FIGHTING_TARGET = ['_blank', '_self', '_parent', '_top'] as const
+
+/**
+ * 如何适应容器
+ *
+ * 原生样式属性
+ *
+ * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
+ */
+export const FIGHTING_FIT = ['fill', 'contain', 'cover', 'none', 'scale-down'] as const

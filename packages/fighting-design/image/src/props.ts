@@ -1,7 +1,12 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringNumberProp,
+  setStringProp,
+  setFunctionProp
+} from '../../_utils'
+import { FIGHTING_FIT } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
-import type { ImageFit } from './interface'
-import type { HandleEvent } from '../../_interface'
+import type { HandleEvent, FightingFit } from '../../_interface'
 
 export const Props = {
   /** 图片路径 */
@@ -31,8 +36,8 @@ export const Props = {
    * @defaultValue null
    * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    */
-  fit: setStringProp<ImageFit>(null, (val: ImageFit): boolean => {
-    return (['fill', 'contain', 'cover', 'none', 'scale-down'] as const).includes(val)
+  fit: setStringProp<FightingFit>(null, (val: FightingFit): boolean => {
+    return FIGHTING_FIT.includes(val)
   }),
   /** 是否禁止选择 */
   noSelect: setBooleanProp(),
