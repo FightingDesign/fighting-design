@@ -57,4 +57,11 @@ describe('FBackTop', () => {
     await wrapper.trigger('click.stop')
     expect(wrapper.emitted()).toBeDefined()
   })
+
+  test('slots', () => {
+    const wrapper = mount(FBackTop, {
+      slots: { default: '123' }
+    })
+    expect(wrapper.find('.f-back-top').text()).toBe('123')
+  })
 })
