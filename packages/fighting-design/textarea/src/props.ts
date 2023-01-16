@@ -1,5 +1,11 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp, setFunctionProp } from '../../_utils'
-import type { ExtractPropTypes, PropType } from 'vue'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setNumberProp,
+  setFunctionProp
+} from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 import type { TextareaResize } from './interface'
 import type { InputChange, HandleEvent } from '../../_interface'
 
@@ -49,10 +55,7 @@ export const Props = {
    */
   readonly: setBooleanProp(),
   /** input 事件触发的回调 */
-  onInput: {
-    type: Function as PropType<HandleEvent>,
-    default: (): null => null
-  },
+  onInput: setFunctionProp<HandleEvent>(),
   /**
    * 拉伸方式
    *

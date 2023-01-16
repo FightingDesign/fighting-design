@@ -1,4 +1,8 @@
-import { setBooleanProp, setArrayProp } from '../../../../_utils'
+import {
+  setBooleanProp,
+  setArrayProp,
+  setFunctionProp
+} from '../../../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type {
   TabsNavInstance,
@@ -78,20 +82,11 @@ export const Props = {
     }
   },
   /** 设置选中的 name */
-  setActiveName: {
-    type: Function as PropType<SetActiveName>,
-    default: (): null => null
-  },
+  setActiveName: setFunctionProp<SetActiveName>(),
   /** 设置自定义操作 */
-  setEdit: {
-    type: Function as PropType<TabsEdit>,
-    default: (): null => null
-  },
+  setEdit: setFunctionProp<TabsEdit>(),
   /** 切换前的回调 */
-  onSwitch: {
-    type: Function as PropType<TabsSwitch>,
-    default: (): null => null
-  }
+  onSwitch: setFunctionProp<TabsSwitch>()
 }
 
 export type TabsNavProps = ExtractPropTypes<typeof Props>

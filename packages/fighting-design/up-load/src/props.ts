@@ -1,5 +1,12 @@
-import { setBooleanProp, setStringProp, setNumberProp, setArrayProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setNumberProp,
+  setArrayProp,
+  setFunctionProp
+} from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
+import type { UpLoadLoad } from './interface'
 
 export const Props = {
   /** 文件列表 */
@@ -27,15 +34,9 @@ export const Props = {
   /** 是否禁用 */
   disabled: setBooleanProp(),
   /** 上传成功后执行的回调 */
-  onLoad: {
-    type: Function,
-    default: (): null => null
-  },
+  onLoad: setFunctionProp<UpLoadLoad>(),
   /** 绑定的文件列表发生改变时触发的回调 */
-  onChange: {
-    type: Function,
-    default: (): null => null
-  }
+  onChange: setFunctionProp<UpLoadLoad>()
 } as const
 
 export type UpLoadProps = ExtractPropTypes<typeof Props>

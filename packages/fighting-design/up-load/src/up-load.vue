@@ -35,7 +35,7 @@
   const updateFiles = (files: File[]): void => {
     fileList.value = files
     emit(EMIT_FILES, files)
-    useRun(prop.onLoad)
+    useRun(prop.onLoad, files)
   }
 
   /**
@@ -119,7 +119,7 @@
     watch(
       (): File[] => prop.files,
       (): void => {
-        prop.onChange()
+        useRun(prop.onChange, fileList.value)
       },
       { deep: true }
     )
