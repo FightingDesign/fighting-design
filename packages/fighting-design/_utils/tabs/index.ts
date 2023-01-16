@@ -32,8 +32,9 @@ export const flattedChildren = (children: VNode | VNodeNormalizedChildren): VNod
 
 /**
  * 筛选出根组件下所有名称符合的组件
- * @param root
- * @param component
+ *
+ * @param root 组件实例
+ * @param component 组件名
  */
 export const getChildrenComponent = (root: ComponentInternalInstance, component: string): VNode[] => {
   if (!root.subTree) return []
