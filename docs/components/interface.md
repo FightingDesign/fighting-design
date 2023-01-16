@@ -63,3 +63,11 @@ type FightingLang = 'en-US' | 'zh-CN'
 ```ts
 type InputChange = (value: string) => void
 ```
+
+## FightingFit
+
+适应容器的方式类型，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性，用于 `f-avatar` `f-image` 组件
+
+```ts
+type FightingFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
+```

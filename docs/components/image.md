@@ -135,7 +135,7 @@
 | `width`           | 图片的宽度                                                                                                   | string / number                                                  | ——                                                 | ——     |
 | `height`          | 图片的高度                                                                                                   | string / number                                                  | ——                                                 | ——     |
 | `block`           | 是否为块级元素                                                                                               | boolean                                                          | ——                                                 | false  |
-| `fit`             | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性     | <a href="#imagefit">ImageFit</a>                                 | `fill` `contain` `cover` `none`<br /> `scale-down` | ——     |
+| `fit`             | 如何适应容器，原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it) 属性     | <a href="/components/interface.html#fightingfit">FightingFit</a> | `fill` `contain` `cover` `none`<br /> `scale-down` | ——     |
 | `no-select`       | 是否禁止选择                                                                                                 | boolean                                                          | ——                                                 | false  |
 | `referrer-policy` | 原生 [referrerPolicy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#syntax) 属性 | string                                                           | ——                                                 | ——     |
 | `round`           | 配置圆角，传入一个数值                                                                                       | string / number                                                  | ——                                                 | ——     |
@@ -155,12 +155,6 @@
 
 ```ts
 import type { ImageInstance, ImageProps, ImageFit } from 'fighting-design'
-```
-
-### ImageFit
-
-```ts
-type ImageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 ```
 
 ## Contributors
