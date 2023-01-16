@@ -7,13 +7,14 @@ describe('FAvatar', () => {
   test('class', () => {
     const wrapper = mount(FAvatar)
     expect(wrapper.classes()).toContain('f-avatar')
+    expect(wrapper.attributes('role')).toBe('img')
   })
 
   test('alt', () => {
     const wrapper = mount(FAvatar, {
       props: { alt: '图片' }
     })
-    expect(wrapper.find('img').attributes('alt')).toContain('图片')
+    expect(wrapper.find('img').attributes('alt')).toBe('图片')
   })
 
   test('round', () => {

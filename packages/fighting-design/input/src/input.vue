@@ -89,7 +89,7 @@
 </script>
 
 <template>
-  <div :class="['f-input', { [`f-input__${size}`]: size }]" :style="styleList">
+  <div role="input" :class="['f-input', { [`f-input__${size}`]: size }]" :style="styleList">
     <div :class="['f-input__wrapper', { 'f-input__disabled': disabled }]">
       <f-svg-icon v-if="icon" class="f-input__icon" :icon="icon" :size="13" />
 

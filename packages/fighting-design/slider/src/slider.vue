@@ -79,7 +79,7 @@
 </script>
 
 <template>
-  <div ref="sliderEl" class="f-slider" :class="classList" :style="styleList">
+  <div ref="sliderEl" role="slider" class="f-slider" :class="classList" :style="styleList">
     <div class="f-slider__selected" :style="`width: ${rightTx}px`" />
     <div
       v-drag="onRightDrag"

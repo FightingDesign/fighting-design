@@ -93,7 +93,7 @@
 </script>
 
 <template>
-  <div class="f-input-number">
+  <div role="input" class="f-input-number">
     <f-button
       v-if="model === 'button'"
       class="f-input-number__minus"

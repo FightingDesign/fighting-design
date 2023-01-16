@@ -6,6 +6,7 @@ describe('InputNumber', () => {
   test('class', () => {
     const wrapper = mount(FInputNumber)
     expect(wrapper.classes()).toContain('f-input-number')
+    expect(wrapper.attributes('role')).toBe('input')
   })
 
   test('model', () => {

@@ -8,6 +8,7 @@ describe('FSlider', () => {
       props: { modelValue: 0 }
     })
     expect(wrapper.find('div').classes()).toContain('f-slider')
+    expect(wrapper.find('.f-slider').attributes('role')).toBe('slider')
   })
 
   test('disabled', () => {

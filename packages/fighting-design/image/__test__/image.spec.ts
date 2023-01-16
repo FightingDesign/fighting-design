@@ -7,6 +7,7 @@ describe('FImage', () => {
   test('class', () => {
     const wrapper = mount(FImage)
     expect(wrapper.classes()).toContain('f-image')
+    expect(wrapper.attributes('role')).toContain('img')
   })
 
   test('alt', () => {
