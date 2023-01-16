@@ -1,17 +1,15 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { FIconApps, FIconBluetooth, FIconBook } from '@fighting-design/fighting-icon'
+  import { ref } from 'vue'
+  import { FIconApps } from '@fighting-design/fighting-icon'
 
-const msg = ref('123')
+  const msg = ref('123')
 </script>
 
 <template>
-  <input type="text" v-model="msg" />
+  <input v-model="msg" type="text" />
   <br />
   <br />
-  <f-button type="primary" :before-icon="FIconApps" :after-icon="FIconBluetooth">{{ msg }}</f-button>
+  <f-button type="primary" :before-icon="FIconApps">{{ msg }}</f-button>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

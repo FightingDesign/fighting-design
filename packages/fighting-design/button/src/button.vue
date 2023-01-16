@@ -1,11 +1,12 @@
 <script lang="ts" setup name="FButton">
   import { Props } from './props'
-  import { ref, toRefs, reactive } from 'vue'
+  import { ref, toRefs, reactive, computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
   import { useRipples, useRun, useGlobal, useButton } from '../../_hooks'
   import type { RipplesOptions } from '../../_hooks'
   import type { Ref } from 'vue'
+  import type { FightingIcon } from '../../_interface'
 
   const prop = defineProps(Props)
 
@@ -52,6 +53,11 @@
 
     useRun(prop.onClick, evt)
   }
+
+  /** 前缀 icon */
+  const beforeIconNode = computed((): FightingIcon => {
+    return prop.loading ? prop.loadingIcon || FIconLoadingAVue : prop.beforeIcon
+  })
 </script>
 
 <template>
@@ -69,7 +75,7 @@
       <f-svg-icon
         v-if="loading || beforeIcon"
         :class="{ 'f-button__loading-animation': loading }"
-        :icon="loading ? loadingIcon || FIconLoadingAVue : beforeIcon"
+        :icon="beforeIconNode"
         :size="16"
       />
 

@@ -1,6 +1,11 @@
 import { isVNode } from 'vue'
-import type { VNode, VNodeNormalizedChildren, ComponentInternalInstance, Component } from 'vue'
 import { isArray, isObject } from '..'
+import type {
+  VNode,
+  VNodeNormalizedChildren,
+  ComponentInternalInstance,
+  Component
+} from 'vue'
 
 /**
  * 将所有子的组件扁平化
