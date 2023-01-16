@@ -30,7 +30,7 @@
 </script>
 
 <template>
-  <div v-if="isLoad" v-show="isShow" class="f-tabs-pane">
+  <div v-if="isLoad" v-show="isShow" role="tabpanel" class="f-tabs-pane">
     <slot />
   </div>
 </template>

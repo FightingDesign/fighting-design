@@ -80,6 +80,7 @@
         <div
           v-for="(item, index) in navs"
           :key="index"
+          role="tablist"
           :class="[
             'f-tabs-nav__item',
             {

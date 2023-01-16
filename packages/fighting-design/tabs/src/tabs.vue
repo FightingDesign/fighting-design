@@ -31,7 +31,7 @@
 </script>
 
 <template>
-  <div :class="['f-tabs', `f-tabs__${tabsPosition}`]">
+  <div role="tab" :class="['f-tabs', `f-tabs__${tabsPosition}`]">
     <tabs-nav
       v-if="navs.length"
       :navs="navs"

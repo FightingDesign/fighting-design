@@ -20,8 +20,8 @@
 </script>
 
 <template>
-  <div class="f-tree">
-    <div v-for="(item, index) in flatTreeData" :key="index" class="f-tree__data">
+  <div role="tree" class="f-tree">
+    <div v-for="(item, index) in flatTreeData" :key="index" role="treeitem" class="f-tree__data">
       <div
         v-show="item.show"
         class="f-tree__label"

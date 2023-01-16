@@ -33,7 +33,7 @@
 </script>
 
 <template>
-  <div class="f-table" :style="styleList">
+  <div role="table" class="f-table" :style="styleList">
     <div
       :class="[
         'f-table__container',

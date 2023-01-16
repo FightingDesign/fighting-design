@@ -24,7 +24,7 @@
     </div>
 
     <!-- 主内容 -->
-    <div class="f-card__body" :style="styleList">
+    <div role="none" class="f-card__body" :style="styleList">
       <slot />
     </div>
   </div>

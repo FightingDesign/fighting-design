@@ -28,7 +28,7 @@
 
 <template>
   <template v-if="isRender">
-    <div v-for="n in rows" :key="n" :class="classList" />
+    <div v-for="n in rows" :key="n" role="section" :class="classList" />
   </template>
 
   <slot v-else />
