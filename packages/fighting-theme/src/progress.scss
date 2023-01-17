@@ -46,6 +46,30 @@
           background: var(--f-progress-color, map-get($item, default));
         }
       }
+
+      @keyframes f-progress-animation-panoramic {
+        to {
+          background-position: 200% 0;
+        }
+      }
+
+      &.f-progress__stripe {
+        .f-progress__bar {
+          .f-progress__fill {
+            background: repeating-linear-gradient(
+              -45deg,
+              map-get($item, default) 25%,
+              map-get($item, default) 0,
+              map-get($item, default) 50%,
+              map-get($item, defaultHover) 0,
+              map-get($item, defaultHover) 75%,
+              map-get($item, defaultHover) 0
+            );
+            background-size: 35px 35px;
+            animation: f-progress-animation-panoramic 30s linear infinite;
+          }
+        }
+      }
     }
   }
 

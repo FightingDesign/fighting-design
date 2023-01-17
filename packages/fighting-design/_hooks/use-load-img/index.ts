@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { sizeChange, sizeToNum } from '../../_utils'
-import { useRun } from '../../_hooks'
+import { useRun } from '..'
 import type { UseLoadImgProp, UseLoadImgReturn } from './interface'
 
 export * from './interface.d'

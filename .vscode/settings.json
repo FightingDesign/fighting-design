@@ -23,7 +23,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.words": [
-    "uploadcallback",
     "alearance",
     "alertoverflow",
     "alicdn",
@@ -165,6 +164,7 @@
     "popupdirection",
     "prettierrc",
     "prismjs",
+    "progressbar",
     "progresstype",
     "radiochange",
     "radiogroup",
@@ -224,6 +224,7 @@
     "unplugin",
     "unref",
     "unzlib",
+    "uploadcallback",
     "usercenter",
     "utoa",
     "vconsole",

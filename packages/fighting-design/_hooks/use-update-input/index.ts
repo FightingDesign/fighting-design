@@ -1,5 +1,5 @@
 import { isNumber } from '../../_utils'
-import { useRun } from '../../_hooks'
+import { useRun } from '..'
 import { EMIT_UPDATE } from '../../_tokens'
 import type { UseUpdateInputProps, UseUpdateInputReturn, UseUpdateInputEmit } from './interface'
 

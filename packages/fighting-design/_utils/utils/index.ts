@@ -1,4 +1,4 @@
-import { isString, isNumber } from '../index'
+import { isString, isNumber } from '..'
 
 /**
  * 保留小数点后 no 位

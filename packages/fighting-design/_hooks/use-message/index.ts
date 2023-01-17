@@ -1,7 +1,7 @@
 import messageVue from '../../message/src/message.vue'
 import notificationVue from '../../notification/src/notification.vue'
 import { render, createVNode } from 'vue'
-import { useMassageManage, useRun } from '../../_hooks'
+import { useMassageManage, useRun } from '..'
 import { isString } from '../../_utils'
 import { FIGHTING_TYPE } from '../../_tokens'
 import type { FightingType } from '../../_interface'

@@ -1,4 +1,4 @@
-import { useList } from '../../_hooks'
+import { useList } from '..'
 import { isNumber, isString } from '../../_utils'
 import type { AvatarProps } from '../../avatar'
 import type { UseAvatarReturn } from './interface'
