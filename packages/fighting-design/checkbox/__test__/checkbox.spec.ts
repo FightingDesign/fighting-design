@@ -9,7 +9,44 @@ describe('FCheckbox', () => {
     expect(wrapper.classes()).toContain('f-checkbox')
   })
 
-  test('select', async () => {
+  test('label', () => {
+    const wrapper = mount(FCheckbox, {
+      props: {
+        label: 'Math'
+      }
+    })
+    expect(wrapper.get('.f-checkbox .f-checkbox__text').text()).toBe('Math')
+  })
+
+  test('disabled', () => {
+    const wrapper = mount(FCheckbox, {
+      props: {
+        disabled: true
+      }
+    })
+    expect(wrapper.get('.f-checkbox').classes()).toContain('f-checkbox__disabled')
+  })
+
+  test('showLabel', () => {
+    const wrapper = mount(FCheckbox, {
+      props: {
+        label: 'Math',
+        showLabel: false
+      }
+    })
+    expect(wrapper.get('.f-checkbox .f-checkbox__text').text()).toBe('')
+  })
+
+  test('indeterminate', () => {
+    const wrapper = mount(FCheckbox, {
+      props: {
+        indeterminate: true
+      }
+    })
+    expect(wrapper.get('.f-checkbox').classes()).toContain('f-checkbox__indeterminate')
+  })
+
+  test('onChange', async () => {
     const wrapper = mount(FCheckbox)
     await wrapper.get('input[type=checkbox]').setValue(true)
     await wrapper.get('input[type=checkbox]').setValue(false)

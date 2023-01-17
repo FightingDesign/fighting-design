@@ -10,6 +10,15 @@ describe('CloseBtn', () => {
     expect(wrapper.classes()).toContain('f-close-btn')
   })
 
+  test('size', () => {
+    const wrapper = mount(FCloseBtn, {
+      props: {
+        size: 100
+      }
+    })
+    expect(wrapper.getComponent('.f-svg-icon').attributes().style).toContain('--f-svg-icon-size: 100px;')
+  })
+
   test('round', () => {
     const wrapper = mount(FCloseBtn, {
       slots: { default: '123' },

@@ -77,4 +77,13 @@ describe('FDivider', () => {
     })
     expect(wrapper.attributes('style')).toBe('border-color: red;')
   })
+
+  test('type', () => {
+    const wrapper = mount(FDivider, {
+      props: {
+        type: 'solid'
+      }
+    })
+    expect(wrapper.classes()).toContain('f-divider__solid')
+  })
 })
