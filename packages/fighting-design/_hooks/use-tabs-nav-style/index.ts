@@ -1,4 +1,4 @@
-import { nextTick, getCurrentInstance, ref, computed } from 'vue'
+import { nextTick, getCurrentInstance, ref, computed, onMounted, onUnmounted } from 'vue'
 import { sizeToNum } from '../../_utils'
 import type { TabsNavProps } from '../../tabs/src/components'
 import type { TabsNavInstance } from '../../tabs'
@@ -92,6 +92,20 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
 
     activeLineStyle.value = activeStyleList
   }
+
+  const observer = new IntersectionObserver(setActiveLineStyle)
+
+  onMounted(() => {
+    if (!instance || !instance.subTree.el) return 
+    
+    observer.observe(instance.subTree.el as Element)
+  })
+
+  onUnmounted(() => {
+    if (!instance || !instance.subTree.el) return 
+
+    observer.unobserve(instance.subTree.el as Element)
+  })
 
   return {
     activeIndex,

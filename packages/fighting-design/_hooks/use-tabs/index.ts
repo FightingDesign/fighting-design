@@ -1,11 +1,12 @@
 import { getCurrentInstance, ref, nextTick, onMounted, watch, computed, provide } from 'vue'
-import { getChildrenComponent } from '../../_utils'
+import { useChildren } from '../../_utils'
 import { useRun } from '../../_hooks'
 import { EMIT_UPDATE } from '../../_tokens'
 import { TABS_PROPS_KEY } from '../../tabs/src/props'
-import type { ComponentInternalInstance, VNode } from 'vue'
+import type { ComponentInternalInstance } from 'vue'
 import type { UseTabsReturn, TabsProvide, SetActiveNameEmit } from './interface'
 import type { TabsModelValue, TabsProps, TabsNavInstance } from '../../tabs'
+import type { TabsPaneInstance } from '../../tabs-pane/src/interface'
 
 export * from './interface.d'
 
@@ -16,9 +17,9 @@ export * from './interface.d'
  */
 export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn => {
   /** 获取当前组件实例 */
-  const instance: ComponentInternalInstance | null = getCurrentInstance()
+  const instance = getCurrentInstance() as ComponentInternalInstance
   /** 子组件集合 */
-  const panes = ref<ComponentInternalInstance[]>([])
+  const usePanes = useChildren<TabsPaneInstance>(instance, 'FTabsPane')
   /** 当前选中的子组件 */
   const activeName = ref<TabsModelValue>(0)
 
@@ -44,25 +45,17 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
     useRun(prop.onEdit, action, name, index)
   }
 
-  /** 更新子组件列表 */
-  const updatePaneList = (): void => {
-    nextTick((): void => {
-      if (!instance) return
-      panes.value = getChildrenComponent(instance, 'FTabsPane').map(
-        (e: VNode) => e.component as ComponentInternalInstance
-      )
-    })
-  }
-
   /** nav 列表 */
   const navs = computed((): TabsNavInstance[] => {
     return (
-      panes.value &&
-      panes.value.map((item: ComponentInternalInstance, index: number): TabsNavInstance => {
+      usePanes.children.value &&
+      usePanes.children.value.map((item: TabsPaneInstance, index: number) => {
+        item.paneName = item.paneName || index
+
         return {
           /** name 如果没有传递 则用索引代替 */
-          name: (item.props.name || (item.props.name = index)) as TabsModelValue,
-          label: item.slots['label'] || item.props.label
+          name: item.paneName,
+          label: item.slots['label'] || item.prop.label
         } as const
       })
     )
@@ -91,7 +84,7 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
   /** 将信息传递给子组件 */
   provide<TabsProvide>(TABS_PROPS_KEY, {
     activeName,
-    updatePaneList
+    ...usePanes
   })
 
   return {
