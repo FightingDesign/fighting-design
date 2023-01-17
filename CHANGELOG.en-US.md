@@ -4,6 +4,13 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.20.0 (2023-01-17)
+
+- Optimize `f-space` style details
+- Fix some known problems of `f-tabs`
+- Abolish the `f-progress` component `width`,`square`,`linear` and `text-inside` configuration items
+- Add `f-progress` component `outside-text` configuration item
+
 ## 0.19.1 (2023-01-13)
 
 - Optimize `f-dropdown-item` style details

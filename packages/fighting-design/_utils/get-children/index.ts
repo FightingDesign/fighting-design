@@ -1,4 +1,4 @@
-import { isObject, isArray } from '../../_utils'
+import { isObject, isArray } from '..'
 import type { Component, VNode } from 'vue'
 
 /**

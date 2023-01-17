@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.20.0 (2023-01-17)
+
 - 优化 `f-space` 样式细节
 - 修复 `f-tabs` 一些已知问题
 - 废除 `f-progress` 组件 `width`、`square` `linear` `text-inside` 配置项

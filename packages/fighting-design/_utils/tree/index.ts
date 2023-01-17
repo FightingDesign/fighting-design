@@ -1,4 +1,4 @@
-import { isArray } from '../is'
+import { isArray } from '..'
 import type { FormatTreeData } from '../../_hooks'
 
 /**
