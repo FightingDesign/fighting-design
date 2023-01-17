@@ -1,5 +1,6 @@
 import type { ComputedRef, Ref } from 'vue'
 import type { TabsModelValue, TabsNavInstance, TabsEdit } from '../../tabs'
+import type { useChildrenReturn } from '../../_utils/tabs'
 
 /**
  * useTabs 返回值类型接口
@@ -22,10 +23,9 @@ export interface UseTabsReturn {
  * @param currentName 当前选中的 pane
  * @param updatePaneList 更新子组件列表
  */
-export interface TabsProvide {
+export type TabsProvide = {
   activeName: Ref<TabsModelValue>
-  updatePaneList: () => void
-}
+} & useChildrenReturn<TabsPaneInstance>
 
 /** setActiveName 回调类型 */
 export type SetActiveNameEmit = (event: 'update:modelValue', val: string | number) => void

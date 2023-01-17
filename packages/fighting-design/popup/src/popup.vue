@@ -75,48 +75,48 @@
 
 <template>
   <teleport to="body" :disabled="!appendToBody">
-    <!-- <transition
+    <transition
       name="f-popup__transition"
       @before-enter="handleOpen"
       @after-enter="handleOpenEnd"
       @before-leave="handleClose"
       @after-leave="handleCloseEnd"
-    > -->
-    <div v-show="visible" class="f-popup" :style="{ zIndex }">
-      <!-- 遮罩层 -->
-      <div
-        v-if="showMask"
-        :class="['f-popup__mask', { 'f-popup__blur': maskBlur }]"
-        :style="{ background: maskBackground, opacity: maskOpacity }"
-      />
-
-      <!-- 主容器 -->
-      <div
-        :class="[
-          'f-popup__container',
-          {
-            [`f-popup__container-${direction}`]: direction
-          }
-        ]"
-        @click.self="closePopup"
-      >
-        <!-- 主内容 -->
-        <!-- <transition name="f-popup__wrapper-transition"> -->
+    >
+      <div v-show="visible" class="f-popup" :style="{ zIndex }">
+        <!-- 遮罩层 -->
         <div
-          v-show="visible"
+          v-if="showMask"
+          :class="['f-popup__mask', { 'f-popup__blur': maskBlur }]"
+          :style="{ background: maskBackground, opacity: maskOpacity }"
+        />
+
+        <!-- 主容器 -->
+        <div
           :class="[
-            'f-popup__wrapper',
+            'f-popup__container',
             {
-              [`f-popup__wrapper-${direction}`]: direction
+              [`f-popup__container-${direction}`]: direction
             }
           ]"
-          :style="styleList"
+          @click.self="closePopup"
         >
-          <slot />
+          <!-- 主内容 -->
+          <transition name="f-popup__wrapper-transition">
+            <div
+              v-show="visible"
+              :class="[
+                'f-popup__wrapper',
+                {
+                  [`f-popup__wrapper-${direction}`]: direction
+                }
+              ]"
+              :style="styleList"
+            >
+              <slot />
+            </div>
+          </transition>
         </div>
-        <!-- </transition> -->
       </div>
-    </div>
-    <!-- </transition> -->
+    </transition>
   </teleport>
 </template>
