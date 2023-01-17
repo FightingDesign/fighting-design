@@ -59,7 +59,7 @@
     },
     { immediate: true }
   )
-
+  
   /** 事件处理 */
   const trigger = computed((): 'click' | 'mouseenter' => {
     return prop.trigger === 'hover' ? 'mouseenter' : 'click'
