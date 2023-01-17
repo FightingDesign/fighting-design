@@ -11,8 +11,6 @@
 
 `type` 属性可以配置不同的进度条样式，展示不同的颜色状态
 
-`square` 和 `linear` 属性可以分别配置方形或线形的进度条
-
 ::: demo
 
 <template #source>
@@ -26,8 +24,8 @@
 <f-progress type="success" :percentage="num" linear />
 
 <f-button-group>
-  <f-button simple round type="primary" @click="sun">减少</f-button>
-  <f-button simple round type="primary" @click="add">增加</f-button>
+<f-button simple round type="primary" :on-click="sun">减少</f-button>
+<f-button simple round type="primary" :on-click="add">增加</f-button>
 </f-button-group>
 </template>
 
@@ -42,8 +40,8 @@
   <f-progress type="success" :percentage="num" linear />
 
   <f-button-group>
-    <f-button simple round type="primary" @click="sun">减少</f-button>
-    <f-button simple round type="primary" @click="add">增加</f-button>
+    <f-button simple round type="primary" :on-click="sun">减少</f-button>
+    <f-button simple round type="primary" :on-click="add">增加</f-button>
   </f-button-group>
 </template>
 
@@ -70,40 +68,39 @@
 
 ## 显示百分比
 
-`show-text` 属性用来展示进度条百分比，线性的不会显示，当自定义高度小于 `18px` 自动隐藏百分比。可以通过 `text-inside` 属性控制百分比内容是否在进度条内显示
+`show-text` 属性用来展示进度条百分比
+
+`outside-text` 属性可配置在外部显示百分比
 
 ::: demo
 
 <template #source>
 <f-progress :percentage="10" show-text />
-<f-progress type="success" :percentage="40" :show-text="false" />
-<f-progress type="danger" :percentage="70" linear height="18px" text-inside />
-<f-progress type="warning" :percentage="90" linear show-text />
+<f-progress type="danger" :percentage="70" outside-text show-text />
 </template>
 
 ```html
 <f-progress :percentage="10" show-text />
-<f-progress type="success" :percentage="40" :show-text="false" />
-<f-progress type="danger" :percentage="70" linear height="18px" text-inside />
-<f-progress type="warning" :percentage="90" linear show-text />
+
+<f-progress type="danger" :percentage="70" outside-text show-text />
 ```
 
 :::
 
-## 自定义宽高
+## 自定义高度
 
-`width` 和 `height` 属性接收一个字符串，用于自定义进度条宽高
+`height` 属性可配置进度条的高度
 
 ::: demo
 
 <template #source>
-<f-progress :percentage="10" width="360px" height="27px" show-text />
-<f-progress type="success" :percentage="40" width="100%" height="20px" show-text text-inside/>
+<f-progress :percentage="10" height="27px" show-text />
+<f-progress type="success" :percentage="40" :height="40" show-text />
 </template>
 
 ```html
-<f-progress :percentage="10" width="360px" :height="27" show-text />
-<f-progress type="success" :percentage="40" width="100%" :height="20" show-text text-inside />
+<f-progress :percentage="10" height="27px" show-text />
+<f-progress type="success" :percentage="40" :height="40" show-text />
 ```
 
 :::
@@ -154,8 +151,8 @@
   <f-progress :height="25" stripe type="warning" :percentage="num" />
 
   <f-button-group>
-    <f-button simple round type="primary" @click="sun">减少</f-button>
-    <f-button simple round type="primary" @click="add">增加</f-button>
+    <f-button simple round type="primary" :on-click="sun">减少</f-button>
+    <f-button simple round type="primary" :on-click="add">增加</f-button>
   </f-button-group>
 </template>
 
@@ -182,20 +179,17 @@
 
 ## Attributes
 
-| 参数          | 说明                         | 类型                                     | 可选值                                 | 默认值  |
-| ------------- | ---------------------------- | ---------------------------------------- | -------------------------------------- | ------- |
-| `percentage`  | 百分比                       | number                                   | `0 ~ 100`                              | 0       |
-| `type`        | 进度条类型                   | <a href="#progresstype">ProgressType</a> | `primary` `success` `warning` `danger` | primary |
-| `width`       | 自定义宽度                   | string / number                          | ——                                     | ——      |
-| `height`      | 自定义高度                   | string / number                          | ——                                     | 6px     |
-| `square`      | 方形                         | boolean                                  | ——                                     | false   |
-| `linear`      | 线性                         | boolean                                  | ——                                     | false   |
-| `show-text`   | 是否显示百分比文字内容       | boolean                                  | ——                                     | true    |
-| `text-inside` | 百分比文字是否在进度条内显示 | boolean                                  | ——                                     | false   |
-| `text-color`  | 百分比文字的颜色             | string                                   | ——                                     | ——      |
-| `color`       | 进度条颜色                   | string                                   | ——                                     | ——      |
-| `background`  | 进度条背景色                 | string                                   | ——                                     | ——      |
-| `stripe`      | 是否开启条纹效果             | boolean                                  | ——                                     | false   |
+| 参数           | 说明                   | 类型                                     | 可选值                                 | 默认值  |
+| -------------- | ---------------------- | ---------------------------------------- | -------------------------------------- | ------- |
+| `percentage`   | 百分比                 | number                                   | `0 ~ 100`                              | 0       |
+| `type`         | 进度条类型             | <a href="#progresstype">ProgressType</a> | `primary` `success` `warning` `danger` | primary |
+| `height`       | 自定义高度             | string / number                          | ——                                     | ——      |
+| `show-text`    | 是否显示百分比文字内容 | boolean                                  | ——                                     | false   |
+| `outside-text` | 是否在外部显示文本     | boolean                                  | ——                                     | false   |
+| `text-color`   | 百分比文字的颜色       | string                                   | ——                                     | ——      |
+| `color`        | 进度条颜色             | string                                   | ——                                     | ——      |
+| `background`   | 进度条背景色           | string                                   | ——                                     | ——      |
+| `stripe`       | 是否开启条纹效果       | boolean                                  | ——                                     | false   |
 
 ## Interface
 
