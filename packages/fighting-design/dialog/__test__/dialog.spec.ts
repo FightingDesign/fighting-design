@@ -89,4 +89,35 @@ describe('FDialog', () => {
     // 查看这个 issue https://github.com/vuejs/test-utils/issues/1704
     expect(wrapper.find('.f-dialog').isVisible()).toBe(false)
   })
+
+  test('maskBlur', () => {
+    const wrapper = mount(FDialog, {
+      props: {
+        visible: true,
+        showMask: true,
+        maskBlur: true
+      }
+    })
+    expect(wrapper.find('.f-popup__mask').classes()).toContain('f-popup__blur')
+  })
+
+  test('showCloseIcon', () => {
+    const wrapper = mount(FDialog, {
+      props: {
+        visible: true,
+        showMask: true
+      }
+    })
+    expect(wrapper.find('.f-close-btn').exists()).toBeTruthy()
+  })
+
+  test('zIndex', () => {
+    const wrapper = mount(FDialog, {
+      props: {
+        visible: true,
+        zIndex: 999
+      }
+    })
+    expect(wrapper.find('.f-popup').attributes().style).toContain('z-index: 999;')
+  })
 })

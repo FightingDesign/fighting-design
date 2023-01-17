@@ -7,4 +7,15 @@ describe('Dropdown', () => {
     const wrapper = mount(FDropdown)
     expect(wrapper.classes()).toContain('f-dropdown')
   })
+
+  test('slot', () => {
+    const wrapper = mount(FDropdown, {
+      slots: {
+        default: '123',
+        content: '456'
+      }
+    })
+    expect(wrapper.text()).toContain('123')
+    expect(wrapper.text()).toContain('456')
+  })
 })
