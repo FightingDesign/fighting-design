@@ -138,8 +138,8 @@
 <f-progress :height="25" stripe type="warning" :percentage="num" />
 
 <f-button-group>
-  <f-button simple round type="primary" @click="sun">减少</f-button>
-  <f-button simple round type="primary" @click="add">增加</f-button>
+  <f-button simple round type="primary" :on-click="sun">减少</f-button>
+  <f-button simple round type="primary" :on-click="add">增加</f-button>
 </f-button-group>
 </template>
 
