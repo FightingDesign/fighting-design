@@ -1,10 +1,15 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setNumberProp
+} from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import type { ProgressType } from './interface'
+import type { ProgressType, ProgressMode } from './interface'
 
 export const Props = {
   /** 百分比 */
-  percentage: setNumberProp(10),
+  percentage: setNumberProp(0),
   /**
    * 进度条类型
    *
@@ -14,26 +19,22 @@ export const Props = {
   type: setStringProp<ProgressType>('primary', (val: ProgressType): boolean => {
     return (['primary', 'success', 'danger', 'warning'] as const).includes(val)
   }),
-  /** 是否为方形 */
-  square: setBooleanProp(),
-  /** 是否为线性 */
-  linear: setBooleanProp(),
+  /** 模式 */
+  mode: setStringProp<ProgressMode>('line'),
+  /** 自定义高度 */
+  height: setStringNumberProp(),
   /** 是否显示百分比文字内容 */
   showText: setBooleanProp(true),
+  /** 是否在外部显示文本 */
+  outsideText: setBooleanProp(),
   /** 百分比文字的颜色 */
   textColor: setStringProp(),
   /** 进度条颜色 */
   color: setStringProp(),
   /** 进度条背景色 */
-  background: setStringProp(),
-  /** 自定义宽度 */
-  width: setStringNumberProp(),
-  /** 自定义高度 */
-  height: setStringNumberProp('6px'),
+  background: setStringProp()
   /** 是否开启条纹效果 */
-  stripe: setBooleanProp(),
-  /** 百分比文字是否在进度条内显示 */
-  textInside: setBooleanProp()
+  // stripe: setBooleanProp(),
 } as const
 
 export type ProgressProps = ExtractPropTypes<typeof Props>

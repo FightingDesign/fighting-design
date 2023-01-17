@@ -1,75 +1,51 @@
 <script lang="ts" setup name="FProgress">
   import { Props } from './props'
-  import { sizeChange } from '../../_utils'
-  import { computed, ref, onMounted } from 'vue'
-  import type { CSSProperties, Ref } from 'vue'
+  import { useList } from '../../_hooks'
+  import { computed } from 'vue'
+  import { isNumber } from '../../_utils'
+  import type { CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
 
-  /** 是否展示百分比 */
-  const isPercentage = ref<boolean>(false)
+  const { classes, styles } = useList(prop, 'progress')
 
-  /** 元素节点 */
-  const fillEl: Ref<HTMLDivElement | null> = ref(null)
+  /** 类名列表 */
+  const classList = classes(['type', 'stripe'], 'f-progress')
 
-  /** 进度条样式列表 */
-  const progressStyle = computed((): CSSProperties => {
-    const { background, height, square } = prop
+  /** 样式列表 */
+  const styleList = styles(['height', 'color', 'textColor', 'background'])
 
-    return {
-      height: sizeChange(height),
-      background,
-      borderRadius: square ? '0px' : '100px'
-    } as const
-  })
+  /* 进度条进度 */
+  const barStyleList = computed((): CSSProperties => {
+    const { percentage } = prop
 
-  /** 百分比样式列表 */
-  const progressFillStyle = computed((): CSSProperties => {
-    const { percentage, color, square } = prop
+    if (!isNumber(percentage)) {
+      throw new TypeError('Fighting Design - progress: percentage is not a number')
+    }
 
-    return {
-      width: `${percentage}%`,
-      background: color,
-      borderRadius: square ? '0px' : '100px'
-    } as const
-  })
-
-  /** 是否展示百分比 */
-  const isShowPercentage = (): boolean => {
-    return (isPercentage.value = (fillEl.value as HTMLDivElement).clientHeight >= 18 && prop.textInside)
-  }
-
-  onMounted((): void => {
-    isShowPercentage()
+    return { width: `${prop.percentage}%` } as const
   })
 </script>
 
 <template>
   <div
     role="progressbar"
-    :class="['f-progress', { 'f-progress__liner': linear }]"
-    :style="{ width: sizeChange(width) }"
+    :class="classList"
+    :style="styleList"
     :aria-value="percentage"
     :aria-valuemin="0"
     :aria-valuemax="100"
   >
-    <div class="f-progress__bar" :style="progressStyle">
-      <div
-        ref="fillEl"
-        :class="[
-          'f-progress__fill',
-          {
-            [`f-progress__fill-${type}`]: type,
-            'f-progress__stripe': stripe
-          }
-        ]"
-        :style="progressFillStyle"
-      >
-        <span v-if="isPercentage && showText" class="f-progress__percentage" :style="{ color: textColor }">
-          {{ percentage }}%
-        </span>
+    <!-- 进度条底色 -->
+    <div class="f-progress__bar">
+      <!-- 进度条 -->
+      <div class="f-progress__fill" :style="barStyleList">
+        <!-- 百分百文字 -->
+        <div v-if="!outsideText && showText" class="f-progress__percentage">{{ percentage }}%</div>
       </div>
     </div>
-    <div v-if="!isPercentage && showText" class="f-progress__text">{{ percentage }}%</div>
+
+    <!-- 外部进度数值显示 -->
+    <div v-if="outsideText && showText" class="f-progress__text">{{ percentage }}%</div>
   </div>
 </template>
