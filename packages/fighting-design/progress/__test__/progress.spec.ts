@@ -6,6 +6,7 @@ describe('FProgress', () => {
   test('class', () => {
     const wrapper = mount(FProgress)
     expect(wrapper.classes()).toContain('f-progress')
+    expect(wrapper.attributes('role')).toBe('progressbar')
   })
 
   test('percentage', () => {
@@ -21,61 +22,56 @@ describe('FProgress', () => {
       const wrapper = mount(FProgress, {
         props: { type: item }
       })
-      expect(wrapper.find('.f-progress__fill').classes()).toContain(`f-progress__fill-${item}`)
+      expect(wrapper.classes()).toContain(`f-progress__${item}`)
     })
   })
 
-  test('square', () => {
+  test('height', () => {
     const wrapper = mount(FProgress, {
-      props: { square: true, percentage: 25 }
+      props: { height: 50 }
     })
-    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain('0')
-    expect(wrapper.find('.f-progress__fill').attributes('style')).toContain('0')
+    expect(wrapper.attributes('style')).toContain('--f-progress-height: 50px')
   })
 
-  test('linear', () => {
+  test('height', () => {
     const wrapper = mount(FProgress, {
-      props: { linear: true, percentage: 40 }
+      props: { height: '60px' }
     })
-    expect(wrapper.classes()).toContain('f-progress__liner')
+    expect(wrapper.attributes('style')).toContain('--f-progress-height: 60px')
+  })
+
+  test('showText', () => {
+    const wrapper = mount(FProgress, {
+      props: { showText: true }
+    })
+    expect(wrapper.find('.f-progress__percentage')).not.toBe(true)
+  })
+
+  test('showText', () => {
+    const wrapper = mount(FProgress, {
+      props: { showText: true, outsideText: true }
+    })
+    expect(wrapper.find('.f-progress__text')).not.toBe(true)
+  })
+
+  test('textColor', () => {
+    const wrapper = mount(FProgress, {
+      props: { textColor: 'red' }
+    })
+    expect(wrapper.attributes('style')).toContain('--f-progress-text-color: red')
   })
 
   test('color', () => {
     const wrapper = mount(FProgress, {
-      props: {
-        percentage: 50,
-        color: 'red'
-      }
+      props: { color: 'red' }
     })
-    expect(wrapper.find('.f-progress__fill').attributes('style')).toContain('red')
-  })
-
-  test('background', () => {
-    const wrapper = mount(FProgress, {
-      props: {
-        percentage: 50,
-        background: 'rgb(0, 0, 0)'
-      }
-    })
-    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain('rgb(0, 0, 0)')
-  })
-
-  test('width and height', () => {
-    const wrapper = mount(FProgress, {
-      props: {
-        percentage: 50,
-        width: '400px',
-        height: '26px'
-      }
-    })
-    expect(wrapper.attributes('style')).toContain('400px')
-    expect(wrapper.find('.f-progress__bar').attributes('style')).toContain('26px')
+    expect(wrapper.attributes('style')).toContain('--f-progress-color: red')
   })
 
   test('stripe', () => {
     const wrapper = mount(FProgress, {
-      props: { stripe: true, percentage: 40 }
+      props: { stripe: true }
     })
-    expect(wrapper.find('.f-progress__fill').classes()).toContain('f-progress__stripe')
+    expect(wrapper.classes()).toContain('f-progress__stripe')
   })
 })
