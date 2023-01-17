@@ -64,7 +64,7 @@
   <template v-if="href">
     <a
       ref="FButtonEl"
-      role="button"
+      role="link"
       tabindex="0"
       :class="classList"
       :href="href"
@@ -88,6 +88,7 @@
   <template v-else>
     <button
       ref="FButtonEl"
+      role="button"
       tabindex="0"
       :class="classList"
       :disabled="disabled || loading"

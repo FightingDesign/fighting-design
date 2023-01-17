@@ -11,7 +11,7 @@
 </script>
 
 <template>
-  <header class="f-header" :style="styleList">
+  <header role="banner" class="f-header" :style="styleList">
     <slot />
   </header>
 </template>
