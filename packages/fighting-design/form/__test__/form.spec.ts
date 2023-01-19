@@ -8,5 +8,6 @@ describe('Form', () => {
       slots: { default: '123' }
     })
     expect(wrapper.classes()).toContain('f-form')
+    expect(wrapper.attributes('role')).toBe('form')
   })
 })

@@ -143,7 +143,7 @@
 </script>
 
 <template>
-  <form v-if="$slots.default" class="f-form" :onsubmit="handelSubmit">
+  <form v-if="$slots.default" role="form" class="f-form" :onsubmit="handelSubmit">
     <slot />
   </form>
 </template>
