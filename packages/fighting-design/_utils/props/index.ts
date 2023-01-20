@@ -66,7 +66,7 @@ export const setStringNumberProp = <T extends string | number>(
  *
  * @param defaultVal 默认值
  */
-export const setObjectProp = <T>(defaultVal = null): BasicType<PropType<T>, null> =>
+export const setObjectProp = <T extends object>(defaultVal = null): BasicType<PropType<T>, null> =>
   ({
     type: Object as PropType<T>,
     default: () => defaultVal
