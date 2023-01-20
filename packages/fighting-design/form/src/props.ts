@@ -10,7 +10,7 @@ export const Props = {
   /** 每个 label 的宽度 */
   labelWidth: setStringNumberProp(),
   /** 表单数据对象 */
-  model: setObjectProp<object>(null),
+  model: setObjectProp<object>(),
   /**  提交表单触发的回调 */
   onSubmit: setFunctionProp<FormSubmit>()
 } as const
