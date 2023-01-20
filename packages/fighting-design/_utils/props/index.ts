@@ -1,4 +1,4 @@
-import {isNumber} from '..'
+import { isNumber } from '..'
 import type { PropType } from 'vue'
 import type { Validator, BasicType } from './interface'
 
@@ -10,7 +10,7 @@ import type { Validator, BasicType } from './interface'
 export const setBooleanProp = (defaultVal = false): BasicType<BooleanConstructor, boolean> =>
   ({
     type: Boolean,
-    default: () => defaultVal
+    default: (): boolean => defaultVal
   } as const)
 
 /**
@@ -21,7 +21,7 @@ export const setBooleanProp = (defaultVal = false): BasicType<BooleanConstructor
 export const setNumberProp = <T extends number>(defaultVal?: null | T): BasicType<NumberConstructor, number | null> =>
   ({
     type: Number,
-    default: () => isNumber(defaultVal) ?  defaultVal : null
+    default: (): T | null => isNumber(defaultVal) ? defaultVal : null
   } as const)
 
 /**
@@ -37,14 +37,14 @@ export const setStringProp = <T extends string>(
   if (validator) {
     return {
       type: String as unknown as PropType<T>,
-      default: () => defaultVal || null,
+      default: (): T | null => defaultVal || null,
       validator
     } as const
   }
 
   return {
     type: String as unknown as PropType<T>,
-    default: () => defaultVal || null
+    default: (): T | null => defaultVal || null
   } as const
 }
 
@@ -58,7 +58,7 @@ export const setStringNumberProp = <T extends string | number>(
 ): BasicType<PropType<string | number>, string | number | null> =>
   ({
     type: [String, Number] as PropType<string | number>,
-    default: () => defaultVal || null
+    default: (): T | null => defaultVal || null
   } as const)
 
 /**
