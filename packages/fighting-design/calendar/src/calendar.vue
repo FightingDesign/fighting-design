@@ -4,9 +4,8 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FText } from '../../text'
   import { FIconChevronLeftVue, FIconChevronRightVue } from '../../_svg'
-  import { addZero, sizeChange } from '../../_utils'
-  import { useCalculiTime, useRun, useGlobal } from '../../_hooks'
-  import type { CSSProperties } from 'vue'
+  import { addZero } from '../../_utils'
+  import { useCalculiTime, useRun, useGlobal, useList } from '../../_hooks'
 
   const prop = defineProps(Props)
 
@@ -20,6 +19,8 @@
   const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(year, month)
 
   const { getLang } = useGlobal()
+
+  const { styles } = useList(prop, 'calendar')
 
   /** 星期列表 */
   const weekList = computed(() => getLang('calendar').value.weekList)
@@ -88,15 +89,7 @@
   }
 
   /** 类名列表 */
-  const classList = computed((): CSSProperties => {
-    const { borderColor, dayCellHeight, weekCellHeight } = prop
-
-    return {
-      '--f-calendar-border-color': borderColor,
-      '--f-calendar-day-height': sizeChange(dayCellHeight),
-      '--f-calendar-week-height': sizeChange(weekCellHeight)
-    } as CSSProperties
-  })
+  const classList = styles(['borderColor', 'dayCellHeight', 'weekCellHeight'])
 
   /**
    * 检测当前日期是否存在备忘录
