@@ -42,7 +42,7 @@ export const isBoolean = (value: unknown): value is boolean => is(value, 'Boolea
  * @param value 要检测的值
  * @returns { Boolean }
  */
-export const isObject = (value: unknown): value is Object => is(value, 'Object')
+export const isObject = (value: unknown): value is object => is(value, 'Object')
 
 /**
  * 判断一个值是否为 function 类型

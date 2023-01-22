@@ -57,7 +57,7 @@
       align-items: center;
       box-sizing: border-box;
       justify-content: center;
-      height: var(--f-calendar-week-height, 50px);
+      height: var(--f-calendar-week-cell-height, 50px);
     }
   }
 
@@ -77,7 +77,7 @@
       box-sizing: border-box;
       border-top: 3px solid transparent;
       transition: var(--f-design-transition-time);
-      height: var(--f-calendar-day-height, 85px);
+      height: var(--f-calendar-day-cell-height, 85px);
 
       &:hover {
         background: #f7f7f7;
