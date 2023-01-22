@@ -21,4 +21,11 @@ describe('f-main', () => {
     })
     expect(wrapper.attributes('style')).toContain('--f-main-padding: 20px')
   })
+
+  test('slot', () => {
+    const wrapper = mount(FMain, {
+      slots: { default: 'hello' }
+    })
+    expect(wrapper.text()).toBe('hello')
+  })
 })

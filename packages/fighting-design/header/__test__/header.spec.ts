@@ -35,4 +35,11 @@ describe('f-header', () => {
     })
     expect(wrapper.attributes('style')).toContain('--f-header-padding: 20px')
   })
+
+  test('slot', () => {
+    const wrapper = mount(FHeader, {
+      slots: { default: 'hello' }
+    })
+    expect(wrapper.text()).toBe('hello')
+  })
 })

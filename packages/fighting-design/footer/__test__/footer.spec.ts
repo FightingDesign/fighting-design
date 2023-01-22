@@ -35,4 +35,11 @@ describe('f-footer', () => {
     })
     expect(wrapper.attributes('style')).toContain('--f-footer-padding: 200px')
   })
+
+  test('slot', () => {
+    const wrapper = mount(FFooter, {
+      slots: { default: 'hello' }
+    })
+    expect(wrapper.text()).toBe('hello')
+  })
 })

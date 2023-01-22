@@ -14,4 +14,11 @@ describe('f-layout', () => {
     })
     expect(wrapper.classes()).toContain('f-layout__vertical')
   })
+
+  test('slot', () => {
+    const wrapper = mount(FLayout, {
+      slots: { default: 'hello' }
+    })
+    expect(wrapper.text()).toBe('hello')
+  })
 })

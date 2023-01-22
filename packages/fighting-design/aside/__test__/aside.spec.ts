@@ -21,4 +21,11 @@ describe('f-aside', () => {
     })
     expect(wrapper.attributes('style')).toContain('--f-aside-width: 200px')
   })
+
+  test('slot', () => {
+    const wrapper = mount(FAside, {
+      slots: { default: 'hello' }
+    })
+    expect(wrapper.text()).toBe('hello')
+  })
 })
