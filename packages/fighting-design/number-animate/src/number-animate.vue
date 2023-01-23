@@ -47,7 +47,7 @@
      *
      * @see requestAnimationFrame https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame
      */
-    window.requestAnimationFrame(animate)
+    window && window.requestAnimationFrame(animate)
   }
 
   /**

@@ -164,12 +164,12 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
        */
       if (Math.abs(count) < Math.abs(sizeToNum(prop.rootMargin))) {
         load(node)
-        window.removeEventListener('scroll', listerScroll)
+        window && window.removeEventListener('scroll', listerScroll)
       }
     }
 
     /** 开始监听滚动事件 */
-    window.addEventListener('scroll', listerScroll)
+    window && window.addEventListener('scroll', listerScroll)
   }
 
   /**

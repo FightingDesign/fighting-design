@@ -14,7 +14,7 @@ export const useCanvas = (): UseCanvasReturn => {
   const createWatermark = (props: CreateWatermarkProps): string => {
     /** 创建一个 canvas */
     const canvas: HTMLCanvasElement = document.createElement('canvas') as HTMLCanvasElement
-    const ratio: number = window.devicePixelRatio || 1
+    const ratio: number = (window && window.devicePixelRatio) || 1
 
     canvas.width = props.width * ratio
     canvas.height = props.height * ratio
