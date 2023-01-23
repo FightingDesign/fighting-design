@@ -32,14 +32,14 @@
 
     /** 如果存在监听的目录 */
     if (listenEl.value) {
-      /** 监听的元素节点 */
-      const listerNode = document.querySelector(listenEl.value) as HTMLElement
+      /** 获取到监听的元素节点 */
+      const listerNode: HTMLElement | null = document.querySelector(listenEl.value) as HTMLElement
 
-      listerNode.scrollTo({ top: top.value, behavior: behavior.value })
+      listerNode && listerNode.scrollTo({ top: top.value, behavior: behavior.value })
       return
     }
 
-    window.scrollTo({ top: top.value, behavior: behavior.value })
+    window && window.scrollTo({ top: top.value, behavior: behavior.value })
   }
 
   onMounted((): void => {
