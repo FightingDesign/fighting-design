@@ -27,6 +27,7 @@ export const useOperationImg = (): UseOperationImgReturn => {
 
   /**
    * 滚轮缩放
+   *
    * @param evt 鼠标滚轮事件对象
    */
   const scrollZoom = (evt: WheelEvent): void => {

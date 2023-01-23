@@ -16,6 +16,7 @@ export * from './interface.d'
 export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEmit): UseUpdateInputReturn => {
   /**
    * 处理文本框输入 input 事件
+   *
    * @param evt 事件对象
    */
   const onInput = (evt: Event): void => {
@@ -29,6 +30,7 @@ export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEm
 
   /**
    * 处理文本框输入 change 事件
+   *
    * @param evt 事件对象
    */
   const onChange = (evt: Event): void => {

@@ -32,6 +32,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
 
   /**
    * 加载成功
+   *
    * @param evt 事件对象
    */
   const success = (node: HTMLImageElement, evt: Event, src: string): void => {
@@ -43,6 +44,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
 
   /**
    * 加载失败
+   *
    * @param evt 事件对象
    */
   const failure = (evt: Event): void => {
