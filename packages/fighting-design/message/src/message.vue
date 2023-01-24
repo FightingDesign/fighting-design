@@ -5,7 +5,7 @@
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
   import { massageManage } from '../../_hooks'
-  import type { CSSProperties, ComputedRef, Ref } from 'vue'
+  import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -14,10 +14,10 @@
   })
 
   const messageRef = ref<HTMLDivElement>()
-  const messageHeight: Ref<number> = ref<number>(0)
-  const visible: Ref<boolean> = ref<boolean>(false)
+  const messageHeight = ref<number>(0)
+  const visible = ref<boolean>(false)
 
-  const isTop: ComputedRef<boolean> = computed((): boolean => prop.placement.includes('top'))
+  const isTop = computed((): boolean => prop.placement.includes('top'))
 
   const siblingOffset = computed((): number => massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value))
 
