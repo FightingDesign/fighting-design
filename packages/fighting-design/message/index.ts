@@ -1,8 +1,8 @@
 import { useMessage } from '../_hooks'
 
-const { instance: Message } = useMessage('message')
-
 import { installFn } from '../_utils'
+
+const { instance: Message } = useMessage('message')
 
 export const FMessage = installFn(Message, 'FMessage')
 
