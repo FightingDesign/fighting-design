@@ -15,5 +15,7 @@
 </script>
 
 <template>
-  <f-button type="primary" :on-click="openMessage">show</f-button>
+  <f-button :on-click="openMessage">打开</f-button>
 </template>
+
+<style lang="scss" scoped></style>
