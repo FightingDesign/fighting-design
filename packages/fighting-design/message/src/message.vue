@@ -4,27 +4,26 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
-  import { massageManage } from '../../_hooks'
+  import { massageManage, useList } from '../../_hooks'
   import type { CSSProperties } from 'vue'
-  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
     destroy: (): boolean => true
   })
 
+  const { classes, styles } = useList(prop, 'message')
+
   const messageRef = ref<HTMLDivElement>()
   const messageHeight = ref<number>(0)
   const visible = ref<boolean>(false)
 
-  // const isTop = computed((): boolean => prop.placement.includes('top'))
+  /** 判断是否为上面方位的 */
   const isTop = computed((): boolean => prop.placement === 'top')
 
-  // const siblingOffset = computed((): number => massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value))
   const siblingOffset = computed((): number => massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value))
 
-  console.log(siblingOffset.value)
-
+  /** 计算偏移量 */
   const offset = computed((): number => prop.offset + siblingOffset.value)
 
   const bottom = computed((): number => messageHeight.value + offset.value)
@@ -35,27 +34,15 @@
     })
   })
 
-  const classList = computed((): ClassList => {
-    const { type, round, placement } = prop
+  /** 类名列表 */
+  const classList = classes(['type', 'placement', 'round'], 'f-message')
 
-    return [
-      'f-message',
-      {
-        [`f-message__${type}`]: type,
-        [`f-message__${placement}`]: placement,
-        'f-message__round': round
-      }
-    ] as const
-  })
+  /** 样式列表 */
+  const styleList = styles(['color', 'background', 'zIndex'], 'zIndex')
 
-  const styleList = computed((): CSSProperties => {
-    const { color, background, zIndex } = prop
-
-    const styles: CSSProperties = {
-      color,
-      background,
-      zIndex
-    } as const
+  /** 位置偏移量样式列表 */
+  const offsetStyle = computed((): CSSProperties => {
+    const styles: CSSProperties = {}
 
     if (prop.placement.includes('bottom')) {
       styles.bottom = offset.value + 'px'
@@ -66,22 +53,38 @@
     return styles
   })
 
+  /** 计时器 */
   const timer = ref<NodeJS.Timeout>()
 
+  /** 清除计时器 */
   const clearTimer = (): void => {
+    console.log('移除')
     if (!timer.value) return
     clearTimeout(timer.value)
   }
 
+  /** 关闭提示框 */
   const closeMessage = (): void => {
     clearTimer()
     visible.value = false
   }
+
+  /**
+   * 关闭提示框之后的回调
+   *
+   * 移除组件实例
+   */
   const closeMessageEnd = (): void => {
     massageManage.removeInstance(prop.placement, prop.id)
   }
 
+  /**
+   * 开始计时
+   *
+   * 到时间隐藏提示框
+   */
   const startTime = (): void => {
+    console.log('移入')
     if (!prop.duration) return
     timer.value = setTimeout((): void => {
       closeMessage()
@@ -111,7 +114,7 @@
       v-show="visible"
       ref="messageRef"
       :class="classList"
-      :style="styleList"
+      :style="[styleList, offsetStyle]"
       @mouseleave="startTime"
       @mouseenter="clearTimer"
     >

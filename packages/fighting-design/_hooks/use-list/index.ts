@@ -1,5 +1,5 @@
 import { computed, ref, reactive } from 'vue'
-import { convertFormat, isNumber, sizeChange, isBoolean } from '../../_utils'
+import { convertFormat, isNumber, sizeChange, isBoolean, isArray, isString } from '../../_utils'
 import { useProps } from '..'
 import type { CSSProperties, ComputedRef, Ref } from 'vue'
 import type { ClassList } from '../../_interface'
@@ -65,12 +65,42 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
    * @param list 样式所需要的 prop 参数
    * @param pixel 是否带有单位
    */
-  const styles = (list: FilterParams, pixel = true): ComputedRef<CSSProperties> => {
+  const styles = (list: FilterParams, pixel: boolean | string | string[] = true): ComputedRef<CSSProperties> => {
     return computed((): CSSProperties => {
       /** 样式列表 */
       const styleList: Record<string, unknown> = reactive({})
       /** 过滤得到 prop 集合 */
       const propList: Record<string, unknown> = filter(list)
+
+      /**
+       * 设置样式列表的值
+       * 
+       * @param val 值
+       * @returns 处理后的值
+       */
+      const setListValue = (val: unknown): unknown => {
+        /** 如果需要添加单位，则所有的数字都添加单位 */
+        if (isBoolean(pixel)) {
+          return isNumber(val) ? sizeChange(val) : val
+        }
+
+        /** 如果为字符串类型，则代表仅仅有一个不需要添加单位 */
+        else if (isString(pixel)) {
+          if (pixel === val) return val
+        }
+
+        /** 如果为数组类型，则代表有些值不需要添加单位，循环遍历处理 */
+        else if (isArray(pixel)) {
+          pixel.forEach((item: string): void | unknown => {
+            if (item === val) {
+              return val
+            }
+          })
+        }
+
+        /** 没有进入判断则原封不动返回 */
+        return val
+      }
 
       for (const key in propList) {
         if (propList[key]) {
@@ -85,11 +115,7 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
            *
            * 因为 prop 参数的键都是驼峰命名法，所以这里要转换为短横线连接命名
            */
-          styleList[`--f-${name}-${convertFormat(key)}`] = pixel
-            ? isNumber(propList[key])
-              ? sizeChange(propList[key] as number)
-              : propList[key]
-            : propList[key]
+          styleList[`--f-${name}-${convertFormat(key)}`] = setListValue(propList[key])
         }
       }
 
