@@ -1,4 +1,4 @@
-import { render, createVNode } from 'vue'
+import { render, h } from 'vue'
 import { useMassageManage, useRun } from '..'
 import { isString } from '../../_utils'
 import { FIGHTING_TYPE } from '../../_tokens'
@@ -8,8 +8,8 @@ import type {
   MessageInstance,
   MessageFn,
   MessageOptions,
-  MessageFnWithType,
-  UseMessageReturnInterface
+  MessageFnWith,
+  UseMessageReturn
 } from './interface'
 import type { MessagePlacement } from '../../message'
 
@@ -23,16 +23,16 @@ export const massageManage = useMassageManage()
  * @param component 组件
  * @returns 组件实例
  */
-export const useMessage = (component: Component): UseMessageReturnInterface => {
+export const useMessage = (component: Component): UseMessageReturn => {
   let seed = 1
 
   /**
    * 创建组件实例
    * 
    * @param options 传入的对象参数
-   * @returns 
+   * @returns 组件实例
    */
-  const instance: MessageFn & Partial<MessageFnWithType> = (options: MessageOptions): MessageInstance => {
+  const instance: MessageFn & Partial<MessageFnWith> = (options: MessageOptions): MessageInstance => {
     /** 创建容器盒子 */
     const container: HTMLDivElement = document.createElement('div')
     /** 每个 message 的唯一 id */
@@ -43,6 +43,7 @@ export const useMessage = (component: Component): UseMessageReturnInterface => {
       options = { message: options }
     }
 
+    /** 需要传递的 props 参数列表 */
     const props: MessageOptions = {
       id,
       ...{ placement: component.name === 'FMessage' ? 'top' : 'top-right' },
@@ -55,29 +56,31 @@ export const useMessage = (component: Component): UseMessageReturnInterface => {
     } as const
 
     /**
-     * 创建一个 vNode
+     * 创建虚拟 DOM 节点
      * 
-     * @see createVNode 
+     * @see h https://cn.vuejs.org/api/render-function.html#h
      */
-    const VNode: VNode = createVNode(component, props)
+    const VNode: VNode = h(component, props)
 
     render(VNode, container)
 
+    /** 将组件添加到 body 上 */
     document.body.appendChild(container.firstElementChild as HTMLElement)
 
     const vm = VNode.component as ComponentInternalInstance
 
     seed++
 
+    /** 获取到组件实例 */
     const instance: MessageInstance = massageManage.createInstance(
       {
         id,
         vm,
+        bottom: 0,
+        visible: 0,
         close: (): void => {
           ((vm as ComponentInternalInstance).exposed as MessageInstance).close()
-        },
-        bottom: 0,
-        visible: 0
+        }
       },
       props.placement as MessagePlacement
     )
@@ -92,6 +95,6 @@ export const useMessage = (component: Component): UseMessageReturnInterface => {
   })
 
   return { instance } as {
-    instance: MessageFn & MessageFnWithType
+    instance: MessageFn & MessageFnWith
   }
 }

@@ -10,7 +10,7 @@ export interface MessageFn {
   (options: MessageOptions | string): MessageInstance
 }
 
-export type MessageFnWithType = {
+export type MessageFnWith = {
   [key in FightingType]: (text: string) => MessageInstance
 }
 
@@ -26,6 +26,11 @@ export interface MessageInstance {
   close: () => void
 }
 
-export interface UseMessageReturnInterface {
+/**
+ * useMessage 返回值类型接口
+ * 
+ * @param instance 组件实例
+ */
+export interface UseMessageReturn {
   instance: MessageFn & MessageFnWithType
 }

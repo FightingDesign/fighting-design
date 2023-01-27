@@ -17,9 +17,13 @@
   const messageHeight = ref<number>(0)
   const visible = ref<boolean>(false)
 
-  const isTop = computed((): boolean => prop.placement.includes('top'))
+  // const isTop = computed((): boolean => prop.placement.includes('top'))
+  const isTop = computed((): boolean => prop.placement === 'top')
 
+  // const siblingOffset = computed((): number => massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value))
   const siblingOffset = computed((): number => massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value))
+
+  console.log(siblingOffset.value)
 
   const offset = computed((): number => prop.offset + siblingOffset.value)
 
