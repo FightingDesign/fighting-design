@@ -20,6 +20,7 @@
     destroy: (): boolean => true
   })
 
+  /** 默认 icon 列表 */
   const notificationDefaultIcon = {
     default: FIconSmileLineVue,
     primary: FIconLightbulbVue,
@@ -38,7 +39,7 @@
     return null
   })
 
-  const notificationRef = ref<HTMLDivElement>()
+  const FNotificationEl = ref<HTMLDivElement>()
   const notificationHeight = ref<number>(0)
   const visible = ref<boolean>(false)
 
@@ -54,7 +55,7 @@
 
   onMounted((): void => {
     nextTick((): void => {
-      notificationHeight.value = (notificationRef.value as HTMLDivElement).getBoundingClientRect().height
+      notificationHeight.value = (FNotificationEl.value as HTMLDivElement).getBoundingClientRect().height
     })
   })
 
@@ -133,7 +134,7 @@
   >
     <div
       v-show="visible"
-      ref="notificationRef"
+      ref="FNotificationEl"
       :class="classList"
       :style="styleList"
       @mouseleave="startTime"
