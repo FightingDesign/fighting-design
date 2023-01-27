@@ -5,7 +5,7 @@
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
   import { massageManage, useList } from '../../_hooks'
-  import type { CSSProperties } from 'vue'
+  import type { CSSProperties, Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -14,23 +14,33 @@
 
   const { classes, styles } = useList(prop, 'message')
 
-  const messageRef = ref<HTMLDivElement>()
+  /** 元素节点 */
+  const FMessageEl: Ref<HTMLDivElement | null> = ref<HTMLDivElement | null>(null)
+  /** message 元素的高度 */
   const messageHeight = ref<number>(0)
+  /** 是否展示 */
   const visible = ref<boolean>(false)
 
   /** 判断是否为上面方位的 */
   const isTop = computed((): boolean => prop.placement === 'top')
 
+  /** 计算组件之间偏移量 */
   const siblingOffset = computed((): number => massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value))
 
   /** 计算偏移量 */
   const offset = computed((): number => prop.offset + siblingOffset.value)
 
+  /** 底部偏移量 */
   const bottom = computed((): number => messageHeight.value + offset.value)
 
   onMounted((): void => {
     nextTick((): void => {
-      messageHeight.value = (messageRef.value as HTMLDivElement).getBoundingClientRect().height
+      /**
+       * 设置元素的高度
+       *
+       * @see getBoundingClientRec https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRec
+       */
+      messageHeight.value = FMessageEl.value ? FMessageEl.value.getBoundingClientRect().height : 0
     })
   })
 
@@ -58,7 +68,6 @@
 
   /** 清除计时器 */
   const clearTimer = (): void => {
-    console.log('移除')
     if (!timer.value) return
     clearTimeout(timer.value)
   }
@@ -84,7 +93,6 @@
    * 到时间隐藏提示框
    */
   const startTime = (): void => {
-    console.log('移入')
     if (!prop.duration) return
     timer.value = setTimeout((): void => {
       closeMessage()
@@ -112,7 +120,7 @@
   >
     <div
       v-show="visible"
-      ref="messageRef"
+      ref="FMessageEl"
       :class="classList"
       :style="[styleList, offsetStyle]"
       @mouseleave="startTime"

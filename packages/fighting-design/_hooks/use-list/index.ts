@@ -1,5 +1,12 @@
 import { computed, ref, reactive } from 'vue'
-import { convertFormat, isNumber, sizeChange, isBoolean, isArray, isString } from '../../_utils'
+import {
+  convertFormat,
+  isNumber,
+  sizeChange,
+  isBoolean,
+  isArray,
+  isString
+} from '../../_utils'
 import { useProps } from '..'
 import type { CSSProperties, ComputedRef, Ref } from 'vue'
 import type { ClassList } from '../../_interface'
