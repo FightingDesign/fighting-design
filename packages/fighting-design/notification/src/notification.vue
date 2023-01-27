@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FMessage">
+<script lang="ts" setup name="FNotification">
   import { Props } from './props'
   import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
   import { FSvgIcon } from '../../svg-icon'

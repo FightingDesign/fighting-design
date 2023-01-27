@@ -1,8 +1,8 @@
+import messageVue from './src/message.vue'
+import { installFn } from '../_utils'
 import { useMessage } from '../_hooks'
 
-import { installFn } from '../_utils'
-
-const { instance: Message } = useMessage('message')
+const { instance: Message } = useMessage(messageVue)
 
 export const FMessage = installFn(Message, 'FMessage')
 

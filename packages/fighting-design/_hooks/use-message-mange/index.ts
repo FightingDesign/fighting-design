@@ -15,6 +15,7 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
 
   /**
    * 通过方位与 id，获取目标实例
+   *
    * @param placement 方位
    * @param id id
    */
@@ -59,9 +60,10 @@ export const useMassageManage = (): UseMassageManageReturnInterface => {
 
   /**
    * 创建实例
-   * @param instance
-   * @param placement
-   * @returns
+   *
+   * @param instance 组件实例
+   * @param placement 位置
+   * @returns 组件实例
    */
   const createInstance = (instance: MessageInstance, placement: MessagePlacementType): MessageInstance => {
     if (instances[placement]) {

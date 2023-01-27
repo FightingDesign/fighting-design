@@ -1,10 +1,15 @@
 <script lang="ts" setup>
-  import { FMessage } from 'fighting-design'
+  import { FMessage, FNotification } from 'fighting-design'
 
   const openMessage = (): void => {
     FMessage({
       message: '这是一条消息提示',
-      type: 'success'
+      type: 'success',
+      duration: 0
+    })
+
+    FNotification({
+      message: '这是通知内容'
     })
   }
 </script>
