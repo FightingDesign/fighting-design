@@ -58,7 +58,7 @@ export const Props = {
     return (['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const).includes(val)
   }),
   /** 层级 */
-  zIndex: setNumberProp(1000),
+  zIndex: setNumberProp(),
   /** 自定义关闭按钮 */
   closeBtn: {
     type: [String, Object] as PropType<VNode | string>,

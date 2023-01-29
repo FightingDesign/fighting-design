@@ -100,6 +100,7 @@
     }, prop.duration)
   }
 
+  /** 初始化之后开始计时 并且展示提示 */
   onMounted((): void => {
     startTime()
     visible.value = true
