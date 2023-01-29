@@ -6,9 +6,8 @@ import type { FightingType } from '../../_interface'
 import type { ComponentInternalInstance, VNode, Component } from 'vue'
 import type {
   TipsInstance,
-  TipsFn,
+  RenderInstance,
   TipsOptions,
-  TipsFnWith,
   TipsInstances,
   UseTipsReturn
 } from './interface'
@@ -33,6 +32,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
    *
    * @param placement 弹出位置
    * @param id id
+   * @return 和传入 id 相同的实例对象
    */
   const getInstanceIndex = (placement: MessagePlacement, id: string): number => {
     /** 如果组件实例对象中没有找到方位信息数组，则返回 -1 */
@@ -126,7 +126,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
    * @param options 传入的对象参数
    * @returns 组件实例
    */
-  const renderInstance: TipsFn & Partial<TipsFnWith> = (options: TipsOptions): TipsInstance => {
+  const renderInstance: RenderInstance = (options: TipsOptions): TipsInstance => {
     /** 创建容器盒子 */
     const container: HTMLDivElement = document.createElement('div')
     /** 每个 message 的唯一 id */
@@ -140,9 +140,10 @@ export const useTips = (component?: Component): UseTipsReturn => {
     /** 需要传递的 props 参数列表 */
     const props: TipsOptions = {
       id,
+      /** 不同的组件会有不同的展示位置 */
       ...{ placement: (component as Component).name === 'FMessage' ? 'top' : 'top-right' },
       ...options,
-      /** 关闭动画结束时，移除 dom */
+      /** 关闭动画结束时，移除 DOM */
       onDestroy: (): void => {
         useRun(props.onClose)
         render(null, container)
@@ -161,6 +162,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
     /** 将组件添加到 body 上 */
     document.body.appendChild(container.firstElementChild as HTMLElement)
 
+    /** 获取组件组件内部实例 */
     const vm = VNode.component as ComponentInternalInstance
 
     seed++

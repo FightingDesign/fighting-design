@@ -10,10 +10,10 @@ export type TipsOptions = Partial<Mutable<MessageProps>> & {
 /**
  * 组件实例
  * 
- * @param visible
- * @param bottom
- * @param id
- * @param vm
+ * @param visible 是否展示
+ * @param bottom 底部偏移量
+ * @param id 唯一值
+ * @param vm 组件组件内部实例
  * @param close 关闭之后的回调
  */
 export interface TipsInstance {
@@ -33,13 +33,28 @@ export type TipsInstances = Partial<{
   [key in MessagePlacement]: TipsInstance[]
 }>
 
-export interface TipsFn {
-  (options: TipsOptions | string): TipsInstance
-}
+/**
+ * renderInstance 方法状态
+ * 
+ * @param options 传入选项参数或者字符串
+ */
+type RenderInstanceFn = (options: TipsOptions | string) => TipsInstance
 
-export type TipsFnWith = {
+/**
+ * renderInstance 方法状态
+ * 
+ * @param text 提示信息
+ */
+type RenderInstanceFnWith = Partial<{
   [key in FightingType]: (text: string) => TipsInstance
-}
+}>
+
+/** 
+ * renderInstance 方法类型
+ * 
+ * 具有两种状态
+ */
+export type RenderInstance = RenderInstanceFn & RenderInstanceFnWith
 
 /**
  * useMassageManage 返回值类型接口
@@ -53,5 +68,5 @@ export interface UseTipsReturn {
   getSiblingOffset: (placement: MessagePlacement, id: string, isNext: boolean) => ComputedRef<number>
   removeInstance: (placement: MessagePlacement, id: string) => void
   createInstance: (instance: TipsInstance, placement: MessagePlacement) => TipsInstance
-  renderInstance: TipsFnFn & Partial<TipsFnFnWith>
+  renderInstance: RenderInstance
 }
