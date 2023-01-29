@@ -17,6 +17,13 @@ import type { MessagePlacement } from '../../message'
 /** 组件实例对象 */
 const instances: MessageInstances = reactive({})
 
+/**
+ * 提示类型组件方法
+ * 
+ * 用于 Message 和 Notification
+ * 
+ * @param component 组件实例
+ */
 export const useTips = (component?: Component): UseMassageManageReturn => {
   let seed = 1
 
@@ -186,8 +193,4 @@ export const useTips = (component?: Component): UseMassageManageReturn => {
     createInstance,
     instance
   }
-
-  // return { instance } as {
-  //   instance: MessageFn & MessageFnWith
-  // }
 }

@@ -16,7 +16,6 @@ export type MessageFnWith = {
 
 /** 参数列表，也就是 props 参数列表类型 */
 export type MessageOptions = InstanceOptions<MessageProps>
-// export type MessageOptions = MessageProps
 
 export interface MessageInstance {
   visible: number
