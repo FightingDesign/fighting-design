@@ -16,8 +16,8 @@ const instances: TipsInstances = reactive({})
  * 用于 Message 和 Notification
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
- * @param { Object } component 组件实例
- * @returns { Object }
+ * @param { Object } [component] 组件实例
+ * @return { Object }
  */
 export const useTips = (component?: Component): UseTipsReturn => {
   /** 层级标识 */
@@ -50,7 +50,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
    * @param { String } placement 弹出位置
    * @param { String } id id
    * @param { Boolean } isNext 是否获取下一个元素
-   * @returns { Number } 组件实例的索引
+   * @return { Number } 组件实例的索引
    */
   const getSiblingOffset = (placement: MessagePlacement, id: string, isNext: boolean): number => {
     /** 获取到当前元素的索引 */
@@ -121,7 +121,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
    * 创建组件实例
    *
    * @param { Object } options 传入的对象参数
-   * @returns { Object } 组件实例
+   * @return { Object } 组件实例
    */
   const renderInstance: RenderInstance = (options: TipsOptions): TipsInstance => {
     /** 创建容器盒子 */

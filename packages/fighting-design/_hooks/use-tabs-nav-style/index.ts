@@ -10,7 +10,9 @@ export * from './interface.d'
 /**
  * tabs-nav 封装方法
  *
- * @param prop props 参数
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } prop props 参数
+ * @return { Object }
  */
 export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
   /** 获取当前组件实例 */
@@ -28,9 +30,9 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
   const activeIndex = computed((): number =>
     prop.navs
       ? Math.max(
-          prop.navs.findIndex((e: TabsNavInstance): boolean => e.name === prop.activeName),
-          0
-        )
+        prop.navs.findIndex((e: TabsNavInstance): boolean => e.name === prop.activeName),
+        0
+      )
       : 0
   )
 
@@ -93,15 +95,20 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
     activeLineStyle.value = activeStyleList
   }
 
-  const observer = new IntersectionObserver(setActiveLineStyle)
+  /**
+   * 观察者
+   * 
+   * @see IntersectionObserver https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver
+   */
+  const observer: IntersectionObserver = new IntersectionObserver(setActiveLineStyle)
 
-  onMounted(() => {
+  onMounted((): void => {
     if (!instance || !instance.subTree.el) return
 
     observer.observe(instance.subTree.el as Element)
   })
 
-  onUnmounted(() => {
+  onUnmounted((): void => {
     if (!instance || !instance.subTree.el) return
 
     observer.unobserve(instance.subTree.el as Element)

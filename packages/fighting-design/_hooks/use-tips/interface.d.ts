@@ -10,11 +10,11 @@ export type TipsOptions = Partial<Mutable<MessageProps>> & {
 /**
  * 组件实例
  *
- * @param visible 是否展示
- * @param bottom 底部偏移量
- * @param id 唯一值
- * @param vm 组件组件内部实例
- * @param close 关闭之后的回调
+ * @param { Number } visible 是否展示
+ * @param { Number } bottom 底部偏移量
+ * @param { String } id 唯一值
+ * @param { Object } vm 组件组件内部实例
+ * @param { Function } close 关闭之后的回调
  */
 export interface TipsInstance {
   visible: number
@@ -36,14 +36,14 @@ export type TipsInstances = Partial<{
 /**
  * renderInstance 方法状态
  *
- * @param options 传入选项参数或者字符串
+ * @param { Object | String } options 传入选项参数或者字符串
  */
 type RenderInstanceFn = (options: TipsOptions | string) => TipsInstance
 
 /**
  * renderInstance 方法状态
  *
- * @param text 提示信息
+ * @param { String } text 提示信息
  */
 type RenderInstanceFnWith = Partial<{
   [key in FightingType]: (text: string) => TipsInstance
@@ -59,10 +59,10 @@ export type RenderInstance = RenderInstanceFn & RenderInstanceFnWith
 /**
  * useMassageManage 返回值类型接口
  *
- * @param getSiblingOffset 通过方位与 id，获取目标实例
- * @param removeInstance 移除实例对象
- * @param createInstance 创建实例
- * @param renderInstance 创建组件实例
+ * @param { Function } getSiblingOffset 通过方位与 id，获取目标实例
+ * @param { Function } removeInstance 移除实例对象
+ * @param { Function } createInstance 创建实例
+ * @param { Function } renderInstance 创建组件实例
  */
 export interface UseTipsReturn {
   getSiblingOffset: (placement: MessagePlacement, id: string, isNext: boolean) => ComputedRef<number>

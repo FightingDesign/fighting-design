@@ -10,6 +10,7 @@ export * from './interface.d'
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop 需要操作的 prop 对象
+ * @return { Object }
  */
 export const useProps = <T extends object>(prop: T): UsePropsReturn => {
   /**
