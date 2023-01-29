@@ -9,15 +9,16 @@ import type {
   MessageFn,
   MessageOptions,
   MessageFnWith,
-  UseMessageReturn
+  MessageInstances,
+  UseMassageManageReturn
 } from './interface'
 import type { MessagePlacement } from '../../message'
 
-export const useTips = (component?: Component): UseMessageReturn => {
-  let seed = 1
+/** 组件实例对象 */
+const instances: MessageInstances = reactive({})
 
-  /** 组件实例对象 */
-  const instances: MessageInstances = reactive({})
+export const useTips = (component?: Component): UseMassageManageReturn => {
+  let seed = 1
 
   /**
    * 通过方位与 id，获取目标实例
@@ -131,7 +132,7 @@ export const useTips = (component?: Component): UseMessageReturn => {
     /** 需要传递的 props 参数列表 */
     const props: MessageOptions = {
       id,
-      ...{ placement: component.name === 'FMessage' ? 'top' : 'top-right' },
+      ...{ placement: (component as Component).name === 'FMessage' ? 'top' : 'top-right' },
       ...options,
       /** 关闭动画结束时，移除 dom */
       onDestroy: (): void => {
@@ -145,7 +146,7 @@ export const useTips = (component?: Component): UseMessageReturn => {
      * 
      * @see h https://cn.vuejs.org/api/render-function.html#h
      */
-    const VNode: VNode = h(component, props)
+    const VNode: VNode = h((component as Component), props)
 
     render(VNode, container)
 

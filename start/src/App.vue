@@ -5,7 +5,7 @@
     FMessage({
       message: '这是一条消息提示',
       type: 'success',
-      duration: 0,
+      // duration: 0,
       color: 'red',
       zIndex: 2000,
       background: 'black'

@@ -4,7 +4,11 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
-  import { massageManage, useList } from '../../_hooks'
+  import {
+    // massageManage,
+    useList,
+    useTips
+  } from '../../_hooks'
   import type { CSSProperties, Ref } from 'vue'
 
   const prop = defineProps(Props)
@@ -12,6 +16,7 @@
     destroy: (): boolean => true
   })
 
+  const { getSiblingOffset, removeInstance } = useTips()
   const { classes, styles } = useList(prop, 'message')
 
   /** 元素节点 */
@@ -25,7 +30,7 @@
   const isTop = computed((): boolean => prop.placement === 'top')
 
   /** 计算组件之间偏移量 */
-  const siblingOffset = computed((): number => massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value))
+  const siblingOffset = computed((): number => getSiblingOffset(prop.placement, prop.id, !isTop.value))
 
   /** 计算偏移量 */
   const offset = computed((): number => prop.offset + siblingOffset.value)
@@ -84,7 +89,7 @@
    * 移除组件实例
    */
   const closeMessageEnd = (): void => {
-    massageManage.removeInstance(prop.placement, prop.id)
+    removeInstance(prop.placement, prop.id)
   }
 
   /**
