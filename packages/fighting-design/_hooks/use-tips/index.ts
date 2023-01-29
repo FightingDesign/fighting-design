@@ -93,12 +93,12 @@ export const useTips = (component?: Component): UseTipsReturn => {
   const removeInstance = (placement: MessagePlacement, id: string): void => {
     /** 获取到当前元素的索引 */
     const idx: number = getInstanceIndex(placement, id)
-      /**
-       * 从数组中移除元素
-       *
-       * @see splice https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
-       */
-      ; (instances[placement] as TipsInstance[]).splice(idx, 1)
+    /**
+     * 从数组中移除元素
+     *
+     * @see splice https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+     */
+    ;(instances[placement] as TipsInstance[]).splice(idx, 1)
   }
 
   /**

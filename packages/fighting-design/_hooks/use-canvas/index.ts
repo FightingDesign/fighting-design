@@ -3,9 +3,9 @@ import type { UseCanvasReturn, CreateWatermarkProps } from './interface'
 
 export * from './interface.d'
 
-/** 
- * 针对画板的方法封装 
- * 
+/**
+ * 针对画板的方法封装
+ *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @returns { Object }
  */

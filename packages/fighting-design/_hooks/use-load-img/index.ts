@@ -9,7 +9,7 @@ export * from './interface.d'
  * 加载图片
  *
  * 用于普通图片加载和懒加载
- * 
+ *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop prop 参数对象
  * @returns { Object }

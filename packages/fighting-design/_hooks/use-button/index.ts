@@ -9,9 +9,9 @@ export * from './interface.d'
 
 /**
  * button 组件方法封装
- * 
+ *
  * @author Tyh2001 <https://github.com/Tyh2001>
- * @param { Object } prop prop 列表 
+ * @param { Object } prop prop 列表
  * @returns { Object }
  */
 export const useButton = (prop: ButtonProps): UseButtonReturn => {

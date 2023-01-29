@@ -84,15 +84,11 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
       const setListValue = (val: unknown): unknown => {
         /** 如果需要添加单位，则所有的数字都添加单位 */
         if (isBoolean(pixel)) {
-          return isNumber(val)
-            ? pixel ? sizeChange(val) : val
-            : val
+          return isNumber(val) ? (pixel ? sizeChange(val) : val) : val
         } else if (isString(pixel)) {
-
           /** 如果为字符串类型，则代表仅仅有一个不需要添加单位 */
           if (pixel === val) return val
         } else if (isArray(pixel)) {
-
           /** 如果为数组类型，则代表有些值不需要添加单位，循环遍历处理 */
           pixel.forEach((item: string): void | unknown => {
             if (item === val) {

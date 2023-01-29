@@ -26,9 +26,9 @@ export type TabsProvide = {
   activeName: Ref<TabsModelValue>
 } & useChildrenReturn<TabsPaneInstance>
 
-/** 
- * setActiveName 回调类型 
- * 
+/**
+ * setActiveName 回调类型
+ *
  * @param { string } event 回调事件名
  * @param { string | number } val 回调参数
  */

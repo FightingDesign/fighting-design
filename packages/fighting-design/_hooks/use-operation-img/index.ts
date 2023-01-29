@@ -8,7 +8,7 @@ export * from './interface.d'
  * 用于 image-preview 组件的图片操作 hook
  *
  * 主要用作图片的放大、缩小、滚轮缩放
- * 
+ *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @returns { Object }
  */
