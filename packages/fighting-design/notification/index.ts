@@ -1,8 +1,8 @@
 import notificationVue from './src/notification.vue'
 import { installFn } from '../_utils'
-import { useMessage } from '../_hooks'
+import { useTips } from '../_hooks'
 
-const { instance: Notification } = useMessage(notificationVue)
+const { instance: Notification } = useTips(notificationVue)
 
 export const FNotification = installFn(Notification, 'FMessage')
 

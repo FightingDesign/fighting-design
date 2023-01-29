@@ -4,11 +4,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
-  import {
-    // massageManage,
-    useList,
-    useTips
-  } from '../../_hooks'
+  import { useList, useTips } from '../../_hooks'
   import type { CSSProperties, Ref } from 'vue'
 
   const prop = defineProps(Props)

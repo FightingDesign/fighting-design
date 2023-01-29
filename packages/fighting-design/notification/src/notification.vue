@@ -4,7 +4,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
-  import { massageManage } from '../../_hooks'
+  import { useTips } from '../../_hooks'
   import {
     FIconSmileLineVue,
     FIconLightbulbVue,
@@ -19,6 +19,8 @@
   const emit = defineEmits({
     destroy: (): boolean => true
   })
+
+  const { getSiblingOffset, removeInstance } = useTips()
 
   /** 默认 icon 列表 */
   const notificationDefaultIcon = {
@@ -47,7 +49,7 @@
 
   const isRight = computed((): boolean => prop.placement.includes('right'))
 
-  const siblingOffset = computed((): number => massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value))
+  const siblingOffset = computed((): number => getSiblingOffset(prop.placement, prop.id, !isTop.value))
 
   const offset = computed((): number => prop.offset + siblingOffset.value)
 
@@ -103,7 +105,7 @@
     visible.value = false
   }
   const closeMessageEnd = (): void => {
-    massageManage.removeInstance(prop.placement, prop.id)
+    removeInstance(prop.placement, prop.id)
   }
 
   const startTime = (): void => {
