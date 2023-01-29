@@ -5,17 +5,17 @@ import { FIGHTING_TYPE } from '../../_tokens'
 import type { FightingType } from '../../_interface'
 import type { ComponentInternalInstance, VNode, Component } from 'vue'
 import type {
-  MessageInstance,
-  MessageFn,
-  MessageOptions,
-  MessageFnWith,
-  MessageInstances,
-  UseMassageManageReturn
+  TipsInstance,
+  TipsFn,
+  TipsOptions,
+  TipsFnWith,
+  TipsInstances,
+  UseTipsReturn
 } from './interface'
 import type { MessagePlacement } from '../../message'
 
 /** 组件实例对象 */
-const instances: MessageInstances = reactive({})
+const instances: TipsInstances = reactive({})
 
 /**
  * 提示类型组件方法
@@ -24,7 +24,8 @@ const instances: MessageInstances = reactive({})
  * 
  * @param component 组件实例
  */
-export const useTips = (component?: Component): UseMassageManageReturn => {
+export const useTips = (component?: Component): UseTipsReturn => {
+  /** 层级标识 */
   let seed = 1
 
   /**
@@ -42,7 +43,7 @@ export const useTips = (component?: Component): UseMassageManageReturn => {
      * 
      * @see findIndex https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
      */
-    return (instances[placement] as MessageInstance[]).findIndex((item: MessageInstance): boolean => {
+    return (instances[placement] as TipsInstance[]).findIndex((item: TipsInstance): boolean => {
       return item.id === id
     })
   }
@@ -67,7 +68,7 @@ export const useTips = (component?: Component): UseMassageManageReturn => {
      * 
      * 如果在上方，就获取下一个节点，否则获取前一个节点
      */
-    const beforeInstance: MessageInstance | null = instances[placement] && (instances[placement] as MessageInstance[])[isNext ? idx + 1 : idx - 1] || null
+    const beforeInstance: TipsInstance | null = instances[placement] && (instances[placement] as TipsInstance[])[isNext ? idx + 1 : idx - 1] || null
 
     /** 没找到返回 0 */
     if (!beforeInstance) return 0
@@ -83,7 +84,7 @@ export const useTips = (component?: Component): UseMassageManageReturn => {
      * exposeProxy: null
      * exposed: 响应式
      */
-    return (beforeInstance.vm.exposeProxy || (beforeInstance.vm.exposed as MessageInstance)).bottom
+    return (beforeInstance.vm.exposeProxy || (beforeInstance.vm.exposed as TipsInstance)).bottom
   }
 
   /**
@@ -100,7 +101,7 @@ export const useTips = (component?: Component): UseMassageManageReturn => {
        * 
        * @see splice https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
        */
-      ; (instances[placement] as MessageInstance[]).splice(idx, 1)
+      ; (instances[placement] as TipsInstance[]).splice(idx, 1)
   }
 
   /**
@@ -110,9 +111,9 @@ export const useTips = (component?: Component): UseMassageManageReturn => {
    * @param placement 弹出位置
    * @returns 组件实例
    */
-  const createInstance = (instance: MessageInstance, placement: MessagePlacement): MessageInstance => {
+  const createInstance = (instance: TipsInstance, placement: MessagePlacement): TipsInstance => {
     if (instances[placement]) {
-      (instances[placement] as MessageInstance[]).push(instance)
+      (instances[placement] as TipsInstance[]).push(instance)
     } else {
       instances[placement] = [instance]
     }
@@ -125,7 +126,7 @@ export const useTips = (component?: Component): UseMassageManageReturn => {
    * @param options 传入的对象参数
    * @returns 组件实例
    */
-  const instance: MessageFn & Partial<MessageFnWith> = (options: MessageOptions): MessageInstance => {
+  const renderInstance: TipsFn & Partial<TipsFnWith> = (options: TipsOptions): TipsInstance => {
     /** 创建容器盒子 */
     const container: HTMLDivElement = document.createElement('div')
     /** 每个 message 的唯一 id */
@@ -137,7 +138,7 @@ export const useTips = (component?: Component): UseMassageManageReturn => {
     }
 
     /** 需要传递的 props 参数列表 */
-    const props: MessageOptions = {
+    const props: TipsOptions = {
       id,
       ...{ placement: (component as Component).name === 'FMessage' ? 'top' : 'top-right' },
       ...options,
@@ -165,14 +166,14 @@ export const useTips = (component?: Component): UseMassageManageReturn => {
     seed++
 
     /** 获取到组件实例 */
-    const instance: MessageInstance = createInstance(
+    const instance: TipsInstance = createInstance(
       {
         id,
         vm,
         bottom: 0,
         visible: 0,
         close: (): void => {
-          ((vm as ComponentInternalInstance).exposed as MessageInstance).close()
+          ((vm as ComponentInternalInstance).exposed as TipsInstance).close()
         }
       },
       props.placement as MessagePlacement
@@ -181,9 +182,14 @@ export const useTips = (component?: Component): UseMassageManageReturn => {
     return instance
   }
 
+  /** 
+   * 用于直接传入字符串使用
+   * 
+   * 例如：FNotification.primary('xxx')
+   */
   FIGHTING_TYPE.forEach((type: FightingType): void => {
-    instance[type] = (text: string): MessageInstance => {
-      return instance({ message: text, type })
+    renderInstance[type] = (text: string): TipsInstance => {
+      return renderInstance({ message: text, type })
     }
   })
 
@@ -191,6 +197,6 @@ export const useTips = (component?: Component): UseMassageManageReturn => {
     getSiblingOffset,
     removeInstance,
     createInstance,
-    instance
+    renderInstance
   }
 }
