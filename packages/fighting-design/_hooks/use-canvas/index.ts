@@ -3,12 +3,17 @@ import type { UseCanvasReturn, CreateWatermarkProps } from './interface'
 
 export * from './interface.d'
 
-/** 针对画板的方法封装 */
+/** 
+ * 针对画板的方法封装 
+ * 
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @returns { Object }
+ */
 export const useCanvas = (): UseCanvasReturn => {
   /**
    * 将 canvas 转换成 base64 图片格式
    *
-   * @param props 需要传递到 参数
+   * @param { Object } props 需要传递到 参数
    * @returns { String } base64 格式的图片
    */
   const createWatermark = (props: CreateWatermarkProps): string => {

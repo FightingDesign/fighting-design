@@ -7,11 +7,12 @@ import type { UseCalculiTimeReturn } from './interface'
 export * from './interface.d'
 
 /**
- * 日历组件 hook
+ * 日历组件方法封装
  *
- * @param year 年分响应式数据
- * @param month 月份响应式数据
- * @returns 当前月份展示的天数、上个月切换、下个月切换
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Number } year 年分响应式数据
+ * @param { Number } month 月份响应式数据
+ * @returns { Object } 当前月份展示的天数、上个月切换、下个月切换
  */
 export const useCalculiTime = (year: Ref<number>, month: Ref<number>): UseCalculiTimeReturn => {
   /** 获取当前月份的 1号是周几 */

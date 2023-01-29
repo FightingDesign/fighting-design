@@ -7,7 +7,9 @@ export * from './interface.d'
 /**
  * 针对 tree 组件的树形结构的处理
  *
- * @param data 树形结构
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } data 树形结构
+ * @returns { Object }
  */
 export const useTreeData = (data: FormatTreeData): UseTreeDataReturn => {
   /** 处理后的树形结构 */
@@ -19,7 +21,7 @@ export const useTreeData = (data: FormatTreeData): UseTreeDataReturn => {
   /**
    * 隐藏节点方法
    *
-   * @param tree 树形结构
+   * @param { Array } tree 树形结构
    */
   const hidden = (tree: FormatTreeData[]): void => {
     isArray(tree) &&
@@ -34,8 +36,8 @@ export const useTreeData = (data: FormatTreeData): UseTreeDataReturn => {
   /**
    * 获取到指定的元素进行操作
    *
-   * @param data 树形结构
-   * @param id id
+   * @param { Array } data 树形结构
+   * @param { Number } id id
    */
   const getItem = (data: FormatTreeData[], id: number): void => {
     data.forEach((item: FormatTreeData): void => {

@@ -15,7 +15,9 @@ const instances: TipsInstances = reactive({})
  *
  * 用于 Message 和 Notification
  *
- * @param component 组件实例
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } component 组件实例
+ * @returns { Object }
  */
 export const useTips = (component?: Component): UseTipsReturn => {
   /** 层级标识 */
@@ -24,9 +26,9 @@ export const useTips = (component?: Component): UseTipsReturn => {
   /**
    * 通过方位与 id，获取目标实例
    *
-   * @param placement 弹出位置
-   * @param id id
-   * @return 和传入 id 相同的实例对象
+   * @param { String } placement 弹出位置
+   * @param { String } id id
+   * @return { Number } 和传入 id 相同的实例对象
    */
   const getInstanceIndex = (placement: MessagePlacement, id: string): number => {
     /** 如果组件实例对象中没有找到方位信息数组，则返回 -1 */
@@ -45,10 +47,10 @@ export const useTips = (component?: Component): UseTipsReturn => {
   /**
    * 获取偏移距离
    *
-   * @param placement 弹出位置
-   * @param id id
-   * @param isNext 是否获取下一个元素
-   * @returns 组件实例的索引
+   * @param { String } placement 弹出位置
+   * @param { String } id id
+   * @param { Boolean } isNext 是否获取下一个元素
+   * @returns { Number } 组件实例的索引
    */
   const getSiblingOffset = (placement: MessagePlacement, id: string, isNext: boolean): number => {
     /** 获取到当前元素的索引 */
@@ -85,26 +87,26 @@ export const useTips = (component?: Component): UseTipsReturn => {
   /**
    * 移除实例对象
    *
-   * @param placement 弹出位置
-   * @param id 唯一值
+   * @param { String } placement 弹出位置
+   * @param { String } id 唯一值
    */
   const removeInstance = (placement: MessagePlacement, id: string): void => {
     /** 获取到当前元素的索引 */
     const idx: number = getInstanceIndex(placement, id)
-    /**
-     * 从数组中移除元素
-     *
-     * @see splice https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
-     */
-    ;(instances[placement] as TipsInstance[]).splice(idx, 1)
+      /**
+       * 从数组中移除元素
+       *
+       * @see splice https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+       */
+      ; (instances[placement] as TipsInstance[]).splice(idx, 1)
   }
 
   /**
    * 创建实例
    *
-   * @param instance 组件实例
-   * @param placement 弹出位置
-   * @returns 组件实例
+   * @param { Object } instance 组件实例
+   * @param { String } placement 弹出位置
+   * @returns { Object } 组件实例
    */
   const createInstance = (instance: TipsInstance, placement: MessagePlacement): TipsInstance => {
     if (instances[placement]) {
@@ -118,8 +120,8 @@ export const useTips = (component?: Component): UseTipsReturn => {
   /**
    * 创建组件实例
    *
-   * @param options 传入的对象参数
-   * @returns 组件实例
+   * @param { Object } options 传入的对象参数
+   * @returns { Object } 组件实例
    */
   const renderInstance: RenderInstance = (options: TipsOptions): TipsInstance => {
     /** 创建容器盒子 */
@@ -182,7 +184,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
   /**
    * 用于直接传入字符串使用
    *
-   * 例如：FNotification.primary('xxx')
+   * @example FNotification.primary('xxx')
    */
   FIGHTING_TYPE.forEach((type: FightingType): void => {
     renderInstance[type] = (text: string): TipsInstance => {

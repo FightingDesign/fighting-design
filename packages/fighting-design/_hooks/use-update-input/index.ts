@@ -10,14 +10,16 @@ export * from './interface.d'
  *
  * 可处理文本框输入和清空
  *
- * @param prop 组件的 props 参数
- * @param emit 回调参数
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } prop 组件的 props 参数
+ * @param { Function } emit 回调参数
+ * @returns { Object }
  */
 export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEmit): UseUpdateInputReturn => {
   /**
    * 处理文本框输入 input 事件
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const onInput = (evt: Event): void => {
     emit(
@@ -31,7 +33,7 @@ export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEm
   /**
    * 处理文本框输入 change 事件
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const onChange = (evt: Event): void => {
     useRun(prop.onChange, (evt.target as HTMLInputElement).value)

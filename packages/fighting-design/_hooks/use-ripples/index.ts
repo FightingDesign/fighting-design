@@ -6,9 +6,11 @@ export * from './interface.d'
 /**
  * 点击的涟漪效果
  *
- * @param evt 事件对象
- * @param node 元素节点
- * @param options 配置对象
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } evt 事件对象
+ * @param { Object } node 元素节点
+ * @param { Object } options 配置对象
+ * @returns { Object }
  */
 export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesOptions): UseRipplesReturn => {
   /**
@@ -50,7 +52,8 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
 
   /**
    * 删除涟漪节点
-   * @param node dom 元素
+   *
+   * @param { Object } node dom 元素
    */
   const removeElement = (node: HTMLElement): void => {
     setTimeout((): void => {
@@ -60,8 +63,9 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
 
   /**
    * 渲染节点
-   * @param x 坐标 x
-   * @param y 坐标 y
+   * @param { Number } x 坐标 x
+   * @param { Number } y 坐标 y
+   * @returns { Object }
    */
   const renderElement = (x: number, y: number): HTMLElement => {
     /** 新建个 span 元素 */
@@ -100,6 +104,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
      */
     const { layerX, layerY } = evt as unknown as RipplesEvt
 
+    /** 元素节点 */
     const ripples: HTMLElement = renderElement(layerX, layerY)
 
     node.appendChild(ripples)

@@ -8,14 +8,15 @@ export * from './interface.d'
 /**
  * 对于 props 的一些操作
  *
- * @param prop 需要操作的 prop 对象
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } prop 需要操作的 prop 对象
  */
 export const useProps = <T extends object>(prop: T): UsePropsReturn => {
   /**
    * 过滤 prop
    *
-   * @param list 需要的参数列表
-   * @returns 过滤后的 prop 响应式对象
+   * @param { String | Array } list 需要的参数列表
+   * @returns { Object } 过滤后的 prop 响应式对象
    */
   const filter = (list: FilterParams): Record<string, unknown> => {
     /** 过滤的 prop 结果 */
@@ -51,10 +52,10 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
   /**
    * prop 拦截器，可拦截指定的属性，传入 rule 回调进行验证
    *
-   * @param param 参数
-   * @param rule 验证回调
-   * @param def 默认值
-   * @returns 响应式数据或 null
+   * @param { String } param 参数
+   * @param { Function } rule 验证回调
+   * @param { String } def 默认值
+   * @returns { Object } 响应式数据或 null
    */
   const interceptors = (param: string, rule: () => boolean, def: null | string = null): Ref<string> | null | string => {
     return rule() ? toRef(prop, param as never) : def

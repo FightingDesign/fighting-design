@@ -8,7 +8,8 @@ export * from './interface.d'
 /**
  * useAvatar 内部样式
  *
- * @param prop props 列表
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } prop props 列表
  */
 export const useAvatar = (prop: AvatarProps): UseAvatarReturn => {
   const { styles, classes } = useList(prop, 'avatar')

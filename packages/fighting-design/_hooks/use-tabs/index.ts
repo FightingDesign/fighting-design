@@ -13,7 +13,9 @@ export * from './interface.d'
 /**
  * tabs 标签
  *
- * @param prop props 参数
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } prop props 参数
+ * @returns { Object }
  */
 export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn => {
   /** 获取当前组件实例 */
@@ -26,7 +28,7 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
   /**
    * 设置子组件绑定的 name
    *
-   * @param name 子组件的 name
+   * @param { String | Number } name 子组件的 name
    */
   const setActiveName = (name: TabsModelValue): void => {
     activeName.value = name
@@ -37,9 +39,9 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
   /**
    * 编辑状态
    *
-   * @param action 添加还是删除
-   * @param name 当前子组件的 name
-   * @param index 索引值
+   * @param { 'remove' | 'add' } action 添加还是删除
+   * @param { String | Number } [name] 当前子组件的 name
+   * @param { Number } [index] 索引值
    */
   const setEdit = (action: 'remove' | 'add', name?: TabsModelValue, index?: number): void => {
     useRun(prop.onEdit, action, name, index)

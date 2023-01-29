@@ -4,9 +4,9 @@ import type { GetLunarDetailReturn } from '../../_utils'
 /**
  * 日历组件 hook 返回值类型接口
  *
- * @param AllMonthDays 当前月份展示的天数
- * @param changeLastMonth 上个月切换
- * @param changeNextMonth 下个月切换
+ * @param { Object } AllMonthDays 当前月份展示的天数
+ * @param { Function } changeLastMonth 上个月切换
+ * @param { Function } changeNextMonth 下个月切换
  */
 export interface UseCalculiTimeReturn {
   AllMonthDays: ComputedRef<GetLunarDetailReturn[]>

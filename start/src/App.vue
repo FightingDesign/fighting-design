@@ -1,5 +1,7 @@
 <script lang="ts" setup></script>
 
-<template></template>
+<template>
+  <f-button type="default">默认按钮</f-button>
+</template>
 
 <style lang="scss" scoped></style>

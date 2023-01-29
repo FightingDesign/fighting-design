@@ -9,8 +9,10 @@ export * from './interface.d'
  * 加载图片
  *
  * 用于普通图片加载和懒加载
- *
- * @param prop prop 参数对象
+ * 
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } prop prop 参数对象
+ * @returns { Object }
  */
 export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
   /** 是否加载成功 */
@@ -33,7 +35,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
   /**
    * 加载成功
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const success = (node: HTMLImageElement, evt: Event, src: string): void => {
     node.src = src
@@ -45,7 +47,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
   /**
    * 加载失败
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const failure = (evt: Event): void => {
     isSuccess.value = false
@@ -54,9 +56,12 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
 
   /**
    * 正常加载图片
-   * @param errSrc
+   *
+   * @param { Object } node 元素节点
+   * @param { String } [errSrc] 失败的 src
    */
   const load = (node: HTMLImageElement, errSrc?: string): void => {
+    /** 创建一个新的 img 元素 */
     const el: HTMLImageElement = new Image()
 
     new Promise((resolve, reject): void => {
@@ -89,7 +94,9 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
 
   /**
    * 懒加载
-   * @param node 元素节点
+   *
+   * @param { Object } node 元素节点
+   * @returns { Object }
    */
   const lazy = (node: HTMLImageElement): IntersectionObserver => {
     /**
@@ -117,7 +124,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
    *
    * 希望你永远也不会触发这个方法
    *
-   * @param node 元素节点
+   * @param { Object } node 元素节点
    */
   const lazyLow = (node: HTMLImageElement): void => {
     /** 监听浏览器滚动事件 */
@@ -174,7 +181,8 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
 
   /**
    * 开始加载
-   * @param node 元素节点
+   *
+   * @param { Object } node 元素节点
    */
   const loadImg = (node: HTMLImageElement): void => {
     /**

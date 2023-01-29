@@ -5,7 +5,9 @@ export * from './interface.d'
 /**
  * 处理 alert 组件滚动列表方法
  *
- * @param node 滚动节点
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } node 滚动节点
+ * @returns { Object }
  */
 export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
   /**
@@ -94,7 +96,7 @@ export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
   /**
    * 开始触发滚动
    *
-   * @param duration 滚动间隔时间
+   * @param { Number } duration 滚动间隔时间
    */
   const startMove = (duration = 2000): void => {
     setInterval(moveNext, duration)

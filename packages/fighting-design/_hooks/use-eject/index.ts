@@ -10,9 +10,11 @@ export * from './interface.d'
 /**
  * 针对 message notification 组件公共方法封装
  *
+ * @author Tyh2001 <https://github.com/Tyh2001>
  * @param prop props 参数
- * @param component 组件名
- * @param el 元素节点
+ * @param { 'message' | 'notification' } component 组件名
+ * @param { Object } el 元素节点
+ * @returns { Object }
  */
 export const useEject = (
   prop: MessageProps | NotificationProps,
@@ -62,6 +64,7 @@ export const useEject = (
 
   /** 位置偏移量样式列表 */
   const offsetStyle = computed((): CSSProperties => {
+    /** 样式对象 */
     const styles: CSSProperties = {}
 
     if (prop.placement.includes('bottom')) {

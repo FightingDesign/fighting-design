@@ -5,14 +5,14 @@ import type { Ref } from 'vue'
  *
  * 用于 image-preview 组件的方法封装
  *
- * @param scale 放大倍数
- * @param rotate 旋转角度
- * @param smaller 放大操作
- * @param bigger 缩小操作
- * @param scrollZoom 滚轮缩放
- * @param recovery 还原图片
- * @param rotateClockwise 顺时针旋转
- * @param rotateCounterClock 逆时针旋转
+ * @param { Object } scale 放大倍数
+ * @param { Object } rotate 旋转角度
+ * @param { Function } smaller 放大操作
+ * @param { Function } bigger 缩小操作
+ * @param { Function } scrollZoom 滚轮缩放
+ * @param { Function } recovery 还原图片
+ * @param { Function } rotateClockwise 顺时针旋转
+ * @param { Function } rotateCounterClock 逆时针旋转
  */
 export interface UseOperationImgReturn {
   scale: Ref<number>

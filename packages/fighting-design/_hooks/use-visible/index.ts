@@ -9,8 +9,10 @@ export * from './interface.d'
 /**
  * 控制 dialog 和 drawer 组件显示隐藏方法
  *
- * @param visible 显示状态
- * @param emit 回调
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Boolean } visible 显示状态
+ * @param { Function } emit 回调
+ * @returns { Object }
  */
 export const useVisible = (visible: Ref<boolean>, emit: UseVisibleEmit, callback?: Function): UseVisibleReturn => {
   /** 是否展示 */
@@ -19,7 +21,7 @@ export const useVisible = (visible: Ref<boolean>, emit: UseVisibleEmit, callback
   /**
    * 关闭
    *
-   * @param evt 事件对象
+   * @param { Object } [evt] 事件对象
    */
   const closeVisible = (evt?: MouseEvent): void => {
     emit(EMIT_VISIBLE, false)

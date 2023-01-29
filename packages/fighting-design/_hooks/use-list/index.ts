@@ -15,9 +15,10 @@ export * from './interface.d'
  *
  * 过滤后的 prop 对象再进行样式或者类名处理
  *
- * @param prop prop 列表
- * @param name 组件名
- * @returns 类名列表和样式列表方法，可解构出 classes styles
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } prop prop 列表
+ * @param { String } name 组件名
+ * @returns { Object } 类名列表和样式列表方法，可解构出 classes styles
  */
 export const useList = <T extends object>(prop: T, name: string): UseListReturn => {
   /**
@@ -32,8 +33,9 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
   /**
    * 类名列表
    *
-   * @param list 类名所需要的 prop 参数
-   * @param className 其它所需要的类名
+   * @param { Array  } list 类名所需要的 prop 参数
+   * @param { String } [className] 其它所需要的类名
+   * @returns { Object }
    */
   const classes = (list: FilterParams, className?: string): ComputedRef<ClassList> => {
     return computed((): ClassList => {
@@ -62,8 +64,9 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
   /**
    * 样式列表
    *
-   * @param list 样式所需要的 prop 参数
-   * @param pixel 是否带有单位
+   * @param { Array } list 样式所需要的 prop 参数
+   * @param { Boolean | String | Array } [pixel] 是否带有单位
+   * @returns { Object }
    */
   const styles = (list: FilterParams, pixel: boolean | string | string[] = true): ComputedRef<CSSProperties> => {
     return computed((): CSSProperties => {
@@ -75,8 +78,8 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
       /**
        * 设置样式列表的值
        *
-       * @param val 值
-       * @returns 处理后的值
+       * @param { } val 值
+       * @returns { } 处理后的值
        */
       const setListValue = (val: unknown): unknown => {
         /** 如果需要添加单位，则所有的数字都添加单位 */
