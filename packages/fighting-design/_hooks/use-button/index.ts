@@ -29,7 +29,7 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
   /** 获取父组件注入的依赖项 */
   const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)
 
-  /** 
+  /**
    * 检测是否带有默认插槽
    *
    * 如果没有则返回真

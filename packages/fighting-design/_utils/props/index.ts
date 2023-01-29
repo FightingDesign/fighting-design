@@ -21,7 +21,7 @@ export const setBooleanProp = (defaultVal = false): BasicType<BooleanConstructor
 export const setNumberProp = <T extends number>(defaultVal?: null | T): BasicType<NumberConstructor, number | null> =>
   ({
     type: Number,
-    default: (): T | null => isNumber(defaultVal) ? defaultVal : null
+    default: (): T | null => (isNumber(defaultVal) ? defaultVal : null)
   } as const)
 
 /**

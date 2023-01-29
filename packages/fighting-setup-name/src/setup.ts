@@ -1,5 +1,5 @@
 import { basename } from 'path'
-import MagicString from 'magic-string' // 
+import MagicString from 'magic-string' //
 import { compileScript, parse } from '@vue/compiler-sfc'
 import type { SourceMap } from 'magic-string'
 import type { SFCScriptBlock } from '@vue/compiler-sfc'

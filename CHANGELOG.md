@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.20.1 (2023-01-29)
+
 - 修复 `FNotification` 组件名错误的问题
 - 优化 `FMessage` 和 `FNotification` 组件公共方法
 

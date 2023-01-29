@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.20.1 (2023-01-29)
+
+- Fix the problem of `FNotification` component name error
+- Optimize the public methods of `FMessage` and `FNotification` components
+
 ## 0.20.0 (2023-01-17)
 
 - Optimize `f-space` style details

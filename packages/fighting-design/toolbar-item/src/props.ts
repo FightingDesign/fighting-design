@@ -1,9 +1,4 @@
-import {
-  setStringProp,
-  setStringNumberProp,
-  setObjectProp,
-  setFunctionProp
-} from '../../_utils'
+import { setStringProp, setStringNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { HandleMouse, FightingIcon } from '../../_interface'
 

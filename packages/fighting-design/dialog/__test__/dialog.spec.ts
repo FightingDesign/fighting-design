@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FDialog } from '../index'
-  import { EMIT_VISIBLE } from '../../_tokens'
+import { EMIT_VISIBLE } from '../../_tokens'
 
 describe('FDialog', () => {
   test('class', () => {

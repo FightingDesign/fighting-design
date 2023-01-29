@@ -4,13 +4,7 @@ import { isString, isArray } from '../../_utils'
 import { FIGHTING_TYPE } from '../../_tokens'
 import type { FightingType } from '../../_interface'
 import type { ComponentInternalInstance, VNode, Component } from 'vue'
-import type {
-  TipsInstance,
-  RenderInstance,
-  TipsOptions,
-  TipsInstances,
-  UseTipsReturn
-} from './interface'
+import type { TipsInstance, RenderInstance, TipsOptions, TipsInstances, UseTipsReturn } from './interface'
 import type { MessagePlacement } from '../../message'
 
 /** 组件实例对象 */
@@ -18,9 +12,9 @@ const instances: TipsInstances = reactive({})
 
 /**
  * 提示类型组件方法
- * 
+ *
  * 用于 Message 和 Notification
- * 
+ *
  * @param component 组件实例
  */
 export const useTips = (component?: Component): UseTipsReturn => {
@@ -40,7 +34,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
 
     /**
      * 找到满足条件的第一个元素的索引
-     * 
+     *
      * @see findIndex https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
      */
     return (instances[placement] as TipsInstance[]).findIndex((item: TipsInstance): boolean => {
@@ -50,7 +44,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
 
   /**
    * 获取偏移距离
-   * 
+   *
    * @param placement 弹出位置
    * @param id id
    * @param isNext 是否获取下一个元素
@@ -63,12 +57,13 @@ export const useTips = (component?: Component): UseTipsReturn => {
     /** 如果没有找到则返回 0 */
     if (idx === -1) return 0
 
-    /** 
+    /**
      * 获取到前一个元素节点
-     * 
+     *
      * 如果在上方，就获取下一个节点，否则获取前一个节点
      */
-    const beforeInstance: TipsInstance | null = instances[placement] && (instances[placement] as TipsInstance[])[isNext ? idx + 1 : idx - 1] || null
+    const beforeInstance: TipsInstance | null =
+      (instances[placement] && (instances[placement] as TipsInstance[])[isNext ? idx + 1 : idx - 1]) || null
 
     /** 没找到返回 0 */
     if (!beforeInstance) return 0
@@ -96,12 +91,12 @@ export const useTips = (component?: Component): UseTipsReturn => {
   const removeInstance = (placement: MessagePlacement, id: string): void => {
     /** 获取到当前元素的索引 */
     const idx: number = getInstanceIndex(placement, id)
-      /**
-       * 从数组中移除元素
-       * 
-       * @see splice https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
-       */
-      ; (instances[placement] as TipsInstance[]).splice(idx, 1)
+    /**
+     * 从数组中移除元素
+     *
+     * @see splice https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+     */
+    ;(instances[placement] as TipsInstance[]).splice(idx, 1)
   }
 
   /**
@@ -122,7 +117,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
 
   /**
    * 创建组件实例
-   * 
+   *
    * @param options 传入的对象参数
    * @returns 组件实例
    */
@@ -152,10 +147,10 @@ export const useTips = (component?: Component): UseTipsReturn => {
 
     /**
      * 创建虚拟 DOM 节点
-     * 
+     *
      * @see h https://cn.vuejs.org/api/render-function.html#h
      */
-    const VNode: VNode = h((component as Component), props)
+    const VNode: VNode = h(component as Component, props)
 
     render(VNode, container)
 
@@ -184,9 +179,9 @@ export const useTips = (component?: Component): UseTipsReturn => {
     return instance
   }
 
-  /** 
+  /**
    * 用于直接传入字符串使用
-   * 
+   *
    * 例如：FNotification.primary('xxx')
    */
   FIGHTING_TYPE.forEach((type: FightingType): void => {

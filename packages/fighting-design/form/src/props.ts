@@ -1,8 +1,4 @@
-import {
-  setStringNumberProp,
-  setFunctionProp,
-  setObjectProp
-} from '../../_utils'
+import { setStringNumberProp, setFunctionProp, setObjectProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { FormSubmit } from './interface'
 

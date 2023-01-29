@@ -1,8 +1,4 @@
-import {
-  setBooleanProp,
-  setArrayProp,
-  setFunctionProp
-} from '../../../../_utils'
+import { setBooleanProp, setArrayProp, setFunctionProp } from '../../../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type {
   TabsNavInstance,

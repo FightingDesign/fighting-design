@@ -3,7 +3,7 @@ import type { ClassList } from '../../_interface'
 
 /**
  * useEject 返回值类型接口
- * 
+ *
  * @param classList 类名列表
  * @param styleList 样式列表
  * @param elHeight 元素的高度

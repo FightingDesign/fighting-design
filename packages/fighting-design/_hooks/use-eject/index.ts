@@ -9,7 +9,7 @@ export * from './interface.d'
 
 /**
  * 针对 message notification 组件公共方法封装
- * 
+ *
  * @param prop props 参数
  * @param component 组件名
  * @param el 元素节点
@@ -19,7 +19,6 @@ export const useEject = (
   component: 'message' | 'notification',
   el: Ref<HTMLDivElement | null>
 ): UseEjectReturn => {
-
   /** 元素的高度 */
   const elHeight = ref<number>(0)
 
@@ -126,4 +125,4 @@ export const useEject = (
     closeMessageEnd,
     startTime
   }
-} 
+}

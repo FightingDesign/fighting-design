@@ -1,9 +1,4 @@
-import {
-  setBooleanProp,
-  setStringNumberProp,
-  setStringProp,
-  setFunctionProp
-} from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type {
   TabsTrigger,

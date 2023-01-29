@@ -4,7 +4,7 @@ import type { Thenable, TransformResult } from 'unplugin'
 
 /**
  * 设置插件
- * 
+ *
  * @see createUnplugin https://github.com/unjs/unplugin
  */
 export const FightingSetupNamePlugin = createUnplugin(() => {

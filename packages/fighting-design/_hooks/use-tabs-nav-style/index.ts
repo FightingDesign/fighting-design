@@ -96,13 +96,13 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
   const observer = new IntersectionObserver(setActiveLineStyle)
 
   onMounted(() => {
-    if (!instance || !instance.subTree.el) return 
-    
+    if (!instance || !instance.subTree.el) return
+
     observer.observe(instance.subTree.el as Element)
   })
 
   onUnmounted(() => {
-    if (!instance || !instance.subTree.el) return 
+    if (!instance || !instance.subTree.el) return
 
     observer.unobserve(instance.subTree.el as Element)
   })

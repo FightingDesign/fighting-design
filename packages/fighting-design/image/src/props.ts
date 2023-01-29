@@ -1,9 +1,4 @@
-import {
-  setBooleanProp,
-  setStringNumberProp,
-  setStringProp,
-  setFunctionProp
-} from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
 import { FIGHTING_FIT } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { HandleEvent, FightingFit } from '../../_interface'
