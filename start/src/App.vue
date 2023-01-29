@@ -1,31 +1,24 @@
-<script lang="ts" setup>
-  import { FMessage, FNotification } from 'fighting-design'
+<script setup lang="ts">
+  import { FNotification } from 'fighting-design'
+  import type { NotificationPlacement } from 'fighting-design'
 
-  const openMessage = (): void => {
-    FMessage({
-      message: '这是一条消息提示',
-      type: 'success'
-      // duration: 0,
-      // color: 'red',
-      // zIndex: 2000,
-      // background: 'black'
-      // placement: 'bottom-right'
-    })
-
-    // FMessage.success('123')
-
+  const openNotificationPlacement = (placement: NotificationPlacement) => {
     FNotification({
-      color: 'red',
+      title: '一条通知',
+      message: '这是一条自定义位置的消息',
+      type: 'primary',
+      close: true,
       duration: 0,
-      zIndex: 20002,
-      background: 'blue',
-      message: '这是通知内容'
+      placement: placement
     })
   }
 </script>
 
 <template>
-  <f-button :on-click="openMessage">打开</f-button>
+  <f-space>
+    <f-button type="primary" @click="openNotificationPlacement('top-left')"> 左上 </f-button>
+    <f-button type="primary" @click="openNotificationPlacement('top-right')"> 右上 </f-button>
+    <f-button type="success" @click="openNotificationPlacement('bottom-left')"> 左下 </f-button>
+    <f-button type="success" @click="openNotificationPlacement('bottom-right')"> 右下 </f-button>
+  </f-space>
 </template>
-
-<style lang="scss" scoped></style>

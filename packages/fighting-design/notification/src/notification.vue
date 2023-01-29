@@ -1,10 +1,10 @@
 <script lang="ts" setup name="FNotification">
   import { Props } from './props'
-  import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
+  import { computed, ref, isVNode } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { isString } from '../../_utils'
-  import { useTips, useList } from '../../_hooks'
+  import { useEject } from '../../_hooks'
   import {
     FIconSmileLineVue,
     FIconLightbulbVue,
@@ -12,7 +12,7 @@
     FIconCircleCrossVue,
     FIconWarningVue
   } from '../../_svg'
-  import type { CSSProperties } from 'vue'
+  import type { Ref } from 'vue'
   import type { FightingIcon } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -20,8 +20,21 @@
     destroy: (): boolean => true
   })
 
-  const { getSiblingOffset, removeInstance } = useTips()
-  const { classes, styles } = useList(prop, 'notification')
+  /** 元素节点 */
+  const FNotificationEl: Ref<HTMLDivElement | null> = ref<HTMLDivElement | null>(null)
+
+  const {
+    classList,
+    styleList,
+    bottom,
+    offsetStyle,
+    visible,
+    isPosition,
+    clearTimer,
+    closeMessage,
+    closeMessageEnd,
+    startTime
+  } = useEject(prop, 'notification', FNotificationEl)
 
   /** 默认 icon 列表 */
   const notificationDefaultIcon = {
@@ -42,89 +55,6 @@
     return null
   })
 
-  const FNotificationEl = ref<HTMLDivElement>()
-  const notificationHeight = ref<number>(0)
-  const visible = ref<boolean>(false)
-
-  // const isTop = computed((): boolean => prop.placement.includes('top'))
-  /** 判断是否为上面方位的 */
-  // const isTop = computed((): boolean => prop.placement === 'top')
-
-  const isRight = computed((): boolean => prop.placement.includes('right'))
-
-  const siblingOffset = computed((): number => getSiblingOffset(prop.placement, prop.id, false))
-
-  const offset = computed((): number => prop.offset + siblingOffset.value)
-
-  const bottom = computed((): number => notificationHeight.value + offset.value)
-
-  onMounted((): void => {
-    nextTick((): void => {
-      notificationHeight.value = (FNotificationEl.value as HTMLDivElement).getBoundingClientRect().height
-    })
-  })
-
-  /** 类名列表 */
-  const classList = classes(['type', 'placement', 'round'], 'f-notification')
-
-  /** 样式列表 */
-  const styleList = styles(['color', 'background', 'zIndex'], 'zIndex')
-
-  /** 位置偏移量样式列表 */
-  const offsetStyle = computed((): CSSProperties => {
-    const styles: CSSProperties = {}
-
-    if (prop.placement.includes('bottom')) {
-      styles.bottom = offset.value + 'px'
-    } else {
-      styles.top = offset.value + 'px'
-    }
-
-    return styles
-  })
-
-  /** 计时器 */
-  const timer = ref<NodeJS.Timeout>()
-
-  /** 清除计时器 */
-  const clearTimer = (): void => {
-    if (!timer.value) return
-    clearTimeout(timer.value)
-  }
-
-  /** 关闭提示框 */
-  const closeMessage = (): void => {
-    clearTimer()
-    visible.value = false
-  }
-
-  /**
-   * 关闭提示框之后的回调
-   *
-   * 移除组件实例
-   */
-  const closeMessageEnd = (): void => {
-    removeInstance(prop.placement, prop.id)
-  }
-
-  /**
-   * 开始计时
-   *
-   * 到时间隐藏提示框
-   */
-  const startTime = (): void => {
-    if (!prop.duration) return
-    timer.value = setTimeout((): void => {
-      closeMessage()
-    }, prop.duration)
-  }
-
-  /** 初始化之后开始计时 并且展示提示 */
-  onMounted((): void => {
-    startTime()
-    visible.value = true
-  })
-
   defineExpose({
     visible,
     bottom,
@@ -135,7 +65,7 @@
 <template>
   <transition
     mode="out-in"
-    :name="`f-notification-fade` + (isRight ? '-right' : '-left')"
+    :name="`f-notification-fade` + (isPosition ? '-right' : '-left')"
     @before-leave="closeMessageEnd"
     @after-leave="emit('destroy')"
   >
