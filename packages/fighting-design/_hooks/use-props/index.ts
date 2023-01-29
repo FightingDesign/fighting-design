@@ -10,13 +10,13 @@ export * from './interface.d'
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop 需要操作的 prop 对象
- * @return { Object }
+ * @returns { Object }
  */
 export const useProps = <T extends object>(prop: T): UsePropsReturn => {
   /**
    * 过滤 prop
    *
-   * @param { String | Array } list 需要的参数列表
+   * @param { string | Array } list 需要的参数列表
    * @returns { Object } 过滤后的 prop 响应式对象
    */
   const filter = (list: FilterParams): Record<string, unknown> => {
@@ -53,9 +53,9 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
   /**
    * prop 拦截器，可拦截指定的属性，传入 rule 回调进行验证
    *
-   * @param { String } param 参数
+   * @param { string } param 参数
    * @param { Function } rule 验证回调
-   * @param { String } def 默认值
+   * @param { string } def 默认值
    * @returns { Object } 响应式数据或 null
    */
   const interceptors = (param: string, rule: () => boolean, def: null | string = null): Ref<string> | null | string => {

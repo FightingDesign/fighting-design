@@ -5,8 +5,8 @@ import type { InputType } from '../../input'
  *
  * @param { Function } onInput 处理文本框输入
  * @param { Function } onChange 改变后触发的回调
- * @param { Boolean } disabled 是否禁用
- * @param { String } [type] 文本框类型
+ * @param { boolean } disabled 是否禁用
+ * @param { string } [type] 文本框类型
  */
 export interface UseUpdateInputProps {
   onInput: (val: string) => void | null
@@ -31,7 +31,7 @@ export interface UseUpdateInputReturn {
 /**
  * 回调函数类型
  *
- * @param { String } event 回调事件名
- * @param { Boolean } val 回调参数
+ * @param { string } event 回调事件名
+ * @param { boolean } val 回调参数
  */
 export type UseUpdateInputEmit = (event: 'update:modelValue', val: string | number) => void

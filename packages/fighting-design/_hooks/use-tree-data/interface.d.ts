@@ -3,12 +3,12 @@ import type { ComputedRef } from 'vue'
 /**
  * 处理数据结果之前的类型接口
  *
- * @param { String } label label
- * @param { Number } [level] 标识
- * @param { Boolean } [open] 是否打开
- * @param { Boolean } [isChild] 是否带有子节点
- * @param { Boolean } [show] 是否展示
- * @param { Number } [id] id
+ * @param { string } label label
+ * @param { number } [level] 标识
+ * @param { boolean } [open] 是否打开
+ * @param { boolean } [isChild] 是否带有子节点
+ * @param { boolean } [show] 是否展示
+ * @param { number } [id] id
  * @param { Array } [children] 子节点
  */
 export interface FormatTreeData {
@@ -24,12 +24,12 @@ export interface FormatTreeData {
 /**
  * 处理数据结果之后的类型接口
  *
- * @param { String } label label
- * @param { Number } level 标识
- * @param { Boolean } open 是否打开
- * @param { Boolean } isChild 是否带有子节点
- * @param { Boolean } show 是否展示
- * @param { Number } id id
+ * @param { string } label label
+ * @param { number } level 标识
+ * @param { boolean } open 是否打开
+ * @param { boolean } isChild 是否带有子节点
+ * @param { boolean } show 是否展示
+ * @param { number } id id
  * @param { Array } children 子节点
  */
 export interface FlatTreeData {

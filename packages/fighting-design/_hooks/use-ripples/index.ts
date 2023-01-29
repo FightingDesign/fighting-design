@@ -63,8 +63,8 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
 
   /**
    * 渲染节点
-   * @param { Number } x 坐标 x
-   * @param { Number } y 坐标 y
+   * @param { number } x 坐标 x
+   * @param { number } y 坐标 y
    * @returns { Object }
    */
   const renderElement = (x: number, y: number): HTMLElement => {

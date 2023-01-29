@@ -37,7 +37,7 @@ export const useTreeData = (data: FormatTreeData): UseTreeDataReturn => {
    * 获取到指定的元素进行操作
    *
    * @param { Array } data 树形结构
-   * @param { Number } id id
+   * @param { number } id id
    */
   const getItem = (data: FormatTreeData[], id: number): void => {
     data.forEach((item: FormatTreeData): void => {

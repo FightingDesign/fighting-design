@@ -29,14 +29,14 @@ export type TabsProvide = {
 /** 
  * setActiveName 回调类型 
  * 
- * @param { String } event 回调事件名
- * @param { Boolean } val 回调参数
+ * @param { string } event 回调事件名
+ * @param { string | number } val 回调参数
  */
 export type SetActiveNameEmit = (event: 'update:modelValue', val: string | number) => void
 
 /**
  * 设置绑定值回调类型
  *
- * @param { String | Number } name 选中的 name
+ * @param { string | number } name 选中的 name
  */
 export type SetActiveName = (name: TabsModelValue) => void

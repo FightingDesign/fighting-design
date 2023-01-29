@@ -4,9 +4,9 @@ import { isString, isNumber } from '..'
  * 保留小数点后 no 位
  *
  * @see toFixed https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
- * @param num 带有小数的数字
- * @param no 保留位数
- * @returns { Number } 转换后的数字
+ * @param { number } num 带有小数的数字
+ * @param { number } [no = 2] 保留位数
+ * @returns { number } 转换后的数字
  */
 export const keepDecimal = (num: number, no = 2): number => {
   return Number(num.toFixed(no))
@@ -21,7 +21,8 @@ export type DebounceReturn = () => void
  * 来处理对于短时间内连续触发的事件加以限制
  *
  * @param callback 回调函数
- * @param delay 延时的时间
+ * @param { number } [delay = 200] 延时的时间
+ * @returns { Function }
  */
 export const debounce = (callback: () => void, delay = 200): DebounceReturn => {
   let timer: NodeJS.Timeout
@@ -38,7 +39,7 @@ export const debounce = (callback: () => void, delay = 200): DebounceReturn => {
 /**
  * 给数字小于 10 的数字前面加 0
  *
- * @param num 需检测的参数
+ * @param { number } num 需检测的参数
  * @returns { string }
  */
 export const addZero = (num: number): string => {
@@ -54,8 +55,8 @@ export const addZero = (num: number): string => {
  *
  * 对于 number 类型的参数，就需要追加 target 类型的单位
  *
- * @param size 尺寸
- * @param target 单位
+ * @param { string | number } size 尺寸
+ * @param { string } [target = 'px'] 单位
  * @returns { string } 已经追加单位的字符串数值
  */
 export const sizeChange = (size: string | number | undefined, target = 'px'): string => {
@@ -70,7 +71,7 @@ export const sizeChange = (size: string | number | undefined, target = 'px'): st
  *
  * @see parseFloat https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat
  *
- * @param size 尺寸
+ * @param { string | number } size 尺寸
  * @returns { number } 数字尺寸
  */
 export const sizeToNum = (size: string | number): number => {
@@ -82,8 +83,8 @@ export const sizeToNum = (size: string | number): number => {
 /**
  * 驼峰命名转换为短横线命名
  *
- * @param str 需要转换的字符串
- * @returns { String } 短横线命名
+ * @param { string } str 需要转换的字符串
+ * @returns { string } 短横线命名
  */
 export const convertFormat = (str: string): string => {
   return str.replace(/([A-Z])/g, (match: string, p1: string): string => {

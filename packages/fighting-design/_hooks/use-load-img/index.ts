@@ -58,7 +58,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
    * 正常加载图片
    *
    * @param { Object } node 元素节点
-   * @param { String } [errSrc] 失败的 src
+   * @param { string } [errSrc] 失败的 src
    */
   const load = (node: HTMLImageElement, errSrc?: string): void => {
     /** 创建一个新的 img 元素 */

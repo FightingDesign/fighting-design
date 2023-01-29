@@ -14,7 +14,7 @@ export const useCanvas = (): UseCanvasReturn => {
    * 将 canvas 转换成 base64 图片格式
    *
    * @param { Object } props 需要传递到 参数
-   * @returns { String } base64 格式的图片
+   * @returns { string } base64 格式的图片
    */
   const createWatermark = (props: CreateWatermarkProps): string => {
     /** 创建一个 canvas */
@@ -40,7 +40,5 @@ export const useCanvas = (): UseCanvasReturn => {
     return canvas.toDataURL('image/png')
   }
 
-  return {
-    createWatermark
-  }
+  return { createWatermark }
 }

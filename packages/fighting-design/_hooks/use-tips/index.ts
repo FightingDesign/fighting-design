@@ -17,7 +17,7 @@ const instances: TipsInstances = reactive({})
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } [component] 组件实例
- * @return { Object }
+ * @returns { Object }
  */
 export const useTips = (component?: Component): UseTipsReturn => {
   /** 层级标识 */
@@ -26,9 +26,9 @@ export const useTips = (component?: Component): UseTipsReturn => {
   /**
    * 通过方位与 id，获取目标实例
    *
-   * @param { String } placement 弹出位置
-   * @param { String } id id
-   * @return { Number } 和传入 id 相同的实例对象
+   * @param { string } placement 弹出位置
+   * @param { string } id id
+   * @returns { number } 和传入 id 相同的实例对象
    */
   const getInstanceIndex = (placement: MessagePlacement, id: string): number => {
     /** 如果组件实例对象中没有找到方位信息数组，则返回 -1 */
@@ -47,10 +47,10 @@ export const useTips = (component?: Component): UseTipsReturn => {
   /**
    * 获取偏移距离
    *
-   * @param { String } placement 弹出位置
-   * @param { String } id id
-   * @param { Boolean } isNext 是否获取下一个元素
-   * @return { Number } 组件实例的索引
+   * @param { string } placement 弹出位置
+   * @param { string } id id
+   * @param { boolean } isNext 是否获取下一个元素
+   * @returns { number } 组件实例的索引
    */
   const getSiblingOffset = (placement: MessagePlacement, id: string, isNext: boolean): number => {
     /** 获取到当前元素的索引 */
@@ -87,8 +87,8 @@ export const useTips = (component?: Component): UseTipsReturn => {
   /**
    * 移除实例对象
    *
-   * @param { String } placement 弹出位置
-   * @param { String } id 唯一值
+   * @param { string } placement 弹出位置
+   * @param { string } id 唯一值
    */
   const removeInstance = (placement: MessagePlacement, id: string): void => {
     /** 获取到当前元素的索引 */
@@ -105,7 +105,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
    * 创建实例
    *
    * @param { Object } instance 组件实例
-   * @param { String } placement 弹出位置
+   * @param { string } placement 弹出位置
    * @returns { Object } 组件实例
    */
   const createInstance = (instance: TipsInstance, placement: MessagePlacement): TipsInstance => {
@@ -121,7 +121,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
    * 创建组件实例
    *
    * @param { Object } options 传入的对象参数
-   * @return { Object } 组件实例
+   * @returns { Object } 组件实例
    */
   const renderInstance: RenderInstance = (options: TipsOptions): TipsInstance => {
     /** 创建容器盒子 */

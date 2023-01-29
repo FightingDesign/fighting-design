@@ -10,8 +10,8 @@ export * from './interface.d'
  * 日历组件方法封装
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
- * @param { Number } year 年分响应式数据
- * @param { Number } month 月份响应式数据
+ * @param { Object } year 年分响应式数据
+ * @param { Object } month 月份响应式数据
  * @returns { Object } 当前月份展示的天数、上个月切换、下个月切换
  */
 export const useCalculiTime = (year: Ref<number>, month: Ref<number>): UseCalculiTimeReturn => {

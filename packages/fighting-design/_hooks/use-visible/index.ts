@@ -10,7 +10,7 @@ export * from './interface.d'
  * 控制 dialog 和 drawer 组件显示隐藏方法
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
- * @param { Boolean } visible 显示状态
+ * @param { boolean } visible 显示状态
  * @param { Function } emit 回调
  * @returns { Object }
  */

@@ -23,7 +23,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
   /**
    * 获取组件的类型
    *
-   * @param { String } def 默认参数
+   * @param { string } def 默认参数
    * @returns { Object } 类型
    */
   const getType = (def: FightingType = 'default'): ComputedRef<FightingType> => {
@@ -35,8 +35,8 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
   /**
    * 获取组件的尺寸
    *
-   * @param { String } def 默认参数
-   * @param { String } [parentSize] 父组件可能需要注入的依赖项
+   * @param { string } def 默认参数
+   * @param { string } [parentSize] 父组件可能需要注入的依赖项
    * @returns { Object } 尺寸
    */
   const getSize = (def: FightingSize = 'middle', parentSize?: FightingSize | null): ComputedRef<FightingSize> => {
@@ -48,7 +48,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
   /**
    * 获取组件的文案
    *
-   * @param { String } componentName 组件名
+   * @param { string } componentName 组件名
    * @returns { Object } 当前组件下的文案
    */
   const getLang = <T extends LangContentKey>(componentName: T): ComputedRef<LangKey[T]> => {

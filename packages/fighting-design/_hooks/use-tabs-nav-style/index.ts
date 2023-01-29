@@ -12,7 +12,7 @@ export * from './interface.d'
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop props 参数
- * @return { Object }
+ * @returns { Object }
  */
 export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
   /** 获取当前组件实例 */

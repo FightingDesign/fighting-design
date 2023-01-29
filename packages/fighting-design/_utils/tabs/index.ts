@@ -5,13 +5,14 @@ import type { VNode, VNodeNormalizedChildren, ComponentInternalInstance, Compone
 /**
  * 将所有子的组件扁平化
  *
- * @param children
+ * @param { Object } children
+ * @returns { Array }
  */
 export const flattedChildren = (children: VNode | VNodeNormalizedChildren): VNode[] => {
   const vNodes = isArray(children) ? children : [children]
   const result: VNode[] = []
 
-  vNodes.forEach(child => {
+  vNodes.forEach((child): void => {
     if (isArray(child)) {
       result.push(...flattedChildren(child))
     } else if (isVNode(child) && isArray(child.children)) {
@@ -28,8 +29,9 @@ export const flattedChildren = (children: VNode | VNodeNormalizedChildren): VNod
 /**
  * 筛选出根组件下所有名称符合的组件
  *
- * @param root 组件实例
- * @param component 组件名
+ * @param { Object } root 组件实例
+ * @param { string } component 组件名
+ * @returns { Array }
  */
 export const getChildrenComponent = (root: ComponentInternalInstance, component: string): VNode[] => {
   if (!root.subTree) return []
@@ -37,17 +39,23 @@ export const getChildrenComponent = (root: ComponentInternalInstance, component:
   return flaChildren.filter(e => isObject(e.type) && (e.type as Component).name === component)
 }
 
+/**
+ * @param { Object } children 已注册的子组件列表
+ * @param { Function } registerChild 注册子组件
+ * @param { Function } unRegisterChild 卸载子组件
+ */
 export interface useChildrenReturn<T> {
-  children: ShallowRef<T[]> // 已注册的子组件列表
-  registerChild: (child: T) => void // 注册子组件
-  unRegisterChild: (child: T) => void // 卸载子组件
+  children: ShallowRef<T[]>
+  registerChild: (child: T) => void
+  unRegisterChild: (child: T) => void
 }
 
 /**
  * 维护子组件
- * @param root
- * @param component
- * @returns useChildrenReturn
+ *
+ * @param { Object } root 实例对象
+ * @param { string } component 组件名
+ * @returns { Object }
  */
 export const useChildren = <T extends { uid: number }>(
   root: ComponentInternalInstance,

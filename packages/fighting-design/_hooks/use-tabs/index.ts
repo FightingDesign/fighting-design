@@ -28,7 +28,7 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
   /**
    * 设置子组件绑定的 name
    *
-   * @param { String | Number } name 子组件的 name
+   * @param { string | number } name 子组件的 name
    */
   const setActiveName = (name: TabsModelValue): void => {
     activeName.value = name
@@ -40,8 +40,8 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
    * 编辑状态
    *
    * @param { 'remove' | 'add' } action 添加还是删除
-   * @param { String | Number } [name] 当前子组件的 name
-   * @param { Number } [index] 索引值
+   * @param { string | number } [name] 当前子组件的 name
+   * @param { number } [index] 索引值
    */
   const setEdit = (action: 'remove' | 'add', name?: TabsModelValue, index?: number): void => {
     useRun(prop.onEdit, action, name, index)

@@ -5,8 +5,8 @@ import type { LangContentKey, LangKey } from '../../_lang'
 /**
  * useGlobal 所需要的 prop 参数类型接口
  *
- * @param { String } [type] 组件的类型
- * @param { String } [size] 组件的尺寸
+ * @param { string } [type] 组件的类型
+ * @param { string } [size] 组件的尺寸
  */
 export interface UseGlobalProp {
   type?: FightingType | null

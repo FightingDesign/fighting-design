@@ -10,9 +10,9 @@ export type TipsOptions = Partial<Mutable<MessageProps>> & {
 /**
  * 组件实例
  *
- * @param { Number } visible 是否展示
- * @param { Number } bottom 底部偏移量
- * @param { String } id 唯一值
+ * @param { number } visible 是否展示
+ * @param { number } bottom 底部偏移量
+ * @param { string } id 唯一值
  * @param { Object } vm 组件组件内部实例
  * @param { Function } close 关闭之后的回调
  */
@@ -36,14 +36,14 @@ export type TipsInstances = Partial<{
 /**
  * renderInstance 方法状态
  *
- * @param { Object | String } options 传入选项参数或者字符串
+ * @param { Object | string } options 传入选项参数或者字符串
  */
 type RenderInstanceFn = (options: TipsOptions | string) => TipsInstance
 
 /**
  * renderInstance 方法状态
  *
- * @param { String } text 提示信息
+ * @param { string } text 提示信息
  */
 type RenderInstanceFnWith = Partial<{
   [key in FightingType]: (text: string) => TipsInstance

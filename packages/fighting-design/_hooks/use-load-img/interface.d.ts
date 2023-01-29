@@ -3,10 +3,10 @@ import type { Ref } from 'vue'
 /**
  * useLoadImg 所需要的 prop 参数
  *
- * @param { String } src 图片路径
- * @param { String } errSrc 加载失败时要显示的地址
- * @param { String | Number } rootMargin 触发懒加载的距离
- * @param { Boolean } lazy 是否懒加载图片
+ * @param { string } src 图片路径
+ * @param { string } errSrc 加载失败时要显示的地址
+ * @param { string | number } rootMargin 触发懒加载的距离
+ * @param { boolean } lazy 是否懒加载图片
  * @param { Function } onLoad 图片加载成功触发的回调
  * @param { Function } onError 图片加载失败触发的回调
  */

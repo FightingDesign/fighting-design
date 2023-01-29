@@ -27,7 +27,7 @@ export class Lunar implements LunarInterface {
    * 返回农历 year 年一整年的总天数
    *
    * @param year 年份
-   * @returns { Number } 总天数
+   * @returns { number } 总天数
    */
   getLunarYearDays = (year: number): number => {
     let i: number
@@ -42,7 +42,7 @@ export class Lunar implements LunarInterface {
    * 返回农历 year 年闰月是哪个月；若 year 年没有闰月 则返回 0
    *
    * @param year 年份
-   * @returns { Number }
+   * @returns { number }
    */
   leapMonth = (year: number): number => {
     return LUNAR_INFO[year - 1900] & 0xf
@@ -52,7 +52,7 @@ export class Lunar implements LunarInterface {
    * 返回农历 year 年闰月的天数 若该年没有闰月则返回 0
    *
    * @param year 年份
-   * @returns { Number }
+   * @returns { number }
    */
   leapDays = (year: number): number => {
     if (this.leapMonth(year)) {
@@ -66,7 +66,7 @@ export class Lunar implements LunarInterface {
    *
    * @param year 农历年份
    * @param month 农历月份
-   * @returns { Number }
+   * @returns { number }
    */
   monthDays = (year: number, month: number): number => {
     if (month > 12 || month < 1) {
@@ -80,7 +80,7 @@ export class Lunar implements LunarInterface {
    * 农历年份转换为干支纪年
    *
    * @param lYear 农历年份
-   * @return { String }
+   * @returns { string }
    */
   toGanZhiYear = (lYear: number): string => {
     let ganKey: number = (lYear - 3) % 10
@@ -95,7 +95,7 @@ export class Lunar implements LunarInterface {
    *
    * @param cMonth 公历月
    * @param cDay 公历日
-   * @return { String }
+   * @returns { string }
    */
   toConstellation = (cMonth: number, cDay: number): string => {
     const s =
@@ -108,7 +108,7 @@ export class Lunar implements LunarInterface {
    * 传入 offset 偏移量返回干支
    *
    * @param offset 相对甲子的偏移量
-   * @return { String }
+   * @returns { string }
    */
   toGanZhi = (offset: number): string => {
     return DAY_GAN[offset % 10] + DAY_ZHI[offset % 12]
@@ -119,7 +119,7 @@ export class Lunar implements LunarInterface {
    *
    * @param year 公历年 (1900-2100)
    * @param n  n二十四节气中的第几个节气 (1~24)；从 n=1 (小寒) 算起
-   * @return { Number }
+   * @returns { number }
    */
   getTerm = (year: number, n: number): number => {
     if (year < 1900 || year > 2100 || n < 1 || n > 24) {
@@ -139,7 +139,7 @@ export class Lunar implements LunarInterface {
    * 传入农历数字月份返回汉语通俗表示法
    *
    * @param month 农历月份
-   * @return { String | Number }
+   * @returns { string | number }
    */
   toChinaMonth = (month: number): string | -1 => {
     /** 若参数错误 返回 -1 */
@@ -155,7 +155,7 @@ export class Lunar implements LunarInterface {
    * 传入农历日期数字返回汉字表示法
    *
    * @param day 农历日期
-   * @return { String }
+   * @returns { string }
    */
   toChinaDay = (day: number): string => {
     let s: string
@@ -180,7 +180,7 @@ export class Lunar implements LunarInterface {
    * 年份转生肖[!仅能大致转换] => 精确划分生肖分界线是 “立春”
    *
    * @param year 年份
-   * @return { String }
+   * @returns { string }
    */
   getAnimal = (year: number): string => {
     return ANIMALS[(year - 4) % 12]

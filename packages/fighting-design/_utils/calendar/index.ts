@@ -1,8 +1,8 @@
 /**
  * 获取每个月有多少天
  *
- * @param year 年份
- * @param month 月份
+ * @param { number } year 年份
+ * @param { number } month 月份
  * @returns { number } 当前月份的天数
  */
 export const getDayMonth = (year: number, month: number): number => {

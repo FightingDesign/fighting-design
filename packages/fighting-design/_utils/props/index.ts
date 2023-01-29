@@ -5,7 +5,8 @@ import type { Validator, BasicType } from './interface'
 /**
  * 设置 boolean 类型的 prop 参数
  *
- * @param defaultVal 默认值
+ * @param { boolean } [defaultVal = false] 默认值
+ * @returns { Object } 配置对象
  */
 export const setBooleanProp = (defaultVal = false): BasicType<BooleanConstructor, boolean> =>
   ({
@@ -16,7 +17,8 @@ export const setBooleanProp = (defaultVal = false): BasicType<BooleanConstructor
 /**
  * 设置 number 类型 props 参数
  *
- * @param defaultVal 默认值
+ * @param { number } [defaultVal] 默认值
+ * @returns { Object } 配置对象
  */
 export const setNumberProp = <T extends number>(defaultVal?: null | T): BasicType<NumberConstructor, number | null> =>
   ({
@@ -27,8 +29,9 @@ export const setNumberProp = <T extends number>(defaultVal?: null | T): BasicTyp
 /**
  * 设置 string 类型的 prop 参数
  *
- * @param defaultVal 默认值
- * @param validator 校验器
+ * @param { string } [defaultVal] 默认值
+ * @param { Function } [validator] 校验器
+ * @returns { Object } 配置对象
  */
 export const setStringProp = <T extends string>(
   defaultVal?: null | T,
@@ -51,7 +54,8 @@ export const setStringProp = <T extends string>(
 /**
  * 设置 string & number 类型 props 参数
  *
- * @param defaultVal 默认值
+ * @param { string | number } [defaultVal] 默认值
+ * @returns { Object } 配置对象
  */
 export const setStringNumberProp = <T extends string | number>(
   defaultVal?: T
@@ -64,7 +68,8 @@ export const setStringNumberProp = <T extends string | number>(
 /**
  * 设置 object 类型 props 参数
  *
- * @param defaultVal 默认值
+ * @param { Object } [defaultVal] 默认值
+ * @returns { Object } 配置对象
  */
 export const setObjectProp = <T extends object>(defaultVal = null): BasicType<PropType<T>, null> =>
   ({
@@ -75,7 +80,8 @@ export const setObjectProp = <T extends object>(defaultVal = null): BasicType<Pr
 /**
  * 设置 function 类型 props 参数
  *
- * @param defaultVal 默认值
+ * @param { Function } [defaultVal] 默认值
+ * @returns { Object } 配置对象
  */
 export const setFunctionProp = <T extends Function>(defaultVal = null): BasicType<PropType<T>, null> =>
   ({
@@ -86,7 +92,8 @@ export const setFunctionProp = <T extends Function>(defaultVal = null): BasicTyp
 /**
  * 设置 array 类型 props 参数
  *
- * @param defaultVal 默认值
+ * @param { Array } [defaultVal] 默认值
+ * @returns { Object } 配置对象
  */
 export const setArrayProp = <T>(defaultVal?: null | T): BasicType<PropType<T>, T | null> => ({
   type: Array as unknown as PropType<T>,
