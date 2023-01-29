@@ -7,7 +7,7 @@
     "serve": "vitepress serve"
   },
   "dependencies": {
-    "vitepress": "1.0.0-alpha.34"
+    "vitepress": "1.0.0-alpha.43"
   },
   "devDependencies": {
     "markdown-it": "^13.0.1",
