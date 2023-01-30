@@ -156,7 +156,7 @@ export default Rate
 - 文件名统一使用短横杠连接，不可以出现大写字母
 - 每个 `hooks` 必须新建一个文件夹，内部为 `index.ts` 导出
 - 所有 hook 需要在 [index.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-design/_hooks/index.ts) 中统一导出
-- 每个 hook 和类型需要标注详细的 jsDoc 形式注释
+- 每个 hook 和类型需要标注详细的 [jsDoc](https://jsdoc.app) 形式注释
 
 ### [\_interface](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/_interface)
 
