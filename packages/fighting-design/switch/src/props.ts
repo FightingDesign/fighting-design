@@ -13,9 +13,9 @@ export const Props = {
    * 尺寸
    *
    * @values large middle small mini
-   * @default middle
+   * @default null
    */
-  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+  size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)
   }),
   /** 是否禁用 */

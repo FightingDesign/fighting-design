@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.20.2 (2023-01-30)
+
+- 修复 `f-switch` 在 `f-fighting-global` 下失效问题
+
 ## 0.20.1 (2023-01-29)
 
 - 修复 `FNotification` 组件名错误的问题

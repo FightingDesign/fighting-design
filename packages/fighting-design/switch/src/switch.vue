@@ -1,20 +1,24 @@
 <script lang="ts" setup name="FSwitch">
   import { Props } from './props'
-  import { computed } from 'vue'
+  import { reactive, toRefs } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
-  import { useList, useRun } from '../../_hooks'
+  import { useList, useRun, useGlobal } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
-  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
     [EMIT_UPDATE]: (target: boolean): string => String(target)
   })
 
-  const { styles } = useList(prop, 'switch')
+  const { getSize } = useGlobal(prop)
 
-  /** 样式列表 */
-  const styleList = styles(['closeColor', 'activeColor'])
+  /** 替换 type 后得到的 props */
+  const params = reactive({
+    ...toRefs(prop),
+    size: getSize()
+  })
+
+  const { styles, classes } = useList(params, 'switch')
 
   /** 点击切换 */
   const handleClick = (): void => {
@@ -23,19 +27,11 @@
     useRun(prop.onChange, !prop.modelValue)
   }
 
-  /** 类名列表 */
-  const classList = computed((): ClassList => {
-    const { size, modelValue, square } = prop
+  /** 样式列表 */
+  const styleList = styles(['closeColor', 'activeColor'])
 
-    return [
-      'f-switch__input',
-      {
-        [`f-switch__${size}`]: size,
-        'f-switch__square': square,
-        'f-switch__active': modelValue
-      }
-    ] as const
-  })
+  /** 类名列表 */
+  const classList = classes(['size', 'square'], 'f-switch__input')
 </script>
 
 <template>
@@ -46,7 +42,7 @@
     </span>
 
     <!-- 主要内容 -->
-    <div :class="classList" @click="handleClick">
+    <div :class="[classList, { 'f-switch__active': modelValue }]" @click="handleClick">
       <span :class="['f-switch__roll', { 'f-switch__roll-active': modelValue }]">
         <f-svg-icon v-if="icon" :icon="icon" :size="iconSize" />
       </span>

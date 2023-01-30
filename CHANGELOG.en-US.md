@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.20.2 (2023-01-30)
+
+- Fix the failure of `f-switch` under `f-lighting-global`
+
 ## 0.20.1 (2023-01-29)
 
 - Fix the problem of `FNotification` component name error
