@@ -10,6 +10,7 @@ export * from './interface.d'
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop props 列表
+ * @returns { Object }
  */
 export const useAvatar = (prop: AvatarProps): UseAvatarReturn => {
   const { styles, classes } = useList(prop, 'avatar')

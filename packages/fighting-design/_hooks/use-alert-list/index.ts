@@ -96,7 +96,7 @@ export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
   /**
    * 开始触发滚动
    *
-   * @param { number } duration 滚动间隔时间
+   * @param { number } [duration] 滚动间隔时间
    */
   const startMove = (duration = 2000): void => {
     setInterval(moveNext, duration)
