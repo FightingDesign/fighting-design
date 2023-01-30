@@ -4,23 +4,24 @@ export type { CheckboxGroupProps } from './props'
 
 /**
  * 绑定值发生改变时触发的回调接口
- * @param val 最新值
+ *
+ * @param { string[] } val 最新值
  */
 export type CheckboxGroupChange = (val: string[]) => void
 
 /**
  * 注入的依赖项类型接口
  *
- * @param modelValue 绑定值
- * @param disabled 是否禁用
- * @param vertical 是否纵向排列
- * @param label label
- * @param border 是否显示边框
- * @param size 尺寸
- * @param columnGap 横向排列的间距
- * @param rowGap 纵向排列的间距
- * @param onChange 绑定值变化时触发
- * @param setChange 绑定值发生改变时候触
+ * @param { string[] } modelValue 绑定值
+ * @param { boolean } disabled 是否禁用
+ * @param { boolean } vertical 是否纵向排列
+ * @param { string } label label
+ * @param { boolean } border 是否显示边框
+ * @param { string } size 尺寸
+ * @param { string | number } columnGap 横向排列的间距
+ * @param { string | number } rowGap 纵向排列的间距
+ * @param { Function } onChange 绑定值变化时触发
+ * @param { Function } setChange 绑定值发生改变时候触
  */
 export interface CheckboxGroupInject {
   modelValue: string[]

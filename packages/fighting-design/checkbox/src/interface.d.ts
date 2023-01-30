@@ -8,6 +8,7 @@ export type CheckboxLabel = string | number | boolean
 
 /**
  * 绑定值发生改变时触发的回调接口
- * @param val 最新值
+ *
+ * @param { string | number | boolean } val 最新值
  */
-export type CheckboxChange = (val: CheckboxLabelType) => void
+export type CheckboxChange = (val: CheckboxLabel) => void

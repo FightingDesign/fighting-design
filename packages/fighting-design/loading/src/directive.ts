@@ -7,7 +7,7 @@ const optionsOrganizer = (el: LoadingElInterface, binding: DirectiveBinding): Lo
   /**
    * 获取 props 中的值
    *
-   * @param propKey props 的键
+   * @param { string } propKey props 的键
    */
   const getBindingProp = <K extends keyof LoadingProps>(propKey: K): LoadingProps[K] => {
     return binding.value[propKey]
@@ -16,8 +16,8 @@ const optionsOrganizer = (el: LoadingElInterface, binding: DirectiveBinding): Lo
   /**
    * 获取 props
    *
-   * @param propKey props 的键
-   * @returns props 或 attribute
+   * @param { string } propKey props 的键
+   * @returns { string } props 或 attribute
    */
   const getProp = <K extends keyof LoadingProps>(propKey: K): LoadingProps[K] | string => {
     return getBindingProp(propKey) || el.getAttribute(`f-loading-${propKey}`) || ''
@@ -35,8 +35,8 @@ const optionsOrganizer = (el: LoadingElInterface, binding: DirectiveBinding): Lo
 /**
  * 渲染元素节点
  *
- * @param el 元素节点
- * @param binding 一个对象，包含一些配置参数
+ * @param { Object } el 元素节点
+ * @param { Object } binding 一个对象，包含一些配置参数
  */
 const renderLoadingDom = (el: LoadingElInterface, binding: DirectiveBinding): void => {
   /**
@@ -59,7 +59,7 @@ const renderLoadingDom = (el: LoadingElInterface, binding: DirectiveBinding): vo
 /**
  * 移除 loading 节点
  *
- * @param el 元素节点
+ * @param { Object } el 元素节点
  */
 const removeLoadingDom = (el: LoadingElInterface): void => {
   if (!el.loadingInstance) return
@@ -80,8 +80,8 @@ export const vLoading: Directive = {
    *
    * 及他自己的所有子节点都挂载完成后调用
    *
-   * @param el 指令绑定到的元素。这可以用于直接操作 DOM
-   * @param binding 一个对象，包含一些配置参数
+   * @param { Object } el 指令绑定到的元素。这可以用于直接操作 DOM
+   * @param { Object } binding 一个对象，包含一些配置参数
    */
   mounted: (el: LoadingElInterface, binding: DirectiveBinding): void => {
     /** 获取到当前元素的定位样式 */
@@ -95,8 +95,8 @@ export const vLoading: Directive = {
    *
    * 及他自己的所有子节点都更新后调用
    *
-   * @param el 指令绑定到的元素。这可以用于直接操作 DOM
-   * @param binding 一个对象，包含一些配置参数
+   * @param { Object } el 指令绑定到的元素。这可以用于直接操作 DOM
+   * @param { Object } binding 一个对象，包含一些配置参数
    */
   updated: (el: LoadingElInterface, binding: DirectiveBinding): void => {
     if (binding.value !== binding.oldValue) {

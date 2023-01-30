@@ -47,7 +47,7 @@
   /**
    * 左右切换按钮
    *
-   * @param type 区分点击的是上一张还是下一张
+   * @param { 'next' | 'prev' } type 区分点击的是上一张还是下一张
    */
   const switchImage = (type: 'next' | 'prev'): void => {
     recovery()
@@ -77,7 +77,9 @@
   /**
    * 点击操作栏触发
    *
-   * @param target f-toolbar 组件返回值
+   * @param { Object } target f-toolbar 组件返回值
+   * @param { Object } target.evt 事件对象
+   * @param { number } target.index 当前的索引
    */
   const optionClick = (target: ToolbarClickParams): void => {
     if (!target.index) return
@@ -98,6 +100,7 @@
       5: (): void => rotateCounterClock()
     } as const
 
+    /** 获取当前元素的索引 */
     const index = target.index as unknown as keyof OptionMap
 
     optionMap[index] && optionMap[index]()

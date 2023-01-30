@@ -15,7 +15,7 @@ const markdown: MarkdownIt = MarkdownIt({
 /**
  * 自定义 md 插件
  *
- * @param md markdown 实例
+ * @param { Object } md markdown 实例
  */
 export const mdPlugin = (md: MarkdownIt) => {
   /** 使用表格插件 */

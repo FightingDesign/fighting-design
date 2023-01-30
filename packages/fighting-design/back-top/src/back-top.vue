@@ -15,7 +15,7 @@
   /**
    * 滚动状态监视
    *
-   * @param node 元素节点
+   * @param { Object } [node] 元素节点
    */
   const handleScroll = (node?: HTMLElement): DebounceReturn => {
     return debounce((): void => {

@@ -37,15 +37,15 @@
    *
    * 如果返回 true 的布尔值标识验证成功，返回字符串则标识错误信息
    *
-   * @param value 当前需要检测的值
-   * @param rules 规则
+   * @param { string } value 当前需要检测的值
+   * @param { Object } rules 规则
    */
   const checkRuleMassage = (value: string, rules: FormItemRules | FormItemRulesItem): string | boolean => {
     /**
      *
      * 测试每一项规则
      *
-     * @param ruleItem 每一项规则
+     * @param { Object } ruleItem 每一项规则
      */
     const test = (ruleItem: FormItemRulesItem): boolean => {
       /** 获取到当前输入字符串的长度 */

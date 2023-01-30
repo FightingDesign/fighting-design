@@ -6,7 +6,7 @@ import type { App } from 'vue'
 /**
  * 注册组件
  *
- * @param app 应用实例
+ * @param { Object } app 应用实例
  */
 const install = (app: App): App => {
   /**

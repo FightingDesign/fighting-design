@@ -25,7 +25,8 @@
     },
     /**
      * 设置值
-     * @param val 最新的值
+     *
+     * @param { boolean | string[] } val 最新的值
      */
     set: (val: CheckboxModelValue | string[]): void => {
       if (!parentInject) {

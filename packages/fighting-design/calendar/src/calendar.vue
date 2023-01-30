@@ -28,8 +28,8 @@
   /**
    * 当前日期高亮显示
    *
-   * @param _month 月份
-   * @param _date 日期
+   * @param { number } _month 月份
+   * @param { number } _date 日期
    */
   const mowDataClassList = (_month: number, _date: number): string => {
     if (_date === date.value && _month === month.value + 1) {
@@ -44,7 +44,7 @@
   /**
    * 点击操作栏
    *
-   * @param target 不同类型用于切换当前时间、下个月、上个月
+   * @param { 'last' | 'now' | 'next' } target 不同类型用于切换当前时间、下个月、上个月
    */
   const optionClick = (target: 'last' | 'now' | 'next'): void => {
     const option = {
@@ -68,8 +68,8 @@
   /**
    * 点击对每一天
    *
-   * @param _month 当前月份
-   * @param _date 当前日期
+   * @param { number } _month 当前月份
+   * @param { number } _date 当前日期
    */
   const handleClick = (_month: number, _date: number): void => {
     date.value = _date
@@ -94,7 +94,7 @@
   /**
    * 检测当前日期是否存在备忘录
    *
-   * @param date 当前日期
+   * @param { string } date 当前日期
    */
   const isMemorandum = (date: string): boolean => {
     if (!prop.memorandum) {

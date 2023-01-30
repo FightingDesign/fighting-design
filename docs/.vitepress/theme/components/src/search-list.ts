@@ -3,9 +3,9 @@ export type SearchList = { title: string; rule: string; url: string }[]
 /**
  * 搜索列表
  *
- * @param title 展示的标题
- * @param rule 匹配规则
- * @param url 跳转的地址
+ * @param { string } title 展示的标题
+ * @param { string } rule 匹配规则
+ * @param { string } url 跳转的地址
  */
 export const searchList = [
   { title: '安装', rule: '安装', url: 'docs/install' },

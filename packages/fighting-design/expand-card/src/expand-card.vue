@@ -15,7 +15,7 @@
   /**
    * 切换卡片
    *
-   * @param index 索引
+   * @param { number } index 索引
    */
   const switchExpandCard = (index: number): void => {
     currExpandIndex.value = index
@@ -24,7 +24,7 @@
   /**
    * 展开的类名
    *
-   * @param index 索引
+   * @param { number } index 索引
    */
   const activeClass = (index: number): string | void => {
     if (index !== currExpandIndex.value) return

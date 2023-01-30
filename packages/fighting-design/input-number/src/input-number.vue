@@ -32,7 +32,7 @@
     /**
      * 当设置新的值的时候，同步数据
      *
-     * @param val 最新值
+     * @param { number } val 最新值
      */
     set: (val: number): void => {
       emit(EMIT_UPDATE, Number(val))
@@ -67,7 +67,7 @@
   /**
    * 改变值
    *
-   * @param target 增加或减少
+   * @param { 'minus' | 'plus' } target 增加或减少
    */
   const handleChangeVal = (target: 'minus' | 'plus'): void => {
     const { disabled, readonly, step } = prop

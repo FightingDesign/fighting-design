@@ -22,7 +22,7 @@
     /**
      * 设置值
      *
-     * @param val 最新的值
+     * @param { string } val 最新的值
      */
     set: (val: string): void => {
       emit(EMIT_DATE, val)
