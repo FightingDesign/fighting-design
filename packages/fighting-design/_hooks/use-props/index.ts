@@ -10,7 +10,7 @@ export * from './interface.d'
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop 需要操作的 prop 对象
- * @returns { Object }
+ * @returns { Object } 针对 prop 处理的一些方法
  */
 export const useProps = <T extends object>(prop: T): UsePropsReturn => {
   /**
@@ -56,7 +56,7 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
    * @param { string } param 参数
    * @param { Function } rule 验证回调
    * @param { string } def 默认值
-   * @returns { Object } 响应式数据或 null
+   * @returns { Object | string | null } 响应式数据或 null
    */
   const interceptors = (param: string, rule: () => boolean, def: null | string = null): Ref<string> | null | string => {
     return rule() ? toRef(prop, param as never) : def
