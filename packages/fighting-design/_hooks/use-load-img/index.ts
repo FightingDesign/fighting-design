@@ -64,6 +64,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
     /** 创建一个新的 img 元素 */
     const el: HTMLImageElement = new Image()
 
+    /** 待优化，Promise 可能会有不兼容 */
     new Promise((resolve, reject): void => {
       el.src = errSrc || prop.src
 
@@ -131,13 +132,15 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
     const listerScroll = (): void => {
       /**
        * 获取客户端浏览器视窗口的高度
-       * @see innerHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Window/innerHeight
-       * @see clientHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight
+       *
+       * @see Window.innerHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Window/innerHeight
+       * @see Element.clientHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight
        */
       const clientHeight: number = window.innerHeight || document.documentElement.clientHeight
       /**
        * 获取当前垂直滚动的像素数
-       * @see scrollTop https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop
+       *
+       * @see Element.scrollTop https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop
        */
       const scrollTop: number = document.documentElement.scrollTop || document.body.scrollTop
       /**
@@ -145,8 +148,8 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
        *
        * 因为传入的 node 是 img 元素，真正需要判断的元素为 f-image，所以要获取父级元素的高度
        *
-       * @see offsetTop https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetTop
-       * @see offsetParent https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetParent
+       * @see HTMLElement.offsetTop https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetTop
+       * @see HTMLElement.offsetParent https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetParent
        */
       const elTop: number = (node.offsetParent as HTMLDivElement).offsetTop
       /**
@@ -167,7 +170,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
        *
        * 以免传入 rootMargin 为负数不能触发加载，所以强制使用正数判断
        *
-       * @see Math.abs https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
+       * @see Math.abs() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
        */
       if (Math.abs(count) < Math.abs(sizeToNum(prop.rootMargin))) {
         load(node)

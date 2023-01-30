@@ -57,15 +57,19 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
    */
   const removeElement = (node: HTMLElement): void => {
     setTimeout((): void => {
+      /**
+       * @see Element.remove() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/remove
+       */
       node.remove()
     }, options.duration || 400)
   }
 
   /**
    * 渲染节点
+   *
    * @param { number } x 坐标 x
    * @param { number } y 坐标 y
-   * @returns { Object }
+   * @returns { Object } 元素节点
    */
   const renderElement = (x: number, y: number): HTMLElement => {
     /** 新建个 span 元素 */
@@ -98,6 +102,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
      * clientX clientY 可获取到点击相对于页面的坐标
      *
      * 其它写法
+     *
      * const x: number = this.evt.clientX - (this.evt.target as HTMLElement).offsetLeft
      * const y: number = this.evt.clientY - (this.evt.target as HTMLElement).offsetTop
      *
@@ -110,6 +115,7 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
     const ripples: HTMLElement = renderElement(layerX, layerY)
 
     node.appendChild(ripples)
+
     removeElement(ripples)
   }
 

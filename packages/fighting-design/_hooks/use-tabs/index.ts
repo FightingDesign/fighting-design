@@ -15,6 +15,7 @@ export * from './interface.d'
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop props 参数
+ * @param { Function } emit 回调函数
  * @returns { Object }
  */
 export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn => {

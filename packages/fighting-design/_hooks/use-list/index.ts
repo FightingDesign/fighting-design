@@ -35,7 +35,7 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
    *
    * @param { Array  } list 类名所需要的 prop 参数
    * @param { string } [className] 其它所需要的类名
-   * @returns { Object }
+   * @returns { Object } 类名列表
    */
   const classes = (list: FilterParams, className?: string): ComputedRef<ClassList> => {
     return computed((): ClassList => {
@@ -66,7 +66,7 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
    *
    * @param { Array } list 样式所需要的 prop 参数
    * @param { boolean | string | string[] } [pixel] 是否带有单位
-   * @returns { Object }
+   * @returns { Object } 样式列表
    */
   const styles = (list: FilterParams, pixel: boolean | string | string[] = true): ComputedRef<CSSProperties> => {
     return computed((): CSSProperties => {

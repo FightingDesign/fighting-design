@@ -31,7 +31,9 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
        */
       if (isString(item)) {
         result[item] = toRef(prop, item as never)
-      } else if (isObject(item)) {
+      }
+      /** 如果是对象类型 */
+      else if (isObject(item)) {
         /**
          * 如果是 object 类型
          *
@@ -55,7 +57,7 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
    *
    * @param { string } param 参数
    * @param { Function } rule 验证回调
-   * @param { string } def 默认值
+   * @param { string } [def] 默认值
    * @returns { Object | string | null } 响应式数据或 null
    */
   const interceptors = (param: string, rule: () => boolean, def: null | string = null): Ref<string> | null | string => {

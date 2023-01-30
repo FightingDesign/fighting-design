@@ -11,7 +11,7 @@ export * from './interface.d'
  * 针对 message notification 组件公共方法封装
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
- * @param prop props 参数
+ * @param { Object } prop props 参数
  * @param { 'message' | 'notification' } component 组件名
  * @param { Object } el 元素节点
  * @returns { Object }
@@ -44,7 +44,7 @@ export const useEject = (
       /**
        * 设置元素的高度
        *
-       * @see getBoundingClientRec https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRec
+       * @see Element.getBoundingClientRect() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect
        */
       elHeight.value = el.value ? el.value.getBoundingClientRect().height : 0
     })
