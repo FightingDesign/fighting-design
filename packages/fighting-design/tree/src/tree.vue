@@ -12,7 +12,7 @@
   /**
    * 点击展开或关闭
    *
-   * @param item 每一项
+   * @param { Object } item 每一项
    */
   const handleClick = (item: FormatTreeData): void => {
     getItem(treeData.value, item.id as number)

@@ -79,7 +79,7 @@
     /**
      * 设置值
      *
-     * @param val 最新值
+     * @param { string } val 最新值
      */
     set: (val: string): string => {
       return val
@@ -89,8 +89,8 @@
   /**
    * 设置新的值
    *
-   * @param newValue 新的 value 值
-   * @param newLabel 新增 label 值
+   * @param { string } newValue 新的 value 值
+   * @param { string | number | boolean } newLabel 新增 label 值
    */
   const setValue = (newValue: string, newLabel: SelectModelValue): void => {
     inputValue.value = newValue

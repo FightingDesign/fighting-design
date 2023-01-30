@@ -99,7 +99,7 @@ export class ReplStore {
   /**
    * 删除文件
    *
-   * @param filename 文件名
+   * @param { string } filename 文件名
    */
   deleteFile = (filename: string): void => {
     /** 如果删除的 Fighting Design 的配置文件 */

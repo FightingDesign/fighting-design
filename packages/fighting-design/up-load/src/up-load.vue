@@ -30,7 +30,7 @@
   /**
    * 更新最新的文件列表
    *
-   * @param files 文件列表
+   * @param { Array } files 文件列表
    */
   const updateFiles = (files: File[]): void => {
     fileList.value = files
@@ -41,8 +41,8 @@
   /**
    * 过滤文件
    *
-   * @param files 文件列表
-   * @return 过滤后的文件列表
+   * @param { Array } files 文件列表
+   * @return { Array } 过滤后的文件列表
    */
   const filterFiles = (files: File[]): File[] => {
     const { maxSize, maxLength } = prop
@@ -80,7 +80,7 @@
   /**
    * 删除文件
    *
-   * @param index 需要删除的文件索引
+   * @param { number } index 需要删除的文件索引
    */
   const removeFile = (index: number): void => {
     (fileList.value as File[]).splice(index, 1)

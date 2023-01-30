@@ -14,7 +14,7 @@
   /**
    * 动画方法
    *
-   * @param timestamp 动画时间
+   * @param { number } timestamp 动画时间
    */
   const animate = (timestamp: number): void => {
     /**判断是否需要重新执行 */
@@ -62,7 +62,7 @@
   /**
    * 开始执行动画
    *
-   * @param target 是否重新执行，后续调用都默认判断为需要重新执行动画
+   * @param { boolean } [target] 是否重新执行，后续调用都默认判断为需要重新执行动画
    */
   const start = (target = true): void => {
     again.value = target

@@ -29,7 +29,7 @@
     /**
      * 设置值
      *
-     * @param val 最新的值
+     * @param { string } val 最新的值
      */
     set: (val: string): void => {
       emit(EMIT_TIME, val)
@@ -48,8 +48,8 @@
   /**
    * 点击对应的时间进行选取
    *
-   * @param date 当前的时间数字
-   * @param params 小时还是分钟
+   * @param { number } date 当前的时间数字
+   * @param { 'hover' | 'minute' } params 小时还是分钟
    */
   const handleClick = (date: number, params: 'hover' | 'minute'): void => {
     timeList[params] = addZero(date)

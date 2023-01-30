@@ -17,7 +17,7 @@
   /**
    * 修改选中的 name
    *
-   * @param name 最新的 name
+   * @param { string | number } name 最新的 name
    */
   const setActiveName = (name: string | number): void => {
     active.value = name

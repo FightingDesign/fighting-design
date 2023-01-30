@@ -1,31 +1,24 @@
 <script lang="ts" setup name="FTable">
   import { Props } from './props'
-  import { computed, ref, h } from 'vue'
-  import { sizeChange } from '../../_utils'
+  import { ref, h } from 'vue'
+  import { useList } from '../../_hooks'
   import { TableColgroupVue } from './components'
-  import type { CSSProperties, VNode } from 'vue'
+  import type { VNode } from 'vue'
 
   const prop = defineProps(Props)
+
+  const { classes } = useList(prop, 'table')
 
   /** 多选项 */
   const optionalList = ref(false)
 
   /** 样式列表 */
-  const styleList = computed((): CSSProperties => {
-    const { zebraColor, height, bgColor, headBgColor } = prop
-
-    return {
-      '--f-table-zebra-color': zebraColor,
-      '--f-table-bg-color': bgColor,
-      '--f-table-head-bg-color': headBgColor,
-      '--f-table-height': sizeChange(height)
-    } as CSSProperties
-  })
+  const styleList = classes(['zebraColor', 'bgColor', 'headBgColor', 'height'])
 
   /**
    * 处理自定义渲染内容
    *
-   * @param target 渲染函数
+   * @param { Function } target 渲染函数
    */
   const columnsSlotData = (target: Function): VNode => {
     return target(h)

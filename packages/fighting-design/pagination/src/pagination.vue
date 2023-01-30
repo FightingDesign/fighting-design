@@ -113,7 +113,7 @@
   /**
    * 翻页方法 可控制上一页或者下一页切换
    *
-   * @param target 切换的方向
+   * @param { 'next' | 'prev' } target 切换的方向
    */
   const handelTurnPages = (target: 'next' | 'prev'): void => {
     if (prop.disabled) return
@@ -142,7 +142,7 @@
   /**
    * 点击指定页面的回调
    *
-   * @param newCurrent 最新页码数
+   * @param { number } newCurrent 最新页码数
    */
   const handelChange = (newCurrent: number): void => {
     if (prop.disabled) return

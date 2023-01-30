@@ -30,7 +30,7 @@
     /**
      * 设置值
      *
-     * @param val 最新值
+     * @param { string | number | boolean }  val 最新值
      */
     set: (val: RadioModelValue): void => {
       if (parentInject && !parentInject.disabled) {

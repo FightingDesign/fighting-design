@@ -3,8 +3,8 @@ export type { TreeProps } from './props'
 /**
  * 树形结构每一项类型接口
  *
- * @param label label
- * @param children 孩子节点
+ * @param { string } label label
+ * @param { Array } [children] 孩子节点
  */
 export interface TreeDataItem {
   label: string

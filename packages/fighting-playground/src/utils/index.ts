@@ -4,7 +4,7 @@ import { unzlibSync, strToU8, strFromU8 } from 'fflate'
  * prefer old unicode hacks for backward compatibility
  *
  * @see Base64.Guru https://base64.guru/developers/javascript/examples/unicode-strings
- * @param data
+ * @param { string } data
  */
 export const utoa = (data: string): string => {
   return btoa(unescape(encodeURIComponent(data)))

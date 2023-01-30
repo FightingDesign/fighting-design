@@ -16,7 +16,7 @@
   /**
    * 改变同步数据
    *
-   * @param value 最新值
+   * @param { string | number | boolean } value 最新值
    */
   const changeEvent = (value: RadioModelValue): void => {
     emit(EMIT_UPDATE, value)

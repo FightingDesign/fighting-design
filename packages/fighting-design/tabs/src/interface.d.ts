@@ -24,24 +24,24 @@ export type TabsJustifyContent =
 /**
  * 切换前的回调类型
  *
- * @param name 标签的 name
+ * @param {  string | number } name 标签的 name
  */
 export type TabsSwitch = (name: TabsModelValue) => boolean | void
 
 /**
  * 编辑状态类型
  *
- * @param action 删除还是添加
- * @param name name
- * @param index 索引
+ * @param { 'remove' | 'add' } action 删除还是添加
+ * @param { string | number } [name] name
+ * @param { number } [index] 索引
  */
 export type TabsEdit = (action: 'remove' | 'add', name?: TabsModelValue, index?: number) => void
 
 /**
  * nav 列表集合
  *
- * @param name 标签的 name
- * @param label 标签的 label
+ * @param { string | number } name 标签的 name
+ * @param { * } label 标签的 label
  */
 export interface TabsNavInstance {
   name: TabsModelValue

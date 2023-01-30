@@ -19,7 +19,7 @@
   /**
    * 反复移动时触发
    *
-   * @param index 索引值
+   * @param { number } index 索引值
    */
   const onMouseover = (index: number): void => {
     if (prop.readonly) return
@@ -35,7 +35,7 @@
   /**
    * 点击触发
    *
-   * @param index 索引值
+   * @param { number } index 索引值
    */
   const handleClick = (index: number): void => {
     if (prop.readonly) return

@@ -13,8 +13,8 @@ export interface SetupNameReturn {
 /**
  * 设置组件名
  *
- * @param code 文件代码段
- * @param id 文件路径
+ * @param { string } code 文件代码段
+ * @param { string } id 文件路径
  */
 export const setupName = (code: string, id: string): SetupNameReturn | null => {
   let s: MagicString | undefined

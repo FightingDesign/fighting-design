@@ -8,7 +8,7 @@ export type SelectModelValue = string | number | boolean
 /**
  * 提供给自组件注入的依赖项类型接口
  *
- * @param setValue 设置新的选中值
+ * @param { Function } setValue 设置新的选中值
  */
 export interface SelectProvide {
   setValue(newValue: SelectModelValue, newLabel: SelectModelValue): void

@@ -15,7 +15,7 @@
   /**
    * 点击切换标签执行
    *
-   * @param name name
+   * @param { string | number } name name
    */
   const clickSwitchNavItem = async (name: TabsModelValue): Promise<void> => {
     let res: boolean | void = true
@@ -32,9 +32,9 @@
   /**
    * 添加或删除卡片
    *
-   * @param action 添加或删除
-   * @param name 标签 name
-   * @param index 索引
+   * @param { 'remove' | 'add' } action 添加或删除
+   * @param { string | number } [name] 标签 name
+   * @param { number } [index] 索引
    */
   const editItem = (action: 'remove' | 'add', name?: TabsModelValue, index?: number): void => {
     useRun(prop.setEdit, action, name, index)
