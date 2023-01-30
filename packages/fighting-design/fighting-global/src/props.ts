@@ -8,7 +8,7 @@ export const Props = {
    * 尺寸
    *
    * @values large middle small mini
-   * @defaultValue null
+   * @default null
    */
   size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)
@@ -17,7 +17,7 @@ export const Props = {
    * 按钮的类型（非自定义按钮颜色时有效）
    *
    * @values default primary success danger warning
-   * @defaultValue null
+   * @default null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
@@ -26,7 +26,7 @@ export const Props = {
    * 不同语言
    *
    * @values en-US zh-CN
-   * @defaultValue zh-CN
+   * @default zh-CN
    */
   lang: setStringProp<FightingLang>('zh-CN', (val: FightingLang): boolean => {
     return (['en-US', 'zh-CN'] as const).includes(val)

@@ -55,7 +55,7 @@ export const Props = {
    *
    * @see resize https://developer.mozilla.org/zh-CN/docs/Web/CSS/resize
    * @values none both horizontal vertical
-   * @defaultValue none
+   * @default none
    */
   resize: setStringProp<TextareaResize>('none', (val: TextareaResize): boolean => {
     return (['none', 'both', 'horizontal', 'vertical'] as const).includes(val)

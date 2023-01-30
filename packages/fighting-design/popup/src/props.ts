@@ -31,7 +31,7 @@ export const Props = {
    * 弹出位置
    *
    * @values left right top bottom center
-   * @defaultValue center
+   * @default center
    */
   direction: setStringProp<PopupDirection>('center', (val: PopupDirection): boolean => {
     return (['left', 'right', 'top', 'bottom', 'center'] as const).includes(val)

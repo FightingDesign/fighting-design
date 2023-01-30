@@ -9,7 +9,7 @@ export const Props = {
    * 滚动模式
    *
    * @values smooth auto
-   * @defaultValue smooth
+   * @default smooth
    * @see scrollTo https://developer.mozilla.org/zh-CN/docs/Web/API/Window/scrollTo
    */
   behavior: setStringProp<BackTopBehavior>('smooth', (val: BackTopBehavior): boolean => {

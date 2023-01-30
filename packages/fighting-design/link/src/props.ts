@@ -9,7 +9,7 @@ export const Props = {
    * link 的类型
    *
    * @values default primary success danger warning
-   * @defaultValue null
+   * @default null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
@@ -26,7 +26,7 @@ export const Props = {
    * 状态的样式状态
    *
    * @values line bag
-   * @defaultValue null
+   * @default null
    */
   state: setStringProp<LinkState>(null, (val: LinkState): boolean => {
     return (['line', 'bag'] as const).includes(val)
@@ -37,7 +37,7 @@ export const Props = {
    * 原生 target 属性
    *
    * @values _blank _self _parent _top
-   * @defaultValue _self
+   * @default _self
    * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: setStringProp<LinkTarget>('_self', (val: LinkTarget): boolean => {

@@ -20,7 +20,7 @@ export const Props = {
    * 文字输入框或者密码输入框
    *
    * @values text password number
-   * @defaultValue text
+   * @default text
    */
   type: setStringProp<InputType>('text', (val: InputType): boolean => {
     return (['text', 'password', 'number'] as const).includes(val)
@@ -29,7 +29,7 @@ export const Props = {
    * 尺寸
    *
    * @values large middle small mini
-   * @defaultValue middle
+   * @default middle
    */
   size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)

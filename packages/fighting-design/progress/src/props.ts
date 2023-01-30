@@ -9,7 +9,7 @@ export const Props = {
    * 进度条类型
    *
    * @values primary success danger warning
-   * @defaultValue primary
+   * @default primary
    */
   type: setStringProp<ProgressType>('primary', (val: ProgressType): boolean => {
     return (['primary', 'success', 'danger', 'warning'] as const).includes(val)

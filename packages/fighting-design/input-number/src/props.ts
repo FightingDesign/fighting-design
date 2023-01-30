@@ -8,14 +8,14 @@ export const Props = {
   /**
    * 绑定值
    *
-   * @defaultValue 1
+   * @default 1
    */
   modelValue: setNumberProp(1),
   /**
    * 模式
    *
    * @values default button switch
-   * @defaultValue default
+   * @default default
    */
   model: setStringProp<InputNumberModel>('default', (val: InputNumberModel): boolean => {
     return (['default', 'button', 'switch'] as const).includes(val)
@@ -23,7 +23,7 @@ export const Props = {
   /**
    * 数值精度
    *
-   * @defaultValue 0
+   * @default 0
    */
   precision: setNumberProp(0),
   /** 切换的按钮类型 */
@@ -31,7 +31,7 @@ export const Props = {
    * 按钮的类型（非自定义按钮颜色时有效）
    *
    * @values default primary success danger warning
-   * @defaultValue null
+   * @default null
    */
   buttonType: setStringProp<FightingType>(null, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
@@ -39,14 +39,14 @@ export const Props = {
   /**
    * 步长
    *
-   * @defaultValue 1
+   * @default 1
    */
   step: setNumberProp(1),
   /**
    * 尺寸
    *
    * @values large middle small mini
-   * @defaultValue middle
+   * @default middle
    */
   size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)

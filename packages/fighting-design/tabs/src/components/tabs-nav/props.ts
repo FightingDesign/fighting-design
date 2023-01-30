@@ -19,7 +19,7 @@ export const Props = {
    * 样式风格
    *
    * @values line card segment
-   * @defaultValue line
+   * @default line
    */
   type: {
     type: String as PropType<TabsType>,
@@ -32,7 +32,7 @@ export const Props = {
    * 头部位置
    *
    * @values left right top bottom
-   * @defaultValue top
+   * @default top
    */
   position: {
     type: String as PropType<TabsPosition>,
@@ -50,7 +50,7 @@ export const Props = {
    * 对齐方式
    *
    * @values flex-start center flex-end space-between space-around space-evenly
-   * @defaultValue flex-start
+   * @default flex-start
    * @see justify-content https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content
    */
   justifyContent: {
@@ -68,7 +68,7 @@ export const Props = {
    * 触发方式
    *
    * @values click hover
-   * @defaultValue click
+   * @default click
    */
   trigger: {
     type: String as PropType<TabsTrigger>,

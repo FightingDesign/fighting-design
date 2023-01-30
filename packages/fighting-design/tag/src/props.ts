@@ -8,7 +8,7 @@ export const Props = {
    * 标签类型
    *
    * @values default primary success danger warning
-   * @defaultValue null
+   * @default null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
@@ -29,7 +29,7 @@ export const Props = {
    * 尺寸
    *
    * @values large middle small mini
-   * @defaultValue null
+   * @default null
    */
   size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)

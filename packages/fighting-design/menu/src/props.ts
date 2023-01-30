@@ -9,7 +9,7 @@ export const Props = {
    * 水平的 垂直的 内联的
    *
    * @values horizontal vertical inline
-   * @defaultValue horizontal
+   * @default horizontal
    */
   mode: setStringProp<MenuMode>('horizontal', (val: MenuMode): boolean => {
     return (['horizontal', 'vertical', 'inline'] as const).includes(val)

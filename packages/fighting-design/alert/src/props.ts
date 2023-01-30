@@ -15,7 +15,7 @@ export const Props = {
    * 类型
    *
    * @values primary success danger warning default
-   * @defaultValue null
+   * @default null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
     return (['primary', 'success', 'danger', 'warning', 'default'] as const).includes(val)

@@ -9,7 +9,7 @@ export const Props = {
    * 按钮尺寸
    *
    * @values large middle small mini
-   * @defaultValue null
+   * @default null
    */
   size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)
@@ -18,7 +18,7 @@ export const Props = {
    * 排列方向
    *
    * @values horizontal vertical
-   * @defaultValue horizontal
+   * @default horizontal
    */
   direction: setStringProp<ButtonGroupDirection>('horizontal', (val: ButtonGroupDirection): boolean => {
     return (['horizontal', 'vertical'] as const).includes(val)

@@ -15,7 +15,7 @@ export const Props = {
    * 类型
    *
    * @values primary success danger warning
-   * @defaultValue danger
+   * @default danger
    */
   type: setStringProp<BadgeType>('danger', (val: BadgeType): boolean => {
     return (['primary', 'success', 'danger', 'warning'] as const).includes(val)

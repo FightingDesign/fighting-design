@@ -11,7 +11,7 @@ export const Props = {
    * 内容对齐方式
    *
    * @values left center right
-   * @defaultValue left
+   * @default left
    */
   align: setStringProp<TableAlign>('left', (val: TableAlign): boolean => {
     return (['left', 'center', 'right'] as const).includes(val)

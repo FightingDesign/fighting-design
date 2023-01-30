@@ -35,7 +35,7 @@ export const Props = {
    *
    * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    * @values fill contain cover none scale-down
-   * @defaultValue null
+   * @default null
    */
   fit: setStringProp<FightingFit>(null, (val: FightingFit): boolean => {
     return FIGHTING_FIT.includes(val)
@@ -48,7 +48,7 @@ export const Props = {
    * 也可以传入数字，数字将自动转换为 px 单位
    *
    * @values large middle small mini
-   * @defaultValue middle
+   * @default middle
    */
   size: {
     type: [String, Number] as PropType<FightingSize | number>,

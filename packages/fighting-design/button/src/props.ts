@@ -21,7 +21,7 @@ export const Props = {
    * 按钮尺寸
    *
    * @values large middle small mini
-   * @defaultValue null
+   * @default null
    */
   size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)
@@ -36,7 +36,7 @@ export const Props = {
    * 原生属性
    *
    * @values _blank _self _parent _top
-   * @defaultValue _self
+   * @default _self
    * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
   target: setStringProp<ButtonTarget>('_self', (val: ButtonTarget): boolean => {
@@ -52,7 +52,7 @@ export const Props = {
    * 按钮的类型（非自定义按钮颜色时有效）
    *
    * @values default primary success danger warning
-   * @defaultValue null
+   * @default null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
@@ -73,7 +73,7 @@ export const Props = {
    * 原生 type 属性
    *
    * @values button submit reset
-   * @defaultValue button
+   * @default button
    * @see type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
    */
   nativeType: setStringProp<ButtonNative>('button', (val: ButtonNative): boolean => {

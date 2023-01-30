@@ -13,7 +13,7 @@ export const Props = {
    * 阴影样式
    *
    * @values hover always
-   * @defaultValue null
+   * @default null
    */
   shadow: setStringProp<CardShadow>(null, (val: CardShadow): boolean => {
     return (['hover', 'always'] as const).includes(val)

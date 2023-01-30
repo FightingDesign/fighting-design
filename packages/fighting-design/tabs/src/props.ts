@@ -17,7 +17,7 @@ export const Props = {
    * 头部位置
    *
    * @values left right top bottom
-   * @defaultValue top
+   * @default top
    */
   position: setStringProp<TabsPosition>('top', (val: TabsPosition): boolean => {
     return (['left', 'right', 'top', 'bottom'] as const).includes(val)
@@ -26,7 +26,7 @@ export const Props = {
    * 样式风格
    *
    * @values line card segment
-   * @defaultValue line
+   * @default line
    */
   type: setStringProp<TabsType>('line', (val: TabsType): boolean => {
     return (['line', 'card', 'segment'] as const).includes(val)
@@ -48,7 +48,7 @@ export const Props = {
    * 触发方式
    *
    * @values click hover
-   * @defaultValue click
+   * @default click
    */
   trigger: setStringProp<TabsTrigger>('click', (val: TabsTrigger): boolean => {
     return (['click', 'hover'] as const).includes(val)

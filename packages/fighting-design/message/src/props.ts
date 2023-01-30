@@ -17,7 +17,7 @@ export const Props = {
    * 消息类型
    *
    * @values default primary success danger warning
-   * @defaultValue default
+   * @default default
    */
   type: setStringProp<FightingType>('default', (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
@@ -40,7 +40,7 @@ export const Props = {
    * 位置
    *
    * @values top top-left top-right bottom bottom-left bottom-right
-   * @defaultValue top
+   * @default top
    */
   placement: setStringProp<MessagePlacement>('top', (val: MessagePlacement): boolean => {
     return (['top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right'] as const).includes(val)

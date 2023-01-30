@@ -12,7 +12,7 @@ export const Props = {
    * 触发方式：移入、点击
    *
    * @values hover click
-   * @defaultValue hover
+   * @default hover
    */
   trigger: setStringProp<TriggerTrigger>('hover', (val: TriggerTrigger): boolean => {
     return (['hover', 'click'] as const).includes(val)

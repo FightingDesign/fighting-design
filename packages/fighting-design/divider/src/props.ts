@@ -6,7 +6,7 @@ export const Props = {
   /**
    * 文字显示位置
    * @values left center right
-   * @defaultValue center
+   * @default center
    */
   position: setStringProp<DividerPosition>('center', (value: DividerPosition): boolean => {
     return (['left', 'center', 'right'] as const).includes(value)
@@ -25,7 +25,7 @@ export const Props = {
    * 分隔符类型
    *
    * @values dashed dotted double solid
-   * @defaultValue solid
+   * @default solid
    */
   type: setStringProp<DividerType>('solid', (value: DividerType): boolean => {
     return (['dashed', 'dotted', 'double', 'solid'] as const).includes(value)

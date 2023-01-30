@@ -9,7 +9,7 @@ export const Props = {
    * 弹出方向
    *
    * @values top bottom right left
-   * @defaultValue bottom
+   * @default bottom
    */
   position: setStringProp<TooltipPosition>('bottom', (val: TooltipPosition): boolean => {
     return (['top', 'bottom', 'right', 'left'] as const).includes(val)
@@ -20,7 +20,7 @@ export const Props = {
    * 展示状态
    *
    * @values hover active always
-   * @defaultValue hover
+   * @default hover
    */
   state: setStringProp<TooltipState>('hover', (val: TooltipState): boolean => {
     return (['hover', 'active', 'always'] as const).includes(val)
