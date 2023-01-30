@@ -12,6 +12,7 @@ export * from './interface.d'
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { boolean } visible 显示状态
  * @param { Function } emit 回调
+ * @param { Function } [callback] 回调方法
  * @returns { Object }
  */
 export const useVisible = (visible: Ref<boolean>, emit: UseVisibleEmit, callback?: Function): UseVisibleReturn => {
