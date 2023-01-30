@@ -49,6 +49,78 @@
 
 :::
 
+## 不同尺寸
+
+`size` 属性可配置内部组件的尺寸
+
+::: demo
+
+<template #source>
+<f-fighting-global size="mini">
+<f-space>
+<f-button>默认按钮</f-button>
+<f-button>主要按钮</f-button>
+<f-button>成功按钮</f-button>
+<f-button>危险按钮</f-button>
+<f-button>警告按钮</f-button>
+
+<f-switch v-model="value3" />
+</f-space>
+</f-fighting-global>
+</template>
+
+```html
+<template>
+  <f-fighting-global size="mini">
+    <f-space>
+      <f-button>默认按钮</f-button>
+      <f-button>主要按钮</f-button>
+      <f-button>成功按钮</f-button>
+      <f-button>危险按钮</f-button>
+      <f-button>警告按钮</f-button>
+
+      <f-switch v-model="value3" />
+    </f-space>
+  </f-fighting-global>
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value3 = ref(true)
+</script>
+```
+
+:::
+
+## 配置语言
+
+有些组件自带文案内容，`lang` 属性可以单独配置不同的语音
+
+::: demo
+
+<template #source>
+<f-fighting-global lang="zh-CN">
+<f-empty />
+</f-fighting-global>
+
+<f-fighting-global lang="en-US">
+<f-empty />
+</f-fighting-global>
+</template>
+
+```html
+<f-fighting-global lang="zh-CN">
+  <f-empty />
+</f-fighting-global>
+
+<f-fighting-global lang="en-US">
+  <f-empty />
+</f-fighting-global>
+```
+
+:::
+
 ## Attributes
 
 | 参数   | 说明         | 类型                                                               | 可选值                                                  | 默认值 |
@@ -76,3 +148,9 @@ import type { FightingGlobalProps } from 'fighting-design'
 <a href="https://github.com/Tyh2001" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value3 = ref(true)
+</script>
