@@ -20,7 +20,7 @@
   /**
    * 按钮点击
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
     const { disabled, loading, ripples } = toRefs(prop)

@@ -183,7 +183,7 @@
    *
    * 此处采用事件委托
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handelPageClick = (evt: Event): void => {
     const target = evt.target as HTMLElement

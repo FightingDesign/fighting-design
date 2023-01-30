@@ -34,7 +34,7 @@
   /**
    * 文本输入 input 事件
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleInput = (evt: Event): void => {
     onInput(evt)
@@ -43,7 +43,7 @@
   /**
    * 文本输入 change 事件
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleChange = (evt: Event): void => {
     onChange(evt)
@@ -52,7 +52,7 @@
   /**
    * 点击搜索
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleSearch = (evt: Event): void => {
     useRun(prop.onSearch, { evt, value: prop.modelValue })
@@ -61,7 +61,7 @@
   /**
    * 按下回车
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleEnter = (evt: Event): void => {
     const { search, enterSearch, onEnter } = toRefs(prop)

@@ -116,7 +116,7 @@
    * 提交表单
    *
    * @see SubmitEvent https://developer.mozilla.org/zh-CN/docs/Web/API/SubmitEvent/submitter
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handelSubmit = (evt: SubmitEvent): void => {
     /**

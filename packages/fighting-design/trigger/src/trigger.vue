@@ -50,7 +50,7 @@
   /**
    * 文档监听
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const documentListen = (evt: MouseEvent): void => {
     /**

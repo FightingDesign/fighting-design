@@ -19,7 +19,7 @@
   /**
    * 点击触发
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled || prop.noLink) {

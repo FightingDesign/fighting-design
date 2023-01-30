@@ -26,7 +26,7 @@ class Drag {
     /**
      * 移动触发的回调
      *
-     * @param evt 事件对象
+     * @param { Object } evt 事件对象
      */
     const move = (evt: MouseEvent): void => {
       const { x } = getEventXY(evt)
@@ -42,7 +42,7 @@ class Drag {
     /**
      * 移动结束的回调
      *
-     * @param evt 事件对象
+     * @param { Object } evt 事件对象
      */
     const end = (evt: MouseEvent): void => {
       const { x } = getEventXY(evt)
@@ -60,7 +60,7 @@ class Drag {
     /**
      * 开始移动触发的回调
      *
-     * @param evt 事件对象
+     * @param { Object } evt 事件对象
      */
     const start = (evt: MouseEvent): void => {
       this.oldPosition = getTransformXY(target)

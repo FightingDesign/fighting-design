@@ -23,7 +23,7 @@
   /**
    * 输入框输入
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleInput = (evt: Event): void => {
     onInput(evt)
@@ -32,7 +32,7 @@
   /**
    * 文本输入 change 事件
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleChange = (evt: Event): void => {
     onChange(evt)

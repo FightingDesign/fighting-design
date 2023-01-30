@@ -20,7 +20,7 @@
   /**
    * 打开动画开始执行的回调
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleOpen = (evt: MouseEvent): void => {
     document.body.style.overflow = 'hidden'
@@ -30,7 +30,7 @@
   /**
    * 打开动画结束执行的回调
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleOpenEnd = (evt: MouseEvent): void => {
     useRun(prop.onOpenEnd, evt)
@@ -39,7 +39,7 @@
   /**
    * 关闭动画开始执行的回调
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleClose = (evt: MouseEvent): void => {
     document.body.style.overflow = ''
@@ -49,7 +49,7 @@
   /**
    * 关闭动画结束执行的回调
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleCloseEnd = (evt: MouseEvent): void => {
     useRun(prop.onCloseEnd, evt)

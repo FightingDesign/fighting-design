@@ -6,13 +6,13 @@ export type InputType = 'text' | 'password' | 'number'
 /**
  * 当 input 改变时触发的回调函数类型接口
  *
- * @param value 当前的值
+ * @param { string } value 当前的值
  */
 export type InputValChange = (value: string) => void
 
 /**
- * @param evt 事件对象
- * @param value 输入的值
+ * @param { Object } evt 事件对象
+ * @param { string } value 输入的值
  */
 export interface InputSearchParams {
   evt: Event

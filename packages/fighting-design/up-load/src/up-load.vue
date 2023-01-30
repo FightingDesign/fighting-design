@@ -24,7 +24,7 @@
 
   /** 点击上传 */
   const handleClick = (): void => {
-    ;(inputEl.value as HTMLInputElement).click()
+    (inputEl.value as HTMLInputElement).click()
   }
 
   /**
@@ -66,7 +66,7 @@
   /**
    * 当文本框发生改变时
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleChange = (evt: Event): void => {
     /** 获取文件列表 */
@@ -83,13 +83,13 @@
    * @param index 需要删除的文件索引
    */
   const removeFile = (index: number): void => {
-    ;(fileList.value as File[]).splice(index, 1)
+    (fileList.value as File[]).splice(index, 1)
   }
 
   /**
    * 将文件拖拽进来时触发
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    * @see DragEvent https://developer.mozilla.org/zh-CN/docs/Web/API/DragEvent
    */
   const onDragover = (evt: DragEvent): void => {
@@ -100,7 +100,7 @@
   /**
    * 放置时触发
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    * @see DragEvent https://developer.mozilla.org/zh-CN/docs/Web/API/DragEvent
    */
   const onDrop = (evt: DragEvent): void => {

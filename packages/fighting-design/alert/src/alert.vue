@@ -23,7 +23,7 @@
   const isShow = ref<boolean>(true)
 
   /** alertList 节点列表容器 dom */
-  const alertListEl: Ref<HTMLElement | null> = ref(null)
+  const alertListEl: Ref<HTMLElement | null> = ref<HTMLElement | null>(null)
 
   /** 类名列表 */
   const classList = classes(['type', 'bold', 'simple', 'center', 'round', 'fixed'], 'f-alert')
@@ -34,7 +34,7 @@
   /**
    * 点击关闭按钮
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleClose = (evt: MouseEvent): void => {
     isShow.value = false

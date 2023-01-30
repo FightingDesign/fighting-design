@@ -15,7 +15,7 @@
   /**
    * 点击之后执行
    *
-   * @param evt 事件对象
+   * @param { Object } evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
     useRun(prop.onBack, evt)
