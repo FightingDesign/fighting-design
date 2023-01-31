@@ -18,15 +18,15 @@ export const Props = {
   /** 滚动超出多少距离展示 */
   visibleHeight: setNumberProp(200),
   /** 距离右侧的距离 */
-  right: setStringNumberProp(40),
+  right: setStringNumberProp(),
   /** 距离底部的距离 */
-  bottom: setStringNumberProp(40),
+  bottom: setStringNumberProp(),
   /**
    * 原生 z-index 属性
    *
    * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
-  zIndex: setNumberProp(900),
+  zIndex: setNumberProp(),
   /** 点击返回距离顶部的距离 */
   top: setNumberProp(0),
   /** 监视指定元素，需要传入指定的 class 或 id，如：.box #app */

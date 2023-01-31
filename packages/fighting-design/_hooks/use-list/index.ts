@@ -81,15 +81,17 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
        * @param { * } val 值
        * @returns { * } 处理后的值
        */
-      const setListValue = (val: unknown): unknown => {
+      const setListValue = (val: string | number, key: string): string | number => {
         /** 如果需要添加单位，则所有的数字都添加单位 */
         if (isBoolean(pixel)) {
-          return isNumber(val) ? (pixel ? sizeChange(val) : val) : val
-        } else if (isString(pixel)) {
+          return (isNumber(val) ? (pixel ? sizeChange(val) : val) : val) as string | number
+        }
         /** 如果为字符串类型，则代表仅仅有一个不需要添加单位 */
-          if (pixel === val) return val
-        } else if (isArray(pixel)) {
+        else if (isString(pixel)) {
+          if (pixel === key) return val
+        }
         /** 如果为数组类型，则代表有些值不需要添加单位，循环遍历处理 */
+        else if (isArray(pixel)) {
           pixel.forEach((item: string): void | unknown => {
             if (item === val) {
               return val
@@ -97,8 +99,8 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
           })
         }
 
-        /** 没有进入判断则原封不动返回 */
-        return val
+        /** 没有进入判断则默认添加 */
+        return sizeChange(val)
       }
 
       for (const key in propList) {
@@ -114,7 +116,8 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
            *
            * 因为 prop 参数的键都是驼峰命名法，所以这里要转换为短横线连接命名
            */
-          styleList[`--f-${name}-${convertFormat(key)}`] = setListValue(propList[key])
+          // styleList[`--f-${name}-${convertFormat(key)}`] = setListValue(propList[key])
+          styleList[`--${name}-${convertFormat(key)}`] = setListValue(propList[key] as string | number, key)
         }
       }
 

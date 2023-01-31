@@ -54,7 +54,7 @@
   })
 
   /** 样式列表 */
-  const styleList = styles(['right', 'bottom', 'background', 'color'])
+  const styleList = styles(['right', 'bottom', 'background', 'color', 'zIndex'], 'zIndex')
 
   /** 类名列表 */
   const classList = classes(['round'], 'f-back-top')
@@ -62,7 +62,7 @@
 
 <template>
   <transition name="f-back-top">
-    <div v-show="visible" :class="classList" :style="{ ...styleList, zIndex }" @click.stop="handleClick">
+    <div v-show="visible" :class="classList" :style="styleList" @click.stop="handleClick">
       <slot />
     </div>
   </transition>
