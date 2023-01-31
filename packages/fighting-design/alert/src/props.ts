@@ -7,6 +7,7 @@ import {
   setFunctionProp,
   setArrayProp
 } from '../../_utils'
+import { FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { HandleMouse, FightingType, FightingIcon } from '../../_interface'
 
@@ -18,7 +19,7 @@ export const Props = {
    * @default null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
-    return (['primary', 'success', 'danger', 'warning', 'default'] as const).includes(val)
+    return FIGHTING_TYPE.includes(val)
   }),
   /** 文字大小 */
   fontSize: setStringNumberProp(),
