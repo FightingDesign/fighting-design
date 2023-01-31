@@ -9,7 +9,7 @@
 }
 
 .sidebar-link-item.active {
-  background: rgba(82, 179, 94, 0.1);
+  background-color: rgba(82, 179, 94, 0.1);
 }
 
 .vp-doc {
@@ -44,10 +44,10 @@
     tr,
     td {
       border: none;
-      background: none;
+      background-color: none;
     }
     tr:nth-child(2n) {
-      background: none;
+      background-color: none;
     }
   }
 
@@ -90,7 +90,7 @@
 }
 
 .VPSidebarItem .items .is-active {
-  background: lighten(#2d5af1, 39%);
+  background-color: lighten(#2d5af1, 39%);
   box-sizing: border-box;
   transition: 0.3s;
   border-radius: 0 20px 20px 0;
@@ -108,7 +108,7 @@
 
 // 滚动滑块
 ::-webkit-scrollbar-thumb {
-  background: #dddddd;
+  background-color: #dddddd;
   border-radius: 6px;
 }
 

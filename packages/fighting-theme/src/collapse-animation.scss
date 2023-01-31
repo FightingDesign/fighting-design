@@ -1,8 +1,6 @@
-@use './root';
-
 .f-collapse-animation {
   height: 0;
   display: block;
   overflow: hidden;
-  transition: var(--f-design-transition-time);
+  transition: 0.3s;
 }

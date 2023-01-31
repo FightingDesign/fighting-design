@@ -22,7 +22,7 @@
   // 斑马纹
   &.f-list__zebra {
     .f-list-item:nth-of-type(2n) {
-      background: var(--f-list-zebra-color, #ecf0fe);
+      background-color: var(--f-list-zebra-color, #ecf0fe);
     }
   }
 
@@ -52,7 +52,7 @@
 
   // 滚动滑块
   &::-webkit-scrollbar-thumb {
-    background: #dddddd;
+    background-color: #dddddd;
     border-radius: 6px;
   }
 }

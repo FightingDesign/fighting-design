@@ -8,7 +8,7 @@
   justify-content: center;
   width: var(--f-avatar-size, 60px);
   height: var(--f-avatar-size, 60px);
-  background: var(--f-avatar-background, none);
+  background-color: var(--f-avatar-background, none);
 
   &__img {
     width: var(--f-avatar-size, 60px);
@@ -50,7 +50,7 @@
   display: inline-flex;
   vertical-align: middle;
   justify-content: center;
-  background: var(--f-design-color-border-1);
+  background-color: var(--f-design-color-border-1);
 
   .f-avatar__error-text {
     font-size: var(--f-avatar-font-size, 13px);

@@ -23,7 +23,7 @@
 
       &::after {
         transform: translate(-50%, -50%) scale(2);
-        background: var(--f-design-color-primary-1);
+        background-color: var(--f-design-color-primary-1);
       }
     }
   }
@@ -36,7 +36,7 @@
     position: relative;
     border: 1px solid #dee5fd;
     margin-right: 7px;
-    background: var(--f-design-color-text-2);
+    background-color: var(--f-design-color-text-2);
 
     &::after {
       content: '';
@@ -48,7 +48,7 @@
       border-radius: 50%;
       transform: translate(-50%, -50%) scale(0);
       transition: transform 0.15s ease-in;
-      background: var(--f-design-color-text-2);
+      background-color: var(--f-design-color-text-2);
     }
   }
 
@@ -64,7 +64,7 @@
       border-color: var(--f-design-color-default-3);
 
       &::after {
-        background: var(--f-design-color-default-3);
+        background-color: var(--f-design-color-default-3);
       }
     }
   }

@@ -32,7 +32,7 @@
 
   // 鼠标移入
   &:not([class~='f-menu-item__disabled']):hover {
-    background: var(--f-design-color-border-3);
+    background-color: var(--f-design-color-border-3);
 
     .f-svg-icon,
     .f-menu-item__text {

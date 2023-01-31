@@ -46,12 +46,12 @@
       // 带有背景色的每一项元素
       .f-pagination__pages-item {
         margin: 0 5px;
-        background: #f8f8f8;
+        background-color: #f8f8f8;
 
         // 选中状态
         &-active {
           color: #fff;
-          background: var(--f-design-color-primary-1);
+          background-color: var(--f-design-color-primary-1);
         }
       }
     }

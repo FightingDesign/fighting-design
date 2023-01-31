@@ -2,7 +2,7 @@
 
 .f-slider {
   position: relative;
-  background: var(--f-slider-bg-color, var(--f-design-color-border-1));
+  background-color: var(--f-slider-bg-color, var(--f-design-color-border-1));
   height: 10px;
   width: 100%;
   border-radius: 30px;
@@ -19,7 +19,7 @@
     height: 30px;
     border: 10px solid var(--f-design-color-primary-1);
     border-radius: 50%;
-    background: var(--f-design-color-text-2);
+    background-color: var(--f-design-color-text-2);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -34,7 +34,7 @@
   .f-slider__selected {
     height: 100%;
     border-radius: 30px;
-    background: var(--f-design-color-primary-1);
+    background-color: var(--f-design-color-primary-1);
   }
 
   // 禁用状态

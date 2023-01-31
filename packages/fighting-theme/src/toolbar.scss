@@ -11,7 +11,7 @@
   height: var(--f-toolbar-height);
   width: var(--f-toolbar-width);
   color: var(--f-toolbar-text-color);
-  background: var(--f-toolbar-background, var(--f-design-color-default-1));
+  background-color: var(--f-toolbar-background, var(--f-design-color-default-1));
 
   // 不同尺寸
   @for $list from 1 to (length($ComponentsSize) + 1) {

@@ -13,7 +13,7 @@
     width: 100%;
     height: 100%;
     position: relative;
-    background: var(--f-progress-background, var(--f-design-color-border-1));
+    background-color: var(--f-progress-background, var(--f-design-color-border-1));
 
     // 进度条
     .f-progress__fill {
@@ -43,7 +43,7 @@
       .f-progress__bar {
         .f-progress__fill {
           transition: var(--f-design-transition-time);
-          background: var(--f-progress-color, map-get($item, default));
+          background-color: var(--f-progress-color, map-get($item, default));
         }
       }
 
@@ -80,88 +80,3 @@
     color: var(--f-progress-text-color, var(--f-design-color-text-1));
   }
 }
-
-// .f-progress {
-//   display: flex;
-//   align-items: center;
-//   line-height: 1;
-//   height: 20px;
-//   border: 1px solid red;
-
-//   &__bar {
-//     flex-grow: 1;
-//     height: 20px;
-//     box-sizing: border-box;
-//     background: #f1f1f1;
-//   }
-
-//   &__fill {
-//     height: 100%;
-//     border-radius: 100px;
-//     text-align: right;
-//     background: linear-gradient(
-//       to,
-//       right,
-//       var(--f-design-color-primary-1) 0%,
-//       var(--f-design-color-success-1) 50%,
-//       var(--f-design-color-danger-1) 100%
-//     );
-//     // background: var(--f-design-color-primary-1);
-//     transition: var(--f-design-transition-time);
-
-//     // 百分百文字
-//     .f-progress__percentage {
-//       font-size: 12px;
-//       margin: 0 8px;
-//       display: inline-block;
-//       vertical-align: middle;
-//       color: var(--f-design-color-text-2);
-//     }
-
-//     // 垂直居中百分比
-//     &::after {
-//       content: '';
-//       display: inline-block;
-//       vertical-align: middle;
-//       height: 100%;
-//     }
-//   }
-
-//   // 右侧显示百分比
-//   &__text {
-//     min-width: 40px;
-//     line-height: 1;
-//     margin-left: 5px;
-//     font-size: 14px;
-//   }
-
-//   @keyframes f-progress-animation-panoramic {
-//     to {
-//       background-position: 200% 0;
-//     }
-//   }
-
-//   @for $list from 1 to (length($ComponentsType) + 1) {
-//     $item: nth($ComponentsType, $list);
-
-//     // 基本的颜色
-//     .f-progress__fill-#{map-get($item, name)} {
-//       background: map-get($item, default);
-//     }
-
-//     // 条纹背景
-//     .f-progress__fill-#{map-get($item, name)}.f-progress__stripe {
-//       background: repeating-linear-gradient(
-//         -45deg,
-//         map-get($item, default) 25%,
-//         map-get($item, default) 0,
-//         map-get($item, default) 50%,
-//         map-get($item, defaultHover) 0,
-//         map-get($item, defaultHover) 75%,
-//         map-get($item, defaultHover) 0
-//       );
-//       background-size: 35px 35px;
-//       animation: f-progress-animation-panoramic 30s linear infinite;
-//     }
-//   }
-// }

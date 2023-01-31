@@ -71,7 +71,7 @@
 
       // 滚动滑块
       &::-webkit-scrollbar-thumb {
-        background: #ddd;
+        background-color: #ddd;
         border-radius: 6px;
       }
     }
@@ -86,7 +86,7 @@
       align-items: center;
       user-select: none;
       font-size: 15px;
-      background: #fff;
+      background-color: #fff;
       padding: 10px;
       box-sizing: border-box;
       z-index: 300;

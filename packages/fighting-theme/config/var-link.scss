@@ -1,0 +1,24 @@
+.f-link {
+  --link-font-size: 15px;
+
+  // 不同类型
+  &__default {
+    --link-color: #333;
+  }
+
+  &__primary {
+    --link-color: #2d5af1;
+  }
+
+  &__success {
+    --link-color: #52b35e;
+  }
+
+  &__danger {
+    --link-color: #ff0200;
+  }
+
+  &__warning {
+    --link-color: #fcc202;
+  }
+}

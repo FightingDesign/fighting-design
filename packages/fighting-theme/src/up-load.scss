@@ -11,7 +11,7 @@
     align-items: center;
     display: inline-flex;
     justify-content: center;
-    background: var(--f-design-color-border-1);
+    background-color: var(--f-design-color-border-1);
   }
 
   // 普通上传
@@ -35,7 +35,7 @@
     transition: var(--f-design-transition-time);
 
     &:hover {
-      background: var(--f-design-color-border-1);
+      background-color: var(--f-design-color-border-1);
     }
 
     .f-up-load__file-name {

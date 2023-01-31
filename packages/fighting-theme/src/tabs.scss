@@ -120,7 +120,7 @@
           // 选中的标签
           .f-tabs-nav__line-active {
             height: 2px;
-            background: var(--f-design-color-primary-1);
+            background-color: var(--f-design-color-primary-1);
             transition: all var(--f-design-transition-time);
             position: absolute;
           }
@@ -147,7 +147,7 @@
               display: flex;
               align-items: center;
               user-select: none;
-              background: #f5f7fa;
+              background-color: #f5f7fa;
 
               // label
               .f-tabs-nav__item-label {
@@ -161,7 +161,7 @@
 
               // 选中的
               &.f-tabs-nav__item-active {
-                background: #fff;
+                background-color: #fff;
 
                 .f-tabs-nav__item-label {
                   color: var(--f-design-color-primary-1);
@@ -178,7 +178,7 @@
 
       // 分段类型
       &.f-tabs-nav__segment {
-        background: #f7f7fa;
+        background-color: #f7f7fa;
         padding: 4px;
         box-sizing: border-box;
         display: flex;
@@ -205,7 +205,7 @@
               padding: 4px 8px;
 
               &.f-tabs-nav__item-active {
-                background: var(--f-design-color-text-2);
+                background-color: var(--f-design-color-text-2);
 
                 .f-tabs-nav__item-label {
                   color: var(--f-design-color-primary-1);
@@ -263,7 +263,7 @@
           // 选中的标签
           .f-tabs-nav__line-active {
             width: 2px;
-            background: var(--f-design-color-primary-1);
+            background-color: var(--f-design-color-primary-1);
             transition: all var(--f-design-transition-time);
             position: absolute;
           }
@@ -287,7 +287,7 @@
             display: flex;
             align-items: center;
             user-select: none;
-            background: #f5f7fa;
+            background-color: #f5f7fa;
 
             // label
             .f-tabs-nav__item-label {
@@ -301,7 +301,7 @@
 
             // 选中的
             &.f-tabs-nav__item-active {
-              background: #fff;
+              background-color: #fff;
 
               .f-tabs-nav__item-label {
                 color: var(--f-design-color-primary-1);

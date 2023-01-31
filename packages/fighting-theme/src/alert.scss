@@ -9,7 +9,7 @@
   border-radius: var(--alert-border-radius);
   color: var(--alert-color);
   transition: 0.3s;
-  background: var(--alert-background);
+  background-color: var(--alert-background);
 
   // 主要内容
   &__content {

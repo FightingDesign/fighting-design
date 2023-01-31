@@ -36,7 +36,7 @@
   .item {
     width: 100%;
     height: 40px;
-    background: #96acf8;
+    background-color: #96acf8;
     color: #fff;
     margin: 5px 0;
     text-align: center;
@@ -84,7 +84,7 @@
   .item {
     width: 100%;
     height: 40px;
-    background: #96acf8;
+    background-color: #96acf8;
     color: #fff;
     margin: 5px 0;
     text-align: center;

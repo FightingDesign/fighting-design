@@ -18,7 +18,7 @@
   bottom: var(--f-back-top-bottom, 40px);
   z-index: var(--f-back-top-z-index, 900);
   color: var(--f-back-top-color, var(--f-design-color-text-1));
-  background: var(--f-back-top-background, var(--f-design-color-text-2));
+  background-color: var(--f-back-top-background, var(--f-design-color-text-2));
 
   &.f-back-top__round {
     padding: 0;

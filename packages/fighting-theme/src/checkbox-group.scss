@@ -25,7 +25,7 @@
       // 带有边框的选中状态下的禁用
       &.f-checkbox__selected {
         &.f-checkbox__disabled {
-          background: var(--f-design-color-default-1);
+          background-color: var(--f-design-color-default-1);
 
           .f-checkbox__text {
             color: var(--f-design-color-default-3);

@@ -18,7 +18,7 @@
 
   &:not([class~='f-close-btn__disabled']):hover {
     opacity: 0.8;
-    background: var(--f-design-color-border-3);
+    background-color: var(--f-design-color-border-3);
     color: var(--f-close-btn-hover-color, var(--f-design-color-danger-1));
   }
 

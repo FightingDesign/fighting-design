@@ -35,7 +35,7 @@
   &::after {
     content: attr(f-content);
     position: absolute;
-    background: var(--f-tooltip-background, var(--f-design-color-text-1));
+    background-color: var(--f-tooltip-background, var(--f-design-color-text-1));
     font-size: 12px;
     font-weight: normal;
     color: var(--f-tooltip-font-color, #fff);
@@ -213,7 +213,7 @@
   // 浅色主题
   &.f-tooltip__bright {
     &::after {
-      background: var(--f-design-color-text-2);
+      background-color: var(--f-design-color-text-2);
       color: var(--f-design-color-text-1);
       border: 0.5px solid var(--f-design-color-text-1);
     }

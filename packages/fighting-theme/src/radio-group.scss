@@ -72,7 +72,7 @@
 
       // 边框选中状态
       &.f-radio__checked {
-        background: var(--f-design-color-primary-1);
+        background-color: var(--f-design-color-primary-1);
 
         .f-radio__text {
           color: var(--f-design-color-text-2);
@@ -80,7 +80,7 @@
 
         // 边框选中状态禁用状态
         &.f-radio__disabled {
-          background: var(--f-design-color-default-1);
+          background-color: var(--f-design-color-default-1);
 
           .f-radio__text {
             color: var(--f-design-color-default-3);

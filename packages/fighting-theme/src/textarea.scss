@@ -6,7 +6,7 @@
   position: relative;
   display: inline-block;
   transition: background var(--f-design-transition-time);
-  background: var(--f-design-color-border-1);
+  background-color: var(--f-design-color-border-1);
 
   &__textarea {
     width: 100%;
@@ -17,7 +17,7 @@
     display: block;
     font-size: 15px;
     cursor: pointer;
-    background: none;
+    background-color: none;
     padding: 6px 9px;
     box-sizing: border-box;
     transition: border 0.2s;
@@ -32,7 +32,7 @@
 
   // 获取焦点
   &:focus-within {
-    background: var(--f-design-color-text-2);
+    background-color: var(--f-design-color-text-2);
 
     .f-textarea__textarea {
       border: 1px solid var(--f-design-color-primary-1);

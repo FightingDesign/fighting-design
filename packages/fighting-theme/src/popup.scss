@@ -16,7 +16,7 @@
     bottom: 0;
     left: 0;
     opacity: 0.5;
-    background: #23272e;
+    background-color: #23272e;
 
     // 高斯谋划
     &.f-popup__blur {
@@ -39,7 +39,7 @@
       box-sizing: border-box;
       overflow-y: auto;
       overflow-x: hidden;
-      background: var(--f-design-color-text-2);
+      background-color: var(--f-design-color-text-2);
 
       // 主内容动画样式
       &-transition-enter-active,
@@ -151,7 +151,7 @@
 
   // 滚动滑块
   ::-webkit-scrollbar-thumb {
-    background: #dddddd;
+    background-color: #dddddd;
     border-radius: 6px;
   }
 }

@@ -38,7 +38,7 @@
 
     // 前面盒子
     .f-checkbox__box {
-      background: var(--f-design-color-primary-1);
+      background-color: var(--f-design-color-primary-1);
       border: 1px solid var(--f-design-color-primary-1);
 
       &::after {
@@ -77,7 +77,7 @@
 
   &.f-checkbox__indeterminate {
     .f-checkbox__box {
-      background: var(--f-design-color-primary-1);
+      background-color: var(--f-design-color-primary-1);
       border: 1px solid var(--f-design-color-primary-1);
 
       &::after {
@@ -113,7 +113,7 @@
 
     .f-checkbox__box {
       border-color: var(--f-design-color-default-3);
-      background: #f4f4f4;
+      background-color: #f4f4f4;
 
       &::after {
         border-color: var(--f-design-color-default-3);

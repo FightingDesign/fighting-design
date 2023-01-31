@@ -191,19 +191,19 @@
 <style scoped>
   .f-header,
   .f-footer {
-    background: #6b8bf5;
+    background-color: #6b8bf5;
     color: #fff;
     text-align: center;
     line-height: 60px;
   }
   .f-aside {
-    background: #65adf0;
+    background-color: #65adf0;
     color: #fff;
     text-align: center;
     line-height: 200px;
   }
   .f-main {
-    background: #3178c6;
+    background-color: #3178c6;
     color: #fff;
     text-align: center;
     line-height: 160px;
@@ -285,19 +285,19 @@ type LayoutDirection = 'horizontal' | 'vertical'
 <style scoped>
   .f-header,
   .f-footer {
-    background: #6b8bf5;
+    background-color: #6b8bf5;
     color: #fff;
     text-align: center;
     line-height: 60px;
   }
   .f-aside {
-    background: #65adf0;
+    background-color: #65adf0;
     color: #fff;
     text-align: center;
     line-height: 200px;
   }
   .f-main {
-    background: #3178c6;
+    background-color: #3178c6;
     color: #fff;
     text-align: center;
     line-height: 160px;

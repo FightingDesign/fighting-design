@@ -9,7 +9,7 @@ $tableZebra: #f7f7f7;
     box-sizing: border-box;
     overflow: hidden;
     height: var(--f-table-height);
-    background: var(--f-table-bg-color, var(--f-design-color-text-2));
+    background-color: var(--f-table-bg-color, var(--f-design-color-text-2));
 
     // 在限制高度时展示的头部
     .f-table__header {
@@ -36,7 +36,7 @@ $tableZebra: #f7f7f7;
 
       // 滚动滑块
       &::-webkit-scrollbar-thumb {
-        background: #dddddd;
+        background-color: #dddddd;
         border-radius: 6px;
       }
     }
@@ -51,7 +51,7 @@ $tableZebra: #f7f7f7;
       display: inline-table;
 
       thead {
-        background: var(--f-table-head-bg-color, $tableZebra);
+        background-color: var(--f-table-head-bg-color, $tableZebra);
         font-size: 16px;
         color: #4e4e4e;
         height: 45px;
@@ -104,7 +104,7 @@ $tableZebra: #f7f7f7;
     tbody {
       // https://developer.mozilla.org/zh-CN/docs/Web/CSS/:nth-child
       tr:nth-child(2n) {
-        background: var(--f-table-zebra-color, $tableZebra);
+        background-color: var(--f-table-zebra-color, $tableZebra);
       }
     }
   }

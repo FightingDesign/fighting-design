@@ -11,7 +11,7 @@
   transition: var(--f-design-transition-time);
   width: var(--f-text-width);
   padding: var(--f-text-padding, 0);
-  background: var(--f-text-background);
+  background-color: var(--f-text-background);
   text-indent: var(--f-text-indent);
   line-height: var(--f-text-line-height);
   letter-spacing: var(--f-text-spacing);

@@ -65,7 +65,7 @@
     // 搜索结果
     .vp-search__result {
       position: absolute;
-      background: #fff;
+      background-color: #fff;
       width: 100%;
       box-shadow: 0 1px 6px rgb(0 0 0 / 20%);
       max-height: 400px;
@@ -80,7 +80,7 @@
         box-sizing: border-box;
 
         &:hover {
-          background: #eee;
+          background-color: #eee;
           color: #2d5af1;
         }
       }
