@@ -458,6 +458,21 @@ type ButtonGroupDirection = 'horizontal' | 'vertical'
 type ButtonClick = (evt: MouseEvent) => void
 ```
 
+## 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式
+
+| 名称                     | 描述              |
+| ------------------------ | ----------------- |
+| `--button-color`         | 文字颜色          |
+| `--button-background`    | 背景色            |
+| `--button-hover`         | hover 状态背景色  |
+| `--button-active`        | active 状态背景色 |
+| `--button-height`        | 高度              |
+| `--button-padding`       | 内边距            |
+| `--button-font-size`     | 文字大小          |
+| `--button-border-radius` | 圆角大小          |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

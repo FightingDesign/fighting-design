@@ -16,7 +16,7 @@
   border-radius: var(--button-border-radius, 2px);
   box-shadow: var(--button-shadow);
   font-size: var(--button-font-size);
-  background: var(--button-background);
+  background-color: var(--button-background);
   height: var(--button-height);
   padding: 0 var(--button-padding);
   color: var(--button-color);
@@ -45,12 +45,12 @@
 
   // hover 效果
   &:not([disabled]):hover {
-    background: var(--button-hover);
+    background-color: var(--button-hover);
   }
 
   // active 效果
   &:not([disabled]):active {
-    background: var(--button-active);
+    background-color: var(--button-active);
   }
 
   // 圆形按钮
@@ -112,7 +112,7 @@
       border-radius: 50%;
       animation: f-button-ripples 0.7s linear;
       opacity: 0.5;
-      background: var(--button-default-color);
+      background-color: #fff;
     }
   }
 
