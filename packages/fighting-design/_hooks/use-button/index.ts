@@ -1,7 +1,9 @@
 import { reactive, toRefs, inject, useSlots, computed } from 'vue'
 import { useGlobal, useList, useCalculiColor } from '..'
+import { sizeChange } from '../../_utils'
 import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
 import type { ButtonProps } from '../../button'
+import type { CSSProperties } from 'vue'
 import type { FightingSize } from '../../_interface'
 import type { UseButtonReturn } from './interface'
 
@@ -20,21 +22,6 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
 
   const { getType, getSize } = useGlobal(prop)
 
-  /** 自定义颜色 */
-  const customColor = computed((): object | null => {
-    if (prop.color) {
-      const { getLightColor, getDarkColor } = useCalculiColor(prop.color)
-
-      return {
-        defaultColor: prop.color,
-        hoverColor: getLightColor(0.4),
-        activeColor: getDarkColor(0.2)
-      }
-    }
-
-    return null
-  })
-
   /** 获取父组件注入的依赖项 */
   const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)
 
@@ -50,30 +37,45 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
   /** 处理结构后的 prop 集合 */
   const params = reactive({
     ...toRefs(prop),
-    ...customColor.value,
     size: getSize('middle', parentInject),
     type: !prop.color && getType(),
     disabled: prop.disabled || prop.loading,
     simple: prop.simple && !prop.color,
     text: prop.text && !prop.color,
-    color: !!prop.color,
     icon: isShowIcon
   })
 
-  const { classes, styles } = useList(params, 'button')
+  const { classes } = useList(params, 'button')
 
   /** 类名列表 */
   const classList = classes(
-    ['type', 'icon', 'round', 'simple', 'block', 'disabled', 'bold', 'text', 'size', 'circle', 'spread', 'color'],
+    ['type', 'icon', 'round', 'simple', 'block', 'disabled', 'bold', 'text', 'size', 'circle', 'spread'],
     'f-button'
   )
 
   /** 样式列表 */
-  const styleList = styles(
-    prop.color
-      ? ['fontColor', 'shadow', 'fontSize', 'hoverColor', 'activeColor', 'defaultColor']
-      : ['fontColor', 'shadow', 'fontSize']
-  )
+  const styleList = computed((): CSSProperties => {
+    const { color, fontColor, shadow, fontSize } = prop
+
+    if (prop.color) {
+      const { getLightColor, getDarkColor } = useCalculiColor(prop.color)
+
+      return {
+        '--button-background': color || null,
+        '--button-hover': color ? getLightColor(0.4) : null,
+        '--button-active': color ? getDarkColor(0.2) : null,
+        '--button-color': fontColor,
+        '--button-shadow': shadow,
+        '--button-font-size': sizeChange(fontSize)
+      } as CSSProperties
+    }
+
+    return {
+      '--button-color': fontColor,
+      '--button-shadow': shadow,
+      '--button-font-size': sizeChange(fontSize)
+    } as CSSProperties
+  })
 
   return {
     classList,

@@ -1,6 +1,4 @@
-@use './root';
-@import '../config/const-type';
-@import '../config/const-size';
+@import '../config/var-button.scss';
 
 .f-button {
   position: relative;
@@ -14,104 +12,52 @@
   cursor: pointer;
   white-space: nowrap;
   vertical-align: middle;
-  height: var(--f-design-height-middle);
-  padding: 0 var(--f-design-padding-middle);
-  transition: var(--f-design-transition-time);
-  border-radius: var(--f-design-border-radius-1);
-  background: var(--f-design-color-default-1);
-  box-shadow: var(--f-button-shadow);
-  font-size: var(--f-button-font-size, var(--f-design-font-size-middle));
+  transition: 0.3s;
+  border-radius: var(--button-border-radius, 2px);
+  box-shadow: var(--button-shadow);
+  font-size: var(--button-font-size);
+  background: var(--button-background);
+  height: var(--button-height);
+  padding: 0 var(--button-padding);
+  color: var(--button-color);
 
-  // 不同背景和字体颜色
-  @for $list from 1 to (length($ComponentsType) + 1) {
-    $item: nth($ComponentsType, $list); // 获取数组中第i项的值
-
-    // 不同类型
-    &.f-button__#{map-get($item, name)} {
-      background: map-get($item, default);
-      color: var(--f-button-font-color, map-get($item, defaultTextColor));
-
-      // https://developer.mozilla.org/zh-CN/docs/Web/CSS/:not
-      &:not([disabled]):hover {
-        background: map-get($item, defaultHover);
-      }
-
-      &:not([disabled]):active {
-        background: map-get($item, defaultActive);
-      }
-
-      // 简约按钮
-      &.f-button__simple {
-        background: map-get($item, simple);
-        color: var(--f-button-font-color, map-get($item, simpleTextColor));
-
-        &:not([disabled]):hover {
-          background: map-get($item, simpleHover);
-        }
-
-        &:not([disabled]):active {
-          background: map-get($item, simpleActive);
-        }
-      }
-
-      // 文字按钮
-      &.f-button__text {
-        background: none;
-        color: var(--f-button-font-color, map-get($item, simpleTextColor));
-
-        &:not([disabled]):hover {
-          background: var(--f-design-color-default-1);
-        }
-
-        &:not([disabled]):active {
-          background: var(--f-design-color-default-3);
-        }
-      }
-
-      // 扩散效果
-      &.f-button__spread::after {
-        content: '';
-        display: inline-block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        opacity: 0;
-        border-radius: inherit;
-        transition: 0.3s;
-        box-shadow: 0 0 0 4px map-get($item, default);
-      }
-
-      &:not([disabled]):active::after {
-        box-shadow: none;
-        opacity: 1;
-        transition: 0s;
-      }
-    }
+  // 扩散效果
+  &.f-button__spread::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    border-radius: inherit;
+    transition: 0.3s;
+    box-shadow: 0 0 0 4px var(--button-background);
   }
 
-  // 不同尺寸
-  @for $list from 1 to (length($ComponentsSize) + 1) {
-    $item: nth($ComponentsSize, $list); // 获取数组中第 i 项的值
-
-    &.f-button__#{map-get($item, name)} {
-      height: map-get($item, height);
-      padding: 0 map-get($item, padding);
-      font-size: var(--f-button-font-size, map-get($item, fontSize));
-
-      // 圆形按钮
-      &.f-button__circle {
-        width: map-get($item, height);
-        padding: 0;
-        border-radius: 50%;
-      }
-    }
+  // 扩散效果需要的样式
+  &:not([disabled]):active::after {
+    box-shadow: none;
+    opacity: 1;
+    transition: 0s;
   }
 
-  // 圆角
-  &.f-button__round {
-    border-radius: var(--f-design-border-radius-2);
+  // hover 效果
+  &:not([disabled]):hover {
+    background: var(--button-hover);
+  }
+
+  // active 效果
+  &:not([disabled]):active {
+    background: var(--button-active);
+  }
+
+  // 圆形按钮
+  &.f-button__circle {
+    width: var(--button-height);
+    padding: 0;
+    border-radius: 50%;
   }
 
   // 块级元素
@@ -134,16 +80,15 @@
   // loading
   &__loading-animation {
     animation: f-button-loading-animation 1s linear infinite;
-    -webkit-animation: f-button-loading-animation 1s linear infinite;
   }
 
   // loading 动画
   @keyframes f-button-loading-animation {
-    0% {
+    from {
       transform: rotate(0deg);
     }
 
-    100% {
+    to {
       transform: rotate(360deg);
     }
   }
@@ -167,7 +112,7 @@
       border-radius: 50%;
       animation: f-button-ripples 0.7s linear;
       opacity: 0.5;
-      background: var(--f-design-color-text-2);
+      background: var(--button-default-color);
     }
   }
 
@@ -186,20 +131,6 @@
     }
   }
 
-  // 自定义颜色
-  &.f-button__color {
-    background: var(--f-button-default-color);
-    color: var(--f-button-font-color, var(--f-design-color-text-2));
-
-    &:not([disabled]):hover {
-      background: var(--f-button-hover-color);
-    }
-
-    &:not([disabled]):active {
-      background: var(--f-button-active-color);
-    }
-  }
-
   // icon 在不是圆形的时候带有边距
   &:not([class~='f-button__circle f-button__icon']):not([class~='f-button__icon']) {
     .f-button_before-icon {
@@ -209,14 +140,5 @@
     .f-button_after-icon {
       margin-left: 5px;
     }
-  }
-
-  // 如果在类名都移除状态下的备用样式
-  &:not([disabled]):hover {
-    background: var(--f-design-color-default-2);
-  }
-
-  &:not([disabled]):active {
-    background: var(--f-design-color-default-3);
   }
 }
