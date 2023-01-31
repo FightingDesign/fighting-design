@@ -12,7 +12,7 @@
   const classList = classes(['type', 'dot'], 'f-badge')
 
   /** 样式列表 */
-  const styleList = styles(['color', 'textColor'])
+  const styleList = styles(['background', 'color'])
 
   /** 展示的内容 */
   const content = computed((): string => {

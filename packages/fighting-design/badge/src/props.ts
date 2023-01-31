@@ -22,9 +22,9 @@ export const Props = {
     return FIGHTING_TYPE.includes(val)
   }),
   /** 自定义颜色 */
-  color: setStringProp(),
+  background: setStringProp(),
   /** 自定义文字颜色 */
-  textColor: setStringProp()
+  color: setStringProp()
 } as const
 
 export type BadgeProps = ExtractPropTypes<typeof Props>
