@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.20.3 (2023-01-31)
+
+- 针对 `f-button` 组件样式做了较大优化，内部样式实现优化
+
 ## 0.20.2 (2023-01-30)
 
 - 修复 `f-switch` 在 `f-fighting-global` 下失效问题

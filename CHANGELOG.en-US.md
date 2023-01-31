@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.20.3 (2023-01-31)
+
+- The `f-button` component style has been greatly optimized, and the internal style has been optimized
+
 ## 0.20.2 (2023-01-30)
 
 - Fix the failure of `f-switch` under `f-lighting-global`
