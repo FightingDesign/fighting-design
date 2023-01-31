@@ -1,6 +1,7 @@
 import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
+import { FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
-import type { BadgeType } from './interface'
+import type { FightingType } from '../../_interface'
 
 export const Props = {
   /** 显示值 */
@@ -14,11 +15,11 @@ export const Props = {
   /**
    * 类型
    *
-   * @values primary success danger warning
+   * @values default primary success danger warning
    * @default danger
    */
-  type: setStringProp<BadgeType>('danger', (val: BadgeType): boolean => {
-    return (['primary', 'success', 'danger', 'warning'] as const).includes(val)
+  type: setStringProp<FightingType>('danger', (val: FightingType): boolean => {
+    return FIGHTING_TYPE.includes(val)
   }),
   /** 自定义颜色 */
   color: setStringProp(),

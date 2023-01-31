@@ -12,8 +12,11 @@
 ::: demo
 
 <template #source>
-<f-badge value="11">
+<f-badge value="10" type="default">
 <f-button>default</f-button>
+</f-badge>
+<f-badge value="11" type="danger">
+<f-button>danger</f-button>
 </f-badge>
 <f-badge value="12" type="primary">
 <f-button>primary</f-button>
@@ -27,8 +30,11 @@
 </template>
 
 ```html
-<f-badge value="11">
+<f-badge value="10" type="default">
   <f-button>default</f-button>
+</f-badge>
+<f-badge value="11" type="danger">
+  <f-button>danger</f-button>
 </f-badge>
 <f-badge value="12" type="primary">
   <f-button>primary</f-button>
@@ -133,28 +139,22 @@
 
 ## Attributes
 
-| 参数         | 说明                                          | 类型                               | 可选值                                 | 默认值 |
-| ------------ | --------------------------------------------- | ---------------------------------- | -------------------------------------- | ------ |
-| `value`      | 显示值                                        | string / number                    | ——                                     | ——     |
-| `max`        | `value` 为数字时的最大值，超出显示为 `value+` | number                             | ——                                     | 99     |
-| `dot`        | 展示为一个点                                  | boolean                            | ——                                     | false  |
-| `show`       | 是否显示                                      | boolean                            | ——                                     | true   |
-| `type`       | 样式主题                                      | <a href="#badgetype">BadgeType</a> | `primary` `success` `danger` `warning` | danger |
-| `color`      | 自定义颜色                                    | string                             | ——                                     | ——     |
-| `text-color` | 自定义文字颜色                                | string                             | ——                                     | ——     |
+| 参数         | 说明                                          | 类型                                                               | 可选值                                           | 默认值 |
+| ------------ | --------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------ |
+| `value`      | 显示值                                        | string / number                                                    | ——                                               | ——     |
+| `max`        | `value` 为数字时的最大值，超出显示为 `value+` | number                                                             | ——                                               | 99     |
+| `dot`        | 展示为一个点                                  | boolean                                                            | ——                                               | false  |
+| `show`       | 是否显示                                      | boolean                                                            | ——                                               | true   |
+| `type`       | 样式主题                                      | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | danger |
+| `color`      | 自定义颜色                                    | string                                                             | ——                                               | ——     |
+| `text-color` | 自定义文字颜色                                | string                                                             | ——                                               | ——     |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type { BadgeInstance, BadgeProps, BadgeType } from 'fighting-design'
-```
-
-### BadgeType
-
-```ts
-type BadgeType = 'primary' | 'success' | 'danger' | 'warning'
+import type { BadgeInstance, BadgeProps } from 'fighting-design'
 ```
 
 ## Contributors

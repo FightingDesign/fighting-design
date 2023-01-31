@@ -1,5 +1,4 @@
-@use './root';
-@import '../config/const-type';
+@import '../config/var-badge';
 
 .f-badge {
   position: relative;
@@ -9,16 +8,9 @@
   cursor: default;
 
   // 不同类型
-  @for $list from 1 to (length($ComponentsType) + 1) {
-    $item: nth($ComponentsType, $list); // 获取数组中第i项的值
-
-    // 不同类型
-    &.f-badge__#{map-get($item, name)} {
-      .f-badge__content {
-        background: var(--f-badge-color, map-get($item, default));
-        color: var(--f-badge-text-color, map-get($item, defaultTextColor));
-      }
-    }
+  &__content {
+    background: var(--badge-background);
+    color: var(--badge-color);
   }
 
   // 主要内容
