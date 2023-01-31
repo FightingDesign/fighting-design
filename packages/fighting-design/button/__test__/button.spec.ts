@@ -129,7 +129,7 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { shadow: '7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-button-shadow: 7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4')
+    expect(wrapper.attributes('style')).toContain('--button-shadow: 7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4')
   })
 
   test('text', () => {
@@ -165,9 +165,9 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { color }
     })
-    expect(wrapper.attributes('style')).toContain(`--f-button-default-color: ${color}`)
-    expect(wrapper.attributes('style')).toContain(`--f-button-hover-color: ${light}`)
-    expect(wrapper.attributes('style')).toContain(`--f-button-active-color: ${dark}`)
+    expect(wrapper.attributes('style')).toContain(`--button-background: ${color}`)
+    expect(wrapper.attributes('style')).toContain(`--button-hover: ${light}`)
+    expect(wrapper.attributes('style')).toContain(`--button-active: ${dark}`)
   })
 
   test('default slot', () => {
@@ -197,11 +197,7 @@ describe('FButton', () => {
   test('loading click', async () => {
     const wrapper = mount(FButton, {
       slots: {
-        default: {
-          render () {
-            return '点击测试'
-          }
-        }
+        default: '点击测试'
       },
       props: { loading: true }
     })
