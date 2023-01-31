@@ -22,7 +22,7 @@ export type FormSubmit = (params: FormParam) => void
 
 /**
  * 注入的依赖项
- * 
+ *
  * @param { string | number } labelWidth label 宽度
  * @param { Object } model 表单数据对象
  * @param { Function } onSubmit 提交表单触发的回调

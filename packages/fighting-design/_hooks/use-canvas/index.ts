@@ -22,7 +22,7 @@ export const useCanvas = (): UseCanvasReturn => {
 
     /**
      * 获取比例
-     * 
+     *
      * @see Window.devicePixelRatio https://developer.mozilla.org/zh-CN/docs/Web/API/Window/devicePixelRatio
      */
     const ratio: number = (window && window.devicePixelRatio) || 1
@@ -34,7 +34,7 @@ export const useCanvas = (): UseCanvasReturn => {
 
     /**
      * 新建一个二维渲染上下文
-     * 
+     *
      * @see HTMLCanvasElement.getContext() https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/getContext
      * @see CanvasRenderingContext2D https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D
      */
@@ -43,31 +43,31 @@ export const useCanvas = (): UseCanvasReturn => {
     if (context) {
       /**
        * 旋转角度
-       * 
+       *
        * @see CanvasRenderingContext2D.rotate() https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/rotate
        */
       context.rotate((-8 * Math.PI) / 100)
       /**
        * 当前字体样式的属性
-       * 
+       *
        * @see CanvasRenderingContext2D.font https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/font
        */
       context.font = `${sizeChange(props.fontSize)} serif`
       /**
        * 颜色和样式的属性
-       * 
+       *
        * @see CanvasRenderingContext2D.fillStyle https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/fillStyle
        */
       context.fillStyle = props.fontColor
       /**
        * 文本的对齐方式的属性
-       * 
+       *
        * @see CanvasRenderingContext2D.textAlign https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/textAlign
        */
       context.textAlign = 'left'
       /**
        * 当前文本基线的属性
-       * 
+       *
        * @see CanvasRenderingContext2D.textBaseline https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/textBaseline
        */
       context.textBaseline = 'middle'
@@ -78,8 +78,8 @@ export const useCanvas = (): UseCanvasReturn => {
     }
 
     /**
-     * 返回一个包含图片展示的 data URI 
-     * 
+     * 返回一个包含图片展示的 data URI
+     *
      * @see HTMLCanvasElement.toDataURL() https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL
      */
     return canvas.toDataURL('image/png')

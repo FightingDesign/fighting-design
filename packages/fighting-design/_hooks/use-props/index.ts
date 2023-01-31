@@ -31,9 +31,8 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
        */
       if (isString(item)) {
         result[item] = toRef(prop, item as never)
-      }
+      } else if (isObject(item)) {
       /** 如果是对象类型 */
-      else if (isObject(item)) {
         /**
          * 如果是 object 类型
          *
