@@ -1,5 +1,3 @@
-import type { ButtonHTMLAttributes } from 'vue'
-
 export type { ButtonProps } from './props'
 
 /**
@@ -16,4 +14,4 @@ export type ButtonTarget = '_blank' | '_self' | '_parent' | '_top'
  *
  * @see type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type
  */
-export type ButtonNative = NonNullable<ButtonHTMLAttributes['type']>
+export type ButtonNative = 'submit' | 'reset' | 'button'

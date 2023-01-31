@@ -443,9 +443,7 @@ type ButtonTarget = '_blank' | '_self' | '_parent' | '_top'
 ### ButtonNative
 
 ```ts
-import type { ButtonHTMLAttributes } from 'vue'
-
-type ButtonNative = NonNullable<ButtonHTMLAttributes['type']>
+type ButtonNative = 'submit' | 'reset' | 'button'
 ```
 
 ### ButtonGroupDirection
