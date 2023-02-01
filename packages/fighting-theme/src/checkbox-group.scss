@@ -20,7 +20,7 @@
 
     .f-checkbox {
       padding: 5px 10px;
-      border: 1px solid var(--f-design-color-primary-4);
+      border: 1px solid #dee5fd;
 
       // 带有边框的选中状态下的禁用
       &.f-checkbox__selected {
@@ -28,14 +28,14 @@
           background-color: #f0f0f0;
 
           .f-checkbox__text {
-            color: var(--f-design-color-default-3);
+            color: #d7d7d7;
           }
         }
       }
 
       // 禁用状态
       &.f-checkbox__disabled {
-        border-color: var(--f-design-color-default-3);
+        border-color: #d7d7d7;
       }
 
       &.f-checkbox__large {

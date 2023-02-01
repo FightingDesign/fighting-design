@@ -1,5 +1,3 @@
-@use './root';
-
 .f-expand-card {
   display: flex;
   height: 300px;
@@ -19,7 +17,7 @@
 
     // 圆角
     &.f-expand-card__round {
-      border-radius: var(--f-design-border-radius-2);
+      border-radius: 25px;
     }
 
     .f-expand-card__title {

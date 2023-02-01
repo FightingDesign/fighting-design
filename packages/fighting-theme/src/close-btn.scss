@@ -13,12 +13,12 @@
 
   // 圆角的
   &.f-close-btn__round {
-    border-radius: var(--f-design-border-radius-2);
+    border-radius: 25px;
   }
 
   &:not([class~='f-close-btn__disabled']):hover {
     opacity: 0.8;
-    background-color: var(--f-design-color-border-3);
+    background-color: #f4f4f4;
     color: var(--close-btn-hover-color, var(--f-design-color-danger-1));
   }
 

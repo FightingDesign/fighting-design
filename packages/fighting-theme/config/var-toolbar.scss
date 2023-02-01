@@ -1,0 +1,26 @@
+.f-toolbar {
+  // 不同尺寸
+  &__large {
+    --toolbar-height: 40px;
+    --toolbar-padding: 30px;
+    --toolbar-font-size: 16px;
+  }
+
+  &__middle {
+    --toolbar-height: 35px;
+    --toolbar-padding: 25px;
+    --toolbar-font-size: 15px;
+  }
+
+  &__small {
+    --toolbar-height: 30px;
+    --toolbar-padding: 20px;
+    --toolbar-font-size: 14px;
+  }
+
+  &__mini {
+    --toolbar-height: 25px;
+    --toolbar-padding: 15px;
+    --toolbar-font-size: 13px;
+  }
+}

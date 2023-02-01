@@ -1,30 +1,4 @@
-.f-progress {
-  // 不同类型
-  &__default {
-    --badge-text-color: #fff;
-    --badge-background: #333;
-  }
-
-  &__primary {
-    --badge-text-color: #fff;
-    --badge-background: #2d5af1;
-  }
-
-  &__success {
-    --badge-text-color: #fff;
-    --badge-background: #52b35e;
-  }
-
-  &__danger {
-    --badge-text-color: #fff;
-    --badge-background: #ff0200;
-  }
-
-  &__warning {
-    --badge-text-color: #fff;
-    --badge-background: #fcc202;
-  }
-}
+@import '../config/var-progress';
 
 .f-progress {
   height: var(--progress-height, 20px);
@@ -38,7 +12,7 @@
     width: 100%;
     height: 100%;
     position: relative;
-    background-color: var(--progress-background, #eee);
+    background-color: #eee;
 
     // 进度条
     .f-progress__fill {
@@ -49,6 +23,8 @@
       top: 0;
       bottom: 0;
       text-align: right;
+      transition: 0.3s;
+      background-color: var(--progress-background);
 
       // 百分百文字
       .f-progress__percentage {
@@ -60,14 +36,6 @@
     }
   }
 
-  // 基本的颜色
-  .f-progress__bar {
-    .f-progress__fill {
-      transition: 0.3s;
-      background-color: var(--f-progress-color, --badge-background);
-    }
-  }
-
   @keyframes f-progress-animation-panoramic {
     to {
       background-position: 200% 0;
@@ -76,19 +44,19 @@
 
   &.f-progress__stripe {
     .f-progress__bar {
-      // .f-progress__fill {
-      //   background: repeating-linear-gradient(
-      //     -45deg,
-      //     map-get($item, default) 25%,
-      //     map-get($item, default) 0,
-      //     map-get($item, default) 50%,
-      //     map-get($item, defaultHover) 0,
-      //     map-get($item, defaultHover) 75%,
-      //     map-get($item, defaultHover) 0
-      //   );
-      //   background-size: 35px 35px;
-      //   animation: f-progress-animation-panoramic 30s linear infinite;
-      // }
+      .f-progress__fill {
+        background: repeating-linear-gradient(
+          -45deg,
+          var(--progress-background) 25%,
+          var(--progress-background) 0,
+          var(--progress-background) 50%,
+          var(--progress-simple-background) 0,
+          var(--progress-simple-background) 75%,
+          var(--progress-simple-background) 0
+        );
+        background-size: 35px 35px;
+        animation: f-progress-animation-panoramic 30s linear infinite;
+      }
     }
   }
 

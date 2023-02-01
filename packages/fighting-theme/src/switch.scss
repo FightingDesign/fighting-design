@@ -18,7 +18,7 @@
     background-color: #2d5af1;
     width: 40px;
     height: 20px;
-    background-color: var(--f-switch-close-color, #bbbbbb);
+    background-color: var(--switch-close-color, #bbbbbb);
 
     // 不同尺寸
     @for $list from 1 to (length($ComponentsSize) + 1) {
@@ -44,7 +44,7 @@
           transition: 0.2s;
           box-sizing: content-box;
           box-shadow: 0 2px 3px #00000021, 0 0 4px #0000000d;
-          border: 2px solid var(--f-switch-close-color, #bbbbbb);
+          border: 2px solid var(--switch-close-color, #bbbbbb);
           background-color: #fff;
 
           // 小球的位置
@@ -55,7 +55,7 @@
           .f-svg-icon {
             transition: color 0.2s;
             font-size: calc(map-get($item, fontSize) - 1px);
-            color: var(--f-switch-close-color, #bbbbbb);
+            color: var(--switch-close-color, #bbbbbb);
           }
         }
       }
@@ -63,14 +63,14 @@
 
     // 选中状态
     &.f-switch__active {
-      background-color: var(--f-switch-active-color, #2d5af1);
+      background-color: var(--switch-active-color, #2d5af1);
 
       // 选中状态的小球
       .f-switch__roll {
-        border: 2px solid var(--f-switch-active-color, #2d5af1);
+        border: 2px solid var(--switch-active-color, #2d5af1);
 
         .f-svg-icon {
-          color: var(--f-switch-active-color, #2d5af1);
+          color: var(--switch-active-color, #2d5af1);
         }
       }
     }

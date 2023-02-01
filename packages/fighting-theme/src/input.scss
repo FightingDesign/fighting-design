@@ -1,13 +1,11 @@
-@use './root';
-@import '../config/const-type';
-@import '../config/const-size';
+@import '../config/var-input';
 
 .f-input {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  height: 35px;
+  height: var(--input-height, 35px);
   width: 100%;
 
   // 主容器
@@ -33,9 +31,9 @@
       width: 100%;
       border: none;
       outline: none;
-      background-color: none;
+      background: none;
       margin: 0 5px;
-      font-size: 14px;
+      font-size: var(--input-font-size, 14px);
       cursor: pointer;
       color: #333;
 
@@ -86,19 +84,6 @@
     .f-input__input {
       cursor: not-allowed;
       color: #757575;
-    }
-  }
-
-  // 不同尺寸
-  @for $list from 1 to (length($ComponentsSize) + 1) {
-    $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
-
-    &.f-input__#{map-get($item, name)} {
-      height: map-get($item, height);
-
-      .f-input__input {
-        font-size: map-get($item, fontSize);
-      }
     }
   }
 }

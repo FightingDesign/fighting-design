@@ -1,0 +1,22 @@
+.f-input {
+  // 不同尺寸
+  &__large {
+    --input-height: 40px;
+    --input-font-size: 16px;
+  }
+
+  &__middle {
+    --input-height: 35px;
+    --input-font-size: 15px;
+  }
+
+  &__small {
+    --input-height: 30px;
+    --input-font-size: 14px;
+  }
+
+  &__mini {
+    --input-height: 25px;
+    --input-font-size: 13px;
+  }
+}

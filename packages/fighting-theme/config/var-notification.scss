@@ -1,0 +1,24 @@
+.f-notification {
+  --notification-font-size: 15px;
+
+  // 不同类型
+  &__default {
+    --notification-color: #333;
+  }
+
+  &__primary {
+    --notification-color: #2d5af1;
+  }
+
+  &__success {
+    --notification-color: #52b35e;
+  }
+
+  &__danger {
+    --notification-color: #ff0200;
+  }
+
+  &__warning {
+    --notification-color: #fcc202;
+  }
+}

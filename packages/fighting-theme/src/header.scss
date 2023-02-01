@@ -1,6 +1,6 @@
 .f-header {
   flex-shrink: 0;
   box-sizing: border-box;
-  height: var(--footer-height, 60px);
-  padding: var(--footer-padding, 0);
+  height: var(--header-height, 60px);
+  padding: var(--header-padding, 0);
 }

@@ -1,5 +1,3 @@
-@use './root';
-
 .f-submenu {
   box-sizing: border-box;
   cursor: pointer;
@@ -39,7 +37,7 @@
 
             .f-svg-icon,
             .f-submenu__title-text {
-              font-size: var(--f-design-font-size-middle);
+              font-size: 15px;
               color: #333;
             }
           }
@@ -48,7 +46,7 @@
     }
 
     &:hover {
-      background-color: var(--f-design-color-border-3);
+      background-color: #f4f4f4;
 
       .f-dropdown {
         .f-trigger__trigger {
@@ -92,7 +90,7 @@
 
             .f-svg-icon,
             .f-submenu__title-text {
-              font-size: var(--f-design-font-size-middle);
+              font-size: 15px;
               color: #333;
             }
           }
@@ -101,7 +99,7 @@
     }
 
     &:hover {
-      background-color: var(--f-design-color-border-3);
+      background-color: #f4f4f4;
 
       .f-dropdown {
         .f-trigger__trigger {
@@ -141,12 +139,12 @@
 
       .f-svg-icon,
       .f-submenu__title-text {
-        font-size: var(--f-design-font-size-middle);
+        font-size: 15px;
         color: #333;
       }
 
       &:hover {
-        background-color: var(--f-design-color-border-3);
+        background-color: #f4f4f4;
 
         .f-dropdown {
           .f-trigger__trigger {

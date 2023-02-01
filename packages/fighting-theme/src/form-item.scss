@@ -6,7 +6,7 @@
 
   // label
   &__label {
-    width: var(--f-form-item-label-width, 90px);
+    width: var(--form-item-label-width, 90px);
     text-align: right;
     padding: 0 10px;
     box-sizing: border-box;
@@ -25,7 +25,7 @@
       position: absolute;
       bottom: 3px;
       line-height: 1;
-      color: var(--f-design-color-danger-1);
+      color: #ff0200;
     }
   }
 }

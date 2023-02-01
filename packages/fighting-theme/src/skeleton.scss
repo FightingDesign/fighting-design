@@ -1,11 +1,27 @@
-@use './root';
-@import '../config/const-size';
+.f-skeleton {
+  // 不同尺寸
+  &__large {
+    --skeleton-height: 40px;
+  }
+
+  &__middle {
+    --skeleton-height: 35px;
+  }
+
+  &__small {
+    --skeleton-height: 30px;
+  }
+
+  &__mini {
+    --skeleton-height: 25px;
+  }
+}
 
 .f-skeleton {
   margin: 8px 0;
-  background: var(--f-design-color-border-3);
-  height: var(--f-design-height-middle);
-  border-radius: var(--f-design-border-radius-1);
+  background-color: #f4f4f4;
+  border-radius: 2px;
+  height: var(--skeleton-height, 35px);
 
   // 动画效果
   &__animated {
@@ -16,16 +32,7 @@
 
   // 圆角的
   &__round {
-    border-radius: var(--f-design-border-radius-2);
-  }
-
-  // 不同尺寸
-  @for $list from 1 to (length($ComponentsSize) + 1) {
-    $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
-
-    &__#{map-get($item, name)} {
-      height: map-get($item, height);
-    }
+    border-radius: 25px;
   }
 
   // 加载动画

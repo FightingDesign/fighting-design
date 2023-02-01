@@ -1,5 +1,4 @@
-@use './root';
-@import '../config/const-size';
+@import '../config/var-toolbar';
 
 .f-toolbar {
   display: flex;
@@ -8,21 +7,12 @@
   align-items: center;
   box-sizing: border-box;
   justify-content: center;
-  height: var(--toolbar-height);
+  min-height: var(--toolbar-height);
+  padding: 0 var(--toolbar-padding);
+  font-size: var(--toolbar-font-size);
   width: var(--toolbar-width);
   color: var(--toolbar-text-color);
   background-color: var(--toolbar-background, #f0f0f0);
-
-  // 不同尺寸
-  @for $list from 1 to (length($ComponentsSize) + 1) {
-    $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
-
-    &.f-toolbar__#{map-get($item, name)} {
-      min-height: map-get($item, height);
-      padding: 0 map-get($item, padding);
-      font-size: map-get($item, fontSize);
-    }
-  }
 
   // 圆角
   &.f-toolbar__round {

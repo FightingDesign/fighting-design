@@ -1,5 +1,3 @@
-@use './root';
-
 .f-menu {
   display: flex;
   width: 100%;
@@ -12,7 +10,7 @@
     align-items: center;
     padding: 2px 15px;
     flex-wrap: wrap;
-    border-bottom: 1px solid var(--f-design-color-primary-4);
+    border-bottom: 1px solid #dee5fd;
 
     // 前缀插槽 & 后缀插槽
     .f-menu__before,

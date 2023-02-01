@@ -1,0 +1,24 @@
+.f-message {
+  --message-font-size: 15px;
+
+  // 不同类型
+  &__default {
+    --message-color: #333;
+  }
+
+  &__primary {
+    --message-color: #2d5af1;
+  }
+
+  &__success {
+    --message-color: #52b35e;
+  }
+
+  &__danger {
+    --message-color: #ff0200;
+  }
+
+  &__warning {
+    --message-color: #fcc202;
+  }
+}

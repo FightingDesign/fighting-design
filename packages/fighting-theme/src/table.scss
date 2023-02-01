@@ -1,15 +1,11 @@
-@use './root';
-
-$tableZebra: #f7f7f7;
-
 .f-table {
   // 主容器
   &__container {
     position: relative;
     box-sizing: border-box;
     overflow: hidden;
-    height: var(--f-table-height);
-    background-color: var(--f-table-bg-color, #fff);
+    height: var(--table-height);
+    background-color: var(--table-bg-color, #fff);
 
     // 在限制高度时展示的头部
     .f-table__header {
@@ -21,7 +17,7 @@ $tableZebra: #f7f7f7;
 
     // 身体
     .f-table__body {
-      height: calc(var(--f-table-height) - 45px);
+      height: calc(var(--table-height) - 45px);
       overflow: auto;
 
       // 在限制高度的时候加这个样式
@@ -36,7 +32,7 @@ $tableZebra: #f7f7f7;
 
       // 滚动滑块
       &::-webkit-scrollbar-thumb {
-        background-color: #dddddd;
+        background-color: #ddd;
         border-radius: 6px;
       }
     }
@@ -51,7 +47,7 @@ $tableZebra: #f7f7f7;
       display: inline-table;
 
       thead {
-        background-color: var(--f-table-head-bg-color, $tableZebra);
+        background-color: var(--table-head-bg-color, #f7f7f7);
         font-size: 16px;
         color: #4e4e4e;
         height: 45px;
@@ -104,7 +100,7 @@ $tableZebra: #f7f7f7;
     tbody {
       // https://developer.mozilla.org/zh-CN/docs/Web/CSS/:nth-child
       tr:nth-child(2n) {
-        background-color: var(--f-table-zebra-color, $tableZebra);
+        background-color: var(--table-zebra-color, #f7f7f7);
       }
     }
   }

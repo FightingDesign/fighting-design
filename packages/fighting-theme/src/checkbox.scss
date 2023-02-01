@@ -67,10 +67,10 @@
 
     // 选中的禁用状态
     &.f-checkbox__disabled {
-      border-color: var(--f-design-color-default-3);
+      border-color: #d7d7d7;
 
       .f-checkbox__text {
-        color: var(--f-design-color-default-3);
+        color: #d7d7d7;
       }
     }
   }
@@ -108,15 +108,15 @@
     cursor: not-allowed;
 
     .f-checkbox__text {
-      color: var(--f-design-color-default-3);
+      color: #d7d7d7;
     }
 
     .f-checkbox__box {
-      border-color: var(--f-design-color-default-3);
+      border-color: #d7d7d7;
       background-color: #f4f4f4;
 
       &::after {
-        border-color: var(--f-design-color-default-3);
+        border-color: #d7d7d7;
       }
     }
   }

@@ -24,7 +24,7 @@
 
   &:not([class~='f-link__disabled']).f-link__bag:hover {
     background-color: #eee;
-    border-radius: var(--f-design-border-radius-1);
+    border-radius: 2px;
   }
 
   &:not([class~='f-link__disabled']):hover {

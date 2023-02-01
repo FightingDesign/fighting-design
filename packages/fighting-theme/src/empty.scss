@@ -1,5 +1,3 @@
-@use './root';
-
 .f-empty {
   display: inline-flex;
   padding: 8px 20px;
@@ -8,7 +6,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  background-color: var(--f-empty-background);
+  background-color: var(--empty-background);
 
   &__wrapper {
     display: flex;
@@ -20,8 +18,8 @@
   &__content {
     margin: 8px 0px;
     font-weight: 500;
-    color: var(--f-empty-content-color, #7f7f7f);
-    font-size: var(--f-empty-content-size, var(--f-design-font-size-middle));
+    color: var(--empty-content-color, #7f7f7f);
+    font-size: var(--empty-content-size, 15px);
   }
 
   &__footer {
