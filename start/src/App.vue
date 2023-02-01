@@ -1,7 +1,13 @@
 <script lang="ts" setup></script>
 
 <template>
-  <f-tag close type="default">默认</f-tag>
+  <f-text background="red" color="#fff">普通文字</f-text>
+  <f-text type="primary">主要文字</f-text>
+  <f-text type="success">成功文字</f-text>
+  <f-text type="danger">危险文字</f-text>
+  <f-text type="warning">警告文字</f-text>
+
+  <f-tag>默认</f-tag>
   <f-tag close type="primary" color="red" background="black">普通</f-tag>
   <f-tag close type="warning">警告</f-tag>
   <f-tag close type="success">成功</f-tag>

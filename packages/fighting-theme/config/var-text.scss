@@ -1,0 +1,22 @@
+.f-text {
+  // 不同类型
+  &__default {
+    --text-color: #333;
+  }
+
+  &__primary {
+    --text-color: #2d5af1;
+  }
+
+  &__success {
+    --text-color: #52b35e;
+  }
+
+  &__danger {
+    --text-color: #ff0200;
+  }
+
+  &__warning {
+    --text-color: #fcc202;
+  }
+}
