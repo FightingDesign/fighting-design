@@ -1,6 +1,29 @@
 <script lang="ts" setup></script>
 
 <template>
+  <f-tag close type="default">默认</f-tag>
+  <f-tag close type="primary" color="red" background="black">普通</f-tag>
+  <f-tag close type="warning">警告</f-tag>
+  <f-tag close type="success">成功</f-tag>
+  <f-tag close type="danger">失败</f-tag>
+
+  <f-tag close line type="default">默认</f-tag>
+  <f-tag close line type="primary">普通</f-tag>
+  <f-tag close line type="warning">警告</f-tag>
+  <f-tag close line type="success">成功</f-tag>
+  <f-tag close line type="danger">失败</f-tag>
+
+  <f-tag type="primary" size="large">标签</f-tag>
+  <f-tag type="primary" size="middle">标签</f-tag>
+  <f-tag type="primary" size="small">标签</f-tag>
+  <f-tag type="primary" size="mini">标签</f-tag>
+
+  <f-tag block type="default">默认</f-tag>
+  <f-tag block type="primary">普通</f-tag>
+  <f-tag block type="warning">警告</f-tag>
+  <f-tag block type="success">成功</f-tag>
+  <f-tag block type="danger">失败</f-tag>
+
   <f-list size="large">
     <f-list-item>这是大号尺寸列表</f-list-item>
     <f-list-item>这是大号尺寸列表</f-list-item>
