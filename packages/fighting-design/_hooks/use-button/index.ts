@@ -39,7 +39,6 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
     ...toRefs(prop),
     size: getSize('middle', parentInject),
     type: !prop.color && getType(),
-    disabled: prop.disabled || prop.loading,
     simple: prop.simple && !prop.color,
     text: prop.text && !prop.color,
     icon: isShowIcon
@@ -49,7 +48,7 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
 
   /** 类名列表 */
   const classList = classes(
-    ['type', 'icon', 'round', 'simple', 'block', 'disabled', 'bold', 'text', 'size', 'circle', 'spread'],
+    ['type', 'icon', 'round', 'simple', 'block', 'bold', 'text', 'size', 'circle', 'spread'],
     'f-button'
   )
 

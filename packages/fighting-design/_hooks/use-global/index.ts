@@ -24,19 +24,19 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
   /**
    * 获取组件的类型
    *
-   * @param { string } param 默认参数
+   * @param { string } def 默认参数
    * @returns { Object } 类型
    */
-  const getType = (param: FightingType = 'default'): ComputedRef<FightingType> => {
+  const getType = (def: FightingType = 'default'): ComputedRef<FightingType> => {
 
     return computed((): FightingType => {
 
       /** 如果校验不通过则返回默认值 */
       if (prop && prop.type && !FIGHTING_TYPE.includes(prop.type)) {
-        return param
+        return def
       }
 
-      return (prop && prop.type) || (global && global.type) || param
+      return (prop && prop.type) || (global && global.type) || def
     })
   }
 
