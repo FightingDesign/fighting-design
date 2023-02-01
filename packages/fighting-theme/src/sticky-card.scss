@@ -3,7 +3,7 @@
 .f-sticky-card {
   cursor: pointer;
   border-radius: 3px;
-  border: 1px solid var(--f-sticky-card-border-color, var(--f-design-color-border-1));
+  border: 1px solid var(--sticky-card-border-color, var(--f-design-color-border-1));
   transition: var(--f-design-transition-time);
 
   // 展示的内容
@@ -16,7 +16,7 @@
   &__box {
     padding: 0 20px;
     box-sizing: border-box;
-    border-top: 1px solid var(--f-sticky-card-border-color, var(--f-design-color-border-1));
+    border-top: 1px solid var(--sticky-card-border-color, var(--f-design-color-border-1));
 
     // 滚动条
     &::-webkit-scrollbar {
@@ -32,7 +32,7 @@
 
   // 点击的操作栏
   &__option {
-    border-top: 1px solid var(--f-sticky-card-border-color, var(--f-design-color-border-1));
+    border-top: 1px solid var(--sticky-card-border-color, var(--f-design-color-border-1));
     height: 45px;
     cursor: pointer;
     display: flex;

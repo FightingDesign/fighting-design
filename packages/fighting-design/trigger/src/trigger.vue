@@ -41,9 +41,9 @@
     const { spacing, enterDuration, leaveDuration } = prop
 
     return {
-      '--f-trigger-spacing-size': sizeChange(spacing),
-      '--f-trigger-enter-duration': enterDuration && enterDuration + 's',
-      '--f-trigger-leave-duration': leaveDuration && leaveDuration + 's'
+      '--trigger-spacing-size': sizeChange(spacing),
+      '--trigger-enter-duration': enterDuration && enterDuration + 's',
+      '--trigger-leave-duration': leaveDuration && leaveDuration + 's'
     } as CSSProperties
   })
 

@@ -2,8 +2,8 @@
   display: inline-flex;
   flex-wrap: wrap;
   vertical-align: middle;
-  column-gap: var(--f-space-column-gap, 10px);
-  row-gap: var(--f-space-row-gap, 10px);
+  column-gap: var(--space-column-gap, 10px);
+  row-gap: var(--space-row-gap, 10px);
 
   // 纵向排列
   &.f-space__vertical {

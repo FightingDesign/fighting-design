@@ -1,16 +1,30 @@
-@use './root';
-@import '../config/const-size';
+.f-list__large {
+  --list-item-height: 40px;
+  --list-item-font-size: 16px;
+}
+.f-list__middle {
+  --list-item-height: 35px;
+  --list-item-font-size: 15px;
+}
+.f-list__small {
+  --list-item-height: 30px;
+  --list-item-font-size: 14px;
+}
+.f-list__mini {
+  --list-item-height: 25px;
+  --list-item-font-size: 13px;
+}
 
 .f-list {
   margin: 0;
   padding: 0;
   list-style: none;
   overflow-y: auto;
-  height: var(--f-list-max-height);
-  border: 1px solid var(--f-list-border-color, #e3e3e3);
+  height: var(--list-max-height);
+  border: 1px solid var(--list-border-color, #e3e3e3);
 
   &__header {
-    border-bottom: 1px solid var(--f-list-border-color, #e3e3e3);
+    border-bottom: 1px solid var(--list-border-color, #e3e3e3);
   }
 
   &__header,
@@ -22,7 +36,7 @@
   // 斑马纹
   &.f-list__zebra {
     .f-list-item:nth-of-type(2n) {
-      background-color: var(--f-list-zebra-color, #ecf0fe);
+      background-color: var(--list-zebra-color, #ecf0fe);
     }
   }
 
@@ -34,15 +48,9 @@
   }
 
   // 不同尺寸
-  @for $list from 1 to (length($ComponentsSize) + 1) {
-    $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
-
-    &.f-list__#{map-get($item, name)} {
-      .f-list-item {
-        min-height: map-get($item, height);
-        font-size: map-get($item, fontSize);
-      }
-    }
+  &-item {
+    min-height: var(--list-item-height);
+    font-size: var(--list-item-font-size);
   }
 
   // 滚动条
@@ -52,7 +60,7 @@
 
   // 滚动滑块
   &::-webkit-scrollbar-thumb {
-    background-color: #dddddd;
+    background-color: #ddd;
     border-radius: 6px;
   }
 }

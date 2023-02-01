@@ -1,8 +1,33 @@
-@use './root';
-@import '../config/const-type';
+.f-progress {
+  // 不同类型
+  &__default {
+    --badge-text-color: #fff;
+    --badge-background: #333;
+  }
+
+  &__primary {
+    --badge-text-color: #fff;
+    --badge-background: #2d5af1;
+  }
+
+  &__success {
+    --badge-text-color: #fff;
+    --badge-background: #52b35e;
+  }
+
+  &__danger {
+    --badge-text-color: #fff;
+    --badge-background: #ff0200;
+  }
+
+  &__warning {
+    --badge-text-color: #fff;
+    --badge-background: #fcc202;
+  }
+}
 
 .f-progress {
-  height: var(--f-progress-height, 20px);
+  height: var(--progress-height, 20px);
   display: flex;
   align-items: center;
 
@@ -13,7 +38,7 @@
     width: 100%;
     height: 100%;
     position: relative;
-    background-color: var(--f-progress-background, var(--f-design-color-border-1));
+    background-color: var(--progress-background, #eee);
 
     // 进度条
     .f-progress__fill {
@@ -29,47 +54,41 @@
       .f-progress__percentage {
         font-size: 14px;
         margin: 0 7px;
-        color: var(--f-progress-text-color, var(--f-design-color-text-2));
-        line-height: var(--f-progress-height, 20px);
+        color: var(--progress-text-color, #fff);
+        line-height: var(--progress-height, 20px);
       }
     }
   }
 
-  @for $list from 1 to (length($ComponentsType) + 1) {
-    $item: nth($ComponentsType, $list);
+  // 基本的颜色
+  .f-progress__bar {
+    .f-progress__fill {
+      transition: 0.3s;
+      background-color: var(--f-progress-color, --badge-background);
+    }
+  }
 
-    // 基本的颜色
-    &.f-progress__#{map-get($item, name)} {
-      .f-progress__bar {
-        .f-progress__fill {
-          transition: var(--f-design-transition-time);
-          background-color: var(--f-progress-color, map-get($item, default));
-        }
-      }
+  @keyframes f-progress-animation-panoramic {
+    to {
+      background-position: 200% 0;
+    }
+  }
 
-      @keyframes f-progress-animation-panoramic {
-        to {
-          background-position: 200% 0;
-        }
-      }
-
-      &.f-progress__stripe {
-        .f-progress__bar {
-          .f-progress__fill {
-            background: repeating-linear-gradient(
-              -45deg,
-              map-get($item, default) 25%,
-              map-get($item, default) 0,
-              map-get($item, default) 50%,
-              map-get($item, defaultHover) 0,
-              map-get($item, defaultHover) 75%,
-              map-get($item, defaultHover) 0
-            );
-            background-size: 35px 35px;
-            animation: f-progress-animation-panoramic 30s linear infinite;
-          }
-        }
-      }
+  &.f-progress__stripe {
+    .f-progress__bar {
+      // .f-progress__fill {
+      //   background: repeating-linear-gradient(
+      //     -45deg,
+      //     map-get($item, default) 25%,
+      //     map-get($item, default) 0,
+      //     map-get($item, default) 50%,
+      //     map-get($item, defaultHover) 0,
+      //     map-get($item, defaultHover) 75%,
+      //     map-get($item, defaultHover) 0
+      //   );
+      //   background-size: 35px 35px;
+      //   animation: f-progress-animation-panoramic 30s linear infinite;
+      // }
     }
   }
 
@@ -77,6 +96,6 @@
     width: 38px;
     font-size: 14px;
     margin-left: 10px;
-    color: var(--f-progress-text-color, var(--f-design-color-text-1));
+    color: var(--progress-text-color, #333);
   }
 }

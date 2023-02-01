@@ -1,5 +1,3 @@
-@use './root';
-
 .f-trigger {
   display: inline-block;
   position: relative;
@@ -14,7 +12,7 @@
     position: absolute;
     width: max-content;
     margin: 0 auto;
-    padding-top: var(--f-trigger-spacing-size, 8px);
+    padding-top: var(--trigger-spacing-size, 8px);
     right: 0;
     left: 0;
     z-index: 2000;
@@ -22,7 +20,7 @@
     // 主要内容
     .f-trigger__content {
       border: 1px solid transparent;
-      background-color: var(--f-design-color-text-2);
+      background-color: #fff;
       box-shadow: 0 1px 6px #00000033;
     }
   }
@@ -38,7 +36,7 @@
     top: 3px;
     width: 12px;
     height: 12px;
-    background-color: var(--f-design-color-text-2);
+    background-color: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transform: rotate(45deg);
     z-index: -1;
@@ -46,11 +44,11 @@
 
   // 出入动画
   &-enter-active {
-    transition: all var(--f-trigger-enter-duration, 0.1s) ease-out;
+    transition: all var(--trigger-enter-duration, 0.1s) ease-out;
   }
 
   &-leave-active {
-    transition: all var(--f-trigger-leave-duration, 0.1s) cubic-bezier(1, 0.5, 0.8, 1);
+    transition: all var(--trigger-leave-duration, 0.1s) cubic-bezier(1, 0.5, 0.8, 1);
   }
 
   &-enter-from,

@@ -51,7 +51,7 @@
 
       // 占位符颜色
       &::placeholder {
-        color: var(--f-input-placeholder-color, var(--f-design-color-text-3));
+        color: var(--input-placeholder-color, var(--f-design-color-text-3));
       }
     }
 

@@ -1,8 +1,8 @@
 .f-box {
   box-sizing: border-box;
-  width: var(--f-box-width, auto);
-  height: var(--f-box-height, auto);
-  background-color:var(--f-box-background, none);
-  display: var(--f-box-display, block);
-  padding: var(--f-box-padding, 0);
+  width: var(--box-width, auto);
+  height: var(--box-height, auto);
+  background-color:var(--box-background, none);
+  display: var(--box-display, block);
+  padding: var(--box-padding, 0);
 }

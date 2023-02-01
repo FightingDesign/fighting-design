@@ -1,6 +1,26 @@
 <script lang="ts" setup></script>
 
 <template>
+  <f-list size="large">
+    <f-list-item>这是大号尺寸列表</f-list-item>
+    <f-list-item>这是大号尺寸列表</f-list-item>
+  </f-list>
+
+  <f-list size="middle">
+    <f-list-item>这是中号尺寸列表</f-list-item>
+    <f-list-item>这是中号尺寸列表</f-list-item>
+  </f-list>
+
+  <f-list size="small">
+    <f-list-item>这是小号尺寸列表</f-list-item>
+    <f-list-item>这是小号尺寸列表</f-list-item>
+  </f-list>
+
+  <f-list size="mini">
+    <f-list-item>这是迷你尺寸列表</f-list-item>
+    <f-list-item>这是迷你尺寸列表</f-list-item>
+  </f-list>
+
   <f-link href="" type="default">默认链接</f-link>
   <f-link href="" type="primary">主要链接</f-link>
   <f-link href="" type="success">成功链接</f-link>
@@ -15,6 +35,8 @@
   <h1>1</h1>
   <h1>1</h1>
   <h1>1</h1>
+
+  <f-box width="200px" height="200px" padding="30px" background="skyblue">hello</f-box>
 
   <f-badge value="11" background="blue" color="red">
     <f-button>default</f-button>

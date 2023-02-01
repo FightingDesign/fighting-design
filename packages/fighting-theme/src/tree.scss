@@ -1,5 +1,3 @@
-@use './root';
-
 .f-tree {
   .f-tree {
     margin-left: 20px;
@@ -31,7 +29,7 @@
       }
 
       &:hover {
-        background-color: var(--f-design-color-border-1);
+        background-color: #eee;
       }
     }
   }

@@ -35,10 +35,10 @@
   &::after {
     content: attr(f-content);
     position: absolute;
-    background-color: var(--f-tooltip-background, var(--f-design-color-text-1));
+    background-color: var(--tooltip-background, var(--f-design-color-text-1));
     font-size: 12px;
     font-weight: normal;
-    color: var(--f-tooltip-font-color, #fff);
+    color: var(--tooltip-font-color, #fff);
     line-height: 14px;
     padding: 6px 12px;
     white-space: nowrap;
@@ -46,19 +46,19 @@
   }
 
   &.f-tooltip__top::before {
-    border-top-color: var(--f-tooltip-background, var(--f-design-color-text-1));
+    border-top-color: var(--tooltip-background, var(--f-design-color-text-1));
   }
 
   &.f-tooltip__right::before {
-    border-right-color: var(--f-tooltip-background, var(--f-design-color-text-1));
+    border-right-color: var(--tooltip-background, var(--f-design-color-text-1));
   }
 
   &.f-tooltip__bottom::before {
-    border-bottom-color: var(--f-tooltip-background, var(--f-design-color-text-1));
+    border-bottom-color: var(--tooltip-background, var(--f-design-color-text-1));
   }
 
   &.f-tooltip__left::before {
-    border-left-color: var(--f-tooltip-background, var(--f-design-color-text-1));
+    border-left-color: var(--tooltip-background, var(--f-design-color-text-1));
   }
 
   &.f-tooltip__top.f-tooltip__bright::before {

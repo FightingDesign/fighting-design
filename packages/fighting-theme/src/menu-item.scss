@@ -1,5 +1,3 @@
-@use './root';
-
 .f-menu-item {
   display: flex;
   padding: 7px 16px;
@@ -7,7 +5,7 @@
   align-items: center;
   cursor: pointer;
   height: 50px;
-  transition: background var(--f-design-transition-time), color var(--f-design-transition-time);
+  transition: background 0.3s, color 0.3s;
 
   // icon
   .f-svg-icon {
@@ -17,26 +15,26 @@
   // 文字和 icon 样式
   .f-svg-icon,
   .f-menu-item__text {
-    transition: color var(--f-design-transition-time);
-    font-size: var(--f-design-font-size-middle);
-    color: var(--f-design-color-text-1);
+    transition: color 0.3s;
+    font-size: 15px;
+    color: #333;
   }
 
   // 选中的
   &.f-menu-item__active {
     .f-svg-icon,
     .f-menu-item__text {
-      color: var(--f-design-color-primary-1);
+      color: #2d5af1;
     }
   }
 
   // 鼠标移入
   &:not([class~='f-menu-item__disabled']):hover {
-    background-color: var(--f-design-color-border-3);
+    background-color: #f4f4f4;
 
     .f-svg-icon,
     .f-menu-item__text {
-      color: var(--f-design-color-primary-1);
+      color: #2d5af1;
     }
   }
 

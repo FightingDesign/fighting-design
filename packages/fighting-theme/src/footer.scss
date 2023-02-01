@@ -1,6 +1,6 @@
 .f-footer {
   flex-shrink: 0;
   box-sizing: border-box;
-  height: var(--f-footer-height, 60px);
-  padding: var(--f-footer-padding, 0);
+  height: var(--footer-height, 60px);
+  padding: var(--footer-padding, 0);
 }

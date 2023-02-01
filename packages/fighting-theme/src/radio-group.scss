@@ -1,11 +1,9 @@
-@use './root';
-
 .f-radio-group {
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
   column-gap: 22px;
-  transition: var(--f-design-transition-time);
+  transition: 0.3s;
 
   // 纵向排列
   &.f-radio-group__vertical {
@@ -72,25 +70,25 @@
 
       // 边框选中状态
       &.f-radio__checked {
-        background-color: var(--f-design-color-primary-1);
+        background-color: #2d5af1;
 
         .f-radio__text {
-          color: var(--f-design-color-text-2);
+          color: #fff;
         }
 
         // 边框选中状态禁用状态
         &.f-radio__disabled {
-          background-color: var(--f-design-color-default-1);
+          background-color: #f0f0f0;
 
           .f-radio__text {
-            color: var(--f-design-color-default-3);
+            color: #d7d7d7;
           }
         }
       }
 
       // 禁用状态
       &.f-radio__disabled {
-        border-color: var(--f-design-color-default-3);
+        border-color: #d7d7d7;
       }
     }
   }

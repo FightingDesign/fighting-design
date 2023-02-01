@@ -1,14 +1,12 @@
-@use './root';
-
 .f-card {
   display: block;
   border: #e5e5e5 solid 1px;
-  transition: var(--f-design-transition-time);
-  background-color: var(--f-design-color-text-2);
+  transition: 0.3s;
+  background-color: #fff;
 
   &__header {
     padding: 16px 20px;
-    border-bottom: 1px solid var(--f-design-color-border-1);
+    border-bottom: 1px solid #eee;
   }
 
   &.f-card__always {
@@ -25,6 +23,6 @@
 
   // 身体
   .f-card__body {
-    padding: var(--f-card-padding, 20px);
+    padding: var(--f-padding, 20px);
   }
 }

@@ -57,7 +57,7 @@
       align-items: center;
       box-sizing: border-box;
       justify-content: center;
-      height: var(--f-calendar-week-cell-height, 50px);
+      height: var(--calendar-week-cell-height, 50px);
     }
   }
 
@@ -77,7 +77,7 @@
       box-sizing: border-box;
       border-top: 3px solid transparent;
       transition: var(--f-design-transition-time);
-      height: var(--f-calendar-day-cell-height, 85px);
+      height: var(--calendar-day-cell-height, 85px);
 
       &:hover {
         background: #f7f7f7;
@@ -148,20 +148,20 @@
 
   // 边框
   &.f-calendar__border {
-    border-top: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
-    border-left: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
+    border-top: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
+    border-left: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
 
     .f-calendar__header {
-      border-right: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
+      border-right: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
     }
 
     .f-calendar__week {
-      border-bottom: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
-      border-top: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
+      border-bottom: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
+      border-top: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
       margin: 0;
 
       .f-calendar__week-item {
-        border-right: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
+        border-right: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
       }
     }
 
@@ -169,8 +169,8 @@
       margin: 0;
 
       .f-calendar__day-item {
-        border-right: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
-        border-bottom: 1px solid var(--f-calendar-border-color, var(--f-design-color-border-1));
+        border-right: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
+        border-bottom: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
       }
     }
   }
