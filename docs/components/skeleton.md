@@ -46,13 +46,13 @@
 
 <template #source>
 <f-skeleton animated />
-<f-skeleton rounded animated />
+<f-skeleton round animated />
 </template>
 
 ```html
 <f-skeleton animated />
 
-<f-skeleton rounded animated />
+<f-skeleton round animated />
 ```
 
 :::
