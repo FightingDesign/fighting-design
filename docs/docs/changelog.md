@@ -2,6 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.21.0 (2023-02-01)
+
+- `f-badge` 组件 type 新增 default 配置项
+- `f-badge` 组件 `color` 配置项改为 `background`
+- `f-badge` 组件 `font-color` 配置项改为 `color`
+- 所有组件样式优化
+
 ## 0.20.3 (2023-01-31)
 
 - 针对 `f-button` 组件样式做了较大优化，内部样式实现优化

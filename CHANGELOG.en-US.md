@@ -4,6 +4,13 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.21.0 (2023-02-01)
+
+- Add default configuration item for `f-badge` component type
+- Change the configuration item of `f-badge` component `color` to `background``
+- Change the configuration item of `f-badge` component `font-color` to `color`
+- All component style optimization
+
 ## 0.20.3 (2023-01-31)
 
 - The `f-button` component style has been greatly optimized, and the internal style has been optimized

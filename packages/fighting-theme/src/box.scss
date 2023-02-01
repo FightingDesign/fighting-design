@@ -2,7 +2,7 @@
   box-sizing: border-box;
   width: var(--box-width, auto);
   height: var(--box-height, auto);
-  background-color:var(--box-background, none);
+  background-color: var(--box-background, none);
   display: var(--box-display, block);
   padding: var(--box-padding, 0);
 }

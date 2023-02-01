@@ -146,7 +146,7 @@
 | `dot`        | 展示为一个点                                  | boolean                                                            | ——                                               | false  |
 | `show`       | 是否显示                                      | boolean                                                            | ——                                               | true   |
 | `type`       | 样式主题                                      | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | danger |
-| `background` | 自定义背景颜色                                    | string                                                             | ——                                               | ——     |
+| `background` | 自定义背景颜色                                | string                                                             | ——                                               | ——     |
 | `color`      | 自定义文字颜色                                | string                                                             | ——                                               | ——     |
 
 ## Interface
