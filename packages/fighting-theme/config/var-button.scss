@@ -10,31 +10,38 @@
   }
 
   &__primary {
-    --button-color: #fff;
+    --button-color: #fbfbfd;
     --button-background: #2d5af1;
     --button-hover: #5d80f4;
     --button-active: #0f3edc;
   }
 
   &__success {
-    --button-color: #fff;
+    --button-color: #fbfbfd;
     --button-background: #52b35e;
     --button-hover: #75c37f;
     --button-active: #40924a;
   }
 
   &__danger {
-    --button-color: #fff;
+    --button-color: #fbfbfd;
     --button-background: #ff0200;
     --button-hover: #ff5857;
     --button-active: #cc0200;
   }
 
   &__warning {
-    --button-color: #fff;
+    --button-color: #fbfbfd;
     --button-background: #fcc202;
     --button-hover: #fed348;
     --button-active: #c99b02;
+  }
+
+  &__info {
+    --button-color: #fbfbfd;
+    --button-background: #1d1d1f;
+    --button-hover: #4e4e56;
+    --button-active: #080808;
   }
 
   // 简约状态
@@ -73,6 +80,13 @@
     --button-active: #fff2c6;
   }
 
+  &__info.f-button__simple {
+    --button-color: #1d1d1f;
+    --button-background: #bdbdbd;
+    --button-hover: #cbcaca;
+    --button-active: #a8a7a7;
+  }
+
   // 文字按钮
   &__default.f-button__text {
     --button-color: #333;
@@ -104,6 +118,13 @@
 
   &__warning.f-button__text {
     --button-color: #fcc202;
+    --button-background: none;
+    --button-hover: #e8e8e8;
+    --button-active: #d7d7d7;
+  }
+
+  &__info.f-button__text {
+    --button-color: #1d1d1f;
     --button-background: none;
     --button-hover: #e8e8e8;
     --button-active: #d7d7d7;
