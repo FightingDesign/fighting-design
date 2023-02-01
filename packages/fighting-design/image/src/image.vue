@@ -40,9 +40,9 @@
     const { width, height, round } = prop
 
     return {
-      '--f-image-width': sizeChange(width),
-      '--f-image-height': sizeChange(height),
-      '--f-image-border-radius': sizeChange(round)
+      '--image-width': sizeChange(width),
+      '--image-height': sizeChange(height),
+      '--image-border-radius': sizeChange(round)
     } as CSSProperties
   })
 </script>

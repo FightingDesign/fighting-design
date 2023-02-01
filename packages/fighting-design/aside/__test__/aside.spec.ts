@@ -12,14 +12,14 @@ describe('f-aside', () => {
     const wrapper = mount(FAside, {
       props: { width: '200px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-aside-width: 200px')
+    expect(wrapper.attributes('style')).toContain('--aside-width: 200px')
   })
 
   test('width', () => {
     const wrapper = mount(FAside, {
       props: { width: 200 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-aside-width: 200px')
+    expect(wrapper.attributes('style')).toContain('--aside-width: 200px')
   })
 
   test('slot', () => {

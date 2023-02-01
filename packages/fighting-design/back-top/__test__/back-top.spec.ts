@@ -40,14 +40,14 @@ describe('FBackTop', () => {
     const wrapper = mount(FBackTop, {
       props: { background: 'red' }
     })
-    expect(wrapper.find('.f-back-top').attributes('style')).toContain('--f-back-top-background: red')
+    expect(wrapper.find('.f-back-top').attributes('style')).toContain('--back-top-background: red')
   })
 
   test('color', () => {
     const wrapper = mount(FBackTop, {
       props: { color: 'orange' }
     })
-    expect(wrapper.find('.f-back-top').attributes('style')).toContain('--f-back-top-color: orange')
+    expect(wrapper.find('.f-back-top').attributes('style')).toContain('--back-top-color: orange')
   })
 
   test('click', async () => {

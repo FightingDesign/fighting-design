@@ -13,21 +13,21 @@ describe('MenuItem', () => {
     const wrapper = mount(FMenuItem, {
       props: { fontSize: 20 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-menu-item-font-size: 20px')
+    expect(wrapper.attributes('style')).toContain('--menu-item-font-size: 20px')
   })
 
   test('fontSize', () => {
     const wrapper = mount(FMenuItem, {
       props: { fontSize: '40px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-menu-item-font-size: 40px')
+    expect(wrapper.attributes('style')).toContain('--menu-item-font-size: 40px')
   })
 
   test('color', () => {
     const wrapper = mount(FMenuItem, {
       props: { color: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-menu-item-color: red')
+    expect(wrapper.attributes('style')).toContain('--menu-item-color: red')
   })
 
   test('disabled', () => {

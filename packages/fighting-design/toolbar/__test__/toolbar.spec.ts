@@ -29,14 +29,14 @@ describe('FToolbar', () => {
     const wrapper = mount(FToolbar, {
       props: { background: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-toolbar-background: red')
+    expect(wrapper.attributes('style')).toContain('--toolbar-background: red')
   })
 
   test('textColor', () => {
     const wrapper = mount(FToolbar, {
       props: { textColor: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-toolbar-text-color: red')
+    expect(wrapper.attributes('style')).toContain('--toolbar-text-color: red')
   })
 
   test('fixed', () => {
@@ -50,28 +50,28 @@ describe('FToolbar', () => {
     const wrapper = mount(FToolbar, {
       props: { width: 20 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-toolbar-width: 20px')
+    expect(wrapper.attributes('style')).toContain('--toolbar-width: 20px')
   })
 
   test('width', () => {
     const wrapper = mount(FToolbar, {
       props: { width: '30px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-toolbar-width: 30px')
+    expect(wrapper.attributes('style')).toContain('--toolbar-width: 30px')
   })
 
   test('height', () => {
     const wrapper = mount(FToolbar, {
       props: { height: 20 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-toolbar-height: 20px')
+    expect(wrapper.attributes('style')).toContain('--toolbar-height: 20px')
   })
 
   test('height', () => {
     const wrapper = mount(FToolbar, {
       props: { height: '30px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-toolbar-height: 30px')
+    expect(wrapper.attributes('style')).toContain('--toolbar-height: 30px')
   })
 
   test('slot', () => {

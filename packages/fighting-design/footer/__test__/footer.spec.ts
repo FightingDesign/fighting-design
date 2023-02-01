@@ -12,28 +12,28 @@ describe('f-footer', () => {
     const wrapper = mount(FFooter, {
       props: { height: '200px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-footer-height: 200px')
+    expect(wrapper.attributes('style')).toContain('--footer-height: 200px')
   })
 
   test('height', () => {
     const wrapper = mount(FFooter, {
       props: { height: 200 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-footer-height: 200px')
+    expect(wrapper.attributes('style')).toContain('--footer-height: 200px')
   })
 
   test('padding', () => {
     const wrapper = mount(FFooter, {
       props: { padding: 200 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-footer-padding: 200px')
+    expect(wrapper.attributes('style')).toContain('--footer-padding: 200px')
   })
 
   test('padding', () => {
     const wrapper = mount(FFooter, {
       props: { padding: '200px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-footer-padding: 200px')
+    expect(wrapper.attributes('style')).toContain('--footer-padding: 200px')
   })
 
   test('slot', () => {

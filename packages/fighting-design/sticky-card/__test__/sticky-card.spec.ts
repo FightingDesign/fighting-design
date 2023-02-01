@@ -12,6 +12,6 @@ describe('StickPanel', () => {
     const wrapper = mount(FStickyCard, {
       props: { borderColor: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-sticky-card-border-color: red')
+    expect(wrapper.attributes('style')).toContain('--sticky-card-border-color: red')
   })
 })

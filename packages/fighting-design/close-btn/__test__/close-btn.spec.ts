@@ -16,7 +16,7 @@ describe('CloseBtn', () => {
         size: 100
       }
     })
-    expect(wrapper.getComponent('.f-svg-icon').attributes().style).toContain('--f-svg-icon-size: 100px;')
+    expect(wrapper.getComponent('.f-svg-icon').attributes().style).toContain('--svg-icon-size: 100px;')
   })
 
   test('round', () => {
@@ -48,7 +48,7 @@ describe('CloseBtn', () => {
       slots: { default: '123' },
       props: { color: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-close-btn-color: red')
+    expect(wrapper.attributes('style')).toContain('--close-btn-color: red')
   })
 
   test('hoverColor', () => {
@@ -56,7 +56,7 @@ describe('CloseBtn', () => {
       slots: { default: '123' },
       props: { hoverColor: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-close-btn-hover-color: red')
+    expect(wrapper.attributes('style')).toContain('--close-btn-hover-color: red')
   })
 
   test('click', async () => {

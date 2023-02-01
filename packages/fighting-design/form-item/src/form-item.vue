@@ -28,7 +28,7 @@
   /** 样式列表 */
   const styleList = computed((): CSSProperties => {
     return {
-      '--f-form-item-label-width': parentInject && parentInject.labelWidth
+      '--form-item-label-width': parentInject && parentInject.labelWidth
     } as CSSProperties
   })
 </script>

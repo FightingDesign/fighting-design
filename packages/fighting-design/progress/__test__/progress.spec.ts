@@ -30,14 +30,14 @@ describe('FProgress', () => {
     const wrapper = mount(FProgress, {
       props: { height: 50 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-progress-height: 50px')
+    expect(wrapper.attributes('style')).toContain('--progress-height: 50px')
   })
 
   test('height', () => {
     const wrapper = mount(FProgress, {
       props: { height: '60px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-progress-height: 60px')
+    expect(wrapper.attributes('style')).toContain('--progress-height: 60px')
   })
 
   test('showText', () => {
@@ -58,14 +58,14 @@ describe('FProgress', () => {
     const wrapper = mount(FProgress, {
       props: { textColor: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-progress-text-color: red')
+    expect(wrapper.attributes('style')).toContain('--progress-text-color: red')
   })
 
   test('color', () => {
     const wrapper = mount(FProgress, {
       props: { color: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-progress-color: red')
+    expect(wrapper.attributes('style')).toContain('--progress-color: red')
   })
 
   test('stripe', () => {

@@ -1,5 +1,3 @@
-@use './root';
-
 .f-checkbox {
   display: inline-flex;
   align-items: center;
@@ -21,7 +19,7 @@
     align-items: center;
     position: relative;
     margin-right: 7px;
-    border-radius: var(--f-design-border-radius-1);
+    border-radius: 2px;
   }
 
   // 文字

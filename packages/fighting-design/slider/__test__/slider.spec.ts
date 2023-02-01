@@ -28,6 +28,6 @@ describe('FSlider', () => {
         bgColor: '#bfa'
       }
     })
-    expect(wrapper.find('.f-slider').attributes('style')).toContain('--f-slider-bg-color: #bfa')
+    expect(wrapper.find('.f-slider').attributes('style')).toContain('--slider-bg-color: #bfa')
   })
 })

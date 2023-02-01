@@ -29,14 +29,14 @@ describe('FLink', () => {
     const wrapper = mount(FLink, {
       props: { size: '20px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-link-size: 20px')
+    expect(wrapper.attributes('style')).toContain('--link-size: 20px')
   })
 
   test('size', () => {
     const wrapper = mount(FLink, {
       props: { size: 16 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-link-size: 16px')
+    expect(wrapper.attributes('style')).toContain('--link-size: 16px')
   })
 
   test('state', () => {

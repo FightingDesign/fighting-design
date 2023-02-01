@@ -116,7 +116,6 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
            *
            * 因为 prop 参数的键都是驼峰命名法，所以这里要转换为短横线连接命名
            */
-          // styleList[`--f-${name}-${convertFormat(key)}`] = setListValue(propList[key])
           styleList[`--${name}-${convertFormat(key)}`] = setListValue(propList[key] as string | number, key)
         }
       }

@@ -12,28 +12,28 @@ describe('f-header', () => {
     const wrapper = mount(FHeader, {
       props: { height: '20px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-header-height: 20px')
+    expect(wrapper.attributes('style')).toContain('--header-height: 20px')
   })
 
   test('height', () => {
     const wrapper = mount(FHeader, {
       props: { height: 20 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-header-height: 20px')
+    expect(wrapper.attributes('style')).toContain('--header-height: 20px')
   })
 
   test('padding', () => {
     const wrapper = mount(FHeader, {
       props: { padding: 20 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-header-padding: 20px')
+    expect(wrapper.attributes('style')).toContain('--header-padding: 20px')
   })
 
   test('padding', () => {
     const wrapper = mount(FHeader, {
       props: { padding: '20px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-header-padding: 20px')
+    expect(wrapper.attributes('style')).toContain('--header-padding: 20px')
   })
 
   test('slot', () => {

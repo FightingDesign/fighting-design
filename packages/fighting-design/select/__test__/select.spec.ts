@@ -12,13 +12,13 @@ describe('Select', () => {
     const wrapper = mount(FSelect, {
       props: { width: 20 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-select-width: 20px')
+    expect(wrapper.attributes('style')).toContain('--select-width: 20px')
   })
 
   test('width', () => {
     const wrapper = mount(FSelect, {
       props: { width: '30px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-select-width: 30px')
+    expect(wrapper.attributes('style')).toContain('--select-width: 30px')
   })
 })

@@ -13,6 +13,6 @@ describe('FListItem', () => {
     const wrapper = mount(FListItem, {
       props: { background: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-list-item-background: red')
+    expect(wrapper.attributes('style')).toContain('--list-item-background: red')
   })
 })

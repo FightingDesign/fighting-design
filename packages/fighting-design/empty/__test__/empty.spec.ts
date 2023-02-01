@@ -23,7 +23,7 @@ describe('FEmpty', () => {
         contentSize: '20px'
       }
     })
-    expect(wrapper.find('.f-empty').attributes('style')).toContain('--f-empty-content-size: 20px')
+    expect(wrapper.find('.f-empty').attributes('style')).toContain('--empty-content-size: 20px')
   })
 
   test('contentSize', () => {
@@ -32,7 +32,7 @@ describe('FEmpty', () => {
         contentSize: 40
       }
     })
-    expect(wrapper.find('.f-empty').attributes('style')).toContain('--f-empty-content-size: 40px')
+    expect(wrapper.find('.f-empty').attributes('style')).toContain('--empty-content-size: 40px')
   })
 
   test('contentColor', () => {
@@ -41,7 +41,7 @@ describe('FEmpty', () => {
         contentColor: 'red'
       }
     })
-    expect(wrapper.find('.f-empty').attributes('style')).toContain('--f-empty-content-color: red')
+    expect(wrapper.find('.f-empty').attributes('style')).toContain('--empty-content-color: red')
   })
 
   test('background', () => {
@@ -50,6 +50,6 @@ describe('FEmpty', () => {
         background: 'red'
       }
     })
-    expect(wrapper.find('.f-empty').attributes('style')).toContain('--f-empty-background: red')
+    expect(wrapper.find('.f-empty').attributes('style')).toContain('--empty-background: red')
   })
 })

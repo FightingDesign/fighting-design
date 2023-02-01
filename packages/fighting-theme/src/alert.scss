@@ -22,8 +22,8 @@
     .f-alert__title {
       font-weight: bold;
       margin-left: 10px;
-      font-size: var(--f-alert-title-size, 17px);
-      color: var(--f-alert-title-color);
+      font-size: var(--alert-title-size, 17px);
+      color: var(--alert-title-color);
     }
 
     // 副标题
@@ -31,7 +31,7 @@
       display: block;
       margin-left: 10px;
       line-height: 24px;
-      font-size: var(--f-alert-font-size, 15px);
+      font-size: var(--alert-font-size, 15px);
     }
 
     // 滚动列表
@@ -40,7 +40,7 @@
       height: 24px;
       overflow-y: hidden;
       overflow-x: hidden;
-      font-size: var(--f-alert-font-size, 15px);
+      font-size: var(--alert-font-size, 15px);
 
       .f-alert__list-item {
         line-height: 24px;

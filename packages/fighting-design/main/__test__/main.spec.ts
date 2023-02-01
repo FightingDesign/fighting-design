@@ -12,14 +12,14 @@ describe('f-main', () => {
     const wrapper = mount(FMain, {
       props: { padding: '20px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-main-padding: 20px')
+    expect(wrapper.attributes('style')).toContain('--main-padding: 20px')
   })
 
   test('padding', () => {
     const wrapper = mount(FMain, {
       props: { padding: 20 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-main-padding: 20px')
+    expect(wrapper.attributes('style')).toContain('--main-padding: 20px')
   })
 
   test('slot', () => {

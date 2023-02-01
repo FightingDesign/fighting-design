@@ -45,13 +45,13 @@ describe('FCard', () => {
     const wrapper = mount(FCard, {
       props: { padding: '20px' }
     })
-    expect(wrapper.find('.f-card__body').attributes('style')).toContain('--f-card-padding: 20px')
+    expect(wrapper.find('.f-card__body').attributes('style')).toContain('--card-padding: 20px')
   })
 
   test('padding', () => {
     const wrapper = mount(FCard, {
       props: { padding: 30 }
     })
-    expect(wrapper.find('.f-card__body').attributes('style')).toContain('--f-card-padding: 30px')
+    expect(wrapper.find('.f-card__body').attributes('style')).toContain('--card-padding: 30px')
   })
 })

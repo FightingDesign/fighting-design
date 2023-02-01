@@ -28,7 +28,7 @@ describe('FList', () => {
     const wrapper = mount(FList, {
       props: { borderColor: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-list-border-color: red')
+    expect(wrapper.attributes('style')).toContain('--list-border-color: red')
   })
 
   test('size', () => {
@@ -44,21 +44,21 @@ describe('FList', () => {
     const wrapper = mount(FList, {
       props: { maxHeight: 20 }
     })
-    expect(wrapper.attributes('style')).toContain('--f-list-max-height: 20px')
+    expect(wrapper.attributes('style')).toContain('--list-max-height: 20px')
   })
 
   test('maxHeight', () => {
     const wrapper = mount(FList, {
       props: { maxHeight: '30px' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-list-max-height: 30px')
+    expect(wrapper.attributes('style')).toContain('--list-max-height: 30px')
   })
 
   test('zebraColor', () => {
     const wrapper = mount(FList, {
       props: { zebraColor: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-list-zebra-color: red')
+    expect(wrapper.attributes('style')).toContain('--list-zebra-color: red')
   })
 
   test('header', () => {

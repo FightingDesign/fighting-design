@@ -88,7 +88,7 @@ describe('Input', () => {
     const wrapper = mount(FInput, {
       props: { placeholderColor: 'red' }
     })
-    expect(wrapper.attributes('style')).toContain('--f-input-placeholder-color: red')
+    expect(wrapper.attributes('style')).toContain('--input-placeholder-color: red')
   })
 
   test('clear', () => {

@@ -1,5 +1,4 @@
-@use './root';
-@import '../config/const-size';
+@import '../config/var-switch';
 
 .f-switch {
   user-select: none;
@@ -15,49 +14,35 @@
     border-radius: 30px;
     z-index: 5;
     transition: 0.2s;
-    background-color: #2d5af1;
-    width: 40px;
-    height: 20px;
     background-color: var(--switch-close-color, #bbbbbb);
+    height: calc(var(--switch-height) - 10px);
+    width: calc((var(--switch-height) - 10px) * 2);
 
-    // 不同尺寸
-    @for $list from 1 to (length($ComponentsSize) + 1) {
-      $item: nth($ComponentsSize, $list); // 获取数组中第i项的值
+    // 小球
+    .f-switch__roll {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(var(--switch-height) - 10px - 4px);
+      width: calc((var(--switch-height) - 10px - 4px));
+      border-radius: 50%;
+      transform: translateX(0);
+      z-index: 10;
+      transition: 0.2s;
+      box-sizing: content-box;
+      box-shadow: 0 2px 3px #00000021, 0 0 4px #0000000d;
+      border: 2px solid var(--switch-close-color, #bbbbbb);
+      background-color: #fff;
 
-      $inputSize: calc(map-get($item, height) - 10px);
-      $rollSize: calc(map-get($item, height) - 10px - 4px);
+      // 小球的位置
+      &.f-switch__roll-active {
+        transform: translateX(calc(var(--switch-height) - 10px));
+      }
 
-      &.f-switch__#{map-get($item, name)} {
-        height: $inputSize;
-        width: calc($inputSize * 2);
-
-        // 小球
-        .f-switch__roll {
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          width: $rollSize;
-          height: $rollSize;
-          border-radius: 50%;
-          transform: translateX(0);
-          z-index: 10;
-          transition: 0.2s;
-          box-sizing: content-box;
-          box-shadow: 0 2px 3px #00000021, 0 0 4px #0000000d;
-          border: 2px solid var(--switch-close-color, #bbbbbb);
-          background-color: #fff;
-
-          // 小球的位置
-          &.f-switch__roll-active {
-            transform: translateX($inputSize);
-          }
-
-          .f-svg-icon {
-            transition: color 0.2s;
-            font-size: calc(map-get($item, fontSize) - 1px);
-            color: var(--switch-close-color, #bbbbbb);
-          }
-        }
+      .f-svg-icon {
+        transition: color 0.2s;
+        font-size: var(--switch-font-size);
+        color: var(--switch-close-color, #bbbbbb);
       }
     }
 
