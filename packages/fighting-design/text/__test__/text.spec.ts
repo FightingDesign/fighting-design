@@ -50,21 +50,21 @@ describe('FText', () => {
     const wrapper = mount(FText, {
       props: { spacing: '100px' }
     })
-    expect(wrapper.attributes('style')).toContain('f-text-spacing: 100px')
+    expect(wrapper.attributes('style')).toContain('--text-spacing: 100px')
   })
 
   test('lineHeight', () => {
     const wrapper = mount(FText, {
       props: { lineHeight: '100px' }
     })
-    expect(wrapper.attributes('style')).toContain('line-height')
+    expect(wrapper.attributes('style')).toContain('--text-line-height: 100px')
   })
 
   test('textIndent', () => {
     const wrapper = mount(FText, {
       props: { indent: '100px' }
     })
-    expect(wrapper.attributes('style')).toContain('text-indent')
+    expect(wrapper.attributes('style')).toContain('--text-indent: 100px')
   })
 
   test('bold', () => {
