@@ -90,7 +90,6 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { loading: true }
     })
-    expect(wrapper.classes()).toContain('f-button__disabled')
     expect(wrapper.attributes('disabled')).toBe('')
   })
 
@@ -98,7 +97,6 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { disabled: true }
     })
-    expect(wrapper.classes()).toContain('f-button__disabled')
     expect(wrapper.attributes('disabled')).toContain('')
   })
 

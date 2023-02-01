@@ -13,7 +13,7 @@ type ClassList = readonly (string | Record<string, unknown>)[]
 用于定于组件的类型，不同的类型将会展示不同的样式，主要用于 `f-alert` `f-button` `f-fighting-global` `f-link` `FMessage` `FNotification` `f-ripple` `f-tag` `f-text` 组件
 
 ```ts
-type FightingType = 'primary' | 'success' | 'danger' | 'warning' | 'default'
+type FightingType = 'primary' | 'success' | 'danger' | 'warning' | 'default' | 'info'
 ```
 
 ## FightingSize
