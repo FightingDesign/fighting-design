@@ -1,6 +1,18 @@
 <script lang="ts" setup></script>
 
 <template>
+  <f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
+  <f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+
+  <f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
+  <f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
+  <f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
+  <f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
+  <f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
+
   <f-text background="red" color="#fff">普通文字</f-text>
   <f-text type="primary">主要文字</f-text>
   <f-text type="success">成功文字</f-text>

@@ -1,5 +1,3 @@
-@use './root';
-
 .f-calendar {
   cursor: default;
   user-select: none;
@@ -17,10 +15,10 @@
     .f-svg-icon {
       cursor: pointer;
       padding: 4px;
-      transition: background var(--f-design-transition-time);
+      transition: background 0.3s;
 
       &:hover {
-        background-color: var(--f-design-color-border-1);
+        background-color: #eee;
       }
     }
 
@@ -32,13 +30,13 @@
       font-size: 15px;
 
       .f-calendar__now-time {
-        color: var(--f-design-color-text-1);
+        color: #333;
         margin-right: 7px;
       }
 
       // 今天
       .f-calendar__now-date {
-        color: var(--f-design-color-primary-1);
+        color: #2d5af1;
         cursor: pointer;
         font-weight: 600;
       }
@@ -76,7 +74,7 @@
       flex-direction: column;
       box-sizing: border-box;
       border-top: 3px solid transparent;
-      transition: var(--f-design-transition-time);
+      transition: 0.3s;
       height: var(--calendar-day-cell-height, 85px);
 
       &:hover {
@@ -99,10 +97,10 @@
 
       // 今天
       &.f-calendar__day-today {
-        transition: var(--f-design-transition-time);
-        color: var(--f-design-color-primary-1);
-        background: var(--f-design-color-primary-4);
-        border-top: 3px solid var(--f-design-color-primary-1);
+        transition: 0.3s;
+        color: #2d5af1;
+        background-color: #dee5fd;
+        border-top: 3px solid #2d5af1;
       }
 
       // 不是当月的时间
@@ -128,7 +126,7 @@
         padding: 10px;
         box-sizing: border-box;
         box-shadow: 0 -6px 12px 0 #5b78d817;
-        background: var(--f-design-color-text-2);
+        background-color: #fff;
 
         &::-webkit-scrollbar {
           display: none;
@@ -148,20 +146,20 @@
 
   // 边框
   &.f-calendar__border {
-    border-top: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
-    border-left: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
+    border-top: 1px solid var(--calendar-border-color, #eee);
+    border-left: 1px solid var(--calendar-border-color, #eee);
 
     .f-calendar__header {
-      border-right: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
+      border-right: 1px solid var(--calendar-border-color, #eee);
     }
 
     .f-calendar__week {
-      border-bottom: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
-      border-top: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
+      border-bottom: 1px solid var(--calendar-border-color, #eee);
+      border-top: 1px solid var(--calendar-border-color, #eee);
       margin: 0;
 
       .f-calendar__week-item {
-        border-right: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
+        border-right: 1px solid var(--calendar-border-color, #eee);
       }
     }
 
@@ -169,8 +167,8 @@
       margin: 0;
 
       .f-calendar__day-item {
-        border-right: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
-        border-bottom: 1px solid var(--calendar-border-color, var(--f-design-color-border-1));
+        border-right: 1px solid var(--calendar-border-color, #eee);
+        border-bottom: 1px solid var(--calendar-border-color, #eee);
       }
     }
   }

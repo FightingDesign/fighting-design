@@ -18,7 +18,7 @@
   )
 
   /** 图片 dom 节点 */
-  const avatarEl: Ref<HTMLImageElement | null> = ref(null)
+  const avatarEl: Ref<HTMLImageElement | null> = ref<HTMLImageElement | null>(null)
 
   /** 开始触发加载 */
   onMounted((): void => {

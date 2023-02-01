@@ -1,4 +1,3 @@
-@use './root';
 @import '../config/var-avatar';
 
 .f-avatar {
@@ -6,26 +5,18 @@
   display: inline-flex;
   vertical-align: middle;
   justify-content: center;
-  width: var(--f-avatar-size, 60px);
-  height: var(--f-avatar-size, 60px);
-  background-color: var(--f-avatar-background, none);
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  background-color: var(--avatar-background);
 
+  // 图片元素
   &__img {
-    width: var(--f-avatar-size, 60px);
-    height: var(--f-avatar-size, 60px);
-  }
-
-  // 不同大小
-  @each $key, $value in $avatarSize {
-    &.f-avatar__#{$key},
-    &__#{$key} {
-      width: $value;
-      height: $value;
-    }
+    width: var(--avatar-size);
+    height: var(--avatar-size);
   }
 
   // 不同的适应容器的方式
-  @each $key in $avatarFit {
+  @each $key in fill, contain, cover, none, scale-down {
     &__#{$key} {
       object-fit: $key;
     }
@@ -38,22 +29,23 @@
   }
 
   &__text {
-    font-size: var(--f-avatar-font-size, 15px);
-    color: var(--f-avatar-font-color, --f-design-color-text-1);
+    font-size: var(--avatar-font-size, 15px);
+    color: var(--avatar-font-color, #333);
   }
 }
 
+// 加载失败的
 .f-avatar__error {
-  width: 60px;
-  height: 60px;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
   align-items: center;
   display: inline-flex;
   vertical-align: middle;
   justify-content: center;
-  background-color: var(--f-design-color-border-1);
+  background-color: #eee;
 
   .f-avatar__error-text {
-    font-size: var(--f-avatar-font-size, 13px);
-    color: var(--f-avatar-font-color, var(--f-design-color-text-1));
+    font-size: var(--avatar-font-size, 13px);
+    color: var(--avatar-font-color, #333);
   }
 }

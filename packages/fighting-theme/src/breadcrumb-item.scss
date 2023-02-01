@@ -1,5 +1,3 @@
-@use './root';
-
 .f-breadcrumb-item {
   display: inline-flex;
   align-items: center;
@@ -8,14 +6,14 @@
 
   // 文字内容
   .f-breadcrumb-item__text {
-    font-size: var(--f-breadcrumb-item-font-size, var(--f-design-font-size-middle));
-    color: var(--f-breadcrumb-item-font-color, var(--f-design-color-text-1));
+    font-size: var(--breadcrumb-item-font-size, 15px);
+    color: var(--breadcrumb-item-font-color, #333);
   }
 
   // icon
   .f-svg-icon {
     margin: 0 6px;
-    color: var(--f-breadcrumb-item-icon-color, var(--f-design-color-border-4));
+    color: var(--breadcrumb-item-icon-color, #dee5fd);
   }
 
   // 最后一个分隔符隐藏
