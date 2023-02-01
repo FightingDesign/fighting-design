@@ -1,5 +1,3 @@
-@use './root';
-
 .f-tooltip {
   cursor: pointer;
   position: relative;
@@ -11,7 +9,7 @@
     opacity: 0;
     z-index: 600;
     transform: translate3d(0, 0, 0);
-    transition: all var(--f-design-transition-time) ease 0.05s;
+    transition: all 0.3s ease 0.05s;
   }
 
   &.f-tooltip__hover:hover::before,
@@ -35,7 +33,7 @@
   &::after {
     content: attr(f-content);
     position: absolute;
-    background-color: var(--tooltip-background, var(--f-design-color-text-1));
+    background-color: var(--tooltip-background, #333);
     font-size: 12px;
     font-weight: normal;
     color: var(--tooltip-font-color, #fff);
@@ -46,35 +44,35 @@
   }
 
   &.f-tooltip__top::before {
-    border-top-color: var(--tooltip-background, var(--f-design-color-text-1));
+    border-top-color: var(--tooltip-background, #333);
   }
 
   &.f-tooltip__right::before {
-    border-right-color: var(--tooltip-background, var(--f-design-color-text-1));
+    border-right-color: var(--tooltip-background, #333);
   }
 
   &.f-tooltip__bottom::before {
-    border-bottom-color: var(--tooltip-background, var(--f-design-color-text-1));
+    border-bottom-color: var(--tooltip-background, #333);
   }
 
   &.f-tooltip__left::before {
-    border-left-color: var(--tooltip-background, var(--f-design-color-text-1));
+    border-left-color: var(--tooltip-background, #333);
   }
 
   &.f-tooltip__top.f-tooltip__bright::before {
-    border-top-color: var(--f-design-color-border-1);
+    border-top-color: #eee;
   }
 
   &.f-tooltip__right.f-tooltip__bright::before {
-    border-right-color: var(--f-design-color-border-1);
+    border-right-color: #eee;
   }
 
   &.f-tooltip__bottom.f-tooltip__bright::before {
-    border-bottom-color: var(--f-design-color-border-1);
+    border-bottom-color: #eee;
   }
 
   &.f-tooltip__left.f-tooltip__bright::before {
-    border-left-color: var(--f-design-color-border-1);
+    border-left-color: #eee;
   }
 
   // top && bottom
@@ -213,9 +211,9 @@
   // 浅色主题
   &.f-tooltip__bright {
     &::after {
-      background-color: var(--f-design-color-text-2);
-      color: var(--f-design-color-text-1);
-      border: 0.5px solid var(--f-design-color-text-1);
+      background-color: #fff;
+      color: #333;
+      border: 0.5px solid #333;
     }
   }
 }

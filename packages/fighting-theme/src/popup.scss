@@ -32,14 +32,14 @@
     bottom: 0;
     left: 0;
     z-index: 1999;
-    transition: var(--f-design-transition-time);
+    transition: 0.3s;
 
     .f-popup__wrapper {
       position: absolute;
       box-sizing: border-box;
       overflow-y: auto;
       overflow-x: hidden;
-      background-color: var(--f-design-color-text-2);
+      background-color: #fff;
 
       // 主内容动画样式
       &-transition-enter-active,

@@ -4,8 +4,8 @@
   border-radius: 4px;
   display: inline-flex;
   flex-direction: column;
-  background-color: var(--f-design-color-text-2);
-  border: 1px solid var(--f-design-color-border-1);
+  background-color: #fff;
+  border: 1px solid #eee;
 
   // 头部
   &__header {
@@ -16,11 +16,11 @@
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid var(--f-design-color-border-1);
+    border-bottom: 1px solid #eee;
 
     &-title {
       font-size: 15px;
-      color: var(--f-design-color-text-1);
+      color: #333;
     }
 
     .f-close-btn {
@@ -43,7 +43,7 @@
     flex-flow: row nowrap;
     justify-content: flex-end;
     align-items: center;
-    border-top: 1px solid var(--f-design-color-border-1);
+    border-top: 1px solid #eee;
   }
 
   // 全屏展示

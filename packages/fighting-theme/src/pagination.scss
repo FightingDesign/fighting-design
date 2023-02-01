@@ -26,11 +26,11 @@
       height: 34px;
       font-size: 16px;
       cursor: pointer;
-      color: var(--f-design-color-text-1);
+      color: #333;
 
       // 选中状态
       &-active {
-        color: var(--f-design-color-primary-1);
+        color: #2d5af1;
       }
     }
 
@@ -51,7 +51,7 @@
         // 选中状态
         &-active {
           color: #fff;
-          background-color: var(--f-design-color-primary-1);
+          background-color: #2d5af1;
         }
       }
     }

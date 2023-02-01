@@ -1,18 +1,16 @@
-@use './root';
-
 .f-image {
   position: relative;
   vertical-align: top;
   display: inline-block;
-  width: var(--f-image-width);
-  height: var(--f-image-height);
-  border-radius: var(--f-image-border-radius);
+  width: var(--image-width);
+  height: var(--image-height);
+  border-radius: var(--image-border-radius);
 
   &__img {
     width: 100%;
     height: 100%;
     vertical-align: middle;
-    border-radius: var(--f-image-border-radius);
+    border-radius: var(--image-border-radius);
   }
 
   &__select {
@@ -54,7 +52,7 @@
     padding: 0 3px;
     border-radius: 3px;
     font-size: 15px;
-    background-color: var(--f-design-color-border-1);
-    color: var(--f-design-color-text-1);
+    background-color: #eee;
+    color: #333;
   }
 }

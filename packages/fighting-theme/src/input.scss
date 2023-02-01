@@ -20,11 +20,11 @@
     box-sizing: border-box;
     height: 100%;
     border: 1px solid transparent;
-    transition: var(--f-design-transition-time);
-    background-color: var(--f-design-color-border-1);
+    transition: 0.3s;
+    background-color: #eee;
 
     .f-input__icon {
-      color: var(--f-design-color-text-1);
+      color: #333;
     }
 
     // 输入框
@@ -37,7 +37,7 @@
       margin: 0 5px;
       font-size: 14px;
       cursor: pointer;
-      color: var(--f-design-color-text-1);
+      color: #333;
 
       // 禁用原生右侧上下选择箭头
       &::-webkit-outer-spin-button,
@@ -51,7 +51,7 @@
 
       // 占位符颜色
       &::placeholder {
-        color: var(--input-placeholder-color, var(--f-design-color-text-3));
+        color: var(--input-placeholder-color, #b1b1b1);
       }
     }
 
@@ -63,8 +63,8 @@
     }
 
     &:focus-within {
-      background-color: var(--f-design-color-text-2);
-      border-color: var(--f-design-color-primary-1);
+      background-color: #fff;
+      border-color: #2d5af1;
     }
   }
 

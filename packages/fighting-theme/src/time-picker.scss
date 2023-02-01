@@ -34,11 +34,11 @@
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          transition: background var(--f-design-transition-time);
-          color: var(--f-design-color-text-1);
+          transition: background 0.3s;
+          color: #333;
 
           &:hover {
-            background-color: var(--f-design-color-border-1);
+            background-color: #eee;
           }
         }
 

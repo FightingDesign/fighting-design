@@ -13,7 +13,7 @@
   max-width: 500px;
   transition: all 0.4s ease-out;
   z-index: var(--f-message-z-index, 4000);
-  background: var(--f-notification-background, var(--f-design-color-text-2));
+  background: var(--f-notification-background, #fff);
 
   @for $list from 1 to (length($ComponentsType) + 1) {
     $item: nth($ComponentsType, $list);

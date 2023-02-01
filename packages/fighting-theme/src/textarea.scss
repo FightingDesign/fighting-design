@@ -5,8 +5,8 @@
   overflow: hidden;
   position: relative;
   display: inline-block;
-  transition: background var(--f-design-transition-time);
-  background-color: var(--f-design-color-border-1);
+  transition: background 0.3s;
+  background-color: #eee;
 
   &__textarea {
     width: 100%;
@@ -21,7 +21,7 @@
     padding: 6px 9px;
     box-sizing: border-box;
     transition: border 0.2s;
-    color: var(--f-design-color-text-1);
+    color: #333;
   }
 
   // 禁用状态
@@ -32,10 +32,10 @@
 
   // 获取焦点
   &:focus-within {
-    background-color: var(--f-design-color-text-2);
+    background-color: #fff;
 
     .f-textarea__textarea {
-      border: 1px solid var(--f-design-color-primary-1);
+      border: 1px solid #2d5af1;
     }
   }
 

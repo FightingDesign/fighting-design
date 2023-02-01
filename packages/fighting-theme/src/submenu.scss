@@ -4,7 +4,7 @@
   box-sizing: border-box;
   cursor: pointer;
   user-select: none;
-  transition: background var(--f-design-transition-time), color var(--f-design-transition-time);
+  transition: background 0.3s, color 0.3s;
 
   // 水平的
   &.f-submenu__horizontal {
@@ -14,7 +14,7 @@
     align-items: center;
     cursor: pointer;
     height: 50px;
-    transition: background var(--f-design-transition-time);
+    transition: background 0.3s;
 
     .f-dropdown {
       width: 100%;
@@ -40,7 +40,7 @@
             .f-svg-icon,
             .f-submenu__title-text {
               font-size: var(--f-design-font-size-middle);
-              color: var(--f-design-color-text-1);
+              color: #333;
             }
           }
         }
@@ -55,7 +55,7 @@
           .f-submenu__title {
             > .f-svg-icon,
             .f-submenu__title-text {
-              color: var(--f-design-color-primary-1);
+              color: #2d5af1;
             }
           }
         }
@@ -68,7 +68,7 @@
     .f-dropdown {
       width: 100%;
       height: 100%;
-      transition: background var(--f-design-transition-time);
+      transition: background 0.3s;
 
       .f-trigger {
         width: inherit;
@@ -83,7 +83,7 @@
             align-items: center;
             cursor: pointer;
             height: 50px;
-            transition: background var(--f-design-transition-time);
+            transition: background 0.3s;
 
             .f-svg-icon {
               margin-left: 5px;
@@ -93,7 +93,7 @@
             .f-svg-icon,
             .f-submenu__title-text {
               font-size: var(--f-design-font-size-middle);
-              color: var(--f-design-color-text-1);
+              color: #333;
             }
           }
         }
@@ -108,7 +108,7 @@
           .f-submenu__title {
             > .f-svg-icon,
             .f-submenu__title-text {
-              color: var(--f-design-color-primary-1);
+              color: #2d5af1;
             }
           }
         }
@@ -127,7 +127,7 @@
       align-items: center;
       cursor: pointer;
       height: 50px;
-      transition: var(--f-design-transition-time);
+      transition: 0.3s;
 
       .f-svg-icon {
         margin-left: 5px;
@@ -135,14 +135,14 @@
       }
 
       .f-submenu__arrow-icon-animation {
-        transition: var(--f-design-transition-time);
+        transition: 0.3s;
         transform: rotate(-180deg);
       }
 
       .f-svg-icon,
       .f-submenu__title-text {
         font-size: var(--f-design-font-size-middle);
-        color: var(--f-design-color-text-1);
+        color: #333;
       }
 
       &:hover {
@@ -153,7 +153,7 @@
             .f-submenu__title {
               > .f-svg-icon,
               .f-submenu__title-text {
-                color: var(--f-design-color-primary-1);
+                color: #2d5af1;
               }
             }
           }

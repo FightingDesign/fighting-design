@@ -7,12 +7,12 @@
   cursor: pointer;
   margin: 4px;
   user-select: none;
-  transition: background var(--f-design-transition-time);
-  color: var(--f-design-color-text-1);
-  background-color: var(--f-design-color-text-2);
+  transition: background 0.3s;
+  color: #333;
+  background-color: #fff;
 
   &:not([class~='f-option__disabled']):hover {
-    background-color: var(--f-design-color-border-1);
+    background-color: #eee;
   }
 
   // 禁用

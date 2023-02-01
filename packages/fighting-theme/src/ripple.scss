@@ -16,7 +16,7 @@
     border-radius: 10%;
     animation: f-ripples-animation 0.4s linear;
     opacity: var(--f-ripple-start-opacity, 0.5);
-    background-color: var(--f-design-color-text-2);
+    background-color: #fff;
   }
 
   @keyframes f-ripples-animation {

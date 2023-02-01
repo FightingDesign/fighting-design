@@ -10,11 +10,11 @@
   outline: none;
   line-height: 1;
   transition: 0.3s;
-  font-size: var(--f-link-size, var(--link-font-size));
-  color: var(--f-link-color, var(--link-color));
+  font-size: var(--link-size, var(--link-font-size));
+  color: var(--link-color, var(--link-color));
 
   .f-svg-icon {
-    font-size: var(--f-link-font-size, var(--link-font-size));
+    font-size: var(--link-font-size, var(--link-font-size));
   }
 
   // 不同样式
@@ -23,7 +23,7 @@
   }
 
   &:not([class~='f-link__disabled']).f-link__bag:hover {
-    background-color: var(--f-design-color-border-1);
+    background-color: #eee;
     border-radius: var(--f-design-border-radius-1);
   }
 

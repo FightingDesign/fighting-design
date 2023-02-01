@@ -9,7 +9,7 @@ $tableZebra: #f7f7f7;
     box-sizing: border-box;
     overflow: hidden;
     height: var(--f-table-height);
-    background-color: var(--f-table-bg-color, var(--f-design-color-text-2));
+    background-color: var(--f-table-bg-color, #fff);
 
     // 在限制高度时展示的头部
     .f-table__header {
@@ -58,7 +58,7 @@ $tableZebra: #f7f7f7;
         cursor: default;
 
         tr {
-          border-bottom: 1px solid var(--f-design-color-border-1);
+          border-bottom: 1px solid #eee;
 
           th {
             font-weight: 500;
@@ -77,14 +77,14 @@ $tableZebra: #f7f7f7;
         cursor: default;
 
         tr {
-          border-bottom: 1px solid var(--f-design-color-border-1);
+          border-bottom: 1px solid #eee;
 
           td {
             font-weight: 500;
             padding: 12px;
             font-size: 15px;
             box-sizing: border-box;
-            color: var(--f-design-color-text-1);
+            color: #333;
           }
         }
       }
@@ -94,7 +94,7 @@ $tableZebra: #f7f7f7;
     &.f-table__border {
       th,
       td {
-        border-right: 1px solid var(--f-design-color-border-1);
+        border-right: 1px solid #eee;
       }
     }
   }

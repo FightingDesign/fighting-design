@@ -15,7 +15,7 @@
     position: relative;
     transition: flex 0.5s ease-in;
     overflow: hidden;
-    color: var(--f-design-color-text-2);
+    color: #fff;
 
     // 圆角
     &.f-expand-card__round {
@@ -29,7 +29,7 @@
       left: 20px;
       transition: opacity 0.2s;
       opacity: 0;
-      color: var(--f-design-color-text-2);
+      color: #fff;
     }
 
     &.f-expand-card__active {

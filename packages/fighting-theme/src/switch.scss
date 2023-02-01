@@ -15,7 +15,7 @@
     border-radius: 30px;
     z-index: 5;
     transition: 0.2s;
-    background-color: var(--f-design-color-primary-1);
+    background-color: #2d5af1;
     width: 40px;
     height: 20px;
     background-color: var(--f-switch-close-color, #bbbbbb);
@@ -45,7 +45,7 @@
           box-sizing: content-box;
           box-shadow: 0 2px 3px #00000021, 0 0 4px #0000000d;
           border: 2px solid var(--f-switch-close-color, #bbbbbb);
-          background-color: var(--f-design-color-text-2);
+          background-color: #fff;
 
           // 小球的位置
           &.f-switch__roll-active {
@@ -63,14 +63,14 @@
 
     // 选中状态
     &.f-switch__active {
-      background-color: var(--f-switch-active-color, var(--f-design-color-primary-1));
+      background-color: var(--f-switch-active-color, #2d5af1);
 
       // 选中状态的小球
       .f-switch__roll {
-        border: 2px solid var(--f-switch-active-color, var(--f-design-color-primary-1));
+        border: 2px solid var(--f-switch-active-color, #2d5af1);
 
         .f-svg-icon {
-          color: var(--f-switch-active-color, var(--f-design-color-primary-1));
+          color: var(--f-switch-active-color, #2d5af1);
         }
       }
     }
@@ -90,19 +90,19 @@
     font-size: 13px;
     margin-left: 5px;
     transition: 0.2s;
-    color: var(--f-design-color-text-1);
+    color: #333;
   }
 
   &__right-text {
     font-size: 13px;
     margin-right: 5px;
     transition: 0.2s;
-    color: var(--f-design-color-text-1);
+    color: #333;
   }
 
   // 文字选中状态
   &__text-active {
-    color: var(--f-design-color-primary-1);
+    color: #2d5af1;
   }
 
   // 禁用状态

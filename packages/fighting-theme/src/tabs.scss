@@ -102,7 +102,7 @@
               // 选中的元素
               &:hover,
               &.f-tabs-nav__item-active {
-                color: var(--f-design-color-primary-1);
+                color: #2d5af1;
               }
 
               // 关闭按钮
@@ -120,8 +120,8 @@
           // 选中的标签
           .f-tabs-nav__line-active {
             height: 2px;
-            background-color: var(--f-design-color-primary-1);
-            transition: all var(--f-design-transition-time);
+            background-color: #2d5af1;
+            transition: all 0.3s;
             position: absolute;
           }
         }
@@ -164,7 +164,7 @@
                 background-color: #fff;
 
                 .f-tabs-nav__item-label {
-                  color: var(--f-design-color-primary-1);
+                  color: #2d5af1;
                 }
               }
             }
@@ -205,10 +205,10 @@
               padding: 4px 8px;
 
               &.f-tabs-nav__item-active {
-                background-color: var(--f-design-color-text-2);
+                background-color: #fff;
 
                 .f-tabs-nav__item-label {
-                  color: var(--f-design-color-primary-1);
+                  color: #2d5af1;
                 }
               }
             }
@@ -245,7 +245,7 @@
               // 选中的元素
               &:hover,
               &.f-tabs-nav__item-active {
-                color: var(--f-design-color-primary-1);
+                color: #2d5af1;
               }
 
               // 关闭按钮
@@ -263,8 +263,8 @@
           // 选中的标签
           .f-tabs-nav__line-active {
             width: 2px;
-            background-color: var(--f-design-color-primary-1);
-            transition: all var(--f-design-transition-time);
+            background-color: #2d5af1;
+            transition: all 0.3s;
             position: absolute;
           }
         }
@@ -304,7 +304,7 @@
               background-color: #fff;
 
               .f-tabs-nav__item-label {
-                color: var(--f-design-color-primary-1);
+                color: #2d5af1;
               }
             }
           }

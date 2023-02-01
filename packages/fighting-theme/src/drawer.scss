@@ -4,7 +4,7 @@
   display: inline-flex;
   flex-direction: column;
   width: 100%;
-  background-color: var(--f-design-color-text-2);
+  background-color: #fff;
 
   // 头部
   &__header {
@@ -15,11 +15,11 @@
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid var(--f-design-color-border-1);
+    border-bottom: 1px solid #eee;
 
     &-title {
       font-size: 15px;
-      color: var(--f-design-color-text-1);
+      color: #333;
     }
 
     .f-close-btn {
@@ -38,7 +38,7 @@
   // 页脚
   &__footer {
     padding: 10px 14px;
-    border-top: 1px solid var(--f-design-color-border-1);
+    border-top: 1px solid #eee;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;

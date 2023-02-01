@@ -1,11 +1,9 @@
-@use './root';
-
 .f-page-header {
   display: flex;
   align-items: center;
   box-sizing: border-box;
   height: 30px;
-  background: var(--f-design-color-text-2);
+  background: #fff;
 
   // 后退
   &__left {
@@ -18,7 +16,7 @@
     cursor: pointer;
     user-select: none;
     border-right: 1px solid #d9d9d9;
-    color: var(--f-design-color-text-1);
+    color: #333;
 
     // 返回文字
     .f-page-header__text {
@@ -42,7 +40,7 @@
     // 标题
     .f-page-header__main-title {
       font-size: 17px;
-      color: var(--f-design-color-text-1);
+      color: #333;
 
       &.f-page-header__main-title-bold {
         font-weight: bold;

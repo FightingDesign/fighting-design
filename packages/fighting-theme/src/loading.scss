@@ -1,5 +1,3 @@
-@use './root';
-
 .f-loading {
   position: absolute;
   top: 0;
@@ -12,8 +10,8 @@
   align-items: center;
   justify-content: center;
   background: rgb(35, 39, 46, 0.5);
-  transition: background var(--f-design-transition-time);
-  color: var(--f-design-color-primary-1);
+  transition: background 0.3s;
+  color: #2d5af1;
 
   &.f-loading__fullscreen {
     position: fixed;

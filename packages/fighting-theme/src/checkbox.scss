@@ -8,8 +8,8 @@
   outline: none;
   user-select: none;
   cursor: pointer;
-  transition: var(--f-design-transition-time);
-  color: var(--f-design-color-text-1);
+  transition: 0.3s;
+  color: #333;
 
   // 选择框
   &__box {
@@ -26,20 +26,20 @@
 
   // 文字
   &__text {
-    color: var(--f-design-color-text-1);
-    transition: color var(--f-design-transition-time);
+    color: #333;
+    transition: color 0.3s;
   }
 
   // 正常状态选中状态
   &.f-checkbox__active {
     .f-checkbox__text {
-      color: var(--f-design-color-primary-1);
+      color: #2d5af1;
     }
 
     // 前面盒子
     .f-checkbox__box {
-      background-color: var(--f-design-color-primary-1);
-      border: 1px solid var(--f-design-color-primary-1);
+      background-color: #2d5af1;
+      border: 1px solid #2d5af1;
 
       &::after {
         content: '';
@@ -48,7 +48,7 @@
         position: absolute;
         top: 0;
         transform: rotate(45deg) scaleY(1);
-        border: 1px solid var(--f-design-color-text-2);
+        border: 1px solid #fff;
         border-left: 0;
         border-top: 0;
         animation: f-checkbox-animation 0.1s ease-in;
@@ -77,8 +77,8 @@
 
   &.f-checkbox__indeterminate {
     .f-checkbox__box {
-      background-color: var(--f-design-color-primary-1);
-      border: 1px solid var(--f-design-color-primary-1);
+      background-color: #2d5af1;
+      border: 1px solid #2d5af1;
 
       &::after {
         content: '';
@@ -88,7 +88,7 @@
         top: calc(50% - 1px);
         transform: rotate(0) scale(1);
         animation: f-checkbox-animation2 0.1s ease-in;
-        background-color: var(--f-design-color-text-2);
+        background-color: #fff;
 
         @keyframes f-checkbox-animation2 {
           from {

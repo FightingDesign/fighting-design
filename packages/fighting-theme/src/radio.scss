@@ -9,21 +9,21 @@
   outline: none;
   user-select: none;
   transition: 0.4s;
-  color: var(--f-design-color-text-1);
+  color: #333;
 
   // 选中状态
   &.f-radio__checked {
     // 文字
     .f-radio__text {
-      color: var(--f-design-color-primary-1);
+      color: #2d5af1;
     }
 
     .f-radio__circle {
-      border: 1px solid var(--f-design-color-primary-1);
+      border: 1px solid #2d5af1;
 
       &::after {
         transform: translate(-50%, -50%) scale(2);
-        background-color: var(--f-design-color-primary-1);
+        background-color: #2d5af1;
       }
     }
   }
@@ -36,7 +36,7 @@
     position: relative;
     border: 1px solid #dee5fd;
     margin-right: 7px;
-    background-color: var(--f-design-color-text-2);
+    background-color: #fff;
 
     &::after {
       content: '';
@@ -48,7 +48,7 @@
       border-radius: 50%;
       transform: translate(-50%, -50%) scale(0);
       transition: transform 0.15s ease-in;
-      background-color: var(--f-design-color-text-2);
+      background-color: #fff;
     }
   }
 

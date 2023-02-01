@@ -1,10 +1,8 @@
-@use './root';
-
 .f-sticky-card {
   cursor: pointer;
   border-radius: 3px;
-  border: 1px solid var(--sticky-card-border-color, var(--f-design-color-border-1));
-  transition: var(--f-design-transition-time);
+  border: 1px solid var(--sticky-card-border-color, #eee);
+  transition: 0.3s;
 
   // 展示的内容
   &__source {
@@ -16,7 +14,7 @@
   &__box {
     padding: 0 20px;
     box-sizing: border-box;
-    border-top: 1px solid var(--sticky-card-border-color, var(--f-design-color-border-1));
+    border-top: 1px solid var(--sticky-card-border-color, #eee);
 
     // 滚动条
     &::-webkit-scrollbar {
@@ -32,7 +30,7 @@
 
   // 点击的操作栏
   &__option {
-    border-top: 1px solid var(--sticky-card-border-color, var(--f-design-color-border-1));
+    border-top: 1px solid var(--sticky-card-border-color, #eee);
     height: 45px;
     cursor: pointer;
     display: flex;
@@ -43,8 +41,8 @@
     padding: 10px;
     box-sizing: border-box;
     z-index: 9999;
-    background-color: var(--f-design-color-text-2);
-    color: var(--f-design-color-text-1);
+    background-color: #fff;
+    color: #333;
 
     // 展开使用粘性定位
     &.f-sticky-card__option-open {
@@ -61,7 +59,7 @@
 
     &:hover {
       .f-sticky-card__option-text {
-        color: var(--f-design-color-primary-1);
+        color: #2d5af1;
       }
     }
   }

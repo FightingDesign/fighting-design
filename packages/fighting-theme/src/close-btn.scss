@@ -8,8 +8,8 @@
   padding: 2px;
   box-sizing: border-box;
   user-select: none;
-  transition: var(--f-design-transition-time);
-  color: var(--f-close-btn-color, var(--f-design-color-primary-1));
+  transition: 0.3s;
+  color: var(--close-btn-color, #2d5af1);
 
   // 圆角的
   &.f-close-btn__round {
@@ -19,7 +19,7 @@
   &:not([class~='f-close-btn__disabled']):hover {
     opacity: 0.8;
     background-color: var(--f-design-color-border-3);
-    color: var(--f-close-btn-hover-color, var(--f-design-color-danger-1));
+    color: var(--close-btn-hover-color, var(--f-design-color-danger-1));
   }
 
   &:not([class~='f-close-btn__disabled']):active {

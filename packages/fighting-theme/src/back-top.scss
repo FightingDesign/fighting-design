@@ -15,7 +15,7 @@
   right: var(--back-top-right, 40px);
   bottom: var(--back-top-bottom, 40px);
   z-index: var(--back-top-z-index, 900);
-  color: var(--back-top-color, var(--f-design-color-text-1));
+  color: var(--back-top-color, #333);
   background-color: var(--back-top-background, #fff);
 
   &.f-back-top__round {

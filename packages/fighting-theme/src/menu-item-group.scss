@@ -1,11 +1,9 @@
-@use './root';
-
 .f-menu-item-group {
   // 标题
   .f-menu-item-group__title {
     padding: 3px 16px;
-    color: var(--f-design-color-text-3);
-    font-size: var(--f-design-font-size-mini);
+    color: #b1b1b1;
+    font-size: 13px;
   }
 
   // 内容
