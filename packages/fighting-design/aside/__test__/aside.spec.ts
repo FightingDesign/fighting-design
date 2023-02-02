@@ -22,6 +22,13 @@ describe('f-aside', () => {
     expect(wrapper.attributes('style')).toContain('--aside-width: 200px')
   })
 
+  test('background', () => {
+    const wrapper = mount(FAside, {
+      props: { background: 'red' }
+    })
+    expect(wrapper.attributes('style')).toContain('--aside-background: red')
+  })
+
   test('slot', () => {
     const wrapper = mount(FAside, {
       slots: { default: 'hello' }

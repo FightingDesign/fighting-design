@@ -7,10 +7,11 @@
   const { styles } = useList(prop, 'aside')
 
   /** 样式列表 */
-  const styleList = styles(['width', 'padding'])
+  const styleList = styles(['width', 'padding', 'background'])
 </script>
 
 <template>
+  <!-- https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/aside -->
   <aside class="f-aside" :style="styleList">
     <slot />
   </aside>

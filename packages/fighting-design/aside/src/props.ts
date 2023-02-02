@@ -1,11 +1,17 @@
-import { setStringNumberProp } from '../../_utils'
+import { setStringNumberProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   /** 自定义宽度 */
   width: setStringNumberProp(),
   /** 自定义内边距 */
-  padding: setStringNumberProp()
+  padding: setStringNumberProp(),
+  /**
+   * 背景色
+   * 
+   * @see background https://developer.mozilla.org/zh-CN/docs/Web/CSS/background
+   */
+  background: setStringProp()
 } as const
 
 export type AsideProps = ExtractPropTypes<typeof Props>
