@@ -11,7 +11,6 @@
 </script>
 
 <template>
-  <!-- https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/aside -->
   <aside class="f-aside" :style="styleList">
     <slot />
   </aside>
