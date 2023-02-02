@@ -19,7 +19,8 @@
       <div class="vp-home__describe">
         <!-- logo -->
         <f-avatar
-          class="vp-home__logo"
+          ref="fightingLogo"
+          class="vp-home__logo fighting__logo"
           draggable="false"
           src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
           alt="Fighting Design logo"
@@ -88,7 +89,9 @@
 </template>
 
 <script lang="ts" setup>
-  import { footerList, contributors } from './src'
+  import { footerList, contributors, rotate } from './src'
+
+  rotate()
 </script>
 
 <style lang="scss" scoped>
@@ -142,8 +145,25 @@
       .vp-home__describe {
         // logo
         .vp-home__logo {
+          width: 120px;
+          height: 120px;
           user-select: none;
           display: block;
+
+          &.fighting__logo__rotate {
+            animation: logo-animation 1s linear infinite;
+          }
+
+          // loading 动画
+          @keyframes logo-animation {
+            from {
+              transform: rotate(0deg);
+            }
+
+            to {
+              transform: rotate(360deg);
+            }
+          }
         }
 
         // 标题
