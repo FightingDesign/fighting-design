@@ -3,7 +3,7 @@ import { isString, isNumber } from '..'
 /**
  * 保留小数点后 no 位
  *
- * @see toFixed https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+ * @see Number.prototype.toFixed() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
  * @param { number } num 带有小数的数字
  * @param { number } [no = 2] 保留位数
  * @returns { number } 转换后的数字
@@ -25,6 +25,7 @@ export type DebounceReturn = () => void
  * @returns { Function }
  */
 export const debounce = (callback: () => void, delay = 200): DebounceReturn => {
+  /** 定时器函数 */
   let timer: NodeJS.Timeout
 
   return (): void => {
@@ -69,7 +70,7 @@ export const sizeChange = (size: string | number | undefined, target = 'px'): st
  *
  * 例如: 12px => 12
  *
- * @see parseFloat https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat
+ * @see Number.parseFloat() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat
  *
  * @param { string | number } size 尺寸
  * @returns { number } 数字尺寸
@@ -83,6 +84,8 @@ export const sizeToNum = (size: string | number): number => {
 /**
  * 驼峰命名转换为短横线命名
  *
+ * @see String.prototype.replace() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+ * @see String.prototype.toLowerCase() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
  * @param { string } str 需要转换的字符串
  * @returns { string } 短横线命名
  */

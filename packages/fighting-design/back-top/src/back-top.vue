@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FBackTop">
   import { Props } from './props'
   import { onMounted, ref, toRefs } from 'vue'
-  import { debounce } from '../../_utils'
+  import { debounce, isNumber, isString, error } from '../../_utils'
   import { useList } from '../../_hooks'
   import type { DebounceReturn } from '../../_utils'
 
@@ -15,14 +15,31 @@
   /**
    * 滚动状态监视
    *
+   * 传入元素节点代码是需要监听节点
+   *
+   * 否则监听 document
+   *
    * @param { Object } [node] 元素节点
+   * @returns { Function } 防抖函数
    */
   const handleScroll = (node?: HTMLElement): DebounceReturn => {
     return debounce((): void => {
-      /** 当前滚动的距离 */
+      /**
+       * 当前滚动的距离
+       *
+       * @see document.documentElement https://developer.mozilla.org/zh-CN/docs/Web/API/Document/documentElement
+       * @see Element.scrollTop https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop
+       */
       const scrollTop: number = (node || document.documentElement).scrollTop
 
-      visible.value = scrollTop > prop.visibleHeight
+      /**
+       * 滚动超出多少距离展示
+       *
+       * 避免传入以为参数，需要判断传入的是否为 number 类型
+       */
+      const visibleHeight: number = isNumber(prop.visibleHeight) ? prop.visibleHeight : 200
+
+      visible.value = scrollTop > visibleHeight
     }, 200)
   }
 
@@ -33,19 +50,32 @@
     /** 如果存在监听的目录 */
     if (listenEl.value) {
       /** 获取到监听的元素节点 */
-      const listerNode: HTMLElement | null = document.querySelector(listenEl.value) as HTMLElement
+      const listerNode: HTMLElement | null = document.querySelector(listenEl.value)
 
       listerNode && listerNode.scrollTo({ top: top.value, behavior: behavior.value })
       return
     }
 
+    /**
+     * @see Window.scrollTo() https://developer.mozilla.org/zh-CN/docs/Web/API/Window/scrollTo
+     */
     window && window.scrollTo({ top: top.value, behavior: behavior.value })
   }
 
   onMounted((): void => {
     if (prop.listenEl) {
+      /**
+       * 如果不是字符串，后续代码会有致命错误
+       *
+       * 提前拦截错误
+       */
+      if (!isString(prop.listenEl)) {
+        error('back-top', 'listen-el attributes is not a string')
+        return
+      }
+
       /** 获取到监视的节点 */
-      const listerNode = document.querySelector(prop.listenEl) as HTMLElement
+      const listerNode: HTMLElement | null = document.querySelector(prop.listenEl)
 
       listerNode && listerNode.addEventListener('scroll', handleScroll(listerNode))
     } else {

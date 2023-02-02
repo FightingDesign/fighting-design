@@ -20,10 +20,14 @@
   /** 图片 dom 节点 */
   const avatarEl: Ref<HTMLImageElement | null> = ref<HTMLImageElement | null>(null)
 
-  /** 开始触发加载 */
+  /**
+   * 开始触发加载
+   *
+   * 判断条件：必须是不带有插槽 icon，不带有参数 icon，不是文字头像，并且节点存在
+   */
   onMounted((): void => {
-    if (!slot.icon && !prop.icon && !prop.text) {
-      loadImg(avatarEl.value as HTMLImageElement)
+    if (!slot.icon && !prop.icon && !prop.text && avatarEl.value) {
+      loadImg(avatarEl.value)
     }
   })
 </script>
