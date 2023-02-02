@@ -17,6 +17,7 @@
 <f-alert type="success">成功提示信息</f-alert>
 <f-alert type="danger">危险提示信息</f-alert>
 <f-alert type="warning">警告提示信息</f-alert>
+<f-alert type="info">信息提示信息</f-alert>
 </template>
 
 ```html
@@ -25,6 +26,7 @@
 <f-alert type="success">成功提示信息</f-alert>
 <f-alert type="danger">危险提示信息</f-alert>
 <f-alert type="warning">警告提示信息</f-alert>
+<f-alert type="info">信息提示信息</f-alert>
 ```
 
 :::
@@ -41,6 +43,7 @@
 <f-alert :font-size="16" type="success">成功提示信息</f-alert>
 <f-alert font-size="20px" type="danger">危险提示信息</f-alert>
 <f-alert font-size="24px" type="warning">警告提示信息</f-alert>
+<f-alert font-size="27px" type="info">信息提示信息</f-alert>
 </template>
 
 ```html
@@ -49,6 +52,7 @@
 <f-alert :font-size="16" type="success">成功提示信息</f-alert>
 <f-alert font-size="20px" type="danger">危险提示信息</f-alert>
 <f-alert font-size="24px" type="warning">警告提示信息</f-alert>
+<f-alert font-size="27px" type="info">信息提示信息</f-alert>
 ```
 
 :::
@@ -129,6 +133,7 @@
 <f-alert simple type="success">成功提示信息</f-alert>
 <f-alert simple type="danger">危险提示信息</f-alert>
 <f-alert simple type="warning">警告提示信息</f-alert>
+<f-alert simple type="info">信息提示信息</f-alert>
 </template>
 
 ```html
@@ -137,6 +142,7 @@
 <f-alert simple type="success">成功提示信息</f-alert>
 <f-alert simple type="danger">危险提示信息</f-alert>
 <f-alert simple type="warning">警告提示信息</f-alert>
+<f-alert simple type="info">信息提示信息</f-alert>
 ```
 
 :::
@@ -248,26 +254,26 @@
 
 ## Attributes
 
-| 参数          | 说明                   | 类型                                                               | 可选值                                           | 默认值  |
-| ------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------- |
-| `type`        | 类型                   | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | default |
-| `font-size`   | 副标题文字大小         | string / number                                                    | ——                                               | ——      |
-| `title-size`  | 主标题文字大小         | string / number                                                    | ——                                               | ——      |
-| `bold`        | 文字是否以粗体显示     | boolean                                                            | ——                                               | false   |
-| `center`      | 是否居中               | boolean                                                            | ——                                               | false   |
-| `close`       | 可关闭                 | boolean                                                            | ——                                               | false   |
-| `simple`      | 简约模式               | boolean                                                            | ——                                               | false   |
-| `title`       | 标题                   | string                                                             | ——                                               | ——      |
-| `round`       | 显示为圆角             | boolean                                                            | ——                                               | false   |
-| `background`  | 背景颜色               | string                                                             | ——                                               | ——      |
-| `color`       | 副标题字体颜色         | string                                                             | ——                                               | ——      |
-| `title-color` | 主标题字体颜色         | string                                                             | ——                                               | ——      |
-| `fixed`       | 是否固定定位           | boolean                                                            | ——                                               | false   |
-| `alert-list`  | 滚动列表               | array (string[])                                                   | ——                                               | ——      |
-| `duration`    | 滚动列表滚动时间间隔   | number                                                             | ——                                               | ——      |
-| `before-icon` | 自定义前缀 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
-| `close-icon`  | 自定义关闭 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                               | ——      |
-| `on-close`    | 点击关闭之后执行的回调 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——                                               | ——      |
+| 参数          | 说明                   | 类型                                                               | 可选值                                                  | 默认值  |
+| ------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------------- | ------- |
+| `type`        | 类型                   | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` `info` | default |
+| `font-size`   | 副标题文字大小         | string / number                                                    | ——                                                      | ——      |
+| `title-size`  | 主标题文字大小         | string / number                                                    | ——                                                      | ——      |
+| `bold`        | 文字是否以粗体显示     | boolean                                                            | ——                                                      | false   |
+| `center`      | 是否居中               | boolean                                                            | ——                                                      | false   |
+| `close`       | 可关闭                 | boolean                                                            | ——                                                      | false   |
+| `simple`      | 简约模式               | boolean                                                            | ——                                                      | false   |
+| `title`       | 标题                   | string                                                             | ——                                                      | ——      |
+| `round`       | 显示为圆角             | boolean                                                            | ——                                                      | false   |
+| `background`  | 背景颜色               | string                                                             | ——                                                      | ——      |
+| `color`       | 副标题字体颜色         | string                                                             | ——                                                      | ——      |
+| `title-color` | 主标题字体颜色         | string                                                             | ——                                                      | ——      |
+| `fixed`       | 是否固定定位           | boolean                                                            | ——                                                      | false   |
+| `alert-list`  | 滚动列表               | array (string[])                                                   | ——                                                      | ——      |
+| `duration`    | 滚动列表滚动时间间隔   | number                                                             | ——                                                      | ——      |
+| `before-icon` | 自定义前缀 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                                      | ——      |
+| `close-icon`  | 自定义关闭 icon        | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                                      | ——      |
+| `on-close`    | 点击关闭之后执行的回调 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——                                                      | ——      |
 
 ## Slots
 

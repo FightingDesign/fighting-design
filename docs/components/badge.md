@@ -27,6 +27,9 @@
 <f-badge value="14" type="warning">
 <f-button>warning</f-button>
 </f-badge>
+<f-badge value="15" type="info">
+<f-button>info</f-button>
+</f-badge>
 </template>
 
 ```html
@@ -44,6 +47,9 @@
 </f-badge>
 <f-badge value="14" type="warning">
   <f-button>warning</f-button>
+</f-badge>
+<f-badge value="15" type="info">
+  <f-button>info</f-button>
 </f-badge>
 ```
 
@@ -139,15 +145,15 @@
 
 ## Attributes
 
-| 参数         | 说明                                          | 类型                                                               | 可选值                                           | 默认值 |
-| ------------ | --------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------ | ------ |
-| `value`      | 显示值                                        | string / number                                                    | ——                                               | ——     |
-| `max`        | `value` 为数字时的最大值，超出显示为 `value+` | number                                                             | ——                                               | 99     |
-| `dot`        | 展示为一个点                                  | boolean                                                            | ——                                               | false  |
-| `show`       | 是否显示                                      | boolean                                                            | ——                                               | true   |
-| `type`       | 样式主题                                      | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` | danger |
-| `background` | 自定义背景颜色                                | string                                                             | ——                                               | ——     |
-| `color`      | 自定义文字颜色                                | string                                                             | ——                                               | ——     |
+| 参数         | 说明                                          | 类型                                                               | 可选值                                                  | 默认值 |
+| ------------ | --------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------- | ------ |
+| `value`      | 显示值                                        | string / number                                                    | ——                                                      | ——     |
+| `max`        | `value` 为数字时的最大值，超出显示为 `value+` | number                                                             | ——                                                      | 99     |
+| `dot`        | 展示为一个点                                  | boolean                                                            | ——                                                      | false  |
+| `show`       | 是否显示                                      | boolean                                                            | ——                                                      | true   |
+| `type`       | 样式主题                                      | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` `info` | danger |
+| `background` | 自定义背景颜色                                | string                                                             | ——                                                      | ——     |
+| `color`      | 自定义文字颜色                                | string                                                             | ——                                                      | ——     |
 
 ## Interface
 

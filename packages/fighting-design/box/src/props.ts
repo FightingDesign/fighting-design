@@ -5,7 +5,7 @@ export const Props = {
   /**
    * 原生属性
    *
-   * @see role https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
+   * @see WAI-ARIA-Roles https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
    */
   role: setStringProp(),
   /**

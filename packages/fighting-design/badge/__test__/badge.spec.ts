@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FBadge } from '../index'
+import { FIGHTING_TYPE } from '../../_tokens'
 
 describe('FBadge', () => {
   test('class', () => {
@@ -11,8 +12,7 @@ describe('FBadge', () => {
   })
 
   test('type', () => {
-    const type = ['primary', 'success', 'danger', 'warning'] as const
-    type.forEach(item => {
+    FIGHTING_TYPE.forEach(item => {
       const wrapper = mount(FBadge, {
         props: { type: item }
       })

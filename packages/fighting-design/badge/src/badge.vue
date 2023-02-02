@@ -15,23 +15,25 @@
   const styleList = styles(['background', 'color'])
 
   /** 展示的内容 */
-  const content = computed((): string => {
+  const content = computed((): string | number => {
     const { dot, max, value } = prop
 
     if (dot) return ''
 
     if (isNumber(max) && isNumber(value)) {
-      return max > value ? `${value}` : `${max}+`
+      return max > value ? value : max + '+'
     }
 
-    return `${value}`
+    return value
   })
 </script>
 
 <template>
   <div :class="classList" :style="styleList">
     <slot />
-    <sup v-show="!show && (content || dot)" class="f-badge__content">
+
+    <!-- https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/sup -->
+    <sup v-if="show" class="f-badge__content">
       {{ content }}
     </sup>
   </div>

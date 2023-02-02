@@ -11,11 +11,11 @@ export const Props = {
   /** 展示为一个点 */
   dot: setBooleanProp(),
   /** 是否显示 */
-  show: setBooleanProp(),
+  show: setBooleanProp(true),
   /**
    * 类型
    *
-   * @values default primary success danger warning
+   * @values default primary success danger warning info
    * @default danger
    */
   type: setStringProp<FightingType>('danger', (val: FightingType): boolean => {

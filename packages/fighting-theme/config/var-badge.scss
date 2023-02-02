@@ -3,8 +3,8 @@
 
   // 不同类型
   &__default {
-    --badge-color: #fff;
-    --badge-background: #333;
+    --badge-color: #1d1d1f;
+    --badge-background: #f0f0f0;
   }
 
   &__primary {
@@ -25,5 +25,11 @@
   &__warning {
     --badge-color: #fff;
     --badge-background: #fcc202;
+  }
+
+  // 不同类型
+  &__info {
+    --badge-color: #fbfbfd;
+    --badge-background: #1d1d1f;
   }
 }

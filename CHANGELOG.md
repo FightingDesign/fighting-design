@@ -2,7 +2,7 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- `f-button` `f-alert` 组件新增 type 为 info 可选项
+- `f-button` `f-alert` `f-badge` 组件新增 type 为 info 可选项
 - `f-alert` 组件样式微调
 - `f-aside` 组件新增 `background` 配置项
 
