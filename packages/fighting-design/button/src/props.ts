@@ -51,7 +51,7 @@ export const Props = {
   /**
    * 按钮的类型（非自定义按钮颜色时有效）
    *
-   * @values default primary success danger warning
+   * @values default primary success danger warning info
    * @default null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {

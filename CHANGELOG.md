@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-button` `f-alert` 组件新增 type 为 info 可选项
+
 ## 0.21.0 (2023-02-01)
 
 - `f-badge` 组件 type 新增 default 配置项
