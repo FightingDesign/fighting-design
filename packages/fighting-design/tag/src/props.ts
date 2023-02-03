@@ -7,7 +7,7 @@ export const Props = {
   /**
    * 标签类型
    *
-   * @values default primary success danger warning
+   * @values default primary success danger warning info
    * @default null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {

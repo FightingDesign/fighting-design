@@ -3,28 +3,33 @@
 
   // 不同类型
   &__default {
-    --tag-color: #333;
+    --tag-color: #1d1d1f;
     --tag-background: #f0f0f0;
   }
 
   &__primary {
-    --tag-color: #fff;
+    --tag-color: #fbfbfd;
     --tag-background: #2d5af1;
   }
 
   &__success {
-    --tag-color: #fff;
+    --tag-color: #fbfbfd;
     --tag-background: #52b35e;
   }
 
   &__danger {
-    --tag-color: #fff;
+    --tag-color: #fbfbfd;
     --tag-background: #ff0200;
   }
 
   &__warning {
-    --tag-color: #fff;
+    --tag-color: #fbfbfd;
     --tag-background: #fcc202;
+  }
+
+  &__info {
+    --tag-color: #fbfbfd;
+    --tag-background: #1d1d1f;
   }
 
   // 简约状态
@@ -53,6 +58,11 @@
     --tag-background: #fff5d6;
   }
 
+  &__info.f-tag__simple {
+    --tag-color: #1d1d1f;
+    --tag-background: #bdbdbd;
+  }
+
   // 线性的
   &__default.f-tag__line {
     --tag-color: #333;
@@ -76,6 +86,11 @@
 
   &__warning.f-tag__line {
     --tag-color: #fcc202;
+    --tag-background: none;
+  }
+
+  &__warning.f-tag__line {
+    --tag-color: #1d1d1f;
     --tag-background: none;
   }
 
