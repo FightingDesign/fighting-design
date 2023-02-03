@@ -82,6 +82,14 @@ export const Props = {
   clear: setBooleanProp(),
   /** 是否可搜索 */
   search: setBooleanProp(),
+  /** 自定义背景色 */
+  background: setStringProp(),
+  /** 自定义文字颜色 */
+  textColor: setStringProp(),
+  /** 自定义获取焦点背景色 */
+  activeBackground: setStringProp(),
+  /** 自定义获取焦点边框颜色 */
+  activeBorderColor: setStringProp(),
   /**
    * 是否只读
    *

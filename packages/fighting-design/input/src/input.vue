@@ -85,7 +85,7 @@
   }
 
   /** 样式列表 */
-  const styleList = styles(['placeholderColor'])
+  const styleList = styles(['placeholderColor', 'background', 'textColor', 'activeBackground', 'activeBorderColor'])
 </script>
 
 <template>

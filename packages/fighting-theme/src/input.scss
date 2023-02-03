@@ -19,7 +19,7 @@
     height: 100%;
     border: 1px solid transparent;
     transition: 0.3s;
-    background-color: #eee;
+    background-color: var(--input-background);
 
     .f-input__icon {
       color: #333;
@@ -35,7 +35,7 @@
       margin: 0 5px;
       font-size: var(--input-font-size, 14px);
       cursor: pointer;
-      color: #333;
+      color: var(--input-text-color);
 
       // 禁用原生右侧上下选择箭头
       &::-webkit-outer-spin-button,
@@ -61,8 +61,8 @@
     }
 
     &:focus-within {
-      background-color: #fff;
-      border-color: #2d5af1;
+      background-color: var(--input-active-background);
+      border-color: var(--input-active-border-color);
     }
   }
 

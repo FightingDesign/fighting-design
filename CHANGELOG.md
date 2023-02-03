@@ -5,6 +5,8 @@
 - `f-button` `f-alert` `f-badge` `f-tag` 组件新增 type 为 info 可选项
 - `f-alert` 组件样式微调
 - `f-aside` 组件新增 `background` 配置项
+- `f-input` 样式微调
+- `f-input` 组件新增 `background` `text-color` `active-background` `active-border-color` 配置项
 
 ## 0.21.0 (2023-02-01)
 

@@ -204,31 +204,35 @@
 
 ## Attributes
 
-| 参数                | 说明                       | 类型                                                               | 可选值                          | 默认值  |
-| ------------------- | -------------------------- | ------------------------------------------------------------------ | ------------------------------- | ------- |
-| `v-model`           | 绑定值                     | string                                                             | ——                              | ——      |
-| `type`              | 类型                       | <a href="#inputtype">InputType</a>                                 | `text` `password` `number`      | text    |
-| `size`              | 尺寸                       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle  |
-| `disabled`          | 是否禁用                   | boolean                                                            | ——                              | false   |
-| `max`               | 最大值                     | number                                                             | ——                              | ——      |
-| `min`               | 最小值                     | number                                                             | ——                              | ——      |
-| `max-length`        | 最大输入长度上限           | number                                                             | ——                              | ——      |
-| `autofocus`         | 是否自动获取焦点           | boolean                                                            | ——                              | false   |
-| `name`              | 原生 name 属性             | string                                                             | ——                              | f-input |
-| `placeholder`       | 占位符                     | string                                                             | ——                              | ——      |
-| `placeholder-color` | 自定义占位符颜色           | string                                                             | ——                              | ——      |
-| `clear`             | 是否可清空                 | boolean                                                            | ——                              | false   |
-| `search`            | 是否为搜索框               | boolean                                                            | ——                              | false   |
-| `readonly`          | 是否只读                   | boolean                                                            | ——                              | false   |
-| `show-password`     | 是否展示显示密码图标       | boolean                                                            | ——                              | false   |
-| `enter-search`      | 是否按下回车触发搜索       | boolean                                                            | ——                              | false   |
-| `icon`              | 自定义前缀 icon            | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——      |
-| `on-search`         | 点击搜索触发的回调         | <a href="#inputsearch">InputSearch</a>                             | ——                              | ——      |
-| `on-change`         | 绑定值发生变化时触发的回调 | <a href="#inputchange">InputChange</a>                             | ——                              | ——      |
-| `on-blur`           | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
-| `on-focus`          | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
-| `on-enter`          | 按下回车触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
-| `on-input`          | 原生 input 事件回调        | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| 参数                  | 说明                       | 类型                                                               | 可选值                          | 默认值  |
+| --------------------- | -------------------------- | ------------------------------------------------------------------ | ------------------------------- | ------- |
+| `v-model`             | 绑定值                     | string                                                             | ——                              | ——      |
+| `type`                | 类型                       | <a href="#inputtype">InputType</a>                                 | `text` `password` `number`      | text    |
+| `size`                | 尺寸                       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle  |
+| `disabled`            | 是否禁用                   | boolean                                                            | ——                              | false   |
+| `max`                 | 最大值                     | number                                                             | ——                              | ——      |
+| `min`                 | 最小值                     | number                                                             | ——                              | ——      |
+| `max-length`          | 最大输入长度上限           | number                                                             | ——                              | ——      |
+| `autofocus`           | 是否自动获取焦点           | boolean                                                            | ——                              | false   |
+| `name`                | 原生 name 属性             | string                                                             | ——                              | f-input |
+| `placeholder`         | 占位符                     | string                                                             | ——                              | ——      |
+| `placeholder-color`   | 自定义占位符颜色           | string                                                             | ——                              | ——      |
+| `text-color`          | 自定义文字颜色             | string                                                             | ——                              | ——      |
+| `background`          | 自定义背景颜色             | string                                                             | ——                              | ——      |
+| `active-background`   | 自定义选中状态背景颜色     | string                                                             | ——                              | ——      |
+| `active-border-color` | 自定义选中状态边框颜色     | string                                                             | ——                              | ——      |
+| `clear`               | 是否可清空                 | boolean                                                            | ——                              | false   |
+| `search`              | 是否为搜索框               | boolean                                                            | ——                              | false   |
+| `readonly`            | 是否只读                   | boolean                                                            | ——                              | false   |
+| `show-password`       | 是否展示显示密码图标       | boolean                                                            | ——                              | false   |
+| `enter-search`        | 是否按下回车触发搜索       | boolean                                                            | ——                              | false   |
+| `icon`                | 自定义前缀 icon            | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——      |
+| `on-search`           | 点击搜索触发的回调         | <a href="#inputsearch">InputSearch</a>                             | ——                              | ——      |
+| `on-change`           | 绑定值发生变化时触发的回调 | <a href="#inputchange">InputChange</a>                             | ——                              | ——      |
+| `on-blur`             | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| `on-focus`            | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| `on-enter`            | 按下回车触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| `on-input`            | 原生 input 事件回调        | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
 
 ## Slots
 

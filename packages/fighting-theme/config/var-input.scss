@@ -1,4 +1,9 @@
 .f-input {
+  --input-background: #f8f9fb;
+  --input-active-background: #fff;
+  --input-text-color: #1d1d1f;
+  --input-active-border-color: #2d5af1;
+
   // 不同尺寸
   &__large {
     --input-height: 40px;
