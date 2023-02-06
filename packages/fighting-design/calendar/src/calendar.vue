@@ -2,10 +2,9 @@
   import { Props } from './props'
   import { computed, watch, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
-  import { FText } from '../../text'
   import { FIconChevronLeftVue, FIconChevronRightVue } from '../../_svg'
   import { addZero, isDate } from '../../_utils'
-  import { useCalculiTime, useRun, useGlobal, useList } from '../../_hooks'
+  import { useCalendar, useRun, useGlobal, useList } from '../../_hooks'
 
   const prop = defineProps(Props)
 
@@ -23,7 +22,7 @@
     date: nowDate.value.getDate()
   })
 
-  const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(dateParams)
+  const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalendar(dateParams)
 
   const { getLang } = useGlobal()
 
@@ -47,6 +46,8 @@
     }
     return ''
   }
+
+  console.log(AllMonthDays.value)
 
   /**
    * 点击操作栏
@@ -98,18 +99,6 @@
   /** 类名列表 */
   const classList = styles(['borderColor', 'dayCellHeight', 'weekCellHeight'])
 
-  /**
-   * 检测当前日期是否存在备忘录
-   *
-   * @param { string } date 当前日期
-   */
-  const isMemorandum = (date: string): boolean => {
-    if (!prop.memorandum) {
-      return false
-    }
-    return Object.keys(prop.memorandum).includes(date)
-  }
-
   /** 当月份发生改变时候触发的回调 */
   watch(
     (): number => dateParams.month,
@@ -152,22 +141,9 @@
       >
         <span class="f-calendar__solar">{{ days.cDay }}</span>
         <span v-if="lunar" class="f-calendar__lunar">
-          {{ days.festival || days.IDayCn }}
+          <!-- 农历节日 -> 阳历节日 -> 节气 -> 农历日期 -->
+          {{ days.lunarFestival || days.festival || days.term || days.IDayCn }}
         </span>
-
-        <!-- 备忘栏 -->
-        <div v-if="isMemorandum(days.date)" class="f-calendar__memorandum">
-          <f-text
-            v-for="(item, i) in memorandum[days.date]"
-            :key="i"
-            :type="item.type || 'default'"
-            :size="14"
-            center
-            class="f-calendar__memorandum-item"
-          >
-            {{ item.content }}
-          </f-text>
-        </div>
       </div>
     </div>
   </div>

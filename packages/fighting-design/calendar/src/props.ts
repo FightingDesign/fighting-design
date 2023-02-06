@@ -1,6 +1,6 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp, setFunctionProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import type { CalendarChange, CalendarMemorandum } from './interface'
+import type { CalendarChange } from './interface'
 
 export const Props = {
   /** 绑定日期 */
@@ -21,8 +21,6 @@ export const Props = {
   dayCellHeight: setStringNumberProp(),
   /** 星期单元格高度 */
   weekCellHeight: setStringNumberProp(),
-  /** 备忘事件 */
-  memorandum: setObjectProp<CalendarMemorandum>(),
   /** 月份改变时触发的回调 */
   onChangeDate: setFunctionProp<CalendarChange>(),
   /** 日期改变时触发的回调 */

@@ -1,14 +1,11 @@
 import {
   LUNAR_INFO,
-  DAY_GAN,
-  DAY_ZHI,
   ANIMALS,
   SOLAR_CALENDAR_FESTIVE,
   LUNAR_FESTIVE,
   SOLAR_TERM,
   CONVERT_DIGIT_CHINES,
   DATE_CHANG_LUNAR_CALENDAR,
-  CHANG_MONTH_LUNAR_CALENDAR,
   SOLAR_TERM_LIST
 } from './src/date'
 import type { GetLunarDetailReturn, UseLunarReturn } from './interface'
@@ -76,20 +73,6 @@ export const useLunar = (): UseLunarReturn => {
   }
 
   /**
-   * 农历年份转换为干支纪年
-   *
-   * @param { number } lYear 农历年份
-   * @returns { string }
-   */
-  const toGanZhiYear = (lYear: number): string => {
-    let ganKey: number = (lYear - 3) % 10
-    let zhiKey: number = (lYear - 3) % 12
-    if (ganKey === 0) ganKey = 10 /** 如果余数为 0 则为最后一个天干 */
-    if (zhiKey === 0) zhiKey = 12 /** 如果余数为 0 则为最后一个地支 */
-    return DAY_GAN[ganKey - 1] + DAY_ZHI[zhiKey - 1]
-  }
-
-  /**
    * 公历月、日判断所属星座
    *
    * @param { number } cMonth 公历月
@@ -101,16 +84,6 @@ export const useLunar = (): UseLunarReturn => {
       '\u9b54\u7faf\u6c34\u74f6\u53cc\u9c7c\u767d\u7f8a\u91d1\u725b\u53cc\u5b50\u5de8\u87f9\u72ee\u5b50\u5904\u5973\u5929\u79e4\u5929\u874e\u5c04\u624b\u9b54\u7faf' as const
     const arr = [20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22, 22] as const
     return s.substr(cMonth * 2 - (cDay < arr[cMonth - 1] ? 2 : 0), 2) + '\u5ea7'
-  }
-
-  /**
-   * 传入 offset 偏移量返回干支
-   *
-   * @param { number } offset 相对甲子的偏移量
-   * @returns { string }
-   */
-  const toGanZhi = (offset: number): string => {
-    return DAY_GAN[offset % 10] + DAY_ZHI[offset % 12]
   }
 
   /**
@@ -132,22 +105,6 @@ export const useLunar = (): UseLunarReturn => {
       _calcDay.push(chunk[0], chunk.substr(1, 2), chunk[3], chunk.substr(4, 2))
     }
     return parseInt(_calcDay[n - 1])
-  }
-
-  /**
-   * 传入农历数字月份返回汉语通俗表示法
-   *
-   * @param { number } month 农历月份
-   * @returns { string | number }
-   */
-  const toChinaMonth = (month: number): string | -1 => {
-    /** 若参数错误 返回 -1 */
-    if (month > 12 || month < 1) {
-      return -1
-    }
-    let s: string = CHANG_MONTH_LUNAR_CALENDAR[month - 1]
-    s += '\u6708' /** 加上月字 */
-    return s
   }
 
   /**
@@ -283,38 +240,23 @@ export const useLunar = (): UseLunarReturn => {
     const month: number = i
     /** 农历日 */
     const day: number = offset + 1
-    /** 天干地支处理 */
-    const sm: number = m - 1
-    const gzY: string = toGanZhiYear(year)
 
     /** 当月的两个节气 */
     const firstNode: number = getTerm(y, m * 2 - 1) /** 返回当月「节」为几日开始 */
     const secondNode: number = getTerm(y, m * 2) /** 返回当月「节」为几日开始 */
 
-    /** 依据 12 节气修正干支月 */
-    let gzM: string = toGanZhi((y - 1900) * 12 + m + 11)
-    if (d >= firstNode) {
-      gzM = toGanZhi((y - 1900) * 12 + m + 12)
-    }
-
     /** 传入的日期的节气与否 */
-    let Term = null
+    let term = ''
 
     if (firstNode === d) {
-      Term = SOLAR_TERM[m * 2 - 2]
+      term = SOLAR_TERM[m * 2 - 2]
     }
     if (secondNode === d) {
-      Term = SOLAR_TERM[m * 2 - 1]
+      term = SOLAR_TERM[m * 2 - 1]
     }
 
-    /** 日柱 当月一日与 1900/1/1 相差天数 */
-    const dayCyclical: number = Date.UTC(y, sm, 1, 0, 0, 0, 0) / 86400000 + 25567 + 10
-    const gzD: string = toGanZhi(dayCyclical + d - 1)
     /** 该日期所属的星座 */
     const constellation: string = toConstellation(m, d)
-
-    const solarDate = y + '-' + m + '-' + d
-    const lunarDate = year + '-' + month + '-' + day
 
     const festivalDate: string = m + '-' + d
     let lunarFestivalDate: string = month + '-' + day
@@ -335,27 +277,24 @@ export const useLunar = (): UseLunarReturn => {
     }
 
     return {
-      date: solarDate,
-      lunarDate,
+      /** 阳历节日 */
       festival: SOLAR_CALENDAR_FESTIVE[festivalDate] ? SOLAR_CALENDAR_FESTIVE[festivalDate].title : '',
+      /** 农历节日 */
       lunarFestival: LUNAR_FESTIVE[lunarFestivalDate] ? LUNAR_FESTIVE[lunarFestivalDate].title : '',
-      lYear: year,
-      lMonth: month,
-      lDay: day,
+      /** 生肖 */
       animal: getAnimal(year),
-      IMonthCn: (isLeap ? '\u95f0' : '') + toChinaMonth(month),
+      /** 农历日期 */
       IDayCn: toChinaDay(day),
       cYear: y,
       cMonth: m,
       cDay: d,
-      gzYear: gzY,
-      gzMonth: gzM,
-      gzDay: gzD,
-      isLeap,
+      /** 星期 */
       nWeek,
-      Term,
+      /** 节气 */
+      term,
+      /** 星座 */
       constellation
-    } as GetLunarDetailReturn
+    } as const
   }
 
   return getLunarDetail

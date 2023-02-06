@@ -1,7 +1,7 @@
 import { computed, watch, ref } from 'vue'
 import { useLunar } from '..'
 import type { GetLunarDetailReturn } from '..'
-import type { UseCalculiTimeReturn } from './interface'
+import type { UseCalendarReturn } from './interface'
 
 export * from './interface.d'
 
@@ -9,11 +9,13 @@ export * from './interface.d'
  * 日历组件方法封装
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
- * @param { Object } year 年分响应式数据
- * @param { Object } month 月份响应式数据
+ * @param { Object } params 日期对象
+ * @param { number } params.year 年份
+ * @param { number } params.month 月份
+ * @param { number } params.date 日期
  * @returns { Object } 当前月份展示的天数、上个月切换、下个月切换
  */
-export const useCalculiTime = (params: { year: number; month: number; date: number; }): UseCalculiTimeReturn => {
+export const useCalendar = (params: { year: number; month: number; date: number; }): UseCalendarReturn => {
   /**
    * 获取每个月有多少天
    *

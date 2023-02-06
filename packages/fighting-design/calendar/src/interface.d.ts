@@ -1,5 +1,3 @@
-import type { FightingType } from '../../_interface'
-
 export type { CalendarProps } from './props'
 
 /**
@@ -22,16 +20,3 @@ export interface CalendarChangeParams {
  * @param { Object } params 日期对象
  */
 export type CalendarChange = (params: CalendarChangeParams) => void
-
-/**
- * 备忘录数据类型
- *
- * 例：'2022-9-21': [{ type: 'danger', content: '今天要考试' }]
- */
-export type CalendarMemorandum = Record<
-  string,
-  {
-    type?: FightingType
-    content: string
-  }[]
->

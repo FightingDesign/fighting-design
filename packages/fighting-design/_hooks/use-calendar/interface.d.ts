@@ -1,5 +1,5 @@
 import type { ComputedRef } from 'vue'
-import type { GetLunarDetailReturn } from '../../_utils'
+import type { GetLunarDetailReturn } from '..'
 
 /**
  * 日历组件 hook 返回值类型接口
@@ -8,7 +8,7 @@ import type { GetLunarDetailReturn } from '../../_utils'
  * @param { Function } changeLastMonth 上个月切换
  * @param { Function } changeNextMonth 下个月切换
  */
-export interface UseCalculiTimeReturn {
+export interface UseCalendarReturn {
   AllMonthDays: ComputedRef<GetLunarDetailReturn[]>
   changeLastMonth: () => void
   changeNextMonth: () => void

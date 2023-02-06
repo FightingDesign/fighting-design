@@ -93,58 +93,19 @@
 
 :::
 
-## 备忘事件
-
-`memorandum` 将指定日期添加备忘事件项
-
-`border` 属性可以配置带有边框的日历
-
-::: demo
-
-<template #source>
-<f-calendar v-model:date="date" border :memorandum="memorandumList" />
-</template>
-
-```html
-<template>
-  <f-calendar v-model:date="date" border :memorandum="memorandumList" />
-</template>
-
-<script lang="ts" setup>
-  const date = new Date()
-
-  const memorandumList = {
-    '2022-9-21': [
-      { type: 'danger', content: '今天要考试' },
-      { type: 'success', content: '今天要去露营' },
-      { type: 'danger', content: '晚上有饭局' },
-      { type: 'danger', content: '今天早点睡' }
-    ],
-    '2022-9-27': [
-      { type: 'default', content: '今天要考试' },
-      { type: 'danger', content: '今天要考试' },
-      { type: 'danger', content: '今天要考试' }
-    ]
-  }
-</script>
-```
-
-:::
-
 ## Attributes
 
-| 参数               | 说明                                     | 类型                                                 | 可选值 | 默认值   |
-| ------------------ | ---------------------------------------- | ---------------------------------------------------- | ------ | -------- |
-| `v-model:date`     | 绑定日期                                 | date                                                 | ——     | new Date |
-| `lunar`            | 是否显示农历或节日，仅支持 `1900 ~ 2100` | boolean                                              | ——     | false    |
-| `show-header`      | 是否显示头部                             | boolean                                              | ——     | true     |
-| `border`           | 是否显示边框                             | boolean                                              | ——     | false    |
-| `border-color`     | 自定义边框颜色                           | string                                               | ——     | ——       |
-| `day-cell-height`  | 日期单元格高度                           | string / number                                      | ——     | ——       |
-| `week-cell-height` | 星期单元格高度                           | string / number                                      | ——     | ——       |
-| `memorandum`       | 备忘事件                                 | <a href="#calendarmemorandum">CalendarMemorandum</a> | ——     | ——       |
-| `on-change-month`  | 月份改变时触发的回调                     | <a href="#calendarchange">CalendarChange</a>         | ——     | ——       |
-| `on-change-date`   | 日期改变时触发的回调                     | <a href="#calendarchange">CalendarChange</a>         | ——     | ——       |
+| 参数               | 说明                                     | 类型                                         | 可选值 | 默认值   |
+| ------------------ | ---------------------------------------- | -------------------------------------------- | ------ | -------- |
+| `v-model:date`     | 绑定日期                                 | date                                         | ——     | new Date |
+| `lunar`            | 是否显示农历或节日，仅支持 `1900 ~ 2100` | boolean                                      | ——     | false    |
+| `show-header`      | 是否显示头部                             | boolean                                      | ——     | true     |
+| `border`           | 是否显示边框                             | boolean                                      | ——     | false    |
+| `border-color`     | 自定义边框颜色                           | string                                       | ——     | ——       |
+| `day-cell-height`  | 日期单元格高度                           | string / number                              | ——     | ——       |
+| `week-cell-height` | 星期单元格高度                           | string / number                              | ——     | ——       |
+| `on-change-month`  | 月份改变时触发的回调                     | <a href="#calendarchange">CalendarChange</a> | ——     | ——       |
+| `on-change-date`   | 日期改变时触发的回调                     | <a href="#calendarchange">CalendarChange</a> | ——     | ——       |
 
 ## Slots
 
@@ -159,13 +120,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  CalendarInstance,
-  CalendarProps,
-  CalendarChangeParams,
-  CalendarChange,
-  CalendarMemorandum
-} from 'fighting-design'
+import type { CalendarInstance, CalendarProps, CalendarChangeParams, CalendarChange } from 'fighting-design'
 ```
 
 ### CalendarChangeParams
@@ -184,20 +139,6 @@ interface CalendarChangeParams {
 type CalendarChange = (params: CalendarChangeParams) => void
 ```
 
-### CalendarMemorandum
-
-```ts
-import type { FightingType } from 'fighting-design'
-
-type CalendarMemorandum = Record<
-  string,
-  {
-    type?: FightingType
-    content: string
-  }[]
->
-```
-
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
@@ -210,18 +151,4 @@ type CalendarMemorandum = Record<
 
 <script setup lang="ts">
   const date = new Date()
-
-  const memorandumList = {
-    '2022-9-21': [
-      { type: 'danger', content: '今天要考试' },
-      { type: 'success', content: '今天要去露营' },
-      { type: 'danger', content: '晚上有饭局' },
-      { type: 'danger', content: '今天早点睡' }
-    ],
-    '2022-9-27': [
-      { type: 'default', content: '今天要考试' },
-      { type: 'danger', content: '今天要考试' },
-      { type: 'danger', content: '今天要考试' }
-    ]
-  }
 </script>

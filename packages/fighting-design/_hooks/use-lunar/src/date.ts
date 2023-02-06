@@ -21,36 +21,6 @@ export const LUNAR_INFO = [
   0x04ae0, 0x0a9d4, 0x0a2d0, 0x0d150, 0x0f252, 0x0d520
 ] as const
 
-/** 天干地支 - 天干速查表 */
-export const DAY_GAN = [
-  '\u7532',
-  '\u4e59',
-  '\u4e19',
-  '\u4e01',
-  '\u620a',
-  '\u5df1',
-  '\u5e9a',
-  '\u8f9b',
-  '\u58ec',
-  '\u7678'
-] as const
-
-/** 天干地支 - 地支速查表 */
-export const DAY_ZHI = [
-  '\u5b50',
-  '\u4e11',
-  '\u5bc5',
-  '\u536f',
-  '\u8fb0',
-  '\u5df3',
-  '\u5348',
-  '\u672a',
-  '\u7533',
-  '\u9149',
-  '\u620c',
-  '\u4ea5'
-] as const
-
 /**
  * 天干地支 - 生肖速查表
  *
@@ -165,26 +135,6 @@ export const CONVERT_DIGIT_CHINES = [
  * ['初','十','廿','卅']
  */
 export const DATE_CHANG_LUNAR_CALENDAR = ['\u521d', '\u5341', '\u5eff', '\u5345'] as const
-
-/**
- * 月份转农历称呼速查表
- *
- * ['正','一','二','三','四','五','六','七','八','九','十','冬','腊']
- */
-export const CHANG_MONTH_LUNAR_CALENDAR = [
-  '\u6b63',
-  '\u4e8c',
-  '\u4e09',
-  '\u56db',
-  '\u4e94',
-  '\u516d',
-  '\u4e03',
-  '\u516b',
-  '\u4e5d',
-  '\u5341',
-  '\u51ac',
-  '\u814a'
-] as const
 
 /** 1900-2100 各年的 24 节气日期速查表 */
 export const SOLAR_TERM_LIST = [
