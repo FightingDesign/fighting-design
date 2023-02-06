@@ -1,22 +1,29 @@
 <script lang="ts" setup name="FCalendar">
   import { Props } from './props'
-  import { ref, computed, watch } from 'vue'
+  import { computed, watch, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FText } from '../../text'
   import { FIconChevronLeftVue, FIconChevronRightVue } from '../../_svg'
-  import { addZero } from '../../_utils'
+  import { addZero, isDate } from '../../_utils'
   import { useCalculiTime, useRun, useGlobal, useList } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  /** 当前年份 */
-  const year = ref<number>(prop.date.getFullYear())
-  /** 当前月份 */
-  const month = ref<number>(prop.date.getMonth())
-  /** 当前日期 */
-  const date = ref<number>(prop.date.getDate())
+  /**
+   * 获取日期参数
+   *
+   * 如果传入的不是一个 Date 对象，则实例化一个当前日期对象
+   */
+  const nowDate = computed((): Date => (isDate(prop.date) ? prop.date : new Date()))
 
-  const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(year, month)
+  /** 日期集合 */
+  const dateParams = reactive({
+    year: nowDate.value.getFullYear(),
+    month: nowDate.value.getMonth() + 1,
+    date: nowDate.value.getDate()
+  })
+
+  const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalculiTime(dateParams)
 
   const { getLang } = useGlobal()
 
@@ -28,14 +35,14 @@
   /**
    * 当前日期高亮显示
    *
-   * @param { number } _month 月份
-   * @param { number } _date 日期
+   * @param { number } month 月份
+   * @param { number } date 日期
    */
-  const mowDataClassList = (_month: number, _date: number): string => {
-    if (_date === date.value && _month === month.value + 1) {
+  const mowDataClassList = (month: number, date: number): string => {
+    if (date === dateParams.date && month === dateParams.month) {
       return 'f-calendar__day-today'
     }
-    if (_month !== month.value + 1) {
+    if (month !== dateParams.month) {
       return 'f-calendar__not-month'
     }
     return ''
@@ -51,9 +58,9 @@
       last: (): void => changeLastMonth(),
       next: (): void => changeNextMonth(),
       now: (): void => {
-        month.value = prop.date.getMonth()
-        year.value = prop.date.getFullYear()
-        date.value = prop.date.getDate()
+        dateParams.month = prop.date.getMonth()
+        dateParams.year = prop.date.getFullYear()
+        dateParams.date = prop.date.getDate()
       }
     } as const
 
@@ -62,29 +69,29 @@
 
   /** 当前时间 */
   const nowTime = computed((): string => {
-    return `${year.value} / ${addZero(month.value + 1)} / ${addZero(date.value)}`
+    return `${dateParams.year} / ${addZero(dateParams.month)} / ${addZero(dateParams.date)}`
   })
 
   /**
    * 点击对每一天
    *
-   * @param { number } _month 当前月份
-   * @param { number } _date 当前日期
+   * @param { number } month 当前月份
+   * @param { number } date 当前日期
    */
-  const handleClick = (_month: number, _date: number): void => {
-    date.value = _date
+  const handleClick = (month: number, date: number): void => {
+    dateParams.date = date
 
     /** 如果点击上个月的选项，则调整上个月 */
-    if (_month < month.value + 1) {
+    if (month < dateParams.month) {
       changeLastMonth()
-    } else if (_month > month.value + 1) {
+    } else if (month > dateParams.month) {
       changeNextMonth()
     }
 
     useRun(prop.onChangeDate, {
-      year: year.value,
-      month: _month || month.value,
-      date: _date
+      year: dateParams.year,
+      month: month || dateParams.month,
+      date
     })
   }
 
@@ -105,12 +112,12 @@
 
   /** 当月份发生改变时候触发的回调 */
   watch(
-    (): number => month.value,
+    (): number => dateParams.month,
     (newValue: number): void => {
       useRun(prop.onChangeMonth, {
-        year: year.value,
+        year: dateParams.year,
         month: newValue + 1,
-        date: date.value
+        date: dateParams.date
       })
     }
   )

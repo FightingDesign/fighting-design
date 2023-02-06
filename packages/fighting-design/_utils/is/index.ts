@@ -12,6 +12,14 @@ export const is = (value: unknown, type: string): boolean => {
 }
 
 /**
+ * 检测一个数据是否为 date 类型
+ *
+ * @param { * } value 要检测的值
+ * @returns { boolean }
+ */
+export const isDate = (value: unknown): value is Date => is(value, 'Date')
+
+/**
  * 检测一个数据是否为 string 类型
  *
  * @param { * } value 要检测的值

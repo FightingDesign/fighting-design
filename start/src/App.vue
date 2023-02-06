@@ -1,5 +1,7 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  const date = new Date()
+</script>
 
-<template></template>
-
-<style lang="scss" scoped></style>
+<template>
+  <f-calendar v-model:date="date" lunar />
+</template>
