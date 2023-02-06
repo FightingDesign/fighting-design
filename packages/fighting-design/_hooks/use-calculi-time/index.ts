@@ -1,6 +1,6 @@
 import { computed, watch, ref } from 'vue'
-import { getDayMonth, Lunar } from '../../_utils'
-import type { GetLunarDetailReturn } from '../../_utils'
+import { useLunar } from '..'
+import type { GetLunarDetailReturn } from '..'
 import type { UseCalculiTimeReturn } from './interface'
 
 export * from './interface.d'
@@ -14,6 +14,25 @@ export * from './interface.d'
  * @returns { Object } 当前月份展示的天数、上个月切换、下个月切换
  */
 export const useCalculiTime = (params: { year: number; month: number; date: number; }): UseCalculiTimeReturn => {
+  /**
+   * 获取每个月有多少天
+   *
+   * @param { number } year 年份
+   * @param { number } month 月份
+   * @returns { number } 当前月份的天数
+   */
+  const getDayMonth = (year: number, month: number): number => {
+    if (month === -1) return 31
+
+    /** 如果不是 2 月份，则返回指定的时间 */
+    if (month !== 2) {
+      const months = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] as const
+      return months[month - 1]
+    }
+
+    return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 ? 29 : 28
+  }
+
   /** 
    * 获取当前月份的 1号是周几
    * 
@@ -22,7 +41,7 @@ export const useCalculiTime = (params: { year: number; month: number; date: numb
   const firstDayWeek = ref(new Date(`${params.year}/${params.month}/1`).getDay())
 
   /** 初始化农历类 */
-  const lunar: Lunar = new Lunar()
+  const getLunarDetail = useLunar()
 
   /** 监视月份 如果月份改变，则重新渲染当然月份的 */
   watch(
@@ -43,7 +62,7 @@ export const useCalculiTime = (params: { year: number; month: number; date: numb
 
     for (let i = 0; i < firstDayWeek.value; i++) {
       /** 获取到剩余天数每天的详细信息 */
-      const dayList: GetLunarDetailReturn | -1 = lunar.getLunarDetail(params.year, params.month - 1, lastDays - firstDayWeek.value)
+      const dayList: GetLunarDetailReturn | -1 = getLunarDetail(params.year, params.month - 1, lastDays - firstDayWeek.value)
 
       if (dayList !== -1) {
         showLastListResult.push(dayList)
@@ -80,7 +99,7 @@ export const useCalculiTime = (params: { year: number; month: number; date: numb
 
     for (let i = 0; i < nextShowDay; i++) {
       /** 获取到剩余天数每天的详细信息 */
-      const dayList: GetLunarDetailReturn | -1 = lunar.getLunarDetail(params.year, params.month + 1, i + 1)
+      const dayList: GetLunarDetailReturn | -1 = getLunarDetail(params.year, params.month + 1, i + 1)
 
       if (dayList !== -1) {
         showNextListResult.push(dayList)
@@ -102,7 +121,7 @@ export const useCalculiTime = (params: { year: number; month: number; date: numb
     const showNextListResult = []
 
     for (let i = 0; i < monthDays; i++) {
-      const dayList: GetLunarDetailReturn | -1 = lunar.getLunarDetail(params.year, params.month, i + 1)
+      const dayList: GetLunarDetailReturn | -1 = getLunarDetail(params.year, params.month, i + 1)
 
       if (dayList !== -1) {
         showNextListResult.push(dayList)
