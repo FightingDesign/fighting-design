@@ -87,13 +87,14 @@ export const useLunar = (): UseLunarReturn => {
   }
 
   /**
-   * 传入公历(!) year 年获得该年第 n 个节气的公历日期
+   * 获取节气信息
    *
    * @param { number } year 公历年 (1900-2100)
    * @param { number } n  n二十四节气中的第几个节气 (1~24)；从 n=1 (小寒) 算起
    * @returns { number }
    */
   const getTerm = (year: number, n: number): number => {
+
     if (year < 1900 || year > 2100 || n < 1 || n > 24) {
       return -1
     }
@@ -150,6 +151,9 @@ export const useLunar = (): UseLunarReturn => {
    * @param { number } dPara 阳历日期
    */
   const getLunarDetail = (yPara: number, mPara: number, dPara: number): -1 | GetLunarDetailReturn => {
+    /**
+     * @see parseInt https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+     */
     let y: number = parseInt(yPara.toString())
     let m: number = parseInt(mPara.toString())
     let d: number = parseInt(dPara.toString())
@@ -170,6 +174,7 @@ export const useLunar = (): UseLunarReturn => {
     if (!y) {
       objDate = new Date()
     } else {
+
       objDate = new Date(y, parseInt(m.toString()) - 1, d)
     }
 
@@ -195,11 +200,11 @@ export const useLunar = (): UseLunarReturn => {
     }
 
     /** 星期几 */
-    let nWeek: number = objDate.getDay()
+    let week: number = objDate.getDay()
 
     /** 数字表示周几顺应天朝周一开始的惯例 */
-    if (nWeek === 0) {
-      nWeek = 7
+    if (week === 0) {
+      week = 7
     }
     /** 农历年 */
     const year: number = i
@@ -242,15 +247,15 @@ export const useLunar = (): UseLunarReturn => {
     const day: number = offset + 1
 
     /** 当月的两个节气 */
-    const firstNode: number = getTerm(y, m * 2 - 1) /** 返回当月「节」为几日开始 */
+    // const firstNode: number = getTerm(y, m * 2 - 1) /** 返回当月「节」为几日开始 */
     const secondNode: number = getTerm(y, m * 2) /** 返回当月「节」为几日开始 */
 
     /** 传入的日期的节气与否 */
-    let term = ''
+    let term = null
 
-    if (firstNode === d) {
-      term = SOLAR_TERM[m * 2 - 2]
-    }
+    // if (firstNode === d) {
+    //   term = SOLAR_TERM[m * 2 - 2]
+    // }
     if (secondNode === d) {
       term = SOLAR_TERM[m * 2 - 1]
     }
@@ -285,11 +290,11 @@ export const useLunar = (): UseLunarReturn => {
       animal: getAnimal(year),
       /** 农历日期 */
       IDayCn: toChinaDay(day),
-      cYear: y,
-      cMonth: m,
-      cDay: d,
+      year: y,
+      month: m,
+      day: d,
       /** 星期 */
-      nWeek,
+      week,
       /** 节气 */
       term,
       /** 星座 */

@@ -5,9 +5,9 @@
  * @param { string } lunarFestival 农历节日
  * @param { string } animal 生肖
  * @param { string } IDayCn 农历日期
- * @param { number } cYear 阳历年份
- * @param { number } cMonth 阳历月份
- * @param { number } cDay 阳历日期
+ * @param { number } year 阳历年份
+ * @param { number } month 阳历月份
+ * @param { number } day 阳历日期
  * @param { string } term 节气
  * @param { string } constellation 星座
  */
@@ -16,10 +16,10 @@ export interface GetLunarDetailReturn {
   lunarFestival: string
   animal: string
   IDayCn: string
-  cYear: number
-  cMonth: number
-  cDay: number
-  nWeek: number
+  year: number
+  month: number
+  day: number
+  week: number
   term: string | null
   constellation: string
 }

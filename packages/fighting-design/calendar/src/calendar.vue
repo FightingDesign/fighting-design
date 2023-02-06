@@ -5,6 +5,7 @@
   import { FIconChevronLeftVue, FIconChevronRightVue } from '../../_svg'
   import { addZero, isDate } from '../../_utils'
   import { useCalendar, useRun, useGlobal, useList } from '../../_hooks'
+  import type { GetLunarDetailReturn } from '../../_hooks'
 
   const prop = defineProps(Props)
 
@@ -47,8 +48,6 @@
     return ''
   }
 
-  console.log(AllMonthDays.value)
-
   /**
    * 点击操作栏
    *
@@ -76,23 +75,24 @@
   /**
    * 点击对每一天
    *
-   * @param { number } month 当前月份
-   * @param { number } date 当前日期
+   * @param { number } days 日期对象
    */
-  const handleClick = (month: number, date: number): void => {
-    dateParams.date = date
+  const handleClick = (days: GetLunarDetailReturn): void => {
+    /** 同步更新日期 */
+    dateParams.date = days.day
 
-    /** 如果点击上个月的选项，则调整上个月 */
-    if (month < dateParams.month) {
-      changeLastMonth()
-    } else if (month > dateParams.month) {
+    /** 切换到下一年 */
+    if (days.year > dateParams.year || days.month > dateParams.month) {
       changeNextMonth()
+    } else if (days.year > dateParams.year || days.month < dateParams.month) {
+      /** 切换到上一年 */
+      changeLastMonth()
     }
 
     useRun(prop.onChangeDate, {
       year: dateParams.year,
-      month: month || dateParams.month,
-      date
+      month: days.month || dateParams.month,
+      date: days.day
     })
   }
 
@@ -116,11 +116,16 @@
   <div :class="['f-calendar', { 'f-calendar__border': border }]" :style="classList">
     <!-- 头部操作栏 -->
     <header v-if="showHeader" class="f-calendar__header">
+      <!-- 上个月切换按钮 -->
       <f-svg-icon :icon="FIconChevronLeftVue" @click.stop="optionClick('last')" />
+
+      <!-- 操作栏 -->
       <div class="f-calendar__option">
         <span class="f-calendar__now-time">{{ nowTime }}</span>
-        <span class="f-calendar__now-date" @click.stop="optionClick('now')"> 今天 </span>
+        <span class="f-calendar__now-date" @click.stop="optionClick('now')">今天</span>
       </div>
+
+      <!-- 下个月切换按钮 -->
       <f-svg-icon :icon="FIconChevronRightVue" @click.stop="optionClick('next')" />
     </header>
 
@@ -136,10 +141,10 @@
       <div
         v-for="(days, index) in AllMonthDays"
         :key="index"
-        :class="['f-calendar__day-item', mowDataClassList(days.cMonth, days.cDay)]"
-        @click.stop="handleClick(days.cMonth, days.cDay)"
+        :class="['f-calendar__day-item', mowDataClassList(days.month, days.day)]"
+        @click.stop="handleClick(days)"
       >
-        <span class="f-calendar__solar">{{ days.cDay }}</span>
+        <span class="f-calendar__solar">{{ days.day }}</span>
         <span v-if="lunar" class="f-calendar__lunar">
           <!-- 农历节日 -> 阳历节日 -> 节气 -> 农历日期 -->
           {{ days.lunarFestival || days.festival || days.term || days.IDayCn }}
