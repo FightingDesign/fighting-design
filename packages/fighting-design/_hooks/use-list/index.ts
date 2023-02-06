@@ -86,10 +86,10 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
         if (isBoolean(pixel)) {
           return (isNumber(val) ? (pixel ? sizeChange(val) : val) : val) as string | number
         } else if (isString(pixel)) {
-        /** 如果为字符串类型，则代表仅仅有一个不需要添加单位 */
+          /** 如果为字符串类型，则代表仅仅有一个不需要添加单位 */
           if (pixel === key) return val
         } else if (isArray(pixel)) {
-        /** 如果为数组类型，则代表有些值不需要添加单位，循环遍历处理 */
+          /** 如果为数组类型，则代表有些值不需要添加单位，循环遍历处理 */
           pixel.forEach((item: string): void | unknown => {
             if (item === val) {
               return val

@@ -15,7 +15,7 @@ export * from './interface.d'
  * @param { number } params.date 日期
  * @returns { Object } 当前月份展示的天数、上个月切换、下个月切换
  */
-export const useCalendar = (params: { year: number; month: number; date: number; }): UseCalendarReturn => {
+export const useCalendar = (params: { year: number; month: number; date: number }): UseCalendarReturn => {
   /**
    * 获取每个月有多少天
    *
@@ -29,17 +29,24 @@ export const useCalendar = (params: { year: number; month: number; date: number;
 
     /** 如果不是 2 月份，则返回指定的时间 */
     if (month !== 2) {
+      /** 除去 2 月的每月天数集合 */
       const months = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] as const
       return months[month - 1]
     }
 
-    /** 如果是 2 月，则通过计算返回指定的天数 */
+    /**
+     * 如果是 2 月，则通过计算返回指定的天数
+     *
+     * 判断是否是闰年的条件为：闰年能被4整除并且不能被100整除，或者能被400整除
+     *
+     * @see 通过JavaScript判断输入的年份是闰年还是平年 https://zhuanlan.zhihu.com/p/373364565
+     */
     return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 ? 29 : 28
   }
 
-  /** 
+  /**
    * 获取当前月份的 1号是周几
-   * 
+   *
    * 用于添加上个月的剩余天数显示
    */
   const firstDayWeek = computed((): number => {
@@ -51,11 +58,8 @@ export const useCalendar = (params: { year: number; month: number; date: number;
 
   /** 上个月需要展示的天数 */
   const lastMonthDay = computed((): GetLunarDetailReturn[] => {
-
     /** 上个月的天数 */
     let lastDays: number = getDayMonth(params.year, params.month - 1)
-
-    console.error('上个月的天数', lastDays, params.month - 1)
 
     /** 需要展示的上个月信息 */
     const showLastListResult = []
@@ -76,6 +80,13 @@ export const useCalendar = (params: { year: number; month: number; date: number;
       lastDays--
     }
 
+    /**
+     * 因为是先获取的后面的，然后自减得到的数组
+     *
+     * 所以需要倒序
+     *
+     * @see Array.prototype.reverse() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
+     */
     return showLastListResult.reverse() as GetLunarDetailReturn[]
   })
 
@@ -104,10 +115,9 @@ export const useCalendar = (params: { year: number; month: number; date: number;
 
   /** 下个月需要展示的天数 */
   const nextMonthDay = computed((): GetLunarDetailReturn[] => {
-
-    /** 
+    /**
      * 获取当前月份之前展示的时间数量
-     * 
+     *
      * 当前月份时间 + 上个月展示的时间数量
      */
     const previousMonthDay: number = getDayMonth(params.year, params.month) + firstDayWeek.value
@@ -122,7 +132,6 @@ export const useCalendar = (params: { year: number; month: number; date: number;
     const showNextListResult = []
 
     for (let i = 0; i < nextShowDay; i++) {
-
       /** 获取到剩余天数每天的详细信息 */
       const dayList: GetLunarDetailReturn | -1 = getLunarDetail(params.year, params.month + 1, i + 1)
 
@@ -165,11 +174,7 @@ export const useCalendar = (params: { year: number; month: number; date: number;
    * 包括上个月需要展示的日期和下个月需要展示的日期
    */
   const AllMonthDays = computed((): GetLunarDetailReturn[] => {
-    return [
-      ...lastMonthDay.value,
-      ...currentMonthDay.value,
-      ...nextMonthDay.value
-    ]
+    return [...lastMonthDay.value, ...currentMonthDay.value, ...nextMonthDay.value]
   })
 
   return {

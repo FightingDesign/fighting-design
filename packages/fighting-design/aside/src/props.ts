@@ -8,7 +8,7 @@ export const Props = {
   padding: setStringNumberProp(),
   /**
    * 背景色
-   * 
+   *
    * @see background https://developer.mozilla.org/zh-CN/docs/Web/CSS/background
    */
   background: setStringProp()

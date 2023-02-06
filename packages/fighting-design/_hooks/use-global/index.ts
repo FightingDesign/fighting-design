@@ -28,9 +28,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
    * @returns { Object } 类型
    */
   const getType = (def: FightingType = 'default'): ComputedRef<FightingType> => {
-
     return computed((): FightingType => {
-
       /** 如果校验不通过则返回默认值 */
       if (prop && prop.type && !FIGHTING_TYPE.includes(prop.type)) {
         return def
@@ -49,7 +47,6 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
    */
   const getSize = (def: FightingSize = 'middle', parentSize?: FightingSize | null): ComputedRef<FightingSize> => {
     return computed((): FightingSize => {
-
       /** 如果校验不通过则返回默认值 */
       if (prop && prop.size && !FIGHTING_SIZE.includes(prop.size as FightingSize)) {
         return def

@@ -14,17 +14,17 @@ export * from './interface.d'
 
 /**
  * 农历方法
- * 
+ *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @returns { Function } 传入阳历年月日获得详细的信息
  */
 export const useLunar = (): UseLunarReturn => {
   /**
-    * 返回农历 year 年一整年的总天数
-    *
-    * @param { number } year 年份
-    * @returns { number } 总天数
-    */
+   * 返回农历 year 年一整年的总天数
+   *
+   * @param { number } year 年份
+   * @returns { number } 总天数
+   */
   const getLunarYearDays = (year: number): number => {
     let i: number
     let sum = 348
@@ -94,7 +94,6 @@ export const useLunar = (): UseLunarReturn => {
    * @returns { number }
    */
   const getTerm = (year: number, n: number): number => {
-
     if (year < 1900 || year > 2100 || n < 1 || n > 24) {
       return -1
     }
@@ -174,7 +173,6 @@ export const useLunar = (): UseLunarReturn => {
     if (!y) {
       objDate = new Date()
     } else {
-
       objDate = new Date(y, parseInt(m.toString()) - 1, d)
     }
 
