@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { computed } from 'vue'
-  import { useCalculiColor } from '../../../../packages/fighting-design/_hooks'
+  import { useColor } from '../../../../packages/fighting-design/_hooks'
   import { onCopy } from '../_utils/copy'
   import type { ComputedRef } from 'vue'
 
@@ -9,7 +9,7 @@
 
     const allColorList: string[][] = COLOR_LIST.map((item: string): string[] => {
       const series: string[] = []
-      const { getLightColor } = useCalculiColor(item)
+      const { getLightColor } = useColor(item)
 
       for (let i = 0; i < 8; i++) {
         const background: string = getLightColor(i === 0 ? 0 : i / 10 + 0.2)
