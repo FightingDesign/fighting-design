@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-badge` 组件优化细节
+
 ## 0.22.1 (2023-02-07)
 
 - `f-calendar` 组件废除 `memorandum` 配置项

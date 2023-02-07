@@ -4,7 +4,8 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  transition: 0.4s;
+  transition: 0.3s;
+  margin: 0;
   cursor: default;
 
   // 不同类型
@@ -20,11 +21,16 @@
     font-size: 12px;
     padding: 0 6px;
     height: 18px;
+    overflow: hidden;
+    line-height: 18px;
+    white-space: nowrap;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     top: 0;
     right: 0;
+    transition: all 0.3s;
+    z-index: 1000;
     transform: translateY(-50%) translateX(50%);
   }
 
@@ -36,5 +42,18 @@
       height: 8px;
       padding: 0;
     }
+  }
+
+  // 关闭动画
+  .f-badge-enter-active,
+  .f-badge-leave-active {
+    transition: all 0.3s ease-out;
+  }
+
+  .f-badge-enter-from,
+  .f-badge-leave-to {
+    // https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-function/scale
+    transform: scale(0.3);
+    opacity: 0;
   }
 }
