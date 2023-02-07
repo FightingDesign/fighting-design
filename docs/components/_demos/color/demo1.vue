@@ -9,10 +9,10 @@
 
     const allColorList: string[][] = COLOR_LIST.map((item: string): string[] => {
       const series: string[] = []
-      const { getLightColor } = useColor(item)
+      const { getLight } = useColor(item)
 
       for (let i = 0; i < 8; i++) {
-        const background: string = getLightColor(i === 0 ? 0 : i / 10 + 0.2)
+        const background: string = getLight(i === 0 ? 0 : i / 10 + 0.2)
         series.push(background)
       }
       return series
