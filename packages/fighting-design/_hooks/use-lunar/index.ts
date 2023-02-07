@@ -244,16 +244,11 @@ export const useLunar = (): UseLunarReturn => {
     /** 农历日 */
     const day: number = offset + 1
 
-    /** 当月的两个节气 */
-    // const firstNode: number = getTerm(y, m * 2 - 1) /** 返回当月「节」为几日开始 */
     const secondNode: number = getTerm(y, m * 2) /** 返回当月「节」为几日开始 */
 
     /** 传入的日期的节气与否 */
     let term = null
 
-    // if (firstNode === d) {
-    //   term = SOLAR_TERM[m * 2 - 2]
-    // }
     if (secondNode === d) {
       term = SOLAR_TERM[m * 2 - 1]
     }
