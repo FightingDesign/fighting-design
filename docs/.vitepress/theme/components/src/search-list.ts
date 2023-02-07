@@ -242,5 +242,10 @@ export const searchList = [
     title: 'NumberAnimate 数字动画',
     rule: 'number-animateNumberAnimate 数字动画',
     url: 'components/number-animate'
+  },
+  {
+    title: 'Countdown 倒计时',
+    rule: 'Countdown  倒计时',
+    url: 'components/countdown'
   }
 ] as const

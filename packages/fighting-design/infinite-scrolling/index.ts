@@ -1,6 +1,5 @@
-import InfiniteScrolling from './src/infinite-scrolling.vue'
-
 import { install } from '../_utils'
+import InfiniteScrolling from './src/infinite-scrolling.vue'
 
 export const FInfiniteScrolling = install(InfiniteScrolling)
 
