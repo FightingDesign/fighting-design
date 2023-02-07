@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.22.1 (2023-02-07)
+
+- `f-calendar` component abolishes `memorandum` configuration item
+- Optimize the priority display status of the `f-calendar` component lunar calendar description
+- Substantially optimize internal code implementation
+
 ## 0.22.0 (2023-02-03)
 
 - `f-button` `f-alert` `f-bag` `f-tag` The new type of the component is info optional

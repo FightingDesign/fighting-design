@@ -281,7 +281,10 @@ module.exports = {
      */
     // 不允许不必要的转义字符 https://eslint.org/docs/latest/rules/no-useless-escape
     'no-useless-escape': 'off',
-    'comma-dangle': 'off',
+    // 强制执行程序中允许的最大圈复杂度 https://eslint.org/docs/latest/rules/complexity#rule-details
+    // 'complexity': ['error', 8],
+    // 不允许后面的逗号在对象和数组文本 https://eslint.org/docs/latest/rules/no-comma-dangle#rule-details
+    'no-comma-dangle': 'off',
     // 禁止使用 var https://eslint.org/docs/latest/rules/no-var#rule-details
     'no-var': 'error',
     // 使用单引号 https://eslint.org/docs/latest/rules/quotes#version

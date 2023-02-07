@@ -2,6 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.22.1 (2023-02-07)
+
+- `f-calendar` 组件废除 `memorandum` 配置项
+- 优化 `f-calendar` 组件农历描述的优先级展示状态
+- 大幅度优化内部代码实现
+
 ## 0.22.0 (2023-02-03)
 
 - `f-button` `f-alert` `f-badge` `f-tag` 组件新增 type 为 info 可选项

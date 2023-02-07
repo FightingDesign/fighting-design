@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FButton } from '../index'
-import { useCalculiColor } from '../../_hooks'
+import { useColor } from '../../_hooks'
 import { FIGHTING_SIZE, FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
 
 describe('FButton', () => {
@@ -156,9 +156,9 @@ describe('FButton', () => {
 
   test('color', () => {
     const color = '#eeeeee'
-    const { getLightColor, getDarkColor } = useCalculiColor(color)
-    const light: string = getLightColor(0.4)
-    const dark: string = getDarkColor(0.2)
+    const { getLight, getDark } = useColor(color)
+    const light: string = getLight(0.4)
+    const dark: string = getDark(0.2)
 
     const wrapper = mount(FButton, {
       props: { color }

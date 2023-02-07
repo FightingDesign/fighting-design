@@ -1,5 +1,5 @@
 import { reactive, toRefs, inject, useSlots, computed } from 'vue'
-import { useGlobal, useList, useCalculiColor } from '..'
+import { useGlobal, useList, useColor } from '..'
 import { sizeChange } from '../../_utils'
 import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
 import type { ButtonProps } from '../../button'
@@ -57,12 +57,12 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
     const { color, fontColor, shadow, fontSize } = prop
 
     if (prop.color) {
-      const { getLightColor, getDarkColor } = useCalculiColor(prop.color)
+      const { getLight, getDark } = useColor(prop.color)
 
       return {
         '--button-background': color || null,
-        '--button-hover': color ? getLightColor(0.4) : null,
-        '--button-active': color ? getDarkColor(0.2) : null,
+        '--button-hover': color ? getLight(0.4) : null,
+        '--button-active': color ? getDark(0.2) : null,
         '--button-color': fontColor,
         '--button-shadow': shadow,
         '--button-font-size': sizeChange(fontSize)
