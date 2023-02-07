@@ -10,7 +10,6 @@ export * from './interface.d'
  * @returns { Object } 加深原色 减淡颜色
  */
 export const useColor = (color: string): UseColorReturn => {
-
   /** 十六进制色号正则检测条件 */
   const r = /^\#?[0-9A-Fa-f]{6}$/
 
@@ -25,17 +24,16 @@ export const useColor = (color: string): UseColorReturn => {
    * @returns { string[] } rgb 色号数组
    */
   const toRgb = (): string[] => {
-
     /**
      * 色号编码
-     * 
+     *
      * @see String.prototype.replace() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace
      */
     const code: string = color.replace('#', '')
 
     /**
      * 将字符串分隔成为数组
-     * 
+     *
      * @see String.prototype.match() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match
      */
     const hex: string[] = code.match(/../g) as string[]

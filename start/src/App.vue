@@ -1,11 +1,5 @@
-<script lang="ts" setup>
-  import { useColor } from '../../packages/fighting-design/_hooks'
+<script lang="ts" setup></script>
 
-  const { getDark } = useColor('#333333')
+<template></template>
 
-  console.log(getDark())
-</script>
-
-<template>
-  <!-- <f-calendar v-model:date="date" lunar :on-change-month="func" :on-change-date="func" /> -->
-</template>
+<style lang="scss" scoped></style>
