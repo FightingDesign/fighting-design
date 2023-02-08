@@ -62,21 +62,49 @@
 ::: demo
 
 <template #source>
-<f-badge :value="123">
-<f-button>默认最多 99</f-button>
+<f-button-group>
+<f-button text :on-click="() => value--">减少</f-button>
+<f-button text :on-click="() => value++">增加</f-button>
+</f-button-group>
+
+<br />
+
+<f-badge :value="value" :max="25" type="danger">
+<f-button>danger</f-button>
 </f-badge>
-<f-badge :value="37" :max="20">
-<f-button>最多 20</f-button>
+<f-badge :value="value" type="primary">
+<f-button>primary</f-button>
+</f-badge>
+<f-badge :value="value" dot type="success">
+<f-button>success</f-button>
 </f-badge>
 </template>
 
 ```html
-<f-badge :value="123">
-  <f-button>默认最多99</f-button>
-</f-badge>
-<f-badge :value="37" :max="20">
-  <f-button>最多20</f-button>
-</f-badge>
+<template>
+  <f-button-group>
+    <f-button text :on-click="() => value--">减少</f-button>
+    <f-button text :on-click="() => value++">增加</f-button>
+  </f-button-group>
+
+  <br />
+
+  <f-badge :value="value" :max="25" type="danger">
+    <f-button>danger</f-button>
+  </f-badge>
+  <f-badge :value="value" type="primary">
+    <f-button>primary</f-button>
+  </f-badge>
+  <f-badge :value="value" dot type="success">
+    <f-button>success</f-button>
+  </f-badge>
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value = ref(20)
+</script>
 ```
 
 :::
@@ -130,15 +158,69 @@
 ::: demo
 
 <template #source>
-<f-badge :value="123" background="skyblue" color="black">
+<f-badge :value="123" background="orange" color="#fff">
 <f-button>自定义颜色</f-button>
 </f-badge>
 </template>
 
 ```html
-<f-badge :value="123" background="skyblue" color="black">
+<f-badge :value="123" background="orange" color="#fff">
   <f-button>自定义颜色</f-button>
 </f-badge>
+```
+
+:::
+
+## 是否展示
+
+`show` 属性可控制展示状态
+
+::: demo
+
+<template #source>
+<f-switch v-model="isShow" />
+
+<br />
+
+<f-badge :show="isShow" value="20" type="danger">
+<f-button>danger</f-button>
+</f-badge>
+<f-badge :show="isShow" value="20" type="primary">
+<f-button>primary</f-button>
+</f-badge>
+<f-badge :show="isShow" value="20" dot type="success">
+<f-button>success</f-button>
+</f-badge>
+</template>
+
+```html
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const isShow = ref(true)
+</script>
+
+<template>
+  <f-switch v-model="isShow" />
+
+  <br />
+
+  <f-badge :show="isShow" value="20" type="danger">
+    <f-button>danger</f-button>
+  </f-badge>
+  <f-badge :show="isShow" value="20" type="primary">
+    <f-button>primary</f-button>
+  </f-badge>
+  <f-badge :show="isShow" value="20" dot type="success">
+    <f-button>success</f-button>
+  </f-badge>
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const isShow = ref(true)
+</script>
 ```
 
 :::
@@ -172,6 +254,13 @@ import type { BadgeInstance, BadgeProps } from 'fighting-design'
 <a href="https://github.com/xluoyu" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
 </a>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value = ref(20)
+  const isShow = ref(true)
+</script>
 
 <style scoped>
   .f-badge {

@@ -1,10 +1,10 @@
 <script setup lang="ts" name="FLayout">
   import { Props } from './props'
   import { useSlots, computed } from 'vue'
-  import type { VNode, Component } from 'vue'
+  import type { VNode, Component, Slots } from 'vue'
 
   const prop = defineProps(Props)
-  const slot = useSlots()
+  const slot: Slots = useSlots()
 
   /** 判断排列方式 */
   const isVertical = computed((): boolean => {

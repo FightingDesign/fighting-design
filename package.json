@@ -12,6 +12,7 @@
   "scripts": {
     "clean": "rimraf dist && rimraf dist-icon",
     "start": "pnpm run -C start dev",
+    "start:preview": "pnpm run -C start preview",
     "dev:play": "pnpm run -C packages/fighting-playground dev",
     "dev:docs": "pnpm run -C docs dev",
     "build": "pnpm clean && pnpm build:css && pnpm build:theme && vite build",

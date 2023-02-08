@@ -3,12 +3,12 @@
   import { provide, reactive, toRefs, useSlots, computed } from 'vue'
   import { useRun } from '../../_hooks'
   import { getChildren, isArray, isString, isObject } from '../../_utils'
-  import type { VNode } from 'vue'
+  import type { VNode, Slots } from 'vue'
   import type { FormInject, FormParam } from './interface'
   import type { FormItemRules, FormItemRulesItem } from '../../form-item'
 
   const prop = defineProps(Props)
-  const slot = useSlots()
+  const slot: Slots = useSlots()
 
   /** 子节点校验结果 */
   const childrenCheckResult: Record<string, boolean | string> = reactive({})

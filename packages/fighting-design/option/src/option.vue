@@ -5,9 +5,10 @@
   import { SELECT_PROPS_TOKEN } from '../../select/src/props'
   import type { SelectProvide, SelectModelValue } from '../../select'
   import type { TriggerProvide } from '../../trigger'
+  import type { Slots } from 'vue'
 
   const prop = defineProps(Props)
-  const slot = useSlots()
+  const slot: Slots = useSlots()
 
   /** 获取父组件注入的依赖项 */
   const parentInject = inject<SelectProvide | null>(SELECT_PROPS_TOKEN, null)

@@ -91,3 +91,9 @@ declare module 'vue' {
     FNotification: typeof components.FNotification
   }
 }
+
+declare global {
+  const __DEV__: boolean
+}
+
+export { }

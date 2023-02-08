@@ -20,7 +20,7 @@ export * from './interface.d'
  */
 export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn => {
   /** 获取当前组件实例 */
-  const instance = getCurrentInstance() as ComponentInternalInstance
+  const instance: ComponentInternalInstance = getCurrentInstance() as ComponentInternalInstance
   /** 子组件集合 */
   const usePanes = useChildren<TabsPaneInstance>(instance, 'FTabsPane')
   /** 当前选中的子组件 */

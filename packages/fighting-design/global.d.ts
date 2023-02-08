@@ -90,3 +90,9 @@ declare module '@vue/runtime-core' {
     FNotification: typeof components.FNotification
   }
 }
+
+declare global {
+  const __DEV__: boolean
+}
+
+export { }

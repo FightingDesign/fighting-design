@@ -6,12 +6,12 @@
   import { FDropdown } from '../../dropdown'
   import { getChildren } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
-  import type { VNode } from 'vue'
+  import type { VNode, Slots } from 'vue'
   import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
   import type { OptionProps } from '../../option'
 
   const prop = defineProps(Props)
-  const slot = useSlots()
+  const slot: Slots = useSlots()
   const emit = defineEmits({
     [EMIT_UPDATE]: (val: SelectModelValue): boolean => !!val
   })

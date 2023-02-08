@@ -4,10 +4,10 @@
   import { FSvgIcon } from '../../svg-icon'
   import { useAvatar, useLoadImg, useProps } from '../../_hooks'
   import type { UseLoadImgProp } from '../../_hooks'
-  import type { Ref } from 'vue'
+  import type { Ref, Slots } from 'vue'
 
   const prop = defineProps(Props)
-  const slot = useSlots()
+  const slot: Slots = useSlots()
 
   const { filter } = useProps(prop)
 
