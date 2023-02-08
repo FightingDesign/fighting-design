@@ -2,6 +2,7 @@
   import { Props } from './props'
   import { computed, useSlots } from 'vue'
   import { useList } from '../../_hooks'
+  import type { Slots } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -16,7 +17,7 @@
    * 否则展示插槽内容
    */
   const isRender = computed((): boolean => {
-    const slots = useSlots()
+    const slots: Slots = useSlots()
 
     /** 判断是否有插槽 */
     if (slots.default) {

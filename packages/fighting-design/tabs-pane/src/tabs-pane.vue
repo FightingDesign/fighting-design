@@ -1,14 +1,15 @@
 <script lang="ts" setup name="FTabsPane">
   import { Props } from './props'
   import { TABS_PROPS_KEY } from '../../tabs/src/props'
-  import type { ComponentInternalInstance } from 'vue'
   import { computed, getCurrentInstance, inject, onBeforeUnmount, onMounted, ref, useSlots, reactive } from 'vue'
+  import type { ComponentInternalInstance, Slots } from 'vue'
   import type { TabsProvide } from '../../_hooks'
   import type { TabsPaneInstance } from './interface'
 
   const instance = getCurrentInstance() as ComponentInternalInstance
 
   const prop = defineProps(Props)
+  const slots: Slots = useSlots()
 
   const paneName = ref(prop.name)
 
@@ -26,8 +27,6 @@
 
   /** 该组件是否显示 */
   const isShow = computed((): boolean | null => parentInject && parentInject.activeName.value === paneName.value)
-
-  const slots = useSlots()
 
   const pane = reactive<TabsPaneInstance>({
     paneName,

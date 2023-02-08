@@ -1,13 +1,15 @@
 <script lang="ts" setup name="FDivider">
   import { Props } from './props'
   import { useSlots, computed } from 'vue'
-  import type { CSSProperties } from 'vue'
+  import type { CSSProperties, Slots } from 'vue'
 
   const prop = defineProps(Props)
 
   /** 是否有插槽 */
   const renderSlot = computed((): boolean => {
-    return !prop.vertical && Boolean(useSlots().default)
+    const slot: Slots = useSlots()
+
+    return !prop.vertical && Boolean(slot.default)
   })
 
   /** 样式列表 */

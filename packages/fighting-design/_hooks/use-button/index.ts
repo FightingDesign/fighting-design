@@ -3,7 +3,7 @@ import { useGlobal, useList, useColor } from '..'
 import { sizeChange } from '../../_utils'
 import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
 import type { ButtonProps } from '../../button'
-import type { CSSProperties } from 'vue'
+import type { CSSProperties, Slots } from 'vue'
 import type { FightingSize } from '../../_interface'
 import type { UseButtonReturn } from './interface'
 
@@ -18,7 +18,7 @@ export * from './interface.d'
  */
 export const useButton = (prop: ButtonProps): UseButtonReturn => {
   /** 获取插槽 */
-  const slot = useSlots()
+  const slot: Slots = useSlots()
 
   const { getType, getSize } = useGlobal(prop)
 
