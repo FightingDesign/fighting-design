@@ -313,5 +313,13 @@ module.exports = {
   root: true,
   parserOptions: {
     parser: '@typescript-eslint/parser' // 解决引入 type {} 报错问题
-  }
+  },
+  overrides: [
+    {
+      files: '*',
+      globals: {
+        __DEV__: 'readonly'
+      }
+    }
+  ]
 }
