@@ -6,10 +6,7 @@
  * @param { string } message 警告信息
  */
 export const warning = (location: string, message: string): void => {
-  /** 如果为生产环境则不提示 */
-  if (__DEV__) {
-    console.warn(`[fighting-design/${location}]: ${message}`)
-  }
+  console.warn(`[fighting-design/${location}]: ${message}`)
 }
 
 /**
@@ -20,10 +17,7 @@ export const warning = (location: string, message: string): void => {
  * @param { string } message 警告信息
  */
 export const error = (location: string, message: string): void => {
-  /** 如果为生产环境则不提示 */
-  if (__DEV__) {
-    console.error(`[fighting-design/${location}]: ${message}`)
-  }
+  console.error(`[fighting-design/${location}]: ${message}`)
 }
 
 /**

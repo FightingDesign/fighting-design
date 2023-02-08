@@ -18,8 +18,12 @@
   const tabsPosition = computed((): TabsPosition => {
     const { position, type } = prop
 
+    /** segment 风格不支持左右 position 的样式 */
     if (type === 'segment' && (position === 'right' || position === 'left')) {
-      warning('FTabs', 'segment 风格只支持 top、bottom 两种方向')
+      if (__DEV__) {
+        warning('f-tabs', 'The segment style only supports the `top` and `bottom` position')
+      }
+
       return 'top'
     }
 

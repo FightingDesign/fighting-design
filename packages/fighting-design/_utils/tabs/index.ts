@@ -1,6 +1,12 @@
 import { isVNode, shallowRef } from 'vue'
 import { isArray, isObject } from '..'
-import type { VNode, VNodeNormalizedChildren, ComponentInternalInstance, Component, ShallowRef } from 'vue'
+import type {
+  VNode,
+  VNodeNormalizedChildren,
+  ComponentInternalInstance,
+  Component,
+  ShallowRef
+} from 'vue'
 
 /**
  * 将所有子的组件扁平化
@@ -69,13 +75,15 @@ export const useChildren = <T extends { uid: number }>(
     childrenMap.set(child.uid, child)
     const componentList = getChildrenComponent(root, component)
 
-    const componentUids = componentList
+    console.log(componentList)
+
+    const componentUid: number[] = componentList
       .map(e => {
         return e.component ? e.component.uid : null
       })
       .filter(Boolean) as number[]
 
-    children.value = componentUids.map(e => childrenMap.get(e)).filter(Boolean) as T[]
+    children.value = componentUid.map((e: number) => childrenMap.get(e)).filter(Boolean) as T[]
   }
 
   const unRegisterChild = (child: T): void => {
