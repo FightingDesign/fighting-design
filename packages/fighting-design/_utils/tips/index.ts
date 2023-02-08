@@ -1,19 +1,39 @@
 /**
  * 警告信息提示
  *
- * @param { string } component 组件名称
+ * @see Console.warn() https://developer.mozilla.org/zh-CN/docs/Web/API/Console/warn
+ * @param { string } location 位置
  * @param { string } message 警告信息
  */
-export const warning = (component: string, message: string): void => {
-  console.warn(`Fighting Design - ${component}: ${message}`)
+export const warning = (location: string, message: string): void => {
+  /** 如果为生产环境则不提示 */
+  if (__DEV__) {
+    console.warn(`[fighting-design/${location}]: ${message}`)
+  }
 }
 
 /**
  * 错误信息提示
  *
- * @param { string } component 组件名称
- * @param { string } message 错误信息
+ * @see Console.error() https://developer.mozilla.org/zh-CN/docs/Web/API/Console/error
+ * @param { string } location 位置
+ * @param { string } message 警告信息
  */
-export const error = (component: string, message: string): void => {
-  console.error(`Fighting Design - ${component}: ${message}`)
+export const error = (location: string, message: string): void => {
+  /** 如果为生产环境则不提示 */
+  if (__DEV__) {
+    console.error(`[fighting-design/${location}]: ${message}`)
+  }
+}
+
+/**
+ * 致命错误
+ * 
+ * @see throw https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/throw
+ * @see Error https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Error
+ * @param { string } location 位置
+ * @param { string } message 警告信息
+ */
+export const throwError = (location: string, message: string): never => {
+  throw new Error(`[fighting-design/${location}]: ${message}`)
 }
