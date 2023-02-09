@@ -1,9 +1,15 @@
-import { ref } from 'vue'
+import type { UseSliderReturn, UseSliderCallback } from './interface'
 
-export const useSlider = (el: HTMLElement, callback) => {
+export * from './interface.d'
 
-  /** 初始位置 */
-  const oldPosition = ref(0)
+/**
+ * slider 组件滑动方法
+ * 
+ * @param { Object } el 滑块元素节点
+ * @param { Function } callback 回调方法
+ * @returns { Function } 开始监听滚动的方法
+ */
+export const useSlider = (el: HTMLElement, callback: UseSliderCallback): UseSliderReturn => {
 
   /**
    * 移动时触发的方法
@@ -36,10 +42,7 @@ export const useSlider = (el: HTMLElement, callback) => {
    * @see mousemove https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mousemove_event
    * @see mouseup https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mouseup_event
    */
-  const start = (evt: MouseEvent): void => {
-    /** 设置初始位置 */
-    oldPosition.value = evt.clientX
-
+  const start = (): void => {
     document.addEventListener('mousemove', move, { passive: false })
     document.addEventListener('mouseup', end, { passive: false })
   }
@@ -53,8 +56,5 @@ export const useSlider = (el: HTMLElement, callback) => {
     el.addEventListener('mousedown', start, { passive: false })
   }
 
-  return {
-    startListen
-  }
-
+  return startListen
 }

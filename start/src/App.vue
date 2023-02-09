@@ -5,12 +5,7 @@
 </script>
 
 <template>
-  {{ value1 }}
   <f-slider v-model="value1" :step="2" />
 </template>
 
-<style>
-  .f-slider {
-    /* margin: 50px; */
-  }
-</style>
+<style></style>

@@ -16,6 +16,7 @@
 
   /** dom 元素 */
   const sliderEl: Ref<HTMLDivElement | null> = ref(null)
+  /** 滑块小球元素 */
   const sliderCircle: Ref<HTMLDivElement | null> = ref(null)
 
   /** 便宜距离 */
@@ -58,19 +59,19 @@
   onMounted((): void => {
     /** 如果元素节点存在 */
     if (sliderCircle.value) {
-      const { startListen } = useSlider(sliderCircle.value, (num: number) => {
+      const startListen = useSlider(sliderCircle.value, (num: number) => {
         const percentDot = (num * 100) / sliderWidth.value
 
         setPosition(percentDot)
       })
 
       startListen()
+      setPosition(((prop.modelValue - prop.min) * 100) / (prop.max - prop.min))
     }
   })
 </script>
 
 <template>
-  <h1>{{ rightTx }}</h1>
   <div ref="sliderEl" role="slider" :class="classList" :style="styleList">
     <div class="f-slider__selected" :style="`width: ${rightTx}px`" />
     <div ref="sliderCircle" class="f-slider__right__icon f-slider__icon" :style="`transform: translateX(${rightTx}px)`">

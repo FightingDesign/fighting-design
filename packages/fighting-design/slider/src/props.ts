@@ -1,13 +1,9 @@
 import { setBooleanProp, setStringProp, setNumberProp } from '../../_utils'
-import type { PropType, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
   /** 绑定值 */
-  modelValue: {
-    type: [Number, Array] as PropType<number | number[]>,
-    required: true,
-    default: (): number => 0
-  },
+  modelValue: setNumberProp(0),
   /** 步长（注意和步数区别开来） */
   step: setNumberProp(1),
   /** 最小值 */
