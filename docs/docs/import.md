@@ -96,7 +96,6 @@ createApp(App).use(FButton).use(FCard).mount('#app')
   <script src="https://cdn.jsdelivr.net/npm/fighting-design/dist/index.umd.js"></script>
   <script>
     const { createApp, ref } = Vue
-    const { FButton, FSpace, FDivider, FDialog } = FightingDesign
 
     const app = createApp({
       setup() {
@@ -106,10 +105,7 @@ createApp(App).use(FButton).use(FCard).mount('#app')
       }
     })
 
-    app.use(FButton)
-    app.use(FSpace)
-    app.use(FDivider)
-    app.use(FDialog)
+    app.use(FightingDesign.default)
     app.mount('#app')
   </script>
 </body>
