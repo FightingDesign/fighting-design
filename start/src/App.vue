@@ -5,7 +5,9 @@
 </script>
 
 <template>
-  <f-slider v-model="value1" :step="2" />
+  <h1>{{ value1 }}</h1>
+
+  <f-slider v-model="value1" :step="2" background="blue" active-color="green" width="200px" disabled />
 </template>
 
 <style></style>
