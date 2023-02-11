@@ -3,6 +3,8 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - `f-badge` 组件优化细节
+- `f-slider` 组件废除 `range` 配置项
+- `f-slider` 组件新增 `background` `active-color` `width` 配置项
 
 ## 0.22.1 (2023-02-07)
 
