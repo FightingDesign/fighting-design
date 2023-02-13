@@ -25,9 +25,9 @@ describe('FSlider', () => {
     const wrapper = mount(FSlider, {
       props: {
         modelValue: 0,
-        bgColor: '#bfa'
+        background: '#bfa'
       }
     })
-    expect(wrapper.find('.f-slider').attributes('style')).toContain('--slider-bg-color: #bfa')
+    expect(wrapper.find('.f-slider').attributes('style')).toContain('--slider-background: #bfa')
   })
 })
