@@ -42,7 +42,7 @@ export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEm
   /** 清空文本框 */
   const onClear = (): void => {
     if (prop.disabled) return
-    emit(EMIT_UPDATE, isNumber(prop.type) ? 0 : '')
+    emit(EMIT_UPDATE, '')
   }
 
   return {

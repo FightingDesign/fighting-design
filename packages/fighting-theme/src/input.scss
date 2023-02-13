@@ -36,6 +36,7 @@
       font-size: var(--input-font-size, 14px);
       cursor: pointer;
       color: var(--input-text-color);
+      user-select: none;
 
       // 禁用原生右侧上下选择箭头
       &::-webkit-outer-spin-button,
@@ -80,10 +81,13 @@
   &__disabled {
     cursor: not-allowed;
 
-    .f-input__clear-btn,
     .f-input__input {
       cursor: not-allowed;
       color: #757575;
+    }
+
+    .f-input__clear-btn {
+      cursor: not-allowed;
     }
   }
 }

@@ -91,6 +91,8 @@
 <template>
   <div role="input" :class="['f-input', { [`f-input__${size}`]: size }]" :style="styleList">
     <div :class="['f-input__wrapper', { 'f-input__disabled': disabled }]">
+      <slot name="before" />
+
       <f-svg-icon v-if="icon" class="f-input__icon" :icon="icon" :size="13" />
 
       <input
@@ -114,7 +116,7 @@
       />
 
       <!-- 清除 icon -->
-      <f-svg-icon v-if="clear" class="f-input__clear-btn" :icon="FIconCrossVue" :size="14" @click="onClear" />
+      <f-svg-icon v-if="clear" class="f-input__clear-btn" :icon="FIconCrossVue" :size="14" :on-click="onClear" />
 
       <!-- 左侧 icon -->
       <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="14" />
