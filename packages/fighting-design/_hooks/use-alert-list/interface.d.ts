@@ -3,6 +3,4 @@
  *
  * @param { Function } startMove 开始触发滚动
  */
-export interface UseAlertListReturn {
-  startMove: (duration?: number) => void
-}
+export type UseAlertListReturn = (duration?: number) => void

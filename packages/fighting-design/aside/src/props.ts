@@ -14,4 +14,5 @@ export const Props = {
   background: setStringProp()
 } as const
 
+/** aside 组件 props 类型 */
 export type AsideProps = ExtractPropTypes<typeof Props>

@@ -102,5 +102,5 @@ export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
     setInterval(moveNext, duration)
   }
 
-  return { startMove }
+  return startMove
 }

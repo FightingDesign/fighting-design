@@ -57,4 +57,5 @@ export const Props = {
   onClose: setFunctionProp<HandleMouse>()
 } as const
 
+/** alert 组件 props 类型 */
 export type AlertProps = ExtractPropTypes<typeof Props>

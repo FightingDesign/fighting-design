@@ -16,4 +16,5 @@ export const Props = {
   padding: setStringNumberProp()
 } as const
 
+/** footer 组件 props 类型 */
 export type FooterProps = ExtractPropTypes<typeof Props>

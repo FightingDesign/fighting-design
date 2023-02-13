@@ -27,4 +27,5 @@ export const Props = {
 
 export type ButtonGroupProps = ExtractPropTypes<typeof Props>
 
+/** 按钮组注入的依赖项 */
 export const BUTTON_GROUP_PROPS_KEY: InjectionKey<ButtonGroupProps> = Symbol('button-group-props-key')

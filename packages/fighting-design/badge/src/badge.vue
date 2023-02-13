@@ -49,8 +49,8 @@
   <div :class="classList" :style="styleList">
     <slot />
 
-    <!-- https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/sup -->
     <transition name="f-badge">
+      <!-- https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/sup -->
       <sup v-if="isShow" class="f-badge__content">
         {{ content }}
       </sup>

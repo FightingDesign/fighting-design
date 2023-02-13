@@ -27,4 +27,5 @@ export const Props = {
   color: setStringProp()
 } as const
 
+/** badge 组件 props 类型 */
 export type BadgeProps = ExtractPropTypes<typeof Props>

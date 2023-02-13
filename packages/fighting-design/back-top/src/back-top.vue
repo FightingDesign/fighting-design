@@ -63,22 +63,27 @@
   }
 
   onMounted((): void => {
-    if (prop.listenEl) {
-      /**
-       * 如果不是字符串，后续代码会有致命错误
-       *
-       * 提前拦截错误
-       */
-      if (!isString(prop.listenEl)) {
-        error('back-top', 'listen-el attributes is not a string')
-        return
-      }
-
+    /** 如果需要监视的节点有值，并且是字符串参数 */
+    if (prop.listenEl && isString(prop.listenEl)) {
       /** 获取到监视的节点 */
       const listerNode: HTMLElement | null = document.querySelector(prop.listenEl)
 
+      /**
+       * 如果需要监视的节点存在才触发监听
+       *
+       * 并将节点传进去
+       */
       listerNode && listerNode.addEventListener('scroll', handleScroll(listerNode))
     } else {
+      /**
+       * 如果不是字符串，给出错误提示
+       *
+       * 并默认监听 document
+       */
+      if (!isString(prop.listenEl) && __DEV__) {
+        error('f-back-top', '`listen-el` attributes is not a string')
+      }
+
       document.addEventListener('scroll', handleScroll())
     }
   })

@@ -40,4 +40,5 @@ export const Props = {
   display: setStringProp()
 } as const
 
+/** box 组件 props 类型 */
 export type BoxProps = ExtractPropTypes<typeof Props>

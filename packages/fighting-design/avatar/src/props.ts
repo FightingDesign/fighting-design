@@ -78,4 +78,5 @@ export const Props = {
   onError: setFunctionProp<HandleEvent>()
 } as const
 
+/** avatar 组件 props 类型 */
 export type AvatarProps = ExtractPropTypes<typeof Props>

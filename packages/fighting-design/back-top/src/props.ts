@@ -37,4 +37,5 @@ export const Props = {
   color: setStringProp()
 } as const
 
+/** back-top 组件 props 类型 */
 export type BackTopProps = ExtractPropTypes<typeof Props>

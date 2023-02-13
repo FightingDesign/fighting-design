@@ -16,7 +16,7 @@ export const Props = {
   /**
    * 按钮的类型（非自定义按钮颜色时有效）
    *
-   * @values default primary success danger warning
+   * @values default primary success danger warning info
    * @default null
    */
   type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
@@ -33,6 +33,8 @@ export const Props = {
   })
 } as const
 
+/** fighting-global 组件 props 类型 */
 export type FightingGlobalProps = ExtractPropTypes<typeof Props>
 
+/** 全局配置组件注入的依赖项 */
 export const FIGHTING_GLOBAL_PROPS_KEY: InjectionKey<FightingGlobalProps> = Symbol('fighting-global-props-key')
