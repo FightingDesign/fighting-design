@@ -35,9 +35,15 @@
 
 ## Attributes
 
-| 参数           | 说明   | 类型   | 可选值 | 默认值 |
-| -------------- | ------ | ------ | ------ | ------ |
-| `v-model:date` | 绑定值 | string | ——     | ——     |
+| 参数           | 说明                   | 类型                                                               | 可选值                          | 默认值     |
+| -------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------- | ---------- |
+| `v-model:date` | 绑定值                 | string                                                             | ——                              | ——         |
+| `disabled`     | 是否禁用               | boolean                                                            | ——                              | false      |
+| `clear`        | 是否可清空             | boolean                                                            | ——                              | false      |
+| `format`       | 时间格式               | string                                                             | ——                              | YYYY/MM/DD |
+| `placeholder`  | 占位符                 | string                                                             | ——                              | ——         |
+| `size`         | 尺寸                   | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle     |
+| `add-zero`     | 不满 10 的是否前面加 0 | boolean                                                            | ——                              | false      |
 
 ## Interface
 

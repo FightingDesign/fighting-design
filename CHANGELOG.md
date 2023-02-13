@@ -8,6 +8,7 @@
 - `f-card` 组件新增 `border-color` `background` `title-color` `title-bold` `close` `on-close` 配置项
 - `f-input` 组件新增 `autocomplete` 配置项
 - `f-input` 组件新增 `before` 插槽
+- `f-date-picker` 组件新增 `placeholder` `add-zero` 配置项
 
 - 修复 `f-date-picker` 清空时的警告提示
 
