@@ -15,4 +15,5 @@ export const Props = {
 
 export type BreadcrumbProps = ExtractPropTypes<typeof Props>
 
+/** breadcrumb 注入的依赖项 */
 export const BREADCRUMB_PROPS_KEY: InjectionKey<BreadcrumbProps> = Symbol('breadcrumb-props-key')

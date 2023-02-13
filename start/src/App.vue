@@ -1,13 +1,9 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const value1 = ref(20)
+  const a = () => console.log(111)
 </script>
 
 <template>
-  <h1>{{ value1 }}</h1>
-
-  <f-slider v-model="value1" :step="2" background="blue" active-color="green" width="200px" disabled />
+  <f-card title="卡片标题卡片标题卡片标题卡片标题卡片标题卡片标题卡片标题" title-bold title-color="blue" :on-close="a">Card 卡片</f-card>
 </template>
 
-<style></style>
+<style lang="scss" scoped></style>
