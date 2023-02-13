@@ -57,14 +57,52 @@
 
 :::
 
+## 自定义样式
+
+多种配置项可自定义卡片的样式
+
+::: demo
+
+<template #source>
+<f-card title="卡片标题" title-bold title-color="blue" background="#eee" border-color="blue">Card 卡片</f-card>
+</template>
+
+```html
+<f-card title="卡片标题" title-bold title-color="blue" background="#eee" border-color="blue">Card 卡片</f-card>
+```
+
+:::
+
+## 可关闭的
+
+`close` 可配置带有关闭按钮的卡片
+
+::: demo
+
+<template #source>
+<f-card title="卡片标题" close>Card 卡片</f-card>
+</template>
+
+```html
+<f-card title="卡片标题" close>Card 卡片</f-card>
+```
+
+:::
+
 ## Attributes
 
-| 参数      | 说明           | 类型                                 | 可选值           | 默认值 |
-| --------- | -------------- | ------------------------------------ | ---------------- | ------ |
-| `title`   | 卡片标题       | string                               | ——               | ——     |
-| `round`   | 是否为圆角卡片 | boolean                              | ——               | false  |
-| `padding` | 卡片内边距     | string                               | ——               | ——     |
-| `shadow`  | 阴影样式       | <a href="#cardshadow">CardShadow</a> | `hover` `always` | ——     |
+| 参数           | 说明              | 类型                                 | 可选值           | 默认值 |
+| -------------- | ----------------- | ------------------------------------ | ---------------- | ------ |
+| `title`        | 卡片标题          | string                               | ——               | ——     |
+| `round`        | 是否为圆角卡片    | boolean                              | ——               | false  |
+| `padding`      | 卡片内边距        | string                               | ——               | ——     |
+| `shadow`       | 阴影样式          | <a href="#cardshadow">CardShadow</a> | `hover` `always` | ——     |
+| `border-color` | 自定义边框颜色    | string                               | ——               | ——     |
+| `background`   | 自定义背景颜色    | string                               | ——               | ——     |
+| `title-color`  | 自定义 title 颜色 | string                               | ——               | ——     |
+| `title-bold`   | title 是否加粗    | boolean                              | ——               | false  |
+| `close`        | 是否可关闭        | boolean                              | ——               | false  |
+| `on-close`     | 是否可关闭        | <a href="#cardclose">CardClose</a>   | ——               | ——     |
 
 ## Slots
 
@@ -78,13 +116,19 @@
 组件导出以下类型定义：
 
 ```ts
-import type { CardInstance, CardProps, CardShadow } from 'fighting-design'
+import type { CardInstance, CardProps, CardShadow, CardClose } from 'fighting-design'
 ```
 
 ### CardShadow
 
 ```ts
 type CardShadow = 'hover' | 'always'
+```
+
+### CardClose
+
+```ts
+type CardClose = (target: boolean) => void
 ```
 
 ## Contributors
