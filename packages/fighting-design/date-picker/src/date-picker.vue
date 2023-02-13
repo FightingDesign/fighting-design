@@ -62,7 +62,14 @@
 <template>
   <div class="f-date-picker">
     <f-dropdown :disabled="readonly">
-      <f-input v-model="pickerDate" :clear="clear" :size="size" :readonly="readonly" />
+      <f-input
+        v-model="pickerDate"
+        autocomplete="off"
+        :placeholder="placeholder || '请选择日期'"
+        :clear="clear"
+        :size="size"
+        :readonly="readonly"
+      />
 
       <template #content>
         <div class="f-date-picker__content">

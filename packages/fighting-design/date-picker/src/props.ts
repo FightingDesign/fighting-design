@@ -20,7 +20,9 @@ export const Props = {
     return FIGHTING_SIZE.includes(val)
   }),
   /** 时间格式 */
-  format: setStringProp<string>('YYYY/MM/DD')
+  format: setStringProp<string>('YYYY/MM/DD'),
+  /** 占位符 */
+  placeholder: setStringProp()
 } as const
 
 export type DatePickerProps = ExtractPropTypes<typeof Props>

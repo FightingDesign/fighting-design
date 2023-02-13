@@ -104,6 +104,17 @@ export const Props = {
   icon: setObjectProp<FightingIcon>(),
   /** 后缀 icon */
   afterIcon: setObjectProp<FightingIcon>(),
+  /**
+   * 是否开启自动填充特性提示
+   * 
+   * 注意这不是一个布尔属性！
+   * 
+   * 详情配置可参考
+   * 
+   * @see HTML属性autocomplete https://developer.mozilla.org/zh-CN/docs/Web/HTML/Attributes/autocomplete
+   * @see autocomplete https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#autocomplete
+   */
+  autocomplete: setStringProp(),
   /** 点击搜索之后触发的回调 */
   onSearch: setFunctionProp<InputSearch>(),
   /** 绑定值发生改变时触发的回调 */

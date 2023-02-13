@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-  const a = e => console.log(e)
+  import { ref } from 'vue'
+
+  const value1 = ref('')
 </script>
 
 <template>
-  <f-card round title="卡片标题" title-bold title-color="blue" background="#eee" border-color="blue">Card 卡片</f-card>
+  <f-date-picker v-model:date="value1" />
 </template>
-
-<style lang="scss" scoped></style>

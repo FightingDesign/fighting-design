@@ -103,6 +103,7 @@
         :disabled="disabled"
         :readonly="readonly"
         :autofocus="autofocus"
+        :autocomplete="autocomplete"
         :name="name"
         :placeholder="placeholder"
         @input="handleInput"
