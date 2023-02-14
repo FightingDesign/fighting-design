@@ -31,6 +31,8 @@ export const Props = {
   onClose: setFunctionProp<HandleChange>()
 } as const
 
+/** trigger 组件 props 类型 */
 export type TriggerProps = ExtractPropTypes<typeof Props>
 
+/** trigger 组件注入的关闭方法依赖项 */
 export const TRIGGER_CLOSE_KEY: InjectionKey<TriggerProvide> = Symbol('trigger-close-key')

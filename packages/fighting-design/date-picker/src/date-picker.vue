@@ -2,9 +2,8 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import { FInput } from '../../input'
-  import { FDropdown } from '../../dropdown'
+  import { FTrigger } from '../../trigger'
   import { FCalendar } from '../../calendar'
-  import { FSvgIcon } from '../../svg-icon'
   import { EMIT_DATE } from '../../_tokens'
   import { isString, addZero, warning } from '../../_utils'
   import { FIconCalendar } from '../../_svg'
@@ -86,7 +85,7 @@
 
 <template>
   <div class="f-date-picker">
-    <f-dropdown :disabled="disabled">
+    <f-trigger trigger="click" :disabled="disabled">
       <!-- 输入框 -->
       <f-input
         v-model="pickerDate"
@@ -96,11 +95,8 @@
         :placeholder="placeholder || '请选择日期'"
         :clear="clear"
         :size="size"
-      >
-        <template #after>
-          <f-svg-icon :icon="FIconCalendar" :size="14" />
-        </template>
-      </f-input>
+        :after-icon="FIconCalendar"
+      />
 
       <!-- 
         主要内容插入
@@ -112,6 +108,6 @@
           <f-calendar v-model:date="date" :day-cell-height="40" :week-cell-height="40" :on-change-date="changeDate" />
         </div>
       </template>
-    </f-dropdown>
+    </f-trigger>
   </div>
 </template>

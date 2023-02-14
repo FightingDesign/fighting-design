@@ -129,4 +129,5 @@ export const Props = {
   onEnter: setFunctionProp<HandleEvent>()
 } as const
 
+/** input 组件 props 类型 */
 export type InputProps = ExtractPropTypes<typeof Props>

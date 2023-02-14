@@ -1,18 +1,20 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const value1 = ref('123')
-
-  // let str = '12354'
-  // let reg = RegExp(/[4|5]/)
-  // console.log(reg.test(str))
-
-  const formatRule = RegExp(/([Y]{4})|([M]{2})|([D]{2})/)
-
-  console.log(formatRule.test('MM'))
+  const value1 = ref('')
+  const date = ref('')
 </script>
 
 <template>
-  <h1>{{ value1 || 123 }}</h1>
-  <f-date-picker v-model:date="value1" clear format="YY121YY" add-zero />
+  <f-fighting-global lang="zh-CN">
+    <f-empty />
+  </f-fighting-global>
+
+  <f-fighting-global lang="en-US">
+    <f-empty />
+  </f-fighting-global>
+
+  <h2>{{ value1 }}</h2>
+  <f-time-picker v-model:time="value1" clear />
+  <f-date-picker v-model:date="date" />
 </template>

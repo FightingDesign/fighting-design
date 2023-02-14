@@ -2,10 +2,11 @@
   width: 240px;
   display: inline-flex;
 
-  .f-dropdown {
+  // 触发器
+  .f-trigger {
     width: 100%;
 
-    // 主内容
+    // 时间选择列表
     .f-time-picker__content {
       padding: 14px;
       box-sizing: border-box;
@@ -22,6 +23,7 @@
         padding: 0 6px;
         box-sizing: border-box;
 
+        // 每一项选项
         .f-time-picker__hour-item,
         .f-time-picker__minute-item {
           height: 50px;
@@ -38,6 +40,13 @@
           &:hover {
             background-color: #eee;
           }
+
+          // 选中的
+          &.f-time-picker__minute-active,
+          &.f-time-picker__hour-active {
+            color: #fff;
+            background: #2d5af1;
+          }
         }
 
         // 滚动条
@@ -45,6 +54,18 @@
         &::-webkit-scrollbar-thumb {
           display: none;
         }
+      }
+    }
+
+    // 操作栏
+    .f-time-picker__option {
+      padding: 10px 25px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: end;
+
+      .f-button__default {
+        margin-right: 15px;
       }
     }
   }

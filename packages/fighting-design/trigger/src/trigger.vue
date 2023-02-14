@@ -92,6 +92,8 @@
       showContent.value = false
     }
   })
+
+  defineExpose({ handelClose })
 </script>
 
 <template>
