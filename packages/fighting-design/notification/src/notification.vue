@@ -12,8 +12,8 @@
     FIconCircleCrossVue,
     FIconWarningVue
   } from '../../_svg'
-  import type { Ref } from 'vue'
   import type { FightingIcon } from '../../_interface'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -21,7 +21,7 @@
   })
 
   /** 元素节点 */
-  const FNotificationEl: Ref<HTMLDivElement | null> = ref<HTMLDivElement | null>(null)
+  const FNotificationEl = ref<HTMLDivElement>()
 
   const {
     classList,
@@ -34,24 +34,26 @@
     closeMessage,
     closeMessageEnd,
     startTime
-  } = useEject(prop, 'notification', FNotificationEl)
-
-  /** 默认 icon 列表 */
-  const notificationDefaultIcon = {
-    default: FIconSmileLineVue,
-    primary: FIconLightbulbVue,
-    success: FIconThumbUpVue,
-    danger: FIconCircleCrossVue,
-    warning: FIconWarningVue
-  } as const
+  } = useEject(prop, 'notification', FNotificationEl as Ref<HTMLDivElement>)
 
   /** 默认 icon */
   const _icon = computed((): FightingIcon | null => {
     if (prop.icon) {
       return prop.icon
     } else if (prop.type) {
-      return notificationDefaultIcon[prop.type]
+      /** 默认 icon 列表 */
+      const icons = {
+        default: FIconSmileLineVue,
+        primary: FIconLightbulbVue,
+        success: FIconThumbUpVue,
+        danger: FIconCircleCrossVue,
+        warning: FIconWarningVue,
+        info: null
+      } as const
+
+      return icons[prop.type]
     }
+
     return null
   })
 

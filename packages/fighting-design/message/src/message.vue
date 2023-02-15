@@ -13,7 +13,7 @@
   })
 
   /** 元素节点 */
-  const FMessageEl: Ref<HTMLDivElement | null> = ref<HTMLDivElement | null>(null)
+  const FMessageEl = ref<HTMLDivElement>()
 
   const {
     classList,
@@ -26,7 +26,7 @@
     closeMessage,
     closeMessageEnd,
     startTime
-  } = useEject(prop, 'message', FMessageEl)
+  } = useEject(prop, 'message', FMessageEl as Ref<HTMLDivElement>)
 
   defineExpose({
     visible,

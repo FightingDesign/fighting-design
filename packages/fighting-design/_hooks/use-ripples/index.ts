@@ -32,7 +32,8 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
       primary: '#2d5af1',
       success: '#52b35e',
       danger: '#ff0200',
-      warning: '#fcc202'
+      warning: '#fcc202',
+      info: '#1d1d1f'
     } as const
 
     /**

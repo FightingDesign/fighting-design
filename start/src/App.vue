@@ -1,5 +1,19 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { FMessage, FNotification } from 'fighting-design'
 
-<template></template>
+  const openMessage = () => {
+    FMessage({
+      message: '这是一条消息提示',
+      type: 'success'
+    })
 
-<style lang="scss" scoped></style>
+    FNotification({
+      title: '这是一条通知',
+      message: '这是通知内容'
+    })
+  }
+</script>
+
+<template>
+  <f-button type="primary" @click="openMessage">show</f-button>
+</template>
