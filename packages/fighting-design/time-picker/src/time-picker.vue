@@ -20,7 +20,8 @@
   /** 当前日期对象 */
   const timeList: TimePickerTimeList = reactive({
     hour: addZero(nowDate.getHours()),
-    minute: addZero(nowDate.getMinutes())
+    minute: addZero(nowDate.getMinutes()),
+    second: addZero(nowDate.getSeconds())
   })
 
   /** 获取选择的时间 & 设置时间 */
@@ -41,9 +42,9 @@
    * 点击对应的时间进行选取
    *
    * @param { number } date 当前的时间数字
-   * @param { 'hour' | 'minute' } params 小时还是分钟
+   * @param { 'hour' | 'minute' | 'second' } params 小时还是分钟
    */
-  const handleClick = (date: number, params: 'hour' | 'minute'): void => {
+  const handleClick = (date: number, params: 'hour' | 'minute' | 'second'): void => {
     timeList[params] = addZero(date)
   }
 
@@ -62,7 +63,7 @@
      * 则重新设置时间触发更新
      */
     if (target) {
-      pickerTime.value = `${timeList.hour}:${timeList.minute}`
+      pickerTime.value = `${timeList.hour}:${timeList.minute}:${timeList.second}`
     }
 
     /** 不管确定还是取消，都需要关闭触发器 */
@@ -102,7 +103,7 @@
             </div>
           </div>
 
-          <!-- 时间容器 -->
+          <!-- 分钟容器 -->
           <div class="f-time-picker__minute">
             <div
               v-for="minute in 59"
@@ -116,10 +117,26 @@
               {{ addZero(minute) }}
             </div>
           </div>
+
+          <!-- 秒钟容器 -->
+          <div class="f-time-picker__second">
+            <div
+              v-for="second in 59"
+              :key="second"
+              :class="[
+                'f-time-picker__second-item',
+                { 'f-time-picker__second-active': addZero(second).toString() === timeList.second }
+              ]"
+              @click.stop="handleClick(second, 'second')"
+            >
+              {{ addZero(second) }}
+            </div>
+          </div>
         </div>
 
         <!-- 操作栏 -->
         <div class="f-time-picker__option">
+          <f-button size="mini">当前</f-button>
           <f-button size="mini" :on-click="() => onConfirm(false)">取消</f-button>
           <f-button type="primary" size="mini" :on-click="onConfirm">确定</f-button>
         </div>

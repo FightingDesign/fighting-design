@@ -8,25 +8,28 @@
 
     // 时间选择列表
     .f-time-picker__content {
-      padding: 14px;
+      padding: 9px 5px;
       box-sizing: border-box;
       width: 240px;
       display: flex;
       justify-content: space-between;
 
       // 小时
+      .f-time-picker__hour,
       .f-time-picker__minute,
-      .f-time-picker__hour {
+      .f-time-picker__second {
         flex: 1;
-        height: 300px;
+        height: 240px;
         overflow: auto;
         padding: 0 6px;
         box-sizing: border-box;
 
         // 每一项选项
         .f-time-picker__hour-item,
-        .f-time-picker__minute-item {
-          height: 50px;
+        .f-time-picker__minute-item,
+        .f-time-picker__second-item {
+          border-radius: 5px;
+          padding: 10px 0;
           width: 100%;
           cursor: pointer;
           user-select: none;
@@ -42,8 +45,9 @@
           }
 
           // 选中的
+          &.f-time-picker__hour-active,
           &.f-time-picker__minute-active,
-          &.f-time-picker__hour-active {
+          &.f-time-picker__second-active {
             color: #fff;
             background: #2d5af1;
           }
@@ -59,14 +63,10 @@
 
     // 操作栏
     .f-time-picker__option {
-      padding: 10px 25px;
+      padding: 9px 5px;
       box-sizing: border-box;
       display: flex;
-      justify-content: flex-end;
-
-      .f-button__default {
-        margin-right: 15px;
-      }
+      justify-content: space-around;
     }
   }
 }
