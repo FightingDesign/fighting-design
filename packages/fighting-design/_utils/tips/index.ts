@@ -22,7 +22,7 @@ export const error = (location: string, message: string): void => {
 
 /**
  * 致命错误
- * 
+ *
  * @see throw https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/throw
  * @see Error https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Error
  * @param { string } location 位置

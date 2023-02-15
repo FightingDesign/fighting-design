@@ -15,14 +15,14 @@
   /** dom 元素 */
   const sliderEl = ref<HTMLDivElement>()
   /** 滑块小球 dom 元素 */
-  const sliderCircle= ref<HTMLDivElement>()
+  const sliderCircle = ref<HTMLDivElement>()
 
   /** 便宜距离 */
   const offset = ref<number>(0)
 
-  /** 
+  /**
    * 滑动条宽度
-   * 
+   *
    * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
    */
   const sliderWidth = computed((): number => {
@@ -67,6 +67,7 @@
   onMounted((): void => {
     /** 如果元素节点存在 */
     if (sliderCircle.value) {
+      /** 开始监听 dom 按下时的事件 */
       const startListen = useSlider(sliderCircle.value, (num: number): void => {
         if (prop.disabled) return
 

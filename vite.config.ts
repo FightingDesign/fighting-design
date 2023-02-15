@@ -11,7 +11,7 @@ export default (): UserConfigExport => {
   return {
     /**
      * 定义全局常量替换方式
-     * 
+     *
      * @see define https://cn.vitejs.dev/config/shared-options.html#define
      */
     define: {

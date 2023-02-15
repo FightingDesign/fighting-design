@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.23.0 (2023-02-15)
+
+- `f-badge` component optimization details
+- `f-slider` component cancels the `range` configuration item
+- The `f-slider` component adds a `background` `active-color` `width` configuration item
+- The `f-card` component adds a `border-color` `background` `title-color` `title-bold` `close` `on-close` configuration item
+- `f-input` component adds `autocomplete` configuration item
+- `f-input` component adds `before` slot
+- `f-date-picker` component adds `placeholder` `add-zero` configuration item
+- Fix the warning prompt when clearing `f-date-picker`
+
 ## 0.22.1 (2023-02-07)
 
 - `f-calendar` component abolishes `memorandum` configuration item

@@ -4,13 +4,12 @@ export * from './interface.d'
 
 /**
  * slider 组件滑动方法
- * 
+ *
  * @param { Object } el 滑块元素节点
  * @param { Function } callback 回调方法
  * @returns { Function } 开始监听滚动的方法
  */
 export const useSlider = (el: HTMLElement, callback: UseSliderCallback): UseSliderReturn => {
-
   /**
    * 移动时触发的方法
    *
@@ -48,7 +47,7 @@ export const useSlider = (el: HTMLElement, callback: UseSliderCallback): UseSlid
   }
 
   /**
-   * 监听 dom 按下时的事件
+   * 开始监听 dom 按下时的事件
    *
    * @see mousedown https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mousedown_event
    */
