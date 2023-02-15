@@ -22,7 +22,11 @@
   /** 便宜距离 */
   const offset = ref<number>(0)
 
-  /** 滑动条宽度 */
+  /** 
+   * 滑动条宽度
+   * 
+   * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
+   */
   const sliderWidth = computed((): number => {
     return parseInt((sliderEl.value as HTMLDivElement).offsetWidth + '')
   })

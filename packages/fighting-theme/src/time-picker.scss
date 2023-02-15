@@ -23,6 +23,7 @@
         overflow: auto;
         padding: 0 6px;
         box-sizing: border-box;
+        padding-bottom: 200px;
 
         // 每一项选项
         .f-time-picker__hour-item,
@@ -30,6 +31,8 @@
         .f-time-picker__second-item {
           border-radius: 5px;
           padding: 10px 0;
+          height: 40px;
+          box-sizing: border-box;
           width: 100%;
           cursor: pointer;
           user-select: none;
