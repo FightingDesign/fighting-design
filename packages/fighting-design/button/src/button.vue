@@ -5,7 +5,6 @@
   import { FIconLoadingAVue } from '../../_svg'
   import { useRipples, useRun, useGlobal, useButton } from '../../_hooks'
   import type { RipplesOptions } from '../../_hooks'
-  import type { Ref } from 'vue'
   import type { FightingIcon } from '../../_interface'
 
   const prop = defineProps(Props)
@@ -15,7 +14,7 @@
   const { classList, styleList } = useButton(prop)
 
   /** 元素节点 */
-  const FButtonEl: Ref<HTMLButtonElement | null> = ref(null)
+  const FButtonEl = ref<HTMLButtonElement>()
 
   /**
    * 按钮点击

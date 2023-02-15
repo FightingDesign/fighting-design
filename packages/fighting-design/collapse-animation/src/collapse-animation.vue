@@ -1,15 +1,14 @@
 <script lang="ts" setup name="FCollapseAnimation">
   import { Props } from './props'
   import { ref, onMounted, computed, watch } from 'vue'
-  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
 
   /** 初始是否展开 */
   const isOpened = computed((): boolean => !!prop.opened)
 
-  /** om 元素 */
-  const collapseEl: Ref<HTMLDivElement | null> = ref(null)
+  /** DOM 元素 */
+  const collapseEl = ref<HTMLDivElement>()
 
   /** 需要展开的尺寸 */
   const defaultSize = ref<number>(null as unknown as number)

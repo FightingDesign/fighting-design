@@ -2,7 +2,6 @@
   import { Props } from './props'
   import { ref } from 'vue'
   import { useRun } from '../../_hooks'
-  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -10,14 +9,18 @@
   const target = ref(false)
 
   /** 元素节点 */
-  const scrollEl: Ref<HTMLDivElement | null> = ref(null)
+  const scrollEl = ref<HTMLDivElement>()
 
   /** 滚动触发 */
   const scroll = (): void => {
     if (prop.loading) return
 
     /** 获取到元素节点 */
-    const view: HTMLDivElement = scrollEl.value as HTMLDivElement
+    const view: HTMLDivElement | undefined = scrollEl.value
+
+    /** 如果没找到则直接拦截 */
+    if (!view) return
+
     /**
      * 获取到滚动的距离
      *

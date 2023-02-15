@@ -3,7 +3,6 @@
   import { useRipples, useList, useGlobal } from '../../_hooks'
   import { ref, toRefs, reactive } from 'vue'
   import type { RipplesOptions } from '../../_hooks'
-  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -18,7 +17,7 @@
   const { styles } = useList(params, 'ripple')
 
   /** 元素节点 */
-  const rippleEl: Ref<HTMLElement | null> = ref(null)
+  const rippleEl = ref<HTMLElement>()
 
   /** 样式列表 */
   const styleList = styles(['startOpacity', 'endOpacity'], false)
@@ -42,9 +41,12 @@
       ripplesColor: ripplesColor.value
     })
 
-    const { runRipples } = useRipples(evt, rippleEl.value as HTMLElement, options)
+    /** 必须在元素节点存在的情况下才触发涟漪 */
+    if (rippleEl.value) {
+      const { runRipples } = useRipples(evt, rippleEl.value, options)
 
-    runRipples()
+      runRipples()
+    }
   }
 </script>
 

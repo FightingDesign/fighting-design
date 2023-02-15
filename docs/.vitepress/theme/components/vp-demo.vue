@@ -4,7 +4,7 @@
   /** 是否展示内容 */
   const isOpen = ref(false)
   /** 折叠的 dom 节点 */
-  const content = ref(null)
+  const content = ref()
 
   /** 点击执行 */
   const handleClick = () => {

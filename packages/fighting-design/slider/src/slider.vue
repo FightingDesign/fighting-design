@@ -3,9 +3,7 @@
   import { onMounted, ref, computed } from 'vue'
   import { isNumber } from '../../_utils'
   import { useList, useSlider } from '../../_hooks'
-  // import { FTooltip } from '../../tooltip'
   import { EMIT_UPDATE } from '../../_tokens'
-  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -15,9 +13,9 @@
   const { styles, classes } = useList(prop, 'slider')
 
   /** dom 元素 */
-  const sliderEl: Ref<HTMLDivElement | null> = ref(null)
+  const sliderEl = ref<HTMLDivElement>()
   /** 滑块小球 dom 元素 */
-  const sliderCircle: Ref<HTMLDivElement | null> = ref(null)
+  const sliderCircle= ref<HTMLDivElement>()
 
   /** 便宜距离 */
   const offset = ref<number>(0)

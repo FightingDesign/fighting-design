@@ -7,7 +7,6 @@
   import { FCloseBtn } from '../../close-btn'
   import { FIconNotesVue, FIconPlusVue } from '../../_svg'
   import { EMIT_FILES } from '../../_tokens'
-  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -20,11 +19,11 @@
   const fileList = ref<File[]>(null as unknown as File[])
 
   /** 文件上传输入框 */
-  const inputEl: Ref<HTMLInputElement | null> = ref(null)
+  const inputEl = ref<HTMLInputElement>()
 
   /** 点击上传 */
   const handleClick = (): void => {
-    ;(inputEl.value as HTMLInputElement).click()
+    inputEl.value && inputEl.value.click()
   }
 
   /**
@@ -80,10 +79,11 @@
   /**
    * 删除文件
    *
+   * @see Array.prototype.splice() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
    * @param { number } index 需要删除的文件索引
    */
   const removeFile = (index: number): void => {
-    ;(fileList.value as File[]).splice(index, 1)
+    fileList.value.splice(index, 1)
   }
 
   /**
