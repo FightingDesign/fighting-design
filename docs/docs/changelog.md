@@ -2,6 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.23.0 (2023-02-15)
+
+- `f-badge` 组件优化细节
+- `f-slider` 组件废除 `range` 配置项
+- `f-slider` 组件新增 `background` `active-color` `width` 配置项
+- `f-card` 组件新增 `border-color` `background` `title-color` `title-bold` `close` `on-close` 配置项
+- `f-input` 组件新增 `autocomplete` 配置项
+- `f-input` 组件新增 `before` 插槽
+- `f-date-picker` 组件新增 `placeholder` `add-zero` 配置项
+- 修复 `f-date-picker` 清空时的警告提示
+
 ## 0.22.1 (2023-02-07)
 
 - `f-calendar` 组件废除 `memorandum` 配置项
