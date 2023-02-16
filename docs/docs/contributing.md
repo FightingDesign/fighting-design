@@ -1,4 +1,4 @@
-# CONTRIBUTING
+# 贡献指南
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
 

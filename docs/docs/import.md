@@ -14,41 +14,6 @@ import 'fighting-design/dist/index.css'
 createApp(App).use(FightingDesign).mount('#app')
 ```
 
-## 自动导入
-
-:::danger
-测试功能，暂未实现
-:::
-
-首先你需要安装 [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components) 和 [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import) 这两款插件
-
-```shell
-pnpm add -D unplugin-vue-components unplugin-auto-import
-```
-
-然后把下列代码插入到你的 Vite 或 Webpack 的配置文件中
-
-```ts
-// vite.config.ts
-import { defineConfig } from 'vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import FightingDesignResolver from 'fighting-design/resolver'
-
-export default defineConfig({
-  // ...
-  plugins: [
-    // ...
-    AutoImport({
-      resolvers: [FightingDesignResolver()]
-    }),
-    Components({
-      resolvers: [FightingDesignResolver()]
-    })
-  ]
-})
-```
-
 ## 按需引入
 
 为了减小体积，只希望引入部分组件，可以使用按需引入的方式

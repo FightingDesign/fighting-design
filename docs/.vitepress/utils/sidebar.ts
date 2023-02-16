@@ -5,7 +5,6 @@ export const sidebar = {
   '/docs/': [
     {
       text: '开发指南',
-      link: '/docs/',
       items: [
         { text: '安装', link: '/docs/install' },
         { text: '快速上手', link: '/docs/import' }
@@ -13,7 +12,6 @@ export const sidebar = {
     },
     {
       text: '指南',
-      link: '/docs/',
       items: [
         { text: '介绍', link: '/docs/introduce' },
         { text: '贡献指南', link: '/docs/contributing' },
@@ -22,7 +20,6 @@ export const sidebar = {
     },
     {
       text: '历程',
-      link: '/docs/',
       items: [
         { text: '更新日志', link: '/docs/changelog' },
         { text: '里程碑', link: '/docs/milepost' }
@@ -32,7 +29,6 @@ export const sidebar = {
   '/components/': [
     {
       text: '基础组件',
-      link: '/components/',
       items: [
         { text: 'Button 按钮', link: '/components/button' },
         { text: 'Svg Icon 图标', link: '/components/svg-icon' },
@@ -46,17 +42,14 @@ export const sidebar = {
     },
     {
       text: '类型接口',
-      link: '/components/',
       items: [{ text: 'Interface 接口类型', link: '/components/interface' }]
     },
     {
       text: '配置组件',
-      link: '/components/',
       items: [{ text: 'Fighting Global 全局配置', link: '/components/fighting-global' }]
     },
     {
       text: '数据输入',
-      link: '/components/',
       items: [
         { text: 'Form 表单', link: '/components/form' },
         { text: 'Badge 角标', link: '/components/badge' },
@@ -89,7 +82,6 @@ export const sidebar = {
     },
     {
       text: '导航组件',
-      link: '/components/',
       items: [
         { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' },
         { text: 'Page Header 页头', link: '/components/page-header' },
@@ -101,7 +93,6 @@ export const sidebar = {
     },
     {
       text: '反馈组件',
-      link: '/components/',
       items: [
         { text: 'Alert 提示', link: '/components/alert' },
         { text: 'Loading 加载', link: '/components/loading' },
@@ -118,7 +109,6 @@ export const sidebar = {
     },
     {
       text: '其它',
-      link: '/components/',
       items: [
         { text: 'Tabs 标签页', link: '/components/tabs' },
         { text: 'Toolbar 工具栏', link: '/components/toolbar' },
