@@ -15,5 +15,5 @@
 </script>
 
 <template>
-  <f-button type="primary" @click="openMessage">show</f-button>
+  <f-button type="primary" :on-click="openMessage">show</f-button>
 </template>

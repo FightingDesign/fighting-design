@@ -1,6 +1,6 @@
 # Notification 通知
 
-`Notification` 用于主动操作后的反馈提示
+用于主动操作后的反馈提示
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/notification)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/notification.md)
@@ -10,12 +10,12 @@
 ::: demo
 
 <template #source>
-<f-button type="primary" :on-click="openNotification">show</f-button>
+<f-button type="primary" :on-click="openNotification">打开</f-button>
 </template>
 
 ```html
 <template>
-  <f-button type="primary" :on-click="openNotification">show</f-button>
+  <f-button type="primary" :on-click="openNotification">打开</f-button>
 </template>
 
 <script lang="ts" setup>
@@ -34,26 +34,26 @@
 
 ## 自定义消息
 
-`notification` 属性可接收`string`显示文本，也可接收`VNode`自定义消息
+`notification` 属性可接收 `string` 显示文本，也可接收 `VNode` 自定义消息
 
 限定最大宽度为`500px`
 
 ::: demo
 
 <template #source>
-<f-button type="primary" :on-click="openNotificationVNode">show</f-button>
+<f-button type="primary" :on-click="openVNode">打开</f-button>
 </template>
 
 ```html
 <template>
-  <f-button type="primary" :on-click="openNotificationVNode">show</f-button>
+  <f-button type="primary" :on-click="openVNode">打开</f-button>
 </template>
 
 <script lang="ts" setup>
   import { h } from 'vue'
   import { FNotification } from 'fighting-design'
 
-  const openNotificationVNode = () => {
+  const openVNode = () => {
     FNotification({
       title: h('span', [h('span', '这是'), h('b', '自定义标题')]),
       message: h('div', [
@@ -145,8 +145,8 @@
 
 ```html
 <template>
-  <f-button type="primary" :on-click="openNotificationClose1">show</f-button>
-  <f-button type="primary" :on-click="openNotificationClose2">show</f-button>
+  <f-button type="primary" :on-click="openNotificationClose1">打开</f-button>
+  <f-button type="primary" :on-click="openNotificationClose2">打开</f-button>
 </template>
 
 <script setup lang="ts">
@@ -334,7 +334,7 @@ type NotificationPlacement = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-
     })
   }
 
-  const openNotificationVNode = () => {
+  const openVNode = () => {
     FNotification({
       title: h('span', [
         h('span', '这是'),

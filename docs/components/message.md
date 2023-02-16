@@ -1,6 +1,6 @@
 # Message 消息提示
 
-`Message` 用于主动操作后的反馈提示
+用于主动操作后的反馈提示
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/message)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/message.md)
@@ -127,7 +127,7 @@
 
 此外，`Message` 拥有可控的 duration， 默认的关闭时间为 `3000 毫秒`，当把这个属性的值设置为 0 便表示该消息不会被自动关闭。
 
-可以传递`closeBtn`属性来自定义关闭按钮，支持字符串与`VNode`。
+可以传递 `close-btn` 属性来自定义关闭按钮，支持字符串与 `VNode`。
 
 ::: demo
 
