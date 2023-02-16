@@ -1,6 +1,6 @@
 import { setStringNumberProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
-import type { MenuMode } from './interface'
+import type { MenuMode, MenuProvide } from './interface'
 
 export const Props = {
   /**
@@ -18,6 +18,7 @@ export const Props = {
   activeName: setStringNumberProp()
 } as const
 
+/** menu 组件 props 类型 */
 export type MenuProps = ExtractPropTypes<typeof Props>
 
-export const MENU_PROVIDE_KEY: InjectionKey<MenuMode> = Symbol('menu-provide-key')
+export const MENU_PROVIDE_KEY: InjectionKey<MenuProvide> = Symbol('menu-provide-key')

@@ -1,6 +1,6 @@
 import { setStringNumberProp, setFunctionProp, setObjectProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
-import type { FormSubmit } from './interface'
+import type { FormSubmit, FormInject } from './interface'
 
 export const Props = {
   /** 每个 label 的宽度 */
@@ -13,4 +13,4 @@ export const Props = {
 
 export type FormProps = ExtractPropTypes<typeof Props>
 
-export const FORM_PROVIDE_KEY: InjectionKey<FormProps> = Symbol('form-provide-key')
+export const FORM_PROVIDE_KEY: InjectionKey<FormInject> = Symbol('form-provide-key')

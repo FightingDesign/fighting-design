@@ -23,7 +23,7 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
   const { getType, getSize } = useGlobal(prop)
 
   /** 获取父组件注入的依赖项 */
-  const parentInject = inject<FightingSize | null>(BUTTON_GROUP_PROPS_KEY, null)
+  const parentInject: FightingSize | null = inject(BUTTON_GROUP_PROPS_KEY, null)
 
   /**
    * 检测是否带有默认插槽

@@ -8,7 +8,7 @@
   const prop = defineProps(Props)
 
   /** 获取到 trigger 注入的依赖项 */
-  const parentInject = inject<TriggerProvide | null>(TRIGGER_CLOSE_KEY, null) as TriggerProvide
+  const parentInject: TriggerProvide | null = inject(TRIGGER_CLOSE_KEY, null)
 
   /**
    * 点击时触发
@@ -17,7 +17,7 @@
    */
   const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    useRun(parentInject.handelClose)
+    useRun(parentInject && parentInject.handelClose)
     useRun(prop.onClick, evt)
   }
 </script>

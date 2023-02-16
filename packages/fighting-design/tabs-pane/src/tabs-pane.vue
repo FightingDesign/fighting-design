@@ -14,7 +14,7 @@
   const paneName = ref(prop.name)
 
   /** 获取父组件注入的依赖项 */
-  const parentInject = inject<TabsProvide | null>(TABS_PROPS_KEY, null)
+  const parentInject: TabsProvide | null = inject(TABS_PROPS_KEY, null)
 
   /** 该组件是否加载 */
   const isLoad = computed((): boolean => {

@@ -9,7 +9,7 @@
   const prop = defineProps(Props)
 
   /** 获取父组件注入的依赖项 */
-  const parentInject = inject<FormInject | null>(FORM_PROVIDE_KEY, null) as FormInject
+  const parentInject: FormInject | null = inject(FORM_PROVIDE_KEY, null)
 
   /**
    * 错误提示消息
@@ -20,7 +20,7 @@
    */
   const errMessage = computed((): string | boolean => {
     /** 获取都指定项的结构键值 */
-    const resMsg: string | boolean = parentInject && parentInject.childrenCheckResult[prop.name]
+    const resMsg: string | boolean | null = parentInject && parentInject.childrenCheckResult[prop.name]
 
     return isString(resMsg) ? resMsg : false
   })

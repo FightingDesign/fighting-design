@@ -1,3 +1,5 @@
+import type { ComputedRef, Ref } from 'vue'
+
 export type { MenuProps } from './menu'
 
 /** 不同导航栏模式 */
@@ -11,7 +13,7 @@ export type MenuMode = 'horizontal' | 'vertical' | 'inline'
  * @param { Function } setActiveName 修改选中 name
  */
 export interface MenuProvide {
-  mode: MenuMode
-  defaultActive: string | number
+  mode: Ref<MenuMode>
+  defaultActive: ComputedRef<string | number>
   setActiveName: (name: string | number) => void
 }

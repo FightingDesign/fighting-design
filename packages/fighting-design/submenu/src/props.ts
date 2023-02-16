@@ -8,4 +8,5 @@ export const Props = {
   opened: setBooleanProp()
 } as const
 
+/** submenu 组件 props 类型 */
 export type SubmenuProps = ExtractPropTypes<typeof Props>

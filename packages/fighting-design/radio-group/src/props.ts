@@ -1,7 +1,7 @@
 import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type { RadioModelValue, RadioChange } from './interface'
+import type { RadioModelValue, RadioChange, RadioGroundInject } from './interface'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
@@ -29,12 +29,11 @@ export const Props = {
   size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)
   }),
-  /**
-   * 绑定值变化时触发
-   */
+  /** 绑定值变化时触发 */
   onChange: setFunctionProp<RadioChange>()
 } as const
 
+/** radio-group 组件 props 类型 */
 export type RadioGroundProps = ExtractPropTypes<typeof Props>
 
-export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundProps> = Symbol('radio-group-props-key')
+export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundInject> = Symbol('radio-group-props-key')

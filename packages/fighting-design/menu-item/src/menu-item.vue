@@ -12,7 +12,7 @@
   const { styles } = useList(prop, 'menu-item')
 
   /** 注入父组件的模式依赖项 */
-  const parentInject = inject<MenuProvide | null>(MENU_PROVIDE_KEY, null) as MenuProvide
+  const parentInject: MenuProvide | null = inject(MENU_PROVIDE_KEY, null)
 
   /**
    * 获取当前组件实例
@@ -34,7 +34,7 @@
     /** 获取到路由实例 */
     const router = instance.appContext.config.globalProperties.$router
 
-    parentInject.setActiveName(prop.name)
+    parentInject && parentInject.setActiveName(prop.name)
 
     if (router && prop.to) {
       try {
@@ -48,7 +48,7 @@
   /** 当前是否呗选中 */
   const isActive = computed((): boolean => {
     if (!parentInject || !parentInject.defaultActive) return false
-    return prop.name === parentInject.defaultActive
+    return prop.name === (parentInject && parentInject.defaultActive.value)
   })
 </script>
 

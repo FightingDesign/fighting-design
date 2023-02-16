@@ -23,14 +23,14 @@
     useRun(prop.onChange, value)
   }
 
-  /** 需要注入的依赖项 */
-  const RadioGround = reactive({
-    ...toRefs(prop),
-    changeEvent
-  } as unknown as RadioGroundInject)
-
   /** 注入依赖项 */
-  provide<RadioGroundInject>(RADIO_GROUP_PROPS_kEY, RadioGround)
+  provide<RadioGroundInject>(
+    RADIO_GROUP_PROPS_kEY,
+    reactive({
+      ...toRefs(prop),
+      changeEvent
+    })
+  )
 
   /** 类名列表 */
   const classList = classes(['vertical', 'border', 'size'], 'f-radio-group')

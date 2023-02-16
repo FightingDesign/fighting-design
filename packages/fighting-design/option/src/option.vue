@@ -11,9 +11,9 @@
   const slot: Slots = useSlots()
 
   /** 获取父组件注入的依赖项 */
-  const parentInject = inject<SelectProvide | null>(SELECT_PROPS_TOKEN, null)
+  const parentInject: SelectProvide | null = inject(SELECT_PROPS_TOKEN, null)
   /** 获取到 trigger 注入的依赖项 */
-  const triggerInject = inject<TriggerProvide | null>(TRIGGER_CLOSE_KEY, null) as TriggerProvide
+  const triggerInject: TriggerProvide | null = inject(TRIGGER_CLOSE_KEY, null)
 
   /**
    * 点击传入指定的 value
@@ -38,7 +38,7 @@
     )
 
     /** 点击之后关闭 */
-    triggerInject.handelClose()
+    triggerInject && triggerInject.handelClose()
   }
 </script>
 

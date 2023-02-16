@@ -19,7 +19,7 @@ export * from './interface.d'
  */
 export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn => {
   /** 获取全局配置组件注入的依赖项 */
-  const global = inject<FightingGlobalProps | null>(FIGHTING_GLOBAL_PROPS_KEY, null)
+  const global: FightingGlobalProps | null = inject(FIGHTING_GLOBAL_PROPS_KEY, null)
 
   /**
    * 获取组件的类型

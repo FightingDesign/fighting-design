@@ -11,7 +11,7 @@
   const prop = defineProps(Props)
 
   /** 注入父组件的模式依赖项 */
-  const parentInject = inject<MenuProvide | null>(MENU_PROVIDE_KEY, null) as MenuProvide
+  const parentInject: MenuProvide | null = inject(MENU_PROVIDE_KEY, null)
 
   /** 初始是否展开 */
   const isOpened = ref<boolean>(prop.opened)
@@ -35,7 +35,7 @@
     ]"
   >
     <!-- 垂直或水平模式 -->
-    <f-dropdown v-if="parentInject && parentInject.mode !== 'inline'" trigger="click" :spacing="5">
+    <f-dropdown v-if="parentInject && parentInject.mode.value !== 'inline'" trigger="click" :spacing="5">
       <div class="f-submenu__title">
         <div class="f-submenu__title-text">
           <slot v-if="$slots.title" name="title" />

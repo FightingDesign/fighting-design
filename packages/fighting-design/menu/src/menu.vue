@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FMenu">
   import { Props, MENU_PROVIDE_KEY } from './props'
-  import { provide, reactive, toRef, computed, ref } from 'vue'
+  import { provide, toRef, computed, ref } from 'vue'
   import { useList } from '../../_hooks'
   import type { MenuProvide } from './interface'
 
@@ -24,14 +24,11 @@
   }
 
   /** 提供出去依赖项 */
-  provide<MenuProvide>(
-    MENU_PROVIDE_KEY,
-    reactive({
-      mode: toRef(prop, 'mode'),
-      defaultActive,
-      setActiveName
-    } as unknown as MenuProvide)
-  )
+  provide<MenuProvide>(MENU_PROVIDE_KEY, {
+    mode: toRef(prop, 'mode'),
+    defaultActive,
+    setActiveName
+  })
 
   /** 类名列表 */
   const classList = classes(['mode'], 'f-menu')

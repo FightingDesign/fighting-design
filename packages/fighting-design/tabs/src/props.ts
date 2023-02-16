@@ -9,6 +9,7 @@ import type {
   TabsSwitch,
   TabsEdit
 } from './interface'
+import type { TabsProvide } from '../../_hooks'
 
 export const Props = {
   /** 活跃的 name */
@@ -59,6 +60,7 @@ export const Props = {
   onEdit: setFunctionProp<TabsEdit>()
 } as const
 
+/** tabs 组件 props 类型 */
 export type TabsProps = ExtractPropTypes<typeof Props>
 
-export const TABS_PROPS_KEY: InjectionKey<TabsProps> = Symbol('tabs-props-key')
+export const TABS_PROPS_KEY: InjectionKey<TabsProvide> = Symbol('tabs-props-key')

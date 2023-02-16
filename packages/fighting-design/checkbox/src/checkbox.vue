@@ -5,7 +5,7 @@
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import { isArray, isBoolean } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
-  import type { CheckboxGroupInject } from '../../checkbox-group'
+  import type { CheckboxGroupProvide } from '../../checkbox-group'
   import type { ClassList } from '../../_interface'
   import type { CheckboxModelValue } from './interface'
 
@@ -15,7 +15,7 @@
   })
 
   /** 获取父组件注入的依赖项 */
-  const parentInject = inject<CheckboxGroupInject | null>(CHECKBOX_GROUP_PROPS_KEY, null)
+  const parentInject: CheckboxGroupProvide | null = inject(CHECKBOX_GROUP_PROPS_KEY, null)
 
   /** 绑定值 */
   const model = computed({

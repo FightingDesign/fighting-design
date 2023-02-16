@@ -4,6 +4,7 @@
   import { sizeChange, isArray } from '../../_utils'
   import { useRun } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
+  import type { CheckboxGroupProvide } from './interface'
   import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
 
@@ -23,7 +24,7 @@
   }
 
   /** 获取需要注入的依赖项 */
-  provide(
+  provide<CheckboxGroupProvide>(
     CHECKBOX_GROUP_PROPS_KEY,
     reactive({
       ...toRefs(prop),
