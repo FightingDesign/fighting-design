@@ -43,7 +43,8 @@
        * 过滤出和绑定值相同的那一项
        */
       const currentOption: VNode[] = options.value.filter((node: VNode): boolean => {
-        const optionProp: OptionProps = node.props as OptionProps
+        /** 获取到子组件的 props */
+        const optionProp: OptionProps = node.props
 
         /** 判断是否有传递 props */
         if (optionProp) {

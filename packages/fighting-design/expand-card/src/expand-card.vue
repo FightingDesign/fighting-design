@@ -37,6 +37,9 @@
 
     if (!imageList && !isArray(imageList)) return []
 
+    /**
+     * @see Array.prototype.map() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+     */
     return imageList.map((item: string | ExpandCardImageListItem): ExpandCardImageListItem => {
       if (isString(item)) {
         return { url: item }

@@ -23,6 +23,7 @@
    * @param { Object } evt 事件对象
    */
   const handleOpen = (evt: MouseEvent): void => {
+    /** 开启状态隐藏滚动条 */
     document.body.style.overflow = 'hidden'
     useRun(prop.onOpen, evt)
   }

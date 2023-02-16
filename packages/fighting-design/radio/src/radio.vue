@@ -16,6 +16,7 @@
   /** 获取父组件注入的依赖项 */
   const parentInject: RadioGroundInject | null = inject(RADIO_GROUP_PROPS_kEY, null)
 
+  /** 绑定值 */
   const modelValue = computed({
     /**
      * 获取值

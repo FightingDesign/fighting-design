@@ -14,6 +14,7 @@
 
   /** dom 元素 */
   const sliderEl = ref<HTMLDivElement>()
+
   /** 滑块小球 dom 元素 */
   const sliderCircle = ref<HTMLDivElement>()
 

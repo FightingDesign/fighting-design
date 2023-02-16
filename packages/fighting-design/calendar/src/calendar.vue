@@ -136,6 +136,9 @@
   /** 当月份发生改变时候触发的回调 */
   watch(
     (): number => dateParams.month,
+    /**
+     * @param { number } month 最新的月份
+     */
     (month: number): void => {
       useRun(prop.onChangeMonth, {
         year: dateParams.year,

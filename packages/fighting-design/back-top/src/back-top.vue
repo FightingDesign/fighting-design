@@ -27,6 +27,7 @@
        * 当前滚动的距离
        *
        * @see document.documentElement https://developer.mozilla.org/zh-CN/docs/Web/API/Document/documentElement
+       *
        * @see Element.scrollTop https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop
        */
       const scrollTop: number = (node || document.documentElement).scrollTop

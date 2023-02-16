@@ -12,11 +12,12 @@
   const classList = classes(['round', 'animated', 'size'], 'f-skeleton')
 
   /**
-   * 如果 loading 为 true，展示骨架屏
+   * 如果 loading 为 true 展示骨架屏
    *
    * 否则展示插槽内容
    */
   const isRender = computed((): boolean => {
+    /** 获取到插槽内容 */
     const slots: Slots = useSlots()
 
     /** 判断是否有插槽 */

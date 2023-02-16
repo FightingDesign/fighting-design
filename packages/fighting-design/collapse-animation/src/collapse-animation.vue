@@ -11,7 +11,7 @@
   const collapseEl = ref<HTMLDivElement>()
 
   /** 需要展开的尺寸 */
-  const defaultSize = ref<number>(null as unknown as number)
+  const defaultSize = ref<number>()
 
   /**
    * 获取折叠部分的尺寸
@@ -41,6 +41,9 @@
   /** 监视绑定值发生改变的时候触发展开或折叠 */
   watch(
     (): boolean => isOpened.value,
+    /**
+     * @param { number } newVal 最新值
+     */
     (newVal: boolean): void => {
       if (prop.disabled) return
 

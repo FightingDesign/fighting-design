@@ -7,6 +7,7 @@
 
   /** 是否有插槽 */
   const renderSlot = computed((): boolean => {
+    /** 获取到插槽内容 */
     const slot: Slots = useSlots()
 
     return !prop.vertical && Boolean(slot.default)

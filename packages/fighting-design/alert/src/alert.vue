@@ -5,7 +5,6 @@
   import { FSvgIcon } from '../../svg-icon'
   import { isNumber } from '../../_utils'
   import { useList, useRun, useGlobal, useAlertList } from '../../_hooks'
-  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -23,7 +22,7 @@
   const isShow = ref<boolean>(true)
 
   /** alertList 节点列表容器 dom */
-  const alertListEl: Ref<HTMLElement | null> = ref<HTMLElement | null>(null)
+  const alertListEl = ref<HTMLElement>()
 
   /** 类名列表 */
   const classList = classes(['type', 'bold', 'simple', 'center', 'round', 'fixed'], 'f-alert')

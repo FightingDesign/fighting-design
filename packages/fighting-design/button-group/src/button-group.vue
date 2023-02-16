@@ -3,8 +3,7 @@
   import { FIGHTING_GLOBAL_PROPS_KEY } from '../../fighting-global/src/props'
   import { provide, computed, inject } from 'vue'
   import { useList } from '../../_hooks'
-  import type { ComputedRef } from 'vue'
-  import type { ClassList, FightingSize } from '../../_interface'
+  import type { FightingSize } from '../../_interface'
   import type { FightingGlobalProps } from '../../fighting-global'
 
   const prop = defineProps(Props)
@@ -23,7 +22,7 @@
   provide<FightingSize>(BUTTON_GROUP_PROPS_KEY, buttonGroupSize.value)
 
   /** 类名列表 */
-  const classList: ComputedRef<ClassList> = classes(['direction', 'size'], 'f-button-group')
+  const classList = classes(['direction', 'size'], 'f-button-group')
 </script>
 
 <template>
