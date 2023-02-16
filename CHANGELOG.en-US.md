@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.23.1 (2023-02-16)
+
+- Optimization part ts type error
+- Add some browser compatible adapters
+- Optimize the strictness of partial utils methods
+
 ## 0.23.0 (2023-02-15)
 
 - `f-badge` component optimization details

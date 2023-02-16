@@ -24,7 +24,7 @@ export const keepDecimal = (value: number, no = 2): number => {
  * 防抖
  *
  * 来处理对于短时间内连续触发的事件加以限制
- * 
+ *
  * @param { Function } func 需要防抖的函数，类型为一个泛型 F，该泛型继承于一个可接受任意数量和类型参数的函数
  * @param { number } wait 等待的毫秒数，类型为一个数字
  */

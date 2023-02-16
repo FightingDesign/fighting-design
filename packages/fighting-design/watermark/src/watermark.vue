@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { ref, onMounted, computed } from 'vue'
   import { useProps, useCanvas } from '../../_hooks'
-  import type { CSSProperties } from 'vue'
+  import type { CSSProperties, Ref } from 'vue'
   import type { CreateWatermarkProps } from '../../_hooks'
 
   const prop = defineProps(Props)
@@ -10,7 +10,7 @@
   const { filter } = useProps(prop)
 
   /** 水印样式列表 */
-  const style = ref<CSSProperties>(null as unknown as CSSProperties)
+  const style: Ref<CSSProperties> = ref({})
 
   /** 文字水印 */
   const baseWatermark = computed((): CSSProperties => {
@@ -19,9 +19,7 @@
       filter(['content', 'width', 'height', 'fontSize', 'fontColor']) as unknown as CreateWatermarkProps
     )
 
-    return {
-      backgroundImage: `url(${watermark})`
-    } as CSSProperties
+    return { backgroundImage: `url(${watermark})` }
   })
 
   /** 图片水印 */
@@ -31,7 +29,7 @@
     return {
       backgroundImage: `url(${image})`,
       backgroundSize: `${width}px ${height}px`
-    } as CSSProperties
+    }
   })
 
   /** 初始化的时候设置水印样式 */

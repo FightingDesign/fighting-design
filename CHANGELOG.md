@@ -2,6 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.23.1 (2023-02-16)
+
+- 优化部分 ts 类型错误
+- 添加部分浏览器兼容适配
+- 优化部分 utils 方法的严格性
+
 ## 0.23.0 (2023-02-15)
 
 - `f-badge` 组件优化细节
