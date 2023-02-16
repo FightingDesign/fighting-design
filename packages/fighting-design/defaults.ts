@@ -1,6 +1,7 @@
 import * as components from './components'
 import { version } from './package.json'
 import { FLoading } from './loading'
+import { objectEntries } from './_utils'
 import type { App } from 'vue'
 
 /**
@@ -14,10 +15,9 @@ const install = (app: App): App => {
    * 注册组件
    *
    * @see registration https://cn.vuejs.org/guide/components/registration.html
-   * @see Object.entries() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
    * @see Array.prototype.forEach() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
    */
-  Object.entries(components).forEach(([key, value]): void => {
+  objectEntries(components).forEach(([key, value]): void => {
     app.component(key, value)
   })
 
