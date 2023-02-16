@@ -17,11 +17,11 @@ import { warning } from '..'
  */
 export const objectEntries = <T extends object>(obj: T): [keyof T, T[keyof T]][] => {
   /** 
-   * 如果不是对象类型返回空
+   * 如果不是对象类型返回空数组
    * 
    * 并且提示警告
    */
-  if (typeof obj !== 'object') {
+  if (typeof obj !== 'object' || obj === null) {
     if (__DEV__) {
       warning('objectEntries', 'Parameter is not an object type.')
     }
@@ -41,8 +41,6 @@ export const objectEntries = <T extends object>(obj: T): [keyof T, T[keyof T]][]
 
   /** 最终结果数组 */
   const entries: [keyof T, T[keyof T]][] = []
-
-  console.log(1)
 
   for (const key in obj) {
     /**

@@ -1,38 +1,47 @@
-import { isString, isNumber } from '..'
+import { isString, isNumber, warning } from '..'
 
 /**
  * 保留小数点后 no 位
  *
  * @see Number.prototype.toFixed() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
- * @param { number } num 带有小数的数字
+ * @param { number } value 带有小数的数字
  * @param { number } [no = 2] 保留位数
  * @returns { number } 转换后的数字
  */
-export const keepDecimal = (num: number, no = 2): number => {
-  return Number(num.toFixed(no))
-}
+export const keepDecimal = (value: number, no = 2): number => {
+  if (isNumber(value)) {
+    return Number(value.toFixed(no))
+  }
 
-/** debounce 返回值类型 */
-export type DebounceReturn = () => void
+  if (__DEV__) {
+    warning('keepDecimal', '`value` is not a number')
+  }
+
+  return value
+}
 
 /**
  * 防抖
  *
  * 来处理对于短时间内连续触发的事件加以限制
- *
- * @param callback 回调函数
- * @param { number } [delay = 200] 延时的时间
- * @returns { Function }
+ * 
+ * @param { Function } func 需要防抖的函数，类型为一个泛型 F，该泛型继承于一个可接受任意数量和类型参数的函数
+ * @param { number } wait 等待的毫秒数，类型为一个数字
  */
-export const debounce = (callback: () => void, delay = 200): DebounceReturn => {
-  /** 定时器函数 */
-  let timer: NodeJS.Timeout
+export const debounce = <T extends (...args: unknown[]) => void>(
+  func: T,
+  delay: number
+): ((...args: Parameters<T>) => void) => {
+  /** 计时器实例 */
+  let timeout: ReturnType<typeof setTimeout> | undefined
 
-  return (): void => {
-    timer && clearTimeout(timer)
+  return (...args: Parameters<T>): void => {
+    if (timeout) {
+      clearTimeout(timeout)
+    }
 
-    timer = setTimeout((): void => {
-      callback()
+    timeout = setTimeout((): void => {
+      func(...args)
     }, delay)
   }
 }
@@ -40,11 +49,11 @@ export const debounce = (callback: () => void, delay = 200): DebounceReturn => {
 /**
  * 给数字小于 10 的数字前面加 0
  *
- * @param { number } num 需检测的参数
- * @returns { string }
+ * @param { number } value 需检测的参数
+ * @returns { string } 结果字符串
  */
-export const addZero = (num: number): string => {
-  return num > 9 ? num.toString() : `0${num}`
+export const addZero = (value: number): string => {
+  return value < 10 ? `0${value}` : value.toString()
 }
 
 /**

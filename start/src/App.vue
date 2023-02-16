@@ -44,30 +44,6 @@
       introduce: '取得优势的武器可以输出成吨的伤害'
     }
   ])
-
-  const obj = {
-    a: 1,
-    b: 2,
-    c: 3,
-    d: 4
-  }
-
-  // console.log(Object.entries(obj))
-
-  // console.log(entries(obj))
-
-  // function entries (obj) {
-  //   const res = []
-
-  //   for (const key in obj) {
-  //     const item = []
-  //     item.push(key)
-  //     item.push(obj[key])
-  //     res.push(item)
-  //   }
-
-  //   return res
-  // }
 </script>
 
 <template>

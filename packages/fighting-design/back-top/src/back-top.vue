@@ -3,7 +3,6 @@
   import { onMounted, ref, toRefs } from 'vue'
   import { debounce, isNumber, isString, error } from '../../_utils'
   import { useList } from '../../_hooks'
-  import type { DebounceReturn } from '../../_utils'
 
   const prop = defineProps(Props)
 
@@ -22,7 +21,7 @@
    * @param { Object } [node] 元素节点
    * @returns { Function } 防抖函数
    */
-  const handleScroll = (node?: HTMLElement): DebounceReturn => {
+  const handleScroll = (node?: HTMLElement): (() => void) => {
     return debounce((): void => {
       /**
        * 当前滚动的距离
