@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { FButton } from '../../button'
   import { useRun } from '../../_hooks'
-  import { ref, watch } from 'vue'
+  import { ref, watch, toRefs } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { FIconNotesVue, FIconPlusVue } from '../../_svg'
@@ -44,19 +44,19 @@
    * @return { Array } 过滤后的文件列表
    */
   const filterFiles = (files: File[]): File[] => {
-    const { maxSize, maxLength } = prop
+    const { maxSize, maxLength } = toRefs(prop)
 
     /** 文件列表 */
     let list: File[] = [...files]
 
     /** 拦截过大的文件 */
-    if (maxSize) {
-      list = list.filter((file: File): boolean => file.size < maxSize)
+    if (maxSize.value) {
+      list = list.filter((file: File): boolean => file.size < maxSize.value)
     }
 
     /** 截取最大上传的数量 */
-    if (maxLength) {
-      list = list.splice(0, maxLength)
+    if (maxLength.value) {
+      list = list.splice(0, maxLength.value)
     }
 
     return list

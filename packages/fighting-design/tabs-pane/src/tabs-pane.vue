@@ -6,12 +6,14 @@
   import type { TabsProvide } from '../../_hooks'
   import type { TabsPaneInstance } from './interface'
 
-  const instance = getCurrentInstance() as ComponentInternalInstance
-
   const prop = defineProps(Props)
   const slots: Slots = useSlots()
 
-  const paneName = ref(prop.name)
+  /** 获取到当前组件实例 */
+  const instance = getCurrentInstance() as ComponentInternalInstance
+
+  /** 选中的 name */
+  const paneName = ref<string | number>(prop.name)
 
   /** 获取父组件注入的依赖项 */
   const parentInject: TabsProvide | null = inject(TABS_PROPS_KEY, null)

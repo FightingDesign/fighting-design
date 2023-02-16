@@ -23,6 +23,7 @@
   const optionText = computed((): string => {
     const { openText, closeText } = prop
 
+    /** 获取都当前语言 */
     const lang = getLang('stickyCard').value
 
     return unref(isOpened) ? openText || lang.openText : closeText || lang.closeText
