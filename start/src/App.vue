@@ -52,22 +52,22 @@
     d: 4
   }
 
-  console.log(Object.entries(obj))
+  // console.log(Object.entries(obj))
 
-  console.log(entries(obj))
+  // console.log(entries(obj))
 
-  function entries (obj) {
-    const res = []
+  // function entries (obj) {
+  //   const res = []
 
-    for (const key in obj) {
-      const item = []
-      item.push(key)
-      item.push(obj[key])
-      res.push(item)
-    }
+  //   for (const key in obj) {
+  //     const item = []
+  //     item.push(key)
+  //     item.push(obj[key])
+  //     res.push(item)
+  //   }
 
-    return res
-  }
+  //   return res
+  // }
 </script>
 
 <template>

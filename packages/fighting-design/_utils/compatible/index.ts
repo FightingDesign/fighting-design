@@ -1,4 +1,4 @@
-import { isObject, warning } from '..'
+import { warning } from '..'
 
 /**
  * 将对象自身可枚举属性的键值对数组
@@ -21,7 +21,7 @@ export const objectEntries = <T extends object>(obj: T): [keyof T, T[keyof T]][]
    * 
    * 并且提示警告
    */
-  if (!isObject(obj)) {
+  if (typeof obj !== 'object') {
     if (__DEV__) {
       warning('objectEntries', 'Parameter is not an object type.')
     }
@@ -42,6 +42,8 @@ export const objectEntries = <T extends object>(obj: T): [keyof T, T[keyof T]][]
   /** 最终结果数组 */
   const entries: [keyof T, T[keyof T]][] = []
 
+  console.log(1)
+
   for (const key in obj) {
     /**
      * 必须对象自身属性中是否具有指定的属性
@@ -61,6 +63,7 @@ export const objectEntries = <T extends object>(obj: T): [keyof T, T[keyof T]][]
      * @see hasOwnProperty https://caniuse.com/?search=hasOwnProperty
      */
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      console.log(1)
       /**
        * key 为第一项，value 为第二项组成的组数
        *
