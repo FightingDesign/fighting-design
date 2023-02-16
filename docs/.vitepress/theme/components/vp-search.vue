@@ -1,18 +1,5 @@
-<template>
-  <div class="vp-search">
-    <f-input v-model="value" type="text" placeholder="搜索组件" :on-enter="onSearch" />
-
-    <!-- 搜索结果 -->
-    <div v-if="isShow && resultList && resultList.length" class="vp-search__result" @click.stop="hiddenResult">
-      <a v-for="(item, index) in resultList" class="vp-search__link" :key="index" :href="`/${item.url}.html`">
-        {{ item.title }}
-      </a>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts" name="VpSearch">
-  import { ref } from 'vue'
+  import { ref, nextTick, onMounted } from 'vue'
   import { searchList } from './src'
   import type { SearchList } from './src/search-list'
 
@@ -36,13 +23,15 @@
     if (resultList.value && resultList.value.length) {
       isShow.value = true
 
-      setTimeout((): void => {
-        const link = document.querySelectorAll('.vp-search__link')
+      onMounted(() => {
+        setTimeout((): void => {
+          const link = document.querySelectorAll('.vp-search__link')
 
-        if (link.length === 1) {
-          ;(link[0] as HTMLElement).click()
-        }
-      }, 200)
+          if (link.length === 1) {
+            ;(link[0] as HTMLElement).click()
+          }
+        }, 200)
+      })
     }
   }
 
@@ -52,6 +41,19 @@
     value.value = ''
   }
 </script>
+
+<template>
+  <div class="vp-search">
+    <f-input v-model="value" type="text" placeholder="搜索组件" :on-enter="onSearch" />
+
+    <!-- 搜索结果 -->
+    <div v-if="isShow && resultList && resultList.length" class="vp-search__result" @click.stop="hiddenResult">
+      <a v-for="(item, index) in resultList" class="vp-search__link" :key="index" :href="`/${item.url}.html`">
+        {{ item.title }}
+      </a>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
   .vp-search {
