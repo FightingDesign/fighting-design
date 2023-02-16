@@ -74,7 +74,7 @@
   import { ref } from 'vue'
   import type { NumberAnimateInstance } from 'fighting-design'
 
-  const animate = ref(null as unknown as NumberAnimateInstance)
+  const animate = ref<NumberAnimateInstance>()
 
   const change = (): void => {
     animate.value.run()
@@ -129,7 +129,7 @@ type AnimationEnd = (elapsed: number) => void
 <script setup lang="ts">
   import { ref } from 'vue'
 
-  const animate = ref(null as unknown as NumberAnimateInstance)
+  const animate = ref<NumberAnimateInstance>()
 
   const change = (): void => {
     animate.value.run()

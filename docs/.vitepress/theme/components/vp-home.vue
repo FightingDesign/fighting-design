@@ -89,9 +89,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { footerList, contributors, rotate } from './src'
-
-  rotate()
+  import { footerList, contributors } from './src'
 </script>
 
 <style lang="scss" scoped>
@@ -149,21 +147,6 @@
           height: 120px;
           user-select: none;
           display: block;
-
-          &.fighting__logo__rotate {
-            animation: logo-animation 1s linear infinite;
-          }
-
-          // loading 动画
-          @keyframes logo-animation {
-            from {
-              transform: rotate(0deg);
-            }
-
-            to {
-              transform: rotate(360deg);
-            }
-          }
         }
 
         // 标题

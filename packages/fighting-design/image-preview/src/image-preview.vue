@@ -101,7 +101,7 @@
     } as const
 
     /** 获取当前元素的索引 */
-    const index = target.index as unknown as keyof OptionMap
+    const index: keyof OptionMap = target.index as unknown as keyof OptionMap
 
     optionMap[index] && optionMap[index]()
   }

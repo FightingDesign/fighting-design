@@ -24,4 +24,5 @@ export const Props = {
   zIndex: setNumberProp(100)
 } as const
 
+/** watermark 组件 props 类型 */
 export type WatermarkProps = ExtractPropTypes<typeof Props>

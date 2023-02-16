@@ -16,7 +16,7 @@
   const dragIng = ref(false)
 
   /** 文件列表 */
-  const fileList = ref<File[]>(null as unknown as File[])
+  const fileList = ref<File[]>()
 
   /** 文件上传输入框 */
   const inputEl = ref<HTMLInputElement>()
@@ -83,7 +83,7 @@
    * @param { number } index 需要删除的文件索引
    */
   const removeFile = (index: number): void => {
-    fileList.value.splice(index, 1)
+    fileList.value && fileList.value.splice(index, 1)
   }
 
   /**

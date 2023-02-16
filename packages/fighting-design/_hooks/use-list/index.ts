@@ -57,7 +57,7 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
           classList.value.push(`f-${name}__${isBoolean(propList[key]) ? convertFormat(key) : propList[key]}`)
         }
       }
-      return classList.value as unknown as ClassList
+      return classList.value
     })
   }
 
@@ -118,7 +118,7 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
         }
       }
 
-      return styleList as unknown as CSSProperties
+      return styleList
     })
   }
 

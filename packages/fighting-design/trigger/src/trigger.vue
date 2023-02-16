@@ -56,8 +56,8 @@
     /**
      * 获取点击的孩子节点是否存在 f-trigger 类名的标签
      *
-     * @see composedPath https://developer.mozilla.org/zh-CN/docs/Web/API/Event/composedPath
-     * @see some https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+     * @see Event.composedPath() https://developer.mozilla.org/zh-CN/docs/Web/API/Event/composedPath
+     * @see Array.prototype.some() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some
      */
     const isHaveTrigger: boolean = (evt.composedPath() as HTMLElement[]).some(
       (item: HTMLElement): boolean => item.className === 'f-trigger'

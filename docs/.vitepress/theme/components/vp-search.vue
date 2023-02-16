@@ -23,7 +23,7 @@
   const isShow = ref(false)
 
   /** 搜索结果列表 */
-  const resultList = ref(null as unknown as SearchList)
+  const resultList = ref<SearchList>()
 
   /** 按下回车触发搜索 */
   const onSearch = (): void => {

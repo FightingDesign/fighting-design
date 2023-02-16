@@ -33,4 +33,5 @@ export const Props = {
   onChange: setFunctionProp<UpLoadCallback>()
 } as const
 
+/** up-load 组件 props 类型 */
 export type UpLoadProps = ExtractPropTypes<typeof Props>
