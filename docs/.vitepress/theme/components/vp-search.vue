@@ -1,5 +1,5 @@
 <script setup lang="ts" name="VpSearch">
-  import { ref, nextTick, onMounted } from 'vue'
+  import { ref } from 'vue'
   import { searchList } from './src'
   import type { SearchList } from './src/search-list'
 
@@ -23,15 +23,13 @@
     if (resultList.value && resultList.value.length) {
       isShow.value = true
 
-      onMounted(() => {
-        setTimeout((): void => {
-          const link = document.querySelectorAll('.vp-search__link')
+      setTimeout((): void => {
+        const link = document && document.querySelectorAll('.vp-search__link')
 
-          if (link.length === 1) {
-            ;(link[0] as HTMLElement).click()
-          }
-        }, 200)
-      })
+        if (link.length === 1) {
+          ;(link[0] as HTMLElement).click()
+        }
+      }, 200)
     }
   }
 

@@ -4,6 +4,7 @@ import { install } from '../_utils'
 
 export const FLink = install(Link)
 
+/** link 组件实例型 */
 export type LinkInstance = InstanceType<typeof Link>
 
 export * from './src/interface.d'

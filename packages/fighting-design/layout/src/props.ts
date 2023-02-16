@@ -14,4 +14,5 @@ export const Props = {
   })
 } as const
 
+/** layout 组件 props 类型 */
 export type LayoutProps = ExtractPropTypes<typeof Props>

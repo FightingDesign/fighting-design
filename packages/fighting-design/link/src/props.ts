@@ -57,4 +57,5 @@ export const Props = {
   onClick: setFunctionProp<HandleEvent>()
 } as const
 
+/** link 组件 props 类型 */
 export type LinkProps = ExtractPropTypes<typeof Props>
