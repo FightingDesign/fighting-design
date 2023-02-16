@@ -1,15 +1,12 @@
+import { useLoading } from '../_hooks'
+import { install, installDirective } from '../_utils'
 import type Loading from './src/loading.vue'
 
-import { vLoading } from './src/directive'
-
-import { install, installDirective } from '../_utils'
-
-export const FLoadingDirective = installDirective(vLoading, 'loading')
-
 export const FLoading = install({
-  directive: FLoadingDirective
+  directive: installDirective(useLoading(), 'loading')
 })
 
+/** loading 组件实例类型 */
 export type LoadingInstance = InstanceType<typeof Loading>
 
 export * from './src/interface.d'

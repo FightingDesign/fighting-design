@@ -1,4 +1,9 @@
 .f-loading {
+  --loading-background: rgb(35, 39, 46, 0.5);
+  --loading-color: #2d5af1;
+}
+
+.f-loading {
   position: absolute;
   top: 0;
   left: 0;
@@ -9,9 +14,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgb(35, 39, 46, 0.5);
+  background: var(--loading-background);
   transition: background 0.3s;
-  color: #2d5af1;
+  color: var(--loading-color);
 
   &.f-loading__fullscreen {
     position: fixed;

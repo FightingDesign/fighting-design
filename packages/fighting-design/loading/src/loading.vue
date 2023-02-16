@@ -1,34 +1,17 @@
 <script setup lang="ts" name="FLoading">
   import { Props } from './props'
-  import { computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingAVue } from '../../_svg'
-  import type { ClassList } from '../../_interface'
-  import type { CSSProperties } from 'vue'
+  import { useList } from '../../_hooks'
 
   const prop = defineProps(Props)
 
+  const { styles, classes } = useList(prop, 'loading')
+
   /** 样式列表 */
-  const styleList = computed((): CSSProperties => {
-    const { background, fontColor } = prop
+  const styleList = styles(['background', 'color'])
 
-    return {
-      background,
-      color: fontColor
-    } as const
-  })
-
-  /** 类名列表 */
-  const classList = computed((): ClassList => {
-    const { fullscreen = false } = prop
-
-    return [
-      'f-loading',
-      {
-        'f-loading__fullscreen': fullscreen
-      }
-    ] as const
-  })
+  const classList = classes(['fullscreen'], 'f-loading')
 </script>
 
 <template>
