@@ -1,31 +1,21 @@
 <script lang="ts" setup>
+  import {
+    FIconSun,
+    FIconMoon,
+    FIconFaceSmile,
+    FIconFaceFrown,
+    FIconEye,
+    FIconEyeSlash
+  } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
-  const num = ref(10)
-
-  const sun = () => {
-    if (num.value > 0) {
-      num.value -= 10
-    }
-  }
-
-  const add = () => {
-    if (num.value < 100) {
-      num.value += 10
-    }
-  }
+  const value5 = ref(true)
+  const value6 = ref(true)
+  const value7 = ref(true)
 </script>
 
 <template>
-  <f-progress stripe type="default" :percentage="num" />
-  <f-progress stripe type="primary" :percentage="num" />
-  <f-progress stripe type="success" :percentage="num" />
-  <f-progress stripe type="danger" :percentage="num" />
-  <f-progress stripe type="warning" :percentage="num" />
-  <f-progress stripe type="info" :percentage="num" />
-
-  <f-button-group>
-    <f-button simple round type="primary" :on-click="sun">减少</f-button>
-    <f-button simple round type="primary" :on-click="add">增加</f-button>
-  </f-button-group>
+  <f-swap v-model="value5" type="default" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
+  <f-swap v-model="value6" type="sound" :icon-on="FIconSun" :icon-off="FIconMoon" />
+  <f-swap v-model="value7" type="swap" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
 </template>

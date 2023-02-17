@@ -1,32 +1,32 @@
 <script lang="ts" setup name="FSwap">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { useRun } from '../../_hooks'
-  import { computed } from 'vue'
+  import { useRun, useList } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
-  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    [EMIT_UPDATE]: (target: boolean): boolean => target
+    [EMIT_UPDATE]: (target: boolean): boolean => typeof target === 'boolean'
   })
 
-  /** 切换时执行 */
-  const changeSwap = (): void => {
+  const { classes } = useList(prop, 'swap')
+
+  /**
+   * 点击切换时执行
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handelClick = (evt: MouseEvent): void => {
     emit(EMIT_UPDATE, !prop.modelValue)
-    useRun(prop.onChange, !prop.modelValue)
+    useRun(prop.onChange, evt, !prop.modelValue)
   }
 
   /** 类名列表 */
-  const classList = computed((): ClassList => {
-    const { modelValue, type } = prop
-
-    return ['f-swap', modelValue ? `f-swap__${type}-on` : `f-swap__${type}-off`] as const
-  })
+  const classList = classes(['type', 'modelValue'], 'f-swap')
 </script>
 
 <template>
-  <div role="switch" :class="classList" @click="changeSwap">
+  <div role="switch" :class="classList" @click="handelClick">
     <f-svg-icon :icon="modelValue ? iconOn : iconOff" :size="size" />
   </div>
 </template>

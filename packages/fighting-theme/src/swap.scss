@@ -1,4 +1,5 @@
 .f-swap {
+  position: relative;
   cursor: pointer;
   user-select: none;
   align-items: center;
@@ -6,23 +7,23 @@
   justify-content: center;
   vertical-align: middle;
 
-  &.f-swap__sound-on {
+  &.f-swap__sound {
     transform: rotate(80deg);
     transition-duration: 0.3s;
+
+    &.f-swap__model-value {
+      transform: rotate(0deg);
+      transition-duration: 0.3s;
+    }
   }
 
-  &.f-swap__sound-off {
-    transform: rotate(0deg);
-    transition-duration: 0.3s;
-  }
-
-  &.f-swap__swap-on {
+  &.f-swap__swap {
     transition-duration: 0.3s;
     transform: rotateY(180deg);
-  }
 
-  &.f-swap__swap-off {
-    transition-duration: 0.3s;
-    transform: rotateY(0deg);
+    &.f-swap__model-value {
+      transition-duration: 0.3s;
+      transform: rotateY(0deg);
+    }
   }
 }

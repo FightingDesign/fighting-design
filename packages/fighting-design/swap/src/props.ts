@@ -1,7 +1,7 @@
 import { setObjectProp, setStringNumberProp, setBooleanProp, setStringProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import type { SwapType } from './interface'
-import type { FightingIcon, HandleChange } from '../../_interface'
+import type { SwapType, SwapChange } from './interface'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
   /** 绑定值 */
@@ -14,18 +14,19 @@ export const Props = {
   /**
    * 动画类型
    *
-   * @values sound swap default
-   * @default default
+   * @values sound swap
+   * @default null
    */
-  type: setStringProp<SwapType>('default', (val: SwapType): boolean => {
-    return (['sound', 'swap', 'default'] as const).includes(val)
+  type: setStringProp<SwapType>(null, (val: SwapType): boolean => {
+    return (['sound', 'swap'] as const).includes(val)
   }),
   /** 打开展示的图标 */
   iconOn: setObjectProp<FightingIcon>(),
   /** 关闭展示的图标 */
   iconOff: setObjectProp<FightingIcon>(),
   /** 当绑定值发生改变时触发的回调 */
-  onChange: setFunctionProp<HandleChange>()
+  onChange: setFunctionProp<SwapChange>()
 } as const
 
+/** swap 组件 props 类型 */
 export type SwapProps = ExtractPropTypes<typeof Props>
