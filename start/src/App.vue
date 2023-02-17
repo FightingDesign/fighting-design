@@ -15,7 +15,21 @@
 </script>
 
 <template>
-  <f-swap v-model="value5" type="default" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
-  <f-swap v-model="value6" type="sound" :icon-on="FIconSun" :icon-off="FIconMoon" />
-  <f-swap v-model="value7" type="swap" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
+  <f-link href="https://baidu.com" type="primary">默认链接</f-link>
+  <f-link state="background" disabled no-copy type="primary">主要链接</f-link>
+  <f-link state="background" disabled no-copy type="success">成功链接</f-link>
+  <f-link state="background" disabled no-copy type="danger">危险链接</f-link>
+  <f-link state="background" disabled no-copy type="warning">警告链接</f-link>
+  <f-link state="background" disabled no-copy type="info">信息链接</f-link>
+
+  <f-link disabled href="" type="primary">不许点我</f-link>
+  <f-link disabled href="" state="line" type="success">不许点我</f-link>
+  <f-link disabled href="" state="background" type="warning">不许点我</f-link>
+
+  <!-- <f-link href="" state="line" type="primary">带有下划线</f-link>
+  <f-link href="" state="background" type="danger">hover 一下试试</f-link>
+
+  <f-link disabled href="" type="primary">不许点我</f-link>
+  <f-link disabled href="" state="line" type="success">不许点我</f-link>
+  <f-link disabled href="" state="background" type="warning">不许点我</f-link> -->
 </template>

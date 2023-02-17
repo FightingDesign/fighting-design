@@ -25,11 +25,11 @@ export const Props = {
   /**
    * 状态的样式状态
    *
-   * @values line bag
+   * @values line background
    * @default null
    */
   state: setStringProp<LinkState>(null, (val: LinkState): boolean => {
-    return (['line', 'bag'] as const).includes(val)
+    return (['line', 'background'] as const).includes(val)
   }),
   /** 是否禁用 */
   disabled: setBooleanProp(),
@@ -45,6 +45,8 @@ export const Props = {
   }),
   /** 自定义颜色 */
   color: setStringProp(),
+  /** 自定义移入状态颜色 */
+  hoverColor: setStringProp(),
   /** 是否禁止 copy */
   noCopy: setBooleanProp(),
   /** 是否禁止链接跳转及重新加载（取消默认事件） */

@@ -3,7 +3,7 @@
 
   // 不同类型
   &__default {
-    --link-color: #333;
+    --link-color: #aeaeae;
   }
 
   &__primary {
@@ -20,5 +20,9 @@
 
   &__warning {
     --link-color: #fcc202;
+  }
+
+  &__info {
+    --link-color: #1d1d1f;
   }
 }

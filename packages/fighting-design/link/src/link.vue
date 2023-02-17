@@ -23,6 +23,11 @@
    */
   const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled || prop.noLink) {
+      /**
+       * 阻止默认事件
+       *
+       * @see event.preventDefault https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault
+       */
       evt.preventDefault()
       return
     }
@@ -33,27 +38,17 @@
   const classList = classes(['type', 'state', 'disabled', 'noCopy'], 'f-link')
 
   /** 样式列表 */
-  const styleList = styles(['size', 'color'])
+  const styleList = styles(['size', 'color', 'hoverColor'])
 </script>
 
 <template>
-  <a
-    role="link"
-    :class="classList"
-    :style="styleList"
-    :href="href"
-    :disabled="disabled"
-    :target="target"
-    @click="handleClick"
-  >
-    <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon" :size="size || 16">
-      <slot name="beforeIcon" />
-    </f-svg-icon>
+  <div role="link" :class="classList" :style="styleList">
+    <a class="f-link__a" :href="href" :target="target" @click="handleClick">
+      <f-svg-icon v-if="beforeIcon" :icon="beforeIcon" :size="size" />
 
-    <slot />
+      <slot />
 
-    <f-svg-icon v-if="$slots.afterIcon || afterIcon" :icon="afterIcon" :size="size">
-      <slot name="afterIcon" />
-    </f-svg-icon>
-  </a>
+      <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="size" />
+    </a>
+  </div>
 </template>
