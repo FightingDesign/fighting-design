@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FLink } from '../index'
 import { FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
+import type { LinkState, LinkTarget } from '../index'
 
 describe('FLink', () => {
   test('class', () => {
@@ -22,7 +23,7 @@ describe('FLink', () => {
     const wrapper = mount(FLink, {
       props: { href: 'https://tianyuhao.cn' }
     })
-    expect(wrapper.attributes('href')).toContain('https://tianyuhao.cn')
+    expect(wrapper.find('.f-link__a').attributes('href')).toContain('https://tianyuhao.cn')
   })
 
   test('size', () => {
@@ -40,8 +41,8 @@ describe('FLink', () => {
   })
 
   test('state', () => {
-    const state = ['line', 'bag'] as const
-    state.forEach(item => {
+    const state: LinkState[] = ['line', 'background']
+    state.forEach((item: LinkState): void => {
       const wrapper = mount(FLink, {
         props: { state: item }
       })
@@ -57,11 +58,11 @@ describe('FLink', () => {
   })
 
   test('target', () => {
-    FIGHTING_TARGET.forEach(item => {
+    FIGHTING_TARGET.forEach((item: LinkTarget): void => {
       const wrapper = mount(FLink, {
         props: { target: item }
       })
-      expect(wrapper.attributes('target')).toContain(item)
+      expect(wrapper.find('.f-link__a').attributes('target')).toContain(item)
     })
   })
 

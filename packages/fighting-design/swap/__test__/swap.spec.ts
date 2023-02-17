@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FSwap } from '../index'
+import type { SwapType } from '../index'
 
 describe('Swap', () => {
   test('class', () => {
@@ -8,23 +9,20 @@ describe('Swap', () => {
     expect(wrapper.classes()).toContain('f-swap')
   })
 
-  test('type', () => {
-    const types = ['sound', 'swap', 'default'] as const
-    types.forEach(item => {
-      const wrapper = mount(FSwap, {
-        props: { modelValue: true, type: item }
-      })
-      expect(wrapper.classes()).toContain(`f-swap__${item}-on`)
+  test('modelValue', () => {
+    const wrapper = mount(FSwap, {
+      props: { modelValue: true }
     })
+    expect(wrapper.classes()).toContain('f-swap__model-value')
   })
 
   test('type', () => {
-    const types = ['sound', 'swap', 'default'] as const
-    types.forEach(item => {
+    const types: SwapType[] = ['sound', 'swap']
+    types.forEach((item: SwapType): void => {
       const wrapper = mount(FSwap, {
         props: { modelValue: false, type: item }
       })
-      expect(wrapper.classes()).toContain(`f-swap__${item}-off`)
+      expect(wrapper.classes()).toContain(`f-swap__${item}`)
     })
   })
 })

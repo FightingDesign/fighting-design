@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { DividerPosition, DividerType } from './interface'
 
@@ -18,7 +18,9 @@ export const Props = {
   /** 文字颜色 */
   fontColor: setStringProp(),
   /** 上下边距 */
-  margin: setStringProp(),
+  margin: setStringNumberProp(),
+  /** 自定义高度 */
+  height: setStringNumberProp(),
   /** 自定义背景颜色 */
   background: setStringProp(),
   /**
@@ -32,4 +34,5 @@ export const Props = {
   })
 } as const
 
+/** divider 组件 props 类型 */
 export type DividerProps = ExtractPropTypes<typeof Props>

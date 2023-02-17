@@ -6,6 +6,7 @@
 - `f-swap` 组件 `type` 废除 `default` 配置项
 - `f-link` 组件 `state` 配置项的 `bag` 可选值改为 `background`
 - `f-link` 组件废除 `beforeIcon` 和 `afterIcon` 插槽
+- `f-divider` 组件新增 `height` 配置项，优化部分参数配置
 
 ## 0.23.1 (2023-02-16)
 

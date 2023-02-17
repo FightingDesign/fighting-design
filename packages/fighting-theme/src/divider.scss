@@ -1,31 +1,30 @@
-@import '../config/var-divider';
+.f-divider {
+  --divider-type: solid;
+  --divider-color: #b0b0b0;
+  --divider-background: #fff;
+  --divider-font-color: #333;
+  --divider-margin: 30px;
+  --divider-height: 1em;
+}
 
 .f-divider {
   position: relative;
   clear: both;
   width: 100%;
   border: 0;
-  border-style: solid;
-  border-bottom: 1px solid #b0b0b0;
+  border-bottom: 1px solid var(--divider-color);
   white-space: pre;
-  margin: 30px 0;
+  margin: var(--divider-margin) 0;
+  border-style: var(--divider-type);
 
   &.f-divider__vertical {
-    border: 0;
-    border-left: 1px solid #b0b0b0;
     display: inline-block;
     min-width: 1px;
     max-width: 1px;
-    height: 1em;
     vertical-align: middle;
     margin: 0 12px;
-  }
-
-  // 不同的线条类型
-  @each $key, $value in $dividerType {
-    &.f-divider__#{$key} {
-      border-style: $value;
-    }
+    border-left: 1px solid var(--divider-color);
+    height: var(--divider-height);
   }
 
   // 分割线上的文字
@@ -37,22 +36,23 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 2;
-    background-color: #fff;
+    color: var(--divider-font-color);
+    background-color: var(--divider-background);
+  }
 
-    // 文字不同的位置
-    &.f-divider__text-center {
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+  // 不同偏移位置
+  &__center .f-divider__text {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-    &.f-divider__text-right {
-      right: 5%;
-      transform: translateY(-50%);
-    }
+  &__left .f-divider__text {
+    left: 5%;
+    transform: translateY(-50%);
+  }
 
-    &.f-divider__text-left {
-      left: 5%;
-      transform: translateY(-50%);
-    }
+  &__right .f-divider__text {
+    right: 5%;
+    transform: translateY(-50%);
   }
 }

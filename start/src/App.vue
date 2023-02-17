@@ -1,35 +1,20 @@
-<script lang="ts" setup>
-  import {
-    FIconSun,
-    FIconMoon,
-    FIconFaceSmile,
-    FIconFaceFrown,
-    FIconEye,
-    FIconEyeSlash
-  } from '@fighting-design/fighting-icon'
-  import { ref } from 'vue'
-
-  const value5 = ref(true)
-  const value6 = ref(true)
-  const value7 = ref(true)
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <f-link href="https://baidu.com" type="primary">默认链接</f-link>
-  <f-link state="background" disabled no-copy type="primary">主要链接</f-link>
-  <f-link state="background" disabled no-copy type="success">成功链接</f-link>
-  <f-link state="background" disabled no-copy type="danger">危险链接</f-link>
-  <f-link state="background" disabled no-copy type="warning">警告链接</f-link>
-  <f-link state="background" disabled no-copy type="info">信息链接</f-link>
+  <f-divider type="dashed">我是虚线</f-divider>
+  <f-divider type="dotted" color="red">我是圆点</f-divider>
+  <f-divider type="double">我是双实线</f-divider>
 
-  <f-link disabled href="" type="primary">不许点我</f-link>
-  <f-link disabled href="" state="line" type="success">不许点我</f-link>
-  <f-link disabled href="" state="background" type="warning">不许点我</f-link>
+  <f-divider color="red" margin="10px" font-color="green" vertical height="300px">12</f-divider>
+  <!-- <f-divider vertical>我是分隔线</f-divider> -->
 
-  <!-- <f-link href="" state="line" type="primary">带有下划线</f-link>
-  <f-link href="" state="background" type="danger">hover 一下试试</f-link>
+  <f-divider position="left">我是左边的文字</f-divider>
+  <f-divider position="center">我是居中的文字</f-divider>
+  <f-divider position="right">我是右边的文字</f-divider>
 
-  <f-link disabled href="" type="primary">不许点我</f-link>
-  <f-link disabled href="" state="line" type="success">不许点我</f-link>
-  <f-link disabled href="" state="background" type="warning">不许点我</f-link> -->
+  <f-divider margin="40px">默认颜色</f-divider>
+  <f-divider color="green" margin="40px" font-color="green" background="#eee">我是绿色</f-divider>
+  <f-divider color="blue" margin="40px" font-color="#fff" background="blue">我是蓝色</f-divider>
 </template>
+
+<style lang="scss" scoped></style>

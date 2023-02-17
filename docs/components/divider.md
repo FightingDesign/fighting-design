@@ -1,6 +1,6 @@
 # Divider 分隔线
 
-`Divider` 用户段落的分隔符
+段落的分隔符
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/divider)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/divider.md)
@@ -50,7 +50,7 @@
 
 `color` 属性可以配置不同的线条颜色
 
-`fontColor` 属性配置不同文字颜色
+`font-color` 属性配置不同文字颜色
 
 `background` 属性配置文字背景颜色
 
@@ -58,15 +58,15 @@
 
 <template #source>
 <f-divider margin="40px">默认颜色</f-divider>
-<f-divider color='green' margin="40px" fontColor="green" background="#eee">我是绿色</f-divider>
-<f-divider color='blue' margin="40px" fontColor="#fff" background="blue">我是蓝色</f-divider>
+<f-divider color="green" margin="40px" font-color="green" background="#eee">我是绿色</f-divider>
+<f-divider color="blue" margin="40px" font-color="#fff" background="blue">我是蓝色</f-divider>
 
 </template>
 
 ```html
 <f-divider margin="40px">默认颜色</f-divider>
-<f-divider color="green" margin="40px" fontColor="green" background="#eee"> 我是绿色 </f-divider>
-<f-divider color="blue" margin="40px" fontColor="#fff" background="blue"> 我是蓝色 </f-divider>
+<f-divider color="green" margin="40px" font-color="green" background="#eee">我是绿色</f-divider>
+<f-divider color="blue" margin="40px" font-color="#fff" background="blue">我是蓝色</f-divider>
 ```
 
 :::
@@ -80,30 +80,28 @@
 <template #source>
 
 <div>假装是内容</div>
-<f-divider margin="60px" fontColor="blue">距离上下60px</f-divider>
+<f-divider margin="60px" font-color="blue">距离上下60px</f-divider>
 <div>假装是内容</div>
 </template>
 
 ```html
-<f-divider margin="60px" fontColor="blue">距离上下60px</f-divider>
+<f-divider margin="60px" font-color="blue">距离上下60px</f-divider>
 ```
 
 :::
 
 ## 竖着显示
 
-如果你不喜欢横着显示， `vertical` 属性可以竖着显示
-
-如果使用 `vertical`属性，`color`&`background` 将会失效
+`vertical` 属性可以竖着显示，将不会展示默认插槽
 
 ::: demo
 
 <template #source>
-<f-divider vertical>竖着显示</f-divider>
+<f-divider vertical />
 </template>
 
 ```html
-<f-divider vertical>竖着显示</f-divider>
+<f-divider vertical />
 ```
 
 :::
@@ -130,15 +128,16 @@
 
 ## Attributes
 
-| 参数         | 说明         | 类型                                           | 可选值                             | 默认值 |
-| ------------ | ------------ | ---------------------------------------------- | ---------------------------------- | ------ |
-| `position`   | 文字显示位置 | <a href="#dividertype">DividerType</a>         | `left` `center` `right`            | center |
-| `vertical`   | 是否为竖线   | boolean                                        | ——                                 | false  |
-| `color`      | 线条颜色     | string                                         | ——                                 | ——     |
-| `font-color` | 文字颜色     | string                                         | ——                                 | ——     |
-| `background` | 背景颜色     | boolean                                        | ——                                 | ——     |
-| `margin`     | 上下边距     | string                                         | ——                                 | ——     |
-| `type`       | 分隔符类型   | <a href="#dividerposition">DividerPosition</a> | `dashed` `dotted` `double` `solid` | solid  |
+| 参数         | 说明                                     | 类型                                           | 可选值                             | 默认值 |
+| ------------ | ---------------------------------------- | ---------------------------------------------- | ---------------------------------- | ------ |
+| `position`   | 文字显示位置                             | <a href="#dividertype">DividerType</a>         | `left` `center` `right`            | center |
+| `vertical`   | 是否为竖线                               | boolean                                        | ——                                 | false  |
+| `color`      | 线条颜色                                 | string                                         | ——                                 | ——     |
+| `font-color` | 文字颜色                                 | string                                         | ——                                 | ——     |
+| `background` | 背景颜色                                 | boolean                                        | ——                                 | ——     |
+| `margin`     | 上下边距                                 | string / number                                | ——                                 | ——     |
+| `height`     | 自定义高度，仅在 vertical 为 true 时生效 | string / number                                | ——                                 | ——     |
+| `type`       | 分隔符类型                               | <a href="#dividerposition">DividerPosition</a> | `dashed` `dotted` `double` `solid` | solid  |
 
 ## Interface
 

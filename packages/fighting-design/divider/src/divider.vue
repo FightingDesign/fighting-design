@@ -1,47 +1,21 @@
 <script lang="ts" setup name="FDivider">
   import { Props } from './props'
-  import { useSlots, computed } from 'vue'
-  import type { CSSProperties, Slots } from 'vue'
+  import { useList } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  /** 是否有插槽 */
-  const renderSlot = computed((): boolean => {
-    /** 获取到插槽内容 */
-    const slot: Slots = useSlots()
+  const { classes, styles } = useList(prop, 'divider')
 
-    return !prop.vertical && Boolean(slot.default)
-  })
+  /** 类名列表 */
+  const classList = classes(['vertical', 'position'], 'f-divider')
 
-  /** 样式列表 */
-  const styleList = computed((): CSSProperties => {
-    const { color, margin } = prop
-
-    if (margin) {
-      return {
-        margin: `${margin} 0`,
-        borderColor: color
-      } as const
-    }
-
-    return { borderColor: color } as const
-  })
+  /** 类名列表 */
+  const styleList = styles(['color', 'margin', 'background', 'fontColor', 'height', 'type'])
 </script>
 
 <template>
-  <div
-    role="separator"
-    :class="['f-divider', { 'f-divider__vertical': vertical, [`f-divider__${type}`]: type }]"
-    :style="styleList"
-  >
-    <span
-      v-if="renderSlot"
-      :class="['f-divider__text', `f-divider__text-${position}`]"
-      :style="{
-        background,
-        color: fontColor
-      }"
-    >
+  <div role="separator" :class="classList" :style="styleList">
+    <span v-if="!vertical || !$slots.default" class="f-divider__text">
       <slot />
     </span>
   </div>

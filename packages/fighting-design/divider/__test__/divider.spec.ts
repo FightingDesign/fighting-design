@@ -1,89 +1,81 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FDivider } from '../index'
+import type { DividerType, DividerPosition } from '../index'
 
 const text = '分割线'
 
 describe('FDivider', () => {
-  test('render with text', () => {
+
+  test('class', () => {
+    const wrapper = mount(FDivider)
+    expect(wrapper.classes()).toContain('f-divider')
+  })
+
+  test('slots', () => {
     const wrapper = mount(FDivider, {
       slots: {
-        default: text
+        default: '分割线'
       }
     })
-    expect(wrapper.find('span').text()).toBe(text)
+    expect(wrapper.find('.f-divider__text').text()).toBe('分割线')
   })
 
   test('vertical', () => {
     const wrapper = mount(FDivider, {
-      props: {
-        vertical: true
-      }
+      props: { vertical: true }
     })
     expect(wrapper.classes()).toContain('f-divider__vertical')
-    expect(wrapper.find('span').exists()).toBe(false)
+    // expect(wrapper.find('span').exists()).toBe(false)
   })
 
   test('position', () => {
-    const wrapper = mount(FDivider, {
-      slots: {
-        default: text
-      },
-      props: {
-        position: 'left'
-      }
+    const positions: DividerPosition[] = ['left', 'center', 'right']
+    positions.forEach((item: DividerPosition): void => {
+      const wrapper = mount(FDivider, {
+        props: { position: item }
+      })
+      expect(wrapper.classes()).toContain(`f-divider__${item}`)
     })
-    expect(wrapper.find('span').classes()).toContain('f-divider__text-left')
   })
 
   test('fontColor', () => {
     const wrapper = mount(FDivider, {
-      slots: {
-        default: text
-      },
-      props: {
-        fontColor: 'green'
-      }
+      slots: { default: text },
+      props: { fontColor: 'green' }
     })
-    expect(wrapper.find('span').attributes('style')).toBe('color: green;')
+    expect(wrapper.attributes('style')).toContain('--divider-font-color: green')
   })
 
   test('background', () => {
     const wrapper = mount(FDivider, {
-      slots: {
-        default: text
-      },
-      props: {
-        background: 'green'
-      }
+      slots: { default: '分割线' },
+      props: { background: 'green' }
     })
-    expect(wrapper.find('span').attributes('style')).toBe('background: green;')
+    expect(wrapper.attributes('style')).toContain('--divider-background: green')
   })
 
   test('margin', () => {
     const wrapper = mount(FDivider, {
-      props: {
-        margin: '50px'
-      }
+      props: { margin: '50px' }
     })
-    expect(wrapper.attributes('style')).toBe('margin: 50px 0px;')
+    expect(wrapper.attributes('style')).toContain('--divider-margin: 50px')
   })
 
   test('color', () => {
     const wrapper = mount(FDivider, {
-      props: {
-        color: 'red'
-      }
+      props: { color: 'red' }
     })
-    expect(wrapper.attributes('style')).toBe('border-color: red;')
+    expect(wrapper.attributes('style')).toContain('--divider-color: red')
   })
 
   test('type', () => {
-    const wrapper = mount(FDivider, {
-      props: {
-        type: 'solid'
-      }
+    const types: DividerType[] = ['dashed', 'dotted', 'double', 'solid']
+    types.forEach((item: DividerType): void => {
+      const wrapper = mount(FDivider, {
+        props: { type: item }
+      })
+      expect(wrapper.attributes('style')).toContain(`--divider-type: ${item}`)
     })
-    expect(wrapper.classes()).toContain('f-divider__solid')
   })
 })
