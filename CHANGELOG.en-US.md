@@ -4,6 +4,14 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.24.0 (2023-02-17)
+
+- `f-progress` component `type` adds `info` and `default` configuration items
+- `f-swap` component `type` abrogate `default` configuration item
+- The `bag` optional value of the `f-link` component `state` configuration item is changed to `background`
+- The `f-link` component cancels the `beforeIcon` and `afterIcon` slots
+- The `f-provider` component adds a `height` configuration item to optimize some parameter configurations
+
 ## 0.23.1 (2023-02-16)
 
 - Optimization part ts type error
