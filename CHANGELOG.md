@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-progress` 组件 `type` 新增 `info` 和 `default` 配置项
+
 ## 0.23.1 (2023-02-16)
 
 - 优化部分 ts 类型错误

@@ -1,6 +1,7 @@
 import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
+import { FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
-import type { ProgressType } from './interface'
+import type { FightingType } from '../../_interface'
 
 export const Props = {
   /** 百分比 */
@@ -8,11 +9,11 @@ export const Props = {
   /**
    * 进度条类型
    *
-   * @values primary success danger warning
+   * @values default primary success danger warning info
    * @default primary
    */
-  type: setStringProp<ProgressType>('primary', (val: ProgressType): boolean => {
-    return (['primary', 'success', 'danger', 'warning'] as const).includes(val)
+  type: setStringProp<FightingType>('primary', (val: FightingType): boolean => {
+    return FIGHTING_TYPE.includes(val)
   }),
   /** 自定义高度 */
   height: setStringNumberProp(),
@@ -30,4 +31,5 @@ export const Props = {
   stripe: setBooleanProp()
 } as const
 
+/** progress 组件 props 类型 */
 export type ProgressProps = ExtractPropTypes<typeof Props>

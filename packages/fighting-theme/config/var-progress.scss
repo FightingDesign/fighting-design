@@ -1,8 +1,8 @@
 .f-progress {
   // 不同类型
   &__default {
-    --progress-text-color: #fff;
-    --progress-background: #333;
+    --progress-text-color: #1d1d1f;
+    --progress-background: #d7d7d7;
     --progress-simple-background: #e8e8e8;
   }
 
@@ -28,5 +28,11 @@
     --progress-text-color: #fff;
     --progress-background: #fcc202;
     --progress-simple-background: #fed348;
+  }
+
+  &__info {
+    --progress-text-color: #fbfbfd;
+    --progress-background: #1d1d1f;
+    --progress-simple-background: #4e4e56;
   }
 }

@@ -7,7 +7,7 @@
 
 ## 基本使用
 
-`percentage` 属性表示进度条对应的百分比，取值范围在 `0-100`范围内。
+`percentage` 属性表示进度条对应的百分比，取值范围在 `0-100` 范围内。
 
 `type` 属性可以配置不同的进度条样式，展示不同的颜色状态
 
@@ -15,13 +15,12 @@
 
 <template #source>
 
+<f-progress type="default" :percentage="num" />
 <f-progress type="primary" :percentage="num" />
 <f-progress type="success" :percentage="num" />
 <f-progress type="danger" :percentage="num" />
 <f-progress type="warning" :percentage="num" />
-
-<f-progress type="primary" :percentage="num" square />
-<f-progress type="success" :percentage="num" linear />
+<f-progress type="info" :percentage="num" />
 
 <f-button-group>
 <f-button simple round type="primary" :on-click="sun">减少</f-button>
@@ -31,13 +30,12 @@
 
 ```html
 <template>
+  <f-progress type="default" :percentage="num" />
   <f-progress type="primary" :percentage="num" />
   <f-progress type="success" :percentage="num" />
   <f-progress type="danger" :percentage="num" />
   <f-progress type="warning" :percentage="num" />
-
-  <f-progress type="primary" :percentage="num" square />
-  <f-progress type="success" :percentage="num" linear />
+  <f-progress type="info" :percentage="num" />
 
   <f-button-group>
     <f-button simple round type="primary" :on-click="sun">减少</f-button>
@@ -80,9 +78,7 @@
 </template>
 
 ```html
-<f-progress :percentage="10" show-text />
-
-<f-progress type="danger" :percentage="70" outside-text show-text />
+<f-progress :percentage="10" show-text /> <f-progress type="danger" :percentage="70" outside-text show-text />
 ```
 
 :::
@@ -132,10 +128,12 @@
 ::: demo
 
 <template #source>
-<f-progress :height="25" stripe type="primary" :percentage="num" />
-<f-progress :height="25" stripe type="success" :percentage="num" />
-<f-progress :height="25" stripe type="danger" :percentage="num" />
-<f-progress :height="25" stripe type="warning" :percentage="num" />
+<f-progress stripe type="default" :percentage="num" />
+<f-progress stripe type="primary" :percentage="num" />
+<f-progress stripe type="success" :percentage="num" />
+<f-progress stripe type="danger" :percentage="num" />
+<f-progress stripe type="warning" :percentage="num" />
+<f-progress stripe type="info" :percentage="num" />
 
 <f-button-group>
   <f-button simple round type="primary" :on-click="sun">减少</f-button>
@@ -145,10 +143,12 @@
 
 ```html
 <template>
-  <f-progress :height="25" stripe type="primary" :percentage="num" />
-  <f-progress :height="25" stripe type="success" :percentage="num" />
-  <f-progress :height="25" stripe type="danger" :percentage="num" />
-  <f-progress :height="25" stripe type="warning" :percentage="num" />
+  <f-progress stripe type="default" :percentage="num" />
+  <f-progress stripe type="primary" :percentage="num" />
+  <f-progress stripe type="success" :percentage="num" />
+  <f-progress stripe type="danger" :percentage="num" />
+  <f-progress stripe type="warning" :percentage="num" />
+  <f-progress stripe type="info" :percentage="num" />
 
   <f-button-group>
     <f-button simple round type="primary" :on-click="sun">减少</f-button>
@@ -179,30 +179,24 @@
 
 ## Attributes
 
-| 参数           | 说明                   | 类型                                     | 可选值                                 | 默认值  |
-| -------------- | ---------------------- | ---------------------------------------- | -------------------------------------- | ------- |
-| `percentage`   | 百分比                 | number                                   | `0 ~ 100`                              | 0       |
-| `type`         | 进度条类型             | <a href="#progresstype">ProgressType</a> | `primary` `success` `warning` `danger` | primary |
-| `height`       | 自定义高度             | string / number                          | ——                                     | ——      |
-| `show-text`    | 是否显示百分比文字内容 | boolean                                  | ——                                     | false   |
-| `outside-text` | 是否在外部显示文本     | boolean                                  | ——                                     | false   |
-| `text-color`   | 百分比文字的颜色       | string                                   | ——                                     | ——      |
-| `color`        | 进度条颜色             | string                                   | ——                                     | ——      |
-| `background`   | 进度条背景色           | string                                   | ——                                     | ——      |
-| `stripe`       | 是否开启条纹效果       | boolean                                  | ——                                     | false   |
+| 参数           | 说明                   | 类型                                                               | 可选值                                                  | 默认值  |
+| -------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------------- | ------- |
+| `percentage`   | 百分比                 | number                                                             | `0 ~ 100`                                               | 0       |
+| `type`         | 类型                   | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning` `info` | primary |
+| `height`       | 自定义高度             | string / number                                                    | ——                                                      | ——      |
+| `show-text`    | 是否显示百分比文字内容 | boolean                                                            | ——                                                      | false   |
+| `outside-text` | 是否在外部显示文本     | boolean                                                            | ——                                                      | false   |
+| `text-color`   | 百分比文字的颜色       | string                                                             | ——                                                      | ——      |
+| `color`        | 进度条颜色             | string                                                             | ——                                                      | ——      |
+| `background`   | 进度条背景色           | string                                                             | ——                                                      | ——      |
+| `stripe`       | 是否开启条纹效果       | boolean                                                            | ——                                                      | false   |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type { ProgressInstance, ProgressProps, ProgressType } from 'fighting-design'
-```
-
-### ProgressType
-
-```ts
-type ProgressType = 'primary' | 'success' | 'danger' | 'warning'
+import type { ProgressInstance, ProgressProps } from 'fighting-design'
 ```
 
 ## Contributors
