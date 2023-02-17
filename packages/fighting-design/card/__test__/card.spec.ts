@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FCard } from '../index'
+import type { CardShadow } from '../index'
 
 describe('FCard', () => {
   test('class', () => {
@@ -32,8 +33,8 @@ describe('FCard', () => {
   })
 
   test('shadow', () => {
-    const shadow = ['hover', 'always'] as const
-    shadow.forEach(item => {
+    const shadows: CardShadow[] = ['hover', 'always']
+    shadows.forEach((item: CardShadow): void => {
       const wrapper = mount(FCard, {
         props: { shadow: item }
       })

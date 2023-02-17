@@ -3,6 +3,8 @@ import { describe, expect, test } from 'vitest'
 import { FButton } from '../index'
 import { useColor } from '../../_hooks'
 import { FIGHTING_SIZE, FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
+import type { ButtonNative, ButtonTarget } from '../index'
+import type { FightingType, FightingSize } from '../../_interface'
 
 describe('FButton', () => {
   test('class', () => {
@@ -55,7 +57,7 @@ describe('FButton', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach(item => {
+    FIGHTING_SIZE.forEach((item: FightingSize): void => {
       const wrapper = mount(FButton, {
         props: { size: item }
       })
@@ -78,7 +80,7 @@ describe('FButton', () => {
   })
 
   test('target', () => {
-    FIGHTING_TARGET.forEach(item => {
+    FIGHTING_TARGET.forEach((item: ButtonTarget): void => {
       const wrapper = mount(FButton, {
         props: { href: 'https://tianyuhao.cn', target: item }
       })
@@ -101,7 +103,7 @@ describe('FButton', () => {
   })
 
   test('type', () => {
-    FIGHTING_TYPE.forEach(item => {
+    FIGHTING_TYPE.forEach((item: FightingType): void => {
       const wrapper = mount(FButton, {
         props: { type: item }
       })
@@ -145,8 +147,8 @@ describe('FButton', () => {
   })
 
   test('native-type', () => {
-    const nativeType = ['button', 'submit', 'reset'] as const
-    nativeType.forEach(item => {
+    const nativeTypes: ButtonNative[] = ['button', 'submit', 'reset']
+    nativeTypes.forEach((item: ButtonNative): void => {
       const wrapper = mount(FButton, {
         props: { nativeType: item }
       })

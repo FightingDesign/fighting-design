@@ -2,6 +2,8 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FInput } from '../index'
 import { FIGHTING_SIZE } from '../../_tokens'
+import type { InputType } from '../index'
+import type { FightingSize } from '../../_interface'
 
 describe('Input', () => {
   test('class', () => {
@@ -11,8 +13,8 @@ describe('Input', () => {
   })
 
   test('type', () => {
-    const size = ['text', 'password', 'number'] as const
-    size.forEach(item => {
+    const types: InputType[] = ['text', 'password', 'number']
+    types.forEach((item: InputType): void => {
       const wrapper = mount(FInput, {
         props: { type: item }
       })
@@ -21,7 +23,7 @@ describe('Input', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach(item => {
+    FIGHTING_SIZE.forEach((item: FightingSize): void => {
       const wrapper = mount(FInput, {
         props: { size: item }
       })

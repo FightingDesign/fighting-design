@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FList } from '../index'
 import { FIGHTING_SIZE } from '../../_tokens'
+import type { FightingSize } from '../../_interface'
 
 describe('FList', () => {
   test('class', () => {
@@ -32,7 +33,7 @@ describe('FList', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach(item => {
+    FIGHTING_SIZE.forEach((item: FightingSize): void => {
       const wrapper = mount(FList, {
         props: { size: item }
       })

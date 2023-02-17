@@ -3,8 +3,6 @@ import { describe, expect, test } from 'vitest'
 import { FDivider } from '../index'
 import type { DividerType, DividerPosition } from '../index'
 
-const text = '分割线'
-
 describe('FDivider', () => {
 
   test('class', () => {
@@ -26,7 +24,6 @@ describe('FDivider', () => {
       props: { vertical: true }
     })
     expect(wrapper.classes()).toContain('f-divider__vertical')
-    // expect(wrapper.find('span').exists()).toBe(false)
   })
 
   test('position', () => {
@@ -41,7 +38,7 @@ describe('FDivider', () => {
 
   test('fontColor', () => {
     const wrapper = mount(FDivider, {
-      slots: { default: text },
+      slots: { default: '分割线' },
       props: { fontColor: 'green' }
     })
     expect(wrapper.attributes('style')).toContain('--divider-font-color: green')

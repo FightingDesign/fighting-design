@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FAvatar } from '../index'
 import { FIGHTING_SIZE, FIGHTING_FIT } from '../../_tokens'
+import type { FightingFit, FightingSize } from '../../_interface'
 
 describe('FAvatar', () => {
   test('class', () => {
@@ -25,7 +26,7 @@ describe('FAvatar', () => {
   })
 
   test('fit', () => {
-    FIGHTING_FIT.forEach(item => {
+    FIGHTING_FIT.forEach((item: FightingFit): void => {
       const wrapper = mount(FAvatar, {
         props: { fit: item }
       })
@@ -34,7 +35,7 @@ describe('FAvatar', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach(item => {
+    FIGHTING_SIZE.forEach((item: FightingSize): void => {
       const wrapper = mount(FAvatar, {
         props: { size: item }
       })

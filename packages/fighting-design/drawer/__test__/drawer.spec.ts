@@ -10,9 +10,7 @@ describe('FDrawer', () => {
 
   test('title', () => {
     const wrapper = mount(FDrawer, {
-      props: {
-        title: '标题'
-      }
+      props: { title: '标题' }
     })
     expect(wrapper.find('.f-drawer__header-title').text()).toContain('标题')
   })

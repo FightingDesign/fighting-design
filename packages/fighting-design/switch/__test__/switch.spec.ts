@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FSwitch } from '../index'
 import { FIGHTING_SIZE } from '../../_tokens'
+import type { FightingSize } from '../../_interface'
 
 describe('FSwitch', () => {
   test('class', () => {
@@ -10,7 +11,7 @@ describe('FSwitch', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach(item => {
+    FIGHTING_SIZE.forEach((item: FightingSize): void => {
       const wrapper = mount(FSwitch, {
         props: { size: item }
       })

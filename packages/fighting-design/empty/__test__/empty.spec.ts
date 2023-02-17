@@ -10,9 +10,7 @@ describe('FEmpty', () => {
 
   test('content', () => {
     const wrapper = mount(FEmpty, {
-      props: {
-        content: '内容啊'
-      }
+      props: { content: '内容啊' }
     })
     expect(wrapper.find('.f-empty__content').text()).toContain('内容啊')
   })

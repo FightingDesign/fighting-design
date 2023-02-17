@@ -11,9 +11,7 @@ describe('DropdownItem', () => {
 
   test('disabled', () => {
     const wrapper = mount(FDropdownItem, {
-      props: {
-        disabled: true
-      }
+      props: { disabled: true }
     })
     expect(wrapper.classes()).toContain('f-dropdown-item__disabled')
   })

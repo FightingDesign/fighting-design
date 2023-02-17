@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FTag } from '../index'
 import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
+import type { FightingType } from '../../_interface'
 
 describe('FTag', () => {
   test('class', () => {
@@ -10,7 +11,7 @@ describe('FTag', () => {
   })
 
   test('type', () => {
-    FIGHTING_TYPE.forEach(item => {
+    FIGHTING_TYPE.forEach((item: FightingType): void => {
       const wrapper = mount(FTag, {
         props: { type: item }
       })

@@ -6,19 +6,14 @@ import { EMIT_VISIBLE } from '../../_tokens'
 describe('FDialog', () => {
   test('class', () => {
     const wrapper = mount(FDialog, {
-      props: {
-        visible: true
-      }
+      props: { visible: true }
     })
     expect(wrapper.find('div').classes()).toContain('f-popup')
   })
 
   test('title', () => {
     const wrapper = mount(FDialog, {
-      props: {
-        visible: true,
-        title: '标题'
-      }
+      props: { visible: true, title: '标题' }
     })
     expect(wrapper.find('.f-dialog__header-title').text()).toContain('标题')
   })
@@ -37,10 +32,7 @@ describe('FDialog', () => {
 
   test('width', () => {
     const wrapper = mount(FDialog, {
-      props: {
-        visible: true,
-        width: '200px'
-      }
+      props: { visible: true, width: '200px' }
     })
     expect(wrapper.find('.f-dialog').attributes('style')).toContain('width: 200px')
   })
@@ -85,8 +77,6 @@ describe('FDialog', () => {
     await wrapper.get('.f-popup__container').trigger('click.self')
     expect(wrapper.emitted(EMIT_VISIBLE)?.[0][0]).toBe(false)
     await wrapper.setProps({ visible: false })
-    // 应该使用 js-dom。如果使用 happy-dom，下面的测试就会失败。
-    // 查看这个 issue https://github.com/vuejs/test-utils/issues/1704
     expect(wrapper.find('.f-dialog').isVisible()).toBe(false)
   })
 
