@@ -4,6 +4,7 @@ import { install } from '../_utils'
 
 export const FFightingGlobal = install(FightingGlobal)
 
+/** fighting-global 组件实例类型 */
 export type FightingGlobalInstance = InstanceType<typeof FightingGlobal>
 
 export * from './src/interface.d'
