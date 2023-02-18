@@ -10,12 +10,12 @@
 ::: demo
 
 <template #source>
-<f-button type="primary" :on-click="openMessage">打开</f-button>
+<f-button type="primary" @click="openMessage">打开</f-button>
 </template>
 
 ```html
 <template>
-  <f-button type="primary" :on-click="openMessage">打开</f-button>
+  <f-button type="primary" @click="openMessage">打开</f-button>
 </template>
 
 <script lang="ts" setup>
@@ -41,12 +41,12 @@
 ::: demo
 
 <template #source>
-<f-button type="primary" :on-click="openMessageVNode">打开</f-button>
+<f-button type="primary" @click="openMessageVNode">打开</f-button>
 </template>
 
 ```html
 <template>
-  <f-button type="primary" :on-click="openMessageVNode">打开</f-button>
+  <f-button type="primary" @click="openMessageVNode">打开</f-button>
 </template>
 
 <script lang="ts" setup>
@@ -73,22 +73,22 @@
 
 <template #source>
 <f-space>
-<f-button :on-click="openMessage">default</f-button>
-<f-button type="primary" :on-click="openMessagePrimary">primary</f-button>
-<f-button type="success" :on-click="openMessageSuccess">success</f-button>
-<f-button type="warning" :on-click="openMessageWarning">warning</f-button>
-<f-button type="danger" :on-click="openMessageDanger">danger</f-button>
+<f-button @click="openMessage">default</f-button>
+<f-button type="primary" @click="openMessagePrimary">primary</f-button>
+<f-button type="success" @click="openMessageSuccess">success</f-button>
+<f-button type="warning" @click="openMessageWarning">warning</f-button>
+<f-button type="danger" @click="openMessageDanger">danger</f-button>
 </f-space>
 </template>
 
 ```html
 <template>
   <f-space>
-    <f-button :on-click="openMessage">default</f-button>
-    <f-button type="primary" :on-click="openMessagePrimary">primary</f-button>
-    <f-button type="success" :on-click="openMessageSuccess">success</f-button>
-    <f-button type="warning" :on-click="openMessageWarning">warning</f-button>
-    <f-button type="danger" :on-click="openMessageDanger">danger</f-button>
+    <f-button @click="openMessage">default</f-button>
+    <f-button type="primary" @click="openMessagePrimary">primary</f-button>
+    <f-button type="success" @click="openMessageSuccess">success</f-button>
+    <f-button type="warning" @click="openMessageWarning">warning</f-button>
+    <f-button type="danger" @click="openMessageDanger">danger</f-button>
   </f-space>
 </template>
 
@@ -133,15 +133,15 @@
 
 <template #source>
 <f-space>
-<f-button type="primary" :on-click="openMessageClose1">5 秒后关闭</f-button>
-<f-button type="primary" :on-click="openMessageClose2">不自动关闭</f-button>
+<f-button type="primary" @click="openMessageClose1">5 秒后关闭</f-button>
+<f-button type="primary" @click="openMessageClose2">不自动关闭</f-button>
 </f-space>
 </template>
 
 ```html
 <template>
-  <f-button type="primary" :on-click="openMessageClose1">show</f-button>
-  <f-button type="primary" :on-click="openMessageClose2">show</f-button>
+  <f-button type="primary" @click="openMessageClose1">show</f-button>
+  <f-button type="primary" @click="openMessageClose2">show</f-button>
 </template>
 
 <script setup lang="ts">
@@ -176,24 +176,24 @@
 
 <template #source>
 <f-space>
-<f-button type="primary" :on-click="openMessagePlacement('top')">顶部</f-button>
-<f-button type="primary" :on-click="openMessagePlacement('top-left')">左上</f-button>
-<f-button type="primary" :on-click="openMessagePlacement('top-right')">右上</f-button>
-<f-button type="success" :on-click="openMessagePlacement('bottom')">底部</f-button>
-<f-button type="success" :on-click="openMessagePlacement('bottom-left')">左下</f-button>
-<f-button type="success" :on-click="openMessagePlacement('bottom-right')">右下</f-button>
+<f-button type="primary" @click="openMessagePlacement('top')">顶部</f-button>
+<f-button type="primary" @click="openMessagePlacement('top-left')">左上</f-button>
+<f-button type="primary" @click="openMessagePlacement('top-right')">右上</f-button>
+<f-button type="success" @click="openMessagePlacement('bottom')">底部</f-button>
+<f-button type="success" @click="openMessagePlacement('bottom-left')">左下</f-button>
+<f-button type="success" @click="openMessagePlacement('bottom-right')">右下</f-button>
 </f-space>
 </template>
 
 ```html
 <template>
   <f-space>
-    <f-button type="primary" :on-click="openMessagePlacement('top')"> 顶部 </f-button>
-    <f-button type="primary" :on-click="openMessagePlacement('top-left')"> 左上 </f-button>
-    <f-button type="primary" :on-click="openMessagePlacement('top-right')"> 右上 </f-button>
-    <f-button type="success" :on-click="openMessagePlacement('bottom')"> 底部 </f-button>
-    <f-button type="success" :on-click="openMessagePlacement('bottom-left')"> 左下 </f-button>
-    <f-button type="success" :on-click="openMessagePlacement('bottom-right')"> 右下 </f-button>
+    <f-button type="primary" @click="openMessagePlacement('top')"> 顶部 </f-button>
+    <f-button type="primary" @click="openMessagePlacement('top-left')"> 左上 </f-button>
+    <f-button type="primary" @click="openMessagePlacement('top-right')"> 右上 </f-button>
+    <f-button type="success" @click="openMessagePlacement('bottom')"> 底部 </f-button>
+    <f-button type="success" @click="openMessagePlacement('bottom-left')"> 左下 </f-button>
+    <f-button type="success" @click="openMessagePlacement('bottom-right')"> 右下 </f-button>
   </f-space>
 </template>
 

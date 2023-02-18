@@ -10,12 +10,12 @@
 ::: demo
 
 <template #source>
-<f-button type="primary" :on-click="openNotification">打开</f-button>
+<f-button type="primary" @click="openNotification">打开</f-button>
 </template>
 
 ```html
 <template>
-  <f-button type="primary" :on-click="openNotification">打开</f-button>
+  <f-button type="primary" @click="openNotification">打开</f-button>
 </template>
 
 <script lang="ts" setup>
@@ -41,12 +41,12 @@
 ::: demo
 
 <template #source>
-<f-button type="primary" :on-click="openVNode">打开</f-button>
+<f-button type="primary" @click="openVNode">打开</f-button>
 </template>
 
 ```html
 <template>
-  <f-button type="primary" :on-click="openVNode">打开</f-button>
+  <f-button type="primary" @click="openVNode">打开</f-button>
 </template>
 
 <script lang="ts" setup>
@@ -74,22 +74,22 @@
 
 <template #source>
 <f-space>
-<f-button :on-click="openNotification">default</f-button>
-<f-button type="primary" :on-click="openNotificationPrimary">primary</f-button>
-<f-button type="success" :on-click="openNotificationSuccess">success</f-button>
-<f-button type="warning" :on-click="openNotificationWarning">warning</f-button>
-<f-button type="danger" :on-click="openNotificationDanger">danger</f-button>
+<f-button @click="openNotification">default</f-button>
+<f-button type="primary" @click="openNotificationPrimary">primary</f-button>
+<f-button type="success" @click="openNotificationSuccess">success</f-button>
+<f-button type="warning" @click="openNotificationWarning">warning</f-button>
+<f-button type="danger" @click="openNotificationDanger">danger</f-button>
 </f-space>
 </template>
 
 ```html
 <template>
   <f-space>
-    <f-button :on-click="openNotification">default</f-button>
-    <f-button type="primary" :on-click="openNotificationPrimary">primary</f-button>
-    <f-button type="success" :on-click="openNotificationSuccess">success</f-button>
-    <f-button type="warning" :on-click="openNotificationWarning">warning</f-button>
-    <f-button type="danger" :on-click="openNotificationDanger">danger</f-button>
+    <f-button @click="openNotification">default</f-button>
+    <f-button type="primary" @click="openNotificationPrimary">primary</f-button>
+    <f-button type="success" @click="openNotificationSuccess">success</f-button>
+    <f-button type="warning" @click="openNotificationWarning">warning</f-button>
+    <f-button type="danger" @click="openNotificationDanger">danger</f-button>
   </f-space>
 </template>
 
@@ -137,16 +137,16 @@
 
 <template #source>
 <f-space>
-<f-button type="primary" :on-click="openNotificationClose1">5 秒后关闭</f-button>
-<f-button type="primary" :on-click="openNotificationClose2">不自动关闭</f-button>
+<f-button type="primary" @click="openNotificationClose1">5 秒后关闭</f-button>
+<f-button type="primary" @click="openNotificationClose2">不自动关闭</f-button>
 </f-space>
 
 </template>
 
 ```html
 <template>
-  <f-button type="primary" :on-click="openNotificationClose1">打开</f-button>
-  <f-button type="primary" :on-click="openNotificationClose2">打开</f-button>
+  <f-button type="primary" @click="openNotificationClose1">打开</f-button>
+  <f-button type="primary" @click="openNotificationClose2">打开</f-button>
 </template>
 
 <script setup lang="ts">
@@ -184,20 +184,20 @@
 
 <template #source>
 <f-space>
-<f-button type="primary" :on-click="openNotificationPlacement('top-left')">左上</f-button>
-<f-button type="primary" :on-click="openNotificationPlacement('top-right')">右上</f-button>
-<f-button type="success" :on-click="openNotificationPlacement('bottom-left')">左下</f-button>
-<f-button type="success" :on-click="openNotificationPlacement('bottom-right')">右下</f-button>
+<f-button type="primary" @click="openNotificationPlacement('top-left')">左上</f-button>
+<f-button type="primary" @click="openNotificationPlacement('top-right')">右上</f-button>
+<f-button type="success" @click="openNotificationPlacement('bottom-left')">左下</f-button>
+<f-button type="success" @click="openNotificationPlacement('bottom-right')">右下</f-button>
 </f-space>
 </template>
 
 ```html
 <template>
   <f-space>
-    <f-button type="primary" :on-click="openNotificationPlacement('top-left')"> 左上 </f-button>
-    <f-button type="primary" :on-click="openNotificationPlacement('top-right')"> 右上 </f-button>
-    <f-button type="success" :on-click="openNotificationPlacement('bottom-left')"> 左下 </f-button>
-    <f-button type="success" :on-click="openNotificationPlacement('bottom-right')"> 右下 </f-button>
+    <f-button type="primary" @click="openNotificationPlacement('top-left')"> 左上 </f-button>
+    <f-button type="primary" @click="openNotificationPlacement('top-right')"> 右上 </f-button>
+    <f-button type="success" @click="openNotificationPlacement('bottom-left')"> 左下 </f-button>
+    <f-button type="success" @click="openNotificationPlacement('bottom-right')"> 右下 </f-button>
   </f-space>
 </template>
 

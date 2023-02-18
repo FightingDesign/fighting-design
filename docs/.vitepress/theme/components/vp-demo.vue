@@ -1,3 +1,24 @@
+<template>
+  <div class="vp-demo">
+    <!-- 展示的内容 -->
+    <div v-if="$slots.source" class="vp-demo__source">
+      <slot name="source" />
+    </div>
+
+    <!-- 折叠的内容 -->
+    <div ref="content" class="vp-demo__box">
+      <slot />
+    </div>
+
+    <!-- 点击展开 / 折叠的区域 -->
+    <div :class="['vp-demo__option', { 'vp-demo__option-open': isOpen }]" @click="handleClick">
+      <span class="vp-demo__option-text">
+        {{ isOpen ? '折叠代码' : '展开代码' }}
+      </span>
+    </div>
+  </div>
+</template>
+
 <script setup name="VpDemo">
   import { ref } from 'vue'
 
@@ -22,27 +43,6 @@
     }
   }
 </script>
-
-<template>
-  <div class="vp-demo">
-    <!-- 展示的内容 -->
-    <div v-if="$slots.source" class="vp-demo__source">
-      <slot name="source" />
-    </div>
-
-    <!-- 折叠的内容 -->
-    <div ref="content" class="vp-demo__box">
-      <slot />
-    </div>
-
-    <!-- 点击展开 / 折叠的区域 -->
-    <div :class="['vp-demo__option', { 'vp-demo__option-open': isOpen }]" @click="handleClick">
-      <span class="vp-demo__option-text">
-        {{ isOpen ? '折叠代码' : '展开代码' }}
-      </span>
-    </div>
-  </div>
-</template>
 
 <style lang="scss" scoped>
   .vp-demo {
