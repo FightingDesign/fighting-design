@@ -23,4 +23,5 @@ export const Props = {
   onBack: setFunctionProp<HandleEvent>()
 } as const
 
+/** page-header 组件 props 类型 */
 export type PageHeaderProps = ExtractPropTypes<typeof Props>

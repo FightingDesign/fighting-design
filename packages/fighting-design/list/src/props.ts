@@ -27,6 +27,8 @@ export const Props = {
   zebraColor: setStringProp()
 } as const
 
+/** list 组件 props 类型 */
 export type ListProps = ExtractPropTypes<typeof Props>
 
+/** list 组件注入的依赖项 */
 export const LIST_PROPS_KEY: InjectionKey<ListProps> = Symbol('list-props-key')

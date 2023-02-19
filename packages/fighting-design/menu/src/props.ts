@@ -21,4 +21,5 @@ export const Props = {
 /** menu 组件 props 类型 */
 export type MenuProps = ExtractPropTypes<typeof Props>
 
+/** menu 组件注入的依赖项 */
 export const MENU_PROVIDE_KEY: InjectionKey<MenuProvide> = Symbol('menu-provide-key')

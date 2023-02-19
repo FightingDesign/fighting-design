@@ -8,4 +8,5 @@ export const Props = {
   color: setStringProp()
 } as const
 
+/** list-item 组件 props 类型 */
 export type ListItemProps = ExtractPropTypes<typeof Props>

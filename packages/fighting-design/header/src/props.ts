@@ -16,4 +16,5 @@ export const Props = {
   padding: setStringNumberProp()
 } as const
 
+/** header 组件 props 类型 */
 export type HeaderProps = ExtractPropTypes<typeof Props>

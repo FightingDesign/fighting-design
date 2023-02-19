@@ -42,4 +42,5 @@ export const Props = {
   onChange: setFunctionProp<PaginationEvent>()
 } as const
 
+/** pagination 组件 props 类型 */
 export type PaginationProps = ExtractPropTypes<typeof Props>

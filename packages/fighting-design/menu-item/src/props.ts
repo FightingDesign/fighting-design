@@ -25,4 +25,5 @@ export const Props = {
   disabled: setBooleanProp()
 } as const
 
+/** menu-item 组件 props 类型 */
 export type MenuItemProps = ExtractPropTypes<typeof Props>

@@ -10,4 +10,5 @@ export const Props = {
   padding: setStringNumberProp()
 } as const
 
+/** main 组件 props 类型 */
 export type MainProps = ExtractPropTypes<typeof Props>

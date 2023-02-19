@@ -50,4 +50,5 @@ export const Props = {
   onCloseEnd: setFunctionProp<HandleEvent>()
 } as const
 
+/** popup 组件 props 类型 */
 export type PopupProps = ExtractPropTypes<typeof Props>

@@ -35,4 +35,5 @@ export const Props = {
 /** checkbox-group 组件 props 类型 */
 export type CheckboxGroupProps = ExtractPropTypes<typeof Props>
 
+/** checkbox-group 组件注入的依赖项 */
 export const CHECKBOX_GROUP_PROPS_KEY: InjectionKey<CheckboxGroupProvide> = Symbol('f-checkbox-group-props-key')

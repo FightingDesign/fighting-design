@@ -18,4 +18,5 @@ export const Props = {
   iconSize: setStringNumberProp(30)
 } as const
 
+/** empty 组件 props 类型 */
 export type EmptyProps = ExtractPropTypes<typeof Props>

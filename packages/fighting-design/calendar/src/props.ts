@@ -27,4 +27,5 @@ export const Props = {
   onChangeMonth: setFunctionProp<CalendarChange>()
 } as const
 
+/** calender 组件 props 类型 */
 export type CalendarProps = ExtractPropTypes<typeof Props>

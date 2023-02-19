@@ -59,4 +59,5 @@ export const Props = {
   }
 } as const
 
+/** message 组件 props 类型 */
 export type MessageProps = ExtractPropTypes<typeof Props>

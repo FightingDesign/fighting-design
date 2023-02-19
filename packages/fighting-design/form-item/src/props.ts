@@ -14,4 +14,5 @@ export const Props = {
   }
 } as const
 
+/** form-item 组件 props 类型 */
 export type FormItemProps = ExtractPropTypes<typeof Props>

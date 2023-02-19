@@ -54,4 +54,5 @@ export const Props = {
   onError: setFunctionProp<HandleEvent>()
 } as const
 
+/** image 组件 props 类型 */
 export type ImageProps = ExtractPropTypes<typeof Props>

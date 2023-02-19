@@ -23,4 +23,5 @@ export const Props = {
   onAnimationEnd: setFunctionProp<AnimationEnd>()
 }
 
+/** number-animate 组件 props 类型 */
 export type NumberAnimateProps = ExtractPropTypes<typeof Props>

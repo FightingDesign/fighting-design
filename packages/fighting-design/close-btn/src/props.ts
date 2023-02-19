@@ -19,4 +19,5 @@ export const Props = {
   onClick: setFunctionProp<HandleMouse>()
 } as const
 
+/** close-btn 组件 props 类型 */
 export type CloseBtnProps = ExtractPropTypes<typeof Props>

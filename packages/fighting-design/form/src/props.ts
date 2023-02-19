@@ -11,6 +11,8 @@ export const Props = {
   onSubmit: setFunctionProp<FormSubmit>()
 } as const
 
+/** form 组件 props 类型 */
 export type FormProps = ExtractPropTypes<typeof Props>
 
+/** form 组件注入的依赖项 */
 export const FORM_PROVIDE_KEY: InjectionKey<FormInject> = Symbol('form-provide-key')

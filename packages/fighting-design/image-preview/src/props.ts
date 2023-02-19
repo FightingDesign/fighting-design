@@ -27,4 +27,5 @@ export const Props = {
   onClose: setFunctionProp<HandleMouse>()
 } as const
 
+/** image-preview 组件 props 类型 */
 export type ImagePreviewProps = ExtractPropTypes<typeof Props>

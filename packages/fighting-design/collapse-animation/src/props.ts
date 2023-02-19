@@ -8,4 +8,5 @@ export const Props = {
   disabled: setBooleanProp()
 } as const
 
+/** collapse-animation 组件 props 类型 */
 export type CollapseAnimationProps = ExtractPropTypes<typeof Props>

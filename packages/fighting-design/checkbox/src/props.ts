@@ -25,4 +25,5 @@ export const Props = {
   onChange: setFunctionProp<CheckboxChange>()
 } as const
 
+/** checkbox 组件 props 类型 */
 export type CheckboxProps = ExtractPropTypes<typeof Props>

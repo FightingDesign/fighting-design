@@ -17,4 +17,5 @@ export const Props = {
   height: setStringNumberProp()
 } as const
 
+/** expand-card 组件 props 类型 */
 export type ExpandCardProps = ExtractPropTypes<typeof Props>

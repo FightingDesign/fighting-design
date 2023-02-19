@@ -6,4 +6,5 @@ export const Props = {
   title: setStringProp()
 } as const
 
+/** menu-item-group 组件 props 类型 */
 export type MenuItemGroupProps = ExtractPropTypes<typeof Props>

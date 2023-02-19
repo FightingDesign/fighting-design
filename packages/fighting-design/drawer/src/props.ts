@@ -49,4 +49,5 @@ export const Props = {
   onCloseEnd: setFunctionProp<HandleEvent>()
 } as const
 
+/** drawer 组件 props 类型 */
 export type DrawerProps = ExtractPropTypes<typeof Props>

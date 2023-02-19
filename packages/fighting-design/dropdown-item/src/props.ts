@@ -9,4 +9,5 @@ export const Props = {
   onClick: setFunctionProp<HandleMouse>()
 } as const
 
+/** dropdown-item 组件 props 类型 */
 export type DropdownItemProps = ExtractPropTypes<typeof Props>

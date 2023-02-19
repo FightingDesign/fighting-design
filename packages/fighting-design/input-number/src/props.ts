@@ -87,4 +87,5 @@ export const Props = {
   onInput: setFunctionProp<HandleEvent>()
 } as const
 
+/** input-number 组件 props 类型 */
 export type InputNumberProps = ExtractPropTypes<typeof Props>

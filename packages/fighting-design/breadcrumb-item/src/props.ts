@@ -17,4 +17,5 @@ export const Props = {
   }
 }
 
+/** breadcrumb-item 组件 props 类型 */
 export type BreadcrumbItemProps = ExtractPropTypes<typeof Props>

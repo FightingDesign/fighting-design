@@ -31,4 +31,5 @@ export const Props = {
   onClose: setFunctionProp<HandleChange>()
 } as const
 
+/** dropdown 组件 props 类型 */
 export type DropdownProps = ExtractPropTypes<typeof Props>

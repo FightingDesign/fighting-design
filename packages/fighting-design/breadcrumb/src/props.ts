@@ -13,6 +13,7 @@ export const Props = {
   fontSize: setStringNumberProp()
 } as const
 
+/** breadcrumb 组件 props 类型 */
 export type BreadcrumbProps = ExtractPropTypes<typeof Props>
 
 /** breadcrumb 注入的依赖项 */

@@ -15,4 +15,5 @@ export const Props = {
   onScrollWhen: setFunctionProp<ScrollCallback>()
 }
 
+/** infinite-scrolling 组件 props 类型 */
 export type InfiniteScrollingProps = ExtractPropTypes<typeof Props>

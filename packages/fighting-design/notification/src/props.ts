@@ -66,4 +66,5 @@ export const Props = {
   }
 } as const
 
+/** notification 组件 props 类型 */
 export type NotificationProps = ExtractPropTypes<typeof Props>
