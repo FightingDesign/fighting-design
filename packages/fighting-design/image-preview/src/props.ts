@@ -9,6 +9,8 @@ export const Props = {
   imgList: setArrayProp<string[]>([]),
   /** 是否点击遮罩层关闭预览窗 */
   modalClose: setBooleanProp(true),
+  /** 是覅追加到  body */
+  appendToBody: setBooleanProp(),
   /** 是否展示关闭按钮 */
   isCloseBtn: setBooleanProp(true),
   /** 图片预览展示的首张图的索引，从 0 开始 */

@@ -1,0 +1,52 @@
+.f-image-preview {
+  &__next,
+  &__prev,
+  &__close {
+    position: fixed;
+    margin: auto;
+    z-index: 200;
+  }
+
+  &__prev {
+    left: 30px;
+    top: 0;
+    bottom: 0;
+  }
+
+  &__next {
+    right: 30px;
+    top: 0;
+    bottom: 0;
+  }
+
+  &__close {
+    right: 30px;
+    top: 30px;
+  }
+
+  // 操作栏
+  &__option {
+    width: 370px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 25px;
+    margin: auto;
+    z-index: 200;
+  }
+
+  // 预览图
+  &__exhibition {
+    z-index: 100;
+    user-select: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    transition: 0.2s;
+  }
+}

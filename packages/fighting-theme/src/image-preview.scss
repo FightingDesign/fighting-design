@@ -1,4 +1,92 @@
 .f-image-preview {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2000;
+
+  // 遮罩层
+  &__mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+    background-color: #23272e;
+
+    // 高斯谋划
+    &.f-image-preview__blur {
+      backdrop-filter: blur(2px);
+    }
+  }
+
+  // 主容器公共样式
+  &__container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1999;
+    transition: 0.3s;
+
+    // 图标元素
+    .f-image-preview__exhibition {
+      position: absolute;
+      box-sizing: border-box;
+      overflow-y: auto;
+      overflow-x: hidden;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+
+      // 主内容动画样式
+      &-transition-enter-active,
+      &-transition-leave-active {
+        transition: all 0.2s ease-out;
+      }
+
+      &-transition-enter-from,
+      &-transition-leave-to {
+        opacity: 0;
+      }
+    }
+  }
+
+  // 主容器居中
+  &__container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .f-image-preview__wrapper {
+      border-radius: 6px;
+      max-height: calc(100vh - 200px);
+      max-width: calc(100vw - 140px);
+      box-shadow: 0 0 18px #00000066;
+
+      &-transition-enter-from,
+      &-transition-leave-to {
+        transform: scale(0.4);
+      }
+    }
+  }
+
+  // 操作栏
+  &__option {
+    width: 370px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 25px;
+    margin: auto;
+    z-index: 200;
+  }
+
   &__next,
   &__prev,
   &__close {
@@ -24,29 +112,28 @@
     top: 30px;
   }
 
-  // 操作栏
-  &__option {
-    width: 370px;
-    position: fixed;
-    right: 0;
-    left: 0;
-    bottom: 25px;
-    margin: auto;
-    z-index: 200;
+  // 遮罩层动画
+  &__transition-enter-active {
+    transition: all 0.2s ease-out;
   }
 
-  // 预览图
-  &__exhibition {
-    z-index: 100;
-    user-select: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-    max-height: 100%;
-    max-width: 100%;
-    transition: 0.2s;
+  &__transition-leave-active {
+    transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  &__transition-enter-from,
+  &__transition-leave-to {
+    opacity: 0;
+  }
+
+  // 滚动条
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  // 滚动滑块
+  ::-webkit-scrollbar-thumb {
+    background-color: #dddddd;
+    border-radius: 6px;
   }
 }

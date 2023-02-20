@@ -1,9 +1,10 @@
 <script lang="ts" setup name="FImagePreview">
   import { Props } from './props'
-  import { ref } from 'vue'
+  import { ref, toRef } from 'vue'
   import { FButton } from '../../button'
   import { FToolbar } from '../../toolbar'
   import { FToolbarItem } from '../../toolbar-item'
+  import { FPopup } from '../../popup'
   import { isBoolean, isArray } from '../../_utils'
   import {
     FIconChevronLeftVue,
@@ -15,9 +16,10 @@
     FIconZoomInVue,
     FIconZoomOutVue
   } from '../../_svg'
-  import { useOperationImg, useRun } from '../../_hooks'
+  import { useOperationImg, useVisible } from '../../_hooks'
   import { EMIT_VISIBLE } from '../../_tokens'
   import type { ToolbarClickParams } from '../../toolbar'
+  import type { Ref } from 'vue'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -27,8 +29,10 @@
   const { scale, rotate, smaller, bigger, scrollZoom, recovery, rotateClockwise, rotateCounterClock } =
     useOperationImg()
 
+  const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit, prop.onClose)
+
   /** 初始展示的图片索引 */
-  const previewShowIndex = ref<number>(prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex)
+  const previewShowIndex: Ref<number> = ref(prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex)
 
   /** 开始图片加载 */
   const imagPreload = (): void => {
@@ -101,73 +105,49 @@
 
     optionMap[index] && optionMap[index]()
   }
-
-  /**
-   *
-   * @param { Object } evt 事件对象
-   */
-  const handelClose = (evt: MouseEvent): void => {
-    emit(EMIT_VISIBLE, false)
-    useRun(prop.onClose, evt)
-  }
 </script>
 
 <template>
-  <teleport to="body" :disabled="!appendToBody">
-    <!-- 开启状态下加载所有图片 -->
-    <transition name="f-image-preview__transition" @before-enter="imagPreload">
-      <div v-show="visible" class="f-image-preview" :style="{ zIndex }" @mousewheel="scrollZoom">
-        <!-- 遮罩层 -->
-        <div class="f-image-preview__mask" />
+  <div class="f-image-preview" @mousewheel="scrollZoom">
+    <f-popup v-model:visible="isVisible" :z-index="zIndex" :on-open="imagPreload">
+      <img
+        class="f-image-preview__exhibition"
+        draggable="false"
+        :src="imgList[previewShowIndex]"
+        :style="{
+          transform: `scale(${scale}) rotate(${rotate}deg)`,
+          borderRadius: round
+        }"
+      />
 
-        <!-- 主容器 -->
-        <div class="f-image-preview__container" @click.self="handelClose">
-          <!-- 主内容 -->
-          <transition name="f-image-preview__wrapper-transition">
-            <img
-              v-show="visible"
-              class="f-image-preview__exhibition"
-              draggable="false"
-              :src="imgList[previewShowIndex]"
-              :style="{
-                transform: `scale(${scale}) rotate(${rotate}deg)`,
-                borderRadius: round
-              }"
-            />
-          </transition>
+      <!-- 左右切换按钮 -->
+      <template v-if="imgList.length > 1">
+        <f-button
+          class="f-image-preview__next"
+          circle
+          :before-icon="FIconChevronRightVue"
+          :on-click="() => switchImage('next')"
+        />
 
-          <!-- 操作栏 -->
-          <template v-if="isOption">
-            <f-toolbar class="f-image-preview__option" round :on-click="optionClick">
-              <f-toolbar-item :icon="FIconZoomOutVue" :index="1" />
-              <f-toolbar-item :icon="FIconZoomInVue" :index="2" />
-              <f-toolbar-item :icon="FIconLayoutRowsVue" :index="3" />
-              <f-toolbar-item :icon="FIconRotateClockwiseVue" :index="4" />
-              <f-toolbar-item :icon="FIconRotateAntiClockwiseVue" :index="5" />
-            </f-toolbar>
-          </template>
+        <f-button
+          class="f-image-preview__prev"
+          circle
+          :before-icon="FIconChevronLeftVue"
+          :on-click="() => switchImage('prev')"
+        />
+      </template>
 
-          <!-- 左右切换按钮 -->
-          <template v-if="imgList.length > 1">
-            <f-button
-              class="f-image-preview__next"
-              circle
-              :before-icon="FIconChevronRightVue"
-              :on-click="() => switchImage('next')"
-            />
+      <!-- 关闭按钮 -->
+      <f-button class="f-image-preview__close" circle :before-icon="FIconCrossVue" :on-click="closeVisible" />
 
-            <f-button
-              class="f-image-preview__prev"
-              circle
-              :before-icon="FIconChevronLeftVue"
-              :on-click="() => switchImage('prev')"
-            />
-          </template>
-
-          <!-- 关闭按钮 -->
-          <f-button class="f-image-preview__close" circle :before-icon="FIconCrossVue" :on-click="handelClose" />
-        </div>
-      </div>
-    </transition>
-  </teleport>
+      <!-- 操作栏 -->
+      <f-toolbar v-if="isOption" class="f-image-preview__option" round :on-click="optionClick">
+        <f-toolbar-item :icon="FIconZoomOutVue" :index="1" />
+        <f-toolbar-item :icon="FIconZoomInVue" :index="2" />
+        <f-toolbar-item :icon="FIconLayoutRowsVue" :index="3" />
+        <f-toolbar-item :icon="FIconRotateClockwiseVue" :index="4" />
+        <f-toolbar-item :icon="FIconRotateAntiClockwiseVue" :index="5" />
+      </f-toolbar>
+    </f-popup>
+  </div>
 </template>
