@@ -81,6 +81,7 @@
     "fightingicon",
     "fightinglang",
     "fightingsize",
+    "fightingtarget",
     "fightingtype",
     "Foreigncurrency",
     "formitemrules",

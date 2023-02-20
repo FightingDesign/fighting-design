@@ -4,6 +4,8 @@ Fighting Design 内部导出的一些类型接口
 
 ## ClassList
 
+用于类名列表集合类型
+
 ```ts
 type ClassList = readonly (string | Record<string, unknown>)[]
 ```
@@ -18,7 +20,7 @@ type FightingType = 'primary' | 'success' | 'danger' | 'warning' | 'default' | '
 
 ## FightingSize
 
-用于定于组件的尺寸。主要用于 `f-avatar` `f-button` `f-checkbox` `f-fighting-global` `f-input=number` `f-input` `f-list` `f-radio` `f-skeleton` `f-space` `f-switch` `f-tag` `f-toolbar` 组件
+用于定于组件的尺寸。主要用于 `f-avatar` `f-button` `f-checkbox` `f-fighting-global` `f-input-number` `f-input` `f-list` `f-radio` `f-skeleton` `f-space` `f-switch` `f-tag` `f-toolbar` 组件
 
 ```ts
 type FightingSize = 'large' | 'middle' | 'small' | 'mini'
@@ -26,10 +28,20 @@ type FightingSize = 'large' | 'middle' | 'small' | 'mini'
 
 ## FightingIcon
 
+主要用于 `f-svg-icon` 组件的参数类型
+
 ```ts
 import type { VNode, Component } from 'vue'
 
 type FightingIcon = VNode | Component
+```
+
+## FightingTarget
+
+该来下指定在何处显示链接的资源，详情参考 [target](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target)。主要用于 `f-link` `f-button`
+
+```ts
+type FightingTarget = '_blank' | '_self' | '_parent' | '_top'
 ```
 
 ## HandleMouse
