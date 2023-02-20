@@ -1,8 +1,8 @@
 import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp, setFunctionProp } from '../../_utils'
 import { FIGHTING_SIZE, FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
-import type { ButtonTarget, ButtonNative } from './interface'
-import type { FightingSize, FightingType, FightingIcon, HandleMouse } from '../../_interface'
+import type { ButtonNative } from './interface'
+import type { FightingSize, FightingType, FightingIcon, HandleMouse, FightingTarget } from '../../_interface'
 
 export const Props = {
   /** 是否加粗 */
@@ -39,7 +39,7 @@ export const Props = {
    * @default _self
    * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
-  target: setStringProp<ButtonTarget>('_self', (val: ButtonTarget): boolean => {
+  target: setStringProp<FightingTarget>('_self', (val: FightingTarget): boolean => {
     return FIGHTING_TARGET.includes(val)
   }),
   /** 是否为 loading 状态 */

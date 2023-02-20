@@ -1,8 +1,8 @@
 import { setBooleanProp, setStringProp, setStringNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
 import { FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
-import type { LinkTarget, LinkState } from './interface'
-import type { HandleEvent, FightingType, FightingIcon } from '../../_interface'
+import type { LinkState } from './interface'
+import type { HandleEvent, FightingType, FightingIcon, FightingTarget } from '../../_interface'
 
 export const Props = {
   /**
@@ -40,7 +40,7 @@ export const Props = {
    * @default _self
    * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
    */
-  target: setStringProp<LinkTarget>('_self', (val: LinkTarget): boolean => {
+  target: setStringProp<FightingTarget>('_self', (val: FightingTarget): boolean => {
     return FIGHTING_TARGET.includes(val)
   }),
   /** 自定义颜色 */

@@ -7,6 +7,8 @@ export const FIGHTING_TYPE = ['default', 'primary', 'success', 'danger', 'warnin
 /**
  * 原生 target 属性
  *
+ * 该属性指定在何处显示链接的资源
+ *
  * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
  */
 export const FIGHTING_TARGET = ['_blank', '_self', '_parent', '_top'] as const
