@@ -116,16 +116,17 @@
         <div class="f-image-preview__container" @click.self="handelClose">
           <!-- 主内容 -->
           <transition name="f-image-preview__wrapper-transition">
-            <img
-              v-show="visible"
-              class="f-image-preview__exhibition"
-              draggable="false"
-              :src="imgList[previewShowIndex]"
-              :style="{
-                transform: `scale(${scale}) rotate(${rotate}deg)`,
-                borderRadius: round
-              }"
-            />
+            <div v-show="visible" class="f-image-preview__wrapper">
+              <img
+                class="f-image-preview__node"
+                draggable="false"
+                :src="imgList[previewShowIndex]"
+                :style="{
+                  transform: `scale(${scale}) rotate(${rotate}deg)`,
+                  borderRadius: round
+                }"
+              />
+            </div>
           </transition>
 
           <!-- 操作栏 -->

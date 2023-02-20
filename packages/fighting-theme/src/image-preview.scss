@@ -15,14 +15,9 @@
     left: 0;
     opacity: 0.5;
     background-color: #23272e;
-
-    // 高斯谋划
-    &.f-image-preview__blur {
-      backdrop-filter: blur(2px);
-    }
   }
 
-  // 主容器公共样式
+  // 主容器
   &__container {
     position: absolute;
     top: 0;
@@ -31,18 +26,15 @@
     left: 0;
     z-index: 1999;
     transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    // 图标元素
-    .f-image-preview__exhibition {
-      position: absolute;
-      box-sizing: border-box;
-      overflow-y: auto;
-      overflow-x: hidden;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
+    .f-image-preview__wrapper {
+      // 图标元素
+      .f-image-preview__node {
+        transition: 0.3s;
+      }
 
       // 主内容动画样式
       &-transition-enter-active,
@@ -53,6 +45,7 @@
       &-transition-enter-from,
       &-transition-leave-to {
         opacity: 0;
+        transform: scale(0.4);
       }
     }
   }
@@ -87,6 +80,7 @@
     z-index: 200;
   }
 
+  // 切换按钮
   &__next,
   &__prev,
   &__close {
@@ -124,16 +118,5 @@
   &__transition-enter-from,
   &__transition-leave-to {
     opacity: 0;
-  }
-
-  // 滚动条
-  ::-webkit-scrollbar {
-    width: 7px;
-  }
-
-  // 滚动滑块
-  ::-webkit-scrollbar-thumb {
-    background-color: #dddddd;
-    border-radius: 6px;
   }
 }
