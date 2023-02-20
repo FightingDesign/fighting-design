@@ -95,5 +95,21 @@ export const Props = {
   onClick: setFunctionProp<HandleMouse>()
 } as const
 
+/**
+ * ExtractPropTypes 类型是 vue3 内置的一个类型，需要引入使用
+ * 
+ * ```ts
+ *  import type { ExtractPropTypes } from 'vue'
+ * ```
+ * 
+ * 或者
+ * 
+ * ```ts
+ *  import { ExtractPropTypes } from '@vue/runtime-core'
+ * ```
+ * 
+ * ExtractPropTypes 类型来定义组件的 props 类型
+ */
+
 /** button 组件 props 类型 */
 export type ButtonProps = ExtractPropTypes<typeof Props>
