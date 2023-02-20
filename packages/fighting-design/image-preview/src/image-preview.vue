@@ -80,29 +80,21 @@
   const optionClick = (target: ToolbarClickParams): void => {
     if (!target.index) return
 
-    interface OptionMap {
-      1: () => void
-      2: () => void
-      3: () => void
-      4: () => void
-      5: () => void
-    }
-
-    const optionMap: OptionMap = {
-      1: (): void => smaller(),
-      2: (): void => bigger(),
-      3: (): void => recovery(),
-      4: (): void => rotateClockwise(),
-      5: (): void => rotateCounterClock()
+    /** 映射对象 */
+    const optionMap: Record<string, () => void> = {
+      '1': (): void => smaller(),
+      '2': (): void => bigger(),
+      '3': (): void => recovery(),
+      '4': (): void => rotateClockwise(),
+      '5': (): void => rotateCounterClock()
     } as const
 
     /** 获取当前元素的索引 */
-    const index: keyof OptionMap = target.index as unknown as keyof OptionMap
-
-    optionMap[index] && optionMap[index]()
+    optionMap[target.index] && optionMap[target.index]()
   }
 
   /**
+   * 关闭图片预览
    *
    * @param { Object } evt 事件对象
    */
