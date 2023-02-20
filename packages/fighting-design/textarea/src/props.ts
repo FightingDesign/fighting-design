@@ -70,4 +70,5 @@ export const Props = {
   onFocus: setFunctionProp<HandleEvent>()
 } as const
 
+/** textarea 组件 props 类型 */
 export type TextareaProps = ExtractPropTypes<typeof Props>

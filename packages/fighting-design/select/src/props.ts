@@ -36,6 +36,8 @@ export const Props = {
   disabled: setBooleanProp()
 } as const
 
+/** select 组件 props 类型 */
 export type SelectProps = ExtractPropTypes<typeof Props>
 
+/** select 组件注入的依赖项 */
 export const SELECT_PROPS_TOKEN: InjectionKey<SelectProvide> = Symbol('f-select-props-key')

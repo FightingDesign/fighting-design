@@ -13,4 +13,5 @@ export const Props = {
   onClick: setFunctionProp<HandleMouse>()
 } as const
 
+/** svg-icon 组件 props 类型 */
 export type SvgIconProps = ExtractPropTypes<typeof Props>

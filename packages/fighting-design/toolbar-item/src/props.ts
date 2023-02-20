@@ -15,4 +15,5 @@ export const Props = {
   onClick: setFunctionProp<HandleMouse>()
 } as const
 
+/** toolbar-item 组件 props 类型 */
 export type ToolbarItemProps = ExtractPropTypes<typeof Props>

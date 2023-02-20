@@ -25,4 +25,5 @@ export const Props = {
   onChange: setFunctionProp<RadioChange>()
 } as const
 
+/** radio 组件 props 类型 */
 export type RadioProps = ExtractPropTypes<typeof Props>

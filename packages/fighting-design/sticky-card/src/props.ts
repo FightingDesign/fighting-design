@@ -17,4 +17,5 @@ export const Props = {
   onClose: setFunctionProp<HandleChange>()
 } as const
 
+/** sticky-card 组件 props 类型 */
 export type StickyCardProps = ExtractPropTypes<typeof Props>

@@ -20,4 +20,5 @@ export const Props = {
   width: setStringNumberProp()
 } as const
 
+/** slider 组件 props 类型 */
 export type SliderProps = ExtractPropTypes<typeof Props>

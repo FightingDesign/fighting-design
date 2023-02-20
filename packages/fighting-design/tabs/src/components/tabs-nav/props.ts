@@ -85,4 +85,5 @@ export const Props = {
   onSwitch: setFunctionProp<TabsSwitch>()
 }
 
+/** tabs-nav 组件 props 类型 */
 export type TabsNavProps = ExtractPropTypes<typeof Props>

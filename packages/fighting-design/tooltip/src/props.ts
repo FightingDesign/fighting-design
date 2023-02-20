@@ -37,4 +37,5 @@ export const Props = {
   fontColor: setStringProp()
 } as const
 
+/** tooltip 组件 props 类型 */
 export type TooltipProps = ExtractPropTypes<typeof Props>

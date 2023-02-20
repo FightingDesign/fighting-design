@@ -7,4 +7,5 @@ export const Props = {
   data: setArrayProp<TreeData>([])
 } as const
 
+/** tree 组件 props 类型 */
 export type TreeProps = ExtractPropTypes<typeof Props>

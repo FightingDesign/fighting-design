@@ -25,4 +25,5 @@ export const Props = {
   endOpacity: setNumberProp()
 } as const
 
+/** ripple 组件 props 类型 */
 export type RippleProps = ExtractPropTypes<typeof Props>

@@ -44,4 +44,5 @@ export const Props = {
   onClose: setFunctionProp<HandleEvent>()
 } as const
 
+/** tag 组件 props 类型 */
 export type TagProps = ExtractPropTypes<typeof Props>

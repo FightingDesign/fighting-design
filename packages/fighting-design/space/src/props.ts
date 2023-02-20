@@ -23,4 +23,5 @@ export const Props = {
   columnGap: setStringProp()
 } as const
 
+/** space 组件 props 类型 */
 export type SpaceProps = ExtractPropTypes<typeof Props>

@@ -93,4 +93,5 @@ export const Props = {
   center: setBooleanProp()
 } as const
 
+/** text 组件 props 类型 */
 export type TextProps = ExtractPropTypes<typeof Props>

@@ -38,4 +38,5 @@ export const Props = {
   onChange: setFunctionProp<RateChange>()
 } as const
 
+/** rate 组件 props 类型 */
 export type RateProps = ExtractPropTypes<typeof Props>

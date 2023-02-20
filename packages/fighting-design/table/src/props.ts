@@ -36,4 +36,5 @@ export const Props = {
   showHead: setBooleanProp(true)
 } as const
 
+/** table 组件 props 类型 */
 export type TableProps = ExtractPropTypes<typeof Props>

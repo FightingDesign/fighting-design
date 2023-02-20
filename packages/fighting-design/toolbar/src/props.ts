@@ -30,4 +30,5 @@ export const Props = {
   onClick: setFunctionProp<ToolbarClick>()
 } as const
 
+/** toolbar 组件 props 类型 */
 export type ToolbarProps = ExtractPropTypes<typeof Props>

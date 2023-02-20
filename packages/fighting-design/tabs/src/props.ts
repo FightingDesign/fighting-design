@@ -63,4 +63,5 @@ export const Props = {
 /** tabs 组件 props 类型 */
 export type TabsProps = ExtractPropTypes<typeof Props>
 
+/** tabs 组件注入的依赖项 */
 export const TABS_PROPS_KEY: InjectionKey<TabsProvide> = Symbol('tabs-props-key')

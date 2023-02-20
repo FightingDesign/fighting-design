@@ -23,4 +23,5 @@ export const Props = {
   })
 } as const
 
+/** skeleton 组件 props 类型 */
 export type SkeletonProps = ExtractPropTypes<typeof Props>

@@ -38,4 +38,5 @@ export const Props = {
   onChange: setFunctionProp<HandleChange>()
 } as const
 
+/** switch 组件 props 类型 */
 export type SwitchProps = ExtractPropTypes<typeof Props>

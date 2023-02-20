@@ -36,4 +36,5 @@ export const Props = {
 /** radio-group 组件 props 类型 */
 export type RadioGroundProps = ExtractPropTypes<typeof Props>
 
+/** radio-group 组件注入的依赖项 */
 export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundInject> = Symbol('radio-group-props-key')
