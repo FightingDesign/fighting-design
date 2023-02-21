@@ -1,5 +1,17 @@
 <script lang="ts" setup>
   import { footerList, contributors } from './src'
+  import { useRoute } from 'vitepress'
+  import { watch } from 'vue'
+  import type { Route } from 'vitepress'
+
+  const route: Route = useRoute()
+
+  watch(
+    (): string => route.path,
+    () => {
+      console.log('改变')
+    }
+  )
 </script>
 
 <template>

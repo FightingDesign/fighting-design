@@ -1,5 +1,29 @@
 <script lang="ts" setup>
-  import { footerList, contributors } from './src'
+  import { watch, ref } from 'vue'
+  import { contributors } from './json/contributors.json'
+  import { useRoute } from 'vitepress'
+  import lang from './json/lang.json'
+  import footer from './json/footer.json'
+  import type { Route } from 'vitepress'
+
+  const content = ref()
+  const footerContent = ref()
+
+  const route: Route = useRoute()
+
+  watch(
+    (): string => route.path,
+    (): void => {
+      if (route.path === '/en-US/index.html' || route.path === '/en-US/') {
+        content.value = lang['en-US']
+        footerContent.value = footer['en-US']
+      } else {
+        content.value = lang['zh-CN']
+        footerContent.value = footer['zh-CN']
+      }
+    },
+    { immediate: true }
+  )
 </script>
 
 <template>
@@ -45,35 +69,35 @@
         </h1>
 
         <!-- 副标题 -->
-        <h1 class="vp-home__subtitle">可在 vue3 应用程序中快速构建交互界面，看起来还不错。</h1>
+        <h1 class="vp-home__subtitle">{{ content.subtitle }}</h1>
 
         <!-- 介绍 -->
         <p class="vp-home__introduce">
           <strong>🌈 Fighting Design</strong>
-          是一款灵活、优质的组件库，为开发者准备。希望开发者可以借用其中的设计，在不久的将来，孕育出更高阶的组件库。
+          {{ content.introduce }}
         </p>
 
         <!-- 开始按钮 -->
-        <f-button type="primary" size="large" href="/docs/install"> 开始使用 </f-button>
+        <f-button type="primary" size="large" href="/docs/install">{{ content.start }}</f-button>
       </div>
 
       <!-- 贡献者 -->
       <div class="vp-home__contributors">
-        <f-text block center bold size="26px">Contributors</f-text>
+        <f-text block center bold size="26px">{{ content.contributors }}</f-text>
         <div class="vp-home__contributors-box">
           <f-link v-for="(item, i) in contributors" :href="item.homePage" :key="i" target="_blank">
             <f-avatar round :src="item.avatar" />
           </f-link>
         </div>
 
-        <f-button simple type="primary" href="/docs/contributing.html" round> 加入其中 </f-button>
+        <f-button simple type="primary" href="/docs/contributing.html" round>{{ content.join }}</f-button>
       </div>
 
       <!-- 页脚 -->
       <div class="vp-home__footer">
         <!-- 连接集合 -->
         <div class="vp-home__footer-content">
-          <ul class="vp-home__footer-list" v-for="(listItem, index) in footerList" :key="index">
+          <ul class="vp-home__footer-list" v-for="(listItem, index) in footerContent" :key="index">
             <h4 class="vp-home__footer-title">{{ listItem.title }}</h4>
             <li class="vp-home__footer-item" v-for="(list, i) in listItem.item" :key="i">
               <f-link target="_blank" :href="list.link">

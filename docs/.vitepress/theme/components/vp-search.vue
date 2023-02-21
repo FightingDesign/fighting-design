@@ -1,7 +1,6 @@
 <script setup lang="ts" name="VpSearch">
   import { ref } from 'vue'
-  import { searchList } from './src'
-  import type { SearchList } from './src/search-list'
+  import { searchList } from './json/search.json'
 
   /** 输入框输入的内容 */
   const value = ref('')
@@ -10,7 +9,7 @@
   const isShow = ref(false)
 
   /** 搜索结果列表 */
-  const resultList = ref(null as unknown as SearchList)
+  const resultList = ref()
 
   /** 按下回车触发搜索 */
   const onSearch = (): void => {

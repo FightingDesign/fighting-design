@@ -27,7 +27,7 @@ export default defineConfig({
    * @see separate-directory-for-each-locale https://vitepress.vuejs.org/guide/i18n#separate-directory-for-each-locale
    */
   locales: {
-    '/': {
+    '/zh-CN': {
       lang: 'zh-CN',
       label: '简体中文'
     },
