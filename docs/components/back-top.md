@@ -149,6 +149,18 @@ import type { BackTopInstance, BackTopProps, BackTopBehavior } from 'fighting-de
 type BackTopBehavior = 'smooth' | 'auto'
 ```
 
+## 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式
+
+| 名称                    | 描述         |
+| ----------------------- | ------------ |
+| `--back-top-right`      | 距离右侧距离 |
+| `--back-top-bottom`     | 距离底部距离 |
+| `--back-top-z-index`    | 层级         |
+| `--back-top-color`      | 文字颜色     |
+| `--back-top-background` | 背景颜色     |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

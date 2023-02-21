@@ -245,6 +245,16 @@
 import type { BadgeInstance, BadgeProps } from 'fighting-design'
 ```
 
+## 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式
+
+| 名称                    | 描述     |
+| ----------------------- | -------- |
+| `--badge-border-radius` | 圆角大小 |
+| `--badge-color`         | 文字颜色 |
+| `--badge-background`    | 背景颜色 |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

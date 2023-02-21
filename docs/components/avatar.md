@@ -210,6 +210,14 @@
 import type { AvatarInstance, AvatarProps } from 'fighting-design'
 ```
 
+## 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式
+
+| 名称            | 描述 |
+| --------------- | ---- |
+| `--avatar-size` | 尺寸 |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
