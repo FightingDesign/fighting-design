@@ -7,10 +7,10 @@
   const content = ref()
 
   /** 点击执行 */
-  const handleClick = () => {
+  const handleClick = (): void => {
     if (!isOpen.value) {
       content.value.style.height = 'auto'
-      const height = content.value.offsetHeight
+      const height: number = content.value.offsetHeight
       content.value.style.height = '0'
       content.value.offsetHeight
       content.value.style.transition = '0.33s'

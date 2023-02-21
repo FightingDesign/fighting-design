@@ -1,13 +1,11 @@
 <script setup lang="ts" name="VpSearch">
   import { ref } from 'vue'
-  import { searchList } from './json/search.json'
+  import { searchList } from '../../json/search.json'
 
   /** 输入框输入的内容 */
   const value = ref('')
-
   /** 是否展示下拉菜单 */
   const isShow = ref(false)
-
   /** 搜索结果列表 */
   const resultList = ref()
 

@@ -1,27 +1,31 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="VpHome">
   import { watch, ref } from 'vue'
-  import { contributors } from './json/contributors.json'
+  import { contributors } from '../../json/contributors.json'
   import { useRoute } from 'vitepress'
-  import lang from './json/lang.json'
-  import footer from './json/footer.json'
+  import home from '../../json/home.json'
+  import footer from '../../json/footer.json'
   import type { Route } from 'vitepress'
 
-  const content = ref()
+  /** 首页内容 */
+  const homeContent = ref()
+  /** 页脚内容 */
   const footerContent = ref()
-
+  /** 获取路由 */
   const route: Route = useRoute()
 
+  /** 监视路由发生变化时，更新语言 */
   watch(
     (): string => route.path,
     (): void => {
       if (route.path === '/en-US/index.html' || route.path === '/en-US/') {
-        content.value = lang['en-US']
+        homeContent.value = home['en-US']
         footerContent.value = footer['en-US']
       } else {
-        content.value = lang['zh-CN']
+        homeContent.value = home['zh-CN']
         footerContent.value = footer['zh-CN']
       }
     },
+    /** 初始化执行 */
     { immediate: true }
   )
 </script>
@@ -69,28 +73,28 @@
         </h1>
 
         <!-- 副标题 -->
-        <h1 class="vp-home__subtitle">{{ content.subtitle }}</h1>
+        <h1 class="vp-home__subtitle">{{ homeContent.subtitle }}</h1>
 
         <!-- 介绍 -->
         <p class="vp-home__introduce">
           <strong>🌈 Fighting Design</strong>
-          {{ content.introduce }}
+          {{ homeContent.introduce }}
         </p>
 
         <!-- 开始按钮 -->
-        <f-button type="primary" size="large" href="/docs/install">{{ content.start }}</f-button>
+        <f-button type="primary" size="large" href="/docs/install">{{ homeContent.start }}</f-button>
       </div>
 
       <!-- 贡献者 -->
       <div class="vp-home__contributors">
-        <f-text block center bold size="26px">{{ content.contributors }}</f-text>
+        <f-text block center bold size="26px">{{ homeContent.contributors }}</f-text>
         <div class="vp-home__contributors-box">
           <f-link v-for="(item, i) in contributors" :href="item.homePage" :key="i" target="_blank">
             <f-avatar round :src="item.avatar" />
           </f-link>
         </div>
 
-        <f-button simple type="primary" href="/docs/contributing.html" round>{{ content.join }}</f-button>
+        <f-button simple type="primary" href="/docs/contributing.html" round>{{ homeContent.join }}</f-button>
       </div>
 
       <!-- 页脚 -->
