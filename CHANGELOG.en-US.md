@@ -4,6 +4,13 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.25.0 (2023-02-21)
+
+- Optimize the `f-image-preview` component pop-up animation effect
+- `f-image-preview` component adds `append-to-body` configuration item
+- Complete all component ts type notes
+- `f-expand-card` component adds a `vertical` configuration item
+
 ## 0.24.0 (2023-02-17)
 
 - `f-progress` component `type` adds `info` and `default` configuration items

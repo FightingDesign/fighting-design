@@ -2,6 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.25.0 (2023-02-21)
+
+- 优化 `f-image-preview` 组件弹出动画效果
+- `f-image-preview` 组件新增 `append-to-body` 配置项
+- 完善全部组件 ts 类型注释
+- `f-expand-card` 组件新增 `vertical` 配置项
+
 ## 0.24.0 (2023-02-17)
 
 - `f-progress` 组件 `type` 新增 `info` 和 `default` 配置项
