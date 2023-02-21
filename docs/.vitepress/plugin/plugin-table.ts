@@ -5,7 +5,7 @@ import type MarkdownIt from 'markdown-it'
  *
  * @param { Object } md markdown 实例
  */
-export const tablePlugin = (md: MarkdownIt): void => {
+export const PluginTable = (md: MarkdownIt): void => {
   md.renderer.rules.table_open = (): string => '<div class="vp-table__container"><table>'
   md.renderer.rules.table_close = (): string => '</table></div>'
 }

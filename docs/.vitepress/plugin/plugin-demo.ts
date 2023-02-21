@@ -1,15 +1,15 @@
 import MarkdownItContainer from 'markdown-it-container'
 import MarkdownIt from 'markdown-it'
-import { tablePlugin } from './table'
 import type { Token } from 'markdown-it'
 
 /**
- * https://markdown-it.docschina.org/#%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B
+ * 创建 markdown 实例
  *
- * https://juejin.cn/post/6844903688536850440
+ * @see markdown-it https://markdown-it.docschina.org
+ * @see markdown-it https://juejin.cn/post/6844903688536850440
  */
 const markdown: MarkdownIt = MarkdownIt({
-  breaks: true
+  breaks: true // 转换段落里的 '\n' 到 <br>
 })
 
 /**
@@ -17,11 +17,13 @@ const markdown: MarkdownIt = MarkdownIt({
  *
  * @param { Object } md markdown 实例
  */
-export const mdPlugin = (md: MarkdownIt): void => {
-  /** 使用表格插件 */
-  md.use(tablePlugin)
+export const PluginDemo = (md: MarkdownIt): void => {
 
-  /** 自定义 md 语法 */
+  /** 
+   * 自定义 md 语法
+   * 
+   * 语法为 ::: demo
+   */
   md.use(MarkdownItContainer, 'demo', {
     validate(params: string): boolean {
       return !!params.trim().match(/^demo\s*(.*)$/)
@@ -36,6 +38,7 @@ export const mdPlugin = (md: MarkdownIt): void => {
 
         return `<vp-demo source="${source}">${encodeURIComponent(markdown.render(description))}`
       }
+
       return '</vp-demo>'
     }
   })
