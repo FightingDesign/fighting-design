@@ -18,10 +18,9 @@ const markdown: MarkdownIt = MarkdownIt({
  * @param { Object } md markdown 实例
  */
 export const PluginDemo = (md: MarkdownIt): void => {
-
-  /** 
+  /**
    * 自定义 md 语法
-   * 
+   *
    * 语法为 ::: demo
    */
   md.use(MarkdownItContainer, 'demo', {

@@ -4,7 +4,6 @@ import { FDivider } from '../index'
 import type { DividerType, DividerPosition } from '../index'
 
 describe('FDivider', () => {
-
   test('class', () => {
     const wrapper = mount(FDivider)
     expect(wrapper.classes()).toContain('f-divider')

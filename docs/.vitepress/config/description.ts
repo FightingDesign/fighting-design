@@ -1,6 +1,6 @@
 /**
  * 网站描述
- * 
+ *
  * @see description https://vitepress.vuejs.org/config/app-configs#description
  */
 export const description =

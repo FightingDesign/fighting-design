@@ -74,7 +74,7 @@
      * 如果非布尔值类型，咋代表点击的是当前时间，则不需要关闭
      */
     if (isBoolean(target)) {
-      (triggerInstance.value as TriggerInstance).handelClose()
+      ;(triggerInstance.value as TriggerInstance).handelClose()
     }
   }
 

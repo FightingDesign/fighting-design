@@ -46,6 +46,6 @@ export const LANG = {
   }
 } as const
 
-export type LangKey = typeof LANG[keyof typeof LANG]
+export type LangKey = (typeof LANG)[keyof typeof LANG]
 
 export type LangContentKey = keyof LangKey
