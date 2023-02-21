@@ -8,6 +8,7 @@
     "strict": true, // 启用所有严格类型检查选项
     "sourceMap": true, // 为发出的 JavaScript 文件创建源映射文件
     "resolveJsonModule": true,
+    "allowJs": true, // 允许 JavaScript 文件在你的工程中被引入
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],

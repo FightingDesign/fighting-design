@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+  import { footerList, contributors } from './src'
+</script>
+
 <template>
   <div class="vp-home">
     <!-- 横幅 -->
@@ -88,10 +92,6 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-  import { footerList, contributors } from './src'
-</script>
-
 <style lang="scss" scoped>
   .vp-home {
     // 横幅
@@ -113,7 +113,9 @@
         z-index: -1;
         overflow: hidden;
         background: -webkit-linear-gradient(815deg, #395ce3 10%, #5ee0dd);
+        // https://developer.mozilla.org/zh-CN/docs/Web/CSS/mask
         -webkit-mask: url('./images/banner.svg') 100% -150px / cover no-repeat;
+        mask: url('./images/banner.svg') 100% -150px / cover no-repeat;
 
         // 横幅上的 logo
         .vp-home__logo {
@@ -163,6 +165,8 @@
           margin-top: 20px;
           color: transparent;
           background: -webkit-linear-gradient(55deg, #395ce3 10%, #5ee0dd);
+          // https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-clip
+          background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
 

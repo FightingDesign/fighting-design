@@ -1,16 +1,3 @@
-<template>
-  <div class="vp-search">
-    <f-input v-model="value" type="text" placeholder="搜索组件" :on-enter="onSearch" />
-
-    <!-- 搜索结果 -->
-    <div v-if="isShow && resultList && resultList.length" class="vp-search__result" @click.stop="hiddenResult">
-      <a v-for="(item, index) in resultList" class="vp-search__link" :key="index" :href="`/${item.url}.html`">
-        {{ item.title }}
-      </a>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts" name="VpSearch">
   import { ref } from 'vue'
   import { searchList } from './src'
@@ -52,6 +39,19 @@
     value.value = ''
   }
 </script>
+
+<template>
+  <div class="vp-search">
+    <f-input v-model="value" type="text" placeholder="搜索组件" :on-enter="onSearch" />
+
+    <!-- 搜索结果 -->
+    <div v-if="isShow && resultList && resultList.length" class="vp-search__result" @click.stop="hiddenResult">
+      <a v-for="(item, index) in resultList" class="vp-search__link" :key="index" :href="`/${item.url}.html`">
+        {{ item.title }}
+      </a>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
   .vp-search {

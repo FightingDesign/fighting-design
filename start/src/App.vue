@@ -1,17 +1,15 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import type { NumberAnimateInstance } from 'fighting-design'
 
-  const show1 = ref(false)
+  const animate = ref<NumberAnimateInstance>()
 
-  const listImg = [
-    'https://tianyuhao.cn/images/auto/1.jpg',
-    'https://tianyuhao.cn/images/auto/2.jpg',
-    'https://tianyuhao.cn/images/auto/3.jpg',
-    'https://tianyuhao.cn/images/auto/4.jpg'
-  ]
+  const change = (): void => {
+    animate.value?.run()
+  }
 </script>
 
 <template>
-  <f-button type="primary" @click="show1 = true">打开</f-button>
-  <f-image-preview v-model:visible="show1" :img-list="listImg" append-to-body />
+  <f-button type="default" :on-click="change">重新播放</f-button>
+  <f-number-animate ref="animate" :from="0" :to="2002" />
 </template>

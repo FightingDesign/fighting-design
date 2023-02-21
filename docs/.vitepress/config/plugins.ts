@@ -17,7 +17,7 @@ const markdown: MarkdownIt = MarkdownIt({
  *
  * @param { Object } md markdown 实例
  */
-export const mdPlugin = (md: MarkdownIt) => {
+export const mdPlugin = (md: MarkdownIt): void => {
   /** 使用表格插件 */
   md.use(tablePlugin)
 
