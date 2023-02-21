@@ -92,6 +92,32 @@
 
 :::
 
+## 纵向排列
+
+`vertical` 属性可以配置纵向排列
+
+::: demo
+
+<template #source>
+<f-expand-card vertical :image-list="imageList" />
+</template>
+
+```html
+<template>
+  <f-expand-card vertical :image-list="imageList" />
+</template>
+
+<script lang="ts" setup>
+  const imageList = [
+    'https://tianyuhao.cn/images/fighting-design/1.jpg',
+    'https://tianyuhao.cn/images/fighting-design/2.jpg',
+    'https://tianyuhao.cn/images/fighting-design/3.jpg'
+  ]
+</script>
+```
+
+:::
+
 ## Attributes
 
 | 参数           | 说明                      | 类型                                                     | 可选值 | 默认值 |
@@ -102,6 +128,7 @@
 | `width`        | 自定义宽度                | string / number                                          | ——     | ——     |
 | `color`        | 左下角文字的颜色          | string                                                   | ——     | ——     |
 | `expand-index` | 默认展开的索引，从 0 开始 | number                                                   | ——     | 0      |
+| `vertical`     | 是否纵向排列              | boolean                                                  | ——     | false  |
 
 ## Interface
 
