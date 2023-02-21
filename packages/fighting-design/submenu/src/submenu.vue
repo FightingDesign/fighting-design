@@ -21,8 +21,6 @@
     if (prop.disabled) return
     isOpened.value = !isOpened.value
   }
-
-  console.log(parentInject)
 </script>
 
 <template>
