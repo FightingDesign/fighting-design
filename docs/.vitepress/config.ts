@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, useRoute } from 'vitepress'
 import { description } from './config/description'
 import { nav } from './config/nav'
 import { sidebar } from './config/sidebar'
