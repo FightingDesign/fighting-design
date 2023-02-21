@@ -11,6 +11,8 @@ export const Props = {
   expandIndex: setNumberProp(0),
   /** 左下角文字的颜色 */
   color: setStringProp(),
+  /** 是否纵向排列 */
+  vertical: setBooleanProp(),
   /** 自定义宽度 */
   width: setStringNumberProp(),
   /** 自定义高度 */

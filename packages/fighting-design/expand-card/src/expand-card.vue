@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FExpandCard">
   import { Props } from './props'
   import { computed, ref } from 'vue'
-  import { isString, isArray } from '../../_utils'
+  import { isString, isArray, warning } from '../../_utils'
   import { useList } from '../../_hooks'
   import type { ExpandCardImageListItem } from './interface'
 
@@ -21,21 +21,19 @@
     currExpandIndex.value = index
   }
 
-  /**
-   * 展开的类名
-   *
-   * @param { number } index 索引
-   */
-  const activeClass = (index: number): string | void => {
-    if (index !== currExpandIndex.value) return
-    return 'f-expand-card__active'
-  }
-
   /** 将传入的 imageList 改变成指定的类型进行渲染 */
   const imageListArr = computed((): ExpandCardImageListItem[] => {
     const { imageList } = prop
 
-    if (!imageList && !isArray(imageList)) return []
+    /** 提前检测数据结构是否正确 */
+    if (!imageList || !imageList.length || !isArray(imageList)) {
+      if (__DEV__) {
+        warning('expand-card', '`image-list` is not a array.')
+      }
+
+      /** 不正确返回空数组 */
+      return []
+    }
 
     /**
      * @see Array.prototype.map() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map
@@ -49,18 +47,18 @@
   })
 
   /** 类名列表 */
-  const classList = classes(['round'], 'f-expand-card__item')
+  const classList = classes(['round', 'vertical'], 'f-expand-card')
 
   /** 样式列表 */
-  const styleList = styles(['width', 'height'])
+  const styleList = styles(['width', 'height', 'color'])
 </script>
 
 <template>
-  <div v-if="imageListArr.length" class="f-expand-card" :style="styleList">
+  <div v-if="imageListArr.length" :class="classList" :style="styleList">
     <div
       v-for="(item, index) in imageListArr"
       :key="index"
-      :class="[activeClass(index), ...classList]"
+      :class="['f-expand-card__item', { 'f-expand-card__active': index === currExpandIndex }]"
       :style="{ backgroundImage: `url(${item.url})` }"
       @click="switchExpandCard(index)"
     >

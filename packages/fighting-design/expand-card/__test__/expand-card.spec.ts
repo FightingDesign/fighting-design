@@ -1,97 +1,67 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FExpandCard } from '../index'
+import type { ExpandCardImageList } from '../index'
+
+const imageList: ExpandCardImageList = [
+  { url: 'https://tianyuhao.cn/images/auto/1.jpg', text: '1' },
+  { url: 'https://tianyuhao.cn/images/auto/2.jpg', text: '2' }
+]
 
 describe('FExpandCard', () => {
   test('class', () => {
     const wrapper = mount(FExpandCard, {
-      props: {
-        imageList: [
-          'https://tianyuhao.cn/images/auto/1.jpg',
-          'https://tianyuhao.cn/images/auto/2.jpg',
-          'https://tianyuhao.cn/images/auto/3.jpg'
-        ]
-      }
+      props: { imageList }
     })
-    expect(wrapper.find('div').classes()).toContain('f-expand-card')
+    expect(wrapper.classes()).toContain('f-expand-card')
   })
 
   test('round', () => {
     const wrapper = mount(FExpandCard, {
-      props: {
-        imageList: [
-          'https://tianyuhao.cn/images/auto/1.jpg',
-          'https://tianyuhao.cn/images/auto/2.jpg',
-          'https://tianyuhao.cn/images/auto/3.jpg'
-        ],
-        round: true
-      }
+      props: { imageList, round: true }
     })
-    expect(wrapper.find('.f-expand-card__item').classes()).toContain('f-expand-card__round')
+    expect(wrapper.classes()).toContain('f-expand-card__round')
   })
 
-  test('round', () => {
+  test('color', () => {
     const wrapper = mount(FExpandCard, {
-      props: {
-        imageList: [
-          { url: 'https://tianyuhao.cn/images/auto/1.jpg', text: '1' },
-          { url: 'https://tianyuhao.cn/images/auto/2.jpg', text: '2' }
-        ],
-        color: 'red'
-      }
+      props: { imageList, color: 'red' }
     })
-    expect(wrapper.find('.f-expand-card__title').attributes('style')).toContain('color: red')
+    expect(wrapper.attributes('style')).toContain('--expand-card-color: red')
   })
 
   test('width', () => {
     const wrapper = mount(FExpandCard, {
-      props: {
-        imageList: [
-          { url: 'https://tianyuhao.cn/images/auto/1.jpg', text: '1' },
-          { url: 'https://tianyuhao.cn/images/auto/2.jpg', text: '2' }
-        ],
-        width: '200px'
-      }
+      props: { imageList, width: '200px' }
     })
-    expect(wrapper.attributes('style')).toContain('width: 200px')
+    expect(wrapper.attributes('style')).toContain('--expand-card-width: 200px')
   })
 
   test('width', () => {
     const wrapper = mount(FExpandCard, {
-      props: {
-        imageList: [
-          { url: 'https://tianyuhao.cn/images/auto/1.jpg', text: '1' },
-          { url: 'https://tianyuhao.cn/images/auto/2.jpg', text: '2' }
-        ],
-        width: 400
-      }
+      props: { imageList, width: 400 }
     })
-    expect(wrapper.attributes('style')).toContain('width: 400px')
+    expect(wrapper.attributes('style')).toContain('--expand-card-width: 400px')
   })
 
   test('height', () => {
     const wrapper = mount(FExpandCard, {
-      props: {
-        imageList: [
-          { url: 'https://tianyuhao.cn/images/auto/1.jpg', text: '1' },
-          { url: 'https://tianyuhao.cn/images/auto/2.jpg', text: '2' }
-        ],
-        height: '200px'
-      }
+      props: { imageList, height: '200px' }
     })
-    expect(wrapper.attributes('style')).toContain('height: 200px')
+    expect(wrapper.attributes('style')).toContain('--expand-card-height: 200px')
   })
 
   test('height', () => {
     const wrapper = mount(FExpandCard, {
-      props: {
-        imageList: [
-          { url: 'https://tianyuhao.cn/images/auto/1.jpg', text: '1' },
-          { url: 'https://tianyuhao.cn/images/auto/2.jpg', text: '2' }
-        ],
-        height: 400
-      }
+      props: { imageList, height: 400 }
     })
-    expect(wrapper.attributes('style')).toContain('height: 400px')
+    expect(wrapper.attributes('style')).toContain('--expand-card-height: 400px')
+  })
+
+  test('vertical', () => {
+    const wrapper = mount(FExpandCard, {
+      props: { imageList, vertical: true }
+    })
+    expect(wrapper.classes()).toContain('f-expand-card__vertical')
   })
 })

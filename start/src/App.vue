@@ -1,15 +1,11 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import type { NumberAnimateInstance } from 'fighting-design'
-
-  const animate = ref<NumberAnimateInstance>()
-
-  const change = (): void => {
-    animate.value?.run()
-  }
+  const imageList = [
+    'https://tianyuhao.cn/images/fighting-design/1.jpg',
+    'https://tianyuhao.cn/images/fighting-design/2.jpg',
+    'https://tianyuhao.cn/images/fighting-design/3.jpg'
+  ]
 </script>
 
 <template>
-  <f-button type="default" :on-click="change">重新播放</f-button>
-  <f-number-animate ref="animate" :from="0" :to="2002" />
+  <f-expand-card :image-list="imageList" round />
 </template>
