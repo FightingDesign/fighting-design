@@ -21,6 +21,8 @@
     if (prop.disabled) return
     isOpened.value = !isOpened.value
   }
+
+  console.log(parentInject)
 </script>
 
 <template>
@@ -29,7 +31,7 @@
     :class="[
       'f-submenu',
       {
-        [`f-submenu__${parentInject && parentInject.mode}`]: parentInject && parentInject.mode,
+        [`f-submenu__${parentInject && parentInject.mode.value}`]: parentInject && parentInject.mode.value,
         'f-submenu__disabled': disabled
       }
     ]"
