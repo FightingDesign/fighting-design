@@ -26,5 +26,12 @@ export const nav = [
       // { text: '演练场', link: 'https://sfc.tianyuhao.cn' },
       { text: '自定义主题', activeMatch: '^/theme/', link: '/theme/start' }
     ]
+  },
+  {
+    text: '语言',
+    items: [
+      { text: '简体中文', activeMatch: '^/', link: '/' },
+      { text: 'English', activeMatch: '^/en-US', link: '/en-US/index' },
+    ]
   }
 ]

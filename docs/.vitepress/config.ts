@@ -6,7 +6,6 @@ import { head } from './config/head'
 import { PluginTable, PluginDemo } from './plugin'
 import type MarkdownIt from 'markdown-it'
 
-
 /**
  * vitepress 配置项文件
  * 
@@ -22,6 +21,21 @@ export default defineConfig({
    * @see last-updated https://vitepress.vuejs.org/guide/theme-last-updated#last-updated
    */
   lastUpdated: true,
+  /**
+   * 语言配置
+   * 
+   * @see separate-directory-for-each-locale https://vitepress.vuejs.org/guide/i18n#separate-directory-for-each-locale
+   */
+  locales: {
+    '/': {
+      lang: 'zh-CN',
+      label: '简体中文'
+    },
+    '/en-US': {
+      lang: 'en-US',
+      label: 'English'
+    }
+  },
   /**
    * 缓存目录
    *
