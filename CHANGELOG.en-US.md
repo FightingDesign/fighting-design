@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.25.1 (2023-02-21)
+
+- Fix the `f-submenu` component class name problem
+
 ## 0.25.0 (2023-02-21)
 
 - Optimize the `f-image-preview` component pop-up animation effect
