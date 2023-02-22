@@ -32,6 +32,9 @@ export const useVisible = (visible: Ref<boolean>, emit: UseVisibleEmit, callback
   /** 监视绑定值的变化，如果为假则关闭 */
   watch(
     (): boolean => isVisible.value,
+    /**
+     * @param { boolean } newVal 最新值
+     */
     (newVal: boolean): void => {
       if (!newVal) {
         closeVisible()
@@ -42,6 +45,9 @@ export const useVisible = (visible: Ref<boolean>, emit: UseVisibleEmit, callback
   /** 监视数据更新绑定值 */
   watch(
     (): boolean => visible.value,
+    /**
+     * @param { boolean } newVal 最新值
+     */
     (newVal: boolean): void => {
       isVisible.value = newVal
     }

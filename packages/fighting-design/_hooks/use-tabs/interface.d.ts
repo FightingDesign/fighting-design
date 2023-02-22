@@ -1,6 +1,6 @@
 import type { ComputedRef, Ref } from 'vue'
 import type { TabsModelValue, TabsNavInstance, TabsEdit } from '../../tabs'
-import type { useChildrenReturn } from '../../_utils/tabs'
+import type { UseChildrenReturn } from '../../_utils/tabs'
 
 /**
  * useTabs 返回值类型接口
@@ -24,7 +24,7 @@ export interface UseTabsReturn {
  */
 export type TabsProvide = {
   activeName: Ref<TabsModelValue>
-} & useChildrenReturn<TabsPaneInstance>
+} & UseChildrenReturn<TabsPaneInstance>
 
 /**
  * setActiveName 回调类型

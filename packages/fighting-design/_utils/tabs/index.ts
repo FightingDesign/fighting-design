@@ -44,7 +44,7 @@ export const getChildrenComponent = (root: ComponentInternalInstance, component:
  * @param { Function } registerChild 注册子组件
  * @param { Function } unRegisterChild 卸载子组件
  */
-export interface useChildrenReturn<T> {
+export interface UseChildrenReturn<T> {
   children: ShallowRef<T[]>
   registerChild: (child: T) => void
   unRegisterChild: (child: T) => void
@@ -60,7 +60,7 @@ export interface useChildrenReturn<T> {
 export const useChildren = <T extends { uid: number }>(
   root: ComponentInternalInstance,
   component: string
-): useChildrenReturn<T> => {
+): UseChildrenReturn<T> => {
   const childrenMap = new Map<number, T>()
 
   const children = shallowRef<T[]>([])

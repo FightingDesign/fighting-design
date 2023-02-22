@@ -15,9 +15,9 @@ export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
    *
    * 为滚动做准备
    *
-   * @see children https://developer.mozilla.org/zh-CN/docs/Web/API/Element/children
-   * @see cloneNode https://developer.mozilla.org/zh-CN/docs/Web/API/Node/cloneNode
-   * @see appendChild https://developer.mozilla.org/zh-CN/docs/Web/API/Node/appendChild
+   * @see Element.children https://developer.mozilla.org/zh-CN/docs/Web/API/Element/children
+   * @see Node.cloneNode https://developer.mozilla.org/zh-CN/docs/Web/API/Node/cloneNode
+   * @see Node.appendChild https://developer.mozilla.org/zh-CN/docs/Web/API/Node/appendChild
    */
   const firstClone = (): void => {
     /** 获取到第一个元素 */

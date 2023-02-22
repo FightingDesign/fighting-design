@@ -35,7 +35,9 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
   /**
    * 加载成功
    *
+   * @param { Object } node 图片元素
    * @param { Object } evt 事件对象
+   * @param { string } src 图片地址
    */
   const success = (node: HTMLImageElement, evt: Event, src: string): void => {
     node.src = src

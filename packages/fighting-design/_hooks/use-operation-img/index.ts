@@ -31,6 +31,7 @@ export const useOperationImg = (): UseOperationImgReturn => {
   /**
    * 滚轮缩放
    *
+   * @see WheelEvent https://developer.mozilla.org/zh-CN/docs/Web/API/WheelEvent
    * @param { Object } evt 鼠标滚轮事件对象
    */
   const scrollZoom = (evt: WheelEvent): void => {

@@ -37,7 +37,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
     /**
      * 找到满足条件的第一个元素的索引
      *
-     * @see findIndex https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+     * @see Array.prototype.findIndex() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
      */
     return (instances[placement] as TipsInstance[]).findIndex((item: TipsInstance): boolean => {
       return item.id === id
@@ -96,7 +96,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
     /**
      * 从数组中移除元素
      *
-     * @see splice https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+     * @see Array.prototype.splice() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
      */
     ;(instances[placement] as TipsInstance[]).splice(idx, 1)
   }
