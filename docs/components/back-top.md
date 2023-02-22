@@ -81,29 +81,29 @@
 
 ## 监听目标
 
-可以使用 `listen-el` 来监视一个指定的节点，传入 `class` 或 `id`，例如 `.box #app`
+可以使用 `listen-el` 来监视一个指定的节点，传入 class 或 id，例如 `.box` 或 `#app`
 
-<f-back-top listen-el=".f-box" right="200px">监听目标</f-back-top>
+<f-back-top listen-el=".back-top-demo" right="200px">监听目标</f-back-top>
 
 ::: demo
 
 <template #source>
 
-<div class="f-box">
+<div class="back-top-demo">
 <p v-for="i in 20">这是一段文字{{ i + 1 }}</p>
 </div>
 </template>
 
 ```html
 <template>
-  <div class="f-box">
+  <div class="back-top-demo">
     <p v-for="i in 20">这是一段文字{{ i + 1 }}</p>
   </div>
-  <f-back-top listen-el=".f-box" right="200px">监听目标</f-back-top>
+  <f-back-top listen-el=".back-top-demo" right="200px">监听目标</f-back-top>
 </template>
 
 <style scoped>
-  .f-box {
+  .back-top-demo {
     width: 100%;
     height: 100px;
     border: 4px solid skyblue;
@@ -176,7 +176,7 @@ type BackTopBehavior = 'smooth' | 'auto'
 </script>
 
 <style scoped>
-  .f-box {
+  .back-top-demo {
     width: 100%;
     height: 100px;
     border: 4px solid skyblue;

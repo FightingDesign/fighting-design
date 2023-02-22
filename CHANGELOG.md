@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 优化 `f-back-top` 组件实现
+
 ## 0.25.1 (2023-02-21)
 
 - 修复 `f-submenu` 组件类名问题

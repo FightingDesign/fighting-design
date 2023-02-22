@@ -28,7 +28,7 @@
     /** 提前检测数据结构是否正确 */
     if (!imageList || !imageList.length || !isArray(imageList)) {
       if (__DEV__) {
-        warning('expand-card', '`image-list` is not a array.')
+        warning('f-expand-card', '`image-list` is not a array.')
       }
 
       /** 不正确返回空数组 */

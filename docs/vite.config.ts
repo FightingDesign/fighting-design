@@ -5,13 +5,23 @@ import type { UserConfigExport } from 'vite'
 export default (): UserConfigExport => {
   return {
     plugins: [
-      FightingSetupNamePlugin() // 设置组件名插件
+      /** 设置组件名插件 */
+      FightingSetupNamePlugin()
     ],
     optimizeDeps: {
       exclude: ['vitepress']
     },
+    /**
+     * 定义全局常量替换方式
+     *
+     * @see define https://cn.vitejs.dev/config/shared-options.html#define
+     */
+    define: {
+      /** 检测是否为生产环境 */
+      __DEV__: process.env.NODE_ENV !== 'production'
+    },
     server: {
-      port: 9999, // 端口号
+      port: 9999,
       fs: {
         /**
          * 可以为项目根目录的上一级提供服务
