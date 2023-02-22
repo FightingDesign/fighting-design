@@ -296,11 +296,11 @@ import type { AlertInstance, AlertProps } from 'fighting-design'
 
 组件提供了下列 CSS 变量，可用于自定义样式
 
-| 名称                    | 描述              |
-| ----------------------- | ----------------- |
-| `--alert-border-radius` | 圆角大小          |
-| `--alert-color`         | 文字颜色          |
-| `--alert-background`    | 背景色            |
+| 名称                    | 描述     |
+| ----------------------- | -------- |
+| `--alert-border-radius` | 圆角大小 |
+| `--alert-color`         | 文字颜色 |
+| `--alert-background`    | 背景色   |
 
 ## Contributors
 

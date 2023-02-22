@@ -1,10 +1,10 @@
-dist/*
-**/dist/**
-dist-icon/*
-node_modules/*
-*/node_modules/*
-**/node_modules/**
-logo/*
-start/dist/*
+# ESLint 去忽略特定的文件和目录
+#
+# 官方文档：https://eslint.bootcss.com/docs/user-guide/configuring#ignoring-files-and-directories
+
+dist
+dist-icon
+node_modules
+logo
 packages/fighting-add-component/template/*
 scripts/**
