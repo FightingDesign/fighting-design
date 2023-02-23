@@ -1,7 +1,10 @@
 <script lang="ts" setup>
   // import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
   import { accessRoutes } from './router/index'
-  import { computed } from 'vue'
+  import { computed, ref } from 'vue'
+
+  const isOpen = ref(false)
+  const isOpen2 = ref(false)
 
   // 链管理平台
   const menu1 = computed(() => {
@@ -29,6 +32,10 @@
 </script>
 
 <template>
+  <!-- <transition>
+
+</transition> -->
+
   <f-menu active-name="1" mode="inline" :on-menu-item-click="onMenuItemClick" :on-sub-menu-click="onSubMenuClick">
     <!-- 链管理平台 -->
     <f-submenu>
@@ -70,4 +77,37 @@
       </div>
     </f-submenu>
   </f-menu>
+
+  <f-switch v-model="isOpen" size="middle" />
+
+  <f-collapse-animation :opened="isOpen" disabled>
+    <h1>Hello</h1>
+    <h1>你看到我了吗？</h1>
+
+    <f-button type="primary">主要按钮</f-button>
+    <f-button type="success">成功按钮</f-button>
+    <f-button type="danger">危险按钮</f-button>
+    <f-button type="warning">警告按钮</f-button>
+
+    <h1>222</h1>
+    <h1>222</h1>
+    <h1>222</h1>
+    <h1>222</h1>
+    <h1>222</h1>
+    <h1>222</h1>
+    <h1>222</h1>
+
+    <f-switch v-model="isOpen2" size="middle" />
+
+    <f-collapse-animation :opened="isOpen2">
+      <div v-show="isOpen2">
+        <h1>22</h1>
+        <h1>22</h1>
+        <h1>22</h1>
+        <h1>22</h1>
+        <h1>22</h1>
+        <h1>22</h1>
+      </div>
+    </f-collapse-animation>
+  </f-collapse-animation>
 </template>

@@ -1,70 +1,93 @@
 <script lang="ts" setup name="FCollapseAnimation">
   import { Props } from './props'
-  import { ref, onMounted, computed, watch } from 'vue'
+  import { computed } from 'vue'
 
   const prop = defineProps(Props)
 
   /** 初始是否展开 */
   const isOpened = computed((): boolean => !!prop.opened)
 
-  /** DOM 元素 */
-  const collapseEl = ref<HTMLDivElement>()
-
-  /** 需要展开的尺寸 */
-  const defaultSize = ref<number>()
+  /** 动画样式 */
+  const transitionStyle = '0.3s height ease-in-out'
 
   /**
-   * 获取折叠部分的尺寸
+   * 在元素被插入到 DOM 之前被调用
    *
-   * 先将元素尺寸设置为 auto，再去获取元素具体像素高度
+   * 用这个来设置元素的 "enter-from" 状态
+   *
+   * @param { Object } el 元素节点
    */
-  const getDefaultSize = (): void => {
-    /** 如果 dom 元素存在 */
-    if (collapseEl.value) {
-      collapseEl.value.style.height = 'auto'
-      /**
-       * 将默认尺寸设置为元素的像素高度
-       *
-       * @see offsetHeight https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight
-       */
-      defaultSize.value = collapseEl.value.offsetHeight
-
-      /**
-       * 如果开始是关闭状态，则设为 0
-       *
-       * 否则需要设置为有单位的数值，防止初次点击丢失过度动画
-       */
-      collapseEl.value.style.height = isOpened.value ? defaultSize.value + 'px' : '0'
-    }
+  const onBeforeEnter = (el: HTMLElement): void => {
+    console.log('onBeforeEnter', el)
+    el.style.transition = transitionStyle
+    el.style.height = '0'
   }
 
-  /** 监视绑定值发生改变的时候触发展开或折叠 */
-  watch(
-    (): boolean => isOpened.value,
-    /**
-     * @param { number } newVal 最新值
-     */
-    (newVal: boolean): void => {
-      if (prop.disabled) return
-
-      if (collapseEl.value) {
-        if (newVal) {
-          collapseEl.value.style.height = defaultSize.value + 'px'
-        } else {
-          collapseEl.value.style.height = '0'
-        }
-      }
+  /**
+   * 在元素被插入到 DOM 之后的下一帧被调用
+   *
+   * 用这个来开始进入动画
+   *
+   * @param { Object } el 元素节点
+   */
+  const onEnter = (el: HTMLElement): void => {
+    console.log('onEnter', el.scrollHeight)
+    if (el.scrollHeight !== 0) {
+      el.style.height = `${el.scrollHeight}px`
+    } else {
+      el.style.height = ''
     }
-  )
+    el.style.overflow = 'hidden'
+  }
 
-  /** 挂载完成获取模式尺寸 */
-  onMounted((): void => {
-    getDefaultSize()
-  })
+  /**
+   * 当进入过渡完成时调用
+   *
+   * @param { Object } el 元素节点
+   */
+  const onAfterEnter = (el: HTMLElement): void => {
+    el.style.transition = ''
+    el.style.height = ''
+    console.log('onAfterEnter', el)
+  }
+
+  /**
+   * 在 leave 钩子之前调用
+   *
+   * 大多数时候，你应该只会用到 leave 钩子
+   *
+   * @param { Object } el 元素节点
+   */
+  const onBeforeLeave = (el: HTMLElement): void => {
+    console.log('beforeLeave')
+    el.style.height = `${el.scrollHeight}px`
+  }
+
+  const onLeave = (el: HTMLElement): void => {
+    console.log('onLeave')
+    el.style.transition = transitionStyle
+    el.style.height = '0'
+  }
+
+  const onAfterLeave = (el: HTMLElement): void => {
+    console.log('onAfterLeave', el)
+    el.style.transition = ''
+    el.style.height = ''
+  }
 </script>
 
 <template>
-  <div ref="collapseEl" class="f-collapse-animation">
-    <slot />
-  </div>
+  <transition
+    v-if="!disabled"
+    @before-enter="onBeforeEnter"
+    @enter="onEnter"
+    @after-enter="onAfterEnter"
+    @before-leave="onBeforeLeave"
+    @leave="onLeave"
+    @after-leave="onAfterLeave"
+  >
+    <div v-show="isOpened" class="f-collapse-animation">
+      <slot />
+    </div>
+  </transition>
 </template>
