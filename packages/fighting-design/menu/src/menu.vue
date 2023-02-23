@@ -27,7 +27,9 @@
   provide<MenuProvide>(MENU_PROVIDE_KEY, {
     mode: toRef(prop, 'mode'),
     defaultActive,
-    setActiveName
+    setActiveName,
+    onMenuItemClick: prop.onMenuItemClick,
+    onSubmenuClick: prop.onSubmenuClick
   })
 
   /** 类名列表 */

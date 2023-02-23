@@ -144,7 +144,11 @@
       }
 
       &:hover {
-        background-color: #f4f4f4;
+
+        .f-svg-icon,
+        .f-submenu__title-text {
+          color: #2d5af1;
+        }
 
         .f-dropdown {
           .f-trigger__trigger {
@@ -162,6 +166,7 @@
     // 主要内容
     .f-submenu__content {
       padding-left: 24px;
+      background-color: #f4f4f4;
     }
   }
 

@@ -1,6 +1,6 @@
-import { setStringNumberProp, setStringProp } from '../../_utils'
+import { setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
-import type { MenuMode, MenuProvide } from './interface'
+import type { MenuMode, MenuProvide, MenuItemClick, SubmenuClick } from './interface'
 
 export const Props = {
   /**
@@ -15,7 +15,11 @@ export const Props = {
     return (['horizontal', 'vertical', 'inline'] as const).includes(val)
   }),
   /** 默认激活的 name */
-  activeName: setStringNumberProp()
+  activeName: setStringNumberProp(),
+  /** menu-item 点击执行的回调 */
+  onMenuItemClick: setFunctionProp<MenuItemClick>(),
+  /** submenu 点击执行的回调 */
+  onSubmenuClick: setFunctionProp<SubmenuClick>()
 } as const
 
 /** menu 组件 props 类型 */

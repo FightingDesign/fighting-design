@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { MENU_PROVIDE_KEY } from '../../menu/src/props'
   import { FDropdown } from '../../dropdown'
-  import { FCollapseAnimation } from '../../collapse-animation'
+  import { useRun } from '../../_hooks'
   import { FSvgIcon } from '../../svg-icon'
   import { inject, ref } from 'vue'
   import { FIconChevronDown } from '../../_svg'
@@ -16,10 +16,21 @@
   /** 初始是否展开 */
   const isOpened = ref<boolean>(prop.opened)
 
-  /** 点击展开或折叠菜单 */
-  const handelClick = (): void => {
+  /**
+   * 点击展开或折叠菜单
+   *
+   * @param { Object } evt 事件对象
+   */
+  const changeInline = (evt: MouseEvent): void => {
     if (prop.disabled) return
     isOpened.value = !isOpened.value
+
+    /**
+     * 执行点击 submenu 的回调
+     *
+     * 传入 evt 和展示状态两个参数
+     */
+    parentInject && useRun(parentInject.onSubmenuClick, evt, isOpened.value)
   }
 </script>
 
@@ -52,7 +63,7 @@
     <!-- 内联模式 -->
     <div v-else role="none" class="f-submenu__inline">
       <!-- 标题内容，用于点击触发 -->
-      <div role="none" class="f-submenu__title" @click="handelClick">
+      <div role="none" class="f-submenu__title" @click="changeInline">
         <!-- 标题内容 -->
         <div role="none" class="f-submenu__title-text">
           <slot name="title" />
@@ -67,9 +78,11 @@
 
       <!-- 主要的折叠菜单内容 -->
       <div role="none" class="f-submenu__content">
-        <f-collapse-animation :opened="isOpened">
+        <!-- <f-collapse-animation :opened="isOpened"> -->
+        <div v-show="isOpened">
           <slot />
-        </f-collapse-animation>
+        </div>
+        <!-- </f-collapse-animation> -->
       </div>
     </div>
   </div>

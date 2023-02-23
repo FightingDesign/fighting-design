@@ -22,6 +22,8 @@
 
   // 选中的
   &.f-menu-item__active {
+    background-color: #dee5fd;
+
     .f-svg-icon,
     .f-menu-item__text {
       color: #2d5af1;
@@ -30,8 +32,6 @@
 
   // 鼠标移入
   &:not([class~='f-menu-item__disabled']):hover {
-    background-color: #f4f4f4;
-
     .f-svg-icon,
     .f-menu-item__text {
       color: #2d5af1;

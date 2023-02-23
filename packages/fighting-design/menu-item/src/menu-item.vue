@@ -2,7 +2,8 @@
   import { Props } from './props'
   import { MENU_PROVIDE_KEY } from '../../menu/src/props'
   import { FSvgIcon } from '../../svg-icon'
-  import { useList } from '../../_hooks'
+  import { warning } from '../../_utils'
+  import { useList, useRun } from '../../_hooks'
   import { getCurrentInstance, computed, inject } from 'vue'
   import type { ComponentInternalInstance } from 'vue'
   import type { MenuProvide } from '../../menu'
@@ -24,32 +25,48 @@
    */
   const instance = getCurrentInstance() as ComponentInternalInstance
 
-  /** 样式列表 */
-  const styleList = styles(['fontSize', 'color'])
-
   /** 点击触发 */
-  const handelClick = (): void => {
+  const handelClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
+
+    if (parentInject) {
+      /**
+       * 执行 menu-item 回调
+       *
+       * 传入事件对象和当前 name两个参数
+       */
+      useRun(parentInject.onMenuItemClick, evt, prop.name)
+
+      /**
+       * 设置当前选中的 name，传入当前组件的 name
+       */
+      useRun(parentInject.setActiveName, prop.name)
+    }
 
     /** 获取到路由实例 */
     const router = instance.appContext.config.globalProperties.$router
-
-    parentInject && parentInject.setActiveName(prop.name)
 
     if (router && prop.to) {
       try {
         router.push(prop.to)
       } catch (err: unknown) {
-        console.warn(err)
+        warning('f-menu-item', err as string)
       }
     }
   }
 
-  /** 当前是否呗选中 */
+  /**
+   * 判断当前是否呗选中
+   *
+   * 如果父组件的 name 和子组件的 name 想等代表呗选中
+   */
   const isActive = computed((): boolean => {
     if (!parentInject || !parentInject.defaultActive) return false
-    return prop.name === (parentInject && parentInject.defaultActive.value)
+    return prop.name === parentInject.defaultActive.value
   })
+
+   /** 样式列表 */
+   const styleList = styles(['fontSize', 'color'])
 </script>
 
 <template>
