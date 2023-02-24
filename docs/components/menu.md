@@ -242,10 +242,12 @@
 
 ## Menu Attributes
 
-| 参数          | 说明            | 类型                             | 可选值                           | 默认值     |
-| ------------- | --------------- | -------------------------------- | -------------------------------- | ---------- |
-| `mode`        | 不同模式        | <a href="#menumode">MenuMode</a> | `horizontal` `vertical` `inline` | horizontal |
-| `active-name` | 默认激活的 name | string / number                  | ——                               | ——         |
+| 参数                 | 说明                        | 类型                                       | 可选值                           | 默认值     |
+| -------------------- | --------------------------- | ------------------------------------------ | -------------------------------- | ---------- |
+| `mode`               | 不同模式                    | <a href="#menumode">MenuMode</a>           | `horizontal` `vertical` `inline` | horizontal |
+| `active-name`        | 默认激活的 name             | string / number                            | ——                               | ——         |
+| `on-menu-item-click` | 点击 `f-menu-item` 时的回调 | <a href="#menuitemclick">MenuItemClick</a> | ——                               | ——         |
+| `on-submenu-click`   | 点击 `f-submenu` 时的回调   | <a href="#submenuclick">SubmenuClick</a>   | ——                               | ——         |
 
 ## MenuItem Attributes
 
@@ -307,6 +309,8 @@ import type {
   MenuInstance,
   MenuProps,
   MenuMode,
+  MenuItemClick,
+  SubmenuClick,
   MenuItemInstance,
   MenuItemProps,
   FMenuItemGroup,
@@ -320,6 +324,18 @@ import type {
 
 ```ts
 type MenuMode = 'horizontal' | 'vertical' | 'inline'
+```
+
+### MenuItemClick
+
+```ts
+type MenuItemClick = (evt: MouseEvent, name: string) => void
+```
+
+### SubmenuClick
+
+```ts
+type SubmenuClick = (evt: MouseEvent, target: boolean) => void
 ```
 
 ## Contributors
