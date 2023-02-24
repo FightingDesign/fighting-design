@@ -4,6 +4,13 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.26.0 (2023-02-24)
+
+- Optimize `f-back-top` component implementation
+- `f-menu` component adds `on-menu item click` `on-submenu-click` configuration item
+- Fix the `f-menu` component folding problem
+- Refactoring the `f-collapse-animation` component
+
 ## 0.25.1 (2023-02-21)
 
 - Fix the `f-submenu` component class name problem

@@ -10,6 +10,10 @@
    * 以往版本实现可参考：
    *
    * @see collapse-animation https://github.com/FightingDesign/fighting-design/tree/474f6f19c2b034d5f2839c110e02b8987af24a9a/packages/fighting-design/collapse-animation
+   * 
+   * 新版本使用 Transition 来实现
+   * 
+   * @see javascript-hooks https://cn.vuejs.org/guide/built-ins/transition.html#javascript-hooks
    */
 
   /** 获取当前的展示状态 */
@@ -78,6 +82,13 @@
     el.style.height = `${el.scrollHeight}px`
   }
 
+  /**
+   * 在离开过渡开始时调用
+   *
+   * 用这个来开始离开动画
+   *
+   * @param { Object } el 元素节点
+   */
   const onLeave = (el: HTMLElement): void => {
     if (el.scrollHeight !== 0) {
       el.style.transition = transitionStyle
@@ -85,6 +96,13 @@
     }
   }
 
+  /**
+   * 在离开过渡完成
+   *
+   * 且元素已从 DOM 中移除时调用
+   *
+   * @param { Object } el 元素节点
+   */
   const onAfterLeave = (el: HTMLElement): void => {
     el.style.transition = ''
     el.style.height = ''
