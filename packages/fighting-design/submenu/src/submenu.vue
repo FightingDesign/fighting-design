@@ -81,7 +81,7 @@
         <f-collapse-animation :opened="isOpened">
           <!-- <div v-show="isOpened"> -->
           <slot />
-        <!-- </div> -->
+          <!-- </div> -->
         </f-collapse-animation>
       </div>
     </div>

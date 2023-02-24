@@ -5,17 +5,17 @@ export type { MenuProps } from './menu'
 /** 不同导航栏模式 */
 export type MenuMode = 'horizontal' | 'vertical' | 'inline'
 
-/** 
+/**
  * menu-item 点击执行的回调类型
- * 
+ *
  * @param { Object } evt 事件对象
  * @param { string } name 唯一标识
  */
 export type MenuItemClick = (evt: MouseEvent, name: string) => void
 
-/** 
+/**
  * submenu 点击执行的回调类型
- * 
+ *
  * @param { Object } evt 事件对象
  * @param { boolean } target 打开状态
  */

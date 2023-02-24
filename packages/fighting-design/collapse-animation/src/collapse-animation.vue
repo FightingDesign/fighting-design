@@ -10,9 +10,9 @@
    * 以往版本实现可参考：
    *
    * @see collapse-animation https://github.com/FightingDesign/fighting-design/tree/474f6f19c2b034d5f2839c110e02b8987af24a9a/packages/fighting-design/collapse-animation
-   * 
+   *
    * 新版本使用 Transition 来实现
-   * 
+   *
    * @see javascript-hooks https://cn.vuejs.org/guide/built-ins/transition.html#javascript-hooks
    */
 

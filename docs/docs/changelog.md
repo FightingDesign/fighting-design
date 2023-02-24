@@ -2,6 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.26.0 (2023-02-24)
+
+- 优化 `f-back-top` 组件实现
+- `f-menu` 组件新增 `on-menu-item-click` `on-submenu-click` 配置项
+- 修复 `f-menu` 组件折叠问题
+- 重构 `f-collapse-animation` 组件
+
+## 0.25.1 (2023-02-21)
+
+- 修复 `f-submenu` 组件类名问题
+
 ## 0.25.0 (2023-02-21)
 
 - 优化 `f-image-preview` 组件弹出动画效果

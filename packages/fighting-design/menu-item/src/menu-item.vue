@@ -65,8 +65,8 @@
     return prop.name === parentInject.defaultActive.value
   })
 
-   /** 样式列表 */
-   const styleList = styles(['fontSize', 'color'])
+  /** 样式列表 */
+  const styleList = styles(['fontSize', 'color'])
 </script>
 
 <template>

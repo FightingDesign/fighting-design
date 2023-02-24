@@ -6,5 +6,7 @@ dist
 dist-icon
 node_modules
 logo
-packages/fighting-add-component/template/*
+fighting-add-component
 scripts/**
+fighting-eslint-config
+fighting-icon

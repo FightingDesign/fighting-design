@@ -10,20 +10,9 @@
     "allowJs": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "@types"
-    ]
+    "typeRoots": ["node_modules/@types", "@types"]
   },
-  "include": [
-    "components/**/*.ts",
-    "components/**/*.d.ts",
-    "components/**/*.vue",
-    "**/*.vue"
-  ]
+  "include": ["components/**/*.ts", "components/**/*.d.ts", "components/**/*.vue", "**/*.vue"]
 }
