@@ -50,6 +50,8 @@ module.exports = {
         ignores: []
       }
     ],
+    // 可以从“＜script setup＞”的根作用域中的“props”获取值将导致该值失去反应性 https://eslint.vuejs.org/rules/no-setup-props-destructure.html
+    'vue/no-setup-props-destructure': 'off',
     // 禁止使用 v-html 来防止 XSS 攻击 https://eslint.vuejs.org/rules/no-v-html.html
     'vue/no-v-html': 'error',
     // v-bind 当 value 为时需要简写形式属性 true https://eslint.vuejs.org/rules/prefer-true-attribute-shorthand.html

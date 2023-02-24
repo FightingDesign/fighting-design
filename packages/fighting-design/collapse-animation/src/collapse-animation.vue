@@ -4,8 +4,19 @@
 
   const prop = defineProps(Props)
 
-  /** 初始是否展开 */
-  const isOpened = computed((): boolean => !!prop.opened)
+  /** 获取当前的展示状态 */
+  const open: boolean = prop.opened
+
+  /**
+   * 初始是否展开
+   *
+   * 如果被禁用，则使用默认展示状态
+   *
+   * 否则使用响应式展示状态
+   */
+  const isOpened = computed((): boolean => {
+    return prop.disabled ? open : prop.opened
+  })
 
   /** 动画样式 */
   const transitionStyle = '0.3s height ease-in-out'
@@ -65,8 +76,10 @@
 
   const onLeave = (el: HTMLElement): void => {
     console.log('onLeave')
-    el.style.transition = transitionStyle
-    el.style.height = '0'
+    if (el.scrollHeight !== 0) {
+      el.style.transition = transitionStyle
+      el.style.height = '0'
+    }
   }
 
   const onAfterLeave = (el: HTMLElement): void => {
@@ -78,7 +91,7 @@
 
 <template>
   <transition
-    v-if="!disabled"
+    v-if="disabled && opened"
     @before-enter="onBeforeEnter"
     @enter="onEnter"
     @after-enter="onAfterEnter"

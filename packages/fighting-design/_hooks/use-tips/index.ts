@@ -110,7 +110,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
    */
   const createInstance = (instance: TipsInstance, placement: MessagePlacement): TipsInstance => {
     if (instances[placement]) {
-      ;(instances[placement] as TipsInstance[]).push(instance)
+      (instances[placement] as TipsInstance[]).push(instance)
     } else {
       instances[placement] = [instance]
     }
@@ -172,7 +172,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
         bottom: 0,
         visible: 0,
         close: (): void => {
-          ;((vm as ComponentInternalInstance).exposed as TipsInstance).close()
+          ((vm as ComponentInternalInstance).exposed as TipsInstance).close()
         }
       },
       props.placement as MessagePlacement
