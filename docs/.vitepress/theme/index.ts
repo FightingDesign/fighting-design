@@ -1,10 +1,9 @@
 import { h } from 'vue'
 import Theme from 'vitepress/theme'
 import './style/vitepress.scss'
-import FightingDesign from '../../../packages/fighting-design/index'
+import FightingDesign, { FStickyCard } from '../../../packages/fighting-design/index'
 import '@fighting-design/fighting-theme'
 import vpSearch from './components/vp-search.vue'
-import vpDemo from './components/vp-demo.vue'
 
 export default {
   ...Theme,
@@ -22,6 +21,6 @@ export default {
   },
   enhanceApp({ app }) {
     app.use(FightingDesign)
-    app.component('vp-demo', vpDemo)
+    app.component('vp-demo', FStickyCard)
   }
 }

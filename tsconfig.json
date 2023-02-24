@@ -15,5 +15,5 @@
     "skipLibCheck": true,
     "typeRoots": ["node_modules/@types", "@types"]
   },
-  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.vue"]
+  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.vue","docs/**/*.vue"]
 }
