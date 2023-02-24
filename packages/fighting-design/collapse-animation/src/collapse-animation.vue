@@ -4,6 +4,14 @@
 
   const prop = defineProps(Props)
 
+  /**
+   * 该组件 2023-02-24 重构一次
+   * 
+   * 以往版本实现可参考：
+   * 
+   * @see collapse-animation https://github.com/FightingDesign/fighting-design/tree/474f6f19c2b034d5f2839c110e02b8987af24a9a/packages/fighting-design/collapse-animation
+   */
+
   /** 获取当前的展示状态 */
   const open: boolean = prop.opened
 
@@ -91,7 +99,6 @@
 
 <template>
   <transition
-    v-if="disabled && opened"
     @before-enter="onBeforeEnter"
     @enter="onEnter"
     @after-enter="onAfterEnter"
