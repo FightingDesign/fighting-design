@@ -6,9 +6,9 @@
 
   /**
    * 该组件 2023-02-24 重构一次
-   * 
+   *
    * 以往版本实现可参考：
-   * 
+   *
    * @see collapse-animation https://github.com/FightingDesign/fighting-design/tree/474f6f19c2b034d5f2839c110e02b8987af24a9a/packages/fighting-design/collapse-animation
    */
 
@@ -37,7 +37,6 @@
    * @param { Object } el 元素节点
    */
   const onBeforeEnter = (el: HTMLElement): void => {
-    console.log('onBeforeEnter', el)
     el.style.transition = transitionStyle
     el.style.height = '0'
   }
@@ -50,7 +49,6 @@
    * @param { Object } el 元素节点
    */
   const onEnter = (el: HTMLElement): void => {
-    console.log('onEnter', el.scrollHeight)
     if (el.scrollHeight !== 0) {
       el.style.height = `${el.scrollHeight}px`
     } else {
@@ -67,7 +65,6 @@
   const onAfterEnter = (el: HTMLElement): void => {
     el.style.transition = ''
     el.style.height = ''
-    console.log('onAfterEnter', el)
   }
 
   /**
@@ -78,12 +75,10 @@
    * @param { Object } el 元素节点
    */
   const onBeforeLeave = (el: HTMLElement): void => {
-    console.log('beforeLeave')
     el.style.height = `${el.scrollHeight}px`
   }
 
   const onLeave = (el: HTMLElement): void => {
-    console.log('onLeave')
     if (el.scrollHeight !== 0) {
       el.style.transition = transitionStyle
       el.style.height = '0'
@@ -91,7 +86,6 @@
   }
 
   const onAfterLeave = (el: HTMLElement): void => {
-    console.log('onAfterLeave', el)
     el.style.transition = ''
     el.style.height = ''
   }
