@@ -131,6 +131,17 @@ type CardShadow = 'hover' | 'always'
 type CardClose = (target: boolean) => void
 ```
 
+## 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式
+
+| 名称                  | 描述     |
+| --------------------- | -------- |
+| `--card-border-color` | 边框颜色 |
+| `--card-background`   | 背景颜色 |
+| `--card-padding`      | 内边距   |
+| `--card-title-color`  | 标题颜色 |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
