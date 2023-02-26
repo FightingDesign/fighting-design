@@ -159,6 +159,19 @@ type DividerType = 'dashed' | 'dotted' | 'double' | 'solid'
 type DividerPosition = 'left' | 'center' | 'right'
 ```
 
+## 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式
+
+| 名称                   | 描述     |
+| ---------------------- | -------- |
+| `--divider-type`       | 线的类型 |
+| `--divider-color`      | 线条颜色 |
+| `--divider-background` | 背景颜色 |
+| `--divider-font-color` | 文字颜色 |
+| `--divider-margin`     | 边距     |
+| `--divider-height`     | 高度     |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
