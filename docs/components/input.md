@@ -269,6 +269,19 @@ type InputChange = (value: string) => void
 type InputSearch = ({ evt: Event, value: string }) => void
 ```
 
+## 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式
+
+| 名称                          | 描述               |
+| ----------------------------- | ------------------ |
+| `--input-background`          | 默认背景色         |
+| `--input-active-background`   | 选中状态背景色     |
+| `--input-text-color`          | 文字颜色           |
+| `--input-active-border-color` | 选中状态边框背景色 |
+| `--input-height`              | 高度               |
+| `--input-font-size`           | 文字大小           |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
