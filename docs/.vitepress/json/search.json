@@ -27,7 +27,7 @@
     },
     {
       "title": "更新日志",
-      "rule": "更新日志",
+      "rule": "更新日志changelogCONTRIBUTING",
       "url": "docs/changelog"
     },
     {
@@ -37,27 +37,27 @@
     },
     {
       "title": "Button 按钮",
-      "rule": "buttonButton 按钮",
+      "rule": "buttonButton按钮",
       "url": "components/button"
     },
     {
       "title": "Svg Icon 图标",
-      "rule": "svg-iconSvgIcon图标",
+      "rule": "svg-iconSvgIcon图标icon",
       "url": "components/svg-icon"
     },
     {
       "title": "Link 链接",
-      "rule": "linkLink链接",
+      "rule": "linkLink链接超链接",
       "url": "components/link"
     },
     {
       "title": "Text 文字",
-      "rule": "textText文字",
+      "rule": "textText文字文本段落",
       "url": "components/text"
     },
     {
       "title": "Layout 布局",
-      "rule": "layoutLayout布局",
+      "rule": "layoutLayout布局容器",
       "url": "components/layout"
     },
     {
@@ -97,7 +97,7 @@
     },
     {
       "title": "Switch 开关",
-      "rule": "switchSwitch开关",
+      "rule": "switchSwitch开关游戏机",
       "url": "components/switch"
     },
     {
@@ -137,7 +137,7 @@
     },
     {
       "title": "Tree 树",
-      "rule": "treeTree树",
+      "rule": "treeTree树形控件",
       "url": "components/tree"
     },
     {
@@ -147,12 +147,12 @@
     },
     {
       "title": "Rate 评分",
-      "rule": "rateRate评分",
+      "rule": "rateRate评分星星",
       "url": "components/rate"
     },
     {
       "title": "Input 输入框",
-      "rule": "inputInput输入框",
+      "rule": "inputInput输入框文本框",
       "url": "components/input"
     },
     {
@@ -187,12 +187,12 @@
     },
     {
       "title": "Alert 警告",
-      "rule": "alertAlert警告",
+      "rule": "alertAlert警告提示信息",
       "url": "components/alert"
     },
     {
       "title": "Loading 加载",
-      "rule": "loadingLoading加载",
+      "rule": "loadingLoading加载转圈圈",
       "url": "components/loading"
     },
     {
@@ -209,11 +209,6 @@
       "title": "Skeleton 骨架屏",
       "rule": "skeletonSkeleton骨架屏",
       "url": "components/skeleton"
-    },
-    {
-      "title": "Loading Bar 加载条",
-      "rule": "loading-barLoadingBar加载条",
-      "url": "components/loading-bar"
     },
     {
       "title": "BackTop 返回顶部",
@@ -252,7 +247,7 @@
     },
     {
       "title": "Divider 分隔线",
-      "rule": "dividerDivider分隔线",
+      "rule": "dividerDivider分隔线分割线",
       "url": "components/divider"
     },
     {
@@ -312,7 +307,7 @@
     },
     {
       "title": "Menu 导航菜单",
-      "rule": "menuMenu导航菜单",
+      "rule": "menuMenu导航菜单导航栏菜单栏",
       "url": "components/menu"
     },
     {
@@ -332,27 +327,27 @@
     },
     {
       "title": "Interface 接口类型",
-      "rule": "interfaceInterface 接口类型",
+      "rule": "interfaceInterface接口类型type",
       "url": "components/interface"
     },
     {
       "title": "Form 表单",
-      "rule": "formForm 表单",
+      "rule": "formForm表单",
       "url": "components/form"
     },
     {
       "title": "Box 盒子",
-      "rule": "boxBox 盒子",
+      "rule": "boxBox盒子div",
       "url": "components/box"
     },
     {
       "title": "InfiniteScrolling 无限滚动",
-      "rule": "infinite-scrollingInfinite Scrolling 无限滚动",
+      "rule": "infinite-scrollingInfiniteScrolling无限滚动",
       "url": "components/infinite-scrolling"
     },
     {
       "title": "NumberAnimate 数字动画",
-      "rule": "number-animateNumberAnimate 数字动画",
+      "rule": "number-animateNumberAnimate数字动画",
       "url": "components/number-animate"
     }
   ]
