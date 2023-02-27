@@ -11,8 +11,15 @@
 
   /** 按下回车触发搜索 */
   const onSearch = (): void => {
-    /** 过滤搜索结果 */
-    resultList.value = searchList.filter(item => {
+    /**
+     * 过滤搜索结果
+     *
+     * @see Array.prototype.filter() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+     */
+    resultList.value = searchList.filter((item: { title: string; rule: string; url: string }): boolean => {
+      /**
+       * @see Array.prototype.includes() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+       */
       return item.rule.includes(value.value)
     })
 
@@ -21,10 +28,12 @@
       isShow.value = true
 
       setTimeout((): void => {
-        const link = document.querySelectorAll('.vp-search__link')
+        /** 获取到所有的 a 标签 */
+        const link: NodeListOf<HTMLLinkElement> = document.querySelectorAll('.vp-search__link')
 
+        /** 如果只有一个则直接跳转 */
         if (link.length === 1) {
-          ;(link[0] as HTMLElement).click()
+          link[0].click()
         }
       }, 200)
     }
@@ -39,7 +48,7 @@
 
 <template>
   <div class="vp-search">
-    <f-input v-model="value" type="text" placeholder="搜索组件" :on-enter="onSearch" />
+    <f-input v-model="value" type="text" autocomplete="off" placeholder="搜索组件" :on-enter="onSearch" />
 
     <!-- 搜索结果 -->
     <div v-if="isShow && resultList && resultList.length" class="vp-search__result" @click.stop="hiddenResult">
