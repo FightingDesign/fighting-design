@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 优化 `f-expand-card` 组件细节
+- `f-expand-card` 组件新增 `on-change` 配置项
+
 ## 0.26.0 (2023-02-24)
 
 - 优化 `f-back-top` 组件实现

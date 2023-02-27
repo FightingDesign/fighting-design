@@ -6,6 +6,7 @@
 
 .f-expand-card {
   display: flex;
+  position: relative;
   height: var(--expand-card-height);
   width: var(--expand-card-width);
 
@@ -17,7 +18,7 @@
   // 圆角
   &__round {
     .f-expand-card__item {
-      border-radius: 25px;
+      border-radius: 27px;
     }
   }
 
@@ -39,6 +40,7 @@
       font-size: 16px;
       position: absolute;
       bottom: 20px;
+      font-weight: 600;
       left: 20px;
       transition: opacity 0.2s;
       opacity: 0;

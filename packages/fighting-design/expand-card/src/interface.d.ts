@@ -13,3 +13,12 @@ export interface ExpandCardImageListItem {
 
 /** 掺入的图片列表类型接口 */
 export type ExpandCardImageList = ExpandCardImageListItem[] | string[]
+
+/**
+ * 点击切换执行的回调
+ * 
+ * @param { Object } evt 事件对象
+ * @param { number } index 索引
+ * @param { Object } item 每一项信息
+ */
+export type ExpandCardChange = (evt: MouseEvent, index: number, item: ExpandCardImageListItem) => void

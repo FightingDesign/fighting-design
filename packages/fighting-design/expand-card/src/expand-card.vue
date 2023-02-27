@@ -1,8 +1,8 @@
 <script lang="ts" setup name="FExpandCard">
   import { Props } from './props'
   import { computed, ref } from 'vue'
-  import { isString, isArray, warning } from '../../_utils'
-  import { useList } from '../../_hooks'
+  import { isString, isArray, warning, isObject } from '../../_utils'
+  import { useList, useRun } from '../../_hooks'
   import type { ExpandCardImageListItem } from './interface'
 
   const prop = defineProps(Props)
@@ -15,10 +15,19 @@
   /**
    * 切换卡片
    *
+   * @param { Object } evt 事件对象
    * @param { number } index 索引
+   * @param { Object } item 每一项信息
    */
-  const switchExpandCard = (index: number): void => {
+  const handelClick = (evt: MouseEvent, index: number, item: ExpandCardImageListItem): void => {
     currExpandIndex.value = index
+
+    /**
+     * 点击执行 onChange 方法
+     *
+     * 返回时间对象、当前点击的索引、每一项信息
+     */
+    useRun(prop.onChange, evt, index, item)
   }
 
   /** 将传入的 imageList 改变成指定的类型进行渲染 */
@@ -26,7 +35,7 @@
     const { imageList } = prop
 
     /** 提前检测数据结构是否正确 */
-    if (!imageList || !imageList.length || !isArray(imageList)) {
+    if (!isArray(imageList)) {
       if (__DEV__) {
         warning('f-expand-card', '`image-list` is not a array.')
       }
@@ -36,13 +45,23 @@
     }
 
     /**
+     * 格式化数组，将数组转换为指定的格式
+     *
      * @see Array.prototype.map() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map
      */
     return imageList.map((item: string | ExpandCardImageListItem): ExpandCardImageListItem => {
+      /** 如果每一项是字符串，则代表图片地址 */
       if (isString(item)) {
         return { url: item }
       }
-      return item
+
+      /** 如果是对象，必须内部带有图片地址 */
+      if (isObject(item) && item.url) {
+        return item
+      }
+
+      /** 否则返回空地址的对象 */
+      return { url: '' }
     })
   })
 
@@ -60,11 +79,11 @@
       :key="index"
       :class="['f-expand-card__item', { 'f-expand-card__active': index === currExpandIndex }]"
       :style="{ backgroundImage: `url(${item.url})` }"
-      @click="switchExpandCard(index)"
+      @click="handelClick($event, index, item)"
     >
-      <h3 v-if="item.text" class="f-expand-card__title" :style="{ color }">
+      <div v-if="item.text" class="f-expand-card__title">
         {{ item.text }}
-      </h3>
+      </div>
     </div>
   </div>
 </template>

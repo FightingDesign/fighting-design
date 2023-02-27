@@ -1,6 +1,6 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setNumberProp, setArrayProp } from '../../_utils'
+import { setBooleanProp, setStringNumberProp, setStringProp, setNumberProp, setArrayProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import type { ExpandCardImageList } from './interface'
+import type { ExpandCardImageList, ExpandCardChange } from './interface'
 
 export const Props = {
   /** 需要展示的图片列表 */
@@ -16,7 +16,9 @@ export const Props = {
   /** 自定义宽度 */
   width: setStringNumberProp(),
   /** 自定义高度 */
-  height: setStringNumberProp()
+  height: setStringNumberProp(),
+  /** 点击切换的回调 */
+  onChange: setFunctionProp<ExpandCardChange>()
 } as const
 
 /** expand-card 组件 props 类型 */
