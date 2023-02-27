@@ -120,15 +120,16 @@
 
 ## Attributes
 
-| 参数           | 说明                      | 类型                                                     | 可选值 | 默认值 |
-| -------------- | ------------------------- | -------------------------------------------------------- | ------ | ------ |
-| `image-list`   | 需要展示的图片列表        | <a href="#expandcardimagelist ">ExpandCardImageList </a> | ——     | []     |
-| `round`        | 是否显示圆角              | boolean                                                  | ——     | false  |
-| `height`       | 自定义高度                | string / number                                          | ——     | ——     |
-| `width`        | 自定义宽度                | string / number                                          | ——     | ——     |
-| `color`        | 左下角文字的颜色          | string                                                   | ——     | ——     |
-| `expand-index` | 默认展开的索引，从 0 开始 | number                                                   | ——     | 0      |
-| `vertical`     | 是否纵向排列              | boolean                                                  | ——     | false  |
+| 参数           | 说明                      | 类型                                                   | 可选值 | 默认值 |
+| -------------- | ------------------------- | ------------------------------------------------------ | ------ | ------ |
+| `image-list`   | 需要展示的图片列表        | <a href="#expandcardimagelist">ExpandCardImageList</a> | ——     | []     |
+| `round`        | 是否显示圆角              | boolean                                                | ——     | false  |
+| `height`       | 自定义高度                | string / number                                        | ——     | ——     |
+| `width`        | 自定义宽度                | string / number                                        | ——     | ——     |
+| `color`        | 左下角文字的颜色          | string                                                 | ——     | ——     |
+| `expand-index` | 默认展开的索引，从 0 开始 | number                                                 | ——     | 0      |
+| `vertical`     | 是否纵向排列              | boolean                                                | ——     | false  |
+| `on-change`    | 切换时执行的回调          | <a href="#expandcardchange ">ExpandCardChange</a>      | ——     | ——     |
 
 ## Interface
 
@@ -151,6 +152,12 @@ interface ExpandCardImageListItem {
 
 ```ts
 type ExpandCardImageList = ExpandCardImageListItem[] | string[]
+```
+
+### ExpandCardChange
+
+```ts
+type ExpandCardChange = (evt: MouseEvent, index: number, item: ExpandCardImageListItem) => void
 ```
 
 ## 样式变量
