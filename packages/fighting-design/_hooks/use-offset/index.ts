@@ -1,6 +1,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { EMIT_UPDATE } from '../../_tokens'
 import type { Ref } from 'vue'
+import type { SliderProps } from '../../slider'
 import type { UseOffsetReturn } from './interface'
 
 export * from './interface.d'
@@ -16,7 +17,7 @@ export * from './interface.d'
  */
 export const useOffset = (
   el: Ref<HTMLDivElement | undefined>,
-  step: Ref<number>,
+  prop: SliderProps,
   emit: (event: 'update:modelValue', val: number) => void
 ): UseOffsetReturn => {
   /** 距离左侧的偏移量 */
@@ -100,10 +101,10 @@ export const useOffset = (
      *
      * @see Math.round() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/round
      */
-    const steps: number = Math.round(dot / step.value)
+    const steps: number = Math.round(dot / prop.step)
 
     /** 单步的步长 * 当前步数 = 当前走的百分比 */
-    const value: number = steps * step.value
+    const value: number = steps * prop.step
 
     offset.value = value
 

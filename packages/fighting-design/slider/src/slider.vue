@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FSlider">
   import { Props } from './props'
-  import { onMounted, ref, toRef } from 'vue'
+  import { onMounted, ref } from 'vue'
   import { isNumber } from '../../_utils'
   import { useList, useSlider, useOffset } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
@@ -18,7 +18,7 @@
   /** 滑块小球 dom 元素 */
   const circleEl = ref<HTMLDivElement>()
 
-  const { offset, offsetLeft, setPosition } = useOffset(sliderEl, toRef(prop, 'step'), emit)
+  const { offset, offsetLeft, setPosition } = useOffset(sliderEl, prop, emit)
 
   onMounted((): void => {
     /** 如果元素节点存在 */

@@ -14,7 +14,7 @@
   <!-- <div style="width: 500px; padding-left:400px;"> -->
   <div class="admin">
     <h2>{{ value1 }}</h2>
-    <f-slider v-if="show" v-model="value1" :min="0" :max="100" />
+    <f-slider v-if="show" v-model="value1" :min="20" :max="90" />
   </div>
 </template>
 
