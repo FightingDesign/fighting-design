@@ -2,6 +2,14 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.26.1 (2023-02-28)
+
+**修复**
+
+- 修复 `f-slider` 组件偏移量错误的问题
+
+**其它**
+
 - 优化 `f-expand-card` 组件细节
 - `f-expand-card` 组件新增 `on-change` 配置项
 

@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.26.1 (2023-02-28)
+
+**Fix**
+
+- Fix the `f-slider` component offset error
+
+**Others**
+
+- Optimize `f-expand-card` component details
+- `f-expand-card` component adds `on-change` configuration item
+
 ## 0.26.0 (2023-02-24)
 
 - Optimize `f-back-top` component implementation

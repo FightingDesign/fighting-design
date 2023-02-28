@@ -22,7 +22,7 @@
   const offset = ref<number>(0)
 
   /**
-   * 滑动条宽度
+   * 获取滑动条宽度和偏移量
    *
    * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
    * @see HTMLElement.offsetLeft https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetLeft
