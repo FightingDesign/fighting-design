@@ -38,23 +38,26 @@ export type TipsInstances = Partial<{
  *
  * @param { Object | string } options 传入选项参数或者字符串
  */
-type RenderInstanceFn = (options: TipsOptions | string) => TipsInstance
+interface RenderInstanceFn {
+  (options: TipsOptions | string): TipsInstance
+}
 
 /**
  * renderInstance 方法状态
  *
  * @param { string } text 提示信息
  */
-type RenderInstanceFnWith = Partial<{
-  [key in FightingType]: (text: string) => TipsInstance
-}>
+type RenderInstanceFnWith = {
+  // [key in FightingType]: (text: string) => TipsInstance
+  [key in FightingType]: (text: string) => void
+}
 
 /**
  * renderInstance 方法类型
  *
  * 具有两种状态
  */
-export type RenderInstance = RenderInstanceFn & RenderInstanceFnWith
+export type RenderInstance = RenderInstanceFn & Partial<RenderInstanceFnWith>
 
 /**
  * useMassageManage 返回值类型接口
