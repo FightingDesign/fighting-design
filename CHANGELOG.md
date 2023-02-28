@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复**
+
+- 修复 `f-slider` 组件偏移量错误的问题
+
 ## 0.26.1 (2023-02-28)
 
 **修复**

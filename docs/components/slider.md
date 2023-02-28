@@ -16,12 +16,13 @@
 ::: demo
 
 <template #source>
-{{value1}}
+{{ value1 }}
 <f-slider v-model="value1" />
 </template>
 
 ```html
 <template>
+  {{ value1 }}
   <f-slider v-model="value1" />
 </template>
 
@@ -41,11 +42,13 @@
 ::: demo
 
 <template #source>
+{{ value2 }}
 <f-slider v-model="value2" :min="40" :max="60" />
 </template>
 
 ```html
 <template>
+  {{ value2 }}
   <f-slider v-model="value2" :min="40" :max="60" />
 </template>
 
@@ -65,11 +68,13 @@
 ::: demo
 
 <template #source>
+{{ value3 }}
 <f-slider v-model="value3" :step="10" />
 </template>
 
 ```html
 <template>
+  {{ value3 }}
   <f-slider v-model="value3" :step="10" />
 </template>
 

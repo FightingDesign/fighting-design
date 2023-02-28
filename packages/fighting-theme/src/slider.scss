@@ -6,7 +6,6 @@
 
 .f-slider {
   position: relative;
-  height: 10px;
   width: var(--slider-width);
   border-radius: 30px;
   margin: 0;
@@ -45,11 +44,6 @@
       bottom: 0;
       margin: auto 0;
       z-index: 10;
-
-      // 鼠标按下
-      &:active {
-        cursor: grabbing;
-      }
     }
   }
 
