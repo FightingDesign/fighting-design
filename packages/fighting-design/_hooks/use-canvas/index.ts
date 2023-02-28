@@ -25,7 +25,7 @@ export const useCanvas = (): UseCanvasReturn => {
      *
      * @see Window.devicePixelRatio https://developer.mozilla.org/zh-CN/docs/Web/API/Window/devicePixelRatio
      */
-    const ratio: number = (window && window.devicePixelRatio) || 1
+    const ratio: number = window.devicePixelRatio || 1
 
     canvas.width = props.width * ratio
     canvas.height = props.height * ratio

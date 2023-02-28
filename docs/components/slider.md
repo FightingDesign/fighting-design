@@ -16,6 +16,7 @@
 ::: demo
 
 <template #source>
+{{value1}}
 <f-slider v-model="value1" />
 </template>
 

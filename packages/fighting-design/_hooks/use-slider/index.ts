@@ -1,4 +1,5 @@
 import type { UseSliderReturn, UseSliderCallback } from './interface'
+import type { Ref } from 'vue'
 
 export * from './interface.d'
 
@@ -10,7 +11,7 @@ export * from './interface.d'
  * @param { number } left 距离左侧的偏移量
  * @returns { Function } 开始监听滚动的方法
  */
-export const useSlider = (el: HTMLElement, callback: UseSliderCallback, left: number): UseSliderReturn => {
+export const useSlider = (el: HTMLElement, callback: UseSliderCallback, left: Ref<number>): UseSliderReturn => {
   /**
    * 移动时触发的方法
    *
@@ -23,7 +24,8 @@ export const useSlider = (el: HTMLElement, callback: UseSliderCallback, left: nu
      *
      * 水平坐标 - 左侧偏移量 = 实际坐标
      */
-    callback(evt.clientX - left)
+    // console.log(evt.clientX, left.value)
+    callback(evt.clientX - left.value)
   }
 
   /**

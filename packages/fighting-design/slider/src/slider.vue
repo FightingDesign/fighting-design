@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FSlider">
   import { Props } from './props'
-  import { onMounted, ref, computed } from 'vue'
+  import { onMounted, ref, onUnmounted } from 'vue'
   import { isNumber } from '../../_utils'
   import { useList, useSlider } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
@@ -18,22 +18,49 @@
   /** 滑块小球 dom 元素 */
   const sliderCircle = ref<HTMLDivElement>()
 
-  /** 便宜距离 */
+  /** 偏移距离 */
   const offset = ref<number>(0)
 
-  /**
-   * 获取滑动条宽度和偏移量
-   *
-   * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
-   * @see HTMLElement.offsetLeft https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetLeft
-   */
-  const sliderOffset = computed((): { offsetWidth: number; offsetLeft: number } => {
-    /** 获取一个元素的布局宽度 */
-    const offsetWidth: number = parseInt((sliderEl.value as HTMLDivElement).offsetWidth + '')
-    /** 获取节点的左边界偏移的像素值 */
-    const offsetLeft: number = parseInt((sliderEl.value as HTMLDivElement).offsetLeft + '')
+  const offsetLeft = ref<number>(0)
 
-    return { offsetWidth, offsetLeft } as const
+  /**
+   * 获取当前节点距离左侧的偏移量
+   *
+   * @see HTMLElement.offsetParent https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetParent
+   * @see HTMLElement.offsetLeft https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetLeft
+   * @param { Object } el 元素节点
+   * @returns { number } 偏移距离
+   */
+  const getElementLeft = (el: HTMLDivElement): number => {
+    /** 当前元素左边距 */
+    let left: number = el.offsetLeft
+    /** 当前元素的父级元素 */
+    let parent: Element | null = el.offsetParent
+
+    while (parent !== null) {
+      /** 累加左边距 */
+      left += (parent as HTMLElement).offsetLeft
+      /** 依次获取父元素 */
+      parent = (parent as HTMLElement).offsetParent
+    }
+
+    offsetLeft.value = left
+    return left
+  }
+
+  const windowResize = (): void => {
+    offsetLeft.value = getElementLeft(sliderEl.value as HTMLDivElement)
+  }
+
+  onMounted((): void => {
+    offsetLeft.value = getElementLeft(sliderEl.value as HTMLDivElement)
+    window.addEventListener('load', windowResize)
+    window.addEventListener('resize', windowResize)
+  })
+
+  /** 组件实例被卸载之后调用 */
+  onUnmounted((): void => {
+    window.removeEventListener('resize', windowResize)
   })
 
   /** 类名列表 */
@@ -81,12 +108,12 @@
           if (prop.disabled) return
 
           /** 获取到当前拖动的占比 */
-          const percentage: number = (num * 100) / sliderOffset.value.offsetWidth
+          const percentage: number = (num * 100) / (sliderEl.value as HTMLDivElement).clientWidth
 
           /** 重新设置样式位置 */
           setPosition(percentage)
         },
-        sliderOffset.value.offsetLeft
+        offsetLeft
       )
 
       startListen()
