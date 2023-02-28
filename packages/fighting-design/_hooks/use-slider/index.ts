@@ -1,4 +1,4 @@
-import type { UseSliderReturn, UseSliderCallback } from './interface'
+import type { UseSliderCallback } from './interface'
 import type { Ref } from 'vue'
 
 export * from './interface.d'
@@ -11,7 +11,7 @@ export * from './interface.d'
  * @param { number } left 距离左侧的偏移量
  * @returns { Function } 开始监听滚动的方法
  */
-export const useSlider = (el: HTMLElement, callback: UseSliderCallback, left: Ref<number>): UseSliderReturn => {
+export const useSlider = (el: HTMLElement, left: Ref<number>, callback: UseSliderCallback): void => {
   /**
    * 移动时触发的方法
    *
@@ -24,7 +24,6 @@ export const useSlider = (el: HTMLElement, callback: UseSliderCallback, left: Re
      *
      * 水平坐标 - 左侧偏移量 = 实际坐标
      */
-    // console.log(evt.clientX, left.value)
     callback(evt.clientX - left.value)
   }
 
@@ -60,9 +59,9 @@ export const useSlider = (el: HTMLElement, callback: UseSliderCallback, left: Re
    *
    * @see mousedown https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mousedown_event
    */
-  const startListen = (): void => {
-    el.addEventListener('mousedown', start, { passive: false })
-  }
+  // const startListen = (): void => {
+  el.addEventListener('mousedown', start, { passive: false })
+  // }
 
-  return startListen
+  // return startListen
 }
