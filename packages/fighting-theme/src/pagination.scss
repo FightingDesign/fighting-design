@@ -6,6 +6,7 @@
 
   &__prev-more > *,
   &__next-more > * {
+    // https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events
     pointer-events: none;
   }
 

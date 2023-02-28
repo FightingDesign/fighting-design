@@ -25,9 +25,15 @@
    * 滑动条宽度
    *
    * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
+   * @see HTMLElement.offsetLeft https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetLeft
    */
-  const sliderWidth = computed((): number => {
-    return parseInt((sliderEl.value as HTMLDivElement).offsetWidth + '')
+  const sliderOffset = computed((): { offsetWidth: number; offsetLeft: number } => {
+    /** 获取一个元素的布局宽度 */
+    const offsetWidth: number = parseInt((sliderEl.value as HTMLDivElement).offsetWidth + '')
+    /** 获取节点的左边界偏移的像素值 */
+    const offsetLeft: number = parseInt((sliderEl.value as HTMLDivElement).offsetLeft + '')
+
+    return { offsetWidth, offsetLeft } as const
   })
 
   /** 类名列表 */
@@ -69,15 +75,19 @@
     /** 如果元素节点存在 */
     if (sliderCircle.value) {
       /** 开始监听 dom 按下时的事件 */
-      const startListen = useSlider(sliderCircle.value, (num: number): void => {
-        if (prop.disabled) return
+      const startListen = useSlider(
+        sliderCircle.value,
+        (num: number): void => {
+          if (prop.disabled) return
 
-        /** 获取到当前拖动的占比 */
-        const percentage: number = (num * 100) / sliderWidth.value
+          /** 获取到当前拖动的占比 */
+          const percentage: number = (num * 100) / sliderOffset.value.offsetWidth
 
-        /** 重新设置样式位置 */
-        setPosition(percentage)
-      })
+          /** 重新设置样式位置 */
+          setPosition(percentage)
+        },
+        sliderOffset.value.offsetLeft
+      )
 
       startListen()
       setPosition(((prop.modelValue - prop.min) * 100) / (prop.max - prop.min))

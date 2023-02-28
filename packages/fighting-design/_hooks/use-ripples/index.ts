@@ -104,8 +104,8 @@ export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesO
      *
      * 其它写法
      *
-     * const x: number = this.evt.clientX - (this.evt.target as HTMLElement).offsetLeft
-     * const y: number = this.evt.clientY - (this.evt.target as HTMLElement).offsetTop
+     * const x: number = evt.clientX - (evt.target as HTMLElement).offsetLeft
+     * const y: number = evt.clientY - (evt.target as HTMLElement).offsetTop
      *
      * @see clientX https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
      * @see clientY https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientY

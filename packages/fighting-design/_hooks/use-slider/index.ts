@@ -7,16 +7,23 @@ export * from './interface.d'
  *
  * @param { Object } el 滑块元素节点
  * @param { Function } callback 回调方法
+ * @param { number } left 距离左侧的偏移量
  * @returns { Function } 开始监听滚动的方法
  */
-export const useSlider = (el: HTMLElement, callback: UseSliderCallback): UseSliderReturn => {
+export const useSlider = (el: HTMLElement, callback: UseSliderCallback, left: number): UseSliderReturn => {
   /**
    * 移动时触发的方法
    *
+   * @see MouseEvent.clientX https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent/clientX
    * @param { Object } evt 事件对象
    */
   const move = (evt: MouseEvent): void => {
-    callback(evt.clientX)
+    /**
+     * MouseEvent.clientX 可获取客户端区域的水平坐标
+     *
+     * 水平坐标 - 左侧偏移量 = 实际坐标
+     */
+    callback(evt.clientX - left)
   }
 
   /**

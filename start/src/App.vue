@@ -1,20 +1,12 @@
 <script lang="ts" setup>
-  const imageList = [
-    {
-      url: 'https://tianyuhao.cn/images/fighting-design/1.jpg',
-      text: '122222222222223'
-    },
-    'https://tianyuhao.cn/images/fighting-design/2.jpg',
-    'https://tianyuhao.cn/images/fighting-design/2.jpg',
-    'https://tianyuhao.cn/images/fighting-design/2.jpg',
-    'https://tianyuhao.cn/images/fighting-design/3.jpg'
-  ]
+  import { ref } from 'vue'
 
-  const change = (evt, index, item): void => {
-    console.log(evt, index, item)
-  }
+  const value1 = ref(50)
 </script>
 
 <template>
-  <f-expand-card round :image-list="imageList" :on-change="change" />
+  <div style="width: 500px; margin: auto">
+    <h2>{{ value1 }}</h2>
+    <f-slider v-model="value1" :min="0" :max="100" />
+  </div>
 </template>
