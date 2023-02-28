@@ -32,3 +32,10 @@ export const EMIT_FILES = 'update:files' as const
  * 用于更新时间
  */
 export const EMIT_TIME = 'update:time' as const
+
+/**
+ * emit 回调方法名称
+ *
+ * 用于更新页码
+ */
+export const EMIT_CURRENT = 'update:current' as const

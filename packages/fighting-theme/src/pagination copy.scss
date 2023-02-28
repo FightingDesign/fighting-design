@@ -4,37 +4,6 @@
   vertical-align: middle;
   user-select: none;
 
-  // 带有背景色的
-  &.f-pagination__background {
-    .f-pagination__pages {
-      .f-pagination__item {
-        margin: 0 5px;
-        background-color: #f8f8f8;
-
-        // 选中状态
-        &-active {
-          color: #fff;
-          background-color: #2d5af1;
-        }
-      }
-    }
-  }
-
-  // 带有背景色的
-  &.f-pagination__round {
-    .f-pagination__pages {
-      .f-pagination__item {
-        border-radius: 50%;
-      }
-    }
-  }
-
-  // 禁用状态
-  &.f-pagination__disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
   &__prev-more > *,
   &__next-more > * {
     // https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events
@@ -48,7 +17,7 @@
     padding-left: 0;
 
     // 默认的每一项
-    .f-pagination__item {
+    .f-pagination__pages-item {
       display: inline-flex;
       justify-content: center;
       align-items: center;
@@ -62,6 +31,34 @@
       &-active {
         color: #2d5af1;
       }
+    }
+
+    // 圆角的
+    &.f-pagination__pages-round {
+      .f-pagination__pages-item {
+        border-radius: 50%;
+      }
+    }
+
+    // 带有背景色的
+    &.f-pagination__pages-background {
+      // 带有背景色的每一项元素
+      .f-pagination__pages-item {
+        margin: 0 5px;
+        background-color: #f8f8f8;
+
+        // 选中状态
+        &-active {
+          color: #fff;
+          background-color: #2d5af1;
+        }
+      }
+    }
+
+    // 禁用状态
+    &.f-pagination__pages-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 
