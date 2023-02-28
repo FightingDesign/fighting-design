@@ -7,7 +7,7 @@ Fighting Design 内部导出的一些类型接口
 用于类名列表集合类型
 
 ```ts
-type ClassList = (string | Record<string, unknown>)[]
+type ClassList = readonly (string | Record<string, unknown>)[]
 ```
 
 ## FightingType
