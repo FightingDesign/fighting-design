@@ -19,7 +19,6 @@ export const useOffset = (
   step: Ref<number>,
   emit: (event: 'update:modelValue', val: number) => void
 ): UseOffsetReturn => {
-
   /** 距离左侧的偏移量 */
   const offsetLeft = ref<number>(0)
 

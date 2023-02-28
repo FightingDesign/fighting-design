@@ -12,13 +12,13 @@
 
   const { styles, classes } = useList(prop, 'slider')
 
-  /** dom 元素 */
+  /** 输入条元素 */
   const sliderEl = ref<HTMLDivElement>()
 
   /** 滑块小球 dom 元素 */
   const circleEl = ref<HTMLDivElement>()
 
-  const { offsetLeft, setPosition, offset } = useOffset(sliderEl, toRef(prop, 'step'), emit)
+  const { offset, offsetLeft, setPosition } = useOffset(sliderEl, toRef(prop, 'step'), emit)
 
   onMounted((): void => {
     /** 如果元素节点存在 */

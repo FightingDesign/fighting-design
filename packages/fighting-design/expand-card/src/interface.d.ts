@@ -16,7 +16,7 @@ export type ExpandCardImageList = ExpandCardImageListItem[] | string[]
 
 /**
  * 点击切换执行的回调
- * 
+ *
  * @param { Object } evt 事件对象
  * @param { number } index 索引
  * @param { Object } item 每一项信息
