@@ -103,14 +103,15 @@
 
 ## Select Attributes
 
-| 参数                   | 说明           | 类型                                             | 可选值 | 默认值 |
-| ---------------------- | -------------- | ------------------------------------------------ | ------ | ------ |
-| `v-model / modelValue` | 绑定值         | <a href="#selectmodelvalue">SelectModelValue</a> | ——     | ——     |
-| `width`                | 自定义宽度     | string / number                                  | ——     | ——     |
-| `name`                 | 原生 name 属性 | string                                           | ——     | ——     |
-| `placeholder`          | 占位符         | string                                           | ——     | ——     |
-| `clear`                | 是否可清除     | boolean                                          | ——     | false  |
-| `disabled`             | 是否禁用       | boolean                                          | ——     | false  |
+| 参数                   | 说明           | 类型                                                               | 可选值                          | 默认值 |
+| ---------------------- | -------------- | ------------------------------------------------------------------ | ------------------------------- | ------ |
+| `v-model / modelValue` | 绑定值         | <a href="#selectmodelvalue">SelectModelValue</a>                   | ——                              | ——     |
+| `width`                | 自定义宽度     | string / number                                                    | ——                              | ——     |
+| `name`                 | 原生 name 属性 | string                                                             | ——                              | ——     |
+| `placeholder`          | 占位符         | string                                                             | ——                              | ——     |
+| `clear`                | 是否可清除     | boolean                                                            | ——                              | false  |
+| `disabled`             | 是否禁用       | boolean                                                            | ——                              | false  |
+| `size`                 | 尺寸           | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
 
 ## Select Slots
 
