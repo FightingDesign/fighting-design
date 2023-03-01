@@ -220,8 +220,8 @@
     </template>
 
     <!-- 上一页按钮 -->
-    <button class="f-pagination__prev" :disabled="disabled" @click="handelTurnPages('prev')">
-      <f-svg-icon :icon="prevIcon || FIconChevronLeftVue" />
+    <button class="f-pagination__button" :disabled="disabled" @click="handelTurnPages('prev')">
+      <f-svg-icon :size="14" :icon="prevIcon || FIconChevronLeftVue" />
     </button>
 
     <!-- 分页主内容 -->
@@ -278,8 +278,8 @@
     </div>
 
     <!-- 下一页按钮 -->
-    <button class="f-pagination__next" :disabled="disabled" @click="handelTurnPages('next')">
-      <f-svg-icon :icon="nextIcon || FIconChevronRightVue" />
+    <button class="f-pagination__button" :disabled="disabled" @click="handelTurnPages('next')">
+      <f-svg-icon :size="14" :icon="nextIcon || FIconChevronRightVue" />
     </button>
 
     <!-- 快速跳转搜索框 -->
