@@ -2,6 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.26.2 (2023-03-01)
+
+**修复**
+
+- 修复 `f-slider` 组件偏移量错误的问题
+
+**其它**
+
+- `f-select` 组件新增 `size` 配置项
+- 优化 `f-pagination` 组件
+
 ## 0.26.1 (2023-02-28)
 
 **修复**

@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.26.2 (2023-03-01)
+
+**Fix**
+
+- Fix the `f-slider` component offset error
+
+**Others**
+
+- Add a `size` configuration item for the `f-select` component
+- Optimize `f-pagination` components
+
 ## 0.26.1 (2023-02-28)
 
 **Fix**
