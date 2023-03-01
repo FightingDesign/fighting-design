@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { computed, ref, watchEffect } from 'vue'
   import { isNumber } from '../../_utils'
-  import { useList } from '../../_hooks'
+  import { useList, useRun } from '../../_hooks'
   import { FIconChevronLeftVue, FIconChevronRightVue, FIconMenuMeatball } from '../../_svg'
   import { FInput } from '../../input'
   import { FSelect } from '../../select'
@@ -106,14 +106,14 @@
       /** 下一页切换 */
       next: (): void => {
         const newCurrent = prop.current === maxCount.value ? maxCount.value : prop.current + 1
-        prop.onNext && prop.onNext(newCurrent, prop.pageSize)
         emit(EMIT_CURRENT, newCurrent)
+        useRun(prop.onNext, newCurrent, prop.pageSize)
       },
       /**上一页切换 */
       prev: (): void => {
         newCurrent = prop.current === 1 ? 1 : prop.current - 1
-        prop.onPrev && prop.onPrev(newCurrent, prop.pageSize)
         emit(EMIT_CURRENT, newCurrent)
+        useRun(prop.onPrev, newCurrent, prop.pageSize)
       }
     } as const
 
@@ -124,11 +124,12 @@
    * 点击指定页面的回调
    *
    * @param { number } newCurrent 最新页码数
+   * @param { Object } evt 事件对象
    */
-  const handelChange = (newCurrent: number): void => {
+  const handelChange = (newCurrent: number, evt: MouseEvent): void => {
     if (prop.disabled) return
     emit(EMIT_CURRENT, newCurrent)
-    prop.onChange && prop.onChange(newCurrent, prop.pageSize)
+    useRun(prop.onChange, newCurrent, prop.pageSize, evt)
   }
 
   /** 快速跳转框确定值的行为目前设定为：失焦或 enter 确定 */
@@ -161,9 +162,9 @@
   })
 
   /**
-   * 点击 ul 内部元素事件
+   * 点击每一项页码时执行的回调
    *
-   * 此处采用事件委托
+   * 采用事件委托
    *
    * @param { Object } evt 事件对象
    */
@@ -173,19 +174,33 @@
 
     /** 当前点击的元素节点 */
     const target: HTMLElement = evt.target as HTMLElement
+
+    console.log(target)
+
     /** 最新的页数 */
     let newPage = Number(target.textContent)
     /** 第几页开始折叠 */
     let pagerCount: number = prop.pagerCount
     /** 当前选中页码 */
     let current: number = prop.current
+    /** 计数页码 */
     let countPager: number = pagerCount - 2
 
-    if (target.className.includes('f-pagination__prev-more')) {
+    /**
+     * 如果点击的是前一个省略号
+     *
+     * 也就行需要往前切换页码
+     */
+    if (target.className.includes('f-pagination__prev')) {
       newPage = current - countPager
     }
 
-    if (target.className.includes('f-pagination__next-more')) {
+    /**
+     * 如果点击是是后一个省略号
+     *
+     * 也就是需要往后切换页码
+     */
+    if (target.className.includes('f-pagination__next')) {
       newPage = current + countPager
     }
 
@@ -200,7 +215,7 @@
 
     if (newPage !== current) {
       emit(EMIT_CURRENT, newPage)
-      prop.onChange && prop.onChange(newPage, prop.pageSize)
+      useRun(prop.onChange, newPage, prop.pageSize, evt)
     }
   }
 
@@ -225,7 +240,7 @@
     </button>
 
     <!-- 分页主内容 -->
-    <div v-if="total > 0" class="f-pagination__pages" @click="handelClick">
+    <div v-if="total > 0" class="f-pagination__pages" @click="handelClick($event)">
       <!-- 第一页 -->
       <div
         :class="[
@@ -239,7 +254,7 @@
       </div>
 
       <!-- 省略号 -->
-      <div v-if="showPrevMore" class="f-pagination__item f-pagination__prev-more">
+      <div v-if="showPrevMore" class="f-pagination__item f-pagination__prev">
         <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
       </div>
 
@@ -253,13 +268,13 @@
             'f-pagination__item-active': current === item
           }
         ]"
-        @click="handelChange(item)"
+        @click="handelChange(item, $event)"
       >
         {{ item }}
       </div>
 
       <!-- 省略号 -->
-      <div v-if="showNextMore" class="f-pagination__item f-pagination__next-more">
+      <div v-if="showNextMore" class="f-pagination__item f-pagination__next">
         <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
       </div>
 

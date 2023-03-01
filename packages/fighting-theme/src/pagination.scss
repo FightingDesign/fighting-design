@@ -58,8 +58,8 @@
     }
   }
 
-  &__prev-more > *,
-  &__next-more > * {
+  &__prev > *,
+  &__next > * {
     // https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events
     pointer-events: none;
   }

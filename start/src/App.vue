@@ -4,6 +4,9 @@
   const current = ref(1)
   const total = ref(100)
 
+  const change = (n, v, m) => {
+    console.log(n, v, m)
+  }
 </script>
 
 <template>
