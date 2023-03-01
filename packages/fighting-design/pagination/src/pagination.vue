@@ -117,7 +117,7 @@
       }
     } as const
 
-    map[target] && map[target]()
+    useRun(map[target])
   }
 
   /**
@@ -146,7 +146,7 @@
   watchEffect((): void => {
     /** 当页码超过多少时开始展开省略符号 */
     const pagerCount = Number(prop.pagerCount)
-    let halfPagerCount = (pagerCount - 1) / 2
+    let halfPagerCount: number = (pagerCount - 1) / 2
 
     showPrevMore.value = false
     showNextMore.value = false
@@ -174,9 +174,6 @@
 
     /** 当前点击的元素节点 */
     const target: HTMLElement = evt.target as HTMLElement
-
-    console.log(target)
-
     /** 最新的页数 */
     let newPage = Number(target.textContent)
     /** 第几页开始折叠 */
@@ -229,7 +226,7 @@
   <div :class="classList">
     <!-- 下拉菜单选择每页大小 -->
     <template v-if="pageSizes && pageSizes.length">
-      <f-select v-model="pagesLen" :width="60" :disabled="disabled">
+      <f-select v-model="pagesLen" :width="60" :disabled="disabled" size="small">
         <f-option v-for="item in pageSizes" :key="item" :value="item" :label="item + '/页'" />
       </f-select>
     </template>

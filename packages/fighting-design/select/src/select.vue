@@ -112,6 +112,7 @@
         v-model="inputValue"
         readonly
         :name="name"
+        :size="size"
         :disabled="disabled"
         :placeholder="placeholder"
         :clear="clear"

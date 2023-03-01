@@ -4,11 +4,11 @@
   const current = ref(1)
   const total = ref(100)
 
-  const change = (n, v, m) => {
-    console.log(n, v, m)
-  }
+  const pagesize = ref(10)
+
+  const pageSizes = ref([10, 20, 30, 40, 50])
 </script>
 
 <template>
-  <f-pagination v-model:current="current" :page-size="9" background round :total="total" />
+  <f-pagination v-model:current="current" :total="total" :page-size="pagesize" :page-sizes="pageSizes" />
 </template>

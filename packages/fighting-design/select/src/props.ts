@@ -1,6 +1,8 @@
 import { setBooleanProp, setStringProp } from '../../_utils'
+import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { SelectProvide, SelectModelValue } from './interface'
+import type { FightingSize } from '../../_interface'
 
 export const Props = {
   /** 绑定值 */
@@ -20,6 +22,15 @@ export const Props = {
    * @see name https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-name
    */
   name: setStringProp<string>('f-select'),
+  /**
+   * 尺寸
+   *
+   * @values large middle small mini
+   * @default middle
+   */
+  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+    return FIGHTING_SIZE.includes(val)
+  }),
   /**
    * 占位符
    *

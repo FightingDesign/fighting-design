@@ -5,6 +5,10 @@
   user-select: none;
   position: relative;
 
+  .f-select {
+    margin-right: 10px;
+  }
+
   // 带有背景色的
   &.f-pagination__background {
     .f-pagination__pages {
