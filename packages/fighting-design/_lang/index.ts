@@ -1,3 +1,6 @@
+import EN_US from './src/en-US.json'
+import ZH_CN from './src/zh-CN.json'
+
 /**
  * 国际化语言配置
  *
@@ -6,45 +9,11 @@
  * 仅支持 en-US 和 zh-CN 两种语音模式
  */
 export const LANG = {
-  'en-US': {
-    /** 空状态 */
-    empty: {
-      content: 'No data'
-    },
-    /** 日历 */
-    calendar: {
-      weekList: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
-    },
-    /** 粘性卡片 */
-    stickyCard: {
-      openText: 'close',
-      closeText: 'open'
-    },
-    /** 页头 */
-    pageHeader: {
-      backText: 'back'
-    }
-  },
-  'zh-CN': {
-    /** 空状态 */
-    empty: {
-      content: '暂无数据'
-    },
-    /** 日历 */
-    calendar: {
-      weekList: ['日', '一', '二', '三', '四', '五', '六']
-    },
-    /** 粘性卡片 */
-    stickyCard: {
-      openText: '关闭',
-      closeText: '开启'
-    },
-    /** 页头 */
-    pageHeader: {
-      backText: '返回'
-    }
-  }
+  'en-US': EN_US['en-US'],
+  'zh-CN': ZH_CN['zh-CN']
 } as const
+
+console.log(EN_US['en-US'])
 
 export type LangKey = (typeof LANG)[keyof typeof LANG]
 
