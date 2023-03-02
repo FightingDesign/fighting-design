@@ -7,9 +7,8 @@
   import { FIconCrossVue, FIconEyeOffOutlineVue, FIconEyeOutlineVue } from '../../_svg'
   import { isString, isNumber } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
-  import { useUpdateInput, useProps, useRun, useList } from '../../_hooks'
+  import { useInput, useProps, useRun, useList } from '../../_hooks'
   import type { InputType } from './interface'
-  import type { UseUpdateInputProps } from '../../_hooks'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -26,10 +25,7 @@
   /** 是否展示密码 */
   const showPass = ref<boolean>(false)
 
-  const { onInput, onClear, onChange } = useUpdateInput(
-    filter(['onChange', 'onInput', 'disabled', 'type']) as unknown as UseUpdateInputProps,
-    emit
-  )
+  const { onInput, onClear, onChange } = useInput(filter(['onChange', 'onInput', 'disabled', 'type']), emit)
 
   /**
    * 文本输入 input 事件

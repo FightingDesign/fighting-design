@@ -8,21 +8,21 @@ import type { InputType } from '../../input'
  * @param { boolean } disabled 是否禁用
  * @param { string } [type] 文本框类型
  */
-export interface UseUpdateInputProps {
-  onInput: (val: string) => void | null
-  onChange: (val: string) => void | null
-  disabled: boolean
+export interface UseInputProps {
+  onInput?: (val: string) => void | null
+  onChange?: (val: string) => void | null
+  disabled?: boolean
   type?: InputType
 }
 
 /**
- * useUpdateInput hook 返回值类型接口
+ * useInput hook 返回值类型接口
  *
  * @param { Function } onInput 处理文本框输入
  * @param { Function } onChange 改变后触发的回调
  * @param { Function } onClear 清空文本框
  */
-export interface UseUpdateInputReturn {
+export interface UseInputReturn {
   onInput: (evt: Event) => void
   onChange: (evt: Event) => void
   onClear: () => void
@@ -34,4 +34,4 @@ export interface UseUpdateInputReturn {
  * @param { string } event 回调事件名
  * @param { boolean } val 回调参数
  */
-export type UseUpdateInputEmit = (event: 'update:modelValue', val: string | number) => void
+export type UseInputEmit = (event: 'update:modelValue', val: string | number) => void

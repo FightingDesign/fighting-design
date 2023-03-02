@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FSelect">
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
-  import { useList } from '../../_hooks'
+  import { useList, useRun } from '../../_hooks'
   import { provide, reactive, computed, useSlots } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { getChildren } from '../../_utils'
@@ -94,8 +94,11 @@
    * @param { string | number | boolean } newLabel 新增 label 值
    */
   const setValue = (newValue: string, newLabel: SelectModelValue): void => {
+    /** 设置文本框展示的内容 */
     inputValue.value = newValue
+
     emit(EMIT_UPDATE, newLabel)
+    useRun(prop.onChange, newLabel, newValue)
   }
 
   /** 向自组件注入依赖项 */
@@ -103,6 +106,10 @@
 
   /** 样式列表 */
   const styleList = styles(['width'])
+
+  const handleChange = (): void => {
+    console.log('123')
+  }
 </script>
 
 <template>
@@ -110,12 +117,12 @@
     <f-dropdown trigger="click" :disabled="disabled">
       <f-input
         v-model="inputValue"
-        readonly
         :name="name"
         :size="size"
         :disabled="disabled"
         :placeholder="placeholder"
         :clear="clear"
+        :on-input="handleChange"
       />
 
       <template #content>

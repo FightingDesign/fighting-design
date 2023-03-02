@@ -1,6 +1,6 @@
 export * from './use-operation-img'
 export * from './use-calendar'
-export * from './use-update-input'
+export * from './use-input'
 export * from './use-list'
 export * from './use-props'
 export * from './use-avatar'

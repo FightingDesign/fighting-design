@@ -1,7 +1,7 @@
 import { isNumber } from '../../_utils'
 import { useRun } from '..'
 import { EMIT_UPDATE } from '../../_tokens'
-import type { UseUpdateInputProps, UseUpdateInputReturn, UseUpdateInputEmit } from './interface'
+import type { UseInputProps, UseInputReturn, UseInputEmit } from './interface'
 
 export * from './interface.d'
 
@@ -15,7 +15,7 @@ export * from './interface.d'
  * @param { Function } emit 回调参数
  * @returns { Object }
  */
-export const useUpdateInput = (prop: UseUpdateInputProps, emit: UseUpdateInputEmit): UseUpdateInputReturn => {
+export const useInput = (prop: UseInputProps, emit: UseInputEmit): UseInputReturn => {
   /**
    * 处理文本框输入 input 事件
    *

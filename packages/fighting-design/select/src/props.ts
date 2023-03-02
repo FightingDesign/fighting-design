@@ -1,4 +1,4 @@
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setFunctionProp, setStringProp } from '../../_utils'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { SelectProvide, SelectModelValue } from './interface'
@@ -44,7 +44,9 @@ export const Props = {
    *
    * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled
    */
-  disabled: setBooleanProp()
+  disabled: setBooleanProp(),
+  /** 绑定值发生变化时触发的回调 */
+  onChange: setFunctionProp()
 } as const
 
 /** select 组件 props 类型 */

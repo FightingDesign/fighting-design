@@ -1,11 +1,10 @@
 <script lang="ts" setup name="FTextarea">
   import { Props } from './props'
-  import { useUpdateInput, useProps } from '../../_hooks'
+  import { useInput, useProps } from '../../_hooks'
   import { isString, isNumber } from '../../_utils'
   import { FIconCrossVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
   import { EMIT_UPDATE } from '../../_tokens'
-  import type { UseUpdateInputProps } from '../../_hooks'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -14,11 +13,8 @@
 
   const { filter } = useProps(prop)
 
-  /** 使用 useUpdateInput hook 实现同步数据 */
-  const { onInput, onClear, onChange } = useUpdateInput(
-    filter(['onChange', 'onInput', 'disabled']) as unknown as UseUpdateInputProps,
-    emit
-  )
+  /** 使用 useInput hook 实现同步数据 */
+  const { onInput, onClear, onChange } = useInput(filter(['onChange', 'onInput', 'disabled']), emit)
 
   /**
    * 输入框输入
