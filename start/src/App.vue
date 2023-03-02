@@ -1,5 +1,21 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-<template></template>
+  const current = ref(1)
+  const total = ref(100)
 
-<style lang="scss" scoped></style>
+  const pagesize = ref(10)
+
+  const pageSizes = ref([10, 20, 30, 40, 50])
+</script>
+
+<template>
+  <p>当前页码{{ current }}，每页大小{{ pagesize }}</p>
+  <f-pagination
+    v-model:current="current"
+    v-model:page-size="pagesize"
+    jump-search
+    :total="total"
+    :page-sizes="pageSizes"
+  />
+</template>

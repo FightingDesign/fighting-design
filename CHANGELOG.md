@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复**
+
+- 修复 `f-select` 组件 width 失效问题
+
 ## 0.26.2 (2023-03-01)
 
 **修复**

@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FPagination">
   import { Props } from './props'
-  import { computed, ref, watchEffect } from 'vue'
+  import { computed, ref, watchEffect, watch } from 'vue'
   import { isNumber } from '../../_utils'
   import { useList, useRun } from '../../_hooks'
   import { FIconChevronLeftVue, FIconChevronRightVue, FIconMenuMeatball } from '../../_svg'
@@ -8,11 +8,12 @@
   import { FSelect } from '../../select'
   import { FOption } from '../../option'
   import { FSvgIcon } from '../../svg-icon'
-  import { EMIT_CURRENT } from '../../_tokens'
+  import { EMIT_CURRENT, EMIT_PAGESIZE } from '../../_tokens'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    [EMIT_CURRENT]: (current: number): boolean => isNumber(current)
+    [EMIT_CURRENT]: (current: number): boolean => isNumber(current),
+    [EMIT_PAGESIZE]: (pagesize: number): boolean => isNumber(pagesize)
   })
 
   /** 当前快速跳转的页码 */
@@ -23,6 +24,19 @@
   const showPrevMore = ref<boolean>(false)
   /** 下一页更多图标的 visible */
   const showNextMore = ref<boolean>(false)
+
+  /** 监视每页大小发生变化时触发 */
+  watch(
+    (): number => pagesLen.value,
+    /**
+     * 更新最新值
+     *
+     * @param { number } newValue 最新值
+     */
+    (newValue: number): void => {
+      emit(EMIT_PAGESIZE, newValue)
+    }
+  )
 
   /**
    * 计算出最大页码数
@@ -133,9 +147,10 @@
   }
 
   /** 快速跳转框确定值的行为目前设定为：失焦或 enter 确定 */
-  const jumpHandleValue = (): void => {
+  const handleInput = (): void => {
     if (prop.disabled) return
 
+    /** 如果输入的值大于最大值 */
     if (Number(jumpCurrent.value) > pages.value.length) {
       jumpCurrent.value = String(pages.value.length)
     }
@@ -226,7 +241,7 @@
   <div :class="classList">
     <!-- 下拉菜单选择每页大小 -->
     <template v-if="pageSizes && pageSizes.length">
-      <f-select v-model="pagesLen" :width="60" :disabled="disabled" size="small">
+      <f-select v-model="pagesLen" :width="120" :disabled="disabled" size="small">
         <f-option v-for="item in pageSizes" :key="item" :value="item" :label="item + '/页'" />
       </f-select>
     </template>
@@ -301,8 +316,8 @@
         placeholder="输入跳转的页数"
         class="f-pagination__jump"
         :disabled="disabled"
-        :on-blur="jumpHandleValue"
-        :on-enter="jumpHandleValue"
+        :on-blur="handleInput"
+        :on-enter="handleInput"
       />
     </template>
   </div>

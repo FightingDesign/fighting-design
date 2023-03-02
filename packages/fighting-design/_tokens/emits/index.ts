@@ -39,3 +39,10 @@ export const EMIT_TIME = 'update:time' as const
  * 用于更新页码
  */
 export const EMIT_CURRENT = 'update:current' as const
+
+/**
+ * emit 回调方法名称
+ *
+ * 用于更新每页大小
+ */
+export const EMIT_PAGESIZE = 'update:pageSize' as const
