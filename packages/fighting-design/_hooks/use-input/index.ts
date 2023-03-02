@@ -27,7 +27,7 @@ export const useInput = (prop: UseInputProps, emit: UseInputEmit): UseInputRetur
       isNumber(prop.type) ? Number((evt.target as HTMLInputElement).value) : (evt.target as HTMLInputElement).value
     )
 
-    useRun(prop.onInput, (evt.target as HTMLInputElement).value)
+    useRun(prop.onInput, (evt.target as HTMLInputElement).value, evt)
   }
 
   /**
@@ -36,7 +36,7 @@ export const useInput = (prop: UseInputProps, emit: UseInputEmit): UseInputRetur
    * @param { Object } evt 事件对象
    */
   const onChange = (evt: Event): void => {
-    useRun(prop.onChange, (evt.target as HTMLInputElement).value)
+    useRun(prop.onChange, (evt.target as HTMLInputElement).value, evt)
   }
 
   /** 清空文本框 */

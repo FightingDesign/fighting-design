@@ -86,8 +86,7 @@
       }
     }
 
-    map[target] && map[target]()
-
+    useRun(map[target])
     useRun(prop.onChange, inputValue.value)
   }
 </script>

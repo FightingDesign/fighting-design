@@ -51,7 +51,7 @@
    * @param { Object } evt 事件对象
    */
   const handleSearch = (evt: Event): void => {
-    useRun(prop.onSearch, { evt, value: prop.modelValue })
+    useRun(prop.onSearch, (evt.target as HTMLInputElement).value, evt)
   }
 
   /**
@@ -66,7 +66,7 @@
       handleSearch(evt)
     }
 
-    useRun(onEnter.value, evt)
+    useRun(onEnter.value, (evt.target as HTMLInputElement).value, evt)
   }
 
   /** 查看密码 */

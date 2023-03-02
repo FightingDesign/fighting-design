@@ -228,12 +228,12 @@
 | `show-password`       | 是否展示显示密码图标       | boolean                                                            | ——                              | false   |
 | `enter-search`        | 是否按下回车触发搜索       | boolean                                                            | ——                              | false   |
 | `icon`                | 自定义前缀 icon            | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——      |
-| `on-search`           | 点击搜索触发的回调         | <a href="#inputsearch">InputSearch</a>                             | ——                              | ——      |
-| `on-change`           | 绑定值发生变化时触发的回调 | <a href="#inputchange">InputChange</a>                             | ——                              | ——      |
 | `on-blur`             | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
 | `on-focus`            | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
 | `on-enter`            | 按下回车触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
-| `on-input`            | 原生 input 事件回调        | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| `on-search`           | 点击搜索触发的回调         | <a href="#inputevent">InputEvent</a>                               | ——                              | ——      |
+| `on-change`           | 绑定值发生变化时触发的回调 | <a href="#inputevent">InputEvent</a>                               | ——                              | ——      |
+| `on-input`            | 原生 input 事件回调        | <a href="#inputevent">InputEvent</a>                               | ——                              | ——      |
 
 ## Slots
 
@@ -248,7 +248,7 @@
 组件导出以下类型定义：
 
 ```ts
-import type { InputInstance, InputProps, InputType, InputChange, InputSearch } from 'fighting-design'
+import type { InputInstance, InputProps, InputType, InputEvent } from 'fighting-design'
 ```
 
 ### InputType
@@ -257,16 +257,10 @@ import type { InputInstance, InputProps, InputType, InputChange, InputSearch } f
 type InputType = 'text' | 'password' | 'number'
 ```
 
-### InputChange
+### InputEvent
 
 ```ts
-type InputChange = (value: string) => void
-```
-
-### InputSearch
-
-```ts
-type InputSearch = ({ evt: Event, value: string }) => void
+type InputEvent = (evt: Event, value: string) => void
 ```
 
 ## 样式变量
