@@ -1,5 +1,6 @@
 import { setBooleanProp, setStringProp, setNumberProp, setFunctionProp } from '../../_utils'
 import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
+import type { InputEvent } from '../../input'
 import type { ExtractPropTypes } from 'vue'
 import type { InputNumberModel } from './interface'
 import type { HandleEvent, FightingSize, InputChange, FightingType } from '../../_interface'
@@ -84,7 +85,7 @@ export const Props = {
   /** 获得焦点时触发的回调 */
   onFocus: setFunctionProp<HandleEvent>(),
   /** input 事件触发的回调 */
-  onInput: setFunctionProp<HandleEvent>()
+  onInput: setFunctionProp<InputEvent>()
 } as const
 
 /** input-number 组件 props 类型 */
