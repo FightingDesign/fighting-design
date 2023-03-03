@@ -122,8 +122,5 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
     })
   }
 
-  return {
-    classes,
-    styles
-  }
+  return { classes, styles }
 }

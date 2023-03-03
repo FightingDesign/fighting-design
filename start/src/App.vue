@@ -12,6 +12,8 @@
 </script>
 
 <template>
-  <f-button type="primary" @click="show1 = true">打开</f-button>
-  <f-image-preview v-model:visible="show1" :img-list="listImg" />
+  <!-- <f-button type="primary" @click="show1 = true">打开</f-button>
+  <f-image-preview v-model:visible="show1" :img-list="listImg" /> -->
+
+  <f-box width="200px" height="200px" padding="30px" background="skyblue">hello</f-box>
 </template>
