@@ -55,7 +55,7 @@
         'f-checkbox-group__vertical': vertical,
         [`f-checkbox-group__${size}`]: size && border
       }
-    ] as const
+    ]
   })
 </script>
 

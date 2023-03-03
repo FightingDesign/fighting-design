@@ -7,13 +7,13 @@
 
   const prop = defineProps(Props)
 
-  const { classes } = useList(prop, 'table')
+  const { styles } = useList(prop, 'table')
 
   /** 多选项 */
   const optionalList = ref(false)
 
   /** 样式列表 */
-  const styleList = classes(['zebraColor', 'bgColor', 'headBgColor', 'height'])
+  const styleList = styles(['zebraColor', 'bgColor', 'headBgColor', 'height'])
 
   /**
    * 处理自定义渲染内容

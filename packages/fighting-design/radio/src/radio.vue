@@ -55,7 +55,7 @@
         'f-radio__margin': !parentInject,
         'f-radio__disabled': prop.disabled || (parentInject && parentInject.disabled)
       }
-    ] as const
+    ]
   })
 </script>
 

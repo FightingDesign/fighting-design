@@ -64,7 +64,7 @@
         'f-checkbox__bordered': parentInject && parentInject.border,
         'f-checkbox__disabled': prop.disabled || (parentInject && parentInject.disabled)
       }
-    ] as const
+    ]
   })
 </script>
 

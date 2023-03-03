@@ -32,7 +32,7 @@
         [`f-image__${fit}`]: fit,
         'f-image__select': noSelect
       }
-    ] as const
+    ]
   })
 
   /** 样式列表 */
