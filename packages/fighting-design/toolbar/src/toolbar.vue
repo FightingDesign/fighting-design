@@ -41,8 +41,6 @@
        */
       const index: string | null = target.getAttribute(TOOLBAR_INDEX)
 
-      console.log(target, target.getAttribute(TOOLBAR_INDEX), TOOLBAR_INDEX)
-
       run(prop.onClick, index, evt)
     }
   }

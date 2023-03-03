@@ -17,7 +17,6 @@
   } from '../../_svg'
   import { useOperationImg, useRun } from '../../_hooks'
   import { EMIT_VISIBLE } from '../../_tokens'
-  import type { ToolbarClickParams } from '../../toolbar'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -74,12 +73,10 @@
   /**
    * 点击操作栏触发
    *
-   * @param { Object } target f-toolbar 组件返回值
-   * @param { Object } target.evt 事件对象
-   * @param { number } target.index 当前的索引
+   * @param { Object } evt 事件对象
    */
-  const optionClick = (target: ToolbarClickParams): void => {
-    if (!target.index) return
+  const optionClick = (index: string | null): void => {
+    if (!index) return
 
     /** 映射对象 */
     const optionMap: Record<string, () => void> = {
@@ -91,7 +88,7 @@
     } as const
 
     /** 获取当前元素的索引 */
-    optionMap[target.index] && optionMap[target.index]()
+    run(optionMap[index])
   }
 
   /**

@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
-  import { FMessage } from 'fighting-design'
+  import { ref } from 'vue'
 
-  const handleClick = (index, evt) => {
-    // FMessage.primary(`index：${index} evt：${evt}`)
-  }
+  const show1 = ref(false)
+
+  const listImg = [
+    'https://tianyuhao.cn/images/auto/1.jpg',
+    'https://tianyuhao.cn/images/auto/2.jpg',
+    'https://tianyuhao.cn/images/auto/3.jpg',
+    'https://tianyuhao.cn/images/auto/4.jpg'
+  ]
 </script>
 
 <template>
-  <f-toolbar :on-click="handleClick">
-    <f-toolbar-item index="1" :icon="FIconApps" />
-    <f-toolbar-item index="2" :icon="FIconBlock" />
-    <f-toolbar-item index="3" :icon="FIconCameraVideoSlash" />
-    <f-toolbar-item index="4" :icon="FIconClock" />
-  </f-toolbar>
+  <f-button type="primary" @click="show1 = true">打开</f-button>
+  <f-image-preview v-model:visible="show1" :img-list="listImg" />
 </template>
