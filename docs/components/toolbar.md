@@ -132,9 +132,8 @@
 <script lang="ts" setup>
   import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
   import { FMessage } from 'fighting-design'
-  import type { ToolbarClickInterface } from 'fighting-design'
 
-  const handleClick: ToolbarClickInterface = ({ index, evt }) => {
+  const handleClick = (index, evt) => {
     FMessage.primary(`index：${index} evt：${evt}`)
   }
 </script>
@@ -185,26 +184,16 @@
 import type {
   ToolbarInstance,
   ToolbarProps,
-  ToolbarClickParams,
   ToolbarClick
   ToolbarItemInstance,
   ToolbarItemProps,
 } from 'fighting-design'
 ```
 
-### ToolbarClickParams
-
-```ts
-interface ToolbarClickParams {
-  evt: MouseEvent
-  index: string | undefined
-}
-```
-
 ### ToolbarClick
 
 ```ts
-type ToolbarClick = (params: ToolbarClickParams) => void
+type ToolbarClick = (index: string | null, evt: MouseEvent) => void
 ```
 
 ## Contributors
@@ -221,7 +210,7 @@ type ToolbarClick = (params: ToolbarClickParams) => void
   import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
   import { FMessage } from 'fighting-design'
 
-  const handleClick = ({ index, evt }) => {
+  const handleClick = (index, evt) => {
     FMessage.primary(`index：${index} evt：${evt}`)
   }
 </script>
