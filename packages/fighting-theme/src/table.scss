@@ -85,23 +85,23 @@
         }
       }
     }
-
-    // 边框状态
-    &.f-table__border {
-      th,
-      td {
-        border-right: 1px solid #eee;
-      }
-    }
   }
 
   // 斑马纹
-  &__zebra {
+  &.f-table__zebra {
     tbody {
       // https://developer.mozilla.org/zh-CN/docs/Web/CSS/:nth-child
       tr:nth-child(2n) {
         background-color: var(--table-zebra-color, #f7f7f7);
       }
+    }
+  }
+
+  // 边框状态
+  &.f-table__border {
+    th,
+    td {
+      border-right: 1px solid #eee;
     }
   }
 }

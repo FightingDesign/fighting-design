@@ -7,13 +7,10 @@
 
   const prop = defineProps(Props)
 
-  const { styles } = useList(prop, 'table')
+  const { styles, classes } = useList(prop, 'table')
 
   /** 多选项 */
   const optionalList = ref(false)
-
-  /** 样式列表 */
-  const styleList = styles(['zebraColor', 'bgColor', 'headBgColor', 'height'])
 
   /**
    * 处理自定义渲染内容
@@ -23,19 +20,17 @@
   const columnsSlotData = (target: Function): VNode => {
     return target(h)
   }
+
+  /** 样式列表 */
+  const styleList = styles(['zebraColor', 'bgColor', 'headBgColor', 'height'])
+
+  /** 类名列表 */
+  const classList = classes(['border', 'zebra'], 'f-table')
 </script>
 
 <template>
-  <div role="table" class="f-table" :style="styleList">
-    <div
-      :class="[
-        'f-table__container',
-        {
-          'f-table__border': border,
-          'f-table__zebra': zebra
-        }
-      ]"
-    >
+  <div role="table" :class="classList" :style="styleList">
+    <div class="f-table__container">
       <template v-if="columns || data">
         <!-- 在限制高度时展示的头部 -->
         <header v-if="height && showHead" class="f-table__header">
