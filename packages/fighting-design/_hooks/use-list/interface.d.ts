@@ -1,3 +1,7 @@
+import type { ComputedRef, CSSProperties } from 'vue'
+import type { ClassList } from '../../_interface'
+import type { FilterParams } from '..'
+
 /**
  * useList 返回值类型接口
  *

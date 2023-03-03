@@ -78,8 +78,9 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
       /**
        * 设置样式列表的值
        *
-       * @param { * } val 值
-       * @returns { * } 处理后的值
+       * @param { string | number } val 值
+       * @param { string } key 键
+       * @returns { string | number } 处理后的值
        */
       const setListValue = (val: string | number, key: string): string | number => {
         /** 如果需要添加单位，则所有的数字都添加单位 */
