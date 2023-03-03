@@ -10,6 +10,7 @@
 
   const prop = defineProps(Props)
 
+  const { run } = useRun()
   const { styles } = useList(prop, 'menu-item')
 
   /** 注入父组件的模式依赖项 */
@@ -35,12 +36,12 @@
        *
        * 传入事件对象和当前 name两个参数
        */
-      useRun(parentInject.onMenuItemClick, evt, prop.name)
+      run(parentInject.onMenuItemClick, evt, prop.name)
 
       /**
        * 设置当前选中的 name，传入当前组件的 name
        */
-      useRun(parentInject.setActiveName, prop.name)
+      run(parentInject.setActiveName, prop.name)
     }
 
     /** 获取到路由实例 */

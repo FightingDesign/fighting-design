@@ -8,6 +8,8 @@
 
   const prop = defineProps(Props)
 
+  const { run } = useRun()
+
   /** 是否展示主内容 */
   const showContent = ref<boolean>(false)
 
@@ -15,15 +17,15 @@
   const handelOpen = (): void => {
     if (prop.disabled) return
     showContent.value = true
-    useRun(prop.onOpen, showContent.value)
-    useRun(prop.onChange, showContent.value)
+    run(prop.onOpen, showContent.value)
+    run(prop.onChange, showContent.value)
   }
 
   /** 关闭 */
   const handelClose = (): void => {
     showContent.value = false
-    useRun(prop.onClose, showContent.value)
-    useRun(prop.onChange, showContent.value)
+    run(prop.onClose, showContent.value)
+    run(prop.onChange, showContent.value)
   }
 
   /** 打开事件 */

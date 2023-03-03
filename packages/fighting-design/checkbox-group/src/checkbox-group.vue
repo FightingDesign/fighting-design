@@ -13,6 +13,8 @@
     [EMIT_UPDATE]: (val: string[]): boolean => isArray(val)
   })
 
+  const { run } = useRun()
+
   /**
    * 绑定值发生改变时候触
    *
@@ -20,7 +22,7 @@
    */
   const setChange = (val: string[]): void => {
     emit(EMIT_UPDATE, val)
-    useRun(prop.onChange, val)
+    run(prop.onChange, val)
   }
 
   /** 获取需要注入的依赖项 */

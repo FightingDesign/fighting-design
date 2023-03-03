@@ -13,6 +13,8 @@
     [EMIT_UPDATE]: (val: number): boolean => isNumber(val)
   })
 
+  const { run } = useRun()
+
   /** 当前绑定的值 */
   const inputValue = computed({
     /** 获取值的时候返回 */
@@ -86,8 +88,8 @@
       }
     }
 
-    useRun(map[target])
-    useRun(prop.onChange, inputValue.value)
+    run(map[target])
+    run(prop.onChange, inputValue.value)
   }
 </script>
 

@@ -16,7 +16,7 @@
   })
 
   const { filter } = useProps(prop)
-
+  const { run } = useRun()
   const { styles } = useList(prop, 'input')
 
   /** type 类型 */
@@ -51,7 +51,7 @@
    * @param { Object } evt 事件对象
    */
   const handleSearch = (evt: MouseEvent | KeyboardEvent): void => {
-    useRun(prop.onSearch, prop.modelValue, evt)
+    run(prop.onSearch, prop.modelValue, evt)
   }
 
   /**
@@ -66,7 +66,7 @@
       handleSearch(evt)
     }
 
-    useRun(onEnter.value, (evt.target as HTMLInputElement).value, evt)
+    run(onEnter.value, (evt.target as HTMLInputElement).value, evt)
   }
 
   /** 查看密码 */

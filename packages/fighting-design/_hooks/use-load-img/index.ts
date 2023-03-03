@@ -15,8 +15,11 @@ export * from './interface.d'
  * @returns { Object }
  */
 export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
+  const { run } = useRun()
+
   /** 是否加载成功 */
   const isSuccess = ref<boolean>(true)
+
   /**
    * 是否展示节点元素
    *
@@ -43,7 +46,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
     node.src = src
     isSuccess.value = true
     isShowNode.value = true
-    useRun(prop.onLoad, evt)
+    run(prop.onLoad, evt)
   }
 
   /**
@@ -53,7 +56,7 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
    */
   const failure = (evt: Event): void => {
     isSuccess.value = false
-    useRun(prop.onError, evt)
+    run(prop.onError, evt)
   }
 
   /**

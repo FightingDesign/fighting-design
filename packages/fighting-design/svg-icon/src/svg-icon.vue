@@ -4,6 +4,7 @@
 
   const prop = defineProps(Props)
 
+  const { run } = useRun()
   const { styles } = useList(prop, 'svg-icon')
 
   /**
@@ -12,7 +13,7 @@
    * @param { Object } evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
-    useRun(prop.onClick, evt)
+    run(prop.onClick, evt)
   }
 
   /** 样式列表 */

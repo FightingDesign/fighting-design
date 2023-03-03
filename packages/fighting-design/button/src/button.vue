@@ -10,7 +10,7 @@
   const prop = defineProps(Props)
 
   const { getType } = useGlobal(prop)
-
+  const { run } = useRun()
   const { classList, styleList } = useButton(prop)
 
   /** 元素节点 */
@@ -50,7 +50,7 @@
       runRipples()
     }
 
-    useRun(prop.onClick, evt)
+    run(prop.onClick, evt)
   }
 
   /** 前缀 icon */

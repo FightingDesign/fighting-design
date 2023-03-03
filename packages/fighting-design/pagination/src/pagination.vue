@@ -16,6 +16,8 @@
     [EMIT_PAGESIZE]: (pagesize: number): boolean => isNumber(pagesize)
   })
 
+  const { run } = useRun()
+
   /** 当前快速跳转的页码 */
   const jumpCurrent = ref<string>('1')
   /** 下拉菜单绑定的默认值，每页条数 */
@@ -121,17 +123,17 @@
       next: (): void => {
         const newCurrent = prop.current === maxCount.value ? maxCount.value : prop.current + 1
         emit(EMIT_CURRENT, newCurrent)
-        useRun(prop.onNext, newCurrent, prop.pageSize)
+        run(prop.onNext, newCurrent, prop.pageSize)
       },
       /**上一页切换 */
       prev: (): void => {
         newCurrent = prop.current === 1 ? 1 : prop.current - 1
         emit(EMIT_CURRENT, newCurrent)
-        useRun(prop.onPrev, newCurrent, prop.pageSize)
+        run(prop.onPrev, newCurrent, prop.pageSize)
       }
     } as const
 
-    useRun(map[target])
+    run(map[target])
   }
 
   /**
@@ -143,7 +145,7 @@
   const handelChange = (newCurrent: number, evt: MouseEvent): void => {
     if (prop.disabled) return
     emit(EMIT_CURRENT, newCurrent)
-    useRun(prop.onChange, newCurrent, prop.pageSize, evt)
+    run(prop.onChange, newCurrent, prop.pageSize, evt)
   }
 
   /** 快速跳转框确定值的行为目前设定为：失焦或 enter 确定 */
@@ -227,7 +229,7 @@
 
     if (newPage !== current) {
       emit(EMIT_CURRENT, newPage)
-      useRun(prop.onChange, newPage, prop.pageSize, evt)
+      run(prop.onChange, newPage, prop.pageSize, evt)
     }
   }
 

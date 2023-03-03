@@ -14,6 +14,8 @@
     [EMIT_UPDATE]: (val: CheckboxModelValue): CheckboxModelValue => typeof val !== 'object'
   })
 
+  const { run } = useRun()
+
   /** 获取父组件注入的依赖项 */
   const parentInject: CheckboxGroupProvide | null = inject(CHECKBOX_GROUP_PROPS_KEY, null)
 
@@ -31,7 +33,7 @@
     set: (val: CheckboxModelValue | string[]): void => {
       if (!parentInject) {
         emit(EMIT_UPDATE, val as CheckboxModelValue)
-        useRun(prop.onChange, val)
+        run(prop.onChange, val)
         return
       }
       parentInject.setChange(val)

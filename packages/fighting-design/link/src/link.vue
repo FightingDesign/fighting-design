@@ -7,6 +7,7 @@
   const prop = defineProps(Props)
 
   const { getType } = useGlobal(prop)
+  const { run } = useRun()
 
   /** 替换 type 后得到的 props */
   const params = reactive({
@@ -31,7 +32,7 @@
       evt.preventDefault()
       return
     }
-    useRun(prop.onClick, evt)
+    run(prop.onClick, evt)
   }
 
   /** 类名列表 */

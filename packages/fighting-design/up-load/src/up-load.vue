@@ -13,6 +13,8 @@
     [EMIT_FILES]: (files: File[]): File[] => files
   })
 
+  const { run } = useRun()
+
   const dragIng = ref(false)
 
   /** 文件列表 */
@@ -34,7 +36,7 @@
   const updateFiles = (files: File[]): void => {
     fileList.value = files
     emit(EMIT_FILES, files)
-    useRun(prop.onLoad, files)
+    run(prop.onLoad, files)
   }
 
   /**
@@ -119,7 +121,7 @@
     watch(
       (): File[] => prop.files,
       (): void => {
-        useRun(prop.onChange, fileList.value)
+        run(prop.onChange, fileList.value)
       },
       { deep: true }
     )

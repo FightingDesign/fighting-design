@@ -10,6 +10,8 @@
 
   const prop = defineProps(Props)
 
+  const { run } = useRun()
+
   /** 注入父组件的模式依赖项 */
   const parentInject: MenuProvide | null = inject(MENU_PROVIDE_KEY, null)
 
@@ -30,7 +32,7 @@
      *
      * 传入 evt 和展示状态两个参数
      */
-    parentInject && useRun(parentInject.onSubmenuClick, evt, isOpened.value)
+    parentInject && run(parentInject.onSubmenuClick, evt, isOpened.value)
   }
 </script>
 

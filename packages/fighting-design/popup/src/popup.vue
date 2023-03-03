@@ -11,6 +11,8 @@
     [EMIT_VISIBLE]: (visible: boolean): boolean => isBoolean(visible)
   })
 
+  const { run } = useRun()
+
   /** 点击遮罩层关闭 */
   const closePopup = (): void => {
     if (!prop.maskClose) return
@@ -25,7 +27,7 @@
   const handleOpen = (evt: MouseEvent): void => {
     /** 开启状态隐藏滚动条 */
     document.body.style.overflow = 'hidden'
-    useRun(prop.onOpen, evt)
+    run(prop.onOpen, evt)
   }
 
   /**
@@ -34,7 +36,7 @@
    * @param { Object } evt 事件对象
    */
   const handleOpenEnd = (evt: MouseEvent): void => {
-    useRun(prop.onOpenEnd, evt)
+    run(prop.onOpenEnd, evt)
   }
 
   /**
@@ -44,7 +46,7 @@
    */
   const handleClose = (evt: MouseEvent): void => {
     document.body.style.overflow = ''
-    useRun(prop.onClose, evt)
+    run(prop.onClose, evt)
   }
 
   /**
@@ -53,7 +55,7 @@
    * @param { Object } evt 事件对象
    */
   const handleCloseEnd = (evt: MouseEvent): void => {
-    useRun(prop.onCloseEnd, evt)
+    run(prop.onCloseEnd, evt)
   }
 
   /** 样式列表 */

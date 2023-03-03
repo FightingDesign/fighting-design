@@ -10,6 +10,8 @@
   const prop = defineProps(Props)
   const slot: Slots = useSlots()
 
+  const { run } = useRun()
+
   /** 子节点校验结果 */
   const childrenCheckResult: Record<string, boolean | string> = reactive({})
 
@@ -132,7 +134,7 @@
     /** 获取到是否校验通过 */
     const ok: boolean = prop.model ? validate() : true
 
-    useRun(prop.onSubmit, { ok, res: childrenCheckResult, evt } as FormParam)
+    run(prop.onSubmit, { ok, res: childrenCheckResult, evt } as FormParam)
   }
 
   /** 注入依赖项 */

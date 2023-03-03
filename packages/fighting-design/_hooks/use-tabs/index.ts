@@ -19,6 +19,7 @@ export * from './interface.d'
  * @returns { Object }
  */
 export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn => {
+  const { run } = useRun()
   /** 获取当前组件实例 */
   const instance: ComponentInternalInstance = getCurrentInstance() as ComponentInternalInstance
   /** 子组件集合 */
@@ -45,7 +46,7 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
    * @param { number } [index] 索引值
    */
   const setEdit = (action: 'remove' | 'add', name?: TabsModelValue, index?: number): void => {
-    useRun(prop.onEdit, action, name, index)
+    run(prop.onEdit, action, name, index)
   }
 
   /** nav 列表 */

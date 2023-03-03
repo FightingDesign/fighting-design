@@ -7,6 +7,7 @@
 
   const prop = defineProps(Props)
 
+  const { run } = useRun()
   const { getLang } = useGlobal()
 
   /** 返回文案 */
@@ -18,7 +19,7 @@
    * @param { Object } evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
-    useRun(prop.onBack, evt)
+    run(prop.onBack, evt)
   }
 </script>
 

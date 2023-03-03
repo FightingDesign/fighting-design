@@ -9,6 +9,7 @@
     [EMIT_UPDATE]: (target: boolean): boolean => typeof target === 'boolean'
   })
 
+  const { run } = useRun()
   const { classes } = useList(prop, 'swap')
 
   /**
@@ -18,7 +19,7 @@
    */
   const handelClick = (evt: MouseEvent): void => {
     emit(EMIT_UPDATE, !prop.modelValue)
-    useRun(prop.onChange, evt, !prop.modelValue)
+    run(prop.onChange, evt, !prop.modelValue)
   }
 
   /** 类名列表 */

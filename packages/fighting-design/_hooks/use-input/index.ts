@@ -16,6 +16,9 @@ export * from './interface.d'
  * @returns { Object }
  */
 export const useInput = (prop: UseInputProps, emit: UseInputEmit): UseInputReturn => {
+
+  const { run } = useRun()
+
   /**
    * 处理文本框输入 input 事件
    *
@@ -27,7 +30,7 @@ export const useInput = (prop: UseInputProps, emit: UseInputEmit): UseInputRetur
       isNumber(prop.type) ? Number((evt.target as HTMLInputElement).value) : (evt.target as HTMLInputElement).value
     )
 
-    useRun(prop.onInput, (evt.target as HTMLInputElement).value, evt)
+    run(prop.onInput, (evt.target as HTMLInputElement).value, evt)
   }
 
   /**
@@ -36,7 +39,7 @@ export const useInput = (prop: UseInputProps, emit: UseInputEmit): UseInputRetur
    * @param { Object } evt 事件对象
    */
   const onChange = (evt: Event): void => {
-    useRun(prop.onChange, (evt.target as HTMLInputElement).value, evt)
+    run(prop.onChange, (evt.target as HTMLInputElement).value, evt)
   }
 
   /** 清空文本框 */

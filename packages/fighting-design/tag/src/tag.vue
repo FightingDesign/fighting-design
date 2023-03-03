@@ -8,6 +8,7 @@
   const prop = defineProps(Props)
 
   const { getType, getSize } = useGlobal(prop)
+  const { run } = useRun()
 
   /** 替换 type 后得到的 props */
   const params = reactive({
@@ -34,7 +35,7 @@
    */
   const handleClose = (evt: MouseEvent): void => {
     isShow.value = false
-    useRun(prop.onClose, evt)
+    run(prop.onClose, evt)
   }
 </script>
 

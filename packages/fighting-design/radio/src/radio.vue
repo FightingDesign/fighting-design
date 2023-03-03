@@ -13,6 +13,8 @@
     [EMIT_UPDATE]: (val: RadioModelValue): boolean => isString(val) || isNumber(val) || isBoolean(val)
   })
 
+  const { run } = useRun()
+
   /** 获取父组件注入的依赖项 */
   const parentInject: RadioGroundInject | null = inject(RADIO_GROUP_PROPS_kEY, null)
 
@@ -40,7 +42,7 @@
       }
       if (prop.disabled) return
       emit(EMIT_UPDATE, val)
-      useRun(prop.onChange, val)
+      run(prop.onChange, val)
     }
   })
 

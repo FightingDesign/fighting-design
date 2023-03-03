@@ -13,6 +13,8 @@
     [EMIT_UPDATE]: (val: number): number => val
   })
 
+  const { run } = useRun()
+
   /** 当前绑定的值 */
   const starValue = ref<number>(prop.modelValue)
 
@@ -41,7 +43,7 @@
     if (prop.readonly) return
     starValue.value = index
     emit(EMIT_UPDATE, index)
-    useRun(prop.onChange, index)
+    run(prop.onChange, index)
   }
 
   /** 监视如何绑定值发生变化的时候同步数据 */

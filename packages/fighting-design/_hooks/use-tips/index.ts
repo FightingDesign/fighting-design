@@ -20,6 +20,8 @@ const instances: TipsInstances = reactive({})
  * @returns { Object }
  */
 export const useTips = (component?: Component): UseTipsReturn => {
+  const { run } = useRun()
+
   /** 层级标识 */
   let seed = 1
 
@@ -142,7 +144,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
       ...options,
       /** 关闭动画结束时，移除 DOM */
       onDestroy: (): void => {
-        useRun(props.onClose)
+        run(props.onClose)
         render(null, container)
       }
     } as const

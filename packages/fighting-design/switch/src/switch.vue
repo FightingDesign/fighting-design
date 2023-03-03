@@ -10,6 +10,7 @@
     [EMIT_UPDATE]: (target: boolean): string => String(target)
   })
 
+  const { run } = useRun()
   const { getSize } = useGlobal(prop)
 
   /** 替换 type 后得到的 props */
@@ -24,7 +25,7 @@
   const handleClick = (): void => {
     if (prop.disabled) return
     emit(EMIT_UPDATE, !prop.modelValue)
-    useRun(prop.onChange, !prop.modelValue)
+    run(prop.onChange, !prop.modelValue)
   }
 
   /** 样式列表 */

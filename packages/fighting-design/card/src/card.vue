@@ -9,6 +9,7 @@
   /** 控制卡片的展示状态 */
   const isShow = ref<boolean>(true)
 
+  const { run } = useRun()
   const { classes, styles } = useList(prop, 'card')
 
   /** 类名列表 */
@@ -20,7 +21,7 @@
   /** 点击关闭按钮关闭卡片 */
   const handelClose = (): void => {
     isShow.value = false
-    useRun(prop.onClose, isShow.value)
+    run(prop.onClose, isShow.value)
   }
 </script>
 

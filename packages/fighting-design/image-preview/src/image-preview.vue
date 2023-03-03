@@ -24,6 +24,7 @@
     [EMIT_VISIBLE]: (visible: boolean): boolean => isBoolean(visible)
   })
 
+  const { run } = useRun()
   const { scale, rotate, smaller, bigger, scrollZoom, recovery, rotateClockwise, rotateCounterClock } =
     useOperationImg()
 
@@ -100,7 +101,7 @@
    */
   const handelClose = (evt: MouseEvent): void => {
     emit(EMIT_VISIBLE, false)
-    useRun(prop.onClose, evt)
+    run(prop.onClose, evt)
   }
 </script>
 

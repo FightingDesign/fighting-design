@@ -6,6 +6,8 @@
 
   const prop = defineProps(Props)
 
+  const { run: _run } = useRun()
+
   /** 开始值 */
   const fromNum = ref<number>(prop.from)
   /**是否重新执行动画 */
@@ -39,7 +41,7 @@
 
     if (fromNum.value >= toNum) {
       fromNum.value = toNum
-      useRun(prop.onAnimationEnd, timestamp)
+      _run(prop.onAnimationEnd, timestamp)
       return
     }
 

@@ -5,13 +5,15 @@
 
   const prop = defineProps(Props)
 
+  const { run } = useRun()
+
   /**
    * 点击触发
    *
    * @param { Object } evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
-    useRun(prop.onClick, evt)
+    run(prop.onClick, evt)
   }
 </script>
 

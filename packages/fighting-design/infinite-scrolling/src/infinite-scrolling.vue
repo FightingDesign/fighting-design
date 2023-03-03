@@ -5,6 +5,8 @@
 
   const prop = defineProps(Props)
 
+  const { run } = useRun()
+
   /** 是否到达底部 */
   const target = ref(false)
 
@@ -29,14 +31,14 @@
     const viewScrollingDistance: number = Math.ceil(view.scrollTop + view.clientHeight + prop.distance)
 
     /** 滚动时回调 */
-    useRun(prop.onScrollWhen, Math.ceil(view.scrollTop))
+    run(prop.onScrollWhen, Math.ceil(view.scrollTop))
 
     /** 如果滚动的距离大于容器高度执行 */
     if (viewScrollingDistance >= view.scrollHeight && !target.value) {
       /** 批处理 触底时回调 */
       target.value = true
 
-      useRun((distance: number): void => {
+      run((distance: number): void => {
         prop.onScrollEnd(distance)
         target.value = false
       }, viewScrollingDistance)

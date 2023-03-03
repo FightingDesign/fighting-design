@@ -16,6 +16,8 @@ export * from './interface.d'
  * @returns { Object }
  */
 export const useVisible = (visible: Ref<boolean>, emit: UseVisibleEmit, callback?: Function): UseVisibleReturn => {
+  const { run } = useRun()
+
   /** 是否展示 */
   const isVisible = ref<boolean>(visible.value)
 
@@ -26,7 +28,7 @@ export const useVisible = (visible: Ref<boolean>, emit: UseVisibleEmit, callback
    */
   const closeVisible = (evt?: MouseEvent): void => {
     emit(EMIT_VISIBLE, false)
-    useRun(callback, evt)
+    run(callback, evt)
   }
 
   /** 监视绑定值的变化，如果为假则关闭 */

@@ -10,6 +10,7 @@
 
   const prop = defineProps(Props)
 
+  const { run } = useRun()
   const { setActiveLineStyle, activeIndex, activeLineStyle } = useTabsNavStyle(prop)
 
   /**
@@ -26,7 +27,7 @@
 
     if (isBoolean(res) && !res) return
 
-    useRun(prop.setActiveName, name)
+    run(prop.setActiveName, name)
   }
 
   /**
@@ -37,7 +38,7 @@
    * @param { number } [index] 索引
    */
   const editItem = (action: 'remove' | 'add', name?: TabsModelValue, index?: number): void => {
-    useRun(prop.setEdit, action, name, index)
+    run(prop.setEdit, action, name, index)
   }
 
   /**

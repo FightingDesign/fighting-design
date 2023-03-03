@@ -11,6 +11,7 @@
     [EMIT_UPDATE]: (val: RadioModelValue): boolean => isString(val) || isNumber(val) || isBoolean(val)
   })
 
+  const { run } = useRun()
   const { styles, classes } = useList(prop, 'radio-group')
 
   /**
@@ -20,7 +21,7 @@
    */
   const changeEvent = (value: RadioModelValue): void => {
     emit(EMIT_UPDATE, value)
-    useRun(prop.onChange, value)
+    run(prop.onChange, value)
   }
 
   /** 注入依赖项 */

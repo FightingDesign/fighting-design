@@ -7,7 +7,7 @@
   const prop = defineProps(Props)
 
   const { getLang } = useGlobal()
-
+  const { run } = useRun()
   const { styles } = useList(prop, 'sticky-card')
 
   /** 是否打开 */
@@ -16,7 +16,7 @@
   /** 点击触发 */
   const handleClick = (): void => {
     isOpened.value = !isOpened.value
-    useRun(isOpened.value ? prop.onClose : prop.onOpen, isOpened.value)
+    run(isOpened.value ? prop.onClose : prop.onOpen, isOpened.value)
   }
 
   /** 展示的文字内容 */

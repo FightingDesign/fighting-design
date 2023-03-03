@@ -16,6 +16,7 @@
     [EMIT_UPDATE]: (val: SelectModelValue): boolean => !!val
   })
 
+  const { run } = useRun()
   const { styles } = useList(prop, 'select')
 
   /**
@@ -98,7 +99,7 @@
     inputValue.value = newValue
 
     emit(EMIT_UPDATE, newLabel)
-    useRun(prop.onChange, newLabel, newValue)
+    run(prop.onChange, newLabel, newValue)
   }
 
   /** 向自组件注入依赖项 */

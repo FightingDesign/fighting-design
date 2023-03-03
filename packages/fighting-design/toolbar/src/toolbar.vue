@@ -7,6 +7,7 @@
   const prop = defineProps(Props)
   const slot = useSlots()
 
+  const { run } = useRun()
   const { classes, styles } = useList(prop, 'toolbar')
 
   /** 类名列表 */
@@ -30,7 +31,7 @@
       /** 当前元素的唯一值 */
       const index: string | undefined = target.dataset.index
 
-      useRun(prop.onClick, { evt, index } as ToolbarClickParams)
+      run(prop.onClick, { evt, index } as ToolbarClickParams)
     }
   }
 </script>

@@ -8,6 +8,7 @@
   const prop = defineProps(Props)
 
   const { classes, styles } = useList(prop, 'expand-card')
+  const { run } = useRun()
 
   /** 当前显示的位置 */
   const currExpandIndex = ref<number>(prop.expandIndex)
@@ -27,7 +28,7 @@
      *
      * 返回时间对象、当前点击的索引、每一项信息
      */
-    useRun(prop.onChange, evt, index, item)
+    run(prop.onChange, evt, index, item)
   }
 
   /** 将传入的 imageList 改变成指定的类型进行渲染 */

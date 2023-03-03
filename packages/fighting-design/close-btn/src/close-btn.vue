@@ -7,6 +7,7 @@
   const prop = defineProps(Props)
 
   const { styles, classes } = useList(prop, 'close-btn')
+  const { run } = useRun()
 
   /**
    * 点击触发
@@ -15,7 +16,7 @@
    */
   const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    useRun(prop.onClick, evt)
+    run(prop.onClick, evt)
   }
 
   /** 类名列表 */

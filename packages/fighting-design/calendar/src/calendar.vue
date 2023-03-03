@@ -26,7 +26,7 @@
   const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalendar(dateParams)
 
   const { getLang } = useGlobal()
-
+  const { run } = useRun()
   const { styles, classes } = useList(prop, 'calendar')
 
   /** 星期列表 */
@@ -125,7 +125,7 @@
      * 判断显示点击相同时间指定回调
      */
     if (lastDay !== days.day) {
-      useRun(prop.onChangeDate, {
+      run(prop.onChangeDate, {
         year: dateParams.year,
         month: days.month || dateParams.month,
         date: days.day
@@ -140,7 +140,7 @@
      * @param { number } month 最新的月份
      */
     (month: number): void => {
-      useRun(prop.onChangeMonth, {
+      run(prop.onChangeMonth, {
         year: dateParams.year,
         month,
         date: dateParams.date
