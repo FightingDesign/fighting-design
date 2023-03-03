@@ -8,7 +8,7 @@ import {
 } from '../../_utils'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
-import type { InputType, InputEvent } from './interface'
+import type { InputType, InputUpdate } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -116,11 +116,11 @@ export const Props = {
    */
   autocomplete: setStringProp(),
   /** 点击搜索之后触发的回调 */
-  onSearch: setFunctionProp<InputEvent>(),
+  onSearch: setFunctionProp<InputUpdate>(),
   /** 绑定值发生改变时触发的回调 */
-  onChange: setFunctionProp<InputEvent>(),
+  onChange: setFunctionProp<InputUpdate>(),
   /** input 事件触发的回调 */
-  onInput: setFunctionProp<InputEvent>(),
+  onInput: setFunctionProp<InputUpdate>(),
   /** 失去焦点时触发的回调 */
   onBlur: setFunctionProp<HandleEvent>(),
   /** 获得焦点时触发的回调 */

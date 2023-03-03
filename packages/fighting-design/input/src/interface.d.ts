@@ -9,4 +9,4 @@ export type InputType = 'text' | 'password' | 'number'
  * @param { string } value 当前的值
  * @param { Object } evt 事件对象
  */
-export type InputEvent = (value: string, evt: Event) => void
+export type InputUpdate = (value: string, evt: Event) => void

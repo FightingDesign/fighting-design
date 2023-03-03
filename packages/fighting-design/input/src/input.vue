@@ -50,8 +50,8 @@
    *
    * @param { Object } evt 事件对象
    */
-  const handleSearch = (evt: Event): void => {
-    useRun(prop.onSearch, (evt.target as HTMLInputElement).value, evt)
+  const handleSearch = (evt: MouseEvent | KeyboardEvent): void => {
+    useRun(prop.onSearch, prop.modelValue, evt)
   }
 
   /**
@@ -59,7 +59,7 @@
    *
    * @param { Object } evt 事件对象
    */
-  const handleEnter = (evt: Event): void => {
+  const handleEnter = (evt: KeyboardEvent): void => {
     const { search, enterSearch, onEnter } = toRefs(prop)
 
     if (search.value && enterSearch.value) {
