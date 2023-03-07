@@ -6,12 +6,21 @@ export type { SelectProps } from './select'
 export type SelectModelValue = string | number | boolean
 
 /**
+ * 绑定值发生改变时触发的回调
+ * 
+ * @param { string } newValue 最新 value
+ * @param { string | number | boolean } newLabel 最新 label
+ * @param { Object } evt 事件对象
+ */
+export type SelectChange = (newValue: string, newLabel: SelectModelValue, evt: MouseEvent) => void
+
+/**
  * 提供给自组件注入的依赖项类型接口
  *
  * @param { Function } setValue 设置新的选中值
  */
 export interface SelectProvide {
-  setValue: (newValue: string, newLabel: SelectModelValue, evt: MouseEvent) => void
+  setValue: SelectChange
 }
 
 /** 获取子元素插槽类型接口 */
