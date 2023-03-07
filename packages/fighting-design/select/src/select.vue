@@ -95,13 +95,12 @@
    * @param { string | number | boolean } newLabel 新增 label 值
    * @param { Object } evt 事件对象
    */
-  const setValue = (newValue: string, newLabel: SelectModelValue, evt: MouseEvent): void => {
+  const setValue = (newValue: SelectModelValue, newLabel: SelectModelValue, evt: MouseEvent): void => {
     /** 设置文本框展示的内容 */
-    inputValue.value = newValue
+    inputValue.value = newValue.toString()
 
     /** 如果最新的 value 和绑定的 value 不一致时，才触发 change 事件 */
     if (newLabel !== prop.modelValue) {
-      // console.log(newLabel, prop.modelValue)
       run(prop.onChange, newLabel, newValue, evt)
     }
 

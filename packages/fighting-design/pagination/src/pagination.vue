@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FPagination">
   import { Props } from './props'
-  import { computed, ref, watchEffect, watch } from 'vue'
+  import { computed, ref, watchEffect } from 'vue'
   import { isNumber } from '../../_utils'
   import { useList, useRun } from '../../_hooks'
   import { FIconChevronLeftVue, FIconChevronRightVue, FIconMenuMeatball } from '../../_svg'
@@ -9,6 +9,7 @@
   import { FOption } from '../../option'
   import { FSvgIcon } from '../../svg-icon'
   import { EMIT_CURRENT, EMIT_PAGESIZE } from '../../_tokens'
+  import type { SelectModelValue } from '../../select'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -27,18 +28,14 @@
   /** 下一页更多图标的 visible */
   const showNextMore = ref<boolean>(false)
 
-  /** 监视每页大小发生变化时触发 */
-  watch(
-    (): number => pagesLen.value,
-    /**
-     * 更新最新值
-     *
-     * @param { number } newValue 最新值
-     */
-    (newValue: number): void => {
-      emit(EMIT_PAGESIZE, newValue)
-    }
-  )
+  /**
+   * select 发生改变时触发的回调
+   *
+   * @param { string | number | boolean } newValue 最新的 value
+   */
+  const selectChange = (newValue: SelectModelValue): void => {
+    emit(EMIT_PAGESIZE, Number(newValue))
+  }
 
   /**
    * 计算出最大页码数
@@ -243,7 +240,7 @@
   <div :class="classList">
     <!-- 下拉菜单选择每页大小 -->
     <template v-if="pageSizes && pageSizes.length">
-      <f-select v-model="pagesLen" :width="120" :disabled="disabled" size="small">
+      <f-select v-model="pagesLen" :width="120" :disabled="disabled" size="small" :on-change="selectChange">
         <f-option v-for="item in pageSizes" :key="item" :value="item" :label="item + '/页'" />
       </f-select>
     </template>

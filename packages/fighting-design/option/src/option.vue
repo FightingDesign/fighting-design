@@ -42,7 +42,7 @@
      *
      * 返回优先级：value > label > 插槽
      */
-    const newValue: string = `${value.value}` || `${label.value}` || slotLabel
+    const newValue: SelectModelValue = value.value || label.value || slotLabel
 
     /** 执行父组件的设置方法 */
     parentInject && run(parentInject.setValue, newLabel, newValue, evt)

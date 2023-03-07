@@ -8,11 +8,11 @@ export type SelectModelValue = string | number | boolean
 /**
  * 绑定值发生改变时触发的回调
  * 
- * @param { string } newValue 最新 value
+ * @param { string | number | boolean } newValue 最新 value
  * @param { string | number | boolean } newLabel 最新 label
  * @param { Object } evt 事件对象
  */
-export type SelectChange = (newValue: string, newLabel: SelectModelValue, evt: MouseEvent) => void
+export type SelectChange = (newValue: SelectModelValue, newLabel: SelectModelValue, evt: MouseEvent) => void
 
 /**
  * 提供给自组件注入的依赖项类型接口
