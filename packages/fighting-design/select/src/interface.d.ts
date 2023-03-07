@@ -11,7 +11,7 @@ export type SelectModelValue = string | number | boolean
  * @param { Function } setValue 设置新的选中值
  */
 export interface SelectProvide {
-  setValue(newValue: SelectModelValue, newLabel: SelectModelValue): void
+  setValue: (newValue: string, newLabel: SelectModelValue, evt: MouseEvent) => void
 }
 
 /** 获取子元素插槽类型接口 */

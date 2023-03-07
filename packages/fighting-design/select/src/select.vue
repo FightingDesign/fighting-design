@@ -2,7 +2,7 @@
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
   import { useList, useRun } from '../../_hooks'
-  import { provide, reactive, computed, useSlots } from 'vue'
+  import { provide, computed, useSlots, reactive } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { getChildren } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
@@ -49,7 +49,9 @@
 
         /** 判断是否有传递 props */
         if (optionProp) {
-          return optionProp.value ? optionProp.value === prop.modelValue : optionProp.label === prop.modelValue
+          return optionProp.value
+            ? `${optionProp.value}` === `${prop.modelValue}`
+            : `${optionProp.label}` === `${prop.modelValue}`
         }
 
         /**
@@ -83,9 +85,7 @@
      *
      * @param { string } val 最新值
      */
-    set: (val: string): string => {
-      return val
-    }
+    set: (val: string): string => val
   })
 
   /**
@@ -93,13 +93,19 @@
    *
    * @param { string } newValue 新的 value 值
    * @param { string | number | boolean } newLabel 新增 label 值
+   * @param { Object } evt 事件对象
    */
-  const setValue = (newValue: string, newLabel: SelectModelValue): void => {
+  const setValue = (newValue: string, newLabel: SelectModelValue, evt: MouseEvent): void => {
     /** 设置文本框展示的内容 */
     inputValue.value = newValue
 
+    /** 如果最新的 value 和绑定的 value 不一致时，才触发 change 事件 */
+    if (newLabel !== prop.modelValue) {
+      // console.log(newLabel, prop.modelValue)
+      run(prop.onChange, newLabel, newValue, evt)
+    }
+
     emit(EMIT_UPDATE, newLabel)
-    run(prop.onChange, newLabel, newValue)
   }
 
   /** 向自组件注入依赖项 */
@@ -107,10 +113,6 @@
 
   /** 样式列表 */
   const styleList = styles(['width'])
-
-  const handleChange = (): void => {
-    console.log('123')
-  }
 </script>
 
 <template>
@@ -123,7 +125,6 @@
         :disabled="disabled"
         :placeholder="placeholder"
         :clear="clear"
-        :on-input="handleChange"
       />
 
       <template #content>
