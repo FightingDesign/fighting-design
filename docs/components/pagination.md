@@ -47,7 +47,7 @@
 
 ```html
 <template>
-  <f-pagination v-model:current="current" :total="total" :page-size="pagesize" :page-sizes="pageSizes" />
+  <f-pagination v-model:current="current" v-model:page-size="pagesize" :total="total" :page-sizes="pageSizes" />
 </template>
 
 <script lang="ts" setup>
@@ -167,9 +167,9 @@
 | 参数                  | 说明                         | 类型                                                               | 可选值 | 默认值 |
 | --------------------- | ---------------------------- | ------------------------------------------------------------------ | ------ | ------ |
 | `v-model:current`     | 当前选中页码                 | number                                                             | ——     | 1      |
+| `v-model:page-sizes`  | 每页多少条                   | []                                                                 | ——     | ——     |
 | `total`               | 总页数                       | number                                                             | ——     | 0      |
 | `page-size`           | 每页条数                     | number                                                             | ——     | 10     |
-| `page-sizes`          | 每页多少条                   | []                                                                 | ——     | ——     |
 | `background`          | 是否带有背景色               | boolean                                                            | ——     | false  |
 | `round`               | 是否带有圆角                 | boolean                                                            | ——     | false  |
 | `prev-icon`           | 自定义的上一页图标           | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
