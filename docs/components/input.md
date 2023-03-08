@@ -213,6 +213,8 @@
 | `max`                 | 最大值                     | number                                                             | ——                              | ——      |
 | `min`                 | 最小值                     | number                                                             | ——                              | ——      |
 | `max-length`          | 最大输入长度上限           | number                                                             | ——                              | ——      |
+| `width`               | 自定义宽度                 | string / number                                                    | ——                              | ——      |
+| `height`              | 自定义高度                 | string / number                                                    | ——                              | ——      |
 | `autofocus`           | 是否自动获取焦点           | boolean                                                            | ——                              | false   |
 | `name`                | 原生 name 属性             | string                                                             | ——                              | f-input |
 | `placeholder`         | 占位符                     | string                                                             | ——                              | ——      |
@@ -274,6 +276,7 @@ type InputEvent = (evt: Event, value: string) => void
 | `--input-text-color`          | 文字颜色           |
 | `--input-active-border-color` | 选中状态边框背景色 |
 | `--input-height`              | 高度               |
+| `--input-width`               | 宽度               |
 | `--input-font-size`           | 文字大小           |
 
 ## Contributors
