@@ -21,6 +21,9 @@
     },
     "pageHeader": {
       "backText": "back"
+    },
+    "input": {
+      "search": "Search"
     }
   }
 }

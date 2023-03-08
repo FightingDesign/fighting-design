@@ -3,11 +3,11 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FButton } from '../../button'
   import { FSwap } from '../../swap'
-  import { ref, toRefs } from 'vue'
+  import { ref, toRefs, computed } from 'vue'
   import { FIconCrossVue, FIconEyeOffOutlineVue, FIconEyeOutlineVue } from '../../_svg'
   import { isString, isNumber } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
-  import { useInput, useProps, useRun, useList } from '../../_hooks'
+  import { useInput, useProps, useRun, useList, useGlobal } from '../../_hooks'
   import type { InputType } from './interface'
 
   const prop = defineProps(Props)
@@ -15,9 +15,13 @@
     [EMIT_UPDATE]: (val: string | number): boolean => isString(val) || isNumber(val)
   })
 
-  const { filter } = useProps(prop)
   const { run } = useRun()
   const { styles, classes } = useList(prop, 'input')
+  const { filter } = useProps(prop)
+  const { getLang } = useGlobal()
+
+  /** 主要的描述文字内容 */
+  const searchText = computed((): string => getLang('input').value.search)
 
   /** type 类型 */
   const inputType = ref<InputType>(prop.type)
@@ -152,7 +156,7 @@
     <!-- 搜索框 -->
     <div v-if="search" class="f-input__search" @click="handleSearch">
       <slot name="searchBtn">
-        <f-button type="primary" :size="size">搜索</f-button>
+        <f-button type="primary" :size="size">{{ searchText }}</f-button>
       </slot>
     </div>
   </div>
