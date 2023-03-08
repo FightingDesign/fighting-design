@@ -48,6 +48,7 @@
   /**
    * 点击搜索
    *
+   * @see KeyboardEvent https://developer.mozilla.org/zh-CN/docs/Web/API/KeyboardEvent
    * @param { Object } evt 事件对象
    */
   const handleSearch = (evt: MouseEvent | KeyboardEvent): void => {

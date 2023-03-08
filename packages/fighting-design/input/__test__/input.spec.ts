@@ -36,7 +36,7 @@ describe('Input', () => {
       props: { disabled: true }
     })
     expect(wrapper.find('.f-input__input').attributes('disabled')).not.toBeNull()
-    expect(wrapper.find('.f-input__wrapper').classes()).toContain('f-input__disabled')
+    expect(wrapper.classes()).toContain('f-input__disabled')
   })
 
   test('max', () => {
