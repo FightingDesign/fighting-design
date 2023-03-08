@@ -3,12 +3,13 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FButton } from '../../button'
   import { FSwap } from '../../swap'
-  import { ref, toRefs, computed } from 'vue'
+  import { ref, toRefs, computed, reactive } from 'vue'
   import { FIconCrossVue, FIconEyeOffOutlineVue, FIconEyeOutlineVue } from '../../_svg'
   import { isString, isNumber } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
   import { useInput, useProps, useRun, useList, useGlobal } from '../../_hooks'
   import type { InputType } from './interface'
+  import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -16,9 +17,18 @@
   })
 
   const { run } = useRun()
-  const { styles, classes } = useList(prop, 'input')
   const { filter } = useProps(prop)
-  const { getLang } = useGlobal()
+  const { getLang, getSize } = useGlobal(prop as unknown as UseGlobalProp)
+
+  /** 替换 size 后得到的 props */
+  const params = reactive({
+    ...toRefs(prop),
+    size: getSize()
+  })
+
+  const { styles, classes } = useList(params, 'input')
+
+  const { onInput, onClear, onChange } = useInput(filter(['onChange', 'onInput', 'disabled', 'type']), emit)
 
   /** 主要的描述文字内容 */
   const searchText = computed((): string => getLang('input').value.search)
@@ -29,25 +39,19 @@
   /** 是否展示密码 */
   const showPass = ref<boolean>(false)
 
-  const { onInput, onClear, onChange } = useInput(filter(['onChange', 'onInput', 'disabled', 'type']), emit)
-
   /**
    * 文本输入 input 事件
    *
    * @param { Object } evt 事件对象
    */
-  const handleInput = (evt: Event): void => {
-    onInput(evt)
-  }
+  const handleInput = (evt: Event): void => onInput(evt)
 
   /**
    * 文本输入 change 事件
    *
    * @param { Object } evt 事件对象
    */
-  const handleChange = (evt: Event): void => {
-    onChange(evt)
-  }
+  const handleChange = (evt: Event): void => onChange(evt)
 
   /**
    * 点击搜索
