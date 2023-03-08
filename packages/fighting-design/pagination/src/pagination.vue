@@ -315,6 +315,7 @@
         placeholder="输入跳转的页数"
         class="f-pagination__jump"
         :disabled="disabled"
+        size="small"
         :on-blur="handleInput"
         :on-enter="handleInput"
       />
