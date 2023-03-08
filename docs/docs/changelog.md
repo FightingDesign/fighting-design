@@ -2,6 +2,25 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复**
+
+- 修复 `f-select` 组件 width 失效问题
+- 修复 `f-box` 组件样式问题
+- 修复 `f-table` 组件样式参数失效问题
+- 修复 `f-pagination` 组件下拉菜单选择失效问题
+- 修复 `f-pagination` 点击错位的问题
+- 修复 `f-pagination` 样式问题
+
+**优化**
+
+- 优化 `f-toolbar` 组件回调参数和类型
+- 优化 `f-input` 组件回调参数和类型
+- 优化 `f-pagination` 组件样式细节
+
+**新增**
+
+- `f-select` 组件新增 `on-change` 配置项
+
 ## 0.26.2 (2023-03-01)
 
 **修复**

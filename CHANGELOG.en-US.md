@@ -4,6 +4,27 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.27.0 (2023-03-08)
+
+**Fix**
+
+- Fix `f-select` component width failure
+- Fix the `f-box` component style problem
+- Fix the failure of `f-table` component style parameters
+- Fix the failure of `f-pagination` component drop-down menu selection
+- Fix `f-pagination` click misplacement
+- Fix the `f-pagination` style problem
+
+**Optimization**
+
+- Optimize `f-toolbar` component callback parameters and types
+- Optimize `f-input` component callback parameters and types
+- Optimize `f-pagination` component style details
+
+**New**
+
+- `f-select` component adds`on-change`configuration item
+
 ## 0.26.2 (2023-03-01)
 
 **Fix**
