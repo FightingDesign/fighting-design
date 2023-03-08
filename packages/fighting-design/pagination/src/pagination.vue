@@ -6,10 +6,16 @@
   import { FIconChevronLeftVue, FIconChevronRightVue, FIconMenuMeatball } from '../../_svg'
   import { FInput } from '../../input'
   import { FSelect } from '../../select'
-  import { PAGINATION_ITEM } from '../../_tokens'
+  import {
+    EMIT_CURRENT,
+    EMIT_PAGESIZE,
+    PAGINATION_NEXT,
+    PAGINATION_ITEM,
+    PAGINATION_PREV,
+    PAGINATION
+  } from '../../_tokens'
   import { FOption } from '../../option'
   import { FSvgIcon } from '../../svg-icon'
-  import { EMIT_CURRENT, EMIT_PAGESIZE } from '../../_tokens'
   import type { SelectModelValue } from '../../select'
 
   const prop = defineProps(Props)
@@ -206,7 +212,7 @@
        *
        * 也就行需要往前切换页码
        */
-      if (target.className.includes('f-pagination__prev')) {
+      if (target.className.includes(PAGINATION_PREV)) {
         newPage = current - countPager
       }
 
@@ -215,7 +221,7 @@
        *
        * 也就是需要往后切换页码
        */
-      if (target.className.includes('f-pagination__next')) {
+      if (target.className.includes(PAGINATION_NEXT)) {
         newPage = current + countPager
       }
 
@@ -238,7 +244,7 @@
   const { classes } = useList(prop, 'pagination')
 
   /** 类名列表 */
-  const classList = classes(['background', 'round', 'disabled'], 'f-pagination')
+  const classList = classes(['background', 'round', 'disabled'], PAGINATION)
 </script>
 
 <template>
@@ -270,7 +276,7 @@
       </div>
 
       <!-- 省略号 -->
-      <div v-if="showPrevMore" :class="[PAGINATION_ITEM, 'f-pagination__prev']">
+      <div v-if="showPrevMore" :class="[PAGINATION_ITEM, PAGINATION_PREV]">
         <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
       </div>
 
@@ -290,7 +296,7 @@
       </div>
 
       <!-- 省略号 -->
-      <div v-if="showNextMore" :class="[PAGINATION_ITEM, 'f-pagination__next']">
+      <div v-if="showNextMore" :class="[PAGINATION_ITEM, PAGINATION_NEXT]">
         <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
       </div>
 
@@ -319,6 +325,7 @@
         v-model="jumpCurrent"
         placeholder="输入跳转的页数"
         class="f-pagination__jump"
+        style="width: 80px"
         :disabled="disabled"
         :on-blur="handleInput"
         :on-enter="handleInput"

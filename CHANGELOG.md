@@ -9,6 +9,7 @@
 - 修复 `f-table` 组件样式参数失效问题
 - 修复 `f-pagination` 组件下拉菜单选择失效问题
 - 修复 `f-pagination` 点击错位的问题
+- 修复 `f-pagination` 样式问题
 
 **优化**
 
