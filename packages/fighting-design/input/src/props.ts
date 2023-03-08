@@ -80,6 +80,10 @@ export const Props = {
   placeholderColor: setStringProp(),
   /** 是否可清除 */
   clear: setBooleanProp(),
+  /** 自定义宽度 */
+  width: setStringNumberProp(),
+  /** 自定义高度 */
+  height: setStringNumberProp(),
   /** 是否可搜索 */
   search: setBooleanProp(),
   /** 自定义背景色 */

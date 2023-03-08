@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**新增**
+
+- `f-input` 组件新增 `width` 和 `height` 配置项
+
 ## 0.27.0 (2023-03-08)
 
 **修复**

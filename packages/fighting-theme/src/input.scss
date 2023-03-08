@@ -5,8 +5,8 @@
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  height: var(--input-height, 35px);
-  width: 100%;
+  height: var(--input-height);
+  width: var(--input-width);
 
   // 主容器
   &__wrapper {

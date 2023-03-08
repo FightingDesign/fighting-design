@@ -1,5 +1,9 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-<template></template>
+  const value1 = ref('')
+</script>
 
-<style lang="scss" scoped></style>
+<template>
+  <f-input v-model="value1" type="text" :width="200" :height="100" placeholder="请输入...." />
+</template>
