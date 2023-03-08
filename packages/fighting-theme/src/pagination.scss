@@ -42,8 +42,8 @@
 
   // 按钮
   &__button {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border: none;
     outline: none;
     background-color: #f0f0f0;
@@ -79,9 +79,11 @@
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      width: 34px;
-      height: 34px;
-      font-size: 15px;
+      min-width: 35px;
+      padding: 0 6px;
+      box-sizing: border-box;
+      height: 35px;
+      font-size: 14px;
       cursor: pointer;
       color: #333;
 

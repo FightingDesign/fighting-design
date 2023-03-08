@@ -7,11 +7,13 @@
 - 修复 `f-select` 组件 width 失效问题
 - 修复 `f-box` 组件样式问题
 - 修复 `f-table` 组件样式参数失效问题
+- 修复 `f-pagination` 组件下拉菜单选择失效问题
 
 **优化**
 
 - 优化 `f-toolbar` 组件回调参数和类型
 - 优化 `f-input` 组件回调参数和类型
+- 优化 `f-pagination` 组件样式细节
 
 **新增**
 

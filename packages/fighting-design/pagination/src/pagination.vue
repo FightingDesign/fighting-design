@@ -240,7 +240,7 @@
   <div :class="classList">
     <!-- 下拉菜单选择每页大小 -->
     <template v-if="pageSizes && pageSizes.length">
-      <f-select v-model="pagesLen" :width="120" :disabled="disabled" size="small" :on-change="selectChange">
+      <f-select v-model="pagesLen" :width="120" :disabled="disabled" :on-change="selectChange">
         <f-option v-for="item in pageSizes" :key="item" :value="item" :label="item + '/页'" />
       </f-select>
     </template>
@@ -315,7 +315,6 @@
         placeholder="输入跳转的页数"
         class="f-pagination__jump"
         :disabled="disabled"
-        size="small"
         :on-blur="handleInput"
         :on-enter="handleInput"
       />

@@ -2,7 +2,7 @@
   import { ref } from 'vue'
 
   const current = ref(1)
-  const total = ref(100)
+  const total = ref(100000)
 
   const pagesize = ref(10)
 
@@ -14,6 +14,7 @@
     v-model:current="current"
     v-model:page-size="pagesize"
     jump-search
+    background
     :total="total"
     :page-sizes="pageSizes"
   />
