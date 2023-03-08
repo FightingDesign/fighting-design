@@ -6,6 +6,7 @@
   import { FIconChevronLeftVue, FIconChevronRightVue, FIconMenuMeatball } from '../../_svg'
   import { FInput } from '../../input'
   import { FSelect } from '../../select'
+  import { PAGINATION_ITEM } from '../../_tokens'
   import { FOption } from '../../option'
   import { FSvgIcon } from '../../svg-icon'
   import { EMIT_CURRENT, EMIT_PAGESIZE } from '../../_tokens'
@@ -190,7 +191,7 @@
     const target: HTMLElement = evt.target as HTMLElement
 
     /** 判断点击的是否为子节点 */
-    if (target.className.includes('f-pagination__item')) {
+    if (target.className.includes(PAGINATION_ITEM)) {
       /** 最新的页数 */
       let newPage = Number(target.textContent)
       /** 第几页开始折叠 */
@@ -259,9 +260,9 @@
       <!-- 第一页 -->
       <div
         :class="[
-          'f-pagination__item',
+          PAGINATION_ITEM,
           {
-            'f-pagination__item-active': current === 1
+            [`${PAGINATION_ITEM}-active`]: current === 1
           }
         ]"
       >
@@ -269,7 +270,7 @@
       </div>
 
       <!-- 省略号 -->
-      <div v-if="showPrevMore" class="f-pagination__item f-pagination__prev">
+      <div v-if="showPrevMore" :class="[PAGINATION_ITEM, 'f-pagination__prev']">
         <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
       </div>
 
@@ -278,9 +279,9 @@
         v-for="item in pages"
         :key="item"
         :class="[
-          'f-pagination__item',
+          PAGINATION_ITEM,
           {
-            'f-pagination__item-active': current === item
+            [`${PAGINATION_ITEM}-active`]: current === item
           }
         ]"
         @click="handelChange(item, $event)"
@@ -289,7 +290,7 @@
       </div>
 
       <!-- 省略号 -->
-      <div v-if="showNextMore" class="f-pagination__item f-pagination__next">
+      <div v-if="showNextMore" :class="[PAGINATION_ITEM, 'f-pagination__next']">
         <f-svg-icon :size="15" :icon="FIconMenuMeatball" />
       </div>
 
@@ -297,9 +298,9 @@
       <div
         v-if="total > 1"
         :class="[
-          'f-pagination__item',
+          PAGINATION_ITEM,
           {
-            'f-pagination__item-active': current === maxCount
+            [`${PAGINATION_ITEM}-active`]: current === maxCount
           }
         ]"
       >
