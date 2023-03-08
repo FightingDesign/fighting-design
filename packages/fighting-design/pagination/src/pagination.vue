@@ -188,45 +188,49 @@
 
     /** 当前点击的元素节点 */
     const target: HTMLElement = evt.target as HTMLElement
-    /** 最新的页数 */
-    let newPage = Number(target.textContent)
-    /** 第几页开始折叠 */
-    let pagerCount: number = prop.pagerCount
-    /** 当前选中页码 */
-    let current: number = prop.current
-    /** 计数页码 */
-    let countPager: number = pagerCount - 2
 
-    /**
-     * 如果点击的是前一个省略号
-     *
-     * 也就行需要往前切换页码
-     */
-    if (target.className.includes('f-pagination__prev')) {
-      newPage = current - countPager
-    }
+    /** 判断点击的是否为子节点 */
+    if (target.className.includes('f-pagination__item')) {
+      /** 最新的页数 */
+      let newPage = Number(target.textContent)
+      /** 第几页开始折叠 */
+      let pagerCount: number = prop.pagerCount
+      /** 当前选中页码 */
+      let current: number = prop.current
+      /** 计数页码 */
+      let countPager: number = pagerCount - 2
 
-    /**
-     * 如果点击是是后一个省略号
-     *
-     * 也就是需要往后切换页码
-     */
-    if (target.className.includes('f-pagination__next')) {
-      newPage = current + countPager
-    }
-
-    if (!Number.isNaN(newPage)) {
-      if (newPage < 1) {
-        newPage = 1
+      /**
+       * 如果点击的是前一个省略号
+       *
+       * 也就行需要往前切换页码
+       */
+      if (target.className.includes('f-pagination__prev')) {
+        newPage = current - countPager
       }
-      if (newPage > maxCount.value) {
-        newPage = maxCount.value
-      }
-    }
 
-    if (newPage !== current) {
-      emit(EMIT_CURRENT, newPage)
-      run(prop.onChange, newPage, prop.pageSize, evt)
+      /**
+       * 如果点击是是后一个省略号
+       *
+       * 也就是需要往后切换页码
+       */
+      if (target.className.includes('f-pagination__next')) {
+        newPage = current + countPager
+      }
+
+      if (!Number.isNaN(newPage)) {
+        if (newPage < 1) {
+          newPage = 1
+        }
+        if (newPage > maxCount.value) {
+          newPage = maxCount.value
+        }
+      }
+
+      if (newPage !== current) {
+        emit(EMIT_CURRENT, newPage)
+        run(prop.onChange, newPage, prop.pageSize, evt)
+      }
     }
   }
 

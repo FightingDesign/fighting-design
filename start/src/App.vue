@@ -13,6 +13,7 @@
   <f-pagination
     v-model:current="current"
     v-model:page-size="pagesize"
+    round
     jump-search
     background
     :total="total"
