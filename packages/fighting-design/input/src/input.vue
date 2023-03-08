@@ -17,7 +17,7 @@
 
   const { filter } = useProps(prop)
   const { run } = useRun()
-  const { styles } = useList(prop, 'input')
+  const { styles, classes } = useList(prop, 'input')
 
   /** type 类型 */
   const inputType = ref<InputType>(prop.type)
@@ -90,15 +90,22 @@
     'width',
     'height'
   ])
+
+  /** 类名列表 */
+  const classList = classes(['size', 'disabled'], 'f-input')
 </script>
 
 <template>
-  <div role="input" :class="['f-input', { [`f-input__${size}`]: size }]" :style="styleList">
-    <div :class="['f-input__wrapper', { 'f-input__disabled': disabled }]">
+  <div role="input" :class="classList" :style="styleList">
+    <!-- 容器盒子 -->
+    <div class="f-input__wrapper">
+      <!-- 前缀插槽 -->
       <slot name="before" />
 
+      <!-- 前缀 icon -->
       <f-svg-icon v-if="icon" class="f-input__icon" :icon="icon" :size="13" />
 
+      <!-- 输入框 -->
       <input
         class="f-input__input"
         :type="inputType"
@@ -137,6 +144,7 @@
         :on-change="handleShowPassword"
       />
 
+      <!-- 后缀插槽 -->
       <slot name="after" />
     </div>
 
