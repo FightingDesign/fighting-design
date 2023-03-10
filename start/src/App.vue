@@ -1,5 +1,10 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-<template></template>
+  const value1 = ref('')
+</script>
 
-<style lang="scss" scoped></style>
+<template>
+  <f-textarea v-model="value1" placeholder="请输入...." />
+  <f-textarea v-model="value1" disabled placeholder="请输入...." />
+</template>

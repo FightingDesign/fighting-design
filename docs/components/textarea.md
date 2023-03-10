@@ -147,7 +147,7 @@
 | `placeholder` | 占位符                     | string                                                           | ——                                           | ——      |
 | `readonly`    | 是否只读                   | boolean                                                          | ——                                           | false   |
 | `clear`       | 是否可清空                 | boolean                                                          | ——                                           | false   |
-| `resize`      | 拉伸方式                   | <a href="#textarearesize">TextareaResize</a>                     | `none` `both` <br /> `horizontal` `vertical` | none    |
+| `resize`      | 拉伸方式                   | <a href="#textarearesize">TextareaResize</a>                     | `none` `both` <br /> `horizontal` `vertical` | ——      |
 | `on-blur`     | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                           | ——      |
 | `on-focus`    | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                           | ——      |
 | `on-change`   | 绑定值发生变化时触发的回调 | <a href="/components/interface.html#inputchange">InputChange</a> | ——                                           | ——      |

@@ -1,10 +1,16 @@
 .f-textarea {
+  --textarea-background: #f8f9fb;
+  --textarea-resize: none;
+}
+
+.f-textarea {
   width: 100%;
   overflow: hidden;
   position: relative;
   display: inline-block;
   transition: background 0.3s;
-  background-color: #eee;
+  resize: var(--textarea-resize);
+  background-color: var(--textarea-background);
 
   &__textarea {
     width: 100%;
@@ -23,9 +29,13 @@
   }
 
   // 禁用状态
-  &__disabled {
+  &.f-textarea__disabled {
     cursor: not-allowed;
     color: #757575;
+
+    .f-textarea__textarea {
+      cursor: not-allowed;
+    }
   }
 
   // 获取焦点

@@ -7,6 +7,10 @@
 - `f-input` 组件新增 `width` 和 `height` 配置项
 - `f-input` 组件兼容全局配置
 
+**其它**
+
+- `f-textarea` 组件 `resize` 配置项默认值改为 null
+
 ## 0.27.0 (2023-03-08)
 
 **修复**

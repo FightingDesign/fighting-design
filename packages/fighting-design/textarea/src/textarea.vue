@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FTextarea">
   import { Props } from './props'
-  import { useInput, useProps } from '../../_hooks'
+  import { useInput, useProps, useList } from '../../_hooks'
   import { isString, isNumber } from '../../_utils'
   import { FIconCrossVue } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
@@ -12,33 +12,34 @@
   })
 
   const { filter } = useProps(prop)
-
-  /** 使用 useInput hook 实现同步数据 */
   const { onInput, onClear, onChange } = useInput(filter(['onChange', 'onInput', 'disabled']), emit)
+  const { classes, styles } = useList(prop, 'textarea')
 
   /**
    * 输入框输入
    *
    * @param { Object } evt 事件对象
    */
-  const handleInput = (evt: Event): void => {
-    onInput(evt)
-  }
+  const handleInput = (evt: Event): void => onInput(evt)
 
   /**
    * 文本输入 change 事件
    *
    * @param { Object } evt 事件对象
    */
-  const handleChange = (evt: Event): void => {
-    onChange(evt)
-  }
+  const handleChange = (evt: Event): void => onChange(evt)
+
+  /** 类名列表 */
+  const classList = classes(['disabled'], 'f-textarea')
+
+  /** 样式列表 */
+  const styleList = styles(['resize'])
 </script>
 
 <template>
-  <div class="f-textarea" :style="{ resize }">
+  <div :class="classList" :style="styleList">
     <textarea
-      :class="['f-textarea__textarea', { 'f-textarea__disabled': disabled }]"
+      class="f-textarea__textarea"
       :rows="rows"
       :value="modelValue"
       :disabled="disabled"
