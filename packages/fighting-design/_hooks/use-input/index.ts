@@ -16,7 +16,6 @@ export * from './interface.d'
  * @returns { Object }
  */
 export const useInput = (prop: UseInputProps, emit: UseInputEmit): UseInputReturn => {
-
   const { run } = useRun()
 
   /**

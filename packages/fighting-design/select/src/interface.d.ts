@@ -7,7 +7,7 @@ export type SelectModelValue = string | number | boolean
 
 /**
  * 绑定值发生改变时触发的回调
- * 
+ *
  * @param { string | number | boolean } newValue 最新 value
  * @param { string | number | boolean } newLabel 最新 label
  * @param { Object } evt 事件对象

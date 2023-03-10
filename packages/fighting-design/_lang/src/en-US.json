@@ -5,15 +5,7 @@
       "content": "No data"
     },
     "calendar": {
-      "weekList": [
-        "Su",
-        "Mo",
-        "Tu",
-        "We",
-        "Th",
-        "Fr",
-        "Sa"
-      ]
+      "weekList": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
     },
     "stickyCard": {
       "openText": "close",
