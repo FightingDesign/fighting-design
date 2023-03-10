@@ -4,6 +4,21 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.27.1 (2023-03-10)
+
+**New**
+
+- `f-input` component adds `width` and `height` configuration items
+- `f-input` component is compatible with global configuration
+
+**Optimization**
+
+- Optimize `f-textarea` style details
+
+**Others**
+
+- The default value of the `f-textarea` component `resize` configuration item is changed to null
+
 ## 0.27.0 (2023-03-08)
 
 **Fix**
