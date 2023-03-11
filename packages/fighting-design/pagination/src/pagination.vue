@@ -41,6 +41,12 @@
    * @param { string | number | boolean } newValue 最新的 value
    */
   const selectChange = (newValue: SelectModelValue): void => {
+    const maxValue = Math.ceil(prop.total / Number(newValue))
+
+    if (prop.current > maxValue) {
+      // 如果当前用户选择的值是大于总页数的,那么直接将总页数的最大值赋值给current
+      emit(EMIT_CURRENT, maxValue)
+    }
     emit(EMIT_PAGESIZE, Number(newValue))
   }
 
@@ -75,6 +81,9 @@
     /** 显示下一页更多 */
     let showNextMore = false
 
+    /** 结果数组 */
+    const pageList: number[] = []
+
     /** 如果最大页码数 > 当前页码超过多少需要展示省略号 */
     if (maxCount.value > pagerCount) {
       if (prop.current > pagerCount - halfPagerCount) {
@@ -83,10 +92,13 @@
       if (prop.current < maxCount.value - halfPagerCount) {
         showNextMore = true
       }
+    } else {
+      // 如果最大页码数小于 当前输入的pagerCount.
+      for (let i = 2; i < maxCount.value; i++) {
+        pageList.push(i)
+      }
+      return pageList
     }
-
-    /** 结果数组 */
-    const pageList: number[] = []
 
     if (!showPrevMore && showNextMore) {
       for (let startPage = 2; startPage < pagerCount; startPage++) {
