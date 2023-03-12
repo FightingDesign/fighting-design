@@ -69,8 +69,6 @@ export const useChildren = <T extends { uid: number }>(
     childrenMap.set(child.uid, child)
     const componentList = getChildrenComponent(root, component)
 
-    console.log(componentList)
-
     const componentUid: number[] = componentList
       .map(e => {
         return e.component ? e.component.uid : null
