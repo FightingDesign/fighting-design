@@ -2,6 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.27.1 (2023-03-13)
+
+**修复**
+
+- 修复 `f-pagination` 切换也码数显示错误的问题
+
 ## 0.27.1 (2023-03-10)
 
 **新增**

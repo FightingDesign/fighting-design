@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.27.1 (2023-03-13)
+
+**Fix**
+
+- Fix the problem of 'f-pagination' switch code number display error
+
 ## 0.27.1 (2023-03-10)
 
 **New**
