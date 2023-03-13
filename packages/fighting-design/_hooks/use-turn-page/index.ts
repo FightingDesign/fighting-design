@@ -1,12 +1,6 @@
 import { ref } from 'vue'
 import { useRun } from '..'
-import {
-  EMIT_CURRENT,
-  EMIT_PAGESIZE,
-  PAGINATION_NEXT,
-  PAGINATION_ITEM,
-  PAGINATION_PREV
-} from '../../_tokens'
+import { EMIT_CURRENT, EMIT_PAGESIZE, PAGINATION_NEXT, PAGINATION_ITEM, PAGINATION_PREV } from '../../_tokens'
 import type { SelectModelValue } from '../../select'
 import type { UsePageEmit, UsePageReturn } from '..'
 import type { UseTurnPageReturn } from './interface'
@@ -14,7 +8,7 @@ import type { PaginationProps } from '../../pagination'
 
 /**
  * 这对分页组件翻页的一些方法封装
- * 
+ *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop props 参数
  * @param { Object } emit 回调参数
@@ -28,7 +22,6 @@ export const useTurnPage = (
   pages: UsePageReturn['pages'],
   maxCount: UsePageReturn['maxCount']
 ): UseTurnPageReturn => {
-
   const { run } = useRun()
 
   /**
@@ -58,6 +51,7 @@ export const useTurnPage = (
     run(prop.onChange, newCurrent, prop.pageSize, evt)
   }
 
+  /** 跳转默认选中的也码数 */
   const jumpCurrent = ref<string>('1')
 
   /** 快速跳转框确定值的行为目前设定为：失焦或 enter 确定 */

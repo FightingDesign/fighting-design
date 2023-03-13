@@ -8,14 +8,13 @@ export * from './interface.d'
 
 /**
  * 这对分页组件页码计算的一些方法封装
- * 
+ *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop props 参数
  * @param { Object } emit 回调参数
  * @returns { Object }
  */
 export const usePage = (prop: PaginationProps, emit: UsePageEmit): UsePageReturn => {
-
   const { run } = useRun()
 
   /**
@@ -92,10 +91,10 @@ export const usePage = (prop: PaginationProps, emit: UsePageEmit): UsePageReturn
   })
 
   /**
- * 翻页方法 可控制上一页或者下一页切换
- *
- * @param { 'next' | 'prev' } target 切换的方向
- */
+   * 翻页方法 可控制上一页或者下一页切换
+   *
+   * @param { 'next' | 'prev' } target 切换的方向
+   */
   const handelTurnPages = (target: 'next' | 'prev'): void => {
     if (prop.disabled) return
 
