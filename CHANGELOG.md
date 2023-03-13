@@ -2,7 +2,7 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-## 0.27.1 (2023-03-13)
+## 0.27.2 (2023-03-13)
 
 **修复**
 
