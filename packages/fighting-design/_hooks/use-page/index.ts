@@ -1,0 +1,147 @@
+import { useRun } from '..'
+import { computed, watchEffect, ref } from 'vue'
+import { EMIT_CURRENT } from '../../_tokens'
+import type { PaginationProps } from '../../pagination'
+import type { UsePageEmit, UsePageReturn } from './interface'
+
+export * from './interface.d'
+
+/**
+ * 这对分页组件页码计算的一些方法封装
+ * 
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } prop props 参数
+ * @param { Object } emit 回调参数
+ * @returns { Object }
+ */
+export const usePage = (prop: PaginationProps, emit: UsePageEmit): UsePageReturn => {
+
+  const { run } = useRun()
+
+  /**
+   * 计算出最大页码数
+   *
+   * @see Math.floor() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+   */
+  const maxCount = computed((): number => {
+    /** 四舍五入向下取整 */
+    const page: number = Math.floor(prop.total / prop.pageSize)
+    /**
+     * 判断是否有余数
+     *
+     * 如果为 0 代表没有，非零代表有余数
+     */
+    const model: number = prop.total % prop.pageSize
+
+    return model === 0 ? page : page + 1
+  })
+
+  /** 需要循环遍历的 pages */
+  const pages = computed((): number[] => {
+    /** 当前页码超过多少需要展示省略号 */
+    const pagerCount = Number(prop.pagerCount)
+    /** 当前选中页码 */
+    const currentPage = Number(prop.current)
+    /** 半页计数 */
+    const halfPagerCount: number = (pagerCount - 1) / 2
+    /** 显示上一页更多 */
+    let showPrevMore = false
+    /** 显示下一页更多 */
+    let showNextMore = false
+
+    /** 结果数组 */
+    const pageList: number[] = []
+
+    /** 如果最大页码数 > 当前页码超过多少需要展示省略号 */
+    if (maxCount.value > pagerCount) {
+      if (prop.current > pagerCount - halfPagerCount) {
+        showPrevMore = true
+      }
+      if (prop.current < maxCount.value - halfPagerCount) {
+        showNextMore = true
+      }
+    } else {
+      // 如果最大页码数小于 当前输入的pagerCount.
+      for (let i = 2; i < maxCount.value; i++) {
+        pageList.push(i)
+      }
+      return pageList
+    }
+
+    if (!showPrevMore && showNextMore) {
+      for (let startPage = 2; startPage < pagerCount; startPage++) {
+        pageList.push(startPage)
+      }
+    } else if (showPrevMore && !showNextMore) {
+      const startPage: number = maxCount.value - (pagerCount - 2)
+      for (let i = startPage; i < maxCount.value; i++) {
+        pageList.push(i)
+      }
+    } else if (showPrevMore && showNextMore) {
+      const offset: number = Math.floor(pagerCount / 2) - 1
+      for (let i = currentPage - offset; i <= currentPage + offset; i++) {
+        pageList.push(i)
+      }
+    } else {
+      for (let i = 2; i < pagerCount; i++) {
+        pageList.push(i)
+      }
+    }
+
+    return pageList
+  })
+
+  /**
+ * 翻页方法 可控制上一页或者下一页切换
+ *
+ * @param { 'next' | 'prev' } target 切换的方向
+ */
+  const handelTurnPages = (target: 'next' | 'prev'): void => {
+    if (prop.disabled) return
+
+    /** 最新的页码数 */
+    let newCurrent
+
+    const map = {
+      /** 下一页切换 */
+      next: (): void => {
+        const newCurrent = prop.current === maxCount.value ? maxCount.value : prop.current + 1
+        emit(EMIT_CURRENT, newCurrent)
+        run(prop.onNext, newCurrent, prop.pageSize)
+      },
+      /**上一页切换 */
+      prev: (): void => {
+        newCurrent = prop.current === 1 ? 1 : prop.current - 1
+        emit(EMIT_CURRENT, newCurrent)
+        run(prop.onPrev, newCurrent, prop.pageSize)
+      }
+    } as const
+
+    run(map[target])
+  }
+
+  /** 上一页更多图标的 visible */
+  const showPrevMore = ref<boolean>(false)
+  /** 下一页更多图标的 visible */
+  const showNextMore = ref<boolean>(false)
+
+  watchEffect((): void => {
+    /** 当页码超过多少时开始展开省略符号 */
+    const pagerCount = Number(prop.pagerCount)
+    const halfPagerCount: number = (pagerCount - 1) / 2
+
+    showPrevMore.value = false
+    showNextMore.value = false
+
+    if (maxCount.value > pagerCount) {
+      if (prop.current > pagerCount - halfPagerCount) {
+        showPrevMore.value = true
+      }
+      if (prop.current < maxCount.value - halfPagerCount) {
+        showNextMore.value = true
+      }
+    }
+  })
+
+  return { pages, showNextMore, showPrevMore, maxCount, handelTurnPages }
+}
