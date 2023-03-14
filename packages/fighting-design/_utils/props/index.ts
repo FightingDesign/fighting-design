@@ -1,6 +1,36 @@
-import { isNumber } from '..'
-import type { PropType } from 'vue'
-import type { Validator, BasicType } from './interface'
+import type { Validator } from './interface'
+
+/**
+ * 基本类型设置参数
+ * 
+ * @param { Object } type 类型
+ * @param { * } defaultValue 默认值 
+ * @param { Function } [validator]校验器 
+ * @returns { Object }
+ */
+const createBasicType = <T, F = T>(type: T, defaultValue: F, validator?: Validator): {
+  type: T
+  default: F
+  validator?: Validator
+} => {
+  return validator
+    ? { type, default: defaultValue, validator }
+    : { type, default: defaultValue }
+}
+
+/**
+ * 复杂类型
+ * 
+ * @param { Object } type 类型
+ * @param { Function} defaultValue 默认值 
+ * @returns { Object }
+ */
+const createComplexType = <T, F = T>(type: T, defaultValue: () => F): {
+  type: T
+  default: () => F
+} => {
+  return { type, default: defaultValue }
+}
 
 /**
  * 设置 boolean 类型的 prop 参数
@@ -8,11 +38,10 @@ import type { Validator, BasicType } from './interface'
  * @param { boolean } [defaultVal = false] 默认值
  * @returns { Object } 配置对象
  */
-export const setBooleanProp = (defaultVal = false): BasicType<BooleanConstructor, boolean> =>
-({
-  type: Boolean,
-  default: (): boolean => defaultVal
-} as const)
+export const setBooleanProp = <F = boolean>(defaultVal?: F): {
+  type: BooleanConstructor
+  default: false | NonNullable<F>
+} => createBasicType(Boolean, defaultVal || false)
 
 /**
  * 设置 number 类型 props 参数
@@ -20,11 +49,10 @@ export const setBooleanProp = (defaultVal = false): BasicType<BooleanConstructor
  * @param { number } [defaultVal] 默认值
  * @returns { Object } 配置对象
  */
-export const setNumberProp = <T extends number>(defaultVal?: null | T): BasicType<NumberConstructor, number | null> =>
-({
-  type: Number,
-  default: (): T | null => (isNumber(defaultVal) ? defaultVal : null)
-} as const)
+export const setNumberProp = <F = number>(defaultVal?: F): {
+  type: NumberConstructor;
+  default: undefined | NonNullable<F>
+} => createBasicType(Number, defaultVal || undefined)
 
 /**
  * 设置 string 类型的 prop 参数
@@ -33,23 +61,11 @@ export const setNumberProp = <T extends number>(defaultVal?: null | T): BasicTyp
  * @param { Function } [validator] 校验器
  * @returns { Object } 配置对象
  */
-export const setStringProp = <T extends string>(
-  defaultVal?: null | T,
-  validator?: Validator
-): BasicType<PropType<T>, T | null> => {
-  if (validator) {
-    return {
-      type: String as unknown as PropType<T>,
-      default: (): T | null => defaultVal || null,
-      validator
-    } as const
-  }
-
-  return {
-    type: String as unknown as PropType<T>,
-    default: (): T | null => defaultVal || null
-  } as const
-}
+export const setStringProp = <F = string>(defaultVal?: F, validator?: Validator): {
+  type: StringConstructor
+  default: NonNullable<F> | undefined
+  validator?: Validator | undefined
+} => createBasicType(String, defaultVal || undefined, validator)
 
 /**
  * 设置 string & number 类型 props 参数
@@ -57,14 +73,10 @@ export const setStringProp = <T extends string>(
  * @param { string | number } [defaultVal] 默认值
  * @returns { Object } 配置对象
  */
-export const setStringNumberProp = <T extends string | number>(
-  defaultVal?: T
-): BasicType<PropType<string | number>, string | number | null> => {
-  return {
-    type: [String, Number] as PropType<string | number>,
-    default: (): T | null => defaultVal || null
-  } as const
-}
+export const setStringNumberProp = <F = string | number>(defaultVal?: F): {
+  type: (StringConstructor | NumberConstructor)[]
+  default: NonNullable<F> | undefined
+} => createBasicType([String, Number], defaultVal || undefined)
 
 /**
  * 设置 object 类型 props 参数
@@ -72,12 +84,10 @@ export const setStringNumberProp = <T extends string | number>(
  * @param { Object } [defaultVal] 默认值
  * @returns { Object } 配置对象
  */
-export const setObjectProp = <T extends object>(defaultVal = null): BasicType<PropType<T>, null> => {
-  return {
-    type: Object as PropType<T>,
-    default: () => defaultVal
-  } as const
-}
+export const setObjectProp = <T = Record<string, unknown>>(defaultVal?: T): {
+  type: ObjectConstructor
+  default: () => NonNullable<T> | null
+} => createComplexType(Object, () => defaultVal || null)
 
 /**
  * 设置 function 类型 props 参数
@@ -85,12 +95,10 @@ export const setObjectProp = <T extends object>(defaultVal = null): BasicType<Pr
  * @param { Function } [defaultVal] 默认值
  * @returns { Object } 配置对象
  */
-export const setFunctionProp = <T extends Function>(defaultVal = null): BasicType<PropType<T>, null> => {
-  return {
-    type: Function as PropType<T>,
-    default: () => defaultVal
-  } as const
-}
+export const setFunctionProp = <T = Function>(defaultVal?: T): {
+  type: FunctionConstructor
+  default: () => NonNullable<T> | null
+} => createComplexType(Function, () => defaultVal || null)
 
 /**
  * 设置 array 类型 props 参数
@@ -98,9 +106,7 @@ export const setFunctionProp = <T extends Function>(defaultVal = null): BasicTyp
  * @param { Array } [defaultVal] 默认值
  * @returns { Object } 配置对象
  */
-export const setArrayProp = <T>(defaultVal?: null | T): BasicType<PropType<T>, T | null> => {
-  return {
-    type: Array as unknown as PropType<T>,
-    default: (): T | null => defaultVal || null
-  }
-}
+export const setArrayProp = <T = []>(defaultVal?: T): {
+  type: ArrayConstructor
+  default: () => NonNullable<T> | null
+} => createComplexType(Array, () => defaultVal || null)

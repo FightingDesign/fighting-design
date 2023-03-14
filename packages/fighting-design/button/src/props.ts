@@ -21,9 +21,9 @@ export const Props = {
    * 按钮尺寸
    *
    * @values large middle small mini
-   * @default null
+   * @default undefined
    */
-  size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
+  size: setStringProp<FightingSize>(undefined, (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)
   }),
   /** 是否为块级元素 */
@@ -54,7 +54,7 @@ export const Props = {
    * @values default primary success danger warning info
    * @default null
    */
-  type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
+  type: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
   }),
   /** 是否自动获取焦点 */

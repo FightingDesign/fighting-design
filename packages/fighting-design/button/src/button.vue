@@ -9,6 +9,8 @@
 
   const prop = defineProps(Props)
 
+  console.log(Props)
+
   const { getType } = useGlobal(prop)
   const { run } = useRun()
   const { classList, styleList } = useButton(prop)
