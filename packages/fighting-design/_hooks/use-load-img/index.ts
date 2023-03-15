@@ -141,13 +141,15 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
        * @see Window.innerHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Window/innerHeight
        * @see Element.clientHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight
        */
-      const clientHeight: number = window.innerHeight || document.documentElement.clientHeight
+      const clientHeight: number =
+        window.innerHeight || document.documentElement.clientHeight
       /**
        * 获取当前垂直滚动的像素数
        *
        * @see Element.scrollTop https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop
        */
-      const scrollTop: number = document.documentElement.scrollTop || document.body.scrollTop
+      const scrollTop: number =
+        document.documentElement.scrollTop || document.body.scrollTop
       /**
        * 获取当前元素距离浏览器顶部的高度
        *

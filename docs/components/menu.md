@@ -49,7 +49,11 @@
 <template>
   <f-menu active-name="1">
     <template #before>
-      <f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
+      <f-avatar
+        round
+        src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
+        size="mini"
+      />
     </template>
 
     <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
@@ -79,7 +83,12 @@
 </template>
 
 <script lang="ts" setup>
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+  import {
+    FIconApps,
+    FIconBlock,
+    FIconCameraVideoSlash,
+    FIconClock
+  } from '@fighting-design/fighting-icon'
 </script>
 ```
 
@@ -234,7 +243,12 @@
 </template>
 
 <script lang="ts" setup>
-  import { FIconApps, FIconBlock, FIconCameraVideoSlash, FIconClock } from '@fighting-design/fighting-icon'
+  import {
+    FIconApps,
+    FIconBlock,
+    FIconCameraVideoSlash,
+    FIconClock
+  } from '@fighting-design/fighting-icon'
 </script>
 ```
 

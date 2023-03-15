@@ -6,7 +6,12 @@
   import { FSvgIcon } from '../../../../svg-icon'
   import { FCloseBtn } from '../../../../close-btn'
   import { useTabsNavStyle, useRun } from '../../../../_hooks'
-  import type { TabsModelValue, TabsPosition, TabsJustifyContent, TabsType } from '../../interface'
+  import type {
+    TabsModelValue,
+    TabsPosition,
+    TabsJustifyContent,
+    TabsType
+  } from '../../interface'
 
   const prop = defineProps(Props)
 
@@ -37,7 +42,11 @@
    * @param { string | number } [name] 标签 name
    * @param { number } [index] 索引
    */
-  const editItem = (action: 'remove' | 'add', name?: TabsModelValue, index?: number): void => {
+  const editItem = (
+    action: 'remove' | 'add',
+    name?: TabsModelValue,
+    index?: number
+  ): void => {
     run(prop.setEdit, action, name, index)
   }
 
@@ -76,7 +85,10 @@
 
     <!-- 主要内容 -->
     <div class="f-tabs-nav__wrapper">
-      <div class="f-tabs-nav__main" :style="{ justifyContent: type === 'line' ? justifyContent : '' }">
+      <div
+        class="f-tabs-nav__main"
+        :style="{ justifyContent: type === 'line' ? justifyContent : '' }"
+      >
         <!-- 选项列表 -->
         <div
           v-for="(item, index) in navs"
@@ -94,17 +106,29 @@
           <span class="f-tabs-nav__item-label">{{ item.label || `标签 ${index}` }}</span>
 
           <!-- 关闭按钮 -->
-          <f-close-btn v-if="type === 'card' && editStatus" round @click.stop="editItem('remove', item.name, index)" />
+          <f-close-btn
+            v-if="type === 'card' && editStatus"
+            round
+            @click.stop="editItem('remove', item.name, index)"
+          />
         </div>
 
         <!-- 卡片样式编辑状态下的添加按钮 -->
-        <div v-if="type === 'card' && editStatus" class="f-tabs-nav__item" @click="editItem('add')">
+        <div
+          v-if="type === 'card' && editStatus"
+          class="f-tabs-nav__item"
+          @click="editItem('add')"
+        >
           <f-svg-icon :icon="FIconPlusVue" color="#666" />
         </div>
       </div>
 
       <!-- 线性类型滑动的标签 -->
-      <div v-if="type === 'line'" class="f-tabs-nav__line-active" :style="activeLineStyle" />
+      <div
+        v-if="type === 'line'"
+        class="f-tabs-nav__line-active"
+        :style="activeLineStyle"
+      />
     </div>
 
     <!-- 后缀内容 -->

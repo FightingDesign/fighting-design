@@ -39,7 +39,10 @@ export const installFn = <T>(main: T, name: string): Install<T> => {
  * @param { string } name 组件名
  * @returns { Object } 组件实例
  */
-export const installDirective = <T extends Directive>(main: T, name: string): Install<T> => {
+export const installDirective = <T extends Directive>(
+  main: T,
+  name: string
+): Install<T> => {
   (main as Install<T>).install = (app: App): void => {
     app.directive(name, main as Install<T>)
   }

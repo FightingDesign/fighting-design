@@ -3,7 +3,11 @@
   import { ref } from 'vue'
   import { isNumber } from '../../_utils'
   import { useList, usePage, useTurnPage } from '../../_hooks'
-  import { FIconChevronLeftVue, FIconChevronRightVue, FIconMenuMeatball } from '../../_svg'
+  import {
+    FIconChevronLeftVue,
+    FIconChevronRightVue,
+    FIconMenuMeatball
+  } from '../../_svg'
   import { FInput } from '../../input'
   import { FSelect } from '../../select'
   import {
@@ -23,8 +27,12 @@
     [EMIT_PAGESIZE]: (pagesize: number): boolean => isNumber(pagesize)
   })
 
-  const { pages, showNextMore, showPrevMore, maxCount, handelTurnPages } = usePage(prop, emit)
-  const { jumpCurrent, selectChange, handelChange, handleInput, handelClick } = useTurnPage(prop, emit, pages, maxCount)
+  const { pages, showNextMore, showPrevMore, maxCount, handelTurnPages } = usePage(
+    prop,
+    emit
+  )
+  const { jumpCurrent, selectChange, handelChange, handleInput, handelClick } =
+    useTurnPage(prop, emit, pages, maxCount)
   const { classes } = useList(prop, 'pagination')
 
   /** 下拉菜单绑定的默认值，每页条数 */
@@ -38,13 +46,27 @@
   <div :class="classList">
     <!-- 下拉菜单选择每页大小 -->
     <template v-if="pageSizes && pageSizes.length">
-      <f-select v-model="pagesLen" :width="120" :disabled="disabled" :on-change="selectChange">
-        <f-option v-for="item in pageSizes" :key="item" :value="item" :label="item + '/页'" />
+      <f-select
+        v-model="pagesLen"
+        :width="120"
+        :disabled="disabled"
+        :on-change="selectChange"
+      >
+        <f-option
+          v-for="item in pageSizes"
+          :key="item"
+          :value="item"
+          :label="item + '/页'"
+        />
       </f-select>
     </template>
 
     <!-- 上一页按钮 -->
-    <button class="f-pagination__button" :disabled="disabled" @click="handelTurnPages('prev')">
+    <button
+      class="f-pagination__button"
+      :disabled="disabled"
+      @click="handelTurnPages('prev')"
+    >
       <f-svg-icon :size="14" :icon="prevIcon || FIconChevronLeftVue" />
     </button>
 
@@ -102,7 +124,11 @@
     </div>
 
     <!-- 下一页按钮 -->
-    <button class="f-pagination__button" :disabled="disabled" @click="handelTurnPages('next')">
+    <button
+      class="f-pagination__button"
+      :disabled="disabled"
+      @click="handelTurnPages('next')"
+    >
       <f-svg-icon :size="14" :icon="nextIcon || FIconChevronRightVue" />
     </button>
 

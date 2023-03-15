@@ -54,11 +54,36 @@
 </template>
 
 ```html
-<f-image width="110px" height="110px" fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-image width="110px" height="110px" fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image
+  width="110px"
+  height="110px"
+  fit="fill"
+  src="https://tianyuhao.cn/images/auto/4.jpg"
+/>
+<f-image
+  width="110px"
+  height="110px"
+  fit="contain"
+  src="https://tianyuhao.cn/images/auto/4.jpg"
+/>
+<f-image
+  width="110px"
+  height="110px"
+  fit="cover"
+  src="https://tianyuhao.cn/images/auto/4.jpg"
+/>
+<f-image
+  width="110px"
+  height="110px"
+  fit="none"
+  src="https://tianyuhao.cn/images/auto/4.jpg"
+/>
+<f-image
+  width="110px"
+  height="110px"
+  fit="scale-down"
+  src="https://tianyuhao.cn/images/auto/4.jpg"
+/>
 ```
 
 :::
@@ -116,8 +141,17 @@
 </template>
 
 ```html
-<f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
-<f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
+<f-image
+  width="200px"
+  src="https://abc.com/1.png"
+  err-src="https://tianyuhao.cn/images/auto/1.jpg"
+/>
+<f-image
+  width="200px"
+  src="https://abc.com/1.png"
+  err-src="https://abc.com/1.png"
+  alt="error"
+/>
 ```
 
 :::

@@ -4,7 +4,13 @@ import type { VNode, Component } from 'vue'
 export type ClassList = readonly (string | Record<string, unknown>)[]
 
 /** 不同类型 */
-export type FightingType = 'primary' | 'success' | 'danger' | 'warning' | 'default' | 'info'
+export type FightingType =
+  | 'primary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'default'
+  | 'info'
 
 /** 不同尺寸类型 */
 export type FightingSize = 'large' | 'middle' | 'small' | 'mini'

@@ -1,4 +1,9 @@
-import { setBooleanProp, setNumberProp, setFunctionProp, setObjectProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setNumberProp,
+  setFunctionProp,
+  setObjectProp
+} from '../../_utils'
 import type { ExtractPropTypes, CSSProperties } from 'vue'
 import type { ScrollCallback } from './interface'
 

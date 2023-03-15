@@ -41,7 +41,9 @@
       <!-- 进度条 -->
       <div class="f-progress__fill" :style="barStyleList">
         <!-- 百分百文字 -->
-        <div v-if="!outsideText && showText" class="f-progress__percentage">{{ percentage }}%</div>
+        <div v-if="!outsideText && showText" class="f-progress__percentage">
+          {{ percentage }}%
+        </div>
       </div>
     </div>
 

@@ -9,7 +9,10 @@ fs.readdirSync(inputSvg).forEach(name => {
   fs.mkdirSync(`${inputSrc}/${name.slice(0, name.length - 4)}`)
 
   /** 移动文件 */
-  fs.copyFileSync(`${inputSvg}/${name}`, `${inputSrc}/${name.slice(0, name.length - 4)}/index.vue`)
+  fs.copyFileSync(
+    `${inputSvg}/${name}`,
+    `${inputSrc}/${name.slice(0, name.length - 4)}/index.vue`
+  )
 })
 
 fs.readdirSync(inputSrc).forEach(name => {
@@ -19,7 +22,8 @@ fs.readdirSync(inputSrc).forEach(name => {
   /** 读取 */
   fs.readFile(newPath, (err, data) => {
     if (data) {
-      const content = '<template>' + '\n' + '  ' + data.toString() + '\n' + '</template>' + '\n'
+      const content =
+        '<template>' + '\n' + '  ' + data.toString() + '\n' + '</template>' + '\n'
 
       /** 重新写入 */
       fs.writeFile(newPath, content, err => {

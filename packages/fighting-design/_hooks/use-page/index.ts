@@ -101,10 +101,12 @@ export const usePage = (prop: PaginationProps, emit: UsePageEmit): UsePageReturn
     /** 最新的页码数 */
     let newCurrent
 
-    const map = {
+    /** 翻页映射方法 */
+    const changeMap = {
       /** 下一页切换 */
       next: (): void => {
-        const newCurrent = prop.current === maxCount.value ? maxCount.value : prop.current + 1
+        const newCurrent =
+          prop.current === maxCount.value ? maxCount.value : prop.current + 1
         emit(EMIT_CURRENT, newCurrent)
         run(prop.onNext, newCurrent, prop.pageSize)
       },
@@ -116,7 +118,7 @@ export const usePage = (prop: PaginationProps, emit: UsePageEmit): UsePageReturn
       }
     } as const
 
-    run(map[target])
+    run(changeMap[target])
   }
 
   /** 上一页更多图标的 visible */

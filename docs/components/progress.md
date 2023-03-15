@@ -78,7 +78,8 @@
 </template>
 
 ```html
-<f-progress :percentage="10" show-text /> <f-progress type="danger" :percentage="70" outside-text show-text />
+<f-progress :percentage="10" show-text />
+<f-progress type="danger" :percentage="70" outside-text show-text />
 ```
 
 :::

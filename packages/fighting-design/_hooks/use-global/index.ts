@@ -45,14 +45,22 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
    * @param { string } [parentSize] 父组件可能需要注入的依赖项
    * @returns { Object } 尺寸
    */
-  const getSize = (def: FightingSize = 'middle', parentSize?: FightingSize | null): ComputedRef<FightingSize> => {
+  const getSize = (
+    def: FightingSize = 'middle',
+    parentSize?: FightingSize | null
+  ): ComputedRef<FightingSize> => {
     return computed((): FightingSize => {
       /** 如果校验不通过则返回默认值 */
       if (prop && prop.size && !FIGHTING_SIZE.includes(prop.size as FightingSize)) {
         return def
       }
 
-      return (prop && (prop.size as FightingSize)) || parentSize || (global && global.size) || def
+      return (
+        (prop && (prop.size as FightingSize)) ||
+        parentSize ||
+        (global && global.size) ||
+        def
+      )
     })
   }
 
@@ -62,7 +70,9 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
    * @param { string } componentName 组件名
    * @returns { Object } 当前组件下的文案
    */
-  const getLang = <T extends LangContentKey>(componentName: T): ComputedRef<LangKey[T]> => {
+  const getLang = <T extends LangContentKey>(
+    componentName: T
+  ): ComputedRef<LangKey[T]> => {
     return computed((): LangKey[T] => {
       const lang: FightingLang = (global && global.lang) || 'zh-CN'
       const langList = LANG[lang]

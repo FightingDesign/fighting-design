@@ -72,7 +72,8 @@
       /** 获取到当前满足要求的子元素 */
       const children: OptionProps = currentOption[0] as OptionProps
       /** 获取到当前子元素的插槽内容 */
-      const slot: string | undefined = children.children && children.children.default()[0].children
+      const slot: string | undefined =
+        children.children && children.children.default()[0].children
       /** 获取到当前子元素的 label 参数 */
       const label: string | undefined = children.props && children.props.label
       /** 获取到当前子元素的 value 参数 */
@@ -95,7 +96,11 @@
    * @param { string | number | boolean } newLabel 新增 label 值
    * @param { Object } evt 事件对象
    */
-  const setValue = (newValue: SelectModelValue, newLabel: SelectModelValue, evt: MouseEvent): void => {
+  const setValue = (
+    newValue: SelectModelValue,
+    newLabel: SelectModelValue,
+    evt: MouseEvent
+  ): void => {
     /** 设置文本框展示的内容 */
     inputValue.value = newValue.toString()
 

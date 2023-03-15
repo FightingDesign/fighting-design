@@ -24,21 +24,56 @@
   })
 
   const { run } = useRun()
-  const { scale, rotate, smaller, bigger, scrollZoom, recovery, rotateClockwise, rotateCounterClock } =
-    useOperationImg()
+  const {
+    scale,
+    rotate,
+    smaller,
+    bigger,
+    scrollZoom,
+    recovery,
+    rotateClockwise,
+    rotateCounterClock
+  } = useOperationImg()
 
   /** 初始展示的图片索引 */
-  const previewShowIndex = ref<number>(prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex)
+  const previewShowIndex = ref<number>(
+    prop.showIndex > prop.imgList.length - 1 ? 0 : prop.showIndex
+  )
 
   /** 开始图片加载 */
   const imagPreload = (): void => {
-    isArray(prop.imgList) &&
+    if (isArray(prop.imgList)) {
       prop.imgList.forEach((item: string): void => {
-        /** 图片元素 */
+        /**
+         * 创建图片元素
+         *
+         * @see Image() https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLImageElement/Image
+         */
         const img: HTMLImageElement = new Image()
         img.src = item
       })
+    }
   }
+
+  /** 左右切换映射对象 */
+  const switchMap = {
+    /** 下一张切换 */
+    next: (): void => {
+      if (previewShowIndex.value < prop.imgList.length - 1) {
+        previewShowIndex.value++
+        return
+      }
+      previewShowIndex.value = 0
+    },
+    /** 上一张切换 */
+    prev: (): void => {
+      if (previewShowIndex.value > 0) {
+        previewShowIndex.value--
+        return
+      }
+      previewShowIndex.value = prop.imgList.length - 1
+    }
+  } as const
 
   /**
    * 左右切换按钮
@@ -47,28 +82,17 @@
    */
   const switchImage = (type: 'next' | 'prev'): void => {
     recovery()
-
-    const optionMap = {
-      /** 下一张切换 */
-      next: (): void => {
-        if (previewShowIndex.value < prop.imgList.length - 1) {
-          previewShowIndex.value++
-          return
-        }
-        previewShowIndex.value = 0
-      },
-      /** 上一张切换 */
-      prev: (): void => {
-        if (previewShowIndex.value > 0) {
-          previewShowIndex.value--
-          return
-        }
-        previewShowIndex.value = prop.imgList.length - 1
-      }
-    } as const
-
-    optionMap[type] && optionMap[type]()
+    run(switchMap[type])
   }
+
+  /** 点击操作栏映射对象 */
+  const optionMap: Record<string, () => void> = {
+    '1': (): void => smaller(),
+    '2': (): void => bigger(),
+    '3': (): void => recovery(),
+    '4': (): void => rotateClockwise(),
+    '5': (): void => rotateCounterClock()
+  } as const
 
   /**
    * 点击操作栏触发
@@ -77,15 +101,6 @@
    */
   const optionClick = (index: string | null): void => {
     if (!index) return
-
-    /** 映射对象 */
-    const optionMap: Record<string, () => void> = {
-      '1': (): void => smaller(),
-      '2': (): void => bigger(),
-      '3': (): void => recovery(),
-      '4': (): void => rotateClockwise(),
-      '5': (): void => rotateCounterClock()
-    } as const
 
     /** 获取当前元素的索引 */
     run(optionMap[index])
@@ -106,7 +121,12 @@
   <teleport to="body" :disabled="!appendToBody">
     <!-- 开启状态下加载所有图片 -->
     <transition name="f-image-preview__transition" @before-enter="imagPreload">
-      <div v-show="visible" class="f-image-preview" :style="{ zIndex }" @mousewheel="scrollZoom">
+      <div
+        v-show="visible"
+        class="f-image-preview"
+        :style="{ zIndex }"
+        @mousewheel="scrollZoom"
+      >
         <!-- 遮罩层 -->
         <div class="f-image-preview__mask" />
 
@@ -156,7 +176,12 @@
           </template>
 
           <!-- 关闭按钮 -->
-          <f-button class="f-image-preview__close" circle :before-icon="FIconCrossVue" :on-click="handelClose" />
+          <f-button
+            class="f-image-preview__close"
+            circle
+            :before-icon="FIconCrossVue"
+            :on-click="handelClose"
+          />
         </div>
       </div>
     </transition>

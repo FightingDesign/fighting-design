@@ -68,7 +68,14 @@
 </template>
 
 ```html
-<f-card title="卡片标题" title-bold title-color="blue" background="#eee" border-color="blue">Card 卡片</f-card>
+<f-card
+  title="卡片标题"
+  title-bold
+  title-color="blue"
+  background="#eee"
+  border-color="blue"
+  >Card 卡片</f-card
+>
 ```
 
 :::

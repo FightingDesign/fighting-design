@@ -37,7 +37,9 @@
        *
        * 避免传入以为参数，需要判断传入的是否为 number 类型
        */
-      const visibleHeight: number = isNumber(prop.visibleHeight) ? prop.visibleHeight : 200
+      const visibleHeight: number = isNumber(prop.visibleHeight)
+        ? prop.visibleHeight
+        : 200
 
       visible.value = scrollTop > visibleHeight
     }, 200)

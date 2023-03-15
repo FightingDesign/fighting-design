@@ -5,13 +5,18 @@ import type { LoadingElInterface } from './interface'
 import type { LoadingProps } from '../../loading'
 
 export const useLoading = (): Directive => {
-  const optionsOrganizer = (el: LoadingElInterface, binding: DirectiveBinding): LoadingProps => {
+  const optionsOrganizer = (
+    el: LoadingElInterface,
+    binding: DirectiveBinding
+  ): LoadingProps => {
     /**
      * 获取 props 中的值
      *
      * @param { string } propKey props 的键
      */
-    const getBindingProp = <K extends keyof LoadingProps>(propKey: K): LoadingProps[K] => {
+    const getBindingProp = <K extends keyof LoadingProps>(
+      propKey: K
+    ): LoadingProps[K] => {
       return binding.value[propKey]
     }
 
@@ -21,7 +26,9 @@ export const useLoading = (): Directive => {
      * @param { string } propKey props 的键
      * @returns { string } props 或 attribute
      */
-    const getProp = <K extends keyof LoadingProps>(propKey: K): LoadingProps[K] | string => {
+    const getProp = <K extends keyof LoadingProps>(
+      propKey: K
+    ): LoadingProps[K] | string => {
       return getBindingProp(propKey) || el.getAttribute(`f-loading-${propKey}`) || ''
     }
 
@@ -51,7 +58,9 @@ export const useLoading = (): Directive => {
     }
     const options = optionsOrganizer(el, binding)
     const loadingInstance = createApp(loadingVue, options)
-    const _vm = loadingInstance.mount(document.createElement('div')) as ComponentPublicInstance
+    const _vm = loadingInstance.mount(
+      document.createElement('div')
+    ) as ComponentPublicInstance
 
     el.vm = _vm
     el.loadingInstance = loadingInstance

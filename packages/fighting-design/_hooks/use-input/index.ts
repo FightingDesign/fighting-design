@@ -26,7 +26,9 @@ export const useInput = (prop: UseInputProps, emit: UseInputEmit): UseInputRetur
   const onInput = (evt: Event): void => {
     emit(
       EMIT_UPDATE,
-      isNumber(prop.type) ? Number((evt.target as HTMLInputElement).value) : (evt.target as HTMLInputElement).value
+      isNumber(prop.type)
+        ? Number((evt.target as HTMLInputElement).value)
+        : (evt.target as HTMLInputElement).value
     )
 
     run(prop.onInput, (evt.target as HTMLInputElement).value, evt)

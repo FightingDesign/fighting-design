@@ -11,6 +11,8 @@
   <f-dialog v-model:visible="visible2" width="500px" title="Title">
     <f-button @click="innerVisible = true">打开里层</f-button>
 
-    <f-dialog v-model:visible="innerVisible" width="300px" title="Title" append-to-body> inner dialog </f-dialog>
+    <f-dialog v-model:visible="innerVisible" width="300px" title="Title" append-to-body>
+      inner dialog
+    </f-dialog>
   </f-dialog>
 </template>

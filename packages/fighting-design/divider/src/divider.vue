@@ -10,7 +10,14 @@
   const classList = classes(['vertical', 'position'], 'f-divider')
 
   /** 类名列表 */
-  const styleList = styles(['color', 'margin', 'background', 'fontColor', 'height', 'type'])
+  const styleList = styles([
+    'color',
+    'margin',
+    'background',
+    'fontColor',
+    'height',
+    'type'
+  ])
 </script>
 
 <template>

@@ -12,7 +12,11 @@ export * from './interface.d'
  * @param { Object } options 配置对象
  * @returns { Object }
  */
-export const useRipples = (evt: MouseEvent, node: HTMLElement, options: RipplesOptions): UseRipplesReturn => {
+export const useRipples = (
+  evt: MouseEvent,
+  node: HTMLElement,
+  options: RipplesOptions
+): UseRipplesReturn => {
   /**
    * 计算涟漪颜色
    *

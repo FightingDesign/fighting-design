@@ -8,7 +8,9 @@ import type { Validator, BasicType } from './interface'
  * @param { boolean } [defaultVal = false] 默认值
  * @returns { Object } 配置对象
  */
-export const setBooleanProp = (defaultVal = false): BasicType<BooleanConstructor, boolean> => {
+export const setBooleanProp = (
+  defaultVal = false
+): BasicType<BooleanConstructor, boolean> => {
   return {
     type: Boolean,
     default: (): boolean => defaultVal
@@ -21,7 +23,9 @@ export const setBooleanProp = (defaultVal = false): BasicType<BooleanConstructor
  * @param { number } [defaultVal] 默认值
  * @returns { Object } 配置对象
  */
-export const setNumberProp = <T extends number>(defaultVal?: null | T): BasicType<NumberConstructor, number | null> => {
+export const setNumberProp = <T extends number>(
+  defaultVal?: null | T
+): BasicType<NumberConstructor, number | null> => {
   return {
     type: Number,
     default: (): T | null => (isNumber(defaultVal) ? defaultVal : null)
@@ -74,7 +78,9 @@ export const setStringNumberProp = <T extends string | number>(
  * @param { Object } [defaultVal] 默认值
  * @returns { Object } 配置对象
  */
-export const setObjectProp = <T extends object>(defaultVal = null): BasicType<PropType<T>, null> => {
+export const setObjectProp = <T extends object>(
+  defaultVal = null
+): BasicType<PropType<T>, null> => {
   return {
     type: Object as PropType<T>,
     default: () => defaultVal
@@ -87,7 +93,9 @@ export const setObjectProp = <T extends object>(defaultVal = null): BasicType<Pr
  * @param { Function } [defaultVal] 默认值
  * @returns { Object } 配置对象
  */
-export const setFunctionProp = <T extends Function>(defaultVal = null): BasicType<PropType<T>, null> => {
+export const setFunctionProp = <T extends Function>(
+  defaultVal = null
+): BasicType<PropType<T>, null> => {
   return {
     type: Function as PropType<T>,
     default: () => defaultVal
@@ -100,7 +108,9 @@ export const setFunctionProp = <T extends Function>(defaultVal = null): BasicTyp
  * @param { Array } [defaultVal] 默认值
  * @returns { Object } 配置对象
  */
-export const setArrayProp = <T>(defaultVal?: null | T): BasicType<PropType<T>, T | null> => {
+export const setArrayProp = <T>(
+  defaultVal?: null | T
+): BasicType<PropType<T>, T | null> => {
   return {
     type: Array as unknown as PropType<T>,
     default: (): T | null => defaultVal || null

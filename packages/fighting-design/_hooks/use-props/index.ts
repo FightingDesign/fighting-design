@@ -59,7 +59,11 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
    * @param { string } [def] 默认值
    * @returns { Object | string | null } 响应式数据或 null
    */
-  const interceptors = (param: string, rule: () => boolean, def: null | string = null): Ref<string> | null | string => {
+  const interceptors = (
+    param: string,
+    rule: () => boolean,
+    def: null | string = null
+  ): Ref<string> | null | string => {
     return rule() ? toRef(prop, param as never) : def
   }
 

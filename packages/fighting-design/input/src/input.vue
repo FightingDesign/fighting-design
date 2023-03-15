@@ -28,7 +28,10 @@
 
   const { styles, classes } = useList(params, 'input')
 
-  const { onInput, onClear, onChange } = useInput(filter(['onChange', 'onInput', 'disabled', 'type']), emit)
+  const { onInput, onClear, onChange } = useInput(
+    filter(['onChange', 'onInput', 'disabled', 'type']),
+    emit
+  )
 
   /** 主要的描述文字内容 */
   const searchText = computed((): string => getLang('input').value.search)
@@ -136,7 +139,13 @@
       />
 
       <!-- 清除 icon -->
-      <f-svg-icon v-if="clear" class="f-input__clear-btn" :icon="FIconCrossVue" :size="14" :on-click="onClear" />
+      <f-svg-icon
+        v-if="clear"
+        class="f-input__clear-btn"
+        :icon="FIconCrossVue"
+        :size="14"
+        :on-click="onClear"
+      />
 
       <!-- 左侧 icon -->
       <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="14" />

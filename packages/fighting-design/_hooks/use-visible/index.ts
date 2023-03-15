@@ -15,7 +15,11 @@ export * from './interface.d'
  * @param { Function } [callback] 回调方法
  * @returns { Object }
  */
-export const useVisible = (visible: Ref<boolean>, emit: UseVisibleEmit, callback?: Function): UseVisibleReturn => {
+export const useVisible = (
+  visible: Ref<boolean>,
+  emit: UseVisibleEmit,
+  callback?: Function
+): UseVisibleReturn => {
   const { run } = useRun()
 
   /** 是否展示 */

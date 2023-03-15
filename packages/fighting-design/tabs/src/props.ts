@@ -1,4 +1,9 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringNumberProp,
+  setStringProp,
+  setFunctionProp
+} from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type {
   TabsTrigger,
@@ -38,11 +43,21 @@ export const Props = {
    * @values flex-start center flex-end space-between space-around space-evenly
    * @see justify-content https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content
    */
-  justifyContent: setStringProp<TabsJustifyContent>(null, (val: TabsJustifyContent): boolean => {
-    return (['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'] as const).includes(
-      val
-    )
-  }),
+  justifyContent: setStringProp<TabsJustifyContent>(
+    null,
+    (val: TabsJustifyContent): boolean => {
+      return (
+        [
+          'flex-start',
+          'center',
+          'flex-end',
+          'space-between',
+          'space-around',
+          'space-evenly'
+        ] as const
+      ).includes(val)
+    }
+  ),
   /** 编辑状态 */
   editStatus: setBooleanProp(),
   /**

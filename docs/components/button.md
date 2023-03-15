@@ -130,7 +130,9 @@
 ```html
 <template>
   <f-button circle :before-icon="FIconApps" type="primary" />
-  <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock"> 前后都有 </f-button>
+  <f-button type="success" :before-icon="FIconApps" :after-icon="FIconBlock">
+    前后都有
+  </f-button>
 </template>
 
 <script setup lang="ts">

@@ -11,7 +11,8 @@
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    [EMIT_UPDATE]: (val: CheckboxModelValue): CheckboxModelValue => typeof val !== 'object'
+    [EMIT_UPDATE]: (val: CheckboxModelValue): CheckboxModelValue =>
+      typeof val !== 'object'
   })
 
   const { run } = useRun()
@@ -69,7 +70,13 @@
 </script>
 
 <template>
-  <label role="checkbox" aria-checked="false" tabindex="0" aria-labelledby="chk1-label" :class="classList">
+  <label
+    role="checkbox"
+    aria-checked="false"
+    tabindex="0"
+    aria-labelledby="chk1-label"
+    :class="classList"
+  >
     <input
       v-model="model"
       type="checkbox"

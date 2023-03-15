@@ -23,7 +23,9 @@ describe('FLink', () => {
     const wrapper = mount(FLink, {
       props: { href: 'https://tianyuhao.cn' }
     })
-    expect(wrapper.find('.f-link__a').attributes('href')).toContain('https://tianyuhao.cn')
+    expect(wrapper.find('.f-link__a').attributes('href')).toContain(
+      'https://tianyuhao.cn'
+    )
   })
 
   test('size', () => {

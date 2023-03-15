@@ -1,4 +1,12 @@
-import { getCurrentInstance, ref, nextTick, onMounted, watch, computed, provide } from 'vue'
+import {
+  getCurrentInstance,
+  ref,
+  nextTick,
+  onMounted,
+  watch,
+  computed,
+  provide
+} from 'vue'
 import { useChildren } from '../../_utils'
 import { useRun } from '../../_hooks'
 import { EMIT_UPDATE } from '../../_tokens'
@@ -21,7 +29,8 @@ export * from './interface.d'
 export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn => {
   const { run } = useRun()
   /** 获取当前组件实例 */
-  const instance: ComponentInternalInstance = getCurrentInstance() as ComponentInternalInstance
+  const instance: ComponentInternalInstance =
+    getCurrentInstance() as ComponentInternalInstance
   /** 子组件集合 */
   const usePanes = useChildren<TabsPaneInstance>(instance, 'FTabsPane')
   /** 当前选中的子组件 */
@@ -45,7 +54,11 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
    * @param { string | number } [name] 当前子组件的 name
    * @param { number } [index] 索引值
    */
-  const setEdit = (action: 'remove' | 'add', name?: TabsModelValue, index?: number): void => {
+  const setEdit = (
+    action: 'remove' | 'add',
+    name?: TabsModelValue,
+    index?: number
+  ): void => {
     run(prop.onEdit, action, name, index)
   }
 

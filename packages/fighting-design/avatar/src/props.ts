@@ -9,7 +9,12 @@ import {
 } from '../../_utils'
 import { FIGHTING_SIZE, FIGHTING_FIT } from '../../_tokens'
 import type { PropType, ExtractPropTypes } from 'vue'
-import type { HandleEvent, FightingSize, FightingIcon, FightingFit } from '../../_interface'
+import type {
+  HandleEvent,
+  FightingSize,
+  FightingIcon,
+  FightingFit
+} from '../../_interface'
 
 export const Props = {
   /** 图片路径 */

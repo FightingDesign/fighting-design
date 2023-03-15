@@ -1,4 +1,9 @@
-import { setBooleanProp, setNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setNumberProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
 import type { ExtractPropTypes, CSSProperties } from 'vue'
 import type { AnimationEnd } from './interface'
 

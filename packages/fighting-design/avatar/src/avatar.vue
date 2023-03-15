@@ -14,7 +14,14 @@
   const { nodeClassList, classList, styleList } = useAvatar(prop)
 
   const { loadImg, isSuccess, isShowNode } = useLoadImg(
-    filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError']) as unknown as UseLoadImgProp
+    filter([
+      'src',
+      'errSrc',
+      'rootMargin',
+      'lazy',
+      'onLoad',
+      'onError'
+    ]) as unknown as UseLoadImgProp
   )
 
   /** 图片 dom 节点 */
@@ -35,7 +42,12 @@
 <template>
   <div v-if="isSuccess" role="img" :class="classList" :style="styleList">
     <!-- 图标头像 -->
-    <f-svg-icon v-if="$slots.icon || icon" :size="fontSize || 15" :color="fontColor" :icon="icon">
+    <f-svg-icon
+      v-if="$slots.icon || icon"
+      :size="fontSize || 15"
+      :color="fontColor"
+      :icon="icon"
+    >
       <slot name="icon" />
     </f-svg-icon>
 

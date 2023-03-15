@@ -15,7 +15,11 @@ export * from './interface.d'
  * @param { number } params.date 日期
  * @returns { Object } 当前月份展示的天数、上个月切换、下个月切换
  */
-export const useCalendar = (params: { year: number; month: number; date: number }): UseCalendarReturn => {
+export const useCalendar = (params: {
+  year: number
+  month: number
+  date: number
+}): UseCalendarReturn => {
   /**
    * 获取每个月有多少天
    *
@@ -66,7 +70,11 @@ export const useCalendar = (params: { year: number; month: number; date: number 
 
     for (let i = 0; i < firstDayWeek.value; i++) {
       /** 获取到剩余天数每天的详细信息 */
-      const dayList: GetLunarDetailReturn | -1 = getLunarDetail(params.year, params.month - 1, lastDays)
+      const dayList: GetLunarDetailReturn | -1 = getLunarDetail(
+        params.year,
+        params.month - 1,
+        lastDays
+      )
 
       if (dayList !== -1) {
         showLastListResult.push(dayList)
@@ -98,7 +106,11 @@ export const useCalendar = (params: { year: number; month: number; date: number 
     const showNextListResult = []
 
     for (let i = 0; i < monthDays; i++) {
-      const dayList: GetLunarDetailReturn | -1 = getLunarDetail(params.year, params.month, i + 1)
+      const dayList: GetLunarDetailReturn | -1 = getLunarDetail(
+        params.year,
+        params.month,
+        i + 1
+      )
 
       if (dayList !== -1) {
         showNextListResult.push(dayList)
@@ -120,10 +132,12 @@ export const useCalendar = (params: { year: number; month: number; date: number 
      *
      * 当前月份时间 + 上个月展示的时间数量
      */
-    const previousMonthDay: number = getDayMonth(params.year, params.month) + firstDayWeek.value
+    const previousMonthDay: number =
+      getDayMonth(params.year, params.month) + firstDayWeek.value
 
     /** 下个月需要展示的天数 */
-    const nextShowDay: number = previousMonthDay % 7 === 0 ? 0 : 7 - (previousMonthDay % 7)
+    const nextShowDay: number =
+      previousMonthDay % 7 === 0 ? 0 : 7 - (previousMonthDay % 7)
 
     /** 如果为假，则说明下个月不需要展示天数 */
     if (!nextShowDay) return []
@@ -133,7 +147,11 @@ export const useCalendar = (params: { year: number; month: number; date: number 
 
     for (let i = 0; i < nextShowDay; i++) {
       /** 获取到剩余天数每天的详细信息 */
-      const dayList: GetLunarDetailReturn | -1 = getLunarDetail(params.year, params.month + 1, i + 1)
+      const dayList: GetLunarDetailReturn | -1 = getLunarDetail(
+        params.year,
+        params.month + 1,
+        i + 1
+      )
 
       if (dayList !== -1) {
         showNextListResult.push(dayList)

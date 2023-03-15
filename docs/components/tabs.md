@@ -316,7 +316,12 @@ tabs 的基本使用
 ```html
 <template>
   <f-tabs edit-status type="card" :on-edit="onEdit">
-    <f-tabs-pane v-for="(item, index) in list" :key="index" :label="item.label" :name="item.name">
+    <f-tabs-pane
+      v-for="(item, index) in list"
+      :key="index"
+      :label="item.label"
+      :name="item.name"
+    >
       {{ item.content }}
     </f-tabs-pane>
   </f-tabs>
@@ -501,7 +506,13 @@ type TabsPosition = 'left' | 'right' | 'top' | 'bottom'
 ### Tabsjustifycontent
 
 ```ts
-type TabsJustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly'
+type TabsJustifyContent =
+  | 'flex-start'
+  | 'center'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly'
 ```
 
 ### TabsTrigger

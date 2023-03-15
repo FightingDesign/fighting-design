@@ -107,7 +107,10 @@
 
     <!-- 展示的内容 -->
     <transition name="f-trigger" @before-enter="onBeforeEnter">
-      <div v-show="showContent" :class="['f-trigger__content-box', { 'f-trigger__arrow': arrow }]">
+      <div
+        v-show="showContent"
+        :class="['f-trigger__content-box', { 'f-trigger__arrow': arrow }]"
+      >
         <div class="f-trigger__content">
           <slot name="content" />
         </div>

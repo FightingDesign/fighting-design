@@ -26,7 +26,10 @@
   const alertListEl = ref<HTMLElement>()
 
   /** 类名列表 */
-  const classList = classes(['type', 'bold', 'simple', 'center', 'round', 'fixed'], 'f-alert')
+  const classList = classes(
+    ['type', 'bold', 'simple', 'center', 'round', 'fixed'],
+    'f-alert'
+  )
 
   /** 样式列表 */
   const styleList = styles(['fontSize', 'color', 'background', 'titleSize', 'titleColor'])
@@ -74,7 +77,9 @@
 
         <!-- 滚动列表 -->
         <div v-if="alertList && alertList.length" ref="alertListEl" class="f-alert__list">
-          <div v-for="(item, index) in alertList" :key="index" class="f-alert__list-item">{{ item }}</div>
+          <div v-for="(item, index) in alertList" :key="index" class="f-alert__list-item">
+            {{ item }}
+          </div>
         </div>
       </div>
 

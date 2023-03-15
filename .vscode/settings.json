@@ -5,8 +5,20 @@
   "eslint.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.quiet": false,
-  "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"],
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"],
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

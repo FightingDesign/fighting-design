@@ -48,12 +48,22 @@
 
 ```html
 <template>
-  <f-swap v-model="value5" :size="50" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
+  <f-swap
+    v-model="value5"
+    :size="50"
+    :icon-on="FIconFaceSmile"
+    :icon-off="FIconFaceFrown"
+  />
   <f-swap v-model="value6" size="30px" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
 </template>
 
 <script lang="ts" setup>
-  import { FIconFaceFrown, FIconFaceSmile, FIconEye, FIconEyeSlash } from '@fighting-design/fighting-icon'
+  import {
+    FIconFaceFrown,
+    FIconFaceSmile,
+    FIconEye,
+    FIconEyeSlash
+  } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 
   const value3 = ref(true)
@@ -79,7 +89,12 @@
 <template>
   <f-swap v-model="value5" :icon-on="FIconEye" :icon-off="FIconEyeSlash" />
   <f-swap v-model="value6" type="sound" :icon-on="FIconSun" :icon-off="FIconMoon" />
-  <f-swap v-model="value7" type="swap" :icon-on="FIconFaceSmile" :icon-off="FIconFaceFrown" />
+  <f-swap
+    v-model="value7"
+    type="swap"
+    :icon-on="FIconFaceSmile"
+    :icon-off="FIconFaceFrown"
+  />
 </template>
 
 <script lang="ts" setup>

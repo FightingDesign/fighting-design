@@ -65,8 +65,12 @@
 
 ```html
 <f-divider margin="40px">默认颜色</f-divider>
-<f-divider color="green" margin="40px" font-color="green" background="#eee">我是绿色</f-divider>
-<f-divider color="blue" margin="40px" font-color="#fff" background="blue">我是蓝色</f-divider>
+<f-divider color="green" margin="40px" font-color="green" background="#eee"
+  >我是绿色</f-divider
+>
+<f-divider color="blue" margin="40px" font-color="#fff" background="blue"
+  >我是蓝色</f-divider
+>
 ```
 
 :::
@@ -144,7 +148,12 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DividerInstance, DividerProps, DividerPosition, DividerType } from 'fighting-design'
+import type {
+  DividerInstance,
+  DividerProps,
+  DividerPosition,
+  DividerType
+} from 'fighting-design'
 ```
 
 ### DividerType

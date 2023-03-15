@@ -194,10 +194,18 @@
 ```html
 <template>
   <f-space>
-    <f-button type="primary" @click="openNotificationPlacement('top-left')"> 左上 </f-button>
-    <f-button type="primary" @click="openNotificationPlacement('top-right')"> 右上 </f-button>
-    <f-button type="success" @click="openNotificationPlacement('bottom-left')"> 左下 </f-button>
-    <f-button type="success" @click="openNotificationPlacement('bottom-right')"> 右下 </f-button>
+    <f-button type="primary" @click="openNotificationPlacement('top-left')">
+      左上
+    </f-button>
+    <f-button type="primary" @click="openNotificationPlacement('top-right')">
+      右上
+    </f-button>
+    <f-button type="success" @click="openNotificationPlacement('bottom-left')">
+      左下
+    </f-button>
+    <f-button type="success" @click="openNotificationPlacement('bottom-right')">
+      右下
+    </f-button>
   </f-space>
 </template>
 
@@ -253,7 +261,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { NotificationInstance, NotificationProps, NotificationPlacement } from 'fighting-design'
+import type {
+  NotificationInstance,
+  NotificationProps,
+  NotificationPlacement
+} from 'fighting-design'
 ```
 
 ### NotificationPlacement

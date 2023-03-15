@@ -49,9 +49,14 @@ export const Props = {
    * @values top-left top-right bottom-left bottom-right
    * @default top-right
    */
-  placement: setStringProp<NotificationPlacement>('top-right', (val: NotificationPlacement): boolean => {
-    return (['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const).includes(val)
-  }),
+  placement: setStringProp<NotificationPlacement>(
+    'top-right',
+    (val: NotificationPlacement): boolean => {
+      return (['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const).includes(
+        val
+      )
+    }
+  ),
   /** 层级 */
   zIndex: setNumberProp(),
   /** 自定义关闭按钮 */

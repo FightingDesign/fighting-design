@@ -16,7 +16,9 @@ export const useTreeData = (data: FormatTreeData): UseTreeDataReturn => {
   const treeData = computed((): FlatTreeData[] => treeAddKey(data) as FlatTreeData[])
 
   /** 扁平是树形结构 */
-  const flatTreeData = computed((): FlatTreeData[] => treeToFlat(treeData.value) as FlatTreeData[])
+  const flatTreeData = computed(
+    (): FlatTreeData[] => treeToFlat(treeData.value) as FlatTreeData[]
+  )
 
   /**
    * 隐藏节点方法

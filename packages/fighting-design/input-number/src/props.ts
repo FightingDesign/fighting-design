@@ -1,9 +1,19 @@
-import { setBooleanProp, setStringProp, setNumberProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setNumberProp,
+  setFunctionProp
+} from '../../_utils'
 import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
 import type { InputUpdate } from '../../input'
 import type { ExtractPropTypes } from 'vue'
 import type { InputNumberModel } from './interface'
-import type { HandleEvent, FightingSize, InputChange, FightingType } from '../../_interface'
+import type {
+  HandleEvent,
+  FightingSize,
+  InputChange,
+  FightingType
+} from '../../_interface'
 
 export const Props = {
   /**

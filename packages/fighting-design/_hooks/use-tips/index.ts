@@ -4,7 +4,13 @@ import { isString, isArray } from '../../_utils'
 import { FIGHTING_TYPE } from '../../_tokens'
 import type { FightingType } from '../../_interface'
 import type { ComponentInternalInstance, VNode, Component } from 'vue'
-import type { TipsInstance, RenderInstance, TipsOptions, TipsInstances, UseTipsReturn } from './interface'
+import type {
+  TipsInstance,
+  RenderInstance,
+  TipsOptions,
+  TipsInstances,
+  UseTipsReturn
+} from './interface'
 import type { MessagePlacement } from '../../message'
 
 /** 组件实例对象 */
@@ -41,9 +47,11 @@ export const useTips = (component?: Component): UseTipsReturn => {
      *
      * @see Array.prototype.findIndex() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
      */
-    return (instances[placement] as TipsInstance[]).findIndex((item: TipsInstance): boolean => {
-      return item.id === id
-    })
+    return (instances[placement] as TipsInstance[]).findIndex(
+      (item: TipsInstance): boolean => {
+        return item.id === id
+      }
+    )
   }
 
   /**
@@ -54,7 +62,11 @@ export const useTips = (component?: Component): UseTipsReturn => {
    * @param { boolean } isNext 是否获取下一个元素
    * @returns { number } 组件实例的索引
    */
-  const getSiblingOffset = (placement: MessagePlacement, id: string, isNext: boolean): number => {
+  const getSiblingOffset = (
+    placement: MessagePlacement,
+    id: string,
+    isNext: boolean
+  ): number => {
     /** 获取到当前元素的索引 */
     const idx: number = getInstanceIndex(placement, id)
 
@@ -67,7 +79,9 @@ export const useTips = (component?: Component): UseTipsReturn => {
      * 如果在上方，就获取下一个节点，否则获取前一个节点
      */
     const beforeInstance: TipsInstance | null =
-      (instances[placement] && (instances[placement] as TipsInstance[])[isNext ? idx + 1 : idx - 1]) || null
+      (instances[placement] &&
+        (instances[placement] as TipsInstance[])[isNext ? idx + 1 : idx - 1]) ||
+      null
 
     /** 没找到返回 0 */
     if (!beforeInstance) return 0
@@ -83,7 +97,8 @@ export const useTips = (component?: Component): UseTipsReturn => {
      * exposeProxy: null
      * exposed: 响应式
      */
-    return (beforeInstance.vm.exposeProxy || (beforeInstance.vm.exposed as TipsInstance)).bottom
+    return (beforeInstance.vm.exposeProxy || (beforeInstance.vm.exposed as TipsInstance))
+      .bottom
   }
 
   /**
@@ -110,7 +125,10 @@ export const useTips = (component?: Component): UseTipsReturn => {
    * @param { string } placement 弹出位置
    * @returns { Object } 组件实例
    */
-  const createInstance = (instance: TipsInstance, placement: MessagePlacement): TipsInstance => {
+  const createInstance = (
+    instance: TipsInstance,
+    placement: MessagePlacement
+  ): TipsInstance => {
     if (instances[placement]) {
       (instances[placement] as TipsInstance[]).push(instance)
     } else {
@@ -140,7 +158,9 @@ export const useTips = (component?: Component): UseTipsReturn => {
     const props: TipsOptions = {
       id,
       /** 不同的组件会有不同的展示位置 */
-      ...{ placement: (component as Component).name === 'FMessage' ? 'top' : 'top-right' },
+      ...{
+        placement: (component as Component).name === 'FMessage' ? 'top' : 'top-right'
+      },
       ...options,
       /** 关闭动画结束时，移除 DOM */
       onDestroy: (): void => {

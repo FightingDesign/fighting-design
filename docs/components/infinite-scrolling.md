@@ -110,7 +110,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { InfiniteScrollingInstance, InfiniteScrollingProps, ScrollCallback } from 'fighting-design'
+import type {
+  InfiniteScrollingInstance,
+  InfiniteScrollingProps,
+  ScrollCallback
+} from 'fighting-design'
 ```
 
 ### ScrollCallback

@@ -28,7 +28,11 @@ export const accessRoutes = [
     meta: { title: '节点管理', keepAlive: true, icon: 'left_jd', prefix: 'icon-' },
     props: { default: false },
     children: [
-      { path: '/app/node/nodeManage', name: 'node_nodeManage', meta: { title: '节点列表', auth: ['node-list'] } },
+      {
+        path: '/app/node/nodeManage',
+        name: 'node_nodeManage',
+        meta: { title: '节点列表', auth: ['node-list'] }
+      },
       {
         path: '/app/node/votingManage',
         name: 'node_votingManage',
@@ -52,7 +56,9 @@ export const accessRoutes = [
     name: 'contract',
     meta: { title: '合约管理', keepAlive: true, icon: 'left_jd', prefix: 'icon-' },
     props: { default: false },
-    children: [{ path: '/app/contract/index', name: 'contract_index', meta: { title: '合约列表' } }],
+    children: [
+      { path: '/app/contract/index', name: 'contract_index', meta: { title: '合约列表' } }
+    ],
     instances: {},
     leaveGuards: {},
     updateGuards: {},
@@ -66,7 +72,11 @@ export const accessRoutes = [
     meta: { title: '跨链路由', keepAlive: true, icon: 'left_jd', prefix: 'icon-' },
     props: { default: false },
     children: [
-      { path: '/app/cross-chain-routing/index', name: 'cross-chain-routing_index', meta: { title: '路由信息' } }
+      {
+        path: '/app/cross-chain-routing/index',
+        name: 'cross-chain-routing_index',
+        meta: { title: '路由信息' }
+      }
     ],
     instances: {},
     leaveGuards: {},
@@ -80,7 +90,13 @@ export const accessRoutes = [
     name: 'monitor',
     meta: { title: '数链管理', keepAlive: true, icon: 'left_jd', prefix: 'icon-' },
     props: { default: false },
-    children: [{ path: '/app/among/data/index', name: 'monitor_index', meta: { title: '上链数据查询' } }],
+    children: [
+      {
+        path: '/app/among/data/index',
+        name: 'monitor_index',
+        meta: { title: '上链数据查询' }
+      }
+    ],
     instances: {},
     leaveGuards: {},
     updateGuards: {},

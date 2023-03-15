@@ -64,7 +64,10 @@
           Fighting Design
 
           <!-- start 标签 -->
-          <f-link href="https://github.com/FightingDesign/fighting-design" target="_blank">
+          <f-link
+            href="https://github.com/FightingDesign/fighting-design"
+            target="_blank"
+          >
             <f-image
               src="https://img.shields.io/github/stars/FightingDesign/fighting-design?style=social"
               alt="Fighting Design"
@@ -82,26 +85,39 @@
         </p>
 
         <!-- 开始按钮 -->
-        <f-button type="primary" size="large" href="/docs/install">{{ homeContent.start }}</f-button>
+        <f-button type="primary" size="large" href="/docs/install">{{
+          homeContent.start
+        }}</f-button>
       </div>
 
       <!-- 贡献者 -->
       <div class="vp-home__contributors">
         <f-text block center bold size="26px">{{ homeContent.contributors }}</f-text>
         <div class="vp-home__contributors-box">
-          <f-link v-for="(item, i) in contributors" :href="item.homePage" :key="i" target="_blank">
+          <f-link
+            v-for="(item, i) in contributors"
+            :href="item.homePage"
+            :key="i"
+            target="_blank"
+          >
             <f-avatar round :src="item.avatar" />
           </f-link>
         </div>
 
-        <f-button simple type="primary" href="/docs/contributing.html" round>{{ homeContent.join }}</f-button>
+        <f-button simple type="primary" href="/docs/contributing.html" round>{{
+          homeContent.join
+        }}</f-button>
       </div>
 
       <!-- 页脚 -->
       <div class="vp-home__footer">
         <!-- 连接集合 -->
         <div class="vp-home__footer-content">
-          <ul class="vp-home__footer-list" v-for="(listItem, index) in footerContent" :key="index">
+          <ul
+            class="vp-home__footer-list"
+            v-for="(listItem, index) in footerContent"
+            :key="index"
+          >
             <h4 class="vp-home__footer-title">{{ listItem.title }}</h4>
             <li class="vp-home__footer-item" v-for="(list, i) in listItem.item" :key="i">
               <f-link target="_blank" :href="list.link">
@@ -113,7 +129,9 @@
 
         <!-- 底部连接 -->
         <p class="vp-home__footer-code">
-          <f-link target="_blank" href="https://beian.miit.gov.cn"> FightingDesign | 浙ICP备2021024540号-2 </f-link>
+          <f-link target="_blank" href="https://beian.miit.gov.cn">
+            FightingDesign | 浙ICP备2021024540号-2
+          </f-link>
         </p>
       </div>
     </div>

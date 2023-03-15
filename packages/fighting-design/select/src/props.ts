@@ -53,4 +53,5 @@ export const Props = {
 export type SelectProps = ExtractPropTypes<typeof Props>
 
 /** select 组件注入的依赖项 */
-export const SELECT_PROPS_TOKEN: InjectionKey<SelectProvide> = Symbol('f-select-props-key')
+export const SELECT_PROPS_TOKEN: InjectionKey<SelectProvide> =
+  Symbol('f-select-props-key')

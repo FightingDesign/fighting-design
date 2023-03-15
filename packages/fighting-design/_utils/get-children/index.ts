@@ -15,7 +15,8 @@ export const getChildren = (children: VNode[], componentName: string): VNode[] =
   if (isArray(children) && children.length) {
     children.forEach((child: VNode): void => {
       /** 获取到每个组件的 name */
-      const name: string | undefined | boolean = isObject(child.type) && (child.type as Component).name
+      const name: string | undefined | boolean =
+        isObject(child.type) && (child.type as Component).name
 
       /** 判断是否为亲孩子节点 */
       if (name === componentName) {
@@ -28,7 +29,10 @@ export const getChildren = (children: VNode[], componentName: string): VNode[] =
        * 如果是则继续递归遍历
        */
       if (name !== componentName && child.children && isArray(child.children)) {
-        const childChildren: VNode[] = getChildren(child.children as VNode[], componentName)
+        const childChildren: VNode[] = getChildren(
+          child.children as VNode[],
+          componentName
+        )
         /**
          * 将得到的返回值和 components 合并
          *

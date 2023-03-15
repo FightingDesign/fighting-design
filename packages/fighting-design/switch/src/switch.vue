@@ -36,9 +36,16 @@
 </script>
 
 <template>
-  <div role="switch" :class="['f-switch', { 'f-switch__disabled': disabled }]" :style="styleList">
+  <div
+    role="switch"
+    :class="['f-switch', { 'f-switch__disabled': disabled }]"
+    :style="styleList"
+  >
     <!-- 左侧文字描述 -->
-    <span v-if="closeText" :class="['f-switch__right-text', { 'f-switch__text-active': !modelValue }]">
+    <span
+      v-if="closeText"
+      :class="['f-switch__right-text', { 'f-switch__text-active': !modelValue }]"
+    >
       {{ closeText }}
     </span>
 
@@ -50,7 +57,10 @@
     </div>
 
     <!-- 右侧文字描述 -->
-    <span v-if="activeText" :class="['f-switch__left-text', { 'f-switch__text-active': modelValue }]">
+    <span
+      v-if="activeText"
+      :class="['f-switch__left-text', { 'f-switch__text-active': modelValue }]"
+    >
       {{ activeText }}
     </span>
   </div>

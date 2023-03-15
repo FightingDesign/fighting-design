@@ -34,7 +34,8 @@ export const isString = (value: unknown): value is string => typeof value === 's
  * @returns { boolean }
  * @see isNaN() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isNaN
  */
-export const isNumber = (value: unknown): value is number => typeof value === 'number' && !isNaN(value)
+export const isNumber = (value: unknown): value is number =>
+  typeof value === 'number' && !isNaN(value)
 
 /**
  * 检测一个数据是否为 boolean 类型

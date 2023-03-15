@@ -53,10 +53,15 @@
       /** 在非标准格式下提示警告错误 */
       if (__DEV__) {
         /** format 不是一个标准格式，将使用默认格式 */
-        warning('f-date-picker', '`format` is not a standard format, default format will be used')
+        warning(
+          'f-date-picker',
+          '`format` is not a standard format, default format will be used'
+        )
       }
 
-      pickerDate.value = `${year}/${prop.addZero ? addZero(month) : month}/${prop.addZero ? addZero(date) : date}`
+      pickerDate.value = `${year}/${prop.addZero ? addZero(month) : month}/${
+        prop.addZero ? addZero(date) : date
+      }`
       return
     }
 
@@ -75,7 +80,10 @@
        * @see String.prototype.replace() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace
        * @see String.prototype.replace https://caniuse.com/?search=String.prototype.replace
        */
-      formatDate = formatDate.replace(key, checkDate[key as keyof typeof checkDate].toString())
+      formatDate = formatDate.replace(
+        key,
+        checkDate[key as keyof typeof checkDate].toString()
+      )
     }
 
     /** 将绑定值设置为格式化后的日期 */
@@ -105,7 +113,12 @@
       -->
       <template #content>
         <div class="f-date-picker__content">
-          <f-calendar v-model:date="date" :day-cell-height="40" :week-cell-height="40" :on-change-date="changeDate" />
+          <f-calendar
+            v-model:date="date"
+            :day-cell-height="40"
+            :week-cell-height="40"
+            :on-change-date="changeDate"
+          />
         </div>
       </template>
     </f-trigger>

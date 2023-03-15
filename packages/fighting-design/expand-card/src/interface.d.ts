@@ -21,4 +21,8 @@ export type ExpandCardImageList = ExpandCardImageListItem[] | string[]
  * @param { number } index 索引
  * @param { Object } item 每一项信息
  */
-export type ExpandCardChange = (evt: MouseEvent, index: number, item: ExpandCardImageListItem) => void
+export type ExpandCardChange = (
+  evt: MouseEvent,
+  index: number,
+  item: ExpandCardImageListItem
+) => void

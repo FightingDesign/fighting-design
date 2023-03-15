@@ -20,7 +20,8 @@
    */
   const errMessage = computed((): string | boolean => {
     /** 获取都指定项的结构键值 */
-    const resMsg: string | boolean | null = parentInject && parentInject.childrenCheckResult[prop.name]
+    const resMsg: string | boolean | null =
+      parentInject && parentInject.childrenCheckResult[prop.name]
 
     return isString(resMsg) ? resMsg : false
   })

@@ -1,4 +1,9 @@
-import { setBooleanProp, setStringProp, setNumberProp, setStringNumberProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setNumberProp,
+  setStringNumberProp
+} from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 
 export const Props = {

@@ -1,6 +1,12 @@
 import { isVNode, shallowRef } from 'vue'
 import { isArray, isObject } from '..'
-import type { VNode, VNodeNormalizedChildren, ComponentInternalInstance, Component, ShallowRef } from 'vue'
+import type {
+  VNode,
+  VNodeNormalizedChildren,
+  ComponentInternalInstance,
+  Component,
+  ShallowRef
+} from 'vue'
 
 /**
  * 将所有子的组件扁平化
@@ -33,10 +39,15 @@ export const flattedChildren = (children: VNode | VNodeNormalizedChildren): VNod
  * @param { string } component 组件名
  * @returns { Array }
  */
-export const getChildrenComponent = (root: ComponentInternalInstance, component: string): VNode[] => {
+export const getChildrenComponent = (
+  root: ComponentInternalInstance,
+  component: string
+): VNode[] => {
   if (!root.subTree) return []
   const flaChildren = flattedChildren(root.subTree.children)
-  return flaChildren.filter(e => isObject(e.type) && (e.type as Component).name === component)
+  return flaChildren.filter(
+    e => isObject(e.type) && (e.type as Component).name === component
+  )
 }
 
 /**
@@ -75,7 +86,9 @@ export const useChildren = <T extends { uid: number }>(
       })
       .filter(Boolean) as number[]
 
-    children.value = componentUid.map((e: number) => childrenMap.get(e)).filter(Boolean) as T[]
+    children.value = componentUid
+      .map((e: number) => childrenMap.get(e))
+      .filter(Boolean) as T[]
   }
 
   const unRegisterChild = (child: T): void => {

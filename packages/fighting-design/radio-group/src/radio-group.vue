@@ -8,7 +8,8 @@
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    [EMIT_UPDATE]: (val: RadioModelValue): boolean => isString(val) || isNumber(val) || isBoolean(val)
+    [EMIT_UPDATE]: (val: RadioModelValue): boolean =>
+      isString(val) || isNumber(val) || isBoolean(val)
   })
 
   const { run } = useRun()

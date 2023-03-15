@@ -29,7 +29,8 @@
 
     const { value, label } = toRefs(prop)
     /** 获取插槽内容 */
-    const slotLabel: string = (slot.default && (slot.default()[0].children as string)) || ''
+    const slotLabel: string =
+      (slot.default && (slot.default()[0].children as string)) || ''
 
     /**
      * 最新的 label

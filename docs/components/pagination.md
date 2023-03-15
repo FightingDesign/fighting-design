@@ -47,7 +47,12 @@
 
 ```html
 <template>
-  <f-pagination v-model:current="current" v-model:page-size="pagesize" :total="total" :page-sizes="pageSizes" />
+  <f-pagination
+    v-model:current="current"
+    v-model:page-size="pagesize"
+    :total="total"
+    :page-sizes="pageSizes"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -101,7 +106,12 @@
 
 ```html
 <template>
-  <f-pagination v-model:current="current" :total="100" :prev-icon="FIconCloud" :next-icon="FIconBlock" />
+  <f-pagination
+    v-model:current="current"
+    :total="100"
+    :prev-icon="FIconCloud"
+    :next-icon="FIconBlock"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -186,7 +196,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { PaginationInstance, PaginationProps, PaginationEvent } from 'fighting-design'
+import type {
+  PaginationInstance,
+  PaginationProps,
+  PaginationEvent
+} from 'fighting-design'
 ```
 
 ### PaginationEvent

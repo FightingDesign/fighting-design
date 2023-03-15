@@ -38,7 +38,10 @@ createApp(App).use(FButton).use(FCard).mount('#app')
 
 ```html
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fighting-design/dist/index.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/fighting-design/dist/index.css"
+  />
 </head>
 
 <body>
@@ -54,7 +57,9 @@ createApp(App).use(FButton).use(FCard).mount('#app')
     <f-divider>华丽的分隔线</f-divider>
 
     <f-button type="primary" @click="visible = true">打开 Dialog</f-button>
-    <f-dialog title="Title" v-model:visible="visible"> 欢迎使用 Fighting Design！ </f-dialog>
+    <f-dialog title="Title" v-model:visible="visible">
+      欢迎使用 Fighting Design！
+    </f-dialog>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.js"></script>

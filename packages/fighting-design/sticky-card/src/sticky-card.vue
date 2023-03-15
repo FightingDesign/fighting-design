@@ -48,7 +48,10 @@
     </div>
 
     <!-- 点击展开 / 折叠的区域 -->
-    <div :class="['f-sticky-card__option', { 'f-sticky-card__option-open': isOpened }]" @click="handleClick">
+    <div
+      :class="['f-sticky-card__option', { 'f-sticky-card__option-open': isOpened }]"
+      @click="handleClick"
+    >
       <span class="f-sticky-card__option-text">
         {{ optionText }}
       </span>

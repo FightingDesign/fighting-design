@@ -28,7 +28,9 @@
      *
      * @see Math.ceil() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/cei
      */
-    const viewScrollingDistance: number = Math.ceil(view.scrollTop + view.clientHeight + prop.distance)
+    const viewScrollingDistance: number = Math.ceil(
+      view.scrollTop + view.clientHeight + prop.distance
+    )
 
     /** 滚动时回调 */
     run(prop.onScrollWhen, Math.ceil(view.scrollTop))

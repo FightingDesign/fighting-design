@@ -129,7 +129,9 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { shadow: '7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4' }
     })
-    expect(wrapper.attributes('style')).toContain('--button-shadow: 7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4')
+    expect(wrapper.attributes('style')).toContain(
+      '--button-shadow: 7px 7px 15px #dcdcdc,-7px -7px 15px #e4e4e4'
+    )
   })
 
   test('text', () => {

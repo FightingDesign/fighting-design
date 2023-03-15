@@ -136,7 +136,12 @@
 组件导出以下类型定义：
 
 ```ts
-import type { ExpandCardInstance, ExpandCardProps, ExpandCardImageListItem, ExpandCardImageList } from 'fighting-design'
+import type {
+  ExpandCardInstance,
+  ExpandCardProps,
+  ExpandCardImageListItem,
+  ExpandCardImageList
+} from 'fighting-design'
 ```
 
 ### ExpandCardImageListItem
@@ -157,7 +162,11 @@ type ExpandCardImageList = ExpandCardImageListItem[] | string[]
 ### ExpandCardChange
 
 ```ts
-type ExpandCardChange = (evt: MouseEvent, index: number, item: ExpandCardImageListItem) => void
+type ExpandCardChange = (
+  evt: MouseEvent,
+  index: number,
+  item: ExpandCardImageListItem
+) => void
 ```
 
 ## 样式变量

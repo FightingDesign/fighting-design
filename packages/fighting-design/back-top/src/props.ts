@@ -1,4 +1,9 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setNumberProp
+} from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { BackTopBehavior } from './interface'
 

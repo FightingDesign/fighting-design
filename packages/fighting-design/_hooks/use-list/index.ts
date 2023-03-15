@@ -1,5 +1,12 @@
 import { computed, ref, reactive } from 'vue'
-import { convertFormat, isNumber, sizeChange, isBoolean, isArray, isString } from '../../_utils'
+import {
+  convertFormat,
+  isNumber,
+  sizeChange,
+  isBoolean,
+  isArray,
+  isString
+} from '../../_utils'
 import { useProps } from '..'
 import type { CSSProperties, ComputedRef } from 'vue'
 import type { ClassList } from '../../_interface'
@@ -54,7 +61,9 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
            *
            * 否则使用值拼接
            */
-          classList.value.push(`f-${name}__${isBoolean(propList[key]) ? convertFormat(key) : propList[key]}`)
+          classList.value.push(
+            `f-${name}__${isBoolean(propList[key]) ? convertFormat(key) : propList[key]}`
+          )
         }
       }
       return classList.value
@@ -68,7 +77,10 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
    * @param { boolean | string | string[] } [pixel] 是否带有单位
    * @returns { Object } 样式列表
    */
-  const styles = (list: FilterParams, pixel: boolean | string | string[] = true): ComputedRef<CSSProperties> => {
+  const styles = (
+    list: FilterParams,
+    pixel: boolean | string | string[] = true
+  ): ComputedRef<CSSProperties> => {
     return computed((): CSSProperties => {
       /** 样式列表 */
       const styleList: CSSProperties = reactive({})
@@ -85,7 +97,9 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
       const setListValue = (val: string | number, key: string): string | number => {
         /** 如果需要添加单位，则所有的数字都添加单位 */
         if (isBoolean(pixel)) {
-          return (isNumber(val) ? (pixel ? sizeChange(val) : val) : val) as string | number
+          return (isNumber(val) ? (pixel ? sizeChange(val) : val) : val) as
+            | string
+            | number
         } else if (isString(pixel)) {
           /** 如果为字符串类型，则代表仅仅有一个不需要添加单位 */
           if (pixel === key) return val
@@ -115,7 +129,10 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
            *
            * 因为 prop 参数的键都是驼峰命名法，所以这里要转换为短横线连接命名
            */
-          styleList[`--${name}-${convertFormat(key)}`] = setListValue(propList[key] as string | number, key)
+          styleList[`--${name}-${convertFormat(key)}`] = setListValue(
+            propList[key] as string | number,
+            key
+          )
         }
       }
 

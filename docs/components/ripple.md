@@ -33,7 +33,13 @@
   import { ref } from 'vue'
   import type { FightingType } from 'fighting-design'
 
-  const typeList = ref<FightingType[]>(['default', 'primary', 'success', 'danger', 'warning'])
+  const typeList = ref<FightingType[]>([
+    'default',
+    'primary',
+    'success',
+    'danger',
+    'warning'
+  ])
 </script>
 
 <style scoped>

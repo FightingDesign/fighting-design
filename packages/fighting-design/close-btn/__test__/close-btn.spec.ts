@@ -16,7 +16,9 @@ describe('CloseBtn', () => {
         size: 100
       }
     })
-    expect(wrapper.getComponent('.f-svg-icon').attributes().style).toContain('--svg-icon-size: 100px;')
+    expect(wrapper.getComponent('.f-svg-icon').attributes().style).toContain(
+      '--svg-icon-size: 100px;'
+    )
   })
 
   test('round', () => {

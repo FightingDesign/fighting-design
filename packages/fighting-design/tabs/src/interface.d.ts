@@ -35,7 +35,11 @@ export type TabsSwitch = (name: TabsModelValue) => boolean | void
  * @param { string | number } [name] name
  * @param { number } [index] 索引
  */
-export type TabsEdit = (action: 'remove' | 'add', name?: TabsModelValue, index?: number) => void
+export type TabsEdit = (
+  action: 'remove' | 'add',
+  name?: TabsModelValue,
+  index?: number
+) => void
 
 /**
  * nav 列表集合

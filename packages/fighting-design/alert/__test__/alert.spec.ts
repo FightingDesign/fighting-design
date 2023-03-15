@@ -23,28 +23,36 @@ describe('FAlert', () => {
     const wrapper = mount(FAlert, {
       props: { fontSize: 20 }
     })
-    expect(wrapper.find('.f-alert').attributes('style')).toContain('--alert-font-size: 20px')
+    expect(wrapper.find('.f-alert').attributes('style')).toContain(
+      '--alert-font-size: 20px'
+    )
   })
 
   test('fontSize', () => {
     const wrapper = mount(FAlert, {
       props: { fontSize: '32px' }
     })
-    expect(wrapper.find('.f-alert').attributes('style')).toContain('--alert-font-size: 32px')
+    expect(wrapper.find('.f-alert').attributes('style')).toContain(
+      '--alert-font-size: 32px'
+    )
   })
 
   test('titleSize', () => {
     const wrapper = mount(FAlert, {
       props: { titleSize: 20 }
     })
-    expect(wrapper.find('.f-alert').attributes('style')).toContain('--alert-title-size: 20px')
+    expect(wrapper.find('.f-alert').attributes('style')).toContain(
+      '--alert-title-size: 20px'
+    )
   })
 
   test('titleSize', () => {
     const wrapper = mount(FAlert, {
       props: { titleSize: '32px' }
     })
-    expect(wrapper.find('.f-alert').attributes('style')).toContain('--alert-title-size: 32px')
+    expect(wrapper.find('.f-alert').attributes('style')).toContain(
+      '--alert-title-size: 32px'
+    )
   })
 
   test('bold', () => {
@@ -81,8 +89,12 @@ describe('FAlert', () => {
     const wrapper = mount(FAlert, {
       props: { title: '这是一个标题' }
     })
-    expect(wrapper.find('.f-alert').find('.f-alert__title').classes()).toContain('f-alert__title')
-    expect(wrapper.find('.f-alert').find('.f-alert__title').text()).toContain('这是一个标题')
+    expect(wrapper.find('.f-alert').find('.f-alert__title').classes()).toContain(
+      'f-alert__title'
+    )
+    expect(wrapper.find('.f-alert').find('.f-alert__title').text()).toContain(
+      '这是一个标题'
+    )
   })
 
   test('round', () => {
@@ -96,21 +108,27 @@ describe('FAlert', () => {
     const wrapper = mount(FAlert, {
       props: { background: 'red' }
     })
-    expect(wrapper.find('.f-alert').attributes('style')).toContain('--alert-background: red')
+    expect(wrapper.find('.f-alert').attributes('style')).toContain(
+      '--alert-background: red'
+    )
   })
 
   test('color', () => {
     const wrapper = mount(FAlert, {
       props: { color: 'orange' }
     })
-    expect(wrapper.find('.f-alert').attributes('style')).toContain('--alert-color: orange')
+    expect(wrapper.find('.f-alert').attributes('style')).toContain(
+      '--alert-color: orange'
+    )
   })
 
   test('titleColor', () => {
     const wrapper = mount(FAlert, {
       props: { titleColor: 'red' }
     })
-    expect(wrapper.find('.f-alert').attributes('style')).toContain('--alert-title-color: red')
+    expect(wrapper.find('.f-alert').attributes('style')).toContain(
+      '--alert-title-color: red'
+    )
   })
 
   test('fixed', () => {
@@ -124,6 +142,8 @@ describe('FAlert', () => {
     const wrapper = mount(FAlert, {
       props: { alertList: ['1111111', '222222'] }
     })
-    expect(wrapper.find('.f-alert').find('.f-alert__list').classes()).toContain('f-alert__list')
+    expect(wrapper.find('.f-alert').find('.f-alert__list').classes()).toContain(
+      'f-alert__list'
+    )
   })
 })

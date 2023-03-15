@@ -14,7 +14,9 @@ describe('FCheckboxGroup', () => {
         vertical: true
       }
     })
-    expect(wrapper.get('.f-checkbox-group').classes()).toContain('f-checkbox-group__vertical')
+    expect(wrapper.get('.f-checkbox-group').classes()).toContain(
+      'f-checkbox-group__vertical'
+    )
   })
 
   test('border', () => {
@@ -23,7 +25,9 @@ describe('FCheckboxGroup', () => {
         border: true
       }
     })
-    expect(wrapper.get('.f-checkbox-group').classes()).toContain('f-checkbox-group__border')
+    expect(wrapper.get('.f-checkbox-group').classes()).toContain(
+      'f-checkbox-group__border'
+    )
   })
 
   test('size', () => {
@@ -33,7 +37,9 @@ describe('FCheckboxGroup', () => {
         size: 'large'
       }
     })
-    expect(wrapper.get('.f-checkbox-group').classes()).toContain('f-checkbox-group__large')
+    expect(wrapper.get('.f-checkbox-group').classes()).toContain(
+      'f-checkbox-group__large'
+    )
   })
 
   test('columnGap', () => {
@@ -42,7 +48,9 @@ describe('FCheckboxGroup', () => {
         columnGap: 50
       }
     })
-    expect(wrapper.get('.f-checkbox-group').attributes().style).toContain('column-gap: 50px;')
+    expect(wrapper.get('.f-checkbox-group').attributes().style).toContain(
+      'column-gap: 50px;'
+    )
   })
 
   test('rowGap', () => {
@@ -51,6 +59,8 @@ describe('FCheckboxGroup', () => {
         rowGap: 100
       }
     })
-    expect(wrapper.get('.f-checkbox-group').attributes().style).toContain('row-gap: 100px;')
+    expect(wrapper.get('.f-checkbox-group').attributes().style).toContain(
+      'row-gap: 100px;'
+    )
   })
 })

@@ -1,4 +1,9 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringNumberProp,
+  setStringProp,
+  setFunctionProp
+} from '../../_utils'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 import type { RadioModelValue, RadioChange, RadioGroundInject } from './interface'
@@ -37,4 +42,6 @@ export const Props = {
 export type RadioGroundProps = ExtractPropTypes<typeof Props>
 
 /** radio-group 组件注入的依赖项 */
-export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundInject> = Symbol('radio-group-props-key')
+export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundInject> = Symbol(
+  'radio-group-props-key'
+)

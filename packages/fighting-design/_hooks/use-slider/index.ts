@@ -11,7 +11,11 @@ export * from './interface.d'
  * @param { number } left 距离左侧的偏移量
  * @returns { Function } 开始监听滚动的方法
  */
-export const useSlider = (el: HTMLElement, left: Ref<number>, callback: UseSliderCallback): void => {
+export const useSlider = (
+  el: HTMLElement,
+  left: Ref<number>,
+  callback: UseSliderCallback
+): void => {
   /**
    * 移动时触发的方法
    *

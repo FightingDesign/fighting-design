@@ -10,20 +10,32 @@
   <header class="header">
     <f-link href="https://github.com/FightingDesign/fighting-design" target="_blank">
       <div class="logo">
-        <f-avatar round size="mini" src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" />
+        <f-avatar
+          round
+          size="mini"
+          src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
+        />
         <span class="name">Playground</span>
       </div>
     </f-link>
 
     <ul class="option">
       <li class="option-item">
-        <f-link href="https://fighting.tianyuhao.cn/" type="primary" target="_blank"> 官网 </f-link>
+        <f-link href="https://fighting.tianyuhao.cn/" type="primary" target="_blank">
+          官网
+        </f-link>
       </li>
       <li class="option-item">
-        <f-link href="https://cn.vuejs.org/" type="primary" target="_blank"> Vue.js </f-link>
+        <f-link href="https://cn.vuejs.org/" type="primary" target="_blank">
+          Vue.js
+        </f-link>
       </li>
       <li class="option-item">
-        <f-link href="https://github.com/FightingDesign/fighting-design-playground" type="primary" target="_blank">
+        <f-link
+          href="https://github.com/FightingDesign/fighting-design-playground"
+          type="primary"
+          target="_blank"
+        >
           Github
         </f-link>
       </li>

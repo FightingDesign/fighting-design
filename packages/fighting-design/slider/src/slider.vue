@@ -28,7 +28,8 @@
         if (prop.disabled) return
 
         /** 获取到当前拖动的占比 */
-        const percentage: number = (num * 100) / (sliderEl.value as HTMLDivElement).clientWidth
+        const percentage: number =
+          (num * 100) / (sliderEl.value as HTMLDivElement).clientWidth
 
         /** 重新设置样式位置 */
         setPosition(percentage)

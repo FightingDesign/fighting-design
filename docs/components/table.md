@@ -666,7 +666,14 @@
 
 ```html
 <template>
-  <f-table :data="data" :columns="columns" zebra zebra-color="skyblue" head-bg-color="orange" bg-color="#eef" />
+  <f-table
+    :data="data"
+    :columns="columns"
+    zebra
+    zebra-color="skyblue"
+    head-bg-color="orange"
+    bg-color="#eef"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -742,7 +749,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { TableInstance, TableProps, TableAlign, TableDate, TableColumns } from 'fighting-design'
+import type {
+  TableInstance,
+  TableProps,
+  TableAlign,
+  TableDate,
+  TableColumns
+} from 'fighting-design'
 ```
 
 ### TableAlign

@@ -8,9 +8,12 @@ export const Props = {
    * @values left center right
    * @default center
    */
-  position: setStringProp<DividerPosition>('center', (value: DividerPosition): boolean => {
-    return (['left', 'center', 'right'] as const).includes(value)
-  }),
+  position: setStringProp<DividerPosition>(
+    'center',
+    (value: DividerPosition): boolean => {
+      return (['left', 'center', 'right'] as const).includes(value)
+    }
+  ),
   /** 是否为竖线 */
   vertical: setBooleanProp(),
   /** 线条颜色 */

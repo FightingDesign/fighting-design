@@ -70,7 +70,11 @@
               <tr v-for="(item, m) in data" :key="m">
                 <!-- 多选框 -->
                 <td v-if="optional">
-                  <f-checkbox v-model="optionalList" :show-label="false" :label="(m + 1).toString()" />
+                  <f-checkbox
+                    v-model="optionalList"
+                    :show-label="false"
+                    :label="(m + 1).toString()"
+                  />
                 </td>
 
                 <!-- 序号列表 -->

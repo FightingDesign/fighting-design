@@ -106,7 +106,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { InputNumberInstance, InputNumberProps, InputNumberModel } from 'fighting-design'
+import type {
+  InputNumberInstance,
+  InputNumberProps,
+  InputNumberModel
+} from 'fighting-design'
 ```
 
 ### InputNumberModel

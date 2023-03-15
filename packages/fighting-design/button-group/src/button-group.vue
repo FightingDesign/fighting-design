@@ -11,7 +11,10 @@
   const { classes } = useList(prop, 'button-group')
 
   /** 获取全局配置组件注入的依赖项 */
-  const fightingGlobalInject: FightingGlobalProps | null = inject(FIGHTING_GLOBAL_PROPS_KEY, null)
+  const fightingGlobalInject: FightingGlobalProps | null = inject(
+    FIGHTING_GLOBAL_PROPS_KEY,
+    null
+  )
 
   /** 计算按钮组件的 size */
   const buttonGroupSize = computed((): FightingSize => {

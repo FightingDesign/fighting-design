@@ -19,21 +19,27 @@ describe('FPageHeader', () => {
     const wrapper = mount(FPageHeader, {
       props: { titleBold: true }
     })
-    expect(wrapper.find('.f-page-header__main-title').classes()).toContain('f-page-header__main-title-bold')
+    expect(wrapper.find('.f-page-header__main-title').classes()).toContain(
+      'f-page-header__main-title-bold'
+    )
   })
 
   test('titleColor', () => {
     const wrapper = mount(FPageHeader, {
       props: { titleColor: 'red' }
     })
-    expect(wrapper.find('.f-page-header__main-title').attributes('style')).toContain('color: red')
+    expect(wrapper.find('.f-page-header__main-title').attributes('style')).toContain(
+      'color: red'
+    )
   })
 
   test('titleCenter', () => {
     const wrapper = mount(FPageHeader, {
       props: { titleCenter: true }
     })
-    expect(wrapper.find('.f-page-header__main').classes()).toContain('f-page-header__main-center')
+    expect(wrapper.find('.f-page-header__main').classes()).toContain(
+      'f-page-header__main-center'
+    )
   })
 
   test('subtitle', () => {

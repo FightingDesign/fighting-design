@@ -32,7 +32,9 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
    *
    * 用于限制前后 icon 的意外边距
    */
-  const isShowIcon = computed((): boolean => !(slot.default && slot.default() && slot.default()[0].children))
+  const isShowIcon = computed(
+    (): boolean => !(slot.default && slot.default() && slot.default()[0].children)
+  )
 
   /** 处理结构后的 prop 集合 */
   const params = reactive({
@@ -48,7 +50,18 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
 
   /** 类名列表 */
   const classList = classes(
-    ['type', 'icon', 'round', 'simple', 'block', 'bold', 'text', 'size', 'circle', 'spread'],
+    [
+      'type',
+      'icon',
+      'round',
+      'simple',
+      'block',
+      'bold',
+      'text',
+      'size',
+      'circle',
+      'spread'
+    ],
     'f-button'
   )
 

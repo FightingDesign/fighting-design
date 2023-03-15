@@ -195,7 +195,12 @@
 </script>
 <template>
   <f-button @click="onShowLoading">show loading</f-button>
-  <f-table v-loading.fullscreen="fullLoading" f-loading-text="请稍候..." :data="data" :columns="columns" />
+  <f-table
+    v-loading.fullscreen="fullLoading"
+    f-loading-text="请稍候..."
+    :data="data"
+    :columns="columns"
+  />
 </template>
 ```
 
@@ -223,7 +228,11 @@
 组件导出以下类型定义：
 
 ```ts
-import type { LoadingInstance, LoadingPropsType, LoadingElInterface } from 'fighting-design'
+import type {
+  LoadingInstance,
+  LoadingPropsType,
+  LoadingElInterface
+} from 'fighting-design'
 ```
 
 ## Contributors

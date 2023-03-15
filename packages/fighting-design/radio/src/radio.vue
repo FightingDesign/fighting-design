@@ -10,7 +10,8 @@
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    [EMIT_UPDATE]: (val: RadioModelValue): boolean => isString(val) || isNumber(val) || isBoolean(val)
+    [EMIT_UPDATE]: (val: RadioModelValue): boolean =>
+      isString(val) || isNumber(val) || isBoolean(val)
   })
 
   const { run } = useRun()
@@ -61,7 +62,14 @@
 
 <template>
   <label role="radio" aria-checked="false" tabindex="0" :class="classList">
-    <input v-model="modelValue" hidden type="radio" :value="label" :disabled="disabled" :name="name" />
+    <input
+      v-model="modelValue"
+      hidden
+      type="radio"
+      :value="label"
+      :disabled="disabled"
+      :name="name"
+    />
     <span v-if="!parentInject?.border" class="f-radio__circle" />
     <span class="f-radio__text">
       <slot>{{ label }}</slot>

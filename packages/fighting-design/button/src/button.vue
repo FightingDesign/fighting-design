@@ -45,7 +45,11 @@
         type: getType()
       })
 
-      const { runRipples } = useRipples(evt, FButtonEl.value as HTMLButtonElement, options)
+      const { runRipples } = useRipples(
+        evt,
+        FButtonEl.value as HTMLButtonElement,
+        options
+      )
 
       runRipples()
     }
@@ -106,7 +110,12 @@
 
       <slot />
 
-      <f-svg-icon v-if="afterIcon" class="f-button_after-icon" :icon="afterIcon" :size="16" />
+      <f-svg-icon
+        v-if="afterIcon"
+        class="f-button_after-icon"
+        :icon="afterIcon"
+        :size="16"
+      />
     </button>
   </template>
 </template>

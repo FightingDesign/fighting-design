@@ -89,7 +89,8 @@
 </template>
 
 ```html
-<f-tag background="skyblue">天蓝色</f-tag> <f-tag background="blue" color="#fff">深蓝色</f-tag>
+<f-tag background="skyblue">天蓝色</f-tag>
+<f-tag background="blue" color="#fff">深蓝色</f-tag>
 ```
 
 :::

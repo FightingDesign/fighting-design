@@ -149,7 +149,11 @@ export const useLunar = (): UseLunarReturn => {
    * @param { number } mPara 阳历月份
    * @param { number } dPara 阳历日期
    */
-  const getLunarDetail = (yPara: number, mPara: number, dPara: number): -1 | GetLunarDetailReturn => {
+  const getLunarDetail = (
+    yPara: number,
+    mPara: number,
+    dPara: number
+  ): -1 | GetLunarDetailReturn => {
     /**
      * @see parseInt https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt
      */
@@ -186,7 +190,9 @@ export const useLunar = (): UseLunarReturn => {
     d = objDate.getDate()
 
     let offset: number =
-      (Date.UTC(objDate.getFullYear(), objDate.getMonth(), objDate.getDate()) - Date.UTC(1900, 0, 31)) / 86400000
+      (Date.UTC(objDate.getFullYear(), objDate.getMonth(), objDate.getDate()) -
+        Date.UTC(1900, 0, 31)) /
+      86400000
 
     for (i = 1900; i < 2101 && offset > 0; i++) {
       temp = getLunarYearDays(i)
@@ -276,9 +282,13 @@ export const useLunar = (): UseLunarReturn => {
 
     return {
       /** 阳历节日 */
-      festival: SOLAR_CALENDAR_FESTIVE[festivalDate] ? SOLAR_CALENDAR_FESTIVE[festivalDate].title : '',
+      festival: SOLAR_CALENDAR_FESTIVE[festivalDate]
+        ? SOLAR_CALENDAR_FESTIVE[festivalDate].title
+        : '',
       /** 农历节日 */
-      lunarFestival: LUNAR_FESTIVE[lunarFestivalDate] ? LUNAR_FESTIVE[lunarFestivalDate].title : '',
+      lunarFestival: LUNAR_FESTIVE[lunarFestivalDate]
+        ? LUNAR_FESTIVE[lunarFestivalDate].title
+        : '',
       /** 生肖 */
       animal: getAnimal(year),
       /** 农历日期 */

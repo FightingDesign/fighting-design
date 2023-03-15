@@ -20,5 +20,9 @@ export type FilterParams = (string | FilterParamsList)[]
  */
 export interface UsePropsReturn {
   filter: (list: FilterParams) => Record<string, unknown>
-  interceptors: (param: string, role: () => boolean, def?: null | string) => Ref<string> | null | string
+  interceptors: (
+    param: string,
+    role: () => boolean,
+    def?: null | string
+  ) => Ref<string> | null | string
 }

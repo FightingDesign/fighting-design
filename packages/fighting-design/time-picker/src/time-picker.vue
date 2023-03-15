@@ -91,8 +91,11 @@
    * @see HTMLElement.offsetHeight https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight
    */
   const itemHeight = computed((): number => {
-    return ((secondEl.value as HTMLDivElement).querySelector('.f-time-picker__second-item') as HTMLDivElement)
-      .offsetHeight
+    return (
+      (secondEl.value as HTMLDivElement).querySelector(
+        '.f-time-picker__second-item'
+      ) as HTMLDivElement
+    ).offsetHeight
   })
 
   /**
@@ -103,7 +106,8 @@
   const scrollNow = async (): Promise<void> => {
     await nextTick()
     ;(hoverEl.value as HTMLDivElement).scrollTo({
-      top: (Number(timeList.hour) === 0 ? 24 : Number(timeList.hour) - 2) * itemHeight.value,
+      top:
+        (Number(timeList.hour) === 0 ? 24 : Number(timeList.hour) - 2) * itemHeight.value,
       behavior: 'smooth'
     })
     ;(minuteEl.value as HTMLDivElement).scrollTo({
@@ -139,7 +143,12 @@
 
 <template>
   <div class="f-time-picker">
-    <f-trigger ref="triggerInstance" trigger="click" :disabled="disabled" :on-open="scrollNow">
+    <f-trigger
+      ref="triggerInstance"
+      trigger="click"
+      :disabled="disabled"
+      :on-open="scrollNow"
+    >
       <f-input
         v-model="pickerTime"
         autocomplete="off"
@@ -161,7 +170,10 @@
               :key="hour"
               :class="[
                 'f-time-picker__hour-item',
-                { 'f-time-picker__hour-active': addZero(hour === 24 ? 0 : hour).toString() === timeList.hour }
+                {
+                  'f-time-picker__hour-active':
+                    addZero(hour === 24 ? 0 : hour).toString() === timeList.hour
+                }
               ]"
               @click.stop="handleClick(hour === 24 ? 0 : hour, 'hour')"
             >
@@ -176,7 +188,10 @@
               :key="minute"
               :class="[
                 'f-time-picker__minute-item',
-                { 'f-time-picker__minute-active': addZero(minute).toString() === timeList.minute }
+                {
+                  'f-time-picker__minute-active':
+                    addZero(minute).toString() === timeList.minute
+                }
               ]"
               @click.stop="handleClick(minute, 'minute')"
             >
@@ -191,7 +206,10 @@
               :key="second"
               :class="[
                 'f-time-picker__second-item',
-                { 'f-time-picker__second-active': addZero(second).toString() === timeList.second }
+                {
+                  'f-time-picker__second-active':
+                    addZero(second).toString() === timeList.second
+                }
               ]"
               @click.stop="handleClick(second, 'second')"
             >
@@ -204,7 +222,9 @@
         <div class="f-time-picker__option">
           <f-button size="mini" :on-click="() => onConfirm('now')">当前</f-button>
           <f-button size="mini" :on-click="() => onConfirm(false)">取消</f-button>
-          <f-button type="primary" size="mini" :on-click="() => onConfirm(true)">确定</f-button>
+          <f-button type="primary" size="mini" :on-click="() => onConfirm(true)"
+            >确定</f-button
+          >
         </div>
       </template>
     </f-trigger>

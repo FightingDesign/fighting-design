@@ -1,4 +1,10 @@
-import { setBooleanProp, setStringNumberProp, setNumberProp, setStringProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringNumberProp,
+  setNumberProp,
+  setStringProp,
+  setFunctionProp
+} from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { TriggerTrigger, TriggerProvide } from './interface'
 import type { HandleChange } from '../../_interface'

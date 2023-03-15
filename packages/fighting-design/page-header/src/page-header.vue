@@ -42,7 +42,10 @@
       <!-- 标题 -->
       <div
         :style="{ color: titleColor }"
-        :class="['f-page-header__main-title', { 'f-page-header__main-title-bold': titleBold }]"
+        :class="[
+          'f-page-header__main-title',
+          { 'f-page-header__main-title-bold': titleBold }
+        ]"
       >
         <slot name="title">{{ title }}</slot>
       </div>

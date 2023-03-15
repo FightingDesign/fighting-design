@@ -21,7 +21,10 @@
     /** segment 风格不支持左右 position 的样式 */
     if (type === 'segment' && (position === 'right' || position === 'left')) {
       if (__DEV__) {
-        warning('f-tabs', 'The segment style only supports the `top` and `bottom` position')
+        warning(
+          'f-tabs',
+          'The segment style only supports the `top` and `bottom` position'
+        )
       }
 
       return 'top'

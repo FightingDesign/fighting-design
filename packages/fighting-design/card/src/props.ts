@@ -1,4 +1,9 @@
-import { setBooleanProp, setFunctionProp, setStringNumberProp, setStringProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setFunctionProp,
+  setStringNumberProp,
+  setStringProp
+} from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { CardShadow, CardClose } from './interface'
 

@@ -51,10 +51,14 @@ export const useEject = (
   })
 
   /** 判断方位 */
-  const isPosition = computed((): boolean => prop.placement.includes(component === 'message' ? 'top' : 'right'))
+  const isPosition = computed((): boolean =>
+    prop.placement.includes(component === 'message' ? 'top' : 'right')
+  )
 
   /** 计算组件之间偏移量 */
-  const siblingOffset = computed((): number => getSiblingOffset(prop.placement, prop.id, !isPosition.value))
+  const siblingOffset = computed((): number =>
+    getSiblingOffset(prop.placement, prop.id, !isPosition.value)
+  )
 
   /** 计算偏移量 */
   const offset = computed((): number => prop.offset + siblingOffset.value)

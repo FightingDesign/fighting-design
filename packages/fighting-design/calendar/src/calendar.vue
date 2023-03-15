@@ -82,7 +82,9 @@
 
   /** 当前时间 */
   const nowTime = computed((): string => {
-    return `${dateParams.year} / ${addZero(dateParams.month)} / ${addZero(dateParams.date)}`
+    return `${dateParams.year} / ${addZero(dateParams.month)} / ${addZero(
+      dateParams.date
+    )}`
   })
 
   /**

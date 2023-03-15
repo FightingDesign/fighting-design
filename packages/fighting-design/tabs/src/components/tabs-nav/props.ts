@@ -57,9 +57,16 @@ export const Props = {
     type: String as PropType<TabsJustifyContent>,
     default: (): TabsJustifyContent => 'flex-start',
     validator: (val: TabsJustifyContent): boolean => {
-      return (['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'] as const).includes(
-        val
-      )
+      return (
+        [
+          'flex-start',
+          'center',
+          'flex-end',
+          'space-between',
+          'space-around',
+          'space-evenly'
+        ] as const
+      ).includes(val)
     }
   },
   /** 编辑状态 */

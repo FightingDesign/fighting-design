@@ -158,7 +158,11 @@ type SelectModelValue = string | number | boolean
 ### SelectChange
 
 ```ts
-type SelectChange = (newValue: SelectModelValue, newLabel: SelectModelValue, evt: MouseEvent) => void
+type SelectChange = (
+  newValue: SelectModelValue,
+  newLabel: SelectModelValue,
+  evt: MouseEvent
+) => void
 ```
 
 ## Contributors

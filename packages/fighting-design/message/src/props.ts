@@ -43,7 +43,9 @@ export const Props = {
    * @default top
    */
   placement: setStringProp<MessagePlacement>('top', (val: MessagePlacement): boolean => {
-    return (['top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right'] as const).includes(val)
+    return (
+      ['top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right'] as const
+    ).includes(val)
   }),
   /** 层级 */
   zIndex: setNumberProp(),

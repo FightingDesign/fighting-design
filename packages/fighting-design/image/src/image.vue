@@ -10,9 +10,15 @@
   const prop = defineProps(Props)
 
   const { filter } = useProps(prop)
-
   const { loadImg, isSuccess, isShowNode } = useLoadImg(
-    filter(['src', 'errSrc', 'rootMargin', 'lazy', 'onLoad', 'onError']) as unknown as UseLoadImgProp
+    filter([
+      'src',
+      'errSrc',
+      'rootMargin',
+      'lazy',
+      'onLoad',
+      'onError'
+    ]) as unknown as UseLoadImgProp
   )
 
   /** 元素节点 */
@@ -48,7 +54,12 @@
 </script>
 
 <template>
-  <div v-if="isSuccess" role="img" :class="['f-image', { 'f-image__block': block }]" :style="styleList">
+  <div
+    v-if="isSuccess"
+    role="img"
+    :class="['f-image', { 'f-image__block': block }]"
+    :style="styleList"
+  >
     <!-- 真正展示的图片 -->
     <img
       ref="imageEl"

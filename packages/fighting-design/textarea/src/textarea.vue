@@ -12,7 +12,10 @@
   })
 
   const { filter } = useProps(prop)
-  const { onInput, onClear, onChange } = useInput(filter(['onChange', 'onInput', 'disabled']), emit)
+  const { onInput, onClear, onChange } = useInput(
+    filter(['onChange', 'onInput', 'disabled']),
+    emit
+  )
   const { classes, styles } = useList(prop, 'textarea')
 
   /**
@@ -54,6 +57,12 @@
     />
 
     <!-- 清空按钮 -->
-    <f-svg-icon v-if="clear" class="f-textarea__clear-btn" :icon="FIconCrossVue" :size="14" @click="onClear" />
+    <f-svg-icon
+      v-if="clear"
+      class="f-textarea__clear-btn"
+      :icon="FIconCrossVue"
+      :size="14"
+      @click="onClear"
+    />
   </div>
 </template>

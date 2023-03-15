@@ -32,10 +32,13 @@ export const PluginDemo = (md: MarkdownIt): void => {
       if (tokens[idx].nesting === 1) {
         const m: RegExpMatchArray = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
         const description: string = m && m.length > 1 ? m[1] : ''
-        const content: string = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : ''
+        const content: string =
+          tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : ''
         const source: string = md.utils.escapeHtml(content)
 
-        return `<vp-demo source="${source}">${encodeURIComponent(markdown.render(description))}`
+        return `<vp-demo source="${source}">${encodeURIComponent(
+          markdown.render(description)
+        )}`
       }
 
       return '</vp-demo>'

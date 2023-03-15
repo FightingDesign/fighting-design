@@ -42,7 +42,10 @@
    * @param { string } value 当前需要检测的值
    * @param { Object } rules 规则
    */
-  const checkRuleMassage = (value: string, rules: FormItemRules | FormItemRulesItem): string | boolean => {
+  const checkRuleMassage = (
+    value: string,
+    rules: FormItemRules | FormItemRulesItem
+  ): string | boolean => {
     /**
      *
      * 测试每一项规则
@@ -101,7 +104,8 @@
     })
 
     /** 获取当前规则对象的 value 值 */
-    const childrenCheckResultKey: (string | boolean)[] = Object.values(childrenCheckResult)
+    const childrenCheckResultKey: (string | boolean)[] =
+      Object.values(childrenCheckResult)
 
     if (childrenCheckResultKey.length) {
       /**

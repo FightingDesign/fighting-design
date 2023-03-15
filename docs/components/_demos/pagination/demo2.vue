@@ -10,5 +10,10 @@
 </script>
 
 <template>
-  <f-pagination v-model:current="current" v-model:page-size="pagesize" :total="total" :page-sizes="pageSizes" />
+  <f-pagination
+    v-model:current="current"
+    v-model:page-size="pagesize"
+    :total="total"
+    :page-sizes="pageSizes"
+  />
 </template>

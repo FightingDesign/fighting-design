@@ -1,4 +1,10 @@
-import { setBooleanProp, setStringProp, setStringNumberProp, setNumberProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setNumberProp,
+  setFunctionProp
+} from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { TextareaResize } from './interface'
 import type { InputChange, HandleEvent } from '../../_interface'

@@ -68,7 +68,11 @@ export type RenderInstance = RenderInstanceFn & Partial<RenderInstanceFnWith>
  * @param { Function } renderInstance 创建组件实例
  */
 export interface UseTipsReturn {
-  getSiblingOffset: (placement: MessagePlacement, id: string, isNext: boolean) => ComputedRef<number>
+  getSiblingOffset: (
+    placement: MessagePlacement,
+    id: string,
+    isNext: boolean
+  ) => ComputedRef<number>
   removeInstance: (placement: MessagePlacement, id: string) => void
   createInstance: (instance: TipsInstance, placement: MessagePlacement) => TipsInstance
   renderInstance: RenderInstance

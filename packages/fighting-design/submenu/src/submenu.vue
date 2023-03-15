@@ -42,13 +42,18 @@
     :class="[
       'f-submenu',
       {
-        [`f-submenu__${parentInject && parentInject.mode.value}`]: parentInject && parentInject.mode.value,
+        [`f-submenu__${parentInject && parentInject.mode.value}`]:
+          parentInject && parentInject.mode.value,
         'f-submenu__disabled': disabled
       }
     ]"
   >
     <!-- 垂直或水平模式 -->
-    <f-dropdown v-if="parentInject && parentInject.mode.value !== 'inline'" trigger="click" :spacing="5">
+    <f-dropdown
+      v-if="parentInject && parentInject.mode.value !== 'inline'"
+      trigger="click"
+      :spacing="5"
+    >
       <div class="f-submenu__title">
         <div class="f-submenu__title-text">
           <slot v-if="$slots.title" name="title" />
@@ -73,7 +78,10 @@
 
         <!-- 箭头图标 -->
         <f-svg-icon
-          :class="['f-submenu__arrow-icon', { 'f-submenu__arrow-icon-animation': isOpened }]"
+          :class="[
+            'f-submenu__arrow-icon',
+            { 'f-submenu__arrow-icon-animation': isOpened }
+          ]"
           :icon="FIconChevronDown"
         />
       </div>

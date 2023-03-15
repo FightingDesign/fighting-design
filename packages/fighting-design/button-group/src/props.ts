@@ -20,13 +20,18 @@ export const Props = {
    * @values horizontal vertical
    * @default horizontal
    */
-  direction: setStringProp<ButtonGroupDirection>('horizontal', (val: ButtonGroupDirection): boolean => {
-    return (['horizontal', 'vertical'] as const).includes(val)
-  })
+  direction: setStringProp<ButtonGroupDirection>(
+    'horizontal',
+    (val: ButtonGroupDirection): boolean => {
+      return (['horizontal', 'vertical'] as const).includes(val)
+    }
+  )
 } as const
 
 /** button-group 组件 props 类型 */
 export type ButtonGroupProps = ExtractPropTypes<typeof Props>
 
 /** button-group 组件注入的依赖项 */
-export const BUTTON_GROUP_PROPS_KEY: InjectionKey<FightingSize> = Symbol('button-group-props-key')
+export const BUTTON_GROUP_PROPS_KEY: InjectionKey<FightingSize> = Symbol(
+  'button-group-props-key'
+)

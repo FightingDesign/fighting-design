@@ -15,7 +15,9 @@ export const useColor = (color: string): UseColorReturn => {
 
   /** 检测是否为一个有效的十六进制色号 */
   if (!r.test(color)) {
-    throw new Error(`Fighting Design - useColor: ${color} is not a valid hex color number`)
+    throw new Error(
+      `Fighting Design - useColor: ${color} is not a valid hex color number`
+    )
   }
 
   /**

@@ -73,7 +73,10 @@
 <template>
   <div
     role="menuitem"
-    :class="['f-menu-item', { 'f-menu-item__active': isActive, 'f-menu-item__disabled': disabled }]"
+    :class="[
+      'f-menu-item',
+      { 'f-menu-item__active': isActive, 'f-menu-item__disabled': disabled }
+    ]"
     :style="styleList"
     @click="handelClick"
   >

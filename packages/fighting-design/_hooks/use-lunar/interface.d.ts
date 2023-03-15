@@ -27,4 +27,8 @@ export interface GetLunarDetailReturn {
 /**
  * useLunar 返回值类型
  */
-export type UseLunarReturn = (yPara: number, mPara: number, dPara: number) => -1 | GetLunarDetailReturn
+export type UseLunarReturn = (
+  yPara: number,
+  mPara: number,
+  dPara: number
+) => -1 | GetLunarDetailReturn

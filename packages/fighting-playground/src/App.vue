@@ -8,7 +8,8 @@
 
   const store = new MyReplStore({
     serializedState: location.hash.slice(1),
-    defaultVueRuntimeURL: 'https://unpkg.com/@vue/runtime-dom@3.2.29/dist/runtime-dom.esm-browser.js'
+    defaultVueRuntimeURL:
+      'https://unpkg.com/@vue/runtime-dom@3.2.29/dist/runtime-dom.esm-browser.js'
   }) as unknown as ReplStore
 
   // 将状态持久化到 URL 哈希

@@ -1,6 +1,12 @@
 import { ref } from 'vue'
 import { useRun } from '..'
-import { EMIT_CURRENT, EMIT_PAGESIZE, PAGINATION_NEXT, PAGINATION_ITEM, PAGINATION_PREV } from '../../_tokens'
+import {
+  EMIT_CURRENT,
+  EMIT_PAGESIZE,
+  PAGINATION_NEXT,
+  PAGINATION_ITEM,
+  PAGINATION_PREV
+} from '../../_tokens'
 import type { SelectModelValue } from '../../select'
 import type { UsePageEmit, UsePageReturn } from '..'
 import type { UseTurnPageReturn } from './interface'

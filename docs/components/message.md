@@ -192,8 +192,12 @@
     <f-button type="primary" @click="openMessagePlacement('top-left')"> 左上 </f-button>
     <f-button type="primary" @click="openMessagePlacement('top-right')"> 右上 </f-button>
     <f-button type="success" @click="openMessagePlacement('bottom')"> 底部 </f-button>
-    <f-button type="success" @click="openMessagePlacement('bottom-left')"> 左下 </f-button>
-    <f-button type="success" @click="openMessagePlacement('bottom-right')"> 右下 </f-button>
+    <f-button type="success" @click="openMessagePlacement('bottom-left')">
+      左下
+    </f-button>
+    <f-button type="success" @click="openMessagePlacement('bottom-right')">
+      右下
+    </f-button>
   </f-space>
 </template>
 
@@ -251,7 +255,13 @@ import type { MessageInstance, MessageProps, MessagePlacement } from 'fighting-d
 ### MessagePlacement
 
 ```ts
-type MessagePlacement = 'top' | 'top-left' | 'top-right' | 'bottom' | 'bottom-left' | 'bottom-right'
+type MessagePlacement =
+  | 'top'
+  | 'top-left'
+  | 'top-right'
+  | 'bottom'
+  | 'bottom-left'
+  | 'bottom-right'
 ```
 
 ## Contributors

@@ -1,4 +1,10 @@
-import { setBooleanProp, setStringProp, setNumberProp, setFunctionProp, setArrayProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setNumberProp,
+  setFunctionProp,
+  setArrayProp
+} from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { HandleMouse } from '../../_interface'
 

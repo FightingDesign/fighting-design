@@ -21,8 +21,12 @@ describe('FCard', () => {
       props: { title: '这是卡片标题' }
     })
 
-    expect(wrapper.find('.f-card').find('.f-card__header').text()).toContain('这是卡片标题')
-    expect(wrapper.find('.f-card').find('.f-card__header').attributes('role')).toBe('heading')
+    expect(wrapper.find('.f-card').find('.f-card__header').text()).toContain(
+      '这是卡片标题'
+    )
+    expect(wrapper.find('.f-card').find('.f-card__header').attributes('role')).toBe(
+      'heading'
+    )
   })
 
   test('round', () => {
@@ -60,14 +64,18 @@ describe('FCard', () => {
     const wrapper = mount(FCard, {
       props: { background: 'red' }
     })
-    expect(wrapper.find('.f-card').attributes('style')).toContain('--card-background: red')
+    expect(wrapper.find('.f-card').attributes('style')).toContain(
+      '--card-background: red'
+    )
   })
 
   test('titleColor', () => {
     const wrapper = mount(FCard, {
       props: { titleColor: 'red' }
     })
-    expect(wrapper.find('.f-card').attributes('style')).toContain('--card-title-color: red')
+    expect(wrapper.find('.f-card').attributes('style')).toContain(
+      '--card-title-color: red'
+    )
   })
 
   test('titleBold', () => {

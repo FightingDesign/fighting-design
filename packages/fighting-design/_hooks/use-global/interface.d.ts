@@ -22,6 +22,9 @@ export interface UseGlobalProp {
  */
 export interface UseGlobalReturn {
   getType: (def?: FightingType) => ComputedRef<FightingType>
-  getSize: (def?: FightingSize, parentSize?: FightingSize | null) => ComputedRef<FightingSize>
+  getSize: (
+    def?: FightingSize,
+    parentSize?: FightingSize | null
+  ) => ComputedRef<FightingSize>
   getLang: <T extends LangContentKey>(componentName: T) => ComputedRef<LangKey[T]>
 }

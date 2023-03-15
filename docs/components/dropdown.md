@@ -97,7 +97,12 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DropdownInstance, DropdownProps, DropdownItemInstance, DropdownItemProps } from 'fighting-design'
+import type {
+  DropdownInstance,
+  DropdownProps,
+  DropdownItemInstance,
+  DropdownItemProps
+} from 'fighting-design'
 ```
 
 ## Contributors

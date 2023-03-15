@@ -1,4 +1,10 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setFunctionProp, setArrayProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringNumberProp,
+  setStringProp,
+  setFunctionProp,
+  setArrayProp
+} from '../../_utils'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { CheckboxGroupChange, CheckboxGroupProvide } from './interface'
@@ -36,4 +42,6 @@ export const Props = {
 export type CheckboxGroupProps = ExtractPropTypes<typeof Props>
 
 /** checkbox-group 组件注入的依赖项 */
-export const CHECKBOX_GROUP_PROPS_KEY: InjectionKey<CheckboxGroupProvide> = Symbol('f-checkbox-group-props-key')
+export const CHECKBOX_GROUP_PROPS_KEY: InjectionKey<CheckboxGroupProvide> = Symbol(
+  'f-checkbox-group-props-key'
+)

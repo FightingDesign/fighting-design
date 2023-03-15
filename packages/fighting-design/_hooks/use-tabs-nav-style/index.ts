@@ -30,7 +30,9 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
   const activeIndex = computed((): number =>
     prop.navs
       ? Math.max(
-          prop.navs.findIndex((e: TabsNavInstance): boolean => e.name === prop.activeName),
+          prop.navs.findIndex(
+            (e: TabsNavInstance): boolean => e.name === prop.activeName
+          ),
           0
         )
       : 0
@@ -60,7 +62,9 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
     const activeStyleList: CSSProperties = {}
 
     /** 获取到内部所有的节点 */
-    const children: HTMLElement[] = instance.subTree.el.querySelectorAll('.f-tabs-nav__item') as HTMLElement[]
+    const children: HTMLElement[] = instance.subTree.el.querySelectorAll(
+      '.f-tabs-nav__item'
+    ) as HTMLElement[]
 
     /** 如果没有子元素则返回 */
     if (!children || !children.length) return
@@ -82,7 +86,8 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
       activeStyleList.transform = `translateX(${activeEl.offsetLeft}px)`
     } else if (position === 'left' || position === 'right') {
       /** 左右位置的样式 */
-      activeStyleList.height = activeEl.clientHeight - sizeToNum(activeStyle.padding) + 'px'
+      activeStyleList.height =
+        activeEl.clientHeight - sizeToNum(activeStyle.padding) + 'px'
       activeStyleList.transform = `translateY(${activeEl.offsetTop}px)`
 
       if (position === 'left') {

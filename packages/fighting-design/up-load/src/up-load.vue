@@ -131,7 +131,13 @@
 
 <template>
   <div class="f-up-load">
-    <div v-if="drag" class="f-up-load__drag" @click="handleClick" @drop.prevent="onDrop" @dragover.prevent="onDragover">
+    <div
+      v-if="drag"
+      class="f-up-load__drag"
+      @click="handleClick"
+      @drop.prevent="onDrop"
+      @dragover.prevent="onDragover"
+    >
       <slot>
         <f-svg-icon :icon="FIconPlusVue" />
       </slot>

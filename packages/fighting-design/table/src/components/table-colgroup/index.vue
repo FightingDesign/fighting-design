@@ -8,6 +8,10 @@
 <template>
   <!-- https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/colgroup -->
   <colgroup>
-    <col v-for="(column, index) in columns" :key="index" :width="sizeChange(column.width)" />
+    <col
+      v-for="(column, index) in columns"
+      :key="index"
+      :width="sizeChange(column.width)"
+    />
   </colgroup>
 </template>

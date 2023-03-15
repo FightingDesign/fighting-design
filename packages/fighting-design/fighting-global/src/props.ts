@@ -37,4 +37,6 @@ export const Props = {
 export type FightingGlobalProps = ExtractPropTypes<typeof Props>
 
 /** fighting-global 组件注入的依赖项 */
-export const FIGHTING_GLOBAL_PROPS_KEY: InjectionKey<FightingGlobalProps> = Symbol('fighting-global-props-key')
+export const FIGHTING_GLOBAL_PROPS_KEY: InjectionKey<FightingGlobalProps> = Symbol(
+  'fighting-global-props-key'
+)

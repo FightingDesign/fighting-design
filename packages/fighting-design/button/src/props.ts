@@ -1,8 +1,20 @@
-import { setBooleanProp, setStringNumberProp, setStringProp, setObjectProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringNumberProp,
+  setStringProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
 import { FIGHTING_SIZE, FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { ButtonNative } from './interface'
-import type { FightingSize, FightingType, FightingIcon, HandleMouse, FightingTarget } from '../../_interface'
+import type {
+  FightingSize,
+  FightingType,
+  FightingIcon,
+  HandleMouse,
+  FightingTarget
+} from '../../_interface'
 
 export const Props = {
   /** 是否加粗 */

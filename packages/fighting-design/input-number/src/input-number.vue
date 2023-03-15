@@ -1,7 +1,12 @@
 <script lang="ts" setup name="FInputNumber">
   import { Props } from './props'
   import { computed } from 'vue'
-  import { FIconChevronLeftVue, FIconChevronRightVue, FIconChevronUp, FIconChevronDown } from '../../_svg'
+  import {
+    FIconChevronLeftVue,
+    FIconChevronRightVue,
+    FIconChevronUp,
+    FIconChevronDown
+  } from '../../_svg'
   import { FInput } from '../../input'
   import { FButton } from '../../button'
   import { isNumber } from '../../_utils'
@@ -124,7 +129,10 @@
         :on-change="onChange"
       >
         <template #after>
-          <div v-if="model === 'switch'" :class="['f-input-number__switch', `f-input-number__switch-${size}`]">
+          <div
+            v-if="model === 'switch'"
+            :class="['f-input-number__switch', `f-input-number__switch-${size}`]"
+          >
             <f-button
               :disabled="disabled || maxDisabled"
               :size="size"
