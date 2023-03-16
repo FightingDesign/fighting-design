@@ -39,8 +39,8 @@ export const Props = {
   fit: setStringProp<FightingFit>(null, (val: FightingFit): boolean => {
     return FIGHTING_FIT.includes(val)
   }),
-  /** 是否禁止选择 */
-  noSelect: setBooleanProp(),
+  /** 是否可以选中 */
+  select: setBooleanProp(),
   /**
    * 原生 referrerPolicy 属性
    *

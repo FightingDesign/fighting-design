@@ -27,8 +27,6 @@
 
 ## 使用本地图片
 
-## 使用本地图片
-
 如需要使用本地图片，需要使用 [new URL(url, import.meta.url)](https://cn.vitejs.dev/guide/assets.html#new-url-url-import-meta-url) 手动导入图片资源使用：
 
 ::: demo

@@ -4,37 +4,38 @@
   display: inline-block;
   width: var(--image-width);
   height: var(--image-height);
-  border-radius: var(--image-border-radius);
+  border-radius: var(--image-round);
 
   &__img {
     width: 100%;
     height: 100%;
     vertical-align: middle;
-    border-radius: var(--image-border-radius);
+    border-radius: var(--image-round);
   }
 
+  // 禁止选中
   &__select {
     user-select: none;
   }
 
   // 适应容器方式
-  &__fill {
+  &__fill .f-image__img {
     object-fit: fill;
   }
 
-  &__contain {
+  &__contain .f-image__img {
     object-fit: contain;
   }
 
-  &__cover {
+  &__cover .f-image__img {
     object-fit: cover;
   }
 
-  &__none {
+  &__none .f-image__img {
     object-fit: none;
   }
 
-  &__scale-down {
+  &__scale-down .f-image__img {
     object-fit: scale-down;
   }
 
