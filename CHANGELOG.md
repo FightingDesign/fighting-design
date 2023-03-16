@@ -3,6 +3,7 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - `f-image` 组件 `no-select` 配置项改为 `select`
+- 优化 `f-image` 和 `f-avatar` 组件
 
 ## 0.27.2 (2023-03-13)
 
