@@ -17,17 +17,17 @@
 
   // 不同的适应容器的方式
   @each $key in fill, contain, cover, none, scale-down {
-    &__#{$key} {
+    &.f-avatar__#{$key} .f-avatar__img {
       object-fit: $key;
     }
   }
 
   // 圆角
-  &__round,
-  &.f-avatar__round {
+  &.f-avatar__round .f-avatar__img {
     border-radius: 50%;
   }
 
+  // 文字图片
   &__text {
     font-size: var(--avatar-font-size, 15px);
     color: var(--avatar-font-color, #333);

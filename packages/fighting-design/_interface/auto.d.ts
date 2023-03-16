@@ -1,7 +1,7 @@
 import type { VNode, Component } from 'vue'
 
 /** class 类名集合类型 */
-export type ClassList = readonly (string | Record<string, unknown>)[]
+export type ClassList = (string | Record<string, unknown>)[]
 
 /** 不同类型 */
 export type FightingType =

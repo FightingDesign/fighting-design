@@ -7,6 +7,8 @@ export * from './interface.d'
 
 /**
  * 对于 props 的一些操作
+ * 
+ * 目前支持过滤属性、拦截器
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop 需要操作的 prop 对象
