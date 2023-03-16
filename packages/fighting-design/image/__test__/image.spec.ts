@@ -37,15 +37,15 @@ describe('FImage', () => {
       const wrapper = mount(FImage, {
         props: { fit: item }
       })
-      expect(wrapper.find('img').classes()).toContain(`f-image__${item}`)
+      expect(wrapper.classes()).toContain(`f-image__${item}`)
     })
   })
 
-  test('noSelect', () => {
+  test('select', () => {
     const wrapper = mount(FImage, {
-      props: { noSelect: true }
+      props: { select: true }
     })
-    expect(wrapper.find('img').classes()).toContain('f-image__select')
+    expect(wrapper.classes()).toContain('f-image__select')
   })
 
   test('referrer-policy', () => {
