@@ -110,7 +110,10 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
    */
   const getProp = (target: ('type' | 'size')[], def?: string[]): object => {
     /** 结果 props 对象 */
-    const prams = {}
+    const prams: {
+      type?: ComputedRef<FightingSize | FightingType>,
+      size?: ComputedRef<FightingSize | FightingType>
+    } = {}
 
     /** 必须是数组才遍历，提前拦截错误 */
     if (isArray(target)) {
