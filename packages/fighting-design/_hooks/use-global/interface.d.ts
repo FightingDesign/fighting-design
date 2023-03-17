@@ -27,4 +27,5 @@ export interface UseGlobalReturn {
     parentSize?: FightingSize | null
   ) => ComputedRef<FightingSize>
   getLang: <T extends LangContentKey>(componentName: T) => ComputedRef<LangKey[T]>
+  getProp: (target: ('type' | 'size')[], def?: string[]) => object
 }

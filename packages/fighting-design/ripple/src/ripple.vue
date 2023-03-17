@@ -6,15 +6,8 @@
 
   const prop = defineProps(Props)
 
-  const { getType } = useGlobal(prop)
-
-  /** 替换 type 后得到的 props */
-  const params = reactive({
-    ...toRefs(prop),
-    type: getType('default')
-  })
-
-  const { styles } = useList(params, 'ripple')
+  const { getType, getProp } = useGlobal(prop)
+  const { styles } = useList(getProp(['type'], ['default']), 'ripple')
 
   /** 元素节点 */
   const rippleEl = ref<HTMLElement>()
@@ -44,7 +37,6 @@
     /** 必须在元素节点存在的情况下才触发涟漪 */
     if (rippleEl.value) {
       const { runRipples } = useRipples(evt, rippleEl.value, options)
-
       runRipples()
     }
   }

@@ -1,6 +1,7 @@
-import { computed, inject } from 'vue'
+import { computed, inject, reactive, toRefs } from 'vue'
 import { FIGHTING_GLOBAL_PROPS_KEY } from '../../fighting-global/src/props'
 import { LANG } from '../../_lang'
+import { isArray } from '../../_utils'
 import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
 import type { ComputedRef } from 'vue'
 import type { LangContentKey, LangKey } from '../../_lang'
@@ -17,7 +18,7 @@ export * from './interface.d'
  * @param { Object } [prop] 组件的 prop
  * @returns { Object } 根据优先级返回需要的参数
  */
-export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn => {
+export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => {
   /** 获取全局配置组件注入的依赖项 */
   const global: FightingGlobalProps | null = inject(FIGHTING_GLOBAL_PROPS_KEY, null)
 
@@ -81,9 +82,32 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
     })
   }
 
+  const getProp = (target: ('type' | 'size')[], def?: string[]): object => {
+
+    const res: object = reactive({
+      ...toRefs(prop)
+    })
+
+    if (isArray(target)) {
+      target.forEach((item: 'type' | 'size', index: number): void => {
+
+        if (item === 'size') {
+          res.size = def && def[index] ? getSize(def[index]) : getSize()
+        }
+
+        if (item === 'type') {
+          res.type = def && def[index] ? getType(def[index]) : getType()
+        }
+      })
+    }
+
+    return res
+  }
+
   return {
     getType,
     getSize,
-    getLang
+    getLang,
+    getProp
   }
 }

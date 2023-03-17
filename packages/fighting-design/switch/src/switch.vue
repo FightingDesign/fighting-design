@@ -1,6 +1,5 @@
 <script lang="ts" setup name="FSwitch">
   import { Props } from './props'
-  import { reactive, toRefs } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { useList, useRun, useGlobal } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
@@ -11,15 +10,8 @@
   })
 
   const { run } = useRun()
-  const { getSize } = useGlobal(prop)
-
-  /** 替换 type 后得到的 props */
-  const params = reactive({
-    ...toRefs(prop),
-    size: getSize()
-  })
-
-  const { styles, classes } = useList(params, 'switch')
+  const { getProp } = useGlobal(prop)
+  const { styles, classes } = useList(getProp(['size']), 'switch')
 
   /** 点击切换 */
   const handleClick = (): void => {

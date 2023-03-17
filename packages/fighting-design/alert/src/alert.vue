@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FAlert">
   import { Props } from './props'
-  import { ref, reactive, onMounted, toRefs } from 'vue'
+  import { ref, onMounted } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
   import { isNumber } from '../../_utils'
@@ -8,16 +8,9 @@
 
   const prop = defineProps(Props)
 
-  const { getType } = useGlobal(prop)
+  const { getProp } = useGlobal(prop)
   const { run } = useRun()
-
-  /** 替换 type 后得到的 props */
-  const params = reactive({
-    ...toRefs(prop),
-    type: getType()
-  })
-
-  const { styles, classes } = useList(params, 'alert')
+  const { styles, classes } = useList(getProp(['type']), 'alert')
 
   /** 展示状态 */
   const isShow = ref<boolean>(true)

@@ -1,19 +1,11 @@
 <script lang="ts" setup name="FText">
   import { Props } from './props'
-  import { reactive, toRefs } from 'vue'
   import { useList, useGlobal } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  const { getType } = useGlobal(prop)
-
-  /** 替换 type 后得到的 props */
-  const params = reactive({
-    ...toRefs(prop),
-    type: getType()
-  })
-
-  const { classes, styles } = useList(params, 'text')
+  const { getProp } = useGlobal(prop)
+  const { classes, styles } = useList(getProp(['type']), 'text')
 
   /** 类名列表 */
   const classList = classes(['type', 'block', 'bold', 'ellipsis', 'center'], 'f-text')

@@ -1,23 +1,15 @@
 <script lang="ts" setup name="FTag">
   import { Props } from './props'
-  import { ref, reactive, toRefs } from 'vue'
+  import { ref } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { useList, useRun, useGlobal } from '../../_hooks'
 
   const prop = defineProps(Props)
 
-  const { getType, getSize } = useGlobal(prop)
+  const { getProp } = useGlobal(prop)
   const { run } = useRun()
-
-  /** 替换 type 后得到的 props */
-  const params = reactive({
-    ...toRefs(prop),
-    size: getSize(),
-    type: getType()
-  })
-
-  const { classes, styles } = useList(params, 'tag')
+  const { classes, styles } = useList(getProp(['size', 'type']), 'tag')
 
   /** 是否展示 */
   const isShow = ref<boolean>(true)
