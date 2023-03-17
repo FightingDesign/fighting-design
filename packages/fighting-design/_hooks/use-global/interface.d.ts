@@ -19,6 +19,7 @@ export interface UseGlobalProp {
  * @param { Function } getType 获取组件的类型
  * @param { Function } getSize 获取组件的尺寸
  * @param { Function } getLang 获取组件的语言
+ * @param { Function } getProp 获取组件修改指定参数后的 props
  */
 export interface UseGlobalReturn {
   getType: (def?: FightingType) => ComputedRef<FightingType>
