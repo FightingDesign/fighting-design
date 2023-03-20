@@ -1,12 +1,11 @@
 <script lang="ts" setup name="FRadio">
   import { Props } from './props'
   import { isString, isBoolean, isNumber } from '../../_utils'
-  import { useRun } from '../../_hooks'
-  import { computed, inject } from 'vue'
+  import { useRun, useList } from '../../_hooks'
+  import { computed, inject, reactive } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
   import { EMIT_UPDATE } from '../../_tokens'
   import type { RadioGroundInject, RadioModelValue } from '../../radio-group'
-  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -18,6 +17,14 @@
 
   /** 获取父组件注入的依赖项 */
   const parentInject: RadioGroundInject | null = inject(RADIO_GROUP_PROPS_kEY, null)
+
+  /** 判断是否被选中 */
+  const isChecked = computed((): boolean => modelValue.value === prop.label)
+
+  /** 判断是否被禁用 */
+  const isDisabled = computed(
+    (): boolean => prop.disabled || (parentInject && parentInject.disabled)
+  )
 
   /** 绑定值 */
   const modelValue = computed({
@@ -37,27 +44,27 @@
      * @param { string | number | boolean }  val 最新值
      */
     set: (val: RadioModelValue): void => {
+      /** 判断如果注入的依赖项存在，并且没有禁用，则将最新值传递给父组件 */
       if (parentInject && !parentInject.disabled) {
         parentInject.changeEvent(val)
         return
       }
-      if (prop.disabled) return
+      if (isDisabled.value) return
       emit(EMIT_UPDATE, val)
       run(prop.onChange, val)
     }
   })
 
+  const { classes } = useList(
+    reactive({
+      checked: isChecked,
+      disabled: isDisabled
+    }),
+    'radio'
+  )
+
   /** 类名列表 */
-  const classList = computed((): ClassList => {
-    return [
-      'f-radio',
-      {
-        'f-radio__checked': modelValue.value === prop.label,
-        'f-radio__margin': !parentInject,
-        'f-radio__disabled': prop.disabled || (parentInject && parentInject.disabled)
-      }
-    ]
-  })
+  const classList = classes(['checked', 'disabled'], 'f-radio')
 </script>
 
 <template>
@@ -70,7 +77,10 @@
       :disabled="disabled"
       :name="name"
     />
+    <!-- 小圆圈 -->
     <span v-if="!parentInject?.border" class="f-radio__circle" />
+
+    <!-- 展示的文字内容 -->
     <span class="f-radio__text">
       <slot>{{ label }}</slot>
     </span>
