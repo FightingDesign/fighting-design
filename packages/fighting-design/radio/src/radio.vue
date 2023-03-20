@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FRadio">
   import { Props } from './props'
   import { isString, isBoolean, isNumber } from '../../_utils'
-  import { useRun, useList } from '../../_hooks'
+  import { useRun, useList, useModelValue } from '../../_hooks'
   import { computed, inject, reactive } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
   import { EMIT_UPDATE } from '../../_tokens'
@@ -21,39 +21,28 @@
   /** 判断是否被选中 */
   const isChecked = computed((): boolean => modelValue.value === prop.label)
 
-  /** 判断是否被禁用 */
-  const isDisabled = computed(
-    (): boolean => prop.disabled || (parentInject && parentInject.disabled)
-  )
+  /** 父级是否带有禁用 */
+  const isParentDisabled = computed((): boolean => parentInject && parentInject.disabled)
 
-  /** 绑定值 */
-  const modelValue = computed({
-    /**
-     * 获取值
-     *
-     * 如果父组件有依赖注入则使用
-     *
-     * 否则使用之身 props 参数
-     */
-    get: (): RadioModelValue => {
-      return (parentInject && parentInject.modelValue) || prop.modelValue
-    },
-    /**
-     * 设置值
-     *
-     * @param { string | number | boolean }  val 最新值
-     */
-    set: (val: RadioModelValue): void => {
-      /** 判断如果注入的依赖项存在，并且没有禁用，则将最新值传递给父组件 */
-      if (parentInject && !parentInject.disabled) {
-        parentInject.changeEvent(val)
-        return
-      }
-      if (isDisabled.value) return
-      emit(EMIT_UPDATE, val)
-      run(prop.onChange, val)
+  /** 判断是否被禁用 */
+  const isDisabled = computed((): boolean => prop.disabled || isParentDisabled.value)
+
+  const getValue = (): RadioModelValue => {
+    return (parentInject && parentInject.modelValue) || prop.modelValue
+  }
+
+  const setValue = (val: RadioModelValue): void => {
+    /** 判断如果注入的依赖项存在，并且没有禁用，则将最新值传递给父组件 */
+    if (parentInject && !isParentDisabled.value) {
+      parentInject.changeEvent(val)
+      return
     }
-  })
+    if (isDisabled.value) return
+    emit(EMIT_UPDATE, val)
+    run(prop.onChange, val)
+  }
+
+  const { modelValue } = useModelValue(getValue, setValue)
 
   const { classes } = useList(
     reactive({
