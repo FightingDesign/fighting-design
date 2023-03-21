@@ -37,14 +37,14 @@
 
 :::
 
-## 带有边框
+## 背景色效果
 
-`border` 属性可以配置带有边框的效果
+`background` 属性可以配置带有背景色的效果
 
 ::: demo
 
 <template #source>
-<f-radio-group v-model="radio2" border>
+<f-radio-group v-model="radio2" background>
 <f-radio label="1">备选项 1</f-radio>
 <f-radio label="2">备选项 2</f-radio>
 <f-radio label="3">备选项 3</f-radio>
@@ -53,7 +53,7 @@
 
 ```html
 <template>
-  <f-radio-group v-model="radio2" border>
+  <f-radio-group v-model="radio2" background>
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2">备选项2</f-radio>
     <f-radio label="3">备选项3</f-radio>
@@ -71,12 +71,12 @@
 
 ## 不同尺寸
 
-`size` 属性可以配置不同的尺寸
+`size` 属性可以配置不同的尺寸，仅在背景色状态下生效
 
 ::: demo
 
 <template #source>
-<f-radio-group v-model="radio4" border size="large">
+<f-radio-group v-model="radio4" background size="large">
 <f-radio label="1">备选项 1</f-radio>
 <f-radio label="2">备选项 2</f-radio>
 <f-radio label="3">备选项 3</f-radio>
@@ -85,7 +85,7 @@
 <br />
 <br />
 
-<f-radio-group v-model="radio4" border size="middle">
+<f-radio-group v-model="radio4" background size="middle">
   <f-radio label="1">备选项1</f-radio>
   <f-radio label="2">备选项2</f-radio>
   <f-radio label="3">备选项3</f-radio>
@@ -94,7 +94,7 @@
 <br />
 <br />
 
-<f-radio-group v-model="radio4" border size="small">
+<f-radio-group v-model="radio4" background size="small">
   <f-radio label="1">备选项1</f-radio>
   <f-radio label="2">备选项2</f-radio>
   <f-radio label="3">备选项3</f-radio>
@@ -103,7 +103,7 @@
 <br />
 <br />
 
-<f-radio-group v-model="radio4" border size="mini">
+<f-radio-group v-model="radio4" background size="mini">
   <f-radio label="1">备选项1</f-radio>
   <f-radio label="2">备选项2</f-radio>
   <f-radio label="3">备选项3</f-radio>
@@ -113,25 +113,25 @@
 
 ```html
 <template>
-  <f-radio-group v-model="radio4" border size="large">
+  <f-radio-group v-model="radio4" background size="large">
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2">备选项2</f-radio>
     <f-radio label="3">备选项3</f-radio>
   </f-radio-group>
 
-  <f-radio-group v-model="radio4" border size="middle">
+  <f-radio-group v-model="radio4" background size="middle">
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2">备选项2</f-radio>
     <f-radio label="3">备选项3</f-radio>
   </f-radio-group>
 
-  <f-radio-group v-model="radio4" border size="small">
+  <f-radio-group v-model="radio4" background size="small">
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2">备选项2</f-radio>
     <f-radio label="3">备选项3</f-radio>
   </f-radio-group>
 
-  <f-radio-group v-model="radio4" border size="mini">
+  <f-radio-group v-model="radio4" background size="mini">
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2">备选项2</f-radio>
     <f-radio label="3">备选项3</f-radio>
@@ -200,6 +200,15 @@
   <f-radio label="2" disabled>备选项2</f-radio>
   <f-radio label="3">备选项3</f-radio>
 </f-radio-group>
+
+<br />
+<br />
+
+<f-radio-group v-model="radio6" background>
+  <f-radio label="1">备选项1</f-radio>
+  <f-radio label="2" disabled>备选项2</f-radio>
+  <f-radio label="3">备选项3</f-radio>
+</f-radio-group>
 </template>
 
 ```html
@@ -211,6 +220,12 @@
   </f-radio-group>
 
   <f-radio-group v-model="radio6">
+    <f-radio label="1">备选项1</f-radio>
+    <f-radio label="2" disabled>备选项2</f-radio>
+    <f-radio label="3">备选项3</f-radio>
+  </f-radio-group>
+
+  <f-radio-group v-model="radio6" background>
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2" disabled>备选项2</f-radio>
     <f-radio label="3">备选项3</f-radio>
@@ -235,7 +250,7 @@
 | `vertical`             | 是否纵向排列           | boolean                                                            | ——                              | false  |
 | `column-gap`           | 横向排列的间距         | string / number                                                    | ——                              | ——     |
 | `row-gap`              | 纵向排列的间距         | string / number                                                    | ——                              | ——     |
-| `border`               | 是否显示边框           | boolean                                                            | ——                              | false  |
+| `background`           | 是否为背景状态         | boolean                                                            | ——                              | false  |
 | `size`                 | 尺寸                   | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
 | `on-change`            | 绑定值变化时触发的回调 | <a href="#radiochange">RadioChange</a>                             | ——                              | ——     |
 
