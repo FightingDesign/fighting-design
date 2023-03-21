@@ -3,11 +3,19 @@
   align-items: center;
   padding: 2px;
   box-sizing: border-box;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   transition: 0.3s;
   position: relative;
   vertical-align: top;
   column-gap: var(--radio-group-column-gap, 0);
+
+  &:not([class~='f-radio-group__border']) {
+    column-gap: var(--radio-group-column-gap, 30px);
+
+    &.f-radio-group__vertical {
+      row-gap: var(--radio-group-row-gap, 20px);
+    }
+  }
 
   // 纵向排列
   &.f-radio-group__vertical {
@@ -15,54 +23,52 @@
     row-gap: var(--radio-group-row-gap, 0);
   }
 
-  // 不同尺寸
-  &.f-radio-group__large {
-    .f-radio {
-      padding: 4px 30px;
-
-      .f-radio__text {
-        font-size: 16px;
-      }
-    }
-  }
-
-  &.f-radio-group__middle {
-    .f-radio {
-      padding: 3px 25px;
-
-      .f-radio__text {
-        font-size: 15px;
-      }
-    }
-  }
-
-  &.f-radio-group__small {
-    .f-radio {
-      padding: 2px 20px;
-
-      .f-radio__text {
-        font-size: 14px;
-      }
-    }
-  }
-
-  &.f-radio-group__mini {
-    .f-radio {
-      padding: 2px 15px;
-
-      .f-radio__text {
-        font-size: 12px;
-      }
-    }
-  }
-
   // 边框状态
   &.f-radio-group__border {
-    background: #eee;
-  }
+    background: #f8f9fb;
+    flex-wrap: nowrap;
 
-  // 边框状态
-  &.f-radio-group__border {
+    // 不同尺寸
+    &.f-radio-group__large {
+      .f-radio {
+        padding: 4px 30px;
+
+        .f-radio__text {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &.f-radio-group__middle {
+      .f-radio {
+        padding: 3px 25px;
+
+        .f-radio__text {
+          font-size: 15px;
+        }
+      }
+    }
+
+    &.f-radio-group__small {
+      .f-radio {
+        padding: 2px 20px;
+
+        .f-radio__text {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &.f-radio-group__mini {
+      .f-radio {
+        padding: 2px 15px;
+
+        .f-radio__text {
+          font-size: 12px;
+        }
+      }
+    }
+
     .f-radio__checked {
       background-color: #fff;
     }

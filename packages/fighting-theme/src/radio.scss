@@ -7,6 +7,7 @@
   outline: none;
   user-select: none;
   color: #333;
+  transition: all 0.3s;
 
   // 选中状态
   &.f-radio__checked {

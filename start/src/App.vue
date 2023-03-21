@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <f-radio-group v-model="radio4" border size="large" :column-gap="50" :row-gap="50" vertical>
+  <f-radio-group v-model="radio4" size="large" vertical>
     <f-radio label="1">备选项1</f-radio>
     <f-radio label="2">备选项2</f-radio>
     <f-radio label="3">备选项3</f-radio>
@@ -33,5 +33,10 @@
 <style>
   .f-radio-group {
     margin-bottom: 20px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
   }
 </style>
