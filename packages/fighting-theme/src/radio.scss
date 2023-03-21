@@ -6,7 +6,6 @@
   white-space: nowrap;
   outline: none;
   user-select: none;
-  transition: 0.4s;
   color: #333;
 
   // 选中状态
@@ -14,6 +13,7 @@
     // 文字
     .f-radio__text {
       color: #2d5af1;
+      z-index: 300;
     }
 
     .f-radio__circle {

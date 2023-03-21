@@ -25,6 +25,12 @@
     run(prop.onChange, value)
   }
 
+  /** 类名列表 */
+  const classList = classes(['vertical', 'border', 'size'], 'f-radio-group')
+
+  /** 样式列表 */
+  const styleList = styles(['columnGap', 'rowGap'])
+
   /** 注入依赖项 */
   provide<RadioGroundInject>(
     RADIO_GROUP_PROPS_kEY,
@@ -33,12 +39,6 @@
       changeEvent
     })
   )
-
-  /** 类名列表 */
-  const classList = classes(['vertical', 'border', 'size'], 'f-radio-group')
-
-  /** 样式列表 */
-  const styleList = styles(['columnGap', 'rowGap'])
 </script>
 
 <template>

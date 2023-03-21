@@ -1,22 +1,24 @@
 .f-radio-group {
   display: inline-flex;
-  flex-wrap: wrap;
   align-items: center;
-  column-gap: 22px;
+  padding: 2px;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
   transition: 0.3s;
+  position: relative;
+  vertical-align: top;
+  column-gap: var(--radio-group-column-gap, 0);
 
   // 纵向排列
   &.f-radio-group__vertical {
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: var(--radio-group-row-gap, 0);
   }
 
   // 不同尺寸
   &.f-radio-group__large {
     .f-radio {
-      padding: 0 30px;
-      font-size: 17px;
-      height: 40px;
+      padding: 4px 30px;
 
       .f-radio__text {
         font-size: 16px;
@@ -26,9 +28,7 @@
 
   &.f-radio-group__middle {
     .f-radio {
-      padding: 0 25px;
-      font-size: 16px;
-      height: 35px;
+      padding: 3px 25px;
 
       .f-radio__text {
         font-size: 15px;
@@ -38,9 +38,7 @@
 
   &.f-radio-group__small {
     .f-radio {
-      padding: 0 20px;
-      font-size: 15px;
-      height: 30px;
+      padding: 2px 20px;
 
       .f-radio__text {
         font-size: 14px;
@@ -50,46 +48,23 @@
 
   &.f-radio-group__mini {
     .f-radio {
-      padding: 0 15px;
-      font-size: 14px;
-      height: 25px;
+      padding: 2px 15px;
 
       .f-radio__text {
-        font-size: 13px;
+        font-size: 12px;
       }
     }
   }
 
   // 边框状态
   &.f-radio-group__border {
-    column-gap: 0;
-    row-gap: 0;
+    background: #eee;
+  }
 
-    .f-radio {
-      border: 1px solid #dee5fd;
-
-      // 边框选中状态
-      &.f-radio__checked {
-        background-color: #2d5af1;
-
-        .f-radio__text {
-          color: #fff;
-        }
-
-        // 边框选中状态禁用状态
-        &.f-radio__disabled {
-          background-color: #f0f0f0;
-
-          .f-radio__text {
-            color: #d7d7d7;
-          }
-        }
-      }
-
-      // 禁用状态
-      &.f-radio__disabled {
-        border-color: #d7d7d7;
-      }
+  // 边框状态
+  &.f-radio-group__border {
+    .f-radio__checked {
+      background-color: #fff;
     }
   }
 }
