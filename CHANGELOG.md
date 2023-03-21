@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.28.0 (2023-03-21)
+
 - `f-image` 组件 `no-select` 配置项改为 `select`
 - 优化 `f-image` 和 `f-avatar` 组件
 - `f-radio` 组件废除 `border` 配置项

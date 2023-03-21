@@ -4,11 +4,19 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.28.0 (2023-03-21)
+
+- Change the `f-image` component `no-select` configuration item to `select`
+- Optimize `f-image` and `f-avatar` components
+- `f-radio` component abolishes the `border` configuration item
+- Add a `background` configuration item for the `f-radio` component
+- `f-radio` component style refactoring
+
 ## 0.27.2 (2023-03-13)
 
 **Fix**
 
-- Fix the problem of 'f-pagination' switch code number display error
+- Fix the problem of `f-pagination` switch code number display error
 
 ## 0.27.1 (2023-03-10)
 
