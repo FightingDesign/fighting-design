@@ -26,11 +26,11 @@ describe('RadioGroup', () => {
     expect(wrapper.classes()).toContain('f-radio-group__vertical')
   })
 
-  test('border', () => {
+  test('background', () => {
     const wrapper = mount(FRadioGroup, {
-      props: { border: true }
+      props: { background: true }
     })
-    expect(wrapper.classes()).toContain('f-radio-group__border')
+    expect(wrapper.classes()).toContain('f-radio-group__background')
   })
 
   test('slot', () => {
