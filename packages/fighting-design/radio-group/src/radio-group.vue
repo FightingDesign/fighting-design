@@ -26,7 +26,7 @@
   }
 
   /** 类名列表 */
-  const classList = classes(['vertical', 'border', 'size'], 'f-radio-group')
+  const classList = classes(['vertical', 'background', 'size'], 'f-radio-group')
 
   /** 样式列表 */
   const styleList = styles(['columnGap', 'rowGap'])

@@ -73,7 +73,7 @@
       :name="name"
     />
     <!-- 小圆圈 -->
-    <span v-if="!parentInject?.border" class="f-radio__circle" />
+    <span v-if="!parentInject?.background" class="f-radio__circle" />
 
     <!-- 展示的文字内容 -->
     <span class="f-radio__text">

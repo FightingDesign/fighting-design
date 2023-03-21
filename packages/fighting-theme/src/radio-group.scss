@@ -9,7 +9,7 @@
   vertical-align: top;
   column-gap: var(--radio-group-column-gap, 0);
 
-  &:not([class~='f-radio-group__border']) {
+  &:not([class~='f-radio-group__background']) {
     column-gap: var(--radio-group-column-gap, 30px);
 
     &.f-radio-group__vertical {
@@ -24,7 +24,7 @@
   }
 
   // 边框状态
-  &.f-radio-group__border {
+  &.f-radio-group__background {
     background: #f8f9fb;
     flex-wrap: nowrap;
 

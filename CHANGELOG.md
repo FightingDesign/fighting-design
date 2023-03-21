@@ -4,6 +4,9 @@
 
 - `f-image` 组件 `no-select` 配置项改为 `select`
 - 优化 `f-image` 和 `f-avatar` 组件
+- `f-radio` 组件废除 `border` 配置项
+- `f-radio` 组件新增 `background` 配置项
+- `f-radio` 组件样式重构
 
 ## 0.27.2 (2023-03-13)
 

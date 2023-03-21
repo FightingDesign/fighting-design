@@ -23,8 +23,8 @@ export const Props = {
   columnGap: setStringNumberProp(),
   /** 纵向排列的间距 */
   rowGap: setStringNumberProp(),
-  /** 是否显示边框 */
-  border: setBooleanProp(),
+  /** 背景状态 */
+  background: setBooleanProp(),
   /**
    * 尺寸
    *
