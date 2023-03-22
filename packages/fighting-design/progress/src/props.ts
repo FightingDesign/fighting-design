@@ -24,6 +24,10 @@ export const Props = {
   height: setStringNumberProp(),
   /** 是否显示百分比文字内容 */
   showText: setBooleanProp(true),
+  /** 是否为圆形的 */
+  circle: setBooleanProp(),
+  /** 直径 */
+  diameter: setNumberProp(400),
   /** 是否在外部显示文本 */
   outsideText: setBooleanProp(),
   /** 百分比文字的颜色 */

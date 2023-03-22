@@ -99,3 +99,10 @@
     margin-left: 10px;
   }
 }
+
+.f-progress__circle {
+  .f-progress__girth {
+    stroke-dasharray: var(--stroke-dasharray);
+    stroke-dashoffset: var(--stroke-dashoffset);
+  }
+}
