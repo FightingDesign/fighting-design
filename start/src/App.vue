@@ -1,30 +1,19 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
-  const value = ref(99)
 
-  // setInterval(() => {
-  //   value.value += 1
-  // }, 20)
+  const value = ref(10)
 
-  function add () {
+  const add = (): void => {
     value.value += 10
+  }
+
+  const sub = (): void => {
+    value.value -= 10
   }
 </script>
 
 <template>
-  <button @click="add">++</button>
+  <f-button @click="sub">--</f-button>
+  <f-button @click="add">++</f-button>
   <f-progress :percentage="value" circle />
 </template>
-
-<style lang="scss" scoped>
-  .osvg {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-
-    .oround {
-      stroke-dasharray: 628;
-      stroke-dashoffset: 600;
-    }
-  }
-</style>

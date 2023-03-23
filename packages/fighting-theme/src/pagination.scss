@@ -101,8 +101,13 @@
 }
 
 .f-progress__circle {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+
   .f-progress__girth {
-    stroke-dasharray: var(--stroke-dasharray);
-    stroke-dashoffset: var(--stroke-dashoffset);
+    transition: 0.3s;
+    stroke-dasharray: var(--progress-stroke-dasharray);
+    stroke-dashoffset: var(--progress-stroke-dashoffset);
   }
 }
