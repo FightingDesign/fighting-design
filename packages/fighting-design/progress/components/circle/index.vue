@@ -2,6 +2,7 @@
   import { inject, computed } from 'vue'
   import { PROGRESS_PROPS_KEY } from '../../src/props'
   import { isNumber } from '../../../_utils'
+  import { PROGRESS_CIRCLE_PADDING } from '../../../_tokens'
   import type { ProgressProvide } from '../../index'
   import type { CSSProperties } from 'vue'
 
@@ -19,7 +20,7 @@
 
   /** 周长 */
   const girth = computed((): number => {
-    return (radius.value - 25) * 2 * Math.PI
+    return (radius.value - PROGRESS_CIRCLE_PADDING) * 2 * Math.PI
   })
 
   /** 当前周长进度 */
@@ -67,7 +68,7 @@
       stroke="green"
       :cx="radius"
       :cy="radius"
-      :r="radius - 25"
+      :r="radius - PROGRESS_CIRCLE_PADDING"
     />
     <text
       font-size="24"
