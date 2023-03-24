@@ -15,6 +15,6 @@
 <template>
   <f-button @click="sub">--</f-button>
   <f-button @click="add">++</f-button>
-  <f-progress :percentage="value" />
+  <f-progress :percentage="value" circle />
   <f-progress :percentage="value" circle />
 </template>

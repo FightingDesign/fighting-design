@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import { inject, computed } from 'vue'
   import { PROGRESS_PROPS_KEY } from '../../src/props'
+  import { isNumber } from '../../../_utils'
   import type { ProgressProvide } from '../../index'
   import type { CSSProperties } from 'vue'
 
@@ -8,7 +9,13 @@
   const prop = inject(PROGRESS_PROPS_KEY) as ProgressProvide
 
   /** 半径 */
-  const radius = computed((): number => prop.diameter / 2)
+  const radius = computed((): number => {
+    if (isNumber(prop.diameter)) {
+      return prop.diameter / 2
+    }
+
+    return 100
+  })
 
   /** 周长 */
   const girth = computed((): number => {
