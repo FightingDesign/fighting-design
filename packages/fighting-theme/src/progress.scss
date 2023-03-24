@@ -24,6 +24,7 @@
       bottom: 0;
       text-align: right;
       transition: 0.3s;
+      width: var(--progress-width, 0);
       background-color: var(--progress-background);
 
       // 百分百文字

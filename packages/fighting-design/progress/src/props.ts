@@ -5,7 +5,7 @@ import {
   setNumberProp
 } from '../../_utils'
 import { FIGHTING_TYPE } from '../../_tokens'
-import type { ExtractPropTypes, InjectionKey } from 'vue'
+import type { ExtractPropTypes, InjectionKey, ComputedRef } from 'vue'
 import type { FightingType } from '../../_interface'
 
 export const Props = {
@@ -43,7 +43,9 @@ export const Props = {
 /** progress 组件 props 类型 */
 export type ProgressProps = ExtractPropTypes<typeof Props>
 
+type P = ProgressProps & { percent: ComputedRef<number> }
+
 /** progress 组件注入的依赖项 */
-export const PROGRESS_PROPS_KEY: InjectionKey<ProgressProps> = Symbol(
+export const PROGRESS_PROPS_KEY: InjectionKey<P> = Symbol(
   'progress-props-key'
 )

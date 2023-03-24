@@ -1,10 +1,11 @@
 <script lang="ts" setup>
   import { inject, computed } from 'vue'
   import { PROGRESS_PROPS_KEY } from '../../src/props'
-  import type { ProgressProps } from '../../index'
+  import type { ProgressProvide } from '../../index'
   import type { CSSProperties } from 'vue'
 
-  const prop = inject(PROGRESS_PROPS_KEY) as ProgressProps
+  /** props 参数 */
+  const prop = inject(PROGRESS_PROPS_KEY) as ProgressProvide
 
   /** 半径 */
   const radius = computed((): number => prop.diameter / 2)
@@ -39,18 +40,6 @@
       '--progress-stroke-dashoffset': girthSize.value
     } as CSSProperties
   })
-
-  /** 百分比进度 */
-  const percentageNum = computed((): number => {
-    if (prop.percentage >= 100) {
-      return 100
-    }
-    if (prop.percentage <= 0) {
-      return 0
-    }
-
-    return prop.percentage
-  })
 </script>
 
 <template>
@@ -60,7 +49,7 @@
     :width="prop.diameter"
     :height="prop.diameter"
     :style="svgStyleList"
-    :aria-value="percentageNum"
+    :aria-value="prop.percent"
     :aria-valuemin="0"
     :aria-valuemax="100"
   >
@@ -81,7 +70,7 @@
       :x="radius"
       :y="radius"
     >
-      {{ percentageNum }}%
+      {{ prop.percent }}%
     </text>
   </svg>
 </template>

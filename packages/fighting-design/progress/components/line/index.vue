@@ -2,11 +2,10 @@
   import { inject, computed } from 'vue'
   import { PROGRESS_PROPS_KEY } from '../../src/props'
   import { useList } from '../../../_hooks'
-  import { isNumber } from '../../../_utils'
-  import type { ProgressProps } from '../../index'
+  import type { ProgressProvide } from '../../index'
   import type { CSSProperties } from 'vue'
 
-  const prop = inject(PROGRESS_PROPS_KEY) as ProgressProps
+  const prop = inject(PROGRESS_PROPS_KEY) as ProgressProvide
 
   const { classes, styles } = useList(prop, 'progress')
 
@@ -18,25 +17,7 @@
 
   /* 进度条进度 */
   const barStyleList = computed((): CSSProperties => {
-    const { percentage } = prop
-
-    if (!isNumber(percentage)) {
-      throw new TypeError('Fighting Design - progress: percentage is not a number')
-    }
-
-    return { width: `${prop.percentage}%` } as const
-  })
-
-  /** 百分比进度 */
-  const percentageNum = computed((): number => {
-    if (prop.percentage >= 100) {
-      return 100
-    }
-    if (prop.percentage <= 0) {
-      return 0
-    }
-
-    return prop.percentage
+    return { '--progress-width': `${prop.percent}%` } as const
   })
 </script>
 
@@ -44,25 +25,25 @@
   <div
     role="progressbar"
     :class="classList"
-    :style="styleList"
-    :aria-value="percentageNum"
+    :style="[styleList, barStyleList]"
+    :aria-value="prop.percent"
     :aria-valuemin="0"
     :aria-valuemax="100"
   >
     <!-- 进度条底色 -->
     <div class="f-progress__bar">
       <!-- 进度条 -->
-      <div class="f-progress__fill" :style="barStyleList">
+      <div class="f-progress__fill">
         <!-- 百分百文字 -->
         <div v-if="!prop.outsideText && prop.showText" class="f-progress__percentage">
-          {{ percentageNum }}%
+          {{ prop.percent }}%
         </div>
       </div>
     </div>
 
     <!-- 外部进度数值显示 -->
     <div v-if="prop.outsideText && prop.showText" class="f-progress__text">
-      {{ percentageNum }}%
+      {{ prop.percent }}%
     </div>
   </div>
 </template>
