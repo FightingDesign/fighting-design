@@ -13,7 +13,7 @@ describe('FProgress', () => {
     const wrapper = mount(FProgress, {
       props: { percentage: 50 }
     })
-    expect(wrapper.find('.f-progress__fill').attributes('style')).toContain('50%')
+    expect(wrapper.attributes('style')).toContain('--progress-width: 50%')
   })
 
   test('type', () => {

@@ -32,9 +32,7 @@
 </script>
 
 <template>
-  <!-- 圆形进度条 -->
   <progress-circle v-if="circle" />
 
-  <!-- 普通进度条 -->
   <progress-line v-else />
 </template>

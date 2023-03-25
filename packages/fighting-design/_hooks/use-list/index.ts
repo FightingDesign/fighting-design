@@ -28,7 +28,6 @@ export * from './interface.d'
  * @returns { Object } 类名列表和样式列表方法，可解构出 classes styles
  */
 export const useList = <T extends object>(prop: T, name: string): UseListReturn => {
-  console.log(123)
   /**
    * 过滤 props
    *
