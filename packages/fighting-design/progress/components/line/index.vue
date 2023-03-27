@@ -11,7 +11,7 @@
   const { classes, styles } = useList(params, 'progress')
 
   /** 类名列表 */
-  const classList = classes(['type', 'stripe'], 'f-progress')
+  const classList = classes(['type', 'stripe', 'state'], 'f-progress')
 
   /** 样式列表 */
   const styleList = styles(['height', 'color', 'textColor', 'background'])

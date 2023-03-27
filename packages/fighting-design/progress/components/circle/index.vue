@@ -2,12 +2,18 @@
   import { inject, computed } from 'vue'
   import { PROGRESS_PROPS_KEY } from '../../src/props'
   import { isNumber } from '../../../_utils'
+  import { useList } from '../../../_hooks'
   import { PROGRESS_CIRCLE_PADDING } from '../../../_tokens'
   import type { ProgressProvide } from '../../index'
   import type { CSSProperties } from 'vue'
 
   /** 父组件注入的依赖项 */
   const params = inject(PROGRESS_PROPS_KEY) as ProgressProvide
+
+  const { classes } = useList(params, 'progress')
+
+  /** 类名列表 */
+  const classList = classes(['type', 'state'], 'f-progress')
 
   /** 半径 */
   const radius = computed((): number => {
@@ -57,7 +63,7 @@
 <template>
   <svg
     role="progressbar"
-    class="f-progress__circle"
+    :class="classList"
     :width="params.diameter"
     :height="params.diameter"
     :style="svgStyleList"

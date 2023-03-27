@@ -7,11 +7,15 @@ import {
 import { FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { FightingType } from '../../_interface'
-import type { ProgressProvide } from './interface'
+import type { ProgressProvide, ProgressState } from './interface'
 
 export const Props = {
   /** 百分比 */
   percentage: setNumberProp(0),
+  /** 状态 */
+  state: setStringProp<ProgressState>('line', (val: ProgressState): boolean => {
+    return ['line', 'circle'].includes(val)
+  }),
   /**
    * 进度条类型
    *
@@ -25,8 +29,6 @@ export const Props = {
   height: setStringNumberProp(),
   /** 是否显示百分比文字内容 */
   showText: setBooleanProp(true),
-  /** 是否为圆形的 */
-  circle: setBooleanProp(),
   /** 直径 */
   diameter: setNumberProp(400),
   /** 是否在外部显示文本 */

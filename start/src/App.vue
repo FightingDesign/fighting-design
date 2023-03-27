@@ -17,7 +17,7 @@
 </script>
 
 <template>
-  <f-progress type="default" :percentage="num" circle :show-text="false" />
+  <f-progress type="default" :percentage="num" state="circle" :show-text="false" />
   <f-progress type="primary" :percentage="num" />
   <f-progress type="success" :percentage="num" />
   <f-progress type="danger" :percentage="num" />

@@ -32,7 +32,7 @@
 </script>
 
 <template>
-  <progress-circle v-if="circle" />
+  <progress-circle v-if="state === 'circle'" />
 
   <progress-line v-else />
 </template>

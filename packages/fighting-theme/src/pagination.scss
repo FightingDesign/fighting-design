@@ -99,15 +99,3 @@
     margin-left: 10px;
   }
 }
-
-.f-progress__circle {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-
-  .f-progress__girth {
-    transition: 0.3s;
-    stroke-dasharray: var(--progress-stroke-dasharray);
-    stroke-dashoffset: var(--progress-stroke-dashoffset);
-  }
-}

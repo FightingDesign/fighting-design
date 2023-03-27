@@ -1,9 +1,26 @@
 @import '../config/var-progress';
 
 .f-progress {
-  height: var(--progress-height, 20px);
-  display: flex;
-  align-items: center;
+  position: relative;
+
+  // 线形状态
+  &.f-progress__line {
+    height: var(--progress-height, 20px);
+    display: flex;
+    align-items: center;
+  }
+
+  // 圆形状态
+  &.f-progress__circle {
+    display: inline-block;
+    vertical-align: top;
+
+    .f-progress__girth {
+      transition: 0.3s;
+      stroke-dasharray: var(--progress-stroke-dasharray);
+      stroke-dashoffset: var(--progress-stroke-dashoffset);
+    }
+  }
 
   // 进度条容器
   &__bar {
