@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-progress` 组件新增 `start` 配置项
+
 ## 0.28.0 (2023-03-21)
 
 - `f-image` 组件 `no-select` 配置项改为 `select`
