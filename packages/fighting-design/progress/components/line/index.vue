@@ -5,9 +5,10 @@
   import type { ProgressProvide } from '../../index'
   import type { CSSProperties } from 'vue'
 
-  const prop = inject(PROGRESS_PROPS_KEY) as ProgressProvide
+  /** 父组件注入的依赖项 */
+  const params = inject(PROGRESS_PROPS_KEY) as ProgressProvide
 
-  const { classes, styles } = useList(prop, 'progress')
+  const { classes, styles } = useList(params, 'progress')
 
   /** 类名列表 */
   const classList = classes(['type', 'stripe'], 'f-progress')
@@ -17,7 +18,7 @@
 
   /* 进度条进度 */
   const barStyleList = computed((): CSSProperties => {
-    return { '--progress-width': `${prop.percent}%` } as const
+    return { '--progress-width': `${params.percent}%` } as const
   })
 </script>
 
@@ -26,7 +27,7 @@
     role="progressbar"
     :class="classList"
     :style="[styleList, barStyleList]"
-    :aria-value="prop.percent"
+    :aria-value="params.percent"
     :aria-valuemin="0"
     :aria-valuemax="100"
   >
@@ -34,16 +35,16 @@
     <div class="f-progress__bar">
       <!-- 进度条 -->
       <div class="f-progress__fill">
-        <!-- 百分百文字 -->
-        <div v-if="!prop.outsideText && prop.showText" class="f-progress__percentage">
-          {{ prop.percent }}%
+        <!-- 显示在内部的百分比文字 -->
+        <div v-if="!params.outsideText && params.showText" class="f-progress__percentage">
+          {{ params.percent }}%
         </div>
       </div>
     </div>
 
-    <!-- 外部进度数值显示 -->
-    <div v-if="prop.outsideText && prop.showText" class="f-progress__text">
-      {{ prop.percent }}%
+    <!-- 显示在外部的百分比文字 -->
+    <div v-if="params.outsideText && params.showText" class="f-progress__text">
+      {{ params.percent }}%
     </div>
   </div>
 </template>

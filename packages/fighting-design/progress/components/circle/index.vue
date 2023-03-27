@@ -6,19 +6,23 @@
   import type { ProgressProvide } from '../../index'
   import type { CSSProperties } from 'vue'
 
-  /** props 参数 */
-  const prop = inject(PROGRESS_PROPS_KEY) as ProgressProvide
+  /** 父组件注入的依赖项 */
+  const params = inject(PROGRESS_PROPS_KEY) as ProgressProvide
 
   /** 半径 */
   const radius = computed((): number => {
-    if (isNumber(prop.diameter)) {
-      return prop.diameter / 2
+    if (isNumber(params.diameter)) {
+      return params.diameter / 2
     }
 
     return 100
   })
 
-  /** 周长 */
+  /**
+   * 周长
+   *
+   * @see Math.PI https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/PI
+   */
   const girth = computed((): number => {
     return (radius.value - PROGRESS_CIRCLE_PADDING) * 2 * Math.PI
   })
@@ -26,7 +30,7 @@
   /** 当前周长进度 */
   const girthSize = computed((): number => {
     /** 偏移量 */
-    const offset: number = girth.value - girth.value * (prop.percentage / 100)
+    const offset: number = girth.value - girth.value * (params.percentage / 100)
 
     /** 如果小于等于 0 了，说明到 100% 进度了 */
     if (offset <= 0) {
@@ -54,10 +58,10 @@
   <svg
     role="progressbar"
     class="f-progress__circle"
-    :width="prop.diameter"
-    :height="prop.diameter"
+    :width="params.diameter"
+    :height="params.diameter"
     :style="svgStyleList"
-    :aria-value="prop.percent"
+    :aria-value="params.percent"
     :aria-valuemin="0"
     :aria-valuemax="100"
   >
@@ -71,6 +75,7 @@
       :r="radius - PROGRESS_CIRCLE_PADDING"
     />
     <text
+      v-if="params.showText"
       font-size="24"
       fill="grey"
       text-anchor="middle"
@@ -78,7 +83,7 @@
       :x="radius"
       :y="radius"
     >
-      {{ prop.percent }}%
+      {{ params.percent }}%
     </text>
   </svg>
 </template>
