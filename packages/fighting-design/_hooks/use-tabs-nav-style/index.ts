@@ -2,10 +2,20 @@ import { nextTick, getCurrentInstance, ref, computed, onMounted, onUnmounted } f
 import { sizeToNum } from '../../_utils'
 import type { TabsNavProps } from '../../tabs/src/components'
 import type { TabsNavInstance } from '../../tabs'
-import type { ComponentInternalInstance, CSSProperties } from 'vue'
-import type { UseTabsNavStyleReturn } from './interface'
+import type { ComponentInternalInstance, CSSProperties, ComputedRef, Ref } from 'vue'
 
-export * from './interface.d'
+/**
+ * useTabsNaStyle 返回值类型接口
+ *
+ * @param { Object } activeIndex 选中的索引
+ * @param { Object } activeLineStyle 针对 line 模式下的，活动线条的样式
+ * @param { Function } setActiveLineStyle 置 type = line 模式的样式
+ */
+export interface UseTabsNavStyleReturn {
+  activeIndex: ComputedRef<number>
+  activeLineStyle: Ref<CSSProperties>
+  setActiveLineStyle: () => Promise<void>
+}
 
 /**
  * tabs-nav 封装方法
@@ -30,11 +40,11 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
   const activeIndex = computed((): number =>
     prop.navs
       ? Math.max(
-          prop.navs.findIndex(
-            (e: TabsNavInstance): boolean => e.name === prop.activeName
-          ),
-          0
-        )
+        prop.navs.findIndex(
+          (e: TabsNavInstance): boolean => e.name === prop.activeName
+        ),
+        0
+      )
       : 0
   )
 

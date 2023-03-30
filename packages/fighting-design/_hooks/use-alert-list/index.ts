@@ -1,6 +1,9 @@
-import type { UseAlertListReturn } from './interface'
-
-export * from './interface.d'
+/**
+ * useAlertList 返回值类型接口
+ *
+ * @param { Function } startMove 开始触发滚动
+ */
+export type UseAlertListReturn = (duration?: number) => void
 
 /**
  * 处理 alert 组件滚动列表方法

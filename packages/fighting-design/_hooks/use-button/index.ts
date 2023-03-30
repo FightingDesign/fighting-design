@@ -3,11 +3,20 @@ import { useGlobal, useList, useColor } from '..'
 import { sizeChange } from '../../_utils'
 import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
 import type { ButtonProps } from '../../button'
-import type { CSSProperties, Slots } from 'vue'
+import type { CSSProperties, Slots, ComputedRef } from 'vue'
 import type { FightingSize } from '../../_interface'
-import type { UseButtonReturn } from './interface'
+import type { ClassList } from '../../_interface'
 
-export * from './interface.d'
+/**
+ * useButton 返回值类型接口
+ *
+ * @param { Object } classList 类名列表
+ * @param { Object } styleList 样式列表
+ */
+export interface UseButtonReturn {
+  classList: ComputedRef<ClassList>
+  styleList: ComputedRef<CSSProperties>
+}
 
 /**
  * button 组件方法封装

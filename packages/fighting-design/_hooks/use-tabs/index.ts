@@ -11,12 +11,49 @@ import { useChildren } from '../../_utils'
 import { useRun } from '../../_hooks'
 import { EMIT_UPDATE } from '../../_tokens'
 import { TABS_PROPS_KEY } from '../../tabs/src/props'
-import type { ComponentInternalInstance } from 'vue'
-import type { UseTabsReturn, TabsProvide, SetActiveNameEmit } from './interface'
-import type { TabsModelValue, TabsProps, TabsNavInstance } from '../../tabs'
+import type { ComponentInternalInstance, ComputedRef, Ref } from 'vue'
+import type { TabsModelValue, TabsProps, TabsNavInstance, TabsEdit } from '../../tabs'
 import type { TabsPaneInstance } from '../../tabs-pane/src/interface'
+import type { UseChildrenReturn } from '../../_utils/tabs'
 
-export * from './interface.d'
+/**
+ * useTabs 返回值类型接口
+ *
+ * @param { Object } navs nav 列表
+ * @param { Object } currentName 当前选中的子组件
+ * @param { Function } edit 编辑状态
+ * @param { Function } setActiveName 设置子组件绑定的 name
+ */
+export interface UseTabsReturn {
+  navs: ComputedRef<TabsNavInstance[]>
+  activeName: Ref<TabsModelValue>
+  setEdit: TabsEdit
+  setActiveName: SetActiveName
+}
+
+/**
+ * 注入的依赖项类型接口
+ *
+ * @param { Object } currentName 当前选中的 pane
+ */
+export type TabsProvide = {
+  activeName: Ref<TabsModelValue>
+} & UseChildrenReturn<TabsPaneInstance>
+
+/**
+ * setActiveName 回调类型
+ *
+ * @param { string } event 回调事件名
+ * @param { string | number } val 回调参数
+ */
+export type SetActiveNameEmit = (event: 'update:modelValue', val: string | number) => void
+
+/**
+ * 设置绑定值回调类型
+ *
+ * @param { string | number } name 选中的 name
+ */
+export type SetActiveName = (name: TabsModelValue) => void
 
 /**
  * tabs 标签

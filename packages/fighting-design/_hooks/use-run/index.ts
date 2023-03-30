@@ -1,5 +1,13 @@
 import { isFunction } from '../../_utils'
-import type { UseRunReturn } from './interface'
+
+/**
+ * useRun 返回值类型接口
+ *
+ * @param { Function } run 执行方法
+ */
+export interface UseRunReturn {
+  run: <T extends Function>(callback: T | null | undefined, ...params: unknown[]) => void
+}
 
 /**
  * 执行方法

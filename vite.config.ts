@@ -41,7 +41,7 @@ export default (): UserConfigExport => {
         outputDir: ['./dist/lib', './dist/es'] /** 可以指定一个数组来输出到多个目录中 */,
         insertTypesEntry: true /** 是否生成类型声明入口 */,
         cleanVueFileName: true /** 是否将 '.vue.d.ts' 文件名转换为 '.d.ts' */,
-        copyDtsFiles: true /** 是否将源码里的 .d.ts 文件复制到 outputDir */,
+        // copyDtsFiles: true /** 是否将源码里的 .d.ts 文件复制到 outputDir */,
         include: ['./packages/fighting-design'] /** 手动设置包含路径的 glob */,
         /** 构建后回调钩子 */
         afterBuild: (): void => {

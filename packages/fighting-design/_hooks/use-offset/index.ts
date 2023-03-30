@@ -2,9 +2,19 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { EMIT_UPDATE } from '../../_tokens'
 import type { Ref } from 'vue'
 import type { SliderProps } from '../../slider'
-import type { UseOffsetReturn } from './interface'
 
-export * from './interface.d'
+/**
+ * useOffset 返回值类型接口
+ *
+ * @param { Object } offset 偏移距离
+ * @param { Object } offsetLeft 距离左侧的偏移量
+ * @param { Function } setPosition 设置偏移量
+ */
+export interface UseOffsetReturn {
+  offset: Ref<number>
+  offsetLeft: Ref<number>
+  setPosition: (dot: number) => void
+}
 
 /**
  * slider 组件偏移量相关操作

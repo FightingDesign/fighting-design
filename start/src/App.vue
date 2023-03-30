@@ -3,13 +3,13 @@
 
   const num = ref(10)
 
-  const sun = () => {
+  const sun = (): void => {
     if (num.value > 0) {
       num.value -= 10
     }
   }
 
-  const add = () => {
+  const add = (): void => {
     if (num.value < 100) {
       num.value += 10
     }

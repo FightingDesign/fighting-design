@@ -1,8 +1,22 @@
 import { createApp } from 'vue'
 import loadingVue from '../../loading/src/loading.vue'
-import type { Directive, ComponentPublicInstance, DirectiveBinding } from 'vue'
-import type { LoadingElInterface } from './interface'
+import type { Directive, ComponentPublicInstance, DirectiveBinding, App } from 'vue'
 import type { LoadingProps } from '../../loading'
+
+/**
+ * FLoading 元素节点类型接口
+ *
+ * @param { Object } vm
+ * @param { Object | null } loadingInstance
+ * @param { string } originalPosition
+ * @param { Object } style
+ */
+export interface LoadingElInterface extends HTMLElement {
+  vm: ComponentPublicInstance
+  loadingInstance: App | null
+  originalPosition: string
+  style: CSSStyleDeclaration
+}
 
 export const useLoading = (): Directive => {
   const optionsOrganizer = (

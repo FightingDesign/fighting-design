@@ -1,7 +1,14 @@
-import type { UseSliderCallback } from './interface'
 import type { Ref } from 'vue'
 
-export * from './interface.d'
+/** useSlider 返回值类型接口 */
+export type UseSliderReturn = () => void
+
+/**
+ * callback 参数类型
+ *
+ * @param { number } num 滑动距离
+ */
+export type UseSliderCallback = (num: number) => void
 
 /**
  * slider 组件滑动方法
