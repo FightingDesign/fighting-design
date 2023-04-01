@@ -1,6 +1,6 @@
 import type { ComputedRef, Ref } from 'vue'
 
-export type { MenuProps } from './menu'
+export type { MenuProps } from './props'
 
 /** 不同导航栏模式 */
 export type MenuMode = 'horizontal' | 'vertical' | 'inline'

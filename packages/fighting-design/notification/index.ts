@@ -6,4 +6,4 @@ const { renderInstance: Notification } = useTips(notificationVue)
 
 export const FNotification = installFn(Notification, 'FMessage')
 
-export * from './src/interface.d'
+export * from './src/interface'

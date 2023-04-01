@@ -6,4 +6,4 @@ const { renderInstance: Message } = useTips(messageVue)
 
 export const FMessage = installFn(Message, 'FMessage')
 
-export * from './src/interface.d'
+export * from './src/interface'

@@ -1,4 +1,4 @@
-export type { UpLoadProps } from './up-load'
+export type { UpLoadProps } from './props'
 
 /**
  * 回调类型

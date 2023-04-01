@@ -7,6 +7,6 @@ export const FSpace = install(Space)
 /** space 组件实例类型 */
 export type SpaceInstance = InstanceType<typeof Space>
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FSpace

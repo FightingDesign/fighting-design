@@ -1,4 +1,4 @@
-export type { PaginationProps } from './pagination'
+export type { PaginationProps } from './props'
 
 /**
  * 回调方法类型

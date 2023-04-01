@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { ref, h } from 'vue'
   import { useList } from '../../_hooks'
-  import { TableColgroupVue } from './components'
+  import { TableColgroupVue } from '../components'
   import type { VNode } from 'vue'
 
   const prop = defineProps(Props)

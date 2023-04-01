@@ -1,4 +1,5 @@
 import type { CheckboxGroupProps } from './props'
+import type { CheckboxLabel } from '../../checkbox'
 
 export type { CheckboxGroupProps } from './props'
 
@@ -11,5 +12,5 @@ export type CheckboxGroupChange = (val: string[]) => void
 
 /** 注入的依赖项类型 */
 export type CheckboxGroupProvide = CheckboxGroupProps & {
-  setChange: (val: CheckboxGroupLabel) => void
+  setChange: (val: CheckboxLabel) => void
 }

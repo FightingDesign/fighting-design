@@ -7,6 +7,6 @@ export const FBox = install(Box)
 /** box 组件实例类型 */
 export type BoxInstance = InstanceType<typeof Box>
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FBox

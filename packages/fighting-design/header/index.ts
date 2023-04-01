@@ -7,6 +7,6 @@ export const FHeader = install(Header)
 /** header 组件实例类型 */
 export type HeaderInstance = InstanceType<typeof Header>
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FHeader

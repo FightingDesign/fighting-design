@@ -7,6 +7,6 @@ export const FTag = install(Tag)
 /** tag 组件实例类型 */
 export type TagInstance = InstanceType<typeof Tag>
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FTag

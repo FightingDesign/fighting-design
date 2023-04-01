@@ -7,6 +7,6 @@ export const FCloseBtn = install(CloseBtn)
 /** close-btn 组件实例类型 */
 export type CloseBtnInstance = InstanceType<typeof CloseBtn>
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FCloseBtn

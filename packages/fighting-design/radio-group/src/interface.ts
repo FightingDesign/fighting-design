@@ -1,3 +1,5 @@
+import type { RadioGroundProps } from './props'
+
 export type { RadioGroundProps } from './props'
 
 /** 绑定值类型接口 */

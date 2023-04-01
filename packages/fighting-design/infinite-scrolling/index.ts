@@ -7,6 +7,6 @@ export const FInfiniteScrolling = install(InfiniteScrolling)
 /** infinite-scrolling 组件实例类型 */
 export type InfiniteScrollingInstance = InstanceType<typeof InfiniteScrolling>
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FInfiniteScrolling

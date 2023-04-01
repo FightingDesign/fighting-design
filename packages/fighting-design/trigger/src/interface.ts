@@ -1,4 +1,4 @@
-export type { TriggerProps } from './trigger'
+export type { TriggerProps } from './props'
 
 /** 触发方式类型 */
 export type TriggerTrigger = 'hover' | 'click'

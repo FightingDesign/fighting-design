@@ -9,6 +9,6 @@ export const FLoading = install({
 /** loading 组件实例类型 */
 export type LoadingInstance = InstanceType<typeof Loading>
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FLoading

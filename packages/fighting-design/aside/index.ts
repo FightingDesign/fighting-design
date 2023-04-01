@@ -7,6 +7,6 @@ export const FAside = install(Aside)
 /** aside 组件实例类型 */
 export type AsideInstance = InstanceType<typeof Aside>
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FAside

@@ -7,6 +7,6 @@ export const FBreadcrumb = install(Breadcrumb)
 /** breadcrumb 组件实例类型 */
 export type BreadcrumbInstance = InstanceType<typeof Breadcrumb>
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FBreadcrumb

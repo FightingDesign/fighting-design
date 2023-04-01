@@ -1,4 +1,4 @@
-export type { TableProps } from './table'
+export type { TableProps } from './props'
 
 /** 表格居中方式类型 */
 export type TableAlign = 'left' | 'center' | 'right'

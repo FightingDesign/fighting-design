@@ -7,6 +7,6 @@ export const FTextarea = install(Textarea)
 /** textarea 组件实例类型 */
 export type TextareaInstance = InstanceType<typeof Textarea>
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FTextarea

@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FTableColgroup">
   import { Props } from './props'
-  import { sizeChange } from '../../../../_utils'
+  import { sizeChange } from '../../../_utils'
 
   defineProps(Props)
 </script>

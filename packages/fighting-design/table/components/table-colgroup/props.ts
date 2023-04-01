@@ -1,6 +1,6 @@
-import { setArrayProp } from '../../../../_utils'
+import { setArrayProp } from '../../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import type { TableColumns } from '../../interface'
+import type { TableColumns } from '../../index'
 
 export const Props = {
   /** 标题配置 */
