@@ -7,7 +7,7 @@ import type { ComponentInternalInstance, VNode, Component } from 'vue'
 import type { MessagePlacement, MessageProps } from '../../message'
 
 /** 参数列表，也就是 props 参数列表类型 */
-export type TipsOptions = Partial<Mutable<MessageProps>> & {
+export type TipsOptions = Partial<MessageProps> & {
   onDestroy?: () => void
 }
 
@@ -76,7 +76,7 @@ export interface UseTipsReturn {
     placement: MessagePlacement,
     id: string,
     isNext: boolean
-  ) => ComputedRef<number>
+  ) => number
   removeInstance: (placement: MessagePlacement, id: string) => void
   createInstance: (instance: TipsInstance, placement: MessagePlacement) => TipsInstance
   renderInstance: RenderInstance
