@@ -1,4 +1,4 @@
-import { setBooleanProp, setArrayProp, setFunctionProp } from '../../../../_utils'
+import { setBooleanProp, setArrayProp, setFunctionProp } from '../../../_utils'
 import type { PropType, ExtractPropTypes } from 'vue'
 import type {
   TabsNavInstance,
@@ -9,8 +9,8 @@ import type {
   TabsTrigger,
   TabsEdit,
   TabsSwitch
-} from '../../interface'
-import type { SetActiveName } from '../../../../_hooks'
+} from '../../index'
+import type { SetActiveName } from '../../../_hooks'
 
 export const Props = {
   /** 标题配置 */

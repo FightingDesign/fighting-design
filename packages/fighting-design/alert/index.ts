@@ -7,6 +7,6 @@ export const FAlert = install(Alert)
 /** alert 组件实例类型 */
 export type AlertInstance = InstanceType<typeof Alert>
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FAlert

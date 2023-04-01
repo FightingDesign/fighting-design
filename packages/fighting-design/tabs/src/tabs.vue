@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FTabs">
   import { Props } from './props'
   import { computed } from 'vue'
-  import { TabsNav } from './components'
+  import { TabsNav } from '../components'
   import { useTabs } from '../../_hooks'
   import { warning, isNumber, isString } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'

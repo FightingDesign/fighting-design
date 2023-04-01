@@ -1,17 +1,17 @@
 <script lang="ts" setup name="FTabsNav">
   import { Props } from './props'
   import { computed, watch } from 'vue'
-  import { FIconPlusVue } from '../../../../_svg'
-  import { isBoolean } from '../../../../_utils'
-  import { FSvgIcon } from '../../../../svg-icon'
-  import { FCloseBtn } from '../../../../close-btn'
-  import { useTabsNavStyle, useRun } from '../../../../_hooks'
+  import { FIconPlusVue } from '../../../_svg'
+  import { isBoolean } from '../../../_utils'
+  import { FSvgIcon } from '../../../svg-icon'
+  import { FCloseBtn } from '../../../close-btn'
+  import { useTabsNavStyle, useRun } from '../../../_hooks'
   import type {
     TabsModelValue,
     TabsPosition,
     TabsJustifyContent,
     TabsType
-  } from '../../interface'
+  } from '../../index'
 
   const prop = defineProps(Props)
 
