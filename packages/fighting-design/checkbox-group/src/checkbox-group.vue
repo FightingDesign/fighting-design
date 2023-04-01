@@ -7,10 +7,11 @@
   import type { CheckboxGroupProvide } from './interface'
   import type { CSSProperties } from 'vue'
   import type { ClassList } from '../../_interface'
+  import type { CheckboxLabel } from '../../checkbox'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    [EMIT_UPDATE]: (val: string[]): boolean => isArray(val)
+    [EMIT_UPDATE]: (val: string[] | CheckboxLabel): boolean => isArray(val)
   })
 
   const { run } = useRun()
@@ -20,7 +21,7 @@
    *
    * @param { string[] } val 最新值
    */
-  const setChange = (val: string[]): void => {
+  const setChange = (val: string[] | CheckboxLabel): void => {
     emit(EMIT_UPDATE, val)
     run(prop.onChange, val)
   }

@@ -6,7 +6,8 @@ import type { PropType } from 'vue'
  *
  * @param { * } val 校验的值
  */
-export type Validator = (val: string) => boolean
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Validator = (val: any) => boolean
 
 /**
  * 返回值类型接口

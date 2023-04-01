@@ -13,7 +13,7 @@ import { EMIT_UPDATE } from '../../_tokens'
 import { TABS_PROPS_KEY } from '../../tabs/src/props'
 import type { ComponentInternalInstance, ComputedRef, Ref } from 'vue'
 import type { TabsModelValue, TabsProps, TabsNavInstance, TabsEdit } from '../../tabs'
-import type { TabsPaneInstance } from '../../tabs-pane/src/interface'
+import type { TabsPane } from '../../tabs-pane'
 import type { UseChildrenReturn } from '../../_utils/tabs'
 
 /**
@@ -38,7 +38,7 @@ export interface UseTabsReturn {
  */
 export type TabsProvide = {
   activeName: Ref<TabsModelValue>
-} & UseChildrenReturn<TabsPaneInstance>
+} & UseChildrenReturn<TabsPane>
 
 /**
  * setActiveName 回调类型
@@ -66,10 +66,9 @@ export type SetActiveName = (name: TabsModelValue) => void
 export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn => {
   const { run } = useRun()
   /** 获取当前组件实例 */
-  const instance: ComponentInternalInstance =
-    getCurrentInstance() as ComponentInternalInstance
+  const instance = getCurrentInstance() as ComponentInternalInstance
   /** 子组件集合 */
-  const usePanes = useChildren<TabsPaneInstance>(instance, 'FTabsPane')
+  const usePanes = useChildren(instance, 'FTabsPane')
   /** 当前选中的子组件 */
   const activeName = ref<TabsModelValue>(0)
 
@@ -103,7 +102,7 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
   const navs = computed((): TabsNavInstance[] => {
     return (
       usePanes.children.value &&
-      usePanes.children.value.map((item: TabsPaneInstance, index: number) => {
+      usePanes.children.value.map((item: TabsPane, index: number) => {
         item.paneName = item.paneName || index
 
         return {
@@ -132,7 +131,7 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
   onMounted(async (): Promise<void> => {
     await nextTick()
     /** 如果没有传 value 默认选中第一个 */
-    setActiveName(prop.modelValue || (navs.value[0] && navs.value[0].name))
+    setActiveName((prop.modelValue || (navs.value[0] && navs.value[0].name)) as TabsModelValue)
   })
 
   /** 将信息传递给子组件 */
@@ -140,6 +139,8 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
     activeName,
     ...usePanes
   })
+
+  console.log(usePanes)
 
   return {
     navs,

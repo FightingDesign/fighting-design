@@ -22,7 +22,9 @@
   const isChecked = computed((): boolean => modelValue.value === prop.label)
 
   /** 父级是否带有禁用 */
-  const isParentDisabled = computed((): boolean => parentInject && parentInject.disabled)
+  const isParentDisabled = computed(
+    (): boolean => !!(parentInject && parentInject.disabled)
+  )
 
   /** 判断是否被禁用 */
   const isDisabled = computed((): boolean => prop.disabled || isParentDisabled.value)

@@ -45,7 +45,7 @@
        */
       const currentOption: VNode[] = options.value.filter((node: VNode): boolean => {
         /** 获取到子组件的 props */
-        const optionProp: OptionProps = node.props
+        const optionProp = node.props
 
         /** 判断是否有传递 props */
         if (optionProp) {
@@ -70,14 +70,13 @@
       if (!currentOption.length) return ''
 
       /** 获取到当前满足要求的子元素 */
-      const children: OptionProps = currentOption[0] as OptionProps
+      const children = currentOption[0]
       /** 获取到当前子元素的插槽内容 */
-      const slot: string | undefined =
-        children.children && children.children.default()[0].children
+      const slot: string | undefined = children?.children?.default()[0].children
       /** 获取到当前子元素的 label 参数 */
-      const label: string | undefined = children.props && children.props.label
+      const label: string | undefined = children.props?.label
       /** 获取到当前子元素的 value 参数 */
-      const value: string | undefined = children.props && children.props.value
+      const value: string | undefined = children.props?.value
       /** 返回优先级：插槽 > label > value */
       return slot || label || (value && value.toString()) || ''
     },

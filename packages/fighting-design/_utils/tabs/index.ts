@@ -7,6 +7,7 @@ import type {
   Component,
   ShallowRef
 } from 'vue'
+import type { TabsPane } from '../../tabs-pane'
 
 /**
  * 将所有子的组件扁平化
@@ -68,30 +69,31 @@ export interface UseChildrenReturn<T> {
  * @param { string } component 组件名
  * @returns { Object }
  */
-export const useChildren = <T extends { uid: number }>(
+export const useChildren = (
   root: ComponentInternalInstance,
   component: string
-): UseChildrenReturn<T> => {
-  const childrenMap = new Map<number, T>()
+): UseChildrenReturn<TabsPane> => {
+  const childrenMap = new Map<number, TabsPane>()
 
-  const children = shallowRef<T[]>([])
+  const children = shallowRef<TabsPane[]>([])
 
-  const registerChild = (child: T): void => {
+  const registerChild = (child: TabsPane): void => {
     childrenMap.set(child.uid, child)
-    const componentList = getChildrenComponent(root, component)
+
+    const componentList: VNode[] = getChildrenComponent(root, component)
 
     const componentUid: number[] = componentList
-      .map(e => {
-        return e.component ? e.component.uid : null
+      .map((item: VNode): number | null => {
+        return item.component ? item.component.uid : null
       })
       .filter(Boolean) as number[]
 
     children.value = componentUid
-      .map((e: number) => childrenMap.get(e))
-      .filter(Boolean) as T[]
+      .map((e: number): TabsPane | undefined => childrenMap.get(e))
+      .filter(Boolean) as TabsPane[]
   }
 
-  const unRegisterChild = (child: T): void => {
+  const unRegisterChild = (child: TabsPane): void => {
     childrenMap.delete(child.uid)
 
     children.value = children.value.filter(item => item.uid !== child.uid)

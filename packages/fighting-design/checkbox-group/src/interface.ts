@@ -12,5 +12,5 @@ export type CheckboxGroupChange = (val: string[]) => void
 
 /** 注入的依赖项类型 */
 export type CheckboxGroupProvide = CheckboxGroupProps & {
-  setChange: (val: CheckboxLabel) => void
+  setChange: (val: string[] | CheckboxLabel) => void
 }

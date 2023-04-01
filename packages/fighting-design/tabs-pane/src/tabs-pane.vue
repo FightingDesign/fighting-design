@@ -13,7 +13,8 @@
   } from 'vue'
   import type { ComponentInternalInstance, Slots } from 'vue'
   import type { TabsProvide } from '../../_hooks'
-  import type { TabsPaneInstance } from './interface'
+  import type { TabsPane } from './interface'
+  import type { TabsModelValue } from '../../tabs'
 
   const prop = defineProps(Props)
   const slots: Slots = useSlots()
@@ -22,7 +23,7 @@
   const instance = getCurrentInstance() as ComponentInternalInstance
 
   /** 选中的 name */
-  const paneName = ref<string | number>(prop.name)
+  const paneName = ref<TabsModelValue>(prop.name)
 
   /** 获取父组件注入的依赖项 */
   const parentInject: TabsProvide | null = inject(TABS_PROPS_KEY, null)
@@ -41,7 +42,7 @@
     (): boolean | null => parentInject && parentInject.activeName.value === paneName.value
   )
 
-  const pane = reactive<TabsPaneInstance>({
+  const pane: TabsPane = reactive({
     paneName,
     label: prop.label,
     uid: instance.uid,

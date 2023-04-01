@@ -18,7 +18,7 @@
         return FIGHTING_TYPE.includes(prop.type as FightingType)
       },
       'default'
-    )
+    ) as FightingType
   })
 
   /** prop 拦截器拦截 size 属性 */
@@ -29,7 +29,7 @@
         return FIGHTING_SIZE.includes(prop.size as FightingSize)
       },
       'middle'
-    )
+    ) as FightingSize
   })
 
   /** prop 拦截器拦截 lang 属性 */
@@ -40,7 +40,7 @@
         return (['en-US', 'zh-CN'] as const).includes(prop.lang as FightingLang)
       },
       'zh-CN'
-    )
+    ) as FightingLang
   })
 
   /** 注入依赖项 */
