@@ -4,6 +4,15 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.28.2 (2023-04-01)
+
+- Fix global type errors
+
+## 0.28.1 (2023-04-01)
+
+- `f-progress` component adds a `start` configuration item
+- Optimize type configuration files, repair packaging directory structure
+
 ## 0.28.0 (2023-03-21)
 
 - Change the `f-image` component `no-select` configuration item to `select`

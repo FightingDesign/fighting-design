@@ -2,6 +2,15 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.28.2 (2023-04-01)
+
+- 修复全局类型错误
+
+## 0.28.1 (2023-04-01)
+
+- `f-progress` 组件新增 `start` 配置项
+- 优化类型配置文件，修复打包目录结构
+
 ## 0.28.0 (2023-03-21)
 
 - `f-image` 组件 `no-select` 配置项改为 `select`
