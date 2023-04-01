@@ -111,7 +111,7 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
           label: item.slots['label'] || item.prop.label
         } as const
       })
-    )
+    ) as TabsNavInstance[]
   })
 
   /** prop.modelValue 同步到 currentName 中 */

@@ -8,7 +8,6 @@
   import { EMIT_UPDATE } from '../../_tokens'
   import type { VNode, Slots } from 'vue'
   import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
-  import type { OptionProps } from '../../option'
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()
@@ -70,13 +69,17 @@
       if (!currentOption.length) return ''
 
       /** 获取到当前满足要求的子元素 */
-      const children = currentOption[0]
+      const firstChildren: VNode = currentOption[0]
+
       /** 获取到当前子元素的插槽内容 */
-      const slot: string | undefined = children?.children?.default()[0].children
+      const slot: string | undefined =
+        firstChildren.children &&
+        (firstChildren.children as { default: Function }).default()[0].children
       /** 获取到当前子元素的 label 参数 */
-      const label: string | undefined = children.props?.label
+      const label: string | undefined = firstChildren.props?.label
       /** 获取到当前子元素的 value 参数 */
-      const value: string | undefined = children.props?.value
+      const value: string | undefined = firstChildren.props?.value
+
       /** 返回优先级：插槽 > label > value */
       return slot || label || (value && value.toString()) || ''
     },

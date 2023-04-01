@@ -51,7 +51,7 @@
   })
 
   /** 在组件插入及卸载时都要更新父级的 pane 列表 */
-  onMounted(() => {
+  onMounted((): void => {
     parentInject && parentInject.registerChild(pane)
   })
 

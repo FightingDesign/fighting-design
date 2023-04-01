@@ -1,4 +1,4 @@
-import type { Ref, Slot } from 'vue'
+import type { Slot } from 'vue'
 
 export type { TabsProps } from './props'
 
@@ -50,6 +50,6 @@ export type TabsEdit = (
  * @param { * } label 标签的 label
  */
 export interface TabsNavInstance {
-  name: Ref<TabsModelValue>
+  name: TabsModelValue
   label: string | Slot
 }
