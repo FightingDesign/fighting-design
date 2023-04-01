@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.30.0 (2023-04-01)
+
+- Fix message component export types
+
 ## 0.28.2 (2023-04-01)
 
 - Fix global type errors

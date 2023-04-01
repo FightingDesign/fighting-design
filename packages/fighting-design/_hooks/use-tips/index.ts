@@ -58,7 +58,7 @@ export type RenderInstanceFnWith = {
  *
  * 具有两种状态
  */
-export type RenderInstance = RenderInstanceFn | Partial<RenderInstanceFnWith>
+export type RenderInstance = RenderInstanceFn & Partial<RenderInstanceFnWith>
 
 /**
  * useMassageManage 返回值类型接口
@@ -76,8 +76,7 @@ export interface UseTipsReturn {
   ) => number
   removeInstance: (placement: MessagePlacement, id: string) => void
   createInstance: (instance: TipsInstance, placement: MessagePlacement) => TipsInstance
-  // renderInstance: RenderInstance
-  renderInstance: RenderInstanceFn
+  renderInstance: RenderInstance
 }
 
 /** 组件实例对象 */
@@ -210,8 +209,7 @@ export const useTips = (component?: Component): UseTipsReturn => {
    * @param { Object } options 传入的对象参数
    * @returns { Object } 组件实例
    */
-  // const renderInstance: RenderInstance = (options: TipsOptions): TipsInstance => {
-  const renderInstance: RenderInstanceFn = (options: TipsOptions | string): TipsInstance => {
+  const renderInstance: RenderInstance = (options: TipsOptions | string): TipsInstance => {
     /** 创建容器盒子 */
     const container: HTMLDivElement = document.createElement('div')
     /** 每个 message 的唯一 id */
