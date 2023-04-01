@@ -1,1 +1,1 @@
-export type { SubmenuProps } from './prop'
+export type { SubmenuProps } from './props'

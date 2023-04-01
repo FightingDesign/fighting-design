@@ -1,6 +1,6 @@
 import { nextTick, getCurrentInstance, ref, computed, onMounted, onUnmounted } from 'vue'
 import { sizeToNum } from '../../_utils'
-import type { TabsNavProps } from '../../tabs/src/components'
+import type { TabsNavProps } from '../../tabs/components'
 import type { TabsNavInstance } from '../../tabs'
 import type { ComponentInternalInstance, CSSProperties, ComputedRef, Ref } from 'vue'
 

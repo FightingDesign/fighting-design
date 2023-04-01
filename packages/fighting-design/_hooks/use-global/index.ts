@@ -44,7 +44,7 @@ export interface UseGlobalReturn {
  * @param { Object } prop 组件的 prop
  * @returns { Object } 根据优先级返回需要的参数
  */
-export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => {
+export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn => {
   /** 获取全局配置组件注入的依赖项 */
   const global: FightingGlobalProps | null = inject(FIGHTING_GLOBAL_PROPS_KEY, null)
 
@@ -56,6 +56,11 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
    */
   const getType = (def: string | FightingType = 'default'): ComputedRef<FightingType> => {
     return computed((): FightingType => {
+
+      if (!prop) {
+        return def as FightingType
+      }
+
       /** 如果校验不通过则返回默认值 */
       if (prop.type && !FIGHTING_TYPE.includes(prop.type)) {
         return def as FightingType
@@ -77,6 +82,11 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
     parentSize?: FightingSize | null
   ): ComputedRef<FightingSize> => {
     return computed((): FightingSize => {
+
+      if (!prop) {
+        return def as FightingSize
+      }
+
       /** 
        * 校验格式
        * 
@@ -156,8 +166,14 @@ export const useGlobal = <T extends UseGlobalProp>(prop: T): UseGlobalReturn => 
       })
     }
 
+    if (prop) {
+      return reactive({
+        ...toRefs(prop),
+        ...prams
+      })
+    }
+
     return reactive({
-      ...toRefs(prop),
       ...prams
     })
   }
