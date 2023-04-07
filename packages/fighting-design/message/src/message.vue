@@ -1,73 +1,40 @@
 <script lang="ts" setup name="FMessage">
   import { Props } from './props'
-  import { ref, isVNode } from 'vue'
-  import { FSvgIcon } from '../../svg-icon'
-  import { FCloseBtn } from '../../close-btn'
-  import { isString } from '../../_utils'
-  import { useEject } from '../../_hooks'
-  import type { Ref } from 'vue'
+  import { computed, ref, getCurrentInstance } from 'vue'
+  import { useMessage } from './hooks'
+  import type { ComponentInternalInstance } from 'vue'
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    destroy: (): boolean => true
-  })
 
-  /** 元素节点 */
-  const FMessageEl = ref<HTMLDivElement>()
+  const { remove } = useMessage()
 
-  const {
-    classList,
-    styleList,
-    bottom,
-    offsetStyle,
-    isPosition,
-    visible,
-    clearTimer,
-    closeMessage,
-    closeMessageEnd,
-    startTime
-  } = useEject(prop, 'message', FMessageEl as Ref<HTMLDivElement>)
+  /** 控制显示隐藏 */
+  const visible = ref<boolean>(true)
 
-  defineExpose({
-    visible,
-    bottom,
-    close: closeMessage
-  })
+  /** 判断方位 */
+  const isPosition = computed((): boolean => prop.placement.includes('top'))
+
+  const close = (): void => {
+    visible.value = false
+  }
+
+  /** 获取到当前组件实例 */
+  const instance = getCurrentInstance() as ComponentInternalInstance
+
+  const onRemove = (): void => {
+    remove(prop.placement, instance.uid)
+  }
 </script>
 
 <template>
   <transition
     mode="out-in"
     :name="`f-message-fade` + (isPosition ? '-top' : '-bottom')"
-    @before-leave="closeMessageEnd"
-    @after-leave="emit('destroy')"
+    @before-leave="onRemove"
   >
-    <div
-      v-show="visible"
-      ref="FMessageEl"
-      :class="classList"
-      :style="[styleList, offsetStyle]"
-      @mouseleave="startTime"
-      @mouseenter="clearTimer"
-    >
-      <!-- icon -->
-      <f-svg-icon v-if="isVNode(icon)" :size="24" class="f-message__icon">
-        <component :is="icon" />
-      </f-svg-icon>
-
-      <!-- 消息文本 -->
-      <component :is="message" v-if="isVNode(message)" />
-      <div v-else class="f-message__text">
-        {{ message }}
-      </div>
-
-      <!-- 关闭按钮 -->
-      <div v-if="prop.close" class="f-message__close" @click="closeMessage">
-        <template v-if="isString(closeBtn)">{{ closeBtn }}</template>
-        <f-close-btn v-else :size="16">
-          <component :is="closeBtn" />
-        </f-close-btn>
-      </div>
+    <div v-if="visible" class="f-message">
+      <span>{{ message }}</span>
+      <button @click="close">关闭</button>
     </div>
   </transition>
 </template>
