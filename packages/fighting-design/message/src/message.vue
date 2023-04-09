@@ -9,13 +9,8 @@
 
   const messageEl = ref<HTMLDivElement>()
 
-  // const { remove } = useMessage()
-
   /** 获取到当前组件实例 */
   const instance = getCurrentInstance() as ComponentInternalInstance
-
-  // const {} =
-  // const { offsetStyle } = useOffset(messageEl, prop, instance)
 
   const { classes } = useList(prop, 'message')
 
@@ -34,7 +29,6 @@
 
   onMounted((): void => {
     visible.value = true
-    // console.log(messageEl)
   })
 
   const onRemove = (): void => {
@@ -43,9 +37,7 @@
 
   const offsetVal = ref(prop.offset)
 
-  console.log(offsetVal.value)
-
-  // console.log(offsetStyle.value)
+  defineExpose({ offsetVal })
 </script>
 
 <template>
