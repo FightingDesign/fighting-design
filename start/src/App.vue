@@ -4,17 +4,19 @@
   const openMessage = (): void => {
     FMessage({
       message: '这是一个提示信息',
-      type: 'warning'
+      type: 'warning',
+      duration: 0,
+      placement: 'bottom'
       // onClose: () => {}
     })
 
-  //   FMessage({
-  //     message: '这是一个提示信息'
-  //   })
+    //   FMessage({
+    //     message: '这是一个提示信息'
+    //   })
 
-  //   FMessage.success('123')
+    //   FMessage.success('123')
 
-  //   FMessage.danger('123')
+    //   FMessage.danger('123')
   }
 </script>
 
