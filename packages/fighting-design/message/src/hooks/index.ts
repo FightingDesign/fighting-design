@@ -4,18 +4,31 @@ import type { VNode, ComponentInternalInstance, Component, ComponentPublicInstan
 import type { MessageProps, MessagePlacement } from '../interface'
 import type { FightingType } from '../../../_interface'
 
+/** 可选的 message 类型 */
 export type MessageOptionalType = {
   [key in FightingType]: (message: string) => ComponentPublicInstance
 }
 
+/**
+ * 基本的 message 类型
+ * 
+ * @param { Object } options 参数对象
+ */
 export type MessageBasicType = (options: Partial<MessageProps>) => ComponentPublicInstance
 
+/** message 类型 */
 export type MessageType = MessageBasicType & MessageOptionalType
 
+/** 
+ * useMessage 返回值类型接口
+ * 
+ * @param { Function } Message 组件方法
+ */
 export interface UseMessageReturn {
   Message: MessageType
 }
 
+/** 组件实例对象集合 */
 export type MessageInstances = Partial<{
   [key in MessagePlacement]: ComponentInternalInstance[]
 }>
@@ -153,7 +166,7 @@ export const useMessage = (component: Component): UseMessageReturn => {
     let result: number = options.offset || 20
     /** 获取到当前方位的组件实例集合 */
     const placementInstance: ComponentInternalInstance[] | undefined = instances[options.placement || 'top']
-
+    console.log(placementInstance)
     if (placementInstance) {
       placementInstance.forEach((instance: ComponentInternalInstance): void => {
         result += getNextElementInterval(instance)

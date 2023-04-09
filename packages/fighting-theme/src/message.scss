@@ -2,7 +2,7 @@
 
 .f-message {
   position: fixed;
-  padding: 10px 20px;
+  padding: 10px 14px;
   font-size: 14px;
   overflow: hidden;
   display: flex;
@@ -56,9 +56,13 @@
     cursor: pointer;
   }
 
-  &__icon {
+  &__before_icon {
     margin-right: 10px;
   }
+
+  // &__icon {
+  //   margin-right: 10px;
+  // }
 
   &-fade-top-enter-active,
   &-fade-bottom-enter-active {
