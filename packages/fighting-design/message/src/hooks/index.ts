@@ -62,6 +62,10 @@ const getIndexByInstance = (instance: ComponentInternalInstance): number => {
 const getNextElementInterval = (instance: ComponentInternalInstance): number => {
   /** 间隔高度 */
   const INTERVAL_HEIGHT = 16
+
+  /**
+   * @see HTMLElement.offsetHeight https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight
+   */
   return (instance.vnode.el as HTMLDivElement).offsetHeight + INTERVAL_HEIGHT
 }
 
@@ -109,6 +113,15 @@ export const remove = (instance: ComponentInternalInstance): void => {
     ; (instances[placement] as ComponentInternalInstance[]).splice(getIndexByInstance(instance), 1)
 }
 
+/**
+ * 提示类型组件方法
+ *
+ * 用于 Message 和 Notification
+ * 
+ * @author Tyh2001 <https://github.com/Tyh2001>
+ * @param { Object } component 组件
+ * @returns { Object }
+ */
 export const useMessage = (component: Component): UseMessageReturn => {
 
   /**
