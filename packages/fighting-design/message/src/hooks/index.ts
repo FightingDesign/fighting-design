@@ -1,10 +1,19 @@
 import { h, render } from 'vue'
+import { FIGHTING_TYPE } from '../../../_tokens'
 import type { VNode, ComponentInternalInstance, Component, ComponentPublicInstance, Ref } from 'vue'
 import type { MessageProps } from '../interface'
 import type { FightingType } from '../../../_interface'
 
+export type MessageOptionalType = {
+  [key in FightingType]: (message: string) => ComponentPublicInstance
+}
+
+export type MessageBasicType = (options: Partial<MessageProps>) => ComponentPublicInstance
+
+export type MessageType = MessageBasicType & MessageOptionalType
+
 export interface UseMessageReturn {
-  Message: (opts: MessageProps) => ComponentPublicInstance
+  Message: MessageType
 }
 
 const instances: ComponentInternalInstance[] = []
@@ -55,8 +64,13 @@ export const useMessage = (component: Component): UseMessageReturn => {
     return result
   }
 
-  // 创建组件实例
-  const createMessageComponentByOpts = (prop: MessageProps): ComponentInternalInstance => {
+  /**
+   * 创建组件实例
+   * 
+   * @param { Object } prop 参数对象
+   * @returns { Object } 组件实例
+   */
+  const createMessageComponentByOptions = (prop: Partial<MessageProps>): ComponentInternalInstance => {
     const vNode: VNode = h(component, prop)
     const container: HTMLDivElement = document.createElement('div')
     render(vNode, container)
@@ -64,25 +78,48 @@ export const useMessage = (component: Component): UseMessageReturn => {
     return vNode.component as ComponentInternalInstance
   }
 
-  const createMessage = (opts: MessageProps): ComponentPublicInstance => {
-    const instance = createMessageComponentByOpts(opts) as ComponentInternalInstance
+  const createMessage = (options: Partial<MessageProps>): ComponentPublicInstance => {
+    const instance = createMessageComponentByOptions(options) as ComponentInternalInstance
     addInstance(instance)
     return instance.proxy as ComponentPublicInstance
   }
 
-  const mergeOptions = (opts: MessageProps, type: FightingType = 'default'): MessageProps => {
+  /**
+   * 合并参数对象
+   * 
+   * @param { Object } options 参数对象
+   * @param { string } [type = 'default'] 类型
+   * @returns { Object } 配置对象
+   */
+  const mergeOptions = (options: Partial<MessageProps>, type: FightingType = 'default'): Partial<MessageProps> => {
     const defaultOptions = {
       duration: 4500,
       type,
-      offset: calculateVerticalOffset(opts.offset)
+      offset: calculateVerticalOffset(options.offset)
     }
 
-    return { ...defaultOptions, ...opts }
+    return { ...defaultOptions, ...options }
   }
 
-  const Message = (opts: MessageProps): ComponentPublicInstance => {
-    return createMessage(mergeOptions(opts))
+  /**
+   * 创建组件实例
+   * 
+   * Partial<MessageProps> 代表仅需要部分的参数传递即可
+   * 
+   * @see Partial https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype
+   * 
+   * @param { Object } options 配置对象
+   * @returns { Object } Message 组件实例
+   */
+  const Message: MessageBasicType = (options: Partial<MessageProps>): ComponentPublicInstance => {
+    return createMessage(mergeOptions(options))
   }
 
-  return { Message }
+  FIGHTING_TYPE.forEach((item: FightingType): void => {
+    (Message as unknown as MessageOptionalType)[item] = (message: string): ComponentPublicInstance => {
+      return createMessage(mergeOptions({ message }))
+    }
+  })
+
+  return { Message } as UseMessageReturn
 }

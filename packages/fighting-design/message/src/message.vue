@@ -7,8 +7,6 @@
 
   const prop = defineProps(Props)
 
-  const messageEl = ref<HTMLDivElement>()
-
   /** 获取到当前组件实例 */
   const instance = getCurrentInstance() as ComponentInternalInstance
 
@@ -48,7 +46,6 @@
   >
     <div
       v-show="visible"
-      ref="messageEl"
       class="f-message"
       :class="classList"
       :style="{ top: offsetVal + 'px' }"

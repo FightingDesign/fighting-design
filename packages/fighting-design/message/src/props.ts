@@ -5,8 +5,6 @@ import type { MessagePlacement } from './interface'
 import type { FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
-  /** 唯一值 */
-  id: setStringProp(),
   /** 消息文本 */
   message: {
     type: [String, Object] as PropType<VNode | string>,
