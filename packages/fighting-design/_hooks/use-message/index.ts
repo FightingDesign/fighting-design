@@ -115,7 +115,7 @@ const updatePosition = (closeInstance: ComponentInternalInstance): void => {
  * 
  * @param { Object } instance 组件实例
  */
-export const remove = (instance: ComponentInternalInstance): void => {
+export const removeInstance = (instance: ComponentInternalInstance): void => {
   updatePosition(instance)
 
   /** 当前组件的方位 */

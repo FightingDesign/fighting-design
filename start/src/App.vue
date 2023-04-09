@@ -14,7 +14,7 @@
     //   // onClose: () => {}
     // })
 
-    FNotification({ message: '1234', duration: 0, close: true })
+    FNotification.success('123')
 
     FMessage({
       message: '这是一个提示信息'
