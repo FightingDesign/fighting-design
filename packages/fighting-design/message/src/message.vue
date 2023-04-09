@@ -21,8 +21,11 @@
   /** 判断方位 */
   const isPosition = computed((): boolean => prop.placement.includes('top'))
 
+  let timeout: NodeJS.Timeout | undefined
+
   const close = (): void => {
     visible.value = false
+    clearTimeout(timeout)
   }
 
   onMounted((): void => {
@@ -36,6 +39,22 @@
   const offsetVal = ref(prop.offset)
 
   defineExpose({ offsetVal })
+
+  const afterLeave = (): void => {
+    if (instance.vnode.el) {
+      instance.vnode.el.parentElement?.removeChild(instance.vnode.el)
+    }
+  }
+
+  const delayClose = (): void => {
+    if (prop.duration > 0) {
+      timeout = setTimeout((): void => {
+        close()
+      }, prop.duration)
+    }
+  }
+
+  delayClose()
 </script>
 
 <template>
@@ -43,6 +62,7 @@
     mode="out-in"
     :name="`f-message-fade` + (isPosition ? '-top' : '-bottom')"
     @before-leave="onRemove"
+    @after-leave="afterLeave"
   >
     <div
       v-show="visible"

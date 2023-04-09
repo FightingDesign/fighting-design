@@ -23,7 +23,7 @@ export const Props = {
   /** 是否可关闭 */
   close: setBooleanProp(),
   /** 显示时间，单位为毫秒。 设为 0 则不会自动关闭 */
-  duration: setNumberProp(3000),
+  duration: setNumberProp(2500),
   /** 是否为圆角类型 */
   round: setBooleanProp(),
   /** 消息 icon */

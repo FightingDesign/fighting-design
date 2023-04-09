@@ -92,8 +92,8 @@ export const useMessage = (component: Component): UseMessageReturn => {
    * @returns { Object } 配置对象
    */
   const mergeOptions = (options: Partial<MessageProps>, type: FightingType = 'default'): Partial<MessageProps> => {
-    const defaultOptions = {
-      duration: 4500,
+    const defaultOptions:Partial<MessageProps> = {
+      duration: 2500,
       type,
       offset: calculateVerticalOffset(options.offset)
     }
