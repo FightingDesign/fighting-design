@@ -6,7 +6,7 @@
       message: '这是一个提示信息',
       type: 'warning',
       duration: 0,
-      placement: 'bottom'
+      placement: 'top'
       // onClose: () => {}
     })
 

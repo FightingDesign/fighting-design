@@ -3,7 +3,7 @@
   import { computed, ref, getCurrentInstance, onMounted } from 'vue'
   import { remove } from './hooks'
   import { useList } from '../../_hooks'
-  import type { ComponentInternalInstance } from 'vue'
+  import type { ComponentInternalInstance, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
 
@@ -55,6 +55,20 @@
   }
 
   delayClose()
+
+  /** 位置偏移量样式列表 */
+  const offsetStyle = computed((): CSSProperties => {
+    /** 样式对象 */
+    const styles: CSSProperties = {}
+
+    if (prop.placement.includes('bottom')) {
+      styles.bottom = offsetVal.value + 'px'
+    } else {
+      styles.top = offsetVal.value + 'px'
+    }
+
+    return styles
+  })
 </script>
 
 <template>
@@ -64,12 +78,7 @@
     @before-leave="onRemove"
     @after-leave="afterLeave"
   >
-    <div
-      v-show="visible"
-      class="f-message"
-      :class="classList"
-      :style="{ top: offsetVal + 'px' }"
-    >
+    <div v-show="visible" :class="classList" :style="offsetStyle">
       <span>{{ message }}</span>
       <button @click="close">关闭</button>
     </div>
