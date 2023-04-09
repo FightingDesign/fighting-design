@@ -6,7 +6,7 @@ import type { FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
   /** id 唯一值 */
-  id: setStringProp(),
+  // id: setStringProp(),
   /** 通知标题 */
   title: {
     type: [String, Object] as PropType<VNode | string>,

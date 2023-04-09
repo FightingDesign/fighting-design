@@ -1,110 +1,98 @@
 <script lang="ts" setup name="FNotification">
   import { Props } from './props'
-  import { computed, ref, isVNode } from 'vue'
+  import { computed, ref, getCurrentInstance, onMounted } from 'vue'
+  import { isString } from '../../_utils'
+  import { useList, remove } from '../../_hooks'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
-  import { isString } from '../../_utils'
-  import { useEject } from '../../_hooks'
-  import {
-    FIconSmileLineVue,
-    FIconLightbulbVue,
-    FIconThumbUpVue,
-    FIconCircleCrossVue,
-    FIconWarningVue
-  } from '../../_svg'
-  import type { FightingIcon } from '../../_interface'
-  import type { Ref } from 'vue'
+  import type { ComponentInternalInstance, CSSProperties } from 'vue'
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    destroy: (): boolean => true
+
+  /** 获取到当前组件实例 */
+  const instance = getCurrentInstance() as ComponentInternalInstance
+
+  const { classes } = useList(prop, 'notification')
+
+  /** 类名列表 */
+  const classList = classes(['type', 'placement', 'round'], 'f-notification')
+
+  /** 控制显示隐藏 */
+  const visible = ref<boolean>(false)
+
+  /** 判断方位 */
+  const isPosition = computed((): boolean => prop.placement.includes('top'))
+
+  let timeout: NodeJS.Timeout | undefined
+
+  const onClose = (): void => {
+    visible.value = false
+    clearTimeout(timeout)
+  }
+
+  onMounted((): void => {
+    visible.value = true
   })
 
-  /** 元素节点 */
-  const FNotificationEl = ref<HTMLDivElement>()
+  const onBeforeLeave = (): void => {
+    remove(instance)
+  }
 
-  const {
-    classList,
-    styleList,
-    bottom,
-    offsetStyle,
-    visible,
-    isPosition,
-    clearTimer,
-    closeMessage,
-    closeMessageEnd,
-    startTime
-  } = useEject(prop, 'notification', FNotificationEl as Ref<HTMLDivElement>)
+  const offsetVal = ref(prop.offset)
 
-  /** 默认 icon */
-  const _icon = computed((): FightingIcon | null => {
-    if (prop.icon) {
-      return prop.icon
-    } else if (prop.type) {
-      /** 默认 icon 列表 */
-      const icons = {
-        default: FIconSmileLineVue,
-        primary: FIconLightbulbVue,
-        success: FIconThumbUpVue,
-        danger: FIconCircleCrossVue,
-        warning: FIconWarningVue,
-        info: null
-      } as const
+  const onAfterLeave = (): void => {
+    if (instance.vnode.el) {
+      instance.vnode.el.parentElement?.removeChild(instance.vnode.el)
+    }
+  }
 
-      return icons[prop.type]
+  const delayClose = (): void => {
+    if (prop.duration > 0) {
+      timeout = setTimeout((): void => {
+        onClose()
+      }, prop.duration)
+    }
+  }
+
+  delayClose()
+
+  /** 位置偏移量样式列表 */
+  const offsetStyle = computed((): CSSProperties => {
+    /** 样式对象 */
+    const styles: CSSProperties = {}
+
+    if (prop.placement.includes('bottom')) {
+      styles.bottom = offsetVal.value + 'px'
+    } else {
+      styles.top = offsetVal.value + 'px'
     }
 
-    return null
+    return styles
   })
 
-  defineExpose({
-    visible,
-    bottom,
-    close: closeMessage
-  })
+  defineExpose({ offsetVal })
 </script>
 
 <template>
   <transition
     mode="out-in"
     :name="`f-notification-fade` + (isPosition ? '-right' : '-left')"
-    @before-leave="closeMessageEnd"
-    @after-leave="emit('destroy')"
+    @before-leave="onBeforeLeave"
+    @after-leave="onAfterLeave"
   >
-    <div
-      v-show="visible"
-      ref="FNotificationEl"
-      :class="classList"
-      :style="[offsetStyle, styleList]"
-      @mouseleave="startTime"
-      @mouseenter="clearTimer"
-    >
-      <!-- icon -->
-      <div v-if="showIcon && _icon" class="f-notification__icon">
-        <f-svg-icon :icon="_icon" :size="28" />
+    <div v-show="visible" :class="classList" :style="offsetStyle">
+      <!-- 前缀 icon -->
+      <div v-if="icon" class="f-notification__before_icon">
+        <f-svg-icon :icon="icon" :size="16" />
       </div>
 
-      <!-- 主体内容 -->
-      <div class="f-notification__info">
-        <!-- 标题 -->
-        <div class="f-notification__title">
-          <component :is="title" v-if="isVNode(title)" />
-          <h3 v-else class="f-notification__title-text">
-            {{ title }}
-          </h3>
-        </div>
-
-        <!-- 消息文本 -->
-        <component :is="message" v-if="isVNode(message)" />
-        <div v-else class="f-notification__text">
-          {{ message }}
-        </div>
-      </div>
+      <!-- 提示信息 -->
+      <div class="f-notification__text">{{ message }}</div>
 
       <!-- 关闭按钮 -->
-      <div v-if="prop.close" class="f-notification__close" @click="closeMessage">
+      <div v-if="close" class="f-notification__close" @click="onClose">
         <template v-if="isString(closeBtn)">{{ closeBtn }}</template>
-        <f-close-btn v-else :size="16" />
+        <f-close-btn v-else :icon="closeBtn" :size="15" color="#a4a4a4" />
       </div>
     </div>
   </transition>

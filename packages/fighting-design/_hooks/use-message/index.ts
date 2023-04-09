@@ -1,8 +1,9 @@
 import { h, render, reactive } from 'vue'
-import { FIGHTING_TYPE } from '../../../_tokens'
+import { FIGHTING_TYPE } from '../../_tokens'
 import type { VNode, ComponentInternalInstance, Component, ComponentPublicInstance, Ref } from 'vue'
-import type { MessageProps, MessagePlacement } from '../interface'
-import type { FightingType } from '../../../_interface'
+import type { MessageProps, MessagePlacement } from '../../message'
+import type { NotificationPlacement } from '../../notification'
+import type { FightingType } from '../../_interface'
 
 /** 可选的 message 类型 */
 export type MessageOptionalType = {
@@ -30,7 +31,7 @@ export interface UseMessageReturn {
 
 /** 组件实例对象集合 */
 export type MessageInstances = Partial<{
-  [key in MessagePlacement]: ComponentInternalInstance[]
+  [key in MessagePlacement | NotificationPlacement]: ComponentInternalInstance[]
 }>
 
 /**
@@ -46,7 +47,7 @@ const instances: MessageInstances = reactive({})
  * @param { Object } instance 组件实例
  * @returns { string } 方位信息
  */
-const getPlacement = (instance: ComponentInternalInstance): MessagePlacement => {
+const getPlacement = (instance: ComponentInternalInstance): MessagePlacement | NotificationPlacement => {
   return (instance.props as MessageProps).placement
 }
 
@@ -58,7 +59,7 @@ const getPlacement = (instance: ComponentInternalInstance): MessagePlacement => 
  */
 const getIndexByInstance = (instance: ComponentInternalInstance): number => {
   /** 获取当前方位 */
-  const placement: MessagePlacement = getPlacement(instance)
+  const placement: MessagePlacement | NotificationPlacement = getPlacement(instance)
 
   /**
    * @see Array.prototype.findIndex() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
@@ -92,7 +93,7 @@ const updatePosition = (closeInstance: ComponentInternalInstance): void => {
   /** 获取当前组件实例索引值 */
   const currentInstanceIndex: number = getIndexByInstance(closeInstance)
   /** 获取当前方位 */
-  const placement: MessagePlacement = getPlacement(closeInstance)
+  const placement: MessagePlacement | NotificationPlacement = getPlacement(closeInstance)
 
   if (currentInstanceIndex < 0) return
 
@@ -118,7 +119,7 @@ export const remove = (instance: ComponentInternalInstance): void => {
   updatePosition(instance)
 
   /** 当前组件的方位 */
-  const placement: MessagePlacement = getPlacement(instance)
+  const placement: MessagePlacement | NotificationPlacement = getPlacement(instance)
 
     /**
      * @see Array.prototype.splice() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
@@ -133,9 +134,10 @@ export const remove = (instance: ComponentInternalInstance): void => {
  * 
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } component 组件
+ * @param { string } name 组件名
  * @returns { Object }
  */
-export const useMessage = (component: Component): UseMessageReturn => {
+export const useMessage = (component: Component, name: 'message' | 'notification'): UseMessageReturn => {
 
   /**
    * 添加组件实例对象
@@ -144,7 +146,7 @@ export const useMessage = (component: Component): UseMessageReturn => {
    */
   const addInstance = (instance: ComponentInternalInstance): void => {
     /** 当前组件的方位 */
-    const placement: MessagePlacement = getPlacement(instance)
+    const placement: MessagePlacement | NotificationPlacement = getPlacement(instance)
 
     if (instances[placement]) {
       /** 如果对象中存在当前方位数组，则往数组中追加组件实例 */
@@ -165,8 +167,8 @@ export const useMessage = (component: Component): UseMessageReturn => {
     /** 偏移量 */
     let result: number = options.offset || 20
     /** 获取到当前方位的组件实例集合 */
-    const placementInstance: ComponentInternalInstance[] | undefined = instances[options.placement || 'top']
-    console.log(placementInstance)
+    const placementInstance: ComponentInternalInstance[] | undefined = instances[options.placement || name === 'message' ? 'top' : 'top-right']
+
     if (placementInstance) {
       placementInstance.forEach((instance: ComponentInternalInstance): void => {
         result += getNextElementInterval(instance)
@@ -229,7 +231,7 @@ export const useMessage = (component: Component): UseMessageReturn => {
     const defaultOptions: Partial<MessageProps> = {
       duration: 2500,
       type,
-      placement: 'top',
+      placement: name === 'message' ? 'top' : 'top-right',
       offset: calculateVerticalOffset(options)
     }
 

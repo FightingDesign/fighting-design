@@ -1,9 +1,8 @@
 <script lang="ts" setup name="FMessage">
   import { Props } from './props'
   import { computed, ref, getCurrentInstance, onMounted } from 'vue'
-  import { remove } from './hooks'
   import { isString } from '../../_utils'
-  import { useList } from '../../_hooks'
+  import { useList, remove } from '../../_hooks'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import type { ComponentInternalInstance, CSSProperties } from 'vue'
@@ -50,7 +49,7 @@
   const delayClose = (): void => {
     if (prop.duration > 0) {
       timeout = setTimeout((): void => {
-        close()
+        onClose()
       }, prop.duration)
     }
   }
