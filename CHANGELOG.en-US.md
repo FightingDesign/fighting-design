@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.31.1 (2023-04-10)
+
+- Fix the issue of incorrect pop-up positions for `FMessage`
+
 ## 0.31.0 (2023-04-10)
 
 - Change the default value of `FNotification` component type to null

@@ -36,8 +36,6 @@
 
 `notification` 属性可接收 `string` 显示文本，也可接收 `VNode` 自定义消息
 
-限定最大宽度为`500px`
-
 ::: demo
 
 <template #source>
@@ -131,7 +129,7 @@
 
 此外，`Notification` 拥有可控的 duration， 默认的关闭时间为 `2500 毫秒`，当把这个属性的值设置为 0 便表示该消息不会被自动关闭。
 
-可以传递`closeBtn`属性来自定义关闭按钮，支持字符串与 `VNode`。
+可以传递 `close-btn` 属性来自定义关闭按钮，支持字符串与 `VNode`。
 
 ::: demo
 
@@ -178,7 +176,9 @@
 
 :::
 
-## 多个位置
+## 不同位置
+
+`placement` 配置项可调整不同弹出位置
 
 ::: demo
 
@@ -213,7 +213,7 @@
   import { FNotification } from 'fighting-design'
   import type { NotificationPlacement } from 'fighting-design'
 
-  const openNotificationPlacement = (placement: NotificationPlacement) => {
+  const openNotificationPlacement = (placement: NotificationPlacement): void => {
     FNotification({
       title: '一条通知',
       message: '这是一条自定义位置的消息',

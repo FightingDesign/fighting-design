@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.31.1 (2023-04-10)
+
+- 修复 `FMessage` 不同弹出位置错误的问题
+
 ## 0.31.0 (2023-04-10)
 
 - `FNotification` 组件 type 默认值改为 null
