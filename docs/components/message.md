@@ -22,10 +22,7 @@
   import { FMessage } from 'fighting-design'
 
   const openMessage = () => {
-    FMessage({
-      message: '这是一条消息提示',
-      type: 'success'
-    })
+    FMessage('这是一条消息提示')
   }
 </script>
 ```
@@ -125,7 +122,7 @@
 
 默认的 `Message` 是不可以被人工关闭的。 如果你需要手动关闭功能，你可以把 `close` 设置为 `true`。
 
-此外，`Message` 拥有可控的 duration， 默认的关闭时间为 `3000 毫秒`，当把这个属性的值设置为 0 便表示该消息不会被自动关闭。
+此外，`Message` 拥有可控的 duration， 默认的关闭时间为 `2500 毫秒`，当把这个属性的值设置为 0 便表示该消息不会被自动关闭。
 
 可以传递 `close-btn` 属性来自定义关闭按钮，支持字符串与 `VNode`。
 
@@ -220,21 +217,21 @@
 
 ## Attributes
 
-| 参数         | 说明                                         | 类型                                                                                        | 可选值                                                             | 默认值  |
-| ------------ | -------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
+| 参数         | 说明                                         | 类型                                                                                         | 可选值                                                             | 默认值  |
+| ------------ | -------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
 | `message`    | 消息文本                                     | string / <a target="_blank" href="https://cn.vuejs.org/api/render-function.html#h">VNode</a> | ——                                                                 | false   |
-| `type`       | 消息类型                                     | <a href="/components/interface.html#fightingtype">FightingType</a>                          | `default` `primary` `success` `danger` `warning`                   | default |
-| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                                                                                      | ——                                                                 | 2500    |
-| `round`      | 是否为圆角类型                               | boolean                                                                                     | ——                                                                 | false   |
-| `close`      | 是否可关闭                                   | boolean                                                                                     | ——                                                                 | false   |
-| `icon`       | 消息 icon                                    | <a href="/components/interface.html#fightingicon">FightingIcon</a>                          | ——                                                                 | ——      |
-| `color`      | 字体颜色                                     | string                                                                                      | ——                                                                 | ——      |
-| `placement`  | 位置                                         | <a href="#messageplacement">MessagePlacement</a>                                            | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
-| `offset`     | 偏移距离                                     | number                                                                                      | ——                                                                 | 20      |
-| `background` | 自定义背景色                                 | string                                                                                      | ——                                                                 | ——      |
-| `close-btn`  | 关闭按钮                                     | string / <a href="/components/interface.html#fightingicon">FightingIcon</a>                 | ——                                                                 | ——      |
-| `z-index`    | 层级                                         | boolean                                                                                     | ——                                                                 | 1000    |
-| `on-close`   | 关闭之后的回调                               | <a href="#messageclose">MessageClose</a>                                                    | ——                                                                 | ——      |
+| `type`       | 消息类型                                     | <a href="/components/interface.html#fightingtype">FightingType</a>                           | `default` `primary` `success` `danger` `warning`                   | default |
+| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                                                                                       | ——                                                                 | 2500    |
+| `round`      | 是否为圆角类型                               | boolean                                                                                      | ——                                                                 | false   |
+| `close`      | 是否可关闭                                   | boolean                                                                                      | ——                                                                 | false   |
+| `icon`       | 消息 icon                                    | <a href="/components/interface.html#fightingicon">FightingIcon</a>                           | ——                                                                 | ——      |
+| `color`      | 字体颜色                                     | string                                                                                       | ——                                                                 | ——      |
+| `placement`  | 位置                                         | <a href="#messageplacement">MessagePlacement</a>                                             | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
+| `offset`     | 偏移距离                                     | number                                                                                       | ——                                                                 | 20      |
+| `background` | 自定义背景色                                 | string                                                                                       | ——                                                                 | ——      |
+| `close-btn`  | 关闭按钮                                     | string / <a href="/components/interface.html#fightingicon">FightingIcon</a>                  | ——                                                                 | ——      |
+| `z-index`    | 层级                                         | boolean                                                                                      | ——                                                                 | 1000    |
+| `on-close`   | 关闭之后的回调                               | <a href="#messageclose">MessageClose</a>                                                     | ——                                                                 | ——      |
 
 ## Interface
 

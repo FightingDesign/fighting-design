@@ -1,6 +1,6 @@
 import { h, render, reactive } from 'vue'
 import { FIGHTING_TYPE } from '../../_tokens'
-import { isNumber, warning } from '../../_utils'
+import { isNumber, warning, isString } from '../../_utils'
 import type { VNode, ComponentInternalInstance, Component, ComponentPublicInstance, Ref } from 'vue'
 import type { MessageProps, MessagePlacement } from '../../message'
 import type { NotificationProps, NotificationPlacement } from '../../notification'
@@ -14,9 +14,9 @@ export type MessageOptionalType = {
 /**
  * 基本的 message 类型
  * 
- * @param { Object } options 参数对象
+ * @param { Object } params 参数对象
  */
-export type MessageBasicType = (options: Partial<MessageProps | NotificationProps>) => ComponentPublicInstance
+export type MessageBasicType = (params: Partial<MessageProps | NotificationProps> | string) => ComponentPublicInstance
 
 /** message 类型 */
 export type MessageType = MessageBasicType & MessageOptionalType
@@ -258,10 +258,12 @@ export const useMessage = (component: Component, name: 'message' | 'notification
    * 
    * @see Partial https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype
    * 
-   * @param { Object } options 配置对象
+   * @param { Object } params 配置对象
    * @returns { Object } Message 组件实例
    */
-  const Message: MessageBasicType = (options: Partial<MessageProps | NotificationProps>): ComponentPublicInstance => {
+  const Message: MessageBasicType = (params: Partial<MessageProps | NotificationProps> | string): ComponentPublicInstance => {
+    /** 配置对象 */
+    const options: Partial<MessageProps | NotificationProps> = isString(params) ? { message: params } : params
     return createMessage(mergeOptions(options))
   }
 
