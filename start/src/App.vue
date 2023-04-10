@@ -14,7 +14,15 @@
     //   // onClose: () => {}
     // })
 
-    FNotification.success('123')
+    FNotification({
+      duration: 0,
+      message: '这是一段内容文字',
+      close: true,
+      type: 'primary',
+      title: 'Title'
+      // title:
+      //   'Title这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字'
+    })
 
     FMessage({
       message: '这是一个提示信息'

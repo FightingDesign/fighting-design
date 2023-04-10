@@ -223,19 +223,17 @@ export const useMessage = (component: Component, name: 'message' | 'notification
    * 合并参数对象
    * 
    * @param { Object } options 参数对象
-   * @param { string } [type = 'default'] 类型
    * @returns { Object } 配置对象
    */
-  const mergeOptions = (options: Partial<MessageProps>, type: FightingType = 'default'): Partial<MessageProps> => {
+  const mergeOptions = (options: Partial<MessageProps>): Partial<MessageProps> => {
     /** 默认配置对象 */
     const defaultOptions: Partial<MessageProps> = {
       duration: 2500,
-      type,
       placement: name === 'message' ? 'top' : 'top-right',
       offset: calculateVerticalOffset(options)
-    }
+    } as const
 
-    return { ...defaultOptions, ...options }
+    return { ...defaultOptions, ...options } as const
   }
 
   /**

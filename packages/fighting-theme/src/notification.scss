@@ -2,14 +2,15 @@
 
 .f-notification {
   position: fixed;
-  padding: 13px 15px;
+  padding: 13px 20px;
   font-size: 14px;
+  min-width: 300px;
+  max-width: 500px;
+  box-sizing: border-box;
   overflow: hidden;
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
   box-shadow: #ededed 1px 1px 7px, #ededed -1px -1px 7px;
-  max-width: 500px;
   transition: all 0.4s ease-out;
   z-index: var(--notification-z-index, 4000);
   background: var(--notification-background, #fff);
@@ -48,21 +49,38 @@
     bottom: 0;
   }
 
+  // 前缀 icon
+  &__icon {
+    margin-right: 10px;
+  }
+
+  // 主要内容
+  &__content {
+    padding-right: 21px;
+
+    // 标题
+    .f-notification__title {
+      margin: 0;
+      margin-bottom: 10px;
+      color: #19191a;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    // 内容
+    .f-notification__message {
+      font-size: 15px;
+      color: #4a4a4d;
+      font-weight: 500;
+    }
+  }
+
+  // 关闭按钮
   &__close {
     cursor: pointer;
-    text-align: center;
-    padding: 0 12px;
-    flex-shrink: 0;
-  }
-
-  &__icon {
-    margin-right: 8px;
-  }
-
-  &__title-text {
-    margin: 0;
-    margin-bottom: 2px;
-    font-size: 16px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
   }
 
   &-fade-right-enter-active,
