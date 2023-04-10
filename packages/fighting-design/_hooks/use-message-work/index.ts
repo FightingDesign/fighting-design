@@ -1,4 +1,4 @@
-import { useList, removeInstance } from '..'
+import { useList, removeInstance, useRun } from '..'
 import { ref, computed, onMounted, getCurrentInstance } from 'vue'
 import type { MessageProps, NotificationProps } from '../../components'
 import type { CSSProperties, ComputedRef, Ref, ComponentInternalInstance } from 'vue'
@@ -30,6 +30,7 @@ export interface UseMessageWorkReturn {
 export const useMessageWork = (prop: MessageProps | NotificationProps, name: 'message' | 'notification'): UseMessageWorkReturn => {
 
   const { classes, styles } = useList(prop, name)
+  const { run } = useRun()
 
   /** 获取到当前组件实例 */
   const instance = getCurrentInstance() as ComponentInternalInstance
@@ -57,8 +58,9 @@ export const useMessageWork = (prop: MessageProps | NotificationProps, name: 'me
   let timeout: NodeJS.Timeout | undefined
 
   /** 关闭方法 */
-  const handelClose = (): void => {
+  const handelClose = (evt?: MouseEvent): void => {
     visible.value = false
+    run(prop.onClose, evt)
     clearTimeout(timeout)
   }
 

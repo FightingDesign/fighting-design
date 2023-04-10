@@ -1,5 +1,6 @@
-import { setBooleanProp, setStringProp, setNumberProp, setObjectProp } from '../../_utils'
+import { setBooleanProp, setStringProp, setNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
 import { FIGHTING_TYPE } from '../../_tokens'
+import type { MessageClose } from '../../message'
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
 import type { NotificationPlacement } from './interface'
 import type { FightingType, FightingIcon } from '../../_interface'
@@ -13,8 +14,7 @@ export const Props = {
   /** 通知文本 */
   message: {
     type: [String, Object] as PropType<VNode | string>,
-    default: (): null => null,
-    required: true
+    default: (): null => null
   },
   /**
    * 消息类型
@@ -63,10 +63,7 @@ export const Props = {
     default: (): null => null
   },
   /** 关闭之后回调 */
-  onClose: {
-    type: Function,
-    default: (): null => null
-  }
+  onClose: setFunctionProp<MessageClose>()
 } as const
 
 /** notification 组件 props 类型 */

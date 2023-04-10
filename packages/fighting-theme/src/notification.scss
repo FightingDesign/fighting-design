@@ -16,8 +16,9 @@
   background: var(--notification-background, #fff);
   color: var(--notification-color);
 
+  // 圆角的
   &.f-notification__round {
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   &.f-notification__top {

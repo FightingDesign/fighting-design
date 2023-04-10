@@ -234,8 +234,8 @@
 | ------------ | -------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------- | --------- |
 | `title`      | 通知标题                                     | string / VNode                                                     | ——                                                  | ——        |
 | `message`    | 通知文本                                     | string / VNode                                                     | ——                                                  | ——        |
-| `type`       | 消息类型                                     | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning`    | default   |
-| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                                                             | ——                                                  | 3000      |
+| `type`       | 消息类型                                     | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `primary` `success` `danger` `warning`    | ——        |
+| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                                                             | ——                                                  | 2500      |
 | `round`      | 是否为圆角类型                               | boolean                                                            | ——                                                  | false     |
 | `close`      | 是否可关闭                                   | boolean                                                            | ——                                                  | false     |
 | `show-icon`  | 是否显示按钮                                 | boolean                                                            | ——                                                  | true      |
@@ -246,15 +246,7 @@
 | `offset`     | 偏移距离                                     | number                                                             | ——                                                  | 20        |
 | `close-btn`  | 自定义关闭按钮                               | string / VNode                                                     | ——                                                  | ——        |
 | `z-index`    | 层级                                         | boolean                                                            | ——                                                  | 1000      |
-| `on-close`   | 关闭之后回调                                 | Function                                                           | ——                                                  | ——        |
-
-## Events
-
-`FNotification` 调用之后返回 `Notification` 实例，如果需要手动关闭实例，可以调用它的 `close` 方法。
-
-| 事件名称 | 说明                    |
-| -------- | ----------------------- |
-| `close`  | 关闭当前的 Notification |
+| `on-close`   | 关闭之后回调                                 | <a href="/components/message.html#messageclose">MessageClose</a>   | ——                                                  | ——        |
 
 ## Interface
 

@@ -15,18 +15,23 @@
     // })
 
     FNotification({
-      duration: 0,
+      // duration: 0,
       message: '这是一段内容文字',
       close: true,
       type: 'primary',
       // title: 'Title',
-      title: '12;'
+      title: '12;',
+      onClose: (evt?: MouseEvent): void => {
+        console.log(evt, '关闭了')
+      },
+      closeBtn: '123',
+      round: true
       // title:
       //   'Title这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字'
     })
 
     FMessage({
-      message: '这是一个提示信息'
+      message: '这是一个提示信息',  round: true
     })
 
     // FMessage.success('123')
