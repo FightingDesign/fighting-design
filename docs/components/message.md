@@ -220,21 +220,21 @@
 
 ## Attributes
 
-| 参数         | 说明                                         | 类型                                                                        | 可选值                                                             | 默认值  |
-| ------------ | -------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
-| `message`    | 消息文本                                     | string / VNode                                                              | ——                                                                 | false   |
-| `type`       | 消息类型                                     | <a href="/components/interface.html#fightingtype">FightingType</a>          | `default` `primary` `success` `danger` `warning`                   | default |
-| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                                                                      | ——                                                                 | 2500    |
-| `round`      | 是否为圆角类型                               | boolean                                                                     | ——                                                                 | false   |
-| `close`      | 是否可关闭                                   | boolean                                                                     | ——                                                                 | false   |
-| `icon`       | 消息 icon                                    | <a href="/components/interface.html#fightingicon">FightingIcon</a>          | ——                                                                 | ——      |
-| `color`      | 字体颜色                                     | string                                                                      | ——                                                                 | ——      |
-| `placement`  | 位置                                         | <a href="#messageplacement">MessagePlacement</a>                            | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
-| `offset`     | 偏移距离                                     | number                                                                      | ——                                                                 | 20      |
-| `background` | 自定义背景色                                 | string                                                                      | ——                                                                 | ——      |
-| `close-btn`  | 关闭按钮                                     | string / <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                                                 | ——      |
-| `z-index`    | 层级                                         | boolean                                                                     | ——                                                                 | 1000    |
-| `on-close`   | 关闭之后的回调                               | <a href="#messageclose">MessageClose</a>                                    | ——                                                                 | ——      |
+| 参数         | 说明                                         | 类型                                                                                        | 可选值                                                             | 默认值  |
+| ------------ | -------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
+| `message`    | 消息文本                                     | string / <a target="_blank" href="https://cn.vuejs.org/api/render-function.html#h">VNode</a> | ——                                                                 | false   |
+| `type`       | 消息类型                                     | <a href="/components/interface.html#fightingtype">FightingType</a>                          | `default` `primary` `success` `danger` `warning`                   | default |
+| `duration`   | 显示时间，单位为毫秒。 设为 0 则不会自动关闭 | number                                                                                      | ——                                                                 | 2500    |
+| `round`      | 是否为圆角类型                               | boolean                                                                                     | ——                                                                 | false   |
+| `close`      | 是否可关闭                                   | boolean                                                                                     | ——                                                                 | false   |
+| `icon`       | 消息 icon                                    | <a href="/components/interface.html#fightingicon">FightingIcon</a>                          | ——                                                                 | ——      |
+| `color`      | 字体颜色                                     | string                                                                                      | ——                                                                 | ——      |
+| `placement`  | 位置                                         | <a href="#messageplacement">MessagePlacement</a>                                            | `top` `bottom` `top-left` `top-right` `bottom-left` `bottom-right` | top     |
+| `offset`     | 偏移距离                                     | number                                                                                      | ——                                                                 | 20      |
+| `background` | 自定义背景色                                 | string                                                                                      | ——                                                                 | ——      |
+| `close-btn`  | 关闭按钮                                     | string / <a href="/components/interface.html#fightingicon">FightingIcon</a>                 | ——                                                                 | ——      |
+| `z-index`    | 层级                                         | boolean                                                                                     | ——                                                                 | 1000    |
+| `on-close`   | 关闭之后的回调                               | <a href="#messageclose">MessageClose</a>                                                    | ——                                                                 | ——      |
 
 ## Interface
 
