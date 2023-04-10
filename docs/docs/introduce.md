@@ -39,3 +39,13 @@
 ## 💬 执照
 
 [MIT](https://github.com/FightingDesign/fighting-design/blob/master/LICENSE)
+
+## 📈 下载量
+
+<downloads />
+
+详细趋势请参考 [fighting-design npm trends](https://npmtrends.com/fighting-design)
+
+<script lang="ts" setup>
+import downloads from './components/downloads.vue'
+</script>

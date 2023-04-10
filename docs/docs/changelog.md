@@ -2,6 +2,21 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.31.0 (2023-04-10)
+
+- `FNotification` 组件 type 默认值改为 null
+- `FNotification` 组件 duration 默认值改为 2500
+- `FNotification` 组件废除 close Events
+- `FNotification` 组件样式优化
+- `FMessage` 组件 duration 默认值改为 2500
+- `FMessage` 组件废除 close Events
+- `FMessage` 和 `FNotification` 添加 `on-close` 回调参数类型
+- `f-sticky-card` 组件样式细节优化
+
+## 0.30.0 (2023-04-01)
+
+- 修复 message 组件导出类型
+
 ## 0.28.2 (2023-04-01)
 
 - 修复全局类型错误

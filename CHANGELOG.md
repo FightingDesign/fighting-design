@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.31.0 (2023-04-10)
+
 - `FNotification` 组件 type 默认值改为 null
 - `FNotification` 组件 duration 默认值改为 2500
 - `FNotification` 组件废除 close Events

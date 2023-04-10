@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.31.0 (2023-04-10)
+
+- Change the default value of `FNotification` component type to null
+- Change the default value of the `FNotification` component duration to 2500
+- `FNotification` component cancels close events
+- `FNotification` Component Style Optimization
+- Change the default value of the `FMessage` component duration to 2500
+- `FMessage` component abolishes close events
+- Adding `on-close` callback parameter types to `FMessage` and `FNotification`
+- Optimization of `f-stick-card` component style details
+
 ## 0.30.0 (2023-04-01)
 
 - Fix message component export types
