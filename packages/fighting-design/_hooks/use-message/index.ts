@@ -1,8 +1,9 @@
 import { h, render, reactive } from 'vue'
 import { FIGHTING_TYPE } from '../../_tokens'
+import { isNumber, warning } from '../../_utils'
 import type { VNode, ComponentInternalInstance, Component, ComponentPublicInstance, Ref } from 'vue'
 import type { MessageProps, MessagePlacement } from '../../message'
-import type { NotificationPlacement } from '../../notification'
+import type { NotificationProps, NotificationPlacement } from '../../notification'
 import type { FightingType } from '../../_interface'
 
 /** 可选的 message 类型 */
@@ -15,7 +16,7 @@ export type MessageOptionalType = {
  * 
  * @param { Object } options 参数对象
  */
-export type MessageBasicType = (options: Partial<MessageProps>) => ComponentPublicInstance
+export type MessageBasicType = (options: Partial<MessageProps | NotificationProps>) => ComponentPublicInstance
 
 /** message 类型 */
 export type MessageType = MessageBasicType & MessageOptionalType
@@ -163,7 +164,7 @@ export const useMessage = (component: Component, name: 'message' | 'notification
    * @param { Object } options 配置对象
    * @returns { number } 垂直偏移量
    */
-  const calculateVerticalOffset = (options: Partial<MessageProps>): number => {
+  const calculateVerticalOffset = (options: Partial<MessageProps | NotificationProps>): number => {
     /** 偏移量 */
     let result: number = options.offset || 20
     /** 获取到当前方位的组件实例集合 */
@@ -184,7 +185,7 @@ export const useMessage = (component: Component, name: 'message' | 'notification
    * @param { Object } prop 参数对象
    * @returns { Object } 组件实例
    */
-  const createMessageComponentByOptions = (prop: Partial<MessageProps>): ComponentInternalInstance => {
+  const createMessageComponentByOptions = (prop: Partial<MessageProps | NotificationProps>): ComponentInternalInstance => {
     /**
      * 创建虚拟 DOM 节点
      *
@@ -212,9 +213,10 @@ export const useMessage = (component: Component, name: 'message' | 'notification
    * @param { Object } options 配置对象
    * @returns { Object } 组件实例对象
    */
-  const createMessage = (options: Partial<MessageProps>): ComponentPublicInstance => {
+  const createMessage = (options: Partial<MessageProps | NotificationProps>): ComponentPublicInstance => {
     /** 组件实例 */
     const instance = createMessageComponentByOptions(options) as ComponentInternalInstance
+    /** 存储组件实例对象 */
     addInstance(instance)
     return instance.proxy as ComponentPublicInstance
   }
@@ -225,28 +227,41 @@ export const useMessage = (component: Component, name: 'message' | 'notification
    * @param { Object } options 参数对象
    * @returns { Object } 配置对象
    */
-  const mergeOptions = (options: Partial<MessageProps>): Partial<MessageProps> => {
+  const mergeOptions = (options: Partial<MessageProps | NotificationProps>): Partial<MessageProps | NotificationProps> => {
+
     /** 默认配置对象 */
-    const defaultOptions: Partial<MessageProps> = {
+    const defaultOptions = {
       duration: 2500,
       placement: name === 'message' ? 'top' : 'top-right',
-      offset: calculateVerticalOffset(options)
-    } as const
+      offset: calculateVerticalOffset(options),
+      ...options
+    }
 
-    return { ...defaultOptions, ...options } as const
+    if (!isNumber(defaultOptions.duration)) {
+      defaultOptions.duration = 2500
+
+      /** 
+       * 如果不是数字参数，则报错
+       * 
+       * Parameters `duration` is not a number.The default value has been used 2500.
+       */
+      warning(`F${name}`, 'Parameters `duration` is not a number.The default value has been used 2500.')
+    }
+
+    return defaultOptions as Partial<MessageProps | NotificationProps>
   }
 
   /**
    * 创建组件实例
    * 
-   * Partial<MessageProps> 代表仅需要部分的参数传递即可
+   * Partial<MessageProps | NotificationProps> 代表仅需要部分的参数传递即可
    * 
    * @see Partial https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype
    * 
    * @param { Object } options 配置对象
    * @returns { Object } Message 组件实例
    */
-  const Message: MessageBasicType = (options: Partial<MessageProps>): ComponentPublicInstance => {
+  const Message: MessageBasicType = (options: Partial<MessageProps | NotificationProps>): ComponentPublicInstance => {
     return createMessage(mergeOptions(options))
   }
 

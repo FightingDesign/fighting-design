@@ -19,7 +19,8 @@
       message: '这是一段内容文字',
       close: true,
       type: 'primary',
-      title: 'Title'
+      // title: 'Title',
+      title: '12;'
       // title:
       //   'Title这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字这是一段内容文字'
     })
@@ -32,6 +33,10 @@
 
     //   FMessage.danger('123')
   }
+
+  setTimeout(() => {
+    console.log('123')
+  }, NaN)
 </script>
 
 <template>

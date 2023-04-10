@@ -5,8 +5,6 @@ import type { NotificationPlacement } from './interface'
 import type { FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
-  /** id 唯一值 */
-  // id: setStringProp(),
   /** 通知标题 */
   title: {
     type: [String, Object] as PropType<VNode | string>,
@@ -30,7 +28,7 @@ export const Props = {
   /** 是否可关闭 */
   close: setBooleanProp(),
   /** 显示时间，单位为毫秒。 设为 0 则不会自动关闭 */
-  duration: setNumberProp(3000),
+  duration: setNumberProp(2500),
   /** 是否为圆角类型 */
   round: setBooleanProp(),
   /** 是否显示按钮 */
