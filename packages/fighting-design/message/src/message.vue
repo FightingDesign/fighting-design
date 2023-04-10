@@ -3,6 +3,7 @@
   import { isString } from '../../_utils'
   import { useMessageWork } from '../../_hooks'
   import { FSvgIcon } from '../../svg-icon'
+  import { isVNode } from 'vue'
   import { FCloseBtn } from '../../close-btn'
 
   const prop = defineProps(Props)
@@ -44,7 +45,8 @@
       </div>
 
       <!-- 提示信息 -->
-      <div class="f-message__text">{{ message }}</div>
+      <component :is="message" v-if="isVNode(message)" />
+      <div v-else class="f-message__text">{{ message }}</div>
 
       <!-- 关闭按钮 -->
       <div v-if="close" class="f-message__close" @click="handelClose">

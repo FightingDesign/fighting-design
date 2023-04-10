@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { isString } from '../../_utils'
   import { useMessageWork } from '../../_hooks'
-  import { computed } from 'vue'
+  import { computed, isVNode } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import {
@@ -74,8 +74,15 @@
 
       <!-- 提示信息 -->
       <div class="f-notification__content">
-        <h3 v-if="title" class="f-notification__title">{{ title }}</h3>
-        <div class="f-notification__message">{{ message }}</div>
+        <!-- 标题 -->
+        <template v-if="title">
+          <component :is="title" v-if="isVNode(title)" />
+          <h3 v-else class="f-notification__title">{{ title }}</h3>
+        </template>
+
+        <!-- 主内容 -->
+        <component :is="message" v-if="isVNode(message)" />
+        <div v-else class="f-notification__message">{{ message }}</div>
       </div>
 
       <!-- 关闭按钮 -->
