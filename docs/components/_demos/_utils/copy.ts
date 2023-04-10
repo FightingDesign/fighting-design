@@ -6,7 +6,6 @@ import { FMessage } from '../../../../packages/fighting-design/message'
  * @param { string } target 文本内容
  */
 export const onCopy = (target: string): void => {
-
   /**
    * @see Navigator https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator
    * @see Clipboard.writeText() https://developer.mozilla.org/zh-CN/docs/Web/API/Clipboard/writeText

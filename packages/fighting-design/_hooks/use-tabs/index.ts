@@ -100,8 +100,7 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
 
   /** nav 列表 */
   const navs = computed((): TabsNavInstance[] => {
-    return (
-      usePanes.children.value &&
+    return (usePanes.children.value &&
       usePanes.children.value.map((item: TabsPane, index: number) => {
         item.paneName = item.paneName || index
 
@@ -110,8 +109,7 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
           name: item.paneName,
           label: item.slots['label'] || item.prop.label
         } as const
-      })
-    ) as TabsNavInstance[]
+      })) as TabsNavInstance[]
   })
 
   /** prop.modelValue 同步到 currentName 中 */
@@ -131,7 +129,9 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
   onMounted(async (): Promise<void> => {
     await nextTick()
     /** 如果没有传 value 默认选中第一个 */
-    setActiveName((prop.modelValue || (navs.value[0] && navs.value[0].name)) as TabsModelValue)
+    setActiveName(
+      (prop.modelValue || (navs.value[0] && navs.value[0].name)) as TabsModelValue
+    )
   })
 
   /** 将信息传递给子组件 */

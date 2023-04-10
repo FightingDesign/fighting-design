@@ -20,15 +20,17 @@ export interface UseMessageWorkReturn {
 
 /**
  * message 和 notification 组件内部工作方法封装
- * 
+ *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } instance 组件实例
  * @param { Object } prop 参数
  * @param { string } name 组件名
  * @returns { Object }
  */
-export const useMessageWork = (prop: MessageProps | NotificationProps, name: 'message' | 'notification'): UseMessageWorkReturn => {
-
+export const useMessageWork = (
+  prop: MessageProps | NotificationProps,
+  name: 'message' | 'notification'
+): UseMessageWorkReturn => {
   const { classes, styles } = useList(prop, name)
   const { run } = useRun()
 

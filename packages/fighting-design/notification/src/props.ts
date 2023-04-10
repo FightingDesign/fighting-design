@@ -1,4 +1,10 @@
-import { setBooleanProp, setStringProp, setNumberProp, setObjectProp, setFunctionProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringProp,
+  setNumberProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
 import { FIGHTING_TYPE } from '../../_tokens'
 import type { MessageClose } from '../../message'
 import type { VNode, PropType, ExtractPropTypes } from 'vue'

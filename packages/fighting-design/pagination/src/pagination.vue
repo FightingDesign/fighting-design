@@ -3,11 +3,7 @@
   import { ref } from 'vue'
   import { isNumber } from '../../_utils'
   import { useList, usePage, useTurnPage } from '../../_hooks'
-  import {
-    FIconChevronLeft,
-    FIconChevronRight,
-    FIconMenuMeatball
-  } from '../../_svg'
+  import { FIconChevronLeft, FIconChevronRight, FIconMenuMeatball } from '../../_svg'
   import { FInput } from '../../input'
   import { FSelect } from '../../select'
   import {

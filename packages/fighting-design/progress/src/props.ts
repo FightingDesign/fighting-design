@@ -47,6 +47,5 @@ export const Props = {
 export type ProgressProps = ExtractPropTypes<typeof Props>
 
 /** progress 组件注入的依赖项 */
-export const PROGRESS_PROPS_KEY: InjectionKey<ProgressProvide> = Symbol(
-  'progress-props-key'
-)
+export const PROGRESS_PROPS_KEY: InjectionKey<ProgressProvide> =
+  Symbol('progress-props-key')

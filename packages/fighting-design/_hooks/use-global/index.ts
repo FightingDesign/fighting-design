@@ -56,7 +56,6 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
    */
   const getType = (def: string | FightingType = 'default'): ComputedRef<FightingType> => {
     return computed((): FightingType => {
-
       if (!prop) {
         return def as FightingType
       }
@@ -82,14 +81,13 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
     parentSize?: FightingSize | null
   ): ComputedRef<FightingSize> => {
     return computed((): FightingSize => {
-
       if (!prop) {
         return def as FightingSize
       }
 
-      /** 
+      /**
        * 校验格式
-       * 
+       *
        * 如果 size 存在，但是不符合 size 指定字符串则返回默认值 middle
        */
       if (prop.size && !FIGHTING_SIZE.includes(prop.size as FightingSize)) {
@@ -99,12 +97,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
       /**
        * 返回优先级：自己的 size > 父级 size > 全局 size > 默认值
        */
-      return (
-        prop.size ||
-        parentSize ||
-        (global && global.size) ||
-        def
-      ) as FightingSize
+      return (prop.size || parentSize || (global && global.size) || def) as FightingSize
     })
   }
 
@@ -135,11 +128,11 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
 
   /**
    * 有些组件的 props 需要获取全局配置的熟悉
-   * 
+   *
    * 使用此方法，第一个参数传递需要获取全局配置的 key 数组
-   * 
+   *
    * 第二个可选参数用于定义默认值，target 参数的第一个 key 默认值对应 def 数组的第一个元素
-   * 
+   *
    * @param { string[] } target 需要获取全局配置的参数数组
    * @param { string[] } [def] 默认值数组
    * @returns { Object } props 参数列表
@@ -147,14 +140,13 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
   const getProp = (target: ('type' | 'size')[], def?: string[]): object => {
     /** 结果 props 对象 */
     const prams: {
-      type?: ComputedRef<FightingSize | FightingType>,
+      type?: ComputedRef<FightingSize | FightingType>
       size?: ComputedRef<FightingSize | FightingType>
     } = {}
 
     /** 必须是数组才遍历，提前拦截错误 */
     if (isArray(target)) {
       target.forEach((item: 'type' | 'size', index: number): void => {
-
         /** 检测映射对象中是否存在该属性 */
         if (getPropMap[item]) {
           /** 获取默认值 */

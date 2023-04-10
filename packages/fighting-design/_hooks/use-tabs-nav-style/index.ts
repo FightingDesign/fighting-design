@@ -40,11 +40,11 @@ export const useTabsNavStyle = (prop: TabsNavProps): UseTabsNavStyleReturn => {
   const activeIndex = computed((): number =>
     prop.navs
       ? Math.max(
-        prop.navs.findIndex(
-          (e: TabsNavInstance): boolean => e.name === prop.activeName
-        ),
-        0
-      )
+          prop.navs.findIndex(
+            (e: TabsNavInstance): boolean => e.name === prop.activeName
+          ),
+          0
+        )
       : 0
   )
 
