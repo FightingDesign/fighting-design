@@ -272,9 +272,9 @@ export const useMessage = (component: Component, name: 'message' | 'notification
    *
    * @example FNotification.primary('xxx')
    */
-  FIGHTING_TYPE.forEach((item: FightingType): void => {
-    (Message as unknown as MessageOptionalType)[item] = (message: string): ComponentPublicInstance => {
-      return createMessage(mergeOptions({ message }))
+  FIGHTING_TYPE.forEach((type: FightingType): void => {
+    (Message as unknown as MessageOptionalType)[type] = (message: string): ComponentPublicInstance => {
+      return createMessage(mergeOptions({ message, type }))
     }
   })
 

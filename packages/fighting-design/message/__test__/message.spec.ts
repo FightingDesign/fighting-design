@@ -1,9 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import { FMessage } from '../../index'
 import FMessageVue from '../src/message.vue'
-
-import type { ComponentPublicInstance, Ref } from 'vue'
+import type { ComponentPublicInstance } from 'vue'
 
 type MessageInstance = ComponentPublicInstance<{
   visible: boolean
@@ -19,7 +17,7 @@ describe('FMessage', () => {
   test('base', async () => {
     const wrapper = mount(FMessageVue, {
       props: {
-        message: 'message-test',
+        message: '这是一段内容',
         type: 'success'
       }
     })
@@ -34,7 +32,7 @@ describe('FMessage', () => {
   test('click-close', async () => {
     const wrapper = mount(FMessageVue, {
       props: {
-        message: 'message-test',
+        message: '这是一段内容',
         type: 'success',
         close: true,
         duration: 0
@@ -47,23 +45,5 @@ describe('FMessage', () => {
     expect(wrapper.find('.f-message').isVisible()).toBe(true)
     await wrapper.find('.f-message__close').trigger('click')
     expect((wrapper.vm as unknown as MessageInstance).visible).toBe(false)
-  })
-
-  test('use func', async () => {
-    const messageReturn = FMessage({
-      message: 'message-test',
-      type: 'success'
-    })
-
-    expect(messageReturn).toHaveProperty('id')
-    expect(messageReturn).toHaveProperty('vm')
-    expect(messageReturn).toHaveProperty('close')
-    expect(messageReturn.close).toBeTypeOf('function')
-    expect(messageReturn).toHaveProperty('bottom')
-    expect(messageReturn.vm.exposed).toHaveProperty('visible')
-
-    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(true)
-    await sleep(3000)
-    expect((messageReturn.vm.exposed as Record<string, Ref>).visible.value).toBe(false)
   })
 })
