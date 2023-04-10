@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FTree">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { FIconChevronRightVue } from '../../_svg'
+  import { FIconChevronRight } from '../../_svg'
   import { useTreeData } from '../../_hooks'
   import type { FormatTreeData } from '../../_hooks'
 
@@ -39,7 +39,7 @@
           v-if="item.isChild"
           :class="{ 'f-tree__icon-animation': item.open }"
           :size="17"
-          :icon="FIconChevronRightVue"
+          :icon="FIconChevronRight"
         />
 
         {{ item.label }}

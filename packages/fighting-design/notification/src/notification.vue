@@ -6,11 +6,11 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import {
-    FIconSmileLineVue,
-    FIconLightbulbVue,
-    FIconThumbUpVue,
-    FIconCircleCrossVue,
-    FIconWarningVue,
+    FIconSmileLine,
+    FIconLightbulb,
+    FIconThumbUp,
+    FIconCircleCross,
+    FIconWarning,
     FIconBell
   } from '../../_svg'
   import type { FightingIcon } from '../../_interface'
@@ -39,11 +39,11 @@
 
     /** 默认 icon 列表 */
     const icons = {
-      default: FIconSmileLineVue,
-      primary: FIconLightbulbVue,
-      success: FIconThumbUpVue,
-      danger: FIconCircleCrossVue,
-      warning: FIconWarningVue,
+      default: FIconSmileLine,
+      primary: FIconLightbulb,
+      success: FIconThumbUp,
+      danger: FIconCircleCross,
+      warning: FIconWarning,
       info: FIconBell
     } as const
 

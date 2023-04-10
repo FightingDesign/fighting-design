@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { ref, toRefs, reactive, computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
-  import { FIconLoadingAVue } from '../../_svg'
+  import { FIconLoadingA } from '../../_svg'
   import { useRipples, useRun, useGlobal, useButton } from '../../_hooks'
   import type { RipplesOptions } from '../../_hooks'
   import type { FightingIcon } from '../../_interface'
@@ -59,7 +59,7 @@
 
   /** 前缀 icon */
   const beforeIconNode = computed((): FightingIcon => {
-    return prop.loading ? prop.loadingIcon || FIconLoadingAVue : prop.beforeIcon
+    return prop.loading ? prop.loadingIcon || FIconLoadingA : prop.beforeIcon
   })
 </script>
 
@@ -104,7 +104,7 @@
       <f-svg-icon
         v-if="loading || beforeIcon"
         :class="['f-button_before-icon', { 'f-button__loading-animation': loading }]"
-        :icon="loading ? loadingIcon || FIconLoadingAVue : beforeIcon"
+        :icon="loading ? loadingIcon || FIconLoadingA : beforeIcon"
         :size="16"
       />
 

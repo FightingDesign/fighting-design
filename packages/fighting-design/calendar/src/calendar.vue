@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { computed, watch, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
-  import { FIconChevronLeftVue, FIconChevronRightVue } from '../../_svg'
+  import { FIconChevronLeft, FIconChevronRight } from '../../_svg'
   import { addZero, isDate } from '../../_utils'
   import { useCalendar, useRun, useGlobal, useList } from '../../_hooks'
   import type { GetLunarDetailReturn } from '../../_hooks'
@@ -162,7 +162,7 @@
     <!-- 头部操作栏 -->
     <header v-if="showHeader" class="f-calendar__header">
       <!-- 上个月切换按钮 -->
-      <f-svg-icon :icon="FIconChevronLeftVue" @click.stop="optionClick('last')" />
+      <f-svg-icon :icon="FIconChevronLeft" @click.stop="optionClick('last')" />
 
       <!-- 操作栏 -->
       <div class="f-calendar__option">
@@ -171,7 +171,7 @@
       </div>
 
       <!-- 下个月切换按钮 -->
-      <f-svg-icon :icon="FIconChevronRightVue" @click.stop="optionClick('next')" />
+      <f-svg-icon :icon="FIconChevronRight" @click.stop="optionClick('next')" />
     </header>
 
     <!-- 周几 -->

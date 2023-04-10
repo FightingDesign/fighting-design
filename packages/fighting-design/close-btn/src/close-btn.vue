@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FCloseBtn">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { FIconCrossVue } from '../../_svg'
+  import { FIconCross } from '../../_svg'
   import { useRun, useList } from '../../_hooks'
 
   const prop = defineProps(Props)
@@ -30,7 +30,7 @@
   <div role="button" :class="classList" :style="styleList" @click="handleClick">
     <f-svg-icon :size="size" :icon="icon">
       <slot>
-        <f-icon-cross-vue />
+        <f-icon-cross />
       </slot>
     </f-svg-icon>
   </div>

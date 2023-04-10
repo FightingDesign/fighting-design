@@ -6,14 +6,14 @@
   import { FToolbarItem } from '../../toolbar-item'
   import { isBoolean, isArray } from '../../_utils'
   import {
-    FIconChevronLeftVue,
-    FIconChevronRightVue,
-    FIconRotateAntiClockwiseVue,
-    FIconRotateClockwiseVue,
-    FIconCrossVue,
-    FIconLayoutRowsVue,
-    FIconZoomInVue,
-    FIconZoomOutVue
+    FIconChevronLeft,
+    FIconChevronRight,
+    FIconRotateAntiClockwise,
+    FIconRotateClockwise,
+    FIconCross,
+    FIconLayoutRows,
+    FIconZoomIn,
+    FIconZoomOut
   } from '../../_svg'
   import { useOperationImg, useRun } from '../../_hooks'
   import { EMIT_VISIBLE } from '../../_tokens'
@@ -150,11 +150,11 @@
           <!-- 操作栏 -->
           <template v-if="isOption">
             <f-toolbar class="f-image-preview__option" round :on-click="optionClick">
-              <f-toolbar-item :icon="FIconZoomOutVue" :index="1" />
-              <f-toolbar-item :icon="FIconZoomInVue" :index="2" />
-              <f-toolbar-item :icon="FIconLayoutRowsVue" :index="3" />
-              <f-toolbar-item :icon="FIconRotateClockwiseVue" :index="4" />
-              <f-toolbar-item :icon="FIconRotateAntiClockwiseVue" :index="5" />
+              <f-toolbar-item :icon="FIconZoomOut" :index="1" />
+              <f-toolbar-item :icon="FIconZoomIn" :index="2" />
+              <f-toolbar-item :icon="FIconLayoutRows" :index="3" />
+              <f-toolbar-item :icon="FIconRotateClockwise" :index="4" />
+              <f-toolbar-item :icon="FIconRotateAntiClockwise" :index="5" />
             </f-toolbar>
           </template>
 
@@ -163,14 +163,14 @@
             <f-button
               class="f-image-preview__next"
               circle
-              :before-icon="FIconChevronRightVue"
+              :before-icon="FIconChevronRight"
               :on-click="() => switchImage('next')"
             />
 
             <f-button
               class="f-image-preview__prev"
               circle
-              :before-icon="FIconChevronLeftVue"
+              :before-icon="FIconChevronLeft"
               :on-click="() => switchImage('prev')"
             />
           </template>
@@ -179,7 +179,7 @@
           <f-button
             class="f-image-preview__close"
             circle
-            :before-icon="FIconCrossVue"
+            :before-icon="FIconCross"
             :on-click="handelClose"
           />
         </div>

@@ -5,7 +5,7 @@
   import { ref, watch, toRefs } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
-  import { FIconNotesVue, FIconPlusVue } from '../../_svg'
+  import { FIconNotes, FIconPlus } from '../../_svg'
   import { EMIT_FILES } from '../../_tokens'
 
   const prop = defineProps(Props)
@@ -139,7 +139,7 @@
       @dragover.prevent="onDragover"
     >
       <slot>
-        <f-svg-icon :icon="FIconPlusVue" />
+        <f-svg-icon :icon="FIconPlus" />
       </slot>
     </div>
 
@@ -166,7 +166,7 @@
   <ul v-if="showList && fileList && fileList.length" class="f-up-load__file-list">
     <li v-for="(file, index) in fileList" :key="index" class="f-up-load__file-list-item">
       <span class="f-up-load__file-name">
-        <f-svg-icon :icon="FIconNotesVue" />
+        <f-svg-icon :icon="FIconNotes" />
         {{ file.name }}
       </span>
 

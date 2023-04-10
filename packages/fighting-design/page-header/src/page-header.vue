@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import { useRun, useGlobal } from '../../_hooks'
-  import { FIconArrowLeftVue } from '../../_svg'
+  import { FIconArrowLeft } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
 
   const prop = defineProps(Props)
@@ -29,7 +29,7 @@
     <div class="f-page-header__left" @click="handleClick">
       <f-svg-icon :size="iconSize">
         <slot name="icon">
-          <component :is="icon || FIconArrowLeftVue" />
+          <component :is="icon || FIconArrowLeft" />
         </slot>
       </f-svg-icon>
 

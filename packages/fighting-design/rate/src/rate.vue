@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FRate">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { FIconStarBVue } from '../../_svg'
+  import { FIconStarB } from '../../_svg'
   import { FText } from '../../text'
   import { useRun } from '../../_hooks'
   import { ref, watch, unref, computed } from 'vue'
@@ -76,7 +76,7 @@
       >
         <f-svg-icon
           :size="size"
-          :icon="icon || FIconStarBVue"
+          :icon="icon || FIconStarB"
           :color="starValue > index ? effectColor : invalidColor"
         />
       </div>

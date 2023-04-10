@@ -4,7 +4,7 @@
   import { FButton } from '../../button'
   import { FSwap } from '../../swap'
   import { ref, toRefs, computed, reactive } from 'vue'
-  import { FIconCrossVue, FIconEyeOffOutlineVue, FIconEyeOutlineVue } from '../../_svg'
+  import { FIconCross, FIconEyeOffOutline, FIconEyeOutline } from '../../_svg'
   import { isString, isNumber } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
   import { useInput, useProps, useRun, useList, useGlobal } from '../../_hooks'
@@ -142,7 +142,7 @@
       <f-svg-icon
         v-if="clear"
         class="f-input__clear-btn"
-        :icon="FIconCrossVue"
+        :icon="FIconCross"
         :size="14"
         :on-click="onClear"
       />
@@ -156,8 +156,8 @@
         v-model="showPass"
         class="f-input__show-password"
         type="swap"
-        :icon-on="FIconEyeOutlineVue"
-        :icon-off="FIconEyeOffOutlineVue"
+        :icon-on="FIconEyeOutline"
+        :icon-off="FIconEyeOffOutline"
         :size="14"
         :on-change="handleShowPassword"
       />

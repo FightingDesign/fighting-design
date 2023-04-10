@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { useInput, useProps, useList } from '../../_hooks'
   import { isString, isNumber } from '../../_utils'
-  import { FIconCrossVue } from '../../_svg'
+  import { FIconCross } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
   import { EMIT_UPDATE } from '../../_tokens'
 
@@ -60,7 +60,7 @@
     <f-svg-icon
       v-if="clear"
       class="f-textarea__clear-btn"
-      :icon="FIconCrossVue"
+      :icon="FIconCross"
       :size="14"
       @click="onClear"
     />

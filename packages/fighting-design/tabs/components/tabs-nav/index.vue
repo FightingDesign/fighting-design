@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FTabsNav">
   import { Props } from './props'
   import { computed, watch } from 'vue'
-  import { FIconPlusVue } from '../../../_svg'
+  import { FIconPlus } from '../../../_svg'
   import { isBoolean } from '../../../_utils'
   import { FSvgIcon } from '../../../svg-icon'
   import { FCloseBtn } from '../../../close-btn'
@@ -119,7 +119,7 @@
           class="f-tabs-nav__item"
           @click="editItem('add')"
         >
-          <f-svg-icon :icon="FIconPlusVue" color="#666" />
+          <f-svg-icon :icon="FIconPlus" color="#666" />
         </div>
       </div>
 

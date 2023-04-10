@@ -2,8 +2,8 @@
   import { Props } from './props'
   import { computed } from 'vue'
   import {
-    FIconChevronLeftVue,
-    FIconChevronRightVue,
+    FIconChevronLeft,
+    FIconChevronRight,
     FIconChevronUp,
     FIconChevronDown
   } from '../../_svg'
@@ -106,7 +106,7 @@
       :type="buttonType || 'primary'"
       :size="size"
       :disabled="disabled || minDisabled"
-      :before-icon="FIconChevronLeftVue"
+      :before-icon="FIconChevronLeft"
       :on-click="() => handleChangeVal('minus')"
     />
 
@@ -158,7 +158,7 @@
       :type="buttonType || 'primary'"
       :size="size"
       :disabled="disabled || maxDisabled"
-      :before-icon="FIconChevronRightVue"
+      :before-icon="FIconChevronRight"
       :on-click="() => handleChangeVal('plus')"
     />
   </div>

@@ -4,7 +4,7 @@
   import { BREADCRUMB_PROPS_KEY } from '../../breadcrumb/src/props'
   import { FSvgIcon } from '../../svg-icon'
   import { useList } from '../../_hooks'
-  import { FIconChevronRightVue } from '../../_svg'
+  import { FIconChevronRight } from '../../_svg'
   import type { FightingIcon } from '../../_interface'
   import type { ComponentInternalInstance } from 'vue'
   import type { BreadcrumbProps } from '../../breadcrumb'
@@ -28,13 +28,15 @@
 
   /** 计算当前需要展示的 svg */
   const svgIconComponent = computed((): FightingIcon => {
-    if (prop.separator) return prop.separator
+    if (prop.separator) {
+      return prop.separator
+    }
 
     if (parentInject && parentInject.separator) {
       return parentInject.separator
     }
 
-    return FIconChevronRightVue
+    return FIconChevronRight
   })
 
   /** 样式列表 */

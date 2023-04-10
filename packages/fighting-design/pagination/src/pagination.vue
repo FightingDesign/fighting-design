@@ -4,8 +4,8 @@
   import { isNumber } from '../../_utils'
   import { useList, usePage, useTurnPage } from '../../_hooks'
   import {
-    FIconChevronLeftVue,
-    FIconChevronRightVue,
+    FIconChevronLeft,
+    FIconChevronRight,
     FIconMenuMeatball
   } from '../../_svg'
   import { FInput } from '../../input'
@@ -67,7 +67,7 @@
       :disabled="disabled"
       @click="handelTurnPages('prev')"
     >
-      <f-svg-icon :size="14" :icon="prevIcon || FIconChevronLeftVue" />
+      <f-svg-icon :size="14" :icon="prevIcon || FIconChevronLeft" />
     </button>
 
     <!-- 分页主内容 -->
@@ -129,7 +129,7 @@
       :disabled="disabled"
       @click="handelTurnPages('next')"
     >
-      <f-svg-icon :size="14" :icon="nextIcon || FIconChevronRightVue" />
+      <f-svg-icon :size="14" :icon="nextIcon || FIconChevronRight" />
     </button>
 
     <!-- 快速跳转搜索框 -->
