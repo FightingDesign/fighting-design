@@ -9,6 +9,7 @@
 - `FMessage` 组件 duration 默认值改为 2500
 - `FMessage` 组件废除 close Events
 - `FMessage` 和 `FNotification` 添加 `on-close` 回调参数类型
+- `f-sticky-card` 组件样式细节优化
 
 ## 0.30.0 (2023-04-01)
 
