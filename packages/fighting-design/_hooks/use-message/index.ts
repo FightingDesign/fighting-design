@@ -1,4 +1,4 @@
-import { h, render, reactive } from 'vue'
+import { h, render } from 'vue'
 import { FIGHTING_TYPE } from '../../_tokens'
 import { isNumber, warning, isString } from '../../_utils'
 import type {
@@ -48,7 +48,7 @@ export type MessageInstances = Partial<{
  *
  * 以方位信息为键，指定方位实例数组集合为值进行存储
  */
-const instances: MessageInstances = reactive({})
+const instances: MessageInstances = {}
 
 /**
  * 获取当前组件的方位信息
@@ -132,6 +132,7 @@ const updatePosition = (closeInstance: ComponentInternalInstance): void => {
  * @param { Object } instance 组件实例
  */
 export const removeInstance = (instance: ComponentInternalInstance): void => {
+  /** 设置后面组件偏移量 */
   updatePosition(instance)
 
   /** 当前组件的方位 */
@@ -187,6 +188,7 @@ export const useMessage = (
   const calculateVerticalOffset = (
     options: Partial<MessageProps | NotificationProps>
   ): number => {
+
     /** 偏移量 */
     let result: number = options.offset || 20
     /** 获取到当前方位的组件实例集合 */
@@ -203,36 +205,6 @@ export const useMessage = (
   }
 
   /**
-   * 创建组件实例
-   *
-   * @param { Object } prop 参数对象
-   * @returns { Object } 组件实例
-   */
-  const createMessageComponentByOptions = (
-    prop: Partial<MessageProps | NotificationProps>
-  ): ComponentInternalInstance => {
-    /**
-     * 创建虚拟 DOM 节点
-     *
-     * @see h https://cn.vuejs.org/api/render-function.html#h
-     */
-    const vNode: VNode = h(component, prop)
-
-    /** 创建容器节点 */
-    const container: HTMLDivElement = document.createElement('div')
-
-    render(vNode, container)
-
-    /**
-     * @see Node.appendChild https://developer.mozilla.org/zh-CN/docs/Web/API/Node/appendChild
-     * @see Element.firstElementChild https://developer.mozilla.org/zh-CN/docs/Web/API/Element/firstElementChild
-     * @see Node.appendChild https://developer.mozilla.org/zh-CN/docs/Web/API/Node/appendChild
-     */
-    document.body.appendChild(container.firstElementChild as HTMLElement)
-    return vNode.component as ComponentInternalInstance
-  }
-
-  /**
    * 创建组件实例对象
    *
    * @param { Object } options 配置对象
@@ -241,10 +213,25 @@ export const useMessage = (
   const createMessage = (
     options: Partial<MessageProps | NotificationProps>
   ): ComponentPublicInstance => {
-    /** 组件实例 */
-    const instance = createMessageComponentByOptions(options) as ComponentInternalInstance
-    /** 存储组件实例对象 */
+
+    /**
+     * 创建虚拟 DOM 节点
+     *
+     * @see h https://cn.vuejs.org/api/render-function.html#h
+     */
+    const vNode: VNode = h(component, options)
+
+    /** 创建容器节点 */
+    const container: HTMLDivElement = document.createElement('div')
+
+    render(vNode, container)
+
+    const instance = vNode.component as ComponentInternalInstance
+
+    document.body.appendChild(instance.vnode.el as HTMLDivElement)
+
     addInstance(instance)
+
     return instance.proxy as ComponentPublicInstance
   }
 
@@ -264,6 +251,8 @@ export const useMessage = (
       offset: calculateVerticalOffset(options),
       ...options
     }
+
+    console.log(defaultOptions)
 
     /** 如何传入的时间不是一个数字，则强制修改成为数字类型 */
     if (!isNumber(defaultOptions.duration)) {

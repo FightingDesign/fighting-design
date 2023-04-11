@@ -111,7 +111,7 @@ export const useMessageWork = (
     return styles
   })
 
-  console.log(offsetStyle.value)
+  // console.log(offsetStyle.value)
 
   /** 清除计时器 */
   const clearTimer = (): void => {

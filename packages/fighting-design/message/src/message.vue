@@ -28,6 +28,7 @@
 <template>
   <transition
     mode="out-in"
+    appear
     :name="'f-message-fade' + (isPosition ? '-top' : '-bottom')"
     @before-leave="onBeforeLeave"
     @after-leave="onAfterLeave"
