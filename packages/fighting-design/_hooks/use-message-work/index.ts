@@ -1,5 +1,5 @@
 import { useList, removeInstance, useRun } from '..'
-import { ref, computed, onMounted, getCurrentInstance } from 'vue'
+import { ref, computed, getCurrentInstance } from 'vue'
 import type { MessageProps, NotificationProps } from '../../components'
 import type { CSSProperties, ComputedRef, Ref, ComponentInternalInstance } from 'vue'
 import type { ClassList } from '../../_interface'
@@ -38,7 +38,7 @@ export const useMessageWork = (
   const instance = getCurrentInstance() as ComponentInternalInstance
 
   /** 控制显示隐藏 */
-  const visible = ref<boolean>(false)
+  const visible = ref<boolean>(true)
 
   /** 类名列表 */
   const classList = classes(['type', 'placement', 'round'], `f-${name}`)
@@ -65,10 +65,6 @@ export const useMessageWork = (
     run(prop.onClose, evt)
     clearTimeout(timeout)
   }
-
-  onMounted((): void => {
-    visible.value = true
-  })
 
   /** 动画关闭之后移除组件实例对象 */
   const onBeforeLeave = (): void => {
