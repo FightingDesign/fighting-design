@@ -191,7 +191,7 @@ export const useMessage = (
     let result: number = options.offset || 20
     /** 获取到当前方位的组件实例集合 */
     const placementInstance: ComponentInternalInstance[] | undefined =
-      instances[options.placement as MessagePlacement | NotificationPlacement]
+      instances[options.placement ? options.placement : name === 'message' ? 'top' : 'top-right']
 
     if (placementInstance) {
       placementInstance.forEach((instance: ComponentInternalInstance): void => {
@@ -265,6 +265,7 @@ export const useMessage = (
       ...options
     }
 
+    /** 如何传入的时间不是一个数字，则强制修改成为数字类型 */
     if (!isNumber(defaultOptions.duration)) {
       defaultOptions.duration = 2500
 
