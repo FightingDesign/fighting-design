@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.32.0 (2023-04-12)
+
 - 修复 `FMessage` 不同弹出位置错误的问题
 - 修复 `FMessage` 多弹出偏移量错误问题
 

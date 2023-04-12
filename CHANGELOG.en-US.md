@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.32.0 (2023-04-12)
+
+- Fix the issue of incorrect pop-up positions for `FMessage`
+- Fix `FMessage` multi pop offset error issue
+
 ## 0.31.1 (2023-04-10)
 
 - Fix the issue of incorrect pop-up positions for `FMessage`
