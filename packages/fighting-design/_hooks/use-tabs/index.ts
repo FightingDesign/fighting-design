@@ -140,8 +140,6 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
     ...usePanes
   })
 
-  console.log(usePanes)
-
   return {
     navs,
     activeName,

@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**Fix**
+
+- 修复 `f-tooltip` 组件部分情况 `disabled` 无效
+
 ## 0.32.0 (2023-04-12)
 
 - 修复 `FMessage` 不同弹出位置错误的问题
