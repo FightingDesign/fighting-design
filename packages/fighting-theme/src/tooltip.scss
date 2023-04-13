@@ -185,8 +185,18 @@
 
   // 是否禁用
   &.f-tooltip__disabled {
+    &::before,
+    &::after {
+      visibility: hidden;
+      opacity: 0;
+    }
     &:hover::before,
     &:hover::after {
+      visibility: hidden;
+      opacity: 0;
+    }
+    &:active::before,
+    &:active::after {
       visibility: hidden;
       opacity: 0;
     }
