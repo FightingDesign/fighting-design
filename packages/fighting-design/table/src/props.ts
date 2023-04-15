@@ -5,11 +5,11 @@ import {
   setArrayProp
 } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import type { TableAlign, TableDate, TableColumns } from './interface'
+import type { TableAlign, TableData, TableColumns } from './interface'
 
 export const Props = {
   /** 数据列表 */
-  data: setArrayProp<TableDate>(),
+  data: setArrayProp<TableData>(),
   /** 标题数据 */
   columns: setArrayProp<TableColumns[]>(),
   /**
@@ -31,8 +31,6 @@ export const Props = {
   zebraColor: setStringProp(),
   /** 自定义表格高度 */
   height: setStringNumberProp(),
-  /** 是否支持多选 */
-  optional: setBooleanProp(),
   /** 自定义背景颜色 */
   bgColor: setStringProp(),
   /** 自定义头部背景颜色 */

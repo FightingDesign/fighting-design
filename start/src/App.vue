@@ -1,20 +1,15 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
-
-  const columns = ref([
-    {
-      title: '姓名',
-      key: 'name'
-    },
-    {
-      title: '年龄',
-      key: 'age'
-    },
-    {
-      title: '介绍',
-      key: 'introduce'
-    }
-  ])
+  import { FButton } from 'fighting-design'
+  import { FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
+  import { h } from 'vue'
+  import type {
+    TableColumns,
+    TableRenderH,
+    TableData,
+    TableRender
+  } from 'fighting-design'
+  import type { VNode, Ref } from 'vue'
 
   const data = ref([
     {
@@ -38,8 +33,44 @@
       introduce: '取得优势的武器可以输出成吨的伤害'
     }
   ])
+
+  const tableRender: TableRender = (tableH: TableRenderH, dataItem: TableData): VNode => {
+    return tableH(
+      FButton,
+      {
+        type: 'warning',
+        onClick: () => {
+          console.log(dataItem)
+        },
+        beforeIcon: h(FIconBlock),
+        afterIcon: h(FIconApps)
+      },
+      {
+        default: () => '管理'
+      }
+    )
+  }
+
+  const columns: Ref<TableColumns[]> = ref([
+    {
+      title: '姓名',
+      key: 'name'
+    },
+    {
+      title: '年龄',
+      key: 'age'
+    },
+    {
+      title: '介绍',
+      key: 'introduce'
+    },
+    {
+      title: '操作',
+      render: tableRender
+    }
+  ])
 </script>
 
 <template>
-  <f-table :data="data" :columns="columns" />
+  <f-table :data="data" :columns="columns" optional />
 </template>

@@ -1,24 +1,27 @@
 <script lang="ts" setup name="FTable">
   import { Props } from './props'
-  import { ref, h } from 'vue'
+  import { h } from 'vue'
   import { useList } from '../../_hooks'
   import { TableColgroupVue } from '../components'
   import type { VNode } from 'vue'
+  import type { TableColumns } from './interface'
 
   const prop = defineProps(Props)
 
   const { styles, classes } = useList(prop, 'table')
 
-  /** 多选项 */
-  const optionalList = ref(false)
-
   /**
    * 处理自定义渲染内容
    *
-   * @param { Function } target 渲染函数
+   * @param { Function } render 渲染函数
    */
-  const columnsSlotData = (target: Function): VNode => {
-    return target(h)
+  const columnsSlotData = (
+    render: Function,
+    dataItem: Record<string, unknown>,
+    index: number,
+    headerItem: TableColumns
+  ): VNode => {
+    return render(h, dataItem, index, headerItem)
   }
 
   /** 样式列表 */
@@ -40,7 +43,6 @@
             <thead :align="align">
               <tr>
                 <th v-if="num">序号</th>
-                <th v-if="optional">选择</th>
                 <th v-for="(column, index) in columns" :key="index">
                   {{ column.title }}
                 </th>
@@ -58,7 +60,6 @@
             <thead v-if="!height && showHead" :align="align">
               <tr>
                 <th v-if="num">序号</th>
-                <th v-if="optional">选择</th>
                 <th v-for="(column, index) in columns" :key="index">
                   {{ column.title }}
                 </th>
@@ -68,15 +69,6 @@
             <!-- 主要渲染内容的表体 -->
             <tbody v-if="data.length" :align="align">
               <tr v-for="(item, m) in data" :key="m">
-                <!-- 多选框 -->
-                <td v-if="optional">
-                  <f-checkbox
-                    v-model="optionalList"
-                    :show-label="false"
-                    :label="(m + 1).toString()"
-                  />
-                </td>
-
                 <!-- 序号列表 -->
                 <td v-if="num">{{ m + 1 }}</td>
 
@@ -84,12 +76,14 @@
                 <td v-for="(column, i) in columns" :key="i">
                   <!-- 如果有自定义插槽渲染 -->
                   <template v-if="column.render">
-                    <component :is="columnsSlotData(column.render)" />
+                    <component :is="columnsSlotData(column.render, item, m, column)" />
                   </template>
 
                   <!-- 普通渲染数据 -->
                   <template v-else>
-                    {{ item[column.key] }}
+                    <template v-if="column.key">
+                      {{ item[column.key] }}
+                    </template>
                   </template>
                 </td>
               </tr>

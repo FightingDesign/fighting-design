@@ -427,18 +427,15 @@
 
 ## Button Slots
 
-| 名称          | 说明              |
-| ------------- | ----------------- |
-| `default`     | 按钮的内容        |
-| `beforeIcon`  | 之前的 icon       |
-| `afterIcon`   | 之后的 icon       |
-| `loadingIcon` | 按钮 loading icon |
+| 名称      | 说明           |
+| --------- | -------------- |
+| `default` | 默认按钮的内容 |
 
 ## ButtonGroup Slots
 
-| 名称      | 说明         |
-| --------- | ------------ |
-| `default` | 按钮组的内容 |
+| 名称      | 说明             |
+| --------- | ---------------- |
+| `default` | 默认按钮组的内容 |
 
 ## Interface
 
