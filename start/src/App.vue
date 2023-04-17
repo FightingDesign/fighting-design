@@ -6,8 +6,8 @@
   import type {
     TableColumns,
     TableRenderH,
-    TableData,
-    TableRender
+    TableRender,
+    TableHeaderRender
   } from 'fighting-design'
   import type { VNode, Ref } from 'vue'
 
@@ -34,7 +34,10 @@
     }
   ])
 
-  const tableRender: TableRender = (tableH: TableRenderH, dataItem: TableData): VNode => {
+  const tableRenderSlot: TableRender = (
+    tableH: TableRenderH,
+    dataItem: Record<string, unknown>
+  ): VNode => {
     return tableH(
       FButton,
       {
@@ -51,9 +54,28 @@
     )
   }
 
+  const tableRenderHeader: TableHeaderRender = (
+    tableH: TableRenderH,
+    headerItem: TableColumns,
+    index: number
+  ) => {
+    return tableH(
+      FButton,
+      {
+        type: 'danger',
+        simple: true,
+        round: true,
+        onClick: (e: MouseEvent): void => {
+          console.log(e, headerItem, index)
+        }
+      },
+      { default: () => '姓名' }
+    )
+  }
+
   const columns: Ref<TableColumns[]> = ref([
     {
-      title: '姓名',
+      title: tableRenderHeader,
       key: 'name'
     },
     {
@@ -66,11 +88,11 @@
     },
     {
       title: '操作',
-      render: tableRender
+      render: tableRenderSlot
     }
   ])
 </script>
 
 <template>
-  <f-table :data="data" :columns="columns" optional />
+  <f-table :data="data" :columns="columns" />
 </template>

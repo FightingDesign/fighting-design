@@ -19,11 +19,13 @@ export type TableRenderH = (
   children?: Children | Slot | Slots | Record<string, () => unknown>
 ) => VNode
 
-export type TableRender = (h: TableRenderH, dataItem: TableData, index: number, headerItem: TableColumns) => void
+export type TableRender = (h: TableRenderH, dataItem: Record<string, unknown>, index: number, headerItem: TableColumns) => VNode
+
+export type TableHeaderRender = (h: TableRenderH, headerItem: TableColumns, index: number) => VNode
 
 /** 表格表头每一项配置类型 */
 export interface TableColumns {
-  title: string
+  title: string | TableHeaderRender
   key?: string
   width?: number | string | undefined
   render?: TableRender

@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 废除 `f-table` 组件 `optional` 配置项
+- `f-table` 组件类型优化
+
 **Fix**
 
 - 修复 `f-tooltip` 组件部分情况 `disabled` 无效

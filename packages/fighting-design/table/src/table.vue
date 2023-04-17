@@ -3,8 +3,14 @@
   import { h } from 'vue'
   import { useList } from '../../_hooks'
   import { TableColgroupVue } from '../components'
+  import { isFunction } from '../../_utils'
   import type { VNode } from 'vue'
-  import type { TableColumns } from './interface'
+  import type {
+    TableColumns,
+    TableRender,
+    TableHeaderRender,
+    TableRenderH
+  } from './interface'
 
   const prop = defineProps(Props)
 
@@ -16,12 +22,20 @@
    * @param { Function } render 渲染函数
    */
   const columnsSlotData = (
-    render: Function,
+    slotRender: TableRender,
     dataItem: Record<string, unknown>,
     index: number,
     headerItem: TableColumns
   ): VNode => {
-    return render(h, dataItem, index, headerItem)
+    return slotRender(h as TableRenderH, dataItem, index, headerItem)
+  }
+
+  const columnsSlotHeader = (
+    headerRender: TableHeaderRender,
+    headerItem: TableColumns,
+    index: number
+  ): VNode => {
+    return headerRender(h as TableRenderH, headerItem, index)
   }
 
   /** 样式列表 */
@@ -61,7 +75,15 @@
               <tr>
                 <th v-if="num">序号</th>
                 <th v-for="(column, index) in columns" :key="index">
-                  {{ column.title }}
+                  <!-- 如果是一个函数，则调用方法 -->
+                  <template v-if="isFunction(column.title)">
+                    <component :is="columnsSlotHeader(column.title, column, index)" />
+                  </template>
+
+                  <!-- 否则全部当字符串处理 -->
+                  <template v-else>
+                    {{ column.title }}
+                  </template>
                 </th>
               </tr>
             </thead>
