@@ -48,6 +48,7 @@
 <template>
   <div role="table" :class="classList" :style="styleList">
     <div class="f-table__container">
+      <!-- 内置数据驱动表格 -->
       <template v-if="columns || data">
         <!-- 在限制高度时展示的头部 -->
         <header v-if="height && showHead" class="f-table__header">
@@ -58,7 +59,15 @@
               <tr>
                 <th v-if="num">序号</th>
                 <th v-for="(column, index) in columns" :key="index">
-                  {{ column.title }}
+                  <!-- 如果是一个函数，则调用方法 -->
+                  <template v-if="isFunction(column.title)">
+                    <component :is="columnsSlotHeader(column.title, column, index)" />
+                  </template>
+
+                  <!-- 否则全部当字符串处理 -->
+                  <template v-else>
+                    {{ column.title }}
+                  </template>
                 </th>
               </tr>
             </thead>
@@ -66,7 +75,7 @@
         </header>
 
         <!-- 身体 -->
-        <main :class="['f-table__body', { 'f-table__body-margin': height && showHead }]">
+        <main class="f-table__body">
           <table class="f-table__table">
             <table-colgroup-vue :columns="columns" />
 
@@ -110,11 +119,16 @@
                 </td>
               </tr>
             </tbody>
+
+            <!-- 自定义也叫 -->
+            <tfoot v-if="$slots.tfoot">
+              <slot name="tfoot" />
+            </tfoot>
           </table>
         </main>
       </template>
 
-      <!-- 基础的 -->
+      <!-- 原生驱动表格 -->
       <table v-else>
         <slot />
       </table>

@@ -364,79 +364,19 @@
 
 :::
 
-## 可多选
-
-`optional` 属性可配置可多选的表格
-
-::: demo
-
-<template #source>
-<f-table :data="data" :columns="columns" optional />
-</template>
-
-```html
-<template>
-  <f-table :data="data" :columns="columns" optional />
-</template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const columns = ref([
-    {
-      title: '姓名',
-      key: 'name'
-    },
-    {
-      title: '年龄',
-      key: 'age'
-    },
-    {
-      title: '介绍',
-      key: 'introduce'
-    }
-  ])
-
-  const data = ref([
-    {
-      name: '卡莉斯塔',
-      age: '22',
-      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
-    },
-    {
-      name: '艾希',
-      age: '16',
-      introduce: '拥有强大减速和控制能力的远程射手'
-    },
-    {
-      name: '李青',
-      age: '34',
-      introduce: '非常优秀的打野英雄'
-    },
-    {
-      name: '贾克斯',
-      age: '109',
-      introduce: '取得优势的武器可以输出成吨的伤害'
-    }
-  ])
-</script>
-```
-
-:::
-
 ## 自定义高度
 
-`height` 属性可自定义表格的高度，当设置了合法的 `height` 之后，表头变为固定样式
+`height` 属性可自定义表格内容部分的高度（不包括表头高度），当设置了合法的 `height` 之后，表头变为固定样式
 
 ::: demo
 
 <template #source>
-<f-table :data="data2" :columns="columns" :height="300" />
+<f-table :data="data2" :columns="columns" :height="200" />
 </template>
 
 ```html
 <template>
-  <f-table :data="data2" :columns="columns" :height="300" />
+  <f-table :data="data2" :columns="columns" :height="200" />
 </template>
 
 <script lang="ts" setup>
@@ -732,8 +672,7 @@
 | `num`           | 是否显示序号       | boolean                              | ——                      | false  |
 | `zebra`         | 是否显示斑马纹     | boolean                              | ——                      | false  |
 | `zebra-color`   | 自定义斑马纹颜色   | string                               | ——                      | ——     |
-| `height`        | 自定义表格高度     | string                               | ——                      | ——     |
-| `optional`      | 是否支持多选       | boolean                              | ——                      | false  |
+| `height`        | 自定义表格内容高度 | string / number                      | ——                      | ——     |
 | `bg-color`      | 自定义背景颜色     | string                               | ——                      | ——     |
 | `head-bg-color` | 自定义头部背景颜色 | string                               | ——                      | ——     |
 | `show-head`     | 是否展示头部       | boolean                              | ——                      | true   |
@@ -743,6 +682,7 @@
 | 插槽名称  | 说明说明     |
 | --------- | ------------ |
 | `default` | 原生表格内容 |
+| `tfoot`   | 自定义页脚   |
 
 ## Interface
 

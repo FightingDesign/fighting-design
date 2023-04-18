@@ -4,26 +4,12 @@
     position: relative;
     box-sizing: border-box;
     overflow: hidden;
-    height: var(--table-height);
     background-color: var(--table-bg-color, #fff);
-
-    // 在限制高度时展示的头部
-    .f-table__header {
-      position: absolute;
-      right: 0;
-      left: 0;
-      top: 0;
-    }
 
     // 身体
     .f-table__body {
-      height: calc(var(--table-height) - 45px);
+      height: var(--table-height);
       overflow: auto;
-
-      // 在限制高度的时候加这个样式
-      &.f-table__body-margin {
-        margin-top: 45px;
-      }
 
       // 滚动条
       &::-webkit-scrollbar {
@@ -51,6 +37,8 @@
         font-size: 16px;
         color: #4e4e4e;
         height: 45px;
+        position: relative;
+        z-index: 200;
         cursor: default;
 
         tr {

@@ -31,6 +31,26 @@
       name: '贾克斯',
       age: '109',
       introduce: '取得优势的武器可以输出成吨的伤害'
+    },
+    {
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
+    },
+    {
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
+    },
+    {
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
+    },
+    {
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
     }
   ])
 
@@ -94,5 +114,15 @@
 </script>
 
 <template>
-  <f-table :data="data" :columns="columns" />
+  <f-table style="border: 3px solid blue" :data="data" :columns="columns" :height="200">
+    <template #tfoot> 这是表格的页脚 </template>
+  </f-table>
 </template>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style>
