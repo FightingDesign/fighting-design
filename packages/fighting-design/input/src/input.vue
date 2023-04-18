@@ -3,58 +3,32 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FButton } from '../../button'
   import { FSwap } from '../../swap'
-  import { ref, toRefs, computed, reactive } from 'vue'
+  import { ref, toRefs, computed } from 'vue'
   import { FIconCross, FIconEyeOffOutline, FIconEyeOutline } from '../../_svg'
-  import { isString, isNumber } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
-  import { useInput, useProps, useRun, useList, useGlobal } from '../../_hooks'
+  import { useInput, useRun, useList, useGlobal, useModel } from '../../_hooks'
   import type { InputType } from './interface'
   import type { UseGlobalProp } from '../../_hooks'
 
   const prop = defineProps(Props)
   const emit = defineEmits({
-    [EMIT_UPDATE]: (val: string | number): boolean => isString(val) || isNumber(val)
+    [EMIT_UPDATE]: (val: string | number): boolean => !!val
   })
 
   const { run } = useRun()
-  const { filter } = useProps(prop)
-  const { getLang, getSize } = useGlobal(prop as unknown as UseGlobalProp)
-
-  /** 替换 size 后得到的 props */
-  const params = reactive({
-    ...toRefs(prop),
-    size: getSize()
-  })
-
-  const { styles, classes } = useList(params, 'input')
-
-  const { onInput, onClear, onChange } = useInput(
-    filter(['onChange', 'onInput', 'disabled', 'type']),
-    emit
-  )
-
-  /** 主要的描述文字内容 */
-  const searchText = computed((): string => getLang('input').value.search)
-
-  /** type 类型 */
-  const inputType = ref<InputType>(prop.type)
+  const { getLang, getProp } = useGlobal(prop as unknown as UseGlobalProp)
+  const { styles, classes } = useList(getProp(['size']), 'input')
+  const { keyword } = useModel(prop, 'modelValue', emit, EMIT_UPDATE)
+  const { handleInput, handleClear, handleChange } = useInput(prop, emit, keyword)
 
   /** 是否展示密码 */
   const showPass = ref<boolean>(false)
 
-  /**
-   * 文本输入 input 事件
-   *
-   * @param { Object } evt 事件对象
-   */
-  const handleInput = (evt: Event): void => onInput(evt)
+  /** type 类型 */
+  const inputType = ref<InputType>(prop.type)
 
-  /**
-   * 文本输入 change 事件
-   *
-   * @param { Object } evt 事件对象
-   */
-  const handleChange = (evt: Event): void => onChange(evt)
+  /** 主要的描述文字内容 */
+  const searchText = computed((): string => getLang('input').value.search)
 
   /**
    * 点击搜索
@@ -63,7 +37,7 @@
    * @param { Object } evt 事件对象
    */
   const handleSearch = (evt: MouseEvent | KeyboardEvent): void => {
-    run(prop.onSearch, prop.modelValue, evt)
+    run(prop.onSearch, keyword.value, evt)
   }
 
   /**
@@ -119,23 +93,23 @@
 
       <!-- 输入框 -->
       <input
+        v-model="keyword"
         class="f-input__input"
         :type="inputType"
         :max="max"
         :min="min"
         :maxlength="maxLength"
-        :value="modelValue"
         :disabled="disabled"
         :readonly="readonly"
         :autofocus="autofocus"
         :autocomplete="autocomplete"
         :name="name"
         :placeholder="placeholder"
-        @input="handleInput"
-        @change="handleChange"
-        @keyup.enter="handleEnter"
-        @blur="onBlur"
-        @focus="onFocus"
+        @input="handleInput($event)"
+        @change="handleChange($event)"
+        @keyup.enter="handleEnter($event)"
+        @blur="onBlur($event)"
+        @focus="onFocus($event)"
       />
 
       <!-- 清除 icon -->
@@ -144,7 +118,7 @@
         class="f-input__clear-btn"
         :icon="FIconCross"
         :size="14"
-        :on-click="onClear"
+        :on-click="handleClear"
       />
 
       <!-- 左侧 icon -->

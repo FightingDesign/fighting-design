@@ -15,8 +15,8 @@ import type { FightingGlobalProps } from '../../fighting-global'
  * @param { string } [size] 组件的尺寸
  */
 export interface UseGlobalProp {
-  type?: FightingType | null
-  size?: FightingSize | string | number
+  type: FightingType | null
+  size: FightingSize | string | number
 }
 
 /**
@@ -44,7 +44,7 @@ export interface UseGlobalReturn {
  * @param { Object } prop 组件的 prop
  * @returns { Object } 根据优先级返回需要的参数
  */
-export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn => {
+export const useGlobal = (prop?: UseGlobalProp): UseGlobalReturn => {
   /** 获取全局配置组件注入的依赖项 */
   const global: FightingGlobalProps | null = inject(FIGHTING_GLOBAL_PROPS_KEY, null)
 
@@ -127,7 +127,7 @@ export const useGlobal = <T extends UseGlobalProp>(prop?: T): UseGlobalReturn =>
   } as const
 
   /**
-   * 有些组件的 props 需要获取全局配置的熟悉
+   * 有些组件的 props 需要获取全局配置的属性
    *
    * 使用此方法，第一个参数传递需要获取全局配置的 key 数组
    *

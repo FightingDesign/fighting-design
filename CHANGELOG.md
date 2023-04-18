@@ -4,6 +4,7 @@
 
 - 废除 `f-table` 组件 `optional` 配置项
 - `f-table` 组件类型优化
+- 优化 `f-input` `f-textarea` 组件实现
 
 **Fix**
 

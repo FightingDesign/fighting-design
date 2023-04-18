@@ -11,6 +11,8 @@
   } from 'fighting-design'
   import type { VNode, Ref } from 'vue'
 
+  const value1 = ref('')
+
   const data = ref([
     {
       name: '卡莉斯塔',
@@ -96,7 +98,8 @@
   const columns: Ref<TableColumns[]> = ref([
     {
       title: tableRenderHeader,
-      key: 'name'
+      key: 'name',
+      fixed: true
     },
     {
       title: '年龄',
@@ -111,10 +114,43 @@
       render: tableRenderSlot
     }
   ])
+
+  const value3 = ref(true)
+
+  const searchList = (e, v) => console.log(e, v)
+  const c = (e, v) => console.log('change', e, v)
+  const i = (e, v) => console.log('input', e, v)
 </script>
 
 <template>
-  <f-table style="border: 3px solid blue" :data="data" :columns="columns" :height="200">
+  <h3>{{ value1 }}</h3>
+  <f-input
+    v-model="value1"
+    type="text"
+    placeholder="请输入...."
+    search
+    :on-search="searchList"
+    :on-input="i"
+    :on-change="c"
+  />
+  <f-input v-model="value1" type="text" placeholder="请输入...." />
+  <f-textarea v-model="value1" placeholder="请输入...." />
+
+  <f-fighting-global :size="value3 ? 'mini' : 'large'">
+    <f-space>
+      <f-input v-model="value1" type="text" placeholder="请输入...." />
+
+      <f-button>默认按钮</f-button>
+      <f-button>主要按钮</f-button>
+      <f-button>成功按钮</f-button>
+      <f-button>危险按钮</f-button>
+      <f-button>警告按钮</f-button>
+
+      <f-switch v-model="value3" />
+    </f-space>
+  </f-fighting-global>
+
+  <f-table :data="data" :columns="columns">
     <template #tfoot> 这是表格的页脚 </template>
   </f-table>
 </template>
