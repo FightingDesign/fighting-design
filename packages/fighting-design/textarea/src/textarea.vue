@@ -32,10 +32,10 @@
       :autofocus="autofocus"
       :placeholder="placeholder"
       :name="name"
-      @input="handleInput($event)"
-      @change="handleChange($event)"
-      @blur="onBlur($event)"
-      @focus="onFocus($event)"
+      @input="handleInput"
+      @change="handleChange"
+      @blur="onBlur"
+      @focus="onFocus"
     />
 
     <!-- 清空按钮 -->
@@ -44,7 +44,7 @@
       class="f-textarea__clear-btn"
       :icon="FIconCross"
       :size="14"
-      @click="handleClear"
+      :on-click="handleClear"
     />
   </div>
 </template>

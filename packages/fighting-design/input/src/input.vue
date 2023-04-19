@@ -105,11 +105,11 @@
         :autocomplete="autocomplete"
         :name="name"
         :placeholder="placeholder"
-        @input="handleInput($event)"
-        @change="handleChange($event)"
-        @keyup.enter="handleEnter($event)"
-        @blur="onBlur($event)"
-        @focus="onFocus($event)"
+        @input="handleInput"
+        @change="handleChange"
+        @keyup.enter="handleEnter"
+        @blur="onBlur"
+        @focus="onFocus"
       />
 
       <!-- 清除 icon -->

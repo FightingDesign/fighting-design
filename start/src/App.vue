@@ -129,6 +129,7 @@
     type="text"
     placeholder="请输入...."
     search
+    abc="1234"
     :on-search="searchList"
     :on-input="i"
     :on-change="c"
@@ -160,5 +161,9 @@
   body {
     margin: 0;
     padding: 0;
+  }
+
+  #aaa123 {
+    border: 2px solid red;
   }
 </style>
