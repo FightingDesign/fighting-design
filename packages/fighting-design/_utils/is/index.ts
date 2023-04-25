@@ -59,7 +59,7 @@ export const isObject = (value: unknown): value is object => is(value, 'Object')
  * @param { * } value 要检测的值
  * @returns { boolean }
  */
-export const isFunction = (value: unknown): value is Function => is(value, 'Function')
+export const isFunction = (value: unknown): value is Function => typeof value === 'function'
 
 /**
  * 判断一个值是否为 array 类型

@@ -9,6 +9,7 @@
 **Fix**
 
 - 修复 `f-tooltip` 组件部分情况 `disabled` 无效
+- 修复 utils `isFunction` 方法，解决部分组件对于 `async` 函数失效问题
 
 ## 0.32.0 (2023-04-12)
 
