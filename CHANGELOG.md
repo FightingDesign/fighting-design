@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.33.0 (2023-04-25)
+
 - 废除 `f-table` 组件 `optional` 配置项
 - `f-table` 组件类型优化
 - 优化 `f-input` `f-textarea` 组件实现

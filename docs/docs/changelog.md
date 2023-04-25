@@ -2,6 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.33.0 (2023-04-25)
+
+- 废除 `f-table` 组件 `optional` 配置项
+- `f-table` 组件类型优化
+- 优化 `f-input` `f-textarea` 组件实现
+
+**Fix**
+
+- 修复 `f-tooltip` 组件部分情况 `disabled` 无效
+- 修复 utils `isFunction` 方法，解决部分组件对于 `async` 函数失效问题
+
 ## 0.32.0 (2023-04-12)
 
 - 修复 `FMessage` 不同弹出位置错误的问题

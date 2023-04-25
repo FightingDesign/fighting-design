@@ -120,9 +120,13 @@
   const searchList = (e, v) => console.log(e, v)
   const c = (e, v) => console.log('change', e, v)
   const i = (e, v) => console.log('input', e, v)
+
+  const send = async e => console.log(e)
 </script>
 
 <template>
+  <f-button :on-click="send">获取</f-button>
+  <f-button @click="send">获取</f-button>
   <h3>{{ value1 }}</h3>
   <f-input
     v-model="value1"
