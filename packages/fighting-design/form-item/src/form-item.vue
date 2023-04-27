@@ -5,6 +5,7 @@
   import { FORM_PROVIDE_KEY } from '../../form/src/props'
   import type { CSSProperties } from 'vue'
   import type { FormInject } from '../../form'
+  import type { ClassList } from '../../_interface'
 
   const prop = defineProps(Props)
 
@@ -32,11 +33,20 @@
       '--form-item-label-width': parentInject && parentInject.labelWidth
     } as CSSProperties
   })
+
+  const classList = computed((): ClassList => {
+    return [
+      'f-form-item',
+      {
+        [`f-form-item__label-${parentInject?.labelPosition}`]: parentInject?.labelPosition
+      }
+    ]
+  })
 </script>
 
 <template>
-  <div class="f-form-item" :style="styleList">
-    <label class="f-form-item__label">{{ label }}</label>
+  <div :class="classList" :style="styleList">
+    <label v-if="label" class="f-form-item__label">{{ label }}</label>
 
     <!-- 主要内容 -->
     <div class="f-form-item__content">

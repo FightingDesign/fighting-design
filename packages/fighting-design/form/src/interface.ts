@@ -1,3 +1,5 @@
+import type { FormProps } from './props'
+
 export type { FormProps } from './props'
 
 /**
@@ -20,17 +22,10 @@ export interface FormParam {
  */
 export type FormSubmit = (params: FormParam) => void
 
-/**
- * 注入的依赖项
- *
- * @param { string | number } labelWidth label 宽度
- * @param { Object } model 表单数据对象
- * @param { Function } onSubmit 提交表单触发的回调
- * @param { Object } childrenCheckResult 子节点校验结果
- */
-export interface FormInject {
-  labelWidth: string | number
-  model: Object
-  onSubmit: FormSubmit
+/** 注入的依赖项类型 */
+export type FormInject = FormProps & {
   childrenCheckResult: Record<string, boolean | string>
 }
+
+/** label 位置类型 */
+export type LabelPosition = 'left' | 'top'
