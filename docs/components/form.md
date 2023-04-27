@@ -151,11 +151,12 @@
 
 ## Form Attributes
 
-| 参数          | 说明                     | 类型                                 | 可选值 | 默认值 |
-| ------------- | ------------------------ | ------------------------------------ | ------ | ------ |
-| `label-width` | label 的宽度             | string / number                      | ——     | ——     |
-| `model`       | 表单数据对象             | Object                               | ——     | ——     |
-| `on-submit`   | 点击提交按钮后触发的回调 | <a href="#formsubmit">FormSubmit</a> | ——     | ——     |
+| 参数             | 说明                     | 类型                                       | 可选值        | 默认值 |
+| ---------------- | ------------------------ | ------------------------------------------ | ------------- | ------ |
+| `label-width`    | label 的宽度             | string / number                            | ——            | ——     |
+| `label-position` | label 位置               | <a href="#labelposition">LabelPosition</a> | `top` `right` | top    |
+| `model`          | 表单数据对象             | Object                                     | ——            | ——     |
+| `on-submit`      | 点击提交按钮后触发的回调 | <a href="#formsubmit">FormSubmit</a>       | ——            | ——     |
 
 ## FormItem Attributes
 
@@ -187,6 +188,7 @@ import type {
   FormProps,
   FormParam,
   FormSubmit,
+  LabelPosition,
   FormItemInstance,
   FormItemProps,
   FormItemRulesItem,
@@ -226,6 +228,12 @@ interface FormItemRulesItem {
 
 ```ts
 type FormItemRules = FormItemRulesItem[]
+```
+
+### LabelPosition
+
+```ts
+type LabelPosition = 'left' | 'top'
 ```
 
 ## Contributors

@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.33.1 (2023-04-27)
+
+- Add `label-position` configuration item to the `f-form` component
+- Optimize `f-form` style details
+
 ## 0.33.0 (2023-04-25)
 
 - Abolish the `f-table` component `optional` configuration item

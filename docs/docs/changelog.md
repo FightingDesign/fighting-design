@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.33.1 (2023-04-27)
+
+- `f-form` 组件新增 `label-position` 配置项
+- 优化 `f-form` 样式细节
+
 ## 0.33.0 (2023-04-25)
 
 - 废除 `f-table` 组件 `optional` 配置项
