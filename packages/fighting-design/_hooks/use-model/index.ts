@@ -1,7 +1,8 @@
 import { computed } from 'vue'
 import type { WritableComputedRef } from 'vue'
 
-type Emit<T, K extends keyof T> = (key: string | number | symbol, value: T[K]) => void
+/** emit 类型 */
+type Emit = (event: 'update:modelValue', val: string | number) => void
 
 export interface UseModelReturn<T, K extends keyof T> {
   keyword: WritableComputedRef<T[K]>
@@ -17,11 +18,11 @@ export interface UseModelReturn<T, K extends keyof T> {
  * @param { string } emitName emit 指定的返回键名
  * @returns { Object } 自定义计算属性
  */
-export const useModel = <T, K extends keyof T, E extends Emit<T, K>, N extends keyof E>(
+export const useModel = <T, K extends keyof T>(
   prop: T,
   propName: K,
-  emit: E,
-  emitName: N
+  emit: Emit,
+  emitName: 'update:modelValue'
 ): UseModelReturn<T, K> => {
 
   /**
@@ -34,7 +35,7 @@ export const useModel = <T, K extends keyof T, E extends Emit<T, K>, N extends k
       return prop[propName]
     },
     set: (val: T[K]): void => {
-      emit(emitName, val)
+      emit(emitName, val as string | number)
     }
   })
 
