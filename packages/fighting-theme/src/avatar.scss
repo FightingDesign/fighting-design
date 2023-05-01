@@ -1,6 +1,10 @@
 @import '../config/var-avatar';
 
 .f-avatar {
+  --avatar-background: #f8f9fb;
+}
+
+.f-avatar {
   align-items: center;
   display: inline-flex;
   vertical-align: middle;
@@ -23,6 +27,7 @@
   }
 
   // 圆角
+  &.f-avatar__round,
   &.f-avatar__round .f-avatar__img {
     border-radius: 50%;
   }
