@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.33.2 (2023-05-01)
+
 - 修复 `f-avatar` 组件 `round` 对于 `text` 失效问题
 
 ## 0.33.1 (2023-04-27)

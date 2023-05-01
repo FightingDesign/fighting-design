@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.33.2 (2023-05-01)
+
+- Fix `f-avatar` component `round` for `text` invalidation issue
+
 ## 0.33.1 (2023-04-27)
 
 - Add `label-position` configuration item to the `f-form` component
