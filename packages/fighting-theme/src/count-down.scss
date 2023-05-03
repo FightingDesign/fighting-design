@@ -1,0 +1,9 @@
+.f-count-down {
+  --count-down-text-size: 29px;
+  --count-down-text-color: #1d1d1f;
+}
+
+.f-count-down .f-count-down__text {
+  color: var(--count-down-text-color);
+  font-size: var(--count-down-text-size);
+}

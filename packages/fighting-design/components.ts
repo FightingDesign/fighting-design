@@ -228,3 +228,6 @@ export * from './infinite-scrolling'
 
 export { FNumberAnimate } from './number-animate'
 export * from './number-animate'
+
+export { FCountDown } from './count-down'
+export * from './count-down'
