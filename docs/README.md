@@ -91,7 +91,7 @@ css code...
 
 ## ✏️ 引入
 
-在你新建的组件文档文件之后，你需要在 [sidebar](https://github.com/FightingDesign/fighting-design/blob/master/docs/.vitepress/utils/sidebar.ts) 中引入你的文档，才可以正常显示
+在你新建的组件文档文件之后，你需要在 [sidebar](https://github.com/FightingDesign/fighting-design/blob/master/docs/.vitepress/config/sidebar.ts) 中引入你的文档，才可以正常显示
 
 ## 💡 测试
 
