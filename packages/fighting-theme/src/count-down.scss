@@ -1,9 +1,14 @@
 .f-count-down {
-  --count-down-text-size: 29px;
-  --count-down-text-color: #1d1d1f;
+  --count-down-font-size: 18px;
+  --count-down-font-color: #1d1d1f;
 }
 
-.f-count-down .f-count-down__text {
-  color: var(--count-down-text-color);
-  font-size: var(--count-down-text-size);
+.f-count-down {
+  display: inline-block;
+  margin: 5px;
+
+  .f-count-down__text {
+    color: var(--count-down-font-color);
+    font-size: var(--count-down-font-size);
+  }
 }

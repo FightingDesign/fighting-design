@@ -88,15 +88,15 @@
 ::: demo
 
 <template #source>
-<f-count-down :time="24 *60 * 60 * 1000"> 
+<f-count-down :time="24 *60 * 60 * 1000">
 <template #default="currentTime">
-      <span class="block">{{ currentTime.hours }}</span>
-      <span class="colon">:</span>
-      <span class="block">{{ currentTime.minutes }}</span>
-      <span class="colon">:</span>
-      <span class="block">{{ currentTime.seconds }}</span>
-  </template>
- </f-count-down>
+<span class="block">{{ currentTime.hours }}</span>
+<span class="colon">:</span>
+<span class="block">{{ currentTime.minutes }}</span>
+<span class="colon">:</span>
+<span class="block">{{ currentTime.seconds }}</span>
+</template>
+</f-count-down>
 </template>
 
 ```vue
@@ -136,31 +136,28 @@
 
 ## CountDown Attributes
 
-| 参数             | 说明                     | 类型                                       | 可选值        | 默认值 |
-| ---------------- | ------------------------ | ------------------------------------------ | ------------- | ------ |
-| `time`    | 倒计时时长，单位毫秒             | string / number                            | ——            | ——     |
-| `format` | 时间格式               | string | —— | `HH:mm:ss`    |
-| `auto-Start`          | 是否自动开始倒计时	             |  boolean                                     | ——            | `true`     |
-| `finish`      | 倒计时结束后触发的回调 | _() => void_        | ——            | ——     |
+| 参数         | 说明                   | 类型            | 可选值 | 默认值     |
+| ------------ | ---------------------- | --------------- | ------ | ---------- |
+| `time`       | 倒计时时长，单位毫秒   | string / number | ——     | ——         |
+| `format`     | 时间格式               | string          | ——     | `HH:mm:ss` |
+| `auto-Start` | 是否自动开始倒计时     | boolean         | ——     | `true`     |
+| `finish`     | 倒计时结束后触发的回调 | _() => void_    | ——     | ——         |
 
 ## CountDown Slots
 
-| 名称      | 说明     |参数     |
-| --------- | -------- |-------- |
-| `default` | 自定义内容 |currentTime:CurrentTime |
+| 名称      | 说明       | 参数                    |
+| --------- | ---------- | ----------------------- |
+| `default` | 自定义内容 | currentTime:CurrentTime |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type {
-  CountDownInstance,
-  CountDownProps
-} from 'fighting-design'
+import type { CountDownInstance, CountDownProps } from 'fighting-design'
 ```
 
-### CurrentTime说明
+### CurrentTime 说明
 
 ```ts
 interface CurrentTime {
@@ -173,47 +170,51 @@ interface CurrentTime {
 }
 ```
 
-| 名称           | 说明          | 类型       |
-|--------------|-------------|----------|
+| 名称         | 说明                   | 类型     |
+| ------------ | ---------------------- | -------- |
 | total        | 剩余总时间（单位毫秒） | _number_ |
-| days         | 剩余天数        | _number_ |
-| hours        | 剩余小时        | _number_ |
-| minutes      | 剩余分钟        | _number_ |
-| seconds      | 剩余秒数        | _number_ |
-| milliseconds | 剩余毫秒        | _number_ |
+| days         | 剩余天数               | _number_ |
+| hours        | 剩余小时               | _number_ |
+| minutes      | 剩余分钟               | _number_ |
+| seconds      | 剩余秒数               | _number_ |
+| milliseconds | 剩余毫秒               | _number_ |
 
 ### format 格式
 
-| 格式  | 说明      |
-|-----|---------|
-| DD  | 天数      |
-| HH  | 小时      |
-| mm  | 分钟      |
-| ss  | 秒数      |
-| S   | 毫秒（1 位） |
-| SS  | 毫秒（2 位） |
-| SSS | 毫秒（3 位） |
+| 格式 | 说明         |
+| ---- | ------------ |
+| DD   | 天数         |
+| HH   | 小时         |
+| mm   | 分钟         |
+| ss   | 秒数         |
+| S    | 毫秒（1 位） |
+| SS   | 毫秒（2 位） |
+| SSS  | 毫秒（3 位） |
 
 ### 实例方法
 
 通过 ref 可以获取到 Countdown 实例并调用实例方法。
 
-| 方法名     | 说明                                       | 参数  | 返回值 |
-|---------|------------------------------------------|-----|-----|
-| start   | 开始倒计时                                    | -   | -   |
-| pause   | 暂停倒计时                                    | -   | -   |
-| reset   | 重设倒计时，若 `autostart` 为 `true`，重设后会自动开始倒计时 | `totalTime` 倒计时长   | -   |
+| 方法名   | 说明                                                         | 参数                  | 返回值 |
+| -------- | ------------------------------------------------------------ | --------------------- | ------ |
+| start    | 开始倒计时                                                   | ——                    | ——     |
+| pause    | 暂停倒计时                                                   | ——                    | -      |
+| on-reset | 重设倒计时，若 `autostart` 为 `true`，重设后会自动开始倒计时 | `total-time` 倒计时长 | ——     |
 
 ### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式。
 
-| 名称                                           | 描述  |
-|-------------------------|-----|
-| --count-down-text-size       | 字体大小   |
-| --count-down-text-folor   | 颜色  |
+| 名称                    | 描述     |
+| ----------------------- | -------- |
+| --count-down-font-size  | 字体大小 |
+| --count-down-font-color | 字体颜色 |
 
 ## Contributors
+
+<a href="https://github.com/Tyh2001" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+</a>
 
 <a href="https://github.com/JetTsang" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/76730587?s=96&v=4" />
@@ -223,33 +224,29 @@ interface CurrentTime {
   import { reactive, ref } from 'vue'
   import { FMessage } from 'fighting-design'
 
-  const counDownOptions = reactive({
-    time: 10*1000
-  })
 
-  const timeStamp = 10*1000
+  const timeStamp = 10 * 1000
 
   const handelFinish = (): void => {
     FMessage.primary('倒计时结束')
   }
-
 </script>
 
 <style>
-.colon {
-  display: inline-block;
-  color: #ee0a24;
-  margin-left: calc(var(--count-down-text-size) / 2);
-}
+  .colon {
+    display: inline-block;
+    color: #ee0a24;
+    margin-left: calc(var(--count-down-text-size) / 2);
+  }
 
-.block {
-  display: inline-block;
-  width: calc(var(--count-down-text-size) * 2);
-  margin-left: var(--count-down-text-size);
-  font-size: var(--count-down-text-size);
-  color: #fff;
-  text-align: center;
-  background-color: #087ed3;
-  border-radius: 4px * 2;
-}
+  .block {
+    display: inline-block;
+    width: calc(var(--count-down-text-size) * 2);
+    margin-left: var(--count-down-text-size);
+    font-size: var(--count-down-text-size);
+    color: #fff;
+    text-align: center;
+    background-color: #087ed3;
+    border-radius: 4px * 2;
+  }
 </style>

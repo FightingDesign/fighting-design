@@ -16,7 +16,8 @@ export const Props = {
   /** 是否开启毫秒级渲染 */
   millisecond: setBooleanProp(false),
   /** 倒计时结束的回调 */
-  finish: setFunctionProp()
+  onFinish: setFunctionProp()
 } as const
 
+/** count-down 组件 props 类型 */
 export type CountDownProps = ExtractPropTypes<typeof Props>

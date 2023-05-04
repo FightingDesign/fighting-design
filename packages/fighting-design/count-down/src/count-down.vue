@@ -1,8 +1,9 @@
 <script lang="ts" setup name="FCountDown">
-  import { computed, watch, getCurrentInstance } from 'vue'
+  import { computed, watch } from 'vue'
   import { Props } from './props'
-  import { type CurrentTime, useCountDown } from '../../_hooks'
+  import { useCountDown } from '../../_hooks'
   import { useRun } from '../../_hooks'
+  import type { CurrentTime } from '../../_hooks'
 
   const prop = defineProps(Props)
 
@@ -10,24 +11,28 @@
   const { start, pause, reset, current } = useCountDown({
     time: +prop.time,
     millisecond: prop.millisecond,
-    onFinish: () => {
-      run(prop.finish)
+    onFinish: (): void => {
+      run(prop.onFinish)
     }
   })
 
-  defineExpose({
-    start,
-    pause,
-    reset,
-    current
-  })
-
+  /**
+   * 格式化时间格式
+   *
+   * @param format
+   * @param currentTime
+   */
   const formatTimeStr = (format: string, currentTime: CurrentTime): string => {
     const { days } = currentTime
     let { hours, minutes, seconds, milliseconds } = currentTime
 
-    // 在前方补全0
-    const padZero = (str: string | number, length: number = 2): string => {
+    /**
+     * 在前方补全 0
+     *
+     * @param str
+     * @param length
+     */
+    const padZero = (str: string | number, length = 2): string => {
       let realStr = str + ''
       return realStr.padStart(length, '0')
     }
@@ -67,30 +72,33 @@
       }
     }
 
+    console.log(format)
+
     return format
   }
 
-  const currentIns = getCurrentInstance()
-  const hasDefaultSlot: boolean = typeof currentIns?.slots.default == 'function'
-  // 生成时间字符串
-  const timeText = computed(() => formatTimeStr(prop.format, current.value))
+  /** 生成时间字符串 */
+  const timeText = computed((): string => formatTimeStr(prop.format, current.value))
 
-  // 重置时间
-  const resetTime = () => {
-    reset(+prop.time)
+  /** 监听传入的 time 改变，则重新开始倒计时 */
+  watch(
+    (): string | number => prop.time,
+    (): void => {
+      reset(+prop.time)
 
-    if (prop.autoStart) {
-      start()
-    }
-  }
+      if (prop.autoStart) {
+        start()
+      }
+    },
+    { immediate: true }
+  )
 
-  // 监听传入的time改变，则重新开始倒计时
-  watch(() => prop.time, resetTime, { immediate: true })
+  defineExpose({ start, pause, reset, current })
 </script>
 
 <template>
   <div class="f-count-down">
-    <span v-if="!hasDefaultSlot" class="f-count-down__text"> {{ timeText }} </span>
-    <slot v-bind="current"></slot>
+    <span v-if="!$slots.default" class="f-count-down__text">{{ timeText }}</span>
+    <slot v-bind="current" />
   </div>
 </template>

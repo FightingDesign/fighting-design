@@ -84,6 +84,7 @@ declare module 'vue' {
     FInfiniteScrolling: typeof components.FInfiniteScrolling
     FInfiniteScrolling: typeof components.FInfiniteScrolling
     FNumberAnimate: typeof components.FNumberAnimate
+    FCountDown: typeof components.FCountDown
   }
 
   interface ComponentCustomProperties {

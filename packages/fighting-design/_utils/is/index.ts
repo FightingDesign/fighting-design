@@ -68,3 +68,6 @@ export const isFunction = (value: unknown): value is Function => typeof value ==
  * @returns { boolean }
  */
 export const isArray = Array.isArray
+
+/** 是否为浏览器环境 */
+export const isBrowser: boolean = typeof window !== 'undefined'

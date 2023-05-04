@@ -1,4 +1,5 @@
 import { ref, computed, onActivated, onDeactivated, onBeforeUnmount } from 'vue'
+import { isBrowser } from '../../_utils'
 import type { ComputedRef } from 'vue'
 
 export interface UseCountDownOptions {
@@ -43,14 +44,12 @@ export interface UseCountDownReturn {
   current: ComputedRef<CurrentTime>
 }
 
-const inBrowser = typeof window !== 'undefined'
-
 const raf = (fn: FrameRequestCallback): number => {
-  return inBrowser ? window.requestAnimationFrame(fn) : -1
+  return isBrowser ? window.requestAnimationFrame(fn) : -1
 }
 
 const cancelRaf = (id: number): void => {
-  if (inBrowser) {
+  if (isBrowser) {
     window.cancelAnimationFrame(id)
   }
 }
@@ -122,7 +121,7 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
 
   const tick = (): void => {
     // 非浏览器环境，时间不走
-    if (!inBrowser) {
+    if (!isBrowser) {
       return
     }
 
