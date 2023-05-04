@@ -7,9 +7,33 @@ node_modules
 dist
 dist-icon
 stats.html
+
+# eslint
 .eslintcache
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 npm-debug.log*
+npm-error.log*
+pnpm-debug.log*
+pnpm-error.log*
+lerna-debug.log*
+lerna-error.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-pnpm-debug.log
+yarn.lock
+
+# IntelliJ IDEA
+.idea
+*.iws
+*.iml
+*.ipr
+
+# vscode
+.history
+.vscode
