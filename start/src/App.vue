@@ -1,23 +1,51 @@
-<script lang="ts" setup>
+<script setup lang="ts">
   import { ref } from 'vue'
 
-  const url = ref(
-    'https://img1.baidu.com/it/u=1016138010,1907110459&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'
-  )
-
-  const change = (): void => {
-    url.value =
-      'https://img2.baidu.com/it/u=3618236253,1028428296&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1683392400&t=f243a7fe228993127dbd7ac56bfbef3f'
-  }
+  const visible1 = ref(false)
 </script>
 
 <template>
-  <f-image width="200px" :src="url" />
-  <f-avatar width="200px" :src="url" />
-  <img width="20" :src="url" />
-  <img width="200" :src="url" />
+  <f-button type="primary" @click="visible1 = true">打开</f-button>
 
-  <button>123</button>
+  <f-dialog v-model:visible="visible1" title="标题文字">
+    这是一个 Dialog
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>最后了</h1>
 
-  <f-button :on-click="change">切换</f-button>大大的
+    <template #footer>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+    </template>
+  </f-dialog>
 </template>

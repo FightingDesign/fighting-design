@@ -48,12 +48,12 @@
       <!-- 身体 -->
       <section v-if="$slots.default" class="f-dialog__body">
         <slot />
-      </section>
 
-      <!-- 页脚 -->
-      <footer v-if="$slots.footer" class="f-dialog__footer">
-        <slot name="footer" />
-      </footer>
+        <!-- 页脚 -->
+        <footer v-if="$slots.footer" class="f-dialog__footer">
+          <slot name="footer" />
+        </footer>
+      </section>
     </div>
   </f-popup>
 </template>

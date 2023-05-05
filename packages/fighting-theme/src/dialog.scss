@@ -1,20 +1,22 @@
 .f-dialog {
   border-radius: 4px;
-  display: inline-flex;
-  flex-direction: column;
-  background-color: #fff;
-  border: 1px solid #eee;
+  max-height: calc(100vh - 70px);
+  max-width: calc(100vw - 100px);
 
   // 头部
   &__header {
     padding: 12px 14px;
+    box-sizing: border-box;
+    height: 55px;
     text-align: center;
-    position: relative;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
 
     &-title {
       font-size: 15px;
@@ -29,19 +31,20 @@
 
   // 身体
   &__body {
-    padding: 15px;
     box-sizing: border-box;
+    max-height: calc(100vh - 70px - 55px);
+    max-width: calc(100vw - 100px);
     flex: 1;
-  }
+    overflow: auto;
 
-  // 页脚
-  &__footer {
-    padding: 10px 14px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-    align-items: center;
-    border-top: 1px solid #eee;
+    .f-dialog__footer {
+      padding: 10px 14px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-end;
+      align-items: center;
+      border-top: 1px solid #eee;
+    }
   }
 
   // 全屏展示

@@ -32,11 +32,10 @@
     z-index: 1999;
     transition: 0.3s;
 
+    // 主容器
     .f-popup__wrapper {
       position: absolute;
       box-sizing: border-box;
-      overflow-y: auto;
-      overflow-x: hidden;
       background-color: #fff;
 
       // 主内容动画样式
@@ -62,6 +61,7 @@
       border-radius: 6px;
       max-height: calc(100vh - 70px);
       max-width: calc(100vw - 100px);
+      overflow: hidden;
       box-shadow: 0 0 18px #00000066;
 
       &-transition-enter-from,
@@ -140,16 +140,5 @@
   &__transition-enter-from,
   &__transition-leave-to {
     opacity: 0;
-  }
-
-  // 滚动条
-  ::-webkit-scrollbar {
-    width: 7px;
-  }
-
-  // 滚动滑块
-  ::-webkit-scrollbar-thumb {
-    background-color: #dddddd;
-    border-radius: 6px;
   }
 }
