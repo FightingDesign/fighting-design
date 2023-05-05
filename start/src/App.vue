@@ -1,13 +1,19 @@
 <script lang="ts" setup>
-  import { FMessage } from 'fighting-design'
+  import { ref } from 'vue'
 
-  const timeStamp = 10 * 1000
+  const url = ref(
+    'https://img1.baidu.com/it/u=1016138010,1907110459&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'
+  )
 
-  const handelFinish = (): void => {
-    FMessage.primary('倒计时结束')
+  const change = (): void => {
+    url.value =
+      'https://img2.baidu.com/it/u=3618236253,1028428296&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1683392400&t=f243a7fe228993127dbd7ac56bfbef3f'
   }
 </script>
 
 <template>
-  <f-count-down :time="timeStamp" format="DD : HH : mm : ss " :on-finish="handelFinish" />
+  <f-image width="200px" :src="url" />
+  <img width="200" :src="url" />
+
+  <f-button :on-click="change">切换</f-button>
 </template>
