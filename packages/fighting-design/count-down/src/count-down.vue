@@ -72,8 +72,6 @@
       }
     }
 
-    console.log(format)
-
     return format
   }
 

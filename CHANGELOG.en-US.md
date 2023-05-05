@@ -4,6 +4,23 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.34.0 (2023-05-05)
+
+**Fix**
+
+- Fix the issue of dynamic src images not changing when binding `f-avatar` and `f-image` components
+- Fix alignment style issues with `f-avatar` and `f-image` components
+- Fix type error in `f-dialog` and `f-popup`
+
+**Add**
+
+- Add a `f-count-down` countdown component
+
+**Change**
+
+- `f-dialog` width and height style modification
+- Change the default value of `f-up-load` component `show-list` to false
+
 ## 0.33.2 (2023-05-01)
 
 - Fix `f-avatar` component `round` for `text` invalidation issue
@@ -16,7 +33,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 ## 0.33.0 (2023-04-25)
 
 - Abolish the `f-table` component `optional` configuration item
-- Optimization of `f table` component type
+- Optimization of `f-table` component type
 - Optimize the implementation of `f-input` and `f-textarea` components
 
 **Fix**

@@ -2,6 +2,21 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复**
+
+- 修复 `f-avatar` `f-image` 组件绑定动态 src 图片不变化的问题
+- 修复 `f-avatar` `f-image` 组件对齐样式问题
+- 修复 `f-dialog` `f-popup` 类型错误
+
+**新增**
+
+- 新增 `f-count-down` 倒计时组件
+
+**更改**
+
+- `f-dialog` 宽高样式修改
+- `f-up-load` 组件 `show-list` 默认值改为 false
+
 ## 0.33.2 (2023-05-01)
 
 - 修复 `f-avatar` 组件 `round` 对于 `text` 失效问题

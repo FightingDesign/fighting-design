@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.34.0 (2023-05-05)
+
 **修复**
 
 - 修复 `f-avatar` `f-image` 组件绑定动态 src 图片不变化的问题

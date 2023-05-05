@@ -223,7 +223,6 @@ export const useLoadImg = (el: Ref<HTMLImageElement | undefined>, prop: UseLoadI
    * @param { Object } node 元素节点
    */
   const loadImg = (): void => {
-    console.log('13')
 
     if (!el.value) {
       return
