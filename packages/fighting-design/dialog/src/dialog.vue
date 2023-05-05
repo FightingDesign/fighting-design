@@ -46,14 +46,16 @@
       </header>
 
       <!-- 身体 -->
-      <section v-if="$slots.default" class="f-dialog__body">
-        <slot />
+      <div v-if="$slots.default" class="f-dialog__body">
+        <section class="f-dialog__section">
+          <slot />
+        </section>
 
         <!-- 页脚 -->
         <footer v-if="$slots.footer" class="f-dialog__footer">
           <slot name="footer" />
         </footer>
-      </section>
+      </div>
     </div>
   </f-popup>
 </template>

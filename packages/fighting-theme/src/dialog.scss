@@ -37,6 +37,13 @@
     flex: 1;
     overflow: auto;
 
+    // 主内容
+    .f-dialog__section {
+      padding: 5px 10px;
+      box-sizing: border-box;
+    }
+
+    // 页脚
     .f-dialog__footer {
       padding: 10px 14px;
       display: flex;

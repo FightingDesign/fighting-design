@@ -11,39 +11,8 @@
     这是一个 Dialog
     <h1>1</h1>
     <h1>1</h1>
-    <h1>1</h1>
-    <h1>1</h1>
-    <h1>1</h1>
-    <h1>1</h1>
-    <h1>1</h1>
-    <h1>1</h1>
-    <h1>1</h1>
-    <h1>最后了</h1>
 
     <template #footer>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
       <f-button type="default">默认按钮</f-button>
       <f-button type="primary">主要按钮</f-button>
     </template>
