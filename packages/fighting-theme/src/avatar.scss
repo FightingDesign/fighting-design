@@ -7,11 +7,11 @@
 .f-avatar {
   align-items: center;
   display: inline-flex;
-  vertical-align: middle;
   justify-content: center;
   width: var(--avatar-size);
   height: var(--avatar-size);
   background-color: var(--avatar-background);
+  vertical-align: baseline;
 
   // 图片元素
   &__img {

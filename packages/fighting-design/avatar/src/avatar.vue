@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FAvatar">
   import { Props } from './props'
-  import { ref, onMounted, useSlots, watch, computed } from 'vue'
+  import { ref, useSlots } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { useLoadImg, useProps, useList } from '../../_hooks'
   import { isNumber, isString } from '../../_utils'
@@ -12,7 +12,11 @@
 
   const { filter } = useProps(prop)
 
-  const { isSuccess, isShowNode, startLoad } = useLoadImg(
+  /** 图片 dom 节点 */
+  const avatarEl = ref<HTMLImageElement>()
+
+  const { isSuccess, isShowNode } = useLoadImg(
+    avatarEl,
     filter([
       'src',
       'errSrc',
@@ -20,35 +24,8 @@
       'lazy',
       'onLoad',
       'onError'
-    ]) as unknown as UseLoadImgProp
-  )
-
-  /** 图片 dom 节点 */
-  const avatarEl = ref<HTMLImageElement>()
-
-  /** 是否开始加载图片 */
-  const isLoadImg = computed(() => {
-    return !slot.icon && !prop.icon && !prop.text && avatarEl.value
-  })
-
-  /** 加载 */
-  const load = (): void => {
-    if (avatarEl.value) {
-      startLoad(avatarEl.value, (): boolean => isLoadImg.value)
-    }
-  }
-
-  /** 开始触发加载 */
-  onMounted((): void => {
-    load()
-  })
-
-  /** 监视 src 的变化重新加载图片 */
-  watch(
-    (): string => prop.src,
-    (): void => {
-      load()
-    }
+    ]) as unknown as UseLoadImgProp,
+    (): boolean => !slot.icon && !prop.icon && !prop.text && avatarEl.value
   )
 
   const { styles, classes } = useList(prop, 'avatar')

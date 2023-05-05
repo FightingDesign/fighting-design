@@ -1,14 +1,18 @@
 <script lang="ts" setup name="FImage">
   import { Props } from './props'
-  import { onMounted, ref, watch } from 'vue'
+  import { ref } from 'vue'
   import { useLoadImg, useProps, useList } from '../../_hooks'
   import type { UseLoadImgProp } from '../../_hooks'
 
   const prop = defineProps(Props)
 
+  /** 元素节点 */
+  const imageEl = ref<HTMLImageElement>()
+
   const { filter } = useProps(prop)
   const { classes, styles } = useList(prop, 'image')
-  const { startLoad, isSuccess, isShowNode } = useLoadImg(
+  const { isSuccess, isShowNode } = useLoadImg(
+    imageEl,
     filter([
       'src',
       'errSrc',
@@ -17,26 +21,6 @@
       'onLoad',
       'onError'
     ]) as unknown as UseLoadImgProp
-  )
-
-  /** 元素节点 */
-  const imageEl = ref<HTMLImageElement>()
-
-  /** 加载 */
-  const load = (): void => {
-    imageEl.value && startLoad(imageEl.value)
-  }
-
-  onMounted((): void => {
-    load()
-  })
-
-  /** 监视 src 的变化重新加载图片 */
-  watch(
-    (): string => prop.src,
-    (): void => {
-      load()
-    }
   )
 
   /** 类名列表 */

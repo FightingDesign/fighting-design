@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { sizeChange, sizeToNum } from '../../_utils'
 import { useRun } from '..'
 import type { Ref } from 'vue'
@@ -27,12 +27,10 @@ export interface UseLoadImgProp {
  *
  * @param { Object } isSuccess 是否加载成功
  * @param { Object } isShowNode 是否加展示 img 元素
- * @param { Function } startLoad 开始加载
  */
 export interface UseLoadImgReturn {
   isSuccess: Ref<boolean>
   isShowNode: Ref<boolean>
-  startLoad: (node: HTMLImageElement, condition?: () => boolean) => void
 }
 
 /**
@@ -44,7 +42,7 @@ export interface UseLoadImgReturn {
  * @param { Object } prop prop 参数对象
  * @returns { Object }
  */
-export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
+export const useLoadImg = (el: Ref<HTMLImageElement | undefined>, prop: UseLoadImgProp, isLoad?: () => boolean): UseLoadImgReturn => {
   const { run } = useRun()
 
   /** 是否加载成功 */
@@ -224,7 +222,13 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
    *
    * @param { Object } node 元素节点
    */
-  const loadImg = (node: HTMLImageElement): void => {
+  const loadImg = (): void => {
+    console.log('13')
+
+    if (!el.value) {
+      return
+    }
+
     /**
      * 如果需要懒加载
      *
@@ -233,24 +237,38 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
      * 如果有则使用，否则使用其它方式兼容低版本浏览器的懒加载
      */
     if (prop.lazy) {
-      IntersectionObserver ? lazy(node).observe(node) : lazyLow(node)
+      IntersectionObserver ? lazy(el.value).observe(el.value) : lazyLow(el.value)
       return
     }
 
-    load(node)
+    load(el.value)
   }
 
-  const startLoad = (node: HTMLImageElement, condition?: () => boolean): void => {
-    if (condition && condition()) {
-      loadImg(node)
+  const startLoad = (): void => {
+    if (isLoad) {
+
+      if (isLoad()) {
+        loadImg()
+      } else {
+        return
+      }
       return
     }
-    loadImg(node)
+
+    loadImg()
   }
 
-  return {
-    isSuccess,
-    isShowNode,
-    startLoad
-  }
+  onMounted((): void => {
+    startLoad()
+  })
+
+  /** 监视 src 的变化重新加载图片 */
+  watch(
+    (): string => prop.src,
+    (): void => {
+      startLoad()
+    }
+  )
+
+  return { isSuccess, isShowNode }
 }
