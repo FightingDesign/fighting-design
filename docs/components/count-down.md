@@ -134,16 +134,24 @@
 
 :::
 
-## CountDown Attributes
+## Attributes
 
-| 参数         | 说明                   | 类型            | 可选值 | 默认值     |
-| ------------ | ---------------------- | --------------- | ------ | ---------- |
-| `time`       | 倒计时时长，单位毫秒   | string / number | ——     | ——         |
-| `format`     | 时间格式               | string          | ——     | `HH:mm:ss` |
-| `auto-Start` | 是否自动开始倒计时     | boolean         | ——     | `true`     |
-| `finish`     | 倒计时结束后触发的回调 | _() => void_    | ——     | ——         |
+| 参数         | 说明                   | 类型                                           | 可选值 | 默认值   |
+| ------------ | ---------------------- | ---------------------------------------------- | ------ | -------- |
+| `time`       | 倒计时时长，单位毫秒   | string / number                                | ——     | ——       |
+| `format`     | 时间格式               | string                                         | ——     | HH:mm:ss |
+| `auto-start` | 是否自动开始倒计时     | boolean                                        | ——     | true     |
+| `on-finish`  | 倒计时结束后触发的回调 | <a href="#countdownfinish">CountDownFinish</a> | ——     | ——       |
 
-## CountDown Slots
+## Methods
+
+| 参数       | 说明                                                         | 参数                  |
+| ---------- | ------------------------------------------------------------ | --------------------- |
+| `start`    | 开始倒计时                                                   | ——                    |
+| `pause`    | 暂停倒计时                                                   | ——                    |
+| `on-reset` | 重设倒计时，若 `autostart` 为 `true`，重设后会自动开始倒计时 | `total-time` 倒计时长 |
+
+## Slots
 
 | 名称      | 说明       | 参数                    |
 | --------- | ---------- | ----------------------- |
@@ -154,32 +162,16 @@
 组件导出以下类型定义：
 
 ```ts
-import type { CountDownInstance, CountDownProps } from 'fighting-design'
+import type { CountDownInstance, CountDownProps, CountDownFinish } from 'fighting-design'
 ```
 
-### CurrentTime 说明
+### CountDownFinish
 
 ```ts
-interface CurrentTime {
-  total: number
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
-  milliseconds: number
-}
+type CountDownFinish = () => void
 ```
 
-| 名称         | 说明                   | 类型     |
-| ------------ | ---------------------- | -------- |
-| total        | 剩余总时间（单位毫秒） | _number_ |
-| days         | 剩余天数               | _number_ |
-| hours        | 剩余小时               | _number_ |
-| minutes      | 剩余分钟               | _number_ |
-| seconds      | 剩余秒数               | _number_ |
-| milliseconds | 剩余毫秒               | _number_ |
-
-### format 格式
+<!-- ### format 格式
 
 | 格式 | 说明         |
 | ---- | ------------ |
@@ -189,17 +181,7 @@ interface CurrentTime {
 | ss   | 秒数         |
 | S    | 毫秒（1 位） |
 | SS   | 毫秒（2 位） |
-| SSS  | 毫秒（3 位） |
-
-### 实例方法
-
-通过 ref 可以获取到 Countdown 实例并调用实例方法。
-
-| 方法名   | 说明                                                         | 参数                  | 返回值 |
-| -------- | ------------------------------------------------------------ | --------------------- | ------ |
-| start    | 开始倒计时                                                   | ——                    | ——     |
-| pause    | 暂停倒计时                                                   | ——                    | -      |
-| on-reset | 重设倒计时，若 `autostart` 为 `true`，重设后会自动开始倒计时 | `total-time` 倒计时长 | ——     |
+| SSS  | 毫秒（3 位） | -->
 
 ### 样式变量
 

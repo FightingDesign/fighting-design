@@ -65,7 +65,6 @@ const DAY = 24 * HOUR
  * @param { number } time 时间（单位毫秒）
  * @returns { CurrentTime }
  */
-
 const parseTime = (time: number): CurrentTime => {
   const days = Math.floor(time / DAY)
   const hours = Math.floor((time % DAY) / HOUR)
@@ -105,8 +104,8 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
   let isCounting: boolean
   let deactivated: boolean
 
-  const remain = ref(options.time)
-  const current = computed(() => parseTime(remain.value))
+  const remain = ref<number>(options.time)
+  const current = computed((): CurrentTime => parseTime(remain.value))
 
   const getCurrentRemain = (): number => Math.max(endTime - performance.now(), 0)
 
@@ -120,7 +119,7 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
   }
 
   const tick = (): void => {
-    // 非浏览器环境，时间不走
+    /** 非浏览器环境，时间不走 */
     if (!isBrowser) {
       return
     }
@@ -150,9 +149,9 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     cancelRaf(rafId)
   }
 
-  // 毫秒级渲染
+  /** 毫秒级渲染 */
   const microTick = (): void => {
-    rafId = raf(() => {
+    rafId = raf((): void => {
       if (isCounting) {
         setRemain(getCurrentRemain())
 
@@ -163,9 +162,9 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     })
   }
 
-  // 秒级渲染
+  /** 秒级渲染 */
   const macroTick = (): void => {
-    rafId = raf(() => {
+    rafId = raf((): void => {
       if (isCounting) {
         const remainRemain = getCurrentRemain()
 
@@ -180,11 +179,11 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     })
   }
 
-  // 即将卸载时，暂停倒计时
+  /** 即将卸载时，暂停倒计时 */
   onBeforeUnmount(pause)
 
-  // keep-alive下 继续倒计时
-  onActivated(() => {
+  /** keep-alive下 继续倒计时 */
+  onActivated((): void => {
     if (deactivated) {
       isCounting = true
       deactivated = false
@@ -192,8 +191,8 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     }
   })
 
-  // keep-alive下 暂停倒计时
-  onDeactivated(() => {
+  /** keep-alive下 暂停倒计时 */
+  onDeactivated((): void => {
     if (isCounting) {
       pause()
       deactivated = true

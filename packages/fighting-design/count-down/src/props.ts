@@ -5,6 +5,7 @@ import {
   setStringProp,
   setFunctionProp
 } from '../../_utils'
+import type { CountDownFinish } from './interface'
 
 export const Props = {
   /** 倒计时时长，单位毫秒 */
@@ -16,7 +17,7 @@ export const Props = {
   /** 是否开启毫秒级渲染 */
   millisecond: setBooleanProp(false),
   /** 倒计时结束的回调 */
-  onFinish: setFunctionProp()
+  onFinish: setFunctionProp<CountDownFinish>()
 } as const
 
 /** count-down 组件 props 类型 */
