@@ -27,12 +27,12 @@ export interface UseLoadImgProp {
  *
  * @param { Object } isSuccess 是否加载成功
  * @param { Object } isShowNode 是否加展示 img 元素
- * @param { Function } loadImg 开始加载
+ * @param { Function } startLoad 开始加载
  */
 export interface UseLoadImgReturn {
   isSuccess: Ref<boolean>
   isShowNode: Ref<boolean>
-  loadImg: (node: HTMLImageElement) => void
+  startLoad: (node: HTMLImageElement, condition?: () => boolean) => void
 }
 
 /**
@@ -240,9 +240,17 @@ export const useLoadImg = (prop: UseLoadImgProp): UseLoadImgReturn => {
     load(node)
   }
 
+  const startLoad = (node: HTMLImageElement, condition?: () => boolean): void => {
+    if (condition && condition()) {
+      loadImg(node)
+      return
+    }
+    loadImg(node)
+  }
+
   return {
     isSuccess,
     isShowNode,
-    loadImg
+    startLoad
   }
 }

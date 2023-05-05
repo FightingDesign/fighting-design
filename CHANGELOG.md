@@ -2,6 +2,16 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+**修复**
+
+- 修复 `f-avatar` `f-image` 组件绑定动态 src 图片不变化的问题
+
+**新增**
+
+- 新增 `f-count-down` 倒计时组件
+
+**更改**
+
 ## 0.33.2 (2023-05-01)
 
 - 修复 `f-avatar` 组件 `round` 对于 `text` 失效问题

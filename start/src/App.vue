@@ -13,6 +13,7 @@
 
 <template>
   <f-image width="200px" :src="url" />
+  <f-avatar width="200px" :src="url" />
   <img width="200" :src="url" />
 
   <f-button :on-click="change">切换</f-button>
