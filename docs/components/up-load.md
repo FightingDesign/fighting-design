@@ -110,7 +110,7 @@
 | `name`          | 原生 name 属性                     | string                                       | ——     | ——     |
 | `drag`          | 是否可拖拽上传                     | boolean                                      | ——     | false  |
 | `is-remove`     | 是否可删除                         | boolean                                      | ——     | true   |
-| `showList`      | 是否展示文件列表                   | boolean                                      | ——     | true   |
+| `show-list`     | 是否展示文件列表                   | boolean                                      | ——     | false  |
 | `multiple`      | 是否可多选                         | boolean                                      | ——     | false  |
 | `max-size`      | 最大上传尺寸                       | number                                       | ——     | ——     |
 | `max-length`    | 最大上传数量                       | number                                       | ——     | ——     |

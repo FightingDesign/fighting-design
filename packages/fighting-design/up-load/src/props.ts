@@ -24,7 +24,7 @@ export const Props = {
   /** 是否可删除 */
   isRemove: setBooleanProp(true),
   /** 是否展示文件列表 */
-  showList: setBooleanProp(true),
+  showList: setBooleanProp(false),
   /** 是否可多选 */
   multiple: setBooleanProp(),
   /** 最大上传尺寸 */
