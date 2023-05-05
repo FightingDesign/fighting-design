@@ -3,7 +3,7 @@
 工具栏就用它
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/toolbar)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/toolbar.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/toolbar.md)
 
 ## 基本使用
 

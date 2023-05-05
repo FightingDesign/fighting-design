@@ -3,7 +3,7 @@
 放入你想展示的内容
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/card)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/card.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/card.md)
 
 ## 基本使用
 

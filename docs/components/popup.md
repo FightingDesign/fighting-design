@@ -3,7 +3,7 @@
 弹窗相关就用它！
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/popup)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/popup.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/popup.md)
 
 ## 基本使用
 

@@ -3,7 +3,7 @@
 你可以有多个选择
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/checkbox)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/checkbox.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/checkbox.md)
 
 ## 基础使用
 

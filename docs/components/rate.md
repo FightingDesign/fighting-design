@@ -3,7 +3,7 @@
 用于评分或打星
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/rate)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/rate.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/rate.md)
 
 ## 基本使用
 

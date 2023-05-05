@@ -2,6 +2,8 @@
 
 Fighting Design 内部导出的一些类型接口
 
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/interface.md)
+
 ## ClassList
 
 用于类名列表集合类型

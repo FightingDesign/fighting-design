@@ -3,7 +3,7 @@
 这不是 switch 游戏机，而是个开关
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/switch)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/switch.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/switch.md)
 
 ## 基本使用
 

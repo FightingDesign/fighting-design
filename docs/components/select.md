@@ -3,7 +3,7 @@
 到了需要选择的时间了
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/select)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/select.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/select.md)
 
 ## 基本使用
 

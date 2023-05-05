@@ -3,7 +3,7 @@
 用滑动的方式改变数值
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/slider)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/slider.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/slider.md)
 
 :::danger
 组件仍在测试阶段，高频更新中，部分参数暂不稳定！

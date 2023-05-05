@@ -3,7 +3,7 @@
 针对于图片展示的一个扩展折叠动效组件
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/expand-card)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/expand-card.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/expand-card.md)
 
 ## 基本使用
 

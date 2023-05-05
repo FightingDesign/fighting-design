@@ -3,7 +3,7 @@
 用于实时展示倒计时数值，并且支持毫秒级渲染
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/count-down)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/count-down.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/count-down.md)
 
 ## 基本使用
 

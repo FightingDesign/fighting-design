@@ -3,7 +3,7 @@
 段落的分隔符
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/divider)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/divider.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/divider.md)
 
 ## 基本使用
 

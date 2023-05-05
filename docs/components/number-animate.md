@@ -3,7 +3,7 @@
 动画不会停吗？
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/number-animate)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/number-animate.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/number-animate.md)
 
 ## 基本使用
 

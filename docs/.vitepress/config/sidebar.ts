@@ -121,7 +121,7 @@ export const sidebar = {
         { text: 'Infinite Scrolling 无限滚动', link: '/components/infinite-scrolling' },
         { text: 'Number Animate 数字动画', link: '/components/number-animate' },
         {
-          text: 'CollapseAnimation 折叠动画',
+          text: 'Collapse Animation 折叠动画',
           link: '/components/collapse-animation'
         },
         { text: 'Count Down 倒计时', link: '/components/count-down' },

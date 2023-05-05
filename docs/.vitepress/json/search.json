@@ -341,14 +341,19 @@
       "url": "components/box"
     },
     {
-      "title": "InfiniteScrolling 无限滚动",
+      "title": "Infinite Scrolling 无限滚动",
       "rule": "infinite-scrollingInfiniteScrolling无限滚动",
       "url": "components/infinite-scrolling"
     },
     {
-      "title": "NumberAnimate 数字动画",
+      "title": "Number Animate 数字动画",
       "rule": "number-animateNumberAnimate数字动画",
       "url": "components/number-animate"
+    },
+    {
+      "title": "Count Down 倒计时",
+      "rule": "count-downCountDown倒计时",
+      "url": "components/count-down"
     }
   ]
 }

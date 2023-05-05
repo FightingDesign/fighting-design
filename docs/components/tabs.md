@@ -3,7 +3,7 @@
 在同一块区域切换内容
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/tabs)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/tabs.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/tabs.md)
 
 ## 基本使用
 

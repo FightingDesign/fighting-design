@@ -3,7 +3,7 @@
 据说进度条都是假的
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/progress)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/progress.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/progress.md)
 
 ## 基本使用
 

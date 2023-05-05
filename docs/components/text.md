@@ -3,7 +3,7 @@
 让文字活起来
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/text)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/text.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/text.md)
 
 ## 基本使用
 

@@ -3,7 +3,7 @@
 你只有一个选择
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/radio)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/radio.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/radio.md)
 
 ## 基本使用
 

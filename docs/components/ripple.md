@@ -3,7 +3,7 @@
 点击就会产生涟漪的组件
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/ripple)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/ripple.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/ripple.md)
 
 ## 基本使用
 

@@ -3,7 +3,7 @@
 可控制全局组件
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/fighting-global)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/fighting-global.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/fighting-global.md)
 
 ## 基本使用
 

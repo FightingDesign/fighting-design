@@ -3,7 +3,7 @@
 永远不会到底吗？
 
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/infinite-scrolling)
-- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/docs/components/infinite-scrolling.md)
+- [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/infinite-scrolling.md)
 
 ## 基本使用
 
