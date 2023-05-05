@@ -6,6 +6,7 @@
 
 - 修复 `f-avatar` `f-image` 组件绑定动态 src 图片不变化的问题
 - 修复 `f-avatar` `f-image` 组件对齐样式问题
+- 修复 `f-dialog` `f-popup` 类型错误
 
 **新增**
 

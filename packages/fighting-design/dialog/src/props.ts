@@ -7,7 +7,8 @@ import {
   setFunctionProp
 } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import type { HandleEvent, FightingIcon } from '../../_interface'
+import type { FightingIcon } from '../../_interface'
+import type { PopupCallback } from '../../popup'
 
 export const Props = {
   /** 绑定值，控制是否展示 */
@@ -40,13 +41,13 @@ export const Props = {
    */
   zIndex: setNumberProp(1999),
   /** 打开动画开始的回调 */
-  onOpen: setFunctionProp<HandleEvent>(),
+  onOpen: setFunctionProp<PopupCallback>(),
   /** 打开动画结束的回调 */
-  onOpenEnd: setFunctionProp<HandleEvent>(),
+  onOpenEnd: setFunctionProp<PopupCallback>(),
   /** 关闭动画开始的回调 */
-  onClose: setFunctionProp<HandleEvent>(),
+  onClose: setFunctionProp<PopupCallback>(),
   /** 关闭动画结束的回调 */
-  onCloseEnd: setFunctionProp<HandleEvent>()
+  onCloseEnd: setFunctionProp<PopupCallback>()
 } as const
 
 /** dialog 组件 props 类型 */

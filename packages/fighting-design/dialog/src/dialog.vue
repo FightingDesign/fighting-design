@@ -3,8 +3,8 @@
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
   import { toRef } from 'vue'
-  import { useVisible } from '../../_hooks'
-  import { sizeChange, isBoolean } from '../../_utils'
+  import { useVisible, useList } from '../../_hooks'
+  import { isBoolean } from '../../_utils'
   import { EMIT_VISIBLE } from '../../_tokens'
 
   const prop = defineProps(Props)
@@ -12,7 +12,14 @@
     [EMIT_VISIBLE]: (visible: boolean): boolean => isBoolean(visible)
   })
 
+  const { styles, classes } = useList(prop, 'dialog')
   const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit)
+
+  /** 样式列表 */
+  const styleList = styles(['width'])
+
+  /** 类名列表 */
+  const classList = classes(['fullscreen'], 'f-dialog')
 </script>
 
 <template>
@@ -32,8 +39,8 @@
       role="dialog"
       aria-modal="true"
       tabindex="-1"
-      :class="['f-dialog', { 'f-dialog__fullscreen': fullscreen }]"
-      :style="{ width: sizeChange(width) }"
+      :class="classList"
+      :style="styleList"
     >
       <!-- 头部 -->
       <header class="f-dialog__header">

@@ -22,40 +22,40 @@
   /**
    * 打开动画开始执行的回调
    *
-   * @param { Object } evt 事件对象
+   * @param { Object } node 元素节点
    */
-  const handleOpen = (evt: MouseEvent): void => {
+  const handleOpen = (node: Element): void => {
     /** 开启状态隐藏滚动条 */
     document.body.style.overflow = 'hidden'
-    run(prop.onOpen, evt)
+    run(prop.onOpen, node)
   }
 
   /**
    * 打开动画结束执行的回调
    *
-   * @param { Object } evt 事件对象
+   * @param { Object } node 元素节点
    */
-  const handleOpenEnd = (evt: MouseEvent): void => {
-    run(prop.onOpenEnd, evt)
+  const handleOpenEnd = (node: Element): void => {
+    run(prop.onOpenEnd, node)
   }
 
   /**
    * 关闭动画开始执行的回调
    *
-   * @param { Object } evt 事件对象
+   * @param { Object } node 元素节点
    */
-  const handleClose = (evt: MouseEvent): void => {
+  const handleClose = (node: Element): void => {
     document.body.style.overflow = ''
-    run(prop.onClose, evt)
+    run(prop.onClose, node)
   }
 
   /**
    * 关闭动画结束执行的回调
    *
-   * @param { Object } evt 事件对象
+   * @param { Object } node 元素节点
    */
-  const handleCloseEnd = (evt: MouseEvent): void => {
-    run(prop.onCloseEnd, evt)
+  const handleCloseEnd = (node: Element): void => {
+    run(prop.onCloseEnd, node)
   }
 
   /** 样式列表 */

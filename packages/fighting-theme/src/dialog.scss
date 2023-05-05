@@ -2,6 +2,7 @@
   border-radius: 4px;
   max-height: calc(100vh - 70px);
   max-width: calc(100vw - 100px);
+  min-width: var(--dialog-width, 400px);
 
   // 头部
   &__header {
@@ -34,7 +35,6 @@
     box-sizing: border-box;
     max-height: calc(100vh - 70px - 55px);
     max-width: calc(100vw - 100px);
-    flex: 1;
     overflow: auto;
 
     // 主内容
@@ -56,7 +56,26 @@
 
   // 全屏展示
   &.f-dialog__fullscreen {
-    width: 100vw;
-    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    max-height: 100vh;
+    max-width: 100vw;
+    border-radius: 0;
+
+    .f-dialog__body {
+      max-width: 100vw;
+      max-height: calc(100vh - 55px);
+      height: calc(100vh - 55px);
+      overflow: hidden;
+
+      .f-dialog__section {
+        overflow: auto;
+        height: calc(100% - 56px);
+      }
+    }
   }
 }
