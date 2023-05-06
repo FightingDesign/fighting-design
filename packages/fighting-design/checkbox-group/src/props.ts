@@ -20,7 +20,7 @@ export const Props = {
   /** label */
   label: setStringProp(),
   /** 是否显示边框 */
-  border: setBooleanProp(),
+  background: setBooleanProp(),
   /**
    * 尺寸
    *

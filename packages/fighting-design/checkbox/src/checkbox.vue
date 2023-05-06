@@ -1,12 +1,11 @@
 <script lang="ts" setup name="FCheckbox">
   import { Props } from './props'
-  import { computed, inject } from 'vue'
-  import { useRun } from '../../_hooks'
+  import { computed, inject, reactive } from 'vue'
+  import { useRun, useList } from '../../_hooks'
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import { isArray, isBoolean } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
   import type { CheckboxGroupProvide } from '../../checkbox-group'
-  import type { ClassList } from '../../_interface'
   import type { CheckboxModelValue } from './interface'
 
   const prop = defineProps(Props)
@@ -55,18 +54,40 @@
     return value === prop.label
   })
 
+  // /** 判断是否被选中 */
+  // const isChecked = computed((): boolean => modelValue.value === prop.label)
+  /** 父级是否带有禁用 */
+  const isParentDisabled = computed(
+    (): boolean => !!(parentInject && parentInject.disabled)
+  )
+
+  /** 判断是否被禁用 */
+  const isDisabled = computed((): boolean => prop.disabled || isParentDisabled.value)
+
+  console.log(isDisabled.value)
+
+  const { classes } = useList(
+    reactive({
+      checked: isActive,
+      disabled: isDisabled
+    }),
+    'checkbox'
+  )
+
+  // /** 类名列表 */
   /** 类名列表 */
-  const classList = computed((): ClassList => {
-    return [
-      'f-checkbox',
-      {
-        'f-checkbox__active': isActive.value,
-        'f-checkbox__indeterminate': prop.indeterminate,
-        'f-checkbox__bordered': parentInject && parentInject.border,
-        'f-checkbox__disabled': prop.disabled || (parentInject && parentInject.disabled)
-      }
-    ]
-  })
+  const classList = classes(['checked', 'disabled'], 'f-checkbox')
+  // const classList = computed((): ClassList => {
+  //   return [
+  //     'f-checkbox',
+  //     {
+  //       'f-checkbox__active': isActive.value,
+  //       'f-checkbox__indeterminate': prop.indeterminate,
+  //       'f-checkbox__bordered': parentInject && parentInject.background,
+  //       'f-checkbox__disabled': prop.disabled || (parentInject && parentInject.disabled)
+  //     }
+  //   ]
+  // })
 </script>
 
 <template>
@@ -85,7 +106,10 @@
       :value="label"
       :disabled="disabled || (!!parentInject && parentInject.disabled)"
     />
-    <span v-if="!(parentInject && parentInject.border)" class="f-checkbox__box" />
+    <!-- 选择框 -->
+    <span v-if="!(parentInject && parentInject.background)" class="f-checkbox__box" />
+
+    <!-- 文字内容 -->
     <span class="f-checkbox__text">
       <slot />
       <template v-if="!$slots.default && showLabel">{{ label }}</template>

@@ -1,12 +1,10 @@
 <script lang="ts" setup name="FCheckboxGroup">
   import { Props, CHECKBOX_GROUP_PROPS_KEY } from './props'
-  import { provide, reactive, toRefs, computed } from 'vue'
-  import { sizeChange, isArray } from '../../_utils'
-  import { useRun } from '../../_hooks'
+  import { provide, reactive, toRefs } from 'vue'
+  import { isArray } from '../../_utils'
+  import { useRun, useList } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
   import type { CheckboxGroupProvide } from './interface'
-  import type { CSSProperties } from 'vue'
-  import type { ClassList } from '../../_interface'
   import type { CheckboxLabel } from '../../checkbox'
 
   const prop = defineProps(Props)
@@ -15,6 +13,7 @@
   })
 
   const { run } = useRun()
+  const { classes, styles } = useList(prop, 'checkbox-group')
 
   /**
    * 绑定值发生改变时候触
@@ -36,28 +35,10 @@
   )
 
   /** 样式列表 */
-  const styleList = computed((): CSSProperties => {
-    const { columnGap, rowGap } = prop
-
-    return {
-      columnGap: sizeChange(columnGap),
-      rowGap: sizeChange(rowGap)
-    } as const
-  })
+  const styleList = styles(['columnGap', 'rowGap'])
 
   /** 类名列表 */
-  const classList = computed((): ClassList => {
-    const { border, vertical, size } = prop
-
-    return [
-      'f-checkbox-group',
-      {
-        'f-checkbox-group__border': border,
-        'f-checkbox-group__vertical': vertical,
-        [`f-checkbox-group__${size}`]: size && border
-      }
-    ]
-  })
+  const classList = classes(['background', 'vertical', 'size'], 'f-checkbox-group')
 </script>
 
 <template>

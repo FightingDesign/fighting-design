@@ -1,104 +1,69 @@
 .f-checkbox-group {
-  column-gap: 22px;
-  align-items: center;
   display: inline-flex;
-  justify-content: center;
+  padding: 2px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
   transition: 0.3s;
+  position: relative;
+  vertical-align: top;
+  column-gap: var(--checkbox-group-column-gap, 30px);
 
   // 纵向排列
   &.f-checkbox-group__vertical {
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: var(--checkbox-group-row-gap, 20px);
   }
 
-  // 带有边框
-  &.f-checkbox-group__border {
-    column-gap: 0;
-    row-gap: 0;
+  // 背景状态
+  // 背景状态默认元素之间的间距为 0
+  &.f-checkbox-group__background {
+    background: #f8f9fb;
+    column-gap: var(--checkbox-group-column-gap, 0);
+    row-gap: var(--checkbox-group-row-gap, 0);
 
-    .f-checkbox {
-      padding: 5px 10px;
-      border: 1px solid #dee5fd;
+    // 选中的
+    .f-checkbox__checked {
+      background-color: #fff;
+    }
 
-      // 带有边框的选中状态下的禁用
-      &.f-checkbox__selected {
-        &.f-checkbox__disabled {
-          background-color: #f0f0f0;
-
-          .f-checkbox__text {
-            color: #d7d7d7;
-          }
-        }
-      }
-
-      // 禁用状态
-      &.f-checkbox__disabled {
-        border-color: #d7d7d7;
-      }
-
-      &.f-checkbox__large {
-        padding: 8px 14px;
-      }
-
-      &.f-checkbox__small {
-        padding: 4px 6px;
-      }
-
-      // 边框状态选中
-      &.f-checkbox__active {
-        background: #2d5af1;
+    // 不同尺寸
+    &.f-checkbox-group__large {
+      .f-checkbox {
+        padding: 4px 30px;
 
         .f-checkbox__text {
-          color: #fff;
+          font-size: 16px;
         }
       }
     }
-  }
 
-  &.f-checkbox-group__large {
-    .f-checkbox {
-      padding: 0 30px;
-      font-size: 17px;
-      height: 40px;
+    &.f-checkbox-group__middle {
+      .f-checkbox {
+        padding: 3px 25px;
 
-      .f-checkbox__text {
-        font-size: 16px;
+        .f-checkbox__text {
+          font-size: 15px;
+        }
       }
     }
-  }
 
-  &.f-checkbox-group__middle {
-    .f-checkbox {
-      padding: 0 25px;
-      font-size: 16px;
-      height: 35px;
+    &.f-checkbox-group__small {
+      .f-checkbox {
+        padding: 2px 20px;
 
-      .f-checkbox__text {
-        font-size: 15px;
+        .f-checkbox__text {
+          font-size: 14px;
+        }
       }
     }
-  }
 
-  &.f-checkbox-group__small {
-    .f-checkbox {
-      padding: 0 20px;
-      font-size: 15px;
-      height: 30px;
+    &.f-checkbox-group__mini {
+      .f-checkbox {
+        padding: 2px 15px;
 
-      .f-checkbox__text {
-        font-size: 14px;
-      }
-    }
-  }
-
-  &.f-checkbox-group__mini {
-    .f-checkbox {
-      padding: 0 15px;
-      font-size: 14px;
-      height: 25px;
-
-      .f-checkbox__text {
-        font-size: 13px;
+        .f-checkbox__text {
+          font-size: 12px;
+        }
       }
     }
   }

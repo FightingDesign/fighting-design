@@ -1,13 +1,12 @@
 .f-checkbox {
-  display: inline-flex;
+  cursor: pointer;
+  display: flex;
   align-items: center;
-  justify-content: center;
   white-space: nowrap;
   outline: none;
   user-select: none;
-  cursor: pointer;
-  transition: 0.3s;
   color: #333;
+  transition: all 0.3s;
 
   // 选择框
   &__box {
@@ -22,14 +21,8 @@
     border-radius: 2px;
   }
 
-  // 文字
-  &__text {
-    color: #333;
-    transition: color 0.3s;
-  }
-
   // 正常状态选中状态
-  &.f-checkbox__active {
+  &.f-checkbox__checked {
     .f-checkbox__text {
       color: #2d5af1;
     }
@@ -73,35 +66,7 @@
     }
   }
 
-  &.f-checkbox__indeterminate {
-    .f-checkbox__box {
-      background-color: #2d5af1;
-      border: 1px solid #2d5af1;
-
-      &::after {
-        content: '';
-        width: 8px;
-        height: 2px;
-        position: absolute;
-        top: calc(50% - 1px);
-        transform: rotate(0) scale(1);
-        animation: f-checkbox-animation2 0.1s ease-in;
-        background-color: #fff;
-
-        @keyframes f-checkbox-animation2 {
-          from {
-            transform: rotate(0) scale(0);
-          }
-
-          to {
-            transform: rotate(0) scale(1);
-          }
-        }
-      }
-    }
-  }
-
-  // 禁用状态
+  // 正常状态禁用
   &.f-checkbox__disabled {
     cursor: not-allowed;
 
