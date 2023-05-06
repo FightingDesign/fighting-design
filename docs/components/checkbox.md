@@ -61,56 +61,6 @@
 
 :::
 
-## 全选及半选
-
-给复选框添加 `indeterminate` 属性使其显示半选时的状态，且此属性仅控制样式
-
-::: demo
-<template #source>
-<demo1-vue />
-</template>
-
-```html
-<template>
-  <div>
-    <f-checkbox
-      v-model="checkAll"
-      label="全都要"
-      :indeterminate="indeterminate"
-      :change="onCheckboxChange"
-    />
-  </div>
-
-  <f-checkbox-group v-model="checkedOptions" :change="onGroupChange">
-    <f-checkbox v-for="(item, index) in optionList" :key="index" :label="item" />
-  </f-checkbox-group>
-</template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const checkAll = ref(false)
-  const indeterminate = ref(false)
-  const checkedOptions = ref<string[]>([])
-  const optionList = ref(['红buff', '蓝buff', '大龙', '小龙'])
-
-  const onCheckboxChange = (e: boolean): void => {
-    checkedOptions.value = e ? optionList.value : []
-    indeterminate.value = false
-  }
-
-  const onGroupChange = (val: string[]): void => {
-    const halfStatus = !!(val.length && val.length < optionList.value.length)
-    if (val.length === optionList.value.length) {
-      checkAll.value = true
-    }
-    indeterminate.value = halfStatus
-  }
-</script>
-```
-
-:::
-
 ## 禁用选项
 
 直接添加`disabled` 属性即可，当在 `f-checkbox-group` 组件上使用 `disabled` 属性时，会将其内部组件全部禁用掉
@@ -163,14 +113,14 @@
 
 :::
 
-## 带边框
+## 背景色效果
 
-`border` 属性可设置边框
+`background` 属性可以配置带有背景色的效果
 
 ::: demo
 
 <template #source>
-<f-checkbox-group v-model="option4" border size="large">
+<f-checkbox-group v-model="option4" background size="large">
 <f-checkbox label="选项一" />
 <f-checkbox label="选项二" />
 <f-checkbox label="选项三" />
@@ -179,7 +129,7 @@
 <br />
 <br />
 
-<f-checkbox-group v-model="option4" border>
+<f-checkbox-group v-model="option4" background>
   <f-checkbox label="选项一" />
   <f-checkbox label="选项二" />
   <f-checkbox label="选项三" />
@@ -188,7 +138,7 @@
 <br />
 <br />
 
-<f-checkbox-group v-model="option4" border size="small">
+<f-checkbox-group v-model="option4" background size="small">
   <f-checkbox label="选项一" />
   <f-checkbox label="选项二" />
   <f-checkbox label="选项三" />
@@ -197,7 +147,7 @@
 <br />
 <br />
 
-<f-checkbox-group v-model="option4" border size="mini">
+<f-checkbox-group v-model="option4" background size="mini">
   <f-checkbox label="选项一" />
   <f-checkbox label="选项二" />
   <f-checkbox label="选项三" />
@@ -206,19 +156,25 @@
 
 ```html
 <template>
-  <f-checkbox-group v-model="option4" border size="large">
+  <f-checkbox-group v-model="option4" background size="large">
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />
   </f-checkbox-group>
 
-  <f-checkbox-group v-model="option4" border>
+  <f-checkbox-group v-model="option4" background>
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />
   </f-checkbox-group>
 
-  <f-checkbox-group v-model="option4" border size="small">
+  <f-checkbox-group v-model="option4" background size="small">
+    <f-checkbox label="选项一" />
+    <f-checkbox label="选项二" />
+    <f-checkbox label="选项三" />
+  </f-checkbox-group>
+
+  <f-checkbox-group v-model="option4" background size="mini">
     <f-checkbox label="选项一" />
     <f-checkbox label="选项二" />
     <f-checkbox label="选项三" />
@@ -234,16 +190,6 @@
 
 :::
 
-## Checkbox Attributes
-
-| 参数                   | 说明                   | 类型                                                 | 可选值 | 默认值 |
-| ---------------------- | ---------------------- | ---------------------------------------------------- | ------ | ------ |
-| `modelValue / v-model` | 绑定值                 | <a href="#checkboxmodelvalue">CheckboxModelValue</a> | ——     | ——     |
-| `disabled`             | 是否禁用               | boolean                                              | ——     | false  |
-| `label`                | 单选框对应的值         | <a href="#checkboxlabel">CheckboxLabel</a>           | ——     | ——     |
-| `indeterminate`        | 是否为半选状态样式     | boolean                                              | ——     | false  |
-| `on-change`            | 绑定值变化时触发的回调 | <a href="#checkboxchange">CheckboxChange</a>         | ——     | ——     |
-
 ## CheckboxGroup Attributes
 
 | 参数                   | 说明                   | 类型                                                               | 可选值                          | 默认值 |
@@ -256,6 +202,15 @@
 | `column-gap`           | 横向排列的间距         | string / number                                                    | ——                              | ——     |
 | `row-gap`              | 纵向排列的间距         | string / number                                                    | ——                              | ——     |
 | `on-change`            | 绑定值变化时触发的回调 | <a href="#checkboxgroupchange">CheckboxGroupChange</a>             | ——                              | ——     |
+
+## Checkbox Attributes
+
+| 参数                   | 说明                   | 类型                                                 | 可选值 | 默认值 |
+| ---------------------- | ---------------------- | ---------------------------------------------------- | ------ | ------ |
+| `modelValue / v-model` | 绑定值                 | <a href="#checkboxmodelvalue">CheckboxModelValue</a> | ——     | ——     |
+| `disabled`             | 是否禁用               | boolean                                              | ——     | false  |
+| `label`                | 单选框对应的值         | <a href="#checkboxlabel">CheckboxLabel</a>           | ——     | ——     |
+| `on-change`            | 绑定值变化时触发的回调 | <a href="#checkboxchange">CheckboxChange</a>         | ——     | ——     |
 
 ## Interface
 

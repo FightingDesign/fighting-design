@@ -54,8 +54,6 @@
     return value === prop.label
   })
 
-  // /** 判断是否被选中 */
-  // const isChecked = computed((): boolean => modelValue.value === prop.label)
   /** 父级是否带有禁用 */
   const isParentDisabled = computed(
     (): boolean => !!(parentInject && parentInject.disabled)
@@ -63,8 +61,6 @@
 
   /** 判断是否被禁用 */
   const isDisabled = computed((): boolean => prop.disabled || isParentDisabled.value)
-
-  console.log(isDisabled.value)
 
   const { classes } = useList(
     reactive({
@@ -74,20 +70,8 @@
     'checkbox'
   )
 
-  // /** 类名列表 */
   /** 类名列表 */
   const classList = classes(['checked', 'disabled'], 'f-checkbox')
-  // const classList = computed((): ClassList => {
-  //   return [
-  //     'f-checkbox',
-  //     {
-  //       'f-checkbox__active': isActive.value,
-  //       'f-checkbox__indeterminate': prop.indeterminate,
-  //       'f-checkbox__bordered': parentInject && parentInject.background,
-  //       'f-checkbox__disabled': prop.disabled || (parentInject && parentInject.disabled)
-  //     }
-  //   ]
-  // })
 </script>
 
 <template>

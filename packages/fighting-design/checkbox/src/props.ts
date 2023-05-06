@@ -19,8 +19,6 @@ export const Props = {
   border: setBooleanProp(),
   /** 是否展示 label */
   showLabel: setBooleanProp(true),
-  /** 是否为半选状态 */
-  indeterminate: setBooleanProp(),
   /** 绑定值发生改变时触发 */
   onChange: setFunctionProp<CheckboxChange>()
 } as const

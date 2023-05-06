@@ -14,6 +14,7 @@
 
 - 修复 `f-radio` 组件样式问题
 - 修复 `f-checkbox` 组件样式问题
+- 废除 `f-checkbox` 组件 `indeterminate` 配置项
 
 ## 0.34.0 (2023-05-05)
 

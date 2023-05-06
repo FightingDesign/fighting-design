@@ -5,7 +5,6 @@
   white-space: nowrap;
   outline: none;
   user-select: none;
-  color: #333;
   transition: all 0.3s;
 
   // 选择框
@@ -19,6 +18,14 @@
     position: relative;
     margin-right: 7px;
     border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  // 文字
+  &__text {
+    color: #333;
+    font-size: 15px;
+    transition: 0.3s;
   }
 
   // 正常状态选中状态
