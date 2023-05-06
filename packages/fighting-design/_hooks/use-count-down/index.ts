@@ -2,6 +2,14 @@ import { ref, computed, onActivated, onDeactivated, onBeforeUnmount } from 'vue'
 import { isBrowser } from '../../_utils'
 import type { ComputedRef } from 'vue'
 
+/**
+ * hook的入参类型接口
+ * 
+ * @param { number } time 倒计时长（单位毫秒）
+ * @param { boolean } millisecond 是否开启毫秒级别渲染
+ * @param { Function } onFinish 倒计时结束的回调函数
+ * 
+ */
 export interface UseCountDownOptions {
   time: number
   millisecond?: boolean
@@ -107,8 +115,10 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
   const remain = ref<number>(options.time)
   const current = computed((): CurrentTime => parseTime(remain.value))
 
+  /** 拿到当前的剩余时间 */
   const getCurrentRemain = (): number => Math.max(endTime - performance.now(), 0)
 
+  /** 设置当前剩余时间，当倒计时结束时，停止以及调用onFinish函数 */
   const setRemain = (value: number): void => {
     remain.value = value
 
@@ -118,6 +128,7 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     }
   }
 
+  /** 逐帧计算倒计时 */
   const tick = (): void => {
     /** 非浏览器环境，时间不走 */
     if (!isBrowser) {
@@ -131,6 +142,7 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     }
   }
 
+  /** 开始倒计时 */
   const start = (): void => {
     if (!isCounting) {
       endTime = performance.now() + remain.value
@@ -139,11 +151,13 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     }
   }
 
+  /** 重设倒计时 */
   const reset = (totalTime: number = options.time): void => {
     pause()
     remain.value = totalTime
   }
 
+  /** 暂停 */
   const pause = (): void => {
     isCounting = false
     cancelRaf(rafId)
@@ -153,8 +167,11 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
   const microTick = (): void => {
     rafId = raf((): void => {
       if (isCounting) {
+
+        /** 设置剩余时间为此次调用时的剩余时间 */
         setRemain(getCurrentRemain())
 
+        /** 当还有剩余时间时，继续 */
         if (remain.value > 0) {
           microTick()
         }
@@ -166,12 +183,19 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
   const macroTick = (): void => {
     rafId = raf((): void => {
       if (isCounting) {
+
+        /** 获取此次调用的剩余时间 */
         const remainRemain = getCurrentRemain()
 
+        /** 
+         * 同一秒才开始渲染
+         * TODO: 后续可以将这里改造成 可选的时间间隔参数 来渲染倒计时
+         */
         if (!isSameSecond(remainRemain, remain.value) || remainRemain === 0) {
           setRemain(remainRemain)
         }
 
+        /** 当还有剩余时间时，继续 */
         if (remain.value > 0) {
           macroTick()
         }
@@ -179,11 +203,11 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     })
   }
 
-  /** 即将卸载时，暂停倒计时 */
+  /* 组件即将被卸载时，暂停倒计时 */
   onBeforeUnmount(pause)
 
-  /** keep-alive下 继续倒计时 */
-  onActivated((): void => {
+  /* keep-alive时，从deactive到active状态下： 继续倒计时 */
+  onActivated(() => {
     if (deactivated) {
       isCounting = true
       deactivated = false
@@ -191,8 +215,8 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     }
   })
 
-  /** keep-alive下 暂停倒计时 */
-  onDeactivated((): void => {
+  /* keep-alive时，deactive状态下： 暂停倒计时 */
+  onDeactivated(() => {
     if (isCounting) {
       pause()
       deactivated = true
