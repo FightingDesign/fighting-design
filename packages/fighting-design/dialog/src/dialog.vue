@@ -30,6 +30,7 @@
     :mask-close="maskClose"
     :z-index="zIndex"
     :mask-blur="maskBlur"
+    :fullscreen="fullscreen"
     :on-open="onOpen"
     :on-open-end="onOpenEnd"
     :on-close="onClose"
@@ -44,12 +45,29 @@
     >
       <!-- 头部 -->
       <header class="f-dialog__header">
-        <slot name="header">
-          <span class="f-dialog__header-title">{{ title }}</span>
-          <f-close-btn v-if="showCloseIcon" :icon="closeIcon" :on-click="closeVisible">
-            <slot name="closeIcon" />
-          </f-close-btn>
-        </slot>
+        <!-- 头部前缀 -->
+        <div class="f-dialog__header-before">
+          <slot name="headerBefore" />
+        </div>
+
+        <!-- 头部标题 -->
+        <h2 class="f-dialog__header-center">{{ title }}</h2>
+
+        <!-- 头部后缀 -->
+        <div class="f-dialog__header-after">
+          <slot name="headerAfter">
+            <f-close-btn
+              v-if="showCloseIcon"
+              round
+              color="#3c4043"
+              :size="30"
+              :icon="closeIcon"
+              :on-click="closeVisible"
+            >
+              <slot name="closeIcon" />
+            </f-close-btn>
+          </slot>
+        </div>
       </header>
 
       <!-- 身体 -->

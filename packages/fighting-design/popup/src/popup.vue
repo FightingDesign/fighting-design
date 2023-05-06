@@ -110,7 +110,8 @@
               :class="[
                 'f-popup__wrapper',
                 {
-                  [`f-popup__wrapper-${direction}`]: direction
+                  [`f-popup__wrapper-${direction}`]: direction,
+                  'f-popup__fullscreen': fullscreen
                 }
               ]"
               :style="styleList"

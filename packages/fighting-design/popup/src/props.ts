@@ -43,6 +43,8 @@ export const Props = {
   }),
   /** 弹出窗口尺寸 */
   popupSize: setStringNumberProp(),
+  /** 是否全屏展示 */
+  fullscreen: setBooleanProp(),
   /** 自定义内边距 */
   padding: setStringNumberProp(),
   /** 打开动画开始的回调 */

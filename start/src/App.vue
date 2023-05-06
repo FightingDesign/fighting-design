@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue'
+  import { FIconArrowLeft } from '@fighting-design/fighting-icon'
 
   const visible1 = ref(false)
 </script>
@@ -7,9 +8,17 @@
 <template>
   <f-button type="primary" @click="visible1 = true">打开</f-button>
 
-  <f-dialog v-model:visible="visible1" title="标题文字">
+  <f-dialog v-model:visible="visible1" title="标题文字" fullscreen>
+    <!-- <template #headerBefore>
+      <f-svg-icon :icon="FIconArrowLeft" :size="30" />
+    </template> -->
+
+    <!-- <template #headerAfter>
+      <f-svg-icon :icon="FIconArrowLeft" :size="30" />
+    </template> -->
     这是一个 Dialog
-    <h1>11</h1>
+    <!-- <h1>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</h1> -->
+
     <h1>11</h1>
     <h1>11</h1>
     <h1>11</h1>

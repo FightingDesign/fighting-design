@@ -1,38 +1,51 @@
 .f-dialog {
   border-radius: 4px;
   min-width: var(--dialog-width, 400px);
+  max-width: inherit;
+  background: #fff;
 
   // 头部
   &__header {
-    padding: 12px 14px;
-    box-sizing: border-box;
-    height: 55px;
-    text-align: center;
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #eee;
-    background-color: #fff;
+    height: 55px;
+    min-height: 56px;
+    width: 100%;
+    max-width: inherit;
 
-    &-title {
-      font-size: 15px;
-      color: #333;
+    &-before {
+      width: 56px;
+      display: inline-block;
+      margin-left: 13px;
+      margin-right: auto;
     }
 
-    .f-close-btn {
-      position: absolute;
-      right: 15px;
+    &-center {
+      color: rgb(95, 99, 104);
+      font-size: 17px;
+      font-size: 22px;
+      font-weight: normal;
+      line-height: 22px;
+      text-align: center;
+      width: 100%;
+    }
+
+    &-after {
+      width: 56px;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: 4px;
     }
   }
 
   // 身体
   &__body {
-    box-sizing: border-box;
-    max-height: calc(100vh - 70px - 55px);
     max-width: inherit;
+    max-height: calc(100vh - 70px - 55px);
     min-height: var(--dialog-height);
+    box-sizing: border-box;
     overflow: auto;
+    background: #fff;
 
     // 主内容
     .f-dialog__section {
@@ -54,14 +67,8 @@
 
   // 全屏展示
   &.f-dialog__fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #fff;
-    max-height: 100vh;
-    max-width: 100vw;
+    min-width: 100vw;
+    min-height: 100vh;
     border-radius: 0;
 
     .f-dialog__body {
