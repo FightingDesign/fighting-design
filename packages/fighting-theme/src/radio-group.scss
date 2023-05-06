@@ -1,32 +1,30 @@
 .f-radio-group {
   display: inline-flex;
-  align-items: center;
   padding: 2px;
   box-sizing: border-box;
   flex-wrap: wrap;
   transition: 0.3s;
   position: relative;
   vertical-align: top;
-  column-gap: var(--radio-group-column-gap, 0);
-
-  &:not([class~='f-radio-group__background']) {
-    column-gap: var(--radio-group-column-gap, 30px);
-
-    &.f-radio-group__vertical {
-      row-gap: var(--radio-group-row-gap, 20px);
-    }
-  }
+  column-gap: var(--radio-group-column-gap, 30px);
 
   // 纵向排列
   &.f-radio-group__vertical {
     flex-direction: column;
-    row-gap: var(--radio-group-row-gap, 0);
+    row-gap: var(--radio-group-row-gap, 20px);
   }
 
-  // 边框状态
+  // 背景状态
+  // 背景状态默认元素之间的间距为 0
   &.f-radio-group__background {
     background: #f8f9fb;
-    flex-wrap: nowrap;
+    column-gap: var(--radio-group-column-gap, 0);
+    row-gap: var(--radio-group-row-gap, 0);
+
+    // 选中的
+    .f-radio__checked {
+      background-color: #fff;
+    }
 
     // 不同尺寸
     &.f-radio-group__large {
@@ -67,10 +65,6 @@
           font-size: 12px;
         }
       }
-    }
-
-    .f-radio__checked {
-      background-color: #fff;
     }
   }
 }
