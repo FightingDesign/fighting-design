@@ -34,18 +34,16 @@
       background: none;
       margin: 0 5px;
       font-size: var(--input-font-size, 14px);
+      transition: 0.2s;
       cursor: pointer;
       color: var(--input-text-color);
       user-select: none;
+      font-family: Arial, sans-serif;
 
       // 禁用原生右侧上下选择箭头
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button {
         -webkit-appearance: none;
-      }
-
-      &[type='number'] {
-        -moz-appearance: textfield;
       }
 
       // 占位符颜色

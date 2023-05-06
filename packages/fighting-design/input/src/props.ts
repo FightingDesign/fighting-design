@@ -59,6 +59,12 @@ export const Props = {
    */
   maxLength: setNumberProp(),
   /**
+   * 设置字体大小
+   * 
+   * @see font-size https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size
+   */
+  fontSize: setStringNumberProp(),
+  /**
    * 是否自动获取焦点
    *
    * @see autofocus https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-autofocus

@@ -54,6 +54,12 @@ export const Props = {
    * @see readonly https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-readonly
    */
   readonly: setBooleanProp(),
+  /**
+   * 设置字体大小
+   * 
+   * @see font-size https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size
+   */
+  fontSize: setStringNumberProp(),
   /** input 事件触发的回调 */
   onInput: setFunctionProp<HandleEvent>(),
   /**

@@ -74,7 +74,8 @@
     'activeBackground',
     'activeBorderColor',
     'width',
-    'height'
+    'height',
+    'fontSize'
   ])
 
   /** 类名列表 */

@@ -143,6 +143,7 @@
 | `disabled`    | 是否禁用                   | boolean                                                          | ——                                           | false   |
 | `max-length`  | 最大输入长度上限           | number                                                           | ——                                           | ——      |
 | `autofocus`   | 是否自动获取焦点           | boolean                                                          | ——                                           | false   |
+| `font-size`   | 自定义字体大小             | string / number                                                  | ——                                           | ——      |
 | `name`        | 原生 name 属性             | string                                                           | ——                                           | f-input |
 | `placeholder` | 占位符                     | string                                                           | ——                                           | ——      |
 | `readonly`    | 是否只读                   | boolean                                                          | ——                                           | false   |

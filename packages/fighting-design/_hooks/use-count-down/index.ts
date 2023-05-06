@@ -8,7 +8,6 @@ import type { ComputedRef } from 'vue'
  * @param { number } time 倒计时长（单位毫秒）
  * @param { boolean } millisecond 是否开启毫秒级别渲染
  * @param { Function } onFinish 倒计时结束的回调函数
- * 
  */
 export interface UseCountDownOptions {
   time: number

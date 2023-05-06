@@ -221,6 +221,7 @@
 | `placeholder-color`   | 自定义占位符颜色           | string                                                             | ——                              | ——      |
 | `text-color`          | 自定义文字颜色             | string                                                             | ——                              | ——      |
 | `background`          | 自定义背景颜色             | string                                                             | ——                              | ——      |
+| `font-size`           | 自定义字体大小             | string / number                                                    | ——                              | ——      |
 | `autocomplete`        | 是否开启自动填充特性提示   | string                                                             | ——                              | ——      |
 | `active-background`   | 自定义选中状态背景颜色     | string                                                             | ——                              | ——      |
 | `active-border-color` | 自定义选中状态边框颜色     | string                                                             | ——                              | ——      |

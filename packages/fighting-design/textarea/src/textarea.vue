@@ -18,7 +18,7 @@
   const classList = classes(['disabled'], 'f-textarea')
 
   /** 样式列表 */
-  const styleList = styles(['resize'])
+  const styleList = styles(['resize', 'fontSize'])
 </script>
 
 <template>

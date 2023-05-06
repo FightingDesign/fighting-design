@@ -19,13 +19,14 @@
     resize: none;
     outline: none;
     display: block;
-    font-size: 15px;
     cursor: pointer;
     background: none;
     padding: 6px 9px;
     box-sizing: border-box;
-    transition: border 0.2s;
+    transition: 0.2s;
+    font-size: var(--textarea-font-size, 14px);
     color: #333;
+    font-family: Arial, sans-serif;
   }
 
   // 禁用状态
