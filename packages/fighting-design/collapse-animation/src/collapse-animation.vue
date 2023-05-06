@@ -40,9 +40,9 @@
    *
    * @param { Object } el 元素节点
    */
-  const onBeforeEnter = (el: HTMLElement): void => {
-    el.style.transition = transitionStyle
-    el.style.height = '0'
+  const onBeforeEnter = (el: Element): void => {
+    (el as HTMLElement).style.transition = transitionStyle
+    ;(el as HTMLElement).style.height = '0'
   }
 
   /**
@@ -52,13 +52,13 @@
    *
    * @param { Object } el 元素节点
    */
-  const onEnter = (el: HTMLElement): void => {
-    if (el.scrollHeight !== 0) {
-      el.style.height = `${el.scrollHeight}px`
+  const onEnter = (el: Element): void => {
+    if ((el as HTMLElement).scrollHeight !== 0) {
+      (el as HTMLElement).style.height = `${(el as HTMLElement).scrollHeight}px`
     } else {
-      el.style.height = ''
+      (el as HTMLElement).style.height = ''
     }
-    el.style.overflow = 'hidden'
+    (el as HTMLElement).style.overflow = 'hidden'
   }
 
   /**
@@ -66,9 +66,9 @@
    *
    * @param { Object } el 元素节点
    */
-  const onAfterEnter = (el: HTMLElement): void => {
-    el.style.transition = ''
-    el.style.height = ''
+  const onAfterEnter = (el: Element): void => {
+    (el as HTMLElement).style.transition = ''
+    ;(el as HTMLElement).style.height = ''
   }
 
   /**
@@ -78,8 +78,8 @@
    *
    * @param { Object } el 元素节点
    */
-  const onBeforeLeave = (el: HTMLElement): void => {
-    el.style.height = `${el.scrollHeight}px`
+  const onBeforeLeave = (el: Element): void => {
+    (el as HTMLElement).style.height = `${(el as HTMLElement).scrollHeight}px`
   }
 
   /**
@@ -89,10 +89,10 @@
    *
    * @param { Object } el 元素节点
    */
-  const onLeave = (el: HTMLElement): void => {
-    if (el.scrollHeight !== 0) {
-      el.style.transition = transitionStyle
-      el.style.height = '0'
+  const onLeave = (el: Element): void => {
+    if ((el as HTMLElement).scrollHeight !== 0) {
+      (el as HTMLElement).style.transition = transitionStyle
+      ;(el as HTMLElement).style.height = '0'
     }
   }
 
@@ -103,9 +103,9 @@
    *
    * @param { Object } el 元素节点
    */
-  const onAfterLeave = (el: HTMLElement): void => {
-    el.style.transition = ''
-    el.style.height = ''
+  const onAfterLeave = (el: Element): void => {
+    (el as HTMLElement).style.transition = ''
+    ;(el as HTMLElement).style.height = ''
   }
 </script>
 
