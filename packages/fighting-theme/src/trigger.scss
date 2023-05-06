@@ -11,11 +11,10 @@
   &__content-box {
     position: absolute;
     width: max-content;
-    margin: 0 auto;
     padding-top: var(--trigger-spacing-size, 8px);
-    right: 0;
-    left: 0;
     z-index: 2000;
+    left: var(--trigger-content-x);
+    top: var(--trigger-content-y);
 
     // 主要内容
     .f-trigger__content {

@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FTrigger">
   import { Props, TRIGGER_CLOSE_KEY } from './props'
-  import { ref, computed, provide } from 'vue'
+  import { ref, computed, provide, reactive } from 'vue'
   import { sizeChange } from '../../_utils'
   import { useRun } from '../../_hooks'
   import type { CSSProperties } from 'vue'
@@ -13,9 +13,50 @@
   /** 是否展示主内容 */
   const showContent = ref<boolean>(false)
 
-  /** 打开 */
-  const handelOpen = (): void => {
+  /** 主要内容坐标信息 */
+  const position = reactive({ x: '', y: '' })
+
+  /** 主要内容坐标样式 */
+  const cardinStyleList = computed((): CSSProperties => {
+    return {
+      '--trigger-content-x': position.x,
+      '--trigger-content-y': position.y
+    }
+  })
+
+  /**
+   * 打开触发器
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handelOpen = (evt: MouseEvent): void => {
     if (prop.disabled) return
+
+    /** 获取到元素节点 */
+    const element: HTMLElement = evt.target as HTMLElement
+
+    /**
+     * 获取当前元素相对于浏览器窗口的坐标信息
+     *
+     * @see getBoundingClientRect https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect
+     */
+    const { left, top, height } = element.getBoundingClientRect()
+    /**
+     * x 轴偏移距离
+     *
+     * 返回文档/页面水平方向滚动的像素值
+     *
+     * @see Window.scrollX https://developer.mozilla.org/zh-CN/docs/Web/API/Window/scrollX
+     */
+    const x: number = left + window.scrollX
+    /** y 轴偏移距离 */
+    const y: number = top + window.scrollY + height
+
+    position.x = x + 'px'
+    position.y = y + 'px'
+
+    console.log(window.pageXOffset)
+
     showContent.value = true
     run(prop.onOpen, showContent.value)
     run(prop.onChange, showContent.value)
@@ -106,15 +147,18 @@
     </div>
 
     <!-- 展示的内容 -->
-    <transition name="f-trigger" @before-enter="onBeforeEnter">
-      <div
-        v-show="showContent"
-        :class="['f-trigger__content-box', { 'f-trigger__arrow': arrow }]"
-      >
-        <div class="f-trigger__content">
-          <slot name="content" />
+    <teleport to="body">
+      <transition name="f-trigger" @before-enter="onBeforeEnter">
+        <div
+          v-show="showContent"
+          :class="['f-trigger__content-box', { 'f-trigger__arrow': arrow }]"
+          :style="cardinStyleList"
+        >
+          <div class="f-trigger__content">
+            <slot name="content" />
+          </div>
         </div>
-      </div>
-    </transition>
+      </transition>
+    </teleport>
   </div>
 </template>
