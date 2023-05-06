@@ -37,6 +37,15 @@
       box-sizing: border-box;
       background-color: #fff;
 
+      // 全屏状态
+      &.f-popup__fullscreen {
+        max-height: 100vh;
+        max-width: 100vw;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+      }
+
       // 主内容动画样式
       &-transition-enter-active,
       &-transition-leave-active {
@@ -60,12 +69,6 @@
       border-radius: 6px;
       max-height: calc(100vh - 70px);
       max-width: calc(100vw - 100px);
-
-      // 全屏状态
-      &.f-popup__fullscreen {
-        max-height: 100vh;
-        max-width: 100vw;
-      }
 
       &-transition-enter-from,
       &-transition-leave-to {

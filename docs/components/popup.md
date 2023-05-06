@@ -70,6 +70,7 @@
 | `mask-close`      | 是否点击遮罩层关闭   | boolean                                      | ——                                            | true             |
 | `mask-blur`       | 是否模糊遮罩层       | boolean                                      | ——                                            | false            |
 | `z-index`         | 层级                 | number                                       | ——                                            | 1999             |
+| `fullscreen`      | 是否全屏展示         | boolean                                      | ——                                            | false            |
 | `mask-background` | 自定义遮罩层背景色   | string                                       | ——                                            | rgba(35, 39, 46) |
 | `mask-opacity`    | 遮罩层透明度         | number                                       | ——                                            | 0.5              |
 | `direction`       | 弹出方向             | <a href="#popupdirection">PopupDirection</a> | `left` `right` <br /> `top` `bottom` `center` | center           |
