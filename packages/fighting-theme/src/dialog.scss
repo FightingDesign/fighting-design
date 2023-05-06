@@ -1,7 +1,5 @@
 .f-dialog {
   border-radius: 4px;
-  max-height: calc(100vh - 70px);
-  max-width: calc(100vw - 100px);
   min-width: var(--dialog-width, 400px);
 
   // 头部
@@ -15,8 +13,6 @@
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
     background-color: #fff;
 
     &-title {
@@ -34,13 +30,15 @@
   &__body {
     box-sizing: border-box;
     max-height: calc(100vh - 70px - 55px);
-    max-width: calc(100vw - 100px);
+    max-width: inherit;
+    min-height: var(--dialog-height);
     overflow: auto;
 
     // 主内容
     .f-dialog__section {
       padding: 5px 10px;
       box-sizing: border-box;
+      min-height: inherit;
     }
 
     // 页脚

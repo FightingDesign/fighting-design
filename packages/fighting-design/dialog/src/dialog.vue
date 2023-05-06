@@ -16,7 +16,7 @@
   const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit)
 
   /** 样式列表 */
-  const styleList = styles(['width'])
+  const styleList = styles(['width', 'height'])
 
   /** 类名列表 */
   const classList = classes(['fullscreen'], 'f-dialog')

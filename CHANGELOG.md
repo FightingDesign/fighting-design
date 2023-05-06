@@ -9,6 +9,7 @@
 **新增**
 
 - `f-input` 和 `f-textarea` 组件新增 `font-size` 配置项
+- `f-dialog` 组件新增 `height` 配置项
 
 **修复**
 

@@ -22,6 +22,8 @@ export const Props = {
   appendToBody: setBooleanProp(),
   /** 自定义宽度 */
   width: setStringNumberProp(),
+  /** 自定义高度 */
+  height: setStringNumberProp(),
   /** 是否全屏展示 */
   fullscreen: setBooleanProp(),
   /** 是否展示遮罩层 */
