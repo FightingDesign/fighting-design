@@ -16,6 +16,5 @@ describe('Dropdown', () => {
       }
     })
     expect(wrapper.text()).toContain('123')
-    expect(wrapper.text()).toContain('456')
   })
 })

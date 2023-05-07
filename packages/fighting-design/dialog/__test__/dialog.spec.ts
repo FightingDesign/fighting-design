@@ -15,7 +15,7 @@ describe('FDialog', () => {
     const wrapper = mount(FDialog, {
       props: { visible: true, title: '标题' }
     })
-    expect(wrapper.find('.f-dialog__header-title').text()).toContain('标题')
+    expect(wrapper.find('.f-dialog__header-center').text()).toContain('标题')
   })
 
   test('appendToBody', () => {
