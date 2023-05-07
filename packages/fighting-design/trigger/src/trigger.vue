@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FTrigger">
   import { Props, TRIGGER_CLOSE_KEY } from './props'
-  import { ref, computed, provide, reactive } from 'vue'
+  import { ref, computed, provide, reactive, onMounted, onUnmounted } from 'vue'
   import { sizeChange } from '../../_utils'
   import { useRun } from '../../_hooks'
   import type { CSSProperties } from 'vue'
@@ -13,6 +13,9 @@
   /** 是否展示主内容 */
   const showContent = ref<boolean>(false)
 
+  /** 触发器节点元素 */
+  const triggerEl = ref<HTMLDivElement>()
+
   /** 主要内容坐标信息 */
   const position = reactive({ x: '', y: '' })
 
@@ -24,16 +27,11 @@
     }
   })
 
-  /**
-   * 打开触发器
-   *
-   * @param { Object } evt 事件对象
-   */
-  const handelOpen = (evt: MouseEvent): void => {
-    if (prop.disabled) return
-
+  const setPosition = (): void => {
     /** 获取到元素节点 */
-    const element: HTMLElement = evt.target as HTMLElement
+    const element: HTMLDivElement | undefined = triggerEl.value
+
+    if (!element) return
 
     /**
      * 获取当前元素相对于浏览器窗口的坐标信息
@@ -41,6 +39,7 @@
      * @see getBoundingClientRect https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect
      */
     const { left, top, height } = element.getBoundingClientRect()
+
     /**
      * x 轴偏移距离
      *
@@ -54,13 +53,32 @@
 
     position.x = x + 'px'
     position.y = y + 'px'
+  }
 
-    console.log(window.pageXOffset)
+  /** 打开触发器 */
+  const handelOpen = (): void => {
+    if (prop.disabled) return
+
+    setPosition()
 
     showContent.value = true
     run(prop.onOpen, showContent.value)
     run(prop.onChange, showContent.value)
   }
+
+  /**
+   * 当浏览器比例缩放发生变化的时候，重写位置信息
+   *
+   * @see resize https://developer.mozilla.org/zh-CN/docs/Web/API/Window/resize_event
+   */
+  onMounted((): void => {
+    window.addEventListener('resize', setPosition)
+  })
+
+  /** 卸载之后移除事件  */
+  onUnmounted((): void => {
+    window.removeEventListener('resize', setPosition)
+  })
 
   /** 关闭 */
   const handelClose = (): void => {
@@ -86,7 +104,9 @@
     return {
       '--trigger-spacing-size': sizeChange(spacing),
       '--trigger-enter-duration': enterDuration && enterDuration + 's',
-      '--trigger-leave-duration': leaveDuration && leaveDuration + 's'
+      '--trigger-leave-duration': leaveDuration && leaveDuration + 's',
+      '--trigger-content-x': position.x,
+      '--trigger-content-y': position.y
     } as CSSProperties
   })
 
@@ -142,7 +162,7 @@
 <template>
   <div class="f-trigger" :style="styleList" @[closeEvent].stop="handelClose">
     <!-- 触发器 -->
-    <div class="f-trigger__trigger" @[openEvent].stop="handelOpen">
+    <div ref="triggerEl" class="f-trigger__trigger" @[openEvent].stop="handelOpen">
       <slot />
     </div>
 

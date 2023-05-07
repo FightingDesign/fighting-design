@@ -17,7 +17,7 @@
 - 修复 `f-radio` 组件样式问题
 - 修复 `f-checkbox` 组件样式问题
 - 废除 `f-checkbox` 组件 `indeterminate` 配置项
-- 修复 `f-trigger` 组件层级关系和位置显示错误问题
+- 修复 `f-trigger` 组件层级关系和缩放位置显示错误问题
 
 ## 0.34.0 (2023-05-05)
 
