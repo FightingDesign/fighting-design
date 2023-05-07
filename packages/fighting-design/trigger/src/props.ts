@@ -6,8 +6,7 @@ import {
   setFunctionProp
 } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
-import type { TriggerTrigger, TriggerProvide } from './interface'
-import type { HandleChange } from '../../_interface'
+import type { TriggerTrigger, TriggerProvide, TriggerChange } from './interface'
 
 export const Props = {
   /** 触发器和内容之间的间距 */
@@ -30,11 +29,11 @@ export const Props = {
   /** 关闭动画持续时间 */
   leaveDuration: setNumberProp(),
   /** 弹窗状态改变时触发的回调 */
-  onChange: setFunctionProp<HandleChange>(),
+  onChange: setFunctionProp<TriggerChange>(),
   /** 弹窗状态打开时触发的回调 */
-  onOpen: setFunctionProp<HandleChange>(),
+  onOpen: setFunctionProp<TriggerChange>(),
   /** 弹窗状态关闭时触发的回调 */
-  onClose: setFunctionProp<HandleChange>()
+  onClose: setFunctionProp<TriggerChange>()
 } as const
 
 /** trigger 组件 props 类型 */
