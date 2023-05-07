@@ -2,6 +2,27 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.35.0 (2023-05-07)
+
+**优化**
+
+- 优化 `f-input` 和 `f-textarea` 样式细节
+
+**新增**
+
+- `f-input` 和 `f-textarea` 组件新增 `font-size` 配置项
+- `f-dialog` 组件新增 `height` 配置项
+- `f-popup` 组件新增 `fullscreen` 配置项
+
+**修复**
+
+- 修复 `f-radio` 组件样式问题
+- 修复 `f-checkbox` 组件样式问题
+- 废除 `f-checkbox` 组件 `indeterminate` 配置项
+- 修复 `f-trigger` 组件层级关系和缩放位置显示错误问题
+
+## 0.34.0 (2023-05-05)
+
 **修复**
 
 - 修复 `f-avatar` `f-image` 组件绑定动态 src 图片不变化的问题

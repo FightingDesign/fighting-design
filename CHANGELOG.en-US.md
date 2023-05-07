@@ -4,6 +4,25 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.35.0 (2023-05-07)
+
+**Optimization**
+
+- Optimize style details for `f-input` and `f-textarea`
+
+**Add**
+
+- Added `font-size` configuration items for `f-input` and `f-textarea` components
+- Add a `height` configuration item to the `f-dialog` component
+- Add `fullscreen` configuration item to the `f-popup` component
+
+**Fix**
+
+- Fix `f-radio` component style issue
+- Fix component style issue with `f-checkbox`
+- Abolish the `f-checkbox` component `indeterminate` configuration item
+- Fix the issue of incorrect display of `f-trigger` component hierarchy and zoom position
+
 ## 0.34.0 (2023-05-05)
 
 **Fix**

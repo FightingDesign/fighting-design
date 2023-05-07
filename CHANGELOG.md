@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.35.0 (2023-05-07)
+
 **优化**
 
 - 优化 `f-input` 和 `f-textarea` 样式细节
