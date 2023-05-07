@@ -70,9 +70,5 @@ export const useSlider = (
    *
    * @see mousedown https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mousedown_event
    */
-  // const startListen = (): void => {
   el.addEventListener('mousedown', start, { passive: false })
-  // }
-
-  // return startListen
 }

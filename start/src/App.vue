@@ -5,7 +5,8 @@
 </script>
 
 <template>
-  <div style="width:500px;height: 500px;background-color: red;" @click.stop="open">
+  <div style="width: 500px; height: 2500px; background-color: red" @click.stop="open">
+    <!-- <f-back-top>返回顶部</f-back-top> -->
     <f-dropdown>
       <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
 

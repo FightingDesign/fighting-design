@@ -93,9 +93,9 @@
   })
 
   /** 关闭事件 */
-  // const closeEvent = computed((): 'mouseleave' | '' => {
-  //   return prop.trigger === 'hover' ? 'mouseleave' : ''
-  // })
+  const closeEvent = computed((): 'mouseleave' | '' => {
+    return prop.trigger === 'hover' ? 'mouseleave' : ''
+  })
 
   /** 样式列表 */
   const styleList = computed((): CSSProperties => {
@@ -169,7 +169,6 @@
 </script>
 
 <template>
-  <!-- <div class="f-trigger" :style="styleList" @[closeEvent].stop="handelClose"> -->
   <div class="f-trigger" :style="styleList">
     <!-- 触发器 -->
     <div ref="triggerEl" class="f-trigger__trigger" @[openEvent].stop="handelOpen">
@@ -183,6 +182,7 @@
           v-show="showContent"
           :class="['f-trigger__content-box', { 'f-trigger__arrow': arrow }]"
           :style="cardinStyleList"
+          @[closeEvent].stop="handelClose"
         >
           <div class="f-trigger__content">
             <slot name="content" />

@@ -1,6 +1,6 @@
 <script lang="ts" setup name="FBackTop">
   import { Props } from './props'
-  import { onMounted, ref, toRefs } from 'vue'
+  import { onMounted, ref, toRefs, onUnmounted } from 'vue'
   import { debounce, isNumber, isString, error } from '../../_utils'
   import { useList } from '../../_hooks'
 
@@ -23,6 +23,7 @@
    */
   const handleScroll = (node?: HTMLElement): (() => void) => {
     return debounce((): void => {
+      console.log(123)
       /**
        * 当前滚动的距离
        *
@@ -44,6 +45,23 @@
       visible.value = scrollTop > visibleHeight
     }, 200)
   }
+
+  /**
+   * 缓存滚动方法
+   *
+   * 获得方法可以直接传递给 addEventListener
+   *
+   * 事件监听器时使用了一个新的匿名函数或闭包作为事件处理程序，会导致移除监听器时无法完全匹配
+   *
+   * 比如：
+   *
+   * document.addEventListener('scroll', handleScroll())
+   *
+   * 移除失败：
+   *
+   * document.removeEventListener('scroll', handleScroll())
+   */
+  const cachedHandleScroll = handleScroll()
 
   /** 点击的时候触发 */
   const handleClick = (): void => {
@@ -84,10 +102,17 @@
        *
        * 并将节点传进去
        */
-      listerNode && listerNode.addEventListener('scroll', handleScroll(listerNode))
+      if (listerNode) {
+        listerNode.addEventListener('scroll', handleScroll(listerNode))
+      }
     } else {
-      document.addEventListener('scroll', handleScroll())
+      document.addEventListener('scroll', cachedHandleScroll)
     }
+  })
+
+  /** 卸载组件移除监听 */
+  onUnmounted((): void => {
+    document.removeEventListener('scroll', cachedHandleScroll)
   })
 
   /** 样式列表 */
