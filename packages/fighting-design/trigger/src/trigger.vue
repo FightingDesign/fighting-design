@@ -93,9 +93,9 @@
   })
 
   /** 关闭事件 */
-  const closeEvent = computed((): 'mouseleave' | '' => {
-    return prop.trigger === 'hover' ? 'mouseleave' : ''
-  })
+  // const closeEvent = computed((): 'mouseleave' | '' => {
+  //   return prop.trigger === 'hover' ? 'mouseleave' : ''
+  // })
 
   /** 样式列表 */
   const styleList = computed((): CSSProperties => {
@@ -104,9 +104,7 @@
     return {
       '--trigger-spacing-size': sizeChange(spacing),
       '--trigger-enter-duration': enterDuration && enterDuration + 's',
-      '--trigger-leave-duration': leaveDuration && leaveDuration + 's',
-      '--trigger-content-x': position.x,
-      '--trigger-content-y': position.y
+      '--trigger-leave-duration': leaveDuration && leaveDuration + 's'
     } as CSSProperties
   })
 
@@ -133,16 +131,27 @@
     handelClose()
 
     /** 关闭之后移除事件监听 */
-    document.removeEventListener('click', documentListen)
+    window.removeEventListener('click', documentListen)
   }
 
   /**
-   * 弹窗打开
+   * 在元素被插入到 DOM 之前被调用
    *
-   * 给 document 添加事件监听用于关闭触发器
+   * @see Transition https://cn.vuejs.org/guide/built-ins/transition.html#javascript-hooks
    */
   const onBeforeEnter = (): void => {
-    document.addEventListener('click', documentListen)
+    /**
+     * 给 window 注册点击事件用于关闭触发器
+     *
+     * 这里需要给 addEventListener 传递第三个参数为 true
+     *
+     * 表示为事件捕获阶段触发
+     *
+     * 因为父组件有可能使用 @click.stop 阻止事件冒泡，默认为 false 就不会触发方法
+     *
+     * @see EventTarget.addEventListener() https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
+     */
+    window.addEventListener('click', documentListen, true)
   }
 
   /**
@@ -160,7 +169,8 @@
 </script>
 
 <template>
-  <div class="f-trigger" :style="styleList" @[closeEvent].stop="handelClose">
+  <!-- <div class="f-trigger" :style="styleList" @[closeEvent].stop="handelClose"> -->
+  <div class="f-trigger" :style="styleList">
     <!-- 触发器 -->
     <div ref="triggerEl" class="f-trigger__trigger" @[openEvent].stop="handelOpen">
       <slot />

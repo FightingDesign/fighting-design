@@ -1,18 +1,14 @@
 .f-trigger {
   display: inline-block;
   position: relative;
-
-  // 触发器
-  &__trigger {
-    width: 100%;
-  }
+  vertical-align: middle;
 
   // 主要内容盒子
   &__content-box {
     position: absolute;
     width: max-content;
-    padding-top: var(--trigger-spacing-size, 8px);
     z-index: 2000;
+    padding-top: var(--trigger-spacing-size, 8px);
     left: var(--trigger-content-x);
     top: var(--trigger-content-y);
 
