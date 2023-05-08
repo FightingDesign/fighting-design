@@ -56,7 +56,7 @@ export const Props = {
   readonly: setBooleanProp(),
   /**
    * 设置字体大小
-   * 
+   *
    * @see font-size https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size
    */
   fontSize: setStringNumberProp(),

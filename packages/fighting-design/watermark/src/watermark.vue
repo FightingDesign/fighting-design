@@ -1,31 +1,19 @@
 <script lang="ts" setup name="FWatermark">
   import { Props } from './props'
   import { ref, onMounted, computed } from 'vue'
-  import { useProps, useCanvas } from '../../_hooks'
+  import { useCanvas } from '../../_hooks'
   import type { CSSProperties, Ref } from 'vue'
-  import type { CreateWatermarkProps } from '../../_hooks'
 
   const prop = defineProps(Props)
-
-  const { filter } = useProps(prop)
 
   /** 水印样式列表 */
   const style: Ref<CSSProperties> = ref({})
 
   /** 文字水印 */
   const baseWatermark = computed((): CSSProperties => {
-    /** base 64 图片格式 */
-    const watermark: string = useCanvas().createWatermark(
-      filter([
-        'content',
-        'width',
-        'height',
-        'fontSize',
-        'fontColor'
-      ]) as unknown as CreateWatermarkProps
-    )
+    const image = useCanvas(prop).create()
 
-    return { backgroundImage: `url(${watermark})` }
+    return { backgroundImage: `url(${image})` }
   })
 
   /** 图片水印 */

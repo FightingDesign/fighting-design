@@ -7,7 +7,7 @@ export type TriggerTrigger = 'hover' | 'click'
 
 /**
  * 触发器切换回调方法类型
- * 
+ *
  * @param { boolean } visible 展示状态
  * @param { Object } evt 事件对象
  */

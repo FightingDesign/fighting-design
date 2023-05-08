@@ -1,27 +1,15 @@
 <script lang="ts" setup name="FImage">
   import { Props } from './props'
   import { ref } from 'vue'
-  import { useLoadImg, useProps, useList } from '../../_hooks'
-  import type { UseLoadImgProp } from '../../_hooks'
+  import { useLoadImg, useList } from '../../_hooks'
 
   const prop = defineProps(Props)
 
   /** 元素节点 */
-  const imageEl = ref<HTMLImageElement>()
+  const imageEl = ref<HTMLImageElement | undefined>()
 
-  const { filter } = useProps(prop)
   const { classes, styles } = useList(prop, 'image')
-  const { isSuccess, isShowNode } = useLoadImg(
-    imageEl,
-    filter([
-      'src',
-      'errSrc',
-      'rootMargin',
-      'lazy',
-      'onLoad',
-      'onError'
-    ]) as unknown as UseLoadImgProp
-  )
+  const { isSuccess, isShowNode } = useLoadImg(imageEl, prop)
 
   /** 类名列表 */
   const classList = classes(['fit', 'select', 'block'], 'f-image')

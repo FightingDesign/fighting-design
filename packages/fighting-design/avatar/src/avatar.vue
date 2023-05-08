@@ -2,29 +2,19 @@
   import { Props } from './props'
   import { ref, useSlots } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
-  import { useLoadImg, useProps, useList } from '../../_hooks'
+  import { useLoadImg, useList } from '../../_hooks'
   import { isNumber, isString } from '../../_utils'
-  import type { UseLoadImgProp } from '../../_hooks'
   import type { Slots } from 'vue'
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()
 
-  const { filter } = useProps(prop)
-
   /** 图片 dom 节点 */
-  const avatarEl = ref<HTMLImageElement>()
+  const avatarEl = ref<HTMLImageElement | undefined>()
 
   const { isSuccess, isShowNode } = useLoadImg(
     avatarEl,
-    filter([
-      'src',
-      'errSrc',
-      'rootMargin',
-      'lazy',
-      'onLoad',
-      'onError'
-    ]) as unknown as UseLoadImgProp,
+    prop,
     (): boolean => !slot.icon && !prop.icon && !prop.text && avatarEl.value
   )
 

@@ -7,7 +7,7 @@ import type { HandleMouse } from '../../_interface'
 
 /**
  * useTrigger 返回值类型接口
- * 
+ *
  * @param { Object } visible 是否展示主内容
  * @param { Object } openEvent 打开事件
  * @param { Object } closeEvent 关闭事件
@@ -30,12 +30,15 @@ export interface UseTriggerReturn {
 
 /**
  * 触发器组件方法封装
- * 
+ *
  * @param { Object } prop prop 参数
  * @param { Object } node 内容节点元素
  * @returns { Object }
  */
-export const useTrigger = (prop: TriggerProps, node: Ref<HTMLDivElement | undefined>): UseTriggerReturn => {
+export const useTrigger = (
+  prop: TriggerProps,
+  node: Ref<HTMLDivElement | undefined>
+): UseTriggerReturn => {
   const { run } = useRun()
 
   /** 是否展示主内容 */
@@ -81,9 +84,9 @@ export const useTrigger = (prop: TriggerProps, node: Ref<HTMLDivElement | undefi
     position.y = y + 'px'
   }
 
-  /** 
+  /**
    * 打开触发器
-   * 
+   *
    * @param { Object } evt 事件对象
    */
   const handelOpen = (evt: MouseEvent): void => {

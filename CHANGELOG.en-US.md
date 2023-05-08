@@ -4,6 +4,19 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.36.0 (2023-05-08)
+
+**Optimization**
+
+- Optimize style details for `f-trigger` and `f-dropdown`
+- Optimize some component types
+- Optimize some hooks parameters
+
+**Fix**
+
+- Fix the issue of `f-trigger` component hover state being moved out and content being immediately hidden
+- Fixed issue with `f-back top` component adding event listening component uninstalling but not removing
+
 ## 0.35.0 (2023-05-07)
 
 **Optimization**

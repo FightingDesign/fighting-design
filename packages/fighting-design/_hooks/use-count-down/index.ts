@@ -4,7 +4,7 @@ import type { ComputedRef } from 'vue'
 
 /**
  * hook的入参类型接口
- * 
+ *
  * @param { number } time 倒计时长（单位毫秒）
  * @param { boolean } millisecond 是否开启毫秒级别渲染
  * @param { Function } onFinish 倒计时结束的回调函数
@@ -166,7 +166,6 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
   const microTick = (): void => {
     rafId = raf((): void => {
       if (isCounting) {
-
         /** 设置剩余时间为此次调用时的剩余时间 */
         setRemain(getCurrentRemain())
 
@@ -182,11 +181,10 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
   const macroTick = (): void => {
     rafId = raf((): void => {
       if (isCounting) {
-
         /** 获取此次调用的剩余时间 */
         const remainRemain = getCurrentRemain()
 
-        /** 
+        /**
          * 同一秒才开始渲染
          * TODO: 后续可以将这里改造成 可选的时间间隔参数 来渲染倒计时
          */

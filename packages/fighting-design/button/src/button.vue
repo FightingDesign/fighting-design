@@ -14,7 +14,7 @@
   const { classList, styleList } = useButton(prop)
 
   /** 元素节点 */
-  const FButtonEl = ref<HTMLButtonElement>()
+  const FButtonEl = ref<HTMLButtonElement | undefined>()
 
   /**
    * 按钮点击
@@ -26,6 +26,11 @@
 
     /** 禁用或 loading 则返回 */
     if (disabled.value || loading.value) {
+      /**
+       * 阻止默认行为
+       *
+       * @see event.preventDefault https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault
+       */
       evt.preventDefault()
       return
     }

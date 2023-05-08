@@ -124,7 +124,7 @@ export const sidebar = {
           text: 'Collapse Animation 折叠动画',
           link: '/components/collapse-animation'
         },
-        { text: 'Count Down 倒计时', link: '/components/count-down' },
+        { text: 'Count Down 倒计时', link: '/components/count-down' }
       ]
     }
   ]

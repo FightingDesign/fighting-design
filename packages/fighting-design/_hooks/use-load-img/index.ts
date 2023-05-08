@@ -42,7 +42,11 @@ export interface UseLoadImgReturn {
  * @param { Object } prop prop 参数对象
  * @returns { Object }
  */
-export const useLoadImg = (el: Ref<HTMLImageElement | undefined>, prop: UseLoadImgProp, isLoad?: () => boolean): UseLoadImgReturn => {
+export const useLoadImg = (
+  el: Ref<HTMLImageElement | undefined>,
+  prop: UseLoadImgProp,
+  isLoad?: () => boolean
+): UseLoadImgReturn => {
   const { run } = useRun()
 
   /** 是否加载成功 */
@@ -223,7 +227,6 @@ export const useLoadImg = (el: Ref<HTMLImageElement | undefined>, prop: UseLoadI
    * @param { Object } node 元素节点
    */
   const loadImg = (): void => {
-
     if (!el.value) {
       return
     }
@@ -245,7 +248,6 @@ export const useLoadImg = (el: Ref<HTMLImageElement | undefined>, prop: UseLoadI
 
   const startLoad = (): void => {
     if (isLoad) {
-
       if (isLoad()) {
         loadImg()
       } else {

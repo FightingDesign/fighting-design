@@ -9,10 +9,10 @@ import { sizeChange } from '../../_utils'
  * @param { number } width 图片宽度
  * @param { number } height 图片高度
  */
-export interface CreateWatermarkProps {
+export interface UseCanvasProps {
   content: string
   fontColor: string
-  fontSize: string
+  fontSize: string | number
   width: number
   height: number
 }
@@ -20,10 +20,10 @@ export interface CreateWatermarkProps {
 /**
  * useCanvas 返回值类型接口
  *
- * @param { Function } createWatermark 将 canvas 转换成 base64 图片格式
+ * @param { Function } create 将 canvas 转换成 base64 图片格式
  */
 export interface UseCanvasReturn {
-  createWatermark: (props: CreateWatermarkProps) => string
+  create: () => string
 }
 
 /**
@@ -32,15 +32,19 @@ export interface UseCanvasReturn {
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @returns { Object }
  */
-export const useCanvas = (): UseCanvasReturn => {
+export const useCanvas = (props: UseCanvasProps): UseCanvasReturn => {
   /**
    * 将 canvas 转换成 base64 图片格式
    *
    * @param { Object } props 需要传递到 参数
    * @returns { string } base64 格式的图片
    */
-  const createWatermark = (props: CreateWatermarkProps): string => {
-    /** 创建一个 canvas */
+  const create = (): string => {
+    /**
+     * 创建一个 canvas
+     *
+     * @see Canvas https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API
+     */
     const canvas: HTMLCanvasElement = document.createElement('canvas')
 
     /**
@@ -108,5 +112,5 @@ export const useCanvas = (): UseCanvasReturn => {
     return canvas.toDataURL('image/png')
   }
 
-  return { createWatermark }
+  return { create }
 }

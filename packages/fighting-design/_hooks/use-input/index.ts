@@ -49,8 +49,11 @@ export type UseInputEmit = (event: 'update:modelValue', val: string | number) =>
  * @param { Function } emit 回调参数
  * @returns { Object }
  */
-export const useInput = (prop: Partial<UseInputProps>, emit: UseInputEmit, keyword: WritableComputedRef<string | number>): UseInputReturn => {
-
+export const useInput = (
+  prop: Partial<UseInputProps>,
+  emit: UseInputEmit,
+  keyword: WritableComputedRef<string | number>
+): UseInputReturn => {
   const { run } = useRun()
 
   /**

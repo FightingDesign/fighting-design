@@ -2,6 +2,19 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.36.0 (2023-05-08)
+
+**优化**
+
+- 优化 `f-trigger` 和 `f-dropdown` 样式细节
+- 优化部分组件类型
+- 优化部分 hooks 参数
+
+**修复**
+
+- 修复 `f-trigger` 组件 hover 状态移出内容立即隐藏的问题
+- 修复 `f-back-top` 组件添加事件监听组件卸载未移除的问题
+
 ## 0.35.0 (2023-05-07)
 
 **优化**

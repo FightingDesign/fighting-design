@@ -24,13 +24,12 @@
   })
 
   const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalendar(dateParams)
-
   const { getLang } = useGlobal()
   const { run } = useRun()
   const { styles, classes } = useList(prop, 'calendar')
 
   /** 星期列表 */
-  const weekList = computed(() => getLang('calendar').value.weekList)
+  const weekList = computed((): string[] => getLang('calendar').value.weekList)
 
   /**
    * 当前日期高亮显示
