@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.36.1 (2023-05-08)
+
+- 修复 `f-dialog` 样式问题
+- `f-form` 新增 `submit` 和 `validate` 方法
+
 ## 0.36.0 (2023-05-08)
 
 **优化**
