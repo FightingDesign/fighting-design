@@ -44,7 +44,7 @@ export interface UseGlobalReturn {
  * @param { Object } prop 组件的 prop
  * @returns { Object } 根据优先级返回需要的参数
  */
-export const useGlobal = (prop?: UseGlobalProp): UseGlobalReturn => {
+export const useGlobal = (prop?: Partial<UseGlobalProp>): UseGlobalReturn => {
   /** 获取全局配置组件注入的依赖项 */
   const global: FightingGlobalProps | null = inject(FIGHTING_GLOBAL_PROPS_KEY, null)
 

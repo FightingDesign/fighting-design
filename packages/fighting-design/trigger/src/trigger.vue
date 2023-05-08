@@ -31,7 +31,7 @@
   })
 
   /** 向外导出关闭方法 */
-  defineExpose({ visible })
+  defineExpose({ handelClose })
 </script>
 
 <template>

@@ -46,7 +46,7 @@
    *
    * @param { boolean | 'now' } [target = true] 点击的是否为确定
    */
-  const onConfirm = (target: boolean | 'now' = true): void => {
+  const onConfirm = (evt: MouseEvent, target: boolean | 'now' = true): void => {
     /**
      * 如果为真说明点击的是确定按钮
      *
@@ -74,7 +74,7 @@
      * 如果非布尔值类型，咋代表点击的是当前时间，则不需要关闭
      */
     if (isBoolean(target)) {
-      ;(triggerInstance.value as TriggerInstance).handelClose()
+      (triggerInstance.value as TriggerInstance).handelClose(evt)
     }
   }
 
@@ -220,11 +220,11 @@
 
         <!-- 操作栏 -->
         <div class="f-time-picker__option">
-          <f-button size="mini" :on-click="() => onConfirm('now')">当前</f-button>
-          <f-button size="mini" :on-click="() => onConfirm(false)">取消</f-button>
-          <f-button type="primary" size="mini" :on-click="() => onConfirm(true)"
-            >确定</f-button
-          >
+          <f-button size="mini" :on-click="evt => onConfirm(evt, 'now')">当前</f-button>
+          <f-button size="mini" :on-click="evt => onConfirm(evt, false)">取消</f-button>
+          <f-button type="primary" size="mini" :on-click="evt => onConfirm(evt, true)">
+            确定
+          </f-button>
         </div>
       </template>
     </f-trigger>
