@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FFormItem">
   import { Props } from './props'
   import { inject, computed } from 'vue'
-  import { isString } from '../../_utils'
+  import { isString, sizeChange } from '../../_utils'
   import { FORM_PROVIDE_KEY } from '../../form/src/props'
   import type { CSSProperties } from 'vue'
   import type { FormInject } from '../../form'
@@ -30,7 +30,7 @@
   /** 样式列表 */
   const styleList = computed((): CSSProperties => {
     return {
-      '--form-item-label-width': parentInject && parentInject.labelWidth
+      '--form-item-label-width': parentInject && sizeChange(parentInject.labelWidth)
     } as CSSProperties
   })
 

@@ -149,6 +149,9 @@
       childrenCheckResult
     })
   )
+
+  /** 向外界导出一些方法 */
+  defineExpose({ submit: handelSubmit, validate })
 </script>
 
 <template>
