@@ -1,37 +1,55 @@
 .f-skeleton {
   // 不同尺寸
   &__large {
-    --skeleton-height: 40px;
-  }
-
-  &__middle {
     --skeleton-height: 35px;
   }
 
+  &__middle {
+    --skeleton-height: 25px;
+  }
+
   &__small {
-    --skeleton-height: 30px;
+    --skeleton-height: 15px;
   }
 
   &__mini {
-    --skeleton-height: 25px;
+    --skeleton-height: 5px;
   }
 }
 
 .f-skeleton {
-  margin: 8px 0;
-  background-color: #f4f4f4;
-  border-radius: 2px;
-  height: var(--skeleton-height, 35px);
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--skeleton-row-gap, 8px);
+  padding: 8px;
+  box-sizing: border-box;
+
+  &__item {
+    background-color: #f4f4f4;
+    border-radius: 2px;
+    height: var(--skeleton-height, 25px);
+  }
+
+  // 带有差异的
+  &__difference {
+    .f-skeleton__item:first-child {
+      width: 30%;
+    }
+
+    .f-skeleton__item:last-child {
+      width: 60%;
+    }
+  }
 
   // 动画效果
-  &__animated {
-    background: linear-gradient(90deg, #f4f4f4 25%, #ebebeb 37%, #f4f4f4 63%);
-    background-size: 400% 100%;
+  &__animated .f-skeleton__item {
+    background: linear-gradient(90deg, #f4f4f4 25%, #dcdcdc 37%, #f4f4f4 63%);
+    background-size: 400%;
     animation: f-skeleton-animated 1.2s ease infinite;
   }
 
   // 圆角的
-  &__round {
+  &__round .f-skeleton__item {
     border-radius: 25px;
   }
 

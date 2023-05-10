@@ -2,14 +2,31 @@
   import { Props } from './props'
   import { computed, useSlots } from 'vue'
   import { useList } from '../../_hooks'
+  import { isNumber } from '../../_utils'
   import type { Slots } from 'vue'
 
   const prop = defineProps(Props)
 
-  const { classes } = useList(prop, 'skeleton')
+  const { classes, styles } = useList(prop, 'skeleton')
 
   /** 类名列表 */
-  const classList = classes(['round', 'animated', 'size'], 'f-skeleton')
+  const classList = classes(
+    [
+      'round',
+      'animated',
+      'size',
+      {
+        key: 'difference',
+        callback: (): boolean => {
+          return prop.difference && isNumber(prop.rows) && prop.rows >= 3
+        }
+      }
+    ],
+    'f-skeleton'
+  )
+
+  /** 样式列表 */
+  const styleList = styles(['rowGap'])
 
   /**
    * 如果 loading 为 true 展示骨架屏
@@ -29,9 +46,9 @@
 </script>
 
 <template>
-  <template v-if="isRender">
-    <div v-for="n in rows" :key="n" role="section" :class="classList" />
-  </template>
+  <div v-if="isRender" role="section" :class="classList" :style="styleList">
+    <div v-for="n in rows" :key="n" class="f-skeleton__item" />
+  </div>
 
   <slot v-else />
 </template>

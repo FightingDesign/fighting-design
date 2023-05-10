@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-skeleton` 组件样式细节优化
+- `f-skeleton` 组件新增 `row-gap` 和 `difference` 配置项
+
 ## 0.36.1 (2023-05-08)
 
 - 修复 `f-dialog` 样式问题
