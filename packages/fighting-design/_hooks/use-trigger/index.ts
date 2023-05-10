@@ -1,6 +1,7 @@
 import { ref, computed, reactive, onMounted, onUnmounted } from 'vue'
 import { sizeChange } from '../../_utils'
 import { useRun } from '..'
+import { TRIGGER_CONTENT_BOX_CLASS } from '../../_tokens'
 import type { TriggerProps } from '../../trigger'
 import type { CSSProperties, Ref, ComputedRef } from 'vue'
 import type { HandleMouse } from '../../_interface'
@@ -152,19 +153,14 @@ export const useTrigger = (
    * @param { Object } evt 事件对象
    */
   const documentListen = (evt: MouseEvent): void => {
-    /**
-     * 获取点击的孩子节点是否存在 f-trigger 类名的标签
-     *
-     * @see Event.composedPath() https://developer.mozilla.org/zh-CN/docs/Web/API/Event/composedPath
-     * @see Array.prototype.some() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some
-     * @see String.prototype.includes() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/includes
-     */
-    const isHaveTrigger: boolean = (evt.composedPath() as HTMLElement[]).some(
-      (item: HTMLElement): boolean => item.className.includes('f-trigger')
-    )
+    console.log((evt.target as HTMLElement).closest('.' + TRIGGER_CONTENT_BOX_CLASS))
 
-    /** 如果有，则说明点击是孩子节点，则不需要关闭 */
-    if (isHaveTrigger) return
+    /**
+     * @see Element.closest() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/closest
+     */
+    if ((evt.target as HTMLElement).closest('.' + TRIGGER_CONTENT_BOX_CLASS)) {
+      return
+    }
 
     /** 否则关闭触发器 */
     handelClose(evt)
@@ -190,7 +186,7 @@ export const useTrigger = (
      *
      * @see EventTarget.addEventListener() https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
      */
-    window.addEventListener('click', documentListen)
+    window.addEventListener('click', documentListen, true)
   }
 
   return {

@@ -2,6 +2,7 @@
   import { Props, TRIGGER_CLOSE_KEY } from './props'
   import { ref, provide } from 'vue'
   import { useTrigger } from '../../_hooks'
+  import { TRIGGER_CONTENT_BOX_CLASS } from '../../_tokens'
   import type { TriggerProvide } from './interface'
 
   const prop = defineProps(Props)
@@ -45,7 +46,7 @@
       <transition name="f-trigger" @before-enter="onBeforeEnter">
         <div
           v-show="visible"
-          :class="['f-trigger__content-box', { 'f-trigger__arrow': arrow }]"
+          :class="[TRIGGER_CONTENT_BOX_CLASS, { 'f-trigger__arrow': arrow }]"
           :style="cardinStyleList"
           @[closeEvent].stop="handelClose"
         >
