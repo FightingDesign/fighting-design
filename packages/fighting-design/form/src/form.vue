@@ -4,7 +4,7 @@
   import { useRun } from '../../_hooks'
   import { getChildren, isArray, isString, isObject } from '../../_utils'
   import type { VNode, Slots } from 'vue'
-  import type { FormInject, FormParam } from './interface'
+  import type { FormInject } from './interface'
   import type { FormItemRules, FormItemRulesItem } from '../../form-item'
 
   const prop = defineProps(Props)
@@ -23,9 +23,12 @@
     /** 获取到所有子节点元素 */
     const children = getChildren(slot.default(), 'FFormItem')
 
+    console.log(children)
+
     /** 遍历添每个节点判断是否验证通过 */
     children.forEach((item: VNode): void => {
-      if (item.props && item.props.name) {
+      /** 必须有 name 和 rules 才能触发表单校验 */
+      if (item.props && item.props.name && item.props.rules) {
         /** 初始状态下默认设置全部没有通过校验 */
         childrenCheckResult[item.props.name] = false
       }
@@ -40,14 +43,13 @@
    * 如果返回 true 的布尔值标识验证成功，返回字符串则标识错误信息
    *
    * @param { string } value 当前需要检测的值
-   * @param { Object } rules 规则
+   * @param { Object | Array } rules 规则
    */
   const checkRuleMassage = (
     value: string,
     rules: FormItemRules | FormItemRulesItem
   ): string | boolean => {
     /**
-     *
      * 测试每一项规则
      *
      * @param { Object } ruleItem 每一项规则
@@ -60,7 +62,8 @@
         (ruleItem.required && !value) ||
         (ruleItem.max && length > ruleItem.max) ||
         (ruleItem.min && length < ruleItem.min) ||
-        (ruleItem.regExp && !ruleItem.regExp.test(value))
+        (ruleItem.regExp && !ruleItem.regExp.test(value)) ||
+        (ruleItem.validator && !ruleItem.validator())
       )
     }
 
@@ -138,7 +141,7 @@
     /** 获取到是否校验通过 */
     const ok: boolean = prop.model ? validate() : true
 
-    run(prop.onSubmit, { ok, res: childrenCheckResult, evt } as FormParam)
+    run(prop.onSubmit, ok, prop.model, childrenCheckResult, evt)
   }
 
   /** 注入依赖项 */

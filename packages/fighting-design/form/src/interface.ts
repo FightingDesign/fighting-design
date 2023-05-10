@@ -3,24 +3,14 @@ import type { FormProps } from './props'
 export type { FormProps } from './props'
 
 /**
- * submit 回调参数类型接口
- *
- * @param { boolean } ok 是否验证成功
- * @param { Object } res 校验结果
- * @param { Object } evt 事件对象
- */
-export interface FormParam {
-  ok: boolean
-  res: Record<string, boolean | string>
-  evt: SubmitEvent
-}
-
-/**
  * 表单 submit 回调类型
  *
- * @param { Object } params 参数对象
+ * @param { boolean } ok 表单检验是否通过
+ * @param { Object } model 表单数据对象
+ * @param { boolean } res 结果对象
+ * @param { Object } evt 事件对象
  */
-export type FormSubmit = (params: FormParam) => void
+export type FormSubmit = (ok: boolean, model: object, res: Record<string, boolean | string>, evt: SubmitEvent | Event) => void
 
 /** 注入的依赖项类型 */
 export type FormInject = FormProps & {

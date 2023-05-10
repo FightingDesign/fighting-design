@@ -15,6 +15,7 @@ export interface FormItemRulesItem {
   min?: number
   max?: number
   regExp?: RegExp
+  validator?: () => boolean
 }
 
 /** 规则对象类型 */
