@@ -101,16 +101,16 @@
 <script lang="ts" setup>
   import { reactive } from 'vue'
   import { FMessage } from 'fighting-design'
-  import type { FormParam } from 'fighting-design'
+  import type { FormSubmit } from 'fighting-design'
 
   const ruleForm2 = reactive({
     account: '',
     password: ''
   })
 
-  const handelSubmit2 = ({ ok, res, evt }: FormParam): void => {
+  const handelSubmit2: FormSubmit = (ok, model, res, evt): void => {
     if (!ok) return
-    FMessage.primary(`ok: ${ok} res: ${res} evt: ${evt} 开始提交表单`)
+    FMessage.primary(`ok: ${ok} model:${model} res: ${res} evt: ${evt} 开始提交表单`)
   }
 </script>
 
@@ -151,12 +151,12 @@
 
 ## Form Attributes
 
-| 参数             | 说明                     | 类型                                       | 可选值        | 默认值 |
-| ---------------- | ------------------------ | ------------------------------------------ | ------------- | ------ |
-| `label-width`    | label 的宽度             | string / number                            | ——            | ——     |
-| `label-position` | label 位置               | <a href="#labelposition">LabelPosition</a> | `top` `right` | top    |
-| `model`          | 表单数据对象             | Object                                     | ——            | ——     |
-| `on-submit`      | 点击提交按钮后触发的回调 | <a href="#formsubmit">FormSubmit</a>       | ——            | ——     |
+| 参数             | 说明                     | 类型                                       | 可选值       | 默认值 |
+| ---------------- | ------------------------ | ------------------------------------------ | ------------ | ------ |
+| `label-width`    | label 的宽度             | string / number                            | ——           | ——     |
+| `label-position` | label 位置               | <a href="#labelposition">LabelPosition</a> | `top` `left` | left   |
+| `model`          | 表单数据对象             | Object                                     | ——           | ——     |
+| `on-submit`      | 点击提交按钮后触发的回调 | <a href="#formsubmit">FormSubmit</a>       | ——           | ——     |
 
 ## FormItem Attributes
 
@@ -193,7 +193,6 @@
 import type {
   FormInstance,
   FormProps,
-  FormParam,
   FormSubmit,
   LabelPosition,
   FormItemInstance,
@@ -203,20 +202,15 @@ import type {
 } from 'fighting-design'
 ```
 
-### FormParam
-
-```ts
-interface FormParam {
-  ok: boolean
-  res: Record<string, boolean | string>
-  evt: SubmitEvent
-}
-```
-
 ### FormSubmit
 
 ```ts
-FormSubmit = (params: FormParam) => void
+type FormSubmit = (
+  ok: boolean,
+  model: object,
+  res: Record<string, boolean | string>,
+  evt: SubmitEvent | Event
+) => void
 ```
 
 ### FormItemRulesItem
@@ -228,6 +222,7 @@ interface FormItemRulesItem {
   min?: number
   max?: number
   regExp?: RegExp
+  validator?: () => boolean
 }
 ```
 
@@ -267,8 +262,8 @@ type LabelPosition = 'left' | 'top'
     password: ''
   })
 
-  const handelSubmit2 = ({ ok, res, evt }): void => {
+  const handelSubmit2: FormSubmit = (ok, model, res, evt): void => {
     if (!ok) return
-    FMessage.primary(`ok: ${ok} res: ${res} evt: ${evt} 开始提交表单`)
+    FMessage.primary(`ok: ${ok} model:${model} res: ${res} evt: ${evt} 开始提交表单`)
   }
 </script>

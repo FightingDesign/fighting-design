@@ -89,6 +89,22 @@
 
 :::
 
+## 差异的
+
+`difference` 属性可以配在 rows 大于 3 的时候，第一个和最后一个会产生差异长度
+
+::: demo
+
+<template #source>
+<f-skeleton animated :rows="5" difference />
+</template>
+
+```html
+<f-skeleton animated :rows="5" difference />
+```
+
+:::
+
 ## 搭配组件使用
 
 ::: demo
@@ -138,13 +154,15 @@
 
 ## Attributes
 
-| 参数       | 说明                                     | 类型                                                               | 可选值                          | 默认值 |
-| ---------- | ---------------------------------------- | ------------------------------------------------------------------ | ------------------------------- | ------ |
-| `round`    | 是否带圆角的                             | boolean                                                            | ——                              | false  |
-| `animated` | 是否展示波浪动画                         | boolean                                                            | ——                              | false  |
-| `rows`     | 渲染多行占位图                           | number                                                             | ——                              | 1      |
-| `loading`  | 为 true 时，显示占位图。false 展示子组件 | boolean                                                            | ——                              | false  |
-| `size`     | 自定义尺寸                               | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
+| 参数         | 说明                                     | 类型                                                               | 可选值                          | 默认值 |
+| ------------ | ---------------------------------------- | ------------------------------------------------------------------ | ------------------------------- | ------ |
+| `round`      | 是否带圆角的                             | boolean                                                            | ——                              | false  |
+| `animated`   | 是否展示波浪动画                         | boolean                                                            | ——                              | false  |
+| `rows`       | 渲染多行占位图                           | number                                                             | ——                              | 1      |
+| `difference` | 首位是否有长度差异                       | boolean                                                            | ——                              | false  |
+| `row-gap`    | 自定义间距尺寸                           | number / string                                                    | ——                              | ——     |
+| `loading`    | 为 true 时，显示占位图。false 展示子组件 | boolean                                                            | ——                              | false  |
+| `size`       | 自定义尺寸                               | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
 
 ## Slots
 
