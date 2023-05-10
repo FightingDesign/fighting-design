@@ -2,6 +2,21 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.37.0 (2023-05-10)
+
+**更新**
+
+- `f-skeleton` 组件样式细节优化
+- `f-skeleton` 组件新增 `row-gap` 和 `difference` 配置项
+- `f-form` 组件 `on-submit` 回调参数类型修改，由一个对象类型，改为四个参数类型
+- `f-form-item` 组件新增 `validator` 校验方法
+- 新增部分 `hooks` 封装
+
+**修复**
+
+- 修复 `f-form` 组件没有传递 rules 和 name 也触发表单校验的问题
+- 修复点击 `f-trigger` 内容部分也会关闭的问题
+
 ## 0.36.1 (2023-05-08)
 
 - 修复 `f-dialog` 样式问题

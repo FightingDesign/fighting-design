@@ -4,6 +4,21 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.37.0 (2023-05-10)
+
+**Update**
+
+- Optimization of `f-skeleton` component style details
+- Add `row gap` and `difference` configuration items to the `f-skeleton` component
+- `f-form` component `on-submit` callback parameter type modification, changing from one object type to four parameter types
+- `f-form item` component added `validator` validation method
+- Added section `hooks` encapsulation
+
+**Fix**
+
+- Fix the issue where the `f-form` component did not pass rules and name, which also triggered form validation
+- Fix the issue where clicking on the `f-trigger` content section will also close
+
 ## 0.36.1 (2023-05-08)
 
 - Fix style issues with `f-dialog`
