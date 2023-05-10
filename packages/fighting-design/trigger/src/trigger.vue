@@ -37,7 +37,7 @@
 <template>
   <div class="f-trigger" :style="styleList">
     <!-- 触发器 -->
-    <div ref="triggerEl" class="f-trigger__trigger" @[openEvent].stop="handelOpen">
+    <div ref="triggerEl" class="f-trigger__trigger" @[openEvent]="handelOpen">
       <slot />
     </div>
 
@@ -48,9 +48,8 @@
           v-show="visible"
           :class="[TRIGGER_CONTENT_BOX_CLASS, { 'f-trigger__arrow': arrow }]"
           :style="cardinStyleList"
-          @[closeEvent].stop="handelClose"
         >
-          <div class="f-trigger__content">
+          <div class="f-trigger__content" @[closeEvent].stop="handelClose">
             <slot name="content" />
           </div>
         </div>

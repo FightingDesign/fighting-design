@@ -1,45 +1,41 @@
-<script lang="ts" setup>
-  import { reactive } from 'vue'
-  import { FMessage, type FormSubmit } from 'fighting-design'
-
-  const ruleForm2 = reactive({
-    account: '',
-    password: ''
-  })
-  const handelSubmit2: FormSubmit = (ok, model, res, evt): void => {
-    console.log(ok, model.account, res, evt)
-    FMessage.primary('开始提交表单')
-  }
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  {{ ruleForm2 }}
-  <f-form :model="ruleForm2" label-width="60px" :on-submit="handelSubmit2">
-    <f-form-item
-      label="账号"
-      name="account"
-      :rules="[
-        { required: true, message: '请输入用户名' },
-        { min: 4, max: 12, message: '请输入 4~12 用户名' },
-        { regExp: /123456/, message: '必须包含 123456' }
-      ]"
-    >
-      <f-input v-model="ruleForm2.account" type="text" placeholder="请输入账号" />
-    </f-form-item>
+  <f-dropdown>
+    <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
 
-    <f-form-item
-      label="密码"
-      name="password"
-      :rules="[
-        { required: true, message: '请输入密码' },
-        { min: 6, message: '至少输入六位数密码' }
-      ]"
-    >
-      <f-input v-model="ruleForm2.password" type="password" placeholder="请输入密码" />
-    </f-form-item>
+    <template #content>
+      <f-dropdown-item>猕猴桃</f-dropdown-item>
+      <f-dropdown-item>哈密瓜</f-dropdown-item>
+      <f-dropdown-item>火龙果</f-dropdown-item>
+      <f-dropdown-item>柠檬</f-dropdown-item>
+    </template>
+  </f-dropdown>
 
-    <f-form-item>
-      <f-button type="primary" native-type="submit" block>提交表单</f-button>
-    </f-form-item>
-  </f-form>
+  <f-dropdown trigger="click">
+    <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+
+    <template #content>
+      <f-dropdown-item>猕猴桃</f-dropdown-item>
+      <f-dropdown-item>哈密瓜</f-dropdown-item>
+      <f-dropdown-item>火龙果</f-dropdown-item>
+      <f-dropdown-item>柠檬</f-dropdown-item>
+    </template>
+  </f-dropdown>
+
+  <f-trigger trigger="hover">
+    <f-button type="primary">hover 触发</f-button>
+
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+    </template>
+  </f-trigger>
+
+  <f-trigger trigger="click" style="margin-left: 120px">
+    <f-button type="primary">click 触发</f-button>
+
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+    </template>
+  </f-trigger>
 </template>

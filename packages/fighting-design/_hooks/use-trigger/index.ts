@@ -58,7 +58,6 @@ export const useTrigger = (
 
   /** 设置内容位置 */
   const setPosition = (): void => {
-    console.log('set')
     /** 获取到元素节点 */
     const element: HTMLDivElement | undefined = node.value
 
@@ -86,6 +85,9 @@ export const useTrigger = (
     position.y = y + 'px'
   }
 
+  /** 定时器实例 */
+  let timeout: NodeJS.Timeout | undefined
+
   /**
    * 打开触发器
    *
@@ -94,16 +96,15 @@ export const useTrigger = (
   const handelOpen = (evt: MouseEvent): void => {
     if (prop.disabled) return
 
-    if (visible.value === true) {
-      handelClose(evt)
-      return
-    }
+    clearTimeout(timeout)
 
-    setPosition()
-
-    visible.value = true
-    run(prop.onOpen, visible.value, evt)
-    run(prop.onChange, visible.value, evt)
+    timeout = setTimeout((): void => {
+      setPosition()
+      console.log('open')
+      visible.value = true
+      run(prop.onOpen, visible.value, evt)
+      run(prop.onChange, visible.value, evt)
+    }, prop.trigger === 'click' ? 0 : 200)
   }
 
   /**
@@ -113,13 +114,16 @@ export const useTrigger = (
    */
   const handelClose = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    visible.value = false
-    run(prop.onClose, visible.value, evt)
-    run(prop.onChange, visible.value, evt)
 
-    /** 关闭之后移除事件监听 */
-    window.removeEventListener('click', documentListen)
-    window.removeEventListener('resize', setPosition)
+    clearTimeout(timeout)
+
+    timeout = setTimeout((): void => {
+      console.log('close')
+      visible.value = false
+      run(prop.onClose, visible.value, evt)
+      run(prop.onChange, visible.value, evt)
+
+    }, prop.trigger === 'click' ? 0 : 200)
   }
 
   /** 打开事件 */
@@ -149,6 +153,7 @@ export const useTrigger = (
    * @param { Object } evt 事件对象
    */
   const documentListen = (evt: MouseEvent): void => {
+    /** 获取到点击的元素 */
     const element = evt.target as HTMLElement
 
     /**
@@ -160,6 +165,10 @@ export const useTrigger = (
 
     /** 否则关闭触发器 */
     handelClose(evt)
+
+    /** 关闭之后移除事件监听 */
+    window.removeEventListener('click', documentListen, true)
+    window.removeEventListener('resize', setPosition)
   }
 
   /**
