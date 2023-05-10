@@ -2,7 +2,6 @@
   import { Props, TRIGGER_CLOSE_KEY } from './props'
   import { ref, provide } from 'vue'
   import { useTrigger } from '../../_hooks'
-
   import type { TriggerProvide } from './interface'
 
   const prop = defineProps(Props)

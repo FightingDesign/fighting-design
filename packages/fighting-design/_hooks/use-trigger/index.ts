@@ -157,9 +157,10 @@ export const useTrigger = (
      *
      * @see Event.composedPath() https://developer.mozilla.org/zh-CN/docs/Web/API/Event/composedPath
      * @see Array.prototype.some() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+     * @see String.prototype.includes() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/includes
      */
     const isHaveTrigger: boolean = (evt.composedPath() as HTMLElement[]).some(
-      (item: HTMLElement): boolean => item.className === 'f-trigger'
+      (item: HTMLElement): boolean => item.className.includes('f-trigger')
     )
 
     /** 如果有，则说明点击是孩子节点，则不需要关闭 */
@@ -189,7 +190,7 @@ export const useTrigger = (
      *
      * @see EventTarget.addEventListener() https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
      */
-    window.addEventListener('click', documentListen, true)
+    window.addEventListener('click', documentListen)
   }
 
   return {
