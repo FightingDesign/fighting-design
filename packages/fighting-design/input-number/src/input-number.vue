@@ -10,7 +10,7 @@
   import { FInput } from '../../input'
   import { FButton } from '../../button'
   import { isNumber } from '../../_utils'
-  import { useRun } from '../../_hooks'
+  import { useRun, useModel } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
 
   const prop = defineProps(Props)
@@ -19,11 +19,8 @@
   })
 
   const { run } = useRun()
-
-  /** 当前绑定的值 */
-  const inputValue = computed({
-    /** 获取值的时候返回 */
-    get: (): number => {
+  const { keyword } = useModel<number>(
+    (): number => {
       const { modelValue, precision } = prop
 
       /** 如果传入的是非数字的参数，则默认返回 0 */
@@ -36,15 +33,10 @@
        */
       return Number(modelValue.toFixed(isNumber(precision) ? precision : 0))
     },
-    /**
-     * 当设置新的值的时候，同步数据
-     *
-     * @param { number } val 最新值
-     */
-    set: (val: number): void => {
+    (val: number): void => {
       emit(EMIT_UPDATE, Number(val))
     }
-  })
+  )
 
   /** 最小值禁用 */
   const minDisabled = computed((): boolean => {
@@ -57,7 +49,7 @@
     /**
      * @see Math.abs() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
      */
-    return inputValue.value - Math.abs(step) < min
+    return keyword.value - Math.abs(step) < min
   })
 
   /** 最大值禁用 */
@@ -68,7 +60,7 @@
       return false
     }
 
-    return inputValue.value + Math.abs(step) > max
+    return keyword.value + Math.abs(step) > max
   })
 
   /**
@@ -85,16 +77,16 @@
     const map = {
       /** 减少 */
       minus: (): void => {
-        inputValue.value -= step
+        keyword.value -= step
       },
       /** 增加 */
       plus: (): void => {
-        inputValue.value += step
+        keyword.value += step
       }
     }
 
     run(map[target])
-    run(prop.onChange, inputValue.value)
+    run(prop.onChange, keyword.value)
   }
 </script>
 
@@ -112,7 +104,7 @@
 
     <div class="f-input-number__wrapper">
       <f-input
-        v-model="inputValue"
+        v-model="keyword"
         type="number"
         :max="max"
         :min="min"

@@ -1,10 +1,10 @@
 <script lang="ts" setup name="FDatePicker">
   import { Props } from './props'
-  import { computed } from 'vue'
   import { FInput } from '../../input'
   import { FTrigger } from '../../trigger'
   import { FCalendar } from '../../calendar'
   import { EMIT_DATE } from '../../_tokens'
+  import { useModel } from '../../_hooks'
   import { isString, addZero, warning } from '../../_utils'
   import { FIconCalendar } from '../../_svg'
   import type { CalendarChangeParams } from '../../calendar'
@@ -17,19 +17,12 @@
   /** 传递给日历组件的当前时间 */
   const date = new Date()
 
-  /** 获取选择的日期 & 设置日期 */
-  const pickerDate = computed({
-    /** 获取值返回 date */
-    get: (): string => prop.date,
-    /**
-     * 设置值
-     *
-     * @param { string } val 最新的值
-     */
-    set: (val: string): void => {
+  const { keyword } = useModel<string>(
+    (): string => prop.date,
+    (val: string): void => {
       emit(EMIT_DATE, val)
     }
-  })
+  )
 
   /**
    * 选取时间
@@ -59,7 +52,7 @@
         )
       }
 
-      pickerDate.value = `${year}/${prop.addZero ? addZero(month) : month}/${
+      keyword.value = `${year}/${prop.addZero ? addZero(month) : month}/${
         prop.addZero ? addZero(date) : date
       }`
       return
@@ -87,7 +80,7 @@
     }
 
     /** 将绑定值设置为格式化后的日期 */
-    pickerDate.value = formatDate
+    keyword.value = formatDate
   }
 </script>
 
@@ -96,7 +89,7 @@
     <f-trigger trigger="click" :disabled="disabled">
       <!-- 输入框 -->
       <f-input
-        v-model="pickerDate"
+        v-model="keyword"
         autocomplete="off"
         readonly
         :disabled="disabled"

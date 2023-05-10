@@ -3,6 +3,7 @@
   import { reactive, computed, ref, nextTick, watch } from 'vue'
   import { FInput } from '../../input'
   import { FTrigger } from '../../trigger'
+  import { useModel } from '../../_hooks'
   import { addZero, isString, isBoolean } from '../../_utils'
   import { FIconClockTime } from '../../_svg'
   import { EMIT_TIME } from '../../_tokens'
@@ -14,6 +15,13 @@
     [EMIT_TIME]: (val: string): boolean => isString(val)
   })
 
+  const { keyword } = useModel(
+    (): string => prop.time,
+    (val: string): void => {
+      emit(EMIT_TIME, val)
+    }
+  )
+
   /** 获取当前的时间 */
   const nowDate: Date = new Date()
 
@@ -22,20 +30,6 @@
     hour: addZero(nowDate.getHours()),
     minute: addZero(nowDate.getMinutes()),
     second: addZero(nowDate.getSeconds())
-  })
-
-  /** 获取选择的时间 & 设置时间 */
-  const pickerTime = computed({
-    /** 获取值返回 time */
-    get: (): string => prop.time,
-    /**
-     * 设置值
-     *
-     * @param { string } val 最新的值
-     */
-    set: (val: string): void => {
-      emit(EMIT_TIME, val)
-    }
   })
 
   /** trigger 组件实例 */
@@ -55,7 +49,7 @@
      * 这里要判断是否为真，并且不是字符串擦书
      */
     if (target && !isString(target)) {
-      pickerTime.value = `${timeList.hour}:${timeList.minute}:${timeList.second}`
+      keyword.value = `${timeList.hour}:${timeList.minute}:${timeList.second}`
     }
 
     if (target === 'now') {
@@ -74,7 +68,7 @@
      * 如果非布尔值类型，咋代表点击的是当前时间，则不需要关闭
      */
     if (isBoolean(target)) {
-      ;(triggerInstance.value as TriggerInstance).handelClose(evt)
+      (triggerInstance.value as TriggerInstance).handelClose(evt)
     }
   }
 
@@ -150,7 +144,7 @@
       :on-open="scrollNow"
     >
       <f-input
-        v-model="pickerTime"
+        v-model="keyword"
         autocomplete="off"
         type="text"
         :placeholder="placeholder || '请选择时间'"

@@ -1,60 +1,26 @@
 <script lang="ts" setup>
-  import { reactive } from 'vue'
-  import { FMessage } from 'fighting-design'
-  import type { FormSubmit } from 'fighting-design'
+  import { ref } from 'vue'
 
-  const ruleForm2 = reactive({
-    account: '',
-    password: '',
-    password2: ''
-  })
-
-  const handelSubmit2: FormSubmit = (ok, model, res, evt): void => {
-    console.log(ok, model, res, evt)
-    if (!ok) return
-    FMessage.primary(`ok: ${ok} res: ${res} evt: ${evt} 开始提交表单`)
-  }
-
-  const validator = (): boolean => {
-    return ruleForm2.password === ruleForm2.password2
-  }
+  const value1 = ref('')
+  const value = ref('')
 </script>
 
 <template>
-  {{ ruleForm2 }}
-  <f-form :model="ruleForm2" label-width="80px" :on-submit="handelSubmit2">
-    <f-form-item
-      label="账号"
-      name="account"
-    >
-      <f-input v-model="ruleForm2.account" type="text" placeholder="请输入账号" />
-    </f-form-item>
+  <f-trigger trigger="click" style="margin-left: 120px">
+    <f-button type="primary">click 触发</f-button>
 
-    <f-form-item
-      label="密码"
-      name="password"
-      :rules="[
-        { required: true, message: '请输入密码' },
-        { min: 6, message: '至少输入六位数密码' }
-      ]"
-    >
-      <f-input v-model="ruleForm2.password" type="password" placeholder="请输入密码" />
-    </f-form-item>
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+    </template>
+  </f-trigger>
 
-    <f-form-item
-      label="确认密码"
-      name="password2"
-      :rules="[
-        { required: true, message: '再次请输入密码' },
-        { min: 6, message: '至少输入六位数密码' },
-        { validator, message: '两次密码输入不一致' }
-      ]"
-    >
-      <f-input v-model="ruleForm2.password2" type="password" placeholder="请输入密码" />
-    </f-form-item>
+  {{ value }}
+  <f-date-picker v-model:date="value1" />
 
-    <f-form-item>
-      <f-button type="primary" native-type="submit" block>提交表单</f-button>
-    </f-form-item>
-  </f-form>
+  <f-select v-model="value" placeholder="请选择……">
+    <f-option :value="1">香蕉</f-option>
+    <f-option :value="2">苹果</f-option>
+    <f-option :value="3">哈密瓜</f-option>
+    <f-option :value="4">樱桃</f-option>
+  </f-select>
 </template>

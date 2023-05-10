@@ -18,7 +18,12 @@
   const { run } = useRun()
   const { getLang, getProp } = useGlobal(prop as unknown as UseGlobalProp)
   const { styles, classes } = useList(getProp(['size']), 'input')
-  const { keyword } = useModel(prop, 'modelValue', emit, EMIT_UPDATE)
+  const { keyword } = useModel<string | number>(
+    (): string | number => prop.modelValue,
+    (val: string | number): void => {
+      emit(EMIT_UPDATE, val)
+    }
+  )
   const { handleInput, handleClear, handleChange } = useInput(prop, emit, keyword)
 
   /** 是否展示密码 */

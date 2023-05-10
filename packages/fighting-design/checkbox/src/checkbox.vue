@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FCheckbox">
   import { Props } from './props'
   import { computed, inject, reactive } from 'vue'
-  import { useRun, useList } from '../../_hooks'
+  import { useRun, useList, useModel } from '../../_hooks'
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import { isArray, isBoolean } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
@@ -15,22 +15,11 @@
   })
 
   const { run } = useRun()
-
-  /** 获取父组件注入的依赖项 */
-  const parentInject: CheckboxGroupProvide | null = inject(CHECKBOX_GROUP_PROPS_KEY, null)
-
-  /** 绑定值 */
-  const model = computed({
-    /** 获取值 */
-    get: (): CheckboxModelValue | string[] => {
+  const { keyword } = useModel<CheckboxModelValue | string[]>(
+    (): CheckboxModelValue | string[] => {
       return (parentInject && parentInject.modelValue) || prop.modelValue
     },
-    /**
-     * 设置值
-     *
-     * @param { boolean | string[] } val 最新的值
-     */
-    set: (val: CheckboxModelValue | string[]): void => {
+    (val: CheckboxModelValue | string[]): void => {
       if (!parentInject) {
         emit(EMIT_UPDATE, val as CheckboxModelValue)
         run(prop.onChange, val)
@@ -38,12 +27,15 @@
       }
       parentInject.setChange(val)
     }
-  })
+  )
+
+  /** 获取父组件注入的依赖项 */
+  const parentInject: CheckboxGroupProvide | null = inject(CHECKBOX_GROUP_PROPS_KEY, null)
 
   /** 是否被选中 */
   const isActive = computed((): boolean => {
     /** 绑定值 */
-    const value: CheckboxModelValue | string[] = model.value
+    const value: CheckboxModelValue | string[] = keyword.value
 
     if (isArray(value)) {
       return value.includes(prop.label as never)
@@ -83,7 +75,7 @@
     :class="classList"
   >
     <input
-      v-model="model"
+      v-model="keyword"
       type="checkbox"
       class="f-checkbox__input"
       hidden

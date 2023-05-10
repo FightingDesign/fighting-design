@@ -1,7 +1,7 @@
 <script lang="ts" setup name="FSelect">
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
-  import { useList, useRun } from '../../_hooks'
+  import { useList, useRun, useModel } from '../../_hooks'
   import { provide, computed, useSlots, reactive } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { getChildren } from '../../_utils'
@@ -17,23 +17,8 @@
 
   const { run } = useRun()
   const { styles } = useList(prop, 'select')
-
-  /**
-   * 获取子元素 option
-   *
-   * 通过插槽插入的内容，过滤出有效的子元素返回
-   */
-  const options = computed((): VNode[] => {
-    /** 如果没有插槽内容，返回空数组 */
-    if (!slot.default) return []
-
-    return getChildren(slot.default(), 'FOption')
-  })
-
-  /** 输入框绑定的值 */
-  const inputValue = computed({
-    /** 通过获取到的子元素，计算当前绑定值对应的 label 展示文本框的内容 */
-    get: (): string => {
+  const { keyword } = useModel<string>(
+    (): string => {
       /** 如果插槽没内容，则返回空字符串 */
       if (!options.value.length) return ''
 
@@ -83,12 +68,19 @@
       /** 返回优先级：插槽 > label > value */
       return slot || label || (value && value.toString()) || ''
     },
-    /**
-     * 设置值
-     *
-     * @param { string } val 最新值
-     */
-    set: (val: string): string => val
+    (val: string): string => val
+  )
+
+  /**
+   * 获取子元素 option
+   *
+   * 通过插槽插入的内容，过滤出有效的子元素返回
+   */
+  const options = computed((): VNode[] => {
+    /** 如果没有插槽内容，返回空数组 */
+    if (!slot.default) return []
+
+    return getChildren(slot.default(), 'FOption')
   })
 
   /**
@@ -104,7 +96,7 @@
     evt: MouseEvent
   ): void => {
     /** 设置文本框展示的内容 */
-    inputValue.value = newValue.toString()
+    keyword.value = newValue.toString()
 
     /** 如果最新的 value 和绑定的 value 不一致时，才触发 change 事件 */
     if (newLabel !== prop.modelValue) {
@@ -125,7 +117,7 @@
   <div class="f-select" :style="styleList">
     <f-dropdown trigger="click" :disabled="disabled">
       <f-input
-        v-model="inputValue"
+        v-model="keyword"
         :name="name"
         :size="size"
         :disabled="disabled"

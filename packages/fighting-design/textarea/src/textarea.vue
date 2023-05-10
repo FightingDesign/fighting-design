@@ -10,7 +10,12 @@
     [EMIT_UPDATE]: (val: string | number): boolean => !!val
   })
 
-  const { keyword } = useModel(prop, 'modelValue', emit, EMIT_UPDATE)
+  const { keyword } = useModel<string>(
+    (): string => prop.modelValue,
+    (val: string): void => {
+      emit(EMIT_UPDATE, val)
+    }
+  )
   const { handleInput, handleClear, handleChange } = useInput(prop, emit, keyword)
   const { classes, styles } = useList(prop, 'textarea')
 
