@@ -1,4 +1,4 @@
-import { ref, computed, reactive, onMounted, onUnmounted } from 'vue'
+import { ref, computed, reactive } from 'vue'
 import { sizeChange } from '../../_utils'
 import { useRun } from '..'
 import { TRIGGER_CONTENT_BOX_CLASS } from '../../_tokens'
@@ -58,6 +58,7 @@ export const useTrigger = (
 
   /** 设置内容位置 */
   const setPosition = (): void => {
+    console.log('set')
     /** 获取到元素节点 */
     const element: HTMLDivElement | undefined = node.value
 
@@ -93,26 +94,17 @@ export const useTrigger = (
   const handelOpen = (evt: MouseEvent): void => {
     if (prop.disabled) return
 
+    if (visible.value === true) {
+      handelClose(evt)
+      return
+    }
+
     setPosition()
 
     visible.value = true
     run(prop.onOpen, visible.value, evt)
     run(prop.onChange, visible.value, evt)
   }
-
-  /**
-   * 当浏览器比例缩放发生变化的时候，重写位置信息
-   *
-   * @see resize https://developer.mozilla.org/zh-CN/docs/Web/API/Window/resize_event
-   */
-  onMounted((): void => {
-    window.addEventListener('resize', setPosition)
-  })
-
-  /** 卸载之后移除事件  */
-  onUnmounted((): void => {
-    window.removeEventListener('resize', setPosition)
-  })
 
   /**
    * 关闭触发器
@@ -124,6 +116,10 @@ export const useTrigger = (
     visible.value = false
     run(prop.onClose, visible.value, evt)
     run(prop.onChange, visible.value, evt)
+
+    /** 关闭之后移除事件监听 */
+    window.removeEventListener('click', documentListen)
+    window.removeEventListener('resize', setPosition)
   }
 
   /** 打开事件 */
@@ -153,20 +149,17 @@ export const useTrigger = (
    * @param { Object } evt 事件对象
    */
   const documentListen = (evt: MouseEvent): void => {
-    console.log((evt.target as HTMLElement).closest('.' + TRIGGER_CONTENT_BOX_CLASS))
+    const element = evt.target as HTMLElement
 
     /**
      * @see Element.closest() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/closest
      */
-    if ((evt.target as HTMLElement).closest('.' + TRIGGER_CONTENT_BOX_CLASS)) {
+    if (element.closest('.' + TRIGGER_CONTENT_BOX_CLASS) || element.closest('.f-trigger')) {
       return
     }
 
     /** 否则关闭触发器 */
     handelClose(evt)
-
-    /** 关闭之后移除事件监听 */
-    window.removeEventListener('click', documentListen)
   }
 
   /**
@@ -187,6 +180,13 @@ export const useTrigger = (
      * @see EventTarget.addEventListener() https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
      */
     window.addEventListener('click', documentListen, true)
+
+    /**
+     * 当浏览器比例缩放发生变化的时候，重写位置信息
+     *
+     * @see resize https://developer.mozilla.org/zh-CN/docs/Web/API/Window/resize_event
+     */
+    window.addEventListener('resize', setPosition)
   }
 
   return {
