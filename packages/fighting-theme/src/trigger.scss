@@ -40,7 +40,7 @@
 
   // 出入动画
   &-enter-active {
-    transition: all var(--trigger-enter-duration, 0.1s) ease-out;
+    transition: all var(--trigger-enter-duration, 2s) ease-out;
   }
 
   &-leave-active {

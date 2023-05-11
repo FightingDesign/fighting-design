@@ -1,8 +1,8 @@
-import { ref, computed, reactive, onMounted } from 'vue'
-import { sizeChange } from '../../_utils'
+import { ref, computed, reactive, onMounted, watch } from 'vue'
 import { useRun } from '..'
+import { sizeChange } from '../../_utils'
 import { TRIGGER_CONTENT_BOX_CLASS, TRIGGER_CLASS } from '../../_tokens'
-import type { TriggerProps } from '../../trigger'
+import type { TriggerProps, TriggerTrigger } from '../../trigger'
 import type { CSSProperties, Ref, ComputedRef } from 'vue'
 import type { HandleMouse } from '../../_interface'
 
@@ -10,17 +10,17 @@ import type { HandleMouse } from '../../_interface'
  * useTrigger 返回值类型接口
  *
  * @param { Object } visible 是否展示主内容
- * @param { Object } styleList 样式列表
- * @param { Object } positionStyle 主要内容坐标样式
- * @param { Function } onBeforeEnter 在元素被插入到 DOM 之前被调用
+ * @param { Object } styleList 主要内容坐标样式
  * @param { Function } close 关闭触发器
+ * @param { Function } onBeforeEnter 在元素被插入到 DOM 之前被调用
+ * @param { Function } onAfterLeave 在过度离开完成，移除 DOM 时调用
  */
 export interface UseTriggerReturn {
   visible: Ref<boolean>
   styleList: ComputedRef<CSSProperties>
-  positionStyle: ComputedRef<CSSProperties>
-  onBeforeEnter: (el: Element) => void
   close: HandleMouse
+  onBeforeEnter: (el: Element) => void
+  onAfterLeave: (el: Element) => void
 }
 
 /**
@@ -36,17 +36,19 @@ export const useTrigger = (
 ): UseTriggerReturn => {
   const { run } = useRun()
 
-  /** 是否展示主内容 */
-  const visible = ref<boolean>(false)
-
   /** 主要内容坐标信息 */
   const position = reactive({ x: '', y: '' })
 
   /** 主要内容坐标样式 */
-  const positionStyle = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
+    const { spacing, enterDuration, leaveDuration } = prop
+
     return {
       '--trigger-content-x': position.x,
-      '--trigger-content-y': position.y
+      '--trigger-content-y': position.y,
+      '--trigger-spacing-size': sizeChange(spacing),
+      '--trigger-enter-duration': enterDuration && enterDuration + 's',
+      '--trigger-leave-duration': leaveDuration && leaveDuration + 's'
     }
   })
 
@@ -79,7 +81,22 @@ export const useTrigger = (
     position.y = y + 'px'
   }
 
-  /** 记录提示框是否应该显示 */
+  /** 是否展示主内容 */
+  const visible = ref<boolean>(false)
+
+  /** 
+   * 记录提示框是否应该显示，而 visible 表示为展示状态
+   * 
+   * 判断触发器展示还是隐藏最核心的控制变量，主要控制内容是否展示，默认不展示
+   * 
+   * 当内容展示的时候，将 contentVisible 设置为 true，表示为应该展示
+   * 
+   * 当鼠标从触发器移入到内容的时候，会触发 close 方法，将其设置为 false，表示需要隐藏了
+   * 
+   * 但是同时，内容移入触发了移入事件，又将其改为 true，表示需要展示
+   * 
+   * 中间使用 setTimeout 函数来延迟改变状态，来处理时间差
+   */
   let contentVisible = false
 
   /**
@@ -114,27 +131,32 @@ export const useTrigger = (
 
     contentVisible = false
 
+    const _ = (): void => {
+      visible.value = false
+
+      run(prop.onClose, visible.value, evt)
+      run(prop.onChange, visible.value, evt)
+    }
+
+    if (prop.trigger === 'click') {
+      _()
+      return
+    }
+
     setTimeout((): void => {
       if (!contentVisible) {
-        visible.value = false
-
-        run(prop.onClose, visible.value, evt)
-        run(prop.onChange, visible.value, evt)
+        _()
       }
     }, 300)
   }
 
-  /**
-   * 内容部分移入
-   */
+  /** 内容部分移入 */
   const contentLave = (): void => {
     contentVisible = true
   }
 
-  /**
-   * 挂载之后给元素添加事件监听器
-   */
-  onMounted((): void => {
+  /** 添加事件监听器 */
+  const addEventListener = (): void => {
     if (node.value) {
       if (prop.trigger === 'hover') {
         node.value.addEventListener('mouseenter', open)
@@ -145,18 +167,13 @@ export const useTrigger = (
         node.value.addEventListener('click', open)
       }
     }
-  })
+  }
 
-  /** 样式列表 */
-  const styleList = computed((): CSSProperties => {
-    const { spacing, enterDuration, leaveDuration } = prop
+  /** 挂载之后给元素添加事件监听器 */
+  onMounted(addEventListener)
 
-    return {
-      '--trigger-spacing-size': sizeChange(spacing),
-      '--trigger-enter-duration': enterDuration && enterDuration + 's',
-      '--trigger-leave-duration': leaveDuration && leaveDuration + 's'
-    } as CSSProperties
-  })
+  /** 状态改变时重新添加事件监听器 */
+  watch((): TriggerTrigger => prop.trigger, addEventListener)
 
   /**
    * 文档监听
@@ -168,6 +185,8 @@ export const useTrigger = (
     const element = evt.target as HTMLElement
 
     /**
+     * 点击的部分如果是触发器元素，则不触发关闭
+     * 
      * @see Element.closest() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/closest
      */
     if (element.closest('.' + TRIGGER_CONTENT_BOX_CLASS) || element.closest('.' + TRIGGER_CLASS)) {
@@ -186,6 +205,7 @@ export const useTrigger = (
    * 在元素被插入到 DOM 之前被调用
    *
    * @see Transition https://cn.vuejs.org/guide/built-ins/transition.html#javascript-hooks
+   * @param { Object } el 元素节点
    */
   const onBeforeEnter = (el: Element): void => {
     if (prop.trigger === 'hover') {
@@ -214,11 +234,23 @@ export const useTrigger = (
     window.addEventListener('click', documentListen, true)
   }
 
+  /**
+   * 在过度离开完成，移除 DOM 时调用
+   * 
+   * @param { Object } el 元素节点
+   */
+  const onAfterLeave = (el: Element): void => {
+    if (prop.trigger === 'hover') {
+      (el as HTMLElement).removeEventListener('mouseenter', contentLave);
+      (el as HTMLElement).removeEventListener('mouseleave', close)
+    }
+  }
+
   return {
     visible,
     styleList,
-    positionStyle,
+    close,
     onBeforeEnter,
-    close
+    onAfterLeave
   }
 }
