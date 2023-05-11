@@ -27,15 +27,15 @@ describe('DropdownItem', () => {
       global: {
         provide: {
           [TRIGGER_CLOSE_KEY as symbol]: {
-            handelClose: () => {
-              fn('handelClose')
+            close: () => {
+              fn('close')
             }
           }
         }
       }
     })
     wrapper.trigger('click')
-    expect(fn.mock.calls[0][0]).toBe('handelClose')
+    expect(fn.mock.calls[0][0]).toBe('close')
     expect(fn.mock.calls[1][0]).toBe('onClick')
   })
 })
