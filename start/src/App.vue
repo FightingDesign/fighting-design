@@ -1,7 +1,19 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  function open (e, v) {
+    // console.log('open', e, v)
+  }
+
+  function close (e, v) {
+    // console.log('open', e, v)
+  }
+
+  function change (e, v) {
+    console.log('change', e, v)
+  }
+</script>
 
 <template>
-  <f-dropdown>
+  <!-- <f-dropdown>
     <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
 
     <template #content>
@@ -10,7 +22,23 @@
       <f-dropdown-item>火龙果</f-dropdown-item>
       <f-dropdown-item>柠檬</f-dropdown-item>
     </template>
-  </f-dropdown>
+  </f-dropdown> -->
+
+  <f-trigger trigger="hover" :on-open="open" :on-close="close" :on-change="change">
+    <f-button type="primary">hover 触发</f-button>
+
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+    </template>
+  </f-trigger>
+
+  <f-trigger trigger="click" style="margin-left: 120px">
+    <f-button type="primary">click 触发</f-button>
+
+    <template #content>
+      <f-empty content="在这里，后续提供更多服务" />
+    </template>
+  </f-trigger>
 
   <f-dropdown trigger="click">
     <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />

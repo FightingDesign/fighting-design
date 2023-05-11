@@ -19,7 +19,7 @@
    */
   const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    run(parentInject && parentInject.handelClose)
+    run(parentInject && parentInject.close)
     run(prop.onClick, evt)
   }
 </script>

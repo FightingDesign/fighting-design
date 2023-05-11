@@ -1,7 +1,7 @@
-import { ref, computed, reactive } from 'vue'
+import { ref, computed, reactive, onMounted } from 'vue'
 import { sizeChange } from '../../_utils'
 import { useRun } from '..'
-import { TRIGGER_CONTENT_BOX_CLASS } from '../../_tokens'
+import { TRIGGER_CONTENT_BOX_CLASS, TRIGGER_CLASS } from '../../_tokens'
 import type { TriggerProps } from '../../trigger'
 import type { CSSProperties, Ref, ComputedRef } from 'vue'
 import type { HandleMouse } from '../../_interface'
@@ -10,23 +10,17 @@ import type { HandleMouse } from '../../_interface'
  * useTrigger 返回值类型接口
  *
  * @param { Object } visible 是否展示主内容
- * @param { Object } openEvent 打开事件
- * @param { Object } closeEvent 关闭事件
  * @param { Object } styleList 样式列表
- * @param { Object } cardinStyleList 主要内容坐标样式
+ * @param { Object } positionStyle 主要内容坐标样式
  * @param { Function } onBeforeEnter 在元素被插入到 DOM 之前被调用
- * @param { Function } handelOpen 打开触发器
- * @param { Function } handelClose 关闭触发器
+ * @param { Function } close 关闭触发器
  */
 export interface UseTriggerReturn {
   visible: Ref<boolean>
-  openEvent: ComputedRef<'click' | 'mouseover'>
-  closeEvent: ComputedRef<'' | 'mouseleave'>
   styleList: ComputedRef<CSSProperties>
-  cardinStyleList: ComputedRef<CSSProperties>
-  onBeforeEnter: () => void
-  handelOpen: HandleMouse
-  handelClose: HandleMouse
+  positionStyle: ComputedRef<CSSProperties>
+  onBeforeEnter: (el: Element) => void
+  close: HandleMouse
 }
 
 /**
@@ -49,7 +43,7 @@ export const useTrigger = (
   const position = reactive({ x: '', y: '' })
 
   /** 主要内容坐标样式 */
-  const cardinStyleList = computed((): CSSProperties => {
+  const positionStyle = computed((): CSSProperties => {
     return {
       '--trigger-content-x': position.x,
       '--trigger-content-y': position.y
@@ -85,26 +79,29 @@ export const useTrigger = (
     position.y = y + 'px'
   }
 
-  /** 定时器实例 */
-  let timeout: NodeJS.Timeout | undefined
+  /** 记录提示框是否应该显示 */
+  let contentVisible = false
 
   /**
    * 打开触发器
    *
    * @param { Object } evt 事件对象
    */
-  const handelOpen = (evt: MouseEvent): void => {
+  const open = (evt: MouseEvent): void => {
     if (prop.disabled) return
 
-    clearTimeout(timeout)
+    if (visible.value) {
+      contentVisible = true
+      return
+    }
 
-    timeout = setTimeout((): void => {
-      setPosition()
-      console.log('open')
-      visible.value = true
-      run(prop.onOpen, visible.value, evt)
-      run(prop.onChange, visible.value, evt)
-    }, prop.trigger === 'click' ? 0 : 200)
+    setPosition()
+
+    visible.value = true
+    contentVisible = true
+
+    run(prop.onOpen, visible.value, evt)
+    run(prop.onChange, visible.value, evt)
   }
 
   /**
@@ -112,28 +109,42 @@ export const useTrigger = (
    *
    * @param { Object } evt 事件对象
    */
-  const handelClose = (evt: MouseEvent): void => {
+  const close = (evt: MouseEvent): void => {
     if (prop.disabled) return
 
-    clearTimeout(timeout)
+    contentVisible = false
 
-    timeout = setTimeout((): void => {
-      console.log('close')
-      visible.value = false
-      run(prop.onClose, visible.value, evt)
-      run(prop.onChange, visible.value, evt)
+    setTimeout((): void => {
+      if (!contentVisible) {
+        visible.value = false
 
-    }, prop.trigger === 'click' ? 0 : 200)
+        run(prop.onClose, visible.value, evt)
+        run(prop.onChange, visible.value, evt)
+      }
+    }, 300)
   }
 
-  /** 打开事件 */
-  const openEvent = computed((): 'mouseover' | 'click' => {
-    return prop.trigger === 'hover' ? 'mouseover' : 'click'
-  })
+  /**
+   * 内容部分移入
+   */
+  const contentLave = (): void => {
+    contentVisible = true
+  }
 
-  /** 关闭事件 */
-  const closeEvent = computed((): 'mouseleave' | '' => {
-    return prop.trigger === 'hover' ? 'mouseleave' : ''
+  /**
+   * 挂载之后给元素添加事件监听器
+   */
+  onMounted((): void => {
+    if (node.value) {
+      if (prop.trigger === 'hover') {
+        node.value.addEventListener('mouseenter', open)
+        node.value.addEventListener('mouseleave', close)
+      }
+
+      if (prop.trigger === 'click') {
+        node.value.addEventListener('click', open)
+      }
+    }
   })
 
   /** 样式列表 */
@@ -159,12 +170,12 @@ export const useTrigger = (
     /**
      * @see Element.closest() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/closest
      */
-    if (element.closest('.' + TRIGGER_CONTENT_BOX_CLASS) || element.closest('.f-trigger')) {
+    if (element.closest('.' + TRIGGER_CONTENT_BOX_CLASS) || element.closest('.' + TRIGGER_CLASS)) {
       return
     }
 
     /** 否则关闭触发器 */
-    handelClose(evt)
+    close(evt)
 
     /** 关闭之后移除事件监听 */
     window.removeEventListener('click', documentListen, true)
@@ -176,7 +187,19 @@ export const useTrigger = (
    *
    * @see Transition https://cn.vuejs.org/guide/built-ins/transition.html#javascript-hooks
    */
-  const onBeforeEnter = (): void => {
+  const onBeforeEnter = (el: Element): void => {
+    if (prop.trigger === 'hover') {
+      (el as HTMLElement).addEventListener('mouseenter', contentLave);
+      (el as HTMLElement).addEventListener('mouseleave', close)
+    }
+
+    /**
+     * 当浏览器比例缩放发生变化的时候，重写位置信息
+     *
+     * @see resize https://developer.mozilla.org/zh-CN/docs/Web/API/Window/resize_event
+     */
+    window.addEventListener('resize', setPosition)
+
     /**
      * 给 window 注册点击事件用于关闭触发器
      *
@@ -189,23 +212,13 @@ export const useTrigger = (
      * @see EventTarget.addEventListener() https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
      */
     window.addEventListener('click', documentListen, true)
-
-    /**
-     * 当浏览器比例缩放发生变化的时候，重写位置信息
-     *
-     * @see resize https://developer.mozilla.org/zh-CN/docs/Web/API/Window/resize_event
-     */
-    window.addEventListener('resize', setPosition)
   }
 
   return {
     visible,
-    openEvent,
-    closeEvent,
     styleList,
-    cardinStyleList,
+    positionStyle,
     onBeforeEnter,
-    handelOpen,
-    handelClose
+    close
   }
 }

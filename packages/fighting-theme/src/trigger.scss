@@ -2,7 +2,6 @@
   display: inline-block;
   position: relative;
   vertical-align: middle;
-  background-color: green;
 
   // 主要内容盒子
   &__content-box {
@@ -12,7 +11,7 @@
     padding-top: var(--trigger-spacing-size, 8px);
     left: var(--trigger-content-x);
     top: var(--trigger-content-y);
-    background-color: red;
+    pointer-events: auto;
 
     // 主要内容
     .f-trigger__content {
@@ -50,7 +49,7 @@
 
   &-enter-from,
   &-leave-to {
-    transform: translateY(-16px);
+    transform: translateY(-5px);
     opacity: 0;
   }
 }

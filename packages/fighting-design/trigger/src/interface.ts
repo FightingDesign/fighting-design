@@ -16,8 +16,8 @@ export type TriggerChange = (visible: boolean, evt: MouseEvent) => void
 /**
  * 注入的依赖项对象类型接口
  *
- * @param { Function } handelClose 关闭方法
+ * @param { Function } close 关闭方法
  */
 export interface TriggerProvide {
-  handelClose: HandleMouse
+  close: HandleMouse
 }
