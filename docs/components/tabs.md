@@ -527,6 +527,12 @@ type TabsTrigger = 'hover' | 'click'
 type TabsEdit = (action: 'remove' | 'add', name: string, index: number) => boolean
 ```
 
+## Tabs Methods
+
+| 参数         | 说明         |
+| ------------ | ------------ |
+| `activeName` | 当前选中的值 |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">

@@ -91,7 +91,7 @@
     { immediate: true }
   )
 
-  defineExpose({ start, pause, reset, current })
+  defineExpose({ current, start, pause, reset })
 </script>
 
 <template>

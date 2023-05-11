@@ -2,10 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.38.0 (2023-05-11)
+
 **修复**
 
 - 修复 `f-form` 类型错误
 - 修复 `f-skeleton` 组件样式
+- 修复 `f-trigger` 组件触发时间错误的问题
 
 ## 0.37.0 (2023-05-10)
 

@@ -4,6 +4,14 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.38.0 (2023-05-11)
+
+**Fix**
+
+- Fix `f-form` type error
+- Fix `f-skeleton` component style
+- Fix the issue of incorrect trigger time for the `f-trigger` component
+
 ## 0.37.0 (2023-05-10)
 
 **Update**

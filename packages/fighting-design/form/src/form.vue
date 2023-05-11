@@ -15,7 +15,7 @@
    * @see SubmitEvent https://developer.mozilla.org/zh-CN/docs/Web/API/SubmitEvent/submitter
    * @param { Object } evt 事件对象
    */
-  const handelSubmit = (evt: SubmitEvent): void => {
+  const submit = (evt: SubmitEvent): void => {
     /**
      * 组织表单默认行为
      *
@@ -39,11 +39,11 @@
   )
 
   /** 向外界导出一些方法 */
-  defineExpose({ submit: handelSubmit, validate })
+  defineExpose({ submit, validate })
 </script>
 
 <template>
-  <form v-if="$slots.default" role="form" class="f-form" :onsubmit="handelSubmit">
+  <form v-if="$slots.default" role="form" class="f-form" :onsubmit="submit">
     <slot />
   </form>
 </template>
