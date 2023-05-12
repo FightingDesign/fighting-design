@@ -6,11 +6,13 @@ import type { ComputedRef } from 'vue'
  * hook的入参类型接口
  *
  * @param { number } time 倒计时长（单位毫秒）
+ * @param { boolean } interval 渲染间隔
  * @param { boolean } millisecond 是否开启毫秒级别渲染
  * @param { Function } onFinish 倒计时结束的回调函数
  */
 export interface UseCountDownOptions {
   time: number
+  interval?: number
   millisecond?: boolean
   onFinish?: () => void
 }
@@ -95,8 +97,8 @@ const parseTime = (time: number): CurrentTime => {
  * @param { number } time2 时间（单位毫秒）
  * @returns
  */
-const isSameSecond = (time1: number, time2: number): boolean => {
-  return Math.floor(time1 / SECOND) === Math.floor(time2 / SECOND)
+const isSameTime = (time1: number, time2: number, interval:number = SECOND): boolean => {
+  return Math.floor(time1 / interval) === Math.floor(time2 / interval)
 }
 
 /**
@@ -184,11 +186,8 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
         /** 获取此次调用的剩余时间 */
         const remainRemain = getCurrentRemain()
 
-        /**
-         * 同一秒才开始渲染
-         * TODO: 后续可以将这里改造成 可选的时间间隔参数 来渲染倒计时
-         */
-        if (!isSameSecond(remainRemain, remain.value) || remainRemain === 0) {
+        /**  同一个间隔才渲染 */
+        if (!isSameTime(remainRemain, remain.value, options.interval) || remainRemain === 0) {
           setRemain(remainRemain)
         }
 

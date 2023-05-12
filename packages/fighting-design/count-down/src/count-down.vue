@@ -11,6 +11,7 @@
   const { start, pause, reset, current } = useCountDown({
     time: +prop.time,
     millisecond: prop.millisecond,
+    interval: +prop.interval,
     onFinish: (): void => {
       run(prop.onFinish)
     }
