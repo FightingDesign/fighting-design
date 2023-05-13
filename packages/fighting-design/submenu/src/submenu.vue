@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FSubmenu">
+<script lang="ts" setup>
   import { Props } from './props'
   import { MENU_PROVIDE_KEY } from '../../menu/src/props'
   import { FDropdown } from '../../dropdown'
@@ -7,6 +7,8 @@
   import { inject, ref } from 'vue'
   import { FIconChevronDown } from '../../_svg'
   import type { MenuProvide } from '../../menu'
+
+  defineOptions({name: 'FSubmenu'})
 
   const prop = defineProps(Props)
 

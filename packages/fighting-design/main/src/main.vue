@@ -1,7 +1,9 @@
-<script lang="ts" setup class="FMain">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useList } from '../../_hooks'
 
+  defineOptions({name: 'FMain'})
+  
   const prop = defineProps(Props)
 
   const { styles } = useList(prop, 'main')

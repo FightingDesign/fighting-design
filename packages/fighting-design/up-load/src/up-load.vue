@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FUpLoad">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FButton } from '../../button'
   import { useRun } from '../../_hooks'
@@ -7,6 +7,8 @@
   import { FCloseBtn } from '../../close-btn'
   import { FIconNotes, FIconPlus } from '../../_svg'
   import { EMIT_FILES } from '../../_tokens'
+
+  defineOptions({name: 'FUpLoad'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

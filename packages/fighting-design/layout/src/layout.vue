@@ -1,7 +1,9 @@
-<script setup lang="ts" name="FLayout">
+<script setup lang="ts">
   import { Props } from './props'
   import { useSlots, computed } from 'vue'
   import type { VNode, Component, Slots } from 'vue'
+
+  defineOptions({name: 'FLayout'})
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()

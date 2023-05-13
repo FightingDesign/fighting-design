@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FDialog">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
@@ -6,6 +6,8 @@
   import { useVisible, useList } from '../../_hooks'
   import { isBoolean } from '../../_utils'
   import { EMIT_VISIBLE } from '../../_tokens'
+
+  defineOptions({name: 'FDialog'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FBackTop">
+<script lang="ts" setup>
   import { Props } from './props'
   import { onMounted, ref, toRefs, onUnmounted } from 'vue'
   import { debounce, isNumber, isString, error } from '../../_utils'
   import { useList } from '../../_hooks'
+
+  defineOptions({name: 'FBackTop'})
 
   const prop = defineProps(Props)
 

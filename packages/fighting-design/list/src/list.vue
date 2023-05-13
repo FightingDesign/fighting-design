@@ -1,7 +1,9 @@
-<script lang="ts" setup name="FList">
+<script lang="ts" setup>
   import { Props, LIST_PROPS_KEY } from './props'
   import { provide } from 'vue'
   import { useList } from '../../_hooks'
+
+  defineOptions({name: 'FList'})
 
   const prop = defineProps(Props)
 

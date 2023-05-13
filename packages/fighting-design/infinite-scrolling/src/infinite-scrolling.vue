@@ -1,7 +1,9 @@
-<script lang="ts" setup name="FInfiniteScrolling">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref } from 'vue'
   import { useRun } from '../../_hooks'
+
+  defineOptions({name: 'FInfiniteScrolling'})
 
   const prop = defineProps(Props)
 

@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FTabs">
+<script lang="ts" setup>
   import { Props } from './props'
   import { computed } from 'vue'
   import { TabsNav } from '../components'
@@ -6,6 +6,8 @@
   import { warning, isNumber, isString } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
   import type { TabsPosition, TabsModelValue } from './interface'
+
+  defineOptions({name: 'FTabs'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

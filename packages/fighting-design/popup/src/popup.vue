@@ -1,10 +1,12 @@
-<script lang="ts" setup name="FPopup">
+<script lang="ts" setup>
   import { Props } from './props'
   import { computed } from 'vue'
   import { sizeChange, isBoolean } from '../../_utils'
   import { useRun } from '../../_hooks'
   import { EMIT_VISIBLE } from '../../_tokens'
   import type { CSSProperties } from 'vue'
+
+  defineOptions({name: 'FPopup'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

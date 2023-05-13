@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FSwitch">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { useList, useRun, useGlobal } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
+
+  defineOptions({name: 'FSwitch'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FOption">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useRun } from '../../_hooks'
   import { TRIGGER_CLOSE_KEY } from '../../trigger/src/props'
@@ -7,6 +7,8 @@
   import type { SelectProvide, SelectModelValue } from '../../select'
   import type { TriggerProvide } from '../../trigger'
   import type { Slots } from 'vue'
+
+  defineOptions({name: 'FOption'})
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()
@@ -48,7 +50,7 @@
     /** 执行父组件的设置方法 */
     parentInject && run(parentInject.setValue, newLabel, newValue, evt)
     /** 点击之后关闭 */
-    triggerInject && run(triggerInject.handelClose)
+    triggerInject && run(triggerInject.close)
   }
 </script>
 

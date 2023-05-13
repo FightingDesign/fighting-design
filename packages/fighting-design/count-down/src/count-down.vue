@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FCountDown">
+<script lang="ts" setup>
   import { computed, watch } from 'vue'
   import { Props } from './props'
   import { useCountDown } from '../../_hooks'
   import { useRun } from '../../_hooks'
   import type { CurrentTime } from '../../_hooks'
+
+  defineOptions({name: 'FCountDown'})
 
   const prop = defineProps(Props)
 

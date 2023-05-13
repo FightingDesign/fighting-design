@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FRate">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconStarB } from '../../_svg'
@@ -7,6 +7,8 @@
   import { ref, watch, unref, computed } from 'vue'
   import { isNumber } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
+
+  defineOptions({name: 'FRate'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

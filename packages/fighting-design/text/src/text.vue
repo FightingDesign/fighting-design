@@ -1,6 +1,8 @@
-<script lang="ts" setup name="FText">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useList, useGlobal } from '../../_hooks'
+
+  defineOptions({name: 'FText'})
 
   const prop = defineProps(Props)
 

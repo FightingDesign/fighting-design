@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FTrigger">
+<script lang="ts" setup>
   import { Props, TRIGGER_CLOSE_KEY } from './props'
   import { ref, provide } from 'vue'
   import { useTrigger, useList } from '../../_hooks'
   import { TRIGGER_CONTENT_BOX_CLASS, TRIGGER_CLASS } from '../../_tokens'
   import type { TriggerProvide } from './interface'
+
+  defineOptions({name: 'FTrigger'})
 
   const prop = defineProps(Props)
 

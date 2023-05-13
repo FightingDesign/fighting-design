@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FBreadcrumbItem">
+<script lang="ts" setup>
   import { Props } from './props'
   import { inject, computed, getCurrentInstance, reactive } from 'vue'
   import { BREADCRUMB_PROPS_KEY } from '../../breadcrumb/src/props'
@@ -8,6 +8,8 @@
   import type { FightingIcon } from '../../_interface'
   import type { ComponentInternalInstance } from 'vue'
   import type { BreadcrumbProps } from '../../breadcrumb'
+
+  defineOptions({name: 'FBreadcrumbItem'})
 
   const prop = defineProps(Props)
 

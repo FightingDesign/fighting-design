@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FTable">
+<script lang="ts" setup>
   import { Props } from './props'
   import { h } from 'vue'
   import { useList } from '../../_hooks'
@@ -11,6 +11,8 @@
     TableHeaderRender,
     TableRenderH
   } from './interface'
+
+  defineOptions({name: 'FTable'})
 
   const prop = defineProps(Props)
 

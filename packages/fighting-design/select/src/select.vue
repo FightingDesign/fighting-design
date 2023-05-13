@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FSelect">
+<script lang="ts" setup>
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
   import { useList, useRun, useModel } from '../../_hooks'
@@ -8,6 +8,8 @@
   import { EMIT_UPDATE } from '../../_tokens'
   import type { VNode, Slots } from 'vue'
   import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
+
+  defineOptions({name: 'FSelect'})
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()

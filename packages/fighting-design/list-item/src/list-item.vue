@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FListItem">
+<script lang="ts" setup>
   import { Props } from './props'
   import { inject, reactive } from 'vue'
   import { LIST_PROPS_KEY } from '../../list/src/props'
   import { useList } from '../../_hooks'
   import type { ListProps } from '../../list/src/props'
+
+  defineOptions({name: 'FListItem'})
 
   const prop = defineProps(Props)
 

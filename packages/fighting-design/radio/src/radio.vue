@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FRadio">
+<script lang="ts" setup>
   import { Props } from './props'
   import { isString, isBoolean, isNumber } from '../../_utils'
   import { useRun, useList, useModel } from '../../_hooks'
@@ -6,6 +6,8 @@
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
   import { EMIT_UPDATE } from '../../_tokens'
   import type { RadioGroundInject, RadioModelValue } from '../../radio-group'
+  
+  defineOptions({name: 'FRadio'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

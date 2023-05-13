@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FCloseBtn">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconCross } from '../../_svg'
   import { useRun, useList } from '../../_hooks'
+
+  defineOptions({name: 'FCloseBtn'})
 
   const prop = defineProps(Props)
 

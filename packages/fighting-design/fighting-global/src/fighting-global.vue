@@ -1,10 +1,12 @@
-<script lang="ts" setup name="FFightingGlobal">
+<script lang="ts" setup>
   import { Props, FIGHTING_GLOBAL_PROPS_KEY } from './props'
   import { provide, reactive, computed } from 'vue'
   import { useProps } from '../../_hooks'
   import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
   import type { FightingType, FightingLang, FightingSize } from '../../_interface'
   import type { FightingGlobalProps } from './interface'
+
+  defineOptions({name: 'FFightingGlobal'})
 
   const prop = defineProps(Props)
 

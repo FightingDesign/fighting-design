@@ -1,8 +1,10 @@
-<script setup lang="ts" name="FLoading">
+<script setup lang="ts">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconLoadingA } from '../../_svg'
   import { useList } from '../../_hooks'
+
+  defineOptions({name: 'FLoading'})
 
   const prop = defineProps(Props)
 

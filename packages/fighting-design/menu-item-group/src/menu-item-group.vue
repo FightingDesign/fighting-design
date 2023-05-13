@@ -1,5 +1,7 @@
-<script lang="ts" setup name="FMenuItemGroup">
+<script lang="ts" setup>
   import { Props } from './props'
+
+  defineOptions({name: 'FMenuItemGroup'})
 
   defineProps(Props)
 </script>

@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FFormItem">
+<script lang="ts" setup>
   import { Props } from './props'
   import { inject, computed } from 'vue'
   import { isString, sizeChange } from '../../_utils'
@@ -6,6 +6,8 @@
   import type { CSSProperties } from 'vue'
   import type { FormInject } from '../../form'
   import type { ClassList } from '../../_interface'
+
+  defineOptions({name: 'FFormItem'})
 
   const prop = defineProps(Props)
 

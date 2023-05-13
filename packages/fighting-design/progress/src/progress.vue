@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FProgress">
+<script lang="ts" setup>
   import { Props, PROGRESS_PROPS_KEY } from './props'
   import { provide, computed, reactive, toRefs } from 'vue'
   import { ProgressCircle, ProgressLine } from '../components'
   import { isNumber, error } from '../../_utils'
   import type { ProgressProvide } from './interface'
+
+  defineOptions({name: 'FProgress'})
 
   const prop = defineProps(Props)
 

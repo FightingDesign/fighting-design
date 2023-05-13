@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FTag">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { useList, useRun, useGlobal } from '../../_hooks'
+
+  defineOptions({name: 'FTag'})
 
   const prop = defineProps(Props)
 

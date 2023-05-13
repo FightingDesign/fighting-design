@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FMenuItem">
+<script lang="ts" setup>
   import { Props } from './props'
   import { MENU_PROVIDE_KEY } from '../../menu/src/props'
   import { FSvgIcon } from '../../svg-icon'
@@ -7,6 +7,8 @@
   import { getCurrentInstance, computed, inject } from 'vue'
   import type { ComponentInternalInstance } from 'vue'
   import type { MenuProvide } from '../../menu'
+
+  defineOptions({name: 'FMenuItem'})
 
   const prop = defineProps(Props)
 

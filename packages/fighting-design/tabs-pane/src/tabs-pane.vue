@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FTabsPane">
+<script lang="ts" setup>
   import { Props } from './props'
   import { TABS_PROPS_KEY } from '../../tabs/src/props'
   import {
@@ -15,6 +15,8 @@
   import type { TabsProvide } from '../../_hooks'
   import type { TabsPane } from './interface'
   import type { TabsModelValue } from '../../tabs'
+
+  defineOptions({name: 'FTabsPane'})
 
   const prop = defineProps(Props)
   const slots: Slots = useSlots()

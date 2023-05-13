@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FSwap">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { useRun, useList } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
+
+  defineOptions({name: 'FSwap'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

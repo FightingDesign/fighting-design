@@ -1,6 +1,8 @@
-<script lang="ts" setup name="FFooter">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useList } from '../../_hooks'
+
+  defineOptions({name: 'FFooter'})
 
   const prop = defineProps(Props)
 

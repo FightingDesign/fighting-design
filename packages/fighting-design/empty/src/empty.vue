@@ -1,10 +1,12 @@
-<script lang="ts" setup name="FEmpty">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FIconFullSharp } from '../../_svg'
   import { computed } from 'vue'
   import { useList, useGlobal } from '../../_hooks'
   import { FSvgIcon } from '../../svg-icon'
   import { FImage } from '../../image'
+
+  defineOptions({name: 'FEmpty'})
 
   const prop = defineProps(Props)
 

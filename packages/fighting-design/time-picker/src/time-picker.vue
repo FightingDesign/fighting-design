@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FTimePicker">
+<script lang="ts" setup>
   import { Props } from './props'
   import { reactive, computed, ref, nextTick, watch } from 'vue'
   import { FInput } from '../../input'
@@ -9,6 +9,8 @@
   import { EMIT_TIME } from '../../_tokens'
   import type { TriggerInstance } from '../../trigger'
   import type { TimePickerTimeList } from './interface'
+
+  defineOptions({name: 'FTimePicker'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({
@@ -68,7 +70,7 @@
      * 如果非布尔值类型，咋代表点击的是当前时间，则不需要关闭
      */
     if (isBoolean(target)) {
-      (triggerInstance.value as TriggerInstance).handelClose(evt)
+      (triggerInstance.value as TriggerInstance).close(evt)
     }
   }
 

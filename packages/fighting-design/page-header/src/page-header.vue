@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FPageHeader">
+<script lang="ts" setup>
   import { Props } from './props'
   import { computed } from 'vue'
   import { useRun, useGlobal } from '../../_hooks'
   import { FIconArrowLeft } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
+
+  defineOptions({name: 'FPageHeader'})
 
   const prop = defineProps(Props)
 

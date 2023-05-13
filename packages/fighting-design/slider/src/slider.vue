@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FSlider">
+<script lang="ts" setup>
   import { Props } from './props'
   import { onMounted, ref } from 'vue'
   import { isNumber } from '../../_utils'
   import { useList, useSlider, useOffset } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
+
+  defineOptions({name: 'FSlider'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

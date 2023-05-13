@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FDrawer">
+<script lang="ts" setup>
   import { Props } from './props'
   import { toRef } from 'vue'
   import { isBoolean } from '../../_utils'
@@ -6,6 +6,8 @@
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
   import { EMIT_VISIBLE } from '../../_tokens'
+
+  defineOptions({name: 'FDrawer'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({
