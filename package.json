@@ -43,7 +43,6 @@
     "@fighting-design/eslint-config": "workspace:*",
     "@fighting-design/fighting-icon": "workspace:*",
     "@fighting-design/fighting-theme": "workspace:*",
-    "@fighting-design/vite-plugin-vue-fighting-setup-name": "workspace:*",
     "@types/node": "^17.0.42",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/test-utils": "^2.0.0-rc.18",

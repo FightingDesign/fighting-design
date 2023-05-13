@@ -1,6 +1,5 @@
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
-// import FightingSetupNamePlugin from './packages/fighting-setup-name'
 import { resolve } from 'path'
 import { copyFileSync } from 'fs'
 import { name, version } from './packages/fighting-design/package.json'
@@ -48,8 +47,6 @@ export default (): UserConfigExport => {
           move()
         }
       }),
-      /** 可设置组件名称 */
-      // FightingSetupNamePlugin(),
       /**
        * 可视化捆绑包
        *
