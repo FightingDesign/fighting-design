@@ -48,7 +48,7 @@
     /** 执行父组件的设置方法 */
     parentInject && run(parentInject.setValue, newLabel, newValue, evt)
     /** 点击之后关闭 */
-    triggerInject && run(triggerInject.handelClose)
+    triggerInject && run(triggerInject.close)
   }
 </script>
 
