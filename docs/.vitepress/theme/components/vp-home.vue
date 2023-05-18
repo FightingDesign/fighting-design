@@ -1,10 +1,12 @@
-<script lang="ts" setup name="VpHome">
+<script lang="ts" setup>
   import { watch, ref } from 'vue'
   import { contributors } from '../../json/contributors.json'
   import { useRoute } from 'vitepress'
   import home from '../../json/home.json'
   import footer from '../../json/footer.json'
   import type { Route } from 'vitepress'
+
+  defineOptions({ name: 'VpHome' })
 
   /** 首页内容 */
   const homeContent = ref()

@@ -1,6 +1,8 @@
-<script setup lang="ts" name="VpSearch">
+<script setup lang="ts">
   import { ref } from 'vue'
   import { searchList } from '../../json/search.json'
+
+  defineOptions({ name: 'VpSearch' })
 
   /** 输入框输入的内容 */
   const value = ref('')
