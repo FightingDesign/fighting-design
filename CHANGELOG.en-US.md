@@ -4,6 +4,14 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.39.0 (2023-05-18)
+
+- Fix `f-option` closing error issue
+- Fix the issue of `f-time-pick` closing error reporting
+- Fix `f-main` component name error issue
+- Fix the issue of `f-ripple` component name errors
+- Fix `f-option` click error issue
+
 ## 0.38.0 (2023-05-11)
 
 **Fix**

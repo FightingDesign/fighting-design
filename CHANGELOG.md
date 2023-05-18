@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.39.0 (2023-05-18)
+
 - 修复 `f-option` 关闭报错问题
 - 修复 `f-time-pick` 关闭报错问题
 - 修复 `f-main` 组件名错误问题
