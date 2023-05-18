@@ -1,7 +1,9 @@
-<script lang="ts" setup name="FBreadcrumb">
+<script lang="ts" setup>
   import { Props, BREADCRUMB_PROPS_KEY } from './props'
   import { provide } from 'vue'
   import type { BreadcrumbProps } from './interface'
+
+  defineOptions({name: 'FBreadcrumb'})
 
   const prop = defineProps(Props)
 

@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FMenu">
+<script lang="ts" setup>
   import { Props, MENU_PROVIDE_KEY } from './props'
   import { provide, toRef, computed, ref } from 'vue'
   import { useList } from '../../_hooks'
   import type { MenuProvide } from './interface'
+
+  defineOptions({name: 'FMenu'})
 
   const prop = defineProps(Props)
 

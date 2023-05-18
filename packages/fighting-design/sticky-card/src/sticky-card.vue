@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FStickyCard">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref, computed, unref } from 'vue'
   import { useRun, useGlobal, useList } from '../../_hooks'
   import { FCollapseAnimation } from '../../collapse-animation'
+
+  defineOptions({name: 'FStickyCard'})
 
   const prop = defineProps(Props)
 

@@ -1,6 +1,8 @@
-<script lang="ts" setup name="FSvgIcon">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useList, useRun } from '../../_hooks'
+
+  defineOptions({name: 'FSvgIcon'})
 
   const prop = defineProps(Props)
 

@@ -1,10 +1,12 @@
-<script lang="ts" setup name="FButtonGroup">
+<script lang="ts" setup>
   import { Props, BUTTON_GROUP_PROPS_KEY } from './props'
   import { FIGHTING_GLOBAL_PROPS_KEY } from '../../fighting-global/src/props'
   import { provide, computed, inject } from 'vue'
   import { useList } from '../../_hooks'
   import type { FightingSize } from '../../_interface'
   import type { FightingGlobalProps } from '../../fighting-global'
+
+  defineOptions({name: 'FButtonGroup'})
 
   const prop = defineProps(Props)
 

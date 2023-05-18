@@ -1,10 +1,12 @@
-<script lang="ts" setup name="FAlert">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref, onMounted } from 'vue'
   import { FCloseBtn } from '../../close-btn'
   import { FSvgIcon } from '../../svg-icon'
   import { isNumber } from '../../_utils'
   import { useList, useRun, useGlobal, useAlertList } from '../../_hooks'
+
+  defineOptions({name: 'FAlert'})
 
   const prop = defineProps(Props)
 

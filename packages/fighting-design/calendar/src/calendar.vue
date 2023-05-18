@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FCalendar">
+<script lang="ts" setup>
   import { Props } from './props'
   import { computed, watch, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
@@ -6,6 +6,8 @@
   import { addZero, isDate } from '../../_utils'
   import { useCalendar, useRun, useGlobal, useList } from '../../_hooks'
   import type { GetLunarDetailReturn } from '../../_hooks'
+
+  defineOptions({name: 'FCalendar'})
 
   const prop = defineProps(Props)
 

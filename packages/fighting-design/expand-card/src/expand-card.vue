@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FExpandCard">
+<script lang="ts" setup>
   import { Props } from './props'
   import { computed, ref } from 'vue'
   import { isString, isArray, warning, isObject } from '../../_utils'
   import { useList, useRun } from '../../_hooks'
   import type { ExpandCardImageListItem } from './interface'
+
+  defineOptions({name: 'FExpandCard'})
 
   const prop = defineProps(Props)
 

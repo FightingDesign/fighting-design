@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FToolbarItem">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { useRun, useList } from '../../_hooks'
   import { TOOLBAR_INDEX, TOOLBAR_ITEM_CLASS_NAME } from '../../_tokens'
+
+  defineOptions({name: 'FToolbarItem'})
 
   const prop = defineProps(Props)
 

@@ -1,6 +1,8 @@
-<script lang="ts" setup name="FTooltip">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useList } from '../../_hooks'
+
+  defineOptions({name: 'FTooltip'})
 
   const prop = defineProps(Props)
 

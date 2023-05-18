@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FBadge">
+<script lang="ts" setup>
   import { Props } from './props'
   import { computed } from 'vue'
   import { isNumber } from '../../_utils'
   import { useList } from '../../_hooks'
+
+  defineOptions({name: 'FBadge'})
 
   const prop = defineProps(Props)
 

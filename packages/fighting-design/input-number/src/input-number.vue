@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FInputNumber">
+<script lang="ts" setup>
   import { Props } from './props'
   import { computed } from 'vue'
   import {
@@ -12,6 +12,8 @@
   import { isNumber } from '../../_utils'
   import { useRun, useModel } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
+
+  defineOptions({name: 'FInputNumber'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

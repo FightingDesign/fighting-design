@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FDropdownItem">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useRun } from '../../_hooks'
   import { inject } from 'vue'
   import { TRIGGER_CLOSE_KEY } from '../../trigger/src/props'
   import type { TriggerProvide } from '../../trigger'
+
+  defineOptions({name: 'FDropdownItem'})
 
   const prop = defineProps(Props)
 

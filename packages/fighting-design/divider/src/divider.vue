@@ -1,6 +1,8 @@
-<script lang="ts" setup name="FDivider">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useList } from '../../_hooks'
+
+  defineOptions({name: 'FDivider'})
 
   const prop = defineProps(Props)
 

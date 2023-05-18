@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FToolbar">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useSlots } from 'vue'
   import { useList, useRun } from '../../_hooks'
   import { TOOLBAR_INDEX, TOOLBAR_ITEM_CLASS_NAME } from '../../_tokens'
+
+  defineOptions({name: 'FToolbar'})
 
   const prop = defineProps(Props)
   const slot = useSlots()

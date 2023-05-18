@@ -1,6 +1,8 @@
-<script lang="ts" setup name="FAside">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useList } from '../../_hooks'
+
+  defineOptions({name: 'FAside'})
 
   const prop = defineProps(Props)
 

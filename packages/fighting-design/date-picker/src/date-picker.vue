@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FDatePicker">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FInput } from '../../input'
   import { FTrigger } from '../../trigger'
@@ -8,6 +8,8 @@
   import { isString, addZero, warning } from '../../_utils'
   import { FIconCalendar } from '../../_svg'
   import type { CalendarChangeParams } from '../../calendar'
+
+  defineOptions({name: 'FDatePicker'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

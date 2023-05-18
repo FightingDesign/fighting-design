@@ -1,6 +1,8 @@
-<script lang="ts" setup name="FTableColgroup">
+<script lang="ts" setup>
   import { Props } from './props'
   import { sizeChange } from '../../../_utils'
+
+  defineOptions({name: 'FTableColgroup'})
 
   defineProps(Props)
 </script>

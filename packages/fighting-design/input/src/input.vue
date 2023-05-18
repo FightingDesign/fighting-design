@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FInput">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FButton } from '../../button'
@@ -9,6 +9,8 @@
   import { useInput, useRun, useList, useGlobal, useModel } from '../../_hooks'
   import type { InputType } from './interface'
   import type { UseGlobalProp } from '../../_hooks'
+
+  defineOptions({name: 'FInput'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

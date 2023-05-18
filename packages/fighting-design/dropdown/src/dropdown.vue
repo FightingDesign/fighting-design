@@ -1,6 +1,8 @@
-<script lang="ts" setup name="FDropdown">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FTrigger } from '../../trigger'
+
+  defineOptions({name: 'FDropdown'})
 
   defineProps(Props)
 </script>

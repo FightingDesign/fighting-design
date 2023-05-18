@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FPagination">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref } from 'vue'
   import { isNumber } from '../../_utils'
@@ -16,6 +16,8 @@
   } from '../../_tokens'
   import { FOption } from '../../option'
   import { FSvgIcon } from '../../svg-icon'
+
+  defineOptions({name: 'FPagination'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

@@ -1,7 +1,9 @@
-<script lang="ts" setup name="FLink">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { useList, useRun, useGlobal } from '../../_hooks'
+
+  defineOptions({name: 'FLink'})
 
   const prop = defineProps(Props)
 

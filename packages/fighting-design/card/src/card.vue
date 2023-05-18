@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FCard">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref } from 'vue'
   import { useList, useRun } from '../../_hooks'
   import { FCloseBtn } from '../../close-btn'
+
+  defineOptions({name: 'FCard'})
 
   const prop = defineProps(Props)
 

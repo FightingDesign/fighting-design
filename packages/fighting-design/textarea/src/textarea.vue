@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FTextarea">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useInput, useList, useModel } from '../../_hooks'
   import { FIconCross } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
   import { EMIT_UPDATE } from '../../_tokens'
+
+  defineOptions({name: 'FTextarea'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

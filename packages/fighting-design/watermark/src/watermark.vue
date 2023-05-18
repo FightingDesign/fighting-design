@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FWatermark">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref, onMounted, computed } from 'vue'
   import { useCanvas } from '../../_hooks'
   import type { CSSProperties, Ref } from 'vue'
+
+  defineOptions({name: 'FWatermark'})
 
   const prop = defineProps(Props)
 

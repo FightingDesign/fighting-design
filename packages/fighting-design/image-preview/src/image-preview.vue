@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FImagePreview">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref } from 'vue'
   import { FButton } from '../../button'
@@ -17,6 +17,8 @@
   } from '../../_svg'
   import { useOperationImg, useRun } from '../../_hooks'
   import { EMIT_VISIBLE } from '../../_tokens'
+
+  defineOptions({name: 'FImagePreview'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

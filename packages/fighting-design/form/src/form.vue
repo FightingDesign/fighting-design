@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FForm">
+<script lang="ts" setup>
   import { Props, FORM_PROVIDE_KEY } from './props'
   import { provide, reactive, toRefs } from 'vue'
   import { useRun, useFormCheck } from '../../_hooks'
   import type { FormInject } from './interface'
+
+  defineOptions({name: 'FForm'})
 
   const prop = defineProps(Props)
 

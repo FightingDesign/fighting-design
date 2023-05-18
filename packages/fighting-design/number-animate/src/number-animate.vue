@@ -1,8 +1,10 @@
-<script lang="ts" setup name="FNumberAnimate">
+<script lang="ts" setup>
   import { Props } from './props'
   import { onMounted, ref, computed } from 'vue'
   import { useRun } from '../../_hooks'
   import { isNumber, warning } from '../../_utils'
+
+  defineOptions({name: 'FNumberAnimate'})
 
   const prop = defineProps(Props)
 

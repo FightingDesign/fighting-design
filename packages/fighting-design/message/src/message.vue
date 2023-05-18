@@ -1,10 +1,12 @@
-<script lang="ts" setup name="FMessage">
+<script lang="ts" setup>
   import { Props } from './props'
   import { isString } from '../../_utils'
   import { useMessageWork } from '../../_hooks'
   import { FSvgIcon } from '../../svg-icon'
   import { isVNode } from 'vue'
   import { FCloseBtn } from '../../close-btn'
+
+  defineOptions({name: 'FMessage'})
 
   const prop = defineProps(Props)
 

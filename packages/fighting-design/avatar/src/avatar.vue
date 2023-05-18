@@ -1,10 +1,12 @@
-<script lang="ts" setup name="FAvatar">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref, useSlots } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { useLoadImg, useList } from '../../_hooks'
   import { isNumber, isString } from '../../_utils'
   import type { Slots } from 'vue'
+
+  defineOptions({name: 'FAvatar'})
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()

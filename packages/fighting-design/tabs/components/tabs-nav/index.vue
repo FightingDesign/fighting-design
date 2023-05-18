@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FTabsNav">
+<script lang="ts" setup>
   import { Props } from './props'
   import { computed, watch } from 'vue'
   import { FIconPlus } from '../../../_svg'
@@ -12,6 +12,8 @@
     TabsJustifyContent,
     TabsType
   } from '../../index'
+
+  defineOptions({name: 'FTabsNav'})
 
   const prop = defineProps(Props)
 

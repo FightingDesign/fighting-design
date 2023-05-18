@@ -1,13 +1,8 @@
 import { resolve } from 'path'
-import FightingSetupNamePlugin from '../packages/fighting-setup-name'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
   return {
-    plugins: [
-      /** 设置组件名插件 */
-      FightingSetupNamePlugin()
-    ],
     optimizeDeps: {
       exclude: ['vitepress']
     },

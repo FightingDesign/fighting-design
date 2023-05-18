@@ -1,5 +1,7 @@
-<script lang="ts" setup name="F<%= displayName %>">
+<script lang="ts" setup>
   import { Props } from './props'
+
+  defineOptions({name: 'F<%= displayName %>'})
 
   const prop = defineProps(Props)
 </script>

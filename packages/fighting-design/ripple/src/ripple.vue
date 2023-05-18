@@ -1,8 +1,10 @@
-<script lang="ts" setup name="Ripple">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useRipples, useList, useGlobal } from '../../_hooks'
   import { ref, toRefs, reactive } from 'vue'
   import type { RipplesOptions } from '../../_hooks'
+
+  defineOptions({name: 'FRipple'})
 
   const prop = defineProps(Props)
 

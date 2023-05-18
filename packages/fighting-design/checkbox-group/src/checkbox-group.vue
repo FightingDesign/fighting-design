@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FCheckboxGroup">
+<script lang="ts" setup>
   import { Props, CHECKBOX_GROUP_PROPS_KEY } from './props'
   import { provide, reactive, toRefs } from 'vue'
   import { isArray } from '../../_utils'
@@ -6,6 +6,8 @@
   import { EMIT_UPDATE } from '../../_tokens'
   import type { CheckboxGroupProvide } from './interface'
   import type { CheckboxLabel } from '../../checkbox'
+
+  defineOptions({name: 'FCheckboxGroup'})
 
   const prop = defineProps(Props)
   const emit = defineEmits({

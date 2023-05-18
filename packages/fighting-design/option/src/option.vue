@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FOption">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useRun } from '../../_hooks'
   import { TRIGGER_CLOSE_KEY } from '../../trigger/src/props'
@@ -7,6 +7,8 @@
   import type { SelectProvide, SelectModelValue } from '../../select'
   import type { TriggerProvide } from '../../trigger'
   import type { Slots } from 'vue'
+
+  defineOptions({name: 'FOption'})
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()

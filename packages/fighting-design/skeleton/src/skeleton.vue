@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FSkeleton">
+<script lang="ts" setup>
   import { Props } from './props'
   import { computed, useSlots } from 'vue'
   import { useList } from '../../_hooks'
   import { isNumber } from '../../_utils'
   import type { Slots } from 'vue'
+
+  defineOptions({name: 'FSkeleton'})
 
   const prop = defineProps(Props)
 

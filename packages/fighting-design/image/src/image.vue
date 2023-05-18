@@ -1,7 +1,9 @@
-<script lang="ts" setup name="FImage">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref } from 'vue'
   import { useLoadImg, useList } from '../../_hooks'
+
+  defineOptions({name: 'FImage'})
 
   const prop = defineProps(Props)
 

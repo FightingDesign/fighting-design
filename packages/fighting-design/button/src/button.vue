@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FButton">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref, toRefs, reactive, computed } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
@@ -6,6 +6,8 @@
   import { useRipples, useRun, useGlobal, useButton } from '../../_hooks'
   import type { RipplesOptions } from '../../_hooks'
   import type { FightingIcon } from '../../_interface'
+
+  defineOptions({name: 'FButton'})
 
   const prop = defineProps(Props)
 

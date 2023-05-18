@@ -1,6 +1,5 @@
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
-import FightingSetupNamePlugin from '../packages/fighting-setup-name'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
@@ -9,7 +8,7 @@ export default (): UserConfigExport => {
       __DEV__: process.env.NODE_ENV !== 'production'
     },
     base: './',
-    plugins: [vue(), FightingSetupNamePlugin()],
+    plugins: [vue()],
     server: {
       port: 1216
     },

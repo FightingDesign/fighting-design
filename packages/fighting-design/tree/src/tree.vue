@@ -1,9 +1,11 @@
-<script lang="ts" setup name="FTree">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronRight } from '../../_svg'
   import { useTreeData } from '../../_hooks'
   import type { FormatTreeData } from '../../_hooks'
+
+  defineOptions({name: 'FTree'})
 
   const prop = defineProps(Props)
 

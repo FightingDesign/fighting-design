@@ -1,4 +1,4 @@
-<script lang="ts" setup name="FNotification">
+<script lang="ts" setup>
   import { Props } from './props'
   import { isString } from '../../_utils'
   import { useMessageWork } from '../../_hooks'
@@ -14,6 +14,8 @@
     FIconBell
   } from '../../_svg'
   import type { FightingIcon } from '../../_interface'
+
+  defineOptions({name: 'FNotification'})
 
   const prop = defineProps(Props)
 

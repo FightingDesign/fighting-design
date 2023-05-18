@@ -1,6 +1,8 @@
-<script lang="ts" setup name="FSpace">
+<script lang="ts" setup>
   import { Props } from './props'
   import { useList } from '../../_hooks'
+
+  defineOptions({name: 'FSpace'})
 
   const prop = defineProps(Props)
 
