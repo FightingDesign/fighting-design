@@ -5,7 +5,7 @@
   import { useList, useRun } from '../../_hooks'
   import type { ExpandCardImageListItem } from './interface'
 
-  defineOptions({name: 'FExpandCard'})
+  defineOptions({ name: 'FExpandCard' })
 
   const prop = defineProps(Props)
 

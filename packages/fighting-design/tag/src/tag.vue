@@ -5,7 +5,7 @@
   import { FCloseBtn } from '../../close-btn'
   import { useList, useRun, useGlobal } from '../../_hooks'
 
-  defineOptions({name: 'FTag'})
+  defineOptions({ name: 'FTag' })
 
   const prop = defineProps(Props)
 

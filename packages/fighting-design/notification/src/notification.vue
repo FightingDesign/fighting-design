@@ -15,7 +15,7 @@
   } from '../../_svg'
   import type { FightingIcon } from '../../_interface'
 
-  defineOptions({name: 'FNotification'})
+  defineOptions({ name: 'FNotification' })
 
   const prop = defineProps(Props)
 

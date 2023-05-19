@@ -3,7 +3,7 @@
   import { provide } from 'vue'
   import { useList } from '../../_hooks'
 
-  defineOptions({name: 'FList'})
+  defineOptions({ name: 'FList' })
 
   const prop = defineProps(Props)
 

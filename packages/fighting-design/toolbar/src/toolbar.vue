@@ -4,7 +4,7 @@
   import { useList, useRun } from '../../_hooks'
   import { TOOLBAR_INDEX, TOOLBAR_ITEM_CLASS_NAME } from '../../_tokens'
 
-  defineOptions({name: 'FToolbar'})
+  defineOptions({ name: 'FToolbar' })
 
   const prop = defineProps(Props)
   const slot = useSlots()

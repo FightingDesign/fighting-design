@@ -5,7 +5,7 @@
   import { isNumber, error } from '../../_utils'
   import type { ProgressProvide } from './interface'
 
-  defineOptions({name: 'FProgress'})
+  defineOptions({ name: 'FProgress' })
 
   const prop = defineProps(Props)
 

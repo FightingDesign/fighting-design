@@ -9,7 +9,7 @@
   import type { ComponentInternalInstance } from 'vue'
   import type { BreadcrumbProps } from '../../breadcrumb'
 
-  defineOptions({name: 'FBreadcrumbItem'})
+  defineOptions({ name: 'FBreadcrumbItem' })
 
   const prop = defineProps(Props)
 

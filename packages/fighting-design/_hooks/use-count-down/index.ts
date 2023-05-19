@@ -97,7 +97,7 @@ const parseTime = (time: number): CurrentTime => {
  * @param { number } time2 时间（单位毫秒）
  * @returns
  */
-const isSameTime = (time1: number, time2: number, interval:number = SECOND): boolean => {
+const isSameTime = (time1: number, time2: number, interval: number = SECOND): boolean => {
   return Math.floor(time1 / interval) === Math.floor(time2 / interval)
 }
 
@@ -187,7 +187,10 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
         const remainRemain = getCurrentRemain()
 
         /**  同一个间隔才渲染 */
-        if (!isSameTime(remainRemain, remain.value, options.interval) || remainRemain === 0) {
+        if (
+          !isSameTime(remainRemain, remain.value, options.interval) ||
+          remainRemain === 0
+        ) {
           setRemain(remainRemain)
         }
 

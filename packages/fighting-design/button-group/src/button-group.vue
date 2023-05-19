@@ -6,7 +6,7 @@
   import type { FightingSize } from '../../_interface'
   import type { FightingGlobalProps } from '../../fighting-global'
 
-  defineOptions({name: 'FButtonGroup'})
+  defineOptions({ name: 'FButtonGroup' })
 
   const prop = defineProps(Props)
 

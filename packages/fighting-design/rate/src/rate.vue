@@ -8,12 +8,10 @@
   import { isNumber } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
 
-  defineOptions({name: 'FRate'})
+  defineOptions({ name: 'FRate' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (val: number): number => val
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { run } = useRun()
 

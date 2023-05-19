@@ -3,7 +3,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { useList, useRun, useGlobal } from '../../_hooks'
 
-  defineOptions({name: 'FLink'})
+  defineOptions({ name: 'FLink' })
 
   const prop = defineProps(Props)
 

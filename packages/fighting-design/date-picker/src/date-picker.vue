@@ -5,16 +5,14 @@
   import { FCalendar } from '../../calendar'
   import { EMIT_DATE } from '../../_tokens'
   import { useModel } from '../../_hooks'
-  import { isString, addZero, warning } from '../../_utils'
+  import { addZero, warning } from '../../_utils'
   import { FIconCalendar } from '../../_svg'
   import type { CalendarChangeParams } from '../../calendar'
 
-  defineOptions({name: 'FDatePicker'})
+  defineOptions({ name: 'FDatePicker' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_DATE]: (val: string): boolean => isString(val)
-  })
+  const emit = defineEmits([EMIT_DATE])
 
   /** 传递给日历组件的当前时间 */
   const date = new Date()

@@ -4,7 +4,7 @@
   import { isNumber } from '../../_utils'
   import { useList } from '../../_hooks'
 
-  defineOptions({name: 'FBadge'})
+  defineOptions({ name: 'FBadge' })
 
   const prop = defineProps(Props)
 

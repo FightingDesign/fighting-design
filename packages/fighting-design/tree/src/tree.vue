@@ -5,7 +5,7 @@
   import { useTreeData } from '../../_hooks'
   import type { FormatTreeData } from '../../_hooks'
 
-  defineOptions({name: 'FTree'})
+  defineOptions({ name: 'FTree' })
 
   const prop = defineProps(Props)
 

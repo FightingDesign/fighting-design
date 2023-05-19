@@ -16,7 +16,7 @@
   import type { TabsPane } from './interface'
   import type { TabsModelValue } from '../../tabs'
 
-  defineOptions({name: 'FTabsPane'})
+  defineOptions({ name: 'FTabsPane' })
 
   const prop = defineProps(Props)
   const slots: Slots = useSlots()

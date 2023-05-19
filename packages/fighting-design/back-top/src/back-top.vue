@@ -4,7 +4,7 @@
   import { debounce, isNumber, isString, error } from '../../_utils'
   import { useList } from '../../_hooks'
 
-  defineOptions({name: 'FBackTop'})
+  defineOptions({ name: 'FBackTop' })
 
   const prop = defineProps(Props)
 

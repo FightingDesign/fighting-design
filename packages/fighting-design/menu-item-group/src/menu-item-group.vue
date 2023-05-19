@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { Props } from './props'
 
-  defineOptions({name: 'FMenuItemGroup'})
+  defineOptions({ name: 'FMenuItemGroup' })
 
   defineProps(Props)
 </script>

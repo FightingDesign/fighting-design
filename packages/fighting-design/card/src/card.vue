@@ -4,7 +4,7 @@
   import { useList, useRun } from '../../_hooks'
   import { FCloseBtn } from '../../close-btn'
 
-  defineOptions({name: 'FCard'})
+  defineOptions({ name: 'FCard' })
 
   const prop = defineProps(Props)
 

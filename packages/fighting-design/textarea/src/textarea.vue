@@ -5,12 +5,10 @@
   import { FSvgIcon } from '../../svg-icon'
   import { EMIT_UPDATE } from '../../_tokens'
 
-  defineOptions({name: 'FTextarea'})
+  defineOptions({ name: 'FTextarea' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (val: string | number): boolean => !!val
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { keyword } = useModel<string>(
     (): string => prop.modelValue,

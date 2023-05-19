@@ -4,7 +4,7 @@
   import { useRun, useGlobal, useList } from '../../_hooks'
   import { FCollapseAnimation } from '../../collapse-animation'
 
-  defineOptions({name: 'FStickyCard'})
+  defineOptions({ name: 'FStickyCard' })
 
   const prop = defineProps(Props)
 

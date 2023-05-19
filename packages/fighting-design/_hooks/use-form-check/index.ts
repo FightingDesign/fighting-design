@@ -6,9 +6,9 @@ import type { FormItemRules, FormItemRulesItem } from '../../form-item'
 
 /**
  * useFormCheck 返回值类型接口
- * 
+ *
  * @param { Object } childrenCheckResult 子节点校验结果
- * @param { Function } validate 校验方法 
+ * @param { Function } validate 校验方法
  */
 export interface UseFormCheckReturn {
   childrenCheckResult: Record<string, boolean | string>
@@ -17,9 +17,9 @@ export interface UseFormCheckReturn {
 
 /**
  * form 表单校验方法
- * 
+ *
  * @param { Object } prop prop 参数
- * @returns 
+ * @returns
  */
 export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
   /** 子节点校验结果 */
@@ -98,10 +98,10 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
   }
 
   /**
- * 校验方法
- *
- * 获取到每个自组件，检测输入的内容是否符合规则
- */
+   * 校验方法
+   *
+   * 获取到每个自组件，检测输入的内容是否符合规则
+   */
   const validate = (): boolean => {
     getChildrenList.value.forEach((item: VNode): void => {
       /** 判断的每个自组件必须有 rules 和 name 参数 */

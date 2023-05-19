@@ -5,7 +5,7 @@
   import { TRIGGER_CONTENT_BOX_CLASS, TRIGGER_CLASS } from '../../_tokens'
   import type { TriggerProvide } from './interface'
 
-  defineOptions({name: 'FTrigger'})
+  defineOptions({ name: 'FTrigger' })
 
   const prop = defineProps(Props)
 

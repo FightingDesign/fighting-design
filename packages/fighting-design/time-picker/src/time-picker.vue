@@ -10,12 +10,10 @@
   import type { TriggerInstance } from '../../trigger'
   import type { TimePickerTimeList } from './interface'
 
-  defineOptions({name: 'FTimePicker'})
+  defineOptions({ name: 'FTimePicker' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_TIME]: (val: string): boolean => isString(val)
-  })
+  const emit = defineEmits([EMIT_TIME])
 
   const { keyword } = useModel(
     (): string => prop.time,
@@ -70,7 +68,7 @@
      * 如果非布尔值类型，咋代表点击的是当前时间，则不需要关闭
      */
     if (isBoolean(target)) {
-      (triggerInstance.value as TriggerInstance).close(evt)
+      ;(triggerInstance.value as TriggerInstance).close(evt)
     }
   }
 

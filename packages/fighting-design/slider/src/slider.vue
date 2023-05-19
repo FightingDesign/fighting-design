@@ -1,16 +1,13 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { onMounted, ref } from 'vue'
-  import { isNumber } from '../../_utils'
   import { useList, useSlider, useOffset } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
 
-  defineOptions({name: 'FSlider'})
+  defineOptions({ name: 'FSlider' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (val: number): boolean => isNumber(val)
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { styles, classes } = useList(prop, 'slider')
 

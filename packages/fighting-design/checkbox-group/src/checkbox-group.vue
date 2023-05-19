@@ -1,18 +1,15 @@
 <script lang="ts" setup>
   import { Props, CHECKBOX_GROUP_PROPS_KEY } from './props'
   import { provide, reactive, toRefs } from 'vue'
-  import { isArray } from '../../_utils'
   import { useRun, useList } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
   import type { CheckboxGroupProvide } from './interface'
   import type { CheckboxLabel } from '../../checkbox'
 
-  defineOptions({name: 'FCheckboxGroup'})
+  defineOptions({ name: 'FCheckboxGroup' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (val: string[] | CheckboxLabel): boolean => isArray(val)
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { run } = useRun()
   const { classes, styles } = useList(prop, 'checkbox-group')

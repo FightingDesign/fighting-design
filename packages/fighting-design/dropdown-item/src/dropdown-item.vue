@@ -5,7 +5,7 @@
   import { TRIGGER_CLOSE_KEY } from '../../trigger/src/props'
   import type { TriggerProvide } from '../../trigger'
 
-  defineOptions({name: 'FDropdownItem'})
+  defineOptions({ name: 'FDropdownItem' })
 
   const prop = defineProps(Props)
 

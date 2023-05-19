@@ -3,16 +3,14 @@
   import { computed } from 'vue'
   import { TabsNav } from '../components'
   import { useTabs } from '../../_hooks'
-  import { warning, isNumber, isString } from '../../_utils'
+  import { warning } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
-  import type { TabsPosition, TabsModelValue } from './interface'
+  import type { TabsPosition } from './interface'
 
-  defineOptions({name: 'FTabs'})
+  defineOptions({ name: 'FTabs' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (val: TabsModelValue): boolean => isNumber(val) || isString(val)
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { navs, activeName, setEdit, setActiveName } = useTabs(prop, emit)
 

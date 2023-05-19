@@ -10,12 +10,10 @@
   import type { InputType } from './interface'
   import type { UseGlobalProp } from '../../_hooks'
 
-  defineOptions({name: 'FInput'})
+  defineOptions({ name: 'FInput' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (val: string | number): boolean => !!val
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { run } = useRun()
   const { getLang, getProp } = useGlobal(prop as unknown as UseGlobalProp)

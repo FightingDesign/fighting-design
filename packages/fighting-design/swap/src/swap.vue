@@ -4,12 +4,10 @@
   import { useRun, useList } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
 
-  defineOptions({name: 'FSwap'})
+  defineOptions({ name: 'FSwap' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (target: boolean): boolean => typeof target === 'boolean'
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { run } = useRun()
   const { classes } = useList(prop, 'swap')

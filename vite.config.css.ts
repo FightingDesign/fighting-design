@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import { readdirSync } from 'fs'
-import postcssPresetEnv from 'postcss-preset-env' //
-import autoprefixer from 'autoprefixer' //
+import postcssPresetEnv from 'postcss-preset-env'
+import autoprefixer from 'autoprefixer'
 import type { UserConfigExport } from 'vite'
 
 const input: string = resolve(__dirname, 'packages/fighting-theme/src')

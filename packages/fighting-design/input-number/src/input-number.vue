@@ -13,12 +13,10 @@
   import { useRun, useModel } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
 
-  defineOptions({name: 'FInputNumber'})
+  defineOptions({ name: 'FInputNumber' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (val: number): boolean => isNumber(val)
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { run } = useRun()
   const { keyword } = useModel<number>(

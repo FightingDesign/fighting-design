@@ -4,7 +4,7 @@
   import { ref, toRefs, reactive } from 'vue'
   import type { RipplesOptions } from '../../_hooks'
 
-  defineOptions({name: 'FRipple'})
+  defineOptions({ name: 'FRipple' })
 
   const prop = defineProps(Props)
 

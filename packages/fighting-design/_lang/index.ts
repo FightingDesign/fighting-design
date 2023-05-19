@@ -13,6 +13,6 @@ export const LANG = {
   'zh-CN': ZH_CN['zh-CN']
 } as const
 
-export type LangKey = (typeof LANG)[keyof typeof LANG]
+export type LangKey = typeof LANG[keyof typeof LANG]
 
 export type LangContentKey = keyof LangKey

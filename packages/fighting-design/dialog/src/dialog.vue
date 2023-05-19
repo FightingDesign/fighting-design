@@ -4,15 +4,12 @@
   import { FPopup } from '../../popup'
   import { toRef } from 'vue'
   import { useVisible, useList } from '../../_hooks'
-  import { isBoolean } from '../../_utils'
   import { EMIT_VISIBLE } from '../../_tokens'
 
-  defineOptions({name: 'FDialog'})
+  defineOptions({ name: 'FDialog' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_VISIBLE]: (visible: boolean): boolean => isBoolean(visible)
-  })
+  const emit = defineEmits([EMIT_VISIBLE])
 
   const { styles, classes } = useList(prop, 'dialog')
   const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit)

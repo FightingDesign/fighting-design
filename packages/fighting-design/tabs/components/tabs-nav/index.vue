@@ -13,7 +13,7 @@
     TabsType
   } from '../../index'
 
-  defineOptions({name: 'FTabsNav'})
+  defineOptions({ name: 'FTabsNav' })
 
   const prop = defineProps(Props)
 

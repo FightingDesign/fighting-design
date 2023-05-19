@@ -4,12 +4,10 @@
   import { useList, useRun, useGlobal } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
 
-  defineOptions({name: 'FSwitch'})
+  defineOptions({ name: 'FSwitch' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (target: boolean): string => String(target)
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { run } = useRun()
   const { getProp } = useGlobal(prop)

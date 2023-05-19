@@ -4,7 +4,7 @@
   import { useRun, useFormCheck } from '../../_hooks'
   import type { FormInject } from './interface'
 
-  defineOptions({name: 'FForm'})
+  defineOptions({ name: 'FForm' })
 
   const prop = defineProps(Props)
 

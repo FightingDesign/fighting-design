@@ -5,7 +5,7 @@
   import { useList } from '../../_hooks'
   import type { ListProps } from '../../list/src/props'
 
-  defineOptions({name: 'FListItem'})
+  defineOptions({ name: 'FListItem' })
 
   const prop = defineProps(Props)
 

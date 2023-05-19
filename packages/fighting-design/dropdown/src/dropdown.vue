@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { FTrigger } from '../../trigger'
 
-  defineOptions({name: 'FDropdown'})
+  defineOptions({ name: 'FDropdown' })
 
   defineProps(Props)
 </script>

@@ -4,7 +4,7 @@
   import { useCanvas } from '../../_hooks'
   import type { CSSProperties, Ref } from 'vue'
 
-  defineOptions({name: 'FWatermark'})
+  defineOptions({ name: 'FWatermark' })
 
   const prop = defineProps(Props)
 

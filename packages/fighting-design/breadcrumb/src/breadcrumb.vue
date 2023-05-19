@@ -3,7 +3,7 @@
   import { provide } from 'vue'
   import type { BreadcrumbProps } from './interface'
 
-  defineOptions({name: 'FBreadcrumb'})
+  defineOptions({ name: 'FBreadcrumb' })
 
   const prop = defineProps(Props)
 

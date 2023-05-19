@@ -7,7 +7,7 @@
   import { useCalendar, useRun, useGlobal, useList } from '../../_hooks'
   import type { GetLunarDetailReturn } from '../../_hooks'
 
-  defineOptions({name: 'FCalendar'})
+  defineOptions({ name: 'FCalendar' })
 
   const prop = defineProps(Props)
 

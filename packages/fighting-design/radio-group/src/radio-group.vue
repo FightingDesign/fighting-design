@@ -1,18 +1,14 @@
 <script lang="ts" setup>
   import { Props, RADIO_GROUP_PROPS_kEY } from './props'
   import { provide, reactive, toRefs } from 'vue'
-  import { isString, isBoolean, isNumber } from '../../_utils'
   import { useRun, useList } from '../../_hooks'
   import { EMIT_UPDATE } from '../../_tokens'
   import type { RadioModelValue, RadioGroundInject } from './interface'
 
-  defineOptions({name: 'FRadioGroup'})
+  defineOptions({ name: 'FRadioGroup' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (val: RadioModelValue): boolean =>
-      isString(val) || isNumber(val) || isBoolean(val)
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { run } = useRun()
   const { styles, classes } = useList(prop, 'radio-group')

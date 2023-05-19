@@ -4,7 +4,7 @@
   import { useRun, useList } from '../../_hooks'
   import { TOOLBAR_INDEX, TOOLBAR_ITEM_CLASS_NAME } from '../../_tokens'
 
-  defineOptions({name: 'FToolbarItem'})
+  defineOptions({ name: 'FToolbarItem' })
 
   const prop = defineProps(Props)
 

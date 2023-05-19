@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-input` 组件 `autocomplete` 配置项默认值改为 off
+
 ## 0.39.0 (2023-05-18)
 
 - 修复 `f-option` 关闭报错问题

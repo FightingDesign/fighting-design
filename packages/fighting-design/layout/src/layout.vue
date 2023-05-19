@@ -3,7 +3,7 @@
   import { useSlots, computed } from 'vue'
   import type { VNode, Component, Slots } from 'vue'
 
-  defineOptions({name: 'FLayout'})
+  defineOptions({ name: 'FLayout' })
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()

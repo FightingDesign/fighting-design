@@ -5,7 +5,7 @@
   import { FIconArrowLeft } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
 
-  defineOptions({name: 'FPageHeader'})
+  defineOptions({ name: 'FPageHeader' })
 
   const prop = defineProps(Props)
 

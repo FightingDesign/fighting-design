@@ -7,7 +7,7 @@
   import type { RipplesOptions } from '../../_hooks'
   import type { FightingIcon } from '../../_interface'
 
-  defineOptions({name: 'FButton'})
+  defineOptions({ name: 'FButton' })
 
   const prop = defineProps(Props)
 

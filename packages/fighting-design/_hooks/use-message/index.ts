@@ -171,7 +171,7 @@ export const useMessage = (
 
     if (instances[placement]) {
       /** 如果对象中存在当前方位数组，则往数组中追加组件实例 */
-      (instances[placement] as ComponentInternalInstance[]).push(instance)
+      ;(instances[placement] as ComponentInternalInstance[]).push(instance)
     } else {
       /** 否则新建一个数组存储当前组件实例 */
       instances[placement] = [instance]
@@ -311,7 +311,7 @@ export const useMessage = (
    * @example FNotification.primary('xxx')
    */
   FIGHTING_TYPE.forEach((type: FightingType): void => {
-    (Message as unknown as MessageOptionalType)[type] = (
+    ;(Message as unknown as MessageOptionalType)[type] = (
       message: string
     ): ComponentPublicInstance => {
       return createMessage(mergeOptions({ message, type }))

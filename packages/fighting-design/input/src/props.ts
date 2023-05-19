@@ -124,7 +124,7 @@ export const Props = {
    * @see HTML属性autocomplete https://developer.mozilla.org/zh-CN/docs/Web/HTML/Attributes/autocomplete
    * @see autocomplete https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#autocomplete
    */
-  autocomplete: setStringProp(),
+  autocomplete: setStringProp('off'),
   /** 点击搜索之后触发的回调 */
   onSearch: setFunctionProp<InputUpdate>(),
   /** 绑定值发生改变时触发的回调 */

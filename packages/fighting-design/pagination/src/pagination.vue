@@ -1,7 +1,6 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { ref } from 'vue'
-  import { isNumber } from '../../_utils'
   import { useList, usePage, useTurnPage } from '../../_hooks'
   import { FIconChevronLeft, FIconChevronRight, FIconMenuMeatball } from '../../_svg'
   import { FInput } from '../../input'
@@ -17,13 +16,10 @@
   import { FOption } from '../../option'
   import { FSvgIcon } from '../../svg-icon'
 
-  defineOptions({name: 'FPagination'})
+  defineOptions({ name: 'FPagination' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_CURRENT]: (current: number): boolean => isNumber(current),
-    [EMIT_PAGESIZE]: (pagesize: number): boolean => isNumber(pagesize)
-  })
+  const emit = defineEmits([EMIT_CURRENT, EMIT_PAGESIZE])
 
   const { pages, showNextMore, showPrevMore, maxCount, handelTurnPages } = usePage(
     prop,

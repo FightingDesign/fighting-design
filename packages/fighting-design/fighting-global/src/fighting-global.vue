@@ -6,7 +6,7 @@
   import type { FightingType, FightingLang, FightingSize } from '../../_interface'
   import type { FightingGlobalProps } from './interface'
 
-  defineOptions({name: 'FFightingGlobal'})
+  defineOptions({ name: 'FFightingGlobal' })
 
   const prop = defineProps(Props)
 

@@ -4,7 +4,7 @@
   import { useList } from '../../_hooks'
   import type { MenuProvide } from './interface'
 
-  defineOptions({name: 'FMenu'})
+  defineOptions({ name: 'FMenu' })
 
   const prop = defineProps(Props)
 

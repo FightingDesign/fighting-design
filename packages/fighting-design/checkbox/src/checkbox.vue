@@ -8,13 +8,10 @@
   import type { CheckboxGroupProvide } from '../../checkbox-group'
   import type { CheckboxModelValue } from './interface'
 
-  defineOptions({name: 'FCheckbox'})
+  defineOptions({ name: 'FCheckbox' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (val: CheckboxModelValue): CheckboxModelValue =>
-      typeof val !== 'object'
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { run } = useRun()
   const { keyword } = useModel<CheckboxModelValue | string[]>(

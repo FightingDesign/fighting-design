@@ -4,7 +4,7 @@
   import { FButton } from '../../button'
   import { FToolbar } from '../../toolbar'
   import { FToolbarItem } from '../../toolbar-item'
-  import { isBoolean, isArray } from '../../_utils'
+  import { isArray } from '../../_utils'
   import {
     FIconChevronLeft,
     FIconChevronRight,
@@ -18,12 +18,10 @@
   import { useOperationImg, useRun } from '../../_hooks'
   import { EMIT_VISIBLE } from '../../_tokens'
 
-  defineOptions({name: 'FImagePreview'})
+  defineOptions({ name: 'FImagePreview' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_VISIBLE]: (visible: boolean): boolean => isBoolean(visible)
-  })
+  const emit = defineEmits([EMIT_VISIBLE])
 
   const { run } = useRun()
   const {

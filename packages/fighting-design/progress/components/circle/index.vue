@@ -7,7 +7,7 @@
   import type { ProgressProvide } from '../../index'
   import type { CSSProperties } from 'vue'
 
-  defineOptions({name: 'FProgressCircle'})
+  defineOptions({ name: 'FProgressCircle' })
 
   /** 父组件注入的依赖项 */
   const params = inject(PROGRESS_PROPS_KEY) as ProgressProvide

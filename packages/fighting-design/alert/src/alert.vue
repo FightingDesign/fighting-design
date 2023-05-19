@@ -6,7 +6,7 @@
   import { isNumber } from '../../_utils'
   import { useList, useRun, useGlobal, useAlertList } from '../../_hooks'
 
-  defineOptions({name: 'FAlert'})
+  defineOptions({ name: 'FAlert' })
 
   const prop = defineProps(Props)
 

@@ -2,8 +2,8 @@
   import { Props } from './props'
   import { useList } from '../../_hooks'
 
-  defineOptions({name: 'FMain'})
-  
+  defineOptions({ name: 'FMain' })
+
   const prop = defineProps(Props)
 
   const { styles } = useList(prop, 'main')

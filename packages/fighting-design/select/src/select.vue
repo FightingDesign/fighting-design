@@ -9,13 +9,11 @@
   import type { VNode, Slots } from 'vue'
   import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
 
-  defineOptions({name: 'FSelect'})
+  defineOptions({ name: 'FSelect' })
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()
-  const emit = defineEmits({
-    [EMIT_UPDATE]: (val: SelectModelValue): boolean => !!val
-  })
+  const emit = defineEmits([EMIT_UPDATE])
 
   const { run } = useRun()
   const { styles } = useList(prop, 'select')

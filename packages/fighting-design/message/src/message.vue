@@ -6,7 +6,7 @@
   import { isVNode } from 'vue'
   import { FCloseBtn } from '../../close-btn'
 
-  defineOptions({name: 'FMessage'})
+  defineOptions({ name: 'FMessage' })
 
   const prop = defineProps(Props)
 

@@ -3,7 +3,7 @@
   import { ref } from 'vue'
   import { useLoadImg, useList } from '../../_hooks'
 
-  defineOptions({name: 'FImage'})
+  defineOptions({ name: 'FImage' })
 
   const prop = defineProps(Props)
 

@@ -6,7 +6,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FImage } from '../../image'
 
-  defineOptions({name: 'FEmpty'})
+  defineOptions({ name: 'FEmpty' })
 
   const prop = defineProps(Props)
 

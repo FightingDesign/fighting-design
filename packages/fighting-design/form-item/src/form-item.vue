@@ -7,7 +7,7 @@
   import type { FormInject } from '../../form'
   import type { ClassList } from '../../_interface'
 
-  defineOptions({name: 'FFormItem'})
+  defineOptions({ name: 'FFormItem' })
 
   const prop = defineProps(Props)
 

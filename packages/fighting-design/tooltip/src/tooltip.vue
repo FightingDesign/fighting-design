@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { useList } from '../../_hooks'
 
-  defineOptions({name: 'FTooltip'})
+  defineOptions({ name: 'FTooltip' })
 
   const prop = defineProps(Props)
 

@@ -8,12 +8,10 @@
   import { FIconNotes, FIconPlus } from '../../_svg'
   import { EMIT_FILES } from '../../_tokens'
 
-  defineOptions({name: 'FUpLoad'})
+  defineOptions({ name: 'FUpLoad' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_FILES]: (files: File[]): File[] => files
-  })
+  const emit = defineEmits([EMIT_FILES])
 
   const { run } = useRun()
 

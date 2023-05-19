@@ -5,7 +5,7 @@
   import { isNumber } from '../../_utils'
   import type { Slots } from 'vue'
 
-  defineOptions({name: 'FSkeleton'})
+  defineOptions({ name: 'FSkeleton' })
 
   const prop = defineProps(Props)
 

@@ -12,7 +12,7 @@
     TableRenderH
   } from './interface'
 
-  defineOptions({name: 'FTable'})
+  defineOptions({ name: 'FTable' })
 
   const prop = defineProps(Props)
 

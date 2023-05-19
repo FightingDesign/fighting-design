@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { sizeChange } from '../../../_utils'
 
-  defineOptions({name: 'FTableColgroup'})
+  defineOptions({ name: 'FTableColgroup' })
 
   defineProps(Props)
 </script>

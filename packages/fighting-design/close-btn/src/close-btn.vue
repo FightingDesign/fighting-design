@@ -4,7 +4,7 @@
   import { FIconCross } from '../../_svg'
   import { useRun, useList } from '../../_hooks'
 
-  defineOptions({name: 'FCloseBtn'})
+  defineOptions({ name: 'FCloseBtn' })
 
   const prop = defineProps(Props)
 

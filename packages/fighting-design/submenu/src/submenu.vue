@@ -8,7 +8,7 @@
   import { FIconChevronDown } from '../../_svg'
   import type { MenuProvide } from '../../menu'
 
-  defineOptions({name: 'FSubmenu'})
+  defineOptions({ name: 'FSubmenu' })
 
   const prop = defineProps(Props)
 

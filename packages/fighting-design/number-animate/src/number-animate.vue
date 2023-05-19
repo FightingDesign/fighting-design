@@ -4,7 +4,7 @@
   import { useRun } from '../../_hooks'
   import { isNumber, warning } from '../../_utils'
 
-  defineOptions({name: 'FNumberAnimate'})
+  defineOptions({ name: 'FNumberAnimate' })
 
   const prop = defineProps(Props)
 

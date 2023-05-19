@@ -4,7 +4,7 @@
   import { FIconLoadingA } from '../../_svg'
   import { useList } from '../../_hooks'
 
-  defineOptions({name: 'FLoading'})
+  defineOptions({ name: 'FLoading' })
 
   const prop = defineProps(Props)
 

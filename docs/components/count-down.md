@@ -136,14 +136,14 @@
 
 ## Attributes
 
-| 参数          | 说明                                                | 类型                                           | 可选值 | 默认值   |
-| ------------- | --------------------------------------------------- | ---------------------------------------------- | ------ | -------- |
-| `time`        | 倒计时时长，单位毫秒                                | string / number                                | ——     | ——       |
+| 参数          | 说明                                                    | 类型                                           | 可选值 | 默认值   |
+| ------------- | ------------------------------------------------------- | ---------------------------------------------- | ------ | -------- |
+| `time`        | 倒计时时长，单位毫秒                                    | string / number                                | ——     | ——       |
 | `inerval`     | 倒计时渲染间隔，单位毫秒（开启`millisecond`则此项无效） | number                                         | ——     | `1000`   |
-| `format`      | 时间格式                                            | string                                         | ——     | HH:mm:ss |
-| `millisecond` | 是否开始毫秒级渲染                                  | boolean                                        | ——     | false    |
-| `auto-start`  | 是否自动开始倒计时                                  | boolean                                        | ——     | true     |
-| `on-finish`   | 倒计时结束后触发的回调                              | <a href="#countdownfinish">CountDownFinish</a> | ——     | ——       |
+| `format`      | 时间格式                                                | string                                         | ——     | HH:mm:ss |
+| `millisecond` | 是否开始毫秒级渲染                                      | boolean                                        | ——     | false    |
+| `auto-start`  | 是否自动开始倒计时                                      | boolean                                        | ——     | true     |
+| `on-finish`   | 倒计时结束后触发的回调                                  | <a href="#countdownfinish">CountDownFinish</a> | ——     | ——       |
 
 ## Methods
 

@@ -8,7 +8,7 @@
   import type { TriggerProvide } from '../../trigger'
   import type { Slots } from 'vue'
 
-  defineOptions({name: 'FOption'})
+  defineOptions({ name: 'FOption' })
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()

@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { computed } from 'vue'
 
-  defineOptions({name: 'FCollapseAnimation'})
+  defineOptions({ name: 'FCollapseAnimation' })
 
   const prop = defineProps(Props)
 
@@ -43,7 +43,7 @@
    * @param { Object } el 元素节点
    */
   const onBeforeEnter = (el: Element): void => {
-    (el as HTMLElement).style.transition = transitionStyle
+    ;(el as HTMLElement).style.transition = transitionStyle
     ;(el as HTMLElement).style.height = '0'
   }
 
@@ -56,11 +56,11 @@
    */
   const onEnter = (el: Element): void => {
     if ((el as HTMLElement).scrollHeight !== 0) {
-      (el as HTMLElement).style.height = `${(el as HTMLElement).scrollHeight}px`
+      ;(el as HTMLElement).style.height = `${(el as HTMLElement).scrollHeight}px`
     } else {
-      (el as HTMLElement).style.height = ''
+      ;(el as HTMLElement).style.height = ''
     }
-    (el as HTMLElement).style.overflow = 'hidden'
+    ;(el as HTMLElement).style.overflow = 'hidden'
   }
 
   /**
@@ -69,7 +69,7 @@
    * @param { Object } el 元素节点
    */
   const onAfterEnter = (el: Element): void => {
-    (el as HTMLElement).style.transition = ''
+    ;(el as HTMLElement).style.transition = ''
     ;(el as HTMLElement).style.height = ''
   }
 
@@ -81,7 +81,7 @@
    * @param { Object } el 元素节点
    */
   const onBeforeLeave = (el: Element): void => {
-    (el as HTMLElement).style.height = `${(el as HTMLElement).scrollHeight}px`
+    ;(el as HTMLElement).style.height = `${(el as HTMLElement).scrollHeight}px`
   }
 
   /**
@@ -93,7 +93,7 @@
    */
   const onLeave = (el: Element): void => {
     if ((el as HTMLElement).scrollHeight !== 0) {
-      (el as HTMLElement).style.transition = transitionStyle
+      ;(el as HTMLElement).style.transition = transitionStyle
       ;(el as HTMLElement).style.height = '0'
     }
   }
@@ -106,7 +106,7 @@
    * @param { Object } el 元素节点
    */
   const onAfterLeave = (el: Element): void => {
-    (el as HTMLElement).style.transition = ''
+    ;(el as HTMLElement).style.transition = ''
     ;(el as HTMLElement).style.height = ''
   }
 </script>

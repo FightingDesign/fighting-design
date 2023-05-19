@@ -11,7 +11,7 @@ export type Install<T> = T & {
  * @returns { Object } 组件实例
  */
 export const install = <T extends Component>(main: T): Install<T> => {
-  (main as Record<string, unknown>).install = (app: App): void => {
+  ;(main as Record<string, unknown>).install = (app: App): void => {
     const { name } = main
     name && app.component(name, main)
   }
@@ -26,7 +26,7 @@ export const install = <T extends Component>(main: T): Install<T> => {
  * @returns { Object } 组件实例
  */
 export const installFn = <T>(main: T, name: string): Install<T> => {
-  (main as Install<T>).install = (app: App): void => {
+  ;(main as Install<T>).install = (app: App): void => {
     app.config.globalProperties[name] = main as Install<T>
   }
   return main as Install<T>
@@ -43,7 +43,7 @@ export const installDirective = <T extends Directive>(
   main: T,
   name: string
 ): Install<T> => {
-  (main as Install<T>).install = (app: App): void => {
+  ;(main as Install<T>).install = (app: App): void => {
     app.directive(name, main as Install<T>)
   }
   return main as Install<T>

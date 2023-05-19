@@ -1,4 +1,9 @@
-import { setBooleanProp, setNumberProp, setStringNumberProp, setStringProp } from '../../_utils'
+import {
+  setBooleanProp,
+  setNumberProp,
+  setStringNumberProp,
+  setStringProp
+} from '../../_utils'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type { FightingSize } from '../../_interface'

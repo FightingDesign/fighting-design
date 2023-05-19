@@ -10,7 +10,12 @@ export type { FormProps } from './props'
  * @param { boolean } res 结果对象
  * @param { Object } evt 事件对象
  */
-export type FormSubmit = (ok: boolean, model: Record<string, string>, res: Record<string, boolean | string>, evt: SubmitEvent | Event) => void
+export type FormSubmit = (
+  ok: boolean,
+  model: Record<string, string>,
+  res: Record<string, boolean | string>,
+  evt: SubmitEvent | Event
+) => void
 
 /** 注入的依赖项类型 */
 export type FormInject = FormProps & {

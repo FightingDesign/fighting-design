@@ -1,18 +1,15 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { toRef } from 'vue'
-  import { isBoolean } from '../../_utils'
   import { useVisible } from '../../_hooks'
   import { FCloseBtn } from '../../close-btn'
   import { FPopup } from '../../popup'
   import { EMIT_VISIBLE } from '../../_tokens'
 
-  defineOptions({name: 'FDrawer'})
+  defineOptions({ name: 'FDrawer' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits({
-    [EMIT_VISIBLE]: (visible: boolean): boolean => isBoolean(visible)
-  })
+  const emit = defineEmits([EMIT_VISIBLE])
 
   const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit)
 </script>

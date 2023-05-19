@@ -3,7 +3,7 @@
   import { ref } from 'vue'
   import { useRun } from '../../_hooks'
 
-  defineOptions({name: 'FInfiniteScrolling'})
+  defineOptions({ name: 'FInfiniteScrolling' })
 
   const prop = defineProps(Props)
 

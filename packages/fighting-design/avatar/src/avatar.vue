@@ -6,7 +6,7 @@
   import { isNumber, isString } from '../../_utils'
   import type { Slots } from 'vue'
 
-  defineOptions({name: 'FAvatar'})
+  defineOptions({ name: 'FAvatar' })
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()

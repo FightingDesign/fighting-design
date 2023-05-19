@@ -3,7 +3,7 @@ import type { WritableComputedRef } from 'vue'
 
 /**
  * useModel 返回值类型接口
- * 
+ *
  * @param { Function } keyword 自定义计算属性
  */
 export interface UseModelReturn<T> {

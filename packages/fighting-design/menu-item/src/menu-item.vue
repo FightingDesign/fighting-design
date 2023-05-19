@@ -8,7 +8,7 @@
   import type { ComponentInternalInstance } from 'vue'
   import type { MenuProvide } from '../../menu'
 
-  defineOptions({name: 'FMenuItem'})
+  defineOptions({ name: 'FMenuItem' })
 
   const prop = defineProps(Props)
 

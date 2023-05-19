@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { useList, useRun } from '../../_hooks'
 
-  defineOptions({name: 'FSvgIcon'})
+  defineOptions({ name: 'FSvgIcon' })
 
   const prop = defineProps(Props)
 

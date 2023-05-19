@@ -84,17 +84,17 @@ export const useTrigger = (
   /** 是否展示主内容 */
   const visible = ref<boolean>(false)
 
-  /** 
+  /**
    * 记录提示框是否应该显示，而 visible 表示为展示状态
-   * 
+   *
    * 判断触发器展示还是隐藏最核心的控制变量，主要控制内容是否展示，默认不展示
-   * 
+   *
    * 当内容展示的时候，将 contentVisible 设置为 true，表示为应该展示
-   * 
+   *
    * 当鼠标从触发器移入到内容的时候，会触发 close 方法，将其设置为 false，表示需要隐藏了
-   * 
+   *
    * 但是同时，内容移入触发了移入事件，又将其改为 true，表示需要展示
-   * 
+   *
    * 中间使用 setTimeout 函数来延迟改变状态，来处理时间差
    */
   let contentVisible = false
@@ -186,10 +186,13 @@ export const useTrigger = (
 
     /**
      * 点击的部分如果是触发器元素，则不触发关闭
-     * 
+     *
      * @see Element.closest() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/closest
      */
-    if (element.closest('.' + TRIGGER_CONTENT_BOX_CLASS) || element.closest('.' + TRIGGER_CLASS)) {
+    if (
+      element.closest('.' + TRIGGER_CONTENT_BOX_CLASS) ||
+      element.closest('.' + TRIGGER_CLASS)
+    ) {
       return
     }
 
@@ -209,8 +212,8 @@ export const useTrigger = (
    */
   const onBeforeEnter = (el: Element): void => {
     if (prop.trigger === 'hover') {
-      (el as HTMLElement).addEventListener('mouseenter', contentLave);
-      (el as HTMLElement).addEventListener('mouseleave', close)
+      ;(el as HTMLElement).addEventListener('mouseenter', contentLave)
+      ;(el as HTMLElement).addEventListener('mouseleave', close)
     }
 
     /**
@@ -236,13 +239,13 @@ export const useTrigger = (
 
   /**
    * 在过度离开完成，移除 DOM 时调用
-   * 
+   *
    * @param { Object } el 元素节点
    */
   const onAfterLeave = (el: Element): void => {
     if (prop.trigger === 'hover') {
-      (el as HTMLElement).removeEventListener('mouseenter', contentLave);
-      (el as HTMLElement).removeEventListener('mouseleave', close)
+      ;(el as HTMLElement).removeEventListener('mouseenter', contentLave)
+      ;(el as HTMLElement).removeEventListener('mouseleave', close)
     }
   }
 

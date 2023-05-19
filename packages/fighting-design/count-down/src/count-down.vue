@@ -5,7 +5,7 @@
   import { useRun } from '../../_hooks'
   import type { CurrentTime } from '../../_hooks'
 
-  defineOptions({name: 'FCountDown'})
+  defineOptions({ name: 'FCountDown' })
 
   const prop = defineProps(Props)
 
