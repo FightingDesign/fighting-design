@@ -7,14 +7,13 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  display: inline-block;
+  display: inline-flex;
   transition: background 0.3s;
   resize: var(--textarea-resize);
-  background-color: var(--textarea-background);
+  align-items: flex-end;
 
   &__textarea {
     width: 100%;
-    height: 100%;
     border: 1px solid transparent;
     resize: none;
     outline: none;
@@ -25,8 +24,14 @@
     box-sizing: border-box;
     transition: 0.2s;
     font-size: var(--textarea-font-size, 14px);
+    background-color: var(--textarea-background);
     color: #333;
     font-family: Arial, sans-serif;
+    overflow: auto;
+  }
+
+  &__auto-height .f-textarea__textarea {
+    overflow: hidden;
   }
 
   // 禁用状态
@@ -40,12 +45,9 @@
   }
 
   // 获取焦点
-  &:focus-within {
+  &:focus-within .f-textarea__textarea {
     background-color: #fff;
-
-    .f-textarea__textarea {
-      border: 1px solid #2d5af1;
-    }
+    border: 1px solid #2d5af1;
   }
 
   &__clear-btn {

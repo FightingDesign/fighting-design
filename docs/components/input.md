@@ -222,7 +222,7 @@
 | `text-color`          | 自定义文字颜色             | string                                                             | ——                              | ——      |
 | `background`          | 自定义背景颜色             | string                                                             | ——                              | ——      |
 | `font-size`           | 自定义字体大小             | string / number                                                    | ——                              | ——      |
-| `autocomplete`        | 是否开启自动填充特性提示   | string                                                             | ——                              | ——      |
+| `autocomplete`        | 是否开启自动填充特性提示   | string                                                             | ——                              | off     |
 | `active-background`   | 自定义选中状态背景颜色     | string                                                             | ——                              | ——      |
 | `active-border-color` | 自定义选中状态边框颜色     | string                                                             | ——                              | ——      |
 | `clear`               | 是否可清空                 | boolean                                                            | ——                              | false   |
@@ -233,7 +233,7 @@
 | `icon`                | 自定义前缀 icon            | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——      |
 | `on-blur`             | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
 | `on-focus`            | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
-| `on-enter`            | 按下回车触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
+| `on-enter`            | 按下回车触发的回调         | <a href="#inputenter">InputEnter</a>                               | ——                              | ——      |
 | `on-search`           | 点击搜索触发的回调         | <a href="#inputevent">InputEvent</a>                               | ——                              | ——      |
 | `on-change`           | 绑定值发生变化时触发的回调 | <a href="#inputevent">InputEvent</a>                               | ——                              | ——      |
 | `on-input`            | 原生 input 事件回调        | <a href="#inputevent">InputEvent</a>                               | ——                              | ——      |
@@ -251,7 +251,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { InputInstance, InputProps, InputType, InputEvent } from 'fighting-design'
+import type {
+  InputInstance,
+  InputProps,
+  InputType,
+  InputEvent,
+  InputEnter
+} from 'fighting-design'
 ```
 
 ### InputType
@@ -264,6 +270,12 @@ type InputType = 'text' | 'password' | 'number'
 
 ```ts
 type InputEvent = (evt: Event, value: string) => void
+```
+
+### InputEnter
+
+```ts
+type InputEnter = (value: string, evt: KeyboardEvent) => void
 ```
 
 ## 样式变量

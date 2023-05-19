@@ -57,7 +57,7 @@
       handleSearch(evt)
     }
 
-    run(onEnter.value, (evt.target as HTMLInputElement).value, evt)
+    run(onEnter.value, keyword.value, evt)
   }
 
   /** 查看密码 */

@@ -2,6 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.40.0 (2023-05-19)
+
+**更新**
+
+- `f-input` 组件 `autocomplete` 配置项默认值改为 off
+- `f-textarea` 组件新增 `auto-height` 配置项
+
+**修复**
+
+- 修复 `f-input` 组件 `on-enter` 类型
+
 ## 0.39.0 (2023-05-18)
 
 - 修复 `f-option` 关闭报错问题

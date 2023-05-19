@@ -8,7 +8,7 @@ import {
 } from '../../_utils'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
-import type { InputType, InputUpdate } from './interface'
+import type { InputType, InputUpdate, InputEnter } from './interface'
 import type { HandleEvent, FightingSize, FightingIcon } from '../../_interface'
 
 export const Props = {
@@ -136,7 +136,7 @@ export const Props = {
   /** 获得焦点时触发的回调 */
   onFocus: setFunctionProp<HandleEvent>(),
   /** 按下回车触发的 */
-  onEnter: setFunctionProp<HandleEvent>()
+  onEnter: setFunctionProp<InputEnter>()
 } as const
 
 /** input 组件 props 类型 */

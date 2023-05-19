@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.40.0 (2023-05-19)
+
+**Update**
+
+- Change the default value of the `f-input` component `autocomplete` configuration item to `off`
+- Add `auto-height` configuration item to the `f-textarea` component
+
+**Fix**
+
+- Fix `f-input` component `on-enter` type
+
 ## 0.39.0 (2023-05-18)
 
 - Fix `f-option` closing error issue

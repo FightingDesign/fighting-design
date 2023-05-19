@@ -11,19 +11,21 @@ import type { InputChange, HandleEvent } from '../../_interface'
 
 export const Props = {
   /** 绑定值 */
-  modelValue: setStringProp(),
+  modelValue: setStringNumberProp(),
   /**
    * 元素的输入文本的行数
    *
    * @see rows https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-rows
    */
-  rows: setStringNumberProp(3),
+  rows: setStringNumberProp(),
   /**
    * 是否禁用
    *
    * @see disabled https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea#attr-disabled
    */
   disabled: setBooleanProp(),
+  /** 是否自适应高度 */
+  autoHeight: setBooleanProp(),
   /**
    * 最大输入长度
    *
