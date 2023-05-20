@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.40.2 (2023-05-20)
+
+**Add**
+
+- Add `width-animation`, `animation-time`, `on-open`, `on-close`, `on-open-end`, and `on-close-end` configuration items to the `f collapse-animation` component
+
 ## 0.40.1 (2023-05-19)
 
 **Update**

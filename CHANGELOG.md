@@ -2,6 +2,12 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.40.2 (2023-05-20)
+
+**新增**
+
+- `f-collapse-animation` 组件新增 `width-animation` `animation-time` `on-open` `on-close` `on-open-end` `on-close-end` 配置项
+
 ## 0.40.1 (2023-05-19)
 
 **更新**
