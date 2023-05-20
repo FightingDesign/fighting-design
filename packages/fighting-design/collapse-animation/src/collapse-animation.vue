@@ -1,10 +1,14 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { computed } from 'vue'
+  import { useRun } from '../../_hooks'
+  import { isNumber } from '../../_utils'
 
   defineOptions({ name: 'FCollapseAnimation' })
 
   const prop = defineProps(Props)
+
+  const { run } = useRun()
 
   /**
    * 该组件 2023-02-24 重构一次
@@ -33,7 +37,12 @@
   })
 
   /** 动画样式 */
-  const transitionStyle = '0.3s height ease-in-out'
+  const transitionStyle = computed((): string => {
+    if (isNumber(prop.animationTime)) {
+      return `${prop.animationTime}s all ease-in-out`
+    }
+    return '0.747s all ease-in-out'
+  })
 
   /**
    * 在元素被插入到 DOM 之前被调用
@@ -43,8 +52,13 @@
    * @param { Object } el 元素节点
    */
   const onBeforeEnter = (el: Element): void => {
-    ;(el as HTMLElement).style.transition = transitionStyle
-    ;(el as HTMLElement).style.height = '0'
+    const node = el as HTMLElement
+
+    node.style.transition = transitionStyle.value
+    node.style.height = '0'
+    node.style.width = 'auto'
+
+    run(prop.onOpen, el)
   }
 
   /**
@@ -55,12 +69,33 @@
    * @param { Object } el 元素节点
    */
   const onEnter = (el: Element): void => {
-    if ((el as HTMLElement).scrollHeight !== 0) {
-      ;(el as HTMLElement).style.height = `${(el as HTMLElement).scrollHeight}px`
+    const node = el as HTMLElement
+
+    if (node.scrollHeight !== 0) {
+      node.style.height = `${node.scrollHeight}px`
     } else {
-      ;(el as HTMLElement).style.height = ''
+      node.style.height = ''
     }
-    ;(el as HTMLElement).style.overflow = 'hidden'
+
+    /** 如果需要宽度过度 */
+    if (prop.widthAnimation) {
+      node.style.width = '0'
+
+      /** 获取父节点 */
+      const parent = node.parentElement as HTMLElement
+      /**
+       * 获取父节点的宽度
+       *
+       * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
+       * @see Element.clientWidth https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientWidth
+       */
+      const parentWidth: number = parent.offsetWidth || parent.clientWidth
+
+      /** 如果两个方法都没有获取到宽度，使用 auto */
+      node.style.width = isNumber(parentWidth) ? `${parentWidth}px` : 'auto'
+    }
+
+    node.style.overflow = 'hidden'
   }
 
   /**
@@ -69,19 +104,40 @@
    * @param { Object } el 元素节点
    */
   const onAfterEnter = (el: Element): void => {
-    ;(el as HTMLElement).style.transition = ''
-    ;(el as HTMLElement).style.height = ''
+    const node = el as HTMLElement
+
+    node.style.transition = ''
+    node.style.height = ''
+    node.style.width = ''
+
+    run(prop.onOpenEnd, el)
   }
 
   /**
-   * 在 leave 钩子之前调用
-   *
-   * 大多数时候，你应该只会用到 leave 钩子
+   * 关闭动画开始执行的回调
    *
    * @param { Object } el 元素节点
    */
   const onBeforeLeave = (el: Element): void => {
-    ;(el as HTMLElement).style.height = `${(el as HTMLElement).scrollHeight}px`
+    const node = el as HTMLElement
+
+    node.style.height = `${node.scrollHeight}px`
+
+    if (prop.widthAnimation) {
+      /** 获取父节点 */
+      const parent = node.parentElement as HTMLElement
+      /**
+       * 获取父节点的宽度
+       *
+       * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
+       * @see Element.clientWidth https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientWidth
+       */
+      const parentWidth: number = parent.offsetWidth || parent.clientWidth
+
+      node.style.width = `${parentWidth}px`
+    }
+
+    run(prop.onClose, el)
   }
 
   /**
@@ -92,22 +148,34 @@
    * @param { Object } el 元素节点
    */
   const onLeave = (el: Element): void => {
-    if ((el as HTMLElement).scrollHeight !== 0) {
-      ;(el as HTMLElement).style.transition = transitionStyle
-      ;(el as HTMLElement).style.height = '0'
+    const node = el as HTMLElement
+
+    if (node.scrollHeight !== 0) {
+      node.style.transition = transitionStyle.value
+      node.style.height = '0'
+    }
+
+    if (prop.widthAnimation) {
+      node.style.transition = transitionStyle.value
+      node.style.width = '0'
     }
   }
 
   /**
-   * 在离开过渡完成
+   * 关闭动画结束执行的回调
    *
    * 且元素已从 DOM 中移除时调用
    *
    * @param { Object } el 元素节点
    */
   const onAfterLeave = (el: Element): void => {
-    ;(el as HTMLElement).style.transition = ''
-    ;(el as HTMLElement).style.height = ''
+    const node = el as HTMLElement
+
+    node.style.transition = ''
+    node.style.height = ''
+    node.style.width = ''
+
+    run(prop.onCloseEnd, el)
   }
 </script>
 
