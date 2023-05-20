@@ -153,6 +153,7 @@
 | `on-blur`     | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                           | ——      |
 | `on-focus`    | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a> | ——                                           | ——      |
 | `on-change`   | 绑定值发生变化时触发的回调 | <a href="/components/interface.html#inputchange">InputChange</a> | ——                                           | ——      |
+| `on-enter`    | 按下回车触发的回调         | <a href="/components/input.html#inputenter">InputEnter</a>       | ——                                           | ——      |
 
 ## Interface
 

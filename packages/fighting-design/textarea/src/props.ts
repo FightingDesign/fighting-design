@@ -8,6 +8,7 @@ import {
 import type { ExtractPropTypes } from 'vue'
 import type { TextareaResize } from './interface'
 import type { InputChange, HandleEvent } from '../../_interface'
+import type { InputEnter } from '../../input'
 
 export const Props = {
   /** 绑定值 */
@@ -81,7 +82,9 @@ export const Props = {
   /** 失去焦点时触发的回调 */
   onBlur: setFunctionProp<HandleEvent>(),
   /** 获取焦点时触发的回调 */
-  onFocus: setFunctionProp<HandleEvent>()
+  onFocus: setFunctionProp<HandleEvent>(),
+  /** 按下回车触发的 */
+  onEnter: setFunctionProp<InputEnter>()
 } as const
 
 /** textarea 组件 props 类型 */

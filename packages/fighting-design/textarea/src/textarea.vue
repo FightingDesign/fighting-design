@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { ref, watch, nextTick } from 'vue'
-  import { useInput, useList, useModel } from '../../_hooks'
+  import { useInput, useList, useModel, useRun } from '../../_hooks'
   import { FIconCross } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
   import { EMIT_UPDATE } from '../../_tokens'
@@ -20,6 +20,7 @@
   )
   const { handleInput, handleClear, handleChange } = useInput(prop, emit, keyword)
   const { classes, styles } = useList(prop, 'textarea')
+  const { run } = useRun()
 
   const textareaEl = ref<HTMLTextAreaElement | undefined>()
 
@@ -85,6 +86,42 @@
   }
 
   isAutoHeight()
+
+  /**
+   * 监听回车事件
+   *
+   * 如果按下 Enter，阻止默认换行事件
+   *
+   * 按下 Ctrl + Enter 才触发换行
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handleEnterKey = (evt: KeyboardEvent): void => {
+    /** 如果按下 Enter 和 Ctrl 触发换行 */
+    if (evt.key === 'Enter' && evt.ctrlKey) {
+      keyword.value += '\n'
+
+      /** 如果是自适应高度，则重新设置高度 */
+      if (prop.autoHeight) {
+        changeHeight()
+      }
+
+      /** 返回阻止继续执行 */
+      return
+    }
+
+    /** 只有在按下 Enter 才触发回调方法 */
+    if (evt.key === 'Enter') {
+      /**
+       * 阻止默认换行的事件
+       *
+       * @see event.preventDefault https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault
+       */
+      evt.preventDefault()
+
+      run(prop.onEnter, keyword.value, evt)
+    }
+  }
 </script>
 
 <template>
@@ -103,9 +140,8 @@
       @change="handleChange"
       @blur="onBlur"
       @focus="onFocus"
+      @keydown="handleEnterKey"
     />
-
-    <slot name="sendBtn" />
 
     <!-- 清空按钮 -->
     <f-svg-icon

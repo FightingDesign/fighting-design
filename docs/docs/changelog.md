@@ -2,6 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.40.1 (2023-05-19)
+
+**更新**
+
+- `f-textarea` 组件新增 `on-enter` 配置项
+- `f-textarea` 组件按下 Enter 不会触发换行，改为 Ctrl + Enter 换行
+
+**修复**
+
+- 修复 `f-textarea` 组件 `close` 按钮样式错误问题
+
 ## 0.40.0 (2023-05-19)
 
 **更新**

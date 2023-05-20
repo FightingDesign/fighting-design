@@ -233,10 +233,10 @@
 | `icon`                | 自定义前缀 icon            | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——      |
 | `on-blur`             | 失去焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
 | `on-focus`            | 获取焦点触发的回调         | <a href="/components/interface.html#handleevent">HandleEvent</a>   | ——                              | ——      |
-| `on-enter`            | 按下回车触发的回调         | <a href="#inputenter">InputEnter</a>                               | ——                              | ——      |
 | `on-search`           | 点击搜索触发的回调         | <a href="#inputevent">InputEvent</a>                               | ——                              | ——      |
 | `on-change`           | 绑定值发生变化时触发的回调 | <a href="#inputevent">InputEvent</a>                               | ——                              | ——      |
 | `on-input`            | 原生 input 事件回调        | <a href="#inputevent">InputEvent</a>                               | ——                              | ——      |
+| `on-enter`            | 按下回车触发的回调         | <a href="#inputenter">InputEnter</a>                               | ——                              | ——      |
 
 ## Slots
 

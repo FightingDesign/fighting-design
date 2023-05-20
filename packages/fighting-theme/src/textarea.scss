@@ -11,10 +11,13 @@
   transition: background 0.3s;
   resize: var(--textarea-resize);
   align-items: flex-end;
+  background-color: var(--textarea-background);
+  border: 1px solid transparent;
+  transition: 0.2s;
 
   &__textarea {
     width: 100%;
-    border: 1px solid transparent;
+    border: none;
     resize: none;
     outline: none;
     display: block;
@@ -22,9 +25,7 @@
     background: none;
     padding: 6px 9px;
     box-sizing: border-box;
-    transition: 0.2s;
     font-size: var(--textarea-font-size, 14px);
-    background-color: var(--textarea-background);
     color: #333;
     font-family: Arial, sans-serif;
     overflow: auto;
@@ -45,18 +46,15 @@
   }
 
   // 获取焦点
-  &:focus-within .f-textarea__textarea {
+  &:focus-within {
     background-color: #fff;
     border: 1px solid #2d5af1;
   }
 
   &__clear-btn {
-    top: 0;
-    bottom: 0;
     right: 5px;
     margin: auto;
     cursor: pointer;
     color: #c3c3c3;
-    position: absolute;
   }
 }

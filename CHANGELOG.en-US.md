@@ -4,6 +4,17 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.40.1 (2023-05-19)
+
+**Update**
+
+- Added `on-enter` configuration item for `f-textarea` component
+- The `f-textarea` component does not trigger line breaks by pressing Enter, but instead uses Ctrl+Enter line breaks
+
+**Repair**
+
+- Fix the `f-textarea` component `close` button style error issue
+
 ## 0.40.0 (2023-05-19)
 
 **Update**
