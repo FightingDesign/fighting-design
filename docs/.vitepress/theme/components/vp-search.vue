@@ -92,7 +92,6 @@
     .vp-search__result {
       position: absolute;
       background-color: #fff;
-      width: 100%;
       box-shadow: 0 1px 6px rgb(0 0 0 / 20%);
       max-height: 400px;
       overflow: auto;
