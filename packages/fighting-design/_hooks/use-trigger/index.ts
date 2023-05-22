@@ -212,8 +212,9 @@ export const useTrigger = (
    */
   const onBeforeEnter = (el: Element): void => {
     if (prop.trigger === 'hover') {
-      ;(el as HTMLElement).addEventListener('mouseenter', contentLave)
-      ;(el as HTMLElement).addEventListener('mouseleave', close)
+      const node = el as HTMLElement
+      node.addEventListener('mouseenter', contentLave)
+      node.addEventListener('mouseleave', close)
     }
 
     /**
@@ -244,8 +245,9 @@ export const useTrigger = (
    */
   const onAfterLeave = (el: Element): void => {
     if (prop.trigger === 'hover') {
-      ;(el as HTMLElement).removeEventListener('mouseenter', contentLave)
-      ;(el as HTMLElement).removeEventListener('mouseleave', close)
+      const node = el as HTMLElement
+      node.removeEventListener('mouseenter', contentLave)
+      node.removeEventListener('mouseleave', close)
     }
   }
 

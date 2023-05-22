@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.40.3 (2023-05-22)
+
+- Fix unexpected margin display issue in the `f-avatar` component
+
 ## 0.40.2 (2023-05-20)
 
 **Add**
