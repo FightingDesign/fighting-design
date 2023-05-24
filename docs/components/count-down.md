@@ -12,7 +12,7 @@
 ::: demo
 
 <template #source>
-<f-count-down :time="timeStamp" format="DD : HH : mm: ss " :finish="handelFinish" />
+<f-count-down :time="timeStamp" format="DD : HH : mm: ss " :on-finish="handelFinish" />
 </template>
 
 ```vue
