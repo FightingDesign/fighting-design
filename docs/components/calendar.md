@@ -136,7 +136,7 @@ type CalendarChange = (year: number, month: number, date: number) => void
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<a href="https://github.com/xiaozhuclassmate" target="_blank">
+<a href="https://github.com/briver0825" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/87807886?v=4" />
 </a>
 
