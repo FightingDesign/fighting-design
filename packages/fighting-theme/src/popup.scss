@@ -4,7 +4,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: 2000;
+  z-index: var(--popup-z-index, 2000);
 
   // 遮罩层
   &__mask {
@@ -13,12 +13,13 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    opacity: var(--popup-mask-opacity, 0.4);
+    background-color: var(--popup-mask-background, #000);
+  }
 
-    // 高斯谋划
-    &.f-popup__blur {
-      backdrop-filter: blur(2px);
-    }
+  // 高斯模糊遮罩层
+  &__mask-blur .f-popup__mask {
+    backdrop-filter: blur(2px);
   }
 
   // 主容器公共样式
@@ -35,16 +36,12 @@
     .f-popup__wrapper {
       position: absolute;
       box-sizing: border-box;
+      overflow-x: auto;
       background-color: #fff;
+      width: var(--popup-width);
+      height: var(--popup-height);
+      padding: var(--popup-padding);
 
-      // 全屏状态
-      &.f-popup__fullscreen {
-        max-height: 100vh;
-        max-width: 100vw;
-        width: 100vw;
-        height: 100vh;
-        border-radius: 0;
-      }
 
       // 主内容动画样式
       &-transition-enter-active,
@@ -59,8 +56,17 @@
     }
   }
 
+  &__fullscreen.f-popup__center .f-popup__container .f-popup__wrapper,
+  &__fullscreen .f-popup__container .f-popup__wrapper {
+    max-height: 100vh;
+    max-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+
   // 主容器居中
-  &__container-center {
+  &__center .f-popup__container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,7 +84,7 @@
   }
 
   // 左侧弹出
-  &__container-left {
+  &__left .f-popup__container {
     .f-popup__wrapper {
       top: 0;
       bottom: 0;
@@ -92,7 +98,7 @@
   }
 
   // 右侧弹出
-  &__container-right {
+  &__right .f-popup__container {
     .f-popup__wrapper {
       top: 0;
       bottom: 0;
@@ -106,7 +112,7 @@
   }
 
   // 上方弹出
-  &__container-top {
+  &__top .f-popup__container {
     .f-popup__wrapper {
       top: 0;
       left: 0;
@@ -120,7 +126,7 @@
   }
 
   // 下方弹出
-  &__container-bottom {
+  &__bottom {
     .f-popup__wrapper {
       bottom: 0;
       left: 0;

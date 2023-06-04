@@ -1,10 +1,9 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { computed } from 'vue'
-  import { sizeChange } from '../../_utils'
-  import { useRun } from '../../_hooks'
+  import { useRun, useList } from '../../_hooks'
   import { EMIT_VISIBLE } from '../../_tokens'
-  import type { CSSProperties } from 'vue'
+  import type { FilterParamsList } from '../../_hooks'
+  import type { PopupDirection } from './interface'
 
   defineOptions({ name: 'FPopup' })
 
@@ -12,6 +11,7 @@
   const emit = defineEmits([EMIT_VISIBLE])
 
   const { run } = useRun()
+  const { classes, styles } = useList(prop, 'popup')
 
   /** 点击遮罩层关闭 */
   const closePopup = (): void => {
@@ -58,22 +58,35 @@
     run(prop.onCloseEnd, node)
   }
 
-  /** 样式列表 */
-  const styleList = computed((): CSSProperties => {
-    const { direction, popupSize, padding } = prop
-
-    if (direction === 'top' || direction === 'bottom') {
-      return {
-        height: sizeChange(popupSize),
-        padding: sizeChange(padding)
-      } as const
-    }
-
+  /**
+   * 计算尺寸抽离方法
+   *
+   * @param { string } actualKey 实际要转换成为的 key
+   * @param { Array } directions 方向规则
+   */
+  const computedSize = (
+    actualKey: string,
+    directions: PopupDirection[]
+  ): FilterParamsList => {
     return {
-      width: sizeChange(popupSize),
-      padding: sizeChange(padding)
-    } as const
-  })
+      key: 'popupSize',
+      actualKey: actualKey,
+      callback: (): boolean => directions.includes(prop.direction)
+    }
+  }
+
+  /** 类名列表 */
+  const classList = classes(['maskBlur', 'direction', 'fullscreen'], 'f-popup')
+
+  /** 样式列表 */
+  const styleList = styles([
+    'zIndex',
+    'maskBackground',
+    'maskOpacity',
+    'padding',
+    computedSize('height', ['top', 'bottom']),
+    computedSize('width', ['left', 'right'])
+  ])
 </script>
 
 <template>
@@ -85,37 +98,15 @@
       @before-leave="handleClose"
       @after-leave="handleCloseEnd"
     >
-      <div v-show="visible" class="f-popup" :style="{ zIndex }">
+      <div v-show="visible" :class="classList" :style="styleList">
         <!-- 遮罩层 -->
-        <div
-          v-if="showMask"
-          :class="['f-popup__mask', { 'f-popup__blur': maskBlur }]"
-          :style="{ background: maskBackground, opacity: maskOpacity }"
-        />
+        <div v-if="showMask" class="f-popup__mask" />
 
         <!-- 主容器 -->
-        <div
-          :class="[
-            'f-popup__container',
-            {
-              [`f-popup__container-${direction}`]: direction
-            }
-          ]"
-          @click.self="closePopup"
-        >
+        <div class="f-popup__container" @click.self="closePopup">
           <!-- 主内容 -->
           <transition name="f-popup__wrapper-transition">
-            <div
-              v-show="visible"
-              :class="[
-                'f-popup__wrapper',
-                {
-                  [`f-popup__wrapper-${direction}`]: direction,
-                  'f-popup__fullscreen': fullscreen
-                }
-              ]"
-              :style="styleList"
-            >
+            <div v-show="visible" class="f-popup__wrapper">
               <slot />
             </div>
           </transition>

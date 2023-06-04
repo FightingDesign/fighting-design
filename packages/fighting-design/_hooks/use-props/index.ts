@@ -5,11 +5,13 @@ import type { Ref } from 'vue'
 /**
  * 带有回调的 filter 方法类型接口
  *
- * @param { String } key prop 的键
+ * @param { string } key prop 的键
+ * @param { string } actualKey 转换的 prop 的键
  * @param { Function } callback 验证回调
  */
 export interface FilterParamsList {
   key: string
+  actualKey?: string
   callback: () => boolean
 }
 
@@ -71,7 +73,7 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
          * 如果为真才过滤该属性
          */
         if (item.callback && item.callback()) {
-          result[item.key] = toRef(prop, item.key as never)
+          result[item.actualKey || item.key] = toRef(prop, item.key as never)
         }
       }
     })
