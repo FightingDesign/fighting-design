@@ -1,3 +1,10 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { ref } from 'vue'
 
-<template></template>
+  const value1 = ref('')
+</script>
+
+<template>
+  {{ value1 }}
+  <f-date-picker v-model:date="value1" />
+</template>

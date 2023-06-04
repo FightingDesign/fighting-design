@@ -1,13 +1,14 @@
 <script lang="ts" setup>
   import { Props } from './props'
+  import { ref } from 'vue'
   import { FInput } from '../../input'
   import { FTrigger } from '../../trigger'
   import { FCalendar } from '../../calendar'
   import { EMIT_DATE } from '../../_tokens'
   import { useModel } from '../../_hooks'
-  import { addZero, warning } from '../../_utils'
+  import { addZero, warning, isFunction } from '../../_utils'
   import { FIconCalendar } from '../../_svg'
-  import type { CalendarChangeParams } from '../../calendar'
+  import type { TriggerInstance } from '../../trigger'
 
   defineOptions({ name: 'FDatePicker' })
 
@@ -24,6 +25,11 @@
     }
   )
 
+  /** trigger 组件实例 */
+  const triggerInstance = ref<TriggerInstance>()
+
+  let setDateFun: Function | undefined
+
   /**
    * 选取时间
    *
@@ -33,7 +39,7 @@
    * @param { number } month 月份
    * @param { number } date 日期
    */
-  const changeDate = ({ year, month, date }: CalendarChangeParams): void => {
+  const changeDate = (year: number, month: number, date: number): void => {
     /**
      * 格式化规则
      *
@@ -52,9 +58,17 @@
         )
       }
 
-      keyword.value = `${year}/${prop.addZero ? addZero(month) : month}/${
-        prop.addZero ? addZero(date) : date
-      }`
+      // keyword.value = `${year}/${prop.addZero ? addZero(month) : month}/${
+      //   prop.addZero ? addZero(date) : date
+      // }`
+
+      setDateFun = (): void => {
+        /** 将绑定值设置为格式化后的日期 */
+        // keyword.value = formatDate
+        keyword.value = `${year}/${prop.addZero ? addZero(month) : month}/${
+          prop.addZero ? addZero(date) : date
+        }`
+      }
       return
     }
 
@@ -79,14 +93,31 @@
       )
     }
 
-    /** 将绑定值设置为格式化后的日期 */
-    keyword.value = formatDate
+    setDateFun = (): void => {
+      /** 将绑定值设置为格式化后的日期 */
+      keyword.value = formatDate
+    }
+  }
+
+  /**
+   * 点击确定或者取消按钮
+   *
+   * @param { Object } evt 事件对象
+   * @param { boolean } target 是否为确认
+   */
+  const onConfirm = (evt: MouseEvent, target: boolean): void => {
+    const instance = triggerInstance.value as TriggerInstance
+    instance.close(evt)
+
+    if (target && isFunction(setDateFun)) {
+      setDateFun()
+    }
   }
 </script>
 
 <template>
   <div class="f-date-picker">
-    <f-trigger trigger="click" :disabled="disabled">
+    <f-trigger ref="triggerInstance" trigger="click" :disabled="disabled">
       <!-- 输入框 -->
       <f-input
         v-model="keyword"
@@ -108,10 +139,18 @@
         <div class="f-date-picker__content">
           <f-calendar
             v-model:date="date"
-            :day-cell-height="40"
-            :week-cell-height="40"
-            :on-change-date="changeDate"
+            :day-cell-height="42"
+            :week-cell-height="42"
+            :on-change="changeDate"
           />
+
+          <!-- 操作栏 -->
+          <div class="f-date-picker__option">
+            <f-button size="mini" @click="onConfirm($event, false)">取消</f-button>
+            <f-button type="primary" size="mini" @click="onConfirm($event, true)">
+              确定
+            </f-button>
+          </div>
         </div>
       </template>
     </f-trigger>

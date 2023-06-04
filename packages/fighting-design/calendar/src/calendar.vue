@@ -71,8 +71,8 @@
       last: (): void => changeLastMonth(),
       next: (): void => changeNextMonth(),
       now: (): void => {
-        dateParams.month = prop.date.getMonth()
         dateParams.year = prop.date.getFullYear()
+        dateParams.month = prop.date.getMonth() + 1
         dateParams.date = prop.date.getDate()
       }
     } as const
@@ -80,6 +80,15 @@
     /** 如果存在则执行指定方法 */
     option[target] && option[target]()
   }
+
+  /** 改变日期的监听器 */
+  watch(
+    () => dateParams,
+    (): void => {
+      run(prop.onChange, dateParams.year, dateParams.month, dateParams.date)
+    },
+    { deep: true }
+  )
 
   /** 当前时间 */
   const nowTime = computed((): string => {
@@ -128,11 +137,7 @@
      * 判断显示点击相同时间指定回调
      */
     if (lastDay !== days.day) {
-      run(prop.onChangeDate, {
-        year: dateParams.year,
-        month: days.month || dateParams.month,
-        date: days.day
-      })
+      run(prop.onChangeDate, dateParams.year, days.month || dateParams.month, days.day)
     }
   }
 
@@ -143,11 +148,7 @@
      * @param { number } month 最新的月份
      */
     (month: number): void => {
-      run(prop.onChangeMonth, {
-        year: dateParams.year,
-        month,
-        date: dateParams.date
-      })
+      run(prop.onChangeMonth, dateParams.year, month, dateParams.date)
     }
   )
 

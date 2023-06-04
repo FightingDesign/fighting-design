@@ -88,7 +88,7 @@ describe('FDialog', () => {
         maskBlur: true
       }
     })
-    expect(wrapper.find('.f-popup__mask').classes()).toContain('f-popup__blur')
+    expect(wrapper.find('.f-popup').classes()).toContain('f-popup__mask-blur')
   })
 
   test('showCloseIcon', () => {

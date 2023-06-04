@@ -26,6 +26,8 @@ export const Props = {
   dayCellHeight: setStringNumberProp(),
   /** 星期单元格高度 */
   weekCellHeight: setStringNumberProp(),
+  /** 日期改变时触发的回调 */
+  onChange: setFunctionProp<CalendarChange>(),
   /** 月份改变时触发的回调 */
   onChangeDate: setFunctionProp<CalendarChange>(),
   /** 日期改变时触发的回调 */

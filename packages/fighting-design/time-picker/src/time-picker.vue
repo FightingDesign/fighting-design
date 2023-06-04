@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { reactive, computed, ref, nextTick, watch } from 'vue'
+  import { reactive, ref, nextTick, watch } from 'vue'
   import { FInput } from '../../input'
   import { FTrigger } from '../../trigger'
   import { useModel } from '../../_hooks'
@@ -46,7 +46,7 @@
      *
      * 则重新设置时间触发更新
      *
-     * 这里要判断是否为真，并且不是字符串擦书
+     * 这里要判断是否为真，并且不是字符串参数
      */
     if (target && !isString(target)) {
       keyword.value = `${timeList.hour}:${timeList.minute}:${timeList.second}`
@@ -68,50 +68,56 @@
      * 如果非布尔值类型，咋代表点击的是当前时间，则不需要关闭
      */
     if (isBoolean(target)) {
-      ;(triggerInstance.value as TriggerInstance).close(evt)
+      const instance = triggerInstance.value as TriggerInstance
+      instance.close(evt)
     }
   }
 
   /** 小时滚动容器 */
-  const hoverEl = ref<HTMLDivElement>()
+  const hoverRef = ref<HTMLDivElement | undefined>()
   /** 分钟滚动容器 */
-  const minuteEl = ref<HTMLDivElement>()
+  const minuteRef = ref<HTMLDivElement | undefined>()
   /** 秒钟滚动容器 */
-  const secondEl = ref<HTMLDivElement>()
+  const secondRef = ref<HTMLDivElement | undefined>()
 
   /**
-   * 获取每一项的高度
+   * 滚动方法
    *
-   * @see HTMLElement.offsetHeight https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight
+   * @param { Object } el 需要滚动的节点元素
+   * @param { number } top 滚动距离
    */
-  const itemHeight = computed((): number => {
-    return (
-      (secondEl.value as HTMLDivElement).querySelector(
-        '.f-time-picker__second-item'
-      ) as HTMLDivElement
-    ).offsetHeight
-  })
+  const scroll = (el: HTMLDivElement, top: number): void => {
+    /**
+     * 滚动元素
+     *
+     * @see Element.scrollTo() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTo
+     */
+    el.scrollTo({ top, behavior: 'smooth' })
+  }
 
   /**
    * 滚动到指定的时间位置
-   *
-   * @see Element.scrollTo() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTo
    */
   const scrollNow = async (): Promise<void> => {
     await nextTick()
-    ;(hoverEl.value as HTMLDivElement).scrollTo({
-      top:
-        (Number(timeList.hour) === 0 ? 24 : Number(timeList.hour) - 2) * itemHeight.value,
-      behavior: 'smooth'
-    })
-    ;(minuteEl.value as HTMLDivElement).scrollTo({
-      top: (Number(timeList.minute) - 2) * itemHeight.value,
-      behavior: 'smooth'
-    })
-    ;(secondEl.value as HTMLDivElement).scrollTo({
-      top: (Number(timeList.second) - 2) * itemHeight.value,
-      behavior: 'smooth'
-    })
+
+    if (hoverRef.value && minuteRef.value && secondRef.value) {
+      /**
+       * 获取每一项的高度
+       *
+       * @see HTMLElement.offsetHeight https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight
+       */
+      const itemHeight: number = (
+        secondRef.value.querySelector('.f-time-picker__second-item') as HTMLDivElement
+      ).offsetHeight
+
+      scroll(
+        hoverRef.value,
+        (Number(timeList.hour) === 0 ? 24 : Number(timeList.hour) - 2) * itemHeight
+      )
+      scroll(minuteRef.value, (Number(timeList.minute) - 2) * itemHeight)
+      scroll(secondRef.value, (Number(timeList.second) - 2) * itemHeight)
+    }
   }
 
   /**
@@ -127,9 +133,7 @@
   /** 当时间对象一旦发生变化，就触发滚动 */
   watch(
     (): TimePickerTimeList => timeList,
-    (): void => {
-      scrollNow()
-    },
+    scrollNow,
     /** 需要深度监视对象 */
     { deep: true }
   )
@@ -158,7 +162,7 @@
         <!-- 时间选择列表 -->
         <div class="f-time-picker__content">
           <!-- 小时容器 -->
-          <div ref="hoverEl" class="f-time-picker__hour">
+          <div ref="hoverRef" class="f-time-picker__hour">
             <div
               v-for="hour in 24"
               :key="hour"
@@ -176,7 +180,7 @@
           </div>
 
           <!-- 分钟容器 -->
-          <div ref="minuteEl" class="f-time-picker__minute">
+          <div ref="minuteRef" class="f-time-picker__minute">
             <div
               v-for="minute in 59"
               :key="minute"
@@ -194,7 +198,7 @@
           </div>
 
           <!-- 秒钟容器 -->
-          <div ref="secondEl" class="f-time-picker__second">
+          <div ref="secondRef" class="f-time-picker__second">
             <div
               v-for="second in 59"
               :key="second"
