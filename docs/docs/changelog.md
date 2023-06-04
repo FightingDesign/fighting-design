@@ -2,6 +2,20 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.41.0 (2023-06-04)
+
+**修复**
+
+- 修复 `f-popup` 层级问题
+- 修复 `f-calender` 回到当前时间错误的问题
+- 修复 `f-dialog` 头部样式问题
+- 修复 `f-time-picker` 组件样式问题
+
+**其它**
+
+- `f-calender` 组件废除 `CalendarChangeParams` 类型
+- `f-calender` 组件新增 `on-change` 回调
+
 ## 0.40.4 (2023-06-04)
 
 **修复**

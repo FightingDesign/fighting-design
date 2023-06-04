@@ -4,6 +4,20 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.41.0 (2023-06-04)
+
+**Fix**
+
+- Fix `f-popup` hierarchy issue
+- Fix the issue of `f-calendar` returning to the current time error
+- Fix header style issue with `f-dialog`
+- Fix `f-time picker` component style issue
+
+**Other**
+
+- The `f-calendar` component abolishes the `CalendarChangeParams` type
+- Add `on-change` callback to the `f-calendar` component
+
 ## 0.40.5 (2023-06-04)
 
 **Fix**

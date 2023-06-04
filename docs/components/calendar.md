@@ -104,6 +104,7 @@
 | `border-color`     | 自定义边框颜色                           | string                                       | ——     | ——       |
 | `day-cell-height`  | 日期单元格高度                           | string / number                              | ——     | ——       |
 | `week-cell-height` | 星期单元格高度                           | string / number                              | ——     | ——       |
+| `on-change`        | 日期和月份任何变时触发的回调             | <a href="#calendarchange">CalendarChange</a> | ——     | ——       |
 | `on-change-month`  | 月份改变时触发的回调                     | <a href="#calendarchange">CalendarChange</a> | ——     | ——       |
 | `on-change-date`   | 日期改变时触发的回调                     | <a href="#calendarchange">CalendarChange</a> | ——     | ——       |
 
@@ -120,28 +121,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type {
-  CalendarInstance,
-  CalendarProps,
-  CalendarChangeParams,
-  CalendarChange
-} from 'fighting-design'
-```
-
-### CalendarChangeParams
-
-```ts
-interface CalendarChangeParams {
-  year: number
-  month: number
-  date: number
-}
+import type { CalendarInstance, CalendarProps, CalendarChange } from 'fighting-design'
 ```
 
 ### CalendarChange
 
 ```ts
-type CalendarChange = (params: CalendarChangeParams) => void
+type CalendarChange = (year: number, month: number, date: number) => void
 ```
 
 ## Contributors
