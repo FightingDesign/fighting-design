@@ -4,9 +4,16 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.40.5 (2023-06-04)
+
+**Fix**
+
+- Fix `f-popup` hierarchy issue
+- Fix header style issue with `f-dialog`
+
 ## 0.40.4 (2023-06-04)
 
-**Repair**
+**Fix**
 
 - Fix the issue of partial parameter responsive loss in the `f-button` component
 - Fix the issue of `f-drawer` component content exceeding the display of scrollBars

@@ -11,7 +11,9 @@
     min-height: 56px;
     width: 100%;
     max-width: inherit;
+    border-bottom: 1px solid #eee;
 
+    // 前缀
     &-before {
       width: 56px;
       display: inline-block;
@@ -19,16 +21,17 @@
       margin-right: auto;
     }
 
+    // 中间的标题
     &-center {
       color: rgb(95, 99, 104);
       font-size: 17px;
-      font-size: 22px;
       font-weight: normal;
       line-height: 22px;
       text-align: center;
       width: 100%;
     }
 
+    // 后缀
     &-after {
       width: 56px;
       display: inline-block;
@@ -48,7 +51,7 @@
 
     // 主内容
     .f-dialog__section {
-      padding: 5px 10px;
+      padding: 15px;
       box-sizing: border-box;
       min-height: inherit;
     }

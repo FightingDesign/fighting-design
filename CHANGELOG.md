@@ -2,6 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.40.5 (2023-06-04)
+
+**修复**
+
+- 修复 `f-popup` 层级问题
+- 修复 `f-dialog` 头部样式问题
+
 ## 0.40.4 (2023-06-04)
 
 **修复**

@@ -79,14 +79,17 @@
   const classList = classes(['maskBlur', 'direction', 'fullscreen'], 'f-popup')
 
   /** 样式列表 */
-  const styleList = styles([
-    'zIndex',
-    'maskBackground',
-    'maskOpacity',
-    'padding',
-    computedSize('height', ['top', 'bottom']),
-    computedSize('width', ['left', 'right'])
-  ])
+  const styleList = styles(
+    [
+      'zIndex',
+      'maskBackground',
+      'maskOpacity',
+      'padding',
+      computedSize('height', ['top', 'bottom']),
+      computedSize('width', ['left', 'right'])
+    ],
+    'zIndex'
+  )
 </script>
 
 <template>

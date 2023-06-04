@@ -50,7 +50,7 @@
         </div>
 
         <!-- 头部标题 -->
-        <h2 class="f-dialog__header-center">{{ title }}</h2>
+        <div class="f-dialog__header-center">{{ title }}</div>
 
         <!-- 头部后缀 -->
         <div class="f-dialog__header-after">
