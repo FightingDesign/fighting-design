@@ -2,6 +2,18 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.40.4 (2023-06-04)
+
+**修复**
+
+- 修复 `f-button` 组件部分参数响应式丢失问题
+- 修复 `f-drawer` 组件内容部分超出不显示滚动条问题
+- 修复 `f-popup` 组件内容部分超出不显示滚动条问题
+
+**其它**
+
+- `f-popup` 组件 `z-index` 配置项默认值改为 null
+
 ## 0.40.3 (2023-05-22)
 
 - 修复 `f-avatar` 组件意外的边距展示问题

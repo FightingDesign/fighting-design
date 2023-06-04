@@ -39,7 +39,7 @@ export const Props = {
    *
    * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
-  zIndex: setNumberProp(1999),
+  zIndex: setNumberProp(),
   /** 打开动画开始的回调 */
   onOpen: setFunctionProp<PopupCallback>(),
   /** 打开动画结束的回调 */

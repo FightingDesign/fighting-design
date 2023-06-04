@@ -48,7 +48,7 @@
   const visible1 = ref(false)
   const direction = ref<DrawerDirection>('right')
 
-  const onShow = (dir: DrawerDirection) => {
+  const onShow = (dir: DrawerDirection): void => {
     direction.value = dir
     visible1.value = true
   }
@@ -59,7 +59,7 @@
 
 ## 多层嵌套
 
-`Drawer` 组件也拥有多层嵌套的方法
+`drawer` 组件也拥有多层嵌套的方法
 
 ::: demo
 
@@ -101,7 +101,7 @@
 | `modal-blur`      | 是否模糊遮罩层                                                                      | boolean                                                            | ——                            | false  |
 | `close-icon`      | 自定义关闭按钮 icon                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                            | ——     |
 | `show-close-icon` | 是否展示关闭按钮                                                                    | boolean                                                            | ——                            | true   |
-| `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                             | ——                            | 1999   |
+| `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                             | ——                            | ——     |
 | `on-open`         | 打开动画开始的回调                                                                  | <a href="/components/popup.html#popupcallback">PopupCallback</a>   | ——                            | ——     |
 | `on-open-end`     | 打开动画结束的回调                                                                  | <a href="/components/popup.html#popupcallback">PopupCallback</a>   | ——                            | ——     |
 | `on-close`        | 关闭动画开始的回调                                                                  | <a href="/components/popup.html#popupcallback">PopupCallback</a>   | ——                            | ——     |

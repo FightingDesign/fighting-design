@@ -12,7 +12,7 @@
 ::: demo
 
 <template #source>
-<f-count-down :time="timeStamp" format="DD : HH : mm: ss " :on-finish="handelFinish" />
+<f-count-down format="DD : HH : mm: ss" :time="timeStamp" :on-finish="handelFinish" />
 </template>
 
 ```vue
@@ -27,7 +27,7 @@
 </script>
 
 <template>
-  <f-count-down :time="timeStamp" format="DD : HH : mm: ss " :finish="handelFinish" />
+  <f-count-down format="DD : HH : mm: ss" :time="timeStamp" :on-finish="handelFinish" />
 </template>
 ```
 
@@ -46,12 +46,12 @@
 ::: demo
 
 <template #source>
-<f-count-down :time="2*24*60*60*1000" format="DD 天 HH 小时 mm 分钟 ss 秒" />
+<f-count-down format="DD 天 HH 小时 mm 分钟 ss 秒" :time="2 * 24 * 60 * 60 * 1000" />
 </template>
 
 ```vue
 <template>
-  <f-count-down :time="2 * 24 * 60 * 60 * 1000" format="DD 天 HH 小时 mm 分钟 ss 秒" />
+  <f-count-down format="DD 天 HH 小时 mm 分钟 ss 秒" :time="2 * 24 * 60 * 60 * 1000" />
 </template>
 ```
 
@@ -59,22 +59,20 @@
 
 ## 毫秒级别渲染
 
-`millisecond` 属性可以开启毫秒级渲染。当为`false`时，渲染间隔为`1s`
+`millisecond` 属性可以开启毫秒级渲染。当为 `false` 时，渲染间隔为 `1s`
 
 ::: demo
 
 <template #source>
-<f-count-down millisecond :time="2*24*60*60*1000"  
-  format="DD 天 HH 小时 mm 分钟 ss 秒 SSS 毫秒"
- />
+<f-count-down millisecond format="DD 天 HH 小时 mm 分钟 ss 秒 SSS 毫秒" :time="2*24*60*60*1000" />
 </template>
 
 ```vue
 <template>
   <f-count-down
     millisecond
-    :time="2 * 24 * 60 * 60 * 1000"
     format="DD 天 HH 小时 mm 分钟 ss 秒 SSS 毫秒"
+    :time="2 * 24 * 60 * 60 * 1000"
   />
 </template>
 ```
@@ -139,10 +137,10 @@
 | 参数          | 说明                                                    | 类型                                           | 可选值 | 默认值   |
 | ------------- | ------------------------------------------------------- | ---------------------------------------------- | ------ | -------- |
 | `time`        | 倒计时时长，单位毫秒                                    | string / number                                | ——     | ——       |
-| `inerval`     | 倒计时渲染间隔，单位毫秒（开启`millisecond`则此项无效） | number                                         | ——     | `1000`   |
+| `interval`    | 倒计时渲染间隔，单位毫秒（开启`millisecond`则此项无效） | number                                         | ——     | `1000`   |
 | `format`      | 时间格式                                                | string                                         | ——     | HH:mm:ss |
-| `millisecond` | 是否开始毫秒级渲染                                      | boolean                                        | ——     | false    |
 | `auto-start`  | 是否自动开始倒计时                                      | boolean                                        | ——     | true     |
+| `millisecond` | 是否开始毫秒级渲染                                      | boolean                                        | ——     | false    |
 | `on-finish`   | 倒计时结束后触发的回调                                  | <a href="#countdownfinish">CountDownFinish</a> | ——     | ——       |
 
 ## Methods
