@@ -1,5 +1,5 @@
-import { reactive, toRefs, inject, useSlots, computed } from 'vue'
-import { useGlobal, useList, useColor } from '..'
+import { inject, useSlots, computed } from 'vue'
+import { useGlobal, useColor } from '..'
 import { sizeChange } from '../../_utils'
 import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
 import type { ButtonProps } from '../../button'
@@ -45,34 +45,24 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
     (): boolean => !(slot.default && slot.default() && slot.default()[0].children)
   )
 
-  /** 处理结构后的 prop 集合 */
-  const params = reactive({
-    ...toRefs(prop),
-    size: getSize('middle', parentInject),
-    type: !prop.color && getType(),
-    simple: prop.simple && !prop.color,
-    text: prop.text && !prop.color,
-    icon: isShowIcon
-  })
-
-  const { classes } = useList(params, 'button')
-
   /** 类名列表 */
-  const classList = classes(
-    [
-      'type',
-      'icon',
-      'round',
-      'simple',
-      'block',
-      'bold',
-      'text',
-      'size',
-      'circle',
-      'spread'
-    ],
-    'f-button'
-  )
+  const classList = computed((): ClassList => {
+    return [
+      'f-button',
+      `f-button__${getSize('middle', parentInject).value}`,
+      {
+        [`f-button__${getType().value}`]: !prop.color && getType().value,
+        'f-button__icon': isShowIcon,
+        'f-button__round': prop.round,
+        'f-button__simple': prop.simple && !prop.color,
+        'f-button__block': prop.block,
+        'f-button__bold': prop.bold,
+        'f-button__text': prop.text && !prop.color,
+        'f-button__circle': prop.circle,
+        'f-button__spread': prop.spread
+      }
+    ]
+  })
 
   /** 样式列表 */
   const styleList = computed((): CSSProperties => {

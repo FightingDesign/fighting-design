@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 修复 `f-button` 组件部分参数响应式丢失问题
+
 ## 0.40.3 (2023-05-22)
 
 - 修复 `f-avatar` 组件意外的边距展示问题
