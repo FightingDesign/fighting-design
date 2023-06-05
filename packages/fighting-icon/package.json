@@ -17,13 +17,13 @@
   ],
   "sideEffects": false,
   "author": {
-    "name": "tyh2001",
-    "url": "https://tianyuhao.cn"
+    "name": "Tyh2001",
+    "url": "https://github.com/Tyh2001"
   },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/FightingDesign/fighting-design/issues"
   },
-  "homepage": "https://fighting.tianyuhao.cn/components/svg-icon",
+  "homepage": "https://fighting.tianyuhao.cn/components/svg-icon.html",
   "repository": "https://github.com/FightingDesign/fighting-design"
 }

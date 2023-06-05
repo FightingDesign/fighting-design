@@ -13,6 +13,7 @@
 ## 🚧 规范
 
 - 可在 [icones](https://icones.js.org) 官网搜索需要的 svg 进行添加到 [fighting-icon/src](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-icon/src) 目录下
-- 命名必须以 `f-icon-` 开头，`.svg` 结尾
+- 目录下新建以 `f-icon-xxx` 形式的文件夹
+- 文件夹内部新建 `index.vue`
 - 文件名必须以全部小写形式，中间使用短横线连接
-- 添加的 svg 需要在 [fighting-icon/svg.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-icon/svg.ts) 目录中统一导出
+- 添加的 svg 需要在 [fighting-icon/default.ts](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-icon/default.ts) 目录中统一导出
