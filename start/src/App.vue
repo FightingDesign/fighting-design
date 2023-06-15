@@ -9,9 +9,13 @@
     direction.value = dir
     visible1.value = true
   }
+
+  const visible2 = ref(false)
 </script>
 
 <template>
+  <f-button type="primary" @click="visible2 = true">主要按钮</f-button>
+
   <f-space>
     <f-button type="primary" @click="onShow('left')">从左往右开</f-button>
     <f-button type="primary" @click="onShow('right')">从右往左开</f-button>
@@ -19,11 +23,17 @@
     <f-button type="primary" @click="onShow('bottom')">从下往上开</f-button>
   </f-space>
 
-  <f-drawer v-model:visible="visible1" title="Title" :direction="direction">
-    <template #footer>
-      <f-button>12</f-button>
-    </template>
-    <h3>沁园春·雪沁园春·雪沁园春·雪沁园春·雪沁园春·雪沁园春·雪沁园春·雪沁园春·雪沁园春·雪沁园春·雪沁园春·雪沁园春·雪沁园春·雪沁园春·雪</h3>
+  <f-dialog v-model:visible="visible2" title="标题文字" :show-header="false">
+    这是一个 Dialog
+  </f-dialog>
+
+  <f-drawer
+    v-model:visible="visible1"
+    title="Title"
+    :direction="direction"
+    :show-header="false"
+  >
+    <h3>沁园春·雪沁园春·雪沁园春·雪沁园</h3>
     <h3>沁园春·雪</h3>
     <h3>沁园春·雪</h3>
     <h3>沁园春·雪</h3>

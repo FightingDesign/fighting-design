@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { FCloseBtn } from '../../close-btn'
-  import { useRun } from '../../_hooks'
+  import { useTransition } from '../../_hooks'
   import { toRef } from 'vue'
   import { useVisible, useList } from '../../_hooks'
   import { EMIT_VISIBLE } from '../../_tokens'
@@ -11,54 +11,15 @@
   const prop = defineProps(Props)
   const emit = defineEmits([EMIT_VISIBLE])
 
-  const { run } = useRun()
   const { styles, classes } = useList(prop, 'drawer')
   const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit)
+  const { handleOpen, handleOpenEnd, handleClose, handleCloseEnd } = useTransition(prop)
 
   /** 样式列表 */
   const styleList = styles(['width'])
 
   /** 类名列表 */
   const classList = classes(['fullscreen', 'maskBlur', 'direction'], 'f-drawer')
-
-  /**
-   * 打开动画开始执行的回调
-   *
-   * @param { Object } node 元素节点
-   */
-  const handleOpen = (node: Element): void => {
-    /** 开启状态隐藏滚动条 */
-    document.body.style.overflow = 'hidden'
-    run(prop.onOpen, node)
-  }
-
-  /**
-   * 打开动画结束执行的回调
-   *
-   * @param { Object } node 元素节点
-   */
-  const handleOpenEnd = (node: Element): void => {
-    run(prop.onOpenEnd, node)
-  }
-
-  /**
-   * 关闭动画开始执行的回调
-   *
-   * @param { Object } node 元素节点
-   */
-  const handleClose = (node: Element): void => {
-    document.body.style.overflow = ''
-    run(prop.onClose, node)
-  }
-
-  /**
-   * 关闭动画结束执行的回调
-   *
-   * @param { Object } node 元素节点
-   */
-  const handleCloseEnd = (node: Element): void => {
-    run(prop.onCloseEnd, node)
-  }
 
   /** 点击遮罩层关闭 */
   const closePopup = (): void => {
@@ -92,7 +53,7 @@
           <transition name="f-drawer__container-trans">
             <div v-show="isVisible" class="f-drawer__container">
               <!-- 头部 -->
-              <header class="f-drawer__header">
+              <header v-if="showHeader" class="f-drawer__header">
                 <slot name="header">
                   <span class="f-drawer__header-title">{{ title }}</span>
                   <f-close-btn

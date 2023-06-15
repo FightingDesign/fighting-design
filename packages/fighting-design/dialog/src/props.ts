@@ -8,7 +8,7 @@ import {
 } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { FightingIcon } from '../../_interface'
-import type { PopupCallback } from '../../popup'
+import type { DialogCallback } from './interface'
 
 export const Props = {
   /** 绑定值，控制是否展示 */
@@ -28,6 +28,8 @@ export const Props = {
   showMask: setBooleanProp(true),
   /** 是否点击遮罩层关闭 */
   maskClose: setBooleanProp(true),
+  /** 是否展示头部 */
+  showHeader: setBooleanProp(true),
   /** 是否模糊遮罩层 */
   maskBlur: setBooleanProp(),
   /** 是否展示关闭图标 */
@@ -41,13 +43,13 @@ export const Props = {
    */
   zIndex: setNumberProp(1999),
   /** 打开动画开始的回调 */
-  onOpen: setFunctionProp<PopupCallback>(),
+  onOpen: setFunctionProp<DialogCallback>(),
   /** 打开动画结束的回调 */
-  onOpenEnd: setFunctionProp<PopupCallback>(),
+  onOpenEnd: setFunctionProp<DialogCallback>(),
   /** 关闭动画开始的回调 */
-  onClose: setFunctionProp<PopupCallback>(),
+  onClose: setFunctionProp<DialogCallback>(),
   /** 关闭动画结束的回调 */
-  onCloseEnd: setFunctionProp<PopupCallback>()
+  onCloseEnd: setFunctionProp<DialogCallback>()
 } as const
 
 /** dialog 组件 props 类型 */
