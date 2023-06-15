@@ -91,9 +91,6 @@ export * from './notification'
 export { FPageHeader } from './page-header'
 export * from './page-header'
 
-export { FPopup } from './popup'
-export * from './popup'
-
 export { FProgress } from './progress'
 export * from './progress'
 

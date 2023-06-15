@@ -59,7 +59,6 @@ declare module 'vue' {
     FInput: typeof components.FInput
     FTabs: typeof components.FTabs
     FTabsPane: typeof components.FTabsPane
-    FPopup: typeof components.FPopup
     FPagination: typeof components.FPagination
     FCheckbox: typeof components.FCheckbox
     FCheckboxGroup: typeof components.FCheckboxGroup

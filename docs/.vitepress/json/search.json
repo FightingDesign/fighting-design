@@ -231,11 +231,6 @@
       "url": "components/tooltip"
     },
     {
-      "title": "Popup 弹出窗口",
-      "rule": "popupPopup弹出窗口",
-      "url": "components/popup"
-    },
-    {
       "title": "Swap 切换",
       "rule": "swapSwap 切换",
       "url": "components/swap"

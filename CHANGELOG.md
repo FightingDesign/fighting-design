@@ -4,6 +4,8 @@
 
 - 优化 `f-text` 组件样式细节
 - 废除 `f-dialog` height 配置项
+- 废除 `f-popup` 组件
+- 重构 `f-dialog` `f-drawer` 组件
 
 ## 0.41.0 (2023-06-04)
 
