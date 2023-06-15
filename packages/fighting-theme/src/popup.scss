@@ -31,12 +31,12 @@
     left: 0;
     z-index: 1999;
     transition: 0.3s;
-
+    overflow: auto;
+    
     // 主容器
     .f-popup__wrapper {
       position: absolute;
       box-sizing: border-box;
-      overflow-x: auto;
       background-color: #fff;
       width: var(--popup-width);
       height: var(--popup-height);
@@ -66,14 +66,18 @@
 
   // 主容器居中
   &__center .f-popup__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 100%;
+      vertical-align: middle;
+    }
 
     .f-popup__wrapper {
-      border-radius: 6px;
-      max-height: calc(100vh - 70px);
-      max-width: calc(100vw - 100px);
+      display: inline-block;
 
       &-transition-enter-from,
       &-transition-leave-to {

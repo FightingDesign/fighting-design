@@ -1,87 +1,149 @@
 .f-dialog {
-  border-radius: 4px;
-  min-width: var(--dialog-width, 400px);
-  max-width: inherit;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: var(--popup-z-index, 2000);
 
-  // 头部
-  &__header {
-    display: flex;
-    align-items: center;
-    height: 55px;
-    min-height: 56px;
-    width: 100%;
-    max-width: inherit;
-    border-bottom: 1px solid #eee;
+  // 遮罩层
+  &__mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: var(--popup-mask-opacity, 0.4);
+    background-color: var(--popup-mask-background, #000);
+  }
 
-    // 前缀
-    &-before {
-      width: 56px;
+  // 高斯模糊遮罩层
+  &__mask-blur .f-dialog__mask {
+    backdrop-filter: blur(2px);
+  }
+
+  // 主容器公共样式
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1999;
+    transition: 0.3s;
+    overflow: auto;
+    text-align: center;
+
+    // 主要内容容器
+    .f-dialog__container {
+      background-color: #fff;
       display: inline-block;
-      margin-left: 13px;
-      margin-right: auto;
+      top: 0;
+      position: relative;
+      border-radius: 6px;
+      padding: var(--dialog-padding);
+      width: var(--dialog-width);
+
+      // 头部
+      .f-dialog__header {
+        display: flex;
+        align-items: center;
+        height: 55px;
+        min-height: 56px;
+        width: 100%;
+        max-width: inherit;
+        border-bottom: 1px solid #eee;
+
+        // 前缀
+        &-before {
+          width: 56px;
+          display: inline-block;
+          margin-left: 13px;
+          margin-right: auto;
+        }
+
+        // 中间的标题
+        &-center {
+          color: rgb(95, 99, 104);
+          font-size: 17px;
+          font-weight: normal;
+          line-height: 22px;
+          text-align: center;
+          width: 100%;
+        }
+
+        // 后缀
+        &-after {
+          width: 56px;
+          display: inline-block;
+          margin-left: auto;
+          margin-right: 4px;
+        }
+      }
+
+      // 身体
+      .f-dialog__body {
+        box-sizing: border-box;
+        padding: 15px;
+        text-align: left;
+      }
+
+      // 页脚
+      .f-dialog__footer {
+        padding: 10px 14px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        border-top: 1px solid #eee;
+      }
+
+      // 主内容动画样式
+      &-trans-enter-active,
+      &-trans-leave-active {
+        transition: all 0.2s ease-out;
+      }
+
+      &-trans-enter-from,
+      &-trans-leave-to {
+        transform: scale(0.4);
+        opacity: 0;
+      }
     }
 
-    // 中间的标题
-    &-center {
-      color: rgb(95, 99, 104);
-      font-size: 17px;
-      font-weight: normal;
-      line-height: 22px;
-      text-align: center;
-      width: 100%;
-    }
-
-    // 后缀
-    &-after {
-      width: 56px;
+    &::after {
+      content: '';
       display: inline-block;
-      margin-left: auto;
-      margin-right: 4px;
+      width: 0;
+      height: 100%;
+      vertical-align: middle;
     }
   }
 
-  // 身体
-  &__body {
-    max-width: inherit;
-    max-height: calc(100vh - 70px - 55px);
-    min-height: var(--dialog-height);
-    box-sizing: border-box;
-    overflow: auto;
-    background: #fff;
+  // 遮罩层动画
+  &__trans-enter-active {
+    transition: all 0.2s ease-out;
+  }
 
-    // 主内容
-    .f-dialog__section {
-      padding: 15px;
-      box-sizing: border-box;
-      min-height: inherit;
-    }
+  &__trans-leave-active {
+    transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+  }
 
-    // 页脚
-    .f-dialog__footer {
-      padding: 10px 14px;
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: flex-end;
-      align-items: center;
-      border-top: 1px solid #eee;
-    }
+  &__trans-enter-from,
+  &__trans-leave-to {
+    opacity: 0;
   }
 
   // 全屏展示
   &.f-dialog__fullscreen {
-    min-width: 100vw;
-    min-height: 100vh;
-    border-radius: 0;
-
-    .f-dialog__body {
-      max-width: 100vw;
-      max-height: calc(100vh - 55px);
-      height: calc(100vh - 55px);
+    .f-dialog__wrapper {
       overflow: hidden;
 
-      .f-dialog__section {
+      .f-dialog__container {
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0;
         overflow: auto;
-        height: calc(100% - 56px);
       }
     }
   }

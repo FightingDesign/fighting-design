@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 优化 `f-text` 组件样式细节
+- 废除 `f-dialog` height 配置项
+
 ## 0.41.0 (2023-06-04)
 
 **修复**
