@@ -14,6 +14,7 @@
 - 新增 `f-dialog` 组件 `mask-background` `mask-opacity` `show-header` 配置项
 - 新增 `f-drawer` 组件 `mask-background` `mask-opacity` `show-header` 配置项
 - 修复 `f-up-load` 继续多选重置之前文件的问题
+- 修复 `f-collapse-animation` 组件初始展开关闭时动画失效的问题
 
 ## 0.41.0 (2023-06-04)
 
