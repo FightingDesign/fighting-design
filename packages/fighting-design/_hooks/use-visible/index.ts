@@ -12,6 +12,7 @@ import type { Ref } from 'vue'
 export interface UseVisibleReturn {
   isVisible: Ref<boolean>
   closeVisible: () => void
+  maskClose: () => void
 }
 
 /**
@@ -32,14 +33,14 @@ export type UseVisibleEmit = (event: 'update:visible', val: boolean) => void
  * @returns { Object }
  */
 export const useVisible = (
-  visible: Ref<boolean>,
+  prop: { visible: boolean, maskClose: boolean },
   emit: UseVisibleEmit,
   callback?: Function
 ): UseVisibleReturn => {
   const { run } = useRun()
 
   /** 是否展示 */
-  const isVisible = ref<boolean>(visible.value)
+  const isVisible = ref<boolean>(prop.visible)
 
   /**
    * 关闭
@@ -66,7 +67,7 @@ export const useVisible = (
 
   /** 监视数据更新绑定值 */
   watch(
-    (): boolean => visible.value,
+    (): boolean => prop.visible,
     /**
      * @param { boolean } newVal 最新值
      */
@@ -75,8 +76,15 @@ export const useVisible = (
     }
   )
 
+  /** 点击遮罩层关闭 */
+  const maskClose = (): void => {
+    if (!prop.maskClose) return
+    closeVisible()
+  }
+
   return {
     isVisible,
-    closeVisible
+    closeVisible,
+    maskClose
   }
 }

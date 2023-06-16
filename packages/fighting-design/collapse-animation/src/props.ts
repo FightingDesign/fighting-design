@@ -1,6 +1,6 @@
 import { setBooleanProp, setFunctionProp, setNumberProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import type { PopupCallback } from '../../popup'
+import type { DialogCallback } from '../../dialog'
 
 export const Props = {
   /** 是否展开 */
@@ -12,13 +12,13 @@ export const Props = {
   /** 过度动画时间 */
   animationTime: setNumberProp(),
   /** 打开动画开始的回调 */
-  onOpen: setFunctionProp<PopupCallback>(),
+  onOpen: setFunctionProp<DialogCallback>(),
   /** 关闭动画开始的回调 */
-  onClose: setFunctionProp<PopupCallback>(),
+  onClose: setFunctionProp<DialogCallback>(),
   /** 打开动画结束的回调 */
-  onOpenEnd: setFunctionProp<PopupCallback>(),
+  onOpenEnd: setFunctionProp<DialogCallback>(),
   /** 关闭动画结束的回调 */
-  onCloseEnd: setFunctionProp<PopupCallback>()
+  onCloseEnd: setFunctionProp<DialogCallback>()
 } as const
 
 /** collapse-animation 组件 props 类型 */

@@ -85,16 +85,16 @@
 
 ## Attributes
 
-| 参数              | 说明               | 类型                                                        | 可选值 | 默认值 |
-| ----------------- | ------------------ | ----------------------------------------------------------- | ------ | ------ |
-| `opened`          | 是否打开           | boolean                                                     | ——     | false  |
-| `disabled`        | 是否禁用           | boolean                                                     | ——     | false  |
-| `width-animation` | 是否宽度自适应     | boolean                                                     | ——     | false  |
-| `animation-time`  | 动画时间           | number                                                      | ——     | 0.747  |
-| `on-open`         | 打开动画开始的回调 | <a href="/components/popup#popupcallback">PopupCallback</a> | ——     | ——     |
-| `on-open-end`     | 打开动画结束的回调 | <a href="/components/popup#popupcallback">PopupCallback</a> | ——     | ——     |
-| `on-close`        | 关闭动画开始的回调 | <a href="/components/popup#popupcallback">PopupCallback</a> | ——     | ——     |
-| `on-close-end`    | 关闭动画结束的回调 | <a href="/components/popup#popupcallback">PopupCallback</a> | ——     | ——     |
+| 参数              | 说明               | 类型                                                                | 可选值 | 默认值 |
+| ----------------- | ------------------ | ------------------------------------------------------------------- | ------ | ------ | --- |
+| `opened`          | 是否打开           | boolean                                                             | ——     | false  |
+| `disabled`        | 是否禁用           | boolean                                                             | ——     | false  |
+| `width-animation` | 是否宽度自适应     | boolean                                                             | ——     | false  |
+| `animation-time`  | 动画时间           | number                                                              | ——     | 0.747  |
+| `on-open`         | 打开动画开始的回调 | <a href="/components/dialog.html#dialogcallback">DialogCallback</a> |        | ——     | ——  |
+| `on-open-end`     | 打开动画结束的回调 | <a href="/components/dialog.html#dialogcallback">DialogCallback</a> |        | ——     | ——  |
+| `on-close`        | 关闭动画开始的回调 | <a href="/components/dialog.html#dialogcallback">DialogCallback</a> |        | ——     | ——  |
+| `on-close-end`    | 关闭动画结束的回调 | <a href="/components/dialog.html#dialogcallback">DialogCallback</a> |        | ——     | ——  |
 
 ## Slots
 

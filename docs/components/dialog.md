@@ -135,18 +135,18 @@
 | `title`           | 标题文字内容                                                                        | string                                                             | ——     | ——     |
 | `append-to-body`  | 是否追加到 body                                                                     | boolean                                                            | ——     | false  |
 | `width`           | 自定义宽度                                                                          | string / number                                                    | ——     | ——     |
-| `height`          | 自定义高度                                                                          | string / number                                                    | ——     | ——     |
 | `fullscreen`      | 是否全屏展示                                                                        | boolean                                                            | ——     | false  |
 | `show-mask`       | 是否展示遮罩层                                                                      | boolean                                                            | ——     | true   |
+| `show-header`     | 是否展示头部                                                                        | boolean                                                            | ——     | true   |
 | `mask-close`      | 是否点击遮罩层关闭                                                                  | boolean                                                            | ——     | true   |
 | `modal-blur`      | 是否模糊遮罩层                                                                      | boolean                                                            | ——     | false  |
 | `close-icon`      | 自定义关闭按钮 icon                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
 | `show-close-icon` | 是否展示关闭图标                                                                    | boolean                                                            | ——     | true   |
 | `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                             | ——     | 1999   |
-| `on-open`         | 打开动画开始的回调                                                                  | <a href="/components/popup.html#popupcallback">PopupCallback</a>   | ——     | ——     |
-| `on-open-end`     | 打开动画结束的回调                                                                  | <a href="/components/popup.html#popupcallback">PopupCallback</a>   | ——     | ——     |
-| `on-close`        | 关闭动画开始的回调                                                                  | <a href="/components/popup.html#popupcallback">PopupCallback</a>   | ——     | ——     |
-| `on-close-end`    | 关闭动画结束的回调                                                                  | <a href="/components/popup.html#popupcallback">PopupCallback</a>   | ——     | ——     |
+| `on-open`         | 打开动画开始的回调                                                                  | <a href="#dialogcallback">DialogCallback</a>                       | ——     | ——     |
+| `on-open-end`     | 打开动画结束的回调                                                                  | <a href="#dialogcallback">DialogCallback</a>                       | ——     | ——     |
+| `on-close`        | 关闭动画开始的回调                                                                  | <a href="#dialogcallback">DialogCallback</a>                       | ——     | ——     |
+| `on-close-end`    | 关闭动画结束的回调                                                                  | <a href="#dialogcallback">DialogCallback</a>                       | ——     | ——     |
 
 ## Slots
 
@@ -162,7 +162,13 @@
 组件导出以下类型定义：
 
 ```ts
-import type { DialogInstance, DialogProps } from 'fighting-design'
+import type { DialogInstance, DialogProps, DialogCallback } from 'fighting-design'
+```
+
+### DialogCallback
+
+```ts
+type DialogCallback = (node: Element) => void
 ```
 
 ## Contributors

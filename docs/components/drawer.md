@@ -71,7 +71,7 @@
 <template>
   <f-button type="primary" @click="visible4 = true">打开</f-button>
 
-  <f-drawer title="Title" size="50%" append-to-body v-model:visible="visible4">
+  <f-drawer title="Title" append-to-body v-model:visible="visible4">
     <f-button type="primary" @click="visible5 = true">打开内层 drawer</f-button>
     <f-drawer title="Title" v-model:visible="visible5"> 内层 drawer </f-drawer>
   </f-drawer>
@@ -89,23 +89,23 @@
 
 ## Attributes
 
-| 参数              | 说明                                                                                | 类型                                                               | 可选值                        | 默认值 |
-| ----------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------- | ------ |
-| `v-model:visible` | 绑定值，控制是否展示                                                                | boolean                                                            | ——                            | false  |
-| `append-to-body`  | 是否追加到 body                                                                     | boolean                                                            | ——                            | false  |
-| `direction`       | 弹出方向                                                                            | <a href="#drawerdirection">DrawerDirection</a>                     | `top` `left` `bottom` `right` | right  |
-| `size`            | 大小尺寸                                                                            | string / number                                                    | ——                            | 30%    |
-| `title`           | 标题文字内容                                                                        | string                                                             | ——                            | ——     |
-| `show-mask`       | 是否展示遮罩层                                                                      | boolean                                                            | ——                            | true   |
-| `mask-close`      | 点击遮罩层是否可关闭                                                                | boolean                                                            | ——                            | true   |
-| `modal-blur`      | 是否模糊遮罩层                                                                      | boolean                                                            | ——                            | false  |
-| `close-icon`      | 自定义关闭按钮 icon                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                            | ——     |
-| `show-close-icon` | 是否展示关闭按钮                                                                    | boolean                                                            | ——                            | true   |
-| `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                             | ——                            | ——     |
-| `on-open`         | 打开动画开始的回调                                                                  | <a href="/components/popup.html#popupcallback">PopupCallback</a>   | ——                            | ——     |
-| `on-open-end`     | 打开动画结束的回调                                                                  | <a href="/components/popup.html#popupcallback">PopupCallback</a>   | ——                            | ——     |
-| `on-close`        | 关闭动画开始的回调                                                                  | <a href="/components/popup.html#popupcallback">PopupCallback</a>   | ——                            | ——     |
-| `on-close-end`    | 关闭动画结束的回调                                                                  | <a href="/components/popup.html#popupcallback">PopupCallback</a>   | ——                            | ——     |
+| 参数              | 说明                                                                                | 类型                                                                | 可选值                        | 默认值 |
+| ----------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------- | ------ |
+| `v-model:visible` | 绑定值，控制是否展示                                                                | boolean                                                             | ——                            | false  |
+| `append-to-body`  | 是否追加到 body                                                                     | boolean                                                             | ——                            | false  |
+| `direction`       | 弹出方向                                                                            | <a href="#drawerdirection">DrawerDirection</a>                      | `top` `left` `bottom` `right` | right  |
+| `title`           | 标题文字内容                                                                        | string                                                              | ——                            | ——     |
+| `show-mask`       | 是否展示遮罩层                                                                      | boolean                                                             | ——                            | true   |
+| `show-header`     | 是否展示头部                                                                        | boolean                                                             | ——                            | true   |
+| `mask-close`      | 点击遮罩层是否可关闭                                                                | boolean                                                             | ——                            | true   |
+| `modal-blur`      | 是否模糊遮罩层                                                                      | boolean                                                             | ——                            | false  |
+| `close-icon`      | 自定义关闭按钮 icon                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a>  | ——                            | ——     |
+| `show-close-icon` | 是否展示关闭按钮                                                                    | boolean                                                             | ——                            | true   |
+| `z-index`         | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                              | ——                            | ——     |
+| `on-open`         | 打开动画开始的回调                                                                  | <a href="/components/dialog.html#dialogcallback">DialogCallback</a> | ——                            | ——     |
+| `on-open-end`     | 打开动画结束的回调                                                                  | <a href="/components/dialog.html#dialogcallback">DialogCallback</a> | ——                            | ——     |
+| `on-close`        | 关闭动画开始的回调                                                                  | <a href="/components/dialog.html#dialogcallback">DialogCallback</a> | ——                            | ——     |
+| `on-close-end`    | 关闭动画结束的回调                                                                  | <a href="/components/dialog.html#dialogcallback">DialogCallback</a> | ——                            | ——     |
 
 ## Slots
 

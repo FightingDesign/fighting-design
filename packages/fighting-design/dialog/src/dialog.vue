@@ -2,7 +2,6 @@
   import { Props } from './props'
   import { FCloseBtn } from '../../close-btn'
   import { useTransition } from '../../_hooks'
-  import { toRef } from 'vue'
   import { useVisible, useList } from '../../_hooks'
   import { EMIT_VISIBLE } from '../../_tokens'
 
@@ -12,7 +11,7 @@
   const emit = defineEmits([EMIT_VISIBLE])
 
   const { styles, classes } = useList(prop, 'dialog')
-  const { isVisible, closeVisible } = useVisible(toRef(prop, 'visible'), emit)
+  const { isVisible, closeVisible, maskClose } = useVisible(prop, emit)
   const { handleOpen, handleOpenEnd, handleClose, handleCloseEnd } = useTransition(prop)
 
   /** 样式列表 */
@@ -20,12 +19,6 @@
 
   /** 类名列表 */
   const classList = classes(['fullscreen', 'maskBlur'], 'f-dialog')
-
-  /** 点击遮罩层关闭 */
-  const closePopup = (): void => {
-    if (!prop.maskClose) return
-    emit(EMIT_VISIBLE, false)
-  }
 </script>
 
 <template>
@@ -49,7 +42,7 @@
         <div v-if="showMask" class="f-dialog__mask" />
 
         <!-- 主内容 -->
-        <div class="f-dialog__wrapper" @click.self="closePopup">
+        <div class="f-dialog__wrapper" @click.self="maskClose">
           <transition name="f-dialog__container-trans">
             <div v-show="isVisible" class="f-dialog__container">
               <!-- 头部 -->
