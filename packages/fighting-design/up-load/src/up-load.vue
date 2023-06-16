@@ -21,11 +21,11 @@
   const fileList = ref<File[]>()
 
   /** 文件上传输入框 */
-  const inputEl = ref<HTMLInputElement>()
+  const inputRef = ref<HTMLInputElement | undefined>()
 
   /** 点击上传 */
   const handleClick = (): void => {
-    inputEl.value && inputEl.value.click()
+    inputRef.value && inputRef.value.click()
   }
 
   /**
@@ -34,8 +34,13 @@
    * @param { Array } files 文件列表
    */
   const updateFiles = (files: File[]): void => {
-    fileList.value = files
-    emit(EMIT_FILES, files)
+    if (fileList.value && fileList.value.length) {
+      fileList.value.push(...files)
+    } else {
+      fileList.value = files
+    }
+
+    emit(EMIT_FILES, fileList.value)
     run(prop.onLoad, files)
   }
 
@@ -151,7 +156,7 @@
 
     <!-- 文件上传输入框 -->
     <input
-      ref="inputEl"
+      ref="inputRef"
       type="file"
       hidden
       :name="name"

@@ -13,6 +13,7 @@
 - 修复 `f-input` 组件 type 响应式丢失问题
 - 新增 `f-dialog` 组件 `mask-background` `mask-opacity` `show-header` 配置项
 - 新增 `f-drawer` 组件 `mask-background` `mask-opacity` `show-header` 配置项
+- 修复 `f-up-load` 继续多选重置之前文件的问题
 
 ## 0.41.0 (2023-06-04)
 
