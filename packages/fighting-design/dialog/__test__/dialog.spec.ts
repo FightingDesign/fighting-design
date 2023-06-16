@@ -8,7 +8,7 @@ describe('FDialog', () => {
     const wrapper = mount(FDialog, {
       props: { visible: true }
     })
-    expect(wrapper.find('div').classes()).toContain('f-popup')
+    expect(wrapper.find('div').classes()).toContain('f-dialog')
   })
 
   test('title', () => {
@@ -26,7 +26,7 @@ describe('FDialog', () => {
         appendToBody: true
       }
     })
-    expect(wrapper.find('.f-popup .f-dialog').exists()).toBe(false)
+    expect(wrapper.find('.f-dialog .f-dialog').exists()).toBe(false)
     expect(document.body.innerHTML).toContain('f-dialog')
   })
 
@@ -64,7 +64,7 @@ describe('FDialog', () => {
         showMask: true
       }
     })
-    expect(wrapper.find('.f-popup__mask').exists()).toBeTruthy()
+    expect(wrapper.find('.f-dialog__mask').exists()).toBeTruthy()
   })
 
   test('maskClose', async () => {
@@ -74,8 +74,8 @@ describe('FDialog', () => {
         showMask: true
       }
     })
-    await wrapper.get('.f-popup__container').trigger('click.self')
-    expect(wrapper.emitted(EMIT_VISIBLE)?.[0][0]).toBe(false)
+    await wrapper.get('.f-dialog__wrapper').trigger('click.self')
+    expect((wrapper.emitted(EMIT_VISIBLE)?.[0] as boolean[])[0]).toBe(false)
     await wrapper.setProps({ visible: false })
     expect(wrapper.find('.f-dialog').isVisible()).toBe(false)
   })
@@ -88,7 +88,7 @@ describe('FDialog', () => {
         maskBlur: true
       }
     })
-    expect(wrapper.find('.f-popup').classes()).toContain('f-popup__mask-blur')
+    expect(wrapper.find('.f-dialog').classes()).toContain('f-dialog__mask-blur')
   })
 
   test('showCloseIcon', () => {
@@ -108,6 +108,6 @@ describe('FDialog', () => {
         zIndex: 999
       }
     })
-    expect(wrapper.find('.f-popup').attributes().style).toContain('z-index: 999;')
+    expect(wrapper.find('.f-dialog').attributes().style).toContain('z-index: 999;')
   })
 })

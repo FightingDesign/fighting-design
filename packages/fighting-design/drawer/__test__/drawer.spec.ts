@@ -5,7 +5,7 @@ import { FDrawer } from '../index'
 describe('FDrawer', () => {
   test('class', () => {
     const wrapper = mount(FDrawer)
-    expect(wrapper.find('div').classes()).toContain('f-popup')
+    expect(wrapper.find('div').classes()).toContain('f-drawer')
   })
 
   test('title', () => {
