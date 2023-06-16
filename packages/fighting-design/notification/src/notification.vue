@@ -23,7 +23,6 @@
     classList,
     styleList,
     visible,
-    isPosition,
     offsetStyle,
     offsetVal,
     onBeforeLeave,
@@ -52,13 +51,17 @@
     return icons[prop.type]
   })
 
+  /** 是否为右侧弹出 */
+  const isRight = computed((): boolean => prop.placement.includes('right'))
+
   defineExpose({ offsetVal })
 </script>
 
 <template>
   <transition
     mode="out-in"
-    :name="`f-notification-fade` + (isPosition ? '-right' : '-left')"
+    appear
+    :name="`f-notification-fade` + (isRight ? '-right' : '-left')"
     @before-leave="onBeforeLeave"
     @after-leave="onAfterLeave"
   >

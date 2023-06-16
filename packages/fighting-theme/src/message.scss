@@ -7,7 +7,7 @@
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  box-shadow: #ededed 1px 1px 7px, #ededed -1px -1px 7px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   align-items: center;
   max-width: 500px;
   transition: all 0.4s ease-out;
@@ -59,10 +59,6 @@
   &__before_icon {
     margin-right: 10px;
   }
-
-  // &__icon {
-  //   margin-right: 10px;
-  // }
 
   &-fade-top-enter-active,
   &-fade-bottom-enter-active {

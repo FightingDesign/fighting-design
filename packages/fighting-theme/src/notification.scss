@@ -10,7 +10,7 @@
   overflow: hidden;
   display: flex;
   align-items: flex-start;
-  box-shadow: #ededed 1px 1px 7px, #ededed -1px -1px 7px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease-out;
   z-index: var(--notification-z-index, 4000);
   background: var(--notification-background, #fff);
@@ -84,37 +84,25 @@
     right: 12px;
   }
 
+  // 左右动画
   &-fade-right-enter-active,
-  &-fade-left-enter-active {
-    transition: all 0.15s ease-out;
-  }
-
   &-fade-right-leave-active,
+  &-fade-left-enter-active,
   &-fade-left-leave-active {
-    transition: all 0.15s cubic-bezier(1, 0.5, 0.8, 1);
+    transition: all 0.3s ease-out;
   }
 
+  // 右侧弹出
   &-fade-right-enter-from,
   &-fade-right-leave-to {
-    opacity: 0;
     transform: translateX(100%);
-  }
-
-  &__right.f-notification-fade-right-enter-from,
-  &__right.f-notification-fade-right-leave-to {
     opacity: 0;
-    transform: translate(-50%, -100%);
   }
 
+  // 左侧弹出
   &-fade-left-enter-from,
   &-fade-left-leave-to {
-    opacity: 0;
     transform: translateX(-100%);
-  }
-
-  &__left.f-notification-fade-left-enter-from,
-  &__left.f-notification-fade-left-leave-to {
     opacity: 0;
-    transform: translate(-50%, 100%);
   }
 }

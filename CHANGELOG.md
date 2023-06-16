@@ -8,6 +8,9 @@
 - 废除 `f-popup` 组件
 - 重构 `f-dialog` `f-drawer` 组件
 - `f-drawer` `f-dialog` 组件新增 `show-header` 配置项
+- 优化 `f-message` 组件样式细节
+- 优化 `f-notification` 组件样式细节
+- 修复 `f-notification` 动画失效问题
 
 ## 0.41.0 (2023-06-04)
 
