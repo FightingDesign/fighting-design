@@ -3,7 +3,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FButton } from '../../button'
   import { FSwap } from '../../swap'
-  import { ref, toRefs, computed } from 'vue'
+  import { ref, toRefs, computed, watchEffect } from 'vue'
   import { FIconCross, FIconEyeOffOutline, FIconEyeOutline } from '../../_svg'
   import { EMIT_UPDATE } from '../../_tokens'
   import { useInput, useRun, useList, useGlobal, useModel } from '../../_hooks'
@@ -31,6 +31,10 @@
 
   /** type 类型 */
   const inputType = ref<InputType>(prop.type)
+
+  watchEffect((): void => {
+    inputType.value = prop.type
+  })
 
   /** 主要的描述文字内容 */
   const searchText = computed((): string => getLang('input').value.search)
