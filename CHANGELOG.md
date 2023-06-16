@@ -2,19 +2,32 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.42.0 (2023-06-16)
+
+**修复**
+
+- 修复 `f-notification` 动画失效问题
+- 修复 `f-input` 组件 type 响应式丢失问题
+- 修复 `f-up-load` 继续多选重置之前文件的问题
+- 修复 `f-collapse-animation` 组件初始展开关闭时动画失效的问题
+
+**优化**
+
+- 优化 `f-message` 组件样式细节
+- 优化 `f-notification` 组件样式细节
 - 优化 `f-text` 组件样式细节
+
+**废除**
+
 - 废除 `f-dialog` height 配置项
 - 废除 `f-drawer` size 配置项
 - 废除 `f-popup` 组件
 - 重构 `f-dialog` `f-drawer` 组件
-- 优化 `f-message` 组件样式细节
-- 优化 `f-notification` 组件样式细节
-- 修复 `f-notification` 动画失效问题
-- 修复 `f-input` 组件 type 响应式丢失问题
+
+**新增**
+
 - 新增 `f-dialog` 组件 `mask-background` `mask-opacity` `show-header` 配置项
 - 新增 `f-drawer` 组件 `mask-background` `mask-opacity` `show-header` 配置项
-- 修复 `f-up-load` 继续多选重置之前文件的问题
-- 修复 `f-collapse-animation` 组件初始展开关闭时动画失效的问题
 
 ## 0.41.0 (2023-06-04)
 

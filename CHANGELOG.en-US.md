@@ -4,6 +4,33 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.42.0 (2023-06-16)
+
+**Fix**
+
+- Fix animation invalidation issue with `f-notification`
+- Fix the issue of `f-input` component type responsive loss
+- Fix the issue with `f-up load` continuing to reset previous files with multiple selections
+- Fix the issue of animation failure when the `f-collapse-animation` component is initially expanded and closed
+
+**Optimization**
+
+- Optimize `f-message` component style details
+- Optimize `f-notification` component style details
+- Optimize `f-text` component style details
+
+**Abolish**
+
+- Abolish the `f-dialog` height configuration item
+- Abolish the `f-drawer` size configuration item
+- Abolish the `f-popup` component
+- Refactoring the `f-dialog` and `f-drawer` components
+
+**Add**
+
+- Add `f-dialog` component `mask-background` `mask-opacity` `show-header` configuration item
+- Add `f-drawer` component `mask-background` `mask-opacity` `show-header` configuration item
+
 ## 0.41.0 (2023-06-04)
 
 **Fix**
@@ -45,7 +72,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 **Add**
 
-- Add `width-animation`, `animation-time`, `on-open`, `on-close`, `on-open-end`, and `on-close-end` configuration items to the `f collapse-animation` component
+- Add `width-animation`, `animation-time`, `on-open`, `on-close`, `on-open-end`, and `on-close-end` configuration items to the `f-collapse-animation` component
 
 ## 0.40.1 (2023-05-19)
 
