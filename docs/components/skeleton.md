@@ -18,9 +18,10 @@
 
 ```html
 <f-skeleton />
-
 <f-skeleton />
 ```
+
+:::
 
 ## 多行骨架屏
 
@@ -51,7 +52,6 @@
 
 ```html
 <f-skeleton animated />
-
 <f-skeleton round animated />
 ```
 
