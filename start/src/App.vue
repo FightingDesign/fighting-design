@@ -1,10 +1,23 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const files1 = ref([])
+  const isOpen = ref(false)
 </script>
 
 <template>
-  {{ files1 }}
-  <f-up-load v-model:files="files1" multiple show-list />
+  <f-switch v-model="isOpen" />
+
+  <f-collapse-animation :opened="isOpen">
+    <p>11111</p>
+    <p>11111</p>
+    <p>11111</p>
+    <p>11111</p>
+    <p>11111</p>
+    <p>11111</p>
+    <p>11111</p>
+    <p>11111</p>
+    <p>11111</p>
+    <p>11111</p>
+    <p>222222</p>
+  </f-collapse-animation>
 </template>
