@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.43.1 (2023-06-16)
+
+- Fix `f-dialog` component style details
+
 ## 0.42.0 (2023-06-16)
 
 **Fix**

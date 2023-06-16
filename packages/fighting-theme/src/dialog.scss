@@ -38,9 +38,10 @@
     .f-dialog__container {
       background-color: #fff;
       display: inline-block;
-      top: 0;
+      top: 20px;
       position: relative;
       border-radius: 6px;
+      vertical-align: middle;
       padding: var(--dialog-padding);
       width: var(--dialog-width);
 
@@ -115,8 +116,8 @@
       content: '';
       display: inline-block;
       width: 0;
-      height: 100%;
       vertical-align: middle;
+      height: 100%;
     }
   }
 
