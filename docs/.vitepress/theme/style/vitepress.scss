@@ -85,15 +85,35 @@
   border: none;
 }
 
+// 菜单栏基础样式
 .VPSidebarItem .items .VPSidebarItem .item .VPLink .text {
   padding-left: 20px;
+  display: flex;
+  align-items: center;
+  padding: 8px 30px;
+  transition: 0.3s;
+  box-sizing: border-box;
+  border-radius: 40px;
 }
 
-.VPSidebarItem .items .is-active {
-  background-color: lighten(#2d5af1, 39%);
-  box-sizing: border-box;
+// 菜单栏选中样式
+.VPSidebarItem .items .VPSidebarItem.is-active .item .VPLink .text {
+  background-color: #0057fc;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.outline-link {
+  border-radius: 20px;
+  background-color: transparent;
   transition: 0.3s;
-  border-radius: 0 40px 40px 0;
+  padding: 2px 15px;
+
+  &.active {
+    background-color: #0057fc;
+    color: #fff !important;
+    font-weight: bold;
+  }
 }
 
 // 菜单栏
