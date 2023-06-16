@@ -29,6 +29,10 @@ export const Props = {
   maskClose: setBooleanProp(true),
   /** 是否模糊遮罩层 */
   maskBlur: setBooleanProp(),
+  /** 遮罩层透明度 */
+  maskOpacity: setNumberProp(),
+  /** 遮罩层背景色 */
+  maskBackground: setStringProp(),
   /**是否展示关闭按钮 */
   showCloseIcon: setBooleanProp(true),
   /** 自定义关闭按钮 icon */

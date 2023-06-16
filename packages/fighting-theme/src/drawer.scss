@@ -4,7 +4,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: var(--popup-z-index, 2000);
+  z-index: var(--drawer-z-index, 2000);
 
   // 不同方向
   &__top .f-drawer__container {
@@ -62,8 +62,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    opacity: var(--popup-mask-opacity, 0.4);
-    background-color: var(--popup-mask-background, #000);
+    opacity: var(--drawer-mask-opacity, 0.4);
+    background-color: var(--drawer-mask-background, #000);
   }
 
   // 高斯模糊遮罩层

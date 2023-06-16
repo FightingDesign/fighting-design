@@ -15,7 +15,10 @@
   const { handleOpen, handleOpenEnd, handleClose, handleCloseEnd } = useTransition(prop)
 
   /** 样式列表 */
-  const styleList = styles(['width'])
+  const styleList = styles(
+    ['width', 'zIndex', 'maskBackground', 'maskOpacity'],
+    ['zIndex', 'maskOpacity']
+  )
 
   /** 类名列表 */
   const classList = classes(['fullscreen', 'maskBlur', 'direction'], 'f-drawer')

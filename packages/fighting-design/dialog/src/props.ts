@@ -28,6 +28,10 @@ export const Props = {
   showMask: setBooleanProp(true),
   /** 是否点击遮罩层关闭 */
   maskClose: setBooleanProp(true),
+  /** 遮罩层透明度 */
+  maskOpacity: setNumberProp(),
+  /** 遮罩层背景色 */
+  maskBackground: setStringProp(),
   /** 是否展示头部 */
   showHeader: setBooleanProp(true),
   /** 是否模糊遮罩层 */
@@ -41,7 +45,7 @@ export const Props = {
    *
    * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
    */
-  zIndex: setNumberProp(1999),
+  zIndex: setNumberProp(),
   /** 打开动画开始的回调 */
   onOpen: setFunctionProp<DialogCallback>(),
   /** 打开动画结束的回调 */

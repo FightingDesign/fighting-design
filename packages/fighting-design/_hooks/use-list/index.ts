@@ -101,11 +101,9 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
       if (pixel === key) return val
     } else if (isArray(pixel)) {
       /** 如果为数组类型，则代表有些值不需要添加单位，循环遍历处理 */
-      pixel.forEach((item: string): void | unknown => {
-        if (item === val) {
-          return val
-        }
-      })
+      for (const item of pixel) {
+        if (item === key) return val
+      }
     }
 
     /** 没有进入判断则默认添加 */

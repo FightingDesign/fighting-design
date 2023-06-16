@@ -139,6 +139,8 @@
 | `show-mask`       | 是否展示遮罩层                                                                      | boolean                                                            | ——     | true   |
 | `show-header`     | 是否展示头部                                                                        | boolean                                                            | ——     | true   |
 | `mask-close`      | 是否点击遮罩层关闭                                                                  | boolean                                                            | ——     | true   |
+| `mask-opacity`    | 遮罩层透明度                                                                        | number                                                             | ——     | ——     |
+| `mask-background` | 遮罩层背景色                                                                        | string                                                             | ——     | ——     |
 | `modal-blur`      | 是否模糊遮罩层                                                                      | boolean                                                            | ——     | false  |
 | `close-icon`      | 自定义关闭按钮 icon                                                                 | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
 | `show-close-icon` | 是否展示关闭图标                                                                    | boolean                                                            | ——     | true   |

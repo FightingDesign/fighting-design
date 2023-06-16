@@ -7,11 +7,12 @@
 - 废除 `f-drawer` size 配置项
 - 废除 `f-popup` 组件
 - 重构 `f-dialog` `f-drawer` 组件
-- `f-drawer` `f-dialog` 组件新增 `show-header` 配置项
 - 优化 `f-message` 组件样式细节
 - 优化 `f-notification` 组件样式细节
 - 修复 `f-notification` 动画失效问题
 - 修复 `f-input` 组件 type 响应式丢失问题
+- 新增 `f-dialog` 组件 `mask-background` `mask-opacity` `show-header` 配置项
+- 新增 `f-drawer` 组件 `mask-background` `mask-opacity` `show-header` 配置项
 
 ## 0.41.0 (2023-06-04)
 
