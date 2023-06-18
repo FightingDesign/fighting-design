@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.43.2 (2023-06-18)
+
+- Optimize component style details for `f-bag`, `f-tag`, `f-toolbar`, and `f-table`
+
 ## 0.43.1 (2023-06-16)
 
 - Fix `f-dialog` component style details

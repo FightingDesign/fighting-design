@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.43.2 (2023-06-18)
+
+- 优化 `f-badge` `f-tag` `f-toolbar` `f-table` 组件样式细节
+
 ## 0.43.1 (2023-06-16)
 
 - 修复 `f-dialog` 组件样式细节
