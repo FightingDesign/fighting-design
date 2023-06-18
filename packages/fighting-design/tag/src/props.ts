@@ -7,7 +7,7 @@ import {
 import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
 import type { ExtractPropTypes } from 'vue'
 import type {
-  HandleEvent,
+  HandleMouse,
   FightingType,
   FightingSize,
   FightingIcon
@@ -51,7 +51,9 @@ export const Props = {
   /** 线性的 */
   line: setBooleanProp(),
   /** 点击关闭按钮触发 */
-  onClose: setFunctionProp<HandleEvent>()
+  onClose: setFunctionProp<HandleMouse>(),
+  /** 点击关闭按钮触发 */
+  onClick: setFunctionProp<HandleMouse>()
 } as const
 
 /** tag 组件 props 类型 */

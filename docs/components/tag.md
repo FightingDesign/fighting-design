@@ -180,7 +180,8 @@
 | `size`        | 标签大小               | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                  | small  |
 | `simple`      | 是否为简约模式         | boolean                                                            | ——                                               | false  |
 | `block`       | 是否为块级元素         | boolean                                                            | ——                                               | false  |
-| `on-close`    | 点击关闭按钮触发的回调 | Function                                                           | ——                                               | ——     |
+| `on-close`    | 点击关闭按钮触发的回调 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——                                               | ——     |
+| `on-click`    | 点击执行的回调         | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——                                               | ——     |
 
 ## Slots
 

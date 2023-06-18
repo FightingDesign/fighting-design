@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.44.0 (2023-06-18)
+
+- 修改 `f-tag` 关闭逻辑，从内部状态改为数据启动
+- 新增 `f-tag` 组件 `on-click` 配置项
+
 ## 0.43.3 (2023-06-18)
 
 - 修复 `f-dialog` 样式问题

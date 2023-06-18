@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.44.0 (2023-06-18)
+
+- Modify the `f-tag` to close the logic and change the internal state to data startup
+- Add `f-tag` component `on-click` configuration item
+
 ## 0.43.3 (2023-06-18)
 
 - Fix style issues with `f-dialog`
