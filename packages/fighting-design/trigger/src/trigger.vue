@@ -12,7 +12,7 @@
   /** 触发器节点元素 */
   const triggerEl = ref<HTMLDivElement | undefined>()
 
-  const { classes } = useList(prop, 'trigger')
+  const { classes, styles } = useList(prop, 'trigger')
   const { visible, styleList, close, onBeforeEnter, onAfterLeave } = useTrigger(
     prop,
     triggerEl
@@ -20,6 +20,9 @@
 
   /** 类名列表 */
   const classList = classes(['arrow'], TRIGGER_CONTENT_BOX_CLASS)
+
+  /** 样式列表 */
+  const widthStyle = styles(['width'])
 
   /**
    * 注入关闭方法依赖项
@@ -46,7 +49,7 @@
         @before-enter="onBeforeEnter"
         @after-leave="onAfterLeave"
       >
-        <div v-show="visible" :class="classList" :style="styleList">
+        <div v-show="visible" :class="classList" :style="[styleList, widthStyle]">
           <div class="f-trigger__content">
             <slot name="content" />
           </div>

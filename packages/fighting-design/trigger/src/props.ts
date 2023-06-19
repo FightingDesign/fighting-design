@@ -5,7 +5,7 @@ import {
   setStringProp,
   setFunctionProp
 } from '../../_utils'
-import type { ExtractPropTypes, InjectionKey } from 'vue'
+import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { TriggerTrigger, TriggerProvide, TriggerChange } from './interface'
 
 export const Props = {
@@ -22,6 +22,10 @@ export const Props = {
   trigger: setStringProp<TriggerTrigger>('hover', (val: TriggerTrigger): boolean => {
     return (['hover', 'click'] as const).includes(val)
   }),
+  width: {
+    type: [Number, String] as PropType<number | string>,
+    default: (): null => null
+  },
   /** 是否带有箭头 */
   arrow: setBooleanProp(),
   /** 弹出动画持续时间 */

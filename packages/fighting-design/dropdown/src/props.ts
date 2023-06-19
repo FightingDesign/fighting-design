@@ -5,7 +5,7 @@ import {
   setStringProp,
   setFunctionProp
 } from '../../_utils'
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 import type { TriggerTrigger } from '../../trigger'
 import type { HandleChange } from '../../_interface'
 
@@ -14,6 +14,11 @@ export const Props = {
   spacing: setStringNumberProp(),
   /** 是否禁用 */
   disabled: setBooleanProp(),
+  /** 自定义宽度 */
+  width: {
+    type: [Number, String] as PropType<number | string>,
+    default: (): null => null
+  },
   /**
    * 触发方式：移入、点击
    *

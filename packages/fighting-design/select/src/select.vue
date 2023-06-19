@@ -115,9 +115,10 @@
 
 <template>
   <div class="f-select" :style="styleList">
-    <f-dropdown trigger="click" :disabled="disabled">
+    <f-dropdown trigger="click" :disabled="disabled" :width="width">
       <f-input
         v-model="keyword"
+        readonly
         :name="name"
         :size="size"
         :disabled="disabled"
@@ -126,7 +127,9 @@
       />
 
       <template #content>
-        <slot />
+        <div class="f-select__content">
+          <slot />
+        </div>
       </template>
     </f-dropdown>
   </div>

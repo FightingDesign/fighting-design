@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- `f-select` 组件 `width` 默认值改为 190
+- 新增 `f-trigger` 组件 `width` 配置项
+- 新增 `f-dropdown` 组件 `width` 配置项
+
 ## 0.44.0 (2023-06-18)
 
 - 修改 `f-tag` 关闭逻辑，从内部状态改为数据启动

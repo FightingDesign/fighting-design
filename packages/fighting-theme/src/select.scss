@@ -3,11 +3,25 @@
   display: inline-block;
   cursor: pointer;
 
-  .f-trigger__content-box {
+  &__content {
     width: 100%;
+    max-height: 400px;
+    overflow: auto;
+    width: var(--select-width);
 
-    .f-dropdown__content {
-      width: 100%;
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    /* 滚动条轨道 */
+    &::-webkit-scrollbar-track {
+      background-color: #fff;
+    }
+
+    /* 滚动条滑块 */
+    &::-webkit-scrollbar-thumb {
+      background-color: #dcdcdc;
+      border-radius: 4px;
     }
   }
 }

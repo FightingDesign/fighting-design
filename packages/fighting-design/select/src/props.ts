@@ -14,7 +14,7 @@ export const Props = {
   /** 自定义宽度 */
   width: {
     type: [Number, String] as PropType<number | string>,
-    default: (): null => null
+    default: (): number => 190
   },
   /**
    * 原生 name 属性

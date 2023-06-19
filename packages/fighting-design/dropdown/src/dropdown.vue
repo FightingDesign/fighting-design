@@ -14,6 +14,7 @@
       :disabled="disabled"
       :spacing="spacing"
       :arrow="arrow"
+      :width="width"
       :enter-duration="enterDuration"
       :leave-duration="leaveDuration"
       :on-change="onChange"

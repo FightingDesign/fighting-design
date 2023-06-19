@@ -1,5 +1,5 @@
 .f-trigger {
-  display: inline-block;
+  // display: inline-block;
   position: relative;
   vertical-align: middle;
 
@@ -11,6 +11,7 @@
     padding-top: var(--trigger-spacing-size, 8px);
     left: var(--trigger-content-x);
     top: var(--trigger-content-y);
+    width: var(--trigger-width);
     pointer-events: auto;
 
     // 主要内容
