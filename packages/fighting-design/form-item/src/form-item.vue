@@ -36,6 +36,7 @@
     } as CSSProperties
   })
 
+  /** 样式列表 */
   const classList = computed((): ClassList => {
     return [
       'f-form-item',

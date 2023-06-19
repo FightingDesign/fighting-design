@@ -1,64 +1,47 @@
 <script lang="ts" setup>
-  // import { provide } from 'vue'
-  import { ref, watch, reactive } from 'vue'
+  import { reactive } from 'vue'
+  import { FMessage } from 'fighting-design'
+  import type { FormSubmit } from 'fighting-design'
 
-  /** 省份列表 */
-  const provinceList = ref(['大时代', '达到', '张三年', '哈哈哈', '的撒大事', '但是'])
-  const cityList = ref()
-
-  const form = reactive({
-    province: '',
-    city: ''
+  const ruleForm2 = reactive({
+    account: '',
+    password: ''
   })
 
-  /** 获取省份列表 */
-  const getProvinceList = (): void => {
-    fetch(
-      'https://restapi.amap.com/v3/config/district?keywords=%E4%B8%AD%E5%9B%BD&subdistrict=1&key=ca2358293d08bfa6028bb8fb1c076130'
-    )
-      .then(res => res.json())
-      .then(data => {
-        // provinceList.value = data.districts[0].districts
-        console.log(provinceList.value)
-      })
+  const handelSubmit2: FormSubmit = (ok, model, res, evt): void => {
+    if (!ok) return
+    FMessage.primary(`ok: ${ok} model:${model} res: ${res} evt: ${evt} 开始提交表单`)
   }
-
-  getProvinceList()
-
-  watch(
-    () => form.province,
-    (newVal?: string): void => {
-      fetch(
-        `https://restapi.amap.com/v3/config/district?keywords=${newVal}&subdistrict=1&key=ca2358293d08bfa6028bb8fb1c076130`
-      )
-        .then(res => res.json())
-        .then(data => {
-          cityList.value = data.districts[0]?.districts
-        })
-    }
-  )
 </script>
 
 <template>
-  <f-space>
-    {{ form.province }}
-    <!-- 选择省份 -->
-    <f-select v-if="provinceList" v-model="form.province" :width="200">
-      <f-option
-        v-for="(province, index) in provinceList"
-        :key="index"
-        :value="province"
-        :label="province"
-      >
-        {{ province }}
-      </f-option>
-    </f-select>
+  {{ ruleForm2 }}
+  <f-form :model="ruleForm2" label-width="60px" :on-submit="handelSubmit2">
+    <f-form-item
+      label="账号"
+      name="account"
+      :rules="[
+        { required: true, message: '请输入用户名' },
+        { min: 4, max: 12, message: '请输入 4~12 用户名' },
+        { regExp: /123456/, message: '必须包含 123456' }
+      ]"
+    >
+      <f-input v-model="ruleForm2.account" type="text" placeholder="请输入账号" />
+    </f-form-item>
 
-    <!-- 选择城市 -->
-    <f-select v-if="cityList" v-model="form.city">
-      <f-option v-for="(city, index) in cityList" :key="index" :value="city.name">
-        {{ city.name }}
-      </f-option>
-    </f-select>
-  </f-space>
+    <f-form-item
+      label="密码"
+      name="abc"
+      :rules="[
+        { required: true, message: '请输入密码' },
+        { min: 6, message: '至少输入六位数密码' }
+      ]"
+    >
+      <f-input v-model="ruleForm2.password" type="password" placeholder="请输入密码" />
+    </f-form-item>
+
+    <f-form-item>
+      <f-button type="primary" native-type="submit" block>提交表单</f-button>
+    </f-form-item>
+  </f-form>
 </template>

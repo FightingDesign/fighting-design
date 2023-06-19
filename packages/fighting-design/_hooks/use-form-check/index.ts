@@ -1,8 +1,8 @@
 import { reactive, computed, useSlots } from 'vue'
-import { getChildren, isArray, isString, isObject } from '../../_utils'
+import { getChildren, isArray, isString, isObject, warning } from '../../_utils'
 import type { FormProps } from '../../form'
 import type { VNode, Slots } from 'vue'
-import type { FormItemRules, FormItemRulesItem } from '../../form-item'
+import type { FormItemRules, FormItemRulesItem, FormItemProps } from '../../form-item'
 
 /**
  * useFormCheck 返回值类型接口
@@ -59,6 +59,7 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
     value: string,
     rules: FormItemRules | FormItemRulesItem
   ): string | boolean => {
+
     /**
      * 测试每一项规则
      *
@@ -104,15 +105,31 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
    */
   const validate = (): boolean => {
     getChildrenList.value.forEach((item: VNode): void => {
-      /** 判断的每个自组件必须有 rules 和 name 参数 */
-      if (item.props && item.props.rules && item.props.name && prop.model) {
-        /** 获取到规则校验的信息 */
-        const msg: string | boolean = checkRuleMassage(
-          (prop.model as object)[item.props.name as keyof object],
-          item.props.rules
-        )
 
-        childrenCheckResult[item.props.name] = msg
+      /** 子组件规则 */
+      const _rules: FormItemProps['rules'] = item.props && item.props.rules
+      /** 子组件名字 */
+      const _name: FormItemProps['name'] = item.props && item.props.name
+
+      /** 判断的每个自组件必须有 rules 和 name 参数 */
+      if (item.props && _rules && _name && prop.model) {
+
+        /** 检测父组件绑定的对象上是否存在子组件绑定的 name 属性 */
+        if (_name in prop.model) {
+
+          /** 获取需要检测的值 */
+          const modelKeyVal: string = (prop.model as object)[_name as keyof object]
+
+          /** 获取到规则校验的信息 */
+          const msg: string | boolean = checkRuleMassage(
+            modelKeyVal,
+            _rules
+          )
+
+          childrenCheckResult[_name] = msg
+        } else {
+          warning('f-form-item', `${_name} is not a valid \`name\` parameter`)
+        }
       }
     })
 
