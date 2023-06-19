@@ -128,6 +128,7 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
 
           childrenCheckResult[_name] = msg
         } else {
+          /** xxx 不是有效的 `name` 参数 */
           warning('f-form-item', `${_name} is not a valid \`name\` parameter`)
         }
       }

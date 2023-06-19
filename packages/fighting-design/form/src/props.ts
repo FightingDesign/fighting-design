@@ -8,14 +8,14 @@ import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type { FormSubmit, FormInject, LabelPosition } from './interface'
 
 export const Props = {
+  /** 表单数据对象 */
+  model: setObjectProp(),
   /** 每个 label 的宽度 */
   labelWidth: setStringNumberProp(),
   /** label 的位置 */
   labelPosition: setStringProp<LabelPosition>('left', (val: LabelPosition): boolean => {
     return ['left', 'top'].includes(val)
   }),
-  /** 表单数据对象 */
-  model: setObjectProp(),
   /**  提交表单触发的回调 */
   onSubmit: setFunctionProp<FormSubmit>()
 } as const

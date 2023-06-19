@@ -10,12 +10,12 @@
   const prop = defineProps(Props)
 
   /** 触发器节点元素 */
-  const triggerEl = ref<HTMLDivElement | undefined>()
+  const triggerRef = ref<HTMLDivElement | undefined>()
 
   const { classes, styles } = useList(prop, 'trigger')
   const { visible, styleList, close, onBeforeEnter, onAfterLeave } = useTrigger(
     prop,
-    triggerEl
+    triggerRef
   )
 
   /** 类名列表 */
@@ -38,7 +38,7 @@
 <template>
   <div :class="TRIGGER_CLASS">
     <!-- 触发器 -->
-    <div ref="triggerEl" class="f-trigger__trigger">
+    <div ref="triggerRef" class="f-trigger__trigger">
       <slot />
     </div>
 
