@@ -1,8 +1,9 @@
 <script lang="ts" setup>
+  // import { provide } from 'vue'
   import { ref, watch, reactive } from 'vue'
 
   /** 省份列表 */
-  const provinceList = ref()
+  const provinceList = ref(['大时代', '达到', '张三年', '哈哈哈', '的撒大事', '但是'])
   const cityList = ref()
 
   const form = reactive({
@@ -17,7 +18,7 @@
     )
       .then(res => res.json())
       .then(data => {
-        provinceList.value = data.districts[0].districts
+        // provinceList.value = data.districts[0].districts
         console.log(provinceList.value)
       })
   }
@@ -32,7 +33,7 @@
       )
         .then(res => res.json())
         .then(data => {
-          cityList.value = data.districts[0].districts
+          cityList.value = data.districts[0]?.districts
         })
     }
   )
@@ -40,14 +41,16 @@
 
 <template>
   <f-space>
+    {{ form.province }}
     <!-- 选择省份 -->
     <f-select v-if="provinceList" v-model="form.province" :width="200">
       <f-option
         v-for="(province, index) in provinceList"
         :key="index"
-        :value="province.name"
+        :value="province"
+        :label="province"
       >
-        {{ province.name }}
+        {{ province }}
       </f-option>
     </f-select>
 

@@ -1,4 +1,4 @@
-import type { VNode } from 'vue'
+import type { VNode, WritableComputedRef } from 'vue'
 
 export type { SelectProps } from './props'
 
@@ -25,6 +25,7 @@ export type SelectChange = (
  */
 export interface SelectProvide {
   setValue: SelectChange
+  keyword: WritableComputedRef<string>
 }
 
 /** 获取子元素插槽类型接口 */

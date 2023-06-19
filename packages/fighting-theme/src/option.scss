@@ -5,9 +5,14 @@
   cursor: pointer;
   margin: 4px;
   user-select: none;
-  transition: background 0.3s;
+  transition: 0.3s;
   color: #333;
   background-color: #fff;
+
+  &__active {
+    color: #2d5af1;
+    font-weight: bold;
+  }
 
   &:not([class~='f-option__disabled']):hover {
     background-color: #eee;
