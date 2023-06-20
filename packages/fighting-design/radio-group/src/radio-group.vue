@@ -9,8 +9,7 @@
   const prop = defineProps(Props)
   const modelValue = defineModel<RadioModelValue>({
     required: true,
-    default: null,
-    type: [String, Number, Boolean]
+    default: null
   })
 
   const { run } = useRun()
