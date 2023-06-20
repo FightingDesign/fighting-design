@@ -91,8 +91,4 @@ declare module '@vue/runtime-core' {
   }
 }
 
-declare global {
-  const __DEV__: boolean
-}
-
 export {}

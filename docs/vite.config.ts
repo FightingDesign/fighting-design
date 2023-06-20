@@ -6,15 +6,6 @@ export default (): UserConfigExport => {
     optimizeDeps: {
       exclude: ['vitepress']
     },
-    /**
-     * 定义全局常量替换方式
-     *
-     * @see define https://cn.vitejs.dev/config/shared-options.html#define
-     */
-    define: {
-      /** 检测是否为生产环境 */
-      __DEV__: process.env.NODE_ENV !== 'production'
-    },
     server: {
       port: 9999,
       fs: {

@@ -69,12 +69,20 @@
     const { top, behavior, listenEl } = toRefs(prop)
 
     /** 如果存在监听的目录 */
-    if (listenEl.value) {
+    if (isString(prop.listenEl)) {
       /** 获取到监听的元素节点 */
+
       const listerNode: HTMLElement | null = document.querySelector(listenEl.value)
+
+      if (!listerNode) {
+        error('f-back-top', '`listen-el` is not a element')
+        return
+      }
 
       listerNode && listerNode.scrollTo({ top: top.value, behavior: behavior.value })
       return
+    } else {
+      error('f-back-top', '`listen-el` attributes is not a string')
     }
 
     /**
@@ -87,9 +95,7 @@
     if (prop.listenEl) {
       /** 如果传入的不是字符串，则监听 document */
       if (!isString(prop.listenEl)) {
-        if (__DEV__) {
-          error('f-back-top', '`listen-el` attributes is not a string')
-        }
+        error('f-back-top', '`listen-el` attributes is not a string')
 
         document.addEventListener('scroll', handleScroll())
         return
@@ -97,6 +103,11 @@
 
       /** 获取到监视的节点 */
       const listerNode: HTMLElement | null = document.querySelector(prop.listenEl)
+
+      if (!listerNode) {
+        error('f-back-top', '`listen-el` is not a element')
+        return
+      }
 
       /**
        * 如果需要监视的节点存在才触发监听

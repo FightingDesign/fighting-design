@@ -319,9 +319,6 @@ module.exports = {
   overrides: [
     {
       files: '*',
-      globals: {
-        __DEV__: 'readonly'
-      }
     }
   ]
 }

@@ -32,9 +32,8 @@
 
     /** 检测两个值是否为数字 */
     if (!isNumber(Number(fromNum.value)) || !isNumber(toNum)) {
-      if (__DEV__) {
-        warning('f-number-animate', 'Expected value is not a number')
-      }
+      /** 期望值不是数字 */
+      warning('f-number-animate', 'Expected value is not a number')
       return
     }
 

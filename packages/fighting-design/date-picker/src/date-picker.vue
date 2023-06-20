@@ -41,13 +41,11 @@
     /** 如果存在格式化配置项 */
     if (!formatRule.test(prop.format)) {
       /** 在非标准格式下提示警告错误 */
-      if (__DEV__) {
-        /** format 不是一个标准格式，将使用默认格式 */
-        warning(
-          'f-date-picker',
-          '`format` is not a standard format, default format will be used'
-        )
-      }
+      /** format 不是一个标准格式，将使用默认格式 */
+      warning(
+        'f-date-picker',
+        '`format` is not a standard format, default format will be used'
+      )
 
       setDateFun = (): void => {
         /** 将绑定值设置为格式化后的日期 */

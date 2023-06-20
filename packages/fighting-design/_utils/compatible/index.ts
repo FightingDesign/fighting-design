@@ -22,9 +22,7 @@ export const objectEntries = <T extends object>(obj: T): [keyof T, T[keyof T]][]
    * 并且提示警告
    */
   if (typeof obj !== 'object' || obj === null) {
-    if (__DEV__) {
-      warning('objectEntries', 'Parameter is not an object type.')
-    }
+    warning('objectEntries', 'Parameter is not an object type.')
 
     /** 如果不是对象类型 返回空数组 */
     return []

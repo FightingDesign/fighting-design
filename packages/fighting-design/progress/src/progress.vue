@@ -14,9 +14,7 @@
     const { percentage } = prop
 
     if (!isNumber(percentage)) {
-      if (__DEV__) {
-        error('f-progress', '`percentage` is not a number')
-      }
+      error('f-progress', '`percentage` is not a number')
       return 0
     }
 

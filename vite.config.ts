@@ -9,15 +9,6 @@ import type { UserConfigExport, PluginOption } from 'vite'
 export default (): UserConfigExport => {
   return {
     /**
-     * 定义全局常量替换方式
-     *
-     * @see define https://cn.vitejs.dev/config/shared-options.html#define
-     */
-    define: {
-      /** 检测是否为生产环境 */
-      __DEV__: process.env.NODE_ENV !== 'production'
-    },
-    /**
      * 插件配置
      *
      * @see plugins https://cn.vitejs.dev/config/shared-options.html#plugins

@@ -13,9 +13,7 @@ export const keepDecimal = (value: number, no = 2): number => {
     return Number(value.toFixed(no))
   }
 
-  if (__DEV__) {
-    warning('keepDecimal', '`value` is not a number')
-  }
+  warning('keepDecimal', '`value` is not a number')
 
   return value
 }

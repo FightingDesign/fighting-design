@@ -4,7 +4,6 @@ import { nav } from './config/nav'
 import { sidebar } from './config/sidebar'
 import { head } from './config/head'
 import { PluginTable, PluginDemo } from './plugin'
-import type MarkdownIt from 'markdown-it'
 
 /**
  * vitepress 配置项文件
@@ -96,7 +95,7 @@ export default defineConfig({
      *
      * @param { Object } md markdown 实例
      */
-    config: (md: MarkdownIt): void => {
+    config: (md): void => {
       md.use(PluginTable)
       md.use(PluginDemo)
     }
